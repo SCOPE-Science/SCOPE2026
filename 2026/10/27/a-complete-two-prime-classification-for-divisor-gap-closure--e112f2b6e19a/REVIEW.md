@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first consecutive gaps exclude all odd integers and force the odd prime to be either \(3\) or \(2^a+1\). Separate constructive ordered-divisor descriptions establish sufficiency for the separated Fermat blocks, for \(2^a3^b\) with \(a\le4\), and for \(2^a3^b\) with \(b\le2\). The excluded quadrant has unavoidable consecutive divisors \(27,32\). All quantifiers, including unbounded exponents, are handled by explicit lists and induction; finite testing is supplemental.
+## correctness
 
-**Originality — PASS on accessible evidence.** OEIS A060765 (2001) defines the property, lists examples and the known subfamilies with a unit exponent, but does not give the complete two-prime theorem or the forbidden quadrant. Its companion A060763 is a numerical complement. Balog–Erdős–Tenenbaum (1990), inspected as a 14-page primary full text, proves analytic bounds and limit behavior of reciprocal consecutive-divisor gaps, not a two-prime classification of integers whose every gap divides the number. Search comparisons with broader divisor-gap and two-prime arithmetic statements located no theorem that implies this precise result. Unindexed later literature remains a priority risk.
+PASS
 
-**Value — PASS.** This is a natural complete classification of the two-prime-support slice of a long-documented OEIS divisor property, reducing all admissible odd primes to \(3\) or Fermat primes and proving two sharp independent exponent thresholds in the \(3\)-branch. It supplies structural infinite families and an explicit uniform obstruction, rather than a table extension.
+With exactly two prime factors, an odd n fails at its first gap (least prime minus 1). For n=2^a p^b, the pure powers of two neighboring p are consecutive to it wherever they exist: the next p-multiple is at least 2p, above the least power of two exceeding p. Each such gap is odd and smaller than p and hence must equal 1. If p lies above the last pure power this forces p=2^a+1, with separated p-layers and all gaps equal to divisors. If there is an upper neighbor as well, both gaps can be 1 only for 2,3,4. Primality of 2^a+1 forces a to be a power of two by the odd-power factorization. For p=3,a≤4 the induction at 3^b preserves the earlier prefix and reduces the whole new suffix to 3^(b−2) times the divisors at least 9 in 2^a·9: j≤b−3 cannot reach 3^b since 2^a≤16<27. The predecessor is 2·3^(b−1) for a≤2 and 8·3^(b−2) for a≥3, making the bridge valid; the four base/suffix rows check by subtraction. For b=1 each binary shell has entries 2^h and 3·2^(h−1) before the final 3·2^a. For b=2,a≥3 the three contributions in complete shells come from 1,9,3 times powers of two, and the four stated remaining tail values account for all top-end exponent choices. Their connecting gaps are divisors, with a=1,2 already covered. When a≥5,b≥3, j∈{0,1,2,3} gives no 2^i3^j in (27,32), and j>3 is too large; gap 5 fails independently of exponents. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 4 used a divisor sieve, not a parametrized exponent list, to check all 21,062 two-prime-support integers up to 60,000 (including odd cases); 57 qualified, all as predicted. The unbounded proof is independent of both this and the frozen finite script.
 
-Limitations: integers with three or more distinct prime divisors are not classified; Fermat-prime infinitude is not assumed or claimed; no independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The divisor-gap predicate, equivalent zero-test and known unit-exponent subfamilies are already documented and should not be claimed. The distinct contribution supported by the checked sources is the unbounded exactly-two-prime classification, including the separate sharp ternary boundaries and necessity of the precise Fermat-prime relation in the other branch.
+
+## value
+
+PASS
+
+A complete classification on the natural exactly-two-prime slice of a documented arithmetic property yields a uniform obstruction and a sharp exponent boundary, and ties the nonternary branch to Fermat primes. This supersedes finite membership checks on a substantial slice without asserting any result about the infinitude of Fermat primes or support size three and larger.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

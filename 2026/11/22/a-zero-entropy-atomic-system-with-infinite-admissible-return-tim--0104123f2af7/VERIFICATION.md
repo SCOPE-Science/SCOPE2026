@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The theoretical proof is in `RESULT.md`. The self-contained Python 3 program `checker.py` uses only Python's standard library and may be executed as `python3 checker.py`.
+## correctness
 
-It checks three exact claims on finite truncations with cycle cutoffs 16, 22, and 29 and word lengths 1 through 13: the shortest overlap return equals 1, the minimum compatible period of a single marker, or the period identified by two markers; the maximal return time is at most the word length and all individual cycle points are identified by length twice their cycle length; and the finite-truncation analog of the exact moment identity equals a direct sum of rational point masses. The run passed 921 word-atom overlap comparisons and 468 exact rational identities across three weight exponents and four moment orders.
+PASS
 
-These are finite checks only. The infinite assertions for arbitrary real exponent rely on a direct combinatorial classification, monotone convergence, and comparison of power sums, all supplied in `RESULT.md`. External independent mathematical audit was not performed.
+The length-m orbit has total probability m^(-s)/zeta(s) and positive mass at every phase. Two forward marks recover the orbit and phase and occur for every point by length 2m, proving generation. A two-mark atom is a singleton of return time m; a single mark at i is one point per compatible orbit with minimum length max(i+1,n-i); two consecutive phases on an orbit of length at least n+2 witness overlap one for the zero word. The word with a mark at position zero only attains n, so the maximum is exactly n. Counting phases in these three cases also gives the exact moment identity. The lower sum over m<=floor(n/2) and the upper bound from min(m,n) give the stated powers and critical logarithmic coefficients; pointwise monotone convergence gives the finite limits. Subtracting the squared mean does not cancel the leading divergent second moment. Singleton entropy is finite by summability of m^(-s) log m, the increasing forward-join entropies tend to it, and the generating entropy rate is zero. This yields infinite system-level mean for 1<s<=2 and infinite system-level variance through s=3; the finite mean asserted for the intermediate regime concerns this partition. The packaged checker.py and VERIFICATION.md were read, not run; their rational finite-truncation checks are supplementary to the infinite argument.
+
+## originality
+
+PASS
+
+The distinct finding is an admissible binary generator with addressed moment thresholds for the specific positive-overlap invariants in Question 6.8, not a new definition of recurrence or an exhaustive classification of variance values. No inspected prior result supplies the countable admissible construction and divergent normalized quantities.
+
+## value
+
+PASS
+
+Answers a stated existence question using one explicit binary generator with the smallest growth order needed for the reference's admissibility condition. Bounded entropy and exact linear maximum coexist with tunable, different mean and variance thresholds; the full critical-moment calculation makes the example reusable rather than just a divergent-series witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

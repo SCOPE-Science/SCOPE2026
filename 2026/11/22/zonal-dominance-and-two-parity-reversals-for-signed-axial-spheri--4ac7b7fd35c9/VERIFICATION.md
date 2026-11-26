@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` treats the complete unbounded harmonic basis and all finite spherical configurations. The exact certificate `EXACT_CHECK.py` separately reconstructs the rational squared links of the zonal heat multiplier at \(t=\log2\) and \(s=\log(13/5),\log3,\log5\).
+## correctness
 
-Run `python3 EXACT_CHECK.py`. Its final line should be `All exact rational certificates passed.` All inequalities use Python rational arithmetic; there are no floating-point tolerances, random seeds, external input files or network dependencies.
+PASS
 
-The positivity upper certificates test all eight LDL pivots of the truncated squared operator in the appropriate parity. The lower certificates are a strictly negative two-by-two principal determinant and two strictly negative one-by-one tests. The discarded columns have Hilbert–Schmidt norm less than \(10^{-9}\) from a geometric bound uniform over the three cases, so finite tests imply the stated **strict infinite-operator inequalities**. The exact checker does not claim the total number or locations of all parity ties.
+Reconstructed the bounded heat-conjugated multiplier for s>t and the dense-range factorization. Continuity identifies surface-operator positivity with all finite Gram inequalities by atomic approximation in one direction and local smooth approximation to atoms in the other. For s≤t the upward link into a high zonal test degree gives an unbounded ratio of the subtracted to the positive diagonal. In each |m|>0 block the compact maximizer, replaced by its modulus and extended by zero, has strictly smaller image norm than under the zonal links, where at least one coordinate increases strictly. The two zonal column-parity products are irreducible compact nonnegative Jacobi matrices; the nonnegative top vector is strictly positive and equality in the modulus comparison forces any maximizing vector to have its sign, yielding simplicity. Local norm analyticity and the certified opposite signs give isolated ties and at least two reversals. Independently rebuilt the rational 16-column tests: all three upper tests have eight positive pivots, the first lower minor is −48529856/120670225, the two other lower witnesses are 29/15 and 4/3, and the squared tail error is <10^−18. The critical null equation makes an atomic annihilator Gaussian-decaying and thus smooth, impossible for a nonzero atomic measure. Conversely a normalized top left singular vector, iterated through the Gaussian-decaying finite-band CC*, decays faster than any fixed Gaussian and yields a nonzero smooth annihilating density on undoing the half-heat, with nullity one or two as stated. Subcritical coercivity on heat-smoothed measures gives uniform density by duality.
 
-Independent mathematical validation is not reported or implied by these checks.
+## originality
+
+PASS
+
+The tested distinct claim is the spherical latitude-product family, particularly strict dominance over all nonzonal sectors together with an even–odd–even top zonal norm and the critical endpoint on S². General coefficient criteria and a particularly close circle analogue are credited; neither establishes this spherical comparison.
+
+## value
+
+PASS
+
+Identifying the exact constraint among infinitely many spherical orders and exhibiting two reversals rules out treating even/odd dominance as one monotone transition. The critical covariance distinguishes finite-site nonsingularity from uniform approximation; the natural kernel family and spectral obstruction are substantive beyond mere threshold notation or a circle parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

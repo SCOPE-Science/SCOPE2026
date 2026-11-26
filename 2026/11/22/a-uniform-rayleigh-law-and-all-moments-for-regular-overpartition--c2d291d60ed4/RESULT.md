@@ -1,135 +1,81 @@
-# A uniform Rayleigh law and all moments for regular-overpartition excludants
+# All positive moments of regular-overpartition excludants
 
-## Finding
-Fix an integer \(\ell\ge2\). Uniformly select an \(\ell\)-regular overpartition of \(n\), namely an overpartition having no part divisible by \(\ell\). Let \(M_{\ell,n}\) be the smallest positive integer not divisible by \(\ell\) that occurs **no times as a nonoverlined part** (an optional overlined occurrence does not count). Define
-\[
-\rho_\ell=1-\frac1\ell,\qquad
-\mu_\ell=\frac{\pi^2\rho_\ell}{4},\qquad
-a_\ell=\frac{\pi\rho_\ell^{3/2}}4.
-\]
-Then, for each fixed real \(x\ge0\),
-\[
-\boxed{\lim_{n\to\infty}\Pr(M_{\ell,n}>x n^{1/4})=e^{-a_\ell x^2}.}
-\]
-This is a Rayleigh distributional limit on the \(n^{1/4}\) scale. More strongly, for **every fixed real \(s>0\)**,
-\[
-\boxed{\lim_{n\to\infty}n^{-s/4}\mathbb E[M_{\ell,n}^s]
-=\Gamma(1+s/2)a_\ell^{-s/2}.}
-\]
-Thus, without restrictions on the fixed integer \(\ell\ge2\),
-\[
-\mathbb E[M_{\ell,n}]\sim\rho_\ell^{-3/4}n^{1/4},\qquad
-\operatorname{Var}(M_{\ell,n})\sim\left(\frac4\pi-1\right)\rho_\ell^{-3/2}n^{1/2}.
-\]
-The aggregate first moment \(\sigma_\ell(n)=\sum_{\pi\in\overline{\mathcal P}_\ell(n)}\overline{\mathrm{mex}}_\ell(\pi)\) therefore satisfies the all-index asymptotic
-\[
-\boxed{\sigma_\ell(n)\sim\frac{\exp(\pi\sqrt{\rho_\ell n})}{2\sqrt{2(\ell-1)n}}.}
-\]
-The two cases \(\ell=2,3\) agree with the previously published first-moment formulas; the all-index formula and the full limiting law and positive-real moments are the new assertions.
+## Finding and scope
 
-There is also an exact finite-size survivor identity, valid for all integers \(n,t\ge0\): let \(u=\lfloor t/\ell\rfloor\), and
+Fix an integer \(\ell\ge2\). An \(\ell\)-regular overpartition of \(n\) uses only positive sizes not divisible by \(\ell\); each admissible size has unrestricted nonoverlined multiplicity and may also occur once overlined. Under the uniform measure on these overpartitions, let \(M_{\ell,n}\) be the least admissible size with **zero nonoverlined multiplicity**. Write \(\bar p_\ell(n)\) for the number of these overpartitions, extended by zero to negative integers, and set
 \[
-S_\ell(t)=\sum_{\substack{1\le j\le t\\\ell\nmid j}}j
-=\frac{t(t+1)}2-\frac{\ell u(u+1)}2.
+\rho=1-\frac1\ell,\qquad \mu=\frac{\pi^2\rho}4,\qquad a=\frac{\pi\rho^{3/2}}4.
 \]
-Writing \(\bar p_\ell(k)\) for the \(\ell\)-regular overpartition count, and zero for \(k<0\),
+The result is convergence of **every fixed positive real moment** at the known Rayleigh scale:
 \[
-\boxed{\Pr(M_{\ell,n}>t)=\frac{\bar p_\ell(n-S_\ell(t))}{\bar p_\ell(n)}.}
+n^{-s/4}\mathbb E M_{\ell,n}^s\longrightarrow \Gamma(1+s/2)a^{-s/2}.
 \]
-
-## Assumptions and scope
-An overpartition permits at most one overlined copy of each distinct positive part and arbitrarily many nonoverlined copies. The uniform measure gives equal mass to each overpartition of weight \(n\). Every positive admissible size \(j\) with \(\ell\nmid j\) may occur repeatedly. The integer \(\ell\ge2\) and real moment exponent \(s>0\) are fixed before \(n\to\infty\). The probability statement holds for each fixed \(x\ge0\). No claim of uniformity when \(\ell\), \(s\) or \(x\) grows with \(n\), no local limit theorem and no rate of convergence are made. The empty overpartition at \(n=0\) has mex \(1\).
+Consequently \(\mathbb E M_{\ell,n}\sim\rho^{-3/4}n^{1/4}\), and
+\(\operatorname{Var}(M_{\ell,n})\sim(4/\pi-1)\rho^{-3/2}n^{1/2}\). In particular, the aggregate first moment is
+\[
+\sum_{\pi\in\overline{\mathcal P}_\ell(n)}M(\pi)\sim
+\frac{e^{\pi\sqrt{\rho n}}}{2\sqrt{2(\ell-1)n}}.
+\]
+The survivor \(\Pr(M_{\ell,n}>xn^{1/4})\to e^{-ax^2}\) for fixed \(x\ge0\) is already the marginal of the joint law in [4, Eq. (1)]; it is recalled below for context. No result here assumes or asserts uniformity for growing \(\ell,x,s\), a local limit, or a convergence rate.
 
 ## Proof
-**1. Exact survivor bijection.** The event \(M_{\ell,n}>t\) means each admissible integer \(j\le t\) occurs at least once as a *nonoverlined* part. Remove exactly one nonoverlined copy of each such \(j\). The remaining object is an arbitrary \(\ell\)-regular overpartition of weight \(n-S_\ell(t)\): removing/reinserting nonoverlined occurrences does not affect the optional overline on any size. The operation is a bijection, including when some size also has an overlined occurrence. This proves the exact tail formula and the displayed elementary sum for \(S_\ell(t)\).
 
-**2. Base counting asymptotic.** The Euler product for \(\ell\)-regular overpartitions is
+**Exact survivor (cf. [4, Eq. (3)] on the diagonal).** For integers \(t,n\ge0\), put \(u=\lfloor t/\ell\rfloor\) and
 \[
-\bar P_\ell(q)=\prod_{\substack{m\ge1\\\ell\nmid m}}\frac{1+q^m}{1-q^m}
-=\frac{(q^2;q^2)_\infty(q^\ell;q^\ell)_\infty^2}{(q;q)_\infty^2(q^{2\ell};q^{2\ell})_\infty}.
+ S_\ell(t)=\frac{t(t+1)}2-\frac{\ell u(u+1)}2.
 \]
-From \((e^{-bt};e^{-bt})_\infty\sim\sqrt{2\pi/(bt)}e^{-\pi^2/(6bt)}\), for every fixed positive \(b\), direct cancellation of the four Euler factors gives
+The event \(M_{\ell,n}>t\) is equivalent to having at least one nonoverlined copy of each admissible size up to \(t\). Removing one such copy of each (and leaving overlines untouched) is a bijection onto the regular overpartitions of \(n-S_\ell(t)\). In particular,
 \[
-\bar P_\ell(e^{-t})\sim\ell^{-1/2}\exp(\mu_\ell/t)\quad(t\downarrow0).
+\Pr(M_{\ell,n}>t)=\frac{\bar p_\ell(n-S_\ell(t))}{\bar p_\ell(n)}.
 \]
-The coefficient sequence \(\bar p_\ell(n)\) is nonnegative and nondecreasing, since adjoining a nonoverlined part of size \(1\) is injective. Ingham's coefficient Tauberian theorem (as stated in the primary source's Lemma 2.3) yields
-\[
-\bar p_\ell(n)\sim\frac{\mu_\ell^{1/4}}{2\sqrt{\pi\ell}}n^{-3/4}
-\exp(2\sqrt{\mu_\ell n}).\tag{1}
-\]
-For any \(D_n=O(\sqrt n)\) with \(D_n/\sqrt n\to d\ge0\), equation (1) implies
-\[
-\frac{\bar p_\ell(n-D_n)}{\bar p_\ell(n)}\longrightarrow e^{-\sqrt{\mu_\ell}d}.\tag{2}
-\]
-For \(t_n=\lfloor x n^{1/4}\rfloor\), the exact sum has
-\[
-S_\ell(t_n)=\frac{\rho_\ell}{2}x^2\sqrt n+O_{\ell,x}(n^{1/4}+1).
-\]
-Insert this into (2). Since \(\rho_\ell\sqrt{\mu_\ell}/2=a_\ell\), the Rayleigh survivor follows. For \(x=0\), the exact event has probability one, consistent with the formula.
+The empty overpartition has excludant 1.
 
-**3. Entire moment generating series for every real exponent.** Enumerate the admissible sizes increasingly as \(b_1=1<b_2<\cdots\), and put \(T_j=\sum_{i=1}^j b_i\). Then
+**Counting series and its sector estimate.** Write \(E_b(z)=(e^{-bz};e^{-bz})_\infty\) for \(b>0\), \(\Re z>0\), and \(\bar P_\ell(q)=\sum_{n\ge0}\bar p_\ell(n)q^n\). The local factor \((1+q^j)/(1-q^j)\) at an admissible size gives
 \[
-b_j=\frac{j}{\rho_\ell}+O_\ell(1),\qquad
-T_j=\frac{\rho_\ell b_j^2}{2}+O_\ell(b_j),\qquad
-1\le b_{j+1}-b_j\le2.
+\bar P_\ell(e^{-z})=\frac{E_2(z)E_\ell(z)^2}{E_1(z)^2 E_{2\ell}(z)}.
 \]
-For every real \(s>0\), the pointwise telescoping identity
+The Dedekind eta transformation, with the principal square root, gives
 \[
-M^s=1+\sum_{j\ge1}(b_{j+1}^s-b_j^s)\mathbf1_{\{M>b_j\}}
+ E_b(z)=\sqrt{\frac{2\pi}{bz}}\exp\!\left(-\frac{\pi^2}{6bz}+\frac{bz}{24}\right)
+ \bigl(e^{-4\pi^2/(bz)};e^{-4\pi^2/(bz)}\bigr)_\infty.
 \]
-and the exact survivor bijection prove the formal power-series identity
+In each fixed sector \(|\Im z|\le\Delta\Re z\), one has \(\Re(1/z)\ge(1+\Delta^2)^{-1/2}/|z|\). The last product is therefore \(1+O_{b,\Delta}(e^{-c_{b,\Delta}/|z|})\) for a positive constant \(c_{b,\Delta}\). Taking the ratio yields
 \[
-F_{\ell,s}(q):=\sum_{n\ge0}\sum_{\pi\in\overline{\mathcal P}_\ell(n)}M(\pi)^s q^n
-=\bar P_\ell(q)H_{\ell,s}(q),
+ \bar P_\ell(e^{-z})=\ell^{-1/2}\exp(\mu/z)
+ \left(1+O_{\ell,\Delta}(e^{-c_{\ell,\Delta}/|z|})\right).
 \]
-where
+In particular the real-axis equivalent holds, as does \(|\bar P_\ell(e^{-z})|\ll_{\ell,\Delta}e^{\mu/|z|}\) in every such sector. The coefficients are nonnegative and nondecreasing (adjoin one nonoverlined 1) and the series is analytic for \(|q|<1\). The coefficient form of Ingham's theorem [3, Theorem 1.1] now gives
 \[
-H_{\ell,s}(q)=1+\sum_{j\ge1}(b_{j+1}^s-b_j^s)q^{T_j}.\tag{3}
+\bar p_\ell(n)\sim \frac{\mu^{1/4}}{2\sqrt{\pi\ell}}n^{-3/4}e^{2\sqrt{\mu n}}.\tag{1}
 \]
-To determine its singular size, set \(y_j=\sqrt t\,b_j\). On every compact \(y\)-interval, the displayed estimate for \(T_j\) gives \(tT_j=\rho_\ell y_j^2/2+o(1)\), uniformly, and the mesh \(\sqrt t(b_{j+1}-b_j)\) tends to zero. The sum in (3), multiplied by \(t^{s/2}\), is consequently a Stieltjes Riemann sum for
-\[
-\int_0^\infty e^{-\rho_\ell y^2/2}\,d(y^s)
-=\Gamma(1+s/2)\left(\frac2{\rho_\ell}\right)^{s/2}.\tag{4}
-\]
-For tail control, the bound \(T_j\ge c_\ell b_j^2\) for sufficiently large \(j\), together with bounded successive gaps, dominates the scaled tails by the convergent Gaussian integral \(\int_K^\infty sy^{s-1}e^{-c_\ell y^2}dy\), uniformly in small \(t\). Taking the compact interval large makes that error arbitrarily small, justifying (4) for all real \(s>0\). Thus
-\[
-F_{\ell,s}(e^{-t})\sim
-\frac{\Gamma(1+s/2)}{\sqrt\ell}
-\left(\frac{2}{\rho_\ell}\right)^{s/2}
- t^{-s/2}\exp(\mu_\ell/t).\tag{5}
-\]
-**4. Tauberian transfer and normalization.** The coefficients of \(F_{\ell,s}\) are nonnegative and nondecreasing for **every real \(s>0\)**. Indeed, adding one nonoverlined part of size \(1\) injects the weight-\(n\) objects into weight-\(n+1\) objects and can only preserve or increase their mex, so it can only increase \(M^s\). Apply the same Ingham theorem to (5):
-\[
-\sum_{\pi\in\overline{\mathcal P}_\ell(n)} M(\pi)^s
-\sim\frac{\Gamma(1+s/2)}{2\sqrt{\pi\ell}}
-\left(\frac2{\rho_\ell}\right)^{s/2}
-\mu_\ell^{(1-s)/4}n^{(s-3)/4}
- e^{2\sqrt{\mu_\ell n}}.\tag{6}
-\]
-Divide (6) by (1) to get the full positive-real moment limit:
-\[
-\mathbb E[M_{\ell,n}^s]\sim
-\Gamma(1+s/2)\left(\frac{2}{\rho_\ell\sqrt{\mu_\ell}}\right)^{s/2}n^{s/4}
-=\Gamma(1+s/2)a_\ell^{-s/2}n^{s/4}.
-\]
-At \(s=1\), (6) simplifies exactly to the stated all-\(\ell\) aggregate first-moment coefficient \(1/(2\sqrt{2(\ell-1)})\). At \(s=2\), subtracting the square of the \(s=1\) mean yields the variance constant \((4/\pi-1)\rho_\ell^{-3/2}\). Both constants are strictly positive for every integer \(\ell\ge2\).
+For integer \(D_n=O(\sqrt n)\) with \(D_n/\sqrt n\to d\ge0\), (1) implies \(\bar p_\ell(n-D_n)/\bar p_\ell(n)\to e^{-\sqrt\mu\,d}\) by expanding the difference of square roots. Taking \(t=\lfloor xn^{1/4}\rfloor\) gives \(S_\ell(t)/\sqrt n\to\rho x^2/2\). Since \(\rho\sqrt\mu/2=a\), this proves the stated survivor, including \(x=0\).
 
-## Verification
-The standalone `verify_mex.py` builds \(\bar p_\ell(n)\) from two independent Euler-factor stages, computes first and second moment coefficients from (3), and independently enumerates every admissible overpartition of \(n\le15\). It checks \(126\) exact brute-force/finite-asymptotic cases over \(2\le\ell\le8\), verifies monotonicity of the first two moment coefficients through weight \(500\), and compares scaled moments at weights \(200\) and \(500\) against the derived constants. Run `python3 verify_mex.py`; the test terminates with `MEX_REGULAR_OVERPARTITIONS_FINITE_OK 126 exact brute and asymptotic spot checks`. Finite data verify arithmetic consistency, **not** the infinite asymptotic. The proof of the latter is the exact bijection, Euler-product estimate, Gaussian Stieltjes limit, and Ingham transfer above.
+**All positive moments.** Enumerate admissible sizes as \(b_1=1<b_2<\cdots\), put \(T_j=S_\ell(b_j)\), and let \(\Delta_j=b_{j+1}^s-b_j^s\). Telescoping \(M^s=1+\sum_{j\ge1}\Delta_j\mathbf1_{\{M>b_j\}}\) gives the exact generating function
+\[
+F_s(q):=\sum_{n\ge0}\sum_{\pi\in\overline{\mathcal P}_\ell(n)}M(\pi)^s q^n
+=\bar P_\ell(q)H_s(q),\qquad H_s(q)=1+\sum_{j\ge1}\Delta_j q^{T_j}.
+\]
+For real \(t\downarrow0\), the nonnegative sum \(t^{s/2}(H_s(e^{-t})-1)\) is an integral sum against \(d(y^s)\) over consecutive intervals \([y_j,y_{j+1}]\), \(y_j=\sqrt t\,b_j\), with the integrand set to \(e^{-t T_j}\) on each interval. Because \(T_j=\rho b_j^2/2+O_\ell(b_j)\) and \(b_{j+1}-b_j\le2\), this integrand tends uniformly on bounded intervals above \(y_1\) to \(e^{-\rho y^2/2}\). The missing mass of \([0,y_1]\) is at most \(y_1^s\). Also \(T_j\ge c_\ell b_j^2\) for all sufficiently large \(j\), and \(y\le 2y_j\) on their intervals. Hence the tail is bounded by the integral of \(e^{-c_\ell y^2/4}\) against \(d(y^s)\), whose far tail tends to zero. This proves
+\[
+ H_s(e^{-t})\sim t^{-s/2}\int_0^\infty e^{-\rho y^2/2}\,d(y^s)
+ = t^{-s/2}\Gamma(1+s/2)(2/\rho)^{s/2}.
+\]
+Nonnegative coefficients give \(|H_s(e^{-z})|\le H_s(e^{-\Re z})\ll_{\ell,s,\Delta}|z|^{-s/2}\) in the same fixed sectors. Thus the product \(F_s(e^{-z})\) has the required bound \(\ll_{\ell,s,\Delta}|z|^{-s/2}e^{\mu/|z|}\), in addition to its real-axis equivalent obtained by multiplying the equivalents above. The \(F_s\) coefficients are nonnegative and nondecreasing: adjoining a nonoverlined 1 cannot decrease the excludant and is injective. Both factors converge for \(|q|<1\). Ingham's coefficient theorem, now with real-axis power \(-s/2\), yields
+\[
+ [q^n]F_s\sim\frac{\Gamma(1+s/2)(2/\rho)^{s/2}}{2\sqrt{\pi\ell}}
+ \mu^{(1-s)/4}n^{(s-3)/4}e^{2\sqrt{\mu n}}.
+\]
+Dividing by (1) proves the moment theorem. At \(s=1\) the aggregate coefficient simplifies to \(1/(2\sqrt{2(\ell-1)})\); at \(s=1,2\) the two normalized moments give the stated mean and variance.
 
-## Relationship to prior work
-Bhowmick and Meher, arXiv:2611.18129v1 (first posted 2026-11-13), **define exactly this regular-overpartition/nonoverlined mex**, obtain its general first-moment generating function (Theorem 1.3, Equation 3.21) and prove a weighted-sum asymptotic for \(\ell=2\) and \(\ell=3\) only (Theorems 1.5–1.6). These coefficients are pre-existing results, and we do not present them as discoveries. The present assertion adds the explicit fixed-\(\ell\) probability law, arbitrary positive-real moments, variance and the first-moment asymptotic for every fixed \(\ell\ge4\); the bivariate generating function itself is not claimed as new. The paper's injection also supplies the monotonicity idea, which is applied here to every real moment weight.
+## Verification and relation to prior work
 
-Wagner (2011), Theorems 1 and 3, establishes Rayleigh/Weibull laws for ordinary multiplicity-based partitions, including a general \(\Lambda\)-part scheme. Its objects have unrestricted part multiplicities and **do not include the optional single overlined copy per admissible size with a statistic that ignores overlines**. The specific constants and overpartition all-moment coefficient law here are not an application of Wagner's stated theorems without an additional equivalence proof. Two closely related published-finding corpus studies, *Joint least-multiplicity-gap laws for regular partitions* and *Joint Rayleigh running-minimum law and universal coincidence probabilities for overpartition least gaps*, separately treat ordinary \(\ell\)-regular partitions and unrestricted overpartitions; neither is an all-\(\ell\) law for their intersection, \(\ell\)-regular overpartitions. The less closely related *A Rayleigh limit law for the least absent odd part of an overpartition* counts absent sizes including overlined occurrences and has a distinct observable and rate. We compared these claims and source texts, not merely titles, and found no directly covering statement in the checked sources. This is not a claim of globally established priority.
+`verify_mex.py` compares exact counts and first two moments with brute force for weights 0 through 15 at \(2\le\ell\le8\), checks monotonicity through weight 500, and compares scaled moments with the limits at weights 200 and 500. These are finite diagnostics, not the proof of the asymptotics.
 
-## Limitations
-Only fixed \(\ell\), \(s>0\) and fixed tail thresholds are treated; no finite-size convergence rate, uniform large-\(\ell\) limit or local lattice probability is proved. The exact survivor subtraction, eta asymptotic and Ingham theorem are classical or elementary inputs, not individually novel. The stronger distribution/moments are derived from the primary paper's regular-overpartition framework and not independently audited. A broader unindexed theorem for multiplicity-constrained colored partitions might recover them; no literature search proves global uniqueness.
+Bhowmick and Meher [1] define this same nonoverlined excludant, derive its first-moment series (Theorem 1.3 and Eq. (3.21)) and give the aggregate asymptotics at \(\ell=2,3\) (Theorems 1.5–1.6). The statistic, first-moment series and those two cases are not new. Wagner's general least-gap theorem [2, Theorem 3] permits independent colors with unrestricted multiplicity. It does not describe an independent Bernoulli overline at each admissible size that is ignored by the statistic. Simply forgetting marks does not yield the uniform ordinary-partition measure. For the exact same marked model, [4] already gives the fixed-weight tail and its Rayleigh limit as diagonal specializations of its joint formulas; its moment bounds in Eq. (10) concern the Boltzmann measure, not every fixed positive real moment at fixed weight. Although the exact tail and eta-quotient estimates can also be used to control large excludants, fixed-threshold convergence alone does not justify moment convergence. The contribution here is the fixed-weight positive-real-moment theorem, including the first-moment asymptotic for every fixed \(\ell\ge4\), proved by a weighted coefficient argument. Historical priority beyond the examined sources is not asserted.
 
 ## References
-- S. Bhowmick and N. K. Meher, *The minimal excludant of \(\ell\)-regular overpartitions*, arXiv:2611.18129v1, first public 2026-11-13, https://arxiv.org/html/2611.18129v1, especially Theorems 1.3–1.6, Lemma 2.3, Equation 3.21.
-- T. Priya, S. Bhowmick and N. K. Meher, *The minimal excludant and the least \(r\)-gaps of \(\ell\)-regular partitions*, arXiv:2611.07871, first public 2026-11-05, https://arxiv.org/abs/2611.07871.
-- N. K. Meher, *The Minimal excludant of \(\ell\)-regular partition*, arXiv:2611.06072, first public 2026-11-04, https://arxiv.org/abs/2611.06072.
-- S. Wagner, *Limit distributions of smallest gap and largest repeated part in integer partitions*, Ramanujan Journal 25 (2011), pp. 229–246, https://www.finanz.math.tugraz.at/~wagner/limitdist.pdf, especially Theorems 1 and 3.
-- *Joint least-multiplicity-gap laws for regular partitions*, https://github.com/published-finding corpus/2026.
-- *Joint Rayleigh running-minimum law and universal coincidence probabilities for overpartition least gaps*, https://github.com/published-finding corpus/2026.
-- A. E. Ingham, *A Tauberian theorem for partitions*, Annals of Mathematics 42 (1941), pp. 1075–1090.
+
+1. S. Bhowmick and N. K. Meher, *The minimal excludant of \(\ell\)-regular overpartitions*, arXiv:2611.18129v1, https://arxiv.org/html/2611.18129v1.
+2. S. Wagner, *Limit distributions of smallest gap and largest repeated part in integer partitions*, Ramanujan J. 25 (2011), 229–246, https://www.finanz.math.tugraz.at/~wagner/limitdist.pdf.
+3. K. Bringmann, C. Jennings-Shaffer and K. Mahlburg, *On a Tauberian theorem of Ingham and Euler–Maclaurin summation*, Ramanujan J. 61 (2023), 55–86, Theorem 1.1 and its first two remarks, https://arxiv.org/abs/1910.03036.
+4. *Joint support and nonoverlined gaps in regular overpartitions: a diagonal law and sharp coincidence bias*, 2026-11-22, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-joint-support-and-nonoverlined-gaps-in-regular-overpartitions-a--96650212350f/RESULT.md, Eq. (1), Eq. (3), and Steps 3–5.

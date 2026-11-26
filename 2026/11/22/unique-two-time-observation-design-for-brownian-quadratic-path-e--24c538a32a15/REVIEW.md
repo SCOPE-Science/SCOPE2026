@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gaussian conditioning and Wick fourth-moment identities reduce squared-loss Bayes risk to an exact compact-simplex quartic. The proof rules out every boundary using strict rational certificates, eliminates all feasible competing stationary points through an exact sextic resultant, and establishes unique globality. The independent standalone symbolic program rechecks the critical resultant, degree-12 Bernstein bound, interval sign enclosures, and rational comparisons; numerical decimals are not used for the infinite/continuum claim.
+PASS
 
-## Originality — PASS with priority uncertainty
+For x=a and y=b-a, the normalized increments are independent Gaussians. Projection onto them gives the stated three inner products of the conditional mean basis; the independent residual adds only a deterministic trace to the conditional mean of Q. The residual after b is Brownian rather than a pinned bridge, which does not affect the projection argument. Isserlis and total variance give risk 1/3-2F, including duplicate and zero sites by dropping the redundant variable. Independent exact elimination reproduces the resultant and the linear relation y=-A/D. Sturm counting gives exactly three positive sextic roots, one per stated interval; on the first two brackets the signs of (A,D,-A-(1-x)D) are respectively (+,-,+) and (+,-,-), with zero counts for each sign polynomial. Only the first yields a feasible interior point. The witness 457/2916 exceeds 9/64 on both coordinate faces; its difference from the sloping-face polynomial is positive at zero and has no root on [0,1]. Compactness then forces the unique interior optimizer. Reproduced (a,b,risk)=(0.51844460651642214,0.85233448486089546,0.01965852971584853). The linear-area variance has cubic gap weights 1/12,1/12,1/3, giving (2/5,4/5); substitution gives quadratic risk 131/5625. Replay: python /workspace/independent_checks.py 3 (SymPy); original verify.py and VERIFICATION.md were inspected, not executed.
 
-Neuberger, Alexanderian and van Bloemen Waanders (2024, arXiv:2411.07532) already derive the general quadratic-goal posterior-variance objective; none of that general formula, the reported greedy PDE experiments, or the other inspected literature states the exact **two deterministic Brownian observations** solving the squared-path-energy problem. The available related indexed results address linear Brownian(-bridge) integration, stochastic node distributions, unrestricted Gaussian projection preintegration, or Brownian polynomial path approximation. Comparing those mathematical statements and implications gives no direct coverage of the present exact optimizer and uniqueness proof. Related literature not accessible in full and possible unindexed equivalents create remaining publication-priority uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-The integrated squared Brownian path is a natural nonlinear quadratic goal. Exact global location optimality for the minimal nontrivial two-sample case supplies a benchmark for goal-oriented observation design, including a strict 15.588% squared-risk improvement over sampling locations designed for linear path area. The sextic classification, proof of uniqueness, and boundary exclusion are substantive rather than only finite numerical optimization.
+Credit the exact global two-point classification for unpinned Brownian motion, not the Gaussian quadratic variance criterion, a result for arbitrary linear information, or an analogous bridge proof. The strongest indexed comparisons change the covariance or the admissible observations; neither supplies the constrained optimizer. This is a bounded best-of-knowledge finding, not a date-based priority inference.
 
-## Closest sources and limitations
+## value
 
-- Neuberger, Alexanderian, van Bloemen Waanders (2024), https://arxiv.org/html/2411.07532v1: general Gaussian quadratic-goal criterion and greedy PDE designs, but not this explicitly solved Brownian two-site problem.
-- Foster, Lyons, Oberhauser (2019), https://arxiv.org/abs/1904.06998: Brownian polynomial path approximation, different objective; only abstract inspected.
-- Chakraborty, Huan, Catanach (2024), https://arxiv.org/abs/2408.09582: expected-information-gain design, different loss; only abstract inspected.
+PASS
 
-Noisy, adaptive and more-than-two-site designs are not covered; neither a full literature priority determination nor independent mathematical audit is claimed.
+Two exact Brownian values are a natural physically constrained information budget. The global certificate supplies a concrete nonlinear-goal benchmark including repeated and endpoint designs, and the 15.588% risk reduction against the linear-area optimum has a mathematical explanation: quadratic explained variance depends on the squared inner products of the projected modes, not only on gap-area variances. The exact sites, rather than generic existence or the Gaussian reduction, are the useful addition.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

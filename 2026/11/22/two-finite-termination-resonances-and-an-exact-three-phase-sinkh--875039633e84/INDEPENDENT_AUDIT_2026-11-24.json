@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:46.190245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–81; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent symbolic expansion of the two-step residual and the squared parameter comparisons; analytical projective-ratio proof above"
+      ],
+      "rationale": "For the symmetric balanced scaling DAD with hub and leaf factors x,y, the row equations are x²=1−mc and y²=(1−c)/(m+1), c=txy. The equation for t² increases strictly from zero to infinity, supplying existence and uniqueness. On the nonconstant subspace the balanced eigenvalues are (1−c)/(m+1) with multiplicity m−1 and 1−(m+1)c with multiplicity one. The log-factor derivative is the product of the two negative balanced half-step matrices, so squaring these eigenvalues gives the full projective factor. The equations b=a and b=−a give c=1/(m+2) and c=(m+2)/(m²+2m+2); strict decrease followed by strict increase proves the optimum, with the claimed value. Independently, every half-step on this initialized orbit replaces the active hub/leaf ratio r by R(r)=(tr+m+1)/(r+mt), starting at r=1. Away from mt²=m+1, R is injective, so if an iterate attains the balanced ratio (a fixed point), then 1 was already that ratio. R(1)=1 gives t=m/(m−1), and the symmetric initial matrix then has common row sums. When mt²=m+1, R is the constant t>1 and fixes both factor ratios in exactly two half-steps, not one. Substituting c=1/(m+1) at this resonance gives the stated rate ratio. The ordering after squaring separates by (m−2)(m³+2m²+m−2), with equality only at m=2. Symbolic factoring independently matched the frozen two-step residual.",
+      "residual_risks": [
+        "The derivative factor is not a global uniform contraction bound; termination and its step counts are exact-arithmetic and specific to the stated row-first initialization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General subdominant-singular-value squared factor and at-most-two-normalizations theorem",
+          "Explicit symmetric 3×3 two-entry limits and a block-constant two-block template"
+        ],
+        "reasoning": "The general rate and termination theorems do not supply the parameter classification. A block-constant leaf block does not retain the I+J leaf eigenvalue. The explicit small limits include individual members, not the full varying family.",
+        "searches": [
+          "Knight DOI 10.4230/DagSemProc.07071.16, Theorem 4.5",
+          "Cohen–Nathanson arXiv:1912.00095, Theorem 1",
+          "Nathanson arXiv:1905.09426, Theorem 3 and Eq. 6–7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror exact record",
+        "Knight and Knight–Ruiz, DagSemProc 07071.16 and 07071.4",
+        "arXiv:1912.00095, 1903.06778, 1905.09426"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One theorem reduces the rate to a spectrum; another bounds possible finite termination length; explicit examples cover isolated cases"
+        ],
+        "reasoning": "Deriving the competing modes, sharp minimax switch, and the exact initialized parameter classification requires separate family-specific spectral and scaling analysis, not a stated stronger classification or reparameterized published table.",
+        "searches": [
+          "Knight Theorem 4.5; Cohen–Nathanson Theorem 1; Nathanson arXiv:1903.06778 Theorem 1 and arXiv:1905.09426 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nathanson's one-column-scaling matrix matches the already row-normalized m=2, t=√(3/2) case under leaf–hub–leaf order",
+          "Exact Resultary title, family, and parameters occur on the identical frozen record"
+        ],
+        "reasoning": "Reordering after the first step exposes real isolated-instance overlap, not an all-size equivalence. A block-size reduction captures the hub ratio but loses the leaf-difference directions necessary for the claimed optimum.",
+        "searches": [
+          "Focused primary-literature lookup for hub–clique Sinkhorn phase/finite scaling; arXiv:1903.06778",
+          "Resultary semantic lookup for the hub–clique rate and finite-termination result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror RESULT.md reproduces both parts of the frozen finding under the same record identifier",
+          "The explicit 3×3 list includes A₂(1) and A₂(2)"
+        ],
+        "reasoning": "The exact catalogue hit is the frozen item itself, not independent precedent. The explicit list does establish covered balancing limits at those specific parameters, not their role in the overall phase diagram.",
+        "searches": [
+          "Resultary semantic search and local mirror inspection: 2026/11/22/SCOPE-two-finite-termination-resonances-and-an-exact-three-phase-sinkh--875039633e84",
+          "arXiv:1905.09426 Theorem 3"
+        ]
+      },
+      "rationale": "The general local-rate formula, at-most-two-steps theorem, and certain small-instance scaling limits are already covered. No distinct retrieved statement covers the full family-specific competition of the leaf and hub modes, its exact optimizer, and the classification and comparison of initialized resonances. Credit is limited to that classification, not to the general matrix-scaling methods.",
+      "residual_risks": [
+        "Related block-structured optimization or explicit Sinkhorn examples may be indexed differently; limited negative retrieval does not establish global historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not independent prior coverage",
+          "evidence": "Same kernel, rate switches, optimum and resonance pair under the frozen identity.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-finite-termination-resonances-and-an-exact-three-phase-sinkh--875039633e84",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "Two finite-termination resonances and an exact three-phase Sinkhorn-rate optimum on hub–clique kernels",
+          "trigger": "Exact catalogue title and parameters"
+        },
+        {
+          "assessment": "General Jacobian-rate principle covered",
+          "evidence": "Rate σ₂(P)², not this family's spectra or optimization.",
+          "identifier_or_url": "https://doi.org/10.4230/DagSemProc.07071.16",
+          "material_read": "Section 4, Theorem 4.5, pp. 8–9",
+          "method": "OA full-text passage",
+          "title": "The Sinkhorn–Knopp Algorithm: Convergence and Applications",
+          "trigger": "General local rate theorem"
+        },
+        {
+          "assessment": "General length bound covered",
+          "evidence": "At most two alternating scalings at positive targets, by transposition also for row-first order.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.00095",
+          "material_read": "Theorem 1, pp. 4–6",
+          "method": "OA full-text passage",
+          "title": "Sinkhorn Limits in Finitely Many Steps",
+          "trigger": "General bound on finite termination"
+        },
+        {
+          "assessment": "Isolated case covered",
+          "evidence": "For m=2 at the two-step resonance, the row-stochastic matrix is its k=ℓ=1 template with entries x=2/(3+t), z=1/(3+t), w=t/(3+t), y=(x+z)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.06778",
+          "material_read": "Theorem 1, pp. 2–4",
+          "method": "OA full-text passage",
+          "title": "Matrix Scaling Limits in Finitely Many Iterations",
+          "trigger": "Explicit matrices scaling in finitely many steps"
+        },
+        {
+          "assessment": "Explicit individual scaling limits covered; full joint claim not found in compared statements",
+          "evidence": "The 3×3 two-entry list includes A₂(1) and A₂(2); the block-constant construction does not reproduce I+J for general m.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.09426",
+          "material_read": "Theorem 3 pp. 3–4; Eq. 6–7 pp. 4–6",
+          "method": "OA full-text passages",
+          "title": "Matrix Scaling and Explicit Doubly Stochastic Limits",
+          "trigger": "Symmetric explicit scaling classes and two-block construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, comparison of criteria and optimizer; independent projective-ratio and spectrum derivations"
+      ],
+      "rationale": "A symmetric but non-block-constant natural test family exposes two distinct nonconstant mechanisms; the complete tuning classification shows when a fully symmetric orbit hides the worst perturbation and why exact termination can be suboptimal in the projective criterion. This is a useful distinction beyond producing a single scaling limit.",
+      "residual_risks": [
+        "No rate optimum for other families, other initialization rules, or floating-point finite termination follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

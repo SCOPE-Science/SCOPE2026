@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact rational-iteration recurrence, factorization of the fourth-return numerator, nonvanishing denominators and cyclotomic conjugacy calculations prove the precise indicator formula for all finite fields of characteristic at least seven. The standalone exact checker returned its success certificate, including 248 prime-field spot checks. Finite checking is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS, qualified. The closest fully inspected published finite-field note treats only primitive periods two and three and explicitly does not address length four. Searches also considered the equivalent dynatomic factorization, cyclotomic conductors, extension fields and earlier claims. The original motivating 2026 article was available only as abstract and bibliographic material, not in full; implicit priority coverage there remains possible. No absolute novelty guarantee is asserted.
+PASS
 
-## Mathematical value
-PASS. Least period four is the first unresolved natural step after the earlier exact period-two and period-three census. Its full uniform spectrum reveals two independent arithmetic splitting criteria, including coexistence of all three possible four-cycles, rather than an isolated computational example.
+The coprimality-of-values induction applies over every field, and D₄=∏_{j=0}^3 Nⱼ ensures each of the first four inputs is nonzero for a root of N₄−XD₄. Independently expanded the return equation and verified its exact factors P=2X²+1, A, B. Their discriminants are −8, 2048, 324000000 and the pairwise resultants Res(P,A), Res(P,B), Res(A,B) are 4,25,81. Thus all fourteen geometric return roots are simple and disjoint in the stated range; no lower periods except two can divide four. Moreover f²(X)+X=A(X)/[X(X²+1)], so A describes exactly the anti-return f²(x)=−x; oddness makes this subset invariant, and B is invariant as the remaining primitive period-four set. Evaluating in the actual cyclotomic quotient rings gives the stated roots, stabilizers {1,7} and {1}, and orbit sizes 4 and 8; these imply the characteristic-zero irreducibilities. The rational denominator for the quartic parametrization is a unit away from 2 since its square is 2. The factor identities therefore specialize at a primitive root of unity for every p≥7, and separability preserves the sizes of the distinct root sets. The action of q-Frobenius on indices is multiplication by q, with constant stabilizer on each orbit because the groups are abelian. It fixes all or none of each invariant root set; dividing the rational point counts by four gives the claimed indicators. Reviewer-written exact replay `python /workspace/review_checks/1.py` uses SymPy over integer/rational polynomial rings and finite-field arithmetic for 248 prime fields and six quadratic extensions; these finite checks are not the proof of all extensions. Frozen verifier inspected only.
 
-## Closest literature and scope
-Matijasevick–Rodríguez–Salazar, arXiv:2610.00765 (2026); *Cyclotomic rigidity of the first short cycles of the reciprocal map over finite fields* (2026). The theorem omits characteristics two, three and five and all longer periods. Independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass limited to the primitive period-four splitting and count. A directly inspected earlier finite-field census covers periods at most three; the actual originating reciprocal-sum paper is now accessible and its substantive finite-field discussion concerns preimages of zero, not these returns. No absolute priority claim.
+
+## value
+
+PASS
+
+Period four is the next natural census after the already studied periods two and three. The exact separation into two cyclotomic splitting criteria, coexistence of all four counts 0 through 3, and extension-field uniformity give reusable orbit data rather than a finite lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

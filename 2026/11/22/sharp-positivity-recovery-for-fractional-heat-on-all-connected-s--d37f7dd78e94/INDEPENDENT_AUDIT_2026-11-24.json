@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:21.099436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 39–80, VERIFICATION.md, static inspection of checker.py",
+        "Independent replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/review-evidence/reproduce.py 3; independent C5 spectral heat/norm comparisons at 12 order/time pairs plus high-precision root and amplification checks for near-critical and large orders."
+      ],
+      "rationale": "The projector onto the eigenvalue a of L is (bI−L−bJ/v)/(b−a), as verified by its action on all three eigenspaces. At nonedges the a- and b-projectors therefore give −C/v and (C−1)/v. At edges the numerator of the kernel entry is (1−e^(−Bt))+U(e^(−At)−e^(−Bt)), where A=a^α, B=b^α, and U=(v−k+s)/(r−s)≥0 by the adjacency spectral radius bound for the complement. The diagonals are at least 1/v by positivity of spectral-projector diagonals. For q(t)=1−C e^(−At)+(C−1)e^(−Bt), the ratio of the two derivative terms is (b/a)^(1−α) exp((B−A)t). This gives strict positivity for t>0 at α≤1 (including α=1 where q'(0)=0), and one strict minimum followed by one positive zero for α>1. Row sums are one and each row has h identical potentially negative nonedges, giving exactly 1+2h[−q(t)]_+/v. Symmetry gives the same column norm. The derivative crossing gives the displayed unique peak time. For ε=α−1, q(t)/t extends analytically at zero with expansion −Ca log(b/a) ε + Ca(b−a)t/2 + O(ε²+εt+t²); the implicit root is positive for small ε>0 and by uniqueness is the recovery root. Substituting t_pk=log(b/a)ε/(b−a)+O(ε²) into the quadratic expansion gives the claimed norm coefficient. In u=a^α t, the root is trapped on either side of log C by convergence on compact positive intervals; at the peak u→0 and (b/a)^α u→∞, giving q→1−C. At t=0 the matrix is I. No graph-uniform asymptotics are inferred.",
+      "residual_risks": [
+        "The supplied checker’s early-time negative-sign guard at checker.py line 52 is not exercised at its own listed sample times (the smallest is exactly the guard threshold); its full entry/norm comparisons are unaffected. The independent C5 sample and the analytic derivative proof check the negative regime directly. No finite sample certifies the universal theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8af258cef8b1 indexes exact recovery and norm amplification, linear recovery/quadratic excess, for all connected noncomplete complete multipartite graphs.",
+          "Frozen RESULT.md lines 85–93 locates Benzi et al. arXiv:1912.07288 as covering 0<α≤1; the independent OA attempt did not return relevant passages.",
+          "Frozen RESULT.md lines 42–56 uses uniform adjacent/nonadjacent entries, not diameter two alone."
+        ],
+        "reasoning": "Complete multipartite graphs encompass all imprimitive examples in the present connected SRG family but do not include primitive graphs such as C5. A generic three-eigenvalue interpolation formula would provide the nonedge entry but would need an edge-positivity and row-norm argument; no such general covering theorem was verified. The Markov fractional regime cannot settle α>1.",
+        "searches": [
+          "Resultary: strongly regular graph fractional Laplacian heat kernel positivity recovery threshold exp(-t L^alpha) exact time",
+          "Benzi et al. arXiv:1912.07288 targeted OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 042f947af3d0 and 8af258cef8b1; assigned self-hit d37f7dd78e94",
+        "Frozen RESULT.md lines 4–29, 67–80 and 85–95; frozen AUDIT.json prior-work evidence (not direct inspection of cited primary articles)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 67–80 proves explicit near-1 coefficients and scaled large-order root, not just existence of an optimal exponent or a limiting overshoot.",
+          "The related strongly regular Padé item 894835468c5c uses a rational heat step, as recorded in the frozen comparison (RESULT.md lines 85–95 and AUDIT.json), not the fractional semigroup."
+        ],
+        "reasoning": "The indexed same-family result asserts a maximum over α and a transient-norm formula. Those support attribution for overlapping subject matter and results, but the available claim does not entail the specified local α−1 coefficients and scaled root constant. Taylor analysis of the scalar exponential equation gives these quantities. The rational method is a different spectral multiplier and does not imply the result.",
+        "searches": [
+          "042f947af3d0 local mirror RESULT.md at literal section ‘## Finding’ (timed out)",
+          "Resultary: strongly regular graph fractional Laplacian heat kernel positivity recovery threshold exp(-t L^alpha) exact time",
+          "arXiv:1912.07288 OA lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "042f947af3d0 describes the identical propagator and graph family, a unique globally worst α>1 for recovery delay (scalar root), a sharp transient-norm formula, and collapse of the recovery window but non-unit limiting peak. No root equation or coefficient is given in the available summary.",
+          "In the assigned theorem the first time after a negative regime when either counting norm returns to one is exactly the positivity recovery time."
+        ],
+        "reasoning": "This is real overlap, not a terminology difference. If the competing norm formula gives the full t-dependent norm with the same coefficients, its norm-one criterion also determines the recovery threshold. An optimizer over α alone, or a formula only for the peak, does not determine the whole t-dependent recovery/sign curve. The summary does not resolve the formula-level question.",
+        "searches": [
+          "Resultary: strongly regular graph fractional Laplacian heat kernel positivity recovery threshold exp(-t L^alpha) exact time",
+          "Resultary: 042f947af3d0 unique worst fractional heat exponent on strongly regular graphs exact recovery time T_alpha and norm asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct hits: same-family exact qualitative optimizer/larger-order behavior in 042f947af3d0, and quantitative critical laws for the multipartite family in 8af258cef8b1. Exact self-hit d37f7dd78e94 is not independent prior coverage."
+        ],
+        "reasoning": "The applicable known exact subfamily formulas are not a table for all SRG parameters. The highly relevant same-family summary does not display the explicit critical coefficients. Same-day dates neither suppress the overlap nor establish priority.",
+        "searches": [
+          "Resultary exact ID 042f947af3d0 and exact recovery time T_alpha and norm asymptotics",
+          "Resultary exact recovery threshold exp(-t L^alpha) strongly regular graph"
+        ]
+      },
+      "rationale": "The all-positive fractional range and complete multipartite subfamily are prior. The distinct same-day SRG record is material coverage of the recovery-delay problem on the same full family and explicitly reports a sharp transient-norm formula and large-order limiting amplification. No priority or first SRG transient-norm claim is supported. The remaining supported increment is the explicit sign law, recovery equation and quantitative peak and asymptotic coefficients together, especially the fixed-graph linear and quadratic critical coefficients on primitive SRGs; these are not stated or forced by the accessible competing summary. Exact formula-level overlap with the same-day record remains a substantial risk, not a negative full-text finding.",
+      "residual_risks": [
+        "Local-mirror access to the exact same-family companion and the multipartite record, and lawful OA access to arXiv:1912.07288 passages, did not succeed. The same-family companion may contain the complete recovery equation, peak and expansions; the decision is limited to distinctions supported by the available evidence. Unindexed association-scheme results are another priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial verified topical and conclusion overlap; identity of formulas and coverage of critical coefficients unresolved",
+          "evidence": "Summary specifies every connected noncomplete SRG, unique worst exponent, sharp transient-norm formula, recovery collapse and limiting nontrivial amplification.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-worst-fractional-heat-exponent-on-strongly-regular-grap--042f947af3d0",
+          "material_read": "Resultary full indexed summary; frozen-record comparator; full competing finding unavailable",
+          "method": "Semantic and exact-ID queries; tried the decisive finding in the lawful local mirror; compared norms/recovery logically",
+          "title": "A unique worst fractional-heat exponent on strongly regular graphs",
+          "trigger": "Strongest distinct same-object/same-family exact hit"
+        },
+        {
+          "assessment": "Covers the complete multipartite overlap, not the primitive SRGs",
+          "evidence": "Indexed exact one-variable recovery/peak formula and linear/quadratic onset with explicit coefficients on multipartite graphs.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "material_read": "Indexed statement and frozen RESULT.md lines 85–94; direct primary passage not retrieved",
+          "method": "Compared graph classes, exponents and conclusions",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Earlier exact same-propagator threshold, norm and critical-law result"
+        },
+        {
+          "assessment": "Reported Markov-range positivity is prior; full-text independent assessment not made",
+          "evidence": "Frozen RESULT.md lines 85–93 explicitly credits positivity for 0<α≤1.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07288",
+          "material_read": "Frozen citation and prior comparison, not independently retrieved full text",
+          "method": "Lawful OA attempt; compared the reported order range against the finding",
+          "title": "Nonlocal network dynamics via fractional graph Laplacians",
+          "trigger": "Foundational spectral fractional graph diffusion and positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–30 and 58–80"
+      ],
+      "rationale": "This is a useful exact benchmark for superunit spectral heat orders: positivity is lost precisely on one structural entry class, returns at a unique threshold, and its loss can be measured by an induced norm rather than only a negative example. The fixed-graph critical and large-order coefficients quantify otherwise different phenomena (duration versus size of the norm excess) on a natural family including primitive examples.",
+      "residual_risks": [
+        "Applicability outside the specified graph class and fixed-graph limits is not shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

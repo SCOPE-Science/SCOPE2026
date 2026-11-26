@@ -1,19 +1,21 @@
-# Scientific review: five-channel counting noise in the three-site TASEP–Langmuir process
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 8-state generator follows the accepted-event rates: boundary injection and extraction one, each successful internal hop one, middle-site attachment/detachment \(w>0\). Finite irreducibility makes the Perron eigenvalue analytic locally at zero counting field and establishes all long-time cumulant-rate limits. The proof derives the stationary vector, solves five centered Poisson equations, and obtains the complete marked-count covariance matrix by second derivatives. Every ten off-diagonal cross-covariance expression and every Fano formula is verified by exact symbolic elimination in `verify_counts.py`. Positive polynomial coefficients certify signs and Fano derivative signs; the hopping derivative has an explicitly strictly increasing cubic factor with exactly one positive root. An separate finite-difference tilted-matrix check tests selected cross-covariances at two positive rates. The latter is supplementary, not the basis of the proof.
+PASS
 
-## Originality — PASS, with specified residual risk
+Verified for the eight-state chain with rate-one injection, exit and rightward hops and equal positive exchange w only at the middle site. The marked hop channel counts both accepted bond transitions. Independently used a row-generator martingale calculation: for each mark solve Lh_a=m_a-r_a, where r_a is its instantaneous rate. The centered count plus the bounded potential increment is a martingale with jump indicator_a+h_a(y)-h_a(x). Its limiting covariance per unit time is the stationary rate-weighted sum of products of these jumps. The bounded corrections vanish at covariance-rate scale, and finite irreducibility makes the bracket rate and mean rate independent of initial state. Exact symbolic arithmetic matched the five mean rates and Fano functions and all ten cross-covariances. It recovered the stated positive-coefficient certificates for the boundary derivative and negative Langmuir derivative and the strictly increasing cubic controlling the hop derivative. The unique positive cubic root is 0.38380195482895884... and the Fano factor there is 0.59245585461490491.... The endpoint limits are not assertions at w=0 or infinity.
 
-The leading full-text source, Silva et al. (arXiv:2611.07053), derives the established open-chain TASEP-Langmuir generator and stationary occupation statistics, including spatial correlations; it does **not** supply the five-channel long-time integrated-count covariance/Fano classification. The classic TASEP-Langmuir density theory of Parmeggiani–Franosch–Frey and the ring-based relaxation analysis of Sato–Nishinari do not cover these finite open-chain marked-count cumulants. Pure open-TASEP current statistics lack a Langmuir exchange channel. The closest indexed comparison, *Exact time-ordered reaction–transport covariance on balanced exclusion networks*, assumes a circulation-balanced network rather than this open asymmetric channel and treats a different count-correlation comparison. The indexed publication was accessible as an abstract/summary only; it was not claimed to be fully inspected. Searches for Fano, full-counting statistics, temporal correlations and the specific five-count classification did not locate a covering theorem. Novelty is assessed by statement implication, not title similarity. A broader unindexed exact-count formula could still imply this finite specialization, so priority remains subject to independent literature audit.
+## originality
 
-## Value — PASS
+PASS
 
-Three sites are the smallest open TASEP-Langmuir chain with a genuinely internal adsorption/desorption site under the usual boundary-versus-bulk separation. The five natural physically marked fluxes provide an exact complete second-order counting-noise benchmark for a finite interacting open transport system. The simultaneous strict cross-sign pattern and the **different monotonicity classes** of boundary, Langmuir and internal-hop Fano factors distinguish fluctuations in alternative traffic or molecular-transport channels. The unique hopping-noise maximum is a nontrivial threshold over the entire positive control range, not an isolated numerical observation. The result does not assert generalization to larger chains or arbitrary rates.
+The distinct content supported by the bounded comparison is the exact, all-positive-w second-order classification of these five accepted count marks along the equal-exchange path. The chain and general cumulant machinery are prior. The closest same-day count record works on a different rate path and mark convention; the closest same-model occupation record has different observables. No inspected prior claim entails the full classification. No ordering is inferred from same-day publications.
 
-## Limits and close literature
+## value
 
-The proof is restricted to rate-one boundaries and bonds with one equal-rate bulk exchange site. Finite-time counting distributions, large-chain limits, experimental error budgets and general off-symmetric rate families are not established. Sources: https://arxiv.org/abs/2611.07053; https://arxiv.org/abs/cond-mat/0408034; https://arxiv.org/abs/1601.02651; https://doi.org/10.1088/1751-8113/44/31/315001; https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-time-ordered-reaction-transport-covariance-on-balanced-exc--5c264ddb40d9.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three sites give the smallest open chain with a genuinely internal exchange site. The complete sign matrix and the contrasting increase, decrease and unique maximum answer a natural finite benchmark for how reaction noise differs from boundary and transport noise. The findings apply over the full positive control range and distinguish the aggregate of both hops from boundary traffic; neither one parameter value nor a static occupancy computation could establish them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

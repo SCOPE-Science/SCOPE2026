@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:43:53.041820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary Bessel density is the stated input. Substitution t=2√r x^(p/2)/p and the Mellin integral of K yield gamma factors Γ(1)Γ((α+1)/p), giving the stated normalization; at α=0, K_(1/2) gives (√r/2)e^(−√r|x|). The small-x density is bounded uniformly (its leading power is x^α). Uniform large-x K asymptotics for orders near 1/2 give the two-sided amplitude B x^(3α/4), with B→√r. For λ<√r the exponent has a uniform negative linear majorant on x≥1 for small α and the limit follows by dominated convergence. At λ=√r set b=2/(√r α log(1/α)). Then the excess exponent G(bu)→u at each u>0. Its global minimum is at x=1 and equals −√r α/(2+α); x^(3α/4) is bounded up to b. Convexity and bG′(b)→1 dominate the scaled tail by an integrable exponential times a fixed power, giving the factor r b√r=2r/(α log(1/α)). For supercritical λ, put δ=α/2 and M=δ λ x_*. The rescaled loss is exactly [f(x_*)−f(x_*y)]/M = Hδ(y)=[y^(1+δ)−(1+δ)y+δ]/[δ(1+δ)]. Pointwise convergence alone would not justify tails at RESULT.md line 85: Hδ(1)=Hδ′(1)=0 and Hδ″(y)=y^(δ−1), uniformly bounded above and below on [1/2,2]. Left of 1/2 monotonicity gives a fixed positive lower bound; to the right of 2 convexity gives a uniform positive initial gap and linear growth. The part x<1 is bounded directly by stationarity. These bounds give uniform tail suppression, and with y=1+v/√M the loss tends to v²/2 with bounded local third derivative and M→∞. The Bessel error and relative amplitude converge uniformly in each fixed Gaussian window; domination then gives the normal factor x_*√(2π/M)=√(4πx_*/(αλ)). The exact saddle height is αλx_*/(2+α), which dominates the logarithms of all prefactors. This establishes the full equivalent for fixed r and λ, not a joint critical window or a first-passage law.",
+      "replay": "python /workspace/review-evidence/independent_checks.py 3; /workspace/review-evidence/check-3.txt. Bounded independent quadrature of the scaled Bessel density at r=1.7, using cancellation-resistant critical exponent and a Gaussian-width integration variable for the supercritical case. Critical ratios 1.49502, 1.31093, 1.23388 illustrate slow convergence; supercritical ratios 0.99713, 0.99973, 0.99998 check the prefactor at the sampled exponents. Neither tests an infinite limit. Frozen quadrature checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compressed-exponential density tail and exact exponent in Eq. (86) are prior. The same-day stochastic-order result compares threshold and Poisson resetting, and the weak partial-reset result concerns a different Brownian dynamics and stationary spatial tail."
+        ],
+        "reasoning": "An order comparison across reset mechanisms gives no equivalent with a sharp constant. Standard large-argument Bessel asymptotics helps derive the result but does not itself address a diverging integral under a parameter-dependent rescaling. No stronger directly implying singular-limit theorem was identified in the bounded comparison.",
+        "searches": [
+          "arXiv:2610.21962v1 Eqs. (17)–(21), (83), (86)",
+          "Resultary 205973d7b09c and 3e4e01201dc0",
+          "DLMF §10.40.2 (standard large-argument K expansion cited in the frozen proof)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21962v1",
+        "arXiv:2304.09348v1",
+        "Resultary 205973d7b09c, 3e4e01201dc0; 71eafa6d70fe (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary resetting paper gives x_c=(λ/√r)^(2/α) and the exponent maximum αλx_c/(α+2). Its finiteness discussion does not give the critical equivalent or the Gaussian amplitude and width for a full equivalent.",
+          "The first-passage paper's renewal relations address a different observable."
+        ],
+        "reasoning": "Knowing the maximum and exact integrand is not a uniform moving-saddle estimate: the curvature shrinks, the dominant region escapes, and the critical scaling is different. Uniform density and phase estimates and an independently determined critical distance scale yield the additional result.",
+        "searches": [
+          "arXiv:2610.21962v1 §7.1.4, HTML offsets 101849–109234",
+          "arXiv:2304.09348v1 §§2, 6 and Eqs. (60)–(61)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frimpong–Bresque–Roldán Eq. (83) uses the same stationary rate r times the cost moment. Sunil et al. §2 and Eqs. (49)–(54), (60)–(61) treat cost accumulated until first passage, not the stationary moment."
+        ],
+        "reasoning": "Equal thresholds for different models or cost observables are not an equivalent asymptotic. The original's description of Sunil et al. should not be read as evidence of a stationary-rate result; the inspected first-passage passages do not support it, and the stationary-rate precedent is Frimpong et al.",
+        "searches": [
+          "Resultary: weak sluggishness at Brownian threshold; exponential reset moment critical α log(1/α); supercritical stationary saddle prefactor; Poisson resetting exponential cost singular limit",
+          "arXiv:2610.21962v1 §§4.1 and 7.1.4",
+          "arXiv:2304.09348v1 §§2 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 71eafa6d70fe entry is the frozen record itself; distinct closest hits 205973d7b09c and 3e4e01201dc0 are comparison/partial resetting results, not the claimed equivalent."
+        ],
+        "reasoning": "No exact distinct catalogue/table match was verified for the critical constant or full prefactor. The same-day dates are not used to infer priority.",
+        "searches": [
+          "Resultary: critical weak-sluggishness cost, Brownian exponential threshold, stationary exponential moment, remote saddle prefactor"
+        ]
+      },
+      "rationale": "The distinct supported results are the exact critical equivalent and the full supercritical equivalent, with a controlled moving-saddle prefactor. The source paper already supplies the stationary model, normalized density, fixed-α finiteness, Brownian threshold, saddle location and saddle height. Those and the standard Bessel/Laplace methods are not credited as new. The subcritical Brownian limit also follows routinely from that density and uniform domination.",
+      "residual_risks": [
+        "Bounded primary-paper and catalogue comparison; no broad web search of general singular Laplace theorems. Such results could overlap with the supercritical method. External priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, density, threshold, saddle and height but not the two full singular equivalents in the inspected passages",
+          "evidence": [
+            "Exact Bessel density and compressed-exponential tail; Eq. (86) gives the same phase maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962v1",
+          "material_read": "HTML §4.1 Eqs. (17)–(21), offsets 25275–32394; §7.1.4 Eqs. (83), (86), offsets 101849–109234",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Exact stationary model, likely coverage of threshold and saddle"
+        },
+        {
+          "assessment": "First-passage total cost; not the stationary weak-sluggishness equivalent",
+          "evidence": [
+            "Brownian threshold for first-passage accumulated cost, and first-passage renewal relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.09348v1",
+          "material_read": "Abstract/§2 offsets 0–7108; §6 Eqs. (49)–(54), offsets 28556–32149; Eqs. (60)–(61), offsets 38964–41463",
+          "method": "Primary OA text, bounded passages",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Brownian exponential-cost threshold and observable identification"
+        },
+        {
+          "assessment": "Different observable claim, same model partly overlaps",
+          "evidence": [
+            "Radial stochastic-order comparison at matched reset rates, no α→0 precise equivalent."
+          ],
+          "identifier_or_url": "205973d7b09c",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Configured Resultary search and mirror",
+          "title": "A one-crossing law for fair-rate threshold versus Poisson resetting",
+          "trigger": "Same stationary sluggish diffusivity and cost comparisons"
+        },
+        {
+          "assessment": "Different reset dynamics and spatial tail target",
+          "evidence": [
+            "Weak partial Brownian resetting stationary tail prefactor."
+          ],
+          "identifier_or_url": "3e4e01201dc0",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Configured Resultary search and mirror",
+          "title": "Sharp weak partial-reset stationary tails with a dilogarithmic rate",
+          "trigger": "Stationary reset prefactors in a weak limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bare finiteness threshold does not quantify whether physically weak sluggishness provides effective regularization. At the threshold the exact cost grows on the inverse α-log scale, while above threshold an exponentially remote distance dominates and the full prefactor quantifies the cost beyond logarithmic accuracy. These are distinct regimes at a natural boundary of an existing model, with exact constants and no implied lattice or finite-time conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

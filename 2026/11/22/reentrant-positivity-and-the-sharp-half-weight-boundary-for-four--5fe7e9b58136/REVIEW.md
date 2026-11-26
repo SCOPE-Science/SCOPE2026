@@ -1,15 +1,21 @@
-# Review: four-node Gaussian quadrature sign reentrance
+# Independent mathematical audit
 
-## Correctness — PASS
-The full Gram matrix of the Gaussian kernel is strictly positive definite at all distinct sites, giving a positive even-block determinant. Exact paired-equation inversion establishes the numerator formulas. Direct Taylor expansions prove strictly positive limits near zero, and Gaussian concentration proves eventual positivity. At inverse squared lengthscale two, the bundled standard-library rational-interval certificate (order 80, with rigorous Taylor remainders) proves two negative outer weights, two positive inner weights and a positive determinant. Continuous dependence in shape and node radii proves two separated sign crossings and persistence on an open parameter set. Neither scans nor printed floating-point approximations serve as a proof.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-The Bayesian quadrature linear system and examples of negative weights are already in Huszár–Duvenaud (2012). Karvonen–Kanagawa–Särkkä (2019), Theorem 1, proves a general half-positive lower bound, and their local-optimal-node corollary is inapplicable to our nonoptimal fixed sites. Karvonen–Särkkä (2020) gives the flat polynomial limit. None of the examined mathematical statements establishes a fixed four-site design with strict positivity at both shape extremes but exactly two negative weights at an intermediate shape, robust under perturbation. Related historical dissertation material was inspected in the sections concerned with kernel cubature, not exhaustively. An unindexed or unexamined equivalent example is possible; the claim does not assert publication priority as settled.
+PASS
 
-## Value — PASS
-This is a robust example of a practical numerical stability boundary: a node set whose Gaussian Bayesian-quadrature weights are positive in both the flat and sharply localized regimes can nevertheless lose positivity at an intermediate bandwidth. It also realizes the best possible lower guarantee on the number of positive weights for an even four-node totally positive kernel, with strict inequalities and a reusable rational certificate. It is more informative than a single isolated negative coefficient because the same topology of signs persists on an open set of quadrature geometries.
+Gaussian strict positive definiteness ensures invertibility for finite positive lambda. Reflection fixes the weight vector and gives the positive-definite even block with determinant Delta>0 and the two stated Cramer numerators. Independent integration of the first three Taylor terms reproduces Delta=8(b²-a²)² lambda²+O(lambda³) and the stated numerator coefficients, so both limiting weights are positive when a²<1/3<b². An independent rational certificate uses signed Lagrange remainders: orders 23 and 24 enclose exp(-z) for z>=0 and can therefore also enclose each translated Gaussian mass by termwise integration. Outward rounded exact intervals for outer numerator, inner numerator and Delta at lambda=2 are respectively [-0.021574,-0.021572], [0.132727,0.132729] and [0.243788,0.243789]. For fixed interior nodes, sqrt(lambda)F tends to sqrt(pi)/2 and the even block tends to identity, giving eventual positivity. Continuity supplies two distinct outer-weight zeros and an open neighborhood of radii with the same sign-return pattern. Exactly two positive weights at lambda=2 attain the known general two-of-four lower bound; there is no need for a full count of outer-weight zeros or for the inner weights to stay positive at every shape.
 
-## Scientific limitations
-At least two crossing shapes are proved, not uniqueness of each crossing. The method applies to the stated unconstrained quadrature rule with no nugget. Neither improved integration accuracy nor an optimal selection of points is claimed. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified addition is a fixed four-site Gaussian design on a uniform interval attaining exactly two positive weights at an intermediate shape and recovering strict positivity at both shape extremes, robustly in the radii. Neither negative weights in general, the lower bound, nor convergence to polynomial weights in the flat limit is new.
+
+## value
+
+PASS
+
+A fixed-node rule may be positive in both standard asymptotic regimes yet fail to be a positive functional at a practical intermediate scale. The strictly negative outer pair shows that the general half-positive bound is sharp even in a simple symmetric Gaussian design; the certificate and open-neighborhood result exclude a floating-point artifact or a single fine-tuned geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

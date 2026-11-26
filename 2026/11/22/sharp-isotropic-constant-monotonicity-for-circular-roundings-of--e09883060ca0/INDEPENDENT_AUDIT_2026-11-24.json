@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:41:56.607111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed area and polar second moment from disjoint polygon, strips and vertex sectors. A strip has coordinates (c+u,v), 0≤u≤t, |v|≤s, and a sector has |x|²=1+2ρ cos θ+ρ² for |θ|≤α about the radial vertex direction and 0≤ρ≤t. Summing proves the stated A,J polynomials including the mixed terms. Rotation by 2π/n centers the body and makes covariance J I/(2A), so L⁴=J²/(4A⁴). Independently expanding with s²=1−c² and k=α/s gives the coefficients of j'a−2ja' in t as 0, (4/3)s²(ck−1), −2[k(1+2c²)−3c], −2(ck+k²−2), and no higher terms. The three nonzero coefficients are strictly negative because u=sin α−α cos α has derivative α sin α, f'=4 sin α·u, and g'=f, with all three zero at α=0. This gives strict decrease including comparisons with t=0, despite a zero derivative there. Expanding 2πJ−A² gives n²[cs(f/3)+4s(f/3)t+2g t²], with f,g>0; A∼πt² then gives L⁴−1/(16π²)=n²g/(4π⁴t²)+O_n(t⁻³). The polygon endpoint follows from J(0), and dilation by R replaces t by t/R without changing L. The proof covers each n≥3 and t≥0, not an n-uniform expansion. The two coefficient lists were independently expanded algebraically; the uploaded checker was inspected but not run. Its finite Green-integral checks do not establish the analytic sign for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fattah–Ftouhi–Saracco use the same path up to area-preserving dilation; §3.2.2 Props. 3.10–3.12 concern perimeter, p-Cheeger constants and calibrability, under total isoperimetric-profile evolution.",
+          "Kipp's arXiv:2407.01353v2 abstract treats first-order extremality of the isotropic constant under other deformations and classifications of polytopal and zonotopal maximizers.",
+          "The caab5157a777 summary covers rectangles, including all-radius monotonicity for the regular square."
+        ],
+        "reasoning": "The total isoperimetric profile minimizes perimeter at fixed subarea, not the solid second moment; its measured quantities give no inequality here for J/A². Static extremality or local first-order conditions do not order this offset family. The rectangle theorem covers a genuine subset in the n parameter but not n≠4.",
+        "searches": [
+          "regular polygon outer parallel body Minkowski disk monotonicity isotropic constant solid polar moment of inertia normalized area Steiner rounded polygons covariance",
+          "arXiv:2610.29704v1 §3.2.2",
+          "Isotropic constants and regular polytopes arxiv Minkowski sums parallel bodies Kipp isotropic constant",
+          "Resultary: strict isotropic decrease along Euclidean outer parallel bodies of every rectangle"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and check_parallel_polygon.py",
+        "arXiv:2003.14182 Theorem 1.1",
+        "arXiv:2610.29704v1 §3.2.2",
+        "arXiv:2407.01353v2 abstract",
+        "Resultary e09883060ca0, caab5157a777, c7d29f80bf57 and cd13878768d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The area Steiner polynomial is shared background. The monotonicity certificate uses the distinct moment coefficients and the positive function g(α)=α²+α cos α sin α−2 sin² α.",
+          "The cube-rounding result covers the quadratic small-radius change for the plane square, and the rectangle summary covers its positive-radius ordering."
+        ],
+        "reasoning": "A second-order result at t=0 cannot order the whole family or imply its t→∞ coefficient; a rectangle result cannot be specialized to other regular polygon orders. The cited general isoperimetric results use different observables, so their monotonicity does not supply the coefficient sign or disk-limit gap for covariance.",
+        "searches": [
+          "arXiv:2003.14182 Theorem 1.1",
+          "arXiv:2610.29704v1 §§1, 3.2.2",
+          "Resultary c7d29f80bf57 and caab5157a777",
+          "Frozen RESULT.md lines 59–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen proof lines 46–50 identifies the scale-free polar moment J/A² as the exact equivalent invariant by rotational symmetry.",
+          "Richter–Saorín Gómez Theorem 1.1 concerns the isoperimetric quotient; Resultary cd13878768d7 concerns the polar-area product on the same path."
+        ],
+        "reasoning": "Solid polar moment is the integral of |x|² over the body; it is neither the perimeter squared nor a polar-body area. Equality of the geometric path and similarity of the limit rates do not identify these invariants. Disk comparison alone also does not order finite radii.",
+        "searches": [
+          "regular polygon outer parallel body Minkowski disk monotonicity isotropic constant solid polar moment of inertia normalized area Steiner rounded polygons covariance",
+          "Resultary: regular n-gon P_n+tB isotropic constant covariance determinant area squared",
+          "arXiv:2003.14182 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match e09883060ca0 is the present finding itself. Same-day caab5157a777 states all-radius monotonicity for every rectangle; c7d29f80bf57 records a local loss for rounded cubes, including squares, and a global result for 3D cubes.",
+          "cd13878768d7 shows a sharp inverse-square rate on the same family for a different invariant."
+        ],
+        "reasoning": "Credit the square overlap without inferring a publication order from the shared date. The rectangle summary does not settle whether the square's sharp large-radius coefficient is also stated there. The exact self-match is not priority evidence, and nearby entries do not cover the all-n assertion.",
+        "searches": [
+          "Resultary: positive t^-2 correction isotropic constant circular rounding regular polygon",
+          "Resultary: strict isotropic constant monotonicity regular polygons Minkowski disk",
+          "e09883060ca0",
+          "caab5157a777",
+          "c7d29f80bf57",
+          "cd13878768d7"
+        ]
+      },
+      "rationale": "Credit the isoperimetric and Mahler monotonicities on the same path, the disk's classical moment minimum, the local square behavior, and the same-day catalogue overlap on all-radius rounded-square monotonicity via rectangles. The supported distinct claim is the all-radius strict covariance ordering across the full regular n-gon family and the exact fixed-n large-radius correction. The available comparisons do not supply a theorem implying that full result.",
+      "residual_risks": [
+        "Full comparator mirror passages were not retrieved, notably the large-radius square behavior in the rectangle item.",
+        "A differently indexed classical solid-inertia or engineering formula may overlap with the exact polynomials or imply more; priority is not settled exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same path; different quotient",
+          "evidence": [
+            "Theorem 1.1 orders I(K_λ) on inner and outer offsets; surrounding text defines the quotient by surface area and volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2003.14182",
+          "material_read": "Primary abstract and §1 Theorem 1.1 and surrounding quotient definitions",
+          "method": "Open arXiv PDF preview and bounded original HTML passage after dedicated retrieval timed out",
+          "title": "On the monotonicity of the isoperimetric quotient for parallel bodies",
+          "trigger": "Earliest cited parallel-body monotonicity theorem"
+        },
+        {
+          "assessment": "Same scale-normalized body family, but isoperimetric rather than inertia comparison",
+          "evidence": [
+            "The stated consequences concern perimeter, p-Cheeger constants and finite-time calibrability; the total profile is not the solid covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29704v1",
+          "material_read": "Abstract, §1 Eqs. (1.1)–(1.2), §3.2.2 Propositions 3.10–3.12",
+          "method": "Targeted literature search and bounded primary PDF/HTML passages",
+          "title": "Monotonicity and evolution of total isoperimetric profiles under Minkowski regularization",
+          "trigger": "Potentially dominating general parallel-body result"
+        },
+        {
+          "assessment": "Different optimization problem and deformation; not a full-text negative claim",
+          "evidence": [
+            "The abstract concerns first-order extremality, local maximizers and zonotopes, not the solid offset profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.01353v2",
+          "material_read": "Primary abstract and section outline",
+          "method": "Title lookup and bounded original HTML inspection",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "Plausible stronger isotropic theorem about regular polytopes"
+        },
+        {
+          "assessment": "Verified square overlap on monotonicity; not dominance across n",
+          "evidence": [
+            "Universal rectangle ordering includes a regular square. The available summary does not state the sharp large-radius coefficient."
+          ],
+          "identifier_or_url": "caab5157a777",
+          "material_read": "Published catalogue statement; exact mirror passage could not be retrieved",
+          "method": "Resultary semantic lookup and local-mirror retrieval attempts",
+          "title": "Strict isotropic decrease along Euclidean outer parallel bodies of every rectangle",
+          "trigger": "Same-day possible dominating catalogue result"
+        },
+        {
+          "assessment": "Local square covariance precedent and global different-invariant precedent",
+          "evidence": [
+            "Cube record's planar overlap is local and its global claim is three-dimensional; the Mahler record orders polar-area product, not the covariance determinant."
+          ],
+          "identifier_or_url": "c7d29f80bf57; cd13878768d7",
+          "material_read": "Published ranked statements and frozen RESULT.md lines 96–105",
+          "method": "Resultary comparison; mirror passage retrieval attempted",
+          "title": "Sharp isotropic response to Euclidean rounding of cubes; Strict Mahler-product growth along circular roundings of regular polygons",
+          "trigger": "Closest cited same-invariant or same-family findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This compares a natural affine invariant along a canonical family of offsets of the basic planar polygons, distinct from the better studied perimeter and polar-area quotients. The all-radius strict ordering and explicit positive leading disk-limit gap are more informative than the disk moment bound or a numerical plot. The formula and sign certificate are reusable for this family; no broader monotonicity for arbitrary convex bodies is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

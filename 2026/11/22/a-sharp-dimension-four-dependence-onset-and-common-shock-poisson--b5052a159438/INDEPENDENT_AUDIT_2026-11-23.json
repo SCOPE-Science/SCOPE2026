@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:20.618717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each vertex in one induced facet is a sink with probability p=2^(1-d). With 2^(d-1) vertices and d-1 ordered neighbors per vertex, the variance is 1-dp; only adjacent sink indicators have negative covariance. Opposite facets use disjoint edges. For adjacent facets the shared vertex can be a sink in both iff all d incident edges point in. The contribution summed over the 2^(d-2) shared vertices is 1/4-2^(-d); the only other overlapping demands are ordered adjacent pairs inside the intersection, giving -(d-2)2^(-d). The sum is positive iff d≥4. At d=2 there are no shared edges; at d=3 conditioning on the sole shared edge leaves independent residual orientations. Reversing that edge preserves each square's conditional sink-count law by reflection, so the mixture is still independent. For the quantitative limit, each intersection vertex supports three mutually exclusive atoms requiring d directions; exterior atoms require d-1. Total atom means are 3/4, 3/4 and 1/4, with common atoms counted in both coordinates. The same-or-neighbor vertex neighborhoods have ≤3(d+1) indices, so b1≤(7/4)·3(d+1)·2^(1-d). Distinct same-vertex atoms are incompatible, and adjacent vertices' requirements overlap in at most one Bernoulli edge; b2≤2b1 and b3=0. The published AGG process bound 2(2b1+2b2+b3) uses doubled TV, yielding ordinary TV ≤63(d+1)2^(-d). The grouping map contracts TV and gives the specified independent Poisson marks, hence the joint no-sink limit e^(-7/4). The opposite pair has independent marginals with the same Poisson(1) limit. Replay: frozen RESULT.md §§1–4 and AGG Theorem 2, printed pp. 10–12. The uploaded checker was inspected, not run; its finite independence calculation reports the Boolean, and the dimension-uniform result rests on the proof, not the finite calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG Theorem 2 covers an arbitrary locally dependent indicator process once its means and overlap sums are provided; Example 1 instantiates it for whole-cube sinks.",
+          "The earlier subdivision record addresses graph-level source–sink covariance, not overlapping induced sink demands."
+        ],
+        "reasoning": "The abstract approximation is covered; it does not classify the finite pair or provide the geometry-specific mark process and intensity, which must be worked out for this experiment.",
+        "searches": [
+          "AGG Theorem 2, printed pp. 10–12",
+          "Resultary 2026/10/26/SCOPE-a-sharp-degree-four-subdivision-reversal-for-source-sink-covaria--916b3afa12fa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "AGG 1989 Theorem 2, convention, and Example 1",
+        "Resultary mirror: identical record and degree-four subdivision covariance; Cayley-tree summary",
+        "Cohn–Pemantle–Propp and Szabó–Welzl originals, bounded passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only a marked analysis on the facet intersection identifies three disjoint atom types and common mean 1/4. Shared-edge conditioning supplies exceptional independence that does not follow from zero covariance."
+        ],
+        "reasoning": "A univariate Poisson approximation cannot fix the common-shock mean, and the general process theorem yields the quantitative law only after the non-equivalent local geometric calculation. The novelty is the geometry-dependent two-facet result, not a new approximation principle.",
+        "searches": [
+          "AGG Theorem 2 and Example 1",
+          "Resultary subdivision covariance Finding at offset 931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top hit was the identical b5052a159438 record. Distinct source–sink subdivision work varies a graph edge, not a pair of cube facets.",
+          "AGG approximates one whole-cube count. The other primary sources concern conditioned sink-free orientations or orientations with exactly one sink per face."
+        ],
+        "reasoning": "The marginal of a facet is a whole-cube count one dimension lower, but that identification does not determine the coupling of two overlapping facet counts. Conditioning on no sinks, or prescribing one sink on each face, does not give the unrestricted coupling.",
+        "searches": [
+          "Resultary: fair-oriented cube facet sink-pair dependence and common-shock Poisson law",
+          "AGG DOI:10.1214/aop/1176991491, Example 1",
+          "arXiv:math/0103189; Szabó–Welzl Unique Sink Orientations of Cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the frozen result itself. The inspected distinct subdivision statement has a different random variable; AGG's whole-cube application is univariate. No inspected source provides a table of joint facet counts or their adjacent-facet covariance sequence."
+        ],
+        "reasoning": "The exact finite-dimensional laws in d=2,3 can be checked by enumeration, but such tables could not alone give the all-dimensional onset and common-shock limit. No applicable exact table was established by the searches.",
+        "searches": [
+          "Resultary exact pair-count and covariance hits, including same-record b5052a159438",
+          "AGG Example 1, printed p. 14"
+        ]
+      },
+      "rationale": "The surviving claim is a joint law and exact dependence classification for two specified induced facets under independent fair orientations. The general Chen–Stein method and its use on the whole-cube sink count are prior. The specific shared-edge covariance/independence analysis and positive limiting common component are not stated or mechanically supplied by the inspected prior claims.",
+      "residual_risks": [
+        "The focused primary search was unavailable; that is not negative evidence. Independently indexed work on multivariate local graph statistics could contain this pair law.",
+        "The exact source of the Cayley-tree hit was unavailable; its summary-level scope comparison does not establish whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the approximation method, not the geometry-specific joint claim",
+          "evidence": "Theorem 2 has doubled TV with bound 2(2b1+2b2+b3); Example 1 studies single sink count of the whole cube.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Author-hosted PDF printed pp. 10–12 (convention and Theorem 2; offsets 5236–12869); p. 14 (Example 1; offset 15709)",
+          "method": "Lawful OA original text, targeted passages",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "Strongest directly relevant general theorem and cube example"
+        },
+        {
+          "assessment": "Distinct operation and statistic",
+          "evidence": "Global source and sink counts under edge subdivision of the underlying graph, not two facet sink counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-degree-four-subdivision-reversal-for-source-sink-covaria--916b3afa12fa/RESULT.md",
+          "material_read": "Finding around offset 931",
+          "method": "Published mirror, original statement",
+          "title": "A sharp degree-four subdivision reversal for source–sink covariance",
+          "trigger": "Earlier apparent degree-four covariance overlap"
+        },
+        {
+          "assessment": "Summary describes a different model; full comparison unresolved",
+          "evidence": "The summary describes source/sink counts of oriented Cayley trees rather than induced overlapping facets of a fixed cube. No priority inference from shared date.",
+          "identifier_or_url": "2026/11/22/SCOPE-pairwise-source-sink-attraction-and-aggregate-repulsion-in-uniformly-oriented-Cayley-trees--6d3984824953",
+          "material_read": "Catalogue summary only; exact source unavailable in the mirror",
+          "method": "Resultary summary and bounded mirror lookup",
+          "title": "Pairwise source–sink attraction and aggregate repulsion in uniformly oriented Cayley trees",
+          "trigger": "Distinct same-date thematic hit"
+        },
+        {
+          "assessment": "Different experiment",
+          "evidence": "Uniform sampling under the global sink-free condition.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0103189",
+          "material_read": "Original PDF p. 2, offset 5540",
+          "method": "Lawful OA original text, targeted passage",
+          "title": "Generating a random sink-free orientation in quadratic time",
+          "trigger": "Primary sink-orientation antecedent"
+        },
+        {
+          "assessment": "Different orientation hypotheses",
+          "evidence": "One sink on every face is a defining constraint; the study considers algorithms for finding the sink.",
+          "identifier_or_url": "https://people.inf.ethz.ch/emo/PublFiles/UniqueSink_FOCS42nd_01.pdf",
+          "material_read": "Original PDF p. 1, offset 460",
+          "method": "Lawful OA original text, targeted passage",
+          "title": "Unique Sink Orientations of Cubes",
+          "trigger": "Primary cube-facet sink antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural joint statistic shows a finite independence threshold invisible to either facet marginal and persistent dependence even while each count becomes Poisson. The exact common intensity distinguishes adjacent from opposite facets, for example e^(-7/4) versus e^(-2) for joint absence. The classification and quantitative joint approximation are useful benchmarks for dependence among local optima on cube faces, without requiring the TV prefactor to be sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

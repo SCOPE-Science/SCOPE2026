@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:39.018444Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5, VERIFICATION.md, and verification/check_facet_stability.py (read only)",
+        "Independent exact replay: python3 /workspace/reproductions/geometry_and_dynamics.py simplex; gives (1/4,101/105,101/105,1/4) and 509/210"
+      ],
+      "rationale": "Writing λ_j=(c_j−u_j·x)/h_j, the facet coordinates of the foot of v_i are q_ij=−(h_i/h_j)g_ij. The affine projection of x onto F_i has coordinates λ_j+λ_i q_ij. Inside T, nonnegativity is precisely λ_j≥(−q_ij)_+λ_i, and subtracting these multiples from λ_j and scaling λ_i by 1+b_i sends this region bijectively to the standard simplex. Its apex has altitude h_i/(1+b_i), proving the volume ratio. Strictly interior foot and closed-foot conventions differ on null hyperplanes; the latter is the closure of the former. Linearity yields the mean, maximal iff every g_ij≤0. For the specified g>0, the two contributions with a=g h_i/h_j and b=g h_j/h_i are at least (a+b+2g²)/(1+a+b+g²), strictly increasing in a+b since g<1. Equality requires equal heights and no extra positive pair. To check existence, take the two stated apices (±a,b,0) and a centered regular equatorial simplex of radius ρ. If m=d−1, the remaining gradients have y component −1/(bm); for m>1 their mutual products are 1/(bm)²−(m−1)/(m²ρ²), strictly negative for small ρ. Their products with the apical gradients are negative; for d=2 there is just one remaining gradient. This realizes each angle with the claimed equality. The four rational benchmark probabilities and the sum were independently recovered by cofactor inversion of the affine vertex matrix.",
+      "residual_risks": [
+        "The benchmark replay is not a substitute for the all-dimensional proof. The result is about uniform variable center, not the single center of a uniformly dense simplex."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nasonov et al. p. 17 average all normals over the reference point. Domokos–Lángi measure minimum displacement to change the equilibrium count; the ridge result bounds all normal bases."
+        ],
+        "reasoning": "A sum over unidentified strata cannot be restricted to obtain the exact facet count, and a minimum displacement does not determine volumes. The general prism representation does not supply the simplex-specific exact evaluation.",
+        "searches": [
+          "Nasonov et al., arXiv:2406.01773, active regions and average normals; Domokos–Lángi, arXiv:1301.4031; earlier Resultary ridge obstruction"
+        ]
+      },
+      "checked_sources": [
+        "Three cited OA texts and two actual nonidentical Resultary statements above; local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Targeted primary search did not provide a stronger candidate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ridge result uses exactly Q_ij=gh_j/(h_i+gh_j)+gh_i/(h_j+gh_i), and bounds ridge success by 1−Q_ij and the all-strata mean by 2^(d+1)−2−Q_ij."
+        ],
+        "reasoning": "The prior deficit can reside in the ridge and its global bound alone does not prove loss among facets. A facet-specific volume calculation and realizability/equality argument remain necessary, even though the same algebraic pair term occurs in both results.",
+        "searches": [
+          "Resultary ridge-normal obstruction, Finding and Proof; arXiv:2406.01773 pp. 3–4, 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nasonov et al. pp. 3–4 identify the same set as T intersected with a facet normal prism. Almádi et al. pp. 2–3 use the relative-interior foot condition for freely assigned centers."
+        ],
+        "reasoning": "These are equivalent formulations of the event itself, but neither quantitative statement gives the new simplex, its normalized volume, or the facet mean.",
+        "searches": [
+          "Resultary searches for simplex facet-active regions and facet-stability volumes; Almádi et al., arXiv:2304.06984; Nasonov et al., arXiv:2406.01773"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit is the bound record itself. The published tetrahedron realizes qualitative monostability, not a table of uniform-center facet probabilities. Distinct same-day centroid separation concerns other observables."
+        ],
+        "reasoning": "The instance is not credited as a new tetrahedron. No matching numerical probabilities or theorem-wide census was found in the checked sources; absence from the index is not a proof of novelty.",
+        "searches": [
+          "Resultary searches for facet-active-locus and sharp dihedral volumes; inspected tetrahedron example of Almádi et al."
+        ]
+      },
+      "rationale": "The supporting-foot event and facet active region are prior objects, and the earlier ridge obstruction contains exactly the same two-term altitude/angle expression. The credited increment is the simplex-specific exact region and volume law, all-facet mean, and sharp deficit and equality for this facet count, not the definition, the tetrahedron, or the rational pair expression in isolation.",
+      "residual_risks": [
+        "An earlier equivalent evaluation expressed in simplex normal-prism coordinates remains possible; search is bounded.",
+        "Neither the qualitative definition nor the pairwise function Q_ij is itself an originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact qualitative overlap, not a volume law",
+          "evidence": "Foot in relative interior; Theorem 1 gives criteria and particular centers for weighted monostability.",
+          "identifier_or_url": "arXiv:2304.06984",
+          "material_read": "pp. 2–3, definitions, Theorem 1 and explicit example (OA offsets 8200–11625)",
+          "method": "OA PDF full-text comparison",
+          "title": "On equilibria of tetrahedra",
+          "trigger": "Same stability event, tetrahedral example and free centers"
+        },
+        {
+          "assessment": "Prior active-region definition, average over different count",
+          "evidence": "Facet active region is a right prism intersected with the polytope; tetrahedral all-normal mean satisfies 4<EN(P)≤14.",
+          "identifier_or_url": "arXiv:2406.01773",
+          "material_read": "pp. 3–4 (offsets 6300–9496) and p. 17 (33700–36681)",
+          "method": "OA PDF full-text comparison",
+          "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree",
+          "trigger": "Same normal-prism regions and expected count"
+        },
+        {
+          "assessment": "Material quantitative overlap but different strata and count",
+          "evidence": "Q_ij is the same rational term; prior asserts a codimension-two obstruction, not a volume law for a codimension-one active region.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-exact-ridge-normal-obstruction-and-a-quantitative-mean-normal--1b8d323e321a",
+          "material_read": "RESULT.md Finding and Proof from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact ridge-normal obstruction and a quantitative mean-normal deficit for simplices",
+          "trigger": "Exact match of the two pair terms"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Minimal normalized displacement of the center changing the number of static equilibria, not a facet-active probability.",
+          "identifier_or_url": "arXiv:1301.4031",
+          "material_read": "pp. 1–3 (OA offsets 6700–9671)",
+          "method": "OA PDF full-text comparison",
+          "title": "The robustness of equilibria on convex solids",
+          "trigger": "Earlier internal center displacement invariant"
+        },
+        {
+          "assessment": "Different observables",
+          "evidence": "Compares surface and volume centroids and dominant facet areas/normals, not support probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-surface-volume-centroid-separation-and-two-facet-concentra--6976d4bee83b",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp surface-volume centroid separation and two-facet concentration",
+          "trigger": "Distinct same-date simplex facet-normal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–5",
+        "Compared qualitative weighting and all-normal mean in cited full texts"
+      ],
+      "rationale": "The exact active simplex quantifies the mass-center robustness of each natural support facet rather than testing a single center. The mean and a sharp shape-to-stability loss with equality characterize a measurable aspect of variable-center equilibrium distinct from all-strata counts. In particular, knowing an obtuse dihedral angle alone gives an optimal dimension-independent loss without reconstructing the shape.",
+      "residual_risks": [
+        "Single-facet probabilities and their mean do not establish joint correlations or a general polytope formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

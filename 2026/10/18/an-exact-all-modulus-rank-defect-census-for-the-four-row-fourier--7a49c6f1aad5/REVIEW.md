@@ -1,15 +1,21 @@
-# Scientific review of the Fourier rank-defect census
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is precise for every integer \(N\ge5\), four distinct columns, and unnormalized complex Fourier rows \(\{0,1,3,4\}\). A generalized Vandermonde factorization reduces singularity to a six-root vanishing sum. The complete minimal-root classification of Poonen and Rubinstein yields only the three partitions \(2+2+2\), \(3+3\), and primitive \(6\). Graph-edge incidence forces the first two configurations, while a unique opposite-edge matching in the primitive relation leaves exactly two thirtieth-root translation orbits. Inclusion-exclusion gives the all-order formula, and a degree-four polynomial argument shows every singular minor has rank three. The verifier additionally checks the determinant polynomial identity; exact cyclotomic verification covers nineteen finite orders; it is evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The 2021 continuous-array paper by Matter and collaborators already studies this exact Schur polynomial and the root-sum families, including eight normalized primitive exceptional configurations. The determinant and continuous ambiguity mechanisms are **not original** here. The narrower accepted claim is the all-\(N\) arithmetic census of unordered Fourier-column selections, overlap correction at \(4\mid N\) and \(6\mid N\), the isolated \(30\mid N\) contribution \(2N\), and rank-three completeness. The closest known published same-row theorem decides full spark, not positive defect counts; the row pattern \(\{0,1,2,4\}\) has a different enumeration. A previously unindexed count extracted from the continuous paper is the main residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The fixed pattern is already a standard counterexample to divisor-uniformity sufficiency for full spark. Computing how many four-column apertures fail, rather than merely whether one fails, provides a natural exact reliability invariant of that harmonic frame. Its unexpected primitive-thirtieth-root jump and precise cross-family overlaps are not obtainable from the binary full-spark criterion. The theorem is a natural complete classification and exact enumeration, not an arbitrary parameter slice or minor numeric increment.
+For distinct roots a left-null row polynomial supported on 0,1,3,4 must be proportional to the monic quartic with these roots, so singularity means its z² coefficient e₂ vanishes and nullity is one. The six terms of e₂ decompose by the prior minimal vanishing-sum classification into opposite pairs, cube-root triples, or a primitive weight-six relation. Opposite edge products sharing a vertex force two roots to be antipodes; if all paired edges are disjoint the equations force a squared ratio of one, again yielding antipodes by distinctness. Substitution requires the remaining pair product u². A three-edge star or triangle forces a complete ternary coset; two complementary paths instead force all four distinct roots into one ternary coset, impossible. For the primitive relation S={5,25,6,12,18,24}, zero is the only residue hit by three pair sums, giving the unique opposite-edge matching. There are at most 48 label placements and exactly 24 relabelings in each projective class since all six product terms are distinct; root ratios are uniquely read from ratios of products sharing a vertex. The two displayed configurations realize the two distinct classes, with circular gaps (12,1,6,11) and (6,1,12,11), hence free translation orbits. The primitive product ratios include exact order 30. Counting unordered inverse partners after removing ±u yields (N−2)/2 choices per designated antipodal pair. Double counting within that family is exactly the fourth-root cosets, and overlap with ternary cosets is exactly a ternary coset plus the negative of one member. This gives the two subtractions and the 2N exceptional contribution. Independent anchored-set cyclotomic arithmetic verified totals at N=5,7,18,28,30,31,54,60,90, including 510,2055,4680 at 30,60,90 and exactly two normalized primitive classes there.
 
-## Limitations and evidence
-Sources: Poonen–Rubinstein, arXiv:math/9508209, Theorem 3; Matter–Fischer–Pesavento–Pfetsch, arXiv:2110.10756, Example V.1; Alexeev–Cahill–Mixon, arXiv:1110.3548, composite-order counterexample; subsequent published same-row full-spark and different-row defect results. The verifier performs exact integer arithmetic but covers only its listed orders. An independent literature or mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Schur determinant, shape of both infinite ambiguity families, and both exceptional orbit representatives are covered by Matter et al. for the same row pattern, and the earlier exact full-spark result already says when the census is zero. The supported distinct contribution is the all-modulus arithmetic multiplicity of distinct unordered singular minors: it counts admissible partners on each cyclic grid, proves when a grid set is counted more than once, and accounts for the exceptional translation orbits. The total with the fourth-root and ternary/antipodal overlap corrections does not follow by merely substituting N into a prior formula. No earlier enumeration of this count was located in the bounded comparison.
+
+## value
+
+PASS
+
+For the established four-sensor row pattern, the number of rank-deficient four-column selections is a natural measure of how frequent reconstruction ambiguities are beyond merely knowing that a bad selection exists. The closed formula captures the actual multiplicity at each modulus, including a distinct anti-overcounting correction at multiples of 4, interaction at multiples of 6, and exceptional jumps at multiples of 30. These are useful in answering an exact census question without scanning the binomial number of possible selections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

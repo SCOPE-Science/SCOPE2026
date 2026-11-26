@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:13:53.305659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–50",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent orbit, eigenvalue, envelope and budget-inversion reconstruction"
+      ],
+      "rationale": "Simultaneous permutations of paired indices and class exchange preserve cost and decrease the centered operator norm under averaging. Invariant chains have cost n[(n-1)a+t b], since each cross-edge is counted once. Writing s=(n-1)a+b, block splitting gives the nontrivial eigenvalues 1-2s, 1-na and 1+na-2s. For r=1-theta, feasibility implies a>=r/n and (r+na)/2<=s<=(1+theta)/2, hence a<=2 theta/n and b>=max(0,[r-(n-2)a]/2). The lower cost envelope has slopes (n-1)-t(n-2)/2 and n-1 after the kink. Its selected points are feasible: the equal-weight point has nontrivial eigenvalues 2 theta-1, theta, theta; the cap point a=2 theta/n has -theta, 1-2 theta, theta; at b=0, a=r/(n-2), the spectral inequalities hold at and above theta_c and s<1. Convexity supplies the full feasible optimal tie segment, and positive t makes equality in the lower bound necessary. For theta<1/3 the necessary interval is empty. With b=0 feasibility requires theta>=theta_c; averaging transfers the exclusion to arbitrary symmetric competitors. The costs are continuous and strictly decrease to the 1/3 floor; their affine inverses give the stated budget branches, and B=0 forces the identity. The proof also covers theta=1/3 and theta=theta_c; the list of all minimizers is only for the invariant class.",
+      "residual_risks": [
+        "The reported 12885 exact assertions are finite corroboration, not the all-n proof.",
+        "No classification of all unrestricted discrete-time optimizers is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. provide orbit averaging and edge-transitive optimization; these yield the unpriced 1/3 floor and the crown endpoint n/(3n-4).",
+          "ab43d87936fe gives the exact weighted continuous-time gap at every t and all equality allocations. efaad5dd81d4 also covers the continuous-time transition; 5eef16ab8cf4 concerns the crown endpoint and its stability."
+        ],
+        "reasoning": "The textbook symmetry method and the two unpriced/deleted endpoints alone do not yield the frontier. The sharp weighted gap result covers the price transition and the full unclipped tie family; the capacity law supplies the new per-rate restriction required to clip it.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955, §§2, 3.1, 3.1.2 and 5.3.1",
+          "Local Resultary: ab43d87936fe, efaad5dd81d4, 5eef16ab8cf4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and references",
+        "Local Resultary ab43d87936fe, 5db86611e174 and related records",
+        "Boyd et al., arXiv:0709.0955",
+        "One targeted literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By scaling the continuous-time result, C at t_c is at least (n-1+t_c)r, with equality on invariant allocations b=(r-(n-2)a)/2 and r/n<=a<=r/(n-2).",
+          "The fixed-matching law forces b>=b0=max(0,[n-(3n-4)theta]/(2n)) for every invariant feasible chain. For theta<theta_c its attaining deficient-side optimizer at b=b0 has a=2(1-2b0)/(3n-4)=2 theta/n and lies on the continuous-time equality segment."
+        ],
+        "reasoning": "For t>t_c write C_t=C_{t_c}+n(t-t_c)b. Both lower bounds are simultaneously tight: the capacity optimizer above gives equality below theta_c, and the crown endpoint of the scaled continuous-time face is feasible at and above theta_c, giving equality there. Equality fixes both a and b. For t<t_c scaling the unique continuous-time equal-weight optimizer attains its gap-derived lower bound without violating SLEM. At t=t_c the continuous-time equality face is clipped by the bipartition constraint a<=2 theta/n; the other nontrivial eigenvalues there are theta and 1-na and cause no extra cut. This also gives the forced matching-weight claim by averaging, the 1/3 floor from the capacity minimum, and the budget version by inversion. No new independent optimization or residual theorem is needed.",
+        "searches": [
+          "ab43d87936fe Finding offset 0 and 5db86611e174 Finding offset 0, comparing equality cases and feasibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ab43d87936fe uses the same price model with the continuous-time gap and gives the exact critical-price equality family.",
+          "5db86611e174 uses the same stochastic matrix and centered SLEM with matching weight fixed rather than priced."
+        ],
+        "reasoning": "Set L=I-P. A SLEM bound theta implies the continuous-time gap is at least r=1-theta, but it also imposes a largest-eigenvalue cap on L. Thus continuous-time gap and discrete-time SLEM are not identical or sufficient on their own. The fixed-matching SLEM law supplies the missing rate constraint on matching weights.",
+        "searches": [
+          "Local Resultary: balanced biclique matched-edge price, fastest mixing SLEM frontier, fixed matching channel",
+          "Mirror findings ab43d87936fe and 5db86611e174"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index gives t_c=2(n-1)/(n-2) and the explicit critical-price equality allocations.",
+          "The indexed capacity law gives rho_n(b)=max{n(1-2b)/(3n-4),(n-2+2nb)/(3n-2)}, including a specified attaining matrix."
+        ],
+        "reasoning": "There is no need for a numerical table: exact indexed formulas give both the universal cost bound and the minimum feasible matched weight. They have a common equality case, as verified below.",
+        "searches": [
+          "Local Resultary exact formula search: matching price threshold and matching-channel SLEM law, ab43d87936fe and 5db86611e174"
+        ]
+      },
+      "rationale": "The closest continuous-time result alone does not cover the expensive active-matching branch. However, its sharp critical-price bound and complete equality family, combined with the distinct exact fixed-matching SLEM capacity law, give the complete priced discrete-time statement by a sharp sum of two known bounds, with compatible equality already furnished by the capacity optimizer. The exact implication below includes the intermediate branch and tie face; this is not a title or parameter match, nor a judgement of priority based on the record dates.",
+      "residual_risks": [
+        "The gap result is not identified with the SLEM result; coverage uses two indexed theorems together.",
+        "Independent derivation, historical chronological priority and exhaustive literature coverage are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact weighted gap bound and equality family, but not discrete-time SLEM alone",
+          "evidence": "Unit-budget optimum and complete equality allocations are explicit for t<t_c, t=t_c and t>t_c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2300, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded reading",
+          "title": "A discontinuous matching-price frontier for fastest mixing on balanced bicliques",
+          "trigger": "Identical graph, pricing, critical price and tie family"
+        },
+        {
+          "assessment": "Exact complementary constraint; jointly covers full priced theorem",
+          "evidence": "The deficient-side SLEM formula forces the minimum b and its explicit off-matching weight simultaneously saturates the continuous-time critical-price cost bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174/RESULT.md",
+          "material_read": "Finding, assumptions and symmetry opening, offsets 0–3327, same mirror snapshot",
+          "method": "Local mirror bounded reading and algebraic equality-case comparison",
+          "title": "Sharp matching-channel capacity law for fastest mixing on K_{m,m}",
+          "trigger": "Same chain and SLEM with matched weight fixed; potential exact implication"
+        },
+        {
+          "assessment": "Established method and endpoint values, not a heterogeneous-price frontier",
+          "evidence": "Edge-transitive formulas give p=2/(3n) for the unpriced balanced biclique and p=2/(3n-4) on the crown, with corresponding SLEM 1/3 and n/(3n-4).",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§2 PDF pp. 6–7, §3.1 p. 8, §3.1.2 pp. 9–10 Eqs. (10)–(11), §5.3.1 p. 27",
+          "method": "Targeted primary OA PDF passage inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Primary reference for orbit reduction and the two endpoints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and optimization proof",
+        "ab43d87936fe and 5db86611e174, exact formulas and attainment"
+      ],
+      "rationale": "The tradeoff itself is natural and the necessity of matched transitions at tight SLEM is useful. The precise frontier and regimes, however, follow directly by adding exact covered lower bounds and checking their known attaining designs coincide. The budget inversion and clipped segment do not provide a noncovered scientific remainder as submitted.",
+      "residual_risks": [
+        "A clear synthesis can have expository utility; this verdict assesses a distinct scientific result under the stated standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

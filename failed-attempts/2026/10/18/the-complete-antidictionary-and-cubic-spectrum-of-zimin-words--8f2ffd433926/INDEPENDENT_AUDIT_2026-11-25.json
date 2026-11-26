@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:32:53.604323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen maw_verify.py lines 21–81 (inspected, not executed)"
+      ],
+      "rationale": "The all-rank proof works for finite linear words over exactly the used alphabet. At one-based position i the letter is 1+v2(i). If the middle u of a minimal absent aub is nonempty with maximum h, every occurrence sits at the same offset in an aligned Z_h block (the unique h fixes that offset). If h=n the occurrence is unique; if u is shorter than Z_h, a fixed neighbor on an end interior to the block forces co-occurrence of the two extensions. Hence the only nonempty possible middles are full Z_j, j<n. At an internal Z_j block its two neighbors are determined by the valuations of consecutive positive block indices: exactly one neighbor equals j+1. Both orientations with each larger letter occur using the block indices 2^(letter-j-1) and its predecessor; the one-sided sets include the two ends of the host and in the two-block case contain just n. For the empty middle all letters are available and adjacency is exactly 1 next to a larger letter, in both orders, with no adjacency for n=1. The missing ordered pairs give the stated disjoint union, sizes, lengths and sum. This proof, not the recorded finite checker, establishes completeness.",
+      "residual_risks": [
+        "No extension to circular, infinite, or larger-alphabet words; cubic growth is the number of entries, not the number of letters in an explicitly encoded list."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zimin factor membership and pattern search appear in Głowinski–Rytter and Rytter–Shur. Barton et al. and Crochemore et al. treat arbitrary-word computation and sequence comparison."
+        ],
+        "reasoning": "A pointwise membership test or general algorithm makes finite cases computable but does not itself supply an all-rank closed classification. The decisive overlap is the distinct exact catalogue theorem.",
+        "searches": [
+          "arXiv:1307.1560",
+          "arXiv:1409.8235",
+          "arXiv:1406.6341",
+          "arXiv:1506.04917"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirrored record 6a29e54c5e07",
+        "arXiv:1409.3080",
+        "arXiv:1406.6341",
+        "arXiv:1506.04917",
+        "arXiv:1307.1560",
+        "arXiv:1409.8235"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cooper–Rorabaugh provide the recursion and valuation representation. The matching catalogue theorem already asserts the complete minimal-absence classification using the same host and occurrence definitions."
+        ],
+        "reasoning": "The classical recursion is an input, not itself the classification. Once the exact indexed theorem is stated, the frozen claim follows without any new mathematical argument beyond relabeling. That conclusion does not establish historical priority.",
+        "searches": [
+          "arXiv:1409.3080",
+          "Matching catalogue record, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching record RESULT.md, Finding and Assumptions and scope: both use the full used alphabet of the finite linear word; a_i maps bijectively to i."
+        ],
+        "reasoning": "Under this alphabet bijection, contiguous occurrence and both one-letter deletions are preserved, and every term of the two unions agrees.",
+        "searches": [
+          "Resultary: finite Zimin/ruler word minimal absent factors, anti-dictionary and extension graphs",
+          "SCOPE-the-complete-anti-dictionary-of-finite-zimin-words--6a29e54c5e07"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching entry gives lengths 2^m+1, multiplicities 1+(n-m-1)^2, total n+n(n-1)(2n-1)/6, and the complete word list by a disjoint union."
+        ],
+        "reasoning": "This is exact symbolic coverage for unbounded rank rather than finite numerical agreement.",
+        "searches": [
+          "Resultary: Zimin antidictionary exact length spectrum and cubic count",
+          "Matching catalogue record RESULT.md, Finding, offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed record states the same theorem for all n and the same finite linear scope: renaming a_i to i identifies the full antidictionaries and both enumerations. Its proof presentation is different, but the frozen Finding claims the covered classification, not a distinct theorem. This establishes equivalent coverage in the inspected catalogue, not which proof was first, attribution, or derivation between the records. The matching record is under a later date path than the frozen record.",
+      "residual_risks": [
+        "Publication priority and the relation between the two records are not established by catalogue date paths.",
+        "Primary-source review was targeted and was not an exhaustive priority search; equivalent coverage is documented directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; priority not inferred",
+          "evidence": "Union of {a_(m+1) Z_m a_(m+1)} with all a_i Z_m a_j for i,j≥m+2; matching lengths, multiplicities and total. The proof opens with ruler positions, prefix continuation and borders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-anti-dictionary-of-finite-zimin-words--6a29e54c5e07/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and opening proof at offset 0; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read exact mirrored text and compare term by term",
+          "title": "The Complete Anti-Dictionary of Finite Zimin Words",
+          "trigger": "Exact catalogue hit by Zimin antidictionary and spectrum"
+        },
+        {
+          "assessment": "Foundational overlap, not the same observable in the inspected passage",
+          "evidence": "Zimin recursion and binary valuation positions are used for pattern avoidance.",
+          "identifier_or_url": "arXiv:1409.3080",
+          "material_read": "p. 2, OA offset 4514",
+          "method": "Inspect the definition and valuation representation",
+          "title": "Bounds on Zimin Word Avoidance",
+          "trigger": "Classical Zimin and ruler representation"
+        },
+        {
+          "assessment": "General method, not a Zimin spectrum in the inspected material",
+          "evidence": "Arbitrary-input MAW computation from factor occurrences.",
+          "identifier_or_url": "arXiv:1406.6341",
+          "material_read": "p. 1, OA offset 1529",
+          "method": "Read definition and algorithmic scope",
+          "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+          "trigger": "Generic minimal-absence computation"
+        },
+        {
+          "assessment": "Different result with overlapping definitions",
+          "evidence": "General sequence comparison using minimal absent words.",
+          "identifier_or_url": "arXiv:1506.04917",
+          "material_read": "p. 2, OA offset 4641",
+          "method": "Read definition and scope",
+          "title": "Linear-Time Sequence Comparison Using Minimal Absent Words & Applications",
+          "trigger": "Minimal-absence comparison and circular variants"
+        },
+        {
+          "assessment": "Background, not direct full-spectrum coverage in the passages",
+          "evidence": "Factor criterion and pattern searching rather than the MAW classification.",
+          "identifier_or_url": "arXiv:1307.1560; arXiv:1409.8235",
+          "material_read": "First source p. 2 offset 6665–7198; second p. 1 offset 734",
+          "method": "Compare objects and output of stated criteria/problems",
+          "title": "Zimin-factor membership and Zimin pattern search",
+          "trigger": "Broader recognition results cited by the exact match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Matching catalogue RESULT.md, Finding and opening Proof"
+      ],
+      "rationale": "The antidictionary is a natural structural quantity and the count is useful in explaining its compression. As an additional finding, however, the record supplies precisely the same classification and count as the distinct indexed theorem; no further mathematical result or independent benefit from the alternate proof is established.",
+      "residual_risks": [
+        "This judgment concerns the value added by this finding, not the significance of the classification itself or historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

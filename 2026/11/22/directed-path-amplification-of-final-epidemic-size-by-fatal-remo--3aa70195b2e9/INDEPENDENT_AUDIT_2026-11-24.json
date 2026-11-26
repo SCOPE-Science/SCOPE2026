@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:37:32.914146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–81",
+        "Frozen VERIFICATION.md and checker.py lines 10–99",
+        "Independent analytic derivation and bounded two-group fixed-point and finite-difference check"
+      ],
+      "rationale": "In the physical region total population including D is conserved, and (R_i+D_i)(t)=k_i∫I_i≤N_i0 gives N_i(t)≥(1−q_i)N_i0. Integrated infection pressure is finite, so S_i∞>0; bounded derivatives and integrable I_i give I_i∞=0. Integration of d log N_i or its constant-denominator q_i=0 limit yields the displayed Φ_q and the final-size map on h≥0. Positive seeds and nonzero input in every row give F(0)>0 componentwise. The map is increasing, bounded and componentwise concave. A compact order interval gives existence, and comparing two positive fixed points at their largest coordinate ratio, using F(rv)≤rF(v)−(r−1)F(0), gives uniqueness in the physical orthant. The tangent inequality gives DF(h)h≤F(h)−F(0)<h, so the weighted maximum norm implies ρ(J)<1 without irreducibility. Implicit differentiation at fixed k and initial state gives (I−J)∂h/∂q_j=K_:j w_j, then ∂z_i/∂h_i=1−z_i; the q_j=0 derivative is one-sided in the admissible domain. Every term J^rK has the support of walks of length r+1, and all scalar factors of the derivative are positive. Distinct endpoints therefore require reachability and self-influence requires a positive-length return, including a self-loop. Fixed exit leaves both reference next-generation matrices and mean infectious duration independent of q; freezing the denominator eliminates q from the (S,I) equations. An independent bounded fixed-point check reproduced the two displayed final infection vectors, ρ(K)=2.02284161, and the analytic first sensitivity column matched a central difference at step 10⁻⁵. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The uniqueness assertion is for h≥0, not all algebraic solutions under formal continuation.",
+        "All groups are strictly seeded and q_i<1. This deterministic constant-rate result supplies no stochastic or real-world intervention claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kennan, Theorem 3, gives positive fixed-point uniqueness for increasing concave maps with bounds.",
+          "Piotrowski–Cavalcante, abstract, treats geometric convergence for positive concave maps; Almeida et al., arXiv:2010.15410, pp. 1–2, treats heterogeneous SEIR final sizes."
+        ],
+        "reasoning": "General fixed-point theory supplies uniqueness machinery, and implicit differentiation supplies the generic inverse-Jacobian identity. Neither identifies the fixed-exit forcing column in these equations or resolves its zero pattern in sparse networks. These methods are not claimed new.",
+        "searches": [
+          "Primary literature: epidemic final size positive concave map fixed point uniqueness Jacobian spectral radius comparative statics multigroup SIRD",
+          "Kennan FixedPoint21.pdf Theorem 3; Piotrowski–Cavalcante arXiv:2110.11055"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md related work",
+        "Melo–Santos arXiv:2601.15388",
+        "Resultary …86fd5f29697c, …9a3bbd344ba1, …ff902f4f891f and assigned …3aa70195b2e9",
+        "Kennan Theorem 3; Piotrowski–Cavalcante and Almeida et al., described passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Melo–Santos Proposition 3.1 compares transmission coefficients; Theorem 3.5 proves the final-state characterization under its hypotheses.",
+          "The earlier Resultary network result proves uniqueness/bracketing in the fully interacting case, where all entries are positive and the novel zero classification is absent.",
+          "The frozen source credits a scalar exercise; its primary wording was not independently retrieved."
+        ],
+        "reasoning": "Direct parameter ordering and ordinary positive-map monotonicity suggest a response but do not by themselves determine strictness only along positive-length directed paths, including the self-cycle exception. The prior fully interacting result cannot be specialized to a reducible graph. No distinct inspected result subsumes the exact model-specific sensitivity and support.",
+        "searches": [
+          "Primary literature: multigroup epidemic final size derivative disease mortality fixed total removal rate directed network path sensitivity",
+          "Primary literature: ‘final size’ ‘survival probability’ epidemic fixed reproduction number mortality sensitivity Diekmann Heesterbeek Britton exercise 1.26",
+          "Melo–Santos Theorem 3.5, Proposition 3.1 and Example 5.2; Resultary …86fd5f29697c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Melo–Santos arXiv:2601.15388 §1 Eq. (1) uses living N_i and total removal γ_i+μ_i; Example 5.2 fixes γ while changing μ.",
+          "Resultary …9a3bbd344ba1, Finding, varies μ at fixed γ and studies eventual deaths, not the fixed-exit infection response."
+        ],
+        "reasoning": "In μ,γ coordinates the comparison is along μ+γ fixed and varies μ/(μ+γ); a partial in μ at fixed γ mixes different effects. A mortality trend in that experiment or an eventual-deaths derivative is not equivalent.",
+        "searches": [
+          "Resultary: active population SIRD fixed infectious duration fatality derivative resolvent path reachability parameter q final size",
+          "Primary literature: ‘active-population’ SIRD final size mortality recovery split fixed infectious exit fatality sensitivity derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed hit …3aa70195b2e9 is the assigned record. Strongest earlier hit …86fd5f29697c was inspected in the mirror; …9a3bbd344ba1 and …ff902f4f891f were also compared."
+        ],
+        "reasoning": "There is no fixed finite table to check; the search targets the parameterized identity and sharp support criterion in the findings index. The exact hit is not independent priority evidence. The neighboring fixed-reproduction inversion entry has constant population and a different parameter allocation.",
+        "searches": [
+          "Resultary: active population SIRD fixed infectious duration fatality derivative resolvent path reachability parameter q final size"
+        ]
+      },
+      "rationale": "Credit the active-population equations, scalar mortality effect, final-size map, and generic positive-concave fixed-point theory. The supported distinct statement is the exact fixed-exit resolvent sensitivity, with both positive and zero responses completely classified on reducible directed networks and a fixed-denominator comparator. Neither the inspected earlier beta monotonicity result nor the closest fixed-point/bracketing theorem establishes that classification.",
+      "residual_risks": [
+        "Earlier full texts of Brauer (2008), Brauer–Watmough (2009) and the exact textbook Exercise 1.26 were unavailable in the bounded review.",
+        "Final size of network epidemic models: properties and connections was found only at snippet level, with unavailable full text; it is not treated as having no overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational model and different monotonicity/parameter comparison",
+          "evidence": "The comparator in Example 5.2 changes total exit as μ varies at fixed γ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.15388",
+          "material_read": "§1 Eq. (1) offset ~1500; Theorem 3.5 p. 8 offset 30336; Proposition 3.1 p. 11 offset 41000; Example 5.2 pp. 17–18 offset 60000",
+          "method": "Open PDF passages",
+          "title": "Final size of a structured SIRD model with active-population force of infection",
+          "trigger": "Same denominator model and a prior mortality experiment"
+        },
+        {
+          "assessment": "Prior uniqueness and certified iteration, not the general directed sensitivity claim",
+          "evidence": "Finding assumes full interaction and gives geometric bracketing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c/RESULT.md",
+          "material_read": "Finding, assumptions and relationship passage, offsets 0 and 5999 onward",
+          "method": "Local mirror",
+          "title": "Parameter-unrestricted final-size uniqueness and certified geometric bracketing in active-population SIRD networks",
+          "trigger": "Strongest earlier result on the same fixed-point system"
+        },
+        {
+          "assessment": "Different quantity and perturbation",
+          "evidence": "High-mortality response of eventual deaths at fixed recovery rate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-mortality-response-sign-reversal-under-active-population-sird--9a3bbd344ba1/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A mortality-response sign reversal under active-population SIRD normalization",
+          "trigger": "Closest indexed mortality and denominator comparison"
+        },
+        {
+          "assessment": "Not equivalent; no priority ordering inferred from the shared date",
+          "evidence": "Two-type constant-population SIR with vanishing seed, varying susceptibility–infectivity allocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fixed-reproduction-inversion-of-epidemic-outbreak-probability-an--ff902f4f891f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Fixed-reproduction inversion of epidemic outbreak probability and final attack size",
+          "trigger": "Same theme of final-size comparisons at fixed threshold"
+        },
+        {
+          "assessment": "Credits generic fixed-point argument, not an epidemiological sensitivity theorem",
+          "evidence": "Positive fixed-point uniqueness for increasing concave functions with bounds.",
+          "identifier_or_url": "https://users.ssc.wisc.edu/~jfkennan/research/FixedPoint21.pdf",
+          "material_read": "Theorem 3, pp. 2–3, offset 3800",
+          "method": "Open PDF passage",
+          "title": "Uniqueness of Positive Fixed Points for Increasing Concave Functions on R^n",
+          "trigger": "Potential broader positive-concave-map theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, fixed-population contrast and Limitations",
+        "Melo–Santos Eq. (1) and Example 5.2"
+      ],
+      "rationale": "This mathematical comparison isolates an effect invisible to the reference reproduction threshold and absent in the fixed-denominator model. Rather than simply proving aggregate monotonicity, it gives exact target-wise support even when the contact matrix is reducible, including a criterion for no self-response despite a source perturbation. That distinction matters when interpreting what this model's normalizations do and do not encode.",
+      "residual_risks": [
+        "Value is an exact comparison of abstract equations; no clinical or empirical prescription is derived."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

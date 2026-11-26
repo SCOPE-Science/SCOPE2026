@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:17:46.035265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49, VERIFICATION.md lines 19–27; verify.py and full_spectrum.cpp inspected, not executed",
+        "Fresh exact constrained replay: /workspace/branches/52edb01e-b976-4116-9ebe-6193562809e2/reproduce_rhombicuboctahedron.py and reproduction.txt"
+      ],
+      "rationale": "For a down-spin set of size k the exchange energy is 48−8k+4e(S). The eight disjoint triangles give e(S)≥max(0,k−8); the parity spin pattern with a fixed nonconstant index-sign vector attains the bound at k=12, and the indicated deletions realize all smaller sectors. The sector envelope therefore gives h=2 and 4 in the stated normalization. Equality at h=2 means one or two down spins in each triangle with no external down–down edge; at h=4 it means independence. An independent conflict-pruned enumeration from the adjacency reproduced the five h=2 counts 234, 552, 444, 144, 18 and all nine independence coefficients; totals are 1392 and 13875. The h=0 multiplicity can also be seen by writing each external cycle's sign as the cube parity times a constant: among the three pairs of cycle constants, an all-plus pair and an all-minus pair are both required to exclude monochromatic triangles. Inclusion–exclusion gives 4³−2·3³+2³=18. Global spin reversal yields the negative-field statement.",
+      "residual_risks": [
+        "The fresh execution is exhaustive for the two proved critical constraints, not an unrestricted re-enumeration of the 2^24 full spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier clique-fibre family includes this graph and explicitly reports d=3. The same-day triangle-expanded cubic family has degree three and only one external edge per vertex, so is not the applicable generalization. Frozen references describe quantum magnets on other polyhedra, an infinite Husimi lattice and planar Archimedean tilings; attempted OA reads did not resolve other priority."
+        ],
+        "reasoning": "Applicability rests on the exact earlier clique-fibre special case. Neither incompletely accessed literature nor the same-day different-degree family is used to infer priority.",
+        "searches": [
+          "Resultary 04e5aad30a4b and b0581a116014; targeted small-rhombicuboctahedral Ising literature search; cited arXiv:cond-mat/0501376, 1005.2650, 1606.08191"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04e5aad30a4b, babf3ae259ef, b0581a116014",
+        "Frozen RESULT.md lines 54–67; focused literature query and bounded OA attempts for cited arXiv items"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record gives magnetizations 0→8→24 and both critical counts. Its k=12,8,0 entries give the strict multiplicities 18,234,1. The same exchange/field conventions imply the same lower envelope after setting J=1."
+        ],
+        "reasoning": "The overlap includes the purportedly new first-transition manifold data, the zero-field multiplicity and the nonnegative-field staircase, not just the part disclaimed as known. No substantive distinct remainder was identified.",
+        "searches": [
+          "Resultary 04e5aad30a4b, explicit d=3 Finding; frozen Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the d=3 clique-fibre model, a binary word labels the fibre; mapping the word to its three signs gives exactly the fixed-sign triangles and the same index-preserving non-index-coordinate flips. Both models use spins ±1; setting J=1 maps prior fields 2J and 4J to 2 and 4."
+        ],
+        "reasoning": "The correspondence is a graph isomorphism preserving spin values, magnetization, energies in the chosen units and sector multiplicities, not an analogy based on transition fields alone.",
+        "searches": [
+          "Resultary: small rhombicuboctahedron, exact Ising field staircases and clique-fibre hypercube antiferromagnets; 04e5aad30a4b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04e5aad30a4b lists the k=0,…,12 minimizing multiplicities; the entries k=8,…,12 reproduce the entire F2 and their sum 1392. babf3ae259ef lists all nonempty independent-set counts, so adding the empty set gives the 13875 total already disclaimed in the frozen record."
+        ],
+        "reasoning": "The same graph and the same sector minima enter the counts; writing them as a polynomial or factoring it adds no exact data.",
+        "searches": [
+          "Resultary exact count lookup: 04e5aad30a4b sector vector and babf3ae259ef independence-complex face counts"
+        ]
+      },
+      "rationale": "The distinct earlier Resultary record 04e5aad30a4b explicitly specializes its clique-fibre hypercube theorem to the small rhombicuboctahedron and gives the very same staircase and sector count vector. This covers the claimed first-transition polynomial coefficient by coefficient, not merely the acknowledged old high-field data. Factoring the known polynomial does not create a new invariant.",
+      "residual_risks": [
+        "Access limits leave other historical sources unresolved but do not undo the demonstrated earlier overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact coverage in the same normalization after setting J=1",
+          "evidence": "Names the 24-site small rhombicuboctahedron, lists 0→8→24, counts 1392 and 13875 and all sector counts k=0,…,12.",
+          "identifier_or_url": "Resultary 2026/11/2, 04e5aad30a4b",
+          "material_read": "RESULT.md Finding, d=3 example and count vector, offset 0",
+          "method": "Indexed local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact magnetic-field staircases for clique-fibre hypercube antiferromagnets",
+          "trigger": "Direct same-graph earlier Ising classification"
+        },
+        {
+          "assessment": "Covers the high-field coefficients, not the Ising staircase on its own",
+          "evidence": "Nonempty counts 24,228,1104,2940,4368,3536,1440,234.",
+          "identifier_or_url": "Resultary 2026/10/11, babf3ae259ef",
+          "material_read": "RESULT.md Finding and face-count vector, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Integral sphere-wedge homotopy of the small rhombicuboctahedral independence complex",
+          "trigger": "Exact independent-set table on the same graph"
+        },
+        {
+          "assessment": "Different graph family; not used as evidence of exact coverage or priority",
+          "evidence": "One external edge at each expanded vertex and degree three, not degree four.",
+          "identifier_or_url": "Resultary 2026/11/8, b0581a116014",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Universal one-third Ising plateau on triangle-expanded cubic graphs",
+          "trigger": "Same-date plateau and independent-set transition theorem"
+        },
+        {
+          "assessment": "No negative full-text conclusion used",
+          "evidence": "Cited contexts are distinct systems; the prior-coverage verdict instead rests on the exact earlier indexed theorem.",
+          "identifier_or_url": "arXiv:cond-mat/0501376; arXiv:1005.2650; arXiv:1606.08191",
+          "material_read": "Frozen relationship discussion; attempted OA offset reads did not yield decisive passages",
+          "method": "Citation inspection and bounded OA requests",
+          "title": "Frustration effects in magnetic molecules; Thermodynamics of strongly frustrated magnet in a field; Ising antiferromagnet on the Archimedean lattices",
+          "trigger": "Cited magnetic literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; 04e5aad30a4b d=3 data and babf3ae259ef face counts"
+      ],
+      "rationale": "Exact critical degeneracies on a natural finite frustrated magnet are worth knowing, but the prior result already provides the same counts, cases and staircase. The new packaging and enumeration do not add a distinct useful invariant or extend the applicable model.",
+      "residual_risks": [
+        "The fresh checks can corroborate the known data; this does not validate the frozen text as a distinct finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

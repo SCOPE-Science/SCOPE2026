@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:01.546401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57",
+        "Frozen VERIFICATION.md, lines 18–21",
+        "Frozen checker.py, lines 11–83 (inspected, not executed)"
+      ],
+      "rationale": "For the stopped interval (−b,a), checked the killed Green kernel via its zero boundary values, continuity at the origin and derivative jump −1/D. Its integral on the right reset-success region plus the right exit Laplace probability is sinh(kb)cosh(ka/2)/sinh(kL); reflection gives the left probability. Central resets give geometric retries with mean duration equal to mean trial duration divided by success probability. Writing u=ka/2 and v=kb/2, the resulting odds are p/(1−p)=sinh(v)/sinh(u) and the mean passage time has the stated hyperbolic form. Reflection alternates site types, so two consecutive adjacent-site passages give iid cycles of mean time 2τ and displacement {−L,0,L}, symmetric with second moment 2L²p(1−p). The variance rate remains valid even with displacement–duration correlation: if K is the first cycle whose finish exceeds t, the reward martingale stopped at K has zero mean and second moment E[K] times the one-cycle second moment. The event of including cycle i in that sum is decided before cycle i. The renewal law gives E[K]/t→1/(2τ), and the discrepancy between X_t and that stopped reward sum is uniformly bounded by 2L; it changes the variance by o(t). A fixed off-site start can be transferred at the first alarm, with square-integrable displacement and finite moments of the delay. This proves zero drift and the stated centered diffusivity. Rewriting the geometry-dependent factor as 2w+(cosh(s)−1)/w for w∈[1,c), c=cosh(kL/4), gives strict convexity and endpoint difference −2(c−1)(c²−c−1)/c. Hence the clustered endpoint is never attained, only equality of limiting and regular values occurs at c=φ, and all interior asymmetric spacings are then strictly suboptimal.",
+      "residual_risks": [
+        "Positive gaps and fixed positive r,D,L only; the clustered endpoint is a limiting geometry, and the argument does not state a disordered-array variance law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous formula is identical at equal gaps. The earlier main-text bound and optimum vary the reset rate, while the supplement treats finite waiting, a rare-reset enhancement bound and numerics for rate-optimized random arrays.",
+          "The ratchet paper switches a potential and can carry directed current; it does not implement instantaneous nearest-site projection at Poisson alarms."
+        ],
+        "reasoning": "Broader scope in the number or placement of sites does not furnish an exact two-gap centered variance; allowing r to vary does not imply the fixed-rate optimizer or its strict attainment alternatives.",
+        "searches": [
+          "Alston–Bertrand Eq. (17) and Eqs. (18)–(20)",
+          "Alston–Bertrand supplement §§I.B, IV–V (S1, S29–S35)",
+          "Roberts–Sezik–Lardet arXiv:2405.10698v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Alston–Bertrand arXiv:2401.12772v1 Eqs. (1)–(3), (17)–(20) and author-hosted supplement",
+        "Roberts–Sezik–Lardet arXiv:2405.10698v1 p. 1",
+        "Resultary 8e14a5043c90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier local first-passage data can be used in a corrected global derivation, but the earlier stated aggregation misses μ²/(2τ) in this example. Its equal-spacing and co-optimized-rate conclusions do not supply the alternating result.",
+          "The later arbitrary-periodic formula implies both the alternating diffusivity and, after strict convexity and comparison of the equal-gap and merger endpoints, the transition."
+        ],
+        "reasoning": "Credit the earlier first-passage input and the later stronger exact formula without treating the earlier raw-MSD prescription as a centered-variance theorem. The two-step regeneration is the extra mathematical argument in this record.",
+        "searches": [
+          "arXiv:2401.12772v1 Eqs. (1)–(3), (17)–(20) and supplement S29–S35",
+          "Resultary 8e14a5043c90 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The accessible main text uses the same instantaneous spatially nearest Poisson reset model and \\langle(Δx)^2\\rangle_n at each site is explicitly a raw step second moment in Eq. (1). Equation (3) averages these raw local moments per passage time with residence weights.",
+          "In the alternating array the raw moment is M₂=a²p+b²(1−p) at both types, τ is common, and the two mean increments are ±μ, μ=ap−b(1−p)."
+        ],
+        "reasoning": "Taken literally, Eq. (3) gives M₂/(2τ), not (M₂−μ²)/(2τ). From the solution p/(1−p)=sinh(kb/2)/sinh(ka/2); since sinh(kx/2)/x strictly increases for x>0, μ≠0 for unequal positive gaps. Equality in the regular geometry does not make the formulas equivalent.",
+        "searches": [
+          "Alston–Bertrand arXiv:2401.12772v1 and OA main text Eqs. (1)–(3)",
+          "Resultary exact transport in nonuniform arrays of nearest-site resetting points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later Resultary 8e14a5043c90: for any periodic array the centered variance gives D_eff=rL²/(4ST), with S=Σ sinh(ka_i/2) and T=Σ tanh(ka_i/2) when a_i denotes the physical gap.",
+          "The earlier homogeneous formula and supplement do not tabulate the unequal two-gap fixed-rate optimizer."
+        ],
+        "reasoning": "For two gaps, tanh(u)+tanh(v)=sinh(u+v)/(cosh u cosh v), so the later periodic formula exactly equals the frozen formula and yields the optimizer by a one-variable comparison. No priority is inferred from an exact postdated catalogue match.",
+        "searches": [
+          "Resultary nearest-site resetting, exact periodic-array dispersion, two-spacing optimal geometry and golden-ratio transition",
+          "arXiv:2401.12772v1 Eq. (17) and supplement §§IV–V"
+        ]
+      },
+      "rationale": "The resetting process, neighboring-site first-passage program and homogeneous formula are prior. The supported distinction is the centered alternating-gap variance, including the correction to the local raw-MSD average in the accessible earlier paper, and the exact optimizer transition at fixed r,D,L. A later exact general-periodic formula does imply the two-gap dispersion and the transition by endpoint comparison; this is real overlap, not evidence of earlier priority.",
+      "residual_risks": [
+        "The APS journal full text was not lawfully retrieved, so changes from the accessible arXiv and author supplement are not excluded.",
+        "The later arbitrary-periodic formula gives the exact invariant and implies the transition; catalogue date alone does not determine order of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and equal-gap specialization; stated irregular local-MSD prescription differs from the centered alternating variance",
+          "evidence": "Eq. (1) sums squared neighboring jumps weighted by splitting probabilities, without subtracting the local conditional mean. Eq. (3) takes a residence-weighted average of these moments over the local mean passage times; Eqs. (18)–(20) involve optimizing reset rate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.12772v1",
+          "material_read": "Model setup and Eqs. (1)–(3) on pp. 2–3, Eqs. (17)–(20) on pp. 4–5; verified the decisive local raw moment and averaging again in the accessible OA main text at offsets 7600 and 12876",
+          "method": "Lawful OA main-text PDF, targeted sections; publisher DOI 10.1103/PhysRevE.111.034114 endpoints inaccessible",
+          "title": "Boosting macroscopic diffusion with local resetting",
+          "trigger": "Same process, local first-passage statistics, irregular transport and optimization"
+        },
+        {
+          "assessment": "No exact alternating-gap fixed-rate theorem in the inspected sections",
+          "evidence": "The supplement rescales for finite waiting, proves a weak-reset lower bound and tests rate-optimized random arrays numerically.",
+          "identifier_or_url": "https://thibaultbertrand.com/assets/pdf/2024_arxiv_a.pdf",
+          "material_read": "§I.B Eq. (S1), §IV Eqs. (S29)–(S35), §V numerical tests; supplement pp. 6–9 for §§IV–V",
+          "method": "Lawful author-hosted supplement and relevant OA passages",
+          "title": "Boosting macroscopic diffusion with local resetting, supplementary material",
+          "trigger": "Potential stronger exact irregular-array theorem in supplementary calculations"
+        },
+        {
+          "assessment": "Later exact overlapping stronger periodic theorem; alternating geometry optimizer implied, not stated",
+          "evidence": "Zero drift and rL²/(4ST) in an arbitrary periodic array, with hyperbolic sine and tangent gap sums.",
+          "identifier_or_url": "8e14a5043c90",
+          "material_read": "Finding and assumptions, mirror offsets 0–2974",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Exact transport in nonuniform arrays of nearest-site resetting points",
+          "trigger": "Direct broader exact variance formula"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": "Periodically switching ratchet potential switched off at first passage to a potential minimum; directed current is possible.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10698v1",
+          "material_read": "p. 1 model and mechanism",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Related spatial resetting mechanism and drift claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–57",
+        "Alston–Bertrand Eqs. (1)–(3), (17)–(20)"
+      ],
+      "rationale": "The simplest nonuniform geometry reveals a real discrepancy between local raw mean-square increments and the true centered long-time variance, despite zero drift. The missing conditional-mean correction changes the two-gap optimization problem. The strict switch between an unattained merger supremum and a uniquely attained equal-gap maximum gives useful geometric information, with the tie case determined exactly rather than by a rate-optimized comparison.",
+      "residual_risks": [
+        "The transition addresses a fixed period and fixed rate, not arbitrary arrays or optimization of the reset rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

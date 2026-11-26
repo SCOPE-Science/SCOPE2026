@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:19:43.770689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–87",
+        "Frozen VERIFICATION.md and inspected check.py (not executed)"
+      ],
+      "rationale": "With t=|z|² and the stated area normalization, the orthogonal monomial norms are the claimed beta integrals. For isometry, w=W1 lies in the space. The diagonal identities give equality of finite-measure moments after u=t^N; polynomial density and continuity give Q(t)=N t^(N−1) S_N(t)^alpha where Q sums |w_j|²t^j. For each ell≥1 compare W z^(n+ell) and W z^n: aligned output coefficients are w_j and w_(j+Nell). In the corresponding integral, the absolute sum with factor t^(Nell) is at most t^(Nell/2)Q(t) by Cauchy–Schwarz, so the complex measure used to recover F_ell is finite. Moment uniqueness and analyticity force w_j conjugate(w_(j+Nell))=0 for every j,ell; in particular polynomiality was derived rather than assumed. Logarithmic differentiation gives an identity of rational functions, even though the initial power S_N^alpha was defined on the real interval. At any nontrivial N-th root its residue equals alpha, whereas the residue of Q'/Q there is a nonnegative integer, including zero if Q is nonvanishing there. With alpha=d≥0 the consecutive support of S_N^d has d(N−1)+1 terms (all degrees are sums of d digits in [0,N−1]); the distinct-residue cap N proves d≤1, including N=2. The coefficients at the two surviving exponents have exactly the displayed moduli; no cross-phase constraints remain. Disjoint image degrees give orthogonality, and for alpha=1 the norm sum telescopes as 2N[1/(N(n+1))−1/(N(n+2))]; the alpha=0 norm is N/[N(n+1)]. Polynomial density and bounded point evaluations extend the norm-preserving map and identify it with the pointwise formula on the whole space.",
+      "residual_risks": [
+        "The finite script checks endpoint norms and support, not the unrestricted analytic necessity; that part rests on the verified moment and rationality arguments. No formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zorboska's lecture states a characterization for all standard alpha>-1 and bounded weighted composition operators, not the two-exponent conclusion.",
+          "Kim's weighted Hardy coefficient-space result imposes a unit-coefficient monomial multiplier and monomial composition; Lemma 5.6 yields the norm-sequence condition beta(n)=beta(m+nk)."
+        ],
+        "reasoning": "The broad measure theorem does not resolve the multiplier solutions, and the two-monomial result cannot cover an arbitrary analytic multiplier or the alpha=1 family with N terms. The 2018 journal text is not claimed to have been fully inspected.",
+        "searches": [
+          "Zorboska, DOI 10.1016/j.jmaa.2018.01.036 and lawful alternate lecture, Theorem 1",
+          "Isometric, unitary and invertible weighted composition operators on spaces of holomorphic functions Kim §5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published-source mirror",
+        "Chalendar–Partington arXiv:1910.01475",
+        "Zorboska's open 2018 lecture and journal access attempt",
+        "Kim 2022 thesis §5.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chalendar–Partington Proposition 4.5 gives w=c phi'/√N, hence exactly the stated unweighted construction upon phi=z^N. Remark 4.4 points to weighted pullback criteria.",
+          "Kim treats a fixed monomial multiplier with coefficient one; the open problem concerning monomial symbols is not the unrestricted analytic problem."
+        ],
+        "reasoning": "Credit the alpha=0 existence as a direct substitution in the prior construction. It does not imply uniqueness even there, much less the weighted family or exclusion. The finite-polynomial support and root-of-unity residue obstruction are needed to analyze the general characterization.",
+        "searches": [
+          "arXiv:1910.01475, Theorem 4.3, Remark 4.4 and Proposition 4.5",
+          "Kim 2022 §5.3, Lemma 5.6, Proposition 5.7, Open Problem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted pullback density one is equivalent to isometry; for z^N changing variables through the N branches weights the fibre sum of |w|² by the radial-weight ratio and Jacobian.",
+          "The diagonal moment condition is the radial average of that criterion; the other Fourier coefficients impose the distinct-residue constraint."
+        ],
+        "reasoning": "The density criterion offers a route to the result, but a classification still needs extraction of every cross coefficient and rigidity of the allowed real powers of S_N. The statement is not a rewording of the criterion.",
+        "searches": [
+          "Resultary: noninjective monomial composition isometry weighted Bergman classification",
+          "Resultary: weighted Bergman isometric weighted composition monomial power map z^N multiplier classification pullback measure",
+          "Chalendar–Partington arXiv:1910.01475 §4.1; Zorboska May 2018 slides, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit a0a0fa4b0771 is the assigned record. Closest related distinct finding 9acc7c79434f studies C_(z^m) C_(z^n)* and similarity/spectral types. Other hits 6cfe4d2d6508 and 4f66d74591e4 concern bidisc essential norms and Schatten-four norms of damped monomial differences, respectively."
+        ],
+        "reasoning": "Not independent coverage in the first case; in the other cases the operator or invariant differs, and no classification of M_w C_(z^N) is stated. The same-day hit was compared on its content, not dismissed by date.",
+        "searches": [
+          "Resultary: isometric weighted composition Bergman z^N analytic multiplier alpha 0 1",
+          "Resultary: isometric weighted composition operators Bergman radial disk isometry weighted pullback measure"
+        ]
+      },
+      "rationale": "The known pullback characterization and unweighted example do not constitute the complete fixed-power classification. The distinct contribution is the exclusion of every other standard exponent for arbitrary holomorphic multipliers and the full alpha=1 phase torus, with uniqueness up to phase also proved at alpha=0.",
+      "residual_risks": [
+        "The 2018 journal full text was unavailable; the public lecture does not exclude a closer application there. Other unindexed weighted-isometry specializations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unweighted construction is covered; does not state the complete power-weight and multiplier classification",
+          "evidence": [
+            "Theorem 4.3 equates the weighted pullback measure to area in the unweighted case; Proposition 4.5 provides derivative multipliers for the N-to-one symbol."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.01475",
+          "material_read": "PDF pp. 9–10, Theorem 4.3, Remark 4.4, Proposition 4.5; text offsets 17800–23290",
+          "method": "Open arXiv PDF, located theorem passages",
+          "title": "Weighted composition operators: isometries and asymptotic behaviour",
+          "trigger": "General criterion and claimed known unweighted multiplier"
+        },
+        {
+          "assessment": "Journal specialization remains an access risk",
+          "evidence": [
+            "No decisive original full-text passages were available from the journal endpoint."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2018.01.036",
+          "material_read": "Journal abstract/landing page; separate author lecture considered below",
+          "method": "Journal full-text access attempt, then lawful public author lecture",
+          "title": "Isometric weighted composition operators on weighted Bergman spaces",
+          "trigger": "Most relevant general weighted-space paper"
+        },
+        {
+          "assessment": "Broad equivalent condition, no explicit fixed-power classification in the passages",
+          "evidence": [
+            "Theorem 1 uses almost-everywhere unit pullback density or equivalent transform and kernel conditions."
+          ],
+          "identifier_or_url": "https://analyse.mat.ulaval.ca/tr60/talks/Zorboska.pdf",
+          "material_read": "Slides PDF pp. 8–10, offsets 3650–7616, Theorem 1 at 6521",
+          "method": "Open lecture PDF, located theorem passages",
+          "title": "Natalie Zorboska, May 2018 weighted composition lecture",
+          "trigger": "Author's public statement of the weighted isometry criterion"
+        },
+        {
+          "assessment": "Restricted multiplier problem, not the analytic classification",
+          "evidence": [
+            "Symbols are psi=z^m and phi=z^k; Lemma 5.6 gives the beta sequence equality, and Proposition 5.7 addresses k=1."
+          ],
+          "identifier_or_url": "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/0fc6edfc-66ac-43c2-b86c-123ccdd91545/content",
+          "material_read": "§5.3 pp. 63–66 and p. 68 open problem, offsets 140900–153168",
+          "method": "Open University of Manitoba thesis PDF",
+          "title": "Isometric, unitary and invertible weighted composition operators on spaces of holomorphic functions",
+          "trigger": "Directly named monomial isometry problem"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": [
+            "Its adjoint-product operator C_(z^m)C_(z^n)*, for distinct divisible degrees, is analyzed for shift similarity and spectrum rather than weighted-composition isometry."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-uniform-similarity-model-and-spectral-type-switch-for-divisible--9acc7c79434f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local published-source mirror",
+          "title": "Uniform similarity model and spectral type switch for divisible monomial compositions",
+          "trigger": "Closest distinct indexed hit using monomial composition on weighted Bergman space"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "It computes a Schatten-four norm for damped differences of monomial composition operators, not isometry multipliers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-collision-residue-for-schatten-four-norms-of-radially--4f66d74591e4",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local published-source mirror",
+          "title": "Arithmetic collision residue for Schatten-four norms",
+          "trigger": "Closest distinct same-day hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Chalendar–Partington §4.1 and Zorboska lecture criterion"
+      ],
+      "rationale": "The fixed power is a natural model of a noninjective disc covering; the general measure tests do not give an explicit list of weights or multiplier phases. A sharp two-exponent rigidity result, with a phase torus at the weighted endpoint, answers existence and constructs every allowable multiplier, rather than restating an isometry criterion or checking only monomial choices.",
+      "residual_risks": [
+        "Value is specific to the standard same-space Hilbert norm and power map. It does not require a claim about general finite Blaschke products or other radial weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

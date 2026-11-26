@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:44.316058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over C, the published secant duality and biduality identify the dual as the coincident-root locus of partition (2^k,1^(d-2k)). The factorial and product in Hilbert's degree formula give 2^k binom(d-k,k). For adjacent admissible k, subtracting 1 from the positive-term ratio gives the sign of F_d(k) = 2d²−9dk−3d+9k²+5k. The forward difference is 18k+14−9d≤−4 for k≤floor(d/2)−1. For d=3q, 3q+1, 3q+2, the respective pairs of signs at m−1 and m come from (5q+4,−4q), (8q+12,−q−1), (2q+2,−7q−2), with m=floor((d+1)/3) admissible. Only existing comparisons are needed. In particular, the loose sentence at RESULT.md:189 saying that a missing comparison leaves only a single term is not literally true for d=4 or 5: the degrees there are (6,4) and (8,12); the same sign test covers both. The d=2 and d=3 rows really are singletons. This does not affect the theorem. The two stated limits follow from m=d/3+O(1). I inspected artifacts/verify.py without running it, and independently checked the strict comparisons on all 119 rows for 2≤d≤120 by evaluating the binomial coefficients directly. That is arithmetic corroboration, not the geometric or general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 explicitly includes the rational-normal case just after its statement; Hilbert's formula applies to all multiplicity partitions."
+        ],
+        "reasoning": "These stronger results directly cover the input degree identity but give no extremal comparison along the particular family of partitions.",
+        "searches": [
+          "Lee–Sturmfels arXiv:1508.00202, §1 equation (1) and §3 Proposition 3.1",
+          "Resultary e636e8e5ed80"
+        ]
+      },
+      "checked_sources": [
+        "Lee–Sturmfels arXiv:1508.00202",
+        "Resultary d8b5c7e992f1 and e636e8e5ed80",
+        "OEIS A362144 and A362142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric inputs imply the whole coefficient formula by substitution. The strict signs at the two indices straddling m require a separate comparison. Maximizing over i and j in the OEIS formula does not identify the maximizing j when i=0."
+        ],
+        "reasoning": "No inspected result implies the strict unique mode at floor((d+1)/3) without solving the remaining extremal problem. The asymptotic fractions are consequences of that mode, not separate novelty claims.",
+        "searches": [
+          "Compare Lee–Sturmfels Prop. 3.1 and Hilbert formula, Resultary primal/three-part profiles, and OEIS A362144 against the exact adjacent-sign threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d8b5c7e992f1 uses the primal secant degree in shifted indexing.",
+          "Resultary e636e8e5ed80 optimizes Hilbert degrees across three-part partitions, not across the varying-length double-root partitions here."
+        ],
+        "reasoning": "The equivalent arithmetic problem is to maximize the row of the weight-two Fibonacci-polynomial coefficients; neither matched record optimizes that row.",
+        "searches": [
+          "Resultary: rational-normal secant duality; 2^k binom(d-k,k); weighted-binomial mode; indexed multiple-root loci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A362144 (formula and table) maximizes 2^j (i+j+h)!/(i!j!h!), h=d−3i−2j, over i and j; the proposed coefficients are exactly its slice i=0. At d=13 the tabulated maximum is 2240 whereas this record's maximum is 2016."
+        ],
+        "reasoning": "Matching initial maximum values reflect the common slice, not a covering formula or an exact table of the optimal k. The broader table permits three-wide tiles and in fact diverges.",
+        "searches": [
+          "OEIS signature 1,1,2,4,6,12,24,40,80,160: A362144 and cross-reference A362142",
+          "Resultary weighted-binomial formula and mode"
+        ]
+      },
+      "rationale": "Credit only the exact unique mode and the shape of the dual-degree profile, not the duality or the individual degrees. The closest checked results do not give this extremal statement.",
+      "residual_risks": [
+        "An unindexed source on modes of weighted Fibonacci or path matching polynomials could contain the exact one-third mode; bounded comparisons do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the dual locus and degree; not the mode",
+          "evidence": "Specialize the root multiplicity a to d, then apply Hilbert's formula with k double roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.00202",
+          "material_read": "§1 p. 1 equation (1); §3 p. 8 Proposition 3.1 and following rational-normal specialization",
+          "method": "OA PDF passages at offsets 1300 and 29250",
+          "title": "Duality of Multiple Root Loci",
+          "trigger": "Exact geometry and degree input"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The degree is primal and the studied profile is parity.",
+          "identifier_or_url": "Resultary:2026/10/4/d8b5c7e992f1",
+          "material_read": "RESULT.md finding and indexing, offset 0",
+          "method": "Local mirror",
+          "title": "A binary phase law for degrees in the rational-normal secant tower",
+          "trigger": "Same tower and degree terminology"
+        },
+        {
+          "assessment": "Different domain of optimization",
+          "evidence": "It fixes three parts; the present partitions have d−k parts with sizes one and two.",
+          "identifier_or_url": "Resultary:2026/10/4/e636e8e5ed80",
+          "material_read": "RESULT.md finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Extremal degrees of three-dimensional coincident-root loci",
+          "trigger": "Optimization of Hilbert degrees"
+        },
+        {
+          "assessment": "Related larger optimization, not a table of the submitted mode",
+          "evidence": "The formula permits square counts of side 3 independently; 2240 at d=13 disproves equality of the full maximum sequences.",
+          "identifier_or_url": "https://oeis.org/A362144",
+          "material_read": "Entry formula, sequence, source and cross-references (page around offsets 465–1050); A362142 example",
+          "method": "OA website text and exact comparison of the trinomial slice",
+          "title": "Maximum number of ways to tile an n×3 rectangle with a fixed multiset of squares",
+          "trigger": "Exact initial numerical signature of the maxima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proper secant tower is an intrinsic family of binary-form rank strata. Determining which stratum has maximal projective-dual degree and establishing strictness across its whole range is a useful exact invariant of that family. The result resolves the discrete extremal comparison, including uniqueness and finite-degree rounding; its elementary proof and the known input degrees do not detract from that specific content. It does not measure singularity, polar degrees or other complexity notions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

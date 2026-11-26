@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every cyclic length-four palindrome traverses a unique diagonal vertex and is a fixed point of its local transition permutation. The loop at that vertex must be followed by a different edge, forcing at least two moved letters. The macrograph proof contracts each prescribed diagonal passage, preserves every original triple once, proves a balanced strongly connected directed graph, and expands an Euler tour; hence all independent allowed permutations occur simultaneously. Finite checkers verify literal de Bruijn cycles and palindrome counts, but the full theorem rests on the combinatorial proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Searches for length-four palindromes in order-three de Bruijn cycles, local transition permutations, and exact spectra were compared to primary articles by Anisiu–Anisiu–Kása, Nellore–Ward and Chee et al. Those inspected papers study general palindrome properties, arbitrary-length analogues, and locally constrained de Bruijn codes; none of their checked statements imply the full integer spectrum or prescribed diagonal transition Euler tour. Relevant indexed research results were compared by implication rather than title. An equivalent result in unindexed de Bruijn or Euler-tour literature may exist and remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The first unconstrained palindrome window size after order three has a sharp universal upper bound and a surprisingly gapless complete spectrum for every alphabet size. The simultaneous local-transition Eulerian realization lemma gives a reusable constructive mechanism beyond an isolated finite computation; the \(q=2\) obstruction and the full range for \(q\ge3\) are included in one exact classification.
+A palindrome abba is exactly a fixed point a of the diagonal successor permutation at bb. The loop bbb cannot follow itself in a tour of q³>1 edges, so at least two letters move at every bb. Conversely, when b moves, every edge entering bb from off the diagonal has a forced exit; just the entrance from σ_b⁻¹(b) first traverses bbb. These paths cover each diagonal incident edge exactly once. Along with the off-diagonal edges they form a balanced macrograph: the forced paths permute the off-diagonal exits at each b. The unchanged subgraph is the directed line graph of the complete loopless digraph, strongly connected even for q=2. Euler traversal and expansion therefore respect all prescribed transitions, including wrap-around. For each b, a cycle on q−f≥2 letters including b fixes exactly f letters, so summing the q independent choices gives every integer 0 through q(q−2). As a bounded independent calculation, audit_palindromes.py applies directed matrix-tree and BEST to the contracted graphs for every admissible tuple at q=2 and q=3, with the first macroedge fixed to be the one containing 000. It gives two binary cycles with no palindromes and the ternary counts 55296, 165888, 124416, 27648, totaling 373248. The proof, not this finite test, covers all q.
 
-This review does not assess longer palindromes or enumerate cycles by spectrum value.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binary constant-center obstruction and the fixed-point interpretation already occur in an earlier Resultary theorem; specializing to binary order three forces P=0 and leaves only the transposition at each diagonal vertex. The supported distinct part is the simultaneous realization for larger alphabets, where there are multiple choices at each diagonal vertex, and the resulting full arbitrary-alphabet spectrum. No inspected prior statement or implication settles that claim. Closely titled literature that was inaccessible remains an access risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The exact spectrum addresses a natural local-factor statistic on a standard universal-cycle family. More importantly, the realization lemma identifies the only obstruction to arbitrary diagonal transitions and supplies a constructive extension; merely finding tours at the two extremes would not give this control. The new value is in the multiple-choice alphabet regime, not the already known binary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

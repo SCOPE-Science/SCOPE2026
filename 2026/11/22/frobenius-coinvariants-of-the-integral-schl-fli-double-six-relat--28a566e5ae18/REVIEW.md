@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** All definitions distinguish the formal line module, its saturated anticanonical kernel, and the double-six lattice. The 36 opposite-root descriptions and the 27 Picard classes are explicit. The exact 21-column determinant \(-65536\), mod-four normal form, surjective mod-two pair map, and invariant coordinate-degree homomorphism establish the full claim for every permutation, not just sampled fields. The bundled standard-library verifier reproduced the complete finite certificates; an independent integer Smith implementation agreed on all 11 partitions. The scope excludes unmarked cubic surfaces.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The old geometry and the geometric abelian group \(Q\) are known and are not claimed new. The closest published integral double-six note expressly does not determine arithmetic modules. The analogous Segre cubic coinvariant note computes another quotient of different rank and objects; neither result implies the new equivariant isomorphism or the resulting exponent formula without the new Picard-kernel calculation. Dolgachev–Kapranov, Buckley–Košir and Elsenhans–Jahnel address the geometric and Galois input, not this quotient. An earlier equivalent coding-theoretic module remains a residual priority risk.
+PASS
 
-**Value — PASS.** The computation determines a natural complete arithmetic invariant of an integral relation lattice associated with all 36 Schläfli configurations. The explicit fifteen-pair permutation module explains why the size of the surviving two-torsion is governed by pair orbits and why a unique order-four obstruction survives every Frobenius specialization. This is not just recomputation of the known geometric group or a relabeling of a finite marking census.
+The six pivot lines together with the anticanonical vector form a unimodular Picard basis, so projecting onto the other 21 coefficients gives integral kernel coordinates. I generated the double-sixes by the skew-row and complementary cross-incidence conditions, rather than by the stated roots. This yielded 36 supports, each summing to 4(-K), and the sorted 21-column minor had determinant -65536. Integer Smith reduction gave 1^6,2^14,4, and Smith reductions of the augmented coinvariant presentation agreed for all eleven partitions. The pair map has the stated mod-two rank 15, annihilates the double-six columns and is equivariant by its index formula. The coefficient sum modulo four descends because 12 is divisible by 4, is invariant, and is onto because one kernel vector has odd sum. It forces one order-four summand to survive in every coinvariant quotient; there cannot be a second since 2Q has order two. Mod-two coinvariants and the pair-orbit count give the remaining summands. The arithmetic proof uses only the induced S6 action of the stable sextuple; it does not assert that every partition is realized over each field. Independent replay: python3 /workspace/branches/reproductions/double_sixes.py (SymPy 1.14.0).
 
-**Limits.** The quotient is formal incidence torsion, not Picard or Brauer torsion; the classification only concerns blow-ups at a Galois-stable sextuple and says nothing about existence of every cycle type for a fixed finite field. Independent outside validation is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying abelian group is prior work. The supported distinct result is the S6-equivariant pair-module identification together with its uniform integral coinvariant consequence. The closest inspected material does not supply the module identification or calculate this arithmetic invariant.
+
+## value
+
+PASS
+
+The explicit module map explains, for every stable sextuple, why only orbits on pairs determine the surviving number of cyclic factors, while a four-torsion obstruction always survives. This is a useful arithmetic refinement of a naturally motivated integral reconstruction obstruction, not just another calculation of the geometric index or a table of Smith forms. It does not identify Q with Picard or Brauer torsion or extend the classification to general W(E6) actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

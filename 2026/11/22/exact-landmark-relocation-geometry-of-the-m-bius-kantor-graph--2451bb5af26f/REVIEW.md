@@ -1,9 +1,21 @@
-# Review of the optimum-landmark reconfiguration claim
+# Independent mathematical audit
 
-**Correctness — PASS.** All sixteen graph vertices and twenty-four graph edges are explicitly defined; a basis is characterized by 120 separating-witness conditions. Exhaustion rules out sizes zero through three, identifies exactly 320 size-four bases, constructs all legal replacement and edge-slide moves, and computes all 51,040 pair distances. The second standalone verifier uses a distinct LCF graph encoding, distance-signature test and Floyd–Warshall method rather than the first verifier's witness masks and BFS. Both code paths were actually run and assert all reported values. The automorphism-orbit classification is independently reconstructed. Limitation: this is an exact finite computational theorem and makes no all-size generalization.
+## correctness
 
-**Originality — PASS, qualified.** The closest relevant primary work is Imran–Baig–Shafiq–Tomescu's generalized Petersen metric-dimension analysis (2014), Hakanen–Junnila–Laihonen–Yero's optimum-basis membership analysis (2021), and Bergougnoux–Defrain–Mc Inerney's minimal-resolution enumeration complexity analysis (2023). None of the inspected statements implies the complete 320-state mobility metric, the six symmetry orbits, or the eight-move sharp locality penalty. The related edge-metric dimension work distinguishes edges rather than vertices. Several direct exact-phrase and semantic index searches yielded no covering result. This is not a proof of bibliographic uniqueness. A later broad metric-basis reconfiguration thesis was identified by title but unavailable in full, presenting a priority risk.
+PASS
 
-**Value — PASS.** The Möbius–Kantor graph is the smallest non-distance-transitive cubic symmetric graph and a canonical sixteen-vertex sensor-routing architecture. The result classifies every optimum sensor placement and exactly quantifies reconfiguration under a realistic adjacent-relocation constraint. The self-centered slide graph, six optimizer orbits, and eight-move worst-case jump-to-slide penalty are non-obvious structural properties, giving a complete reproducible benchmark rather than a small routine bound.
+Reconstructed the theorem for the specified unweighted GP(8,3). Distance signatures separate all vertices exactly when the indicated subset is resolving; enumeration of sizes 0 through 4 proves minimality and completeness. A legal move is uniquely specified by the removed and inserted vertices of two distinct sets differing in one element, with the extra adjacency predicate for a slide. Exhaustive unweighted shortest-path searches and comparison of the two distance matrices therefore exhaust all 51,040 unordered pairs. A fresh independent program reproduced zero smaller sets, 320 bases, the full degree, eccentricity, distance and penalty distributions, both connected graphs, the two radii and diameters, and the distances (2,10) for the stated witness. It enumerated 96 automorphisms, with orbit sizes 24,24,32,48,96,96. Preservation of adjacency and nonadjacency is a sound pruning condition on partial injections and characterizes automorphisms on completed bijections. The recorded GP and LCF checks corroborate but do not substitute for the fresh run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The pass is for the complete ordinary metric-basis motion and orbit classification, not for the notion of reconfiguring metric bases or a four-landmark construction. Strong same-day indexed matches were compared as statements: the same graph with a different resolving predicate, and the same motion rules on a different graph. Neither gives the 320-state metrics and sharp penalty for GP(8,3). The strongest plausible thesis match remains an explicit priority risk, not evidence of prior exact coverage.
+
+## value
+
+PASS
+
+The canonical symmetric cubic graph gives a useful complete example of how local moves alter the geometry of all optimal landmark placements. The two graphs are both connected, yet sliding makes every state have eccentricity 12 while jumping has two eccentricity classes and diameter 5. The exact optimal penalty and explicit witness measure the loss from locality instead of just comparing diameters or exhibiting one feasible route. The complete census includes the orbit classification on which future symmetry-based comparisons can build; it is not merely a recomputation of the metric dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

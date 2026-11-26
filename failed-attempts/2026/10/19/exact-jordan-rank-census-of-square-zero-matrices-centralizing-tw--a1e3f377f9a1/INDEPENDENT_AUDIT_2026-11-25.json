@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:09.876476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The commutant is End_R(R²) with R=F_q[t]/(t^n). Divide a nonzero matrix by its minimum valuation k, obtaining a primitive rep over R_(n-k). If 2k<n, reduction to length m=n−2k must be square-zero. A primitive square-zero rep has basis (Uv,v) for a suitably chosen v by independence mod t; its orbit has (q²−1)q^(2m−2) elements. In each congruence fiber a unit cofactor makes the determinant uniform in t^m R_(m+k); the unit first pivot gives Smith exponents k and n−k+j for determinant valuation m+j, and k and n when the determinant is zero in that ring. This gives ranks n−j and n−k with exactly the stated weights. If 2k≥n there is no square constraint; a primitive rep over length e=n−k has residue rank two or one. Rank two contributes 2e; rank one has uniform determinant on tR_e and contributes 2e−s or e. Counting residue matrices and lifts gives the deep terms; only the zero matrix adds the constant. The deep layers cover 0 through 2 floor(n/2), and k=0 gives n. Summing gives the claimed total, also when n=1. No division by 2 or rank over R is used. The supplied script and verification were inspected as evidence, not executed. A separate bounded reproduction iterated the four polynomial entries, tested the truncated square and reduced the 2n coefficient vectors of A applied to the monomial basis over the prime field. It gave 1+9z+18z² at (n,q)=(2,2), 1+9z+30z²+72z³ at (3,2), and 1+32z+120z² at (2,3). These are finite checks, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed spectrum gives all coefficients for every commutative finite chain ring of length at least 2, including mixed characteristic. The available SIAM abstract/snippet describes index counts, not a verified joint refinement."
+        ],
+        "reasoning": "The chain-ring result strictly enlarges the class of rings and covers every nontrivial length in the Finding. Length one is the immediate field case: zero plus the single nonzero nilpotent conjugacy class, giving 1+(q²−1)z.",
+        "searches": [
+          "Resultary: complete image-length spectra square-zero finite chain rings",
+          "SIAM DOI 10.1137/0603003"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 455c0bf11aaa",
+        "arXiv:2212.08425",
+        "arXiv:1001.0811",
+        "arXiv:1409.2698",
+        "DOI:10.1137/0603003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the broader formula, P_(n−2k)q^(3k)=Cq^(−k) and P_(n−2k)(q−1)q^(4k−j−1)=C(q−1)q^(−j−1). In the deep layers G_e=q^(4e−4)G, U=R_1 and the remaining powers are 3e−3 and 4e−v−4."
+        ],
+        "reasoning": "Reading the indexed coefficients as the coefficients of z^r yields precisely both sums and the constant, hence also the total and rank support. Older feasibility and simultaneous-similarity results do not alone determine labeled counts.",
+        "searches": [
+          "Chain-ring spectrum Finding, indexed commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:1001.0811 abstract",
+          "arXiv:1409.2698 abstract and section 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed chain-ring Finding explicitly specializes its image-length counts to Jordan type (2^r,1^(2n−2r)) for J_n ⊕ J_n. Theorem 3 of arXiv:2212.08425 concerns nonempty intersections with Jordan orbits."
+        ],
+        "reasoning": "Over the split chain ring the image has q^r elements if and only if its F_q-rank is r; square-zero rank gives the indicated Jordan type. This identifies the exact counted set, unlike orbit feasibility.",
+        "searches": [
+          "Resultary: square-zero 2 by 2 finite chain ring image length and equal Jordan blocks",
+          "arXiv:2212.08425 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct catalogue path 2026/11/2/SCOPE-complete-image-length-spectra-for-square-zero-matrices-over-fini--455c0bf11aaa, RESULT.md Finding, display C_(n,q)(r) and Commuting-matrix consequence."
+        ],
+        "reasoning": "This is an exact formula-level match, not a few matching coefficients or the source record itself. The later entry date is not evidence of earlier publication priority.",
+        "searches": [
+          "Resultary: Complete image-length spectra for square-zero matrices over finite chain rings"
+        ]
+      },
+      "rationale": "The exact labeled rank multiplicities, not just their support or total, are explicitly covered by a distinct indexed chain-ring spectrum. That catalogue entry is dated later than this frozen record, so this is a coverage ruling at review, not a finding that the earlier record lacked chronological priority.",
+      "residual_risks": [
+        "The historical finite-ring index paper was not fully accessible; earlier priority was not determined. This does not affect the explicit separate catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the enumerative content",
+          "evidence": "C_(n,q)(r) display and explicit equal-Jordan-block consequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-complete-image-length-spectra-for-square-zero-matrices-over-fini--455c0bf11aaa/RESULT.md",
+          "material_read": "Finding through primitive conjugacy; Relationship to prior work and scope limits (offsets 0 and 7600)",
+          "method": "Exact passage comparison in the indexed file",
+          "title": "Complete image-length spectra for square-zero matrices over finite chain rings",
+          "trigger": "Exact same invariant expressed over a broader ring class"
+        },
+        {
+          "assessment": "Cited theorem determines support, not multiplicity",
+          "evidence": "The theorem identifies which O_λ intersect N(B), with qualifications depending on the field.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08425",
+          "material_read": "Abstract and p. 3, Theorem 3 and surrounding question (offset 9870)",
+          "method": "Primary PDF passage",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Same fixed centralizer and Jordan type"
+        },
+        {
+          "assessment": "The stated results concern compatibility and determinant sets",
+          "evidence": "Existence of commuting representatives and possible determinants rather than rank-resolved labeled counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "Abstract",
+          "method": "Primary source abstract",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Commuting class and determinant data"
+        },
+        {
+          "assessment": "Different counting normalization",
+          "evidence": "Counts simultaneous similarity classes, not matrices in a fixed commutant.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2698",
+          "material_read": "Abstract and section 1.1",
+          "method": "Primary PDF excerpts",
+          "title": "Simultaneous Similarity Classes of Commuting Matrices over a Finite Field",
+          "trigger": "Counts of commuting tuples"
+        },
+        {
+          "assessment": "Historical coverage unresolved",
+          "evidence": "Indexed description mentions index enumeration and some finite-ring extension, but no verified image-length refinement.",
+          "identifier_or_url": "https://doi.org/10.1137/0603003",
+          "material_read": "Available abstract/search excerpt only; full text inaccessible",
+          "method": "Publisher lookup and lawful full-text attempts",
+          "title": "Counting Matrices by Drazin Index",
+          "trigger": "Historical finite-ring nilpotent enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The precise image-rank distribution is a natural invariant and genuinely finer than mere existence or the count at z=1. But the frozen claim supplies no distinct unknown invariant or consequence beyond a direct equal-characteristic specialization of the complete indexed spectrum. Thus it does not add a separate scientific result under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

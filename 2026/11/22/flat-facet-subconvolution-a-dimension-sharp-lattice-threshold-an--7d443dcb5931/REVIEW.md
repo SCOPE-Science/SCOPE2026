@@ -1,19 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quotient normalization, norm-equality region and finite transverse lattice cardinality are stated exactly. The triangle inequality gives a global bound for \(p>d\); the off-equality estimates control all infinite tails uniformly in the axis parameter. Endpoint-controlled Riemann summation establishes the subcritical coefficient and harmonic summation establishes the critical residue. The proof is analytic and does not infer infinite claims from finite checker output. Risks: dependence of constants on parameters precludes uniform boundary claims; the theorem does not make such claims.
+PASS
 
-## Originality — PASS (best-knowledge)
+For p>d, the exponential ratio is at most one, and splitting according to which of r,s is larger bounds the polynomial ratio by 2^p times (1+min(r,s))^(−p). Each resulting sum is controlled by the summable cubical shells, uniformly in n. On the axis, the defect vanishes exactly when 0≤j≤N and the transverse radius is at most min(j,N−j); this gives the displayed (2min(j,N−j)+1)^(d−1) slice count with counting measure. On the inner half 0≤j≤N/2 off this region, transverse radius j+h gives defect at least h and far factor (N+1)/(1+s)≤2. Summing h≥1 with e^(−ah) gives an O((1+j)^(d−2−p)) bound per j, whether the exponent is positive or negative. On the outer half-line j=−h the defect is at least h+max(h,‖z‖∞), so that sum is uniformly bounded; reflection gives the other half. The complete off-region bound is therefore lower order subcritically and O(1) at p=d. The bulk equality-region Riemann sum has the stated integrand; near 0 or 1 the normalized sum on an interval of width ε is O(ε^(d−p))+o(1). At p=d the summand on 1≤j≤N/2 differs from 2^(d−1)/j by O(j^−2)+O(N^−1), so both ends give exactly 2^d log N+O(1), without dependence of the leading coefficient on a. The packaged checker was treated as finite evidence, not used to prove an infinite tail or limit.
 
-Das–Giannakis develop the subconvolutive framework and subexponential examples, not this critical exponential \(\ell^\infty\) weight. Montgomery–Giannakis establish an abstract equivalence, not an explicit phase diagram. Kaleta–Ponikowski's continuous Euclidean-radial exponential results have a different norm, measure, equality geometry and threshold, and do not imply the cubical lattice residue. Published indexing and related frequency-weight comparisons did not reveal the exact theorem. This is not conclusive proof of publication priority; an uncatalogued related theorem is possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact dimension-dependent exponent and universal critical coefficient settle a natural borderline family of anisotropic Fourier Hilbert weights. The cubical flat equality region provides \(d-1\) transverse degrees of freedom at each axial split, distinguishing this result from strictly curved norms and explaining why summability of the polynomial factor is the correct threshold. The subcritical coefficient quantifies the entire failure regime, not just a single example.
+The strongest inspected family-level result treats only finite norm exponents and expressly excludes the cube, and the closest continuous density result has different norm geometry and normalization. The abstract RKHS/subconvolutivity criteria apply but do not evaluate this weight family. The supported distinct claim is the cubical iff threshold together with the exact axis leading orders and constants, not the general subconvolution criterion.
 
-## Closest literature and boundaries
+## value
 
-The primary sources are arXiv:1912.11664, arXiv:2109.06336 (Section 3, Proposition 3.5), and DOI 10.1007/s43037-024-00398-y (Section 2). The result concerns exact lattice convolution with fixed positive exponential rate; it neither identifies ordinary multiplication failure below the threshold nor classifies other polyhedral norms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cube is the natural nonsmooth endpoint of the ℓ^q family. Its equality slices have full transverse size, changing the threshold and making the leading constants independent of the exponential scale. The proof turns that mechanism into an exact subcritical coefficient and a critical logarithmic residue, not merely a summability test or an illustrative truncated computation. The scope of the residue is axis directions and fixed parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

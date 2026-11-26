@@ -1,11 +1,21 @@
-# Review of the minimal-ideal orbit census
+# Independent mathematical audit
 
-**Correctness — PASS.** The socle is precisely the six-dimensional quadratic span, and minimal ideals are its lines. The induced automorphism group is monomial in odd characteristic and full general linear in characteristic two, by direct examination of the defining square relations. The support-graph classification, cross-ratio classification of the four- and five-edge strata, and Burnside count of the full six-edge stratum prove the exact formula for arbitrary finite fields. Independent finite enumerations cover characteristic-two fields of orders 2 and 4 and odd fields of orders 3, 5, 7 and 11; they corroborate rather than replace the proof.
+## correctness
 
-**Originality — PASS, with residual historical-priority uncertainty.** The archival truncated-polynomial and socle literature does not state minimal-ideal automorphism orbits for this algebra. Later general automorphism group classifications describe closely related algebra groups, and published classifications of other short local algebras address neighboring objects; their actual claims are not this weighted support-graph orbit census. Related graph-torus invariant theory could still contain an equivalent calculation, and the priority of the formula should be checked independently.
+PASS
 
-**Value — PASS.** The number of minimal ideals is large and uniform in the characteristic, but the quotient by intrinsic algebra symmetries has a sharp change from two classes to a quadratic count with a mod-three term. The result is a complete invariant for a natural eleven-dimensional finite local algebra, identifies the exact support-graph mechanisms producing arithmetic moduli, and may help organize ideal moduli for larger squarefree truncations.
+The six mixed monomials span the socle: a nonzero constant or linear term is detected by multiplication by a suitable generator. A minimal ideal is killed by the nilpotent maximal ideal, so precisely the socle lines qualify. Quadratic corrections to generator images act trivially on their products. In characteristic two every invertible linear substitution is allowed; the induced exterior square has the two nonzero alternating ranks 2 and 4, transitive within each rank even on projectivization. In odd characteristic the vanishing squares force monomial substitutions and exactly vertex-product scalings on edge weights. Forest weights can be normalized along rooted trees; on a triangle, the projective scalar absorbs the needed product quotient, and a pendant edge can then be normalized at its leaf. For a 4-cycle or K₄−e, the alternating product ratio is invariant and complete: normalize three cycle edges, then the ratio fixes the fourth. In K₄−e the residual scales on alternate vertices together with the projective scalar can normalize the diagonal by an arbitrary factor, not just a square: take scales x on one diagonal's two ends, y on the other shore, and scalar 1/(xy), giving diagonal multiplier x/y. The graph symmetries realize ratio inversion, with the two fixed values ±1. In full support the triple of opposite-edge products is complete: for ratios d_ij with d₁₂d₃₄=d₁₃d₂₄=d₁₄d₂₃, set t₁=1, s=d₁₂d₁₃/d₂₃, t_j=d₁j/s to solve d_ij=s t_i t_j. Permutations induce S₃ on this projective torus. The identity fixes (q−1)² triples, each transposition q−1, each 3-cycle gcd(3,q−1). Summing the resulting strata gives exactly the displayed total. Independent replay at q=3 normalized nonzero six-tuples by their first nonzero entry and built orbit components under all 24 permutations and 16 diagonal choices. All 364 lines were covered, giving 13 orbits with strata 1,2,3,3,2,2, including two full-support orbits.
 
-The classification concerns minimal ideals only; no classification of the whole ideal lattice or claim of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic-two alternating-rank classification and general socle or automorphism tools are established. The supported distinction is the complete finite-field projective-socle orbit invariant for this fixed algebra, particularly the odd-field weighted support strata and the combined torus-symmetry quotient. Neither the inspected algebraic results nor the closest indexed weighted-graph or ideal-orbit analogues states or implies the complete count under this action.
+
+## value
+
+PASS
+
+Minimal ideals are the simplest embedded nontrivial ideals of this natural small monomial algebra. The complete action quotient distinguishes finite fields with the same algebra presentation much more sharply than the ambient number of socle lines: two rank types in characteristic two versus quadratic growth in odd characteristic, with explicit invariants for testing equivalence. The useful part is a classification of all the odd-field strata, not a small-field census or the known alternating rank calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

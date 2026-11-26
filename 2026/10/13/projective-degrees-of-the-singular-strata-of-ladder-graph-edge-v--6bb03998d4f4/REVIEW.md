@@ -1,21 +1,21 @@
-# Review of the projective singular-locus degree profile for ladder graph edge varieties
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge ideal is the established prime complete intersection for bipartite ring graphs [1, §3]. The projective Jacobian rows give a complete dichotomy: a zero row forces the row-zero strata, while a relation among nonzero rows forces a pair of adjacent rung-supported rows. All resulting coordinate strata are integral shorter-chain complete intersections of codimension three in the variety. Their projective degrees follow from the precise number of residual regular quadrics. Generic local eliminations produce the rank-four quadratic hypersurface \(xy-zw=0\). The finite verifier checks \(m=2,3,4,5,6\) and confirms the maximal singular supports and degree multisets, but cannot prove the unbounded theorem.
+## correctness
 
-## Originality
-PASS for the combined **projective degree multiset** and total degree, with residual risk. Wagner's 1996 projective Hibi orbit criterion and Lakshmibai–Mukherjee's 2007 general Hibi singular-locus theorem cover the qualitative question at a more general level; the row-zero/adjacent-row decomposition is not separately claimed as a first singular-orbit classification. Gitler–Reyes–Villarreal supply the complete-intersection equations. The inspected full texts do not state the singular-component degree multiset \((m+3)\times 2^{m-2}\) and \(4(m-2)\times 2^{m-3}\), or the resulting total \((3m-1)2^{m-2}\). The ladder-determinantal setting in Gonciulea–Lakshmibai is a different matrix-support construction. The full text of Wagner (1996) remained unavailable; its precise quantitative scope warrants independent examination. The two-cell boundary instance is explicitly excluded because a previous treatment covered it.
+PASS
 
-## Value
-PASS. Projective degrees measure the intersection-theoretic size of the reduced singular locus in the **given natural graph-monomial embedding**, not merely the number or codimension of singular components. The full multiset distinguishes the two geometric component families, scales exponentially with the number of cells, and supplies inputs for studying polar classes, intersections and desingularizations. Obtaining it required a complete irreducible-component decomposition and proving regularity of each surviving quadric chain, beyond relabeling a generic Hibi criterion. No claim is made that all generic singularity types are first described here.
+The m square binomials give the ladder edge ideal. Independently, reduce monomials by u_i w_i=v_{i-1}v_i so that no monomial uses both rails of one square. Substituting w_i=v_{i-1}v_i/u_i sends distinct reduced monomials to distinct Laurent monomials: each u_i exponent recovers the rail pair and then the v exponents recover the remaining rung factors. The rung and top-rail edge monomials are algebraically independent by leaf elimination on their spanning tree. This verifies the prime complete intersection and projective dimension 2m. In a Jacobian dependence each participating nonzero row has both rails zero by its private rail columns; its equation and nonzero row force exactly one nonzero rung and a single supported column. Cancellation then requires an adjacent pair supported in the same rung column. The remaining case is a zero row, where each neighbor has one vanishing rail. Thus the maximal pieces are precisely the row-zero loci after the neighbor rail choices and the adjacent-row loci. Their residual square equations lie in disjoint smaller ladder blocks with independent free variables; each list member is irreducible and has its full complementary coordinate support (all ones there is a point). The ambient codimension is always m+3; there are four end-row pieces and m-1 adjacent-row pieces of degree 2^(m-2), and 4(m-2) interior-row pieces of degree 2^(m-3), by complete-intersection degrees. Independent analytic elimination solves the other equations using unit rails, or in the adjacent-row case first eliminates the shared rung using a unit rung. The only transverse equation is a rank-four quadric, up to a unit rescaling. A separate finite-field support and Jacobian replay for m=3,4,5 corroborated component counts 10,15,20 and degree totals 16,44,112; it is not used as the proof over C.
 
-## Limitations and residual risks
-The result concerns only the reduced singular support, its projective degrees and generic transverse singularities over \(\mathbb C\). Nongeneric local types, Jacobian scheme multiplicities, independent audit and any broader generalization are unproved. An unindexed equivalent of the projective degree distribution may exist in general projective Hibi literature; Wagner's full article should be checked independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] Gitler–Reyes–Villarreal, arXiv:math/0603718.
-[2] Wagner, Journal of Algebraic Combinatorics 5 (1996), 149–165, DOI 10.1023/A:1022469218716.
-[3] Lakshmibai–Mukherjee, arXiv:0706.2686.
-[4] Gonciulea–Lakshmibai, DOI 10.5802/aif.1590.
+Credit the established ladder edge-ring complete intersection and the applicable general Hibi singularity theory. Indeed the same projective embedding is Hibi: use the lattice of ideals of the ordinal sum of m two-element antichains, with the rung coordinates the ends of successive diamonds and the two rails their incomparable elements. The Hibi straightening relations are exactly the square quadrics. Thus general Hibi criteria already cover qualitative singular support. The supported distinct contribution is the explicit degree profile for this family, requiring the exhaustive component calculation and the residual-chain degree count, not a first criterion for where toric singularities occur.
+
+## value
+
+PASS
+
+The graph-edge embedding is canonical, so projective degree of its reduced singular support and the degree of each orbit-closure component are natural embedding-sensitive invariants. The calculation exhibits two different degree levels despite equal codimension and generic transverse type, and provides an exact whole-family answer rather than a single instance or an evaluation of smoothness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

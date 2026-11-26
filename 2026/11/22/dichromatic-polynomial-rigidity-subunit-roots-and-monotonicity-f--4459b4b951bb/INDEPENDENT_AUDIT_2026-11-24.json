@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:16:36.342546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "For c≥1, r≥2 and d_i≥1, the only simple cycles are the r forward-arm/return-path cycles, all with a common return path, giving strong connectivity. With q named colors the return is monochromatic with probability q⁻ᶜ and the conditional forward-interior events are independent with probabilities q⁻ᵈⁱ. This yields the stated polynomial for infinitely many q. Its highest degree is N; the product has a double or higher zero at 1, so P′(1)=c and D=N−c−1. Cyclotomic multiplicities count forward lengths divisible by each index and finite Möbius inversion recovers all length counts. Thus each permitted partition of D into at least two parts contributes a distinct polynomial, proving the census. For 0<x<1 odd r makes both terms in P/x negative. For even r write P/x=xᴰ(1−xᶜ)(H−1), with H=∏(x⁻ᵈⁱ−1)/(1−xᶜ). H runs from +∞ to 0 and its logarithmic derivative obeys xH′/H≤(−r+x)/(1−x)<0 by the geometric-sum bounds; hence the unique crossing is simple. For x>1 each factor in B=∏(1−x⁻ᵈⁱ) is positive, <1 and increasing. The invalid-color fraction x⁻ᶜ(1−B) is strictly decreasing there, and continuity and its value 1 at x=1 give strict normalized increase on the full stated interval.",
+      "residual_risks": [
+        "Reconstruction is relative to the named family. The real-root count is only on (0,1); the normalized statement is only for these networks. Finite verification data are corroborative, not used for the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crew et al. Theorem 1 gives general contraction/include–exclude machinery; Theorem 3 gives density of real roots even for digon-free digraphs.",
+          "Their v1 Conjecture 2 asks monotonicity of P_D(x)/x^n on [n−1,∞) for every n-vertex digraph; it is not a theorem there. The 2022 article discusses dichromatic equivalence, but independent OA full-text retrieval failed."
+        ],
+        "reasoning": "The stronger general counting theorem covers the polynomial evaluation. Root density across digraphs does not bound the roots of an individual network by parity. An open universal monotonicity conjecture is not coverage of this theorem, and this proof works down to x=1 only within the specified family.",
+        "searches": [
+          "arXiv:2611.13273v1 Theorem 1, Theorem 3, §6 and Conjecture 2",
+          "González-Moreno et al. DOI:10.1007/s00373-022-02484-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and f197eecc1b6c Finding",
+        "Crew et al., arXiv:2611.13273v1",
+        "González-Moreno et al., DOI:10.1007/s00373-022-02484-0 (partial scope only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct specialization of the prior inclusion–exclusion terms factors as x^N−x^(D+1)+x∏(x^(d_i)−1), so the overlap on enumeration is substantive.",
+          "To go beyond it the frozen proof extracts P′(1), inverts cyclotomic multiplicities and proves a strict sign-changing level crossing for even r; neither the density theorem nor the comparison on doublet graphs supplies these inverse and root conclusions."
+        ],
+        "reasoning": "The evaluated family conclusions are proved by separate inverse and real-variable arguments. Monotonicity is a family-level verification on a stronger interval, not evidence of the all-digraph conjecture.",
+        "searches": [
+          "Crew et al. arXiv:2611.13273v1, §3 Theorem 1, §5 Theorem 3, §6 and §8.1 Conjecture 2",
+          "Resultary f197eecc1b6c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A digraph in this family has the same acyclic colorings as proper hypergraph colorings with hyperedges given by the r cycle vertex sets. The nonempty set I of forced monochromatic cycles contributes q^(D+1−∑_{i in I}d_i), with sign (−1)^|I| in inclusion–exclusion.",
+          "Crew et al. §6 addresses global uniqueness for particular tournaments; the frozen inverse is relative to an explicitly different network family."
+        ],
+        "reasoning": "The polynomial identity is already derivable exactly by the general hypergraph/minimal-cycle formulation. Recovery of the arm multiset and sharp family root counts are different statements from evaluating the counts or proving a tournament unique.",
+        "searches": [
+          "Crew et al. arXiv:2611.13273v1 §§3,6 (minimal cyclic vertex sets and dichromatic uniqueness)",
+          "Resultary: dichromatic polynomial for coherent directed multi-theta networks, shared directed return path and root parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct highly relevant catalogue result f197eecc1b6c concerns cyclic layers of independent doublets, with polynomial q^(2r)−q(2q−1)^r+2^(r−1)q(q−1). It counts two negative roots for odd r and none beyond 0 and 1 for even r, not a root in (0,1) for even r here.",
+          "No distinct matching evaluated inverse, census or subunit-root table was identified in the inspected comparisons."
+        ],
+        "reasoning": "The different layered graph, polynomial, and root interval prevent matching the same-day parity results; date alone provides no priority ordering. A catalogue miss cannot alone establish novelty.",
+        "searches": [
+          "Resultary: dichromatic polynomial multi-theta rigidity, exact subunit roots, parity and normalized monotonicity",
+          "Resultary f197eecc1b6c, local mirror Finding"
+        ]
+      },
+      "rationale": "The product polynomial is an explicit specialization of prior general minimal-cycle inclusion–exclusion; credit that coverage, not a new counting principle. The inspected evidence does not supply the inverse classification of parameters, the parity-sharp positive subunit root count, or the strict normalized theorem from 1 for this family. The pass concerns those consequences and the associated type census, with limited historical-priority assurance.",
+      "residual_risks": [
+        "The 2022 text was not read in full; unindexed exact family coverage cannot be excluded.",
+        "Conjecture status was checked in arXiv v1, not certified over all current literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers counting identity under specialization, not the inspected exact inverse, parity or normalized theorem",
+          "evidence": [
+            "Theorem 1 and proof count by minimal cyclic sets/contractions; §6 proves global uniqueness of particular tournaments; the universal threshold n−1 remains conjectural in v1 dated 9 November 2026 UTC."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13273v1",
+          "material_read": "Title block; §3 Theorem 1 and inclusion–exclusion proof (p. 3); §5 Theorem 3 (p. 11); §6 (pp. 11–12); §8.1 Conjecture 2 (p. 17)",
+          "method": "Bounded open PDF passages, with specialization of the counting formula",
+          "title": "Properties of the Dichromatic Polynomial",
+          "trigger": "Principal comparison for formula, rigidity, roots and monotonicity"
+        },
+        {
+          "assessment": "Exact family coverage neither established nor ruled out",
+          "evidence": [
+            "The preview records recurrence/equivalence themes; Crew et al. §6 describes responding to the older global uniqueness questions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-022-02484-0",
+          "material_read": "Bibliographic and accessible preview scope as recorded in the frozen evidence; independent counterpart in Crew et al. §6. No independent full-text comparison.",
+          "method": "Attempted lawful OA retrieval via DOI, publisher article and PDF; compared the available scope evidence",
+          "title": "The Dichromatic Polynomial of a Digraph",
+          "trigger": "Same invariant, older recurrence and equivalence work"
+        },
+        {
+          "assessment": "Different cyclic-layer construction; no covering implication",
+          "evidence": [
+            "Root parity concerns two negative roots in the odd case in a different family, not the positive subunit root for even forward-arm count."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, f197eecc1b6c",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Exact object, polynomial and root comparison",
+          "title": "Parity determines every real dichromatic root of cyclic doublet digraphs",
+          "trigger": "Closest distinct catalogue claim linking parity and real dichromatic roots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Crew et al. §§5,6 and 8.1"
+      ],
+      "rationale": "The family is natural: all elementary directed cycles share a return path, with arbitrary forward-arm count and lengths. A complete relative fingerprint (and hence an exact fixed-order census), a sharp parity criterion and a strict normalized interval form a full structural test family for the related general questions. The value is in these conclusions rather than the already covered inclusion–exclusion evaluation alone.",
+      "residual_risks": [
+        "Does not settle unrestricted monotonicity, global dichromatic uniqueness, or the other real or complex zeros."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized affine interpolation of two nonantipodal points on the round sphere has the same trace as the minimizing great-circle arc. Projection to a fixed coordinate plane gives a segment joining two nonopposite planar rays; its azimuth traces their shorter circular arc independently of latitude or dimension. For independent uniform azimuths on E, different components never survive and a pair in one component of angular length l survives precisely when its coordinate gap does not exceed pi. The two excluded triangular corners of the parameter square have total area (l-pi)_+^2. Summing with weights (l/theta)^2 gives the exact formula. The function f(l)=l^2-(l-pi)_+^2 is convex and has f(l)/l strictly increasing on (0,2pi]; Jensen proves the unique k-equal lower optimizer and strict superadditivity the unattained upper supremum. The single-meridian case is l=theta=2pi and yields 3/4; equal k-component cuts yield 1/k. Exceptional antipodal, opposite-azimuth, and axial points have probability zero under the stated measures. The standalone checker directly interpolates sampled sphere points and tests 225000 cases in dimensions 2,3,5,6, with agreement at tolerance 0.013.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Normalized affine interpolation traces the shorter great-circle arc; its planar projection has the argument of a positive combination of two nonopposite endpoint rays and sweeps the entire shorter azimuthal arc. Uniform conditioned azimuths put mass ell/theta on each component. Different components cannot connect inside E. In a lift of one component to (0,ell), the excluded pairs are the two triangular corners with |U−V|>pi, of total area (ell−pi)_+². This applies when ell=2pi with a single omitted angle as well. Axis and antipodal cases do not contribute; equal or opposite angular pairs have zero probability under independent uniform azimuths. With f(s)=s²−(s−pi)_+², the supporting line at theta/k touches only there (also when theta/k=pi), giving the stated unique lower equality case; strict increase of f(s)/s proves strict superadditivity on positive arguments. One arc tending to theta with the others shrinking proves sharpness, even for theta=2pi with singleton cuts.
 
-Prior own findings on latitude-defined spherical caps and equatorial zones concern different domain geometries and have no implication for arbitrary finite unions of meridian sectors, especially zero-area cuts and sharp component-count extremizers. Published work on spherical width and lunes establishes convex-geometric background but its inspected materials do not derive this random-geodesic survival law. Targeted published-finding corpus queries found no equivalent or stronger coverage among returned records, but indexed-search absence is not a guarantee of historical priority. Meridian-convexity of individual sectors narrower than pi is elementary and is not claimed as novel; the novelty claim is the full classification and sharp fragmentation/measure-zero-cut phenomena.
+## originality
 
-The closest inspected sources were Lassak's spherical convexity/width treatment (2013; DOI 10.1007/s00010-013-0237-3) and Lassak–Musielak's study of reduced spherical convex bodies (2016; arXiv:1607.00132). Earlier latitude-cap and equatorial-zone probability results address distinct spherical regions, without implications for this azimuthal classification.
+PASS
 
-## Mathematical value — PASS
+Pass for the exact multi-component and sharp fixed-(k,theta) laws. The strongest distinct indexed result gives the same angular reduction and equivalent single-sector probability for openings below 2pi, and receives credit for that overlap irrespective of which record came first. It does not give the disconnected open-set law or its sharp equality and nonattainment cases. No stronger covering result was identified in the bounded comparison.
 
-The problem quantifies a geometric connectivity statistic that depends on whether a random shortest ambient geodesic stays within a domain, rather than merely whether endpoints lie inside it. Deleted zero-area meridians alter this probability discontinuously, giving an instructive contrast with area-invariant statistics; the exact all-dimensional classification makes this nonlocal effect measurable. The best/worst arrangement for a fixed angular budget and number of components is solved sharply, including uniqueness and the unattained supremum, and the result applies to all sphere dimensions and latitude sampling laws with uniform azimuth. This is a complete structural family, not a single numerical example or a routine restatement of spherical convexity.
+## value
 
-## Risks and limitations
+PASS
 
-Specialized unindexed probability literature may contain an equivalent result, and independent historical review remains needed. The theorem concerns ambient round-sphere geodesics and angular unions; there is no assertion for arbitrary spherical subsets or nonuniform angular sampling. Numerical trials support but do not establish infinite-dimensional validity.
+For a natural class of spherical domains the exact geometry reduces to a length distribution and yields a sharp design law: equal components minimize containment, and concentration of length approaches an unattained supremum. The law captures the failure of area alone to control geodesic containment, including null-area cuts, and works without polar-coordinate information beyond the uniform azimuthal marginal.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

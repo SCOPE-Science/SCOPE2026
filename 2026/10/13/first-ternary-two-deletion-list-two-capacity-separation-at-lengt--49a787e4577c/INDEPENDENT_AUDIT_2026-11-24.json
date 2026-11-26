@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:05.446505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incidence model uses distinct deletion outputs and distinct codewords, including the single empty output at n=2. Multiplying each output's list constraint by its nonnegative rational weight and each word's upper bound x_w<=1 by its own nonnegative weight gives an upper bound on total code size when each word is covered at weight >=1. Independent exact checks of every entry give the pairs of dual objectives (1,2), (3,9/2), (3,6), (33/5,63/5); taking floors and checking the matching codebooks gives the stated exact shorter-length capacities. The length-six compatibility graph on 729 words uses disjoint shadows as adjacency, so unique-decoding codes are its cliques. An independent Python reproduction greedily colors candidate prefixes into independent classes, searches include/exclude extensions with safe color pruning, and returns maximum 11 after 1,428,176 nodes (tested first at n=5, maximum 6). The checked size-11 and size-24 codebooks have shadow loads at most one and two, respectively. Since 24>22 and all shorter lengths satisfy the required non-strict inequality, the first strict gap is proved; the exact length-six list-two capacity is not determined. Replay paths: /workspace/branches/c4cc4d3f-8b96-48b2-8b6f-cb75dc0d6f76/{independent_check.py,finite_replay.txt,clique_check.py,clique_n5_replay.txt,clique_n6_replay.txt}. The frozen Python/C++ files were inspected as evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu, Tjuawinata and Xing construct q-ary codes and a list-decodable modification but the inspected abstract gives no all-code finite optimum.",
+          "The weighted-shadow catalogue summary concerns unique decoding and the ternary length-five optimum 6; the exact source could not be read from the local mirror."
+        ],
+        "reasoning": "Constructive bounds do not give the decisive n=6 upper bound at list size one or exact smaller list-two bounds. Even an overlapping unique-decoding upper bound would leave the list-two certificate and first-gap comparison to establish.",
+        "searches": [
+          "arXiv:2306.02868, abstract",
+          "Resultary b2a10c6ff32c, universal weighted shadow bound"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f262ebab78e2",
+        "Resultary b2a10c6ff32c (summary)",
+        "Resultary 9c42120b94f7 (summary)",
+        "arXiv:2609.26650",
+        "arXiv:1502.02727v3",
+        "arXiv:2306.02868"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Checked finite-code prior supplies exact shorter unique maxima, while other close work gives binary asymptotics or ternary family optima."
+        ],
+        "reasoning": "Monotonicity in alphabet size cannot transfer both sides of a strict comparison or exclude an earlier ternary gap. Family-specific sizes are not global upper bounds. The separation depends on the new exact clique bound, list witness and shorter-length list-two bounds, not just substituting parameters into a prior formula.",
+        "searches": [
+          "Resultary f262ebab78e2, finding and scope",
+          "arXiv:2609.26650, binary list-decoding intro",
+          "arXiv:1502.02727v3, definition of N_n(q,d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary Resultary analogue 9c42120b94f7 concerns a first gap at binary length seven, not ternary six (catalogue summary).",
+          "Lin addresses binary asymptotic lower bounds, including two deletions and list size two, not finite ternary capacity."
+        ],
+        "reasoning": "A code exceeding twice the unique optimum cannot be partitioned into two unique-decoding codes. Conversely, nondecomposability of a particular list code alone would not prove the capacity gap. Neither a binary gap, nor a binary rate statement, supplies the ternary maximum or minimality at n=6.",
+        "searches": [
+          "Resultary: exact ternary two-deletion codes, list-two versus twice unique capacity, first nondecomposable deletion codes",
+          "arXiv:2609.26650, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Resultary statement gives unrestricted M_3(n,2,1)=1,3,3,6 for n=2,3,4,5, respectively, and a length-five equality census.",
+          "Le and Nguyen's N_6(3,2)=4 is a maximum within a generalized Helberg code family, not an unrestricted code-size optimum."
+        ],
+        "reasoning": "The prior exact short unique-optimum sequence overlaps one column and is not original here. Neither inspected table supplies the two columns needed to prove the least strict separation or the length-six certificates.",
+        "searches": [
+          "Resultary f262ebab78e2 and b2a10c6ff32c",
+          "Le and Nguyen arXiv:1502.02727v3, §II-B and Table IV"
+        ]
+      },
+      "rationale": "The previously reported sequence of unrestricted unique-decoding optima through five is credited and not a distinct contribution. The surviving claim is the first strict list-two capacity separation for ternary two-deletion shadows, including the exact length-six unique-decoding optimum and a size-24 list-two witness. The strongest checked overlaps do not establish that separation or its minimality.",
+      "residual_risks": [
+        "The two catalogue summary records could not be read in full in the local mirror; their possible subsidiary statements remain unassessed.",
+        "An unindexed exact deletion-code table could overlap the finite computation; no global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted family only",
+          "evidence": [
+            "N_n(q,d) is defined over generalized Helberg residue code parameters; N_6(3,2)=4."
+          ],
+          "identifier_or_url": "https://users.rowan.edu/~nguyen/papers/1502.02727v3.pdf",
+          "material_read": "§II-B definition and Table IV, PDF p. 18 (offset 67568)",
+          "method": "OA author PDF, located passages",
+          "title": "New Multiple Insertion-Deletion Correcting Codes for Non-Binary Alphabets",
+          "trigger": "Ternary tables with matching short n and two deletions"
+        },
+        {
+          "assessment": "Binary asymptotic statements, not matching finite ternary comparison in passages read",
+          "evidence": [
+            "Alphabet and regime in the main introductory results are binary and asymptotic."
+          ],
+          "identifier_or_url": "arXiv:2609.26650",
+          "material_read": "Abstract and introduction, text offsets 0–1081 and 3942–7239",
+          "method": "OA paper full-text locations",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Close two-list/two-deletion lower bounds"
+        },
+        {
+          "assessment": "Construction result, no evidence of exact finite maxima in passage inspected",
+          "evidence": [
+            "Efficient q-ary construction and list-decodable modification."
+          ],
+          "identifier_or_url": "arXiv:2306.02868",
+          "material_read": "PDF abstract p. 1",
+          "method": "OA PDF passage",
+          "title": "Explicit Construction of q-Ary 2-Deletion Correcting Codes With Low Redundancy",
+          "trigger": "Potential q-ary construction bounds"
+        },
+        {
+          "assessment": "Exact partial coverage; no list-two threshold stated",
+          "evidence": [
+            "Unique-decoding maxima 1,3,3,6 at n=2–5 and equality census at n=5."
+          ],
+          "identifier_or_url": "Resultary f262ebab78e2 (2026/10/12)",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary length-five two-deletion optimum and equality census",
+          "trigger": "Matching alphabet, deletion count and exact small maxima"
+        },
+        {
+          "assessment": "Likely overlap for short unique optimum; scope of broader formula not confirmed",
+          "evidence": [
+            "Summary reports exact n=5 unique capacity 6 and a weighted upper bound."
+          ],
+          "identifier_or_url": "Resultary b2a10c6ff32c",
+          "material_read": "Catalogue summary; exact record unavailable in local mirror",
+          "method": "Local Resultary retrieval",
+          "title": "Exact ternary length-five two-deletion capacity via a universal weighted shadow bound",
+          "trigger": "Potential general weighted upper bound"
+        },
+        {
+          "assessment": "Binary analogue, not discarded on dating",
+          "evidence": [
+            "Summary gives binary length-seven capacities 11 and 5 for list sizes two and one."
+          ],
+          "identifier_or_url": "Resultary 9c42120b94f7 (2026/10/13)",
+          "material_read": "Catalogue summary; full statement unavailable in local mirror",
+          "method": "Local Resultary retrieval",
+          "title": "The first nondecomposable binary two-deletion list-two code occurs at length seven",
+          "trigger": "Same type of first gap, different alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The factor two is the natural benchmark since any union of two unique codes is list-two and has size at most twice the unique capacity. Proving strict separation for the first length, with exact earlier capacities and an explicit witness exceeding that benchmark, answers a meaningful finite coding question. This is not just a recollection of short unique-decoding tables and does not require determining the exact length-six list-two optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

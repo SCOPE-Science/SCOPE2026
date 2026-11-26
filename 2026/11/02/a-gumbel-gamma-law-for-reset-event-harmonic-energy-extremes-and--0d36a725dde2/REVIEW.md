@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The OU conditional Gaussian representation, beta transformation of exponential cycle durations, erfc sharp asymptotics with an explicit integrable dominating function, and consequent marked rare-event Poisson limit prove the Gumbel–Gamma theorem. At the critical exponential-moment parameter, a beta integral is finite exactly for \(r>\mu\). Independence of the Gaussian marks and cycle lengths proves the strict separation of the energy-maximizing and longest intervals. The accompanying deterministic verifier checks 88 numerical identities or inequalities for multiple parameter values but is not used as a replacement for limiting arguments. The theorem applies to complete reset cycles and to an explicitly defined potential-energy decrement, not protocol-dependent reset work.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+The frozen complete-cycle law is valid: normalizing the OU endpoint conditional on its exponential duration gives an independent standard normal, U=e^(−2μT) has CDF u^β, and E=(1−U)Z²/2. Conditional Gaussian integration gives the frozen moment criterion (the critical integral is β∫₀¹u^(β−3/2)du); a Mills bound and the scaling v=wU give the tail and conditional gamma law. Selection of the maximum over iid pairs multiplies the exact joint density by n(1−S)^(n−1), which also checks the independent limit and the frozen age scale. The duration maximum has order log n, and even its selected normal mark is standard normal because the duration vector is independent of all normal marks. The repaired RESULT.md additionally proves a local joint-density correction. After wU=z, the Gaussian-tail multiplier has first coefficient −z/2−z²−1/2; integrating against Gamma(β,1) gives −κ(β+1). Split at z=w/2 and bound the Taylor error by an integrable polynomial times w^(−2), with the rest exponentially small. The exact quantile nS(b_n)=1 therefore gives nS(b_n+x)=e^(−x)[1−κx/b_n+O(b_n^(−2))]. Expanding the exact winner density then gives the recorded joint coefficient and compact-uniform remainder. As a separate sign check the logarithm of the four-point density ratio is exactly −(x1−x2)[(1−v1/b_n)^(−1)−(1−v2/b_n)^(−1)] when all four points are in the support. The limiting density has unit mass, giving total-variation convergence by Scheffé. The supplied finite checks concern the frozen one-cycle identities and tail; no uploaded scripts were used to establish the new expansion.
 
-The source's OU transition kernel and resetting thermodynamics, prior reset OU stationary distributions, and general extremal/marked-point-process methods are openly credited. The distinctive combined claim is the exact joint Gumbel–Gamma maximum/selected-age law for pre-reset **harmonic energy**, the \(\log\log n\) versus \(\log n\) duration selection, and the boundary exponential-moment classification. Singh and Pal's spatial-path maximum is not a reset-event energy maximum. Published literature and semantic research-record comparisons did not reveal this combined theorem; a broader unlocated result about marked Gaussian scale-mixture extremes remains a priority risk. No independent scientific or literature-wide certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-A 2026 harmonic resetting heat-engine study motivates quantifying large energy displacements at individual resets, beyond its mean thermal-cycle costs. The result gives an exact tail prefactor, an extreme-value normalization, a critical exponential-moment boundary, and a selected-cycle age distribution that is asymptotically much shorter than the longest waiting time. This isolates a concrete mechanism that cannot be inferred from mean OU energetics or the extreme waiting time alone. The potential-energy observable is intentionally distinguished from protocol-dependent physical work.
+For the repaired claim only: the compact-uniform inverse-logarithmic correction to the joint law in exact-quantile coordinates, including its mixed term, was not found or obtained by direct substitution into the inspected sources. The frozen marginal, leading tail and critical moment are materially covered; the leading selection mechanism is related to known contraction proofs and the shared-age gas. They are background or corollaries in the repair, not separate novelty claims.
 
-## Closest literature and remaining limits
+## value
 
-Farago (2026; arXiv:2605.28445) supplies the harmonic resetting motivation and OU propagator. Trajanovski et al. (2023; arXiv:2301.12304) already supply the corresponding stationary spatial mixture. Gupta et al. (2025) and Olsen et al. (2024) study physical erasure work for different reset protocols, and Singh and Pal (2021; arXiv:2102.07111) study continuous spatial extrema. Classical Poisson convergence and normal-tail estimates are standard methods. No finite-time convergence rate or microscopic erasure-work identity is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Asymptotic independence alone conceals how the energy level biases the age at a finite cycle count. The repaired density identifies both the order and nonzero coefficient of that bias, with a ratio that cancels all separate marginal adjustments. This is a quantitative distinction in a natural reset extremum, rather than a recalculation of the known stationary marginal or its moment boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

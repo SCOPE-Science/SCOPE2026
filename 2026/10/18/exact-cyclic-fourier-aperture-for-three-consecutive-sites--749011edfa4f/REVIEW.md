@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result has a complete analytic proof for every integer cyclic order at least three. The lower bound uses the nonnegative polynomial \((1-u)(u+1/2)\), whose expectation is zero under the vanishing first and second complex Fourier moments; below an arc of angle \(4\pi/3\) this forces an impossible point mass. The upper bound is certified by explicit Lagrange moment weights at endpoint and internal symmetric frequencies, together with an all-orders internal-radius bracketing inequality. Nonnegativity of each weight, exact moments, and endpoint occupation are proved rather than inferred from experiments. A five-column affine-dependence argument compresses any six-node precursor to five nodes without enlarging the aperture. For orders divisible by three, equality-rigidity follows from the dual polynomial's zero set and the three-point discrete Fourier transform. The supplementary 796 high-precision comparisons are consistent with, but not a substitute for, the proof.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed RESULT.md, proof steps 1–4. Translation/centering preserves the zero moments. In cosine coordinates E[u]=0 and E[u²]=1/2, hence the nonnegative quadratic certificate excludes all shorter arcs and forces precisely the three equal masses at equality (unit total mass). For existence, the two internal grid radii bracket arccos(−1/(2 cos R)); for odd D the stated tangent factorization follows by expanding (1+√3 y)(1−3y²)−(1+y²)² and using 0≤y≤2−√3. For the small nondivisible orders 5,7,8,10,11 an allowed internal q in [N/3,N/2] can be chosen as 2,3,4,5,4 respectively, giving an upper bracket ≤π/2; N=4 has four equal masses and 3-divisible orders use the center. For N≥12 the step 2π/N gives the same nonnegative-cosine upper bracket. The Lagrange formulas evaluate the degree-two moment functional with nonnegative masses (strictly positive at the endpoints); equal radii use the separately valid two-cosine rule. Reflection kills the sine moments, and affine pruning in R⁴ gives at most five bins. Dropping an endpoint would contradict the lower bound. More precisely the Parseval identity is the frame operator (equivalently the three-row Gram matrix), not the Gram matrix indexed by bins. The bundled mpmath pre-pruning test was inspected, not executed or relied upon.
 
-A public 2026 source titled *Sharp positive Fourier sampling on three consecutive cyclic sites* was inspected in full: it optimizes the number of nonzero frequency bins, which varies with the arithmetic of the order, and does not give the minimum width of a consecutive containing frequency interval. The two optimization statements do not imply one another. Tan–Zhang's 2026 cyclotomic-divisibility diameter theorem supports the lower-bound mechanism but imposes vanishing at primitive conjugates rather than just the first two characters and does not, in its accessible abstract, supply the all-order grid-exact upper construction. Kunis's 2026 positive generalized-quadrature preprint studies different geometric bounds. General unit-circle positive-quadrature literature, including Peherstorfer's survey, is a significant possible equivalence route. Its abstract was examined, but its full text and the full text of the two 2026 preprints could not be accessed. The originality assessment concerns the **sharp all-order integer aperture and positive endpoint-preserving realization**, not the classical dual quadratic or Carathéodory's theorem. Priority remains subject to an independent literature review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest frequency bandwidth permitting a positive Parseval reconstruction on three adjacent cyclic sites is a natural localization constraint distinct from the previously studied minimum measurement count. The exact value \(\lceil2N/3\rceil\) is valid for every cyclic order without a primality condition, and a five-frequency solution is attained inside the sharp window for every order. The result exhibits simultaneous positivity, exactness, endpoint saturation, and a uniform sampling-cost ceiling. Its all-orders explicit construction and the equality classification at divisible orders supply a reusable model for grid-constrained positive quadrature. No unproved downstream application is needed for this natural complete classification.
+The complete fixed-grid attainment result is distinct on the evidence inspected. The rounded lower bound already follows from Tan–Zhang's continuous positive-measure lemma, with the same dual quadratic in degree two; their equality case gives the divisible-order rule and uniqueness as well. Do not credit those as new. Generic support compression is standard. The distinct contribution is attainment of the rounded lower bound for nondivisible grids with a constructive small support inside the optimal interval. The older three-site cardinality result compares the same moment constraints but not this localization constraint.
 
-## Residual limitations
+## value
 
-The finite-grid two-moment scope is essential. There is no classification of all optimal supports or higher-moment analogue, nor a complete characterization of the minimum support size at each nondivisible order. Source access limits prevent historical novelty from being independently certified. The supporting checker covers finite orders only. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact positive Parseval sampling in a minimal consecutive frequency window is meaningful separately from minimizing the number of measurements. Constructively closing the integer-grid gap for every N is a nontrivial localization result, with at most five adjustable bins and exact endpoint occupancy; no claim of minimum support within the window or higher-order scope is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

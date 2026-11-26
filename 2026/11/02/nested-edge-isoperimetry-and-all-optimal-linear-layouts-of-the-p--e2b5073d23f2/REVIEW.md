@@ -1,19 +1,21 @@
-# Review: nested edge-isoperimetry of the Pappus graph
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The cubic-neighbourhood recurrence evaluates the exact boundary of all \(262{,}144\) vertex subsets. An independent point-line incidence construction directly counts all 27 cut edges per subset, with an explicit checked graph isomorphism. Both programs produce the same 19 cut minima and minimizer multiplicities; both verify the nested cyclic order and the exact number \(31{,}850{,}496\) using independent backward and forward chain-count recurrences. The standard sum-of-prefix-cuts identity makes \(99\) and cutwidth \(8\) rigorous lower bounds, met by the exhibited order. Equality of the nonnegative sum shows that the chain count is precisely the number of all optimum minimum-linear-arrangement permutations.
+PASS
 
-## Originality
+Reconstructed the point-line Levi graph using projective Pappus coordinates and checked its isomorphism with the signed-offset LCF graph. A direct crossing-edge scan of all 262144 subsets gave b=(0,3,4,5,6,7,6,7,8,7,8,7,6,7,6,5,4,3,0) and m=(1,18,27,54,126,324,18,108,540,54,540,108,18,324,126,54,27,18,1), including the empty and full sets. The LCF prefixes realize every entry of b. Each edge contributes its span to the sum of prefix cuts, so sum(b)=99 and max(b)=8 are attained lower bounds on the two objectives. Equality for the sum holds exactly when all prefixes are minimizing sets. With one path at the empty set, forward extension by one vertex to any minimizing superset counts each labelled optimal order once and gives 31,850,496 paths to the full set. No identification by automorphisms or reversal was taken. Replay and raw results: /workspace/review-evidence/1/pappus_independent_check.py and /workspace/review-evidence/1/pappus_independent_check.out. The frozen certificate and checkers were inspected, not executed.
 
-**PASS, with historical risk.** Horton–Parker–Borie (2000), §3, already states the \(\sigma\)-good definition and its *general* minimum-linear-arrangement equivalence: those implications are credited. Abiad et al. (arXiv:2601.17519), Appendix Table A4, gives only the rounded scalar Pappus isoperimetric ratio \(0.78\), not its complete cardinality profile or optimal-order census. Other inspected linear-layout papers handle different classes. Searches under the names Pappus Levi graph, honeycomb toroidal graph, cutwidth, cardinality-constrained cuts, and nested isoperimetric orders identified no explicit full profile or 31,850,496 exact count. Unindexed historical tables remain a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Pappus graph is a natural 18-vertex cubic symmetric incidence graph. For a graph layout, a single optimal ordering need not realize every constrained cut minimum; proving simultaneous attainment for this classical graph and counting all optimum orders gives a complete nontrivial finite test case linking graph expansion to layout geometry. The sharp optimum and its degeneracy are independently motivated by established minimum-cut and layout questions, not by an arbitrary selected subset size. The result is finite and does not claim an extension to all cubic graphs.
+The supported distinct result is the complete labelled minimizer multiplicities and the exact count of optimal arrangements on this specific canonical graph. The prior scalar edge-isoperimetric number, classical graph description, general layout lower bound, and analogous counts on other graphs are credited. The unweighted boundary profile and layout values admit an elementary derivation combining the scalar, girth, parity and prefix evaluation; they are not treated as separate priority claims.
 
-## Remaining limitation
+## value
 
-Independent scholarly priority evaluation and independent audit have not been performed. Any equivalent unindexed Pappus layout table could reduce the novelty of part of the exact data.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical small cubic symmetric incidence graph, the complete minimizer tie counts and the precise number of labelled optimum layouts quantify the degeneracy of two linked optimization problems, beyond a best-known objective and beyond existence of a nested order. They provide a reproducible exact benchmark for subset and layout enumeration methods with unambiguous symmetry normalization. The result need not assert generalization to other configurations or other Hamilton cycles to supply those invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

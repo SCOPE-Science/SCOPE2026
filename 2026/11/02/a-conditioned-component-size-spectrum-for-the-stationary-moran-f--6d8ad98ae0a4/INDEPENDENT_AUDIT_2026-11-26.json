@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:31:34.521469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed interior alpha the tilt is a product measure, preserves the law on every root-count level and has a unique finite positive parameter. The interior Bernoulli variance is linear in n. Fourier inversion gives the local probability at floor(alpha n): near zero the centered log characteristic function is -Var(N)s^2/2+O(n|s|^3), and the sin^2 bound controls the remaining Fourier integral. The mean counts satisfy the stated triangular linear recurrence; normalized by n this is Euler's method with step 1/(n-1), order-one smooth coefficients, and a vanishing grid and normalization discrepancy. The time-changed Yule transition is geometric and t/q(t) has derivative p(t)/q(t), which proves conservation of size mass. Replacing a single independent choice cuts and reattaches at most one descendant subtree, affecting at most four old/new count contributions. Exponential concentration therefore transfers across the order n^(-1/2) conditioning event. Fixed-k convergence and equal unit size mass control both tails beyond a fixed K and yield weighted l1 and the two total-variation kernels. The supplied finite verifier was inspected, not used as proof of the exact-conditioning limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Moran-forest paper supplies an independent attachment model and exact Bernoulli root-count representation but its component-size limit in Theorem 5.5(i) is unconditioned. The focused conditional-recursive-forest query did not identify a usable stronger theorem."
+        ],
+        "reasoning": "The shared model admits the conditioning calculation but its known statements do not transfer the spectrum through a rarer root-count event; no directly applicable stronger covering statement was identified.",
+        "searches": [
+          "Primary literature: ‘conditional recursive forest’ conditioned number of roots component size distribution Moran forest random recursive forest",
+          "arXiv:1906.08806, Proposition 2.1 and Sections 3.1 and 5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.08806",
+        "Resultary 0273d6f730e8",
+        "Resultary 79980f524581",
+        "Bounded primary search for conditional recursive forests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent-choice representation gives the starting product model, and Theorem 5.5(i) recovers the unconditioned half-density benchmark. The two-block result has N_n/n tending to zero, outside the stated fixed-interior regime."
+        ],
+        "reasoning": "The earlier results do not supply the tilt-specific birth rates, the local conditioning and concentration transfer, or the first-moment argument needed for the weighted empirical limit.",
+        "searches": [
+          "arXiv:1906.08806, Proposition 2.1, Section 3.1 and Theorem 5.5(i)",
+          "Resultary 0273d6f730e8, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previously known unconditioned uniform-component law is exactly c_k(1/2)/(1/2) after the change of variable x=1-t. The two-block Resultary finding likewise conditions on an exact count, but studies the smaller of two blocks."
+        ],
+        "reasoning": "Neither a one-component unconditioned marginal nor a fixed count of two roots is equivalent to convergence in probability of the full mass-weighted histogram at each fixed positive root density.",
+        "searches": [
+          "Local Resultary: Moran forest conditioned component-size spectrum and linear component count",
+          "Bienvenu–Duchamps–Foutel-Rodier arXiv:1906.08806, Theorem 5.5(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected entries 0273d6f730e8 and 79980f524581 give, respectively, an exact two-block partition result with log-uniform smaller size and a root/terminal-vertex association result, not a table or record of the claimed spectrum."
+        ],
+        "reasoning": "This is an infinite analytic family rather than a finite invariant lookup; the strongest exact indexed comparisons use different statistics or regimes.",
+        "searches": [
+          "Local Resultary: Moran forest exact component-count conditioning and spectrum"
+        ]
+      },
+      "rationale": "The exact linear-root-count conditioning and entire weighted empirical spectrum are distinct from the directly checked unconditioned marginal and fixed-two-root result. The model, independent root indicators and unconditioned half-density marginal are credited; the evidence supports distinctness of the stronger conditional claim, not global priority.",
+      "residual_risks": [
+        "The query for other conditional recursive forests returned no decisive statement; unindexed equivalents or general random-forest results with applicable hypotheses cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, root count and unconditioned marginal, not the exact-conditioned full claim",
+          "evidence": "Prop. 2.1 relabels the independent attachment construction; Sec. 3.1 counts Bernoulli roots; Thm. 5.5(i) has density 2x for the mixing variable and geometric parameter exp(-x).",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.08806",
+          "material_read": "Proposition 2.1 (printed p. 6); Section 3.1 (p. 8); Theorem 5.5(i), Section 5.2 (p. 22)",
+          "method": "Targeted primary PDF text and statement comparison",
+          "title": "The Moran forest",
+          "trigger": "Same stationary law and earlier size limit"
+        },
+        {
+          "assessment": "Related, noncovering regime",
+          "evidence": "Conditions on exactly two components; determines prescribed bipartition weights and the log scale of the smaller size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-two-block-moran-forest-partition-law-and-logarithmically-uni--0273d6f730e8",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "The two-block Moran-forest partition law and logarithmically uniform component scales",
+          "trigger": "Exact root-count conditioning on the same forest"
+        },
+        {
+          "assessment": "Different conditional statistic",
+          "evidence": "Treats root/terminal-vertex association and covariance, not the exact-conditioned component-size histogram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-positive-root-terminal-association-and-a-persistent-correlation--79980f524581",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Positive root–terminal association and a persistent correlation in the Moran forest",
+          "trigger": "Distinct indexed record on the same law and root statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The typical density alone misses a natural family of atypical forest laws. The result gives the complete explicit component spectrum for every interior density and controls vertex mass, not merely typical-component probabilities. That control is needed for the uniform-vertex law and excludes escape of mass into sizes beyond any finite observation window as that window grows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

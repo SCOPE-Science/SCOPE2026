@@ -1,71 +1,47 @@
-# Universal transient circulation response and sharp bath-switch reversal in a Brownian gyrator
+# Exact transient circulation and sharp bath-switch reversal in a Brownian gyrator
 
 ## Finding
-Let \(A=\left(\begin{smallmatrix}a&c\\c&b\end{smallmatrix}\right)\) be real symmetric positive definite with \(c\ne0\), and let the two baths of the overdamped harmonic gyrator have positive, locally bounded, measurable temperatures \(T_x(t)\) and \(T_y(t)\). For any initial probability distribution with finite second moments, define the signed integrated angular probability current
+Let \(A=\begin{pmatrix}a&c\\c&b\end{pmatrix}\) be real symmetric and positive definite, with \(c\ne0\). Let \(T_x,T_y\) be positive almost everywhere, locally bounded measurable bath temperatures. For an overdamped harmonic gyrator with this fixed stiffness, let \(Q(t)=\int_{\mathbb R^2}(xj_y-yj_x)\,dx\,dy\) be its signed integrated angular current at positive times, extended to \(t=0\) by its raw-moment formula below. For any initial law with finite second moments,
 \[
-Q(t)=\int_{\mathbb R^2}\bigl(xj_y(x,y,t)-yj_x(x,y,t)\bigr)\,dx\,dy.
-\]
-It obeys the **exact closed response law**
-\[
-\dot Q+(a+b)Q=2c\,[T_y(t)-T_x(t)]\quad\text{a.e.},\qquad
+\dot Q+(a+b)Q=2c(T_y-T_x)\quad\text{a.e.},\qquad
 Q(t)=e^{-(a+b)t}Q(0)+2c\int_0^t e^{-(a+b)(t-s)}[T_y(s)-T_x(s)]\,ds.
 \]
-Thus the circulation observable has one relaxation rate, the trace of the stiffness matrix, even though the three individual quadratic moments generally relax at several rates. This law applies to every admissible bath protocol and all finite-second-moment initial laws, including non-Gaussian laws.
+In particular, the decay rate is the trace of \(A\), not the collection of decay rates of the full second-moment matrix.
 
-Suppose the system initially has its unique stationary state with positive temperature difference \(\Delta_0=T_y(0^-)-T_x(0^-)>0\), and future protocols obey the lower bound \(T_y(t)-T_x(t)\ge-B\) a.e., for some \(B>0\). After multiplying \(Q\) by the sign of \(c\), the earliest possible moment of zero circulation is
+If the starting law is stationary for a constant bath pair with difference \(\Delta_0>0\), and future differences obey \(\Delta(t)=T_y(t)-T_x(t)\ge -B\) a.e. for \(B>0\), the earliest possible zero of \(Q\) occurs at
 \[
-\boxed{t_{\min}=\frac{1}{a+b}\log\left(1+\frac{\Delta_0}{B}\right).}
+t_*=(a+b)^{-1}\log(1+\Delta_0/B).
 \]
-A constant post-quench difference \(T_y-T_x=-B\), achievable with strictly positive temperatures, attains this bound and produces a unique change of sign. In particular, instantly swapping the original bath temperatures gives the universal reversal time \(\log2/(a+b)\). The optimality concerns the **first zero of the integrated angular current**, not the full-state relaxation time or the mean unweighted angular velocity.
+A constant difference \(-B\) attains the bound and reverses the sign exactly once. Swapping the initial temperatures thus reverses this current at \(\log 2/(a+b)\). This is a statement about an integrated current moment, not a radius-normalized angular velocity or full-state equilibration.
 
 ## Assumptions and scope
-Consider the overdamped Langevin equations, for \(t\ge0\),
-\[
-dZ_t=-AZ_t\,dt+\operatorname{diag}\bigl(\sqrt{2T_x(t)},\sqrt{2T_y(t)}\bigr)\,dW_t,
-\quad Z_t=(X_t,Y_t)^\top,
-\]
-with independent standard Brownian coordinates, unit friction, and fixed symmetric stiffness matrix \(A\). Assume \(a,b>0\), \(ab>c^2\), \(c\ne0\). The initial state is independent of subsequent noise and has finite raw second moments. The piecewise or measurable bath temperatures are strictly positive almost everywhere and locally bounded. For \(t>0\) there is a smooth density \(p(z,t)\) and current \(j=-Azp-D(t)\nabla p\), with \(D=\operatorname{diag}(T_x,T_y)\). Define \(Q\) by the current moment, or equivalently by the generator formula below. In the quench result the initial state is the stationary distribution for a constant past bath pair with difference \(\Delta_0>0\). The control bound is on the **difference** only, not on individual heating power; positive constant bath pairs realizing \(-B\) exist for any finite \(B\).
+Use unit friction and the Itô dynamics \(dZ_t=-AZ_t\,dt+\sqrt{2D(t)}\,dW_t\), \(D=\operatorname{diag}(T_x,T_y)\), with independent standard Brownian coordinates and an initial law independent of the subsequent noise. Write \(Z_t=(X_t,Y_t)^\top\). The current for \(t>0\) is \(j=-Azp_t-D(t)\nabla p_t\), interpreted for a.e. time, with \(Q\) given its continuous moment representative. There is no bound on the common bath temperature other than the declared positivity and local boundedness, and the quench result constrains only the difference.
 
 ## Proof
-**1. Current observable.** Gaussian smoothing for positive times and Gaussian-tail bounds from the linear diffusion permit integration by parts. The diffusion contributions to \(\int(xj_y-yj_x)\) vanish because \(\partial_y x=\partial_x y=0\). With \(j=-Azp-D\nabla p\),
+**Current moment for arbitrary initial laws.** At fixed \(t>0\), write \(Z_t=\xi+U\) with \(\xi=e^{-At}Z_0\) and \(U\) independent and centered Gaussian of covariance \(2\int_0^t e^{-A(t-s)}D(s)e^{-A(t-s)}ds\). This covariance is positive definite since the integrand has strictly positive quadratic form on every fixed nonzero vector for almost every \(s\). If \(\phi\) is the Gaussian density of \(U\), then \(p_t=\mathbb E\phi(\cdot-\xi)\) and \(\nabla p_t=\mathbb E\nabla\phi(\cdot-\xi)\), by boundedness of the Gaussian derivatives. In particular
 \[
-Q=\mathbb E\bigl[X(-cX-bY)-Y(-aX-cY)\bigr]
-=c(\mathbb EY^2-\mathbb EX^2)+(a-b)\mathbb E[XY].
+\int |z|\,|\nabla p_t(z)|\,dz\le \mathbb E|\xi|\int|\nabla\phi(u)|du+\int |u|\,|\nabla\phi(u)|du<\infty.
 \]
-This also defines \(Q(0)\) without requiring an initial density.
-
-**2. Exact closure without Gaussian initialization.** Write \(u=\mathbb EX^2\), \(v=\mathbb EXY\), \(w=\mathbb EY^2\). Itô's formula yields, almost everywhere,
+Thus Fubini applies to the diffusion contribution. For example, at each fixed shift \(\xi\), \(\int (u_x+\xi_x)\partial_{u_y}\phi(u)du=0\) by Gaussian integration in \(u_y\); the other term is the analogous crossed derivative. No Gaussian-tail hypothesis on \(p_t\) is made. The drift contribution is finite by the second moment, and hence
 \[
-\dot u=-2au-2cv+2T_x,\quad
-\dot v=-(a+b)v-c(u+w),\quad
-\dot w=-2bw-2cv+2T_y.
+Q=c(\mathbb E Y_t^2-\mathbb E X_t^2)+(a-b)\mathbb E[X_tY_t].
 \]
-Substitute into \(Q=c(w-u)+(a-b)v\). The \(u,v,w\) coefficients cancel, giving \(\dot Q=-(a+b)Q+2c(T_y-T_x)\). Variation of constants proves the convolution for every \(t\ge0\). The scalar closure is not an approximation or a stationary limit. Its decay rate contains neither the off-diagonal coupling \(c\) nor the anisotropy \(a-b\).
+This defines \(Q(0)\) even for an initial law without a density.
 
-**3. Initial stationary preparation.** Positive definiteness of \(A\) implies exponential stability, hence a unique stationary Gaussian state for each positive constant bath pair. Setting \(\dot Q=0\) gives \(Q(0)=2c\Delta_0/(a+b)\). This statement does not assert that the entire covariance relaxes with that one rate.
-
-**4. Optimal first reversal.** Let \(s=a+b>0\) and \(\sigma=\operatorname{sgn}(c)\). For every admissible future difference \(\Delta(t)\ge-B\), positivity of the scalar convolution kernel yields
+**Closure.** Itô's formula yields the a.e. equations for the absolutely continuous raw moments \(u=\mathbb E X^2,v=\mathbb E XY,w=\mathbb E Y^2\):
 \[
-\sigma Q(t)\ge\frac{2|c|}{s}\left[-B+(\Delta_0+B)e^{-st}\right].
+u'=-2au-2cv+2T_x,\quad v'=-(a+b)v-c(u+w),\quad w'=-2bw-2cv+2T_y.
 \]
-The right-hand side is strictly positive for \(0\le t<s^{-1}\log(1+\Delta_0/B)\), proving impossibility of an earlier zero. It equals zero at that time. A constant difference \(\Delta=-B\) makes the inequality an identity, crosses zero exactly once, and is realizable by selecting, for example, positive temperatures \(T_x=M+B/2\), \(T_y=M-B/2\) with \(M>B/2\). If \(B=\Delta_0\), the time becomes \(\log 2/s\). Equality at the first-zero time forces the bath difference to attain its lower bound almost everywhere before reversal, because the convolution kernel is strictly positive. This proves sharpness and essential uniqueness of the fastest difference protocol (while the common bath temperature may vary).
+The stochastic integrals have zero mean on finite time intervals since the temperatures are locally bounded and the second moments are locally bounded by the explicit linear solution. Substituting into \(Q=c(w-u)+(a-b)v\) gives the claimed scalar equation and variation of constants gives the response formula.
 
-## Verification
-Run `python checker.py` with NumPy and SciPy installed. The program integrates the complete three-moment equations independently of the closed scalar formula for 180 random stable stiffness matrices, arbitrary initial moment matrices and new bath pairs; it compares nine times per case. It also checks 120 stationary-start quench parameter sets, including the exact reversal crossing and a family of dominated future protocols. It reports 2,100 successful numerical comparisons. The algebraic cancellation in Proof 2 and the positivity comparison in Proof 4 establish the infinite-parameter claims; finite numerical testing alone would not.
+**Stationarity and fastest first zero.** For constant baths, \(e^{-At}\to0\) and the Gaussian noise covariance converges to its integral over the whole positive half-line. This yields the unique stationary Gaussian law and \(Q(0)=2c\Delta_0/(a+b)\) by stationarity of the scalar equation. Write \(s=a+b\), \(\sigma=\operatorname{sgn}(c)\). Positivity of the response kernel gives
+\[
+\sigma Q(t)\ge (2|c|/s)[-B+(\Delta_0+B)e^{-st}].
+\]
+The lower envelope is positive before \(t_*\); it is attained by choosing \(T_x=M+B/2,T_y=M-B/2\) with \(M>B/2\), and is strictly decreasing with a unique zero. Equality at \(t_*\) forces \(\Delta=-B\) almost everywhere before \(t_*\) by strict positivity of the kernel. The common temperature and the post-first-zero protocol need not be unique. Swapping the two initial temperatures corresponds to \(B=\Delta_0\).
+
+## Verification and limitations
+The accompanying `checker.py` uses NumPy and SciPy to compare complete moment dynamics with the scalar formula at selected fixed-bath quenches and checks examples of the sharp bound. Its 2,100 finite comparisons are diagnostics, not the proof of the response for measurable protocols or non-Gaussian laws. The law concerns the signed integrated angular current only, under fixed symmetric positive definite stiffness and diagonal diffusion.
 
 ## Relationship to prior work
-Filliger and Reimann introduced the Brownian gyrator and computed its stationary torque and heat-engine interpretation [1]. The full text does not give the arbitrary-measurable-bath **transient scalar closure** or the sharp fastest-reversal time. Dotsenko, Maciołek, Vasilyev and Oshanin [2] derived steady-state spatial currents and the ordinary mean angular velocity; that angular velocity is a different observable from the integrated moment \(Q\). Baldassarri, Puglisi and Sesta [3] study engineered finite-time equilibration with **time-dependent trap stiffness** and fixed bath temperatures, while here the trap is fixed and bath temperatures are varied. Cerasoli and coauthors [4] analyze transient effective temperatures for a biased, cold-component model at fixed bath temperatures. Patrón, Plata and Prados [5] treat minimum-time connection between full nonequilibrium steady states using **potential parameters** as controls, rather than fastest first reversal of \(Q\) using a constrained bath difference. Source [5] could be compared only at abstract level in the available retrieval; its complete content is an explicit remaining priority risk. General Gaussian covariance evolution is established prior machinery, not a novelty claim. The proposed contribution is its nontrivial one-dimensional invariant circulation mode together with the exact difference-constrained reversal criterion.
-
-## Limitations
-The current moment \(Q\) is not the conventional mean angular velocity weighted by inverse radius, and the result does not imply a one-mode relaxation of all state observables. Temperature protocols must respect the declared positive-bath and bounded-difference assumptions, with fixed symmetric stable stiffness. The optimization concerns a first sign change, not minimum time to transform the full distribution into a new stationary distribution. Existing linear-diffusion theory supplies much of the machinery; historical priority of this exact combined statement is not independently certified, and a related later control paper was not fully inspected.
-
-## References
-[1] R. Filliger and P. Reimann, *The Brownian gyrator: a minimal heat engine on the nano-scale*, arXiv:0710.3735v1 (19 October 2007), https://arxiv.org/abs/0710.3735, DOI 10.1103/PhysRevLett.99.230602.
-
-[2] V. Dotsenko, A. Maciołek, O. Vasilyev and G. Oshanin, *Two-temperature Langevin dynamics in a parabolic potential*, arXiv:1302.4056 (2013), https://arxiv.org/abs/1302.4056, DOI 10.1103/PhysRevE.87.062130.
-
-[3] A. Baldassarri, A. Puglisi and L. Sesta, *Engineered swift equilibration of a Brownian gyrator*, arXiv:2009.06989 (2020), https://arxiv.org/abs/2009.06989, DOI 10.1103/PhysRevE.102.030105.
-
-[4] S. Cerasoli, V. Dotsenko, G. Oshanin and L. Rondoni, *Time-dependence of the effective temperatures of a two-dimensional Brownian gyrator with cold and hot components*, arXiv:2011.03124 (2020), https://arxiv.org/abs/2011.03124, DOI 10.1088/1751-8121/abe0d6.
-
-[5] A. Patrón, C. A. Plata and A. Prados, *Minimum time connection between non-equilibrium steady states: the Brownian gyrator*, arXiv:2407.21110v1 (2024), https://arxiv.org/abs/2407.21110, DOI 10.1088/1751-8121/ad909a.
+Filliger and Reimann, [arXiv:0710.3735v1](https://arxiv.org/abs/0710.3735v1), give the stationary torque, which at equal friction is the steady current moment up to sign and units. Dotsenko, Maciołek, Vasilyev and Oshanin, [arXiv:1302.4056](https://arxiv.org/abs/1302.4056), consider steady spatial currents and an inverse-square-radius weighted angular velocity, distinct from \(Q\). Baldassarri, Puglisi and Sesta, [arXiv:2009.06989](https://arxiv.org/abs/2009.06989), and Patrón, Plata and Prados, [arXiv:2407.21110v2](https://arxiv.org/abs/2407.21110v2), study full-state transfer by changing the trap parameters; the latter's Section II gives covariance dynamics for that problem. Cerasoli, Dotsenko, Oshanin and Rondoni, [arXiv:2011.03124](https://arxiv.org/abs/2011.03124), study transient effective temperatures in a fixed-bath setting. Generic linear covariance dynamics are established machinery, and include the scalar projection once the observable is chosen. The present claim isolates that projection for arbitrary bath drives and derives the optimal bounded-difference first-zero result; it does not claim priority for the generic dynamics or for the stationary torque.

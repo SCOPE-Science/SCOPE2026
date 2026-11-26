@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:58.131673Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45; VERIFICATION.md",
+        "Alexander arXiv:0912.4550, pp. 3–5, equations (2.1), (2.2), (2.5), and Theorem 2.1 equation (2.8)"
+      ],
+      "rationale": "The remainder is asymptotic little-o, not zero. With t=2 beta and c=2d, log(q_x/p_x)=-2 mu_x+O(mu_x^3), and summable errors give rho_x asymptotic to K x^(-t-1)(log x)^(-c). Thus S_x=sum_{k>=x}rho_k is finite, h(x)=S_x/S_0 and the excursion return probability r=h(1) lies in (0,1). To check the needed second-order ratio, put A(x)=x/(t+c/log x) at large x: the adjacent ratio of rho gives A(x)rho_x-A(x+1)rho_{x+1}=rho_x(1+O((log x)^-2)). Summing that comparison gives rho_x/S_x=(t+c/log x)/x+O(1/[x(log x)^2]); first-order equivalence of slowly varying tails alone would not suffice for this error. In the return-conditioned reflecting walk, 2p_x^h-1=mu_x-(1+mu_x)rho_x/S_x, so the uniformly elliptic walk has Alexander parameters delta=2 beta-1>-1, kappa=beta, and R_x=-2d/(x log x)+O(1/[x(log x)^2]) in his p_x convention. Its L(x)=exp(sum R_j) has the required log power. Its first-return law is exactly the original conditional first-return law, by the telescoping h weights along a path from 1 to 0. Alexander's even-time asymptotic therefore gives the claimed first-return mass after replacing even time by 2n. The original return mass is a defective sum: from f_n=r a_n with a a probability mass, u_n=sum_{k>=1} r^k a^{*k}_n for n>0. Here a_n is regularly varying with index -1-beta; cutting convolutions at either end and bounding the middle gives a^{*k}_n/a_n -> k for fixed k. For dominated summation one can use the fact that some summand is at least n/k and Potter's bound, giving a^{*k}_n/a_n <= C k^(2+beta+epsilon). The factor r^k makes this summable, yielding u_n asymptotic to f_n/(1-r)^2 without reliance on a finite test or access to the renewal citation. Finally weighting the conditional mass by (2n)^beta gives the series sum 1/[n(log n)^(2d)], divergent also at d=1/2. Odd returns are impossible by parity.",
+      "residual_risks": [
+        "The proof assumes nearest-neighbour steps without holding and the stated summable drift error. A weaker remainder can introduce another slowly varying factor, so the endpoint moment test need not extend.",
+        "The constant is shown finite and positive, not evaluated for a full transition sequence. No formal verification or numerical certificate is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexander explicitly focuses on recurrent walks; the original delta< -1 lies outside that scope.",
+          "Lo–Menshikov–Wade's assumption (L) is c/x+o(1/[x log x]), excluding a nonzero d here; their moment theorem also does not decide the equality case even when that assumption holds.",
+          "The inspected Csaki–Foldes–Revesz abstract describes strong coupling and local-time limit results, as opposed to a time-local probability at the origin. The located return passages on p. 19 discuss escape events, not an on-diagonal asymptotic."
+        ],
+        "reasoning": "Broader results on moment tests away from equality, recurrent return probabilities or cumulative local times do not supply the asserted critical series or the exact transient local law. The Csaki comparison is limited to the passages read.",
+        "searches": [
+          "Alexander arXiv:0912.4550, introduction and Theorem 2.1",
+          "Lo–Menshikov–Wade Theorem 3.1 and Remarks 3.2 and 5.3",
+          "Csaki–Foldes–Revesz arXiv:0802.0778, transient nearest-neighbour Bessel process comparison"
+        ]
+      },
+      "checked_sources": [
+        "Alexander arXiv:0912.4550",
+        "Lo–Menshikov–Wade arXiv:2208.12955",
+        "Csaki–Foldes–Revesz arXiv:0802.0778, selected passages",
+        "Wang–Wang DOI 10.1007/s10255-010-0019-9 bibliographic comparison",
+        "Dette (2001), publisher summary",
+        "Resultary records 7b50eb1b5742 and 089eef514dd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Alexander substitution yields kappa=beta and a logarithmic L, only after conditioning and analyzing the scale-tail ratio. The theorem directly covers that recurrent first-return input and should be credited as such.",
+          "The standard defective renewal implication transfers an already-known regularly varying first-return sequence to an ordinary return sequence; it cannot give the exponent or logarithmic correction without that input.",
+          "Lo–Menshikov–Wade separates the strict-inequality classification from the boundary and says a transient local estimate is not established there."
+        ],
+        "reasoning": "The supported distinction is the combined transient result and precise boundary refinement, not a new general theorem of excursion or renewal theory. Neither cited stronger theorem specializes directly to the frozen transient statement under its original drift; the proof supplies the link between their regimes.",
+        "searches": [
+          "Alexander Theorem 2.1 versus the transformed drift and original transient law",
+          "Wang–Wang DOI 10.1007/s10255-010-0019-9; Foss–Korshunov–Zachary Chapter 5",
+          "Lo–Menshikov–Wade Theorem 3.1, Remarks 3.2(a)–(b)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditioned walk, not the original walk, has the parameter delta=2 beta-1 in Alexander; the original has delta=-(2 beta+1)<-1.",
+          "An exact local renewal equation expresses the original even-time diagonal kernel via the defective excursion sequence. The return probability at time 2n is not itself the first-return mass or the conditioned chain's diagonal kernel."
+        ],
+        "reasoning": "The three probabilistic formulations are related by exact identities, but their probabilities and normalization are different. Direct substitution into Alexander applies to the transformed first-return law, not the frozen transient diagonal limit.",
+        "searches": [
+          "Alexander arXiv:0912.4550, reflecting Bessel-like walk and first-return excursion law",
+          "Lo–Menshikov–Wade arXiv:2208.12955, strong transience and conditional return moments",
+          "Focused literature search: transient Bessel-like reflecting local return probabilities and scale functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7b50eb1b5742 gives survival/quasi-stationary selection for a continuous-time absorbed homogeneous chain with a heavy-tailed initial law; 089eef514dd6 gives induced first returns in a random map.",
+          "The publisher summary for Dette describes exact spectral-moment representations for ordinary and first returns. It is not an inspected table or local asymptotic for this drift, and full text was not accessible.",
+          "No finite lookup could determine the claimed law over arbitrary admissible infinite transition sequences; the exact comparable items are analytic formulae and indexed results."
+        ],
+        "reasoning": "Survival from a random initial law and induced-map returns are different from the origin-to-origin probabilities in the finding. An integral representation alone does not evaluate its large-n endpoint asymptotic with the stated logarithmic precision. Bounded ranked search misses are not evidence of absence.",
+        "searches": [
+          "Resultary: local Lamperti return laws and critical polynomial/logarithmic survival thresholds",
+          "Resultary 7b50eb1b5742 and 089eef514dd6, RESULT.md offset 0",
+          "Search for birth–death exact return representations: Dette (2001)"
+        ]
+      },
+      "rationale": "The supported distinction is the exact even-time local law for the original transient chain with its logarithmic factor, together with the resulting critical conditional-moment boundary. The recurrent first-return asymptotic, h-transform and local-renewal theorem are prior tools and are not individually new. Alexander's stronger recurrent theorem does give the conditional first-return estimate once the transformed chain is identified, but it is not a transient local-return theorem; proving the transient statement requires determining the transformed drift at the logarithmic precision and relating recurrent excursion data to the original defective renewal mass. The closest transient results inspected do not give that regime and conclusion. This is bounded best-of-knowledge comparison, not a global priority claim.",
+      "residual_risks": [
+        "The full texts of Wang–Wang and Dette, and the specific local renewal passage in Foss–Korshunov–Zachary Chapter 5, were not checked. The renewal calculation does not depend on attributing an exact theorem to those sources.",
+        "Other birth–death local-limit results in spectral or diffusion-scale formulations may cover the transient regime implicitly; no such stronger matching statement was found in the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct first-return coverage after the exact conditioning change; not direct coverage of the original transient local law.",
+          "evidence": "The introduction explicitly restricts to recurrent walks. The theorem gives even-time first-return mass proportional to n^(-kappa-1)L(sqrt(n)) for kappa=(1+delta)/2 and L from the summed R_j.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.4550",
+          "material_read": "p. 1 scope (offset 2180); pp. 3–5, equations (2.1), (2.2), (2.5) and Theorem 2.1, (2.8).",
+          "method": "OA primary PDF passage reading.",
+          "title": "Excursions and local limit theorems for Bessel-like random walks",
+          "trigger": "Exact walk family, recurrent versus transient parameter scope, and decisive first-return input."
+        },
+        {
+          "assessment": "Boundary and local-law distinction; not a direct generalization covering the nonzero d refinement.",
+          "evidence": "Assumption (L) has little-o of 1/(x log x) after c/x, the moment classification uses strict inequalities, and the remarks identify the remaining boundary and local-estimate issues.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12955",
+          "material_read": "p. 3 assumption (L), p. 4 Theorem 3.1 and pp. 4–5 Remarks 3.2(a)–(b).",
+          "method": "OA primary PDF, bounded passages.",
+          "title": "Strong transience for one-dimensional Markov chains with asymptotically zero drifts",
+          "trigger": "Known strict regimes and explicitly discussed boundary for this conditional-moment problem."
+        },
+        {
+          "assessment": "Closely related object and strong approximation/local times; no matching result identified in the portions inspected.",
+          "evidence": "The abstract states a strong invariance principle and local-time comparison for a coupled walk and Bessel process; the located return terms pertain to an escape event.",
+          "identifier_or_url": "https://arxiv.org/pdf/0802.0778",
+          "material_read": "Title and abstract, offset 0; p. 19 passages around offsets 49425–49774 matching return.",
+          "method": "OA primary PDF, bounded introduction and located excerpts; further lookup did not settle beyond these excerpts.",
+          "title": "Transient nearest neighbor random walk and Bessel process",
+          "trigger": "Highly relevant transient extension in Alexander's references."
+        },
+        {
+          "assessment": "Potential direct coverage of the general transfer step; precise cited theorem hypotheses not externally verified.",
+          "evidence": "The exact renewal coefficient was re-established using convolution and a polynomial-in-k domination; no inference about this source's full content is needed.",
+          "identifier_or_url": "https://doi.org/10.1007/s10255-010-0019-9",
+          "material_read": "Bibliographic material; no lawful full-text passage obtained via DOI/publisher.",
+          "method": "OA retrieval attempt and independent renewal argument.",
+          "title": "Equivalent conditions of local asymptotics for the solutions of defective renewal equations, with applications",
+          "trigger": "Exact relevance to the transfer from f_n to u_n."
+        },
+        {
+          "assessment": "Relevant spectral representation; equivalence to a matching transient drift asymptotic not established, and full-source coverage not ruled out.",
+          "evidence": "The summary distinguishes moments of ordinary and associated spectral measures as ordinary-return and first-return coefficients.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-00-05699-9",
+          "material_read": "Publisher summary only; AMS PDF access did not yield full text.",
+          "method": "Focused bibliographic lookup and lawful OA retrieval attempt.",
+          "title": "First return probabilities of birth and death chains and associated orthogonal polynomials",
+          "trigger": "Possible exact equivalent first-return/ordinary-return spectral formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Lo–Menshikov–Wade Theorem 3.1 and Remark 3.2",
+        "Alexander Theorem 2.1"
+      ],
+      "rationale": "The leading drift leaves the critical conditional moment undecided. The log coefficient separates convergence from divergence sharply, including equality, and the local law describes how often the transient chain is actually observed at zero rather than just whether excursions terminate. This answers a concrete boundary question isolated by the previous strict-inequality results in the specified nearest-neighbour class. The value lies in that boundary and transient local estimate, not in a new proof of general renewal theory.",
+      "residual_risks": [
+        "The result is not a resolution for general bounded jumps, state spaces with holding, or nonsummable drift errors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

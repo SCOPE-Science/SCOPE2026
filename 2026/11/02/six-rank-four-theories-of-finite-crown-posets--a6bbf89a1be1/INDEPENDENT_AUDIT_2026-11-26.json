@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:59.552001Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the fixed strict-order signature and n≥2 (n=2 is the four-point crown). The crown is a quantifier-free reduct of the alternatingly colored directed 2n-cycle. After the first move in cycles of length at least 24, preserve clockwise order, colors, and gaps either equal and <L_r or both ≥L_r of equal parity, with L_0=2 and L_r=2L_{r−1}+1. A repeated choice uses the same partner; at a newly split short gap the equal offset works. At a long gap either copy a subgap shorter than T=L_{r−1} (both remaining subgaps then exceed T), or choose T or T+1 of the required parity, leaving at least T on both sides. Thus the invariant is symmetric, preserves color and at r=0 preserves exactly the distance-one arcs among selected vertices, including a one-pebble whole-cycle gap. This proves a tail from n=12. The frozen type recursion is sound by induction, storing sets of possible extensions rather than counts; its supplied programs and output were inspected, not executed. Independent replay /workspace/crown_rank4_replay.py (stdout /workspace/crown_rank4_replay.txt) tests the two-board EF game on all 55 pairs with 2≤m<n≤12. Each proposed move is matched in its atomic-relation bucket; moves on both boards are checked, and the first-move rotations preserve all choices within each level. The only equivalent pairs in this finite range have both parameters at least seven. This bridges to the analytic tail, giving six classes and the sharp fourteen-point tail representative within this family. The same game calculation on uncolored C12 and C14 independently confirms their rank-four equivalence. It does not rely on verification of the numbering of Brown–Hoshino's cited theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "741c812bf752 covers binary-colored directed cycles and gives 48 rank-two theories. The two-marked directed cycle result gives 340 rank-four types with immediate successor and two constants. The colored cyclic-order result concerns one-point-extension ranks in a ternary order-type language."
+        ],
+        "reasoning": "The colored directed class does contain alternating cycles, but rank two is insufficient here. Fixed vertex marks are not an alternating unary color, and directed or cyclic order is extra relational information; a richer equivalence can give an upper bound for a definable reduct, not automatically determine the exact reduct classes.",
+        "searches": [
+          "Resultary: colored successor cycles and marked-directed cycle EF",
+          "741c812bf752/RESULT.md",
+          "0359c640f462/RESULT.md",
+          "05f42adf13ff/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_types.cpp, verify_types.py, verify_gap.py, reproduce.sh and verification_output.txt",
+        "Independent crown_rank4_replay.py and crown_rank4_replay.txt",
+        "Indexed records e77e43428634, 0359c640f462, 741c812bf752 and 05f42adf13ff",
+        "Brown–Hoshino official PDF retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crown defines its undirected adjacency quantifier-free by x<y or y<x, so agreement implies pure-cycle agreement, not the converse. Brown–Hoshino's relevant scan was not extractable and the cited passage was not verified directly. The rank-two colored and rank-four half-graph findings do not give the required mixed relation/level information at rank four in the crown signature."
+        ],
+        "reasoning": "Recovering the sharp order cutoff requires the actual four-round order types; it is not a substitution into the uncolored result, not supplied by a lower-rank colored classification, and not obtained from a generic eventual-tail bound without checking the sharp finite boundary.",
+        "searches": [
+          "Brown–Hoshino official OA scan, literal Theorem 4.1 lookup and identified-paper searches",
+          "741c812bf752/RESULT.md, colored-cycle signature and rank",
+          "e77e43428634/RESULT.md, adjacency and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An alternating orientation of C_{2n} from every lower vertex to the two adjacent upper vertices gives exactly the crown's strict comparison relation. Brown–Hoshino are cited for the uncolored cycle problem; the independent replay distinguishes the orders X6,X7 but not their graph reducts."
+        ],
+        "reasoning": "Using nonstrict inclusion with equality would preserve rank, since strict and nonstrict orders are quantifier-free interdefinable. Forgetting the direction of comparison gives the pure cycle, but its adjacency language cannot quantifier-free recover the direction or level. Pure cycle equivalence is not equivalent coverage.",
+        "searches": [
+          "Resultary: crown posets, alternating directed/colored cycles, sharp rank-four equivalence",
+          "Literature lookup: The Ehrenfeucht–Fraïssé Game for Paths and Cycles and colored variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The half-graph record gives the identical parameter threshold 7 and minimum eventual representative size 14, but for undirected a_i–b_j adjacency iff i≤j, including parameter 1. Two-marked directed cycles use a table of forward gaps between named constants out to 32."
+        ],
+        "reasoning": "Half-graphs are not cyclic two-regular Hasse graphs, and a shared numeric cutoff does not identify their types with crown types. The available exact tables do not enumerate the frozen structures.",
+        "searches": [
+          "Resultary: exact crown/half-graph rank-four cutoff, fourteen-element representative",
+          "e77e43428634/RESULT.md, Finding",
+          "0359c640f462/RESULT.md, description of class table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp unmarked strict-order crown classification, especially the threshold n=7 and separation of the 12- and 14-vertex crowns despite rank-four equivalence as pure cycles. Inspected indexed results cover different signatures, ranks or graph families. Pure-cycle equivalence, known as prior work in the frozen record and independently confirmed for this pair, goes in the wrong direction to imply equivalence of the orders. No exact or mechanically implying antecedent was identified in the bounded comparisons; the primary pure-cycle attribution remains an access risk, not evidence of absence.",
+      "residual_risks": [
+        "The official Brown–Hoshino theorem passage and possible extensions remain uninspected. Older equivalents under a different name or in unavailable material may remain. No priority inference is made from same-day record dates or from the bounded search returning no exact match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem numbering and any extensions remain unchecked; pure-cycle pair independently reproduced",
+          "evidence": "Frozen record attributes stabilization from length 11 to this paper. No whole-paper negative is inferred from failure to retrieve text.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Citation and frozen description of Theorem 4.1; no readable primary theorem passage obtained",
+          "method": "Official OA PDF, text lookup and lawful alternate-source search; scan not extractable",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Frozen attribution for pure-cycle cutoff and possible stronger cyclic results"
+        },
+        {
+          "assessment": "Not matching family; numeric match compared on the actual statement",
+          "evidence": "The binary relation is undirected adjacency a_i–b_j iff i≤j, for n≥1, not strict comparison on a cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-seven-rank-four-theories-of-finite-half-graphs--e77e43428634/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2023",
+          "method": "Local mirror",
+          "title": "Seven rank-four theories of finite half-graphs",
+          "trigger": "Same rank, cutoff and 14-vertex tail representative"
+        },
+        {
+          "assessment": "Different signature and table parameters",
+          "evidence": "Directed successor with two distinct named constants; 340 rank-four classes, not alternating orientation without names.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-four-round-first-order-classification-of-two-marked-directed-cyc--0359c640f462/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1880",
+          "method": "Local mirror",
+          "title": "Four-round first-order classification of two-marked directed cycles",
+          "trigger": "Exact rank-four table for cyclic structures"
+        },
+        {
+          "assessment": "Covers alternating cycles at lower rank in an expansion; not the frozen classification",
+          "evidence": "The pointed cyclic local signatures determine rank two, not rank four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exactly-forty-eight-rank-two-theories-of-binary-coloured-directe--741c812bf752/RESULT.md",
+          "material_read": "Finding and signature criterion, offsets 0–1933",
+          "method": "Local mirror",
+          "title": "Exactly forty-eight rank-two theories of binary-coloured directed cycles",
+          "trigger": "Same stronger expansion language as that used in the crown tail proof"
+        },
+        {
+          "assessment": "Different invariant and signature",
+          "evidence": "One-point extension of colored oriented cyclic orders, not rank-four sentences in strict comparison of alternating crowns.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-coloured-cyclic-order-extension-ranks-and-the-first-binary--05f42adf13ff",
+          "material_read": "Finding, offsets 744–1325",
+          "method": "Local mirror",
+          "title": "Sharp coloured cyclic-order extension ranks",
+          "trigger": "Alternate terminology for colored cyclic EF classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite crowns are a canonical family of two-level orders with cycle Hasse graphs. Comparing exactly the four-round cutoff with the pure-cycle benchmark is a motivated test of what information is lost on forgetting the comparison direction. The twelve- versus fourteen-point contrast is a concrete sharp witness, and the fourteen-point optimal representative answers the exact bounded-rank question throughout the family. Neither a finite census alone nor a coarse gap bound establishes that cutoff. No broader claim about all finite posets is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

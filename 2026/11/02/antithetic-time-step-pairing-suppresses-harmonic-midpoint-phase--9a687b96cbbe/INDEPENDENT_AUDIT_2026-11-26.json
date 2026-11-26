@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:22.439193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–74",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen VERIFY.py, lines 8–55 (inspected only)"
+      ],
+      "rationale": "The Cayley update is a Euclidean rotation with unwrapped angle θ(s)=2 arctan(s/2); its products preserve energy and add angles. For iid draws the one-step centered angle is θ′(h)δU+O(δ²) uniformly, with θ′(h)→1. For a complementary block it is θ″(h)δ²(U²−1/3)+O(hδ⁴), since the odd terms cancel, the fourth derivative vanishes at zero and δ=o(h). With θ″(h)∼−h/2 and Var(U²)=4/45, the one-block variance is asymptotic to h²δ⁴/45. Multiplying by T/h and T/(2h) respectively gives the stated positive constants and powers. For a block angle W, 1−|E exp(iW)|²=E[1−cos(W−W′)]∼Var(W) by uniformly vanishing width. Block independence and K Var(W)→0 then give endpoint dispersion ∼K Var(W) and the ratio κ²h⁷/30 at α=5/2. For arbitrary two-step couplings, the variance changes only through E[f(U)f(V)] for f(u)=θ(h+δu), with f′>0. Its survival-integral representation is minimized by saturating the lower Fréchet bound; continuity and strict positivity of the weights force equality of all survival probabilities, hence V=−U. This is for positive nondegenerate widths and unwrapped phase. The nominal time is fixed by the number of steps, not by synchronizing the iid physical clock.",
+      "residual_risks": [
+        "Numerical checks at one α and a finite grid, and against two alternate couplings, do not establish the uniform asymptotics or all-coupling optimum; these follow from the analytic arguments. No optimum for circular dispersion over arbitrary couplings is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdulle–Garegnani, Theorem 2 pp. 9–10: strong rms error is O(h^{min(p,q)}); Corollary 1 p. 13: quadratic invariants survive random steps when preserved by the underlying method."
+        ],
+        "reasoning": "With midpoint of order 2 and an output variance bounded by mean-square error around the exact deterministic point, the theorem gives D_iid=O(h^{2α−1}) for 1<α≤5/2, and only O(h⁴) for α>5/2. It does not give the positive coefficient/lower bound and assumes independence between steps, excluding complementary pairs. Known quadratic invariance applies to each realization and gives no phase residual.",
+        "searches": [
+          "arXiv:1801.01340, Theorem 2 and quadratic-invariant Corollary 1",
+          "Primary-literature search: antithetic randomized time step implicit midpoint harmonic oscillator phase variance coupling",
+          "Lie–Stahn–Sullivan, DOI:10.1007/s11075-022-00457-6 (cited additive randomization comparison; not independently inspected in full)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.01340",
+        "bb97d1702b8a",
+        "2e4edb0ffe14",
+        "6fded46de114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior iid random-clock variance directly gives the scale and leading constant of the iid phase once θ′(h)→1 is noted.",
+          "Pairing cancels the clock component exactly; the term θ″(h)δ²(U²−1/3) and the circular-dispersion reduction are needed for the paired constant."
+        ],
+        "reasoning": "The new comparison is not a general antithetic-coupling theorem or an iid convergence bound in different notation. The curvature-controlled variance and equivalence of the phase and circular leading constants are not supplied by the verified general prior statements.",
+        "searches": [
+          "arXiv:1801.01340, §2, Theorem 2, Remark 6 and Corollary 1",
+          "Frozen RESULT.md, lines 39–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abdulle–Garegnani, pp. 4–5: Ψ_{H_k} with positive iid steps and a uniform example of half-width h^{p+1/2}; Remark 6 p. 8 indexes outputs at nominal kh regardless of random total step time.",
+          "The lower Fréchet–Hoeffding bound for uniforms is saturated by V=−U, and θ is strictly increasing. This gives prior coverage of the two-step unwrapped phase variance minimization principle."
+        ],
+        "reasoning": "The frozen iid comparator is a specialization with p=α−1/2. A general countermonotone coupling result selects the phase optimizer but does not determine the sharp residual for the oscillator at a nominal fixed terminal time. Actual normalized endpoint variance is a squared characteristic-function quantity, not the unwrapped phase variance at finite h.",
+        "searches": [
+          "Resultary: randomized implicit midpoint harmonic oscillator antithetic time-step pairing phase variance",
+          "Resultary: countermonotone time step coupling harmonic midpoint oscillator ensemble variance",
+          "arXiv:1801.01340, §2 and Remark 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bb97d1702b8a: mirrored Finding/Assumptions on one-step second-moment isotropization for random-duration harmonic midpoint.",
+          "2e4edb0ffe14: mirrored Finding/Assumptions on symplectic-Euler drift/kick ordering and energy growth; no random step duration.",
+          "6fded46de114: mirrored Finding/Assumptions on one-step fourth-moment isotropization."
+        ],
+        "reasoning": "The midpoint isotropization results concern intentional single-step mixing and not terminal small-width antithetic dispersion. The paired symplectic-Euler comparison, although dated the same day, uses a different integrator, random object and observable. No comparison yields these matched-marginal constants.",
+        "searches": [
+          "Resultary: harmonic oscillator random time steps midpoint endpoint dispersion exact variance constants",
+          "Resultary: complementary paired random time steps implicit midpoint oscillator exact phase dispersion"
+        ]
+      },
+      "rationale": "Credit is limited to the sharp matched-marginal phase and actual endpoint-dispersion laws for harmonic midpoint, particularly the positive curvature residual and its constant. Exact energy preservation, use of the nominal grid and countermonotone optimality for a monotone transformed sum are established principles. The iid upper rate in part of the parameter range is already a consequence of prior work; it is not credited as new.",
+      "residual_risks": [
+        "Bounded searching does not exclude an unindexed or unlocated specialized antithetic-time-stepping result. The known general phase-coupling principle is not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers conservation and part of the iid upper rate, not both sharp variance limits",
+          "evidence": "Independence and uniform width h^{p+1/2} in the construction; order-dependent rms strong-error bound and pathwise invariant conservation.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01340",
+          "material_read": "§2 pp. 4–5, Remark 6 p. 8, Theorem 2 pp. 9–10 and Corollary 1 p. 13",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Same random midpoint framework, uniform perturbations and nominal output grid"
+        },
+        {
+          "assessment": "Distinct output statistics or different schemes",
+          "evidence": "One-step second-/fourth-moment isotropization or paired random ordering, not independent blocks of matched-marginal time perturbations.",
+          "identifier_or_url": "bb97d1702b8a; 2e4edb0ffe14; 6fded46de114",
+          "material_read": "Mirrored RESULT.md Findings and Assumptions",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Closest published harmonic midpoint isotropization and paired symplectic-Euler records",
+          "trigger": "Shared random midpoint rotations or within-pair dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–22, 53–74 and 86–88",
+        "arXiv:1801.01340, Remark 6"
+      ],
+      "rationale": "This benchmark quantifies what matched positive step-length marginals and unchanged update counts do not determine: the actual dispersion of an energy-preserving integrator. Removing the leading random-clock component leaves a positive, sharply quantified midpoint-curvature residual, which is useful for distinguishing timing variation from integrator variation. The seven-power comparison is at a nominal time and does not establish a seven-power improvement over an iid procedure already synchronized to the same physical time.",
+      "residual_risks": [
+        "The deterministic phase bias survives; smaller ensemble variance alone does not establish better calibrated uncertainty or support general nonlinear conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

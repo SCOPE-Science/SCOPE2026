@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:18.105559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–81, independent Laplace and polynomial reconstruction",
+        "VERIFICATION.md, lines 18–24",
+        "checker.py, lines 6–49 and checker_output.txt, lines 1–8, inspected, not executed"
+      ],
+      "rationale": "The independent Laplace check is 1/(2d²) times [1/(w+a)-2/(w+a+d)+1/(w+a+2d)], which equals the product of the three original transforms. The window is real and causal, so with T=|τ| the substitution t=u+T/2 gives the prefactor e^(-aT-iπνT)/(4d⁴) and a one-sided integral. Setting z=e^(-du) gives the extra 1/d and the integral of z^(s-1)(1-z)²(1-ρz)² over [0,1], analytic for Re s>0. Expanding yields beta terms B(s,3)-2ρB(s+1,3)+ρ²B(s+2,3); their common denominator is D and the numerator is 2[(s+3)(s+4)-2ρs(s+4)+ρ²s(s+1)], exactly 2P_ρ. In s+3 the three coefficients are (1-ρ)², (1-ρ)(1+5ρ), and 6ρ(1+ρ); all are positive for 0<ρ<1, so the real parts of both roots are negative in that variable. Hence real ν (Re s=2a/d) cannot be a zero. The five P_ρ(-j) are positive in the same range, so no poles cancel. The discriminant has sign of ρ²-14ρ+1, with the unique admissible root 7-4√3; at that root the double zero is -2-√3. For smaller ρ, the shifted s+4 roots are real with positive sum and product, giving -4<s<-3. For larger ρ they are conjugate nonreal in s. At T=0, ρ=1 gives the nonzero constant 12, so no finite zeros. The affine map s(ν) is invertible over C and the exponential prefactor has no finite zeros or poles, yielding exactly the stated meromorphic census and preserving multiplicities.",
+      "residual_risks": [
+        "The recorded numerical integral tests start from the closed form for the convolution and corroborate the rational formula only on sampled parameters; the Laplace identity independently validates that window. Neither the calculation nor the theorem covers arbitrary unrelated triples or larger cascades. Complex zeros belong to the continuation, not the real-frequency integral."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§3 covers two factors with distinct rates, then says analysis of zeros for higher convolutions with distinct positive rates requires a separate investigation.",
+          "§4 gives the equal-rate higher convolution theorem via Hurwitz polynomials; d>0 gives a different family.",
+          "The result on an ambiguity zero for even totally positive functions assumes evenness; the Wigner theorem cannot supply the self-ambiguity of this one-sided triple."
+        ],
+        "reasoning": "The equal-rate and two-factor theorems do not subsume the distinct progression, and no inspected broader theorem with matching window and output does so.",
+        "searches": [
+          "arXiv:1811.03937v1 §3 post-Lemma 3.1, §4 Theorem 4.2, §5 Theorem 5.2",
+          "Focused primary-literature search: ambiguity function zero-free convolution exponentials totally positive functions distinct rates Gröchenig Jaming Malinnikova general theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.03937v1 and 1311.7359v1",
+        "Resultary b24096ba9b71 and exact-claim ranked queries",
+        "Focused primary-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-rate and equal-rate results do not give P_ρ for this three-distinct-rate family. A Zak-frame statement supplies neither its same-window real zero-freeness nor the complex roots.",
+          "General Laplace/beta evaluation supplies a method, but not the actual shift bound, noncancellation values and transition at log(7+4√3)."
+        ],
+        "reasoning": "The real-plane result and sharp complex transition survive separately as supported contributions, not merely a renamed implication of the inspected real-plane theorems.",
+        "searches": [
+          "Compare GJM Lemma 3.1, Theorems 4.2 and 5.2, and the distinct higher-rate observation with RESULT.md lines 15–23, 50–81",
+          "Compare Kloos–Stöckler Zak result with the ambiguity integral and the complex continuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric ambiguity is the same-window STFT up to a nonzero phase, whereas the Wigner result in the closest paper is a reflected-window STFT. These are inequivalent for this causal, non-even window.",
+          "The closely connected exponential-spline results count Zak transform zeros, not zeros of the ambiguity of the window with itself.",
+          "The closest archived hit studies a linear combination of two exponentials with varying amplitude, not a convolution."
+        ],
+        "reasoning": "Changing phase convention cannot affect nonvanishing but does not convert a different transform or reflected window to the target. An older characterization of the window family under a spline description is not the zero classification.",
+        "searches": [
+          "Gröchenig–Jaming–Malinnikova arXiv:1811.03937v1 §2 definitions and §3 Lemma 3.1",
+          "Resultary searches for zero-free ambiguity of distinct-rate exponential convolutions and three-stage arithmetic progression",
+          "Kloos–Stöckler arXiv:1311.7359v1, introduction and Theorem 3.2 summary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded indexed queries did not yield an exact continuation census or threshold for the stated family. The closest mirrored result b24096ba9b71 concerns sharp lower Gabor frame bounds rather than ambiguity zeros.",
+          "The primary article displays exact examples for other families and explicitly distinguishes higher distinct-rate convolutions."
+        ],
+        "reasoning": "No conventional exact sequence table applies to this continuous window family; the archive/explicit-case check used the analytic polynomial and delay threshold as matching data. Search misses do not certify absolute novelty.",
+        "searches": [
+          "Resultary ranked searches for the exact numerator, threshold and arithmetic triple",
+          "arXiv:1811.03937v1, exact formula cases and statement after the two-rate formula"
+        ]
+      },
+      "rationale": "The strongest inspected prior paper proves real ambiguity nonvanishing with two distinct rates or arbitrarily many equal rates, and expressly leaves distinct higher convolutions for separate study. The supported new scope is the three-distinct arithmetic family and its exact complex-Doppler zero/pole classification; neither a new general criterion for total positivity nor novelty of the window family or ambiguity/Zak methods is credited.",
+      "residual_risks": [
+        "A missed theorem for rational Laplace transforms or unpublished calculations for distinct rates may cover this case. No exhaustive historical priority or arbitrary-rate result is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers distinct two-rate and higher equal-rate self-ambiguity; leaves the distinct higher-rate case and does not give this complex classification",
+          "evidence": "The authors explicitly state that for higher convolutions with distinct positive rates, analysis of their zeros requires a separate investigation. Theorem 5.2 concerns W(f,f), not A(f,f).",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03937v1",
+          "material_read": "§2 definitions p. 3 (offset 9200), Lemma 3.1 pp. 5–6 and its sequel (17100, 21650), even totally positive discussion p. 7 (25000), §4 Theorem 4.2 p. 9 (29800), §5 Theorem 5.2 p. 10 (36500)",
+          "method": "Read the relevant primary OA PDF statements and adjacent passages; matched factors, rates and reflection assumptions",
+          "title": "Zeros of the Wigner Distribution and the Short-Time Fourier Transform",
+          "trigger": "Exact neighboring zero-free convolution results and a potentially stronger result about total positivity"
+        },
+        {
+          "assessment": "Different transform and invariant",
+          "evidence": "Theorem 3.2 gives a unique Zak zero on a specific frequency line in a fundamental cell; Theorem 3.4 connects Zak transforms of the spline and totally positive function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7359v1",
+          "material_read": "Primary text pp. 3–4, offset 7530 onwards, including summaries of Theorems 3.2 and 3.4 and the frame-bound scope",
+          "method": "Read bounded OA PDF pages following identification of exponential B-spline zero statement",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Closely related exponential-spline window family and wording about transform zeros"
+        },
+        {
+          "assessment": "Different window operation and observable",
+          "evidence": "The window is (e^(-at)-c e^(-bt)) times the causal indicator; it is a two-exponential sum with variable amplitude and the conclusion is a lower frame bound.",
+          "identifier_or_url": "Resultary 2026/11/22, record b24096ba9b71",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Read primary result in local mirror and compare window construction and quantity",
+          "title": "Sharp worst-mixture lower Gabor bound for two causal exponentials",
+          "trigger": "Strongest topical Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "GJM arXiv:1811.03937v1 §3 after Lemma 3.1",
+        "RESULT.md formula and continuation census"
+      ],
+      "rationale": "This is a tractable but non-equal-rate instance of a specific distinct-rate problem identified in primary time–frequency literature. It settles the entire real ambiguity plane for a natural first higher cascade and describes how the continuation zeros appear, collide and split at finite delay. The exact shift and noncancellation show why the complex transition does not obstruct real zero-freeness. This gives a concrete benchmark for a broader theory, not just a single parameter example.",
+      "residual_risks": [
+        "Practical significance beyond the exact time–frequency classification, or a criterion for arbitrary positive rate triples, is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

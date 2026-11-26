@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a real bounded-variation input, its signed derivative measure represents the function as a superposition of single jumps. The operator preserves constants. Minkowski's inequality therefore reduces the sharp norm to single jumps without assuming smoothness. The Gamma-product representation yields the exact survival kernel; differentiating the squared residual gives an exact strictly single-crossing root equation. This proves the global maximum, uniqueness, and all equality cases. Chernoff bounds and a dominated geometric-series limit prove the sharp exponential saturation, including its power-law prefactor. A standalone finite check verifies 188 exact-rational or numerical identities and benchmarks, but the infinite claims are proved analytically.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+With real BV and open-interval variation, represent f modulo constants by integrating upper step functions against Df. The probability kernel for H^m gives bounded integrands against the finite variation measure, justifying interchange; Minkowski then gives the optimal norm as the supremum of single-jump norms. Products of m independent uniforms give a Gamma(m,1) logarithmic delay and the stated Q_m residual. Its squared norm R_m satisfies R_m'=Q_m²-R_m and integration by parts gives the displayed root equation; the bracket is strictly decreasing and its limit is at most -1. The unique maximizer forces variation supported at a single jump, including both jump signs. The m=1 squared norm is t(1-t), and Q_{m+1}>Q_m for positive arguments proves strict growth. The root lies between b_m and (1+epsilon)b_m by a Gamma lower-tail bound, which then gives 0<=m log(L_m/b_m)<=-log Q_m(L_m)=O(exp(-cm)). In the Poisson tail expansion at L_m, L_m^m/m! tends to 1/2, and successive terms after factoring the lead are uniformly geometrically dominated and tend to (1/e)^j. This yields the exact squared-deficit prefactor after Stirling. No weighted or general Lp claim is inferred.
 
-The full text of Leśnik–Maligranda (2014), including Theorems 1–2 and proof, addresses the optimal Hardy/Cesàro domain and range and weighted Hardy estimates, not the sharp repeated identity-defect norm on \(BV\). Curbera–Ricker's 2015 full text concerns integral representations and Cesàro function-space structure. The fully read relevant sections of Alhamzi et al. (2026) treat \(L^p\) operator norms and a Volterra resolvent, while Belli et al. (2026) examine spectra and cyclicity. Related finite Cesàro-grid variation results and real interval Hardy \(L^1\) residual results do not imply the exact \(L^2\) Gamma-tail root or large-iterate exponent. Searching does not prove novelty, and an unindexed older equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The full sequence of exact iteration norms, unique extremizing discontinuities, and the unusually fast rate \(e^{-m/e}m^{-1/(2e)}\) give a quantitative benchmark for how repeated prefix averaging separates from the identity on a variation ball. The root and its exponential boundary migration are not obtained from a routine one-step Hardy inequality; the sharp prefactor requires a Gamma-tail analysis. This is a motivated, all-iteration structural result rather than an arbitrary fixed-index computation.
+The closest known formula uses the same averaging/variation model but integrates the step residual to power one rather than two. The L2 norm, strictly monotone root equation, rigidity and precise squared-deficit coefficient are a distinct conclusion; neither the L1 formula nor standard Hardy operator norms supply that root or coefficient.
 
-## Boundaries and closest literature
+## value
 
-The finding concerns an \(L^2\) *identity residual* on an unweighted real variation ball, not the familiar \(L^2\to L^2\) Hardy operator norm. Exact norming functions require the single jump stated in the theorem. A historical equivalent might be indexed under Cesàro iterates, Gamma survival, or Volterra-type averaging; independent literature verification remains useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The variation-ball identity defect is an interpretable exact error benchmark for repeated prefix averaging, rather than the usual Hardy operator norm. It determines all worst inputs and their boundary migration and distinguishes the norm-dependent saturation coefficients from the analogous L1 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

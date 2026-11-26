@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:33:57.884048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–91; VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "Conditional on the first k arrows, finishing the permutation pairs the free heads and tails of n−k open path components uniformly; the resulting expected cycle count is H_(n−k) plus the already closed cycles. For a specified r-cycle avoiding k, at least one of the remaining k−r images is at least k; exchangeability then gives conditional record probability 1/(k−r). A nonsingleton cycle through k excludes the record, while the fixed point at k contributes joint probability (k−1)!(n−k)!/n! = 1/(k binom(n,k)). The identity binom(k−1,r)/(k−r)=binom(k,r)/k cancels all terms of length r<k, leaving the claimed kernel, including zero at k=1. At k=n the contribution is 1/n−1/n²; at n−1 it is 1/n²+O(n⁻⁴); at k=2 it is 1/(2n²)+O(n⁻³). Bound the next boundary terms individually and the interior by H_n/binom(n,4). The independent record ranks and cycle-count marginal give common variance H_n−H_n^(2), proving the correlation asymptotic.",
+      "residual_risks": [
+        "Proof is for strict upper records of the original uniform permutation. Frozen finite checks are not independent reproductions and are not needed for the argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "467c38cb0936 Finding equations (1)–(2) give E[t^C I_i] and explicitly recover the kernel. Hamaker–Rhoades give conditional structure for partial permutations; §6.2 poses joint-distribution questions."
+        ],
+        "reasoning": "The later joint-polynomial record is stronger; the inspected literature framework was not used as the direct duplication evidence.",
+        "searches": [
+          "Resultary: joint cycle–record polynomial; arXiv:2503.17556, Theorem 1.1 and §6.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 436727c4ad97, 9a54cad4773d, 467c38cb0936, 815731fffa25",
+        "arXiv:2503.17556, 2210.08789, 1203.4132; Baril–Petrossian OA paper, records definition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior sum includes the terminal three leading contributions from k=n,n−1,2; record ranks give the classical marginal variance."
+        ],
+        "reasoning": "Expanding the known sum gives the stated second-order term and dividing by the common variance gives the correlation. Neither is a distinct substantive remainder.",
+        "searches": [
+          "436727c4ad97 Finding; 9a54cad4773d Finding; arXiv:2210.08789, permutation-statistics context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "436727c4ad97 Finding: (j−1)/(n j binom(n−1,j−1)); 815731fffa25 Finding: diagonal forward/inverse record table"
+        ],
+        "reasoning": "The binomial identity n j binom(n−1,j−1)=j² binom(n,j) gives exactly the frozen cycle/record kernel. The forward/inverse table instead couples two record indicators and is not counted as an equivalent statement.",
+        "searches": [
+          "Resultary: uniform permutation cycles versus strict left-to-right upper records; forward and inverse record aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Findings give the exact all-position covariance, not just finite numerical table entries. 436727c4ad97 also gives the summed kernel; 9a54cad4773d explicitly gives terminal dominance."
+        ],
+        "reasoning": "Agreement holds at every allowed n,k and in the same normalization. A same-day timestamp gives no inference about ordering.",
+        "searches": [
+          "Resultary records 436727c4ad97 and 9a54cad4773d"
+        ]
+      },
+      "rationale": "An earlier-dated published record states the same positional kernel, for the same pair of statistics on the same permutation, and the same exact aggregate. A distinct same-day record also states the kernel and terminal dominance. The refined asymptotic and correlation are short consequences of the already published sum and classical marginal variances. This is affirmative duplicate coverage, not a finding about historical priority or a failure to retrieve literature.",
+      "residual_risks": [
+        "Mahmoud’s cited book section was not retrieved; the general literature search was uninformative. Neither affects direct catalogue coverage; no claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core",
+          "evidence": "Identical same-permutation positional kernel in alternate binomial normalization and exact aggregate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-cycles-and-records-have-an-exact-positive-local-covariance-kerne--436727c4ad97/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "Cycles and records have an exact positive local covariance kernel",
+          "trigger": "Earlier direct statement match"
+        },
+        {
+          "assessment": "Direct coverage without an ordering inference",
+          "evidence": "Identical positional kernel and terminal dominance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-cycle-record-covariance-and-terminal-position-dominance-in--9a54cad4773d/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "Exact cycle–record covariance and terminal-position dominance in uniform permutations",
+          "trigger": "Distinct published record on same covariance"
+        },
+        {
+          "assessment": "Later stronger coverage",
+          "evidence": "Exact polynomial mixed moment and covariance consequence.",
+          "identifier_or_url": "467c38cb0936",
+          "material_read": "RESULT.md Finding, equations (1)–(2)",
+          "method": "Published record via local mirror",
+          "title": "A joint cycle–record polynomial for uniform permutations",
+          "trigger": "Stronger joint law"
+        },
+        {
+          "assessment": "Distinct joint statistics",
+          "evidence": "Forward and inverse record indicators rather than cycle count and a record.",
+          "identifier_or_url": "815731fffa25",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "Diagonal forward–inverse record covariance for uniform permutations",
+          "trigger": "Possible equivalent record covariance"
+        },
+        {
+          "assessment": "Related framework; inspected passages do not state this covariance",
+          "evidence": "Partial-permutation cycle–path types and joint-distribution questions.",
+          "identifier_or_url": "arXiv:2503.17556",
+          "material_read": "Theorem 1.1 and §6.2/Problem 6.2",
+          "method": "OA PDF",
+          "title": "Moments of permutation statistics by cycle type",
+          "trigger": "General partial-permutation moment theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "436727c4ad97 and 9a54cad4773d Findings; frozen RESULT.md lines 73–91"
+      ],
+      "rationale": "The exact kernel is a meaningful statistic in its own right, but this submission repeats that known invariant. As an incremental contribution, expanding three end terms of the known sum and dividing by the known marginal variance do not solve a further mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

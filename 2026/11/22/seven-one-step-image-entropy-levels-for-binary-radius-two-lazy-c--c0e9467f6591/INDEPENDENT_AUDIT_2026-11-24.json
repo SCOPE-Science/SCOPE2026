@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:12:27.213644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every length-n output word comes from an input of length n+4, which extends to a bilateral full-shift point. Starting the subset automaton from all four-bit states recognizes exactly these words, counts them once, and makes all live states reachable. Hence a reachable Perron component gives both the correct exponential lower bound and, by finite-matrix growth, the matching upper bound. In the independent replay below, all sixteen state sets (sizes 11–14), both catalogs, all seven polynomial divisibilities and their ordered rational isolating intervals were reproduced; root counts also exclude any larger real root through 2. Exact tests on all 512 nine-bit words per code give precisely 1,3,7,8,12,14 as non-idempotent. Removing the active edge gives t^11(t−1)(t^4−t^3−t^2−t−1) in those six cases; the maximal recurrent component determines the fixed shift entropy. The fixed Perron interval lies below both B and D; the two log gaps agree with the reported approximations. Bit complement doubles every count; in the idempotent cases image equals Fix. This is a proof for one spatial image of the bilateral full shift, not merely agreement at bounded word lengths or a statement about temporal entropy.",
+      "replay": "python /workspace/checks/finite.py 4 (independent tuple-set automata and exhaustive local test; frozen verifiers inspected, not executed)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2510.14841 Theorem 1 bounds the number of distinct powers.",
+          "Zero-erosion Finding: T_r acts with r−1 sites to the left and one to the right, with one-step image forbidding 0^r10 and fixed shift forbidding 0^r1."
+        ],
+        "reasoning": "Bounds for the number of iterates do not determine a spatial entropy. Zero erosion at r=4 has asymmetric interval [−3,1], not [−2,2]. Its entropy pair nonetheless equals D's: 000010 has only the one-letter proper border and 00001 has none, giving the respective single-forbidden-word Perron equations t^6−2t^5+t−1=0 and t^5−2t^4+1=0 (with the latter's Perron factor the fixed quartic). This covers those numbers for a different map, not their assignment to p=3,12 or the centered census.",
+        "searches": [
+          "arXiv:2510.14841",
+          "Resultary: exact image filtration and sofic limit for zero-erosion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.03601v3",
+        "arXiv:2610.11811v3",
+        "arXiv:2510.14841v3",
+        "Resultary 2df55b6ed1a9",
+        "Resultary d4f1725c3486",
+        "Resultary 66161a322c8d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F^2=F implies image=Fix, whose entropy follows from a standard one-forbidden-word calculation; the asymmetric r=4 entropy pair is covered as above."
+        ],
+        "reasoning": "The prior results give the structural fixed-point reduction and a route to the 20 idempotent image entropies. They do not mechanically yield the evaluations for the twelve non-idempotent rules, including which centered rules give each gap and how many of them do. The originality pass is for this complete classification, not for the already covered framework or a standalone numerical coincidence.",
+        "searches": [
+          "arXiv:2411.03601 and 2610.11811 compared with classes B,D",
+          "Resultary 2df55b6ed1a9 compared with centered p=3,12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2411.03601, v3 p.4: fixed points avoid the active word; arXiv:2610.11811, v3 p.1: idempotence criteria including the abelian-group setting."
+        ],
+        "reasoning": "Unique-active-transition and lazy describe the same local restriction here. Structural criteria identify which maps have image equal to Fix, not the non-idempotent first-image language. Complement and reflection change the local codes but do not turn the asymmetric erosion rule into a centered rule.",
+        "searches": [
+          "Web: \"lazy cellular automata\" \"image entropy\" order one-step spatial image radius two",
+          "arXiv:2411.03601",
+          "arXiv:2610.11811"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Elementary entropy record d4f1725c3486 has 19 levels from the 256 radius-one rules; its largest nonfull root is about 1.917168419. Same-date record 66161a322c8d is for the second image of elementary Rule 22."
+        ],
+        "reasoning": "None of the seven roots matches the elementary census, all being strictly above its proper-image maximum and below 2. Rule 22's second-image result has a different rule and iterate parameter and is not dismissed on date alone. No prior exact table covering the centered radius-two census was identified.",
+        "searches": [
+          "Resultary: centered binary lazy radius-two one-step spatial-image Perron spectrum and gaps; exact elementary image census and neighboring same-day records"
+        ]
+      },
+      "rationale": "Supports the complete evaluated census for the centered five-site family, especially the distinct one-step B and D classes with the same fixed entropy and exact populations. Does not confer credit for the known idempotence or fixed-point structure, the automata method, or the numerical D gap in isolation, which is already a corollary for a different asymmetric rule.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unindexed five-site entropy table or special-language reductions for individual active rules."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-shift description.",
+          "evidence": [
+            "Fix is the subshift avoiding the active word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.03601",
+          "material_read": "v3 p.4, fixed-point passage (OA offset 14902)",
+          "method": "OA PDF passage",
+          "title": "One-dimensional cellular automata with a unique active transition",
+          "trigger": "Same class under alternate terminology"
+        },
+        {
+          "assessment": "Supplies idempotence framework rather than a census of spatial entropies.",
+          "evidence": [
+            "Characterization over abelian groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11811",
+          "material_read": "v3 p.1, abstract and criteria description",
+          "method": "OA PDF passage",
+          "title": "Idempotence criteria for lazy cellular automata",
+          "trigger": "Potential general classification"
+        },
+        {
+          "assessment": "Different invariant.",
+          "evidence": [
+            "Theorem 1 concerns the count of map powers, not exponential growth of spatial output blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.14841",
+          "material_read": "v3 pp.1,6 (OA offsets 1500,16992)",
+          "method": "OA PDF passages",
+          "title": "On the order of lazy cellular automata",
+          "trigger": "Power and image terminology overlap"
+        },
+        {
+          "assessment": "Its r=4 entropy pair agrees with D, but not the centered rule or complete classification.",
+          "evidence": [
+            "The changed site is at position r in 0^r1; image at n=1 forbids 0^r10."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-image-filtration-and-a-proper-sofic-limit-for-zero-erosion--2df55b6ed1a9/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of run proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact image filtration and a proper sofic limit for zero-erosion cellular automata",
+          "trigger": "Broader exact first-image theorem for active words"
+        },
+        {
+          "assessment": "Different radius and different proper-image roots.",
+          "evidence": [
+            "256 elementary rules, 19 values; largest proper-image root approximately 1.917168419."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486",
+          "material_read": "Finding and exact census, offsets 0 and 4906",
+          "method": "Resultary local-mirror RESULT.md",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "Closest exact evaluated census"
+        },
+        {
+          "assessment": "Second image of one radius-one rule, not an equivalent first-image centered radius-two classification.",
+          "evidence": [
+            "Elementary Rule 22; second-image certificate has 273 states."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-second-image-spatial-entropy-and-first-image-language-loss--66161a322c8d",
+          "material_read": "Indexed scientific statement",
+          "method": "Resultary query and statement comparison",
+          "title": "Exact second-image spatial entropy and first image-language loss for elementary Rule 22",
+          "trigger": "Same-date image entropy search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The centered one-flip family is small but complete at a natural radius; the exact comparisons show that equal fixed-state entropy need not imply equal one-step information retention, even among rules with the same neighborhood size and one active transition. Two resolved positive gaps and sharp populations give a concrete benchmark beyond reapplying the idempotence criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

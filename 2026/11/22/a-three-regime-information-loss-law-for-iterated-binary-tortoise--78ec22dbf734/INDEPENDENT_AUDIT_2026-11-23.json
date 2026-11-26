@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:55:13.491005Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–110",
+        "Frozen VERIFICATION.md, lines 19–27; verify_exact.py and verify_exact.out; verify_probabilities.py and verify_probabilities.out"
+      ],
+      "rationale": "In binary gap coordinates the recursive tortoise map merges the first two zero gaps and appends a one, with all later zero gaps retained. Thus k passes merge k+1 initial gaps unless the word has fewer ones and is already sorted. In the suffix-1^k output family, splitting h leading zeros across k+1 ordered gaps gives binom(h+k,k) preimages, with 2^(n−k−h−1) such outputs if h<n−k and one if h=n−k. Lower weights 0≤r<k each have one sorted output with binom(n,r) preimages. This yields the count, histogram and maximum by monotonicity and binomial unimodality, including k=n; k=0 is the identity. For a fair source, the (k+1)st one appears at position G_k+k+1, where G_k is a sum of k+1 mean-one variance-two geometric zero counts. On arrival by time n the gap fiber formula applies; otherwise the fiber is binom(n,B_n) for B_n the source weight. In the subcritical regime arrival has probability tending to one and the log gap fiber is 2k+(G_k−k)+O_P(log k+1) by uniform Stirling and the geometric CLT. At k=floor(n/2), (G_k−k)/sqrt(n) tends to Z, the arrival threshold differs from k by at most one, and the nonarrival deficit is O_P(log n+1), so the scaled deficit is the positive part of the negative Gaussian up to o_P(1). In the supercritical regime the binomial branch dominates; Stirling's central quadratic term is −2(B_n−n/2)^2/(n ln 2), which gives the stated constant and limit. For arbitrary critical proportions the LLNs/continuous entropy estimates work on both branches; for k=o(n) the arrival branch is bounded by G_k+k=o_P(n) and nonarrival has vanishing probability. Bounded normalized log sizes give convergence of expectations, and H(Y)=n−E log₂ F since fibers are conditionally uniform. The recorded runs agree with the stated finite ranges and were inspected without replay. No finite check is used for a limit.",
+      "residual_risks": [
+        "The critical fluctuation claim is only for k=floor(n/2); the proof does not assign the same critical law to an arbitrary sequence with k/n→1/2. The fair full-cube law does not extend by this check to a biased law or restricted factor language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant–Kravitz develop single-pass general-alphabet fertility methods, including occurrence of all nonnegative fertilities, not a uniform-source iteration theorem. Campbell–Rampersad's Theorem 6 counts classes among Thue–Morse factors, not sizes or probabilities of fibers in the full cube."
+        ],
+        "reasoning": "General fertility and restricted factor complexity have different probability spaces/quantification and lack the growing-depth source weighting; no inspected result provides the stopped binomial/negative-binomial fluctuation theorem.",
+        "searches": [
+          "arXiv:1809.09158v2, introduction, §3 and Theorem 4.1",
+          "arXiv:2604.25811v2, §§3 and 6, including Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Campbell–Rampersad, arXiv:2604.25811v2",
+        "Defant–Kravitz, arXiv:1809.09158v2",
+        "Resultary ternary second-moment and two-tortoise Thue–Morse records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Splitting the leading gap in the known relocation yields the full finite multiset immediately by stars and bars; the Hartley rate then follows directly. For source weighting, the arrival event of the (k+1)st one and its fluctuation-scale competition with the complementary binomial branch identify the Gaussian, positive-part Gaussian and negative quadratic Gaussian limits."
+        ],
+        "reasoning": "No separate novelty is assigned to the count, Hartley rate, or chain rule. The saturation and critical atom concern the actual source-weighted law; they are not the statement of an inspected general theorem specialized by parameter substitution.",
+        "searches": [
+          "Campbell–Rampersad §3 compared to frozen RESULT.md, Proof §§2–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k-tortoise equivalence is equality of k-fold outputs. Campbell–Rampersad's deletion of the first k ones and appending 1^k is exactly the frozen gap-merging map. The same one-pass movement is the left-to-right binary bubble pass (hold the first 1 in the scan and carry it to the end)."
+        ],
+        "reasoning": "The exact quotient and action are prior; what is compared for novelty is the law obtained when a fiber is sampled with probability proportional to its cardinality, not the quotient itself or a uniform class census.",
+        "searches": [
+          "Campbell–Rampersad, arXiv:2604.25811v2 §3, k-tortoise equivalence",
+          "Defant–Kravitz, arXiv:1809.09158v2, recursive tortoise and fertility",
+          "Resultary: iterated binary tortoise inverse fibers, factor-language equivalence and full-cube information loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary moment record states the exact binary k=1 fiber rule as background (h+1 for leading zero gap h before a one when ending in 1, with all-zero output handled separately). This is exact overlap; same-day priority was not assumed. The Thue–Morse result tabulates maximum fiber size for k=2 on the restricted language (eventually 2), not the full-cube histogram or random log fibers."
+        ],
+        "reasoning": "Neither exact record covers the growing-depth asymptotic; the k=1 formula is not credited as a distinct finding. The identical frozen record returned by the index is not a separate comparison.",
+        "searches": [
+          "Resultary IDs 2026/11/22/SCOPE-the-second-moment-law-for-ternary-tortoise-sorting--fbac5051a1a7 and 2026/11/2/SCOPE-exact-maximal-two-tortoise-fiber-spectrum-of-thue-morse-factors--5c1539333494"
+        ]
+      },
+      "rationale": "Pass for the full-cube random-source information-loss and combined three-regime fluctuation theorem. Credit the prior exact deterministic action: the fiber census, extremum and support size are an immediate combinatorial aggregation of Campbell–Rampersad's rule, not independent originality here. The strongest checked restricted-language and single-pass sources do not supply the stopped-source asymptotic or its critical atom under a uniform input at growing iteration depth. The three laws use standard CLTs and Stirling but require tracking the two distinct branches on their different scales.",
+      "residual_risks": [
+        "Comparison is bounded, not a first-publication assertion. Alternative sorting or source-coding terminology may hide another prior full-cube limiting law; no such coverage was established. Same-day ordering of the binary k=1 overlap is not established and is immaterial to the surviving claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known action implies finite census; inspected results target factor complexity, not the uniform-source limiting theorem",
+          "evidence": [
+            "The binary iterate moves the first k ones to the end; Theorem 6 counts one-step classes of Thue–Morse factors via factor complexity minus 2 or 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25811v2",
+          "material_read": "§3, printed pp. 6–7 (offsets about 12000–16492), and §6 Theorem 6 (around offset 41198)",
+          "method": "OA original passage comparison",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Same binary iterated equivalence and deterministic map"
+        },
+        {
+          "assessment": "Foundational definition and one-step fertility ingredients; not the growing-depth binary probability law",
+          "evidence": [
+            "Recursive tortoise formula determines the binary pass; general fertility inputs and existence theorem concern one-step outputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.09158v2",
+          "material_read": "Definition, p. 3 (around offset 9310), introduction and §3, Theorem 4.1 p. 15 (around offset 56548)",
+          "method": "OA original passage comparison",
+          "title": "Stack-sorting for words",
+          "trigger": "Defining source and general fertility theory"
+        },
+        {
+          "assessment": "Exact overlap at binary k=1; main law for ternary second moment is distinct",
+          "evidence": [
+            "The previous-zeros parameter gives binary one-step fiber h+1; main theorem uses ternary words and Rényi rather than the growing-depth binary log-fiber fluctuation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-second-moment-law-for-ternary-tortoise-sorting--fbac5051a1a7/RESULT.md",
+          "material_read": "Finding and relevant binary comparison, offsets 0–5675",
+          "method": "Indexed original, mirrored passage read",
+          "title": "The second-moment law for ternary tortoise sorting",
+          "trigger": "Same sorting and exact fertility statistics"
+        },
+        {
+          "assessment": "Exact but restricted-language extremum, not full-cube probability",
+          "evidence": [
+            "The maximum is 2 for n≥10 for two passes on Thue–Morse factors, an entirely different statistic from a size-biased full-cube law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-maximal-two-tortoise-fiber-spectrum-of-thue-morse-factors--5c1539333494/RESULT.md",
+          "material_read": "Finding and proof/comparison passages, offsets 0–4379 and 4300–6242",
+          "method": "Indexed original, mirrored passage read",
+          "title": "Exact maximal two-tortoise fiber spectrum of Thue–Morse factors",
+          "trigger": "Exact binary iterated fertility comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–7",
+        "Campbell–Rampersad, §§3 and 6"
+      ],
+      "rationale": "The uniform full alphabet cube and linear pass depth are natural baselines for quantifying how much reversible identification is lost under iteration. The result distinguishes exponentially many possible outputs from their actual Shannon concentration, and the critical mixed atom exposes how stopping versus sorting changes the scale of typical uncertainty. It gives explicit fluctuation laws rather than only finite entropy numerics or a restatement of the known deterministic relocation.",
+      "residual_risks": [
+        "Value is for fair binary source analysis. It does not establish a broader compression theorem, other alphabets, or a universal crossover law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:13:43.375416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt and verification_output.txt inspected; frozen checker not executed.",
+        "Corrected /workspace/repairs/4/RESULT.md Finding and proof §§1–5.",
+        "Independent replay: python -B /workspace/branches/independent-reproductions.py 4; /workspace/branches/reproduction-4.out. Direct folded-ratio-density quadrature includes the genuine S tail, rather than using H at the same finite threshold."
+      ],
+      "rationale": "For each fixed opposing sketch, the residual restriction is εI+(1−ε)vvᵀ in dimension d=n−1 with ||v||²=H=ε²R²/(X²+ε²R²). Both basic estimates have conditional mean tr A. Gaussian and uniform-direction moments give conditional variances 2[S²+(d−1)ε²] and 2(d−1)(1−ε)²H²/(d+2), with S=ε+(1−ε)H. The |X|/R density is K(1+a²)^{−n/2}, K=2Γ(n/2)/(√π Γ((n−1)/2)); scaling a=εu gives E H²/ε→Kπ/4=c_n and E H=O(ε). The mixed product is O(ε²) because each direction determines its own S and is independent of its Gaussian radius, independently for the two sketches. Thus averaging halves the leading individual variances. When n=2 the normalized residual uses the exact Rayleigh value on the one-dimensional complement for every defined probe. The repaired tail uses a<ε√((1−t)/(t−ε)), whose scaled probability tends to K√((1−t)/t). For equal means and equal basic variances v, E V̂=(v−c)/2 and Var(T)=(v+c)/2; hence the repaired difference is exactly −c=O(ε²). Those identities independently establish the affected proxy and tail statements.",
+      "residual_risks": [
+        "Dimension is held fixed, the diagonal tail is isotropic and the probes are independent real Gaussian samples. The replay corroborates only finite parameters; the analytic argument supplies the limit and proxy identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited primary results concern general XTrace bounds, rotation-averaged and extended Krylov versions, plain Gaussian quadratic-form sampling, and Hutch++, respectively."
+        ],
+        "reasoning": "None of these inspected statements evaluates both fixed-n singular leading coefficients for the stated algorithm. General exchangeability and an upper bound cannot determine this leading covariance or normalization gain.",
+        "searches": [
+          "arXiv:2301.07825 §3",
+          "arXiv:2512.02316 Theorem 3.5",
+          "arXiv:2411.15454 p.1",
+          "arXiv:2010.09649 pp.2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.07825, 2512.02316, 2411.15454, 2010.09649; Resultary 6a0180b3e23e, b2d120cf55e7, 4aed760e42f3, 2d755ae95a66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.1 gives E V̂/Var(T)=(1−ρ)/(1+ρ) for two contributions where the ratio is defined. It does not show ρ→0 on this family. Nearby Nyström asymptotics predict different powers of ε."
+        ],
+        "reasoning": "The family-specific covariance estimate establishes the missing calibration implication. The main novelty is the coefficient calculation and rare-event law, not the algebra of the proxy.",
+        "searches": [
+          "arXiv:2301.07825 Proposition 3.1",
+          "Resultary:b2d120cf55e7 RESULT.md",
+          "Resultary:6a0180b3e23e RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four products correspond to two Gaussian leave-one-out contributions. Published direction normalization scales by √(n−1); the squared proxy at two probes is (Z₁−Z₂)²/4. Gaussian XNysTrace and the unoversampled Nyström residual use different matrices; near rank one their relevant scale is √ε, not ε."
+        ],
+        "reasoning": "Equivalent estimator and normalization definitions are credited; swapping projection and Nyström geometry is not an equivalent reformulation.",
+        "searches": [
+          "arXiv:2301.07825 eqs. 1.5–1.6, Algorithm 1.2 and §2.3",
+          "Resultary:6a0180b3e23e",
+          "Resultary:b2d120cf55e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 6a0180b3e23e is an order-√ε tail for an unoversampled Nyström residual. The planar XNysTrace formula has leading √ε/2 at diag(1,ε), not ε/2. The other hits address Gaussian XNysTrace at I_n and Rademacher XTrace/XNysTrace at a scalar multiple of I₂."
+        ],
+        "reasoning": "The exact formulas are indexed for nearby but nonidentical objects. Individual gamma or chi moments are standard; the natural exact object here is estimator risk and its residual tail, not a standalone special-function value.",
+        "searches": [
+          "Resultary semantic search for near rank one Gaussian XTrace, residual rare events and posterior calibration; 6a0180b3e23e, b2d120cf55e7, 4aed760e42f3, 2d755ae95a66"
+        ]
+      },
+      "rationale": "Neither the original estimator, its residual normalization, nor the general expected-proxy identity is claimed new. The surviving claim determines sharp constants for the two original Gaussian estimators on the spiked family, proves that correlation does not affect the leading term, and measures the rare high-residual events. The inspected sources give general bounds or different probing and residual constructions, not these coefficients or an implication for them.",
+      "residual_risks": [
+        "Literature check is bounded; adjacent analogous calculations cannot establish exhaustive priority. The proxy identity is prior, and is not a separate originality basis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers estimator, normalization and generic proxy identity",
+          "evidence": [
+            "Residual rescaling uses square root of complement dimension; expected squared proxy versus variance is determined by basic-estimate correlation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "Printed pp.4–5 eqs.1.5–1.6 and Algorithm 1.2; p.11 §2.3; p.12 Proposition 3.1",
+          "method": "Targeted primary OA PDF passages",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Defining estimator and posterior proxy"
+        },
+        {
+          "assessment": "Different methods/claims in inspected material",
+          "evidence": [
+            "Rotation averaging and XTraceFull; plain Gaussian quadratic forms; projected Hutchinson, respectively."
+          ],
+          "identifier_or_url": "arXiv:2512.02316; arXiv:2411.15454; arXiv:2010.09649",
+          "material_read": "2512.02316 p.1 and Theorem 3.5 p.6; 2411.15454 p.1; 2010.09649 pp.2–3",
+          "method": "Targeted primary OA PDF passages",
+          "title": "Two Variations on the XTrace Algorithm; Extremal Bounds for Gaussian Trace Estimation; Hutch++",
+          "trigger": "Potential coverage by broader estimator analysis"
+        },
+        {
+          "assessment": "Materially adjacent but different residuals and limits",
+          "evidence": [
+            "Nyström tail is of order √ε; planar Gaussian XNysTrace risk and proxy have leading scale √ε/2."
+          ],
+          "identifier_or_url": "Resultary:6a0180b3e23e; Resultary:b2d120cf55e7",
+          "material_read": "Local mirror RESULT.md findings, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror passages",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström; Exact planar Gaussian XNysTrace risk and posterior error calibration",
+          "trigger": "Same-day and planar exact rare-event/risk overlap"
+        },
+        {
+          "assessment": "Different spectrum or probes",
+          "evidence": [
+            "Gaussian XNysTrace at identity and sign XTrace/XNysTrace at λI₂, not the present family."
+          ],
+          "identifier_or_url": "Resultary:4aed760e42f3; Resultary:2d755ae95a66",
+          "material_read": "Local mirror RESULT.md findings",
+          "method": "Resultary search and local mirror passages",
+          "title": "Exact Gaussian XNysTrace correlation; exact posterior error and false-stop law for sign-probed XTrace",
+          "trigger": "Posterior calibration overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding; published XTrace normalization and proxy; independent ratio-density check"
+      ],
+      "rationale": "In a natural numerical-linear-algebra stress family the error is driven by rare failed sketches, not typical residuals. The result quantifies the exact gain of an existing normalization and distinguishes the two-probe dependence from leading single-probe noise. The budget is below dimension for n≥5. This remains useful without a claim of algorithmic optimality or universal normalization benefit.",
+      "residual_risks": [
+        "No growing-dimension limit or claim for arbitrary spectra/probing distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

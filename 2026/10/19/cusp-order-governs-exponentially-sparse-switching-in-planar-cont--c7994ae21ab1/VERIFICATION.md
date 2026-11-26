@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the cusp-order return-time theorem
+# Independent mathematical audit
 
-The standalone program `verify.py` was run against the accompanying files with Python 3 and produced `VERIFY_OK`. Five exact-rational trajectories for \(p=2\), \(\lambda=1/5\), including initial heights exactly equal to powers of \(\lambda\), match the claimed eventual integer recurrence. Six other combinations of cusp order and contraction strength were simulated in logarithmic coordinates to check the predicted late return-time ratios without numerical underflow. These finite checks are falsification tests, not a verification of all real parameter values or all forward times.
+## correctness
 
-The general proof is deductive: positive height persists; the upper branch immediately returns to the lower branch; repeated lower contractions eventually cross the power cusp; the exact integer first-return threshold follows from a strict inequality. Uniform boundedness of reset positions gives a bounded-error affine recurrence, whose normalized sequence converges to a strictly positive limit. For the parabolic cusp, the reset coordinate approaches one from below, fixing the integer floor even at resonant heights. No computer-assisted exhaustive infinite statement or independent review is claimed.
+PASS
+
+The strict separation condition resets each upper visit below the switch; in a lower run the positive ratio y/x^p grows by lambda^(1-p), so visits recur. For q=1/lambda and a=1-lambda*x_tau, the first upper iterate after the reset is the least integer m with (p-1)m>tau+1+log_q(a^p/y0). The resulting tau'=(p/(p-1))*tau+O(1) is uniform along the fixed orbit. Dividing by successive powers of R=p/(p-1) and summing the bounded-error tail gives a limit and an O(1) unscaled error. The limit is positive since tau tends to infinity and the remaining tail from any visit in units of that visit is bounded by K/(R-1). Inversion gives the log count. At p=2, a tends to 1 strictly from below after the first visit, so floor(log_q(a^2/y0)) is eventually ceil(log_q(1/y0))-1, including at integer log heights. This argument applies only with positive initial height and without equality hits under the stated separation condition.
+
+## originality
+
+PASS
+
+Credit the antecedent for the parabolic map, infinitely many upper visits and the ghost-orbit/omega-limit analysis. The supported distinct result is the quantitative actual-time law for general p and the eventual integer-affine clock at p=2. No equivalent statement or stronger result supplying this law was identified in the checked material.
+
+## value
+
+PASS
+
+This assigns a precise time scale to a known recurrent, nonperiodic switching example whose limit set does not specify visitation frequency. It isolates the cusp order from the contraction strength at leading order, gives a bounded counting error for every admitted orbit, and resolves the integer-height resonance rather than discarding it as exceptional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

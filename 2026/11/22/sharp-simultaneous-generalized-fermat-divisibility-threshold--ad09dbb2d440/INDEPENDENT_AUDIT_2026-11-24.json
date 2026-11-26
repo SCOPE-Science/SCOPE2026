@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:00:39.676391Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let C=b^c+1 and B=b^d+1. Then B=2 mod C, C is odd, and B,C are coprime. The proposed coefficient attains the product divisibility by (B+b^c)b^(d-c)+1=B(b^(d-c)+1). Independently, reducing n modulo 2d gives k=±b^j+sB (0≤j<d), with n+j divisible by d, hence by 2c. Multiplying kb^n+1 by b^j shows that the C congruence is s=0 mod C on the minus branch, and s=−b^j mod C on the plus branch. The minus branch needs s≥C and already exceeds B+b^c; the plus branch needs s≥1, and j<c requires s≥2 because 1≤b^j<b^c=C−1. For j≥c the plus branch is at least B+b^c. This independently excludes all smaller positive k even when either factor is composite. The observed verification metadata does not represent an independent audit; verify.py was inspected rather than executed, and its finite parameter range is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cilleruelo–Luca–Pizarro-Madariaga give a finiteness theorem for fixed odd k and smallest k=27 admitting a Carmichael number.",
+          "The newer abstract describes a cubic Carmichael classification with a Fermat-prime bound. The selected catalogue results supplied no separate multi-factor optimizer."
+        ],
+        "reasoning": "The Carmichael theorems restrict a different set of numbers and do not cover arbitrary even b, composite factors, or the minimum for fixed prescribed nested exponents. A stronger general multi-factor CRT optimizer would be relevant if found.",
+        "searches": [
+          "Resultary: generalized Fermat simultaneous product/CRT minima",
+          "arXiv:1305.3580, p. 1",
+          "arXiv:2611.24275, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23, 25–87, 95–110; VERIFICATION.md and verify.py",
+        "Resultary related-record search",
+        "arXiv:2611.24275v1 and arXiv:1305.3580v1 page 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even requiring each prescribed conventional Fermat prime to be less than 2k only gives k greater than half the larger factor.",
+          "CRT enumerates representatives but does not on its own select the least over the exponent orbit."
+        ],
+        "reasoning": "Neither the inequality nor the congruence framework gives the matching attaining k or the uniform signed-branch exclusions.",
+        "searches": [
+          "Randrianantenaina–Uncu arXiv:2611.24275, abstract; frozen RESULT.md prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue hit 2026/11/22/SCOPE-sharp-simultaneous-generalized-fermat-divisibility-threshold--ad09dbb2d440 is the assigned record.",
+          "Coprimality identifies the product problem with simultaneous congruences; equivalently it minimizes the positive representative of −b^(−n) over the exponent orbit modulo BC.",
+          "Randrianantenaina–Uncu, page 1 abstract, explicitly describes a bound on Fermat prime factors from k² to 2k, not a pair-orbit minimum."
+        ],
+        "reasoning": "The CRT and orbit formulations are equivalent to the frozen theorem. Bounding a single prime divisor is not the same as selecting two specified, potentially composite divisors and minimizing k.",
+        "searches": [
+          "Resultary: simultaneous generalized Fermat product divisibility and least coefficient",
+          "arXiv:2611.24275",
+          "arXiv:1305.3580"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue summary gives the target’s same formula and attaining exponent and is not a separate result.",
+          "The frozen verification is a bounded orbit census for examples, not a database for unbounded b,c,d."
+        ],
+        "reasoning": "A database of individual Fermat factors or a finite coefficient census would not encode the all-parameter formula; no distinct table for this joint invariant was identified.",
+        "searches": [
+          "Resultary: simultaneous Fermat divisibility threshold; exact target ID ad09dbb2d440"
+        ]
+      },
+      "rationale": "Supported distinct claim is the uniform two-designated-factor least positive coefficient under the stated nested even-ratio hypothesis. The strongest exact catalogue hit is the frozen item itself. The primary abstracts support the distinction from sharp single-Fermat-prime bounds and Carmichael classifications; no distinct equivalent pair minimum was substantiated in the inspected evidence.",
+      "residual_risks": [
+        "Term-level primary comparison beyond opened PDF pages was limited by access timeouts; the Luca and Tiebekabe comparisons in the original were not independently established in full text.",
+        "A cyclotomic or multi-modulus treatment could imply the same minimum in another formulation; a limited search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified abstract-level scope; the precise strict inequality attributed to Theorem 3 was not checked in its full text",
+          "evidence": [
+            "Abstract lines 10–20: cubic Carmichael classification and sharpening from k² to 2k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.24275",
+          "material_read": "v1 PDF page 1 abstract and opening introduction",
+          "method": "Lawful arXiv PDF text preview after targeted OA lookup timed out",
+          "title": "One more curious property of 1729: the only Carmichael number of the form 2^n p^3+1 with prime p",
+          "trigger": "Closest stated strengthening of the Fermat-prime coefficient restriction"
+        },
+        {
+          "assessment": "Different main problem; Lemma 2 relation was available from frozen reference discussion, not independently checked in full text",
+          "evidence": [
+            "Abstract states finiteness for fixed odd k and least Carmichael-producing k=27."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.3580",
+          "material_read": "v1 PDF page 1 abstract and introduction opening",
+          "method": "Lawful arXiv PDF text preview",
+          "title": "Carmichael numbers in the sequence {2^n k+1}",
+          "trigger": "Earlier conventional base-two obstruction"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": [
+            "Both formulate k=b^d+b^c+1 and n=d−c under the same nested exponent condition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-simultaneous-generalized-fermat-divisibility-threshold--ad09dbb2d440",
+          "material_read": "Indexed summary and local frozen Finding and proof",
+          "method": "Resultary search and frozen text inspection",
+          "title": "Sharp simultaneous generalized Fermat divisibility threshold",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact first coefficient forcing two prescribed plus-one factors to coexist, a natural strengthening of single-factor restrictions in the sequence k b^n+1. It distinguishes an exact joint threshold and explicit attaining exponent from separate size obstructions, and treats composite factors as well. Solving the simultaneous signed-residue optimization is more than restating CRT or substituting an exponent into a single-factor bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument explicitly defines the 49-vertex bipartite graph and derives its two independent quadratic-field line presentations, with exact point coincidences and the full 84-incidence certificate. The displayed Laplacian and independently checked characteristic polynomial determine the prime factors of its Kirchhoff tree count, and exhaustive prime-local integral elimination supplies all elementary divisors. Full Smith computations of both graph presentations agree; the packaged script was executed successfully. This is an exact finite calculation with reproducible source and no inferred infinite result.
+PASS
 
-## Originality — PASS, provisional
+This passes the repaired statement. The frozen proof omitted the change of model: the first tabulated line y+ez=0 is not a bitangent in the cyclic coordinates, where restriction has a simple zero at (1:0:0). In the cited Ciani coordinates the quartic is x^4+y^4+z^4+3e(x^2y^2+x^2z^2+y^2z^2), the Klein member of the pencil. Both plane quartic embeddings are canonical; their projective equivalence carries the entire incidence graph. I checked all 28 binary-quartic restrictions on the symmetric model over the quadratic field; each has even intersection multiplicities. I matched the 21 reflection-line equations to Gévay–Pokora §2.1 and independently reconstructed both incidence graphs by exact concurrent-triple determinants, recovering the intersection counts and checking the labelled bijection on both entire edge sets. The simple zero of the characteristic polynomial ensures connectedness. Two independent incidence minors have determinant 2^18 3^23 7^5 and prime-local elimination gives 36 units and twelve nonunits 2^4, 18, 54, 108, 756^5 (multiplicities). The repair corrects the frozen proof's count of eleven and notes why the mod-two quotient forces at least twelve generators. The geometry is invariant under coordinates, so the corrected proof retains the asserted cyclic-model graph rather than computing a different object.
 
-Classical 21–28 incidence geometry is explicitly credited. The full available Bauer et al. (2014) §4.1 and Janasz–Pokora–Zieliński (2023) §3 and Table 2 concern geometric counts and equations, not the 49-vertex graph's integral critical group. Gévay–Pokora discusses dual incidence; the distinction between geometric graph duality and integral Jacobian is explicit. Multiple searches for exact Smith factors, aliases, Levi graph descriptions, and critical groups yielded no direct covering result. A 1994 paper by Jeurissen–van Os–Steenbrink on precisely this configuration remains inaccessible in full and is a material priority risk; its accessible abstract emphasizes theta sets and Coxeter graphs, not Smith structure. Existing critical groups for a different 42-vertex Klein incidence and for Schur/Fermat line graphs are not stronger covering statements. Priority is a best-knowledge judgement, not a certification of absence of earlier work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is the complete integral divisor-class group of a canonical finite incidence graph associated with a classical highly symmetric plane quartic. It refines the known 28-line/21-crossing counts and rational graph spectrum with exact torsion including a nontrivial 7-primary part and exponent 756. Its dual description gives an independent approach to the same invariant and separates it from the alternative 21-line/21-quadruple-point Levi graph. As a graph Jacobian it is a natural integral invariant of the corresponding marked tropical incidence geometry; no downstream theorem is required for this exact classification to have value.
+Best of current knowledge, the supported distinct result is the full integral group of the specific 49-vertex Klein Levi graph and the resulting numerical obstructions. Neither the arrangement, the tabulated incidences nor the geometric duality is claimed as new. The strongest related exact results change which point multiplicities are retained, and the identical catalog record is the assigned one. A specific residual literature risk remains.
 
-## Risks and limits
+## value
 
-The 1994 directly relevant primary paper could not be read in full despite bibliographic/open-access attempts; institutional retrieval required user interaction. Other unindexed computations could supersede the result. The result makes no claims about characteristic-dependent reductions, the smooth quartic's Jacobian, or any independent verification channel.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete flag graph of the classical bitangent/fourfold-crossing configuration and hence a natural named geometric incidence object. The integral chip-firing group, its exponent and its generation rank make precise the divisor-class obstructions on that graph, independently of which known geometric model is used. Those obstructions would not be provided by the incidence or tree count alone or by the closely related quadruple-only group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

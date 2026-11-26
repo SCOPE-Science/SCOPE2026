@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:54:23.168836Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–94",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "At the start of each round the adopter set is a prefix. Its only eligible nonadopter sees fraction 1/2 or 1 at the final leaf. Even a later vertex activated in that round sees the old state, so the prefix length increments by at most one. The choice of frontier is measurable before that round; its fresh coin has success probability 1/(s+2) given the entire past, independently of which vertex is selected. Extending the coin sequence past absorption gives K_t=min(m,Σ_{j=2}^{t+1}B_j). The untruncated generating function is (t+1)⁻¹∏_{l=1}^t(1+z/l), giving the stated shifted Stirling indices, with K_0=0 and no completion before m rounds. For fixed k its coefficient apart from (t+1)⁻¹ is the kth elementary symmetric function of {1/l}, asymptotic to (log t)^k/k!: the repeated-index terms in the kth power of the harmonic sum for k≥2 are O((log t)^(k−2)Σ l⁻²). Thus the highest allowed k=m−1 gives the claimed survival tail, including the exact m=1 survival 1/(t+1). The divergent sum of independent coin probabilities gives almost-sure completion; integration of the tail gives finite positive moments exactly for r<1. For the depth limit the untruncated sum has mean and variance log(t+1)+O(1), and bounded summands give Lindeberg. Inverting P(T_m≤t)=P(Σ B_j≥m) at t=floor(exp(m+x sqrt m)) gives standardized threshold −x+o(1) and limit Φ(x); tightness gives the stated law of large numbers. The frozen finite verifier was inspected, not executed, and no finite experiment is used to justify the limits.",
+      "residual_risks": [
+        "Only the rooted, strict-threshold path and independent frozen synchronous rounds are verified. In particular the interior threshold fraction ceases to qualify at θ=1/2, and asynchronous updating does not preserve the same clock argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abella et al. §II specifies Random Asynchronous Update, p_A(j)=1/(j+2), and endogenous age increments on unsuccessful updating attempts.",
+          "b5d4a00e4f78 treats an inverse-age continuous-time hazard, deriving a general time-changed order expansion and an exact path formula. 3ca2ee0d69e2 studies sequential updates with replacement on a two-seed cycle."
+        ],
+        "reasoning": "The path frontier shape is already used in the continuous-time theorem, and the initiating paper already provides the inverse-age adoption law. None of the compared update schedules is the frozen one-attempt-per-node synchronous round: continuous time can admit multiple frontier advances in one unit, while asynchronous attempt age is not the common deterministic round index.",
+        "searches": [
+          "Abella–San Miguel–Ramasco arXiv:2209.05990 §II",
+          "Resultary b5d4a00e4f78, inverse-age bottleneck depth, and 3ca2ee0d69e2, sequential aging on a cycle"
+        ]
+      },
+      "checked_sources": [
+        "Abella et al. §II",
+        "Najnudel–Pitman pp. 1–2",
+        "Resultary exact continuous path and sequential cycle results",
+        "Frozen synchronous model and finite-time coupling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day continuous-time result states that a log-transformed T is the sum of m independent Exp(1) variables on the endpoint-seeded path. Its exact survival gives the overlapping tail form and moment cutoff at a=1; the ordinary iid CLT yields the continuous analogue of the centered log-depth Gaussian. The shared publication date does not establish precedence.",
+          "In the synchronous result the same type of frontier becomes a sequence of fresh Bernoulli tests with at most one success per round. The discrete cycle-count CLT transfer is routine after this identification."
+        ],
+        "reasoning": "The shared frontier mechanism and Gaussian transfer should be acknowledged as close mathematical overlap, not a different scaling phenomenon. Still, one cannot substitute integer t into the known continuous survival function or the initiating Monte Carlo law and obtain Stirling probabilities; a protocol-specific discrete coupling is required. That is the narrow distinction that survives the implication check.",
+        "searches": [
+          "Resultary b5d4a00e4f78 exact contrasting motifs, plus Abella et al. §II model convention",
+          "Feller count and log-depth inverse threshold relation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform permutation cycles and independent record indicators have the classical Bernoulli 1/j representation.",
+          "On this path, K_t is the record count after discarding the forced first record and truncating at m. The isolated exact catalogue match is the frozen Finding itself."
+        ],
+        "reasoning": "A prior exact statement of the same synchronous endpoint-path law in harmonic Bernoulli or record coordinates would be equivalent regardless of Stirling terminology. Classical sources already determine every probability of the corresponding record statistic but do not identify it with adoption under this exact protocol.",
+        "searches": [
+          "Resultary: inverse-age endpoint-seeded threshold path, synchronous Stirling/record law, Gaussian log completion depth",
+          "Najnudel–Pitman arXiv:1907.09587v2, Feller coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unsigned Stirling table itself is classical and exactly supplies the numeric probabilities once the activation coupling is proved.",
+          "The exact continuous-time survival sums Poisson probabilities in the integrated hazard, whereas the synchronous probabilities come from a Poisson-binomial product of round factors. For example the synchronous model has no mass on T_m<m, unlike the continuous-time one."
+        ],
+        "reasoning": "It would not be original to recalculate the Stirling table. The rigorous association of its entries with this entire round-by-round absorption law, not a numerical table recomputation or an interchanging of time units, is the identified contribution.",
+        "searches": [
+          "Resultary: Stirling first-kind cascade counts, inverse-age path exact survival",
+          "arXiv:1907.09587v2 independent record/cycle representation",
+          "Resultary b5d4a00e4f78 Proof §4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact discrete finite-round realization of a classical cycle/record law by the specified synchronous path. The closest exact inverse-age path result gives more than the fixed-depth tail: it gives a full continuous-time path law, from which the analogous log-depth Gaussian follows directly. So neither the tail exponent, the logarithmic-depth phenomenon in general, nor the Stirling law as a probability identity should be regarded as a free-standing novelty claim. The continuous formula is not the integer-round law, and the originating Monte Carlo model updates asynchronously. The originality decision rests on the exact synchronous path identification and its protocol-specific consequences.",
+      "residual_risks": [
+        "An earlier unindexed synchronous path formulation could already realize the same record process. The relative priority of the distinct same-day continuous record is unresolved, and the confirmed overlapping consequences are not counted as separate novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivating activation model; update convention differs explicitly",
+          "evidence": "The simulations follow a Random Asynchronous Update with p_A(j)=1/(j+2); endogenous internal time increases when the updating attempt fails to activate or adopt.",
+          "identifier_or_url": "https://arxiv.org/html/2209.05990 (DOI 10.1103/PhysRevE.107.024101)",
+          "material_read": "§II: standard and aged threshold process, activation and age update (offset 4200–10400 includes §II)",
+          "method": "OA HTML, literal navigation and bounded offset",
+          "title": "Aging in binary-state models: The Threshold model for Complex Contagion",
+          "trigger": "Same activation rule and aging model"
+        },
+        {
+          "assessment": "Classical probability ingredient, not a new cycle-count theorem",
+          "evidence": "Describes Feller's independent Bernoulli construction with probabilities 1/j in the uniform case, and the record-trial interpretation at θ=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.09587v2",
+          "material_read": "Abstract and introductory discussion, PDF pp. 1–2",
+          "method": "OA PDF offset 0",
+          "title": "Feller coupling of cycles of permutations and Poisson spacings in inhomogeneous Bernoulli trials",
+          "trigger": "Equivalent independent Bernoulli law and records"
+        },
+        {
+          "assessment": "Substantive same-day overlap: full continuous path law and implied continuous log-depth limit, but not the synchronous integer-round law",
+          "evidence": "With hazard a/(t+2), endpoint path survival is (2/(t+2))^a ∑_{j=0}^{m−1}[a log((t+2)/2)]^j/j!. In transformed time each of the m waiting times is Exp(1).",
+          "identifier_or_url": "2026/11/8/SCOPE-bottleneck-depth-controls-the-exact-heavy-tail-of-inverse-age-so--b5d4a00e4f78",
+          "material_read": "RESULT.md Finding and scope, then proof §§3–4 and exact path survival at offsets 4470–8443",
+          "method": "Resultary semantic results and local mirror via raw record URL",
+          "title": "Bottleneck depth controls the exact heavy tail of inverse-age social contagion",
+          "trigger": "Same endpoint-seeded path under an alternate inverse-age clock"
+        },
+        {
+          "assessment": "Different topology and sequential update rule",
+          "evidence": "Two-seed cycle with sequential random updates with replacement within a sweep, exact matrix-product survival law and a fixed-size inverse-time tail.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-completion-time-tail-for-an-endogenous-aging-threshold-cas--3ca2ee0d69e2",
+          "material_read": "RESULT.md Finding, convention and proof material at offsets 0–4493",
+          "method": "Resultary and local mirror",
+          "title": "Exact completion-time tail for an endogenous-aging threshold cascade",
+          "trigger": "Earlier exact threshold survival with discrete sweeps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact round law and depth limits",
+        "Abella et al. §II and exact continuous path comparison"
+      ],
+      "rationale": "The endpoint-seeded path is a natural minimal geometry for propagation by a single advancing frontier, and the inherited inverse-age rule gives a reason to ask about delay at each depth. The exact law predicts finite-horizon success probabilities for arbitrary depth and number of synchronous rounds, including the hard one-step-per-round cutoff; neither a large-time tail nor the continuous path law gives those probabilities. This provides a precise benchmark for a parallel aging protocol and distinguishes eventual consensus from completion on useful finite horizons. The limit statements explain the discrete clock but are not treated as intrinsically new asymptotic mechanisms.",
+      "residual_risks": [
+        "The benchmark is for this protocol, not a calibrated prediction for asynchronous simulations or general social networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

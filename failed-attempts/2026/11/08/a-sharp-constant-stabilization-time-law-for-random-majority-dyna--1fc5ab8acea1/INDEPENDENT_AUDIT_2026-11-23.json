@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:07:06.420038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only the four monochromatic-part corners can be recurrent; from each noncorner there is positive probability of reaching a corner in one update, uniformly over the finite state space for the fixed sizes. In a single-tie state only the opposite part draws a binomial; the transition into any mixed strict state costs exactly one residual step. For a double tie the independent draws give the product corner probability uv and return-to-double-tie probability pq, yielding the stated 3x3 system. If a size is odd, the only possible tie randomizes that odd part and cannot regenerate a tie, giving expectation at most 2. Independently enumerated the product binomial outcomes into the two single-tie classes, double tie, corners and mixed strict states, then solved (I-Q)H=1+Pr(mixed strict) by exact Fraction elimination for each of the 400 even pairs. Among all 1200 tie values the only maxima were the double ties at (2,6),(6,2), with values 7/3, 13/6, 79/27 at (2,6). Checked 8*C(42,21)=4306062995520<4398046511104=2^42; the central-binomial probability decreases. The ordered vector (11/5,13/5,41/15) solves the artificial larger-tie no-corner Bellman equations and satisfies the derivative sign and coordinate-order tests; iteration from zero under the actual nonnegative transition operator proves the strict tail bound. Source scripts inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier record's F_X,F_Y,F_Z specify the entire first-entry time distribution and explicitly differentiate at z=1 to obtain the same mean. Zehmakan describes the same model on general graphs and cycles, not this global biclique constant."
+        ],
+        "reasoning": "The prior generating functions imply the entire census of means, and the same prior proof also controls all graph sizes.",
+        "searches": [
+          "f53926f40d07 §§1–4",
+          "arXiv:2302.06760v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f53926f40d07 full RESULT",
+        "arXiv:2302.06760v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same arbitrary positive sizes, exact same initialization and update rule, same stopping event, and same equality conditions."
+        ],
+        "reasoning": "No additional restriction, limit, new invariant, or parameter reduction is needed for the earlier theorem to cover the full frozen finding.",
+        "searches": [
+          "f53926f40d07 RESULT.md, Finding and §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier f53926f40d07, Finding and §2, uses first entrance into the same three classes, including the deterministic 2-cycle and time-zero corners."
+        ],
+        "reasoning": "Their q_a,q_b,u_a,u_b equal this record's p,q,u,v. The Bellman equations and boundary values agree; uniqueness identifies the expected time irrespective of displayed algebra.",
+        "searches": [
+          "Resultary: random majority opinion diffusion complete bipartite sharp worst expected stabilization time 79/27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier record §3 lists nine exact residual pairs; (2,6) gives 79/27, with double tie necessary."
+        ],
+        "reasoning": "This is not merely a coincident table entry: that table is coupled with its proof bounding the infinite complement and strict inequalities for the other state types.",
+        "searches": [
+          "Resultary: complete bipartite sharp worst expected stabilization time 79/27"
+        ]
+      },
+      "rationale": "The earlier Resultary record f53926f40d07 expressly proves the same expected entrance-time law (every coloring), recurrent-class census, 79/27 bound and exclusive equality case under identical independence, synchrony and tie hypotheses. It also gives the full time generating functions and terminal-class probabilities. A different cutoff certificate does not make the theorem new.",
+      "residual_risks": [
+        "Not an exhaustive historical priority search; direct earlier full coverage suffices for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "Identical stochastic kernel and stopping variable; §2 has the same three first-step equations, §3 proves 79/27 with the unique doubly tied unordered pair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-random-majority-absorption-laws-and-the-sharp-universal-ti--f53926f40d07/RESULT.md",
+          "material_read": "Full RESULT: theorem, scope, §§1–4, nine-pair table",
+          "method": "Retrieved public raw markdown through repository raw link",
+          "title": "Exact random-majority absorption laws and the sharp universal time bound on complete bipartite networks",
+          "trigger": "Same graph, constant and exact entry time"
+        },
+        {
+          "assessment": "Same model and stopping-time notion; general and cyclic results inspected are not the exact prior obstruction",
+          "evidence": [
+            "§1.1 specifies independent fair tie updates and entrance to absorbing components; §1.2 discusses general exponential and cycle-specific polynomial bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.06760",
+          "material_read": "Abstract, §§1.1–1.3 and Theorem 2.1 opening",
+          "method": "Read arXiv PDF text",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Foundational same-process source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp biclique threshold is a meaningful scientific benchmark in its earlier publication, but the frozen claim repeats that result and offers no new useful invariant. The replacement proof uses a larger grid and weaker tail cutoff than the earlier nine-pair certificate, with no demonstrated downstream benefit.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

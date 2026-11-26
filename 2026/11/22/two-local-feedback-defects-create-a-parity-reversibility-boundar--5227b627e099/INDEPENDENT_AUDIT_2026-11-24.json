@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:43:29.617413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the algebra for the stated F_2 ring, including n=3, and inspected VERIFICATION.md and both supporting scripts without executing them. The presentation s e_j=T e_j on site generators is valid because T is symmetric. Eliminate generators with the unit recurrence coefficient, then close the two consecutive generators around the ring; the resulting relation matrix is M-I up to transpose/convention, which preserves its Smith factors. Hence its two monic determinantal divisors describe the entire module and det(M-I) is the characteristic polynomial. In characteristic two det(M-I)=tr(M) since each step has determinant one. With H=H_0 and E=e_11, the two linear-in-E trace terms agree by cyclicity and cancel, the unmarked trace of H^n is s f_n, and the two-E trace is (H^(d-1))_11(H^(n-d-1))_11=f_d f_(n-d). At zero the unmarked matrix S has order two and the marked matrix B has order three. With both unmarked arc lengths even the product is B^2 (no fixed vector except zero); with both odd it is (SB)^2=I; with mixed parity the product is conjugate to S B^2, a nonidentity involution of rank-one difference from I. These cover even n/odd d, even n/even d, and odd n, respectively. In each cyclic summand the nullity of T^k(T^m-I) is the degree of the modulus gcd, and the coprime s-primary and nonzero-primary pieces give exactly min(k,e_i) and deg gcd(h_i,s^m-1). This counts depth at most k and period dividing m; subtract the k-1 counts (zero for k=0), then invert on divisors, recovering the stated joint census including periodic cycles. Squaring H^a gives f_(2a)=s f_a^2. The d=1 and d=2 simplifications are f_(n+1) and s^2 f_(n-1); the specified lengths thus have characteristic polynomial s^n, and their odd-length nullity one gives one Jordan block, proving the sharp cutoff, not just nilpotence. Verification notes report finite rank and enumeration runs; the universal proof does not depend on their scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cattell's Lemma 3.27 gives the cyclic characteristic polynomial via open submachines for arbitrary profile; Theorem 3.28 gives the odd-size zero factor with two marked sites and a square characteristic polynomial at even size.",
+          "MOW gives uniform cyclic Rule 90 transient trees and exact cycle-count methods."
+        ],
+        "reasoning": "These results already cover the general mechanism, a portion of the parity conclusion and the uniform orbit framework. They do not by themselves fix geometric nullity or the joint temporal census for a specified nonuniform separation.",
+        "searches": [
+          "Cattell §3.6 pp. 49–57, general cyclic characteristic polynomial",
+          "Martin–Odlyzko–Wolfram §3.A, periodic Rule 90 polynomial/transient theory"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_transfer.py and verify_direct.py",
+        "Cattell 1995 §3.6",
+        "Tadaki cond-mat/9305012",
+        "Martin–Odlyzko–Wolfram §3.A",
+        "Configured Resultary one-site ring and two-site hypercube comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=1 the new characteristic polynomial equals the unmarked path polynomial f_(n+1), explaining Tadaki's shared dyadic sequence. At d=2 it is s^2 f_(n-1), from the distinct arc calculation; both conclusions require the geometric nullity-one step to establish the full clock.",
+          "The general cyclic polynomial recurrence can compute each instance but Theorem 3.28's coefficient/parity forms do not distinguish even rings by the separation's parity or establish the Smith factors; the uniform cycle census does not carry over merely by renaming the sites."
+        ],
+        "reasoning": "The adjacent resonance's spectral identity leverages the known path phenomenon, not a new Fibonacci identity. What survives the comparison is the exact arclength specialization and consequent separation and two-family full-block result, not the ability to calculate a general cyclic characteristic polynomial.",
+        "searches": [
+          "Cattell Lemma 3.27 and Theorem 3.28; Tadaki nilpotence discussion p. 6; MOW §3.A pp. 80–87"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cattell pp. 49–50 gives exactly the periodic nearest-neighbor matrix with arbitrary binary diagonal; set exactly two diagonal entries to one.",
+          "The closest prior Resultary ring calculation uses one marked site; the two-site Hamming-distance result uses a Boolean hypercube rather than a cycle."
+        ],
+        "reasoning": "The exact two-defect operator is in the earlier general class; the parity of the cyclic arc lengths, two-generator Smith invariants and both specified resonances are the material specializations. Placing a defect on a path or changing the graph is not an equivalent model.",
+        "searches": [
+          "Resultary: one-site/two-site Rule 150 feedback on cyclic Rule 90, nilpotence and separation",
+          "Cattell 1995 §3.6 cyclic transition matrices, Lemma 3.27 and Theorem 3.28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary --4cd8099ed7ee gives odd-size invertibility, a zero block on even rings and exact first-entry law with one feedback site; the target is the identical two-site hit.",
+          "Tadaki gives N=2^r-1 and D_N(s)=s^N for uniform Rule 90 with Dirichlet endpoints, a direct length overlap under different boundaries."
+        ],
+        "reasoning": "Only the length of the first resonance overlaps Tadaki, not the matched placement, operator or second family. One-site and target catalogue hits do not establish independent two-site coverage.",
+        "searches": [
+          "Resultary: dyadic first-entry, one/two Rule 150 defects and cyclic rings",
+          "Tadaki arXiv:cond-mat/9305012 pp. 2–3 and 6; dyadic sizes"
+        ]
+      },
+      "rationale": "Cattell's general cyclic class includes the exact operator family, and MOW already treats polynomial orbit counting on uniform cyclic Rule 90. Do not credit general transfer/determinantal techniques, Smith or divisor inversion, or the broad idea of dyadic nilpotence. The distinct supported content is the marked-site separation rule with exact geometric nullities, the two-invariant joint census instantiated for that nonuniform family, and the pair of explicit sharp nilpotent resonances. Earlier inspected results overlap in methods, model classes and one length sequence, but do not furnish the separation/two-arc specialization and Jordan classification. The two families are sufficient, not asserted to exhaust nilpotence.",
+      "residual_risks": [
+        "No exhaustive historical priority search. Two supplemental cited papers were not available in full; a previous equivalent transfer specialization or boundary correspondence remains possible.",
+        "The transfer result is an explicit specialization of established cyclic hybrid-automaton theory; no originality is credited to the general polynomial tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong general polynomial coverage, partial parity implication",
+          "evidence": [
+            "Cyclic matrix with site-dependent diagonals and nearest-neighbor entries one.",
+            "Characteristic-polynomial cyclic submachine identity and factorization by counts of site types; odd two-defect size is singular."
+          ],
+          "identifier_or_url": "https://dspace.library.uvic.ca/bitstream/handle/1828/9439/Cattell_KevinMichael_PhD_1995.pdf",
+          "material_read": "§3.6 pp. 49–57; displayed cyclic matrix, Lemma 3.27, Theorem 3.28",
+          "method": "Lawful OA thesis primary text",
+          "title": "Characteristic Polynomials of One-Dimensional Linear Hybrid Cellular Automata",
+          "trigger": "General cyclic class literally contains the operator"
+        },
+        {
+          "assessment": "Uniform open-boundary analogue, not two-site cyclic theorem",
+          "evidence": [
+            "Dirichlet endpoints; uniform Rule 90 D_N(s)=s^N for N=2^r-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9305012",
+          "material_read": "pp. 2–3 and 6, model and nilpotence (offsets 2120,10370)",
+          "method": "Lawful OA preprint passages",
+          "title": "Orbits in one-dimensional finite linear cellular automata",
+          "trigger": "Same N=2^r-1 extinction length"
+        },
+        {
+          "assessment": "Exact uniform-cycle precedent, distinct nonuniform family",
+          "evidence": [
+            "Circle multiplication by x+x^(-1) modulo x^N-1; transient structure; exact cycle lengths/multiplicities."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sw-publications/2020/07/algebraic-properties-cellular-automata.pdf",
+          "material_read": "§3.A pp. 75–81 and 87 (offsets 11508,19400,32900,39328,71000)",
+          "method": "Lawful OA paper passages",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Cyclic Rule 90 polynomial and temporal counting precedent"
+        },
+        {
+          "assessment": "Related prior exact temporal calculation; different defect count and no separation variable",
+          "evidence": [
+            "Odd n bijective, even n has one zero block and exact first-entry populations with a single marked site."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-one-site-rule-150-defects-and-a-dyadic-first-entry-law-on-rule-9--4cd8099ed7ee/RESULT.md",
+          "material_read": "Finding and proof steps 1–5, selected passages at offsets 0–7525",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-site Rule 150 defects and a dyadic first-entry law on Rule 90 rings",
+          "trigger": "Strongest closely matched Resultary ring theorem"
+        },
+        {
+          "assessment": "Residual access risk; not evidence of noncoverage",
+          "evidence": [],
+          "identifier_or_url": "DOI 10.1216/rmjm/1181069447; DOI 10.1016/S0024-3795(00)00227-5",
+          "material_read": "Bibliographic/citation descriptions only; primary full texts not retrieved",
+          "method": "Bounded lawful DOI/OA attempts",
+          "title": "Additional cyclic/path characteristic-polynomial and boundary-condition references cited by the one-site record",
+          "trigger": "Possible alternative prior characteristic-polynomial derivations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two marked sites are the first defect configuration with a separation variable. Exact invertibility and kernel changes with that variable, the all-population joint time/period census via two polynomial factors, and two distinct infinite sharp extinction clocks describe concrete effects inaccessible from visually enumerating configurations. The two families produce an exact maximal nilpotence witness even though the ambient cycle normally has periodic states; the value is in this finite-system control by placement, not in claims about arbitrary defects or new general linear algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

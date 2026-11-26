@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:02:06.499594Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read VERIFICATION.md and verify.py (not executed): the recorded finite checker uses a compressed anchored kernel; uniform hub-leaf colors are invariant from the specified starts. Its SCC checks do not prove the all-k theorem.",
+        "Independent exact replay: label hub 0, leaves 1 through s, branch i (zero-based) by s+1+4i through s+4+4i. Compute each successor by tallying blue neighbors directly on this edge list and taking all bit assignments at the ties with equal weight. For k=2,3 and s=k−1, a reachable-state BFS from the specified coloring found 10 and 18 states, respectively, and exact elimination of (I−K_transient)t=1 gave mean all-white hitting times 12 and 24. Each U state had the expected exit probability. For s=k+1 the proposed classes of 4 and 8 states had every row uniform. These are diagnostics, not an all-k computation."
+      ],
+      "rationale": "RESULT.md lines 16–30: each branch has four vertices at distances 1, 2, 3, 3 from the hub, so the tree has 1+s+4k vertices and diameter six for k≥2. The anchor triple stays white by induction, without pinning. With s=k−1, the blue hub and hub leaves keep their colors for one step in U, and U is left exactly when all k fresh ties are white. The constant one-step hazard gives the claimed geometric law, starting with the stated coloring in U. Three consecutive all-white floating updates have conditional probability at least 2^(−3k) from any anchored state: the first forces the hub white at the second update, and the second and third ensure the hub, hub leaves and floats are white at the third. This works even with arbitrary initial hub-leaf colors. Consequently all-white is the only accessible closed class, its mean hitting time is at least the mean exit time and at most 3·2^(3k). With s=k+1 the blue leaves win even against all k white floats, so the hub and leaves stay blue, and the product of independent fair ties gives the entire closed class and its uniform law. The two state counts refer to separate graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini–Zakharov–Zhukovskii exclude ties by imposing odd degrees. Bahrani et al. use asynchronous updates with private-signal tie-breaking. Zehmakan permits general graphs and even biased random ties in the stabilization argument."
+        ],
+        "reasoning": "The existence results over all graphs do not imply witnesses in the subclass of trees; the tree-specific results for other rules do not apply to simultaneous fresh coins at the degree-two sites.",
+        "searches": [
+          "arXiv:2507.04714v1 Theorem 1.1",
+          "doi:10.4230/LIPIcs.ICALP.2020.8 Theorem 1",
+          "Zehmakan 2024 Theorems 2.1 and 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06760v1",
+        "doi:10.1007/s10458-024-09651-y",
+        "arXiv:2507.04714v1",
+        "doi:10.4230/LIPIcs.ICALP.2020.8",
+        "Resultary 716355e379ca and 1ccea1e6441f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known time witness requires a blue hub and opposing shared star center; independently supported tie sites are not supplied by its theorem. A period-two recurrent class cannot have a positive probability of every one-step transition, including each self-loop."
+        ],
+        "reasoning": "A separate acyclic construction and direct transition argument are required. Neither the prior unrestricted existence theorems nor the catalogue phase diagram entail the two exact tree witnesses.",
+        "searches": [
+          "arXiv:2302.06760v1 Theorem 2.1 construction and Theorem 2.6 proof",
+          "arXiv:2507.04714v1 model and preliminaries",
+          "Resultary K_(a,a,c) recurrent phase diagram Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zehmakan's Theorems 2.1 and 2.6 use the same fair-tie process on general graphs. Their random degree-two sites have shared centers in the time witness; the recurrent witness uses a path between cliques."
+        ],
+        "reasoning": "The first topology has 4-cycles and the second has clique cycles. Here each random site has a separate protected white anchor. Having an exponentially large absorbing SCC is equivalent to having an exponentially large closed communicating class, but it is not equivalent to the one-step-uniform kernel on such a class.",
+        "searches": [
+          "arXiv:2302.06760v1 §§2.1, 2.3 and Appendix A.4",
+          "doi:10.1007/s10458-024-09651-y §§2.1, 2.3",
+          "Resultary random-majority recurrent classes and stabilization on trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record's Finding and proof describe a 2^(c+1) recurrent class of period two on K_(a,a,c); the second Finding gives four-state examples on the bull, house and wheel and examples at all orders n≥5."
+        ],
+        "reasoning": "Neither catalogue result supplies the same family or exact transition laws; the first is a material same-day overlap on the broad phenomenon, not priority evidence or an equivalent tree claim. The small-order examples do not imply the exponential tree family.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-recurrent-class-phase-diagram-for-random-majority-diffusio--716355e379ca",
+          "2026/10/25/SCOPE-the-five-vertex-onset-and-complete-minimal-classification-of-per--1ccea1e6441f"
+        ]
+      },
+      "rationale": "The supported distinction is the pair of explicit diameter-six witnesses, including the exact geometric exit law and one-step-uniform exponential class under independent fair ties. General exponential stabilization and recurrent-class size under random majority are prior art. Bounded source and catalogue comparisons did not establish coverage of the tree-specific claim.",
+      "residual_risks": [
+        "A bounded search does not exclude an older unindexed acyclic gadget; the priority of same-day results is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the broad phenomena, not the tree witnesses",
+          "evidence": [
+            "Shared degree-two sites yield 4-cycles; recurrent example uses two cliques."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.06760v1",
+          "material_read": "§2.1 Thm. 2.1, PDF p. 4; §2.3 Thm. 2.6, p. 6; Appendix A.4, p. 10",
+          "method": "Primary OA PDF, targeted theorem and proof passages",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Same fair-tie process and both exponential phenomena"
+        },
+        {
+          "assessment": "Still displays non-tree witnesses",
+          "evidence": [
+            "Star-center construction and path with clique ends."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "§2.1 Thm. 2.1, pp. 9–10; §2.3 Thm. 2.6, pp. 14–15",
+          "method": "Primary OA journal full-text passages",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "Expanded version may strengthen older constructions"
+        },
+        {
+          "assessment": "Deterministic, outside the fair-tie scope",
+          "evidence": [
+            "Odd degrees rule out ties."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.04714v1",
+          "material_read": "Model p. 1, Theorem 1.1 p. 2, §2 p. 4",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "Majority Dynamics on Finite Trees",
+          "trigger": "Tree stabilization theorem could apply if update assumptions agreed"
+        },
+        {
+          "assessment": "Different clock and tie rule",
+          "evidence": [
+            "Asynchronous updating and private-signal tie-breaking."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2020.8",
+          "material_read": "pp. 1–3, especially model and Theorem 1",
+          "method": "Primary OA paper, targeted passages",
+          "title": "Asynchronous Majority Dynamics in Preferential Attachment Trees",
+          "trigger": "Tree-specific majority stabilization"
+        },
+        {
+          "assessment": "Same broad phenomenon, different topology and transition kernel; no same-day order inferred",
+          "evidence": [
+            "Complete tripartite K_(a,a,c), class cardinality 2^(c+1) and period two."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-recurrent-class-phase-diagram-for-random-majority-diffusio--716355e379ca",
+          "material_read": "RESULT.md Finding and proof/limitations, offsets 0 and 5200",
+          "method": "Resultary and local source mirror",
+          "title": "Exact recurrent-class phase diagram for random-majority diffusion",
+          "trigger": "Same-day indexed exponential class under the same rule"
+        },
+        {
+          "assessment": "Separate small-class result, not the claimed exponential family",
+          "evidence": [
+            "Four-state examples on bull, house, wheel and at all orders n≥5."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-five-vertex-onset-and-complete-minimal-classification-of-per--1ccea1e6441f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local source mirror",
+          "title": "The five-vertex onset and complete minimal classification of persistent random-majority behavior",
+          "trigger": "Exact small-order recurrence result under the same rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Acyclicity and bounded diameter are natural candidates for suppressing the known general-graph behavior. These are exact counterexamples to both restrictions under the same rule, with a useful two-leaf change and controlled stochastic transition laws. They are not bounded-degree examples, typical-initial-state claims, or minimality theorems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

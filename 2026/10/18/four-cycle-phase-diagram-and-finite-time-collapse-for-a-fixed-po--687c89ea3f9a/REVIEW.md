@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The strict hypotheses imply exact alternation of the two map branches. The normalized two-step return is \(H(t)=dT(cT(t))\), so a complete four-segment affine fixed-point analysis proves the root phase table. At the neutral critical surface \(H^2=H\), giving the global finite-time identity \(F^5=F^3\); at subcritical contraction \(H(t)\le Kt\). Exhaustive candidate generation and equality-collision analysis handle all boundary cases in the stated parameter box. Standalone rational checks are corroborative, not replacements for proof.
+## correctness
 
-**Originality: PASS, subject to an explicit source-access uncertainty.** The closest directly related source is Lawnik et al. (2024), which proposes the fixed-point-free family and plots several parameter diagrams. The complete open-access author review Moysis et al. (2025), Section 4.4, Eq. (70), confirms the construction but does not provide the exact four-cycle census or finite-time identity. Search for the equivalent tent composition and stronger general classifications did not find a covering statement. The 2024 article's full main text was unavailable despite lawful alternatives, so priority uncertainty is substantive, not falsely resolved.
+PASS
 
-**Mathematical value: PASS.** In a natural full-dimensional strict no-fixed-point regime, the theorem decides the exact number and location of *all* primitive two-cycles. The critical interval of periodic points, finite-time convergence identity, and open four-cycle phase delineate qualitatively different dynamics at exact parameter thresholds. This is a structural dynamical classification, not a numerical sample or arbitrary parameter slice.
+The branch ranges lie strictly on opposite sides of p, including F(p)=1, so every periodic orbit has even least period. On the left, the normalized two-step map is H(t)=dT(cT(t)) by tent symmetry. For K<1, H(t)≤Kt forces even-phase convergence to 0 and continuity of the left-branch formula gives the other phase 1. For K=1, H is the identity on [0,u] and its image lies in that interval (bounded by 1/2 if c≤1/2 and by d=1/(4c) otherwise); hence one return suffices and any right starting state needs at most one preliminary step. For K>1 and c≤1/2, H consists of Kt and K(1−t). If c>1/2, write r=1/(4c). The signs of H(t)−t at t=0,r,1/2,1−r,1 are respectively zero, positive, the sign of d−A, the sign of d−B, and negative. Affine interpolation gives exactly the stated roots and makes the two endpoint identifications explicit. In particular A−B=(2c−1)^2/(4c(1−c))>0. The return map expands distance to each isolated fixed point by K in a sufficiently small neighborhood, also across an adjacent turning point, and the right-hand representative is interior to its branch domain. Both exact parameter examples satisfy the strict assumptions and reproduce the stated roots or fixed interval.
 
-**Scope and limitations.** The theorem is restricted to \(0<b<p<a<1\); longer periods, invariant measures, and the rest of the original family remain unclassified. Priority in inaccessible historical full texts cannot be guaranteed. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying fixed-point-free map is prior and explicitly credited. The distinct finding supported by the accessible comparisons is the full tent-seed two-cycle and critical-collapse classification in the strict alternating region. The original 2024 full text could not be inspected; the decision does not assert that it omits the classification.
+
+## value
+
+PASS
+
+The strict alternating box is structurally singled out by branch ranges, not an arbitrary parameter slice. The classification identifies global attraction, a critical retraction onto a continuum in uniformly bounded time, and a region of four simultaneous repelling two-cycles in a published chaotic-map family. It distinguishes parameter regimes that no fixed-point calculation for F alone can see and gives explicit testable boundary values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

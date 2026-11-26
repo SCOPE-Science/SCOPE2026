@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Compile and run: `g++ -O2 -std=c++17 verify.cpp -o verify && ./verify`.
-Run independently: `python3 quotient_check.py`.
+## correctness
 
-`verify.cpp` expands the 12-block quotient at the base parameter and applies the original graph forcing rule for all 262144 white subsets. It checks symmetry, connectivity, 105 edges, the full polynomial, and the three strict coefficient values \(690,678,680\). This is exhaustive finite verification, not a heuristic sample.
+PASS
 
-`quotient_check.py` tests all 4096 subsets of the 12 blocks and counts their successful vertex selections at missing-block cardinalities 3, 4 and 5. It verifies the respective triples of mask counts \((214,247,214)\), base multiplicities \((680,678,690)\) and affine expansion slopes \((112,64,68)\). The analytic proof in RESULT.md verifies that the quotient procedure characterizes every zero-forcing set and that the membership of successful masks does not change with the expansion parameter. Thus the infinite claim does not depend on enumerating unbounded graphs.
+Two white vertices in a twin block form a fort: no vertex outside the pair sees exactly one and neither can be forced first. With at most one white per block, the mask intersection lists all white neighbors of a blue representative, including the possible white vertex of its own clique block. Such a representative exists exactly under the test in the record. A stalled white set is a fort contained in the initial white set, precluding success by any ordering; a successful run witnesses ordinary zero forcing. Increasing the size of B3 from 2 to 2+t does not change the existence of a blue representative for any allowed mask, and merely changes the factor 2 to 2+t when B3 is missing one vertex. Independent quotient enumeration confirmed the full base polynomial, order, edge count, connectedness, and the successful-mask/count/slope triples (214,680,112), (247,678,64), (214,690,68) at missing cardinalities 3, 4, 5. This yields strict gaps 12+4t and 2+48t for every integer t≥0, not an extrapolation. The base is connected, and every added twin has the required adjacencies to remain in the component. The result claims existence, not minimality of order 18.
 
-The only unsolved minimum-order question is whether some graph with fewer than 18 vertices has a nonunimodal zero forcing polynomial. No such negative statement is certified here. Independent audit and global prior-literature completeness were not performed.
+## originality
+
+PASS
+
+General nonunimodality and infinite families were already known. The inspected prior examples and theorems do not supply the connected order-18 witness or the specified all-orders clique-twin family with its exact valley. Priority is limited to the evidence below.
+
+## value
+
+PASS
+
+The minimum counterexample order was explicitly posed after the general unimodality conjecture failed; the exact connected order-18 witness improves the inspected upper bounds and supplies a concrete target for exclusion searches below 18. Independently, the stable quotient mechanism gives a valley for every order from 18 onward, rather than isolated examples or an infinite sequence of sparse orders. The explicit construction and exact gaps are useful beyond merely reasserting nonunimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

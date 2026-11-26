@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:12:50.823789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At height r, both coordinates have modulus at most r, including in the strictly negative sector because both moduli are at least one. In 0<lambda<1/r the floor is -1 on negative first coordinates and 0 otherwise. The four sector phases in the proof are disjoint classes modulo 4r+1 (the nonnegative sector also contains zero). Substituting the sector transitions adds one, including the branch from (r,0) to (0,r); this yields all 4r+1 distinct states and the summed point count. Above or at 1/r the image of (r,0) has strictly larger height. For q>=2 at lambda=1/q, floor(-q/q)=-1; among first coordinates in [-q,q], only x=q has changed from the protected rule. On C_{q+1} the sole |x|=q+1 points have phases 0, 2, 4q+3; the x=q points have phases 4, 4q+1. Thus the initial jump to phase 5 runs without intervening exceptions until phase 4q+1 at (q,1), where the next jump returns to phase 1 of C_q. The 4q subsequent steps return to phase 0 for the first time. Counting both jumps and the outer arc gives 8q-2, including 4q-3 outer points and every inner-shell-q point, with no repetition before return. Lower shells stay protected. Inspected but did not execute the frozen checker. Own direct integer iteration (/tmp/opencode/frozen-review-replay.py, section 1) reproduced the least periods and shell counts for q=2,3,4,17,101 at resonance and at 2/(2q+1); the phase proof supplies the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama–Pethő prove infinitely many symmetric periodic orbits for each admissible parameter. Akiyama–Mance prove bounded-initial-condition periodicity unconditionally for max coordinate at most ten. Reeve-Black–Vivaldi treat positive limiting density under fixed-class and coprimality hypotheses, and later linked-strip asymptotics."
+        ],
+        "reasoning": "Under the exact conjugacy the bounded-start result covers existence of the resonance orbit for q<=10; no inspected theorem supplies its least period, itinerary, or arbitrarily large q. An asymptotic density result in qualifying fixed classes does not identify this parameter-dependent seed.",
+        "searches": [
+          "arXiv:1208.1132 Thm. B",
+          "arXiv:1206.3868 Thm. 1",
+          "arXiv:1405.7918 integrable-limit and linked-strip setup",
+          "arXiv:2507.12654 Thm. 3 and parameter-interval context"
+        ]
+      },
+      "checked_sources": [
+        "Reeve-Black–Vivaldi arXiv:1208.1132 and arXiv:1405.7918",
+        "Akiyama–Pethő arXiv:1206.3868",
+        "Akiyama–Mance arXiv:2507.12654",
+        "Resultary 3b7738e9f21b and a728ed86ea69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published same-map density theorem is compatible with being at reciprocal lambda sufficiently small in qualifying fixed classes, but gives no named seed or exact itinerary. The periodicity result for a bounded square confirms qualitative finite-q cases only. The axis-period mirror record distinguishes its convention from companion maps."
+        ],
+        "reasoning": "None fixes the exceptional outgoing step at x=q, the length of the exact outer arc, and its reinsertion into the protected cycle. These are independently needed to get the exact least period and counts.",
+        "searches": [
+          "Reeve-Black–Vivaldi arXiv:1208.1132, Eq. (1) and Thm. B",
+          "Akiyama–Mance arXiv:2507.12654, recurrence and Thm. 3",
+          "Resultary a728ed86ea69, mirrored Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reeve-Black–Vivaldi (2012) use exactly F_lambda. The Akiyama companion map H_mu(x,y)=(y,-x-floor(mu y)) at mu=-lambda has a ceiling, so a plain swap is insufficient. With R(x,y)=(-y,-x), direct substitution gives R F_lambda R(x,y)=(y,-x-floor(-lambda y))=H_{-lambda}(x,y) exactly, including at integers; the corresponding seed is (0,-q)."
+        ],
+        "reasoning": "This exact swap-with-negation makes the companion literature directly applicable to periodicity in its stated ranges, but does not make its qualitative existence and bounded-seed results into an exact all-q period theorem. Map equality alone is not claim equivalence.",
+        "searches": [
+          "arXiv:1208.1132, map equation",
+          "arXiv:1206.3868 and arXiv:2507.12654 companion recurrence",
+          "Resultary: reciprocal parameter floor rotation, exact axis return and one-cycle energy shells"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3b7738e9f21b has one cycle per integer energy shell, period 5k-8, for a two-season tropical Lyness map. Resultary a728ed86ea69 has positive-axis least-period-eight phases for coordinatewise floor of a 45-degree rotation."
+        ],
+        "reasoning": "The first table/formula is for a different piecewise-linear recurrence and the second is for a different coordinatewise rounding convention and fixed angle. Neither gives a period table or uniform formula for the target reciprocal family. Bounded catalog retrieval is not proof of absence.",
+        "searches": [
+          "Resultary: lattice floor rotation, exact reciprocal-resonance period 8q-2, period table and shell itineraries"
+        ]
+      },
+      "rationale": "The supported contribution is the exact all-q first-resonance period and two-shell itinerary for the named axis seed, proved together with its protected-shell baseline. The map and near-integrable setup are prior, and protected pointwise floor agreement alone is routine. The closest prior statements checked give qualitative periodicity, density, or parameter methods, not this uniform least period and shell composition.",
+      "residual_risks": [
+        "An older or unindexed exact period computation under a conjugate map and transformed seed, including a table covering isolated q, could be missed. No historical-priority certification follows from the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map prior; limiting-density theorem does not determine the claimed cycle.",
+          "evidence": "Thm. B concerns symmetric minimal orbits in a qualifying polygon class with a coprimality condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.1132",
+          "material_read": "Map Eq. (1) at OA offset 4486 and Thm. B, p. 24, offset 72000.",
+          "method": "Primary OA PDF passages.",
+          "title": "Near-integrable behaviour in a family of discretised rotations",
+          "trigger": "Identical floor recurrence and polygon periodicity."
+        },
+        {
+          "assessment": "Infinite symmetric periodic orbits, not identification of the chosen seed or return time.",
+          "evidence": "The theorem applies per fixed parameter in (-2,2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3868",
+          "material_read": "Recurrence and Thm. 1 (OA offsets 0 and 5365).",
+          "method": "Primary OA PDF passages and direct conjugacy calculation.",
+          "title": "Discretized rotation has infinitely many periodic orbits",
+          "trigger": "Qualitative all-parameter result for the conjugate recurrence."
+        },
+        {
+          "assessment": "Large-scale linked-strip context, not the exact finite-q shell merger.",
+          "evidence": "Passage studies the limit lambda tending to zero and integrable/strip dynamics.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.7918",
+          "material_read": "Integrable-limit and linked-strip passage, p. 4 (OA offset 10600).",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Asymptotics in a family of linked strip maps",
+          "trigger": "Near-integrable resonance analysis in the same research program."
+        },
+        {
+          "assessment": "Applies qualitatively to the corresponding seeds with q<=10, without their exact periods or a uniform result for unbounded q.",
+          "evidence": "Thm. 3 gives unconditional periodicity for initial max norm at most ten.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.12654",
+          "material_read": "PDF recurrence and Thm. 3, pp. 1, 4–5 (OA offsets 0 and 8500); additional direct retrieval timed out.",
+          "method": "Primary OA PDF passage and exact coordinate change.",
+          "title": "Discretized Rotation with fixed initial points",
+          "trigger": "Strong closest named-initial-condition periodicity comparison."
+        },
+        {
+          "assessment": "Distinct maps and regimes.",
+          "evidence": "Tropical Lyness recurrence in the first; coordinatewise floor of a 45-degree rotation in the second.",
+          "identifier_or_url": "Resultary 3b7738e9f21b and a728ed86ea69 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "material_read": "Mirrored findings and relevant assumptions.",
+          "method": "Resultary query with mirror passage inspection.",
+          "title": "Exact heptagonal rotation and one-cycle energy shells; six exact eight-step return phases",
+          "trigger": "Nearest catalog shell and axis-period analogues."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first floor change is forced by the maximal coordinate of a natural central shell. At that forced threshold, the exact itinerary explains how two levels are joined and gives a uniform least-period jump, rather than merely a proof of recurrence at selected parameters. This controls the first activation in a well-studied difficult lattice-dynamics family without implying global periodicity or a law for later crossings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

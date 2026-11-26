@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:48:40.091194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Chandrakar et al., arXiv:2611.18058v1 §3 and Thm. 3.5, independently checked in the primary PDF, give exactly the required Cartesian grid, perfect-matching facets, and homology rank F_(n-1) in degree n-1 for n>=2. In the augmented Lefschetz sum the sign of the permutation of a fixed face and its degree sign combine to minus (-1)^(number of edge orbits), including the empty face. The strip state records the selected incoming edges and the set of all feasible incoming masks of disjoint complementary matchings; one column exhausts the possible residual vertical choices and forces the outgoing complement. Keeping a set, rather than counting completing matchings, ensures each eligible face is counted once. At the central cut the existence of a common completion containing the chosen central subset is exactly the gluing condition: intersect Q with its row reversal for the half-turn and use Q itself for the column reflection. For row reversal both vertical edges would intersect if selected as an orbit; only rows {1} and {0,2} give horizontal selections. An independently written integer replay (`python3 /workspace/checks/grid.py`) recovered 24 states and 112 weighted transitions on the half strip, 8 and 16 on the row transfer, and zero recurrence errors at all 24 and 8 required starting indices. Cayley–Hamilton extends these checks to all widths. Initial values fix the displayed solutions, including F_(-1)=1 at n=2. Separate enumeration of fixed subfaces gave (row,column,half) = (-1,1,-1), (-1,-1,1), (0,0,2) for n=2,3,4. The four character averages follow from the sign projectors. On barycentric subdivision, a stabilizer of a simplex fixes it pointwise and preserves its dimension-ordered orientation. Quotient cellular chains identify with coinvariant chains, which over Q are exact and equivalent to invariants. Thus the quotient is the actual geometric quotient and the first nonzero reduced rank is one at n=4. No assertion of integral quotient homology or homotopy type is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 identifies the ordinary homotopy type of precisely the target complex; it makes no equivariance assertion. The ordinary matching result covers all widths but a different complex and gives quotient Euler invariants in its indexed statement."
+        ],
+        "reasoning": "More general widths on the larger complex do not force the smaller complex's action. The ordinary wedge type alone gives rank and concentration, not character values.",
+        "searches": [
+          "arXiv:2611.18058v1 PDF §3 and Theorem 3.5",
+          "Resultary ordinary matching complex half-turn and full-symmetry quotient e4fab66f9a1a"
+        ]
+      },
+      "checked_sources": [
+        "Primary PDF arXiv:2611.18058v1 pp. 2, 3, 6 (decisive statements)",
+        "Resultary e4fab66f9a1a, c1da8c8f4653, 8a92b1684726, f584e8574246, 2f3d5233732d, 521893fb03dc",
+        "Frozen RESULT.md and verification materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=4 the input rank is 2 and both axis traces are 0. The sum of the (++),(--) characters has product trace +2; the sum of (+-),(-+) has product trace -2, while giving the same input traces and rank."
+        ],
+        "reasoning": "The usual character projector and characteristic-zero quotient argument are not novel in themselves, but neither determines the numeric multiplicities until the independent half-turn calculation is known. The n=2 rank-one implication does not extend to arbitrary width.",
+        "searches": [
+          "arXiv:2611.18058v1 Theorem 3.5",
+          "Resultary same-complex axis summaries 8a92b1684726 and 2f3d5233732d; finite case 521893fb03dc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the single homology degree, the homology trace is equivalent, with the degree sign, to the reduced Lefschetz number or signed setwise-fixed face count. The e4fab66f9a1a statement computes related invariants for the ordinary matching complex, whose faces need not extend to perfect matchings."
+        ],
+        "reasoning": "Passing from Euler or Lefschetz language to a trace does not change the invariant at issue; passing from all matchings to perfect-matching-extendible matchings changes the face domain. For instance in 3 by 4, matching horizontal edges between columns 2 and 3 in all three rows leaves two isolated odd columns and does not extend. The ordinary matching result is not a computation of the fixed faces here.",
+        "searches": [
+          "Resultary e4fab66f9a1a, c1da8c8f4653, 8a92b1684726, 2f3d5233732d and f584e8574246",
+          "Frozen RESULT.md lines 44–50 and 80–93"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-02 width-four statement gives S^1 and the reflection signs -1 and +1; on rank one this already gives half-turn -1. Same-day distinct axis entries give a six-periodic row trace or Fibonacci column trace; no product formula is present in their summaries."
+        ],
+        "reasoning": "These are exact material overlaps on the boundary and single axes, not an all-width product table. The shared date of the axis records and this record does not establish order.",
+        "searches": [
+          "Resultary 521893fb03dc, 8a92b1684726, f584e8574246 and 2f3d5233732d"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-width half-turn trace on the perfect-matching-extendible subcomplex and the consequent joint rational character and geometric quotient homology. The row and column traces, nonequivariant rank and width-four boundary value are credited. No inspected statement determines the new all-width trace; unavailable sources leave a bounded priority risk.",
+      "residual_risks": [
+        "Most neighboring records were readable only as summaries, so extra results in the full mirror texts were not ruled out.",
+        "The focused primary literature search was unavailable; this is not evidence against unindexed or equivalent prior computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches grid and facets; cited theorem establishes rank and concentration, not the group action",
+          "evidence": [
+            "Grid edges have Manhattan displacement one; Δ_n has perfect matchings as its facets. Theorem 3.5 specifies F_(n-1) spheres of dimension n-1 for n>=2, with f1=f2=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+          "material_read": "§3 definition, PDF p. 3 (offset 11670), and Theorem 3.5, p. 6 (offset 21670); also Theorem 1.1 statement located on p. 2",
+          "method": "Literal targeted OA PDF lookup and bounded passage reading",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Same complex and essential nonequivariant input"
+        },
+        {
+          "assessment": "Ordinary matching complexes, not the target perfect-matching subcomplex",
+          "evidence": [
+            "Reported half-turn Lefschetz and Klein-four quotient Euler data for ordinary matchings of 3 by n rectangles."
+          ],
+          "identifier_or_url": "Resultary e4fab66f9a1a; c1da8c8f4653 (2026-10-11)",
+          "material_read": "Indexed summaries; underlying mirror passage retrieval unsuccessful",
+          "method": "Configured Resultary search and attempted local mirror inspection",
+          "title": "Half-turn Lefschetz characters and full-symmetry quotients of three-row grid matching complexes; Orthogonal-reflection Lefschetz formulas",
+          "trigger": "Closest matching symmetry parameters and method"
+        },
+        {
+          "assessment": "Credit row and column as known inputs; no claim about their product established by these summaries",
+          "evidence": [
+            "Row results report six-periodicity/signed row characters; column record reports Fibonacci trace."
+          ],
+          "identifier_or_url": "Resultary 8a92b1684726; f584e8574246; 2f3d5233732d (2026-11-22)",
+          "material_read": "Indexed statements; matching mirror texts not verified",
+          "method": "Configured Resultary search, comparison of the group element each statement computes",
+          "title": "Single-axis characters for three-row perfect-matching complexes",
+          "trigger": "Same input complexes and individual involutions"
+        },
+        {
+          "assessment": "Already implies the half-turn sign in this one width only",
+          "evidence": [
+            "S^1 with row sign -1 and column sign +1."
+          ],
+          "identifier_or_url": "Resultary 521893fb03dc (2026-11-02)",
+          "material_read": "Indexed statement; underlying mirror not verified",
+          "method": "Configured Resultary search and rank-one implication",
+          "title": "A five-cycle core and signed reflection homology for the three-by-four perfect-matching complex",
+          "trigger": "Identical complex at n=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two natural axial traces miss the joint action even in a very small member of this canonical strip family. The missing trace grows without bound, and knowing it determines both the whole rational symmetry module and the homology of the simultaneous geometric quotient at all widths. The main contribution is the trace calculation, not the standard projection rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

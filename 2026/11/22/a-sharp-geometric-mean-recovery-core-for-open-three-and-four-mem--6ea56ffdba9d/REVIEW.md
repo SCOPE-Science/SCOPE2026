@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated ODE has exact identities \(\dot S=e^{-\gamma S}Q-dS\) and \(\dot P/P=S e^{-\gamma S}-nd\). For three- and four-member cycles, \(Q\le S^2/n\), so the upper-biomass face is inward pointing. The product threshold forces \(S>S_-\) throughout a compact positively invariant set, making \(P\) nondecreasing. LaSalle's argument reduces the omega-limit set to the upper uniform equilibrium. The only nontrivial equality case, the four-member alternating-pair manifold, is excluded by a rotating difference system. Uniform initial data immediately below the lower coexistence equilibrium certify sharpness of the geometric-mean constant. Independent rational-arithmetic identities and finite numerical checks are supplementary, not substitutes for the proof.
+## correctness
 
-## Originality — PASS, bounded by accessible evidence
-The initiating open-hypercycle paper (Bratus, Drozhzhin, Novozhilov, arXiv:2511.06509v1, Section 2 and Appendix) supplies equilibrium existence and local stability but treats global basin separation numerically. Pavlovich and Bratus (2012) analyze the same broad open-cyclic theme and phase portraits, so it remains the principal historical-priority risk; the available full-text representation had imperfect mathematical extraction and was not taken to certify whole-document noncoverage. Classical global permanence results for normalized, closed hypercycles (Benaïm, Hofbauer and Sandholm, 2008) have different population constraints and do not themselves entail the stated absolute-population invariant core. published-finding corpus searches on geometric-mean thresholds, cyclic autocatalysis and open population survival returned mathematically different cycles and resource models, not a dominating theorem. Search absence is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The question is the biologically natural competition between extinction and recovery when two positive coexistence equilibria are present. The result gives a nontrivial open region of all-positive initial data with a *uniform* lower abundance bound, proves global attraction on this region rather than merely local stability, and proves that the simple geometric-mean cutoff cannot be uniformly reduced under the same biomass cap. This is a sufficient basin certificate, not the entire separatrix or a higher-dimensional classification.
+The two roots and the sign interval follow from the single maximum of h(S)=S exp(-gamma S) and the strict parameter inequality. Positive coordinates persist locally by the exponential solution of each coordinate's scalar multiplicative equation. With Q=sum_i w_i w_(i-1), direct summation gives S'=exp(-gamma S)Q-dS and (log P)'=h(S)-nd. For n=3, S^2/3-Q is one sixth of the sum of squared pairwise differences; for n=4, Q=(w1+w3)(w2+w4), bounded by S^2/4. Thus the scalar comparison S'<=S(h(S)/n-d) and the equilibrium S_+ of the scalar RHS give S<=S_+, including initial equality. Up to any first time reaching S_-, P is nondecreasing, which excludes that time by S>=n P^(1/n)>S_-. This supplies the tangency/invariance step even on the non-strict upper face. S<=S_+ and P>=P0 give the stated individual lower bounds, compactness and continuation. By monotonicity or the invariance principle, a forward-invariant omega-limit orbit must have S=S_+ and equality in the Q bound. For n=3 this gives all coordinates equal. For n=4 it gives equal odd and even sums, whose difference has derivative -exp(-gamma S)uv when equal, where u=w1-w3 and v=w2-w4. Hence uv is identically zero along such an orbit. Substituting the equal sums and exp(-gamma S_+)S_+/4=d gives u'=-dv, v'=du, so the only orbit with uv identically zero is the origin in (u,v), proving convergence. The positive diagonal data strictly below the lower equilibrium decay to zero, showing optimality among the stated uniform product thresholds. Equality at the lower diagonal equilibrium cannot be added to the recovery criterion. For n>=5, substituting a small first Fourier mode into Q-S^2/n gives a strictly positive quadratic contribution proportional to cos(2pi/n), consistent with the listed five-member example. That last check does not show failure of recovery at higher dimension.
 
-## Limits and residual priority risks
-Exact hypotheses are equal dissipation, cyclic predecessor catalysis, three or four species, positive initial data, and a density factor depending exponentially on total biomass. The 2012 open-cyclic analysis has less reliably extracted mathematics; other unindexed equivalent results may exist. The supplemental numerical checker does not test every parameter or prove convergence. No independent mathematical assessment has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same open model, equilibrium equation and small-cycle local stability are already known. The decisive verified comparison is the 2025 original paper: it proves local upper-equilibrium stability but describes the basin split as numerically motivated and analytically unproved, and its global extinction result concerns the regime without two positive equilibria. The normalized hypercycle theorem does not bound open total mass. No checked source gives the stated sufficient inner basin with an optimal uniform product threshold under the cap. The 2012 comparison was not readable in the independent retrievals; the pass is bounded by the verified material, not an assertion that the historical paper has no overlapping results.
+
+## value
+
+PASS
+
+The open system has competing extinction and positive equilibria, so local stability and normalized coexistence do not answer whether a given positive initial condition recovers. The theorem supplies a directly checkable, full-dimensional sufficient region, quantitative coordinate lower bounds and an obstruction to uniformly improving the threshold within the proposed class. It is an informative inner basin theorem without claiming to solve the full separatrix problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

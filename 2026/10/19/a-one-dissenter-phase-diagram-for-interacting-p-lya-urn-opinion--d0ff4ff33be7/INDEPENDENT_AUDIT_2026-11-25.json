@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:51.192383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At any fixed point unequal majority entries would have oppositely ordered neighbor averages on loopless K_n, contrary to strict monotonicity of their shared map. Setting x=f(y,g) reduces the majority equation to y(y−1)(A−Cy)=0 after positive denominator clearing, with A=h(g+n−2)−(n−1) and C=(g−1)(1−h)(n−2)>0. Hence the interior root is y=A/C, admissible exactly when 0<A<C; the endpoint roots merge at the stated thresholds. Evaluating its odds at y=1/2 and taking endpoint differences give the flip formula and positive width. At each consensus boundary the positive Perron vector of the two-class quotient lifts to the full Jacobian; its determinant at I changes sign at h0 or h1. Tang et al., Theorem 4, includes equality and excludes the two boundary limits in the open window under these model hypotheses. Theorem 3 plus increments bounded by 1/(t+1) forces convergence to one point of the finite fixed set, therefore to the unique interior point almost surely in that window. At that point the derivative of the scalar residual has sign C y(1−y)/D>0, giving det(I−B*)>0; the second quotient eigenvalue is negative and the majority-difference drift eigenvalues are −1−b/(n−1). This proves local stability for continuous time, not convergence of individual binary declarations. Independently inverted the majority equation in odds at 300 rational cases and reproduced the fixed point, window/flip and closed stability determinant exactly (python3 /workspace/branches/reproduce_reviews.py 5); no stochastic assertion is inferred from the sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. give approach to the fixed set and the inclusive boundary spectral rule; the distinct catalogue Finding (offsets 0–1992) additionally gives existence and uniqueness when both radii exceed 1 and almost-sure deterministic selection on general admissible networks."
+        ],
+        "reasoning": "The loopless complete graph meets those hypotheses. This is direct overlap for qualitative uniqueness, convergence and the spectral regime test, but does not resolve the interior coordinates or their comparison to 1/2. The comparison does not assume priority from a catalogue date.",
+        "searches": [
+          "arXiv:2308.09275 Theorems 3–4",
+          "Resultary uniqueness and deterministic selection of nonconsensus, 2026/10/26/...--89ae241bbdaa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.09275",
+        "arXiv:2104.11172",
+        "Resultary 2026/10/26/...--89ae241bbdaa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint thresholds are a two-by-two specialization of Theorem 4. The stronger catalogue theorem identifies the limit with an implicit fixed point; neither it nor the inspected Tang statements evaluate it or give h_flip. The looped phase diagram uses a different majority equation."
+        ],
+        "reasoning": "Do not count the abstract convergence statements as distinct. The actual interior calculation uses symmetry forced by excluding self, rational root cancellation, and the derivative and half-frequency tests; those yield quantitative information absent from the implicit limit and endpoint tests.",
+        "searches": [
+          "Tang et al. Theorem 4 and two-class Perron quotient",
+          "Resultary 2026/10/26/...--89ae241bbdaa Finding",
+          "Jadbabaie et al. Section IV, deterministic vector theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jadbabaie et al. have deterministic two-group limits, but with self-loops and common honesty strength (reciprocal biases for opposing groups)."
+        ],
+        "reasoning": "Excluding the observer changes the neighbor means even for states constant within each group, and independent g,h do not reduce to one honesty strength. The analogous phase transition is not an equivalent quantitative formula.",
+        "searches": [
+          "Resultary: one-dissenter complete-graph heterogeneous urn phase diagram; g,h biases; h0,h1,h_flip",
+          "arXiv:2104.11172 Section IV Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue Finding is implicit in x_*; the source papers inspected supply general spectral criteria or explicit formulas for a different looped reciprocal-bias model. No exact formula entry for the arbitrary-g,h loopless setup was identified in this bounded check."
+        ],
+        "reasoning": "A finite table would be relevant only if it provided matching formulas or covered the same graph and biases. Different parameter conventions do not furnish the requested full diagram.",
+        "searches": [
+          "Resultary queries for explicit one-dissenter equilibrium and h0,h1,h_flip",
+          "arXiv:2104.11172 Section IV",
+          "arXiv:2308.09275 Theorems 3–4"
+        ]
+      },
+      "rationale": "Support is for the explicit loopless one-dissenter phase diagram, including the interior frequencies, reversal threshold, width and local stability calculation. Do not credit the general spectral consensus criterion or equilibrium approach. The strongest distinct catalogue match also covers interior uniqueness and deterministic selection as qualitative claims; it does not supply the quantitative one-dissenter solution.",
+      "residual_risks": [
+        "A specialized calculation in reinforced-urn literature may contain the same loopless two-bias formulas; the statement checks are bounded. No novelty is assigned to the endpoint criterion or to qualitative uniqueness and deterministic selection apart from their role in the quantitative diagram."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies stochastic ingredients and both inclusive endpoints",
+          "evidence": "Theorem 3 approaches the fixed set; Theorem 4 uses probabilities zero for eigenvalue >1 and one for eigenvalue ≤1. Positive initial counts, connected nonbipartite graph and nonidentity bias apply here.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.09275",
+          "material_read": "Model pp.2–3; Theorem 3 p.7 (offset about 54500); boundary argument pp.10–11 and Theorem 4 (offset about 92050)",
+          "method": "OA arXiv PDF passages",
+          "title": "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks",
+          "trigger": "Exact model and stochastic criteria"
+        },
+        {
+          "assessment": "Deterministic-limit precedent with materially different assumptions",
+          "evidence": "Includes self-loops and a common honesty parameter; the group fraction and that single parameter determine its regimes.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.11172",
+          "material_read": "Self-loop definition PDF p.5 (offset about 40000); Section IV, Theorem 3, p.7 (offsets about 55500–60500)",
+          "method": "OA arXiv PDF passages",
+          "title": "Inference in Opinion Dynamics under Social Pressure",
+          "trigger": "Closest explicit complete-graph phase diagram"
+        },
+        {
+          "assessment": "Covers qualitative uniqueness and deterministic selection, but not the quantitative phase diagram",
+          "evidence": "Items (i)–(iii) use the two endpoint radii for existence and selection; auxiliary iteration is not the continuous-time drift calculation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-uniqueness-and-deterministic-selection-of-nonconsensus-in-a-soci--89ae241bbdaa/RESULT.md",
+          "material_read": "Finding, mirror offsets 0–1992",
+          "method": "Resultary match; exact local mirror passage",
+          "title": "Uniqueness and deterministic selection of nonconsensus in a social-pressure Pólya network",
+          "trigger": "Broader same-model statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In this minimal heterogeneous complete-graph model the explicit frequency and flip threshold tell when a privately biased majority nevertheless declares the opposite opinion more often, an effect neither endpoint condition reveals. The nonzero width locates the whole mixed regime, and the drift analysis explains its local stability. These are usable precise predictions, rather than merely applying an existing consensus theorem to a smaller graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

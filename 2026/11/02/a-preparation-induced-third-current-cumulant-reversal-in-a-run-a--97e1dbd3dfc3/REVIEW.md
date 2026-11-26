@@ -1,21 +1,21 @@
-# Scientific review of a third-current-cumulant sign reversal
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is carefully restricted to disorder-averaged conditional third cumulants and the standard step-density thermodynamic limit; it does not conflate these with cumulants of an unconditional disorder mixture. A Bernoulli-cumulant identity gives the exact positive gap between the two preparations. A one-flip Poisson expansion produces the opposite short-time signs and coefficients, and a bounded-jump martingale central limit theorem with uniform-integrability control proves the common strictly positive long-time scaling. The Gaussian integral is evaluated analytically. The standalone independent numerical implementations of the single-particle crossing probabilities agree and reproduce both asymptotic regimes. Numerical checks are not the proof.
+PASS
 
-**Technical limits:** A unique finite-time zero is not proved. The fourth-moment tail bound and positivity of the symmetric displacement law are essential for passing the long-time integral limit.
+At fixed disorder, a current contribution is a crossing Bernoulli variable. Taking its log-MGF first gives b₃(U_±) for qq, whereas orientation averaging first gives b₃(m) for qa. With d=(U_+−U_−)/2 the symmetric difference is (6m−3)d². The symmetric unbiased displacement law has 0<m<1/2 on 0<z<vt by the positive ballistic atom and the positive interior one-flip density. Near vt the two orientation-conditioned tails differ by a positive quantity (limit e^(−γt)), proving both strict signs claimed for every t>0. At z=vty, a single flip has uniformly distributed time conditional on its count; from +, crossings require flip after t(1+y)/2, and from −, before t(1−y)/2. Combining with the no-flip term and a uniform O((γt)²) two-or-more-flip remainder gives the stated first-order crossing probabilities. The qq and qa integrands at that order are −γty/2 and +γty/4, respectively, yielding −ρvγt²/4 and +ρvγt²/8. The compensated sign martingale has deterministic bracket 4γt and jumps of magnitude 2, giving the conditional Brownian limit for either sign. E[S_s S_u]=e^(−2γ|u−s|) for either initial sign bounds E[Y_t²] by v²t/γ, where Y_t is the free displacement. Thus the positive scaled displacements have uniformly small integrated tails, justifying passage to the spatial limit against |b₃(p)|≤p. For f=erfc, twice integrating by parts gives I_k=k/√π [1−2(k−1)/√π ∫e^(−2y²)f(y)^(k−2)dy] for k≥2 on y≥0. Evaluating at k=2,3 and taking I₁/2−3I₂/4+I₃/4 recovers C₃. It is positive from the limiting integral directly. Almost-sure continuity of the displacement and absence of interior crossing-level atoms give continuity after spatial integration, hence at least one finite sign reversal for qq.
 
-## Originality
+## originality
 
-**PASS, with residual risk.** Banerjee et al. (arXiv:2001.01923), Jose--Rosso--Ramola (arXiv:2306.13613) and the latter authors' follow-up (arXiv:2310.16811) give the current-generating-function framework, the four disorder prescriptions, exact propagators and second-cumulant results. All are acknowledged as prior work. The new conclusion compares the third cumulants strictly **for every time**, proves their opposite early signs, and evaluates a shared positive Gaussian-limit coefficient, forcing a negative-to-positive crossover only under full quenching. The parent paper explicitly identifies higher cumulants as further work, and the follow-up focuses on variance even for general orientation bias. No equivalent evaluated statement was identified in searched literature or related mathematical-record results.
+PASS
 
-**Residual risk:** Complete prior generating functions determine third cumulants implicitly, so a stronger unrecognized analysis of their derivatives might already imply the theorem. Publication-priority certification has not been performed. An unrelated general Poisson-binomial hierarchy provides no evaluated time-dependent crossing theorem for this specific run-and-tumble preparation.
+The earlier exact generating functions already imply the Bernoulli-polynomial integral representations, and the Brownian CGF determines the limiting Brownian coefficient. The distinct result is the evaluated all-time strict comparison, opposite initial signs, and proof of a preparation-dependent negative-to-positive third-cumulant reversal in the stated telegraph gas.
 
-## Mathematical value
+## value
 
-**PASS.** The discovery addresses a specific gap raised in the originating active-current analysis: higher-than-second cumulants under quenched density and magnetization. It shows a qualitatively new preparation effect beyond the previously established variance exponent: freezing the initial orientations reverses the sign of skewness early on, while losing their memory produces the same positive late-time constant as annealed orientations. The strict all-time ordering is a structural identity, not an arbitrary parameter slice. Its sharp asymptotic coefficients permit falsifiable comparisons of preparation protocols.
+PASS
 
-**Scope limits:** Independent particles; unbiased initial velocity fractions; two-state Poisson velocity reversal; infinite-volume step density; disorder-averaged conditional cumulants. No claim of unique sign-crossing time, finite-population correction, entropy production, or interactions.
+The theorem distinguishes two standard preparations of the same gas by a qualitative skewness phenomenon not decided by their common diffusive leading law. The strict all-time ordering and rigorous short/long sign comparison give a usable criterion for which preparation can exhibit negative third current cumulant.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

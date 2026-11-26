@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:47:11.993294Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and verify.py, inspected and not executed",
+        "Independent small exact enumeration by pruning indegree-zero vertices and summing signs; polynomial update P_(k+1)=P_k(1−z)/(1+z)"
+      ],
+      "rationale": "A fixed cyclic set of r>0 vertices carries an independent permutation and a directed forest rooted at that set. The reduced complete-graph Laplacian nI−J on the n−r nonroot vertices has determinant r n^(n−r−1), with the empty determinant at r=n giving one. Thus the convolution coefficient is c_r=r! r n^(n−r−1) for r<n, with c_n=n!. The weight-k multiplier is the scalar product of these coefficients with the coefficients of (1−z)^k(1+z)^(n−k). For r=n−1−m≥1, one has v_p(c_r)=b+ma−v_p(m!)+v_p(r), since v_p(n−i)=v_p(i) for 1≤i<n. Legendre's bound v_p(m!)≤(m−1)/2 gives v_p(c_r)≥b+a for m≥1, and ≥b+2a for m≥2 (m=2 directly). For 0<k<n the sole leading term modulo p^(b+a) is c_(n−1)(−1)^k(n−2k), with v_p(n−2k)=v_p(k)<a. At k=n the two terminal terms sum to (n−1)! n(n−2); the r=n−2 Krawtchouk coefficient is −binom(n,2), supplying a further p^a in that term, and all earlier terms are already divisible by p^(b+2a). This proves the boundary valuation b+a, including n=3. The trivial shell counts n^n. The Walsh matrix is invertible over Z_(p) because its square is 2^n I, so diagonalization yields the local Smith factors, exact rank after normalization, and determinant assertion. Every kernel coefficient is divisible by p^b, which also directly proves that the normalization is integral. Independent leaf-pruning and signed summation over all maps gave the shell multipliers (27,−7,−1,−3) at n=3 and (3125,−13,−39,−169,−163,−165) at n=5; recursive polynomial coefficient checks agreed at n=9,25,27,49,81,121,169 as well. These are corroboration, not the proof for all p,a.",
+      "residual_risks": [
+        "At p=2 the Walsh change of basis need not be locally invertible. Non-prime-power dimensions and Smith factors at other primes are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman formula (27) gives the full p-mapping cyclic-set law; uniform image probabilities give Pr(C(f)=R)=r! r/n^(r+1)",
+          "Elsheikh–Giesbrecht abstract concerns conditions on eigenvalues and Smith factors, not this family of multipliers"
+        ],
+        "reasoning": "The coefficient profile is a direct specialization and not original; a general local Smith theorem would still require computing the specific eigenvalue valuations. The unread conditional-model article does not license a whole-document claim.",
+        "searches": [
+          "Pitman Berkeley Technical Report 593 (2001), pp. 12–13",
+          "Hansen–Jaworski, Ars Combinatoria 94 (2010), 341–359",
+          "Local eigenvalue/Smith comparison, arXiv:1401.1773"
+        ]
+      },
+      "checked_sources": [
+        "Pitman TR 593, pp. 12–13",
+        "Quarter-spectrum SCOPE RESULT.md",
+        "Elsheikh–Giesbrecht arXiv:1401.1773 abstract",
+        "Hansen–Jaworski publisher/indexed description only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical profile immediately gives a finite signed sum per shell",
+          "The inspected sign law and generic eigenvalue/Smith theory do not evaluate its lowest nonzero p-adic digit"
+        ],
+        "reasoning": "Credit the Fourier expression from the known profile and the Smith conversion once diagonal entries are known. Neither yields the interior leading term and the different full-parity cancellation merely by parameter substitution without the new divisibility analysis.",
+        "searches": [
+          "Pitman formulas (21)–(27), especially uniform specialization",
+          "Quarter-spectrum RESULT.md, same convolution and sign regime",
+          "arXiv:1401.1773 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman (2001), formulas (21)–(27): cyclic-set density and permutation/forest representation",
+          "2026/11/22/SCOPE-a-quarter-spectrum-negative-inertia-law-for-cyclic-vertices-of-r--1fa8ca19c090, original Finding and formula for the same multiplicity-weighted Walsh multipliers"
+        ],
+        "reasoning": "Signed enumeration and the cyclic-set convolution are real aliases; the quarter-spectrum result shares both. Its sign for odd k with 2k≥n is compatible with many different valuations and does not supply the claimed valuation strata. Same-day entries are not ordered by date alone.",
+        "searches": [
+          "Resultary: signed enumeration of random mappings by cyclic vertex set and Walsh or Krawtchouk transform",
+          "Resultary: exact p-adic valuations alternating cyclic-set counts random maps prime-power order",
+          "Primary literature search on signed cyclic-set enumeration and Walsh spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each bounded search returned 50 hits; the assigned record was first in three and the related quarter-spectrum record first for the signed-enumeration formulation",
+          "Local mirror original statements of the assigned and quarter-spectrum records"
+        ],
+        "reasoning": "The exact matching self-hit is not separate coverage. The separate record gives an asymptotic lower bound on negative inertia from a strict sign regime, not a table of local factors. A bounded hit list is not proof that no equivalent computation exists.",
+        "searches": [
+          "Resultary: p-primary Walsh spectrum cyclic sets random mappings exact Smith invariants prime powers",
+          "Resultary: Smith normal form of multiplicity-weighted cyclic vertex-set convolution on the Boolean cube",
+          "Two additional Resultary formulations on signed enumeration and alternating cyclic-set counts"
+        ]
+      },
+      "rationale": "The exact weighted cyclic-set distribution is classical. The closest same-object signed spectral record gives a negative-sign regime but no p-adic valuation classification. The distinct supported contribution is the prime-power valuation in every shell, with a separate endpoint cancellation, and its explicit local Smith consequences, not the enumeration, Walsh transform, or generic Smith theory alone.",
+      "residual_risks": [
+        "Hansen–Jaworski full text was not read; its scope is not ruled out beyond the accessible material. An unindexed signed cyclic-set identity or modular specialization could supply related prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of enumeration, not an evaluated spectrum in those passages",
+          "evidence": "Formula (27) and uniform specialization recover c_r exactly, including r=n by the empty forest convention.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+          "material_read": "pp. 12–13, formulas (21)–(27), text offsets 24700–30593",
+          "method": "Primary PDF passages",
+          "title": "Random mappings, forests, and subsets associated with Abel–Cayley–Hurwitz multinomial expansions",
+          "trigger": "Full known exact cyclic-set distribution"
+        },
+        {
+          "assessment": "Material same-object overlap; distinct invariant",
+          "evidence": "The multipliers are strictly negative when k is odd and 2k≥n, giving at least asymptotically a quarter-spectrum negative-inertia lower bound.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quarter-spectrum-negative-inertia-law-for-cyclic-vertices-of-r--1fa8ca19c090",
+          "material_read": "RESULT.md Finding and multiplier formula",
+          "method": "Local mirror",
+          "title": "A quarter-spectrum negative-inertia law for cyclic vertices of random mappings",
+          "trigger": "Same cyclic-set convolution and signed spectrum"
+        },
+        {
+          "assessment": "Further possible overlap not excluded",
+          "evidence": "Indexed description concerns random mappings conditioned on cyclic count and a rooted-forest construction.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+          "material_read": "Indexed description and publisher record only",
+          "method": "Citeseer timed out, ResearchGate returned 403, publisher PDF had no extractable text",
+          "title": "Random Mappings with a Given Number of Cyclical Points",
+          "trigger": "Conditioning on cyclic count and forest representation"
+        },
+        {
+          "assessment": "General relation, not a cyclic-set valuation computation",
+          "evidence": "Conditions relate invariant-factor valuations and eigenvalue valuations of matrices; here an integral Walsh equivalence directly establishes the relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.1773",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary PDF text",
+          "title": "Relating p-adic eigenvalues and the local Smith normal form",
+          "trigger": "General local Smith theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations"
+      ],
+      "rationale": "This is a complete exact obstruction to local deconvolution for a natural counting kernel, not a finite valuation table. It distinguishes recovery power by character weight throughout an infinite family and accounts separately for the two endpoints, including cancellation at full parity. It also decides nonvanishing of the entire spectrum in the stated regime.",
+      "residual_risks": [
+        "A local spectrum does not decide global Smith form or real inverse conditioning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

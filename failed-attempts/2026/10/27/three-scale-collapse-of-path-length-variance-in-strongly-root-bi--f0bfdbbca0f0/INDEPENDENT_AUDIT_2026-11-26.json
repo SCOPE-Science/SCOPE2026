@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:34:03.901896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalization is the variance of total depth divided by n², with n tending to infinity at each fixed α. Independently, the weighted mean depth updates by p_j(1+Z_j), where Z_j is the depth minus its conditional mean. The expected weighted variance updates by (1−p_j²)v_j+p_j(1−p_j). The weighted-mean martingale is L² convergent (for α≤−1, and also for α>−1, p_j=O(1/j) and v_j=O(log j)); the centered ordinary average depth has the same L² limit by Cesàro averaging and orthogonality of the Z_j. Set a=2^α, b=3^α, c=4^α. The j=3 term is ab²/[(1+a)²(1+a+b)²]=18^α−4·36^α+O(54^α). The j=4 term is c²[a+O(b+a²)]/(1+a+b+c)²=32^α+O(48^α). For α≤−2 the sums of k^α over k≥2 and j^(2α) over j≥5 are bounded by constants times 2^α and 5^(2α), respectively, by factoring out the first base and comparing with a fixed convergent power sum. Since v_j≤Σ_{k≥2}p_k, this gives O(50^α) for the whole remaining tail. The positivity and order of the resulting scales check out. The frozen exact n=6 checks and finite numerical truncations in verify_ultraold.py and verification_output.txt are corroboration only; the script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.3 gives v_2=0 and v_{j+1}=(1−p_j²)v_j+p_j(1−p_j). Corollary 6.3 gives σ_α²=Σ p_j²v_j for real α, including summable weights."
+        ],
+        "reasoning": "The earlier result explicitly includes this regime, limit and recurrence. It is an exact global coefficient formula, not just a fixed-parameter estimate or a result for uniform attachment.",
+        "searches": [
+          "arXiv:2610.00614v1, Sections 5, 6 and 10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, §§Finding, Proof and Relationship to prior work",
+        "Frozen VERIFICATION.md, verify_ultraold.py and verification_output.txt",
+        "Gałązka–Wdowicka, arXiv:2610.00614v1",
+        "Resultary ecd7a2567824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recurrence gives p_3²v_3=ab²/[(1+a)²(1+a+b)²] and p_4²v_4=c²[a+O(b+a²)]/(1+a+b+c)²; the same recurrence bounds the rest by (Σ_{k≥2}k^α)(Σ_{j≥5}j^(2α)).",
+          "Section 10(iii) says asymptotic behavior of the coefficient as a function of α deserves separate study; it does not state this three-term expansion."
+        ],
+        "reasoning": "This is a direct endpoint corollary of the exact prior series even without the three numbers printed there. The concrete tail bound shows why this is stronger coverage, not merely a superficially related variance formula.",
+        "searches": [
+          "arXiv:2610.00614v1, (26)–(29), (36)–(37), Section 10(iii)",
+          "Resultary ecd7a2567824 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source paper's p_j=j^α/W_j, v_j and σ_α² agree; starting the series at 2 instead of 3 adds its zero term.",
+          "The local-mirror Resultary record ecd7a2567824 treats the same variance coefficient and α→−∞ endpoint."
+        ],
+        "reasoning": "Root bias and old-age preference denote the same decreasing attachment weights; neither index convention nor language changes the object. The later record's stated two-term asymptotic is weaker than the frozen asymptotic.",
+        "searches": [
+          "Resultary: strongly root-biased or old-age power-weight recursive tree variance collapse",
+          "arXiv:2610.00614v1, Proposition 5.3 and Corollary 6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ecd7a2567824, 2026-11-08 UTC: finding gives 18^α+32^α+o(32^α), without the −4·36^α term or O(48^α) remainder; no materially matching distinct same-day entry was surfaced."
+        ],
+        "reasoning": "The object is an asymptotic of a variance function, not an indexed finite sequence with a natural table identifier. The targeted result index establishes explicit partial, not verbatim full, overlap.",
+        "searches": [
+          "Resultary: three-scale path-length variance; rare-event variance collapse; strongly root-biased power-weight recursive trees"
+        ]
+      },
+      "rationale": "The three-term form was not found printed in the parent paper; the issue is stronger prior mathematical coverage, not a verbatim duplicate. Its exact variance series for the same weights over all fixed real α and explicit scalar recurrence reduce this particular endpoint expansion to Taylor expansion of two rational terms and a direct summable majorant for the rest. Neither the coefficients nor the O(48^α) scale require an additional variance identity, a new approximation theorem, or control beyond the immediately dominated tail. Section 10 singles out parameter dependence for further study; that is broader than the elementary extraction here. A later indexed record explicitly prints only the first two scales and is not claimed as an earlier publication of the third.",
+      "residual_risks": [
+        "The searches were targeted, not an exhaustive history of weighted recursive trees. Whether the three-term formula was printed elsewhere is unresolved and does not affect the identified implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact representation, directly implying the narrow endpoint expansion; no explicit three-term statement located in the inspected material",
+          "evidence": "Equations (26)–(29), (34), (36)–(37), and the parameter-dependence discussion in §10(iii).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00614",
+          "material_read": "Sections 5–6, Proposition 5.3, Theorem 6.2 and Corollary 6.3, pp. 10–13; Section 10(iii), p. 18",
+          "method": "Read targeted primary PDF passages",
+          "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+          "trigger": "Exact coefficient and recurrence cited and asserted not to evaluate this endpoint"
+        },
+        {
+          "assessment": "Explicit partial overlap; later indexed date, not priority for the third term",
+          "evidence": "18^α+32^α+o(32^α) and a weak-collapse result, without the stated third term or remainder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rare-event-variance-collapse-in-old-age-power-weight-recursive-t--ecd7a2567824",
+          "material_read": "Finding and exact coefficient/recurrence",
+          "method": "Resultary search and matching local-mirror source inspection",
+          "title": "Rare-event variance collapse in old-age power-weight recursive trees",
+          "trigger": "Very close statement on the same coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The strongly root-biased endpoint is natural, and the ordering of the second and third scales is informative. But the only added exact statistic is a short coefficient extraction from an existing exact series with an elementary tail, with no separately justified need for this particular precision or independent structural result. This narrow finding does not meet the independent-value criterion; the failure is not because it concerns a single endpoint.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

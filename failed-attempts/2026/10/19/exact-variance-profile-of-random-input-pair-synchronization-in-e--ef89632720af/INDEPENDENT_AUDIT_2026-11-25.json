@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:45.990592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repeated independent trials of a fixed reset word give a geometric tail, ensuring finite moments and uniqueness of the transient-chain equations. Before reaching the boundary j=n−1, a rotation advances the pair and a merge leaves it unchanged; this produces a drop of 2 in both mean and variance per advancement. At the boundary reached from {0,d}, let L=n−1−d; the successors are {0,L+1} and {0,L}, with the latter absorbed for L=0. For the mean the boundary equation is F_d=2L+1+(F_(L+1)+F_L)/2. For variance the law of total variance gives G_d=2L+(G_(L+1)+G_L)/2+(F_(L+1)−F_L)²/4. Direct symbolic substitution gives zero polynomial residuals, and F_0=G_0=0. The strictly concave quadratic F_d has vertex n(n−1)/(2n−1), whose closest integer is floor(n/2) for both parities; the term −2i makes i=0 unique. At this gap the mean and variance have leading terms n³ and 2n⁶/3, giving the stated coefficient of variation, not a distributional limit. An independently written exact-rational replay (`python3 reproductions/2.py --max-n 8`) matched all 83 pair states for n=3,…,8; the frozen verifier was inspected, not run. The recurrence identities, not the finite replay, establish the claim for every n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gusev Theorems 3–4 give expected diametric-pair merging times for Bernoulli-source inputs, broader in bias but only first moments in the inspected statements.",
+          "The indexed second-moment solution covers n≥2 and all conditional pairs before summing; its headline uniform-pair averaged variance and √(7/5) limit are separate facts, not the fixed-pair variance."
+        ],
+        "reasoning": "Coverage is by the explicit conditional formulas inside the broader result, not by the averaged variance heading or by Gusev's first-moment theorem.",
+        "searches": [
+          "Resultary: exact variance polynomial random input pair synchronization Cerny automaton fair letters mean variance second moment coefficient variation",
+          "Gusev, arXiv:1404.6731v1, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Indexed conditional second-moment and odd-diameter variance RESULT.md files",
+        "Indexed compound-Poisson waiting-time RESULT.md",
+        "Gusev arXiv:1404.6731v1",
+        "Kisielewicz–Kowalski–Szykuła DOI 10.1007/s10878-013-9682-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed compound-Poisson transform is for first occurrence of a prescribed word, and Kisielewicz–Kowalski–Szykuła study shortest reset words of sampled automata.",
+          "The exact conditional variance follows immediately from U−T². The worst-mean identity is a first-moment maximization, and the full limiting relative standard deviation follows by taking the leading terms along the maximizing pairs."
+        ],
+        "reasoning": "A general Markov-chain recurrence, a mean-only result, or a waiting time for a prescribed reset word would not itself cover the evaluated variance. Explicit conditional raw moments on the very same chain do cover it; the shorter expression is a simplification, not a new probabilistic invariant.",
+        "searches": [
+          "Literature: Černý automaton random input letters pair synchronization coalescence time variance second moment exact distribution",
+          "Resultary: Černý automaton pair coalescence exact probability generating function transform random letter hitting time distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact second-moment record uses a(0)=1 fixing all other states and b=rotation. Applying x↦x+1 mod n to the frozen states and exchanging the fair letter names gives exactly those actions; unordered pairs are in bijection and the merging step is counted in both.",
+          "The indexed formulas in its Assumptions and proof §3 give the conditional mean T_(r,s) and raw second moment U_(r,s) for every pair P_(r,s)."
+        ],
+        "reasoning": "Equivalence does not require term-by-term conversion of the piecewise coordinates: on the relabeled chain the frozen E and G satisfy the same equations as T and U−T². In particular E²+G is the unique finite raw-second-moment Bellman solution 2U(P)=4T(P)−2+U(Pa)+U(Pb), zero on absorbed states. This proves equality at every pair and size, not just overlap for the mean or the odd boundary.",
+        "searches": [
+          "Resultary: Cerny automaton conditional variance fixed starting pair all pairs quartic polynomial fair letters",
+          "Resultary: random input Cerny pair synchronization variance sqrt two thirds slowest mean pair"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed odd-size record explicitly gives the variance for {0,(n−1)/2} and the coefficient-of-variation limit √(2/3). The frozen polynomial specializes exactly to that odd-diameter variance.",
+          "The all-pair indexed formulas are an analytical database overlap rather than a match to only a small-n numerical table."
+        ],
+        "reasoning": "The odd-size record alone would not cover even sizes or nondiametric gaps. The conditional all-pair record supplies that coverage, and the numerical replay is not a novelty check.",
+        "searches": [
+          "Resultary: random unordered pair coalescence Cerny automaton average variance polynomial coefficient variation",
+          "Resultary: random input Cerny pair synchronization variance sqrt two thirds slowest mean pair"
+        ]
+      },
+      "rationale": "An indexed result gives the complete conditional first- and second-moment solution for the identical chain after cyclic relabeling, so the variance of every starting pair is already determined explicitly by subtracting the square of the conditional mean. Another indexed record gives the odd-diameter variance and the same limiting coefficient of variation directly. This is present mathematical coverage; the later catalog dates do not establish prior conception, historical priority, or derivation direction.",
+      "residual_risks": [
+        "This is not a historical-priority finding. Bounded literature comparison may miss other equivalent earlier expressions or full transforms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same chain and full conditional coverage in the proof",
+          "evidence": "Assumptions specify the conjugate fair-letter maps and T_(r,s) for every unordered pair; §3 gives U_(r,s)=Y_r+B_(r,s)+K_r 1_(s≥r) and its unique raw second-moment recursion. The averaged CV in the headline is different and was not used for equivalence.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-second-moment-of-random-pair-merging-in-ern-automata--d789ceed8a66",
+          "material_read": "RESULT.md Finding, Assumptions, and proof §§1, 3–4, opening passage and offsets 3150–7260",
+          "method": "Local published-record mirror, bounded passages",
+          "title": "Exact second moment of random pair merging in Černý automata",
+          "trigger": "Closest indexed result with potential conditioning ambiguity"
+        },
+        {
+          "assessment": "Exact odd-diameter overlap",
+          "evidence": "Both the variance for {0,(n−1)/2} at odd n and the limiting coefficient √(2/3) agree.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6",
+          "material_read": "RESULT.md Finding and assumptions, offsets 205 and 582",
+          "method": "Local published-record mirror, bounded passages; separate symbolic specialization",
+          "title": "Exact random-input pair-merging variance in odd Černý automata",
+          "trigger": "Same exact odd-diameter variance and relative fluctuation"
+        },
+        {
+          "assessment": "First-moment background",
+          "evidence": "Expected diametric-pair merging times under B(p,q); no variance asserted in those theorem passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6731v1",
+          "material_read": "Section 3, Theorems 3–4, PDF pp. 8, 10",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Synchronizing Automata with Random Inputs",
+          "trigger": "Same automaton and random-input pair problem"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": "Shortest reset words for sampled automata, not i.i.d.-input coalescence of a pair in a fixed automaton.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "PDF p. 1 abstract and p. 3",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Computing the Shortest Reset Words of Synchronizing Automata",
+          "trigger": "Possible overlap through reset-time distributions"
+        },
+        {
+          "assessment": "Different stopping time",
+          "evidence": "The pgf is for waiting until a specified finite word first appears, not a coalescence event in a Markov chain of pairs.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+          "material_read": "RESULT.md Finding, offset 125",
+          "method": "Local published-record mirror",
+          "title": "Exact compound-Poisson law for the excess first-occurrence time",
+          "trigger": "Possible exact pgf dominating moment claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An all-pair variance would answer a natural quantitative question beyond mean synchronization, and the single quartic representation is convenient. But the exact invariant is already mechanically available from the complete conditional moment solution, and the stated fluctuation limit is also explicitly available for the odd diameter. The simplification provides no distinct invariant, distributional conclusion, or new regime in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

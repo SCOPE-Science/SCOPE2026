@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:13:57.318220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Within each resident group with equal susceptible and vaccinated generators, sum the two DFE balances to see that its total distribution and hence the physical-location denominators are invariant under vaccination changes. The susceptible difference satisfies the displayed positive-right-hand-side equation: the nonsingular M-matrix inverse is nonnegative, since the transpose is strictly diagonally dominant from positive death and nonnegative vaccination. Thus susceptible counts, and their effective-susceptibility convex combinations with invariant totals, cannot increase. The infectious transition matrix is fixed and inverse-positive, so Perron monotonicity applies. No equality with infectious mobility is used. In the separate fixed toy example the independently reconstructed population and infection matrices agree with the frozen ones; both physical-location denominators remain positive. The background next-generation matrix lies strictly below threshold by the stated infinity norm bound. Relative to that background the perturbation is rank one. At a spectral parameter above the background spectral radius, the corresponding scalar from the nonnegative resolvent of the background next-generation matrix is decreasing, and equals one at the perturbed Perron root. Evaluating at one gives the threshold sign, including equality; a determinant sign without this perturbation argument would not suffice. For an independent integer expansion of RESULT.md's frozen matrix, put L=31-19t and Q=31+19t and clear its four rows of W-F by 40L, 20Q, 20L, 10Q; a cofactor expansion gives 80L times the displayed P. Endpoint derivative signs and convexity of P' give strict decrease on [0,1]; exact bracket signs at 9/20 and 23/50 and a positive denominator give one simple crossing. The irreducible next-generation matrix, with the primary model's DFE theorem, supplies the stated local threshold, not a global outcome claim. The packaged verify.py and VERIFICATION.md were inspected, not executed; the comparison and exact frozen-matrix check, not the recorded script run, are the review evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary model allows different generators. In the synthetic network simulations (§4, text near offset 57948) it sets vaccinated and susceptible generators equal, with a different infectious generator.",
+          "The earlier mover–stayer and heterogeneous vaccination papers are plausible adjacent work. The former full text was not retrieved and only abstract or landing material was available for the latter in this review."
+        ],
+        "reasoning": "A more general definition of admissible generators and an equal-mobility numerical sweep are not a comparative theorem across the full parameter range. Related vaccination mechanisms in earlier models cannot be assumed either to imply or to exclude the frozen model-specific result without matching their hypotheses.",
+        "searches": [
+          "arXiv:2611.01555v1 §§3.2–3.3, §4 numerical setup",
+          "DOI:10.1007/s11538-012-9762-9",
+          "DOI:10.1016/j.physa.2016.03.049"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01555v1, §§3.2–3.3 and relevant §4 passage",
+        "DOI:10.1007/s11538-012-9762-9 and DOI:10.1016/j.physa.2016.03.049 (limited access)",
+        "Resultary identical assigned record",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper supplies the DFE equations and reproduction operator, so the protective direction can be derived from it using an M-matrix comparison after proving the denominators are invariant. Its opposite-side stability conclusions presuppose, rather than establish, a crossover."
+        ],
+        "reasoning": "The protective side is a short structural deduction, not an independent new reproduction-number formula. The combined claim goes beyond specializing the prior stability theorem: a well-defined admissible witness, positive background bound, and rank-one threshold and all-interval sign analysis are required. The result does not say unequal generators always reverse the direction.",
+        "searches": [
+          "arXiv:2611.01555v1 Lemma 7, equations (3.2)–(3.5), Theorem 8",
+          "DOI:10.1007/s11538-012-9762-9; DOI:10.1016/j.physa.2016.03.049"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary match 2026/11/22/SCOPE-a-sharp-vaccination-induced-invasion-threshold-from-status-depen--929e1872b9de is the assigned result itself.",
+          "Arino–van den Driessche Lemma 7 gives the DFE, and equations (3.4)–(3.5) and Theorem 8 identify the spectral threshold and stability on either side, not the comparative sign under componentwise vaccination increases."
+        ],
+        "reasoning": "The exact test for equivalence is the ordering of the two reproduction numbers under independently increased birth and/or ongoing vaccination with fixed parameters. The model's stability theorem concerns the value at one parameter choice, not that comparative ordering. The combined claim also requires the existence and exact classification of the separate counterexample.",
+        "searches": [
+          "Resultary: resident–traveller vaccination reproduction number with coincident susceptible and vaccinated mobility",
+          "arXiv:2611.01555v1 §§3.2–3.3 and Theorem 8",
+          "DOI:10.1007/s11538-012-9762-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed self-match is not a separate threshold table. The initiating paper gives a spectral formula and numerical vaccination scenarios; the inspected synthetic setup fixes equal susceptible and vaccinated mobility."
+        ],
+        "reasoning": "The target is an interval-wide exact algebraic root and sign certificate plus a universal parametric comparison, not a measured case or rounded reproduction number. The inspected numerical scenarios do not encode this all-positive two-residence witness or its complete root count.",
+        "searches": [
+          "Resultary: vaccination reproduction threshold, fixed parameters and status-dependent mobility",
+          "arXiv:2611.01555v1 §4 synthetic-network setup and equations (3.4)–(3.5)"
+        ]
+      },
+      "rationale": "The model, next-generation threshold machinery, and broad possibility of offsetting protection through changes in behavior are not new. The supported contribution is the precise fixed-parameter sufficient condition for comparative monotonicity in this model together with a certified, strictly positive finite example that demonstrates why dropping the condition does not preserve the guarantee. The classical resolvent and Perron arguments are credited rather than claimed novel. No novelty is asserted for the underlying qualitative public-health idea; historical overlap with related earlier vaccination models remains possible.",
+      "residual_risks": [
+        "The named older mover–stayer and SIS works could contain related or equivalent results; their full texts were not independently verified.",
+        "The protective deduction uses familiar matrix monotonicity and may have been recorded under different terminology; priority is not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying equations and stability cutoff are covered; neither the comparative theorem nor this certified counterexample is stated in the relevant passages",
+          "evidence": [
+            "The reproduction number is the spectral radius of FW inverse at the vaccination DFE; Theorem 8 classifies different signs relative to one.",
+            "Susceptible and vaccinated movement are equal in the cited synthetic numerical setup. The model explicitly omits vaccine waning."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.01555v1",
+          "material_read": "§§3.2–3.3, (3.2)–(3.5), Lemma 7 and Theorem 8, bounded HTML text offsets 41000–45937; §4 simulation assumption near offset 57948",
+          "method": "Lawful primary HTML, literal location and bounded comparison",
+          "title": "A resident-traveller model for global aspects of vaccination",
+          "trigger": "Identical SVIRS and next-generation model; possible comparative threshold theorem"
+        },
+        {
+          "assessment": "Material priority limitation, not evidence of noncoverage",
+          "evidence": [
+            "The paper concerns a multi-city vaccination model; no matching exact passage could be checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-012-9762-9",
+          "material_read": "Citation, abstract-level description; independent full text not reached",
+          "method": "Bounded lawful DOI retrieval encountered a redirect failure",
+          "title": "A Vaccination Model for a Multi-City System",
+          "trigger": "Earlier mover–stayer vaccination model with potentially overlapping qualitative conclusions"
+        },
+        {
+          "assessment": "Related but no justified whole-text noncoverage determination",
+          "evidence": [
+            "The comparison is framed in a heterogeneous SIS diffusion setting; an exact equivalent of the resident–traveller result was not established from the material available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2016.03.049",
+          "material_read": "Publisher landing/abstract-level material only",
+          "method": "Lawful lookup of the identified DOI",
+          "title": "Modeling vaccination in a heterogeneous metapopulation system",
+          "trigger": "Earlier threshold comparison in a vaccination diffusion model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A condition under which the uptake comparison is reliable despite heterogeneous efficacy, contacts, ongoing vaccination and infectious movement is useful for interpreting a spatial model. An exact admissible counterexample shows that the guarantee cannot simply be carried over once the mobility assumption changes; a complete single-parameter threshold analysis is stronger than one simulated reversal. The value is limited to model sensitivity and interpretation, not empirical vaccine advice or a general nonlinear epidemic prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

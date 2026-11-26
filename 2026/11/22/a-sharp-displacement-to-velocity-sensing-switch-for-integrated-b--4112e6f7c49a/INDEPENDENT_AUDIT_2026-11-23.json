@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:00:46.159351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md, and verification.py (read only)",
+        "repairs/2/RESULT.md, SLOGAN.txt, VERIFICATION.md, verification.py (inspected corrections)",
+        "checks/replay_certificates.py, bridge (independent exact replay)"
+      ],
+      "rationale": "The frozen decimal expansion of η* was incorrect at the printed precision (the supplied checker substituted a machine float into the gain formula). The exact definition and all preferences survive. The repair corrects the expansion in RESULT.md and SLOGAN.txt, and supplies exact rational bounds in verification.py and VERIFICATION.md. Independently integrating the bridge kernel gives the stated squared-covariance gains and baseline 1/30. The position derivative changes sign once until its stationary branch reaches 1 at η=11/336, with t=1 uniquely optimal at equality. The velocity stationary condition has a strictly increasing noise map on the interval from the noiseless optimum to √6−2. The optimized log-gain ratio has strictly negative derivative, including across the position endpoint stage by the unique-optimizer envelope identity: Vp≤1/12<6/25<Vv at the velocity optimum. Exact comparisons at 11/336 and 1/25 give opposite signs; velocity stationarity and gain equality give (Jp(1)−Jv)Vv′=(Vp(1)−Vv)Jv′. This gives the stated polynomial, with opposite endpoint signs and all seven derivative Bernstein coefficients in (−53,−52). Monotonicity of Jv,Vv on the narrow rational time enclosure bounds the gain-equality quotient and places η* strictly between 0.03486395077318212468 and 0.03486395077318212469. This certifies the corrected digits; independent replay uses no packaged code. The corrected final statement has exactly the two stated tie designs at η*, one elsewhere.",
+      "residual_risks": [
+        "Numerical illustrations are not the proof of the all-noise classification.",
+        "Equal noise variance is for the specified unit-time calibrated readouts; changing that calibration changes the design problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Müller Eqs. (5)–(10) optimize a general integrated prediction gain for noisy process point values.",
+          "Mukherjee's abstract discusses process-value designs and conditions for product-type kernels; full text unavailable."
+        ],
+        "reasoning": "The general gain formula can be adapted to a derivative readout, but it does not give the time extrema, their variance separation, or the sign of the optimized gain comparison. The integrated-bridge covariance on an ordered triangle is not a single product kernel.",
+        "searches": [
+          "arXiv:1604.05375 §2 and Appendix A.3",
+          "Purdue dissertation record AAI3043760"
+        ]
+      },
+      "checked_sources": [
+        "Lachal, arXiv:1108.2132",
+        "Ji–Müller, arXiv:1604.05375",
+        "Mukherjee, Purdue AAI3043760 abstract",
+        "Resultary records ending 4112e6f7c49a, 5692ba87bd94, 3e4b47324f39, 234c270723d5 and 7ee779b752f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The derivative-only record does cover the unique noise-monotone velocity timing for the same bridge and path risk, including its limiting interval.",
+          "The Wiener quadrature analogue gives a terminal-value/derivative tie near noise 0.1260852 but under a different target; the general Gaussian criterion computes the gain for any given design."
+        ],
+        "reasoning": "Velocity timing alone says nothing about whether a displacement sensor wins or when its optimum reaches the endpoint. Likewise a general gain objective is not a solution to the global comparison; the nonoverlapping optimal observation variances and exact displacement derivative supply additional information.",
+        "searches": [
+          "Resultary bridge derivative-only record ending 5692ba87bd94",
+          "arXiv:1604.05375 Eqs. (36)–(37)",
+          "Resultary integrated-Wiener quadrature record ending 3e4b47324f39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lachal distinguishes integrating a Brownian bridge from making a bridge out of integrated Brownian motion.",
+          "The integrated-Wiener quadrature record has a dual-mode switch, but uses unpinned Brownian motion and scalar quadrature error, not path loss."
+        ],
+        "reasoning": "Replacing the path L² risk by the variance of a path integral changes the numerator from an integral of squares to a squared integral; conditioning on the pin also changes the kernel. The dual-mode results are not equivalent by name, unit change, or a relabeling of the observables.",
+        "searches": [
+          "Resultary integrated Brownian bridge derivative/value sensing under integrated posterior variance",
+          "arXiv:1108.2132 §5.2",
+          "Resultary record ending 3e4b47324f39"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-threshold catalogue hit is the assigned record (4112e6f7c49a).",
+          "The integrated-Wiener endpoint record gives 8/273, and the quadratic-energy modality record addresses ∫X² for integrated Wiener, not the present loss."
+        ],
+        "reasoning": "No separate exact threshold table was found in the inspected results. The distinct examples are compared by process, loss and observation set, not eliminated merely by different numbers or by catalogue dates.",
+        "searches": [
+          "Resultary exact switch, bridge trajectory risk, ηp=11/336 and degree-seven crossover",
+          "Resultary records ending 4112e6f7c49a, 234c270723d5 and 7ee779b752f0"
+        ]
+      },
+      "rationale": "The final corrected claim is the joint two-mode decision and its two thresholds. Integrated-bridge covariances, the Gaussian design criterion, and even the same bridge's derivative-only time classification are not claimed as new. The closest joint-modality result concerns a different process and scalar loss. The correction to the numeric expansion does not create new priority.",
+      "residual_risks": [
+        "The complete Mukherjee dissertation was inaccessible; an unlocated Gaussian-design equivalent remains possible.",
+        "Catalogue dates do not establish order among related findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covariance precursor, not the two-mode optimization",
+          "evidence": "Integrated Brownian bridge identified as X₂ conditioned on X₁(1)=0 and its covariance given.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2132",
+          "material_read": "§5.2 p. 17, extracted offsets 72000–76181; distinction from §5.3",
+          "method": "Original OA PDF, bounded passage",
+          "title": "A class of bridges of iterated integrals of Brownian motion related to various boundary value problems involving the one-dimensional polyharmonic operator",
+          "trigger": "Same once-integrated bridge and conditional prediction"
+        },
+        {
+          "assessment": "General gain criterion, not the specialized two-mode switch",
+          "evidence": "Γ*=Γ+σ²I and integrated γᵀΓ*⁻¹γ for noisy value observations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+          "material_read": "§2 pp. 4–5 Eqs. (5)–(10); Appendix A.3 p. 25 Eqs. (36)–(37)",
+          "method": "Original OA PDF, comparison of loss, design set and conclusion",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "General noisy trajectory design might subsume the claim"
+        },
+        {
+          "assessment": "Unresolved beyond abstract",
+          "evidence": "Abstract discusses weighted IMSE and product-type kernels, with point-value observations and a separate integral target.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract and bibliographic record; dissertation restricted",
+          "method": "Public institutional record",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Plausible prior exact Brownian path-design thesis"
+        },
+        {
+          "assessment": "Covers derivative-only timing, not joint modality",
+          "evidence": "Unique derivative time grows in (0.4064908…,√6−2); displacement is not in its design set.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noise-monotone-derivative-sensing-of-an-integrated-browni--5692ba87bd94",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic retrieval and original mirror",
+          "title": "Unique noise-monotone derivative sensing of an integrated Brownian bridge",
+          "trigger": "Same process and loss"
+        },
+        {
+          "assessment": "Same type of competition; different kernel and target",
+          "evidence": "Unpinned integrated Brownian motion and scalar ∫X, with terminal-value/derivative tie near η=0.1260852.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-driven-choice-between-value-and-derivative-sensing-i--3e4b47324f39",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic retrieval and original mirror",
+          "title": "Sharp noise-driven choice between value and derivative sensing in integrated-Wiener quadrature",
+          "trigger": "Closest structural two-mode analogue"
+        },
+        {
+          "assessment": "Identical frozen record, not a distinct prior source",
+          "evidence": "Same two thresholds, loss, noise calibration and algebraic switch equation.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-displacement-to-velocity-sensing-switch-for-integrated-b--4112e6f7c49a",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic retrieval and original mirror",
+          "title": "A sharp displacement-to-velocity sensing switch for integrated Brownian-bridge recovery",
+          "trigger": "Exact same claim in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof §§2–5",
+        "Ji–Müller §2",
+        "Resultary derivative-only and quadrature analogues"
+      ],
+      "rationale": "With a resource limit of one observation, sensor choice and timing need not optimize the same feature of the prior. The exact terminal-placement stage and later jump to an interior velocity reading answer that joint decision for every positive noise level. The observation-variance separation explains why the crossover cannot recur and provides a reusable design argument, not just a fitted crossing number. Correcting the decimal leaves this contribution intact.",
+      "residual_risks": [
+        "A mathematical benchmark for one calibrated reading and unweighted path risk, not an assertion about hardware or general mixed-noise designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact recursion yields a permutation-invariant deterministic bias and a three-weight quadratic covariance polynomial. Both winner-crossing identities are checked symbolically. Since all permutation variances coincide at correlation one, every pairwise normalized difference is affine in correlation; checking two endpoints per interval suffices. The standalone exact certificate verifies all 30 required interval-endpoint inequalities for the full continuum of rates through nonnegative Bernstein coefficients, plus threshold inequalities and a generic two-step order identity. Rational interior checks are sanity tests, not substitutes for the certificate. Only second-moment assumptions are used.
+## correctness
 
-## Originality — PASS (subject to historical-priority uncertainty)
-Compared directly against published prior research on geometric rate decay, automated rate drops, Markovian SGD, asymptotic covariance efficiency, and the closest searchable same-parameter published result for *independent* oracle noise. The latter implies descending optimality at correlation zero but does not cover correlation-dependent order reversals. The general Markovian SGD papers supply convergence or asymptotic efficiency bounds, not exact minimization over the six permutations at finite horizon three. Published-claim comparisons did not treat keyword matches as proofs of coverage. An unknown prior equivalent calculation, including older colored-noise numerical-analysis literature, remains a real risk; no independent novelty certification is claimed.
+PASS
 
-## Value — PASS
-Geometric step decay is mathematically and practically motivated in stochastic optimization, and temporal oracle correlation changes effective accumulation of noise at the final iterate. The theorem supplies exact decision boundaries and shows a counterintuitive reversal of the standard descending-rate policy at both positive and negative correlation. Its three steps are not an arbitrary unmotivated slice: two steps provably cannot exhibit this phenomenon. This is a rigorous calibration benchmark, not a universal prescription for long schedules.
+Unrolling the update makes the bias (1-x)(1-2x)(1-4x)y0 common to all six orders; temporal zero means eliminate the cross term with this deterministic bias, with no need for Gaussianity or conditional unbiasedness. The chronological innovation coefficients all sum to one minus the common contraction, so the variance differences vanish at rho=1 and their quotients by 1-rho are affine in rho. I reconstructed these coefficients by propagating them step by step and recovered the two stated crossing thresholds. For the proposed winner on each interval, I tested the five other orders at both ends after division by 1-rho. Substitution x=u/[4(1+u)] gives nonnegative coefficients for the oriented numerator and denominator of each nonzero comparison, hence strict positivity for u>0, and x=1/4 was checked separately. This gives 26 strictly positive endpoint comparisons and exactly four zero comparisons (the two boundary pairs counted in both adjacent regions); thus there are precisely the two claimed double ties and no others for -1<rho<1. The same method gives five strict threshold inequalities. An independent exact replay confirms all four quoted variances, the two-step swap identity and the absence of a Gaussian assumption.
 
-## Scientific limits
-The rate multiset is geometric with ratio two, curvature is scalar and normalized, the largest rate does not exceed one, only terminal squared loss is optimized, and noise is stationary in covariance but not assumed Gaussian or conditionally unbiased. No claim is made for arbitrary schedules or multidimensional dynamics. The first reference was inspected at publicly accessible abstract level; relevant full texts of other sources were inspected, with details in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the complete fixed-multiset phase diagram, not the broader observation that AR(1) noise reverses optimal stepsize order. The closest distinct same-day result treats essentially the same loss and covariance and finds initial and terminal reversals, but its global optimum over the step cube is not the optimum over the six points with the prescribed rates. Its signal-to-noise thresholds and examples do not imply the x-dependent switch positions, boundary ties or exclusion of the other orders. The independent-noise fixed-multiset theorem is genuinely applicable at rho=0, and provides no coverage of the other phases. The inspected primary work did not establish this constrained classification.
+
+## value
+
+PASS
+
+The result pinpoints when the descending-order rule ceases to minimize terminal quadratic noise risk even with equal marginal variances and a fixed total contraction. The signed correlation regimes select two different departures from descending order, and the first horizon at which this is possible is shown by the two-step swap identity. Giving the full continuum boundary and unique-order/tie classification for a canonical factor-two ladder is more useful than isolated reversal examples or a freely tuned schedule when an implementation must use a prescribed set of rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

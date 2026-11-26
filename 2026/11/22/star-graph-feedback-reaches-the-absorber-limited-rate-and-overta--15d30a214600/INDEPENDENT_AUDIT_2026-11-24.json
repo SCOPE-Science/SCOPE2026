@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:14:41.096830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is a PASS for the repaired package, not for the original wording. The original and side files described the full Liouvillian gap as known only within a factor of two. The cited primary paper's arXiv v2 Eq. (78) gives equality for the connected SWAP measurement-feedback model with active feedback. The repair explicitly uses that model, attributes the equality, and does not identify all Liouvillian modes or claim a preparation time. It also replaces a potentially graph-universal reading of 2λ/n by the exact scope: the all-ones Rayleigh bound is λ|F|/binom(n,2), equal to 2λ/n when |F|=n−1. In particular, uniform active feedback on every edge of the complete graph would give rate λ, so 2λ/n cannot be graph-universal. The star rate is strictly below its bound at finite n≥3 since the all-ones vector is not an eigenvector, and approaches it at fixed λ. The corrected scientific files are under repairs/1; frozen evidence was preserved. Independently, dephasing on a measured edge conjugates by its swap with weight one-half; local feedback changes only the same-edge singlet contribution by −λ times its projector. Compression of a traceless one-site Pauli to the measured singlet vanishes, so overlapping pair projectors have no extra feedback term. This gives the claimed half-rate moves and killing. On the star the two classes have unweighted degrees m−1 and 2. CCᵀ=(m−2)I+11ᵀ gives the two singular values with their multiplicities; the nullspace on the pair side has dimension m(m−3)/2 at m≥3. For m=2 the mean-zero hub-pair combination decouples; at n=2 only killing remains. The positive unique lowest eigenvector is permutation-symmetric and the constant block has determinant λ and trace λ+n/2. Rationalizing its smaller root gives nΛ→2λ. For the ring the symmetric separation mode sin(πs/n) obeys the discrete second difference with zero boundary values, since the allowed moves at separation one total rate one and maximal feedback adds one. Positivity makes this the smallest mode. At λ=1 the star quadratic evaluated at the ring rate equals −1/2, 1−√2, (√5−3)/4 and 0 for n=3,4,5,6. For n≥7 use (n+2)π²/(2n²)<1 to prove strict positivity. The ring rate is below the large star root, giving the required ordering and exact ratio asymptotics. Uniform clock rescaling gives the distinct bounded-hub-rate comparison. The supplied checker and finite test scope were inspected, not rerun; no all-size claim depends on a simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 1, Eqs. (45)–(46), gives the uniform-vector mean-killing bound for the symmetric generator with a nonnegative diagonal absorber. Sec. IV I, Eq. (78), identifies the full gap under the model hypotheses via Λ_coh≥Λ₀.",
+          "The connected star with feedback active meets the relevant model hypotheses."
+        ],
+        "reasoning": "The stronger general statements cover the spectral representation, bound and interpretation; they do not identify a star-specific eigenvalue or show near-attainment of the bound. The repaired claim explicitly disclaims priority for the general identities.",
+        "searches": [
+          "arXiv:2611.13094v2 Sec. IV and Eq. (78): general graph closure, absorption and full gap",
+          "arXiv:2510.24845: geometric and transport mapping coverage"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, related scientific notes and check.py",
+        "Corrected files in repairs/1",
+        "arXiv:2611.13094v2",
+        "arXiv:2510.24845",
+        "Resultary 17ebfb940d31 and the assigned self-hit 15d30a214600"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established closed matrix determines the spectrum implicitly. Evaluating it on the star requires the complete-leaf incidence reduction, then identifying the constant block and comparing its root to the ring solution.",
+          "The model's general upper bound does not show that any low-edge-count topology has a matching leading-order rate."
+        ],
+        "reasoning": "The inspected literature implies the method and supplies the comparison rate but does not settle the quantitative claim without making the graph-specific calculation and proving the all-n ordering. The incident-rate normalization must be preserved; using a different clock model gives a different comparison. Standard singular-value and Rayleigh algebra is not a priority claim.",
+        "searches": [
+          "Primary model comparison: arXiv:2611.13094v2 Eqs. (27)–(29), (39), (45)–(46), (78)",
+          "Resultary 17ebfb940d31 Finding, star vs cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair-projector closure is exactly a symmetric two-particle exclusion walk with killing on active feedback edges.",
+          "The Resultary exact match 15d30a214600 is the assigned record, not independent priority evidence."
+        ],
+        "reasoning": "The killed walk is an equivalent representation, not itself a novel finding. The contribution specifically diagonalizes its star realization with one class killed and the second un-killed. Relevant prior transport mappings are credited.",
+        "searches": [
+          "Resultary: singlet-measurement star spectrum, star absorber-bound saturation, star/ring seven-qubit crossover",
+          "arXiv:2611.13094v2 Eqs. (27)–(29) and arXiv:2510.24845 Eqs. (8), (10), (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2611.13094v2 Eq. (39) gives the periodic-chain benchmark 2[1−cos(π/n)] for unit measurement rate per bond at maximal feedback. It is recorded as an exact solution in the summary table.",
+          "Resultary 2026/10/12, 17ebfb940d31, gives an exact six-vertex star–cycle reversal for a graph-density versus adjacency-spectrum epidemic comparison."
+        ],
+        "reasoning": "The epidemic threshold is a different spectral problem and cannot give the six-qubit tie or the seven-qubit rate advantage for killed pairs. The exact ring rate is an input, not a new value; the inspected benchmark does not tabulate the corrected star result.",
+        "searches": [
+          "Primary benchmark summary table and ring formula in arXiv:2611.13094v2",
+          "Resultary: exact star–cycle threshold and finite-size spectra"
+        ]
+      },
+      "rationale": "The surviving claim is the explicit star spectrum and its exact size comparison and asymptotic saturation at fixed unit edge clocks, not the general SWAP closure, general absorber bound, ring formula, or full-gap identity. The repaired attributions distinguish these. Neither the general pair-matrix formula nor the closest indexed size-crossover statement gives the star theorem at this normalization.",
+      "residual_risks": [
+        "Earlier equivalent star calculations in the language of killed exclusion walks, token graphs, or other feedback terminology could be unindexed. The bounded comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and ring known, including exact gap identity in v2; not an explicit star-spectrum result",
+          "evidence": "M=−Δ_pair/2 and A=λ diag(1_F). The bound is the mean absorption. Sec. IV I states Δ_Liou=Λ₀, rather than only a factor-of-two bound. The PDF examined is v2 dated 22 November 2026 on arXiv; no priority inference is drawn from shared dates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13094v2",
+          "material_read": "Summary p. 3, pair closure Eqs. (27)–(29), ring Eq. (39), Proposition 1 Eqs. (45)–(46), Sec. IV I Eq. (78) PDF p. 14 (OA text offset 103676)",
+          "method": "Lawful public arXiv PDF passage inspection",
+          "title": "Frustration-free control for quantum-state preparation: an exact first-passage theory",
+          "trigger": "Closest primary source for the same SWAP protocol and exact benchmarks; decisive gap statement"
+        },
+        {
+          "assessment": "Known mapping, not the star spectrum and ring ordering",
+          "evidence": "Projective swap measurements and singlet feedback give the walk and sink description.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.24845",
+          "material_read": "Singlet-projector and transport identities, PDF p. 7, Eqs. (8), (10), (11)",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Frustration-Free Control and Absorbing-State Transport in Entangled State Preparation",
+          "trigger": "Earlier primary feedback and transport model"
+        },
+        {
+          "assessment": "Different operators and quantities",
+          "evidence": "The adjacency-spectral epidemic ranking differs from the density ranking at the six-vertex comparison, not a tie of killed pair rates at six followed by a reversal at seven.",
+          "identifier_or_url": "Resultary 2026/10/12, 17ebfb940d31",
+          "material_read": "Finding and comparison thresholds",
+          "method": "Resultary index and actual claim comparison",
+          "title": "Six vertices are the sharp density–spectral epidemic ranking reversal",
+          "trigger": "Same star-versus-ring size motif near six vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two natural sparse architectures the complete star solution quantifies exactly how graph topology changes the prepared-state witness decay rate under equal edge clocks. The tree bound is asymptotically sharp on an edge-minimal connected graph, and the strict crossover begins at a specified size rather than merely following from eventual exponents. The explicit contrary conclusion under bounded incident rates makes the comparison meaningful without implying a hardware or state-independent preparation speedup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is primary. It establishes an if-and-only-if local condition for resolving partitions, derives the sharp lower bound, classifies every equality case, and counts the two resulting families.
+# Independent mathematical audit
 
-The accompanying `verify.py` performs two independent finite checks: it exhaustively enumerates every set partition of the vertex set for \(n=3,4,5\), and it generates every partition predicted by the theorem for \(3\le n\le8\). It verifies distance-vector injectivity, the minimum number of parts, equality with the closed count, and equality between the exhaustive and classified families in the exhaustive range.
+## correctness
 
-Replay command: `python3 verify.py`
+PASS
 
-Expected output:
+For a block not containing v, distance is 2 iff the block is the singleton mate of v; otherwise it is 1. In the same block, distinct vertices therefore collide exactly when neither mate is singleton. For s singleton blocks among k blocks, each nonsingleton block of size r needs at least r−1 distinct singleton mates, so s≥2n−k. Equality k=n would make all blocks singleton and leave vertices uncovered. With k=n+1, s is n or n−1. In the first case the one size-n block has at most one endpoint from each pair (an internal pair would create two exceptions), hence is a transversal; its complement gives the singleton blocks. In the second case tightness forces exactly one exception in each of the two large blocks and requires all singleton vertices to have nonsingleton mates. The exceptions must be mated across the two blocks, leaving the remaining n−1 mates to distribute with both blocks receiving one. These forms are sufficient by the same distance criterion. Canonically naming a large block by which endpoint of the exceptional pair it contains avoids a spurious division by two, giving 2^n+n2^(n−1)(2^(n−1)−2) on labeled vertices with unordered blocks; ordering multiplies by (n+1)!. The finite independent replay `python3 /workspace/branches/independent-checks.py 2` enumerated restricted-growth strings for n=3,4,5 (203,4140,115975 partitions) and tested distance vectors, giving optimum values 4,5,6 and counts 32,208,1152. This corroborates, but does not replace, the proof for n≥3. Read the frozen checker and expected output without executing the uploaded code.
 
-`VERIFY_OK exhaustive_n=3..5 partitions_tested=120318 basis_counts=32,208,1152 construction_n=3..8 construction_checks=164400`
+## originality
 
-The finite ranges are not claimed exhaustive for all \(n\); they test boundary cases and the implementation of the structural theorem. The literature comparison does not treat inaccessible full text as negative evidence.
+PASS
+
+The scalar dimension is credited to prior work; the supported contribution is the complete classification and enumeration of all minimizers, explicitly the narrower claim of the frozen record. The strongest same-graph comparison, Zafari–Alikhani, verifies the scalar dimension and exhibits constructions rather than describing all minimizers. The old complete-multipartite scan could not be read and is an explicit residual risk, not negative evidence.
+
+## value
+
+PASS
+
+This resolves a natural extremal gap for a standard complete-multipartite family. The classification exposes a second family that a proof by a single construction can miss and describes every optimum at all n, with an exact count for labeled vertices. The already-known scalar partition dimension is not the basis for this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

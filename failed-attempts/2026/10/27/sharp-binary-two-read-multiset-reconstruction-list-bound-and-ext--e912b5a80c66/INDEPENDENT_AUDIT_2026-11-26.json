@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:10.019531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Steps 1–4",
+        "VERIFICATION.md, lines 18–22",
+        "verify_bigram.py, lines 9–83 (inspected; not executed)",
+        "verify_bigram.out, lines 1–21 (frozen reported evidence)",
+        "Independent finite enumeration by integer bit extraction, n=3–18; replay: node /workspace/review_checks/bounded-enumerations.mjs 3"
+      ],
+      "rationale": "The endpoint symbols fix the transition-count imbalance and the number of runs of each symbol. Distributing 00 and 11 counts as extra run lengths gives the two stars-and-bars formulas, with two start-symbol terms in the equal positive-transition case and only one in the imbalanced case. Zero transitions give only constant singleton fibers. At a fixed balanced t=k+1, set L=a+k, R=d+k. For k>0 and R>=L+2, the proposed product ratio for moving one unit from R to L exceeds one since its numerator minus denominator is k(R-L-1)>0; for k=0 all splits are equal. The ratio for adjacent k has sign relative to one given by uv-2-(u+v+3)k, so scanning the allowed interval yields the stated rounded threshold and integral tie, including u=0. For the imbalanced t>=2 case with a>=t-1, the comparison converting one 00 to a missing transition has ratio ma/[t(a+t-1)]>=1. Equality requires t=2,a=1,d=0, which gives size two below m=4. For a<=t-2 the comparison reducing the excess transition and adding a 00 has ratio with positive numerator excess 2(t-1)^2+d(t-2-a); t=1 gives a singleton. Thus both global exclusion and all equality cases follow. An independent bounded enumeration encoded each n-bit word as an integer, counted adjacent two-bit blocks over shifts 0 through m-1 and compared every resulting profile to the rounded-threshold formula and equality predicate for n=3 through 18. It gave the stated four maximizers at n=10 (size 54) and n=18 (size 8330). This corroborates the proof only finitely.",
+      "residual_risks": [
+        "The frozen large-parameter sweep compares formulas rather than enumerating all words; the independent bounded enumeration and both frozen finite tests are not the all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The web query did not produce a relevant stronger statement and supplies no evidence of absence.",
+          "The inspected Eulerian-route passage identifies graph-traversal feasibility and construction, not the maximum fiber. The Markov-types full text was not read; corpus comparisons describe it as primarily counting cyclic types."
+        ],
+        "reasoning": "Counting spectra or giving one Eulerian traversal is not optimizing the number of distinct words in one linear free-endpoint fiber. The directly covering theorem is already stated in that exact model, without needing to infer anything from an inaccessible general source.",
+        "searches": [
+          "\"Exact worst-case ambiguity of binary two-gram profiles\" linear word maximum fiber Markov types free endpoints Euler trail",
+          "arXiv:2506.22172v1, Eulerian path passages",
+          "DOI:10.46298/dmtcs.2768 (OA attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5122acc1b9bd and 13779c08da71",
+        "arXiv:2506.22172v1",
+        "DOI:10.46298/dmtcs.2768 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older rule is j=ceil(m/4) plus j-1 precisely for m=1 modulo 4 in the stated range m>=2. Equal directed transition counts are required; loop splits are arbitrary for j=1 and balanced for j>=2.",
+          "In the frozen threshold T=(uv-2)/(m+1), writing m=4q+r gives T=q-1-q/(4q+1) for r=0, T=q-1 for r=1, T=q-(3q+2)/(4q+3) for r=2, and T=q-1/2 for r=3. Thus rounding and allowing the integral tie selects exactly the same j=k+1 set, including small m."
+        ],
+        "reasoning": "Both the numerical optimum and every extremal profile coincide for all n>=3; no new equality classification or independent bound remains after conversion.",
+        "searches": [
+          "Resultary 5122acc1b9bd, Finding and Steps 1–4, RESULT.md offsets 0–7579",
+          "OA literal query: all and only maximizing profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior profiles count 00,01,10,11 separately, retaining internal read order but not positions, for linear words of fixed length with unspecified endpoints.",
+          "The prior objective is m/j binom(floor(m/2)-1,j-1) binom(ceil(m/2)-1,j-1); put j=k+1 to obtain the frozen objective."
+        ],
+        "reasoning": "The fiber definitions agree on words, not reversal or cyclic classes; the shift in transition-count index and the descriptions of balanced loops preserve each equality observation.",
+        "searches": [
+          "Resultary: binary linear adjacent pair multiplicity profile exact largest fiber all extremizers balanced transition loop counts endpoints",
+          "2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 record solves attainable-profile count and singleton classification, not worst-case size.",
+          "The October 13 record gives an exact all-length formula and characterization, stronger evidence than matching a finite sequence table."
+        ],
+        "reasoning": "Evidence of coverage is the exact published formula and hypotheses, not the frozen checker output or the search's absence of a distinct same-date hit.",
+        "searches": [
+          "Resultary: binary two-read multiset reconstruction largest fiber maximum multiplicity profile singleton classification exact binary two-multispectrum",
+          "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd"
+        ]
+      },
+      "rationale": "The October 13 exact worst-case ambiguity theorem (5122acc1b9bd) already gives the same all-length maximum and all equality profiles in the same binary, linear, free-endpoint setting. The rational-threshold optimizer is a reparameterization of that theorem's mod-four rule, not a distinct refinement.",
+      "residual_risks": [
+        "Earliest historical priority under Markov-type or graph-trail terminology is not established, but the positive all-length coverage in the inspected earlier record is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the frozen theorem under a change of index",
+          "evidence": "The m/j binomial product, j=ceil(m/4) with the mod-four tie, positive equal transition counts, and the same loop split conditions.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd",
+          "material_read": "RESULT.md offsets 0–4267 (Finding, assumptions, Steps 1–3) and 4267–7579 (Step 4 and prior work); exact-match phrase at 514",
+          "method": "Local published-record mirror and literal passage reads",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Exact maximum fiber and all maximizers in the same read model"
+        },
+        {
+          "assessment": "Covers individual counting mechanism and singleton classification, not the global optimizer",
+          "evidence": "It counts attainable multispectra and identifies exactly the singleton classes.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "material_read": "RESULT.md offsets 0–3514 and 3514–5865; singleton-class statement at offset 706",
+          "method": "Local published-record mirror and literal passage read",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Cited record for the same spectra and run-composition mechanism"
+        },
+        {
+          "assessment": "Feasibility and a construction route in the inspected passage",
+          "evidence": "Traversals in a directed graph reconstruct reads; existence conditions are given, not a largest binary fiber classification.",
+          "identifier_or_url": "https://arxiv.org/html/2506.22172v1",
+          "material_read": "Eulerian-path passages at offsets 39686 and 40828",
+          "method": "OA literal passage reads",
+          "title": "Bridging Chaos Game Representations and k-mer Frequencies of DNA Sequences",
+          "trigger": "Euler-trail formulation of reconstruction"
+        },
+        {
+          "assessment": "Independent scope comparison unresolved for this paper",
+          "evidence": "Available secondary passages discuss numbers of distinct types rather than the free-endpoint maximum; no negative full-text inference is drawn.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "No direct full text obtained; relationship discussion in earlier Resultary records only",
+          "method": "OA attempts at DOI and journal copy https://dmtcs.episciences.org/2768 timed out",
+          "title": "Counting Markov Types",
+          "trigger": "Possible Markov-type reformulation or old enumeration result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and scope",
+        "Resultary 5122acc1b9bd, exact maximum and equality classification"
+      ],
+      "rationale": "Worst-case ambiguity is a natural and useful reconstruction measure, but the frozen exact value, extremizers and sample sizes are already supplied by the earlier solution. Reexpressing its modular optimizer as a ceiling of a rational threshold and repeating finite checks does not leave a separately useful new result.",
+      "residual_risks": [
+        "The judgment is about the frozen two-read theorem, not the potential value of new longer-read or noisy-read bounds."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

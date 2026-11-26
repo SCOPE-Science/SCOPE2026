@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:21:00.517167Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put N=2^r and k=2^t u with u odd. In the product for binom(N−1,k−1), all factors 1−N/i are odd, and for r≥3 only i=N/4,N/2,3N/4 can differ from 1 modulo 8. They give successive factors 5,7,5, hence cumulative products 1,5,3,7 with the block indexed by floor((k−1)/(N/4)). Using binom(N,k)=(N/k)binom(N−1,k−1) and u^(−1)=u modulo 8 gives valuation r−t and exactly the stated signed odd part. The three-square theorem then gives both required conditions. Write s=r−t: only even s≥2 qualify. For s≥6 each of the four blocks is balanced among odd u modulo 8 and contributes 2^(s−5), since the sign is constant at fixed t even when t=0. The block edges are not eligible odd u for s≥4. For s=4 and t>0, exactly u=1,5,11,15 qualify; for s=4,t=0 none qualify. For s=2 and r≥3 the two u=1,3 lie on block edges and use q=0,2 respectively, so both qualify. Rows r=1,2 and both endpoints check directly. This gives the two starting values 0, the next two values 2, and for r≥5 the sum 6+sum_{s=6,8,…,2 floor(r/2)}2^(s−3)=(2^(2 floor(r/2)−1)+10)/3. The even and odd normalized limits are respectively 1/6 and 1/12. The supplied verifier was inspected but not executed; it compares direct integer rows through r=13 and residue-only counts through r=20. Those checks are finite, while the valuation and block argument proves the full claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original Resultary 03ea475ec42f states a p-kernel rank for counts of coefficients not divisible by p^α. It tracks valuations, not the odd unit modulo 8. Access to the two older articles was attempted and their full statements could not be inspected; the frozen literature notes indicate global counts and runs, respectively."
+        ],
+        "reasoning": "A general theorem computing the joint valuation and odd-unit counts row by row could cover the finding. A valuation-only count, a global count across rows, or a result about runs does not by itself compute the dyadic profile. No whole-document noncoverage conclusion is drawn for the inaccessible papers.",
+        "searches": [
+          "Moshe DOI 10.1112/S0025579300015515",
+          "Mincu–Panaitopol DOI 10.1007/s00013-010-0182-5",
+          "Resultary 03ea475ec42f"
+        ]
+      },
+      "checked_sources": [
+        "Burns arXiv:2203.16469 p.1",
+        "Resultary 48027f9dc065",
+        "Resultary ca60adc2684c",
+        "Resultary 03ea475ec42f",
+        "Granville–Zhu, Moshe, Mincu–Panaitopol (limited to cited scope and lawful access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known three-square criterion supplies the valuation/unit test; the related catalogue statements do not supply the matching odd-unit distribution. No directly readable older proof yielding that distribution was obtained."
+        ],
+        "reasoning": "A general congruence for units can be a route to the position test, but an aggregate count by valuations alone lacks the necessary residue condition. The sharp two boundary contributions, geometric sum and its differing parity limits are not implications of the prior statements actually compared.",
+        "searches": [
+          "Granville–Zhu citation and lawful OA attempts",
+          "Moshe DOI 10.1112/S0025579300015515",
+          "Resultary 03ea475ec42f and 48027f9dc065"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent obstruction is parity of v₂ plus odd part 7 mod 8. Burns's inspected first-page statement is about factorials, even where it uses parameters 2^k. The same-day 48027f9dc065 concerns binary-partition numbers, not Pascal entries."
+        ],
+        "reasoning": "The shared criterion and indexing by powers of two are not enough for equivalence: one needs the same angular brackets of indices (the row n=2^r and its interior positions k) and the valuation-plus-residue statistic on those binomial coefficients.",
+        "searches": [
+          "Local Resultary dyadic Pascal three-square obstruction and valuation/residue comparison",
+          "Granville–Zhu, Representing Binomial Coefficients as Sums of Squares",
+          "Burns arXiv:2203.16469"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue counts and densities are for binary partitions, generalized derangements, or divisibility of Pascal entries. In particular, the derangement record's 1/6 uses a different sequence. Burns counts factorials rather than entries of a dyadic row."
+        ],
+        "reasoning": "Neither a matching number nor an exact statistic of a different sequence is an equivalent table of E_r or the obstructed positions. No such table was identified in the bounded local comparison.",
+        "searches": [
+          "Local Resultary exact dyadic-row count comparison, including 48027f9dc065, ca60adc2684c and 03ea475ec42f",
+          "Burns arXiv:2203.16469 p.1"
+        ]
+      },
+      "rationale": "Pass on the supported distinct result: the dyadic binomial position test together with the full exact row counts and alternating densities. Neither classical three-square obstruction nor general binomial congruence methods alone give these counts without determining the residues, handling the low-valuation block sizes and summing. The closest available catalogue comparisons have different sequences or statistics. Some highly relevant older papers could not be compared in full; this limitations-qualified pass is not a priority certification.",
+      "residual_risks": [
+        "The three closest older binomial-representability papers were not inspected in full; an explicit dyadic count or a row-level automaton with a direct dyadic specialization could alter the originality assessment.",
+        "The bounded database and stated-passage comparisons cannot exclude unindexed or otherwise unavailable equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially relevant; full comparison unresolved",
+          "evidence": "The frozen description cites existence and central-coefficient results, but that does not certify the rest of the paper lacks a dyadic count.",
+          "identifier_or_url": "https://www.dms.umontreal.ca/~andrew/PDF/YZhu.pdf",
+          "material_read": "Frozen citation and related-work description only; no primary result passage obtained",
+          "method": "Author PDF attempt timed out; alternate route provided no extractable text",
+          "title": "Representing Binomial Coefficients as Sums of Squares",
+          "trigger": "Same binomial representability problem"
+        },
+        {
+          "assessment": "Potentially strong unresolved comparison, not evidence of absence",
+          "evidence": "Frozen description points to the global Pascal-triangle problem, but possible row-level formulas within the paper remain unexamined.",
+          "identifier_or_url": "10.1112/S0025579300015515",
+          "material_read": "Bibliographic record and frozen description; no theorem passage obtained",
+          "method": "DOI access failed with 403; no lawful repository copy obtained",
+          "title": "On a Problem of Granville and Zhu Regarding Pascal's Triangle",
+          "trigger": "Possible implication from stronger Pascal count or automaton"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "The reported consecutive-run focus is not evidence about every statement of the unavailable paper.",
+          "identifier_or_url": "10.1007/s00013-010-0182-5",
+          "material_read": "Bibliographic record and frozen description; no theorem passage obtained",
+          "method": "Identified publisher PDF repeatedly redirected; no full text obtained",
+          "title": "Writing Binomial Coefficients as Sums of Three Squares",
+          "trigger": "Same representability statistic"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "Its power-of-two indexed count is about factorials, not Pascal rows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.16469",
+          "material_read": "p.1 around offset 147",
+          "method": "Primary OA PDF passage",
+          "title": "Factorials and Legendre's Three-Square Theorem: II",
+          "trigger": "Exact three-square obstruction counts with dyadic parameters"
+        },
+        {
+          "assessment": "Different object and a lower bound, not an exact census",
+          "evidence": "Two congruence classes for b₂ give a lower density 1/64; no Pascal-row count.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-positive-density-three-square-obstruction-for-two-colored-bina--48027f9dc065",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A positive-density three-square obstruction for two-colored binary partitions",
+          "trigger": "Distinct same-day result using the same obstruction"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "The densities 1/24 or 1/6 arise in generalized derangements, not even/odd powers in Pascal's triangle.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-square-obstruction-densities-for-every-higher-even-g--ca60adc2684c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact three-square obstruction densities for every higher even generalized derangement sequence",
+          "trigger": "Numerically overlapping exact density"
+        },
+        {
+          "assessment": "Does not track the required odd units modulo eight",
+          "evidence": "The statistic is the count not divisible by p^α and its p-kernel rank.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-p-kernel-rank-of-prime-power-pascal-row-counts--03ea475ec42f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact p-kernel rank of prime-power Pascal row counts",
+          "trigger": "Broader-looking exact Pascal-row counting and valuation methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dyadic rows are a natural binary test family for the classical Pascal representability problem. The row census answers a precise distribution question, and the different limiting densities show that even on powers of two there is no single limiting row proportion. The per-position criterion and boundary counts explain that phenomenon and are usable without building the large binomial coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

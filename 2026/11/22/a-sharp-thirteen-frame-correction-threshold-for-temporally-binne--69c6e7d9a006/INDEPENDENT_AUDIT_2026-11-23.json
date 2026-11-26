@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:49.516719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=2m+1, the central covariance sum is C_m=3−2^(1−m); the atmospheric variance numerator of the boxcar uses the lag counts N−k and equals S_N=3N−4+2^(2−N). The independent target-noise term cancels, and the comparison noise adds η/N to normalized risk. Thus R_m=1+(η−B_m)/N, with B_m=3+4/N−4·2^(−m)−2·4^(−m)/N. With y=2^(−m), the numerator of B_{m+1}−B_m over N(N+2) is D_m=−8+2yN(N+2)+y²(3N+8)/2. Independent rational arithmetic gives D_0 through D_6 as 7/2,73/8,327/32,1021/128,2275/512,1961/2048,−15569/8192. For all m≥6 both positive terms have next/current ratios below one: (N+4)/(2N) and (3N+14)/(4(3N+8)). Therefore the maximum is uniquely B_6=86399/26624 over the entire unbounded family, establishing the strict regions and the sole finite tie at equality. At η=13/4 the 11-, 13-, and 15-frame excess risks over omission are 65/61952,129/346112,1793/1843200, respectively, so the middle window is a strict neighboring minimum but loses to omission. These are variance comparisons in the specified second-order model, without any assumption of Gaussianity or an AR(1) recursion. The result says neither that 13 frames are optimal at arbitrary subcritical η nor that finite unit gain can be replaced by optimized gain. RESULT.md lines 23–46 reconstructed; verify.py and VERIFICATION.md inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general LTI second-order formulas in §12.1 already give the required per-filter covariance calculus. The nearest distinct Resultary AR(1) record e0f4a1d0a49b concerns zero crossings and centered energy, not differential correction or boxcar benefit."
+        ],
+        "reasoning": "Substitution into the LTI formula determines R_m at each fixed m; it does not sign consecutive threshold differences on an unbounded domain. A generally optimized filter or subtraction gain has a larger admissible class and need not have a finite-noise omission boundary.",
+        "searches": [
+          "MIT OpenCourseWare HST.582J Ch. 12, Response of LTI systems to random signals",
+          "Resultary: centered boxcar atmospheric covariance variance threshold; AR(1) covariance exact thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Hartley–Wilson DOI:10.1093/mnras/stad2964 (metadata; OUP and Durham full texts unavailable)",
+        "MIT HST.582J Chapter 12 §§12.1.1–12.1.2",
+        "Resultary e0f4a1d0a49b and assigned 69c6e7d9a006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary covariance identities give a window-specific criterion B_m. The analytic sign certificate for B_{m+1}−B_m controls every remaining window after the finite checks. The nearest catalogue result addresses a different statistic and supplies no such certificate."
+        ],
+        "reasoning": "The finite risk formula and binning idea do not mechanically determine a unique global cutoff: for example, under the same algebra at zero lag-one correlation all B_m equal 1. It is the sign analysis at geometric ratio one half that identifies the finite maximizer and local trap. No inspected result supplies that comparison.",
+        "searches": [
+          "MIT OpenCourseWare HST.582J Ch. 12 §12.1.2 eqs. (12.3)–(12.4)",
+          "Hartley–Wilson DOI:10.1093/mnras/stad2964",
+          "Resultary e0f4a1d0a49b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hartley–Wilson's accessible metadata describes temporally binning comparison-star observations and optimizing the number of frames. In the frozen model testing against omission is equivalent to asking whether η<sup_m B_m, not to minimizing B_m or to unrestricted linear filtering."
+        ],
+        "reasoning": "There is direct workflow overlap, but the material accessible from the prior does not establish the same optimization under the specific geometric autocovariance and the odd, centered fixed-gain rules. The empirical-versus-exact characterization of the unavailable sections is not treated as verified exclusion.",
+        "searches": [
+          "Hartley Wilson Optimized temporal binning of comparison star measurements for differential photometry stad2964 accepted manuscript",
+          "centered moving average subtraction covariance AR(1) optimal odd window no correction noise variance boxcar signal risk proof global threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 13-frame index hit is the frozen finding itself. The cited article's tables and results sections could not be inspected over lawful OA routes; metadata alone cannot exclude them."
+        ],
+        "reasoning": "A selected-conditions table of best widths could at most supply a matching width unless it used the same covariance, noise normalization and all-length decision rule. The exact issue is the maximizing width and value over all odd lengths, not an observation that 13 was good in a finite set of windows.",
+        "searches": [
+          "Resultary: exact thirteen-frame photometry threshold and AR(1) boxcar no-correction boundary",
+          "DOI:10.1093/mnras/stad2964 and Durham record 1901608"
+        ]
+      },
+      "rationale": "Temporal comparison-star binning and selecting its width are prior work, and the per-window covariance algebra is classical. The supported distinct claim is the exact unbounded odd-window optimum of the benefit threshold for the unit-gain half-life covariance model, including its local-but-not-global example. Hartley–Wilson's unavailable full text limits the priority assessment, not the mathematical verdict.",
+      "residual_risks": [
+        "The inaccessible Hartley–Wilson sections may contain stronger analytic or condition-specific results than available metadata shows. No whole-paper exclusion or historical-priority claim is made.",
+        "Unlocated work on optimal fixed-gain boxcar subtraction could contain a broader exact discrete-width comparison; a topical search alone is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial known workflow overlap; full scientific comparison limited by access",
+          "evidence": "The accessible record describes comparison-star temporal binning and choosing the number of frames; it does not establish the exact half-life covariance threshold or maximum over the admissible windows.",
+          "identifier_or_url": "https://doi.org/10.1093/mnras/stad2964",
+          "material_read": "Accessible metadata/abstract only; requested §§2.5, 3.2 and 5 not read",
+          "method": "Metadata inspection, primary OA attempts at OUP and identified lawful alternate Durham repository record 1901608; both returned 403",
+          "title": "Optimized temporal binning of comparison star measurements for differential photometry",
+          "trigger": "Closest photometry paper with the same bin-width design motivation"
+        },
+        {
+          "assessment": "Covers covariance computation, not the width optimum",
+          "evidence": "The cross-correlation between signal and its linear filter output is convolution of impulse response with the input autocorrelation. This yields the finite boxcar covariance term, not its optimum against omission.",
+          "identifier_or_url": "https://ocw.mit.edu/courses/hst-582j-biomedical-signal-and-image-processing-spring-2007/486d9caf4d80df83da4a5959b4a1d40e_ch12_randsys.pdf",
+          "material_read": "PDF offset 3100–5779, §§12.1.1–12.1.2, especially eqs. (12.3)–(12.4)",
+          "method": "Primary educational OA PDF, bounded equations and scope",
+          "title": "Random Signals and Linear Systems, MIT HST.582J Chapter 12",
+          "trigger": "Broader second-order response formulas for linear filters"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Zero-crossing counts and centered energy in Gaussian AR(1) samples, not covariance risk for a reference subtraction filter.",
+          "identifier_or_url": "Resultary 2026/10/12, e0f4a1d0a49b",
+          "material_read": "Indexed statement of the observable and sign layers",
+          "method": "Local Resultary comparison, no whole-document exclusion",
+          "title": "Two boundary layers for zero-crossing and centered-energy covariance",
+          "trigger": "Nearest distinct indexed exact AR(1) threshold comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-frame correlation half-life makes a natural idealized benchmark for the reference-inclusion decision in a previously motivated workflow. The exact global threshold and the strict local minimum rejected by omission distinguish all-window design from choosing a good neighboring bin. The result is a useful benchmark for the stated unit-gain rule, not a telescope-independent recommendation or model calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

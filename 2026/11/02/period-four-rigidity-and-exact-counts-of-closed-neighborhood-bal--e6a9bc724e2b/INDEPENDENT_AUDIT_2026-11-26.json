@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:17.693339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the closed neighborhood there is a complete column and two distinct lateral vertices (also for n=3). With signs x, summing the row equations gives mS_j+S_(j−1)+S_(j+1)=0. Taking the maximum absolute column sum gives mM≤2M and forces S=0 for the repaired range. The equation then says x_(a,j+2)=−x_(a,j), so the nonzero signs have least period exactly four. Conversely any two balanced named columns and their negatives close and satisfy all equations if four divides n. They give a bijection with the square of the set of balanced length-m columns, without quotienting rotations or colors; exchange has no fixed assignments. The contextual prism calculation is also exact: upper triples of a parity configuration must not be monochromatic, and in four-periodic blocks with two ones the lower row is a shift by two, so its triples satisfy the same test.",
+      "replay": "python3 /workspace/branches/frozen_replay.py 4 exhaustively counts actual neighborhood bit masks on six thin prisms and four larger instances. The repaired-scope cases (4,3),(4,4),(4,5),(6,3) give 0,36,0,0. The frozen script was inspected, not executed. The cyclic recurrence proves all parameter values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gharibyan–Petrosyan's inspected statement is existence complexity, not a stronger enumeration. The 2020 rook-graph family uses a complete second factor (with C_3=K_3 a boundary case); the cited torus comparison concerns open neighborhoods. Resultary 737edf71bc86 is instead about open Lovász neighborhood complexes."
+        ],
+        "reasoning": "Neither complete-second-factor existence nor open-neighborhood torus statements cover even clique times a variable cycle with closed exact balance. No conclusions about uninspected sections are drawn from abstract-level retrieval.",
+        "searches": [
+          "Resultary: open-neighborhood balanced partitions toroidal grids 2018 grid-like graphs Gharibyan",
+          "Websearch: \"locally-balanced\" \"grid-like graphs\" partition toroidal open neighborhoods Gharibyan",
+          "DOIs 10.46991/PYSU:A/2020.54.1.009 and 10.46991/PYSU:A/2021.55.2.096 (access checks)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f178222ad14, 31f03994e1a6, 737edf71bc86",
+        "Gharibyan–Petrosyan arXiv:2401.15490v1 p. 1",
+        "2020 and 2021 DOI access checks and frozen bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity proof explicitly parametrizes every prism configuration by a_(j+4)=a_j and b_j=a_(j−1)+a_j+a_(j+1) over F_2. The frozen m≥4 proof instead uses the real recurrence with coefficient m."
+        ],
+        "reasoning": "Exact prism balance is equivalent to selecting upper words with no monochromatic upper triples: for gcd(n,4)=1 there are none, for gcd=2 there are two alternating words, and for gcd=4 there are six choices with two ones and b_j=a_(j+2), so the lower triples also pass. This yields the full frozen exceptional subcase directly; it is removed as an originality claim. The parametrization uses exactly two rows and does not imply the surviving binomial-square count.",
+        "searches": [
+          "Resultary 6f178222ad14, local mirror Proof (1)–(2), offset 1700",
+          "Resultary: closed-neighborhood balanced colorings exact enumeration K_m Cartesian C_n clique cycle cylinder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gharibyan–Petrosyan arXiv:2401.15490v1, p. 1, defines the open and closed conditions separately. Exact balance on this family with even closed-neighborhood size is the sign-vector equation (A+I)x=0."
+        ],
+        "reasoning": "A calculation of the adjacency eigenspace alone would yield allowed linear modes, but not enumerate sign vectors. Here the clique modes force balanced columns and the cycle modes give four-periodic columns; open neighborhoods use a different eigenvalue. No equivalent evaluated formulation was identified.",
+        "searches": [
+          "Resultary: closed-neighborhood balanced colorings exact enumeration K_m Cartesian C_n clique cycle cylinder",
+          "Resultary: locally-balanced 2-partitions closed neighborhoods K_m square C_n exact enumeration two colors",
+          "Resultary: closed-neighborhood balance arbitrary graph eigenvector adjacency plus identity zero sign vectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 31f03994e1a6 gives the prism conflict-free counts 2,4,16 for the three circumference regimes. Resultary 6f178222ad14 gives the parity code weight enumerator 1+(2^g−2)z^n+z^(2n), g=gcd(n,4)."
+        ],
+        "reasoning": "On four vertices conflict-free means one color occurs once, not 2–2. Global code weight also does not imply exact local balance. The explicit codewords of 6f178222ad14, rather than the table, are what cover the m=2 count; neither record gives the m≥4 count.",
+        "searches": [
+          "Resultary: exact balanced sign colorings K_2 Cartesian C_n closed neighborhoods 2 of each color prism",
+          "Resultary: closed-neighborhood parity code cyclic prism dimension gcd n 4 closed neighborhood exact balance sign assignments",
+          "Resultary: K_m Cartesian C_n exact enumeration"
+        ]
+      },
+      "rationale": "The revised theorem concerns exact balanced sign configurations for even clique orders at least four, not the covered thin-prism count. Distinguish closed-neighborhood balance, open-neighborhood balance, modular parity and conflict-free colorings; none of the inspected statements supplies the surviving count or structure on this clique-cylinder family.",
+      "residual_risks": [
+        "The 2018 grid-like conference source was not identified in full text; the dissertation PDF attempt timed out and 2020/2021 article access was limited. Older work under equitable-coloring or perfect-coloring terminology could give another comparison; no priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies m=2 exact balance after filtering explicit words; does not cover even m≥4",
+          "evidence": "The two binary rows satisfy b_j=a_(j−1)+a_j+a_(j+1) and a_(j+4)=a_j, necessarily and sufficiently for parity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-kernel-codes-of-cyclic-prisms-and-their-reed-muller-suppo--6f178222ad14/RESULT.md",
+          "material_read": "Proof (1)–(2) and subsequent cases, mirror offset 1700–4171",
+          "method": "Indexed local mirror, bounded full-text passage",
+          "title": "Parity-kernel codes of cyclic prisms and their Reed–Muller support hierarchy",
+          "trigger": "Distinct same-day exact local-incidence parametrization on the exceptional prism family"
+        },
+        {
+          "assessment": "Different predicate and counts",
+          "evidence": "Requires a singleton in every closed neighborhood; the prism counts are 2,4,16 rather than 0,2,6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-two-colour-closed-neighbourhood-conflict-free-census-of-ge--31f03994e1a6/RESULT.md",
+          "material_read": "Definition and prism specialized census in RESULT.md",
+          "method": "Indexed local mirror",
+          "title": "Exact two-colour closed-neighbourhood conflict-free census of generalized Petersen graphs",
+          "trigger": "Same labelled prism and closed neighborhoods"
+        },
+        {
+          "assessment": "Common framework, different inspected theorem",
+          "evidence": "Open and closed discrepancy at most one are separate definitions, with decision complexity statements rather than the prism/clique-cylinder census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.15490v1",
+          "material_read": "P. 1, definition and main-problem summary, around extraction offset 918",
+          "method": "Public primary PDF, bounded passage",
+          "title": "Complexity results on locally-balanced 2-partitions of graphs",
+          "trigger": "Primary source using the exact terminology and both neighborhood conventions"
+        },
+        {
+          "assessment": "Partial access; recorded as residual risk, not paper-wide exclusion",
+          "evidence": "The available scope comparison is to a complete second factor, not a cycle of general length.",
+          "identifier_or_url": "https://doi.org/10.46991/PYSU:A/2020.54.1.009",
+          "material_read": "DOI landing or abstract material only; frozen bibliography describes the rook-graph comparison",
+          "method": "Public DOI access check",
+          "title": "Locally-balanced 2-partitions of graphs",
+          "trigger": "Possible graph-product theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural infinite family of graph products, the result classifies the complete sign solution set, not just existence or dimension of a linear space. It identifies exactly when closure is possible, all first-two-column choices, and the labelled and color-exchange-quotiented counts. The result remains useful after removal of the covered prism subcase; there is no claim of a general complexity result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

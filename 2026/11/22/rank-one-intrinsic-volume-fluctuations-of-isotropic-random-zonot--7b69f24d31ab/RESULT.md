@@ -29,7 +29,7 @@ is orthogonal in \(L^2\) to \(V_2(n)\), and satisfies \(\mathbb E R_{n,k}^2=O_{d
  \boxed{\left(n^{1-k}\left[V_k(n)-\mathbb EV_k(n)\right]\right)_{k=2}^d
  \Longrightarrow \left(\frac{c_{d,k}}{(k-2)!}W_d\right)_{k=2}^d}.
 \]
-Every pair of nontrivial intrinsic volumes has correlation \(1-O_d(n^{-1})\); the limiting covariance matrix has rank one.
+Every pair of intrinsic volumes indexed by \(2,\ldots,d\) has correlation \(1-O_d(n^{-1})\); the limiting covariance matrix has rank one.
 
 The common random variable has a complete geometric spectral description. Define the normalized zonal Gegenbauer polynomial \(P_\ell^{(d)}(t)=C_\ell^{((d-2)/2)}(t)/C_\ell^{((d-2)/2)}(1)\), the dot-product density
 \[
@@ -89,7 +89,9 @@ This establishes exact regression orthogonality and the residual estimate, inclu
 \[
  \frac{\binom{n-2}{k-2}}{n^{k-2}}\to\frac1{(k-2)!}.
 \]
-Since the number of intrinsic volumes in the vector is fixed and finite, the entire joint limit is determined by the single random pair statistic \(n^{-1}\sum_{i<j}g(U_i,U_j)\). Its variance tends to \(v_d/2\), strictly positive. The exact covariance plus the vanishing residual establishes the asserted pairwise correlation \(1-O_d(n^{-1})\) (with equality one when one index is two).
+Since the number of intrinsic volumes in the vector is fixed and finite, the entire joint limit is determined by the single random pair statistic \(n^{-1}\sum_{i<j}g(U_i,U_j)\). Its variance tends to \(v_d/2\), strictly positive. The normalized residuals are orthogonal to the common pair term, and their mutual covariances are \(O_d(n^{-1})\) by Cauchy–Schwarz. Thus the covariance matrix converges to the rank-one matrix from the stated joint limit, and dividing by the coordinate standard deviations gives the correlation \(1-O_d(n^{-1})\).
+
+For \(k>2\) the finite-sample correlation between \(V_2(n)\) and \(V_k(n)\) is strictly less than one. Indeed, when all input vectors coincide, the residual equals \(c_{d,k}s_d\binom nk(\binom k2-1)>0\). By continuity and full support this residual is nonzero with positive probability. It is centered and orthogonal to \(V_2(n)\), so the correlation is \((1+\operatorname{Var}R_{n,k}/(\beta_{n,k}^2\operatorname{Var}V_2(n)))^{-1/2}<1\), where \(\beta_{n,k}=c_{d,k}\binom{n-2}{k-2}\).
 
 **4. Strict spectral negativity and the trace.** On \(L^2(S^{d-1},\sigma)\), define the integral operator with kernel \(B(u,v)=s_d-\sqrt{1-(u\cdot v)^2}=-g(u,v)\). The Bernstein identity
 \[
@@ -109,9 +111,9 @@ independent of the choice of \(u\). Parseval gives
 \]
 Both sums converge absolutely (the first by positivity). In particular the common limit has finite variance and the stated sharp centering.
 
-**5. Chi-square limit and sharp support.** Expand the pair kernel in a real orthonormal spherical-harmonic basis. For a fixed finite harmonic-degree cutoff, the multivariate CLT for empirical harmonic coordinates followed by the strong law for their squared norms yields
+**5. Chi-square limit and sharp support.** Expand the pair kernel in a real orthonormal spherical-harmonic basis, and let \(g_M\) be the part of the expansion of \(g\) through degree \(2M\). For fixed \(M\), the multivariate CLT for empirical harmonic coordinates and the strong law for empirical averages of squared coordinates yield
 \[
- \frac1n\sum_{i<j}g(U_i,U_j)
+ \frac1n\sum_{i<j}g_M(U_i,U_j)
  \Longrightarrow -\frac12\sum_{m\le M}b_{d,2m}
  \bigl(X_{d,2m}-N_{d,2m}\bigr),
 \]

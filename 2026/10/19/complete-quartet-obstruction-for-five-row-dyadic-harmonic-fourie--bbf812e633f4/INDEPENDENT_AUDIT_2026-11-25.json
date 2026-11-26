@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:38.809913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The alternant quotient is e₂ at the five distinct complex nodes. Reduction in the basis 1,ω,…,ω^(N/2−1) pairs the ten products with their negatives, preserving multiplicity. If an antipodal node pair u,−u is present, its cross terms cancel and the four residual terms force another antipodal pair v,−v with v²=−u². In the other case opposite edge products come from disjoint edges. Each of the five vertices is omitted by one of the five edge matchings, so reducing each product relation modulo two forces equal parity of all five exponents. Dividing the shifted exponents by two descends to N/2 with five distinct nodes; a quartet at that order lifts to a quartet, and orders at most four are impossible. A quartet annuls both e₁ and e₂, proving sufficiency. The {0,1,2,4} minor on u,−u,iu and the outsider v is a nonzero Vandermonde times iu+v, so the singular rank is exactly four. Disjoint cosets give the claimed count without double counting. I inspected verify_dyadic_5minor.py and verification_output.txt: the reported exhaustive integer tests at 8,16,32 and four determinant evaluations corroborate the argument; I did not execute the frozen script and the proof is not predicated on these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prime-power uniform distribution criterion; row counts modulo four are (2,2,1,0), hence not uniformly distributed.",
+          "Needham–Shonkwiler's stated main result concerns generic full-spark behavior in constrained frame spaces."
+        ],
+        "reasoning": "A frame-wide full-spark test does not classify the unordered failing subsets. The proof of its necessity does produce precisely the quartet-shaped family as a subset of failing columns, as distinguished below. The generic theorem does not characterize singular minors of this fixed frame.",
+        "searches": [
+          "arXiv:1110.3548 Theorem 9 and its proof",
+          "arXiv:1909.06223 Theorem 18",
+          "arXiv:2110.11295 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Alexeev–Cahill–Mixon arXiv:1110.3548",
+        "Lam–Leung arXiv:math/9511209",
+        "Hidaka–Itoh arXiv:2403.10817",
+        "Malikiosis–Oussa arXiv:1909.06223",
+        "Needham–Shonkwiler arXiv:2110.11295",
+        "Resultary bb8a5601ae6d and 68cf8ce2dd05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the complementary rows, residue 3 mod 4 has N/4 entries, one more than the ceiling of (N−5)/4. The necessity proof applies to every complement column set containing N/4−2 full order-four cosets and three members of another. These are exactly the complements of a full quartet and an outsider.",
+          "A complement minor of the unitary DFT is singular exactly when the original is singular."
+        ],
+        "reasoning": "Thus all quartets with an outsider were already guaranteed singular (a lower bound on the number). Neither this construction nor the prime-cycle decomposition excludes non-quartet failures or provides the lower bound of four on the singular rank. The new complete incidence identification is not implied by those results.",
+        "searches": [
+          "arXiv:1110.3548 pp. 15–16 proof of Theorem 9, rank-one blocks and complementary minors",
+          "arXiv:math/9511209 Theorem 3.3(1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hidaka–Itoh Theorem 1.1 is for the entire set of primitive roots, not arbitrary five-node subsets.",
+          "Lam–Leung Theorem 3.3(1) decomposes nonnegative prime-power vanishing sums into prime cycles; for p=2 this gives opposite product pairs."
+        ],
+        "reasoning": "The matching problem is e₂=0 on five distinct dyadic roots, equivalently a vanishing ten-term product multiset with K₅ incidence. Prime-cycle decomposition alone does not constrain the pairing to yield a node quartet; edge incidence and descent supply that step.",
+        "searches": [
+          "Resultary: dyadic Fourier minor, order-four quartet, elementary symmetric / Schur zeros",
+          "arXiv:2403.10817 Theorem 1.1",
+          "arXiv:math/9511209 Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bb8a5601ae6d RESULT: exponent set {0,1,2,4}, e₁, two antipodal pairs, rank three and a binomial count.",
+          "68cf8ce2dd05 RESULT: dyadic Fourier-zero shells of four-point indicators."
+        ],
+        "reasoning": "The former is a precise smaller-aperture analogue and the latter uses balanced dyadic pairing, but neither catalogs these five-column failures or their rank. The finite counts in the frozen package are its own checks, not an independent prior catalog.",
+        "searches": [
+          "Local Resultary search for five-row harmonic apertures and dyadic Fourier erasure patterns",
+          "Resultary records bb8a5601ae6d and 68cf8ce2dd05"
+        ]
+      },
+      "rationale": "The distinct supported content is the exact converse to the quartet obstruction, together with the complete rank and multiplicity classification for this aperture. The rank-one block construction in the older full-spark proof already gives quartet sufficiency, not just a bare existential obstruction; the determinant and cancellation inputs are classical. No inspected source yields the necessity or exact-rank diagram.",
+      "residual_risks": [
+        "The general keyword literature query was uninformative, not negative evidence.",
+        "An unindexed exact classification of the same dyadic e₂ vanishing sets may exist; no absolute priority claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already implies quartet sufficiency; no exhaustive obstruction or rank-four assertion",
+          "evidence": [
+            "The proof chooses floor(M/d) cosets of ⟨N/d⟩ and the residual rows of an additional coset in the column index set; each block then has rank one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Theorem 9, p. 12; necessity proof pp. 15–16, especially (20)–(21)",
+          "method": "Specialize modulo four in the complement and track the size and cosets of the chosen column set",
+          "title": "Full Spark Frames",
+          "trigger": "Potentially stronger prime-power Fourier criterion and explicit witnesses"
+        },
+        {
+          "assessment": "Supplies pair decomposition, not graph-incidence classification",
+          "evidence": [
+            "NG ∩ ker φ = N·σ(P₁) for r=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+          "material_read": "Theorem 3.3(1), p. 7, in lawful preprint",
+          "method": "Specialize the positive integral group-ring kernel to one prime divisor, p=2",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Strongest general candidate for the cancellation lemma"
+        },
+        {
+          "assessment": "Different evaluation domain",
+          "evidence": [
+            "Uses all primitive nth roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.10817",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "Compare evaluation domain with arbitrary five distinct roots",
+          "title": "The Schur polynomials in all primitive nth roots of unity",
+          "trigger": "Equivalent alternant quotient evaluated at roots of unity"
+        },
+        {
+          "assessment": "Recalls frame-wide criterion",
+          "evidence": [
+            "Uniform distribution over divisors is a test on the row set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.06223",
+          "material_read": "Theorem 18, p. 19",
+          "method": "Compare full-spark criterion with setwise minor classification",
+          "title": "Full Spark Frames in the Orbit of a Representation",
+          "trigger": "Frozen record's comparison for prime-power Fourier minors"
+        },
+        {
+          "assessment": "Generic frame result on a different question",
+          "evidence": [
+            "Does not select or classify failing column sets for this frame in the inspected theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.11295",
+          "material_read": "Theorem 1.1, p. 3",
+          "method": "Compare quantification over frames to exact determinant zeros of one aperture",
+          "title": "Toric Symplectic Geometry and Full Spark Frames",
+          "trigger": "Potential more general frame theorem"
+        },
+        {
+          "assessment": "Four-node analogue only",
+          "evidence": [
+            "Two antipodal pairs for e₁ with rank three."
+          ],
+          "identifier_or_url": "Resultary:bb8a5601ae6d",
+          "material_read": "Mirrored RESULT finding and proof of rank/count",
+          "method": "Compare aperture, symmetric factor and obstruction",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Closest exact catalog with shared rows"
+        },
+        {
+          "assessment": "Related pairing, different invariant",
+          "evidence": [
+            "Four-point indicator support and shell classification, not five-node e₂."
+          ],
+          "identifier_or_url": "Resultary:68cf8ce2dd05",
+          "material_read": "Mirrored RESULT finding and balanced-pairing argument",
+          "method": "Distinguish one indicator Fourier zero set from the ten-product alternant condition",
+          "title": "Dyadic shell classification of Fourier zeros for four-point indicators",
+          "trigger": "Shared dyadic pairing and small support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the natural next near-consecutive aperture after the missing-degree e₁ case, where simple full spark already fails. Knowing exactly which five-column selections lose rank, and that none loses more than one, determines the relevant erasure incidence rather than merely confirming a predicted failure. The necessity argument on product pairings across all dyadic dimensions is not a finite recalculation or a generic full-spark test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

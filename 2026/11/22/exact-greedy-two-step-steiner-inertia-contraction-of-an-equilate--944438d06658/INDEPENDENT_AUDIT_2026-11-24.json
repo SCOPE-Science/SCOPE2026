@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:35.348796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–31 and 33–100",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py and verify_symbolic.py (inspected, neither executed)",
+        "Independent exact Bernstein coefficient recalculation and independent geometric fiber quadrature"
+      ],
+      "rationale": "Steiner centering subtracts the length times the squared midpoint offset from each transverse chord's second moment and preserves the centroid. For a triangle the chord-length tent of projected width w has peak 2A/w and cubic integral 2A³/w², including the limiting one-sided tent when projections tie. Equilateral covariance is I₂/8 at circumradius one (the covariance of a uniform triangle centered at zero is one twelfth the sum of the outer products of its three vertices), so only the width term A³/(6w²) varies. Width attains the diameter exactly for the three side-parallel axes. The peak 3/2 and symmetric projected endpoints give the asserted rhombus and a first loss I(T)/8. For the second step I independently reconstructed the branch formula: set t=tan θ, z=bt/a, r=a²/b². In the unnormalized projection the middle interval [0,az] has constant chord length L=2b(1+t²)/(1+z), and its midpoint varies linearly from 0 to p=bz(1−rz)/(1+z). The outer segment [az,a] has length decreasing linearly from L to zero and midpoint moving from p to q=−brz. Integrating gives 2aL/(1+t²)² times [zp²/3+(1−z)(p²/4+pq/6+q²/12)]. Inserting r=4/3, and r=3/4 after exchanging diagonals, gives exactly the two rational profiles in the record; continuity covers z=0,1. Differentiation gives the asserted quintic with opposite sign for the short-branch loss derivative; Q′≥244z²−96z+80>0 on [0,1] and Q(0)=−44<0<Q(1)=113. For the other branch I recomputed the degree-12 Bernstein coefficients of the comparison polynomial using the binomial conversion in line 96. With common denominator 27720 their numerators in order are 13804560,17255700,17519460,15879150,12810336,8578640,3837540,226170,967120,11464236,39900420,97835430,200803680; each is positive and the minimum is 359/44. The short branch at 1/2 therefore beats the whole long branch; its unique optimum is interior. Reflection yields two and only two unoriented axes per first choice. An independently implemented geometric fiber quadrature gives second loss 0.013159943950027, angle about 24.2245534° from the short diagonal and total fraction 0.165522118304365, consistent with the exact formulas. The quadrature is corroboration, not the all-angle proof.",
+      "residual_risks": [
+        "The conclusion is for sequential greedy symmetrization with uniform area moment; it is not a joint optimization over two axes and does not cover later steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary passages concern strict decrease outside reflection symmetry, general geometric and axiomatic symmetrizations, or convergence rates. The indexed triangle result expressly excludes multiple steps."
+        ],
+        "reasoning": "These statements do not rank the nonsymmetric rhombus directions or determine the greedy optimizer; decrease or convergence alone does not yield even the critical-point polynomial.",
+        "searches": [
+          "arXiv:1206.2041v1, p. 1",
+          "arXiv:2206.04323v2, §2.1",
+          "arXiv:1603.00643v2, introduction",
+          "arXiv:1505.03550v1, introduction",
+          "Resultary triangular λ-Steiner average, assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary triangle-average, rectangle-law and identical-record matches",
+        "Bianchi–Burchard–Gronchi–Volčič, arXiv:1206.2041v1",
+        "Basit–Lángi, arXiv:2206.04323v2",
+        "Bianchi–Gardner–Gronchi, arXiv:1603.00643v2",
+        "Florentin–Segal, arXiv:1505.03550v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle chord ingredients help explain the first step; the known one-step mean does not encode rhombus directions. The rectangle proof/profile is restricted to rectangles. Strict decreasing inertia gives a comparison to the unsymmetrized body, not one between candidate axes."
+        ],
+        "reasoning": "Credit the old one-step identities and general method, but none supplies the rhombus global comparison across both branches or the resulting sequential exact loss.",
+        "searches": [
+          "Resultary triangular λ-Steiner RESULT.md, offsets 0 and 4498",
+          "Resultary rectangle directional RESULT.md, offsets 0 and 5137",
+          "arXiv:1206.2041v1, pp. 1 and inertia passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rectangle result's domain is rectangles and gives four optimal slopes ±1/3, ±3 for a square. The triangle result uses the same area inertia, and ordinary Steiner is its λ=1/2 case, but the headline statistic is an angular average."
+        ],
+        "reasoning": "The symmetral is a rhombus with different perpendicular diagonal lengths, not a rotated or scaled rectangle. An anisotropic affine change does not commute with Euclidean perpendicular-chord centering and Euclidean inertia as used here. Optimizing a direction is also not taking an orientation average.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-one-step-steiner-inertia-contraction-of-a-square-and-the-f--6eed689174d7",
+          "Resultary: 2026/11/1/SCOPE-shape-independent-angular-response-and-a-sharp-contraction-thres--3b93c794f8bf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record with the exact quintic and 0.165522118304… loss is the bound original itself. The distinct indexed geometry formula gives a rectangle profile and a square optimum."
+        ],
+        "reasoning": "The bound record cannot corroborate its own priority; the closest other exact directional law has different hypotheses and optimizers, irrespective of sharing a date.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-exact-greedy-two-step-steiner-inertia-contraction-of-an-equilate--944438d06658",
+          "Resultary: 2026/11/22/SCOPE-sharp-one-step-steiner-inertia-contraction-of-a-square-and-the-f--6eed689174d7"
+        ]
+      },
+      "rationale": "The chord identity, monotonicity, and general symmetrization tools are prior. The supported distinct claim is the full rhombus branch comparison and resulting exact second-axis classification and total loss for the equilateral greedy procedure. The indexed rectangle law is a distinct record, not an equivalent classification.",
+      "residual_risks": [
+        "The search is bounded. An unindexed angular law for this rhombus or a more general law with an optimization theorem could give equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related one-step average, not a greedy classification",
+          "evidence": "The angular expectation is for triangles and the scope explicitly excludes multiple steps.",
+          "identifier_or_url": "2026/11/1/SCOPE-shape-independent-angular-response-and-a-sharp-contraction-thres--3b93c794f8bf",
+          "material_read": "RESULT.md finding and assumptions, offsets 0 and 4498",
+          "method": "Read published local-mirror passages",
+          "title": "Shape-independent angular response and a sharp contraction threshold for triangular λ-Steiner symmetrization",
+          "trigger": "Same triangular Steiner inertia and ordinary symmetry as a parameter"
+        },
+        {
+          "assessment": "Different shape class; no implication for the nonrectangular symmetral",
+          "evidence": "The formula concerns a rectangle; its square has four optimal slopes ±1/3, ±3.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-step-steiner-inertia-contraction-of-a-square-and-the-f--6eed689174d7",
+          "material_read": "RESULT.md direction profiles and assumptions, offsets 0 and 5137",
+          "method": "Read published local-mirror passages",
+          "title": "Sharp one-step Steiner inertia contraction of a square and the full rectangle directional law",
+          "trigger": "Exact angular law for a potentially equivalent quadrilateral"
+        },
+        {
+          "assessment": "Inertia monotonicity is prior, not the exact angular ranking",
+          "evidence": "Inertia strictly decreases unless the body is already reflection-symmetric in the chosen direction.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.2041v1",
+          "material_read": "p. 1, offsets 2548–3213",
+          "method": "Located and read primary OA passage",
+          "title": "Convergence in Shape of Steiner Symmetrizations",
+          "trigger": "Inertia monotonicity and possible optimization over successive symmetrizations"
+        },
+        {
+          "assessment": "Geometric tools; inspected claims do not optimize centroidal inertia",
+          "evidence": "The arguments concern properties including inradius and skeleton content.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.04323v2",
+          "material_read": "p. 1 abstract and §2.1, p. 3, offset 11628",
+          "method": "Located and read primary OA passages",
+          "title": "Discrete Isoperimetric Problems in Spaces of Constant Curvature",
+          "trigger": "Steiner symmetrization for polygonal extremal problems"
+        },
+        {
+          "assessment": "Framework rather than a directional inertia law",
+          "evidence": "The stated goals concern axioms and characterizations of symmetrizations.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.00643v2",
+          "material_read": "Introduction, p. 1, offset 3158",
+          "method": "Read primary OA passage",
+          "title": "Symmetrization in Geometry",
+          "trigger": "Potential general theorem on Steiner symmetrization"
+        },
+        {
+          "assessment": "Convergence-rate context, not exact optimization at step two",
+          "evidence": "The inspected result estimates convergence rather than classifying individual optimal directions.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.03550v1",
+          "material_read": "p. 1, offset 574",
+          "method": "Read primary OA passage",
+          "title": "Stability and Rate of Convergence of the Steiner Symmetrization",
+          "trigger": "Prior quantitative bounds across successive symmetrizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–28 and 45–100",
+        "Resultary triangular λ-Steiner angular-average and rectangle directional findings"
+      ],
+      "rationale": "The equilateral triangle is a canonical isotropic initial shape, and its exact greedy update leaves the triangle class. The result gives a sharp benchmark for repeated Steiner symmetrization based on loss of area inertia. The symmetry-breaking second optimum, quantified through a strict global comparison, cannot be read from either diagonal symmetry or an orientation average.",
+      "residual_risks": [
+        "A canonical exact benchmark, not a general greedy convergence or globally optimal two-axis theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

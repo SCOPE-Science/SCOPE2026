@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:20.865360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof and self-review incorrectly claim that a coupling event with one switch at the lower persistence and none at the higher persistence always has positive probability: when p1=0 and n>2, the lower walk makes n−1 switches deterministically. The corrected RESULT.md and REVIEW.md separate this case. If p1=0, the alternating endpoint has absolute value d=n mod 2; at p2>0 no switches have probability p2^(n−1)>0 and give absolute displacement n. For 0<p1<p2≤1 the original zero-versus-one event has probability (n−1)(p2−p1)p1^(n−2)>0. The corrected claim is unchanged. Independently, conditioning on m gives 2 binom(n−1,m) equiprobable words. Odd 2a−1 gives a runs of each sign; the even 2a sum differ by the composition-count factor (n−2a)/a before division by total word count. This gives identical normalized signed masses, including their support. The adjacent pair likelihood ratio on the older absolute support is a positive constant times (n−2a)^2−|s|², vanishing at the old support edges. A decreasing ratio normalized to mean one gives weak tail order by the covariance inequality; the zero-switch point mass is maximal. The uniforms order the switch counts, which proves the unconditional weak order; the repaired strictness proof covers all nontrivial thresholds and endpoints. The rest of the thresholds are deterministic.",
+      "replay": "python3 /workspace/branches/frozen_review_replay.py 2; independent exact sign-word enumeration through n=12, including paired laws, likelihood ratios and strict threshold comparisons at six rational p spanning both endpoints; separate exact endpoint event check for n=2…8. Frozen verifier and recorded 4906-assertion output inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markov-binomial occupancy includes the symmetric model and classifies marginal shapes. The Ising source orders a Landau free energy in |m|, not the family of normalized finite-chain |S_n| tails in the coupling parameter. The historical abstract gives exact transition laws and limiting distributions."
+        ],
+        "reasoning": "These statements do not supply an all-p comparison, in particular across negative nearest-neighbor correlation. The full 1981 text was not lawfully available, so its scope beyond the abstract remains uncertain.",
+        "searches": [
+          "Dekking–Kong arXiv:1102.3613v1",
+          "Zheng–Lin–Zhang arXiv:2605.06691v1",
+          "Renshaw–Henderson, doi:10.2307/3213286"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.06935v1",
+        "arXiv:1102.3613v1",
+        "arXiv:2605.06691v1",
+        "Renshaw–Henderson doi:10.2307/3213286 (abstract)",
+        "Resultary …66643b178a6f and …c7b3e1d0eeb5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd/even mass equality and ratio formula are short algebraic consequences of the run counts. The likelihood-ratio-to-tail comparison and switch-count stochastic coupling are needed to get simultaneous strict tail order. The inspected exact-model result states a single bin comparison instead."
+        ],
+        "reasoning": "No inspected stronger comparison already specializes to the retained theorem. Having bin counts is an input, not an order theorem; priority is limited to the comparison, not their derivation.",
+        "searches": [
+          "Pemmasani Theorem 2.1 (coefficients) and Theorem 3.1 (bin comparison)",
+          "Dekking–Kong abstract and model",
+          "Zheng–Lin–Zhang abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The occupancy count is (n+S_n)/2, so this is an absolute deviation order about n/2. Pemmasani gives the run coefficients and compares the center versus endpoint bin as p changes; the normalized conditional law is encoded in the coefficients."
+        ],
+        "reasoning": "A center-to-endpoint bin crossing is not a comparison of every sum of bins beyond a threshold. The review and corrected text credit the parity identity as algebra from prior counts, while distinguishing the conditional and unconditional distributional conclusions.",
+        "searches": [
+          "Pemmasani arXiv:2610.06935v1, Theorems 2.1 and 3.1",
+          "persistent correlated walk, Markov-binomial, Ising absolute magnetization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest mirrored result …66643b178a6f gives an even-length adjacent-central-bin comparison and initial-bias phase boundary. The other same-day ranked hit …c7b3e1d0eeb5 concerns a nonstationary array and a path/Beta limit."
+        ],
+        "reasoning": "The exact central-bin statement uses the same model and related counting, but does not provide the relevant absolute tail order or the comparison across switch counts. A different asymptotic model is not an exact database of these laws.",
+        "searches": [
+          "Resultary fixed-horizon persistent walk, endpoint order, conditioning on domain walls",
+          "Resultary persistent-walk central-bin and crossover results"
+        ]
+      },
+      "rationale": "The corrected attribution treats the run-count formulas and their normalized signed parity identity as antecedent or direct algebra from published counts. The distinct result is the conditional absolute likelihood-ratio ordering and the resulting strict distribution-wide comparison across the entire persistence interval, including anti-persistence; this is not a bin-level or marginal-shape result.",
+      "residual_risks": [
+        "The 1981 exact correlated-walk article is an unresolved priority risk at full-text level. Bounded comparisons do not establish historical firstness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coefficients; no equivalent tail order in inspected results",
+          "evidence": "Theorem 2.1 sums the run coefficients by switch count; Theorem 3.1 establishes center/endpoint bin crossing at a single p_N.",
+          "identifier_or_url": "https://arxiv.org/html/2610.06935v1",
+          "material_read": "Theorems 2.1 and 3.1, HTML offsets 14278 and 24242",
+          "method": "Lawful OA statement and hypothesis comparison",
+          "title": "Uniform Bessel bounds for endpoint crossings in the persistent random walk",
+          "trigger": "Exact same walk and run coefficients"
+        },
+        {
+          "assessment": "Same model, different observable and comparison",
+          "evidence": "Compares adjacent central bins for even lengths and a varying initial bias; not absolute displacement tails.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-initial-bias-phase-boundary-for-central-bins-of-persistent--66643b178a6f",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read local mirror and compare statements",
+          "title": "Sharp initial-bias phase boundary for central bins of persistent walks",
+          "trigger": "Closest indexed exact same-model result"
+        },
+        {
+          "assessment": "Includes the model but not the claimed parameter comparison",
+          "evidence": "Identifies PMF modality and moments as the central results.",
+          "identifier_or_url": "https://arxiv.org/html/1102.3613v1",
+          "material_read": "Abstract and §1 at offset 0",
+          "method": "OA model and result inspection",
+          "title": "Multimodality of the Markov Binomial Distribution",
+          "trigger": "General occupancy model"
+        },
+        {
+          "assessment": "Monotonicity in a different quantity",
+          "evidence": "Landau free energy increases in |m|; no normalized finite-chain ordering in the varying coupling is stated in these passages.",
+          "identifier_or_url": "https://arxiv.org/html/2605.06691v1",
+          "material_read": "Abstract and §1, offsets 0–3950",
+          "method": "OA result statement comparison",
+          "title": "Landau free energy and the absence of spontaneous magnetization of the one-dimensional Ising model",
+          "trigger": "Potential equivalent Ising monotonicity"
+        },
+        {
+          "assessment": "Exact model; full coverage unresolved",
+          "evidence": "The abstract states exact transition probabilities and limiting distributions; does not itself state stochastic order. Full text not inspected.",
+          "identifier_or_url": "https://doi.org/10.2307/3213286",
+          "material_read": "Cambridge publisher abstract; JSTOR landing material only",
+          "method": "Inspected lawful publisher abstract and attempted identified alternate retrieval",
+          "title": "The correlated random walk",
+          "trigger": "Historical exact same-walk prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Absolute endpoint tails at every finite length are significantly more informative than variance growth or single-bin crossovers. Conditioning on switch counts reveals a mechanism that works through the anti-persistent regime as well as the persistent regime and proves strictness at every nontrivial cutoff. This is a natural distributional statement and remains valuable without crediting the known counting formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

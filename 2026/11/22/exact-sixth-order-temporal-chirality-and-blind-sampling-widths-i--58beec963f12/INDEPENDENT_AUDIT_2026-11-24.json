@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:06:01.110793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions and Proof 1–5",
+        "VERIFICATION.md",
+        "check.py"
+      ],
+      "rationale": "The asserted statistic is the difference of raw products of three squared increments, not a path-law criterion. Conditional on the independent environment, disjoint Brownian increments are independent with conditional variances equal to twice their integrated diffusivities. To check the three-time sign directly, center the diffusivity vector x and set D=diag(x), R=(P-P^T)/sqrt(3). Centering only removes terms symmetric in the two lags. On the mean-zero subspace the semigroup is exp(-ct)(cos(bt)I+sin(bt)R). The antisymmetric moment has coefficient 2 x^T R D x/3=2V/(3 sqrt(3)) multiplying exp(-c(s+t)) sin(b(s-t)); the cyclic cubic expansion fixes its sign. Reflecting all observation times in the three-window interval exchanges the two gaps and reverses the kernel. For I=(exp(lambda h)-1)/lambda the three window integrals in the complex form are exp(-lambda h)I, exp(ibh) sin(bh)/b, and conjugate(I), respectively, leaving the stated real exponential and the factor 8. The prose in Proof 4 writes the wrong middle exponent (-ibt); the displayed integrand has +2ibt and its evaluation is correct. The two-time centered semigroup calculation gives the even-in-b covariance and stationarity gives the Brownian MSD. Since c>0 the I factor cannot vanish, and for b != 0 there exist nonnegative gaps with sin(b(u-v)) != 0. Thus exactly h=n*pi/abs(b) are blind for all gaps when V != 0; coincident diffusivities and equal rates give vanishing contrast at every width. These are analytic checks; the frozen script was inspected, not executed.",
+      "residual_risks": [
+        "No finite-sample statistical power claim; the result is about this statistic for disjoint equal-width windows and known ordered labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grebenkov's abstract singles out exact TAMSD mean/variance for a two-state setting; the conditional-Gaussian and symmetry-breaking viewpoints of the other articles are more general."
+        ],
+        "reasoning": "A generic propagator or high-order-observable construction supplies the starting kernel but not the Vandermonde factor, finite-window cancellation, or the sharp classification for all nonnegative gaps.",
+        "searches": [
+          "Grebenkov arXiv:1903.04783",
+          "Ślęzak, Burnecki and Metzler arXiv:1904.08737",
+          "Lucente et al. arXiv:2306.14558"
+        ]
+      },
+      "checked_sources": [
+        "Resultary stroboscopic ring, binary visibility, first-contact switching-diffusion and sixth-cumulant records",
+        "arXiv:1903.04783",
+        "arXiv:1904.08737 (abstract)",
+        "arXiv:2306.14558",
+        "arXiv:2308.14497 (stationary pair-transition asymmetry, p. 1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former computes the symmetry of exp(Qh); the present contrast instead integrates over within-window lags, including unrestricted gaps, and its mixed-mode contribution contains the middle-window integral of exp(2ibt)."
+        ],
+        "reasoning": "Symmetry of exp(Qh) does not assert symmetry of continuously integrated emissions or classify nonzero contrasts at other widths; deriving the product filter and cancellation is essential.",
+        "searches": [
+          "SCOPE-crystallographic-restriction-on-stroboscopic-detailed-balance-al--8949291b4ef0",
+          "SCOPE-a-six-state-visibility-threshold-for-binary-observation-of-irrev--741ee1f18a68",
+          "Grebenkov arXiv:1903.04783"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six-state binary-visibility record gives an unequal-gap three-time witness with a cubic small-lag term; Lucente et al., PDF p. 8, describes observable-dependent time asymmetry."
+        ],
+        "reasoning": "Binary hidden-state observations and generic reversibility contrasts are not the joint law of integrated diffusivities in three equal windows; viewing the kernel as time-asymmetric does not supply its windowed amplitude or zero set.",
+        "searches": [
+          "Resultary: three-time reversal on biased cyclic Markov environments and squared-increment gap-order contrast",
+          "Primary literature: higher-order time reversal and cyclic switching diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-crystallographic-restriction-on-stroboscopic-detailed-balance-al--8949291b4ef0, Finding and Classification, gives precisely 2n*pi/(sqrt(3)*abs(alpha-beta)) at ring size three. Nearby first-contact and sixth-cumulant records concern different observables."
+        ],
+        "reasoning": "This is exact antecedent coverage of the hidden-chain sampling times, not a tabulation of the integrated observable, its coefficients or its zeros.",
+        "searches": [
+          "Resultary: exact cyclic diffusivity contrast and stroboscopic biased-ring resonances",
+          "Resultary: high-order switching-diffusion moments"
+        ]
+      },
+      "rationale": "The same blind lattice is already the sampled hidden-chain resonance. Distinct content is the exact integrated squared-increment contrast and the proof that this particular continuous-window statistic has precisely that lattice of universal zeros, not the lattice as a new property of the hidden chain or higher-order time-reversal diagnostics in general.",
+      "residual_risks": [
+        "Bounded literature comparison is not priority certification; an equivalent integrated-emission formula may be indexed under hidden-Markov or filtering terminology. The arithmetic lattice itself is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for sampled hidden-chain lattice only",
+          "evidence": [
+            "For sizes 3 and 6, reversible sampled transition matrices occur at 2m*pi/(sqrt(3)*abs(a-b))."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-crystallographic-restriction-on-stroboscopic-detailed-balance-al--8949291b4ef0",
+          "material_read": "RESULT.md Finding and Classification, from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Crystallographic restriction on stroboscopic detailed-balance aliasing in biased Markov rings",
+          "trigger": "Identical ring and resonance lattice"
+        },
+        {
+          "assessment": "Three-time lag-order antecedent with different observations and state count",
+          "evidence": [
+            "Binary observation at size 6 and a local cubic expansion, not equal-width Brownian windows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-six-state-visibility-threshold-for-binary-observation-of-irrev--741ee1f18a68",
+          "material_read": "RESULT.md Finding and A three-time finite-dimensional witness, from offset 0",
+          "method": "Resultary local mirror",
+          "title": "A six-state visibility threshold for binary observation of irreversible rings",
+          "trigger": "Same class of reversal witness"
+        },
+        {
+          "assessment": "Provides a framework; the inspected stated exact statistics are for TAMSD",
+          "evidence": [
+            "The abstract treats the classic two-state model and the mean and variance of time-averaged MSD."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.04783",
+          "material_read": "OA PDF p. 1, abstract at offset 555",
+          "method": "OA PDF",
+          "title": "Time-averaged MSD for switching diffusion",
+          "trigger": "Propagator for the same class of hidden diffusivity models"
+        },
+        {
+          "assessment": "Conceptual antecedent without this windowed statistic in the inspected passages",
+          "evidence": [
+            "The abstract discusses higher-order irreversibility; p. 8 defines C_fg(t)-C_fg(-t) for observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.14558",
+          "material_read": "OA PDF pp. 1 and 8, offsets 1666 and 24619",
+          "method": "OA PDF",
+          "title": "Statistical Features of Systems driven by non-Gaussian Processes: Theory & Practice",
+          "trigger": "Time asymmetry beyond even two-point covariances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact contrast gives an experimentally meaningful witness in a model whose mean-square displacement and two-time squared-increment covariance do not resolve direction. Its finite-window amplitude explains when even this higher-order observation loses direction information for all gap choices. The contribution is the joint contrast and sharp observational boundary, not a general claim that a higher-order statistic detects irreversibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

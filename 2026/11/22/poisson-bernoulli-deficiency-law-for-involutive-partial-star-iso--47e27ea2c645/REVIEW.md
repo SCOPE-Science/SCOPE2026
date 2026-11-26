@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact decomposition of self-inverse star partial isometries follows directly from the star metric; its exceptional hub–leaf swaps are disjoint from both symmetric-inverse-monoid branches. The rank polynomial and finite deficiency probability-generating function are obtained by disjoint labelled counts. The Poisson conditioning representation is exact, and the local central limit estimates follow from Fourier inversion with a secondary parity arc suppressed by the independent singleton Poisson factor. The typical-window ratio proves total-variation convergence, not just weak convergence. Exhaustive direct metric checks for two through six leaves agree. The proof is restricted to stars with at least two leaves.
+## correctness
 
-## Originality
-**PASS relative to inspected evidence, with residual historical risk.** Fernandes–Paulista (2022 preprint, 2023 journal article) already provides the full star-monoid element decomposition. That published result dominates the elementary algebraic decomposition and facilitates the finite rank count; neither is represented as novel in isolation. The assessed contribution is the stronger, explicitly star-specific Poisson–Bernoulli total-variation deficiency law for uniform self-inverse elements, together with the exact finite bridge. Relevant comparisons include published random-involution statistics, monogenic inverse-monoid counting, and indexed results on star nilpotents, cycle involutions, and Gaussian rank deficiencies of homogeneous graph partial automorphisms. The inspected assertions neither state the present law nor have the same probability model. A general labelled-assembly theorem may furnish an equivalent derivation; this is recorded as a priority risk, not ruled out by a failed keyword search.
+PASS
 
-## Mathematical value
-**PASS.** The finite star is the smallest branching graph whose local metric partial symmetries exceed extendible global symmetries. Its self-inverse elements have a natural domain-rank statistic, and the result gives both a complete exact distribution and a non-binomial limiting description: a growing-mean Poisson component plus a surviving fair hub bit. This separates exact local extension obstruction from asymptotic typical behavior and permits rigorous sampling and comparison across star sizes. It is not simply a reindexing of the monoid's cardinality.
+Self-inverse means a common domain/image carrying an involutive permutation. If the hub moves to a leaf, it swaps with that leaf, and any other included leaf would violate distance preservation. Otherwise arbitrary leaf partial involutions combine with either hub omission or hub fixity and extend by identity on the missing vertices. This proves the polynomial, exact exceptions, and the finite deficiency mixture, with exceptional mass at most m/(2·2^m+m). Direct counting at m=2 gives 1+3z+6z²+2z³. For the analytic step, let r²+2r=m and use independent Poisson variables of means r,r,r²/2; after conditioning on total weight m, the r powers cancel giving exactly the labelled component counts. For W=Y+2Z and T=X+W, Fourier inversion has a central arc |t|≤r^(-3/4), cubic error O(r^(-1/4)), and variance of order r². The arcs near ±π are exponentially suppressed by the remaining singleton mean, and outside those and the central arc the pair term gives exp(-Ω(sqrt(r))) or better. Thus the stated local probabilities at displacement O(r^(2/3)) agree to relative o(1); the variances have ratio tending to one. The conditional likelihood ratio tends to one on a Poisson-high-probability window, and normalization bounds the conditional mass off that window. Convolution and the exceptional mass estimate give TV convergence. Since r=√m+O(1) and √r∼m^(1/4), the Poisson CLT gives the final normalization.
 
-## Scope and remaining risks
-The main asymptotic law is proved only as a limit, without a finite-parameter rate. The full Fernandes–Paulista decomposition is prior art. The independent mathematical audit has not yet been performed; general assembly asymptotics and obscure semigroup sources remain possible priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the TV deficiency theorem with an exact star-mixture bridge. The star monoid decomposition, conditioned Poisson framework for labelled assemblies, and conditional likelihood-ratio identity are established tools, not independently original here. The passages checked do not give the uniform lattice estimate for this two-singleton-color statistic, nor the assembled star deficiency approximation. The symmetry and finite exceptional term give the Bernoulli interpretation, not an asymptotically identifiable correction by itself.
+
+## value
+
+PASS
+
+The exact bridge explains how the star center and the exceptional nonextendible involutions affect the rank, while the TV estimate gives a discrete distributional approximation for the omitted-leaf statistic stronger than a CLT. The need to smooth a parity constraint in the pairing contribution is a genuine feature of this natural inverse monoid model. The scientific value is the rank-law package, not the finite structural specialization alone or just adding an asymptotically negligible Bernoulli shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

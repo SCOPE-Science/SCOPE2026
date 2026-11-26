@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:28.702526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43 and 51–75",
+        "Frozen check_hamming.py, verification_output.txt and VERIFICATION.md (inspected, not executed)"
+      ],
+      "rationale": "The Cartesian adjacency is the tensor sum of the coordinate all-ones operators plus (d mod 2)I. Odd-coordinate factors split into a rank-one projector and its kernel; evaluating the multiplicity polynomial at +1 and -1 gives the two parity sector dimensions, with integer rather than field arithmetic. Even-coordinate factors split into two-step rank-one chains and m_i-2 trivial dimensions. On any tensor summand with a chain, reversing that chain gives a contracting homotopy for the total differential because cross terms cancel in characteristic two. The square-zero differential therefore has homology dimension H and (V-H)/2 two-blocks, including when size two makes H zero. Sectorwise scalar shifts give the four stated block counts; they work over the prime field and extend without change. Both two-block counts are positive in the mixed case. On the zero sector the second power vanishes, while on the one sector it is the identity. Counting the nested zero-sector kernels and the one-sector fixed points gives all the claimed populations, including the division by two for primitive two-cycles. For (2,3) the zero and one sector dimensions are 4 and 2, so over F2 the entry populations are 4, 12 and 48 and there are 2 fixed points and 1 two-cycle.",
+      "residual_risks": [
+        "The recorded 341 matrix cases and 17 exhaustive finite-state cases corroborate, but do not establish, the all-size theorem. The direct state assertion allowing either A^2 x=A^4 x or A^3 x=A^4 x is weaker than testing A^2=A^4 there; the matrix check and the proof establish the actual identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives A^2=dI for uniform even alphabet in characteristic two. Theorem 3.4 gives the square-zero shift rank (q^d-(q-2)^d)/2."
+        ],
+        "reasoning": "These statements determine the two sizes for homogeneous even q, not for genuinely mixed coordinates. The earlier heterogeneous Resultary proof, not this homogeneous comparator alone, supplies decisive coverage.",
+        "searches": [
+          "Peeters, DOI 10.1023/A:1013842904024, Section 3, Theorems 3.1, 3.3, 3.4 and Corollary 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5ed570da956d",
+        "Resultary a0e9b30cc64d",
+        "Resultary 3c8b8b447eae",
+        "Resultary ae5e876acfba",
+        "Peeters DOI 10.1023/A:1013842904024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier sector V-dimensional operator is scalar plus D, D^2=0, and dim(ker D/im D)=H, so it has (V-H)/2 two-blocks and H one-blocks at the sector scalar. The odd-factor polynomial F(z) supplies both parity sector counts through F(±1)."
+        ],
+        "reasoning": "After extension from F2 the zero and one sector sizes are Z and W, the killed populations by time 0, 1, 2 have zero-sector exponents 0, s0+b0, Z, and the one-sector fixed space has dimension s1+b1. Successive differences and division of the nonfixed periodic population by two give exactly the frozen formulas. No additional invariant or proof ingredient is needed.",
+        "searches": [
+          "5ed570da956d RESULT.md proof Steps 2–4, local mirror; compared directly to frozen RESULT.md lines 53–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5ed570da956d, proof Steps 2–4: sectors indexed by odd-factor one-eigenvalues and scalar-plus-D restrictions are for the same adjacency, although the headline quantity is binary rank/resource cost.",
+          "3c8b8b447eae concerns the line graph rather than the vertex adjacency; ae5e876acfba uses a later, different reversible two-row update."
+        ],
+        "reasoning": "Changing the application from commutator rank to a vertex map does not change the matrix in the October 13 proof. The line-graph and two-row formulas are not interchangeable with it.",
+        "searches": [
+          "Local Resultary comparison for mixed parity Hamming products, binary modular adjacency ranks and parity dynamics",
+          "Peeters (2002), Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 record gives symbolic rank/nullity (and examples including K2 square K3); October 18 a0e9b30cc64d gives the exact dimension of ker(I+A)."
+        ],
+        "reasoning": "The one-eigenspace kernel size in the new census already occurs as a table-free invariant in the October 18 record; no need to find the new population table verbatim when its complete underlying blocks follow from October 13.",
+        "searches": [
+          "Local Resultary lookup of exact binary rank/nullity for mixed clique products and orbit or Jordan censuses"
+        ]
+      },
+      "rationale": "Shown mechanically covered, not merely suspected: the earlier Resultary record 5ed570da956d treats the identical arbitrary mixed clique products over F2 and already proves the sectorwise reduction A_S=(d+|S| mod 2)I+D and the full square-zero rank calculation for D. A binary rank number by itself would not suffice; the actual proof supplies all the sector data. It mechanically fixes every frozen block multiplicity. Extension of scalars and counting nested kernels and period-two orbits provide the remainder without another structural result.",
+      "residual_risks": [
+        "External historical priority is not exhaustively surveyed, but the earlier accessible Resultary proof suffices for the concrete coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the full frozen result.",
+          "evidence": [
+            "A_S=(d+|S| mod 2)I+D; D^2=0; dim ker D/im D=H; parity multiplicities from F(±1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-binary-ranks-and-ancillary-qubit-budgets-for-mixed-parity--5ed570da956d/RESULT.md",
+          "material_read": "Finding and proof Steps 1–4, offsets 0–6435; decisive passage rechecked from offset 2800",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary ranks and ancillary qubit budgets for mixed-parity products",
+          "trigger": "Same heterogeneous adjacency and binary block-rank calculation"
+        },
+        {
+          "assessment": "Covers uniform even q but does not itself supply the heterogeneous result.",
+          "evidence": [
+            "Theorem 3.1's characteristic-two relation and Theorem 3.4's uniform-alphabet rank formula."
+          ],
+          "identifier_or_url": "https://emis.de/ft/43347",
+          "material_read": "PDF journal pp. 137–140, Section 3, offsets 29327–39959",
+          "method": "OA full-text passage inspection",
+          "title": "On the p-ranks of the adjacency matrices of distance-regular graphs",
+          "trigger": "Closest cited modular Hamming rank theorem"
+        },
+        {
+          "assessment": "Supplies the fixed-space dimension, not alone the entire census.",
+          "evidence": [
+            "Exact dim ker(I+A) on the same heterogeneous family."
+          ],
+          "identifier_or_url": "a0e9b30cc64d",
+          "material_read": "RESULT.md finding, offsets 0–1883",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary nullity for mixed-parity Cartesian products of cliques",
+          "trigger": "Complementary kernel invariant for the same adjacency"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–43, 53–69",
+        "Resultary 5ed570da956d proof Steps 2–4"
+      ],
+      "rationale": "Exact entry shells and oscillations are natural questions, but here the potentially substantial computation—the heterogeneous parity-sector decomposition and its nilpotent rank—is already available. The only additional contribution is routine kernel population bookkeeping and scalar extension for that known operator. No distinct surviving valuable mathematical claim is established by the frozen package.",
+      "residual_risks": [
+        "The dynamics presentation may have expository use; this is not a failure of the formulas or proofs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

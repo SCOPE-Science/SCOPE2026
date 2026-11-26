@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:39:43.651267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed the Cayley factor 1/t for t=e^(−s); the inverse Laplace change of variable cancels that factor, and the normalized logarithmic action is e^(−(e^u−e^(u−s)))h(u−s). The dilation and spectral theorem bound all matrix entries using a common Hilbert-space dilation. An independent direct check embeds h(u) as h(u)k_{e^u}(r) in unweighted L²(du dr), where k_a(r)=√2 e^(−(r−a))1_{r≥a}; their inner products are e^(−|a−b|). Compression of translations in u is precisely the weighted model, and Fourier transformation bounds the block integral by the matrix Fourier supremum. Strong continuity and variation domination give the integrals for unbounded support. For every ξ the frozen weakly null packets have squared interval-translation error at most 2S/n and damping error at most e^(−n+S) on 0≤s≤S, with measure tail contributions ≤2|μ|((S,∞)). Independently, the normalized Hardy vectors (1−z)^(−1/2+ε+iξ) are simultaneous eigenvectors with eigenvalues e^(−s(ε+iξ)), and are weakly null as ε↓0: their norms diverge and each fixed Taylor coefficient stays bounded before normalization. Compact operators vanish on these sequences, also with a fixed unit vector in the matrix coordinate. This gives the matrix essential lower bound, and the scalar numerical-radius bound follows by pairing with the same unit vectors. Fubini and uniqueness of Fourier transforms give the algebra conclusions, distance to compacts bounds every approximation number from below, and the example has squared Fourier maximum max(3−2cos(2ξh))=5. No finite frequency scan is used. See checks/analytic-notes.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalendar–Partington give general strong-continuity, uniform-convergence and single-operator compactness results.",
+          "Wang–Pang give an essential-norm lower estimate for finite sums on a weighted Bergman space, tied to shared boundary data.",
+          "The general dilation theorem gives a compression and hence an upper bound only."
+        ],
+        "reasoning": "None of these statements gives the same all-measure matrix-level essential lower bound. The frozen proof needs simultaneous singular sequences at every real frequency in the specific model.",
+        "searches": [
+          "Gallardo–Gutiérrez–Partington affine Cesàro composition semigroup unitary shift equivalence",
+          "arXiv:2201.09249 Proposition 2.10 and Theorems 4.7, 5.3",
+          "doi:10.1186/s13660-016-1149-2 Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.11882",
+        "arXiv:2201.09249",
+        "doi:10.1186/s13660-016-1149-2",
+        "Resultary d1d8579404ed (target), bd96a02b54e8",
+        "doi:10.1112/jlms.70273 (inaccessible full text)",
+        "Cowen (1984) (inaccessible full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted shift representation and normalized individual norm 1 match; that norm covers atoms only.",
+          "No decisive full text was obtained for the historical Cowen paper or the 2025 subordination paper; their possible overlap is not excluded."
+        ],
+        "reasoning": "Single-operator bounds or weighted-shift equivalence do not evaluate cancellation in arbitrary matrix Fourier–Stieltjes integrals modulo compacts. The frozen argument transfers plane waves to joint weak-null tests at the asymptotically unweighted end; it is an additional verification, not prior unweighted unitary equivalence.",
+        "searches": [
+          "arXiv:2206.11882 Section 2.1 Proposition 2.4",
+          "doi:10.1112/jlms.70273",
+          "Cowen, Indiana Univ. Math. J. 33 (1984), 305–318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.4 identifies the action with translations on L²(R,w) with w(y)=exp(−2(e^y−1)).",
+          "The same-date Hilbert Paley–Wiener result addresses finite affine sums, phase-based additivity and zero-offset logarithmic-frequency formulas, not this all-measure Hardy setting."
+        ],
+        "reasoning": "The weight ratio w(x+s)/w(x)<1 for positive s at every x, so the nonzero-vector strict contraction cannot be unitarily equivalent to unweighted translations or an isometric unilateral shift. Ordinary Fourier multiplication is instead available on a dilation, and compression is not an automatic essential isometry.",
+        "searches": [
+          "arXiv:2206.11882 §2.1, (2.5)–(2.8) and Proposition 2.4",
+          "Resultary Hardy affine composition Fourier-Stieltjes/Calkin exact match d1d8579404ed",
+          "Resultary bd96a02b54e8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula indexed under d1d8579404ed is the target itself, not a distinct earlier statement.",
+          "The distinct same-day indexed Paley–Wiener statement concerns finite sums and different spaces; at zero offset its frequency formula does not address this weighted affine Hardy model."
+        ],
+        "reasoning": "This is an analytic identity, so the exact-finding index comparison is relevant rather than a numerical table. An exact duplicate of the target catalogue entry is not independent coverage.",
+        "searches": [
+          "Resultary d1d8579404ed (exact norm formula and amplification)",
+          "Resultary bd96a02b54e8 (related affine norm formula)"
+        ]
+      },
+      "rationale": "The known weighted-space model, single-operator norm, Phillips integrals and common dilation bound are not counted as distinct. The supported addition is a matching essential lower bound and thus a complete exact norm identity for every finite measure matrix. No inspected matching theorem supplies this joint statement or an equivalence to ordinary unweighted translations that would make the result a direct substitution.",
+      "residual_risks": [
+        "There could be a preexisting spectral-set or dilation treatment of the same semigroup, including in the incompletely accessible historical and subordination literature.",
+        "The result is a short consequence of classical dilation once the joint weak-null frequency property is shown; this assessment does not claim general functional-calculus machinery or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and individual norm covered; not ordinary translation equivalence or complete essential identity",
+          "evidence": "S_s f(y)=f(y−s) on L²(R,w(y)dy) with w(y)=exp(−2(e^y−1)).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.11882",
+          "material_read": "§2.1 equations (2.5)–(2.8) and Proposition 2.4, pp. 6–7",
+          "method": "OA original PDF, decisive passage around offset 23259",
+          "title": "Insights on the Cesàro operator: shift semigroups and invariant subspaces",
+          "trigger": "Exact normalized affine semigroup and plausible shift equivalence"
+        },
+        {
+          "assessment": "Different conclusions in examined statements",
+          "evidence": "Strong continuity tests, uniform convergence and compactness for single univalent composition operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09249",
+          "material_read": "§2.4 Proposition 2.10 p. 9, Theorems 4.7 p. 17 and 5.3 p. 21",
+          "method": "OA original PDF",
+          "title": "Semigroups of weighted composition operators on spaces of holomorphic functions",
+          "trigger": "Plausible general covering semigroup results"
+        },
+        {
+          "assessment": "Different space, lower estimate only",
+          "evidence": "An essential-norm estimate for finite sums indexed by shared boundary data.",
+          "identifier_or_url": "doi:10.1186/s13660-016-1149-2",
+          "material_read": "Theorem 3.7 p. 11, around offset 42979",
+          "method": "OA PDF",
+          "title": "Difference of composition operators on weighted Bergman spaces over the half-plane",
+          "trigger": "Prior essential-norm estimates for composition sums"
+        },
+        {
+          "assessment": "Different model and population of measures",
+          "evidence": "Finite affine sums on Hilbert Paley–Wiener spaces; additivity criterion and zero-offset log-frequency formula.",
+          "identifier_or_url": "Resultary bd96a02b54e8",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Offset-uniform norm additivity for finite affine Paley–Wiener composition sums",
+          "trigger": "Related same-date affine frequency formula"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "No statement-level exclusion from the failed retrieval.",
+          "identifier_or_url": "doi:10.1112/jlms.70273",
+          "material_read": "Citation, no full text",
+          "method": "DOI route attempted, HTTP 403",
+          "title": "Local spectral theory for subordinated operators: The Cesàro operator and beyond",
+          "trigger": "Same semigroup/subordination could cover broader calculus"
+        },
+        {
+          "assessment": "Historical overlap unresolved",
+          "evidence": "No statement-level exclusion from access failure.",
+          "identifier_or_url": "Cowen, Indiana Univ. Math. J. 33 (1984), 305–318",
+          "material_read": "Citation, no usable full text",
+          "method": "Journal route, PDF route and linked abstract attempted; SSL error, HTTP 403, and no extractable abstract respectively",
+          "title": "Subnormality of the Cesàro operator and a semigroup of composition operators",
+          "trigger": "Historical study of the related semigroup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It evaluates a natural exact quotient norm on the full algebra of measure averages, not just each single atom. Arbitrary complex cancellations, singular measures and all finite matrix amplifications are included; it identifies a faithful complete Fourier-norm realization in the Calkin algebra and decides compactness and approximation numbers for the whole family. These are substantive operator invariants beyond the single weighted-shift norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

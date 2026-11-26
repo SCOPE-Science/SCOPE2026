@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:50:04.518444Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–86",
+        "Frozen VERIFICATION.md lines 19–25, verify_rotation.py, verification_output.txt and requirements.txt"
+      ],
+      "rationale": "For a nonzero probe the residual is rank one: applying diag(1,ε) to the normalized perpendicular to (cos φ, ε sin φ) gives the norm ε/(cos²φ+ε² sin²φ)^(1/2). The Gaussian direction is uniform on the projective circle; continuity makes the swept angle a full interval. The distance d to the interval shifted by the orthogonality angle has mass α/π at zero and density 2/π on (0,(π−α)/2) for α<π. For α≥π the distance is identically zero. Inverting the decreasing residual as a function of d gives the stated tail, including the atom at 1 and the saturated part near ε. Averaging over d gives the stated mean. For b=(π−α)/2>0, subtracting (u²+ε²)^(−1/2) from the mean integrand gives a difference bounded by O(u) near zero and converging in integral to ∫₀ᵇ(csc u−1/u)du=log(2 tan(b/2)/b), even for b=π/2. Adding arsinh(b/ε) gives the claimed constant in the logarithm. A tangent substitution gives the one-point squared mean ε; Tonelli gives Tε. The probe zero has Gaussian measure zero, and the best rank-one error is the trailing singular value in both norms.",
+      "residual_risks": [
+        "The bundled finite checks are recorded diagnostics, inspected but not rerun. The expansion is for fixed α<π, not an estimate uniform as α approaches π."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kressner–Lam arXiv:2302.12761v4, Theorem 5 bounds mean integrated squared Frobenius error, Theorem 12 bounds a genuine parameter supremum but requires r≥2, p≥4, and Theorems 16–17 use a different generalized Nyström scheme with two sketches and integrated bounds.",
+          "2ff5b4a49a7b covers finite power iterations and deterministic minimax, and ce74a6700e1e also covers independently refreshed sketches."
+        ],
+        "reasoning": "The published oversampled bounds do not include this construction, whereas setting power q=0 or taking one unrefreshed block in the respective indexed laws directly recovers it.",
+        "searches": [
+          "Resultary: uniform error bounds for reused Gaussian sketches in parameter-dependent matrices; Kressner Lam Theorem 12 and rank-one sketch variants",
+          "Resultary: Gaussian fixed-sketch continuum error maximum distribution for parameter-dependent matrices, with oversampling and rank-one cases"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2ff5b4a49a7b, ce74a6700e1e and 6a0180b3e23e",
+        "Kressner–Lam arXiv:2302.12761v4",
+        "Frozen RESULT.md lines 17–40 and 92–100"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2ff5b4a49a7b proof has the same complement-arc distance density 2/π; its expectation of the scalar residual equals the frozen first-moment integral. The explicit ce74a6700e1e supremum expectation is instead for Z, not Mε; its CDF still determines both."
+        ],
+        "reasoning": "The mean and small-ε correction follow by integrating the already determined distribution and evaluating its elementary logarithmic endpoint singularity. The fixed-time second moment similarly follows from the no-rotation law. These consequences do not supply a separate novel component in this audit.",
+        "searches": [
+          "Resultary: expected value of the worst-parameter spectral norm error of a fixed one-column Gaussian range sketch as a 2x2 SPD eigenspace rotates through angle alpha",
+          "Resultary: exact unnormalized mean maximum residual norm and small epsilon logarithmic asymptotic in rotating planar randomized range finder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2ff5b4a49a7b gives W_q² for the same planar path of angles of length L; ce74a6700e1e gives Z=Mε²/ε² and the terminal atom at ε⁻²."
+        ],
+        "reasoning": "The rank-one residual has identical spectral and Frobenius norms. Substitute a=1, b=ε, q=0, L=α and w=z² in the first law, or x=z²/ε² in the second. In both, the angular expansion of the swept arc is exactly 2 arcsin(ε√[(z⁻²−1)/(1−ε²)]). A continuous nonmonotone angle traverses the same interval, so it does not distinguish the supremum problem.",
+        "searches": [
+          "Resultary: exact worst-case or supremum error distribution for a single reused Gaussian probe, rotating leading eigenspace, 2x2 rank-one range finder, angular excursion, atom at full error",
+          "Resultary: finite-epsilon tail distribution and logarithmic small-epsilon mean asymptotic for maximum residual along rotating 2x2 matrix under one reused Gaussian probe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b; 2026/11/2/SCOPE-exact-worst-parameter-error-and-optimal-refresh-count-for-a-rota--ce74a6700e1e: both give the complete angular coverage law and terminal atom. The web query did not locate an additional useful exact source."
+        ],
+        "reasoning": "These are different records, not the assigned record under its own ID. The same-day record 6a0180b3e23e instead concerns a fixed-matrix Nyström residual; its different formula is not counterevidence to exact coverage by the two matches.",
+        "searches": [
+          "Resultary: exact supremum error law for a fixed one-column Gaussian rangefinder on rotating positive-definite matrices; angular excursion and full-error atom",
+          "Web: \"exact worst-case error distribution\" reused Gaussian rangefinder rotating eigenvector 2x2 uniform error"
+        ]
+      },
+      "rationale": "The central exact distribution is substantively covered in distinct indexed records: one gives it in a stronger power-iteration setting and the other in relative squared error with refresh. Their catalogue dates are later than this frozen record's date. This is a judgment of demonstrated coverage now, not evidence that the indexed matches had historical priority or that this record was derived from them. Kressner–Lam's earlier uniform theorem is not equivalent. The explicit first mean and logarithmic term are direct consequences of the already covered distance law and the standard incomplete elliptic integral reduction, rather than an independent surviving finding.",
+      "residual_risks": [
+        "The mathematical equivalence does not identify the first discovery or provenance of the records. No additional exact earlier publication was established by the bounded external search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the law at zero power and determines its moments",
+          "evidence": [
+            "Atom L/π at the top singular value a; angle-threshold CDF for W_q²."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+          "material_read": "Finding and distribution proof, starting at offset 0 of RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Exact angular risk law for a fixed one-column rangefinder on rotating matrices",
+          "trigger": "Same rotation, fixed Gaussian line, and exact distribution"
+        },
+        {
+          "assessment": "Covers the frozen law for one unrefreshed block",
+          "evidence": [
+            "Relative squared error Z, CDF qε and atom at ε⁻²; refresh results beyond this record."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-worst-parameter-error-and-optimal-refresh-count-for-a-rota--ce74a6700e1e",
+          "material_read": "Finding and proof around offsets 0 and 5403",
+          "method": "Local Resultary mirror",
+          "title": "Exact worst-parameter error and optimal refresh count for a rotating family",
+          "trigger": "Exact worst-error formula in a second normalization"
+        },
+        {
+          "assessment": "Earlier motivation, not exact law coverage",
+          "evidence": [
+            "Uniform theorem is mesh/Lipschitz-based with oversampling; the Nyström construction uses independent Ω and Ψ, and its inspected theorems are integrated bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.12761v4",
+          "material_read": "Theorems 5 and 12; Remark 1; §3 generalized Nyström definition and Theorems 16–17",
+          "method": "Versioned lawful OA article passages",
+          "title": "Randomized low-rank approximation of parameter-dependent matrices",
+          "trigger": "Shared Gaussian sketch and uniform parameter guarantee"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–40 and 98–100",
+        "Resultary 2ff5b4a49a7b and ce74a6700e1e, exact laws"
+      ],
+      "rationale": "The unoversampled rotating example is a useful concrete witness distinguishing integrated from worst-parameter error. Its full-error probability and exact profile are already available in the broader indexed treatments, however. The extra display of the first moment is a routine integration of their exact law; extracting the logarithmic endpoint does not establish an independent gap beyond the covered model-specific diagnostic. No substantive repair is supported.",
+      "residual_risks": [
+        "This value judgment on the frozen claim does not deny the usefulness of the counterexample or assign historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

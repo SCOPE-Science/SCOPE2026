@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:21.293822Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At range k the k internal edges all have weight c; the outgoing edges have weight 1 and the walk starts at the last record endpoint. Absorption is almost surely finite. Solving the affine harmonic equation with the two weighted endpoint conditions gives right-exit probability (i+c)/(k+2c) from i, including k=1. Thus from either sign the next sign changes with probability c/(k+2c); the first sign is fair. With B_k(j) the proposed count mass, the recursion for the positive joint mass simplifies to [(j-1+c)/(k+2c)]B_k(j-1)=(j/(k+1))B_(k+1)(j); the negative side follows by reflection. The zero/outside masses and the initial level satisfy the boundary conditions. The two three-step paths differ by exactly the factor (1+c)/c and have positive probability for all c>0. The binomial mixture with a Beta(c,c) parameter gives the moments and weak convergence without making the original process exchangeable or claiming pathwise convergence. The frozen check_output.txt records 10002 exact-rational assertions. A separately written check returned 114 passes for c=1/2 and 2, exit widths 1–4 and record counts 1–4. To replay that bounded procedure, solve the tridiagonal exit equations in RESULT.md §1 as a linear system over fractions at those widths, then enumerate sign strings with the solved endpoint probabilities, aggregate by count and final sign, and compare masses and the stated path ratio. Frozen check.py and check_output.txt describe the larger finite check; the general result rests on the induction, not these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Serlet gives a more general asymmetric kernel and a process limit, not just a statement about symmetric counts. The coin-turning scaling theorem and Remark 15 apply because n p_n tends to c, and Remark 11 identifies the beta marginals of the limiting centered/rescaled zigzag.",
+          "Pfaffelhuber–Stiefel obtain deterministic-time range moments, whereas Hu–Ma–Song–Wang treat a reflecting half-line. Neither stated invariant is the joint count and terminal sign at a range record."
+        ],
+        "reasoning": "The Beta(c,c) weak limit is covered by the existing broader process theorem under the sign-occupation identification. A functional scaling law does not by itself specify the exact prelimit count probabilities.",
+        "searches": [
+          "Serlet, HAL-02364930, Proposition 2, Corollary 3 and Proposition 4",
+          "arXiv:1904.10953, Theorem 4(3), Remarks 11 and 15",
+          "arXiv:1903.05234 and arXiv:2602.10721"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Serlet HAL-02364930",
+        "arXiv:1904.10953, 1606.03281, 1903.05234, 2602.10721 and 2605.20116",
+        "Resultary c7b3e1d0eeb5 and dcd5996f52fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the Serlet transition matrix entries immediately gives the three-sign nonexchangeability ratio. Serlet's Eq. (9) relates count and sign to signed record location, and Corollary 3 is asymptotic. The coin-turning finite uniform statement addresses only c=1.",
+          "For general c the exact finite mass and terminal-side identity require solving a joint prelimit recurrence: the sign-only kernel provides the recurrence but does not state its binomial/beta-function factorization."
+        ],
+        "reasoning": "Credit immediate implications of the existing kernel and scaling results. The finite identification goes beyond a parameter substitution in those results: despite nonexchangeability, the joint recursion closes in a count law with exact last-sign weight j/k, an additional structural identity at every level.",
+        "searches": [
+          "HAL-02364930, Eq. (4), §2.2 and §4",
+          "arXiv:1904.10953, Remark 15 and finite-uniform footnote"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Serlet's signs at successive PRW records have the frozen kernel exactly when beta=gamma=c; his Eq. (3) expresses the record values as sign counts. This is the same discrete process, not merely a similar full-line walk.",
+          "The occupation fraction is also the fraction of heads of a fair-start coin-turning walk with turn probability p_n=c/(n-1+2c) for n≥2."
+        ],
+        "reasoning": "These equivalences prevent claiming the record kernel as new and provide meaningful comparisons for the count law; the exact elementary solution of the finite joint count recursion is the remaining claim.",
+        "searches": [
+          "Local Resultary: once-reinforced record allocation, persistent record signs and beta laws",
+          "HAL-02364930: Proposition 1 and Eq. (4)",
+          "Coin-turning Pólya urn exact beta-binomial occupation time, Engländer–Volkov–Balázs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coin-turning footnote gives the finite discrete-uniform occupation law when p_n=1/(n+1) and notes a Pólya-urn connection. This is exactly c=1, where the frozen count mass is 1/(k+1).",
+          "The two closest Resultary statements give a triangular-array Beta crossover and a deterministic-time range crossover, respectively, not an exact k-indexed two-variable count table. No inspected source gave the beta-binomial table at arbitrary c with the final-side refinement."
+        ],
+        "reasoning": "The finite uniform row is known and the standard beta-binomial distribution itself is classical. The question is its exact identification for this dependent process across arbitrary positive weights; keyword misses are not evidence of whole-document exclusion.",
+        "searches": [
+          "Local Resultary persistent beta and ORRW range records c7b3e1d0eeb5 and dcd5996f52fe",
+          "arXiv:1904.10953, §3.1 footnote 1",
+          "arXiv:1606.03281 and arXiv:2605.20116, lookup for beta-binomial and relevant limiting statements"
+        ]
+      },
+      "rationale": "Support is for the exact arbitrary-c finite-record beta-binomial count law and its joint final-side refinement, not for the record transition kernel, nonexchangeability, or the beta weak limit as new results. Same-model prior work gives the kernel exactly, and prior coin-turning results cover the limit and the c=1 count special case. The inspected comparisons did not establish the arbitrary-weight finite joint identity in an earlier source.",
+      "residual_risks": [
+        "The noted forthcoming general Pólya-urn connection in the coin-turning work was not located by a targeted search; a finite exact count theorem under a colored-urn, permutation, or renewal reformulation remains possible. This pass is limited to the finite all-c count/last-side refinement, not the already-covered kernel or limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the record-sign transition and its immediate path consequences; no arbitrary-c finite joint allocation formula in the inspected relevant passages.",
+          "evidence": "Proposition 1 gives change probabilities gamma/(n+beta+gamma) and beta/(n+beta+gamma). Corollary 3 instead states a process scaling limit of signed records.",
+          "identifier_or_url": "https://hal.science/hal-02364930/document (DOI 10.1007/978-3-319-92420-5_14)",
+          "material_read": "§1 model, PDF pp. 2–3; Proposition 1 and Eq. (3)–(4), PDF p. 4; §§2.1–2.2 including Eq. (9), PDF pp. 5–6, offsets 7800–13260; §4 proof of Proposition 1, PDF p. 14, offsets 33200–35927",
+          "method": "Retrieved lawful HAL full text and read located statements and proof; set both perturbation parameters to c",
+          "title": "Explicit Laws for the Records of the Perturbed Random Walk on Z",
+          "trigger": "Same full-line record process in closely matching prior chapter"
+        },
+        {
+          "assessment": "Covers the one-dimensional limit here and the finite c=1 count case, not the all-c joint mass in inspected material.",
+          "evidence": "Finite discrete-uniform law for p_n=1/(n+1); n p_n→c included in the same zigzag limit, which has symmetric beta marginals after affine transformation.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.10953",
+          "material_read": "§3.1 footnote 1, PDF p. 7; Remark 11, PDF p. 20; Remark 15, PDF pp. 39–40",
+          "method": "Primary OA PDF, compared probability schedule, finite footnote and generalization of scaling theorem",
+          "title": "The coin-turning walk and its scaling limit",
+          "trigger": "Equivalent time-inhomogeneous sign process and plausible exact count coverage"
+        },
+        {
+          "assessment": "Asymptotic beta result, with canonical p_n=c/n schedule.",
+          "evidence": "Theorem 2 gives Beta(c,c) for the occupation fraction in the limit, not the exact finite shifted-schedule mass.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.03281",
+          "material_read": "Theorem 2 and adjoining discussion, PDF pp. 6–7",
+          "method": "Primary OA PDF, compared critical schedule and limiting law",
+          "title": "Turning a Coin over Instead of Tossing It",
+          "trigger": "Original critical coin-turning Beta result"
+        },
+        {
+          "assessment": "Full-line deterministic-time range asymptotics and half-line range asymptotics, respectively.",
+          "evidence": "Neither theorem's stated random variable is the count/terminal-side pair sampled at range k.",
+          "identifier_or_url": "arXiv:1903.05234; arXiv:2602.10721",
+          "material_read": "First paper §§1–2, Theorem 1, PDF pp. 2–4; second paper §1, Theorem 1.1, PDF p. 3",
+          "method": "Primary OA statements and model comparison",
+          "title": "The range of once-reinforced random walk in one dimension; The range of once-reinforced random walk on the half-line",
+          "trigger": "Cited prior ORRW range results"
+        },
+        {
+          "assessment": "Different statements; no temporal-priority inference from same dates.",
+          "evidence": "The first is a triangular family with a Beta endpoint limit, the second is a deterministic-time weak-weight range limit.",
+          "identifier_or_url": "Resultary c7b3e1d0eeb5; dcd5996f52fe",
+          "material_read": "Both Findings and the former's coin-turning related-work passages",
+          "method": "Local mirror, compared model, observable and limit regime",
+          "title": "Nonlinear logarithmic-window beta crossover for persistent random walks; A universal weak-weight crossover for once-reinforced walk range",
+          "trigger": "Nearest local indexed persistent-sign and same-model range crossovers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a fixed range, the right count directly measures how the explored sites are allocated between the two sides; the terminal side determines the current endpoint. An exact joint law for these observable quantities for every reinforcement level and range is a natural finite invariant, useful even in the presence of known record dynamics and limiting theorems. The count agrees with an exchangeable urn even though the signs do not, so the count and last-sign identities give genuine information not captured by the path analogy or an isolated finite test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

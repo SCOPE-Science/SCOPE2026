@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For any two adjacent-burst deletion positions i<j, equal outputs iff source symbols match at lag two for every index from i to j-1; this proves the exact score sum and no noncontiguous collision. The three-state transfer over 00/01/10 with weights 1 or u yields the claimed matrix and determinant x^3-x^2-x-u^2+1; initial polynomials 3, 3+2u, 3+4u+u^2 yield the rational generating function. Leading-degree induction gives the mod-three maxima and coefficients; dominant-pole differentiation gives mean rate (3/sqrt(5)-1). Exact brute-force check of 17,706 words at n<=18, recurrence and extrema to n=250, explicit family check to n=80 passed. Finite tests support but do not substitute the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 full text gives exact q-ary general burst-deletion sphere size and unrestricted binary distribution; 2012 Kulkarni/Kiyavash offers RLL single-deletion capacity bounds."
+      ],
+      "reasoning": "General formulas for individual host words do not automatically enumerate hosts satisfying 11 avoidance. The new claimed object is the full weighted restricted-language spectrum and exact equality cases, not a reformulation of the generic lemma.",
+      "searches": [
+        "run-length-limited no consecutive ones one burst length two deletion diversity maximum and maximizer census",
+        "arxiv:1602.06820",
+        "arxiv:1211.3128"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.3128",
+      "https://arxiv.org/abs/1602.06820",
+      "https://doi.org/10.1109/ISIT.2014.6875032",
+      "published-finding corpus-index-record:b6865f2f1099",
+      "published-finding corpus-index-record:6bc54c96c7d8",
+      "published-finding corpus-index-record:9aba1877e366",
+      "published-finding corpus-index-record:2f12cb51f0ae",
+      "https://oeis.org/A376033/internal"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (2) implies the per-word score equality, but Appendix A obtains an unrestricted-host binomial distribution. Kulkarni and Kiyavash addresses a code optimum for different deletion semantics and class."
+      ],
+      "reasoning": "The new rational series is not claimed to generalize the Levenshtein score; it enumerates a restricted source via a weighted 3-state transfer not found in inspected source. Consequent sharp top-degree/multiplicity and uniform-source expectation are absent from sources read.",
+      "searches": [
+        "arxiv:1602.06820 Eq.(2) and Appendix A",
+        "arxiv:1211.3128 constrained RLL codes",
+        "extremal words no 11 for number of positions x_i != x_{i+2} leading count period three h+3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Levenshtein burst-ball identity quoted in arXiv:1602.06820 equation (2) exactly gives the lag-two mismatch formula for b=2, hence is credited as equivalent to the collision lemma; Appendix A unconditional binary spectrum differs from conditioned Fibonacci-source formula."
+      ],
+      "reasoning": "The common general ball-count lemma is known, but the Fibonacci-constrained distribution and maximizer stratification require a nontrivial restriction and separate calculation.",
+      "searches": [
+        "combinatorial enumeration of deletion descendants for binary constrained words with fixed run length or fixed Hamming weight",
+        "binary words avoiding adjacent 11 maximum 2-burst deletion ball size exact n floor 2(n-1)/3 extremizers",
+        "arxiv:1602.06820 Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A376033 concerns binary words avoiding specified pair distances; the indexed sparse-marker result concerns codebook sizes, and indexed RLL result concerns single deletion. None of the summaries states the new polynomial or equal-case multiplicities."
+      ],
+      "reasoning": "Checked exact constants, source alphabet constraint, burst length, generating function, and residue-class top coefficients; available indexed contents do not cover them. The inability to read some full texts is recorded as a risk.",
+      "searches": [
+        "sharp maximum number of length-2 contiguous burst deletion descendants among binary words forbidding 11 equals floor(2(n-1)/3)",
+        "3-state transfer matrix generating polynomial degree distribution of distance-two Hamming transitions in no-11 Fibonacci words",
+        "https://oeis.org/A376033/internal",
+        "published-finding corpus-index-record:b6865f2f1099",
+        "published-finding corpus-index-record:6bc54c96c7d8"
+      ]
+    },
+    "rationale": "The all-words burst-ball identity is prior (Levenshtein 1967, Schoeny et al. 2016), as is unrestricted sphere-distribution enumeration; neither is claimed anew. Read relevant primary full text and compared it with the conditional no-11 histogram and exact mod-three extremizer counts. Indexed searches of published research yielded related codebook capacities and alternate sources, but no direct full-parameter equivalent to the constrained sphere polynomial. Qualified priority judgment only; unindexed earlier work and incomplete manuscript access remain risks.",
+    "residual_risks": [
+      "Levenshtein 1967 establishes the general one-burst score: this is explicitly excluded from the novelty claim.",
+      "Some indexed related results were available only as titles and scientific summaries; full-text equivalence is not completely excluded.",
+      "An unindexed earlier complete Fibonacci-constrained spectrum might exist.",
+      "First day-verified public background posting is 2012-11-13; the earlier 1967 contribution is known by year but not precisely dated from available sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not contain the full two-adjacent-deletion sphere enumerator for binary words forbidding 11; focuses codebook bounds for a single arbitrary deletion",
+        "evidence": [
+          "Original arXiv version date 2012-11-13; Sections on constrained RLL codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Full HTML manuscript including constrained-source code bounds in Section V and introduction",
+        "method": "Read arXiv open-access HTML, compared channel, permitted sources and quantities",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Constrained-source deletion-code ancestor with run-length-limited source setting"
+      },
+      {
+        "assessment": "General ball identity is known and credited; its unrestricted binomial distribution does not state or imply without a further constrained-source count the new rational series and maximum-equality classification",
+        "evidence": [
+          "Equation (2): general interleaved-run count for deletion burst; Appendix A: unconstrained sphere distribution; original public 2016-02-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.06820",
+        "material_read": "Full arXiv HTML introduction, exact general burst-ball formula equation (2), and Appendix A deriving unrestricted binary sphere distribution",
+        "method": "Read open-access HTML and compared stronger unrestricted ball identity and indexed source distribution with the new no-11 conditioned spectrum",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Broadest direct model and a plausible dominating general identity"
+      },
+      {
+        "assessment": "Addresses codes correcting >=3 adjacent deletions; not a two-adjacent-deletion diversity spectrum on a no-11 source",
+        "evidence": [
+          "ISIT 2014 title and introduction describe correction of bursts with at least 3 errors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875032",
+        "material_read": "Accessible author-posted research text with problem description and bibliographic references",
+        "method": "Read accessible public text/abstract and compared deletion length and outcome counted",
+        "title": "Codes for Correcting Three or More Adjacent Deletions or Insertions",
+        "trigger": "Earlier adjacent-deletion code theory"
+      },
+      {
+        "assessment": "Result covers maximum codebook size among weight-two sources, not all no-11 source deletion-ball spectrum. Full-text overlap risk retained.",
+        "evidence": [
+          "Index summary states optimal zero-error code correcting length-two burst for weight-two inputs."
+        ],
+        "identifier_or_url": "published-finding corpus-index-record:6bc54c96c7d8",
+        "material_read": "Indexed title and scientific summary; full repository text inaccessible",
+        "method": "Compared exact model and objective in available index summary; full text unavailable",
+        "title": "Exact sparse-marker capacity for one adjacent two-deletion burst",
+        "trigger": "Most relevant indexed published-finding corpus title and exact same burst length"
+      },
+      {
+        "assessment": "Reports finite single-deletion codebook optima, not universal two-burst volume distribution. Full-text overlap risk retained.",
+        "evidence": [
+          "Index describes exact single-deletion source-code optima for source lengths through 11."
+        ],
+        "identifier_or_url": "published-finding corpus-index-record:b6865f2f1099",
+        "material_read": "Indexed title and scientific summary; complete manuscript inaccessible",
+        "method": "Compared block constraints and single-vs-burst channel and capacity-vs-sphere-size",
+        "title": "Exact single-deletion optima for the (2,infinity)-RLL source through length eleven",
+        "trigger": "Related restricted source and deletion operation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "699e806f-10ce-4cce-a774-57cfed70ef56",
+  "value": {
+    "rationale": "A complete distribution of distinct length-two-burst deletion outputs for the canonical no-adjacent-one RLL source, with sharp maximum and all residue-class equality-case multiplicities, is a natural quantitative measure of synchronization ambiguity. The exact all-length rational series and mod-three effect go beyond finite empirical tables or a textbook restatement of the general deletion-ball score, while avoiding unsupported code-capacity claims.",
+    "status": "PASS"
+  }
+}

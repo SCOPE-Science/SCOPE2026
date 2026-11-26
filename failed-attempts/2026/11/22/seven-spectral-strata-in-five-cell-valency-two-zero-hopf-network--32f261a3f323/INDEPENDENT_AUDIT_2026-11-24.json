@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:15:06.246387Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "VERIFICATION.md",
+        "checker.cpp",
+        "summary.txt",
+        "Independent exact Python replay /tmp/opencode/review_4_networks.py (4 10000 and 5 759375)"
+      ],
+      "rationale": "The residual eigenvalue is real and r=tr(A)-2; the norm bound and simplicity leave r in {-2,-1,1}. Monic integer division gives integral q in {1,2,3,4}. I independently enumerated all 759,375 row-multiset matrices in Python, using traces A through A^5 as exact power sums (Newton identities give the polynomial), not determinant interpolation. I partitioned the accepted labeled states into full simultaneous-permutation orbits and computed reachability by Boolean transitive closure. The seven rows (labeled, classes, strong labeled, strong classes), in the claimed order, were (1800,15,600,5), (1620,15,420,5), (120,1,120,1), (360,4,60,1), (7620,66,3420,29), (3540,30,1140,10), and (6900,60,540,5). All 21,960 accepted matrices were weakly connected, also a consequence of the simplicity of eigenvalue 2: disconnected weak components would each have row sum 2. Using rows as outward lists reverses every arrow and does not change either connectivity predicate. The analogous independent four-cell run found only q=1, with nine isomorphism classes; fewer than four cells cannot contain the four distinct required eigenvalues. The first-at-five claim follows.",
+      "residual_risks": [
+        "This is a spectral classification only. It does not establish generic or nondegenerate bifurcation properties of every admissible field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary zero-Hopf paper classifies nine four-cell networks and displays only E_(+/-i) Hopf eigenspaces. The Warwick abstract describes homogeneous-network enumeration without specifying a spectral filter.",
+          "The same-date synchrony work goes beyond the five-cell spectral census by cataloging balanced-partition counts, while providing the classification used as input."
+        ],
+        "reasoning": "The four-cell theorem is not a five-cell count, and inclusion in a general family of homogeneous networks is not by itself coverage. The synchrony package, in contrast, explicitly supplies the full relevant filtered class set.",
+        "searches": [
+          "Aguiar–Dias–Mokhtari, arXiv:2611.15221v1, Definition 2.4 and Theorems 5.2–5.3",
+          "Aldosray–Stewart, https://wrap.warwick.ac.uk/id/eprint/34410/",
+          "Resultary record 95cf641f37cc, Step 2 and relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and distinct package 95cf641f37cc (RESULT.md and five_cell_representatives.json)",
+        "arXiv:2611.15221v1",
+        "Warwick 34410 abstract",
+        "Focused primary-literature search on the five-cell spectral classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The q=3,4 matrices in the complete five-cell catalogue are all in the r=-2 stratum and include a strong witness for each q. The complete four-cell classification has q=1."
+        ],
+        "reasoning": "The first possible sizes for q=3,4 are immediate from those positive and negative results, since with fewer than four cells even the four prescribed eigenvalues cannot fit. Highlighting the onset does not extend the classified family.",
+        "searches": [
+          "Resultary 95cf641f37cc/five_cell_representatives.json, q=3 and q=4 entries",
+          "arXiv:2611.15221v1 Theorems 5.2–5.3 and Tables 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synchrony record uses the same two incoming arrows with loops and parallel arrows, the same adjacency orientation, weak connectivity, simple spectrum, and simultaneous row-column relabeling.",
+          "Its proof gives 191 classes, 21,960 labeled matrices and 56 strong classes before evaluating the synchrony invariant."
+        ],
+        "reasoning": "The base class sets are identical. Synchrony is an extra statistic over the exact same objects, not a change to the spectral condition or the isomorphism relation.",
+        "searches": [
+          "Resultary: five-cell valency-two zero-Hopf network spectral classification and synchrony census",
+          "2026/11/22/SCOPE-the-five-cell-onset-and-complete-synchrony-profile-census-for-tw--95cf641f37cc, RESULT.md offsets 0 and 4400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database has 191 matrix rows with r, omega_squared and labelled fields. I counted rows by (r,q), summed labelled, and computed directed reachability per matrix before summing the strong subset. The seven output quadruples agree entry-by-entry with the submitted table and all 191 matrices are weakly connected.",
+          "In particular (-2,3) has (120,1,120,1) and (-2,4) has (360,4,60,1)."
+        ],
+        "reasoning": "All table columns, including the strong columns and higher-frequency multiplicities, are a mechanical aggregation of the exact independent catalogue package; agreement is not inferred from common totals alone.",
+        "searches": [
+          "Resultary 95cf641f37cc/five_cell_representatives.json, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary synchrony census packages a complete five-cell representative database for exactly the assigned zero-Hopf spectral family, with r, omega_squared, labeled orbit sizes, and the full matrices. Aggregation and elementary reachability applied to its 191 stored records reproduced every entry of the seven-stratum table, not just the totals. The high-frequency strata and their strong witnesses are in that exact database; their first-at-five interpretation follows immediately from the known four-cell q=1 result and the minimum dimension. The database is distinct from the assigned record; its shared date and its reference to an earlier spectral census do not establish publication order or identify that earlier record.",
+      "residual_risks": [
+        "Priority/order is not established for the same-date records; the claimed earlier unnamed census was not independently resolved.",
+        "Aldosray–Stewart full text was not retrieved. This does not weaken the demonstrated exact database overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact class-set and totals overlap; synchrony is additional",
+          "evidence": "The proof explicitly enumerates 191 five-cell classes, 21,960 labels and 56 strong classes, and describes their spectral multiplicities as earlier input without identifying the source.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-five-cell-onset-and-complete-synchrony-profile-census-for-tw--95cf641f37cc/RESULT.md",
+          "material_read": "Finding and scope, offset 0; Step 2 through relationship to prior work, offset 4400",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "The five-cell onset and complete synchrony-profile census for two-input zero-Hopf networks",
+          "trigger": "Distinct same-date work on the same exact spectral family"
+        },
+        {
+          "assessment": "Exact seven-stratum coverage",
+          "evidence": "The fields matrix, r, omega_squared, and labelled suffice for every column. Grouping the 191 records and adding the strong-reachability test gives all seven quadruples of the frozen table.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-five-cell-onset-and-complete-synchrony-profile-census-for-tw--95cf641f37cc/five_cell_representatives.json",
+          "material_read": "Row schema and all 191 rows aggregated programmatically",
+          "method": "Read-only pagination of local Resultary JSON and direct reachability on each matrix",
+          "title": "Five-cell canonical matrices and spectral data",
+          "trigger": "Determine whether the exact table, not merely total counts, is covered"
+        },
+        {
+          "assessment": "Exact four-cell baseline, not source of the five-cell table",
+          "evidence": "Theorems enumerate six plus three four-cell networks; tables display only the imaginary pair +/-i. PDF numbering differs from the frozen HTML-style citation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15221v1",
+          "material_read": "Abstract p. 1; Definition 2.4 p. 5; Theorems 5.2–5.3 pp. 16–17; Tables 1–3 pp. 30–32",
+          "method": "OA PDF passage and table inspection",
+          "title": "Zero-Hopf networks",
+          "trigger": "Definition, classification baseline and possibly encompassing five-cell results"
+        },
+        {
+          "assessment": "General counting scope in abstract; no full-text conclusion",
+          "evidence": "The abstract advertises counts by cell number and valency, including connected and disconnected cases, but does not describe a zero-Hopf filter.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/34410/",
+          "material_read": "Repository abstract, offset 400; full research output unavailable there",
+          "method": "Repository page inspection",
+          "title": "Enumeration of homogeneous coupled cell networks",
+          "trigger": "Broader count might contain a relevant exact table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete exact five-cell zero-Hopf catalogue is well motivated as the dimension after the nine-class baseline. But the assigned aggregate and its only additional interpretation, the q=3,4 onset, can be read off the exact same-family catalogue with grouping, reachability and the known four-cell spectrum. This submission does not add a structural criterion for the frequencies, a new invariant, or a separate result whose scientific value survives that exact coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

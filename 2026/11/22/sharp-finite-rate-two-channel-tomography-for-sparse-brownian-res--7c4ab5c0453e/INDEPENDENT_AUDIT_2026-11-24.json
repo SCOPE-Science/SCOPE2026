@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:53:04.839264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "/workspace/branches/3f9baf1b-f8e9-41e0-a2b1-619bf49a3bea/record5_spotcheck.py"
+      ],
+      "rationale": "On the cut interval the discounted exit channels solve D h''=rh with boundary values (1,0) or (0,1). For one excursion the competing exponential clock gives mean length (1−f)/r and success probabilities f=h_0+h_L and h_0. Fresh iid reset excursions renew with overall success probability F=∫f dμ>0. Combining this renewal with the special first excursion from x_0 yields M=(1−f(x_0))/(rF) and P=h_0(x_0)+(1−f(x_0))A/F, A=∫h_0 dμ; inversion is legitimate because x_0 is interior and M>0. Sum and difference of the endpoint transforms produce cosh and sinh moments; at k=jκ they yield the moments of t^j and t^(−j) for t=exp(κ(L/2−x)). Thus the Hankel entries are consecutive moments of the positive finite measure t^(−K)dρ, where ρ is the pushforward. A kernel vector for the PSD polynomial Gram matrix is a nonzero polynomial that vanishes almost everywhere for this measure, and conversely any support with at most K sites gives such a polynomial. This argument is valid against arbitrary Borel alternatives because t is in a positive bounded interval and the tilt preserves null sets. Vandermonde full rank gives the support size, the smaller Gram system yields the monic annihilator, and a second Vandermonde solve gives the weights, which are untilted to probabilities; the log map recovers oriented sites. For m<K arbitrary fixed positive rates, the open ordered K-position and (K−1)-weight parameter set cannot inject continuously into R^(2m) by invariance of domain; this includes K=1, m=0. The independent bounded spot check recovered both Laurent channels at K=2 to 8.88e−16 and obtained exact Gram determinants 0 and 1/300 for two versus three sites, with reflection swapping the plus and minus moment channels.",
+      "residual_risks": [
+        "The dimension proof concerns arbitrary fixed choices of rates; it is not invoked for an unspecified adaptive protocol.",
+        "Exact population readings, common independent reset law, and calibrated L,D,x_0 are essential assumptions. No finite-data stability is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Julián-Salgado et al. provides ring forward renewal and MFPT mirror symmetry; Méndez et al. develops distributed-reset forward first-passage and equivalent-reset positions.",
+          "Resultary 4278f0a9748c uses a full movable-target MFPT response and a common initial and reset law on the line."
+        ],
+        "reasoning": "These forward or different full-response settings do not supply the finite paired observation reduction or the all-Borel certificate. Complete-curve identifiability does not imply finite identification at a specified number of rates.",
+        "searches": [
+          "arXiv:2605.08414 §III and two-point phase diagrams",
+          "arXiv:2401.01125 Introduction/§II",
+          "Resultary 4278f0a9748c joint recovery and local blindness"
+        ]
+      },
+      "checked_sources": [
+        "OA PDFs arXiv:2410.16889, 2605.08414, 2508.07386, 2401.01125 (passages specified above)",
+        "Resultary 2af4cf3521b4, 6de9da8f8562, 4278f0a9748c, f8d346c6a6a6",
+        "Frozen classical moment-method comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abundo's interval IFPP and mean exit time inverse specifications are separate fixed-rate density problems, with examples and no guaranteed uniqueness for the latter. Sezik et al. supplies related forward exit information, and 6de9da8f8562 shows a close odd hyperbolic transform for a different stationary membrane observable.",
+          "After the physical bilateral moment reduction, the Gram support criterion and Prony recovery are classic moment consequences."
+        ],
+        "reasoning": "The prior forward tools explain how individual observables can be calculated, and the algebra applies once bilateral moments are available. The inspected sources do not supply the combined even/odd extraction from the same two readings with the calibrated non-reset start and chosen rate ladder, giving the certificate and minimum rate count together. Credit is limited to that realization and its inverse conclusion.",
+        "searches": [
+          "arXiv:2410.16889 §§4.1 and 4.4 equations 4.1–4.2 and 4.12–4.14",
+          "arXiv:2508.07386 §4.3 Eqs. 52–59",
+          "Resultary 6de9da8f8562 and 2af4cf3521b4",
+          "Classical Hankel–Prony (frozen reference Sauer §§3.6–3.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2af4cf3521b4 recovers a real-line law from two complete MFPT rate curves at separate targets. Record 6de9da8f8562 identifies its signed ring-source component from stationary current over a rate sweep.",
+          "Abundo §4 averages observables conditional on x_R=u, each for resetting to that fixed u. Sezik et al. §4.3 treats boundary exit jointly with reset count for a post-reset distribution."
+        ],
+        "reasoning": "The interval cut is an exact reparametrization of this absorbing ring, so Abundo's interval results warrant direct comparison. But mixing fixed-site process observables is not the same as drawing a fresh reset site for each excursion, and neither a one-rate specification nor the signed current sweep fits the paired finite measurements here.",
+        "searches": [
+          "Resultary: two-target MFPT tomography, signed boundary-current tomography, sparse Brownian reset-law inverse",
+          "arXiv:2410.16889 §4",
+          "arXiv:2508.07386 §4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed inverse records 2af4cf3521b4, 6de9da8f8562, and 4278f0a9748c state continuous-response inverse formulas. The distinct same-day f8d346c6a6a6 states a forward signed-current formula and its reversal classification."
+        ],
+        "reasoning": "None of those inspected entries gives the paired K quadratic-rate schedule or its PSD Hankel support-count test. An exact moment reconstruction table requires the moments to have been obtained from these physical observations; no independent priority is ascribed to the algebraic table itself.",
+        "searches": [
+          "Resultary: paired mean-time/left-arrival finite-rate tomography, reset-law support certificate, boundary-current inverse"
+        ]
+      },
+      "rationale": "The creditable result is the finite exact realization of consecutive signed Laurent measurements by the two specified first-passage observables on the absorbing ring, with the all-Borel support certificate and optimal fixed rate count. Brownian renewal, even/odd hyperbolic transforms, classical Hankel–Prony reconstruction and the dimension bound are credited foundations. The closest inspected inverse works have either a complete curve, a different observation model, or a fixed reset site conditional on a single random draw.",
+      "residual_risks": [
+        "No exhaustive priority claim: another finite inverse-source design may implement the same bilateral moment reduction in another notation.",
+        "General classical sparse moment results are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close inverse topic; distinct fixed-rate specifications and reset model",
+          "evidence": "Integrates conditional fixed-x_R exit probability or mean time against a density and seeks a density for an assigned q or m; does not reconstruct a freshly redrawn sparse law from paired multi-rate data.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.16889",
+          "material_read": "§4.1 pp. 17–18 (offset 59558), Eqs. 4.1–4.2; §4.4 pp. 19–20 (offset 67555), Eqs. 4.12–4.14; §5",
+          "method": "OA PDF, locate then read by offset",
+          "title": "Inverse first-passage problems of a diffusion with resetting",
+          "trigger": "Closest named primary inverse problems on an interval with random reset position"
+        },
+        {
+          "assessment": "Forward framework and reset-rate optimization",
+          "evidence": "One-reset-point ring renewal equations and two-position forward rate-optimization phase diagrams; no paired sparse-law inverse in these statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08414",
+          "material_read": "PDF pp. 3–4 §III Eqs. 11–14; pp. 9–11 offsets 74123 and 86469",
+          "method": "OA PDF",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same absorbing-ring geometry and renewal symmetry"
+        },
+        {
+          "assessment": "Forward splitting with reset count rather than finite-rate Laurent recovery",
+          "evidence": "Post-reset distribution enters the joint probability of a boundary exit and a reset count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.07386",
+          "material_read": "Abstract and §4.3 pp. 20–21, Eqs. 52–59 (offset 75589)",
+          "method": "OA PDF",
+          "title": "Conditional splitting probabilities for hidden-state inference in drift-diffusive processes",
+          "trigger": "Closely related exit-direction data and distributed resetting"
+        },
+        {
+          "assessment": "Forward first passage and optimization rather than the finite paired inverse",
+          "evidence": "MFPT and effective reset points for distributed resetting on the line.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "Abstract and Introduction-to-§II passage, PDF pp. 1–2 (offsets 0 and 4318)",
+          "method": "OA PDF",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Earlier distributed resetting first-passage theory"
+        },
+        {
+          "assessment": "Material inverse coverage for different geometry and full curves",
+          "evidence": "Two entire MFPT curves at distinct targets identify an arbitrary real-line law; finite readings cannot identify every unrestricted law.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-target-mean-first-passage-tomography-of-a-random-resetting-l--2af4cf3521b4",
+          "material_read": "RESULT.md offsets 0–7184",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-target mean first passage tomography of a random resetting law",
+          "trigger": "Two channels used to identify a reset law"
+        },
+        {
+          "assessment": "Related odd transform but different forward operator and data",
+          "evidence": "Stationary semipermeable membrane current under a continuous sweep recovers the antisymmetric source component only.",
+          "identifier_or_url": "2026/11/2/SCOPE-boundary-current-tomography-and-its-reflection-blind-subspace-in--6de9da8f8562",
+          "material_read": "RESULT.md offsets 0–7039",
+          "method": "Local Resultary mirror",
+          "title": "Boundary current tomography and its reflection-blind subspace",
+          "trigger": "Closest signed ring-source transform"
+        },
+        {
+          "assessment": "Full spatial response for a different experiment",
+          "evidence": "Compactly supported real-line source and unknown parameters recovered from movable-target MFPT with shared initial and reset law.",
+          "identifier_or_url": "2026/11/8/SCOPE-joint-recovery-and-local-blindness-in-distributed-brownian-reset--4278f0a9748c",
+          "material_read": "RESULT.md offsets 0–7660",
+          "method": "Local Resultary mirror",
+          "title": "Joint recovery and local blindness in distributed Brownian resetting",
+          "trigger": "Inverse Brownian reset law and model parameters"
+        },
+        {
+          "assessment": "Forward stationary current classification, not inverse identification; no within-day priority inferred",
+          "evidence": "One-semicircle source constraint and sign reversal for stationary membrane current, not absorbing exit probability.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-sided-resetting-forces-a-unique-permeability-independent-cur--f8d346c6a6a6",
+          "material_read": "RESULT.md offsets 0–6461",
+          "method": "Local Resultary mirror",
+          "title": "One-sided resetting forces a unique permeability-independent current reversal",
+          "trigger": "Same-day signed ring reset observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "Resultary inverse comparators 2af4cf3521b4 and 6de9da8f8562"
+      ],
+      "rationale": "The two exit directions remove the actual reflection ambiguity of mean-time data. Measuring only K settings gives not just a sparse fit but an exact test excluding every more-supported admissible law with those readings, and the rate count is sharp for the full K-site class. That is a useful identifiability and model-selection result for the given natural inverse problem.",
+      "residual_risks": [
+        "No quantitative noisy-data or nearly colliding-atom robustness; exact determinant zero is not a statistical test without additional analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

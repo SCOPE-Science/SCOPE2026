@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:49.800249Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69, VERIFICATION.md and verify.py (inspection only)",
+        "Corrected complete finding /workspace/repairs/1/RESULT.md",
+        "Independent exact replay /workspace/audit_evidence/mobius_check.py and mobius_check.out"
+      ],
+      "rationale": "Final assessment of /workspace/repairs/1/RESULT.md. The original enumerator and scope survive unchanged. The original prior-work paragraph reversed the bipartiteness parity: the alternating parts of the 2m-cycle are crossed by the antipodal chords exactly when m is odd. The repair corrects that assertion and clarifies what is (and is not) known about palettes for the weaker dynamic condition. For correctness of the census, a state is a pair of proper vertically and horizontally compatible columns. A step checks the two neighborhoods of its middle column. A walk from the initial pair to its row swap checks all m columns across the seam; labels specify the start, so no orbit division is justified. Row swap commutes with the transfer and gives two 42-dimensional sectors; independent reconstruction and exact coefficient computation reproduced both characteristic determinants (all 43 coefficients in each), cancellation at m=1,2, and the eight initial values. The trace/logarithmic derivative identity therefore decides every m≥3, not merely sampled widths. With three colours, the swapped-adjacent type cannot transition, since the next column would have equal entries. The other two types transition only along their respective oriented 3-cycles, which the seam interchanges. Smaller palettes embed into three, so no counted colouring omits a colour. The explicit two-step return and twisted three- and four-step walks in the repair pass the local tests and yield all m≥3. Reciprocal root bounds for the remaining polynomials are strict on |x|=3; the positive root 1+√5 occurs once only in the positive sector and contributes with coefficient one. The negative counterpart has modulus below three. No Jordan correction is needed for traces of matrix powers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic bipartite existence theorem covers the odd widths after correcting the graph parity, not even widths. The accessible Madaras–Šurimová abstract concerns existence and numbers of colours for graph families; the full prism comparison could not be confirmed. The 3-balanced and three-dynamic Resultary Findings impose three distinct neighbor colours."
+        ],
+        "reasoning": "An upper bound of four on the minimum palette is existential and does not determine all named assignments even when applicable. Untwisted prism results, if applicable to prism palette sizes, use ordinary rather than row-swapped closure; rainbow-neighborhood results use disjoint local rules.",
+        "searches": [
+          "Primary literature search for homogeneous and 2-homogeneous cubic ladder colourings",
+          "arXiv:2611.16649v1 existence theorem, abstract and §1",
+          "Madaras–Šurimová DOI 10.21136/MB.2022.0007-21 and identified OA PDF",
+          "Resultary: Möbius and prism homogeneous palette results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records listed above",
+        "Hao–Liu–Romaniello arXiv:2611.16649v1; accessible Madaras–Šurimová abstract and attempted full text",
+        "Corrected prior-work comparison in /workspace/repairs/1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chirality obstruction proves no proper three-colour two-dynamic colouring on these ladders. The four-colour existence theorem applies only when the graph is bipartite; the conflict-free transfer counts a larger class."
+        ],
+        "reasoning": "The dynamic obstruction implies the exact-two lower bound, which is not claimed as novel. A four-colour two-dynamic example may contain rainbow neighborhoods, and a total for the larger class does not specify the subcount or its leading eigenvalue. The all-width exact-two enumeration requires the specific local rule and the resulting factors.",
+        "searches": [
+          "Resultary: three-colour/minimum and dynamic chirality obstruction, a86238493a14 Finding",
+          "Compare known proper conflict-free transfer 15a66a7edbf3 and cubic bipartite existence in arXiv:2611.16649v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed semantic match aed2be8ddb52 is the assigned record itself. Hao–Liu–Romaniello define the same proper exact-two-neighbor condition; Resultary 15a66a7edbf3 counts proper conflict-free colourings on precisely these ladders."
+        ],
+        "reasoning": "For a cubic neighborhood, conflict-free means at least one uniquely occurring colour, hence admits both multiplicity 2+1 and 1+1+1. Two-dynamic also admits both. Neither is synonymous with 2-homogeneous, which admits only 2+1. Graph and method overlap cannot make the enumerands equal.",
+        "searches": [
+          "Resultary: exact 2-homogeneous four-palette Möbius-ladder census",
+          "Resultary: proper conflict-free twisted transfer enumeration on Möbius ladders",
+          "arXiv:2611.16649v1 abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-family conflict-free enumerator gives 216, 336, 3600 at widths 3, 4, 5, compared with 216, 48, 600 here. The same-day restrained-domination census counts dominating sets. The exact-two table match is the frozen record."
+        ],
+        "reasoning": "The differing counts disprove equivalence despite shared first term, palette and graph. The domination enumeration and three-dynamic palette values are different invariants. No distinct matching named exact-two table was found in the inspected sources.",
+        "searches": [
+          "Resultary: exact named-colour Möbius ladder census and all-order transfer enumerators",
+          "Resultary 15a66a7edbf3 Finding offset 0; same-family 29bb15894334 Finding"
+        ]
+      },
+      "rationale": "Reassessment of the corrected result: the proper exact-two rule is shared with the strongest primary existence theorem, and a closely related named four-colour twisted transfer census for the same graph family already exists under the conflict-free rule. The latter is a different count; the introduction of the exact-two restriction changes the transfer and leads to different values. The weaker dynamic obstruction implies the three-colour exclusion and is credited accordingly. Correcting the bipartite parity identifies the odd-width existence coverage but leaves the all-m exact census and its spectral asymptotic distinct on the available evidence.",
+      "residual_risks": [
+        "The identified Madaras–Šurimová PDF was not accessible through the attempted lawful route. Do not infer noncoverage throughout it.",
+        "The inspected sources do not establish absolute historical priority against unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known existence at odd widths, not a census",
+          "evidence": "Proper exact-two-neighbor colourings exist with at most four colours on cubic bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16649",
+          "material_read": "v1 p. 1, Abstract and §1 (OA offsets 1200 and 2140)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On 2-Homogeneous Colourings of Cubic Bipartite Graphs",
+          "trigger": "Same definition and four-colour result on a natural larger graph class"
+        },
+        {
+          "assessment": "Not enough text to exclude coverage throughout the paper",
+          "evidence": "Abstract discusses existence and numbers of colours for homogeneous graph colourings.",
+          "identifier_or_url": "https://doi.org/10.21136/MB.2022.0007-21",
+          "material_read": "Accessible abstract; precise prism theorem not verified",
+          "method": "DOI and identified lawful PDF mb148_1_8.pdf retrieval attempts; PDF certificate error",
+          "title": "Homogeneous colourings of graphs",
+          "trigger": "Cited homogeneous colouring result for nearby ladder graphs"
+        },
+        {
+          "assessment": "Implies three-colour exclusion; does not imply exact-two count",
+          "evidence": "The two-dynamic condition is at least two neighbour colours, and no three-colour solution exists at any width in scope.",
+          "identifier_or_url": "Resultary 2026/10/18 …--a86238493a14",
+          "material_read": "Finding, offset 0",
+          "method": "Configured Resultary local mirror",
+          "title": "A chirality obstruction for dynamic three-colourings of cubic ladders",
+          "trigger": "Same graphs and minimum palette under related condition"
+        },
+        {
+          "assessment": "Same family and related transfer, different count",
+          "evidence": "The proper conflict-free rule includes rainbow neighborhoods; at widths 4 and 5 counts are 336 and 3600, not 48 and 600.",
+          "identifier_or_url": "Resultary 2026/11/2 …--15a66a7edbf3",
+          "material_read": "Finding, offset 0",
+          "method": "Configured Resultary local mirror",
+          "title": "Twisted transfer enumeration of proper conflict-free colorings of Möbius ladders",
+          "trigger": "Strongest same-family exact analogue with named four-colour counts"
+        },
+        {
+          "assessment": "Distinct rules or object",
+          "evidence": "The former two require three distinct neighbour colours; the last counts restrained dominating sets. No same-day priority inference.",
+          "identifier_or_url": "Resultary …--766f520bafef; …--143f0c62bef1; …--29bb15894334",
+          "material_read": "Each Finding, offset 0",
+          "method": "Configured Resultary local mirror",
+          "title": "Six-periodic rigidity of neighborhood 3-balanced colorings; Exact three-dynamic chromatic numbers; Complete restrained-domination census",
+          "trigger": "Nearby local degree-three colour rules and all-width transfer census"
+        },
+        {
+          "assessment": "Identical frozen record, not independent priority evidence",
+          "evidence": "Same graph, exact-two proper colouring rule, and census.",
+          "identifier_or_url": "Resultary 2026/11/22 …--aed2be8ddb52",
+          "material_read": "Indexed Finding compared to frozen Finding",
+          "method": "Configured Resultary search and bound source inspection",
+          "title": "Exact four-colour 2-homogeneous census of Möbius ladders",
+          "trigger": "Exact census match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/1/RESULT.md Finding and Proof",
+        "Resultary 15a66a7edbf3 and a86238493a14 Findings for comparison"
+      ],
+      "rationale": "The exact-two condition is a natural locally mixed alternative to the known coherent/rainbow or dynamic conditions on a standard cubic family. The transfer must handle the actual Möbius seam and does more than recover palette feasibility: it proves a complete labelled enumerator and singles out the precise exponential rate. In particular, the larger conflict-free class already differs sharply at widths four and five; the precise counts and growth are meaningful comparators for constrained graph-colouring models and twisted transfer methods. The parity and palette-credit repair does not change these contributions.",
+      "residual_risks": [
+        "No assertion for larger palettes, graph automorphism orbits, untwisted prisms or all cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:38:37.618594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated recovery-time-normalized ODE the unit square is positively invariant, initially positive y stays positive, and strict creation gives k_min>0. Direct quotient differentiation gives Z'≤0 and the stated expansion of K, including B(0)=0. The positive part of z−z0 is bounded by its initial excess times exp(−k_min t). Below threshold this gives negative asymptotic log-growth bounded away from zero. At threshold retain the −y² term; multiplying by exp(−integral of the decaying upper error coefficient) gives y=O(1/t), then scalar relaxation gives z→z0. The ratio u=(z−z0)/y obeys u'=−(k+y'/y)u+k(Z(y)−z0)/y. Here y'/y→0 and k→k(0)>0, so the coefficient remains strictly stable at large t; subtracting Z'(0) leaves forcing tending to zero, and variation of constants gives u→Z'(0). The exact derivative (1/y)'=1−tau_c u+tau_c(z−z0) tends to K≥1, proving both critical limits. For r>0 the left side of tau(1−y)Z(y)=1 is strictly decreasing from 1+r to zero. Its first-order excess is r−Ky; the positive derivative gap and a one-sided C² expansion (or a local C² extension for IFT) give the claimed O(r²) branches. Common scaling of the contact rates cancels in Z and its slope. For attraction, the endemic Jacobian has both diagonal terms negative and off-diagonal terms of opposite weak signs. Independently closed the boundary limit-set step: above threshold choose δ>0 with tau(1−δ)Z(δ)>1. On any episode y≤δ, uniform scalar relaxation from z≥0 toward a target at least Z(δ) forces log-growth positive after a fixed time T independent of the episode; during the first T, y'/y≥−1. Consequently y is bounded away from zero for every fixed initially positive trajectory. The y=1 and z=0,1 sides are then uniformly excluded from the omega-limit set by the strict inward bounds (in particular B is bounded below on the persistent y range). If an interior limit set avoids the unique sink it would contain a periodic orbit by planar limit-set theory, contrary to the negative Dulac divergence; if it contains the sink the whole trajectory converges to it. This works also for a disease-free equilibrium at z0=1. The symbolic example gives (z0,Z',K)=(1/2,−3/8,7/4), consistent with the stated signs and normalization. Inspected verify.py, requirements.txt and VERIFICATION.md; finite integration is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original model paper's local DFE tests leave equality undetermined in the two baseline regimes of interest; it gives absence of cycles and qualitative dynamics.",
+          "The multigroup theorem treats strict subcritical stability and a sufficient endemic existence condition; the pair-approximation network paper has a different system and a square-root branch."
+        ],
+        "reasoning": "Broader systems do not automatically give stronger asymptotic conclusions. The inspected results lack the stated exact equality-case coefficient and two-coordinate matched law as a specialization.",
+        "searches": [
+          "Achterberg–Sensi, arXiv:2209.01224v1, §3.4",
+          "Achterberg–Sensi–Sottile, arXiv:2407.17639v1, Theorems 2 and 5",
+          "Horstmeyer–Kuehn–Thurner, arXiv:1805.09358, Eq. (5)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "arXiv:2209.01224v1, 2407.17639v1 and 1805.09358",
+        "Resultary 3dbf6638e1f1 and 96c9306c6507"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once Z is formed from the old nullcline, differentiating the endemic root equation produces the onset slope; it is not an independent dynamical novelty.",
+          "The original paper gives the explicit single-case branch and no general critical asymptotic at equality, whereas the later two-term result gives a strict-baseline critical law without an endemic assertion."
+        ],
+        "reasoning": "The shared coefficient is structurally typical and the endemic side follows by elementary expansion. The remaining contribution is the actual global critical asymptotic and contact slope on a stated response class spanning both baseline cases, paired with their exact same-model equilibrium interpretation. A local polynomial alone or a strict-subthreshold theorem does not give this result.",
+        "searches": [
+          "arXiv:2209.01224v1, endemic equation and §4.2 explicit example",
+          "arXiv:2407.17639v1, Theorems 2 and 5",
+          "Resultary 3dbf6638e1f1 and 96c9306c6507"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior two-equation model is exactly this one after f_br=B, f_cr=C and recovery normalization.",
+          "In the linear-breaking constant-creation example prior work gives y*=(tau−1)/(tau+zeta/xi), with derivative 1/(1+zeta/xi) at threshold; constant response gives the K=1 onset case."
+        ],
+        "reasoning": "An equivalent local normal-form statement has y'=−Ky²+o(y²) at criticality and leading equilibrium equation r−Ky=0. The generic relation between such coefficients is expected; it does not by itself establish their explicit contact dependence, the generalized monotone response scope, or convergence of every initially infected trajectory.",
+        "searches": [
+          "Resultary: critical adaptive SIS clearance, paired endemic-onset coefficient and prevalence-responsive link feedback",
+          "Achterberg–Sensi, arXiv:2209.01224v1, §§2, 3.4 and 4.2",
+          "Primary literature search on transcritical and adaptive SIS threshold laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-08 two-term record gives the same leading critical coefficient, and a higher-order expansion, for the strictly positive baseline case but no endemic-onset comparison. The 2026-11-08 multigroup record treats n≥2 and a boundary-vanishing breaking response, with a Perron critical profile but no onset slope."
+        ],
+        "reasoning": "There is no invariant table for arbitrary pairs of smooth response functions; the relevant exact lookup was for an asymptotic theorem with these coefficients and quantifiers. The checked closely matching theorems cover different slices or sides and do not supply evidence of earlier publication of the full joint result.",
+        "searches": [
+          "Resultary: exact critical adaptive SIS law and contact curvature; threshold clearance and onset",
+          "Resultary 3dbf6638e1f1 and 96c9306c6507, Findings"
+        ]
+      },
+      "rationale": "The distinct supported claim is an explicit general response-derivative prefactor for both the global critical decay and the nearby endemic onset, with its contact-coordinate limit, in the same one-community scalar-feedback model across both allowed baseline regimes. The generic transcritical matching pattern, the old model and threshold, earlier qualitative dynamics, and published solvable onset examples are not new.",
+      "residual_risks": [
+        "The general threshold paper doi:10.1016/S0025-5564(02)00108-6 and the adaptive-link paper doi:10.1103/PhysRevE.101.052302 were not available in decisive full-text passages. Earlier normal-form computations may contain the local coefficient. The bounded comparison does not certify historical priority, and different catalogue dates alone do not decide independent priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model, qualitative groundwork, and explicit onset special cases; no general critical decay in cited equality discussion.",
+          "evidence": "At equality the DFE tests are inconclusive; the linear-break/constant-creation specialization gives y*=(tau−1)/(tau+zeta/xi).",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01224v1",
+          "material_read": "§2 p. 2 (OA offset 5700), §3.4 p. 6 (19137), §4.2 p. 9 (30000).",
+          "method": "Original OA PDF passages.",
+          "title": "A minimal model for adaptive SIS epidemics",
+          "trigger": "Same ODE and threshold; plausible earlier bifurcation or critical theorem."
+        },
+        {
+          "assessment": "Related qualitative results not giving the exact single-group asymptotic.",
+          "evidence": "Global disease-free stability for R0<1, endemic existence under a sufficient minimum-sum condition, no joint limiting coefficient in these statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.17639v1",
+          "material_read": "§3.4 Theorem 2 p. 5, offset 18218; §3.5 Theorem 5 p. 7, offset 22650.",
+          "method": "Original OA PDF passages.",
+          "title": "A minimal model for multigroup adaptive SIS epidemics",
+          "trigger": "Potential broader covering result for monotone adaptive behavior."
+        },
+        {
+          "assessment": "Different adaptive network model and branch law.",
+          "evidence": "Pair-approximation system with a square-root prevalence branch.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.09358",
+          "material_read": "Eq. (5), p. 3, OA offset 17700.",
+          "method": "Original OA PDF passage.",
+          "title": "Network topology near a transition in an adaptive epidemic model",
+          "trigger": "Adjacent adaptive-network threshold asymptotic."
+        },
+        {
+          "assessment": "Overlaps the positive-baseline critical coefficient and sharpens that side, not an earlier bound-record counterpart covering both sides.",
+          "evidence": "Same K at criticality, B(0)>0, higher-order inverse-prevalence term; no endemic assertion. Catalogue date 2026-11-08 UTC, after the frozen record's date.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+          "material_read": "Original Finding and baseline assumptions.",
+          "method": "Resultary local-mirror statement comparison.",
+          "title": "Critical adaptive SIS clearance: exact two-term law and a curvature correction",
+          "trigger": "Strongest exact Resultary coefficient match."
+        },
+        {
+          "assessment": "Critical multigroup result under different assumptions, not the matched single-group law.",
+          "evidence": "n≥2, zero baseline breaking, Perron-weighted profile, no endemic slope. Catalogue date 2026-11-08 UTC.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-critical-clearance-with-prevalence-responsive-links-in-mul--96c9306c6507",
+          "material_read": "Original Finding and model scope.",
+          "method": "Resultary local-mirror statement comparison.",
+          "title": "Sharp critical clearance with prevalence-responsive links in multigroup adaptive SIS",
+          "trigger": "Comparable exact critical profile with a vanishing baseline."
+        },
+        {
+          "assessment": "Open comparison limitation, not evidence of noncoverage.",
+          "evidence": "No claim about the content of their unread theorem proofs is used to exclude prior coverage.",
+          "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6 and doi:10.1103/PhysRevE.101.052302",
+          "material_read": "No decisive full-text passages obtained through the bounded lawful retrieval attempts.",
+          "method": "OA retrieval attempts for the identified papers.",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission; adaptive-network link-rule comparison",
+          "trigger": "General threshold and close adaptive-network literature that could contain additional local implications."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An unresolved equality regime of a natural existing two-dimensional model is quantified, not just declared stable. The result identifies the same response-dependent constant in the critical decay and static onset, distinguishes the contact slope from mere prevalence decay, and works for unprepared initial contacts and boundary baseline cases. The explicit coefficient and the global quantifier are useful even though the local transcritical mechanism is standard. It is a deterministic model result, not a claim for stochastic populations or nonmonotone and multigroup extensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

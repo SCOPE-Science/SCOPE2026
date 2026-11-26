@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:54:13.135108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At both nonzero equilibria the characteristic polynomial is λ³+aλ²+bλ+2b. The Routh first column has all positive entries for a>2 and two sign changes for 0<a<2. At a=2 the factorization (λ+2)(λ²+b) gives one real stable mode and a simple center pair, with crossing derivative real part −b/[2(b+4)]. An independent exact symbolic reconstruction of the quadratic/cubic contraction in the q₁=1 normalization gives Re G=−2(b+1)/(b+4) and Im G=−(4b²+43b+72)/[3√b(b+4)]. The physical-time cubic is G/2, not ℓ₁=Re G/(2√b). The nonzero real cubic and crossing give locally unique stable cycles for δ=2−a>0, with reflection exchanging them. Removing nonresonant terms through degree four in a smooth parameter-dependent center normal form leaves a radial remainder O_b(r⁵); applying the radial equation at cycle extrema gives r²=bδ/[2(b+1)]+O_b(δ²) throughout the cycle. The leading x-amplitude is 2r+O_b(r²); the angular speed combines the linear frequency shift with Im G times r²/2 and has O_b(δ²) error. Its one-turn time gives the stated least-period law. At δ=0 the radial cubic is strictly negative, and (r⁻²)'=2(b+1)/(b+4)+O_b(r²); attraction and integration give the stated t⁻¹/² coefficient. The strong-stable foliation transfers the center asymptotic by exponential tracking, with its equilibrium fiber the one-dimensional exponentially decaying exception. The displayed displacement normalization is for the center coordinate, with an exponentially small extra transverse displacement along tracked trajectories; it does not purport to parametrize the entire three-dimensional neighborhood by u. Nonexponential stability follows also from the nondecaying linear center pair. All estimates fix b>0. Exact-computation replay: python3 /workspace/branches/1fab7724-9433-4d4b-ae41-75c4f7a0d02e/independent_hopf_check.py; recorded independent_hopf_check_output.txt in the same directory. The frozen SymPy script was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lăzureanu–Cho Theorem 2 gives a generic transversal imaginary-pair condition for jerk systems; Remark 2 leaves computation of the first Lyapunov coefficient to the particular model.",
+          "Indexed cubic criticality and Sprott F relaxation results specify other nonlinearities."
+        ],
+        "reasoning": "A general Hopf criterion or procedure supplies tools, not the evaluated all-b sign or phase correction. The modal crossing is a routine special case and not the novelty basis.",
+        "searches": [
+          "Mathematics 11 (2023), 4295, Theorem 2 and Remark 2",
+          "Resultary 7db06e4ebef1; 24822e4afbd7"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/electronics12132818",
+        "DOI 10.3390/math11204295",
+        "Oxford OA uuid:06ad21a3-21a1-421c-8a43-96af26e5c256",
+        "Resultary e9d0dcac064d, 7db06e4ebef1, 24822e4afbd7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining article's Eqs. (3)–(4) fix the exact coefficients; the inspected pp. 4–7 treat local spectra at samples and numerics, not the parameter-universal nonlinear coefficient.",
+          "The Oxford web-search lookalike has ż₃=−az₁+bz₂−z₃−cz₁²−z₁z₂+dz₂², a different quadratic jerk flow."
+        ],
+        "reasoning": "Neither the spectral criterion nor reported cycles/chaos imply attracting local cycles at the crossing for every b, the first physical period correction, or an exact critical decay coefficient. A similar qualitative normal form for a different polynomial does not preserve the requested physical normalization or compute this contraction.",
+        "searches": [
+          "DOI 10.3390/electronics12132818, model and bifurcation results",
+          "DOI 10.3390/math11204295, Theorem 2 and Remark 2",
+          "Oxford OA uuid:06ad21a3-21a1-421c-8a43-96af26e5c256, p. 2 equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published scalar jerk family is z‴+az″+z(z²+zz′+(z′)²−b)=0, exactly equivalent by setting (x,y,z)=(z_scalar,z_scalar′,z_scalar″).",
+          "Same-day e9d0dcac064d instead has a sine restoring term and a different first-order period shift."
+        ],
+        "reasoning": "Merely using a scalar jerk coordinate is not a different problem. Distinct-family normal forms with similar Hopf behavior are not formulas for the same physical x and time variables.",
+        "searches": [
+          "Electronics 12 (2023), 2818, DOI 10.3390/electronics12132818; Eqs. (3)–(4); literal Hopf",
+          "Resultary 7db06e4ebef1; e9d0dcac064d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The defining paper reports numerical sample spectra and an RK4 scan at a=1.4. The closest indexed symbolic coefficients pertain to other flows; the same-day sine model even gives a zero first period shift."
+        ],
+        "reasoning": "For this continuous-family claim the table-equivalent target is a symbolic coefficient or exact decay/period law at a=2 for the same b-dependent model. Sample bifurcations at finite distance and formulas for different flows do not supply it.",
+        "searches": [
+          "Electronics 12 (2023), 2818, equilibrium eigenvalues and numerical bifurcations, pp. 4–7",
+          "Resultary e9d0dcac064d; 7db06e4ebef1; 24822e4afbd7"
+        ]
+      },
+      "rationale": "The defining vector field, its equilibria and spectral framework are known. The supported model-specific content is the exact cubic contraction and its strict sign for every fixed b>0, with physical-time frequency/amplitude and critical relaxation constants. The primary model paper's inspected stability and bifurcation sections give samples and finite-parameter dynamics, not those coefficients. The general jerk theorem provides transversality criteria but explicitly requires a separate Lyapunov calculation. The closest indexed exact computations concern different vector fields, including a same-day sine model; no historical priority exclusion is inferred from dates or from a keyword miss.",
+      "residual_risks": [
+        "The inspected passages and bounded index returns cannot rule out an exact calculation in unindexed citing literature or under another physical-coordinate convention.",
+        "No general classification of coordinate equivalences of the indexed nonlinear systems was attempted; their stated results give no transformation yielding the present normalizations and constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, equilibria and numerical dynamics; not the exact nonlinear near-critical constants in inspected sections",
+          "evidence": [
+            "Scalar equation is equivalent without time rescaling; sample eigenvalues and scan at a=1.4 are given."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/electronics/electronics-12-02818/article_deploy/electronics-12-02818.pdf",
+          "material_read": "p. 3 Eqs. (3)–(4) around offset 9785; equilibrium samples pp. 4–5 around 14896; RK4 bifurcations pp. 5–7 around 19377",
+          "method": "Compared bounded OA passages on equations, stability and results",
+          "title": "A Novel 3-D Jerk System, Its Bifurcation Analysis, Electronic Circuit Design and a Cryptographic Application",
+          "trigger": "Defines the exact polynomial family"
+        },
+        {
+          "assessment": "Provides general transversality, not this calculated coefficient or its quantitative consequences",
+          "evidence": [
+            "Remark 2 calls for a particular first-Lyapunov-coefficient calculation."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-11-04295/article_deploy/mathematics-11-04295.pdf",
+          "material_read": "Theorem 2 and Remark 2, pp. 3–4, around offset 11744",
+          "method": "Read bounded OA theorem and remark and tested implication",
+          "title": "On Hopf and Fold Bifurcations of Jerk Systems",
+          "trigger": "General theorem that might dominate the specific bifurcation result"
+        },
+        {
+          "assessment": "Different quadratic nonlinearity",
+          "evidence": [
+            "The third equation contains the quadratic combination −cz₁²−z₁z₂+dz₂², not the specified cubic restoring force."
+          ],
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:06ad21a3-21a1-421c-8a43-96af26e5c256/files/sdv13zw61w",
+          "material_read": "p. 2, offset around 6500, defining equation",
+          "method": "OA equation comparison",
+          "title": "Modelling, bifurcation analysis, circuit design and FPGA-based implementation of a new chaotic jerk system exhibiting Hopf bifurcations",
+          "trigger": "Plausible literature hit specifying jerk-system Hopf bifurcations"
+        },
+        {
+          "assessment": "Different sine, cubic, and quadratic models, with no identified coverage of the normalized physical coefficients",
+          "evidence": [
+            "Same-day sine model uses ẋ=y, ẏ=az, ż=−y−bz+c sin(dx) and reports zero first period shift; the other cubic model has a single equilibrium; Sprott F is quadratic."
+          ],
+          "identifier_or_url": "Resultary e9d0dcac064d; 7db06e4ebef1; 24822e4afbd7",
+          "material_read": "Accessible indexed model and claim statements",
+          "method": "Compared displayed equations, equilibria and coefficients rather than record dates or titles",
+          "title": "Indexed sine-jerk Hopf lattice, cubic-jerk criticality surface and Sprott F critical relaxation",
+          "trigger": "Closest indexed analogues of the exact Hopf onset and relaxation claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The paper introducing this family emphasizes periodic and chaotic behavior; the exact local onset answers a natural missing question about when attracting cycles first bifurcate at the nonzero equilibria. Uniform strict sign across the positive-b parameter range, a physical-time period coefficient, and the quantified critical slowing for all nearby initial conditions off the stable fiber make the result a useful nonnumerical benchmark. This is more than applying a linear stability test or claiming another sample cycle, and it implies neither global dynamics nor security properties.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

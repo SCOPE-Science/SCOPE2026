@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:03:13.100199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Counting subsets with X_(k)=k+j gives the stated PMF. Equivalently, peeling off the k selected observations up to X_(k) gives the beta-binomial mixture with α=k, β=n−k+1 and m=N−n. Conditional variance plus variance of the conditional mean gives σ²=mpq(A+m)/(A+1), with component variances b²=mpqA/(A+1) and d²=m²pq/(A+1). In the gamma representation of the beta variable the standardized difference is the linear combination of the two standardized gamma sums with coefficients √q and −√p, times √(A(A+1))/(G_α+G_β)→1. This proves normality even at endpoint or oscillating p by compact subsequences. Under the success/failure divergence criterion, relative beta fluctuations vanish (relative variances ≤1/α and 1/β), so the conditional binomial characteristic function centered at mΘ and scaled by b tends in probability to exp(−t²/2); its normalized quadratic coefficient tends to one and its cubic remainder is O_P((mpq)^(-1/2)). Boundedness gives asymptotic independence from the beta fluctuation. Every limiting pair of coefficients b/σ,d/σ has squares summing to one, so the Gaussian conclusion holds even for oscillating variance ratios. For Poisson approximation shared Bernoulli uniforms cost at most mE|Θ−p|≤mp/√α and binomial-to-Poisson costs at most mp². When mp→λ<∞, p→0, m/A=(mp)/α→0 and σ²∼mp. Positive λ gives a non-Gaussian standardized Poisson; λ=0 gives a point mass at zero in distribution despite unit row variance, since Pr(Y≠0)≤mp and μ/σ→0. Reflection gives the other endpoint. Any bounded subsequence of the smaller expectation has a further such subsequence, proving necessity. Independent subset enumeration checked the exact law and variance on 83 finite triples (python -B /workspace/branches/audit-replay.py 4); the limit decisions follow from the proof, not this replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Neill’s Theorem 6 assumes interior limiting sample and rank fractions; Theorem 7 assumes a near census and k/N→0 with k(N−n)/N→∞. Both imply the divergence criterion, but neither covers all endpoint or oscillating paths, nor necessity or the finite-mean Poisson law. Finite-N approximation plots are not a uniform theorem.",
+          "The examined Li–Ding material deals with finite-population CLTs for averages and associated rank applications; no all-path single order statistic classification was verified. O’Neill refers to Khan for the specific near-census limit; the older full text was not inspected."
+        ],
+        "reasoning": "The Gaussian claim strictly extends the two closest verified sufficient regimes; the older negative-hypergeometric source remains a priority risk rather than verified stronger coverage.",
+        "searches": [
+          "O’Neill, arXiv:2207.00270, Theorems 6–7 and pp. 7–8 on normal approximation",
+          "Li–Ding, arXiv:1610.04821",
+          "Khan (1994), as referred to in O’Neill's proof of Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "O’Neill arXiv:2207.00270",
+        "Resultary 2b2a9eb3d62a",
+        "Li–Ding arXiv:1610.04821 (scope passage)",
+        "Chatterjee and Khan (identified; full texts uninspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known distribution identities give the starting variable and moments; conditional-binomial and gamma CLTs must be combined uniformly at the endpoints and under moving variance fractions. The Poisson endpoint and subsequence obstruction are needed for the reverse implication. The finite bound itself is an elementary composition of beta-to-fixed-p coupling and Le Cam's bound."
+        ],
+        "reasoning": "The finite bound alone is not an independent innovation in Poisson approximation. The full iff, with the explicit limits at the complementary finite-expectation boundaries, is the distinct result; it is not substitution into a verified stronger theorem.",
+        "searches": [
+          "O’Neill, pp. 2–3 (distribution and mixture), p. 7 (Theorems 6–7); Resultary 2b2a9eb3d62a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shifted finite-population order statistic is exactly BetaBin(N−n,k,n−k+1), also called negative hypergeometric in this parameterization. The Pólya urn count with matching reinforcement law gives the same family, not necessarily the same asymptotic regime."
+        ],
+        "reasoning": "The aliased laws and reflection were compared using m draws and both growing beta shapes. The new threshold is not a relabeling of an exact PMF or of the known beta mixture.",
+        "searches": [
+          "O’Neill, arXiv:2207.00270, beta-binomial and negative hypergeometric, PDF pp. 2–3",
+          "Resultary 2b2a9eb3d62a, reinforced binary sampling and Pólya urn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 2b2a9eb3d62a provides a three-regime beta-binomial versus same-mean binomial TV phase diagram at fixed interior p and explicitly does not cover p approaching zero or one. The finite-mean endpoint here instead has p→0 or q→0 and a Poisson comparator."
+        ],
+        "reasoning": "Read the closest catalogue finding, rather than excluding by date. Adjacent TV work on the same law does not provide this exact criterion or bound under varying p.",
+        "searches": [
+          "Resultary: finite-population order statistics, beta-binomial Gaussian–Poisson boundary, total variation; 2b2a9eb3d62a"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-path Gaussian iff and quantitative Poisson alternative under the stated growing-rank hypotheses, not the beta-binomial identities, classical component CLTs or previously proved sufficient regimes.",
+      "residual_risks": [
+        "An older general negative-hypergeometric CLT or broader finite-population quantile theorem might cover more regimes than the inspected passages. Missing full text is not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact law and two contained CLT regimes; not the full checked claim",
+          "evidence": "Identifies the shifted beta-binomial, mixture and interior/particular near-census hypotheses; the latter proof refers to Khan.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.00270; doi:10.1007/s44199-025-00125-y",
+          "material_read": "PDF pp. 2–3 offsets 4700 and 6750; p. 7 Theorems 6–7 offsets 16850 and 17150; pp. 7–8 offset 18100; p. 28 offset 69750",
+          "method": "OA PDF passage inspection",
+          "title": "The Distribution of Order Statistics Under Sampling Without Replacement",
+          "trigger": "Exact distribution and closest Gaussian limit results"
+        },
+        {
+          "assessment": "Same law, different comparator and fixed-interior regime",
+          "evidence": "Compares to the same-mean binomial across reinforcement strengths; no uniform claim near 0 or 1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-total-variation-phase-diagram-for-reinforced-binary-samp--2b2a9eb3d62a",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A sharp total-variation phase diagram for reinforced binary sampling",
+          "trigger": "Same-day beta-binomial TV phase diagram"
+        },
+        {
+          "assessment": "No matching criterion established in the inspected scope passage",
+          "evidence": "The discussion concerns finite-population CLTs in survey and rank-statistic applications, not the stated missing-count threshold for this marginal.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.04821",
+          "material_read": "PDF p. 1, offset 1500",
+          "method": "OA PDF scope passage inspection",
+          "title": "General Forms of Finite Population Central Limit Theorems with Applications to Causal Inference",
+          "trigger": "Broader finite-population CLT candidate"
+        },
+        {
+          "assessment": "Unresolved access limitation, not negative evidence about coverage",
+          "evidence": "No direct paper text used to decide originality.",
+          "identifier_or_url": "doi:10.1007/s10463-008-0210-4",
+          "material_read": "Citation only; no primary passage was available",
+          "method": "Springer OA retrieval and alternate-copy lookup unsuccessful",
+          "title": "Asymptotic properties of sample quantiles from a finite population",
+          "trigger": "Potential quantile reformulation or older broader result"
+        },
+        {
+          "assessment": "Historical-priority risk under negative-hypergeometric terminology",
+          "evidence": "Theorem 7's proof directs readers to Khan; this documents the connection, not the full scope of Khan's result.",
+          "identifier_or_url": "R. A. Khan, Sankhyā Series B 56 (1994), 309–313",
+          "material_read": "O’Neill p. 28 referral for Theorem 7 and bibliographic citation; not Khan's paper itself",
+          "method": "Primary O’Neill passage inspection; no direct Khan passage inspected",
+          "title": "A note on the generating function of a negative hypergeometric distribution",
+          "trigger": "Older equivalent distribution and cited near-census theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A growing rank alone does not justify a normal approximation, even with growing reverse rank and missing population. The criterion states exactly which expectations must diverge and tells practitioners what replaces a Gaussian at the other boundary, including the point-mass limit when a variance-normalized rare count loses uniform integrability. The sharp classification is useful for sparse sampling, near-census and oscillating designs without an interior-fraction assumption; the explicit finite-row bound supports choosing a Poisson approximation where appropriate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

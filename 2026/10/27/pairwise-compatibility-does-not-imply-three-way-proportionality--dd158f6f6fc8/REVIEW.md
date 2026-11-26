@@ -1,19 +1,21 @@
-# Review of the three-axiom ranking-compression separation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The eleven supporting constraints are calculated directly from the six displayed input permutations using the exact integer lower-quota definitions. A fully explicit contradiction derives an unavoidable violation of the last pairwise comparison. Three concrete outputs witness the compatibility of every proper pair. Replication and extension are justified by preservation of normalized input counts and restriction of enlarged rankings. The reproducibility checker independently enumerates all 295240 multisets for the stated exact base-instance counts. Its finite enumeration is not used as evidence for the unlimited replication theorem.
+PASS
 
-## Originality
+The integer thresholds are exactly the lower quotas floor(ks/n). I independently encoded positive quotas by event family and evaluated all 295240 multisets, including repeats, using union, majority, and intersection of event bit sets for quotas 1, 2, and 3. The three displayed witnesses pass their respective pairs, and pair and triple counts are (5,44,6,0). All eleven obstruction supports agree. In the deduction, the two mandated top-two sets define distinct outputs A and B; B cannot contribute to the 5-before-3 quota, so C must. If A omits 1 from its top three, B must have tail 1,5,4 and the quotas give 2>4>5>1 in C, impossible. Once A has 1 third, C needs 3 in the top three; either 1 or 5 third in B would give 2>4>5>3 in C, impossible. So B has tail 4,5,1, and C must start 5,3,1. All then rank 5 above 1, contrary to the final quota. Replication scales numerator and denominator equally. Appending a common tail preserves witnesses; deleting tails from any alleged new joint solution keeps each witnessed original top-two set, cannot worsen any original top-position membership, and preserves original pairwise orders. This proves the whole stated existence family.
 
-**PASS, qualified by publication-priority risk.** The closest primary reference is Halpern, Liu, Micha, Ng, and Suksompong, *Proportionality in Ranking Compression* (arXiv:2610.23193, 2026-10-16). Its Sections 2–5 distinguish individual attainability, pairwise-impossibility examples, and restricted-domain simultaneous attainability. Those statements do not establish that *each pair* of axioms is attainable but the triple is not, on the identical unrestricted profile. Its Appendix F concerns the additional constraint of taking outputs only from the inputs, absent here. Lederer's earlier rank-aggregation framework concerns one aggregated order and a different fairness condition. Scientific-index searches located related ranking and voting results but no equivalent separation. Unindexed work is a residual risk; lack of a hit alone is not proof of originality.
+## originality
 
-## Value
+PASS
 
-**PASS.** Axioms that are individually or pairwise satisfiable need not admit a single joint compression. The profile exhibits a three-way compatibility obstruction with only five candidates and three representatives; the obstruction is not explained away by intrinsic failure of pairwise proportionality. The explicit replicated/padded family proves that the failure is not confined to one finite election size. This is a useful boundary for attempts to combine fairness guarantees in representative ranking systems.
+Bounded evidence supports the distinct separation in the unrestricted output-multiset model. Prior failure of the pairwise axiom itself, or obstruction after restricting all output rankings to input rankings, does not give pairwise feasibility for all three pairs together with triple infeasibility.
 
-## Scope and limitations
+## value
 
-The theorem does not determine the minimum possible number of candidates or voters, or characterize all feasible profiles. Counts of pairwise satisfying output multisets apply to the displayed base profile. The current check is not an independent external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit obstruction answers a natural compatibility question left open by knowing that each axiom may work separately or that pairwise proportionality can fail by itself. It distinguishes genuine three-way interference from incompatible pairs in a small, unrestricted example. The exact counts quantify how often pair compatibility occurs on this fixed instance; the replication and padding are scope extensions, not the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

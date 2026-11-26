@@ -2,142 +2,72 @@
 
 ## Finding
 
-In the uniform siblings coupon-collector model with \(N\) equally likely types, let \(U_j^{(N)}\) denote the number of types missing from album \(j\ge 2\) when album 1 first becomes complete. Fix any \(r\ge1\) and sequences of integers \(j_{N,i}\ge 2\), with \(i=1,\ldots,r\), such that
+Draw independently and uniformly from \(N\) coupon types. For each type, its \(j\)-th occurrence goes to album \(j\). Let \(U_j^{(N)}\) count types missing from album \(j\) at the first completion of album 1. All logarithms are natural. Fix \(r<\infty\) and integer indices \(j_{N,i}\ge2\) with \(m_{N,i}=j_{N,i}-1\) satisfying \(m_{N,i}/\log N\to\alpha_i\in(0,1)\). Put \(b_{N,i}=(\log N)^{m_{N,i}}/m_{N,i}!\). There is a simultaneous coupling on which
+
 \[
-\frac{j_{N,i}-1}{\log N}\longrightarrow \alpha_i\in(0,1).
-\]
-Define the exact normalizers
-\[
-a_{N,i}=\frac{(\log N)^{j_{N,i}-1}}{(j_{N,i}-1)!}.
-\]
-There is a coupling of the laws for every \(N\) under which, jointly for all \(1\le i\le r\),
-\[
-\left(\frac{U_{j_{N,i}}^{(N)}}{a_{N,i}}\right)_{i=1}^{r}
+\left(\frac{U_{j_{N,i}}^{(N)}}{b_{N,i}}\right)_{i=1}^r
 \xrightarrow{\mathbb P}
-\left(\frac{W^{1-\alpha_i}}{1-\alpha_i}\right)_{i=1}^{r},
+\left(\frac{W^{1-\alpha_i}}{1-\alpha_i}\right)_{i=1}^r,
 \qquad W\sim\operatorname{Exp}(1).
 \]
-For every such single sequence, there is also exact asymptotic mean agreement:
-\[
-\frac{\mathbb E U_{j_N}^{(N)}}{(\log N)^{j_N-1}/(j_N-1)!}
-\longrightarrow \Gamma(1-\alpha).
-\]
-Consequently, the limiting cumulative distribution function at any \(x\ge0\) is
-\[
-1-\exp\left[-\bigl((1-\alpha)x\bigr)^{1/(1-\alpha)}\right].
-\]
-Thus the usual exponential law at fixed sibling index is replaced by a nonexponential power-of-exponential distribution at indices proportional to \(\log N\). The finite-dimensional limits share the *same* exponential random variable and have a nonlinear dependence profile.
 
-## Assumptions and scope
-
-All logarithms are natural. There are \(N\ge2\) coupon types, each sampled independently with probability \(1/N\) at every draw. Album 1 takes the first occurrence of each type; the next occurrence goes to album 2; and in general its \(j\)-th occurrence goes to album \(j\). Sampling stops when album 1 contains every type. The variable \(U_j^{(N)}\) counts types not yet received by album \(j\) at that stopping time. The dimension \(r\) of the joint statement is fixed, while the indices may grow at unrelated rates \(\alpha_i\log N\), with all \(0<\alpha_i<1\). No assertion is made for \(\alpha=1\), faster index growth, unequal coupon weights, or joint limits with an increasing number of coordinates.
+For every single such sequence, writing \(m_N=j_N-1\), \(b_N=(\log N)^{m_N}/m_N!\) and \(\alpha=\lim m_N/\log N\),
+\[
+\frac{\mathbb E U_{j_N}^{(N)}}{b_N}\longrightarrow\Gamma(1-\alpha).
+\]
+The marginal limit has distribution function \(1-\exp[-((1-\alpha)x)^{1/(1-\alpha)}]\) for \(x\ge0\) and zero for \(x<0\). The finite-dimensional limits share one exponential variable but are generally nonlinear functions of it.
 
 ## Proof
 
-**Step 1: a simultaneous exponential-spacing representation.** Poissonize the uniform draws using \(N\) independent rate-one Poisson processes, one for each type. The superposition has type-uniform marks, so the sequence of coupon types, and hence the missing-album counts at first completion, have the original discrete-time law. The first arrival times of the \(N\) type processes are independent standard exponentials. When ordered from largest to smallest, the successive gaps from the largest first-arrival time have independent exponential distributions with rates \(1,2,\ldots,N-1\). Write these gaps as independent \(\xi_\ell\sim\operatorname{Exp}(\ell)\), and let \(S_\ell=\xi_1+\cdots+\xi_\ell\). A type ranked \(\ell\) below the last first arrival has \(S_\ell\) time units between its first arrival and completion. Conditional on the first arrival times, the further arrivals of distinct types are independent unit-rate Poisson processes. Therefore, if \(P_\ell\) are independent unit-rate Poisson processes, independent of the gaps, there is a single construction satisfying, for all \(N\ge2\) and all \(j\ge2\),
+**Simultaneous representation.** Embed the draws as the ordered marks of the superposition of \(N\) independent unit-rate Poisson processes, one per type. Their first arrival times are independent standard exponentials. Counting down from the largest first arrival, successive gaps are independent exponentials with rates \(1,2,\ldots,N-1\), by the exponential order-statistic spacing law. Extend these to an infinite independent sequence \(\xi_\ell\sim\operatorname{Exp}(\ell)\) and set \(S_\ell=\sum_{a=1}^\ell\xi_a\). Given the first arrival times and their ranks, subsequent arrivals for the ranked types are independent unit-rate Poisson processes from their first arrivals. Thus for independent unit-rate Poisson processes \(P_\ell\), independent of the gaps, the vectors across albums at any \(N\) have their original joint laws under the representation
 \[
-\widetilde U_j^{(N)}=1+\sum_{\ell=1}^{N-1}
-\mathbf1\{P_\ell(S_\ell)\le j-2\},
-\qquad \widetilde U_j^{(N)}\overset d=U_j^{(N)}.
+\widetilde U_j^{(N)}=1+\sum_{\ell=1}^{N-1}\mathbf 1\{P_\ell(S_\ell)\le j-2\}.
 \]
-The initial 1 accounts for the type whose first arrival completes album 1. This identity also follows from the exponential-order-statistic coupling in Long (2026). In particular, conditional on the gaps, the summands for a fixed \(j\) are independent Bernoulli variables. Their conditional success probabilities are
-\[
-F_k(S_\ell),\qquad F_k(s)=e^{-s}\sum_{a=0}^{k}\frac{s^a}{a!},\qquad k=j-2.
-\]
+The final type has only arrived once and contributes 1. This representation uses the same gaps and Poisson processes for every \(N\) and every \(j\).
 
-**Step 2: the common random amplitude.** Since \(\mathbb E\xi_\ell=1/\ell\) and \(\sum_{\ell\ge1}\operatorname{Var}(\xi_\ell)=\sum_{\ell\ge1}\ell^{-2}<\infty\), the centered series of gaps converges almost surely. Using the harmonic-number asymptotic gives a finite random variable \(G\) with
-\[
-S_\ell-\log\ell\longrightarrow G\quad\text{almost surely},\qquad W=e^{-G}>0.
-\]
-The gap-sum \(S_\ell\) has the same law as the maximum of \(\ell\) independent unit-rate exponentials. Hence for fixed \(w>0\),
-\[
-\Pr\{\ell e^{-S_\ell}>w\}
-=\left(1-\frac w\ell\right)^\ell\longrightarrow e^{-w},
-\]
-with the left expression interpreted for \(\ell>w\). As \(\ell e^{-S_\ell}\to W\) almost surely, it follows that \(W\sim\operatorname{Exp}(1)\). On the same almost-sure event, for every fixed \(\delta>0\), uniformly in \(\ell\ge N^\delta\),
-\[
-S_\ell=\log\ell-\log W+o(1),\qquad e^{-S_\ell}=\frac W\ell(1+o(1)).
-\]
+**Random amplitude.** The centered sums of independent gaps converge almost surely because their variances sum to \(\sum_{\ell\ge1}\ell^{-2}<\infty\). Since \(\sum_{a=1}^\ell1/a-\log\ell\) converges, \(S_\ell-\log\ell\to G\) almost surely. The distribution of \(S_\ell\) is that of the maximum of \(\ell\) independent standard exponentials, again by the spacing law. For fixed \(w>0\), \(\Pr(\ell e^{-S_\ell}>w)=(1-w/\ell)^\ell\) for \(\ell>w\), which tends to \(e^{-w}\). It follows that \(W=e^{-G}\) is standard exponential. In particular \(S_\ell=\log\ell-c+o(1)\) with \(c=\log W\), almost surely, uniformly in \(\ell\ge N^\delta\) for every fixed \(\delta>0\).
 
-**Step 3: a uniform lower-Poisson-tail asymptotic.** Let \(m_N=j_N-1\), \(k_N=m_N-1\), and \(L=\log N\), with \(m_N/L\to\alpha\in(0,1)\). For any fixed \(0<\rho<1\), uniformly along sequences with \(k\to\infty\), \(s>0\) and \(0\le k/s\le\rho\),
+**Poisson lower tail.** For \(k\to\infty\), uniformly over \(s>0\) with \(k/s\le\rho<1\),
 \[
-F_k(s)=e^{-s}\frac{s^k}{k!}
-\left(\frac{1+o(1)}{1-k/s}\right).
+F_k(s)=\Pr(\operatorname{Pois}(s)\le k)=e^{-s}\frac{s^k}{k!}\frac{1+o(1)}{1-k/s}.
 \]
-Indeed, dividing the defining sum by its final term gives \(\sum_{v=0}^{k}(k)_v/s^v\). For every fixed \(v\), \((k)_v/k^v\to1\), while the summands are bounded by \(\rho^v\). A geometric-series cutoff, uniform in \(k/s\le\rho\), proves the displayed approximation. This is not an approximation near the Poisson mean; keeping \(k/s\) strictly below 1 is essential.
+After dividing the finite sum by its last term the summands are \((k)_v/s^v\), where \((k)_v\) denotes the falling factorial. For fixed \(v\), these differ from \((k/s)^v\) by a factor tending to 1, uniformly in \(s\); both tails after any fixed cutoff are bounded by the tail of \(\sum_v\rho^v\). The resulting absolute uniform error is also relative since the geometric sum is at least 1.
 
-**Step 4: the conditional mean and its endpoint integral.** Write \(b_N=L^{m_N}/m_N!\). Stirling's formula gives
+**Conditional mean.** Set \(L=\log N\), \(k=m_N-1\), and \(b_N=L^{m_N}/m_N!\). Stirling's formula gives \(\log b_N/L\to\beta=\alpha(1-\log\alpha)\), with \(\alpha<\beta<1\). Fix \(\delta\) with \(\alpha<\delta<\beta\). The final type and all \(\ell\le N^\delta\) contribute \(o(b_N)\) to the conditional mean \(\mu_N\) given the gaps. For \(\ell>N^\delta\), \(k/S_\ell\le\rho<1\) eventually almost surely for a deterministic \(\rho>\alpha/\delta\). On the same event we can replace \(S_\ell\) by \(\log\ell-c\) in the exponent, power, and denominator in the tail estimate, with uniform relative error \(o(1)\); for the power the logarithm of the ratio is \(O(k/(\delta L))\,o(1)=o(1)\). Consequently
 \[
-\frac{\log b_N}{L}\longrightarrow
-\beta=\alpha(1-\log\alpha),\qquad \alpha<\beta<1.
+\mu_N=(1+o(1))\frac{W}{k!}\int_{\delta L}^{L}
+\frac{(t-c)^k}{1-k/(t-c)}\,dt+o(b_N)\qquad\text{almost surely}.
 \]
-Choose any fixed \(\delta\) satisfying \(\alpha<\delta<\beta\). The contribution of \(\ell\le N^\delta\) to the conditional mean is at most \(N^\delta=o(b_N)\). For \(\ell>N^\delta\), the preceding two steps yield, almost surely and uniformly,
-\[
-F_{k_N}(S_\ell)=
-\frac{W}{\ell}\frac{(\log\ell-\log W)^{k_N}}{k_N!}
-\frac{1+o(1)}{1-k_N/(\log\ell-\log W)}.
-\]
-The denominator is uniformly bounded away from zero. The resulting sum is a logarithmic Riemann sum: replacing \(\sum f(\log\ell)/\ell\) by \(\int f(t)\,dt\) incurs a negligible relative error, because the lower endpoint is \(N^\delta\) and the logarithmic derivative of the displayed factor is \(O(1/\ell)\) there, uniformly in \(N\). Setting \(c=\log W\), the conditional mean \(\mu_N=\mathbb E[\widetilde U_{j_N}^{(N)}\mid(\xi_\ell)_{\ell\ge1}]\) thus satisfies
-\[
-\mu_N=\frac W{k_N!}\int_{\delta L}^{L}
-\frac{(t-c)^{k_N}}{1-k_N/(t-c)}\,dt\,(1+o(1))+o(b_N)
-\quad\text{almost surely}.
-\]
-The factor \(1/(1-k_N/(t-c))\) tends to \(1/(1-\alpha)\) uniformly on any fixed relative neighborhood of the upper endpoint. Since the integral of \((t-c)^{k_N}\) is dominated by such a neighborhood, and since \(\bigl((\delta L-c)/(L-c)\bigr)^{m_N}\to0\), elementary endpoint concentration gives
-\[
-\int_{\delta L}^{L}\frac{(t-c)^{k_N}}{1-k_N/(t-c)}\,dt
-\sim\frac{(L-c)^{m_N}}{m_N(1-\alpha)}.
-\]
-It follows that
-\[
-\frac{\mu_N}{b_N}\longrightarrow
-\frac W{1-\alpha}\lim_{N\to\infty}
-\left(1-\frac{\log W}{L}\right)^{m_N}
-=\frac{W^{1-\alpha}}{1-\alpha}
-\quad\text{almost surely}.
-\]
-Here all approximations are pathwise for finite positive \(W\); none presupposes boundedness of \(W\) away from zero or infinity uniformly over outcomes.
+For the sum-to-integral step, as a function of \(u\in[N^\delta,N]\) the summand without constant factors is \(u^{-1}(\log u-c)^k/[1-k/(\log u-c)]\). Its logarithmic derivative is \(O(1/u)\) uniformly on this range for each realized finite \(c\), so the relative change on each unit cell is \(O(N^{-\delta})\). Changing the lower summation boundary by a bounded number of cells is harmless because each corresponding Poisson probability is at most 1 and \(b_N\to\infty\).
 
-**Step 5: concentration and joint convergence.** Conditional independence gives
+Use the endpoint window \([L-\sqrt L,L]\). There \(k/(t-c)\to\alpha\) uniformly. On the whole integration range, \(1/[1-k/(t-c)]\) is uniformly bounded. Since \(k+1=m_N\), the integral of \((t-c)^k\) below \(L-\sqrt L\), divided by \((L-c)^{m_N}/m_N\), is bounded by \(((L-\sqrt L-c)/(L-c))^{m_N}\), which tends to zero because \(m_N/L\to\alpha>0\). The integral of \((t-c)^k\) over the endpoint window is therefore asymptotic to \((L-c)^{m_N}/m_N\). This proves
 \[
-\operatorname{Var}(\widetilde U_{j_N}^{(N)}\mid(\xi_\ell))
-\le\mu_N.
+\frac{\mu_N}{b_N}=(1+o(1))\frac{W}{1-\alpha}\left(1-\frac cL\right)^{m_N}+o(1)
+\longrightarrow\frac{W^{1-\alpha}}{1-\alpha}\quad\text{almost surely}.
 \]
-Because \(b_N\to\infty\) and \(\mu_N/b_N\) converges almost surely to a finite variable, conditional Chebyshev followed by bounded convergence shows
-\[
-(\widetilde U_{j_N}^{(N)}-\mu_N)/b_N\xrightarrow{\mathbb P}0.
-\]
-For any fixed finite collection of indices \(j_{N,i}\), applying this argument coordinatewise on the *same* gap-and-Poisson-process coupling and taking a union bound proves the joint assertion with a single \(W\).
+These estimates are pathwise for a finite \(c=\log W\); no deterministic bound on its absolute value is needed.
 
-**Step 6: expectation asymptotics, independently checked.** Let \(M_N=\max(E_1,\ldots,E_N)\) for independent \(E_i\sim\operatorname{Exp}(1)\). The exact expected-deficit identity, obtainable from the exponential occupancy integral or by inclusion–exclusion, is
+**Concentration.** The conditional variance of \(\widetilde U_{j_N}^{(N)}\) is at most \(\mu_N\) by conditional independence. Thus the conditional probability of a deviation from \(\mu_N\) by more than \(\varepsilon b_N\) is at most \(\min(1,\mu_N/(\varepsilon^2b_N^2))\), which tends to zero almost surely. Taking expectations and a finite union bound yields the asserted joint convergence in probability on the same coupling.
+
+**Expected deficit.** Write \(M_N\) for the maximum of \(N\) independent standard exponentials. A unit-rate Poisson process has at most \(m-1\) arrivals by time \(s\) exactly when its \(m\)-th arrival time exceeds \(s\). The density of the latter arrival time is \(e^{-t}t^{m-1}/(m-1)!\). Applying this to the representation, \(S_\ell\) has distribution function \((1-e^{-t})^\ell\); including \(\ell=0\) for the final type and summing the resulting geometric series gives
 \[
-\mathbb E U_{m+1}^{(N)}
-=\sum_{a=1}^{N}(-1)^{a+1}\binom Na a^{-m}
-=\frac{\mathbb E M_N^m}{m!},\qquad m\ge1.
+\mathbb E U_{m+1}^{(N)}=\int_0^\infty\frac{t^{m-1}}{(m-1)!}\left[1-(1-e^{-t})^N\right]dt
+=\frac{\mathbb E M_N^m}{m!}
+=\sum_{a=1}^N(-1)^{a+1}\binom Na a^{-m}.
 \]
-To check the second equality, expand \(\Pr(M_N>t)=1-(1-e^{-t})^N\) and integrate \(m t^{m-1}\Pr(M_N>t)\). Now \(G_N=M_N-\log N\) converges in distribution to a standard Gumbel variable \(G\), characterized by \(e^{-G}\sim\operatorname{Exp}(1)\). Thus
-\[
-\frac{\mathbb E U_{m_N+1}^{(N)}}{b_N}
-=\mathbb E\left(1+\frac{G_N}{L}\right)^{m_N}
-\longrightarrow \mathbb E e^{\alpha G}=\Gamma(1-\alpha).
-\]
-The exchange of limit and expectation is justified uniformly: on \(G_N<0\), the integrand is bounded by 1; on \(G_N\ge0\), it is bounded by \(e^{\gamma G_N}\) for any fixed \(\alpha<\gamma<1\) and all large \(N\). The elementary bound \(\Pr(G_N>x)\le e^{-x}\) for \(x\ge0\) provides bounded exponential moments at every order below 1 and uniform integrability. This completes the proof.
+The ratio to \(b_N\) is \(\mathbb E(1+G_N/L)^{m_N}\), with \(G_N=M_N-L\) converging in law to the standard Gumbel \(G\). The integrands as functions of \(G_N\) converge uniformly on compact sets to \(e^{\alpha G_N}\). On \(G_N<0\) they are at most 1; on \(G_N\ge0\) they are at most \(e^{\gamma G_N}\) for fixed \(\alpha<\gamma<1\) and all sufficiently large \(N\). By the union bound \(\Pr(G_N>x)\le e^{-x}\) for \(x\ge0\). Taking a power \(p>1\) with \(p\gamma<1\) gives a uniform \(L^p\) bound and hence uniform integrability. The means converge to \(\mathbb E e^{\alpha G}=\mathbb E W^{-\alpha}=\Gamma(1-\alpha)\). This also equals the limit variable's mean \(\Gamma(2-\alpha)/(1-\alpha)\); its distribution function follows directly from the exponential distribution of \(W\).
 
 ## Verification
 
-The accompanying standalone `verify.py` checks, using exact rational arithmetic, the equality between the finite alternating-binomial formula and coefficients of the exponential-order-statistic moment generating function for multiple finite \(N\) and \(m\). It separately checks the conditional Poisson lower-tail series, its geometric approximation away from the mean, and the relationship between the claimed limit distribution and its mean. These are diagnostic finite computations; the conclusions for all \(N\) and all admissible index sequences follow from the proof above, not from enumeration.
+The accompanying `verify.py` checks finite cases of the alternating-binomial mean identity against exponential-order-statistic moments using rational arithmetic. It also illustrates the Poisson lower-tail approximation away from the mean and checks the relation between the marginal limit and its mean. The moving-index limit and the specific dependence across indices are proved analytically above; they are not conclusions of the finite checks.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Long, *Extremality and Limit Laws for the Siblings of the Coupon Collector* (arXiv:2606.29635v1, first public June 28, 2026), establishes the exact exponential-spacing coupling and joint exponential limits when all sibling indices stay fixed. Its discussion explicitly distinguishes growing sibling indices as outside that theorem's scope. The result here retains Long's coupling but studies \(j_N\) proportional to \(\log N\), requiring uniform moving-index Poisson-tail estimates and producing a different limit law and an exact leading expectation constant. Doumas and Papanicolaou (arXiv:1412.4346) treat expected deficits for fixed sibling indices and general coupon distributions; their later *The Coupon Collector's Brother* (arXiv:2005.05270) proves the exponential limit for the first sibling. Doumas and Spektor (arXiv:2606.21591) address finite-\(N\) expectation extremality over coupon distributions. These published statements do not provide the moving-index distributional theorem. Earlier or unindexed results in the generalized occupancy literature could conceivably imply it; independent priority verification remains necessary.
-
-## Limitations
-
-The result uses equal coupon probabilities, the precise hand-down-of-duplicates model, fixed finite-dimensional joint limits, and strictly subcritical index rates \(0<\alpha_i<1\). The proof does not cover the critical scale \(j_N/\log N\to1\), which has no separating exponent \(\delta\), nor supercritical regimes, rates approaching an endpoint, nonuniform weights, or quantitative convergence errors. The random-limit statement is convergence in probability only under the constructed joint coupling; for the original separate models it entails weak convergence, not an intrinsic across-\(N\) almost-sure assertion. The novelty comparison is necessarily limited to inspected and indexed sources.
+Long [1] uses the exponential-spacing coupling and proves common exponential limits at fixed sibling indices. The distinction here is the growing subcritical index \(m_N\sim\alpha\log N\), which requires an estimate uniform in a moving Poisson cutoff and yields a power of the common exponential variable. Doumas and Papanicolaou [2] give the exact expected-deficit sum for uniform probabilities and fixed-index expectation asymptotics; Papanicolaou and Doumas [3] treat the exponential limit for the first sibling. Doumas and Spektor [4] compare finite-population means over coupon distributions. This theorem concerns only uniform probabilities, strictly subcritical fixed limit ratios, the given album stopping rule, and a fixed finite set of indices. The claimed convergence in probability is for the displayed coupling and does not assert an intrinsic almost-sure limit under unrelated models at different \(N\). No conclusions are drawn at or beyond the critical ratio 1.
 
 ## References
 
-1. C. D. Long, *Extremality and Limit Laws for the Siblings of the Coupon Collector*, arXiv:2606.29635v1 (first public June 28, 2026). https://arxiv.org/abs/2606.29635
-2. A. V. Doumas and V. G. Papanicolaou, *The Siblings of the Coupon Collector*, arXiv:1412.4346 (2014). https://arxiv.org/abs/1412.4346
-3. V. G. Papanicolaou and A. V. Doumas, *The Coupon Collector's Brother*, arXiv:2005.05270 (2020). https://arxiv.org/abs/2005.05270
-4. A. V. Doumas and S. Spektor, *Equal probabilities maximize the expected deficit in the siblings of the coupon collector*, arXiv:2606.21591 (2026). https://arxiv.org/abs/2606.21591
+1. C. D. Long, *Extremality and Limit Laws for the Siblings of the Coupon Collector*, [arXiv:2606.29635v1](https://arxiv.org/abs/2606.29635v1).
+2. A. V. Doumas and V. G. Papanicolaou, *The Siblings of the Coupon Collector*, [arXiv:1412.4346](https://arxiv.org/abs/1412.4346).
+3. V. G. Papanicolaou and A. V. Doumas, *The Coupon Collector's Brother*, [arXiv:2005.05270](https://arxiv.org/abs/2005.05270).
+4. A. V. Doumas and S. Spektor, *Equal probabilities maximize the expected deficit in the siblings of the coupon collector*, [arXiv:2606.21591](https://arxiv.org/abs/2606.21591).

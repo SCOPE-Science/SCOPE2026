@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:20.553630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A stationary exponential preparation age, integrated against the decaying rotating coherence, gives c=r/(r+gamma+i omega). The resulting equatorial Bloch radius m=r/sqrt(h), h=(r+gamma)^2+omega^2, is strictly between zero and one for all admissible parameters. Pulling back the polar SLD metric diag((1-m^2)^-1,m^2) uses the Jacobian -r/h^(3/2), giving r^4/[(h-r^2)h^3]. The derivative has the sign of the frozen cubic: expand 4(h-r^2)h-2 gamma r h-6r(r+gamma)(h-r^2)=2P(r). The one coefficient sign change, P(0)>0 and P(infinity)<0 prove strict rise and fall and the two substitutions prove the uniform bracket. In normalized coordinates y=r/sqrt(A), u=gamma/sqrt(A), the root is above 2/sqrt(3) since the cubic takes value 2/3 there. Both F_y and F_u are negative at the root, so dy/du<0; u decreases with |omega|/gamma. Factoring at u=1 gives (1+sqrt(7))/3; at u->0 compactness of the positive root bracket gives sqrt(2). The scaled determinant A^2 det Q=y^4/[(1+2uy)(1+2uy+y^2)^3] proves the claimed 4/27 limit even when the ratio tends to infinity along varying gamma and omega. The SLD-vector map on the equatorial plane is invertible, so the nonzero parameter Jacobian implies a nonzero commutator parallel to sigma_z, whose expectation vanishes. In the usual local independent-copy collective setting, Q^-1 times the SLD vector is a feasible tuple in the Holevo optimization with real covariance Q^-1; hence weak commutativity makes the SLD benchmark asymptotically compatible, not a single-copy POVM guarantee. Independent normalized bisection gives y about 1.2152504370, 1.2929767057 and 1.4132181347 at u=1,0.25,0.001. Replay: /workspace/reproductions/frozen-review-checks.js, record 5, Node.js; the frozen symbolic and finite-difference script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sevilla–Valdés-Hernández gives general reset renewal. Li–Tong–Bao v1 has scalar reset-QFI response, with multiparameter sensing listed as future work; v2 bounds blind reset against the best unreset transient. The other abstracts discuss general precision-bound protocol optimization and variational multiparameter sensing, respectively."
+        ],
+        "reasoning": "General frameworks can derive ingredients or evaluate a specified design; no inspected theorem covers the unknown pair, stationary unconditioned preparation and D-optimal unrestricted positive rate together. Comparing to a transient protocol is an inequivalent resource benchmark.",
+        "searches": [
+          "arXiv:2209.05643 Eq. (4)",
+          "arXiv:2610.31249v1 Eq. (7) and arXiv:2610.31249v2 Eqs. (3)–(5)",
+          "arXiv:2608.01114v1 abstract; arXiv:2305.08289v2 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 5 RESULT.md, VERIFICATION.md and check_joint_qfim.py",
+        "Resultary 38d641a38757 and 15941b8265f8, plus the identical assigned item",
+        "arXiv:1410.5353, 2209.05643v1, 2305.08289v2, 2610.31249v1, 2610.31249v2 and 2608.01114v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renewal yields stationary coherence; the qubit geometry yields the radial/angular metric and supplies incompatibility context. A single-parameter QFI design cannot fix the radial information or cross term required by a joint determinant."
+        ],
+        "reasoning": "The frozen determinant is calculable by standard pullback, not a new information metric. Its global one-positive-root law, uniform sharp location, monotonic dependence on contrast and detuning asymptotic require the exact joint objective and further analysis; these are not implied by the inspected scalar or renewal statements.",
+        "searches": [
+          "arXiv:1410.5353 p. 1",
+          "arXiv:2209.05643 p. 2 Eq. (4)",
+          "arXiv:2610.31249v1 pp. 2, 4–5",
+          "Frozen RESULT.md lines 39–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day mirror record has identical pure-dephasing Poisson preparation dynamics and optimizes scalar stationary F_omega at known gamma, giving a sixth-degree stationarity polynomial. Vidrighin et al. studies joint phase and diffusion amplitude, with no reset design established in the inspected abstract."
+        ],
+        "reasoning": "Resonant scalar F_omega=r^2/(r+gamma)^4 has unique optimum r=gamma, whereas the joint determinant has optimum (1+sqrt(7))gamma/3. Thus the same-model findings are not equivalent under normalization. Phase and diffusion coordinates describe the same qubit information geometry at each r, but their parameter Jacobian depends on r; geometry alone is not a reset-optimality theorem.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-a-unique-stationary-frequency-sensing-reset-rate-for-a-dephased--38d641a38757",
+          "arXiv:1410.5353",
+          "quantum metrology Poisson resetting stationary qubit dephasing joint frequency damping multiparameter Fisher information determinant optimal reset rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked mirror search returned the assigned item itself and the same-date scalar sixth-degree optimizer. The earlier discrete-time finding optimizes a Bernoulli-reset scalar phase QFI. The v1 primary frequency example is also scalar and uses reset-dependent populations and coherences."
+        ],
+        "reasoning": "Neither scalar table/formula is the joint determinant or normalized cubic. The identical assigned mirror item is not evidence of independent coverage. Date or catalogue rank cannot place the same-day records in priority order.",
+        "searches": [
+          "Resultary: 38d641a38757",
+          "Resultary: 2026/11/2/SCOPE-unique-optimal-reset-probability-for-stationary-qubit-phase-info--15941b8265f8",
+          "arXiv:2610.31249v1 pp. 4–5 Eqs. (19)–(20)"
+        ]
+      },
+      "rationale": "The distinct contribution supported is the stationary joint frequency–dephasing D-optimal design theorem, including the unique cubic and sharp normalization. The same-day scalar Resultary finding uses the same stationary state and changes the objective; the two optima provably differ even at resonance. The state, equatorial QFIM geometry and asymptotic compatibility test are not credited as new. This is a bounded comparison, not historical priority certification.",
+      "residual_risks": [
+        "Exact same model appears in a same-day scalar finding; shared model and date do not determine priority, and the inequivalent objective is the audited distinction.",
+        "Bounded primary search and passage-level reading leave open unindexed general design results or equivalent earlier specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest overlap but scalar, with distinct optimizer; same date does not establish priority",
+          "evidence": [
+            "Known gamma and scalar F_omega; sixth-degree polynomial instead of the joint determinant cubic."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/38d641a38757",
+          "material_read": "Local mirror RESULT.md offset 0, Finding and model",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique stationary frequency-sensing reset rate for a dephased qubit",
+          "trigger": "Exact dynamics, reset state and design parameter"
+        },
+        {
+          "assessment": "Discrete-time scalar comparison",
+          "evidence": [
+            "Phase gate and Bernoulli reset probability; not continuous joint gamma and omega."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/15941b8265f8",
+          "material_read": "Local mirror RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique optimal reset probability for stationary qubit phase information",
+          "trigger": "Earlier stationary reset-design optimum"
+        },
+        {
+          "assessment": "General method credit, not the joint D-design theorem",
+          "evidence": [
+            "Renewal equation for reset density operator and qubit examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.05643v1",
+          "material_read": "p. 1 abstract and p. 2 Eq. (4), offset 7625",
+          "method": "Lawful OA arXiv PDF",
+          "title": "Dynamics of closed quantum systems under stochastic resetting",
+          "trigger": "Direct stationary-renewal dependency"
+        },
+        {
+          "assessment": "Scalar response or unreset-transient comparison, not the stationary joint determinant optimum",
+          "evidence": [
+            "v1 is explicit on scalar frequency and future multiparameter work; v2 bounds blind resetting relative to best transient no-reset QFI."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31249v1 and https://arxiv.org/pdf/2610.31249v2",
+          "material_read": "v1 Eq. (7) offset 16750; Eqs. (19)–(20) offset 30000; multiparameter outlook offset 39800; v2 abstract and Eqs. (3)–(5) at offsets 1106, 10388 and 13672",
+          "method": "Lawful OA arXiv PDFs of both versions",
+          "title": "Reset-Enhanced Dissipative Quantum Metrology and later revision",
+          "trigger": "Closest earlier primary reset-rate information optimization"
+        },
+        {
+          "assessment": "Relevant geometry or variational approach; abstract-level scope comparison",
+          "evidence": [
+            "Interferometric phase and diffusion tradeoff; variational preparation and measurement for multiparameter fields under dephasing."
+          ],
+          "identifier_or_url": "arXiv:1410.5353 and arXiv:2305.08289v2",
+          "material_read": "Both p. 1 abstracts, offset 0",
+          "method": "Lawful OA arXiv PDFs",
+          "title": "Joint estimation of phase and phase diffusion for quantum metrology; Variational quantum metrology for multiparameter estimation under dephasing noise",
+          "trigger": "Two-parameter phase/noise geometry and dephasing estimation"
+        },
+        {
+          "assessment": "Abstract describes general numerical design framework and broad examples; keyword misses are not a whole-document noncoverage claim",
+          "evidence": [
+            "Semidefinite precision bounds and restricted-memory sequential protocols rather than the stated stationary reset design in the inspected passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01114v1",
+          "material_read": "p. 1 abstract, offset 2600–4428; reset and dephasing literal locators returned no passages",
+          "method": "Primary search followed by lawful OA arXiv PDF",
+          "title": "Optimal Strategies for Multi-parameter Quantum Metrology",
+          "trigger": "Primary search hit for general frequency-estimation optimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known reset rate is a natural experimental control, and a jointly unknown damping process makes a scalar-frequency optimum insufficient even on resonance. The exact all-parameter optimizer, sharp interval and detuning law give a usable stationary local precision benchmark under a fixed type of preparation. The result makes no claim about rate-normalized information, universal single-copy attainability or advantage over time-optimized unreset protocols.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

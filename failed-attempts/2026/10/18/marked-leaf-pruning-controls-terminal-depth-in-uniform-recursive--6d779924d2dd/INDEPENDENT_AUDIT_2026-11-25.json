@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:28:59.771321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The leaf event restricts each independent parent choice separately, always leaving the root admissible. All surviving parents are uniform on the earlier survivors, and deleting marked leaves removes no vertex of the last-born root path. For the event probability, delete the smallest marked leaf first: its singleton probability is (i_1−1)/(n−1), and since all other marked vertices are later, none could have been its parent. Iteration gives the frozen product. The depth PGF follows from h_k=z/(k−1) times the sum of h_j for j<k (h_1=1), giving the independent Bernoulli convolution in law. The leaf transition preserves the count with probability L_n/n and otherwise increases it by one, giving the Eulerian recurrence. Expanding the product over leaf indicators and grouping subsets by size gives the stated Eulerian factorial moments and hence the joint PGF. For singleton events, summing the leaf probabilities gives (n−2)/2; the Bernoulli convolution then gives the exact transform covariance and strict sign. In a separate finite parent-vector enumeration at n=9 (40,320 trees), the two marked triples {3,5,8} and {2,4,6} had 3,600 and 720 hits, respectively, and f(x)=x² gave covariance −433/160, exactly as predicted; this does not prove the general law. The uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4e2828958fad allows every nonroot marked set and proves uniformity of the entire remaining tree; its surviving-j covariance with total leaves is −(j−2)/(2(n−1)).",
+          "57e8450fa564 gives covariance −(n−2)/4 for total path length and leaves, with a mixed-scale limit."
+        ],
+        "reasoning": "The first result strictly generalizes the frozen conditional theorem, and its covariance at j=n is the claimed linear one. Summing the profile gives the second record's aggregate, but the aggregate alone does not determine terminal covariances or prescribed-set conditioning.",
+        "searches": [
+          "Resultary 4e2828958fad fixed-leaf erasure and covariance profile",
+          "Resultary 57e8450fa564 exact path–leaf covariance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e2828958fad and 57e8450fa564",
+        "Kuba–Wagner EJC 17 R137",
+        "Janson DOI 10.1002/rsa.20046 (access attempt only)",
+        "Frozen RESULT.md, VERIFICATION.md and verify_rrt_pruning.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grouping the known mixed indicator PGFs by |S| gives h_(n−s)(z) times sum_(|S|=s) q_(n,S). That sum is E[binom(L_n−1,s)], evaluated by differentiating the ordinary Eulerian marginal.",
+          "For singletons the known conditional depth is H_(n−1), and the shift from the unconditional depth is the Bernoulli convolution read directly from the known depth PGF."
+        ],
+        "reasoning": "A finite product expansion and the Eulerian marginal give the frozen derivative formula without new enumeration. Summing singleton covariances for f(H_n) and inserting the Bernoulli difference gives the transform identity, so it is determined by previously indexed mixed-moment data. The inaccessible Janson text is not used to infer coverage or lack of it.",
+        "searches": [
+          "Resultary 4e2828958fad Finding, exact mixed PGF and singleton probabilities",
+          "Janson DOI 10.1002/rsa.20046 and identified author-manuscript URL"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4e2828958fad uses independent uniform earlier parents and childlessness, and gives E[z^(D_j) product_(i in S) X_i]=q_(n,S) product_(l=1)^(j−r_j−1)(1+(z−1)/l) for each surviving j.",
+          "The Kuba–Wagner depth bijection preserves outdegrees and takes edges on the path to k to 1-edges; its distributional theorem is formulated with this 1-edge count."
+        ],
+        "reasoning": "For j=n and the frozen S, r_j=|S| and the product is h_(n−|S|). Division by the positive q gives identical prescribed-leaf conditioning. The depth bijection is a different prior representation, not itself the explicit conditional formula.",
+        "searches": [
+          "Resultary uniform recursive tree conditional leaf erasure and terminal depth",
+          "Resultary 4e2828958fad, RESULT.md, Finding",
+          "Kuba–Wagner EJC 17 (2010), R137, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator supplies q_(n,S) as an exact product of allowed-parent fractions and the exact indicator-product mixed PGF for every S and n. The classical marginals are the Bernoulli-product depth law and Eulerian-program leaf numbers from the leaf recurrence."
+        ],
+        "reasoning": "The all-parameter mixed indicator PGFs are stronger than a finite numerical table. Summing them with coefficients (u−1)^|S| recovers each coefficient of the frozen joint distribution; neither a table of the separate marginals nor the supplied finite test enumeration would establish that coverage.",
+        "searches": [
+          "Resultary 4e2828958fad Finding, exact mixed moments and fixed-set probability",
+          "Kuba–Wagner Theorem 3 on depth marginals"
+        ]
+      },
+      "rationale": "The distinct indexed record 4e2828958fad explicitly gives the stronger fixed-leaf erasure theorem and the mixed PGF with every prescribed product of leaf indicators, plus the exact depth–leaf covariance profile. Specializing to the last-born vertex and expanding the standard PGF product yields the frozen joint law and transform formula. The printed Eulerian-derivative form is not verbatim in the comparator, but is a direct extraction. The labels on the two directories do not establish historical priority.",
+      "residual_risks": [
+        "The dated catalogue paths do not establish first discovery, priority, or dependence.",
+        "Earlier printed degree or permutation results might give additional representations; not all such literature was accessible. The equivalent indexed conditional statements suffice for the coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit stronger erasure and mixed indicator PGFs, with the terminal linear covariance as a specialization",
+          "evidence": "The entire reduced tree is uniform and the mixed PGF is given for every surviving j and prescribed S.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 0–2523; accompanying proof passages",
+          "method": "Bounded full-text passages from local mirror",
+          "title": "Conditional leaf erasure and the depth–leaf covariance profile of recursive trees",
+          "trigger": "Same uniform recursive tree and prescribed childless labels"
+        },
+        {
+          "assessment": "Provides degree-preserving depth representation, not the explicit fixed-label conditional law in those passages",
+          "evidence": "B_k preserves outdegrees and maps path edges to 1-edges; Theorem 3 identifies the distributions of depth and the 1-edge count.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v17i1r137/pdf",
+          "material_read": "Abstract and introduction pp. 1–2, bijection p. 3, Theorem 3 p. 4",
+          "method": "Open primary PDF, bounded relevant passages",
+          "title": "On the distribution of depths in increasing trees",
+          "trigger": "Possible joint-law implication from an outdegree-preserving depth bijection"
+        },
+        {
+          "assessment": "No decision about the paper's exact implications from the access attempts",
+          "evidence": "Publisher returned HTTP 403; the author manuscript at https://www2.math.uu.se/~svantejs/papers/sj155.pdf was not accessible with certificate verification.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+          "material_read": "No verified primary full-text passage",
+          "method": "Publisher HTML and ePDF unavailable; identified author PDF could not be retrieved",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Earlier degree-count theory potentially relevant to the leaf marginal or joint law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The joint distribution of terminal depth and leaves and the exact negative transform covariance are well-motivated invariants of the recursive-tree growth process. The stronger indexed mixed-indicator law already determines them; repackaging it as a PGF with Eulerian coefficients leaves no distinct nonroutine exact fact in this submission.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

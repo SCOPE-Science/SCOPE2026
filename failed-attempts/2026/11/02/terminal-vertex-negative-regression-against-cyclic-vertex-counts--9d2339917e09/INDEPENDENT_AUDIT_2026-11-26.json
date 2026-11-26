@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:22.338509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 35–85; VERIFICATION.md and checker.py",
+        "Independent check of the crossing identity: enumerate n-ary words of lengths m−1 and m, count distinct hits in the first m or m+1 boxes, and verify the tail difference for 2≤n≤8 and 1≤m≤n−2 by exact integer counts."
+      ],
+      "rationale": "The statements in the Finding hold, but the proof of stochastic order in RESULT.md line 57 is false as written. For n=4, m=2, and consecutive draws 3,1, the alleged monotone coupling gives O₂=2 and O₃=1. An independent proof uses the same draw space without the pointwise inference. Let E count empties among the first m+1 boxes before the new draw. At threshold ℓ, crossing up can occur only when E=ℓ and box m+1 is empty, followed by a draw avoiding the ℓ empties. Crossing down needs E=ℓ and box m+1 occupied, followed by a draw hitting an empty. Exchangeability gives the respective conditional probabilities ℓ/(m+1) and 1−ℓ/(m+1) for the box state. Subtracting yields P(O_{m+1}≥ℓ)−P(O_m≥ℓ)=[ℓ(n−m−1)/(n(m+1))] P(E=ℓ). This is nonnegative for 1≤m≤n−2, and strictly positive at ℓ=m+1 because the first m−1 draws can all avoid the eligible boxes. The 0-to-1 transition is deterministic. Conditioning on a forbidden target set gives the factorial moments, and the size-one restriction identity gives the exact covariance. The cyclic-tail difference on j∼x√n satisfies n(a_n(j)−a_{n−1}(j))→(x²/2)e^(−x²/2); the product bounds in the frozen proof justify summation. The Rayleigh and empty-box variance constants give the stated correlation scale.",
+      "residual_risks": [
+        "PASS is for the mathematical Finding by the independent argument above, not for the false pathwise claim or the frozen proof as written. Finite runs do not prove infinite assertions. The frozen checker was inspected, not run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reverse-likelihood-ratio Finding gives the cross-product inequalities for all admissible cyclic-core sizes, explicitly states strict usual stochastic order and gives the same transform covariance inequality. The two cited journal articles could not be read in full."
+        ],
+        "reasoning": "The stronger conditional order covers the proposed stochastic order; negative quadrant dependence follows by taking indicator functions, independent of whether it is named.",
+        "searches": [
+          "Resultary reverse likelihood-ratio ordering of terminal counts by cyclic-core size",
+          "Drmota–Soria DOI:10.1137/S0895480194268421; Mylläri DOI:10.1239/aap/1037990959"
+        ]
+      },
+      "checked_sources": [
+        "Three Resultary records named above",
+        "Flajolet–Odlyzko, Tavaré and Mutafchiev–Finch passages as specified",
+        "Drmota–Soria and Mylläri bibliographic/access checks only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-joint-law result literally gives n(1−1/n)^n(c_{n−1}−c_n), the −sqrt(π/8)/e covariance coefficient and the same n^(−1/2) correlation coefficient. The reverse-likelihood-ratio theorem covers the strict negative regression, and hence upper-tail quadrant inequalities. The available classical passages supply marginal ingredients, not these joint comparisons."
+        ],
+        "reasoning": "No stated conclusion remains uncovered. The new argument used in this audit to establish the already covered stochastic order is not a distinct finding of the submission.",
+        "searches": [
+          "Exact-joint-law RESULT.md Finding; reverse-likelihood-ratio RESULT.md Finding and conditional forest encoding",
+          "Flajolet–Odlyzko, Random Mapping Statistics; Tavaré arXiv:2006.04805"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unrestricted portion of the conditional rooted-forest deletion code has n−k−1 uniform symbols from [n]. Counting absent nonroots is the same occupancy law as counting specified empty boxes; the corresponding r-Stirling PMF is another form of the same law."
+        ],
+        "reasoning": "The target definition, conditioning and empty-draw and all-cyclic boundaries agree; the alternative expression is mathematically equivalent.",
+        "searches": [
+          "random mappings joint distribution number of cyclic vertices number of vertices of indegree zero leaves conditional distribution occupancy negative dependence",
+          "2026/11/2/SCOPE-reverse-likelihood-ratio-ordering-of-terminal-counts-by-cyclic-c--0ede72eb318a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-joint-law Finding has the same full inclusion–exclusion probability mass function (write (1−(ℓ+j)/n)^(m−1) as (n−ℓ−j)^(m−1)/n^(m−1)), the same falling-factorial moments, and the permutation boundary. The October record also gives the occupancy representation and sharp covariance scale."
+        ],
+        "reasoning": "Coverage is a symbolic finite-sample law for all n,k rather than a numerical table match.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad",
+          "2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9"
+        ]
+      },
+      "rationale": "The occupancy law, both exact expressions, exact covariance and both leading constants are covered by an exact-joint-law record. A distinct reverse-likelihood-ratio record states the same strict stochastic order and transform covariance inequality, as consequences of a stronger same-model order. Thus the whole Finding is covered, irrespective of unresolved chronology between same-day records.",
+      "residual_risks": [
+        "Catalogue date alone establishes no priority between distinct same-day records. The rejection rests on explicit equivalent and stronger coverage, not chronology or unavailable papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of law, identities and constants",
+          "evidence": "Same m designated boxes and m−1 draws; factorial moments, inclusion–exclusion law, covariance identity and both leading constants are stated.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad",
+          "material_read": "Local RESULT.md Finding, assumptions and beginning of proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact joint law of cyclic and terminal vertices in uniform random mappings",
+          "trigger": "Same observable, conditioning, and exact formulas"
+        },
+        {
+          "assessment": "Direct and stronger coverage of stochastic order and transform covariance",
+          "evidence": "It states the reverse TP2 inequalities for all n≥2 and explicitly gives the strict stochastic and covariance consequences.",
+          "identifier_or_url": "2026/11/2/SCOPE-reverse-likelihood-ratio-ordering-of-terminal-counts-by-cyclic-c--0ede72eb318a",
+          "material_read": "Local RESULT.md Finding, assumptions and conditional forest encoding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Reverse likelihood-ratio ordering of terminal counts by cyclic-core size in uniform random mappings",
+          "trigger": "Stronger claim on the same conditional kernel"
+        },
+        {
+          "assessment": "Partial coverage; only the conditional mean order there",
+          "evidence": "Same occupancy law and leading covariance and correlation; no claim of distributional stochastic order there.",
+          "identifier_or_url": "2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Earlier indexed occupancy and covariance comparison"
+        },
+        {
+          "assessment": "Marginal and counting background in inspected passages",
+          "evidence": "Terminal marking, classical cyclic-core law and rooted-forest counts are treated; Tavaré's main no-loop model is distinct.",
+          "identifier_or_url": "DOI:10.1007/3-540-46885-4_34; arXiv:2006.04805; arXiv:2301.13829",
+          "material_read": "Flajolet–Odlyzko §3.1 and §3.3, pp. 336–340; Tavaré §1.2 p. 2; Mutafchiev–Finch §§1–2, pp. 2 and 4",
+          "method": "Primary OA PDF passages",
+          "title": "Random Mapping Statistics; A note on the Screaming Toes game; On the Deepest Cycle of a Random Mapping",
+          "trigger": "Classical marginal and forest enumeration results"
+        },
+        {
+          "assessment": "Unresolved overlap, not used for rejection",
+          "evidence": "Image/preimage and forest leaf topics are relevant but alone do not establish same-model coverage.",
+          "identifier_or_url": "DOI:10.1137/S0895480194268421; DOI:10.1239/aap/1037990959",
+          "material_read": "Bibliographic scope only; full texts not read",
+          "method": "Lawful OA lookup; no readable copy obtained",
+          "title": "Images and Preimages in Random Mappings; Limit distributions for the number of leaves in a random forest",
+          "trigger": "Potential implicit joint laws or specified-root leaf results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Step 3",
+        "Exact-joint-law and reverse-likelihood-ratio Findings"
+      ],
+      "rationale": "The dependence question is natural and the exact law is useful, but this submission adds neither a new invariant nor a stronger dependence statement beyond the exact-law and likelihood-ratio records. The purported simpler proof of the strict order relies on a false pointwise claim and therefore does not supply an independent useful method as submitted.",
+      "residual_risks": [
+        "Value judgment concerns this submitted contribution, not the usefulness of studying finite random-mapping dependence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

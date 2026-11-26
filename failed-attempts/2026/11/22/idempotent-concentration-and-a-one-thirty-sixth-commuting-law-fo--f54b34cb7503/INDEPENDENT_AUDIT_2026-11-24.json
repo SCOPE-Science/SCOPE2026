@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:42:38.941686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The images of any two distinct domain points determine the orientation and offset. Distances to those two points then determine every other image. Each sign has one support of length n and two at each shorter positive length; adding the n² singletons and the empty map separately to the at-least-two restrictions gives 6·2^n−n²−4n−5. All partial identities commute, giving exactly 4^n ordered idempotent pairs. A support of size less than 3n/4 provides at most 2^(3n/4) restrictions per affine type, so short maps or rank ≤1 contribute pair probability O(n·2^(−n/4)). For two long types f,g, choose g nonidentity. The intersection of the image of its support with the admissible support of f has size ≥n/2, losing at most one source to a fixed point. From the remaining arrows x→g(x), take a vertex-disjoint set of size ≥(n/2−1)/3: translations give paths and reflections give two-cycles. At each selected arrow, x∈B, g(x)∈A, x∉A forces the two product domains to differ. These events are independent, each of probability at least 1/8 without conditioning on rank (including x outside the support of f). Conditioning on both ranks ≥2 costs at most a factor of four for n≥8, and the estimate is uniform across long types. This proves the quantitative bound. Both exponential bases and the normalization correction are absorbed by O(0.99^n); the positive limit implies conditional concentration. An independently written enumeration found 31, 204, 1089, 5104, 21021, 81210 commuting pairs for n=2,…,7, confirming the frozen finite data only; the supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Records 015301143d17 and 3f4afe04e35e count order-preserving and order-preserving order-decreasing submonoids respectively. Record 338221c85380 has interval domains as in arXiv:2111.01863 §3. Record 2523a33ab907 includes both translations and reflections on arbitrary subsets and additionally gives an exact mixed count."
+        ],
+        "reasoning": "Changing either the allowed orientations or the domain family changes the uniform distribution and cannot imply the full law. The full-monoid match is decisive independently of those restricted comparisons.",
+        "searches": [
+          "Web: commuting probability partial transformations finite chain inverse monoid idempotents asymptotic",
+          "Web: \"interval-domain\" partial translations rook monoid commuting probability",
+          "Resultary: order-preserving partial isometry finite chain commuting probability 1/9",
+          "Resultary: interval-domain partial translation rook monoid commuting probability 3/10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_commuting.py (read only)",
+        "arXiv:1101.0049 and arXiv:2111.01863",
+        "Resultary 2523a33ab907, 015301143d17, 3f4afe04e35e, 338221c85380"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 2523a33ab907 bounds the commuting probability minus 4^n/N_n² by O(n²ρ^n), with ρ=max(2^(−1/32),(3/4)^(1/20))<0.99, by using long affine types and independent local subset restrictions."
+        ],
+        "reasoning": "The stated example of ρ absorbs n² into O(0.99^n), with the same 4^n/N_n² baseline. It therefore implies the headline estimate and concentration, without implying the frozen improved explicit two-term error estimate. The older cardinality theorem normalizes both statements but does not itself give either exponential error bound.",
+        "searches": [
+          "Resultary 2523a33ab907 RESULT.md, Finding and Proof §3",
+          "arXiv:1101.0049 Theorem 3.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kehinde–Umar use DP_n for the full chain monoid, versus ODP_n for its order-preserving submonoid. The other full-monoid record 2523a33ab907 uses coordinates 0,…,n−1, the same affine restrictions and equality of partial maps."
+        ],
+        "reasoning": "Coordinate translation identifies the two monoids and preserves uniform sampling, products and idempotents. Equality includes equality of domains; the other record is not computing a weaker overlap-only statistic.",
+        "searches": [
+          "Web: \"partial isometries of a finite chain\" \"commuting\" probability",
+          "Web: \"partial isometry\" finite chain \"commuting probability\" semigroup",
+          "Resultary: commuting probability full partial isometry finite chain reflections translations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3.16 gives the exact monoid size; Table 3.3 matches the n=2,…,7 element counts but does not count commuting pairs. The distinct full-monoid record supplies an exact formula for the mixed subset E_n×D_n and records finite commuting enumerations."
+        ],
+        "reasoning": "Monoid size and idempotent pairs alone give only the lower bound 4^n/|D_n|². Finite totals and the exact mixed count do not alone establish the asymptotic; the explicit exponential bound in the same record does.",
+        "searches": [
+          "Resultary: DP_n finite chain partial isometries cardinality table",
+          "arXiv:1101.0049 Theorem 3.16 and Tables 3.3–3.4",
+          "Resultary 2523a33ab907 Finding and Verification"
+        ]
+      },
+      "rationale": "The distinct indexed record 2523a33ab907 already documents the headline statement on the exact same full monoid: the limit 1/36 with exponential convergence and conditional dominance of pairs of partial identities. This is statement-level coverage, not a finding about priority between records on the same date. Its exact mixed commuting count is additional. The frozen two-term error estimate gives a somewhat better explicit nonoptimal base than the example bound in 2523a33ab907 (about 0.978 versus 0.986, before polynomial factors); the headline O(0.99^n) already follows from that record. The modest quantitative improvement comes from the support cutoff and localized domain witnesses in the same affine-representative framework; it identifies neither a sharp rate nor a new asymptotic term and does not support a standalone valuable repair.",
+      "residual_risks": [
+        "Relative priority of the two same-day full-monoid records was not established.",
+        "The 2014 article and unindexed older work may bear on historical priority. The originality failure is based on affirmative documented coverage, not access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exponential 1/36 law and conditional dominance, with a weaker explicit bound on the remainder and an additional exact mixed count",
+          "evidence": "Pr(fg=gf)=4^n/N_n²+O(n²ρ^n); both factors are partial identities with conditional probability tending to one exponentially. The independent domain-bit obstruction is used on long affine representatives.",
+          "identifier_or_url": "2026/11/22/SCOPE-commutativity-and-the-reflection-factor-in-finite-chain-partial--2523a33ab907",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof §§1–3 (offsets 0, 3399, 6800), Verification and Limitations",
+          "method": "Bounded passages through published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Commutativity and the reflection factor in finite-chain partial-isometry monoids",
+          "trigger": "Exact full-monoid equivalence; determine whether convergence and dominance are both covered"
+        },
+        {
+          "assessment": "Exact cardinality and element tables already known",
+          "evidence": "|DP_n|=3·2^(n+1)−(n+2)²−1; the inspected tables count elements, not commuting pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1101.0049",
+          "material_read": "Abstract, Theorem 3.16 p. 9 at offset 22676, Tables 3.3–3.4 p. 10 at offset 25750",
+          "method": "Bounded OA PDF text",
+          "title": "On the Semigroup of Partial Isometries of a Finite Chain",
+          "trigger": "Known size and possible same-monoid table coverage"
+        },
+        {
+          "assessment": "Different sampling spaces",
+          "evidence": "The order-preserving version has limit 1/9; the order-preserving order-decreasing version has limit 1/4.",
+          "identifier_or_url": "Resultary 015301143d17 and 3f4afe04e35e",
+          "material_read": "Each RESULT.md Finding and scope at offset 0",
+          "method": "Published-record mirror",
+          "title": "Order-preserving and order-decreasing chain commuting laws",
+          "trigger": "Nearby normalization and concentration claims with restricted orientation or order"
+        },
+        {
+          "assessment": "Different monoid, not an equivalent formulation",
+          "evidence": "A contiguous block on one diagonal gives an interval-to-interval translation, not an arbitrary partial injection preserving chain distances.",
+          "identifier_or_url": "Resultary 338221c85380; definition compared with arXiv:2111.01863 §3",
+          "material_read": "RESULT.md at offsets 0 and 3500; primary PDF §3 p. 5 at offset 11965",
+          "method": "Published-record mirror and bounded OA PDF text",
+          "title": "A three-tenths commutativity law for interval translation rook monoids",
+          "trigger": "Nearby interval-domain translation monoid"
+        },
+        {
+          "assessment": "Not adjudicated; not the basis for failure",
+          "evidence": "Relevant content could not be compared from the available access.",
+          "identifier_or_url": "Al-Kharousi, Kehinde and Umar (2014)",
+          "material_read": "No substantive full-text passage obtained",
+          "method": "Identified lawful access attempts via DOI, Academia and ResearchGate",
+          "title": "Combinatorial results for certain semigroups of partial isometries of a finite chain",
+          "trigger": "Potential older exact enumerations of the same monoid"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical question the full-monoid law is substantive: reflections are not a negligible exceptional family, and their interaction with arbitrary partial domains is not addressed by counting elements or by translation-only models. The proof identifies a mechanism forcing almost all commuting pairs to come from two partial identities. This value of the main result does not make it distinct from the overlapping record or make the change to the nonoptimal bound a valuable separate finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

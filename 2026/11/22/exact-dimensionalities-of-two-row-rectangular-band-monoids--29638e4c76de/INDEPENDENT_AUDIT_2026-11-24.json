@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:44:52.111671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and n=3 example",
+        "Frozen VERIFICATION.md and verification/verify.py",
+        "Independent replay: python3 /workspace/branches/3d5e8e0c-51f9-4459-ae57-88d5fa07fff2/dimensionality_grid_enum.py; dimensionality_grid_enum_results.txt in the same directory"
+      ],
+      "rationale": "For every n≥1, the support product of two nonidentity classes is exactly the row support of the first times the column support of the second. The quantified lifting condition is precisely saturation of every such rectangle; products with the singleton external identity are automatic. Same-colored cells must agree in both palettes, since membership in any product rectangle is tested by its two palettes, and that condition is also sufficient. Disjoint row palettes force identical column partitions in the two rows; one shared color forces identical row palettes globally. In that case linked columns have identical one- or two-color palettes, yielding unique groups and either a monochrome group or a crossed unordered proper bipartition. A group of size s has 2^(s−1) choices, giving the stated Stirling sum and the exponential generating function by the exponential formula. Automorphisms permute the intrinsic row and column coordinates independently; any orbit crossing rows requires a row flip preserving each orbit, hence balanced splits. The subgroup of within-part column permutations together with one simultaneous row flip and swaps of balanced halves gives exactly those orbits. Left and right multiplication extract the coordinate equivalences of a congruence, giving exactly 2B_n with singleton identity. For n≤2 no unbalanced split exists, whereas the displayed n=3 example is one. A separate exhaustive run over cell partitions for n=1–5 reproduced D=2,5,16,64,309; the O and congruence columns were checked by the proved formulas. The uploaded verifier was inspected, not run; its main check does enumerate through n=5 despite a stale four-column docstring.",
+      "residual_risks": [
+        "The formula is for actual labeled partitions with two rows and a singleton external identity; there is no assertion for more rows or classification up to isomorphism."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jenča proves orbit partitions are dimensionalities and gives a non-orbit example on a different monoid. Marrow–Misseldine develops semigroup Schur rings under coefficientwise closure and counts 13 on the order-six band LO_3×RO_2."
+        ],
+        "reasoning": "A general sufficient orbit criterion and a failure of its converse on a different monoid do not yield the exact two-row boundary. The broad Schur-ring theory uses the stronger condition, so it cannot be treated as a general support-only classification. Transposing the rectangular band exchanges the two coordinate roles and reverses multiplication; the 3×2 Schur count still covers only the Schur subfamily.",
+        "searches": [
+          "Resultary: arbitrary-row rectangular bands and support-only partitions",
+          "Marrow–Misseldine arXiv:2601.09940v1 §§1, 5.6",
+          "Jenča arXiv:2611.18000v1 Theorem 3.4 and Example 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary two-row Schur and support-only comparisons",
+        "arXiv:2611.18000v1",
+        "arXiv:2601.09940v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior two-row theorems impose equal row-incidence for crossed blocks. The frozen n=3 partition has a block occupying both rows in a 2:1 ratio; it has saturated setwise products but its block-sum square has distinct coefficients on cells of that block."
+        ],
+        "reasoning": "The unbalanced partitions are excluded, not implied, by those Schur theorems. General orbit sufficiency alone also cannot count partitions outside the orbit class. This leaves a genuinely different classification and count even after crediting complete prior coverage of the balanced part.",
+        "searches": [
+          "October 13 and October 26 Resultary classification statements and coefficientwise balance proofs",
+          "Jenča Theorem 3.4 compared with the frozen balanced-half subgroup and unbalanced n=3 example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jenča's Proposition 3.3 gives the quantified lifting condition, which is equivalent to setwise saturation, not coefficientwise closure. The same-day rank-block dimensionalities record ending 6b9ff5f44b74 uses setwise saturation on matrix monoids but restricts its theorem to rank-block partitions."
+        ],
+        "reasoning": "Changing from lifting to setwise saturation is only a reformulation of the property; the new claim classifies every such partition of a 2×n band. The adjacent matrix result treats neither these objects nor all their partitions.",
+        "searches": [
+          "Resultary: two-row rectangular-band support saturation and dimensionality",
+          "Web: dimensionalities and rectangular band",
+          "Jenča arXiv:2611.18000v1 Proposition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 record ending b55d2bce611d gives exactly the separated and balanced types and counts 2,5,13,48,184. The distinct October 26 record ending 898f75a97d4e gives the same subfamily in B_m+W_m form."
+        ],
+        "reasoning": "These give the entire orbit-realizable count O_n, already credited, not D_n; for example at n=3 the full dimensionality count is 16 rather than 13, and at n=5 it is 309 rather than 184.",
+        "searches": [
+          "Resultary: All Schur partitions of two-row rectangular bands are automorphic",
+          "Resultary: Schur-ring classification of two-row rectangular bands"
+        ]
+      },
+      "rationale": "The exact separated and balanced orbit-realizable subfamily is already covered by two indexed Schur classifications, as the frozen result expressly credits. The distinct part is the full classification and count for the weaker setwise dimensionality condition, including unbalanced splits and the resulting exact non-orbit boundary. Neither checked Schur classification supplies those additional partitions and multiplicities; Jenča's general framework does not classify this family.",
+      "residual_risks": [
+        "The bounded comparison does not rule out an older classification under different terminology, including a broader support-based result not found in the indexed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General condition and sufficient orbit construction, not this family classification",
+          "evidence": [
+            "Theorem 3.4 gives automorphism subgroup orbits; Example 3.5 is a non-orbit dimensionality on a different monoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18000v1",
+          "material_read": "Proposition 3.3, Theorem 3.4 and Example 3.5, HTML offsets 23262–25559",
+          "method": "OA HTML, read relevant passages",
+          "title": "Dimensionalities on monoids",
+          "trigger": "Source of dimensionality condition and orbit construction"
+        },
+        {
+          "assessment": "Covers the balanced/orbit count, not all dimensionalities",
+          "evidence": [
+            "Rational block-sum closure forces equal row occupancy in mixed splits; counts 2,5,13,48,184."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-schur-partitions-of-two-row-rectangular-bands-are-automorphi--b55d2bce611d/RESULT.md",
+          "material_read": "RESULT.md offsets 249–6815, classification and weighted closure proof",
+          "method": "Local Resultary mirror",
+          "title": "All Schur partitions of two-row rectangular bands are automorphic",
+          "trigger": "Strongest same-object classification and exact table"
+        },
+        {
+          "assessment": "Same balanced subfamily under a strictly stronger condition",
+          "evidence": [
+            "Separated or equal-half mixed forms and count B_m+W_m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-schur-ring-classification-of-two-row-rectangular-bands--898f75a97d4e/RESULT.md",
+          "material_read": "RESULT.md offsets 475–7247",
+          "method": "Local Resultary mirror",
+          "title": "Schur-ring classification of two-row rectangular bands",
+          "trigger": "Distinct prior two-row theorem and counting formula"
+        },
+        {
+          "assessment": "Coefficientwise Schur condition; verifies part of the overlap",
+          "evidence": [
+            "13 Schur rings for LO_3×RO_2, not the 16 full dimensionalities on the corresponding band family member."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.09940v1",
+          "material_read": "§1 near offset 999; §5.6 offsets 185832–191356",
+          "method": "OA HTML, read bounded passages",
+          "title": "On Schur Rings Over Semigroups",
+          "trigger": "Broad semigroup coverage and same small band up to row/column duality"
+        },
+        {
+          "assessment": "Related condition, different objects and rank-block restriction; date does not resolve priority",
+          "evidence": [
+            "The matching setwise condition is used to classify specified rank-block equivalences on matrix monoids."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-block-dimensionalities-of-matrix-monoids-and-numerical-semi--6b9ff5f44b74/RESULT.md",
+          "material_read": "RESULT.md offsets 0–1894",
+          "method": "Local Resultary mirror",
+          "title": "Rank-block dimensionalities of matrix monoids and numerical semigroups",
+          "trigger": "Closest distinct setwise-dimensionality classification indexed on the same date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md classification and balanced orbit criterion",
+        "Jenča, Theorem 3.4 and Example 3.5",
+        "October 13 and October 26 two-row Schur classifications"
+      ],
+      "rationale": "The natural family compares support-based equivalence, automorphism orbits, congruences and the stronger Schur closure on the same labeled objects. The full classification identifies exactly which arrangements separate the support and orbit notions, gives the first and smallest counterexample within the family and counts the separation for arbitrary n. This is a structural boundary, not merely another enumeration of the known balanced subfamily.",
+      "residual_risks": [
+        "The smallest-counterexample statement is only within the stated family, not across arbitrary monoids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely the sharp leading count for **unordered distinct positive squarefree** triples with a square residue present at every prime. The Fried–Filaseta–Richman odd-subproduct criterion gives the necessary condition, and a Legendre-symbol product argument proves the stronger all-primes sufficiency. Prime-support parity gives a unique \((uv,uw,vw)\) parameterization; sorting is exactly \(u<v<w\). The finite domain is then an indicator for \(\mu^2(uvw)\). The volume of the unbounded normalized region is \(2/3\), with a rigorously bounded large-coordinate tail. The bounded-region CRT argument and the large-prime sieve, including the \(p^2\)-in-one-coordinate and \(p\)-in-two-coordinates cases, prove the positive Euler-product constant. Both independent finite methods agree at four heights, but those tests are not substituted for proof.
+PASS
 
-## Originality — PASS on inspected evidence
+The frozen exact theorem survives, but its displayed infinite-product decimal is wrong and its slogan dropped an essential restriction. A separate integer outward-rounded sieve gives the P=100000 truncated value in [0.07658973138093529,0.07658973138093530] and the P=200000 value in [0.07658953742116363,0.07658953742116364]. Every further factor is strictly below 1, already disproving the original decimal 0.0765897…. Bounding −log(1−t_p) by t_p/(1−t_p), with t_p≤6/p² and p>200000, and summing over odd integers gives the conservative enclosure 0.07658838<κ<0.07658954. Replay: branches/e6e90478-c9e9-4fb2-9a94-793d288e47db/constant_check.py and constant_check_results.txt. The repaired RESULT removes the false decimal and labels the recorded truncation explicitly; the repaired slogan restricts to {2,…,N}, since every set containing 1 is an automatic cover. Independently checked the residue criterion in this domain: over F₂, simultaneous nonresidue prescriptions correspond to a linear system with one row per prime-support vector and right side (1,1,1). Inconsistency requires an odd dependency, and no row is zero, so only the total product being square can obstruct it. For any consistent prescription, CRT and Dirichlet supply infinitely many primes with those symbols: work with p≡1 mod 4, prescribe odd-factor symbols via reciprocity and the residue class modulo each odd factor, and prescribe the symbol at 2 via p≡1 or 5 mod 8. For the converse, Legendre-symbol multiplication covers all odd primes not dividing the product, zero handles the others, and 2 is automatic. The gcd map is a bijection onto 1≤u<v<w, vw≤N, μ²(uvw)=1. Independently, integrating y over 0<y<1 gives volume 2/3 and the z>B cusp has volume 1/(2B); counting each integer vw slice bounds the lattice cusp by O(N^(3/2)/B). In the fixed box the local admissible patterns have density (1−1/p)^3(1+3/p), and their CRT density is valid at each finite cutoff by Jordan measurability. Either p² divides one coordinate or p divides two, with ≤(B√N)^3/p² points per pattern, so removing the prime cutoff at fixed B is justified before extending the box. These are analytic checks of the repaired theorem; the finite counts in check_results.txt were inspected as recorded diagnostics, not taken as infinite proof.
 
-The closest published statements concern the odd-subproduct criterion and general \(O(N^{5/2})\) counting bound (Mishra 2023), the standard three-factor parameterization and extremal avoidance (Tao 2024), extremal set sizes (Erdős–Sárközy–Sós 1995), and square-product Ramsey forcing (Skałba 2010). The exact \(N^{3/2}\) count with local factor \((1-p^{-1})^3(1+3p^{-1})\) is not stated or implied by these inspected claims; the named broad extremal and existence results do not give the counting asymptotic. Searches for exact count, equivalent residue-cover phrasing, and Euler factors found no matching mathematical record. This is a best-knowledge originality assessment, not proof of uniqueness. Earlier implicit sieve consequences and unrelated unindexed sources are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-element minimal nontrivial quadratic-residue covering is natural: with the squarefree hypothesis and no square singleton, exactly the three-factor product relation creates a universal cover. Existing broad results control its existence and generic rarity; the precise height-ordered asymptotic identifies the quantitative frequency and an explicit arithmetic local density. The restriction to squarefree integers excludes trivial squares and isolates the genuinely nontrivial smallest covering case. The leading constant is not obtained just by quoting an available count, and the Euler-product sieve and noncompact-volume control are substantive steps. No downstream theorem is assumed or advertised.
+Credit the pre-existing residue criterion and standard pairwise-product coordinates. The surviving contribution is the explicit leading asymptotic, including the arithmetic density and unbounded height geometry, for all unordered squarefree triples in the specified box. The frozen checked references, fresh indexed comparison and independent statement-level analysis support that contribution without establishing historical priority.
 
-## Closest source limitations
+## value
 
-The classical 1995 paper and the 2010 paper were inspected for their theorem statements and relevant mechanisms, rather than asserted exhaustive of all subsequent citations. Tao's 2024 parameterization is explicitly credited. The full exact count could in principle be derivable as an unstated standard sieve corollary in other literature; this is the main priority risk. No effective remainder is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp rate and constant quantify how rare the smallest nonsingleton odd-subproduct covers are inside the natural squarefree sampling space. The result contributes an actual distribution estimate beyond the qualitative criterion or existence thresholds; removing the cusp and prime tails is substantive and the height restriction is intrinsic to the counting question. The repaired summary makes the nontrivial exclusion of 1 explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

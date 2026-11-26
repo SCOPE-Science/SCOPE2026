@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or newer; only the standard library is used. The exact-rational verifier examines every two-coordinate support state and each of the \(2m\) equally weighted midpoint noise cells for \(1\le m\le11\). For \(1\le m\le6\), it also checks every transition of each distinct three-coordinate parity-class configuration, verifying the proposed invariant law and averaged-coordinate variance.
+## correctness
 
-Executed command: `python verify.py`
+PASS
 
-Observed outcome: `PASS 11056 exact-rational assertions; pair M=1..11 and three-coordinate M=1..6`
+For the aligned lattice of the isotropic quadratic, one can label the equally probable noise cells by j=1,...,2m so that k moves up iff j>k. For k<l, precisely l−k cells move them toward each other; if adjacent this swaps them. Hence gaps decrease by two until 0 or 1 and have independent geometric holding times at their successive levels, including deterministic or zero waiting-time edge cases. Within any initial parity class two indices cannot cross without meeting; its initial extremes therefore determine its entire coalescence time. Once both classes have coalesced and their representatives are adjacent, the lower index L moves up or down with counts 2m−1−L and L, respectively, and the class order flips with count one. The binomial weights on L satisfy neighboring detailed balance and the fair order satisfies flip balance. The recurrent set is irreducible; parity alternation and a positive two-step return give period exactly two, also for m=1. The variance follows by writing the centered average as the centered L plus (2r/d−1) times the centered fair Bernoulli, scaled by δ. The independent-noise product law need not be the only invariant law, because of parity phases; the cited independent-noise variance nonetheless holds under the product law and within any relative-parity recurrent class after averaging both phases, since the parity-conditioned binomial means both equal m. It is not an ordinary-time convergence result. Fresh exact-rational checks covered every ordered pair for m=1 through 5 and invariant mass and average variance for three four-coordinate class-size patterns.
 
-These are finite checks only. The proof in `RESULT.md` supplies the all-dimension statements, the exact geometric holding-time decomposition and the invariant-law detailed-balance arguments. No computer enumeration establishes all parameter values. Ordinary-time convergence to stationarity is specifically not claimed because the chain has period two. Historical originality has not undergone independent confirmation.
+## originality
+
+PASS
+
+The defensible distinct content is the full common-uniform joint kernel and its quantitative parity-locked hitting and invariant laws, not the already known binomial marginal or generic signSGD update. The inspected scalar and coupling statements do not determine this common-threshold joint law.
+
+## value
+
+PASS
+
+The model isolates a concrete failure of dimension-based variance reduction without changing curvature or marginal noise: perfect dependence collapses arbitrarily many variables to at most two classes and produces an exact stationary covariance penalty. The distribution of the settling time and the comparison at fixed marginals make it useful as a precise benchmark, not as a general claim about signSGD on arbitrary objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

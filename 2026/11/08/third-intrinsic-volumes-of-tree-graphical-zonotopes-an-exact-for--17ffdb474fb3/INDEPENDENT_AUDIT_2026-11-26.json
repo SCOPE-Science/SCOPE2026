@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:38:25.007998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated Steiner normalization the generator-wedge sum gives V_3. By Cauchy–Binet, each forest component contributes its vertex count to the Gram determinant, since every maximal incidence minor obtained by deleting a row has determinant ±1. The only triple determinants are 4,6,8. Counting disjoint edge-pairs inside triples gives (m−2)M_2=P_4+2b+3M_3, where b counts triples with two components. Any nonstar has a three-edge path; taking its end edges and an edge outside that path gives a disconnected triple and hence strict star minimality. Leaf deletion bounds the three-matching count by the path value, and the strict path advantage in D=(m−2)M_2−P_4 is (m−2)(Σ_v binom(deg(v)−1,2)−1)+P_4(T)>0 for nonpaths (separate star case). The positive coefficients, path run counts, gap, ratio and two spider counts all check. `python3 /workspace/reviews/evidence/reproduce.py 4` independently enumerated 1,296 and 16,807 labeled trees of orders 6 and 7 by Prüfer codes, checked the determinant counts and detected exactly the labeled stars and paths at equality. This finite replay supplements the proof; the supplied checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joós–Lángi gives a generator wedge-volume formula for all zonotopes",
+          "Brazitikos–McIntyre treats zonoid mixed volumes",
+          "138f7ed54317 treats K_n with a small number of deleted edges and uses the triple-edge determinant method"
+        ],
+        "reasoning": "The general formula supplies the raw triple sum; the dense graph theorem has disjoint scope. Neither provides the matching/path reduction and strict comparison across all n-vertex trees.",
+        "searches": [
+          "arXiv:2206.03204 Corollary 1",
+          "arXiv:2102.05900 §5",
+          "Resultary: forest component determinants and graphical zonotope V_3 extrema"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03204",
+        "arXiv:2102.05900",
+        "Resultary 17ffdb474fb3 (self-match), 138f7ed54317, e6c5d0ec0f7b, 482983ab9269 and 18a26979ef7a",
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wedge determinants give 2a+√6b+2√2c as a consequence of the general formula and the incidence minor evaluation",
+          "The strict V_3 maximum requires the tree-specific D difference and matching bound, not merely evaluating the individual wedge volumes."
+        ],
+        "reasoning": "The raw forest triple sum and the given finite witness can be computed from the general formula. The nontrivial additional claim is the compact graph-statistic reduction supporting sharp uniqueness across all trees.",
+        "searches": [
+          "Joós–Lángi Corollary 1 applied to tree generators",
+          "Resultary 138f7ed54317, e6c5d0ec0f7b and 18a26979ef7a actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "17ffdb474fb3 is the target itself",
+          "e6c5d0ec0f7b Finding gives tree surface area and extremizers, not V_3 on n≥6",
+          "482983ab9269 Finding gives directional width variance with path minimum and star maximum"
+        ],
+        "reasoning": "The affine dimension is n−1, so surface area is 2V_{n−2}, which cannot be the claimed index on this domain. A spherical width variance is a different functional.",
+        "searches": [
+          "Resultary: third intrinsic volumes tree graphical zonotopes exact matching/path formula",
+          "Resultary: tree path star sharp third intrinsic volume extrema"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tree formula hit is a self-match",
+          "18a26979ef7a uses a cubic directional width moment that also separates the specified same-degree spiders"
+        ],
+        "reasoning": "The spider pair is not a new pair for all geometric invariants; the claimed new separation concerns its different V_3 values. No inspected exact table supplies the target all-order V_3 tree theorem.",
+        "searches": [
+          "Resultary lookup of the exact tree V_3 formula and same-degree spiders"
+        ]
+      },
+      "rationale": "Supported for the matching/path reduction together with the sharp strict third-intrinsic-volume tree comparison and the resulting degree-sequence separation, not for the classical zonotope wedge formula or incidence-minor method. The strongest indexed neighbors treat different invariants or dense graphs, and the general zonotope theorem does not yield the strict tree comparisons without the additional structural argument.",
+      "residual_risks": [
+        "External literature search was bounded; an unlocated tree extremal theorem in graphic-matroid or forest language could dominate the claim.",
+        "This decision does not assign historical priority from date labels or from a search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General formula is used, not new here",
+          "evidence": [
+            "V_k is the sum of k-generator wedge volumes for any zonotope."
+          ],
+          "identifier_or_url": "arXiv:2206.03204",
+          "material_read": "PDF p. 5, Corollary 1 (offset 16616)",
+          "method": "OA primary PDF passage",
+          "title": "Isoperimetric Problems for Zonotopes",
+          "trigger": "General intrinsic-volume formula or dominating extremum theorem"
+        },
+        {
+          "assessment": "General mixed-volume context, not a fixed-size tree comparison",
+          "evidence": [
+            "The passage treats zonoid mixed volumes."
+          ],
+          "identifier_or_url": "arXiv:2102.05900",
+          "material_read": "§5, PDF p. 13 (offset 60873)",
+          "method": "OA primary PDF passage",
+          "title": "Vector-Valued Maclaurin Inequalities",
+          "trigger": "General wedge and intrinsic-volume inequalities"
+        },
+        {
+          "assessment": "Different graph domain",
+          "evidence": [
+            "The graph is K_n minus a small deletion graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-third-intrinsic-volume-extrema-for-nearly-complete-graphic--138f7ed54317/RESULT.md",
+          "material_read": "Finding and triple-edge argument; offset 212 for the finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp third intrinsic-volume extrema for nearly complete graphical zonotopes",
+          "trigger": "Same intrinsic index and forest-count machinery"
+        },
+        {
+          "assessment": "Different intrinsic index on n≥6",
+          "evidence": [
+            "Surface area is 2Σ_e√(s_e(n−s_e)), where s_e is an edge-split size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-surface-area-gaps-and-the-cayley-mean-for-tree-graphical-z--e6c5d0ec0f7b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp surface-area gaps and the Cayley mean for tree graphical zonotopes",
+          "trigger": "Same tree family and extremizers"
+        },
+        {
+          "assessment": "Different invariant, with reversed extremizers",
+          "evidence": [
+            "Directional-width variance depends on incident edge pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "Same tree family and extremal question"
+        },
+        {
+          "assessment": "Same pair can separate for a different statistic",
+          "evidence": [
+            "The statistic Σ_{uv∈E}(deg(u)−1)(deg(v)−1) evaluates to 3 and 4 on the respective spiders."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-directional-width-law-detects-degree-assortativity-in-tr--18a26979ef7a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A cubic directional-width law detects degree assortativity in trees",
+          "trigger": "Degree-sequence separation for related invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The third intrinsic volume is a natural Euclidean invariant. Three familiar graph counts replace an exponential-search-style pattern description by a short exact formula, yield sharp extremizers with a strict equality criterion, and show degree data alone do not determine it. The structural maximum, rather than the finite spider computation alone, gives the main value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

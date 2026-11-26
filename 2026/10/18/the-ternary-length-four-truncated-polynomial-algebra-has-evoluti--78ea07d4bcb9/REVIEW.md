@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four coordinate quadrics of squaring in \(\mathbb F_3[t]/(t^4)\) are specified explicitly. An eight-square decomposition is checked by exact coefficient expansion. An exhaustive finite Grassmannian reduction proves the lower bound: there are \(33880\) quotient three-planes, and none supports all four target quadrics. The same row-echelon method enumerates all \(11011\) quotient four-planes and proves the exact \(252\)-support census. The provided `VERIFY.py` independently recomputes all arithmetic from definitions with no nonstandard dependencies. The unital evolution-envelope/Waring-rank equivalence is the established theorem of Costoya, Fernández Ouaridi and Viruel (arXiv:2609.32784, Sections 3–4).
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+Multiplication modulo t⁴ gives the four stated independent formal quadrics. Expanding the eight displayed squares gives all four targets, and distinct cross terms followed by pure squares show the eight are independent. Formal polynomial equality is appropriate; no monomial has a variable degree reaching 3, so evaluation also separates the polynomials. Nonzero linear forms give 40 projective squares. If seven squares span a space containing S, their quotient images have dimension at most three; extending to a three-plane forces the span of all squares lying over it to meet S in dimension four. My exact replay computed the full 33,880-three-plane intersection histogram (31,905, 1,830, 145, 0 for dimensions 1–4), ruling this out. An eight-dimensional support containing S is the whole inverse image of its four-plane W, and is square-generated iff its squares have rank eight. For an independent census I generated only W spanned by four independent quotient images of squares (6,654 distinct flats), since every eligible W must have a basis of such images. The rank-eight cases were 243 with 10 squares and 9 with 16, totaling 252 without repetitions. The unital, characteristic-not-two result of Costoya–Fernández Ouaridi–Viruel identifies the verified rank with evolution dimension. By polarization it is also the symmetric bilinear rank of multiplication, not necessarily the unrestricted bilinear rank.
 
-The September 26, 2026 motivating article treats the generic field-size regime and explicitly reports only the strict lower bound \(\operatorname{wr}>7\) in this exceptional ternary case (Remark 5.4). Its stated results do not give the exact eight-square witness or the \(252\)-space census. Relevant searchable published findings were queried under the finite-field algebra, Waring rank, square-zero comparison, and evolution-envelope aliases. The closest indexed square-zero result applies to a different algebra: this truncated polynomial ring has nonzero radical square. Earlier Winograd-type studies concern bilinear multiplication complexity; their abstracts do not settle the symmetric quadratic-support census. Unindexed, older algorithm-classification literature remains a specific residual risk, rather than a claim of proven uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the first finite-field exception explicitly singled out by the motivating paper's interpolation threshold, not an arbitrary unmotivated parameter choice. The exact minimal embedding dimension fills the specific numerical gap; the \(252\) support spaces and their \(243/9\) incidence split describe the landscape of optimal simultaneous decompositions. These are natural invariants of the minimal-envelope problem and a starting point for studying uniqueness questions. No equivalence of support spaces with isomorphism classes of envelopes is claimed.
+The complete 252-space incidence census is the supported distinct contribution. The lower bound greater than seven is already in Costoya–Fernández Ouaridi–Viruel, and the exact rank eight has direct overlap with a later Resultary entry. The scalar rank alone is not the basis of the originality decision.
 
-## Closest literature and limits
+## value
 
-Costoya–Fernández Ouaridi–Viruel, arXiv:2609.32784v1, Sections 3–5 and Remark 5.4, is the closest primary source. Winograd, DOI 10.1007/BF01683270, and Randriambololona, arXiv:1107.0336, are historical related references. The exact statement is over \(\mathbb F_3\) only, relies on an exhaustive finite certificate, and has no independently completed audit. The possible coverage by an inaccessible older symmetric-bilinear algorithm table is not excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the explicit small-field exception in the motivating interpolation theorem, not a chosen numerical slice without context. Beyond the short upper-bound decomposition, the complete incidence split describes every possible optimal support for a natural local algebra and exposes two different numbers of available projective squares within those supports. It can inform the separate classification of optimal decompositions without pretending that the subspaces are inequivalent envelopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

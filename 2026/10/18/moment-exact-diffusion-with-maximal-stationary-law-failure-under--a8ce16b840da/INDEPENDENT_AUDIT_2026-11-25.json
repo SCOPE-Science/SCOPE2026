@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:32:55.953553Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–81",
+        "VERIFICATION.md lines 19–31",
+        "check.py (inspected, not executed)"
+      ],
+      "rationale": "Applying the two generators to 1, x_i and x_i x_j gives the same closed moment equations, including i=j, since 2 delta-kappa=zeta. The cubic difference is the third signed jump term -rho E[(1-A)^3] x_i^3. Finite initial second moments suffice for the closed finite-time equations. The past reset convolution is bounded coordinatewise by b_i/a_i; the past diffusion convolution converges almost surely by Brownian sublinearity and in L^2 since 2c_i>kappa. Synchronous differences decay almost surely in both systems (for the diffusion the difference factor is exp[-(c_i+kappa/2)t+sqrt(kappa)W_t]), so uniqueness holds even among invariant laws not assumed to have finite moments. Subtracting m_i m_j from the stationary raw second moment gives the stated covariance, the positive Gram matrix of distinct exponential functions after scaling by sqrt(kappa)m_i. The displayed Cauchy determinant has the correct squared Vandermonde and denominators. At full reset the invariant law is the image of one exponential age under a smooth curve, a countable union of compact Lipschitz images and hence Lebesgue null for d>=2. For the diffusion, truncation of the exponential-Brownian integral gives the derivative tail formula in D^{1,2}: after taking the expectation and integrating over 0<=s<=v<=u the squared derivative norm is 2 kappa b_i^2 times the integral of v exp[-c_i(u+v)+kappa v] over v<=u, namely 2 kappa b_i^2/[c_i(2c_i-kappa)^2]. This also gives derivative convergence by domination. A linear dependence among derivative tails differentiates to a dependence among the distinct exponentials after the common strictly positive Brownian factor is removed. The Malliavin covariance is therefore nonsingular pathwise and the standard absolute-continuity criterion applies. The curve then gives exactly unit TV, with the stated normalization.",
+      "residual_risks": [
+        "The recorded rational checks are not evidence for joint density or uniqueness; those conclusions were verified analytically.",
+        "The TV conclusion has only been verified for complete resets with distinct rates and dimension at least two. This is not a comparison of path laws or arbitrary multi-time moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff treats common reset clocks and their induced correlations for stochastic particle motion; Olsen derives stationary moment equations for resetting to a sampled distribution.",
+          "Galla's correlated linear example does not include the immigration forcing and stationary comparison of the frozen theorem."
+        ],
+        "reasoning": "A random common age is a standard consequence of global resetting, and moment closure and absolute continuity have general methods. None of these broader source statements yields the claimed linked invariant-law comparison for the same degree-two dynamics.",
+        "searches": [
+          "arXiv:2401.03501, global and local resetting and global density equations",
+          "arXiv:2310.04840v1, steady-state moments of resets to a distribution",
+          "arXiv:2602.21635, weak reset scaling and correlated linear example"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 87–100",
+        "Galla arXiv:2602.21635",
+        "Bressloff arXiv:2401.03501",
+        "Olsen arXiv:2310.04840v1",
+        "Resultary entries 612587350f45, 4da625e6e09e, f2a3cc9b36a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Galla scaling uses small fractional decrements at large rates; this does not assert TV behavior when the mark is identically zero.",
+          "Correlation under a common clock implies neither a priori full rank nor absolute continuity; the known scalar moment-matching example concerns tails, not singular support."
+        ],
+        "reasoning": "The required overlap would have to cover the same pairs of finite-strength processes and both stationary supports, not just the same diffusion coefficients. The distinct rates and positive forcing supply the exponential-family independence that makes the covariance and Malliavin arguments work simultaneously.",
+        "searches": [
+          "arXiv:2602.21635, Appendix B.2 and reset scaling",
+          "arXiv:2401.03501, global resets",
+          "Resultary ID 612587350f45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galla derives a shared-noise diffusion by retaining Fokker–Planck order in a weak-reset expansion.",
+          "Resultary 612587350f45 matches stationary variance in a scalar expanding-drift model but distinguishes stationary tails and higher moments."
+        ],
+        "reasoning": "The formal second-order truncation does account for the common-noise structure, and degree-two agreement can be inferred from that algebra on polynomials. Neither reference gives the full-rank multivariate stationary covariance paired with exact TV-one separation at full reset.",
+        "searches": [
+          "Resultary: common-multiplier affine Poisson resetting versus common-noise diffusion, exact moment matching and stationary separation",
+          "arXiv:2602.21635, Appendix B.2.1–B.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "612587350f45 studies a scalar expanding setting with stationary moment and tail differences; 4da625e6e09e uses common frequent weak resets of a Brownian gas and studies rare excursions; f2a3cc9b36a4 matches stationary covariances of different stochastic-diffusivity clock couplings and separates fourth moments."
+        ],
+        "reasoning": "These are distinct plausible catalogue matches with a different model or outcome; a numerical table of stationary moments would not encode the asserted mutual singularity of two probability measures. No exact catalogue statement was identified in the examined results.",
+        "searches": [
+          "Resultary: exact second-moment reset/diffusion comparison and maximal total variation",
+          "Resultary IDs 612587350f45, 4da625e6e09e, f2a3cc9b36a4"
+        ]
+      },
+      "rationale": "The closely related weak-reset expansion supplies the second-order shared-noise construction, and catalogue records give other examples of matched stationary second moments with mismatched higher behavior. The distinct result is the finite-strength exact one-time degree-two matching in this driven system together with identical positive-definite stationary covariance and the singular-versus-density obstruction at full reset. This combination is not established by the closest inspected statements; the generators, renewal argument and density criterion are not themselves novelty claims.",
+      "residual_risks": [
+        "Bounded searches do not settle historical priority in the wider multiplicative-catastrophe or exponential-functional literature.",
+        "Nualart's book was not retrieved; the standard Malliavin absolute-continuity criterion is credited as background, not a novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers method, not full-strength stationary conclusion",
+          "evidence": "Resets with small decrement s occur at rate proportional to 1/s; common Gaussian noise arises by retaining only Fokker–Planck order.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Weak-reset scaling (offsets 2750–7249); Appendix B.2.1–B.2.2 (39000–46200)",
+          "method": "Open-access HTML passage inspection",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Closest common-noise diffusion construction"
+        },
+        {
+          "assessment": "Common reset clocks and correlations, not the moment-equivalent pair",
+          "evidence": "Global clocks reset particles simultaneously to original positions; the model studies stochastic interacting-particle dynamics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.03501",
+          "material_read": "pp. 4–5 and 8–9 (PDF offsets 9326–12549, 21900–26040)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Global density equations for interacting particle systems with stochastic resetting",
+          "trigger": "Potential broader common-reset law"
+        },
+        {
+          "assessment": "Related moment hierarchy in a different model",
+          "evidence": "Resets target a distribution and the stationary moments are analyzed in a harmonic potential; no comparison to the specified matched common multiplicative diffusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840v1",
+          "material_read": "Abstract and §III, pp. 1 and 3–4 (PDF offsets 850–4448, 21800–25711)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Possible exact reset moment results"
+        },
+        {
+          "assessment": "Shared theme, distinct mathematical assertion",
+          "evidence": "Scalar expanding drift with frequent partial resets, stationary variance agreement and Pareto-exponent differences, not simultaneous complete resets of a driven heterogeneous vector or its TV separation.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "material_read": "Opening Finding (offsets 0–3325)",
+          "method": "Configured Resultary mirror passage inspection",
+          "title": "Exact moment loss wedge and Pareto exponent reversal under frequent resetting",
+          "trigger": "Closest indexed reset/diffusion overlap"
+        },
+        {
+          "assessment": "No equivalence in model or output",
+          "evidence": "Fixed-scale Gaussian limits and rare-excursion large deviations of a Brownian gas, not exact covariance and TV in affine immigration.",
+          "identifier_or_url": "2026/10/18/SCOPE-dilogarithmic-rare-excursion-law-for-a-brownian-gas-with-frequen--4da625e6e09e",
+          "material_read": "Opening Finding (offsets 0–3739)",
+          "method": "Configured Resultary mirror passage inspection",
+          "title": "Dilogarithmic rare-excursion law for a Brownian gas with frequent resetting",
+          "trigger": "Same-day catalogue hit on common resetting"
+        },
+        {
+          "assessment": "Different process and discriminating statistic",
+          "evidence": "Stationary covariances of stochastic diffusivity models with different clock couplings agree, with a fourth-moment distinction.",
+          "identifier_or_url": "2026/11/8/SCOPE-identifying-common-reset-shocks-from-the-stationary-kurtosis-of--f2a3cc9b36a4",
+          "material_read": "Opening Finding (offsets 0–3544)",
+          "method": "Configured Resultary mirror passage inspection",
+          "title": "Identifying common reset shocks from the stationary kurtosis",
+          "trigger": "Possible moment-match/law-mismatch equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§1–4",
+        "Galla arXiv:2602.21635, Appendix B.2"
+      ],
+      "rationale": "An exact, all-time quadratic surrogate can remain maximally wrong as a stationary probability model, and this persists with full-rank covariance rather than a trivially rank-one moment matrix. The coupled heterogeneous relaxation and shared shock give a natural example where the covariance cannot certify support dimension; the unit-TV witness quantifies a concrete limitation of moment checks.",
+      "residual_risks": [
+        "This is not a claim that approximation fails in the cited frequent-weak-reset regime, nor that full-reset singularity extends to all mark distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

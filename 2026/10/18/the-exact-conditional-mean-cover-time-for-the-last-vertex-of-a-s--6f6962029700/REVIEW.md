@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete finite-cycle theorem follows by an all-size induction on visited-arc length. The proof independently solves the gambler's-ruin Dirichlet equations for both exit probability and exit-time/event joint moment. Their coefficients imply exact first-moment recurrences for the direction-resolved occupancy process; substituting the explicit closed forms verifies those recurrences algebraically. The conditioning event is explicitly linked to the right-expansion count, and the final-stage holding-time contribution is exactly \(n-1\) for either endpoint. The checker performs exact rational recurrences for sixty levels and is not used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Independent check: remove the designated vertex k and label the remaining path from 0 to d=n−2. The start lies at position j=n−1−k if the path begins at k+1 and proceeds clockwise. The time U to first hit a path endpoint has mean j(d−j). From either first endpoint the conditional probability of visiting the opposite one before hitting k is 1/(d+1), by ruin on an interval of length d+1 starting at distance one from the failure boundary. Success in that second leg is exactly L=k. Its probability is independent of the history through U, so it leaves E[U] unchanged. For ruin on [0,b], the joint exit moment for the right boundary is w(i)=i(b²−i²)/(3b), obtained by substituting into w(i)−(w(i−1)+w(i+1))/2=i/b with zero boundary values. The crossing leg conditioned on L=k therefore has mean w(1)/(1/b)=(b²−1)/3 for b=n−1. After the opposite endpoint is hit, the remaining mean to hit k is b by the unconditioned ruin formula; at this point L=k is already determined. Adding yields the exact stated profile and the uniform marginal. This includes n=3 and starts at either path endpoint (U=0); integer maximization gives floor((n−2)²/4) and averaging gives n(n−1)/2. The frozen arc induction is consistent with the independent argument: the next-discovery weights are joint exit-time moments, not conditional times, and the final waiting time has constant mean from either endpoint.
 
-The closest paper, Idnani and Salem (arXiv:2610.15115, October 10, 2026), derives the last-vertex marginal and the unweighted directional occupancy state probabilities. The reviewed relevant full-text sections do not give time-weighted occupancy moments or a conditional mean cover-time formula. Maiti and Sarkar (2019) give unconditional cycle cover-time moments and last-vertex uniformity, not this joint time/location formula in the relevant inspected sections. Targeted published-record searches did not reveal a covering conditional-moment theorem. Priority remains subject to independent literature verification, especially among older cycle-walk treatments.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem characterizes the exact, previously unquantified dependence between **when** a symmetric cycle is covered and **which location** is covered last, despite the uniform marginal last-site law. Its strictly concave quadratic spatial profile has an order-\(n^2\) spread and a complete finite-size classification. This is a natural distributional refinement of the classical cover-time problem, not an isolated normalization or a small computational adjustment.
+Prior work covers the uniform last vertex, unconditioned mean and useful hitting-order representations. The supported distinct claim is the conditional time–location moment, not those ingredients. The inspected close statements do not state the moment or a joint time–location law that provides it by specialization.
 
-## Limits
+## value
 
-No extension to directional bias, non-nearest-neighbour walks, or the full conditional time distribution is claimed. The claim does not assert independent priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact conditional moment quantifies a dependence hidden by the uniform last-vertex marginal: conditioning at the antipode rather than a neighbor of the start changes the mean by order n², the same scale as the unconditional mean. It provides a finite-n benchmark for joint coverage laws, not merely a recalculation of the classical cover time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:42:41.547804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71, VERIFICATION.md and verify_johnson.py, inspected not executed",
+        "Independent replay: python3 /workspace/branches/3b31beb6-3536-45e5-81e1-d44463ee06f1/independent_johnson_morse.py n, for n=4,5,6,7; independent-n4.log through independent-n7.log in that directory"
+      ],
+      "rationale": "A fresh exact implementation generated the open-neighborhood faces from the common-witness condition and checked all oriented Hasse covers. For n=6 it found 8620 faces, 4238 matching pairs and 41940 covers; for n=7 it found 136220 faces, 67723 pairs and 839580 covers. Both directed graphs are acyclic. The critical profiles are (1,0,1,142) and (1,0,1,772) with no further cells. Exact oriented cancellation from degree three to degree two reproduced the respective rows with 31(+2), 23(−2), 88(0), and 125(+2), 131(−2), 1(−4), 515(0). Indeed the signed Morse differential uses alternating paths through the matched 2-to-3 incidences, all unit pivots; unrelated dimensions are not needed for this row. Each degree row has gcd 2. The Morse CW model has a single 0-cell, no 1-cells and one 2-cell, so its 2-skeleton is S² and the attaching maps of 3-cells are determined by their degrees. A unimodular change on the wedge of attaching 2-spheres is realized by a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. Its cofiber gives the degree-two Moore space plus 141 or 771 free S³ summands. At n=5 the independently checked profile is one vertex and eleven 3-cells; at n=4 the graph is K4 and the complex the boundary of a tetrahedron. This establishes the asserted first two occurrences in the finite range, not a map between the two cases.",
+      "residual_risks": [
+        "These are exhaustive integer certificates for the stated finite cases, not a formal proof assistant verification and not evidence for any n≥8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahle treats random graphs, Matsushita the general fundamental-group and r-neighborhood framework; the relevant clique/line graph results concern a different construction. Fröberg's neighborhood-complex examples at p. 8 concern paths, stars, complete bipartite graphs and grids."
+        ],
+        "reasoning": "No inspected broader statement evaluates the integral attaching degrees for J(6,3) and J(7,3). General acyclic matching supplies the theorem to interpret certificates, not the critical-cell counts or signed gcds.",
+        "searches": [
+          "Primary literature search on Johnson open-neighborhood, hypersimplex and graph Hom complexes; Kahle, Matsushita, Shuldiner–Oldford and Fröberg passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and verification package",
+        "arXiv:math/0512077, 1210.2803, 2208.12710, 2009.12130; DOI:10.1007/s10801-026-01530-x",
+        "Resultary 1aa96c545058, 5026f3f1e8ec, 1f5fdf985e86, c10287ed1518, 65f05c2a7486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the equivalence J(5,3)≅T5 nor the later n=6 computation relates attaching degrees or critical cells at n=7; the clique and closed-neighborhood counterparts have different defining simplices."
+        ],
+        "reasoning": "The verified n=7 result entails a separate exact calculation with 136220 faces; there is no prior implication in the material inspected. Neither the elementary n=4 observation nor an already known Betti number is counted as the main contribution.",
+        "searches": [
+          "Frozen RESULT.md main claims versus the Resultary open rank-two, closed Čech and later J(6,3) Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kahle's definition uses a single common adjacent witness; Matsushita identifies r=1 with Lovász's neighborhood complex. Johnson cliques use pairwise adjacency instead.",
+          "Taking complements of the underlying sets gives J(5,3)≅J(5,2)=T5. It does not identify J(7,3) with T7=J(7,2).",
+          "Same-day Resultary 65f05c2a7486 permits the center in its closed radius-one balls for J(6,3), giving a wedge of 11 S³ and 30 S⁴. The genuine open neighborhoods have nine vertices each, rather than ten."
+        ],
+        "reasoning": "These comparisons preserve the exact open-witness object only where the graph isomorphism applies. The closed-ball nerve and clique complex cannot establish the frozen Moore-space conclusions.",
+        "searches": [
+          "Resultary Johnson graph neighborhoods, triangular graphs, scale-one Rips and closed-ball Čech models",
+          "Kahle arXiv:math/0512077; Matsushita arXiv:1210.2803; Shuldiner–Oldford arXiv:2208.12710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later 1aa96c545058 reports exactly the n=6 Moore summand and 141 S³, using a different matching; its signed row has 30(+2), 17(−2), 95(0). It does not address n=7.",
+          "5026f3f1e8ec gives the mod-two rank 11 in degree three for T5. Same-day 1f5fdf985e86 gives the integral type for T7, not J(7,3)."
+        ],
+        "reasoning": "This credits the exact overlap for n=6 and the mod-two comparison for n=5. The later n=6-only answer does not cover the distinct n=7 part, and mod-two data do not determine integral cell degrees.",
+        "searches": [
+          "Resultary 1aa96c545058, 5026f3f1e8ec, 1f5fdf985e86, c10287ed1518, 65f05c2a7486"
+        ]
+      },
+      "rationale": "The distinguishing contribution is the integral homotopy classification in the two first tetrahedral parameters, especially the n=7 Moore summand and its 771 three-spheres. A later catalogue record gives the identical n=6 answer only. Earlier rank-two triangular computations and same-day closed-neighborhood or rank-two models do not supply the n=7 result or a broader theorem covering both.",
+      "residual_risks": [
+        "The frozen text's unspecified primary publication for the triangular-graph mod-two calculation was not identified beyond the inspected Resultary comparison. A bounded search does not settle priority or exclude an unindexed graph-Hom computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition matches; not the deterministic Johnson classification",
+          "evidence": "Defines faces as subsets of vertices with a common neighbor.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0512077",
+          "material_read": "PDF p. 1, definition at offset 0",
+          "method": "Lawful OA PDF",
+          "title": "The Neighborhood Complex of a Random Graph",
+          "trigger": "Common-witness definition and potentially relevant homology"
+        },
+        {
+          "assessment": "Terminology and general framework, not the degree-two Moore summands",
+          "evidence": "The r=1 complex is identified with Lovász's neighborhood complex.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.2803",
+          "material_read": "PDF §4, p. 7, offset 23380",
+          "method": "Lawful OA PDF",
+          "title": "Fundamental groups of neighborhood complexes",
+          "trigger": "Broader neighborhood construction and possible graph Hom implications"
+        },
+        {
+          "assessment": "Later exact overlap at n=6, no n=7 coverage",
+          "evidence": "The n=6 wedge and gcd agree; the reported matching and degree distribution are different.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-j-6-3-neighborhood-complex-has-a-moore-summand-and-141-three--1aa96c545058",
+          "material_read": "RESULT.md Finding and certificate evidence",
+          "method": "Resultary local mirror",
+          "title": "The J(6,3) neighborhood complex has a Moore summand and 141 three-spheres",
+          "trigger": "Exact same object and invariant at n=6"
+        },
+        {
+          "assessment": "Different complex with different integral homotopy type",
+          "evidence": "The ball is N[A]={B: |A∩B|≥2}, with A included; the nerve is a wedge of 11 S³ and 30 S⁴, not the open-neighborhood Moore-space result.",
+          "identifier_or_url": "2026/10/18/SCOPE-integral-homotopy-of-the-scale-two-ech-nerve-of-j-6-3--65f05c2a7486",
+          "material_read": "RESULT.md Finding and closed-radius definition, offset 66 and following",
+          "method": "Resultary local mirror",
+          "title": "Integral homotopy of the scale-two Čech nerve of J(6,3)",
+          "trigger": "Same-day same Johnson graph and integral homotopy"
+        },
+        {
+          "assessment": "Partial overlap with the n=5 comparison",
+          "evidence": "Degree-three mod-two rank 11 at T5; this is not an integral homotopy result for tetrahedral parameters.",
+          "identifier_or_url": "2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Mixed-dimensional mod-two neighborhood homology in triangular graphs",
+          "trigger": "J(5,3) is isomorphic to T5"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, especially lines 44–65",
+        "Independent exact signed rows and Resultary 1aa96c545058"
+      ],
+      "rationale": "This is a natural graph family and the first torsion boundary is a meaningful finite cutoff. An integral homotopy type at both first tetrahedral parameters, rather than field Betti numbers, determines whether the attaching maps give an actual Moore-space summand and records the exact free sphere counts. The n=7 case remains distinct even accounting for the later n=6 overlap.",
+      "residual_risks": [
+        "No homology persistence map or pattern for n≥8 is needed or implied by these two classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

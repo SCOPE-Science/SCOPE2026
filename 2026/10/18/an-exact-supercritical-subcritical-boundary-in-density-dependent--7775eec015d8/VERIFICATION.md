@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact symbolic verification and limits
 
-Run `python verify.py` using Python 3 and the declared SymPy dependency in `requirements.txt`. The executable takes no input files and performs symbolic differentiation with exact arithmetic. It checks the Cartesian Poincaré–Lyapunov formula after the rotation-normalizing change of variables, independently computes the multilinear complex-eigenvector coefficient, verifies the conversion of the two coefficient conventions, and checks two exact opposite-criticality examples with matching imaginary-axis spectra.
+# Independent mathematical audit
 
-Executed result: `Exact Cartesian and complex Hopf coefficients agree. Both opposite-criticality examples share the spectrum +/-i. All exact symbolic checks passed.`
+## correctness
 
-The analytic Hopf theorem is needed for existence, uniqueness in a neighborhood, and orbital stability of the bifurcating periodic orbit. Algebraic tests do not establish global uniqueness, larger-amplitude structure, or fifth-order criticality at the coefficient-zero boundary. Independent audit and experimental validation have not been performed.
+PASS
+
+The shifted field fixes (u,v)=(0,0) throughout the admissible unfolding; its Jacobian has trace 2μ and determinant BD−1−2μ. The eigenvalues are complex near μ=0 and the real part crosses with speed one. Independent polar return-map algebra gives L=average(C_r−Q_r Q_θ/ω): the quadratic radial term averages to zero, so its iterated contribution to the cubic return coefficient vanishes. Exact angular moments give the stated −D[B(D+2)−3]/[8B(BD−1)]. The nondegenerate Hopf theorem yields locally unique attracting or repelling cycles on μL<0, with the stated leading radius and period. The condition D>1 is necessary for the subcritical regime under BD>1; the examples give −1/4 and 5/16 at the same frequency. Small cycles remain near (1,1), so they are strictly positive and lie in y>1/2. No Bautin claim is justified or made on L=0.
+
+## originality
+
+PASS
+
+The exact quadratic interaction law is prior, and either ecological Hopf type and the coefficient machinery are prior. The supported distinct result is the exact sign surface for this unfolding, including matched spectra with opposite outcomes and the location of the small cycles. The strongest same-law and indexed inspections do not cover that result.
+
+## value
+
+PASS
+
+For a previously proposed nonmonotone ecological law, the exact boundary tells which stable versus unstable local oscillation is possible for all members of a simple positive unfolding, even at fixed linear frequency. It also distinguishes small oscillations confined to antagonism from the source example crossing ecological regimes. This is useful classification beyond running a standard Hopf test at a single hand-picked point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

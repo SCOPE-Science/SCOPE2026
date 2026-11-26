@@ -1,19 +1,21 @@
-# Scientific review of the symmetric four-node cubic-exact minimax quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The admissible family contains every nonnegative centrally symmetric measure with at most four support nodes. Cubic exactness reduces to the single central second-moment equation. The Jordan-variation error is exactly the maximal discrepancy of the weighted cumulative distribution; one-sided tail steps give sharpness. Every four-atom probability rule has discrepancy at least \(1/8\). For any putative rule with discrepancy \(d\le d_*<1/7\), the rigorous inequalities \(a\le d\), \(b\le3d\), and \(v\ge b-d\) force the second moment to be at most \(9d^2-32d^3\), which is strictly below the required \(1/12\) for \(d<d_*\). Strict equality in this envelope forces the unique stated rule; two distinct tail steps attain the resulting error. The exact rational root enclosure and independent finite tests ran successfully.
+PASS
 
-## Originality — PASS, with bounded historical risk
+For pointwise Jordan BV, decompose into two monotone functions whose variations sum to the total; layer sets are open or closed tails, so both one-sided CDF discrepancies are needed and their maximum is the exact dual norm. Reflection and the ordered offsets give max(1/2-b,b-v,v-a,a). Formal intermediate jumps at coincident nodes lie between the actual one-sided limits since the weights are nonnegative; endpoint jumps and zero weights are covered. Each actual atom weighs at most 2d, so d>=1/8. Cubic exactness reduces to the centered second moment 1/12. If d<=d*, the discrepancy bounds give a<=d, b<=3d, b>=1/2-d>d, and v>=b-d. Substitution bounds the moment by b^2-2(b-d)(b^2-d^2), strictly increasing in b up to 3d since d<1/7. The resulting 9d^2-32d^3 is strictly increasing from 1/8 to 1/7 in the argument d. Equality forces (a,b,v)=(d*,3d*,2d*), which is admissible and has discrepancy d*. Both strict-tail steps have error -d*. Reviewed the frozen checker as text, including its optional Gauss comparison. The independent replay `python /workspace/branches/review_recomputation.py` uses exact rational signs at the bracket endpoints and computes d*=0.132165520748966582568063 and Gauss discrepancy 0.169990521792428132401333. Those computations support the displayed numbers, not the universal proof.
 
-The 2014 Aistleitner–Dick general Koksma–Hlawka result supplies the discrepancy framework but does not in its examined main theorem solve a positive weighted four-atom cubic-moment minimax problem. The accessible 2022 Komisarski–Wąsowicz article discusses at-most-three-node symmetric rules and a 3-convex ordering problem, not four-node Jordan-variation minimax optimization. Förster–Petras (1991) is genuinely close: its abstract explicitly analyzes optimal BV errors of positive quadratures, but the full article was not accessible for inspection, so an earlier constrained four-node formula remains a priority risk. No search-result absence is treated as a proof of novelty. The best available comparisons did not establish an equivalent or stronger covering statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact optimizer identifies a nontrivial cost of combining cubically exact moment matching with worst-case robustness to jumps. The sharp \(d_*\) exceeds the unconstrained four-atom discrepancy minimum \(1/8\), but improves the classical four-node Gauss rule's BV error by about 22.25%, while openly sacrificing degree-seven exactness. The unique balancing of three discrepancy contact conditions and a quadratic moment obstruction is a motivated optimal design result, not a trivial change of coordinates or a mere re-evaluation of a Gaussian rule.
+Best of the inspected evidence, the moment-constrained four-node extremizer is distinct. The classical BV-discrepancy equivalence and neighboring three-node and Gaussian comparisons are not credited as new. The closest inaccessible literature leaves a bounded historical priority risk, not evidence of coverage.
 
-## Scope, evidence, and residual uncertainty
+## value
 
-The proof is self-contained in `RESULT.md` and corroborated by `check_quadrature.py`, which checks exact rational bracketing, moment conditions, attainment, random admissible designs, and a conventional benchmark. Random tests are not a completeness certificate. Asymmetric rules, extra nodes, nonpositive weights, and different integration measures are not classified. The 1991 article's unavailable full text is the primary historical-priority limitation; an independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines the exact BV robustness cost of retaining the first nontrivial even moment under a natural symmetric four-evaluation budget. The unconstrained midpoint design attains 1/8 but has centered second moment 5/64 rather than 1/12; the sharp moment envelope quantifies the obstruction and identifies its only saturating admissible design. This is useful without suggesting a general improvement over Gauss rules when higher-degree exactness matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The parity-character moment identity follows from a product over independent trials; the two-character covariance is its exact consequence. The odd/even sign split is verified by monotonicity of odd powers and the explicit factorization \(a^2-b^2=16p_ip_j(p_i+p_j-p_ip_j-1/2)\). Bernoulli covariance zero is equivalent to pairwise independence. Requiring the same relation for three labels forces identical category weights, whose total mass excludes four categories. A comparison of exact three-coordinate signed moments proves failure of joint independence; the two-smallest-weight argument independently gives the nonnegative-covariance dimension ceiling. Exact enumerations and symbolic calculations corroborate boundary cases.
+PASS
 
-## Originality — PASS with residual risk
+PASS for the repaired RESULT.md and SLOGAN.txt, not the literal frozen §Finding line 23. The original assertion that three pairwise-independent indicators force exactly three distinguished categories is false if these indicators form a subfamily: take n=2, m=4, p_1=p_2=p_3=1-1/sqrt(2), p_4=3/sqrt(2)-2>0 and p_0=0. The first three are pairwise independent but there are four distinguished categories. The original proof assumed all pairs across the full collection. The repaired statement gives both the subfamily classification and the consequence for all distinguished indicators. Each trial contributes an independent signed factor to a subset parity moment, proving (1) via singletons and pairs. With b=a+4p_i p_j>a, odd powers preserve strict order; for even n comparison of squared bases gives a^2-b^2=16p_i p_j(p_i+p_j-p_i p_j-1/2). The Bernoulli joint table is determined by its marginals and its (1,1) mass, so zero covariance is equivalent to independence. The even-n pair equation, compared across any three labels sharing an index, forces all weights in a putative family of size at least three to be 1-1/sqrt(2). Since 3p_*<1<4p_*, size three is necessary and the untracked or outside categories may absorb the remaining mass. Conversely the pair equation depends only on the two weights and is unaffected by the split of outside mass. For every positive even n the triple character moment has base 5-3sqrt(2), strictly larger than the positive product-moment base 5sqrt(2)-7, so joint independence fails. The two least weights have sum at most 2/m<=1/2 for m>=4, and their product is strictly positive; the uniform triple has even-case threshold expression 5/9>1/2 before subtracting 1/2. The script was inspected, not executed; the exact proof handles arbitrary n and the repaired subfamily clause.
 
-The closest classical treatments establish negative association of multinomial **counts**, monotone empty-bin indicators and fixed-occupancy count approximation, not the sign and independence phase portrait for **odd-count indicators**. The full Dubhashi–Ranjan report was inspected in its negative-association, balls-and-bins and empty-bin theorem sections; the Bartroff–Goldstein open manuscript's model, principal theorem and fixed-occupancy analyses were read. A separate published occupancy-indicator result addresses existence-of-occupancy events, not parity; a published pairwise-independent allocation result assumes dependence constraints on the draws rather than proving parity-indicator independence under iid draws. Equivalence was compared at the level of hypotheses and implications. The multinomial character transform is elementary and older unlocated parity calculations may imply the result; a search cannot establish absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a sharp, all-sample-size complete dependence classification for an intrinsic nonmonotone occupancy statistic, the unique three-indicator pairwise-independent construction, a proof of its non-joint dependence, and an absolute four-category obstruction even for mere nonnegative covariances. It exposes a concrete limitation of transferring occupancy negative-association intuition to parity statistics, and resolves a natural high-order independence feasibility question rather than a narrow numerical slice.
+The reassessed finding is the exact weighted pairwise phase diagram, the unique three-label weights for any independent family of size at least three, its non-joint independence, and the sharp obstruction for all pairs at m>=4. The character moment formula is standard multinomial algebra and not itself credited. Checked primary and indexed statements did not give this dependence classification. In particular, the strongest related indexed parity record concerns aggregate Hamming weight and exact-frequency counts under uniform occupancy, not independence for arbitrary individually weighted coordinates.
 
-## Scope and independent review
+## value
 
-The proof applies to iid categorical trials with positive distinguished weights, sum at most one and parity modulo two. It does not extend to arbitrary dependent allocations or other congruence classes. The full Joag-Dev–Proschan article was not inspected; its official abstract and bibliographic record were compared for scope. An implicit earlier use of the multinomial generating function for this complete classification cannot be ruled out. Independent priority review and independent mathematical audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result gives a sharp and directly usable characterization for a natural statistic of categorical trials. It identifies the sole three-label weight profile realizing pairwise but never joint independence and exactly when one cannot even make every pair nonnegative. This addresses simultaneous feasibility, not just a worked covariance example or an arbitrary truncation. The quantifier repair matters because one may embed the same independent triple in a larger tracked collection without removing its necessarily negative pair elsewhere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

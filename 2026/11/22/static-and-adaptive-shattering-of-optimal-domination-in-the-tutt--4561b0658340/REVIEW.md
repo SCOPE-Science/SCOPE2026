@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact set of optimal concepts is supplied by the complete primary classification of Héger and Hernandez Lucas (2020, Theorem 4.5), rather than assumed from an incomplete search. Both independent programs reconstruct the point–line graph from the symplectic form, enumerate the 90 distinct nine-vertex dominating sets, and prove the full finite shattering coefficients by exhaustive trace-cell partitioning. Python checks every one of the 174437 supports of size at most five against the complete incidence predicate and verifies all 32 decision-tree paths. The maximum adaptive depth is five because each root-positive branch contains exactly 27 hypotheses, fewer than the 32 needed for depth six. The result is finite and fully checked; the programs are not claimed to prove general parameter statements.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary source [1] supplies exactly the optimal dominating sets, but not the membership VC or Littlestone dimensions, trace polynomial, four-support geometric types, or maximal-face counts. A published record on the ordinary Tutte–Coxeter independence complex studies different faces; a published record on minimal domination in cycles uses inclusion-minimal rather than minimum-cardinality concepts on different graphs. A distinct point-only union-of-two-lines family on the same geometric quadrangle has 105 concepts on 15 queries and cannot yield the present 90-concept, 30-query result by its stated implications. Searches included generalized quadrangle, doily, symplectic quadrangle, Tutte–Coxeter, minimum domination, shattering, thicket and VC/Littlestone aliases. An unindexed prior calculation remains possible; this is no independent certification of historical priority.
+PASS
 
-## Value — PASS
-The smallest thick generalized quadrangle supplies a mathematically canonical optimal-domination concept family. The result exposes an exact static-versus-online separation, a nonpure shattering complex with simultaneous maximal dimensions two and three, and a simple incidence-level classification; none of these follow from the source's cardinality-nine domination theorem or from an information-theoretic concept count. The (120,180,120) composition of shattered tetrahedra distinguishes the two incidence sorts. Its finite scope is substantive and precisely delimited.
+An independent exhaustive census built the graph from the 15 duads and 15 synthemes of six symbols. This agrees with the symplectic model: represent a duad by its binary characteristic vector in the even-weight subspace of F₂⁶ modulo the all-ones vector. This quotient is symplectic of dimension four for the induced dot product; distinct disjoint duads are orthogonal and each perfect matching's three duads sum to zero there. The 15 distinct duads and matchings give the points and lines. Cubic degree makes each closed neighborhood size four; at most seven vertices cannot dominate. Direct closed-neighborhood bitwise unions ruled out all 5,852,925 eight-sets and found exactly 90 dominating sets among all 14,307,150 nine-sets, without assuming the cited templates are complete. For each of the 174,437 supports of size at most five, the census compared the exact mask of realized traces from the complete family with the proposed incidence rule. Agreement was pointwise, including the (2,2) test with the third point R distinct from the concurrency point Q. Counts were (1,30,390,2730,420,0), with 120/180/120 four-supports by point count 1/2/3. Checking one-element extensions yields 1,980 maximal triples and 420 maximal four-sets and no smaller facets; shattering is hereditary so no larger support can be shattered. An independently generated depth-five query tree was checked at all 32 leaves, with 32 distinct consistent concepts. Each vertex lies in 27 minimum sets, so at any root the positive subtree has fewer than the 32 witnesses necessary for depth six. Replay in /workspace/branches/526c3a33-cf75-4a09-bf94-c87ba0ffa8ec via python3 duad_gq2_audit.py --full (audit_output.txt and adaptive_tree_duad.json). The supplied Python/C++ implementations and output were inspected, not executed. The frozen TREE_DEPTH5.json is present; the check for the adaptive lower bound used the independent witness. This finite census does not extrapolate to other generalized quadrangles.
 
-## Sources and limitations
-See RESULT.md references [1]–[4]. The source-derived optimum classification is not claimed as new. The full 30-vertex finite census has reproducible independent implementations and explicit adaptive witnesses, but no new general generalized-quadrangle theorem, no integral homology, and no independent audit are asserted. Historical priority remains qualified by possible unindexed equivalent computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying minimum-domination problem and classification are prior, as are other VC–Littlestone separations. The checked exact results for this query class, notably the incidence criterion and its shattering complex, are not matched by those prior statements. The strongest same-day overlap has the same graph and two dimensions but different hypotheses and domain.
+
+## value
+
+PASS
+
+Optimal ordinary domination on the canonical doily gives a natural finite concept class. The full shattering complex, including its geometric exclusions and nonpure facets, says more than either dimension alone. The adaptive depth certificate gives a concrete strict improvement of online querying over fixed supports of the same depth, verified for the complete exact class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

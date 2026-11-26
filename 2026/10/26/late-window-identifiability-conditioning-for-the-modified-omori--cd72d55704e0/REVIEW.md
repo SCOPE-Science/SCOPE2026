@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is restricted to three consecutive equal-width bins under the single-component intensity \(K(t+c)^{-p}\). Expanding the bin integrals to order \(u^{-3}\), taking logarithms, and differentiating yields the stated coefficient expansions and the Jacobian determinant \(p\Delta^3/(T+c)^4+O(\Delta^4/(T+c)^5)\). The nonzero leading coefficient gives only local invertibility for sufficiently large \(u\) and \(p\) bounded away from zero.
+PASS
 
-## Originality
+Independently expand the bin integral about its midpoint v=u+j+1/2. Removing the common KΔ^(1−p), the integral is v^(−p)[1+p(p+1)/(24v²)+O(v^(−4))], since the odd centered moments vanish and the second moment is 1/12. Thus log B_j, up to a common term, is −p log v+p(p+1)/(24v²)+O(v^(−4)). Subtracting adjacent bins gives respectively the third-order coefficients −p(p+14)/12 and −p(p+50)/12 and the two second-order coefficients p and 2p. To justify differentiating the remainder in RESULT.md lines 41–62, use w=1/u: after dropping the common prefactor, the integrals of (1+wx)^(−p) on fixed subintervals of [0,3] and their logarithms are real analytic near w=0 with uniform derivative bounds for p in the stated compact set. Differentiating the Taylor series in p or applying ∂_u=−w²∂_w preserves the required uniform orders. In the ordered columns (p,u), the products in the determinant are −p/u³+5p/u⁴ and −p/u³+4p/u⁴ to that order. Their difference is p/u⁴+O(u^(−5)), and the c column adds the factor 1/Δ. There is no singularity at p=1, and strict positivity is uniform for sufficiently large u on each compact subset of positive p. The inverse function theorem gives the claimed local identification for exact mean ratios, not a stochastic error bound. The frozen symbolic checker was read, not run; it checks coefficients, not the uniform differentiability argument.
 
-PASS on the checked literature. Ogata (1983) develops event-time likelihood and Fisher information, and notes bin-width dependence of graphical estimates. Utsu, Ogata, and Matsu'ura (1995) discuss late-time slope estimation and early incompleteness affecting \(c\). Neither inspected source states the specific three-bin Jacobian expansion. published-finding corpus searches for the modified Omori law, binned aftershock ratios, parameter confounding, and the Jacobian asymptotic returned no equivalent claim. A related 2008 source was accessible only at abstract/metadata level; that residual risk is retained in the structured review.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a precise, scale-aware diagnostic for why late binned counts have weak sensitivity to the offset parameter even when the ratio map remains locally identifying. This is motivated by established difficulties in estimating \(c\) from incomplete early aftershock records. The claim is deliberately not promoted to a statistical-error bound or global-identifiability statement.
+Bounded pass for the explicit adjacent log-ratio expansions and leading Jacobian coefficient for three consecutive equal-width mean-count bins. Neither the general idea that p and c trade off nor the fact of local injectivity is credited in isolation. Related estimation work and a stronger structural identification result concern different outputs; none of the inspected statements gives the quantitative late-window expansion.
 
-## Closest literature and limitations
+## value
 
-- Ogata (1983), DOI 10.4294/jpe1952.31.115: event-time maximum likelihood and Fisher information; the exact three-bin ratio determinant is not stated.
-- Utsu, Ogata, and Matsu'ura (1995), DOI 10.4294/jpe1952.43.1: review of modified Omori fitting, late-time slope estimates, binning, and early incompleteness.
-- Hainzl (2008), DOI 10.1029/2007JB005492: related parameter-dependence study; full text was not accessible during this review, so it remains a residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three equal adjacent windows are a natural minimal mean-count design after eliminating amplitude with ratios. The leading ratios both depend on the same combination p/u, so the coefficient after cancellation quantifies when the second direction of local information survives; a mere nonzero-determinant claim would miss how rapidly it is lost. For known fixed width this is an explicit local area scaling, useful for comparing noiseless late-window designs. It is not a condition number, likelihood statement, or guarantee of practical precision from observed counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

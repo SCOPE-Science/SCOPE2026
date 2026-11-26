@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:27.576304Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–72, VERIFICATION.md, verify_certificate.py, verify_metric.py",
+        "/workspace/branches/11110140-823f-4f82-90d4-bac1e1c416ba/independent_check.py: passed; all 8100 BFS/stable inversion distances agree; nine orbit sizes 12,6,12,6,6,6,12,6,6; 72 cliques, total 360, minimum coverage 19"
+      ],
+      "rationale": "The 90 indexed words have composition (2,2,2); unequal adjacent swaps give the stated graph metric. Radius-one balls are disjoint exactly at minimum distance at least three (use the midpoint of a path of length two in the converse). Independent enumeration checked the listed 18-word construction at distance three and the nine orbits of distance-at-most-two cliques under relabeling and reversal. Their 72 distinct cliques have total integer weight 360 and cover every vertex with integer weight at least 19. An independent set uses at most one vertex per clique, so integer incidence counting gives |C| ≤ floor(360/19)=18. The exhibited code thus attains the optimum.",
+      "residual_risks": [
+        "The computation is exhaustive only for this one composition and metric parameter; no uniqueness or all-optima classification is asserted. Frozen executables were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible search description identifies constructions and bounds in the multipermutation Kendall model; RESULT.md:82 identifies Section IV as a same-parameter numerical bounds table. Ordinary permutation code hits concern multiplicity one."
+        ],
+        "reasoning": "The general Kendall treatment uses the relevant parameters and could dominate this instance. The specifically cited upper bounds, if read as reported, do not force 18. Ordinary permutation bounds without an exact argument for this quotient by repeated symbols do not supply an exact 2-regular optimum.",
+        "searches": [
+          "LIT-1: A(3,2,3) multipermutation codes Buzaglo Yaakobi Etzion Bruck table upper bound",
+          "Error-Correcting Codes for Multipermutations, CaltechAUTHORS ETR122 and DOI 10.1109/ISIT.2013.6620321"
+        ]
+      },
+      "checked_sources": [
+        "RY-1 and LIT-1/LIT-2 searches; ETR122 and identified repository alternative; Resultary 6a43245eae5f, 1684bd8b749a and 9d01af2d0cb4; frozen RESULT.md:80–94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof's decisive bound is the composition-specific weighted clique sum 360/19. The related indexed source descriptions use single-deletion or Ulam conflict relations, and the available ETR122 description does not give a matching upper and lower bound."
+        ],
+        "reasoning": "Neither a bound larger than 18 nor an exact maximum for a different conflict graph implies equality here. A sharper theorem elsewhere in the inaccessible primary text remains possible.",
+        "searches": [
+          "RESULT.md:27–72 compared with available ETR122 search description and reported Section IV row",
+          "Resultary 1684bd8b749a and 9d01af2d0cb4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md:5–17 equates A(3,2,3), disjoint one-swap balls and conflict-graph independence. Resultary 1684bd8b749a gives 18 for balanced ternary single deletion, while 9d01af2d0cb4 gives 5 at Ulam distance three."
+        ],
+        "reasoning": "A common deletion output is not the same as distance ≤2 in Kendall. E.g. 001122 and 011220 share 01122 by deleting a zero but have Kendall distance four (move the second zero across four unequal symbols). Thus equality of the two numerical optima does not establish coverage.",
+        "searches": [
+          "Resultary RY-1: A(3,2,3) = 18 exact maximum code, ternary length-six multipermutations with composition (2,2,2), Kendall adjacent-transposition distance",
+          "LIT-2: ternary multipermutation composition (2,2,2) Kendall distance adjacent transposition code size 18 exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 6a43245eae5f is the original record. The frozen relationship discussion reports 30 and 34 as upper bounds at A(3,2,3); attempts to retrieve their original table timed out."
+        ],
+        "reasoning": "No independent exact table match was demonstrated. The reported entries are bounds, not reported equalities or mutually meeting lower and upper bounds; the underlying passage is a specific access risk.",
+        "searches": [
+          "Resultary RY-1 exact Kendall parameter search",
+          "Caltech ETR122 Section IV, PDF lookup for 34"
+        ]
+      },
+      "rationale": "No equivalent fixed-composition Kendall optimum was demonstrated in the bounded searches. The exact Resultary match is the assigned record itself. The distinct deletion-code result has the same domain and value, but not the same channel; the distinct Ulam result uses yet another metric. The original multipermutation Kendall paper is directly relevant but its numerical passage could not be independently retrieved; credit its model and bounds as relevant antecedents without claiming that all possible implications were ruled out.",
+      "residual_risks": [
+        "The exact ETR122 table passage and any sharper implication elsewhere in the report remain unverified. An older specialized or unindexed computation in the same Kendall model remains possible; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary table unread; no whole-paper conclusion",
+          "evidence": [
+            "RESULT.md:82 reports 30 and 34 as its bounds at this parameter."
+          ],
+          "identifier_or_url": "https://authors.library.caltech.edu/records/ft4vp-ka042",
+          "material_read": "Search description of Kendall constructions and bounds; Section IV only via the frozen record's report",
+          "method": "Primary search and attempted OA retrieval at Paradise and Caltech repository PDF copies",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Same metric, general theorem and plausible exact numerical table"
+        },
+        {
+          "assessment": "Different confusability relation in the available statement",
+          "evidence": [
+            "The reported eighteen-word maximum is for single deletion, not unequal adjacent swaps."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a",
+          "material_read": "Resultary summary of maximum and error model",
+          "method": "Local Resultary lookup",
+          "title": "Exact balanced ternary deletion codes and a chromatic obstruction",
+          "trigger": "Same composition and exact value"
+        },
+        {
+          "assessment": "Different metric in the available statement",
+          "evidence": [
+            "Ulam-distance-three optimum reported as five."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-equality-classification-for-a-six-cell-two-regular-ulam--9d01af2d0cb4",
+          "material_read": "Resultary summary of metric and optimum",
+          "method": "Local Resultary lookup",
+          "title": "Complete equality classification for a six-cell two-regular Ulam code",
+          "trigger": "Same composition and distance threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–17, 21–72, 80–88",
+        "Buzaglo et al. search description of the multipermutation Kendall model"
+      ],
+      "rationale": "This is the first ternary equal-multiplicity setting beyond ordinary permutations: the exact size determines a useful benchmark for correcting one adjacent transposition in a natural constant-composition source. The orbit-weighted integer upper bound closes the size question rather than adding a small improvement in a nonsharp bound, and the explicit witness is a usable code.",
+      "residual_risks": [
+        "Only one composition and distance are settled; there is no claim of asymptotic relevance or of a broader coding theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

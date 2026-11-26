@@ -1,19 +1,21 @@
-# Scientific review: sharp coordinatewise stability of ball–cube projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The KKT system for the intersection of a coordinate cube and a Euclidean ball yields clipped scalar scaling. On a smooth stratum with \(k\) saturated coordinates, the free-block Jacobian is \(s^{-1}(I-uu^{\mathsf T})\). Its exact maximum row sum reduces to a one-variable optimization subject to an explicit feasible interval. Cauchy–Schwarz proves the upper bound, and a capped-face KKT construction with \(s\downarrow1\) realizes all permitted upper bounds as limiting two-input quotients. Euclidean nonexpansivity and integration along generic segments justify the global bound. The explicit thirteen-coordinate strict comparison and the limiting radius jump are algebraically verified. The standalone test file passed 2,951 supplementary numerical assertions; these are corroboration, not proofs of infinite parameter statements.
+PASS
 
-## Originality — PASS, with residual priority risk
+Slater and stationarity yield clip(v/s) with s≥1; the unconstrained box projection suffices if it is ball feasible. Otherwise the squared norm of clip(v/s) drops strictly wherever it reaches the target with a nonzero free coordinate; a plateau at the target would require that all free inputs vanish and that the original box projection already be ball feasible. For a strict active pattern with k saturated outputs, the free output is √(r²−k)v_J/||v_J||₂ and its Jacobian is s⁻¹(I−uuᵀ). Apart from clipping coordinate planes, the switch on each clipping region lies in a level set of its clipped squared norm; at an active tie the saturated i satisfies (r²−k)v_i²=∑_{j in J}v_j². These are null sets for r²<n, with the r²=k degeneracy forcing all free inputs to vanish. With a=|u_i|, the maximum row sum is 1−a²+a∑_{j≠i}|u_j|; its Cauchy–Schwarz bound is attained by equal tail magnitudes whenever a lies in the stated interval. The interval is feasible since c_k>1/√m, and the change 2a²−1 gives the single clamped maximizer. One free coordinate contributes zero derivative. Euclidean nonexpansiveness ensures Lipschitz regularity; mollification with the a.e. derivative bound gives the global ℓ∞ bound. Conversely choose a strictly feasible equal-tail vector, scale the free input by s>1 and make the saturated inputs strictly larger than s. Test along the signs of the chosen row, then take s↓1 and approach any capped maximizer from inside; the identity regime separately gives one. At r=√5 in n=13 only k=0 and k=1 can beat the unrestricted bound for m≤11; both are upper-capped and F₁>F₀ reduces to 7>4√3. An independent arithmetic check gives excess 0.000500015579. For r≤1 only ordinary ball clipping is needed; at r↑√n the feasible intervals collapse to the equal-magnitude vectors and the largest limit is 2−2/n, while at redundancy coordinate clipping gives one.
 
-Direct literature comparison used the accessible mathematical text of Liu–Wang–Song (2019), including its optimization model, KKT characterizations, and algorithms for intersections of \(\ell_1\) and \(\ell_2\) balls; the norm cap here is instead \(\ell_\infty\), and the desired invariant is a two-input sharp coordinatewise modulus. Vasil'eva (2020) analyzes Kolmogorov widths of norm-ball intersections, including the present set type but not sensitivity of Euclidean nearest-point projection. Bauschke–Bui–Wang (2017) concerns intersections of cones with balls or spheres; the inspected abstract and available excerpt do not settle box–ball projection stability. A publicly indexed theorem on Euclidean-ball clipping recovers the already-known contained-ball regime only, not the saturated-face regime or the discontinuity at \(r=\sqrt n\). The closest retrieved projection and affine-projection results concern other sets or different operators. Earlier work on bound-constrained trust-region projections may contain equivalent formulas, especially if expressed through active-set condition numbers: historical priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Simultaneous amplitude and energy constraints define a canonical, naturally parameterized convex feasibility set. The exact two-input coordinatewise robustness constant matters for errors bounded individually rather than in Euclidean total magnitude. The finite formula distinguishes clipping-active faces from the no-clipping ball boundary, finds a nontrivial thirteen-coordinate example where the former wins, and shows that the sharp stability modulus is not continuous at the exact redundancy threshold of the energy constraint. These are structural properties of a natural full parameter family rather than an arbitrary finite numerical slice.
+The ball-only modulus and box coefficient are known, and generic convex-projector bounds are available. The new content supported by the comparison is the exact constrained mixed-face maximum, including the strictly winning capped face and the approach to redundancy.
 
-## Scope and limitations
+## value
 
-The theorem applies to real centered uniform box constraints and an origin-centered Euclidean ball in dimensions \(n\ge2\), with global \(\ell_\infty\)-to-\(\ell_\infty\) perturbation measurement. It gives no result for nonuniform boxes, translated balls, other fidelity metrics, or independent scholarly verification. Finite perturbation tests do not certify the all-dimensional claim. The most relevant related source on intersection-of-balls widths was read in full HTML; the conic-projection publication was only partly accessible, so an implicit prior result remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Individual-coordinate error budgets and a joint energy cap naturally coexist. The exact global perturbation factor for the associated Euclidean projector, not merely an evaluation algorithm, quantifies their interaction. The tiny thirteen-dimensional gap is useful as a counterexample to the no-saturation simplification, not for its size, and the actual jump at redundancy separates stability of the sharp modulus from continuity of the sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

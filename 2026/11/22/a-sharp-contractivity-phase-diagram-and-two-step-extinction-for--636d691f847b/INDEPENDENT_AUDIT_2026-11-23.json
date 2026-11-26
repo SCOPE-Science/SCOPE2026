@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:28:37.787502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–79; independent update, Gram, boundary and product derivations",
+        "Frozen VERIFICATION.md and verify.py, static inspection only"
+      ],
+      "rationale": "For d=1+θh, drift inversion gives M=rI+(u+σΔW/d)N with r=(1−(1−θ)h)/d and u=γh/d². For v=σ²h/d² the Gram matrix has entries G₁₁=r², G₁₂=ru, G₂₂=r²+u²+v. Writing α=1−r²=hc/d², det(I−G)=α²−αv−u², because α+r²=1. If c>0, positivity is equivalent to the determinant test and hence c≥c*. If c<0 it is impossible, and if c=0 it requires γ=σ=0 (both the off-diagonal entry and v must vanish). Solving the affine inequality in h gives all three stated step sets. The continuous energy matrix is [−2,γ;γ,−2+σ²], so derivative at zero proves necessity and integrating the Itô energy identity proves sufficiency of γ²+2σ²≤4. In the discrete product any term with two N factors vanishes. For r≠0 its second moment is bounded by the stated geometric factor times a quadratic in n; testing e₁ gives necessity of |r|<1. When r=0 every product of two updates is zero for every realization. At the displayed explicit-Euler example E[(10+4ΔW)²]=116. These establish the claimed distinctions without any sampled tests.",
+      "residual_risks": [
+        "The optional verifier's predicate at lines 42–43 is not universally equivalent to the closed threshold: with θ=0, h=2, γ=0, σ=1, it accepts c=0 and c²−σ²c−γ²=0, but G=diag(1,3) and the step expands. The correct rational predicate is c>0 with the polynomial nonnegative, or c=0 with γ=σ=0. The exact boundary is already handled correctly in the frozen proof. No assertion is made about whether this case is in the 600 frozen samples.",
+        "The conditional one-step condition is weak nonexpansion, not strict norm decay at the threshold. Extinction here is a discrete resonance, not accuracy evidence or continuous-time extinction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved nonlinear squared-difference estimates use one-sided drift and diffusion Lipschitz bounds, and give sufficient contractivity results under dissipativity. The scalar stability criterion in the retrieved source is asymptotic.",
+          "The exact general matrix formulation RᵀR+hΣD_jᵀD_j≤I is the one-step norm test; it does not itself resolve the dependence on h, θ, γ, σ or the separate zero-product event. Two other cited full texts were unavailable to this review."
+        ],
+        "reasoning": "Broader sufficient estimates are not a necessary-and-sufficient resolved threshold, especially when the continuous energy matrix is indefinite. No prior full statement was found reducing the shared nilpotent case to the exact parameter law.",
+        "searches": [
+          "arXiv:2009.04941, §§1, 3–4",
+          "arXiv:0912.1968, §§2–3.1",
+          "Higham DOI 10.1137/S003614299834736X and Biščević et al. DOI 10.1016/j.amc.2025.129527"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0065d16d3909",
+        "arXiv:2009.04941",
+        "arXiv:0912.1968",
+        "Higham (2000) abstract",
+        "Biščević et al. (2025) bibliographic information"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For λ=−1 and scalar noise zero, Eq. (10) becomes 2+(2θ−1)h>0. It is the exact scalar stability boundary and is not claimed novel. Extending the equality to all deterministic starts uses the common triangular nilpotent structure.",
+          "Neither those scalar limits nor stability of a feedback-noise Euler matrix yields the full phase boundary or explains why the very step giving an arbitrarily expansive first step can annihilate the whole state at the second."
+        ],
+        "reasoning": "The record's contribution is the concrete nonnormal parameter reduction and comparison of phenomena, not the scalar θ stability diagram or the general moment framework. The exact large-step-only side of the phase diagram is not a consequence of the cited sufficient dissipative estimates.",
+        "searches": [
+          "Buckwar–Sickenberger arXiv:0912.1968 §3.1 Eq. (10)",
+          "D’Ambrosio–Di Giovacchino arXiv:2009.04941 §4",
+          "Resultary 0065d16d3909"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-step Euclidean nonexpansivity is the Gram inequality for all deterministic x, not spectral-radius stability of covariance evolution or a prefactor-dependent decay estimate.",
+          "The exact scalar test in Eq. (10) matches the restriction to the invariant noiseless first coordinate, not the full one-step Gram test. The same-day exact Euler stability law uses feedback noise e_m e_1ᵀ, not the common nilpotent shear."
+        ],
+        "reasoning": "The cited conditions and the indexed stability law were compared both as moment criteria and under the shared scalar restriction. None provides the full-matrix nonexpansion criterion and the nilpotent resonant zero product for the frozen scheme.",
+        "searches": [
+          "Resultary lookup for nilpotent theta-Maruyama contractivity, stability and extinction",
+          "D’Ambrosio–Di Giovacchino arXiv:2009.04941, Theorems 1.1, 3.2, 4.3",
+          "Buckwar–Sickenberger arXiv:0912.1968, §3.1, Eqs. (8)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0065d16d3909 gives an all-dimension explicit-Euler asymptotic stability law with A=−I_m+κN_m and B=σe_m e_1ᵀ. Its m=2 noise maps the first coordinate into the second; the frozen N maps the second into the first. Reversing coordinates also reverses the drift shear and does not make the diffusion proportional to it."
+        ],
+        "reasoning": "The exact indexed law is not a table for the same method/operator/observable. Same-day catalog indexing neither proves priority nor removes the need for comparison.",
+        "searches": [
+          "Resultary lookup, distinct exact matrix Euler stability record 0065d16d3909, local RESULT.md Finding and Assumptions"
+        ]
+      },
+      "rationale": "The exact Gram and covariance form, scalar test equation and energy identity are standard. The assessment is for the joint resolved phase diagram in the fixed Euclidean norm, including the large-step-only nonexpansion regime where the continuous dynamics initially expand, and its contrast with a pathwise zero product at the resonant step. The strongest inspected indexed comparison changes the noise operator and concerns asymptotic stability. No equivalent or dominating resolved diagram for the common nilpotent drift and noise was identified in the bounded material inspected.",
+      "residual_risks": [
+        "The two inaccessible cited papers were not ruled out by a full-text check. In particular, the detail about a symmetric positive-definite drift in the 2025 paper remains unverified.",
+        "Bounded index and literature comparisons do not exclude implicit equivalents in general nonnormal linear θ analyses or establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient nonlinear estimates; not the resolved fixed-Euclidean matrix threshold",
+          "evidence": "Continuous exponent 2μ+L from one-sided drift and Lipschitz diffusion; method restrictions and unconditional implicit-Euler contractivity under dissipative assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.04941",
+          "material_read": "§§1, 3–4; Theorems 1.1, 3.2 and 4.3, pp. 2–3, 5 and 8",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Mean-square contractivity of stochastic θ-methods",
+          "trigger": "Same numerical scheme and mean-square contractivity notion"
+        },
+        {
+          "assessment": "Exact asymptotic scalar criterion covers the scalar restriction only",
+          "evidence": "Eq. (10) tests Re(λ)+Σ|μ_j|²/2+h(1−2θ)|λ|²/2<0.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1968",
+          "material_read": "§§2–3.1, pp. 3–5, Eqs. (8)–(10)",
+          "method": "Bounded OA primary-text inspection",
+          "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+          "trigger": "Exact θ-Maruyama mean-square stability test"
+        },
+        {
+          "assessment": "Limited; no detailed primary comparison established",
+          "evidence": "Abstract describes a linear multiplicative-noise test equation and mean-square/asymptotic stability; full text request denied.",
+          "identifier_or_url": "https://doi.org/10.1137/S003614299834736X",
+          "material_read": "Publisher abstract; full text unavailable",
+          "method": "Publisher abstract and bounded lawful full-text attempt",
+          "title": "Mean-square and asymptotic stability of the stochastic theta method",
+          "trigger": "Earlier exact linear θ stability results"
+        },
+        {
+          "assessment": "Plausible related source; unavailable full text leaves the linear-case hypotheses unresolved",
+          "evidence": "Could not independently verify the frozen record's comparison with a symmetric positive-definite drift assumption.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2025.129527",
+          "material_read": "Bibliographic/landing information only",
+          "method": "Bounded DOI and publisher full-text attempts",
+          "title": "Contractivity of stochastic theta-methods under non-global Lipschitz conditions",
+          "trigger": "Later method-specific contractivity with potentially relevant linear drift case"
+        },
+        {
+          "assessment": "Different noise orientation, stability property and scope in θ",
+          "evidence": "Explicit Euler, B=σe_m e_1ᵀ, and exact asymptotic mean-square stability, not the same upper triangular common-nilpotent step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-all-dimension-mean-square-euler-stability-law-for-a-nonn--0065d16d3909",
+          "material_read": "Local RESULT.md, Finding and Assumptions, from offset 0",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "A sharp all-dimension mean-square Euler stability law for a nonnormal system",
+          "trigger": "Same-day exact nonnormal matrix stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase diagram, energy test and 116-to-zero example",
+        "D’Ambrosio–Di Giovacchino arXiv:2009.04941, §§3–4"
+      ],
+      "rationale": "The common nilpotent shear isolates one-step Euclidean amplification from modal asymptotic stability. Its precise comparison distinguishes regimes where larger steps actually restore weak nonexpansion despite initial expansion in continuous time, and identifies an exact resonant step with arbitrarily large transient amplification and guaranteed annihilation in two steps. These are informative diagnostics for interpreting results on stochastic time integrators; the value is not the elementary scalar stability test alone.",
+      "residual_risks": [
+        "This is a deliberately structured test equation; it is not a time discretization accuracy guarantee or a numerical stability claim for noncommuting noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

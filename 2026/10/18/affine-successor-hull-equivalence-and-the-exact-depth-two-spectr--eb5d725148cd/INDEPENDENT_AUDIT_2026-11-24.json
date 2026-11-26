@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:30.609730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–39",
+        "Frozen VERIFICATION.md and check.py, lines 39–99"
+      ],
+      "rationale": "At depth zero the atoms and truth constant span the formula space; inductively atoms, the constant, and diamonds of the finitely many preceding-depth truth functions span the next space, since box is NOT-diamond-NOT. Hence the test vector including the constant coordinate 1 is well defined at each finite depth even over infinite frames. For a successor set S in that hyperplane, the false diamond tests are exactly the linear annihilator of span(S). Equality of annihilators is equality of spans; for a nonempty S, slicing the span at constant coordinate 1 recovers its affine hull. The all-zero span is precisely the empty case. This proves both directions with the current atoms also fixed. An affine basis chosen from S uses r+1 distinct successor vectors, and fewer worlds cannot generate a hull of dimension r. Recursive selection in disjoint depth-limited unravelings preserves the selected vectors even when original edges have cycles or shared targets. For the census, the one-variable depth-one configuration is F₂ times the four affinely independent points (u OR v,u,v) in F₂³. If a hull projects onto the affine span of k of these vertices, its projection is either injective (a graph, 2^k choices, dimension k−1), or has the full one-dimensional vertical kernel (one full preimage, dimension k). Each is realized by choosing points over the k vertices and, for the second case, doubling one fiber. Summing over the binomial choices for k=1,2,3,4 and appending the empty case gives (1,8,28,38,20,1); each hull admits both root atom values. Dimension four occurs and needs five successors. Counting all affine flats and the independent root valuation gives 8,48,416 at depth one for n=1,2,3. The supplied checker is not needed for these counts and was not run; its use of int.bit_count requires Python 3.10+, rather than the advertised 3.8+.",
+      "residual_risks": [
+        "No unbounded-depth compression is proved. The interpreter-version mismatch is confined to the optional checker and does not affect the analytic result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Modal Fragments asks for Boolean-basis-sensitive equivalence games or bisimulations for simple modal fragments; it does not give the stated affine recursion in that passage.",
+          "Theorem 3.1 of Krebs–Meier addresses NP-hardness of two-modal XOR satisfiability on S5; Resultary 533e4477e12f gives pruning budgets for preserving specified boxed values in Heyting-valued models."
+        ],
+        "reasoning": "Neither complexity nor pruning for selected boxed values gives the exact minimum for preserving the complete finite-depth affine theory. The finite-depth recursion is elementary once the correct tests are identified, but ordinary modal successor-type equality does not imply the smaller affine hull criterion or sharp compression.",
+        "searches": [
+          "arXiv:2603.05055, §6(4)",
+          "arXiv:2512.17378, Theorem 3.1",
+          "Resultary: optimal successor compression"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 69587faa1873, 3c2f27b9c365, 533e4477e12f and 605708d2ff72",
+        "arXiv:2603.05055 and arXiv:2512.17378"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day S5 result proves the affine-class invariant and a sharp dim(H)+1 world bound. The broad modal-fragment discussion asks about basis-sensitive equivalence and suggests algebraic invariants.",
+          "In the frozen result the successor affine hull is taken in all preceding-depth truth coordinates, not simply in atom space, and the optimum bounds immediate successors rather than all equivalence-class worlds."
+        ],
+        "reasoning": "The earlier-style S5 argument overlaps the key local test, but the arbitrary-frame recursion and all realizable second-stage hulls require additional work not given by that statement. No precedence is inferred from the dates.",
+        "searches": [
+          "Resultary 69587faa1873, RESULT.md offsets 0–2140 and 5400",
+          "arXiv:2603.05055, §6(4), printed p. 31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 69587faa1873 classifies one-agent parity S5 worlds by their current valuation and the affine hull in their equivalence class, even through all modal nesting depths.",
+          "Record 605708d2ff72 classifies when the non-contingency operator is affine, not the pointed theories of the affine connective fragment."
+        ],
+        "reasoning": "An affine false-test annihilator and the affine hull encode equivalent information here. The S5 hull is in the space of atom valuations of a single common successor class. In arbitrary frames, different successors can have different preceding-depth hulls and dead ends are possible; the S5 formulation does not encode these models.",
+        "searches": [
+          "Resultary: unrestricted finite-depth affine hull and modal parity",
+          "Resultary: one-agent S5 affine-hull signatures",
+          "arXiv:2512.17378, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 3c2f27b9c365 counts 170 depth-two GL pointed types and 85 realizable spectra on a different frame class.",
+          "Record 69587faa1873 gives an S5 census 2^n Σ_d G₂(n,d), not the 96 successor hulls in the depth-two unrestricted census."
+        ],
+        "reasoning": "The unrestricted one-variable count uses arbitrary subsets of eight freely realized preceding-depth types at a new root. Neither the GL nor S5 realizability conditions give that census; no matching table surfaced in the inspected results.",
+        "searches": [
+          "Resultary: one-variable depth-two census, 192 pointed theories or 96 affine hulls",
+          "Resultary: S5 finite-variable affine census"
+        ]
+      },
+      "rationale": "The same-day S5 theorem substantially overlaps the local affine invariant and sharp dimension bound on equivalence-class frames. That fact receives no separate credit here. The arbitrary-relation recursion and its realizable 192 one-variable depth-two theories are not covered by that frame-restricted statement or by the strongest inspected broader literature. Same-day ordering is not established.",
+      "residual_risks": [
+        "A broader coalgebraic fragment specific equivalence result under other terminology is not ruled out. An additional web-index query was deferred, not a negative hit. Same-day priority is undetermined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong S5 special-case overlap; unrestricted recursion and census not covered",
+          "evidence": "The relation is an equivalence relation and the hull is that of valuations in its class; the result includes the sharp dim(H)+1 size.",
+          "identifier_or_url": "Resultary 69587faa1873",
+          "material_read": "RESULT.md, Finding and assumptions, offsets 0–2140; compression near offset 5400",
+          "method": "Published record mirror, targeted passage read",
+          "title": "Affine-hull signatures and optimal models for the one-agent parity fragment of S5",
+          "trigger": "Same-day affine-hull invariant and optimal size"
+        },
+        {
+          "assessment": "Related open framework question, not a proof of this parity case",
+          "evidence": "The authors ask for Boolean-basis-parameterized bisimulations or games and suggest algebraic invariants and game comonads.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.05055",
+          "material_read": "§6(4), printed p. 31, PDF text offset 114700",
+          "method": "Lawful OA PDF, targeted passage read",
+          "title": "Modal Fragments",
+          "trigger": "Broad basis-sensitive expressive equivalence question"
+        },
+        {
+          "assessment": "Different S5 question",
+          "evidence": "The theorem gives NP-hardness for two-modal XOR satisfiability on S5, not a pointed-theory census.",
+          "identifier_or_url": "https://arxiv.org/html/2512.17378",
+          "material_read": "§3, Theorem 3.1, offset 11600",
+          "method": "Lawful OA primary text, targeted passage read",
+          "title": "When Symmetry Yields NP-Hardness: Affine ML-SAT on S5 Frames",
+          "trigger": "Affine/XOR modal logic in primary literature"
+        },
+        {
+          "assessment": "Different frame class and census",
+          "evidence": "It counts 85 spectra and 170 pointed types for transitive, conversely well-founded frames.",
+          "identifier_or_url": "Resultary 3c2f27b9c365",
+          "material_read": "RESULT.md offsets 0–2184",
+          "method": "Published record mirror, targeted passage read",
+          "title": "A support-closure classification of one-variable depth-two GL types",
+          "trigger": "Closest alternate one-variable depth-two census"
+        },
+        {
+          "assessment": "Preserves selected modal values, not this full fragment",
+          "evidence": "The bounds concern specified boxed values in finite Heyting-valued semantics.",
+          "identifier_or_url": "Resultary 533e4477e12f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record mirror, targeted passage read",
+          "title": "Sharp value-sensitive successor budgets for finite Heyting-valued models",
+          "trigger": "Potential wider sharp successor-compression theorem"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": "Affineness of the non-contingency operator corresponds to at most two successors per world; the result is not a parity-type classification.",
+          "identifier_or_url": "Resultary 605708d2ff72",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record mirror, targeted passage read",
+          "title": "Affine threshold and unbounded non-contingency cycles on binary frames",
+          "trigger": "Affine frame classification under a modal alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of exact branching",
+        "Resultary 69587faa1873 for S5 overlap"
+      ],
+      "rationale": "The precise affine hull is a complete replacement invariant with an exact, rather than merely sufficient, branching bound on arbitrary frames. The one-variable census shows how far the second step of the invariant goes and gives a realizable worst-case witness. This distinguishes parity expressivity from both unrestricted Boolean observations and equivalence-class collapse in S5.",
+      "residual_risks": [
+        "Counts are for the specified vocabulary, Boolean basis and depth; no general efficient model-minimization algorithm is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

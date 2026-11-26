@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:41.817736Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All used edges meet zero isolated vertices, so subtracting E_t only from the zero-isolate class counts unused sets exactly. The drift of D_t=I_t-rN_t is -qkD_t/N_t plus the used-edge fraction correction. For deterministic sufficiently large t on N_t≥pt/2 the used-edge correction is O(t^(1-k)) and exhaustion is impossible; off that event define the correction from the actual null-step drift, which is bounded, with exponentially small event probability. In the second- and fourth-moment expansions the principal drift terms are nonpositive. On the good event the correction contributes at most O(1) and O(1+D_t²), respectively (use |D_t|≤N_t=O(t)); on the bad event its polynomial bound times the Chernoff probability is summable. This gives E D_t²=O(t) and E D_t⁴=O(t²); the former also gives D_t/t→0 almost surely by Borel–Cantelli on t=m² and bounded increments between those times. The asymptotic increment of D is 1-r on birth and −Bin(k,r) on an edge step, centered by the true conditional mean; its variance is p(1-r)[2+(k−2)r], and its covariance with the centered birth indicator is p(1-r). Replacing N_t by pt in the damping term costs O(t^−1) in L² by Cauchy–Schwarz with the fourth moments of D_t and N_t−pt, and by the same concentration split. Starting at a deterministic index >a=kq/p, the recursion uses weights in [0,1] tending uniformly to (j/t)^a away from j/t=0; the omitted initial segment is O(ε) in normalized quadratic variation when j≤εt. The accumulated L² error is O(log t). Bounded martingale increments verify the triangular-array Lindeberg condition, and integration of the predictable covariances yields the factors 1/(1+a)=r and 1/(1+2a)=r/(2−r). The same deterministic weights and martingale orthogonality give covariance convergence, separately from weak convergence. Returning from D to I gives all displayed entries, including (1/4,5/32,41/224) for k=3,p=1/2. Conditional edge-count randomness makes the innovation covariance positive definite; weighted integration and the invertible final coordinate change preserve it. The frozen rational checker and optional simulation were inspected, not executed; their finite tests are diagnostics, not needed in this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Betken gives a marginal normal approximation for isolates of a preferential-attachment graph where each newly born vertex makes possible connections to older vertices; its vertex count is the step index. The frozen process has edge-only steps and a random number of vertices."
+        ],
+        "reasoning": "These isolated-vertex normal laws and ambient stochastic-approximation methods are not a stronger theorem for this transition. No applicable result computing the exact joint matrix, including its random-N cross term, was identified.",
+        "searches": [
+          "Betken arXiv:1910.02668 Theorem 3.1 and model",
+          "arXiv:2212.07371 §I",
+          "doi:10.1216/RMJ-2013-43-6-1941 (access attempt)",
+          "Resultary birth/edge-growth search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14824v1",
+        "arXiv:1910.02668",
+        "arXiv:2212.07371",
+        "Resultary b741cb34ac32",
+        "Resultary 6fe3ab2f523b (summary)",
+        "doi:10.1216/RMJ-2013-43-6-1941 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krapivsky expressly says that even the variances of the isolated-vertex counts are little known and focuses on averages. Repeat-attempt bounds can justify a small no-replacement correction but say nothing about the covariance of the innovation of the isolation count with the birth indicator."
+        ],
+        "reasoning": "An asymptotic singleton average fixes a deterministic slope, not a noise covariance or a joint limit. A separately proved replacement equivalence would only reduce to another process in which the isolate variance and cross term would still need to be derived.",
+        "searches": [
+          "arXiv:2611.14824v1 §§II,V.1",
+          "b741cb34ac32 Finding and first two proof steps",
+          "Betken arXiv:1910.02668 Thm. 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krapivsky calls isolates singleton clusters and obtains their limiting proportion r in the corresponding birth-or-edge model. The older random recursive hypergraph with the same author instead appends a vertex to an existing edge every step, so N is deterministic and new vertices are incident immediately."
+        ],
+        "reasoning": "The singleton-cluster and isolate labels are equivalent, and a joint CLT for the normalized singleton fraction and N could map to this theorem by the delta method. No such theorem appeared in the inspected same-process results. The recursive attachment rule does not reduce to the frozen kernel.",
+        "searches": [
+          "Resultary: Krapivsky growing uniform hypergraphs joint CLT isolated vertices no replacement covariance vertex count",
+          "Web: randomly growing uniform hypergraphs Krapivsky isolated vertices CLT joint covariance isolation singleton count uniform attachment no repeats random recursive growth",
+          "arXiv:2611.14824v1 §§II,V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected repeat-attempt result gives summable repetition counts for k≥3 under with-replacement attempts. It does not record any isolation coefficient. The fixed-edge covariance catalogue comparator studies isolates versus edge-pair overlap at fixed N, not variance or cross-covariance in the growing process."
+        ],
+        "reasoning": "Neither exact statistic is a change of variables for the isolated-vertex and birth-count matrix, and the same-process singleton-density equations are first order only. No checked exact covariance table subsumes the stated formula.",
+        "searches": [
+          "Resultary search above, especially b741cb34ac32 and the fixed-edge isolation/overlap covariance result",
+          "arXiv:2611.14824v1 §§II,V singleton equations and fluctuation discussion"
+        ]
+      },
+      "rationale": "The closest growth-model source explicitly leaves isolation fluctuations uncomputed; general martingale machinery supports the proof but does not give the particular transition, its second-order coefficients or normalized moment convergence without this analysis. No inspected prior result covers the full covariance or the precise joint theorem.",
+      "residual_risks": [
+        "A less directly indexed density-dependent-growth theorem could cover both coordinates after specialization.",
+        "The 2013 growing-random-graph paper was not independently available in full text; its model summary suggests a different mechanism but is not a complete comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same growth mechanism and mean singleton density; no joint fluctuation result located",
+          "evidence": [
+            "A chosen triple cannot be reused; §II explicitly identifies unresolved fluctuation variances, and §V gives the general-k singleton density rather than its variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14824v1",
+          "material_read": "Primary model description, §II isolation fluctuation discussion and §V fixed-k extension",
+          "method": "Lawful OA full text, pertinent passages compared",
+          "title": "Randomly growing uniform hypergraphs",
+          "trigger": "Exact motivating model and conjectural gap"
+        },
+        {
+          "assessment": "Different model and marginal statistic",
+          "evidence": [
+            "Theorem 3.1 concerns a standardized isolate count under attachment-function assumptions. New vertices connect to older vertices at birth; population is not a Bernoulli birth sum at a separate edge-step clock."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02668",
+          "material_read": "Model assumptions and main normal-approximation theorem",
+          "method": "Lawful OA full text, pertinent passages compared",
+          "title": "A central limit theorem for the number of isolated vertices in a preferential attachment random graph",
+          "trigger": "Close isolated-vertex CLT"
+        },
+        {
+          "assessment": "Neighboring alias only, not same transition",
+          "evidence": [
+            "Each step adds a node v and an edge e∪{v} with e an existing edge; vertex and edge totals are equal and deterministic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.07371",
+          "material_read": "Abstract and §I exact recursive rule",
+          "method": "Lawful OA PDF text",
+          "title": "Random Recursive Hypergraphs",
+          "trigger": "Same author, potentially broader dynamic model"
+        },
+        {
+          "assessment": "Related error control, not isolation law",
+          "evidence": [
+            "With replacement, its k≥3 result is finiteness and integrability of the repeat-attempt total; its Gaussian result is for duplicate attempts at k=2."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-logarithmic-repeated-edge-fluctuations-and-finite-repeated-hyper--b741cb34ac32/RESULT.md",
+          "material_read": "Finding, sampling convention, repeat intensity and concentration argument",
+          "method": "Local mirror record text",
+          "title": "Logarithmic repeated-edge fluctuations and finite repeated-hyperedge tails in growing uniform hypergraphs",
+          "trigger": "Near-identical model and potential coupling to replacement dynamics"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; model description indicates vertex-arrival links rather than fixed-size uniform edge steps",
+          "evidence": [
+            "No primary theorem passage independently available; access failure is not evidence of absence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1216/RMJ-2013-43-6-1941",
+          "material_read": "Bibliographic identification and model summary in the frozen bibliography audit; independent OA full text unavailable",
+          "method": "Lawful OA attempt unsuccessful",
+          "title": "On the number of isolated vertices in a growing random graph",
+          "trigger": "Potential general growing-graph isolation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model's motivating paper isolates this variance as a missing second-order quantity. The theorem supplies that coefficient and the otherwise lost cross-covariance with the expanding, random vertex pool, so it is useful for interpreting singleton counts and proportions at the true fluctuation scale. It applies to both percolation regimes without invoking a component law. The contribution is the exact all-parameter matrix and the limit in the stipulated process, not a new martingale CLT or a giant-component fluctuation theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

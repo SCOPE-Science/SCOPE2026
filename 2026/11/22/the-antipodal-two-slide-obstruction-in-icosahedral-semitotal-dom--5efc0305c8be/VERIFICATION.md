@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The `verify_geometry.py` standalone standard-library program generates twelve vertices and thirty edges from two five-cycles, two apex vertices and their cross edges. It checks that all degrees are five, all graph distances and unique antipodal mates are well-defined, and no semitotal dominating set has fewer than three vertices. It evaluates all 220 three-vertex subsets against closed-neighborhood domination and the distance-two witness predicate, finding 60 antipodal triples and 20 all-distance-two triples. It enumerates all legal jump and edge-slide transitions among those 80 states, checks undirected reciprocity and computes shortest paths by breadth-first search from every configuration. It independently tests the exact characterization of all 30 maximum-detour pairs over all 3160 unordered pairs.
+## correctness
 
-The `check_networkx.py` independent implementation uses `networkx.icosahedral_graph()`, NetworkX ego-neighborhoods, shortest-path routines, an independently reconstructed configuration graph, and all automorphisms. It agrees on the 80 feasible states, the 20 and 60 orbit sizes, all edge and degree counts, the all-pairs distance distributions, and the two-slide extremal characterization.
+PASS
 
-The finite proof is exhaustive for this 12-vertex graph; it makes no claim about larger graphs. The two implementations share the mathematical definitions and expected invariants but use different graph construction and shortest-path code. Both scripts were executed successfully from extracted delivered bytes. External independent audit is not performed.
+Independently constructed the graph from the 12 golden-ratio icosahedron vertices with exact integer-pair arithmetic and checked isomorphism to the stated two-ring graph by adjacency-preserving backtracking. Computed distances by Floyd–Warshall, exhausted every subset of size at most 3, and tested set equality with the two specified families (both directions). Enumerated 120 automorphisms by backtracking and checked transitivity on each sector. Tested every pair of states for membership in each move graph by its symmetric difference and the underlying exchanged pair's adjacency; Floyd–Warshall and per-state invariants give degrees (13,9)/(7,9), eccentricities (3,3)/(4,3), 480/300 edges and finite distances throughout. Among all 3160 pairs the differences have counts 2440/690/30. Exact equality of the extremal set with the retained-antipodal-pair and exchanged-antipodes predicate holds, and every extremal pair has distances (1,3). Closed neighborhoods each have size six and a dominating pair must be disjoint in closed neighborhoods, hence antipodal and infeasible; enumeration separately covered the smaller sizes. All move paths stay among global minima.
+
+## originality
+
+PASS
+
+The distinct content is the classification and exact local-versus-global move metric on the minimum semitotal family, especially the complete obstruction criterion; not the ordinary domination number, semitotal predicate, or token-move definitions.
+
+## value
+
+PASS
+
+Minimum semitotal domination is a motivated constraint between ordinary and total/paired domination; the regular icosahedron is a natural highly symmetric test case. Comparing sliding and jumping exposes a precise shortest-path phenomenon explained by the ambient antipodal involution, rather than only a finite count of minima. The exact iff description and its distances are useful as a benchmark for constrained reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

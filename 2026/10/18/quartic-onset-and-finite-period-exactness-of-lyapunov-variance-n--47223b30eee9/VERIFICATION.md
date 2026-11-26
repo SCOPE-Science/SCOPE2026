@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-The proof identifies an exact smooth coordinate perturbation eliminating the first-order derivative observable, then computes the second-order observable. Character orthogonality on the finite cyclic group produces the leading variance at every fixed period at least five. Uniform inverse-branch contraction and Fourier correlation calculations prove the asymptotic variance coefficient.
+The finite-period proof uses a smooth coordinate change to remove the first-order perturbation, then computes the variance of the second-order Fourier observable. Exact orthogonality and the signed-residue separation for all periods at least five give the coefficient. The period-four aliasing is checked separately.
 
-`python3 CHECK.py` independently checks the character identities using exact rational arithmetic for periods 5 through 20, distinguishes the short-period aliasing at periods 3 and 4, and numerically solves representative nonlinear periodic-point equations at periods 5 through 8. These calculations test, but do not replace, the infinite-parameter and infinite-period proofs. No independent audit has been performed.
+The unchanged standalone `CHECK.py` tests the character identities using exact rational arithmetic at periods 5 through 20, distinguishes short-period aliasing, and solves representative nonlinear periodic-point equations numerically. The finite checks do not replace the analytic perturbation and all-period residue argument.

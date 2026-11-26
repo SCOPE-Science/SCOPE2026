@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial identity \(f_c(x)-f_c(y)=(x-y)(x^2+xy+y^2+c)\) is exact. At odd primes at least five and unit \(c\), the conic has \(p-\chi_p(-3)\) points, the line has \(p\), and their transverse intersections number \(1+\chi_p(-c/3)\). At each crossing, the local Jacobian has determinant \(6a\), a unit; the number of lifts with product zero is \(p^{k-1}(1+(k-1)(p-1))\). Adding transverse and smooth-point counts gives the theorem at arbitrary \(k\), including \(k=1\). At three, the factor quotient is a unit on every residue disk, giving either one global permutation or three bijective branches onto one disk. The code tests 474 complete histograms, small direct ordered-pair counts and coefficient sign differences. The finite tests are not substituted for the proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Fang–Fernando–Wu, arXiv:2307.06325 (first public 2023-07-12), cover reversed-Dickson permutation questions, finite-field fixed points and cycles, not the ordered-fiber collision count of the classical cubic at arbitrary prime powers. Sun (2003) supplies prime-field cubic root counts and associated criteria; those do not determine the all-precision pair count. DesJardins–Zieve (arXiv:math/0103046) treats polynomial cycle lifting, not this statistic. Indexed close records concern cubic iteration at three and a complete cubic Dickson fiber theorem for x³-3x at three, both with a nonunit coefficient excluded here; other close results concern quartic equal-value pairs or cubic-graph additive moments. No inspected result gives the all-unit-coefficient cubic theorem or its exact sign reversal. This is an assessed originality judgment, not a uniqueness certificate; a generic local-zeta formula or unindexed special case could implicitly contain the answer.
+PASS
 
-## Mathematical value — PASS
-The collision count is the natural second moment of the fibers of a polynomial on a finite ring, refining the coarse question of whether the polynomial permutes residues. The theorem simultaneously resolves every odd prime-power depth for a cubic Dickson family, explicitly identifies the exceptional prime and proves an unexpected, strict reversal of the coefficient-class ordering between prime and prime-square levels. The sharp linear growth in the normalized collision statistic in the critical class, versus constant behavior in the noncritical class, is meaningful structural information and not merely a numeric example.
+Count zeros of LQ with L=x-y and Q=x^2+xy+y^2+c. For p>=5, completing the square gives #Q=p-chi_p(-3) since the constant is nonzero and the quadratic character sum follows by factoring a difference of two squares. The conic is smooth and meets the diagonal at I=1+chi_p(-c/3) points with Jacobian determinant 6a nonzero. Exactly one vanishing factor gives p^(k-1) lifts per point. At each crossing, Hensel via x at fixed u=x-y gives a bijection with u,v in the maximal ideal modulo p^k. Count u=0 separately; each valuation 1<=r<k contributes (p-1)p^(k-1), including the empty range for k=1. The smooth-only count is 2p-chi_p(-3)-2I, yielding the displayed formula and strictly opposite signs at k=1 and k>=2. At 3, the difference quotient on each source disk reduces to c, so injectivity modulo 3^k on that disk and equal cardinality give bijectivity onto its target disk. The reduction (1+c)x assigns either disjoint target disks or the same disk; squaring the fiber sizes yields 3^k or 3^(k+1). Independent replay: python3 /workspace/independent_checks.py 2 checks 240 direct ordered-pair counts across six odd primes, multiple exponents, all unit residues, and negative and positive lifts, up to modulus 125. These finite tests corroborate but do not replace the proof.
 
-## Literature limitations
-The source comparisons include portions of full lawful public papers and indexed records. Not all potentially equivalent literature is indexed, and an abstract is not an examination of the whole underlying paper. Coefficients divisible by the prime and the prime two remain outside the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the explicit all-depth ordered collision law for the unit-perturbed cubic and its Legendre-class reversal, not the general lifting method, the use of character sums, or a new permutation criterion. There is close existing work on the same observable for a quartic, and distinct Dickson fiber theorems. None of the compared exact statements gives this parameter regime. This is a best-of-knowledge decision.
+
+## value
+
+PASS
+
+The second moment is the exact independent-input coincidence statistic for a basic cubic family. It detects a change in the ordering of collision probabilities missed by reduction modulo p, and distinguishes bounded from linearly growing normalized counts over every depth. The explicit class reversal and uniform law, not just application of Hensel lifting or a finite check, justify the claim's value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the Ising susceptibility extremum
 
-The accompanying `verify_ising.py` uses only Python's standard library. Execute `python3 verify_ising.py` from the package directory. The most recent completed invocation printed:
+# Independent mathematical audit
 
-`PASS: 8164 exact layouts, 238 independent exact spin-ensemble checks, 65 distinct (n,m) minima, asymptotic comparisons`
+## correctness
 
-For every composition with 3 through 12 bonds, its exhaustive rational count confirms the mechanical word's closed-form minimum and identifies equality only at rotations. For systems of at most seven spins, an independent sum over all spin configurations checks the derived two-point and susceptibility representation without reusing the cyclic-arc formula. A distinct rational coupling pair provides another algebraic check, and lengths 200, 400 and 800 check the displayed asymptotic formulas. A finite-size comparison to an infinite-volume segregated limit is evaluated with an explicitly relaxed finite-size tolerance; it is not a claim of finite-n exact equality.
+PASS
 
-The infinite theorem, strict equality classification, zero-field partition identity and thermodynamic formulas require the analytic derivation in `RESULT.md`. These finite tests do not constitute an exhaustive proof for arbitrary n. The finite-volume system requires positive finite inverse temperature and strictly positive unequal ferromagnetic couplings. No assertions are made about nonlinear magnetic response, alternate Hamiltonians or two-block maximality.
+The even-edge expansion on a cycle gives only empty and full subgraphs; two spin insertions select the two complementary arcs. Each unordered pair contributes both arc products to its covariance, and Var(M) counts each unordered pair twice, giving the factor 2/[n(1+P)]. At fixed length k, moving one strong bond count from an entry at least two larger to a smaller entry strictly reduces the relaxed sum of q to those powers. The floor word attains the lower bound at all k simultaneously. Conversely balance bounds the range of prefix discrepancies strictly below one; its maximum gives an intercept for the floor word. The reduced-slope residue grid and coprimality make all intercepts rotations, including nonprimitive words. Geometric domination by x^k gives the limits, and subtraction yields the stated positive square. Independent exact Gibbs enumeration agreed with the formula and the full equality sets on 984 layouts (n=3 through 8, two contrasts). The comparison is not a claim of blocked maximality or of optimality at zero coupling, zero temperature, or nonzero field.
+
+## originality
+
+PASS
+
+Distinct contribution identified: the sharp finite-ring fixed-inventory Ising susceptibility formula, strict complete equality classification at every positive temperature, and evaluated segregation contrast. Neither balanced words nor convex equalization is a new combinatorial principle. Closely related classical convex lattice-gas spacing results make the minimizing geometry less surprising; the inspected statements do not give this finite susceptibility optimization and evaluation.
+
+## value
+
+PASS
+
+The result separates a bond-order-blind partition function from an order-sensitive response and gives every minimizing layout, at every composition and contrast, without enumerating layouts. The nonzero limiting segregation penalty demonstrates that the effect is not just finite-size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The received multiset after two deletions has cardinality three, so distinct codewords are compatible with the same output precisely if their coordinatewise-minimum sum is at least three. The exhibited ten-word construction has pairwise minimum sums at most two. The upper certificate consists of five \(A\)-, twenty \(B\)- and twenty \(C\)-cliques. Every finite incidence and pairwise common-multiplicity assertion has been reconstructed from the definitions and exactly checked with the included program; the seven multiplicity profiles exhaust the 126 possible words. Their rational weights cover each vertex with weight at least one and sum to ten. No asymptotic or untested extrapolation is used.
+PASS
 
-## Originality — PASS (with residual risk)
+A common two-deletion output is precisely a size-three submultiset of the coordinatewise minimum; it exists iff the sum of those minima is at least three. On weight five, this is equivalent to a full ℓ₁ separation of less than six. An independent deletion-shadow replay checked the ten-word witness, reconstructed all 126 profiles and verified the printed case minima and incidences. A and B have a fixed common size-three submultiset and C has pairwise overlap at least three by the verified table and coordinate symmetry. Pointwise coverage is 16a+3b+c≥16, and the summed clique weights are exactly 5+20(3/16)+20(1/16)=10, proving the bound. Independent short proof: remove every word with some count ≥3 (at most one per symbol, and never two such counts in a single word), then insert all five pure words with no size loss and no conflict with the residual words. If a,b,c are the residual counts of types 221, 2111 and 11111, their disjoint size-three output sets use 4a+3b≤20 outputs with a double symbol and a+3b+10c≤10 all-distinct outputs. Twice the first plus the second gives 9a+9b+10c≤50, so at most five residual words coexist. The construction has five, hence 10 is exact.
 
-The closest source is Kreindel–Barouch Essayag–Zabokritskiy, arXiv:2601.05636v2, Section 4.4 and Theorem 13, addressing the same multiset parameter family but providing general bounds, not the exact \(S_5(5,2)\). Chen–Ma–Zhang, arXiv:2003.00483v2, treats the exact equivalent nonnegative-coordinate \(\ell_1\) coding framework, but its general arbitrary-coordinate exact results cover weights three and four; the current weight is five. Kovačević–Tan, arXiv:1612.08837, and arXiv:2603.18322 provide general geometry, constructions, and bounds, not this finite equality. Equivalent-formulation searches and comparisons against nearby published coding records found no dominating equality or upper certificate; absence in searched material is not a uniqueness or novelty proof. An unindexed small-parameter table remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The size-five case is the first weight outside the established arbitrary-nonnegative-coordinate exact weight-three/four range, within the active two-deletion \(t=n-3\) multiset channel. The result determines the precise storage/reconstruction maximum rather than simply improving a generic bound, and the symmetric forty-five-clique certificate provides a transparent sharp obstruction at a natural square alphabet-size/blocklength point. It does not assert a larger-parameter theorem or a classification of all extremizers.
+Pass for the exact equality and attainment, not for the coding formulation, the weighted-cover method, or the numerical upper bound alone. Relevant earlier works cover the same multiset metric, the one-deletion optimum for these length/alphabet parameters, or exact unbounded ℓ₁ values only at weight ≤4. The stronger later Kreindel et al. v3 theorem yields the frozen upper bound mechanically and attributes it to Wei–Zhang (2023); thus the bound itself is not credited as a distinct result. The inspected statements and constructions did not settle the lower bound of 10. Wei–Zhang's primary full text remains material, unresolved risk for the capped construction and priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This determines an exact quinary benchmark in the studied t=n−3 multiset regime and the first weight outside the cited unbounded weight-at-most-four results. The lower construction establishes that the general upper benchmark is attainable at these parameters; attainment with disjoint typed deletion shadows is not supplied by a size bound alone. The result gives a compact test instance for exact ℓ₁ and multiset-code bounds. Value is for the exact two-deletion capacity and witness, not for the generic clique-cover technique or for giving a second derivation of an upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

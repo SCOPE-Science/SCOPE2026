@@ -1,15 +1,21 @@
-# Review of the four-step spider shattering theorem
+# Independent mathematical audit
 
-## Correctness
-The argument converts the colourings of each marked arm into all attainable terminal colour masks for all Boolean response strings. The transitions use exact neighbour-colour feasibility and forbid any response yielding an empty mask. At the hub, a three-way intersection condition handles every joint response, with an additional positive/negative feasibility test when the hub is queried. These statements are reversible, establishing the max-plus formula for arbitrary positive arm lengths. The table provides all twenty states at length four, four explicit transition columns, and the finite identity \(D_8=D_4+3\), which propagates to all larger lengths by translation-equivariance. The balanced law follows from seven initial values and four-step induction. The separate direct-colouring enumeration checks 58,624 small marked-query assignments. Independent mathematical audit has not occurred.
+## correctness
 
-## Originality
-The closest earlier path-colouring theorem gives static and online dimensions for paths, but its one-dimensional result does not determine joint feasibility at a three-arm hub. The closest earlier tree theorem proves a specific seven-vertex branching obstruction, with no general formula on larger trees or arm subdivisions. Walker (2022) concerns abstract tree/VC shattering, while Blanca et al. (2017) concerns hidden-graph reconstruction from proper-colouring samples. Searches for spiders, subdivisions, a four-step law, and the balanced value yielded these as closest inspected results, not an equivalent all-order theorem. Remaining risk: an unindexed equivalent statement under list colouring or constraint satisfaction terminology.
+PASS
 
-## Value
-A universal eventual-period law for the exact VC dimension of a branching graph family is stronger than an extra small-size computation. The common hub couples otherwise independent paths, so the path formula alone does not give the result; the finite state space resolves those coupled constraints and yields the explicit nontrivial balanced formula \(1+\lceil9m/4\rceil\), alongside an exact algorithm for arbitrary arm lengths. The result identifies which subdivisions systematically preserve the shattering deficit, a natural structural invariant of these colouring concept classes.
+Two distinct equality queries at one vertex cannot both be positive, so a shattered set has at most one mark per vertex. For a fixed trace on a processed arm suffix the feasible terminal colour set M determines all predecessor choices: a singleton excludes its own colour; otherwise every predecessor colour can differ from some member. The two answers at a marked new vertex intersect those choices with the target singleton or its complement. Taking all masks for all traces, merging equal masks and rejecting any empty mask is exact; any existing impossible trace prevents global shattering. The empty-arm {7} sentinel lets the leaf take any colour. At the actual hub every triple of arm masks is attainable by independent choices of answer strings. A common hub colour, or separate permitted common colours for positive and negative hub answers, is both necessary and sufficient, since arms do not share any other vertices. Thus maximizing separately over weights of the three signatures does not lose information. The independently computed 20 states at length four match the table including its successor columns and all twenty D8-D4 differences of 3. Closure and the equality of whole weight vectors with one constant offset propagate to every later length by the max-plus identity, not by extrapolation. An unqueried vertex costs zero, a mark costs one. Balanced m=1 through 7 gives 4,6,8,10,13,15,17; the four residue classes starting at 4 through 7 then increase by 9 when all arms grow by four, proving the stated ceiling formula for every m>=1. The proof concerns static queries and three colours, not Littlestone dimension or higher-degree trees.
 
-## Limits
-The proof requires a three-colour named palette, proper colourings, and Boolean vertex–colour equality tests. The all-parameter asymmetric result is an explicit finite-state max-plus formula, not a single closed elementary expression. Search coverage is not a guarantee of publication priority. The table certifies its infinite recurrence mathematically but should still be independently reviewed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of checked knowledge, the three-arm gluing law and twenty-state all-triple computation are not covered by the closest prior path theorem or bounded branching obstruction. The ordinary list-colouring feasibility algorithm for a fixed trace is not itself novel.
+
+## value
+
+PASS
+
+A three-arm spider is the first branching subdivision family beyond paths. Its shared hub obstructs naïve addition of three independent path optima. The exact finite-state rule covers every positive triple rather than a short list of examples: each arm has a uniform four-step law, and the balanced family has an explicit dimension at every length. These results quantify a structural shattering deficit in a natural family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

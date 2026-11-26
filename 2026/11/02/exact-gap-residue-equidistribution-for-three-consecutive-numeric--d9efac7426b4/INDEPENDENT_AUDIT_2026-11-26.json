@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:07.604804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/branches/58aaad68-ba8d-4ea6-ad37-26dd6060546b/independent-check.md"
+      ],
+      "rationale": "For each nonzero residue r modulo n, the increments from n+1 and n+2 must sum to at least r, so at least ceil(r/2) such generators are needed; that many attain the increment r. The resulting genus is h^2 for n=2h and h(h+1) for n=2h+1. In the even case, for any prime p dividing an admissible modulus, p divides h, and the gap polynomial at a primitive p-th root is nonzero (including p=2). In the odd case I checked the finite geometric sums, their factorization under genus divisibility, and the unit-circle nonvanishing of the remaining quadratic. The separately grouped sum at order three is nonzero when 3 divides h. Testing all nonidentity roots, rather than only a primitive root, gives exactly the claimed exclusion when m divides h and 3 divides m. The n=3 endpoint is included. An independent direct-membership dynamic program agreed for 2,242 pairs, 3 <= n <= 40 and 2 <= m <= 60; this is corroboration, not the proof. The supplied verifier was inspected but not run.",
+      "residual_risks": [
+        "No formal verification or external attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonzero Apéry representatives modulo n have successive differences alternating 1 and n+1 for n>=4, not an arithmetic progression; embedding dimension 3 is less than multiplicity n for n>3.",
+          "The broader interval-generator record restricts its modulus to divisors of the interval width k."
+        ],
+        "reasoning": "The arithmetic-Apéry and maximal-embedding-dimension classified assumptions do not cover n>3 by specializing to this family; the broader interval result specializes only to modulus 2 at width two.",
+        "searches": [
+          "Shor, arXiv:2101.01760v1, Theorem 4.5 and Corollary 5.7",
+          "Resultary: Sharp residue balancing for interval-generated numerical semigroups, 52a8ee434606"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.01760v1",
+        "Resultary record 52a8ee434606",
+        "arXiv:2404.06358v1",
+        "arXiv:2503.10826v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result with k=m=2 gives equidistribution iff n is odd, and the small maximal-embedding-dimension case n=3 is not a new classification.",
+          "The prior generic criterion still requires evaluating the nontrivial root cancellations; the inspected classifications do not yield the split between divisors of h+1 and divisors of h coprime to 3."
+        ],
+        "reasoning": "Credit direct implications even where the statements look different; the remaining classification requires the substantive order-three and nonsingular calculations.",
+        "searches": [
+          "Shor, arXiv:2101.01760v1, Proposition 3.9, Theorem 4.5, Corollary 5.7",
+          "52a8ee434606, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Apéry-residue multiset congruence is another criterion for uniform gap residues when the Apéry modulus is coprime to the equidistribution modulus.",
+          "The geometric triple a^2, ab, b^2 of coprime a,b>1 is not the three consecutive additive generators."
+        ],
+        "reasoning": "A general criterion reformulates the problem but does not evaluate it here. The other embedding-dimension-three classification is for a different generator structure.",
+        "searches": [
+          "Shor, arXiv:2101.01760v1, Proposition 3.9 and Theorem 4.5",
+          "Shor–Sim, arXiv:2503.10826v1, Proposition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed interval record's Finding and Assumptions include the parity case, not the higher-modulus cases.",
+          "The same-semigroup paper examines factorization and unique lengths, not a table or theorem of gap residue counts."
+        ],
+        "reasoning": "The exact object appears in adjacent work, but the inspected material does not tabulate or state the higher-modulus classification.",
+        "searches": [
+          "Resultary search for gap-residue equidistribution of consecutive/interval-generated numerical semigroups; strongest record 2026/11/2/SCOPE-sharp-residue-balancing-for-interval-generated-numerical-semigro--52a8ee434606",
+          "García-Sánchez–González–Planas-Vilanova, arXiv:2404.06358v1, Section 2"
+        ]
+      },
+      "rationale": "The all-moduli classification beyond the known parity slice and n=3 survives the inspected comparisons. Neither the Apéry calculation nor the roots-of-unity criterion is new. The strongest distinct indexed match directly covers m=2, not the full theorem; the same record date does not establish ordering.",
+      "residual_risks": [
+        "An unindexed broader classification or equivalent specialization may exist; the inspected comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion and small-case coverage, not the all-moduli family",
+          "evidence": "Theorem 4.5 assumes an arithmetic progression of nonzero Apéry elements and Corollary 5.7 assumes maximal embedding dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01760v1",
+          "material_read": "Proposition 3.9 (p. 7), Theorem 4.5 (p. 11), Corollary 5.7 (p. 14)",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On evenly distributed sets of gaps of numerical semigroups",
+          "trigger": "General gap-equidistribution and arithmetic-sequence classifications"
+        },
+        {
+          "assessment": "Direct partial overlap",
+          "evidence": "The modulus divides the interval width, so width two gives exactly the m=2 branch, not m>2.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-residue-balancing-for-interval-generated-numerical-semigro--52a8ee434606",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Sharp residue balancing for interval-generated numerical semigroups",
+          "trigger": "Strongest indexed match; same interval family"
+        },
+        {
+          "assessment": "Different invariant in the inspected results",
+          "evidence": "The stated results concern factorizations and unique length, not gap residue multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.06358v1",
+          "material_read": "Abstract and Section 2, pp. 1–3",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Elements with unique length factorization of a numerical semigroup generated by three consecutive numbers",
+          "trigger": "Same generator triple"
+        },
+        {
+          "assessment": "Different generator family",
+          "evidence": "Proposition 3.3 treats coprime-base geometric triples, not consecutive generators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.10826v1",
+          "material_read": "Section 3.2, Proposition 3.3 (p. 11)",
+          "method": "Open primary PDF, targeted passage",
+          "title": "Equidistribution Conditions for Gaps of Geometric Numerical Semigroups",
+          "trigger": "Exact gap-residue classification for other three-generator semigroups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 3–5",
+        "Resultary record 52a8ee434606, width-divisor restriction"
+      ],
+      "rationale": "A natural family of width-two semigroups has a complete modular gap classification beyond parity. It tells a reader exactly which divisors of the genus give equality, including the nontrivial obstruction at order three and the failure of mixed factors from consecutive h and h+1. These are useful distinctions not read off from the genus or the generator parity.",
+      "residual_risks": [
+        "The result does not classify wider generator intervals or factorization lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

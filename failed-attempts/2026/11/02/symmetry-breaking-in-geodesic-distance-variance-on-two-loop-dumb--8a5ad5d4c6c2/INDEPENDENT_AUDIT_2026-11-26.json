@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:51:26.483651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Arclength sampling gives independent component memberships and conditional uniform coordinates. Loop-to-attachment and within-loop distances are both uniform on [0,u/2]; cross-loop distances add the two independent radial coordinates and t; loop-to-bridge distances add a radial coordinate and a uniform bridge coordinate; the within-bridge distance has the triangular density. Weighting by length products (twice for different components) and integrating independently reproduces the two moment polynomials after s-normalization. For p=ab/s² in (0,1/4], the scaled variance derivative is [Q(r)+(1+32r−44r²)p]/[24(1+r)^4], with endpoint numerators proportional to Q(r) and (2r+1)C(r). C is strictly increasing on the positive axis; Q has exactly one positive zero by one Descartes sign change and existence from its endpoint signs. Exact rational substitutions bracket the two roots in the stated increasing order. The affine derivative is strictly negative inside the interval for r≤α, changes from negative to positive once for α<r<β, and is positive on the positive domain for r≥β. This verifies equality cases, uniqueness up to exchange, and the unattained infimum from p↓0; the positive length assumption is essential. The mean slope has sign r−1/4 and the exact witness at r=1/10 is p*=1079/4700 with improvement 384/17203175. Independent replay: python3 /tmp/opencode/nov02-independent-checks.py 5 (SymPy integration, differentiation, and exact identities). Numerical roots merely corroborate; the frozen attached script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier record gives the full convolution density (3), general second moment (4) and distributional recovery; thus the frozen proof's distance law and both exact normalized moments were already available.",
+          "Garijo–Márquez–Silveira cover weighted cactus mean distance, and Baptista–Kennedy–Mugnolo cover mean-distance extremals. Those alone would not supply centered variances."
+        ],
+        "reasoning": "The actual dominating result is not the broader topology of the mean-distance papers; it is the complete earlier formula on the identical topology for every positive bridge and loop length.",
+        "searches": [
+          "ea37b5fa3169 equation (3) and §§2–3",
+          "arXiv:2103.11676 §4 Proposition 4.2",
+          "arXiv:2312.04952 §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ea37b5fa3169",
+        "arXiv:2103.11676",
+        "arXiv:2312.04952",
+        "DOI:10.1002/jgt.3190060410 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the already explicit quadratic V=N/(1+r)²−M²/(1+r)^4, multiplying its endpoint derivative values by (1+r)^4 gives Q(r)/24 at zero and (2r+1)C(r)/96 at one quarter.",
+          "The opposite-sign interval follows by one Descartes sign test for the quartic and strict monotonicity of the cubic; the unique interior optimizer is the zero of the affine derivative. The usual open-boundary case accounts for nonattainment. The earlier mean order says equality minimizes when r<1/4."
+        ],
+        "reasoning": "No new geometric, probabilistic or optimization lemma is needed once the prior equations are used: differentiation of a quadratic, two polynomial signs, and checking an open endpoint give the optimizer and its contrast with the mean. This is mechanical implication, not an inference from a keyword overlap.",
+        "searches": [
+          "ea37b5fa3169 equations (1) and (4), and fixed-sum mean ordering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior uses c for bridge t and p=ab rather than ab/s². Divide (1) and (4) by the appropriate powers of s with c=rs and replace prior p by s²p; they become the frozen M/(1+r)² and N/(1+r)².",
+          "The admissible interval in both records is 0<ab≤s²/4, fixed loop sum and bridge; the experiments concern intrinsic independent arclength-pair samples."
+        ],
+        "reasoning": "This is the exact same distribution and objective after centering, not merely a visually similar barbell graph or a different Wiener-index distance model.",
+        "searches": [
+          "Resultary: metric dumbbell two loops bridge arclength pair-distance moments variance length allocation",
+          "ea37b5fa3169, Finding and §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact catalogue gives both needed moment polynomials analytically on the full two-loop parameter space; it does not tabulate the two optimizer thresholds."
+        ],
+        "reasoning": "Root tabulation is not needed to establish coverage. The exact same-family formula already determines the quadratic and endpoint tests. No claim is made that α and β were separately listed.",
+        "searches": [
+          "Local Resultary exact dumbbell first/second moment and density; ea37b5fa3169"
+        ]
+      },
+      "rationale": "Mathematically covered as a routine corollary, not shown to have been stated verbatim: earlier Resultary ea37b5fa3169 gives exact general first and second moments for this identical two-loop metric family and sampling, and the full pair-distance density. Its equations (1) and (4), not just an algorithm or moment formula at the resonance, are exactly the reviewed M and N after scaling. Centering and minimizing their one-variable quadratic by its two endpoint derivatives immediately give the claimed phase law. The asserted novelty as a separate result misses that directly available stronger calculation.",
+      "residual_risks": [
+        "No claim of worldwide priority or that an earlier author stated α and β. The inaccessible 1982 full text does not drive the verdict; the earlier same-object exact formulas are decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact governing formulas, from which stated optimization is a direct quadratic corollary; no claim that prior explicitly states the two thresholds",
+          "evidence": [
+            "First moment B1+(c−s/4)ab; general second moment B2+ab(−s²/6+cs/2+c²)+(ab)²/12, both divided by total length squared.",
+            "Full density and fixed-sum mean ordering are also explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-mean-distance-blindness-transition-and-global-recovery-of-metr--ea37b5fa3169/RESULT.md",
+          "material_read": "Finding and proof §§1–3, offsets 0–7785, especially equations (1), (3), (4)",
+          "method": "Read decisive local mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; normalize and compare formulas",
+          "title": "A mean-distance blindness transition and global recovery of metric dumbbells",
+          "trigger": "Same arclength distance distribution on the exact two-loop topology"
+        },
+        {
+          "assessment": "First-moment algorithm, not a source of the alleged sharp variance law",
+          "evidence": [
+            "Weighted cactus-graph continuous mean-distance computation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.11676",
+          "material_read": "§4, Proposition 4.2, pp. 15–16, OA offset near 53979",
+          "method": "Locate and read primary OA passage",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "Potential general network-distance computation for a cactus graph"
+        },
+        {
+          "assessment": "Mean rather than centered second moment in the compared passages",
+          "evidence": [
+            "Mean-distance flower and surgery results concern a different objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.04952",
+          "material_read": "§4 flower result and §5 Theorem 5.1, p. 11, OA offsets around 43883 and 44057",
+          "method": "Inspect primary OA theorem and surrounding context",
+          "title": "Mean Distance on Metric Graphs",
+          "trigger": "Geometric length allocation and graph surgery for distance objectives"
+        },
+        {
+          "assessment": "Historical risk; not needed as evidence for the negative decision",
+          "evidence": [
+            "J. Graph Theory 6 (1982), 453–471, as cited in the frozen record."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+          "material_read": "Bibliographic citation only; original full text not inspected",
+          "method": "Record the access limitation; do not infer absence of coverage from it",
+          "title": "Mean Distance for Shapes",
+          "trigger": "Foundational source with potentially relevant continuous-network examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical corollary, identifying the full range of asymmetry, its contrast with minimizing the mean, and the sharp nonattainment boundary gives a useful geometric interpretation of the quadratic objective. This is more informative to a reader than evaluating one length allocation. It does not rescue the originality failure or justify presenting the earlier moment calculation as a separate contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

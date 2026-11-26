@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:36.966742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt; code inspected, not executed; recorded n=4,5,6 totals and finite weighted checks are supplementary",
+        "Conant arXiv:1401.1570v1, Definition 3.1 and quantifier elimination immediately following"
+      ],
+      "rationale": "For n≥4 both explicit seam choices give simple triangle-free cubic graphs. A pairwise intersecting triple of edges is a star or triangle, and four pairwise intersecting edges are impossible here. Thus L(G) is K₄-free and its triangles are exactly the three-edge stars. A neighborhood of a distinct new vertex is legal precisely when it omits at least one edge of each star. Universal finite extension and homogeneity realize each choice over the named parameters (arbitrarily many new mutually nonadjacent copies are possible), and quantifier elimination identifies the choice with a unique complete nonalgebraic type. Thus its nonneighbor set is an edge cover with the same weights. In the transfer, a chosen rung contributes v_i with no conditions; an absent rung requires both incoming/outgoing bit ORs to be true. Rail weights occur exactly once because they are counted at their outgoing column. The twisted seam swaps the final/initial bit pair, giving tr(BJ) instead of tr(B). Simultaneous row exchange commutes with each local matrix. Directly subtracting columns 01 and 10 gives (0,−u_i,u_i,0)ᵀ: all rung contributions cancel and the off-diagonal cover indicators give the indicated signs. Over the rational polynomial ring the invariant symmetric block cancels in the trace difference, and the antisymmetric line contributes 2 times the product of −u_i. This is therefore an identity over the integers as stated. The minimum cover degree is n and is attained by the all-rung matching; the only different coefficient is supported there. Reversal of degree by 3n gives the neighbor spectrum. The sign switches correctly with parity and no identification of individual types is needed.",
+      "residual_risks": [
+        "Paired-rail weights are essential to the stated symmetry; the theorem does not cover independently chosen weights on both edges of a column or widths below four."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general edge-cover polynomial and recurrence apparatus is established; the inspected Akbari–Oboudi cycle recurrence is univariate.",
+          "MathWorld lists fourth-order homogeneous recurrent sequences for the prism and Möbius families; the viewed text did not expose the equation cells, so their exact equality was not independently inferred from the order alone.",
+          "The perfect-matching formulas are valid across sizes, but do not count higher edge covers."
+        ],
+        "reasoning": "Uniform recurrence data and a matching enumeration are not a stronger inhomogeneous transfer statement. An arbitrary sequence of local matrices with independent rung variables requires per-site commutation and the local antisymmetric factor; homogeneous specializations cannot in general recover that many-variable law.",
+        "searches": [
+          "Akbari–Oboudi, edge-cover polynomial and recurrence, p. 1 and p. 8 Cor. 6",
+          "MathWorld Edge Cover Polynomial recurrence table",
+          "Lekshmi–West arXiv:2003.09602v1 §2"
+        ]
+      },
+      "checked_sources": [
+        "Conant arXiv:1401.1570v1",
+        "Akbari–Oboudi DOI 10.1016/j.ejc.2012.05.005",
+        "Lekshmi–West arXiv:2003.09602v1",
+        "Alikhani–Jahari arXiv:1312.7506",
+        "MathWorld Edge Cover Polynomial",
+        "Resultary 9565cf662a87, 217ee7d98ffe and identity comparison at 107eb7e91db3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By the parity-dependent two-unit term of the known matching formulas, the univariate minimum coefficient difference is already 2(−1)^n.",
+          "The other pair comparisons concern Walsh recovery from perfect matchings and wedge decompositions of matching complexes.",
+          "The full theorem asserts coincidence of all higher cover degrees, even for independently varying column activities, which is exactly the cancellation established in the antisymmetric line proof."
+        ],
+        "reasoning": "The known minimum degree does not give the higher-degree coefficients. The homogeneous comparison and other graph invariants cannot force cancellation of arbitrary separate rung-activity monomials. The fresh claim is the exact all-width weighted cancellation, not priority for any of its known reductions.",
+        "searches": [
+          "Lekshmi–West §2 Theorems 2–3",
+          "Alikhani–Jahari §5 and Table 1",
+          "Resultary 9565cf662a87 and 217ee7d98ffe original findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quantifier elimination plus triangle omission identifies the Henson spectrum with an edge-cover polynomial; a prior weighted edge-cover identity would fully cover the claimed equality regardless of terminology.",
+          "The univariate edge-cover polynomial and the underlying finite-extension formalism are standard. The inspected nearby ladder records instead use perfect-matching incidence or matching complexes."
+        ],
+        "reasoning": "The logic interpretation alone would not rescue an already-known identical count. The distinction from examined results is independent activity at every column, not simply replacing edge covers by one-types. Perfect-matchings concern only one degree and the matching complex does not encode covers.",
+        "searches": [
+          "Resultary for Möbius/prism ladder Henson types, twist edge-cover polynomial, weighted edge-cover difference",
+          "Conant arXiv:1401.1570v1 Sec. 3",
+          "Akbari–Oboudi edge-cover polynomial definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 rows G₆ and G₁₀ uniquely have e₅=13 and 11 respectively; by the perfect-matching formulas they are the n=5 Möbius and prism. From degree 6 to degree 15 their coefficients are identical.",
+          "The mirrored 107eb7e91db3 is the identical frozen record. The Walsh perfect-matching and nine-rung matching-complex records are distinct matches in family and were read at their Findings, but do not list this invariant."
+        ],
+        "reasoning": "The table is direct coverage of the homogeneous n=5 difference, not merely a related title. Its data are neither weighted nor all-width. The existence of the identical copy contributes no independent priority evidence, and the same date on a distinct entry does not order it.",
+        "searches": [
+          "Alikhani–Jahari arXiv:1312.7506 Table 1, all cubic graphs of order 10",
+          "Resultary exact weighted twist query; identical record 107eb7e91db3 and distinct records 9565cf662a87, 217ee7d98ffe"
+        ]
+      },
+      "rationale": "The supported distinct part is the fully site-inhomogeneous twist cancellation with arbitrary rung and paired-rail activities, transferred to the complete one-type inventory. Do not assign novelty to the generic Henson extension principle, perfect-matching difference, finite census cases, or the all-homogeneous recurrence specialization. The arXiv identifier 1312.7506 is correct but the frozen reference uses a descriptive rather than canonical title; the source inspection gives the actual title.",
+      "residual_risks": [
+        "Exact formula cells in the homogeneous web table were not independently read. A less visible source may give the paired-rail inhomogeneous identity or a stronger transfer theorem with the same implication; bounded comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard generic graph framework, not the ladder count",
+          "evidence": "Induced universality for finite Kₙ-free graphs, homogeneity, and quantifier elimination.",
+          "identifier_or_url": "https://arxiv.org/html/1401.1570v1",
+          "material_read": "Sec. 3 Definition 3.1 and following quantifier elimination paragraph; text offsets 7990–9809",
+          "method": "Lawful arXiv primary HTML",
+          "title": "Forking and dividing in Henson graphs",
+          "trigger": "Model-theoretic equivalent interpretation"
+        },
+        {
+          "assessment": "Univariate apparatus; no weighted ladder law in examined statements",
+          "evidence": "E(G,x)=Σ e(G,i)xⁱ and a cycle recurrence.",
+          "identifier_or_url": "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+          "material_read": "PDF p. 1 polynomial definition and p. 8 Cor. 6",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On the edge cover polynomial of a graph",
+          "trigger": "Could a broader edge-cover theorem imply the twist law?"
+        },
+        {
+          "assessment": "Exact all-width coverage of unweighted minimum coefficient difference",
+          "evidence": "F_(n−1)+F_(n+1) plus two for Möbius when n is odd or prism when n is even.",
+          "identifier_or_url": "arXiv:2003.09602v1",
+          "material_read": "§2 Theorems 2–3, PDF extraction offsets 5174 and 10096",
+          "method": "Lawful arXiv primary PDF",
+          "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+          "trigger": "Exact same graph families and parity effect"
+        },
+        {
+          "assessment": "Exact homogeneous n=5 coverage, not the weighted or all-width result",
+          "evidence": "The unique 13 and 11 entries in column 5 are G₆ and G₁₀; identical entries in columns 6–15 including 230 in column 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7506",
+          "material_read": "PDF pp. 12–13, §5 and Table 1, text offsets 39700–44429",
+          "method": "Lawful OA arXiv PDF primary table",
+          "title": "On the edge cover polynomial of certain graphs",
+          "trigger": "Exact finite edge-cover data for both graphs"
+        },
+        {
+          "assessment": "Documents homogeneous recurrence coverage, exact equation not compared from labels alone",
+          "evidence": "Separate Möbius ladder and prism rows of order four.",
+          "identifier_or_url": "https://mathworld.wolfram.com/EdgeCoverPolynomial.html",
+          "material_read": "Recurrence table family and order labels, text offset 900 onward",
+          "method": "Lawful website mode; formula cells unavailable in inspected extraction",
+          "title": "Edge Cover Polynomial",
+          "trigger": "Direct homogeneous prism/Möbius recurrence citation"
+        },
+        {
+          "assessment": "Distinct invariant, not coverage even if catalogue date agrees",
+          "evidence": "Convolution invertibility for perfect-matching incidence, with Möbius criterion 6∤n.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-m-bius-twist-modulo-six-law-for-walsh-recovery-from-perfect-ma--9565cf662a87",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A Möbius-twist modulo-six law for Walsh recovery from perfect matchings",
+          "trigger": "Same-family catalogue match"
+        },
+        {
+          "assessment": "Different invariant and finite width",
+          "evidence": "Matching complexes at nine rungs have different numbers of five-sphere summands; no edge-cover polynomial is identified.",
+          "identifier_or_url": "2026/11/17/SCOPE-twist-sensitive-five-sphere-wedges-in-nine-rung-cubic-ladder-mat--217ee7d98ffe",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Twist-sensitive five-sphere wedges in nine-rung cubic ladder matching complexes",
+          "trigger": "Same family and seam but potentially different matching invariant"
+        },
+        {
+          "assessment": "Identical record, not independent prior evidence",
+          "evidence": "Same paired-rail variable restriction, inhomogeneous formula and antisymmetric transfer proof.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-extremal-type-coefficient-detects-a-m-bius-twist-in-hen--107eb7e91db3",
+          "material_read": "Mirrored RESULT.md identity and proof compared to the frozen RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A single extremal type coefficient detects a Möbius twist in Henson-graph ladder bases",
+          "trigger": "Direct catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen multivariate claim and Steps 1–4",
+        "Known minimum and homogeneous finite coverage compared above"
+      ],
+      "rationale": "The stronger weighted invariant separates seam sensitivity from bulk type counts on two natural cubic ladder families. Arbitrary rung perturbations and independent columnwise rail-pair perturbations do not introduce any further difference: the twist only couples to one antisymmetric transfer mode. That is a useful complete enumeration statement, not a relabeling of the already-known two-unit perfect-matching difference or a finite table recomputation.",
+      "residual_risks": [
+        "Value is specific to the paired-rail symmetry and these finite named Henson bases; no identification of individual types or general graph-class extension implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

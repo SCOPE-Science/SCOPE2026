@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:48:37.683044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and VERIFICATION.md lines 19–25",
+        "Independent code /workspace/branches/8a8b1cf9-325f-408d-b8ec-b1703b4535e9/two_sided_word_game_replay.py and replay_n17.txt in that directory"
+      ],
+      "rationale": "For a candidate losing word with both letters, each ab prefix deletion leaves a b-to-a word, and each ba suffix deletion leaves an a-to-b word; pure words have no moves. A complementary word beginning in b or ending in b can be moved to a pure b-word, including the empty word. For a complementary word with both ends a, cutting at the first singleton b-run leaves a candidate losing prefix. This proves the P/N classification by length induction. Run minima consume 3j+1 letters; distributing slack among 2j+1 runs gives the binomial sum and the geometric series yields the rational function. The cubic in lambda has discriminant -23, so its root lambda in (1,2) dominates the two conjugate roots of modulus lambda^(-1/2); the simple-pole coefficient equals the stated C. Deletion lowers length by at least two, and even-length prefix cuts of the alternating word realize every smaller Grundy value, including at the empty-word boundary. A fresh length-0-through-17 exhaustive mex and enumeration replay passed, but the all-length claims rest on these proofs.",
+      "residual_risks": [
+        "The replay is finite and does not check the original uploaded programs or constitute a formal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Printed pp. 50–53 give the two-sided formulation, Timber/Dyck case and End-Nim example. Printed p. 55 poses the general problem for WordSubtraction(Σ*U,VΣ*) and explicitly asks about overlaps."
+        ],
+        "reasoning": "The general class is prior, but the paper poses rather than proves a general solution covering U={ab}, V={ba}.",
+        "searches": [
+          "Inoue and Inazu, Word Subtraction Games arXiv:2611.09157, §5.1 and Problem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09157 §5.1 and Problem 5.1",
+        "Resultary 0a8d7e89e639 (self), e200bbffa34e, 98406dab7d57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper's Timber P-language is Dyck, not the run language here; its rules differ. The one-sided result does not account for simultaneous legal cuts from both ends."
+        ],
+        "reasoning": "Stars and bars and the general mex bound are standard consequences once the structure or witness is known, not independent novelty claims. The exact losing language and sharp alternating witness are not consequences shown by the prior examples.",
+        "searches": [
+          "arXiv:2611.09157, two-sided Timber and End-Nim, Problem 5.1",
+          "Resultary e200bbffa34e and 98406dab7d57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversal exchanges the two moves of the same game; letter complementation sends it to prefix ba/suffix ab with the complemented losing language. Neither operation sends two-letter triggers to the paper's Timber one-letter triggers.",
+          "The resultary mirror's sharp Grundy growth for a two-state word subtraction record e200bbffa34e concerns one-sided suffix removal specified by a DFA."
+        ],
+        "reasoning": "The reverse/complement aliases preserve the relevant invariants but do not identify this game with either closest distinct comparator; in particular a one-sided theorem does not apply to the two ends.",
+        "searches": [
+          "Resultary comparison for two-sided binary word subtraction with prefix trigger ab and suffix trigger ba",
+          "arXiv:2611.09157 §5.1 and Problem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-run-rigidity-and-exact-losing-position-enumeration-for-two-lette--0a8d7e89e639 is the exact frozen record itself, including the enumeration and maximum; it is not independent evidence of coverage.",
+          "Neighboring 98406dab7d57 enumerates balanced prefix/suffix deletion, a distinct game."
+        ],
+        "reasoning": "No distinct exact language, series, or Grundy table for this trigger pair was identified in the checked entries. The query is not exhaustive.",
+        "searches": [
+          "Resultary target and neighboring word-subtraction entries"
+        ]
+      },
+      "rationale": "The exact self-match is not distinct prior coverage. The closest primary work poses the general overlap question but studies other concrete games. The distinct checked catalogue comparators do not give the ab/ba transition-pair losing language or its sharp extremum. Assessment is relative to the inspected sources, not historical priority.",
+      "residual_risks": [
+        "Unindexed work or a different equivalent presentation may exist. A same-day self listing establishes no priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and distinct examples, not exact coverage in the inspected passages",
+          "evidence": [
+            "Timber's Dyck example uses singleton a and b; the more general overlap problem is stated as a question."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09157",
+          "material_read": "§5.1 printed pp. 50–53 (OA offsets 152000–159957) and Problem 5.1 printed p. 55 (offset 166245)",
+          "method": "OA original PDF passages",
+          "title": "Word Subtraction Games",
+          "trigger": "Same two-sided framework and plausible exact overlap example"
+        },
+        {
+          "assessment": "Same record, not a distinct prior result",
+          "evidence": [
+            "Same language, coefficient formula, asymptotic, and sharp Grundy number."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-run-rigidity-and-exact-losing-position-enumeration-for-two-lette--0a8d7e89e639",
+          "material_read": "Mirrored RESULT.md Finding from offset 250",
+          "method": "Resultary search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Run-rigidity and exact losing-position enumeration for two-letter two-sided word subtraction",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Word Subtraction Games, Problem 5.1"
+      ],
+      "rationale": "The overlapping opposite transitions are a natural small case of the stated open extension problem. The theorem determines the outcome for every word, gives a regular language contrasting with the one-letter Dyck example, and fixes the true scale of attainable nimbers, rather than sampling short words or claiming the general problem solved.",
+      "residual_risks": [
+        "Value is for this natural trigger pair, not all two-sided word-subtraction games."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:56:26.912118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–43, 47–134",
+        "VERIFICATION.md lines 2–23",
+        "checks/check.py lines 10–86; inspected without execution"
+      ],
+      "rationale": "For real BV the positive and negative parts of Df have mass V(f)/2. Their product coupling writes the residual as V(f)/2 times the mean of the residuals of oriented arcs. In an equality case the arc residuals all have maximal norm and zero Hilbert-space variance, so they agree almost surely. Injectivity modulo constants gives the same ordered pair of derivative atoms. Parseval, the two frequencies ±n and V(1_arc)=2 give the stated 1/(2π²) coefficient, and continuity on [0,1/2] gives attainment. On the line the step residual is (sgn x)/2 times erfc(|x|/(2√t)); the inner product between two translates has absolute bound √(2πt) exp(−separation²/(8t))/4. Summing shifts at distances at least |k|−1/2 proves the exponentially small, uniform error needed for varying maximizing lengths. The line rescaling v=2π√t|ξ| gives √t F(d/(2√t)). Splitting the unregularized Dirichlet term from the Gaussian terms gives F′=erfc(z)−erfc(z/√2)/2. The increasing Gaussian hazard makes the tail ratio strictly increasing from 1 to infinity. The unique maximum lies strictly above the limit at infinity, so every maximizing rescaled length converges. Independent bisection on [0,2] with erfc rechecked the stated constants; higher-precision bisection using the alternating erf series on [0.9,1.1] gave z*=0.992269655382049579 and F(z*)=0.198313496197009020. The prefactor rounds to 0.445324035054261 at 15 decimal places (one final digit different from the frozen decimal); the exact formula is unaffected.",
+      "residual_risks": [
+        "The supplied checker is at checks/check.py, not the advertised root path; from the record directory the replay path is python3 checks/check.py. No checker was executed. Its golden-section probes are finite numerical evidence, not a global certification.",
+        "No uniqueness of the optimal length at arbitrary fixed positive t is asserted. No Lean or expert check was supplied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional statement is for fixed 1<α<2; its tail sign comes from sin(πα), which vanishes at 2. It localizes to a set of minimizers, not to a unique Gaussian root.",
+          "The Carnot-group theorems address L¹ BV/gradient limits, not this L² best constant."
+        ],
+        "reasoning": "At fixed t the arc maximum extends to the Gaussian endpoint by uniform dominated Fourier convergence. This does not commute with optimizing as t tends to zero, nor supply endpoint uniqueness or the strict endpoint gap.",
+        "searches": [
+          "Resultary fractional circle heat 7a0bf76b866b, Finding and proof of (7)",
+          "arXiv:1107.3996, Theorems 11 and 14"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: four identified records",
+        "DOI:10.5802/afst.1142",
+        "arXiv:1107.3996"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The resolvent proof has the same structural reduction; the fractional proof's actual limit-point argument requires a strict drop of the transform which its algebraic tail estimate does not give at α=2.",
+          "Heat leakage and fixed-volume rearrangement give no formula for the competing heat times in the squared residual."
+        ],
+        "reasoning": "Credit the known reduction and fixed-t endpoint implication. The Gaussian maximization and quantitative comparison still need separate analysis.",
+        "searches": [
+          "7a0bf76b866b, proof §3, offsets 4800–7862",
+          "1a083add3aa3, proof §§1–2",
+          "DOI:10.5802/afst.1142, equations (1.1), (1.4)–(1.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The implicit-Euler statement uses (I−t∂²)⁻¹ and squared coefficient 0.14191691040457659, not the Gaussian multiplier and 0.198313496197009.",
+          "The literature's fixed-volume smoothed-indicator inequality and L¹ heat-flow BV limits do not equal the varying-volume, variation-normalized L² residual.",
+          "Fejér has a cutoff multiplier and a sine-integral profile; the Poisson-mixture inequality m₂≥m₁² is reversed by Gaussian heat."
+        ],
+        "reasoning": "Operator, normalization and optimization variable all matter. Close analogues do not become this Gaussian result by rotation, rescaling or a change of Fourier convention.",
+        "searches": [
+          "Resultary periodic BV residual comparisons: implicit Euler heat 1a083add3aa3, fractional heat 7a0bf76b866b, Poisson mixtures 8e1e09f82c1d, Fejér error c40138cba6b6",
+          "Miranda–Pallara–Paronetto–Preunkert DOI:10.5802/afst.1142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected records give different explicit constants or operator-specific profiles; the closest fractional source gives a variational transform for α<2, not the Gaussian exact erfc value and optimizer.",
+          "Fejér gives N d_N→0.532264718605, implicit Euler gives s_t/√t→2; Gaussian gives d_t/√t→1.9845393107641."
+        ],
+        "reasoning": "No inspected entry tabulates or states the Gaussian pair; the constants from different multipliers are not matching records. Index coverage is finite.",
+        "searches": [
+          "Resultary BV sharp periodic heat/Fejér/Poisson/resolvent indexed matches 7a0bf76b866b, c40138cba6b6, 8e1e09f82c1d, 1a083add3aa3"
+        ]
+      },
+      "rationale": "The generic pair-of-jumps reduction and sharp arc-norm representation substantially overlap the periodic multiplier work and are not the distinct content. The best-supported distinction is the Gaussian endpoint calculation: its uniform sharp profile, explicit erfc critical equation and unique microscopic optimizer for every maximizing sequence, with the strict gain over fixed arcs. No inspected statement gives that package. The closest fractional result excludes α=2, and its negative-tail proof degenerates there, rather than proving the Gaussian strict gap or uniqueness. This is a bounded evidence conclusion, not a chronology or priority claim.",
+      "residual_risks": [
+        "A prior Gaussian endpoint or a general heat-kernel result supplying this exact variational maximum could be unindexed. Same-date indexed records do not establish priority or ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related; fixed-time norm by continuity, not the sharp limiting Gaussian conclusion",
+          "evidence": "Equation (7) sign argument uses sin(πα)<0 for 1<α<2; strict localization depends on that sign.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-short-pulse-resonance-and-a-quadratic-poisson-boundary-law-for-f--7a0bf76b866b/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–4861; proof passage offsets 4800–7862",
+          "method": "Local mirror, bounded text",
+          "title": "Short pulse resonance and a quadratic Poisson boundary law for fractional periodic heat",
+          "trigger": "Same multiplier family, α=2 endpoint"
+        },
+        {
+          "assessment": "Structural overlap but different operator and sharp constants",
+          "evidence": "Resolvent multiplier; s_t/√t→2, C(t)²/√t→0.14191691040457659.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-bifurcation-of-worst-bv-errors-for-periodic-implicit-eul--1a083add3aa3",
+          "material_read": "Finding and Proof §§1–2, offsets 0–4517",
+          "method": "Local mirror, bounded text",
+          "title": "A sharp bifurcation of worst BV errors for periodic implicit Euler",
+          "trigger": "Same norm, geometry, arc rigidity and microscopic scale"
+        },
+        {
+          "assessment": "Does not include Gaussian heat",
+          "evidence": "Moment multipliers and semicircle extremizers; Gaussian violates the required moment inequality.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-antipodal-extremizers-and-a-half-order-crossover-for-p--8e1e09f82c1d",
+          "material_read": "Finding and Assumptions, offsets 0–4606",
+          "method": "Local mirror, bounded text",
+          "title": "Universal antipodal extremizers and a half-order crossover for Poisson mixtures",
+          "trigger": "Potential general periodic residual family"
+        },
+        {
+          "assessment": "Analogue, not the Gaussian law",
+          "evidence": "Fejér cutoff gives a sine-integral optimization at the scale 1/N.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-mean-square-fej-r-error-of-periodic-bounded-variation-data--c40138cba6b6",
+          "material_read": "Finding and Proof §§1–2, offsets 0–3885",
+          "method": "Local mirror, bounded text",
+          "title": "Sharp mean-square Fejér error of periodic bounded-variation data",
+          "trigger": "Same exact norm reduction and short pulses"
+        },
+        {
+          "assessment": "Different normalization, geometry and operator quantity",
+          "evidence": "(1.1) compares smoothed indicator norms at fixed volume; (1.6) is an L¹ characterization.",
+          "identifier_or_url": "https://cvgmt.sns.it/media/doc/paper/801/MPPP.pdf",
+          "material_read": "PDF pp. 1–3, equations (1.1), (1.4)–(1.6)",
+          "method": "Lawful OA full text, bounded pages",
+          "title": "Short-time Heat Flow and Functions of Bounded Variation in R^N",
+          "trigger": "Classical heat/BV and L² rearrangement comparison"
+        },
+        {
+          "assessment": "Not a sharp periodic L² residual calculation",
+          "evidence": "L¹ gradient and nonlocal L¹ difference limits under the respective geometric hypotheses.",
+          "identifier_or_url": "arXiv:1107.3996",
+          "material_read": "PDF pp. 1–2, p. 10 Thm. 11, p. 12 Thm. 14",
+          "method": "Lawful OA full text, bounded pages",
+          "title": "Two characterization of BV functions on Carnot groups via the heat semigroup",
+          "trigger": "Broader heat/BV theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 17–39, 82–134"
+      ],
+      "rationale": "In a natural approximation norm the asymptotic constant cannot be recovered by holding a test arc fixed. The two jumps interact at a uniquely determined diffusion-scale separation, yielding about 20.01% more squared error than separated jumps. This settles both the sharp small-time benchmark and the geometry of all optimizers in that limit, rather than only substituting a heat multiplier in a formula.",
+      "residual_risks": [
+        "No all-time phase diagram, higher-dimensional extension, or non-Gaussian universality follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

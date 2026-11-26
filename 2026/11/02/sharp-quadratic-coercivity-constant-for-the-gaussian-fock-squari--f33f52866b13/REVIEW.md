@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly the Gaussian probability-normalized Fock norm and complex degree-at-most-two polynomials. Gaussian monomial orthogonality independently yields the displayed formulas for both squared quantities. The identity \(U-V=(|a|^2+|b|^2+2|c|^2)^2-|a|^4\) proves that, when all coefficients are present, the coefficient-phase maximizing ratio is uniquely the anti-aligned configuration. All coefficient-zero cases have ratio at most two and cannot attain the claimed value. After scale reduction, the deficit is a convex quadratic in the middle-coefficient squared magnitude, and an exact quartic sign certificate handles the remaining radius. The quartic has a verified double root at the algebraic optimum and exactly two additional real simple roots isolated by rational strict inequalities. Its leading sign and the independent isolating intervals for the concave phase coefficient settle every positive parameter, establishing both sharpness and equality classification. The exact symbolic checker from this package returns `CHECK_OK 29`; its finite examples are supplementary, not substitutes for the polynomial proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Gaussian orthogonality applied to the five coefficients of F² gives U; V=U+|a|⁴−(|a|²+|b|²+2|c|²)², and V>0 for a nonconstant polynomial. Thus the ratio strictly decreases with the relative-phase cosine when abc≠0; the optimum is anti-aligned. All nonconstant coefficient-zero cases have ratio at most 2. After |a|=1, completing the square in x=|b|² gives the deficit and quartic F_K in RESULT.md lines 52–68. An independent rational Horner calculation in Q[k] modulo the defining cubic returned zero for both F_K(u*) and its u derivative. Rational interval evaluation gives 0.176<u*<0.177 and β_K(u*)>0.3655; the cubic changes sign and has positive derivative on the specified K interval. As an alternative to the frozen quartic root exhaustion, divide F_K by (u−u*)². The quotient is a convex quadratic (positive leading coefficient), negative at both roots of β_K because there F_K=−4(K−2)[4(K−2)u²+(20K−24)u⁴]<0. Hence the quotient is negative on the entire interval where β_K>0. The unique zero there is u*, with x=β_K(u*)/[2(K−2)]; the phase condition yields exactly the stated scalar/rotation class. Constants give equality trivially. Independent numerics agree with K, sqrt(K), u*, and x*. CHECK.py and VERIFICATION.md were inspected; the uploaded script was not executed. The inequality is sharp on degree at most two; it only lower-bounds the unrestricted norm constant.
 
-Bortolotto and Ramos, arXiv:2608.26365v1 (2026-08-26), introduction, proof and comments, establish existence of an unspecified constant for every entire Fock function; this logically yields a non-sharp degree-two bound but does not determine the exact constant, its cubic minimal polynomial or extremizers. Bertolini et al., arXiv:2605.20527v1, abstract and main theorems, study related modulus (rather than the exact square/variance ratio) stability and do not state the present extremal calculation. Searches for Gaussian quartic, squared-Fock coercivity, degree-two sharp constants and the exact cubic found no equivalent statement in the inspected published and mathematical-record corpus. Closest recorded Fourier fourth-moment extrema concern distinct finite-field or other Hilbert-space functionals; they neither imply nor are implied by this Gaussian problem. An unindexed earlier computation remains possible. Search absence alone is not asserted as a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The new exact algebraic constant and equality geometry solve the first nontrivial three-coefficient section of a recently highlighted full-space coercivity problem. The degree-one sharp squared constant is only two, so the strict transition at degree two produces a substantive quantitative lower bound on any full-space sharp constant. The extremal anti-alignment and exact quartic certificate make the result useful as a benchmark for Gaussian phase retrieval and any future higher-degree optimization, rather than an arbitrary isolated numerical enumeration.
+The closest primary theorem is exactly the same inequality with an unspecified uniform constant on a larger space, not an optimization. Neither it nor the inspected closely related finite-dimensional records imply the cubic, the strict gain over 2, or the complete equality class. The pass is limited to those exact degree-two results.
 
-## Limitations and residual risks
+## value
 
-The unrestricted sharp Fock constant and all degree-three-or-higher sharp constants are unknown from this result. An earlier uncatalogued equivalent quartic Gaussian moment inequality could overlap. No independent mathematical audit has taken place; numerical calculations only supplement the symbolic analytical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Degree two is the first nonlinear polynomial section of a motivated square-restricted phase-retrieval inequality. The exact optimum exceeds the affine value and gives a rigorous unrestricted lower bound, while the unique nonconstant orbit identifies the phase cancellation responsible. These supply a concrete sharp benchmark for higher-degree or unrestricted bounds, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

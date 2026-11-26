@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:45:56.863585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition and proof §§1–5; frozen VERIFICATION.md and verify.py (inspected, not run): direct lattice points for m=3–5, endpoint pairs for m=3–8, transfer checks through m=50",
+        "Zhong arXiv:2611.16858, Theorem 1 and §2, definitions, matching proof and univariate specialization"
+      ],
+      "rationale": "Zhong's support theorem applies to this order-ideal polytope and counts disjoint matchable endpoint pairs, not the bijections witnessing them. Disjointness rules out equality, so the minimal and maximal shores of the crown's strict-comparability graph supply all the sources and targets. This graph is the simple cycle C_{2m} also at m=3. A proper set of endpoints induces a forest, and the symmetric difference of distinct perfect matchings would contain a cycle. Thus below j=m there is exactly one witness per matchable pair. At j=m the single endpoint pair has two witnesses, giving the subtraction of q^m. Marking one selected edge counts j-matchings as (2m/j) binom(2m−j−1,j−1), and the closed-walk trace of the two-state edge-selection matrix counts cyclic matchings. Its eigenvalues satisfy λ²−λ−q=0; their squares have sum 1+2q and product q², giving the Chebyshev expression first for q>0 and then as a polynomial identity. On each angular interval (jπ/m,(j+1)π/m), cos(mθ)=1/2 holds once at the stated angle, with nonzero derivative. The corresponding q=1/[2(cosθ−1)] is strictly below −1/4, and these m distinct values exhaust the degree. For every q<0 the t-equation has discriminant 1−4q>0, product 1 and negative sum 1/q−2. Roots from different q cannot overlap, and H_m(−1)=(−1)^m≠0. The reciprocal negative pairs exhaust the degree 2m. At m=3 the correction changes 1+6q+9q²+2q³ to 1+6q+9q²+q³, giving the stated support coefficients.",
+      "residual_risks": [
+        "The frozen script cross-checks integer coefficients on finite ranges; all-order root conclusions use the proof, not numerical root finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhong and the specialist release count disjoint matchable pairs for general preorders; the latter treats crown-free flag realization.",
+          "Ohsugi–Tsuchiya Proposition 3.5 gives matching-polynomial equality and real-rootedness when G is a forest. The cycle is not covered; there are two witnesses on the full bipartition.",
+          "Athanasiadis–Chapoton pose general support real-rootedness, not an all-order root theorem for crowns. Zhong provides a counterexample in a separate family. Cao–Fu prove simple negative roots for a crown order-polytope Ehrhart numerator, of degree 2m−2, not the degree-2m preorder support polynomial."
+        ],
+        "reasoning": "General gamma-positivity and flag realization in a different class do not imply simple real roots. The closest positive general matching-root theorem omits the cycle needed here. The two crown polynomials with real roots have different degrees, constructions and coefficient meanings.",
+        "searches": [
+          "Zhong Theorem 1/§2",
+          "Preorder polytopes: matching endpoint pairs, flag spheres and the Athanasiadis–Chapoton conjectures, Theorems A–B",
+          "Ohsugi–Tsuchiya Propositions 3.4–3.5",
+          "Athanasiadis–Chapoton Conjecture 5.3; Cao–Fu Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Zhong arXiv:2611.16858; Ohsugi–Tsuchiya doi:10.1007/s00029-020-00588-0; Dai et al. arXiv:2608.16037",
+        "Athanasiadis–Chapoton arXiv:2605.26916 and Cao–Fu arXiv:2610.40496",
+        "Zenodo 24235777 theorem passages and Resultary 96b90f910a77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior endpoint-count descriptions already specify the coefficients combinatorially and the forest uniqueness observation is prior; the only repeat witness for a cycle is at the top degree, giving one explicit correction.",
+          "The ordinary cycle matching polynomial and its trace representation are standard; the correction changes the zero condition from T_m=0 to T_m=1/2. Thus simply invoking the general matching-polynomial real-rootedness theorem would not prove the result."
+        ],
+        "reasoning": "The coefficient count is a close specialization of established endpoint counts, not a new general theorem or a standalone priority claim on that counting model. The all-order corrected-polynomial evaluation and exact simple root family use the cycle exception and a further Chebyshev level-set argument. No inspected broader theorem specializes to that complete root classification.",
+        "searches": [
+          "Compare the two-matchings exception and Chebyshev proof in frozen RESULT.md with Zhong §2 and Ohsugi–Tsuchiya Propositions 3.4–3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohsugi–Tsuchiya Proposition 3.4 counts matchable endpoint sets in G as coefficients of the interior polynomial of the AUGMENTATION of G, with one new universal vertex on each shore. For G=C_{2m} this identifies Γ_m with I_{widehat C}, not I_C. Proposition 3.3 indeed equates this augmented interior polynomial with the root-polytope h* of the connected augmented graph.",
+          "For H_m itself, Zhong with Dai et al. instead uses the augmented two-copy reflexive relation graph (including equality edges); that graph is distinct from the strict-comparison cycle, even before augmentation.",
+          "Ohsugi–Tsuchiya's separate reflexive polytope B_G formula uses the substitution 4t/(1+t)², not the frozen t/(1+t)²."
+        ],
+        "reasoning": "The exact broader equivalent descriptions are credited, with the augmentation kept explicit. The unaugmented cycle's root polytope is not the target. Neither the general translations nor changing from support to Ehrhart vocabulary is a prior evaluation or zero theorem for the specific augmented graph.",
+        "searches": [
+          "Resultary: crown preorder support and real-rootedness, matching endpoint sets and order-polytope Ehrhart h*",
+          "Primary: even cycle interior polynomials, roots/Chebyshev and root-polytopes/unicyclic h-vectors (focused search unavailable)",
+          "Ohsugi–Tsuchiya Propositions 3.3–3.4 and Theorem 0.3; Zhong §2 and Dai et al. Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 96b90f910a77 gives Γ=Σ_j binom(m,j)²q^j−mq and first failure at m=12 for standard-example posets; this is not the cyclic comparability graph or its corrected full-matching term.",
+          "The exact matching crown-support entry is the assigned frozen result itself. Cao–Fu's exact crown result has the order-polytope Ehrhart numerator as its object."
+        ],
+        "reasoning": "The compared index matches are a self-match, a same-date result on another family (no precedence inferred), or an exact result for a different crown invariant; none supplies the specified support root list.",
+        "searches": [
+          "Resultary crown support zeros and gamma-polynomial records, with distinct same-date results considered",
+          "Ohsugi–Tsuchiya exact endpoint counts and Cao–Fu crown order-polytope theorem"
+        ]
+      },
+      "rationale": "The general endpoint-count theorem and interior/Ehrhart representations are prior and materially cover alternative descriptions of these polynomials. The distinct contribution supported here is the cycle-specific closed evaluation and complete simple negative zero locus of the crown preorder support polynomial. The known forest matching result does not include the relevant full-cycle ambiguity, nor does standard real-rootedness of M_{C_{2m}} apply to M_{C_{2m}}−q^m. The crown order-polytope result is about a different polynomial. Priority of the cycle-specific evaluation or roots beyond the compared sources is not certified.",
+      "residual_risks": [
+        "The focused primary query on explicit cycle/interior-polynomial roots was unavailable, not negative evidence. A cycle-specific evaluation or root theorem for the augmented graph under interior, root-polytope or another terminology might exist beyond the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general gamma-coefficient coverage and equivalent augmented relation-graph h* interpretation",
+          "evidence": "The proof says each pair contributes once independently of how it is matched, and disjoint pairs parametrize the gamma terms. §2 names the graph on two copies with edges for the reflexive relation and then its augmentation for H.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16858",
+          "material_read": "Theorem 1 p. 1 and proof §2 pp. 2–3, including 9600–12477 and matchability setup",
+          "method": "OA primary PDF passages by offset",
+          "title": "Gamma-positivity of support enumerators of preorders",
+          "trigger": "Same polytope, support polynomial and exact general counting theorem"
+        },
+        {
+          "assessment": "General prior count for I of the augmented graph, and real-rootedness for forests, not the even cycle specialization or explicit roots",
+          "evidence": "Proposition 3.4 starts with G, forms a connected bipartite graph by adjoining v_1 and e_1 to the two shores, and counts endpoint sets from G in that graph's interior polynomial. Proposition 3.5 uses absence of alternating cycles in a forest to identify witness and endpoint counts. Theorem 0.3 uses 4t/(1+t)².",
+          "identifier_or_url": "https://doi.org/10.1007/s00029-020-00588-0",
+          "material_read": "Theorem 0.3, PDF pp. 3–4, offsets 6900–10018; §3 Propositions 3.3–3.4 and augmentation proof, 40400–45126; Proposition 3.5 and forest proof, 49000–55176",
+          "method": "Read primary OA PDF by offset, using the proof and the introduction to resolve mangled augmentation marks in extracted formulas",
+          "title": "Reflexive polytopes arising from bipartite graphs with γ-positivity associated to interior polynomials",
+          "trigger": "Exact alternate interpretation of matchable endpoint counts and a neighboring real-rootedness theorem"
+        },
+        {
+          "assessment": "Prior exact representation for H_m, no crown root evaluation in the passages",
+          "evidence": "The graph support numerator F_G is h* of the root polytope of the augmentation of G for any bipartite G; the preorder case uses Zhong's relation graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.16037",
+          "material_read": "Theorem 1.2 p. 3 (offset 7600 onward); §4.2 augmentation construction (pp. 11–12, 37000–40953)",
+          "method": "Primary OA PDF passage comparison and matching Zhong §2 notation",
+          "title": "Dai et al., support-enumerator and root-polytope realization theorem",
+          "trigger": "Exact prior h* representation of support enumerators on bipartite relation graphs"
+        },
+        {
+          "assessment": "Prior formulation and conjecture, not proof for all crowns",
+          "evidence": "The conjecture is about the preorder support polynomial itself; it does not assert an established crown root list.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.26916",
+          "material_read": "Conjecture 5.3, PDF p. 16 around offset 52600",
+          "method": "OA primary PDF proposition comparison",
+          "title": "Polytopes and posets associated to preorders",
+          "trigger": "Original support-polynomial problem and proposed real-rootedness"
+        },
+        {
+          "assessment": "Different crown polytope and polynomial",
+          "evidence": "The order-polytope Ehrhart h* has degree 2m−2; the audited positive-coordinate support polynomial of the preorder polytope has degree 2m.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.40496",
+          "material_read": "Theorems 1.1–1.2, PDF p. 2, offsets around 6466 and 7726",
+          "method": "OA primary PDF theorem and hypotheses comparison",
+          "title": "Real-rooted Ehrhart h*-polynomials of crown posets and wheel and whirl matroids",
+          "trigger": "Same crown and same apparent root conclusion in the title"
+        },
+        {
+          "assessment": "General endpoint counting and a crown-free flag result, not a cycle root theorem in inspected statements",
+          "evidence": "Theorem A counts endpoint pairs and Theorem B concerns flag spheres with a crown-free condition, so its scope does not give the crown zero list.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.24235777",
+          "material_read": "PDF p. 2, Theorems A and B, offsets 6109–6258 and around 6719; relationship to Zhong around 5608",
+          "method": "OA full-text access with bounded theorem-passage reading",
+          "title": "Preorder polytopes: matching endpoint pairs, flag spheres and the Athanasiadis–Chapoton conjectures",
+          "trigger": "Specialist release with the same matching formula and named crown exclusions"
+        },
+        {
+          "assessment": "Different family and outcome; no date-based precedence inference",
+          "evidence": "The gamma polynomial subtracts mq from a binomial-square sum and its first failure occurs at m=12 for standard examples; here a cycle introduces a single top-degree correction and has no failure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-first-real-rootedness-failure-in-support-enumerators-of--96b90f910a77",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "A sharp first real-rootedness failure in support enumerators of standard-example posets",
+          "trigger": "Distinct same-date result on support real-rootedness and matching corrections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen corrected cycle/Chebyshev derivation and strict root calculation",
+        "Prior general endpoint count, forest real-rootedness and separate crown order-polytope result"
+      ],
+      "rationale": "The crown is a natural cyclic family at the first obstruction to uniqueness of matching witnesses. Resolving that top-degree obstruction gives what general positivity does not: an exact all-order real-rooted family with explicit simple reciprocal roots, in a setting where general real-rootedness fails. This is useful for distinguishing which structures preserve strict real-rootedness and is more than rechecking a small crown or invoking ordinary matching roots.",
+      "residual_risks": [
+        "The result does not settle any other class of preorders or give a flag-sphere realization for the crown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

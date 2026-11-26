@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:58.710241Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 46–91; analytical reconstruction of the full variational equation and inversion",
+        "Frozen VERIFICATION.md and verify_airy.py (inspected, not executed)",
+        "NIST DLMF §§9.2(iv), 9.7(ii)"
+      ],
+      "rationale": "At x=y=0 only the constant axial drift −b remains; the third variational coordinate has zero derivative, and the first two coordinates form the stated 2×2 block. Eliminating v gives u''+(a+c)u'+a(c+z₀−bt)u=0. The exponential gauge and affine rescaling have exactly the stated h,q,τ; the Airy Wronskian gives the nonzero linear functional C_B and its one-dimensional kernel, including when Ai(s(0))=0. The derivative term in v dominates u by ±√(bt/a), and the Airy exponents give the signed rates. Eventual norm monotonicity on the growing branch is justified without differentiating an unspecified error: the exact logarithmic derivative is [a u(v−u)−c v²+(bt−z₀)uv]/(u²+v²), which is asymptotic to √(ab t) by the component slope. On finite intervals the unscaled norm is bounded, and it eventually increases without bound; the first threshold therefore exists for small ε and lies at large time. Put W=√U_L and t=W²+pW+r. In (2/3)√(ab)(t−τ)^{3/2}−ht−L the W² coefficient is √(ab)p−h, and the W coefficient is √(ab)(r−τ+p²/4)−hp. Canceling both gives the stated constants; the remaining O(log W) log-norm error shifts time by O(log W/W), using the derivative asymptotic or evaluating at brackets offset by fixed constants. Liouville's formula uses the trace −a−c along any interval on which the flow is defined.",
+      "residual_risks": [
+        "The initial unit direction is fixed off the decaying line; the expansion is not uniform as it approaches that line. A numerical root at two log levels is not proof of the earliest threshold, and neither the proof nor the numerical checks gives a nonlinear exit law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF gives Airy solutions and asymptotics for the transformed scalar equation.",
+          "The recurrence-shell statement concerns invariant measures on compact sets; the separate extinction record uses kxz in the first equation and xy in the third, with a different transverse block."
+        ],
+        "reasoning": "The classical formulas cover the special-function ingredients after reduction, not the norm level-crossing expansion for this plane. Compact-orbit averages cannot constrain the derivative along this particular escaping orbit.",
+        "searches": [
+          "DLMF Airy Wronskian and positive-real asymptotics §§9.2(iv), 9.7(ii)",
+          "Resultary exact recurrence-shell 0eb4288eae95 and drifting-axis transverse extinction 3f1b93d7ee4c"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Dong–Li Eqs. (1)–(2), §3",
+        "Wei–Pehlivan §2",
+        "DLMF §§9.2 and 9.7",
+        "Resultary 0eb4288eae95, 3f1b93d7ee4c and self-match d47b7fa60a0e",
+        "Targeted primary search, two plausible unread full texts noted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Dong–Li use a numerical variational method for unstable periodic orbits. DLMF yields the exponent once the specific equation is reduced. Neither supplies evaluation of the growing transverse norm's first level time through an additive O(1) term."
+        ],
+        "reasoning": "The coefficient 3h²/(4ab) comes from both the quadratic term of the expanding exponent and the e^(−ht) gauge evaluated at the √U_L shift. In this plane the norm's derivative component dominates, and the resulting norm must be inverted at the first threshold. The specific precision claim is not just the standard Airy exponent or a change of parameters in a previously inspected departure theorem.",
+        "searches": [
+          "Wang–Dong–Li §2 and §3 variational passage",
+          "DLMF §§9.2, 9.7",
+          "Resultary 3f1b93d7ee4c and 0eb4288eae95 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Dong–Li Eq. (2) adds kxy to the third equation of Eq. (1). Wei–Pehlivan print the corresponding k=0 vector field.",
+          "The added term vanishes to second order on the axis. Both vector fields thus have the exact same transverse equation, u''+(a+c)u'+a(c+z₀−bt)u=0."
+        ],
+        "reasoning": "A calculation already known on the unperturbed k=0 axis would cover the present claim. The inspected model passages do not supply that calculation, and the k term neither creates nor modifies it.",
+        "searches": [
+          "Wang–Dong–Li DOI 10.3390/fractalfract6120740, Eqs. (1)–(2)",
+          "Wei–Pehlivan 2012, generalized Sprott-C §2",
+          "Primary query: Sprott C or Wang Dong Li unbounded axis Airy transverse variational equation linearized escape departure time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d47b7fa60a0e reproduces the bound claim because it is the same index entry. 0eb4288eae95 is for the same model but a different observable; 3f1b93d7ee4c gives an axis theorem for a different system."
+        ],
+        "reasoning": "A finite table does not settle a continuous-parameter expanding-orbit limit. The exact indexed statement is a self-match; the neighboring exact statements have nonequivalent hypotheses or observables, regardless of dating.",
+        "searches": [
+          "Resultary: Airy transverse dichotomy, sharp linearized departure near drifting quadratic axis; d47b7fa60a0e, 0eb4288eae95, 3f1b93d7ee4c"
+        ]
+      },
+      "rationale": "The supported distinction is the orbitwise Airy separation and sharp three-term linearized first-unit-departure on the specified unbounded axis. Credit the existing vector field, negative divergence, baseline generalized Sprott-C system, and the classical Airy tools. The transverse mechanism is already present in the k=0 equations; changing k is not the novel contribution. The available same-model source passages concern other trajectories or invariant-measure questions, and the distinct drifting-axis indexed result has different transverse dynamics.",
+      "residual_risks": [
+        "An uninspected equivalent ramp or axial stability result could contain the same inversion. The two related Sprott-C papers were not assessed beyond their indexed snippets. No universal Airy-method priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same positive-parameter equations and divergence; inspected stability analysis is for a different base orbit",
+          "evidence": "Eq. (2) differs from Eq. (1) by adding kxy in the third equation; the §3 variational method targets periodic orbits.",
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract6120740",
+          "material_read": "OA PDF §2 pp. 3–4, offsets about 9700–18451, Eqs. (1)–(2); §3 p. 11, offset about 56029",
+          "method": "OA PDF passages",
+          "title": "A New Variable-Boostable 3D Chaotic System with Hidden and Coexisting Attractors",
+          "trigger": "Exact model source and possible direct variational result"
+        },
+        {
+          "assessment": "Same first-order equations on the axis after linearization",
+          "evidence": "Its first two equations agree and the third is y²−b.",
+          "identifier_or_url": "https://oam-rc.inoe.ro/articles/chaos-coexisting-attractors-and-c-circuit-d-esign-of-the-generalized-sprott-c-system-with-only-two-stable-equilibria/fulltext",
+          "material_read": "§2 p. 743, offset about 3500",
+          "method": "OA full-text passage",
+          "title": "Chaos, coexisting attractors, and circuit design of the generalized Sprott C system with only two stable equilibria",
+          "trigger": "Equivalent k=0 dynamics in earlier literature"
+        },
+        {
+          "assessment": "Classical Wronskian and large positive argument expansions are prior",
+          "evidence": "The opposite Airy exponents on s→+∞ and derivative prefactors agree with the source.",
+          "identifier_or_url": "https://dlmf.nist.gov/9",
+          "material_read": "§9.2(iv) Eq. 9.2.7; §9.7(ii) Eqs. 9.7.5–9.7.8",
+          "method": "OA primary reference passages",
+          "title": "Airy and Related Functions",
+          "trigger": "Classical result that might cover transverse formulas"
+        },
+        {
+          "assessment": "Different system and lead transverse equation",
+          "evidence": "Adds kxz in the first equation and uses −b+xy in the third.",
+          "identifier_or_url": "Resultary 3f1b93d7ee4c",
+          "material_read": "Finding and defining vector field",
+          "method": "Local Resultary mirror",
+          "title": "Transverse extinction threshold and algebraic critical decay along a drifting axis",
+          "trigger": "Strong distinct index match involving an escaping axis and transverse modes"
+        },
+        {
+          "assessment": "Same vector field but different orbit class and invariant",
+          "evidence": "Concerns recurrence on bounded sets, not the derivative of the axial solution.",
+          "identifier_or_url": "Resultary 0eb4288eae95",
+          "material_read": "Finding, compact-invariant-measure claim",
+          "method": "Local Resultary comparison",
+          "title": "Exact recurrence-shell in the Wang–Dong–Li variable-boostable flow",
+          "trigger": "Exact same model in prior indexed result"
+        },
+        {
+          "assessment": "Exact vector field and coverage unresolved, not negative evidence",
+          "evidence": "Snippet mentions a single parameter in a modified Sprott-C model but does not give its equations or axial result.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0167278926000588",
+          "material_read": "Indexed title and snippet only",
+          "method": "OA publisher direct and VPN attempts both HTTP 403; no open full-text copy identified",
+          "title": "Dynamics and integrability of a modified Sprott C system",
+          "trigger": "Plausible related title from the focused equation-level lookup"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "Snippet describes an extended quadratic model and equilibrium/attractor analysis; insufficient for an equation-level ruling.",
+          "identifier_or_url": "https://doi.org/10.1140/epjs/s11734-023-00950-1",
+          "material_read": "Indexed title and snippet only",
+          "method": "OA publisher attempts through configured routes failed by redirects",
+          "title": "Hidden and self-excited attractors in an extended Sprott C system",
+          "trigger": "Potential alternative Sprott-C quadratic extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Wang–Dong–Li §§2–3",
+        "Same-model compact recurrence comparison"
+      ],
+      "rationale": "The model is established, and the escaping axis offers a concrete contrast with the usual emphasis on bounded dynamics and volume contraction. The result determines the exceptional initial direction and quantifies its opposite generic behavior up to an additive o(1) in the linearized departure time, not just a qualitative instability or a leading Airy exponent. This gives a precise test for derivative-level departure in a natural case where no finite standard exponential rate describes the orbit.",
+      "residual_risks": [
+        "The value is orbitwise and linearized; it does not establish a nonlinear exit law, compact attractor, or statistically typical Lyapunov behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

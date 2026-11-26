@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:48:35.044695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–46; VERIFICATION.md; verify_chebyshev_a.py (read, not executed)",
+        "Independent replay: convolve coefficient vectors of 2+x^4, 2−4x^2+x^4, 2+2x^4 modulo p exactly (p−1)/2 times and read coefficient p−1."
+      ],
+      "rationale": "The gradient test holds including p=3. The three sign involution quotients have the stated invariant function fields and smooth quartic genus-one models. For dx/y^3, x dx/y^3 and dx/y^2 the three nontrivial sign characters are distinct. Norm–pullback is [2] on each matching factor and zero across different characters (the mixed homomorphism equals its negative, so its connected image in 2-torsion is zero). Thus the product isogeny has 2-primary kernel and the geometric p-divisible groups agree. Compute the binary-quartic j-invariants over characteristic zero, then reduce the smooth models; this avoids the literal quartic-invariant fraction at p=3. CM by discriminants −4, −8, −4 gives inert classes {3,7}, {5,7}, {3,7} modulo 8, respectively. Add the elliptic contributions to get all four pairs and the ordinary, supersingular and superspecial assertions. Independently computed each elliptic Hasse invariant as the coefficient of x^(p−1) in the corresponding quartic to power (p−1)/2, via modular convolution for the first 24 odd primes through 97. At 3,5,7 the triples were (0,2,0), (4,0,3), (0,0,0); all 24 agreed. This does not replace the uniform proof.",
+      "residual_risks": [
+        "The finite check tests the summands, not prime-to-p isogeny or the full Ekedahl–Oort type; those are not computational claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 4 quotes the general C_d maximality characterization and computes the elliptic j values in Remark 4.4. The general Ciani decomposition and Deuring criterion are established tools."
+        ],
+        "reasoning": "General maximality covers the F_{p^2}-maximal class. It does not compute the ordinary versus supersingular behavior of each of the three factors at the remaining primes. Ciani plus Deuring requires the explicit factor analysis.",
+        "searches": [
+          "arXiv:2505.01216v1 Section 4; Dias–Tafazolian–Top DOI 10.1016/j.ffa.2024.102521",
+          "Direct literature lookup for the Chebyshev plane quartic Cartier, CM and Fermat classifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.01216v1",
+        "DOI 10.1016/j.ffa.2024.102521 (partial; Theorem 4.4 quoted)",
+        "Resultary records 7fdb3c7ba3cb, b5ac04c241b2 and 05ba569c6d6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With d=4 and q=p, maximality is exactly p≡7 mod 8. Over F_{p²} maximality implies scalar Frobenius −p and hence superspecial reduction: on the Dieudonné module F²=−p and FV=p imply F=−V and a=g."
+        ],
+        "reasoning": "Credit the full (3,0) row, not just supersingularity, to the earlier maximality result plus the standard implication. Nonmaximality by itself gives neither the other three a-numbers nor their p-ranks. No inspected exact same-curve three-factor result supplies the remaining profile.",
+        "searches": [
+          "Tafazolian–Top Section 4, quoting Dias–Tafazolian–Top Theorem 4.4; Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fermat equivalence under 2d=q+1 applies to d=4 only when q=7, not to all odd primes. Remark 4.4 treats one elliptic quotient, not the genus-three Jacobian."
+        ],
+        "reasoning": "An individual-characteristic equivalence and an elliptic quotient cannot identify the two mixed classes of the target Jacobian.",
+        "searches": [
+          "Tafazolian–Top arXiv:2505.01216v1, Proposition 3.1 and Remark 4.4",
+          "Resultary: exact Chebyshev quartic a-number/p-rank, Cartier and Klein-four quotient comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest 2026/11/22 record 7fdb3c7ba3cb is y²=φ₈(x) modulo 16; at p=5 its ranks differ. Record b5ac04c241b2 is Y²=(X+2)D₇(X), modulo 14. Same-day record 05ba569c6d6b treats a different plane-curve pencil and a genus-one quotient."
+        ],
+        "reasoning": "The inspected tables have different equations and assumptions; no exact-equation simultaneous four-row table was found in the bounded catalogue check.",
+        "searches": [
+          "Resultary local catalogue: Chebyshev a-number, p-rank and Cartier ranks"
+        ]
+      },
+      "rationale": "The curve, its j=8000 quotient, the superspecial residue class and the general decomposition and CM tools are prior. The supported distinction is the complete simultaneous geometric p-rank and a-number profile, particularly the two mixed classes. The inspected stronger-looking results do not supply that profile for the same quartic without identifying and analyzing all three factors.",
+      "residual_risks": [
+        "The earlier maximality paper’s full text was not retrieved. A prior exact-target decomposition or unindexed mixed-stratum profile remains possible; bounded comparison is not absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same curve and material partial prior implication",
+          "evidence": "Section 4 quotes Theorem 4.4 (maximal iff d divides (q+1)/2); Remark 4.4 gives 8000 for y²=φ₄(x). Fermat specialization stated under 2d=q+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.01216v1",
+          "material_read": "Introduction, Proposition 3.1 p. 5, Section 4 pp. 14–15, Remark 4.4",
+          "method": "Primary open PDF, bounded passages",
+          "title": "Automorphisms of Plane Curves defined from Chebychev polynomials",
+          "trigger": "Same Chebyshev family; could imply whole classification"
+        },
+        {
+          "assessment": "Confirmed maximal class by quotation; further contents not excluded",
+          "evidence": "Theorem 4.4 as quoted characterizes maximality, leaving direct inspection of any additional decomposition open.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2024.102521",
+          "material_read": "Landing material and exact quoted theorem in arXiv:2505.01216v1 Section 4; not the full paper",
+          "method": "Lawful OA retrieval and repository recovery attempt; inspected accessible published-theorem quotation",
+          "title": "On certain maximal curves related to Chebyshev polynomials",
+          "trigger": "Direct prior treatment of maximality in exact family"
+        },
+        {
+          "assessment": "Different genus-three curve",
+          "evidence": "y²=φ₈(x), mod 16, with (p-rank,a)=(0,2) at p=5, in contrast to (2,1) here.",
+          "identifier_or_url": "2026/11/22/7fdb3c7ba3cb",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary index and mirror",
+          "title": "Complete Cartier rank profiles for the genus-three Chebyshev octic",
+          "trigger": "Closest same-invariant Chebyshev catalogue record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–17, 24–43",
+        "Tafazolian–Top, Section 4"
+      ],
+      "rationale": "The genus-three degree-four Chebyshev curve is a natural named object from an established maximality problem. The mixed classes give precise, useful reduction data not available from the maximal-prime criterion and demonstrate the role of the distinct CM fields in one curve; this is a complete all-odd-prime exact invariant, not an isolated experimental observation.",
+      "residual_risks": [
+        "The result is a narrow profile, not a classification of higher Chebyshev curves, polarizations or full Ekedahl–Oort types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

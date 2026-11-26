@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:00.968982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each reset-free excursion there is no reactive local time before the first open boundary encounter. Strong Markov restarting there and independence of the sampled threshold give h_j=c_j Φ for both initial gate states, including the convention for a zero atom. At a positive threshold consumption occurs in the open state almost surely: the independent gate has countably many jumps and the reflected diffusion is almost surely off the boundary at each such jump. For finite-a.s. thresholds there is positive probability of accumulating a finite level in an open sojourn, so h_0,h_1>0, and the killed reset kernel contracts by its row sums. If R is the discounted surviving occupancy, decomposing the free gate occupancy at reaction gives R=(I−h e_1^T)(rI−Q)^(−1). To check the difference independently, set the retained starting-state MFPT vector equal to (rI−Q)v. The renewal equation becomes (−Q+r h e_1^T)v=(1−h)/r. Left multiplication by π gives v_1=(1−πh)/(r²πh); the closed row gives α(v_0−v_1)=(πh−h_0)/(rπh). Since ET_F=rv_1 and ET_K=rπv, this proves β(h_1−h_0)/(Γ(βh_0+αh_1)). The common scalar cancels. The reflecting/open-contact backward ODE gives βc_0+αc_1=Γανe^(−μL)/(αν+βμ) and c_1−c_0=Γμe^(−νL)/(αν+βμ), yielding the stated strictly positive formula. For the individual means, a randomized exponential threshold of rate η imposes h'_1(0)=η(h_1(0)−1), hence the restart factor η/(η+Γμν/(αν+βμ)); the inverse open local time is multiplicative in deterministic threshold level by the same stopping argument, giving the claimed Laplace transform for general laws and the displayed Robin specialization. Fresh thresholds and loss of prior contact progress under both protocols are essential. The symbolic and finite-difference script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff 2205.13985 resets conformation, position and local times in its renewal equation and allows state-specific contact-threshold densities; it does not supply a retained-gate comparison.",
+          "Resultary e8269f686a15 derives the retained-gate survival matrix and the count distribution for instantaneous open absorption. Resultary f7a7f8b3a2be switches retention of the surface threshold in a single ungated diffusion and compares survival tails."
+        ],
+        "reasoning": "Generalized reactivity and retained gating both have antecedents, but in the inspected results they occur in different comparisons. Timing a retained threshold rather than retaining gate state changes the model.",
+        "searches": [
+          "arXiv:2205.13985 §3 and §4 Eq. (4.10)",
+          "arXiv:2203.04868 threshold surface reactions",
+          "Resultary e8269f686a15 and f7a7f8b3a2be"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.02148",
+        "arXiv:2009.02739",
+        "arXiv:2205.13985",
+        "arXiv:2203.04868",
+        "Resultary e8269f686a15, f7a7f8b3a2be, and 43f499fd9c91 (catalogue summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-geometric proof gives K=U−h e_1^T U and the count mean relation using the Poisson compensator. Its surviving-kernel derivation is reusable whenever reaction can only occur in gate state 1, but its theorem and substitutions use the absorbing open boundary. It neither introduces arbitrary refreshed contact thresholds nor identifies a common multiplier for their two success probabilities.",
+          "A fresh-threshold model supplies h=Φc by stopping at first open contact. The later two-state mean comparison is homogeneous of degree zero in h, so that multiplier cancels; it does not cancel from either individual mean."
+        ],
+        "reasoning": "The earlier exact gap and count kernel are genuine partial coverage and should be credited. Recovering the threshold-law invariance requires the same-contact restart argument and the ratio cancellation for general h, not just substitution into the preexisting perfect-absorber formula or the fresh-gate MFPT.",
+        "searches": [
+          "arXiv:2107.02148 Appendix B (B.1)–(B.2)",
+          "arXiv:2205.13985 §3 (3.10)–(3.14) and §4 (4.10)",
+          "e8269f686a15 RESULT.md Proof Step 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound Resultary hit 26c7f1ebdda1 is the assigned record, not an independent match.",
+          "Mercado–Vásquez and Boyer arXiv:2107.02148 Appendix B (B.2) is precisely the stated gap when open contact is instantly absorbing. This is the confirmed preprint numbering; journal Eq. (49) numbering could not be checked.",
+          "The Robin formulation tests only exponential Λ; equal additive Robin penalties do not alone establish the assertion for deterministic, discrete or arbitrary finite-a.s. Λ."
+        ],
+        "reasoning": "The additional assertion is invariance under changing the whole independently refreshed threshold law, not a numerically different zero-threshold delay. Invariance of a mean gap neither states nor implies equality of the full reaction-time laws.",
+        "searches": [
+          "Resultary: universal two-state gate-memory delay under Poisson position resetting",
+          "Mercado-Vásquez Boyer Appendix B Eq. 49 gate memory delay Bressloff general threshold boundary local time resetting refreshed gate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly matching indexed formula is the assigned record itself. e8269f686a15 gives exact perfect-absorber count probabilities, not a table or formula indexed by threshold laws. The distinct same-date 43f499fd9c91 catalogue summary is about preference reversals in a cyclic three-conformation model; the corresponding full text was not available."
+        ],
+        "reasoning": "The invariant is a function of positive physical parameters over an entire class of laws. Exact count statistics or the same gap at a tabulated zero/exponential threshold do not cover that class. The unavailable three-state source is not treated as disproved overlap.",
+        "searches": [
+          "Resultary: universal two-state gate-memory delay under Poisson position resetting",
+          "Strict two-geometric reset-count law for a Brownian search with an independently switching gate",
+          "Resultary 43f499fd9c91"
+        ]
+      },
+      "rationale": "The numerical gap at zero threshold is preexisting; so are full-refresh partially reactive renewal and the perfect-absorber surviving reset kernel. The distinct assertion is that keeping the gate but refreshing threshold and progress gives the same additive stationary-start gap for every fresh threshold law. Neither the perfect-absorber comparison nor the published partially reactive full-refresh formula gives that arbitrary-law comparison. The kernel proof can be reused, but the new factorization at the first open contact and its cancellation across protocols are essential to the extension.",
+      "residual_risks": [
+        "Publisher equation numbering could not be checked; the preprint verifies the exact perfect-absorber formula.",
+        "The three-state catalogue record was not available in full text. A general Markov-renewal or inverse-local-time result could contain the same invariance; historical priority is not settled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical formula for the zero-threshold model",
+          "evidence": [
+            "Appendix distinguishes retained and stationarily redrawn gates; Eq. (B.2) gives the gap, with x_0=L."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+          "material_read": "PDF pp. 13–14, Appendix B, (B.1)–(B.2), offset 68250",
+          "method": "Lawful OA preprint passage; publisher copy unavailable",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Exact matching formula for perfect open absorption"
+        },
+        {
+          "assessment": "Fresh-gate protocol for perfect absorption",
+          "evidence": [
+            "Renewal is applied provided the gate is also reset to state m with probability ρ_m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+          "material_read": "§3 PDF p. 6, offset 15500",
+          "method": "Lawful OA primary passage",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Gate-refresh resetting precedent"
+        },
+        {
+          "assessment": "Comparable reaction-law generalization, but gate and local times are redrawn/reset together",
+          "evidence": [
+            "The reset map renews X, both local times and N. There is no retained-versus-fresh-gate comparison in the inspected formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.13985",
+          "material_read": "PDF pp. 1, 8, 11; §3 Eqs. (3.10)–(3.14) and §4 Eq. (4.10) and renewal passage",
+          "method": "Lawful OA primary passages",
+          "title": "Stochastically switching diffusion with partially reactive surfaces",
+          "trigger": "Arbitrary reaction law in related switching/resetting problem"
+        },
+        {
+          "assessment": "Background on which surface variables reset; no two-state gate comparison",
+          "evidence": [
+            "Contrasts position/internal-state resetting with position-only resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.04868",
+          "material_read": "PDF p. 1 abstract, offset 2250",
+          "method": "Lawful OA primary passage",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Alternative internal-variable reset contrast"
+        },
+        {
+          "assessment": "Covers perfect-absorber reset kernel and reset-count law, not the new reaction-law cancellation",
+          "evidence": [
+            "Step 2 gives U−h e_1^T U by decomposing at open-gate absorption, and verification uses EN=r ET. The assumption section absorbs immediately on an open contact."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-strict-two-geometric-reset-count-law-for-a-brownian-search-with--e8269f686a15",
+          "material_read": "RESULT.md Finding, assumptions, Proof Steps 1–4 and mean-count relation, offsets 0–8262",
+          "method": "Resultary followed by local-mirror primary passages",
+          "title": "Strict two-geometric reset-count law for a Brownian search with an independently switching gate",
+          "trigger": "Same gate and retained protocol with exact kernel and mean counts"
+        },
+        {
+          "assessment": "Ungated threshold retention rather than conformation retention",
+          "evidence": [
+            "The conclusion contrasts algebraic and exponential survival tails."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-power-law-survival-versus-exponential-rescue-for-retained-and-re--f7a7f8b3a2be",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1993",
+          "method": "Local-mirror primary statement",
+          "title": "Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds",
+          "trigger": "Related fresh-threshold comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although varying the threshold changes both MFPTs and can greatly change their magnitude, gate persistence contributes an exact positive additive offset unchanged by any fresh contact law. This cleanly separates gate memory from local-time reaction progress in a naturally motivated protocol comparison, not just a single reactivity example or a claim about optimizing reset rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

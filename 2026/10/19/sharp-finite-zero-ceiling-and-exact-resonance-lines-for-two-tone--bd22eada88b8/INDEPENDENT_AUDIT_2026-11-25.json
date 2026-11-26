@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:24:15.887123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian integration of the generating function sends its parameter z to −iz under the stated Fourier convention. Consequently the nonzero overall phase can be discarded locally and the amplitude is e^(2πidt)A+e^(−2πidt)B with A,B real. Unless both vanish, cancellation requires A=±B and one of the two stated time slices; simultaneous vanishings give exactly the root-gap midpoint lines. Each branch, after multiplication by a positive analytic factor, is an exponential times a degree-n polynomial plus a degree-n polynomial. The (n+1)st derivative kills the second and leaves a nonzero Gaussian-free exponential times a degree-n polynomial (leading coefficient multiplied by (4πd)^(n+1)). Multiplicity-aware Rolle applied to any finite set of roots gives at most 2n+1 per branch; parity forces the even branch down to 2n including any origin multiplicity. For large d the translated branches converge in C¹ near each simple shifted Hermite root to a nonzero multiple of the unshifted window, giving one simple root per neighborhood. The odd branch also has the origin root, simple when h_n'(d)≠0, which holds eventually. At a simple branch zero the time derivative points in the complementary real direction and is proportional to the nonzero surviving shifted-window value, so the real STFT Jacobian has rank two. The degree-zero case has just the odd-branch origin and no resonance. The n=2,3 roots have the stated scaling. Source verification and its 95 reported integral, resonance and count checks were inspected, not rerun; finite grid sign changes were not used to prove the multiplicity bound. Nondegeneracy here refers to a simple zero of the complex STFT as a real map, not a nonzero gradient of its squared modulus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The white-noise Hermite analysis supplies almost-sure isolation/simplicity for a different random field, not a uniformly deterministic statement; signal-plus-noise Gaussian results likewise do not classify these deterministic resonances.",
+          "The multiwindow phase-retrieval results use Hermite ambiguity functions and address reconstruction/coverage, not two-tone zero counts."
+        ],
+        "reasoning": "An almost-sure statement about a random field does not exclude exact deterministic two-tone resonances. Neither the phase retrieval nor the random-window comparisons dominate the deterministic theorem in its parameters and assumptions.",
+        "searches": [
+          "Bellourak et al., arXiv:2610.13531 §4.1",
+          "Alaifari–Yang, arXiv:2410.05486 §§2–3",
+          "Poinas–Bardenet, §1 (Gaussian window with signal plus noise)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b29de85f07c8",
+        "Resultary 2979aab47cf8",
+        "arXiv:2610.13531",
+        "arXiv:2410.05486",
+        "arXiv:2601.10910 (attempted; inaccessible decisive full text)",
+        "Poinas–Bardenet, Gaussian-window signal-plus-noise comparison, §1 and p. 10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later cusp finding covers a sharper n=1 gap transition but is neither an earlier source nor a theorem for canonical windows at general order.",
+          "The classical Rolle/Chebyshev-type argument only gives 2n+1 zeros on each scalar branch before one uses the Hermite parity difference; it does not itself assert joint simplicity at large gaps or classify common-zero lines.",
+          "The cited first-Hermite predecessor in RESULT.md line 66 has no corresponding specific reference in the frozen list; no earlier statement was authenticated for it."
+        ],
+        "reasoning": "Prior Gaussian or first-order results cannot entail the all-order sharp count and root-gap line classification. The claimed first-order antecedent is neither needed for the proof nor treated as an independently verified priority claim.",
+        "searches": [
+          "Chand–Nolen–Wu, arXiv:2601.10910 (bounded lawful retrieval attempted)",
+          "Resultary b29de85f07c8, Finding and first-derivative discussion",
+          "Bellourak et al., arXiv:2610.13531 §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At n=1 the Gaussian-derivative window is proportional to the canonical first Hermite window. The November 8 cusp result includes the equal-amplitude 3-to-5 transition in that subcase, but explicitly distinguishes the two window families at n≥2.",
+          "Conventional Hermite-function notation and the normalized Fourier-eigenfunction window in the frozen record describe the same zero problem after scaling; the scalar branch multiplicity is not an analytic winding number."
+        ],
+        "reasoning": "The first-order overlap is real and does not depend on window amplitude normalization. Gaussian derivatives of order at least two are not interchangeable with the conventional Hermite windows; they do not establish the higher-order canonical-Hermite gap or cap claims.",
+        "searches": [
+          "Resultary first-Hermite equal two-tone counts, 4n+1, and Hermite root-gap resonances",
+          "Resultary b29de85f07c8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Focused comparison surfaced the later Gaussian-derivative cusp finding and a later five-tone Gaussian-window four-zero result, not a materially matching distinct same-day record.",
+          "The low-order resonances can be checked against H₂ and H₃ directly; a table of roots would give the numerical gaps after the classification is proved, not the assertion that all nonisolated components are exactly root-gap lines."
+        ],
+        "reasoning": "Canonical Hermite roots themselves are standard, not asserted novel. Ranked retrieval is not exhaustive; the identified adjacent findings were compared on signal structure, window family and conclusion.",
+        "searches": [
+          "Resultary queries for 4n+1, first-Hermite two-tone zeros, and positive root differences",
+          "Resultary b29de85f07c8 and 2979aab47cf8",
+          "Frozen RESULT.md lines 12 and 58, n=2 and n=3 examples"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint sharp canonical-Hermite all-order scalar-multiplicity bound plus the exact line-resonance classification, not the Gaussian or first-order subcases or the underlying exponential-polynomial root bound. None of the inspected matching statements gives that combination or a stronger result covering it.",
+      "residual_risks": [
+        "Unverified specific earlier first-order predecessor and inaccessible decisive text of Chand–Nolen–Wu; neither alone weighs against the observed distinct all-order result.",
+        "Other deterministic Hermite-STFT or exponential-polynomial applications may state equivalent bounds or resonance classifications; catalogue and literature comparisons are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later scope overlap for n=1; materially different higher-order windows",
+          "evidence": [
+            "Gives 3, 4, or 5 zeros for a Gaussian-derivative window with amplitude-ratio-controlled fold/cusp; the conventional Hermite sequence is explicitly distinguished for n≥2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-cusp-unfolding-and-conserved-charge-in-two-tone-gaussian-derivat--b29de85f07c8",
+          "material_read": "RESULT.md Finding at offset 0 and first-derivative discussion near offset 6200",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Cusp unfolding and conserved charge in two-tone Gaussian-derivative spectrogram zeros",
+          "trigger": "Closest Resultary two-tone zero-count match including order one"
+        },
+        {
+          "assessment": "Different signal and window",
+          "evidence": [
+            "Studies five equal tones and a Gaussian window, with a four-zero conclusion."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-zero-bifurcation-scales-for-a-five-tone-gaussian-spect--2979aab47cf8",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Two sharp zero-bifurcation scales for a five-tone Gaussian spectrogram",
+          "trigger": "Related catalogue search hit for sharp two-tone/spectrogram zero counts"
+        },
+        {
+          "assessment": "Random field; does not settle deterministic two-tone data",
+          "evidence": [
+            "Almost-sure isolation and simplicity concern white noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13531",
+          "material_read": "§4.1, pp. 7–8, PDF text offsets 21000–24185",
+          "method": "Lawful OA article passage inspection",
+          "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+          "trigger": "Hermite spectrogram zeros and possible isolation theorem"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Hermite-window ambiguity-function coverage used to study phase retrieval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.05486",
+          "material_read": "§§2–3, pp. 3–4, PDF text offsets 12800–17292",
+          "method": "Lawful OA article passage inspection",
+          "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+          "trigger": "Primary Hermite-window STFT and ambiguity-function comparison"
+        },
+        {
+          "assessment": "Unresolved full-text scope, not negative evidence",
+          "evidence": [
+            "The frozen reference describes Gaussian-window interference; without an accessible decisive passage that description was not used to exclude broader coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.10910",
+          "material_read": "No decisive full-text passage accessible in the bounded attempts",
+          "method": "Lawful direct and alternate transport attempts; size limit returned in both",
+          "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+          "trigger": "Cited spectral interference of two tones, potentially overlapping especially n=0"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a minimal deterministic interference model, the theorem gives both a sharp quantitative limit on isolated zeros and a precise exceptional set where the geometry changes to entire zero lines. The exact count at large gaps and the root-gap formula at resonances are useful distinctly from the elementary branch decomposition, and avoid transferring random-field isolation or Gaussian-window intuition to arbitrary Hermite windows. No exact count at every nonresonant gap is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

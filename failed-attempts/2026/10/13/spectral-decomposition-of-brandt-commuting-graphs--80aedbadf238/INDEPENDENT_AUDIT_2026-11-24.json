@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:04.776661Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–78; VERIFICATION.md and verify.py inspected",
+        "Independent integer charpolynomial calculation from semigroup multiplication at n=3,…,7: python /workspace/review-check.py 3"
+      ],
+      "rationale": "For distinct matrix units both nonzero products cannot coincide, so commuting is exactly the simultaneous mismatch of the two middle indices. Inclusion–exclusion and loop removal give the stated adjacency operator. On symmetric arrays, diagonal and row-sum data together separate the constant and zero-sum sectors: the (I,J) data map has determinant n−1 up to sign and the (D_u,P_u) data map determinant n−2 up to sign. The remaining symmetric kernel has dimension n(n−3)/2 since the unsigned complete-graph incidence has full row rank (a_i+a_j=0 for every i≠j forces a=0 for n≥3). Skew row sums are onto 1-perp via Q_u, leaving the stated −2 space. The resulting determinants reproduce all factors; the quadratics have no common root (their difference forces λ=(n−2)/(n−1), which leaves λ² in the second quadratic), and the listed linear eigenvalues do not collide with them. Only the nullity factor vanishes at zero. The positive-root sum and mixed-sign root difference, with the linear contributions, give the stated energy.",
+      "residual_risks": [
+        "Independent checks at n=3,…,7 test exact finite polynomials, not the quantified direct-sum proof. The n=2 degeneracy is excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nagy and the symmetric inverse semigroup paper state structural graph results; the finite-group adjacency spectra concern a different graph construction for other algebraic hypotheses."
+        ],
+        "reasoning": "Neither connectivity/clique results nor whole-monoid or finite-group adjacency results supply the characteristic polynomial of this rank-one induced graph. The decisive evidence is the exact indexed same-object result.",
+        "searches": [
+          "Brandt commuting graphs adjacency spectral terms",
+          "Nagy DOI 10.1007/s00233-025-10597-0",
+          "Araújo–Bentz–Konieczny arXiv:1205.1664",
+          "Ghosh–Parui arXiv:2104.14967"
+        ]
+      },
+      "checked_sources": [
+        "Rank-one partial-bijections exact-spectrum Resultary record; Kumar–Dalal–Pandey; Nagy; arXiv:1205.1664; arXiv:2104.14967; Resultary rook-monoid and Heisenberg comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its Finding explicitly states nonsingularity exactly at n=3. Its polynomial fixes the energy: the quadratic contributions are (n−1)^2 and (n−1)sqrt(n^2+2n−7), and the nonzero linear factors contribute 2(n−1)(n−2)."
+        ],
+        "reasoning": "The energy need not be printed separately to be implied. The same-graph paper by Kumar–Dalal–Pandey does not supply that spectral formula in the inspected sections.",
+        "searches": [
+          "Rank-one partial-bijections record, original Finding and proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct rank-one partial-arrow finding explicitly tests b≠c and d≠a for vertices (a,b),(c,d), exactly the pair-index adjacency criterion of the Brandt record."
+        ],
+        "reasoning": "The map (a,b) to a↦b is an adjacency-preserving bijection, and both constructions are simple and loopless. Relabeling does not alter any spectral invariant.",
+        "searches": [
+          "Resultary: Brandt semigroup commuting graph exact adjacency spectrum characteristic polynomial eigenvalues energy",
+          "Kumar–Dalal–Pandey arXiv:2010.05000, same graph definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the rank-one partial-bijections record the boxed polynomial agrees factor for factor for all n≥3. The rook-monoid matrix retains certain diagonal entries and is on all ranks; the Heisenberg result uses a nontrivial local group."
+        ],
+        "reasoning": "The boxed exact formula constitutes full coverage already, not a handful of matching n or a hit on a related semigroup.",
+        "searches": [
+          "Resultary query for Brandt spectrum and characteristic polynomial; matched SCOPE-complete-adjacency-spectrum-and-nullity-onset-for-commuting-rank--d4e8c855c2e4",
+          "Related indexed rook-monoid mutual-annihilation and Heisenberg Brandt results"
+        ]
+      },
+      "rationale": "A distinct indexed finding gives the identical full characteristic polynomial and nonsingularity threshold for the same graph, under the presentation by rank-one partial bijections. Energy is a mechanical consequence. The indexed path has a later date; the comparison establishes equivalent coverage, not who first derived, disclosed or proved it.",
+      "residual_risks": [
+        "Directory dates are not evidence of derivation or release order; no priority conclusion is made.",
+        "An OA attempt for Gray–Ruškuc's generating-sets background paper was unavailable; no negative coverage inference is based on that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage, no priority finding",
+          "evidence": "Boxed determinant and the n≥3 quantifier match; proof step 1 gives the same pair criterion and step 2 the same loopless action.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-adjacency-spectrum-and-nullity-onset-for-commuting-rank--d4e8c855c2e4/RESULT.md",
+          "material_read": "Original Finding, scope and adjacency criterion, offsets 0–3650, with subsequent proof passage in same local snapshot",
+          "method": "Indexed Resultary search and bounded original-source read through local mirror",
+          "title": "Complete adjacency spectrum and nullity onset for commuting rank-one partial bijections",
+          "trigger": "Strongest alternative presentation of the exact graph and spectrum"
+        },
+        {
+          "assessment": "Defines the object and gives other graph invariants",
+          "evidence": "The trivial-group case is the aperiodic Brandt semigroup; the main graph results inspected concern diameter, coloring, connectivity and automorphisms, not the target polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.05000",
+          "material_read": "Abstract and graph definitions/results, offsets 0–19035, with targeted spectral term checks elsewhere",
+          "method": "OA full-text passage review",
+          "title": "On the commuting graphs of Brandt semigroups",
+          "trigger": "Exact original graph and plausible prior spectrum"
+        },
+        {
+          "assessment": "Inspected results are structural, not a spectral specialization",
+          "evidence": "They address components, connectivity and clique/chromatic or path questions; the passages do not produce a Brandt adjacency polynomial.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-025-10597-0",
+          "material_read": "Introduction and stated graph results, extracted offsets 0–6500 and Theorem 3.6 near 14608",
+          "method": "OA passage review plus targeted spectral term searches",
+          "title": "Commuting graphs of Rees matrix semigroups",
+          "trigger": "Potential coverage by larger semigroup family"
+        },
+        {
+          "assessment": "Different matrix",
+          "evidence": "All-rank mutual annihilation with diagonal entries when the square is zero is not the loopless commuting graph on rank one.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-exact-inertia-of-the-mutual-annihilation-matrix-of-the-rook-mono--72b990ba98ea",
+          "material_read": "Original RESULT.md offsets 0–4498",
+          "method": "Bounded local-mirror read",
+          "title": "Exact inertia of the mutual-annihilation matrix of the rook monoid",
+          "trigger": "Nearby indexed spectral work on partial bijections"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and invariant-block proof",
+        "Rank-one partial-bijections indexed Finding and adjacency proof"
+      ],
+      "rationale": "The complete adjacency spectrum and nullity onset are motivated invariants of the Brandt graph, but the frozen record does not give a distinct valuable finding relative to the equivalent indexed determinant. Its extra energy expression needs only the signs and root sums of the already determined factors. The block proof does not produce a separate downstream invariant or a new structural result outside the same spectral decomposition.",
+      "residual_risks": [
+        "This does not judge whether the spectral calculation was valuable at the time of its first discovery."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:31:12.086933Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65; VERIFICATION.md and supplied Python/C++ checkers (inspected, not executed)",
+        "/workspace/record3_certificate/reproduce.py and enumeration.json (independent exact census)",
+        "/workspace/record3_certificate/geometry_repro.py and geometry_repro.json (independent group, rank, and scheme checks)",
+        "Homma–Kim arXiv:0903.1918 Theorem 3.2"
+      ],
+      "rationale": "The frozen result counts two-dimensional vector subspaces with exactly four rational members, each geometrically smooth. The fresh exact reproduction checks rank 13 of the planar evaluation map in degree five and rank 8 of A↦det(X,X^[3],AX), with scalar kernel. At a rational point p its differential is det(v,p,Ap), so a rational eigenline forces a singularity. The converse follows from Homma–Kim Theorem 3.2 and was separately checked by computing all three affine singularity ideals of representatives of the two no-rational-eigenline form orbits (432 and 144). The complete independent RREF sweep checks all 896260 two-spaces, accepts exactly 2016, and full enumeration of the projective group of order 5616 gives orbit sizes 1872 and 144 and stabilizers 3 and 39 for the displayed representatives. Rational base points are transverse: dependent differentials over F3 would give a singular rational member. Smooth independent degree-five curves have no common component, so Bézout leaves length 12 after those 13 points. Exact chart Gröbner checks give eliminants Z(Z−1)(Z+1) times the frozen irreducible P12 or P3^4, respectively. On that residual locus Z³−Z is a unit and the Gröbner relation is linear in the other coordinate, so the localized quotient is respectively F3[Z]/(P12) or F3[Z]/(P3^4). This certifies Frobenius support and scheme length, not just point counts in a sampled extension; the total Bézout length excludes extra support at infinity. The reduced case additionally has unit base-intersection Jacobian ideal on all three charts. Finally the differential from any system to a fixed rational point's two-dimensional cotangent space has nonzero kernel in vector dimension at least three, ruling out higher-dimensional rationally all-smooth systems.",
+      "residual_risks": [
+        "The completeness is for the stated F3 space and rational pencil members only. No smoothness claim is inferred for every parameter over the algebraic closure; no formal proof or external attestation channel was used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homma–Kim prove the matrix smoothness criterion over all finite fields. Duran Cunha and Homma study individual curves; Asgarli–Ghioca consider rational smooth members of pencils in broader systems, with an existence theorem for sufficiently large q. Local record b3c5cd250d53 states maximum vector dimension two over every F_(3^r), as well as a trace-zero member invariant."
+        ],
+        "reasoning": "These cover the known curve-level model, motivate the rational-pencil question, and overlap the no-net subclaim (the broader catalogue entry is later, so not used to assert priority). They do not determine the complete residual base scheme of the two smooth F3 pencil orbits.",
+        "searches": [
+          "arXiv:0903.1918, Theorem 3.2 and individual curve setup; arXiv:1805.07345 and arXiv:1906.00164 (individual Tallini curve invariants and degenerations)",
+          "arXiv:2203.07169 Question 1.2 and Theorem 1.3; local Resultary b3c5cd250d53"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0903.1918 Theorem 3.2; arXiv:1805.07345 and arXiv:1906.00164 introductory passages; arXiv:2203.07169 Question 1.2/Theorem 1.3",
+        "Coulter–Matthews p. 11 and Budaghyan–Helleseth DOI 10.2478/v10127-010-0002-0 pp. 19, 21",
+        "Local Resultary 4918e9c3bc9a, 5ea55287ab22, 3eacdf431dcb, 39890682ea9c and b3c5cd250d53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bézout and the common rational-point condition give only the total residual length 12 once transversality is checked. Neither the determinant nonvanishing data in a spread set nor orbit-stabilizer alone distinguishes residual support and multiplicities. In the frozen geometric model they are determined by two different elimination polynomials and the coordinate relation after localization."
+        ],
+        "reasoning": "Once the two normalized types are known, representative computations suffice, so no novelty is assigned to recovering the same two abstract types by a full sweep. Their explicit scheme-theoretic comparison is not a parameter substitution in the prior classification: it needs an exact joint intersection calculation, including the irreducible factor degree and scheme thickness. The checked overlap does not recover that part.",
+        "searches": [
+          "Compare field and normalized twisted spread types with the frozen base-scheme certificates",
+          "Compare individual Tallini-curve statements and all-smooth pencil existence with the joint residual degrees and lengths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse image of an all-smooth pencil in M3(F3) is a three-dimensional subspace S containing I with every nonzero member invertible: det(A−λI)≠0 for each λ∈F3 iff the coset form is smooth. Choosing a nonzero e, evaluation at e maps S bijectively to F3³, so S is a unital semifield's multiplication spread set. Projective pencil equivalence is conjugacy of S, not just arbitrary two-sided linear equivalence."
+        ],
+        "reasoning": "In this specific order, isotopy does account for the two conjugacy types after an additional normalization argument. Menichetti's field/twisted-field classification gives the multiplication spread up to S=P S0 Q. Having I in S forces Q=T⁻¹P⁻¹ with T in S0 nonzero. In the field model S0 T⁻¹=S0. For the order-27 twisted model take L_a(x)=a³x+a x³ on K=F27. The general nonfield twist xy−c x^(3^i)y^(3^j) has {i,j}={1,2} and norm(c)≠1; a Frobenius change in one input makes the two terms crossed and an input scaling makes the coefficient sign positive since the kernel of the norm K*→F3* is the squares and norm(c)=−1. Exponent 9 instead of 3 is equivalent by output Frobenius. Writing M_b for scalar multiplication by b∈K*, L_ba=M_(b^4)L_a M_b⁻¹, so S0 L_b⁻¹ is conjugate to S0 L_1⁻¹ for all b≠0. Thus the prior algebraic classification yields at most two normalized conjugacy orbits; the commuting field representative and noncommuting other representative distinguish them. It does not give the claimed intersection schemes.",
+        "searches": [
+          "Semifield planes of order 27 / normalized linear spread sets / Menichetti / Albert twisted fields",
+          "Homma–Kim arXiv:0903.1918 Theorem 3.2; Coulter–Matthews paper on Dickson DO polynomials, p. 11; DOI 10.2478/v10127-010-0002-0 pp. 19, 21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day local analogue 4918e9c3bc9a is an F2 quartic census: eight in one orbit, seven simple rational points and a conjugate triple of multiplicity 3. Local 5ea55287ab22 treats F2 quintics with 16800 pencils, 108 orbits and residual degree 18. F3 records 3eacdf431dcb and 39890682ea9c classify individual curves with orbit sizes 432 and 144, not pencils."
+        ],
+        "reasoning": "The binary classifications are scientifically related, but changing field and degree changes the problem and the stated local lengths; matching the number 144 of the individual ternary curves is not an exact table match. A bounded search located no geometric table that gives the frozen pair of F3 residual local rings; that absence alone is not evidence of novelty.",
+        "searches": [
+          "Local Resultary all-smooth plane-filling quintic F3 pencil orbit counts, degree 12 residual base scheme, normalized spread sets",
+          "Tallini curves intersections pencils base locus F3 plane filling quintic two smooth curves intersection residual degree 12 multiplicity four conjugate points Homma Kim"
+        ]
+      },
+      "rationale": "Credit prior coverage of individual smooth plane-filling curves and, after translating and normalizing spread sets, the underlying two-orbit alternative. The supported distinct finding already stated in the frozen record is the geometric base-scheme classification: the two pencil orbits give precisely one reduced degree-12 point versus one degree-3 point with geometric local length four. The checked prior orbit classifications and individual-curve invariants give no such joint scheme statement or automatic determination of the residual Frobenius orbit and local algebra. The census alone and the cotangent obstruction are not the reason for passing.",
+      "residual_risks": [
+        "The original Menichetti paper was not read directly; the explicit OA classification statements and the normalization reduction suffice to credit the algebraic coverage. An unindexed Tallini pencil intersection table could affect priority for the geometric refinement; the inspected material does not establish worldwide uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the curve-level smoothness criterion",
+          "evidence": [
+            "The curve C_A is nonsingular iff the cubic characteristic polynomial is irreducible over the ground field; this is equivalent to no rational eigenline. No pencil intersection classification in the inspected statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.1918",
+          "material_read": "Abstract PDF p. 1; Theorem 3.2 and start of its proof, PDF pp. 5–6, offsets 13860–15219",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Nonsingular plane filling curves of minimum degree over a finite field and their automorphism groups",
+          "trigger": "Identical individual curve family and matrix criterion"
+        },
+        {
+          "assessment": "Explicit prior classification statement applicable to all proper semifields of order p³",
+          "evidence": [
+            "States that it follows from Menichetti's results that any proper semifield of order p³ is a twisted field. The normalization argument in this review is needed to make the conjugacy comparison."
+          ],
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.udel.edu/dist/a/6463/files/2017/08/DicksonDOs-13xpq92.pdf",
+          "material_read": "PDF p. 11, offsets 54260–56035; attribution to Menichetti and reference [14] on p. 12",
+          "method": "Identified OA author copy, literal location followed by bounded passage read",
+          "title": "Coulter–Matthews paper on Dickson planar DO polynomials",
+          "trigger": "Order-p³ semifield classification applicable to the spread-set lift"
+        },
+        {
+          "assessment": "Gives the model x² and twisted planar monomial x^(p^t+1), and the order-p³ alternatives",
+          "evidence": [
+            "Polarizing x⁴ at p=3 gives the twisted multiplication used in the normalized-conjugacy comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/v10127-010-0002-0",
+          "material_read": "Printed pp. 19 and 21, offsets 12620–13348 and 16120–17191",
+          "method": "Bounded lawful OA PDF read",
+          "title": "Planar functions and commutative semifields",
+          "trigger": "Explicit field and commutative twisted-field models"
+        },
+        {
+          "assessment": "Individual curve invariants in the inspected passages",
+          "evidence": [
+            "Identifies automorphism groups, Weierstrass semigroups, Hasse–Witt invariants and quotient curves as the objects of study."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.07345",
+          "material_read": "Abstract and introduction, PDF p. 1 offset 0",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Curves containing all points of a finite projective Galois plane",
+          "trigger": "Same Tallini curves and geometric invariants"
+        },
+        {
+          "assessment": "Treats individual curves and degenerations, not the joint scheme asserted here in inspected passages",
+          "evidence": [
+            "Explicitly classifies degenerations via the matrix representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.00164",
+          "material_read": "Abstract and introduction, PDF p. 1 offset 0",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Fragments of plane filling curves of degree q+2 over the finite field of q elements",
+          "trigger": "Matrix representation and singular degenerations of the same curves"
+        },
+        {
+          "assessment": "Related existence theorem, not F3 plane-filling orbit or scheme classification",
+          "evidence": [
+            "Asks for all q+1 rational members smooth and gives existence under explicit sufficiently-large-q assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.07169",
+          "material_read": "Abstract and Question 1.2 p. 1 offsets 0–3190; Theorem 1.3 p. 2 around offset 3190 and adjacent passage",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Exact rational all-smooth pencil condition in broader settings"
+        },
+        {
+          "assessment": "Different field, degree, orbit count and geometric lengths; no priority inference from date",
+          "evidence": [
+            "Eight F2 quartic pencils form one orbit with seven simple rational points and three nonrational geometric points of multiplicity three."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-eight-all-smooth-binary-plane-filling-quartic-pencils-and-their--4918e9c3bc9a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Eight all-smooth binary plane-filling quartic pencils and their base schemes",
+          "trigger": "Closest same-day catalogue statement on pencil orbit and base scheme"
+        },
+        {
+          "assessment": "Broader bound, later catalogue entry, not the base-scheme dichotomy",
+          "evidence": [
+            "States maximum vector dimension two over F_(3^r) with a distinguished trace-zero member in each all-smooth pencil."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-trace-obstruction-to-smooth-nets-of-minimum-degree-plane-filli--b3c5cd250d53",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A trace obstruction to smooth nets of minimum-degree plane-filling curves",
+          "trigger": "Broader overlap on maximum system dimension in characteristic three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and base-scheme proof, lines 4–15 and 44–62",
+        "/workspace/record3_certificate/geometry_repro.json",
+        "Spread normalization and prior-work comparison in this review"
+      ],
+      "rationale": "The natural family of maximally dimensional smooth pencils through the entire rational plane has identical rational base geometry and total intersection length, yet in its two orbits the residual scheme differs in both Frobenius support and geometric multiplicity. Determining that joint invariant exactly is useful independently of the older algebraic classification: it specifies the nonrational centers and their scheme thickness for the two types, data a computation of the spread sets or of individual-curve invariants does not by itself provide. This is not value assigned solely to recounting the conjugacy orbits.",
+      "residual_risks": [
+        "The residual dichotomy is established for the fixed F3 minimal-degree system, not proposed as universal for other fields or degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

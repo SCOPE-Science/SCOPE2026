@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a full-dimensional coaxial ball intersection, its squared section radius is the minimum of shifted sphere quadratics, hence \(f(z)=-z^2+g(z)\) with concave piecewise-affine \(g\). The effective center \(C=g'/2\) is nonincreasing. Uniform cross-sectional integration yields the axial variance \(\operatorname{Var}(Z)\) and transverse variance \(\mathbb Ef(Z)/(d+1)\). Absolute continuity of the profile, zero endpoint radii, and the identity \(d+1=2((d-1)/2+1)\) justify integration by parts, giving \(v_\perp-v_\parallel=-\operatorname{Cov}(Z,C(Z))\). The elementary independent-copy argument establishes its sign and strictness; constancy forces a full ball. Decomposing the center step function proves every positive switch contribution with nondegenerate conditional means. The analytic argument covers arbitrary radii, nonsymmetric centroids, all finite intersections, and all integer dimensions at least two, including fully redundant balls. The delivered stand-alone verifier passed 138 independent symbolic/numerical assertions, including the exact three-ball multi-interface witness; finite checks are supplemental, not a substitute for proof.
+## correctness
 
-## Originality — PASS, with historical priority risk
-Bezdek, *Volumetric bounds for intersections of congruent balls* (2019, arXiv:1912.05118v1), treats a geometrically related intersection family and its intrinsic volumes and inradius, not the covariance spectral inequality. Drach–Tatarko's reverse-isoperimetric study (2023, arXiv:2303.02294v1) concerns volume, surface area and inradius of curvature-constrained bodies, but its full text was not available for examination; no whole-document exclusion is inferred from its abstract. The closest published *Sharp covariance anisotropy law for symmetric Euclidean ball lenses* treats exactly two congruent generating balls and proves a different all-separation statement; it is acknowledged as covering the corresponding special case. No checked source establishes a theorem for arbitrary finite coaxial intersections with independent positive contributions from every effective center switch. Diaz–Herrera–Martinez (2005/2006) supply general moment-of-inertia integral techniques but not the stated rigidity and discrete interface decomposition in inspected material. An unindexed older equivalent theorem or inaccessible 2023 text remains a residual priority risk. Search absence is not proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-This is a sharp, dimension-independent sign and equality classification for a natural ball-polyhedron subclass, not an arbitrary numerical slice. The exact covariance-gap decomposition shows how each geometrically effective spherical face-change adds a strictly positive contribution and remains valid for unequal generating radii, arbitrarily many spheres and noncentral centroids. It quantitatively distinguishes a ball from every proper coaxial intersection and reveals the monotone active-center mechanism behind anisotropy. The three-effective-ball rational example demonstrates genuine multiple-interface content not reducible to the pre-existing congruent two-ball identity. The result does not extend to arbitrary noncollinear centers or establish a global extremum among convex bodies.
+The axial interval is [max_i(c_i−R_i), min_i(c_i+R_i)] with positive length. Its squared section radius f=-z²+g has g the lower envelope of affine functions with slopes 2c_i; it is positive inside and zero at both ends. The effective center C=g′/2 is nonincreasing; duplicate lines and point ties do not contribute. The density of Z is proportional to f^h with h=(d−1)/2 and the transverse conditional variance is f/(d+1) by uniform ball integration, also valid for interval slices at d=2. Thus (f^(h+1))′=(d+1)(C−z)f^h. Multiplying by z−E[Z] and integrating by parts gives the gap −Cov(Z,C(Z)); continuity cancels all inner boundary terms. Expressing C as a constant minus its positive jumps times 1_{Z>t_j} gives the exact interface contributions. Each has positive masses on both sides and strictly ordered conditional means. No jumps force g affine; the two endpoint zeros reconstruct the entire generating ball, and conversely a ball is isotropic. For the stated three-ball example, direct polynomial antiderivatives give ∫f=17/6, ∫z²f=139/240, ∫f²=191/40, and ∫_{1/2}^1 z f=59/192. With centroid zero these yield the stated variances, difference 59/272 and two equal interface terms 59/544. In the wider absolutely continuous profile class the same integration by parts is valid, and a nonconstant a.e. decreasing C gives strictness by independent pairs. The bundled script was inspected, not executed.
 
-## Scope and remaining risks
-The accessible geometrical and mechanical literature was compared by statement and implication, not by title alone; older unindexed engineering formulas could provide an equivalent gap identity. The 2023 source's full text was not inspected, so its coverage assessment is limited to accessible abstracts and related published summaries. No independent review was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known congruent two-ball lens gap is an exact special case, not independently new. The present result adds finite many active pieces, arbitrary radii and an exact centered contribution from every actual center jump. None of the inspected statements supplies this wider covariance ordering, equality criterion and additive formula together, or makes them a specialization of a known broader covariance comparison.
+
+## value
+
+PASS
+
+The sign and ball rigidity describe a natural class of uniform bodies without assuming a midpoint centroid or even equal radii. More informative than simply integrating sectional geometry, the exact noncancelling formula tells which effective geometric changes generate the anisotropy, and the three-active-ball example demonstrates genuinely additive behavior beyond the known lens case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

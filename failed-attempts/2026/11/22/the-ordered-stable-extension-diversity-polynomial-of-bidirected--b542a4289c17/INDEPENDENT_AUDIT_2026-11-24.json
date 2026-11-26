@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:12.295690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "Frozen check.py, inspected",
+        "/workspace/review_evidence/reproduce_small.py (path)"
+      ],
+      "rationale": "With reciprocal attacks, stability is independent domination, or maximal independence. The local binary conditions correctly enforce both endpoints. Independently used a three-state word automaton tracking the last selection and zero run, with initial state permitting one leading zero and acceptance permitting one trailing zero (including the empty input). Its ordered tensor-square transfer has denominator degree at most nine and numerator degree at most eight; after cross-multiplication with the claimed N/D the numerator degree is at most fourteen. All coefficients through this bound agree exactly; this proves the all-length identity, not just a finite check. At full distance, independence of both complementary sets and connectivity force the two alternating assignments. At distance one, inclusion would contradict maximality. Independently, for a selected site, the allowed words on either side have length series (1+x)/(1-x^2-x^3): interselection gaps are two or three and the outer zero run is zero or one. The full nonempty word series is x(1+x)^2/(1-x^2-x^3). Its unique dominant simple pole h=1/lambda yields a bulk inclusion probability p=1/(2h^2+3h^3)=(lambda+1)/(2lambda+3), with geometric errors in the distances to the endpoints. Summing 2p_i(1-p_i) for independent uniform draws therefore gives 2p(1-p)n+O(1), with the stated coefficient 0.4843339383476568... .",
+      "residual_risks": [
+        "Scope is labelled bidirected paths, ordered pairs of stable extensions, and independent uniform sampling for the mean."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fichte et al. give the distance definition and decision/diversity questions. Jahari–Alikhani give a single-set independent-domination cardinality series. Neither of those passages is a pair-distance census. The arbitrary local signs in 294497a01d79 do give a fixed dimension exact transfer for the same path constraints, for every n>=2."
+        ],
+        "reasoning": "Neither general complexity results nor knowing only a global single-set size distribution supplies this pair enumerator. The position-specific signed transfer, however, retains exactly the information needed for the pair specialization; empty and singleton sizes are immediate.",
+        "searches": [
+          "arXiv:2605.13332 contribution and distance passages",
+          "arXiv:1808.07369 Theorems 4.1 and 4.3",
+          "294497a01d79 RESULT.md, scope and Step 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior work and stated theorem",
+        "Resultary 294497a01d79 and 2c80e8096553",
+        "arXiv:2605.13332 and 1808.07369",
+        "/workspace/review_evidence/path_prior_implication.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=2 the prior gives W_n=v2 T(t_3)...T(t_n)w with v2=(0,t2,t1), w=(0,1,1)^T. Let A=((1+z)T(+1)⊗T(+1)+(1-z)T(-1)⊗T(-1))/2. The expected initial tensor row is a=(0,0,0,0,1,z^2,0,z^2,1). Thus the length series is 1+x+x^2 a(I-xA)^{-1}(w⊗w). Exact symbolic reduction of this expression gives the original N/D, without using the new quotient or new enumerative lemmas."
+        ],
+        "reasoning": "An entrywise moment, a finite matrix resolvent and rational cancellation recover precisely the central theorem. The mean and its slope are the first derivative asymptotics of the same expression, not an independent escaping claim.",
+        "searches": [
+          "294497a01d79 RESULT.md Step 1, exact T(t), v2, w",
+          "/workspace/review_evidence/path_prior_implication.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stable extensions here are maximal independent sets, also called independent dominating sets. For a fixed Hamming indeterminate z, use the linear average of signs t with weights (1+z)/2 at +1 and (1-z)/2 at -1. Then E[t^a t^b]=z^{a xor b} for bits a,b, so P_n(z)=E[W_n(t_1,...,t_n)^2] for independent coordinates. This is a formal polynomial identity even though the weights are probabilities only on a real subinterval."
+        ],
+        "reasoning": "The earlier exact signed sum specializes in its tensor square directly to the ordered-pair distance enumerator. The verified implication uses a stronger transfer identity from the proof, not the nonvanishing classification alone.",
+        "searches": [
+          "Resultary path maximal independent set Walsh kernels and ordered-pair Hamming distance",
+          "294497a01d79 RESULT.md, offset 1200, Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit N/D hit is the assigned record itself. The separate same-day hit 2c80e8096553 computes shattering, not pair distance. The earlier 294497a01d79 supplies exact arbitrary-sign transfer matrices rather than the rational function in expanded form."
+        ],
+        "reasoning": "No independent expanded table was identified; reject for demonstrated implication from actual prior transfer entries, not for the identical record or same-day similarity.",
+        "searches": [
+          "Resultary ordered-pair Hamming distance, stable-extension diversity, path independent-domination polynomials and path transfer/mean disagreement"
+        ]
+      },
+      "rationale": "An earlier Resultary record gives the full signed transfer on exactly the same admissible path words for arbitrary signs, not merely the support of their Walsh transform. Direct tensor squaring and independent sign averaging in its published matrices gives the exact claimed N/D. This is demonstrated equivalent coverage by a mechanical specialization of the stronger signed transfer; the prior need not print the expanded numerator. The mean follows by differentiating this specialization and the two extremal facts are routine consequences of maximal independence on a path.",
+      "residual_risks": [
+        "The targeted general search returned unrelated hits, which supply no negative evidence. The FAIL is based on a verified mathematical implication from accessible prior text, not a claim of absolute priority or a search failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central result by direct implication",
+          "evidence": "The text gives a boundary-correct three-state signed matrix product for all signs. Independent tensor averaging and exact cancellation return the claimed N/D.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md",
+          "material_read": "Assumptions and scope and Proof Step 1, from offset 1200; convolution discussion",
+          "method": "Local mirror passage inspection; independent symbolic specialization of the displayed matrices",
+          "title": "Period-seven Walsh invertibility of maximal-independent-set path kernels",
+          "trigger": "Exact same admissible words and apparent full Walsh transfer"
+        },
+        {
+          "assessment": "Same distance; different contribution in inspected passages",
+          "evidence": "Defines k-diverse by symmetric difference k; contributions and table concern decision and complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.13332",
+          "material_read": "PDF pp. 2–3 and 5, offsets 7800 and 15700",
+          "method": "OA primary passages",
+          "title": "Diversity of Extensions in Abstract Argumentation",
+          "trigger": "Prior pairwise diversity statistic"
+        },
+        {
+          "assessment": "Single-set enumerator only in inspected result",
+          "evidence": "Nonempty path length/cardinality series xy(1+x)^2/[1-(x^2+x^3)y].",
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "Theorems 4.1 and 4.3, PDF pp. 8–9 from offset 23044",
+          "method": "OA primary passages",
+          "title": "On the Independent Domination Polynomial of a Graph",
+          "trigger": "Independent-domination path series"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts shattered vertex supports, not Hamming distances between pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-shattering-polynomial-for-maximal-independent-sets-of-path--2c80e8096553/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Same-family, same-day rational enumerator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 4–5",
+        "Resultary 294497a01d79, proof Step 1",
+        "/workspace/review_evidence/path_prior_implication.py"
+      ],
+      "rationale": "All-distance path diversity is a natural invariant and the explicit expression is a convenient presentation. However, it is the exact evaluation of a routine two-copy specialization of an existing fixed-size signed transfer, not an independently unknown exact invariant under the audit standard. The support endpoints follow by alternation and maximality and the mean is an immediate derived statistic of that exact specialization; no distinct substantive residual claim is established.",
+      "residual_risks": [
+        "This is a scientific coverage/value decision, not an objection to the use of finite-state methods or to the correctness of the explicit formula."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

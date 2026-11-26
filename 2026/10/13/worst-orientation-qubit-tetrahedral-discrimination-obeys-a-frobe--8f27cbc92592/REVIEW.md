@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Qubit state-discrimination SDP duality is reconstructed as a smallest-enclosing-Euclidean-ball problem with \(P_{\rm guess}=(1+\mathcal R)/4\). The tetrahedral tight-frame identity fixes the mean square distance \(\|T\|_{\rm F}^2/3\) independently of input rotation; every enclosing radius is at least its square root. A proper eigenframe rotation makes all four output radii equal to that bound, and the explicit four-outcome POVM achieves the dual. The equality argument uses a separate Walsh sign comparison, not numerical evidence. Cases of zero, singular and degenerate \(T\), nonzero affine translation and equality of eigenvalues are included. Eight physical channels and 288 additional orientations were reproduced with an independent support-set enclosing-ball check; finite experiments do not prove a universal statement.
+## correctness
 
-## Originality — PASS, subject to priority risk
-Bae and Hwang's arXiv:1204.2313 fixed-ensemble geometric discrimination theorem is the closest enabling prior work and is explicitly credited. Rouhbakhsh N and Ghoreishi, Quantum Information Processing 22, 323 (2023), section 4.3/Appendix B, also solve arbitrary specified mixed-qubit state discrimination and include a regular-tetrahedral example, but do not state the minimization over tetrahedral input orientation through arbitrary anisotropic affine channels or the exact optimizer characterization. Clarke et al., Phys. Rev. A 64, 012303 (2001), treats ideal tetrahedral detection. The fixed-ensemble results encompass the output-POVM part, not the entire channel-orientation claim. Searching equivalent SIC, Bloch contraction, singular-value and minimum-enclosing-ball formulations did not reveal an exact covering theorem; this is not a proof of priority. The strongest residual risk is an equivalent sharp enclosing-ball-of-affine-regular-simplex theorem from convex geometry.
+PASS
 
-## Value — PASS
-The minimum-over-input-rotations guessing probability is a natural worst-orientation invariant for tetrahedral qubit communication through a given noisy channel. A sharp formula depending only on \(\|T\|_{\rm F}\), accompanied by a complete eigenframe optimizer classification and explicit optimal receiver, answers this whole family exactly—including nonunital and rank-deficient cases. The contribution is the quantified orientation classification, not the standard noiseless tetrahedron value or an isolated numerical table entry.
+Reconstructed the qubit minimum-error SDP with priors 1/4 and strict feasibility. With dual variable H=((1+s)I+c·σ)/8, domination of each weighted state is exactly s≥||c−(t+TRv_j)||, and tr H=(1+s)/4. Thus the objective is a Euclidean enclosing radius, independent of t for every R. The tetrahedral mean and second moment give the mean squared distance from c as ||T||²_F/3+||t−c||², a lower bound on the enclosing radius squared. A proper eigenframe makes the four squared distances at t equal to that bound. Conversely equality forces c=t and all four squared norms equal; orthogonality of the three nonconstant coordinate-pair sign columns on the four vertices forces each off-diagonal Gram entry to vanish. This also covers singular and degenerate T. If T=0, all rotations attain and every Gram matrix is zero; if the eigenvalues are distinct, the three ordered eigenaxes have 3!×4 proper sign choices. At an attaining frame the advertised effects are positive, sum to I by the zero mean, and give the dual value by direct trace multiplication; division by zero is avoided using I/4 for T=0. As a concrete strict case, T=diag(1,0,0) has radius 2/3 when a vertex is oriented along the channel axis (the projections are 1 and −1/3), versus 1/√3 at a Gram-diagonal orientation. The included verification/verify.py was inspected but not executed; its documented finite tests cannot establish the continuous minimum or the necessity statement.
 
-## Limits
-Single channel use, pure equal-prior tetrahedral input signals, common input unitary rotation, unconstrained decoding POVM. Not a claim about best-case encoding, multiple uses, unknown channels, or all possible spherical codes. Comparison with logically equivalent formulations in other fields remains a possible priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the arbitrary affine-channel minimum over common tetrahedral rotations and its exact Gram-diagonal equality criterion. Fixed-ensemble discrimination, common-translation invariance, tetrahedral tight frames and the isotropic case are already covered. No examined stronger claim mechanically implies the anisotropic minimization and equality classification.
+
+## value
+
+PASS
+
+The formula gives a sharp worst-orientation receiver-performance invariant for a standard four-state signal family without numerical orientation or measurement optimization. The exact eigenframe criterion and usable attaining measurement matter alongside the scalar, including for anisotropic, nonunital and rank-deficient channels. This value is specific to the worst-orientation question, not a claim about best encoding fidelity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

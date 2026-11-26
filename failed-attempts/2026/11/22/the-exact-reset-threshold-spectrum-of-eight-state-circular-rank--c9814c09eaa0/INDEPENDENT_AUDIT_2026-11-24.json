@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:53:57.726418Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, spectrum.csv, orbit_census.cpp, labeled_crosscheck.cpp and verify_spectrum.py",
+        "Independent reverse search, complete rank-six enumeration and direct word evaluation"
+      ],
+      "rationale": "Independently filtered all 8^8 maps by rank, selected the least lexicographically packed cyclic conjugate, and used reverse preimage BFS from all singletons. The full set is reached at depth k exactly when some word of length k resets; the empty preimage is a dead state. This reproduced all 31 rows in the frozen CSV and RESULT.md, 5362560 labeled maps, 670608 classes and 2304 half-turn-fixed maps. The latter have orbits of size four; other stabilizers are excluded because the rank-six image cannot be a union of orbits of size four or eight. A constant word cannot commute with the fixed-point-free half-turn. The sole length-36 representative is 01234017; direct evaluation confirms the supplied 36-letter word ends at 0. The mean is 3322203/331840 and exactly seven classes have length at least 29. Replay: /workspace/review-check-1.py and /workspace/review-check-1.log; the frozen C++ and Python checked by inspection, not executed.",
+      "residual_risks": [
+        "Only the stated eight-state family, with the specified distinguished letters and conjugations, is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint census publishes the complete 648-entry (L,W) distribution. The distinct 2026/11/2 record d2476f0a726f is restricted to rank seven and has a different population (141120 orbits, maximum 49)."
+        ],
+        "reasoning": "The rank-seven table is disjoint. The joint rank-six census strictly refines the studied length statistic. An algorithm paper alone would not imply the numerical histogram without doing an enumeration.",
+        "searches": [
+          "Resultary: exact reset threshold spectrum circular automata rank six versus rank seven defect one table",
+          "9f6a4b013531 RESULT.md, Finding and Relationship to prior work",
+          "arXiv:2207.05495 and arXiv:1609.06853 (targeted retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "9f6a4b013531 exact finding, attribution and joint table",
+        "Resultary records d2476f0a726f and c9814c09eaa0",
+        "Frozen cited algorithm literature comparison; underlying papers not fully retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joint Finding gives unique L=36 at 01234017. It calls the marginal and extremizer previously established calibration facts; the reference for the marginal has no precise earlier source identifier. Exactly 2304 labeled maps commute with a^4 by choosing three antipodal output pairs for four input pairs and orientations."
+        ],
+        "reasoning": "For finite L the labeled count is eight times its marginal; at L=-1 subtract 2304 from eight times the orbit count because each half-turn-stabilized orbit has size four. The mean, gaps and high-threshold total are sums of the same table, and the stabilizer fact is an elementary consequence of the specified cyclic action, not a surviving new classification.",
+        "searches": [
+          "9f6a4b013531 RESULT.md, offsets 0–2600 and 6250–8666; crosscheck with frozen RESULT.md, Finding and half-turn argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Joint census 9f6a4b013531, Finding: Q=Z/8, designated a(i)=i+1, b of image size six, cyclic conjugation only, L=-1 when not synchronizing. W counts shortest words."
+        ],
+        "reasoning": "The joint variable L is the frozen reset threshold, not a different cut, word count, quotient or period restriction. Discarding W gives the same object and invariant.",
+        "searches": [
+          "Resultary: eight-state rank-six circular automata complete threshold histogram labeled rotation classes 670608",
+          "Resultary: fixed forward 8-cycle arbitrary rank-six transformation unique reset threshold 36 class"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the machine-readable joint table and summed count by reset_length: all 31 coefficients match exactly, including (-1,6928), (35,1), (36,1), total 670608; the length-36 cell is (36,8,1). The exact Resultary hit c9814c09eaa0 is the frozen record itself, separate from the joint census."
+        ],
+        "reasoning": "This is verified exact table coverage, not a title similarity or comparison of just the extrema.",
+        "searches": [
+          "Resultary: shortest reset-word census rank-six 8-state circular automata threshold 30 length 36",
+          "9f6a4b013531 data/joint_histogram.csv"
+        ]
+      },
+      "rationale": "A distinct indexed exact joint census covers the same length classification: actual summation of its 648 cells by length gives every one of the 31 frozen rotation counts, and the joint source states the very same unique length-36 representative. Labeled counts are the same marginal with the elementary half-turn weighting. This is a coverage decision, not a priority finding: the joint source itself describes the length marginal and extremum as previously established and does not claim them as new. Its reference for that marginal does not identify a dated record, so neither the direction of priority nor an external predecessor is inferred just from the two dates.",
+      "residual_risks": [
+        "Intra-day or historical priority not established. The actual overlap remains exact irrespective of whose census first appeared.",
+        "No inference about absence of more historical tables from failed retrievals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete equivalent coverage of the length marginal; no dated attribution sufficient to settle priority",
+          "evidence": [
+            "Identical rank, cycle, orbit convention and no-reset marker; 31/31 marginal counts equal; exact unique length-36 map; describes those facts as previously established."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-joint-shortest-reset-word-census-for-rank-six-eight-state-circul--9f6a4b013531",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2600; verification and prior-work/references, offsets 6250–8666; machine-readable data/joint_histogram.csv",
+          "method": "Resultary and exact local mirror passages with table aggregation",
+          "title": "Joint shortest-reset-word census for rank-six eight-state circular automata",
+          "trigger": "Exact family, counts and extremum in a distinct record with a refined invariant"
+        },
+        {
+          "assessment": "Disjoint family; no implication by the displayed result",
+          "evidence": [
+            "Rank-seven second letter, 141120 orbits and maximum reset length 49."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f",
+          "material_read": "Indexed statement specifying rank seven and boundary counts",
+          "method": "Resultary result",
+          "title": "Complete reset-threshold spectrum for eight-state circular defect-one automata",
+          "trigger": "Closest differently conditioned exact census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen result",
+        "Verified 648-cell joint table and projected marginal"
+      ],
+      "rationale": "The conditional census is a well-motivated benchmark, and this independent reproduction is useful corroboration. But the exact values and extremum are already represented in a stronger available census. Marginalization, elementary stabilizer weighting, and summary statistics do not create a further scientific invariant or a valuable narrowed result here.",
+      "residual_risks": [
+        "This distinguishes scientific increment from reproducibility and does not adjudicate priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

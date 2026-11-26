@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_chvatal_plateau.py` on Python 3.10+; only the standard library is used. Successful termination prints `CHVATAL_IND2_IND3_SHARP_SIMPLE_HOMOTOPY_PLATEAU_VERIFIED`.
+## correctness
 
-The program constructs the labeled four-regular triangle-free graph from its complete 24-edge list. It exhaustively tests all \(2^{12}\) masks across thresholds one through four, with an independent maximum-degree test for threshold two. It computes the entire face vectors, the exact homology ranks over \(\mathbb F_2\) for the middle two stages, and an acyclic 211-pair Forman matching (checking every one of 1428 cover incidences). It separately constructs and checks 152 genuine elementary simplicial free-face collapses from stage three to stage two, each on the current complex rather than on a stale incidence count. Exact Euler counts exclude the neighboring threshold inclusions. The integral homotopy conclusion rests on the acyclic Morse CW cell dimensions and valid elementary collapses, not on mod-two observations. The theorem applies only to this finite graph.
+PASS
 
-Independent mathematical audit has not been performed.
+On the stated 12-vertex edge list, an independent exhaustive enumeration of induced component sizes at r=1,2,3,4 obtained the frozen face vectors, nonempty counts 126, 424, 728, 1175 and Euler characteristics 2, 0, 0, −63. A fresh relative collapse removes 152 distinct elementary pairs in the full current Ind_3, with each proposed free simplex having its paired simplex as its only proper coface; it preserves all of Ind_2 and reaches exactly that 424-face target. The independent 211-pair Morse matching on Ind_2 has critical dimensions 0 and 3, with acyclicity checked on all 1428 cover incidences. The matched finite complex has the homotopy type of a CW complex with one 0-cell and one 3-cell attached to that point, hence S^3 without any field restriction. The Euler obstructions are to the two specified adjoining inclusions. The frozen source, verification note and code were inspected, not executed. Replay using branches/d9f64756-c4a1-4585-86e9-1090990070b5/record2_independent_recompute.py; record2_independent_recompute.out in that directory includes the 152 face-mask pairs. The integral conclusion rests on collapse and Morse theory, not on the frozen mod-two check.
+
+## originality
+
+PASS
+
+The core relative simplicial collapse onto the fixed threshold-two subcomplex is distinct on inspected statements. Both the threshold-two sphere and, in a wider filtration catalogue, the stagewise types and Euler consequences have material exact overlap; they are not credited as independently novel here.
+
+## value
+
+PASS
+
+The standard Chvátal graph is a natural finite benchmark outside the chordal or tree classes. The relative collapse describes the actual map in its higher-independence filtration, not just equal endpoint homotopy types; the exact adjacent Euler obstructions delimit that simple-homotopy plateau. The replayable certificate is usable for comparisons of concrete filtration maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

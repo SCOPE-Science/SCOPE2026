@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:57:48.784147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen check_endpoints.cpp, check_literals.cpp and associated verification logs (not executed)",
+        "/workspace/repairs/5/RESULT.md, §§ Finding, Proof, Verification",
+        "/workspace/branches/c2880d4c-25ec-4f82-9340-c6ee4d8bc6a1/literal_global_check.py",
+        "/workspace/branches/c2880d4c-25ec-4f82-9340-c6ee4d8bc6a1/literal_global_census.txt",
+        "Chukhin et al., arXiv:2608.20018, §2, Lemma 2.2"
+      ],
+      "rationale": "The frozen endpoint argument incorrectly asserts that any overlap of length at least four identifies the terminal and initial four-mers; it does so at length four, not at greater lengths. The replacement first proves noncontainment is preserved: a third string contained across the two merged copies would start before the second copy and end after the first, giving an overlap strictly longer than the chosen global maximum. With noncontainment, any new overlap with the merged string must be shorter than the relevant full prefix or suffix copy, so was already available before the merge. The maximum never increases from its initial bound three, and endpoint reduction follows. The worst-Greedy recurrence enumerates all maximizing ordered choices and minimizes earned overlap. The corrected optimum argument uses successive start gaps in any superstring for one inequality and explicit assembly in a permutation for the reverse. Independently, a literal-state search and a scan of all 1,048,560 binary words of lengths 4–19 with a superset-min transform confirm the two quantities for all 39,202 input sets; length 19 suffices by an exhibited linearized de Bruijn word. All eight rows and counts agree. The only strict exceeders are masks 1343, 5431, 60584, 64672 with (G,L)=(17,11), and they are exactly one complement/reversal orbit. The explicit Greedy witness was checked at each step; the shortest witness meets the four-mer factor-count lower bound. The corrected RESULT.md was reread and requires no changes to either checker or log.",
+      "residual_risks": [
+        "The result is an exact finite classification through size eight, not evidence about the threshold-exceeder counts after size eight, or about a different alphabet, width, or tie distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary 2026 work gives the unrestricted-alphabet length-three ratio 9/5 and results at widths at least six. The primary 2015 presentation gives the length-four upper bound two. The companion sharpens the global binary width-four ratio to 17/11 with the same four equality masks."
+        ],
+        "reasoning": "The broader-alphabet bounds do not imply the cardinality cutoff. The full binary maximum result covers the eight-word maximizing ratio and quartet but not the absence of strict exceeders that fall below 17/11 or the lower-cardinality row maxima.",
+        "searches": [
+          "Chukhin et al., arXiv:2608.20018, abstract and §5",
+          "Kulikov–Savinov–Sluzhaev, 2015 presentation pp. 14–17",
+          "Resultary c5782f9cc70b, global binary four-mer theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 25f98f2d59f0, c5782f9cc70b, a4c0a785c07b, 570894b19121, f43f5caa07c5",
+        "Chukhin et al., arXiv:2608.20018",
+        "Kulikov–Savinov–Sluzhaev's 2015 presentation",
+        "Cazaux–Rivals 2018 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The global verification output gives maximum 17/11 and masks 1343, 5431, 60584, 64672. The companion review expressly refers to a preceding limited-cardinality threshold classification with four strict eight-word crossings. A strict upper bound of 17/11 on nonmaximizers still does not exclude, for example, the arithmetically intermediate ratio 20/13."
+        ],
+        "reasoning": "Credit equivalent global equality coverage and the endpoint lemma. The companion's account of the smaller census is presented as a reference to that result, not a second table; the exact order in the catalogue is unverified. The new content assessed is the narrower-threshold exclusion and sized census, not novelty of the shared witness or method.",
+        "searches": [
+          "Resultary c5782f9cc70b, RESULT.md offsets 0–8048, REVIEW.md offset 1150, output_binary_four.txt offset 0",
+          "arXiv:2608.20018, §2, Lemma 2.2 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 2.2 directly supplies the equal-length endpoint reduction, and is now attributed. The random-tie result gives a distribution on the same representative, not a worst-tie classification of input cardinalities."
+        ],
+        "reasoning": "The endpoint method and eight-word example have clear overlaps. An attainable worst length on one input or its random-tie law does not identify the smallest input cardinality at which the ratio can occur.",
+        "searches": [
+          "Chukhin et al., arXiv:2608.20018, §2, Lemma 2.2, PDF p. 3",
+          "Resultary a4c0a785c07b, random-tie law for the binary four-mer obstruction",
+          "Resultary c5782f9cc70b, worst-case distinct binary four-mers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "25f98f2d59f0 is the identical frozen record. The global companion log lists all and only global maxima and their witnesses, not per-cardinality optima or threshold counts. Another record tabulates attainable output lengths for the single full sixteen-word input; the earlier 10/7 binary census is for length-three words."
+        ],
+        "reasoning": "No distinct inspected exact table gives the per-cardinality ratios, multiplicities or the 3/2 exclusion for sizes through seven. Neither the universe instance nor the width-three table specializes to this assertion.",
+        "searches": [
+          "Resultary: distinct binary four-mer Greedy 3/2 threshold and exact subset tables; 25f98f2d59f0, c5782f9cc70b, 570894b19121, f43f5caa07c5",
+          "c5782f9cc70b/output_binary_four.txt"
+        ]
+      },
+      "rationale": "The repaired result credits the prior endpoint lemma and expressly distinguishes the companion global maximum and identical four equality cases from the surviving distinct contribution: the first 3/2 crossing, the exhaustive list of strict exceeders through size eight, and the per-size maximum/count table. The global result and its published log report only the global optima; the global bound and equality classification do not imply the lower 3/2 exclusion, since ratios strictly between 3/2 and 17/11 remain possible under those statements. The companion itself describes a preceding limited-cardinality result matching this threshold, not an independent derivation of the per-size table; no exact publication order is inferred from the dates.",
+      "residual_risks": [
+        "The same-day companion's exact order is unknown; its known equality-case overlap is credited regardless. The Cazaux–Rivals full text was not obtained and the bounded comparison does not exclude unindexed prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint property applies and is credited; width results do not cover the census",
+          "evidence": [
+            "The lemma states noncontainment and exact overlap equals the overlap of the original endpoints, at most k-1; the abstract states the unrestricted-alphabet length-three value 9/5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20018",
+          "material_read": "Abstract p. 1; §2 Lemma 2.2 p. 3, offset near 10500; §5 p. 6",
+          "method": "Open PDF passage inspection",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Same Greedy definition and a possible endpoint lemma or fixed-width bound"
+        },
+        {
+          "assessment": "Material overlap in the eight-word maxima; broader reported overall theorem does not imply the smaller-cardinality threshold census",
+          "evidence": [
+            "The log reports 65,535 nonempty sets, the global maximum and the four exact masks. Its review mentions a preceding limited-cardinality study of four eight-word crossings; its ordering relative to this record is not independently established."
+          ],
+          "identifier_or_url": "Resultary c5782f9cc70b",
+          "material_read": "RESULT.md offsets 0–8048; REVIEW.md passage at offset 1150; output_binary_four.txt at offset 0",
+          "method": "Resultary search and bounded local mirror passage inspection",
+          "title": "Sharp worst-case Greedy ratio for distinct binary four-mers",
+          "trigger": "Same universe, exact global maximum and exact equality masks"
+        },
+        {
+          "assessment": "Distribution for one fixed representative, not subset threshold",
+          "evidence": [
+            "The finding assigns probability 13939/1995840 to length 17 for uniform random ties on the witness input."
+          ],
+          "identifier_or_url": "Resultary a4c0a785c07b",
+          "material_read": "RESULT.md theorem at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "The exact random-tie output law of a binary four-mer Greedy superstring",
+          "trigger": "Exact same representative eight-word set"
+        },
+        {
+          "assessment": "One sixteen-word input, not input-subset census",
+          "evidence": [
+            "The attainable lengths 19–27 are for the full universe."
+          ],
+          "identifier_or_url": "Resultary 570894b19121",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Complete Greedy superstring length spectrum for the binary four-mer universe",
+          "trigger": "Same four-mer universe under maximum-overlap Greedy"
+        },
+        {
+          "assessment": "Width three rather than four",
+          "evidence": [
+            "The theorem gives 10/7 over 255 nonempty subsets of the eight binary three-mers."
+          ],
+          "identifier_or_url": "Resultary f43f5caa07c5",
+          "material_read": "RESULT.md offsets 0–6038",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp binary three-word Greedy-superstring ratio and all equality cases",
+          "trigger": "Exact binary-subset census with closely related title"
+        },
+        {
+          "assessment": "The available abstract concerns a 2-approximation for 3-SSP; full contents unassessed",
+          "evidence": [
+            "The abstract describes the 3-SSP guarantee, not the cardinality-specific binary four-mer result."
+          ],
+          "identifier_or_url": "https://www.lirmm.fr/~rivals/publication/cazaux-dam-2018/",
+          "material_read": "Landing-page abstract at offset 0; full text not obtained",
+          "method": "OA landing-page inspection and lawful full-text retrieval attempt",
+          "title": "Relationship between superstring and compression measures: New insights on the greedy conjecture",
+          "trigger": "Earlier Greedy approximation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, witness and relationship to prior work",
+        "Independent literal and direct-superstring census",
+        "Companion c5782f9cc70b theorem and report"
+      ],
+      "rationale": "Fixing width four and the binary alphabet isolates the smallest obstruction to a meaningful 3/2 bound for maximum-overlap Greedy. The sharp jump from equality at size seven to a strict violation at size eight, with just one orbit and a short checkable witness, identifies a useful exact boundary not given by the global maximum alone. The row counts describe the complete bounded extremal regime, rather than a lone example or a recomputation of the companion global ratio.",
+      "residual_risks": [
+        "The threshold is specific to adversarial legal tie resolution, binary words of width four, and the stated finite domain. It does not assess average-case Greedy behavior or claim wider approximation consequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

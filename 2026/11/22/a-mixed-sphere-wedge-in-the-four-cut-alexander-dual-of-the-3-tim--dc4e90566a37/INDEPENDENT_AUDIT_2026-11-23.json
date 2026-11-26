@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:11:13.780142Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, evidence/verify.py (inspected, not run), and captured output; accompanying metadata, audit and verification notes",
+        "Independent replay: python3 /workspace/branches/b35b0b36-d47d-47dd-81a0-5eb323924f22/independent_check.py (results and collapse_pairs.tsv alongside)"
+      ],
+      "rationale": "The ordinary-cut complement predicate gives exactly the dual's forbidden disconnected four-sets on the full nine-vertex ground set. In particular the full two-skeleton kills the fundamental group. Independent reconstruction of the finite certificate gives 81 connected and 45 disconnected four-sets, dual counts by size (1,9,36,84,81,36,6), and 69 legal collapses to (1,9,36,51,18). Exact unimodular reductions of d1,d2,d3 have 8,28,17 unit factors respectively and zero residual blocks. The collapsed two-skeleton is simply connected (attaching 3-cells does not affect pi1) and is equivalent to a wedge of 23 two-spheres by Hurewicz and homological Whitehead. The entire attaching map is a map from a wedge of 18 two-spheres into that wedge; it is classified by its integer degree matrix. The image of d3 is primitive in C2 and hence in ker(d2). Unimodular basis changes on either sphere wedge are realized by homotopy equivalences, so the attaching map can be put in the form identity on 17 summands and zero on the remaining attaching sphere. Its cofiber is six 2-spheres wedged with one 3-sphere. Alexander duality with degree 6-i and integral UCT then gives ranks 1 and 6 on the cut side in degrees 3 and 4; purity in dimension 4 and lower nonzero homology rule out shellability and Cohen–Macaulayness over any field.",
+      "residual_risks": [
+        "The direct cut-side rank cross-check (8,28,50,39) is mod two; the cut-side integral assertion comes from duality. No homotopy type of the ordinary cut complex itself is concluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The clique prism has one factor of size two; the path grids in the sequel have only consecutive adjacencies. The same-day three-row rook theorem is stated for n>=4; it identifies n=3 as the separately established base case and does not assert it as new."
+        ],
+        "reasoning": "The three-row formula formally agrees at n=3, but the source expressly distinguishes that base calculation from the extension. No earlier covering theorem was identified.",
+        "searches": [
+          "arXiv:2304.13675, introduction, Table 1 and family scope",
+          "arXiv:2407.08158, Section 5 and Table 2",
+          "Resultary 5d8c502e904b, full finding, assumptions and prior-work comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675",
+        "arXiv:2407.08158",
+        "Resultary bd50464fc17f, de2f98e55b1f and 5d8c502e904b",
+        "Targeted web and Resultary searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier three-cut proof forbids disconnected triples and uses row, column and 2-by-2 rectangle faces. The earlier 4-by-4 four-cut calculation gives ordinary-cut additive ranks 21 and 96 on sixteen vertices, not the attaching classes of the nine-vertex dual."
+        ],
+        "reasoning": "Changing k changes the forbidden hyperedges; extracting an induced smaller board from an additive homology classification does not determine the subcomplex's integral homotopy type.",
+        "searches": [
+          "Resultary bd50464fc17f and de2f98e55b1f, findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is also L(K3,3), and the dual is the complex avoiding disconnected induced four-sets. The corpus results on L(Q3) and the ternary Hamming three-cube use this cut size but different graph orders and adjacency."
+        ],
+        "reasoning": "These aliases describe the precise predicate and do not identify an older equivalent nine-vertex calculation.",
+        "searches": [
+          "Resultary: ordinary four-cut complex Alexander dual 3x3 rook graph K3 square K3 line graph K3,3 chessboard mixed wedge six 2 spheres one 3 sphere",
+          "Web: graph four-cut rook graph chessboard K3 Cartesian K3 topology cut complexes Alexander dual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact corpus hit is this record. The published table with a 3-by-3 four-cut entry is for P3 square P3 (Betti number 20), not this rook graph."
+        ],
+        "reasoning": "A board-size and cut-size table match is not an object match; no earlier exact tabulation on the rook adjacency was found.",
+        "searches": [
+          "Resultary exact-object query above",
+          "arXiv:2304.13675 Table 1; arXiv:2407.08158 Table 2"
+        ]
+      },
+      "rationale": "The nearest earlier sources cover different graphs, different cut thresholds or different sizes. The same-day three-row extension recognizes this as the separately obtained base case, not an independently prior theorem covering it.",
+      "residual_risks": [
+        "Bounded searches cannot rule out unindexed equivalent connected-four-set or Paley-9 calculations. The priority inference for the same-day extension is based on its explicit account of the base case, not on an inferred within-day timestamp. The two frozen corpus reference links contain a malformed repository name; the correct local-mirror references are supplied here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the correct object, but cited family results do not cover this rook graph",
+          "evidence": [
+            "Definition by complements of disconnected induced sets; prism K_n square K_2 rather than K_3 square K_3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Abstract, introduction, Table 1 and family listings",
+          "method": "Primary OA PDF text",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational cut topology and possible Cartesian-product theorem"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": [
+            "Table 2 is for G(3,n) of the path-grid section; its four-cut n=3 entry is 20"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Introduction, Section 5 grid results including Table 2 and Proposition 5.12",
+          "method": "Primary OA PDF text",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Four-cut grid topology and small-board tables"
+        },
+        {
+          "assessment": "Does not cover k=4",
+          "evidence": [
+            "Forbidden triples, not four-sets; rectangle tetrahedra are among its maximal dual faces"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f/RESULT.md",
+          "material_read": "Finding, scope and dual description with relative homology argument",
+          "method": "Local published full-text mirror",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "Same graph family and dual approach"
+        },
+        {
+          "assessment": "Does not cover the 3-by-3 board",
+          "evidence": [
+            "Ground set of sixteen and additive original-cut integral homology only"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-integral-four-cut-homology-separates-the-shrikhande-and-rook-gra--de2f98e55b1f/RESULT.md",
+          "material_read": "Finding, scope and finite face and matching argument",
+          "method": "Local published full-text mirror",
+          "title": "Integral four-cut homology separates the Shrikhande and rook graphs",
+          "trigger": "Same threshold on the next square board"
+        },
+        {
+          "assessment": "Companion extension explicitly credits the separate nine-vertex case",
+          "evidence": [
+            "Theorem begins at n=4; the formal n=3 multiplicities are 6 and 1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-mixed-dimensional-sphere-wedges-for-ordinary-four-cut-complexes--5d8c502e904b/RESULT.md",
+          "material_read": "Finding, scope, three-column base case and explicit priority comparison",
+          "method": "Local published full-text mirror",
+          "title": "Mixed-dimensional sphere wedges for ordinary four-cut complexes of three-row rook graphs",
+          "trigger": "Potentially dominating all-width theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2304.13675 family table; Resultary three-row extension and earlier rook computations"
+      ],
+      "rationale": "The first square rook board beyond clique-prism width isolates a natural threshold-four test. The integral mixed wedge is stronger than a face census or a Betti computation and gives a concrete nonshellable ordinary cut complex with next-to-top homology. It also supplies a base benchmark for the three-row extension.",
+      "residual_risks": [
+        "Finite case only; no broader rook theorem, equivariant result or cut-side homotopy decomposition follows from the certificate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

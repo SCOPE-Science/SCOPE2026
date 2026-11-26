@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:53:53.849880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stipulated Poisson marginal law, the single-visit probability really is x e^{-x}; optimizing the expected count does not need independence beyond those marginals. Compactness attains the maximum, but f'(0)=1>f'(x) for x>0 excludes any boundary point by transfer. Equality of derivatives yields at most two branch values, and positive second variation for transfer between two coordinates above 2 excludes more than one overloaded coordinate. The lower coordinate is in (1,2) because the high branch derivative is negative. At n=2 the derivative along the feasible difference is proportional to sinh(t)[B/2−1−t coth(t)], with t coth(t) strictly increasing on t>0; the unique asymmetric critical point for B>4 is feasible. Its Taylor expansion gives the claimed continuous onset. At any n the log of the ratio to the uniform objective is a log-mgf in B for fixed shares, so its maximum over shares is convex and nonnegative. The set of budgets of uniform global optimality is a closed interval from zero, bounded above by comparison with n−1 visits fixed at mean one. Strict convexity for unequal positive shares excludes any early tie (an optimizer is interior). At n≥3 the feasible one-high perturbation at B=2n has a strictly positive cubic gain, giving B_c<2n. Compactness yields a threshold co-optimizer from above, which cannot be the uniform point by strict concavity in a common neighborhood of its coordinates; thus the gap is bounded away from zero just above the threshold and the co-optimizer (n−1)y+x with y>1,x>2 gives B_c>n+1. The large-budget limit then follows from f'(y)=f'(x)→0 as x→∞. Independent replay: python /workspace/independent_checks.py (pollination routine), parameterizing the stationary pair by r=x−y and y=1+r/(exp(r)−1), finds the equal-value solution on the increasing budget branch B=n y+r at n=3: B=5.774313471725124760 and r=1.397499519593884473. This is numerical corroboration, not an all-n argument or an interval certificate. The submitted notes and checker were read without executing the submitted script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steele and the first-order Ricker records identify exactly one asymmetric optimizer up to permutation at and above the co-optimal threshold, stronger than the frozen claim that at least one ties and all optima above are overloaded. They cover the same entire n and B ranges.",
+          "The second Ricker record also gives the same structural and global phase statements, plus a scalar infimum and the large-budget objective limit. The accessible Ezoe abstract concerns flower production to dilute seed predation; the cited Mathar–Žilinskas single-channel result could not be independently read in full."
+        ],
+        "reasoning": "There is no need to infer a global classification from generic resource allocation theorems or inaccessible ecology and ALOHA studies: stronger explicit statements for the very same separable nonconcave optimization already cover it.",
+        "searches": [
+          "904d722bd814, Finding and Assumptions",
+          "7678a45b7053, Finding and Assumptions",
+          "6909f062745f, Finding and Proof §1",
+          "Ezoe doi:10.1007/s12080-016-0316-x; Mathar–Žilinskas doi:10.3233/INF-1993-41-211"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 904d722bd814, 7678a45b7053, 6909f062745f (exact Finding passages)",
+        "Resultary eddb13bade10 (different Haldane–Andrews response, analogous two-site question)",
+        "Choi arXiv:2001.11115",
+        "Ezoe doi:10.1007/s12080-016-0316-x (abstract only)",
+        "Mathar–Žilinskas doi:10.3233/INF-1993-41-211 (cited comparison, full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both stronger findings give a co-optimizer at S_c with n−1 copies of a∈(1,2) and b>2. Both give a=1+r/(e^r−1), b=a+r, S=n a+r on the optimizing asymmetric branch.",
+          "For n=2, setting r=2t in S=2a+r yields S=2+2t coth(t); its elementary Taylor expansion gives t∼sqrt(3(S−4)/2). For fixed n the branch has r→∞ with S, so a→1 and b=S−(n−1)+o(1); the objective tends to (n−1)/e."
+        ],
+        "reasoning": "At the already established coexistence point, S_c=(n−1)a+b>(n−1)+2=n+1. Thus the apparently stronger lower bound is a direct corollary even though their displays only say S_c>n. The other stated quantitative details and limiting behavior are immediate consequences of their exact formula. No separate substantive remainder survives by changing names or narrowing to the printed lower bound.",
+        "searches": [
+          "904d722bd814 and 7678a45b7053, Finding theorems and scalar construction",
+          "6909f062745f, Finding large-stock asymptotic and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steele 904d722bd814 and Ricker 7678a45b7053 explicitly optimize sum f(x_i), f(x)=x e^{-x}, with nonnegative freely divisible coordinates and the entire sum S assigned to identical sites.",
+          "Independent Poisson singleton throughput on channels with freely controllable loads would be the same function, but checked multichannel ALOHA arXiv:2001.11115 instead uses uniform random channel selection and gives K(1−1/M)^{K−1} in Eq. (4)."
+        ],
+        "reasoning": "Map flower to module or habitat and B to S, leaving x_i and the objective unchanged. A common positive productivity scale does not change maximizers. A separately optimized arbitrary load vector is not the model in the checked Choi article. The same-day Steele and Ricker statements are exact function-and-domain overlaps, not analogies.",
+        "searches": [
+          "Resultary: fixed-sum max sum x_i e^{-x_i}, unique one-overload switch, Ricker recruitment and Steele photoinhibition",
+          "Resultary records 904d722bd814, 7678a45b7053 and 6909f062745f",
+          "J. Choi arXiv:2001.11115, multichannel ALOHA system model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mirrored Finding sections of 904d722bd814 and 7678a45b7053 display the same n=3 threshold 5.774313471725 and additionally give its nonzero allocation jump 1.397499519594.",
+          "Both supply an all-size scalar exact threshold construction from the same stationary branch, so this is not merely a decimal coinciding for one parameter."
+        ],
+        "reasoning": "The numerical illustration and the mechanism generating it are already present under equivalent problem names; classification does not depend on a table or lookup precision.",
+        "searches": [
+          "Resultary: B_c(3)=5.774313471725, two-site threshold 4, one overloaded coordinate; matched records 904d722bd814, 7678a45b7053, 6909f062745f"
+        ]
+      },
+      "rationale": "Direct mathematical coverage is established by distinct same-day catalogue records, especially Steele photoinhibition 904d722bd814 and first-order Ricker recruitment 7678a45b7053. Both state the identical fixed-sum optimization for all real positive budgets and all n≥2, the very same two-site continuous threshold and the same many-site discontinuous threshold; both actually characterize the co-optimizers more precisely. The sharper-looking lower bound n+1 is immediate from their stated threshold co-optimizer. Their explicit branch formula implies the hyperbolic n=2 formula and its expansion, and the high-budget behavior. Different application language and a different proof of interval-shaped optimality do not make a new mathematical theorem. This is demonstrated duplicate coverage, not an inference about which same-day record was first, authorship, or attribution.",
+      "residual_risks": [
+        "The ordering of the same-day exact matches is not established. Older resource-allocation, biological and ALOHA literature was not exhaustively retrieved; no unavailable source is used as the reason for failure. The decision rests on the exact known coverage and its direct implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage with stronger optimizer characterization",
+          "evidence": [
+            "Optimizes the same objective under the same nonnegative fixed sum. Its threshold ties equality with exactly n one-high allocations with low means in (1,2) and high mean above 2; the scalar branch gives the exact optimizers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-module-count-transition-in-fixed-budget-steele-photoinhi--904d722bd814",
+          "material_read": "RESULT.md offset 0, Finding theorem and explicit one-dimensional definitions, numerical example and Assumptions",
+          "method": "Resultary match; exact local-mirror passage reinspection",
+          "title": "A sharp module-count transition in fixed-budget Steele photoinhibition",
+          "trigger": "Identical response after normalizing irradiance, same fixed-budget phase theorem"
+        },
+        {
+          "assessment": "Direct equivalent coverage with stronger optimizer characterization",
+          "evidence": [
+            "States the same feasible simplex and function. The threshold tie point has 1<a<2<b and the same scalar construction gives the numerical value and jump."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-first-order-ricker-recruitment-allocation-transition-on-three--7678a45b7053",
+          "material_read": "RESULT.md offset 0, Finding theorem, branch construction, n=3 example and Assumptions",
+          "method": "Resultary match; exact local-mirror passage reinspection",
+          "title": "A first-order Ricker recruitment allocation transition on three or more identical spawning habitats",
+          "trigger": "Exact functional equivalence and same switch at two versus three or more sites"
+        },
+        {
+          "assessment": "Direct overlapping classification and large-stock objective, no uniqueness assertion for scalar minimizer",
+          "evidence": [
+            "Gives continuous threshold 4 at m=2, discontinuous global threshold for m≥3, the one-high structure with low values in (1,2), and large-stock limit (m−1)/e."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-continuous-versus-discontinuous-symmetry-breaking-in-ricke--6909f062745f",
+          "material_read": "RESULT.md offset 0, Finding, Assumptions and Proof §1",
+          "method": "Resultary match; exact local-mirror passage reinspection",
+          "title": "Sharp continuous-versus-discontinuous symmetry breaking in Ricker recruitment across identical spawning habitats",
+          "trigger": "Exact same objective and classification, independent scalar parameterization"
+        },
+        {
+          "assessment": "Related occupancy statistic, not arbitrary continuous fixed-sum load allocation",
+          "evidence": [
+            "Users choose channels randomly; the conventional throughput is K(1−1/M)^{K−1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.11115",
+          "material_read": "Preprint p. 2 System Model and p. 3 Eq. (4); abstract",
+          "method": "Lawful OA preprint passage comparison",
+          "title": "Multichannel ALOHA with Exploration Phase",
+          "trigger": "Possibly equivalent optimization of multichannel singleton throughput"
+        },
+        {
+          "assessment": "Accessible description concerns excess flower production to dilute seed predation; no whole-text exclusion claimed",
+          "evidence": [
+            "The stated decision problem includes flower production, not the fixed-number continuous allocation objective audited here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12080-016-0316-x",
+          "material_read": "Accessible abstract only; complete article was not retrieved",
+          "method": "Abstract comparison and lawful article/PDF access attempts",
+          "title": "Optimal resource allocation model for excessive flower production in a pollinating seed-predator mutualism",
+          "trigger": "Closest biological literature about crowding and allocation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The global symmetry-breaking phenomenon would be structurally valuable as a new theorem. Here it is already available for the identical objective with stronger optimizer information. Restating it as flower viability adds no new constraint, empirical validation, or mathematical phenomenon, and the printed n+1 refinement and critical expansion are immediate from the existing optimizer formulas. The proof's log-mgf argument is a useful alternate exposition, but the frozen result offers no distinct scientific consequence from it. There is no substantial surviving repaired claim on this evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

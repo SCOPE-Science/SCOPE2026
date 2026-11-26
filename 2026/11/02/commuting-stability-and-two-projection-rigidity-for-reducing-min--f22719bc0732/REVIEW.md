@@ -1,19 +1,21 @@
-# Scientific review: commuting stability and two-projection rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The infinite-dimensional statements follow analytically from the established positive spectral characterization of reducing-minimum operators, simultaneous diagonalization of commuting pure-point self-adjoint operators, a finite-product order argument, and the classical Halmos decomposition of two projections. The order argument constructs an infinite coordinatewise nondecreasing subsequence from any sequence of joint spectral values and therefore prevents a strictly decreasing image under any coordinatewise nondecreasing function. For projection mixtures the exact polynomial identity and the two strictly opposite spectral branches establish necessity of finite principal-angle spectrum; finite spectrum establishes sufficiency. The infinite-block example has explicit positive eigenvalues tending to zero but no kernel. The Schatten estimate is a convergent geometric series. The standalone program independently checks 1,120 finite assertions, without being mistaken for an infinite proof.
+PASS
 
-## Originality — PASS, best-knowledge assessment
+Commutativity makes each eigenspace of one factor reducing for the rest; iteration gives a joint orthonormal eigenbasis. Successive least-tail extraction in the finitely many well-ordered coordinate sets rules out a strictly decreasing sequence of joint image values. These values are the point spectrum, not necessarily its closure. In the generic Halmos block, A_t²−A_t=−t(1−t)((I−B)⊕(I−B)), so a pure-point A_t forces B to be pure-point. Infinite distinct eigenvalues of B contain a strictly monotone subsequence; one of the strictly opposed eigenvalue branches of A_t then decreases. This proves necessity without identifying continuous spectral values with eigenvalues. Finite σ(B) makes all generic entries functions of finitely many spectral projections and gives finite σ(A_t) and a finite-dimensional generated C*-algebra; the latter in turn implies finite σ(PQP). Nongeneric blocks contribute only finitely many scalars, and an empty generic block is harmless. For the rotated direct-sum projections each positive mixture block is invertible with determinant t(1−t)sin²θ_n and trace 1, making the sum injective with zero unattained lower bound. Paired singular values sin θ_n sum geometrically to every positive power; the trace and commutator bounds follow as stated. The frozen reader checks were analytic; the supplied finite checker was inspected, not executed.
 
-The base spectral characterization belongs to Nag and Ramesh (arXiv:2608.19286), and the canonical two-projection decomposition belongs to Halmos; neither is claimed as new. Böttcher and Spitkovsky (2021) characterize ordinary norm attainment for functions of two projections, a weaker and differently quantified property. Klaja (2014) treats spectra and numerical ranges of projection products. The new compound result is a finite-dimensionality equivalence for *all* nontrivial positive projection mixtures, accompanied by the full finite commuting monotone-calculus closure and a quantified Schatten-small counterexample. Targeted published-result and research-record comparisons found no explicit equivalent or stronger coverage of these combined claims. Possible implicit consequences of broader historical two-projection or well-quasi-order results remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a precise operation-stability boundary for a newly studied natural class. The positive result covers arbitrary finite commuting families and discontinuous monotone Borel functions, while the two-projection theorem gives a complete classification of a basic noncommuting family by one intrinsic spectral invariant (equivalently finite-dimensionality of the generated algebra). The obstruction is robust: small commutators and even differences lying in every Schatten class do not restore minimum attainment of any nontrivial mixture. These conclusions sharpen qualitative closure questions and distinguish noncommutativity from merely small perturbation size, rather than providing an unmotivated finite special case.
+The continuous scalar subcase, the spectral characterization, and the canonical pair-of-projections inputs are not new. The strongest inspected indexed and published statements do not supply the finite multivariate Borel extension, the reducing-minimum finite-spectrum equivalence for positive mixtures, or its simultaneous all-Schatten small obstruction. The pass is for these distinct claims, not publication priority.
 
-## Related work and limits
+## value
 
-The 2026 positive reducing-minimum spectral theorem and 1969 Halmos two-projection theorem are indispensable prior inputs. The 2021 functions-of-projections paper addresses ordinary norm attainment. No claim is made for nonmonotone functions, infinite families, arbitrary noncommuting positive operators, or independent certification. The exact classification might have an equivalent formulation in older projection-algebra or order-theoretic literature. This assessment does not establish definitive publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mixture equivalence identifies exactly which noncommuting pairs survive an operation suggested by the commuting calculus; it is not a sufficient condition only. The all-Schatten obstruction shows that even trace-small noncommutativity cannot replace that spectral condition, for all strict mixing weights at once. Joint monotone Borel stability also includes discontinuous threshold operations outside continuous scalar calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

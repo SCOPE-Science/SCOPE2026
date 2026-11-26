@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:59:17.395452Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–65; VERIFICATION.md; both checker files by inspection",
+        "nodal_cubic_chambers_results.json and saved outputs",
+        "Replay: python3 /workspace/review_evidence/recompute.py 2; output /workspace/review_evidence/2.txt"
+      ],
+      "rationale": "Bézout with the smooth conic gives anticanonical degree at least d for any other nonexceptional plane curve of degree d, so adjunction leaves just the fifteen pair lines, six exceptional curves and the conic root. Two intersecting (-1)-curves cannot belong to a support; with disjoint (-1)-curves the conic Schur pivot is -2 plus the number of chosen exceptionals. To justify descent precisely, for invariant support Gram M and ample k-divisor A, solve (-M)b=(A·C_i). The positive-definite matrix -M with nonpositive off-diagonal has strictly positive b for this strictly positive right side: taking the negative part would contradict positive definiteness; a zero coordinate would contradict the right side. The resulting P=A+sum b_iC_i is big nef, orthogonal exactly to the support, and adding its rational invariant component sum gives the desired negative part. Realizability requires sufficiently many closed points, not just one in each degree: on P¹ for q>=5 there are q+1>=6 rational points, (q²−q)/2>=3 degree-two and (q³−q)/3>=2 degree-three points, and at least one each of degrees 4,5,6 by irreducible-polynomial counts. Independent exact rational-pivot Gram enumeration confirms all eleven fixed-support and conic-containing profiles, all eleven cycle decompositions in the frozen JSON, the 39 group orbits and their sizes, and the three six-cycle supports (empty, conic only, all six exceptionals).",
+      "residual_risks": [
+        "Scope is the indicated conic blowup; the abstract S6 orbit count is not a moduli or surface-automorphism assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blache–Hallouin list the eleven A1 arithmetic types under S6 as Picard/Weyl data, and BFN gives the support criterion. The e6e96bfa7dcc Finding also states all eleven types are realized for odd q>=5 and describes the F3 exception."
+        ],
+        "reasoning": "The classical references supply the Weyl and support inputs, not numerical fixed support data. The distinct result, not a search miss, provides broader exact coverage and the required realization statement.",
+        "searches": [
+          "arXiv:2301.13582 Table 8; arXiv:0912.0958 Proposition 1.1; targeted public lookup on Frobenius Zariski chamber counts for the one-nodal cubic"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e6e96bfa7dcc, Finding and chamber_table.json; geometric baseline 4b531d234d53",
+        "arXiv:2301.13582 Table 8; arXiv:0912.0958 Proposition 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct record gives c(lambda) for all conjugacy classes, giving c(type(sigma^n)) for every n as well. For (6) the counts at 1,2,3,6 are 3,11,24,1898."
+        ],
+        "reasoning": "For each d, d times the number of d-cycles equals the Möbius inversion of these fixed counts over d's divisors, giving e.g. (3,4,7,311) cycles at lengths (1,2,3,6). The sum of the class-size-weighted fixed counts is 28080, so division by 720 gives 39. The boundary with three supports follows because these three are manifest and the exact table gives only three. There is no material new class-level information in these transforms; no ordering is inferred from the dates.",
+        "searches": [
+          "e6e96bfa7dcc RESULT.md Finding and complete chamber_table.json; compare frozen RESULT.md lines 9–23, 53–59 and nodal_cubic_chambers_results.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Finding defines c(X) as the fixed geometric support count, including the nef chamber and realized over k, and r(X) as the conic-containing subset count. These are the exact same supports."
+        ],
+        "reasoning": "Comparing reduced supports, not individual curves, identifies the counted S6-set; the distinct record uses the same conic blowup over every odd q, which includes the target domain.",
+        "searches": [
+          "Resultary comparison of fixed negative supports, Frobenius-stable Zariski chambers, and two chamber counts on one-nodal cubic resolutions; e6e96bfa7dcc Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All eleven fixed_support_size_enumerator vectors and fixed_conic_size_enumerator vectors match the corresponding frozen values. E.g. (4,2): (1,2,2,0,1,1,1), and (5,1): (1,2,1,0,0,2,2), both with eight fixed chambers. The associated Finding gives both full cycle profiles as well."
+        ],
+        "reasoning": "This is exact affirmative data for a distinct entry on the same S6-set, not matching labels or an assertion based on a title. The older 4b531d234d53 overlaps on the geometric polynomial and 648 conic supports only.",
+        "searches": [
+          "Resultary exact one-nodal cubic chamber profiles and 39 orbits; e6e96bfa7dcc/chamber_table.json offset 0 (4557 chars)"
+        ]
+      },
+      "rationale": "A distinct indexed result under the same conic-blowup assumptions gives every headline fixed-size row and the conic refinements verbatim as data. Its complete fixed-point table also determines every power and cycle profile and the 39 quotient orbits by direct inversion and Burnside. Equivalent coverage is demonstrated; relative historical priority is not.",
+      "residual_risks": [
+        "Same-day order is not established by the inspected provenance; the verdict is on verifiable equivalent coverage, not historical precedence or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact coverage and broader q scope",
+          "evidence": [
+            "The complete c(X), r(X) table, orbit profiles for (4,2) and (5,1), and realization for every odd q>=5 (plus F3 discussion)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-chamber-counts-detect-frobenius-on-one-nodal-cubic-resolutio--e6e96bfa7dcc/RESULT.md",
+          "material_read": "Finding, offset 0–2036; Relationship passage near offset 8350",
+          "method": "Bounded local mirror read",
+          "title": "Two chamber counts detect Frobenius on one-nodal cubic resolutions",
+          "trigger": "Distinct exact same-geometry and invariant match"
+        },
+        {
+          "assessment": "Exact overlap on fixed and conic-containing support-size enumerators",
+          "evidence": [
+            "The entries contain fixed_support_size_enumerator and fixed_conic_size_enumerator for every partition of six, not just totals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-chamber-counts-detect-frobenius-on-one-nodal-cubic-resolutio--e6e96bfa7dcc/chamber_table.json",
+          "material_read": "All eleven structured entries, offset 0–4557",
+          "method": "Local mirror structured read and comparison",
+          "title": "Two chamber counts detect Frobenius: chamber_table.json",
+          "trigger": "Potential presence of support cardinality refinements"
+        },
+        {
+          "assessment": "Geometric baseline explicitly excluded from novelty",
+          "evidence": [
+            "Identity polynomial and 648 conic-containing supports; algebraically closed scope."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-zariski-chamber-spectrum-of-the-one-nodal-cubic-s-minimal-resolu--4b531d234d53",
+          "material_read": "Finding and scope, offset 500",
+          "method": "Bounded local mirror read",
+          "title": "Zariski-chamber spectrum of the one-nodal cubic’s minimal resolution",
+          "trigger": "Prior 1898 geometric count"
+        },
+        {
+          "assessment": "Eleven arithmetic types already classified; table concerns different invariants",
+          "evidence": [
+            "S6 stabilizer and Picard/Weyl characteristics, not support counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.13582",
+          "material_read": "Table 8, pp.47–48, offset 164700",
+          "method": "OA PDF passage",
+          "title": "Classification of singular del Pezzo surfaces over finite fields",
+          "trigger": "Potential stronger arithmetic classification"
+        },
+        {
+          "assessment": "Structural input, not the table",
+          "evidence": [
+            "Non-nef chambers correspond to negative-definite reduced effective supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.0958",
+          "material_read": "Proposition 1.1, p.3, offset 7000",
+          "method": "OA PDF passage",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "Support correspondence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent replay 2; e6e96bfa7dcc Finding and chamber_table.json"
+      ],
+      "rationale": "The invariant is mathematically natural, but the independent replication and alternate display do not fill a gap once the exact same fixed-size table is available. Cycle profiles and the quotient order count are standard transforms of that complete class function, and the distinct result gives the realization theorem too. No independently valuable remainder suitable for repair was established.",
+      "residual_risks": [
+        "An explicitly studied structure beyond the orbit-size multiset might be valuable but is not a claim in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: divisor-and-root subalgebra lattice
+# Independent mathematical audit
 
-## Correctness — PASS
-For a nonzero multiplication-closed subspace, equality of its Schur-product span dimension and its dimension forces every coordinate functional to be proportional to a single coordinate-functional basis member; this bilinear argument works in characteristic two. Closure under the cyclic shift then forces blocks to be congruence classes modulo a divisor. The scalar recursion forces the root-of-unity condition and yields the canonical normalized weights; the same identities establish the converse and containment formula. The finite-field coefficient is the number of roots of one in a cyclic group. The standalone checker independently tests all subspaces in twelve small-field cases and all normalized candidates and inclusions in five more settings.
+## correctness
 
-## Originality — PASS, with residual risk
-Ladra and Pérez-Rodríguez's general theorem (arXiv:2503.07187, Theorem 2, Corollary 4) already establishes disjoint-support natural bases for subalgebras of all regular evolution algebras, and that ingredient is fully credited. Their Proposition 5 treats codimension one, not the explicit cycle-dependent root parametrization and full inclusion lattice. Narkuziyev (arXiv:2005.05793) treats permutation evolution algebras and some idempotents, but the accessible abstract is not a full-text exclusion. Boudi–Cabrera Casado–Siles Molina (arXiv:2006.14460) analyze natural families and basic ideals, while Wei–Zou (arXiv:2310.12368) determine isomorphism classes of ambient algebras. The previously available degree-one count is not an originality claim; the divisorial classification, all-dimensional multiplicities and exact incidence relation are. An inaccessible plausible primary source and alternate terminology remain risks; neither is represented as resolved by search absence.
+PASS
 
-## Value — PASS
-The classification is a natural complete determination of the embedded-subalgebra lattice of a basic infinite family of simple, regular evolution algebras over arbitrary fields. Unlike the already known disjoint-support structural fact, it solves all field-dependent weight constraints and exact inclusions. The finite-field dimension polynomial reveals arithmetic jumps across divisor levels, useful for distinguishing subalgebra-lattice behavior not visible from the one-dimensional invariant. This is an exact structural result rather than a routine numerical recomputation.
+Write multiplication as cyclic shift P of the coordinatewise product. Squaring a vector with a nonzero coordinate shows that the support of the span of coordinatewise products equals that of U. Closure makes that support shift-invariant, so a nonzero U has full support. Choose d independent coordinate restrictions, d=dim U; their diagonal bilinear tensors are independent, so the product span has dimension at least d and by closure no more. Every other coordinate restriction therefore has its tensor square in their diagonal span. Off-diagonal tensor coefficients force it to be proportional to exactly one chosen restriction, including in characteristic two. Equality of the shifted product span and U makes that partition translation-invariant; its zero block is a subgroup, so blocks are residues modulo d with d|n. Normalize the least coordinate in each block to 1. The weights then propagate by squaring across blocks and the successive block-zero weights satisfy b_0=1 and b_{k+1}=c*b_k^(2^d), with b_{n/d}=1 precisely when c^M_d=1. These equations also prove closure and uniqueness (if d<n, c is the normalized weight at coordinate d; otherwise only c=1). Inclusion forces refinement modulo e and hence d|e; the ratio of weights at e and 0 gives h=c^((2^e−1)/(2^d−1)) when e<n, and the general exponent-difference identity proves sufficiency. For e=n the same equation holds by wraparound. Nonzero cycle constants show perfection and allow an ideal element's nonzero coefficient to be isolated by multiplication and propagated to all basis vectors. The result is a weighted cycle as exhibited in the proof, not necessarily isomorphic over K to the unweighted E_d(K). Over F_q cyclicity of the unit group gives the gcd counts. Independent bounded checks exhaust all subsets of F_2^4 for the subspace/closure test (counts 1,1,1,1 in dimensions 0,1,2,4), and check all constructed F_8, n=6 nodes for closure and their pairwise inclusions by rank (1,7,7,1,1 in dimensions 0,1,2,3,6). The latter does not enumerate all F_8 subspaces; exhaustiveness there and in arbitrary fields is from the proof.
 
-## Verification and limits
-The proof is field-independent; exhaustive experiments do not establish its infinite scope. No assertion is made for weighted cycles, unions of cycles, or arbitrary regular evolution algebras. Bibliographic equivalence in the inaccessible permutation-algebra paper remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the all-dimensional embedded classification and explicit incidence condition over arbitrary fields, with its full finite-field count. General disjoint-support bases and the dimension-one count are known and not counted as new. The strongest homomorphism overlap reaches only the images of maps from unweighted cycles; it need not reach every subalgebra even over finite fields.
+
+## value
+
+PASS
+
+This gives the entire incidence structure for a natural simple family, rather than just counts of idempotents or abstract isomorphism types. Containment is a concrete power map over the ground field, and the result includes subalgebras that need not be embedded copies of the smaller unweighted cycle. It provides an exact reusable finite-field polynomial and an arbitrary-field classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

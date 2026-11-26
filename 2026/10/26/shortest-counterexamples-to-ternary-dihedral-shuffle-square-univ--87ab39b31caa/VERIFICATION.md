@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The supplied `verify.py` is a standalone Python 3 standard-library program. Run `python3 verify.py` to replay the complete eight-letter finite census and the lower-length checks. The checker enumerates every ternary word at each even length through eight, tests all subsets of half the positions, checks dihedral agreement by rotation and reflected rotation, separately verifies the four-letter repeated-symbol adjacency criterion, and checks the exact 48-element orbit of `00011022`.
+# Independent mathematical audit
 
-The executed checker returned `DIHEDRAL_SHUFFLE_COUNTEREXAMPLE_PASS` and counts `{2: (3, 0), 4: (21, 0), 6: (183, 0), 8: (1641, 48)}` (pairs are even-word count and obstruction count). It also checked 24 balanced partitions of the witness, with the only ordered outputs `0012`/`0102` and `0102`/`0012`.
+## correctness
 
-The direct proof of the specific witness and the minimality argument use no computation; only the 48-word census depends on a finite exhaustive enumerator. The assertion concerns indexed ternary words of lengths at most eight, not longer words.
+PASS
+
+Reassessed the narrowed complete census in the corrected RESULT.md. For h≤3, two equal-Parikh subsequences suffice because every permutation is dihedral. Parity-character filtering gives (3^(2h)+3)/4 indexed even words. Every balanced partition of the known witness pairs adjacent with opposite zero positions. The original direct verifier is exhaustive over half-position subsets and doubled-string rotation or reflection; independently, python3 /workspace/audit_replay/shuffle.py constructs all successful words forward by interleaving each half-word with each dihedral image over every mask, and takes the complement among even words. It gives success counts 3,21,183,1593, exactly 48 length-eight failures, and equality with the specified orbit. The replay is finite and gives no information for larger lengths.
+
+## originality
+
+PASS
+
+The original's witness and refutation are already implied by an earlier exact table and are not accepted as new. The delivered repair credits that table and claims only the distinct complete first-failure classification (48 indexed words, one orbit), which is not implied by the inspected optimal-cover theorem or its tables. No same census or dominating statement was found in the bounded checks.
+
+## value
+
+PASS
+
+The complete shortest-obstruction set, rather than the already known isolated witness, is a motivated finite structural classification for a named conjecture. The single orbit and its exhaustive sharp count tell later work that no other obstruction shape occurs at the first length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

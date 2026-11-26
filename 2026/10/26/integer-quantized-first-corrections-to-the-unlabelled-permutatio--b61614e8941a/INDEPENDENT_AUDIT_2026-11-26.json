@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:43.776387Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof steps 1–5 and uniform isomorphism-class assumptions",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent /workspace/audit_evidence/reproduce.py, check2(): 1,890 exact mixed counts through n=20 by literal partition enumeration and prescribed multiplicities"
+      ],
+      "rationale": "Cycle type bijects isomorphism classes with integer partitions under the stated uniform law. Deletion and inclusion–exclusion give exact tail and prescribed-multiplicity counts even when shifts exceed n, using p(k)=0 for k<0. For the ratio, the leading Rademacher term with x=n−1/24 and c=π√(2/3) is exp(c√x)/(4√3 x) times (1−1/(c√x)), up to exponentially subleading error; taking a fixed shift changes the main exponential by 1−ch/(2√n)+O_h(n^(-1)) and the prefactors by 1+O_h(n^(-1)). A prescribed multiplicity at length j therefore costs πj/√(6n)+O(n^(-1)), while the two-length mixed difference cancels both constant and linear-shift terms. Effective bounded-degree Hanf locality gives a radius ρ and saturation t. The Gaifman balls in cycles of length ≤2ρ+1 are the whole directed cycles and in larger cycles are identical directed paths, with the radius-zero loop case distinguished. Thus short-type counts are j a_j and the long-type count is the total number of vertices in longer cycles. If fewer than t such vertices occur, their parts come from a finite list and all other parts are bounded in size, giving only polynomially many partitions against exponential-in-√n p(n). At order n^(-1/2) only the finitely many isolated short-type deficiencies matter, each evaluated on its explicit representative. This yields the stated effective weighted integer sum and its sign, with all other events contributing O_φ(n^(-1)). Absence of any prescribed m-cycle realizes (0,m), negation realizes (1,−m), and constants cover m=0. Nonzero coefficient forces the claimed sharp rate.",
+      "residual_risks": [
+        "Finite arithmetic checks are not logical or asymptotic verification; the foregoing proof gives the fixed-sentence theorem. The constants do not give an error uniform over all ranks or sentences, and the law is not for uniform labeled permutations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burris–Compton–Odlyzko–Richmond give a qualitative 0–1 law for front-loaded admissible classes. Falgas-Ravry et al. obtain O(n^(-1)) convergence and finite rational limit spectra for specified polynomial-growth permutation classes in the two-order language."
+        ],
+        "reasoning": "Neither theorem dominates in the needed parameters: general front-loading guarantees only a limit, while the quantitative pattern-class result uses a different sample space and does not assign the target successor-language first correction.",
+        "searches": [
+          "DOI 10.4153/CJM-1997-030-6, Theorem 2.1",
+          "Web: unlabelled random bijections permutations first-order sentence partition classes quantitative probability correction rate",
+          "arXiv:2610.34328v1, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Albert–Bouvel–Féray arXiv:1808.05459v2",
+        "Burris–Compton–Odlyzko–Richmond Theorem 2.1",
+        "Falgas-Ravry et al. arXiv:2610.34328v1 Theorem 1.2",
+        "Resultary a4e2f04e1ed6",
+        "Compton and Woods limited-access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-law result is cited for the limit only. In the capped law, fixed low multiplicities have nonvanishing asymptotic mass, whereas in the audited unrestricted law they occur at order n^(-1/2). Quantitative two-order limits concern different structures."
+        ],
+        "reasoning": "Qualitative locality and known fixed-shift partition asymptotics are inputs, but the implication to the universal effective integer coefficient requires analyzing simultaneous deficiencies, long-type saturation and one-defect truth values, then proving attainability. No inspected statement performs that aggregate comparison for the unrestricted law.",
+        "searches": [
+          "Albert–Bouvel–Féray arXiv:1808.05459v2 introduction",
+          "Fine Spectra and Limit Laws II Theorem 2.1",
+          "arXiv:2610.34328v1 Theorem 1.2",
+          "Resultary a4e2f04e1ed6, definition and rate limitation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Albert–Bouvel–Féray explicitly refer to Compton's Example 7.6 for a 0–1 law for unlabeled models of TOOB (the bijection logic). No quantitative expansion is stated in the inspected ABF passage. The local bounded-cap record changes the allowed multiplicity at every length."
+        ],
+        "reasoning": "TOOB and the partition model are the relevant aliases, so the binary limit is not original. A limiting 0–1 statement in the exact model does not give the leading coefficient, let alone its spectrum.",
+        "searches": [
+          "Resultary: unlabelled random bijections permutations first-order sentence partition classes quantitative probability correction rate",
+          "arXiv:1808.05459v2, PDF p. 4, literal query unlabel and offset 11250",
+          "Compton (1987), Example 7.6 via citation in Albert–Bouvel–Féray"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed bounded-multiplicity theorem at fixed r≥1 gives uniform local counts on {0,...,r} and limiting probability spectrum Z[1/(r+1)]∩[0,1]; it expressly gives no finite-size rate beyond convergence."
+        ],
+        "reasoning": "This is closely related and dates alone do not dispose of it, but it is a table of limits in a different law. Taking r→∞ after fixed-r limits supplies no unrestricted n^(-1/2) probabilities of bounded multiplicities. Fixed-shift partition values by themselves are not a table of all possible sentence coefficients.",
+        "searches": [
+          "Resultary: uniform unlabelled integer partitions cycle multiplicity first order logic explicit n^-1/2 correction p(n-h)/p(n)",
+          "Resultary a4e2f04e1ed6, Finding and Limitations"
+        ]
+      },
+      "rationale": "The qualitative law for the exact unlabelled model is known. Judged only on the effective first correction, its quantization and attainable spectrum, and the O(n^(-1)) remainder: inspected close sources do not cover or imply that combined quantitative result. A fixed multiplicity cap has a different limiting local law even though it uses the same logical machinery. This is best-of-knowledge, without dating-based priority inferences.",
+      "residual_risks": [
+        "Compton's original Example 7.6 and the Woods full text could not be reviewed; a quantitative theorem could be hidden in the unavailable passages or other partition/logical-counting literature. The Hardy–Ramanujan DOI route was also unavailable; the standard leading Rademacher expansion was used in the correctness check, not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct verification of attribution to Compton, qualitative in this passage",
+          "evidence": "The authors explicitly refer to '[8, Example 7.6] for a 0-1 law for unlabeled models of TOOB.'",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.05459v2",
+          "material_read": "Abstract p. 1; end of introduction p. 4, offset 11250; bibliography [8] at offset 127416",
+          "method": "Primary OA PDF; literal query unlabel and bounded reads",
+          "title": "Two first-order logics of permutations",
+          "trigger": "Exact unlabelled successor logic prior-law citation and aliases"
+        },
+        {
+          "assessment": "Credited for the qualitative law on the secondary passage; no conclusion about uninspected original quantitative details",
+          "evidence": "ABF names the example and states the covered conclusion as a 0–1 law.",
+          "identifier_or_url": "https://doi.org/10.1016/0001-8708(87)90019-3",
+          "material_read": "Publisher abstract/landing metadata and ABF's explicit citation; not the original Example 7.6",
+          "method": "Focused primary lookup; lawful DOI retrieval and identified alternate https://core.ac.uk/download/pdf/82668822.pdf; DOI provided landing/abstract only and alternate returned 403",
+          "title": "A logical approach to asymptotic combinatorics I. First order properties",
+          "trigger": "Example 7.6 is the most relevant original source on the same exact law"
+        },
+        {
+          "assessment": "Qualitative result, not the coefficient theorem in the inspected statements",
+          "evidence": "Theorem 2.1: an admissible front-loaded class has a first-order 0–1 law.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1997-030-6",
+          "material_read": "PDF pp. 641 and 644, abstract and Theorem 2.1, offsets 0 and 15521",
+          "method": "Primary OA PDF after literal locate",
+          "title": "Fine Spectra and Limit Laws, II: First-Order 0–1 Laws",
+          "trigger": "Broader general technique for unlabelled logical limits"
+        },
+        {
+          "assessment": "Quantitative conclusion in a different language and probability space",
+          "evidence": "Fixed TOTO sentences have O(n^(-1)) convergence for the stated polynomial-growth pattern classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.34328v1",
+          "material_read": "Theorem 1.2 on PDF p. 5, offset 18500",
+          "method": "Primary OA PDF; locate convergence rate and bounded passage",
+          "title": "On first-order limiting probabilities for small permutation classes",
+          "trigger": "Quantitative first-order rates in permutation sampling"
+        },
+        {
+          "assessment": "Material methodological overlap; non-equivalent fixed-cap law, no first correction",
+          "evidence": "For fixed cap r, local multiplicities become jointly uniform on {0,...,r}, and 'No finite-size error rate beyond convergence is asserted.'",
+          "identifier_or_url": "2026/10/26/SCOPE-the-full-first-order-probability-spectrum-for-bounded-multiplici--a4e2f04e1ed6",
+          "material_read": "Finding and Limitations at offsets 0 and 5165",
+          "method": "Local catalogue mirror",
+          "title": "The full first-order probability spectrum for bounded-multiplicity unlabelled permutations",
+          "trigger": "Same basic model family, logic and locality method"
+        },
+        {
+          "assessment": "Potential broader scope not independently excluded",
+          "evidence": "The frozen record cites an unlabelled MSO convergence theorem; no primary quantitative passage was retrieved.",
+          "identifier_or_url": "https://doi.org/10.2307/2275580",
+          "material_read": "Bibliographic citation and frozen description only; no primary full text",
+          "method": "OA DOI lookup by literal permutations; no readable OA copy resolved",
+          "title": "Counting finite models",
+          "trigger": "Possible broader unlabelled component-class counting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and steps 4–5",
+        "ABF/Compton attribution of the qualitative law",
+        "Bounded-multiplicity spectrum as the distinct comparison"
+      ],
+      "rationale": "A qualitative zero–one law leaves open whether finite structures approach it slowly, rapidly, or in a sentence-dependent continuum of leading coefficients. The theorem instead determines the complete discrete first-correction spectrum, a computable test for whether the leading term vanishes, and the resulting improvement to O(n^(-1)). It identifies exactly which local defects control the rate in a canonical unlabelled model, rather than tabulating a few examples.",
+      "residual_risks": [
+        "No full asymptotic series, uniform error over sentences, or extension to order-enriched/MSO languages asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

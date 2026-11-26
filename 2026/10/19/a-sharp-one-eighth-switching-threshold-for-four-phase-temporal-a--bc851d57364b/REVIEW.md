@@ -1,11 +1,21 @@
-# Scientific review: a sharp switching threshold in skew tent dynamics
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-branch operators preserve Lebesgue measure. Direct polynomial identities on the centered linear and quadratic observables reduce the cubic asymmetry to a convolution with consecutive switching-state products. An independent elementary Markov calculation evaluates those products for every length, giving the rational generating function; a signed finite geometric sum proves the complete period-four pattern and the discriminant bound \(p=1/8\). Exact rational integration of actual inverse-branch cylinders corroborates 40 parameter/lag instances, including boundary zeros. The infinite-range assertions rely on the analytic proof, not the finite checker.
+## correctness
 
-**Originality — PASS, with specifically identified residual uncertainty.** The 2003 Tefas et al. deterministic skew tent paper already computes general third-order correlations and displays the transfer-matrix method, so neither is claimed as new. Bahsoun et al. (arXiv:1305.6588, Sections 2–4) treat independent random intermittent maps and polynomial relaxation, not this two-state persistent Markov selection of complementary expanding maps. Cloez–Hairer address random-switching ergodicity abstractly. Porfiri–Belykh examine synchronization under Markov coupling, not stationary one-coordinate time-reversal cubic moments; their introduction, coupled-map model, variational equation (2), and tent-map calculations in Sections 3.2–3.3 were materially read from the author-uploaded text. Searching for stochastic skew tent coskewness, four-lag parity, the critical \(p=1/8\) threshold, and identical derived rational poles in available mathematical records found no exact claim or dominating case. Broad general switching-moment tools could potentially specialize to the formula, and unindexed historical presentations remain possible; this is not a claim of certified priority.
+PASS
 
-**Mathematical value — PASS.** The antisymmetric two-time cubic moment is a natural statistical test for temporal direction in a stationary chaotic process. Here the external driving chain is reversible and all single-time spatial laws are uniform, yet the observed chaotic signal is irreversible at every interior parameter. Switching persistence creates a sharp, global, explicitly classified sign transition, including a unique maximal persistence boundary and infinitely many exact zeros. The threshold is the crossing of real and imaginary singularity scales of an exact generating function. This is an infinite-family structural classification rather than an arbitrary finite test or a routine evaluation of the known deterministic skew tent moment.
+The uniform inverse-branch weights give a triangular conditional update on the centered linear and quadratic observables, with linear multiplier sδ, quadratic multiplier b and cross coefficient −(1−d)/4. This forces the reverse-directed third moment to vanish and expresses the other as a sum of environment products. Odd products vanish by symmetry; the expectation of an even block is a product of independent adjacent-pair flip increments. This gives the all-lag formula, generating function and parity covariance. Grouping successive odd/even lags reduces the sign to the finite geometric series in z/b²; zeros occur precisely in the stated two classes at the boundary. The identity b²/d=(1/d+6+9d)/16 has unique minimum 3/4 at d=1/3, giving p=1/8 as the sharp envelope; for p<1/8 both root endpoints are inside (0,1). The other algebraic discriminant zero, p=1/2, has no admissible double root in d. Strict asymmetry already at lag one proves nonreversibility everywhere in the stated domain.
 
-**Scientific limits.** The result is annealed and concerns a specific symmetric two-map switching protocol and one amplitude statistic; no quenched law, other noise model, or full process classification follows. Independent validation was not conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier exact deterministic full-branch result uses the same polynomial mechanism and studies cubic reversal contrasts. It neither averages complementary maps under a persistent Markov chain nor implies the resulting all-lag sign diagram. The inspected stochastic comparators concern independent intermittency or general ergodicity; the closest Markov-switching tent-map citation requires a different synchronization objective in the frozen description and could not be fully inspected. The supported distinct claim is the evaluated directional-moment law and sharp four-phase switching threshold, not polynomial transfer or third-order correlations in general.
+
+## value
+
+PASS
+
+For a natural stationary full-branch benchmark with reversible switching, the observed spatial law is already irreversible at lag one while higher-lag directional moments cross a sharp explicit boundary. The all-lag calculation identifies exactly when and at which residue classes a sign-based diagnostic would change its conclusion about direction; the simultaneous covariance law distinguishes that information from second-order correlation. The threshold is in switching persistence, not an arbitrary slice or an onset of irreversibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

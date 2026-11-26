@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:42:42.951531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on uv being the entire doubleton: the conditional isolation probability at either endpoint is zero, at an outside neighbor it is q^(d_w-1) because exactly one incident edge is forced shut, and elsewhere it is unchanged at q^d_w. Multiplying the conditional-minus-unconditional differences by p q^(d_u+d_v-2) and summing recovers the local identity. On the star the resulting bracket is k-1-kq-q^k, strictly decreasing from k-1 to -2. On the once-subdivided star the two edge classes give the stated B_k. At k=2 it factors as q²(1+q)(1-3q), giving the P5 crossing. For k>=3, the two positive terms after division by q² are 2q^(k-2)(1-q) and (k-1)q^(k-1)(1-q); the first is at most 1/2, and maximizing the second at (k-1)/k gives ((k-1)/k)^k<1/e. Together they cannot offset the constant -1, irrespective of the other negative terms. The p=1/2 examples are 9/64 and -45/128. The archived Fraction verifier's independent edge-state calculation and finite case coverage were inspected; the recorded 2882 labeled-tree trials are corroborative evidence, not a fresh rerun or a proof. The opening comparison should not be read as opposite signs at every p: below its crossing the ordinary star has negative covariance too.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest same-observable theorem requires a common degree d>=2 and expresses covariance by n, d and triangle count. Allard et al. compute a rooted component-size distribution; Berzunza–Holmgren study asymptotic largest components in random split trees."
+        ],
+        "reasoning": "No finite tree has all degrees at least two. A rooted size marginal is not a mixed moment of two global component counts; largest-cluster asymptotics concern neither observable.",
+        "searches": [
+          "Resultary 2c5facc9a2eb Finding and Proof",
+          "arXiv:1509.01207, component-size probabilities",
+          "arXiv:2003.12018v2, Abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c5facc9a2eb",
+        "Resultary 39564dc1d0da",
+        "Resultary db5fdb9d6d6f",
+        "Resultary cf951f62ca90",
+        "arXiv:1509.01207",
+        "arXiv:2003.12018v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof uses p q^(3d-2-r(v,e)); generalizing the exponent gives p q^(d_u+d_v+d_w-2-r(w,e)), immediately recovering the local tree identity when r<=1."
+        ],
+        "reasoning": "This substantial methodological overlap makes the local identity a routine extension. The exact comparison of two edge types and the uniform domination of both potentially positive terms for k>=3 are additional steps not furnished by the regular-graph sign theorem, which in fact always has an interior crossing.",
+        "searches": [
+          "Resultary 2c5facc9a2eb Proof: joint event overlap r(v,e) and triangle-incidence sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2c5facc9a2eb counts the exact same observables under homogeneous bond retention. Resultary 39564dc1d0da instead pairs singleton count with total component count under site percolation on random recursive trees."
+        ],
+        "reasoning": "Isolated open edges are precisely doubleton components; total components, all retained edges, source–sink counts and singleton variance are different quantities, not reformulations of this covariance.",
+        "searches": [
+          "Resultary searches for singleton–doubleton covariance and percolated subdivided stars",
+          "Primary literature searches for isolated vertices and isolated-edge or order-two cluster covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives the regular-graph exact formula and crossing, the same-day db5fdb9d6d6f concerns random orientations, and cf951f62ca90 instead treats isolated-cluster variance at p=1/2."
+        ],
+        "reasoning": "None of these inspected exact results encodes the two stated degree profiles and their entire p-dependence. The same-day result was compared by content, not discarded by date; semantic search is not an exhaustive catalogue.",
+        "searches": [
+          "Resultary search for exact branching sign transition under full single subdivision",
+          "Nearby records 2c5facc9a2eb, db5fdb9d6d6f and cf951f62ca90"
+        ]
+      },
+      "rationale": "The same statistic and essential indicator-overlap calculation are already present for regular graphs in Resultary 2c5facc9a2eb. Replacing constant degrees with local degrees in that proof readily recovers the tree identity; that identity and the calculation method are not the basis for a priority claim. The distinct result is the sharp all-p branching obstruction under uniform arm subdivision, together with the P5 and ordinary-star comparisons. The older regular theorem neither applies to these hosts nor implies that sign classification by parameter substitution.",
+      "residual_risks": [
+        "Ranked catalogue and bounded literature searches do not rule out an earlier explicit irregular-tree sign theorem.",
+        "The Wierman PDF was not accessible; its excerpt was not used to rule out full-text coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact regular-graph covariance and a direct precursor of the local calculation, not the branching sign result",
+          "evidence": [
+            "d>=2 constant degree; overlap by r(v,e)=0,1,2; one crossing p_*(G), equal to 1/d in the triangle-free case"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-triangle-controlled-covariance-of-isolated-percolation-component--2c5facc9a2eb/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, offsets 0–4503",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Triangle-controlled covariance of isolated percolation components",
+          "trigger": "Same pair of component observables and same sampling experiment"
+        },
+        {
+          "assessment": "Different paired statistic and different probabilistic experiment",
+          "evidence": [
+            "Total components versus singletons; site percolation and random host"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-component-singleton-covariance-in-site-percolated-recursiv--39564dc1d0da/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact component–singleton covariance in site-percolated recursive trees",
+          "trigger": "Exact covariance involving singleton counts on trees"
+        },
+        {
+          "assessment": "No equivalent covariance result",
+          "evidence": [
+            "Counts sources and sinks under independent fair edge orientations, not component sizes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-path-star-bounds-for-source-sink-covariance-in-randomly-or--db5fdb9d6d6f/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp path–star bounds for source–sink covariance in randomly oriented trees",
+          "trigger": "Same-day exact covariance on trees with star and path cases"
+        },
+        {
+          "assessment": "Related but neither the mixed moment nor the subdivision theorem",
+          "evidence": [
+            "Singleton variance at p=1/2 and star/double-star comparison"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-eleven-vertex-reversal-in-isolated-cluster-variance-under-bo--cf951f62ca90/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "The eleven-vertex reversal in isolated-cluster variance under bond percolation",
+          "trigger": "Bond-percolation small-cluster extremal claim on deterministic trees"
+        },
+        {
+          "assessment": "Rooted size probabilities, not signed covariance classification",
+          "evidence": [
+            "Root-started component probabilities and their recursions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.01207",
+          "material_read": "PDF abstract and p. 3 equations (3a)–(3d)",
+          "method": "Open primary PDF passage comparison",
+          "title": "General and exact approach to percolation on random graphs",
+          "trigger": "Exact finite-graph component-size machinery"
+        },
+        {
+          "assessment": "Different regime and observables",
+          "evidence": [
+            "Asymptotic largest-cluster sizes on random split trees"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.12018",
+          "material_read": "Version 2, p. 1 Abstract and Introduction",
+          "method": "Open primary text passage comparison",
+          "title": "The asymptotic distribution of cluster sizes for supercritical percolation on random split trees",
+          "trigger": "Tree bond percolation and cluster sizes"
+        },
+        {
+          "assessment": "Excerpt concerns approximate infinite periodic-graph thresholds; full scope remains unverified",
+          "evidence": [
+            "No full-text claim used in the verdict"
+          ],
+          "identifier_or_url": "https://www.ams.jhu.edu/~wierman/Papers/Universal-Formula-Framework.pdf",
+          "material_read": "Search excerpt only; full text not read",
+          "method": "Lawful direct and VPN OA attempts returned 403",
+          "title": "Desirable Properties of Universal Formulas for Percolation",
+          "trigger": "Broad percolation threshold formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first two cluster counts give a natural dependence probe. Comparing a hub with and without one extra edge on each arm shows that the ability to produce positive association at high retention disappears sharply at three subdivided arms, with a genuine path exception. The quantified structural sign barrier, rather than the routine overlap computation or a fixed numerical example, is the useful result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

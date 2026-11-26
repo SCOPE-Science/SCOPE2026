@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:32.390197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-trace four-mode Choi state's sixteen Pauli branches are orthonormal by maximal entanglement and Pauli trace orthogonality. Write U=VδG with G Gaussian up to phase and η=|sin(δ/2)|. The right factor transfers to the reference as R G^T R† in the paper's reference convention; parity and determinant equality survive transpose and parity-preserving conjugation. Output noise, even with unequal rates, commutes with this reference-side action. The Majorana-conjugation support and magnitudes in Allison–Coffman Eqs. (B30)–(B33) do not use the weights: in the canonical gate form, conjugation sends a Pauli label Q to a linear combination of Q and Q(ZZ), up to phases, with diagonal magnitude η and partner magnitude √(1−η²). The weighted blocks have squared Frobenius norm η²(u²+v²)+2uv(1−η²) and determinant modulus uv. These yield the asserted s± with full-state sector weights as in Eqs. (B22)–(B24). For the first two even blocks the products coincide; the first difference is greater or equal since ai≥bi, so it supplies the largest singular value including degeneracies. The two other even blocks contribute four b1b2 singular values. Each odd block type occurs twice and the largest cannot exceed the sum of the rest. The bound A≥|D| makes the concurrence nondecreasing in η by the derivative of the bracket or continuity at zeros. At η=1 the second block sum becomes a1b2+b1a2, giving the stated polynomial and product-noise boundary. The minimum total budget and asymmetry examples are for η=1, not for weak or Gaussian gates; only Choi-state convex-Gaussianity is tested. Replay: RESULT.md lines 63–149 and the formulas at lines 18–56, with the source block calculation. The frozen VERIFICATION.md and artifacts/verify.py were inspected but not executed; the finite phase/rate grid is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known overlap matrix is independent of the Kraus probabilities, and Eq. (B41) takes raw block weights as inputs. The specialization to a common p occurs only when evaluating those weights later. The earlier four-mode state theorem gives vanishing of both concurrences as the criterion, not the weighted Choi calculation."
+        ],
+        "reasoning": "The generic Pauli spectrum covers the unequal product weights as well as the symmetric weights. No assumption about more general Gaussian-preserving channels or arbitrary ancillary extensions is needed to conclude coverage of the state-level calculation.",
+        "searches": [
+          "arXiv:2609.09467v1, Eqs. (B22)–(B24), (B30)–(B42) vs. (B43)–(B50)",
+          "arXiv:1406.1577v1, Eq. (5)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Resultary and the two published records above",
+        "arXiv:2609.09467v1",
+        "arXiv:1406.1577v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In (B41) input the two unequal even pairs (a1a2,b1b2) and (a1b2,b1a2) and the equal pairs (b1b2,b1b2). The first two products are identical; their absolute differences are ordered by ai≥bi. Thus twice the first largest singular value minus their total has exactly the frozen square-root term and subtraction 4b1b2. The repeated odd types force zero. At η=1 the square root is a1b2+b1a2 and expansion gives 1−p1−p2+5p1p2/8."
+        ],
+        "reasoning": "This reweighting and scalar order check in the already-published spectrum yields every asserted boundary case and the phase region. Monotonicity and the budget comparison are simple inequalities from the same expressions.",
+        "searches": [
+          "arXiv:2609.09467v1, Eqs. (B30)–(B42) applied to independent Pauli weights",
+          "Frozen RESULT.md lines 100–149"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The determinant difference η and the normal form VδG match Appendix A. The frozen majorana overlap pairs, block entries and s± equal the Appendix B formulas (B30)–(B41) after assigning w1,w2 to the two branch probabilities."
+        ],
+        "reasoning": "Comparing through the Pauli-branch spectrum rather than only the displayed common-p concurrence exposes the actual mathematical overlap. Transferring the right Gaussian factor to the reference does not depend on equality of the two output rates.",
+        "searches": [
+          "Resultary: asymmetric local depolarization, fermionic Choi concurrence, parity-preserving gates",
+          "arXiv:2609.09467v1, Appendix A and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day bi-entangling record gives a sufficient common-rate CNOT certificate at the same scalar threshold, not the Choi-state phase surface. The other indexed record analyzes a channel-preservation definition and distinguishes it from Choi concurrence. The article's printed common-rate curve coincides at p1=p2 but does not print the unequal-rate surface."
+        ],
+        "reasoning": "Neither numerical coincidence nor a same-day catalogue relation establishes exact coverage or priority. The stronger analytic coverage comes from the pre-existing general block formulas, not the threshold tables or examples.",
+        "searches": [
+          "Resultary: unequal local depolarization Choi Gaussian boundary and 0.620204 threshold",
+          "2026/10/13/SCOPE-an-explicit-62-02-bi-entangling-certificate-for-the-locally-depo--beb7854a9e9c",
+          "2026/10/12/SCOPE-the-stated-two-mode-convex-gaussian-channel-property-is-vacuous--ed89ca2d8f0b",
+          "arXiv:2609.09467v1, Eqs. (B43)–(B50)"
+        ]
+      },
+      "rationale": "The cited paper prints the final common-rate curve only, but its Appendix B already provides the same complete block pairing and the singular values as functions of the two arbitrary weights of each block. Replacing the product weights by their unequal-rate values and sorting the resulting singular values in the published concurrence prescription mechanically gives the frozen surface. This is verified stronger formula coverage, not a conclusion drawn from a matching symmetric threshold or a failed search.",
+      "residual_risks": [
+        "The examined evidence does not establish who first wrote the simplified unequal-rate polynomial. No wider claim of historical priority or channel/Choi equivalence is made; the known-weighted-spectrum implication is sufficient for the audit decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact weighted block spectrum covers the central surface by substitution, despite the printed final curve taking equal p",
+          "evidence": "Eq. (B23) separates probability weights from Ω, (B30)–(B33) fix the partners and magnitudes, and (B41) is explicit in generic w1,w2. Eq. (B43) is the subsequent common-rate substitution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09467v1",
+          "material_read": "Appendix A, Eqs. (A3)–(A21); Appendix B pp. 9–11, Eqs. (B22)–(B24), (B30)–(B50), with decisive extract around offsets 62800 and 69400",
+          "method": "Open-access primary PDF passages",
+          "title": "Noise Limits on Fault-Tolerant Fermionic Quantum Computing",
+          "trigger": "Same Choi state, parity-gate parameter and generic weighted overlap spectrum"
+        },
+        {
+          "assessment": "General state criterion, not the unequal-weight channel-Choi example",
+          "evidence": "Vanishing of both state-sector concurrences characterizes convex-Gaussianity; the paper applies it to a globally depolarized ancilla resource.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.1577v1",
+          "material_read": "PDF p. 3, Eq. (5), and p. 2 application setup",
+          "method": "Open-access primary PDF passages",
+          "title": "Classical simulation of fermionic linear optics augmented with noisy ancillas",
+          "trigger": "Four-mode convex-Gaussianity criterion"
+        },
+        {
+          "assessment": "Different property; no ordering inferred from same-day date",
+          "evidence": "An explicit sufficient bi-entangling certificate for equal-rate CNOT is not the unequal-rate convex-Gaussian Choi classification.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-explicit-62-02-bi-entangling-certificate-for-the-locally-depo--beb7854a9e9c",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary/published-record mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An explicit 62.02% bi-entangling certificate for the locally depolarized CNOT",
+          "trigger": "Same-day exact scalar threshold in a related gate-noise problem"
+        },
+        {
+          "assessment": "Channel/state distinction, not an asymmetric concurrence formula",
+          "evidence": "Noiseless SWAP witnesses the distinction from the particular two-mode preservation definition; the frozen theorem stays at the state level.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-stated-two-mode-convex-gaussian-channel-property-is-vacuous--ed89ca2d8f0b",
+          "material_read": "RESULT.md, Finding and SWAP witness",
+          "method": "Local Resultary and published-record mirror",
+          "title": "The stated two-mode convex-Gaussian channel property is vacuous",
+          "trigger": "Possible channel-versus-Choi overlap; noisy fermionic gates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Unequal noise budgets are physically meaningful and the closed formula is convenient. Nevertheless the precise state classification is a direct evaluation of the prior explicit generic spectrum, and the budget and fixed-mean comparisons require only the resulting bilinear inequality. The frozen record does not solve a nonmechanical remaining question, such as an independently justified channel-level criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

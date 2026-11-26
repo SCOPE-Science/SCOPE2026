@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:32.955740Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 20–55 and supplied check.py inspected, not executed.",
+        "Exact reproduction by displacement counting: /tmp/opencode/frozen-math-independent/r1r5.py (record 5 section)."
+      ],
+      "rationale": "For n≥3 the clockwise and counterclockwise edges are distinct, the uniform distribution is stationary, and Q^T is the stationary reversed generator. Each of the n undirected bonds contributes ((a−b)/n) log(a/b) to the hidden entropy production. For 3≤n≤5, after taking the smaller label class it has at most two sites; the reflection i↦u+v−i swaps two marked sites, or i↦2u−i fixes a singleton. Either preserves the binary output and conjugates Q to Q^T, proving reversibility of every finite-dimensional distribution. At n=6, I independently expanded the unequal-lag cubic term by counting displacement triples from the marked set {0,1,3}. In the difference f^T QD_f Q² f−f^T Q²D_f Q f, scalar diagonal terms cancel (f is binary and the symmetric mixed product cancels); among off-diagonal jump triples, only (+,+,+) and (−,−,−) have unequal counts under exchanging the one- and two-jump blocks, with signed counts +1 and −1 respectively. Thus the difference is a³−b³. One-boundary terms agree by D_f f=f and f^T D_f=f^T; the degree-two mixed term is symmetric. The stationary factor 1/6 and factorial 1/2 give (a³−b³)ts(s−t)/12 at cubic order, hence exactly (a³−b³)ε³/6 for t=ε,s=2ε. The analytic remainder implies a nonzero signal at sufficiently short such lags whenever a≠b; a=b is reversible. Binary stationarity identifies the off-diagonal pairs and, for equal-spaced triples, forces 001=100 and 011=110 by comparing shifted equal-pair marginals and subtracting the shared constant triple. Subtracting the common 1111 event proves the stated four-frame identity. No result about arbitrary finite sampling intervals, heterogeneous rates or noisy labels is used. The frozen self-review's 453-assertion count omits the five final checks visible in the supplied script; the discrepancy is peripheral to the analytic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen's theorem applies to three hidden states; any deterministic binary emission necessarily duplicates two of their emission rows. His higher-state full column-span condition does not apply to a binary emission on six states.",
+          "f857859a6452 exhibits an irreversible four-state heterogeneous ring output with (a−c)(b−d)≠0 (and a positive reverse-rate perturbation), not a homogeneous witness.",
+          "The inspected partial-observation inference passages use transition, snippet or milestone information rather than an arbitrary fixed two-class occupancy projection."
+        ],
+        "reasoning": "The broad n=3 no-go genuinely overlaps, but does not settle n=4,5 on homogeneous rings. An existential threshold over heterogeneous generators is not an upper bound for the restricted homogeneous class.",
+        "searches": [
+          "Chen Theorem 3.4, Example 1 and remarks on higher hidden state counts",
+          "Resultary f857859a6452 minimal deterministic sensor and 902a077a389d one-defect ring",
+          "Partial-observation thermodynamic inference literature, arXiv:2203.12020, 2309.07665, 2310.06833"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1101.5482",
+        "arXiv:2203.12020",
+        "arXiv:2308.14497 (resolved-state transitions)",
+        "arXiv:2309.07665v1",
+        "arXiv:2310.06833 (lumping and milestoning)",
+        "Resultary f857859a6452, 902a077a389d, 8949291b4ef0 and 0e63554034f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen's repeated-symbol antisymmetry formula has a factor (x−y)(y−z)(z−x) for three hidden-state emission probabilities; a duplicated binary row makes it zero. The frozen order-six generator instead produces a³−b³ via the marked clockwise triple with step lengths one then two.",
+          "In f857859a6452, equal clockwise rates make the displayed four-state heterogeneous coefficient vanish; its exhibited asymmetry does not persist by substituting homogeneity."
+        ],
+        "reasoning": "Neither a three-state exact formula nor inequalities or witnesses using resolved states or observed links imply a six-state stationary deterministic binary witness. The state-count boundary owes to the small homogeneous rings' reflection conjugacies and the particular nonzero order-six displacement imbalance.",
+        "searches": [
+          "Direct comparison of Chen Theorems 2.4 and 3.4, four-state Resultary Finding, and coarse-grained trajectory observation definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0e63554034f4 deals with reversal-invariant rotation classes of binary necklaces; the witness's two one-runs and two zero-runs of total lengths three each lie in an achiral-free profile there.",
+          "Chen arXiv:1101.5482 Theorem 2.4 uses exactly the probability difference for the same repeated observed symbol at unequal interobservation gaps interchanged."
+        ],
+        "reasoning": "A reversal-preserving necklace rotation/reflection is a sufficient hidden conjugacy, but chirality alone is not a stochastic nonvanishing proof. The statistic is established as a method, while its order-six exact evaluation on this deterministic homogeneous projection is a distinct model-specific claim.",
+        "searches": [
+          "Local Resultary and literature search: binary projected hidden Markov reversibility, homogeneous ring, binary necklace chirality/deterministic lumps, unequal-gap triple",
+          "Primary literature query for reversibility of the observed process of a three-state hidden Markov model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8949291b4ef0 lists exact stroboscopic reversibility resonances, including sizes 3,4,6, with every state individually observed; 902a077a389d concerns a discrete-time four-state one-defect ring with a particular half-ring readout; 0e63554034f4 classifies necklace profiles, not CTMC time distributions."
+        ],
+        "reasoning": "Matching small ring sizes, a necklace profile, or a finite sampling effect is not a table of continuous-time deterministic binary visibility thresholds. None of these inspected formulas yields the stated six-state cubic coefficient.",
+        "searches": [
+          "Local Resultary: f857859a6452, 902a077a389d, 8949291b4ef0, 0e63554034f4; targeted primary lookup for homogeneous binary ring three-time visibility"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp threshold for the homogeneous stationary nearest-neighbour ring with deterministic binary occupancy readout, including the order-six labeling and its bias-dependent cubic coefficient. Chen already uses the same unequal-gap triple statistic and proves the three-hidden-state impossibility for deterministic binary labels; the same-day four-state result treats a larger, heterogeneous model and bears directly on why the homogeneity restriction matters. Neither gives the n=4,5 homogeneous all-label invisibility together with the n=6 signal. The assay, the bare chirality of the witness, and two/equal-three binary stationarity identities are not claimed as independent novelty.",
+      "residual_risks": [
+        "Same-date distinct heterogeneous and homogeneous records do not establish posting order or attribution history.",
+        "An unindexed general lumped-process criterion or an equivalent stochastic/necklace formulation could change the originality assessment; the compared current sources establish partial coverage only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact methodological and n=3 overlap; not a theorem for the higher homogeneous ring sizes",
+          "evidence": [
+            "Theorem 2.4 swaps the two unequal gaps in the repeated-symbol probability, with a three-emission Vandermonde factor. Theorem 3.4 requires an irreversible hidden process and distinct emission rows. Example 1 specializes to deterministic binary labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1101.5482",
+          "material_read": "Theorems 2.4 (p. 3), 3.4 (p. 5), higher-state limitation and Example 1 with deterministic labels (p. 6)",
+          "method": "OA primary PDF, offsets 9260–11385 and 15020–19535",
+          "title": "On the reversibility of the observed process of three-state hidden Markov model",
+          "trigger": "Early exact CTMC sensor reversibility and unequal-gap witness precedent"
+        },
+        {
+          "assessment": "Covers small general-size no-go and a heterogeneous four-state threshold, not the homogeneous six-state threshold",
+          "evidence": [
+            "Different clockwise rates a,b,c,d and opposite-pair label; displayed criterion (a−c)(b−d)≠0 and four-frame 1100 versus 0011 cubic witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-minimal-four-state-arrow-of-time-in-a-binary-stochastic-sensor--f857859a6452/RESULT.md",
+          "material_read": "Finding, scope and equal-frame minimality discussion",
+          "method": "Local mirror, offset 0 and proof around 4700–7500, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A minimal four-state arrow of time in a binary stochastic sensor",
+          "trigger": "Same sensor model with a competing threshold, no homogeneity assumption"
+        },
+        {
+          "assessment": "Distinguishes observation of every state at a fixed lag from the present continuous-time binary readout",
+          "evidence": [
+            "Classifies detailed balance of the full finite-lag propagator, including resonances for n=3,4,6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-crystallographic-restriction-on-stroboscopic-detailed-balance-al--8949291b4ef0/RESULT.md",
+          "material_read": "Finding and sampling assumptions, offsets 0–4549",
+          "method": "Local mirror",
+          "title": "Crystallographic restriction on stroboscopic detailed balance",
+          "trigger": "Same homogeneous generator, exact small-ring reversibility regimes"
+        },
+        {
+          "assessment": "Selected directed transitions and waiting times, not noiseless binary state occupancy",
+          "evidence": [
+            "Inference uses transition-based waiting-time distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12020",
+          "material_read": "Abstract and transition-based observation framework on p. 1",
+          "method": "OA PDF, offsets 0–3783",
+          "title": "Thermodynamic inference in partially accessible Markov networks",
+          "trigger": "Prior hidden cycle-affinity inference could use the same observations"
+        },
+        {
+          "assessment": "Snippet distinguishes selected Markovian events and waiting times, rather than deterministic binary occupancy",
+          "evidence": [
+            "A snippet begins at a Markovian event and ends at a subsequent such event, with elapsed time in the observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.07665v1",
+          "material_read": "Abstract and coarse-grained path/snippet definitions; PDF pp. 1,3",
+          "method": "OA PDF, offsets 0–2512 and 16800–18344",
+          "title": "Fluctuating entropy production on the coarse-grained level",
+          "trigger": "Closely related coarse-graining, microscopic transitions and an example of six-state inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact point at which spatial homogeneity stops concealing a stationary current from every binary label is a natural identifiability boundary. The lower bound concerns the whole observed law, while the attaining example needs only three unequally spaced snapshots and provides the leading sign and scale for any nonzero bias. The result is useful as a controlled test case for separating hidden dissipation from observable reversibility; it does not promise inference robustness, feasible precision at arbitrary lag, or the same threshold for other chains.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

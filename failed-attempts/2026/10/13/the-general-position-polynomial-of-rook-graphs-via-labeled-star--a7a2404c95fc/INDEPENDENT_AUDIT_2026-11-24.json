@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:42.443345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rook graph has diameter at most two. Under its line graph identification, the three distinct cells of a forbidden geodesic are exactly three selected edges forming a simple three-edge path in K_{m,n}; the fourth rectangle edge may be present. In each connected path-free bipartite component a spanning tree must be a star, and no extra edge can join two leaves in the same bipartition class. Conversely, stars have no such path. The labeled component series has isolated rows and columns, one type for a single edge, and one center choice for each higher-degree star. Summing gives ue^{vz}+ve^{uz}−uvz, and taking a set gives the stated exponential; differentiating by u gives the recurrence, including the empty-board bases. A forest has number of edges equal to occupied vertices minus nontrivial components. When both sides are at least three equality at m+n−2 needs two spanning components with opposite-side centers; selecting these centers specifies all edges, yielding mn. With m=2<n, a degree-two column would use both rows and isolate that star, leaving at most two edges; at the maximum n each column therefore chooses one of two rows, yielding 2^n. The 2×2 and one-row cases are immediate from the cycle and complete graph. An independently written finite check at /workspace/audit_evidence/replay.py (rook) compared metric-triple enumeration with the exact truncated component product on 28 boards and 78,035 subsets. The frozen 50 small boards are included in, not disjoint from, the 484 positive-side size pairs with extremal checks; this is only a wording issue in the verification summary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anand et al. characterize general-position sets by induced clique components and intercomponent distances. On rook graphs the diameter-two condition makes distinct induced clique components distance two, giving the structural characterization but not an enumerative formula.",
+          "Iršič et al. count Cartesian products of paths rather than the full complete-factor family. The general labeled bipartite-graph paper discusses the exponential formula without the required star restriction. The scalar degree m+n−2 is credited as established in prior Cartesian-product work."
+        ],
+        "reasoning": "These contributions supply the invariant and structural and enumerative methods or the maximum only. The strongest overlap is the direct rectangular rook-graph result in the catalogue, not the path-grid or generic labeled-graph results.",
+        "searches": [
+          "Anand et al. arXiv:1812.08460v2, Theorems 3.1 and 5.1",
+          "Iršič et al. arXiv:2401.05696, §3",
+          "arXiv:1304.0139 labeled bipartite graph enumeration",
+          "Tian and Xu, DOI 10.1016/j.amc.2021.126206"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82; VERIFICATION.md, verify.py and verification_output.txt inspected without executing the frozen checker",
+        "Local Resultary matched records above",
+        "arXiv:2401.05696, arXiv:1812.08460v2 and arXiv:1304.0139 original passages; Tian–Xu landing page/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the shared EGF F, ∂uF=(e^{vz}+vz(e^{uz}−1))F; extracting u^m v^n with the factorial denominators yields the two sums in the assigned recurrence.",
+          "The same-day triangular-graph finding is about L(K_n), with stars and triangles and a one-sort EGF, not L(K_{m,n})."
+        ],
+        "reasoning": "The recurrence and empty-board bases follow mechanically from the exact covering EGF; all remaining substantive claims appear directly in the rectangular-board match. The triangular result is only an analogue.",
+        "searches": [
+          "Compared assigned Eqs. (1)–(3) with strongest Resultary mirror Finding and the same-day triangular-graph record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2, mirrored RESULT.md opening Finding, gives the identical bivariate EGF, star-forest equivalence and leading table.",
+          "SCOPE-general-position-and-maximal-set-polynomials-of-rectangular-rook--6c3197c28686 gives the same all-set component-series EGF and additional inclusion-maximal results."
+        ],
+        "reasoning": "A labeled selected-edge bipartite star forest and a general-position rook subset are related by an edge-preserving bijection. Expanding the alternative component series isolates the same one-edge subtraction. A usual rook polynomial instead counts nonattacking placements and is not equivalent.",
+        "searches": [
+          "Resultary: rectangular rook graph general-position polynomial; labeled bipartite star forests and two-sort EGF",
+          "Literature: edge-weighted labeled bipartite star forests; subgraph-P₄-free bipartite graph enumeration; two-sided EGF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest mirrored match gives all cases: min side one, 2×2, min side two and other ≥3, and both sides ≥3. The same two-sort EGF is also stated in SCOPE-general-position-polynomials-and-maximal-set-spectra-of-rectangu--5ac1a3fe8a52 via coefficient extraction."
+        ],
+        "reasoning": "This is not incidental agreement of small boards or leading terms: the exact formula covers every board and every power of z. The maximal-set results in the matching records add material but are not part of the assigned claim.",
+        "searches": [
+          "Resultary: rook-graph general-position polynomials, maximal-set spectra, star-forest counts and leading coefficient table"
+        ]
+      },
+      "rationale": "The assigned mathematical statement is covered in the inspected catalogue. A distinct record has the same labeled rook-graph family, star-forest equivalence, edge-weighted bivariate EGF, and every leading-coefficient case, and additionally gives a finite coefficient formula. The recurrence is a direct coefficient form of that same EGF, not a surviving distinct result. This is a statement-level coverage decision, not a finding that the frozen record was later in origin or derived from the other work. The archive paths of the matching records are dated after the frozen path; dates alone do not establish priority or independence.",
+      "residual_risks": [
+        "The precise provenance relationship and scientific priority between the records are unresolved and are not inferred from archive dates.",
+        "An older edge-weighted star-forest enumeration may exist under a different terminology. Its presence or absence would not remove the verified exact catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct complete mathematical coverage",
+          "evidence": "States the bipartite star-forest bijection, identical edge-weighted bivariate EGF, all extremal coefficient cases, and a finite coefficient formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2",
+          "material_read": "Mirrored RESULT.md opening Finding, offset 0",
+          "method": "Resultary semantic search and mirrored exact result passage",
+          "title": "General position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Exact objects, parameters and invariant"
+        },
+        {
+          "assessment": "Same all-set EGF plus maximal-set results",
+          "evidence": "The component-series version simplifies to ue^{vz}+ve^{uz}−uvz in the exponent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-general-position-and-maximal-set-polynomials-of-rectangular-rook--6c3197c28686",
+          "material_read": "Mirrored RESULT.md statement on the all-set EGF and inclusion-maximal sets",
+          "method": "Resultary search and mirror comparison",
+          "title": "General position and maximal-set polynomials of rectangular rook graphs",
+          "trigger": "Likely equivalent component formula"
+        },
+        {
+          "assessment": "Same EGF by coefficient extraction",
+          "evidence": "Gives the same all-set coefficients by two-sort extraction, separately from the maximal-set classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-general-position-polynomials-and-maximal-set-spectra-of-rectangu--5ac1a3fe8a52",
+          "material_read": "Mirrored RESULT.md statement on the coefficient formula and maximal-set spectrum",
+          "method": "Resultary search and mirror comparison",
+          "title": "General position polynomials and maximal-set spectra of rectangular rook graphs",
+          "trigger": "Another strong direct formula match"
+        },
+        {
+          "assessment": "Different graph family; methodological analogy only",
+          "evidence": "Treats L(K_n) and counts star–triangle components by a one-sort EGF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e",
+          "material_read": "Mirrored RESULT.md opening Finding, offset 0",
+          "method": "Resultary search and bounded mirrored statement read",
+          "title": "Full general position polynomial of triangular graphs",
+          "trigger": "Same-day line-graph enumeration by a similar reduction"
+        },
+        {
+          "assessment": "Known invariant and product-of-path examples, not the matched rook family",
+          "evidence": "Formulas for path grids including thin grids do not give the two-complete-factor family.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "§3, pp. 5–7, offsets 16000 and 20974",
+          "method": "Bounded original PDF passages",
+          "title": "General Position Polynomials",
+          "trigger": "Definition and possible Cartesian product enumeration"
+        },
+        {
+          "assessment": "Structural antecedent without the claimed enumeration",
+          "evidence": "Induced components are cliques with distance conditions; on a diameter-two rook graph this specializes to disjoint induced clique components. Theorem 5.1 is scalar.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08460v2",
+          "material_read": "Theorem 3.1, p. 4, offset 11000; Theorem 5.1, p. 7, offset 19809",
+          "method": "Bounded original PDF passages",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "General structural characterization potentially implying the reduction"
+        },
+        {
+          "assessment": "General exponential-formula technique, not the exact edge-counted restriction in the passage read",
+          "evidence": "Discusses general bipartite graph and block enumerations.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.0139",
+          "material_read": "p. 1, offset 2000",
+          "method": "Bounded original PDF passage",
+          "title": "Enumeration of bipartite graphs and bipartite blocks",
+          "trigger": "Alternate labeling/species route to possible exact star-forest counts"
+        },
+        {
+          "assessment": "Scalar extremum credited from frozen citations; no whole-paper conclusion claimed",
+          "evidence": "Full text not available in the attempts made. Direct verified coverage comes from the rectangular Resultary match.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2021.126206",
+          "material_read": "Landing page and abstract; original theorem not recovered",
+          "method": "Publisher lookup and lawful OA recovery attempt",
+          "title": "The general position number of Cartesian products involving a factor with small diameter",
+          "trigger": "Prior scalar maximum for rook graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full all-size enumerator for this family is a useful mathematical object, going well beyond the known extremal cardinality. But the exact same bivariate enumerator and extremal table are already available in the matched result. The only additional presentation item is a coefficient recurrence obtained by a single formal derivative, which adds no independent exact fact. There is no surviving substantive increment in this finding to justify a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

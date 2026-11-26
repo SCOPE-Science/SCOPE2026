@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:50:32.432325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–105, VERIFICATION.md and CHECK.py (inspected, not executed)"
+      ],
+      "rationale": "The sampling point is a plant-change boundary, with the backward donor runs iid by assumption. Setting Y=q^L, block summation of the normalized geometric flower masses gives W_i=(1−Y_i)∏_{j<i}Y_j, whose total telescopes to 1 as every Y_i≤q<1. Conditional independence of the seeds makes the match probability ∑ W_i² for one realized history. Independence of runs and summation of nonnegative series give the displayed means and H=(1−2μ+ν)/(1−ν); taking the square after expectation instead yields the pooled value. Subtraction gives the stated positive multiple of ν−μ², zero exactly for deterministic L; the same argument works at each positive integer higher moment order. For fixed (q,μ) with μ<q, choose a=q^k,b=q^(k+1) bracketing μ. The expectation of (Y−a)(Y−b) is nonnegative on the entire lattice with zeros only at a,b; the mean fixes their weights uniquely, including the deterministic endpoint. Y²≤qY is strict away from Y=q since Y=0 is unavailable; hence ν<qμ. A two-point law on {q,q^N} of mean μ tends to ν=qμ, and mixing such length laws with the minimizer at fixed mean realizes every intermediate ν, drawing each run independently from the mixed law. The strict derivative of F_μ transfers the interval to H. When μ=q there is only L=1. For geometric departure, α=ρ/(ρ+τq) and direct summation gives 1−ν=(1−q²)/(1−(1−τ)q²); then H=2α/(1−ν)−1=(2α−ρ)/(2−ρ). At fixed 0<α<1, 0<τ<1 is equivalent to 0<ρ<α; the displayed rational inversion and open wedge follow from strict decrease of H. As a check, (q,μ)=(1/2,1/3) gives ν_−=1/8, H_−=11/21 and H_+=3/5 (unattained), and ρ=τ=1/2 gives H=5/9.",
+      "residual_risks": [
+        "Exact conditional-iid single-probe model with distinct donor plants and no sampling/weighting by realized fertility or other history-dependent recipient selection. No reliance on finite simulations or claim of field validity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitchell's methods use a per-flower departure probability, sum paths to compute expected donor contributions, and sample against the generated sire profile. The no-self P_i expression implies the geometric mean profile; P'_i allows selfing. The empirical-comparison section calls for estimates of mate number and the two mechanism parameters. Frozen RESULT.md lines 107–123 distinguishes variable deposition, empirical paternity-shadow regression, and empirical multiple-paternity studies."
+        ],
+        "reasoning": "A wider ecological treatment admitting selfing or multiple pathways is not a stronger theorem on within-itinerary pair matching. Using the mean sire vector before sampling changes the estimand; comparing two actual offspring from one shared history requires taking the square before averaging.",
+        "searches": [
+          "Mitchell et al. DOI 10.1371/journal.pone.0076312, Modeling the Sire Profile for Recipient Fruits and Comparing Model Predictions to Observed Results",
+          "Galen–Rotenberry DOI 10.1016/S0022-5193(88)80257-1; Cresswell–Hoyle DOI 10.1111/j.1365-2435.2006.01085.x; Karron et al. DOI 10.3732/ajb.92.5.885"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Mitchell et al. DOI 10.1371/journal.pone.0076312 (official full-text passages)",
+        "Rodríguez–Quintana DOI 10.1016/j.jspi.2014.08.008 (official full-text passages)",
+        "Resultary:bbdfcd41fe28, 177f5986cef3, 4f99ff676197 (index)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mitchell's no-self mean profile yields H_pool, a function of α alone; their inspected empirical comparison does not invert (α,H). The Rodríguez–Quintana formula yields the distributional collision in terms of unrestricted moments. The frozen work introduces the actual common-history observable and optimizes ν on the admissible lattice, or relates it to both parameters in the geometric submodel."
+        ],
+        "reasoning": "The mean-profile calculation cannot separate ρ and τ from even its entire profile in the one-probe model. The generic EPPF is a credited ingredient: to reach the main conclusions requires both the integer-run support and nonattainment analysis, or the geometric specialization linking distinct observables and showing a bijective feasible wedge. No inspected prior statement supplies these exact conclusions as already worked-out ecological results.",
+        "searches": [
+          "Mitchell et al. P_i equation and r_p simulated offspring methods; empirical requirements section",
+          "Rodríguez–Quintana Lemma 1 Eq. (6)",
+          "Frozen RESULT.md lines 73–99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rodríguez–Quintana §2, weights Eq. (3), EPPF Eq. (5), and Lemma 1 Eq. (6) include exactly H_m after the stick-fraction substitution z=1−q^L. The exact all-feature hit bbdfcd41fe28 is the assigned record itself."
+        ],
+        "reasoning": "Generic H_m, including H, is covered by the published EPPF. The finite/infinite discrete-support moment problem at fixed (q,μ) and identifiability from two particular ecological statistics are not resolved by merely substituting into that formula. The variance sign itself is an elementary consequence and not counted as an independent abstract result.",
+        "searches": [
+          "Rodríguez–Quintana DOI 10.1016/j.jspi.2014.08.008, residual allocation and same-cluster EPPF",
+          "Resultary: fixed mean stick-breaking collision probability, stochastic pollen residence, within-fruit sibship"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed same-day 177f5986cef3 concerns equal conspecific-lag statistics for two nine-visit histories and a crossover in expected distinct pollinated plants. Indexed same-day 4f99ff676197 concerns optimal donor placement. The direct exact matching catalogue summary is the assigned entry."
+        ],
+        "reasoning": "Neither distinct summary describes the within-fruit pair match, the full lattice interval over all admissible iid length laws at fixed (q,μ), or the geometric inverse. The actual originals of these neighbours were not retrieved; no comprehensive exclusion or priority inference follows from the indexed scope.",
+        "searches": [
+          "Resultary: sharp within-fruit paternity at fixed deposition and mean profile; geometric residence identification",
+          "Resultary: geometric departures and pollen-transfer histories or optimal donor position"
+        ]
+      },
+      "rationale": "Credit earlier geometric carryover and expected sire profiles, the generic residual-allocation same-cluster moment, and the elementary convex-moment and variance ingredients. Pass is for the precise ecological statement separating pooled and within-realized-fruit risk, the exact attainable interval at fixed deposition and mean profile on the integer-residence lattice, and the joint two-statistic calibration of the geometric mechanism. The decisive prior sections use different inputs or estimands and do not furnish that package. Catalogue and uninspected-literature limits remain.",
+      "residual_risks": [
+        "Relevant full-text passages were checked, not exhaustive priority across ecological calibration and classical convex-moment results.",
+        "The exact same-day neighbour files were not retrieved; summaries do not decide full-text scope or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits expected sire profiles under the no-self model and sampling from an averaged generated profile; this is not raw-itinerary conditional matching or its inverse",
+          "evidence": [
+            "Section ‘Modeling the Sire Profile for Recipient Fruits’: path/departure discussion XML offsets 17519 and 18832, P_i equation anchor 20481, offspring sampling and r_p at 23340 and 24349.",
+            "Section ‘Comparing Model Predictions to Observed Results’: empirical parameter requirements offsets 35341–35624."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0076312",
+          "material_read": "Official PMC full text: Models for recipient-fruit sire profiles, offspring simulation, and empirical comparison",
+          "method": "Targeted official full-text section and equation inspection",
+          "title": "Influence of Pollen Transport Dynamics on Sire Profiles and Multiple Paternity in Flowering Plants",
+          "trigger": "Same geometric carryover and per-flower departure, same broad paternity theme"
+        },
+        {
+          "assessment": "Exact abstract H_m is prior coverage; sharp interval at fixed pollen parameters and geometric inverse are not supplied by the inspected result",
+          "evidence": [
+            "§2 Eq. (3), XML offset 28297; Eq. (5), offset 43103; Lemma 1 Eq. (6), offset 47020. Substitute stick fraction 1−q^L."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2014.08.008",
+          "material_read": "Official full-text Section 2 weights and EPPF, including one-cluster expression",
+          "method": "Direct bounded equation/lemma comparison",
+          "title": "On species sampling sequences induced by residual allocation models",
+          "trigger": "Same residual-allocation weights and all-sample coincidence probability"
+        },
+        {
+          "assessment": "Pertinent context on deposition-rate variance, dispersal inference and empirical paternity; not verified as exact matches",
+          "evidence": [
+            "Frozen RESULT.md lines 107–123."
+          ],
+          "identifier_or_url": "doi:10.1016/S0022-5193(88)80257-1; doi:10.1111/j.1365-2435.2006.01085.x; doi:10.3732/ajb.92.5.885",
+          "material_read": "Frozen cited relationship summaries; no whole-paper exclusion",
+          "method": "Comparison of described questions with the frozen statement",
+          "title": "Variance in pollen carryover in animal-pollinated plants; A mathematical method for estimating patterns of flower-to-flower gene dispersal from a simple field experiment; Patterns of multiple paternity in fruits of Mimulus ringens",
+          "trigger": "Classic quantitative carryover and empirical paternity work"
+        },
+        {
+          "assessment": "Different expected outcome for fixed visits, not the reported sibling-match extremal range or identification",
+          "evidence": [
+            "Summary contrasts expected numbers of distinct pollinated plants for two homometric nine-visit histories."
+          ],
+          "identifier_or_url": "Resultary:177f5986cef3",
+          "material_read": "Indexed Resultary statement; original mirror request timed out",
+          "method": "Configured catalogue search and targeted mirror attempt",
+          "title": "A nine-visit homometric pollen-transfer reversal under geometric carryover",
+          "trigger": "Distinct same-day geometric pollen history result"
+        },
+        {
+          "assessment": "Optimizes placement rather than classifying within-fruit risk at fixed profile",
+          "evidence": [
+            "Summary concerns optimal donor placement under geometric departures."
+          ],
+          "identifier_or_url": "Resultary:4f99ff676197",
+          "material_read": "Indexed Resultary statement; original not retrieved",
+          "method": "Configured catalogue search and bounded mirror attempt",
+          "title": "Macroscopic jumps in the optimal donor position of an interrupted pollination itinerary",
+          "trigger": "Distinct same-day residence/departure model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54, 82–99, 113–115",
+        "Mitchell et al. (2013) methods and empirical-comparison sections"
+      ],
+      "rationale": "The exact interval answers what within-fruit full-sib risk is still compatible with a fixed carryover rate and an entire averaged profile, which otherwise conceals itinerary variation. It distinguishes the role of the integer residence constraint from near-extreme rare/long runs. The geometric calibration shows precisely which additional population statistic separates two mechanistically different rates, with sharp feasibility boundaries. This is useful as an idealized modeling and calibration benchmark, not a claim of field inference from one fruit.",
+      "residual_risks": [
+        "The calibration requires known last-donor rank and a population estimate of the correct within-probe match probability; repeat plant visits, selfing, variable deposition or selection can change both statistics and the bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

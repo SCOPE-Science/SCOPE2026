@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-With a C++17 compiler and Python 3, run `g++ -O3 -std=c++17 -o verifier verify.cpp && ./verifier` and `python3 verify_general.py` in the directory holding the embedded files. Recorded exact output files are `verify_cpp.out` and `verify_general.out`.
+# Independent mathematical audit
 
-The C++ program independently enumerates admissible pairs in explicit nondegenerate alternating ambient spaces over \(\mathbb F_2\) and \(\mathbb F_3\), grouping complete types by the kernel of their linear relation map and all bilinear pairings with a fixed basis of the named subspace. The eight finite cases include \((q,d,\rho)=(2,2,0)\), \((2,2,2)\), \((2,3,1)\), \((2,3,3)\), \((3,2,0)\). The larger ambient dimension for the three-dimensional radical test prevents false finite-horizon collapse. The final output line must be `FINITE_SYMPLECTIC_SIGNATURES_PASS`.
+## correctness
 
-The Python program independently counts low-rank finite maps and isotropic image strata for all tuple arities through four in eight finite cases, compares their contributions with the full Gaussian expression, and ends `GAUSSIAN_ISOTROPIC_SPECTRUM_PASS`.
+PASS
 
-These programs support normalization and small-case verification, not completeness for every field or tuple arity. That generality rests on the written orbit classification and finite Gaussian counting proof. Independent mathematical audit is not yet performed.
+This verdict is for the corrected RESULT.md. The frozen line 20 incorrectly gives T₂=5 at d=0 for every q; already q=3 is a counterexample. With U=0 an orthogonal pair type is specified only by its linear kernel in F_q², giving 1+(q+1)+1=q+3. The repair corrects that statement without weakening the fixed-prime-power scope. For arbitrary U, equality of the quotient kernel H, the map H→U and the complement-basis pairing functionals gives a linear isometry over U; Witt extension in a finite symplectic envelope gives conjugacy. Conversely, any such map with isotropic image S and any functionals annihilating S are realized by the alternating space U⊕W₀, embedded in the ambient space over U. This works in characteristic two. Finite relation/pairing diagrams determine complete types, not just counts of tuples in a finite sample. Counting the H→S surjections and the q^((r−h)(d−t)) complement pairing choices gives the all-arity sum, with J_t counted by radical intersections and graphs of linear maps over the nondegenerate quotient. Quotient ranks 0, 1, 2 give the binary formula for d≥1; its coefficient of q^ρ is q^d−q^(d−1)>0. The q=2 examples give unary 8 and binary 62 and 56; the empty tuple contributes one.
+
+## originality
+
+PASS
+
+The repaired claim's distinct part is the explicit all-arity orthogonality-restricted spectrum over an individually named base and sharp recovery of its radical from two scalar counts. It does not claim the empty-base kernel count, isotropic-frame formulas, or Witt extension as new. No inspected source states or evaluates the named-base restriction with the radical reconstruction; the verdict is bounded by the inspected evidence.
+
+## value
+
+PASS
+
+The exact profile of a natural named stabilizer on orthogonal tuples identifies a finite geometric invariant that the unary profile completely misses at fixed dimension. The second count sharply recovers the radical and thereby every higher profile without reconstructing the marked basis; q=2 gives a concrete witness to sharpness. The useful contribution is this discrimination and all-arity count, not the empty-base arithmetic correction on its own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

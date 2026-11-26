@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:04.552822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–66, VERIFICATION.md, check.py and check_output.txt (inspected only)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py permutations and census; outputs /workspace/branches/parent-permutations.txt and parent-census.txt"
+      ],
+      "rationale": "Renumbering symbols by their order in the permutation is a bijection on target words and preserves scattered subsequences. The greedy embedding of any nonempty target ends in copy 1+d, where each adjacent weak descent forces a new copy. Every single-letter deletion suffices by downward closure. Since any endpoint deletion removes at most one descent, minimality forces d=m and weak descents at both ends, including length two. An interior deletion removes two comparisons and adds the shortcut comparison, so it lowers d by the stated delta. Delta is always 0 or 1 by transitivity of the order. Consequently the word-to-path map counts each MAS exactly once, and the zero-x transition part squares to zero because successive ascents cannot pass the triple test. Independent exact inversion of the ternary pair system reproduced each of the nine claimed polynomial certificate entries after multiplication by D and gave the displayed numerator over D. Formal expansion reproduced the first twelve totals. An independent census using complete subsequence sets and their one-letter extensions matched the local predicate in the binary cases through k=10, ternary cases through k=4, and q=4 cases through k=2. These finite checks are supplementary to the all-alphabet transfer proof.",
+      "residual_risks": [
+        "The explicit scalar rational function is for q=3; the transfer, not this scalar expression, is the all-q result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. give a general per-word characterization and enumeration method; their periodic example in Proposition 3.6 assumes even alphabet size at least four and exhibits a large MAS subset, not the exact ternary census.",
+          "f7b066958a2d gives the same pair transfer for q>=3 and evaluates it with the length variable retained for q=3; fe91200b1768 also gives a ternary bivariate spectrum."
+        ],
+        "reasoning": "General enumeration methodology is not itself the formula, but a rational spectrum for the same objects covers the scalar totals and the relevant length coefficients exactly.",
+        "searches": [
+          "arXiv:2108.13968 Theorems 3.1 and 4.21, Proposition 3.6",
+          "Resultary f7b066958a2d and fe91200b1768"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f7b066958a2d, fe91200b1768, 2ef499428033, 47ef0e5dde29",
+        "Frozen ordinal 5 Finding",
+        "arXiv:2108.13968, 2601.06493, 2603.20790"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the length variable to one in the explicit ternary spectrum supplies the frozen scalar law; the q>=3 transfer has the same states, weights and selection of start/end weak descents.",
+          "The q=2 table is the finite conversion of the binary local criterion to four previous-pair states; its OGF agrees with the published binary rational length enumerator. Deletion balls and complement scattered factors are different sets."
+        ],
+        "reasoning": "There is no gap in the covered alphabet range once the binary case is compared; combining the two regimes does not prove a distinct remaining enumeration. No chronological priority is inferred.",
+        "searches": [
+          "Resultary f7b066958a2d Finding and general transfer proof; 2ef499428033 Finding and deletion criterion",
+          "arXiv:2601.06493 and arXiv:2603.20790"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f7b066958a2d defines precisely the same weak descents and endpoint tests and demands delta=1 on each triple.",
+          "2ef499428033 gives the binary greedy endpoint and deletion criterion; it tests the same words as the q=2 specialization. In q=2 the interior rule forbids 010 and 101, and both endpoints must differ from the ascending pair 01."
+        ],
+        "reasoning": "When both adjacent comparisons are weak descents, the shortcut is a weak descent; when both are strict ascents the shortcut is strict. With mixed comparisons delta is zero or one. Thus the q>=3 tests coincide. In the binary case the block number is one plus the number of non-01 transitions, and the greedy-position criterion is exactly that same membership test.",
+        "searches": [
+          "Resultary: ternary permutation powers, minimal absent subsequences, exact length spectrum and transfer",
+          "Resultary: alternating binary minimal absent subsequences exact bivariate generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f7b066958a2d prints the identical numerator 6x-2x²+10x³-3x⁴+8x⁵-3x⁶ and denominator 1-3x+2x²-4x³+2x⁴-3x⁵+x⁶ for the same ternary totals, including 6,16,46,127,349,960,2640,7264.",
+          "47ef0e5dde29 provides every binary layer and the binary total; ordinal 5 provides the binary binomial count, not the ternary count."
+        ],
+        "reasoning": "This is an exact indexed formula match for the same statistic, not a finite coefficient-sequence coincidence. The binary count alone would not supply the ternary OGF.",
+        "searches": [
+          "Resultary f7b066958a2d, fe91200b1768 and 47ef0e5dde29"
+        ]
+      },
+      "rationale": "Indexed Resultary f7b066958a2d states the same q>=3 local characterization and pair transfer, the exact same ternary totals, and a stronger explicit bivariate ternary spectrum. Its delta=1 is equivalent to delta>=1 on a total order. The additional q=2 slice is covered separately by an exact binary spectrum and membership criterion, and is not new because the two covered regimes are expressed in common notation. Different proofs and later catalogue dates do not settle historical priority; this is a finding about demonstrated scientific overlap in available records.",
+      "residual_risks": [
+        "This is a bounded comparison of available statements, not a priority adjudication; the direct indexed overlaps are sufficient independently of unsearched literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar overlap and same transfer for q>=3, stronger ternary bivariate statement",
+          "evidence": [
+            "Same weak-descents tests, q² states, and printed numerator and denominator."
+          ],
+          "identifier_or_url": "Resultary f7b066958a2d",
+          "material_read": "RESULT.md Finding, Assumptions and deletion-local and transfer proof, offsets 0–3938",
+          "method": "Local mirror and substitution",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation words",
+          "trigger": "Potential exact ternary and all-q transfer overlap"
+        },
+        {
+          "assessment": "Ternary local classification and explicit bivariate overlap",
+          "evidence": [
+            "Length-refined count for repeated ordered ternary permutation."
+          ],
+          "identifier_or_url": "Resultary fe91200b1768",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The complete minimal-absent-subsequence spectrum of repeated ternary permutation words",
+          "trigger": "Second candidate for ternary spectrum"
+        },
+        {
+          "assessment": "Exact membership and length-spectrum coverage for q=2 only",
+          "evidence": [
+            "Binary OGF xt²(3−2xt+xt²+2x²t³)/((1−xt)²−x³t⁴), with x repetition and t length. Independent inversion of the q=2 matrix gives this rational function."
+          ],
+          "identifier_or_url": "Resultary 2ef499428033; see also 47ef0e5dde29",
+          "material_read": "2ef499428033 Finding and greedy-position/deletion proof at offsets 0–3400; 47ef0e5dde29 Finding and block criterion at offsets 0–3285",
+          "method": "Local mirror and binary specialization",
+          "title": "Minimal absent subsequences of alternating binary words: an exact bivariate generating function",
+          "trigger": "Possible coverage of q=2 not included in the ternary catalogue result"
+        },
+        {
+          "assessment": "Structural and algorithmic background, not the exact ternary counts",
+          "evidence": [
+            "The periodic construction assumes even alphabet size at least four and proves separation with an explicit subset of MAS."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Theorem 3.1, p. 5; Proposition 3.6 and proof, pp. 7–9; Theorem 4.21, p. 31",
+          "method": "OA PDF",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Literature treats exactly the repeated-permutation family"
+        },
+        {
+          "assessment": "Different count",
+          "evidence": [
+            "The deletion ball consists of occurring subsequences at a prescribed deletion length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.06493",
+          "material_read": "Abstract and periodic construction, p. 1, offsets 0 and 4917",
+          "method": "OA PDF",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Periodic words and subsequence counts"
+        },
+        {
+          "assessment": "Different deletion operation",
+          "evidence": [
+            "Remainders after deleting embeddings of a specified word, not target words minimal in the nonembedding order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.20790",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Another potentially equivalent deletion operation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and transfer proof",
+        "Resultary f7b066958a2d and 2ef499428033 Findings"
+      ],
+      "rationale": "The periodic ternary family and length profile are well motivated, and the exact polynomial certificate is useful for correctness. As a distinct finding under available catalogue coverage, the ternary total is a direct projection of an existing length-refined enumeration with the same local mechanism. Adding the already-covered binary specialization to the same notation does not preserve a separate valuable claim for repair.",
+      "residual_risks": [
+        "No finding on historical priority or independent discovery."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

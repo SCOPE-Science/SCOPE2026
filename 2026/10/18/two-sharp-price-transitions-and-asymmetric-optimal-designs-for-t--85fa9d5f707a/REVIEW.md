@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Three Rayleigh-trace bounds hold for arbitrary independently chosen conductances and are simultaneously attained by groupwise-uniform rates with the same three edge-total budgets. A two-breakpoint piecewise-linear minimization then yields the optimal values and their exact price boundaries. Equality of two trace bounds forces uniformity in the strict lower phases; a strict spectral separation on a column-constant family proves existence of asymmetric high-price optima. A standalone verification program reproduced 3,055 independent arithmetic/matrix assertions. Exact algebra, not finite sampling, proves the universal claim.
+## correctness
 
-**Originality: PASS, qualified.** The 2006 continuous-time fastest-mixing framework already supplies the general semidefinite formulation, while the 2015 topology-specific analysis includes unpriced complete graphs and overlapping cliques. Neither inspected primary text states these two sharp price thresholds for a complete two-price block graph, nor the switch from unique to asymmetric optimal designs under completely unrestricted conductances. The 2024 interconnection work optimizes interlayer edges while holding intralayer networks fixed; it is not equivalent. Searches also compared aliases in algebraic connectivity, weighted consensus and community coupling. An undiscovered explicit specialization of the general framework remains possible; novelty is not inferred solely from unsuccessful searches.
+PASS
 
-**Value: PASS.** A natural network-design tradeoff—reinforce communities or allocate conductance to their interfaces—has an exact, all-size phase diagram, including the behavior at equality prices. The result answers which edge classes should be physically supported and identifies when a designer has extra freedom to redistribute interface capacity asymmetrically without slowing diffusion. The threshold depends on both community sizes, and the equilibrium between bridge and internal spectral modes is analytically resolved rather than left to repeated semidefinite programming. This is not a claim of a general-purpose solver for arbitrary networks.
+On the mean-zero space the gap lower bound z is a positive-semidefinite constraint. Compressing to the group contrast and taking normalized traces on the two within-group zero-sum spaces gives the three necessary bounds on totals; uniform weights realize all three compressed Rayleigh values. At fixed z the minimum normalized cost therefore reduces to a piecewise-linear function of cross weight divided by z, with breakpoints 1/(p+q), 1/p, 1/q. The slopes are pq−t(2pq−p−q)/2 and pq−tq(p−1)/2, so the claimed values and flat intervals follow; for equal groups the last two breakpoints coalesce. At all points where both internal trace bounds are tight, positivity forces both within-group zero-sum spaces into the gap eigenspace. Applied across the partition this makes every column and row constant, and within each group it makes the internal Laplacian scalar on its zero-sum space. This proves the stated unrestricted uniqueness and the full lower and balanced critical segments. Above the upper price only the larger group's bound is tight: equal rows with slightly unequal positive column weights preserve the large group's eigenvalue B/p while the other positive eigenvalues remain strictly larger by continuity. For the explicit example 5u1u2=11/80>1/9. The upper endpoint claim is only an exhibited segment, not an exhaustion. The frozen NumPy checks were inspected as supporting evidence, not run or treated as the proof.
 
-**Closest literature and limitations.** Sun et al. (2006), DOI 10.1137/S0036144504443821, pp. 681–699; Jafarizadeh (2015), arXiv:1509.05823, sections 5.2 and 5.3; *The art of interconnections* (2024), sections on all-to-all connections and fixed intralayer Laplacians. General convex optimality principles and the unpriced complete-graph case are previously known. At the upper critical price for unequal groups, only a symmetric family of optima is given and not a full classification of all asymmetric optima. The theorem concerns continuous-time algebraic connectivity with a linear conductance budget, not discrete-time mixing, finite-horizon control, or total effective resistance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected priced complete-graph theorem shares the method and the upper price but changes one block's relative price and does not give the target lower transition or unrestricted rigidity. Credit the framework and shared upper-price calculation; the distinct content is the two-internal-price law and rigidity/nonrigidity classification under independent weights.
+
+## value
+
+PASS
+
+The thresholds and optimizer geometry answer when scarce budget buys internal reinforcement, and when symmetry of the cost no longer forces symmetry of actual optimal weights. The equality analysis adds useful information beyond computing a symmetric optimal representative. The balanced case shows the role of group-size imbalance and bounds the scope of the asymmetry claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

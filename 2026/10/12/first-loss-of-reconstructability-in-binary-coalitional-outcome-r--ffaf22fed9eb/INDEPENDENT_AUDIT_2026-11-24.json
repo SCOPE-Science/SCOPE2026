@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:52.200145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant tracks a set of nonempty ranges for each labelled coalition, not an upward closure or a multiset. At k=1 the occurring outcomes determine the flip orbit. At k=2 the constants, the cases with one exceptional entry, and the three two-ones configurations are separated: a singleton coalition sees both singleton outcomes for the corresponding stripe, only the mixed range for the transverse stripe and both checkerboard directions, and a singleton plus a mixed range for an exceptional entry. At k=3 the displayed tables have the same range families, and have three and two ones respectively, so even cube coordinate and outcome permutations cannot identify them. A fresh exhaustive calculation partitioned all 4, 16 and 256 Boolean tables by translation orbit and constructed range families by grouping profiles by their fixed coordinate tuples. It obtained 3/3, 7/7 and 41/46 signatures/orbits respectively; the only ambiguous signatures contain 2, 2 and 4 orbits with 12, 12 and 32 labelled tables. Burnside independently gives 46: (256+7*16)/8. Replay with python3 /workspace/branches/independent_checks.py 1; the uploaded verifier was inspected, not executed. This tests exactly the specified fixed action/outcome sizes and k<=3, not higher dimensions or any broader invariant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang Theorem 5.6 identifies upward closure; Ciardelli Theorem 2.2 characterizes existence of individual-agent frame representations; Goranko–Jamroga study representation of upward-closed powers."
+        ],
+        "reasoning": "The generality of the games in those results does not make an existence or upward-closure theorem an injectivity theorem, nor does it specify counts of lifts with fixed binary action alphabets.",
+        "searches": [
+          "Wang Theorem 5.6",
+          "Ciardelli arXiv:2606.31866, Theorem 2.2",
+          "Goranko–Jamroga DOI 10.1007/s10458-015-9294-4"
+        ]
+      },
+      "checked_sources": [
+        "Wang arXiv:2605.25545v1",
+        "Ciardelli arXiv:2606.31866",
+        "Goranko–Jamroga DOI 10.1007/s10458-015-9294-4",
+        "Reasoning About Power in Games, SEP §3.1",
+        "Resultary records e6ecbe7ccc64 and a157c4b8a0f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two distinct range families {{0}} and {{0},{0,1}} have the same upward closure; Ciardelli's theorem asserts representability with abstract frame hypotheses, not uniqueness among action tables."
+        ],
+        "reasoning": "Loss of information by passing to upward closure cannot establish loss at the finer level or show that the finer map is faithful for the two smaller lengths. The known orbit-count method likewise does not identify the signature partition. The witness and the partition are the substantive additions.",
+        "searches": [
+          "Wang Definitions 5.4–5.5 and Theorem 5.6, PDF p. 17",
+          "Ciardelli Theorem 2.2, PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang Definitions 5.4–5.5: the set of values compatible with a fixed coalition action, and the set of all such ranges over coalition actions, equal the frozen signature components when there is one binary outcome variable."
+        ],
+        "reasoning": "This is actual equivalence of the invariant, not just similar terminology. The inspected results analyze this hypergraph's relation to projected powers and not its injectivity on binary tables modulo independent swaps. Viewing the ranges as colors on all parallel cube faces produces the same signature; an exact census in that formulation was not located.",
+        "searches": [
+          "Binary game forms and action isomorphism, exact coalitional outcome ranges, 46 classes and 41 signatures",
+          "Wang, arXiv:2605.25545v1, §5.3 and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned near records e6ecbe7ccc64 and a157c4b8a0f0 concern exact action budgets and counts of non-clone-free-realizable neighborhood pairs, respectively. The latter's 54 of 282 census concerns two-agent three-outcome pairs."
+        ],
+        "reasoning": "Those are counts or characterizations of existence, not of action-flip classes in fibers of the binary signature map. Raw cube color-orbit enumeration alone only supplies 46, not 41 or the fiber profile. No exact matching table was identified; catalogue non-return is not proof of absence.",
+        "searches": [
+          "Resultary exact title, 46/41, and exact range/action flip queries"
+        ]
+      },
+      "rationale": "The exact range-family object is already present in Wang. The supported distinct contribution is the faithful-versus-nonfaithful boundary for the fully labelled binary signature under action flips and the complete first-layer census, not the definition or the broad fact that monotone effectivity can lose information.",
+      "residual_risks": [
+        "Wang's full text was retrievable and its decisive passages inspected, not a page-by-page exclusion of every reformulation. An equivalent small Boolean-cube invariant or enumeration could occur under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap of definitions; no demonstrated coverage of the sharp reconstruction result",
+          "evidence": "The strategic range hypergraph keeps exactly all possible value ranges across fixed coalition actions; projected effectivity is its upward closure. The conclusion discusses one-variable analysis and future representation questions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25545",
+          "material_read": "Abstract; §5.3 Definitions 5.4–5.5 and Theorem 5.6 (p. 17, offset 47515); conclusion pp. 26–27",
+          "method": "Targeted OA PDF passages, including the exact definition and theorem",
+          "title": "Value Coalition Logic: A Typed Assignment-Based Reconstruction of Coalition Logic",
+          "trigger": "Closest prior invariant, marked as full text uninspected in the frozen record"
+        },
+        {
+          "assessment": "Existence rather than table reconstruction",
+          "evidence": "Action existence, uniform range and independence characterize which single-agent neighborhood frames come from some concurrent game structure; proper coalitions are not covered by that characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31866",
+          "material_read": "PDF pp. 2–3, offsets 6720 and 11010; Theorem 2.2",
+          "method": "Targeted OA PDF passages",
+          "title": "Inquisitive Action Logic",
+          "trigger": "Representability result for exact actual effectivity"
+        },
+        {
+          "assessment": "Coarser invariant",
+          "evidence": "The construction closes outcome path powers under supersets.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-015-9294-4",
+          "material_read": "PDF pp. 2 and 14, offsets 4380 and 46998",
+          "method": "Targeted OA PDF passages",
+          "title": "State and path coalition effectivity models of concurrent multi-player games",
+          "trigger": "Prior coalitional representation work"
+        },
+        {
+          "assessment": "Budgets for realization, not reconstruction of an underlying fixed table",
+          "evidence": "Determines universal action-copy budget conditions for realizing neighborhood frames.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-heterogeneous-action-budget-region-for-finite-actual-effec--e6ecbe7ccc64/RESULT.md",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local record mirror",
+          "title": "Exact heterogeneous action-budget region for finite actual-effectivity representations",
+          "trigger": "Closest topical catalogue result on exact effectivity and actions"
+        },
+        {
+          "assessment": "Different census and equivalence relation",
+          "evidence": "54 of 282 two-agent three-outcome neighborhood pairs are not clone-free realizable; does not count alternative realizations of binary signatures.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-clone-free-effectivity-obstruction-an-exact-three-outc--a157c4b8a0f0/RESULT.md",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local record mirror",
+          "title": "The first clone-free effectivity obstruction: an exact three-outcome census",
+          "trigger": "Catalogue hit on a sharp small effectivity census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping every exact attainable range rather than just the monotone closure naturally raises a faithfulness question. This result says exactly when that finer abstraction first loses information in the binary setting, shows the loss survives enlarged relabelling, and identifies how much ambiguity the first possible failure can hide. Those facts are relevant to recovering concrete game forms rather than just deciding whether signatures can be realized.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

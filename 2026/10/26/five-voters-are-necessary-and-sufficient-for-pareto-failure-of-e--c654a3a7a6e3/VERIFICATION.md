@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof establishes the full claim for every finite candidate set at committee size \(2\). The necessary reduction is to two disjoint committees, hence four distinguished candidates; the complete six-row total-swap table and four direct signed-swap arguments exclude all profiles with fewer than five voters. The integer-count contradiction eliminates the only other possible five-voter strict-improvement type; the remaining pattern is unique up to two within-pair candidate permutations. The exhibited profile attains all required inequalities.
+## correctness
 
-Run `python VERIFY.py` in the same directory. It uses exact doubled harmonic scores \((0,2,3)\) and enumerates every Pareto-compatible ballot multiset on the four distinguished candidates for \(1\) through \(5\) voters. Expected successful output: `Counts for voter numbers 1..5: {1: 0, 2: 0, 3: 0, 4: 0, 5: 2}`; two labeled instances are one orbit. The program also checks the six-row table, both committee scores, and the four swap differences. This finite census corroborates but does not substitute for the proof across arbitrary numbers of candidates. No separate independent review or proof-assistant certificate has been performed.
+PASS
+
+A dominating pair overlapping W would be one strictly profitable swap. For disjoint pairs, only the restrictions to their four names enter the four necessary swap inequalities. In units of ordinary PAV the six compatible per-ballot swap sums at (u,v)=(0,0),(0,1),(0,2),(1,1),(1,2),(2,2) are 0,2,4,-1/2,1,0. Thus (0,2) needs nine voters, and (0,1) needs at least five; with five and one (0,1), all four gains must vanish. Naming its approval a0, the gains for w0→a1 and w1→a0 are -x+y/2 and 1-y+x/2, where x and y count {w0,a0} and {w1,a1}, forcing x=2/3. For a (1,2) approving {w0,a0,a1}, the two swaps dropping w1 force both w1 cross types, since a negative contribution to a swap requires approving the dropped winner and just the alternative not added. Those two cross ballots then each add +1/2 to one swap dropping w0, forcing both w0 cross types by the same rule. This exhausts all five ballots. In the four-candidate witness the W and O scores are 5 and 11/2, the swap gains are (-1/2,-1/2,0,0), and just the final ballot is strictly better under O. Four candidates are necessary by disjointness. Outside approvals can affect swaps to outsiders but do not change the necessary profile restrictions. Independent exact replay /workspace/branches/replay_2.py enumerated all four-name ballot multisets through five voters and returned counts [0,0,0,0,2], with the two labeled patterns one within-pair orbit; the unrestricted candidate result is analytic.
+
+## originality
+
+PASS
+
+The ordinary Pareto failure of exact local PAV is already known. The supported distinction is the sharp voter lower bound and the classification of all minimal restrictions, not failure itself or the cross-ballot construction idea. The strongest checked primary counterexample and nearby exact indexed record do not entail that boundary.
+
+## value
+
+PASS
+
+This gives a sharp electorate boundary for a natural efficiency guarantee of the simplest nontrivial PAV committee size and a complete extremal pattern valid even with arbitrary extra candidates. It characterizes where single-swap tests first fail to detect a Pareto improvement and shows that at the first failure the swap ties matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

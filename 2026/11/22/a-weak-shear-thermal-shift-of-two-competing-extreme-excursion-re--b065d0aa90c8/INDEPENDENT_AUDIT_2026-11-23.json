@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:52:59.744198Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian inversion with the exponential renewal age gives the exact scaled kernel and the finite thermal subtraction in proof step 2. The limiting derivative factors into two quadratics, giving two nondegenerate minimum branches separated by a maximum near the crossing. The crossing and sign can be checked without trusting rounded bracket values: set P=ab and S=a+b. The branch equations give (b-a)/S=P/3, and their stationary costs are 2a-3/a+3/a³ and 2b+3/b+3/b³. The gap divided by S is 2P(P²-3)/(3(9-P²)), with 0<P<3. At equality P=sqrt(3), giving a_c²=2sqrt(3)-3, b_c²=2sqrt(3)+3, q_c²=8sqrt(3), and L=2. The short-age term in the c bracket is (1-a_c²)²/a_c^5 > sqrt(2) because a_c²<1/2. The long-age term is (1+b_c²)²/b_c^5 ≤16/(9sqrt(3)) for b_c≥sqrt(3). Thus the sign is strictly positive. Uniform endpoint coercivity localizes all potential global minima to a compact interval; C² convergence there preserves the two nondegenerate candidates and the action gap excludes the remainder. The implicit function theorem and envelope differentiation give the unique local crossing and the coefficient to O(eta^{-4}); a separate bisection gives q_c≈3.7224194364 and c≈6.4474195909. At fixed eta, Laplace localization of the regular conditional density gives relative weights g/sqrt(F_ss); the singular-looking origin factor is controlled by F≥constant/s there and the large-age tail by F≥s. Replay via RESULT.md proof steps 1–5. VERIFICATION.md and checker.py were inspected, not executed. The result is local in q and for sufficiently large eta; it takes R to infinity at fixed eta before the separate expansion in eta.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sheared Gaussian propagator and complete Poisson reset-age kernel apply exactly to the same SDE, before scaling. The fixed-shear catalogue result conditions on the extreme longitudinal coordinate alone and gives a single age with coupled Gaussian fluctuations."
+        ],
+        "reasoning": "The exact kernel is a general input, not a minimizer classification. Sending the physical shear to zero while conditioning on both coordinates retains a thermal term in the rescaled action and permits two competing global minima. The available fixed-shear fluctuation theorem does not cover these conditions.",
+        "searches": [
+          "Abdoli–Olsen–Löwen arXiv:2410.10333, Eqs. (2)–(5)",
+          "Resultary fixed-shear age/transverse record 2c4d5a8bd4fb"
+        ]
+      },
+      "checked_sources": [
+        "Abdoli–Olsen–Löwen arXiv:2410.10333",
+        "Singh arXiv:2007.05576",
+        "Resultary mirrored fixed-shear record 2c4d5a8bd4fb",
+        "Resultary mirrored pure-acceleration record c202451627eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known unminimized pure-acceleration exponent allows investigation of the limiting crossing but has no longitudinal thermal parameter. The known shear kernel includes this term but does not compare its action corrections between two global age branches.",
+          "In the frozen proof, the branches have a simple equality with positive q derivative, different first variations with respect to eta^{-2}, and separate nondegenerate curvature prefactors."
+        ],
+        "reasoning": "The shift is a difference of two branch corrections divided by the simple crossing derivative, not a single-well perturbation or a substitution into a prior exponent. For the stated fixed-eta conditional law, global persistence and two-saddle localization are required in addition to the known kernels.",
+        "searches": [
+          "Abdoli–Olsen–Löwen propagator and stationary renewal equations",
+          "Mirrored random-acceleration RESULT.md offsets 0–4378 and 5500–8624",
+          "Mirrored fixed-shear RESULT.md offsets 0–2604"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Without longitudinal diffusion the shear model becomes random acceleration after V=gamma Y. In the companion's oriented coordinates, put alpha=sqrt(3/2), z=s/alpha and u=q/alpha. Multiplying its displayed joint exponent z+1/(3z³)+(u-1/z)²/z by alpha yields exactly F_infinity(s,q).",
+          "That companion's strict age saddle is for conditioning on position alone, and does not establish uniqueness at each rare fixed u."
+        ],
+        "reasoning": "The limiting rate representation is an equivalent formulation and is credited. The independent horizontal diffusion changes the fixed-age covariance, so the coordinate change does not recover the finite-eta assertion.",
+        "searches": [
+          "Resultary: reset age, shear extremes and randomly accelerated excursions",
+          "Singh arXiv:2007.05576, §3.1",
+          "Resultary random-acceleration extreme-age record c202451627eb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact matching formulas found are the covariance/renewal law and the pure-acceleration action. The inspected catalogue statements are single-age results in their stated conditioning regimes; neither states the finite-eta crossing or its shift coefficient."
+        ],
+        "reasoning": "A finite table is not an appropriate certificate for existence and uniqueness for all sufficiently large eta. The relevant exact lookup targets were the published kernel, action and coexistence law; only the first two have verified matches in the compared material.",
+        "searches": [
+          "Resultary: exact covariance and reset-age laws in 2c4d5a8bd4fb and c202451627eb",
+          "arXiv:2410.10333, Eqs. (2)–(5)"
+        ]
+      },
+      "rationale": "The same-model Gaussian kernel and the pure-random-acceleration limiting action are known and are not considered original. The checked sources do not give the distinct retained-noise weak-shear coexistence boundary, its positive eta^{-2} displacement or the corresponding two-well age law. Fixed-shear results and the marginal-on-displacement unique-age saddle do not eliminate a two-saddle competition at a jointly conditioned rare transverse endpoint. This is a bounded statement-level assessment, not a priority certification.",
+      "residual_risks": [
+        "A focused primary discovery query was uninformative. An unlocated large-deviation analysis of joint rare shear endpoints or a general two-mode law that already evaluates the retained longitudinal term could change the priority assessment. Neither missing results nor the inspected excerpts certify worldwide novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel coverage; not a stated local two-minimum classification or thermal displacement in the inspected sections",
+          "evidence": "Sheared Gaussian propagator and stationary renewal integral.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.10333",
+          "material_read": "pp. 2–3, Eqs. (2)–(5), OA offsets 11600–15487 and 18700–21520",
+          "method": "Targeted open-access PDF passages",
+          "title": "Shear-Driven Diffusion with Stochastic Resetting",
+          "trigger": "Same SDE and complete resetting; potentially broader law"
+        },
+        {
+          "assessment": "Credited pure-acceleration reset mixture; no longitudinal thermal contribution",
+          "evidence": "Complete reset position–velocity mixture and position marginal/tail.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.05576",
+          "material_read": "§3.1, pp. 6–7, Eqs. (16)–(21), OA offsets 21250–25230",
+          "method": "Targeted open-access PDF passage",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Equivalent no-horizontal-diffusion limiting model"
+        },
+        {
+          "assessment": "Fixed nonzero shear and marginal longitudinal conditioning, different from the joint rare endpoint",
+          "evidence": "Single concentrated age and Gaussian age–transverse fluctuations, not a transverse coexistence boundary.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-age-transverse-fluctuation-correlation-in-extreme-shea--2c4d5a8bd4fb",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions offsets 0–2604, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and bounded configured mirror read",
+          "title": "Universal age–transverse fluctuation correlation in extreme sheared reset excursions",
+          "trigger": "Closest distinct catalogue result in the same shear/reset model"
+        },
+        {
+          "assessment": "Equivalent limiting age action, not evidence of finite-thermal coverage",
+          "evidence": "Defines the oriented-velocity rate by minimizing the joint action; the strict age minimum in proof step 2 is for position alone, while the other inspected passage treats u=0 and the typical u≈1, not finite diffusion at coexistence.",
+          "identifier_or_url": "2026/11/8/SCOPE-extreme-displacement-velocity-and-reset-age-laws-for-random-acce--c202451627eb",
+          "material_read": "Mirrored RESULT.md, Finding and proof offsets 0–4378 and 5500–8624, same snapshot",
+          "method": "Resultary and targeted configured mirror passages",
+          "title": "Extreme displacement, velocity and reset-age laws for random acceleration",
+          "trigger": "Exact oriented-velocity rate potentially covering the limiting age competition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two minimizers represent genuinely different histories leading to the same observed endpoint. The result shows where one history replaces the other and how even weak longitudinal thermal noise moves their equality boundary, a prediction lost in the pure-acceleration reduction. Obtaining normalized conditional weights distinguishes actual coexistence from merely finding two stationary points of an action.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

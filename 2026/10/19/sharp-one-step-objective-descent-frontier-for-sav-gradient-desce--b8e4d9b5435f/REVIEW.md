@@ -1,11 +1,21 @@
-# Scientific review: sharp SAV one-step frontier
+# Independent mathematical audit
 
-**Correctness — PASS.** The primary algorithm's unrelaxed, zero-splitting formula is reconstructed exactly. Reduction to the scalar squared state yields an exact necessary-and-sufficient equal-energy crossing criterion for every initial value in the nontrivial interval. The remaining amplitudes are controlled by a separate global inequality. Strict concavity of a one-variable elementary function proves a unique sharp maximizer, so the threshold is a true universal boundary, not a sampled minimum. Algebraic linearization handles every larger step. The divergent discrepancy follows from explicit asymptotic expansions. `verify.py` checks the critical derivative algebra, exact rational witness and symbolic limiting constants; numerical samples are only corroboration.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The first source supplies the SAV update and modified-energy law, not this quartic all-state original-energy classification. Published work already observes failure of original-energy monotonicity for SAV methods, and this general phenomenon is *not* presented as novel. The inspected iSAV, EOP-SAV and weighted-SAV studies analyze different modifications, stabilizations or PDE schemes; their broad observations do not logically determine this exact sharp cutoff for this particular scalar optimization map. Targeted public mathematical-record and primary-literature searches, plus comparison with accessible earlier claims, found no implication that supplies the unique cutoff, its equality cases and the quantified divergent mismatch. Unindexed specialized analyses may still contain an equivalent result.
+PASS
 
-**Value — PASS.** Distinguishing an auxiliary-energy certificate from true objective decrease is an established and important numerical concern. Here the full one-step behavior is resolved by a nontrivial global cutoff that is strictly more restrictive than local linear stability: this supplies an exact safeguard benchmark. The construction where the true objective grows without bound while the modified energy approaches zero shows why auxiliary-energy decrease alone cannot protect arbitrary-step minimization. The conclusion is useful as an exact test case, not a universal assertion about all SAV algorithms.
+For the initialized first step, write t=x², u=t−1 and α=h/(1+hβ), where β=2tu²/(1+u²). Then x⁺=x(1−αu) and (r⁺)²=r²/(1+hβ)². The equilibria t=0,1 are fixed; otherwise β>0. For t≥2, 0<αu<1/2 (with ≤1/2 for its large-h bound), so 0<(x⁺)²<t and strict quartic descent follows. For 0<t<2, t≠1, h≤1, the sign of x is preserved and comparison with the equal-energy partner 2−t gives α≤2/[t+sqrt(t(2−t))], equivalently h d(u)≤2. For u<0 we have d(u)<2; for 0<u<1, d''(u)=−(1−u²)^(-3/2)+8(u−1)(u²+4u+1)/(1+u²)^3<0, with d'(0)=1 and d'(1−)=−∞. This proves the cutoff and all equality cases up to the cutoff; the same maximizer gives expansion up to h=1 and the multiplier 1−2h at a minimum gives an expanding initialization for every h>1. Along x=sqrt(1−ε), h=ε^(-3), 1+hβ~2/ε and x⁺~1/(2ε), giving the stated objective and auxiliary asymptotics.
 
-**Scientific limits.** The result concerns one step, a fixed double-well normalization and shift, consistent auxiliary initialization, and the unrelaxed zero-splitting update. It does not cover later steps, other shifts, relaxed or stabilized methods, generic PDEs or floating-point effects. Bibliographic priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the unrelaxed update and modified-energy law to Liu–Shen–Zhang, and the qualitative original-energy defect to established SAV literature. The supported distinct contribution is the quantitative sharp all-initialization frontier and equality structure for this quartic step, together with the divergent first-step separation. Neither the same-update quadratic recurrence nor the nearby relaxed first-step rank criterion covers it.
+
+## value
+
+PASS
+
+The double well is a natural minimal nonconvex test of whether the unconditional auxiliary-energy guarantee controls the actual objective. An exact global cutoff strictly below the local threshold rules out inferring universal descent from linear stability, and the divergence construction rules out even a qualitative bound of original by improved auxiliary behavior for large first steps. Both conclusions are useful for testing first-step safeguards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

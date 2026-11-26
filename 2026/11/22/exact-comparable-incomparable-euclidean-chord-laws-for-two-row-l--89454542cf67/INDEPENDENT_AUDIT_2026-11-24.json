@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:00.846884Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66; VERIFICATION.md and verify.py (inspected, not executed).",
+        "Independent standard-library replay: /workspace/branches/e61c56a2-9ac4-4f40-aa47-ffdd5b06d379/independent_chord_check.py (run with Python 3; all shells and incomparable beta-binomial masses at 2<=n<=8 passed)."
+      ],
+      "rationale": "In the cutoff coordinates 0<=a<=b<=n, the Euclidean square is the number of changed binary coordinates, |u|+|v|, and incomparability is uv<0. The nonnegative gaps (a,b-a,n-b) must simultaneously admit the shift (u,v-u,-v). The sum of their required lower bounds is max(|u|,|v|,|u-v|); after taking out these lower bounds, stars and bars gives B_n at that displacement. Dividing signed counts by two gives both shell formulas, with both axes comparable and no incomparable shell after k=n. As a separate check, represent a vertex by the sorted pair (a,b+1). Each incomparable unordered pair corresponds to one four-element subset of {0,...,n+1}, paired strictly outer-with-inner. Its distance is 2 plus the sum of two designated gaps among the five nonnegative gaps of the four-subset, which are uniform over compositions of n-2. The sum of the two gaps has the stated beta-binomial law (two gap components versus three remaining components), giving the moments including the degenerate n=2 case and the beta limit. For the comparable limit, B_n(L)=n²(1-L/n)_+²/2+O(n) uniformly; summing comparable displacements gives the integral with integrand (1-max(x,t-x))_+², and axes are lower order. Dividing shell counts by binom(N_n,2) and rescaling gives the comparable contribution (8/3)[(1-t/2)^3-(1-t)_+^3], plus the incomparable contribution 4t(1-t)^2 on (0,1). These give the stated densities, tail and limits of means by integration and bounded support.",
+      "residual_risks": [
+        "The independent replay is bounded. The all-dimension conclusion and limits rest on the enumeration, gap law and uniform Riemann-sum argument, not on tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 generates the Wiener index of J([m]×[k]) with size variables, not a polynomial with distance as the exponent; Corollary 1.3 gives that aggregate explicitly. Proposition 1.5 takes both sides proportional to the growing scale.",
+          "The inspected passages for the generalized snakes and order/chain f-vector articles instead concern triangulations, volume and face counts."
+        ],
+        "reasoning": "m=2 in the rectangle theorem covers the distance sum. It cannot recover the coefficient-by-coefficient comparable and incomparable counts or a fixed-width conditional law from that sum; a proportional-growth limit does not take the required fixed-width limit.",
+        "searches": [
+          "Defant–Féray–Nadeau–Williams, arXiv:2304.06113, §1.3 Theorem 1.2, Corollary 1.3 and Proposition 1.5",
+          "von Bell et al., arXiv:2102.11306",
+          "Freij-Hollanti–Lundström, arXiv:2312.13890"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 68–80",
+        "arXiv:2304.06113 §§1.1 and 1.3",
+        "Resultary/SCOPE mirror records 587e360ae1cd and 228bf84e41c4",
+        "arXiv:2102.11306 and arXiv:2312.13890 opening passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither aggregate mean in the nearest metric-equivalent rectangle work nor an unconditional limit in a distinct realization encodes which finite shells consist of incomparable pairs. Standard integer-spacing theory yields the beta-binomial once the four-subset and two designated gaps have been identified."
+        ],
+        "reasoning": "Credit the known moment and standard spacing law. The joint count and the identification of the incomparable stratum are separate content; the inspected stronger rectangle result does not mechanically specialize to them.",
+        "searches": [
+          "arXiv:2304.06113, §§1.1 and 1.3",
+          "Resultary/SCOPE 587e360ae1cd and 228bf84e41c4, mirrored Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Hasse diagram the distance of two ideals is |I△J|, exactly the squared Euclidean metric in the canonical binary embedding; complementation exchanges upper sets with ideals.",
+          "Cutoffs are also sorted two-subsets (a,b+1) of {0,...,n+1} with sorted L1 distance; strict nesting of the two endpoint pairs represents incomparable vertices."
+        ],
+        "reasoning": "A full distribution refined by ideal containment in Hasse/Young-diagram language, or the corresponding nested-pairs distance distribution, would be direct coverage. The rectangle Wiener index uses that same metric but does not give such a distribution. The bounded alias search did not establish a further match.",
+        "searches": [
+          "Literature: (\"two-row ladder\" OR \"2 x n rectangle\") order ideals distance distribution symmetric difference Hasse graph comparable pairs beta-binomial",
+          "Resultary: Hasse/rectangle and Young-diagram/2-subset variants of the fixed-ladder query",
+          "Defant–Féray–Nadeau–Williams, arXiv:2304.06113, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit 89454542cf67 is the frozen record itself. A separate Resultary caracol record, 587e360ae1cd, has a finite squared-distance spectrum for different vertices and an unconditional Beta(2,3) limit. Record 228bf84e41c4 gives a mean weighted squared separation gap for order and chain vertex clouds."
+        ],
+        "reasoning": "The matching limiting density for caracol is not a matching finite law or a table for the joint canonical ladder invariant. The dispersion result is a mean of a squared-distance observable, not a histogram.",
+        "searches": [
+          "Resultary: fixed two-row ladder order polytope vertex pairs squared Euclidean distance comparable incomparable spectrum beta-binomial",
+          "Resultary/SCOPE 587e360ae1cd and 228bf84e41c4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete comparability-resolved finite chord spectrum of the canonical two-row ladder vertices with its conditional laws. The metric identification, Wiener index, and occurrence of the Beta(2,3) distribution in another polytope are credited antecedents, not new here.",
+      "residual_risks": [
+        "Equivalent distribution formulas might be indexed under sorted two-subsets, partitions, spacings or Young diagrams. The broad literature query was not decisive. Stanley's OA DOI retrieval was unsuccessful. These limitations do not establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rectangle Hasse-distance first moment, not the claimed refinement",
+          "evidence": [
+            "The generating function indexes the Wiener index d(P_{m,k}); the limit in Proposition 1.5 uses two proportionally growing sides."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.06113",
+          "material_read": "OA PDF p. 1 §1.1 (text offset 431); p. 3 §1.3 Theorem 1.2, Corollary 1.3 and Proposition 1.5 (offsets 9678, 10451, 11595)",
+          "method": "Bounded primary full-text inspection",
+          "title": "Wiener Indices of Minuscule Lattices",
+          "trigger": "Same object and equivalent Hasse metric; strongest possible rectangle implication"
+        },
+        {
+          "assessment": "Different path-flow realization and unconditional beta scaling",
+          "evidence": [
+            "The claim samples uniformly from all distinct vertices, with no ladder containment conditioning."
+          ],
+          "identifier_or_url": "Resultary/SCOPE 587e360ae1cd",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Exact Euclidean distance spectrum of caracol unit-flow polytopes",
+          "trigger": "Complete spectrum and same beta scaling shape in a different family"
+        },
+        {
+          "assessment": "Difference of means over two vertex clouds, not shell distribution",
+          "evidence": [
+            "The invariant is mean weighted squared separation."
+          ],
+          "identifier_or_url": "Resultary/SCOPE 228bf84e41c4",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Vertex-cloud dispersion of order and chain polytopes: exact coordinate gaps and equality",
+          "trigger": "Broader result about squared distances of order-polytope vertices"
+        },
+        {
+          "assessment": "Inspected passages address different invariants",
+          "evidence": [
+            "Triangulations/volumes in the first and face vectors in the second."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.11306 ; https://arxiv.org/abs/2312.13890",
+          "material_read": "Abstract and opening primary passages, p. 1 of each",
+          "method": "Bounded OA full-text inspection",
+          "title": "Triangulations, order polytopes, and generalized snake posets; f-vector inequalities for order and chain polytopes",
+          "trigger": "Adjacent ladder and order-polytope geometries cited by the record"
+        },
+        {
+          "assessment": "No full-text determination; foundational vertex identification is not claimed as new",
+          "evidence": [
+            "The independent cutoff reconstruction uses the binary upper-set vertex description credited in the frozen record."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Citation; OA full text not retrieved in the bounded attempt",
+          "method": "Lawful OA DOI attempt",
+          "title": "Two poset polytopes",
+          "trigger": "Foundational order-polytope and binary vertex identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The metric is canonical and the rectangle is an already studied distance model. Resolving shells by containment, rather than giving a further moment, identifies exactly where long chords can occur and gives distinct typical scales and tails for comparable and incomparable pairs. The result gives a fixed-width distributional benchmark not supplied by proportional-width asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

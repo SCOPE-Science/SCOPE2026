@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:04.565655Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Independent replay: python3 /tmp/opencode/frozen_math_replay.py; the primitive() check directly builds the literal reduced Laplacian rooted at 000 and computes exact cofactors for q=2,3,4. The respective results are 4, 10331213040, and 57757330472898702105693539794944000."
+      ],
+      "rationale": "Primitive four-words are exactly the arcs left after deleting abab, and the balanced positive degrees are q-1 at aba and q elsewhere. On the zero-sum space A^3 vanishes, so the unrestricted rooted cofactor is q^(q^3-4). The non-loop deletions are disjoint pairs of opposite arcs: with the oriented difference matrix F their correction is FF^T. The I, A and A^2 terms of the inverse act in the reduced determinant via F^TF=2I, F^TAF=-2I and F^TA^2F=B^TB, where B is the alphabet complete-graph incidence matrix. Its Gram eigenvalues q and 0 give the two stated factors, both positive for q>=2. A positive cofactor and balance give strong connectivity. Fixing one specified arc first gives a unique representative in each rotation class, so BEST has no additional start or length factor. The resulting formula covers q=2 without singular cases.",
+      "residual_risks": [
+        "Finite cofactors corroborate the algebra but do not prove the all-q formula; no formal proof-assistant check was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Au and Sawada–Williams–Wong provide existence/construction for primitive or aperiodic factors, not enumeration of all circuits in the inspected passages.",
+          "The tandem-square record asserts the same exact order-four count and also classifies existence and nonexistence over other orders for its avoidance language."
+        ],
+        "reasoning": "The construction papers alone would not cover the count; the indexed theorem explicitly covers it in a broader classification.",
+        "searches": [
+          "Au arXiv:0904.3997, §2 and Theorem 9",
+          "Sawada–Williams–Wong §3.3.10",
+          "Resultary record 19bd4c4373a4, theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror 19bd4c4373a4 at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Au arXiv:0904.3997",
+        "Sawada–Williams–Wong, aperiodic-factor construction",
+        "Moreno DOI 10.1016/j.ipl.2005.05.028 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed product is q^(q^3-q^2+q-4)(q-1)^(2(q-1))(q^2-2q+2)^((q-1)(q-2)/2)((q-2)!)^(q^2)((q-1)!)^(q^3-q^2). Substituting the factorial identities gives exactly the frozen rational product. The proof also uses the same deletion of opposite arcs and the same zero-sum inverse."
+        ],
+        "reasoning": "Taking order four of the indexed theorem certifies the complete frozen result without any new enumeration, proof mechanism or normalization. General dictionary existence and unrestricted BEST enumeration alone would not do so.",
+        "searches": [
+          "Resultary 19bd4c4373a4, RESULT.md Finding and proof §§1–2",
+          "Moreno DOI 10.1016/j.ipl.2005.05.028; classical BEST count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At m=4, avoiding the factor abab (a=b allowed) is precisely four-word primitivity. Both count universal cycles over labeled symbols modulo rotation only."
+        ],
+        "reasoning": "Changing from the primitive-word description to avoidance of span-two tandem squares does not alter any factors, alphabet labels, admissible cycles, or quotient.",
+        "searches": [
+          "Resultary: primitive-only order-four de Bruijn cycles / tandem-square avoidance",
+          "Indexed record 19bd4c4373a4, RESULT.md Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published result gives both 4 and 2708265511157760 at q=2,3, and a symbolic product for every q>=2."
+        ],
+        "reasoning": "This is an all-parameter symbolic match, not merely an agreement with a short numerical sequence.",
+        "searches": [
+          "Resultary exact-count search for labeled all-q order-four primitive universal cycles",
+          "Indexed record 19bd4c4373a4, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same complete all-q count and low-rank proof as part of a stronger order classification. Verified mathematical coverage is the reason for rejection, not a judgment about who proved it first. The matching catalogue path is dated 2026-11-02, later than the frozen source path; the dates do not establish historical priority or dependence.",
+      "residual_risks": [
+        "The relation and historical priority of the two exact statements were not established.",
+        "Moreno full text was not available; that access limit does not weaken the exact catalogue comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full mathematical coverage of the assigned claim plus a wider existence boundary",
+          "evidence": "The theorem states the same product; the proof constructs the same graph and L=L0-DD^T.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–2, offset 0–3515",
+          "method": "Local frozen mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact order-four universal-cycle enumeration under tandem-square avoidance",
+          "trigger": "Exact ranked catalogue match"
+        },
+        {
+          "assessment": "Covers existence and construction",
+          "evidence": "Concatenating the length-n Lyndon words yields a primitive-word de Bruijn cycle, without counting all cycles in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/0904.3997",
+          "material_read": "p.3, offset 6751; p.9, offset 25579, Theorem 9",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Generalized de Bruijn words for Primitive words and Powers",
+          "trigger": "Same primitive-factor language"
+        },
+        {
+          "assessment": "Provides construction rather than the count in the inspected passages",
+          "evidence": "Aperiodic strings are a universal-cycle construction example.",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/d856/7846f05e12b2a86a939c9bdae1e6f11e3251.pdf",
+          "material_read": "pp.3, 5, and 10 (§3.3.10), offsets 6680, 13579, 37268",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "Construction for the same aperiodic language"
+        },
+        {
+          "assessment": "Accessible material concerns existence; no whole-text judgment",
+          "evidence": "Au describes the graph criterion for when a dictionary de Bruijn word exists.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2005.05.028",
+          "material_read": "Landing page and abstract; related description in Au p.3",
+          "method": "Open-access retrieval and secondary cross-reference; no full-text access",
+          "title": "De Bruijn sequences and de Bruijn graphs for a general language",
+          "trigger": "Potential general coverage for dictionary overlap graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Indexed record 19bd4c4373a4, Finding and low-rank proof"
+      ],
+      "rationale": "Counting rotations of primitive-factor cycles at the first composite order is a natural exact question, and the deletion correction is meaningful. The assigned claim, however, gives neither an additional invariant nor a different mathematical method beyond the verified indexed statement and proof, so it does not stand as a separate contribution. No surviving distinct claim was supported for repair.",
+      "residual_risks": [
+        "This judgment concerns the submitted contribution, not the usefulness of the invariant itself or the historical priority of the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:54:41.794501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier differentiation gives the STFT as -i times a nonzero phase times W=(A+B)cos(theta)+i(A-B)sin(theta), with theta=pi Delta t and A,B the shifted odd Gaussians. They cannot vanish together. The same-sign and opposite-sign regions therefore force t=T/2 and 0, respectively, modulo T. No zero lies at nu=+-d; on nu=0 the zero set has exactly the time spacing T, proving the fundamental period. The ratio artanh(u)/u strictly increases from 1 to infinity, while the exterior log ratio minus 4 pi d nu strictly decreases from infinity to minus infinity. This proves completeness and puts equality in the three-zero regime. The Jacobian at t=0 is -pi Delta (A-B)(A+B)' and at T/2 is -pi Delta (A+B)(A-B)'. Differentiating the modulus ratios at the roots gives the stated nonzero signs; the derivative of artanh(u)/u is strictly positive for u>0. The critical derivative of order three of A+B is 8 pi exp(-1/2), checked independently by symbolic differentiation. The imaginary time derivative is negative after identifying its imaginary component; the oriented coordinate change (t,nu)->(nu, Im W) has positive determinant there. In these coordinates the transverse real map has a positive cubic leading term, hence degree +1. Expanding artanh(u)/u gives u^2=3 epsilon+O(epsilon^2). The signed totals agree on both sides and at equality. Replay via the two scalar equations and local derivatives in RESULT.md lines 35–85. The finite numerical checker was read, not run; exact zeros/charges are specific to the stated real gap, tones, window and (t,nu) orientation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 paper treats arbitrary positive amplitude ratio and Gaussian scale, and analyzes exact frequency extrema. Its constructive sharp condition alpha=sqrt(pi/2) sigma Delta>1 for A=1 specializes to Delta>sqrt(2/pi) at sigma=1. Its Appendix A expressly treats the destructive phase as having three extrema.",
+          "The November 8 Resultary theorem covers arbitrary Gaussian derivative order and unequal amplitudes; take n=1, log(|a|/|b|)=0, sigma^2=1/(2 pi) in its angular-frequency convention, omega=pi Delta and xi=2 pi nu. Then c=pi Delta^2/2 and the cubic has the same charge +1; the exterior and other simple indices and total -1 also specialize."
+        ],
+        "reasoning": "The exact later specialization is coverage today, not a priority conclusion. The earlier Gaussian extremum theorem is already parameter-broader and applies under the derivative equivalence on the two relevant slices.",
+        "searches": [
+          "Meignen–Laurent–Oberlin Proposition II.1 and Appendix A Lemma",
+          "Resultary b29de85f07c8 Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/LSP.2022.3226948 Proposition II.1 and Appendix A",
+        "Resultary b29de85f07c8 Finding and proof",
+        "arXiv:2610.13531 abstract",
+        "arXiv:2507.13829 §3 Proposition 6",
+        "arXiv:2601.10910 citation only; full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set mu=4 pi d nu, alpha^2=2 pi d^2 and A=1 in the Appendix A derivative. After dividing away the nonzero amplitude factor, the equation is mu/(2 alpha^2)=sinh(mu)/(cosh(mu)+gamma). For gamma=1 this is u=tanh(alpha^2 u); for gamma=-1 and mu nonzero it is u=coth(alpha^2 u), with u=nu/d. These are exactly the frozen two root equations.",
+          "The constructive slice derivative changes from the central maximum to a minimum between two maxima. With A-B<0 this gives the central charge flip and positive side charges, using the real-slice derivative. On the destructive slice the derivative equation has simple roots off the origin because coth is strictly decreasing there; the exterior extrema are maxima of the squared difference, giving negative STFT charges on both sides. The nonzero imaginary time derivative at the central zero and tanh x=x-x^3/3+O(x^5) give the cubic degree and square-root opening without an additional spectral theorem."
+        ],
+        "reasoning": "The earlier source does not state first-Hermite STFT charges, but its exact same-signal scalar equations and extremum types reduce the charge and threshold claims to differentiation of two known Gaussian factors and a Taylor expansion. The phase interpretation is useful exposition, not an independent quantitative finding at the required standard.",
+        "searches": [
+          "Meignen–Laurent–Oberlin Appendix A, expression for l_2' and g before and after gamma=1 specialization",
+          "Resultary b29de85f07c8 local mirror offsets 2850–5736"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Write the demodulated Gaussian transform as W_0=P exp(i theta)+Q exp(-i theta), where P,Q are the two shifted Gaussians. Then -partial_nu W_0/(2 pi) is the reduced first-Hermite transform. At the two real relative phases gamma=cos(2 theta)=1,-1, one may remove a constant phase. The derivative of the spectrogram |W_0|^2 vanishes exactly when this real amplitude or its frequency derivative vanishes.",
+          "At gamma=1 the amplitude is positive; at gamma=-1 its only zero is nu=0, and its derivative there is nonzero. Accordingly the older exact one-or-three constructive extremum count and three destructive extrema give exactly the frozen one-or-three interior and two exterior zeros; the two-slice restriction itself follows immediately from the signs of the two shifted first derivatives."
+        ],
+        "reasoning": "Different windows at the level of names do not separate these statements: the removal of the Gaussian zero and the real-slice derivative equivalence identify the same root count in the same parameters.",
+        "searches": [
+          "Resultary: equal two-tone first-Hermite or Gaussian derivative spectrogram zeros, three-to-five, conserved charge",
+          "Meignen–Laurent–Oberlin DOI:10.1109/LSP.2022.3226948, Eq. (3) and Appendix A",
+          "arXiv:2507.13829 Proposition 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue match contains the full symmetric special case as an exact specialization and explicitly treats it as background, without identifying a separate earlier source for that statement.",
+          "The prior Appendix A provides exact root and extremum information at the required phases, not just an example plot or numerical separation test."
+        ],
+        "reasoning": "The later catalogue match is corroborating overlap, while the earlier analytical equations, not a title match or catalogue date, supply decisive prior implication.",
+        "searches": [
+          "Resultary b29de85f07c8 Finding, root equation and charge formula",
+          "Meignen–Laurent–Oberlin Proposition II.1, Appendix A"
+        ]
+      },
+      "rationale": "The frozen classification is mechanically recoverable from the earlier exact pure-tone Gaussian spectrogram extremum analysis of Meignen–Laurent–Oberlin (2022), especially Appendix A, not merely from an older qualitative ridge heuristic. Apply its two analyzed phase slices with A=1 and sigma=1. After removing the frequency-dependent time phase, minus the frequency derivative of the Gaussian-window transform divided by 2 pi is the first-Hermite reduced transform (up to constant gauge). At the constructive slice all Gaussian spectrogram extrema correspond to first-Hermite zeros. At the destructive slice the stationary central Gaussian zero is extraneous, leaving precisely the two noncentral extrema. The paper's exact derivative equation at the two slices gives the interior and exterior root equations directly, and differentiation and the first nonconstant Taylor term of the same scalar equations give the local indices, cubic contact and splitting. The later Resultary cusp theorem also explicitly specializes to the entire frozen geometry, but its later date is not evidence of prior coverage. The failure is based on the 2022 equations and results, not on failure to retrieve a different paper.",
+      "residual_risks": [
+        "The 2022 paper does not use the first-Hermite charge wording; the conclusion is mechanical implication under the displayed derivative correspondence, not an assertion that it published the same wording.",
+        "The later catalogue result's unnamed background antecedent is not used to assign historical priority.",
+        "Full-text access to arXiv:2601.10910 was not resolved and is immaterial to the demonstrated earlier implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication, despite the different Gaussian-ridge phrasing",
+          "evidence": "The constructive cutoff alpha>1, explicit l_2' containing sinh(mu) and cosh(mu)+gamma, and three destructive extrema furnish the precise inputs to recover the two frozen root equations and zero census.",
+          "identifier_or_url": "https://doi.org/10.1109/LSP.2022.3226948",
+          "material_read": "Lawful author copy HAL hal-04218018v1, Proposition II.1, Eq. (3), Appendix A lemma and proof; PDF pp. 3–5, offsets near 12815, 19185, 21270 and 36463",
+          "method": "Read exact blend derivative and gamma=+-1 extremum statements; compare after phase removal and normalize to the frozen window",
+          "title": "One or Two Ridges? An Exact Mode Separation Condition for the Gabor Transform",
+          "trigger": "Exact same two-tone Gaussian frequency-extremum analysis, potentially equivalent under window differentiation"
+        },
+        {
+          "assessment": "Explicit stronger subsequent result, not proof of earlier priority",
+          "evidence": "Its scalar F yields three versus five, simple index -sign F', a cubic cusp of degree +1, and total -1; the relationship section treats the symmetric first derivative as background.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-cusp-unfolding-and-conserved-charge-in-two-tone-gaussian-derivat--b29de85f07c8/RESULT.md",
+          "material_read": "Finding; root equation and charge proof, offsets 2850–5736; relationship passage near 7655",
+          "method": "Specialize derivative order, equal amplitudes, frequency and window scaling",
+          "title": "Cusp unfolding and conserved charge in two-tone Gaussian-derivative spectrograms",
+          "trigger": "Exact possible catalogue domination"
+        },
+        {
+          "assessment": "Related framework; no claim of whole-document exclusion from the abstract",
+          "evidence": "Complex white noise yields a point process with almost-sure simple signed zeros and intensity results; those statements do not give a deterministic cubic transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13531",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Compare the random field and results described in the abstract to the deterministic signal",
+          "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+          "trigger": "Same Hermite windows and definition of charges"
+        },
+        {
+          "assessment": "Different zero set",
+          "evidence": "Its Eq. (3.2) places Gaussian-window zeros of two parallel chirps on a single line, not a first-Hermite bifurcation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.13829",
+          "material_read": "§3, Proposition 6, PDF p. 8, offsets 28150–29772",
+          "method": "Compare the window and simple-zero geometry",
+          "title": "On two fundamental properties of the zeros of spectrograms of noisy signals",
+          "trigger": "Exact deterministic zero classification for two components"
+        },
+        {
+          "assessment": "Not used to establish coverage or noncoverage",
+          "evidence": "The frozen record describes an auxiliary differentiated-window expression, but the decisive earlier comparison here is independently inspected Appendix A of the 2022 paper.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.10910",
+          "material_read": "Frozen citation and secondary description only; independent PDF was over the size limit and versioned HTML did not resolve",
+          "method": "Tried the named OA arXiv PDF and HTML versions",
+          "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+          "trigger": "Known same-signal differentiated Gaussian expressions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The phase map is a clear deterministic example, but its claimed precise zero census, critical separation and root positions are alternate descriptions of the old extremum calculation on the same tones. The orientation signs and local splitting are direct derivative and Taylor consequences in these coordinates; no scientifically distinct invariant or nonroutine remaining result was established for the narrow frozen claim. The later unequal-amplitude or higher-derivative classification is separate and not a repair of this finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

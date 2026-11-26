@@ -1,89 +1,45 @@
-# Sharp hub-allocation staircase and a nonvanishing refinement gap for stochastic trace probing on stars
+# A sharp one-split refinement gap for stochastic trace probing on screened stars
 
 ## Finding
 
-Let the unit-edge star have a hub and \(m\) leaves, where \(m\ge2\). Let \(\mu>0\), \(G_\mu=(\mu I+L)^{-1}\), and let \(2\le k\le m+1\) be an integer. Among **all** partitions of the \(m+1\) vertices into exactly \(k\) nonempty classes, use one independent class-supported Rademacher quadratic form per class to estimate \(\operatorname{tr}G_\mu\). There is no requirement that the classes properly color the graph.
+Let \(L\) be the combinatorial Laplacian of the unit-edge star \(K_{1,m}\). Fix \(\mu>0\) and an integer \(k\ge2\), and let \(m\to\infty\). For each partition \(P\) of the vertices into nonempty classes, estimate \(\operatorname{tr}G\), where \(G=(\mu I+L)^{-1}\), by summing one independent class-supported Rademacher quadratic form per class. Write \(\mathcal V_j(m,\mu)\) for the minimum variance over all partitions into \(j\) classes. No proper-coloring constraint is imposed.
 
-Define \(q=k-1\), \(R=(1+\mu)^2\), and, for \(t\ge q\), write \(t=qa+b\), \(0\le b<q\), and put
+For an optimal \(k\)-class partition \(P\), let \(\mathcal V^{\mathrm{split}}(P)\) be the minimum variance over partitions obtained by splitting one class of \(P\) into two nonempty classes and leaving all other classes unchanged. Then
 \[
- B_q(t)=(q-b)\binom a2+b\binom{a+1}2.
+\frac{\mathcal V^{\mathrm{split}}(P)}{\mathcal V_{k+1}(m,\mu)}
+=1+\frac{k-1}{2k^2}+O_{k,\mu}(m^{-1}),
 \]
-For integer \(0\le h\le m-q\), define
-\[
- F_{m,k,\mu}(h)=\binom h2+Rh+B_q(m-h).
-\]
-Then the exact minimum variance is
-\[
- \boxed{\mathcal V_k(m,\mu)=\frac{4}{\mu^2(1+\mu)^2(\mu+m+1)^2}\min_{0\le h\le m-k+1}F_{m,k,\mu}(h).}
-\]
-**Every** minimizer, and no other partition, is obtained by choosing one minimizing \(h\), grouping the hub with precisely \(h\) arbitrarily chosen leaves, and partitioning the other \(m-h\) leaves into \(q\) nonempty classes whose sizes differ by at most one. All minimizing \(h\) are described by the strictly increasing finite differences
-\[
- F(h+1)-F(h)=h+R-\left\lfloor\frac{m-h-1}{k-1}\right\rfloor
- \quad(0\le h<m-k+1).
-\]
-There is one minimizing \(h\), except that exactly two consecutive values minimize at an equality. In particular, a singleton hub class is optimal if and only if
-\[
- \boxed{(1+\mu)^2\ge\left\lfloor\frac{m-1}{k-1}\right\rfloor.}
-\]
-This is the sharp finite-size hub-isolation threshold; as screening increases, the optimal number of leaves sharing the hub descends through an explicit staircase. The number of unlabeled minimizing partitions is exactly
-\[
- \sum_{h\in H_*}\binom mh\frac{(m-h)!}{(a_h!)^{q-b_h}((a_h+1)!)^{b_h}(q-b_h)!b_h!},
-\]
-where \(H_*\) is the minimizer set, \(m-h=qa_h+b_h\), and \(0\le b_h<q\).
-
-A second conclusion quantifies the cost of preserving earlier work in a restricted nested-class scheme. Fix an integer \(k\ge2\) and a real \(\mu>0\), then let \(m\to\infty\). Start from **any** optimal \(k\)-class partition and form \(k+1\) classes by splitting precisely one of its classes, retaining all other classes unchanged. Denote the minimum variance among all such one-split refinements by \(\mathcal V_{k\to k+1}^{\mathrm{split}}(m,\mu)\). Uniformly over the choice of an optimal parent partition,
-\[
- \boxed{\lim_{m\to\infty}\frac{\mathcal V_{k\to k+1}^{\mathrm{split}}(m,\mu)}{\mathcal V_{k+1}(m,\mu)}=1+\frac{k-1}{2k^2}>1.}
-\]
-For the first refinement, this is the sharp asymptotic ratio \(9/8\). Thus even an optimally chosen single-class subdivision incurs a nonvanishing variance penalty against redesigning all \(k+1\) classes.
-
-## Assumptions and scope
-
-The graph is precisely the unweighted star \(K_{1,m}\) with its **combinatorial**, unnormalized Laplacian; all vertex screening values equal \(\mu>0\). Each class receives one independently signed, zero-outside-class Rademacher vector, independently across classes, and one exact quadratic form. Variance means ordinary variance of the sum of these \(k\) quadratic forms (not sample-mean variance, and not deterministic Hadamard trace error). The classification covers all nonempty, potentially improper, nonuniform class partitions. The asymptotic claim holds with \(k\) and \(\mu\) fixed as the leaf count grows; it does not assert uniformity when either varies with \(m\).
+uniformly over optimal parents \(P\). In particular, the best such upgrade from two classes to three has limiting variance ratio \(9/8\) against globally redesigning the three classes.
 
 ## Proof
 
-**Exact resolvent and variance.** Order the hub first. Block inversion of
+Write \(a=[\mu(1+\mu)(\mu+m+1)]^{-1}\). The hub-to-leaf off-diagonal entries of \(G\) equal \((1+\mu)a\), and the entries between distinct leaves equal \(a\). Indeed the leaf block of \(\mu I+L\) is \((1+\mu)I_m\) and its hub Schur complement is \(\mu+m-m/(1+\mu)=\mu(\mu+m+1)/(1+\mu)\). Block inversion gives the two entries.
+
+Each supported quadratic form has deterministic diagonal contribution. Two distinct unordered pairs of vertices in its off-diagonal contribution give uncorrelated sign products: their product contains a sign with odd exponent and mean zero. This gives variance \(4\sum_C\sum_{i<j\in C}G_{ij}^2\) for the sum of forms. Divide by \(4a^2\) and set \(R=(1+\mu)^2\). For class sizes \(s_0,\dots,s_{j-1}\), where the hub lies in class 0, the normalized cost is
 \[
- \mu I+L=\begin{pmatrix}\mu+m&-\mathbf1^\mathsf T\\-\mathbf1&(\mu+1)I_m\end{pmatrix}
+E(P)=\sum_{i=0}^{j-1}\binom{s_i}{2}+(R-1)(s_0-1).
 \]
-gives, for distinct leaves \(i,j\),
-\[
- G_{0i}=\frac1{\mu(\mu+m+1)},\qquad
- G_{ij}=\frac1{\mu(\mu+1)(\mu+m+1)}=:a.
-\]
-The first value is \((1+\mu)a\). For a real symmetric matrix and independent class-supported Rademacher vectors, diagonal terms are deterministic and off-diagonal sign products give
-\[
- \operatorname{Var}\!\left(\sum_C z_C^\mathsf TG_\mu z_C\right)
- =4\sum_C\sum_{i<j\in C}(G_\mu)_{ij}^2.
-\]
-For a class containing the hub plus \(h\) leaves and other leaf-only classes with respective sizes \(r_1,\ldots,r_q\), division by \(4a^2\) gives exactly \(\binom h2+Rh+\sum_{j=1}^q\binom{r_j}2\).
 
-**Balancing and discrete convexity.** At fixed \(h\), if any two leaf-only classes have sizes differing by at least two, moving one leaf from larger to smaller strictly decreases the pair count. Hence exactly the near-equal sizes attain the minimum \(B_q(m-h)\). One additional leaf added to the hub class changes its cost by \(h+R\), whereas removing a leaf from an optimally balanced \(q\)-class allocation lowers its cost by \(\lfloor(m-h-1)/q\rfloor\). This proves the displayed finite difference. Consecutive differences increase by at least one, so the first nonnegative difference (or the endpoint when none exists) characterizes the optimal \(h\), with a two-way tie only if a difference vanishes. At \(h=0\), that difference proves the exact isolation threshold. Multinomial counting of distinct balanced unlabeled leaf-only classes proves the optimizer count.
+In any optimal \(j\)-class partition the largest and smallest sizes differ by at most \(R\). If their sizes differed by more than \(R>1\), the larger class would contain a movable leaf and would remain nonempty after its removal. Moving that leaf from a class of size \(u\) to one of size \(v\) changes the binomial sum by \(-(u-1)+v\) and the hub correction by at most \(R-1\). Thus the move would strictly improve the objective. In particular, every optimal \(j\)-class size is \((m+1)/j+O_\mu(1)\), uniformly over optimizers.
 
-**Sharp nested-refinement asymptotics.** For fixed \(k\) and \(\mu\), the two-sided optimality inequalities implied by the finite differences give \(h=m/k+O_{k,\mu}(1)\). Therefore **every** class of **every** optimal \(k\)-class parent has \(m/k+O_{k,\mu}(1)\) vertices. For any class of size \(s=m/k+O(1)\), splitting it into two groups minimizes the leading quadratic pair count when the groups have sizes \(s/2+O(1)\), and achieves the lower bound \(s^2/4+O(m)\) for their total \(\binom{\cdot}{2}\) count. The extra hub–leaf squared-weight contribution, relative to leaf–leaf weight, is \((R-1)h=O_{k,\mu}(m)\). Consequently the best one-split normalized energy is
-\[
- \frac{m^2}{2}\left(\frac{k-1}{k^2}+\frac1{2k^2}\right)+O_{k,\mu}(m),
-\]
-while an unrestricted optimal \(k+1\)-class design has energy \(m^2/[2(k+1)]+O_{k,\mu}(m)\). Multiplying by the common positive factor \(4a^2\), dividing, and passing to the limit yields \((k+1)(k-1/2)/k^2=1+(k-1)/(2k^2)\). Both the lower bound and the matching balanced split apply to every optimal parent, establishing the stated uniformity and sharpness.
+For an optimal \((k+1)\)-class partition this proves \(E=m^2/[2(k+1)]+O_{k,\mu}(m)\). In a one-split refinement of any optimal \(k\)-class partition, the \(k-1\) unchanged classes contribute \((k-1)m^2/(2k^2)+O_{k,\mu}(m)\) to the binomial sum. The split class has size \(s=m/k+O_{k,\mu}(1)\). For any split into sizes \(u,s-u\), the sum of their binomial terms is at least \(s^2/4-s/2\), attained up to an additive \(1/4\) by dividing into sizes \(\lfloor s/2\rfloor,\lceil s/2\rceil\). These sizes can be obtained whether or not the class contains the hub. The extra hub term is nonnegative and at most \((R-1)m\), so any split has cost at least \((k-1/2)m^2/(2k^2)-C_{k,\mu}m\) for a constant independent of the parent; an equal-as-possible split achieves that leading cost with \(O_{k,\mu}(m)\) error. For large \(m\) all parent classes are splittable. The common positive variance factor \(4a^2\) cancels in the ratio. Dividing by the unrestricted cost gives the claim and its uniform error estimate.
 
-## Verification
+## Example and reproducibility
 
-The standalone file `verify_star.py` uses exact rational arithmetic throughout its finite tests. It independently enumerates unlabeled set partitions in restricted-growth-string order for every \(2\le m\le8\), every \(2\le k\le m+1\), and four rational screenings; it compares the global minimum, every optimal hub occupancy, and the exact number of minimizing partitions with the theorem. A separate rational Gauss–Jordan inverse check verifies the stated star Green entries and the direct full-matrix variance. Additional exact rational tests include the sharp isolation boundary and one-split asymptotic scaling examples. Running `python verify_star.py` prints `PASS: 367 exact-rational comparisons / identities`.
+For \(m=12\) and \(\mu=1/2\), evaluating the normalized cost over the class sizes and the hub class gives optimal costs \(169/4\) for two classes (hub with five leaves and a class of seven leaves) and \(51/2\) for three classes (hub with two leaves and two classes of five leaves). A single split of the two-class optimum costs at least \(117/4\), attained by splitting the hub class into the hub with one leaf and a four-leaf class. The best-refinement ratio in this example is \(39/34\).
 
-A concrete nonnesting witness has \(m=12\), \(\mu=1/2\). Every two-class optimum has class sizes \((6,7)\), while every three-class optimum has class sizes \((3,5,5)\); hence no globally optimal three-class partition refines an optimal two-class partition. In normalized pair-cost units, the optimal costs are \(169/4\) (two classes), \(51/2\) (three classes), and \(117/4\) (best single split of an optimal two-class parent); the last-to-unrestricted ratio is exactly \(39/34\).
+The accompanying `verify_star.py` uses the Python 3 standard library and exact rational arithmetic. It checks the variance reduction and auxiliary finite partition formulas, the example, and bounded refinement ratios. It enumerates unrestricted partitions for \(2\le m\le8\), \(2\le j\le m+1\), at four rational screenings and also checks several larger finite refinements. These checks supplement rather than prove the uniform asymptotic.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-The earlier hierarchical-probing framework of Stathopoulos, Laeuchli, and Orginos constructs nested graph-distance colorings, particularly for periodic lattices, and motivates the computational interest in retaining earlier probes. It does not state a global fixed-budget variance optimum for unrestricted partitions on stars. Frommer, Rinelli, and Schweitzer give the general class-supported stochastic-probing variance identity, used here as context; that identity alone does not classify optimal star partitions, compute hub-screening transitions, or give the asymptotic one-split penalty. Published work on two-color complete-bipartite graph probing includes the star as a two-class special case, but does not imply the multi-class or cross-budget assertions here. The present theorem compares one-split **independent class-supported estimators**, not the full correlated Hadamard hierarchy, and must not be interpreted as a performance lower bound for every hierarchical probing algorithm.
+The general supported-probe variance identity is established stochastic-probing theory [1]. The fixed-budget hub-occupancy classification is not the contribution here: the two-probe complete-bipartite result includes the star as a special case [2], and a separate screened-star result states the all-optima discrete-convex classification for \(k\ge3\) [3]. Only a coarse, elementary balancing bound on the sizes of the parent classes is needed in the proof above. The additional comparison is a sharp penalty for an optimal fixed-budget design when the next budget permits changing just one class by splitting it. The indexed fixed-budget statements do not give this cross-budget ratio.
 
-## Limitations
-
-This is a structured star-graph theorem, not a result for arbitrary trees or all graph colorings. It concerns independent supported-sign estimators with one probe per color, not shared-sign hierarchical probes, optimally unequal sample counts, Gaussian probes, or inexact solves. The finite enumeration is not used as an infinite proof. The fixed-screening asymptotic does not cover moving screening or probe budgets. Although relevant sources and indexed results were compared, publication priority remains conditional on unindexed literature, particularly an inaccessible full version of the 2020 hierarchical-probing extension; no independent mathematical audit or priority certification is claimed.
+Hierarchical probing [4,5] motivates retaining partition information as the probe budget grows. The comparison here only concerns the variance of the independent one-probe-per-class estimator under the specified partition operation; it is not a variance lower bound for correlated Hadamard probes, arbitrary hierarchical estimators, or adaptive changes to multiple classes. The asymptotic holds at fixed \(k,\mu\); it makes no claim for weighted stars, other graphs, or varying screening or budget.
 
 ## References
 
-1. A. Stathopoulos, J. Laeuchli, and K. Orginos, *Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices*, first arXiv version dated 17 February 2013, [arXiv:1302.4018](https://arxiv.org/abs/1302.4018), SIAM J. Sci. Comput. 35 (2013), S299–S322.
-2. A. Frommer, M. Rinelli, and M. Schweitzer, *Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices*, [arXiv:2308.07722](https://arxiv.org/abs/2308.07722), Math. Comp. 94 (2025), 801–823.
-3. J. Laeuchli and A. Stathopoulos, *Extending hierarchical probing for computing the trace of matrix inverses*, [DOI:10.1137/18M1176427](https://doi.org/10.1137/18M1176427), SIAM J. Sci. Comput. 42 (2020), A1459–A1485 (abstract and bibliographic material inspected; full text not obtained).
-4. *Sharp two-color stochastic-probing transition on complete bipartite resolvents*, [published research record](https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895) (two-color comparison only; full content inaccessible).
+1. A. Frommer, M. Rinelli, and M. Schweitzer, *Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices*, [arXiv:2308.07722](https://arxiv.org/abs/2308.07722).
+2. *Sharp two-color stochastic-probing transition on complete bipartite resolvents*, [indexed result](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895).
+3. *All-budget optimal Rademacher probing partitions on screened star graphs*, [indexed result](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-all-budget-optimal-rademacher-probing-partitions-on-screened-sta--276450ab2e3f).
+4. A. Stathopoulos, J. Laeuchli, and K. Orginos, *Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices*, [arXiv:1302.4018](https://arxiv.org/abs/1302.4018).
+5. J. Laeuchli and A. Stathopoulos, *Extending hierarchical probing for computing the trace of matrix inverses*, [DOI:10.1137/18M1176427](https://doi.org/10.1137/18M1176427).

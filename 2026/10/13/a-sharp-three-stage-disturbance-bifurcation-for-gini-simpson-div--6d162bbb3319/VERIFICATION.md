@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact-arithmetic verification
+# Independent mathematical audit
 
-Execute `python verify.py` (Python 3, standard library only). The script was executed successfully after being written at its actual package path. It returned:
+## correctness
 
-`VERIFY_OK discriminant_points=19 bernstein_coefficients=8 descartes_sign_change=1 gcd_certificate=1 stationary_and_reflection_cases=36 root_bracket=[0.08170337904602,0.08170337904602]`
+PASS
 
-The fourth-degree discriminant polynomial identity is checked at nineteen distinct rationals; the discriminant has degree at most eighteen in the rate ratio, so nineteen exact matches certify the identity. The remaining checks include exact Bernstein signs on the middle interval, positive translated coefficients above it, the one-change Descartes certificate below it, a coprimality calculation for the no-triple-root step, and algebraic stationary-balance and reflection checks. The report supplies proofs for root counts, sign changes and global optimality over the full real domain; numerical evaluations do not replace those proofs.
+Stationary balance gives the reported probabilities for positive rates, and differentiation gives the reported quartic with the stated negative prefactor. Independent symbolic computation recovers both discriminants and the coprimality certificate; an exact Sturm count gives one positive, simple zero of the septic. At r=1/100 the quartic signs at 0, sqrt(r)=1/10, 1/5 and 1 are −,+,−,+; at r=1 Descartes gives one positive root. A root cannot cross 0 or sqrt(r) (the quartic is strictly negative at the former and positive at the latter), or escape at a finite r>0. The two roots above sqrt(r) therefore merge at the discriminant zero into a double root, with the lower root simple; the double zero of D' gives a stationary inflection. The exact r/x reflection dominates every x>sqrt(r), and sqrt(r) itself has nonzero derivative. The single lower maximum is globally unique. The two-stage formula gives one peak. Exact bracket (0.0817033790460166, 0.0817033790460167): the printed decimal is correctly rounded, not a truncation. Applies only to the stated stationary, homogeneous Markov succession and the stage index. Replay: python3 -B /workspace/branches/frozen_math_replay.py (disturbance; SymPy). Frozen verify.py was inspected, not executed.
 
-The root bracket printed with fourteen decimals is display-only; the internal bisection uses exact rational endpoints. No external, independent scientific validation is asserted.
+## originality
+
+PASS
+
+Qualitative bimodality and the long-intermediate-stage mechanism are not credited as new. The exact threshold and minimum stage count are also stated in a distinct, later-dated catalogue record; this is genuine overlap, not evidence that the later record is prior. The all-rate unique global optimizer and strict dominance of the low peak were not found in that comparator. No demonstrated earlier coverage of the exact bifurcation or dominance was found; the decision is limited to this quantitative theorem and is not a priority certification.
+
+## value
+
+PASS
+
+Gives an exact regime boundary for a motivated bimodality mechanism and settles the different optimization question: the apparent high-disturbance peak never offers a competing global optimum. The all-rate reflection and the distinction between local and global peaks are useful within the stated model. No generalization to field outcomes or species-level diversity is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

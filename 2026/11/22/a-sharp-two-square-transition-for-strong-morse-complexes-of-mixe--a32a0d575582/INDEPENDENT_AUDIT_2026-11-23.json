@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:57.382118Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a one-dimensional simplicial graph the descending link is a nonempty cone exactly when a vertex has a unique earlier neighbor. The all-order triangle enumeration gives four discrete non-hub atoms; requiring o to precede both leaves leaves two inward atoms, and prescribing its one earlier neighbor in that triangle leaves no non-hub atom there. Independent enumeration of the 24 square orders gives maximal non-hub pairs AB, AC, BF, CD, DE′, E′F. Requiring o to have no earlier square neighbor gives AB, AC, CD; prescribing u or w as its only earlier square neighbor gives respectively the singleton choices B,C,E′ or A,D,F. Because local orderings interleave independently on each side of o, these exactly determine the base and all hub links, not just upper bounds on faces. No face has two hub apices. For q≥2 each apex link contains a collapsible path as a join factor; lifting link-collapse pairs into the cone and removing its final apex-edge pair preserves the entire base. For q=1 the triangle apices still collapse, while the two remaining links have homotopy type of a wedge of two p-spheres. Their inclusions into the p-connected base are null, so their cone attachments add four (p+1)-spheres in total. Joins multiply the face polynomials, and each link and base is pure in the required dimension, giving all three polynomial terms and purity. Read supplied checker, verification note and output; did not execute the checker. Its finite mod-two ranks do not certify the integral theorem, which follows from the collapse and homotopy arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 10.3 gives the join formula for K⊔L with an edge in each, using disjoint vertex sets.",
+          "The all-square records collapse to C6^{*q}, with no triangular petal factor and no mixed hub links."
+        ],
+        "reasoning": "The shared hub precludes applying the disjoint join theorem. The audited base is the no-hub join, not the join of the full petal complexes; it takes new local link calculations to pass from that base to the full mixed complex.",
+        "searches": [
+          "Knudson–Owens–White Proposition 10.3; local Resultary join/collapse results d0ea73d39bd5 and 4921a0f1866f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Local Resultary records listed above",
+        "arXiv:2609.06844v1, Proposition 10.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The friendship-graph wedge has 3^p+2p spheres of dimension p−1 (q=0), while the square-only collapse lacks the discrete triangle factors.",
+          "The mixed small-case results do not determine the varying number of H factors in hub links; disjoint joins remove the very shared vertex at which coupling happens."
+        ],
+        "reasoning": "The uniform change from two null cone attachments to only relative collapses with the second square, and the corresponding polynomial, require the local description of the mixed links. The reviewed broader and special-case statements do not imply it.",
+        "searches": [
+          "Compare the Findings of c88f401c5072, d0ea73d39bd5, faf3b520e7e7, 9a657e6e0edb and Proposition 10.3 against the audited hub links"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local mirror exact mixed-family hit is a32a0d575582 itself.",
+          "The prior statements below do use the same full downward closure in their common cases; an ordinary discrete-Morse complex or pure variant is not assumed equivalent."
+        ],
+        "reasoning": "Shared-hub graphs, disjoint unions, and other cycle lengths do not represent the same family under relabeling. Only the exact common cases are credited as covered.",
+        "searches": [
+          "Local Resultary full strong Morse matching complex, mixed polygon bouquets, triangle–square shared hub",
+          "Knudson–Owens–White arXiv:2609.06844v1, full complex and join theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "faf3b520e7e7 gives seven 2-spheres when the single nontriangle petal is a square; 9a657e6e0edb gives thirteen 3-spheres for two triangles and one square, plus symmetry information."
+        ],
+        "reasoning": "The two isolated mixed entries are already known; neither enumerates the all-(p,q) invariant or provides a dominating parameter theorem. The supplied small-case computation is not external prior evidence.",
+        "searches": [
+          "Local Resultary mixed-case records faf3b520e7e7 and 9a657e6e0edb; exact family match a32a0d575582"
+        ]
+      },
+      "rationale": "Exact earlier cases (p,q)=(1,1) and (2,1), the one-type results, and the disjoint join theorem are credited. The all-positive-parameter mixed classification with its uniform relative collapse and polynomial is not supplied by the strongest material comparisons. Exact catalogue hit a32a0d575582 is the assigned record itself. Priority is not certified.",
+      "residual_risks": [
+        "Unindexed shared-hub extensions or another formulation of the same links could predate the audited theorem; this is a bounded comparison, not a priority determination.",
+        "Originality does not extend to the previously computed special cases or the disjoint join identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Disjoint-union coverage, not shared-hub mixed bouquets",
+          "evidence": [
+            "SM(K⊔L)=SM(K)*SM(L) for simplicial complexes each with an edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06844",
+          "material_read": "Proposition 10.3 and proof, PDF pp. 26–27, OA offset 76380",
+          "method": "Lawful arXiv OA PDF",
+          "title": "Knudson and Owens–White, Complexes of strong discrete Morse matchings",
+          "trigger": "Original definitions and potentially stronger join theorem"
+        },
+        {
+          "assessment": "Prior one-type families only",
+          "evidence": [
+            "The friendship-graph rank is 3^p+2p; the all-square relative core is C6^{*q} for q≥2."
+          ],
+          "identifier_or_url": "2026/11/1/c88f401c5072; 2026/11/1/d0ea73d39bd5; square-only analogue 2026/10/18/4921a0f1866f",
+          "material_read": "Findings on all-triangle wedge and all-square collapse",
+          "method": "Local Resultary mirror",
+          "title": "Strong Morse complexes of friendship graphs; A six-cycle join core for strong Morse matching complexes of square bouquets",
+          "trigger": "Same hub construction at unmixed boundaries"
+        },
+        {
+          "assessment": "Exact overlapping cases (1,1) and (2,1), not full family",
+          "evidence": [
+            "Seven 2-spheres for (1,1), thirteen 3-spheres and more refined symmetry data for (2,1)."
+          ],
+          "identifier_or_url": "2026/11/17/faf3b520e7e7; 2026/11/17/9a657e6e0edb",
+          "material_read": "Findings giving the C4 case and the two-triangle one-square case",
+          "method": "Local Resultary mirror",
+          "title": "First mixed-dimensional strong-Morse homotopy in triangle–cycle bouquets; Thirteen three-spheres and the full symmetry character of a mixed three-petal strong-Morse complex",
+          "trigger": "Exact graph overlap in the mixed cases"
+        },
+        {
+          "assessment": "Same frozen record, not an independent earlier claim",
+          "evidence": [
+            "Identical mixed graph family and two-branch formula."
+          ],
+          "identifier_or_url": "2026/11/22/a32a0d575582",
+          "material_read": "Finding returned by local family comparison",
+          "method": "Local Resultary mirror/search",
+          "title": "A sharp two-square transition for strong Morse complexes of mixed polygon bouquets",
+          "trigger": "Exact indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines a natural integral homotopy invariant and an exact face enumerator of a named complex on a family where the ambient disjoint join theorem cannot be used. It explains why adding the second square changes the topology: each surviving square-apex link acquires a collapsible path factor, eliminating four sphere summands while shifting the top dimension. The result gives both a structural reason and an explicit collapse, rather than just additional finite Betti tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

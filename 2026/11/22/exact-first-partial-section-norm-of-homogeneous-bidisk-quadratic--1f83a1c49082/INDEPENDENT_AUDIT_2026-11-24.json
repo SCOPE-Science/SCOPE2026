@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:07:11.633324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–78; VERIFICATION.md; check_quadratic_section.py, inspected only",
+        "/workspace/independent_replays.py, quadratic()"
+      ],
+      "rationale": "Apply scalarization by norm-one functionals and the maximum-modulus principle in each variable to put both suprema on the distinguished torus; with zeta=z/w, these are the circle suprema of P and its two-term section. Writing xi=exp(i pi/3), the relation xi^2=xi-1 gives the moments (1,1,0) for the weight (2-xi)/3 at xi and its conjugate weight at conjugate(xi). Each weight has squared modulus 1/3. Rotating both nodes and applying the triangle inequality proves the Banach-valued bound. For (a,b,c)=(1/2,1,-1/4) the circle squared profile as a function of s=cos(t) is 25/16+s/2-s^2/2, peaking at 27/16, versus a truncated supremum of 3/2. A unit vector in any nonzero target transfers that ratio. In the scalar equality problem, a zero retained coefficient gives ratio at most one by the Fourier coefficient bound. Normalize both retained coefficients to be positive by a common phase and input rotation. At zeta=1 both weighted node values must then be positive real and saturate the norm; adding and subtracting the resulting node equations forces real c=(a-b)/2. Stationarity at s=1/2 gives b(a+c)+2ac=(a+b)(2a-b)/2=0, hence b=2a and c=-a/2. This gives the claimed orbit, and the explicit peak proves the converse. Independently replayed the exact moments, weight size and boundary peak in rational arithmetic; numerical trials are not needed for universality. Replay: python3 /workspace/independent_replays.py 2.",
+      "residual_risks": [
+        "The result is for the three-monomial homogeneous quadratic block and does not classify vector-valued equality cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grando's n+1 estimate includes the scalar bidisk section after ordering the coordinates w,z and taking degree two.",
+          "Resultary e1e60f29d3de studies H^1-to-A^1 diagonal restriction on homogeneous bidisk quadratics and gives pi/(4 tau), tau=cos(tau)."
+        ],
+        "reasoning": "Grando's bound is 3 in this instance and is not an exact evaluation or equality theorem. Diagonal restriction acts on the same polynomial block but both norms and the operator differ.",
+        "searches": [
+          "Grando arXiv:2608.14926v1, square order and Proposition 4.2",
+          "Resultary e1e60f29d3de, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1f83a1c49082, 038070a4eb80, e1e60f29d3de, c36cc14a214a, 56944f6874fb",
+        "Grando arXiv:2608.14926v1",
+        "Geddes–Mason DOI 10.1137/0712011 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grando gives a uniform bound in scalar degree n, not the norm or equality cases on quadratic inputs. The inspected 1975 abstract gives minimality in the full disk algebra, not a restricted-degree norm statement.",
+          "The closely matched circle-quadratic H^4 extremal inequality bounds the wrong ratio for this projection problem."
+        ],
+        "reasoning": "No inspected theorem yields the specific value and equality orbit by restriction or parameter substitution. The universal Banach-valued version is also justified directly by the exact two-node representation rather than inferred from a general degree bound.",
+        "searches": [
+          "Grando arXiv:2608.14926v1, abstract and Proposition 4.2",
+          "Geddes–Mason DOI 10.1137/0712011, full-algebra projection abstract",
+          "Resultary 038070a4eb80, extremal statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reduction to T1 restricted to polynomials of degree at most two in the circle sup norm, equivalently the norm of the a+b functional since the domain is invariant under circle rotations.",
+          "The publisher abstract studies Taylor projections on the full disk algebra. Resultary 1f83a1c49082 is the identical assigned record."
+        ],
+        "reasoning": "Full-disk Taylor/Landau bounds upper-bound the restricted problem but do not by themselves identify the restricted norm or equality orbit. Even for T1, the bounded rational disk function (1/2+z)/(1+z/2) has first-two-coefficient sum 5/4, which is strictly larger than the claimed restricted norm.",
+        "searches": [
+          "Resultary: first Taylor section on complex quadratic polynomials, uniform 2/sqrt(3) norm and scalar extremizers",
+          "Geddes–Mason DOI 10.1137/0712011, publisher abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest distinct exact circle-quadratic match: 038070a4eb80, ||P||_infty^4 <= C integral_T |P|^4, C about 4.38567, with a symmetric extremizer.",
+          "c36cc14a214a has exact coefficient-l2 versus Euclidean-ball sup tables. 56944f6874fb gives exact a0+a1+a2 evaluation for sublinear H^p."
+        ],
+        "reasoning": "The exact entries use different norms, domains or evaluated coefficients, and none encodes the norm/equality problem of the degree-two sup-norm first section. An exact record hit for this problem is the assigned record, not antecedent evidence.",
+        "searches": [
+          "Resultary searches for exact low-degree disk/bidisk Taylor-section and quadratic extremal constants"
+        ]
+      },
+      "rationale": "The exact three-monomial supremum projection norm and scalar equality orbit were not found in the compared statements. Grando covers the same ordered scalar section with a nonsharp bound of 3; Geddes–Mason works with the full disk algebra, which has a larger input class; the closest Resultary exact quadratic extremum has a different source norm and objective. Priority is qualified by the limits of the 1975 full-text access and older finite-degree projection literature.",
+      "residual_risks": [
+        "The full 1975 Geddes–Mason text could not be read. It cannot be ruled out that this or older finite-degree projection literature treats the same restricted constant under another formulation.",
+        "Resultary matches are ranked and not a comprehensive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the operator with a nonsharp general bound only in the inspected proposition",
+          "evidence": [
+            "Proposition 4.2, ||S_gamma P||_K <= (n+1)||P||_K for bounded solid K and a 1-unconditional basis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14926v1",
+          "material_read": "Public arXiv v1 text: abstract p. 1, square order p. 3, Proposition 4.2 p. 7",
+          "method": "Lawful OA PDF passages",
+          "title": "Monomial bases for holomorphic functions on Banach spaces with an unconditional basis",
+          "trigger": "Same scalar ordered monomial section inside a broader setting"
+        },
+        {
+          "assessment": "Full-disk minimal projection result; possible additional restricted-degree statements not assessable",
+          "evidence": [
+            "Abstract treats Taylor truncation as a minimal projection onto polynomials and discusses a norm bound for near-minimax approximation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0712011",
+          "material_read": "Publisher abstract; no full text",
+          "method": "Publisher abstract; publisher full-text attempt returned HTTP 403 and the identified JSTOR attempt exposed only a landing page",
+          "title": "Polynomial approximation by projections on the unit circle",
+          "trigger": "Classical exact operator analogue on full analytic inputs and possible finite-degree restriction"
+        },
+        {
+          "assessment": "Different source norm and invariant on the same scalar polynomial space",
+          "evidence": [
+            "Sharp fourth-power point evaluation relative to L^4, with symmetric endpoint coefficients in the extremizers."
+          ],
+          "identifier_or_url": "Resultary 038070a4eb80",
+          "material_read": "RESULT.md, offsets 0–3505",
+          "method": "Local Resultary mirror",
+          "title": "Exact fourth-power point evaluation for quadratic circle polynomials",
+          "trigger": "Closest distinct exact quadratic circle-polynomial extremal result"
+        },
+        {
+          "assessment": "Different restriction operator and norms",
+          "evidence": [
+            "H^1-to-A^1 diagonal restriction norm pi/(4 tau)."
+          ],
+          "identifier_or_url": "Resultary e1e60f29d3de",
+          "material_read": "RESULT.md, offsets 0–3459",
+          "method": "Local Resultary mirror",
+          "title": "Exact quadratic norm of diagonal Hardy-to-Bergman restriction",
+          "trigger": "Same homogeneous quadratic bidisk polynomial block"
+        },
+        {
+          "assessment": "Different coefficient norm and domain",
+          "evidence": [
+            "Compares coefficient l2 with polynomial supremum on a Euclidean ball."
+          ],
+          "identifier_or_url": "Resultary c36cc14a214a",
+          "material_read": "RESULT.md, offsets 0–3637",
+          "method": "Local Resultary mirror",
+          "title": "Exact real and complex quadratic Hilbert coefficient constants",
+          "trigger": "Exact quadratic coefficient norm table"
+        },
+        {
+          "assessment": "Different input quasi-norm and functional",
+          "evidence": [
+            "Evaluates a0+a1+a2 on analytic H^p for 0<p<1."
+          ],
+          "identifier_or_url": "Resultary 56944f6874fb",
+          "material_read": "RESULT.md, offsets 0–3787",
+          "method": "Local Resultary mirror",
+          "title": "Sharp second Taylor-section evaluation on sublinear Hardy spaces",
+          "trigger": "Exact Taylor-section constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exact two-node proof",
+        "Grando Proposition 4.2 for the general estimate being sharpened"
+      ],
+      "rationale": "The cutoff is the first homogeneous bidisk block and first retained segment where the universal monomial-section bound can be noncontractive: an initial single monomial is bounded by its Fourier coefficient estimate, and the only other sections in degree zero or one are identities or single monomials. The exact sharp loss, uniformly for complex Banach coefficients, and the scalar equality orbit are meaningful for sharp finite-block section estimates. The norming representation explains why the same loss remains sharp in every target rather than merely giving a numerical scalar improvement.",
+      "residual_risks": [
+        "No sharp claim in higher degree, other monomial orders or the full analytic function space."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

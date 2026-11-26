@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:02:51.397305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62, proof reconstructed symbolically",
+        "Frozen VERIFICATION.md, verify.py and expected.txt inspected as finite F2 corroboration only, not executed"
+      ],
+      "rationale": "In the diameter-two rook graph a forbidden triple consists exactly of the two consecutive legs of a right angle with its nonadjacent endpoints. Double occupancy in column j uses two rows that cannot then appear in any other column, so no second column can have double occupancy. Double-occupancy faces not containing a full column therefore belong to the stated thickening simplex, while a full column is isolated from all other cells. Two different thickenings intersect only in the column-thin complex A_n; the intersection of any individual thickening with A_n is S^0 joined with the nonempty simplex of allowed cells in the remaining columns, hence contractible. Cofibration gluing proves that A_n includes by a homotopy equivalence into the thickened core. Joining three-point spaces, starting with K_{3,3}, doubles the wedge rank and suspends at each stage; the core is therefore simply connected for n≥3 and has 2^n spheres in degree n−1. Each of the n column triangles attaches along its three edges already in the core by a nullhomotopic boundary map. The homotopy pushout splits off n two-spheres relative to the core up to homotopy, so the actual A_n inclusion induces an integral homology summand even at n=3, where the total rank in degree two is 11. Both sides are connected, giving the ordinary H_0 assertion as well.",
+      "residual_risks": [
+        "No assertion for the two-column case, other row counts, or equivariant equivalence; recorded finite checks are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavžar–Patkós–Rus–Yero, p. 17, gives the two-factor product general-position number m+n−2, here n+1. The inspected broader arXiv sources discuss metric invariants or enumeration. 86a5f1db7ba9 assumes a complete multipartite graph, and 834f7544a24d uses the categorical product with adjacency only when both coordinates differ."
+        ],
+        "reasoning": "The maximum size is not homotopy data. For three rows and at least three columns, rook nonadjacency is not transitive on distinct related cells, so the graph is not complete multipartite. The categorical product is not the Cartesian rook graph; a coincident count at n=3 does not establish coverage.",
+        "searches": [
+          "Primary Cartesian-product paper DOI 10.1007/s00025-021-01438-x",
+          "arXiv:2601.04351 and arXiv:2603.06930",
+          "Resultary broader GP complexes 86a5f1db7ba9 and product hit 834f7544a24d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions, and prior-work section",
+        "Resultary exact and related statements above",
+        "Primary Cartesian-product and position papers above; primary web literature query yielded no useful extra comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "97746ad05664 explicitly gives split-injective reduced integral homology for the column-thin inclusion and cofiber ∨^n S²; fc2af413d7b2 gives combinatorial enumeration only in the inspected finding."
+        ],
+        "reasoning": "The cofiber and split injection yield the exact claimed integral quotient by the long exact sequence; connectedness handles ordinary H_0. Counting alone cannot furnish this implication, but the prior integral result does.",
+        "searches": [
+          "Compared the full Finding and star-forest argument of 97746ad05664 with the enumerator fc2af413d7b2 and the frozen lines 5–11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fc2af413d7b2 identifies the faces of the rook GP complex with spanning star forests of K_{m,n} by excluding three-edge paths; 97746ad05664 proves the same wedge in both the geodesic and star-forest formulations; 559a0d730ca9 concerns the different clique complex of a line graph."
+        ],
+        "reasoning": "The equivalent cluster condition means an induced disjoint union of cliques, not one clique. The statement-level duplicate is on this same cluster/geodesic complex, not merely a related line-graph invariant.",
+        "searches": [
+          "Resultary: three-row rook graph general position, column-thin defect spheres, bipartite star forests and line-graph complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 97746ad05664 opening states ∨^{2^n}S^{n−1} ∨ ∨^n S² for n≥3 and explicitly includes 11 two-spheres at n=3."
+        ],
+        "reasoning": "This is a statement-level catalogue match with the entire parameter range and homotopy invariant, not an exact match on merely the f-vector or isolated ranks.",
+        "searches": [
+          "Resultary exact theorem search including two-dimensional defect spheres in three-row rook graphs, followed by local full-text comparison of 97746ad05664"
+        ]
+      },
+      "rationale": "The exact integral wedge for all n≥3, the n=3 degeneracy, and the split column-thin inclusion are all explicitly covered in the distinct Resultary finding 97746ad05664. Its cofiber conclusion additionally implies the stated degree-two homology quotient. No independent novel remainder appears in the frozen Finding.",
+      "residual_risks": [
+        "Not an exhaustive priority or alternate-terminology bibliographic survey. The exact catalogue coverage is direct without assuming chronology among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage and stronger cofiber conclusion",
+          "evidence": "The same wedge for every n≥3, sharp n=3 count, split integral column-thin injection, and relative cofiber ∨^n S².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-two-dimensional-defect-spheres-in-three-row-rook-graph-general-p--97746ad05664",
+          "material_read": "RESULT.md Finding offset 0 and proof around offset 2700",
+          "method": "Resultary local mirror",
+          "title": "Two-dimensional defect spheres in three-row rook graph general-position complexes",
+          "trigger": "Exact product, invariant and column restriction"
+        },
+        {
+          "assessment": "Covers face description, not claimed homotopy in the passages read",
+          "evidence": "Rectangular rook faces correspond to star forests via forbidden three-edge paths.",
+          "identifier_or_url": "fc2af413d7b2",
+          "material_read": "Finding offset 0; Proof §§1–2 around offset 2900",
+          "method": "Resultary local mirror",
+          "title": "General-position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Equivalent formulation and larger family"
+        },
+        {
+          "assessment": "Extremal size rather than topology",
+          "evidence": "The complete-product lower bound is exact for two factors, giving n+1 here.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01438-x",
+          "material_read": "Abstract and p. 17, PDF text offsets 0 and 40150",
+          "method": "Primary Springer PDF",
+          "title": "On General Position Sets in Cartesian Products",
+          "trigger": "Same Cartesian complete graphs"
+        },
+        {
+          "assessment": "Different face condition",
+          "evidence": "Treats cliques of L(G), not arbitrary induced unions of cliques.",
+          "identifier_or_url": "559a0d730ca9",
+          "material_read": "Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "An equivariant star-collapse model for line-graph clique complexes",
+          "trigger": "Line-graph collapse terminology"
+        },
+        {
+          "assessment": "Does not include rook graph",
+          "evidence": "Complete multipartite input; its nonadjacency partition is unavailable for the rook graph.",
+          "identifier_or_url": "86a5f1db7ba9",
+          "material_read": "Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Integral homotopy and symmetry of multipartite geodesic general-position complexes",
+          "trigger": "Potential broader topology theorem"
+        },
+        {
+          "assessment": "Different graph product",
+          "evidence": "Uses categorical adjacency, not rook adjacency.",
+          "identifier_or_url": "834f7544a24d",
+          "material_read": "Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Uniform two-sphere wedges for geodesic general-position complexes",
+          "trigger": "Same factors and isolated numerical overlap"
+        },
+        {
+          "assessment": "No homotopy classification in the inspected statements",
+          "evidence": "Scopes are metric graph invariants and position polynomials respectively.",
+          "identifier_or_url": "arXiv:2601.04351; arXiv:2603.06930",
+          "material_read": "Abstracts at PDF text offset 0",
+          "method": "Primary arXiv texts",
+          "title": "Metric general position extensions of classical graph invariants and perfection; Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Broader position and enumeration frameworks cited by the record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–11 and 19–62",
+        "Prior integral wedge and cofiber finding 97746ad05664"
+      ],
+      "rationale": "The column-defect topology and how it sits over a natural core would be a meaningful structural distinction from prior counting alone, but the exact phenomenon, together with a stronger relative conclusion, is already known. The frozen claim does not advance a separate new structural consequence beyond that coverage.",
+      "residual_risks": [
+        "Does not rule out worthwhile independent results for other row counts or group actions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

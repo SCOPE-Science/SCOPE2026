@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:39:18.194667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, probability and derivative formulas; VERIFICATION.md, verify_symbolic.py and verify_histories.py (inspected)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 5 (SymPy exact polynomials)"
+      ],
+      "rationale": "In Dijkstra exploration with independent exponential edge lengths, active cut-edge waiting times conditional on the exploration history are independent rate-assigned residual exponentials, by memorylessness. A chosen edge has probability its rate divided by the total cut rate, and the winning predecessor gives the true shortest-path depth. Positive continuous weights imply uniqueness and a simple path; bipartite parity and cube order restrict its length to 3,5,7. I separately enumerated vertex arrival orders, expanded compatible parent assignments, and grouped all 7368 histories by their multiset of cut-rate factors and number of third-axis transmissions. Exact polynomial arithmetic verifies all three full rational identities, normalization and the derivative factorization. The derivative's positive remaining numerator coefficients prove the sign change only at 1; substitution gives (6973/7200,7/225,1/2400), and the constant and leading coefficients give the two limiting geodesic probabilities. Under the common exponential coupling, every antipodal path uses the third axis. Testing the minimizer at the old rate in the new, strictly faster environment proves strict decrease of the passage time.",
+      "residual_risks": [
+        "The optimum concerns the three-edge probability and only the ray of models (1,1,t); it is not a claim for arbitrary rate triples or larger cubes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martinsson provides an asymptotic length theorem for homogeneous exponential weights; Fill–Pemantle gives high-dimensional passage and cover results. The focused search did not surface a separate finite directional result."
+        ],
+        "reasoning": "Neither homogeneous high-dimensional limit specifies finite-depth probabilities for Q3, and neither compares the one-parameter anisotropic family.",
+        "searches": [
+          "Martinsson, arXiv:1402.2928, Theorem 1.2; Fill–Pemantle, arXiv:math/0404015, abstract and setup",
+          "Websearch: first-passage percolation hypercube exact path-length distribution Q3 exponential edge weights 6973 antipodal anisotropic"
+        ]
+      },
+      "checked_sources": [
+        "Resultary frozen self-match and near matches a9a0c959fdcb, 36ef126120ad, 93dd688a2c65",
+        "ArXiv:math/0404015; arXiv:1402.2928"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model yields an exponential exploration; prior homogeneous asymptotic path lengths do not supply its finite genealogy probabilities."
+        ],
+        "reasoning": "Memoryless edge competition supplies a method but not the exact rational coefficients or the global derivative sign. Axis symmetry and time rescaling can suggest stationarity at 1 and cannot establish a unique maximum along (1,1,t).",
+        "searches": [
+          "Fill–Pemantle setup, PDF p. 5; Martinsson §1 and Theorem 1.2, pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richardson growth and shortest paths with independent exponential passage times describe the same arrival model. The exact matching Resultary entry is the assigned record itself."
+        ],
+        "reasoning": "The model equivalence is prior work, not an equivalent earlier formula for the minimizing path's depth distribution. Passage-time laws and hop-count laws concern different random variables.",
+        "searches": [
+          "Resultary: (1,1,t) three-cube law; anisotropic Richardson geodesics; exact antipodal Q3 laws",
+          "Fill–Pemantle, arXiv:math/0404015, model setup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct exact table is for uniform-spanning-tree paths on the icosahedral graph. Near catalogue entries for anisotropic Crank–Nicolson or persistent corner passage study different processes. No separate matching table was verified."
+        ],
+        "reasoning": "An exact table from another graph or random-path law does not transfer. Even an isotropic finite table would give only a single rate, not the rational distribution or uniqueness of its optimizer.",
+        "searches": [
+          "Resultary: exact antipodal Q3 exponential length laws and low-dimensional cube tables",
+          "Resultary a9a0c959fdcb, exact finite path lengths and geodesic probability",
+          "Focused Q3 websearch with numerical identifier 6973"
+        ]
+      },
+      "rationale": "Credit the established exponential first-passage representation, Richardson exploration and asymptotic interest in optimizing path length. The verified distinction is the full exact finite-cube length law and its unique isotropic maximizer of three-edge probability along the specified directional family. The inspected sources address different regimes or path measures.",
+      "residual_risks": [
+        "Bounded priority comparison; an unindexed finite enumeration could overlap. Focused search nonmatches do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model equivalence and high-dimensional context",
+          "evidence": "Exponential passage times enter as the minimum of accumulated costs; main abstract statements address passage and cover times, not finite lengths at directional rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0404015",
+          "material_read": "Abstract and setup, PDF pp. 2,5; offsets 1200 and 8380",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Percolation, First-Passage Percolation, and Covering Times for Richardson’s Model on the n-Cube",
+          "trigger": "Primary exponential cube FPP model"
+        },
+        {
+          "assessment": "Homogeneous asymptotic length theorem",
+          "evidence": "Theorem 1.2 treats asymptotic length of the minimizing route for mean-one exponential costs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2928",
+          "material_read": "Abstract and §1/Theorem 1.2, PDF pp. 1,3–4; offsets 420 and 14380–15750",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Unoriented First-Passage Percolation on the n-Cube",
+          "trigger": "Same minimizing-route length observable"
+        },
+        {
+          "assessment": "Different random-path model and graph; no priority inferred from same-day date",
+          "evidence": "Tables concern uniform-spanning-tree paths on the icosahedral graph, not weighted shortest paths on Q3.",
+          "identifier_or_url": "Resultary a9a0c959fdcb",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact three-distance loop-erased length laws on the icosahedral graph",
+          "trigger": "Closest distinct catalogue exact length table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, derivative factorization and coupling; independent symbolic replay"
+      ],
+      "rationale": "Q3 is the first cube with detours between antipodes; Q2 cannot separate passage speed from geodesicity this way. The exact law explains a concrete tradeoff: increasing the third-axis rate always speeds passage, but above the isotropic point it lowers the chance of a shortest-in-hops route. An all-rate sign theorem and full finite law are more informative than an isotropic census.",
+      "residual_risks": [
+        "No performance or geodesic-growth theorem is established beyond this finite model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

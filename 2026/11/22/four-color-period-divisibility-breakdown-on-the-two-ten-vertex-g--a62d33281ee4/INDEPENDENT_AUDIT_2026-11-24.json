@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:48:41.105363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prescribed generalized Petersen edges give 15 undirected edges per graph. Base-four encoding bijects all labelled colorings with 0..2^20-1. For each map all coordinates of the new state read the same old state: CCA takes a successor only on contact with that color; GHM advances each nonzero state and activates a zero only on contact with 1. In a finite successor graph, a first repeat on the current trace identifies exactly a primitive cycle; each predecessor outside the cycle inherits its target's period and adds one to its entry time. Equivalently, peeling states without incoming edges leaves exactly the cycles; reverse peel order propagates both values. Counting the two classifications at the identical input index is essential. A separate NumPy implementation enumerated all four maps and reproduced every joint cell, both totals of 1048576, mismatches 275570/272460, nondivisibility counts 258660/245820, and entry maxima (11,8)/(11,11). The nondivisibility cells are (1,4),(1,5),(4,5),(5,4), plus (6,4) on the prism. Direct stepping of seeds 2054 and 6, respectively, gave the two (1,5) witnesses with fixed-state/five-cycle entry times (5,3) and (4,1). Replay: `python3 /workspace/branches/903424a3-8467-4629-91cf-89aa740d0b53/independent_census.py`; full_census.log beside it ends EXHAUSTIVE_CLASSIFICATION_OK. To eliminate possible narrow-buffer wraparound or joint-key collisions, an additional check with wide indegrees and unbounded cycle-length and round counters (`python3 /workspace/branches/automata-range-check.py`) gave actual cycle-length sets {1,4,5,6}, {1,4,5}, {1,4,5}, {1,4,5} in graph/CCA-GHM order, and 11,8,11,11 parallel peeling rounds. Every removed state reaches a cycle in at most the number of rounds. The frozen programs and outputs are supporting evidence, not the independent run. This proves the stated finite counters to extending the three-color divisibility theorem, not a minimum counterexample order or a result for all cubic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-color arbitrary-finite-graph divisibility result states P_H divides P_C under matched three-color inputs. The OA three-color paper gives the graph-automata framework, not four-stage behavior.",
+          "The four-color tripartite comparison covers complete tripartite graphs. The threshold paper located on infinite regular trees uses threshold at least two."
+        ],
+        "reasoning": "The three-color result is broader in graph class but not in state count. The tripartite graph theorem covers the state count but not either cubic graph here, and a threshold-two infinite-tree result is different both dynamically and geometrically. None produces the four-color paired table by specializing graph parameters.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320, pp. 2–3",
+          "Resultary 6edafe27dc02 and 6411c0882be0",
+          "arXiv:2108.06404, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, compare.cpp, verify_indegree.cpp, verify_indegree.out and verify_witness.py",
+        "Resultary 6edafe27dc02, 85df9829d668, 9ac3197a4c9b, b5fce197f102, 6411c0882be0",
+        "arXiv:1610.07320 and arXiv:2108.06404"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established divisibility boundary fixes the alphabet at three, while (1,5) occurs with four colors on both cubic graphs. The exact GHM marginals count occurrence of H periods without knowing the paired C periods. The tripartite result concerns primitive four-cycles in a different graph family."
+        ],
+        "reasoning": "Even knowing both unpaired marginal distributions would generally not determine how many divisibility failures occur under matched inputs. The compared findings neither provide earlier per-input values for both maps nor imply the actual joint cells. The identified (1,5) states are direct tests that the theorem cannot simply be transplanted to four colors.",
+        "searches": [
+          "Resultary three-color clock theorem 6edafe27dc02, offset 835",
+          "Resultary GHM marginal records 9ac3197a4c9b and b5fce197f102",
+          "Resultary four-color tripartite result 6411c0882be0, offset 955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prism is C5 Cartesian-product K2; the Petersen graph can also be represented by disjoint pairs in KG(5,2). A common vertex relabelling in both models preserves the joint histogram, while relabelling the models independently before pairing can change it.",
+          "The matched graph-pair census for three colors gives prism pointwise agreement and Petersen 4800 inputs of period pair (8,4), over 3^10 states per graph."
+        ],
+        "reasoning": "A catalogue using an isomorphic graph and equivalent local update rules would cover the same histogram if it pairs the same input in those rules. The consulted matched-input table has a genuinely different alphabet and state dynamics; a cyclic renaming cannot bridge three and four colors.",
+        "searches": [
+          "Resultary: Petersen graph / GP(5,2), pentagonal prism / GP(5,1), four-color CCA GHM and matched joint periods",
+          "Resultary three-color divisibility and graph-pair records 6edafe27dc02 and 85df9829d668"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Petersen GHM table gives 429136,90600,528840 states at periods 1,4,5, matching column sums by H period. The same-day prism GHM result gives 436846,579750,31980 at periods 1,4,5, with entry maximum 8; these agree exactly with the H marginal.",
+          "The earlier matched graph-pair table is for three colors, not the four-color input population."
+        ],
+        "reasoning": "The checked exact GHM tables do not give CCA labels at the corresponding input. They are affirmative evidence of partial coverage, not evidence that the full matched-input table had already been tabulated.",
+        "searches": [
+          "Resultary 9ac3197a4c9b RESULT.md and census.csv",
+          "Resultary b5fce197f102 RESULT.md",
+          "Resultary 85df9829d668 graph-pair exact census"
+        ]
+      },
+      "rationale": "Matched-input three-color analysis for exactly these graphs, and four-state GHM marginals on each graph, are demonstrably covered by prior or same-day records and are not the new contribution. The checked statements do not give the matched four-color cross-rule pairing, nondivisibility cells and counts. The same-day prism GHM record is a real overlap on the marginal and is credited as such without inferring priority from its date.",
+      "residual_risks": [
+        "An unindexed matched-input census, or separate per-input four-color classifications for both maps that could be joined under common labels, might cover the result. Checked GHM marginal counts and the previous three-color joint table do not do so."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Three colors only",
+          "evidence": "For matched three-color inputs the GHM eventual period divides the CCA period on finite graphs.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-excitation-clock-reconstruction-and-period-divisibility-fo--6edafe27dc02",
+          "material_read": "RESULT.md, offset 835",
+          "method": "Published Resultary local mirror",
+          "title": "Exact excitation clock reconstruction and period divisibility for three-color graph automata",
+          "trigger": "Prior theorem whose four-color extension is falsified"
+        },
+        {
+          "assessment": "Exact overlap in graph pair and joint-census task, but not in number of colors",
+          "evidence": "All 3^10 labelled inputs are classified per graph; 4800 Petersen inputs have pair (8,4).",
+          "identifier_or_url": "2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668",
+          "material_read": "RESULT.md, offset 568",
+          "method": "Published Resultary local mirror",
+          "title": "Petersen-specific period doubling between cyclic and refractory excitation dynamics",
+          "trigger": "Exact matched joint census on the identical graph pair"
+        },
+        {
+          "assessment": "Covers the four-state Petersen GHM marginal, not the matched CCA/GHM census",
+          "evidence": "The H period counts are 429136,90600,528840 for periods 1,4,5.",
+          "identifier_or_url": "2026/11/17/SCOPE-five-cycle-survival-and-two-four-cycle-symmetry-types-in-four-st--9ac3197a4c9b",
+          "material_read": "RESULT.md offset 412; census.csv offset 0",
+          "method": "Published Resultary local mirror and marginal comparison",
+          "title": "Five-cycle survival and two four-cycle symmetry types in four-state Petersen excitation",
+          "trigger": "Exact four-state Petersen census possibly covering matched inputs"
+        },
+        {
+          "assessment": "GHM marginal and its sharp entry bound are covered; dates do not settle precedence",
+          "evidence": "Counts by H period 1,4,5 are 436846,579750,31980, with sharp entry bound 8.",
+          "identifier_or_url": "2026/11/22/SCOPE-eight-step-relaxation-and-unequal-five-wave-basins-in-four-state--b5fce197f102",
+          "material_read": "RESULT.md, offset 164",
+          "method": "Published Resultary local mirror",
+          "title": "Eight-step relaxation and unequal five-wave basins in four-state prism excitation",
+          "trigger": "Same-day exact four-state result on the prism"
+        },
+        {
+          "assessment": "Different class of graphs and comparison",
+          "evidence": "The statement matches primitive four-cycles for the two maps on complete tripartite graphs.",
+          "identifier_or_url": "2026/11/1/SCOPE-four-state-excitation-on-tripartite-graphs-identical-four-cycle--6411c0882be0",
+          "material_read": "RESULT.md, offset 955",
+          "method": "Published Resultary local mirror",
+          "title": "Four-state excitation on tripartite graphs: identical four-cycle orbits, different transients, and exact extinction",
+          "trigger": "Prior four-color comparison of both automata"
+        },
+        {
+          "assessment": "Relevant general framework with three colors, not four",
+          "evidence": "The passages define and analyze three-color CCA and GHM on graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "pp. 2–3, offset 8036",
+          "method": "Primary OA PDF",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Primary literature on both rules on arbitrary graphs"
+        },
+        {
+          "assessment": "Different graph limit and excitation threshold",
+          "evidence": "The stated regime is infinite regular trees with threshold at least two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+          "material_read": "p. 1, offset 362",
+          "method": "Primary OA PDF screening",
+          "title": "Excitable cellular automata on trees, arXiv:2108.06404",
+          "trigger": "Web search hit on both graph automata and regular graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first increase beyond the three-color setting tests the actual boundary of a period-divisibility theorem. The two graphs are the natural ten-vertex generalized Petersen pair, with an existing three-color comparison, not arbitrary sampled instances. The same-input witnesses settle failure in both, and the full census measures its prevalence and shows genuinely different joint behavior even with known GHM marginal laws. It is not a repeat of either marginal census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

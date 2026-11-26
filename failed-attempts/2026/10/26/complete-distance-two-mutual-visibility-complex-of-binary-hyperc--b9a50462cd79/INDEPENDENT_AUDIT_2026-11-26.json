@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:35.571234Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local criterion is diameter at most two and exclusion of the full square containing both geodesic midpoints of any selected distance-two pair. Normalize such a pair to 0 and e_1+e_2. With one midpoint selected every allowed point is in the ball about that midpoint; with neither, the nonzero points are weight-two supports which meet pairwise. If there is a common coordinate they yield a ball, and otherwise the edges must be exactly a triangle, giving a parity tetrahedron. The case with no distance-two pair has size at most two and is in a ball. Leaves in a ball have an alternative midpoint outside it, and both midpoints of each tetrahedron pair have the opposite parity. A tetrahedron is not contained in a ball, and distinct balls intersect in at most two points. Hence both kinds are facets (including d=3), and ball subfaces of size at least three are counted once. The number of distinct parity tetrahedra is 2^(d−2) times binom(d,3); the coefficients for sizes 0, 1, 2 follow by the direct unordered pair count. The independent geodesic test exhausts Q_3 and Q_4 and tests Q_5 up to size four; coefficient vectors are (1,8,24,32,10), (1,16,80,160,96,16), and (1,32,240,640,560) through size four, respectively. Direct augmentation gives facet counts {4:10} for Q_3 and {4:16,5:16} for Q_4. Replay: branches/4eb7a126-98b5-4c1f-a9ba-f27964bcd795/independent_check.py and independent_check.log. This is finite corroboration; the proof establishes all dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3ed418f43bd2 gives complete binary facet and size counts, including d≥3. The q-ary anticode entry includes the binary size enumerator by specialization. The inspected older anticode sources give exponential-order or asymptotic bounds rather than the frozen polynomial; Frankl's full text was not obtained."
+        ],
+        "reasoning": "The binary classification dominates the frozen structure and count, whereas order bounds alone do not. This comparison does not infer historical priority from the catalogue dates.",
+        "searches": [
+          "3ed418f43bd2/RESULT.md",
+          "00ff5b1e991c/RESULT.md",
+          "arXiv:2610.31618v1 Proposition 3.4",
+          "arXiv:2507.10828 p. 1",
+          "Frankl DOI:10.1017/S0963548316000456"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 3ed418f43bd2, 00ff5b1e991c and 205d6ab586a0",
+        "arXiv:2103.01040, 2408.03976v1, 2402.04791v4, 2610.31618v1, 2507.10828 and 2501.19385v3",
+        "DOI:10.1017/S0963548316000456 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A diameter-two nonvisible family contains a full coordinate square, already maximal as an anticode. Every triple in a coordinate square is contained in the radius-one ball centered at its corner adjacent to the other two. The visibility and general-position papers describe related but different conditions or scalar invariants."
+        ],
+        "reasoning": "No proper extension of a square is an anticode, and no proper subset becomes a new facet on its deletion because it extends to a ball. Thus the exact polynomials, the tetrahedron/ball dichotomy, and the purity statements follow mechanically from the anticode result. The earlier scalar value alone would not imply them.",
+        "searches": [
+          "3ed418f43bd2/RESULT.md facet classification and unique extension statement",
+          "205d6ab586a0/RESULT.md",
+          "arXiv:2408.03976v1 p. 1; arXiv:2402.04791v4 p. 1; arXiv:2501.19385v3 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary anticode entry gives exactly the balls, coordinate squares and parity planes as maximal diameter-two families. Scale two of the Hamming Vietoris–Rips complex is the diameter-at-most-two family; the Rips proof p. 7 uses star and triangle facets at the weight-two link step."
+        ],
+        "reasoning": "The visibility complex is the anticode complex with coordinate-square faces removed. It is not ordinary visibility, general position, or the whole Rips complex; the local geodesic condition identifies the exact deletion.",
+        "searches": [
+          "Resultary lookup for distance-two visibility, diameter-two Hamming anticodes and square-of-hypercube clique complexes",
+          "3ed418f43bd2/RESULT.md offsets 0–5449",
+          "arXiv:2103.01040, Vietoris–Rips complex definition and p. 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary anticode record tabulates exact facet numbers by family and the full size polynomial. Its coordinate-square class has 2^(d−2) binom(d,2) elements. The earlier hypercube visibility record gives the scalar d+1, not either histogram."
+        ],
+        "reasoning": "Delete precisely that square count from the size-four coefficient and from the facet polynomial. All other counts follow with identical parameters.",
+        "searches": [
+          "Resultary 3ed418f43bd2/RESULT.md offsets 0–5449",
+          "00ff5b1e991c/RESULT.md Finding offset 0",
+          "205d6ab586a0/RESULT.md Finding offset 0"
+        ]
+      },
+      "rationale": "The exact diameter-two anticode face and facet classification in distinct catalogue record 3ed418f43bd2 covers the entire frozen result by deletion of coordinate squares, the only diameter-two anticodes that violate 2-visibility. The broader q-ary catalogue entry 00ff5b1e991c also gives the size counts before that deletion. Their displayed path dates follow the frozen date; this shows stronger existing coverage as of review, not earlier publication or proven direction of provenance. The earlier 205d6ab586a0 already gives the scalar maximum.",
+      "residual_risks": [
+        "Earlier literature could state an equivalent global anticode or clique classification. Frankl full text was not obtained. Neither this uncertainty nor path chronology is the basis for the demonstrated coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger mathematical coverage; displayed path date later than the frozen entry",
+          "evidence": [
+            "Ball, coordinate-square and parity-plane maximal anticodes with their exact counts; complete size polynomial."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-size-enumerator-and-maximal-faces-of-binary-diameter-two-a--3ed418f43bd2/RESULT.md",
+          "material_read": "RESULT.md exact formulas and structure, offsets 0–5449",
+          "method": "Local Resultary mirror",
+          "title": "Exact size enumerator and maximal faces of binary diameter-two anticodes",
+          "trigger": "Same diameter family before the local geodesic exclusion"
+        },
+        {
+          "assessment": "Contains the binary size counts before the square correction",
+          "evidence": [
+            "Gives the all-size count for every alphabet size."
+          ],
+          "identifier_or_url": "00ff5b1e991c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact size-refined enumeration of every diameter-two Hamming anticode",
+          "trigger": "Broader alphabet parameters for the same diameter bound"
+        },
+        {
+          "assessment": "Scalar overlap only",
+          "evidence": [
+            "States μ₂(Q_d)=d+1 and studies the distance-three parameter."
+          ],
+          "identifier_or_url": "205d6ab586a0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact low-distance mutual visibility in hypercubes",
+          "trigger": "Earlier exact result for the identical visibility parameter"
+        },
+        {
+          "assessment": "Homotopy and a relevant local structural precedent, rather than the frozen enumerator in the inspected passages",
+          "evidence": [
+            "A Rips simplex has diameter at most the scale; the proof identifies the local weight-two link with a Kneser independence subcomplex and lists star and triangle facets there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01040",
+          "material_read": "Theorem 1 p. 2; Rips simplex definition pp. 4–5; proof's weight-two link step p. 7, offsets 33210–35441",
+          "method": "OA PDF",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Identical diameter-two anticode complex via scale two"
+        },
+        {
+          "assessment": "Relevant definition and scalar problem background, not the compared distribution",
+          "evidence": [
+            "Introduces distance-limited visibility, with complexity, bounds and exact values for some graph classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.03976v1",
+          "material_read": "p. 1 opening statement",
+          "method": "OA PDF",
+          "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+          "trigger": "Foundational distance-limited definition"
+        },
+        {
+          "assessment": "Unrestricted visibility, not the threshold-two counting problem",
+          "evidence": [
+            "States an unrestricted extremal result of order 2^d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.04791v4",
+          "material_read": "p. 1",
+          "method": "OA PDF",
+          "title": "Visibility in Hypercubes",
+          "trigger": "Same graph class and mutual visibility terminology"
+        },
+        {
+          "assessment": "Compared bounds do not supply the exact diameter-two polynomial",
+          "evidence": [
+            "Gives exponential-order total counts for diameter two and an exact diameter-one count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31618v1",
+          "material_read": "Proposition 3.4 p. 11, offset 35717",
+          "method": "OA PDF",
+          "title": "Horlemann–Ravi, arXiv:2610.31618v1",
+          "trigger": "Earlier enumeration of diameter-bounded Hamming families"
+        },
+        {
+          "assessment": "Compared statements give asymptotic structural bounds",
+          "evidence": [
+            "Studies maximal fixed-diameter sets; no exact face counts follow from the inspected bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.10828",
+          "material_read": "p. 1",
+          "method": "OA PDF",
+          "title": "Bukh–Saatashvili, arXiv:2507.10828",
+          "trigger": "Prior structure of maximal bounded-diameter families"
+        },
+        {
+          "assessment": "Different quantifier on geodesics",
+          "evidence": [
+            "General position excludes three selected vertices on any common shortest path, rather than requiring some shortest path to be clear."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.19385v3",
+          "material_read": "§1 p. 5, offset 13100",
+          "method": "OA PDF",
+          "title": "General position survey, arXiv:2501.19385v3",
+          "trigger": "Similar shortest-path avoidance notion"
+        },
+        {
+          "assessment": "Precise scope unresolved, not negative evidence",
+          "evidence": [
+            "No statement-level full-text comparison was available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548316000456",
+          "material_read": "DOI lookup; full paper not readable in this attempt",
+          "method": "Lawful OA attempt",
+          "title": "A Stability Result for Families with Fixed Diameter",
+          "trigger": "Plausibly relevant stronger structure for anticodes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete shape of this natural complex is useful in principle, particularly the small maximal faces missed by the extremal number. As a separate claim against the existing stronger catalogue result, the exact visibility data are a one-family deletion with no uncovered substantive remainder. No repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

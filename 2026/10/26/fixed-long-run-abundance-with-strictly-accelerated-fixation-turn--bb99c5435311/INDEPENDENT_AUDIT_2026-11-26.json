@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:02:19.675780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The focal sampling difference at each group composition is the first difference of binom(k,j)binom(N-k-1,n-j), by applying Pascal in both factors. It telescopes from zero and gives a mixed-return coefficient positive at k=j and zero at k=N-1. Solving the fixation recurrence with consecutive increment ratio exp(-delta Delta_i) gives the stated denominator and the factor exp(-delta S) between endpoint fixations. Thus each coordinate increase strictly lowers the common denominator while leaving S fixed. Every interior k has some positive mixed coefficient (choose max(1,n-(N-k-1)) <= j <= min(k,n-1)); this yields the sharp unattained gap supremum mu, and the coordinatewise law gives the minimum at zero mixed returns. On the half-split family, weighted Vandermonde gives sum_j j binom(k,j)binom(N-1-k,n-j)=k binom(N-2,n-1), yielding the stated falling-factorial expression. At fixed n its bracket divided by N tends uniformly to x-x^n, maximized at n^(-1/(n-1)); replacing the exponential sum by its largest term costs at most log(N)/N in the rate. This verifies the exponent in the reduced chain, not a joint finite-mutation limit. Independent bounded replay: /workspace/branches/29341c84-3bfe-4d65-b6c2-9c7dc0866338/independent_check.py. Separate focal-payoff sums agreed with the kernel at (N,n)=(7,3),(8,4); the half-split example gave both fixations about 0.0464086. For n=3 and epsilon=c=delta=1, the normalized logarithmic rate at N=40 to 640 went from 0.30442 to 0.26179 toward 0.25660012. These are consistency checks, not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hauert–McAvoy gives general fixation relations and a weak-selection linear-return comparison, not a derivative sign for arbitrary individual interior multipliers.",
+          "The nearby indexed records treat payoff convexity, finite-mutation abundance sensitivity, parity in payoff sign changes and equal fixations on selected schedules, or inverse recovery of returns."
+        ],
+        "reasoning": "Neither the general relations without a signed kernel nor these different regimes and observables imply the stated coordinatewise strictness and matched-stationarity rate comparison.",
+        "searches": [
+          "Hauert–McAvoy arXiv:2404.13728, pp. 11–12",
+          "Resultary 782b8b55b870, 083a8abb28cc, e6964137f3ec, 9f16e3760416"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, pp. as displayed in lines 4–76",
+        "Wang et al. arXiv:2607.16809",
+        "Hauert–McAvoy arXiv:2404.13728",
+        "Traulsen–Nowak–Pacheco arXiv:q-bio/0609020",
+        "Four Resultary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixing the sum of payoff differences mathematically fixes the fixation ratio, but leaves the cumulative profile free. The covered identities alone give no sign for the response of the two probabilities.",
+          "The new deductions need the mixed-return partial-sum kernel and the large-N maximizing barrier profile x-x^n."
+        ],
+        "reasoning": "Credit the stationarity consequence and generic Markov-chain framework in full; the model-specific kernel and quantitative rate separation are not rephrasings or mechanical specializations of the inspected comparisons.",
+        "searches": [
+          "Wang et al. arXiv:2607.16809 Prop. 1",
+          "Hauert–McAvoy arXiv:2404.13728 Eqs. (26), (31)–(33)",
+          "Traulsen et al. arXiv:q-bio/0609020 Eqs. (5)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary share and fixation ratio are equivalent and depend only on the terminal payoff sum S. Their formula is covered by combining the cited Eq. (10) with standard Fermi fixation theory.",
+          "Fixation turnover, unlike that ratio, depends on the entire partial-sum sequence through an exponential denominator."
+        ],
+        "reasoning": "Terminal cancellation is exact but contains no sign information for derivatives at partial counts; re-expressing stationarity does not cover the strict increase of both numerators in the reduced chain.",
+        "searches": [
+          "Resultary: fixation probabilities and mixed public-goods returns at fixed long-run abundance",
+          "arXiv:2607.16809 §2.2 Eq. (10)–(11)",
+          "arXiv:q-bio/0609020 Eqs. (5)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved symbolic records have different findings; the same-day four-person reversal finding is about payoff advantage and expressly distinguishes its observable from fixation.",
+          "The main result ranges over arbitrary admissible N,n and continuous return and intensity parameters; a table of finite examples cannot cover the universal inequalities or exponent."
+        ],
+        "reasoning": "Symbolic catalogue comparison is applicable and was used; an exact finite numerical table is not a substitute for this parameter-global statement.",
+        "searches": [
+          "Resultary symbolic public-goods fixation, abundance, and rate comparisons; closest four records below"
+        ]
+      },
+      "rationale": "The generic Fermi fixation formulas and terminal-payoff cancellation already imply the all-intensity stationary split; it is not the new claim. The distinct content is the nonnegative and sometimes positive mixed-return coefficient at every partial-sum level, strict coordinatewise acceleration in both directions, and the sharp range and explicit exponential separation at fixed abundance. The closest inspected sources give the terminal quantity, weak-selection schedule comparisons, or different observables, not an implication of those results.",
+      "residual_risks": [
+        "The targeted search does not rule out an equivalent cumulative-payoff formulation elsewhere or certify priority.",
+        "No originality credit is assigned to terminal cancellation, the ratio identity, or the general rare-mutation reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact terminal cancellation and weak-selection abundance comparison are covered",
+          "evidence": [
+            "Eq. (10) gives c[(N-n)r(n)/n+1-N]; Eq. (11) depends on r(n) alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.16809",
+          "material_read": "§2.2, p. 3, Proposition 1, Eqs. (10)–(11), extracted offsets 21500 and 25350",
+          "method": "OA PDF passage",
+          "title": "Evolutionary dynamics in public goods games with general frequency-dependent returns",
+          "trigger": "Same model and return schedule parameters"
+        },
+        {
+          "assessment": "General fixation framework and weak-selection linear schedule, not global coordinatewise signs",
+          "evidence": [
+            "The worked return dependence is for a linear schedule under weak selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.13728",
+          "material_read": "pp. 11–12, Eqs. (26), (31)–(33), extracted offsets 51000 and 56300",
+          "method": "OA submitted version of the same paper; publisher DOI page returned 403",
+          "title": "Frequency-dependent returns in nonlinear public goods games",
+          "trigger": "Fixation with return variation"
+        },
+        {
+          "assessment": "Generic Fermi ratio and fixation denominator covered",
+          "evidence": [
+            "The transition ratio is exponential in payoff differences and the fixation equation sums their successive products."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/q-bio/0609020",
+          "material_read": "p. 2, Eqs. (5)–(6), offset 15700",
+          "method": "OA PDF passage",
+          "title": "Stochastic dynamics of invasion and fixation",
+          "trigger": "General Fermi fixation formula"
+        },
+        {
+          "assessment": "Different regimes or observables",
+          "evidence": [
+            "083a8abb28cc uses positive mutation; 782b8b55b870 studies payoff convexity; e6964137f3ec studies parity/equal fixations; 9f16e3760416 recovers parameters from a profile. A common date was not used to infer priority."
+          ],
+          "identifier_or_url": "Resultary 083a8abb28cc, 782b8b55b870, e6964137f3ec, 9f16e3760416",
+          "material_read": "Retrieved Finding and relevant scope text in local mirror",
+          "method": "Resultary and local mirror passages",
+          "title": "Nearby indexed public-goods results",
+          "trigger": "Potential overlap in interior returns, equal fixation or finite-population payoff profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive cumulative kernel resolves a genuine distinction between the frequency of a homogeneous state and the rate of switching between homogeneous states. In particular, systems with exactly the same 1/2 stationary share can range from exponentially slow switching to arbitrarily near the reduced chain's upper rate mu. The conclusion is useful precisely within the specified expected-payoff Fermi model and does not identify full-chain fixation durations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

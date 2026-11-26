@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:45:43.601213Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For y=F_s x, put v=g(y) and r=y-v. Oddness and monotonicity of both f and Id-f make the sign changes and coordinate sorting putting v and r in the same 45-degree cone simultaneous. Thus r·v≥|det(r,v)|, and F_s^{-1}=(I-sJ)/(1+s²) gives x·v≥||v||²/(1+s²) when |s|≤1. Expanding the square proves sufficiency including the endpoint. At zero the derivative has squared norm 1−2γ+γ²(1+s²), proving failure above the claimed bound. For s>1 a fixed b with sf(b)>L makes (1+s²)x·v=a(f(a)−sf(b))+b(sf(a)+f(b)) negative for large a; reflection handles negative s. At y=(0,b) the second Jacobian column tends to (γs,1); for s=0 the scalar secant slopes give the pairwise result. In y-coordinates the 1-smooth potential gives the strict decrement γ(1−γ(1+s²)/2)||g(y)||². Since f is monotone and positive on positive arguments, g(y_k)→0 forces y_k→0 without a compactness assumption. No convergence at equality is asserted; an admissible response linear in a neighborhood of zero can give a nonshrinking linear orbit there. The exact s=2, γ=1/5 witness checks out. CHECK.py and VERIFICATION.md were inspected, not executed: the code tests 625 states per skew, 3,750 across six skews (the prose says per skew), for a total of 18,792 rational assertions including the separate witnesses. All tests use a single response; the proof supplies universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 gives potential descent and zero limit points for 0<γ≤β under nonlinear cocoercivity. Theorem 2.7(i) gives Fejér monotonicity for 0<γ<2β when the preconditioner is radial. Proposition 25 treats Jacobian-based enriched nonexpansiveness, including the symmetric positive-semidefinite displacement case and an angular representation of a general certificate."
+        ],
+        "reasoning": "The nonlinear product response is not radial (at unequal positive coordinates the ratios f(t)/t need not agree), and the forward map has state-dependent, generally nonsymmetric displacement Jacobians. Neither general certificate provides the common-ordering bound or the sharp skew and stepsize decision for these responses. The smooth descent part is standard and is not the distinct contribution.",
+        "searches": [
+          "arXiv:2611.13916, Theorems 2.4 and 2.7",
+          "DOI:10.3389/fams.2026.1945678, Proposition 25"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "Resultary matching record 7c07927c078a",
+        "arXiv:2611.13916",
+        "DOI:10.3389/fams.2026.1945678"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Potential monotonicity controls Φ(F_s x), not ||x||, and Example 2.6 explicitly separates these. General Jacobian tests reduce pairwise nonexpansiveness to operator norm bounds but do not evaluate the tail limit at (0,b) for this map."
+        ],
+        "reasoning": "The near-zero expansion gives the usual step restriction and is not enough to find |s|=1. Its sufficiency and necessity need respectively common ordering of two coordinates and the independent far-tail saturation witness. The prior example and abstract tests are inputs or partial overlap, not stronger cover of the full result.",
+        "searches": [
+          "arXiv:2611.13916, Theorem 2.4, Theorem 2.7 and Example 2.6",
+          "DOI:10.3389/fams.2026.1945678, Proposition 25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed matching SCOPE finding is the identical assigned record (suffix 7c07927c078a). Quan et al. use f(t)=t/(1+|t|) and F=I+2J and exhibit loss of Fejér monotonicity; they do not give the same-response classification in (s,γ)."
+        ],
+        "reasoning": "Euclidean Fejér monotonicity about the unique zero is equivalent to the radial norm inequality used here; neither convergence of the dual potential nor a single non-Fejér path is the converse-and-sufficiency classification of that inequality.",
+        "searches": [
+          "Resultary: separable saturated forward iteration, Fejér skewness and pairwise nonexpansiveness",
+          "arXiv:2611.13916, Example 2.6 and proof in Appendix B.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact entry points to the frozen manuscript itself, not a distinct source. The strongest verified primary statement lists a qualitative witness at s=2 with β=1/5, not the two iff boundaries."
+        ],
+        "reasoning": "An exact phase diagram for this family would count even under different names for the saturation or an angle parameter for s; no distinct exact diagram was established by the checked sources.",
+        "searches": [
+          "Resultary: sharp Fejér skew boundary for coordinatewise saturation and planar rotation-dilation",
+          "arXiv:2611.13916, p. 4"
+        ]
+      },
+      "rationale": "The verified distinct contribution is the two sharp Euclidean classifications for this specific planar family, not the general descent principle or the existence of a non-Fejér example. The closest actual prior example has the very same separable preconditioner and s=2 but no universal skew or stepsize classification.",
+      "residual_risks": [
+        "Historical priority outside the bounded search is not established, especially under operator-theory or saturation terminology. The version-suffixed arXiv URL timed out once; the direct PDF supplied the decisive passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not distinct coverage",
+          "evidence": [
+            "Finding clauses 1–3 give the exact same classifications and strict convergence claim."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-sharp-skewness-boundary-for-separable-saturated-forw--7c07927c078a",
+          "material_read": "Frozen RESULT.md, theorem and proof",
+          "method": "Resultary identification and matching local text",
+          "title": "A universal sharp skewness boundary for separable saturated forward iterations",
+          "trigger": "Strongest exact Resultary hit"
+        },
+        {
+          "assessment": "Partial overlap in method and example, not sharp family classification",
+          "evidence": [
+            "Example 2.6 uses I+2J and β=1/5; Theorem 2.7(i) assumes isotropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13916",
+          "material_read": "p. 4, Theorems 2.4 and 2.7 and Example 2.6; Appendix B.4 proof of Example 2.6, p. 16",
+          "method": "OA PDF text, bounded reading at offsets 16000–19236 and near 69800",
+          "title": "Dual-Space Preconditioning for Variational Inequalities and Root-Finding Problems",
+          "trigger": "Same algorithm and same motivating saturation"
+        },
+        {
+          "assessment": "Generic related criterion, not the family classification",
+          "evidence": [
+            "The proposition treats symmetric positive-semidefinite displacement Jacobians and scaled orthogonal maps, and expresses a directional certificate using the angle to the Jacobian image."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fams.2026.1945678",
+          "material_read": "p. 9, Proposition 25 and adjacent certificate discussion",
+          "method": "OA publisher PDF, literal proposition locator and bounding passage around offset 70500",
+          "title": "Enriched-nonexpansive Plug-and-Play image restoration",
+          "trigger": "Possible broader pairwise differential criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a concrete limitation left by a known separable example: stable trajectories can lose Euclidean Fejér monotonicity at an exact 45-degree threshold, and pairwise nonexpansiveness can fail even on the Fejér side. The saturation argument and common-coordinate angular certificate make this an all-response result, useful for separating stability guarantees in the motivating algorithm. The strict convergence bound alone would not justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

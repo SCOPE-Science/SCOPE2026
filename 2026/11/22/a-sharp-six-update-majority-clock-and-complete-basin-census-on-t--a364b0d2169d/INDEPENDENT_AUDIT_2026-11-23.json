@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:28.267567Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The specified Hamiltonian cycle plus six chords is a 12-vertex simple cubic graph; degree three removes all ties. An independent replay (`node /workspace/branches/replay-majority-census.js`) constructs the entire successor map and runs reverse breadth-first search from precisely the states satisfying F²(x)=x. All 4096 states are reached; the least reverse distance is exactly first periodic-entry time. It yields 20 fixed points, 103 primitive two-orbits and entry counts (226,1226,1364,608,408,216,48). Grouping by orbit yields the fixed and two-cycle basin spectra in the frozen report and the unanimous basin sizes 392 each. The fixed-weight census also agrees. Enumerating images of the ordered Hamiltonian cycle and testing the six chords is exhaustive for vertex automorphisms and gives eight; their actions on temporal orbits give respectively 7 and 29 spatial classes with the reported size multiplicities. The witnessed orbit is 59,118,43,86,41,82,33,66,33, so F⁷≠F⁵; global depth six and periods dividing two give F⁸=F⁶. A separately executed Python replay agrees: `/workspace/branches/e06b8c43-1097-465d-adf2-a547dea5720b/bidiakis_replay.py`. The supplied verification scripts were inspected, not executed. The certificate is exact for this finite graph and rule, not a theorem for arbitrary cubic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The literature gives period at most two and a graph-general O(|E|) convergence bound. The closest full-order census imposes bipartiteness."
+        ],
+        "reasoning": "Even-offset chords join equal-parity sites in the alternating coloring forced by the Hamiltonian cycle, so Bidiakis is not bipartite. General bounds are not exact first-entry distributions or orbit-basin and spatial inventories.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486 and Kaaser et al. arXiv:1508.03519 finite majority voting",
+          "Resultary all five cubic bipartite graphs on 12 vertices --4f7c0bf360a7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both check_majority scripts",
+        "arXiv:1405.2486 and arXiv:1508.03519",
+        "Resultary frozen self-match, distinct Herschel and 12-vertex cubic bipartite records",
+        "MathWorld Bidiakis Cube; Maple LCFGraph page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior finite-graph period-two result implies that periodic states satisfy F²(x)=x but supplies neither the number of such states nor their inverse-tree sizes. The neighboring complete catalogues do not include this graph."
+        ],
+        "reasoning": "The sharp witness, global depth populations, individual basin spectra and action on temporal orbits depend on the specified adjacency and require graph-specific work. Shared clock or fixed point numbers on a different graph do not imply the result.",
+        "searches": [
+          "Finite-graph recurrence discussions in arXiv:1405.2486 and arXiv:1508.03519; distinct Herschel and cubic bipartite census Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical indexed record --a364b0d2169d is the frozen item, not a distinct source. The Herschel census --d2fd4ae979a1 also has 20 fixed states and a six-step sharp clock, but has 11 vertices, 61 two-cycles and 2048 states."
+        ],
+        "reasoning": "This is a deterministic threshold/majority map; a rotation, relabelling or change from binary notation to ±1 would preserve the census. The Herschel graph is not a relabelling, and its orbit counts and state space differ.",
+        "searches": [
+          "Resultary semantic search for Bidiakis cube synchronous majority fixed points, attractor basins and convergence clock",
+          "Web: Bidiakis majority dynamics OR majority rule OR Boolean network attractors synchronous voting transient basin 103 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld describes the cubic Hamiltonian graph and its GraphData identifier; it does not list this dynamical census in the inspected entry. The targeted Resultary lookup returns the bound record for an exact Bidiakis match."
+        ],
+        "reasoning": "An exact graph entry, LCF encoding or automorphism statistic is not an attractor-basin catalogue. An independently listed graph identifier allows reproduction but not recovery of the census without doing dynamical work.",
+        "searches": [
+          "Web: Bidiakis majority rule dynamics graph basin catalogue cubic graph configurations automorphism fixed points synchronous threshold orbit",
+          "Resultary Bidiakis exact census; MathWorld Bidiakis Cube; Maple LCFGraph"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete Bidiakis-specific finite census and six-step sharpness, not eventual period two or the majority enumeration method. The strongest different nearby results are for different graphs or give only uniform upper bounds. No checked exact table or dominating theorem implies this census; the searches do not prove priority.",
+      "residual_risks": [
+        "An unpublished, unindexed or differently catalogued Bidiakis majority census could precede this result; worldwide priority is not established.",
+        "The Maple public-page extraction did not resolve its Bidiakis example by literal query; the audit does not treat that miss as evidence of absence. The theorem specifies the graph by its own exact edge construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior eventual period-one/two behavior, not graph-specific counts",
+          "evidence": [
+            "The finite-graph statement uses tie retention, irrelevant on the present cubic graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "PDF p. 2, Theorem 1.1 discussion (offset 4253)",
+          "method": "OA PDF passage",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "Classical period-two bound for finite majority maps"
+        },
+        {
+          "assessment": "General bounds, not a sharp Bidiakis-specific recurrence or distribution",
+          "evidence": [
+            "Voting reaches a two-periodic state with a general O(|E|) bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "PDF pp. 1–2 (offsets 1089 and 6008), convergence statements",
+          "method": "OA PDF passages",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "General transient bounds might specialize to this clock"
+        },
+        {
+          "assessment": "Different graph and different census",
+          "evidence": [
+            "11-vertex Herschel graph; 61 primitive two-cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-majority-attractor-basins-and-a-six-update-clock-on-the-he--d2fd4ae979a1",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact majority attractor basins and a six-update clock on the Herschel graph",
+          "trigger": "Same six-update cutoff and 20 fixed states"
+        },
+        {
+          "assessment": "Bipartite family does not contain the Bidiakis graph",
+          "evidence": [
+            "Family is connected cubic bipartite; Bidiakis admits no bipartition under its Hamiltonian-cycle parity coloring."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-majority-attraction-spectra-of-all-five-cubic-bipartite-gr--4f7c0bf360a7",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact majority attraction spectra of all five cubic bipartite graphs on 12 vertices",
+          "trigger": "Complete catalogue at same order and degree"
+        },
+        {
+          "assessment": "Identifies graph, not dynamics",
+          "evidence": [
+            "Gives the construction, cubic Hamiltonian descriptors, and GraphData identifier."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/BidiakisCube.html",
+          "material_read": "Published graph entry, descriptive and GraphData passage",
+          "method": "OA public page",
+          "title": "Bidiakis Cube",
+          "trigger": "Reference graph/database and possible existing census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete benchmark on a named small cubic polyhedral graph that is not vertex-transitive, not a lone run on a sampled graph. The exact sharp clock and distribution distinguish worst-case and typical starts; the per-orbit basins and spatial classes provide information that a graph identifier, an attractor count or the universal period-two theorem cannot supply. A researcher testing finite majority dynamics or symmetry reductions can use these quantities as exact reference values. The value is finite and graph-specific, not a general convergence claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction starts from a finite presentation two-complex, gives a finite total composition table on exactly three acyclic objects, and checks associativity directly because no triple of nonidentity arrows composes. Its sink-link graph has \(s\) connected relator cycles sharing a base vertex, with only pendant extra edges. The graph map to the first two objects carries each cycle to its exact signed attaching word. The sink mapping-cone lemma then yields precisely the source two-complex up to homotopy. One- and two-object lower bounds follow from nerve dimension, while Kronecker categories cover all connected graph types. Edge cases (null words, zero initial generator loops, and graph types) are handled by explicit homotopy-preserving normalization. The eight packaged finite tests verify composition, differentials, incidence, relator words, and sample integral homology but are not the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+Collapse a maximal tree in the finite connected 1-skeleton (a contractible CW subcomplex), and replace each attaching loop by a based finite edge word up to homotopy; homotopic attaching maps give equivalent cofibers. With no loop generators, a cancelling loop/disk pair allows even a constant relator to be written nonemptily. The composition table defines all pairs on the three strictly ordered objects, and no triple of nonidentities is composable. Every nondegenerate triangle is a cone on its a-edge at the sink; its two edges to the sink are glued along the b-arrow and the composite. This proves the stated graph mapping cone, including parallel edges for one-letter relators. The link graph is precisely the common-root bouquet of subdivided relator loops with private degree-one leaves; retaining both edges of each bigon is necessary. Its path from c_{r,j−1} through the occurrence to c_{r,j} projects to a_i a_0⁻¹ for a positive letter and a_0 a_i⁻¹ for a negative one. Retracting leaves and collapsing the edge a_0 in the base preserve the homotopy cofiber. Collapsing the cone segment over the common root is a quotient by a contractible subcomplex and gives one disk for each loop with exactly its signed word as boundary. Thus the entire homotopy type, not just π₁ or homology, is realized. At most two objects yield a graph; one yields a point. Every finite-rank connected graph type has the two-object parallel-arrow realization, proving the exact minimum trichotomy. The verifier is illustrative; its sample named free_circle_plus_sphere has two circle generators, as its asserted ranks indicate, not one. This naming detail does not affect the theorem or the asserted sample ranks.
 
-The primary full text of Carcacía Campos, arXiv:2611.09718v1, Sections 2 and 8, establishes the sink lemma and table interpretation; it does not assert arbitrary two-complex realization or derive the complete \(\nu\) trichotomy. Ben-Bassat, arXiv:2610.38760v1, proves a different finite-monoid theorem, which neither restricts to acyclic categories nor gives a three-object bound. Indexed published comparisons and the earlier individual surface constructions revealed only more restricted special cases (including surfaces) or different invariants. Statement-level comparisons, not a mere title search, support originality. Priority risk remains for unindexed presentations/low-object categorical constructions; this is not a proof of worldwide uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves object complexity uniformly for every connected finite CW homotopy type of dimension at most two, replacing a collection of isolated calculations by a complete sharp classification. Its explicit relation between arbitrary attaching words and a three-object composition table is structurally useful for finite categorical models of fundamental groups and two-dimensional homotopy data. This is not a routine homological bound or a numerical instance; the proof handles arbitrary noncommuting relators and the full two-complex homotopy type.
+The sink lemma, two-object case and several sharp families are known. The supported distinct claim is the universal three-object upper bound for arbitrary finite two-complex homotopy types, through a table realizing arbitrary systems of signed attaching words; the exact trichotomy follows with the known dimension obstruction. Neither a finite acyclic model with unbounded object count, a truncated approximation, nor a monoid realizes this same claim.
 
-## Sources and limitations
+## value
 
-Primary comparison: I. Carcacía Campos, *How many points does it take to see the homotopy of a space?* (2026), arXiv:2611.09718v1, Sections 2.1, 2.3, 8; O. Ben-Bassat, *On a Conjecture of Fiedorowicz* (2026), arXiv:2610.38760v1, introduction and main theorems. Standard topological normalization is documented in A. Hatcher, *Algebraic Topology*. The theorem does not address dimension above two, disconnected complexes, arrows/morphism minimality, or uniqueness. Indexed priority checks are not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object-count invariant gives a natural sharp problem. Parallel arrows and full compositions carry all arbitrary attaching maps with no growth in object count. The result goes beyond realizing a fundamental group or a family of surfaces: it determines the minimum for all connected finite two-dimensional CW homotopy types, with an explicit construction even for relators having the same abelianization but different words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

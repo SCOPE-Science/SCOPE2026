@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:07.795053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two order-24 extensions differ by the quadratic character. Square/nonsquare projection gives half the sum and difference of their Gauss sums; the scaled determinant is their nonzero product and a surviving entry has modulus p. The Jacobi–Gauss identity makes the zero condition J=±p. For t a unit mod 24 and b the positive residue of pt, the two digits of (p²−1)t/24 are (pt−b)/24 and (bp−t)/24, so Stickelberger yields the asserted normalized valuation (up to uniform sign convention). The residues 13,17,19,23 give equal valuations for the pair t,t+12 at every conjugate prime, so J/p is integral; it has unit modulus in every embedding. Inversion fixes J under ζ24→ζ24^11, and among roots of unity in this cyclotomic field only ±1 are fixed. In the other four classes t=1 and t=13 have different valuations and cyclotomic conjugacy transfers the obstruction to all extensions. The subfield restrictions for 17 and 19 indeed have orders 4 and 6, and Frobenius does not swap extensions in these classes. Independently evaluated the compressed Fourier zeros directly in the cyclotomic coefficient basis at 20 primes and all four characters per prime (python3 /workspace/branches/reproduce_reviews.py 1); it does not use the supplied checker's Jacobi-sum enumeration and does not replace the valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama classifies purity for all character orders n>=3 in quadratic fields against the quadratic character. The Resultary index-at-least-four theorem and the published index-three computation do not cover index two."
+        ],
+        "reasoning": "The genuinely broader relevant theorem is the purity theorem, not the adjacent higher-index uncertainty results.",
+        "searches": [
+          "Akiyama Acta Arith. 75(2), 97–104",
+          "arXiv:2310.09992 Theorem 3.2",
+          "Resultary quadratic subfield-trivial compressed Fourier"
+        ]
+      },
+      "checked_sources": [
+        "Akiyama, Acta Arith. 75(2), 97–104 (author copy)",
+        "arXiv:1807.07648",
+        "arXiv:2310.09992, Theorem 3.2",
+        "Resultary 2026/10/4/...--707f906e4c49 and ...--101590cc2085"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=24, n|p+1 gives residue 23 and n=2(p−1)/k with k odd gives residue 13. The exceptional condition gives 17,19, and the order-60 row does not apply. The compressed matrix in Theorem 6.7 has the Gauss sum/difference entries and a nonzero determinant."
+        ],
+        "reasoning": "The prior components directly give the exact congruence split, invertibility, and monomial support. The surviving modulus is the usual Gauss-sum magnitude; orbit support follows from the monomial pattern.",
+        "searches": [
+          "Akiyama Theorem pp.1–2",
+          "Garcia–Karaali–Katz Theorem 6.7 and its proof, PDF p.25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akiyama's theorem and following sentence give J(ξ,η)=±p precisely in the four cases at order 24; G(η)=±p and the Jacobi–Gauss identity equate this to G(ξ)=±G(ξη)."
+        ],
+        "reasoning": "The order-twelve square-subgroup parameter is exactly the restriction of either order-24 full-field character, so these formulations have the same quantifiers.",
+        "searches": [
+          "Pure Jacobi sums order 24 quadratic character p²; Akiyama, On the pure Jacobi Sums",
+          "arXiv:1807.07648 Theorem 6.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 6.8 enumerates the F25 case only; the two inspected catalogue leads treat index at least four or degree-three fields, respectively. Akiyama explicitly lists the exceptional order-24 row p≡17,19 (mod 24)."
+        ],
+        "reasoning": "There is exact published coverage of the exceptional cases, independently of whether finite tables cover more than F25.",
+        "searches": [
+          "Garcia–Karaali–Katz Remark 6.8",
+          "Resultary records 2026/10/4/...--707f906e4c49 and ...--101590cc2085"
+        ]
+      },
+      "rationale": "Akiyama's 1996 pure Jacobi-sum theorem explicitly covers both exceptional congruences and yields exactly the two remaining classes at order 24. Garcia–Karaali–Katz's index-two calculation supplies the Fourier consequences without any new mathematical condition. The claimed slice is already covered, even though the compressed-Fourier wording is different.",
+      "residual_risks": [
+        "The journal-formatted Akiyama version was not separately inspected; the exact theorem and bibliographic identification appear in the author's copy. The comparison is about mathematical coverage, not provenance of the frozen proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact arithmetic coverage",
+          "evidence": "Lists n|p+1, n=2(p−1)/k for odd k, n=24 with p≡17,19, and n=60 with p≡41,49; J=±p in all four cases.",
+          "identifier_or_url": "https://www.math.tsukuba.ac.jp/~akiyama/papers/Jacobi_priv.pdf",
+          "material_read": "Author copy, theorem pp.1–2 and sign statement, offsets 1070–2702; copy identifies Acta Arithmetica 75(2) (1996), 97–104",
+          "method": "OA author-hosted PDF",
+          "title": "On the pure Jacobi Sums",
+          "trigger": "Same Jacobi sum and exact order"
+        },
+        {
+          "assessment": "General exact Fourier reduction",
+          "evidence": "Projection onto the two orbit classes uses sum/difference of extension Gauss sums, and its determinant is nonzero.",
+          "identifier_or_url": "arXiv:1807.07648",
+          "material_read": "Theorem 6.7 and Remark 6.8, p.25, offsets about 91279 and 93503",
+          "method": "OA PDF passages",
+          "title": "An improved uncertainty principle for functions with symmetry",
+          "trigger": "Index-two Fourier equivalence"
+        },
+        {
+          "assessment": "Adjacent, excludes index two",
+          "evidence": "Requires index at least four dividing p+1 and subfield-trivial character.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-subfield-trivial-character-forces-monomial-compressed-fourier--707f906e4c49",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary match; local mirror",
+          "title": "A subfield-trivial character forces monomial compressed Fourier transforms in quadratic fields",
+          "trigger": "Quadratic monomial compressed Fourier transform"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exceptional residues are a useful example in the Fourier framework, but the record's narrow invariant has no supported additional payoff beyond translating a published exact classification by the existing index-two reduction. It produces neither a new case of purity nor a new Fourier obstruction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

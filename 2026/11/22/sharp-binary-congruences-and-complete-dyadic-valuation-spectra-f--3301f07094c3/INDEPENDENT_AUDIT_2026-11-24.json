@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:17:43.675615Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed descent at index zero is included. An independent coefficientwise proof follows by comparing the power-series Worpitzky expansion with (1+t)^n=((1-t)+2t)^n. The j=0 and j=1 terms agree exactly. At j=2, the difference is 2n(n-1)t(1-t)^(n-2), since the ordinary Eulerian polynomial at j=2 is 1+t. For j>=3, both expansions have terms divisible by 2^(2+v2(n(n-1))): write binom(n,j)=n(n-1)binom(n-2,j-2)/(j(j-1)) and use v2(j(j-1))<=j-2. This applies even at n=2 when there is no tail. It proves the modulus and proves exactness at coefficient t; the signed Worpitzky formula separately gives B(n,1)=3^n-n-1. For n=2^r the error vanishes modulo 2^(r+1) while every interior Pascal valuation is r-v2(k), by oddness of binom(2^r-1,k-1). Counting indices of each valuation gives 2^(j-1) and the endpoints are 1. Independently ran python3 /workspace/review_evidence/recompute_arithmetic.py: direct Worpitzky coefficient comparison through n=64, signed-word enumeration through n=6, and full interior valuation/multiplicity checks in powers of two through 64. The frozen n<=512 diagnostic is recorded evidence, not a replay or the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santocanale's type-A/type-B identities apply in all rows, but state no 2-adic modulus or spectrum in the inspected passages",
+          "Castro–González–Medina full text and publisher abstract unavailable via the attempted routes"
+        ],
+        "reasoning": "The broader enumerative identities are inputs; turning them into the sharp congruence takes a valuation and cancellation argument. The inaccessible valuation paper leaves a specific residual risk, not negative evidence.",
+        "searches": [
+          "arXiv:2104.12445, eqs. (1)-(2) and type-B descent definition",
+          "DOI 10.1080/10586458.2014.981899, DOI and publisher routes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69, VERIFICATION.md and verify.py",
+        "Resultary record IDs ending 3301f07094c3 and ba730a5bd946; matching full finding read through the public mirror",
+        "Hyatt arXiv:1404.3110v3 §2; Santocanale arXiv:2104.12445 pp. 2, 5",
+        "OEIS A060187; Castro–González–Medina DOI 10.1080/10586458.2014.981899 (access unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Worpitzky immediately implies B(n,1)=3^n-n-1",
+          "At j=2 the difference from Pascal gives the leading nonzero 2-adic coefficient; the j>=3 contributions require the uniform valuation bound",
+          "Lucas gives the Pascal spectrum, not by itself the type-B spectrum"
+        ],
+        "reasoning": "The cited results give key inputs, but not a stronger valuation theorem whose specialization is this claim. The sharp valuation and its spectrum rely on a separate low-order cancellation and divisibility argument.",
+        "searches": [
+          "Hyatt, arXiv:1404.3110v3 §2",
+          "Santocanale, arXiv:2104.12445, p. 2",
+          "frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact indexed match ends 3301f07094c3 and matches the frozen Finding",
+          "Hyatt §2 has the same signed descent normalization and Worpitzky series"
+        ],
+        "reasoning": "Comparing normalized polynomial coefficients rather than titles confirms that the matching indexed item is the identical record, and Hyatt supplies the same input series, not a sharp-modulus statement.",
+        "searches": [
+          "Resultary: type-B Eulerian congruence to Pascal, coefficientwise sharp 2-adic valuation and dyadic rows",
+          "arXiv:1404.3110v3 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060187 opening gives T(a,b) for 1<=b<=a, endpoints 1, the recurrence and initial rows; its row 3 [1,6,1] is B(2,k)",
+          "The searching returned the distinct second-order Eulerian record ending ba730a5bd946"
+        ],
+        "reasoning": "Under the shift T(n+1,k+1)=B(n,k), the table determines each coefficient but the inspected material does not report the unrestricted sharp row modulus or power-of-two spectrum. The other indexed record normalizes a different triangle counted by Stirling permutations.",
+        "searches": [
+          "OEIS A060187, opening definition and comments",
+          "Resultary exact and neighboring Eulerian entries"
+        ]
+      },
+      "rationale": "Best of current knowledge: the sharp all-row Pascal comparison and its dyadic application are distinct from the enumerative literature inspected. The same frozen record in the index is not a prior result. The exact one-descent enumeration itself is already implicit in standard Worpitzky formulas and is not credited as novel.",
+      "residual_risks": [
+        "The Castro–González–Medina full text could not be inspected through the attempted lawful routes; an implicit or older equivalent valuation result is not ruled out.",
+        "Not a complete historical priority determination; no claims about higher primes or the full spectrum at non-dyadic row indices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard normalization and exact generating identity; sharp congruence not stated in the inspected passage",
+          "evidence": "B_n(t)/(1-t)^(n+1)=sum_{m>=0}(2m+1)^n t^m.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3110v3",
+          "material_read": "§2 PDF p. 3 (text offset 4900), definition and series",
+          "method": "OA passage read",
+          "title": "Recurrences for Eulerian Polynomials of Type B and Type D",
+          "trigger": "Identical type-B object and Worpitzky series"
+        },
+        {
+          "assessment": "Related identity and same objects, not the valuation claim in the material read",
+          "evidence": "Type-A/type-B polynomial identity; type-B descent definition starts at index zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.12445",
+          "material_read": "p. 2 eqs. (1)-(2) and p. 5 descent definition (text offsets 7000 and 17350)",
+          "method": "OA passage reads",
+          "title": "Bijective proofs for Eulerian numbers of types B and D",
+          "trigger": "General identities for the same polynomials"
+        },
+        {
+          "assessment": "Unresolved access; no noncoverage conclusion from the errors",
+          "evidence": "No inspected passage on type-B coefficient comparisons.",
+          "identifier_or_url": "https://doi.org/10.1080/10586458.2014.981899",
+          "material_read": "No primary text available from attempted DOI and publisher copies",
+          "method": "Lawful OA retrieval attempts, HTTP 403",
+          "title": "The p-adic Valuation of Eulerian Numbers: Trees and Bernoulli Numbers",
+          "trigger": "Plausibly overlapping Eulerian valuation paper"
+        },
+        {
+          "assessment": "Same integer array with shifted indices; no substantive sharp valuation claim in these passages",
+          "evidence": "Explicit recurrence, endpoints, and initial rows including [1,6,1].",
+          "identifier_or_url": "https://oeis.org/A060187",
+          "material_read": "Opening recurrence and initial array, comments at text offset 140 onward",
+          "method": "Public database page passage read",
+          "title": "Eulerian numbers of type B",
+          "trigger": "Exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a natural uniform arithmetic comparison of two standard combinatorial rows: it gives the exact largest power-of-two modulus for the whole row and a witness, rather than merely showing parity. It transfers all valuations to a clean histogram on power-of-two rows. These are independently useful exact data and not merely a reindexing of the familiar Pascal spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

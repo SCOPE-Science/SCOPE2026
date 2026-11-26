@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:50.494272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70",
+        "Frozen VERIFICATION.md, lines 19–23, and verify.py, lines 7–103"
+      ],
+      "rationale": "Independently reconstructed the second moments using S_i=X_ai+X_bi−1 and D_i=X_ai−X_bi. Any nonzero D_i fixes the sign of every other nonzero D_j, since opposite mixed columns form a directed four-cycle and K_{2,n} has no longer simple cycles. This gives E[D_i²]=2·3^(n−1)/Z and E[D_i D_j]=2·3^(n−2)/Z for i≠j. When a column is unmixed, its two choices give opposite S_i and can be toggled independently; hence cross moments with S_i vanish and E[S_i²]=1−E[D_i²]. In normalized pair coordinates the two blocks are s I and 4d I+2d J. Their inverses are s⁻¹ I and (4d)⁻¹[I−J/(n+2)], giving the four claimed entries. The diagonal of the inverse difference block exceeds 1/(1/4−c) by strict convexity and hence exceeds 1/s; this establishes the same-column sign. The limits follow from d→1/36, c→1/12 and Q_ee→6. At n=2 the sum modes and the constant difference mode share eigenvalue 2/7, of total multiplicity 3; the table counts the listed orthogonal modes separately (the other eigenvalue is 1/7). The frozen finite checker tests rational entries/signs against topological sorting, not a substitute for the proof.",
+      "residual_risks": [
+        "Uniform labeled orientations are not the law induced by a uniform vertex order. Precision signs give linear partial-correlation signs, not nonlinear conditional-independence results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 counts labeled acyclic orientations of all complete bipartite sizes. The longest-path distribution and lonesum bijection give structural coverage. The later Walsh transform covers all entry moments, not just the degree-two ones."
+        ],
+        "reasoning": "An unmarked count supplies Z but not the needed marked moments; the later transform does supply the latter by specialization. No earlier comparably strong marked enumerator was found.",
+        "searches": [
+          "arXiv:2303.09021, Proposition 3.1",
+          "arXiv:2408.12716, Theorems 1.1 and 2.1",
+          "Resultary 14f193ec1237, complete Walsh transform"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published findings searches and cited mirror passages",
+        "arXiv:2303.09021 Proposition 3.1",
+        "arXiv:2408.12716 Theorems 1.1 and 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The permutation theorem gives zero covariance for disjoint comparisons, whereas distinct-column opposite-center indicators here are disjoint edges with covariance −d. The later Walsh formula supplies the second moments from W(e+f)/W(0); block diagonalization and inversion then recover the exact precision.",
+          "The earlier lonesum bijection is a representation, and the longest-path count does not give edge moments."
+        ],
+        "reasoning": "A uniform acyclic orientation on this graph does not follow a uniform total order; the earlier permutation theorem does not imply the signs or entries. The later exact implication is acknowledged without treating it as earlier priority.",
+        "searches": [
+          "Resultary RESULT.md for f6af0a8c3805, mirror offsets 0–2583, and 14f193ec1237, offsets 1212–4919",
+          "arXiv:2408.12716 Theorems 1.1 and 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lonesum correspondence translates the question into joint entry moments of a uniform two-row lonesum matrix, whereas Theorem 1.1 counts by longest directed path. Resultary 14f193ec1237 gives the same-law Walsh transform, in a later dated record."
+        ],
+        "reasoning": "Degree-two normalized Walsh coefficients of the orientation indicator are exactly four times the off-diagonal covariances under global reversal. This is real mathematical overlap, not just common vocabulary; its presence in a later record does not establish earlier coverage.",
+        "searches": [
+          "Resultary lookup for uniform K_{2,n} edge covariance, lonesum/Walsh formulations and precision",
+          "Khera–Lundberg arXiv:2408.12716, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The count already occurs in a more general enumeration. The earlier indexed inverse-covariance comparison concerns random permutations; the same-model later entry gives the Walsh spectrum, not an earlier covariance/precision table."
+        ],
+        "reasoning": "The count itself is not original. The earlier index hits inspected do not give this table of signed entries, eigenmodes or partial-correlation limits.",
+        "searches": [
+          "Resultary published findings lookup, including f6af0a8c3805 and 14f193ec1237",
+          "arXiv:2303.09021, Proposition 3.1"
+        ]
+      },
+      "rationale": "Prior orientation counts and representations are credited. The closest earlier precision law uses a different graph and probability measure; the strongest same-law transform is a later result and its actual derivational overlap is explicit below. No earlier equivalent coverage of the exact dependence law was established.",
+      "residual_risks": [
+        "A specialized earlier computation of two-row lonesum entry moments or an earlier multivariate enumerator remains possible. The targeted general search did not identify such a paper; search outcome alone is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the count, not the marked moment or precision statements inspected",
+          "evidence": [
+            "Closed count of labeled acyclic orientations of complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.09021",
+          "material_read": "Proposition 3.1, p. 10, OA PDF offset 30884",
+          "method": "OA original text and count comparison",
+          "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+          "trigger": "General complete bipartite orientation count"
+        },
+        {
+          "assessment": "Known representation and different statistic",
+          "evidence": [
+            "Lonesum-matrix bijection; enumeration by longest directed path length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.12716",
+          "material_read": "Theorem 1.1 p. 2, OA offset 5700; Theorem 2.1 p. 8, offset 31885",
+          "method": "OA original text and statement comparison",
+          "title": "The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph",
+          "trigger": "Same uniform law with all bipartite sizes"
+        },
+        {
+          "assessment": "Later record with a stronger transform covering the orientation moments",
+          "evidence": [
+            "Complete Walsh transform using the two forbidden mixed columns; normalized degree-two coefficients give the paired sign moments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reversal-rigid-walsh-spectrum-of-acyclic-orientations-of-k-2-n--14f193ec1237",
+          "material_read": "RESULT.md, mirror offsets 1212–4919",
+          "method": "Local mirror; specialize to degree-two coefficients",
+          "title": "Reversal-rigid Walsh spectrum of acyclic orientations of K_{2,n}",
+          "trigger": "Strongest same-law Resultary hit"
+        },
+        {
+          "assessment": "Different sample measure and support",
+          "evidence": [
+            "Disjoint comparison covariances vanish; incident partial correlations have magnitude 1/(n−1)."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "RESULT.md, mirror offsets 0–2583",
+          "method": "Local mirror; compare laws and pair types",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Earlier signed covariance/precision classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–46",
+        "Khera–Lundberg Theorems 1.1 and 2.1",
+        "Resultary precision-law comparison f6af0a8c3805"
+      ],
+      "rationale": "This is a canonical uniform law on a complete bipartite family with an unbounded exchangeable side. The finding gives exact benchmarks for dependence and inverse dependence: in particular, cross-column marginal correlations stay macroscopically nonzero whereas full-order linear partial correlations vanish at a known signed 1/n rate. Orientation counts or path-length frequencies do not answer that question.",
+      "residual_risks": [
+        "Does not extend the sign law to larger first parts, other graph families, or nonlinear residuals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,6 @@
 }
 ---
 
-# Verification of the chromatic commutator theorem
+# Finite verification of repeated-commutator fibers
 
-`python3 verify.py` uses literal multiplication in \(\mathbb F_q Q/J^2\). For five prime-field configurations, including parallel arrows and loops, it enumerates every ordered pair of elements, tabulates every possible arrow target, and compares with the independent weighted-coloring expression. It checks totals against \(q^{2(|V|+|E|)}\). The configurations comprise a single arrow over \(\mathbb F_2\), two parallel arrows over \(\mathbb F_2\), a loop and a nonloop arrow over \(\mathbb F_2\), a directed triangle over \(\mathbb F_2\), and a directed triangle over \(\mathbb F_3\); the last case enumerates 531,441 ordered pairs. A separate exhaustive coloring check tests \(\chi(K_4)=4\) and \(\chi(K_5)=5\) against the \(4\)- and \(16\)-color thresholds.
-
-Expected terminal text: `VERIFY_OK_QUIVER_CHROMATIC_COMMUTATOR_WIDTH`.
-
-The source proofs, not finite enumeration, establish the all-quiver statements for all prime powers and arbitrary numbers of summands. No formal proof assistant, external validation, or independent audit was performed.
+`python3 verify.py` uses standard Python. On a three-vertex quiver over \(\mathbb F_2\) with a loop and repeated arrows, it forms the commutator distribution by direct multiplication. Exact convolution gives two- and three-pair fibers, which are compared target by target with the coloring expression. The terminal line is `MULTIPLE_COMMUTATOR_FIBERS_OK`. The proof in `RESULT.md`, not the finite check, handles arbitrary finite fields and numbers of pairs.

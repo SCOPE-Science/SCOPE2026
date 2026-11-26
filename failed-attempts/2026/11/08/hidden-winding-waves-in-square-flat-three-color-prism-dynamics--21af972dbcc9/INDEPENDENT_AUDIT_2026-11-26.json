@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:35:45.489363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–101",
+        "VERIFICATION.md, check_transfer.py, check_dynamics.py, check_algebra.py, and all three frozen output files, inspected only",
+        "arXiv:1610.07320, Theorem 3 and edge-form definitions"
+      ],
+      "rationale": "On the lifted strip, recursively integrate the top edge increments and add the rung increments to obtain a bottom height. The square identities give the bottom-edge increments, so a deck translation adds H_n on either rail. A closed walk of degree w therefore integrates to wH_n and has length at least n|w|, while the rails achieve the stated maximal cycle mean. The exact activity theorem of Gravner, Lyu and Sivakoff then applies per vertex. Checking the color pairs gives δ=3g+df with the stated f, so GHM excitation (0→1) uses one third the CCA circulation. Zero activity on a finite eventual cycle implies a constant CCA state on the connected prism or the all-rest GHM state. The transfer trace counts labelled rung strings once, and H_n is divisible by three. Independent symbolic reconstruction decomposes the transfer into the three simultaneous color-shift sectors and verifies the full unweighted characteristic polynomial, the invariant tilted block and its characteristic polynomial, and the stated variance; replay: python /workspace/audit_evidence/reconstruct.py (prism_blocks). At z=1 each row and column has at least six ones, proving positivity of T(1)². The simple analytic Perron branch and the spectral gap give the CLT from the characteristic-function trace ratio. Peripheral equality requires an edge phase coboundary: self-loops force the constant phase to one, and the diagonal-rung color cycle of length three forces e^{3it}=1. Conversely those three points are gauge-conjugate, with identical positive leading Gaussian contributions. Spectral gap elsewhere and bounded small-neighborhood domination give the local-limit constant, including its factor three.",
+      "residual_risks": [
+        "Only the square-flat conditioned ensemble is treated. The frozen verification summary understates the dynamics test range (the code and saved output include n=5); this does not affect the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives the maximum cycle circulation per length for both update rules and the irrotationality characterization. The earlier circular-prism proof reduces all cycles to the n squares and one rim. The proper-coloring transfer counts only a subfamily on the same prism; the open ladder has no longitudinal cycle."
+        ],
+        "reasoning": "The known prism reduction plus the arbitrary-graph theorem gives the rates immediately since winding w requires at least n|w| edges and a rim attains the bound. The proper-coloring and open-ladder records alone would not cover the full state space; the October 26 prism record does.",
+        "searches": [
+          "arXiv:1610.07320, Theorem 3",
+          "Resultary records ending cae3512f5687, d41f740a6f49 and 9fa61fb1a7f9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records cae3512f5687, d41f740a6f49 and 9fa61fb1a7f9",
+        "arXiv:1610.07320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior text computes exact log-Perron curvature σ_g²≈0.04701457047 and proves a unique maximal Fourier point for M. The audited variance is 9σ_g² by the tilt rescaling. The older coefficient asymptotic E_n∼λ^n/√(2πσ_g²n) divided by tr(M(1)^n)∼λ^n is precisely the proposed conditional synchronization fraction."
+        ],
+        "reasoning": "For the CLT insert 3it/√n in the prior expansion and normalize the trace by tr(M(1)^n); the prior spectral gap removes the other eigenvalues. Absolute values then give the activity limits. These are direct consequences even though the older Finding is phrased as unconditioned extinction rather than conditional winding.",
+        "searches": [
+          "Resultary cae3512f5687, Spectral growth and Fourier uniqueness and Gaussian coefficient",
+          "arXiv:1610.07320, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier extinction record defines M(z) on the identical ordered rung pairs, using g for both square circulation and the top increment. The audited identity δ(a,c)=3g(a,c)+f(c)−f(a) makes the masks identical. With D_{(a,b)}(z)=z^{f(a)}, the exact Laurent matrix identity is T(z)=D(z)⁻¹M(z³)D(z)."
+        ],
+        "reasoning": "Taking traces gives an identity of Laurent polynomials for every n, not just agreement at z=1 or winding zero. Each proposed count N_n(3j) is the coefficient of z^j in the prior generator; winding classes outside 3ℤ are empty. N_n(0) is exactly the earlier extinction population.",
+        "searches": [
+          "Resultary: square-flat labelled circular prism winding census and extinction; record ending cae3512f5687",
+          "arXiv:1610.07320, edge-form definitions and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding lists extinction counts 261, 1485, 8409 and 49215 for n=3–6, gives the exact coefficient formula for all n and the same characteristic polynomial at 1. Its explicit unconditioned coefficient is 1.839898348 n^{-1/2}(0.7080312581)^n."
+        ],
+        "reasoning": "The prior comparison is established for every n by the gauge identity; matching initial values only corroborate it. The same-day open ladder and proper-coloring subfamily are not treated as covering by chronology or titles.",
+        "searches": [
+          "Resultary circular-prism search, exact record 2026/10/26/SCOPE-exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687",
+          "Resultary proper circular-ladder sectors d41f740a6f49 and open square-ladder census 9fa61fb1a7f9"
+        ]
+      },
+      "rationale": "The October 26 circular-prism extinction record is a verified exact overlap, not a keyword or numerical match. Its flatness mask and tilted 9-state transfer already encode the entire conditioned winding distribution, up to a diagonal gauge and the lattice scaling by three. It gives the same unweighted characteristic polynomial, exact extinction count, analytic dominant-eigenvalue expansion and the same Fourier Gaussian coefficient. The additional conditioned Gaussian statement follows directly from its analytic trace expansion. The rate formulas on the conditioned class are direct applications of the prior general cycle-mean theorem to the one rim circulation already identified in the prior prism proof. The explicit smaller block is a different derivation, not an independently distinct claim of the Finding.",
+      "residual_risks": [
+        "No exhaustive historical search is claimed. Coverage is established by an explicit earlier theorem and transfer identity; it does not depend on resolving any inaccessible peripheral record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage and mechanical implication of conditional asymptotics",
+          "evidence": "Same zero-square-curl mask; old tilt g is gauge-equivalent to δ/3. Prior text explicitly gives det(xI−M(1)), exact log-Perron curvature, uniqueness of the maximal Fourier point, and exact extinction count and asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof through Fourier uniqueness and Gaussian coefficient (offsets 0–5892)",
+          "method": "Local Resultary mirror, bounded primary-result passage",
+          "title": "Exact extinction law and a Gaussian winding penalty for excitation on circular prisms",
+          "trigger": "Same graph, same exact nine-state extinction generator and constants"
+        },
+        {
+          "assessment": "Existing activity theorem applies directly once circulation and minimum cycle length are known",
+          "evidence": "CCA uses signed color difference; GHM counts the oriented 0↔1 edge event; theorem expresses per-site activity via cycle means.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "PDF pp. 3–4, edge-form definitions and Theorem 3, offsets 10150 and 14637",
+          "method": "OA PDF targeted passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General theorem on both activity rates and extinction"
+        },
+        {
+          "assessment": "Proper-coloring subfamily only",
+          "evidence": "All counted proper colorings are square-flat; formula is 6[z^{3w}](z⁻¹+1+z)^n for those colorings.",
+          "identifier_or_url": "2026/11/2, Resultary record d41f740a6f49",
+          "material_read": "Finding and Proof §§1, 3",
+          "method": "Local Resultary mirror",
+          "title": "Exact winding sector sizes and exchange counts for three-colourings of circular ladders",
+          "trigger": "Same graph and winding distribution"
+        },
+        {
+          "assessment": "Open boundary; not the prism winding observable",
+          "evidence": "Open-ladder activity phase counts and zero-rate recurrence with λ±, without a closed rim.",
+          "identifier_or_url": "2026/11/8, Resultary record 9fa61fb1a7f9",
+          "material_read": "Finding, assumptions, Proof §§1, 3–4",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-rate excitation census on open square ladders",
+          "trigger": "Related flatness transfer and the same dominant roots"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §§2–4 of its proof",
+        "Earlier Resultary extinction Finding and spectral/Fourier proof (cae3512f5687)"
+      ],
+      "rationale": "The local-flatness versus global-winding distinction is mathematically meaningful, but this Finding mainly repackages an available winding generator and its calculated Perron curvature. Conditioning amounts to dividing by the unweighted trace, and the change in lattice spacing and rates is a normalization. The useful 3×3 block provides a compact derivation but does not by itself deliver a substantively different scientific invariant or phenomenon in this Finding.",
+      "residual_risks": [
+        "This does not deny the value of the earlier prism census or of genuinely different prism observables not investigated here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

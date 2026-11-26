@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:56:05.460063Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70",
+        "Frozen VERIFICATION.md lines 19–25 and verify_patterns.py lines 10–71",
+        "Gómez–Petite, arXiv:2610.06488v1, §5.1 Eq. (12)",
+        "Independent bounded enumeration with simultaneous valuation from the bitwise OR of the two positive coordinates"
+      ],
+      "rationale": "Gómez–Petite use the opposite assignment of 0 and 1 away from the exceptional site. The explicit c is equivalent to their system by global bit complement, not literally the same labeled language; complementation is a bijection on fixed-window patterns, which is all the numerical claim requires. For any window with sides at most 2^K, a translation residue fixes all bits except a possible jointly divisible site; lifting the translate can set that site's minimum valuation to K or K+1 at a nonsingular point. Hence both assignments at the origin generate the same language, and each pattern has a nonsingular copy that recurs on a lattice coset (take a modulus larger than all valuation depths in the copy), proving uniform recurrence and minimality of the hull. Decimation restricts to the jointly even parity class, complements the smaller pattern and forces zero elsewhere. If both exponents are at least two, the smaller pattern has a zero, so the lifted one identifies the active class and the factor of four is exact. The 2×2 base consists of an all-zero pattern and four singleton ones. On the 2×2^k base for k≥2 the active row has a one of valuation exactly one, and its capped valuation words split by parity: either a full active half for cap 1 or the complement of a shorter capped word for larger caps. From the six words at length four, the count doubles after adding one to the previous count, giving 2^(k+1)−2 words and twice this many two-row patterns. Iteration gives the exact formulas. Next-dyadic square containment and the linear square count imply zero entropy. Normalized counts depend only on |n−m|, so the fixed integer gaps and gaps tending to infinity give exactly the stated subsequential limits. A fresh bounded enumeration over strictly positive integral translates with shifts up to 4·2^max(n,m) matched all 16 pairs n,m≤4 (rows start 5,12,28,60 and diagonal is 5,20,80,320). The frozen checker was inspected but not executed.",
+      "residual_risks": [
+        "The verified equivalence to the source uses a global alphabet exchange; one should not infer literal equality of labeled patch sets. No formula for general non-dyadic rectangles follows from the check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.3: |L_(F_i)(X_f)|≤2|F_i| on scale fundamental domains. Example 5.9 analyzes the normalizer for s_i Z^d and includes s_i=2^i.",
+          "Cabezas–Petite's inspected introductory passage describes polynomial growth for substitutive examples, not exact counts for these windows."
+        ],
+        "reasoning": "The proposition gives only the square upper bound 2·4^n for the stated domains, not equality and not the unequal-exponent table. The symmetry classification does not count the language.",
+        "searches": [
+          "Resultary: Gómez Petite Example 5.9 dyadic semicocycle pattern complexity rectangles",
+          "Gómez–Petite arXiv:2610.06488v1, §5.1, Proposition 5.3 and Example 5.9",
+          "Cabezas–Petite arXiv:2309.10156v2, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Gómez–Petite arXiv:2610.06488v1",
+        "Sell arXiv:2006.15348",
+        "Cabezas–Petite arXiv:2309.10156v2",
+        "Resultary 70f3067917a5 and aa51104dddb1",
+        "Frozen RESULT.md lines 76–91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sell provides explicit one-dimensional simple-Toeplitz complexity. The indexed valuation-word work counts uncapped one-dimensional factors. In the frozen proof, the active row is capped by an independent transverse valuation and the count uses disjoint two-dimensional parity classes.",
+          "A fundamental-domain upper bound does not distinguish the five patterns over the four residues on a 2×2 window, or the shape dependence."
+        ],
+        "reasoning": "One-dimensional factor recurrence does not directly supply the whole capped family or the mutually identifiable two-dimensional parity lifts. Those steps establish the exact gaps in the bound and are not a parameter substitution in the inspected theorems.",
+        "searches": [
+          "Sell arXiv:2006.15348, abstract and §10",
+          "Resultary 70f3067917a5, Finding",
+          "Gómez–Petite arXiv:2610.06488v1, Proposition 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gómez–Petite's Eq. (12) says value 1 at even depth. At nonzero integer vectors depth in the dyadic scale is the minimum of the coordinate valuations, so complementing aligns the two constructions.",
+          "Lee–Flom–Ben-Abraham's full text was not retrieved; the frozen comparison describes a diagonal i+j construction, not the coordinatewise minimum. The follow-up search located a bibliographic index, not an open full text."
+        ],
+        "reasoning": "The symbol convention is immaterial to exact cardinalities. A diagonal-only array c(i,j)=a(i+j), if that is the comparison construction, is constant on each diagonal and is not equivalent to the minimum-valuation array under an alphabet exchange; for instance c(1,3)=0 and c(2,2)=1. Full-text coverage by Lee et al. remains unchecked, not ruled out by the title or access failure.",
+        "searches": [
+          "Resultary: dyadic Toeplitz lattice exact rectangular pattern complexity parity of 2-adic valuation minimum coordinate Gómez Petite",
+          "Resultary: exact complexity dyadic Toeplitz Z2 valuation semicocycle rectangular windows",
+          "Web: \"Multidimensional period doubling structures\" \"Lee\" \"Flom\" 2016 full text pdf a_2 configuration diagonal parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-phase-independent-window-spectra-and-exact-factor-recurrences-fo--70f3067917a5, Finding: one-dimensional valuation words ν_p(i+1) mod q with exact recurrences, including p=2. Resultary 2026/10/26/SCOPE-exact-word-growth-and-arithmetic-square-root-oscillations-in-a-v--aa51104dddb1, Finding: one-dimensional spacing shifts."
+        ],
+        "reasoning": "The nearest ranked exact recurrences cover different languages. No exact two-dimensional table surfaced in the bounded search, and the web query did not provide a comparison; neither absence is a claim of exhaustive priority.",
+        "searches": [
+          "Resultary: \"5 4^(n-1)\" dyadic Toeplitz rectangular patterns exact complexity",
+          "Resultary: exact anisotropic pattern complexity dyadic Toeplitz lattice p(n,m) squares rectangles 5/4",
+          "Web: \"pattern complexity\" \"Gómez\" \"Petite\" dyadic Toeplitz lattice rectangles valuation"
+        ]
+      },
+      "rationale": "The relevant new claim is the exact count for this specific dyadic two-dimensional semicocycle, hence the complete collection of normalized limits for dyadic rectangular windows. Its source construction, the general fundamental-domain complexity bound and one-dimensional valuation-word methods are not new. The inspected exact and general prior results do not provide the two-dimensional count.",
+      "residual_risks": [
+        "Lee–Flom–Ben-Abraham's full text remains unavailable in this review. Indexed queries are bounded; an unlocated alternate exact count is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same up to bit exchange, but no exact count in the relevant statements",
+          "evidence": [
+            "Eq. (12) uses 1 at even valuation; the proposition bounds the language by twice the scale-domain area; Example 5.9 is about the normalizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06488v1",
+          "material_read": "§5.1 Eq. (12), Proposition 5.3, Example 5.9; HTML passages at offsets 105573, 108536, 127105",
+          "method": "Lawful OA versioned HTML passages",
+          "title": "On the centralizer and normalizer groups of odometers and Toeplitz subshifts",
+          "trigger": "Defines the very semicocycle and gives a language-size bound"
+        },
+        {
+          "assessment": "One-dimensional formulas, not this rectangular language",
+          "evidence": [
+            "The formulas are for one-dimensional simple Toeplitz word complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2006.15348",
+          "material_read": "Abstract and §10, HTML offsets 1596 and 105149",
+          "method": "Lawful OA HTML passages",
+          "title": "Simple Toeplitz subshifts: combinatorial properties and uniformity of cocycles",
+          "trigger": "Explicit valuation-family complexity formulas"
+        },
+        {
+          "assessment": "Unresolved access; no negative coverage conclusion drawn",
+          "evidence": [
+            "DOI route denied access; the PubMed index 27126116 did not yield readable full text via the alternate route. The diagonal description is from the frozen source only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1107/S2053273316004897",
+          "material_read": "Bibliographic search results only; no primary full-text passage was read",
+          "method": "Lawful OA DOI retrieval and identified public bibliographic index attempted",
+          "title": "Multidimensional period doubling structures",
+          "trigger": "Plausible alternative formulation of multidimensional dyadic complexity"
+        },
+        {
+          "assessment": "Exact in one dimension only",
+          "evidence": [
+            "Its factors are formed from a single sequence ν_p(i+1) mod q, not from rectangles of the minimum of two independent valuations."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-phase-independent-window-spectra-and-exact-factor-recurrences-fo--70f3067917a5",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Phase-independent window spectra and exact factor recurrences",
+          "trigger": "Closest exact recurrence for valuation factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–30 and 38–70",
+        "Gómez–Petite Proposition 5.3"
+      ],
+      "rationale": "An explicit zero-entropy minimal system admits an exact complexity invariant whose area normalization retains window shape. The leading constant 5/4 on squares and the discrete family converging to 2 off the diagonal cannot be read from entropy or the fundamental-domain upper bound. The same proof gives the full dyadic rectangular shape spectrum, not a small-window census.",
+      "residual_risks": [
+        "The shape spectrum established is specifically dyadic and supplies a counterexample to shape-independent normalization, not a universal law for Toeplitz systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

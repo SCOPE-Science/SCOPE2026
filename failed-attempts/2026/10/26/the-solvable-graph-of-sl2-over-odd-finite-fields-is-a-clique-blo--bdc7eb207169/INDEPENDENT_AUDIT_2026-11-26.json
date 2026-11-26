@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:18.358058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph and all formulas are correct in odd characteristic. A nonscalar traceless matrix has full matrix centralizer spanned by I and x, hence traceless centralizer F_q x. A two-dimensional subalgebra is nonabelian; choosing a nonzero derived generator z with [h,z]=lambda z, trace cyclicity gives tr(z^2)=0. Odd characteristic and Cayley–Hamilton make z nilpotent, and its kernel is a rational invariant line for the subalgebra. All such subalgebras are the rational-line stabilizers. A nonzero nilpotent projective matrix line gives one singleton label, split semisimple lines give one label per unordered pair, and the remaining q(q-1)/2 lines give isolated K_m fibers. For the middle graph, the unsigned incidence block satisfies BB^T=(n-2)I+J; singular sectors give 0,n+1, the two stated quadratic roots, and 2n on ker B. Fiber constants scale these by m and fiber-zero-sum vectors give m(d+1). The matrix-tree divisor is mn(n+1)/2, giving the prefactor 2/n. The pendant matching, edge factorization of even K_n, and intersecting-label distance argument give the remaining invariants. Independently checked every matrix pair by det(x,y,[x,y]) versus projective invariant-line incidence for q=3,5,9 (325, 7626, 264628 pairs); q=9 used F_3[u]/(u^2+1). For q=3 the actual large-component Laplacian characteristic polynomial matched and a cofactor was 1034851547969748992. Analytic replay: the invariant-line argument and incidence and fiber blocks in RESULT.md; finite replay: enumerate trace-zero triples and projective lines as above. Frozen verify.py was inspected rather than executed, and finite checks do not replace the field-uniform argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a nonbipartite r-regular graph the preexisting Q-graph spectrum has the modes 2r+2 on the incidence kernel and, for each base eigenvalue theta, (theta+2+r ± sqrt((r+2-theta)^2+4theta))/2 with the corresponding base multiplicity."
+        ],
+        "reasoning": "Taking r=n-1 and theta=0 or n reproduces every unblown middle-graph eigenvalue and multiplicity. Scaling quotient modes and adding m(d+1) fiber modes are immediate for a clique blow-up; Matrix–Tree then supplies the exact claimed product.",
+        "searches": [
+          "Regular Q-graph Laplacian spectral decomposition",
+          "arXiv:2407.14376v1 Lemma 2.6, citing Li–Liu–Zhang 2020 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2511.08290",
+        "arXiv:2407.14376v1",
+        "Appl. Math. Comput. 384 (2020), 125370 metadata",
+        "Resultary 84eaa1755c98 and 833ba73abbb3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let B be the number of two-dimensional subalgebras. Two distinct 2-planes in a 3-space meet in exactly one scalar line. By the published 0/1/2 containment rule, its nonzero elements have exactly two containing subalgebras; conversely each split scalar line gives a unique pair. The published split-class count divided by q-1 is q(q+1)/2, so binom(B,2)=q(q+1)/2 and B=q+1. Each plane contains q+1 scalar lines, of which q arise as its intersections with the other planes, leaving one singleton. This alone gives the full quotient and isolated cliques from the published neighbor rules.",
+          "Apply the existing regular Q-graph spectrum to K_n, add clique-fiber Laplacian modes, then take the nonzero product over the order. For independence, coloring and diameter, the pendant matching, 1-factorization of even K_n and pair-incidence paths suffice directly."
+        ],
+        "reasoning": "No missing difficult implication or additional Lie-theoretic theorem separates the antecedents from the frozen claim. The new presentation is a useful identification, but its substance and exact numerical consequences are already determined by these short deductions.",
+        "searches": [
+          "arXiv:2511.08290 pp. 15–16 proof of Theorem 4.3",
+          "arXiv:2407.14376v1 Lemma 2.6, Eqs. (2.6)–(2.9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Q-graph subdivides each edge of G and joins subdivision vertices of incident edges. For G=K_n this is precisely the claimed M_n: original vertices represent pendants and subdivision vertices represent original K_n edges.",
+          "Towers et al. give the neighborhood as the union of nonzero vertices in the containing 2-planes, with only scalar neighbors for the anisotropic class."
+        ],
+        "reasoning": "Projection to the scalar-line fibers identifies nonempty labels with singleton or pair incidences of 2-planes, exactly the Q-graph construction rather than a graph having only matching degrees.",
+        "searches": [
+          "Towers–Gutierrez–Fernandez arXiv:2511.08290 Theorem 4.3 and proof",
+          "Laplacian spectrum Q(G) subdivision graph operation regular graph",
+          "arXiv:2407.14376v1 Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Towers et al. tabulate small sl2 degree data and state the general three-class degree formula. Their proof describes anisotropic components as scalar cliques.",
+          "Local Resultary line-graph hits concern complete graphs with a matching removed and adjacency inertia of L(S(G)), not the frozen graph's exact table."
+        ],
+        "reasoning": "No inspected table prints all the same invariants together. This does not restore originality because the earlier structural and Q-graph theorems determine the exact values without case-by-case computation.",
+        "searches": [
+          "Resultary solvable graph sl2 over finite fields and middle-graph Laplacian",
+          "Resultary 84eaa1755c98 and 833ba73abbb3",
+          "Towers et al. arXiv:2511.08290 degree tables and Theorem 4.3"
+        ]
+      },
+      "rationale": "The result is mathematically sound but mechanically implied by prior statements in combination. The decisive overlap is stronger than agreement of degree sequences: Towers et al. explicitly give all neighbor rules in terms of the 0/1/2 two-dimensional subalgebras containing a vertex. Dimension and the given class counts recover the complete middle-graph quotient without any additional classification theorem. The claimed middle-graph spectrum is already covered under the alias Q(K_n) by a general published regular-graph spectrum formula. The other outputs are routine blow-up or standard graph operations. This is a demonstrated implication, not a claim that one prior source prints the whole package verbatim.",
+      "residual_risks": [
+        "A directly printed prior statement of the combined Lie-algebra spectrum and tree count was not located in the inspected sources. The adverse verdict rests on explicit prior coverage plus the demonstrated routine implication, not on assuming such a publication exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior covers neighbor rules by containing subalgebras, the class counts, and scalar-clique components; those data imply the full quotient by 2-plane dimension and counting",
+          "evidence": "One-eigenvalue vertices belong to exactly one 2-subalgebra and have all its other nonzero vertices as neighbors; two-eigenvalue vertices use the union of two; the no-eigenvalue class connects only to scalar multiples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.08290",
+          "material_read": "Theorem 4.3, proof and following discussion, PDF pp. 15–16, offsets 38616–44103",
+          "method": "OA primary full-text passages",
+          "title": "The solvable Graph of a finite-dimensional Lie Algebra",
+          "trigger": "Same Lie algebra and solvable adjacency"
+        },
+        {
+          "assessment": "Explicit previously available general Laplacian spectrum specializes to all unblown eigenvalues; Lemma 2.6 credits Li, Liu and Zhang (2020), Theorem 3.1",
+          "evidence": "Definition is the middle graph, and the displayed two quadratic roots plus 2r+2 on the incidence kernel apply to any regular nonbipartite base graph.",
+          "identifier_or_url": "https://arxiv.org/html/2407.14376v1",
+          "material_read": "Definition 1, Lemma 2.6 Eqs. (2.6)–(2.9), refs. [18] and [23]",
+          "method": "OA primary full-text passages",
+          "title": "Laplacian pair state transfer in Q-graph",
+          "trigger": "Equivalent construction and spectrum for general regular base graphs"
+        },
+        {
+          "assessment": "Regular Q-graph context confirmed; the directly inspected 2024 record already proves spectral coverage for this audit",
+          "evidence": "Abstract defines the same Q-graph and treats r-regular graph bases; later paper reproduces the exact spectral decomposition with explicit attribution.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0096300320303349",
+          "material_read": "Metadata and abstract; theorem statement inspected as reproduced in arXiv:2407.14376v1, not in the original publisher full text",
+          "method": "Publisher indexing and OA theorem reproduction",
+          "title": "Laplacian state transfer in Q-graph",
+          "trigger": "The 2020 theorem credited for the exact formula"
+        },
+        {
+          "assessment": "Related graph transformations but not the same exact family or spectrum",
+          "evidence": "One concerns line graphs of complete graphs with a deleted matching; the other concerns adjacency inertia of the line graph of a subdivision.",
+          "identifier_or_url": "Resultary 2026/10/13/84eaa1755c98 and 2026/10/18/833ba73abbb3",
+          "material_read": "The respective RESULT.md Findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Resultary adjacent line-graph spectral records",
+          "trigger": "Potential equivalent indexed invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Lie graph is a natural object and the presentation is convenient, but the exact classification and invariants here are mechanically recoverable from published neighbor data and the known Q-graph Laplacian formula. Repackaging them and verifying small fields does not supply a separate unknown exact fact, nontrivial new structural lemma, or motivated unresolved boundary. This is a value judgment about the frozen contribution, not a claim that the formulas are false or useless as a worked example.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

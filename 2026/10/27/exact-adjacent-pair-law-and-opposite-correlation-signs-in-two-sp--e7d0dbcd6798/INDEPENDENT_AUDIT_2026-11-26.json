@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:37.203612Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–102",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen CHECK.py and CHECK_OUTPUT.txt, inspected but not executed"
+      ],
+      "rationale": "A backwards dependency path must have strictly decreasing clocks; reaching arbitrarily far on either half-line has probability zero by the factorial bound. Condition on the attempt time at the central site: its exterior half-lines are independent until that attempt. Conditioning instead on the first neighbor's clock yields h_A=1−q∫h_B and h_B=1−p∫h_A, with the stated solutions and one-site acceptance probabilities. Conditional on the two prescribed labels being A, the edge can be deleted without changing either endpoint's acceptance: each endpoint blocks only B, not A, and before each endpoint attempts its exterior cannot depend on its own state. The resulting half-line acceptance events have disjoint clocks and labels, giving a² and likewise b². Accepted unlike species cannot neighbor. Reflection, marginals and R_A+R_B=a+b−ab (by differentiation from t=0) then give all remaining entries. For 0<t≤1, h_A≥1−qu>0 and h_B≥1−pu>0, and each is strictly less than one for u>0; thus R_A<a and R_B<b. The total-occupancy covariance factors as −ab[2(1−a)(1−b)−ab], strictly negative because a<p and b<q. At t=0 or at degenerate label biases sites have zero covariance. Independent numerical evaluation of the exact symmetric jammed expressions gives P(AA)=0.154818121746, P(XX)=0.045395125835, cov_A=0.054924021523, cov_H=−0.089940157401.",
+      "residual_risks": [
+        "The packaged 147 assertions are recorded finite-ring checks, not independently replayed or relied on for the analytic result. No claim for repeated attempts or observation after a different clock law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-attempt single-species pair calculation forbids all adjacent occupation. The two-species antagonistic percolation paper allows rejected sites to be chosen again."
+        ],
+        "reasoning": "Neither acceptance protocol includes the one-shot two-label rule as the compared parameterized pair result.",
+        "searches": [
+          "arXiv:2210.05627v1",
+          "arXiv:2211.04622v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09786v1",
+        "arXiv:2210.05627v1",
+        "arXiv:2211.04622v1",
+        "Resultary …b16701b2c768 and …871c3a75dbeb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distance two with a vacant middle site is not the adjacent-diagonal event; a jammed XX probability fixes only the combined adjacent occupancy through inclusion-exclusion at that time."
+        ],
+        "reasoning": "Neither result entails the universal same-species sign or the time-resolved species-resolved matrix. Familiar cavity reasoning is not claimed as novel.",
+        "searches": [
+          "One-shot paper model, density results and conclusion",
+          "Distance-two and double-vacancy Resultary findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same one-shot model and A, B, vacancy one-site marginals in the original article; its declared output is average densities."
+        ],
+        "reasoning": "The marginals plus unlike-species zeros do not fix the diagonal of the pair law. The exterior half-line product is the extra statement needed.",
+        "searches": [
+          "Public query: One-dimensional AB random sequential adsorption with one deposition per site adjacent pair correlation two species one-shot exact joint law",
+          "arXiv:2306.09786v1, densities and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2 …b16701b2c768 gives a distance-two same-colour covariance and A,X,A probability.",
+          "2026/11/22 …871c3a75dbeb gives a terminal XX event and gap-conditioned flanking species laws; it overlaps the jammed vacancy observable but not the complete adjacent matrix or sign theorem."
+        ],
+        "reasoning": "These are distinct records, not proof of historical priority. The overlap at a vacancy observable does not determine AA and BB for all p and t or the paired strict-sign claim.",
+        "searches": [
+          "Resultary semantic lookup for one-shot antagonistic nearest-edge and pair-correlation laws"
+        ]
+      },
+      "rationale": "The original one-shot paper already gives the single-site densities, and adjacent unlike acceptance is forbidden directly by the rules. The supported distinct content is the nonzero adjacent entries and full ordered-pair law, with strict but opposite signs for equal-species and total occupancy across the same edge.",
+      "residual_risks": [
+        "A bounded statement-level comparison, not a historical-priority guarantee. An unindexed cavity calculation or equivalent result could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and one-point density predecessor",
+          "evidence": [
+            "Independent uniform one-attempt clocks, opposite-type accepted blockers, conclusion states average A, B and vacancy densities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09786v1",
+          "material_read": "Model p. 2 and conclusion p. 11; PDF text offsets 3200 and 27800",
+          "method": "OA PDF passages",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Original same-model paper"
+        },
+        {
+          "assessment": "Different exclusion rule",
+          "evidence": [
+            "Single species, with all adjacent occupancy forbidden."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.05627v1",
+          "material_read": "PDF pp. 1–2, model and covariance statement",
+          "method": "OA PDF passages",
+          "title": "Density and correlation in a random sequential adsorption model",
+          "trigger": "Exact RSA pair-correlation calculation"
+        },
+        {
+          "assessment": "Repeated rather than single attempts",
+          "evidence": [
+            "A rejected site remains eligible for a future trial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.04622v1",
+          "material_read": "PDF pp. 2–3, attempt protocol",
+          "method": "OA PDF passages",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Antagonistic two-species coverage"
+        },
+        {
+          "assessment": "Different separation and event",
+          "evidence": [
+            "Distance-two same-colour covariance and probability of A,X,A."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-second-neighbor-correlation-in-one-shot-antagonistic-adsor--b16701b2c768",
+          "material_read": "Finding and relationship to prior work",
+          "method": "Local Resultary mirror",
+          "title": "Exact second-neighbor correlation in one-shot antagonistic adsorption",
+          "trigger": "Closest same-model pair record"
+        },
+        {
+          "assessment": "Partial XX overlap, not the bound theorem",
+          "evidence": [
+            "Jammed XX event and conditional flanking law, not all nine probabilities and both prescribed correlation signs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-double-vacancy-shielding-and-sharp-species-bias-attenuation-in-a--871c3a75dbeb",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Double-vacancy shielding and sharp species-bias attenuation",
+          "trigger": "Same-model paired vacancies and flanking labels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, pair matrix and strict sign factorization",
+        "arXiv:2306.09786v1, one-site comparison"
+      ],
+      "rationale": "Nearest-neighbor dependence is the natural first statistic beyond the known one-site densities. The complete A/B/vacancy edge law exposes a substantive distinction: collapsing A and B to occupied changes the sign, uniformly in positive observation time and all nondegenerate biases, not just at a chosen numerical instance.",
+      "residual_risks": [
+        "No implication is established for nonadjacent sites or repeated-attempt dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

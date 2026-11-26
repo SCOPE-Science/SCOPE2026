@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:09.082278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the all-phase claim analytically. Under inverse ellipse scaling, area maximization reduces to maximizing the sum of sines of the cyclic gaps. On the compact space with nonnegative gaps, a coincident-vertex polygon is not a maximizer: insertion on an open boundary arc makes a positive-area addition for a polygon with ≥3 distinct vertices, or yields positive area starting with ≤2. At an interior maximum the adjacent two-gap sine identity makes each adjacent gap pair equal. For the resulting equal-angle family the moving-vertex tangent is the average of the two unnormalized chord directions divided by cos(h); dotting it with the difference of incident unit chord vectors gives D_j=(F⁻−F⁺)(1−cos θ)/(2 cos h). The determinant ab sin(2h) makes the second factor strictly positive, and the squared norm difference is −(a²−b²)sin(2h)sin(2t_j). Thus simultaneous vanishing requires n=4 and a vertex phase in (π/2)Z. The grid modulo π gives max |sin(2t_j)|≥cos(π/(2N)); F⁻+F⁺≤2a and 1−cos θ≥sin²θ/2 give the stated G. Moving a single angle by up to h preserves order and gives incident gaps in [h,3h]⊂[h,π], so chord norms are at least 2b sin(h/2). The twice-differentiated norm bound then gives precisely H and the Taylor increment ≥G min(h,G/H)/2. Compactness gives a maximum; a collapsed polygon can strictly increase perimeter by insertion by strict triangle inequality, so an actual distinct-vertex maximum exists. The tests were inspected as diagnostics, not executed or used as a continuum proof. No claim of global maximality at n=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoehner's incompatibility characterizes the Euclidean ball for densities minimizing leading expected random-polytope errors; the related ellipse minimax work optimizes a density."
+        ],
+        "reasoning": "Those statements concern stochastic asymptotic errors, not deterministic independent vertex perturbations at a prescribed n. The affine functional theorem applies to a different objective.",
+        "searches": [
+          "Hoehner arXiv:2602.18547; Resultary area/perimeter sampling law 179adc1046b6; Gronchi–Longinetti Theorem 1.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 9338777854e9, 6fe29e539946, 179adc1046b6, 44c1a83ab0d2, 8f379410b59c",
+        "arXiv:2001.02934 and 2602.18547",
+        "Gronchi–Longinetti 10.1007/s00454-007-9010-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constrained family has a single moving phase, so its derivative is a sum of the independent derivatives. The earlier triangle result only bounds the unrestricted optimum minus the best maximum-area triangle perimeter."
+        ],
+        "reasoning": "Zero sum does not imply that each derivative vanishes. The triangle result implies the corresponding phase-uniform separation only for n=3, not the classification for n≥4. The present determinant/grid/Taylor calculation provides information not in the reflection rule or the restricted selection alone.",
+        "searches": [
+          "Resultary 9338777854e9 Finding and scope; 6fe29e539946 Finding; Akopyan–Schwartz–Tabachnikov reflection-law passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Billiard stationarity is a local reflection law; the periodic trajectories have a confocal caustic. Gronchi–Longinetti's affine-regular extremizers concern other affine area-distance objectives."
+        ],
+        "reasoning": "The general reflection law at a stationary polygon is the same necessary condition; it is not a classification of which equal-angle affine polygons satisfy it at every vertex or a lower bound for a finite improvement.",
+        "searches": [
+          "Inscribed maximum perimeter polygons / periodic elliptic billiards / affine-regular ellipse polygons",
+          "Akopyan–Schwartz–Tabachnikov arXiv:2001.02934; Gronchi–Longinetti DOI 10.1007/s00454-007-9010-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6fe29e539946 gives a positive explicit triangle loss 81b⁷(a²−b²)²/(2048a¹⁰). 9338777854e9 gives restricted phase selection for the whole maximum-area family. The same-day pentagon capacity and random sample perimeter isoperimetry records optimize different objects."
+        ],
+        "reasoning": "The triangle gap is covered at that order; the records do not supply an all-n stationarity classification or quantitative gap beyond that slice. The comparison does not infer priority from the dates.",
+        "searches": [
+          "Resultary finite ellipse area/perimeter and polygon stationarity searches; 9338777854e9, 6fe29e539946, 44c1a83ab0d2, 8f379410b59c"
+        ]
+      },
+      "rationale": "The affine-area extremizers, their restricted phase selection, and the positive explicit triangle-order gap already have precedents. The distinct claim is the simultaneous independent-vertex stationarity classification for all n, together with a fixed-(ellipse,n) phase-uniform explicit bound for all nonexceptional orders. The inspected billiard literature establishes the reflection mechanism but does not solve the equal-affine-angle restriction or give this quantitative gap.",
+      "residual_risks": [
+        "Bounded literature check. Earlier elliptic billiard treatments or replies to the inaccessible MathOverflow posting could contain an equivalent obstruction; no priority is assigned on inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap but restricted competitor set",
+          "evidence": "States unique maximum and minimum phase within the rotating maximum-area family, explicitly not arbitrary inscribed polygons.",
+          "identifier_or_url": "9338777854e9",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3925",
+          "method": "Local Resultary mirror",
+          "title": "Exact perimeter selection among maximum-area polygons inscribed in ellipses",
+          "trigger": "Same extremal area family and perimeter"
+        },
+        {
+          "assessment": "Prior positive explicit gap at n=3",
+          "evidence": "Compares unrestricted and maximum-area triangle perimeter maxima; not higher orders.",
+          "identifier_or_url": "6fe29e539946",
+          "material_read": "RESULT.md offsets 250–1979",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fixed-triangle area–perimeter incompatibility on noncircular ellipses",
+          "trigger": "Exact overlap with one order of loss"
+        },
+        {
+          "assessment": "General reflection, no equal-affine-angle classification in inspected passages",
+          "evidence": "Confocal caustics and Poncelet families; impact-vector tangent law.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.02934",
+          "material_read": "pp. 1, 3, OA text offsets 820 and 9300",
+          "method": "OA primary PDF passages",
+          "title": "Billiards in Ellipses Revisited",
+          "trigger": "Equivalent billiard formulation"
+        },
+        {
+          "assessment": "Different functionals",
+          "evidence": "Affine-invariant area-distance objectives, not ordinary Euclidean perimeter.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-007-9010-5",
+          "material_read": "p. 1 offset 300 and Theorem 1.8 p. 5 offset 9150",
+          "method": "OA Springer PDF passages",
+          "title": "Affinely Regular Polygons as Extremals of Area Functionals",
+          "trigger": "Affine-regular extremizers potentially simultaneous with perimeter"
+        },
+        {
+          "assessment": "Stochastic asymptotic context",
+          "evidence": "Simultaneously optimal density and positive nonball tradeoff for intrinsic-volume errors.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.18547",
+          "material_read": "p. 1 offsets 720 and 3350",
+          "method": "OA primary PDF passages",
+          "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+          "trigger": "Broader simultaneous approximation characterization"
+        },
+        {
+          "assessment": "Distinct objectives",
+          "evidence": "Minimax sampling law; largest Euclidean regular pentagon; expected area for random boundary samples.",
+          "identifier_or_url": "179adc1046b6; 44c1a83ab0d2; 8f379410b59c",
+          "material_read": "RESULT.md Findings, offsets 0–2187, 0–2168, and 0–2214 respectively",
+          "method": "Local Resultary mirror",
+          "title": "Related Resultary ellipse sampling, pentagon capacity, and random perimeter isoperimetry results",
+          "trigger": "Related objects and same-day potential overlap"
+        },
+        {
+          "assessment": "No covering/noncovering conclusion from these pages",
+          "evidence": "The inaccessible discussion remains a historical-priority risk. Area-family characterization independently reconstructed.",
+          "identifier_or_url": "https://mathoverflow.net/questions/407192/inscribed-n-gons-of-maximum-perimeter-for-an-ellipse ; https://users.math.uoc.gr/~pamfilos/eGallery/problems/MaximalRegInEllipse.html",
+          "material_read": "No substantive passages retrieved",
+          "method": "Lawful web retrieval attempted; HTTP 403 for the first and transport failure for the second",
+          "title": "Inscribed n-gons of maximum perimeter for an ellipse; Maximal Polygon in Ellipse",
+          "trigger": "Fixed-n perimeter discussion and standard area family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural comparison of two classical objective functions at fixed vertex count gives an exact exceptional stationarity case and an explicit gain in every other case. It genuinely distinguishes unrestricted optimization from the rotating family and generalizes the previously treated triangle case across vertex orders without an asymptotic assumption.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

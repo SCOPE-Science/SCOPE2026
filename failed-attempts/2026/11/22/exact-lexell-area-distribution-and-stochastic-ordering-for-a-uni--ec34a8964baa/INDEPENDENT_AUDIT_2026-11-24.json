@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:23:34.710075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed endpoints (c,±s,0), the solid-angle formula reduces to 2 atan2(sZ,c+X); using atan2 preserves the branch above area pi. On Z>=0 the angular threshold is the intersection of that hemisphere with n·C>=h for the stated n,h. At the two intersections the inward tangent normals have dot product -cos(a), so the corners are a, not its supplement. The small circle has center hn and radius s/L. Taking the in-plane vectors (s cos(a),0,sin(a))/L and the y-axis as a basis, its upper arc is parametrized by cos(theta)>=-c cos(a), with central span 2 arccos(-c cos(a)). Its signed curvature relative to the cap's inward direction is h/(s/L), giving the stated negative contribution for h<0. Gauss–Bonnet and reflection give the CDF with endpoints 0 and 1. The derivative bracket has value zero at q=-1 and strictly positive derivative 2 sqrt(1-q²) in the interior. Setting a=pi/2 verifies identifiability. At a=beta u, L is asymptotic to beta sqrt(1+u²); the case u=0 is exactly zero. At c=0 the correction vanishes uniformly. The endpoint coefficients follow from the first-order sine terms and arccos values pi-beta and beta, and 1-beta cot(beta)>0. Independent coordinate quadrature at five interior pairs agreed within 3.9e-13, a diagnostic only. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometric Euler–Lexell theorem gives the fixed-area small-circle locus, not a probability calculation by itself.",
+          "Finch–Jones discuss unconditional spherical triangle area but also supply an exact conditional law at arbitrary fixed side length in §2.1.",
+          "The Maehara–Martini full text was unavailable in the lawful retrieval attempts."
+        ],
+        "reasoning": "The classical level-locus theorem alone does not establish prior coverage of the probability law. The actual conditional CDF in Finch–Jones, not its unconditional result or an inaccessible paper, is decisive.",
+        "searches": [
+          "arXiv:1409.4736, Lexell's theorem",
+          "arXiv:1009.5329, introduction and §§1.1, 2.1",
+          "doi:10.4169/amer.math.monthly.124.4.337"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.5329",
+        "arXiv:1409.4736",
+        "SCOPE 5a49e2ae2252",
+        "doi:10.4169/amer.math.monthly.124.4.337 (bibliographic evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=sigma/2 and b=cot(kappa/2) sin(a), Finch–Jones's integrand for theta>=a is 1-cos(2 atan(b/sin(theta-a)))=2b²/(b²+sin²(theta-a)).",
+          "Put v=theta-a and use y=tan(v), with the continuous arctangent branch for 0<=v<=pi. The primitive for b²/(b²+sin²(v)) from v=0 is b/sqrt(1+b²) times atan2(sqrt(1+b²) sin(v), b cos(v)). At v=pi-a and kappa=2 beta, this gives exactly the frozen correction term after dividing by pi."
+        ],
+        "reasoning": "Indeed b/sqrt(1+b²)=c sin(a)/L; the upper-limit angle is atan2(L,-c cos(a))=arccos(-c cos(a)). For fixed interior a, the integrand is strictly increasing in b wherever sin(v)>0, while b decreases with beta. Thus the strict stochastic order needs no further theorem even before evaluation of the integral. Half-area identification sets a=pi/2, and the endpoint and scaled-limit formulas follow by direct leading-order expansions of this closed form.",
+        "searches": [
+          "arXiv:1009.5329 §2.1, PDF pp. 5–6, definition of f and displayed conditional CDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch and Jones §1.1 fix the designated vertices A and B at separation kappa. Their §2.1 gives P(area<=sigma | c=kappa)=(sigma+integral from sigma/2 to pi of (1-cos f(theta)) dtheta)/(2pi).",
+          "The nearest separate Resultary record 5a49e2ae2252 fixes one pole and samples two points from a common latitude circle."
+        ],
+        "reasoning": "In Finch–Jones, rotational invariance and independence give the fixed-pair uniform-apex model upon conditioning on the length of one designated side. Set kappa=2 beta and sigma=t; c in their notation is a side length, not the cosine used by the frozen record. Neither selects the shortest of the three sides. The latitude-circle model is not equivalent.",
+        "searches": [
+          "Finch–Jones, arXiv:1009.5329 §§1.1 and 2.1, conditional given c=kappa",
+          "Resultary: Lexell fixed-base full-sphere uniform apex area CDF and intrinsic stochastic order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest identical catalogue hit is the frozen target, not independent evidence. The closest distinct intrinsic area law is for different sampling; chord area and perimeter entries concern different observables.",
+          "Finch–Jones give an exact all-parameter expression, not numerical matches at a few base lengths."
+        ],
+        "reasoning": "No external table is needed to conclude exact coverage. The prior integral determines every exact CDF value for the same observable and model.",
+        "searches": [
+          "Resultary: conditional area law for spherical triangles with fixed base",
+          "SCOPE 5a49e2ae2252, Finding",
+          "arXiv:1009.5329 §2.1 exact integral"
+        ]
+      },
+      "rationale": "Finch and Jones §2.1 explicitly give the conditional area CDF for exactly this experiment. The new-looking arccos representation is a direct single trigonometric substitution in their integral; strict stochastic order also follows pointwise in that integral parameter. The identification and limits are elementary specializations or expansions. This is not a denial of the correctness of the alternative geometric proof, and it does not assert that Finch and Jones printed the arccos expression or the refinements verbatim.",
+      "residual_risks": [
+        "The Maehara–Martini full text was not available; no judgment about its unseen results was used.",
+        "Priority for a printed arccos expression or the individual refinements was not established. Coverage is established by the exact prior conditional integral and its direct implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same probability law; closed form and ordering are direct consequences",
+          "evidence": "The conditional probability given c=kappa integrates sin(rho) over rho<=f(theta) with normalization 1/(2pi); for theta>=sigma/2 the tangent of f(theta)/2 is cot(kappa/2) sin(sigma/2)/sin(theta-sigma/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5329",
+          "material_read": "§1.1 PDF p. 2 near offset 6757; §2.1 PDF pp. 5–6, offsets 11200–15606 including the piecewise boundary f and exact conditional-CDF display",
+          "method": "OA PDF bounded passage reading followed by evaluation of the published integral",
+          "title": "Random Spherical Triangles",
+          "trigger": "Possible prior exact area law given a fixed side"
+        },
+        {
+          "assessment": "Known level locus, not the conditional probability law by itself",
+          "evidence": "The possible third vertices for a fixed base and fixed area lie on a small-circle segment.",
+          "identifier_or_url": "arXiv:1409.4736",
+          "material_read": "PDF pp. 20–21 (offsets 63800–69881), Lexell passages",
+          "method": "OA PDF bounded passage reading",
+          "title": "On the works of Euler and his followers on spherical geometry",
+          "trigger": "Classical fixed-side fixed-area geometric result"
+        },
+        {
+          "assessment": "Uninspected details remain a risk, not a reason for failure",
+          "evidence": "The frozen record identifies the article as concerning forms and proofs of Lexell's theorem; no exact law is attributed here on that basis.",
+          "identifier_or_url": "doi:10.4169/amer.math.monthly.124.4.337",
+          "material_read": "Bibliographic reference and frozen report of abstract access only",
+          "method": "Lawful OA attempts at full text returned HTTP 403",
+          "title": "On Lexell's Theorem",
+          "trigger": "Closely relevant geometric theorem and possible refinements"
+        },
+        {
+          "assessment": "Different sampling experiment",
+          "evidence": "A pole is fixed and two other vertices are independently sampled on a common latitude circle.",
+          "identifier_or_url": "SCOPE 5a49e2ae2252",
+          "material_read": "Finding in local-mirror RESULT.md, offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact equatorial bifurcation and universal marked area law for pole-anchored spherical triangles",
+          "trigger": "Closest separate intrinsic area-law and stochastic-order result in the catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit distribution and its dependence on one fixed edge are natural questions. But the exact distribution was already given for this experiment, its integral has a standard elementary antiderivative, and strict ordering is already visible from its integrand. The one-threshold identity and the expansions are useful facts to record but are direct consequences of that short evaluation. No independently valuable remainder requiring a substantive new result was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

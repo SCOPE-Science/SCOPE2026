@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:53:06.773416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonnegative degree bound D, (n+k+1)^D≤(n+1)^D(k+1)^D and sup(k+1)^D/b^k is finite. Dividing the geometric decomposition by b^k a_n gives ratio 1+O((n+1)^D/b^n) uniformly in k≥1. A legal append also gives ratio a_(n+k)/(b^t a_n) in [1,1+1/a_n); their quotient is the discrete power b^(k−t) and must be 1 uniformly on the tail. For a late index m on an infinite walk, concatenated blocks to any later index n keep a_n/b^(n−m) in [a_m,a_m+1). Its limit is Ab^m, so the residual lies in the CLOSED interval [−1,0]. On each unbounded residue progression every nonconstant polynomial eventually leaves that interval, and a constant outside it never enters. This pruning applies even to unbounded jumps and uniformly over walks once m is large. Between good residues the difference is precisely c_s−b^k c_r, integral on the positive integer tail. Finite directed cycles are equivalent to infinite capped paths, and every directed cycle lifts by positive jumps, including self-loops. Any good residue has the legal loop k=P, d=(1−b^P)c_r, explaining the cap P and bottleneck formula (empty minimum infinite); jumps through increasing multiples of P would also give an actually unbounded-length walk if desired. In the period-four example the legal unit edges 0→1→2 cannot close, whereas 2→0 with length 2 has d=1. The frozen finite checker was inspected only; the proof covers unrestricted parameters and does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mosahab et al. Theorem 1.2 gives necessary exact dominant-power matching with a fixed cap; Theorem 1.3 assumes multiplicative independence. Resultary 569b53a70254 takes integer periodic offsets and integer geometric powers with dependent bases."
+        ],
+        "reasoning": "The latter record has broader base/root combinations but still only periodic integer offsets; it is also dated later. Neither it nor the published results covers the full polynomial-by-residue sequence class with arbitrary rational amplitude, and the Fibonacci/Lucas termination bounds concern a different root and error structure.",
+        "searches": [
+          "arXiv:2610.18919v1 Theorems 1.2–1.3, dependent-base examples",
+          "arXiv:2512.06446v1 Fibonacci and Lucas theorems",
+          "Resultary 569b53a70254 multiplicatively dependent bases"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3b0433590f0b and 569b53a70254 local RESULT.md",
+        "arXiv:2610.18919v1",
+        "arXiv:2512.06446v1",
+        "Banks–Luca JIS 05.1.3",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 3b0433590f0b starts its finite graph on the full integer periodic correction alphabet, and excludes other constants on cycles by monotonicity. The frozen theorem first has to justify a finite graph from time-varying polynomial values. Banks–Luca concatenate whole sequence terms, not arbitrary admissible digit blocks."
+        ],
+        "reasoning": "Neither a substitution into the earlier bounded-offset formula nor the necessary condition for bounded walks proves this pruning for unrestricted jumps. Once the infinite-path prefix limit traps the varying corrections in [−1,0], it is appropriate to reuse standard finite-cycle reasoning and the known integer-periodic subcase, not present those as new.",
+        "searches": [
+          "Resultary 3b0433590f0b proof Steps 2–3",
+          "arXiv:2610.18919v1 §1 and §3",
+          "Banks and Luca JIS 05.1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3b0433590f0b, Finding and proof Steps 2–3: in the integer periodic base-equals-root case cycles are supported on correction 0 or on correction −1, and their minimum cap is the smaller maximum circular gap."
+        ],
+        "reasoning": "This is the same answer in that special case, not merely similar terminology. For general positive rational A, integrality allows interior good corrections; if the fractional part of Ab^n is nonzero, any good correction equals minus that part. Edges between such residues automatically have an integer digit in (−1,b^k), so the graph can again be described by gaps after pruning. Those algebraic consequences do not put the polynomial-by-residue hypotheses inside the prior theorem.",
+        "searches": [
+          "Published digit-appending walks, periodic-polynomial corrections, dependent dominant root / base",
+          "Resultary: cyclic-gap thresholds for periodic corrections; multiplicatively dependent bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives an exact subfamily formula N_min=min(g(S_0),g(S_−1)), not a table for rational-polynomial corrections. Mosahab et al. give the contrasting b^n−1 and b^n+1 examples."
+        ],
+        "reasoning": "Those examples are already known, and the earlier Resultary formula exactly covers integer periodic corrections at A=1. No inspected table or record gives the broader classification, including cases with nonconstant residue polynomials or genuinely fractional good constants.",
+        "searches": [
+          "Resultary: sharp cyclic-gap thresholds for digit-appending walks on periodic perturbations",
+          "arXiv:2610.18919v1 Examples 1.1 and 3.3"
+        ]
+      },
+      "rationale": "There is exact earlier Resultary coverage of the A=1, constant-integer periodic subcase, including the cycle idea and an explicit gap formula. Credit that work, not the frozen record, for that case. The supported advance is the rational-amplitude, polynomial-by-residue classification and proof of uniform tail synchronization and pruning under those broader assumptions. The prior finite-residue proof starts with a bounded periodic integer correction and does not itself prune nonconstant polynomials or classify fractional good corrections.",
+      "residual_risks": [
+        "Known exact integer-periodic overlap should not be claimed as new.",
+        "The scoped search does not eliminate equivalent prefix/recurrence results outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of A=1 with constant-integer corrections, not the full extension",
+          "evidence": [
+            "a_n=b^n+u_(n mod h); cycles supported on S_0 or S_−1; N_min=min(g(S_0),g(S_−1)); additional finite-walk bound below threshold"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-cyclic-gap-thresholds-for-digit-appending-walks-on-periodi--3b0433590f0b/RESULT.md",
+          "material_read": "Finding and Proof including Steps 2–3 (local-mirror offsets 0–8527; decisive graph/gap argument at 2900–6679)",
+          "method": "Compared hypotheses, the edge identity, and cyclic-gap formula with the frozen graph",
+          "title": "Sharp cyclic-gap thresholds for digit-appending walks on periodic perturbations",
+          "trigger": "Earlier exact threshold for the same digit-walk problem"
+        },
+        {
+          "assessment": "Bounded-length necessary condition, independent-base existence theorem, and two covered examples",
+          "evidence": [
+            "Theorem 1.2 forces late α^k=b^t under a cap; Theorem 1.3 assumes independence; Examples 1.1 and 3.3 treat b^n−1 and b^n+1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18919v1",
+          "material_read": "§1 Theorems 1.2–1.3 and Example 1.1; §3 Example 3.3 (HTML offsets about 4522, 6238–6500, and 15800)",
+          "method": "Read actual theorem and example passages; compared base dependence and quantified claims",
+          "title": "On Digit-Appending Walks Along Linear Recurrences",
+          "trigger": "Same operation and dominant-root hypothesis boundary"
+        },
+        {
+          "assessment": "Material integer-periodic overlap; no arbitrary polynomial corrections or earlier priority shown by this later record",
+          "evidence": [
+            "Integer-periodic c_n in A^n+c_n; late resonance; good offsets 0 or −1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-infinite-digit-appending-walks-for-periodic-perturbations-of-int--569b53a70254/RESULT.md",
+          "material_read": "Finding and proof (local-mirror offsets 0–8587)",
+          "method": "Compared the offset family and resonant steps",
+          "title": "Infinite digit-appending walks for periodic perturbations of integer powers",
+          "trigger": "Related classification with a broader dependent-base pair"
+        },
+        {
+          "assessment": "Separate Fibonacci/Lucas termination claims, not a residue-pruning classification",
+          "evidence": [
+            "Theorems 3.1 and 4.2 for Fibonacci and specified Lucas families"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.06446v1",
+          "material_read": "§3 Theorem 3.1 and §4.2 Theorem 4.2 (HTML offsets about 4800 and 17600)",
+          "method": "Compared sequence family and termination claims",
+          "title": "Uniform Bounds for Digit-Appending Fibonacci Walks",
+          "trigger": "Earlier exact recurrence digit-walk bounds"
+        },
+        {
+          "assessment": "Appends an entire recurrence term, rather than arbitrary digits",
+          "evidence": [
+            "Looks for concatenations of whole terms that are again terms of the recurrence"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/Banks/banks81.pdf",
+          "material_read": "Paper p. 1, problem formulation",
+          "method": "Compared the actual concatenation operation",
+          "title": "Concatenations with Binary Recurrent Sequences",
+          "trigger": "Earlier base-digit concatenation along recurrences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The class captures a simple dominant base root accompanied by arbitrary root-of-unity polynomial modes, a natural dependent case not decided by multiplicative independence. The infinite-prefix argument shows why even unrestricted jumps cannot save an infinite path through nonconstant residue corrections. The criterion then gives an exact smallest finite cap for the whole stated class, rather than just sufficient examples or a nonsharp existence bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -13,7 +13,7 @@ including \(2^n+2\) fixed states. Every primitive period divides \(n\), and ever
 N_d(n)=\frac1d\sum_{e\mid d}\mu(d/e)2^e+\mathbf1_{\{d=1\}}2^n.
 \]
 
-**Complete fixed-point basins.** A fixed configuration has identical spins in its two rows, so identify it with a cyclic binary word \(y=(y_0,\ldots,y_{n-1})\). Let
+**Complete basin census.** For a column-uniform fixed configuration, identify the two identical rows with a cyclic binary word \(y=(y_0,\ldots,y_{n-1})\). Let
 \[
 b(y)=\#\{i\in\mathbb Z/n\mathbb Z:y_i\ne y_{i+1}\}.
 \]
@@ -21,7 +21,7 @@ Its exact attraction-basin cardinality, including the fixed point itself, is
 \[
 \boxed{B_n(y)=\begin{cases}3^n-2^n,&b(y)=0,\\3^{n-b(y)},&b(y)>0.\end{cases}}
 \]
-Thus two consensus fixed points each have basin \(3^n-2^n\). The number of nonconstant fixed points with boundary count \(b\) is \(2\binom nb\) for even \(2\le b\le n\), and zero for odd \(b\). No transient enters the travelling subsystem; the attraction basin of each primitive travelling orbit of period \(d\) has size exactly \(d\), consisting of the orbit itself.
+Thus two consensus fixed points each have basin \(3^n-2^n\). The number of nonconstant column-uniform fixed points with boundary count \(b\) is \(2\binom nb\) for even \(2\le b\le n\), and zero for odd \(b\). No transient enters the travelling subsystem; the attraction basin of each primitive travelling orbit of period \(d\) has size exactly \(d\), consisting of the orbit itself. In particular the two entirely discordant fixed points, with constant column words \((01)^n\) and \((10)^n\), each have a singleton basin.
 
 **Sharp transients and exact distribution.** For an initial configuration \(x\) write \(m_i=1\) when the two spins in column \(i\) disagree, and \(m_i=0\) otherwise. When the mask has both symbols, the first-periodic-entry time \(\tau(x)\) equals the longest cyclic run of ones in \(m\). For the constant masks \(0^n\) and \(1^n\), \(\tau(x)=0\). Consequently \(\max_x\tau(x)=n-1\), attained by a mask with precisely one zero, and
 \[
@@ -64,7 +64,7 @@ Together these bounds prove \(L/\log_2n\to1\) in probability. The consensus-basi
 
 ## Verification
 
-The standalone stdlib script `verify.py` enumerates all \(4^n\) configurations for each integer \(2\le n\le8\) (\(87{,}376\) labelled configurations in total). It separately implements the original two-row majority rule and the four-symbol reduction, then compares one-step images and explicit trajectories. It checks recurrence counts, primitive-period spectra, individual fixed-state basin sizes, sharp entrance times and every cumulative bounded-composition count \(E_n(t)\). The recorded output `VERIFY_OUTPUT.txt` ends with `VERIFY_OK`. These finite checks corroborate—but do not replace—the all-size proof above.
+The standalone stdlib script `verify.py` enumerates all \(4^n\) configurations for each integer \(2\le n\le8\) (\(87{,}376\) labelled configurations in total). It separately implements the original two-row majority rule and the four-symbol reduction, then compares one-step images and explicit trajectories. It checks recurrence counts, primitive-period spectra, individual column-uniform fixed-state basin sizes, and that all initially discordant words are periodic and no other state reaches them. It checks sharp entrance times and every cumulative bounded-composition count \(E_n(t)\). The recorded output `VERIFY_OUTPUT.txt` ends with `VERIFY_OK`; its field `cycles` reports recurrent **point counts** by primitive period, not orbit counts. These finite checks corroborate—but do not replace—the all-size proof above.
 
 ## Relationship to prior work
 

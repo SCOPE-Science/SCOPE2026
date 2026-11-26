@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:05:45.400349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56; VERIFICATION.md and both frozen checkers, inspected without execution",
+        "/workspace/branches/a973e8a6-e9c4-474b-bc24-fdc67c24fa67/independent_check.py (python3 replay)",
+        "/workspace/branches/a973e8a6-e9c4-474b-bc24-fdc67c24fa67/sample_run.txt and full_run.txt (full PASS, all pair extensions and all named orbits checked)"
+      ],
+      "rationale": "Each center has binomial(3,2)·2²=12 points at exact distance two, and the independent replay found 27 distinct incidence rows. A support is shattered exactly when its restrictions among the 27 rows exhibit all 2^j Boolean traces. The replay enumerated every support through size four and found (1,27,351,2808,3402); at size five the required 32 traces exceed the number of centers, so there are no omitted higher faces. Of the 2808 triples, 2268 extend to a four-face. The sentence about smaller faces in the frozen facet argument needs the fact that every pair extends, not merely that all pairs are faces; the replay verified 351 of 351 pairs lie in a shattered triple. Equivalently the listed four-face representatives contain a pair of each possible mutual distance, and the action is transitive on pairs of each distance. Thus there are only 3402 four-facets and 540 three-facets. Enumeration of all 1296 actions reproduced six disjoint orbits with the displayed representatives and multiplicities, including the two distinct size-1296 orbits. The replay rebuilt the binary boundary columns and obtained ranks (26,325,1913). For the augmented complex on a nonempty vertex set these give zero reduced degree zero and degree one, degree two 2808-325-1913=570, and degree three 3402-1913=1489; all other degrees vanish. The frozen scripts were inspected without execution. The fresh finite replay is complete for this universe, not a formal certificate or an integral homology test.",
+      "residual_risks": [
+        "The numerical ranks are exact finite computation under the stated model, not a conclusion about integral torsion, integral homotopy type, or any other cube."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary exact-distance-two theorem gives the sharp VC values at different binary dimensions and explicitly does not include nonbinary alphabets. The Hamming edge-formula theorem includes ternary cubes but uses distance one. The pseudorandom graph theorems give asymptotic sufficient conditions for lower bounds two or three, not exact finite inventories."
+        ],
+        "reasoning": "Changing alphabet in the binary theorem changes both support and center domains, with additional traces possible. General asymptotic VC estimates cannot imply the coefficientwise exact count, orbit decomposition or finite homology; the ternary open-neighborhood theorem is for a different graph.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-vc-dimension-of-binary-hamming-distance-two-spheres--aa804f0c6690",
+          "arXiv:2007.16042v1 §4 Theorems 4.6–4.7",
+          "arXiv:2303.07878v1 Theorems 1.4–1.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and Relationship to prior work",
+        "Resultary local index and inspected related local-mirror records",
+        "Adler–Benediktsson–Macpherson arXiv:2007.16042v1 §4",
+        "Pham–Senger–Tait–Thu-Huyen arXiv:2303.07878v1 Theorems 1.4–1.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rips result concerns pairwise distances at most two and rational third homology of dimension 46. The same-day antipodal source uses exact distance three. The general 27-concept trace-count bound only gives VC dimension at most four."
+        ],
+        "reasoning": "Rips faces are determined by pairwise diameter, not trace realizability; in particular a distance-three pair is already a face here, since every pair is shattered. Neither a bound on VC dimension nor topology of a different face system supplies the boundary ranks and lower-dimensional maximal faces.",
+        "searches": [
+          "2026/10/25/SCOPE-complete-ternary-translation-character-of-the-radius-two-hamming--f98167fe7255",
+          "Same-day antipodal-sphere RESULT.md, Finding",
+          "arXiv:2303.07878v1 Theorems 1.4–1.5 and subsequent remarks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target spheres are open neighborhoods in the distance-two relation graph on X, each with 12 neighbors. The primary Hamming/Johnson paper takes the edge relation of the usual Hamming graph, with 6 neighbors in this universe. The supplemental literature query returned sphere-packing material rather than a matching result."
+        ],
+        "reasoning": "Ordinary Hamming adjacency and exact-distance-two adjacency on this cube do not even have equal degrees, so cannot be related by renaming points. Complementing radius-one concepts would give size 21 rather than 12. Closed radius-one concepts and their complements likewise have sizes 7 and 20. These aliases do not transfer the shattering census.",
+        "searches": [
+          "Resultary: ternary Hamming three-cube exact distance-two spheres, second-distance graph shattering complex, facets and homology",
+          "Primary search: q-ary or ternary Hamming exact distance two or second-distance graph sphere shattering VC dimension",
+          "arXiv:2007.16042v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed open-neighborhood coefficient list has 243 pairs, 216 triples and no four-faces; the closed-neighborhood census takes distance at most one. The same-day antipodal record has 351 pairs and 216 triples, no four-faces and reduced binary ranks 192 and 83 in degrees 1 and 2. The printed H(3,3) table in the primary paper is a distance-one triple example."
+        ],
+        "reasoning": "The prior tables and same-day analogue concern the same universe under distinct incidence relations. Their exact counts cannot be the requested ones; there is no inspected matching table for exact two.",
+        "searches": [
+          "Resultary: ternary H(3,3) shattering tables and exact-distance topology",
+          "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+          "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "2026/11/22/SCOPE-antipodal-sphere-shattering-and-two-degree-topology-in-the-terna--701af9676ccb",
+          "arXiv:2007.16042v1 Table 1"
+        ]
+      },
+      "rationale": "The strongest inspected comparisons share either the ternary universe or the exact-distance-two predicate, but not both in the same shattering-complex definition. No inspected result covers the ternary distance-two census, six orbit representatives and binary boundary ranks as a whole. The matching Resultary entry is the frozen record itself, not independent coverage. Same-day distance-three comparison establishes a contrast, not relative chronology.",
+      "residual_risks": [
+        "The focused primary search did not locate a direct comparison and is not negative evidence of historical priority.",
+        "An unindexed census of the distance-two relation graph or its Boolean incidence system might duplicate part of the calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for distance-one edge concepts only",
+          "evidence": "The Hamming edge relation has VC dimension at most three and attains it in the ternary dimension-three regime; the table exhibits a shattered triple for distance one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042v1",
+          "material_read": "§4 pp. 20–23, Theorems 4.6–4.7 and Table 1, OA offsets 53822, 58313 and 59517",
+          "method": "Lawful OA text",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Primary source has exact ternary VC theorem and H(3,3) table"
+        },
+        {
+          "assessment": "Does not imply the fixed finite census or topology",
+          "evidence": "The assumptions involve asymptotic sparsity and pseudorandomness, and the conclusions are lower bounds on VC dimension of two or three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.07878v1",
+          "material_read": "p. 2, Theorems 1.4–1.5 and remarks, offsets 6500–8919",
+          "method": "Lawful OA text",
+          "title": "VC-dimension and pseudo-random graphs",
+          "trigger": "General VC results for distance-defined graph families potentially covering the example"
+        },
+        {
+          "assessment": "Binary theorem, no ternary implication",
+          "evidence": "The theorem takes {0,1}^d and explicitly does not claim the nonbinary case.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-vc-dimension-of-binary-hamming-distance-two-spheres--aa804f0c6690",
+          "material_read": "RESULT.md offset 0, Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Exact VC dimension of binary Hamming distance-two spheres",
+          "trigger": "Same exact-distance predicate, different alphabet"
+        },
+        {
+          "assessment": "Exact distance three, not two",
+          "evidence": "The antipodal family gives polynomial 1+27z+351z²+216z³ and reduced mod-two homology ranks 192 and 83 in degrees 1 and 2.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-sphere-shattering-and-two-degree-topology-in-the-terna--701af9676ccb",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "Antipodal sphere shattering and two-degree topology in the ternary three-cube",
+          "trigger": "Distinct same-day record with same universe and shattering and homology invariants"
+        },
+        {
+          "assessment": "Distance one, different census",
+          "evidence": "The table has 1+27z+243z²+216z³ using d_H=1.",
+          "identifier_or_url": "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "Coefficientwise VC-shattering census of open neighborhoods in Hamming graphs",
+          "trigger": "Comparative exact H(3,3) coefficient table"
+        },
+        {
+          "assessment": "Closed radius one is not the shell at radius two",
+          "evidence": "Membership is d_H<=1, including the center.",
+          "identifier_or_url": "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "material_read": "RESULT.md offset 0, Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Same alphabet and parameter range, related radius choice"
+        },
+        {
+          "assessment": "Different complex and coefficient field",
+          "evidence": "Faces satisfy all pairwise distances <=2; the specified rational H_3 has dimension 46.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-ternary-translation-character-of-the-radius-two-hamming--f98167fe7255",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "Complete ternary translation character of the radius-two Hamming Rips complex",
+          "trigger": "Same radius and a homological calculation on ternary Hamming words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56 and 74–78",
+        "Indexed open-neighborhood and antipodal-sphere Findings",
+        "Independent full replay of facets and boundary ranks"
+      ],
+      "rationale": "The first three-symbol three-coordinate cube supports a natural comparison of the three nonzero Hamming relations within one small symmetric space. Exact-distance-two shattering behaves differently from ordinary Hamming adjacency and the antipodal sphere: it reaches dimension four and has maximal faces of two dimensions. The six types specify exactly which supports can occur by symmetry, and the binary homology distinguishes additional structure that the face polynomial and Euler characteristic alone cannot fix. This is a complete, reusable finite reference for the trace relation, rather than a numerical approximation or an arbitrary size cutoff.",
+      "residual_risks": [
+        "The utility is as an exact finite reference. The result does not establish a formula for larger alphabets or dimensions or an integral classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

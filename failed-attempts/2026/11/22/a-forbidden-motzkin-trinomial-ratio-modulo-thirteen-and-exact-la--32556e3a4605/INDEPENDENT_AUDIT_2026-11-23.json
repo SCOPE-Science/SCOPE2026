@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:46:55.555647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Lucas step is valid because the exponents in the digit polynomial lie in [−d,d] with d<p; its zero-degree term is the only one that can cancel a multiple-of-p exponent. Zero-free digits make all denominators units. The odd prime p=3 is excluded by T₂=3; the last-digit identity thus gives c=±1. At the first nonmaximal digit s above j trailing maximal digits the successive T ratio is c^j v_s, including all-maximal written strings by padding with a zero. Summing p^(−j−1) over the two parities gives the stated masses. Taking X integer and truncating at J=ceil(log_p(X+1)) leaves no actual index with j>J, while the discarded density times X is O(1); each retained cylinder has count error at most one. For R the three offsets cross a digit boundary only for d=p−2,p−1, giving the two stated affine maps; splitting the cutoff by final digit proves the discrepancy. For p=13 an independent calculation used w_d=sum_j binom(d,2j)binom(2j,j) mod 13, and independently formed T(n) mod 13 from its digits and R from (3T(n)+2T(n+1)−T(n+2))/(2T(n)). This reproduced the published F,G,E and all histogram entries for cutoffs 13,169,2197,28561. In particular the limiting numerators are (2,26,2,4,3,24,2,26,26,2,2,0,37); f⁻¹(11)=4 and g⁻¹(11)=6 are absent from the eight carry ratios. At every level L=k−1 each (j,s) cylinder with j<L has 13^(L−j−1) elements, and the unique all-maximal prefix gives U=1. This supplies the all-level proof, not extrapolation from finite computation. The stated blocks are specifically [0,13^k); the theorem does not establish a prefix-independent histogram for arbitrary translated blocks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2 applies to any symmetric degree-one Laurent polynomial P and b_n=Σ_{i=0}^h α_i ct(P^(n+i)), h<p. It treats the nonvanishing case by explicit congruence cardinalities, with even and odd carry-run weights 1/(p²−1) and 1/[p(p²−1)] per (d,s).",
+          "For P=x⁻¹+1+x and h=2 those are exactly the weights (1/p)Σ_{j even}p^(−j−1) and (1/p)Σ_{j odd}p^(−j−1) in the frozen μ-pushforward. Its Theorem 3 treats ordinary Motzkin values, but the decisive earlier coverage is the stronger Lemma 2, not that theorem."
+        ],
+        "reasoning": "Directly substitute α=(3−2r,2,−1) for each r. Both the all-prime support and the rational frequencies are covered, without any new theorem about quotients.",
+        "searches": [
+          "Kohen, Density and Symmetry in the Generalized Motzkin Numbers mod p, Lemmas 1–2, pp. 9–13 and Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "https://math.colgate.edu/~integers/aa22/aa22.pdf (Kohen, DOI:10.5281/zenodo.18305088)",
+        "Resultary indexed p=13 target and related central-trinomial distributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-power histogram is obtained by replacing each density weight of the prior suffix cylinder by its exact number of representatives, 13^(k−j−2) for a boundary suffix with j<k−1. The all-maximal prefix then uses the same prior rule with first nonmaximal digit a padded 0. The fixed interior classes have 13^(k−1) representatives.",
+          "For arbitrary N the prior partition gives at most O_p(log N) relevant congruence classes per residue and O(1) density mass in the unrepresented tail after multiplication by N; rounding the count for each class costs at most one. No exponent-sharpness claim or other new quantitative result survives."
+        ],
+        "reasoning": "The block and discrepancy statements go beyond the literal wording of the asymptotic lemma but follow mechanically from the prior all-index classification and elementary arithmetic-progression counts. They do not isolate a separate valuable new claim.",
+        "searches": [
+          "Kohen #A22, Lemma 1 indexwise suffix partition and proof of Lemma 2; applied to all linear forms (3−2r,2,−1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2(M_n−rT_n)=(3−2r)T_n+2T_{n+1}−T_{n+2}. Kohen's Lemma 1 classifies all indices for exactly such a linear combination, for arbitrary coefficients and h<p.",
+          "Writing (n)_p as a prefix followed by s, j copies of p−1 and final digit d, the nonzero common prefix factor cancels. The resulting conditions are h_d=r for d<p−2 and, for the other two positions, f(c^j v_s)=r or g(c^j v_s)=r exactly as in the frozen record."
+        ],
+        "reasoning": "The apparent distinction between the distribution of a quotient and the zero density of an offset sequence disappears residue by residue after multiplication by the unit T_n. This is an equivalence of the sets of indices, not an analogy between methods.",
+        "searches": [
+          "Resultary: Motzkin central trinomial ratio modulo 13 forbidden ratio zero free primes density carry",
+          "Primary literature: Motzkin numbers ratio central trinomial coefficients modulo 13 zero free prime Burns Kohen exact density forbidden residues consecutive ratio",
+          "Kohen, Integers 26 #A22, Proposition 1 and Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact joint-trinomial tables concern other moduli or different sequence observables. The frozen ratio table is the exact index itself, not an independent antecedent.",
+          "Kohen supplies an algorithmically exact finite table for any (p,h,α) through his two congruence cardinalities, including p=13. Applying them gives the missing 11, because neither interior d nor either boundary congruence for that r has a solution. Reading the p=13 table in another publication is unnecessary to establish coverage."
+        ],
+        "reasoning": "The ratio table may not have been printed in the sources inspected; it is nevertheless a mechanical table evaluation of those lemmas, not a new exact invariant beyond them.",
+        "searches": [
+          "Resultary: Motzkin central trinomial ratio modulo 13 forbidden ratio zero free primes density carry",
+          "Kohen, Integers #A22, Lemmas 1–2 (coefficient substitution and exact digit calculation)"
+        ]
+      },
+      "rationale": "Kohen's published Lemmas 1 and 2 already give the all-index classification and full natural-density formula for zeros of arbitrary fixed linear combinations of offsets of a symmetric degree-one constant-term sequence. Each quotient residue is exactly one such zero family: R_p(n)=r iff b_n=(3−2r)T_n+2T_{n+1}−T_{n+2}=0 mod p, since T_n is a unit and p is odd. Taking h=2 and α=(3−2r,2,−1) in those lemmas gives the pointwise rule, image test and density in the submission for every r. The missing 11 and exact densities are a finite specialization of this stronger earlier result, even though they are not tabulated there. The block and cutoff counts require only counting the very same congruence classes already given by the prior proof; no new restriction or carry classification is needed.",
+      "residual_risks": [
+        "No exhaustive priority claim about the printed p=13 numerical table; the rejection rests on an explicit mathematical implication from an accessible prior source, not on unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the support and density residue by residue by explicit specialization; the block census and cutoff error are routine counts of its classes",
+          "evidence": [
+            "Theorem 1 and Corollary 2 give the last-digit sign; Proposition 4 gives Lucas factorization.",
+            "Lemma 1 is already formulated for an arbitrary offset linear combination; Proposition 5 identifies its Motzkin instance.",
+            "Lemma 2 gives the zero density of the arbitrary combination, not just of M_n. Its proof uses the precise suffix cylinders needed here."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/aa22/aa22.pdf",
+          "material_read": "Published OA abstract, Theorem 1, Corollary 2, and Section 3 through Corollary 4, particularly Proposition 4 and Lemmas 1–2 and their proofs, pp. 8–15",
+          "method": "Read published PDF text and compared hypotheses and even/odd congruence weights with the frozen formulas",
+          "title": "Density and Symmetry in the Generalized Motzkin Numbers Modulo p",
+          "trigger": "Potential exact coverage for carry classification and linear forms of consecutive T values"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quotient is a natural statistic and the omitted ratio is correct, but the exact statement is an immediate finite evaluation of a published general classification of the same zero sets. The power-block correction and logarithmic error use only elementary counting of those known suffix classes. This is a useful illustration of Kohen's lemma, not a surviving independently valuable new finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

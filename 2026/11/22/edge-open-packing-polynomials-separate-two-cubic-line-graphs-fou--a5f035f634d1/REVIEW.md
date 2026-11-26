@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conflict graph is defined by the exact third-edge condition, giving a bijection to ordinary independent sets. An exact deletion–closed-neighborhood recurrence proves the complete degree-four polynomials. A second, independently constructed graph implementation checks all combinations of up to five line-graph edges and confirms the absence of any larger solution by heredity. A complete action of the 120 coordinate permutations exhaustively partitions all 330 Petersen optima into four orbits. The captured output files agree with re-execution of the embedded programs. The computations are finite and exhaustive, and the claim is explicitly finite.
+## correctness
 
-**Originality — PASS (best-knowledge, provisional).** Actual literature and published research-record searches focused on edge-open packing, injective edge coloring, line graphs, Petersen, the pentagonal prism, and the exact optimum count. The 2022 foundational article's Petersen calculation concerns the original Petersen graph, not its line graph. The 2024 primary article provides generic complexity, bound, and tree results but not these coefficient identities. The relevant published triangular-graph results are about the line graphs of complete graphs, not the two cubic originals here. No covering result was located; unindexed computational tables remain a real priority risk. This is not an assertion that a failed search proves novelty.
+PASS
 
-**Mathematical value — PASS.** Edge-open packing is a natural induced-star/interference constraint introduced in the cited literature. The two compared inputs are canonical, nonisomorphic cubic ten-vertex graphs whose line graphs have the same 15 vertices, 30 edges, and degree four. Their full packing polynomials distinguish them even though their maximum cardinality agrees; the exact four-orbit geometry of Petersen optima materially strengthens a bare scalar calculation. The result does not pretend to be a general cubic-graph classification.
+Pairwise exclusion of a distinct third joining edge gives exactly independence in the conflict graph, so splitting on selection of one vertex proves the frozen recurrence. A separately written enumeration rebuilt KG(5,2), C5 square K2 and their line graphs, used the exact third-edge predicate, and checked all subsets through size five. The vectors are (1,30,225,530,330,0) and (1,30,235,580,415,0); the zero at five rules out higher degrees by heredity. Independently acting by all 120 symbol permutations on every labelled Petersen-line-graph maximum reproduces sizes 30,60,120,120 and minimum-bitmask representatives {0,3,10,11}, {0,5,9,11}, {0,2,10,17}, {4,5,9,11} in the stated lexicographic indexing. A packing consists of vertex-disjoint induced stars: an extra induced edge or a third edge in a triangle or three-edge path would violate the test. In the line graph of a cubic graph every vertex neighbourhood is covered by two cliques, excluding induced stars of size at least three. The replay checks the reported component lists and the resulting counts 210 and 120.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The only exact Resultary hit is this same record. The strongest independent overlaps concern polynomials on L(K_n), packing on the Petersen graph or prism rather than their line graphs, or injective coloring partitions. No compared prior statement gives the two polynomials or the Petersen-line-graph maximum-orbit census.
+
+## value
+
+PASS
+
+These standard cubic graphs yield equal-order, equal-degree line graphs and the same maximum EOP size. Their exact packing distributions separate them even at size two and differ throughout the nontrivial sizes. The four symmetry types and component shapes classify every Petersen-line-graph extremizer, giving exact benchmark data not retrievable from the scalar maximum or a single coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

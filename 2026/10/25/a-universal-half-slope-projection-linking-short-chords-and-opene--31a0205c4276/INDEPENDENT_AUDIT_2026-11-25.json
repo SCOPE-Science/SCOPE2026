@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:35:28.327498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fixed short chord costs 1/(2n-1); two disjoint fixed chords cost 1/[(2n-1)(2n-3)], so short-chord factorial moments give the stated variance. For each different-chord LR pair the opener needs a partner strictly to its right beyond the closer, and the closer needs a partner strictly to its left before the opener. The product of these two counts gives the position formula. Conditioning on B_i leaves a uniform matching when its endpoints are removed; the only added different-chord adjacency is the seam, whose expectation is the stated q_i and vanishes at boundary positions. At n=2 the reduced matching has A=0. An independent mixed-moment derivation counts all LR pairs: the forced LR is removed, no neighboring LR is destroyed, and the new seam is subtracted. Summing the seam probabilities over i gives E L_(n-1), so E[SL]=1+[(2n-2)/(2n-1)]E L_(n-1) and Cov(S,L)=(n-1)/(2n-1). For the LR marginal, insertion immediately after the new first opener gains one; inserting after an old opener gains one unless it replaces an old LR. There are n-k gains in all. The first two conditional moments yield the given variance; affine projection then gives the slope, residual and correlation with strictly positive variance for n≥2. The independent rational recheck propagated the full LR distribution and checked the full-LR seam mixed moment through n=44 (independent_recheck.py); the original enumeration script was read, not executed. The result is not an identity for the nonlinear conditional mean or for cyclic matching.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krasko–Omelchenko pp. 3, 10 track loops and parallel-chord pairs jointly; Young pp. 1–3 treats short-chord marginals; Marmor pp. 3–4 tracks positions of short chords"
+        ],
+        "reasoning": "These refinements do not track adjacency of opener and closer on different chords. Parallel pairs alone do not determine those adjacencies. A position refinement of S alone does not give the conditional expectation of A.",
+        "searches": [
+          "Resultary: short chords LR pairs joint distribution linear chord diagrams",
+          "arXiv:1601.05073",
+          "arXiv:2004.06921",
+          "arXiv:2307.09894"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1902.09021, 1601.05073, 2004.06921, 2307.09894",
+        "Resultary records d3509533e6f6, 0749abe76974 and 30537820a0d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cameron–Killpatrick's size/short-chord generating function and LR recurrence imply the separately stated marginal moments",
+          "The same-day Resultary paper deletes cyclic short chords to transfer moments of global crossings"
+        ],
+        "reasoning": "Known marginal formulas and affine projection are routine. Crossing counts are unchanged when a short chord is deleted, whereas LR adjacencies change at a seam. The mixed formula needs the new conditional count; it is not a direct output of those prior moment or transfer statements.",
+        "searches": [
+          "arXiv:1902.09021, pp. 5–10, generating functions and LR recurrence",
+          "Resultary 2026/10/25 SCOPE-gaussian-poisson-decoupling-for-local-chords-and-global-crossing--30537820a0d6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron–Killpatrick arXiv:1902.09021 pp. 2–4: LR includes same-chord pairs, so the variables match exactly",
+          "Resultary 2026/11/2 record d3509533e6f6, opening RESULT.md: Cov(S,D) has the same number, but D counts ordinary descents of the matching involution"
+        ],
+        "reasoning": "D is not L or L minus a deterministic constant: at n=2 matching (14)(23) has D=3 and L=1, while (13)(24) has D=L=1. The identical rational expression for their mixed covariance does not prove equivalence or the conditioned LR seam.",
+        "searches": [
+          "Resultary: exact covariance of short-chord count and opener-closer pairs",
+          "Resultary: conditional LR-pair expectation given a short chord position",
+          "Statistics on Linear Chord Diagrams Cameron Killpatrick LR-pairs short chords joint generating function covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Separate exact S and L tables, with LR the row-reversed second-order Eulerian triangle",
+          "Resultary 0749abe76974: an exact bivariate polynomial for cyclic short chords and global crossing counts"
+        ],
+        "reasoning": "Exact marginal tables cannot determine E[SL]. The bivariate polynomial in the nearby Resultary work encodes the crossing statistic, not L, and the chord convention is cyclic.",
+        "searches": [
+          "Cameron–Killpatrick arXiv:1902.09021, pp. 2–4 tables and pp. 8–9 recurrence (7)",
+          "Resultary: A universal half-slope projection linking short chords and opener-closer pairs"
+        ]
+      },
+      "rationale": "The distinct claim is the mixed covariance and position-resolved seam, and the half-slope and signs they yield. Neither short-chord nor LR marginal laws are new. The strongest same-formula hit concerns a demonstrably different second statistic.",
+      "residual_risks": [
+        "Earlier implicit joint enumeration with the same LR marking under alternate terminology may exist; the inspected sources do not establish it.",
+        "No priority is claimed for the exact marginal laws, or inferred from the dating of the neighbouring Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact marginals, not inspected mixed claim",
+          "evidence": "Separate S and L arrays; generating function marks S by size, not joint S,L.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.09021",
+          "material_read": "pp. 2–6 definitions, tables and generating function; pp. 8–10 LR recurrence (7) and summary",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Statistics on Linear Chord Diagrams",
+          "trigger": "Same diagram class and both target statistics"
+        },
+        {
+          "assessment": "Different partner statistic",
+          "evidence": "Recurrences and generating functions mark parallel chords with loops, not LR pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.05073",
+          "material_read": "pp. 3 and 10",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Enumeration of Chord Diagrams without Loops and Parallel Chords",
+          "trigger": "Potentially dominating joint diagram enumeration"
+        },
+        {
+          "assessment": "Marginal S context",
+          "evidence": "Short-chord distributions, generating functions and means.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.06921",
+          "material_read": "pp. 1–3",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Linear k-Chord Diagrams",
+          "trigger": "Generalization of short-chord counting"
+        },
+        {
+          "assessment": "S locations, not A conditioned on those locations",
+          "evidence": "Quasisymmetric generating function of short positions; no L marking in the inspected definition.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09894",
+          "material_read": "pp. 3–4, Short(m) statistic and generating function",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Schur-Positivity of Short Chords in Matchings",
+          "trigger": "Could encode positions for the local identity"
+        },
+        {
+          "assessment": "Different statistic despite matching formula",
+          "evidence": "D is ordinary descent count of the matching involution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-location-resolved-descent-dependence-of-prescribed-edges-in-rand--d3509533e6f6",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Location-resolved descent dependence of prescribed edges in random matchings",
+          "trigger": "Exact numerical covariance agreement"
+        },
+        {
+          "assessment": "Different joint observable and cyclic convention",
+          "evidence": "Crossing count as second statistic, not local LR count.",
+          "identifier_or_url": "Resultary records 0749abe76974 and 30537820a0d6",
+          "material_read": "Opening RESULT.md statements, each at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact short-chord/crossing transfer and independent Poisson–Gaussian limits; Gaussian–Poisson decoupling for local chords and global crossing",
+          "trigger": "Exact joint counts and deletion identities in nearby matching models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count of adjacent openers and closers is a natural local matching statistic. Removing its same-chord contribution reverses a nonzero covariance exactly, and the invariant affine slope and explicit seam effect make the result a useful benchmark for joint matching laws. The value is in the mixed identity and local correction, not in rederiving the known two marginal laws or in claiming independence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

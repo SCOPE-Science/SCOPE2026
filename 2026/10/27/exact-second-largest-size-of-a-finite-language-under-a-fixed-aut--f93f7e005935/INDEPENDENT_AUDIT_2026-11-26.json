@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:05:25.359740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the minimal complete DFA for a finite nonempty language, remove the unique empty-right-language sink; a directed cycle among remaining states would give arbitrarily long accepted words. They are all reachable and coaccessible, so the initial state can be placed first and the last state is accepting. For fixed acceptance bits e_i, backward induction gives suffix count at v_i at most B_i=Σ_{j≥i}e_j q^(j−i), since these chain counts strictly decrease and every live transition goes forward. Maximizing B_0 gives the last-f pattern. A different admissible pattern costs at least q^(n−f)−q^(n−f−1), and is possible only for 2≤f<n. If the pattern is extremal, the first skipping letter from v_i is reached by q^i distinct prefixes and costs at least q^i(B_{i+1}−B_{i+2}), using B_n=0 at the final eligible transition. The loss equals at least q^(n−2) when v_{i+1} is in the accepting block, and at least q^(n−f−2)(q^f−1) otherwise (that branch is used only when i+1<n−f). For f≥2 the latter exceeds (q−1)q^(n−f−1) since q^f−1>q(q−1). For f=1 and n≥3 it is exactly (q−1)q^(n−3), whereas n=2 allows only deletion of one terminal transition for the smallest gap. For f=n only the q^(n−2) case applies. Each specified modification preserves at least one letter to every successive state, so all live states are accessible and their maximum accepted suffix lengths n−1−i distinguish them and the sink. This proves both attainability and the strict second-largest bound. Independently enumerated forward complete transition tables for (q,n)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2),(4,3), computing literal accepted-word sets of lengths 0 through n−1 for reachability/minimality-filtered states and every accepting-state stratum; the top two agree (e.g. at q=4,n=3: (16,13),(20,17),(21,17)). Read VERIFICATION.md and verify_small_cases.py; the source's finite census is separate recorded evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearest indexed summary budgets grammar productions and studies exact maximizing grammars, not live DFA states and accepting states.",
+          "Cho–Fazekas–Wiedenhöft study deterministic bandwidth of partial DFAs and bounds in terms of minimal automaton structure and length, a different optimization parameter."
+        ],
+        "reasoning": "A production budget need not retain either DFA budget and the identified maximum is not a top-two result. Bandwidth bounds do not constrain the least positive acceptance loss at fixed f.",
+        "searches": [
+          "Resultary: sharp production capacity and acyclic regular grammars",
+          "arXiv:2608.24246",
+          "DOI 10.1016/j.dam.2005.06.009"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.4757 and 2608.24246",
+        "LIPIcs.AofA.2020.11",
+        "DOI 10.1016/j.dam.2005.06.009 (abstract)",
+        "Resultary grammar record e6ccbb705eb1 (indexed summary)",
+        "Frozen RESULT.md, VERIFICATION.md and verify_small_cases.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The elementary bound from longest length n−1 gives Σ_{j=0}^{n−1}q^j, attained when f=n; it does not distinguish the runner-up at f=n or elsewhere. The identified video search description advertises a maximum by state count and alphabet size; its full content was not read.",
+          "Known counts of whole automaton classes do not encode how much loss a transition skip causes under a forced accepting pattern."
+        ],
+        "reasoning": "The substantive step is comparing the minimal loss of a changed accepting position with the minimal loss of a changed edge while holding each budget fixed, and realizing both mechanisms in minimal witnesses. A count or upper bound on all automata does not give these losses.",
+        "searches": [
+          "Maximum Cardinality of a Finite Language Accepted by DFA, 2024 video search lead",
+          "arXiv:1411.4757 Theorem 4",
+          "Resultary acyclic grammar production-capacity record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Priez formulates the bijective enumeration in terms of minimal acyclic DFAs and distinct right languages, the same objects after deleting or restoring the dead sink.",
+          "The chain baseline is an extremum in accepted word counts, not a count of inequivalent automata."
+        ],
+        "reasoning": "For a nonempty finite language the minimal trim acyclic partial DFA has precisely the live states of the minimal complete DFA. Threshold statements under these two conventions are equivalent after adding one dead state and retaining f; a formula ignoring f is not equivalent.",
+        "searches": [
+          "Resultary: finite-language DFA maximum, second cardinality, fixed number accepting states",
+          "arXiv:1411.4757",
+          "finite language maximum number of words second largest cardinality fixed number states accepting states minimal deterministic finite automaton acyclic DFA cardinality extremal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Priez's enumerative recurrence and Elvey Price–Fang–Wallner's binary asymptotic count automata at a given order. No compared Resultary entry tabulates the two cardinalities or the four pieces of Δ_{q,n,f}."
+        ],
+        "reasoning": "A census of automata by order or alphabet size does not contain the order statistics of their accepted-language cardinalities by f. The available catalogue comparison was bounded.",
+        "searches": [
+          "Resultary: top two accepted-language sizes, accepting-state strata, fixed alphabet finite DFA",
+          "arXiv:1411.4757 Theorem 4",
+          "LIPIcs.AofA.2020.11"
+        ]
+      },
+      "rationale": "Credit the exact first loss conditional on both state budgets and the corresponding witnesses, not the familiar unrestricted maximum from bounding longest accepted word length. Inspected finite-automata enumeration and structural sources do not give the conditional gap or a stronger result that implies it mechanically.",
+      "residual_risks": [
+        "Unindexed extremal automata literature could recast the conditional problem in partial-DFA terms. The search did not access the full Liskovets article or the 2024 video's contents.",
+        "The unrestricted maximum is elementary and is not credited as new; the comparison is bounded to the fixed-f gap and the exhibited sufficient witnesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts automata, not powerset cardinalities under f",
+          "evidence": "The theorem is a recurrence for number of MADFAs by alphabet size and order, not |L| or its gap.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4757",
+          "material_read": "Abstract, right-language discussion, and Theorem 4 on p. 11",
+          "method": "OA PDF offsets 0, 5355 and 39350",
+          "title": "Enumeration of minimal acyclic automata via generalized parking functions",
+          "trigger": "Same minimal acyclic automata"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The asymptotic is for the number of minimal DFAs with n+1 states, not the number of words one such DFA accepts.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.11",
+          "material_read": "Abstract p. 1",
+          "method": "Lawful Dagstuhl PDF, OA offset 0",
+          "title": "Asymptotics of Minimal Deterministic Finite Automata Recognizing a Finite Binary Language",
+          "trigger": "Same finite-language minimal-DFA objects on q=2"
+        },
+        {
+          "assessment": "Unresolved full-text overlap, not treated as ruled out",
+          "evidence": "Available description concerns enumeration of acyclic automata; full text was not located.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2005.06.009",
+          "material_read": "Landing/abstract only",
+          "method": "OA DOI and alternate identification attempt",
+          "title": "Exact enumeration of acyclic deterministic automata",
+          "trigger": "Full enumeration might contain relevant refined counts"
+        },
+        {
+          "assessment": "Bounds a different quantity",
+          "evidence": "Studies a bandwidth hierarchy, positional characterization at bandwidth one, and bandwidth bounds using position unfolding and residual states.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24246",
+          "material_read": "Abstract and Introduction opening",
+          "method": "OA PDF offset 0",
+          "title": "Deterministic Bandwidth of Finite Languages",
+          "trigger": "Earlier extremal/structural finite-language restrictions in partial DFAs"
+        },
+        {
+          "assessment": "Different budget in available statement",
+          "evidence": "Summary optimizes cardinality for a fixed number of grammar productions and describes chain-layer maximizers.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-production-capacity-and-rigid-extremizers-of-acyclic-regul--e6ccbb705eb1",
+          "material_read": "Indexed Finding summary; exact mirror not retrieved",
+          "method": "Resultary search",
+          "title": "Sharp production capacity and rigid extremizers of acyclic regular grammars",
+          "trigger": "Closest Resultary language-size extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditional first gap tells how much cardinality is sacrificed by any departure from extremality when two natural automaton resources are held fixed. It distinguishes acceptance placement from transition shortcuts and separates the single-final, mixed, and all-final cases, where the controlling scale changes. The independent constructive sharpness matters for language-size feasibility; the claim is not a census of all intermediate sizes or just the depth-based maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

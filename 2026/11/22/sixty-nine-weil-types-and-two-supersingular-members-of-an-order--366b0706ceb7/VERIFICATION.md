@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python verify.py` in the directory containing `WEIL_TABLE.csv` using Python 3 and NumPy. Successful execution prints `C6_F11_WEIL_69_TYPES_101_CURVES_VERIFIED`.
+# Independent mathematical audit
 
-The program checks irreducibility of each quotient defining polynomial through the multiplicative identity for all nonzero quotient elements; independently enumerates the \(11\)-field rational point counts using two polynomial quotient models at each of four extension degrees; reconstructs and checks the complete degree-eight Hasse–Weil numerators; verifies \(69\) distinct polynomials and their multiplicities, the \(11\)-rank distribution and the unique two rank-zero parameters; and computes the Cartier rank at each of those two parameters.
+## correctness
 
-The finite certificate is exhaustive for the stated \(101\) rational parameter pairs. It is not an assertion about parameters in extensions or an external mathematical audit.
+PASS
+
+The cover branches at the ten simple finite roots precisely when bΔ≠0. For b≠0 a multiple cubic root must be rational: otherwise its conjugates would exceed degree three. A repeated root r forces a=−3r²−2r, b=r²(2r+1); there are nine distinct such pairs with b≠0 out of 110, hence 101 smooth genus-four models. The two infinite points are rational because the degree-ten polynomial is monic. Independent exact enumeration, using distinct field models, Rabin irreducibility and Euler-character tests instead of the supplied square tables, matched all 404 counts and all recorded coefficient prefixes and ranks. Newton identities and reciprocity complete all degree-eight polynomials: 69 types with multiplicities 49×1, 13×2, 5×3, 1×5, 1×6; ranks 0–4 occur (2,5,15,79,0) times. Only (3,7) and (8,3) have rank zero. For each, the displayed quadratic and quartic factors have Newton slope 1/2 for all reciprocal roots, and independent Cartier extraction gives rank two, hence a-number two. Tate's criterion gives precisely 69 isogeny types.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the complete Weil spectrum and its exceptional non-superspecial supersingular class in this fixed marked family. Neither the family, the 101-pair smooth count, nor earlier Cartier strata are accepted as new. The strongest inspected comparisons establish overlap on the family or a different invariant but not the complete zeta classification.
+
+## value
+
+PASS
+
+The normalized order-six family in a small nonsplit characteristic is a natural finite locus, with a complete marked enumeration rather than scattered examples. This exact census quantifies how much the Weil types coalesce and isolates a genuine supersingular but non-superspecial class that a superspecial search would miss. Counting the 101 smooth pairs alone would not supply that value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

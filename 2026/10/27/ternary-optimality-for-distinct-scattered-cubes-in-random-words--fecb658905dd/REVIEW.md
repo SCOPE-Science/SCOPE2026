@@ -1,19 +1,21 @@
-# Review: ternary optimality for distinct scattered cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Greedy matching produces independent geometric waits for each fixed target word. Each distinct nonempty cube has a unique root, so summing its waiting-time probability gives the rational expectation generating function. The pole at the unique positive root is dominant by positivity and aperiodicity. The key nonstandard maximization lemma is proved by showing that two unequal positive stationary weights must multiply to the square of the fixed denominator parameter and have a strictly positive transfer-direction second derivative. Therefore every maximum is uniform on its positive support. Comparing the two integer supports adjacent to the continuous optimum shows that three uniform symbols alone realize the global exponential bound. Exact enumeration independently checks 115,024 source words over six rational distributions. Finite checks supplement, but do not substitute for, these infinite arguments.
+PASS
 
-## Originality — PASS, with residual risk
+Greedy matching is equivalent to subsequence occurrence: each successive earliest match is no later than the corresponding position in any embedding. Independence after each match gives independent geometric waits including the successful trial; for u^3 their product weights are the cubes of the root-letter weights. The root is uniquely recovered from the first third of the cube. Summing by root length, then by n≥the waiting time, gives the stated OGF as a formal series, with only finitely many contributing roots per coefficient. For positive q≥2 the series T has positive coefficients in all degrees ≥3, is analytic on the closed unit disk, increases from 0 to q on [0,1], and has T'(r)>0. Degrees 3 and 4 force strict triangle inequality at every nonreal or negative point on |z|=r, so the residue of the single simple pole gives exactly the stated constant. For optimization on each closed simplex, stationarity in a positive coordinate pair x,y gives x=y or xy=s² for f_s(x)=(x/(x+s))³. In the unequal case x<s<y, direct differentiation gives f''(x)/(-f''(y))=y/x>1, contradicting maximality along the transfer; the argument also applies in the relative interior of any maximizing face. Thus maxima have equal positive masses. At s*=(∛3−1)/3 the function m/(1+s*m)³ increases to its real maximum in (3,4) and then decreases. The exact rational bounds ∛3>1.442 and ∛4<1.588 give (∛4−1)/4<s*, so m=4 is strictly worse than m=3, which gives one. This bounds T((1+s*)^(-1)) and proves equality only at the strictly positive uniform ternary source. Substitution gives rT'(r)=9/(3−2r), yielding the stated ternary prefactor. Continuity allows near-ternary bias on larger alphabets but not equality. Independent exact coefficient replay enumerated all distinct subsequences then filtered cubes for p=(3/7,4/7), n≤9 and p=(1/6,1/3,1/2), n≤7 (/workspace/replay/independent_checks.py, cubes). The replay does not establish the asymptotics or global optimization.
 
-The 2017 work of Biers-Ariel–Godbole–Kelley develops unrestricted distinct-subsequence expectations, not the restricted cube-language mean or its sharp probability-vector optimizer. Rubinchik–Shur consider contiguous square factors rather than scattered cubes. Existing work on counting repeated roots in a fixed alternating word, and on other structured scattered-subsequence families, does not imply the all-source maximum. Direct searches for scattered cube expectations, power-subsequence aliases, exact tables, and broader parameter coverage found no explicit equivalent; search coverage cannot certify global priority. The residual risk is an unindexed equivalent through a general weighted-language theorem, and it warrants independent literature review before any priority assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Cube strings are a natural repetition language. The result supplies a complete mean generating function for arbitrary biases and, more importantly, gives a sharp optimization across all alphabet sizes and distributions. The proof identifies a structural constraint—every maximizing positive probability vector is uniform on its support—and an unexpected change in the optimal support compared with square-based and palindromic scattered languages. It is not merely a finite table, an arbitrary restricted instance, or a generic rewriting of an unrestricted expectation formula. No finite-length or higher-power optimum is asserted.
+The generic waiting-time encoding of distinct targets, simple-pole analysis, and related source optimizations for different structured languages are not new here. The inspected analogues do not supply the cube-language mean together with its sharp all-source support and equality theorem. The strongest surviving content is the unique ternary optimum and its exact exponential constant for this language.
 
-## Scientific limitations
+## value
 
-No independent scientific audit is claimed. The result is about the exponential rate of the **mean** for a fixed positive i.i.d. source, not about typical-string concentration or simultaneous growing alphabets. Relevant restricted-pattern literature may be incompletely indexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinct repeated subsequences form a natural language. The mean rate is sensitive to the actual source law, and deciding both the best alphabet size and bias across all finite alphabets is appreciably more informative than a fixed-source calculation. The strict uniform ternary equality case is the structural contribution. It is not a claim about finite-length optimality, typical words, or higher powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the edge-metric basis classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has the finite, explicitly labeled domain \(S\) and \(K_4\square K_4\), with the same edge-distance normalization as Kelenc--Tratnik--Yero (2016). For each of 1128 edge pairs, the finite separator/hitting condition is logically equivalent to unique edge distance vectors. The standard-library reproduction file checks these two predicates for every tested vertex subset, proves no smaller basis exists, counts all minimum bases, certifies complete symmetry groups by local stabilizer bounds, and traverses the entire exact basis-exchange graph. Both graph constructions satisfy the stipulated strongly regular parameters. Computed values are mutually consistent: \(2|E(\mathcal B_S)|=8256\) and \(2|E(\mathcal B_R)|=7488\), matching the reported degree sums. This is a finite computational proof, not extrapolation.
+## correctness
 
-## Originality — PASS
-Statement-level comparisons were made against the 2016 primary edge-metric paper (arXiv:1602.00291), Sane's 2015 Shrikhande exposition, Hakanen et al. on rook graph \(\{2\}\)-resolving sets (arXiv:2003.02048), Yi's edge/fractional-edge dimension paper (arXiv:2103.07375), and Kuziak--Yero's broad edge-metric survey and exact table (arXiv:2107.04877). Relevant public research records concern (i) homotopy invariants of this same graph pair or (ii) edge-metric bases on crown or half graphs. Neither route covers the exact \(736,576\) basis census or exchange-graph structure. The similarly named edge-version-of-metric-dimension parameter resolves edges from edges in the line graph and is not this invariant. Multiple alias/exact-count research-index searches found no equivalent or stronger result. Residual risk: unindexed tables, incompletely indexed literature, and absence of independent verification.
+PASS
 
-## Value — PASS
-These are the two classical strongly regular \((16,6,2,2)\) graphs. Edge-metric dimension, minimum-basis counts, transitivity, and basis-exchange regularity give independent concrete structural distinctions invisible to their common parameters. This supplies complete, reproducible finite data for a motivated comparison of edge localization and exchange geometry, without requiring a general-graph theorem.
+Reconstructed both 16-vertex graphs, confirmed 48 edges, degree 6 and exactly two common neighbors on every distinct pair, and used Floyd–Warshall vertex distances followed by exact vertex-to-edge minima. A fresh program exhausts all landmark subsets from zero through the claimed minimum, testing resolution by refining partitions of the edge set with each landmark. The minimum families have sizes 736 at size six (Shrikhande) and 576 at size five (rook), with no smaller resolving set. An unrestricted adjacency/nonadjacency-preserving bijection search independently gives the full groups of orders 192 and 1152, hence all stated orbit sizes and least hexadecimal representatives. The published stabilizer bounds also work: each local graph is the stated cycle or pair of triangles, and each nonneighbor of the fixed vertex has a different neighborhood within that local graph. Tested every pair of bases by symmetric difference of size two, obtaining one component for each graph, 4128 and 3744 edges, and degree distributions respectively {6:64,10:192,11:192,13:192,14:96} and {13:576}. Replay: python3 /workspace/reproductions/metric_review.py. The proof is exhaustive for these two labeled graphs with vertex landmarks and exactly one replacement, and does not infer a general strongly regular graph theorem.
 
-## Limitations and nearest sources
-The claim applies to precisely these two specified graphs and the one-for-one basis exchange relation. Group orders and same-parameter status are not asserted as new. Consult the full cited primary sources and their distinctions in RESULT.md, especially the stronger rook \(\{2\}\)-resolving criterion versus edge-only resolving. Semantic searches cannot prove absolute global priority. Program execution verifies a finite proof and is not an independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established graph parameters, group orders and edge resolution definition are background, not the contribution. The census and exchange results concern minimum vertex sets resolving adjacent endpoint pairs. The strongest available same-graph literature/records instead resolve all small vertex sets, ordinary vertex pairs with failure tolerance, or ordinary vertex pairs with multiple witnesses. None of their inspected claims supplies the two exact minima together with the minimum-basis orbits and exchange geometry.
+
+## value
+
+PASS
+
+These are the natural two same-parameter strongly regular graphs on which to ask whether those parameters determine edge localization. Different minimum sensor counts already provide an exact counterexample. The census further determines whether optimum placements are symmetry-equivalent and whether one-at-a-time replacements maintain resolution, showing contrasting orbit structure and exchange regularity rather than just tabulating a graph order. These finite answers can be used without a general graph-family extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

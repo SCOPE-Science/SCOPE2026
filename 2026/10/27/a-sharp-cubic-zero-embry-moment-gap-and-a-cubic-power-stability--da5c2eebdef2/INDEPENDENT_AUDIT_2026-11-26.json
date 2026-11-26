@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:43.883099Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–53",
+        "Frozen VERIFICATION.md and verify.py (inspection only)"
+      ],
+      "rationale": "Normalize ||T||=1 and let δ=||(T*T)^2−(T²)*T²||. For a unit x, Cauchy–Schwarz gives δ≥a²−b with a=||Tx||² and b=||T²x||². For a>0 the same inequality at Tx/√a yields δ≥b²/a²−ε²/a. A norm-maximizing sequence with a→1 and a subsequential limit b→s∈[0,1] gives δ≥max(1−s,s²−ε²). Minimizing, including ε=1 where the crossing is at s=1, gives the stated envelope. Rescaling restores precisely the fourth and third powers of ||T||. At ε=0 the norm-one three-site shift with squared weights 1 and τ=(√5−1)/2 has defect diag(1−τ,τ²,0), and these nonzero entries coincide. At ε=1 the identity has zero defect. This covers both fields and non-norm-attaining operators. No intermediate sharpness is inferred. Replay is analytic from RESULT.md lines 22–53; the supplied NumPy script was inspected, not executed, and its finite checks are not needed for the theorem.",
+      "residual_risks": [
+        "This is not an equality classification or an independent formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nilpotent shift result gives exact R_N^−2 over norm-one one-step shifts of N weights; R_2=(1+√5)/2. Theorem 2.1 of Pietrzycki–Stochel is an all-exponents quasinormality equivalence."
+        ],
+        "reasoning": "All shift lengths are covered in the later shift result but not all operators with T³=0. Compression to the orbit of an approximate norm-maximizer need not give an orthogonal weighted shift. The general quasinormality theorem does not quantitative bound the one defect.",
+        "searches": [
+          "Resultary nilpotent weighted-shift moment-defect match cf394387ef88, RESULT.md",
+          "Pietrzycki–Stochel, DOI 10.1007/s10231-022-01281-z, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.17303v1",
+        "DOI 10.1007/s10231-022-01281-z",
+        "Resultary cf394387ef88",
+        "Resultary 3e17b7f25481"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The precise Loewner hypotheses in Theorem 1.2 are A*^m A^m≥(A*A)^m and A*^n A^n≤(A*A)^n. The adjacent-weight result requires two approximate inequalities in a shift model."
+        ],
+        "reasoning": "Neither theorem controls the magnitude of the defect from a bound on ||T³|| alone and neither includes the quantitative two-orbit estimate that produces the optimal cubic-zero constant. A qualitative obstruction is compatible with a sequence of positive defects tending to zero.",
+        "searches": [
+          "arXiv:2610.17303v1 Theorems 1.1–1.2; Pietrzycki–Stochel §2; Resultary 3e17b7f25481"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arXiv theorems concern A*^k A^k=(A*A)^k at two distinct exponents, or opposite Loewner inequalities for those exponents, and conclude quasinormality."
+        ],
+        "reasoning": "Reversing the sign of the frozen moment difference leaves its norm unchanged. Taking m=2,n=3 and T³=0 in the earlier criterion can exclude zero defect for nonzero T, not supply a uniform strictly positive optimal constant or control at positive ε.",
+        "searches": [
+          "Focused literature lookup for quantitative Embry and nilpotent second-moment defect",
+          "arXiv:2610.17303v1, p. 2, Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The N=2 entry of the later shift result is exactly (3−√5)/2 with the same extremizing chain. The later approximate-moment result 3e17b7f25481 gives adjacent-weight ratio bounds under two perturbed Loewner moment inequalities for positive unilateral weighted shifts."
+        ],
+        "reasoning": "The exact numerical coincidence is substantive overlap on the shift subclass, not independent prior coverage of the universal lower bound. The other catalogued result has both different hypotheses and a different measured conclusion.",
+        "searches": [
+          "Local Resultary searches for the sharp defect and approximate Embry moments; strongest record IDs cf394387ef88 and 3e17b7f25481"
+        ]
+      },
+      "rationale": "The earlier primary sources checked supply qualitative exact or one-sided moment criteria, not a quantitative nilpotent gap or its stability law. The strongest distinct indexed match really has the same sharp constant and equality chain for two weights; it is a later record and covers only weighted shifts, not the unrestricted bound. No inspected prior statement subsumes the supported general result.",
+      "residual_risks": [
+        "Bounded searches do not exclude unindexed equivalent quantitative results or older discrete estimates for the shift subclass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative implication, not the frozen quantitative bound",
+          "evidence": [
+            "Thm 1.2 states an iff for quasinormality from moment inequalities with opposite directions, not a stability modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17303v1",
+          "material_read": "Abstract and page 2, classification of forcing sets and Theorems 1.1–1.2 (offset 5192)",
+          "method": "Original open PDF, bounded text passages",
+          "title": "Reduced Embry characterizations of quasinormal operators",
+          "trigger": "Direct match for the powers and moment identity"
+        },
+        {
+          "assessment": "Exact all-powers equivalence only at this locator",
+          "evidence": [
+            "Theorem 2.1 characterizes quasinormality via exact moment equality at all exponents."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10231-022-01281-z",
+          "material_read": "§2, Theorem 2.1, pp. 1317–18",
+          "method": "Open primary PDF passage",
+          "title": "On nth roots of bounded and unbounded quasinormal operators",
+          "trigger": "Earlier Embry-type equivalence"
+        },
+        {
+          "assessment": "Later distinct result, exact overlap on a restricted subclass",
+          "evidence": [
+            "R_2^−2=(3−√5)/2 and the equality profile agrees with the three-site shift."
+          ],
+          "identifier_or_url": "Resultary cf394387ef88",
+          "material_read": "RESULT.md exact minimum and equality profile",
+          "method": "Local mirror",
+          "title": "Sharp finite-dimensional 2-moment defect for nilpotent weighted shifts",
+          "trigger": "Exact sharp constant on a plausibly dominating nilpotent class"
+        },
+        {
+          "assessment": "Later and different conclusion",
+          "evidence": [
+            "The result estimates adjacent weight ratios from two perturbed Loewner inequalities, not the global discrepancy from a cubic-power norm."
+          ],
+          "identifier_or_url": "Resultary 3e17b7f25481",
+          "material_read": "RESULT.md hypotheses and sharp adjacent-weight bounds",
+          "method": "Local mirror",
+          "title": "Sharp local rigidity from two approximate Embry moments of a unilateral weighted shift",
+          "trigger": "Closest indexed approximate-moment alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, sharpness example and limitations",
+        "arXiv:2610.17303v1 Theorems 1.1–1.2 for motivation"
+      ],
+      "rationale": "The cubic-zero case is the first nilpotent stage at which (T²)*T² can cancel part of (T*T)^2. A sharp dimension-independent lower bound resolves that cancellation question for arbitrary operators, not merely shifts. The envelope additionally gives quantitative separation as cubic powers get small, while the attained constant makes the estimate usable without quantitative conjectures about intermediate ε.",
+      "residual_risks": [
+        "No claim of a quantitative distance to quasinormality or of optimal intermediate dependence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

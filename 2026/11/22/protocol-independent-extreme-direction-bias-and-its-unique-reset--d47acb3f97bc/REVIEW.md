@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary generator, boundary injections, Fourier denominator, strict positive slow-mode residue, phase-density asymptotics and full optimizer analysis were reconstructed. The two spatial poles straddle the ballistic homogeneous rate. A negative implicit derivative makes the physical squared polarization a smooth branch; its only stationary point comes from the unique crossing of one decreasing and one increasing explicit function. Both endpoint limits vanish, making it the strict global maximum. The standalone program tests 363 assertions, including independent Fourier inversion and numerical optimization; the proof, not finite sampling, supports the universal quantifier.
+PASS
 
-## Originality — PASS
+Regeneration gives the unique stationary law as the unreset evolution at independent Exp(r) age; even trajectories that have stayed ballistic give densities after mixing the age. The Fourier phase equations give the p₀ transform in the proof. In y=λ² its denominator polynomial at 0, (r+β)²/v², and +∞ has signs +, −, +, ensuring two distinct roots and placing the slow root below the ballistic killing rate in spatial units. The numerator at the slow pole is strictly positive for both reset weights. Hence p₀ has a positive e^(−λ|x|) term and a strictly faster remainder. Independently via the phase Green kernels, p₊ convolves p₀ against (δ/2v)e^(−tu/v) on x−u, u≥0, and p₋ on x+u; the reset sources alone give one-sided e^(−t|x|/v). Multiplying by e^(λx) and using e^(λu) as a bound on the slow contribution proves the coefficients δ/[2(t∓vλ)] times the p₀ tail amplitude, giving both ratios and the reflected left limit. In z=P² the physical equation has F_z<0, and F_R=(1−z)[2R+b+1−3a(R+1)²z]. The positive critical curve z₁ decreases strictly; the second curve z₂=1−3b/[(R+1)(R+2b−1)] increases on R>max(0,1−2b), starting negative and tending to 1. Their single crossing is physical and gives precisely the cubic and admissibility conditions. At R=0 the derivatives give (1+b)/(a+b). For large r the small root y<(r+δ)/D implies v²y/t²→0 and r+δ−Dy=O(1/r), yielding z∼1/(aR). The vanishing endpoints and single critical point imply strict monotonicity on either side. In the unit benchmark the cubic reduces to 3R²+4R−8=0, giving R=(2√7−2)/3 and P²=2/[3(R+1)], consistent with the reported numbers.
 
-The motivating full text of Flaquer-Galmés, Campos and Méndez already gives the three-phase generator, two reset preparations and unconditioned stationary density. Its mean-first-arrival reset optimum has a different objective. The published *Exact spatial aliasing and strict temporal separation in intermittent resetting transport* was read in full and establishes only equality of unconditioned position distributions on a tuned surface and their contrasting time covariances. Original 2019 Lévy-walk resetting, 2024 general switching, and 2024 intermittent self-propulsion results were inspected and compared as models and implications rather than titles. None establishes conditional outward velocity in extreme stationary tails together with a globally unique maximizing rate. Specialized equivalent results not indexed by these searches remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The conditional motility state of an extremely displaced particle is a motivated rare-event statistic, and optimal resetting to amplify outward orientation is a natural parameter-design question. Reset protocol surprisingly cancels from the far-field conditional law while retaining strong effects on the full stationary position distribution. Exact uniqueness, parameter-uniform scope, admissible cubic characterization and both endpoint scalings provide substantive information beyond known densities and first-passage efficiency.
+Credit the exact model, phase-reset preparations, renewal method, marginal spatial laws and decay polynomial to closely related work. The supported claim is the conditional outward relocation imbalance in the extreme tail, including the noncancellation for both preparations and the unique optimum with admissible cubic for all positive parameters. Neither the marginal-law computations nor first-passage optimization supply that combined conclusion.
 
-## Limits and priority risk
+## value
 
-Strictly positive, symmetric one-dimensional Markovian transport and complete Poisson reset only. The optimizer is not for target absorption. The original model and poles predate this statement, and incomplete literature indexing prevents absolute novelty certification. The benchmark is numerical, not formally interval certified. No independent scientific validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A phase-conditioned tail statistic discriminates the direction of motion in an otherwise symmetric stationary model. The same tail composition survives different full-reset preparations even when positional laws differ, and the exact global tuning rule quantifies a nonmonotone effect for every physical parameter choice, distinct from optimizing search time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

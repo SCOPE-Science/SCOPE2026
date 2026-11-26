@@ -1,19 +1,21 @@
-# Scientific review: parity-filtered fence ideals
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite-poset trace interval \([\downarrow B, P\setminus\uparrow(S\setminus B)]\) proves that a parity conflict can occur only at a unique ideal. Maximum antichains of the odd fence are classified using the consecutive-edge equality case for an incidence path. The edge-cover and independent-exterior-minima conditions characterize *all* rigid patterns, not only examples. They give both the one-unit VC loss and the exceptional \(1,3,3,1\) top-face count. The homology argument explicitly analyzes every exceptional small rank. `CHECK.py` exhaustively tested 328 size-maximal candidate antichain/parity pairs through \(m=8\), and small top boundary ranks.
+PASS
 
-## Originality
+For any antichain trace B, its ideal fiber is the interval between down(B) and the complement of up(S minus B). If these endpoints differ, adjoining a minimal element of the difference to the lower endpoint realizes the other parity. On the fence a size-m support with r selected maxima must omit exactly r+1 minima; equality in the incident-minima count forces one consecutive block. For rigidity the selected queried maxima must cover the block's minima, and every exterior maximum must touch a negative queried minimum. The trace with the full block of maxima and no exterior positives forces size 2r+1; omitting an interior maximum when r>=3, or adding a positive exterior minimum away from the block when an exterior side has length >=2, gives a rigid even trace. In the remaining cases the rigid parity is always odd. The all-minima support fails both parities on small traces, and deleting any one minimum supplies a parity toggle. In top degree the common facets are a simplex boundary; for m=3 and 4 the extra faces are eliminated by codimension-one incidence in the boundary equations, while the odd complexes for m=1 and 2 have respectively three isolated vertices and a triangle with a second path between two of its vertices. There are no higher boundaries. Independently enumerated ideal traces and computed exact rational boundary nullities for both parities through m=8 (python3 /workspace/checks/finite_review.py 3; /workspace/checks/3.txt). The integral top groups are free subgroups of the top chain group; the all-order result follows from the incidence proof, not enumeration. No assertion about general fences or lower degrees.
 
-PASS with a historical-priority qualification. The closest primary fence literature treats rank polynomials, unimodality, interlacing, partial symmetry, and rowmotion rather than individual Boolean trace patterns. Other closely matched recorded work on parity-restricted ideals concerns *disjoint unions of chains*, not the connected odd fence. The new statement is the rigid-trace and topological classification, not the elementary fact that unrestricted ideals shatter antichains. Unindexed or differently named equivalent classifications remain possible; the scientific comparison does not claim absolute uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. Rank enumeration of a distributive lattice does not specify the VC-shattering complex of its parity halves. The theorem produces an exact all-rank maximum-face classification, a stable loss of exactly one VC dimension, and a transitory binomial-pattern difference between the odd and even parity classes. In particular, it identifies the precise top integral homology classes, including two exceptional ranks. These are natural invariants of parity-filtered ideal systems and furnish structural benchmarks for their learning-theoretic and topological analysis.
+The closest inspected parity-ideal classification and topology result is for disjoint chains; the closest exact fence results are for cardinality ranks. Neither determines parity-sensitive rigid traces on this connected fence or the extremal incidence classification. Pass for the exact maximum-support and top-homology result within the checked evidence, not for unrestricted ideals shattering antichains or for historical priority worldwide.
 
-## Closest literature and limitations
+## value
 
-The closest publications are E. Kantarcı Oğuz and M. Ravichandran, *Rank Polynomials of Fence Posets are Unimodal* (arXiv:2112.00518, first posted 2021-12-01), and S. Elizalde and B. Sagan, *Partial Rank Symmetry of Distributive Lattices for Fences* (arXiv:2201.03044, first posted 2022-01-09). Their stated theorems do not imply the parity-specific support classification; the full bibliographic space is not guaranteed exhausted. This theorem does not cover even-length fences, arbitrary segment lengths, lower-face coefficients, lower-degree homology, or online learning dimension. Finite computation is corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Parity is a natural rank restriction on the fence ideal lattice. The exact list of maximum shattered supports distinguishes the odd and even complexes in a way neither the VC number nor the rank polynomial can do. The top cycle classification shows which exceptional faces actually contribute to homology: the four small sizes with extra faces give only two exceptional homology ranks. This is a useful structural invariant for a canonical connected family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

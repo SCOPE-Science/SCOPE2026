@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:36:55.332803Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md; verify_join_nor.py, lines 17–54 and 56–82; verification_output.txt, lines 1–4."
+      ],
+      "rationale": "Writing a state as a support A, the map Φ(A)=V∖N(A) reverses order, and A⊆Φ²(A) by symmetry of adjacency. The two inclusions for Φ³(A)=Φ(A) follow by reversing that inclusion and applying it at Φ(A); this gives recurrence after one step even with isolates. On a join, any support meeting both factors goes to ∅, and ∅ goes to the whole join. All other recurrent orbits lie on one side and are exactly the factor orbits avoiding the empty support. In a nonempty factor Φ(∅)=V and Φ(V) is the isolate set, so a primitive periodic orbit involving ∅ must be the empty/full cycle, present exactly without isolates. This gives precisely the two subtractions in Q, and fixed supports are the usual maximal independent sets confined to one side. The global two-cycle basin is the empty set of ones and all total-dominating supports, since no nonempty support maps to the whole isolate-free join. The three disjoint types of total-dominating sets give the asserted count. For K_m, E=m and Q=δ, including m=1, and T=2^m−m−1, so the clique formulas follow. For C₅ the recurrent images are ∅, the whole graph, five singleton/triple pairs and five nonadjacent pairs fixed, giving E=5 and Q=6; five triples, five quadruples and the whole graph are total dominating, giving the listed basin of 233 for the join with K₃.",
+      "residual_risks": [
+        "The stored outputs corroborate bounded cases only and the script was not executed in this review. The identity uses symmetric open neighborhoods and simultaneous updates; it does not establish a directed, closed-neighborhood or asynchronous result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The H-join total-domination polynomial is known for arbitrary connected base H; for H=K₂ the contributing support choices are the left side, right side, or both. Jarrah et al. use positive AND/OR, not the negated open-NOR inputs. Full text could not be accessed for the named maxterm/minterm papers."
+        ],
+        "reasoning": "The broader graph theorem exactly covers the total-domination portion; it supplies no orbit implication on its own. The known positive networks are not this antitone model; the Aledo model comparison remains qualified by access.",
+        "searches": [
+          "Filomat 39:1 (2025), 267–277, DOI 10.2298/FIL2501267S, Proposition 2.1 and Theorem 2.3; arXiv:0805.0275v1; Aledo et al. DOI 10.1155/2015/594294, 10.1155/2017/7209762, 10.1155/2020/9708347"
+        ]
+      },
+      "checked_sources": [
+        "Filomat DOI 10.2298/FIL2501267S; arXiv:0805.0275v1 and arXiv:1309.5134; Fukś Rule 5; Resultary 4014de6cfb9f, 4c118cb00c41, 2da52f64c61c; named partial/unavailable sources above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The H=K₂ polynomial is D_t(G;x)+D_t(H;x)+[(1+x)^g−1][(1+x)^h−1], by the dominating supports of a two-vertex edge. At x=1 it gives the exact nonempty part of the basin once Φ⁻¹(∅) is identified with total domination. The orbit law additionally excises each isolate-free factor's empty/full cycle and creates one new join cycle."
+        ],
+        "reasoning": "The numerical basin piece is a transfer of a known graph invariant; the general exact temporal-orbit decomposition and its isolate correction are not consequences of a domination polynomial or fixed-point characterization alone.",
+        "searches": [
+          "Subramanian–Selvakumar, Proposition 2.1 and Theorem 2.3; Resultary 2da52f64c61c, Finding; Veliz-Cuba–Laubenbacher DOI 10.1007/s12190-011-0517-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Using symmetric nonadjacency (including the diagonal) as incidence, two mutually derived supports are a formal concept, and transposition swaps the two states. Join makes this incidence block diagonal. Every concept with both sides nonempty then lies in one block. The open-NOR corona record covers the same update rule on a different graph operation; closed NOR on triangular graphs reads the vertex's own bit."
+        ],
+        "reasoning": "The established Galois framework accounts for one-step recurrence and can organize the block argument. The specific dynamical count also needs the swap involution, fixed supports and the empty-side concepts that change with isolates; no retrieved formal-context statement gave the claimed orbit correction. Closed NOR is not the same model (in particular a nonempty closed-NOR graph has no fixed configurations).",
+        "searches": [
+          "Open-neighborhood NOR/maximal bicliques and formal concept polarity with block-diagonal incidence; Ganter–Wille, Constructions of Concept Lattices; arXiv:1309.5134; Resultary 4014de6cfb9f and 4c118cb00c41"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2da52f64c61c gives the identical basin formula and E,Q specialization for H∨K_r with isolate-free H; it also gives results for other basins in that class. Fukś's first iterate is open NOR on a ring. The same-day corona and closed-NOR records are distinct."
+        ],
+        "reasoning": "The clique overlap is exact in its common scope, but is later-indexed and does not generalize to arbitrary pairs; ring/leaf-corona/closed-NOR results are not the claimed table or exact theorem.",
+        "searches": [
+          "Resultary open-neighborhood NOR graph joins orbit additivity and basin; 4014de6cfb9f, 4c118cb00c41, 2da52f64c61c; Fukś Rule 5 evolution formula"
+        ]
+      },
+      "rationale": "Credit is for the arbitrary two-factor dynamical decomposition, especially the exact primitive-orbit correction for isolates and its relation to basin capture, not for the polarity identity, fixed-point interpretation or total-domination count in isolation. Subramanian–Selvakumar's 2025 graph theorem gives the latter count exactly; with the basin-to-domination identification it supplies the numerical basin formula. It does not treat periodic-orbit inheritance. None of the inspected prior dynamics or catalogue sources gives the corrected orbit law for arbitrary open-NOR factors. A later indexed clique-coning record matches a substantial specialization but not joins of arbitrary factors or an isolate-bearing base, and does not establish earlier priority.",
+      "residual_risks": [
+        "Some historical maxterm, fixed-point and concept-lattice construction sources were inaccessible; a prior translation of the graded or self-dual concept decomposition could exist. Relative publication or independent provenance of matching catalogue work is not certified. The known total-domination count is not credited separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact coverage of total-domination count, not of dynamical orbit counts",
+          "evidence": "For a dominating support M in the base graph, base vertices isolated in its induced subgraph contribute their fiber total-domination polynomial and other base vertices contribute all nonempty fiber subsets.",
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2025/39-1/39-1-20-23525.pdf",
+          "material_read": "PDF p. 1; Proposition 2.1 and Theorem 2.3(1), PDF pp. 2–3, offsets 8170–10398 and 12540–14118",
+          "method": "Direct OA primary PDF",
+          "title": "Total domination and minimal total domination polynomial of H-join graphs",
+          "trigger": "Potential exact prior coverage of graph-join counting"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "Each coordinate function is an AND or OR of positive inputs; no open-NOR join law in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275v1",
+          "material_read": "Abstract and §1, PDF pp. 1 and 3–4",
+          "method": "OA PDF passage inspection",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "Prior Boolean dynamic classifications"
+        },
+        {
+          "assessment": "Relevant fixed-point comparison, access-limited",
+          "evidence": "No independent inspection of the paper's exact statement was possible; no negative coverage inference is made.",
+          "identifier_or_url": "https://doi.org/10.1007/s12190-011-0517-9",
+          "material_read": "Frozen manuscript's description only; primary passage not obtained",
+          "method": "Tried lawful publisher page/PDF and DOI recovery",
+          "title": "On the computation of fixed points in Boolean networks",
+          "trigger": "Possible maximal-independent-set fixed point reduction"
+        },
+        {
+          "assessment": "Exact prior scope unverified",
+          "evidence": "If neighborhoods are self-inclusive as in the manuscript's comparison, a fixed one would have to update to zero, so closed NOR on a nonempty graph cannot reproduce open-NOR fixed-point behavior.",
+          "identifier_or_url": "DOI 10.1155/2015/594294; 10.1155/2017/7209762; 10.1155/2020/9708347",
+          "material_read": "Frozen manuscript's model comparison; no independent primary passage obtained",
+          "method": "Attempted lawful DOI and publisher endpoints",
+          "title": "Parallel Dynamical Systems over Graphs and Related Topics; On the Periods of Parallel Dynamical Systems; Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "NOR/maxterm neighborhood and periodic-count equivalence risk"
+        },
+        {
+          "assessment": "Special graph family only",
+          "evidence": "Its one-step rule is (1−x_(j−1))(1−x_(j+1)); no arbitrary join in the inspected result.",
+          "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+          "material_read": "Rule 5, around offset 1480",
+          "method": "Public author-page passage inspection",
+          "title": "Solvable Cellular Automata: Methods and Applications, companion page",
+          "trigger": "Open-NOR rule on a cycle"
+        },
+        {
+          "assessment": "Possible prior concept-level construction, not verified at theorem level",
+          "evidence": "Independent reduction to block-diagonal incidence was checked; neither inaccessible text is asserted not to cover it.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-59830-2_6 ; https://www.academia.edu/54592985/Sums_products_and_negations_of_contexts_and_complete_lattices",
+          "material_read": "Search descriptions only; decisive passages unavailable",
+          "method": "Direct and alternate lawful OA routes tried",
+          "title": "Constructions of Concept Lattices; Sums, products and negations of contexts and complete lattices",
+          "trigger": "Plausible exact block-diagonal concept construction"
+        },
+        {
+          "assessment": "Substantial exact specialization in a later indexed record",
+          "evidence": "Assumes isolate-free H and a clique summand; same basin and orbit counts in that scope, plus non-universal basin preservation.",
+          "identifier_or_url": "Resultary 2da52f64c61c",
+          "material_read": "Finding, offsets 0–1810",
+          "method": "Local mirror passage inspection",
+          "title": "An exact attraction-basin lift under clique coning of NOR networks",
+          "trigger": "Same rule, distinguished basin and join specialization"
+        },
+        {
+          "assessment": "Related distinct records, not the arbitrary-factor join",
+          "evidence": "The former classifies one-leaf coronas; the latter uses closed instead of open neighborhoods and concerns triangular graphs.",
+          "identifier_or_url": "Resultary 4014de6cfb9f; 4c118cb00c41",
+          "material_read": "Respective Findings",
+          "method": "Local mirror passage inspection",
+          "title": "Exact attraction basins of NOR leaf coronas and a cycle-clique construction; Basin concentration for closed-neighborhood NOR on triangular graphs",
+          "trigger": "Same date, similar dynamics or output"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–5; Filomat 2025 total-domination comparison; Resultary 2da52f64c61c."
+      ],
+      "rationale": "A join is a natural way to couple such networks. The result resolves both which oscillations survive and whether the coupling concentrates attraction: a bounded, isolate-sensitive change in the number of cycles can coexist with almost all initial supports feeding one distinguished attractor under clique growth. The exact deletion rule and concentration link are useful beyond a recomputed total-domination polynomial or a small examples table.",
+      "residual_risks": [
+        "No general basin classification beyond the stated distinguished basin or other update models is being credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

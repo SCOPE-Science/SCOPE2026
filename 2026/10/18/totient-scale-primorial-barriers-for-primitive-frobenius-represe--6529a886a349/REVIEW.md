@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The congruence \(b_T\equiv-Q_T\pmod a\) forces every admissible coefficient \(y\) into the reduced residue class \(-1\), with \(2\le y\le T\). A composite \(y\) has a prime factor at most \(\sqrt T\); a prime \(y\) itself lies in the prescribed progression. Both possibilities give a common prime divisor of \(x,y\). The fixed-modulus prime number theorem in arithmetic progressions yields the claimed constant. The divisor-cover optimality follows because every prime in the residue class is an obligatory factor. Boundary \(a\ge3\) is essential; there is no assertion for \(a=2\). Finite checks supplement, not replace, the infinite proof.
+PASS
 
-## Originality — PASS (with residual risk)
+Every factor of Q_T is prime to a, and the chosen b_T is also prime to a. In Q_T=ax+b_T y the congruence forces y≡−1 mod a and the size constraint gives 2≤y≤T. For composite y use its least prime divisor at most √T; for prime y use the −1 residue-class factor. In either case p divides Q_T and y but not a, so divides x, including when x=0. Consequently Q_T is not primitively representable. The fixed-modulus prime number theorem gives log Q_T=T/φ(a)+o(T); the additional small-prime weight is O(√T log T). The offset of b_T from Q_T/T is less than a, yielding b_T→∞ and Q_T/(b_T log b_T)→φ(a). Every cover must include every prime in the forced class because that prime itself is an eligible y. The matching log-weight upper bound from Q_T gives asymptotic optimality only in the stated cover class. An independent exact check gives Q_20=1870, b_20=95 and y=2,5,8,11,14,17 with respective gcds 2,5,2,11,2,17 for a=3; it does not compute the exact Frobenius number or reproduce all 615 cases. The supplied script was inspected, not executed.
 
-Ding--Wang--Zhang, arXiv:2509.08599v1, Theorem 1.7 establishes the correct logarithmic scale but only a positive unspecified constant; inspection of its Section 4 CRT argument does not yield the explicit totient coefficient. The source does not give the asymptotically minimal prime-divisor covering product. The separately recorded large-both-coefficients bound requires \(\min(a,b)\to\infty\) and does not cover fixed \(a\). Searches of mathematical-results records for the exact constant, reduced residue class sieve, aliases and the fixed-parameter primitive Frobenius problem returned no covering result. Independent literature coverage remains incomplete; this is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For each fixed coefficient \(a\ge3\), the argument makes the logarithmic lower-growth coefficient explicit as \(\varphi(a)\), which can be arbitrarily large with \(a\), strengthening an unspecified existence bound. It supplies a direct constructive obstruction and proves the asymptotic exponential optimality of the associated prime-divisor cover, pinpointing the relevant arithmetic progression. The result is an exact new quantitative bound, not a claim to solve the open maximal-order problem.
+The obstruction architecture and the fixed-a logarithmic lower-growth order are already in Ding–Wang–Zhang. The explicit φ(a) bound is an optimization of their actual CRT proof, not a new mechanism or a consequence of the printed coefficient. The supported distinction is the residue-class sieve that accomplishes this optimization, and the matching asymptotic minimum over all divisor covers of that class. The inspected same-day indexed theorem has a different growth regime; the later fixed-a indexed theorem uses a related mechanism with coefficient 1.
 
-## Scope and limitations
+## value
 
-Optimality is only among divisor-cover products, not among all primitive Frobenius obstructions. A possible implicit earlier proof of the quantitative constant is a residual originality risk. The fixed-modulus assumption is necessary for the PNT-in-progressions step as stated. Computation verifies only stated finite samples.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-generator logarithmic growth was known but its lower coefficient was not quantified by the closest prior statement. The coefficient here explains the leverage of the progression's prime density and the sharp cover-weight comparison proves that this economy is not arbitrary prime selection. This value does not depend on claiming a new obstruction architecture or an unrestricted optimal coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

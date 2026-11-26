@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:48.564793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotation reduces the frame operator to trace 1+q and determinant q sin^2(t/2), yielding the claimed smaller eigenvalue. The Rayleigh quotient perpendicular to g bounds it by q; every t>=pi is therefore bounded by the value at pi, and the derivative -alpha exp(-alpha pi) at pi gives strictly better earlier values. For 0<t<pi, write B=q+cos t, s=sin t and D=hypot(B,s). The derivative has sign D+B-alpha s; strict increase in B and exact inversion of this expression give the displayed stationarity equation with no spurious root. For negative K=(alpha^2-1)/(2 alpha), cos t-K sin t first rises above 1 and then decreases to -1; for positive K it decreases to a minimum then rises to -1, with the final segment at most -1. In each case the exp(-alpha t) term plus the strictly decreasing portion gives exactly one crossing, and K=0 is immediate. Scaling v=alpha t gives the simple limiting root of exp(-v)+1-v/2; the smooth equation is even in 1/alpha after removable extension at zero, so v=v_0+O(alpha^-2). Expanding the smaller eigenvalue gives exp(-v)v^2/[4(1+exp(-v))] times alpha^-2 plus O(alpha^-4). Independent bisection gives t_*=1.7461395304080125 and m=0.0948896813348422 at alpha=1, and v_0=2.217715105757090 with coefficient 0.1207075196972504. Replay: /workspace/reproductions/frozen-review-checks.js, record 3, Node.js; the packaged script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complex OU §3 Eqs. (3.4)–(3.5), Theorem 3.2 optimize a trend determinant with process correlations. Wu Theorem 1(c) treats weighted approximate E-design for trigonometric regressors. The mirror exact-match theorem treats unrestricted continuous time, the same initial-state model, and also gives a weak-damping expansion."
+        ],
+        "reasoning": "The first two sources are related timing regimes, not shown to specialize to the frozen parameters and objective. The separately indexed two-observation result covers every a/omega>0 and the global lag domain, so coverage does not depend on the broader comparisons.",
+        "searches": [
+          "S. Baran, C. Szák-Kocsis and M. Stehlík, arXiv:1704.05719v1",
+          "H. Wu, Optimal designs for first-order trigonometric regression on a partial cycle, Statistica Sinica 12 (2002), p. 921",
+          "Resultary f516fee65ff8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 3 RESULT.md, VERIFICATION.md and check_oscillator.py",
+        "Resultary f516fee65ff8, 60ea36e5831d, 718ab126a5c2 and 750cc2f5f14a",
+        "Baran et al. arXiv:1704.05719v1; Wu (2002), Theorem 1(c)",
+        "Adjacent observation-timing abstracts DOI 10.1186/s13634-021-00732-8 and arXiv:1709.00771"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-time result optimizes a determinant; the quarter-turn result has discrete lags; the exact-match result optimizes the same smaller eigenvalue and supplies the same asymptotics with the same remainder orders."
+        ],
+        "reasoning": "Changing the sample count, objective or discrete admissible lags does not preserve the design result. The exact-match reformulation preserves the spectrum, objective and feasible set and mechanically implies all substantive frozen conclusions. No independent addition was identified.",
+        "searches": [
+          "Resultary f516fee65ff8",
+          "Resultary: 2026/11/2/SCOPE-sharp-strong-damping-observability-envelope-for-three-time-oscil--718ab126a5c2",
+          "Resultary: 2026/11/22/SCOPE-four-sharp-damping-thresholds-for-two-shot-observation-of-a-quar--750cc2f5f14a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror Finding and proof §§2–5 define the two equal-noise scalar initial-state information Gramian and unique smaller-eigenvalue optimizer Lambda_r(z); z=omega h and r=a/omega. Its stationary equation is r=cot(z)(1+q/(1-Lambda_r(z)))."
+        ],
+        "reasoning": "The two observation Gramians differ only by orthogonal conjugation (transpose reverses the rotation) and any constant noise scaling. If lambda is the smaller eigenvalue then (q-lambda)(1-lambda)=q cos^2(z). The frozen equation is equivalently q+cos^2(z)-lambda=r sin(z) cos(z), as follows from D+B=r sin(2z). Dividing by sin(z)cos(z) and using the characteristic identity yields the mirror equation, and the steps are reversible for 0<z<pi/2.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-globally-optimal-two-time-worst-direction-observation-of-a-dampe--f516fee65ff8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f516fee65ff8 mirror §§Finding and 5, offsets 1121 and 5210–6160, give z_r=c_*/r+O(r^-3) and r^2 Lambda_r(c/r)=c^2/(1+exp(2c))+O(r^-2), with c_*-1=exp(-2c_*) and r z_r=c_*+O(r^-2). The earlier heat-diffusion mirror also gives the same c_* and its optimized coefficient for a different operator."
+        ],
+        "reasoning": "Set v_0=2c_*; then c_*^2/(1+exp(2c_*))=c_*(c_*-1)=v_0(v_0-2)/4. The uniform expansion and O(r^-2) scaled-lag error give the frozen eigenvalue remainder too. The exact mirror theorem, rather than the numerical match or the diffusion constant, is decisive.",
+        "searches": [
+          "Resultary f516fee65ff8",
+          "Resultary: 2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d"
+        ]
+      },
+      "rationale": "A distinct existing same-date Resultary record, f516fee65ff8, demonstrably covers the same all-damping least-eigenvalue optimum, strict global uniqueness, pre-perpendicularization, and strong-damping coefficients and remainder orders. Passing the frozen claim as distinct is not justified. This is a statement of verified equivalent coverage, not an attribution of historical priority or a claim about which record was first. The trigonometric root written without the eigenvalue is an algebraic reformulation, not a residual theorem.",
+      "residual_risks": [
+        "Same UTC date, no established order or priority between the equivalent records.",
+        "Bounded primary search did not rule out older equivalent control or regression formulations; the decision instead rests on verified direct coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; date does not determine priority",
+          "evidence": [
+            "The smaller information eigenvalue, unique all-damping optimum, equivalent stationary equation, Lambert-W constant and strong-damping error orders all match."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-globally-optimal-two-time-worst-direction-observation-of-a-dampe--f516fee65ff8",
+          "material_read": "Local RESULT.md Finding and proof §§2–5, offsets 0–8246 including strong-damping passage at 5210–6160",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Globally optimal two-time worst-direction observation of a damped planar rotation",
+          "trigger": "Same E-optimal model and root"
+        },
+        {
+          "assessment": "Identical normalized constant but different dynamics; the frozen record already disclaims novelty for the constant alone",
+          "evidence": [
+            "The heat-diffusion spectral notch yields c_*^2/(1+exp(2c_*))."
+          ],
+          "identifier_or_url": "Resultary 60ea36e5831d",
+          "material_read": "Finding offsets 0 and 1584; sharp optimal-gap asymptotics at 4014",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-time diffusion frame bounds and optimal blind-spot scaling on the integer line",
+          "trigger": "Exact value of strong-damping coefficient"
+        },
+        {
+          "assessment": "Adjacent, not equivalent",
+          "evidence": [
+            "Three observations and a determinant; respectively discrete possible lags."
+          ],
+          "identifier_or_url": "Resultary 718ab126a5c2 and 750cc2f5f14a",
+          "material_read": "Both Findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp strong-damping observability envelope for three-time oscillator sampling; Four sharp damping thresholds for two-shot observation of a quarter-turn oscillator",
+          "trigger": "Same dynamics or nearby least-eigenvalue objective"
+        },
+        {
+          "assessment": "Different objective and information model",
+          "evidence": [
+            "Equidistant trend D-design for a correlated stochastic process, not deterministic initial state E-design."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1704.05719v1",
+          "material_read": "Abstract and §3 Eqs. (3.4)–(3.5), Theorem 3.2, offset 13500",
+          "method": "Lawful arXiv HTML",
+          "title": "D-optimal designs for complex Ornstein-Uhlenbeck processes",
+          "trigger": "Damped oscillatory observation-time optimization"
+        },
+        {
+          "assessment": "Inspected theorem has three regressors and freely weighted approximate designs; not a whole-document noncoverage claim",
+          "evidence": [
+            "The identified result does not impose a fixed decaying second amplitude or two equal-weight snapshots."
+          ],
+          "identifier_or_url": "Wu, Statistica Sinica 12 (2002), printed p. 921",
+          "material_read": "PDF p. 1 abstract and Theorem 1(c), offset 9000",
+          "method": "OA primary PDF",
+          "title": "Optimal designs for first-order trigonometric regression on a partial cycle",
+          "trigger": "E-optimal trigonometric regression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The design question itself is meaningful: the smallest frame eigenvalue controls worst-direction recovery with two observations. But the frozen contribution presents no independent new invariant, design regime, or sharpness beyond the separately recorded all-damping theorem. Recasting the Gramian as a frame and removing its eigenvalue from the implicit stationarity equation are direct algebraic reformulations. No justified valuable repair survives on the current evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

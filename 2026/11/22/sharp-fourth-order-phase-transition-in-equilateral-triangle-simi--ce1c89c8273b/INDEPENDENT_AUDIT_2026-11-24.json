@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:15:45.509789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–94, VERIFICATION.md and CHECK.py (checker inspected, not executed)",
+        "/workspace/review_evidence/algebra.py, triangle block"
+      ],
+      "rationale": "For a fixed multiplier the two translation intervals have lengths (a-w_x)_+ and (b-w_y)_+ (infeasible fibers contribute zero). The widths are maxima of the three projected unit edge lengths, so the integrand has twelve equivalent 30-degree sectors and, at height 1 in the first sector, widths s and (sqrt(3)s+t)/2. Independently computed the full signed integral on the height-feasible sector using t=ws, 0<=w<=1/sqrt(3) and 0<=s<=2/(sqrt(3)+w), with Jacobian s. Summed over the sectors, the integral is (8 sqrt(3)q-7)/12. Only q<rho=2/sqrt(3) cuts a negative tail; q>=1 puts that cut above the sector boundary switch at sqrt(3)/2. Removing the tail adds 9 times the integral of (s-q)(rho-s)^2 from q to rho, i.e. (3/4)(rho-q)^4, so the one-sided fourth derivatives are 18 and 0 and lower derivatives agree. Rotation of the target exchanges the axes and uniform dilation gives the m^4 factor. At fixed area the objective is S^2 V(q)/q^2. Its derivative below rho is (q^2-1)3(q-1/sqrt(3))(q-sqrt(3))/(2q^3); above rho it is -(4sqrt(3)q-7)/(6q^3), both negative for q>1 in their respective regimes. At q=1 the value is (15/2-4sqrt(3))S^2. Exact replay: python3 /workspace/review_evidence/algebra.py (SymPy; triangle block).",
+      "residual_risks": [
+        "The half-turn symmetry is a volume-preserving pairing of placements, not an identification of multiplier coordinates or generally the same placed triangle. The definition and computed volume use the full multiplier plane, so this wording in the scope does not affect the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen article describes Choi–Choi's results as optimal-placement organization and algorithms for general-position polygons, excluding parallel sides; primary passage unavailable. The inspected self-containment summary treats a triangular target, not axis-aligned rectangular translation fibers."
+        ],
+        "reasoning": "A similarity containment representation or general fiber integral is prior background; the specific polynomial integral and its cutoff and square extremum do not follow as stated from triangular-target laws or placement algorithms.",
+        "searches": [
+          "Choi–Choi arXiv:2611.08556v1, The Containment Polytope of a Triangle and a Convex Polygon",
+          "Resultary: general volume/fiber context, triangle self-containment record 0f26f49ae237"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 100–113",
+        "Local Resultary entries ce1c89c8273b, e90ef3f72b9c, a89dd8dd2257, 0f26f49ae237; mirrored Findings of e90ef3f72b9c and a89dd8dd2257",
+        "Choi–Choi arXiv:2611.08556v1 index and frozen scope comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transforming a right-isosceles source into an equilateral source needs a nonsimilarity linear map, which does not preserve the isotropic multiplier family in these coordinates. The equilateral multiplier footprint determines feasibility; the quartic correction uses the slacks as functions on its boundary region, including their vanishing orders."
+        ],
+        "reasoning": "Neither a source-shape substitution into the right-isosceles formula nor a footprint-volume identity gives this law; the signed-tail calculation and the ensuing fixed-area comparison are additional work.",
+        "searches": [
+          "Compare Resultary e90ef3f72b9c, a89dd8dd2257 and 0f26f49ae237 with frozen RESULT.md §§ Proof and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalog orientation-law summary reports the multiplier footprint and a square optimum for mean squared best-fit scale. Integrating that best-fit quantity over orientation measures the two-dimensional multiplier region, whereas four-volume integrates the product of translation slacks over that region."
+        ],
+        "reasoning": "The integrand weights in the two formulations do not agree, even after normalization: one counts multipliers, the other gives zero weight when either translation slack vanishes. A footprint optimum therefore does not settle the four-volume optimum.",
+        "searches": [
+          "Resultary: exact four-volume of equilateral triangle similarity containment in rectangles; fixed-area maximum; complete orientation law a89dd8dd2257"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry is ce1c89c8273b, the assigned record. The strongest distinct entry e90ef3f72b9c has a right-isosceles source and fourth-derivative jump at aspect ratio 2 rather than 2/sqrt(3)."
+        ],
+        "reasoning": "The catalog shows a distinct related variant, not a known exact value for this source, normalization and threshold. The comparison does not depend on date ordering.",
+        "searches": [
+          "Resultary: exact equilateral four-volume ce1c89c8273b; fourth-order threshold e90ef3f72b9c"
+        ]
+      },
+      "rationale": "The specific contribution supported by comparison is the evaluated translation-weighted equilateral-source volume and its aspect-ratio consequences. The closest distinct catalog record has the same quartic-transition phenomenon for a right-isosceles source, but a different formula and threshold, and same-day chronology is not used to decide coverage. The earlier equilateral orientation law is same-object but uses a different measure; its square optimizer is not the claimed 4-volume optimizer.",
+      "residual_risks": [
+        "The strongest related catalog overlaps were resolved from their primary statements. The self-containment comparison used its indexed summary, and a decisive primary Choi–Choi passage was not retrieved. Coverage by a stronger unlocated general volume formula is not ruled out. No chronology is inferred for distinct same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available description concerns optimal placements in general position, not an evaluated rectangular volume law; no whole-paper verdict",
+          "evidence": [
+            "Frozen comparison distinguishes silhouettes and combinatorics from measure; rectangle has parallel sides"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08556v1",
+          "material_read": "Web index title and frozen RESULT.md lines 100–106 comparison; no primary passage retrieved",
+          "method": "Targeted OA attempts, including v1 PDF query for parallel sides, timed out",
+          "title": "The Containment Polytope of a Triangle and a Convex Polygon",
+          "trigger": "Potential stronger theorem about the same four similarity coordinates"
+        },
+        {
+          "assessment": "Same invariant and measure, different source and transition parameter; the stated theorem expressly does not classify arbitrary source triangles",
+          "evidence": [
+            "T=conv{(0,0),(1,0),(0,1)}. Fourth-derivative jump of magnitude 1 at q=2; written formula is not the equilateral formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-fourth-order-containment-volume-transition-for-a-right-triangl--e90ef3f72b9c/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2144",
+          "method": "Local Resultary search and exact-file OA local mirror",
+          "title": "A fourth-order containment volume transition for a right triangle",
+          "trigger": "Strongest distinct overlap on fourth-order volume law"
+        },
+        {
+          "assessment": "Same feasibility problem up to the source-length normalization, but orientation/scale statistic, not translation-weighted volume",
+          "evidence": [
+            "The square maximizes E[L(Theta)^2], the scale averaged over uniformly random orientation, with a sharp result proportional to S, not S^2. Their source has unit circumradius."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-complete-orientation-law-for-equilateral-triangle-containment-in--a89dd8dd2257/RESULT.md",
+          "material_read": "Finding and beginning of Assumptions and scope, offsets 0–2350",
+          "method": "Local Resultary search and exact-file OA local mirror",
+          "title": "Complete orientation law for equilateral triangle containment in rectangles",
+          "trigger": "Same pair of geometric objects and square result"
+        },
+        {
+          "assessment": "Triangular target and triangular translation fibers, not the rectangular model",
+          "evidence": [
+            "Self-containment restricts the source and target to be the same triangle"
+          ],
+          "identifier_or_url": "Resultary record 0f26f49ae237",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary search; exact record file not available from mirror",
+          "title": "A sharp equilateral extremum and a universal beta law for triangle self-containment polytopes",
+          "trigger": "Prior four-volume analysis and fiber laws"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": [
+            "Same hash, source triangle, volume formula and threshold"
+          ],
+          "identifier_or_url": "Resultary record ce1c89c8273b",
+          "material_read": "Indexed statement and frozen Finding",
+          "method": "Local Resultary search and exact record identity comparison",
+          "title": "Sharp fourth-order phase transition in equilateral-triangle similarity-containment volume",
+          "trigger": "Exact four-volume query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and translation-fiber proof",
+        "Local Resultary orientation-law and right-triangle transition summaries"
+      ],
+      "rationale": "The four-volume is a natural quantitative invariant of the already studied similarity-placement polytope, and it accounts for translations lost by projecting to the known multiplier footprint. The near-threshold integration identifies how a geometric change in active width constraints becomes a fourth-order rather than a lower-order singularity. The exact profile resolves an independent fixed-area extremum and supplies its sharp constant; neither a square optimum for a different footprint statistic nor the prior shape transition settles it.",
+      "residual_risks": [
+        "The formula concerns ordinary coordinate Lebesgue measure, not a claim about uniform orientations or a motion-invariant measure on similarities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

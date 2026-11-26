@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:06:22.347854Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54, VERIFICATION.md lines 19–27, both supplied Python scripts and both supplied JSON outputs",
+        "Replay: python3 /workspace/branches/2526ce92-fcbe-4f1e-85d9-e221a9fb28df/verify_franklin_exchange.py",
+        "Separate computed certificate: /workspace/branches/2526ce92-fcbe-4f1e-85d9-e221a9fb28df/independent_check_output.json"
+      ],
+      "rationale": "Reconstructed the Franklin graph from the specified cycle and chords, and independently enumerated the paired dominating sets with an exact perfect-matching predicate. Domination is the union of closed neighborhoods. Recursing by the least remaining vertex and each possible partner exhausts perfect matchings, so the finite tests cover the whole predicate. Sizes 0,2,4 give no optima; complete six-set enumeration gives 184. Every one of 33,672 distinct ordered pairs has a target-improving exchange; induction gives the Johnson upper bound and each exchange changes overlap by at most one, giving the lower bound. Independent all-source BFS agrees including zero distances. The exhaustive results are 984 edges; degrees {10:120,12:64}; distances 1–6 with counts 984,3900,6640,4512,768,32; eccentricities {4:24,5:96,6:64}. Connected bipartiteness forces each automorphism to preserve or swap shores; distinct neighbor signatures on each shore make enumeration from one shore complete, giving group order 48 and orbit sizes 8,8,12,12,24,24,48,48. In the stated witness, adding 1 after removing 2 violates shore balance; adding 6 leaves both 0 and 6 with only the neighbor 11 in the selected opposite shore, violating Hall's condition. The two original sets are dominating and have matching witnesses (0,11),(2,3),(10,9) and (0,1),(6,11),(10,9), respectively. Frozen artifacts were inspected, not run.",
+      "residual_risks": [
+        "The proof is exhaustive for this one graph and unrestricted token jumping; it does not generalize to all cubic bipartite graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The C5 blowup theorem gives paired-domination isometry but for transversal matroid bases on a different graph family. The fully subdivided clique theorem gives non-matroidal Johnson-isometry for power domination. Lu–Wu Theorem 1.1 gives a sharp upper bound, and the paired-domination complexity paper treats algorithms on other graph classes."
+        ],
+        "reasoning": "Neither analogue includes the Franklin graph with this predicate and the cubic-bipartite bound fixes no minimizer exchange data.",
+        "searches": [
+          "Resultary records b99c8388636a and f1009b21833f",
+          "arXiv:2112.05486v1 and arXiv:2609.30152v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f490f3f3f842, db619faaacbc (self-hit), b99c8388636a, f1009b21833f",
+        "arXiv:2112.05486v1, 2307.10847v1, 2609.30152v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known optimum size does not imply how its minimizers overlap. The two closest indexed structural analogues use a family of graphs where matroid exchange holds or a different feasibility predicate."
+        ],
+        "reasoning": "The Franklin isometry and the coexistence of isometry with the specified obstruction are not automatic from those ingredients; both required separate exhaustive verification here.",
+        "searches": [
+          "Lu–Wu Theorem 1.1",
+          "Resultary f490f3f3f842, b99c8388636a, f1009b21833f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Johnson metric agrees with token-jump distance exactly if every distinct ordered pair admits a target-improving swap. Křišťan–Svoboda's theorem instead studies ordinary domination and changes along edges; in this bipartite graph token sliding cannot preserve the balanced paired-set predicate."
+        ],
+        "reasoning": "Reformulating isometry as greedy overlap is equivalent, but does not reduce this exchange metric to a token-sliding result. Matroid exchange is strictly stronger because it requires a choice for each specified removed element.",
+        "searches": [
+          "Resultary: Franklin paired domination optimal-set enumeration, Johnson-isometric token jumping and basis exchange",
+          "Primary literature: Franklin graph paired-dominating set reconfiguration",
+          "arXiv:2307.10847v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-graph census already identifies Franklin as the unique connected cubic bipartite graph on 12 vertices with paired-domination number six. It does not give the 184-family or its exchange data in the examined passages. The exact November hit is this record itself."
+        ],
+        "reasoning": "Credit the known optimum size. That entry neither counts the minimizers nor provides a table of distances or valid exchanges between them.",
+        "searches": [
+          "Resultary 2026/10/4 record f490f3f3f842, Finding and five-graph census",
+          "Resultary 2026/11/22 exact hit db619faaacbc"
+        ]
+      },
+      "rationale": "The Franklin minimum size is already a published exact value; the independently supported distinctive claim is its optimum family, complete exchange metric and non-matroid witness. The strongest inspected same-object census and the structurally closest isometry results do not determine these facts.",
+      "residual_risks": [
+        "The focused primary search was low-yield. Unindexed Franklin-specific enumerations or more general results outside the inspected passages remain possible; no blanket priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest exact prior: covers optimum size, but not the optimum exchange structure",
+          "evidence": "Five-graph census identifies Franklin at minimum size six.",
+          "identifier_or_url": "Resultary 2026/10/4 record f490f3f3f842",
+          "material_read": "RESULT.md offsets 0–3014, Finding, assumptions and census proof",
+          "method": "Local published-record mirror",
+          "title": "The Franklin graph is the unique twelve-vertex cubic bipartite equality graph for paired domination",
+          "trigger": "Same graph and optimum size"
+        },
+        {
+          "assessment": "Does not cover Franklin",
+          "evidence": "C5(1,1,1,a,b) blowups; optimum sets are bases of a transversal matroid.",
+          "identifier_or_url": "Resultary record b99c8388636a",
+          "material_read": "RESULT.md Finding, offsets 0–1613",
+          "method": "Local published-record mirror",
+          "title": "Transversal matroid structure of minimum paired domination in expanded cycles",
+          "trigger": "Same-day paired-domination exchange theorem"
+        },
+        {
+          "assessment": "Different graph family and domination predicate",
+          "evidence": "Minimum power-dominating sets in fully subdivided cliques.",
+          "identifier_or_url": "Resultary record f1009b21833f",
+          "material_read": "RESULT.md offsets 2180–3780, assumptions and metric",
+          "method": "Local published-record mirror",
+          "title": "Nonmatroidal isometric power domination exchanges in fully subdivided cliques",
+          "trigger": "Same-day analogue of the conjunction of isometry and basis-exchange failure"
+        },
+        {
+          "assessment": "Bound implies at most six at order twelve, not the minimizer metric",
+          "evidence": "gamma_pr(G) ≤ 2 floor(|V(G)|/4).",
+          "identifier_or_url": "https://arxiv.org/html/2609.30152v1",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 3820",
+          "method": "Lawful OA HTML passage review",
+          "title": "Paired Domination in Cubic Bipartite Graphs",
+          "trigger": "Natural broader theorem"
+        },
+        {
+          "assessment": "Algorithms and complexity, not this enumeration in the passages read",
+          "evidence": "Algorithms for AT-free graphs and NP-completeness on planar graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2112.05486v1",
+          "material_read": "Abstract and introduction, offset 1260",
+          "method": "Lawful OA HTML passage review",
+          "title": "Complexity of Paired Domination in AT-free and Planar Graphs",
+          "trigger": "Paired-domination literature"
+        },
+        {
+          "assessment": "Different move and predicate",
+          "evidence": "Ordinary domination under slides on trees and interval graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2307.10847v1",
+          "material_read": "Abstract, offset 340",
+          "method": "Lawful OA HTML passage review",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Shortest reconfiguration analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of target improvement and explicit witness",
+        "Resultary f490f3f3f842 exact equality-graph census",
+        "Independent complete finite reproduction"
+      ],
+      "rationale": "Franklin is distinguished before enumeration as the order-twelve cubic bipartite equality graph; its optima furnish a constrained natural example separating Johnson isometry from the matroid-basis axiom. The exact metric and explicit obstruction are independently useful for comparing exchange models, rather than merely re-counting the known minimum size. The census makes the example replayable and quantifies its path geometry.",
+      "residual_risks": [
+        "No structural characterization across other equality graphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:48:57.512264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–82",
+        "Frozen VERIFICATION.md, verify.py and recorded verification_output.txt (inspected, not executed)"
+      ],
+      "rationale": "The normalized kernel power series, after Fourier transforming each regular orbit, separates degrees k modulo m. Summing each residue's geometric series for p=1 and its first moment for p=2 gives the displayed A, B and C up to conjugation of C. Distinct nodes at strict unequal radii and the first 2m coefficients give a nonsingular Vandermonde matrix, so the Gram matrix is positive definite. With t=(rs)^m and c=cos(m phi), put D=1+t^2-2tc>0. The Hardy normalized cross modulus squared is 1/D. In Bergman the squared modulus factor is N/D^2, N=a^2+b^2t^2+2abtc>=0, a=k+1>0, b=m-k-1>=0. The derivative numerator 2abtD+4tN is strictly positive, including b=0 and N=0 cases. Thus each pair at c=-1 is a mean-preserving contraction of the corresponding pair at any c>-1. The direct sum of the pairwise doubly stochastic maps proves full majorization; strict convexity is strict for even one nontrivial contraction, here every pair. All plus eigenvalues increase and all minus eigenvalues decrease off the optimum, so the finite global extrema and condition number have the claimed strictness. Negative log and x^(-a) on the positive spectra yield determinant and inverse-trace conclusions. For Hardy, factoring A_k B_k from each block determinant gives (u^2+v^2-2uvc)/(1+u^2v^2-2uvc), and subtracting cross-products against c=-1 gives 2uv(1+c)(1-u^2)(1-v^2); the ratio denominator is nonzero because u<v. This verifies the exact global deficit as well as the spectral statement.",
+      "residual_risks": [
+        "Only finite normalized Gram spectra for two equally sized regular orbits with 0<r<s<1 and exponents 1 and 2 are assessed, not arbitrary interpolation designs or infinite-dimensional sampling operators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later Hardy law allows unequal orbit cardinalities and gives a cross factor with gcd/lcm; setting the sizes equal gives the audited Hardy determinant and ratio.",
+          "Equation (3) in the later Bergman record orders the cross moduli for integer powers p>=2, and permits equal radii as well.",
+          "Jochemko proves negative-real numerator roots for the appropriate Veronese subsequences; it applies to the subsequences here since the starting numerator is 1, but does not state the disk Gram ordering."
+        ],
+        "reasoning": "The later results really subsume portions, including the p=2 spectrum via the proof, but their dated appearances are after the audited record; neither demonstrates earlier priority. A general root-location tool is an algebraic ingredient, not itself the Gram spectral theorem.",
+        "searches": [
+          "Resultary 87e511cbac99, Finding and determinant/stability proof",
+          "Resultary dee70b752615, proof Steps 1, 3 and 4",
+          "Jochemko arXiv:1602.09139, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 44f30fce73fa, 87e511cbac99 and dee70b752615",
+        "Primary arXiv:1602.09139, 1908.11011, 2105.01766 and 2203.15372",
+        "Bounded primary searches for concentric Hardy/Bergman orbit spectra and determinant design"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical normalized Szegő Cauchy determinant is the product of pairwise squared pseudohyperbolic distances. Roots-of-unity products immediately yield the Hardy ratio but do not imply majorization.",
+          "The later Bergman proof compares cross moduli strictly while diagonal block entries are constant in phase. This implies strict pairwise spectral separation and hence p=2 majorization, rather than merely determinant ordering.",
+          "The earlier single-ring result does not permit variation of a relative rotation between two rings."
+        ],
+        "reasoning": "Do not claim novelty for the determinant identity or deny the implication from the later Bergman proof. The earlier statements actually inspected do not provide full angular spectral majorization for the two prescribed rings and both kernels.",
+        "searches": [
+          "Resultary 87e511cbac99 proof steps 3–5, offsets 4200–6410; dee70b752615 equation (3), offsets 4300–7800",
+          "Resultary earlier single-ring Hardy record 44f30fce73fa",
+          "Jochemko arXiv:1602.09139, offsets 9740–11471"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Majorization is equivalent to simultaneous comparison of convex traces for equal total trace; fixed-trace 2x2 blocks translate the condition into ordering the moduli of their cross entries.",
+          "The earlier multi-orbital frames paper studies model-space Hardy kernel criteria rather than this finite relative-phase design. The later Bergman record supplies that block modulus ordering on the very same orbits."
+        ],
+        "reasoning": "A comparison of scalar determinant objectives is weaker than the majorization assertion. The later Bergman proof is stronger than its determinant-only wording because it establishes every block comparison.",
+        "searches": [
+          "Resultary: two concentric Szegő orbit staggering and weighted Bergman half-step phase ordering",
+          "Primary search: two concentric regular Hardy/Bergman kernel Gram majorization and staggered orbit sampling",
+          "Cabrelli–Molter–Suárez arXiv:1908.11011, pp. 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later Hardy record gives an exact formula for all permitted angles and radii, covering the entire Hardy scalar deficit. The later Bergman record has general block formulas for its powers. Felder–Le give general Gram determinant constructions, not a spectral phase table for these orbits."
+        ],
+        "reasoning": "A finite spectrum table is not decisive for a continuum optimization. The exact formulas are the material comparison and cover determinant and Bergman block data as noted; a determinant does not encode all eigenvalues or their convex order.",
+        "searches": [
+          "Resultary: exact Hardy determinant phase law and weighted Bergman Fourier blocks",
+          "87e511cbac99 §§3–5; dee70b752615 Eq. (3)",
+          "Felder–Le arXiv:2105.01766, §2.1"
+        ]
+      },
+      "rationale": "The supported distinct claim for this October 27 record is simultaneous full-spectrum majorization with strict extremal and convex consequences for the two normalized kernel powers. The Hardy determinant law and deficit are classical Cauchy-product consequences, not credited as new by themselves. Two distinct November 2 records are substantial later coverage: one includes the exact Hardy determinant law for equal sizes as a special case; the other proves strict Bergman Fourier-block modulus ordering for every integer p>=2, which already implies the p=2 spectral result by fixed-trace block contraction. This mathematical coverage is explicit, but these later-indexed records are not evidence of antecedence to the frozen result. They also do not state the joint Hardy/Bergman full-spectrum comparison. Earlier inspected frame and determinant work does not provide the same angular Gram spectral order. No absolute claim of historical priority is made.",
+      "residual_risks": [
+        "The later-indexed results show mathematical overlap but do not resolve earlier authorship or priority. Full text of The Bergman norm and the Szegő norm was inaccessible. A specialized earlier spectral placement theorem could be missed in bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later record contains the full Hardy scalar law and deficit as the equal-size case, not full-spectrum majorization in the inspected result.",
+          "evidence": [
+            "Cross-ring factor is a power of a pseudohyperbolic quotient; strict maximizer and normalized deficit are explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-phase-staggering-for-two-concentric-szeg-orbit-designs--87e511cbac99/RESULT.md",
+          "material_read": "Finding, and proof steps 3–5 at offsets 4200–6410",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Sharp phase staggering for two concentric Szegő orbit designs",
+          "trigger": "Same Hardy two-ring phase law for more general sizes"
+        },
+        {
+          "assessment": "Later record's block modulus monotonicity implies the p=2 spectral claim; it excludes p=1 from its theorem.",
+          "evidence": [
+            "Equation (3) strictly orders each block's off-diagonal squared modulus, with angle-independent diagonals and positive blocks away from collisions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-universal-half-step-phase-ordering-for-two-regular-weighted-berg--dee70b752615/RESULT.md",
+          "material_read": "Finding, proof steps 1, 3 and 4, and references; key reinspection offsets 4300–7800",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Universal half-step phase ordering for two regular weighted Bergman orbits",
+          "trigger": "Same Bergman two-ring optimization in a wider parameter family"
+        },
+        {
+          "assessment": "One orbit is a different admissible node family; no two-ring relative angle.",
+          "evidence": [
+            "Fixed-radius single-orbit placement rather than relative rotation at unequal radii."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+          "material_read": "Finding and one-orbit scope",
+          "method": "Local-mirror statement comparison",
+          "title": "Sharp determinant stability and conditioning of concentric Szegő orbit frames",
+          "trigger": "Earlier indexed Hardy angular optimization"
+        },
+        {
+          "assessment": "Supplies real-negative residue numerator roots for this starting series, not Gram blocks or phase majorization.",
+          "evidence": [
+            "For h(t)/(1-t)^d with nonnegative numerator coefficients, the subsequence numerator has nonpositive roots under the stated degree bound, negative when an initial coefficient is positive."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.09139",
+          "material_read": "Theorem 1.1, pp. 2–3, offsets 9740–11471",
+          "method": "OA PDF literal locator and bounded full-text passage",
+          "title": "On the real-rootedness of the Veronese construction for rational formal power series",
+          "trigger": "Earlier general theorem underlying the later Bergman block ordering"
+        },
+        {
+          "assessment": "Related framework, no identified same two-polygon spectral optimization in the relevant passages.",
+          "evidence": [
+            "Studies operator-generated orbits and Riesz/frame criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.11011",
+          "material_read": "pp. 2–4, definitions and frame/model-space setting",
+          "method": "Bounded OA PDF inspection",
+          "title": "Multi-orbital frames through model spaces",
+          "trigger": "Hardy kernel frames with multiple generating orbits"
+        },
+        {
+          "assessment": "General determinant and projection toolkit, not a phase majorization result.",
+          "evidence": [
+            "Gram-determinant construction across the function-space settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.01766",
+          "material_read": "§2.1, pp. 5–6",
+          "method": "Bounded OA PDF inspection",
+          "title": "Analogues of Finite Blaschke Products as Inner Functions",
+          "trigger": "General Gram determinant machinery in related analytic spaces"
+        },
+        {
+          "assessment": "Reproducing-kernel family results without the inspected two-orbit phase law.",
+          "evidence": [
+            "Treats model-space kernel families and Riesz bases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.15372",
+          "material_read": "pp. 5–6, kernel and Riesz-family material",
+          "method": "Bounded OA PDF inspection",
+          "title": "Schur-Nevanlinna parameters, Riesz bases, and compact Hankel operators",
+          "trigger": "Hardy model-space kernel family comparison"
+        },
+        {
+          "assessment": "Relevance unresolved; no whole-document exclusion inferred.",
+          "evidence": [],
+          "identifier_or_url": "Title from primary query",
+          "material_read": "Search citation only; source request returned HTTP 403",
+          "method": "Lawful retrieval attempt",
+          "title": "The Bergman norm and the Szegő norm",
+          "trigger": "Title links both analytic kernel settings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, simultaneous optimum and exact spectrum",
+        "Resultary 87e511cbac99 and dee70b752615, objective/coverage comparison"
+      ],
+      "rationale": "For fixed concentric sampling orbits it is not automatic that raising the lower Gram bound and lowering the upper one, as well as improving determinant and every inverse trace, have a common optimizer. Here strict block comparison gives a stronger ordering for all convex spectral objectives, in both classical kernel geometries. This yields a useful exact design result beyond rederiving the Hardy Cauchy determinant. The two-block spectra also explain why the conditioning optimum is strict.",
+      "residual_risks": [
+        "No global optimum over unconstrained node placements, arbitrary weights or other exponents is claimed in this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

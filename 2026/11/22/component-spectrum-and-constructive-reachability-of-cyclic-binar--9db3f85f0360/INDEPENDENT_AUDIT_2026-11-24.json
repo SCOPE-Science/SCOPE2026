@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:20.431074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55 and VERIFICATION.md / check.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/f202090c-52df-44ae-a75e-21a3760c3f4b/independent_check.py; retained small-run.txt and full-run.txt in the same directory"
+      ],
+      "rationale": "With d_i=x_i XOR x_(i+1), admissibility forbids adjacent zeros of d and the telescoping parity condition forces n−k even. Conversely each independent k-set with that parity reconstructs exactly two complementary indexed words. Flipping x_i toggles d_(i−1),d_i, so only a 01↔10 exchange preserving independence is legal; each slide lifts uniquely from either word. At 0<k<n/2 the gaps between tokens have positive total surplus. Transferring surplus to one gap and cycling a unit of surplus to translate the compressed configuration give a canonical route in O(kn) slides. The displayed closed walk first moves the compressed tokens one step clockwise in reverse order, then another, then moves the foremost token through the wrap to zero. The condition n>2k leaves room for each move, including at n=2k+1. Exactly one traversal of every site-cycle edge flips every indexed bit once and joins the two lifts; this step is necessary because connectivity of the projection alone does not imply connectivity of a two-sheeted graph. At k=0 the two alternating words are frozen. At k=n/2 the two frozen difference patterns each lift twice, and parity requires 4|n. Distinguishing a token and composing its positive gaps counts n/k times binomial(n−k−1,k−1) projected vertices; clockwise slides count n times binomial(n−k−2,k−1) projected edges by requiring the two sites ahead of the moving token and the site directly behind it to be empty. The residual sites form a path, with n=3,k=1 checked directly as a six-cycle in the lift. Doubling and counting the permitted parity sectors give the stated formulas. Independent literal word enumeration, direct legal flips and BFS matched the census at all n=3 through 18; the path routine checked all ordered pairs within components for n≤8 and sampled paths in every interior sector through n=18.",
+      "residual_risks": [
+        "Finite enumeration and path checks do not prove the all-length classification; the gap and lift arguments supply that proof. The O(n²) claim is a bound on the number of flips, not an exact diameter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avis–Hoang give interior connectivity and a length-n same-direction rotational walk on the token cycle, with two frozen maximum packings when n=2k. Mütze surveys Gray codes for single-factor avoidance and related cyclic one-run avoidance."
+        ],
+        "reasoning": "The former applies directly to the projected graph; the latter discusses vertex listings, not the components for the simultaneous cyclic exclusions under a single-bit move. The projection does not retain the bit phase or the even-parity constraint on its cyclic differences.",
+        "searches": [
+          "arXiv:2203.16861v3 PDF Proposition 16 and §5.4 Proposition 19",
+          "arXiv:2202.01280 §3.16"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and matched originals",
+        "Avis–Hoang arXiv:2203.16861v3",
+        "Mütze arXiv:2202.01280",
+        "Fujii et al. DOI 10.4230/LIPIcs.ISAAC.2022.4",
+        "Targeted NAE/hypergraph literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof describes advancing each token to its successor's original position by a total of n slides in one direction. On the site cycle this traverses every site edge once. The frozen proof additionally identifies the unique lift of each such traversal as a particular bit flip."
+        ],
+        "reasoning": "The earlier walk supplies the projected loop, not a result about its lift. The needed extra bridge is identifying the two-sheeted graph with labelled bit reconstruction and showing that the edge labels sum to simultaneous complement, not the identity on a sheet. The parity selection and labelled lifted census likewise require the word model; connectedness of a base graph does not mechanically yield that of a cover. The projected walk itself is treated as known.",
+        "searches": [
+          "Avis–Hoang arXiv:2203.16861v3 PDF §5.4, p. 13, offset 61674; v3 HTML §5.4, offset 66844",
+          "Frozen RESULT.md lines 33–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is precisely single-vertex 2-coloring reconfiguration on the hypergraph of cyclic consecutive triples, with all hyperedges required to be nonmonochromatic. The targeted search returned hypergraph colorability/Ramsey and color-swapping leads, but did not locate the component result in that formulation.",
+          "The inspected bounded-run catalogue result is for linear fixed-weight words and adjacent interchange; Fujii et al. study proper graph coloring with a digraph of recolorability, not NAE hyperedges."
+        ],
+        "reasoning": "A bit flip changes Hamming weight, whereas adjacent interchange preserves it, and linear avoidance does not constrain the wrap. A proper graph-coloring adjacent-pair condition is not the ternary NAE relation. Neither inspected comparison gives an equivalent result.",
+        "searches": [
+          "(NAE OR hypergraph 2-coloring) single bit flip reconfiguration consecutive cyclic triples uniform tight cycle forbidden 000 111 connected components",
+          "Resultary: cyclic binary 000/111 one-bit flip and bounded monochromatic run graphs",
+          "DOI 10.4230/LIPIcs.ISAAC.2022.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed census hit is the assigned record itself. The run-bounded swap graph and the circular-ladder winding census have different state spaces and edges."
+        ],
+        "reasoning": "Neither neighbor table counts the labelled binary words, isolated vertices, or one-bit edges in these lifted sectors. The identical record is not independent prior coverage.",
+        "searches": [
+          "Resultary: exact cyclic binary component census, frozen extremes and winding sectors",
+          "2026/11/2/SCOPE-median-swap-graphs-for-binary-words-with-bounded-monochromatic-r--b743472fbcd0",
+          "2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colourings-of-circular-ladders--d41f740a6f49"
+        ]
+      },
+      "rationale": "The projected token connectivity, saturated frozen token states, and existence of a length-n rotational slide walk are established ingredients; they are not credited as new. The supported distinct result is the parity-filtered binary-word lift, the sheet exchange induced by the slide walk, and the resulting exact census and constructive reachability for indexed binary words. The closest literal-constraint catalogue result changes both the boundary and the move. No inspected source supplied the same lifted graph results or a stronger theorem covering them.",
+      "residual_risks": [
+        "The bounded literature check does not settle whether the same gain-labelled lift has appeared under another hypergraph or CSP formulation. The referenced section and proposition numbers should be read with their edition and rendering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage of the projected classification and rotational walk; not the word lift",
+          "evidence": "The proof advances the cyclically ordered tokens to their successors' starting positions in n slides and notes the two isolated maximum packings. The numbering differs: Proposition 19 in the v3 PDF, 14 in the cited HTML. Only the walk and projected classification are used in this comparison, not a girth claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.16861v3",
+          "material_read": "PDF p. 12 Proposition 16, offset 57629; p. 13 §5.4 Proposition 19 and proof, offset 61674; corresponding v3 HTML at offset 66844",
+          "method": "Lawful OA PDF and HTML passages",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Exact projected object and length-n walk"
+        },
+        {
+          "assessment": "Related but not a classification of simultaneous cyclic avoidance under flips",
+          "evidence": "The relevant section treats single-factor avoidance and Lucas-word variants. The frozen reference's §3.15 is coils and snakes; the applicable discussion is §3.16 in the inspected PDF.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01280",
+          "material_read": "PDF §3.16, pp. 19–21, offsets about 76680, 78654 and 80191",
+          "method": "Lawful OA PDF passages",
+          "title": "Combinatorial Gray codes—an updated survey",
+          "trigger": "Factor-avoiding cyclic words and Gray listing"
+        },
+        {
+          "assessment": "Different constraint type",
+          "evidence": "Studies proper graph colorings with allowed changes specified by a color-relation digraph, rather than binary nonmonochromatic consecutive triples.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ISAAC.2022.4",
+          "material_read": "PDF pp. 2–3, offsets 4886 and 9041",
+          "method": "Lawful OA PDF passages",
+          "title": "Algorithms for Coloring Reconfiguration Under Recolorability Digraphs",
+          "trigger": "Possible alternate directed-cycle recoloring formulation"
+        },
+        {
+          "assessment": "Different boundary, fixed-weight state space, and swap move",
+          "evidence": "Uses linear binary words avoiding 0^r and 1^s with adjacent interchanges rather than indexed cyclic words with single flips.",
+          "identifier_or_url": "2026/11/2/SCOPE-median-swap-graphs-for-binary-words-with-bounded-monochromatic-r--b743472fbcd0",
+          "material_read": "Original Finding, mirror offset 0 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local publication mirror",
+          "title": "Median swap graphs for binary words with bounded monochromatic runs",
+          "trigger": "Same two run exclusions when r=s=3"
+        },
+        {
+          "assessment": "Distinct objects and transitions",
+          "evidence": "The configurations are proper three-colourings of a prism rather than binary colorings of consecutive triples.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colourings-of-circular-ladders--d41f740a6f49",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact winding sector sizes and exchange counts for three-colourings of circular ladders",
+          "trigger": "Similar invariant-sector census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–50",
+        "Avis–Hoang projected cycle-token result",
+        "Independent full-run.txt and explicit lift checks"
+      ],
+      "rationale": "For the simplest cyclic binary constraint forbidding both constant triples, it is not enough to label difference-token sectors: a word and its complement project to the same placement but are not automatically connected. The lift calculation resolves this obstruction and yields exact component and edge counts, frozen cases and a polynomial-length path without enumerating words. This supplies a reusable benchmark for constrained single-coordinate reconfiguration rather than just re-counting independent sets of a cycle.",
+      "residual_risks": [
+        "No diameter, Gray listing, linear-boundary analogue, or larger-alphabet classification follows from this audit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

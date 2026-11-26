@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:52.134251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Partial-transpose eigenvalues for a pure Schmidt state are p_i and ±sqrt(p_i p_j), giving N=2 ln s. In the ergotropy difference the original energy cancels; global passivation has ground energy zero, and each marginal's passive energy is ω(p1+2p2). For z=sqrt(p1), write d=sqrt(2-s²+2sz−3z²), so q0,2=(s−z±d)/2. Ordered nonnegative roots require d≥|s−3z| and d≤s−z. The first inequality gives the (2s±D)/6 bounds, and q2≥0 retains only z≤(s−sqrt(2−s²))/2 when s<sqrt(2); the other quadratic branch lies above (2s+D)/6. Thus the exact section is a single closed interval. B=(s−z)d has derivative with sign of 3z²−3sz+s²−1; opposite endpoint signs show its sole in-section zero is the strict interior maximum. For the minimum, above sqrt(2) the endpoint spreads differ by D²/6, favoring the two largest equal; below sqrt(2), comparing the two endpoints reduces to 8(1+t²)−(s+3t)²=6(1−st)>0, t=sqrt(2−s²), favoring rank two. At sqrt(2) the minimizing-spread triple is (1/sqrt(2),1/sqrt(2),0), and the left spread slope diverges while the right is finite. At s=1 and sqrt(3) the sections are singletons. By continuity every intermediate work value is realized with a Schmidt-diagonal ket. Independent circle parametrization and angular optimization at six sections confirmed the two formulas (private replay: python3 /workspace/branches/independent_checks.py, qutrit_check). No uploaded checker executed; the continuum proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hajizade–Ameri–Askari give the analytical pure-state work formula in any two-cell dimension. Their qutrit simplex figure maps the value at p, and the work-vs-negativity figure is trajectory-specific.",
+          "Alimuddin–Guha–Parashar identify passive energy as the entanglement measure/average ergotropic gap and mention logarithmic negativity as a bound on distillable entanglement, not as the equality constraint in a gap optimization."
+        ],
+        "reasoning": "A broader point-value formula, entanglement monotonicity under majorization, and a trajectory slice do not give extrema over the set of mutually potentially incomparable spectra at fixed Rényi entropy.",
+        "searches": [
+          "arXiv:2610.05592v1 Sec. III.B, Eqs. (9)–(12), Figs. 2–3",
+          "arXiv:1912.09780v2 pp. 6–7, including Physical interpretation of our measure"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6b1c39bdb51e (self)",
+        "arXiv:2610.05592v1",
+        "arXiv:1912.09780v2",
+        "doi:10.3390/e22080879 (abstract/access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two equations reduce the task to positive roots on a plane/sphere section. They supply neither the ordered-arc endpoints nor whether the extremum lies at an interior stationary triple, a zero weight, or equal weights."
+        ],
+        "reasoning": "The maximum-spread proof and comparison of the competing endpoint spectra are substantive further steps. No inspected result supplies this comparison and hence both sharp bounds and the branch change.",
+        "searches": [
+          "arXiv:2610.05592v1 Eqs. (8) and (12), Figs. 2–3",
+          "arXiv:1912.09780v2 §I and p. 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pure-state natural-log negativity is Rényi-1/2 entropy of p. The area-based Gini of the ascending ternary Lorenz polygon is 2(p0−p2)/3, with Wcorr/(2ω)=1−3G/2. Thus an exact joint range of those functionals would give the same claim.",
+          "The search surfaced generic entropy/divergence material and Gintropy, rather than an identified exact ternary joint range. The attempt to inspect the latter yielded no usable full text."
+        ],
+        "reasoning": "The qutrit reduction is equivalent, not an additional novelty claim. Gini impurity (1−sum p_i²) is not the Lorenz-area constraint in this equivalence.",
+        "searches": [
+          "Gini index Hellinger divergence Renyi entropy order 1/2 tight bounds three probabilities finite alphabet exact joint range Lorenz uniform discrete",
+          "Resultary sought the fixed-negativity ergotropic gap and alternative Rényi/Lorenz formulations",
+          "arXiv:2610.05592v1 Eq. (8), §III.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 6b1c39bdb51e is this record, not corroborating priority. A second formulation found no distinct matching catalogue record in the checked results.",
+          "The closest inspected published plot of correlation ergotropy at given negativity reports a particular charger trajectory, not both extrema over all pure qutrit states."
+        ],
+        "reasoning": "A plot of the objective over the simplex or along a trajectory does not tabulate the two optimized boundaries and every equality spectrum.",
+        "searches": [
+          "Resultary fixed negativity pure two-qutrit correlation ergotropy search and alternate entropy/spread lookup",
+          "arXiv:2610.05592v1 Figs. 2–3 and related text"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact fixed-log-negativity extremal range and spectra. The negativity formula and work at an individual spectrum are already established. The closest full-text comparisons do not perform the constrained simplex-section optimization or classify the rank transition.",
+      "residual_risks": [
+        "A specialist Lorenz/dispersion inequality or entropy range table in equivalent variables could affect priority; the Gintropy paper was not read at passage level.",
+        "The assessment is for pure states, identical equally spaced local levels, and unrestricted unitaries only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pointwise formulas are covered; fixed-negativity global extrema not supplied by inspected passages",
+          "evidence": "Pure-state negativity is twice the log square-root sum; analytical correlation ergotropy is twice the passive marginal energy. A charger trajectory and a simplex scan are not optimized sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05592v1",
+          "material_read": "PDF p. 2 Eq. (8), pp. 3–4 §III.B Eqs. (9)–(12) and Figs. 2–3 context; offsets 10000, 14500–23392",
+          "method": "Bounded OA primary passages",
+          "title": "Erasure of entanglement-locked energy in multi-cell quantum batteries through decoherence",
+          "trigger": "Same system and exact per-spectrum work/negativity identities"
+        },
+        {
+          "assessment": "Prior general thermodynamic reduction, not the ternary fixed-negativity frontier",
+          "evidence": "Average ergotropic gap equals passive marginal energy for the pure-state setting; negativity is discussed as an indicator of distillable entanglement.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.09780v2",
+          "material_read": "§I, pp. 1–2 and physical interpretation on p. 6, offset 37500 onward; negativity contexts on pp. 6–7",
+          "method": "OA primary passages and literal search",
+          "title": "Independence of work and entropy for equal energetic finite quantum systems: Passive state energy as an entanglement quantifier",
+          "trigger": "General passive energy and entanglement monotonicity"
+        },
+        {
+          "assessment": "Unresolved as a passage-level comparison; no negative inference from failure",
+          "evidence": "Abstract-level description concerns a Gini-based entropy construction rather than stating a sharp fixed-Rényi-1/2 ternary range.",
+          "identifier_or_url": "https://doi.org/10.3390/e22080879",
+          "material_read": "Title and abstract-level search information only; no usable full-text passage retrieved",
+          "method": "OA attempts using PMC7517483 and publisher routes",
+          "title": "Gintropy: Gini Index Based Generalization of Entropy",
+          "trigger": "Potential equivalent Lorenz-area/entropy formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed entanglement as measured by log negativity, correlation-locked work varies even for pure states. The result quantifies that variation exactly and shows why a rank-two ansatz fails on the lower-work frontier and above the upper-work threshold. It provides state benchmarks independent of a charging trajectory, not merely a replot of the known work identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

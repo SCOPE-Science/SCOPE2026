@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:21.058264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exponential reset age T and U=1/lambda(T), the cutoff is inactive throughout the original support and the local density is 3(U-yU^3)/(4x0). The age law is nondegenerate on U in (0,1), so Var(U^3)>0 and Cov(U,U^3)>0. The strictly convex quadratic gives the claimed unique clipped y and two symmetric minimizers. Integrating the first integral of the expansion ODE yields the stated clock; for k>1 the small-rate moment coefficient is B(k-1,1/2)/(sqrt(2) omega) by dominated convergence. The mu_1 mean is O(r log(1/r)) at fixed omega. The unconstrained ratio tends to 21/16, forcing the edge; the edge second moment minus negligible squared mean gives 107/280 after normalization. For h=omega/r, ODE Taylor expansion gives the coefficients -1/2, 1/3 of U and -3/2, 7/4 of U^3 in h^2Y^2 and h^4Y^4, with an O(h^6) L2 remainder using an exponential-age tail split. For A=Y^2 and B=Y^4 the exact factorial moments give Var(A)=20, Cov(A,B)=672, Var(B)=39744. The quotient correction is delta=Cov(A,B)/(6 Var(A))=28/5. In the uncentered expansion at RESULT.md lines 146–149 the deterministic term should be written exactly as 1-y_*; the printed 2/3-delta h^2 could omit a deterministic O(h^4) term. Retaining 1-y_* (or centering both sides) leaves the random coefficient 3 delta A/2-B/4 with O(h^6) L2 remainder. This nonfatal proof erratum does not affect any variance or other theorem conclusion. The residual variance is the positive factorial-moment Schur complement times 9/(256x0^2), giving 12069/(20x0^2); for fixed y≠1/3 the h^2 fluctuation instead gives the claimed h^4 variance. Verified the four rational coefficients by fresh factorial/beta arithmetic; supplied check.py and requirements.txt were inspected, not executed. No claim of a unique rate transition or of a minimum outside the original support.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mesquita et al. derive the stationary mean/profile mixture and edge statistics, supplying the scale and exponential age law.",
+          "bc4c6f0acef0 treats Pareto renewal clocks and marginal position/edge laws, not the Poisson pointwise-profile variance optimization."
+        ],
+        "reasoning": "The full age law is a known starting point. The closest results concern first moments, other observables or a different reset clock; none yields the optimal local second fluctuation from its stated conclusion.",
+        "searches": [
+          "arXiv:2609.37110v1, stationary age mixture and expansion-scale distribution",
+          "Resultary a02b45fafe32",
+          "Resultary bc4c6f0acef0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37110v1",
+        "Resultary a02b45fafe32",
+        "Resultary bc4c6f0acef0",
+        "Resultary 2af80b914136 (same record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model fixes U and its moments in principle; the front supplies a different moment ratio and shares the leading limiting location. It does not supply Var(U^3) relative to Cov(U,U^3) or the variance after projection."
+        ],
+        "reasoning": "The clipping rule is elementary once the objective is chosen, so it is not by itself strong novelty evidence. The complete result additionally compares slow-limit beta coefficients, tracks the order-h^2 displacement of the minimizing location and computes a positive fourth-order random residual after leading cancellation; those conclusions do not follow from the front limit or the mean-density results as stated.",
+        "searches": [
+          "Resultary a02b45fafe32, RESULT.md offsets 50–4352 and 5621–9040",
+          "arXiv:2609.37110v1 §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present optimum is the constrained least-squares coefficient of centered U on centered U^3.",
+          "Resultary a02b45fafe32 uses Var(U)/Cov(U,U^3) for a zero of cross covariance with the center, not Cov(U,U^3)/Var(U^3)."
+        ],
+        "reasoning": "The front is not the same regression or a reparametrization of its optimum. Strict Cauchy–Schwarz separates the positions whenever the front lies in the original support, even though both have the same leading rapid-reset position.",
+        "searches": [
+          "Resultary: Thomas–Fermi reset-age spatial variance quiet point and central covariance front",
+          "arXiv:2609.37110v1 §4.1, Eqs. (44)–(55), and §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit 2af80b914136 is the same assigned finding, not independent prior work. a02b45fafe32 gives exact front relations and rate limits for a different zero. The primary equations give the scale law and mean density rather than tabulated optimal fluctuations."
+        ],
+        "reasoning": "There is no relevant numerical-table certificate for the functional minimizer. The indexed exact comparison is against the analytic front and the scale distribution; neither records the clipped regression or the nonzero optimized eighth-order coefficient.",
+        "searches": [
+          "Resultary: spatial quiet point for reset-age fluctuations; anticorrelation front reset-expanding Thomas–Fermi condensate",
+          "arXiv:2609.37110v1 Eqs. (44)–(55)"
+        ]
+      },
+      "rationale": "Pass for minimizing the age-induced local density variance on the original support and the two sharp regimes, especially the optimized rapid-reset coefficient. Not for the expansion law, stationary scale law, the covariance sign front, or the shared leading location 1/sqrt(3).",
+      "residual_risks": [
+        "The cited primary-paper passages and indexed comparisons do not settle historical priority for equivalent pointwise noise optimization in other reset-profile formulations.",
+        "The known covariance-front limiting location and exact age law are explicitly excluded from the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers model, age and averaged statistics in inspected passages; not the optimizing variance",
+          "evidence": "Mean density is a reset-age mixture; the edge calculation uses p(tau)=r exp(-r tau).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37110",
+          "material_read": "v1 §4.1 Eqs. (44)–(55), PDF pp. 16–17 (OA offsets 47500, 52000); §4.2 p. 19 (offset 61000)",
+          "method": "lawful OA PDF passage inspection",
+          "title": "Weakly interacting Bose-Einstein condensate with stochastic resetting",
+          "trigger": "primary same-model source"
+        },
+        {
+          "assessment": "material overlap in model and leading rapid location, distinct objective and full conclusion",
+          "evidence": "Uses the quotient Var(U)/Cov(U,U^3) for the central-to-local cross-covariance zero; the front tends to scaled absolute position 1/sqrt(3) at rapid resetting and leaves the original support at slow resetting.",
+          "identifier_or_url": "Resultary a02b45fafe32",
+          "material_read": "RESULT.md offsets 50–4352 and 5621–9040",
+          "method": "local published-record mirror",
+          "title": "A unique spatial anticorrelation front in a reset-expanding Thomas–Fermi condensate",
+          "trigger": "same pointwise density and reset fluctuation, same rapid limit"
+        },
+        {
+          "assessment": "different clock and observables",
+          "evidence": "Uses Pareto renewal gaps and gives stationary tails and aging laws of position and edge, not local variance optimization over the original support.",
+          "identifier_or_url": "Resultary bc4c6f0acef0",
+          "material_read": "RESULT.md offsets 0–3587, Finding and first assumptions",
+          "method": "local published-record mirror",
+          "title": "Pareto renewal resetting of an expanding Thomas–Fermi condensate: algebraic tails and two aging limits",
+          "trigger": "same deterministic hydrodynamic profile and full reset protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Placement of a local monitor within the initial condensate is a meaningful objective in the prescribed age-only model. The exact optimizer, slow-reset preference for the edge, and rapid-reset cancellation with an explicit residual quantify how choice of observation point suppresses that particular fluctuation. A fixed y=1/3 also cancels the leading term; the reported displacement and smaller optimized coefficient identify a genuine further refinement. No shot-noise or detectability claim is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

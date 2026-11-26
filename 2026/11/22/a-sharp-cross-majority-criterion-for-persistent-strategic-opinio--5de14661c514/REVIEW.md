@@ -1,26 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary two-bin communication equilibrium has posterior levels \(\pm1/2\) when the audience exaggeration factors exceed one, which follows here from positive inertia and nonzero audiences. The exact affine two-step equations force a unique state for each prescribed complementary sign itinerary. Its sign condition is equivalent, for every vertex, to receiving strictly more than one-half of influence from the opposite sign camp. Sup-norm contraction on strict quantizer cells proves a full-dimensional open basin; the four-vertex example and rational checker independently support the algebra. The proof is infinite-dimensional in parameter scope but finite-dimensional for each network, and does not use finite sampling as an all-case proof.
+## correctness
 
-## Originality — PASS (literature-bounded)
-The originating paper [1] already demonstrates a low-inertia numerical two-cycle and provides the two-bin Bayesian code. The contribution is the necessary-and-sufficient majority-cut criterion plus the exact all-inertia, primitive-network counterexample to its published high-inertia stabilization conjecture. A different 2016 quantized-opinion model [2] uses state-dependent update coefficients; published continuous-time quantized-consensus results [3] and opinion–action public-goods and node–group two-cycle studies [4,5] do not logically entail the present claim. Generic oscillations are known and are not claimed as novel. Unindexed or inaccessible equivalent results remain possible.
+PASS
 
-## Value — PASS
-A sharp structural criterion explains when a credible binary public channel continues switching despite arbitrarily strong private inertia. Its explicit switching amplitude shrinks to zero with increasing inertia, reconciling the mathematical obstruction with finite-horizon convergence impressions. The result resolves a meaningful published conjecture within its stated model and does not assert empirical opinion behavior.
+For the fixed two-bin code, write D=diag(α_i) and b=(I−D)Ws/2. The two prescribed affine transitions imply (I−D²)x⁺=(D−I)b and hence uniquely x⁺=−(I+D)⁻¹b and x⁻=−x⁺. Since (Ws)_i=s_i(1−2c_i), each nonzero coordinate has its required sign exactly when the total opposite-camp row weight c_i exceeds 1/2. Equality forces a zero coordinate and fails strictness; a lower value gives the wrong sign. The successful branch is strictly inside the cube, with |x_i⁺|<1/2; any sup-norm ball of radius below the minimum sign margin maps into its partner ball and distances contract at rate max α_i. The witness has c_i=3/4 for all four rows and W² entrywise positive, giving nonzero ±(1−α)s/[4(1+α)] for each 0<α<1. In the source, every positive effective audience weight is below one, so the leverage ratio exceeds one and Theorem 4 with two bins gives the fixed thresholds (−1,0,1) and means ±1/2 for every inertia. No tie rule is used. The claim about shrinking neighborhoods is about the exhibited local balls, not the entire basin. The supplied finite rational tests were inspected, not executed; the branch proof establishes the quantified statement.
 
-## Scope and limits
-Only synchronous, deterministic, fixed-code, uniformly derived two-bin dynamics are covered. The theorem characterizes complementary public-profile switching, not all cycles or convergence on every graph. The 2018 journal article was inspected through its abstract rather than its entire full text. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest sources
-[1] Munif et al., arXiv:2607.16036, Sections 5–7. https://arxiv.org/abs/2607.16036
+The significant overlap is persistent switching in the exact lead model and attracting two-camp cycles in related models. The lead paper leaves the fixed-topology/fixed-quantizer high-inertia claim as a conjecture after a low-inertia numerical example. The inspected alternatives use state-dependent inertia, public-goods best responses, node–group feedback, or a cubic nonlinear map. They do not give the strictly sign-consistent two-branch criterion in this equilibrium model or contradict that conjecture by the same mechanism. This is a best-of-knowledge finding, not a novelty claim about oscillations generally.
 
-[2] Chowdhury et al., arXiv:1602.02098, Eq. (3). https://arxiv.org/abs/1602.02098
+## value
 
-[3] Ceragioli and Frasca, DOI:10.1137/16M1083402. https://doi.org/10.1137/16M1083402
+PASS
 
-[4] *Stable period-two switching on a complete network in an opinion–action public-goods game*. https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-stable-period-two-switching-on-a-complete-network-in-an-opinion--173bd96ccffc
+The exact cut condition is a reusable diagnostic for this fixed communication protocol, but the strongest scientific value is the fixed primitive-network counterexample to a specific open convergence prediction. It shows that persistence is not an artifact of bipartiteness, low inertia or threshold initial states: the public orbit persists for arbitrarily high inertia with an open set of starting states even though the private oscillation amplitude goes to zero. No claim is made about all recurrence, heterogeneous high-inertia convergence under added assumptions, or empirical networks.
 
-[5] *A sign-selective two-cycle obstruction for coupled node–group opinions*. https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-sign-selective-two-cycle-obstruction-for-coupled-node-group-op--40c6dc082b82
+The dated certificate retains the supplied scientific assessment, sources and limitations.

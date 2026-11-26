@@ -1,19 +1,21 @@
-# Mathematical review of mixed-axis reset entanglement classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every \(r,a,b,J>0\), the exact Lindblad stationary resolvent is normalized and unique. The invariant \(X\)-state reduction is independently checked against a full \(16\times16\) complex Liouvillian. The exact concurrence reduction has two candidate partial-transpose inequalities; the second is strictly impossible because its rationalized numerator is the negative of a coefficientwise-positive polynomial. For the first branch, the eighth-degree polynomial has strictly negative coefficients of degrees zero through two, positive coefficients of degrees five through eight, and a rigorously linked sign pattern at degrees three and four; Descartes' rule plus endpoint signs yield exactly one positive crossing. The provided `checker.py` verifies the exact symbolic identities and coefficient certificate and passes 880 independent numerical assertions. No finite experiment is used as proof of uniqueness.
+PASS
 
-## Originality
+For every fixed J,a,b,r>0 the trace-preserving completely positive no-reset evolution yields the displayed positive, unit-trace reset resolvent, and differences contract at least as e^{-rt}. An independent exact substitution into the full four-by-four master equation verified the stationary matrix, all nine printed coefficients of P, and 55 strictly positive monomials in Q; thus the second concurrence branch is strictly negative. For the first branch positivity is equivalent to P>0 by rationalization of nonnegative operands. P0–P2 are negative and P5–P8 positive. B3 decreases in J² and is positive at J²=a²/20; if P3≥0, then J²>a²/20 and the verified expression B4−B3 is strictly negative, so P4>0. Descartes' rule (discarding zero coefficients) with the endpoint signs gives one simple positive root and the exact inclusive separable interval. The independent radicand limit r⁴(s_o²−w²)=24a²J² in the limit, together with q+k=2J/r+O(r⁻²), gives the claimed expansion. Replay: python3 /workspace/branches/independent_exact_checks.py qubits. Frozen checker inspected, not run; its 880 numerical assertions are reported by the source, not independently replayed. The high-rate law is pointwise in the fixed noise/coupling rates.
 
-**PASS, qualified by publication-priority uncertainty.** The nearest existing full-result comparison treats \(X\otimes X\) coupling with *two* local bit-flip channels and proves entanglement is impossible for \(J^2\le ab\). The present generator has one bit flip and one phase flip, so one local jump anticommutes with the coupling and its strong-reset concurrence is always \(2J/r+O(r^{-2})\), even if \(J^2\le ab\). The other close full-result comparison treats pair-only conversion with exclusively dephasing noise; its odd-parity occupations are frozen, unlike those continuously driven by the bit flip here. The 2023 primary coherent-only quantum-resetting paper, the 2007 local single-qubit reset theory, and the 2018 general resetting resolvent were inspected, and none states this mixed-axis eighth-degree single-threshold classification. The generic stationary-resolvent method and qualitative reset-enhanced entanglement are antecedents, not claimed innovations. A more general unindexed theorem or an implicit channel reduction remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result draws a sharp, physically interpretable line between a same-axis channel pair for which a geometric-mean noise ceiling can completely forbid entanglement and a mixed-axis channel pair for which every finite noise pair admits a unique resetting threshold and high-rate entanglement. The complete phase classification and exact critical polynomial address control of noisy entanglement generation, not a selected numerical regime or a routine moment calculation.
+The strongest inspected matches already contain joint-reset stationary concurrence, one-onset diagrams and high-reset entanglement under other hypotheses. They do not cover the specific mixed local axes, for which the verified result is a strictly positive unique threshold for every finite positive pair of local rates. This is a bounded statement-level conclusion, not a general novelty claim for entanglement by resetting or for the resolvent.
 
-## Boundaries and evidence
+## value
 
-The theorem concerns unconditional stationary two-qubit concurrence, exact Poisson joint reset to a pure separable product, and strictly positive constant rates. It neither implies experimentally achieved entanglement nor covers all noise alignments, finite-time trajectories, or extra coherent terms. Numerical Liouvillian comparisons supplement a coefficientwise exact symbolic sign certificate. Literature comparisons include full accessible research texts and two closely related published mathematical results. Independent priority verification remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exhaustive classification of the entanglement sign for a naturally specified pair of local Pauli errors distinguishes an axis-induced change in the achievable phase diagram: no finite fixed pair of noise rates forbids entanglement, and no further disentanglement window is possible beyond the onset. The latter does not follow just from the high-reset expansion; the threshold can be calculated from the explicit polynomial. This does not mean concurrence is monotone above onset or remains appreciable as r grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

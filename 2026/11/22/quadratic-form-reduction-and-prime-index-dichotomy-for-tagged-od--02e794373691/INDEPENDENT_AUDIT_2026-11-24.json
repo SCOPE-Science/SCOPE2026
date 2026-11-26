@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:16:19.165228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited generating function is for the tagged total in odd-part designated-summand partitions, not the partition count or the unrestricted tagged total. Factoring its eta quotient as qE(q²⁴)P(q)/[P(q³)P(q¹²)] is exact. The product for P has constant term 1 and nonconstant terms in each factor of the form 2q^(mj); modulo four only one factor can contribute, giving twice the divisor count, which is odd precisely on squares. The shifted inverses negate those terms; Euler's pentagonal identity yields qE(q²⁴)=Σ_t(−1)^tq^((6t−1)²). The signs on pentagonal terms survive only for epsilon, since 2 and −2 coincide modulo four in the representation terms. For n≡3 modulo 4 none of the square or representation terms can contribute. For primes p≡1 modulo 4 the j in the d=3 term is even, making its count identical to the d=12 count, and their contributions cancel. For p≥5 the unique odd coordinate in the prime two-square representation contributes exactly once iff 3 does not divide it: one sign then lies in the class −1 modulo 6. The examples and small prime exclusions agree. For r≡11 modulo 12, both −1 and −3 are nonsquares, so r-divisibility of either relevant norm form forces both variables divisible by r, implying even r-valuation by descent; the square term also has even valuation. The lower relative prime density bound 1/4 follows from the prime number theorem in arithmetic progressions for p≡5 modulo 12 (ordinary Dirichlet infinitude alone is not a quantitative density proof). If infinitude of both subclasses of p≡1 modulo 12 is intended, it follows from the infinitude of primes represented by the primitive forms x²+36y² and 4x²+9y² respectively; the main residue proof does not require that result. A separately written finite expansion matched all 2000 positive coefficients, 301 primes from 5 to 2000 and 565 odd-valuation obstruction cases, as well as all 500 indices congruent to 3 modulo 4; see /workspace/branches/ca952bde-a00e-4cbc-aa60-263aec4fa262/check-notes.md. The supplied checker was inspected, not run; the finite replay does not prove the infinite statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barman et al. prove density-one vanishing modulo powers of 2 and 3 and vanishing modulo 2^u on products of sufficiently many distinct primes coprime to 6. Their Theorem 1.4 includes a threshold s+u and is not a criterion for an individual inert prime with odd exponent. Li–Tang studies powers of 3 rather than this 2-primary residue."
+        ],
+        "reasoning": "These theorems are stronger for lacunarity and certain multiprime congruences. Neither gives both residue possibilities at primes, and neither selects the odd Gaussian coordinate or supplies the single-inert-prime composite rule.",
+        "searches": [
+          "Barman–G. Singh–A. Singh, DOI 10.1017/S0004972723000199, Theorems 1.3–1.4",
+          "Li–Tang arXiv:2611.15164v1, 3-adic congruences"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Li–Tang arXiv:2611.15164v1",
+        "Baruah–Kaur arXiv:1807.01074v2",
+        "Barman–G. Singh–A. Singh DOI 10.1017/S0004972723000199",
+        "OEIS A293422",
+        "Resultary 81fe31674a4c and afc553741c0c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier product determines every coefficient, and indeed is the starting point here. Converting it into the explicit signed single-square plus three norm counts uses the overpartition-factor reduction and oddness of divisor counts on squares. The prime rule further uses an exact cancellation between the 3 and 12 forms and the sign restriction on the odd Gaussian coordinate. The reviewed modular forms in Barman et al. use an auxiliary eta quotient for lacunarity, not that classification."
+        ],
+        "reasoning": "This is a short derivation from a known generating function, not a new generating function. It provides an arithmetic law not furnished by the prior progression, lacunarity or multiprime theorems and not obtained merely by enumerating coefficients.",
+        "searches": [
+          "Barman–G. Singh–A. Singh Theorems 1.3–1.4 and Section 4, (4.2)–(4.3); Baruah–Kaur odd-part congruences; Li–Tang and OEIS generating product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These sources identify the same odd-part tagged total and its unreduced eta quotient. Baruah–Kaur's displayed modulo-four Theorem 1.2 concerns the distinct unrestricted tagged total PD_t; the same-object odd-part congruences inspected are PDO_t(8n+6), PDO_t(8n+7)≡0 modulo eight."
+        ],
+        "reasoning": "The known coefficient generator is not itself a congruence in terms of representation by the three binary forms. The equivalent generating-function formulation of the new residue law is the pentagonal factor times a specific linear combination of square theta sums modulo four. The inspected progression congruences do not give it.",
+        "searches": [
+          "Li–Tang arXiv:2611.15164v1, Introduction; Baruah–Kaur arXiv:1807.01074v2, pp. 2–4",
+          "OEIS A293422, definition and FORMULA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry gives coefficients, a link to n=1..10000 data and the unreduced product. The closest exact Resultary hit is this assigned record. Distinct entries 81fe31674a4c and afc553741c0c give exact ternary sharpness for the same statistic, respectively on an infinite prime subset and for an internal congruence."
+        ],
+        "reasoning": "Neither a finite exact table nor the indexed 3-adic results supplies the 2-primary residue classification. The identical assigned entry is not independent prior evidence.",
+        "searches": [
+          "OEIS A293422, definition, table link and FORMULA",
+          "Local Resultary: tagged odd partitions, mod four, prime-index and quadratic forms; entries 81fe31674a4c and afc553741c0c"
+        ]
+      },
+      "rationale": "The eta quotient, earlier progression congruences and integer-density lacunarity are known. The supported distinct result is the explicit all-index quadratic representation rule modulo four and the resulting Gaussian-coordinate prime classification and specific local composite obstruction.",
+      "residual_risks": [
+        "An earlier explicitly reduced theta identity or a prime-coordinate equivalent in an uninspected dissection may cover some of the result. Bounded source checks do not establish priority. Credit is not claimed for the established progression intersections, generating quotient, or general lacunarity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Gives the exact eta quotient for this function; the inspected congruence claims are 3-primary.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15164v1",
+          "material_read": "Introduction, text offset 3900, definition, product and scope",
+          "method": "Primary open-access text",
+          "title": "Congruence properties modulo powers of 3 for designated summands in partitions into odd parts",
+          "trigger": "Same tagged function and exact product"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Distinguishes PD_t from PDO_t, gives the same generating function and the odd-part progressions PDO_t(8n+6), PDO_t(8n+7)≡0 modulo eight, not the all-index norm count or prime formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.01074v2",
+          "material_read": "PDF pp. 2–4, text offsets 4678, 6152, 8750, definitions and main progressions",
+          "method": "Primary open-access PDF",
+          "title": "New Congruences Modulo 2, 4, and 8 for the Number of Tagged Parts Over the Partitions with Designated Summands",
+          "trigger": "Possible exact same-object congruence modulo 4"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Density-one lacunarity and a threshold for distinct primes in products; Section 4 gives an auxiliary eta quotient congruence, not the three binary forms. No claim about selecting an odd coordinate at a single prime in these statements.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972723000199",
+          "material_read": "Journal p. 16, Theorems 1.3 and 1.4 at text offsets 8200–12195; Section 4, (4.2)–(4.3)",
+          "method": "Publisher open-access PDF",
+          "title": "Divisibility of the partition function PDOt(n) by powers of 2 and 3",
+          "trigger": "Potential stronger same-object result for powers of two or prime values"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Correct statistic, table link through 10000, and the known generating product. No prime-index modulus-four classification in the inspected formula and table description.",
+          "identifier_or_url": "https://oeis.org/A293422",
+          "material_read": "Entry offset 0–2453, definition, LINKS and FORMULA",
+          "method": "Public OEIS entry",
+          "title": "The PDO_t(n) function",
+          "trigger": "Exact sequence, formula and table check"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_CLAIM",
+          "evidence": "Sharp 3-adic behavior on an infinite subset of primes p≡1 modulo 54, not parity of Gaussian coordinates or residues modulo four.",
+          "identifier_or_url": "Resultary 81fe31674a4c",
+          "material_read": "Local-mirror Finding",
+          "method": "Local Resultary mirror",
+          "title": "Infinitely many prime-index sharp ternary valuations for tagged odd partitions",
+          "trigger": "Same object with an exact prime-index assertion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic reduction turns the known coefficient generator into an all-index arithmetic test. It both distinguishes the two residues at split primes using a natural Gaussian-coordinate invariant and gives a local vanishing criterion at composite indices; density-one lacunarity or a list of residue progressions does not answer those questions. The characterization is useful even without exact densities for both Gaussian-coordinate subclasses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

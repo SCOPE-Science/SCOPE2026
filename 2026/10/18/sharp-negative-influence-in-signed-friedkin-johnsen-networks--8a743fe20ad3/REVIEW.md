@@ -1,19 +1,21 @@
-# Review of sharp negative influence in signed Friedkin–Johnsen networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed quadratic form is strictly positive after unit anchoring. The deleted-vertex comparison uses an absolutely convergent resolvent series and a Schur complement to obtain the graph-specific bound, then positive-semidefinite Laplacian order supplies the sharp universal value. The hostile-hub family attains equality in every permitted order. An exhaustive rational program checks all 729 signed four-vertex assignments, including the exact structural criterion and orbit counts; this finite check is separate from the analytical all-order proof.
+PASS
 
-## Originality — PASS (scientific priority remains provisional)
+The opposing edge quadratic forms make I+L_sigma symmetric positive definite; symmetry gives the aggregate coefficient h and strict absolute row contraction gives the stated equilibrium. For a distinguished vertex, the grounded signed and unsigned blocks have the same diagonal. The normalized off-diagonal matrices have absolute row sums strictly less than one, so termwise Neumann-series comparison gives |C^{-1}|<=C_+^{-1}. In the signed Schur quotient, the denominator is positive and at least the unsigned Schur denominator D_+, and the numerator is at least 2-D_+, by the unsigned row-sum identity. If the signed numerator is negative the direction on comparing denominators gives h_i >= 2/D_+-1; otherwise h_i>=0. The unsigned inverse is bounded below in Loewner order by the anchored complete-graph inverse, whose diagonal is 2/(n+1). Thus the lower bound follows also at n=3. The negatively joined universal hub with only positive edges among the leaves attains the bound by the two displayed centralities. The n=1 and n=2 cases give nonnegative entries directly, and e_hub is the nonnegative innate vector attaining -1/5 at n=4. The first-layer criterion and the labeled and unlabeled counts were exhaustively checked by an independent exact determinant calculation. As a separate count given the criterion, hub negative degree three gives 4*8=32 graphs; degree two gives 4*3*3*2=72 because the nonneighbor leaf must be connected to at least one of the other two leaves.
 
-Zhou et al. (arXiv:2407.10680) already provide the equilibrium resolvent, define structure centrality, and explicitly recognize negative coefficients. These statements are acknowledged; the distinct claim is the optimal all-order magnitude bound and first negative graph-order classification. Shrinate–Tripathy (arXiv:2410.00456) study absolute rather than signed aggregate influence; Razaq–Altafini (CDC 2023) focus on stability; Shi–Altafini–Baras (SIAM Review 2019) survey signed dynamics. Targeted semantic/published-record and literature comparisons did not locate an equivalent or stronger result. A later 2025 Razaq–Altafini study of signed-FJ wisdom of crowds was inspected: its repelling signed-degree Laplacian and variance objective differ from the opposing Laplacian and aggregate-resolvent bound proved here. A preexisting general matrix comparison theorem or an unindexed finite census remains a priority risk, not a proven exclusion.
+## originality
 
-## Value — PASS
+PASS
 
-The mathematical target is the sign and maximum magnitude of an individual's *aggregate influence*, a central quantity in signed opinion dynamics. The result yields a sharp worst-case network-size law and a natural first-occurrence classification with eight exact graph types, including a four-person all-nonnegative-innate-position aggregate reversal. This is stronger than reproducing an existing negative-centrality example or restating the linear equilibrium formula.
+The nearest primary source establishes precisely the same structure centrality and already observes that it can be negative. The accepted distinct content is the sharp all-order barrier with attaining graphs, the first possible order for a negative aggregate with nonnegative opinions, and the full structural census at that order. No inspected statement was shown to cover that content.
 
-## Scope and limitations
+## value
 
-Only connected simple undirected signed networks, unit absolute edge weights and common unit innate anchoring are covered. The claim does not characterize all negative-centrality graphs at larger orders or address time-varying networks, individual expressed-opinion reversal, centered polarization or empirical effects. The supporting literature check is not an independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing that negative influence is possible leaves open both how large the sign reversal can be and whether it can reverse the total with nonnegative innate opinions at very small orders. The sharp barrier and attaining family answer the magnitude question for every order, and the exact first-layer criterion gives a compact graph explanation rather than just a list of examples. These are substantive differences from the known existence of negative centralities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

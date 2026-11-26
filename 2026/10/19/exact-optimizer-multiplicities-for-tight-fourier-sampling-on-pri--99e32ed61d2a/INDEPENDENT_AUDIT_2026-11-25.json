@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:15:39.660560Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen example incorrectly calls the optimum a two-character frame for every prime (e.g. it has three characters for p=3). The frozen running description also overstates the verifier: it filters at the predicted size rather than finding the minimum. Complete replacements in /workspace/repairs/1 fix the example, make positivity and nonemptiness explicit, and accurately document a replacement verifier. Rechecked the final theorem: Gram entries off the diagonal vanish precisely at the primitive orders specified by J. Reducing below degree p^(j+1), divisibility by 1+X^(p^j)+…+X^((p-1)p^j) is equivalent to constant coefficients across each digit fiber, since the quotient has degree <p^j. Nonempty branching forces >=p^r leaves, with equality precisely at p or 1 children as specified. The converses use equal numbers of leaves under forced siblings. Products of free choices give E. Above the last free level the tree fills complete residue classes, giving the subgroup p^s; the larger subgroup p^(s-1) would fill all children at the last free level, contradiction. Nested subgroups give equality and uniform orbit size, including the singleton and full-group cases. The repaired example has p characters and the stated counts. I ran the replacement /workspace/repairs/1/verify.py: exact cyclotomic long division and observed minimization over all subsets and profiles at N=2,4,8,16,3,9,5,7 reproduced all counts, stabilizers, orbit counts, and arities. This is a finite diagnostic supplement to the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Fan–Shi classify spectra of p-homogeneous compact-open sets and give uniqueness up to isometry; Frederick–Mayeli's inspected introduction describes finite-group frame-spectral constructions."
+        ],
+        "reasoning": "Isometries may vary between subtrees and are not all global translations. Neither inspected statement determines the stabilizer for the cyclic translation action.",
+        "searches": [
+          "arXiv:1511.04837 Theorems 1.1, 1.2 and 5.1",
+          "arXiv:2010.05667 finite-group frame spectral pairs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary …--b7a941dc4a7d",
+        "Fan–Fan–Shi arXiv:1511.04837",
+        "Frederick–Mayeli arXiv:2010.05667",
+        "Resultary …--41b784251307 and …--2e5c015a9f31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor proves the identical minimum and constructs one optimizer but expressly does not classify all minima. Homogeneity plus the digit choices gives the raw count immediately."
+        ],
+        "reasoning": "The final focus is not a re-indexing of either result. A raw count or isometry result does not determine periodicity or whether orbit sizes agree. The last-free-level obstruction and the cyclic subgroup chain establish exactly the uniform translation period needed for the quotient count.",
+        "searches": [
+          "Resultary predecessor …--b7a941dc4a7d",
+          "arXiv:1511.04837 §5 Theorem 5.1 and Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The homogeneous model with free levels R(A) has the same zero orders and cardinality p^r. Its spectra are exactly the optimizers for A. Fan–Fan–Shi classify the corresponding homogeneous trees by complementary p-orders."
+        ],
+        "reasoning": "This is a genuine reduction, so redundancy for A does not make the tree a new structural theorem. The isometry classification is not a translation classification; the last free digit is needed to determine the common subgroup.",
+        "searches": [
+          "Resultary: prime-power cyclic tight Fourier frame optimal frequency sets/stabilizers/orbits",
+          "Fan–Fan–Shi Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 …--41b784251307 gives exact spectrum counts for a four-point family in Z_(4p); 2026/10/11 …--2e5c015a9f31 gives 27 six-frequency optimizers, one orbit, for one simplex in F_3^3. No direct distinct 2026/10/19 comparison surfaced in the bounded ranked search."
+        ],
+        "reasoning": "These are real exact counting precedents in different groups and restricted object families, not tabulations of the general cyclic prime-power quotient invariant.",
+        "searches": [
+          "Resultary: exact spectrum multiplicities and translation orbits of minimal tight sampling"
+        ]
+      },
+      "rationale": "On re-audit, the repair distinguishes the known minimum, equivalent homogeneous-tree characterization and immediate product for the raw count from its surviving focus: the uniform frequency-translation stabilizer for all optimizers and its exact quotient census. The strongest inspected precedent provides the structural classification but no such subgroup or orbit theorem. Passing this bounded enumerative refinement does not award originality to the minimum or the classification.",
+      "residual_risks": [
+        "An earlier p-homogeneous periodicity/orbit-count calculation may exist under different terminology; this bounded search does not settle priority. The elementary raw count is not asserted to be a distinct structural result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known minimum and one optimizer",
+          "evidence": "Same p^{|R(A)|} and one canonical digit set; limits explicitly exclude full optimizer classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md",
+          "material_read": "RESULT.md offsets 0–6281, Finding through Limitations",
+          "method": "Local Resultary mirror",
+          "title": "Minimum tight exponential-frame size on cyclic prime-power groups",
+          "trigger": "Direct cited predecessor"
+        },
+        {
+          "assessment": "Tree precursor with an exact homogeneous-model reduction; no finite translation-stabilizer census in these statements",
+          "evidence": "Spectra are the p-homogeneous discrete sets with complementary admissible p-order set. Theorem 1.2 is up to isometry, not translation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.04837",
+          "material_read": "Theorems 1.1–1.2 pp.4–5 and Theorem 5.1/proof pp.24–25, especially offsets 63483–66733",
+          "method": "OA PDF passage",
+          "title": "Compact Open Spectral Sets in Q_p",
+          "trigger": "Equivalent and potentially stronger homogeneous-tree classification"
+        },
+        {
+          "assessment": "Context only in passage inspected",
+          "evidence": "The announced constructions combine Euclidean and finite-group frame spectral pairs; no cyclic optimizer orbit formula is stated there.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.05667",
+          "material_read": "Introduction p.1, offsets 508–3226",
+          "method": "OA PDF passage",
+          "title": "Frame spectral pairs and exponential bases",
+          "trigger": "General frame spectral pairs may subsume optimal sampling"
+        },
+        {
+          "assessment": "Different group and family",
+          "evidence": "Counts p, p², p⁴ for spectral four-point types in Z_(4p).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-spectrum-multiplicities-for-four-point-spectral-sets-in-ma--41b784251307/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3553",
+          "method": "Local Resultary mirror",
+          "title": "Exact spectrum multiplicities for four-point spectral sets",
+          "trigger": "Exact Fourier spectrum census precedent"
+        },
+        {
+          "assessment": "Different group, one simplex rather than arbitrary A",
+          "evidence": "27 minimum six-frequency supports form one orbit in F_3^3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-prime-field-simplex-tight-sampling-has-a-unique-ternary-optimize--2e5c015a9f31/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3406",
+          "method": "Local Resultary mirror",
+          "title": "Prime-field simplex tight sampling has a unique ternary optimizer orbit",
+          "trigger": "Exact Fourier optimizer orbit count precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result tells a sampler how many genuinely distinct minimal unweighted designs there are after removing the natural equivalence of a common frequency shift. It also determines the exact subgroup of shifts fixing any design, even for redundant frames, rather than assuming a free action or simply dividing by the group order. The nonuniform degeneracy between profiles and uniform stabilizer within each profile are meaningful structural information; the value is modest and lies in the quotient invariant, not the routine product or known minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The source `verify.py` uses exact integer arithmetic and no nonstandard libraries. The state of a candidate representation stores two previous one-bit flags and one bounded carry. For every given input bit, it exhausts all four possible summand digit pairs subject to the adjacent-one restriction and the carry parity rule. Determinization collects all reachable states. This exact automaton is compared with deterministic recognizers for the six proposed complements.
+## correctness
 
-The complete finite product-state tables are in `state_table.txt`. Reachable state counts for multipliers \(1\) through \(6\) are \(4,6,18,9,41,29\). Every outgoing final-one transition from each reachable state is checked for opposite acceptance by the two automata; the canonical numeral for zero is checked separately. This checks all positive integers at all bit lengths by induction on the input word, rather than only finite samples.
+PASS
 
-For a secondary, independently structured check, the verifier enumerates fibbinary elements directly by the bitwise criterion and all sums no larger than \(10000\), confirming all six asserted formulas throughout that range. It does not use that bounded enumeration as the infinite proof.
+The digit recurrence maintains the identity between truncated summand columns and the target prefix, with the excess represented by the carry times the next place value. Both summands are nonnegative and at most the target, so no higher summand bits need be guessed past its canonical length; zero final carry is both necessary and sufficient. An independently written replay checked the frozen table's root, both successors of every row, the carry-zero and exception flags, complete reachability and opposite acceptance after every final-one edge. The frozen row counts were 4,6,18,9,41,29. An additional most-significant-bit-first check reversed the carry relation and used separately written exception recognizers, reaching 2,5,14,10,39,27 states after a leading one with no mismatch. Zero was checked separately in both directions. This checks all canonical lengths, not just the frozen script's bounded census. In ordinary bit order the sixth complement is 11 or (10)+011, giving 3 and the recurrence n -> 4n+7 on the sequence starting at 3, equivalently (4^k-7)/3 for k >= 2. Counting 4^k <= 3X+7 includes equality and handles X below 3, and logarithmic growth implies density zero. An infinite eventually periodic set would have positive density, so nonperiodicity follows.
 
-To run, execute `python3 verify.py`. To reproduce the transition table, execute `python3 verify.py --write-certificate state_table.txt` in a fresh directory and compare it with the supplied table. The proof establishes only the six stated dilations; published-source completeness and independent mathematical review are not certified.
+## originality
+
+PASS
+
+The pass is for the substantive first-six classification, particularly the precise exceptional sets for d=5 and d=6, not for introducing fibbinary integers, the d=1 identity, or the carry-automaton method. Closest inspected statements did not supply those higher-dilation complements. This is a bounded best-of-knowledge judgment, not historical-priority certification.
+
+## value
+
+PASS
+
+The initial consecutive dilations of a standard sparse digit set give a natural comparison. The precise d=6 exceptional sequence determines membership at all scales and a logarithmic, not modular, obstruction immediately after the singleton at d=5. The theorem therefore supplies concrete structure beyond generic decidability or a finite list of observed misses; the elementary or already-known low cases chiefly provide context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

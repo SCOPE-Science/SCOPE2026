@@ -1,11 +1,21 @@
-# Scientific review — sharp beta-skew-Laplace mode transitions
+# Independent mathematical audit
 
-**Correctness (PASS).** The result treats the density and both open half-lines exactly. Reflecting the sign of the parameter reduces the classification to positive tilt. The two positive threshold functions have logarithmic derivatives with numerators \(z^3-8z+4\) and \(z^3-8z-4\); each has one and only one minimizer on its relevant positive domain. This establishes one newly born outer maximum per strict threshold crossing, with the tangent at equality not a mode. The analytic cross-difference proves strict threshold order and covers the delicate double-stationary boundaries. The cusp at the origin survives at every finite tilt. Scheffé's lemma proves total-variation convergence to the normalized two-mode limit. A separate exact symbolic calculation reproduced the normalization, derivative identities and root brackets; floating-point displays are not used as completeness certificates.
+## correctness
 
-**Originality (PASS, qualified).** The closest paper, Tovar-Falón and Martínez-Flórez (2022), states the general upper bound of three modes (Proposition 1) and displays example shapes (Figure 1), but not the sharp three-regime parameter partition or double stationary threshold. Its known reflection symmetry and limiting bimodal-Laplace law are not claimed as original. The related 2025 bimodal *power* Laplace paper studies a different distribution. Web searches of original title, modal thresholds, alias formulations and numerical constants, together with indexed mathematical record searches, found no directly covering two-cubic mode diagram. A historical priority search remains necessarily incomplete, especially for poorly indexed papers.
+PASS
 
-**Value (PASS).** The ability to model one, two or three local modes is a principal motivation for the source family. This natural exact model invariant replaces qualitative illustrations by sharp parameter intervals, identifies which tail mode appears first, resolves the transition points, and explains why three finite-parameter modes can converge in total variation to a two-mode law. These structural facts are not simply normalization, a moment calculation, a numerical root list, or a generic consequence of the source's upper bound.
+Pairing opposite half-lines cancels the linear tilt term; integration gives 4+2(6!)β². The first-order factor at zero is 2(1−|x|), so zero is a strict cusp maximum at every finite tilt. Sign reflection reduces to b=|β|>0. With z=b|x|³ and s=+1 on the right, −1 on the left, the outward derivative has the sign of 6b^(1/3)z^(2/3)(z−s)−(z²−2sz+2). This excludes right-hand critical points for z≤1. On the remaining domains the positive level function H_s=(z²−2sz+2)/(6z^(2/3)(z−s)) diverges at both ends. Its logarithmic derivative is (z³−8z+4s)/(3z(z−s)(z²−2sz+2)); the cubic is negative at the lower endpoint and has only one increasing crossing afterward. Exact endpoint signs in the stated brackets are (−3/8,97/125) and (−1,991/1000). At a minimum level the outward derivative is negative off its isolated zero, so no new local maximum exists there; above the minimum there is exactly one outward + to − transition on that side. At z_L, H_R−H_L=(4−2z_L²)/(6z_L^(2/3)(z_L²−1))<0, establishing b_R<b_L. The independently evaluated thresholds agree with the displays. β=0 and positive location-scale transformations behave as stated. Dividing by β² gives pointwise convergence to x⁶e^(−|x|)/1440, a normalized density whose only maxima are ±6; Scheffé gives total variation. These arguments cover all parameters, rather than inferring them from plots or the frozen symbolic checker.
 
-Scientific limits: only local modal structure is classified, and mathematical local peaks need not remain statistically visible in finite samples. The result does not classify global peak heights or the exponentiated two-parameter family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp two-threshold strict-local-mode classification, including both equality cases. The distribution, the upper bound of three, parameter reflection, and the limiting bimodal law are not awarded originality. The inspected original statements and indexed comparisons do not supply the sharp boundaries or a theorem that already resolves them.
+
+## value
+
+PASS
+
+The number of local peaks is a natural model-design parameter for this density, and the exact classifier lets a user distinguish true shapes even at onsets and when the cusp is too small to see in a plot. The disjoint strict onsets and permanent finite-tilt cusp provide information absent from an upper bound or a list of approximate stationary points. No claim is made about global-height orderings, statistical detectability, or the exponentiated family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

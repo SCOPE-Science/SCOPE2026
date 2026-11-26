@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:41.209057Z",
+  "axes": {
+    "correctness": {
+      "limitations": "These are finite tests. The frozen verifier's comparison beyond prefix 21 is by row sums, despite constructing a bivariate recurrence array; the fresh per-coefficient comparison remedies that limitation as a finite check only. The all-prefix result uses the bijection.",
+      "rationale": "Greedy positions are componentwise earliest. The first position is 1+b, and each following letter uses one position plus one more exactly when it agrees with its predecessor. Reversal pairs all adjacency flags except for the centrally equal pair of an even palindrome. Thus the h free flags for length 2h+1 or h-1 for length 2h, together with b, determine the palindrome uniquely, giving the exact endpoint and stated binomial multiplicities. The two length parities give seeds (1+x)xy and (1+x)x^3 y^2 and the common factor x^2 y^2(1+x^2) per free flag. Cumulative inclusion contributes exactly 1/(1-x). The empty prefix, length one, and length two agree; at any fixed k the maximum endpoint is 2k with equality only for 1^k. A fresh distinct-subword-set enumeration agreed on every length and first-appearance step through prefix 17; a denominator recurrence agreed with all 11325 per-length coefficients through prefix 150.",
+      "replay_command": "python3 /workspace/branches/independent_math_checks.py 1",
+      "replay_path": "/workspace/branches/independent_math_checks.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0908d82f9069 also gives the length-law asymptotics in addition to the exact spectrum. Mahalingam–Pandoh report aggregate maximization for small sizes and conjecture maxima for general words; the inspected Holub–Saari material concerns minimal-palindromic words and extensions."
+        ],
+        "reasoning": "The earlier indexed exact enumeration is included in a broader statistical treatment. Aggregate maxima and extension invariants alone do not give the two-variable spectrum.",
+        "searches": [
+          "Resultary 0908d82f9069 Finding and proof",
+          "arXiv:2108.02729 Table 4 and Conjecture 5.6",
+          "Holub–Saari, On highly palindromic words, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 0908d82f9069, 42120300c87a",
+        "arXiv:2108.02729",
+        "OEIS A238374 and A204026",
+        "Holub–Saari abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 10/18 record gives the first-appearance series directly; the 10/25 record gives a split rational expression equivalent after combining the length-one term with the higher-length term, and weights half-words by equal transitions."
+        ],
+        "reasoning": "Coefficient extraction gives the exact binomial multiplicities for both parities, and dividing by 1-x or taking first differences converts between the two spectra. The saturation endpoint is also immediate from the earlier exact greedy-cost formula and equality only for the constant word starting with 1. No extra case or new enumeration remains.",
+        "searches": [
+          "Resultary 0908d82f9069 Greedy embedding lemma and Classifying palindromes",
+          "Resultary 42120300c87a Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0908d82f9069 gives tz(1+z)(1+tz^2)/[1-t^2z^2(1+z^2)] as the exact minimum-prefix cost series, with all distinct nonempty palindromes counted once.",
+          "42120300c87a uses c(u)=|u|+1[u starts with 1]+sum of equal-adjacency indicators; this is exactly the frozen endpoint statistic."
+        ],
+        "reasoning": "Set z=x and t=y. Minimal prefix and first appearance are the same statistic; dividing by 1-x gives the same prefix counts. Switching alphabet labels leaves counts unchanged.",
+        "searches": [
+          "Resultary 0908d82f9069",
+          "Resultary 42120300c87a",
+          "scattered palindromes alternating word subsequences length generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A238374 gives the univariate generating function (1+x)(1+x^2)/[(1-x)(1-x^2-x^4)] after shifting the first term to degree zero. A204026 supplies the Fibonacci matrix whose antidiagonal sums yield those counts. Table 4 gives binary totals through n=10. The two Resultary records give the full coefficient-generating identities."
+        ],
+        "reasoning": "The exact two-index match is stronger than a match of row sums. The one-index database and small finite table cannot determine the length distribution.",
+        "searches": [
+          "Resultary 0908d82f9069 and 42120300c87a exact series",
+          "OEIS A238374 and A204026",
+          "arXiv:2108.02729 Table 4"
+        ]
+      },
+      "rationale": "Two distinct indexed records with earlier record dates already give the full length-refined and first-appearance spectrum. In particular 0908d82f9069 states the identical exact-endpoint series in its proof and the identical cumulative series in its finding, not only the already credited Fibonacci totals. 42120300c87a independently corroborates exact catalogue coverage at the level of statements, recurrence and greedy-cost encoding. Relative priority or dependence among records is not determined by their dates.",
+      "residual_risks": [
+        "Exact indexed coverage is established; historical first authorship and possible further equivalent formulations were not determined.",
+        "The journal-literature comparison is bounded; unsuccessful indexed queries supply no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full equivalence with both spectra; the indexed claim also includes limiting length behavior",
+          "evidence": "Displays the same rational cost series in proof and the same series divided by 1-z in Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-palindrome-length-enumerator-and-gaussian-law-for-alternat--0908d82f9069/RESULT.md",
+          "material_read": "Finding and proof (including Greedy embedding lemma and Classifying palindromes); offset 0 through 4697",
+          "method": "Resultary and local-mirror passages",
+          "title": "Exact palindrome length enumerator and Gaussian law for alternating words",
+          "trigger": "Exact bivariate alternator spectrum"
+        },
+        {
+          "assessment": "Same full coefficient census after combining terms",
+          "evidence": "States the same endpoint cost and derives the prefix GF from the exact-cost GF; its half-word count uses binomial equal-transition multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-fibonacci-spectra-for-scattered-palindromes-of-alternating--42120300c87a/RESULT.md",
+          "material_read": "Finding, Proof §§1–4, and verification/prior comparison; pages at offsets 0 and 4805",
+          "method": "Resultary and local-mirror passages",
+          "title": "Exact Fibonacci spectra for scattered palindromes of alternating words",
+          "trigger": "Greedy cost and potentially equivalent Fibonacci spectrum"
+        },
+        {
+          "assessment": "Aggregate overlap, not the decisive length grading",
+          "evidence": "Binary totals 1,2,4,6,9,12,17,22,30,38; conjecture concerns global aggregate maxima.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+          "material_read": "PDF p. 18, offset 63700, Table 4 and Conjecture 5.6",
+          "method": "OA passage inspection",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Known binary total counts and extremal conjecture"
+        },
+        {
+          "assessment": "Univariate overlap only",
+          "evidence": "A238374 is generated by antidiagonal sums of the Fibonacci matrix; it is the frozen scalar count up to index shift.",
+          "identifier_or_url": "https://oeis.org/A238374 ; https://oeis.org/A204026",
+          "material_read": "Scalar sequence and generating-function entry; related array definition",
+          "method": "Lawful public-page inspection",
+          "title": "OEIS A238374 and A204026",
+          "trigger": "Known sequence and possible array equivalence"
+        },
+        {
+          "assessment": "Different invariant in the inspected passage; not a whole-paper exclusion",
+          "evidence": "Concerns minimal-palindromic words and their shortest extensions.",
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+          "material_read": "PDF p. 1, offsets 416–827, abstract",
+          "method": "OA passage inspection",
+          "title": "On highly palindromic words",
+          "trigger": "Use of palindromic subsequences in prior literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A joint law for length and first occurrence in a natural infinite periodic host is structurally useful: unlike ungraded totals, it gives the exact step at which each length class gains words and the sharp complete-language saturation prefix. The independent flag argument is an explanatory classification, not a raw table. Its contribution as a distinct current submission is rejected under originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

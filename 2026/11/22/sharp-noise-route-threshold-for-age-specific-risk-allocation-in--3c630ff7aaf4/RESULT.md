@@ -9,7 +9,7 @@ A_{t+1}=sJ_t+hA_t+\xi^A_{t+1}.
 \]
 The stage shocks are centered, independent across time and stages, and have variances \(v_J>0\) and \(v_A>0\). Fix \(0<m<1\), fecundity \(F\geq1\), external recruitment \(b>0\), and require \(h+Fs=m\), with \(0\leq h<m\) and \(s=(m-h)/F\). Here \(m\) fixes the distance \(1-m\) from the demographic replacement boundary; an allocation changes how this response is divided between adult retention and maturation/reproduction.
 
-Let \(q=F^2v_A/v_J\), \(y=m-h\), and define the squared stationary coefficient of variation of adult abundance by \(\mathrm{CV}^2=\operatorname{Var}(A_t)/(\mathbb E A_t)^2\). Then
+Let \(q=F^2v_A/v_J\), \(y=m-h\), and define the squared stationary coefficient of variation of adult abundance by \(\mathrm{CV}^2=\operatorname{Var}(A_t)/(\mathbb E A_t)^2\) in the covariance-stationary regime. Then
 \[
 \mathrm{CV}^2=\frac{v_J}{b^2}\,\frac{(1-m)(1-y)}{(1+y)(1+m-2y)}\left(1+\frac{q}{y^2}\right).
 \]
@@ -28,11 +28,11 @@ Thus \(m=1/\sqrt2\) is a sharp structural boundary: above and at it, every finit
 
 All parameters are constant and real. The independent shocks have zero means and finite stated variances; no Gaussianity is assumed. The model is an affine *population-response* approximation, not a birth-death process with nonnegative integer-valued counts. It permits signed stage perturbations and may not preserve nonnegativity for arbitrarily large shocks. The optimality statement is for the specified fixed-\(m\), fixed-\(F\), fixed-\(b\), fixed-noise-variance policy family, not for fixed total fishing effort, constant actual Perron eigenvalue, or general density-dependent fisheries.
 
-For \(0\leq h<m\), \(s>0\), so the stationary mean adult abundance is strictly positive and its coefficient of variation is defined. The endpoint \(h=m\) is excluded since \(s=0\) would give a zero adult mean. The response matrix has eigenvalues strictly within the unit disk because \(h\ge0\), \(Fs=m-h\ge0\), \(1-m>0\), and \(1+m-2(m-h)>0\). Consequently there is exactly one finite-second-moment causal stationary state.
+For \(0\leq h<m\), \(s>0\), so the stationary mean adult abundance is strictly positive and its coefficient of variation is defined. The endpoint \(h=m\) is excluded since \(s=0\) would give a zero adult mean. Stationarity here means constant means and covariances depending only on lag. Independence and constant variances allow the shock laws themselves to vary with time and thus do not require strict stationarity. If the joint shock law is time-invariant (in particular if each stage has identically distributed shocks over time), the causal state is also strictly stationary.
 
 ## Proof
 
-**Stationary moments.** Write \(r=Fs=m-h\). The adult coordinate obeys the scalar second-order recursion
+**Stationary moments.** Write \(r=Fs=m-h\) and \(M=\begin{pmatrix}0&F\\s&h\end{pmatrix}\). Its characteristic polynomial \(\lambda^2-h\lambda-r\) is negative at zero and positive at both \(\lambda=\pm1\) since \(r>0\), \(1-h-r=1-m>0\) and \(1+h-r>0\). Thus both roots have modulus less than one. On the integer time axis the causal state is \(\mu+\sum_{k\ge0}M^k\xi_{t-k}\), where \(\xi_t=(\xi_t^J,\xi_t^A)^\mathsf{T}\) and \(\mu=(I-M)^{-1}(b,0)^\mathsf{T}\). The series converges in mean square by geometric decay and the fixed finite variances. Its autocovariance at a nonnegative lag \(\ell\) is \(\sum_{k\ge0}M^{k+\ell}\operatorname{diag}(v_J,v_A)(M^k)^\mathsf{T}\), so it is covariance-stationary. Any other solution driven by the same shocks with uniformly bounded second moments differs by \(M^k\) times the difference at time \(t-k\), which tends to zero in mean square; this gives uniqueness among covariance-stationary solutions. Shift-invariance of the joint shock law, when assumed, transfers to the shift-equivariant series. For a recursion started at a finite time with finite initial second moment the same limiting first two moments follow by decay of the initial term. The adult coordinate obeys
 \[
 A_{t+1}=hA_t+rA_{t-1}+sb+s\xi^J_t+\xi^A_{t+1}.
 \]

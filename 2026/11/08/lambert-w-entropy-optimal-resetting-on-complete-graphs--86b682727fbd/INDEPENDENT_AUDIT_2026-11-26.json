@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:37.650060Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The merged non-reset row has a mass u/m at the reset vertex and m−1 masses p/m; the reset row has mass γ at itself and m masses p/m. Detailed balance gives stationary masses u/d and p/d respectively, and averaging the two row entropies yields the stated expression (RESULT.md lines 26–40). At fixed m the −γ log γ term beats the O_m(γ) terms at γ↓0; continuity, the endpoint values, and the positive stationary mass of rows with only m successors give the strict interior and upper-bound claims. For the large-size claim, the split into bonus B and nonnegative divergence K gives γ<e/m whenever the gain is positive. K''=(m−1)/(pu) supplies a quadratic penalty of order mγ² there, whereas the weighted bonus is at most O(γ log m/m) when m²γ≥1; hence every maximizer has x=m²γ=O(log m). In that window K has quadratic term (m−1)γ²/2 and cubic error O(m²γ³). Expanding B separately retains the singular γ log(mγ). After scaling the error is uniformly o(1), including x=0 by boundedness of x²|log x| near zero. The comparison function x(1+log m−log x)−x²/2 has curvature ≤−1, derivative zero at W(m), and value W(m)+W(m)²/2 there. The uniform error controls the value additively and the squared distance of every maximizer to W(m); uniqueness of the finite-m maximizer is not required. The frozen 126 finite checks concern row entropy and normalization, not the limiting claim; no uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed envelope applies to every finite connected simple regular graph including K_(m+1); the inspected limitations do not assert a closed form for the optimizer."
+        ],
+        "reasoning": "Its general exact formula mechanically covers the finite formula on cliques. An entropy formula and graphwise envelope are not an already-localized clique optimizer theorem and do not give additive o(1) optimizer and gain estimates by specialization.",
+        "searches": [
+          "Resultary: observed vertex resetting entropy on complete graphs and Lambert-W optimal gain",
+          "Indexed regular-graph envelope RESULT.md, 4bc2723b4c40"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.05665v1",
+        "Resultary 4bc2723b4c40",
+        "Resultary 6fb1fef030da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior merged finite-graph formula permits calculation for each γ. The branch-wise optimum is of order 1/m and has a different observed entropy than the clique optimum proved here."
+        ],
+        "reasoning": "After taking the covered finite formula as input, one still needs to place all optimizers in a shrinking common window and estimate the error uniformly on it, not just substitute the clique spectrum or a reset rate. The prior order-1/m branch optimizer cannot imply the claimed order-log(m)/m² observed-vertex result.",
+        "searches": [
+          "Indexed regular-graph envelope RESULT.md finding and Limitations, 4bc2723b4c40",
+          "arXiv:2208.05665v1 Secs. II–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The regular-graph branch-wise formula in Wang–Chen gives 1/(m+1), log(m+1); it treats the reset and the ordinary move to r as distinct outcomes. The indexed regular-graph envelope uses observed vertices and does merge destinations."
+        ],
+        "reasoning": "The algebraic split-action expression is entropy with the reset channel distinguished, not a reparametrization of observed-vertex entropy. The exact observed-vertex formula is covered separately by the regular-graph envelope; the scaled Lambert-W asymptotics are not stated there.",
+        "searches": [
+          "Resultary: observed vertex resetting entropy on complete graphs and Lambert-W optimal gain",
+          "arXiv:2208.05665v1 Eqs. (4), (5), (17), (19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical target is an index self-hit. The strongest distinct hit is 2026/10/18/SCOPE-sharp-regular-graph-entropy-envelope-for-random-walks-with-stoch--4bc2723b4c40. The distinct same-day star result 6fb1fef030da scopes its optimizer laws to K_(1,m)."
+        ],
+        "reasoning": "The exact regular-graph expression covers the finite entropy, but the inspected findings give no table or formula matching either scaled clique optimization constant. A star family is not the clique family.",
+        "searches": [
+          "Resultary: observed vertex resetting entropy on complete graphs and Lambert-W optimal gain",
+          "Wang–Chen arXiv:2208.05665v1 regular-network figure and discussion"
+        ]
+      },
+      "rationale": "The exact finite clique entropy is covered by specialization of the earlier indexed regular-graph formula and does not receive a separate originality pass. The surviving claim is the optimized all-maximizer scale and optimized gain with additive o(1) in the scaled quantities. This requires a uniform localization and variational analysis not supplied by the inspected general expression or by the branch-wise regular-graph optimizer.",
+      "residual_risks": [
+        "The primary-literature search was bounded; an unindexed or later identified clique optimization analysis may give the same asymptotics. This is not global priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact finite observed entropy by specialization, not the quantitative optimizer asymptotics",
+          "evidence": [
+            "Exact observed-vertex entropy on finite connected simple regular graphs; no closed form for optimizing rate asserted."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-regular-graph-entropy-envelope-for-random-walks-with-stoch--4bc2723b4c40",
+          "material_read": "Local-mirror RESULT.md finding and Limitations, offsets 0 and 6200, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and primary indexed statement comparison",
+          "title": "Sharp regular-graph entropy envelope for random walks with stochastic resetting",
+          "trigger": "Strongest distinct matched object and broader exact formula"
+        },
+        {
+          "assessment": "Same reset kernel; reported regular-graph optimization is for the split branch expression rather than entropy of merged destinations",
+          "evidence": [
+            "Eq. (5) adds reset and ordinary transition masses; Eqs. (17),(19) instead separate γ log γ from the ordinary contribution. Reported optimum 1/(m+1) is for that expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.05665v1",
+          "material_read": "OA arXiv PDF Sec. II Eqs. (4)–(5), p. 2; Sec. III Eqs. (17),(19) and regular-network discussion, pp. 3–4",
+          "method": "Bounded primary PDF passages, offsets approximately 9000, 13200, 22800 and 25800",
+          "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+          "trigger": "Same resetting transition mechanism and entropy optimization"
+        },
+        {
+          "assessment": "Overlaps objective but not graph or law; chronology not inferred from same-day dating",
+          "evidence": [
+            "Graph is K_(1,m), with separate hub and leaf reset choices."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-distinct-optimal-reset-exponents-at-the-hub-and-leaves-of-a-star--6fb1fef030da",
+          "material_read": "Indexed RESULT.md finding, local-mirror offset 0",
+          "method": "Resultary and exact indexed statement comparison",
+          "title": "Distinct optimal reset exponents at the hub and leaves of a star",
+          "trigger": "Similar observed-vertex optimizer asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Merging indistinguishable arrivals changes the scale, not just a finite-size correction: the observed optimal probability is smaller than the split-outcome prescription by a diverging factor, and the useful entropy increment vanishes with a quantified leading expression. Controlling every optimizer and the additive error for a canonical network family gives a substantive benchmark beyond evaluating finite row entropies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:47.861096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 of Proof and original scope; complete corrected repairs/3/RESULT.md; unchanged verification package (uploaded code inspected, not run)",
+        "Independent replay: python3 /workspace/branches/726957d9-cd17-4fac-a17e-cf132e86f174/independent_semiaffine_audit.py, with results in independent_semiaffine_audit.md. Exhaustive binary-form similitudes and semilinear conjugacy at q=3,9 give group orders 144, 12960, class numbers 9, 54, and involution counts 21, 171 respectively; full class-size frequencies and ordered commuting-pair counts agree."
+      ],
+      "rationale": "The original odd-characteristic table is correct. The repaired RESULT.md explicitly limits the diagonal presentation, not existence of anisotropic extension norms, to odd characteristic: in characteristic two squaring is bijective, and x²+xy+y² over F_2 is an anisotropic norm. It also makes the full stabilizer of the normalized slope explicit. For odd q the nondegenerate bracket forces center kz. Any bracket similitude divided by its value at 1 fixes 1 and acts by ±1 on the orthogonal line; the central shear parameters then yield the additive K ⋊ (K^× ⋊ <σ>) law. Linear slopes reduce to Frobenius orbits, with one nonzero translation class. For semilinear slopes, conjugation by multiplications gives the q+1 slopes in a norm fiber. When the norm is not 1, 1−aσ is invertible and all translations collapse to one orbit. For norm 1 normalize to σ and quotient by (1−σ)K=ker Tr; the slope centralizer comprises k^× and its composites with σ, acting by scalar multiplication on the trace. The two orbits have q and Q−q lifts per slope and give sizes q(q+1) and q(Q−1). The seven rows sum with multiplicities to 2Q(Q−1); counting their classes gives (Q+3q)/2 and the commuting-pair formula by the centralizer sum. Squaring shows that exactly the linear −1 class and the semilinear norm-one, zero-trace class are the nonidentity involutions. These arguments also apply over nonprime k; no step requires the prime-field Frobenius in place of the relative q-Frobenius.",
+      "residual_risks": [
+        "The scope repair does not assert a class distribution for algebras in characteristic two. The finite reproduction corroborates, not replaces, the proof over all odd prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine orbit principle uses orbits of the slope centralizer on A/(1−g)A and explains how to calculate the classes; its inspected explicit orbit calculations are for different complements.",
+          "The broad Leibniz automorphism classification includes this type by reference.",
+          "The two-transitive action theorem includes families of subgroups of affine semilinear groups, with a converse giving some classes associated with nonidentity central slopes."
+        ],
+        "reasoning": "Even where a theorem yields the scalar-slope classes of size Q, the other strata need conjugacy of noncentral slopes, the size of the norm fibers, and the number and sizes of trace-obstruction classes. General class-counting machinery and the structural classification do not state those outputs for this group.",
+        "searches": [
+          "arXiv:2112.15219v1 Lemma 2.1 and §3.1",
+          "arXiv:2609.24320v1 Table 2",
+          "DOI 10.1017/S0004972700033086 §2 Theorem 1",
+          "Resultary: AΓL_1(q^2) affine semilinear group inner conjugacy norm trace class distribution involution classes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.11180v1, arXiv:2112.15219v1, arXiv:2609.24320v1, Ukrainian Mathematical Journal 76 (2024) Theorem 3.1, DOI 10.1017/S0004972700033086",
+        "Resultary 0a4181d7ad6d and aeb40a05a8dc; bounded GroupNames queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known group structure implies the order and permits the conjugacy problem to be restated in affine terms. The orbit formula identifies the quotient on which a slope centralizer must act; it does not evaluate that action for the semilinear norm-one fiber.",
+          "For the norm-one fiber, normalization to σ and the two k^× orbits on the trace line are a specific calculation and explain the two distinct sizes despite the common norm. Squaring distinguishes the trace-zero class as the semilinear involutions."
+        ],
+        "reasoning": "Credit the group identification and the general reduction, not as outputs of the present contribution. The uniform class-size table and two involution classes are not supplied by a mere parameter change in the checked comparisons. The commuting formulas alone are routine consequences, not independent originality claims.",
+        "searches": [
+          "arXiv:2310.11180v1 Theorem 3.7; Ukrainian Mathematical Journal 76 (2024) Theorem 3.1",
+          "arXiv:2112.15219v1 Lemma 2.1 proof",
+          "Resultary: two involution classes affine semilinear group F_{q^2} norm one trace",
+          "Resultary 0a4181d7ad6d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2310.11180v1 Theorem 3.7 supplies the matrix and extension description for the anisotropic Leibniz type.",
+          "DOI 10.1017/S0004972700033086 uses one-dimensional affine semilinear subgroup language; Theorem 1 treats classes acted on faithfully and 2-transitively, not a full inner-class table.",
+          "Resultary 0a4181d7ad6d counts classes in affine groups over finite chain rings, and aeb40a05a8dc studies AGL(1,q) as a BI-group."
+        ],
+        "reasoning": "The invariant is abstract group conjugacy, so equivalent affine or similitude formulations count as coverage. The relevant subgroup has just the order-two relative Galois complement, and for nonprime q is not the full absolute AΓL(1,q²). The linear affine group from a ring or field does not include that complement, so cannot give the semilinear classes.",
+        "searches": [
+          "Resultary: anisotropic 3-dimensional Leibniz algebra automorphism group conjugacy class sizes norm trace semilinear",
+          "Resultary: affine semilinear group F_{q^2} conjugacy classes norm trace obstruction slope class-size distribution",
+          "Resultary: A Gamma L(1, q^2) exact conjugacy class sizes affine semilinear Frobenius norm trace involutions",
+          "Web: \"conjugacy classes\" \"affine semilinear\" AΓL(1,q) one dimensional semiaffine group norm trace conjugacy class sizes finite fields"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded GroupNames queries did not retrieve a class table for order 144. The independent computation does produce its exact distribution, but is not literature evidence.",
+          "The distinct catalogue record 0a4181d7ad6d has an exact distribution indexed by affine-ring valuation, not the relative Frobenius and norm-trace obstructions."
+        ],
+        "reasoning": "An exact database match for an individual small group would cover that instance; the finding assessed here is a uniform distribution for all odd prime powers. The unsuccessful small-group lookup is not evidence against database coverage.",
+        "searches": [
+          "GroupNames: AΓL(1,9), 144, AΓL, AΓL1",
+          "Resultary: anisotropic Leibniz algebra exact automorphism group conjugacy distribution odd prime power",
+          "Resultary: Exact conjugacy classes of anisotropic Leibniz-algebra automorphisms over finite fields; uniform norm-trace class-size distribution for all odd prime powers"
+        ]
+      },
+      "rationale": "The surviving claim is the full uniform seven-row distribution with explicit norm and trace strata, not the known group structure, the basic affine orbit method, or the order-144 example alone. The strongest inspected comparisons establish some ingredients and linear specializations, but do not determine the semilinear class-size strata without an additional orbit calculation. The replacement scope and proof clarification do not enlarge the claimed family or change these comparisons.",
+      "residual_risks": [
+        "A uniform table under affine semilinear, Singer-normalizer, or orthogonal-similitude terminology may exist beyond this bounded comparison. The small-group table was not retrieved, and the scope repair does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes prior group structure, not the seven-row table",
+          "evidence": "Gives the characteristic-not-two matrix form with the additive normal subgroup F^+×F^+ and quotient matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.11180v1",
+          "material_read": "p. 7, Theorem 3.7, offset 18408",
+          "method": "Primary OA PDF, located and paged",
+          "title": "On the automorphism groups of some nilpotent 3-dimensional Leibniz algebras",
+          "trigger": "Same anisotropic group and hypotheses"
+        },
+        {
+          "assessment": "Repeats group structure; not a class-distribution statement",
+          "evidence": "Describes the same additive normal subgroup and linear quotient in the anisotropic case.",
+          "identifier_or_url": "https://umj.imath.kiev.ua/index.php/umj/article/download/7868/10033/23362",
+          "material_read": "Theorem 3.1, printed pp. 869–870, offset 23065",
+          "method": "Primary journal OA PDF passage",
+          "title": "On the structure of automorphism groups of some low-dimensional Leibniz algebras",
+          "trigger": "Journal treatment of the same group"
+        },
+        {
+          "assessment": "General orbit reduction; inspected explicit formulas do not cover the norm and trace table for the relative semilinear complement",
+          "evidence": "The relevant conjugacy classes are indexed by centralizer orbits on A/(1−g)A; §3.1 evaluates an affine-general-linear case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.15219v1",
+          "material_read": "pp. 2–3 Lemma 2.1 and its proof, offsets 6150–8936; §3.1 p. 4 around offset 10600",
+          "method": "Primary OA PDF, located and paged",
+          "title": "Enumeration of conjugacy classes in affine groups",
+          "trigger": "Potential broader conjugacy formula for affine semidirect products"
+        },
+        {
+          "assessment": "Family incorporated as a known automorphism group, not an exact conjugacy enumeration in the passages read",
+          "evidence": "The classification incorporates known cases by reference and does not claim priority for them.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24320v1",
+          "material_read": "Abstract and Table 2, p. 27, offsets 0 and 88477/88697",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Automorphism Groups of Three-Dimensional Leibniz Algebras: A Complete Description",
+          "trigger": "Broader structural classification may subsume this family"
+        },
+        {
+          "assessment": "Characterizes groups having a faithful 2-transitive action on a conjugacy class; some central-slope classes overlap, not a full distribution",
+          "evidence": "The converse identifies a class of a nonidentity central slope with a translation orbit under suitable hypotheses.",
+          "identifier_or_url": "10.1017/S0004972700033086",
+          "material_read": "§2 notation and Theorem 1 including the converse, PDF pp. 2–3, offsets 4000–8334",
+          "method": "Primary OA PDF locate and page",
+          "title": "Two-transitive actions on conjugacy classes",
+          "trigger": "Affine semilinear terminology and conjugacy classes"
+        },
+        {
+          "assessment": "Different complements and obstructions; no inference of priority from catalogue date",
+          "evidence": "The group is R^+⋊R^×; its strata are indexed by valuation rather than by norm and trace in a Frobenius coset.",
+          "identifier_or_url": "2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d",
+          "material_read": "Finding and group definition, offset 0",
+          "method": "Resultary query and bounded local mirror read",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings",
+          "trigger": "Same-date exact affine group class-distribution hit"
+        },
+        {
+          "assessment": "Unknown relevance to a uniform semilinear class table; not negative evidence",
+          "evidence": "Title identifies a class-size graph invariant but does not establish which examples are covered.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022404909000085",
+          "material_read": "Search title only; no full text retrieved",
+          "method": "Direct and alternate OA route attempted",
+          "title": "On bipartite divisor graphs for group conjugacy class sizes",
+          "trigger": "Secondary search hit on conjugacy class sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected repairs/3/RESULT.md, seven-row class distribution and involution classification; arXiv:2310.11180v1 Theorem 3.7 and arXiv:2112.15219v1 Lemma 2.1 for comparison"
+      ],
+      "rationale": "For this natural full algebra automorphism group, the exact class-size distribution answers more than the known abstract group identification or a total class count: it separates fixed-point-free semilinear slopes from the two classes with the same norm but different translation obstruction. The distinction determines exact centralizer sizes and explains the second involution class uniformly over nonprime as well as prime fields. This provides a useful intrinsic invariant, rather than a single small-group recomputation. The repaired explanation does not pretend to extend that contribution to characteristic two.",
+      "residual_risks": [
+        "The contribution is an inner-conjugacy invariant for this family, not an irreducible character classification or a statement for all binary forms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

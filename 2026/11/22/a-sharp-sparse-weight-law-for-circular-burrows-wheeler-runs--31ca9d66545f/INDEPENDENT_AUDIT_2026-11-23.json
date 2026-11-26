@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:23:35.668828Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lexicographically first rotation starts a longest zero block and is preceded by 1; tied full rotations share their last character. Thus the transform, with k ones, starts in 1 and has at most k runs of each symbol. For certified gaps the rows are grouped by decreasing initial zero length t, with exactly one 1 in a level for each distinct full gap and no 1s in intervening unmarked levels. Each intermediate level exists because a longer gap also contributes a suffix row there. The one-starting rows contribute only 0s when all gaps are positive, proving exactly 2k linear runs. Sorting and subtracting 2i−1 yields a weakly increasing k-tuple of nonnegative entries summing to n−k(k+1). For indexed counting, every rooted gap vector and any of the n locations of the marked 1 produce one rooted word; erasing the mark divides by k. Thus k!p rooted vectors give n(k−1)!p indexed words; distinct gaps preclude a proper cyclic period, so dividing by n counts the necklaces. This handles k=1 directly as well. Under the uniform rooted law, a specified gap is zero with probability (k−1)/(n−1); for k≥3 a close pair has at most two choices per composition of the remaining k−2 coordinates of total at most n−k, i.e. at most 2 binom(n−2,k−2) vectors. For k=2 there are at most two bad vectors directly; for k=1 there is no pair. The union bound yields the truncated lower bound and tends to one for k=o(n^(1/3)); it does not locate a sharp probability threshold or give exact counts of all maximizers. An independent full-rotation enumeration checked 32,738 mixed words through n=14 and the exact certified counts for 91 pairs. The supplied checks were inspected but not executed; check_gaps.py lines 42–49 only checks nonnegativity of its partition outputs, not an independent count, whereas the supplied exhaustive checker actually compares counts on its finite range. None of these finite checks is used for an all-length inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weight-three papers include zero gaps, equal gaps and adjacent-gap collision tests dependent on cyclic orientation; the weight-four record gives an exact cell classification. These dominate in their own fixed-weight slices.",
+          "Resultary e59509c51e29 concerns near-permutation necklaces over n−1 letters; fd9a7056759f and b5d6aa1e2e12 concern deletion-output diversity and read-spectrum collisions, respectively, not circular BWT runs."
+        ],
+        "reasoning": "Neither fixed-weight exact classification supplies a uniform bound for unbounded k; the other similar distributions use a different alphabet model or statistic.",
+        "searches": [
+          "Primary focused search: sparse fixed-weight circular binary BWT maximal runs and separated gaps",
+          "Resultary 17765181f4c4, 1b2e4b268091 and 888cea75eaa4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.10426v2",
+        "Resultary 17765181f4c4, 1b2e4b268091, 888cea75eaa4, e59509c51e29, fd9a7056759f and b5d6aa1e2e12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposition's proof specifically yields 2i runs for its q≥2 polynomial gaps. There is a mismatch between the exponent in its asymptotic statement and its proof, but the concrete run count is separate from that mismatch.",
+          "The exact small-weight analyses do not give the joint weak-composition pair bound for every k."
+        ],
+        "reasoning": "The construction recovers earlier extremizers but adds a gap-level separation proof that is independent of cyclic order. Counting all its orders and bounding the union of close-pair events yield a limit regime not a corollary of the cited special cases.",
+        "searches": [
+          "arXiv:2404.10426v2 §4 Proposition 15 and proof",
+          "Resultary 1b2e4b268091 and 888cea75eaa4 findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giuliani et al. use the same full-rotation, sentinel-free transform. Complementing both symbols reverses the order of distinct rows and complements the last column, preserving linear run count.",
+          "For their q≥2 construction the gap multiset consists of j^q in increasing cyclic order, which satisfies the target gap separation after putting the sparse marker at 1."
+        ],
+        "reasoning": "A cyclic or complemented alphabet convention does not remove this overlap. But the earlier construction imposes a particular order and family of gaps, not every order of an arbitrary admissible multiset.",
+        "searches": [
+          "Resultary: circular BWT, cyclic binary words, gaps, maximal 2k runs, and exact fixed-weight run spectra",
+          "arXiv:2404.10426v2 Introduction and §4 Proposition 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed weight-three spectrum 1b2e4b268091 and the weight-four spectrum 888cea75eaa4 determine the entire maximum-run population for those fixed weights. Here the partition expression counts the narrower gap-certified family at any weight."
+        ],
+        "reasoning": "The output is not a retabulation of exact small-weight maxima. There are words excluded by the certificate that are actual maximizers, e.g. 0011 with circular transform 1010.",
+        "searches": [
+          "Resultary indexed and necklace BWT run spectra for weights three and four: 17765181f4c4, 1b2e4b268091, 888cea75eaa4"
+        ]
+      },
+      "rationale": "The identified polynomial increasing-gap construction is a direct antecedent for one subclass, and the exact indexed or necklace spectra are stronger at weights three and four. The distinct contribution is a permutation-independent sufficient structure, its exact certified enumeration and a joint n,k high-probability law. No inspected prior result entails all these assertions with k growing.",
+      "residual_risks": [
+        "The focused primary search returned no additional relevant results; this is not evidence of absence. A separately indexed variable-weight BWT or sparse-necklace result could supply additional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case antecedent, without all-order count or random law",
+          "evidence": [
+            "The proof for w_(i,q)=∏ a b^(j^q) gives 2i runs for q≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.10426v2",
+          "material_read": "Introduction p. 1, and §4 Proposition 15 and proof, p. 14",
+          "method": "OA full-text passages; PDF offsets 0–3999 and 45680–50622; HTML 59008–64507",
+          "title": "Bit catastrophes for the Burrows–Wheeler Transform",
+          "trigger": "Same transform and polynomial-gap extremizers"
+        },
+        {
+          "assessment": "Exact and stronger at fixed weight three",
+          "evidence": [
+            "Complete necklace spectrum and exact gap adjacency criterion."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4",
+          "material_read": "RESULT.md offsets 0–3274 and 3274–6142",
+          "method": "Local published-record mirror",
+          "title": "Exact Burrows–Wheeler run spectrum of cyclic binary words with three ones",
+          "trigger": "Potential exact overlap at weight three under necklace convention"
+        },
+        {
+          "assessment": "Exact and stronger at fixed weight three, not uniform in weight",
+          "evidence": [
+            "Classifies adjacency of marked rows including cases that the separated-gap condition excludes."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-run-spectrum-of-the-circular-burrows-wheeler-transform-for--1b2e4b268091",
+          "material_read": "RESULT.md offsets 0–3912 and 3912–7155",
+          "method": "Local published-record mirror",
+          "title": "Exact run spectrum of the circular Burrows–Wheeler transform for binary words with three ones",
+          "trigger": "Same indexed convention and a known probability slice"
+        },
+        {
+          "assessment": "Exact fixed-weight-four spectrum",
+          "evidence": [
+            "An all-length computation in weak-order/difference cells with four gaps; it supplies no variable-weight estimate."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-run-spectrum-of-the-circular-binary-burrows-wheeler-transf--888cea75eaa4",
+          "material_read": "RESULT.md offsets 0–3813 and 3813–7222",
+          "method": "Local published-record mirror",
+          "title": "Exact run spectrum of the circular binary Burrows–Wheeler transform at weight four",
+          "trigger": "Potential stronger exact spectrum beyond three markers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The structural certificate delivers extremizers at every feasible length for the separated-gap family, an exact count, and a probability estimate uniform over growing weights. It gives information between isolated constructions and fixed-weight exact spectra. The interpretation is deliberately limited to a sufficient asymptotic regime, not a true critical window or the full run spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

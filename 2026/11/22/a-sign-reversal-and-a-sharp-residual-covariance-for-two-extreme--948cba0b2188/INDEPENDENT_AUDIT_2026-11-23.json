@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:08:55.999149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root the circular gaps at one labeled sampled point (the statistics are cyclically invariant). Relative positions of the other points are iid uniform, so dividing iid exponentials by their independent Gamma sum gives the correct gap law. The Gamma second moment yields (1); order increments of rates 3,2,1 give the stated means, covariance 13/36 and normalized −1/81. For the large-n result, using Bernoulli states 0,1 with rows (1−p,p),(1−p,0) gives the cyclic trace formula. Conditioning on A≤u shifts the exceedance probability from p to (p−q)/(1−q) when u≥v. In centered coordinates, Taylor expansion of the positive eigenvalue gives log λ+=−p²+O(p³), (log λ+)'=−2p+O(p²); the other eigenvalue and its differentiated power are negligible locally when p=exp(−y/2)/√n. This gives the positive pointwise CDF residual in (6). For a direct tail check, differentiating the Bernoulli event by pivotal sites gives |R'_n(s)|≤2ns(1−s²)^floor((n−3)/2): pivotality needs an occupied neighbor and no adjacent successes among a disjoint matching after deleting the site and its two neighbors. Thus when p≤1/2 and q≤p/2, p'∈[p/2,p] and the scaled residual has integrable majorant C exp(−x−y/2−e^(−x)−c e^(−y)). Under dp dq/(pq), p/2<q≤p costs O(1/n) by e^(−np/2) n p²; q>p costs O(1/n) by integrating e^(−nq) n p² first in p. For p>1/2, q≤1/4 use p'≥1/4 and the same pivotal bound times p−p'≤q, integrable in u; if q>1/4 the domain is bounded and F_A is exponentially small. The factor 1/2 in the Jacobian cancels the differentiation factor 2, giving Γ(1)Γ(1/2)=√π. The Gamma normalization correction is O(log²(n)/n)=o(n^(−1/2)) before division by n(n+1). This proves the stated sign reversal without a unique crossing or cutoff claim. Inspected check.py and VERIFICATION.md but did not execute the upload; their finite-domain quadrature does not certify the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day a7482687ed1b asserts independent Poisson/Gumbel fields of maxima of fixed window sums.",
+          "The record 781f4f4936fc computes a smaller-order covariance despite independent limits, but between Hausdorff error and perimeter deficit of random circular polygons."
+        ],
+        "reasoning": "Even independent limiting fields for the same pair would not give the first residual covariance rate and coefficient, and here the relevant statistics also differ. Same-day dating is not used to infer priority.",
+        "searches": [
+          "arXiv:1508.00944, §2 overlapping moving sums",
+          "Resultary a7482687ed1b and 781f4f4936fc, findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:1508.00944",
+        "10.1186/2195-5832-1-5",
+        "Resultary 8f81f2914613, 66b375add4dc, 7536578b7678, a7482687ed1b and 781f4f4936fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=3 the adjacency statistic reduces to a classical second order statistic, so −1/81 follows by elementary order-statistic moments and normalization.",
+          "The sharp asymptotic requires a first-order response of the cyclic no-adjacency probability to truncation by the single maximum and an integrable error bound, not just the usual marginal Poisson/Gumbel limits or a covariance formula for symmetric counts."
+        ],
+        "reasoning": "The valuable claim is the residual constant and resulting sign reversal, not a new exponential spacings representation, an isolated n=3 calculation, or a general run theorem.",
+        "searches": [
+          "Johnson–Fu, 10.1186/2195-5832-1-5, run/pattern results",
+          "Mijatović–Vysotsky, arXiv:1508.00944, §§1–2",
+          "Resultary 8f81f2914613, a7482687ed1b and 781f4f4936fc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacent-minimum CDF is absence of length-two runs at a moving threshold. Johnson–Fu compute or approximate run/pattern distributions, a relevant equivalent marginal formulation.",
+          "Mijatović–Vysotsky's maximal k-spacing is the maximum of a window sum, not of its minimum; the order of exceedances for each statistic differs."
+        ],
+        "reasoning": "The no-run reduction supplies a useful tool, not a previously established mixed moment with the single-site maximum.",
+        "searches": [
+          "Resultary: maximum circular spacing adjacent minimum two consecutive exceedances covariance sqrt pi negative 1/81",
+          "Web: \"longest consecutive exceedance runs\" \"mixed extreme-value\" covariance circular spacings adjacent minima (lookup unavailable)",
+          "arXiv:1508.00944, §§1–2",
+          "10.1186/2195-5832-1-5, pp. 1, 4, 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading exact hit 948cba0b2188 is the frozen item itself. The distinct exact covariance formulae concern longest gap with a long-gap count (8f81f2914613), two fixed-threshold counts (66b375add4dc), or longest gap with Greenwood's sum of squares (7536578b7678)."
+        ],
+        "reasoning": "Counts discard the adjacency information and Greenwood's statistic is symmetric in all gaps. These exact laws do not give the frozen pair's finite covariance or its sequence in n. No matching distinct exact database or table identified.",
+        "searches": [
+          "Resultary: maximum circular spacing adjacent minimum two consecutive exceedances covariance sqrt pi negative 1/81",
+          "Resultary 8f81f2914613, 66b375add4dc and 7536578b7678"
+        ]
+      },
+      "rationale": "The spacing representation and cyclic no-run calculation draw on classical methods. The exact negative small-sample value together with the order and coefficient of the mixed residual are not covered by the inspected results for sums, threshold counts, or first-order extreme limits.",
+      "residual_risks": [
+        "Gordon–Schilling–Waterman, An extreme value theory for long head runs, DOI 10.1007/BF00335058, was not inspectable in the identified open PDF attempt (redirect loop); possible transferable run-extreme techniques remain unchecked there.",
+        "The web query was unavailable; it provides no negative evidence. Unindexed mixed maxima/run covariance results could remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different window statistic and order of approximation",
+          "evidence": "Maximal k-spacing spans k successive gaps; overlapping sums and first-order Gumbel asymptotics, not an adjacent-pair minimum covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "PDF pp. 1–4, §§1–2, offsets 0, 2987, 6452, 9430",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "Classical neighboring extreme spacings and independent moving maxima"
+        },
+        {
+          "assessment": "Matches the broad run-count background, not the mixed residual",
+          "evidence": "Poisson and compound-Poisson approximations, including counts of nonoverlapping runs of k successes.",
+          "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+          "material_read": "Abstract and PDF pp. 4, 11, offsets 985, 15116, 48820",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Approximating the distributions of runs and patterns",
+          "trigger": "No adjacent exceedances representation"
+        },
+        {
+          "assessment": "Different statistic and tuning parameter",
+          "evidence": "Unique threshold t crossing for covariance of the longest gap with an exceedance count; not the covariance in growing n with the best neighboring pair.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-unique-covariance-reversal-between-the-largest-uniform-spacing--8f81f2914613",
+          "material_read": "RESULT.md Finding, offsets 11, 728, 957",
+          "method": "Catalogue local full-text mirror",
+          "title": "A unique covariance reversal between the largest uniform spacing and long-gap count",
+          "trigger": "Same maximum and covariance reversal"
+        },
+        {
+          "assessment": "Different pair of statistics",
+          "evidence": "Two fixed-threshold counts; exact covariance expressed by three exponential terms, with a possible finite negative window.",
+          "identifier_or_url": "2026/11/8/SCOPE-one-negative-covariance-window-for-two-nested-uniform-spacing-ex--66b375add4dc",
+          "material_read": "RESULT.md offsets 0–1800, Finding and scope",
+          "method": "Catalogue local full-text mirror",
+          "title": "One negative-covariance window for two nested uniform-spacing exceedance counts",
+          "trigger": "Exact circular spacing covariance signs versus sample size"
+        },
+        {
+          "assessment": "No equivalent covariance constant",
+          "evidence": "First-order independent fields from maxima of window sums, not adjacent minima.",
+          "identifier_or_url": "2026/11/22/SCOPE-independent-spatial-extreme-fields-for-finitely-many-maximal-uni--a7482687ed1b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Independent spatial extreme fields for finitely many maximal uniform k-spacings",
+          "trigger": "Same-day joint gap limits"
+        },
+        {
+          "assessment": "Related phenomenon but different variables",
+          "evidence": "Sharp residual for Hausdorff error and perimeter deficit, on the scale n^5/(log n)^4, not the two gap statistics.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-covariance-law-for-worst-case-and-perimeter-errors-of-ra--781f4f4936fc",
+          "material_read": "RESULT.md Finding, offsets 10, 445, 895",
+          "method": "Catalogue local full-text mirror",
+          "title": "A sharp covariance law for worst-case and perimeter errors of random circular polygons",
+          "trigger": "Mixed covariance beyond independent normalized limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two statistics naturally distinguish one long empty arc from simultaneously long neighbors. Neither a first-order Gumbel law nor the sign for n=3 predicts the leading residual after normalization. The exact sharp √π term and opposite signs answer a meaningful dependence question, rather than merely adding a small-size covariance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

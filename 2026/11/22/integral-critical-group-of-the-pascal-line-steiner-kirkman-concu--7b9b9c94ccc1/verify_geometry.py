@@ -1,59 +1,71 @@
-#!/usr/bin/env python3
-"""Independent exact-rational realization of the generic six-point Pascal configuration.
-Run with Python 3 standard library; no external algebra system needed.
-"""
+"""Test all exact point-line flags of two ordered Pascal sextuples."""
+from collections import Counter
 from itertools import combinations, permutations
 from math import gcd
-from functools import reduce
 
-def canon(h):
- h=tuple(h);return min([h[i:]+h[:i] for i in range(6)]+[h[::-1][i:]+h[::-1][:i] for i in range(6)])
-H=sorted({canon(h) for h in permutations(range(6))})
-def cross(u,v):return (u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
-def norm(u):
- g=reduce(gcd,u)
- assert g != 0
- u=tuple(x//g for x in u)
- s=next(x for x in u if x)
- return tuple(-x for x in u) if s<0 else u
 
-def conic(t):return (1,t,t*t)
-T=(0,1,3,9,27,81)
-P=[conic(t) for t in T]
-def pascal(h):
- sides=[cross(P[h[i]],P[h[(i+1)%6]]) for i in range(6)]
- inter=[norm(cross(sides[i],sides[i+3])) for i in range(3)]
- l=norm(cross(inter[0],inter[1]))
- assert sum(x*y for x,y in zip(l,inter[2]))==0
- return l
-lines=[pascal(h) for h in H]
-assert len(set(lines))==60
-idx={h:i for i,h in enumerate(H)}
-def signature(h):
- e=lambda i: frozenset((h[i],h[(i+1)%6]))
- return frozenset(e(i) for i in range(6))
-E=[signature(h) for h in H]
-kirk={frozenset(i for i,e in enumerate(E) if e.isdisjoint(e0)) for e0 in E}
-assert len(kirk)==60
+def cross(a, b):
+    return tuple(a[(i+1)%3]*b[(i+2)%3]-a[(i+2)%3]*b[(i+1)%3]
+                 for i in range(3))
 
-def trikey(h):
- q=lambda v:min(v,v[1:]+v[:1],v[2:]+v[:2])
- a=tuple(sorted(q(h[i::2]) for i in (0,1)))
- b=tuple(sorted(q(tuple(reversed(h[i::2]))) for i in (0,1)))
- return min(a,b)
-from collections import defaultdict
-steiner=defaultdict(set)
-for i,h in enumerate(H):steiner[trikey(h)].add(i)
-S={frozenset(x) for x in steiner.values()}
-assert len(S)==20
-points={}
-for role,triples in [('K',kirk),('S',S)]:
- for tr in triples:
-  a,b,c=sorted(tr)
-  p=norm(cross(lines[a],lines[b]))
-  assert sum(x*y for x,y in zip(p,lines[c]))==0
-  assert p not in points, ('Coincident distinguished points',points.get(p),role)
-  points[p]=role
+
+def dot(a, b):
+    return sum(x*y for x, y in zip(a, b))
+
+
+def norm(v):
+    d = gcd(*v)
+    assert d
+    if next(z for z in v if z) < 0:
+        d = -d
+    return tuple(z//d for z in v)
+
+
+def canonical_cycle(h):
+    j = h.index(0)
+    h = h[j:] + h[:j]
+    return min(h, h[:1]+h[:0:-1])
+
+
+WORDS = [(0,)+p for p in permutations(range(1, 6)) if p[0]<p[-1]]
+INDEX = {h:i for i, h in enumerate(WORDS)}
+
+
+def orbit(base):
+    labels = [tuple(ord(c)-65 for c in h) for h in base]
+    return {tuple(sorted(INDEX[canonical_cycle(tuple(g[i] for i in h))]
+                         for h in labels)) for g in permutations(range(6))}
+
+
+# Baralic-Spasojevic, arXiv:1209.4795, Propositions 3.2 and 3.3.
+S = orbit(('ABEDCF', 'ADEFCB', 'AFEBCD'))
+K = orbit(('ABFDCE', 'AEFBDC', 'ABDFEC'))
+assert len(S)==20 and len(K)==60 and not S&K
+
+
+def flags(T):
+    assert len(set(T))==6
+    def pascal(h):
+        def side(i):
+            a, b = T[h[i]], T[h[(i+1)%6]]
+            return a*b, -a-b, 1
+        P = [cross(side(i), side(i+3)) for i in range(3)]
+        L = norm(cross(P[0],P[1]))
+        assert dot(P[2],L)==0
+        return L
+    lines = list(map(pascal, WORDS))
+    assert len(set(lines))==60
+    marked = {}
+    for i, j, k in S|K:
+        point = norm(cross(lines[i],lines[j]))
+        assert point not in marked
+        marked[point] = tuple(l for l,L in enumerate(lines) if dot(point,L)==0)
+        assert {i,j,k} <= set(marked[point])
+    assert len(marked)==80
+    edges = {e for members in marked.values() for e in combinations(members,2)}
+    return Counter(map(len,marked.values())),len(edges)
+
+
+assert flags((0,1,3,9,27,81)) == ({3:80},240)
+assert flags((0,65,195,585,1755,9)) == ({3:79,4:1},243)
 print('EXACT_RATIONAL_PASCAL_GEOMETRY_VERIFIED_OK')
-print('six_parameters=',T,'distinct_pascal_lines=',len(set(lines)))
-print('distinct_steiner_points=',len(S),'distinct_kirkman_points=',len(kirk))

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:59:41.016398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–35",
+        "VERIFICATION.md and verify.py, inspected without execution",
+        "Independent replay recipe: enumerate 0/forward/reverse per unordered pair, exhaust all target vertex tuples, compare counts and coefficient vectors with all residual subsets; for the gap use all connected bipartite edge masks and their orientations."
+      ],
+      "rationale": "Strictly increasing levels force each mixed vertex to level two and its pure neighbors to the appropriate outer levels. Adjacent mixed vertices obstruct all maps. If they are independent, any independent set in the induced residual graph is a legal middle fibre there, and every legal assignment is obtained uniquely this way, with isolates and target-vertex choices contributing the stated factors. For p≠r the independence polynomial is evaluated with distinct vertex activities q/p and q/r on residual sources and sinks, not recovered from the ordinary univariate polynomial alone. Connectivity forces exactly two orientations without mixed vertices. In any other orientation with a legal map, adjoining arbitrary subsets of M to residual independent sets injects 2^|M| I_R(1) sets into I_G(1); the singleton of a neighbor of M is not in its image. The two-sided pendant tree realizes the ratio 1/[1+(1+2^(−N))²], which tends to 1/2 from below. On the n≥2 path, adjacent mixed vertices are equivalent to a run of three equal edge directions, giving 2F_n; each proper three-coloring determines a unique orientation, giving the total 3·2^(n−1). A separate bounded enumeration compared direct assignments of target vertices with subset counts for all 760 oriented-or-missing-edge inputs of order 1–4 at (1,1,1), (2,1,1), (1,2,2) and compared the 760 full middle-fibre coefficient vectors. It also checked 4750 orientations of 218 connected labelled bipartite graphs of order 2–5, all 510 path orientations of orders 2–9, and the pendant-tree counts for N=1–4. All matched.",
+      "residual_risks": [
+        "The original VERIFY_OK 3473 is recorded evidence, not an independent run. The independent bounded census supplements, but does not replace, the bijective and extremal proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Directed-path duality detects existence of homomorphisms to transitive tournaments; it does not count solutions or relate noncoherent orientations to I_G(1).",
+          "Resultary 6d8ac156470a is about one-point-type polynomials on complete bipartite bases, not this fixed target and all connected bipartite bases."
+        ],
+        "reasoning": "Existence applies in a broader family but discards multiplicities. The inspected extremality comparison does not specialize to the stated half-gap.",
+        "searches": [
+          "Meyer–Starke arXiv:2606.24711v3, §2.8",
+          "Resultary connected bipartite sharp half-gap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four searches and IDs above",
+        "arXiv:2606.24711v3 §2.8",
+        "EJC 30(1) #P1.47 pp. 3–5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duality reduces the path existence count to binary words avoiding a run of three, yielding its standard Fibonacci recurrence.",
+          "For the half-gap one still needs an injection extending residual independent sets by subsets of M, a missed singleton and an explicit family whose ratios tend to one half."
+        ],
+        "reasoning": "Credit the routine path consequences and known existence theory. Neither inspected prior result implies the weighted counting reduction or the sharp quantitative stability theorem.",
+        "searches": [
+          "Meyer–Starke §2.8; Das et al., pp. 3–5, example, χᵒ definition and Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial χᵒ(G,x) uses the union of onto maps to all tournaments on subsets of an x-label set; the present polynomial fixes T₃ and records occurrences of its specific middle vertex.",
+          "The primary paper's directed three-vertex path example has one map to the fixed transitive tournament but its χᵒ counts both transitive and cyclic tournament possibilities."
+        ],
+        "reasoning": "Changing the polynomial variable or relabelling colors cannot recover the missing target-orientation and fibre information; these are different counted sets.",
+        "searches": [
+          "Resultary weighted middle-fibre and weighted three-level target counts, 50 hits per search",
+          "Das–Ghosh–Prabhu–Sen, EJC 30(1) #P1.47, publisher PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 9a13fca87a16 is the frozen record itself. The distinct Fibonacci match 43eb92391850 concerns path restrictions of a vertex bifiltration, not orientations admitting a map to T₃."
+        ],
+        "reasoning": "The same record cannot establish independent coverage; the shared recurrence or keyword in the distinct match does not identify the counted objects.",
+        "searches": [
+          "Resultary weighted middle-fibre, connected-bipartite half-gap, path orientation Fibonacci, and weighted three-level target counts (50 hits each)"
+        ]
+      },
+      "rationale": "Existence and the path run characterization are consequences of the known directed-path duality, and the summed path count is a proper-coloring identity. The distinct quantitative content supported by the inspected evidence is the fixed-target middle-fibre/weighted reduction and the sharp orientation gap with a strict finite inequality and near-extremal trees. The closest tournament-polynomial primary source aggregates over targets and does not preserve the middle statistic. No independent matching catalogue entry or wider theorem establishing the claimed quantitative gap was found in the bounded comparisons.",
+      "residual_risks": [
+        "An exact three-chain counting reduction or the gap could be indexed under graph-homomorphism or #CSP terminology not covered by these comparisons; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic, not a fixed-target weighted count",
+          "evidence": "χᵒ is defined by taking the union over all tournament targets on label subsets; examples contrast directed and transitive 3-tournaments.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i1p47/pdf",
+          "material_read": "pp. 3–5, three-vertex examples, definition of OH* and χᵒ, Proposition 3; PDF text offsets 7693, 10330–14599",
+          "method": "Publisher OA PDF",
+          "title": "A Homomorphic Polynomial for Oriented Graphs",
+          "trigger": "Closest tournament-homomorphism polynomial precedent"
+        },
+        {
+          "assessment": "Existence coverage only for this comparison",
+          "evidence": "Directed-path duality gives the feasibility obstruction, not the weighted counts or sharp ratio.",
+          "identifier_or_url": "arXiv:2606.24711v3",
+          "material_read": "Abstract and §2.8, pp. 9–10, offsets 28100–32228",
+          "method": "OA PDF, bounded passages",
+          "title": "Almost Symmetric Linear Arc Monadic Datalog and Transitive Tournaments",
+          "trigger": "Broader transitive tournament homomorphism characterization"
+        },
+        {
+          "assessment": "Same record, not independent prior evidence",
+          "evidence": "Same residual closed-neighborhood graph, strict half-gap and path corollaries.",
+          "identifier_or_url": "2026/11/22/SCOPE-middle-fibre-independence-polynomials-and-a-sharp-orientation-ga--9a13fca87a16",
+          "material_read": "Finding and reduction/stability/path proof, offsets 0–6993",
+          "method": "Local mirror, bounded passages",
+          "title": "Middle-fibre independence polynomials and a sharp orientation gap for three-level targets",
+          "trigger": "Top catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–21, 27–35"
+      ],
+      "rationale": "The canonical reduction separates forced choices from a standard graph count and preserves all middle-fibre sizes. More importantly, the stability theorem quantifies how much is lost by introducing mixed vertices in a natural orientation problem, with a universal factor that is sharp even for trees. The Fibonacci and summed-coloring identities are illustrative consequences, not the basis of value.",
+      "residual_risks": [
+        "An independence-polynomial evaluation is not an efficient counting algorithm for arbitrary inputs. The half-gap is for the strict unweighted three-vertex target and connected bipartite bases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

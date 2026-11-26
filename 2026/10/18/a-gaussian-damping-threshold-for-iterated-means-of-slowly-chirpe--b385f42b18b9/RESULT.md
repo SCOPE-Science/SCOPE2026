@@ -2,7 +2,7 @@
 
 ## Finding
 
-The arithmetic (mean) transform of a positive weighted shift is an averaging operation. Nevertheless, slowly oscillating weights can produce three distinct topological regimes under repeated mean transforms. The critical frequency exponent is \(\beta=1/2\), where binomial averaging leaves a nontrivial Gaussian damping factor.
+The arithmetic (mean) transform of a positive weighted shift is an averaging operation. For the slowly oscillating weights below there are three damping regimes, with strong convergence only in the supercritical regime. The critical frequency exponent is \(\beta=1/2\), where binomial averaging leaves a nontrivial Gaussian damping factor.
 
 **Theorem.** Fix real \(0<\varepsilon<1\), \(\vartheta>0\), and \(0<\beta<1\). Let \(H=\ell^2(\mathbb N_0)\) over the complex numbers with orthonormal basis \((e_j)_{j\ge0}\). Let \(S e_j=e_{j+1}\) and let \(W_\beta\) be the strictly positive unilateral weighted shift
 \[
@@ -58,7 +58,7 @@ This is the stated binomial expectation, without approximation.
 |(h+Y_n)^\beta-h^\beta-\beta h^{\beta-1}Y_n|
 \le C_{\beta,j}n^{\beta-2}Y_n^2.
 \]
-Using \(|e^{iu}-e^{iv}|\le|u-v|\), expectation of the right-hand side is \(O(n^{\beta-1})\). The binomial Chernoff bound makes \(\mathbb P(|Y_n|>n/4)\) exponentially small; on its complement both exponentials have modulus one. Consequently
+Using \(|e^{iu}-e^{iv}|\le|u-v|\), expectation of the right-hand side is \(O(n^{\beta-1})\). The binomial Chernoff bound makes \(\mathbb P(|Y_n|>n/4)\) exponentially small; on that tail the difference of the two unit-modulus exponentials has absolute value at most two. Consequently
 \[
 \mathbb E e^{i\vartheta(h+Y_n)^\beta}
 =e^{i\vartheta h^\beta}\mathbb E e^{it_{j,n}Y_n}+O(n^{\beta-1}).
@@ -99,7 +99,7 @@ Lee, Lee, and Yoon introduced the mean transform and gave the binomial formula f
 
 ## Limitations
 
-The classification is proved only for the displayed power-phase family with \(0<\beta<1\), real \(0<\varepsilon<1\), and \(\vartheta>0\); it makes no general claim for arbitrary slowly oscillating weights. The asymptotic error in (1) is for each fixed coordinate and is **not** uniform in all coordinates. The sharp norm identities instead require a separate far-tail argument. No quantitative rate for strong convergence on arbitrary infinite-support vectors is claimed. The originality assessment is literature-limited; classical Euler summation may contain equivalent special asymptotics. The earliest precisely day-resolved online source used for archive dating is 21 July 2015; the antecedent 2014 paper was public earlier, but its exact initial-publication day was not independently verified.
+The classification is proved only for the displayed power-phase family with \(0<\beta<1\), real \(0<\varepsilon<1\), and \(\vartheta>0\); it makes no general claim for arbitrary slowly oscillating weights. The damping limits in (2) concern each fixed coordinate: even though the linearization error in (1) can be bounded uniformly in \(j\) (the Taylor segment on the central event lies in \([n/4,\infty)\)), the cosine power retains its dependence on \(j\). The sharp norm identities instead require a separate far-tail argument. No quantitative rate for strong convergence on arbitrary infinite-support vectors is claimed. The originality assessment is literature-limited; classical Euler summation may contain equivalent special asymptotics. The earliest precisely day-resolved online source used for archive dating is 21 July 2015; the antecedent 2014 paper was public earlier, but its exact initial-publication day was not independently verified.
 
 ## References
 

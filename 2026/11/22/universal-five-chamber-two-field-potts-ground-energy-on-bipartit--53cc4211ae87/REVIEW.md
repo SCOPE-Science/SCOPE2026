@@ -1,15 +1,21 @@
-# Scientific review: universal two-field triangle-expanded Potts ground energy
+# Independent mathematical audit
 
-## Correctness
-PASS. A direct reconstruction gives six graph-independent inequalities for monochromatic bond count, color-zero count, and color-two count. The proof combines these inequalities on a full cover of the ordered two-field quadrant. A proper three-edge-coloring exists for every cubic bipartite base and realizes all five sharp branches; an interior affine-support argument forces the listed color population in each chamber. The separate integer/rational checker correctly constructs two unrelated bipartite cubic examples and passes 3,010 supplementary checks. The theorem is analytic and holds for arbitrary size; sampling is only an implementation stress test. Checked the normalization by writing the field energy relative to \(h_2\): \((E_0+3mh_2)/J=-3my+\min(e-xa+yc)\).
+## correctness
 
-## Originality
-PASS, with limited historical priority assurance. Full-text comparisons with Shrock and Xu (arXiv:1009.1182v1) and Dasu and Marcolli (arXiv:1412.7925) show general field-dependent partition-polynomial methods but no evaluated two-independent-field five-chamber formula on the triangle expansion of any cubic bipartite base. The closest indexed one-field cubic line-graph result concerns \(L(G)\) rather than \(L(S(G))\), and only one adjustable color field. A separate truncated-tetrahedron census concerns the nonbipartite base \(K_4\) and one field. Existing general partition representations can calculate this model in principle, but the specific sharp universal envelope does not follow from their stated results without a new all-size inequality-and-sharpness argument. Unindexed prior calculations on Fisher or triangle-expanded lattices remain a residual risk.
+PASS
 
-## Value
-PASS. A full graph-family ground-state phase classification in two control parameters is a motivated structural result in frustrated spin-statistical mechanics. The five compositions and their universal transition chamber geometry persist over arbitrarily large, nonisomorphic bipartite cubic bases. This is qualitatively stronger than another fixed finite-cluster enumerative phase diagram, and the simultaneous sharpness mechanism is a reusable mathematical explanation rather than a table. The claim does not assert macroscopic thermodynamic transitions or unproved state-count formulas.
+With a=n0 and c=n2, the normalized colored energy is -3my plus Q=e-xa+yc. Per triangle, the equal-bond count is at least a_v-1 and at least 1-c_v. The external matching contributes at least max(0,a-3m/2). These imply e-a≥-m, e-2a≥-5m/2, e+c≥m, e-a+c≥-m/2; recoloring to all zero gives e-3a≥-9m/2, and e≥0. The five chamber bounds follow from these inequalities: interpolation about (0,0),(1,0),(0,1) for the first, the four indicated quadrilateral corners for the second, the edge from (0,1) to (1,1) plus c≥0 for the third, the edges (1,1) to (2,0) and (2,0) to (3,0) plus c≥0 for the fourth, and a≤3m with the bound at (3,0) for the last. Hall's condition follows by counting cubic incidences across the bipartition; removing successive perfect matchings gives the three labels in the witness table. Counting the equal triangle bonds in the five witnesses gives respectively 0,m/2,m,m,3m; the external counts are 0,0,0,m/2,3m/2. The populations give exactly the branch slopes, so all bounds are sharp, including boundaries by continuity. If a color configuration minimizes at an interior point, its affine difference from the active branch is nonnegative nearby and vanishes there, hence all coefficients agree, giving population and bond-count uniqueness. This passes the stated bipartite Finding. The off-scope suggestion in Limitations that the zero-frustration branch can fail on a cubic base without a proper edge-three-coloring is not correct: the triangle expansion has maximum degree three and no K4 or odd-cycle component, so Brooks' theorem gives a proper vertex-three-coloring, necessarily rainbow on every triangle and a witness for the zero-bond branch. That comment is not a premise, consequence, or part of the audited chamber law.
 
-## Limitations and closest sources
-First cited public source: Shrock and Xu, 2010-09-07; supporting comparison Dasu and Marcolli, 2014-12-26. Indexed prior results on one-field three-color Potts systems and binary Ising systems are not two-field all-graph implications. The theorem assumes finite simple cubic bipartite bases, identical positive exchange constants, three labeled colors, and strict ordered fields. No boundary degeneracy counts are claimed. Literature overlap is checked on accessible evidence, not claimed absolutely absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest distinct results share either the graph transformation or a field-envelope problem, not the independent two-gap envelope and all-graph sharpness together. The explicit support faces and the constant five chamber populations are not supplied by the inspected general field formalism.
+
+## value
+
+PASS
+
+In a locally frustrated antiferromagnet with two independent color preferences, the zero-temperature support diagram is a natural finite-size exact question. This gives all five exact affine phases and their forced compositions, with no graph-size asymptotics or appeal to enumeration, and explains universality through matching and local energy inequalities. It is a quantitative benchmark for graph and parameter changes, rather than a claim of a thermodynamic transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

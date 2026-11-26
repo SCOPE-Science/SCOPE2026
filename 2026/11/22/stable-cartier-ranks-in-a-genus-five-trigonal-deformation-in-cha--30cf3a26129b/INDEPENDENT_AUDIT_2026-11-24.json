@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:59:08.522251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md lines 4–74; verify.py and VERIFICATION.md (inspected, not executed)",
+        "checks/cartier.py"
+      ],
+      "rationale": "In the cubic model a repeated root requires u^5=2/3 and t=-5u^3/2, hence t^5=6. For each such t the repeated root is unique (u^3 and u^5 determine u), and N'' is nonzero there, so the normalized genus drops to four. Else the valuations -1, five +1's and -4 give seven tame total branch points, connectedness and genus five. The valuation checks at zero, infinity and the finite roots give the five regular differentials; their distinct monomials within two character spaces give independence. Cartier with exponent e=(11j'-j)/3 swaps the characters and extracts terms of exponent 11(q+1)-1. Replay python3 -B /workspace/checks/cartier.py enumerates trinomial words to recover the matrix and computes actual iterates by applying inverse Frobenius to each matrix action over F_11[t]/(t^5-2). It finds ranks [4,3,2,2,2,2,2,2,2,2], and the rooted tenfold map is idempotent, with Frobenius equal to the displayed P10. For all nonzero t the two blocks have rank two. The upper block selects the last two rows of the twisted lower block, whose determinant before twisting is -4t^3(t^5-2). Away from that zero, the two-step map is invertible on the two-dimensional character space and its transported two-dimensional image; thus stable rank is four, not just rank four at the first step. At t=0 the matrix vanishes. Frobenius on roots of t^5=2 and t^5=6 multiplies by 4 and 3 respectively, each of order five, giving both splitting counts. Fifth-root rescaling of u with a cube-root scaling of v proves the geometric isomorphism-orbit assertion.",
+      "residual_risks": [
+        "Excluded parameters refer to the degeneration of the genus-five pencil; their smooth projective normalizations are not themselves singular. Counts are of coefficients, not abstract isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kudo–Harashita p. 1 describe enumeration of superspecial trigonal curves, including small characteristics, not enumeration of every nonsuperspecial fiber.",
+          "The genus-four cyclic trigonal classification is for y^3=x^5+ax+b with a different genus and branch data."
+        ],
+        "reasoning": "The superspecial classification addresses the central case. A bound from the 2/3 dimensions and swapping characters forces f<=4 but cannot distinguish f=2 at t^5=2 from f=4 elsewhere.",
+        "searches": [
+          "Kudo–Harashita arXiv:1804.11277v1",
+          "Kudo arXiv:1807.04394v2",
+          "Resultary:a4de8ad6d49a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.04394v2 and 1804.11277v1 (partial)",
+        "Resultary:6f09349dfe43, a4de8ad6d49a, 30cf3a26129b (target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The central superspecial criterion contains p=11; the twist record's stated coefficients vary within the central monomial geometric form.",
+          "The claimed exceptional rank arises from a minor proportional to t^5-2 and the semilinear stable rank on that divisor, rather than from superspeciality or first-step rank alone."
+        ],
+        "reasoning": "A broader algorithm for computing Hasse–Witt matrices supplies a method, not the exceptional divisor and ranks without computing this deformation. The reviewed comparisons establish existing coverage of t=0, not of the supported nonzero-parameter claim.",
+        "searches": [
+          "arXiv:1807.04394v2 p. 1; arXiv:1804.11277v1 p. 1; Resultary:6f09349dfe43, a4de8ad6d49a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The plane pencil on X!=0 is v^3=(u^5+t u^2+1)/u, hence also w^3=u^2(u^5+t u^2+1) with w=uv.",
+          "Kudo arXiv:1807.04394v2, p. 1, identifies exactly XYZ^3+X^5+Y^5=0 as the central superspecial model in characteristic 11. Resultary:6f09349dfe43 treats diagonal twists of that monomial model."
+        ],
+        "reasoning": "Changing coordinates on the cyclic base or diagonal-twisting the central fiber is natural prior coverage to check. A geometric twist of the center preserves its a-number 5 and cannot account for nonzero fibers with a-number 1.",
+        "searches": [
+          "Resultary: characteristic 11 genus five cyclic cubic pencil Kudo t^5=2 stable Cartier",
+          "Primary: Kudo–Harashita Superspecial trigonal curves of genus 5 characteristic 11 rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "30cf3a26129b is exactly the assigned record, not an independent earlier source.",
+          "6f09349dfe43 catalogs four Weil spectra for twists and a4de8ad6d49a catalogs Cartier strata for a different genus-four family."
+        ],
+        "reasoning": "Marked coefficient counts over all extension degrees, after removal of t^5=6, are not supplied by spectra for twists or by genus-four strata.",
+        "searches": [
+          "Resultary: marked genus-five characteristic-11 t^5=2,6 Cartier rank strata and parameter count"
+        ]
+      },
+      "rationale": "Pass is for the marked nonzero-parameter stratification through the degree-five rank-drop locus and the resulting coefficient counts. The central superspecial fiber and the general Hasse–Witt/Cartier machinery are known; so is the type of character-space bound, which cannot determine a jump divisor.",
+      "residual_risks": [
+        "Full relevant sections of the cited enumeration papers and the distinct catalog records were not accessible in the attempted reads. An unindexed computation or differently marked form could cover some nonzero strata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing coverage of t=0",
+          "evidence": [
+            "The desingularization of xyz^3+x^5+y^5=0 is superspecial/maximal in the indicated residue classes, including p=11."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.04394",
+          "material_read": "v2 p. 1 abstract, extract lines 13–16",
+          "method": "arXiv PDF excerpt after targeted OA attempts",
+          "title": "A note on certain superspecial and maximal curves of genus 5",
+          "trigger": "Exact same central equation"
+        },
+        {
+          "assessment": "Inspected scope is enumeration of superspecial trigonal curves",
+          "evidence": [
+            "The abstract describes enumeration over finite fields and completeness results in small characteristic for superspecial curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.11277",
+          "material_read": "v1 p. 1 abstract (lines 13–16) and introduction excerpt (26–30); detailed theorem and appendix not independently retrieved",
+          "method": "Primary search and arXiv PDF excerpt",
+          "title": "Superspecial trigonal curves of genus 5",
+          "trigger": "Same genus, superspecial center and computational machinery"
+        },
+        {
+          "assessment": "First treats central twists; second has different genus and generic form",
+          "evidence": [
+            "The former enumerates Weil spectra among diagonal twists; the latter gives genus-four strata (0,4),(0,2),(2,2)."
+          ],
+          "identifier_or_url": "Resultary:6f09349dfe43; Resultary:a4de8ad6d49a",
+          "material_read": "Catalog summaries only; full texts not retrieved",
+          "method": "Resultary semantic search",
+          "title": "Four Weil spectra and a fifth-extension dichotomy among superspecial twists; Complete Cartier strata for a genus-four cyclic trigonal family",
+          "trigger": "Potential same curve in another form, or containing stratification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md, Finding, lines 4–23 and proof, lines 33–71"
+      ],
+      "rationale": "This is a motivated deformation of a known superspecial center preserving the seven-point cubic-cover structure. The a-number stays one on all nonzero genus-five fibers, while the stable Cartier rank drops on exactly one degree-five closed point. Locating that distinction and the excluded points gives a complete, arithmetic family invariant rather than a few finite-field examples.",
+      "residual_risks": [
+        "No stratification by Newton polygon, a classification of all trigonal genus-five curves, or generic isomorphism count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

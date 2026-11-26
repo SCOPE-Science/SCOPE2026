@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:41.522468Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–51",
+        "Frozen VERIFICATION.md and verify_prime_majority.py",
+        "/workspace/branches/review_replay.py (argument 1)"
+      ],
+      "rationale": "Cauchy–Davenport makes 4A all of F_p once |2A|≥(p+1)/2. For p=4m+1, strict majority gives |A|≥m+1, enough directly. For p=4m+3≥19 the only remaining case is |A|=m+1, |2A|=2m+1≤p−2. Both summands have size ≥2, so Vosper makes A an arithmetic progression. Independently checking the obstruction: restrict starting points x to x≠0,−1,−2; the three pair-character sums are −1−χ(2), 0, −1−χ(2), from the full sum −1 (count (u−v)(u+v)=1) and subtraction of the excluded terms with χ(−1)=−1. The equal-sign indicator is (1+ab+ac+bc)/4, and x↦−2−x exchanges the two common signs. Thus each sign has (p−5−2χ(2))/8 starts. Dividing a progression by its nonzero step produces m−1 distinct starts of one sign, more than this count. This covers every prime ≥13 in both congruence classes. At 7 and 11, iterated Cauchy–Davenport gives 6A and 5A respectively. Independent enumeration of multisets with repetition found the stated witnesses miss exactly {4}, {0,2}, and {0} at (p,h)=(7,5),(11,4),(13,3) and miss nothing at h+1. It also checked membership and strict majority. Replay: `python3 /workspace/branches/review_replay.py 1`. The frozen verifier was read but not executed.",
+      "residual_risks": [
+        "The independent finite replay checks the three sharpness witnesses only; the proof handles all primes in scope. No assertion for p=2,3,5 or for the best order at each p>13."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former requires s≥6k−2; at k=2 it covers s≥10 with modulus coprime to 30. Lim's theorem treats s≥5 with sufficiently large prime factors and a density threshold on squares including zero."
+        ],
+        "reasoning": "Coverage at a larger summand count does not descend to four. Neither theorem treats the sharp small fields or the stated uniform range at four.",
+        "searches": [
+          "Lacey–Mousavi–Rahimi–Vempati arXiv:2610.22747v1, majority theorem",
+          "Lim arXiv:2508.14939v1, Theorems 1.1 and 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6886428cd7e2 and d08a73e76429",
+        "arXiv:2610.22747v1 and arXiv:2508.14939v1, theorem passages",
+        "Standard Vosper critical-pair theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vosper gives an arithmetic progression in the critical |2A| case. It contains no square-residue restriction. The additional needed step is ruling out a progression of length (p+1)/4 in Q_p when p≡3 mod 4 and p≥19."
+        ],
+        "reasoning": "The inverse theorem alone does not rule out the obstruction; that is the job of the character argument. No inspected stronger covering theorem supplied the fourfold assertion by specialization. A classical equivalent progression bound remains a plausible source risk.",
+        "searches": [
+          "Vosper, The Critical Pairs of Subsets of a Group of Prime Order, DOI 10.1112/jlms/s1-31.2.200",
+          "Density Waring theorem comparison and Resultary critical progression/consecutive patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The related Resultary theorem uses pairwise distinct summands from the full set of unit squares modulo p², not repeated summands from every strict majority modulo p."
+        ],
+        "reasoning": "Projection modulo p neither restricts the sources to an arbitrary A nor turns distinct lifted squares into a density theorem for every such A.",
+        "searches": [
+          "Resultary: majority nonzero quadratic-residue fourfold sumset and restricted coverage",
+          "Resultary 6886428cd7e2, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The consecutive-pattern classification lists exceptional orders (including 13) for four consecutive symbol positions; Lim's obstructions use s≥5 at large primes and density below 1/s."
+        ],
+        "reasoning": "Those exceptions concern different predicates, not the universal covering orders or the p=13 sharpness witness. No inspected matching table supplied the frozen invariant.",
+        "searches": [
+          "Resultary: exceptional primes and consecutive quadratic-character patterns, record d08a73e76429",
+          "Lim Theorem 1.3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the uniform sharp four-summand cover for a strict majority of nonzero prime-field squares, together with the precise small-field obstructions in scope. The bounded comparison did not establish equivalent coverage. It does not assign novelty to Cauchy–Davenport, Vosper, or the general technique of quadratic-character pair sums.",
+      "residual_risks": [
+        "Bounded coverage; an older equivalent long-residue-run theorem or implicit sharp covering corollary may not have been retrieved. No priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantification and modulus",
+          "evidence": "Distinct-square representations modulo p², at 3≤k≤|Q_p|−3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-complete-restricted-sum-coverage-spectrum-of-quadratic-units--6886428cd7e2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The complete restricted sum coverage spectrum of quadratic units",
+          "trigger": "Same-date quadratic-unit covering theorem"
+        },
+        {
+          "assessment": "Pattern table, not a sumset table",
+          "evidence": "Sign patterns on x,x+1,x+2,x+3; field order 13 in its exceptions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-four-sign-quadratic-residue-universality-over-finite-field--d08a73e76429",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp four-sign quadratic-residue universality over finite fields",
+          "trigger": "Consecutive character patterns and exceptional fields"
+        },
+        {
+          "assessment": "Larger number of summands",
+          "evidence": "s≥6k−2, density >1/2, modulus coprime to R_k; k=2 gives s≥10 and R_2=30.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22747v1",
+          "material_read": "p. 3, offset 10000, Theorem 1.6; HTML v1 offset 6600 labels it Theorem 1.7",
+          "method": "Primary open PDF and HTML comparison",
+          "title": "Density Bounds in Hua's Theorem for Prime Squares",
+          "trigger": "The same strict majority hypothesis on reduced powers"
+        },
+        {
+          "assessment": "Different thresholds, s≥5 and a large-prime-factor requirement",
+          "evidence": "Theorems 1.1 and 1.3 use density relative to squares including zero, and do not contain the finite sharpness witnesses in scope.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.14939v1",
+          "material_read": "Theorems 1.1 and 1.3, pp. 1–2, offsets 3150 and 5200",
+          "method": "Primary open PDF",
+          "title": "On the density version of quadratic Waring's problem and the quadratic Waring–Goldbach problem",
+          "trigger": "Low-summand quadratic density coverage and counterexamples"
+        },
+        {
+          "assessment": "Inverse step, not itself an exclusion of residue progressions",
+          "evidence": "The known theorem applies to the critical-pair equality; publisher access failed and no negative literature inference is made.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-31.2.200",
+          "material_read": "No original full text verified",
+          "method": "DOI/publisher and open-copy access attempts; standard theorem used in proof reconstruction",
+          "title": "The Critical Pairs of Subsets of a Group of Prime Order",
+          "trigger": "Inverse theorem used in the proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Lacey et al. majority covering theorem",
+        "Independent finite witness replay"
+      ],
+      "rationale": "This identifies the exact uniform additive basis order at a natural density threshold in a multiplicative subgroup. It resolves the case where direct Cauchy–Davenport alone can leave |2A| one short of covering after doubling, and shows exactly why a uniform order of three cannot replace four. The arithmetic-progression obstruction and the separate orders at 7 and 11 distinguish structural and small-field effects, rather than merely recomputing a table.",
+      "residual_risks": [
+        "Does not assert optimality at each large prime or extend to prime powers or composite moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: odd-length circular universality extremizers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes equivalence between \(k\) mixed-letter arches in a length-\(2k+1\) rotation and a near-perfect matching of unlike cyclic edges. Deleting equal-letter edges leaves paths whose exact matching capacities imply a unique even-run parity defect. A canonical distinguished equal-letter edge gives a bijective rooted enumeration, and exactly two binary lifts exist per even-parity transition vector. Any nontrivial power would repeat the unique defect, so all maximizers are primitive. The fixed-cut arch enumeration then gives the rescued count. Both inequalities and endpoint \(k=1\) are explicitly treated. The packaged checker corroborates all binary words through length \(16\) and seeded longer cases; finite checks are not used as a substitute for proof.
+PASS
 
-## Originality — PASS, with specified residual risk
+Greedy shortest rich blocks determine the linear index: the sequence of their closing letters followed by a letter absent from the remainder is a missing subsequence, since the earliest possible embeddings of the closing letters are the arch endpoints. Each rich factor supplies an adjacent unlike pair, and k disjoint unlike edges on the odd cycle leave one vertex unmatched; cutting there linearizes all k pairs. Removing the equal edges leaves paths, isolated vertices included. A path with t edges leaves t+1 modulo 2 vertices uncovered by a maximum matching, so maximality means exactly one even t. For counting, distinguish the equal edge after that unique even run. If there are 2h odd runs, the 2h+1 run-plus-terminal-edge lengths have base lengths 2,...,2,1 and even excess; the resulting composition count is binom(k,2h). The sum is 2^(k-1) for k>=1. There are 2k+1 labels for the distinguished edge and two binary lifts of each transition vector. An odd maximizer uses k and k+1 symbols (it must realize both constant targets), so it cannot be a nontrivial power; equivalently, a rotation stabilizing it must fix the distinguished edge. Thus each necklace has 2k+1 distinct origins. The two fixed-origin cases (all arches of length two with one remaining symbol, or one length-three arch) are disjoint by greedy uniqueness and give (k+2)2^k, proving the rescue count by subtraction. The k=1 result and zero-length even runs are included.
 
-Barker et al. (2020), arXiv:2003.04629, introduce circular universality and the necessary arch framework. Schnoebelen and Veron (2023), arXiv:2304.11932, compute the circular index of an individual word and generalize arch tools. Their complete accessible texts were examined. The known exact linear-universality enumeration counts words with an optimal *fixed* reading origin, not the union of optimal rotations. The inspected sources do not state the unique odd-cycle parity defect, exact odd-length maximizing necklace count, or blanket primitivity. Published research-record searches and available earlier claims did not expose an equivalent or dominating result. The full text of Fleischmann, Germann, and Nowotka (2021), arXiv:2104.09063, was inaccessible; an equivalent theorem elsewhere remains possible. No external novelty certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Odd length \(2k+1\) is a sharp one-letter slack regime for \(k\) mixed-letter arches. Rather than merely counting a special example, the theorem classifies *every* maximizing cyclic word, proves that orbit stabilizers vanish, and quantifies rotation-rescued words exactly. The difference between fixed-cut and cyclic universality is a natural mathematical gap, and the complete parity/matching/necklace description is a nontrivial finite-alphabet classification valid for all \(k\ge1\).
+The contribution is the odd extremal run criterion and circular maximizer census. Linear arch methods and the fixed-origin count are prior or immediate from prior methods; primitivity itself follows from the coprime symbol multiplicities, and the rescue count follows by subtracting the known linear count once the circular count is available. Distinct later catalog entries overlap substantially, including an exact match on the odd parity criterion, labeled/necklace counts and primitivity. The bounded comparison found no earlier covering statement for the circular classification and counts, without asserting exclusive priority or independent origin across catalog entries.
 
-## Scope and verification limits
+## value
 
-The claim is binary and odd-length only; even-length and larger-alphabet analogues, and nonmaximal index distributions, are not asserted. The unavailable 2021 full text is an originality risk. The verification program is a finite cross-check; the all-length conclusions rely on the proof in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The shortest odd length at which index k is possible is a natural one-extra-letter regime. Classifying all maximizers by a local parity statistic and using it to count necklaces determines precisely what rotations add to the known linear count. The proof works uniformly rather than extrapolating a short census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

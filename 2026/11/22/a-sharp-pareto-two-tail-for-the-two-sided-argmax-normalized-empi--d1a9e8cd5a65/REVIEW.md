@@ -1,13 +1,21 @@
-# Scientific review of the two-sided location-normalized empirical-process tail
+# Independent mathematical audit
 
-**Correctness — PASS.** The statistic is defined using the same maximizing rank before division as Ferger's two-sided formulation. The event of a large ratio localizes to an order statistic near either null-CDF endpoint. At the lower corner the other order statistics must occupy explicit disjoint intervals, yielding an exact integral. Reflection doubles its contribution; any other high-ratio event requires at least two endpoint-near observations, with probability of order at most the fourth inverse power. A 96-assertion checker independently evaluates the formulas and simulates the unmodified statistic. Infinite tail-threshold conclusions are proved analytically.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The primary paper's one-sided full null CDF is known, and that side is not presented as original. Its two-sided result is a weak limit, not the stated fixed-sample endpoint-corner tail coefficient. Searches targeted the two-sided argmax weight, exact tail, moment threshold, generalized weighted KS statistics and old maximizing-location results. No stronger, explicitly covering result was located. A classical joint maximum/location distribution could conceivably imply the coefficient after additional analysis, so this is not a certification of historical priority.
+PASS
 
-**Value — PASS.** The exact factorial coefficient is relevant to extreme-null calibration of a published two-sided goodness-of-fit procedure. The infinite finite-sample variance, logarithmic truncated-moment growth and very rapidly shrinking coefficient with sample size explain a consequential distinction between finite-sample tail risk and ordinary weak-limit calibration. This is more than a renamed identity or arbitrary finite-sample case.
+For iid observations under a specified continuous null, the probability integral transform gives uniform order statistics. On each affine piece of the deviations, an equality between competing ranks lies on a null hyperplane. The numerator is bounded by one, so any exceedance forces the winning order statistic within 2/t² of an endpoint. Unless it is the first rank at zero or the last rank at one, there must be two observations in that endpoint interval, an O_n(t^-4) event. For a first-rank winner at u<1/(2n), competing ranks each occupy one of the disjoint intervals ((i-1)/n+u,i/n-u). The squared exceedance condition is (1+t²)u²-(t²+2/n)u+1/n²>0; its small root is 1/(n²t²)+O_n(t^-4). The simplex density n! gives n! times the integral of (1/n-2u)^(n-1) up to that root. Reflection doubles its leading coefficient to 2(n-1)!/n^n. Tail integration then gives precisely the q<2 moment range for q>0 and the stated logarithmic truncated second moment. This checks fixed n≥2 only, not a joint n,t limit. Inspected RESULT.md §§1–4, VERIFICATION.md and checker.py; the finite checker was not run and is not part of the proof.
 
-Closest literature: Ferger (2022/2023), Theorem 2.1 (one-sided exact CDF), Theorem 2.3 and Appendix A.1 (two-sided weak law and order-statistic representation), arXiv:2207.07947. The journal version has the same title and publication metadata, but exhaustive comparison of every possible earlier general result is not claimed.
+## originality
 
-Limitations: fixed \(n\), asymptotic in the tail threshold only; no complete two-sided finite-sample CDF, no uniform-in-sample-size rate, no claimed finite-level calibration accuracy. External independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass is for the explicit factorial far-tail coefficient with the O_n(t^-4) error, not for the statistic, a full CDF, or historical priority. Ferger's one-sided exact CDF and two-sided weak limit do not furnish this finite-n expansion. A separate same-day exact-CDF record genuinely covers the same distribution, but its verified statement is a general piecewise algebraic calculation, not an explicit inverse-square expansion; the endpoint-volume and noncorner estimates do additional work. That record mentions an earlier coefficient without identifying an independent source; it could refer to the reviewed finding. No distinct source for the explicit expansion was established.
+
+## value
+
+PASS
+
+This is an explicit tail invariant of a published goodness-of-fit statistic. It identifies divergence of the finite-sample variance despite an exponentially small far-tail coefficient as sample size grows, and gives an inexpensive severe-tail asymptotic without evaluating an exact piecewise algebraic CDF. No ordinary test-level accuracy or uniform threshold regime follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

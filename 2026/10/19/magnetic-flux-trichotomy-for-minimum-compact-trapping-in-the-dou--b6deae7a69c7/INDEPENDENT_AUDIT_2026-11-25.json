@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:45:18.975603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At λ=±t, projecting the dimer equation onto its λ eigenspace gives T*h orthogonal to this eigenspace. The orthogonal part of z is T*h/(2λ); TT*=4t²I then makes the hub inner-product equation λ||h||²=2λ||h||², forcing h=0. Equivalently the projected equation relates adjacent hubs by a nonzero phase, so one zero vertex propagates to all hubs for a finitely supported state. Each occupied edge then contributes exactly its two dimer sites, and the residual condition is precisely the signed magnetic incidence equation. Its nonzero support has no degree-one vertex. A graph with minimum degree two and at most six edges is a single cycle: two distinct square cycles can share at most one edge, and a distinct cycle cannot be contained in a simple six-cycle. No even cycles shorter than four exist, and four- and six-cycles enclose one and two squares respectively. They are admissible exactly at the stated holonomies. In the seven-edge witness at the displayed origin the hub equations reduce, among others, to b-a+f=0, d-c-ωf=0, and -d-ω²g=0; the other three are a+e=0, g-b=0, and c-e=0. The supplied coefficients solve all six, with only f dropping out at ω=-1. The zero-flux square solves its four equations. Tail checkerboard parity gives the other energy, preserving every occupied site, and the energy difference is 2t in the stated time convention. No rational-flux assumption enters. I inspected the frozen nested verification/lieb5_flux_checker.py, which constructs the open matrix and checks numerical null vectors at five fluxes and both signs, plus finite candidate-edge enumeration. It was not run and does not certify infinite-lattice minimality or the printed symbolic witness; those follow from the analytic checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanafi gives octagonal Lieb-5 rings, the two β=±t flat bands and beating at Δβ=2t. Centała–Kłos explicitly treats the doublet-linked extended Lieb-5 and its two flat bands with compact modes.",
+          "Gouveia and coauthors require at least two plaquettes for magnetic Lieb localization on their lattice. Zhang's eight-peak beating discussion treats Lieb-II with spacing 2√2 t.",
+          "The general gain-graph criterion is available in Tanigawa. The cited Zaslavsky full text could not be obtained, so no passage from it is relied on."
+        ],
+        "reasoning": "There is substantial overlap in topology, nonmagnetic modes and circuit theory. The checked passages do not give the physical eigenstate reduction for a magnetic chain with two interior sites per edge at each of its two nonzero flat-band energies. The flux-plaquette bound neither fixes the special half-flux threshold nor counts the physical sites in this model.",
+        "searches": [
+          "Hanafi et al. arXiv:2207.01480, pp. 3–4",
+          "Zhang et al. arXiv:1605.04389, pp. 1, 7–8",
+          "Centała–Kłos DOI:10.1038/s41598-023-39816-w, p. 5",
+          "Gouveia–Maceira–Dias arXiv:1607.04326, pp. 1, 7",
+          "Zaslavsky DOI:10.1006/eujc.1994.1034 and Tanigawa arXiv:1207.3601, §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Mirrored Resultary flux-selected Lieb zero-mode Finding and proof",
+        "Hanafi arXiv:2207.01480",
+        "Zhang arXiv:1605.04389",
+        "Centała–Kłos DOI:10.1038/s41598-023-39816-w",
+        "Gouveia–Maceira–Dias arXiv:1607.04326",
+        "Tanigawa arXiv:1207.3601",
+        "Zaslavsky DOI retrieval attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-midpoint proof sets H(u,z)=0, obtaining Bz=0 and B†u=0 separately. For the two-site dimer, the λ-eigenvalue equation has a nonzero internal block and does not separate this way.",
+          "Projecting onto the singular λ eigenspace of each dimer supplies a solvability constraint on hubs; after excluding hubs the support-preserving correspondence is x_e↦(x_e,sx_e). The standard circuit result then gives precisely the combinatorial thresholds."
+        ],
+        "reasoning": "Knowing the minimum of ker B and that one can lift its elements supplies upper bounds only. The required opposite direction is an operator statement: every compact eigenstate at the specified nonzero energy must belong to the dimer-mode image. Without it a smaller Hubbard-vertex or mixed-support state is not excluded by the zero-mode result. This new reduction works uniformly in flux and proves physical support doubling as an exact relation. The proof of the 4/6/7 invariant itself is fully credited to the available equivalent machinery.",
+        "searches": [
+          "Mirrored Flux-selected minimum-support states RESULT.md, first proof step and graph constructions",
+          "Hanafi arXiv:2207.01480, modes at ±t",
+          "Tanigawa arXiv:1207.3601, balanced cycles and frame independence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strong indexed Finding gives occupied-site minima 4, 6, 7 for zero modes on one midpoint per edge, with B columns (1,-1) horizontally or (1,-exp(i x phi)) vertically.",
+          "Tanigawa's frame-matroid criterion uses the balanced-cycle linear class and independence of trees and single unbalanced cycles."
+        ],
+        "reasoning": "After a bipartite sign change the target coefficients satisfy that same gain incidence kernel. The balanced unit square, balanced double-square perimeter, and generic unbalanced theta are the same three circuit cases. Equality of edge-kernel problems is genuine; it must not be inferred to identify the physical Hamiltonians before proving elimination of hubs and forcing both dimer amplitudes at ±t.",
+        "searches": [
+          "Local Resultary: magnetic Lieb minimum compact support, twice-subdivided square lattice, flux-dependent 4/6/7 edge or 8/12/14 site minima",
+          "Tanigawa arXiv:1207.3601, §4.1",
+          "Mirrored Flux-selected minimum-support states RESULT.md, Finding, Assumptions and first proof step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed one-midpoint theorem prints exactly 4, 6, 7 in the same three flux regimes and gives the double-plaquette support. Its Hamiltonian is off-diagonal in hubs and midpoints and the target energy is zero.",
+          "The frozen result instead counts original hubs and both new sites of each edge dimer in the full equal-hopping operator, with energy ±t."
+        ],
+        "reasoning": "The database does cover the exact incidence invariant; dating is not the basis for distinguishing it. No separate all-flux physical-site support result for the twice-subdivided nonzero-energy operator was established by the inspected ranked match, and the zero-mode hypothesis cannot simply be replaced by ±t.",
+        "searches": [
+          "Local Resultary: flux-selected minimum support in magnetic Lieb lattices; compact eigenstates on extended Lieb-5",
+          "2026/11/2/SCOPE-flux-selected-minimum-support-states-and-equal-intensity-resonan--f9ff1a03d05e/RESULT.md, mirrored Finding and proof"
+        ]
+      },
+      "rationale": "The distinct supported claim is the all-flux exact physical-site minimum at the two nonzero energies of the twice-subdivided Hamiltonian, using the reduction that excludes original-vertex amplitudes and identifies the full compact eigenspaces at those energies. The 4/6/7 ground-graph circuit answer, the zero-flux eight-site mode, and two-band beating at zero flux are not novel. The strongest indexed result has exactly the same reduced incidence kernel but is a one-midpoint Hamiltonian at zero eigenvalue; it supplies the complete incidence minimum once the additional nonzero-energy dimer reduction is proved, not the target physical minimum or that reduction by itself.",
+      "residual_risks": [
+        "A more general magnetic subdivision/eigenspace theorem or other physical application of gain-graph theory could explicitly subsume the dimer reduction; no such exact physical implication was established in the checked material.",
+        "Genealogy of the closely matched indexed incidence problem is unresolved. The graph cutoff and unthreaded beating are existing coverage regardless of date. Zaslavsky's 1994 full text remained unavailable. The primary search's unrelated hits are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the incidence problem; the Hamiltonian, energy and physical degrees of freedom are different",
+          "evidence": "The one-midpoint Hamiltonian is [0 B; B† 0]; at zero its fixed-gauge kernel supports have minima 4/6/7.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-flux-selected-minimum-support-states-and-equal-intensity-resonan--f9ff1a03d05e/RESULT.md",
+          "material_read": "Finding, Assumptions and the initial hub-exclusion proof, offsets 0–2920, and described graph constructions",
+          "method": "Local Resultary search and read of mirrored passages at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Flux-selected minimum-support states and equal-intensity resonance in a magnetic Lieb waveguide lattice",
+          "trigger": "Strongest indexed match: exact same flux regimes, type of compact support and reduced counts"
+        },
+        {
+          "assessment": "Direct zero-flux overlap; these passages do not establish a magnetic support theorem",
+          "evidence": "The compact modes 'take the form of octagonal rings of lattice sites'; their superposition at β=±t oscillates at Δβ=2t.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.01480",
+          "material_read": "pp. 3–4, octagonal compact modes and two-flat-band beating, offsets near 9200 and 13250",
+          "method": "Relevant OA PDF passages",
+          "title": "Localized dynamics arising from multiple flat bands in a decorated photonic Lieb lattice",
+          "trigger": "Same twice-decorated unthreaded Lieb-5 lattice and same energy pair"
+        },
+        {
+          "assessment": "Close physical antecedent, but the quoted mode and spacing do not establish the doubly decorated magnetic minima",
+          "evidence": "Figure 4 describes eight input peaks; the ensuing Lieb-II oscillation between octupole and quadrupole has spacing 2√2 t.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.04389",
+          "material_read": "Abstract, Figure 4 caption and pp. 7–8 discussion of the oscillating mode, around offsets 1650, 32300 and 36650",
+          "method": "Relevant OA PDF passages",
+          "title": "New face-centered photonic square lattices with flat bands",
+          "trigger": "Earlier close multiband lattice and compact oscillation result"
+        },
+        {
+          "assessment": "Same extended topology and compact two-band phenomenon, not the magnetic minima in the inspected statement",
+          "evidence": "The minority inclusions are connected by majority doublets, and the tight-binding model predicts two flat bands with compact localized states.",
+          "identifier_or_url": "10.1038/s41598-023-39816-w",
+          "material_read": "p. 5, Lieb-5 discussion, around offsets 36000–38000",
+          "method": "Relevant OA PDF passages",
+          "title": "Compact localized states in magnonic Lieb lattices",
+          "trigger": "Primary same-topology Lieb-5 and two-flat-band antecedent"
+        },
+        {
+          "assessment": "Broader coverage of the reduced graph problem, not the Hamiltonian representation theorem",
+          "evidence": "In the frame matroid independent components have no cycle or exactly one outside the linear class; for gain graphs the linear class consists of balanced cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.3601",
+          "material_read": "§4.1, pp. 9–10, offsets near 32000 and 33640",
+          "method": "Relevant OA PDF passages",
+          "title": "Matroids of Gain Graphs in Applied Discrete Geometry",
+          "trigger": "General balanced-cycle and unbalanced-theta circuit mechanism"
+        },
+        {
+          "assessment": "Material prior magnetic bound, not a physical support trichotomy for the twice-subdivided model",
+          "evidence": "Magnetic flux requires localized Lieb-lattice states to occupy 'at least two plaquettes' in the compared setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.04326",
+          "material_read": "The two-plaquette lower-bound passages on pp. 1 and 7, near offsets 6200 and 43200",
+          "method": "Relevant OA PDF passages",
+          "title": "Gouveia–Maceira–Dias magnetic Lieb localization study",
+          "trigger": "Magnetic localization lower bound by plaquette size"
+        },
+        {
+          "assessment": "No claim about the 1994 paper beyond the available comparison",
+          "evidence": "No repository copy recovered; publisher returned 403 and identified author route returned 418.",
+          "identifier_or_url": "10.1006/eujc.1994.1034",
+          "material_read": "No primary full-text passage recovered",
+          "method": "DOI recovery, publisher and author-site attempts; used inspected Tanigawa paper for the actual general theorem",
+          "title": "Frame matroids and biased graphs",
+          "trigger": "Classical cited graph circuit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physically occupied-site cutoff matters for how many sites a localized input must address at either of the two flat-band energies of a single standard decorated lattice. The result proves sharp impossibility as well as constructions, including irrational flux: an arbitrarily small nonzero flux removes eight-site confinement, whereas the half-flux case allows twelve sites instead of the generic fourteen. Exact support transfer to both energy sectors also preserves the possibility of two-band beating within the same support. The value lies in the physical eigenspace and resource threshold, not in recounting the already covered incidence circuits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

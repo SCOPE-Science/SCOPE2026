@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification and scope
+# Independent mathematical audit
 
-The included `verify.py` uses only the Python standard library. It independently constructs the linear system for an unrestricted \(n\times n\) endomorphism \(D\) of the basis of \(N_n(k)\) to satisfy the derivation identity on every basis pair. For prime fields it computes the rank over \(\mathbb F_p\); for characteristic zero it computes the rank over \(\mathbb Q\) with exact fractions. It also substitutes every explicit homogeneous candidate generator into the original product and tests the Leibniz rule coefficient by coefficient.
+## correctness
 
-Run `python3 verify.py` in the directory holding `verify.py`. The actual executed result was:
+PASS
 
-```
-NOVIKOV_DERIVATION_CENSUS_OK positive_characteristic_cases= 65 characteristic_zero_cases= 7 extra_mod_four_cases=2
-```
+The positive polynomial ideal and its tail above n are stable for the stated product and it inherits both Novikov identities. Homogeneous components of an arbitrary derivation are derivations. The right identity and left diagonal action of e₁ yield (s+1)c₁=0 and scⱼ=−jc₁ for active indices at shift s. Off the zero residue the only direction has s≡−1 and cⱼ proportional to j; at the zero residue, for characteristic ≠2, multiplication by e₂ gives cᵢ₊₁=cᵢ+c₂. At a negative shift divisible by odd p the first active coefficient is killed by the equation at e₋ₛ∘e₂, then all are killed by recurrence. Direct substitution gives discrepancies proportional to s or s+1 for the nonnegative-shift generators; truncation introduces no new condition because a nonnegative shift cannot lower an out-of-range output. Counting gives one direction in characteristic 0 and 1+floor(n/p)+floor((n−2)/p) for odd p. In characteristic 2 the right annihilator B is preserved, and the split product forces an ordinary derivation δ of A, an A-linear map A→B, and a δ-connection on B. The kernel (u^b) must be δ-stable. The two maps contribute 2b free parameters, and the allowed δ(u) has a constant term exactly when both lengths equal an even integer, accounting for the unique shift −2. The two characteristic-two formulas agree; the finite-field count is the cardinality of this vector space.
 
-The modular cases cover all \(2\le n\le14\) for \(p\in\{2,3,5,7,11\}\). Characteristic zero covers \(2\le n\le8\). Further characteristic-two dimension checks cover \(n=16\) and \(n=17\), straddling the exceptional boundary. The program checks the true full linear system independently of the dimensions predicted by the abstract splitting argument; no floating-point arithmetic is involved. These finite tests do not prove the general formulas. The all-dimension proof and its exact hypotheses are in `RESULT.md`.
+## originality
 
-No full automorphism-group classification or computer-assisted infinite certificate is asserted. The verification does not assess publication priority or constitute independent external auditing.
+PASS
+
+The material distinction is the all-length, all-characteristic ordinary derivation dimension, especially odd-prime growth and the sharp characteristic-two boundary. The inspected Novikov, associative and Lie treatments do not yield it on this family. The closest general derivation paper could not be read, so priority is not certified.
+
+## value
+
+PASS
+
+Ordinary derivations measure infinitesimal symmetries of a canonical nonassociative truncation. A uniform exact classification across characteristics, with a degree-lowering direction precisely at n divisible by four and distinct modular mechanisms, is substantive structure rather than a finite table or a consequence of the characteristic-zero construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

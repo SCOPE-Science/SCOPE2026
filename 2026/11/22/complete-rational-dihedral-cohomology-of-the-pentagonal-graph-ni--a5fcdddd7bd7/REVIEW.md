@@ -1,15 +1,21 @@
-# Scientific review: graded dihedral cohomology of the pentagonal graph nilmanifold
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses the explicitly specified five-vertex, five-edge rational two-step nilpotent Lie algebra, an invariant lattice, and the Chevalley–Eilenberg complex \(de_i=0\), \(df_{ij}=e_i\wedge e_j\). Nomizu's theorem identifies its rational cohomology with nilmanifold cohomology, compatibly with the graph automorphisms. The included standalone checker exhausts the \(1024\)-basis exterior algebra with exact Fraction elimination; it independently verifies all differentials square to zero, all group and chain-map relations, full rational ranks, cyclic and reflection invariant ranks, and direct full-dihedral invariant ranks. The resulting rational character is forced by the three irreducible \(\mathbb Q[D_5]\)-modules. Duality and Lefschetz checks support the calculation. The main limitation is that this is a finite exact classification, not an infinite-family theorem.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The full accessible text of arXiv:2611.17014v1 computes path-graph Poincaré polynomials and general Betti lower bounds, not the complete graded dihedral cohomology of a pentagonal graph nilmanifold. The full accessible text of arXiv:2402.14188v2 provides a general graph-cohomology decomposition, explicit low-degree results, and star-graph formulas, but no pentagon equivariant table. Existing related cycle-graph Betti lower bounds do not determine the present graded group representation. Searches for five-cycle/pentagonal Dani–Mainkar Betti polynomials, aliases, dihedral cohomology and quotients found no covering statement; mathematically unrelated dihedral graph-complex papers were excluded by object and functor. Absence of indexed results is not proof of priority; an equivalent unindexed calculation remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The pentagon is the smallest odd induced cycle beyond the triangular complete-graph example and a canonical minimal non-path cyclic case for graph-nilmanifold cohomology. The result determines all graded cohomology representations of its full symmetry group and, as consequences, both full rational quotient Betti vectors. Group action, orientation twist and quotient behavior are new structural data not implied by a scalar total-Betti lower bound. The exact finite classification is motivated by the recent path-graph program and supplies a concrete test case for extending equivariant formulas to cycles; it does not rely on a promise of such a future theorem.
+Ordered products of the generating exponentials give integral coordinates for the lattice: reordering introduces only integer central commutators. The signed graph action preserves its generators. Equivariant rational Nomizu applies; negating central dual generators yields the stated CE convention. An independent tuple-wedge/Fraction replay exhausts all 1,024 basis monomials, checks d²=0 and both action identities and relations, and verifies the full differential ranks (0,5,20,59,81,81,59,20,5,0) and subgroup-invariant complexes. The rotation-fixed cohomology has dimension q=a+b, the reflection trace is 2u−β=a−b, and β−q=4c. The fixed space of the rotation splits into the two rational reflection signs; on its complement r makes the space a Q(ζ₅)-module, on which s is conjugate-semilinear. Taking a basis of the fixed space over the real subfield gives copies of W (multiplying by a nonzero anti-invariant scalar exchanges the two s-eigenspaces). Thus the reconstruction is complete, not just a dimension check. All eleven multiplicity triples and total 364 agree. Equivariant triangulation and rational averaging identify cohomology of the ordinary quotients with their invariants, and both quotient vectors agree with direct orbit-sum calculations. Reflection reverses the orientation because its vertex determinant is +1 and its unique fixed edge is reversed; rotations preserve orientation.
 
-## Restrictions and priority risk
-The result is rational, not integral; it says nothing about cup-product structure or all cycle lengths. General combinatorial cohomology formulas may permit rederivation, and an unindexed equivalent statement may predate this calculation. Verification is same-model only, with no independent audit or independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content supported by the inspected literature and catalogue is the complete rational D₅-module in each degree, hence the quotient vectors. The known lower bound already gives the number 364 as a bound, and the standard cochain model and some ordinary low-degree information are prior. Neither is credited as new.
+
+## value
+
+PASS
+
+The pentagon is a natural cyclic graph beyond the path and star full formulas. The symmetry-resolved invariant is mathematically useful for the ordinary geometric quotients, which do not require a free action: for example, rotation-fixed b₈=4 drops to 2 under the whole group, and top cohomology vanishes only for the latter. The complete module separates orientation effects from degree-by-degree rotation and reflection invariants, and gives an exact benchmark for equivariant graph cohomology. Its value is not just attaining the existing numerical lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: variable-exponent two-cycle cusp
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The strict-alternation map has the exact normalized return \(G(u)=r[1-q(1-u)^d]^d\), \(0<q,r<1\). Its fixed points are the roots of \(H_{d,q}(t)=r\), and the sign of \(H'\) is exactly the sign of \(qP_d(t)-1\). This proves the full phase census, including fold equality and physically inadmissible upper-fold cases. At the cusp the third derivative is negative and nonzero, giving global parabolic convergence and the exact rate. Integrating the derivative between neighboring extrema yields the fold-width coefficient. Two explicit test locations near the upper endpoint force three roots for large degree and make the root-location asymptotics rigorous. A standalone checker validates exact symbolic identities and selected high-precision regimes; it does not supply proofs for continuum claims. Main limitations: only strict alternation, no global dynamics outside it, no uniform joint cusp/high-degree crossover.
+PASS
 
-## Originality (O): PASS within accessible evidence
+The strict branch images force alternation. After normalization the increasing continuous return G maps the unit interval strictly into its interior; its iterates are monotone after the first step and converge to fixed points, giving primitive two-cycles of the original map. For d>1, P'_d=d(d−1)t^(d−2)[d−(d+1)t] has one change of sign; P_d(0)=0, P_d(1)=1 and its maximum is 1/q_d. Thus H decreases or decreases/increases/decreases with exact fold levels, including the physical exclusion of r≥1. At fixed points sign(G'−1)=sign(qP_d−1), establishing the stability ordering; signs of G−u settle the neutral cases. At the cusp G'''=−(d−1)(d+1)^3/d² and G''=0; summing inverse-square displacement increments verifies the limit constant and its sign. The fold locations split at ±sqrt[2d/((d−1)(d+1)^2q_d)] sqrt(q−q_d); integrating the quadratic leading term in H' gives the asserted width. For fixed q,r, H at 1−2log(d)/d tends to 0, while at 1−1/d² it diverges; endpoint levels force three roots. For the large-u root G(r/2)>r/2 and G(r)<r for large d, and r−u≤rdq(1−r/2)^d there, so (1−u)^d/(1−r)^d→1, justifying the relative expansion in RESULT.md. The tiny-u root lies below 1/d² and then satisfies the given exponential bound, so d²u→0 and its relative asymptotic and both vanishing multipliers follow. This covers only strict alternation, with fixed d in the fold limit and fixed q,r in the large-d limit. Replay uses RESULT.md Steps 1–5 and these bounds. The checker was inspected, not executed; its representative rational-parameter census uses a numerical quartic root count (not the exact cubic described by a code comment), and does not independently test a complete one/two/three census. Neither loses any analytic case of the theorem.
 
-[1] Lawnik–Moysis–Volos (2023), doi:10.3390/sym15071311, defines the whole family; reviewed accessible full author text and numerical dynamical sections. [2] A cusp of coexisting two-cycles in a fixed-point-free quadratic interval map (published indexed 2026-11-08) already proves the degree-two cusp, coexistence and critical relaxation; [3] an additional indexed quadratic cusp study confirms this overlap. Accordingly **no quadratic-only result is claimed novel**. [4] An attracting two-cycle disappears into a nonstationary ghost at a discontinuity (published indexed 2026-11-01) treats a special contracting regime and singular a=b boundary. Our additional claim quantifies arbitrary real degrees, the degree-dependent cusp threshold and fold coefficient, and eventual three-cycle coexistence for every fixed parameter triple. The claim is not logically implied by those distinct prior assertions. Search aliases, actual queries, all comparisons and material-read limits are retained in AUDIT.json. Residual risks include unindexed general-degree publications, a related 2024 piecewise-system paper, and unavailable full indexed proofs; search absence does not guarantee priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The exponent d is intrinsic to the source family. A complete degree-dependent cusp criterion is useful because varying d changes the number and stability of physical primitive two-cycles from one to three, with two separate attracting basins; the sharp fold-width and exponentially small attractor corrections quantify numerical detectability. The fixed-degree quadratic classification cannot explain the universal high-degree bistability phenomenon. The result is a motivated dynamical phase diagram, not a single arbitrary parameter enumeration.
+Credit the published power family, the earlier quadratic phase diagram and its critical relaxation, and the previously studied sufficient contraction region. No inspected statement gives the real-exponent exact q_d and fold levels with their exponent-dependent coefficient, or the eventual three-cycle classification and attracting branch corrections at every fixed strict triple. The standard cubic-cusp mechanism and the d=2 specialization are not counted as distinct contributions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exponent is intrinsic to a published map family. The formula locates every transition in the natural normalized parameter plane and quantifies the shrinking bistability window near the cusp. The fixed-triple result shows coexistence is ultimately universal within strict alternation, and the distinct exponentially small displacements and vanishing multipliers explain why the attracting locations can be hard to resolve numerically. These are meaningful structural and quantitative additions beyond the quadratic example or generic cusp exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

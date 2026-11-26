@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The scalar normalization \(f_i=a_i^{-1}e_i\) yields \(c_i=b_i a_{i+1}/a_i^2\) exactly. The cyclic determinant and nonzero recurrence for its null vector prove that even singular members satisfy pairwise independence of distinct basis squares, for \(n\ge3\). Invoking the previously established natural-basis rigidity correctly forces arbitrary isomorphisms to be monomial, and the loop coefficients force all scaling factors to be one. Successor support forces a rotation. A nonzero ideal contains one square and then all squares by propagation, yielding either simplicity or the unique codimension-one ideal. Burnside counting, the solvability of \(u^e=(-1)^n\) for \(e\mid n\), and Möbius inversion give the total/singular and automorphism-order formulas. The independent executable verifies representative finite cases and searches unrestricted matrices in dimensions three over \(\mathbb F_2\) and \(\mathbb F_3\). Infinite assertions are proven algebraically, not extrapolated from finite tests.
+PASS
 
-## Originality: PASS against inspected evidence
+Scaling f_i=e_i/a_i gives the claimed c_i. A relation among the squares satisfies lambda_i=-c_(i-1)lambda_(i-1); its solution space is zero or one dimensional, and any nonzero solution has full support. This gives the determinant criterion and independence of any two squares for n≥3. The image of multiplication by a natural vector is one dimensional: nondegeneracy makes its own square nonzero and it annihilates all other vectors of that basis. In the displayed basis its image is the span of the squares in its support, so it must be supported on one coordinate. Isomorphisms are therefore monomial, and matching directed successor terms forces a rotation; matching the normalized loops makes every scalar 1. This argument is unchanged over field extensions. Any nonzero ideal contains a square by multiplication with a coordinate vector; the successor term propagates membership to all squares. Thus every nonzero ideal contains E², which has codimension one exactly on the singular locus. For finite fields a fixed block repeated e=n/d times has singular product iff its block product is an e-th root of (-1)^n. Such a root exists (use (-1)^d), so there are gcd(e,q-1) choices, including in characteristic 2. Burnside counts all rotations, Möbius inversion extracts minimum periods, and each orbit with minimum period m has size m and stabilizer C_(n/m). The constant necklaces leave exactly Q-gcd(n,Q) simple classes; this includes Q=1, when none exist.
 
-Elduque--Labra (arXiv:1902.02191, Sections 2--3) already provides the general perfect-evolution-algebra graph framework, so graph-derived cyclic symmetry in the perfect case is background. Boudi--Cabrera Casado--Siles Molina (arXiv:2006.14460, Corollary 2.7) already proves the relevant unique-natural-basis/monomiality criterion. Costoya--Muñoz--Tocino--Viruel (arXiv:2207.01335, Theorem A and Section 4) already supplies the broader Cayley-group realization theorem. The inspected material does not supply the complete varying-coefficient two-support necklace invariant, the exact finite-field singularity and automorphism-order spectra, or the singular ideal-lattice classification. Earlier loop-free weighted-cycle classifications do not imply these conclusions: their structure matrix has no diagonal terms and is always invertible. Search absence alone does not prove global novelty.
+## originality
 
-## Value: PASS
+PASS
 
-Two-supported cyclic evolution algebras are a natural smallest sparse family retaining a directed cycle with a loop at each vertex. The full classification simultaneously resolves algebra isomorphism, absolute simplicity versus a unique codimension-one proper ideal, and the complete cyclic automorphism-order distribution over every finite field. The sharp finite-field criterion \(q-1\nmid n\) for full cyclic symmetry in an absolutely simple constant-coefficient member gives concrete dimension/field feasibility information beyond a large-field sufficient hypothesis. The singular strata and exact refinement by minimal necklace period are structurally meaningful; the finding is not just a rephrasing of one previously computed table.
+Credit existing natural-basis rigidity, the graph treatment of perfect algebras, the classical necklace count and the exact constant characteristic-two overlap. Pass the variable-coefficient classification coupled to the product-constrained, stabilizer-refined census across the perfect and singular strata. The examined prior statements do not cover that combined invariant.
 
-## Limitations and closest literature
+## value
 
-The foundational rigidity lemma and classic Burnside/Möbius inversion are prior work. The family excludes zero coefficients, arbitrary supports, and dimension two; no entire-species classification or global publication priority is asserted. The most material residual originality risk is an as-yet-unlocated general result on cyclically supported evolution-algebra isomorphism classes that yields these particular finite-field formulas. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is the sparse directed cycle with both loop and successor terms nonzero, a natural setting in which distinct squared basis vectors stay independent even as perfection fails. Knowing the exact unique proper ideal at degeneration and the number of classes at each automorphism order gives concrete information unavailable from mere existence of a realization. In particular the exact full-symmetry simple count decides realizability in this family over very small finite fields. This is a complete joint census of the stated family, not a choice of a few sample fields or a claim of novelty for unrestricted necklace enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

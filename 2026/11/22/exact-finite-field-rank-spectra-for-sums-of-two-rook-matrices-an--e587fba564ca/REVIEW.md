@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The colored superposition of two partial bipartite matchings is a disjoint union of isolated vertices, alternating paths and cycles. A path block has rank the smaller of its two bipartition sizes; a cycle with \(k\) vertices on each side has rank \(k\) except for the exactly identified parity/characteristic cancellation. All exponential-formula component weights are derived by direct labeled counting, including the coincident-edge cycle of size one. Extraction at full rank and a stated saddle calculation yield the sharp constants. Independent brute-force matrix Gaussian elimination and exact generating-function arithmetic agree for every ordered pair through size four in characteristics two and three; the all-rank coefficient sum is checked through size eight. No infinite theorem is inferred from the tests.
+## correctness
 
-## Originality (O): PASS, best-knowledge assessment
-The full permutation-matrix sum problem, including cycle-based nonsingularity conditions, is already treated by Wanicharpichat–Rangpung and by a 2018 MathOverflow answer. Solomon's and Malandro–Rockmore's work describes the rook monoid itself. Those prior results do not enumerate the additive rank of every ordered pair of **partial** permutations, introduce the alternating-path contributions, or give the two characteristic-sensitive invertibility asymptotics. Relevant semantic searches of mathematical research records and literature did not locate equivalent or stronger coverage. The absence of a located duplicate cannot certify global historical priority. Consult structured comparison and risks in `AUDIT.json`.
+PASS
 
-## Value (V): PASS
-The matrix embedding of the symmetric inverse monoid is a natural representation. Whether sums of its elements are invertible and how their ranks distribute is a structural additive invariant, unlike its well-studied multiplicative ranks. The full polynomial and the sharp parity-dependent asymptotic reveal the role of alternating paths and the surprisingly different prefactors over fields of different characteristic, an unbounded phenomenon rather than a one-off small computation.
+The two colors are ordered, and a coincident pair of edges is a two-edge cycle, not a single path. Each block for a path has a unit triangular minor of order min(r,s); each cycle block is equivalent to I+C, with exactly one free kernel coordinate if and only if p=2 or the half-length is even. A balanced path has a unique row starting endpoint, k!^2 admissible label orders and two alternating colorings, hence 2k!^2 colored paths (the wording of RESULT.md line 37 understates the count in its explanatory sentence, not in the component term). In an unbalanced path reversal cancels the factor of two for starting colors. A labeled balanced cycle is a choice of one perfect matching and a relative k-cycle, giving k!(k-1)!. Independent labels and additive rank give the exponential. Rank n forces each block to be square and full rank, not merely total balance; odd-half-length cycles survive precisely in odd characteristic. For the asymptotic coefficient, the circle r satisfying ar/(1-r)^2=n gives real exponent 2 sqrt(an)-a/2+o(1) and angular curvature ar(1+r)/(1-r)^3 asymptotic to 2n^(3/2)/sqrt(a). With rho=1-r, the real exponent loss is ar(1+r)(1-cos(theta))/(rho*(rho^2+2r(1-cos(theta)))); hence outside |theta|<n^(-3/4+1/24) there is exponential suppression. Inside, the cubic error is o(1) and the prefactor can be held at the saddle. This reproduces the Gaussian factor and both stated constants after division by L_n(-1)^2. The independent rectangular replay matched all rank coefficients for 0<=a,b<=4 in both F_2 and F_3, 56,877 pairs per field, including the zero-size conventions.
 
-## Limitations and comparison risks
-No assertion concerns weighted partial permutations, more than two summands, or the full limiting rank-deficiency distribution. Special cases with both factors invertible are covered by the earlier permutation literature and are not claimed as new. A specialized pre-existing partial-matching rank enumeration could exist beyond the material inspected. The proof's saddle-point estimate is given with its local and tail mechanisms rather than a completely quantified error term; only leading asymptotic equivalents are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the combined rectangular all-rank enumeration and characteristic-sensitive full-rank asymptotic for two independent partial injections. Perfect-matching cycle ranks, rook order, labeled-set enumeration and the saddle method are not claimed as new. The nearest distinct inspected records concern a different rank or a product of projections; their results cannot be reinterpreted as the submitted rank statistic.
+
+## value
+
+PASS
+
+The exact labeled spectrum resolves every rank for natural constrained random matrices, not just a computation at fixed n. It explains which component types generate rank loss and yields a sharp difference in invertibility probabilities (a factor asymptotic to 2^(1/4)n^(1/4)) that full permutation results do not capture. The singularity-rate constants and characteristic dependence are useful independent of the novelty of the enumeration method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

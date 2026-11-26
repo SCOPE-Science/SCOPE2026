@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof calculates the cyclic action, lower central series, prime exponent, entire conjugacy class vector, full irreducible degree vector by Clifford induction, and every prescribed surface-word fiber. The image of every \(T^j-I\) with \(j\ne0\) is \(NV\); this is the critical uniformity step. The two partitions both have \(2p\) dimensions and \(p\) blocks but their maximum parts differ. Small-order full conjugacy enumerations and conditional commutator ranks reproduce the algebraic formulas. Finite calculations do not establish the infinite family; the general proof does.
+PASS
 
-## Originality — PASS, qualified
+For 0<j<p, T^j−I=N u_j(N) with u_j(0)=j, giving the same kernel and image W as N. The group commutator in the stated convention is ((I−T^k)v+(T^j−I)w,0). It gives G'=W and lower central terms gamma_(r+1)=N^r V, so the class is exactly the maximum block length. The geometric-sum polynomial in characteristic p is (X−I)^(p−1), giving exponent p since (T^j−I)^(p−1)=0 and there are nonidentity vectors. Inside V the C_p-orbits are singleton or size p; outside V the translation conjugations give whole W-cosets and generator conjugation stays in each coset. Thus no outside element is central for N≠0, and the every-size class counts and center follow. In the dual of V, exactly p^b characters annihilate W and extend in p ways across the split cyclic quotient. The other orbits have size p; induction yields inequivalent irreducibles of degree p using restriction to V, and the degree-square sum is the order. For the word law, all nonzero quotient pairs produce a surjective linear map onto W, so uniform inputs give p^(−2) delta_0+(1−p^(−2)) U_W. Uniform measure is convolution-idempotent and the commutators are independent. This yields the stated exact fibers, including zero outside W. The two partitions have p parts totaling 2p, maximum lengths p−1 and 2, including at p=5, and hence meet every assumption. For the rank-one boundary, p=3 and n=2 give class counts 3 at size 1 and 8 at size 3, character counts 9 at 1 and 2 at 3, and one-commutator identity probability 11/27, consistent with 11 classes. Frozen code and output were inspected only. Its dictionary at checker.py line 54 would overwrite rather than add a duplicate key in an untested rank-one case; all frozen test examples have rank at least two, and the theorem's polynomial correctly merges the terms.
 
-Fernández-Alcober and Moretó (2001) classify attainable **numbers** of distinct values in the class-size and character-degree sets for some class-two groups, not an equality of full class/character multiplicity vectors across different classes. Mann (2008) explicitly observes that three class sizes can coexist with unbounded nilpotency class, so that alone is prior knowledge. Ito and Mann (2006) calculate class and character counts for certain relatively free prime-exponent groups. O'Brien and Voll (2012) give a broad class/character vector mechanism for groups of class below \(p\), which is acknowledged as overlapping general methodology. None of the inspected full primary texts directly gives this **simultaneous** pair: equal exponent, order, complete class and character vectors, and full orientable-surface-word distributions with different classes. A relevant 2006 full text could not be obtained, leaving a specific priority risk. Absence from searches does not establish global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is an explicit, unbounded-parameter boundary for the ability of a *joint* collection of group-theoretic invariants to detect nilpotency class. The exact distribution formulas explain the degeneracy: these invariants depend on the dimension and the fixed-space dimension of the unipotent action, but its nilpotency index is free to vary. The purpose is not to rebrand a standard character count as new, but to combine multiple familiar invariants into a single precise indistinguishability example.
+The strong same-day cyclic-by-cyclic comparison gives exact surface-word twins of unbounded class gap, already at fixed prime. Moreover its construction also implies matching full class and character vectors, as checked below; that broad indistinguishability phenomenon should not be credited here as new. The distinct supported result is uniform collision under the stricter common exponent-p and elementary-abelian derived-group constraints, with the exact class and surface distribution parametrization for unipotent elementary-abelian-by-C_p groups. The cyclic-derived comparison cannot supply that regime, and no inspected broader theorem yields this constrained family of paired collisions.
 
-## Scope and limitations
+## value
 
-The primes vary, and the statement concerns all orientable surface words rather than all words. The groups may differ in character table, subgroup lattice, and other invariants. Published exact enumeration results provide partial general coverage; the 2006 Ito–Mann full text remains uninspected. This review is not independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exponent-p restriction is structural, not an arbitrary slice: it removes the cyclic prime-power mechanism and tests blindness without higher element orders or cyclic derived groups supplying class information. The example shows that rank alone controls all these distributions while the length of the Jordan filtration governs nilpotency class, even with a class-two comparator and class approaching p. This gives a usable obstruction for reconstructing class in a natural and narrower group family than the cyclic cousins.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

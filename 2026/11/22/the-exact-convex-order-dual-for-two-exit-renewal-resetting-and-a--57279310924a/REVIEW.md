@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-channel renewal identity follows by summing a geometric number of independent attempts. The stop-loss characterization of discrete convex order yields a nonnegative coefficient sequence; summation by parts is absolutely justified by summability of the second differences of cumulative probabilities and integrability of both clocks. The exact response identity proves sufficiency of both endpoint-curvature inequalities. A single-atom mean-preserving spread combined with a vanishing mixture at an admissible deadline proves their necessity, including when the extremal ratios are unattained. The gambler's-ruin two-spread counterexample is a direct positive-path and parity argument. `checker.py` passed 4,221 exact-rational assertions. Limits: computation checks finite cases only; arbitrary-clock claims rest on the written proof.
+PASS
 
-## Originality — PASS against examined primary evidence
+Independent attempts with completion allowed on ties give the ratio of expectations, a b-weighted mean of the deterministic ratios. For R<=cx S the positive stop-loss differences c_i vanish at i=1 and tend to zero by integrability and equal means. The mass difference is their discrete second difference. Finite summation by parts followed by the limit is legitimate: h=a,b are bounded, c_i tends to zero, and the second differences of h are absolutely summable. Subtracting Q(R) times the denominator increment gives the stated signed identity. Endpoint signs suffice by affinity. Necessity follows by placing a small mass at i and spreading that mass equally to i-1 and i+1, keeping positive admissible mass at any chosen j with b_j>0 (including j=i). Letting the small mass go to zero tests u_j and hence both possibly unattained extrema. For an interior start z<m, k=2m-z is the first far exit; both exits have fixed parity, so k-2 and k-1 have positive near-exit mass only, while k and k+1 have the same cumulative probabilities and include positive far-exit mass. The two spread comparisons then have opposite signs by the b-weighted mean rule. Reflection handles z>m; at z=m reflected paths have weight ratio ((1-p)/p)^m at every length. The phrase 'only site' is read within the positive-completion-time assumptions, so starts already at an absorbing boundary (T=0) are excluded. An independent exact-Fraction replay corroborated the identity and 189 walk cases (m=2..8, three biases, all interior starts); this is not the universal proof. Replay: python3 /workspace/branches/13fc8e70-3903-483e-82d9-65aa01518dfa/independent_check.py. The frozen checker.py was inspected, not executed.
 
-The closest complete primary source is Newton and Vega Coso, arXiv:2611.01756v1: Section 10.3 explicitly asks for an exact convex-order clock dual. Sections 2–6 prove other response orders and provide the renewal identity but do not give the double-endpoint curvature characterization or the two opposite mean-preserving-spread constructions. Vidmar arXiv:1904.10495 studies the *single completion time* rather than the ratio of two outcome channels; Pal et al. arXiv:2502.09127 address local selective completion-time criteria; Belan arXiv:1703.01486 studies restart optimization. Relevant indexed findings on reset-neutral gambler's ruin, two-point renewal clocks, and stochastic convex-order risks concern different orders/observables; source and claim implication comparisons are detailed in `AUDIT.json`. Risk: the curvature result could be an unstated consequence of classical general theorems about ratios of expected functions under convex order, and historical priority requires independent specialist checking. No uninspected full text is represented as excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating source explicitly identifies the convex-order dual as open. This result gives a necessary-and-sufficient, computable criterion for arbitrary integrable integer renewal clocks, not merely another sufficient bound. The simple-walk obstruction identifies a sharp geometric limitation: two mean-preserving spreads of adjacent deterministic deadlines force opposite changes away from the midpoint, despite stronger order conclusions under other clock classes. These facts guide selection of reset variability for two-outcome systems and clarify why single-clock curvature tests are inadequate.
+Credit the known renewal ratio, midpoint neutrality, other clock orders and standard convex-order tools. The supported distinct claims are the exact necessary-and-sufficient curvature inequalities for the named discrete convex-order problem and the constructive strict failure of both directions at each off-midpoint interior site. The closest paper expressly poses the convex-order dual as open; possible earlier equivalent fractional-expectation criteria remain a limitation.
 
-## Scope and integrity
+## value
 
-The claim is limited to integer-valued clocks, finite completion times and even-interval gambler's ruin. Analytical proof and finite checker are distinct evidence types. No independent mathematical validation has been performed; broader novelty remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The criterion resolves a specifically posed order-comparison question for a ratio of expectations, using just two curvature tests per time instead of quantifying over pairs of clock laws. The elementary opposite-direction witnesses show why the order gives no universal comparative prediction at any off-midpoint interior site despite known monotonicity results for other orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

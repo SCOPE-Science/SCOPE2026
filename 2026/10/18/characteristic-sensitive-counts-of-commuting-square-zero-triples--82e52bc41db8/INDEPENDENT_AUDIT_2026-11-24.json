@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:14.675092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed /workspace/repairs/2/RESULT.md. The original radical formula is correct, but its closing full-algebra exclusion was misleading: the diagonal of X² is the coordinatewise square of the diagonal of X. Over a field, X²=0 therefore implies X lies in the diagonal kernel, which is the radical (nilpotent kernel and semisimple diagonal quotient). The full algebra and radical have exactly the same eligible triples when both square-zero and pairwise commutativity are imposed. The repair proves this and clarifies that noncommuting triples are not counted. In the radical, the only product coefficient is a·b′ on e₀₁, so the conditions are precisely that ABᵀ be hollow symmetric, with three independent central scalars. Every nonzero such 3×3 product has a nonzero principal 2×2 minor, and det=2uvw gives the rank-three frequency, including characteristic three. For rank-s M, choose an r-dimensional image for A containing im M, count surjections onto it, and solve independently for each of the three columns of Bᵀ; this gives the stated F(s). Empty sums handle m<3. The added explanation F(2)−F(3) follows because the rank-three-A terms agree whenever present, and the rank-two-A term is absent from F(3); for m=1 both vanish. Independent direct enumeration gave 120,1431,8128,2528,135675,77568 at (1,2),(1,3),(1,4),(2,2),(2,3),(3,2) respectively, including genuine GF(4); at (3,3) the rank-three stratum separately contributes 2,426,112. Replay: python3 /workspace/branches/0433cf06-0b4a-434d-a0d4-38fc5f40ab1c/direct_count_check.py. The original artifacts/verify_diamond.py and artifacts/verify_gf4.py are present and were inspected, not executed. These checks are bounded; the uniform argument and full-algebra equality are symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-block parabolic-radical rank spectrum covers a single square-zero element in the (1,m,1) specialization, not pairwise commutation of three.",
+          "The same-day skew-adjoint tuple census is for odd fields and requires every product to vanish, on different algebras."
+        ],
+        "reasoning": "Product-zero implies commutation but is genuinely stronger: for one middle element, X=e₀z and Y=ez1 do not commute, while for two middle elements X=e₀z₁+ez₂1 and Y=e₀z₂+ez₁1 commute and square to zero, yet XY=YX=e₀₁. Hence the product-zero specialization cannot count the rank-two and rank-three product strata of the repaired theorem.",
+        "searches": [
+          "Resultary d1f94ed041a2, 08d22328f3e7, mirrored Findings and Proof",
+          "Quinn (2013), Definition 2.5",
+          "Gargate–Gargate, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify_diamond.py and artifacts/verify_gf4.py",
+        "Repaired RESULT.md",
+        "Quinn 2013, DOI 10.2206/kyushujm.67.117",
+        "arXiv:1907.06805v1",
+        "Resultary a58bda70a733, d1f94ed041a2 and 08d22328f3e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quinn supplies the product law. The earlier rank spectrum counts individual elements without the three pairwise product constraints. The inspected complex rank-two geometry does not supply counts or rank-three weights over finite fields."
+        ],
+        "reasoning": "The ingredients used for individual matrix fibers are standard. The distinct calculation is that the three joint products impose hollow symmetry and weight its ranks differently, making the determinant jump interact with the dimension cutoff. None of the inspected claims yields that fiber-weighted correction by specialization. The inaccessible commuting-class paper does not serve as negative evidence.",
+        "searches": [
+          "Quinn (2013), Definition 2.5",
+          "Resultary a58bda70a733, d1f94ed041a2, 08d22328f3e7",
+          "British finite-field commuting-class comparison: DOI 10.1112/jlms/jdq088 (primary passage unavailable)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the alternating form on pairs (a,b) with pairing a·b′−a′·b, commuting means pairwise isotropy. In characteristic two the constraint a·b=0 is an additional quadratic condition and the product matrix is alternating; in odd characteristic the same hollow-symmetric products can have rank three.",
+          "The rhombus incidence-algebra theorem counts elements of order two in odd characteristic, not these triples.",
+          "In characteristic two, the square-zero condition is equivalent to (1+X)²=1 on algebra-group elements, but the cited odd-characteristic theorem is not that formulation and does not impose triple commutativity."
+        ],
+        "reasoning": "An alternating-form count for the symplectic pairing alone misses the diagonal constraint, and a characteristic-two quadratic-isotropy reduction does not encode the odd product-rank correction. The incidence reformulations are mathematically legitimate but do not identify an exact checked prior count.",
+        "searches": [
+          "Local Resultary: commuting square-zero or nilpotent radical tuples, hollow symmetric matrix varieties, and isotropic joint-image counts",
+          "Quinn (2013), Definition 2.5",
+          "Gargate–Gargate, arXiv:1907.06805v1, Theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank-two hollow-matrix record gives geometry over ℂ, not counts of finite-field product fibers; the parabolic and skew-adjoint records count different data. The rhombus paper gives a formula for involutions, not the ordered commuting square-zero triple table."
+        ],
+        "reasoning": "No inspected exact formula or table gives the repaired census. The earlier single-element result is a different marginal invariant, and geometry of the rank-at-most-two target is not the fiber-weighted joint count.",
+        "searches": [
+          "Local Resultary a58bda70a733, d1f94ed041a2, 08d22328f3e7",
+          "arXiv:1907.06805v1, Theorem 1.3"
+        ]
+      },
+      "rationale": "For the repaired statement, credit the known incidence-algebra reduction, conventional rank-factorization counts and the earlier single-element census. The supported distinction is the ordered joint count and its explicit odd-characteristic rank-three correction. Identifying full and radical counts is elementary and is not claimed as new. The inspected broader results do not supply the joint formula; limitations below are not negative evidence.",
+      "residual_risks": [
+        "Britnell–Wildon full text was not obtained. Other specialized finite-field commuting-tuple or algebra-group enumerations may give equivalent coverage.",
+        "A bounded external lookup did not locate the triple formula; this is not evidence of absence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies structural input, not the joint census",
+          "evidence": [
+            "Interval basis multiplication is ξ[x,y]ξ[z,w]=δ_yz ξ[x,w]."
+          ],
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/kyushujm/67/1/67_117/_pdf",
+          "material_read": "PDF p. 3, Definition 2.5, offset 6420",
+          "method": "Targeted OA PDF passage",
+          "title": "The incidence algebra of posets and acyclic categories",
+          "trigger": "Incidence multiplication and path description"
+        },
+        {
+          "assessment": "Related posets but different equation, field regime and invariant",
+          "evidence": [
+            "Counts order-two involutions for rhombus posets in characteristic different from two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.06805",
+          "material_read": "Abstract and Theorem 1.3, PDF pp. 1–2, offsets 350 and 6600",
+          "method": "Targeted OA PDF passages",
+          "title": "Involutions on incidence algebras of finite posets",
+          "trigger": "Exact rhombus-shaped incidence-algebra enumeration"
+        },
+        {
+          "assessment": "Rank-target geometry only",
+          "evidence": [
+            "The projective scheme over ℂ is cut out by 3×3 minors; no finite-field factorization tally is stated there."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-nodal-product-charts-for-the-hollow-symmetric-rank-two-determina--a58bda70a733",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary and bounded mirror reading",
+          "title": "Nodal product charts for the hollow symmetric rank-two determinantal locus",
+          "trigger": "Same hollow symmetric rank-two target"
+        },
+        {
+          "assessment": "Exact single-element overlap, not triple census",
+          "evidence": [
+            "Counts square-zero elements by individual rank over all prime powers."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and bounded mirror reading",
+          "title": "Rank spectra of square-zero elements in three-block parabolic radicals",
+          "trigger": "Same radical as the (1,m,1) block case"
+        },
+        {
+          "assessment": "Same-day methodological comparison, not exact coverage",
+          "evidence": [
+            "Skew-adjoint endomorphisms over odd fields with all XiXj=0, not general commuting triples in the associative radical."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-rank-resolved-mutually-annihilating-tuples-in-finite-orthogonal--08d22328f3e7",
+          "material_read": "Mirrored RESULT.md Finding and Proof, starting offset 0",
+          "method": "Local Resultary and bounded mirror reading",
+          "title": "Rank-resolved mutually annihilating tuples in finite orthogonal Lie algebras",
+          "trigger": "Ordered finite-field tuples and isotropic-image formulas"
+        },
+        {
+          "assessment": "Unresolved source comparison; no negative inference",
+          "evidence": [
+            "Retrieval returned HTTP 404; no identified lawful alternate was obtained in the bounded check."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/jdq088",
+          "material_read": "No primary text obtained",
+          "method": "Lawful OA retrieval, direct and alternate configured route",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Plausible broader finite-field commuting matrix theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a joint enumeration for a natural family of incidence radicals, not a marginal square-zero count or an arbitrary small instance. Three is the first tuple length where a hollow symmetric matrix can acquire the 2uvw determinant; rank-two factorizations then discriminate the two characteristic regimes even before rank-three products can be realized at m=3. The explicit fibers give a uniform, practically evaluable census and isolate the mechanism of the characteristic correction. The repaired scope neither invents a new claim for the elementary diagonal observation nor subtracts value from the joint count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

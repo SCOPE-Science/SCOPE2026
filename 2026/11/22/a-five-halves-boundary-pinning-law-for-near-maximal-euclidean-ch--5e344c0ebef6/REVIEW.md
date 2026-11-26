@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The maximal Euclidean area \(3\sqrt3/4\) is attained only by equatorial equilateral triples because the circle of any affine triple has radius at most one and each hemisphere altitude is nonnegative. Directly expanding the exact unit-vector Gram determinant gives the claimed nonnegative quadratic deficit on the relevant positive-altitude cone. Its angular part is positive definite and its vertical part is coercive on this cone, so no unexamined orders contribute at the endpoint. Dominated convergence reduces the probability to an explicitly integrated five-dimensional cone. The two orientation factors and longitude phase have been checked. The independent symbolic checker verifies both quadratic and coefficient. All conditional marks follow from the same limiting cone measure.
+PASS
 
-## Originality — PASS, provisional priority
+An inscribed triangle has area at most 3√3/4, with equality only for an equilateral triple on a great circle. The zero vector sum at equality and nonnegative heights force all three heights to zero. Compactness gives localization to the two labelled orientation circles. The Gram expansion gives angular coefficient √3/4 and altitude term (√3/12)(z1+z2+z3)^2. Although the altitude Hessian has rank one, on the positive octant the square of the sum dominates the sum of squares. Uniform smooth-chart remainders can therefore be absorbed, confining every scaled event to a common bounded region. The scaled indicators converge off a null boundary, giving both the volume asymptotic and L1 convergence of the normalized densities. The angular matrix has determinant 9/64; the vertical simplex radial density is S^2/2. The five-volume is 64π·3^(3/4)/45, and uniform surface density with both orientations and the phase contributes 1/(2π²). In the limit, J has density proportional to J^(1/2)(1-J), the simplex proportions and whitened rescaled disk coordinate are independent of J and each other, and homogeneity yields the Beta(5/2,1) deficit law. Rotation and reflection give the asserted phase and orientation factors.
 
-Primary source: Bárány–Hug–Reitzner–Schneider, *Random points in halfspheres* (2015-05-18), primary geometric code 52A22. Its large-sample spherical hull statistics do not imply the fixed-three extrinsic triangle-area endpoint. The closest published *disk-triangle* upper-tail result concerns the area after projection to a plane; that differs by a tilted-plane factor and yields independent radial deficits instead of the quadratic square of summed hemisphere altitudes. Akopyan–Edelsbrunner–Nikitenko treat full-sphere random polytope metric formulas; the published full-sphere chord-triangle finding treats the lower-area endpoint. Direct source and equivalent-form searches were run, but exhaustive historical priority is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The hemisphere boundary changes the optimizer set from a freely orientable great-circle equilateral family to one equatorial family with a one-sided positive cone. It creates the fractional exponent \(5/2\) and a correlated vertical quadratic deficit, which are not a simple instance of the planar disk radial-density theorem. The exact coefficient and the beta/Dirichlet/uniform-disk conditional geometry provide a complete, natural endpoint description for this fixed geometric probability problem.
+The best-of-knowledge contribution is the sharp fixed-three-point extrinsic hemisphere endpoint coefficient and marked cone law, not the extremal equilateral inequality or a general endpoint integration principle.
 
-## Scope and remaining risks
+## value
 
-No entire-area distribution, higher-order correction or dimension-uniform statement is proved. The numerical checker is confirmatory, not an infinite proof. Older random-simplex shape-density literature may contain an equivalent formulation; not every such old full text was accessible. No independent mathematical validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hemisphere is a natural boundary-pinned geometry. The quadratic form is degenerate in unrestricted tilt directions yet controls all allowed heights on the positive cone; this explains the exponent and yields a concrete sharp coefficient and independent shape marks. The chord/projection distinction is quantitatively meaningful even though the two areas share the extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

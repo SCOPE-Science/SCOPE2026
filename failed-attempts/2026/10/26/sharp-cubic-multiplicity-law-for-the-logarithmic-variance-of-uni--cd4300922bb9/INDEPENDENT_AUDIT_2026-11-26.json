@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:16:07.624321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each log chord has a mean-zero L2 Fourier series with real cosine coefficients -1/k. Parseval gives V=one half sum |S_k|^2/k^2. The Bernoulli identity for angle differences of magnitude less than 2 pi makes V exactly quadratic on the ordered chamber, including its coincidence faces. In the expanded n-vector of angles, the quadratic part is n/4 times the centered squared displacement from the regular angles (the linear term is fixed by the derivative of the ordered absolute values), and the regular value is pi^2/12. Within a block of m successive regular angles the successive spacing is 2 pi/n, and the sum of squared residuals about its mean is pi^2 m(m^2-1)/(3n^2); the residuals have zero sum so no mixed terms with block shifts occur. This gives the exact angular defect, including arbitrary lifts by rotation and r=1. The successive midpoint gaps, including wraparound, are pi(m_j+m_{j+1})/n, positive and summing to 2 pi. Equality is precisely common rotation in each cyclic assignment, and the integer cubic exchange 3(a-b-1)(a+b)>0 proves the balanced-multiplicity minimum. An independent check is the exact circular transport reduction in the originality assessment. The frozen rational checker was inspected, not run; the composition tests are finite and not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graham's theorem holds for every probability measure on the circle, with all p in [1,infinity], and p. 6 gives the optimal cost as an infimum of shifted monotone quantile costs. It covers arbitrary real atom masses, not just normalized multiplicities.",
+          "Nagel gives the weighted pair energy but the inspected results do not explicitly discuss this optimizer. Zhang gives the degree-unrestricted-in-multiplicities floor pi^2/12 and regular polygons."
+        ],
+        "reasoning": "The earlier exact quantile formula, unlike the uniform lower bound or a local Hessian, encodes the full constrained answer at every configuration.",
+        "searches": [
+          "arXiv:1910.14181 Prop. 2, equation (5), and proof on circular transport",
+          "Nagel DOI:10.1007/s00605-025-02065-2 Prop. 2.1",
+          "arXiv:2610.02009 Corollary 7.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.14181",
+        "arXiv:2610.02009",
+        "DOI:10.1007/s00605-025-02065-2",
+        "Resultary 9316c47c20fb and c1e50d25ac23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cut the circle at a gap and order the lifted x_j. In Graham's infimum over shifts y, F_nu^{-1} is x_j on a mass interval of length p_j with center c_j=sum_{h<j}p_h+p_j/2. The per-interval cost is p_j^3/12+p_j(x_j+y-c_j)^2.",
+          "The infimum subtracts the weighted mean of x_j-c_j; the remaining exact sum is sum p_j^3/12 plus the weighted centered square. Since c_j=phi_j^*/(2 pi)+1/(2n), multiplying by pi^2 n^2 recovers both terms of the frozen identity, all equality positions and cyclic gaps. Strict integer convexity gives the fixed-r consequence."
+        ],
+        "reasoning": "This is an explicit direct deduction of the actual identity including the defect, not a similarity of themes. It covers arbitrary positive masses on each chosen cyclic chamber and includes the weighted-midpoint equality family by positivity of the weights.",
+        "searches": [
+          "Graham arXiv:1910.14181, PDF offsets 5350–7226 and 15190–18389",
+          "Zhang arXiv:2610.02009 Corollary 7.4",
+          "Resultary 9316c47c20fb Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For x_j=phi_j/(2 pi), p_j=m_j/n and nu=sum p_j delta_x_j, the mean-zero primitive of nu-dx has squared L2 norm sum_{k != 0}|nu_hat(k)|^2/(4 pi^2 k^2). Hence V=pi^2 n^2 ||nu-dx||_{Hdot^-1}^2=pi^2 n^2 W_2(nu,dx)^2 exactly by Graham's Proposition 2.",
+          "Nagel's Proposition 2.1 gives the same one-dimensional periodic weighted energy, namely L_{2,per}^2=2V/pi^2 for integer weights."
+        ],
+        "reasoning": "These are equivalent formulations of the measured observable itself, not merely comparisons up to constants. The exact transport identity supplies an available stronger route to its optimization.",
+        "searches": [
+          "Web: circle Wasserstein 2 uniform measure equality L2 discrepancy circular CDF optimal transport",
+          "Web: Cole Graham irregularity of distribution Wasserstein distance Lp discrepancy torus exact formula",
+          "arXiv:1910.14181 Prop. 2 and p. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9316c47c20fb is a same-day exact local coefficient for nearby simple roots and nonzero exponents, not an indexed fixed-multiplicity theorem; c1e50d25ac23 is a simple-root positive-exponent norm-ratio result.",
+          "The decisive earlier exact formula is analytical (Graham), not a numerical profile table. No exact cubic-profile table was found in the inspected catalogue results."
+        ],
+        "reasoning": "The same-day entry does not establish priority over the global defect; the general quantile formula does establish earlier mathematical coverage regardless of whether someone tabulated the integer cases.",
+        "searches": [
+          "Resultary: unimodular root multiplicities logarithmic variance optimal angles and weighted angular defect",
+          "Web: periodic L2 discrepancy circle prescribed weights minimized midpoint sum of cubes optimal transport",
+          "arXiv:1910.14181, p. 6 exact quantile cost"
+        ]
+      },
+      "rationale": "Graham's earlier exact circular Wasserstein–Sobolev identity together with the shifted-quantile formula in its own proof implies the whole weighted minimum and centered global defect, for arbitrary positive real masses. Substitution of a step quantile, then integration of a squared linear function per step, suffices. The polynomial claim is the integer-mass specialization; balancing integer cubes adds only the immediate convexity corollary. The lack of the exact polynomial wording in the older source is not a difference in mathematical coverage.",
+      "residual_risks": [
+        "No claim about who first articulated the polynomial formulation. The verified earlier exact functional coverage suffices, irrespective of additional quadrature sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger known identity and exact cost formula, directly implying the claimed optimum and global remainder.",
+          "evidence": [
+            "Equation (5) identifies W_p with the homogeneous negative Sobolev norm on the circle for any probability measure versus uniform; p. 6 evaluates W_p^p as the infimum of integrals of the shifted quantile displacement to power p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.14181",
+          "material_read": "Proposition 2 and Remark 2, PDF p. 2, offsets 5350–7226; p. 6 proof with shifted inverse CDF, offsets 15190–18389",
+          "method": "OA primary PDF",
+          "title": "Irregularity of distribution in Wasserstein distance",
+          "trigger": "Exact equivalence of circular Sobolev discrepancy and quadratic transport to uniform measure"
+        },
+        {
+          "assessment": "The kernel matches the weighted log energy in d=1; the inspected Latin-hypercube results are not the fixed-mass optimizer.",
+          "evidence": [
+            "The pair kernel at d=1 is 1/2-|t|+t^2 with constant mass term subtracted."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00605-025-02065-2",
+          "material_read": "Proposition 2.1, PDF p. 6, offset 17231; Example 2.5, p. 8, offsets 28533–28641; Theorem 3.7",
+          "method": "OA primary PDF passages",
+          "title": "On the L2-discrepancy of Latin hypercubes",
+          "trigger": "Exact weighted periodic Bernoulli kernel"
+        },
+        {
+          "assessment": "Covers the unrestricted floor and regular polygon; not the decisive constrained result.",
+          "evidence": [
+            "V>=pi^2/12 and the power-sum lower bound sum |S_k|^2/k^2>=pi^2/6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02009",
+          "material_read": "§7.4 Corollary 7.4, PDF p. 21, offset 79224",
+          "method": "OA primary PDF passage",
+          "title": "Baernstein's quasi-norm monotonicity conjecture for polynomials with unimodular zero",
+          "trigger": "Prior identical logarithmic energy and simple-root sharp minimum"
+        },
+        {
+          "assessment": "Local simple-root specialization only, not the claimed global collision profile.",
+          "evidence": [
+            "Local log-norm expansion coefficient nr/8 at positive exponent r, plus o(D^2)."
+          ],
+          "identifier_or_url": "Resultary 9316c47c20fb",
+          "material_read": "Finding and hypotheses on near-regular simple-root perturbations",
+          "method": "Local mirror primary text",
+          "title": "Universal angular Hessian of Baernstein quasi-norm ratios",
+          "trigger": "Closest same-day indexed Hessian overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The logarithmic variance and repeated-root constraint are natural. But the exact minimum, equality, and full remainder are the second-moment expansion of the known circular shifted-quantile formula on each flat step; fixed-r balancing is elementary once this is written. No independent mathematical remainder survives that prior implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient is constructed using equivariant stellar subdivisions of every setwise invariant face rather than incorrectly identifying vertices in the original simplicial complex. An exhaustive standalone verifier independently checks the complete graph and 742 faces, 30 invariant faces, 24,530 refined faces, 12,414 quotient cells, all signed boundary compositions, 6,100 genuine free-face topological collapses, 104 exact integer unit-pivot chain cancellations, the surviving Smith factor two, and the 73 Tietze eliminations proving simple connectivity of the original complex. Armstrong's theorem gives simple connectivity of the quotient, and standard simply connected three-complex attachment theory lifts the integral chain determination to a Moore-and-spheres homotopy type. Nonstandard finite facts are reconstructed from scratch. A limitation is that this is exhaustive for one finite object, not a general theorem about all cubes.
+## correctness
 
-## Originality — PASS relative to examined sources
-The closest full-text prior records prove the nonequivariant integral symmetry module and rational character on the same complex, but not the integral cellular chain of its geometric orbit quotient. The rational invariant third-homology rank three is already implied and not claimed as novel. The earlier group-action literature applies to different theta/hypergraph quotients. Another full-text record treats an antipodal Rips quotient of the same sixteen vertices but with a different simplex condition and free rather than nonfree action. Exact source, parameter and implication comparisons are documented in AUDIT.json. Searches do not prove global publication uniqueness; potential unindexed equivalents remain a risk.
+PASS
 
-## Value — PASS
-The object is canonical—the first nontrivial sixteen-vertex hypercube independence complex under central bit-complement symmetry. Earlier work determined the complete integral upstairs homology representation and rational invariant rank, leaving an interesting genuinely integral and nonfree-orbit question. The result detects a new two-primary Moore summand, shows explicitly how it coexists with three rationally predicted three-spheres, and gives the full geometric-quotient homotopy type. It is not a cosmetic reparameterization or a small incremental Betti count. Its immediate scope is a single natural finite example, with no implication asserted for higher dimensions.
+The fixed set is exactly two tetrahedra: an invariant support is a union of opposite pairs, and opposite pairs of different parity cannot coexist since the cross distances are 1 and 3. The frozen proof correctly distinguishes orbit cells after removing inversions, geometric free-facet removal, and purely algebraic integral chain contraction. In its quotient Δ-complex, a facet occurring once in the attaching boundary of its unique maximal coface permits a deformation of the characteristic simplex onto the other facets, relative to them; this descends even if other boundary faces have identifications. A unit matrix coefficient alone would not establish that. The final three-dimensional argument is sound: a simply connected 2-skeleton is a wedge of S² by Hurewicz and Whitehead, the 3-cell attachments are vectors in π₂, and unimodular basis changes are realized by self-equivalences of the domain and target sphere wedges of the attaching map. Thus the Smith factor two and three excess 3-cells give the claimed wedge. An independent proof of the homotopy conclusion is given in the evidence below; it does not rely on the transcript of the large collapse or integer computation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact nonfree quotient homotopy type adds to the known upstairs invariants, including the already implied rational third Betti number. The relevant literature provides useful general tools but not the essential identification of this geometric orbit space. No equivalent or covering result was identified in the checked statements; not a definitive priority judgment.
+
+## value
+
+PASS
+
+Bit complement is the canonical central involution on the four-cube, with real fixed points in its independence complex. Its ordinary geometric quotient is a natural object already motivated by the contrast with the free Rips action and with the upstairs rational character. Identifying the degree-two Moore summand and the entire three-dimensional splitting is substantive integral information unavailable from a rational rank calculation; the small-dimensional quotient model gives a precise comparison for other cubical actions without making a generalization claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

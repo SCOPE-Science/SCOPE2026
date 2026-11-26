@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:47:23.497351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–125, equations (6)–(15)",
+        "Frozen VERIFICATION.md and CHECK.py lines 10–67; requirements.txt",
+        "Independent quadrature, 4096 equal θ intervals, full range 0<θ<π/2 and partial range 0<θ<arcsin(1/A) for the r≤1 test"
+      ],
+      "rationale": "Differentiation cancels the derivative of H exactly; its positive levels are compact regular ovals, and xdot=y gives four equal quarter traversals in the original time. In x=Au, the integrand under the inverse square root of the period increases strictly with A for u<1 since h>0 and k≥0; comparison to (1−u²)^(−1/2) gives the small-amplitude limit. With C=1+kA² and ε=k/C, the exact squared velocity is C(f_h−εg_h). This can also be obtained by integrating (1+k(A²−r+s))exp(hs) from 0 to r. The estimates 0≤g_h/f_h≤1/h and ε≤A^(−2) are uniform even for A-dependent unbounded k. On r≤A²/2 the relative kernel error is bounded by C_h(1+r)/A² and the limiting kernel has finite first moment. The upper half contributes O_h(A²exp(−hA²/4)) even with the endpoint singularity. Thus the unnormalized kernels differ in L1 by O_h(A^(−2)), including the missing tail. Their limiting integral is π/√h, which proves the relative period error and the same rate after normalization. Twice per period each interior x is crossed; symmetry gives exactly a fair sign independent of the squared gap. The bijection w=exp(−hr/2) produces density 2/(π√(1−w²)), and tightness of the raw gap implies the signed two-atom coarse limit. Independent midpoint integration using r=A² sin²θ checked the normalized period and gap CDF for h=0.7,2 and k=0,0.1,2,10^12 at A=6,12. For h=0.7, k=10^12 the ratios were 1.039792 and 1.009032; Pr(R_A≤1) was 0.486116 and 0.498485 versus limiting 0.502174.",
+      "residual_risks": [
+        "Finite numerical checks do not prove uniformity or a TV rate; those follow from the L1 estimate.",
+        "The error constants are allowed to depend on fixed h>0; no h→0 uniformity or negative k result is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The global-center classification covers a_2=0, a_4=−k, a_6=−h, but supplies no period or turning-layer estimate there.",
+          "The Jacobi multiplier method treats the first integral as established background. The quintic catalogue family uses x³ y² and x⁵, not x y² and x³."
+        ],
+        "reasoning": "Existence of a Hamiltonian-type integral or a classified global center does not determine its original-time period or distribution. The quintic theorem under the stated different powers is not a larger family containing this case.",
+        "searches": [
+          "Appis–Llibre DOI 10.1007/s00010-024-01051-7, Theorem 4",
+          "Chanda–Ghose-Choudhury–Guha arXiv:1706.02219 / EJDE 2018(120)",
+          "Resultary quintic and cubic center period searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–41 and 131–147",
+        "Local Resultary records c36617c285d5, 5ef7d7af5678, ffe383da977f, 0ac06783efe2",
+        "Appis–Llibre Theorem 4; Chanda et al. EJDE 2018(120)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old logarithmic asymptotic recovers the k=0 leading clock since log E∼hA²; its coarse occupancy does not give a microscopic squared-gap law or a rate.",
+          "The Cauchy occupation comparison maps its observed coordinate to the velocity in the canonical k=0 oscillator, not to the turning gap. The closest qualitative proof already gives the layer kernel and tail domination; its assertions of uniform convergence do not imply rate control without a first-order kernel estimate and integrable moment."
+        ],
+        "reasoning": "The quantitative estimate is an extension of closely related exact quadratures, not a different mechanism; the extra work controls the central-region error in L1 before normalization, including for sequences with k→∞.",
+        "searches": [
+          "Local Resultary 2026/10/11 records 5ef7d7af5678, 0ac06783efe2 and 2026/11/22 c36617c285d5 proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison uses α=k, β=h, a raw gap S=hR and arcsine variable Z=exp(−S)=W². These are bijections on the relevant spaces; qualitative and quantitative TV comparisons are invariant under them.",
+          "The comparison gives sup over α of the normalized period error tending to zero and uniform TV convergence, without the frozen rates."
+        ],
+        "reasoning": "The two versions of the limit law are exactly equivalent, not different occupation phenomena. Retain novelty credit only for the proven quantitative bounds across the entire coefficient range.",
+        "searches": [
+          "Local Resultary: cubic global center uniform period crossover and arcsine turning layers",
+          "Resultary 2026/11/22/SCOPE-uniform-period-crossover-and-arcsine-turning-layers-in-a-cubic-g--c36617c285d5, Finding and proof §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct entry reproduces the leading constant and limit density, but not the O_h(A^(−2)) estimates in the inspected statement. A separate result on the k=0 axis states sqrt(log E)T(E)→2π and a two-atom limit."
+        ],
+        "reasoning": "This is a continuum estimate asked uniformly, not an exact value from a finite catalogue or table. Existing indexed limit formulas are credited irrespective of notation; they do not give the two uniform error guarantees.",
+        "searches": [
+          "Local Resultary: cubic global-center periods, turning-gap concentration, square-wave occupancy; c36617c285d5, 5ef7d7af5678, 0ac06783efe2"
+        ]
+      },
+      "rationale": "The clearly supported distinct content is the quantitative O_h(A^(−2)) relative-period and total-variation control over all k≥0, including unbounded amplitude-dependent coefficients. A distinct later-dated indexed record states the same qualitative uniform crossover and equivalent qualitative arcsine limit, so neither qualitative result alone justifies the pass. The retrieved theorem and convergence proof do not state an explicit rate, and the frozen first-moment bound and normalization supply quantitative information not given by qualitative convergence. No provenance is inferred from the dates.",
+      "residual_risks": [
+        "The strong qualitative overlap is acknowledged and could share provenance, which this review does not settle.",
+        "Closely related exact quadratures provide a route to rates; the judgment credits quantitative claims actually established, not global publication priority.",
+        "The primary-literature comparison was bounded by the identified relevant OA material; unindexed quantitative equivalents may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent qualitative limits and strict period decrease; quantitative frozen rates not part of the statement",
+          "evidence": [
+            "Supremum of normalized period error tends to zero; gap law in TV with density exp(−s/2)/(π√(1−exp(−s))); transformed variable Z has classical arcsine density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-uniform-period-crossover-and-arcsine-turning-layers-in-a-cubic-g--c36617c285d5/RESULT.md",
+          "material_read": "Mirrored Finding offsets 0–2938; exact quadratures and convergence proof beginning near offsets 2980–5525",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform period crossover and arcsine turning layers in a cubic global center",
+          "trigger": "Matching cubic flow, parameter uniformity, and occupation law"
+        },
+        {
+          "assessment": "Covers global center, not the quantitative period or occupation claims in the inspected theorem",
+          "evidence": [
+            "Substitution a_2=0, a_4=−k, a_6=−h meets the global-center cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-024-01051-7",
+          "material_read": "Article pp. 1373–1376, family and Theorem 4 near extraction offset 4953",
+          "method": "OA PDF passage inspection",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Classification for the same cubic vector field"
+        },
+        {
+          "assessment": "Background only in the material actually accessible",
+          "evidence": [
+            "Jacobi–Maupertuis treatment of Liénard equations with squared velocity after reparametrization."
+          ],
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "material_read": "p.1 abstract at offset 171 and p.2 located text at offset 5169",
+          "method": "OA PDF passage locator; follow-up offset access timed out",
+          "title": "Jacobi-Maupertuis metric of Liénard type equations and Jacobi last multiplier",
+          "trigger": "Established first integral and coordinate methods for squared-velocity equations"
+        },
+        {
+          "assessment": "Covers k=0 leading period and coarse two-atom occupancy",
+          "evidence": [
+            "With κ=h and a=0 the orbit family matches the k=0 equation; sqrt(log E)T(E)→2π."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-universal-logarithmic-frequency-and-square-wave-limit-at-a-cubic--5ef7d7af5678",
+          "material_read": "Mirrored Finding and proof near offsets 0 and 3974",
+          "method": "Local mirror",
+          "title": "Universal logarithmic frequency and square-wave limit at a cubic global center",
+          "trigger": "Same k=0 axis and same observed position"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Its x coordinate is proportional to the canonical oscillator's velocity, so it is not a law for the squared turning gap of the position."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-cauchy-time-concentration-and-the-order-one-moment-threshold-in--0ac06783efe2",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Cauchy time concentration and the order-one moment threshold in a cubic global center",
+          "trigger": "Same axis under linear coordinate conjugacy, different sample observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–4",
+        "Resultary qualitative comparison c36617c285d5"
+      ],
+      "rationale": "A single explicit amplitude error scale applies across the singular kA² crossover, including arbitrarily strong stiffness. This gives finite-amplitude accuracy for both the normalized clock and every measurable turning-layer event, not just weak convergence or pointwise estimates at fixed stiffness. The strong microscopic law explains where physical time is spent in a way the coarse square-wave limit cannot.",
+      "residual_risks": [
+        "No optimal error constant, joint velocity law, or estimate uniform in h approaching zero is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

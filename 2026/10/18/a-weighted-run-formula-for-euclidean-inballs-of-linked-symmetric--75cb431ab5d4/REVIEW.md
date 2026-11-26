@@ -1,15 +1,21 @@
-# Scientific review: linked symmetric snake-path inballs
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source's exact halfspaces reduce under an integer upper-bidiagonal map to cube bounds and an oriented path. In the original Euclidean metric, suffix normals have lengths \(\sqrt{n-i+1}\), not unit lengths. Telescoping along each directed run proves every upper bound, and a longest-downstream-path construction gives a feasible ball at the matching radius. The proof also verifies the extreme-word bounds and provides an explicit unimodular equivalence for the metrically distinct pair. An independent linear-programming sweep of 1,023 profiles confirms the formulas for dimensions up to 10 but does not replace the proof.
+## correctness
 
-## Originality
-PASS, subject to historical-indexing risk. The closely relevant Chen–Sanchez–Veliz–Ying source establishes the correct polytope and its volume triangulations, not the Euclidean metric theorem. Published inradius results for generalized snake order polytopes, signed order polytopes, and marked order polytopes were compared at the level of their defining objects, facets, Euclidean metrics, and mathematical implications: their normal systems differ, so the linked-snake weighted suffix-run formula does not follow from their stated theorems. Targeted searches under the exact delta-matroid family name, suffix constraints, Chebyshev centers, longest-run aliases, and unimodular equivalence found no covering result. The generic method of longest-path difference constraints is not new; the specific complete family classification is the claim.
+PASS
 
-## Mathematical value
-PASS. This gives an exact, linear-time Euclidean inradius for all \(2^{n-1}\) naturally occurring linked type-C snake-path polytopes, a complete incenter halfspace system, forced tight contact chains, and sharp dimension-dependent extremizers whose scales differ by a factor of order \(\sqrt n\). The explicit Ehrhart-equivalent pair with unequal Euclidean inradii distinguishes lattice equivalence from canonical metric geometry. It is not a special-case numerical recomputation or an arbitrary slice.
+The inverse suffix transform is x_i=s_i+t_i−t_(i+1), x_n=t_n. In the t-cube this removes exactly the redundant side of each coordinate bound and leaves a single comparison across each edge. Ball containment is therefore equivalent to shifting the suffix halfspaces by r√(n−i+1) and the retained comparisons by r, since those are the normal lengths in x, not in t. Summing along any directed path i→j gives the obstruction r(a_i+a_j+d)≤1. A one-edge extension of a path strictly increases this denominator because adjacent weights differ by less than 1; the first-edge denominator even exceeds every zero-edge denominator. Conversely, the maximum of a_j+d over all downstream paths from i gives a potential L_i with L_i≥L_j+1 on edges and a_i≤L_i≤H−a_i. The center t_i=L_i/H thus attains the bound; the exact shifted halfspaces describe all centers, and telescoping equality forces all contacts on maximizing paths. The upper denominator n+√n is attained only by a full directed path; alternating words attain the smallest denominator. Reversal followed by complement in t preserves the reversed edge word and has an integer affine unimodular inverse. For S={1} the length-(n−2) run dominates the first edge for n≥4, with a tie at n=4; for S′={n−1} the longer run dominates strictly. Their denominators differ by √2−1+√n−√(n−1)>0. The n=1 segment and n=2 single edge agree with their separate stated cases. The supplied LP checker was inspected, not run; the analytic argument establishes the universal statement.
 
-## Closest literature and limitations
-The main first-public source is Chen et al., *Lattice Path Delta Matroids* (2023-11-26), arXiv:2311.15441v1. The nearest published mathematical comparisons are the generalized-snake order-polytope inradius theorem, the signed-order longest-path theorem, and the marked-order critical-chain theorem; these concern different Euclidean embeddings and weight structures. The result is restricted to linked toric intervals. An unindexed equivalent derivation remains possible. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete weighted-run formula, forced incenter contacts, and reversal-pair metric distinction survive comparison with earlier path-potential methods and the source definition. The constant-word simplex subcase is covered, as is the general difference-constraint idea; neither is credited as new. A distinct same-family record proves a surface-area separation, not this inradius separation.
+
+## value
+
+PASS
+
+This is an exact original-coordinate invariant for a natural infinite family, not just a difference-constraint algorithm. It replaces Euclidean LPs by a linear scan, pinpoints necessary contacts, and proves both order-n⁻¹ and order-n⁻¹ᐟ² extremal scales in the same family. The explicit reversal family shows what the usual lattice invariants fail to detect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

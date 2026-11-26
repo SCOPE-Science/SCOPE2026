@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:47:44.133173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an interior source the two disjoint slivers of its sentinel gap must each contain a failed edge for a miss; this remains true with one sentinel because the two approaches lead to the same vertex. Inclusion-exclusion gives the recorded gap cost. Its forward second difference at length l is (l+1) times the probability of l specified survivals followed by two specified failures, positive through l=n-m and zero after. Its increments are strictly below 1 for l<L and exactly 1 for l>=L. When n<kL, an unbalanced vector has a shortest gap below L and exchange from a longest to it is strictly improving. When n>=kL a gap below L implies one above L; the analogous exchange improves, and all feasible vectors with gaps at least L tie by the affine tail. Positive integer gaps summing to n are realizable on the cycle. This covers the boundary n=kL, the all-fail case L=1, k=1 or k=n, and connectedness when m<=1. For k>=2 nonbalance in the affine region requires and is possible with at least two surplus edges. Replay `cd /workspace && python audit_checks/check_frozen.py 1`: independently counts monitored vertex components by union-find over retained edge sets; all 9,151 placements across n=3..9 match both the exact probability and optimum membership; n=10 example reproduced by reachability as 11/45, 127/450 and 13/45 for each of the three optima. Finite checks corroborate, not prove, the general statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Percolation cluster statistics in small-world models by Moore–Newman, exact SIR mean discovery times on small graphs by Holme, and Bai et al.'s temporal-network surveillance lead time do not give all-size equality cases under the specified joint deletion law."
+        ],
+        "reasoning": "These are broader in other directions but lack the fixed-size distribution and/or uniform-source eventual-detection objective required to imply the claim.",
+        "searches": [
+          "Moore–Newman arXiv:cond-mat/0001393",
+          "Holme arXiv:1708.06456",
+          "Bai et al. 10.1038/s41598-017-03868-6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0bc09296398b, 8d93515e9446, b1f033d145a4, bb072e8b5145",
+        "arXiv:cond-mat/0001393",
+        "arXiv:1708.06456",
+        "doi:10.1038/s41598-017-03868-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bernoulli ring theorem forces balance in its eventual detection objective; positive-probability failure counts with strictly curved gap costs can mask equality at an individual fixed count. The path theorem has end gaps and classifies a two-monitor endpoint transition."
+        ],
+        "reasoning": "Even if the independent-edge formula is expanded in failure count, a statement optimizing the mixture does not prove the coefficientwise equality classification. The fixed-count flat-tail boundary and nonbalance onset are substantive distinctions. Same-day indexing does not resolve priority.",
+        "searches": [
+          "Resultary 8d93515e9446 Finding and proof",
+          "Resultary 0bc09296398b Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is intersection of the uniform source's surviving connected component with a predetermined marked set. Resultary 8d93515e9446 studies this event on the cycle but with independent edge retention; 0bc09296398b uses independent retention on a path with two sentinels."
+        ],
+        "reasoning": "Fixed-count percolation can be realized by conditioning independent retention on an exact count, but that conditioning is material to optimizer ties; the independently averaged optimum classification is not an equivalent statement.",
+        "searches": [
+          "Resultary: exact gap classification, fixed-cardinality cycle failures, epidemic-sentinel gap allocation, cycle observer component detection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved indexed exact placement results are the Bernoulli cycle and two-sentinel path findings. The later time-delay cycle result bb072e8b5145 and expected-size result b1f033d145a4 use different objectives."
+        ],
+        "reasoning": "No indexed exact fixed-m gap optimizer spectrum or saturation criterion was identified. Bounded index and literature retrieval are not a proof against equivalents.",
+        "searches": [
+          "Resultary: fixed-cardinality edge failures cycle and saturated optimal sentinel gaps; cycle observers component detection"
+        ]
+      },
+      "rationale": "The full equality classification under uniform fixed-cardinality cycle failures, including the affine-tail threshold, survives the strongest inspected comparisons. Related cycle and path results address different joint laws or endpoints and do not supply the plateau. Not a general epidemiological or priority claim.",
+      "residual_risks": [
+        "Fixed-disruption reliability or optimal observer-placement work may contain an equivalent classification under other vocabulary. The external search was unproductive; the cited primary passages and indexed comparisons are not comprehensive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest cycle analogue; independent survival, not fixed disruption count.",
+          "evidence": [
+            "Balanced gaps maximize alarm probability under independent retention p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446/RESULT.md",
+          "material_read": "Finding, Assumptions and proof",
+          "method": "Resultary local mirror",
+          "title": "Exact spacing and opposing alarm objectives for epidemic sentinels on cycles",
+          "trigger": "Same graph, detection event and gap optimization"
+        },
+        {
+          "assessment": "A two-sentinel path with Bernoulli edges, not a cycle with arbitrary k and conditioned failures.",
+          "evidence": [
+            "It classifies an endpoint-placement transition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary local mirror",
+          "title": "A sharp near-certain-transmission transition for two epidemic sentinels on a path",
+          "trigger": "Same eventual detection framing, related sentinel optimization"
+        },
+        {
+          "assessment": "Different detection statistic and dynamics.",
+          "evidence": [
+            "Continuous-time SI with no failed edges; balanced gaps optimize a first-detection delay objective."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary local mirror",
+          "title": "Uniform first-detection ranks and stochastic-optimal sentinels on a cycle",
+          "trigger": "Exact cycle sentinel placement"
+        },
+        {
+          "assessment": "Budget constrains placement of transmissible edges, not the number failing uniformly or sensor positions.",
+          "evidence": [
+            "The criterion is expected outbreak size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-four-link-containment-on-a-transmission-cycle--b1f033d145a4/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact four-link containment on a transmission cycle",
+          "trigger": "Cycle transmission optimization with a fixed budget"
+        },
+        {
+          "assessment": "Mean time to discovery on small graphs under SIR, not eventual detection under fixed-count outages.",
+          "evidence": [
+            "Sentinel importance is defined using mean discovery time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06456",
+          "material_read": "PDF p. 1 abstract and p. 2 Exact calculations of Ω and τ (text offset 12800)",
+          "method": "OA PDF passages",
+          "title": "Three faces of node importance in network epidemiology",
+          "trigger": "Sentinel optimization by exact enumeration"
+        },
+        {
+          "assessment": "Relevant percolation background, not a matching placement theorem in the inspected passage.",
+          "evidence": [
+            "It addresses site/bond percolation and outbreak cluster statistics in a small-world model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0001393",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Exact solution of site and bond percolation on small-world networks",
+          "trigger": "Local ring percolation and clusters"
+        },
+        {
+          "assessment": "Time-based surveillance in temporal networks.",
+          "evidence": [
+            "Lead time is measured against time to 1% prevalence, not as a component-detection probability."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41598-017-03868-6",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Optimizing sentinel surveillance in temporal network epidemiology",
+          "trigger": "Surveillance placement criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the whole set of optimizers, not just a balanced solution: under sufficiently many fixed failures even some substantially uneven deployments tie. The sharp onset and exact deficit mechanism test whether an independence-based placement intuition survives a natural finite-budget change of law. The result is a stylized defensive surveillance calculation, not a delay model or a prediction on real networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

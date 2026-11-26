@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The included `verify_stewart_symmetry.py` requires Python 3 only. Run `python3 verify_stewart_symmetry.py` from the directory containing this file. Expected terminal line begins with `STEWART_SYMMETRY_PASS`.
+## correctness
 
-The checker enumerates all six three-symbol Stewart patterns, reconstructs the possible length-eight factor set for every initial pattern from the exact tail languages of lengths two and three, and confirms the complement/reversal overlap vector. It checks direct prefixes for all 1,296 four-pattern directives (with a fixed legal extension); it independently checks the base-three reflection property for all directives of lengths one through four, totaling 111,150 skeleton positions. Finally, it checks factor sets from three 25,000-symbol prefixes for lengths one through one hundred.
+PASS
 
-These are finite validations only. The general reverse-complement-closure theorem uses the proof that every factor can be relocated to fully assigned Toeplitz-skeleton positions, and that every finite skeleton has the stated reflected-complement involution. The infinite cutoff follows from the exhaustive length-eight classification and factoriality. No external mathematical audit has been performed.
+For each starting residue the first-level triple has the two fixed bits and a hole filled by either bit in the tail, giving exactly the six nonconstant triples and all four pairs. In a length-eight window the consecutive tail symbols therefore range over exactly the required pairs or triples. Independent enumeration via all two-level nine-period skeletons with both fills reproduced the complement intersections, including exactly the two given length-seven words and an empty length-eight intersection; taking prefixes rules out every larger length. Every finite factor can be shifted to a fully resolved window and thus repeats periodically. At each finite depth reflection about the remaining hole class interchanges the two non-hole digits at the first differing ternary digit, so the reflected window realizes its reverse-complement. Applying this symmetry sends complement membership to reversal membership. The proof handles cyclic variants of all six patterns, nonperiodic directives, and either exceptional-hole fill.
+
+## originality
+
+PASS
+
+The repaired novelty claim is the exact same-language overlap spectrum for the two constituent involutions and its sharp cutoff. The known witness words, total factor complexity, and reverse-complement closure are not claimed as new.
+
+## value
+
+PASS
+
+The exact spectrum measures a natural pair of symmetries of a classical word family for which total complexity, palindromes and unbounded common factors were known. It identifies where co-occurrence ceases and counts the exceptions, distinguishing closure under a composition from the exact failure of both constituent symmetries. The length-eight grammar makes this an all-directive sharp boundary rather than a finite sample or the restatement of the two palindromes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

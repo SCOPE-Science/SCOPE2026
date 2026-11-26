@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:51:16.206176Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64; VERIFICATION.md; verify.py histogram code lines 65–112; recorded verification_output.txt lines 15–20, inspected not executed",
+        "Independent replay: /workspace/branches/eae0444d-7d78-462b-bbd1-1d650b3ac410/record4_histcheck.py and its record4_histcheck_K33.txt and record4_histcheck_K34.txt outputs"
+      ],
+      "rationale": "Three-step net change is the graph Laplacian of the per-vertex firing counts. Its kernel is constant on the connected graph; counts 0 and 3 give fixed states, so least period three has count 1 or 2. At count 1, assigning each vertex its unique firing time makes its time-t chips equal to the initial count plus earlier neighbor firings minus its degree if it has already fired. Enforcing the three threshold inequalities gives exactly [d,d+h_2−1], [d−h_0,d−1], or [h_2,d−h_0−1] according to phase. Choices are independent with phases fixed; actual updates follow inductively and the net firing count gives return. A coordinate at least 2d forces the same threshold and a firing at each preceding time around the orbit, which is impossible here. On the resulting box the chip complement flips all firing indicators and commutes with the map, giving the reflected total and bijecting the one- and two-fire families. No fixed state can have one or two firings over three time steps. For complete bipartite graphs each nonempty shore support must contain all phases by repeatedly taking the predecessor phase across shores. With a thin shore of size three there are six choices for its phase assignment and a right-shore witness for each phase, giving b(b−1)(b−2)3^{b−3} times six and the complement factor two. Independent direct enumeration agrees with the full chip-total histograms on K_{3,3} and K_{3,4}.",
+      "residual_risks": [
+        "New exhaustive checks cover only two specific graphs; exactness of the box and all-size count relies on the proof. Counts are initial states of least period three, not transient states or temporal orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prisner works with general p in strongly connected Eulerian multidigraphs and states the construction is exhaustive for activity 1/p, as well as giving period existence from cycle divisibility. Jiang gives the uniform-firing test for return. The clumpy firing-pattern exclusion in Jiang–Scully–Zhang is a qualitative constraint only."
+        ],
+        "reasoning": "The exhaustive phase construction is stronger than the known feasibility threshold or a restriction on words; at p=3 the only other possible nonconstant activity is 2/3, obtained by the chip-complement involution.",
+        "searches": [
+          "Prisner, Complex Systems 8 (1994), pp. 380–382, Corollary 6.6, Lemma 6.7 and Prop. 6.8",
+          "Jiang, arXiv:1003.0943 Prop. 2.5; Jiang–Scully–Zhang, arXiv:1211.6786v3 Thm. 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Prisner, Complex Systems 8 (1994), 367–383; Jiang arXiv:1003.0943; Jiang–Scully–Zhang arXiv:1211.6786v3",
+        "Resultary 99e5dddcdc6e and c69d9dad62c9; literature index queries above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof introduces g(x) from the preceding phase and j(x) from earlier phases, then independently chooses the vertex values and states coverage of every activity-1/p periodic state. It explicitly uses the same construction to obtain attainable chip totals for p=2. For p=3, given the phase, imposing firing exactly at its assigned time yields an interval of width g(x); reflecting the known complement gives the activities with two firings."
+        ],
+        "reasoning": "Each fixed-phase family is a Cartesian product, so replacing each initial-choice interval by its monomial sum and multiplying is mechanical. At K_{3,b} valid phases force one left vertex of each phase, leaving a count of three distinct labelled right witnesses and unconstrained remaining right colors. Neither of these steps adds a classification beyond the earlier construction.",
+        "searches": [
+          "Prisner p. 381, Lemma 6.7 proof and following completeness sentence; p. 382, use of Lemma 6.7 for chip totals",
+          "Resultary 99e5dddcdc6e Relationship to prior work and equation (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Prisner's phase partition V_0,…,V_{p−1}, g(x) counts incoming arc multiplicity from the preceding phase, and the proof chooses an initial value at each vertex; the sentence after the proof says all periodic states of average activity 1/per(f) occur in this construction. The undirected rule here is exactly the reciprocal-arc digraph rule."
+        ],
+        "reasoning": "For p=3 this is the same one-firing-per-vertex phase/coloring classification. The local intervals come from the update with that unique firing time. Labelling and weighting the initial values, rather than only choosing a realization, do not change which configurations are obtained.",
+        "searches": [
+          "Resultary: parallel chip-firing period-three state census 2 times sum over phase assignments product of predecessor-phase neighbor counts",
+          "Literature index: Prisner Parallel Chip Firing on Digraphs 1994 Complex Systems 367 383 Lemma 6.7 pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 99e5dddcdc6e Eq. (1) gives the same chip-energy polynomial for three-cycles counted as temporal orbits. Multiplying by three counts initial states; its exponent m plus same-phase edges equals the sum of the frozen lower endpoints. Resultary c69d9dad62c9 gives the two-shore chip-total polynomial and the exact 72 and 864 cases. Both are indexed under later dates; neither establishes earlier priority merely by existing."
+        ],
+        "reasoning": "The first is exact formula overlap, not just a shared output value; the second specializes to the same thin-shore total. No earlier printed K_{3,b} closed form was established, so earlier coverage is by the constructive theorem and its immediate implication.",
+        "searches": [
+          "Resultary: least period-three parallel chip-firing conserved total chip polynomial Q(z) plus z^(4|E|-|V|) Q(z^-1) local interval lengths",
+          "Resultary: exact count of labelled least-period-three configurations on K_{3,b}: 12 b(b-1)(b-2) 3^(b-3)",
+          "Literature index: \"parallel chip-firing\" \"period three\" \"firing patterns\" Jiang Scully Zhang exact periodic configurations"
+        ]
+      },
+      "rationale": "The decisive earlier coverage is Prisner (1994), Lemma 6.7 and the completeness statement immediately after its proof, not merely a prior existence theorem. Its vertexwise phase-partition construction covers all periodic states of activity 1/p in a broader Eulerian multidigraph setting. Specializing to p=3 and replacing each undirected edge by the two reciprocal arcs gives the complete one-fire family. The three lower endpoints and widths are the local threshold inequalities for those assigned phases, and counting the independent initial choices by chip total is the direct generating-product rule. The other family is the standard chip complement. The thin-shore formula is the immediate witness count in this same specialization. There is an exact later catalogue overlap, but the originality failure rests on the earlier complete constructive coverage, not on catalogue path order or inability to access a source.",
+      "residual_risks": [
+        "The exact p=3 generating expression was not identified verbatim in the earlier journal source; the decision is coverage by its constructive classification. The two displays in Prisner's proof were not readable in the acquired text layer, and the examined version of the MIT period-two manuscript was unavailable at its cited URL; neither access limitation is the basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader constructive coverage with explicit completeness, not just a sufficiency or existence lemma",
+          "evidence": [
+            "The proof chooses f for every vertex using earlier phases and the preceding-phase in-neighbor count. Immediately following it: ‘In fact, all periodic states with average activity 1/per(f) occur with this construction.’ The p=2 chip-total application explicitly invokes the same lemma."
+          ],
+          "identifier_or_url": "https://www.complex-systems.com/abstracts/v08_i05_a05/ ; https://content.wolfram.com/sites/13/2018/02/08-5-5.pdf",
+          "material_read": "Printed pp. 380–382; in particular Lemma 6.7 and its proof/converse sentence on p. 381, OA offsets 34650–39517, and application on p. 382, around 40121",
+          "method": "Lawful publisher-linked PDF, bounded text extraction; the display inequalities on p. 381 do not render in the extraction; the local interval bounds were reconstructed directly from the update at p=3",
+          "title": "Parallel Chip Firing on Digraphs",
+          "trigger": "Earlier general phase-partition construction capable of implying the full target"
+        },
+        {
+          "assessment": "Uniform firing count already established",
+          "evidence": [
+            "Return after t steps is equivalent to every vertex firing the same number of times."
+          ],
+          "identifier_or_url": "arXiv:1003.0943",
+          "material_read": "Prop. 2.5, p. 5, OA offset 14200",
+          "method": "OA PDF passage",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Prior return/firing-count theorem and complete bipartite feasibility"
+        },
+        {
+          "assessment": "Qualitative firing restriction, not itself an exact enumeration",
+          "evidence": [
+            "Clumpy periodic firing patterns cannot occur."
+          ],
+          "identifier_or_url": "arXiv:1211.6786v3",
+          "material_read": "§6 Thm. 6.2, pp. 12–13, OA offset 31800",
+          "method": "OA PDF passage",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Possible existing complete pattern criterion"
+        },
+        {
+          "assessment": "Equivalent polynomial after orbit-to-state factor; gives additional support information; identifies Prisner's earlier phase construction",
+          "evidence": [
+            "Each three-state temporal orbit has constant total, so exactly three states; the alternate exponent is |E| plus the same-phase edge count."
+          ],
+          "identifier_or_url": "Resultary 99e5dddcdc6e",
+          "material_read": "Finding Eq. (1), offset 0–2824; Relationship to prior work, offset 10396–end",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two contiguous chip-energy bands and an exact three-cycle census on connected graphs",
+          "trigger": "Exact indexed phase-product and reflection overlap"
+        },
+        {
+          "assessment": "Matching specialization and sample totals, not used to establish priority",
+          "evidence": [
+            "Labelled K_{m,n} mass polynomial and its reflected partner; totals 72 and 864 for K_{3,3} and K_{3,4}."
+          ],
+          "identifier_or_url": "Resultary c69d9dad62c9",
+          "material_read": "Finding and proof §§1–4, offset 0 onward",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-shore primitive-three mass spectra in complete bipartite parallel chip firing",
+          "trigger": "Exact two-shore comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 46–64",
+        "Prisner Lemma 6.7 and subsequent completeness and chip-total application; Resultary 99e5dddcdc6e for the separate support theorem"
+      ],
+      "rationale": "Conserved chip totals and exact state counts are natural invariants, and the two thin-shore histograms are useful checks. But the frozen contribution is only to take the product of vertexwise interval generating factors in the earlier complete phase construction, reflect them, and count witnesses in its simplest complete-bipartite specialization. This does not establish a distinct structural or exact enumerative result beyond a mechanically obtainable corollary. Stronger energy-support results in a different record are not part of this frozen submission.",
+      "residual_risks": [
+        "This valuation concerns the claim as frozen, not the general value of counting periodic configurations or separating orbit counts from state counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

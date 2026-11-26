@@ -1,15 +1,21 @@
-# Scientific review: Franklin ordinary four-cut topology
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite object is completely specified by its Hamiltonian cycle and six chords. Independent graph-subset enumeration gives three disjoint induced squares, 75 connected four-sets and 420 disconnected four-sets. The Alexander dual has the full two-skeleton on twelve vertices and precisely 75 tetrahedra. An exact standard-library program constructs a legal sequence of 75 elementary simplicial collapses; every pair is independently tested as a free triangle and its unique current tetrahedral coface, and no tetrahedron remains. The simply connected two-dimensional remainder has reduced Euler characteristic 90, hence is a wedge of ninety two-spheres. Complete face enumeration establishes that the original cut complex contains the full six-skeleton. Integral Alexander duality, Hurewicz, and Whitehead give ninety seven-spheres. Signed chain traces are checked for all 48 automorphisms and their ten conjugacy classes. The finite certificate provides a complete finite proof rather than an extrapolation.
+## correctness
 
-## Originality — PASS against inspected sources
-Bayer et al., *Topology of Cut Complexes of Graphs* (arXiv:2304.13675, 2023), and *Topology of Cut complexes II* (arXiv:2407.08158, 2024), do not state the Franklin ordinary four-cut homotopy or character. The already-published Franklin **total** four-cut theorem computes a different complex with only independent quadruples, with 43 four-spheres and no invariant rational homology; its public RESULT was read and contrasted with the defining facet conditions of the present ordinary complex. A public general ordinary-four-cut sphere-wedge theorem requires girth at least five, contrary to the Franklin graph's three squares; its RESULT and proof were read. Searches for the ordinary/total distinction, Alexander dual connected-four-subset formulation, rank 90, and symmetry invariants returned no claim dominating the present one. The uncertainty is an unindexed equivalent calculation, not a known unresolved source covering the claimed data.
+PASS
 
-## Value — PASS
-The Franklin graph is a canonical twelve-vertex cubic bipartite graph whose disjoint four-cycles put it exactly outside the published girth-five four-cut theorem. Its natural ordinary four-cut invariant has a completely determined integral homotopy type and a nontrivial, complete rational symmetry character. In particular the three squares produce a nine-unit correction to the connected-quadruple count relative to the tree-only count, and the three invariant classes sharply distinguish it from the previously computed total four-cut topology. The standalone complete collapse sequence and symmetry checks make the precise finite computation reusable. No general all-cubic-graph extension is claimed or required.
+In the specified triangle-free cubic graph there are 12 claws and 72 unoriented nonbacktracking length-three paths, 12 of which are supported on the three vertex-disjoint squares; with the squares this gives 75 connected quadruples and 420 disconnected ones. The dual forbids the latter. On five vertices, connectivity after every deletion forces minimum degree at least two; bipartition sizes must be 2+3 and every vertex on the size-three side must meet both others, giving a forbidden K₂,₃ with overlapping squares. Thus the dual is the full 2-skeleton plus precisely the 75 tetrahedra. An independent greedy collapse in a different order removed every tetrahedron with a free triangle, leaving 145 triangles. The full 2-skeleton is simply connected, so Hurewicz and homological Whitehead classify the two-dimensional remainder as a wedge of 90 two-spheres. Duality has degree shift 9−i; the 6-skeleton of the simplex lies in X since the dual has no five-vertex face. This gives simple connectivity (indeed 5-connectivity), and Hurewicz and Whitehead give the claimed wedge of 7-spheres, not just the Betti number. All cut-complex generating facets have size eight. For the character, a setwise fixed simplex is a union of permutation cycles; its contribution to the negative augmented alternating trace is (−1)^(number of cycles), including +1 for the empty face. Enumeration by permuting the three squares and using their internal dihedral isomorphisms gave all 48 automorphisms. Cycle-union enumeration recovered all ten actual class entries (including the repeated row for two different classes), with weighted sum 144, hence invariant dimension 3.
 
-## Evidence, boundaries and priority risk
-The extracted `verify_franklin_fourcut.py` was executed directly, and `verification_output.txt` records its exact outcome. The proof uses all 4096 vertex subsets, all 75 tetrahedra, and all 48 automorphisms, with no assumption about larger graphs. The original and dual wedge equivalences are nonequivariant. The character is rational rather than an integral module description. A bibliographically unindexed equivalent result remains possible; no independent audit or external proof certification is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No covering theorem found after comparing the actual statements for the closest object (Franklin total four-cut), applicable candidates for the ordinary cut construction, and computations for other twelve-vertex graphs. The group order was already known for this same graph and is not treated as new. The supported distinct content is the integral ordinary four-cut and dual homotopy type and the full rational ordinary four-cut character, including the three invariants.
+
+## value
+
+PASS
+
+Computes a complete integral homotopy invariant and rational symmetry character of a standard cubic bipartite graph whose three squares rule out the girth-at-least-five shortcut. Ordinary and total four-cuts of the same graph give different outcomes; fixed classes persist for the ordinary cut complex and allow direct comparison with the total complex. The actual symmetry data, not just the Euler characteristic, are useful as a benchmark for extending ordinary cut-complex topology to graphs with squares.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

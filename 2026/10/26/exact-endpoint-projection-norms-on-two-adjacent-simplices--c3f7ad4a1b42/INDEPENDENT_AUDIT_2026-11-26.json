@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:29.742650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81, VERIFICATION.md, check_exact.py inspected but not executed",
+        "python3 /workspace/branches/local-certificate-audit.py — exact independent block-Schur row and full-norm comparisons in 12 mesh instances"
+      ],
+      "rationale": "For positive volume fractions q and 1−q, multiply the nodal mass matrix by (d+1)(d+2). The shared-facet block is I+J, its columns to the tips are q·1 and (1−q)·1, and the tip block is diag(2q,2(1−q)). Eliminating the tips leaves I+J/2, whose inverse is I−J/(d+2); block substitution recovers the recorded facet and both tip representers. The row norm is maximal at some node because each evaluation row on a simplex is a convex combination of its nodal rows. The sign of a maximizing row attains the bound on real or complex L∞, and continuous functions K_v/(|K_v|+ε) approach it; the nodal value is also an essential-supremum lower bound by continuity and the nondegenerate incident simplex. Each affine row depends on one barycentric coordinate per element. Integrating against d(1−u)^(d−1) gives S_d=N_d(1) at shared nodes and N_d(q), N_d(1−q) at the tips. With m=d+1 and b=d/(d+2), the derivative equals (m+1)b[(q−1)(1+bq)^(m−1)/(1+q)^m−b^(m−1)]<0. This gives exactly the claimed nodal maximizers, balanced minimum, and unattained limit at q=0; varying heights over a common facet realizes all positive ratios. The calculation depends only on volumes, and exact substitution gives 49/18 and 7/2 in dimension two.",
+      "residual_risks": [
+        "The bounded replay does not establish the continuous ratio or all dimensions; those follow from the block calculation and strict derivative. The finding is scoped to nodal maximizers and fixed dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2D grading result in §5.1 of arXiv:2008.01801 establishes L∞ stability for all degrees K≥1 under a grading hypothesis; it gives no exact two-element formula in the inspected passage.",
+          "Karkulik–Pavlicek–Praetorius's abstract states H¹ stability of the Courant projection for newest-vertex-bisection meshes. The two other identified papers did not yield full text in the attempted OA retrieval."
+        ],
+        "reasoning": "A mesh-wide stability bound is not an exact norm formula with volume dependence and extremizers; H¹ stability also differs in norm and hypotheses.",
+        "searches": [
+          "Diening–Storn–Tscherpel arXiv:2008.01801 L∞ stability",
+          "Karkulik–Pavlicek–Praetorius arXiv:1210.0367",
+          "Crouzeix–Thomée DOI:10.2307/2007825; Bramble–Pasciak–Steinbach DOI:10.1090/S0025-5718-01-01314-X"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99c2b9dd9b34 and 448008040630",
+        "arXiv:2008.01801 §5.1; arXiv:1210.0367 abstract",
+        "Frozen bibliography and targeted primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared-node row is the same moment computation as on one simplex. Both tip rows instead contain mixed values on the opposite simplex and a coefficient depending on the volume fraction on their own element.",
+          "The actual endpoint norm comes from the smaller-volume tip, not from the known shared-facet row or from a general stability bound."
+        ],
+        "reasoning": "Neither the uncoupled constant nor the existence of mesh bounds determines the sharp mixed row, its strict decrease with r, or the sharp degeneration limit.",
+        "searches": [
+          "99c2b9dd9b34 Finding and scope",
+          "arXiv:2008.01801 §5.1",
+          "Frozen RESULT.md tip representers and volume optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Courant P1 mass-matrix projection and continuous elementwise affine L² projection describe the same space here; multiplying Lebesgue measure by a global constant leaves the projection unchanged.",
+          "The one-simplex affine projector constant 2(d+1)((d+1)/(d+2))^d−1 is precisely the frozen shared-facet row constant, not the maximal tip row. The focused exact pair query yielded no result."
+        ],
+        "reasoning": "Changing names or measure normalization does not distinguish claims. The coupled tip rows and their strictly decreasing profile are the mathematical difference.",
+        "searches": [
+          "(\"two adjacent simplices\" OR \"two neighboring triangles\") \"L2 projection\" \"L∞ norm\" \"piecewise linear\"",
+          "Resultary search for exact two-triangle FEM norm",
+          "Resultary 99c2b9dd9b34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "99c2b9dd9b34 treats one simplex with no global continuity constraints.",
+          "448008040630 gives exact endpoint constants for alternating-knot continuous linear splines on bi-infinite and periodic one-dimensional grids.",
+          "The returned catalogue candidates did not include a verified exact two-simplex profile."
+        ],
+        "reasoning": "The one-simplex and spline constants are exact but their meshes and coupling differ on the relevant parameters; same-day dating does not determine order.",
+        "searches": [
+          "Local Resultary two common-facet simplices and exact two-triangle searches",
+          "Resultary 99c2b9dd9b34 and 448008040630"
+        ]
+      },
+      "rationale": "The known one-simplex projector gives exactly the shared-facet row and is credited, but not the two coupled tip rows. The closest exact spline result concerns a periodic one-dimensional mesh, while the same-endpoint finite-element literature inspected establishes stability under grading, not this exact volume-ratio profile and equality characterization. No equivalent exact pair profile was located in these bounded comparisons.",
+      "residual_risks": [
+        "The focused keyword query returned no results; this is not evidence of absence.",
+        "The full Crouzeix–Thomée and Bramble–Pasciak–Steinbach articles were not retrieved; historical equivalent exact computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shared-row precedent, not the coupled pair",
+          "evidence": "Exact one-simplex affine norm; global conformity constraints are out of scope.",
+          "identifier_or_url": "Resultary 2026/10/4/99c2b9dd9b34",
+          "material_read": "Mirrored RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary and mirror passage comparison",
+          "title": "Exact positivity defect and max norm of the affine least-squares projection on a simplex",
+          "trigger": "Exact affine projection overlap"
+        },
+        {
+          "assessment": "Different dimension, boundary and connectivity",
+          "evidence": "Bi-infinite and periodic alternating one-dimensional knot grids.",
+          "identifier_or_url": "Resultary 2026/10/26/448008040630",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "Exact endpoint stability for alternating-knot linear spline projections",
+          "trigger": "Possible equivalent periodic piecewise-affine norm"
+        },
+        {
+          "assessment": "General stability under grading, not an exact two-element norm",
+          "evidence": "States 2D L∞ stability under γ_h≤2^(3/2) for K≥1 and other refinement-dependent stability regimes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.01801",
+          "material_read": "§5.1 and transition to §5.2, p. 29, offsets 100570–103330",
+          "method": "OA PDF locate and bounded read",
+          "title": "On the Sobolev and Lp-Stability of the L2-Projection",
+          "trigger": "Broader FEM stability at the same endpoint"
+        },
+        {
+          "assessment": "Different norm and mesh hypotheses",
+          "evidence": "H¹-stability on 2D newest-vertex-bisection meshes.",
+          "identifier_or_url": "arXiv:1210.0367",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA PDF passage",
+          "title": "On 2D Newest Vertex Bisection: Optimality of Mesh-Closure and H1-Stability of L2-Projection",
+          "trigger": "Broader Courant-element theorem"
+        },
+        {
+          "assessment": "Unresolved full-text risk",
+          "evidence": "No negative conclusion drawn from access failure.",
+          "identifier_or_url": "DOI:10.2307/2007825",
+          "material_read": "Full text not retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "The Stability in Lp and Wp1 of the L2-Projection onto Finite Element Function Spaces",
+          "trigger": "Classical plausible endpoint-stability antecedent"
+        },
+        {
+          "assessment": "No exact endpoint implication established",
+          "evidence": "No negative conclusion drawn from access failure.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-01-01314-X",
+          "material_read": "Full text not retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "On the Stability of the L2 Projection in H1",
+          "trigger": "Related finite-element stability cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 99c2b9dd9b34; arXiv:2008.01801 §5.1"
+      ],
+      "rationale": "This is the smallest conforming multidimensional mesh that couples elements across a facet. The exact profile distinguishes balanced and collapsing-volume shapes and identifies precisely which nodal tests control the sharp endpoint constant, even without bounded aspect ratios. The mixed tip kernel and its strict extremal ordering are not a local projection calculation alone and are useful as sharp stability benchmarks for conforming P1 elements.",
+      "residual_risks": [
+        "No conclusion on larger meshes, higher degree, or variable volume density is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

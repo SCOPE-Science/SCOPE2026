@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic domination in the bipartite case follows from projecting each edge draw onto its endpoint in the larger part and proving pairwise-balancing optimality of ordinary coupon probabilities. An explicit no-isolate, matching-saturating construction attains the bound simultaneously for all deadlines, and the equality case at the first feasible deadline forces exactly a uniform perfect matching on balanced bipartite graphs. On odd cycles, the first-deadline count is an exhaustive matching-complement bijection; late domination follows from a strictly smaller vertex sampling hazard for any nonuniform law and an explicit union bound for the uniform law. Boundary conditions, quantifiers, and the strict inequality for every odd cycle of size at least seven were checked. The included exact-rational checker passes 864 assertions; it corroborates but is not used as a substitute for the proofs.
+PASS
 
-## Originality — PASS (qualified)
+Under fixed i.i.d. edge draws the larger bipartition side receives exactly one ordinary coupon per round. Conditional on the rounds assigned to two coupon classes, averaging their masses cannot reduce the chance of seeing both (including zero or one such round). Iteratively averaging a largest and smallest mass converges to uniform: each averaging decreases squared distance to uniform by half the squared spread. The saturated matching can be extended by one incident edge for each remaining B-vertex, making coverage equivalent to collecting the uniform B-coupons and attaining both the Stirling-number CDF and b H_b, including b=1. For a=b>=2, equality at t=b forces uniform B-marginals by AM–GM. Two B-vertices cannot share a positively supported A-neighbor, since selecting that neighbor for both would miss A with positive probability; b disjoint nonempty supported sets in A are singletons. On C_(2m+1), the complement takes a minimum edge cover bijectively to an m-matching: missing two consecutive edges would leave a vertex uncovered. The unmatched vertex determines the matching of the remaining even path, giving 2m+1 covers and the stated earliest-deadline probabilities. The strict comparison follows from ((2m+1)/(m+1))^m >= (7/4)^m > m+1 for m>=3. If all vertex hazards equal 2/n, consecutive hazard equations force step-two periodic edge weights, hence uniform on an odd cycle. Otherwise a vertex has hazard s<2/n, so (1-s)^t eventually strictly exceeds the uniform failure upper bound n(1-2/n)^t, including s=0. This establishes nonexistence of a universal optimizer, not a uniform-in-p threshold.
 
-The closest comparison is to the generalized coupon-collector literature on group drawings and their optimization. Schilling–Henze (2021) concerns limit laws, Betken–Thäle (2022) uniform group-draw approximations, and the fully inspected Berend–Sher (2025) results identify expected-time advantages of nonuniform package distributions; these do not imply the exact bipartite all-deadline optimum together with absence of a universal fixed law on odd cycles. The classical uniform single-coupon stochastic order and the decomposition coupon distribution are credited, not asserted as original. A potentially relevant earlier optimization article by Schilling (2021) was not fully accessible; its detailed historical coverage is unresolved. Claim- and alias-based comparisons with indexed results and related mathematical claims did not find a dominating theorem, but they do not certify uniqueness or priority.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a canonical graph-constrained group coupon collector: each sampled edge simultaneously covers its endpoints. The result answers a natural stronger design question, whether one fixed sampling rule can optimize every deadline rather than only mean time. The bipartite answer is exact on an infinite graph class and includes all optimizers for balanced instances, while the odd-cycle obstruction shows a genuine conflict between immediate and eventual completion. This is a structural parity phenomenon, not a routine improvement in a known scalar bound.
+The classical uniform coupon bound and maximum-matching count are inputs, not the distinct finding. In the checked material I found no equivalent graph-supported all-deadline classification or theorem implying the odd-cycle early/late conflict. The strongest comparisons concern either other sampling mechanisms, pairs of prescribed laws, or expected time rather than a universal CDF optimizer.
 
-## Closest literature and boundaries
+## value
 
-Schilling and Henze, *Two Poisson limit theorems...* (2021), DOI 10.1017/jpr.2021.15; Betken and Thäle, arXiv:2202.07485 (2022); Berend and Sher, arXiv:2509.17201 (2025); and Schilling, DOI 10.1016/j.ipl.2021.106112 (2021). The theorem is restricted to fixed independent edge draws and deliberately does not classify odd cycles of length three or five, all graph families, or adaptive policies. Full historical priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-deadline objective is a natural strengthening of expected-time optimization for a coverage process. The exact support classification on balanced graphs is useful for designing a sampler; contrasting it with nonexistence on all odd cycles of length at least seven gives a structural parity boundary in the cycle family. The comparison separates first-feasible cover counts from long-time vertex hazards rather than reporting a finite crossing for one parameter pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

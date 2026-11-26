@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:15.425103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the root color c. A positive clique color block different from c must have even size, because its vertices see exactly the other vertices in the block. A nonempty c block must be odd, since each of its vertices also sees the root. Thus odd r forces an odd c block and even same-color degree in the base; even r forces c absent and odd same-color degree in the base. Labeled multinomials over the allowed multiplicities give the stated exponential coefficients, and distinct cliques extend independently. The q=1 boundaries follow from these blocks (even r>0 is impossible); q>=2 always supplies a non-root color for even r. With two named colors, even base colorings are solutions of Lx=d over F_2. For y in ker L, y^Td=y^TLy=0 (off-diagonal terms cancel), so the system is consistent and has 2^nullity solutions. Exactly half the 2^r private binary assignments have an odd root-color multiplicity, proving the exponent. For the subdivided K_m, every subdivision vertex must match exactly one endpoint, so the m original vertices must use distinct colors; orienting K_m by a cyclic regular tournament lets each subdivision vertex match its head, giving odd indegree (m-1)/2 for m=3 mod 4. The base degrees are all even. Inspected the frozen verification script/log without executing the upload; independently reproduced 116 direct small-case corona counts versus parity-state dynamic programming (local replay: /tmp/opencode/frozen_independent_checks.py 5), including even r and q=1. The finite counts supplement the proof and do not establish the all-graphs result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reported arbitrary-G,H bound is for proper neighborhood-parity coloring; the same-invariant sources cover general base-graph binary feasibility and subdivision examples, not the local corona extension weights."
+        ],
+        "reasoning": "Being broader in attachment graphs does not dominate a theorem for a different invariant, and being broader in base graphs for an existence test does not provide a labeled all-palette count. No applicable broader enumerator was established in the inspected material.",
+        "searches": [
+          "Mounisha et al. 2026, pp. 126–127, general-corona bound and path/complete-graph setting",
+          "arXiv:2002.06078 §3 Theorem 3 and arXiv:2303.03225 §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.06078",
+        "arXiv:2303.03225",
+        "Mounisha et al., Palestine J. Math. 15 (2026), 126–132",
+        "Configured Resultary lookup and record cebdb2d805e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary feasibility supplies an input to the minimum-color conclusion, and the older subdivision example supplies the witness core. Neither gives the necessity that the root color is unused inside an even private clique nor the exact number of extensions for either parity."
+        ],
+        "reasoning": "Recovering the enumerator requires the independent private-clique block analysis and counting step; the checked prior results do not mechanically imply it. The example and nullity calculation by themselves are not the novel claim.",
+        "searches": [
+          "arXiv:2002.06078 §3 Theorem 3; arXiv:2303.03225 §2; frozen proof of local multiplicity weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belmonte–Sau's odd partition is the same invariant, but Theorem 3 addresses binary feasibility, not extensions to private cliques for arbitrary palettes.",
+          "Mounisha et al. require proper coloring and a neighbor-color of odd multiplicity. Here a vertex must have odd multiplicity in its own color, which proper coloring would preclude on a nonempty graph."
+        ],
+        "reasoning": "The same-invariant binary theorem is genuinely relevant but not equivalent to the corona factorization. The proper-color corona formula cannot be used with these counts.",
+        "searches": [
+          "Resultary semantic and exact-title lookups for the induced-odd clique-corona enumerator",
+          "arXiv:2002.06078 §§1, 3",
+          "Mounisha et al. 2026, pp. 126–127"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest distinct same-day result: 2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7, on proper colorings of complete multipartite graphs with odd-sized classes."
+        ],
+        "reasoning": "Odd class size in a proper coloring is not odd same-color degree, and complete multipartite graphs are not the private-clique construction on arbitrary cores. The target is an all-parameter identity, not a single table entry. No equivalent catalogue item was established by the bounded lookup.",
+        "searches": [
+          "Resultary semantic/title queries for clique corona, induced odd/even partition and parity-switch enumerator"
+        ]
+      },
+      "rationale": "The distinct claim is the arbitrary-base, named-palette enumerator with its parity-dependent transfer. The known odd-partition invariant, Gallai-type binary even feasibility and Scott's subdivided cliques are premises, not new contributions. The closest title match in the literature is for a different coloring invariant.",
+      "residual_risks": [
+        "An unindexed induced-odd rooted-product or corona formula could cover the factorization; no such source was established in the bounded comparison. No historical uniqueness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_RESULT_ONLY",
+          "evidence": [
+            "Theorem 3 tests two odd classes by a binary linear system and notes the even analogue is always feasible."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.06078",
+          "material_read": "§1 definition; §3 Theorem 3, printed p. 12, and the even analogue",
+          "method": "Primary OA full-text passages",
+          "title": "On the complexity of finding large odd induced subgraphs and odd colorings",
+          "trigger": "Same invariant and two-color parity system"
+        },
+        {
+          "assessment": "WITNESS_BASE_ALREADY_KNOWN",
+          "evidence": [
+            "One-subdivision of K_m uses exactly m induced-odd colors when colorable; m=0 or 3 mod 4 is the even-order regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.03225",
+          "material_read": "§2 subdivision discussion (text offsets 7856–10634)",
+          "method": "Primary OA full-text passages",
+          "title": "Odd Chromatic Number of Graph Classes",
+          "trigger": "Scott subdivision-family input"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "The definition imposes properness and asks for some color appearing an odd number of times in the neighborhood."
+          ],
+          "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_15%28Special%20Issue%20II%29_2026%29_126_to_132.pdf",
+          "material_read": "pp. 126–127, definition, scope and cited general-corona bound",
+          "method": "Primary OA full-text passages",
+          "title": "On Odd Chromatic Number of Corona Product of Graphs",
+          "trigger": "Closest title and a more general corona construction"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT_AND_GRAPH_FAMILY",
+          "evidence": [
+            "Proper coloring with odd-sized classes does not enforce odd same-color degrees."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7",
+          "material_read": "Indexed statement on strong-odd coloring of complete multipartite graphs",
+          "method": "Configured Resultary comparison",
+          "title": "Strong odd colorings of complete multipartite graphs are odd block partitions",
+          "trigger": "Strongest distinct same-day catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-palette transfer applies to any base, including disconnected, non-colorable and isolated cases. It exposes a sharp distinction: changing only attachment parity can collapse an unbounded invariant to one or preserve it exactly. It also gives an exact labeled two-color count for odd attachments, not merely a repeat of binary feasibility. These are useful quantitative and structural consequences even though counting on a general base remains unsolved by the formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

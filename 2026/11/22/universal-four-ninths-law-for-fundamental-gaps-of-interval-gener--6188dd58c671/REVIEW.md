@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The membership lemma is a two-way equivalence for every generator interval; all gaps have unique quotient–residue coordinates. Applying this lemma to the double and triple of a gap gives exact integer inequalities. Comparing their lower bounds produces the two non-overlapping residue bands, and counting the admissible quotient integers yields the stated exact formula. The uniform estimate follows by ceiling errors and a small-parameter bound, and the ratio limit follows whenever the width is sublinear. The independent integer reachability checker found no disagreement in 5,886 exhaustive parameter examples. Risk: numerical verification is finite, but no proof step relies on exhaustive computations.
+## correctness
 
-**Originality — PASS on inspected evidence.** Komatsu and Ying (arXiv:2206.13052, first public 2022-06-27) give generalized Frobenius and genus data for arithmetic triples, not the fundamental-gap count. Rosales et al. (DOI 10.1016/j.jpaa.2003.10.024) define the invariant and develop general bounds; the accessible material in their introduction and sections on fundamental-gap bounds did not state an interval-width-independent limit. The full openly accessible Moreno-Frías–Rosales article (DOI 10.3390/math13010095, online 2024-12-29) classifies semigroups with a specified fundamental gap rather than computing fundamental gaps throughout a consecutive-generator family. Closely related published interval-semigroup results address isolated gaps, pseudo-Frobenius gaps, and ordinary gap-residue distributions; these do not imply an exact count of divisibility-maximal gaps without the separate double/triple analysis. Risk: an earlier formula buried in an unindexed source or an unnoticed specialization of generic algorithms remains possible; no claim of uniqueness is made.
+PASS
 
-**Mathematical value — PASS.** Fundamental gaps are minimal divisibility witnesses determining a numerical semigroup's entire missing-integer set. Their number is not determined by ordinary genus or Frobenius number. A complete classification in two variable parameters, accompanied by a uniform, width-independent limiting proportion \(4/9\), identifies a natural invariant and a shared large-scale geometric structure across all sublinear generator intervals. It is not a relabeling of known gap counts; the additional double/triple constraints carve out two different arithmetic bands.
+At fixed summand count m the represented integers form the entire interval [ma,m(a+k)]. For n=qa+r no m>q works; if any m<=q works, q also works, because n>=qa and n<=q(a+k). Thus membership is exactly r<=qk and the genus is the stated residue sum. For the j-fold test, the carry c=floor(jr/a) changes r to jr-ca and q to jq+c. Below ceil(a/2) the double has no carry and still fails. In the bands [ceil(a/2),ceil(2a/3)) and [ceil(2a/3),a) the carries (c2,c3) are (1,1) and (1,2); comparison of c2/2 to c3/3 gives respectively the triple and double as the stronger restriction. This proves both integer bands, also when a band or an admissible q interval is empty. To verify the uniform estimates, the genus ceiling error relative to a²/(2k) is -a/(2k) plus a quantity in [0,a-1). For a>=3k neither lower bound needs clipping, and each count is within one of (a+k)/(3k) or (a+k)/(2k); the difference of the arguments is positive so the raw difference of ceilings cannot be negative. The band lengths differ from a/6 and a/3 by less than one; rounding the summands costs less than a, the +k numerators add at most a/2, and rounding the lengths against a/(3k) and a/(2k) costs at most a/(3k)+a/(2k). The resulting error is <3a. For a<3k, both F<=g<5a/2 and the nonnegative main term <2a/3 bound the absolute difference by <3a. Relative errors vanish when k/a→0, giving 4/9. At k=a-1 the membership test also gives directly FG=[ceil(a/2),a) as integers. VERIFICATION.md and check_fundamental_gap_bands.py were inspected, not run; the recorded unbounded-coin checks only compare the finite set of parameters and use a proven cutoff. Replay of the unrestricted result is the interval and carry argument above, not an extrapolation from those counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the full two-band fundamental-gap classification with a uniform linear absolute counting error and a width-independent 4/9 ratio for sublinear width. The basic semigroup membership and genus machinery, fundamental-gap predicate, and general finite algorithms are antecedent, not standalone novelty. No claim of exhaustive historical priority is made.
+
+## value
+
+PASS
+
+Fundamental gaps are a standard semigroup invariant. A complete parameter-uniform classification and a natural density among gaps, holding for fixed and growing sublinear widths with the same constant, add information beyond a genus count or a finite algorithm. The two competing carry boundaries explain where the limit comes from; no broader proportional-width claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:49:10.834652Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101 and VERIFICATION.md",
+        "Frozen verify_thales_volume.py lines 29–68, inspected without execution",
+        "repairs/3/RESULT.md and repairs/3/verify_thales_volume.py, corrected constants and finite diagnostic scope"
+      ],
+      "rationale": "The frozen exact theorem is correct, but its displayed decimal tails for τ and β are inaccurate. Independent 51-digit Decimal bisection, using 65 terms of the integrated normal-density series on [0,1] and 148 bisections, gave τ=0.83992367569237268960…, β=1.41094356197717210665…, Λ=1.69763020222053269332…. The repaired statement and diagnostic consistently use correctly rounded values. Completing the square gives membership as ||x||²≤max_v x·v=||x||₁ and containment coordinatewise. The radius ||u||₁, Gaussian radial moment 2^(d/2)Γ(d)/Γ(d/2), and half-normal exponential moments give U_d=2(π/2)^(d/2)[t^d]F(t)^d, including the two-direction sphere at d=1. Expanding through order four recovers the four stated volumes. Strictly positive tilt variance gives uniqueness of the saddle. At it the centered lattice characteristic function has span one; on the rescaled central arc the odd cubic correction integrates to zero, the integrated quadratic remainder in that correction and the quartic error are O(1/d), and both remaining arcs are negligible. The local prefactor and β therefore follow, with division by 2^d giving the claimed base. The positive c_0,c_1,c_2 terms alone give Λ≥(√π+1)/2>1.",
+      "residual_risks": [
+        "The bundled finite floating-point and seeded integration checks were not executed. The proof does not depend on them. For a numerical replay, bisect the displayed strictly increasing saddle equation on [0,1] using the integrated Gaussian series in the repaired RESULT.md, then evaluate β and Λ at the root."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík gives a containment and power-diagram refinement for an arbitrary polytope, not its balls' ambient union measure. The general large-powers theorem does determine this coefficient's prefactor and relative error once the half-normal coefficient has been identified."
+        ],
+        "reasoning": "The generic theorem covers the analytic coefficient-asymptotic step, not the missing geometric identity linking this specific ambient union to that coefficient.",
+        "searches": [
+          "Pavlík §5 Theorem 5.1 and Corollary 5.3",
+          "Flajolet–Sedgewick, Analytic Combinatorics Theorem VIII.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md",
+        "Resultary a9f5030840b8 and d3a01e8b896a",
+        "Pavlík §5",
+        "Zhigljavsky–Noonan §§1.2,2.2",
+        "Flajolet–Sedgewick Theorem VIII.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering theorem only constrains membership on the polytope; the optimization literature measures vol(cube ∩ union). The saddle theorem takes an already specified generating function B and gives the at-mean coefficient asymptotic, with B=F in this application."
+        ],
+        "reasoning": "The missing identification is the diagonal spherical moment of the full union and its exact half-normal coefficient. Combining it with the prior large-powers theorem is a valid second route to the asymptotic, not independent evidence that the volume identification was known.",
+        "searches": [
+          "arXiv:2611.14277v1, Theorem 5.1 / Corollary 5.3",
+          "Analytic Combinatorics VIII.8(84)",
+          "doi:10.1007/s43069-020-0015-8, §§1.2,2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Within a sign orthant one uses the corresponding vertex ball; equivalently the ratio U_d/2^d is the volume of a positive-orthant slice of the ball centered at (1/2,…,1/2) of radius √d/2. The clipped cube coverage fraction is already one here and is not this slice volume."
+        ],
+        "reasoning": "The orthant formulation and the d-th moment of the spherical ℓ¹ radius are equivalent; internal power cells and differently placed balls' clipped volumes are not.",
+        "searches": [
+          "Resultary: cube Thales-ball volume, cubical ambient union and orthant-ball volume variants",
+          "Pavlík arXiv:2611.14277v1 §5",
+          "Zhigljavsky–Noonan doi:10.1007/s43069-020-0015-8 §§1.2,2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the assigned finding itself. The nearest distinct record treats regular simplex multiplicity regions and extremal dilations, not volume of the cubical union; no distinct same-day hit supplied the asserted coefficient and scale."
+        ],
+        "reasoning": "Neither a containment table for simplex multiplicity regions nor the self-match is independent coverage of these cube volumes.",
+        "searches": [
+          "Local Resultary: Thales cube ambient union and half-normal coefficient law",
+          "2026/11/22/SCOPE-exact-volume-and-exponential-overlap-cost-of-the-cube-s-thales-b--a9f5030840b8",
+          "2026/11/17/SCOPE-sharp-multiplicity-containment-hierarchy-for-regular-simplex-tha--d3a01e8b896a"
+        ]
+      },
+      "rationale": "The repaired contribution is the explicit ambient-volume coefficient formula for the cube's canonical Thales balls, and hence the instantiated sharp overhead. Neither covering of the cube, the Gaussian moment identity, nor a general large-powers estimate is claimed as new. The numeric repair does not change the exact theorem or its prior-work comparisons.",
+      "residual_risks": [
+        "The bounded broad search returned no useful further comparator; that is not evidence of absence. In particular an unindexed orthant-ball volume identity or an equivalent spherical ℓ¹ diagonal-moment result could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and containment prior; not ambient volume",
+          "evidence": "Vertex-to-point diameter balls cover the polytope; their power regions give an internal tiling.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14277v1",
+          "material_read": "§5 Theorem 5.1 and Corollary 5.3, PDF pp. 13–15, extraction offsets 40850–47303",
+          "method": "OA bounded primary passages",
+          "title": "Thales's theorem in higher dimensions",
+          "trigger": "Same diameter-ball construction on polytopes"
+        },
+        {
+          "assessment": "Different object and volume",
+          "evidence": "The covered fraction is vol(cube ∩ union)/vol(cube), for other arrangements.",
+          "identifier_or_url": "https://doi.org/10.1007/s43069-020-0015-8",
+          "material_read": "Abstract and §§1.2,2.2, PDF pp. 1–2 and 6",
+          "method": "OA bounded primary passages",
+          "title": "Covering of High-Dimensional Cubes and Quantization",
+          "trigger": "Cube and high-dimensional ball-volume measures"
+        },
+        {
+          "assessment": "Covers coefficient asymptotic given F, not the cubical coefficient formula",
+          "evidence": "For positive aperiodic B it gives a saddle at ζ B′(ζ)/B(ζ)=N/n and a full expansion in descending powers of n.",
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/AC.pdf",
+          "material_read": "§VIII.8.2, Theorem VIII.8, (84), printed pp. 587–588, extraction offset 2186600",
+          "method": "OA locate and bounded offset read",
+          "title": "Analytic Combinatorics",
+          "trigger": "General theorem for same diagonal large-power coefficients"
+        },
+        {
+          "assessment": "Different polytope and invariant",
+          "evidence": "Simplex-gauge dilation and when the m-fold region lies inside the simplex.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-multiplicity-containment-hierarchy-for-regular-simplex-tha--d3a01e8b896a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Sharp multiplicity-containment hierarchy for regular simplex Thales balls",
+          "trigger": "Closest distinct indexed Thales geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired volume theorem and proof",
+        "Pavlík covering theorem",
+        "Zhigljavsky–Noonan clipped coverage objective"
+      ],
+      "rationale": "The general covering theorem leaves open the ambient volume cost of a prescribed natural covering. This result quantifies that cost in every dimension, sharply distinguishes the exponential ambient growth from trivial full coverage inside the cube, and gives a computable formula and leading constant. The significance is the exact geometric volume and scale, not the use of an established saddle method or extra digits.",
+      "residual_risks": [
+        "No optimality, pairwise overlap or multiplicity law is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

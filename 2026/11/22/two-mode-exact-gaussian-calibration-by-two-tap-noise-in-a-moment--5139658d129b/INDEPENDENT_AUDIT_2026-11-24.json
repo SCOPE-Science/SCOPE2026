@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:47:53.333405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the exact stable domain and inspected the proof, verification note and rational Lyapunov checker without executing the uploaded code. In each orthogonal mode the AR polynomial z^2-az+b has a=(1+eta)t, b=eta t; 1-b>0, 1-a+b=1-t>0 and 1+a+b=1+(1+2eta)t>0 ensure Schur stability. As an independent variance calculation, let y_n be the causal stationary unit-white-noise AR(2) with the same a,b. By commuting linear time-invariant filters, x_n=sigma(c0 y_n+c1 y_(n-1)); its causal limit is independent of deterministic initialization. The white-process Yule–Walker equations give gamma1=a gamma0/(1+b) and gamma0=(1+b)/[(1-b)((1+b)^2-a^2)]. Thus Var(x_n)=sigma^2 gamma0 (c0^2+c1^2+2a c0 c1/(1+b)), reproducing the normalized formula, including its noise cross term. Independent modal innovations imply a joint centered Gaussian whose covariance suffices for the exact position law, not for exact time-lag statistics. Calibration equates an affine numerator to the strictly concave D_eta at two points; its line has K,G as stated. Real taps require K>0 and -1<=G/K<=1+2eta. K+G>2(1-eta^2)>0 follows from t_-+t_+-t_-t_+<1, and (1+2eta)K-G is eta times the product of the two stated positive linear factors. Both inequalities are strict; sum/difference square roots realize the desired taps, and overall sign reversal preserves them. For one mode one can instead take c1=0 and c0^2=alpha D_eta(t)/(sigma^2(1+eta t)). The residual is exactly q(t-t_-)(t-t_+)/D_eta(t); the affine-in-t numerator cannot agree with a nonzero quadratic at three distinct t values. The zero-momentum case is checked directly and excluded from the new claim. The rational example has normalized midpoint variance 826/851, as stated. The finite verification is supplemental, not a stability or arbitrary-dimension proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schuh integrates the harmonic phase-space drift/noise exactly through a matrix exponential and Brownian integral, using two independent Gaussian vectors in the numerical representation.",
+          "Theorem 1 for noisy Nesterov treats arbitrary stabilizing parameters but under additive white noise; its spectrum-dependent variance is an analysis of amplification, not two-tap design."
+        ],
+        "reasoning": "Exact harmonic integration can preserve a general Gaussian phase-space target but does not contain the fixed discrete ARMA recursion with common scalar taps. The white-disturbance theorem is broader in parameter domain, not in noise design, and cannot imply universal two-point attainability for arbitrary curvatures under common real taps.",
+        "searches": [
+          "Schuh arXiv:2605.24070 Eq. (4), Proposition 1 and outlook",
+          "Mohammadi–Razaviyayn–Jovanović ACC 2019 §III Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Mohammadi–Razaviyayn–Jovanović ACC 2019",
+        "Leimkuhler–Matthews arXiv:1203.5428",
+        "Schuh arXiv:2605.24070",
+        "Configured Resultary same-day randomized-midpoint comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The white-noise formula fixes the normalized numerator to a multiple of 1+eta t; it determines no slope/intercept design beyond that line family. General ARMA covariance and affine interpolation identify formal moments but still require two real taps with the same moments in every eigendirection.",
+          "The two strict feasibility inequalities hold for arbitrary nodes throughout (0,1) and supply the missing design step. The signed error is then the factored quadratic remainder. Other integrators or eta=0 do not encounter the asserted nonzero quadratic obstruction in this method."
+        ],
+        "reasoning": "The interpolation error is elementary once the constrained model is derived; do not credit new ARMA or approximation theory. The simultaneous feasible calibration, exact limit of two curvatures and bias characterization for this shared-noise positive-momentum update are the supported scoped result.",
+        "searches": [
+          "Mohammadi–Razaviyayn–Jovanović Theorem 1 compared with frozen variance/interpolation proof",
+          "Leimkuhler–Matthews §4; Schuh Proposition 1; Resultary --1009bfee52e4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mohammadi–Razaviyayn–Jovanović Theorem 1 gives the modal contribution (1+eta t)/[(1-t)(1-eta t)(1+(1+2eta)t)] for unit additive white disturbance.",
+          "The stationary scalar law with two taps is an ARMA(2,1), equivalently applying the MA(1) filter to that white-noise AR(2). The high-friction BAOAB position recurrence has equal consecutive-innovation taps and no extrapolation momentum."
+        ],
+        "reasoning": "The same-pole white formula is exactly the c1=0 special case after noise scaling; prefiltering allows an affine numerator but imposes a linked real-coefficient range. The BAOAB normalization equals eta=0 with equal taps at unit temperature, not a positive-eta classification.",
+        "searches": [
+          "Nesterov accelerated gradient stationary variance quadratic colored moving average noise exact Gaussian covariance curvature eigenvalues adjacent correlated noise Mohammadi Razaviyayn Jovanovic variance amplification two taps",
+          "Leimkuhler–Matthews arXiv:1203.5428, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct matched record is the assigned frozen finding. The closest distinct same-day record --1009bfee52e4 uses randomized-midpoint overdamped Langevin and distinguishes isotropic covariance calibration from exact Gaussian laws requiring a deterministic stage."
+        ],
+        "reasoning": "A common randomized stage with shared Brownian input is not a common two-tap filter in a positive-momentum recurrence. No independent exact index entry giving the two-mode classification with this recurrence was confirmed; a self-match is not corroboration.",
+        "searches": [
+          "Resultary: exact Gaussian calibration, two-tap momentum, curvature and stationary covariance",
+          "Resultary: sharp stage-time Gaussian calibration / randomized midpoint"
+        ]
+      },
+      "rationale": "Pass the positive-momentum noise-only calibration theorem for the fixed recurrence: uniform feasibility for arbitrary two modes with a real common tap pair, sharp obstruction at three and signed position-variance bias. The white-noise modal variance for this same Nesterov recurrence is prior art, as are two-tap colored noise at zero momentum, general ARMA moment algebra and exact harmonic samplers in other method classes. These provide tools and boundary cases, not the specific simultaneous attainability classification with the common-tap constraints.",
+      "residual_risks": [
+        "Possible unindexed equivalent positive-momentum covariance-design or noise-prefiltering result; targeted comparison does not establish absolute priority.",
+        "The result does not cover nonlinear targets, estimation of unknown curvatures, matrix-valued taps or exact lag statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior white-noise specialization, not two-tap feasibility",
+          "evidence": [
+            "White stochastic process has identity contemporaneous covariance and zero cross-time covariance; Theorem 1 gives the exact mode-sum at constant stabilizing parameters.",
+            "In t=1-alpha lambda and beta=eta, its summand matches the frozen result with sigma c0=1, c1=0."
+          ],
+          "identifier_or_url": "https://viterbi-web.usc.edu/~mihailo/papers/mohrazjovACC19.pdf",
+          "material_read": "pp. 3427–3428, white-noise assumptions, Lyapunov setup, Theorem 1 and modal contribution; offsets 15063, 20750, 22985",
+          "method": "Lawful author-hosted primary PDF, located and read bounded passages",
+          "title": "Performance of Noisy Nesterov's Accelerated Method for Strongly Convex Optimization",
+          "trigger": "Closest same-update positive-momentum modal variance for additive noise"
+        },
+        {
+          "assessment": "Known zero-momentum equal-tap boundary",
+          "evidence": [
+            "Update uses (R_n+R_(n+1)) scaled by delta t/2 at identity mass and unit temperature; correlation 1/2 at lag one, zero beyond.",
+            "Setting alpha=(delta t)^2/2 yields the zero-momentum choice, not the nonzero-momentum theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.5428",
+          "material_read": "§4 pp. 12–13, high-friction BAOAB limit, offsets 32000 and 33800",
+          "method": "Lawful OA primary text",
+          "title": "Rational Construction of Stochastic Numerical Methods for Molecular Sampling",
+          "trigger": "Earlier adjacent Gaussian innovation taps for sampling"
+        },
+        {
+          "assessment": "Different harmonic integrator, not noise-only tuning",
+          "evidence": [
+            "Matrix-exponential evolution in position and velocity with exact Brownian integral, represented numerically using two independent Gaussian vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.24070",
+          "material_read": "p. 4 Eq. (4) and Proposition 1; p. 27 outlook, offsets 13800 and 119141",
+          "method": "Lawful OA primary text",
+          "title": "Convergence and non-asymptotic error analysis for kinetic Langevin samplers using the exact harmonic Langevin integrator",
+          "trigger": "Stronger exact-quadratic capability in a possible comparator"
+        },
+        {
+          "assessment": "Different one-step randomized stage, no shared two-mode momentum design",
+          "evidence": [
+            "Isotropic covariance calibration with a stage law; Gaussian preservation requires deterministic stage, and common-stage exactness fails for nonisotropic targets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-gaussian-calibration-and-a-sharp-stage-time-barrier-for-ra--1009bfee52e4/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0 and 5353",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Gaussian calibration and a sharp stage-time barrier for randomized-midpoint sampling",
+          "trigger": "Closest distinct Resultary stationary Gaussian calibration record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an inexpensive unadjusted quadratic sampler that keeps the deterministic extrapolation rule and uses one fresh Gaussian per step, it matters whether noise alone can remove stationary bias. The theorem gives a guaranteed realizable two-curvature design, a sharp obstruction even with arbitrary real common taps at a third curvature, and the exact sign of what goes wrong between and beyond calibrated modes. This is a meaningful design boundary, not just a stationary variance calculation or a claim of general superiority to exact harmonic integrators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

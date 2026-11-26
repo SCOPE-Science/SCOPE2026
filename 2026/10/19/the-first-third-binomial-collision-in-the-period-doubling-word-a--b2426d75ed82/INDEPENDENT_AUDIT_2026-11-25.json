@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:33.058682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired finite theorem, the only adjacent letter pairs are 00,01,10: neither substitution image contains 11, both begin with zero, and all three allowed pairs appear in σ³(0). Every window of length at most ten is in two consecutive aligned length-16 images and conversely every prescribed slice occurs, including the two boundary cases of the start offset. The supplied proof computes all signatures by choosing increasing position sets. Independently, `python3 -B /workspace/reproduce_frozen.py 1` uses p_i=v_2(i+1) mod 2 (from p_(2j)=0 and p_(2j+1)=1−p_j), a prefix of 128 letters certified complete here by the adjacent-pair cover, and direct tuple counting. It verifies the factor counts 2,3,5,6,8,10,11,12,14,16, equality with the signature counts until 16 versus 15 at ten, and exactly the two named words in the one nonsingleton class. The common full signature and the 0001 counts 21 and 15 also agree. The frozen infinite statement is mathematically sound: image subsequence positions group into ordered source blocks, giving a linear combination of counts of source patterns of no greater length; the distinct uniform images decode uniquely and occur in the fixed point. It is prior work, not part of the repaired theorem. The uploaded verifier was inspected, not executed. The repaired RESULT.md and VERIFICATION.md state the finite scope and distinguish the script's corroborative checks of the prior witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lejeune gives proved second-binomial behavior on dyadic intervals and reports/conjectures third-binomial behavior. Rigo et al. explicitly label strict third-binomial deficit experimental.",
+          "The later higher-Abelian result has a different invariant."
+        ],
+        "reasoning": "A second-binomial collision need not be a third-binomial collision. A general experimental observation of inequality does not classify minimum length and multiplicity. No inspected broader theorem implies the repaired result.",
+        "searches": [
+          "Lejeune doctoral thesis, §4.5 Proposition 4.5.1 and Conjecture 4.5.2",
+          "Rigo–Stipulanti–Whiteland arXiv:2201.04603 §7.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corrected RESULT.md and VERIFICATION.md in /workspace/repairs/1/",
+        "October 13 Resultary RESULT.md and November 22 catalogue comparison",
+        "Lejeune thesis §4.5 and Rigo–Stipulanti–Whiteland §7.1",
+        "Independent replay /workspace/reproduce_frozen.py, argument 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old seed and propagation give an upper bound of ten on first collision length, not a lower bound or uniqueness at ten. Known factor complexity counts all words, not their third-order fibers."
+        ],
+        "reasoning": "The finite signature exhaustion supplies precisely the missing inequalities: no two factors share a signature below ten, and at ten there is exactly one excess word over the number of classes. The repair treats propagation as prior context, not as a claimed implication newly proved here.",
+        "searches": [
+          "Compare October 13 Finding and scope with Lejeune §§4.5.1–4.5.2 and the frozen census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13/SCOPE-explicit-infinite-third-order-binomial-collisions-in-the-period--4e783b08b718, RESULT.md at offset 0: same substitution, exactly the same two seeds and all their dyadic images, the identical signature and counts of 0001.",
+          "2026/11/22/SCOPE-dyadic-higher-abelian-profiles-and-an-exact-collision-law-for-pe--945680083ced concerns contiguous overlapping subwords, not scattered subsequences."
+        ],
+        "reasoning": "Third-order binomial equivalence has exactly the same meaning in the October 13 record. It proves existence at ten, but does not exclude other length-ten pairs or shorter collisions. Higher Abelian equivalence is not a synonym for binomial equivalence.",
+        "searches": [
+          "Resultary: explicit infinite third-order binomial collisions in the period-doubling word, scattered subsequences, first collision",
+          "Rigo–Stipulanti–Whiteland arXiv:2201.04603 §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The thesis explicitly reports plotting computed factor and order-two and order-three complexities through n≤70. The retrieved passage has the caption and computation description, not discrete point values or list of fibers. The exact plot values could not be verified with the available extraction.",
+          "October 13 gives the two seeds' full signature and order-four separation; it does not enumerate all factors' classes through ten."
+        ],
+        "reasoning": "An exact numerical sequence proving equal counts through nine and 16 versus 15 at ten, together with the known witness, would already imply the repaired claim. The closest available evidence reports and plots numerical computations; the review did not verify such an exact published sequence. This is a specific residual overlap risk, not a finding that no numerical computation existed.",
+        "searches": [
+          "Lejeune thesis §4.5 Figure 4.2 and surrounding pp. 115–117",
+          "Resultary October 13 exact seed signature and factor comparison"
+        ]
+      },
+      "rationale": "For the repaired claim only: credit the earlier exact witness, order-four separation, and full dyadic propagation, which were not credited as prior equivalents in the frozen finding. Originality of the frozen finding as presented fails on that part; the repair removes the unbounded assertion as a contribution and retains the exact proof that ten is first and that its nonsingleton class is unique. Neither a known witness at ten nor experimental strictness proves those exclusions. The thesis reports order-three computations including this range, so priority for first computation or observation is not claimed. The pass is for the explicit exhaustive first-collision classification after statement-level comparison, not for novelty of every number in the table.",
+      "residual_risks": [
+        "Lejeune’s Figure 4.2 and unlocated underlying data may reflect the low-length boundary; exact plotted points were not verified. No first computation of the complexity values is asserted.",
+        "Earlier unindexed exact classifications cannot be ruled out by the bounded inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen seed, separation and propagation; not the first-collision census",
+          "evidence": "Same u,v and signatures through order three, 0001 counts 21 and 15, and equivalence of distinct σ^t-images at 10·2^t.",
+          "identifier_or_url": "2026/10/13/SCOPE-explicit-infinite-third-order-binomial-collisions-in-the-period--4e783b08b718",
+          "material_read": "RESULT.md §§Finding, Assumptions and scope, Proof and prior-work discussion; offsets 0–6468",
+          "method": "Local Resultary mirror and exact statement comparison",
+          "title": "Explicit infinite third-order binomial collisions in the period-doubling word",
+          "trigger": "Exact seed and infinite-family match"
+        },
+        {
+          "assessment": "Earlier computations and conjectural behavior, no verified exact discrete census in the available passage",
+          "evidence": "Explicit computer calculation through n≤70 and plot; the relevant proved theorem is for order two.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+          "material_read": "§4.5, printed pp. 115–117, Proposition 4.5.1, Figure 4.2 caption and Conjecture 4.5.2, offsets 347554–354042",
+          "method": "Lawful OA VPN PDF passage inspection; a separate attempt to obtain the figure layout did not yield it",
+          "title": "On the k-binomial equivalence of finite words and their applications",
+          "trigger": "Earlier primary computations with the same word and binomial order"
+        },
+        {
+          "assessment": "Experimental observation, not an exact first-length or unique-fiber theorem",
+          "evidence": "Discusses order two and says experiments show strict separation at order three and suggest equality at four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.04603",
+          "material_read": "§7.1, p. 31, offset 132547",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "Primary paper describing the same order-three experimental gap"
+        },
+        {
+          "assessment": "Different subword counting problem",
+          "evidence": "Higher-Abelian profiles use contiguous overlapping subword counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-higher-abelian-profiles-and-an-exact-collision-law-for-pe--945680083ced",
+          "material_read": "Matching catalogue description identifying the invariant",
+          "method": "Local Resultary search and scope comparison",
+          "title": "Dyadic higher-Abelian profiles and an exact collision law for period-doubling factors",
+          "trigger": "Same word, dyadic lengths and collision wording"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired finite boundary answers a reconstruction question raised by earlier work on a canonical automatic word: it quantifies exactly when counting scattered patterns through order three loses information and characterizes all failures at that shortest length. The range is dictated by the first obstruction, not an arbitrary cutoff. This would be useful as a precise benchmark for later descriptions of third- or fourth-binomial complexity. It is not valuable merely for giving another proof of the already known propagation family, which the repair no longer claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

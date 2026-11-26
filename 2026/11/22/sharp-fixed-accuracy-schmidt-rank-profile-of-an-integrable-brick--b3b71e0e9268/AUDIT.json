@@ -1,146 +1,119 @@
 {
   "correctness": {
-    "rationale": "The source exact count-block flat spectra determine their squared Frobenius masses and spectral norms. Although count blocks with a shared row or column are not mutually Schmidt-orthogonal, their Frobenius inner products are zero; low-count difference cutoff therefore retains exactly the binomial mass, and has rank at most a polynomial times 2^(b sqrt(t)). The complementary high-difference operator norm is at most t(t+1)2^(-b sqrt(t)/2) by triangle inequality. Exact Eckart–Young dual bounds sandwich every best-r retained weight; binomial CLT yields half-normal CDF erf(b) and continuity yields the exact quantile coefficient. Verified the source’s critical nonstandard finite-time spectra via 2736 independent exact-integer assertions from explicit folded gate; limits, source dependencies and nonclaims are stated.",
+    "checked_sources": [
+      "RESULT.md, Proof",
+      "arXiv:2609.39401, Supplement (S22), (S37)–(S38) and (S53)–(S58)"
+    ],
+    "rationale": "The source's flat count blocks have the stated Hilbert–Schmidt masses and ranks. Keeping all low-difference blocks matches their total retained mass at polynomial rank overhead. For the other direction, the high-difference operator norm estimate or the stronger published retained-weight inequality gives the upper profile. The binomial central limit theorem and continuous inversion yield the curve and the fixed-error coefficient.",
+    "residual_risks": [
+      "The given finite gate checks do not prove the source's all-time block theorem. The result uses that theorem and applies only at the specified cut and for fixed rank exponent or fixed error."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Pozsgay arXiv 2609.39401 exact count-block spectra and S53–S58 lower bound",
-        "Pozsgay arXiv 2609.05121 Yang–Baxter gate-class conclusions",
-        "Dowling arXiv 2603.05656 general operator-entanglement implications"
+        "The broader gate paper discusses multiple integrable classes and a different seven-state example. The accessible preliminary description is qualitative."
       ],
-      "reasoning": "The initiating work provides an unspecified positive rank exponent, not the optimal coefficient or matching upper bound. Broader gate-family and simulability statements do not determine a model-specific Gaussian inverse-error law. A generic entropy lower bound is insufficient to infer the exact fixed-error rank coefficient.",
+      "reasoning": "No compared broader statement gives sufficient rank at the quantile for the specified four-state circuit; available preliminary metadata do not decide coverage by the full manuscript.",
       "searches": [
-        "square-root operator entanglement exact fixed accuracy required matrix product bond rank error function Pozsgay",
-        "Pozsgay arxiv:2609.39401 fidelity truncation Schmidt rank smooth max entropy quantile",
-        "Yang Baxter four-state integrable brickwork circuit best rank approximation central limit CDF error function",
-        "arxiv:2609.05121 Yang–Baxter operator entanglement fixed error rank",
-        "arxiv:2603.05656 general operator entanglement classical simulability"
+        "arXiv:2609.05121, abstract",
+        "Zenodo 22306151, accessible description"
       ]
     },
     "checked_sources": [
-      "arXiv:2609.39401, accessible full text, main and relevant supplementary sections",
-      "published-finding corpus public finding https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md",
-      "arXiv:2609.05121, inspected introduction/model relevant sections",
-      "arXiv:2603.05656, inspected abstract/introduction/qualitative results",
-      "Zenodo 22306151, public record and description, NOT full preliminary PDF",
-      "Current-week original ledger generation p0001_g000144, recoverable claims for de-duplication only"
+      "arXiv:2609.39401 and arXiv:2609.05121 passages above",
+      "Resultary 308ff33614b5",
+      "Zenodo 22306151 indexed description"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Pozsgay 2609.39401 Supplementary (S53)–(S58): qualitative exp(c_epsilon sqrt(t)) necessary rank",
-        "published-finding corpus https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md: high-index Renyi logarithmic coefficient only",
-        "New theorem: limiting retained mass erf(a/log2) for every a>=0 and exact inverse coefficient"
+        "(S55) gives F_t(r)≤E[min(1,r·2^(−G_t))], with a factor linear in r.",
+        "The half-Gaussian limit together with (S55) already gives the sharp upper retained-mass limit. No corresponding sufficient-rank construction is given in Supplement V."
       ],
-      "reasoning": "Existing lower rank bound has unspecified c_epsilon and does not give a matching upper exponent; its r^2 term cannot produce the new sharp constant. The fixed-alpha>1 Schatten moments are dominated by rare near-equal count sectors, so their asymptotics do not determine the quantiles of total Hilbert–Schmidt spectral mass. The new theorem does not simply restate those moments, and it does not claim general global MPO optimality.",
+      "reasoning": "The exact two-sided limit is distinguished by the explicit rank bound for a matrix formed by retaining low-difference count blocks; neither the one-sided limit nor the source's block spectra are claimed as new.",
       "searches": [
-        "the exact high-index Rényi coefficient in an integrable brickwork circuit",
-        "Pozsgay arxiv:2609.39401 fidelity truncation Schmidt rank smooth max entropy quantile",
-        "Pozsgay supplementary equation S55 rank squared Schmidt approximation"
+        "arXiv:2609.39401, Supplement V (S55)–(S58)"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Pozsgay 2609.39401 Supplementary V, rank-one-cut approximation lower-bound quantities",
-        "Full published-finding corpus finding https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md"
+        "The same one-cut optimization is indexed either by rank and retained mass or by error and minimal rank.",
+        "The fixed-order Rényi law is a statement about moments, not either of those optimal one-cut tradeoffs."
       ],
-      "reasoning": "Searched for smoothed zero-Rényi entropy, best rank-r squared operator-Schmidt retention, fixed-fidelity tensor truncation and Gaussian-quantile equivalents. The nearest published same-circuit statement describes high-order Rényi rather than the whole retained-mass profile. No equivalent formulation was located; search absence alone is not asserted to prove uniqueness.",
+      "reasoning": "The two compression formulations are equivalent by continuous monotone inversion. A fixed-order moment asymptotic does not determine them.",
       "searches": [
-        "operator Schmidt truncation fixed Hilbert Schmidt error Yang Baxter brickwork quantile erf binomial difference",
-        "best rank approximation four state integrable permutation circuit Schmidt weight Gaussian shape half normal",
-        "integrable brickwork circuit Gaussian quantile of Schmidt spectrum fixed accuracy inverse erf",
-        "2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5"
+        "Fixed-fidelity Schmidt truncation for the integrable brickwork circuit",
+        "arXiv:2609.39401, Supplement (S53)",
+        "Resultary 308ff33614b5"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Closest published-finding corpus identifier 2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5",
-        "Its published law S_alpha(t)=[(alpha-1/2)/(alpha-1)] log t+O_alpha(1) for fixed alpha>1",
-        "Accessible own weekly ledger claims were checked for operator entanglement and Pozsgay aliases; no matching topic found"
+        "The exact-curve catalog match is this same result. The distinct same-circuit record 308ff33614b5 treats fixed Rényi orders greater than one."
       ],
-      "reasoning": "No cited exact tabulation or database entry was found for fixed-error Schmidt mass quantiles of this gate; the closest indexed published result evaluates a distinct moment invariant. One database partition cannot establish uniqueness, so the accessible own-ledger comparison and primary full text were additionally used.",
+      "reasoning": "The archived copy is not earlier independent coverage; the distinct record evaluates a different invariant.",
       "searches": [
-        "operator Schmidt truncation fixed Hilbert Schmidt error Yang Baxter brickwork quantile erf binomial difference",
-        "operator Schmidt spectrum flat binomial count branch approximation rank quantile exact exponent colored Yang Baxter circuit",
-        "the exact high-index Rényi coefficient in an integrable brickwork circuit"
+        "Resultary: fixed-error Schmidt compression and the exponential-square-root retained-mass profile"
       ]
     },
-    "rationale": "Direct examination of source Supplementary V shows an unquantified fixed-error stretched-exponential lower bound, not the exact full retained-mass function or matching upper rank exponent. Publicly available sharp high-index Rényi work concerns fixed alpha>1 moments dominated by small count differences and does not imply the fixed-error Gaussian mass quantile. Searches of published-finding corpus, accessible own claims and relevant primary sources did not identify a covering theorem. Residual priority risk, particularly inaccessible earliest preliminary text, is disclosed and not concealed.",
+    "rationale": "The published source already gives the one-sided bound implying the sharp necessary rank exponent. The surviving contribution is the matching sufficient rank from a low-difference approximation, and thus equality in the limiting mass curve and fixed-error exponent.",
     "residual_risks": [
-      "The September 4 preliminary Zenodo PDF was not available for examination, although the later detailed arXiv text was read.",
-      "Index searches and available records do not rule out unindexed preprints or an implicit equivalent deduction elsewhere.",
-      "Publication priority and independent expert validation are not established; finding is mathematically self-contained conditional on explicitly credited source count-block lemma."
+      "The preliminary manuscript's full text was unavailable. The comparison does not exclude an unindexed equivalent."
     ],
     "source_inspections": [
       {
-        "assessment": "Covers input block spectra, qualitative exp(c sqrt(t)) lower bound and earlier entropy laws; does not supply sharp retained-mass curve, coefficient log 2 erf inverse, or matching upper rank exponent.",
-        "evidence": [
-          "Supplementary (S22),(S38) exact branch spectra",
-          "Supplementary V (S53)–(S58) lower-bound argument using a rank-squared bound"
-        ],
+        "assessment": "Strong partial coverage: flat blocks and sharp converse, not matching sufficient rank",
+        "evidence": "(S55) has linear rank inside the minimum, giving the sharp one-sided limit via the stated binomial central limit theorem.",
         "identifier_or_url": "https://arxiv.org/abs/2609.39401",
-        "material_read": "Main text, Supplementary Sections II, IV and V, specifically count-block spectra (S22),(S38), truncation (S53)–(S58), and their folded-gate construction.",
-        "method": "Examined arXiv-available full text and relevant equations and arguments, including the nonstandard color-injectivity derivation.",
+        "material_read": "Main-text gate/cut definitions and Supplement II C, (S22), (S37)–(S38), (S53)–(S58)",
+        "method": "Open PDF passage comparison",
         "title": "Square-root growth of operator entanglement in an integrable brickwork circuit",
-        "trigger": "Same four-state gate and same norm-error compression lower bound"
+        "trigger": "Same circuit and fixed-error approximation"
       },
       {
-        "assessment": "Proves fixed-alpha>1 logarithmic high-index Rényi growth; neither yields the half-Gaussian mass curve nor subsumes its inverse quantile theorem.",
-        "evidence": [
-          "Published formula S_alpha(t)=[(alpha-1/2)/(alpha-1)]log(t)+O_alpha(1)",
-          "Proof via difference-diagonal Schatten sum and count pinching"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md",
-        "material_read": "Complete public RESULT.md mathematical statements and proof; scientific contents of associated review were viewed for context but not used as validation of the new claim.",
-        "method": "Read actual published finding text, compared Schatten-moment quantifiers with fixed-error approximation-rank quantifiers.",
+        "assessment": "Related moment invariant, not fixed-error compression",
+        "evidence": "For fixed α>1, S_α(t)=[(α−1/2)/(α−1)]log t+O_α(1).",
+        "identifier_or_url": "2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5",
+        "material_read": "Finding and scope",
+        "method": "Resultary and local mirrored result",
         "title": "The exact high-index Rényi coefficient in an integrable brickwork circuit",
-        "trigger": "Same circuit; potentially dominating stronger entropy calculation"
+        "trigger": "Same circuit and normalized Schmidt spectrum"
       },
       {
-        "assessment": "Discusses other gate classes and entanglement growth, with no identified exact fixed-error profile for the particular four-state circuit.",
-        "evidence": [
-          "arXiv:2609.05121 introduction and gate-family analysis"
-        ],
-        "identifier_or_url": "https://arxiv.org/abs/2609.05121",
-        "material_read": "Introduction, relevant circuit-model sections and targeted searches for approximation-error and fixed-accuracy Schmidt-rank statements. Not an exhaustive reading of every section.",
-        "method": "Opened accessible full text and inspected model formulation and central results.",
-        "title": "On the growth of operator entanglement in brickwork circuits with Yang–Baxter gates",
-        "trigger": "Broader Yang–Baxter entanglement classification could imply stronger coverage"
-      },
-      {
-        "assessment": "General entanglement/simulability framework does not compute this specific circuit’s exact mass-quantile coefficient.",
-        "evidence": [
-          "General rather than model-specific conclusions in arXiv:2603.05656"
-        ],
-        "identifier_or_url": "https://arxiv.org/abs/2603.05656",
-        "material_read": "Abstract, introductory claims and relevant model-independent consequences in accessible HTML. No claim of exhaustive full-text inspection.",
-        "method": "Read accessible web-rendered source, compared implication direction of general simulability statements.",
-        "title": "Classical Simulability from Operator Entanglement Scaling",
-        "trigger": "Possible general covering conversion from operator entropies to simulation cost"
-      },
-      {
-        "assessment": "No claim of page-level exclusion. Residual risk that uninspected preliminary version contains an equivalent quantile statement.",
-        "evidence": [
-          "Verified 2026-09-04 public record; publicly described square-root entanglement growth"
-        ],
+        "assessment": "Full mathematical coverage cannot be determined from the description",
+        "evidence": "The indexed description concerns qualitative square-root growth and Rényi behavior.",
         "identifier_or_url": "https://doi.org/10.5281/zenodo.22306151",
-        "material_read": "Public metadata/description and publication date. PDF not retrievable for full mathematical comparison.",
-        "method": "Checked public record and compared its described qualitative result to the accessible later arXiv full text.",
+        "material_read": "Indexed public description, not PDF body",
+        "method": "Public indexing and attempted lawful PDF access",
         "title": "Square-root growth of operator entanglement in an integrable brickwork circuit (preliminary)",
-        "trigger": "Earliest verified public version of initiating material (2026-09-04)"
+        "trigger": "Earlier preliminary version"
+      },
+      {
+        "assessment": "Broader qualitative context in the inspected statement",
+        "evidence": "The abstract includes a different seven-state exponential-operator-Schmidt-rank example, not the fixed-error curve.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.05121",
+        "material_read": "PDF page 1 abstract",
+        "method": "Open PDF excerpt",
+        "title": "On the growth of operator entanglement in brickwork circuits with Yang–Baxter gates",
+        "trigger": "Broader integrable gate classes"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "b3b71e0e-9268-4335-a7a7-83d24d886ff6",
   "value": {
-    "rationale": "The motivating source leaves the fixed-error Schmidt-rank coefficient unspecified. Exactly determining the full retained squared-weight curve and its inverse accuracy-rank constant is a natural and useful simulation-complexity benchmark, distinguishing exponentially different truncation budgets at different fidelity levels. It directly addresses the highlighted open quantitative aspect of the source without imposing an arbitrary slice or claiming an unproved all-cut global MPO cost.",
+    "checked_sources": [
+      "RESULT.md, Finding and Proof",
+      "arXiv:2609.39401, Supplement V"
+    ],
+    "rationale": "Proving sufficient rank at the necessary exponent determines an exact attainable error–cost tradeoff for a concrete integrable circuit. The construction controls overlapping count sectors and establishes matching achievability rather than only a one-sided obstruction.",
+    "residual_risks": [
+      "The exact one-cut result does not imply globally optimal MPO bond dimension or simulation complexity."
+    ],
     "status": "PASS"
   }
 }

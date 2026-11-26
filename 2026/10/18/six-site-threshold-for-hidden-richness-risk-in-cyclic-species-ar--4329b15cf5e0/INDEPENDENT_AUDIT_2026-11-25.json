@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:41:27.661225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md, verify.py and certificate.json",
+        "/workspace/branches/check_3.py"
+      ],
+      "rationale": "The endpoint mean gives total species S. Windows of length 1 and N have a point mass, length 2 is binary, and length N−1 can lose at most one species. The only remaining depth for N≤5 is N=5,m=3. Its law is binary unless S=3 with a species occupying three sites. When S=3, the mean at depth 4 distinguishes (2,2,1) from (3,1,1), via singleton losses. In (3,1,1) the depth-2 mean distinguishes adjacent from nonadjacent singleton sites; in each case the pattern is unique up to symmetry and relabeling. For N≥6 with nonadjacent B,C, every window of length at least two detects A, and the singletons each have detection probability m/N. Among the N starts, those with both rare sites split by the first rare site in the linear window, giving exactly (m−s)_+ + (m−(N−s))_+, also at m=N. Thus at m≥2 the law is that of one plus two indicators with those marginals and intersection. The variable part of the variance is twice the joint probability. At floor(N/2) the two summands cannot both be positive, the count ranges from 0 to floor(N/2)−2, and the stated separations attain the endpoints, including odd N. At N=6,m=3 the histograms are (1,4,1) and (0,6,0) by direct count, with variances 1/3 and 0. Independent replay: python3 /workspace/branches/check_3.py checks all n^n site colorings for each n≤5, the labelled witness detection counts and histograms, and all eligible starts/separations through N=40. The unbounded claim follows analytically, not from the replay.",
+      "residual_risks": [
+        "The sharp gap is relative to this singleton family. The result does not apply to arbitrary or independent subsets of sites."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic mean realizability result does not impose one label per site and excludes the richness distribution.",
+          "Laurie–Perrier treats moments in a multifractal bisection model; Helmus–Ives uses contiguous aggregation for phylogenetic diversity."
+        ],
+        "reasoning": "The same or wider sampling framework, or nonidentifiability in another sampling model, is not a stronger theorem about how the entire richness law depends on the mean in this restricted class.",
+        "searches": [
+          "d80d89d49a23 Finding and scope",
+          "Laurie–Perrier arXiv:0710.5886",
+          "Helmus–Ives DOI 10.1890/11-0435.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d80d89d49a23, 0df4831a9563, d6d7cea9afea and 123d02f3e642",
+        "arXiv:0710.5886",
+        "DOI 10.1890/11-0435.1",
+        "DOI 10.1046/j.1466-822x.2003.00061.x and DOI 10.1111/j.1365-2745.2008.01433.x (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The absence-run data operate one species at a time and add to the mean. The two explicit cyclic words have those same species-wise data, yet one length-three window contains both singletons in only one word.",
+          "The earlier mean-versus-variability discussion is not a finite minimality theorem."
+        ],
+        "reasoning": "The mean-curve inversion does not identify the co-detection counts: their discrepancy is the witness. Establishing the small-site implication requires the abundance and adjacency argument; the range for arbitrary N requires a joint-window count and exact maximization, neither furnished by a prior marginal formula.",
+        "searches": [
+          "d80d89d49a23 Finding (exact mean information)",
+          "Laurie–Perrier pp. 1–2 and 9",
+          "Tjørve et al. DOI 10.1111/j.1365-2745.2008.01433.x (limited access)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d80d89d49a23 uses the same uniform cyclic window and complete mean; it identifies pooled absence-run data.",
+          "0df4831a9563 has the same site cutoff but species occupy pairs and windows are uniform subsets; d6d7cea9afea concerns intersection richness of subsets, not union richness of cyclic arcs."
+        ],
+        "reasoning": "Complements explain detection through absence runs, but neither passing to absences nor matching a cutoff makes fixed-width uniform subsets equivalent to translations of an interval. Distinct species co-detection is needed for the law in this model.",
+        "searches": [
+          "Resultary: cyclic transect richness/mean-curve realizability (d80d89d49a23); moment-based rarefaction (0df4831a9563); multisite zeta (d6d7cea9afea)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-window catalogue entry tabulates/characterizes information in means, not the joint mean-to-law census.",
+          "The six-site tree-incidence threshold and seven-vertex variance-reversal result measure different kinds of ambiguity with uniform subsets."
+        ],
+        "reasoning": "No examined exact entry enumerates cyclic-label richness laws at fixed mean through N=5 or gives the stated two-singleton extremal gap. This is bounded to the actual comparisons.",
+        "searches": [
+          "Resultary cyclic-transect richness and finite variance/identifiability entries d80d89d49a23, 0df4831a9563 and 123d02f3e642"
+        ]
+      },
+      "rationale": "Mean richness as an aggregate of detection statistics and the importance of spatial variability are not new. On the evidence inspected, the new part is the sharp full-law threshold in the cyclic one-label model and the exact size-dependent variance ambiguity even with identical labelled detection curves.",
+      "residual_risks": [
+        "Scheiner and especially Tjørve et al. remain access limitations, not evidence against prior coverage.",
+        "An unindexed cyclic occupancy or combinatorics treatment could state equivalent thresholds or bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap on sampling and mean-curve information",
+          "evidence": "Determines pooled absence-run lengths, not full richness laws or the within-family variance range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-realizability-and-strong-np-completeness-of-cyclic-transec--d80d89d49a23/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Resultary search, local mirror passage",
+          "title": "Exact realizability and strong NP-completeness of cyclic-transect richness curves",
+          "trigger": "Same cyclic mean curve"
+        },
+        {
+          "assessment": "Different model and data",
+          "evidence": "Uniform subsets, species occupying two sites, and ambiguity at equal mean and variance, not cyclic translates at equal labelled detection curves.",
+          "identifier_or_url": "0df4831a9563 (Resultary)",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary search, local mirror passage",
+          "title": "Sharp six-site limit of moment-based rarefaction in tree-incidence communities",
+          "trigger": "Same six-site threshold phrasing"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Zeta richness counts shared species of subsets, not union richness of cyclic intervals. No same-day priority inference used.",
+          "identifier_or_url": "d6d7cea9afea (Resultary)",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary search, local mirror passage",
+          "title": "Sharp Moment-Profile Blind Spots in Multisite Zeta Diversity",
+          "trigger": "Sharp moment nonidentifiability"
+        },
+        {
+          "assessment": "Different threshold and observables",
+          "evidence": "Seven total site-plus-species vertices, uniform subsets, and reversal of rankings at fixed means.",
+          "identifier_or_url": "123d02f3e642 (Resultary)",
+          "material_read": "Finding",
+          "method": "Resultary search, local mirror passage",
+          "title": "Sharp seven-vertex threshold for variance reversals in incidence-based species accumulation",
+          "trigger": "Exact variance ambiguity threshold"
+        },
+        {
+          "assessment": "Conceptual overlap, different mathematical claim",
+          "evidence": "Multifractal bisection model and power laws for additional moment statistics.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5886",
+          "material_read": "Abstract/introduction pp. 1–2 and properties p. 9, near offsets 1500 and 18000",
+          "method": "OA primary PDF",
+          "title": "A multifractal model for spatial variation in species richness",
+          "trigger": "Prior mean versus variability result"
+        },
+        {
+          "assessment": "Covers contiguous design distinction, not the cutoff",
+          "evidence": "Contrasts aggregation of adjacent units with nonspatial sampling, for phylogenetic diversity.",
+          "identifier_or_url": "https://research.vu.nl/ws/files/682368/295717.pdf",
+          "material_read": "Abstract, p. S31; methods near text offset 15000",
+          "method": "OA repository primary PDF",
+          "title": "Phylogenetic diversity–area curves",
+          "trigger": "Spatial adjacency as sampling design"
+        },
+        {
+          "assessment": "Primary text not inspected",
+          "evidence": "No usable primary passage retrieved; cannot conclude noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1046/j.1466-822x.2003.00061.x",
+          "material_read": "Bibliographic record only",
+          "method": "Publisher and bounded lawful OA lookup",
+          "title": "Six types of species–area curves",
+          "trigger": "Prior sampling designs"
+        },
+        {
+          "assessment": "Primary text not inspected",
+          "evidence": "The description in the frozen result is not independent evidence of the extent of coverage.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2745.2008.01433.x",
+          "material_read": "Bibliographic record only",
+          "method": "Publisher and alternate OA lookup; unrelated PDF excluded",
+          "title": "Species–area relationship: separating the effects of species abundance and spatial distribution",
+          "trigger": "Closest cited prior wrapped spatial design and species detection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; comparison to mean information in d80d89d49a23"
+      ],
+      "rationale": "For a standard spatial summary, this fixes the minimum size at which compressing windows to a mean loses the entire local richness law, and shows that even retaining all labelled marginal detections does not recover the missing joint behavior. The exact half-window gap makes the effect interpretable at arbitrary size, including deterministic versus fluctuating landscapes at the same mean. This is a sharp, identifiable boundary and witness in the stated design, not an ecological prediction or a universal variance bound.",
+      "residual_risks": [
+        "Value is as a mathematical benchmark for spatial sampling, not a claim about field prevalence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

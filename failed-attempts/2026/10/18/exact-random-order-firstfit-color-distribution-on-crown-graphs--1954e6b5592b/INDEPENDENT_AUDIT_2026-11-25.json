@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:45:54.257340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated law is correct. After a first vertex a_i, either a second A vertex takes color 1 before b_i, forcing a two-color side partition, or b_i closes a paired color 1 (probability 1/n). At least two interposed B vertices force exactly three colors. Zero or one interposed vertex has combined probability 3/[2(2n-1)] and gives one plus the smaller crown color count. The frozen proof's literal uniform-order assertion for one interposed vertex is false: the induced order is uniform conditional on starting on side B. The side-exchange automorphism gives precisely the same color-count distribution conditional on either starting side, so it justifies the recurrence without changing the claim. The n=2 base is two disjoint edges; maximum degree yields the bound n. The factorial expression follows by splitting odd/even factors; the tail ratio is at most 2/7 for the relevant m=n-k+3≥4, bounding the remainder after the first two terms. Independent direct permutation counts for n=2,3,4,5 agreed, including (2903040,574560,108000,43200) for colors 2 through 5 at n=5. Replay: /workspace/branches/b72df666-d704-4f8f-b5e8-83e6f97d7207/direct_crown_check.py and direct_crown_check.log. The frozen memoized n≤7 output was inspected, not executed; bounded checks do not certify the infinite law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye et al. prove at most 2.5+O(1/n) colors in expectation on the same graph family. The indexed exact result covers the n=2 boundary in its full distribution statement and also notes the n=1 edgeless case."
+        ],
+        "reasoning": "The primary bound is weaker on these objects, whereas the indexed record includes the entire claimed regime.",
+        "searches": [
+          "arXiv:2608.29603v1 §3.1 Theorem 3",
+          "Resultary crown law, Finding and Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/verify.py and verification/expected_output.txt",
+        "arXiv:2608.29603v1 §3.1",
+        "Resultary 2026/10/25/SCOPE-the-exact-random-order-firstfit-colour-law-on-crown-graphs--09ad609f31e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorem and block estimates of Ye et al. do not fix the tails. The indexed record counts linear extensions for specified matched-pair color classes and states the equivalent tails and the same mean expansion."
+        ],
+        "reasoning": "Every frozen numerical conclusion follows directly from the indexed statement. A different recurrence for the already covered law does not supply another claimed invariant.",
+        "searches": [
+          "arXiv:2608.29603v1 §3.1 Theorem 3 and proof",
+          "Resultary identified record, proof steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With m=n-k+3, the frozen odd-factor product equals 3^(k-3)n!(2m)!/[m m! (2n)!], precisely the distinct indexed factorial formula since m m!=m²(m-1)!."
+        ],
+        "reasoning": "Both formulas apply to labeled balanced crowns with a matching deleted, uniform vertex permutations, and ordinary FirstFit, with equality for every tail index, not just asymptotically.",
+        "searches": [
+          "Resultary: exact random-order FirstFit crown graph color law",
+          "2026/10/25/SCOPE-the-exact-random-order-firstfit-colour-law-on-crown-graphs--09ad609f31e4, RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched indexed Finding gives the exact distribution, tail-sum mean and exactly 40 n! 3^(n-3) orders attaining n colors."
+        ],
+        "reasoning": "An explicitly indexed all-parameter statement is stronger evidence than finite tuple or permutation tables.",
+        "searches": [
+          "Resultary: exact random-order FirstFit crown graph color law"
+        ]
+      },
+      "rationale": "A distinct indexed record demonstrably covers the full same exact law, extremal count, and expansion, with a partial-order proof. This is a rejection for equivalent coverage, not an inference that the overlapping record predates the frozen work or that Ye et al. proved the exact law.",
+      "residual_risks": [
+        "The catalog and frozen path dates differ. They do not establish discovery chronology, authorship, or dependence. Rejection rests on demonstrated equivalent coverage by a distinct indexed item."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact law in the inspected crown analysis",
+          "evidence": "States at most 2.5+O(1/n) colors in expectation.",
+          "identifier_or_url": "https://arxiv.org/html/2608.29603v1",
+          "material_read": "§3.1, Theorem 3 and surrounding block argument, offset near 14122",
+          "method": "OA primary HTML bounded passage",
+          "title": "FirstFit online coloring in the random order model",
+          "trigger": "Same graph and random-order algorithm; motivating comparison"
+        },
+        {
+          "assessment": "COVERING; distinct record with equivalent exact formula",
+          "evidence": "Same labels and sampling, factorial tail, extremal order count and sharp mean expansion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/25/SCOPE-the-exact-random-order-firstfit-colour-law-on-crown-graphs--09ad609f31e4/RESULT.md",
+          "material_read": "Finding and Assumptions and scope; first three proof steps (mirror offset 0 onward)",
+          "method": "Configured local mirror, original RESULT.md",
+          "title": "The exact random-order FirstFit colour law on crown graphs",
+          "trigger": "Strongest configured Resultary match on the entire law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete crown law is a useful benchmark and advances the motivating upper bound, but the full benchmark already exists as an indexed exact finding. There is no distinct quantitative or structural claim left in this submission once that overlap is credited.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

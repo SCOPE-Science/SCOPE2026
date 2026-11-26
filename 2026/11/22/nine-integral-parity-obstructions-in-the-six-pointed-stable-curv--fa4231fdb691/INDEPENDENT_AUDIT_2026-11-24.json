@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:33:18.427409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41; VERIFICATION.md body; VERIFY.py; SMITH_CERT.json",
+        "Independent tree insertion, integer Smith computation with SymPy 1.14, and certificate replay: /tmp/opencode/frozen_review/integers.py tree_smith --fresh-snf"
+      ],
+      "rationale": "The geometric closure order is edge contraction of stable labelled trees. A two-edge tree has one four-valent component and all other components trivalent; its three trivalent refinements are precisely the three boundary points on its curve. The argument works in every characteristic; the objects are the geometric strata of the fibers, and over Z the corresponding relative strata. Independently constructed the maximal trees starting with the three-leaf tripod, inserting the next leaf on every edge (deletion and suppression inverts each step), and obtained the curve rows by dropping internal splits. This gives 105 trees and 105 distinct curves, each row and column of weight 3. An exact integer Smith calculation on this matrix gave 81 units, nine 2s and fifteen zeros. A separate replay of all 1,948 supplied operations on the independently generated matrix gave exactly the same diagonal with every off-diagonal entry zero. Transposition does not change the Smith factors.",
+      "residual_risks": [
+        "This proves the formal incidence result, not an analogous statement about Chow classes or an oriented chain map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General tree-complex topology and the Bergman complex description constrain oriented boundary maps; reduction modulo 2 forgets signs.",
+          "Bae–Schmitt use decorated strata in a rational Chow presentation, with WDVV relations."
+        ],
+        "reasoning": "Topology accounts for the mod-2 rank via the signed boundary, but it cannot by itself determine the unsigned rational rank or show that each 2-primary factor has exponent exactly 2. The unsigned restricted inclusion poset is not the entire Boolean lattice of subsets of the 25 splits.",
+        "searches": [
+          "arXiv:math/0304218v3 Theorem 3.4",
+          "arXiv:math/0311370v2 §4",
+          "arXiv:2107.09192v1 Theorem 1.4 and §2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror and indexed records above",
+        "Speyer–Sturmfels; Ardila–Klivans; Maya–Mostovoy; Bae–Schmitt, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stable-tree incidence and Chow rational-equivalence relations describe different operations on the strata; simplicial boundary uses alternating rather than identical coefficients."
+        ],
+        "reasoning": "These statements identify the setting and build the matrix but do not settle its signless Smith spectrum. The independently verified integral calculation provides the missing information.",
+        "searches": [
+          "arXiv:1906.05223v1 §3",
+          "arXiv:2107.09192v1 §2.4",
+          "arXiv:math/0304218v3 Theorem 3.4 and Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Speyer–Sturmfels describe the same T6 edge–triangle support with three triangles per edge.",
+          "The nearby Resultary six-taxon quartet record has the same 105 trees as columns but 45 quartet-observation rows, not the 105 two-edge trees."
+        ],
+        "reasoning": "The equivalent object is the coefficient-1 inclusion matrix of T6, not a new stratification or a matrix of quartet observations.",
+        "searches": [
+          "Resultary semantic searches for the unsigned M0,6 boundary incidence, Smith form and six-leaf tree complex",
+          "arXiv:math/0304218v3 §4 Example 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest matching entry is the same record. The inspected M0,7 and quartet records compute other invariants.",
+          "Example 4.1 specifies T6 and its face counts, not the integral Smith diagonal."
+        ],
+        "reasoning": "The exact incidence support is prior data, but no exact table was identified giving or encoding the claimed integer invariant factors.",
+        "searches": [
+          "Resultary semantic searches for labelled boundary strata and six-leaf phylogenetic-tree incidence; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:math/0304218v3 Example 4.1"
+        ]
+      },
+      "rationale": "The underlying 25-vertex, 105-edge, 105-triangle complex and its incidence are established. The distinct contribution is the integral Smith form of the unsigned edge–triangle inclusion matrix (or its transpose). The strongest identified primary account treats the same complex but not this unsigned Smith form; neither its simplicial homology nor the cited Chow results imply the rational rank and the exact elementary divisors together.",
+      "residual_risks": [
+        "An older or unindexed computation of the unsigned incidence matrix, possibly in phylogenetics or another presentation of the same graph, was not ruled out. No claim of historical priority is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same incidence support and oriented topology; not the unsigned integral invariant",
+          "evidence": "Example 4.1 gives 25 vertices, 105 edges and 105 triangles and three triangles through each edge.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304218v3",
+          "material_read": "§4 Example 4.1 (PDF p. 8); Theorem 3.4 (PDF pp. 6–7)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "The tropical Grassmannian",
+          "trigger": "Exact six-leaf tree complex"
+        },
+        {
+          "assessment": "Related realization, not a signless Smith decomposition",
+          "evidence": "Connects complete-graph Bergman fans with phylogenetic-tree space.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0311370v2",
+          "material_read": "§4, PDF p. 8",
+          "method": "Bounded primary OA PDF passage",
+          "title": "The Bergman Complex of a Matroid and Phylogenetic Trees",
+          "trigger": "Potential general theorem via a matroid complex"
+        },
+        {
+          "assessment": "Establishes the ambient stable-tree indexing",
+          "evidence": "Strata indexed by labelled trees and a Delta-set built from forgetful maps; not the unsigned curve–point presentation.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05223v1",
+          "material_read": "§3, PDF pp. 3–4",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Simplicial equations for the moduli space of stable rational curves",
+          "trigger": "Cited six-marked stratification"
+        },
+        {
+          "assessment": "Different coefficients, target and relations",
+          "evidence": "Free rational vector space on decorated strata mapping to Chow, with WDVV-type relations.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09192v1",
+          "material_read": "Introduction, discussion of Theorem 1.4 and §2.4",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Chow rings of stacks of prestable curves II",
+          "trigger": "Possible stronger strata-relation theorem"
+        },
+        {
+          "assessment": "Different maps, despite same terminology or tree columns",
+          "evidence": "Respectively counts Frobenius-fixed boundary indexing schemes, and studies real rank of quartet observation functionals.",
+          "identifier_or_url": "Resultary 59a570e038f6 and 357afb0253bc",
+          "material_read": "Opening RESULT.md statements of both records",
+          "method": "Local Resultary search and mirror text",
+          "title": "The M0,7 one-dimensional boundary reconstructs ...; Two-quartet Fourier tomography of arbitrary six-taxon tree mixtures",
+          "trigger": "Nearby indexed moduli and tree-incidence records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope; exact Smith calculation; Speyer–Sturmfels Example 4.1"
+      ],
+      "rationale": "This is a full integral invariant of the natural unsigned map taking each boundary curve to its complete three-point boundary. It quantifies the discrepancy between characteristic two and characteristic zero for the first moduli space having a two-dimensional split complex, and shows that the loss of saturation is exactly exponent two, with no odd or higher 2-power obstructions. Those are useful facts for solving integral incidence relations, and not consequences of merely knowing the incidence counts or oriented homology.",
+      "residual_risks": [
+        "Narrow six-label calculation; no general formula for other moduli spaces or application to rational equivalence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

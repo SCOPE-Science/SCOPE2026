@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-The local reproducibility check runs `python3 verify_eop.py` without third-party dependencies, reproducing `VERIFIER_OUTPUT.txt`. It verifies all selected edges and every pairwise compatibility condition for explicit witnesses of sizes 12 and 24. A complete exact bitset search of the edge-compatibility graph, with a proper-coloring upper bound and an edge-transitivity reduction, proves no witness of size 13 or 25 exists. The checker visits 59 and 54,111 search nodes respectively.
+Run the retained `verify_eop.py` with `python3 verify_eop.py` and assertions enabled. The Q6 line in `VERIFIER_OUTPUT.txt` reports 192 cube edges, a validated witness of size 24, and exclusion of size 25 after 54,111 recursive nodes. The Q5 line in the same output is a retained regression for a separate, previously settled case; this record contributes only the Q6 upper bound.
 
-Proof-critical preconditions: the two edges of a selected pair are compatible precisely when there is no *third* endpoint-joining edge; because hypercubes are triangle-free, incident selected edges are compatible. Every cube edge can be mapped to `(0,1)` by an automorphism. Each greedily constructed color class is independent, so it bounds maximum clique size; the reversed candidate recursion visits all possible cliques unless a sound bound excludes them. This justifies exact finite exhaustive proof, not a heuristic or timeout.
-
-No general assertion about \(Q_n\) for \(n\notin\{5,6\}\) is certified. No independent audit or validation has been performed.
+The completeness of the upper check rests on the triangle-free compatibility criterion, transitivity on cube edges, and the reverse-order clique branching with a valid proper-coloring bound on each remaining prefix. These conditions are justified in the proof. The finite run certifies the stated dimension, not a general hypercube formula or a classification of optimal sets.

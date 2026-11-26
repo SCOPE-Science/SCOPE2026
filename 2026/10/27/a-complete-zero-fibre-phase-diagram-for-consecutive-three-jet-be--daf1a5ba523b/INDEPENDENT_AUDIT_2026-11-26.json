@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:50:46.123943Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Applying the two Taylor-normalized differential operators to (z−conj(w))^−2 independently gives P(s)=30b²s⁴+24bvs³+6(R−b)s²−4vs+1 with s=i/(z−conj(w)). The scalar maps onto Re(s)>0 and the prefactor cannot vanish. At b=0, the nonconstant quadratic has strictly negative discriminant and its conjugate pair has real part v/(3R); R=0 gives a constant. At v=0,b≠0, the quadratic in t² has both roots positive iff u²−b≥sqrt(10/3)|b|, in which case even repeated real t-roots are excluded; otherwise the even real quartic contributes two lower-half-plane roots. For bv≠0, zero at s=iy forces y²=−1/(6b) and R=−5b/6. Thus at fixed b, counts in the connected chamber(s) reaching the origin equal the even-quartic count of two; the fixed nonzero leading coefficient precludes escape to infinity along compact parameter paths. On the b<0,v<0 exterior the coefficients and strict Hurwitz minors have the required signs, with minors 24bv(6R−b) and −96bv²(6R+5b); reflection v→−v gives four in the opposite exterior. The explicit circle factorization removes the imaginary pair and the remaining quadratic has its two roots on the side determined by the sign of v. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 5 checks the derivatives, determinants, factorization and 16 rational parameter cases by exact rectangle root count with the imaginary-axis multiplicity subtracted. This is finite corroboration, not the parameter proof. Frozen VERIFICATION.md supplies analytic identities, not a previous independent or formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 handles general sequences at the level of representation. Proposition 4.5 and Theorem 4.11 handle single-support and factorial-decay sequences explicitly.",
+          "The weighted phase diagram varies the weight, but restricts the first coefficient to real values."
+        ],
+        "reasoning": "The general representation does not itself locate quartic roots, and the broader range of weights does not dominate a complex first coefficient.",
+        "searches": [
+          "arXiv:2608.13193v1, Theorem 4.1, (4.6), Proposition 4.5, Theorem 4.11",
+          "Resultary cfa65cdb5c32 weighted three-term kernel"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.13193v1",
+        "Resultary b700f166e3ad",
+        "Resultary cfa65cdb5c32",
+        "Resultary 364c00673845"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (4.6) specializes directly to the quartic and is credited. The indexed two-jet result drops b; the real-three-jet result drops v."
+        ],
+        "reasoning": "The source provides the polynomial, but no half-plane sign classification for this mixed sequence. The known phase results cannot determine the interaction of bv≠0 or its exact inclusive thresholds.",
+        "searches": [
+          "arXiv:2608.13193v1 (4.6) and Theorem 4.11",
+          "Resultary b700f166e3ad and 364c00673845"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b700f166e3ad gives exactly 1+6(b−a²)t²+30b²t⁴ and the same threshold a²≥b+sqrt(10/3)|b| for real a.",
+          "cfa65cdb5c32 has the same threshold at weight zero after converting b f'' to the b f''/2 normalization."
+        ],
+        "reasoning": "These are equivalent on v=0, not alternate formulations of the complex-first-coefficient result: the odd coefficients and the circle transition disappear on that slice.",
+        "searches": [
+          "Resultary: upper-half-plane Bergman Gram, three-jet zero-free / Lu Qi-Keng phase",
+          "Resultary b700f166e3ad and cfa65cdb5c32"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact real-slice indexed phase diagram and a weighted real-coefficient extension; the separate 364c00673845 result uses only jet orders 0 and 1."
+        ],
+        "reasoning": "The relevant exact index is a theorem index, not a finite numerical table: the object is a continuum of coefficient triples. The indexed statements cover faces, not the nonreal three-jet counts.",
+        "searches": [
+          "Resultary b700f166e3ad, cfa65cdb5c32, 364c00673845; result statements in local mirror"
+        ]
+      },
+      "rationale": "Credit the entire real-first-derivative slice to the exact indexed overlap, and the two-jet face and general kernel reduction separately. The supported distinct result is the complete real-b diagram allowing complex first coefficient, notably the nonreal crossing circle, inclusive boundary counts and four-root exterior; the inspected results do not decide these claims. Indexed path dates alone were not used to infer priority.",
+      "residual_risks": [
+        "Bounded primary and indexed comparison, not exhaustive priority certification; an unindexed equivalent complex-coefficient classification could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reduction covered; mixed three-jet phase not covered by these statements",
+          "evidence": [
+            "General scalar coefficient sum (4.6); explicit monomial and Bessel special cases, then their zero-freeness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.13193v1",
+          "material_read": "Theorem 4.1 and proof at (4.6), printed pp. 14–15; Proposition 4.5 p. 17; Theorem 4.11 pp. 19–20",
+          "method": "Lawful OA bounded primary text at offsets 51717, 64625 and 73477",
+          "title": "A Canonical Positive Definite Kernel Associated with the ξ-Bergman Kernel",
+          "trigger": "Primary source of the canonical kernel and general formula"
+        },
+        {
+          "assessment": "Exact coverage of v=0; no coverage of v≠0",
+          "evidence": [
+            "Same normalization f+af'+bf''/2; same even quartic, sharp threshold and two fibres below it."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-real-three-jet-lu-qi-keng-phase-for-the-upper-half-plane-b--b700f166e3ad",
+          "material_read": "RESULT.md Finding and real-coefficient assumptions",
+          "method": "Resultary local-mirror statement, offset 0",
+          "title": "Sharp real three-jet Lu Qi-Keng phase for the upper half-plane Bergman Gram kernel",
+          "trigger": "Strongest same-kernel result"
+        },
+        {
+          "assessment": "Includes v=0 at weight zero, not the nonreal chambers",
+          "evidence": [
+            "Both derivative coefficients real; factor of two between second-derivative conventions."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-zero-free-phase-boundary-for-real-three-term-weighted-berg--cfa65cdb5c32",
+          "material_read": "RESULT.md phase statement and coefficient convention",
+          "method": "Resultary local-mirror statement, offset 0",
+          "title": "Sharp zero-free phase boundary for real three-term weighted Bergman kernels",
+          "trigger": "Potential weighted generalization"
+        },
+        {
+          "assessment": "Two-jet face only",
+          "evidence": [
+            "Support restricted to derivative orders 0 and 1."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-two-jet-lu-qi-keng-phase-for-the-canonical-bergman-gram-ke--364c00673845",
+          "material_read": "Indexed result statement and support restriction",
+          "method": "Resultary local mirror",
+          "title": "Exact two-jet Lu Qi-Keng phase for the canonical Bergman Gram kernel",
+          "trigger": "Possible lower-order phase result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first consecutive extension beyond the value/first-derivative problem completes the zero-free locus for all complex first coefficients and real second coefficients. It resolves an actual root-count transition, including previously unaccounted four-root chambers and the exclusion of boundary roots, rather than merely writing the already available scalar polynomial. It makes no claim for complex second coefficients or other spaces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

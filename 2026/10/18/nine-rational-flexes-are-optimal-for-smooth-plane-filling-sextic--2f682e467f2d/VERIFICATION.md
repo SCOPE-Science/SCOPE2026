@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The 15-dimensional kernel of the full 13-point evaluation map was rebuilt from all degree-six monomials. Every one of the 14,348,906 nonzero vectors was enumerated, with the rational smoothness and quadratic Taylor contact conditions checked over \(\mathbf F_3\). Group-generator orbits cover all candidates with 11 or 9 rational flexes, and exact Jacobian Groebner bases distinguish geometrically singular from smooth representatives in all three charts. A second computation explicitly substitutes each tangent-line parameter at the 13 rational points and compares orders, independently of the stored quadratic jets. Both programs agree that the three nine-flex smooth orbits each contain 5,616 projective equations.
+# Independent mathematical audit
 
-Requirements: Python 3 with SymPy and a C++17 compiler. In the `verify` directory run `python make_jets.py`, `g++ -O3 -std=c++17 enumerate.cpp -o enumerator`, `./enumerator > enumeration_replay.txt`, `python orbits.py`, `python check_orbits.py`, and `python independent_contact.py`. Compare with embedded exact reference outputs. This is computational exhaustive evidence for a finite problem, not independent validation.
+## correctness
+
+PASS
+
+Rebuilt the full 13-point evaluation kernel over F3 (rank 13, nullity 15), enumerated all 3^15 vectors and tested the exact quadratic coefficient in the tangent direction after excluding rational singular points. The counts at 1,3,5,7,9,11 flexes are 213408,1044576,1095120,527904,202176,39312, with none at any other count. Scalar normalization and generator closure partitioned the 11-flex stratum into four orbits and the 9-flex stratum into twenty. Direct tangent-line restrictions confirmed the representative counts, and exact Jacobian ideals on all three charts gave no smooth orbit at 11 and three smooth orbits at 9, each of size 5616. Thus 16848 projective equations, 33696 nonzero scalar equations, and trivial PGL3 stabilizers. The three encoded witnesses lie in distinct smooth orbits and the displayed equation matches the first. A smooth plane sextic has no line component and its tangent contains three other rational points, giving contact at most three by Bézout. Replay: python3 /workspace/branches/audit_sextics.py (NumPy, SymPy).
+
+## originality
+
+PASS
+
+The exact all-sextic rational-flex bound and extremal census are distinct from the inspected family-specific flex results and degree-five classification. This is a best-of-knowledge statement, not a priority award.
+
+## value
+
+PASS
+
+For the first field and degree specified, sharp rational tangent contact separates geometric smoothness from rational nonsingularity: the apparent eleven-flex maximizers all disappear. The natural extremal locus is resolved into three free embedded classes, with representatives suitable for future comparison, not just an example or a coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

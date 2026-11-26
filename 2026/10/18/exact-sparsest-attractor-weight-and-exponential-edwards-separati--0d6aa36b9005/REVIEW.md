@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-length result follows from a published exact static rational generating function (not a new lemma), the formal zero-degree coefficient after a precise normalization, and a new necessary-and-sufficient priority event for each four-site block. Independent continuous priorities make these events independent across blocks, producing the exact probability \(6^{-k}\). The established unweighted recurrence yields a direct all-size bound \(J_n\le(3/2)^n\), giving the exponential full-flat-ensemble ratio. Exhaustive finite checks passed 1,560 assertions; finite tests do not prove the infinite statement.
+PASS
 
-## Originality — PASS (qualified)
+Under padded-zero boundaries every jammed word of positive length has one- or two-house runs. An internal gap has length one or two, with length two requiring a double run on each side. A boundary vacancy requires a double run and at most one vacant boundary site. Charge half each internal gap to each neighboring run and all boundary vacancies to the nearest run. Each run is charged at most its number of houses. In equality every double run must meet a double gap or an end vacancy on each side, and an end singleton cannot saturate; therefore all runs are doubles with double gaps and one vacant site at each boundary. The resulting word is (0110)^k and is jammed. On a permutation giving this word, each designated vacancy sees its own blocking pair already accepted; no other blocking triple is available in the final word. Conversely induction on visits makes just the designated pairs enter when all these within-block precedences hold. I.i.d. continuous priorities factor the block events with probability 2!2!/4!, giving the weight and rate. Independent run/gap transfer reproduces the stated static generating function, including the empty word; its x=1 recurrence and 76/81 induction coefficient give the stated all-n bound and full-flat ratio. Independent exact subset-DP reproduces basin counts 4, 1120, 2217600 and 16144128000 at lengths 4,8,12,16.
 
-The closest source, Krapivsky and Luck (arXiv:2211.12815v1, Section 3.3), already tabulates the first two instances \(W(0110)=4\) and \(W(01100110)=1120\), and its Section 3.2.2 contains the exact static generating function. These cases and static counts are specifically excluded from the assessed new contribution. The new result is the all-\(k\) dynamical minimum-coverage probability, exact boundary rate, and exponential full-ensemble comparison. The founding static paper (arXiv:2210.12411v1) does not address dynamical weights, and the later periodic kinetic hierarchy (arXiv:2607.28419) does not address this open-chain rare event. Published-finding index comparisons did not identify equivalent statements. A synonymous or implicit earlier result remains a genuine scholarly priority risk; absence in search results cannot prove novelty.
+## originality
 
-## Scientific value — PASS
+PASS
 
-Exact probability at the sparsest physically realizable coverage provides an exact dynamical rare-event benchmark where the complete coverage large-deviation function is not known. The exponentially decaying ratio to the full flat blocked-state measure is a quantitative consequence relevant to the already-studied Edwards-flatness question, not a routine rearrangement of static count statistics. The subsequence \(N=4k\), open boundary, and first-visit-uniform model are essential; no claims are made for general lengths or the interior rate function.
+The supported contribution is the all-k dynamical minimum basin, and its consequent endpoint rate and quantitative comparison to the full flat ensemble. The open-chain statics, the weights for k=1,2 and earlier dynamical-versus-flat effects are already covered and excluded from distinct credit. No general dynamic weight result yielding this endpoint was established in the sources inspected.
 
-## Closest literature and limits
+## value
 
-Došlić et al., arXiv:2210.12411v1 (static counting); Krapivsky and Luck, arXiv:2211.12815v1 (same dynamic rule, permutation formulation and \(N\leq8\) weights); Viot, arXiv:2607.28419 (periodic approximate kinetic hierarchy). The combinatorial generating function is prior work. Independent literature and scientific validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The true minimum is a natural edge of the coverage distribution. Its exact dynamical weight provides a rare-event benchmark, and division by the probability in the full uniform blocked-state ensemble proves exponential suppression rather than merely differing mean densities. This is useful even without a general rate function. The inequality is a bound, not claimed optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

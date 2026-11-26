@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditional planar Gaussian integration yields the exact radial survival probability. Strict convexity of \(F(s)=\mathbb E e^{s(1/m-1/T)}-1\) and of \(J(s)=\mathbb E[T^{-1}e^{s(1/m-1/T)}]-1/m\) proves one positive crossover and exactly two extrema for arbitrary nonconstant positive finite-mean \(T\), including infinite inverse moments. Jensen curvature proves the bounded-support bracket. Taylor expansion gives the three universal small-variance locations; 6,800 deterministic assertions provide independent finite diagnostic checks of algebra and examples, not an infinite proof.
+## correctness
 
-## Originality
-PASS on inspected evidence, provisional. Cousens et al. (2010) review release-and-movement models. Guttal et al. (2011) already establish that variable seed retention can increase long-range dispersal and numerically examine kernel-density crossover distances, with Gamma and related parametric calculations of long-distance measures. Their accessible main text does not establish the present arbitrary-stopping-law theorem for **radial cumulative-tail** crossover plus unique extrema and sharp limiting locations. Gordillo and Greenwood (2025) develop randomized settling-kernel densities without this theorem. Indexed single-crossing Brownian *first-passage* laws are not endpoint-location laws. The 2011 supplemental Text S9 could not be read separately and general historical priority remains a risk; no claim of first discovery of tail enhancement is made.
+PASS
 
-## Value
-PASS. Radius-exceedance probabilities are direct abundance-at-distance quantities, unlike kurtosis alone. The result proves a global, distribution-free *one-transition* property, with just one interval of suppression and one of enhancement relative to equal-mean retention, plus where both largest errors occur. Its applicability to heavy-tailed or multimodal retention distributions gives a benchmark not dependent on choosing a Gamma family. It rules out multiple sign reversals in this standard mechanism and offers a precise scale for small heterogeneity without requiring a downstream ecological management theorem.
+Independence of the nonconstant positive finite-mean retention time and planar Brownian motion gives R^2/(4 kappa) distributed as T times an independent unit exponential. At squared-radius scale s the signed tail difference is E exp(-s/T) minus exp(-s/m). With Y=1/m-1/T, the scaled difference F(s)=E exp(sY)-1 is strictly convex for s>0: exponential damping of the negative tail justifies differentiation on each compact positive interval, and the positive tail of Y is bounded. The right derivative at 0 is E Y, possibly -infinity (one-sided monotone convergence for the negative part of the difference quotient, dominated convergence for the positive part). Strict Jensen makes this derivative negative, and positive mass on a finite interval strictly above m forces F to diverge upward. Strict convexity then gives exactly one positive zero and positive slope there. The scaled derivative has the opposite sign from J(s)=E[T^-1 exp(sY)]-m^-1, itself strictly convex by positive-s differentiability. Its left limit is positive by Jensen (possibly +infinity, with monotone convergence on T<m); at the crossing J=-F'<0; it diverges upward by the same finite-interval argument with T^-1 bounded below there. The two zeros bracket the crossing and exhaust stationary points; the difference vanishes at 0 and at infinity, so they are strict global extrema. The curvature of exp(-s/t) has sign s-2t, proving strict Jensen brackets even at s=2a or 2b. For bounded centered nonconstant perturbations the uniform Taylor expansion through one s-derivative has leading factor e^-x x(x-2), x=s/m. Its simple zero at 2 and simple stationary points at 2+/-sqrt(2) persist by local sign bracketing and cannot be accompanied by other roots by the global theorem. The constant law is explicitly excluded. The frozen standard-library checker was inspected; its finite examples do not establish the infinite-law proof or test a truly infinite inverse moment.
 
-## Limits and closest literature
-The model excludes behavioral coupling between movement and release, drift, bounded habitat and nonplanar movement. Closest full-text sources: Guttal et al. (2011), https://pmc.ncbi.nlm.nih.gov/articles/PMC3237446/ ; Gordillo and Greenwood (2025), https://arxiv.org/abs/2509.16385 ; Cousens et al. (2010), https://doi.org/10.1111/j.1365-2435.2010.01747.x . The accessible main source of Guttal et al. points to a supplementary Text S9 on absolute long-distance dispersal, which could not be inspected individually; this is an explicitly retained originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the exact radial cumulative-tail and two-extrema morphology at a fixed matched mean for arbitrary nonconstant positive finite-mean retention laws, with strict support brackets and the three weak-variation locations. This is not a claim that variable retention or random parameter mixtures were first seen to enhance long-distance dispersal. The closest no-contact-model ambiguity is between endpoint tails and first-passage probabilities; those kernels and time scales differ. Guttal et al.'s separate supplement is a specific unresolved risk, not negative evidence.
+
+## value
+
+PASS
+
+Fixing mean retention also fixes mean squared displacement, yet the signed abundance beyond a radius changes sign exactly once and has a unique largest suppression and enhancement. That gives a useful sharp benchmark for arbitrary retention distributions, including multimodal laws and singular inverse-time moments, not just another parametric simulation of long-range dispersal. The curvature-based support bracket and weak-variation constants provide concrete scales. The result is a homogeneous independent planar diffusion benchmark, not an ecological prediction when motion and release are coupled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

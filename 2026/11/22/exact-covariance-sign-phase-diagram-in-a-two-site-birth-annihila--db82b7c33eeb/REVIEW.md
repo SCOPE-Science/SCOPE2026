@@ -1,15 +1,21 @@
-# Review: a minimal driven-reaction covariance sign transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state generator is specified with every transition rate. Direct symbolic reconstruction confirms its unique stationary probability vector, the exact covariance numerator and strictly positive denominator for all \(0<t\leq1\), \(r\geq0\). All nonconstant powers of the relevant polynomial have nonnegative coefficients and the positive-degree part is strictly increasing; its sign at zero decides whether there is exactly one positive crossing. Boundary limits and the opening slope follow from substitution and the implicit function theorem. The standalone symbolic checker replayed successfully; its finite tests are not an all-domain proof.
+## correctness
 
-## Originality — PASS, qualified
-The initiating 2026 article explicitly calls for systematic study of the connected nearest-neighbor correlation across stationary regimes; it supplies the bond birth/death mechanism, but develops large-lattice mean field and Monte Carlo findings, not the specified two-site sign diagram. The established exact pure TASEP correlation literature omits these reactions; the 2003 exclusion-plus-Langmuir work attaches/detaches particles without the same occupied-pair requirement. Earlier closely related results for resetting exclusion systems and other mass-exchange models concern different generators. An implicit same-generator finite-state computation cannot be excluded from all literature, and independent priority assessment is outstanding.
+PASS
 
-## Value — PASS
-A nearest-neighbor correlation is exactly the correction that obstructs mean-field closure in the motivating physical model. The complete two-parameter minimal-bond classification distinguishes always-positive association from a unique negative-to-positive reaction-induced reversal, locating its sharp boundary at equal injection/extraction rate \(t=1/2\), and gives a definite test case for correlation-sensitive finite-size approximations. This is not evidence of corresponding macroscopic phase transitions.
+The state graph contains the positive-rate closed walk 00→10→01→11→10→01→00, also at r=0, so it is irreducible. I rebuilt its generator using the two separate contributions to 01→11. Principal Markov-chain-tree minors independently give the four stationary weights with total Z=(r+t)(r²+3rt+r+2t²+3t); their 2×2 cross-product difference equals tP_t(r). Z>0. P_t(0)=t³(1−2t) and the nonnegative nonconstant coefficients (with strictly positive quadratic coefficient) give strict increase on [0,∞), including t=1 where the linear term vanishes. The partial derivatives at (1/2,0) are −1/4 in t and 3/8 in r, so the root opens with slope 2/3. The large-r expansion follows by degrees. Independent replay: python3 /workspace/review_checks/2.py (SymPy); it also gives the exact rational bracket (0.3148293584778,0.3148293584779) at t=1. This is a check of the specified two-site generator, not formal verification, expert attestation or a longer-chain calculation.
 
-## Closest literature and limitations
-Chatterjee–Goswami–Mukherjee, arXiv:2611.06463v1 (2026); Derrida–Evans, J. Phys. I France 3 (1993), DOI 10.1051/jp1:1993132; Juhász–Santen, arXiv:cond-mat/0311208 (2003). This result does not treat unequal boundary rates, longer chains, hydrodynamic limits, or the special rate-normalization conventions of particular simulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact reaction-dependent sign diagram for the stated two-site bond generator. The local mechanism and the reaction-free slice are not new. Inspected studies and neighboring records do not establish the active-bond root classification; a general means of computing stationary laws is not itself a sign classification.
+
+## value
+
+PASS
+
+The smallest channel supporting the motivating bond reactions distinguishes positive covariance throughout from one genuine anticorrelation-to-association reversal, with a sharp boundary and an explicit rate threshold for every boundary drive in scope. This is a concrete finite benchmark for approximations that neglect neighboring occupations; a single stationary-law calculation or isolated negative covariance would not by itself supply that classification. It gives no macroscopic phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

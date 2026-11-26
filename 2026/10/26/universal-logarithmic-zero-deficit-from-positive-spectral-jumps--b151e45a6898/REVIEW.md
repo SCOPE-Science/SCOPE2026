@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed formula has a precise spectral hypothesis and an explicit remainder. The covariance/Poisson identity and the Edelman–Kostlan formula give an exact positive energy deficit. Periodic sawtooths encode jumps with an explicit logarithmic analytic extension. Removing them leaves globally Lipschitz boundary data, whose Poisson and conjugate-Poisson derivatives satisfy the stated bounds. The integrated energy at each jump is exactly \(\Delta^2/(\pi(1-r)w_-w_+)\). The residual \(O(\log^2(1/(1-r)))\) energy is radially integrable, justifying the bounded remainder. The one-point profile uses the same compact-uniform estimates. The standalone numerical checker passed 120 assertions, but finite tests are not the basis of the proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The closest primary source, Noda–Shirai, arXiv:2106.02860, proves the general deficit identity and then specializes sharp expansions to finitely dependent, trigonometric-polynomial spectral densities, including zero-induced power laws and nonvanishing smooth regimes. This does not contain a positive spectral-jump logarithmic law. Shirai, arXiv:2501.02586, treats directions where spectral densities are smooth and includes a fixed-direction indicator example; these statements do not determine the joint jump layer or its nonlinear integrated energy. Searches for the statement, aliases, jump parameters, stronger Fourier/Poisson formulations and source claims identified no direct coverage. The general energy representation is prior work and is explicitly credited. Equivalent unindexed results remain a residual possibility.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a distinct zero-count universality class: a spectrum with a strictly positive lower bound but a finite jump produces an unbounded logarithmic correction, in contrast to bounded smooth-positive cases and power-law spectral-zero cases. Every interface receives an exact nonlinear coefficient depending on both one-sided heights. The corresponding explicit boundary profile explains this correction locally. This is a natural complete asymptotic for a broad class, not an arbitrary finite example.
+With the covariance Fourier convention exp(-i(n-m)theta), the diagonal covariance is the positive Poisson extension u divided by 1-r^2. Edelman–Kostlan uses (4*pi)^(-1) times the Euclidean Laplacian; harmonicity of u gives the negative energy term, and the radial derivative of the disk deficit is r/(4*pi) times its angular energy. The periodic jump model is -Delta_j/pi times Im log(1-z exp(-i theta_j)); subtracting these leaves Lipschitz boundary data. Its Poisson approximation error is O(epsilon log(e/epsilon)), tangential derivative is bounded, and radial derivative is O(log(e/epsilon)) by the conjugate Poisson kernel acting on the bounded boundary derivative. Near theta_j, replacing 1-r exp(is) by epsilon-is introduces a bounded error in its reciprocal because the numerator error is O(epsilon*|s|+s^2) and both denominators have modulus comparable to sqrt(epsilon^2+s^2). This checks the two gradient components and the metric factor. With u and the step profile bounded below, the integrated error from their denominators and gradients is O(log^2(e/epsilon)), radially integrable. The model jump contributes Delta_j^2/[pi*epsilon*w_-*w_+] to angular energy, since the arctangent change of variables gives pi times the integral of the squared reciprocal linear interpolation on [0,1]. Integration gives the logarithmic coefficient with O(1) remainder. At s=epsilon*x, the same estimates are compact-uniform and the factor (1-r^2)^2/(4*epsilon^2) tends to one. The case of no jumps has an integrable energy bound and a bounded deficit, and the coefficient is nonnegative for either sign of jump.
 
-## Scope and risks
-The result concerns expectation only, requires finitely many jumps and positive one-sided values, and makes no statement about spectral zeros or atoms. The originality review cannot exclude unindexed nonlinear Poisson-energy theorems or all future literature. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the global additive logarithmic coefficient with bounded remainder for jumps between two strictly positive values, and the compact-uniform interface law in that regime. The exact Poisson covariance representation and general sign of the deficit are known. The closest same-day indexed endpoint result has a local half-plane profile of the same form at an interface with one zero side; its disk result has a different leading term and a positive logarithmic correction. It does not determine the nonlinear reciprocal jump-energy coefficient for two positive sides. The source comparisons do not establish precedence for the shared local profile mechanism.
+
+## value
+
+PASS
+
+The result identifies a distinct boundary regime for Gaussian zero counts: discontinuities can cause an unbounded disk deficit even with no spectral zeros. The exact normalized coefficient separates heights and interfaces, and the compact-uniform angle law localizes the mechanism and justifies its integrated contribution with bounded error. This gives more than either a deficit inequality or the leading iid bulk term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

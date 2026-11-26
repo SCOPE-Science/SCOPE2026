@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:04.799775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, scope and table; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent replay: python3 /workspace/branches/a0866bcc-9f1f-4708-8948-97539692206b/m15_exact_gap_check.py."
+      ],
+      "rationale": "Coprimality permutes primitive roots and gives the integral reciprocal monic quotient of degree d(t−1). The formal kernel U_m/(1−X^m) gives W_{i,r} on blocks beginning at it, of length t except for the last length t−d+1. A vanishing period would force its nonzero prefix cyclotomic polynomial sum of degree <d to vanish at a primitive root, a contradiction. The first d−1 blocks thus contain support; the last contains the leading coefficient even if its Q=1 length is <m. The first supported position stays fixed and the last advances by m under any insertion of one period into a nonempty periodic prefix; the newly traversed gaps are exactly one cyclic histogram. These endpoint facts preserve each gap crossing a block boundary, proving the complete affine increment. In a gap wider than d the product of Φ_m with the low truncation of H has degree less than the far endpoint, so equals a nonzero prefix sum from Φ_m(X^t); evaluation at a primitive root again contradicts its minimal degree after undoing substitution. The initial coefficients at m−d and m are consecutive nonzeros for t>m, giving sharpness. The sum of all gap lengths equals the degree, yielding slope mass md. Independent exact division matched all eight slope vectors and all eight intercept vectors for m=15 and direct multiplication identity at one prime per residue class; their largest and second-largest distinct lengths match the Finding.",
+      "residual_risks": [
+        "The independent finite certificate is for the displayed example, not a claim to replay the frozen 631-instance run. The affine identity requires Q≥1 and does not extend by this argument to Q=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rival's proof uses only monic divisibility at primitive roots, the reciprocal kernel, a nonempty final block because it contains the leading coefficient, and the unconstrained period insertion lemma. No parity or squarefreeness is needed by any of those steps.",
+          "Zheng proves the maximum-gap bound and equality for the odd prime-extension cases in scope there, with multiplicities (for odd squarefree m and p>m, exactly 2 floor(p/m) maximum gaps)."
+        ],
+        "reasoning": "All moduli are covered by the actual mechanism in the rival. Independently, writing R=rad(m), the standard identity Φ_m(X)=Φ_R(X^{m/R}) dilates every gap by m/R. If R=2s with s odd >1, Φ_{2s}(X)=Φ_s(−X) and coprime t is odd, so nonzero support is unchanged by the signs. On odd squarefree s dividing m, increasing t by m advances the prior cyclic increment m/s times. For m a power of two the quotient is (1+Y^t)/(1+Y), Y=X^{m/2} and t odd, giving the gaps directly. Thus the broader scope is mechanical even treating only the restricted theorem statement as a starting point.",
+        "searches": [
+          "Resultary SCOPE-351556961373 Proof steps 1–4, offsets 3000–7489",
+          "Q.-Y. Zheng arXiv:2611.22795v1 Theorem 1.1 and Corollary 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-351556961373 and SCOPE-254e711748ba; Zheng; Al-Kateeb–Dagher; Cafure–Cesaratto; lawful identification/secondary comparison for Benoist–Perucca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier-compared period insertion lemma explicitly includes prefixes shorter than a period provided the prefix has support; the monic leading term supplies precisely that for the last block. Each of d cyclic support histograms has total weighted length m.",
+          "Under the affine law all slopes are nonnegative. For any odd squarefree m and composite multiplier t>m, there is a larger prime p in its reduced residue class. Every gap present at t is also present at p by coefficientwise monotonicity."
+        ],
+        "reasoning": "The short final block and mass do not introduce a new barrier or invariant. For t>m, Zheng's prime bound transfers to composite t by the residue-class monotonicity; the initial kernel gives elementary attainment at m−d,m and radical/sign reduction transfers the bound. The furnished proof is correct but does not establish an uncovered headline or a valuable independent remainder within the stated affine scope.",
+        "searches": [
+          "SCOPE-351556961373 Proof steps 2–4 and m=15 tabulation",
+          "arXiv:2611.22795v1 Theorem 1.1 and Corollary 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day rival writes N_ℓ=B_{r,ℓ}+(Q−1)A_{r,ℓ} for every ℓ with the same U_m kernel and cyclic supports. Its t-composite interpretation is explicitly Φ_m(X^t)/Φ_m(X).",
+          "Al-Kateeb–Dagher give periodic blocks and affine Hamming weight in restricted ternary prime families, not this entire histogram by themselves."
+        ],
+        "reasoning": "Comparing generating polynomials to all their coefficients and B to intercept B−A shows formula equivalence, not just a similar growth rate. Hamming weight only determines the sum over all gap counts; the close Resultary rival is much stronger.",
+        "searches": [
+          "Resultary: complete affine successive gap histograms for cyclotomic prime extensions and composite substitution quotient; SCOPE-351556961373",
+          "arXiv:2207.07393v2 Theorems 4 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-351556961373 gives the slopes and Q=1 base histogram for all eight residues of 15. Subtract the slope from the Q=1 base vector to obtain exactly the frozen intercept row-wise. SCOPE-254e711748ba supplies a related m=35 table but is not the decisive overlap.",
+          "The binary paper gives a second-largest gap formula and exact frequencies in the ±1 classes. The reported Benoist–Perucca coefficient pattern may also imply part or all of the 15 table, but full text was unavailable."
+        ],
+        "reasoning": "The m=15 certificate and its second-largest distinct lengths do not survive as a distinct exact contribution: they can be read immediately from the independently indexed identical affine tables. This conclusion does not depend on the inaccessible author copy.",
+        "searches": [
+          "Resultary SCOPE-351556961373 Finding and Proof step 5; SCOPE-254e711748ba (m=35)",
+          "Cafure–Cesaratto arXiv:2507.19381 Theorems 1.1–1.2",
+          "Benoist–Perucca author repository handle 10993/55534"
+        ]
+      },
+      "rationale": "The distinct Resultary record SCOPE-351556961373 does not merely give a related prime formula. Its original coefficient kernel, exact periodic words, nonvanishing argument and period insertion lemma already yield the entire histogram and explicitly allow composite t. Even if its prime theorem is read as formally confined to odd squarefree m, the quotient proof does not use that restriction, and all other moduli reduce algebraically to the odd squarefree case or a one-term geometric quotient formula. Its m=15 table is exactly the one under review in a different normalization. The matching records are same-day: coverage and mechanical extension are established, chronological priority is not.",
+      "residual_risks": [
+        "No order or priority inferred within the shared UTC date. The fail is for equivalent public coverage and mechanical extension.",
+        "Benoist–Perucca’s full table scope remains unverified, immaterial to the decisive overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact coverage for the claimed mechanism and example; non-squarefree and even extension is mechanical.",
+          "evidence": "Proof steps 1–4 apply to all coprime integer t>m; no step requires odd squarefree m. Step 5 obtains the same vectors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-affine-gap-spectra-for-cyclotomic-prime-extensions-includi--351556961373/RESULT.md",
+          "material_read": "Finding, tables and proof incl. coefficient blocks and period insertion (offsets 0–7489)",
+          "method": "Resultary search and local mirror original passages",
+          "title": "Exact affine gap spectra for cyclotomic prime extensions including Φ_{15p}",
+          "trigger": "Same quotient, affine histogram and exact m=15 tables"
+        },
+        {
+          "assessment": "Related modulus-specific exact result, not decisive.",
+          "evidence": "m=35 table and second-largest gap 24−min(r,35−r).",
+          "identifier_or_url": "Resultary 2026/11/22 SCOPE-254e711748ba",
+          "material_read": "Original statement and second-largest-gap formula",
+          "method": "Resultary and local mirror",
+          "title": "Affine gap spectrum law and second-largest gap for Φ_{35p}",
+          "trigger": "Another exact affine family"
+        },
+        {
+          "assessment": "Covers stated extremal prime cases, not full histograms alone.",
+          "evidence": "Odd squarefree m, p>m: maximum d, 2 floor(p/m) occurrences. First public date listed as November 17, 2026; the submitted record’s characterization as later is not supported by the storage dates.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22795v1",
+          "material_read": "Theorem 1.1 and Corollary 1.2, HTML offsets about 274 and 3000",
+          "method": "OA author text",
+          "title": "The totient bound and extremal gaps in cyclotomic polynomials",
+          "trigger": "Same maximum and multiplicity"
+        },
+        {
+          "assessment": "Antecedent for block extraction and total support counts in specific ternary families.",
+          "evidence": "Affine Hamming weight controls aggregate gap count only, while the exact blocks can yield gap histograms in their covered cases.",
+          "identifier_or_url": "https://arxiv.org/html/2207.07393v2",
+          "material_read": "Abstract, Theorems 4 and 7; around offsets 0, 10300, 13900",
+          "method": "OA author text",
+          "title": "On the number of terms of some families of the ternary cyclotomic polynomials",
+          "trigger": "Periodic coefficient blocks and affine counts"
+        },
+        {
+          "assessment": "Restricted binary antecedent.",
+          "evidence": "Second-largest gap max(r−1,p−r−1) in its stated binary case; exact length frequencies in ±1 residue classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.19381",
+          "material_read": "Theorems 1.1–1.2, around HTML offset 4520",
+          "method": "OA theorem passage",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "Direct gap-frequency and second-gap overlap"
+        },
+        {
+          "assessment": "Possible further partial coverage, not relied upon for the verdict.",
+          "evidence": "Zheng reports max-gap multiplicity for m=3q, q>3, in residues ±1 and ±2, including q=5.",
+          "identifier_or_url": "https://orbilu.uni.lu/handle/10993/55534",
+          "material_read": "Repository identification and Zheng’s explicit report of the maximum-gap cases, not the full original tables",
+          "method": "Lawful repository attempts timed out or could not verify the alternate certificate",
+          "title": "The ternary cyclotomic polynomials Φ_{3pq}",
+          "trigger": "Potential m=15 coefficient tables and maximum gap multiplicities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scope and theorem; SCOPE-351556961373 proof and tables; Zheng extremal comparison"
+      ],
+      "rationale": "A full gap histogram is a natural useful invariant, but here its core affine law and the showcased exact table are already supplied by the comparison record. Dropping odd squarefreeness uses the identical periodic-block argument or the radical/sign reduction, the mass follows from telescoping, and bounding the full affine-scope support transfers the known prime bound as above. These additions do not establish independently useful unknown gap data or a motivated new boundary case; exact reproduction of the table cannot supply that value.",
+      "residual_risks": [
+        "No judgment on a possible future small-multiplier classification; the frozen affine claim explicitly does not make one."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

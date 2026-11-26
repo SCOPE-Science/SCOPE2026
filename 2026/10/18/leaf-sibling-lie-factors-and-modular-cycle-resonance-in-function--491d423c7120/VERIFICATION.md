@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The self-contained file `verify_functional_derivations.py` creates all Leibniz constraints by multiplying basis vectors according to \(e_v^2=e_{f(v)}\) and \(e_v e_w=0\) for distinct vertices. A separate predicted-basis builder uses the claimed leaf-sibling blocks and modular-cycle assignments. Modular row reduction compares the dimension of the predicted basis with the entire equation-system nullspace, confirms independence and equation satisfaction, and tests sampled matrix commutators.
+## correctness
 
-Execute `python3 verify_functional_derivations.py` with Python 3.8 or newer; no extra packages, network access, or cached inputs are needed. Successful termination prints `VERIFY_OK_FUNCTIONAL_DERIVATION_LIE` followed by trial and bracket-check counts.
+PASS
 
-The exhaustive range is all \(n^n\) functions on \(n\in\{1,2,3,4\}\) points for \(p\in\{2,3,5,7\}\), plus three selected functions on five points for each prime. Total configurations: \(4(1+4+27+256+3)=1164\). Matrix-equation ranks, the proposed basis, and nullity are compared for each configuration. Higher dimensions and arbitrary extension fields are not enumerated; the algebraic proof, not the finite tests, establishes the general theorem.
+In the natural basis, Leibniz on e_v² gives D(e_f(v))=2a_vv e_f(v), forcing every image-indexed column to be diagonal. On e_v e_w=0, independence of distinct target basis vectors forces both cross coefficients to vanish unless v,w have the same target; for equal targets they are negatives of one another. Thus both vertices must be leaves for a nonzero off-diagonal entry. In characteristic different from two the diagonal recurrence has exactly one free parameter per cycle with 2^L=1, determines all incoming values uniquely, and makes each sibling leaf block scalar on its diagonal. Hence the diagonal subalgebra centralizes the skew blocks and different supports commute. In characteristic two the image diagonals vanish and leaf diagonals are free; transpose of a commutator of symmetric matrices is its negative, equal to itself here. These conditions are also sufficient by bilinearity. Dimensions and finite-field cardinalities follow, including the cases of empty leaf sets, singleton blocks and fixed points. In the star/chain comparison, eliminating noncycle coordinates in leaf-to-root order gives k[T]/(T²−T) in both cases, whereas sibling block sizes four and one give the stated distinct derivation dimensions.
 
-**Scientific limits:** This verifies a specified family of endofunction algebras, not weighted or multi-outgoing-edge evolution algebras. A finite checker cannot independently certify literature priority, field-universal truth, or a mathematical audit.
+## originality
+
+PASS
+
+Credit the simultaneous explicit Lie classification on nonbijective unweighted endofunctions over arbitrary fields. Earlier work covers the general Leibniz equations, characteristic-zero sibling mechanisms (including acyclic functional-square formulas), some rank-one cases in odd characteristic, and the perfect/bijective cycle result. None of the inspected statements covers the combined nonperfect cyclic case and characteristic-two symmetric blocks. The strongest apparent all-field rank-one comparison has a characteristic-two error as printed and does not cover image ranks greater than one even aside from that error.
+
+## value
+
+PASS
+
+The derivation Lie algebra is a natural structural invariant. The decomposition reads it directly from the functional graph, distinguishes the actual Lie bracket from a mere rank of Leibniz equations, and identifies a substantive characteristic-two change, not only a parameter substitution. It also explains why the star and chain can have the same idempotent scheme but different derivation dimensions. No priority is claimed for that example in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

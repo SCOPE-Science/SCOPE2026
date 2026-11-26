@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:28.384891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed; documentation distinguishes the bounded replay from the proof",
+        "Independent bounded enumeration recipe: for each n=0..13 and each integer x in [0,2^(n+2)), collect outputs obtained by concatenating (110 >> ((x >> i) & 7)) & 1 for i=n-1 down to 0; count distinct outputs. The numerical check bisected x^2(x-1)^2=x+1 on (1,2)."
+      ],
+      "rationale": "The local table gives the stated two labeled edge sets, and every finite path corresponds to an extendable bilateral input block. Starting from all four vertices yields the listed eight subsets including the empty one; the two proposed identifications have equal transitions on classes, leaving five live states plus the sink. The empty suffix separates the sink; 0 separates E from the other live states, 10 separates D from A/B/C, 010 separates C from A/B, and 1010 separates A/B. Summing labeled paths from A gives the word count, since the presentation is deterministic. Eliminating the five continuation series yields A(z)=(1-z+z^2)/[(1-z)(1-2z+z^2-z^3-z^4)]. The live graph is strongly connected and has a self-loop; its Perron root exceeds one and is the largest root of the quartic, yielding the logarithmic spatial entropy. The independent enumeration of all binary inputs of length n+2 through n=13 gave the stated counts and then 5252, and numerical bisection gave root 1.8971794010653942 and log 0.6403682574172238. Every 010^m10 with m>=1 exits from E to the sink; its immediate prefix ends at E and its immediate suffix at D. Thus its proper factors are allowed, and arbitrarily long minimally forbidden words rule out finite type.",
+      "residual_risks": [
+        "One-step spatial language and spatial shift entropy only. The family is not asserted to exhaust all minimal forbidden words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wolfram and Jen provide general image-language or preimage algorithms. The all-rule first-offender finding classifies Rule 110's minimally forbidden counts as exponential, which already implies infinitely many minimal forbidden words and non-SFT."
+        ],
+        "reasoning": "The classification supplies that type conclusion but not which words are minimally forbidden; in particular it does not exhibit the audited infinite family. A general construction or census method does not state its minimized language presentation or compute this block-count rational function.",
+        "searches": [
+          "Wolfram §2 pp. 24–25, Tables 1–3 pp. 30–32",
+          "Jen pp. 421 and 427",
+          "Resultary 23171f1f1979, Finding and classification.csv"
+        ]
+      },
+      "checked_sources": [
+        "Wolfram (1984) §2 and tables",
+        "Jen (1989) pp. 421,427",
+        "Resultary 9af6bc7e78bc, 23171f1f1979, d4f1725c3486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The irreducible sofic image has entropy given by exponential periodic growth. The zeta pole at the reciprocal leading quartic root is not canceled: at a positive zero of 1-2z+z^2-z^3-z^4 the numerator 1-z-z^4 equals z(1-z+z^2)>0. Thus the same-day zeta gives the entropy invariant as well as sharing the growth polynomial."
+        ],
+        "reasoning": "That implication establishes overlap on entropy, not on the count of arbitrary extendable words with specified boundaries. Periodic point counts alone do not determine such block counts or named forbidden words. Exponential first-offender growth implies non-SFT, not the explicit patterned witness. The rule-specific compact presentation and exact language enumeration are the surviving contributions.",
+        "searches": [
+          "Resultary 9af6bc7e78bc, zeta function and cycle criterion",
+          "Resultary 23171f1f1979, all-rule growth theorem",
+          "Resultary d4f1725c3486 entropy_spectrum.csv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An allowed block is exactly a block with a finite preimage for the local rule. The standard labeled predecessor graph decides it for any rule. Wolfram's inspected regular-language example is Rule 76; the inspected selected-rule tables do not list 110 or 124. Jen lists Rule 110 under type D but gives examples for other rules in that passage."
+        ],
+        "reasoning": "Preimage existence and reflected-rule output membership are valid comparison formulations, whereas temporal universality and time entropy do not answer this claim. The inspected preimage classification is not an evaluated minimal output automaton for the target rule.",
+        "searches": [
+          "Wolfram, Computation Theory of Cellular Automata, §2, spatial images and regular languages",
+          "Jen, Enumeration of Preimages in Cellular Automata, type D, p. 427",
+          "Rule 110 and spatial reflection Rule 124"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9af6bc7e78bc gives the spatial Artin–Mazur zeta function on the same shift with the same denominator but numerator 1-z-z^4, counting fixed periodic points rather than distinct blocks. 23171f1f1979 classifies the target's first-offender growth. The later d4f1725c3486 table explicitly gives the same entropy root and quartic for both Rule 110 and its reflection."
+        ],
+        "reasoning": "The precise overlaps concern the spatial entropy and the non-SFT classification. No checked table gives the exact finite-block generating series or identifies the audited minimal forbidden words. A targeted NKS lookup did not yield a decisive source and is not negative evidence.",
+        "searches": [
+          "Resultary one-step Rule 110 spatial language, exact zeta and entropy spectrum: 9af6bc7e78bc, d4f1725c3486, 23171f1f1979",
+          "Wolfram Tables 1–3; Rule 110 and reflected Rule 124"
+        ]
+      },
+      "rationale": "The generic de Bruijn/determinization method and the Rule 110 non-SFT conclusion already have coverage. The exact entropy also overlaps with the indexed spectrum and follows from the same-day periodic-point formula by the periodic growth identity for irreducible sofic shifts; no same-day priority order is assumed. The inspected sources do not give the evaluated minimal language automaton, its block-count generating function, or the exhibited minimal forbidden family. The pass credits these distinct exact language results, not generic methods or standalone novelty of the type classification.",
+      "residual_risks": [
+        "Bounded coverage, not priority certification. Older unindexed elementary-rule languages or tables may contain an equivalent compact presentation. The indexed exact entropy overlaps notwithstanding unresolved same-day order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method and selected evaluations, not a target-rule entry in the inspected tables",
+          "evidence": "Fig. 2.1 gives the one-step image regular-language construction for Rule 76; the selected tables inspect other rule numbers, not 110 or 124.",
+          "identifier_or_url": "https://new.math.uiuc.edu/im2008/dakkak/papers/files/wolfram.computationaltheory.pdf",
+          "material_read": "Commun. Math. Phys. 96 (1984), §2 pp. 24–25 and Tables 1–3 pp. 30–32, PDF text offsets about 26000–30936 and 40500–56488",
+          "method": "Primary OA PDF",
+          "title": "Computation Theory of Cellular Automata",
+          "trigger": "Early exact automata and entropy tables by image rule"
+        },
+        {
+          "assessment": "Includes Rule 110 in the preimage classification, without evaluating this exact language in inspected material",
+          "evidence": "Rule 110 is in the type-D list; the threshold that a preimage count be nonzero is relevant, but the passage does not state the requested presentation, generating function or forbidden family.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Abstract p. 421 and type-D passage p. 427, offsets 0 and about 14500",
+          "method": "Primary OA PDF",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Preimage existence is an equivalent membership predicate"
+        },
+        {
+          "assessment": "Exact same-day overlap on entropy by implication, different enumeration",
+          "evidence": "The zeta numerator is 1-z-z^4; its coefficients encode periodic spatial fixed points and the proof checks cycles in word relations, not merely existence of finite paths.",
+          "identifier_or_url": "Resultary 9af6bc7e78bc",
+          "material_read": "Finding and beginning of proof, including Boolean-relation criterion for periodic membership, local mirror offset 0–2800",
+          "method": "Local Resultary mirror",
+          "title": "Exact spatial dynamical zeta function and least periods of the Rule 110 one-step image",
+          "trigger": "Identical shift and exact matching denominator"
+        },
+        {
+          "assessment": "Directly covers non-SFT; not the specific witness family",
+          "evidence": "The Rule 110 row is exponential. The theorem gives a classification and an exact graph method, but the inspected evaluation does not give 010^m10 as a family or state an exact block-count formula for Rule 110.",
+          "identifier_or_url": "Resultary 23171f1f1979",
+          "material_read": "Finding and scope, local mirror offsets 0–2468; classification.csv Rule 110 row",
+          "method": "Local Resultary mirror",
+          "title": "A first-offender growth gap for all elementary cellular-automaton images",
+          "trigger": "Exact all-rule classification includes target and same minimal forbidden objects"
+        },
+        {
+          "assessment": "Direct entropy overlap, later catalogue date; not exact finite language enumeration",
+          "evidence": "The class containing Rules 110 and 124 uses lambda about 1.897179401 and quartic lambda^4-2lambda^3+lambda^2-lambda-1.",
+          "identifier_or_url": "Resultary d4f1725c3486",
+          "material_read": "entropy_spectrum.csv, about offset 606",
+          "method": "Local Resultary mirror",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "Exact entropy table includes the audited rule and its reflection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–71; comparison with exact zeta and first-offender classification records"
+      ],
+      "rationale": "Rule 110 is a canonical dynamical system and its spatial image is a natural constrained language. A minimal five-live-state description supplies exact recognition and all finite-block counts, while the explicit forbidden family gives a directly checkable obstruction pattern. These give usable language-level data beyond a type label or a periodic count, even though the deduction of the entropy from a compact presentation is standard.",
+      "residual_risks": [
+        "No result for temporal dynamics, iterated image intersections, or a complete closed form for the set of minimal forbidden words is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

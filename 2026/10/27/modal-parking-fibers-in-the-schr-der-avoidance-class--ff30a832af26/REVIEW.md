@@ -1,23 +1,21 @@
-# Scientific review: modal parking fibers in the Schröder avoidance class
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the maximum \(M_n\) of the established parking-permutation fiber product over \(\operatorname{Av}_n(1234,2134)\). The central new step is an **exact**, not one-sided, decomposition at the global maximum of a permutation. The left segment avoids \(123\) and \(213\); the unrestricted-right-segment factorization follows because the global maximum blocks all leftward suffix lengths. A skew value separation supplies an avoiding construction attaining each candidate recurrence term. This establishes the max-product recurrence for every \(n\). The proof then eliminates all composition parts outside \(\{3,5\}\) for \(n\ge8\) via explicit strictly improving replacements, and uses \(20^3>6^5\) to obtain the unique optimal residue representation. Boundary orders \(1\) through \(7\) are treated separately. The supplied checker independently enumerates all avoiding permutations through order nine, directly simulates preferences through order five, and compares the formula against the recurrence through order 150. Computation is only corroboration; the unrestricted proof is in RESULT.md.
+PASS
 
-## Originality — PASS (bounded published-record comparison)
+Given the outcome permutation, at the arrival of label π_i the prior labels occupy exactly their designated spots by induction. The contiguous occupied run left of i gives precisely ℓ_i choices of preference, and every independent choice gives the desired outcome. At entry n in position j the left word must avoid 123 and 213, the suffix retains its own fiber weight because n blocks its leftward run, and the entry n contributes j. In the left word all factors are 1 or 2 and the 2s cannot be adjacent; descending-by-value increasing pairs attain 2^⌊(j−1)/2⌋. Placing all left labels above all suffix labels prevents forbidden cross-subwords, since the fourth entry of either forbidden pattern is its largest. This constructs equality in the composition recurrence on weights w_j=j·2^⌊(j−1)/2⌋. For j≥8 the split 5+(j−5) strictly dominates by the respective even/odd ratios 5(j−5)/j and 5(j−5)/(2j). The listed strict inequalities then eliminate 1 and 6, followed by 4, 2 and 7, whenever n≥8. All n≥8 are represented by 3 and 5 (start at 8, 9, 10 and add 3). Exchanging 5 threes for 3 fives increases the product, and b≡2n (mod 5) is unique with 0≤b≤4. Adding five increases a by one and bounded b gives the claimed root limit. Independent enumeration to n=9 used the equivalent test that an entry with a larger successor cannot have two smaller predecessors, and a monotone stack for nearest greater predecessors. The maxima were 1,2,6,8,20,36,56,120,216, with avoidance counts 1,2,6,22,90,394,1806,8558,41586. The bounded enumeration does not prove the unbounded formula. The frozen replay is verify.py, with the recorded run in verify_output.txt; the script was inspected, not executed.
 
-Martinez–Zeilberger, arXiv:2609.28650v1 (2026-09-23), explicitly studies these same forbidden outcome patterns, introduces parking-table weights, and gives a scheme for the **sum** over their weights. The present theorem determines their **maximum**, including a finite reduction to weighted compositions and an eventual exact five-step law. This maximum is not implied by knowledge of the total count. The earlier general fiber-product identity (Colmenarejo et al., arXiv:2009.01124) and unconditional permutation probability formula (Pinsky, arXiv:2404.11529) do not optimize over this avoidance class. Searches of accessible published mathematical records, primary literature, mathematical search results and the precise initial sequence found no matching stronger claim. Accessible past mathematical records concerning different pattern classes and parking-polytope geometry do not subsume the theorem. The motivating preprint's main-result section could not be reopened in full during the review; that access limitation and the possibility of unindexed equivalent literature remain explicit residual risks. No absence-of-hits search is treated as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mode of an outcome distribution is a basic extremal statistic not supplied by a total enumeration. For the naturally selected Schröder avoidance class, the result gives an exact value at **every** order, an explicit construction, the eventual five-step multiplier, and the exponential growth rate. The argument explains why a maximum problem on permutations reduces to an optimized composition problem and why blocks of sizes three and five ultimately govern the answer. This is not a numerical extrapolation from a finite table or a mere reformulation of the known fiber product.
+The individual fiber formula and the aggregate enumeration for the class are established. The inspected literature and index results do not give the maximum individual fiber in this class, the weight-composition recurrence, or the eventual optimal 3-and-5 formula. This judgment is bounded to the comparisons below.
 
-## Closest sources and limits
+## value
 
-- L. Martinez and D. Zeilberger, *A parking function analog of the Schröder numbers*, arXiv:2609.28650v1, https://arxiv.org/abs/2609.28650 , introductory definitions, Lemma 2.1, total-enumeration objective.
-- L. Colmenarejo et al., *Counting k-Naples parking functions through permutations and the k-Naples area statistic*, arXiv:2009.01124, https://arxiv.org/abs/2009.01124 , general product formula.
-- R. G. Pinsky, *The distribution on permutations induced by a random parking function*, arXiv:2404.11529, https://arxiv.org/abs/2404.11529 , unconditional permutation distribution.
+PASS
 
-Bibliographic priority cannot be fully guaranteed by accessible searches. The formula does not classify all maximizing permutations or extend to other parking rules. No independent validation was performed.
+The maximum determines the most likely single outcome conditional on belonging to this natural avoidance class, a statistic the established total does not give. The tight recurrence reduces a constrained permutation extremum to an exact optimization over part sizes, yields a maximizing construction for every order and identifies the eventual growth law. It is not merely a table of small orders or a reformulation of the known fiber product; it makes no claim to classify all maximizing permutations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

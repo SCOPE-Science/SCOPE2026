@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With normalized periodic Fourier modes, the explicit matrix element \(\langle e_m,\mathcal A e_k\rangle=-mk\,a_{m-k}\) yields precisely two reflected exterior \(2\times2\) blocks. The squared leakage norm is the largest root of a stated quadratic. Its derivative has at most one interior stationary point; an exact polynomial sign test places the mixed maximizer in the feasible interval precisely for cutoffs \(K\ge4\). The asymptotic \(\frac43\) factor follows from leading powers. The included rational checker independently reconstructs the boundary blocks and validates 46,430 assertions including complex-phase checks. Finite checks supplement the analytic proof, not replace it.
+## correctness
 
-**Originality — PASS, qualified.** Xu (arXiv:2611.00793v1), Proposition 2.2 already proves the generic positive Gram residual, and Example 4.5 already evaluates the pure first-harmonic case. Fourier–Galerkin boundary truncation and singular-value optimization are standard. The assessed contribution is the complete fixed-energy *two*-harmonic optimum, its discrete onset at cutoff four, phase independence and the sharp \(\frac43\) enhancement. Statement-level comparisons against Xu's text, a standard Fourier-spectral reference, public mathematical record searches and accessible earlier scientific records did not identify that exact classification. An equivalent unindexed treatment, or a broader spectral theorem implying it, remains possible; priority is not independently certified.
+PASS
 
-**Value — PASS.** The second-order generator-projection defect is a quantitatively important, naturally defined invariant in numerical Koopman/SDMD and spectral discretizations, not an arbitrary statistic. A sharp onset at a finite dictionary width and the one-third worst-case asymptotic amplification identify when coefficient harmonics interact instead of adding independently, providing a calibrated benchmark for error-budget design and method comparison. The theorem supplies an exact finite-cutoff classification under a defensible coefficient-energy budget.
+With normalized Fourier modes the generator entries are −mk a_{m−k}. The only positive exterior couplings are the pairs (K+1,K−1), (K+1,K), (K+2,K), with absolute entries γa_K/2, βb_K/2 and γc_K/2. The negative block is its conjugate and the input blocks are disjoint even at K=2. Symmetry gives leakage E_K*E_K, hence the squared largest singular value of one block. For y=γ²/s² its normalized Gram matrix has trace B+dy and determinant ACy² independently of phase; the larger root is simple also at y=0 and y=1. The factors (a+c)²−B and B−(c−a)² are positive for K≥2, so Δ>0. Differentiation gives λ'(0)=d>0 and λ'(1)=C(C−A−B)/(C−A). An interior stationary point must have y=2Bd/Δ and λ=4ACB/Δ; since Δ−2Bd=B²−(C−A)², its candidate lies inside exactly when K⁴−2K³−5K²+1>0. The polynomial is negative at 2 and 3, positive at 4 and increasing thereafter. Thus for 2,3 the root increases to C; for K≥4 the derivative sign change guarantees that the unique candidate is attained and maximal. Normalizing A,B,C,d by K⁴ and Δ by K⁸ gives limits 1 and 3 respectively, so y→2/3 and the gain over the stronger pure harmonic approaches 4/3. Positivity of the coefficient follows from β+γ≤√2s.
 
-**Closest literature and limits.** Xu's Proposition 2.2 and Example 4.5 are closest. Hesthaven, Gottlieb and Gottlieb (2007) provides general Fourier–Galerkin context, but its relevant chapter was not fully accessible in this search; no whole-chapter novelty assertion is made. This calculation does not prove a finite-time solution-error inflation or invalidate the motivating algorithm.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Galerkin residual identity and first-harmonic leakage are prior work. The supported distinct claim is the unique two-harmonic energy allocation, exact cutoff-4 onset and asymptotic 4/3 gain under that budget. The exact published catalogue hit is this very finding, not a separate antecedent. The assessment is bounded to the examined evidence.
+
+## value
+
+PASS
+
+In the simplest family where two coefficient modes compete for the same spectral boundary, this gives a sharp benchmark for a motivated Galerkin projection defect. It shows that the stronger pure harmonic can be extremal at small cutoffs yet cease to be so exactly at K=4, and quantifies the persistent gain rather than just exhibiting one favorable mixture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

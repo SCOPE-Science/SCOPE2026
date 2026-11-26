@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any two nested internal linear forests, all pure vertices form full simplices, and every mixed face has at most three vertices. The only deleted faces are exactly the triangles indexed by newly added internal edges and opposite-shore vertices. A linear forest on at least four vertices has connected complement: otherwise its edges contain a triangle, four-cycle, or vertex of degree at least three. A path in that complement produces an explicit simplicial null-disk for every removed triangular boundary, so relative two-cell attachments are null-homotopic. Consequently the inclusion is a primitive split integral injection on second homology; the cofiber's basis carries the claimed natural sign-lattice action. The empty-internal-graph base is simply connected and has free second homology of the stated Euler rank. The standalone verifier checks 98 finite cases with signed integer fillings and two finite fields, without claiming those cases prove the infinite result.
+## correctness
 
-## Originality — PASS against examined literature
-The 2023 forest-filtration paper's join lemma already implies stagewise nonequivariant homotopy types, which are expressly **not** claimed as new. Its inspected result supplies no comparison of inclusion maps under adding intrashore edges while keeping degree bound two. A complete public result about the degree filtration of the intact bipartite graph determines different inclusion maps. Other indexed results on cross-edge deletions or unrestricted induced-forest complexes likewise do not cover the relative null-attaching theorem. Searches for both graph-perturbation and primitive-map formulations found no statement implying the relative splitting. The possibility of an equivalent unindexed result remains a real bibliographic risk.
+PASS
 
-## Value — PASS
-The result determines the integral persistent effect of every nested sequence of natural intrashore linear-forest edge additions, not just separate Betti numbers. Every added edge kills exactly one independent degree-two class per opposite-shore vertex, and the equivariant cofiber records their orientation signs. This answers a structurally motivated robustness question across an infinite graph family with an explicit sharp small-shore limitation.
+The pure shores are full simplices at both stages. A mixed face cannot have two vertices on each shore (a 4-cycle) or three on one shore (degree at least three across it). The only lost faces are then the mixed triangles with two A-vertices forming an edge of D and any B-vertex. The complement of L' is connected: three components force a triangle in L', two nonsingleton components force a 4-cycle, and a singleton component forces degree at least a−1≥3. For any missing triangle, cone a simple complement path between its A-vertices to its B-vertex; cap the resulting A-path with the A-simplex fan. The two disks are valid subcomplexes and give an actual null-homotopy, with oriented boundary [v,w]−[u,w]+[u,v], not just a homological filling. Changing those attaching maps to constants in the path-connected base gives the wedge equivalence relative to the unchanged subcomplex. The relative chain complex has just the free group of oriented lost triangles in degree two; with the B-vertex last, its action is exactly the tensor of the B-permutation action and the A-edge orientation action. The boundary map vanishes by the disks, and the integral splitting follows from freeness without asserting equivariant splitting. For the stagewise argument, the undeformed complex has the complete two-skeleton; relative to the union of the pure simplices, there are no cells above degree two. H_2 is free specifically because the pair sequence identifies it with relative H_2, a subgroup of the free relative degree-two chains (one should not assume absolute degree-three chains vanish). The mixed-cell Euler count agrees with R(a,b). The relative splitting from the undeformed complex makes each stage a homotopy retract with free degree-two homology and no other reduced homology; simple connectivity and Hurewicz–Whitehead give the asserted absolute wedge types. As a sign check, for a=4, b=2 and empty L contained in the path 1–2–3–4, the relative rank is six; path reflection fixing B reverses the central oriented edge and exchanges the two outer edges, so its trace is −2 on the relative group.
 
-## Closest sources and limitations
-Carnero Bravo, *The Forest Filtration of a Graph* (arXiv:2307.13271, Lemma 31 and Theorem 33); Taylan, *Matching Trees for Simplicial Complexes and Homotopy Type of Devoid Complexes of Graphs* (arXiv:1501.06754); *Symmetry layers and surviving classes in complete-bipartite forest filtrations* (2026 public research record). Only the first is used to establish the designated literature cohort. All four boundaries (linear-forest internal graphs, at least four internal vertices, degree bound two, no integral equivariant splitting) are explicit in the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the map and pair on adding edges inside one shore, particularly the explicit relative fillings and the signed equivariant quotient. Do not credit the absolute sphere counts or general CW attaching-map facts as new. Adjacent degree or cross-edge filtration results address different maps.
+
+## value
+
+PASS
+
+Internal graph perturbations define actual inclusion maps on a natural degree-limited forest complex. Uniform filling disks give their relative homotopy behavior; the signed integral cokernel distinguishes edge reversal from ordinary permutation, information invisible even in a complete list of Betti numbers. These data can be used in nested perturbations or under side-preserving symmetries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

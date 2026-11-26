@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the exact intrinsic normalized volume, not ambient Euclidean volume. The signed cyclic determinant is nonzero for every stated integer triple. The integral cofactor normal has first coordinate equal to the signed geometric sum and its coordinate differences generate precisely the exceptional-weight difference: these facts reconstruct the gcd formula. A primitive-normal lattice-index calculation converts the coordinate gcd into normalized volume. Bézout's identity closes the critical number-theoretic step, and a separate exact-integer checker confirms 264 parameter triples using independently computed maximal minors. The proof, not finite checks, handles all dimensions and weights.
+## correctness
 
-Risk: a change of normalization would change the statement. The affine lattice and factor of the dimension factorial are explicitly fixed; the proof is not a Euclidean-volume assertion.
+PASS
 
-## Originality — PASS (historical priority provisional)
-Biermann–Lin–O'Keefe, arXiv:2611.17047, Definition 2.5 and Theorem 4.5, introduce the weighted oriented cycle and establish an equal-weight non-IDP result, not the arithmetic lattice-index classification. The closest publicly available weighted-cycle Ehrhart result (published-finding corpus, `b7680edb541b`, its complete RESULT.md inspected) gives arbitrary-weight coefficient reciprocity and a *uniform* five-cycle Ehrhart numerator; its specialized volume does not imply the one-defect gcd stratification. A root-polytope volume statement (`e32575b66377`) concerns signed difference vectors and so does not cover this family. The exact one-defect volume and divisor census were compared by content, not merely by titles, against this literature, published-finding corpus searches, and relevant public claims.
+For n >= 3, w >= 2 and u >= 1 the cyclic column determinant D = 1 + u(-w)^(n-1) is nonzero. For z = adj(C^T)1 and g = gcd(z_i), the primitive normal z/g has integral height D/g. Subtracting the last vertex from the other columns and using a lattice basis adapted to that normal gives |D| = |D/g| times the intrinsic normalized volume, not the ambient Euclidean volume. Solving C^T z = D1 gives z_1 = s = sum_{k=0}^{n-1}(-w)^k and z_2 - s = -(u-w)(-w)^(n-2). Since s is 1 modulo w, the gcd of just these first two coordinates is gcd(|s|, |u-w|). The integral recurrence makes every coordinate affine in u and equal to s at u=w, proving the reverse divisibility and covering u=w itself. The maximal value at u=w forces every positive period to be divisible by |s|; u=w+d realizes each divisor d and the coprime residues give the totient count. In the unimodular case, subtracting m times the last vertex from a lattice point of mP gives nonnegative integral coordinates in the edge basis summing to at most m, proving both the Ehrhart count and IDP.
 
-Risk: an unindexed paper might contain the cofactor-gcd calculation. Lack of a search hit is not mathematical proof of historical novelty. The cited primary paper was materially read in the incidence/IDP sections, not exhaustively certified for every possible reformulation.
+## originality
 
-## Mathematical value — PASS
-The volume is the sum of the Ehrhart numerator coefficients and a natural invariant of an integer polytope. The question is whether the non-IDP, exponentially large uniform-weight edge simplex is stable under an elementary defect in one vertex weight. Instead, one step produces a unimodular simplex in *every* dimension, and the full defect parameter exactly realizes the divisor lattice of a geometric-series integer, with a sharp least period and totient density. These are structural classifications and a strong arithmetic stability discontinuity rather than a one-off computed example. The distinction between Euclidean and intrinsic lattice volume is prominently disclosed.
+PASS
 
-Risk: no result is asserted for general heterogeneous weights or IDP when normalized volume exceeds one; no downstream general theorem is claimed.
+The covered uniform specializations, known cycle matrix and standard consequences of unimodularity receive no separate novelty credit. The distinct supported result is the intrinsic volume law for a variable single defect and the resulting complete divisor stratification. None of the strongest inspected prior statements covers that law or supplies an arbitrary-weight volume classification that specializes to it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Intrinsic volume is a natural arithmetic invariant of an edge polytope. A single exceptional arrival weight can collapse the exponentially growing uniform volume to one, and the formula classifies every possible intermediate index, the least period, and all defects with unimodularity. This gives exact Ehrhart and IDP cases for the weighted-cycle family rather than just an isolated small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

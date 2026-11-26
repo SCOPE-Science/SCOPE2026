@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:50.280058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–71 and the frozen endpoint statement at line 83",
+        "check.py and VERIFICATION.md inspected without execution",
+        "Corrected repairs/5/RESULT.md and repairs/5/VERIFICATION.md",
+        "Independent replay (Python 3 with NumPy): python3 /workspace/checks/5_quadrature.py; output /workspace/checks/5_quadrature.log"
+      ],
+      "rationale": "The uniform Dirichlet cardinal identity solves for the deleted sample with positive coefficient D_m(delta h)/N. Substitution gives the unique weights on the distinct grid. The sine quotient has alternating sign and, at any odd fixed j>=3, the circular distance to delta is strictly greater than delta; even j have positive weights above 1/N. Only j=1 reaches zero at half a mesh. The norm is the absolute weight sum, attained by choosing the data signs to match the weights. In the row Gram matrix the unchanged rows give an identity block; the new unit row has projection of squared length 1-c_N^2 onto their span, so the nontrivial block has the stated eigenvalues, with all eigenvalues one at delta=0. At fixed t with delta_N=1-t/N, the sine ratio divided by N tends to 1/t and Nc_N tends to t, giving both limits. Independent direct moment solves and SVD corroborate the finite diagnostic at small and moderate grids. The frozen limitation incorrectly suggested mere nonuniqueness at delta=1: every sample of D_m then vanishes while its integral is one. The complete corrected files state nonexistence at the excluded endpoint, clarify the norm-attaining data and distinguish the mesh gap t/N from the angular gap 2*pi*t/N^2. The theorem on its original domain is unchanged.",
+      "residual_risks": [
+        "The exact signs apply to a single moved node on the odd grid and to precisely the specified trigonometric space; neither arbitrary jitter nor the singular endpoint is covered. The numerical checks are supplementary, not a uniform proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lin–Zhang give inverse-norm estimates in the general perturbed-grid setting for radius L<1/2 and a quadrature-error bound. Austin–Trefethen give Lebesgue bounds for general jitter below half a mesh.",
+          "Yu–Townsend give an absolute-weight sum bound for radius below one quarter and a bound on the number of negative weights, not this exact individual path."
+        ],
+        "reasoning": "The broader estimates are not equality formulas; the displayed perturbation ranges in the first two do not include the one-sided critical collision scale. The exact spectral and sign statement does not follow directly from those bounds.",
+        "searches": [
+          "Chen–Lin–Zhang arXiv:2608.21960 v4, Theorems 1.4–1.5 and Corollary 1.6",
+          "Austin–Trefethen arXiv:1612.04018, Theorem 2.1",
+          "Yu–Townsend arXiv:2202.04722, Theorem 4.2 and Appendix B Theorem B.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.21960v4, 1612.04018, 2202.04722",
+        "Resultary 92a65f43a0d4, cbf046096901, 34d52f2ee2dd, d1e17fb2a7f8 and 02df184d2d31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of negative weights for arbitrarily small general, multiple-site jitter does not contradict or imply a sharp threshold for one moving site.",
+          "The older symmetric pair rule keeps norm one and has a singular-value collision slope, but its enforced midpoint symmetry prevents the asymmetry that gives the norm limit 1+2/t here."
+        ],
+        "reasoning": "A worst-case perturbation radius, an upper bound, and a distinctly constrained collision path each address different information. None settles the exact sign of the approached neighbor or the simultaneous amplification/conditioning law for this path.",
+        "searches": [
+          "Yu–Townsend abstract and Theorem 4.2",
+          "Resultary 92a65f43a0d4 and cbf046096901 Findings",
+          "Chen–Lin–Zhang v4 Theorems 1.4–1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact weight identity is a specialization of a standard cardinal-interpolation setup, and the spectrum reduction is a general single-row update. The scalar half-mesh test, norm formula and joint limit are the claim being compared.",
+          "The strongest symmetric-pair record ties the two motions through a single parameter and does not contain the one-row family except at the regular grid."
+        ],
+        "reasoning": "The standard method is not claimed new; the specified sign and noise law needs identification of the sole critical weight and a quantitative comparison with conditioning, which the broader cardinal setup alone does not state.",
+        "searches": [
+          "Web: single displaced node equispaced trigonometric quadrature half grid weight sign Fourier Vandermonde one row exact singular values Dirichlet",
+          "Austin–Trefethen arXiv:1612.04018 Section 2",
+          "Resultary one-node and two-node odd grid collision and quadrature signs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The symmetric inward pair case stays positive with norm one. The outward two-slip case moves both adjacent nodes with the same alpha and has two critical neighbor weights. The three-site case moves two outer nodes toward the stationary middle; the two five-node records optimize positivity over all simultaneous jitter."
+        ],
+        "reasoning": "These exact results are strong nearby matches, but none of these inspected geometries is the specified asymmetric moving-and-fixed pair. Same-day dates are not treated as priority evidence, and the target's own entry is excluded.",
+        "searches": [
+          "Resultary local: positive Fourier quadrature and single/two/three-site perturbations; 92a65f43a0d4, cbf046096901, 34d52f2ee2dd, d1e17fb2a7f8, 02df184d2d31"
+        ]
+      },
+      "rationale": "The individual computational devices are classical (trigonometric cardinal interpolation and a low-rank row-Gram calculation). The distinct supported conclusion is the exact half-mesh all-order sign frontier and its quantitative separation of bounded quadrature amplification from diverging coefficient conditioning along the one-sided collision path. The repaired boundary statement does not extend the novelty claim to multi-node motions or to a new spectral method.",
+      "residual_risks": [
+        "A classical single-node cardinal formula or equivalent one-row spectral calculation could contain overlapping results; the elementary method is credited and no absolute priority guarantee is given."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general bounds, not the exact one-node result in the sections inspected",
+          "evidence": [
+            "Theorems give inverse-norm bounds for radius 1/4<=L<1/2, including a near-sharp worst-case example. Corollary bounds quadrature error. The paper was accessible in v4, unlike the frozen citation's access note."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21960v4",
+          "material_read": "v4 abstract; Theorems 1.4–1.5, PDF pp. 5–6, offset 14800; Corollary 1.6, p. 7, offset 18400",
+          "method": "OA PDF passage comparison",
+          "title": "Smallest Singular Value Estimates for Nonuniform Fourier Matrices via Periodic Nonuniform Sampling",
+          "trigger": "Closest broader Fourier conditioning and quadrature paper"
+        },
+        {
+          "assessment": "Bounds and convergence for general jitter, not the exact one-site sign or spectrum",
+          "evidence": [
+            "Bounds the Lebesgue constant for perturbations smaller than half a mesh."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.04018",
+          "material_read": "Abstract and Section 2, Theorem 2.1, p. 4, offset 12762",
+          "method": "OA PDF passage comparison",
+          "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "General perturbed-grid cardinal and quadrature theory"
+        },
+        {
+          "assessment": "General signed-weight results; different scope and conclusion",
+          "evidence": [
+            "Bounds the weight sum for alpha<1/4, treats negative weights under arbitrary small multi-site perturbation bounds and bounds the number of negative weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04722",
+          "material_read": "Abstract, Theorem 4.2 p. 11 offset 45731 and Appendix B Theorem B.3 offset 81000",
+          "method": "OA PDF passage comparison",
+          "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "General sign and absolute-weight theory"
+        },
+        {
+          "assessment": "Symmetric pair result, not one-sided obstruction or layer",
+          "evidence": [
+            "Both adjacent nodes move toward each other with the midpoint fixed; sign and norm stay positive and one, respectively."
+          ],
+          "identifier_or_url": "Resultary 2026/11/16/92a65f43a0d4",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror passage comparison",
+          "title": "Positive Fourier quadrature survives symmetric pair collision with a sharp singular-value law",
+          "trigger": "Closest earlier exact collision law"
+        },
+        {
+          "assessment": "Two tied nonzero node displacements away from the origin in each family, with different critical weights",
+          "evidence": [
+            "Two-slip moves nodes to -alpha*h and (1+alpha)*h; neither stays fixed for alpha>0. Three-site moves two outer nodes toward a fixed middle node."
+          ],
+          "identifier_or_url": "Resultary cbf046096901 and 34d52f2ee2dd",
+          "material_read": "Mirrored Findings, offset 0; two-slip proof Step 1",
+          "method": "Local Resultary and mirror passage comparison",
+          "title": "A sharp two-slip positivity frontier for odd Fourier quadrature; A sharp three-site positivity transition and quadratic noise blowup",
+          "trigger": "Strongest same-day exact sign results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, exact weight signs and joint limit",
+        "Independent moment and singular value calculation"
+      ],
+      "rationale": "For exactly band-limited samples, the positivity radius and sharp data-noise norm provide an exact diagnostic that broad conditioning bounds cannot give. One can have bounded sample-to-integral amplification at a gap of order N^(-2) in angle while full coefficient recovery has linearly growing condition number. The distinction between these two tasks and the absence of any exact rule at the collision are mathematically meaningful boundaries, not simply a condition-number calculation.",
+      "residual_risks": [
+        "The diagnostic is for the specified one-node path; it does not imply noise stability on general nonuniform grids or at the singular endpoint."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:04:59.208494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reproduced the census with standalone Python, without executing check.py. For each potential exposed Petersen edge h, orient the other 14 Petersen edges toward a chosen endpoint in all 2¹⁴ ways and retain assignments with even indegree at each base vertex. Cubicity means occupied buckets contain exactly two edges. The resulting pairs are a near-perfect matching of L(P), and every such matching yields a unique assignment because two incident Petersen edges have exactly one common endpoint. This produced 32 states for each h and 480 in total, attaining the upper bound of seven matching edges on fifteen vertices. Reconfiguration adjacency was constructed by grouping states with a common six-edge core. This captures all one-edge exchanges: the removed and inserted edges have endpoints among the same three uncovered vertices of the core and must share one. All degrees were four, yielding 960 edges. Independent layer traversal from every source reached all 480 states with eccentricity nine; unordered-pair distances 1–9 were 960, 2400, 6120, 13080, 23310, 32730, 26550, 9330, 480, and excess over 7−|M∩N| for values 0–3 was 81120, 32340, 900, 600. Distance-nine edges gave 120 connected four-vertex components, each 2-regular and with constant exposed vertex, proving the C4 assertion. The four adjacent ground-symbol transpositions preserve every neighbor set and generate orbits of sizes 60, 60, 60, 60, 120, 120. Replay of frozen hamcycle.txt (SHA-256 20b24d8b4f5331617d6b72bf75d8673707048076f7e60d23cfd4899c122dcc05) validated its permutation of 0–479 and every link including wraparound, using lexicographic sorting of the reconstructed edge-tuples as in the frozen specification. Replay inputs are the fixed KG(5,2) definition and hamcycle.txt next to RESULT.md; construct cores, traverse each source, and check the cycle against those cores. No approximation or untested source class enters this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avis–Hoang's Lemma 1 uses the general correspondence of clique-overlap and token-sliding graphs when the clique side is K_(k+1)-free. The complement of L(G) has no 8-clique because the maximum matching size is seven, so this correspondence applies.",
+          "Primary OA attempts for Eroh–Schultz returned no accessible full text. The Jones–Roehm–Schultz access route yielded a scanned, nonextractable PDF."
+        ],
+        "reasoning": "A valid general correspondence identifies the representation, not its metric or Hamiltonicity. Inaccessible texts neither imply that coverage is absent nor establish a contrary verdict.",
+        "searches": [
+          "Web: Eroh Schultz \"Matching Graphs\" 73 86 Jones Roehm \"On Matchings in Graphs\" distance single edge exchange theorem near-perfect matchings",
+          "Avis–Hoang arXiv:2203.16861, literal line graph lookup and Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, check_output.txt and hamcycle.txt",
+        "Avis–Hoang arXiv:2203.16861v3",
+        "Resultary 4e6c2c9b2a97 (full decisive passage) and 8aadbd6cc4ba (search summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The translation to TS_7 and the one-hole argument explain the exchange rule and four-regularity; the absolute radius, distance-excess histogram, hole constancy on antipodal squares, and Hamilton cycle are not consequences of this translation.",
+          "The frozen output is supplemented by a distinct exhaustive enumeration and certificate replay, showing these particular invariants, not that they were previously unknown."
+        ],
+        "reasoning": "No originality credit is assigned to the graph definition, edge-slide equivalence or elementary degree count. The substantive remaining content is the instance-specific global metric and structural classification.",
+        "searches": [
+          "Avis–Hoang arXiv:2203.16861 abstract and Lemma 1 on TS_k and clique-overlap graph",
+          "Matching-graph articles retrieved by exact title and DOI; Resultary same-base exchange comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With G=L(P), the state graph is TS_7(L(G)): maximum matchings are maximum independent sets in L(G), and a one-edge replacement must share an endpoint with the edge it replaces. It is also the seven-clique overlap graph of the complement of L(G).",
+          "Resultary 4e6c2c9b2a97 gives a Petersen line graph exchange spectrum for seven-vertex zero-forcing sets, not seven-edge matchings; it has 2280 states and diameter 7."
+        ],
+        "reasoning": "Test the twice-line-graph independent-set encoding and the complementary clique-overlap description, not just the article title. Equality of the base graph and the selected cardinality in the forcing record does not identify the state sets or moves.",
+        "searches": [
+          "Resultary: Petersen line graph matching graph one-edge exchange 480 antipodal squares",
+          "Web: \"matching graph\" \"Petersen\" line graph maximum matchings Eroh Schultz Jones single edge exchange connected Hamiltonian antipodal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly inspected same-base census 4e6c2c9b2a97 gives a different state graph and a different exact distance histogram. The indexed eight-edge Icosian switch result 8aadbd6cc4ba uses thirty dodecahedral Hamiltonian tours and gives a double cover of the Petersen line graph, not the 480-state matching graph."
+        ],
+        "reasoning": "Compare what each table enumerates and its adjacency criterion; neither a table of the base graph nor a census of different optimal objects is a table for this derived graph.",
+        "searches": [
+          "Resultary: Petersen line graph matching graph one-edge exchange 480 antipodal squares (limit 8)",
+          "Exact-graph web query for Petersen maximum-matching exchange and antipodal/Hamiltonian properties"
+        ]
+      },
+      "rationale": "The matching-graph construction is known. The distinct contribution supported here is the exact instance classification of the single-exchange maximum-matching graph of L(Petersen), particularly its farthest-pair squares with constant exposed vertex and certified Hamiltonicity. Related catalogued graphs and the inspected general reconfiguration statements do not determine these data. The two older matching-graph articles remain material access risks; no claim of exhaustive exclusion is made.",
+      "residual_risks": [
+        "Full comparison with Eroh–Schultz and a visual reading of the scanned Jones–Roehm–Schultz paper were not available in this review. No inference of absence from those papers is made.",
+        "The targeted queries and catalogue comparison do not exclude older tables, equivalent derived-graph names, or unindexed instances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General representation equivalence, not this exact census in the examined statement",
+          "evidence": "TS_k uses k independent tokens moving along edges; clique-overlap equivalence holds on the complement of a K_(k+1)-free graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.16861",
+          "material_read": "Abstract and Lemma 1, p.4 around offset 17654",
+          "method": "OA preprint PDF",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Reduction to independent-set reconfiguration on a line graph"
+        },
+        {
+          "assessment": "Different state objects and a demonstrably different graph",
+          "evidence": "Minimum seven-vertex zero-forcing sets, 2280 states, radius 6 and diameter 7.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+          "material_read": "RESULT.md Finding, Assumptions and proof encoding from offset 0",
+          "method": "Published local mirror",
+          "title": "The minimum zero-forcing exchange graph of the Petersen line graph",
+          "trigger": "Same base graph, cardinality and exact exchange-metric census"
+        },
+        {
+          "assessment": "Scanned source with no extractable text observed; no independent whole-text finding",
+          "evidence": "The frozen paper cites Jones, Roehm and Schultz, Ars Combinatoria 50 (1998), 65–79 for the definition and metric.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-050-ars-articles/on-matchings-in-graphs/",
+          "material_read": "Article identification only; no decisive text independently read",
+          "method": "Publisher OA direct and alternate route",
+          "title": "On Matchings in Graphs",
+          "trigger": "Foundational exact matching-graph definition and possible metric precedent"
+        },
+        {
+          "assessment": "Unavailable; unresolved coverage risk",
+          "evidence": "Publisher returned HTTP 403 and no lawful repository copy was identified.",
+          "identifier_or_url": "10.1002/(SICI)1097-0118(199810)29:2<73::AID-JGT3>3.0.CO;2-9",
+          "material_read": "Bibliographic identification only; no substantive full text",
+          "method": "DOI, publisher PDF, alternate route and OA repository discovery",
+          "title": "Matching Graphs",
+          "trigger": "Potential exact-instance or stronger matching-graph classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first object in a canonical construction from the Petersen graph's edge incidence and a standard maximum-matching move, with no tuned cutoff. Its degree follows locally, but the full metrics, uniform eccentricity, and 120 antipodal squares confined to exposed-vertex fibers describe global geometry not visible from that local rule. The certified Hamilton cycle gives an explicit cyclic listing of all optima by minimal edits. Together these are useful benchmark data for one-hole matching reconfiguration, without claiming a general Gray-code theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

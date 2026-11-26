@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is a binary most-significant-digit-first automaton with outputs correct on every word, including leading zeroes and the empty word. The proof reconstructs exact residuals from the finite carry-offset set, proves a one-to-one correspondence between distinct residual functions and indexed Thue–Morse fingerprints, and counts pure-dyadic fingerprints by isolated run-parity vectors. For successor-dyadic shifts, floor/ceiling maps identify even fingerprints with pure-dyadic fingerprints and odd fingerprints with predecessor successor-dyadic fingerprints. The parity classes are disjoint because Thue–Morse contains no constant triple. The resulting recurrence has base six and solves to \(2F_{k+4}\). Each step is algebraic and covers every positive integer \(k\). Exact checker results corroborate the general proof; they do not replace it.
+PASS
 
-## Originality — PASS within examined evidence
+The original Step 4 misindexed the base as 2F₃=6, although F₃=2. The repaired proof uses r=1 in N(2^r)=2F_{r+3}, giving H₀=N(2)=2F₄=6. This fixes the false proof equality without changing the theorem or the checked values. Reconstructed minimality: for each continuation length the carry yields precisely the available floor and ceiling offsets, and chosen suffixes recover each available high-order bit by XOR, including t(n+c) from the empty suffix. Thus the reachable fingerprints are exactly the residual classes. For the dyadic count, adding a power of two reads off the run parity at its position; neighboring run parities cannot both be one, and any nonadjacent pattern is realized as the low digits with a separating zero and an independent high bit fixing total parity. For c=2^k+1, the floor and ceiling images of I_c give exactly I_{2^(k−1)} and I_{2^(k−1)+1}, including k=1 with images {0,1} and {0,1,2}. If an odd fingerprint shared an even fingerprint then the pairs at (0,1) and (2,3) would force three consecutive equal bits in the halved Thue–Morse word, impossible as one of its even/odd pairs lies in every length-three interval. Summing the exact recursion from the corrected base gives 2F_{k+4}. The bundled finite checker and recorded output were inspected, not executed; they do not replace the universal proof.
 
-The 2025/2026 paper of Moradi, Rampersad, and Shallit states only upper/lower bounds and asks for exact shift-state counts. Biswas (2026) treats pure dyadic shifts \(2^r\); his inspected full textual proof does not address the successor class \(2^k+1\). The OEIS table A382296 already contains small successor-shift values, but has no inspected infinite successor-dyadic identity or parity-residual proof. Targeted indexed-record searches and primary-paper comparisons did not reveal a covering statement. Residual risk: a differently formulated or unindexed general state-complexity formula could imply the claim.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete exact infinite-family solution for shifts immediately above powers of two, a mathematically natural first extension beyond the previously solved dyadic case and a subfamily of a stated general open problem. The equivalence \(N(2^k+1)=N(2^{k+1})\) and disjoint even/odd residual decomposition characterize a non-obvious structural relationship between neighboring shift classes. The result is not merely a recomputation of known numerical entries: it proves their infinite Fibonacci law and gives an explicit mechanism.
+The distinct supported claim is the infinite successor-dyadic MSD equality and exact parity-disjoint recurrence. Neither the known pure-dyadic formula nor the tabulated individual values are new. The proof correction leaves the scientific scope and novelty assessment unchanged.
 
-## Closest literature and limits
+## value
 
-Moradi–Rampersad–Shallit, arXiv:2512.10017, Section 4.2 and Open Problem 2; Biswas, *State Complexity of Thue-Morse Shifts by Powers of Two* (2026); OEIS A382296. Exact values for individual small shifts are already public. This result does not resolve arbitrary shifts. Independent scientific audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact unbounded subfamily of a stated general MSD complexity problem is substantive, not a list of small counts. The result pinpoints why one extra shift past a power of two reaches the state count of the next pure power, and the disjoint parity decomposition supplies a reusable structural comparison for shifts. It does not claim a general-shift solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

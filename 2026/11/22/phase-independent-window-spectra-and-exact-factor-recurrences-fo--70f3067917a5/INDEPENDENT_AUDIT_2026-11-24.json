@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:59:27.295864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57, VERIFICATION.md, both checker texts and both saved output files inspected",
+        "/workspace/repairs/1/RESULT.md",
+        "/workspace/replay_frozen.py 1: 156 exact factor counts and 2,106 exact phase counts using a CRT-certified finite bound",
+        "Sell's Proposition 3.7 and Theorem 3.9, and 26,991 bounded closed-form/radix comparisons"
+      ],
+      "rationale": "For a given finite occurrence, adding a sufficiently large prime power to its start preserves every valuation, hence preserves the factor along that progression. In the prime-to-p modulus m this progression reaches every source phase, arbitrarily late. Writing n=p^k m, the k-fold morphism has a fixed prefix and one final variable position per source block. A length-n slice at any fixed offset retains exactly m such positions; an overhanging next-block prefix is fixed. They recover the m source letters, and coprime recurrence realizes all of them at the required source starts. For ordinary factors at length at least 2p, exposure of two consecutive source letters prevents the all-zero output, and a nonzero position gives the unique residue of the starting offset. Counting the exposures gives the recurrence; below 2p only the all-zero factor overlaps between offsets. The aperiodicity argument and Morse–Hedlund bound then certify the claimed contrasting regimes. The repaired attribution to Sell was independently verified by specializing his complexity formula and checking both the affine intervals and radix scaling. The proofs and parameters of the phase theorem remain unchanged.",
+      "residual_risks": [
+        "Bounded checks do not prove the universal spectrum, which follows from the bijection. No extension to composite bases is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sell's coding and general complexity formulas apply to all the cyclic level alphabets here. His formula counts the unrestricted union of factors, not starts in a specified progression.",
+          "Cassaigne–Kaboré Thm. 6.1 gives P^w(n)=P(n/2^nu_2(n)) for aligned Thue–Morse windows, using an injective block morphism for even lengths and a separate argument for odd lengths."
+        ],
+        "reasoning": "These are genuinely broader language-count machinery and a parallel window law for another sequence. Neither inspected statement supplies the desired all-phase higher-prime valuation word spectra. The ordinary radix count does not survive as a distinct claim.",
+        "searches": [
+          "Sell §2.1, Cor. 3.6, Prop. 3.7 and Theorems 3.8–3.9",
+          "Cassaigne–Kaboré §§3 and 6 on modulo recurrence and Thue–Morse window complexity"
+        ]
+      },
+      "checked_sources": [
+        "Sell arXiv:1801.08778v2; Cassaigne–Kaboré arXiv:2606.13744v1; Bognini–Ammar arXiv:2511.20881v1; Allouche et al. arXiv:2406.09302v1",
+        "Resultary b359a69047d4 and c8d7b40c0705"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With B=p^j the ordinary count above B and through pB is (q−1)L+B+min(0,L−2B+B/p). This gives the frozen small bases and the radix interpolation for n≥2p; Prop. 3.7 supplies the range through p.",
+          "For fixed phase windows, one must additionally prove all source factors occur at starts in the desired residue modulo m, and prove recovery and completion for slices not aligned to morphism blocks. The frozen prime-adic progression and position-preserving slice yield these statements jointly."
+        ],
+        "reasoning": "The recurrence is mechanically implied by an earlier explicit theorem and is now prior context. The narrower phase statement uses structural observations not supplied by that ordinary count, or the dyadic and Thue–Morse aligned-window statements. It is an exact correspondence, not just a matching integer sequence.",
+        "searches": [
+          "Direct specialization of Sell Theorem 3.9 under a_j=j mod q and n_j=p; direct comparison with b359a69047d4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bognini–Ammar define the base-two generalized morphism and consider kernel words and gap factorizations. Allouche et al. explicitly identify the classical binary substitution with the valuation-parity word.",
+          "The freezing prime-p valuation construction is exactly the simple Toeplitz hole-filling coding with period p, offset p−1 and level letters cycling modulo q."
+        ],
+        "reasoning": "Matching substitution or Toeplitz descriptions are aliases, not by themselves window theorems. The exact ordinary-factor coverage under the Toeplitz alias is explicitly credited in the repair.",
+        "searches": [
+          "Resultary: valuation residues, generalized period doubling, modulo recurrence and window complexity",
+          "Cassaigne–Kaboré arXiv:2606.13744v1, Bognini–Ammar arXiv:2511.20881v1 and Sell arXiv:1801.08778v2 under the simple Toeplitz alias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day b359a69047d4 gives P_q(n)=qn−c(n) and W_q(n)=P_q(odd(n)) for u_j=nu_2(j+1) mod q, with W restricted to phase zero. Earlier c8d7b40c0705 gives exact dyadic ordinary counts at powers of 2 and reversal invariants.",
+          "Allouche et al. §6.2 give rho_period-doubling(n)=rho_Thue-Morse(n+1)/2. No full OEIS table was available via the reader; that access gap is not evidence of novelty."
+        ],
+        "reasoning": "The strongest catalogue record is a direct overlap on the dyadic aligned specialization and ordinary dyadic counts, not a higher-prime or every-phase claim. The repaired contribution does not claim that specialization, and no same-day chronology is inferred.",
+        "searches": [
+          "Resultary exact factor/window complexity; records b359a69047d4 and c8d7b40c0705; classical period doubling comparisons including OEIS A275202 and arXiv:2406.09302v1, §6.2"
+        ]
+      },
+      "rationale": "The repaired novelty claim is the all-phase bijection for higher prime bases, not the ordinary factor-count formula, and not the dyadic aligned-window law. The original presentation did not acknowledge the covering simple Toeplitz factor theorem; the repaired result credits that theorem and retains the self-contained derivation only for computation. The strongest catalogue comparison does give the dyadic aligned identity, but not the higher-prime phase-constrained statement. The repaired claim passes on the evidence inspected, not as a universal priority guarantee.",
+      "residual_risks": [
+        "Other general Toeplitz arithmetic-progression results or unindexed equivalent phase counts could exist. Available comparisons do not establish absolute priority. No full OEIS exact table was inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted factor counts and yields exact radix recurrence; not the window spectrum statement",
+          "evidence": [
+            "One-hole coding and complete factor-complexity formulas; all A_j equal the full alphabet here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08778v2",
+          "material_read": "§2.1, coding, hole-limit and block lengths; Cor. 3.6, Prop. 3.7 and Thm. 3.9; offsets 18600, 21550, 25100, 51500 and 55550",
+          "method": "OA primary PDF passages and direct specialization",
+          "title": "Combinatorics of One-Dimensional Simple Toeplitz Subshifts",
+          "trigger": "General complexity theorem for the exact coding family"
+        },
+        {
+          "assessment": "Related aligned identity for Thue–Morse, not this valuation word in higher primes",
+          "evidence": [
+            "P^w(n)=P(n/2^nu_2(n)) for Thue–Morse; aligned blocking used for even lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.13744v1",
+          "material_read": "Def. 3.1 and §6 Thm. 6.1 plus aligned-block argument; offsets 10300 and 20122",
+          "method": "OA primary HTML passages",
+          "title": "On modulo-recurrence and window complexity in infinite words",
+          "trigger": "Closest primary valuation-of-window-length theorem"
+        },
+        {
+          "assessment": "Overlapping dyadic ordinary/phase-zero specialization excluded from repair's novelty, not evidence of publication order",
+          "evidence": [
+            "n↦odd(n) window reduction with phase zero only; same alphabet parameter q but only p=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-factor-and-aligned-window-complexity-of-generalized-per--b359a69047d4/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Exact local mirror passage",
+          "title": "Complete factor and aligned-window complexity of generalized period-doubling words",
+          "trigger": "Closest distinct same-day Resultary claim"
+        },
+        {
+          "assessment": "Base-two factorization comparison, no covering higher-prime phase statement in inspected passages",
+          "evidence": [
+            "The defining substitution has length two and the results use gap and kernel decompositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.20881v1",
+          "material_read": "Description of kernel/gap results and defining morphism, offsets about 1900 and 6447",
+          "method": "OA primary HTML passages",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "Primary result on generalized period-doubling aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof of arbitrary-offset slices and coprime recurrence",
+        "Exact aligned and ordinary comparators in the originality assessment"
+      ],
+      "rationale": "For nonoverlapping observations, an unknown grid origin is a natural nuisance parameter. The repaired theorem gives an exact factor-level correspondence uniformly in every start phase and certifies a sharp contrast between prime-power and coprime lengths. Neither an unrestricted complexity count nor a result at one origin establishes this stability. The proof identifies when a shifted block carries exactly the m free letters, so the result is useful beyond a numerical recurrence for P.",
+      "residual_risks": [
+        "No occurrence frequencies, growing-scale statistical results or composite-base generality are inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

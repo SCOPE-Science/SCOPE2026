@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The admissibility inequality follows from an exact four-bond energy difference, including the period-four boundary. Triple-context closed walks correspond one-to-one to cyclic words. The five equality-pattern orbits are exhaustive for every labelled alphabet. The full transfer graph is primitive by explicit append-only paths and all-equal self-loops, which justifies both the entropy and the coefficient-one asymptotic. The determinant identity is exact; 300 reproducible integer and exhaustive checks independently test the finite statements. Limits not proved: sector-resolved counts and dynamical quench sampling.
+## correctness
 
-**Originality — PASS within accessible comparisons, with residual risk.** The closely related De Smedt–Godrèche–Luck paper treats Ising's two colours and explicitly separates zero-rate neutral exchanges. Its \(q=2\) kinetic baseline is acknowledged, not a claimed discovery. Dhar's earlier Potts paper refers to an antiferromagnetic three-colour Kawasaki regime in accessible indexing, but full text could not be inspected, so a broader hidden formula remains a specific risk. The final claim is the exact all-integer \(q\) ferromagnetic strict-decrease colour-orbit quotient, quartic Perron law, and trace coefficient. Published and mathematical-record searches found no formulation implying that entire result, but lack of a search hit is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** Extending from two to an arbitrary finite alphabet changes the structure of energy-lowering local exchanges: a cyclic three-colour word can be blocked although the alternating binary analogue is not. The result gives a compact five-orbit transfer law valid at every alphabet size, an exact entropy invariant of a natural conserving kinetics, and a complete finite-volume counting procedure without exponentially large symbolic case distinctions. It is not merely a numerical table or renamed Ising parameter.
+For N>=4 the two exterior bonds are distinct and the internal bond is unchanged; subtracting the two energies gives exactly the displayed non-descent criterion. A trace term specifies the triple at the labelled origin and each subsequent overlap, hence counts each labelled cyclic word once, even for nonprimitive words. The AAA and ABB rows give (1,q-1,0,0,0); AAB allows every appended colour, ABA only its last colour, and ABC forbids the middle colour. This gives the stated quotient and the binary deletion. Setting a=q-1, b=q-2, elimination in tI-M gives t times [t^2(t-1)(t-b)-a((1+t)(t-b)+tb)], the stated quartic, and binary block determinant t(t^3-t^2-t-1). Appending b,b from (u,a,b), then a new constant colour three times and the desired two other symbols, proves strong connectivity; all-equal self-loops give primitivity. The uniquely normalized Perron vector is constant on colour orbits; the trace sums eigenvalue powers with algebraic multiplicity, so the Perron coefficient is one. The proof covers fixed q and all populations, not a single sector or neutral-move dynamics. RESULT.md lines 42–52 checked analytically; artifacts/verify.py lines 7–127 inspected, not executed. Its finite checks are diagnostic, not the basis for the all-N proof.
 
-**Risks and boundaries.** A possibly relevant 1995 full text was not obtained. Uniform color ensembles are counted, not per-conservation-class ensembles. Neutral-move dynamics is different. Finite checks are independent evidence for, not a substitute for, the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the complete all-colour uniform nearest-neighbour ferromagnetic labelled-ring count and its quartic growth law for q>=3. The binary forbidden-word baseline and standard transfer-matrix method are not independent novelty claims. There is a materially close Potts precedent in Dhar that should be cited specifically, but the retrieved passage does not furnish the claimed classification or entropy law.
+
+## value
+
+PASS
+
+The model and the total metastable-state entropy are natural before calculation. A uniform five-pattern structural reduction and a closed quartic for arbitrary q replace a q^3-state computation; a researcher can compare colour effects or use the exact labelled finite count without running the dynamics. This is more than re-counting the known binary blocked words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

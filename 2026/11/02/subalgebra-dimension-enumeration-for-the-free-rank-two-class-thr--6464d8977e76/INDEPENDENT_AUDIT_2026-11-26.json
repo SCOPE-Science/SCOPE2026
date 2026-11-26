@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:49.011842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stipulated alternating bracket gives the free Lie algebra of rank two and class three in every characteristic: the images of x and y fix those of z,u,v by the three defining brackets, and higher brackets vanish in any class-at-most-three target. Its center is Z=span(u,v). For S with image A in L/Z and K=S∩Z, sections are parameterized by q^(dim A(2−dim K)) linear maps f:A→Z/K once a linear lift s is fixed. In general bracket closure requires the central difference [s(a),s(b)]−s([a,b]) modulo K to equal f([a,b]), not merely that the central difference vanish. The actual cases avoid any extra assumption: quotient subalgebras of dimension at most two are abelian, and in dimension three the brackets with lifts of z project to zero and force u,v∈K before any condition involving f is needed. Writing P=q²+q+1, the dimensional contributions for A=0 are (1,q+1,1) in dimensions 0,1,2; the P possible quotient lines contribute Pq²,Pq(q+1),P in dimensions 1,2,3. The q+1 quotient planes all contain the image of z; for direction (a,b) they force K to contain span(au+bv). These give q²(q+1) three-dimensional and q+1 four-dimensional subalgebras. The surjective case yields only L. The plane lifts in dimension three have a one-dimensional central derived algebra with a nonzero alternating bracket on the two generators, so are Heisenberg also in characteristic two. Adding gives all coefficients and the total; the limits are the leading-term ratios. Independent section-map enumeration and direct bracket closure over F₂, F₃ and F₄ returned (1,31,43,19,3,1), (1,121,157,49,4,1), (1,341,421,101,5,1) and abelian three-dimensional counts 7,13,21. Replay: python3 /workspace/branches/0afb2ace-11b4-4207-afdd-b09e171a6cef/independent_counts.py. This is bounded corroboration; the supplied verifier was inspected, not executed, and arbitrary q rests on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis chapter treats finite F_p zeta functions; its inspected examples include G_3 and f_{2,3}.",
+          "Lee's Theorem 3.7 gives the ideal polynomial for this algebra over F_p.",
+          "Eick–Moede give an all-subalgebra algorithm applied to simple Lie algebras over F₂."
+        ],
+        "reasoning": "The ideal condition is strictly stronger than closure, for example most lines in L are noncentral yet each is a subalgebra. An exact enumeration algorithm on a given finite input can compute individual cases, but the inspected result is not a uniform polynomial and type census for all prime powers.",
+        "searches": [
+          "Lee thesis DOI 10.5287/ora-nzqowgpgw, Chapter 5",
+          "Lee arXiv:2010.02268v3 §3.1.4",
+          "Eick–Moede arXiv:2205.03155"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py structure",
+        "Resultary 3b14050d26d6",
+        "Lee thesis DOI 10.5287/ora-nzqowgpgw",
+        "arXiv:2010.02268v3",
+        "arXiv:2205.03155",
+        "arXiv:2505.08331",
+        "Zeta Functions of Lie Rings Archive, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day mirror does not give unrestricted nonabelian counts. Lee's theorem restricts to ideals in prime fields. The recent index paper concerns the Lie-algebra index, not a subalgebra spectrum."
+        ],
+        "reasoning": "The missing quotient-plane lifts include nonideals: choose a lift of the image of z and a proper K equal to span(au+bv); a bracket with a generator of a different direction is not in K. These contribute the q²(q+1) Heisenberg term and are not obtained by adding an ideal count to the abelian spectrum. No inspected stronger theorem implied the full count.",
+        "searches": [
+          "Resultary 3b14050d26d6 RESULT.md offset 0",
+          "Lee arXiv:2010.02268v3 Theorem 3.7",
+          "arXiv:2505.08331"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 3b14050d26d6 counts ideals and abelian subalgebras after restricting from F_{q^m} to F_q for m≥2.",
+          "The polynomial is equivalently the finite-field subalgebra zeta series weighted by codimension rather than dimension, via t^5P_q(1/t)."
+        ],
+        "reasoning": "Formally substituting m=1 into the mirror's abelian profile gives the abelian counts here, a material sector overlap even though that substitution is outside the stated restriction-of-scalars range. It does not count the nonabelian sector. Neither the different weighting of a zeta series nor date distinguishes otherwise identical claims.",
+        "searches": [
+          "Resultary: subalgebra dimension polynomial rank-two free class-three nilpotent Lie algebra over finite fields",
+          "Resultary: complete dimension profile number of all Lie subalgebras free nilpotent rank two class three dimension five finite field Heisenberg three-dimensional subalgebras",
+          "Literature: \"free nilpotent Lie algebra\" rank 2 class 3 subalgebras finite field enumeration subalgebra zeta function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible mirrored formula resolves only abelian subalgebras and ideals in its stated range.",
+          "The older archive is described in the frozen citation as listing finite-index subrings for the same integral Lie ring. The archive and linked source could not be read; a focused copy search was unavailable."
+        ],
+        "reasoning": "No inspected table supplied the full finite-field-linear count. Integral subrings that contain pL correspond to mod-p subalgebras, but an index-only census also includes subrings not containing pL. Without a refinement or a theorem extracting this slice the archive cannot be treated as establishing coverage; unseen underlying calculations remain a risk.",
+        "searches": [
+          "Resultary 3b14050d26d6; both exact census queries above",
+          "Zeta Functions of Lie Rings Archive, F_{3,2} row named by frozen source",
+          "Literature: \"Zeta Functions of Lie Rings Archive\" \"F_{3,2}\" Woodward free class three rank two subring local zeta PDF lack-of.org.uk"
+        ]
+      },
+      "rationale": "The full dimension census and three-dimensional type split are supported as distinct on the inspected evidence. The strongest genuine overlap is with abelian-subalgebra enumeration after restriction of scalars, and with ideal counting for the same finite Lie algebra. Neither establishes the nonabelian subalgebra terms of the full polynomial. The abelian overlap and inaccessible older same-integral-ring entry remain explicit limitations; the assessment does not assert priority.",
+      "residual_risks": [
+        "The older local subring-zeta PDF for the integral model was not inspected and might have data refined enough to recover the finite-field count.",
+        "The Lee thesis search was bounded; the inspected passages do not settle its whole-document coverage.",
+        "The formal m=1 abelian specialization is a genuine sector overlap irrespective of record date; this verdict concerns the full census and type distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material abelian-sector overlap under formal m=1 specialization, not full coverage",
+          "evidence": [
+            "F_{q^m} restricted to F_q with m≥2; enumerates ideals and abelian subalgebras"
+          ],
+          "identifier_or_url": "Resultary 3b14050d26d6",
+          "material_read": "Mirrored RESULT.md from offset 0 at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and bounded local mirror reading",
+          "title": "The ideal lattice and projective abelian subalgebra geometry of the free rank-two class-three Lie algebra",
+          "trigger": "Same Lie algebra family and dimension-refined counts"
+        },
+        {
+          "assessment": "Inspected section establishes scope and other explicit examples; whole-thesis noncoverage not asserted",
+          "evidence": [
+            "Finite F_p Lie subalgebra or ideal zeta functions; examples G_3 and f_{2,3}"
+          ],
+          "identifier_or_url": "https://doi.org/10.5287/ora-nzqowgpgw",
+          "material_read": "Chapter 5 p. 93/offset 336300 and examples pp. 126–127/offsets 420679 and 423426",
+          "method": "Targeted OA full-text reading",
+          "title": "Variations on the theme of zeta functions of groups and rings",
+          "trigger": "Plausible thesis-level finite-field example of same algebra"
+        },
+        {
+          "assessment": "Prime-field ideal count, not unrestricted subalgebras",
+          "evidence": [
+            "f_{3,2}(F_p) ideal zeta polynomial"
+          ],
+          "identifier_or_url": "arXiv:2010.02268v3",
+          "material_read": "§3.1.4, Theorem 3.7, offset 70600",
+          "method": "Targeted OA full-text reading",
+          "title": "Zeta functions of F_p-Lie algebras and finite p-groups",
+          "trigger": "Exact same five-dimensional Lie algebra"
+        },
+        {
+          "assessment": "Method and stated applications are not evidence of the exact census",
+          "evidence": [
+            "Algorithm applied to simple F₂ Lie algebras"
+          ],
+          "identifier_or_url": "arXiv:2205.03155",
+          "material_read": "Abstract at offset 0",
+          "method": "Targeted OA reading",
+          "title": "Computing subalgebras and Z2-gradings of simple Lie algebras over finite fields",
+          "trigger": "General finite Lie algebra subalgebra enumeration method"
+        },
+        {
+          "assessment": "Different invariant in the inspected passage",
+          "evidence": [
+            "Index of free nilpotent Lie algebras"
+          ],
+          "identifier_or_url": "arXiv:2505.08331",
+          "material_read": "Abstract at offset 388",
+          "method": "Targeted OA reading",
+          "title": "The Index of Nilpotent Lie Algebras",
+          "trigger": "Search hit for free nilpotent Lie algebras"
+        },
+        {
+          "assessment": "Potential coverage cannot be established from access failure or frozen description",
+          "evidence": [
+            "Frozen relationship to prior work and reference 4 identify an integral finite-index subring entry for F_{3,2}"
+          ],
+          "identifier_or_url": "https://www.lack-of.org.uk/zfarchive/",
+          "material_read": "No primary content retrieved; row and PDF known only from frozen description",
+          "method": "OA website attempt failed with certificate error; HTTP variant not supported by reader and identified-copy search unavailable",
+          "title": "Zeta Functions of Lie Rings Archive",
+          "trigger": "Same integral Lie ring listed according to the frozen citation, potentially useful local refinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a full census of a canonical free nilpotent Lie algebra at the first rank-two class with a two-dimensional final central layer. It separates nonabelian from abelian embedded subalgebras and explains why the former dominate the three-dimensional slice, while dimensions one and two dominate the full measure. It is an all-finite-field invariant, including characteristic two, not a small table or a restatement of the ideal enumerator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The analytic proof independently reconstructs the global product-overlap calculation, invokes and specifies the symmetry theorem of Hübener et al. (arXiv:0905.4822, Lemma 1), proves the strict hyperbolic-ratio monotonicity yielding unique positive stationary latitude for every \(n\ge6\), checks equality boundaries and all phases, and squeezes the asymptotic maximum between explicit bounds. Reproducible finite tests support but do not replace the uniform proof.
+## correctness
 
-## Originality
-PASS, with residual priority risk. Baguette et al. (arXiv:1407.1738, Sections II and IV) give the complementary-Dicke MES family and discuss geometric entanglement, with explicit four-qubit analysis. Chen et al. (arXiv:0911.1493, Section II A) provide the general positive-Dicke one-parameter maximization, which is credited; Hübener et al. establish symmetry of optimizers, also credited. Inspected work on Majorana closest-product points (arXiv:1003.5643) and W/GHZ superpositions (arXiv:0712.4085) does not state the all-dimension \(n=6\) bifurcation, counts, or \(1/(2e)\) constant. An equivalent specialization may exist under a different formulation; semantic searches and inspection cannot certify global priority.
+PASS
 
-## Value
-PASS. The state is a standard one-uniform symmetric qubit family, and nearest-product geometry is a physically motivated entanglement measure. A complete global phase transition for all local system counts, exact optimizer multiplicity and a nontrivial asymptotic constant are substantial structural information.
+Hübener et al. §II Lemma 1 applies to the nonzero symmetric complex multilinear form for n≥4 and forces proportional local factors at every maximum, not merely the existence of a symmetric maximizer. For any interior latitude both Dicke amplitudes are nonzero, and the phase of their ratio is (n−2)φ up to sign. The only optimal phases modulo 2π are 2πj/(n−2). The two poles have zero overlap. With x=(1+tanh t)/2, the phase-maximized squared overlap is n·2^(1−n) cosh²(at)/coshⁿ(t), a=(n−2)/2. For a>1 the logarithmic derivative of tanh(at)/tanh t is negative by sinh(2at)>a sinh(2t), so the ratio strictly decreases from a to 1 on t>0. Comparing with n/(n−2) proves no positive root for n=5 and exactly one for n≥6, with the indicated change from increasing to decreasing. For n=4 the log-overlap derivative is −2 tanh t. This gives the complete latitude and phase counts. At n=6, z=tanh t gives z²=1/3, cosh(2t)=2 and cosh⁶t=27/8, hence 2/9. On x≤1/2 the contribution squared of the minority Dicke term is at most 2^(−n), using x(1−x)≤1/4, while the dominant term is bounded by its value at x=1/n; symmetry and testing x=1/n give the same limiting lower and upper bound 1/(2e). The inspected verifier was not executed; its finite grids do not establish this optimizer classification.
 
-## Limitations
-Applies to a fixed equal-weight complementary one-excitation/one-hole family, with pure-state geometric entanglement \(1-\Lambda^2\). Arbitrary positive Dicke coefficients, other excitation offsets, nonsymmetric inputs, and convex roofs remain outside scope. Mathematical proof and comparisons have received no independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the uniform all-n classification and limit. The scalar optimization framework and the individual n=4,5,6,7 cases must not be counted as novel: the four-qubit state is locally equivalent to GHZ, and Aulbach–Markham–Murao treat the same tri-, square-, and pentagonal dipyramid states. Those examples already show the observed switch from equatorial rays to two circles at six qubits; they do not prove the two-latitude branch persists at every larger n or the limit. The same-day Resultary hit uses the same state but a different observable. No inspected statement covers the uniform branch theorem.
+
+## value
+
+PASS
+
+An all-dimension solution for a natural symmetric entangled family turns known small-dimensional configurations into a sharp global branch theorem. The uniqueness of the latitude, full phase-resolved count at every n and limiting overlap give information beyond observing the transition in low dimension or reporting numerical stationary points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

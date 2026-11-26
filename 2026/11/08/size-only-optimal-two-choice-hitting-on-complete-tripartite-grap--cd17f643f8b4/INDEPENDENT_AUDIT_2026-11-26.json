@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:34:40.746441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 34–79",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/replays/3.py (fresh exact symbolic determinant and positivity replay, executed)"
+      ],
+      "rationale": "Under the proposed priority, a B or C vertex hits the target whenever it is offered, with positive probability 1-(1-1/d)^2; from A one step first reaches B or C. Thus the proposed chain is transient off the target and the three-state system gives its unique finite positive hitting values. Its coefficients follow by enumerating two ordered independent offers, with repetition. I independently expanded both Cramer identities symbolically and checked strict positivity of the expanded P on a-2,c-1,b-c >= 0, including the constant term. The numerator of H_C-H_B vanishes precisely at b=c; the determinant is positive because the transient matrix has spectral radius less than one. The resulting order makes the rule attain the one-step Bellman minimum. For any competing strategy, iteration of the Bellman inequality up to the target or step N gives a lower bound by the candidate value on the expected elapsed time plus the bounded terminal residual. For any competitor of finite mean the residual tends to zero, and infinite mean cannot improve the candidate. This handles adaptive strategies and the tie case without a stronger stochastic-dominance assertion.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theory gives a minimum-value selection rule and computes an optimum in polynomial time on a supplied graph."
+        ],
+        "reasoning": "Solving an instance algorithmically does not give the quantified sign comparison over all a≥2 and b≥c≥1, which requires a separate calculation and proof.",
+        "searches": [
+          "arXiv:1911.05170, Theorem 1.6 and Lemma 7.1",
+          "ITCS 2020, DOI 10.4230/LIPIcs.ITCS.2020.76, Lemma 14 and Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (assigned record and two distinct records above)",
+        "arXiv:1911.05170",
+        "DOI 10.4230/LIPIcs.ITCS.2020.76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower-value rule proves optimality once the ordering has been determined; its statement imposes no relation between the optimal values of B and C in terms of b and c."
+        ],
+        "reasoning": "The independent determinant signs, not a parameter substitution into the prior Bellman theorem, establish the ranking. The three-state equations are straightforward after that ranking and are not separately credited as a new general method.",
+        "searches": [
+          "arXiv:1911.05170, Lemma 7.1; DOI 10.4230/LIPIcs.ITCS.2020.76, Lemma 14",
+          "Local records 4180de2dab4e and bad48277daef"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-multipartite record optimizes cover time and its state includes the visited set; the distance-first record studies a different graph family. Lemma 7.1 ranks neighbors by their optimal values, not by part size."
+        ],
+        "reasoning": "Lumping vertices within a part and encoding the policy as an ordering of hitting values does not turn either of the other results into the uniform ordering H_A>H_C≥H_B.",
+        "searches": [
+          "Local Resultary: two-choice/ two-offer controlled walks, complete tripartite and complete multipartite target hitting; distinct records 4180de2dab4e and bad48277daef",
+          "arXiv:1911.05170, Lemma 7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit was the assigned record itself; the two closest distinct claims have different objectives or graph families. Table 1 benchmarks a complete graph, not all complete tripartite graphs."
+        ],
+        "reasoning": "A complete-graph benchmark is not the target-part geometry with a≥2; neither distinct catalogue entry is an exact evaluated table for the three-part problem.",
+        "searches": [
+          "Local Resultary fixed-target two-offer hitting and complete multipartite search",
+          "arXiv:1911.05170, Table 1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the parameter-uniform size order, including the exact equality boundary and its evaluated three-state system. The minimum-value control rule, existence of an optimal stationary rule and a general strategy algorithm were known. The inspected sources did not supply the size ranking, nor a stronger ordering theorem covering this family.",
+      "residual_risks": [
+        "The bounded literature search yielded no additional relevant source; this is not proof of historical priority. An unindexed exact tripartite calculation or stronger explicit multipartite theorem could change the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general optimality principle, but not the explicit tripartite evaluation in the inspected passages",
+          "evidence": [
+            "Lemma 7.1 orders by optimal target-hitting value; Theorem 1.6 is an algorithm for a graph given as input; Table 1 includes the complete graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+          "material_read": "Lemma 7.1 (HTML near offset 89236), Theorem 1.6 (near 13436), Table 1 (near 16215)",
+          "method": "Targeted lawful arXiv full-text passages",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Identical controlled walk and target objective"
+        },
+        {
+          "assessment": "General ordering and optimization, not explicit part-size order in these statements",
+          "evidence": [
+            "The statements give value-based strategies and polynomial-time optimization, not K_{a,b,c} signs."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+          "material_read": "Lemma 14, PDF page 9; Theorem 17, PDF page 10",
+          "method": "Targeted open conference PDF passages",
+          "title": "Choice and Bias in Random Walks",
+          "trigger": "Earlier conference version of the same model"
+        },
+        {
+          "assessment": "Different objective and state space",
+          "evidence": [
+            "Unseen-first failure for cover time on K_{1,2,6}, not fixed-target hitting."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-first-nonmyopic-two-choice-cover-decision-on-complete-multip--4180de2dab4e",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary and local source mirror",
+          "title": "The first nonmyopic two-choice cover decision on complete multipartite graphs",
+          "trigger": "Same offers and overlapping graph family"
+        },
+        {
+          "assessment": "Different graph and question",
+          "evidence": [
+            "A distance-priority failure on a cycle with leaves gives neither tripartite heights nor the part ordering."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-seven-vertex-onset-of-distance-first-failure-in-two-offer-ra--bad48277daef",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary and local source mirror",
+          "title": "The seven-vertex onset of distance-first failure in two-offer random walks",
+          "trigger": "Same control and hitting objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and three-state proof",
+        "arXiv:1911.05170, Lemma 7.1 and Theorem 1.6"
+      ],
+      "rationale": "This is an explicit structural decision rule for a natural graph family. It resolves every ordering, including ties, across an unbounded range of part sizes; the nontarget classes on opposite parts are all one edge from the target, so distances alone do not decide their ranking. It avoids numerical or graph-specific strategy optimization. The quotient system alone, with the ranking assumed, would not supply this contribution.",
+      "residual_risks": [
+        "No result for four or more parts, changed offer distribution, or deadline objectives is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

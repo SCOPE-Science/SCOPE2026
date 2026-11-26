@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-Use Python 3 with its standard library only:
+# Independent mathematical audit
 
-```text
-python3 verify.py
-```
+## correctness
 
-The checker independently constructs the labelled graph for each path-length tuple, tries all vertex subsets, and tests the original \(P_3\)-convexity condition that every omitted vertex sees no more than one selected neighbor. Separately, a four-state word transfer counts locally admissible memberships under the endpoint-capacity filters. For the equal-length-three family a third, symbolic coefficient construction implements the closed binomial formula.
+PASS
 
-The full polynomial, not only its value at one, was compared on all six equal-length-three networks with \(3\le r\le8\), where the vertex set has \(2r+2\) vertices. Each also passed cardinality-support checks and top-degree coefficient tests. Twelve mixed-length theta graphs with path lengths two through five passed direct-to-transfer coefficient comparison. The expected totals at \(r=3,4,5,6,7,8\) were \(64,137,292,625,1344,2897\). The execution terminates with `VERIFY_OK`.
+For fixed membership bits of the two terminals, an internal vertex fails the two-neighbor condition precisely at the center of a 101 word. Path choices therefore factor until the two terminal checks: at an omitted terminal the sum of incident internal bits is at most one, enforced by retaining powers zero and one of its marker, and at a selected terminal no restriction remains. Length two is included: its single internal bit marks both endpoints but contributes only one z. A two-bit transfer rejects only 10→01 and checks the final triple with the prescribed right terminal. At equal length three the cases with neither, one, and both terminals contribute (1+rz)^2, 2z[(1+z)^r+rz²(1+z)^(r−1)], and z²(1+z²)^r. In the single-terminal case the internal neighbor at the excluded terminal can be selected only in one arm and then forces its companion. With both terminals selected each pair is 00 or 11. The first two contributions cover degrees 0 through r+2; the last covers the even degrees from 2 through 2r+2. As 2r>r+2 for r≥3, only the paired case yields a proper set of size 2r, exactly one choice per omitted arm, and degree 2r+1 is absent. The full set is unique and evaluation at one gives the stated total. Independent vertex-mask tests against a separate arm-word calculation returned all matching coefficients: for lengths (2,3,4,5) the total is 410, and for seven length-three arms it is 1344 with seven maximum proper sets.
 
-The exhaustive checks are finite and do not establish the unbounded \(r\) or arbitrary-length theorem. The written binary-neighborhood decomposition, terminal-capacity filtering and exact four-case counting prove those assertions. No independent external mathematical audit has been performed.
+## originality
+
+PASS
+
+Credit the explicit theta-family size polynomial and its sharp cardinality and extremizer information, not the counting problem, the generic finite-state technique, or the ability to compute individual cases. Compared size-enumerator and transfer results concern different graph families, and the inspected general counting method supplies neither this factorization nor its support formula.
+
+## value
+
+PASS
+
+The size distribution is a natural refinement of the established counting problem on a basic graph family with overlapping cycles. The all-length product works with shared terminal capacities; the closed form in the uniform family discriminates attainable sizes and classifies all largest proper sets. The value lies in that exact structural information, not in isolated numbers or in using a transfer alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

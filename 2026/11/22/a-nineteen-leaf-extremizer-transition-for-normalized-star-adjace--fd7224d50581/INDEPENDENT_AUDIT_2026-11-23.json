@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:03.251866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt and check_normalized_star.py (inspected, not executed)",
+        "Independent derivative, threshold and asymptotic checks summarized above"
+      ],
+      "rationale": "The normalized matrix is determined by the leaf entries u_i=√(w_i/W) appearing twice; duplicating entries has no effect on the maximum-entry norm. For m=1 the sole spoke entry is identically one and the modulus is zero. For m≥2, differentiating gives opposite signs on diagonal and other inputs, and the absolute row sum at a given w_i=x and S=Σ_{j≠i}w_j is [S+(m−1)x]/[2√x(x+S)^{3/2}]. Its S derivative has the sign of (5−3m)x−S<0, so equality in the reduction requires every other weight to be a. Taking z=x/a reduces the row maximum to g_m(z)/a. Integrating the derivative over segments gives the global upper bound, and sign directions at arbitrarily close interior points give the matching lower bound even when the maximizing profile is on the domain boundary. For each z>1 the ratio g_m(z)/g_m(1) increases strictly with m. The factorization at m=18 is positive after division by z−1 for z>1, by the stated square plus positive terms, so uniform is uniquely optimal there and at lower m≥2. At m=19, z=4 gives a negative squared-ratio comparison numerator −1107 for 1−[g_m(4)/g_m(1)]², and monotonicity excludes the endpoint for all larger m. The derivative numerator's two roots exceed one (for m≥19, (m−9)^2 minus the discriminant equals 48); the smaller is a local minimum and the larger r_m the only remaining maximum, since g_m tends to zero at infinity. Hence maximizing profiles for m≥19 are precisely the indicated profiles up to the choice of exceptional spoke. Dividing the radical by m gives r_m/m→1/2 and substitution gives aL_m(a)→1/(3√3). The optimizer switch concerns m≥2; at m=1 all conductances give the same constant matrix.",
+      "residual_risks": [
+        "The script samples derivatives and finite pairs and checks rational examples; universal inequalities, uniqueness of the profiles, and the limit rest on the analytic proof.",
+        "Sharpness of the two-input supremum does not require attainment by a pair of distinct weight vectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levie et al. measure the perturbation E of a supplied self-adjoint shift and bound g(Δ+E)−g(Δ) in operator norm, including a normalized-Laplacian filter example.",
+          "Gama et al. compare graph filters under an absolute or relative graph-shift error, using operator norm and alignment terms.",
+          "Geisler et al. use lower and upper weighted-degree bounds and Frobenius-norm comparisons in their positional-encoding treatment (eqs. 25, 28, 30); the inspected arXiv version places this in Appendix F.5."
+        ],
+        "reasoning": "Taking an identity filter merely recovers the supplied shift difference; it does not give a sharp bound from raw weights. A bounded-degree Frobenius-norm comparison is neither the entrywise norm nor a uniform statement on this unbounded upper-degree star domain. These are not covering generalizations of the exact optimizer transition.",
+        "searches": [
+          "Levie–Isufi–Kutyniok arXiv:1901.10524 Theorem 2 and §4",
+          "Gama–Bruna–Ribeiro arXiv:1905.04497 Theorem 1",
+          "Geisler–Kosmala–Herbst–Günnemann arXiv:2405.19121v2 Appendix F.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.10524, arXiv:1905.04497 and arXiv:2405.19121v2",
+        "Resultary 58cb00e0c065 and search results on normalized star/weighted heat variants",
+        "Web searches under normalized adjacency and symmetric normalized Laplacian perturbation terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distance-kernel result compares f↦T_qf on a fixed metric star with vertex masses, measuring a function seminorm. It bounds changes of the signal for a fixed operator rather than entrywise changes of the operator when conductances vary.",
+          "The bounded-degree positional-encoding results concern Frobenius errors and include a comparison from normalized Laplacian back to adjacency in eq. (28), not a sharp forward raw-spoke derivative. The paper's frequency cutoff is not a leaf-count cutoff."
+        ],
+        "reasoning": "Neither input-error model can be specialized to imply the present absolute row-sum extremizers. Their determination requires comparing a boundary maximum with an interior critical point in the raw-weight parameter.",
+        "searches": [
+          "Resultary 58cb00e0c065, RESULT.md eqs. (1)–(5)",
+          "arXiv:1901.10524 Theorem 2 and normalized ChebNet example",
+          "arXiv:2405.19121v2 Appendix F.5, eqs. (25)–(30)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map w↦I−N(w) has exactly the same two-input difference as w↦N(w), up to a minus sign, so a sharp result for the symmetric normalized Laplacian with the same raw weight and entrywise norms would cover this claim.",
+          "Normalized random-walk/distance averaging generally is not this map; similarity, similarity of spectra or upper norm comparison would not preserve the claimed entrywise modulus."
+        ],
+        "reasoning": "The adjacent terms were compared under equal input domains and norms. A spectral-filter bound formulated on an already normalized shift does not determine what the normalization itself does to a raw spoke perturbation.",
+        "searches": [
+          "Web: normalized adjacency degree normalization perturbation sharp Lipschitz weighted star conductance maximum entry graph shift Levie Gama Geisler normalized Laplacian sensitivity",
+          "Web: normalized adjacency Lipschitz edge weights degree normalization conductance perturbation sharp star matrix graph stability Geisler",
+          "Resultary: normalized adjacency weighted star maximum entry sharp Lipschitz lower conductance nineteen leaves exceptional spoke"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact database analogue would be a per-degree sharp weight-to-shift coefficient or an exact extremizer law for lower-bounded stars. The matching hit was this record itself; the distinct related exact entries included distance-kernel and weighted-heat star coefficients.",
+          "The inspected normalized-adjacency and filter papers do not tabulate the two branches, 18/19 transition, or r_m under the required norms in the relevant material."
+        ],
+        "reasoning": "Matching a star degree or using a matrix norm of another operator is not a duplicate of this supremum. Search nonreturns are provisional, not evidence of absolute novelty.",
+        "searches": [
+          "Resultary: normalized adjacency weighted star maximum entry sharp Lipschitz lower conductance nineteen leaves exceptional spoke",
+          "Web: normalized adjacency degree normalization perturbation sharp Lipschitz weighted star conductance maximum entry graph shift Levie Gama Geisler normalized Laplacian sensitivity"
+        ]
+      },
+      "rationale": "Degree normalization, filter robustness, and differentiating the normalized entries are prior or routine. The specific optimization over lower-bounded raw weights gives the sharp max-entry modulus and identifies the globally extremal profiles across all leaf counts; neither a covering formula nor an immediately implying stronger result was located in the inspected material.",
+      "residual_risks": [
+        "An exact optimized Jacobian for this weight map might be in unindexed numerical-analysis or graph-normalization work; search scope is not proof of priority.",
+        "The comparison excludes only the inspected statements and their implications, not arbitrary published filter results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant after the shift is formed; does not cover normalization's sharp raw-weight coefficient",
+          "evidence": [
+            "Theorem 2's input is Δ′=Δ+E and the bound is in terms of ‖E‖; the normalized translated Laplacian is used as an example shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.10524",
+          "material_read": "Abstract, Theorem 2 and §4 ChebNet example (decisive extracted text near offsets 17181–17714)",
+          "method": "Open arXiv PDF and compare norms and perturbation argument",
+          "title": "On the Transferability of Spectral Graph Filters",
+          "trigger": "Normalized Laplacian and shift/filter stability"
+        },
+        {
+          "assessment": "Graph-filter operator error conditional on shift error, not the exact edge-to-matrix map",
+          "evidence": [
+            "Theorem 1 uses an absolute shift perturbation modulo permutation and eigenvector misalignment; these are not the raw input error or the labelled matrix norm here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.04497",
+          "material_read": "§II definitions and Theorem 1, around extracted offsets 24500–44384",
+          "method": "Open arXiv PDF, compare operator perturbation formulation",
+          "title": "Stability Properties of Graph Neural Networks",
+          "trigger": "Broader absolute/relative graph-perturbation claims"
+        },
+        {
+          "assessment": "Bounded-degree Frobenius positional-encoding comparison, not an optimal max-entry bound on normalized stars",
+          "evidence": [
+            "Equation (25) places all weighted degrees in a fixed interval with positive floor and finite ceiling. Equations (28) and (30) use Frobenius errors, and (30) uses alignment. No such estimate is needed for the reviewed proof.",
+            "The arXiv appendix locator is F.5; the frozen audit uses H.5, which is not the degree-normalization subsection in this version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.19121v2",
+          "material_read": "Appendix F.5, pp. 28–30, especially eqs. (25), (28) and (30)",
+          "method": "OA arXiv PDF/HTML, bounded appendix inspection and comparison of directions and hypotheses",
+          "title": "Spatio-Spectral Graph Neural Networks",
+          "trigger": "Closest primary degree-normalization comparison"
+        },
+        {
+          "assessment": "Exact but different star operator and perturbation variable",
+          "evidence": [
+            "The norm controls T_q on functions modulo constants, with node masses and graph-distance seminorm, not N(w) under varying conductance vectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-lipschitz-phase-diagram-for-distance-normalized-kernels-on--58cb00e0c065/RESULT.md",
+          "material_read": "Finding, norm and kernel definitions, edgewise dual norm proof",
+          "method": "Local record mirror; compare the maps and norms",
+          "title": "Sharp Lipschitz phase diagram for distance-normalized kernels on weighted stars",
+          "trigger": "Closest indexed star-normalization exact phase diagram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sharp derivative-to-pair argument, endpoint polynomial comparison and asymptotic optimizer; compared prior graph-filter bounds"
+      ],
+      "rationale": "This is the complete sharp response of a canonical normalization under independently bounded conductance errors on a natural graph family. The uniform profile remains a local boundary maximum even after losing global optimality; the nineteen-leaf cutoff measures a genuine competition between profiles, not just the first appearance of a stationary point. The asymptotic imbalance producing a positive limit explains why increasing degree does not by itself cause this max-entry sensitivity to vanish. The exact modulus can be used as a baseline before analyzing any composite filter.",
+      "residual_risks": [
+        "No uniform statement as a goes to zero, sharp theorem for non-star graphs, or guarantee for a composed spectral filter is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

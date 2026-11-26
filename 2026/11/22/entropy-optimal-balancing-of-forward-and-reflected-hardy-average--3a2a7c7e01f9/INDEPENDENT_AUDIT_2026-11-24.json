@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:01:37.427511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97",
+        "VERIFICATION.md and CHECKER.py inspected, not executed"
+      ],
+      "rationale": "For real distributional BV, subtracting the integral of the step kernels against Df leaves a function with zero distributional derivative, hence a constant. Both averages preserve constants. For a unit jump at s the defect equals −(1−α)(1−s)/(1−x) on x<s and αs/x on x>s. Integration yields E_α; Tonelli and the triangle inequality then bound the general signed-measure defect by ∫E_α d|Df|, and testing one jump gives the exact norm. E_α is strictly concave, with an interior critical point also at the pure endpoints (1−1/e and 1/e respectively). For nonzero variation, equality forces |Df| onto the unique maximum, so the displayed nonconstant steps suffice and exhaust that class. Constants also satisfy the unnormalized inequality as 0=0 and are excluded from the norm quotient and the nontrivial equality classification (as in Proof §4). All mixtures have the same value at s=1/2, but only α=1/2 has zero derivative there; this proves unique minimax balance even against the pure endpoints. At balance E''(s)=−1/[2s(1−s)]≤−2, yielding the integral deficit bound. The Taylor quotient along displaced single jumps tends to 1, so the quadratic factor is sharp. No restriction to monotone inputs or endpoint boundary traces is used.",
+      "residual_risks": [
+        "Finite quadrature would be diagnostic only, especially for the signed inputs and the sharp limiting coefficient; the verdict uses the analytic proof. No expert or formal attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Soria uses a one-sided defect on the decreasing cone with rearrangement-invariant/Lorentz bounds.",
+          "Nekvinda–Pick treat optimal source/target Hardy spaces, and Lu–Yan–Zhao treat product-space Hardy estimates.",
+          "The related iteration result concerns I−H^m in L², not a reflected L¹ mixture."
+        ],
+        "reasoning": "The operator, input space or norm differs in each case, and no inspected stronger theorem supplies the mixed jump profile and optimization under the stated variation normalization.",
+        "searches": [
+          "Soria DOI 10.4064/sm197-1-6 Thm. 5 and Prop. 9",
+          "Nekvinda–Pick DOI 10.4171/ZAA/1443",
+          "Lu–Yan–Zhao DOI 10.1186/1029-242X-2013-148",
+          "Resultary e6c7c28f4c77"
+        ]
+      },
+      "checked_sources": [
+        "Soria (2010)",
+        "Nekvinda–Pick (2011)",
+        "Lu–Yan–Zhao (2013)",
+        "Resultary 7824877894c7 and e6c7c28f4c77",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convex combination of existing one-sided estimates would yield only the larger upper bound 1/e.",
+          "The balanced scalar deficit is half the relative entropy of Bernoulli(s) with respect to the fair Bernoulli law; the scalar quadratic estimate is the classical binary Pinsker bound or the paper's second-derivative calculation."
+        ],
+        "reasoning": "The scalar entropy inequality is not a new discovery. The sharp BV localization follows from it after identifying the specific defect kernel; the competing operator estimates inspected do not supply that kernel optimization.",
+        "searches": [
+          "Soria Theorem 5 and references p. 79",
+          "Resultary 7824877894c7",
+          "RESULT.md Proof §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R=JHJ for spatial reflection J; the adjoint of H instead averages f(y)/y over y≥x, without the factor 1/(1−x).",
+          "The strongest same-space catalogue hit uses the same H and R but their compositions HR and RH.",
+          "The mixture's one-jump norm is half the binary entropy only when α=1/2."
+        ],
+        "reasoning": "Changing the terminology to reverse Hardy or Hardy–Copson is not sufficient for equivalence; the actual kernels and compositions differ. The checked composition theorem does not compute the norm of a convex combination.",
+        "searches": [
+          "Resultary: sharp reflected Hardy BV L1 identity-defect entropy balancing",
+          "Soria Theorem 5",
+          "Resultary 7824877894c7 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The composition record reports about 0.4105074987 with off-center jump extremizers under composition, not the symmetric-mixture coefficient (log 2)/2.",
+          "The inspected exact Hardy bounds or related records compute different norms or objectives."
+        ],
+        "reasoning": "Numerical coincidence of a pure one-sided constant with another special case would not establish the all-α envelope or its unique minimizer; the endpoint 1/e is not asserted here as a standalone historical novelty. No matching mixed profile was verified.",
+        "searches": [
+          "Resultary: forward reflected Hardy BV-to-L1 fixed-mixture norm and optimal balancing",
+          "Soria Prop. 9 and Remark 10",
+          "Resultary 7824877894c7 and e6c7c28f4c77"
+        ]
+      },
+      "rationale": "The checked literature does not give the stated open-interval BV identity-defect norm for fixed convex mixtures of the forward and reflected averages, or its minimax theorem. This is a qualified finding about the specific operator and objective: the signed step reduction and binary-entropy deficit estimate are standard mechanisms, not separate originality claims.",
+      "residual_risks": [
+        "Original Kruglyak–Setterqvist text was not inspected; sharper known one-sided variants may overlap the endpoint cases.",
+        "Bounded source inspection does not rule out an unindexed general BV kernel theorem or a prior equivalent specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-sided decreasing-cone defect with different norm control; no statement of the fixed convex mixture in these passages",
+          "evidence": [
+            "Theorem 5 is for S_n−I on radially decreasing functions; later results concern Lorentz and L^p estimates."
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/89912",
+          "material_read": "Printed pp. 69, 71, 73–74 and p. 79 references; abstract, Theorem 5, Prop. 9 and Remark 10",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Optimal bounds of restricted type for the Hardy operator minus the identity on the cone of radially decreasing functions",
+          "trigger": "Sharp Hardy defect bounds could cover part or all of the claim"
+        },
+        {
+          "assessment": "Sets a one-sided optimal-domain/target problem",
+          "evidence": [
+            "Treats optimal function spaces for Hardy averaging, not the fixed-mixture identity defect in the checked formulation."
+          ],
+          "identifier_or_url": "https://ems.press/content/serial-article-files/35810",
+          "material_read": "Opening and problem formulation, PDF offset 360",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Duals of Optimal Spaces for the Hardy Averaging Operator",
+          "trigger": "Potential operator-domain duality covering a BV norm"
+        },
+        {
+          "assessment": "Product-space L^p operators are different",
+          "evidence": [
+            "The opening problem concerns higher-dimensional averaging and L^p estimates, not derivative-measure control of the two-sided identity defect."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1029-242X-2013-148",
+          "material_read": "Opening formulation, PDF offset 450",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Sharp bounds for Hardy type operators on higher-dimensional product spaces",
+          "trigger": "Plausibly stronger sharp Hardy bounds"
+        },
+        {
+          "assessment": "Different maps or norms; same catalogue date gives no priority inference",
+          "evidence": [
+            "HR and RH are compositions; I−H^m measured in L² is an iteration defect. Neither is the stated L¹ norm of I−αH−(1−α)R."
+          ],
+          "identifier_or_url": "Resultary 7824877894c7 and e6c7c28f4c77",
+          "material_read": "Finding passages, including composition RESULT.md at offset 0",
+          "method": "Local Resultary mirror comparison",
+          "title": "A sharp asymmetric Hardy–Copson composition error and its unique extremizer; Exponential saturation of the sharp BV-to-L² Hardy iteration defect",
+          "trigger": "Closest catalogue results in the same general BV setting"
+        },
+        {
+          "assessment": "Possible overlap in one-sided estimates; no verdict about its uninspected statements",
+          "evidence": [
+            "Title and Soria's context place it on the decreasing cone."
+          ],
+          "identifier_or_url": "Kruglyak–Setterqvist, Proc. AMS 136 (2008), 2505–2513",
+          "material_read": "Soria's citation/account only; original full text not inspected",
+          "method": "Bibliographic cross-check in the accessible Soria paper",
+          "title": "Sharp estimates for the identity minus Hardy operator on the cone of decreasing functions",
+          "trigger": "Closest cited one-sided sharp defect result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§3–5"
+      ],
+      "rationale": "A forward/backward average is a natural way to approximate a BV input without choosing a direction. The result determines the best worst-case error among all fixed convex mixes, classifies nontrivial extremizers, and gives a sharp quantitative localization statement for arbitrary signed derivative measures. In particular, a small norm deficit bounds the part of the variation carried away from the midpoint, rather than merely lowering a numerical coefficient.",
+      "residual_risks": [
+        "No optimization over x-dependent weights or different losses is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

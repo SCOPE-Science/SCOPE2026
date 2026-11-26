@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The theorem is proved by an explicit minimization of a scalar quadratic and separate global analysis of the interior and boundary branches. `checker.py` uses only the Python standard library; run it using `python3 checker.py` from this folder. It tests seven exact rational parameter identities, the algebraic switching polynomial, 60,015 grid comparisons in angular separation, and 16,000 additional seeded parameter/phase challenges, as well as both quoted illustrative probabilities. Its successful run prints `PASS`. These are finite supplementary tests; they do not certify all real parameters. Continuum correctness rests on the inequalities in `RESULT.md`.
+# Independent mathematical audit
 
-The theorem assumes known positive harmonic amplitudes with aligned phases, positive mean at all times, equal-volume conditionally independent Poisson observations, and a phase-adversarial guarantee. This verification does not address other Fourier modes, parameter estimation, field-calibrated kinetics or general correlated observations. No independent external review, empirical validation, or mechanized proof has been performed.
+## correctness
+
+PASS
+
+Under the equal-effort independent Poisson model with a fixed common phase, maximizing worst detection is exactly maximizing the minimum total mean. Center the two visits, set q=cos(Δ/2), z=2q²−1 and x=cos φ; the harmonic part divided by 2c is rqx+z(2x²−1). For 0<r<4 the branch minimized at x=−1 runs from q=0 to the unique positive junction q₀ given by rq₀=4(2q₀²−1). Its envelope is strictly convex in q, so only endpoints compete. On the vertex branch the envelope is −r²/16−z−r²/(16z), uniquely maximized at z=r/4 by AM–GM; there rq<4z strictly, so the junction has strictly smaller value. Compare the attained −r/2−r²/16 against the q=0 value −1 to get the exact crossing 4(√2−1) and only the two claimed ties. For r≥4 the vertex branch is absent since 2q²−1≤q; the competing endpoint q=1 gives 1−r<−1. Substitution gives the stated probability, and the unshifted derivative −sin φ(b+4c cos φ) gives two strict maxima for 0<r<4. The time conversion is 4.36868 hours at the crossing on a 24-hour period. VERIFICATION.md and checker.py were inspected, not run; the continuum proof, not the finite grid, establishes the claim.
+
+## originality
+
+PASS
+
+The distinct claim is the exact optimizer set and sharp switch for two equal measurements against one arbitrary phase in the stated aligned two-harmonic model. The closest inspected results share non-antipodal design and switch phenomena but not the optimized functional or the exact threshold. This is not a claim of priority over Poisson zero-count reduction, harmonic identities, or basic scalar optimization.
+
+## value
+
+PASS
+
+The result resolves exactly when equal half-cycle spacing ceases to be optimal in a minimal model where both harmonics matter. The switch between two separated global designs is discontinuous and precedes the loss of the second intensity maximum; knowing the mere presence of two peaks cannot recover the optimal design. This is a meaningful model benchmark for robust timing, not a field prescription for real eDNA signals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

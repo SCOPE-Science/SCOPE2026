@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:01:58.053333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For z=rt, the reciprocal obeys Y′=−Y+1/K. Subtracting the two affine evolutions gives (b−a) times 1−e^(−z) in the first stage and (b−a) times [(2−e^(−h))e^(−(z−h))−1] in the second, with a=1/K_H<b=1/K_L. The latter starts positive and ends at −(b−a)(1−e^(−h))², giving the stated unique positive-time crossing and the terminal ranking. For the time integral, the weight is W_y=e^(2z)/[(y+H_HL)(y+H_LH)] with y=1/N_0 and both H increasing. If y₂>y₁, W_y₂/W_y₁ strictly increases with time across both stages (and is continuous at the switch). Hence the ratio of the negative late contribution to the positive early contribution strictly increases with y. At y↓0 the early contribution diverges logarithmically since the signed factor is asymptotic to z and both H_i are linear to leading order; the late contribution stays finite. At y→∞, y²W_y→e^(2z) uniformly. Integrating the two pieces gives −(E−1)²(E²−2E−1)/2 with E=e^h. This proves the claimed regime split and strictness even at the critical duration, where the ratio reaches one only in the y→∞ limit. The population tie, when it exists, is unique; reciprocating y gives the stated orientation. Exact rational stage products for the example are both 16/7 before taking logarithms.",
+      "replay": "python3 /tmp/opencode/frozen_review_1_5.py (independent rational calculations for the tie, terminal ordering, and distinct cumulative rankings on each side). The frozen verify.py was inspected, not executed. The global conclusions follow from the sign and monotonicity proof, not the sampled checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible harvesting descriptions concern seasonal or periodic environments with yield or revenue objectives. The Holling-III result changes predator pressure and measures terminal prey abundance."
+        ],
+        "reasoning": "None of those inspected statements orders unweighted accumulated abundance in the finite, unharvested logistic problem. The access limitation leaves a modest remaining risk for more general results.",
+        "searches": [
+          "DOI 10.1016/j.mbs.2006.09.011 (PMID 17087978)",
+          "DOI 10.1155/2013/167671",
+          "Resultary 38e01062130d, sharp threshold for ordering Holling-III pressure"
+        ]
+      },
+      "checked_sources": [
+        "Resultary da77aeed6889 (same record), a5a7eaa51775, 38e01062130d",
+        "DOI 10.21914/anziamj.v47i0.1058",
+        "DOI 10.1016/j.mbs.2006.09.011",
+        "DOI 10.1155/2013/167671"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit reciprocal flow makes local trajectory and endpoint comparisons elementary. The compared schedule analogues have no time-integral sign theorem for the switched logistic flows."
+        ],
+        "reasoning": "The general equation does not by itself give the universal sign across all initial abundances; the decisive extra step is strict monotonicity of the ratio of the two oppositely signed time contributions and the factored limiting integral. The simple crossing formula is not the basis of the originality judgment on its own.",
+        "searches": [
+          "Shepherd and Stojkov, DOI 10.21914/anziamj.v47i0.1058 §2, eq. (1)",
+          "Resultary a5a7eaa51775 and 38e01062130d, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct indexed analogue a5a7eaa51775 compares ordered seasonal Ricker maps at two updates and can have two positive equality abundances.",
+          "Shepherd and Stojkov formulate logistic growth with slowly varying K(εt) and study it by multiple scales."
+        ],
+        "reasoning": "A discrete Ricker endpoint is not the integral of a continuous logistic flow, and the slowly varying logistic model does not state the two-fixed-stage integral comparison.",
+        "searches": [
+          "Resultary: equal-stage logistic carrying-capacity switch, population-time, and order reversals",
+          "DOI 10.21914/anziamj.v47i0.1058, §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed threshold and crossing are in entry da77aeed6889, the assigned record itself. The nearest distinct entries use a two-update Ricker endpoint or a predator-pressure endpoint (the latter threshold is B=27)."
+        ],
+        "reasoning": "The identical record is not independent evidence of prior coverage. The other indexed thresholds have different hypotheses, objectives and, in their reversal regimes, different tie counts.",
+        "searches": [
+          "Resultary: equal-stage duration boundary, log(1+sqrt(2)), and cumulative population",
+          "Resultary a5a7eaa51775 and 38e01062130d, Findings"
+        ]
+      },
+      "rationale": "The supported distinction is a sharp duration boundary for finite population-time, including strict one-tie classification and its contrast with the terminal order. Existing logistic solutions supply the reciprocal dynamics; the inspected related results do not give the sign classification for these two fixed schedules.",
+      "residual_risks": [
+        "Full texts of the two harvesting studies were not inspected. A general temporal-rearrangement or scalar-flow theorem in other terminology could yield this result; priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model and slowly varying analysis, not the fixed switched-stage time-integral claim in the inspected passages.",
+          "evidence": "Capacity K(εt) with a slow parameter, handled by a multiple-scale perturbation.",
+          "identifier_or_url": "https://doi.org/10.21914/anziamj.v47i0.1058",
+          "material_read": "Abstract p. C492; §2 equation (1), p. C495; §3, p. C496",
+          "method": "OA PDF passage comparison",
+          "title": "The logistic population model with slowly varying carrying capacity",
+          "trigger": "Primary work with the same logistic dynamics and variable carrying capacity"
+        },
+        {
+          "assessment": "Available evidence concerns a different optimization objective; not a whole-paper exclusion.",
+          "evidence": "Periodic ecological parameters, logistic and Gompertz dynamics, and infinite-horizon harvesting revenue.",
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/17087978/",
+          "material_read": "PubMed abstract only",
+          "method": "Public abstract; full text not accessed",
+          "title": "Bio-economics of a renewable resource in a seasonally varying environment",
+          "trigger": "Potential broad seasonal logistic comparison"
+        },
+        {
+          "assessment": "Periodic harvesting study in available material; uninspected full text remains a risk.",
+          "evidence": "Available scope concerns a fluctuating environment under periodic yield harvesting.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/167671",
+          "material_read": "Public landing material/abstract only",
+          "method": "Publisher DOI and alternate publisher PDF route denied full-text access; public landing material inspected",
+          "title": "Dynamics of a Single Species in a Fluctuating Environment under Periodic Yield Harvesting",
+          "trigger": "Potential broad fluctuating-capacity population result"
+        },
+        {
+          "assessment": "Different flow, endpoint objective and equality structure.",
+          "evidence": "Ordered Ricker maps composed over two updates; two positive ties in a nontrivial regime.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-switch-phase-diagram-and-carrying-capacity-rigidity-for-seas--a5a7eaa51775",
+          "material_read": "Finding in RESULT.md",
+          "method": "Resultary and local mirror text",
+          "title": "Two-switch phase diagram and carrying-capacity rigidity for seasonal Ricker maps",
+          "trigger": "Nearest distinct indexed schedule-order reversals"
+        },
+        {
+          "assessment": "Changes predator pressure rather than switching only K and compares terminal abundance.",
+          "evidence": "Threshold B=27 and possible two initial-density boundaries for short equal-duration treatments.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-carrying-capacity-threshold-for-ordering-holling-iii-pre--38e01062130d",
+          "material_read": "Finding in RESULT.md",
+          "method": "Resultary and local mirror text",
+          "title": "A sharp carrying-capacity threshold for ordering Holling-III predator-pressure treatments",
+          "trigger": "Equal-duration continuous schedule analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even in the simplest exact setting, terminal stock gives misleading guidance if the objective is cumulative abundance. With exposure durations and capacity levels controlled, the theorem isolates when that disagreement is universal and when initial density matters, gives the unique possible tie, and distinguishes this threshold from the within-trajectory crossing. This is a structural comparison, not a field prescription or an arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

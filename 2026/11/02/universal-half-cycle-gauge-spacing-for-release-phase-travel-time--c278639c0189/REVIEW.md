@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim's quantifiers cover every continuously differentiable even, half-wave-antisymmetric, strictly half-cycle-decreasing waveform with amplitude below the mean speed, every positive length and every release phase. Strict velocity positivity gives a unique first-arrival solution and justifies implicit differentiation. Each nonresonant arrival-time function has exactly two stationary phases because equal velocity at distinct times is possible only under reflection. Their residual arrival times solve two strictly increasing scalar equations. The strictly concave symmetric primitive yields an equality-rigid half-cycle bound and a unique peak for each length period; uniform Taylor expansion yields the sharp cusp at every positive full-cycle length. The supplied checker passed 495 finite numerical identities for three profiles and three amplitudes; finite experiments do not prove universal assertions.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The total velocity v=1+f, not the modulation f, is positive. Integrating it over any full period gives distance 2π, so full cycles add phase-independent time and it suffices to treat 0<r<2π. The phase derivative of the inverse travel time vanishes only at equal endpoint velocities; evenness and strict half-period monotonicity force the endpoints to be reflections. Each centered arc gives a strictly monotone length map r=s±2F(s/2), with one root in (0,2π). The roots lie on opposite sides of r, so their unique phases provide the global minimum and maximum. An independent check of the global comparison is to set a=s_fast/2 and b=s_slow/2. Then W′(r)=1/(1−f(b))−1/(1+f(a)), with sign equal to the sign of f(a)+f(b)=f(a)−f(π−b). This changes strictly from positive to negative when the increasing sum a+b crosses π, which occurs at r=π since F(π−a)=F(a). At r=π, the root satisfies δ=π/2−a=F(a), a unique root by the monotone branch equation; the width is 4δ. At a full cycle, ∂ℓT=1/v at release phase and the second derivative is uniformly bounded by sup|v′|/(1−c)³. Taking the range in the uniform expansion gives the stated two-sided linear cusp. Physical units multiply spacing by U/ω and time spread by 1/ω.
 
-Targeted mathematical-record searches considered phase-of-release travel-time range, periodic advection, inverse first-passage time, gauge spacing, half-period resonance, and strong general comparator models. A relevant comparator concerned rising/falling water-level duration under two harmonic forcing, not arrival time over a spatially separated flow gauge. The closest public quantitative studies by Warner et al. (2010) and Spydell et al. (2015) treat numerical multidimensional tidal-estuary residence-time or drifter transport; they do not state the scalar two-extrema formula or universal gauge-spacing theorem in the material inspected. Spydell et al.'s open full article was inspected in the introduction, modeling sections, quantitative results and conclusions. Yuan et al. (2007) and Warner et al. (2010) were available only in abstract/summary form, and generalized monotone periodic-flow theorems could possibly subsume the result. Neither inaccessible source was treated as conclusively non-covering. These are genuine residual priority risks, not proof that no earlier result exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a natural, parameter-free optimizer for the separation of two idealized arrival-time measurement gauges, together with an exact maximum-width law, release-phase characterization and exact full-cycle nulls. Its invariance across non-sinusoidal modulations is structural rather than an arbitrary isolated calculation: it identifies a sharp boundary for timing sensitivity in an elementary but physically motivated periodic-transport benchmark. It may be useful for calibration of more elaborate models but has no claimed downstream application requiring the same ideal assumptions.
+The supported contribution is the exact optimizer, height and cusp of the release-phase width for a signed modulation with strictly positive total speed. Prior phase-dependent residence-time work is not claimed as new. The closest inspected catalogue statements treat other observables or transport regimes; neither directly gives this variational result. The limited external literature access is a residual priority risk, not negative evidence.
 
-## Boundaries and provenance
+## value
 
-No result about dispersive clouds, shear flows, actual reversing tidal velocities or field-observed estuary residence times is proved. Exact first-public date attached to the scientific anchor is the dated July 1, 2010 USGS record; no earliest-in-history assertion is made. Numerical replay is supplemental to the proof. The originality comparison remains provisional where historical full text was unavailable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural idealized time-dependent transport problem, the result answers a gauge-placement question independently of waveform details while making the maximum spread explicitly waveform-sensitive. The unique phase extrema away from whole periods and the exact linear rate at which timing information disappears at resonance provide useful exact benchmarks beyond the observation that timing matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every degree is the length minus the count of zeros whose flip would create `111`; the five-bit sentinel transfer marks each such zero exactly once and enumerates every legal word once. The run-counting proof controls the maximum blocked-coordinate count and identifies its four-periodic obstruction, while explicit words attain every bound. Direct graph enumeration agrees with the transfer for dimensions zero through seventeen; exact recurrence and extremal checks agree through dimension eighty-four. No finite experiment is treated as the proof of the universal statement.
+## correctness
 
-**Originality — PASS (with recorded priority risk).** The 2016 Rho–Vesel local degree criterion is prior art and is not claimed as novel. The 2024 Hassler–Vajnovszki–Wong full text concerns Gray-code methods under homogeneous transpositions, not vertex degrees under one-bit flips. The 2015 Azarija et al. full text gives connectivity and degree results for `11`-avoiding cubes and a general open comparison, not a degree spectrum for `111` avoidance. The available 2020 Belbachir–Ould-Mohamed abstract reports weight, edge and induced-cube counts but no full degree histogram. The 2020 full body remained inaccessible despite open-access and institutional attempts; an equivalent unpublished or unindexed prior formula cannot be ruled out. Existing cube-polynomial totals do not by themselves give the full local-degree distribution.
+PASS
 
-**Value — PASS.** Tribonacci cubes are considered constrained-state networks. Their per-state allowed bit-flip counts quantify immediate fault-tolerance or mobility, beyond existing vertex and total-edge counts. The exact all-size degree spectrum and sharp period-four minimum, including a unique vulnerable state in one congruence class, are natural structural invariants useful for evaluating such networks and constrained single-substitution systems.
+Every one can be flipped down, so the degree is n minus the count of zeros completing a triple after a flip. The thirteen legal length-four states and two zero sentinels on each side implement the five-bit blocking rule: each append scores the real position two places before the append, including the final two positions during sentinel appends. This gives the stated rational transfer including the separately handled empty and one-bit words. A double one-run accounts for at most two blocked zeros; those not touching any double run occur only in single-zero gaps between singleton runs, of which there are at most r1−1 when r1>0. Thus the number blocked is at most both the zero count and the one count, with strictness against the one count in the presence of singleton runs. Equality at even n forces only double runs and an exact distinct flank on each side of every double, hence (0110) repeated; this is impossible for n=2 mod 4. The four displayed witnesses attain their bounds, including n=1,2,3. At n≥3 full degree is equivalent to all ones being spaced at least three positions apart; delete two padding zeros between successive ones to obtain the stated binomial count, handling the empty set separately. At n=1,2 all flips are legal.
 
-The proof does not establish vertex or edge connectivity and does not claim new local flip tests. Material historical priority review of the inaccessible 2020 article remains a limitation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive claim is the all-length ordinary-degree histogram and exact minimum-degree law including rigidity at multiples of four. The full-degree local criterion has a known formulation, and the spacing count is an elementary consequence, not the basis for the originality decision. The strongest accessible material does not provide the distinctive joint result; the 2020 article's inaccessible body limits historical confidence.
+
+## value
+
+PASS
+
+An exact distribution of legal one-coordinate changes and its smallest value are natural local robustness invariants of this established graph family, not captured by its vertex/edge totals. The sharp mod-four defect and the unique tight vertex in the divisible-by-four case answer concrete structural questions; the weighted finite transfer permits exact degree multiplicities at all lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

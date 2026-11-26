@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:04:04.624579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The count is for the smooth complex resolution, not for the singular cubic. The four strict line transforms D_i give -K=H+(sum D_i)/2, which is nef with square three; adjunction forces negative curves to have (self-square, anticanonical degree) (-1,1) or (-2,0). For nonexceptional curves Cauchy forces plane degree at most two. In degree two the equations force five or six simple centers, hence three on one original line, impossible for an irreducible conic. In degree one a line through two incident edge centers is the original line attached to their common vertex. The resulting list is exactly six exceptional curves, three diagonal strict transforms, and four pairwise disjoint -2 curves. Diagonals are disjoint from all D_i and may be selected at most one, with the two matching edges forbidden. Eliminating the exceptional -I block leaves 2I minus the restricted incidence product as the positive matrix to test. This demands degree at most one at each selected vertex and forbids selecting both endpoints of an isolated edge; these conditions make the matrix strictly positive diagonal. This proves the three graph factors. A new exact determinant check of all 8192 principal subsets and a separate sum over all 64 labelled graphs both give (1,13,69,186,260,168,29), total 726, with 393 supports containing a diagonal and 333 not. Independent replay: /workspace/branches/9712fab3-7d95-4f4f-8469-c910499bdeb2/independent_check.py and independent_check_output.txt. The finite enumeration uses the geometrically proved exhaustive list. The frozen scripts were inspected, not executed; no formal verification or expert attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general chamber correspondence and principal-submatrix algorithm apply. The smooth cubic table has 2764, not the four-nodal polynomial.",
+          "The November 22 equivariant extension adds nonidentity fixed-support distributions and the orbit count, with the identity polynomial reproduced from this November 8 finding."
+        ],
+        "reasoning": "The later work is mathematically broader, but explicitly relies on the frozen result for the common case. The general published algorithms do not themselves state the specialized graph evaluation.",
+        "searches": [
+          "arXiv:0912.0958 Proposition 1.1 and smooth del Pezzo table",
+          "arXiv:1204.4373 Section 1 Proposition 1.2",
+          "Resultary Frobenius descent and 61 chamber orbits f623f0138011"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and recorded output and scripts",
+        "arXiv:math/0210333, 1409.0799, 0912.0958 and 1204.4373",
+        "Resultary f623f0138011 and 2f8fc2a76c51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the intersection matrix, the general algorithm can generate the numeric totals, but does not give the K4 sum with the isolated-edge factor and the multiplier marking admissible matchings.",
+          "The graph factors use a Schur-complement restriction on eligible vertices and separability of the diagonals under the exceptional-edge exclusion."
+        ],
+        "reasoning": "The original part is not the definition of the chamber algorithm or a claim that the classified curves are new. In combination with the marked census, the structural evaluation is not a direct specialization of a prior formula found in the comparison.",
+        "searches": [
+          "arXiv:1204.4373 Proposition 1.2",
+          "arXiv:1409.0799 Theorem 3.1(v)",
+          "Frozen RESULT.md proof of graph sum, lines 34–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heath-Brown §1 identifies the four nodes and the nine lines (six coordinate lines and three diagonal lines). Derenthal et al. Theorem 3.1(v) covers the same 4A1 resolution via a six-point blow-up.",
+          "The same-date line Hilbert scheme record 2f8fc2a76c51 is a rank-27 finite flat scheme with nine geometric support points; there support refers to points in a line scheme, not negative-part curve sets."
+        ],
+        "reasoning": "The Cayley, complete-quadrilateral and 4A1 descriptions refer to the same geometric case, but the line count, scheme multiplicities and Cox presentation are not this invariant.",
+        "searches": [
+          "Resultary: four nodal cubic surface Zariski chambers negative supports",
+          "Resultary: complete quadrilateral blow-up Zariski chamber support polynomial K4",
+          "Web: Cayley cubic resolution 4A1 weak del Pezzo negative curves (-1)-curves (-2)-curves Zariski chambers chamber count Cox ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target hit ending 496f00e7e487 is the identical frozen record. The later identity row gives the same coefficient vector and 726 and cites that record.",
+          "The published Cox-ring table for 4A1 gives nine lines, thirteen generators and nine relations. None is the support census or the diagonal split."
+        ],
+        "reasoning": "The decisive exact table overlap is attributed subsequent reuse, not independent prior coverage. Other same-case numerical entries describe different quantities.",
+        "searches": [
+          "Resultary: Cayley cubic Zariski chamber polynomial support counts 4A1",
+          "Resultary: weak del Pezzo surface type 4A1 chamber count negative curves",
+          "arXiv:1409.0799 Table 1",
+          "f623f0138011 identity row and citations"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact Cayley support-size and diagonal census with a K4 expansion. The geometry, nine-line count, Cox-ring data and general chamber algorithm are known. The exact catalogue entry later used as the identity case of an equivariant result explicitly cites this frozen finding; other relevant inspected sources do not cover the combined claim. Historical priority remains provisional.",
+      "residual_risks": [
+        "The bounded public search did not exhaust older specialist weak-del-Pezzo tables; its lack of useful hits proves no absence.",
+        "No novelty is attributed to the line counts, negative-curve classes or general matrix algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same surface, different invariant",
+          "evidence": [
+            "Four singularities and nine lines, including three diagonal lines."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0210333",
+          "material_read": "Section 1, HTML offsets 790–1770",
+          "method": "Open primary HTML passage",
+          "title": "The density of rational points on Cayley's cubic surface",
+          "trigger": "Cayley-specific geometry and diagonal-line terminology"
+        },
+        {
+          "assessment": "Covers resolution and Cox-ring data, not the stated chamber formula",
+          "evidence": [
+            "Nine lines, thirteen generators, nine relations; explicit six-point model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.0799",
+          "material_read": "Table 1, HTML offsets 36330–36979; Theorem 3.1(v), offsets 56018–58617",
+          "method": "Open primary HTML passages",
+          "title": "Cox Rings of Cubic Surfaces and Fano Threefolds",
+          "trigger": "Same 4A1 cubic, explicit resolution and exact numerical table"
+        },
+        {
+          "assessment": "Later extension with explicit attribution of identity count to this record",
+          "evidence": [
+            "Identity-cycle row gives 726 and the same coefficients; the frozen 496f00e7e487 finding is directly cited."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-descent-and-a-61-orbit-classification-of-zariski-chamb--f623f0138011",
+          "material_read": "RESULT.md table offsets 743–1543 and references at 11040–12337",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Frobenius descent and a 61-orbit classification of Zariski chambers",
+          "trigger": "Exact polynomial repeated in separate catalogue hit"
+        },
+        {
+          "assessment": "Materially different invariant",
+          "evidence": [
+            "Finite flat line Hilbert scheme of rank 27, with nine geometric support points and integral scheme structure."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-integral-27-line-hilbert-scheme-of-the-four-nodal-cayley-cub--2f8fc2a76c51",
+          "material_read": "RESULT.md Finding offsets 643–1593 and prior-work passage 7551–8568",
+          "method": "Local mirror, same snapshot",
+          "title": "The integral 27-line Hilbert scheme of the four-nodal Cayley cubic",
+          "trigger": "Same-date exact Cayley hit with line-support terminology"
+        },
+        {
+          "assessment": "Relevant general methods and distinct example tables",
+          "evidence": [
+            "Six general points yield 2764; the general matrix method is applied to other cases, including the Segre–Schur quartic."
+          ],
+          "identifier_or_url": "arXiv:0912.0958; arXiv:1204.4373",
+          "material_read": "First paper pp. 1–3 and Proposition 1.1; second pp. 1–4 and Proposition 1.2",
+          "method": "Open primary PDF passages",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces; Zariski chambers on surfaces of high Picard number",
+          "trigger": "Possible direct coverage through published chamber tables or algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximally nodal cubic is a canonical singular case, and the distribution by support size is a natural resolution invariant. The optional-matching factor resolves the contribution of the three distinguished diagonals and the graph expression shows exactly which configurations of exceptional curves obstruct a support. This provides both a benchmark beyond a total and a combinatorial description useful for later symmetry-sensitive enumerations; it is not just a line count or an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

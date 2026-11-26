@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated recurrence is exactly elementary Rule 94 on indexed binary cycles with simultaneous updates; primitive temporal period-three orbits contain three configurations and are not quotiented by spatial rotation. A cyclic array of three-time columns is equivalent to a closed spatial walk in the explicit 64-vertex transfer graph. For periods one and three, exact integer Newton identities calculate **all** determinant coefficients, yielding \(\det(I-zA_1)=(1-z)(1-z^2-z^3)\) and \(\det(I-zA_3)=(1-z)(1-z^2-z^3-3z^7)\). Thus the rational orbit generating function is proved, not guessed. The nonnegative formal expansion proves the exact circumference support and its unique post-onset gap; uniqueness of the dominant positive singularity gives the growth coefficient. Independent literal-table evolution of all indexed configurations at lengths three through sixteen agrees with the symbolic counts.
+PASS
 
-## Originality — PASS, qualified
+For each p=1,3, a spatial closed walk with its first site marked is exactly a p-row cyclic spacetime array; its initial row determines the rest. Thus traces count labelled configurations fixed by F^p, without a spatial quotient. Independent exact-integer reconstruction gives det(I-zA_1)=1-z-z^2+z^4 and det(I-zA_3)=1-z-z^2+z^4-3z^7+3z^8, with all remaining coefficients zero through dimensions 4 and 64. Another check lists the simple transfer cycles: for p=3 there is the all-zero loop and cycles of lengths 2, 3, 7, 7, 7 all through the pair (000,111). The three length-seven cycles are time rotations of the cyclic column word 000,111,011,001,001,011,111. In the determinant expansion the only disjoint products pair the zero loop with one of these nontrivial cycles, explaining the factor 1-z. Subtracting the fixed points from the third returns and dividing by three counts temporal orbits. The nonnegative log expansion gives support 7k+2a+3b with k>=1, so 7 and every n>=9 occur but 8 does not. The smallest positive Q-root r is simple and is its only root of modulus r by the triangle inequality and coprimality of 2 and 3; |z^2+z^3|<1 for |z|<=r excludes P-roots there. The logarithmic derivative thus gives the prefactor 1/3 in c_n~r^(-n)/3. The analogous P-root is farther away, giving the smaller fixed-state growth base.
 
-The closest named-rule source, Weisstein's Rule 94 entry, covers one-seed evolution and its complement Rule 133, not a primitive temporal-three ring census. Anderson and Sturges (2013) present Rule 94 period-three bands in an observed period-six configuration, without the evaluated all-length return counts. Schüle and Stoop classify topological dynamics with a Rule 94 invariant word, not the exact finite cycle zeta function. Rasolonjanahary and Vasiev analyze **spatially** period-three stationary patterns, a mathematically different property. Searches of indexed mathematical findings for the original and complement rules and for alias/census/third-return wording identified Rule 62 and Rule 73 temporal-three results and an all-rule temporal-two table; none of those claims entails the Rule 94 determinant. Search absence is not a proof of historical priority; possible unindexed Rule 133 tables and incomplete inspection of large historical texts are acknowledged.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by an elementary cellular automaton with previously observed mixed temporal periods. An exact all-circumference count exposes the unexpected first-occurrence gap at circumference eight, a rational renewal mechanism, and primitive orbit growth faster than equilibrium growth. This information is not captured by qualitative single-seed, topological, or spatial-pattern studies and provides a reusable, independently checkable transfer method.
+Best-of-knowledge pass for the evaluated third-return determinant and the consequent exact primitive-three law. The inspected named-rule attractor example, topological classification and seed-evolution series do not determine these counts; the nearest indexed all-rule statement stops at shorter temporal returns.
 
-## Scope and residual risks
+## value
 
-Only indexed-ring configurations already in primitive temporal three-cycles are counted; attraction basins and higher least periods are outside the theorem. All-size implications rest on the exact finite transfer graph and analytic arguments; direct finite simulation is corroborative only. Historical originality and proof remain subject to independent external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard elementary rule already known to display mixed periodic bands, the shortest nontrivial temporal cycles provide a motivated exact recurrence test, independent of basin behavior. The evaluated determinant discloses three seven-column returns joined to two- and three-column returns at a common pair, explaining both the isolated size-eight hole and faster growth than the fixed-point count. This all-size structural law is useful beyond recomputing initial coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

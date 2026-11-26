@@ -1,15 +1,21 @@
-# Scientific review: integral rotation lattice of the six-rung prism
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a fixed finite integral chain calculation with explicit generators and relations, not a finite sample standing in for an infinite proof. The 20 perfect matchings yield the full 18,117,276,270,120,20 face counts. All face orientations and differentials are reconstructed. Exactly 100 unit pivots of degree-two boundary and 170 unit pivots of degree-three boundary give a free rank-six integral second homology module. The complete change-of-basis and inverse are tracked and checked against the original boundaries. The signed simplicial action gives the displayed integral matrix, and its direct relation presentation yields one free and one order-three coinvariant generator. The attached reproducible checker establishes those finite statements with exact integer computations.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The closest source, Agarwal–Basak, gives the ordinary wedge-of-six-spheres homotopy classification but does not state the integral one-column rotation module or its coinvariants in the accessible material. The most relevant later published circular-ladder equivariant record was read in full: its claim explicitly assumes at least twelve rungs and determines only a four-dimensional rational lower-degree summand. It neither includes the exceptional six-rung degree collision nor implies a nonzero order-three integral Smith factor. Further searched records about Möbius-ladder perfect matchings, ordinary matching complexes and rational independence-complex actions do not imply the claim because they use different objects or weaker coefficients. Targeted queries combining graph aliases with the integral torsion/coinvariant language returned no covering work. The complete revised original source could not be read, leaving priority risk; this is not an assertion of worldwide uniqueness.
+PASS
 
-## Mathematical value — PASS
-Six rungs are the first exceptional collision in the established circular-ladder perfect-matching homotopy formula: two distinct families of two-spheres coexist in the same degree, making integral extension data a natural mathematical question. The result identifies a specific nontrivial order-three obstruction and rules out a tempting regular integral permutation model that is indistinguishable by rational traces. It supplies a concrete finite invariant at a structurally motivated parameter, potentially useful for subsequent integral equivariant classifications and quotient calculations; those extensions are not asserted here.
+Independently generated all six-edge subsets with twelve distinct endpoints and all their faces: 20 matchings and face counts (18,117,276,270,120,20). Using exact integers and a different reduction order, I first split off the image of the signed degree-three boundary using 170 unit pivots (zero residual), then computed the kernel of the induced degree-two boundary on the 106 free quotient coordinates using 100 unit pivots (zero residual). The projection and section checks and zero boundary composition leave an integral H2 basis of rank six, not just a rational rank. The one-column rotation, including reordering signs, acts in this independent basis with order six, characteristic polynomial x^6−1, and Smith diagonal (1,1,1,1,3,0) for R−I. This verifies the regular rational character and coinvariants Z ⊕ Z/3. In the frozen displayed basis, column relations 1 and 3 give e4=e6 and e1+e3=−e6; columns 6 and 5 give e2=−2e6 and e5=−e6; column 2 gives 3e6=0 and column 4 duplicates e4=e6. The asserted obstruction to an integral regular lattice follows.
 
-## Sources and residual risks
-The primary arXiv circular-ladder version is dated 2026-09-14; the earlier 2026-08-31 version's title and abstract concerned Möbius ladders alone. The public record on twelve-or-more-rung equivariant homology was inspected as a complete `RESULT.md` rather than inferred from a search snippet. The revised paper’s full text was unavailable during source inspection, leaving a bounded priority risk. The calculation has not received independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known nonequivariant wedge and H2 rank to Agarwal–Basak. The distinct supported result is the integral rotation-coinvariant torsion despite a regular rational action. Neither a nonequivariant wedge of spheres nor an out-of-range rational equivariant theorem gives that torsion. The identical indexed record is the claim under review, not separate coverage.
+
+## value
+
+PASS
+
+Six columns is the first collision of the sphere degrees in the circular-ladder classification, not a randomly selected width. A nonzero integral Smith factor in this first coincident case detects information invisible both to known nonequivariant homotopy and the rational rotation character. It supplies a concrete obstruction that an integral equivariant classification must reproduce.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

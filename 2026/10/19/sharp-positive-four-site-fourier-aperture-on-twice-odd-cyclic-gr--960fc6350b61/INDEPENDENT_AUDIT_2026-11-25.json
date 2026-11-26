@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:49.464417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Frozen VERIFICATION.md and verify.py, read but not executed",
+        "Independent polynomial factorization and double-precision spot checks at N=6,10,998"
+      ],
+      "rationale": "The diagonal equations normalize the weights; the other diagonals mean the first three complex moments vanish, and centering only multiplies each moment by a phase. Below 3N/4 all centered cosines x exceed −s for s=1/√2. The normalized moment equations give E x=E x³=0 and E x²=1/2, so the nonnegative polynomial (x+s)(x−s)² has zero expectation, forcing x=s throughout the positive support, impossible. At the first integer aperture D, each stated index multiset lies in [0,D] and is invariant under reflection and antipodal pairing, so its sine moments and its odd cosine moments vanish. The cosines have absolute values u and v respectively, with 0≤v<s<u, making the displayed α strictly between zero and one and enforcing E x²=1/2. Both endpoints have nonzero weight; for N=6 the stated multisets are (0,5,3,2) and (1,4,4,1), leaving all six frequencies. As an independent attainment check, for m=2q+1 normalize the coefficients of (1+X^m)(2cos(π/m)+X^q+X^(q+1)) at X=1. Odd harmonics vanish by the first factor; at the second harmonic the latter two powers sum to −2cos(π/m). Its degree is D with positive endpoints, independently confirming sharpness. A translation conjugates the identity by a diagonal unitary.",
+      "residual_risks": [
+        "This is the aperture of a consecutive window, not a lower bound on the number of nodes. Numerical spot checks are not the proof of the moment identities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous equality case of the arc obstruction is a rotated regular four-gon, unavailable on N=4q+2.",
+          "Prop. 3.1 gives the lower bound for real coefficients, Cor. 3.2 concerns rational-coefficient divisibility, and Rem. 3.3 gives the individual fifth-root example φ+X²+X³, not the required four-site construction for all q.",
+          "Theorem 1.1 concerns near-tight sampling for continuous frames, not exact finite cyclic aperture."
+        ],
+        "reasoning": "A continuous or nonintegral lower bound yields only obstruction, not that rounding to an allowed lattice point suffices. Approximate frame discretization cannot fill this exact moment and endpoint requirement.",
+        "searches": [
+          "Tan and Zhang, Sec. 2, Lemma 2.1 and Corollary 2.3, and Sec. 3, Prop. 3.1, Cor. 3.2, Rem. 3.3",
+          "Bownik and Yu, arXiv:2603.10423, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked retrieval and six-character primary record",
+        "Tan and Zhang arXiv:2609.07646v1",
+        "Bownik and Yu arXiv:2603.10423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With r=4, the prior lower bound is D(F)≥3N/4, hence at least 3q+2 by integrality. Equality in the unrounded bound requires 4|N.",
+          "The six-node primary proof cancels odd moments using antipodal pairs and the second by a triangle on the folded grid, but chooses roughly equally spaced folded nodes and imposes no aperture or endpoint condition."
+        ],
+        "reasoning": "The old lower-bound result and an unrestricted construction do not give sharp rounded-window attainment. An aperture-adapted grid construction is needed; the original establishes this with its reflection-symmetric mixing of two orbits.",
+        "searches": [
+          "Tan and Zhang, Prop. 3.1 and its equality statement; Resultary November 16 six-node construction, offsets 2640–3860"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting F(X)=Σ_j w_j X^j exactly converts the three off-diagonals into F(exp(2πik/N))=0 for k=1,2,3; the polynomial's support diameter minimizes the translated window aperture."
+        ],
+        "reasoning": "The polynomial and frame formulations are equivalent after normalization and shifting. The prior proposition gives the diameter obstruction in exactly this formulation, but does not construct an admissible polynomial at the rounded-up degree when 4 does not divide N.",
+        "searches": [
+          "Resultary: four-site Fourier aperture, nonnegative polynomial vanishing at the first three root-of-unity evaluations, cyclic quadrature",
+          "Tan and Zhang, arXiv:2609.07646v1, Prop. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material November 16 result optimizes the count of six distinct unrestricted frequencies for N=2p, p an odd prime at least 7. It is displayed after the frozen record's date; its explicit construction was inspected, not just the title."
+        ],
+        "reasoning": "Its exact tightness equations match, but cardinality and aperture are different invariants and its theorem is restricted to primes. Its chosen folded exponents 0, floor(p/3), ceil(2p/3) do not generally fit the needed span even after translating: for p=13 the largest folded cyclic gap is 5, giving largest doubled-grid gap 5 and aperture 26−5=21 rather than D=20.",
+        "searches": [
+          "Resultary comparative search for four-site exact aperture, three-moment quadrature and sparse constructions"
+        ]
+      },
+      "rationale": "Prior Proposition 3.1 expressly covers the whole necessary aperture bound for real nonnegative coefficients. The distinct supported contribution is exact attainment at the first integer window for every twice-odd order, with positive endpoints and explicit sparse weights; the continuous equality case is off-grid and does not imply this. No originality is assigned to the obstruction alone.",
+      "residual_risks": [
+        "No primary grid-specific trigonometric cyclic-polytope facet theorem furnishing a competing aperture construction was found in the bounded search. Classical cyclic quadrature or polynomial constructions may still cover attainment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the lower bound; the relevant real-coefficient statement does not show attainment at the next integer when 4∤N",
+          "evidence": [
+            "Prop. 3.1 requires nonnegative real coefficients with zero evaluations for 1≤k<r and yields diameter ≥N(1−1/r).",
+            "Unrounded equality requires r|N and exactly the rotated equally spaced grid configuration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07646v1",
+          "material_read": "PDF pp. 3–5, Lemma 2.1, Cor. 2.3 and Section 3 (offsets approximately 9300–19300; Prop. 3.1 from 15950)",
+          "method": "Primary OA PDF, located and read the relevant bounded passages",
+          "title": "Sharp Diameter Bounds for Nonnegative Cyclotomic Multiples",
+          "trigger": "Direct general result on the polynomial formulation of the aperture"
+        },
+        {
+          "assessment": "Optimizes support count on twice-prime grids; explicit unrestricted construction does not in general attain the present aperture",
+          "evidence": [
+            "Chooses folded exponents 0, floor(p/3), ceil(2p/3), then lifts via antipodal pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-six-character-positive-tight-sampling-on-four-consecutive-sites--f7665cecb53a/RESULT.md",
+          "material_read": "Finding and six-node construction, proof text offsets 2640–3860",
+          "method": "Local primary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Six-character positive tight sampling on four consecutive sites",
+          "trigger": "Same moment equations and exact sparse construction"
+        },
+        {
+          "assessment": "Different objective and assumptions",
+          "evidence": [
+            "Near-tight uniformly discrete frame sampling, not exact finite cyclic Parseval weights with sharp window span."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.10423",
+          "material_read": "Theorem 1.1, p. 3, text offset about 9000",
+          "method": "Primary OA PDF",
+          "title": "Uniform discretization of continuous frames",
+          "trigger": "Cited broader result on positive frame sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Tan and Zhang Prop. 3.1",
+        "Resultary six-character record"
+      ],
+      "rationale": "Exact Parseval sampling with the smallest consecutive frequency window is a natural resource restriction, different from sparse unrestricted sampling. Whether the analytic lower bound is achievable at the first integer step is not decided by the off-grid regular square construction. The all-q explicit positive grid rule gives the missing sharp finite-grid guarantee, and covers small and composite orders as well as twice-prime orders.",
+      "residual_risks": [
+        "No claim about optimal support cardinality, other congruence classes or arbitrary four-site sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

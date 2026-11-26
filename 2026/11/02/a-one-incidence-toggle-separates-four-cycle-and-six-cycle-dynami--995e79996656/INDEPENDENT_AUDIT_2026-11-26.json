@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:39.116571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72",
+        "Frozen VERIFICATION.md lines 19–33; check_matrix.py lines 32–90, check_independent.cpp lines 24–86, and verification_output.txt lines 1–11"
+      ],
+      "rationale": "In characteristic two the design identity BB^T=(k-lambda)I+lambda J gives BB^T=I, so the unedited adjacency update squares to I. After conjugating the block state by B, the off-diagonal blocks are U=I+u a^T and V=I+a u^T, with u=e_i, a=Be_j, u^T u=a^T a=1 and independent u,a by k>=3. For insertion u^T a=0, so the nondegenerate span of u,a splits off and the complementary update is a swap. On the affected four coordinates the diagonal blocks of T^2 have characteristic polynomial x^2+x+1, annihilate under the third power minus identity, and have no fixed vector even when the polynomial splits. T^3 there is an off-diagonal involution, hence its fixed dimension is two. Adding the complement gives fixed dimensions v-2, 2v-4, v, 2v at powers 1,2,3,6. For deletion u^T a=1, U,V are rank-(v-1) idempotents with images ker(a^T), ker(u^T) and kernels spanned by u,a respectively. Each block maps the other's image isomorphically, so the image of T has dimension 2v-2 and is invariant with invertible restriction. On im U one has UV p=p+(u+a)(u^T p); on im V the symmetric transvection uses a^T. In either case the added map has rank one and square zero: u+a is nonzero, u and a give independent forms, and u+a is orthogonal to both. Thus the square of T restricts to a nonidentity involution with fixed dimension 2v-4 on the image, and T to an order-four map there: T^5=T, T^3!=T. A T-fixed vector is determined by p fixed by UV with z=Vp, giving dimension v-2. All periodic points are on the image and every point outside it enters in one step. Using q to the fixed dimensions and subtracting proper divisor periods gives exactly the stated positive primitive-period counts (v>=4, q>=2); the orbit counts divide by d. Every fiber over an image point is a coset of the two-dimensional kernel, so a d-cycle has basin d q^2.",
+      "residual_risks": [
+        "The supplied Python and C++ files were inspected, not executed. Their recorded checks cover two designs over GF(2), not all characteristic-two fields; the proof is field-uniform.",
+        "The result requires one toggle and the specified design parity. Similar statements for other parities, multiple toggles, or an update with self-input do not follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ogihara–Uchizawa, abstract and pp. 2–3: general synchronous XOR/NXOR Boolean-system complexity, including cycle-length questions. The inspected framing does not supply a parity-specific rank or fixed-space theorem for the single-toggle family.",
+          "Resultary 578d68794cd5 analyzes F^4=F^2 for unedited projective-plane incidence graphs; its hypothesis and characteristic-two block product differ from the present BB^T=I.",
+          "Resultary 82a9b4cac674 covers symmetric designs by parity, but specifies a different reversible update."
+        ],
+        "reasoning": "A broad linear-system model can contain the binary instances, but counting once the elementary divisors are known does not determine those divisors after this toggle. The broader design parity record does not give them for this map.",
+        "searches": [
+          "Resultary: odd k even lambda symmetric 2-design incidence matrix orthogonal over F2 graph adjacency reversible wave orbit census",
+          "Resultary: single edge toggle graph adjacency linear cellular automaton XOR finite field exact periodic points transient rank",
+          "Ogihara–Uchizawa, LIPIcs.MFCS.2020.76, cycle length problem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 80–92",
+        "Resultary be1f8ac45d72, 82a9b4cac674, 578d68794cd5, 6ee185cd61fc, 47a440a9c7d5",
+        "LIPIcs.MFCS.2020.76 pp. 1–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projective-plane result has an unedited incidence product J in the relevant parity, not I, so applying its one-toggle theorem cannot give the insertion order-six decomposition or deletion rank/transvections here.",
+          "The incidence orthogonality identity alone describes the unedited system. For the modified map a rank-one change in B produces two coupled off-diagonal blocks, whose restriction is a third-order block for insertion but gives transvections on the stable image for deletion."
+        ],
+        "reasoning": "The source comparisons separate a shared one-defect problem and known finite-map counting machinery from the actual post-toggle rank and period dichotomy. None of the inspected results implies the required census by specialization.",
+        "searches": [
+          "Resultary be1f8ac45d72, 82a9b4cac674 and 6ee185cd61fc, Findings",
+          "Ogihara–Uchizawa, LIPIcs.MFCS.2020.76, pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary be1f8ac45d72 uses the same Levi adjacency, open-neighborhood XOR and one incidence flip, but even-order projective planes satisfy lambda=1. Deletion is nilpotent with five-step extinction; insertion yields periods 1,7,14.",
+          "Resultary 82a9b4cac674 directly treats odd k, even lambda but for the reversible two-row map (u,w)->(Au+w,u), on twice as many coordinates and without a toggle."
+        ],
+        "reasoning": "Levi-graph adjacency and square off-diagonal incidence blocks are equivalent formulations for the target. Neither changing incidence parity from even to odd nor adding a previous-state input preserves the update or its census.",
+        "searches": [
+          "Resultary: single incidence toggle on a symmetric design over characteristic two: exact cycle periods and counts for the bipartite incidence graph adjacency map; insertion/deletion, orthogonal binary incidence matrix, linear XOR network",
+          "Resultary: symmetric design incidence graph toggle one incidence edge insertion deletion neighbor XOR cycle period counts characteristic two",
+          "Literature: \"single incidence\" toggle XOR dynamics symmetric design incidence graph characteristic two cycle periods counts insertion deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary be1f8ac45d72 lists 64 recurrent states on insertion, as one fixed state, one 7-cycle and four 14-cycles, and extinction on deletion; it does not give the specified table even for q=2.",
+          "Resultary 6ee185cd61fc gives one fixed point, one 3-cycle and two 6-cycles for a different, one-edge-deleted Johnson family. The later Johnson complementary chord record 47a440a9c7d5 includes 1,2,4 periods in one parity but not this design family or counts."
+        ],
+        "reasoning": "Neither a matching period number in a different map nor a catalogue of incidence designs is a period/fiber census for the specified toggle; no equivalent exact table surfaced in the bounded comparisons.",
+        "searches": [
+          "Resultary: one-edge perturbation bipartite incidence matrix binary symmetric design cycle classification",
+          "Resultary: symmetric design incidence graph toggle one incidence edge insertion deletion neighbor XOR cycle period counts characteristic two"
+        ]
+      },
+      "rationale": "The design orthogonality identity and rank/fixed-space counting of linear finite maps are standard inputs. The checked works do not give the bit-dependent four-versus-six period classification with basin and exact-period populations for the stated design parity over finite characteristic-two fields. Closest directly comparable is the same-day projective-plane toggle result; its lambda=1 does not permit BB^T=I in characteristic two and its spectra are genuinely different.",
+      "residual_risks": [
+        "No priority order is inferred from the same-day projective-plane date.",
+        "An unlocated algebraic classification of rank perturbations of orthogonal incidence matrices or a specialist XOR paper might supply the same census. The one specialist web query did not produce useful results and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue; different parity, graph family and census",
+          "evidence": [
+            "Even-order planes, lambda=1, binary states: deletion gives five-step extinction, insertion permits 7- and 14-cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-five-step-extinction-versus-fourteen-cycle-dichotomy--be1f8ac45d72/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "A universal five-step extinction versus fourteen-cycle dichotomy",
+          "trigger": "Same-day, same update type and one incidence changed"
+        },
+        {
+          "assessment": "Different reversible update and state dimension",
+          "evidence": [
+            "Two-row map (u,w)->(Au+w,u), period set {1,3,6} in this parity, no toggle."
+          ],
+          "identifier_or_url": "Resultary 82a9b4cac674",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Four parity clocks and rank-resolved orbit censuses for reversible incidence dynamics",
+          "trigger": "Same symmetric design and odd-k/even-lambda parity"
+        },
+        {
+          "assessment": "Unedited adjacency on different parity family",
+          "evidence": [
+            "F^4=F^2 and four recurrent configurations at even plane order."
+          ],
+          "identifier_or_url": "Resultary 578d68794cd5",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Exact parity-dependent orbit and extinction census on projective planes",
+          "trigger": "Earlier unedited incidence graph dynamics"
+        },
+        {
+          "assessment": "Different graph and nilpotent background",
+          "evidence": [
+            "Deletion produces one fixed point, one 3-cycle and two 6-cycles with a two-step entry bound."
+          ],
+          "identifier_or_url": "Resultary 6ee185cd61fc",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "One-edge defects create universal six-cycles in nilpotent Johnson dynamics",
+          "trigger": "Earlier XOR single-edge census"
+        },
+        {
+          "assessment": "Later and distinct graph/perturbation",
+          "evidence": [
+            "The odd-order Johnson-graph chord case includes periods 1,2,4, not the incidence-toggle classification."
+          ],
+          "identifier_or_url": "Resultary 47a440a9c7d5",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "One complementary chord induces a parity bifurcation in triangular graphs",
+          "trigger": "One added edge, overlapping periods"
+        },
+        {
+          "assessment": "General complexity result rather than the special exact orbit census",
+          "evidence": [
+            "Studies cycle-length computational questions for directed XOR/NXOR systems."
+          ],
+          "identifier_or_url": "10.1007/s00224-022-10111-x; LIPIcs.MFCS.2020.76 accessible proceedings version",
+          "material_read": "Proceedings pp. 1–3, abstract and cycle-length-problem discussion, offset 0 and around 7000",
+          "method": "Open Dagstuhl primary PDF; journal route redirected without readable text",
+          "title": "Synchronous Boolean Finite Dynamical Systems on Directed Graphs over XOR Functions",
+          "trigger": "General XOR cycle results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21, 35–72",
+        "Resultary be1f8ac45d72 and 6ee185cd61fc, Findings"
+      ],
+      "rationale": "A single graph edit of an initially involutory update is a natural perturbation. The algebra identifies a structural split: insertion preserves invertibility but produces exact order six, while deletion collapses two dimensions yet creates genuine order four on a stable image and forces a uniform transient/fiber structure. The complete q-dependent period and basin census makes the distinction stronger than witnessing individual orbits, and is not a finite-design example or a catalogue of existing designs.",
+      "residual_risks": [
+        "The value is for the specified single-toggle family, not a classification of graph edits for arbitrary designs or linear dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

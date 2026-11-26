@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:26:42.452122Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient and rotated-gradient modes are orthogonal by integration by parts and Stokes, with squared gradient norm ℓ(ℓ+1) times the scalar norm. The two-component frame and normalizations give Hermitian m-blocks with eigenvalues proportional to a±mb. For M≥2ℓ+1 the discrete Fourier phases are orthogonal; for fewer sites there are fewer component measurements than the complex dimension. I checked the Jacobi factorization independently: Q=P_ℓ^(m) up to sign is orthogonal to lower degrees for the (m,m) Jacobi weight. Dividing U⁺ by (1+h) gives mQ−(1−h)Q′. Integration by parts against the (m−1,m+1) weight converts a test polynomial r to (m+1)r+(1+h)r′ against the (m,m) weight, orthogonal for degree <ℓ−m; the leading coefficient is multiplied by ℓ. Reflection gives the other branch. The zonal derivative and simple Jacobi roots yield ℓ²−1 listed root occurrences counting coincidences, not necessarily distinct heights. At the equator each nonzero m has either nonzero value or derivative, but not both zero by uniqueness of the associated Legendre differential equation, leaving only the even-degree zonal obstruction. In degree two the three explicit associated Legendre modes give the listed five 5q/4 levels with two copies per branch (coincident branches add multiplicities), and the three rank-eight heights. The factor comparisons on 0<t<1/2 reduce the spectrum ratio to the two given branches with opposite strict monotonicity; the cubic is strictly decreasing there. Its root exceeds 257/1000, giving (1+t)²/(6t²)<4 there, while t>1/2 gives a lower bound of 9 via q₂₊/q₂₋. The exact formulas and root are corroborated by `python3 /workspace/independent_replay.py numeric`; the analytic minimization, not this numerical calculation, proves global optimality within the equal-weight regular single-ring class.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Elahi et al. PDF p.1 abstract proposes a band-limited transform and well-conditioned placement.",
+          "The indexed first-jet rule uses scalar values together with tangential derivatives; the scalar hemispheric rule uses several latitudes to achieve tightness."
+        ],
+        "reasoning": "A band-limited transform does not imply a sharp single-latitude bound when the space and sample geometry are restricted. Restricting a scalar-value-plus-gradient rule does not recover independent toroidal and poloidal coefficient sets with just the two vector components.",
+        "searches": [
+          "arXiv:1809.01321 exact-degree and latitude-ring sampling",
+          "Resultary first-jet quadrupole Parseval rule 370d41c98f7b; hemispheric latitude-ring scalar design b6513baa9cee"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1809.01321 (primary p.1 abstract)",
+        "Resultary ed61748f91dd and b6513baa9cee",
+        "Resultary 370d41c98f7b, 6ce403f5c7f0 and 38d9014ee346 (available statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar quadrupole has five complex coefficients on S² and its value-plus-gradient observation derives from that single scalar. The present space has two independent polarizations of dimension five each and no scalar-value measurement. The available spin-one tight-design summary allows fourteen independent latitudes."
+        ],
+        "reasoning": "Neither stated construction specializes to minimize max/min across the two helicities on a single ring at degree two. Classical helicity calculations readily locate rank loss; a separate piecewise spectral minimax comparison is needed to show the cubic is the global optimum.",
+        "searches": [
+          "Resultary 370d41c98f7b single-latitude scalar first-jet Parseval claim; ed61748f91dd spin-one multi-ring tight design",
+          "arXiv:1809.01321 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unitary helicity combination realizes the vector problem as two spin channels. The indexed pure-spin-one record ed61748f91dd summarizes a degree-fourteen, fourteen-ring tight design, not the one-ring degree-two ratio.",
+          "The Elahi et al. abstract specifies bandlimit L and L²−s² sample count."
+        ],
+        "reasoning": "The representation change is equivalent and not novel. The prior known spin basis supplies evaluable matrix entries, not the global crossing and comparison across every injective one-ring height. A multi-ring design can change each norm and is not the same acquisition operator even in the spin basis.",
+        "searches": [
+          "Pure spin-one and Wigner/Jacobi latitude sampling versus poloidal/toroidal exact-degree one-ring conditioning; Resultary ed61748f91dd",
+          "Elahi–Khalid–Kennedy–McEwen arXiv:1809.01321"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day first-jet summaries specify a weighted scalar-value-plus-tangential-gradient Parseval rule or scalar values plus meridional derivative at the equator. The earlier 38d9014ee346 summary concerns a scalar quadrupole on paired latitude rings."
+        ],
+        "reasoning": "These are not tables of five double eigenvalue branches for the ten-dimensional vector space, even when their geometries use few sites. The cubic string search was uninformative and contributes no absence evidence.",
+        "searches": [
+          "Resultary exact five-site spectrum and quadrupole conditioning: 370d41c98f7b, 6ce403f5c7f0 and 38d9014ee346"
+        ]
+      },
+      "rationale": "Classical Fourier, spin-one and Wigner/Jacobi identities already underlie the rank criterion, and no originality is assigned to those identities themselves. The distinct central result is the exact quadrupolar single-ring conditioning design for simultaneous poloidal and toroidal tangent modes: the full normalized two-helicity spectrum and global sharp cubic optimum. The closest accessible statements concern spin-one multi-ring acquisition, scalar first-jet measurements or scalar quadrupole designs. Their data and optimization targets differ, and no checked statement provides or dominates the exact minimax here. This is a best-of-knowledge judgment, not historical priority certification.",
+      "residual_risks": [
+        "An equivalent specialized one-ring spin-one optimization may exist in uninspected material. Full text for the strongest mirror leads and the precise transform passage was not available within bounded retrieval, so assessments are limited to the passages or summaries specified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement is full-band sampling, not the exact-degree design theorem; unseen body not ruled out",
+          "evidence": [
+            "Band-limited spin-s space, L²−s² samples, with placement for well-conditioned transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.01321",
+          "material_read": "PDF p.1 abstract; the specific latitude-ring passage could not be retrieved via bounded targeted lookup",
+          "method": "Primary abstract preview and statement comparison",
+          "title": "An Optimal-Dimensionality Sampling for Spin-s Functions on the Sphere",
+          "trigger": "Primary spin-s transform precedent"
+        },
+        {
+          "assessment": "Same spin magnitude, different multi-ring tightness problem",
+          "evidence": [
+            "Degree fourteen, fourteen rings, 29 azimuths."
+          ],
+          "identifier_or_url": "Resultary ed61748f91dd",
+          "material_read": "Indexed scientific summary only; exact passage retrieval unavailable",
+          "method": "Compare spin, degree, number of rings and objective",
+          "title": "Sharp fourteen-latitude tight sampling for pure spin-one spherical harmonics",
+          "trigger": "Closest spin formulation"
+        },
+        {
+          "assessment": "Multi-ring scalar design rather than the vector minimax",
+          "evidence": [
+            "Fixed scalar degree, multi-latitude tightness."
+          ],
+          "identifier_or_url": "Resultary b6513baa9cee",
+          "material_read": "Indexed scientific summary",
+          "method": "Compare scalar and vector measurements and ring multiplicity",
+          "title": "Sharp hemispheric latitude-ring sampling for a single spherical degree",
+          "trigger": "Comparable exact-degree geometry"
+        },
+        {
+          "assessment": "Distinct scalar first-jet observation operators in available statements; no date-based inference",
+          "evidence": [
+            "Scalar value and tangential gradient in the Parseval record, and scalar value and meridional derivative at the equator in the parity record."
+          ],
+          "identifier_or_url": "Resultary 370d41c98f7b and 6ce403f5c7f0",
+          "material_read": "Scientific summaries; decisive mirror retrieval not available",
+          "method": "Compare stated acquisition observables and unknown fields",
+          "title": "A minimal-node first-jet Parseval rule for spherical quadrupoles; Parity-sharp equatorial first-jet sampling and exact conditioning",
+          "trigger": "Strongest same-day geometric and conditioning leads"
+        },
+        {
+          "assessment": "Scalar, paired-ring design",
+          "evidence": [
+            "Single scalar quadupole space on two rings, not one ring observing both components of a tangent vector field."
+          ],
+          "identifier_or_url": "Resultary 38d9014ee346",
+          "material_read": "Indexed summary only",
+          "method": "Compare unknowns and geometry",
+          "title": "Sharp quadrupole conditioning on paired spherical latitude rings",
+          "trigger": "Earlier quadrupole conditioning lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two-component tangent-field acquisition the dimension threshold gives the smallest number of stations worth considering, but does not identify the unusable latitudes or quantify stability. The exact all-degree loss-of-rank condition and the sharp degree-two normalized minimax quantify a real design tradeoff for a fixed natural acquisition geometry. No optimality is claimed among irregular stations, multiple latitudes, or unknown mixed degrees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

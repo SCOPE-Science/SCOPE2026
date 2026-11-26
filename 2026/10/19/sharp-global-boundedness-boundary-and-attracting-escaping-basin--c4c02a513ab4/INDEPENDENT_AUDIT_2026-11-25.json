@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:21:47.128555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and proof, lines 24–102",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution; reported finite diagnostics do not establish the general result"
+      ],
+      "rationale": "I reconstructed the deterministic map proof. The uniform forcing bound is 3T, so the strict subcritical recursion absorbs in any square of radius greater than 3T/(1−|1−T|). At T=2, subtracting X from F²(X) cancels the bias exactly. If |X_j| is at least R=11+arctanh(9/10)/α, both arguments in the j-th tanh difference have magnitude above arctanh(9/10), with opposite signs. The diagonal contribution gives inward signed movement even against the worst cross-coordinate contribution. My rational recheck gives inward margin 53/25 and displacement at most 54/5<R, excluding sign overshoot in this region. A coordinate outside R+54/5 decreases until it enters, and one inside stays inside, independently of the other coordinate. For the resulting F²-invariant absorbing square B, B∪F(B) gives F-absorption including odd iterates. For q=T−1>1, the increments of (−q)^(−n)X_n are bounded by 3T q^(−n−1); summing the geometric tail gives the claimed error and the lower bound on the amplitude, hence the exact growth rate outside the stated radius. At (T,α)=(9/4,1/4), H has global Lipschitz factor 27/40 and the fixed point has norm at most 12/13. On the unit square the tanh derivative with respect to the coordinate lies in [15/64,1/4]. My row-sum recheck gives diagonal extrema −181/512 and −47/160 and cross bound 9/16, hence 469/512. This puts the entire claimed 1/13 square in the contraction region; the escape radius at the same parameters is 27.",
+      "residual_risks": [
+        "Exact real map only; neither finite precision nor stochastic dynamics is controlled. The escape radius is sufficient, not asserted optimal; absorption time depends on the start and on α."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source stability study allows stable equilibria at some supercritical steps; its illustrated T=2.3, α=0.56 behavior concerns finite-start chaotic and period-4 behavior. Neither is an all-start theorem at T=2.",
+          "The prime-two exclusion result treats allowable periods and a repelling two-cycle, not boundedness of arbitrary orbits."
+        ],
+        "reasoning": "Local stability, absence of a particular period, and finite trajectory examples cannot imply a uniform trapping region for every forward orbit.",
+        "searches": [
+          "10.1007/s11071-023-08897-7, Sec. 3 and Figs. 6, 8b–9",
+          "Resultary d40768f347f0"
+        ]
+      },
+      "checked_sources": [
+        "10.1007/s11071-023-08897-7",
+        "Resultary 8f9bdcdcb9f6",
+        "Resultary d40768f347f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded forcing in the published recurrence immediately yields subcritical absorption with slack and supercritical exterior escape. At T=2 it gives only ||F(X)||∞≤||X||∞+6, insufficient for the claimed conclusion.",
+          "The source local Jacobian and the elementary exterior estimate can be combined where a supercritical attracting fixed point is known. The frozen proof instead certifies the explicit square and an amplitude with summable error."
+        ],
+        "reasoning": "The decisive endpoint does not follow mechanically from the source's one-step or local arguments. Model-specific two-step inward motion, not the familiar strict-step comparisons, is the new part relative to the inspected prior literature.",
+        "searches": [
+          "10.1007/s11071-023-08897-7, Eqs. (4)–(8), Fig. 6 and supercritical examples",
+          "Resultary 8f9bdcdcb9f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Euler map and fixed coefficients are identical to Eqs. (4)–(5). Local stability in Eq. (8) concerns neighborhoods of equilibria, not all-orbit absorption.",
+          "The strongest catalogue match uses a radial endpoint argument for the identical map and the same threshold."
+        ],
+        "reasoning": "Count the original dynamics as the same model, and compare a compact global attracting region as substantive overlap regardless of the proof norm or coordinate choice. The matching record here is later.",
+        "searches": [
+          "Buscarino–Famoso–Fortuna, DOI 10.1007/s11071-023-08897-7, Eqs. (4)–(8)",
+          "Resultary records 8f9bdcdcb9f6 and d40768f347f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8f9bdcdcb9f6 gives the same critical step and compact attraction at the endpoint for the same map; d40768f347f0 does not give this exact global claim. The matched records display November 2, later than the assigned record."
+        ],
+        "reasoning": "The catalogue does have an exact scientific overlap on the principal threshold; on the displayed dates it is subsequent coverage. A numerical bifurcation plot is not a table of all-orbit boundedness.",
+        "searches": [
+          "Resultary: sharp global attractor threshold and prime-two exclusion for the two-cell sigmoid spiking map"
+        ]
+      },
+      "rationale": "Credit the original model, equilibrium equations and local stability to Buscarino, Famoso and Fortuna. Strict one-step comparisons are direct consequences of their bounded forcing, and local supercritical attraction plus the exterior estimate already suggests coexistence. The distinctive supported contribution is the global absorption mechanism at the formerly inconclusive neutral endpoint, which completes the exact threshold. The explicit invariant contraction square and the controlled escape-amplitude expansion quantify the two behaviors. The strongest matching catalogue record independently states endpoint attraction for the same map but is dated later, not an earlier or undated/same-day overlap.",
+      "residual_risks": [
+        "General discrete neural-network invariant-region literature was not exhaustively covered; an empty supplemental search does not rule out earlier coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and local stability; does not establish the neutral global trapping result in the inspected analysis",
+          "evidence": "Eqs. (4)–(5) give the identical recurrence, Eqs. (6)–(7) eliminate T from the equilibrium equation, and Eq. (8)/Fig. 6 use local Jacobian stability.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-08897-7",
+          "material_read": "Springer OA PDF, Sec. 3, pp. 20363–67, Eqs. (4)–(8), Figs. 6 and 8b–9",
+          "method": "Bounded primary-text passages",
+          "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+          "trigger": "Original and identical parameterized model; possible global implications of stability and supercritical examples"
+        },
+        {
+          "assessment": "Material equivalent threshold coverage, subsequently dated",
+          "evidence": "Same deterministic map, compact attraction through T=2 including separate radial endpoint argument, geometric exterior escape above 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-global-attractor-threshold-for-the-two-cell-sigmoid-spik--8f9bdcdcb9f6",
+          "material_read": "Matched statement and endpoint proof characterization",
+          "method": "Local published-record mirror",
+          "title": "A sharp global attractor threshold for the two-cell sigmoid spiking map",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Distinction in quantifiers and invariant",
+          "evidence": "Excludes primitive 2-cycles through T=2 and proves a repelling 2-cycle for supercritical steps with α≥10; no all-orbit trapping conclusion.",
+          "identifier_or_url": "d40768f347f0",
+          "material_read": "Matched finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp prime-two exclusion and a saturated repelling cycle in a two-cell map",
+          "trigger": "Same boundary parameter and same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 45–102",
+        "Buscarino–Famoso–Fortuna, local stability and finite-start bifurcation analysis"
+      ],
+      "rationale": "At the neutral affine multiplier the standard textbook recursion is silent. A uniform two-step inward mechanism resolves exactly where all-start boundedness fails in a published model. The explicit coexisting attraction and escape regions distinguish what a locally stable equilibrium or a finite-initial-condition bifurcation plot can say from global stability.",
+      "residual_risks": [
+        "No claim of a complete classification of basins or other attractors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

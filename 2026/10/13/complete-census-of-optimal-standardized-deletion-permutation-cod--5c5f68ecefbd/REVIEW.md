@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model's standardized one-deletion output has precisely 24 possible four-permutations. The complete 120-word incidence family is enumerated with two independently written standard-language implementations; the search visits all compatible index-increasing subsets, counts exactly 1,568 eight-word codes and no nine-word code, and verifies the symmetry and double-signature comparisons. The source directories contain all necessary files, including the full canonical-representative table. The proof applies only at length five.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The full five-page 2014 source of Gabrys et al. explicitly defines the same channel and proves an asymptotically optimal two-signature construction, but it does not state the 1,568 labeled solutions or 220 equivalence classes. Search comparisons covering permutation-invariant deletions, standardized deletion shadows, rank-modulation code enumeration, exact small blocklengths, and possible equality classifications found no covering claim. Relevant fixed-length Ulam-code work uses absolute-value rather than standardized deletion, so its results do not imply the present classification. A closely related 2016 journal article could not be inspected in full and remains a specific residual risk; snippets were not treated as evidence of noncoverage.
+PASS
 
-## Value — PASS
-The five-cell channel is a natural small exact optimization problem in rank-modulation storage: 120 possible memory states, 24 distinct post-deletion states, and a practical need to distinguish all possible stored words from one deletion. The equality census, not merely repetition of the already available construction, shows that optimal realizations are highly nonunique and structurally diverse: 220 symmetry classes and 36 optima omitting both monotone words. This is a complete finite classification useful as a benchmark for finite-block code design; no broader-length improvement is asserted.
+Exactly one deletion followed by standardization gives a set D(p) of distinct four-permutation outputs; single-deletion correction is exactly pairwise disjointness of these sets, even when a word's own outputs repeat. The increasing-index enumeration visits each admissible set once and cannot discard an admissible branch on the candidate-shortfall test. The independent replay (branches/ef0d61bf-8c7a-4831-a402-809fe629a222/replay_s5.py and replay_output.txt) independently rebuilt outputs, found 1568 eight-sets and zero nine-sets, so no larger code exists either. Position reversal and value complement commute with relabeling the survivors; inversion transposes the matrix and exchanges the omitted row and column, deriving the inverse standardized output. The first two involutions commute and inversion swaps them, giving the eight transformations of the action. The replay recovered 220 orbits with counts 2,1,43,174 at sizes 1,2,4,8, and 36 sets avoid both monotones. It also enumerated the 25 ascent/inverse-ascent weighted residue classes modulo five, finding the displayed eight-word set as the unique largest class. The supplied verifiers were inspected, not executed; this is finite exhaustive evidence, not formal or expert certification.
 
-## Limitations and related sources
-Gabrys et al., ISIT 2014, DOI 10.1109/ISIT.2014.6875337; closely related Gabrys et al., IEEE Transactions on Information Theory 2016, DOI 10.1109/TIT.2015.2493147 (complete text inaccessible); published research-result searches with comparable deletion and code-enumeration terminology. Only the complete source actually read supports a finding of noncoverage. The source's 2014 conference date is earlier than the first independently confirmed precisely dated full-text upload on April 14, 2015.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the rank-standardized channel, its inversion duality, and the double-signature construction (including specialization to the displayed size-eight example) to Gabrys et al. The supported distinct claim is the exact finite upper bound and full unrestricted labeled and orbit census, not a new construction or asymptotic theorem. The later journal text was lawfully accessible at review and its directly relevant PID passages were inspected; the frozen access disclaimer describes its original check, not this one.
+
+## value
+
+PASS
+
+The exact small fixed-length optimum tests the established asymptotic construction in a natural benchmark with 120 possible words and a nontrivial confusability graph. The full equality classification shows that the construction is far from unique even modulo the natural symmetries, and that including a monotone word is not necessary for optimality. The census answers a meaningful structural question not resolved by producing one code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

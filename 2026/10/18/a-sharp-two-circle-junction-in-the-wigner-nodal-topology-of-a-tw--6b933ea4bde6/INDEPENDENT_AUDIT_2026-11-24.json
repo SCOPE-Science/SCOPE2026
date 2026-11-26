@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:07:17.406406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Wigner polynomial independently by differentiating the normalized Fourier–Gaussian generating function exp(a²−2iap) for the y-moments and using the explicit h₂. Verified the factorization, saddle Hessian and lower-bound test point exactly (python review_evidence/finite_checks.py, section labelled 5). In polar variables the discriminant has no positive-root upper branch; two distinct positive roots occur exactly for cos(2θ)<√2t−√(1+t²). The threshold increases strictly from −1 and crosses 1 only at 2√2. Below the crossing the open radial interval over each of the two angular arcs is diffeomorphic to an open rectangle by radial interpolation, and each boundary closes into a single simple loop where the roots coalesce. The angular derivative is nonzero at those coalescences, so the loop is smooth. Above the crossing the roots are smooth everywhere and bound the one annulus. At the threshold the exact factor 16[(q²+p²−3/4)²−p²] gives the two unit circles, transverse at (±√3/2,0) with polynomial Hessian diag(96,−32); the sign criterion or the two open polar arcs give precisely two crescents. Radial and angular derivatives can vanish on the nodal set only at these saddles; the origin is positive. For the logarithmic limit the earliest negative radius is on the p-axis, with tR_min²→1/√2. The uniform degree-four Gaussian tail bound then gives the required upper logarithmic bound. At p₀²=1/(√2t), q=0, the polynomial is t²−2√2t, and its gradient is O(√t) on a disk of radius t² there. The sign remains uniformly ≤−ct, giving a lower bound of constant × t⁵ × exp(−1/(√2t)−O(t^(3/2))). The bounds squeeze the stated rate, not a prefactor. The Gaussian envelope is positive; the stated Hessian eigenvalues are for the polynomial, not W itself. Both circles are allowed by the corrected prior ellipse restriction in arXiv:2504.20324v2 Corollary 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu et al. give bounded-nodal and finite-Hermite structure and restrict ellipse shapes. The original v1 Theorem 2 includes μ≠1 for other ellipses; v2 Corollary 2 removes that exclusion, allowing translated congruent circles.",
+          "The October 4 positive-coherence theorem is for mixed states with n≥3 and uses population and an independent coherence variable.",
+          "The later weak-amplitude theorem covers all fixed n and phases and supplies precisely the frozen rate at n=2."
+        ],
+        "reasoning": "The corrected ellipse statement is a restriction on possible ellipses, not a construction of the nodal locus or its amplitude. The earlier mixed-state positivity boundary and later broader pure-state weak-amplitude result must be distinguished by state, amplitude range and chronology.",
+        "searches": [
+          "arXiv:2504.20324v1 Theorem 2 and Eqs. (1.10)–(1.13), (3.8)–(3.10)",
+          "arXiv:2504.20324v2 §2.3.2 Corollary 2",
+          "SCOPE-sharp-near-vacuum-boundary-layer-for-maximal-wigner-positive-foc--bd630ca1caac",
+          "0797afcbc5ff Finding"
+        ]
+      },
+      "checked_sources": [
+        "0797afcbc5ff",
+        "bd630ca1caac",
+        "arXiv:2504.20324v1 and v2",
+        "arXiv:1307.6950",
+        "arXiv:quant-ph/0406015v1",
+        "arXiv:math/0102111v1 (abstract)",
+        "arXiv:1811.03937v1 (abstract)",
+        "DOI:10.1103/PhysRevA.74.042323 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cross-Wigner identities supply the Gaussian-times-quartic expression; they do not classify the positive radial roots, their double-root singularities, or the negative mass integral.",
+          "Abreu et al. v2 allow equal shapes with different centers and give no n=2 transition amplitude.",
+          "The later all-n asymptotic implies the exact n=2 logarithmic limit and weak component count, not the finite singularity at t=2√2 or the annulus above it."
+        ],
+        "reasoning": "The decisive additions are a global sign-region/topology analysis and sharp weak-amplitude integration bounds. Classical formulas and general nodal hypotheses alone do not mechanically yield either; exact later overlap of the second must be credited.",
+        "searches": [
+          "arXiv:1307.6950 p. 4; arXiv:2504.20324v2 p. 12 §2.3.2; arXiv:quant-ph/0406015v1 §II and §IV; 0797afcbc5ff Finding and relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Excited population x=t²/(1+t²) gives x*=8/9; real pure coherence is t/(1+t²). A relative phase φ rotates the n=2 interference direction by φ/2, so a sign change of t is a quadrature rotation. The standard off-diagonal Fock formula includes this phase.",
+          "Kenfack–Życzkowski's δ=∫|W|−1=2N changes neither topology nor the logarithmic exponent.",
+          "Setting n=2, a=t and φ=0 in 0797afcbc5ff gives the identical rate −1/√2 and two weak-amplitude components."
+        ],
+        "reasoning": "Conversions in amplitude, phase and normalization are equivalent versions of the claim rather than novelty. The exact weak-amplitude specialization is counted; the all-amplitude phase diagram does not follow from an assertion restricted to small a.",
+        "searches": [
+          "Resultary: vacuum–two-photon and h₀+t h₂ Wigner nodal topology, circles and weak negativity",
+          "arXiv:1307.6950 Eqs. (14)–(16)",
+          "arXiv:quant-ph/0406015v1 §II and §IV",
+          "SCOPE-universal-disk-geometry-of-weak-vacuum-fock-wigner-negativity--0797afcbc5ff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest exact rate match 0797afcbc5ff (2026-10-25) is later and its prior-work passage says earlier n=2 work gave the exact disk/annulus transition and rate without identifying that work there.",
+          "bd630ca1caac (2026-10-04) gives a different n≥3 mixed boundary. The focused primary query returned unrelated results, so does not improve the negative evidence."
+        ],
+        "reasoning": "The later result establishes exact overlapping catalogue coverage of the rate, not earlier priority. Its unnamed antecedent is identified as a risk, not asserted to be this or another particular record. No inspected exact earlier source gives the complete claim.",
+        "searches": [
+          "Resultary equivalents: two-Hermite Wigner nodes, vacuum–Fock weak negative-volume asymptotics, and near-vacuum boundary layer",
+          "Primary-literature search on vacuum plus two-photon Wigner phase diagram, circle junction and small-amplitude negative mass"
+        ]
+      },
+      "rationale": "The phase diagram with a finite circle junction and the logarithmic rate is not a restatement of the classical Hermite Wigner polynomial or negativity convention. The strongest later indexed weak-amplitude theorem exactly covers the logarithmic rate and small-amplitude part by n=2 specialization, but not the finite-amplitude transition; its reference to earlier n=2 work is unnamed. The inspected earlier mixed-state and nodal-rigidity results do not settle the transition or exponent. The v2 ellipse corollary allows same-radius translated circles but does not predict their existence or location in this family. The search supports the distinct frozen result without establishing unrestricted historical priority.",
+      "residual_risks": [
+        "The October 25 record does not identify its earlier n=2 comparator in the inspected passage; exact antecedent attribution is unresolved.",
+        "Dahl et al. full-text retrieval did not succeed. This does not establish noncoverage.",
+        "Older unindexed optical work or an alternate amplitude notation may contain closer coverage; the search is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later exact rate/weak regime coverage but not the finite transition law; unnamed earlier-work reference",
+          "evidence": "For all fixed n≥1 and phases, a^(2/n)log N_n→−(n!/2^n)^(1/n), with n components for small a. It expressly refers to earlier n=2 topology and rate work without identifying it in the relevant passage.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-disk-geometry-of-weak-vacuum-fock-wigner-negativity--0797afcbc5ff",
+          "material_read": "RESULT.md Finding, text offset 0; relationship to prior work, about offset 6000",
+          "method": "Published-record mirror; specialize n=2 and compare amplitude range",
+          "title": "Universal disk geometry of weak vacuum–Fock Wigner negativity",
+          "trigger": "Strongest catalogue match with the same pure state and rate"
+        },
+        {
+          "assessment": "Does not cover the pure n=2 state or invariant",
+          "evidence": "Uses n≥3 mixed density matrices with excited population and variable coherence; determines maximal Wigner-positive coherence.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-near-vacuum-boundary-layer-for-maximal-wigner-positive-foc--bd630ca1caac",
+          "material_read": "Finding, text offset 0",
+          "method": "Published-record mirror; compare state, n and parameter definitions",
+          "title": "Sharp near-vacuum boundary layer for maximal Wigner-positive Fock coherence",
+          "trigger": "Earlier indexed vacuum–Fock near-vacuum comparison"
+        },
+        {
+          "assessment": "Corrected restriction is compatible; does not furnish the family transition, circles or rate",
+          "evidence": "v1 says other ellipses must satisfy 1≠μ>0, which as written would exclude the second equal-radius translated circle. The revised v2 statement is μ>0 with arbitrary center z₀′, and hence permits μ=1. It controls possible shape/axes, not existence, junction, or amplitude.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.20324v2",
+          "material_read": "v2 cover (September 2026) and §2.3.2, Corollary 2, printed p. 12, text offsets 32200–35167; v1 Theorem 2 printed p. 5, offset 10900–15268, plus v1 finite-Hermite opening formulas and cross-Wigner Eqs. (3.8)–(3.10)",
+          "method": "OA PDF comparison of versions, nodal hypothesis and consequence",
+          "title": "Inverse problems for the zeros of the Wigner function",
+          "trigger": "Plausible stronger nodal rigidity and specific ellipse restriction"
+        },
+        {
+          "assessment": "Covers the classical formula component only",
+          "evidence": "Fock-basis Wigner terms include the relative-phase angular factor; these do not give the assessed sign-region transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.6950",
+          "material_read": "p. 4 Eqs. (14)–(16), text offset about 28600",
+          "method": "OA PDF and direct matching of phase-sensitive diagonal/off-diagonal Wigner terms",
+          "title": "Phase-space interference of states optically truncated by quantum scissors: Generation of distinct superpositions of qudit coherent states by displacement of vacuum",
+          "trigger": "Prior Fock superposition Wigner interference formulas"
+        },
+        {
+          "assessment": "Covers invariant convention up to a factor, not the inspected family claim",
+          "evidence": "δ=∫|W|−1. Examples include Fock states, squeezed/displaced states and cats, not the complete vacuum-plus-two-Fock phase diagram.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0406015v1",
+          "material_read": "§II Eqs. (2.2)–(2.4), text offset about 10800, and abstract/§IV examples",
+          "method": "OA PDF; compare normalized negative part and example states",
+          "title": "Negativity of the Wigner function as an indicator of nonclassicality",
+          "trigger": "Earliest compared negative-volume convention and exact optical examples"
+        },
+        {
+          "assessment": "No whole-document exclusion; residual risk",
+          "evidence": "Both full-text routes were unavailable; scope alone is not proof of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.74.042323",
+          "material_read": "Citation and hyperradial scope reported in frozen evidence; no independently retrievable full passage",
+          "method": "Lawful DOI and publisher PDF retrieval attempts; access-limited scope comparison",
+          "title": "Entanglement versus negative domains of Wigner functions",
+          "trigger": "Related negative-domain geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lowest nontrivial even two-mode oscillator family shows how the topology of negativity can change without the negative volume ever vanishing. The critical state gives a concrete transverse, equal-radius nodal junction in the setting of the corrected general ellipse restrictions. The sharp weak-amplitude exponent quantifies why negativity can be undetectably small despite being present. These exact structural statements are useful benchmarks for mathematical phase-space analysis beyond a quartic evaluation or sampled plot.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

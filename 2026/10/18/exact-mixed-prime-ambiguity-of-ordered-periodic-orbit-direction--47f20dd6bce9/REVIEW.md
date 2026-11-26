@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The phase-prefix lemma reconstructs each candidate cycle and proves that each branch number equals its current translation-stabilizer order. For size \(2p\) the stabilizer dichotomy is exhaustive, and a parity-set obstruction makes the order-\(p\) event incompatible with all order-two events on the same branch. The equal-child probability argument converts the pathwise branching product into a bound on *all* full leaves; this step is essential because multiplying maxima over levels would give the weaker bound \(p2^{p-1}\). The explicit family realizes \(2^{p-1}\) different full cycles with identical signatures. Small-order exhaustive enumeration and larger constructive tests corroborate but are not used as infinite proofs.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Fuhrmann–Gröger–Passeggi prove prime-cycle rigidity and existence of composite-period collisions, not the exact mixed-prime multiplicity. The closest accessible quantitative general statement bounds \(M(2p)\) by \(p2^{p-1}\), without settling equality at twice an odd prime; its prime-power equality result does not imply the squarefree case. The closest published algorithmic research record concerns reconstruction at *prime* lengths only. Targeted literature and database searches for mixed-prime exact multiplicities and equivalent prefix-stabilizer/parity formulations did not locate a stronger covering result. An unindexed equivalent classification remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The theorem determines the first infinite mixed-prime family beyond the prime-power cases, quantifies the precise information loss of a dynamically motivated orbit-direction observation, and shows how a seemingly available stabilizer factor \(p\) is systematically excluded. The improvement is an exact natural invariant, not a numerical sample or arbitrary restriction. It does not claim to settle global interval-map conjugacy.
+For a fixed labeled order and a single cycle, anchoring the least point at phase zero makes a cycle equivalent to its phase assignment. At stage i the nonzero-time entries for the next point are the indicator of A_i translated by its phase; replacing the time-zero entry by zero makes this exact. All extensions yielding the prescribed row form one coset of the translation stabilizer, whose order divides gcd(2p,i). If its order is p at i=p, A_p is the even residues. Invariance by addition of p would send any earlier nonempty subset out of the evens or force any later superset to contain every odd residue. Hence such a path has no size-two branch; other paths have at most p-1 size-two branches. With uniform choice at each node every completed leaf has probability at least 2^{-(p-1)}, proving the upper bound even with dead ends. The adjacent-pair construction has free bits on p-1 links and total flip parity odd. Its p-step iterate flips within each block, while nonmultiples of p give comparisons determined by blocks, proving attainment.
 
-## Closest literature and limitations
-Fuhrmann, Gröger, Passeggi, arXiv:2610.07435v1, Sections 2 and 5; *Quadratic-time reconstruction of prime cycles from left-right orbit signatures* (2026) for complementary prime-length reconstruction. The result assumes full known ordered time signatures and \(n=2p\) with \(p\) an odd prime. Possible prior equivalence in combinatorial cyclic-word reconstruction literature is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signature, phase reconstruction and a witness family have substantial overlap with adjacent work. The supported distinct claim is the sharp maximum over all signatures for 2p, not composite nonuniqueness or a large explicitly constructed fiber by itself.
+
+## value
+
+PASS
+
+The theorem measures exactly how much a complete ordered observation can fail to identify a cycle in the natural mixed-prime family following the known prime case. It shows that two distinct arithmetic branching mechanisms cannot compound, closing an actual factor-p gap between a natural general bound and attainability. This is useful without a broader classification of interval maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

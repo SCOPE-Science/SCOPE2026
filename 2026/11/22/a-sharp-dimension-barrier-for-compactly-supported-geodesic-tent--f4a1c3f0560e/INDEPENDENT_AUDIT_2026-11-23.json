@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:16:02.841073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–26 and 29–85; VERIFICATION.md, lines 19–25; verify_numeric.py inspected without execution",
+        "NIST DLMF §18.15(iii), equations 18.15.12–13, primary public page, https://dlmf.nist.gov/18.15 (opened passage around offset 11120)"
+      ],
+      "rationale": "For 0<c<π the circular Fourier integrals are c² at zero and 2(1−cos nc)/n² otherwise. For c≥π the truncation is inactive everywhere, including at c=π; the hemisphere-sign product averages to 1−2θ/π, so adding the positive constant c−π/2 gives PSD in every dimension. Two distinct antipodal pairs with coefficients (1,1,−1,−1) witness failure of strict PD. On S², integrate the Legendre ODE twice: [sin θ P_n(cos θ)] at θ=c contributes −sin c P_n(cos c), while zero has no boundary term, giving the exact displayed sign and normalization of I_n. The generating-function expansion into frequencies n−2k has nonnegative weights summing to one; away from the central k range integrated frequencies give O(1/n), and in the central range the weights are O(1/n) and the sum of frequency reciprocal bounds contributes the log, including the two resonances. In DLMF 18.15.12–13, taking M=1 and simplifying the signed binomial gives the claimed amplitude and phase and an O_c(n^(−3/2)) pointwise error. Dividing by n(n+1) yields the stated leading term and remainder. For rational c/(2π) the equally spaced orbit has at least three points: their cosines sum to zero and cannot all vanish. For irrational c/(2π) density gives both signs bounded away from zero. The lower-order error cannot remove these strict subsequence signs. Schoenberg's criterion and equatorial S² restriction exclude all higher dimensions.",
+      "residual_risks": [
+        "The asymptotic is for each fixed cutoff inside (0,π); it supplies neither a uniform endpoint expansion nor an effective bound on the first negative degree. Numerical illustrations are not used for the sign subsequences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Ge Theorem 1.9 proves positive definiteness on S² for powers δ≥3/2 and sufficiently small support. Theorem 1.7 requires PSD for every scale in its interval before one can transfer to Euclidean PSD; it is not a per-cutoff obstruction.",
+          "Beatson–zu Castell–Xu state their all-support positivity threshold as Conjecture 1.4 and state Proposition 1.5 at specific integer λ and δ=λ+1. Gneiting's listed compact geodesic Askey results for the lowest three sphere dimensions concern τ≥2."
+        ],
+        "reasoning": "None of these sufficient positive results, or a proposition at different parameters, is a necessary condition that rules out PSD at each individual proper linear cutoff.",
+        "searches": [
+          "Feng–Ge arXiv:2604.11187, Theorems 1.7 and 1.9 and Remark 1.8",
+          "Beatson–zu Castell–Xu arXiv:1110.2437, Conjecture 1.4 and Proposition 1.5",
+          "Gneiting arXiv:1111.7077, Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirror entries above",
+        "Feng–Ge arXiv:2604.11187",
+        "Beatson–zu Castell–Xu arXiv:1110.2437",
+        "Gneiting arXiv:1111.7077",
+        "DLMF §18.15(iii)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quadratic proof uses a Gegenbauer-to-Legendre finite difference and a quadratic cutoff Abel endpoint of order 5/2. Even though the mechanism is similar, its sign theorem is about a different exponent and dimension. Quadratic PSD does not transfer to its pointwise square root by a general PSD closure rule.",
+          "A statement about failing strict positivity somewhere in a family does not itself establish a strictly negative coefficient at every fixed cutoff, much less the phase and leading constant. The frozen ODE boundary term is matched to power one on S²."
+        ],
+        "reasoning": "Distinguished what follows from class inclusion or general asymptotics from what still requires computing the linear coefficient and controlling its origin contribution; the classical criterion itself is not credited as novel.",
+        "searches": [
+          "Quadratic Resultary f0a4fd08c07b primary proof §3, offsets 2400–5652",
+          "Beatson–zu Castell–Xu arXiv:1110.2437, p. 4",
+          "Feng–Ge arXiv:2604.11187, p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized geodesic Askey function (1−θ/c)_+ at power one differs only by a positive scalar from the frozen tent. In spherical Gegenbauer notation S² means λ=1/2, so the frozen coefficient is exactly the power-one λ=1/2 case of the truncated-power integral associated with Eq. (1.4).",
+          "Rotation-angle covariance on SO(3) and a quadratic spherical cutoff do not describe the same zonal kernel and dimension."
+        ],
+        "reasoning": "Compared the kernel under both its truncated-power and harmonic coefficient forms, without confusing angular and chordal distance, normalized versus unnormalized scale, or distinct powers. A threshold anticipated in a conjecture is not settled coverage.",
+        "searches": [
+          "Resultary geodesic linear tent/truncated power, entries f4a1c3f0560e, f0a4fd08c07b and 60360624bd93",
+          "Beatson–zu Castell–Xu arXiv:1110.2437, Conjecture 1.4",
+          "Gneiting arXiv:1111.7077, Table 1 and Schoenberg framework"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact linear entry f4a1c3f0560e is the frozen record itself, not a separate source. The October quadratic entry f0a4fd08c07b instead classifies (1−θ/c)_+²: PSD for d≤3 or c≥π, with a high-degree sign obstruction in dimension four. The neighboring rotation-angle entry concerns SO(3)."
+        ],
+        "reasoning": "The closest table/record hits were distinguished by the exponent and domain, not merely titles. No separate exact linear table or asymptotic was established in the inspected entries.",
+        "searches": [
+          "Resultary and local mirror: f4a1c3f0560e, f0a4fd08c07b and 60360624bd93",
+          "Gneiting arXiv:1111.7077, Table 1"
+        ]
+      },
+      "rationale": "The result proves the exact per-cutoff PSD boundary and an infinite-sign asymptotic for the linear profile. Its framework and positive side are classical. Earlier truncated-power statements include a threshold conjecture, a result at and above power 3/2 for small support, and a close quadratic calculation; the inspected results do not imply the frozen linear classification or its coefficient asymptotic. The quadratic proof supplies a related method and should be distinguished from an earlier theorem covering this claim.",
+      "residual_risks": [
+        "Best-of-knowledge comparison. A separately published general cutoff asymptotic or a sharper PSD necessity criterion could cover part of the claim; the inspected literature does not establish comprehensive priority. Routine circle positivity and other classical components are excluded from the originality judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient positivity above a higher exponent and at small support; not a fixed-cutoff necessity theorem",
+          "evidence": "The scaling-transfer theorem requires PSD for all scaling parameters in the hypothesis; the S² result assumes δ≥3/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.11187",
+          "material_read": "§1, p. 3, Theorems 1.7 and 1.9, Remark 1.8 near extracted offsets 10320–11247",
+          "method": "Open-access PDF, locate and bounded passage",
+          "title": "Isotropic Positive Definite Functions on Spheres",
+          "trigger": "Closest primary recent S² truncated-power theorem"
+        },
+        {
+          "assessment": "Anticipates a threshold for a family; inspected proven cases do not establish the frozen per-cutoff obstruction",
+          "evidence": "Conjecture 1.4 states a strict all-support positivity threshold; Proposition 1.5 gives δ=λ+1 at λ=1,2,3.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.2437",
+          "material_read": "p. 4, Eq. (1.4), Conjecture 1.4 and Proposition 1.5, extracted offsets 10600–12856",
+          "method": "Open-access PDF, locate then opened bounded passage",
+          "title": "A Pólya criterion for (strict) positive definiteness on the sphere",
+          "trigger": "Explicit cutoff-integral conjecture potentially subsuming the linear case"
+        },
+        {
+          "assessment": "Classical framework and higher-power sufficiency",
+          "evidence": "The table's Askey line has c>0 and τ≥2, not τ=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Opening and Table 1, p. 3; Askey line near offset 9381 in the PDF extraction",
+          "method": "Open-access PDF bounded inspection",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Classical harmonic test and tabulated Askey profile"
+        },
+        {
+          "assessment": "Close quadratic analogue; no linear result or theorem covering it",
+          "evidence": "Proof uses C_n^(3/2)=P'_(n+1), a neighboring-degree difference and a power-5/2 Abel edge from the quadratic cutoff.",
+          "identifier_or_url": "2026/10/27/SCOPE-exact-spherical-dimension-and-support-boundary-for-the-quadratic--f0a4fd08c07b",
+          "material_read": "Finding and proof §3, including mirror offsets 2400–5652",
+          "method": "Local mirror, primary result text",
+          "title": "Exact spherical dimension and support boundary for the quadratic geodesic Askey kernel",
+          "trigger": "Closest distinct indexed classification and oscillatory proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–26 and 49–85",
+        "Feng–Ge Theorem 1.9 and the distinct quadratic indexed theorem"
+      ],
+      "rationale": "This gives a useful exact dimension and support boundary for the simplest compact geodesic covariance candidate. It rules out even cutoffs arbitrarily close to π on S² while the untruncated limit is PSD, and identifies the negative high-frequency mechanism and its scale. The distinction between a strict sign obstruction at every proper support and merely lacking a sufficient criterion is substantive.",
+      "residual_risks": [
+        "The result does not classify all powers below 3/2, give explicit minimal finite witnesses or settle the transition for a cutoff varying with degree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

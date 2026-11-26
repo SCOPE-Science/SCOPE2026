@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:25.867253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated synchronous three-state rule on open labelled paths (n>=2), the oriented 01-minus-10 edge indicator changes in an update by the difference of the two 0-to-1 firing indicators. The closed-neighborhood maximum consequently propagates the integrated height, or equivalently the firing-count recurrence in the proof. On a tree the walk integral is its endpoint path integral; at t=n-1 the only potentially new paths of that length are the two endpoint paths. A firing at that time is necessary and sufficient for first rest at n+1. The two endpoint events are disjoint strict terminal extrema. Symbol exchange alone takes the right-endpoint event to positive prefixes; reverse and exchange takes the left-endpoint event to positive prefixes. Thus the wording suggesting one identical operation for both events should be read with the preceding reflection argument. Each positive-prefix word starts 01, and 01 followed only by 2s shows sharpness at every length. To check the kernel solution, subtract U=1/(1-3z) from each continuation series and use the small root rho of z^3*rho^2-(1-3z+2z^3)*rho+z^3=0. The correction for final letter 0 at height h is -U*rho^h and for final letter 1 is -U*rho^(h-1)*[z(1-z)+z^2*rho]/(1-2z); eliminating the final-letter-2 series verifies the recurrences and the boundary. Their coefficients are unique by length. This gives the stated square root, trinomial sum and dominant singular coefficient 2/(3*sqrt(3)). A separate synchronous simulation over all words for n=2..8 gave sharp counts 2,4,10,26,70,192,534, each twice the separately counted positive-prefix population. The frozen package's verify.py and verification_output.txt describe further bounded checks; the supplied script was inspected, not executed. The finite reproduction does not prove the general formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November record includes every assigned n and also n=1.",
+          "The earlier arbitrary-graph walk formula and infinite-line strict-ballot asymptotic are related but do not state the exact open-path population."
+        ],
+        "reasoning": "The broader indexed n>=1 statement covers the frozen n>=2 claim exactly. The older results provide techniques rather than independent evidence of historical priority for this application.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Lemma 1",
+          "Durrett–Steif 1991 Section 2",
+          "Fisch–Gravner 1995 free boundary passage",
+          "Resultary: sharp-time generating function and asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–72 and companion VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary comparison above",
+        "OEIS A025565 and A002426",
+        "Durrett–Steif 1991",
+        "Fisch–Gravner 1995",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator states the same asymptotic 2/(3*sqrt(3*pi*n)) and the same sharp time. Durrett–Steif treat an infinite-line one-site event with a strict-survival mechanism, not this global open-path sharp shell."
+        ],
+        "reasoning": "The comparator already delivers the dynamical identification; the trinomial form follows by coefficient extraction from its exact series. Neither the proof presentation nor the explicit sum is a distinct surviving theorem.",
+        "searches": [
+          "November comparator Finding and Relationship to prior work",
+          "Durrett–Steif 1991 Section 2 compared with frozen endpoint event"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparator Finding and scope, offset 0: E_n counts the same labelled words with T=n+1, and sum_{n>=1} E_n z^{n-1}=sqrt((1+z)/(1-3z))."
+        ],
+        "reasoning": "The symbols, threshold, simultaneous updates, free boundaries and time origin agree. Multiplying by z and removing zE_1=z gives exactly the frozen generating function, not merely a numerical match.",
+        "searches": [
+          "Resultary: exact finite open-path Greenberg–Hastings last-step count and strict positive-prefix ballot count",
+          "Resultary: maximal-extinction square-root generating function and asymptotic",
+          "2026/11/8/SCOPE-a-square-root-law-for-maximal-extinction-times-in-three-state-ex--2a387c4efac2/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A025565 Formula: x*sqrt((1+x)/(1-3x)); coefficients are the sums of consecutive central trinomial coefficients A002426, and its table begins 1,2,4,10,26,70,192,534."
+        ],
+        "reasoning": "Matching coefficients and the complete generating function identify the sequence exactly after removal of the n=1 term; the sequence entry is not a proof of its excitation interpretation.",
+        "searches": [
+          "Resultary: population sequence 2,4,10,26,70,192,534",
+          "OEIS A025565",
+          "OEIS A002426"
+        ]
+      },
+      "rationale": "A distinct indexed record, A square-root law for maximal extinction times in three-state excitation on finite paths, explicitly gives the same sharp time, counts, generating function and asymptotic under identical open-boundary dynamics, with the additional n=1 case. This is duplicate coverage at review, not evidence of earlier priority: the comparator is dated 2026-11-08 UTC, later than the assigned record's dated path. OEIS establishes much older coverage of the pure integer sequence and its formula, not by itself the dynamical interpretation.",
+      "residual_risks": [
+        "No historical priority conclusion is drawn from an equivalent record with a later catalog date. An older unindexed finite-volume equivalent remains possible; irrelevant search results are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent distinct record, with extra n=1 case; does not establish earlier priority",
+          "evidence": "Sharp upper bound is attained; same maximal-time population series and uniform-start asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-square-root-law-for-maximal-extinction-times-in-three-state-ex--2a387c4efac2/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof at offset 0; prior-work discussion near offset 7693",
+          "method": "Published full record, bounded passages",
+          "title": "A square-root law for maximal extinction times in three-state excitation on finite paths",
+          "trigger": "Exact same model and square-root series"
+        },
+        {
+          "assessment": "Covers pure enumeration",
+          "evidence": "Same generating function and consecutive-trinomial identity.",
+          "identifier_or_url": "https://oeis.org/A025565 and https://oeis.org/A002426",
+          "material_read": "A025565 table and Formula, A002426 definition and table",
+          "method": "Primary sequence database",
+          "title": "OEIS A025565 and A002426",
+          "trigger": "Exact sequence and trinomial interpretation"
+        },
+        {
+          "assessment": "Related survival problem, not the exact finite open-path population in the inspected statements",
+          "evidence": "Infinite-line one-site asymptotic via strict random-walk positivity.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "material_read": "PDF p. 2 and Section 2, PDF pp. 5–8",
+          "method": "OA full text, bounded passages",
+          "title": "Some Rigorous Results for the Greenberg–Hastings Model",
+          "trigger": "Closest older ballot and survival result"
+        },
+        {
+          "assessment": "Structural starting point",
+          "evidence": "Firing count is a maximum of integrals over walks of length at most t.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Lemma 1, PDF p. 4",
+          "method": "OA full text, bounded passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Source of path-integral lemma"
+        },
+        {
+          "assessment": "Related scope; inspected passage does not supply the count",
+          "evidence": "Explicitly allows finite subsets with free boundaries.",
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "Free-boundary definitions on PDF p. 3",
+          "method": "OA full text, bounded passage",
+          "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+          "trigger": "Earlier work on free boundaries"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact sharp-time stratum is a meaningful dynamical invariant, but the assigned record adds no distinct result beyond the already indexed dynamical statement. Its alternative consecutive-trinomial expression is the known sequence identity applied to that same series.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

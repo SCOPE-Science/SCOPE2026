@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:36.748471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bounded budget simplex has a connected finite-valued design, and inverse trace diverges approaching disconnection (the eigenvalue lambda_2 of the full Laplacian tends to zero). For A=L+11^T/n and a nonzero Laplacian perturbation H, put D=A^{-1/2}HA^{-1/2}. The inverse-trace Hessian is 2n tr(D² A^{-1})>0; the edge-to-Laplacian map is injective. Uniqueness gives the three orbit variables and connectivity gives b>0. With k=n-2, the positive eigenvalues are x=2a+kb, nb, and z=2b+kc of multiplicity k-1. The trace problem exhausts the linear budget by homogeneity. Interior KKT for F=K/n gives lambda=2/z², z²=r x² and x²/b²=n[2(k+1)/r-k]. Thus a>0 iff r<n/k, and z²/b²>=nk>4 on the entire interior branch and at its endpoint, so c>0; enforcing the budget recovers T. At a=0 the b,c equations give z/b=sqrt(nk); the remaining KKT slack is 2(rk/n-1)/(k²b²), hence that branch is optimal at and above n/k, and remains unique at equality. Euler homogeneity gives K*=n lambda B including on the boundary. The D record has unique deletion beginning at r_D; the E support criterion has coexistence at r_E, not universal deletion there. Independently, at fixed spectral gap 1, averaging by the symmetries preserves feasibility and a. Given b>=1/n, minimize cost with a=(1-kb)^+/2 and c=(1-2b)^+/k. Cost on [1/n,1/k] has slope k+1-rk/2 and strictly increases beyond 1/k, so precisely the E tie allows both a=0 and a>0. Accordingly the A/E disagreement is compulsory on [r_A,r_E), with possible E retention also at the E tie; the width is 1 either way. D/A disagreement is [r_D,r_A), width 1/k. Replay: the exact spectrum and KKT/equality calculations above and RESULT.md §§1–5; VERIFICATION.md and verify.py were inspected as finite corroboration, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tovar et al. cover arbitrary positive coefficients at exponent one and give a squared-biharmonic-distance optimality predicate, with a one-expensive-edge triangle as example; their closed complete-graph example has uniform prices. Ghosh et al. give strict convexity, conditions and the equal-price K_n optimum."
+        ],
+        "reasoning": "The optimization problem itself is directly inside Tovar's framework; an earlier general theorem that already solved the nonuniform complete-graph optimum would cover the claim. The inspected predicates characterize unknown optimal designs but do not provide the edge-weight ratios or marginal resistance at a deleted K_n edge for arbitrary n>=4. The triangle does not cover n>=4.",
+        "searches": [
+          "arXiv:2610.03627v1 Eq. (3), Eqs. (6)–(7), Eqs. (8)–(9); DOI:10.1137/050645452 §§2.7, 4.2, 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 75c0841ce157, c0a7ce2499f8, cf3b1355b128, 47b5b2f5e0a8",
+        "Ghosh–Boyd–Saberi DOI:10.1137/050645452; Tovar et al. arXiv:2610.03627v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broader KKT theory yields a deletion test once the conductances on K_n minus the marked edge and its marginal value are known. In this problem the active optimum requires z²=nk b², unlike the uniformly priced complete graph.",
+          "The D and E thresholds give the endpoints of the comparison, not the A cutoff. The widths are elementary deductions once r_A is known."
+        ],
+        "reasoning": "The mathematical overlap with the generic marginal-worth theorem is real, and its machinery is credited. The one-edge problem still has to be solved explicitly for all n, including feasibility of the remaining edge classes and the strict boundary inequalities. The inspected matching/triangle results do not provide those quantities for a single priced edge.",
+        "searches": [
+          "arXiv:2610.03627v1 §III Eqs. (6)–(7); 75c0841ce157 Finding/Proof; c0a7ce2499f8 Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objectives sum reciprocals, maximize a product, and maximize the least positive eigenvalue, respectively; the same priced edge genuinely has different optimal support cutoffs.",
+          "The triangle record prices three marked edges all of a common price; the perfect-matching record prices n/2 edges on even n. Neither uniform rescaling of prices nor vertex relabeling reduces those prices to one marked edge for n>=4."
+        ],
+        "reasoning": "A-optimality and the Kirchhoff index are equivalent up to the factor n on 1-perp; the determinant and gap are not equivalent there. A different orbit of cost coefficients cannot be turned into the frozen case by a relabeling or by taking a limit in the single shared price parameter.",
+        "searches": [
+          "Resultary 47b5b2f5e0a8, cf3b1355b128: exact Kirchhoff-index support transitions; Resultary 75c0841ce157, c0a7ce2499f8: same-price problem under D and E criteria",
+          "Ghosh–Boyd–Saberi DOI:10.1137/050645452 §6; arXiv:2610.03627v1 §§II–IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triangle comparator has threshold n(n-2)/[(n-3)(n-1)] for n>=6 (with additional n=5 phases); the perfect matching threshold is n²/(n²-2n+2). The known D and E values on the frozen price family are (n-1)/(n-2) and 2(n-1)/(n-2)."
+        ],
+        "reasoning": "No separate matching table or statement was located for the A optimum. These are exact thresholds, but the parameter-to-design maps differ. The same-date triangle result was compared without inferring priority from date.",
+        "searches": [
+          "Local Resultary semantic comparison: 47b5b2f5e0a8, cf3b1355b128, 75c0841ce157, c0a7ce2499f8"
+        ]
+      },
+      "rationale": "Support for the closed one-exceptional-price A-optimal solution and its comparison with the independently known D and E transitions. Neither general optimal-design theory nor a general KKT deletion test is new. The Tovar et al. weighted linear budget and support predicate are applicable as written, but to obtain this cutoff and both formulas one still has to solve for the deleted-network and interior optima in the one-priced-edge orbit; the inspected results do not solve those designs.",
+      "residual_risks": [
+        "A prior explicit evaluation of the one-edge optimum in a different parametrization could remain unindexed. The additional targeted literature query yielded noisy rather than decisive results; the assessment rests on statement-level comparisons with the named sources.",
+        "No inference of priority from a same-date entry or from the availability of a numerical checker."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological coverage; explicit one-price K_n solution not supplied in inspected results",
+          "evidence": "Arbitrary positive costs at alpha=1, squared-biharmonic-distance support predicate, priced triangle example, uniform complete-graph example.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+          "material_read": "§II p. 2 Eq. (3), offset 10169; §III p. 3 Eqs. (6)–(7), offsets 15060–21473; §IV p. 3 Eqs. (8)–(9)",
+          "method": "Primary OA PDF passages",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "Same weighted linear-cost Kirchhoff design and support deletion test"
+        },
+        {
+          "assessment": "Convexity and KKT precedent; the example does not have one different price",
+          "evidence": "Strict convexity, normalized budget optimality conditions, equal-price complete graph.",
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "§2.7 pp. 44–45 offset 27765; §4.2 pp. 51–52 offset 51176; §6 pp. 61–62 offset 85362",
+          "method": "Primary OA PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational Kirchhoff-index optimization and complete-graph example"
+        },
+        {
+          "assessment": "Verifies outer D benchmark, not A optimum",
+          "evidence": "Unique optimum deletes at r>=(n-1)/(n-2) under identical price class.",
+          "identifier_or_url": "75c0841ce157",
+          "material_read": "Finding and Proof, start offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp single-price deletion threshold for D-optimal complete-graph conductances",
+          "trigger": "Same feasible family, determinant benchmark"
+        },
+        {
+          "assessment": "Verifies outer E benchmark with coexistence at equality",
+          "evidence": "Below r_E a uniform optimum, above all delete, at r_E optima with and without the marked edge.",
+          "identifier_or_url": "c0a7ce2499f8",
+          "material_read": "Finding and Proof, offsets 0 and 6822",
+          "method": "Local mirror RESULT.md",
+          "title": "A single-pair versus multi-pair price threshold for spectral-gap design of complete graphs",
+          "trigger": "Same feasible family when marked matching size equals one"
+        },
+        {
+          "assessment": "Different price orbit, no one-edge specialization at n>=4",
+          "evidence": "Prices every edge of a perfect matching in the even complete graph.",
+          "identifier_or_url": "cf3b1355b128",
+          "material_read": "Finding and Proof, offsets 0 and 6805",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp matching-price transition in resistance-optimized complete networks",
+          "trigger": "Same objective and price-transition mechanism"
+        },
+        {
+          "assessment": "Distinct anomalous triangle family",
+          "evidence": "Three simultaneously priced triangle edges, different threshold and small-order support phases.",
+          "identifier_or_url": "47b5b2f5e0a8",
+          "material_read": "Finding/Proof opening, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "An exceptional two-stage support transition for resistance-optimized complete networks",
+          "trigger": "Strongest same-date catalogue neighbor by objective and anomalous pricing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single expensive link is the minimal heterogeneous-price network design. Solving it exactly shows that choosing one standard optimality criterion over another can change both the weighted design and the decision to eliminate the anomalous link. The gap between A and E remains one unit of relative price even as the network grows; this structural distinction would not follow from general convexity, the homogeneous design, or an isolated numerical solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

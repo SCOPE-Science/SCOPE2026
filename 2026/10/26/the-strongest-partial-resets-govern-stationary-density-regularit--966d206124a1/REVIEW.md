@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant representation follows from independent exponential holding times, the Laplace law for a Brownian increment over an exponential time, and multiplicative contraction. The full-reset cusp is the derivative jump of the Laplace kernel convolved with a measure with atom \(p_0\) at zero. Under \(0<q_-\le Q\le q_+<1\), the upper characteristic-function bound is the deterministic \(q_-\) product; a lower bound costs only \(\exp(-O(y))\) for an order-\(y\) sequence of near-minimal resets. Both bounds give \(\log\phi(ae^y)/y^2\to-1/(-\log q_-)\). Fourier inversion and a positive-integrand Laplace principle yield the all-order derivative exponent \(-\log q_-\), establishing smoothness and nonanalyticity. The assumptions and boundary \(q_->0\) are essential. The finite verifier has 223 checks and is corroborative, not a replacement for the proof.
+PASS
 
-## Originality — PASS, qualified
+Checked the stationary two-sided Poisson construction: the age and preceding gaps are iid Exp(r), their Brownian increments mix to Laplace(a), and the contribution from j gaps back is multiplied by at most q_+^j. A synchronous coupling contracts by q_+ per reset and proves uniqueness. For f=ell*nu, nu=Law(QX'), only the Q=0 part gives an atom at 0 since X' has a density. Bounded difference quotients give the derivative jump -a^2 nu({0}); equivalently the jump comes from the delta term in (r-D partial_x^2)f=r nu. The positive-q_- case is a separate regime, not an additional hypothesis compatible with p_0>0. With h=-log q_-, the deterministic product upper bound gives log phi(a exp y)<=-y^2/h+O(y). Conditioning the first ceil(y/(-log b)) contractions to be <=b for any b>q_- costs only exp(-O(y)); the remaining factors have a uniform positive product by q_+<1. Summing the arithmetic progression in the bounded products and letting b decrease to q_- gives the sharp matching lower limit. All polynomial Fourier moments exist. For the 2k-th derivative, after t=a exp y, sandwich the exponent on y>=Y between (2k+1)y-(1/h±epsilon)y^2, with the remaining t<=a exp Y contribution at most exponential in k. The upper Gaussian integral and a fixed-width interval around the lower Gaussian maximizer yield h for the k^-2 log-limit. Positivity prevents cancellation, and factorial growth is o(k^2) on the log scale, proving zero Taylor radius. Analytic replay: RESULT.md §§1–4. Additional deterministic normalization check: for Q=q, multiplying the product by 1+(t/a)^2 gives Phi_q(qt), hence its even Fourier integrals satisfy I_{2k}/I_{2k-2}=a^2(q^{-(2k-1)}-1); summation reproduces the leading constant. Inspected verify.py and its recorded 223 finite checks without executing the uploaded code; they are not proofs of the limits.
 
-The prior deterministic partial-reset product and stationary distribution from Di Bello et al. (2023) are explicitly credited; the moment formalism and random-affine reset framework of Assefa et al. (2026) are also credited. Kolb–Wübker (2026) treats the deterministic setting, and Ferreiro-Castilla–Utzet (2010) treat deterministic infinite Laplace convolutions. Material from their primary texts was compared for the exact high-derivative claim. None of the inspected results implies the stated dependence on the essential infimum of a *random* reset factor, or the combined cusp/high-derivative classification. Published-query and mathematical-record searches found no equivalent theorem. Generic perpetuity regularity literature could overlap implicitly and remains a priority risk; a search miss is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two regularity mechanisms are natural and experimentally identifiable consequences of the same affine resetting model. Unlike finite moment formulas, the sharp high-derivative exponent identifies the smallest admissible contraction scale, robust to an arbitrarily small but positive probability of strongest resets. The essential-infimum fingerprint and discontinuous cusp at zero-reset mass provide a structural boundary between complete and strictly partial resets, rather than a new notation for existing moments or a finite special-case calculation.
+Credit the sharp universality over genuinely random iid contraction laws with positive essential infimum. The fixed-contraction special case has direct and even sharper overlap; the zero-atom formula is a useful but short consequence of the stationary adjoint equation, not a separate new method. Same display date does not settle priority.
 
-## Closest literature and limitations
+## value
 
-Assefa–Keller-Ressel–Palmowski, arXiv:2610.01363v1 (moment and cross-moment formalism); Di Bello et al., arXiv:2305.13722 (fixed-multiplier stationary product); Kolb–Wübker, DOI:10.1112/blms.70314 (fixed-multiplier invariant/quasistationary laws); Ferreiro-Castilla–Utzet, arXiv:1009.1543 (general deterministic Laplace convolutions). No sharp high-derivative exponent is claimed when the essential infimum is zero without an atom at zero. Neither priority nor mathematics has been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The logarithmic derivative rate extracts the strongest essentially available contraction from the density even if contractions near that bound are rare. This is materially different from fixed-factor smoothness or finite moment identities. Distinguishing the zero atom by an exact spatial jump gives a useful contrasting diagnostic without extending the claim to the unresolved regime ess inf Q=0 with no atom.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

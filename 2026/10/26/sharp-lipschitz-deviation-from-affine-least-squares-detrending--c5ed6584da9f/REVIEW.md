@@ -1,23 +1,21 @@
-# Review of sharp affine-detrending inequality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-two affine projector is reconstructed from the orthogonal basis, giving an exact integration kernel for the Lipschitz derivative. The absolute kernel mass has two explicit rational branches. On the first branch its factored derivative determines one strict local minimum; on the second the mass increases strictly. The only global maximizers are the interval endpoints, each of exact mass \(8/27\), and equality in the integral triangle inequality fixes the two derivative sign patterns. The exact-arithmetic replay checks the algebra; it is not used to infer an infinite or continuum theorem from a grid.
+PASS
 
-## Originality — PASS within inspected evidence
+The numerical and equality statements are unchanged in the repaired RESULT.md. Centering the affine basis gives coefficient 12 on the second moment; integrating the primitive of f=g' against it yields the real kernel 1_{t<=x}+t-1-(6x-3)t(1-t), with zero signed integral and antisymmetry under (x,t)->(1-x,1-t). On 0<=x<=1/3 put c=1/(3-6x), u=c-x>0. Twice the negative mass is u^2(1-c+2u/3)/c. On 1/3<=x<=1/2 it is 2 times the integral of t(1-a+at) over [0,x], for a=6x-3, giving 4x^2(1-x)^2. An independently evaluated exact symbolic integration/differentiation in SymPy verified these masses, the derivative factorization and the junction and endpoint values; the uploaded checker was inspected, not run. On the first branch the two other quadratic factors are positive and the denominator is negative, so the derivative changes from negative to positive only at (3-sqrt(3))/6; the second branch ends at 1/4. Comparing 8/27, 16/81, and 1/4 and reflecting gives strict global rigidity. Equality in the integral bound requires saturation of the derivative magnitude and a common complex phase times the kernel sign almost everywhere, giving exactly the two specified kink profiles up to scaling and constants. This covers every Lipschitz input, including the separate zero-seminorm case.
 
-The closest inspected sources are [1] on \(L^\infty\) stability of unrelated kernel-space projectors, [2] on Hilbert-space Volterra polynomials, and [3] on periodic reverse Bernstein inequalities. None has the same operator, derivative seminorm, endpoint sharp constant, or equality class. An earlier mean-centered fractional-integral result removes only the mean, not the affine trend. Searches for affine detrending, Peano kernels, two vanishing moments and the numeric constant found no exact covering statement. However, specialist Ostrowski or old least-squares inequalities could contain an equivalent result and historical priority is not conclusively settled.
+## originality
 
-## Value — PASS
+PASS
 
-Affine least-squares detrending is a natural quantitative operator. Its sharp Lipschitz-to-uniform error has direct interpretation as the worst approximation distortion of a one-slope trend, and the precise localization/equality classification distinguishes it from a routine projector boundedness estimate.
+The frozen comparison omitted a same-day exact endpoint overlap. The repaired RESULT.md explicitly credits that comparison and makes the contribution the strict global comparison over all evaluations and resulting full uniform-norm equality classification, not the already covered numerical endpoint calculation. Reassessed PASS for this scope; no chronological priority inferred from a shared date.
 
-## Checks and limits
+## value
 
-The auxiliary `checker.py` replays 12,910 exact-rational assertions; the continuum argument depends on the factorization and sign proof in `RESULT.md`. The claim does not extend to nonuniform weights, quadratic trends, or higher dimensions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Endpoint error alone permits worse interior error and does not classify equality for the sup-norm residual over the whole interval. Deciding that comparison and exhaustively identifying worst-case profiles is useful for sharp Lipschitz-to-uniform distortion of affine detrending, even without claiming the endpoint computation as new.
 
-## Sources
-
-[1] arXiv:1005.2424. [2] arXiv:2206.09947. [3] arXiv:2302.10122.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The local branch is exact because both mixed inputs stay below \(r<\xi_p\) prior to exit. The survivor compactness bound follows from a uniform inverse-power decrement for the mean. The exact rescaled recurrence converges to the coupled ODE for finite \(n\varepsilon_n\), and a dyadic scalar lower comparison excludes points whose limiting ODE blows up before unit time. For diverging \(n\varepsilon_n\), an initial layer kills the antisymmetric coordinate while changing the mean by \(o(1)\). Downward-closed survivor geometry gives a zero-area blow-up boundary, legitimizing dominated convergence. Cooperative comparison and strict convexity establish the amplitude bounds. The included checker verifies representative algebra and trajectories, but finite simulations are not proofs.
+## correctness
 
-## Originality — PASS, with priority risk
-The model and escape exponent appear in Sala–Manchein–Artuso (arXiv:1410.4806), but their inspected Section 3.3 does not derive the leading amplitude or the \(n\varepsilon_n\)-scale transition. Kim (arXiv:chao-dyn/9808002) studies a saddle-node renormalization problem and does not imply this exact neutral-corner escape law. Bahsoun–Korepanov (arXiv:2303.05311) establish mean-field stationary statistical results, not the finite-site first-exit area. Exact-claim, alias, weak-coupling and dominance searches returned no equivalent theorem in the inspected sources. General ODE/Euler convergence is classical and is not claimed as new. Unindexed historical calculations and other papers not reviewed in full remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The original dynamics motivates determining the leading amplitude of its observed escape tail and how that amplitude depends on vanishing coupling. The result supplies an intrinsic crossover function for the natural dimensionless product of coupling and observation duration and proves a sharp factor-two change between uncoupled and synchronized-neutral-corner limits, despite an unchanged exponent. The finite-dimensional ODE area is a natural surviving invariant rather than an arbitrary numerical slice.
+Reconstructed the first-exit proof on the exact unwrapped branch, including the output at the first hit. Jensen gives m_next >= m+m^p, so the inverse-power decrement on [0,r) localizes every n-step survivor to a fixed box after scaling by n^(1/(p-1)). At bounded n*epsilon the exact scaled recurrence is Euler-consistent until ODE blow-up. If blow-up precedes one, advance to a large but fixed mean M and bound the remaining time by a dyadic sum of order n*M^(1-p)+O(log n), forcing actual exit. The ODE maximum has derivative between M^p-rho*M and M^p, hence a universal blow-up coefficient. Scaling a solution down gives a supersolution by convex homogeneity; two starts on one positive ray cannot have the same blow-up time by the universal coefficient. Thus the time-one equality set has area zero by radial integration. For n*epsilon tending to infinity, the difference contracts by a factor at most (1-2*epsilon)(1+O(1/n)) on bounded sets; an o(n)-step layer with epsilon times its length divergent erases disparity while preserving the scaled mean to o(1). The scalar mean limit plus the exit bound gives the triangle u+v<2*a_p. As a separate exact check at epsilon=1/2, the first step applies the scalar branch to the mean and makes both coordinates equal. If b_n is the scalar n-fold backward threshold of r and 2*b_n<r, the survivor area is exactly 2*b_n^2, versus b_n^2 uncoupled. The limiting area normalization includes the factor r^-2. In (mean, absolute difference), the two nonnegative cross derivatives give monotonicity in rho. The square expands strictly near (a_p,b) with 0<b<a_p by strict damping of the upper coordinate, and the triangle loses positive area near an off-diagonal sum-boundary point by strict Jensen growth. Bounded-time dependence plus the large-mean exit bound handles continuity at finite rho; continuous-time fast synchronization gives continuity at infinity. The supplied script was read, not run; its finite trajectory comparisons are not needed for the proof.
 
-## Limits and nearest literature
-The result is local and first-exit only; no invariant-density theorem, global mixing statement, closed interior coefficient, or finite-\(n\) error bound is asserted. Relevant sources: arXiv:1410.4806 (full model and numerical escape analysis), arXiv:chao-dyn/9808002 (different intermittency renormalization), arXiv:2303.05311 (different mean-field statistical limit); the 2011 intermittent-hole work was compared at abstract level only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same map, local uniform square ensemble and escape exponent are established comparison points, not the novelty. The supported distinct claim is the all-sequence coefficient crossover, including its intrinsic finite-rho survival area and its sharp endpoints, not an assertion of priority for the exponent or Euler scaling alone.
+
+## value
+
+PASS
+
+The power law alone misses a discontinuity in leading survivor mass between zero and any fixed positive coupling. The theorem resolves that noncommuting limit in a natural observation window and determines an intrinsic, continuous monotone coefficient with strict interior bounds. It upgrades a directly comparable numerical escape problem without claiming an invariant-measure result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

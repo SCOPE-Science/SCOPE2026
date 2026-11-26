@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:13:03.363249Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and all six accompanying files, inspected without executing the supplied verifier",
+        "Independent vertex-by-vertex union-mask dynamic program on literal hyperedges, retaining minimum cardinality and tied count per state: all 70 cases m=1…14, r∈{3,4,5,7,12} agreed. Replay: python /workspace/checks/hyperpath_cover.py"
+      ],
+      "rationale": "A private vertex covers a length-3 edge interval and a junction a length-4 interval before clipping. The bound q=ceil(m/4) is attained for m≥2 by using junctions 2,6,…,4q−6 and last junction min(4q−2,m−1); the last interval reaches m and starts no later than the first uncovered edge, with q=1 interpreted as just the last junction. An optimum cannot include nested or equal intervals. For increasing ends and starts, the width deficit telescopes to the sum of private bits, consecutive overlaps and the two overhang bits. Since t≤3, an overlap equal to 3 forces length 4 on both sides; all reconstructed endpoint increments are positive. The first start and last end force all reconstructed intervals to be valid: ending at most m+1 implies start at most m−1 for length 3 and m−2 for length 4. Private choices have weight a−1 plus one for each coincident path endpoint. For q≥2 put G=1+az/(1−z); the claimed series is G^(q−2)(G−az³/(1−z))²/(1−z), which through z³ equals G^q/(1−z)−2az³. Its coefficient is sum_k binom(q,k)binom(t,k)a^k minus 2a when t=3. Single-vertex covers at m=1,2,3,4 count r,2r−1,r,1 directly. Zero defect forces exact width-four tiling, hence uniqueness.",
+      "residual_risks": [
+        "Finite replay only corroborates the reasoning. Read the slogan's residue-four phrase as selection of a polynomial; except in the rigid case its value also depends on q, as stated precisely in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former provides a sharp general upper bound for a minimum cardinality. The latter gives packing duality and equality cases for an order bound on all uniform hypertrees; its edge separation characterization implies ceil(m/4) for loose paths by spacing packed edges four indices apart."
+        ],
+        "reasoning": "That implication covers the scalar optimum, but not how many transversals attain it. A maximum packing and an algorithm returning one transversal do not determine all possible minimizers or their endpoint multiplicities.",
+        "searches": [
+          "arXiv:2611.17489v1 Theorem 1",
+          "arXiv:2611.24477v1 Theorem 2.2 and §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17489v1",
+        "arXiv:2611.24477v1",
+        "Resultary f3337f5ab080 and 4d710023d8c9 indexed statements",
+        "Frozen prior-work and verification notes as leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Zhang–Qu classifies hypergraphs attaining an order bound, not vertex subsets in each hypergraph. The corpus circular theorem uses a cycle with no terminal edges, hence no pair of endpoint overhang bits."
+        ],
+        "reasoning": "Neither gives the path-specific correction −2a at defect 3 or the labelled open-boundary census; obtaining those requires a boundary-sensitive counting argument.",
+        "searches": [
+          "Li–Zhang–Qu Theorem 2.2 and Theorem 3.2",
+          "Resultary loose-hypercycle type-refined census f3337f5ab080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At k=r, clique isolation in Baluci–Borg is ordinary edge isolation; equally this problem counts minimum vertex transversals of edge neighborhoods, or weighted minimum interval covers of this particular path.",
+          "The nearest distinct corpus hits count minimum sets for uniform loose hypercycles (f3337f5ab080) and ordinary graph cycles (4d710023d8c9)."
+        ],
+        "reasoning": "Those are circular covers. Cutting the cycle destroys wraparound coverage and changes the weights of terminal private vertices; their claims cannot simply be relabelled as this path count.",
+        "searches": [
+          "Resultary: minimum isolating vertex sets uniform loose hyperpaths enumeration boundary defects",
+          "Web: minimum isolating sets count loose hyperpath uniform hypergraph isolation number enumeration path residue four Li Zhang Qu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus hit the assigned record and the distinct circular counts, not another table for all the path lengths and ranks. The public-web hits did not give a relevant exact table."
+        ],
+        "reasoning": "The compared cycle table has four minima at four edges, whereas the path has one. No path-specific table from the checked sources supplied this family; this is not exhaustive search evidence.",
+        "searches": [
+          "Resultary loose-hyperpath enumeration query above",
+          "Web loose-hyperpath enumeration query above"
+        ]
+      },
+      "rationale": "Best of current knowledge: the all-length labelled minimum-set multiplicities and the two endpoint weights are not covered by the inspected isolation-number theory or the available circular enumeration. The minimum size by itself is elementary and is not the novelty basis.",
+      "residual_risks": [
+        "No independent full-text claim is made for the two corpus cycle records or the 2024 Partial domination of hypergraphs article. An older equivalent path-transversal enumerator under another name could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cardinality bound, not multiplicity",
+          "evidence": [
+            "Theorem 1 bounds the scalar isolation number and identifies a sharp family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17489v1",
+          "material_read": "Introduction, clique-isolation definition, Construction 1, Theorem 1 and its proof setup",
+          "method": "Compare objective and sharpness construction after k=r",
+          "title": "Isolation of k-cliques in uniform hypergraphs",
+          "trigger": "Same isolation definition and general sharp bound"
+        },
+        {
+          "assessment": "Recovers optimum cardinality in the specialization, not its degeneracy",
+          "evidence": [
+            "Incidence distance ≥8 means at least four hyperedge-index steps; §3 concerns extremal input hypertrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.24477v1",
+          "material_read": "Definitions, §2 (including Theorem 2.2 and distance characterization), §3 construction and Theorem 3.2",
+          "method": "Specialize the packing condition to path edge indices and compare equality enumerand",
+          "title": "The isolation number of uniform hypertrees",
+          "trigger": "Broader class and exact optimum by packing"
+        },
+        {
+          "assessment": "Circular counterpart, not evidence against the path boundary formula",
+          "evidence": [
+            "Four periodic minima for edge count divisible by four, unlike the path's unique phase at zero defect."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-minimum-isolation-on-uniform-loose-hypercycles-type-refined-cens--f3337f5ab080",
+          "material_read": "Indexed scientific statement only",
+          "method": "Compare labelled minimum-set count and periodic geometry",
+          "title": "Minimum isolation on uniform loose hypercycles: type-refined census and exchange connectivity",
+          "trigger": "Closest exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md formulas, defect reconstruction and singleton case",
+        "Li–Zhang–Qu cardinality comparison and corpus loose-hypercycle statement"
+      ],
+      "rationale": "The degeneracy of optimum isolation, not just its cardinality, describes robustness of the best choices on a standard acyclic uniform family. The exact labelled formulas give all-length alternatives and identify complete rigidity at multiples of four. The boundary correction explains where cutting a periodic geometry changes the count, without relying on arbitrary size cutoffs.",
+      "residual_risks": [
+        "No inference to nonminimum covers or general hypertree multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

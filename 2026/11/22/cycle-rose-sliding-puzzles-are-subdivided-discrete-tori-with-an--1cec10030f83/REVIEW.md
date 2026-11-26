@@ -1,19 +1,21 @@
-# Review of the cycle-rose sliding-puzzle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The component-state classification is proved by reducing hub-return blank walks to oriented petal loops and noting that these act by commuting, disjoint full-cycle token rotations. The explicit core subdivision is a graph isomorphism, including two distinct parallel core edges for every triangle petal. The spanning-tree formula follows from a direct spanning-tree subdivision bijection and the weighted matrix-tree theorem. Both spectral normalization (division by the core vertex count) and the all-triangle specialization are explicitly derived. The independent finite verifier compares the complete original swap component with the constructed core and compares two exact integer determinant computations. No finite enumeration is taken as a substitute for the unrestricted proof.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+Each oriented petal lap rotates exactly its d_i nonhub labels and fixes the others. A closed blank walk based at the hub reduces by backtracks to a concatenation of oriented petal laps and their inverses. Their actions commute, have orders d_i, and act freely on the distinct labels, so there are exactly L hub states in each component. For each nonhub location on a petal, reversing the forward segment from the hub assigns its state a unique initial hub state; thus each oriented lap from a hub state gives a path to the next coordinate state with distinct interior states, and the paths exhaust all nonhub states. Each nonhub blank has just two neighbor choices; at the hub the two directions in each petal are the starts or ends of these paths. In particular a triangle supplies two separate paths between the same two core endpoints. This gives NL vertices, LΣm_i edges and cycle rank 1+(r−1)L. The N! complete labelings split into (N−1)!/L components. A spanning tree omits at most one segment per subdivided edge, since two omissions would strand a nonempty interior section. The full paths give a core spanning tree, and conversely the omitted segment of each remaining path can be chosen in m_i ways. This multiplies the weighted core tree sum by ∏m_i^L. Conductances 1/m_i give mode eigenvalues Σ(4/m_i)sin²(πk_i/d_i), with d_i=2 contributing 4/m_i, not 2/m_i; dividing the nonzero eigenvalue product by L gives the stated ordinary tree count. Binomial multiplicities give the all-triangle specialization. A separate literal-graph exploration suppressed each length-graded chain, compared the exact multigraph to the core, and computed both rational Kirchhoff cofactors. It reproduced all five cited tree counts and checked a mixed (3,4,5) rose as well. The algebraic and graph arguments, not the finite checks, prove the theorem for unrestricted petal parameters.
 
-Yang's recent seven-page paper (arXiv:2611.23295v1) concerns vertex-disjoint routes for **2-connected** boards; these roses are not 2-connected. Krishnan–Li (arXiv:2410.21334v3) gives component vertex connectivity, not the complete component graph or spanning-tree complexity. Defant–Kravitz (arXiv:2009.05040v2) treats one cycle and gives cut-vertex component-count lower bounds, not the multi-petal graph isomorphism or tree product. The inspected Jeong and Defant–Dong–Lee–Wei studies address girth and other cycle spaces. Exact-query searches for rose board, sliding puzzle, subdivided Cartesian cycles, spectral spanning-tree product, and equivalent configurations did not reveal coverage. Wilson's 1974 puzzle paper was not inspected in full; potential implicit coverage of the hub action is acknowledged, but no accessible evidence demonstrates the specific multi-rose graph-and-tree theorem. Historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This yields an explicit structural model for *every* connected component of a natural family of partially connected sliding-puzzle configuration graphs, determines all cycle ranks, and counts spanning trees exactly for an arbitrary number of petals and arbitrary cycle lengths. Spanning-tree complexity measures the count of fault-tolerant connecting backbones of the configuration space and is not determined by component connectivity alone. The uniform-triangle specialization yields an exact unbounded-parameter product.
+The bound result's distinct contribution is the exact graph of each multi-petal component, including lengths and multiplicity of its paths, and its consequent all-parameter spanning-tree formula. Credit Wilson for the general monodromy/coset method, from which the component count is a short corollary, and Defant–Kravitz for a cut-vertex proposition that already yields the exact count for all-triangle roses. Neither inspected result gives the edge-resolved component nor an equivalent tree census. Weighted matrix-tree enumeration is standard once the particular core is known. This is not a historical priority claim for the component count, the monodromy method, or the enumeration tool.
 
-## Limits and sources
+## value
 
-The board must be a pure rose of simple cycles and all tokens are distinct. This work does not claim a general cactus classification. The cited primary full texts were inspected for their relevant results; the older Wilson article remains an explicitly unresolved historical comparison. The integer computations check small parameter instances only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit component graph determines internal routes and cycle structure, not just which labelings are reachable. The result describes a natural family of cut-vertex puzzles with arbitrarily many unequal petals. Tracking the two genuinely different routes on each triangle is essential to the weighted tree count, which yields exact dependence on the whole vector of petal lengths and serves as an exact structural benchmark for puzzle graphs. The utility does not rely on the component count being new or on an unproved practical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

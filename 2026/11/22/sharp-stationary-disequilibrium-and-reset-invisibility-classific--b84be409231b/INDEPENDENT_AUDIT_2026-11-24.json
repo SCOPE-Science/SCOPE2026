@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:25:49.526109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under finite irreducibility and the independent iid positive-integer finite-mean clock, occupation includes ages 0 through L−1, not the pre-reset endpoint. Renewal reward and telescoping give μp(I−P)=e_v−E[e_vP^L]. The right side has TV norm q because its positive part is concentrated at v. Thus dTV(p,pP)=q/μ; invariance of π and TV contraction give dTV(p,pP)≤2dTV(p,π). On a star from its hub, even ages are at the hub and odd ages are uniform on leaves. The excess hub mass is Pr(L odd)/(2μ), all leaf deviations have the opposite sign, and q=Pr(L odd). This proves equality for any clock there, with positive q possible. The flux vanishes iff q=0, and irreducibility then makes p=π. Nonnegative mismatch for each supported length forces exact return at each of those lengths. For any one exact-return length ℓ, d divides ℓ, and all iterates jℓ are exact returns; the periodic limit is dπ_v. The cyclic class has total π mass 1/d with strictly positive masses, so it is the singleton {v}. Conversely a singleton class is visited with certainty at all period multiples. In a connected loopless simple undirected walk with at least two states, a singleton cyclic class requires bipartiteness with a singleton side, hence a hub-centered star, and the clock must be even. No fixed-time phase convergence is used. Exact-rational corroboration for a mixed clock on a star and two clocks on a directed 3-cycle is recorded at /workspace/branches/cf7431a9-1fde-40f3-9347-5db1a19d1c30/independent_replay.txt. The supplied check.py was inspected, not executed. See RESULT.md lines 17–65 for conventions, proof and reported finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riascos et al. arXiv:1910.13568 p. 1 describes stationary probabilities of stochastic network resetting. arXiv:2110.15437 p. 1 includes first-passage optimization. The frozen record identifies Chen–Ye arXiv:2208.06212 as a time-dependent hazard formulation. Liu arXiv:1208.4974 p. 1 describes norm-wise perturbation bounds under ergodicity/drift hypotheses."
+        ],
+        "reasoning": "Geometric/reset-Markov settings are not arbitrary iid renewal clocks, and the renewed positions need not be Markov alone. A general occupation formula provides p, but not by itself a sharp universal lower bound in terms of q or the rigidity of an exact-return length. Full-text extensions of these papers are not ruled out.",
+        "searches": [
+          "arXiv:1910.13568; arXiv:2110.15437; arXiv:2208.06212",
+          "Perturbation bounds for the stationary distributions of Markov chains, arXiv:1208.4974"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79 and supporting verification files",
+        "Resultary b84be409231b and 1ee39cc9ce47 indexed statements",
+        "arXiv:1910.13568, 2110.15437 and 1208.4974 first-page abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic inequality dTV(p,pP)≤2 dTV(p,π) is an immediate contraction consequence and is not new. The original combines it with the concrete renewal endpoint residual q/μ, exhibits uniform sharpness with q>0, and uses exact returns to decide the zero set structurally."
+        ],
+        "reasoning": "A stationary formula or generic residual inequality does not alone characterize when exact return occurs under every supported interval, nor does it realize sharpness within the renewal model. These model-specific steps add scientific content beyond the known operator inequality or a substitution of degrees in a stationary expression.",
+        "searches": [
+          "Prior network-reset stationary formulas described in RESULT.md lines 67–69; arXiv:1910.13568 p. 1 and Chen–Ye arXiv:2208.06212",
+          "arXiv:1208.4974 p. 1 on stationary perturbation bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed b84be409231b is the identical record. Same-day 1ee39cc9ce47 concerns sign decorrelation and fluctuations of an occupation fraction under heavy-tailed renewal resetting.",
+          "At L≡ℓ the theorem becomes an estimate for the Cesàro measure (1/ℓ) Σ_{j<ℓ} e_vP^j and its endpoint residual 1−(P^ℓ)_{vv}."
+        ],
+        "reasoning": "The deterministic Cesàro formulation is a genuine specialization, not the whole theorem; invisibility concerns the reset-time endpoint, not return-time averages or event counts. Heavy-tail variance and sign autocorrelation do not encode this stationary TV distance or the singleton-class criterion.",
+        "searches": [
+          "Resultary renewal resetting sign/occupation, finite-chain stationarity, reset invisibility and TV disequilibrium",
+          "Primary comparison for stationary renewal/deterministic resetting and Markov perturbation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed theorem b84be409231b is the reviewed record; 1ee39cc9ce47 is a related but different invariant."
+        ],
+        "reasoning": "The bound, sharpness and graph iff are universal statements, not a catalogue of small networks. Finite graph enumeration from the supplied script is not independent evidence of an existing exact classification.",
+        "searches": [
+          "Resultary finite-network renewal disequilibrium bound and invisibility classification"
+        ]
+      },
+      "rationale": "Established renewal occupation, stochastic TV contraction and periodic-chain theory are credited. The distinct finding supported by the comparison is the sharp imbalance estimate in the actual pre-reset mismatch, together with the necessary-and-sufficient structural criterion for invisibility over all independent renewal clocks. No matched theorem states or entails that full classification and sharp application on the evidence checked. This is a best-of-knowledge finding with limited primary-text access.",
+      "residual_risks": [
+        "Primary full-text access on renewal clock and perturbation sources was limited, especially Chen–Ye arXiv:2208.06212; a stronger result or a deterministic reset precedent might cover some steps.",
+        "The distinct indexed renewal-sign result was compared at statement level, not by inspecting all of its appendices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary network-reset framework predates this; abstract not evidence of whole-document noncoverage",
+          "evidence": "Abstract describes walks on arbitrary networks with resetting and obtaining stationary probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.13568",
+          "material_read": "p. 1 abstract, lines 19–25 in retrieved text; frozen comparison for rest",
+          "method": "Public PDF text; full-text OA passage lookup did not settle comparison",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Stationary law for standard discrete network resetting"
+        },
+        {
+          "assessment": "Related stochastic-reset setting but available passage concerns first-passage time, not the assigned TV invariant",
+          "evidence": "The abstract addresses improvement/optimization of mean first-passage time.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15437",
+          "material_read": "p. 1 abstract, lines 17–31 in retrieved text",
+          "method": "Public PDF text",
+          "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+          "trigger": "Discrete network resetting and performance comparison"
+        },
+        {
+          "assessment": "Relationship to occupation credited; further implication unresolved",
+          "evidence": "The frozen record attributes stationary occupation for time-dependent hazards to Sections II and VI.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06212",
+          "material_read": "Frozen RESULT.md lines 67–69 and reference, not independently retrieved primary passage",
+          "method": "OA passage lookup attempted",
+          "title": "Random walks on complex networks under time-dependent stochastic resetting",
+          "trigger": "Potentially general clock formula or stationary characterization"
+        },
+        {
+          "assessment": "Perturbation context; no basis from this passage to infer exact reset-clock mismatch or equality criterion",
+          "evidence": "Norm-wise stationary-law perturbation bounds for discrete- and continuous-time chains, including uniform-ergodicity or drift settings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.4974",
+          "material_read": "p. 1 abstract, lines 17–27 in retrieved text",
+          "method": "Public PDF text",
+          "title": "Perturbation bounds for the stationary distributions of Markov chains",
+          "trigger": "Possible stronger norm-wise inequality"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same q/(2μ) lower bound and singleton/even-star invisibility criteria.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-stationary-disequilibrium-and-reset-invisibility-classific--b84be409231b",
+          "material_read": "Indexed statement and frozen finding/proof",
+          "method": "Local Resultary and frozen record",
+          "title": "Sharp stationary disequilibrium and reset-invisibility classification for finite network walks",
+          "trigger": "Exact match"
+        },
+        {
+          "assessment": "Different stated renewal observables; no priority conclusion from date",
+          "evidence": "Sign autocorrelation and variance of a heavy-tail occupation fraction, rather than finite-chain TV disequilibrium and pathwise reset invisibility.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-renewal-reset-sign-decorrelation-and-a-heavy-tail-occupati--1ee39cc9ce47",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary",
+          "title": "Sharp renewal-reset sign decorrelation and heavy-tail occupation fluctuations",
+          "trigger": "Distinct related same-day renewal-reset result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mismatch probability is an observable of individual reset excursions, yet it gives a universally sharp quantitative lower bound on the static occupation bias. The qualitative side resolves when a nonzero schedule can leave the occupation unchanged: it is not merely cancellation in the average, but almost-sure invisible resets with a rigid graph/clock classification. The exact condition and sharp example give usable content beyond the routine norm bound alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

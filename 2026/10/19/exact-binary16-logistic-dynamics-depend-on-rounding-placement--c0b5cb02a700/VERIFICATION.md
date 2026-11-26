@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducible finite-state verification
 
-Run `python3 verify.py` using the Python standard library; optionally run `python3 verify.py --native` to compare against NumPy binary16 evaluations. Both were executed successfully on the complete binary16 nonnegative interval grid.
+Run `python3 verify_ensemble.py` for the joint real-start basin weights. The program uses exact integers for rounding decisions, enumerates every permitted state in both maps, checks the cycle types and uses exact midpoint-cell weights. It checks the normalized table, both sets of arithmetic cycle means and the rational ensemble expectations. Its output is `[[11335435, 0, 21950155], [2730, 22528, 0], [2602, 0, 240982]]`.
 
-The script uses integer-scaled exact binary16 significands and exponent fields, exact nearest-even rational comparisons and a full deterministic functional-graph decomposition. It asserts the count \(15{,}361\), the exact graph and basin profiles, all node-to-cycle reachability relations, the two rational ensemble means, the number of mismatched transitions and the number of starts with different zero-basin membership. It also prints immutable transition-table SHA-256 fingerprints for both maps.
-
-The native cross-check reproduces \(30{,}722\) directed transitions independently through native 16-bit array operations; if NumPy is absent, the standard-library proof remains fully executable. The calculation covers each and every permitted discrete state; it does **not** prove anything about unrepresented real numbers, other arithmetic expressions or alternative rounding conventions.
+The original companion `python3 verify.py` independently implements the baseline census, digests, marginal means and encoding-count comparisons. Its optional `--native` mode cross-checks the transitions against NumPy binary16 evaluations. Neither finite-state verifier treats other floating-point expressions or rounding conventions, or real initial laws other than the stated uniformly sampled then rounded ensemble.

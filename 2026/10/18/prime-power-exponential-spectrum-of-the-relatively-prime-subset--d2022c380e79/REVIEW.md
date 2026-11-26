@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof constructs the exact partition of nonempty subsets by their gcd; the source's divisor-sum formula is recovered rather than assumed. A strict first omitted gcd index is isolated, and the error is bounded by \(t2^{\lfloor t/2\rfloor}+n2^{\lfloor n/(r+1)\rfloor}\). The binomial-divisibility argument justifies the nontrivial uniform estimate \(r=O(\log n)\), including highly divisible values of \(n\). Prime-power fibers and weights follow by elementary divisibility. The distribution proof explicitly controls its omitted tails. `CHECK.py` reproduced the needed finite identities, and no finite experiment substitutes for the infinite proof. The definition of deficits uses \(2^n\), not \(2^n-1\), and the extra 1 is retained in the proof.
+PASS
 
-## Originality (PASS, with residual risk)
+Grouping nonempty subsets by exact gcd g gives f(floor(n/g)) in each class. Hence the deficit Δ_D is one plus the sum over nondivisor indices. Its first term g=r has size 2^floor(n/r) up to the gcd>1 union-bound error; the remaining at most n terms are at most 2^floor(n/(r+1)) each. Every binomial coefficient in row m divides lcm(1,…,m), since each floor difference in its p-adic valuation is 0 or 1 and vanishes beyond log_p m. This gives n≥2^(r−1)/r, so r=O(log n). The gap between the leading floor and the next is at least n/[r(r+1)]−1; after division by the main term both errors, including their polynomial factors, are O(exp(−cn/log²n)). The first index for Δ_Φ is the least prime factor, so direct lower and upper bounds give the exponent comparison, with gap at least 1/6 in the appropriate direction by parity. A least nondivisor cannot have two coprime proper prime-power factors. Its exact p-adic characterization and the identity r>R iff lcm(1,…,R)|n give the density and summable tail; the bounded-test-function truncation proves weak convergence without mass at zero.
 
-Pongsriiam (2013) introduced these functions and asked for limsup/liminf of their deficit ratio (Question 3.3). Its summatory estimates and gcd partition do not state the new pointwise least-nondivisor rate, exact phase frequencies, or atomic limit. Pongsriiam (2015/2016) already proves the alternating sign, which is explicitly acknowledged; this is not an originality claim. OEIS A224840 supplies terms and a gcd interpretation, not the full spectrum. The queried mathematical research database returned related but inequivalent divisor-subset-sum and number-theory findings, with no implication yielding the present result. An uncatalogued general theorem for arithmetic subset deficits or least-nondivisor distributions remains the principal risk; lack of search hits by itself is not proof of novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-The source explicitly asks for limits of the deficit ratio. The result settles its extreme limits while providing a more informative exact, all-integer exponential-rate classification and a nontrivial full limiting distribution on every prime-power phase. The masses \(1/2,1/3,1/12,1/15,\ldots\) describe a concrete mathematical spectrum and are not arbitrary finite sample statistics. The uniform error is needed to carry a pointwise arithmetic phase theorem into a global probability law.
+The distinct main contribution is the uniform exponentially precise asymptotic for the single deficit and its prime-power phase law. Credit the material later catalogue overlap on the ratio exponent and parity limits; do not count those as distinct from that record. The 2013 paper's partial-sum questions are not resolved here.
 
-## Scope and residual limitations
+## value
 
-Independent mathematical audit has not been performed. The cited second paper is inspected in its author-posted manuscript representation. An exhaustive literature review beyond searchable records is not claimed. The full ratio-sum problem from the founding article remains open here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deficit scale is not visible in D(n)∼2^n. Identifying a uniform leading term even when the smallest omitted gcd varies yields a complete arithmetic phase law and answers the pointwise limit questions in the founding paper.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

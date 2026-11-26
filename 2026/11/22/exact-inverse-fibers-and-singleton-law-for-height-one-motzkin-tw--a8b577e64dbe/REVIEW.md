@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The height-one Motzkin arch parsing is unique. The simultaneous ordered-factor counts recover the arch number, arch-block count, nonempty interior count, boundary indicators and number of flat runs; all remaining factor counts follow. Independent choices of arch-block compositions, positive arch positions and positive flat-run compositions give exactly the stated fiber, including the zero-flat case. Classifying when each binomial factor is one yields the singleton rational series. Replayed direct readout enumeration through length 16 and parameter/series checks through length 65 match exactly. The finite tests corroborate, but do not replace, the all-length combinatorial proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2013 general \(k\)-Abelian framework establishes the meaning of the observation and general directed-Euler-trail feasibility, without this constrained inverse-fiber formula. The 2015 Motzkin-path paper and the 2015 ballot/Dyck-path paper group paths by the *positions* of occurrences of individual patterns; they do not supply the joint two-gram multiplicity fiber sizes. The closest related constrained-path counting literature motivates the question, and the full Motzkin paper was inspected. The exact inverse-multiplicity factorization, singleton characterization and linear singleton law were not identified in these materials or the relevant mathematical-result searches. Residual risk remains from unindexed priority work, general Euler-trail specializations and nearby constrained-Dyck observations.
+PASS
 
-## Mathematical value — PASS
-Two-gram readout is a natural short-read reconstruction channel for a bounded-stack language. The result does more than count distinct readouts: it gives every inverse-list cardinality, a constructive inverse enumeration, a complete unique-reconstruction condition and the sharp asymptotic density of uniquely recoverable sources. The disappearance of uniquely identifiable sources at rate \(\Theta(n/2^n)\) is a substantive information-loss statement, relevant without requiring an optimal noisy code theorem.
+RESULT.md lines 4–22 and 41–57 reconstruct by parsing uniquely into ground flats and arches UF^aD. Splitting t arches at the h−1 positive intervening gaps, marking q positive interiors, and positively composing f flats across the s ordered marked runs are independent choices. The unigram counts must be U=D=t and F=f; with these counts the displayed nine digram values are necessary and the construction is sufficient. The all-flat case includes the empty word. For singleton size, h=1 or t and q=0 or t (without duplication at t=1); the flat allocation is unique for s=f=0, s=1, or f=s≥2. Summing these cases gives the displayed series, including the unrestricted one-run correction for t=2,h=2,q=0. Its only double pole is at 1, with coefficient 1 of (1−z)^{-2}. Independently, choosing the positions of an even number of vertical steps determines the source, giving 2^{n−1} for n≥1. Fresh bounded corroboration: iterate masks of n vertical positions through n=17, fill the marked positions alternately U,D, and tally all 12 raw multiplicities. Across 1,709 realized profiles the counts agreed with the binomial law; the singleton values matched the series and table. UFDFF and UFFDF collide at length five, and no binomial factor can exceed one below five. Inspected frozen VERIFICATION.md and verify.py; their status is not an independent audit, and the script was not executed. The reconstruction proves the all-length claim, separately from enumeration.
 
-## Closest literature and limitations
-Karhumäki–Saarela–Zamboni (arXiv:1301.5104) gives the general observation and Eulerian framework. Baril–Petrossian (JIS 18, 2015, Article 15.7.1) and Manes et al. (arXiv:1510.01952) use different, position-based equivalences. Equivalence with an unknown earlier specialized readout theorem cannot be ruled out. The classification is restricted to height-one Motzkin words and factor lengths one and two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence, the distinct content is the explicit restricted 2-Abelian fiber factorization and its complete singleton series, not the definition, realizability framework, or elementary source count. Same-day analogues were compared by statement without assuming their relative priority.
+
+## value
+
+PASS
+
+The first bounded-height path class with genuine two-gram ambiguity gives a natural test for lossy readout. The exact factorization distinguishes block arrangement, marked interiors and flat allocation; the singleton law answers how many sources can be reconstructed uniquely, including its linear growth against an exponential source count. These are useful exact invariants of the stated source and observation, not a claim about unrestricted heights or independent experimental performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

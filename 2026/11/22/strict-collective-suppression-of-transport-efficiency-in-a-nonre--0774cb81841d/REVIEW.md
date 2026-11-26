@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The relative generator is uniformly elliptic, its interaction drift is divergence-free, and the full stationary law is uniform. A smooth mean-zero Poisson corrector gives a martingale diffusivity identity and an exact nonnegative energy deficit. Distinct pair-sum Fourier modes give the complete fourth-order coefficient; evenness and elliptic analytic perturbation justify the sixth-order remainder at fixed positive parameters. A separate Fourier–Galerkin checker provides finite consistency tests, not the infinite-dimensional proof.
+## correctness
 
-**Originality: PASS (qualified).** Zhang and Garcia-Millan give the underlying model and entropy production, while the prior published-finding corpus two-particle finding already derives the saturated one-follower frontier. Benois and collaborators study enhanced tracer diffusion in related nonreciprocal mixtures. None of the inspected claims gives the universal strict all-amplitude inequality for every additional follower together with the exact fourth-order collective deficit. The homogenization variational inequality is standard; the new content is its sharp equality obstruction and spectral correction in this particular multi-agent physical model. Residual risk: a broad homogenization or many-particle transport result may imply the inequality without naming this model. This assessment is not a claim of globally established publication priority.
+PASS
 
-**Mathematical value: PASS.** Transport enhancement and entropy production are both physically relevant observables for the published chase-and-run system. The result proves a nonperturbative, all-parameter distinction between a noninteracting-relative pair and genuinely coupled many-follower motion. The fourth-order coefficient quantifies the first collective reduction and supplies a benchmark for dilute-field approximations. The result does not claim monotonicity with follower number or a general thermodynamic uncertainty relation.
+Reassessed the repaired statement with the original positive D1,D2,L, finite N and stationary uniform initial law. The original proof's displayed mean bracket rate (RESULT.md lines 54–60) dropped k² while using angular derivatives, so it could not yield the energy in line 64 for general L as written. The repaired proof uses tagged martingale coefficients sqrt(2D1)(1+k sum_j partial_j chi) and -sqrt(2D2)k partial_j chi, yielding 2D1+2<E,SE> for E=chi. The bounded corrector preserves the long-time variance. Divergence cancellation yields Haar, the mean-zero coercive corrector exists, and its energy equals <f_a,chi>. Completion of the square gives the deficit energy about a times S^{-1}g, with g the unit-amplitude tagged drift. B S^{-1}g is the sum of pair-sine frequencies times k/(D1+D2), vanishing only at N=1; this settles all nonzero amplitudes and the a=0 boundary is explicit. The positive lower gain holds at a≠0. Full-current averaging gives the entropy expression with both inverse diffusivities. The energy-norm series at zero has leading deficit a^4 from orthogonal pair modes, with eigenvalue k²(4D1+2D2) and squared norm 1/2; conjugation by angle translation removes odd powers. This recovers the stated coefficient and fixed-parameter O(a^6). The supplied Galerkin script was inspected, not executed; finite truncations are not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of current knowledge for the unchanged many-follower claim only: the indexed prior pair formula, stationary-law and entropy inputs, and generic skew-drift energy bound do not establish non-saturation at every nonzero coupling for N≥2 plus the explicit fourth-order defect. The repaired result does not claim novelty for those inputs, the N=1 equality, or the abstract bound. Primary and corpus full-text access limitations remain.
+
+## value
+
+PASS
+
+Adding a second noisy follower is a natural structural change to the same model with a previously sharp transport–dissipation frontier. The non-saturation classification rules out any many-follower recovery of the two-particle efficiency at finite nonzero coupling, not only near zero. Its exact coefficient isolates cross-follower interactions and quantifies their leading loss for unequal diffusivities. This answers a transport question not settled by the previously known entropy rate or by a formal non-strict bound. The normalization repair preserves that mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:19:10.965791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Taking adjacent differences of the full indexed output forces a difference of two sources to be constant on the gcd classes. A full window samples every class equally, so the one residual constraint is that the class shifts sum to zero. This gives exactly the normalized-pattern and summed-minimum invariants, and legal shifts form the stated bounded-composition coefficient list. Inclusion–exclusion gives the pattern multiplicities, and counting one output per offset sum gives a^d + d b a^(d−1), with a=q^m−(q−1)^m and b=(q−1)^m. For the maximum, the equal-width coefficient sequence of (1+…+z^a0)^d, a0=q−1, strictly increases up to the middle for d≥2: the d=2 sequence is triangular, and the first difference for larger d at k is the difference of coefficients at k and k−a0−1 in the preceding power. For 1≤k≤floor(d a0/2) the former index is in support and strictly closer to the preceding center whenever both are in support. At either central index there is a full-width composition with any specified entry equal to a0, so reducing any width loses a composition at either possible peak. Thus only constant reads attain the peak, with precisely the indicated parity count. The argument also includes the injective d=1 and total-sum ℓ=n cases. The ternary width triples yield the displayed seven frequencies.",
+      "replay": "python3 /tmp/opencode/frozen_nov24_replay.py 4; independently formed full outputs for 7,837 sources in ten cases, checked image, central maximum and equality cases (both parities), and recovered all seven ternary example frequencies. The frozen loop bounds independently give the reported 168 parameter triples and 599,000 source instances before the separate ternary tests; the uploaded code was inspected, not executed.",
+      "residual_risks": [
+        "Finite replay corroborates but is not the all-parameter proof. Conclusions concern indexed integer reads, not unordered, modular, or noisy observations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-read capacity reduction has noncyclic starts; the erased-read proof is a linear dependency of read coordinates when gcd>1, not a count of legal source shifts."
+        ],
+        "reasoning": "Neither result gives the full nonbinary list-size distribution for the indexed cyclic model.",
+        "searches": [
+          "arXiv:2401.15368v1, Definition 1 and Theorem 1; Resultary 9ee0bce770fc, proof of redundant erased read"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 21136e4ec91c, 9ee0bce770fc and catalogue entry 032c3ea8242b",
+        "arXiv:2401.15368v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary classes have offsets 0 or 1; the present q-ary coefficients need the full q-dependent distribution of class widths. Erasure redundancy merely identifies two observation partitions without counting their blocks."
+        ],
+        "reasoning": "The q=2 specialization is exact prior coverage, but neither the binomial specialization nor the cited capacity/erasure relationships give the general spectrum as a substitution or direct corollary.",
+        "searches": [
+          "21136e4ec91c Finding; 9ee0bce770fc Finding and proof; arXiv:2401.15368v1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "21136e4ec91c: binary pure/mixed gcd-class classification; 032c3ea8242b: catalogue description of ternary multispectra"
+        ],
+        "reasoning": "Binary pure classes are precisely the positive-width classes at q=2. Unordered multispectra, if as described, identify permutations of the indexed outputs and cannot give their separate fiber counts from aggregate counts.",
+        "searches": [
+          "Resultary: q-ary cyclic integer-window fibers; cyclic weighted reads and ternary adjacent-sum multispectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound record is the exact self-hit; distinct comparable entries include the binary formula, erased-read model and the ternary multispectrum catalogue hit."
+        ],
+        "reasoning": "No inspected independent catalogue result gives the nonbinary counts. This is a parametric family, so isolated coincident numerical values would not settle equivalence.",
+        "searches": [
+          "Resultary lookup for indexed cyclic q-ary integer-sum fibers and capacity"
+        ]
+      },
+      "rationale": "The binary theorem and known-erasure redundancy are established. Restrict the distinct claim to the complete nonbinary indexed spectrum and its finite enumerative consequences. No inspected earlier statement or broader theorem supplies that spectrum; the strongest unresolved catalogue hit appears to use unordered observations.",
+      "residual_risks": [
+        "The primary-literature search request did not complete; no negative conclusion is drawn from it.",
+        "The distinct ternary multispectrum record's original theorem was unavailable in the mirror; possible additional overlap remains unverified.",
+        "An equivalent nonbinary integer-circulant enumeration may be indexed under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary overlap only",
+          "evidence": "Mixed class words stay fixed; the all-one pure classes are redistributed subject to conserving their number. The capacity, entire spectrum and equality cases agree with q=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fiber-and-constant-weight-capacity-laws-for-cyclic-binary--21136e4ec91c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact fiber and constant-weight capacity laws for cyclic binary weighted reads",
+          "trigger": "Identical observation map at q=2"
+        },
+        {
+          "assessment": "Adjacent structural result; does not enumerate the q-ary full-read fibers",
+          "evidence": "A linear combination of read coordinates with nonzero coefficient at the erased coordinate vanishes for all inputs; hence the full and erased fibers coincide for gcd>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-and-ambiguity-of-one-erased-cyclic-weighted-reads--9ee0bce770fc/RESULT.md",
+          "material_read": "Finding and noncoprime proof around offset 2300",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact capacity and ambiguity of one-erased cyclic weighted reads",
+          "trigger": "Same q-ary channel with a known coordinate removed"
+        },
+        {
+          "assessment": "Different observation model and asymptotic question",
+          "evidence": "No wraparound in the sampled starts; the q-ary to binary capacity reduction rescales read length and stride.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.15368v1",
+          "material_read": "Definition 1 p. 1 (offset 7998), Theorem 1 p. 2 (offsets 14243–14544)",
+          "method": "Open-access primary PDF passages",
+          "title": "The Capacity of the Weighted Read Channel",
+          "trigger": "Potential all-alphabet weighted-read capacity antecedent"
+        },
+        {
+          "assessment": "Unresolved beyond the apparent unordered model; no inferred order from the date",
+          "evidence": "Catalogue refers to consecutive-sum multispectra and capacities, not the complete indexed inverse spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-linear-and-cyclic-capacities-of-ternary-adjacent-sum-multi--032c3ea8242b",
+          "material_read": "Catalogue summary only; RESULT.md absent from local mirror",
+          "method": "Local Resultary catalogue and mirror lookup",
+          "title": "Exact linear and cyclic capacities of ternary adjacent-sum multispectra",
+          "trigger": "Separate same-day record on cyclic ternary sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; binary and erased-read comparisons above"
+      ],
+      "rationale": "A natural exact classification of ambiguity for a deterministic coding channel. A user of an indexed read vector needs its actual list size, not only rank, injectivity, or worst-case ambiguity; the same classification gives the exact finite zero-error code size and rarities of the various collision multiplicities beyond binary.",
+      "residual_risks": [
+        "No operational model of noisy measurements is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

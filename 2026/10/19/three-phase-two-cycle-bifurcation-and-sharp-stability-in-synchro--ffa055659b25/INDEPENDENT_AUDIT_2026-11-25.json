@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:10:42.611040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The star matrix preserves the diagonal and restricts to the lift t+c sin t. For c≤2 the lift on [0,π] is below 2π by π+2<2π; for 2<c≤c_* its maximum there occurs at arccos(−1/c)≤2π/3 and is at most 2π/3+c_*<2π. Reflection gives interval invariance, excluding modulo-wrapping branches. A nonfixed two-cycle must use one point x in (0,π) and one y in (π,2π), since each half has a strict displacement sign. Adding the return equations gives sin y=−sin x and forces y=2π−x or y=x+π. The symmetric equation c=2s/sin s increases from 2 to infinity since sin s−s cos s>0; the opposite-phase equation sin x=π/c gives zero, one or two solutions, with its unique c=π solution coinciding with the symmetric one. This gives exactly 0, 1 and 3 primitive cycles in the stated ranges, including the separate critical counts. The sine maximum yields t−π/2=±√(2(c−π)/π)+O((c−π)^(3/2)). The eigenvalues of the constant star matrix on the longitudinal and transverse subspaces are d+1 and 1. Multiplying the matching derivatives at both points gives the stated full-torus spectrum. Below π, 0<c cos s=2s cot s<2 on the symmetric branch, so both squared multipliers are below one; above π, both are greater than one. Opposite-phase cosines have opposite signs and yield 1−(c²−π²) and 1−(c²−π²)/(d+1)². Thus loss of hyperbolic attraction occurs at the longitudinal −1 crossing, with transverse multipliers still in (0,1); an endpoint multiplier of −1 is not by itself a nonlinear stability verdict at equality. At c=π all multipliers are 1 as claimed. Independent replay: python3 /workspace/independent_checks_oct19.py (star_check) evaluated the two-step star map on and off the diagonal, comparing 60 directional derivatives including the endpoints π and c_* for sampled dimensions. The supplied checker was inspected, not executed; no finite sample establishes exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buescu et al. prove the Morse–Smale property for the unit three-leaf star with 0<h<1/4 and give the quotient eigenvalues 1,1,4. That range gives c<1, below the onset of primitive diagonal two-cycles.",
+          "The broader-network alternating-cycle result covers the symmetric branch and sink window 2<c<π; it does not exhaust opposite-phase diagonal cycles.",
+          "The circle-map skeletons search excerpt gives a broader sine-map family, but full text could not lawfully be retrieved; exact assumptions and conclusions there are not inferred from the excerpt."
+        ],
+        "reasoning": "More general graph or map families only subsume this theorem if their statements include the additional branches and exact spectra on this parameter range.",
+        "searches": [
+          "arXiv:2610.10993v1 §5.2, Corollary 5.5",
+          "Resultary bd570f026995, biregular bipartite networks",
+          "Symbolic dynamics and skeletons of circle maps, PII 016727898990064X"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and records bd570f026995 and 08f4fd18dbd1",
+        "Buescu–D'Aniello–Oliveira arXiv:2610.10993v1",
+        "Borisyuk–Rassoul-Agha CircMap.pdf",
+        "Symbolic dynamics and skeletons of circle maps (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source matrix supplies the longitudinal and transverse directions, but not the two-phase return solutions. Once those scalar branches are known, the simultaneous diagonalization step is elementary and is not the sole claim of originality.",
+          "The alternating-branch theorem yields the symmetric sink and its degeneration at π for stars, but not the additional y=x+π solutions, their rotating phase representatives, local attraction and sharp transverse/longitudinal comparison."
+        ],
+        "reasoning": "The complete count requires checking no wrapping, both trigonometric branches and their coalescence; the small-step result, broad alternating branch or qualitative scalar example does not give that by parameter substitution.",
+        "searches": [
+          "arXiv:2610.10993v1 §5.2",
+          "Borisyuk–Rassoul-Agha §2 Example 2.1",
+          "Resultary bd570f026995 and 08f4fd18dbd1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set drift a=0, x=t/(2π) and κ=c/(2π) in Borisyuk–Rassoul-Agha's family. This recovers the exact scalar map, not a new scalar model. Their later numerical example uses a=0.1 and is not the zero-drift classification.",
+          "The star specialization Λ=d+1 of bd570f026995 gives the symmetric alternating branch and its stability through c=π. Record 08f4fd18dbd1 treats non-diagonal balanced sign patterns at much larger h, not cycles conjugate to these via rescaling."
+        ],
+        "reasoning": "Normalization identifies the equivalent longitudinal problem, but does not supply the exact zero-drift census or transverse multipliers. The shared symmetric branch is explicitly credited.",
+        "searches": [
+          "Primary lookup: zero-drift sine/Arnold circle map and period-two bifurcations",
+          "Borisyuk–Rassoul-Agha §2 Example 2.1",
+          "Resultary bd570f026995, 08f4fd18dbd1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched catalogue statements give an exact symmetric-branch stability window or a construction of off-diagonal cycles for h>2; neither is the 0/1/3 diagonal census with both opposite-phase spectra.",
+          "The scalar source describes a qualitative transition and a nonzero-drift example, not an exact census of these zero-drift two-cycles."
+        ],
+        "reasoning": "The strongest accessible exact overlap concerns one branch, not the full classification. Exact off-diagonal constructions are not counts of the same orbits.",
+        "searches": [
+          "Resultary: Huygens star diagonal period-two count, sine-circle bifurcation and full transverse spectrum",
+          "Resultary bd570f026995 and 08f4fd18dbd1",
+          "Borisyuk–Rassoul-Agha §2 Example 2.1 and p. 16"
+        ]
+      },
+      "rationale": "The scalar map, qualitative period doubling and star quotient are known. The supported distinction is the exact exhaustive zero-drift two-cycle split throughout the stated range combined with the full, dimension-dependent ambient stability classification. Closest catalogue coverage of the symmetric branch was found in a later listed, broader graph result; it does not contain the split opposite-phase cycles or their endpoint. Historical scalar equivalence for an uninspected source remains possible.",
+      "residual_risks": [
+        "Classical sine-circle-map literature may contain an exact equivalent scalar census; in particular, the plausible skeletons paper could not be inspected beyond the search excerpt. No priority conclusion follows from that access limit or the catalogue dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known quotient geometry and small-step fixed-point regime, not the two-cycle strip",
+          "evidence": [
+            "For the unit three-leaf star the quotient spectrum is {1,1,4}, and 0<h<1/4 gives eight fixed points in a Morse–Smale system."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "§5.2 Corollary 5.5 and context, HTML offset 49650",
+          "method": "Targeted OA HTML passage",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Original star quotient and stability results"
+        },
+        {
+          "assessment": "Qualitative scalar precedent, no exact zero-drift census evidenced by the inspected text",
+          "evidence": [
+            "Defines x↦x+a+κ sin(2πx) mod 1 and discusses a two-cycle and period doubling; the p. 16 example uses a=0.1."
+          ],
+          "identifier_or_url": "https://www.math.utah.edu/~borisyuk/PAPERS/CircMap.pdf",
+          "material_read": "§2 Example 2.1, p. 3 at extracted offset 7446; p. 16 at offset 50000",
+          "method": "Targeted OA PDF passages",
+          "title": "Quasiperiodicity and Phase Locking in Stochastic Circle Maps: a Spectral Approach",
+          "trigger": "Identical deterministic scalar family under rescaling"
+        },
+        {
+          "assessment": "Later listed overlap on the symmetric star branch only",
+          "evidence": [
+            "The sink window is 2<c<π with neutral multipliers at π, specializing to Λ=d+1 for stars."
+          ],
+          "identifier_or_url": "bd570f026995",
+          "material_read": "Mirrored finding on the two-colour branch and its quotient spectrum",
+          "method": "Resultary mirror",
+          "title": "Universal stable window and optimal decay of alternating cycles",
+          "trigger": "Exact stability spectrum for a broader graph class including stars"
+        },
+        {
+          "assessment": "Later listed non-diagonal construction, disjoint parameter strip",
+          "evidence": [
+            "Balanced sign-pattern orbits occur in the stated construction for even d≥4 at h>h_d>2, while the target has h≤c_* /(d+1)."
+          ],
+          "identifier_or_url": "08f4fd18dbd1",
+          "material_read": "Mirrored finding and scope for even d and h>h_d",
+          "method": "Resultary mirror",
+          "title": "Exponential coexistence of balanced phase-flip attractors in discrete Huygens stars",
+          "trigger": "Closely related star two-cycles and attractors"
+        },
+        {
+          "assessment": "Overlapping family in the excerpt; inclusion of the exact theorem is unresolved",
+          "evidence": [
+            "The excerpt gives a family Tx+τ+A sin(2πx) mod 1 without establishing the hypotheses or census needed here."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/016727898990064X",
+          "material_read": "Indexed search excerpt only; full text unavailable",
+          "method": "Primary search and lawful direct/VPN retrieval attempts",
+          "title": "Symbolic dynamics and skeletons of circle maps",
+          "trigger": "Plausible classical source for zero-drift scalar bifurcations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source's fixed-point regime leaves a natural large-step stability question. Exhausting the diagonal period-two states exhibits a concrete symmetry-breaking transition from one attractor to two, with full-dimensional basins rather than attraction merely inside the diagonal. The exact transverse spectrum shows that longitudinal loss of hyperbolicity is not preempted transversely. This is a useful dimension-uniform benchmark beyond small steps, not a claim about global attractors, other periods or off-diagonal cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

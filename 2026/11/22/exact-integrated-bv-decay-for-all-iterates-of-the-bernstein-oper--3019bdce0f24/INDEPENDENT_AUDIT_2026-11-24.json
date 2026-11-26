@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:15:51.431226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 5–55 hold for real pointwise Jordan-BV data, not a.e. classes. For a nodal unit jump the binomial martingale expresses its defect as two signed interior-state sums. Dominating their weights by the appropriate first- or last-cell step gives an integrated bound, strict for every interior step because both sums are positive on (0,1). Reflection equalizes the two endpoint integrals. The endpoint residuals have opposite signs throughout the open interval, hence equality requires only the two endpoint increments, with product nonpositive, and no variation beyond the nodal sum. For n=2 the empty interior restriction and the opposite-sign test still apply. The beta integral gives a uniform state at time one, so reflection makes the norm half the surviving mass after r−1 further transitions. One-step absorption makes it strictly decrease. The positive eigenvector h=x(1−x) gives λ=(n−1)/n; normalizing the Perron projection by p·h and using Σh=(n²−1)/(6n) gives λ^r/(12a_n) at fixed n. The frozen checker was inspected, not run. Separate exact-rational evidence: 56 formula/integral comparisons and 17,640 endpoint tests for n=2–8, r=1–8, and positive left eigenvector checks for n=2–6; replay evidence in /workspace/branches/7bfec47a-991a-477e-b34c-8b0442ffea76/record1_independent_check.txt and record1_perron_check.txt. These finite checks do not establish the universal result; the proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelisky–Rivlin establishes uniform convergence of fixed-degree iterates to the endpoint line, not the finite-r variational norm. Public search turned up integrated approximation for other Bernstein-type operators or spaces."
+        ],
+        "reasoning": "Uniform convergence and spectral analysis do not supply a sharp norm or its equality case without the endpoint-step comparison.",
+        "searches": [
+          "Kelisky–Rivlin (1967), §2 Theorem 1",
+          "Cooper–Waldron DOI 10.1006/jath.2000.3464",
+          "Literature lookup for sharp Bernstein iterates BV L1 endpoint interpolation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Kelisky–Rivlin §2",
+        "Cooper–Waldron bibliographic material",
+        "Two distinct Bernstein catalogue Findings and subject-record identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convergence supplies the target L; the prior eigenstructure supplies the rate. The sharp output-variation formula does not fix the integrated step weights or relative signs in B_n^r−L."
+        ],
+        "reasoning": "The distinct part is identifying the operator norm by positive interior-state comparison and proving strictness/equality. The spectral computation after that identity is not independent novelty.",
+        "searches": [
+          "Kelisky–Rivlin Theorem 1",
+          "Cooper–Waldron bibliographic record",
+          "Resultary two close Bernstein Findings cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The other iteration record fixes equal endpoints, measures output Jordan variation, starts the survival calculation at 1/2, and has an interior-plateau extremizer."
+        ],
+        "reasoning": "The common killed chain is not an equivalence: the norms, survival initialization, extremizers and Perron amplitudes differ (1/(4a_n) there versus 1/(12a_n) here).",
+        "searches": [
+          "Resultary: sharp integrated BV Bernstein iterates endpoint interpolation Wright–Fisher survival",
+          "2026/11/22/SCOPE-sharp-endpoint-anchored-variation-norms-of-iterated-bernstein-op--afdd60173aa6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the subject itself. The other exact integrated-BV entry maximizes a beta absolute deviation for B_n f−f and uses a grid-jump extremizer."
+        ],
+        "reasoning": "No independent catalogue match was identified for the indexed norm constants or classification. A one-step residual from f is not a defect from endpoint interpolation.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-integrated-bv-decay-for-all-iterates-of-the-bernstein-oper--3019bdce0f24",
+          "2026/11/22/SCOPE-exact-integrated-bounded-variation-error-norm-for-bernstein-appr--6c03f534e376"
+        ]
+      },
+      "rationale": "In the compared sources, the exact sharp finite-iterate integrated endpoint-interpolation defect and its equality class are distinct; neither Bernstein iteration convergence nor the Bernstein eigenstructure is claimed new. The amplitude is the consequence of the sharp norm identity combined with prior spectral theory.",
+      "residual_risks": [
+        "Full Cooper–Waldron text was not inspected.",
+        "A non-indexed historical equivalent remains possible; same-day catalogue dates establish no order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-degree convergence, not the finite-iterate sharp norm in the passage",
+          "evidence": [
+            "Uniform limit (1−x)f(0)+xf(1)"
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1967/21-3/pjm-v21-n3-p12-s.pdf",
+          "material_read": "§2, Theorem 1, pp. 513–514",
+          "method": "Lawful primary PDF passage",
+          "title": "Iterates of Bernstein Polynomials",
+          "trigger": "Same iterates and endpoint limit"
+        },
+        {
+          "assessment": "Spectral ingredient acknowledged; full-text overlap unresolved",
+          "evidence": [
+            "J. Approx. Theory 105 (2000), 133–165"
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jath.2000.3464",
+          "material_read": "Landing/bibliographic material only; full text not compared",
+          "method": "Lawful access attempts",
+          "title": "The Eigenstructure of the Bernstein Operator",
+          "trigger": "Same matrix spectrum"
+        },
+        {
+          "assessment": "Different target seminorm and equality class",
+          "evidence": [
+            "Equal endpoint inputs, output variation, initial point 1/2, and amplitude 1/(4p·h)"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-endpoint-anchored-variation-norms-of-iterated-bernstein-op--afdd60173aa6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "Sharp endpoint-anchored variation norms of iterated Bernstein operators",
+          "trigger": "Sharp BV and survival for the same iterates"
+        },
+        {
+          "assessment": "Different residual and extremizer",
+          "evidence": [
+            "B_n f−f, beta absolute deviations, grid jump"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-integrated-bounded-variation-error-norm-for-bernstein-appr--6c03f534e376",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "Exact integrated bounded-variation error norm for Bernstein approximation",
+          "trigger": "Same Bernstein kernel and integrated BV norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact operator norm, its full equality class, and a sharp convergence amplitude answer a natural quantitative question left open by qualitative endpoint convergence. The strict endpoint dominance explains why genuinely interior jumps cannot be worst cases, and supplies a useful general method rather than just a numerical decay rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:48:09.802155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof §§1–3",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "Independent direct block derivation and exact symbolic coefficient check"
+      ],
+      "rationale": "In the basis of symmetric and antisymmetric opposite-heading pairs, zI−Q has 2×2 blocks with determinants z(z+2s) and (z+s+2c)²+(a−b)². The diagonal tilt couples those blocks via diag(vk_x,vk_y); expanding the coupled determinant gives the stated quadratic tilt term (the antisymmetric entries cancel) and the positive quartic product v⁴k_x²k_y². Zero is simple and the other eigenvalues have strictly negative real part for all allowed rates. The analytic eigenprojection gives a nonzero generating-function amplitude near the origin and an exponentially smaller remainder, with bounded derivatives after taking the log and subtracting the dominant linear-in-time term. Rescaling to s=v=1 and writing R=1+2r, the quadratic eigenvalue coefficient is A=R/(2H) and the quartic B satisfies 2HB+(H+4R)A²−(R+1)A+cos²θ sin²θ=0. Hence 8H³B=N_ax−H²sin²(2θ). Here H²−N_ax=d⁴+(R²−2R)d²+2R³=N_diag, bounded below by 7/4. Restoring v and s and multiplying the coefficients by the factorials gives the asserted cumulant rates. The factorized axis term gives the transition including its equality cases, and the strictly negative diagonal term gives the stated sectors and zero rays. The c=0 rate ratio, the equal-turn threshold and the independent-Gaussian addition also follow. A separate exact symbolic derivation confirmed the determinant and coefficients; the frozen checker was inspected but not run.",
+      "residual_risks": [
+        "Sector boundaries concern zero linear growth of the cumulant, not zero finite-time cumulant. The independent algebra check is not a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ec488e19dc0f allows either quarter-turn rate to vanish (but not both), derives the same three-rate classification, and also gives the reentrant boundary as the reversal rate varies.",
+          "Mallikarjun–Pal have the same three-clock master equation and its projected transform; the main text prints the variance and leading raw fourth moment.",
+          "Loewe–Shendruk's inspected fourth-order treatment concerns a continuum-angular turning model."
+        ],
+        "reasoning": "The assigned strictly positive quarter-turn rates lie inside the broader indexed theorem. Its result concerns the actual asymptotic connected cumulant, not merely raw-moment anisotropy. Independent Brownian addition is immediate from cumulant additivity and does not leave a substantive uncovered classification.",
+        "searches": [
+          "ec488e19dc0f Finding, assumptions and proof",
+          "Mallikarjun–Pal arXiv:2209.05912, Appendix A",
+          "Loewe–Shendruk arXiv:2305.03663, Eq. (35)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ec488e19dc0f and 3ce3ff8f0037",
+        "arXiv:2209.05912 and arXiv:2305.03663",
+        "Larralde DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem prints χ²>(1+2q)²(1−2q)/(3+2q) for q<1/2, the χ≠0 condition at q=1/2, positivity above it, and the strict diagonal result.",
+          "The earlier same-model resolvent and marginal fourth-moment transform determine moments, but the inspected passages do not state the connected order-T angular partition."
+        ],
+        "reasoning": "All transitions and equality cases are explicit in the covering record with χ=d and q=r. The older leading term cancels against three times the variance squared and cannot alone prove the rate. The earlier exact transform poses an additional extraction/priority question, separate from the established catalogue equivalence.",
+        "searches": [
+          "ec488e19dc0f explicit χ² versus f(q) boundary",
+          "arXiv:2209.05912, Appendix A exact transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covering statement uses M=a+b, L=M+2h, Ω=a−b, Q=L²+Ω² and F=L[(2M−L)L²−(L+2M)Ω²].",
+          "Its fourth rate is −3v⁴[F+Q²sin²(2θ)]/(MQ³), and its sign-sector width is half arcsin of √(−F/Q²)."
+        ],
+        "reasoning": "Taking M=s, h=c, Ω=sd gives Q=s²H and F=−s⁴N_ax. Since H²=N_ax+N_diag, the full angular formulas agree, and tan²(2θ)<N_ax/N_diag is the same positive sector as sin²(2θ)<N_ax/H². The two second-rate formulas also agree. Reversing a clockwise convention only changes the sign of d, which is squared.",
+        "searches": [
+          "Resultary: cardinal chiral/reversal four-state walker, directional fourth-cumulant and kurtosis signs",
+          "ec488e19dc0f RESULT.md, Finding offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ec488e19dc0f lists the exact same rates, threshold and sectors as symbolic functions of the parameters.",
+          "3ce3ff8f0037 covers only the zero-reversal slice and adds a radial contraction.",
+          "The older paper's leading raw fourth-moment formula is Gaussian-leading, not a list of connected fourth-cumulant rates."
+        ],
+        "reasoning": "The decisive existing coverage is a parameter-uniform formula in the indexed finding, not overlap of sampled values, numerical plots or diffusion coefficients. The narrower zero-reversal record alone would not cover the result.",
+        "searches": [
+          "Resultary exact directional sector and sign-threshold comparisons: ec488e19dc0f and 3ce3ff8f0037",
+          "Mallikarjun–Pal Eqs. (7)–(8) and Appendix A (A1)–(A5)"
+        ]
+      },
+      "rationale": "The distinct indexed result ec488e19dc0f states the full same phase and sector classification, including equal-chirality and reversal thresholds and strict diagonal negativity, on a wider rate domain. Its formulas specialize exactly to the assigned result. This is existing mathematical coverage at review, not proof of historical priority: the indexed broader record has a later listed date. The older same-model Mallikarjun–Pal resolvent encodes cumulants but is not the decisive basis of the failure.",
+      "residual_risks": [
+        "Later display dates and mathematical agreement do not establish who derived the classification first.",
+        "How directly the older general resolvent was historically used to obtain the classification, and Larralde's precise scope, remain unresolved. The public query produced no useful evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of the full classification in a broader rate domain; dates do not establish priority over the frozen work.",
+          "evidence": "The displayed rates and sign table reduce identically under M=s, L=s+2c, Ω=sd; unidirectional quarter-turns and reentrance are additional.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-directional-fourth-cumulant-phases-and-reentrant-reversal-effect--ec488e19dc0f/RESULT.md",
+          "material_read": "Finding, assumptions and tilted-generator calculation, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Directional fourth-cumulant phases and reentrant reversal effects in a chiral four-state walker",
+          "trigger": "Exact three-rate cumulant and sector overlap"
+        },
+        {
+          "assessment": "Exact special-case overlap, not the main full-domain evidence.",
+          "evidence": "Same zero-reversal chirality threshold and angular sectors, with an additional radial contraction.",
+          "identifier_or_url": "Resultary 2026/10/25/3ce3ff8f0037",
+          "material_read": "Indexed result's zero-reversal claim",
+          "method": "Local Resultary comparison",
+          "title": "Opposite directional kurtosis signs in chiral four-heading transport",
+          "trigger": "Exact zero-reversal chirality and angular-sector match"
+        },
+        {
+          "assessment": "Same covariance rate and leading raw fourth moment; exact transform supplies input for a connected calculation. Inspected text does not state the full phase classification.",
+          "evidence": "Writing h=a+b+2c and δ=a−b, the variance grows as v²hT/(h²+δ²) and raw fourth moment starts with three times its square; Appendix A gives the resolvent and exact Laplace marginal fourth moment.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.05912",
+          "material_read": "Master equation p. 2; Eqs. (7)–(8), p. 3; Appendix A, Eqs. (A1)–(A5), pp. 10–11, offsets 63532 and 69499",
+          "method": "Targeted primary OA PDF passages",
+          "title": "Chiral run-and-tumble walker: transport and optimizing search",
+          "trigger": "Same primary three-rate transport model and possible earlier exact derivation"
+        },
+        {
+          "assessment": "That passage treats fourth moments in an angular-potential model, not the full independent chiral four-heading rate classification.",
+          "evidence": "The fourth-order comparison is in a continuum angular setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.03663",
+          "material_read": "Eq. (35), p. 11, offset 66204",
+          "method": "Targeted primary OA PDF passage",
+          "title": "Anisotropic run-and-tumble-turn dynamics",
+          "trigger": "Potential alternate fourth-order anisotropy result"
+        },
+        {
+          "assessment": "Possible overlap unresolved and not a reason for failure.",
+          "evidence": "No full-text claim inferred from the failed retrieval.",
+          "identifier_or_url": "10.1103/PhysRevE.56.5004",
+          "material_read": "Citation only; accessible abstract and full-text attempts did not return the paper",
+          "method": "Lawful APS retrieval attempts returned HTTP 403",
+          "title": "Transport properties of a two-dimensional ‘chiral’ persistent random walk",
+          "trigger": "Earlier chiral-walk transport precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Mallikarjun–Pal Eqs. (7)–(8) (lower-order benchmark)",
+        "Resultary ec488e19dc0f"
+      ],
+      "rationale": "As mathematics this is a natural phase classification: a covariance measurement cannot distinguish axes and diagonals, while the connected fourth cumulant separates them and identifies distinct routes to a positive axial rate. The angular boundary gives precise projections for that contrast rather than just a numerical example. This usefulness is shared with the covering result and does not support an independent originality pass.",
+      "residual_risks": [
+        "This is a stationary finite-state constant-speed model and an asymptotic statistic; it does not establish a finite-time diagnostic or an experimentally validated effect."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

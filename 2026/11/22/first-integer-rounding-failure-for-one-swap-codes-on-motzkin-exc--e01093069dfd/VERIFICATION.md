@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-The source words are the nonnegative-prefix, zero-ending paths on `U,D,H`. The receiver accepts all unchanged and at-most-one-adjacent-swap words, including outputs that leave the path constraint. For each fixed number of up steps, `certificates.json` records the entire rational primal and dual incidence solution and a maximum integer codebook.
+## correctness
 
-Run `python3 verify.py` alongside `certificates.json` using a Python 3.9+ standard-library interpreter. It reconstructs each of the 19 input/output layers, checks every codebook's zero-intersection property, checks all primal and dual inequalities with exact rational arithmetic, matches objectives, and *re-runs* maximum-clique branch-and-bound. The greedy coloring upper bound used for pruning is proved in the verifier's docstrings and `RESULT.md`.
+PASS
 
-Actual completed check:
+An at-most-one swap preserves symbol counts, so both packings add over the number k of U steps, also the number of D steps. Independently reconstructed the allowed excursions using an extendable nonnegative-prefix recursion, and constructed every unchanged or swapped output without applying a prefix test to outputs. Rebuilt output incidence and checked all explicit codebook, rational primal and rational dual inequalities and objective equalities for the 19 layers. For the integer upper bounds, independently used memoized recursion on surviving sources: at a common output of two or more surviving sources a packing chooses either none or exactly one of those sources. In the chosen branch remove that source and every source intersecting its ball; when no such output remains all remaining sources are jointly feasible. The alternatives are exhaustive, and in all layers the resulting exact maximum matches the codebook size. Source counts are 1,2,4,9,21,51,127; M is 1,2,2,4,7,14,28 and P is 1,2,2,4,7,71/5,5515/182. At n=6 the gap is 1/5 and the floor still equals 14; at n=7 it is 30, strictly above 28. In the length-seven layers k=0,1,2,3 the integer maxima are 1,6,14,7 and the fractional maxima 1,6,2785/182,8. Replay: python3 /workspace/review-evidence/channels.py swap; see swaps.log in the same directory. This examines only single adjacent exchanges through length seven.
 
-```text
-VERIFY_OK groups=19 nodes=1870
-Integer capacities: 1,2,2,4,7,14,28
-Fractional optima: 1,2,2,4,7,71/5,5515/182
-```
+## originality
 
-As an independent algorithmic cross-check of the finite graph computation, the incidence matrices were generated a second way and passed integer mixed-integer optimization and continuous linear optimization for all components through seven steps. Such solver output alone is not used as an upper-bound proof; the package provides a deterministic exhaustive proof search and exact arithmetic.
+PASS
 
-Not established: capacities beyond length seven, multiple swap corrections, uniqueness of every optimal codebook, or comprehensive historical priority. Independent external mathematical audit: not performed.
+The exact Resultary hit on the full table is the assigned record itself. There is material partial coverage: the no-horizontal layers are the same as previously indexed Dyck swap layers, and an unrestricted multipermutation result uses the same channel for one host composition. The initial gap and the first floor failure need the layers with horizontal steps that those results do not determine. The literature comparison is bounded and not a priority assertion.
+
+## value
+
+PASS
+
+The comparison isolates a practical distinction for exact coding bounds: the first nonintegral relaxation advantage is small enough to disappear under flooring, whereas at the next length the floor exceeds the best code by two. The complete preceding lengths and preservation of the genuine receiver alphabet make this a sharp boundary for the natural packing model, not merely a fractional example with a cherry-picked source subset. The composition data locate which types of paths cause the failure and give a benchmark for stronger upper bounds, without implying a larger-length law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

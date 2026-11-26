@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:05:51.359333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting the two binomial coefficients gives (i−j)(i+j−1)!/(i!j!) in degree i+j≤n. Both factorials and nonzero index differences involved are units. Thus for unequal leading degrees r,s with r+s≤n the first possible coefficient is nonzero. For 2r≤n a commuting y has order at least r; subtracting a multiple of x eliminates degree r and leaves exactly the free tail at degrees >n−r. For 2r>n only that tail is possible. This proves both dimension formulas, including r=n. For a tuple of minimum order r≤floor(n/2), the nonzero degree-r row determines the common direction of all rows through n−r; the r upper rows are free. For larger minimum order all products between tuple elements vanish, so the count is the difference of two free tail counts. Adding the zero tuple gives N, with k=1 giving q^n. The centralizer sum gives the pair specialization; the largest base is q^(h+1), with one leading summand of weight 1 for n=2h and two of weights q and 1 for n=2h+1. Independent bounded enumeration of the original binomial multiplication at (q,n)=(5,3) gave 3625 commuting pairs and 93125 commuting triples; this is corroboration only. The supplied script was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed derivation census, Proof §1, describes the full centralizer as D_(u h) for f=t^v u with h supported on indices j satisfying j+v−1≥N or j≡v mod p; it covers all N and all finite fields. The other references study a zero-product maximal abelian ideal over C, or general Zinbiel commutator identities."
+        ],
+        "reasoning": "Here all j,v are less than p, so j≡v means j=v, and the remaining subspace is exactly the high-degree tail, invariant under multiplication by the unit u. Lift to the Zinbiel space with the free e_n to recover the claimed centralizer subspace, not just its dimension. The complex ideal and the Tortkara identities do not count the claimed tuples.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-adjoint-centralizer-spectra-and-a-characteristic-two-parity-isom--a51032612a86",
+          "arXiv:2202.03214 Proposition 4.2",
+          "arXiv:1809.10550, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Independent direct multiplication check for q=5, n=3",
+        "Indexed and primary passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof gives the explicit two-part centralizer (a line when the equal-degree slot is active, plus the cutoff tail), and counts vectors of every valuation. The transported brackets vanish identically on the tail for r≤floor(n/2)."
+        ],
+        "reasoning": "For minimum order r≤floor(n/2), fix the first position j of order r, with (q−1)q^(n−r) choices for its vector. The lifted centralizer has a tail with q^r choices for each earlier position, and q^(r+1) choices for each later position. Its elements commute pairwise because the tail commutes with x and internally by degree. Summing over j gives (q^k−1)q^(n−2r+rk). For r>floor(n/2) allow every tuple in the order≥r tail and subtract the next tail. These direct counts from the explicit indexed subspaces imply the exact all-arity formula and its largest-base parity behavior.",
+        "searches": [
+          "Indexed adjoint-centralizer census, Proof §§1–2, offsets 0–4404; frozen Proof lines 40–56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen Proof lines 30–38 gives F_x=Σ a_i t^i/i! and the commutation test F_x′F_y−F_xF_y′=0 mod t^n. The indexed adjoint-centralizer Finding and assumptions give L_N=Der(k[t]/(t^N)), with coefficients divisible by t when p does not divide N, and bracket (fg′−gf′)∂."
+        ],
+        "reasoning": "Set N=n. The map x↦(F_x mod t^n)∂ maps onto L_n, killing precisely k e_n; the bracket test is the negative of the corresponding derivation coefficient, and either vanishes exactly when the other does. Terms containing an e_n input cannot affect the test. Thus the relation is the derivation relation times a free coordinate, for every tuple length. A Lie-algebra isomorphism of the actual unscaled Zinbiel commutator is neither claimed nor needed.",
+        "searches": [
+          "Resultary: commuting ordered tuples and centralizer dimensions in truncated positive Witt algebra polynomial vector fields with bracket (i-j)e_(i+j), finite field p>n null-filiform Zinbiel commutators",
+          "arXiv:2009.00988, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adjoint-centralizer record gives P_(N,q)(q) for the exact pair count. Under the one-dimensional lift the corresponding Zinbiel pair count is q²P_(n,q)(q). The indexed truncated Witt triple record also gives the exact pair count in its high-order subalgebra B_2. The indexed five-dimensional Witt nilpotent tuple census, Proof Step 3, gives all arities for its Heisenberg subalgebra H=t²k[t]/(t^5)∂."
+        ],
+        "reasoning": "In the triple record take n=p−2 and identify x with tF_x∂ modulo t^p, which transports the zero test to B_2. Its pair formula q^(p−1)+((p−3)/2)(q²−1)q^(p−2) matches exactly. In characteristic 5 the same map for n=3 identifies the tuple relation with H and its exact all-arity formula q^k[(q+1)q^k−q]. These are genuine exact special-case overlaps, not equality of the whole restricted nilpotent Witt cone with the frozen object.",
+        "searches": [
+          "Resultary truncated polynomial derivation pair census; exact commuting triples for truncated Witt; five-dimensional Witt commuting-nilpotent tuple census"
+        ]
+      },
+      "rationale": "The strongest distinct indexed result supplies the exact centralizer subspaces of all truncated polynomial derivations, not just related numbers. Under the factorial coordinate map the Zinbiel commutation relation is exactly the pullback of that derivation commutation relation, with one free dimension. The advertised subspaces, pair census and higher-arity strata follow directly, and the parity asymptotic is a leading-term readout of those strata. This establishes equivalent coverage and a direct implication; same-day indexing does not resolve priority.",
+      "residual_risks": [
+        "Publication priority is not resolved by the distinct indexed record's date. The failure rests on an explicit isomorphism of the commuting relations up to a free coordinate and the resulting implication.",
+        "The characteristic-two maximal-ideal catalog hit was summary-only because its mirror did not resolve; this and the unread parts of the early commutator paper are not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact and dominating centralizer information; direct higher-arity implication",
+          "evidence": "C_N(v) counts j with j+v−1≥N or j≡v mod p; explicit subspaces D_(u h) with these j and exact ordered pairs P_(N,q)(q).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-adjoint-centralizer-spectra-and-a-characteristic-two-parity-isom--a51032612a86/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3, mirror offsets 0–4404",
+          "method": "Resultary semantic search and local-mirror primary passage",
+          "title": "Adjoint-centralizer spectra and a characteristic-two parity isomorphism for truncated polynomial derivations",
+          "trigger": "Exact Wronskian zero relation and potentially dominating centralizer formula"
+        },
+        {
+          "assessment": "Exact pair overlap on n=p−2 via B_2; main triple theorem is on a different ambient space",
+          "evidence": "Proof §3 gives K_2(B_m)=q^(p−1)+(t+1−m)(q²−1)q^(p−2) with t=(p−1)/2.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-commuting-triple-counts-for-truncated-witt-lie-algebras--5f78aed8961c",
+          "material_read": "Finding and Proof §§1–4, mirror offsets 0–3816",
+          "method": "Resultary and local mirror",
+          "title": "Exact commuting-triple counts for truncated Witt Lie algebras",
+          "trigger": "Possible exact coverage on the positive-degree part of Witt"
+        },
+        {
+          "assessment": "Step 3 gives exact all-arity coverage on the subcase n=3, p=5",
+          "evidence": "The 3-space H has basis t²∂, t³∂, t⁴∂ and sole nonzero basis bracket up to sign [t²∂,t³∂]=t⁴∂; H_k=q^k[(q+1)q^k−q].",
+          "identifier_or_url": "2026/11/2/SCOPE-finite-field-commuting-nilpotent-tuple-census-for-the-five-dimen--a210a44aa91b",
+          "material_read": "Finding and Proof Steps 1–4, offsets 0–4487",
+          "method": "Resultary and local mirror",
+          "title": "Finite-field commuting-nilpotent tuple census for the five-dimensional Witt algebra",
+          "trigger": "Possible exact all-arity overlap in characteristic five"
+        },
+        {
+          "assessment": "Exact input, not tuple census at inspected theorem",
+          "evidence": "Gives the null-filiform multiplication in binomial basis.",
+          "identifier_or_url": "arXiv:2009.00988",
+          "material_read": "Theorem 2, p. 3, OA offset 8650",
+          "method": "OA primary PDF",
+          "title": "Central extensions of filiform Zinbiel algebras",
+          "trigger": "Standard null-filiform multiplication used by the record"
+        },
+        {
+          "assessment": "Different invariant and field",
+          "evidence": "Result about maximal zero-product abelian ideals over C, not equality of the two products over a finite field.",
+          "identifier_or_url": "arXiv:2202.03214",
+          "material_read": "Proposition 4.2, p. 8, OA offset 18000",
+          "method": "OA primary PDF",
+          "title": "Abelian subalgebras and ideals of maximal dimension in Zinbiel algebras",
+          "trigger": "Closest like-named Zinbiel structural invariant"
+        },
+        {
+          "assessment": "General background, not a tuple census at this passage",
+          "evidence": "Treats the commutator construction and speciality.",
+          "identifier_or_url": "arXiv:1809.10550",
+          "material_read": "p. 1, OA offset 1980",
+          "method": "OA primary PDF",
+          "title": "On the speciality of Tortkara algebras",
+          "trigger": "General Zinbiel commutator construction"
+        },
+        {
+          "assessment": "Inspected abstract describes commutator identities; not used as negative whole-paper evidence",
+          "evidence": "Includes a polynomial integral model and identities for the commutator of Zinbiel algebras.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/fpm828",
+          "material_read": "Math-Net primary abstract only",
+          "method": "OA public abstract page",
+          "title": "Zinbiel algebras under q-commutator",
+          "trigger": "Potential Wronskian or commutator precedent cited by frozen report"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original centralizer problem is natural, but its solution is the direct transfer of an explicit valuation-stratified centralizer theorem, and the all-arity formula just counts choices within those same abelian slices. The parity coefficient is automatic from the top terms. On the evidence inspected this does not supply an independent exact invariant beyond what the stronger classification already determines.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

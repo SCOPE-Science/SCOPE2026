@@ -1,15 +1,21 @@
-# Scientific assessment — tetrahedral spherical Voronoi margins
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact probability law follows from 48 equal-area signed-permutation chambers on the unit sphere. In each chamber the four tetrahedral cosine scores admit the explicit parity formula. Changing to an exact area-preserving latitude-angle parametrization gives two conditional angular slices; the internal splitting arcsine terms cancel when averaging the two sign parities. This yields the stated single density across the entire support. Differentiation, endpoint normalization, and direct elementary integrations prove the CDF and first two moments. Equal lengths of all tetrahedral edge vectors give the exact transformation to geodesic distance from a Voronoi boundary. The bundled checker compares direct four-score computations with the parity formula, numerically integrates the density, and verifies uniform-direction samples. Numerical evidence is not substituted for the analytic all-directions argument.
+## correctness
 
-## Originality
-**PASS relative to the inspected literature and accessible research records.** The archive motivating paper by Andoni et al. (2015, arXiv:1509.02897) ranks codeword scores for cross-polytope hash probing, but does not report a one-query tetrahedral winner-versus-runner-up gap law. Laarhoven (2019, arXiv:1907.04628) studies tetrahedral spherical Voronoi hashing explicitly and obtains a six-dimensional Gaussian orthant integral for a *two-query collision probability*; that result does not imply the present one-query gap density or adversarial angular-robustness distribution without further analysis. The closest located prior spherical-cap calculation concerns union areas controlled by the *maximum* code score, not its difference from the runner-up. An accessible earlier study of nearest vertex distance for the cuboctahedral code likewise does not cover tetrahedral runner-up margins. Source-specific uncertainties and the possibility of older spherical inner-parallel formulae remain; historical priority is not certified.
+PASS
 
-## Mathematical value
-**PASS.** This is a complete all-threshold probability law for a natural four-word spherical quantizer, rather than a single expected value or arbitrary numerical slice. It quantifies the fraction of random directions with a certified adversarial perturbation radius and gives exact calibration for the proximity of nearest-neighbor decision ties. The otherwise separate sign-parity chamber contributions cancel at an internal phase boundary, yielding a globally smooth strictly decreasing elementary density and closed moments. These features are relevant to spherical Voronoi geometry and finite-code geometric robustness.
+An independent slice calculation partitions generic directions into the 12 equiprobable ordered winner/runner pairs. For winner v_1 and runner v_2, use s=(U_2+U_3)/sqrt(2), w=sqrt(1−s²), U_1=w cos φ and (U_2−U_3)/sqrt(2)=w sin φ. Then Δ=κs, s≥0, and v_2 beats the other two exactly when U_1≥max(U_2,U_3), or w(sqrt(2)cos φ−|sin φ|)≥s. The angular interval has length 2H(s) up to s=sqrt(2/3); the surface element is ds dφ. Multiplying by 12/(4π) gives 6H(s)/π and rescaling gives the density. H'<0 on the interior; the stated primitive has derivative H and normalizes at the upper endpoint. Integration by parts gives the moment integrals; for the first use s=(sqrt(3)/2)sin θ and for the second z=sqrt(3−4s²), obtaining respectively arcsin(1/3) and π/6−1/(2sqrt(3)) for the integrals in the frozen proof. The nearest losing hemisphere has distance equal to the minimum over the three separating great circles; any path exiting the cell meets its boundary first, so inactive circle portions cannot give a smaller distance. Equal edge lengths make this distance arcsin(Δ/κ), giving the stated endpoint and the tail law; equality of the perturbation radius is immaterial in probability because there are no atoms. An independent direct sphere quadrature with 1024×2048 nodes found mean 0.529939262962 and second moment 0.398818370894, versus 0.529939502485 and 0.398818759625 analytically. CDF error at the four tested thresholds was at most 1.02×10^{-4} (finite-grid boundary error, not proof). Replay: /workspace/branches/9bd2fe8d-49a5-491b-8a41-8579561278d1/record5_quadrature.py and record5_quadrature_notes.txt. The frozen checker and recorded results were inspected, not executed.
 
-## Closest literature and limitations
-The 2015 angular LSH paper, the 2019 tetrahedral spherical-code analysis, and summary-level published spherical-cap-overlap research were compared by the random variables and events they measure, not only by titles. The 2019 paper's two correlated-input collision event is distinct from the score gap for one uniformly random input. The spherical-cap result supplies only the first-order maximum-score marginal. Full text was unavailable for the published spherical-cap comparison, so no whole-document noncoverage claim rests on that summary. The result is specific to the regular tetrahedron; no extension to arbitrary codes, and no claim of independent validation or exhaustive priority checking, is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected geometric and spacing results address a local clearance tail, a different order statistic, different sampling, or two-query collisions. A general spherical boundary integral and an explicit two-cap formula were inspected but do not evaluate the three-cap area needed here. The supported distinct content is the full one-query margin distribution and moments (and hence the exact radius distribution), not the general margin-to-hyperplane relation in isolation.
+
+## value
+
+PASS
+
+The regular tetrahedron is a natural spherical nearest-vertex code, and the full distribution of its top gap tells exactly what surface fraction is robust against all perturbations at each angular radius. The formula supplies a usable benchmark from ties to maximal clearance, including a strictly decreasing margin density and moment values, not just one geometrical distance or endpoint estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

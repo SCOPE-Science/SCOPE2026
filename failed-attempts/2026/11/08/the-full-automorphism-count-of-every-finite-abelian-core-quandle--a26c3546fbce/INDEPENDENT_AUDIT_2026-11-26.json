@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:30:01.241760Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–115",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt inspected, not executed"
+      ],
+      "rationale": "After translation to fix zero, quandle preservation implies f(-x)=-f(x), f(2y)=2f(y), and f(x+2y)=f(x)+f(2y). In particular the restriction to 2G is an additive bijection. A choice of its value on each representative then gives exactly the stated normal form. Conversely, 2a_c=g(2r_c) gives both the negation and translation identities, and distinct output cosets give bijectivity. Modulo 4G the doubling condition is theta(sigma(c))=g_bar(theta(c)). A compatible sigma fixing zero has (h-1)!(h!)^(k-1) choices by the fibers; any indicated output coset has exactly |(2G)[2]|=k lifts of the doubling condition, with the zero representative forced. This yields k^(hk-1), then the independent output translations and Aut(2G) give the formula. When k=1 it reduces to |G||Aut(2G)|(h-1)!; if also h=1 it gives the odd-group holomorph order. In the exponent-two case the operation is trivial and the formula gives |G|!, including the trivial group. The cyclic examples agree. The standard primary Aut count is the invertible-endomorphism proportion by equal-length cyclic blocks.",
+      "residual_risks": [
+        "The finite examples are corroboration only. The test script's identification of C2 factors uses its chosen input conventions; it is not a general decomposition routine for mixed cyclic moduli. The written proof uses elementary divisors and does not have that dependency."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e6805a355e92 explicitly has no parity or rank restriction and additionally characterizes the groups with only affine automorphisms",
+          "Bardakov–Sangare Theorem 3.2 requires id-phi invertible and Question 3.5 asks about even-modulus products",
+          "Bardakov–Nasybullov–Singh Theorem 5.2 concerns abelian groups without 2-torsion"
+        ],
+        "reasoning": "The primary odd-order results are genuine but partial antecedents. The exact prior catalogue theorem, unlike those antecedents, dominates the frozen scope including all mixed even groups.",
+        "searches": [
+          "Resultary e6805a355e92 Finding and Assumptions and scope",
+          "Bardakov–Sangare arXiv:2610.18676v1, Theorem 3.2 and Question 3.5",
+          "Bardakov–Nasybullov–Singh arXiv:1705.10607v3, §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e6805a355e92 (primary record text)",
+        "Resultary 849a303ddc25 and 2dab3525dc88 (summaries)",
+        "arXiv:2610.18676v1",
+        "arXiv:1705.10607v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof gives both directions of the same doubling-and-coset criterion and counts the zero fiber, nonzero fibers and solution torsors",
+          "Under the elementary-divisor decomposition, the earlier s=|ker delta| is the frozen h and the earlier d=|H[2]| is the frozen k"
+        ],
+        "reasoning": "The only change needed for the displayed count is substituting h for the prior s and k for its d. Odd-even examples are direct substitutions into the prior unrestricted formula. Using the normalized core identity rather than the displacement group to obtain equivariance does not alter the theorem.",
+        "searches": [
+          "Resultary e6805a355e92 Proof §§2–3 versus frozen Proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior record uses Q(A) with x*y=2y-x, H=2A, Omega=A/H and delta([x])=[2x] in H/2H",
+          "It parametrizes F(r_c+h)=a+b_c+lambda(h) with b_0=0, 2b_c=lambda(2r_c), and pairwise distinct output cosets"
+        ],
+        "reasoning": "Identify A=G, H=B and delta=theta; remove the output translation a and set b_c=a_c and lambda=g. Distinct cosets after adding a are equivalent to distinct cosets before adding it. This is the same classification, not just matching group orders.",
+        "searches": [
+          "Resultary semantic search for arbitrary finite abelian core/Takasaki automorphism counts and compatible coset lifts",
+          "Resultary e6805a355e92 RESULT.md, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula at e6805a355e92 is |A||Aut(H)|(s-1)!(s!)^(d-1)d^(sd-1), where s=|ker delta| and d=|H[2]|",
+          "The record already specializes to even-even dihedral products with extra factors 6, 16 or 64. The related exponent-four records 849a303ddc25 and 2dab3525dc88 are narrower summary-level matches"
+        ],
+        "reasoning": "The all-groups match is explicit, not an inference from an even-even or exponent-four table. The indexed earlier record was then verified against the actual finding and proof text.",
+        "searches": [
+          "Resultary semantic comparison for finite abelian core counts, doubled-group cosets and even dihedral quandle products",
+          "Resultary e6805a355e92 RESULT.md at offsets 0–4302"
+        ]
+      },
+      "rationale": "Established duplicate coverage, not a failure to resolve a possible overlap. Resultary e6805a355e92 gives exactly the same unrestricted formula and the same necessary-and-sufficient transversal parametrization, and also classifies the affine-rigid cases. The frozen elementary-divisor notation is a change of variables in that theorem.",
+      "residual_risks": [
+        "This establishes exact coverage, not absolute first discovery. Joyce and general mesh/theorem priority remain unsettled, but neither is needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and decisive coverage of both principal frozen conclusions",
+          "evidence": [
+            "The unrestricted factorial and power formula is displayed in the Finding.",
+            "Proof §§2–3 give the same coset representatives, doubling law, zero normalization and lift count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-affine-rigidity-classification-and-automorphism-counts-for-finit--e6805a355e92/RESULT.md",
+          "material_read": "Finding, scope, and proof §§1–3, text offsets 0–4302, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup followed by local mirror file read",
+          "title": "Affine-rigidity classification and automorphism counts for finite abelian core quandles",
+          "trigger": "Earlier catalogue hit for the unrestricted order formula and normal form"
+        },
+        {
+          "assessment": "Restricted older count plus explicit even-product question",
+          "evidence": [
+            "Theorem requires id-phi invertible; for a core phi=-id, this is doubling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18676v1",
+          "material_read": "Theorem 3.2 p. 6 offset 19400, Corollary 3.4 p. 8 offset 23200, Question 3.5 p. 9 offset 25400",
+          "method": "OA primary PDF excerpts",
+          "title": "Constructions and automorphisms of quandles",
+          "trigger": "Even-product problem asserted in the frozen relationship to prior work"
+        },
+        {
+          "assessment": "Holomorph without 2-torsion, plus partial even cases",
+          "evidence": [
+            "Theorem 5.3 concerns inner automorphisms; Corollary 5.6 is for the single R4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.10607v3",
+          "material_read": "§5, Theorem 5.2 p. 9 offset 31000 and neighboring even-case statements",
+          "method": "OA primary PDF excerpts",
+          "title": "Automorphism groups of quandles and related groups",
+          "trigger": "Same full group in the odd case and possible even coverage"
+        },
+        {
+          "assessment": "Not used to establish novelty or coverage",
+          "evidence": [
+            "The frozen text credits Joyce for the identity, not the order formula. The exact Resultary theorem already settles coverage independently of these sources."
+          ],
+          "identifier_or_url": "https://aleph0.clarku.edu/~djoyce/quandles/aaatswatkt.pdf; https://www.karlin.mff.cuni.cz/~stanovsk/math/medial_quandles.pdf",
+          "material_read": "No decisive primary passage obtained; Joyce §3.3 is credited in the frozen record",
+          "method": "Lawful OA attempts failed or timed out",
+          "title": "An Algebraic Approach to Symmetry with Applications to Knot Theory; The Structure of Medial Quandles",
+          "trigger": "Credited normalized identity and possible general affine-mesh descriptions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and dihedral applications",
+        "Resultary e6805a355e92 Finding and Proof §§1–3"
+      ],
+      "rationale": "The all-groups classification and the even-factor fiber mechanism are useful in their own right. As a separate frozen contribution, however, the result repeats both the earlier exact invariant and its explicit map-level classification; the new notation is elementary decomposition of data in that prior formula. The few examples are routine substitutions, and the frozen scope adds no new abstract group structure, rigidity theorem or application beyond the covering record.",
+      "residual_risks": [
+        "The rejection is of a separate scientific contribution, not of the utility or correctness of the already available formula."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

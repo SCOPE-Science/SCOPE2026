@@ -2,127 +2,79 @@
 
 ## Finding
 
-The conservative unforced boundary of the Ramar sine-driven three-dimensional vector field has two independent first integrals away from a degenerate axis. Its invariant circular cylinders admit a codimension-two local equilibrium transition with an explicit fourth-root law and a sharp two-pair fold wedge. The distinct fourth-root exponent is a property of the specific trigonometric coupling, rather than a claim about general Hamiltonian systems.
+For the conservative unforced Ramar sine flow
+\[
+\dot x=-kyz,\qquad \dot y=b\sin x+xz,\qquad \dot z=gxy,
+\qquad b,g,k>0,
+\]
+there are two smooth first integrals on the complement of the invariant axis \(x=z=0\). Their differentials are independent precisely at the non-equilibrium points in that domain. The first integral \(P=gx^2+kz^2\) has invariant cylinders \(P=R^2>0\), circular in the scaled \((\sqrt g\,x,y,\sqrt k\,z)\) coordinates.
 
-Fix \(b,k>0\). Define \(g_0=kb^2/3\), \(\delta=g-g_0\), \(\varepsilon=R^2-kb^2\), and \(h=2kb^2/45>0\). There are neighborhoods of \((\delta,\varepsilon)=(0,0)\) and the lower cylinder pole in which the following statements hold for \(g>0\):
+Fix \(b,k>0\), and write \(g_0=kb^2/3\), \(\delta=g-g_0\), \(\varepsilon=R^2-kb^2\), \(h=2kb^2/45\). The following equilibrium counts and types hold locally near the lower pole and near \((\delta,\varepsilon)=(0,0)\).
 
-* At \(\delta=0\) and \(\varepsilon>0\), exactly two off-axis equilibria near the lower pole have \(x\)-coordinates
+* At \(\delta=0\), small \(\varepsilon>0\) gives exactly one symmetric off-axis saddle pair, with
   \[
-  x_\pm=\pm\left(\frac{45\varepsilon}{2kb^2}\right)^{1/4}(1+O(\varepsilon^{1/2})),
-  \quad z_\pm=-b+\frac b6 x_\pm^2+O(x_\pm^4),\quad y_\pm=0.
+  x_\pm=\pm\left(\frac{45\varepsilon}{2kb^2}\right)^{1/4}
+  (1+O(\varepsilon^{1/2})),\qquad
+  z_\pm=-b+\frac b6 x_\pm^2+O(x_\pm^4),\qquad y_\pm=0.
   \]
-  They are hyperbolic saddles **within the invariant cylinder**. At \(\delta=0\), \(\varepsilon<0\), there are none nearby.
-* For \(\delta<0\) sufficiently close to zero, a unique fold of off-axis equilibria occurs at
+  For \(\varepsilon<0\) there is no nearby off-axis pair.
+* For small \(\delta<0\), the two symmetry-related saddle–center collisions occur at the same fold value
   \[
   \varepsilon_f(\delta)=-\frac{45}{8kb^2}\delta^2+O(|\delta|^3).
   \]
-  For \(\varepsilon_f(\delta)<\varepsilon<0\), there are exactly **two symmetric pairs** of nearby off-axis equilibria: the inner pair consists of elliptic centers on the cylinder; the outer pair consists of hyperbolic saddles. For \(\varepsilon<\varepsilon_f(\delta)\) sufficiently near the fold there are no nearby off-axis equilibria; at the fold there is one degenerate symmetric pair. For \(\varepsilon>0\) sufficiently close to zero there is one nearby saddle pair.
-* For \(\delta>0\) sufficiently close to zero, \(\varepsilon>0\) gives exactly one nearby saddle pair and \(\varepsilon<0\) gives none. All counts are **local near the lower pole**; no global equilibrium census is asserted.
+  Below it there are no nearby off-axis equilibria. At the fold there is one degenerate pair. For \(\varepsilon_f(\delta)<\varepsilon<0\) there is one inner center pair and one outer saddle pair. For \(\varepsilon>0\) there is one saddle pair.
+* For small \(\delta>0\), \(\varepsilon>0\) gives one nearby saddle pair and \(\varepsilon<0\) gives none.
 
-The lower axial equilibrium at \((x,y,z)=(0,0,-R/\sqrt k)\) is a cylinder saddle for \(R<b\sqrt{k}\) and a cylinder center for \(R>b\sqrt{k}\). The upper axial equilibrium at \((0,0,R/\sqrt k)\) is a cylinder center for every \(R>0\). At the equality \(R=b\sqrt{k}\), the lower pole is nonhyperbolic and its linear type does not decide stability.
+All types refer to dynamics on the specified invariant cylinder. The axial equilibrium \((0,0,-R/\sqrt k)\) is a saddle for \(R<b\sqrt k\), a center for \(R>b\sqrt k\), and nonhyperbolic at equality. The upper axial equilibrium \((0,0,R/\sqrt k)\) is a center for every \(R>0\).
 
 ## Assumptions and scope
 
-The real autonomous differential equation is
-\[
-\dot x=-kyz,\qquad \dot y=b\sin x+xz,\qquad \dot z=gxy,
-\qquad b,g,k>0.
-\]
-It is the exactly specified \(a=c=d=0\) limit of the Ramar flow \(\dot x=ax-kyz\), \(\dot y=b\sin x+xz\), \(\dot z=gxy-cz+d\). This statement concerns the conservative limit and does not assert chaotic behavior or persistence under nonzero damping, growth or forcing.
-
-For initial data with \(R^2=gx(0)^2+kz(0)^2>0\), \(R\) is fixed along the trajectory; \(R\) indexes a different invariant cylinder, not an independent dynamical coordinate. The local neighborhood is taken jointly in \(\delta\), \(\varepsilon\) and \(x\), with the negative-\(z\) branch; all \(O(\cdot)\) terms have fixed \(b,k>0\).
+This is the \(a=c=d=0\) limit of \(\dot x=ax-kyz,\ \dot y=b\sin x+xz,\ \dot z=gxy-cz+d\). The local counts concern only the negative-\(z\) half of the cylinder, in a fixed small interval of \(x\). The parameter neighborhood can be chosen jointly for \(\delta,\varepsilon\); all asymptotics fix \(b,k>0\). The cylinder label \(R\) is constant along a trajectory, not a third dynamical variable of the reduced system.
 
 ## Proof
 
-**1. Exact integrable reduction.** Direct differentiation proves
+**Integrals and pole types.** Differentiation gives \(\dot P=0\). On \(P=R^2>0\), let \(x=R\cos\theta/\sqrt g\) and \(z=R\sin\theta/\sqrt k\). The first and third equations imply \(\dot\theta=\sqrt{gk}\,y\), so \(\ddot\theta=F_R(\theta)\), where
 \[
-P(x,y,z)=gx^2+kz^2,\qquad \dot P=2gx(-kyz)+2kz(gxy)=0.
+ F_R(\theta)=b\sqrt{gk}\sin\!\left(\frac R{\sqrt g}\cos\theta\right)+R^2\sin\theta\cos\theta.
 \]
-For \(P=R^2>0\), set
+Put \(J_R(\theta)=\int_0^\theta\sin((R/\sqrt g)\cos u)\,du\). The integrand is antiperiodic under a shift of \(\pi\), hence \(J_R\) is \(2\pi\)-periodic. The function
 \[
-x=\frac R{\sqrt g}\cos\theta,\qquad z=\frac R{\sqrt k}\sin\theta.
+ H=\frac{gk}{2}y^2-b\sqrt{gk}\,J_R(\theta)-\frac{R^2}{2}\sin^2\theta
 \]
-The first and third differential equations give \(\dot\theta=\sqrt{gk}\,y\). Therefore
-\[
-\ddot\theta=b\sqrt{gk}\sin\!\left(\frac R{\sqrt g}\cos\theta\right)
-+R^2\sin\theta\cos\theta.
-\]
-Define the smooth periodic primitive
-\[
-J_R(\theta)=\int_0^\theta\sin\!\left(\frac R{\sqrt g}\cos u\right)\,du.
-\]
-The integrand changes sign under \(u\mapsto u+\pi\), so its integral over any full period is zero; thus \(J_R\) is \(2\pi\)-periodic. The second first integral on each cylinder is
-\[
-H_R(\theta,y)=\frac{gk}{2}y^2-b\sqrt{gk}J_R(\theta)-\frac{R^2}{2}\sin^2\theta.
-\]
-Differentiating \(H_R\) and inserting the angular equation yields zero. Since \(J_R\) and \(\sin^2\theta\) are bounded on the circle, any fixed-energy trajectory has bounded \(y\); its \(x,z\) are already bounded by \(P\). Smoothness and standard continuation give complete flow. Every connected compact regular energy level on a cylinder is a circle on which the vector field is nowhere zero, hence carries periodic motion. This assertion deliberately excludes critical separatrix energy levels and the degenerate invariant axis \(R=0\), where all points \((0,y,0)\) are equilibria.
+is single-valued and smooth for \(R=\sqrt P>0\), and \(\dot H=0\). There \(dP\ne0\), and the restriction of \(dH\) to the cylinder is \(gk y\,dy-F_R(\theta)\,d\theta\). This restriction vanishes exactly when \(y=0=F_R(\theta)\), the cylinder equilibria. This gives the stated locus of independence, in particular excluding the axial poles. The angular potential is bounded at fixed \(R\), so energy bounds \(y\); together with \(P\) this bounds each trajectory and implies completeness. The degenerate axis consists of equilibria. On each positive-radius cylinder every connected regular level component of \(H\) is compact and carries a periodic orbit: it is a circle, and the reduced vector field has no zero there.
 
-**2. Pole types.** Let \(F(\theta)\) denote the right side of the angular second-order equation. At the lower pole \(\theta=3\pi/2\),
-\[
-F'(3\pi/2)=R(b\sqrt k-R),
-\]
-whereas at the upper pole \(\theta=\pi/2\),
-\[
-F'(\pi/2)=-R(b\sqrt k+R).
-\]
-The planar linearization in \((\theta,\dot\theta)\) has eigenvalues satisfying \(\lambda^2=F'(\theta_0)\). Strictly negative derivative gives an elliptic center by the local conserved Hamiltonian; strictly positive derivative gives a saddle. This proves the stated strict-inequality types.
+The cylinder linearization has \(\lambda^2=F_R'(\theta)\) at an equilibrium. A positive derivative gives a hyperbolic saddle; a negative one makes the conserved energy have a nondegenerate local minimum, whose small surrounding levels give a nonlinear center. At \(3\pi/2\) the derivative is \(R(b\sqrt k-R)\), while at \(\pi/2\) it is \(-R(b\sqrt k+R)\). These yield the stated axial types without using linearization to decide the equality case.
 
-**3. Scalar equation for off-axis equilibria.** On the local negative-\(z\) half cylinder, write
+**Off-axis equation.** Use \(s(x)=\sin x/x\), with \(s(0)=1\), and \(z_R(x)=-\sqrt{(R^2-gx^2)/k}\). Locally \(s(x)>0\), \(z_R(x)<0\), and an off-axis equilibrium requires \(y=0\) and \(z_R(x)=-bs(x)\). Thus it is equivalent to
 \[
-z_R(x)=-\sqrt{\frac{R^2-gx^2}{k}},\qquad s(x)=\frac{\sin x}{x},\quad s(0)=1.
+ R^2=\Phi(x)=gx^2+kb^2s(x)^2.
 \]
-Any non-pole equilibrium nearby has \(y=0\), \(x\ne0\), and must solve
+The Taylor series \(s(x)^2=1-x^2/3+2x^4/45-x^6/315+O(x^8)\) yields, in \(t=x^2>0\),
 \[
-b\sin x+xz_R(x)=x\{bs(x)+z_R(x)\}=0.
+ \varepsilon=G(t;\delta)=\delta t+ht^2-\frac{kb^2}{315}t^3+O(t^4).
 \]
-Since \(s(x)>0\) for small \(|x|\), this is exactly equivalent to
-\[
-R^2=\Phi(x),\qquad \Phi(x)=gx^2+kb^2s(x)^2.
-\]
-The Taylor series of \(s(x)^2\) is
-\[
-s(x)^2=1-\frac{x^2}3+\frac{2x^4}{45}-\frac{x^6}{315}+O(x^8).
-\]
-Thus, putting \(t=x^2\), the equilibrium equation is
-\[
-\varepsilon=G(t;\delta)
-=\delta t+ht^2-\frac{kb^2}{315}t^3+O(t^4),\qquad t>0.
-\]
-The analytic remainder and its derivatives are uniform for small \(t,\delta\). In particular \(G_{tt}(0;0)=2h>0\). Shrink a fixed neighborhood so that \(G_{tt}>h>0\) there.
+The analytic function \(G\) has \(G(0;\delta)=0\), \(G_t(0;\delta)=\delta\), and \(G_{tt}>h\) on a small fixed interval \([0,t_*]\). After shrinking the parameter neighborhood, \(G(t_*;\delta)>\varepsilon\). For \(\delta\ge0\), strict increase on \((0,t_*]\) gives one positive root at \(\varepsilon>0\) and none at \(\varepsilon<0\). At \(\delta=0\), inverting \(\varepsilon=ht^2(1+O(t))\) gives the fourth-root expansion in \(x\); \(z=-bs(x)\) gives the expansion in \(z\).
 
-**4. Local root classification and degeneracy.** If \(\delta\ge0\), \(G_t(0;\delta)=\delta\) and strict convexity imply that \(G\) is strictly increasing for \(t>0\). Hence exactly one small positive root for each sufficiently small \(\varepsilon>0\), and none for \(\varepsilon<0\). At \(\delta=0\), solve \(\varepsilon=ht^2(1+O(t))\) to obtain \(t=(\varepsilon/h)^{1/2}(1+O(\varepsilon^{1/2}))\), giving the fourth-root formula for \(x=\pm\sqrt t\). Substituting \(z=-bs(x)\) yields its displayed expansion.
+For \(\delta<0\) sufficiently small, the implicit-function theorem at \((t,\delta)=(0,0)\) gives the unique local minimum at \(t_f=-\delta/(2h)+O(\delta^2)>0\). Its value is \(-\delta^2/(4h)+O(|\delta|^3)\). Strict decrease before and strict increase after this minimum, together with \(G(0;\delta)=0\), give the claimed root counts. Every positive root produces precisely two values \(x=\pm\sqrt t\). Since \(G_{tt}(t_f;\delta)>0\) and the equilibrium equation has nonzero derivative with respect to \(\varepsilon\), the positive root at the minimum is a nondegenerate fold of the scalar equilibrium equation, occurring at both signs of \(x\).
 
-For \(\delta<0\), strict convexity and the implicit-function theorem applied to \(G_t(t;\delta)=0\) yield a unique critical point
+**Off-axis types.** Set \(Q(x)=b\sin x+xz_R(x)\). Rationalizing \(bs(x)+z_R(x)\) gives
 \[
-t_f(\delta)=-\frac{\delta}{2h}+O(\delta^2)>0.
+ Q(x)=\frac{x(\Phi(x)-R^2)}{k(bs(x)-z_R(x))}.
 \]
-It is a strict minimum, whose height is
-\[
-G(t_f;\delta)=-\frac{\delta^2}{4h}+O(|\delta|^3)
-=-\frac{45\delta^2}{8kb^2}+O(|\delta|^3).
-\]
-A horizontal line above this minimum but below zero meets the local strictly convex graph at exactly two positive \(t\)-values; at the minimum they coalesce, and below it there are none. Each positive \(t\) produces exactly two equilibria \(x=\pm\sqrt t\). For \(\varepsilon>0\), exactly one positive small root exists. These statements hold after choosing the local parameter neighborhood so both positive intersections are included.
-
-**5. Local stability of each pair.** Let \(Q(x)=b\sin x+xz_R(x)\). At a nonzero equilibrium, differentiating the relation above and using \(z_R(x)=-bs(x)\) gives
-\[
-Q'(x)=\frac{x\Phi'(x)}{2kb\,s(x)}
-=\frac{x^2G_t(x^2;\delta)}{kb\,s(x)}.
-\]
-On the lower half cylinder, \(dx/d\theta=-(R/\sqrt g)\sin\theta>0\). Therefore the sign of \(F'(\theta)\) agrees with \(G_t\): the positive-slope (outer) branch is hyperbolic and the negative-slope (inner) branch is elliptic. The Hamiltonian first integral makes the elliptic equilibria nonlinear centers on their cylinders. At the fold \(G_t=0\), the transverse linearization is degenerate, and no hyperbolicity is claimed.
+At a nonzero equilibrium this implies \(Q'(x)=x^2G_t(x^2;\delta)/(kb s(x))\). The relation \(F_R(\theta)=\sqrt{gk}\,Q(x(\theta))\) holds locally, with \(dx/d\theta>0\) on the lower half. The sign of \(F_R'\) is therefore the sign of \(G_t\): saddles on the increasing branch and centers on the decreasing branch. The fold equilibria have \(F_R'=0\).
 
 ## Verification
 
-A self-contained symbolic/numerical diagnostic is supplied as `check.py`. It checks the Taylor coefficients, both pole derivatives, the derivative identity used for branch stability, the leading fourth-root coefficient and the local fold law on a sample of small parameters. The theorem's infinite and uniform local assertions are proved by the analytic and convexity arguments above, **not** by finite tests.
+The unchanged companion `check.py` checks the pole derivatives, the off-axis slope identity, and the Taylor coefficients, and gives finite numerical diagnostics for the two leading asymptotics. The functional independence locus, uniform local counts, and equilibrium types follow from the analytic proof above, not from finite diagnostics.
 
 ## Relationship to prior work
 
-R. Ramar, *Design of a New Chaotic System with Sine Function: Dynamic Analysis and Offset Boosting Control* (2023), introduces and studies the full driven dissipative sine system. Its full paper treats chaos, parameter plots, fixed-point linearization, offset boosting and synchronization; the conservative cylinder reduction and codimension-two local fold/fourth-root equilibrium diagram above are not part of its stated findings. The first-integral reduction and the local equilibrium diagram are the claimed contributions; elementary facts about one-degree-of-freedom Hamiltonian systems and generic folds are not claimed as new.
+The full sine-driven system is due to Ramar [1]. The result here specifies the local saddle–center diagram on the invariant cylinders at the unforced conservative boundary. In particular, the fold law locates the simultaneous creation of a center and saddle on each side of the lower pole. The general one-degree-of-freedom Hamiltonian criterion and scalar fold argument are standard; the locus and coefficients here use the specific sine coupling.
 
 ## Limitations
 
-Only the exactly unforced undamped boundary \(a=c=d=0\) is analyzed. All equilibrium counts and fourth-root/fold statements are local near the negative-\(z\) pole and near \(g=kb^2/3,\ R=b\sqrt k\). Equilibria elsewhere on the cylinder and global bifurcations are not counted. Stability means **within a fixed invariant cylinder**, not asymptotic attraction in the full three-dimensional conservative flow; no equilibrium is asserted to be a full-space sink. The computation does not establish persistence for \(a,c,d\ne0\), chaotic dynamics or novel generic bifurcation theory. Independent validation has not been performed.
+The equilibrium diagram is local, not a global census. Its stability statements are restricted to a fixed invariant cylinder. No continuation into nonzero damping, growth or forcing, or conclusion about chaos, is asserted. The two displayed integrals do not have independent differentials at equilibria.
 
-## References
+## Reference
 
-1. R. Ramar (2023), “Design of a New Chaotic System with Sine Function: Dynamic Analysis and Offset Boosting Control,” *Chaos Theory and Applications* **5**(2), 118–126. DOI: [10.51537/chaos.1223766](https://doi.org/10.51537/chaos.1223766), first public online July 28, 2023. Full paper: https://dergipark.org.tr/en/download/article-file/2850554.
-2. Standard one-degree-of-freedom Hamiltonian regular-level and analytic fold arguments are used as general mathematical background, not as a claim of priority.
+1. R. Ramar (2023), “Design of a New Chaotic System with Sine Function: Dynamic Analysis and Offset Boosting Control,” *Chaos Theory and Applications* **5**(2), 118–126. [DOI:10.51537/chaos.1223766](https://doi.org/10.51537/chaos.1223766).

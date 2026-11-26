@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional group Markov chain has stationary high probability \(p_j=z^{\alpha_2}/[1-z^{\alpha_1}+z^{\alpha_2}]\) for fixed \(z=j/g\), with absorbing endpoints \(p_0=0,p_g=1\). The cooperator/defector payoffs conditioned on the same number of co-players yield exact finite-difference coefficients. If the exponents coincide, the coefficients are strictly increasing differences of a convex power; Bernstein differentiation proves strict monotonicity and the exclusion of stable interior states for *every* group size. When \(g=2\), the two gain coefficients always increase, even for unequal sensitivities. When \(g=3\), the gain is exactly a quadratic, whose vertex/boundaries give the stated if-and-only-if bistability window. The explicit witness is proved with strict rational/logarithmic comparisons, not numerical root tests. The standard-library checker corroborates the algebra and witness.
+## correctness
 
-## Originality — PASS, with residual risk
-Wei et al. (2026) introduce the transition rule and simulate spatial imitation; they do not supply an all-size memoryless obstruction, nor the stationary-state three-person replicator window. Peña et al. (2014) supply the **general** Bernstein gain-sequence mechanism, which is explicitly credited: neither polynomial degree bounds nor generic interior-root patterns are claimed new. Su et al. (2019) establish cooperation-promoting game transitions in weak-selection graph models, not this fast-state, well-mixed, parameter-explicit dichotomy. Related abstract-level nonlinear public-goods results are acknowledged without a whole-document noncoverage claim. An earlier unlocated application of the general gain theorem to this exact Markov rule could subsume the specialization.
+PASS
 
-## Mathematical value — PASS
-The result answers whether environmental memory is necessary to maintain a stable partially cooperating population under this rapid-switching model: strictly yes, at every group size, and three players are a sharp smallest memoryful realization. It demonstrates cooperation's robust partial survival despite both fixed component games disfavoring a unilateral cooperator and provides a necessary-and-sufficient threshold interval. This is a motivated structural boundary and exact intervention-sensitive basin picture, not a routine payoff renaming.
+Balancing the two environmental flows at each fixed integer j gives p_j, with p_0=0 and p_g=1 and unique stationary probabilities at the intermediate compositions. Conditioning on the same k cooperating co-players for both focal strategies gives gain r_L−1+Δ E[d_k], where d_k=(k+1)p_{k+1}−kp_k and k has the stipulated binomial law. Equal exponents give d_k as consecutive increments of t^(1+α)/g^α, strictly increasing by convexity. Differentiating the Bernstein average represents its derivative as a convex combination of strictly positive adjacent differences times (g−1)Δ, including both endpoints. For g=2 the difference is always 2(1−p_1)>0. For g=3 the three coefficients are u, 2v−u, 3−2v; expansion gives F as stated. Two simple interior roots with negative endpoint gains and the stated signs require concavity and an interior maximum. Since 0<u,v<1, F′(1)<0 is equivalent to 4v>3+u and implies F′(0)>0. The vertex and endpoint values then give the strict necessary and sufficient inequalities; the phase-line signs show both basins. In the witness, log 3>1 and 1−exp(−1/100)>1/101 give u<1/20, while log(3/2)<1/2 gives v>11/12. Thus F(0),F(1)<7/6 and F(1/2)>287/240>7/6, so both roots are simple and the inequalities persist under perturbation. Independent replay: python3 /workspace/independent_checks_oct19.py (game_check), direct focal-payoff averaging over four configurations and bisection gave roots 0.46517006461375 and 0.97198265014488. The supplied checker was read, not executed. The theorem is for the assumed annealed replicator, not a limiting theorem for finite hypergraph imitation.
 
-## Limitations
-The theorem is confined to the explicitly defined annealed rapid-environment mean-field replicator, not the original finite-hypergraph imitation dynamics. No stochastic fixation, network convergence or empirical claim is established. The classical gain-polynomial representation and broad two-interior-root possibilities predate this result. Independent validation is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The transition law is Wei et al.'s, the gain-polynomial machinery and generic unstable/stable root pair are Peña et al.'s, and cooperation promoted by environmental transitions in individually unfavorable games has qualitative antecedents. The supported distinct result is the model-specific sharp group-size/memory obstruction and the robust, parameter-explicit subunit-synergy three-person regime in a separately stipulated annealed replicator, not those general mechanisms.
+
+## value
+
+PASS
+
+The group-size and memory question is natural in this environmental feedback model. A uniform no-memory exclusion and an exact minimal-size witness with both fixed games individually discouraging cooperation together separate the effect of making transitions state-dependent from the ordinary static rewards. The strict region has two basins with explicit boundaries, and is more informative than a numerical observation or a generic quadratic example. No finite-network, fixation, or empirical conclusion is warranted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

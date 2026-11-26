@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verification.py` using Python 3 and its standard library. The checker generates the ten orbit representatives from the four-element alphabet-symmetry group, evaluates the quotient transfer matrix exactly, calculates the determinant coefficients using rational-free Faddeev--LeVerrier traces in the polynomial ring over integers, verifies the rational numerator identity to a degree exceeding the algebraic degree bound, enumerates all admissible strings of lengths zero through eight independently, checks the exact composition symmetry, and exhaustively verifies strong connectivity for all 36 legal suffix triples. It checks that the periodic walks `012` and `0121` avoid the two forbidden squares.
+## correctness
 
-The determinant/adjugate argument in RESULT.md turns the finite exact symbolic comparison into an all-length identity. The analytic central/local limit theorem follows from the mathematical strong-connectivity, lattice-periodicity, and pole arguments given there; the checker does not constitute an independent infinite-limit certification. No independent mathematical audit has been performed.
+PASS
+
+For the abstract two-color four-letter language, the triple update excludes precisely a new adjacent equal pair or a new period-two square. The independent orbit-graph calculation confirmed all ten weighted states, the determinant D and the numerator N through degree 12; the adjugate bound deg_z(D F)≤12 makes this an all-coefficient certificate. Independent finite enumeration also matched lengths 0 through 8, including 48, 320 and 2192 at the first three even lengths cited. The full 36-state graph is connected, and closed walks based at the same triple have (length,weight)=(3,1),(4,1). Length gcd 1 gives primitivity, and the unimodularity of these two vectors excludes any nonzero lattice phase on the unit circle away from 0, giving span one. The dominant pole is simple, also in D at u=1, and continues analytically; the amplitude at u=1 is √3 at r=(√3−1)/2. For a separate differentiation check set G(x,t)=D(x exp(−t/2),exp(t)); it is even in t and G_tt(x,0)=x³(2x⁴+4x³−x²−8x−2). At x=r, G_tt/(r G_x)=(7√3−6)/72>0, the second derivative of minus the log pole, while symmetry gives exact mean n/2. The finite-state local limit hence yields amplitude √3/(√(2πσ²)), the stated balanced prefactor, only at eligible even n; quasi-powers yields the CLT. These limit conclusions use the analytic argument, not extrapolation from the finite counts. The supplied script was inspected, not run.
+
+## originality
+
+PASS
+
+The closest prior article treats exactly the same balanced irreducible language and establishes its exponential rate. It explicitly does not provide a balanced counting recurrence. The distinct supported claims are the explicit complete bivariate enumerator and the evaluated variance and sharp balanced subexponential factor, not the growth base or the existence of a transfer matrix.
+
+## value
+
+PASS
+
+The same balanced word-count problem was explicitly posed in prior counting work, with only the exponential scale evaluated there. The exact bivariate function supplies length-and-weight coefficients and the local limit quantifies the polynomial penalty and its constant at exact balance. Those are useful finite and asymptotic invariants of the established constrained language, not arbitrary sample counts or a repeated rate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

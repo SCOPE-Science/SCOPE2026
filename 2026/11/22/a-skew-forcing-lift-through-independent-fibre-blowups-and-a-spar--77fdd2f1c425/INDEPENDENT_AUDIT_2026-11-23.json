@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:32:38.360038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any two white vertices in one independent fibre have identical external neighborhoods and form a fort, so the first of them cannot be forced. With at most one white representative per fibre and m≥2, every fibre always contains a blue vertex. Each such vertex sees exactly one white neighbor iff its base vertex sees exactly one white base neighbor, independently of whether that base vertex is blue. This gives a stepwise correspondence, including isolated base vertices, and a labelled bijection with pairs consisting of a skew-forcing set F and one omitted label per fibre outside F. The weight is m^(n-|F|) z^(n(m-1)+|F|). Deleting a selected vertex in a partial fibre fails the fort condition; deleting one in a full fibre removes the associated vertex from F. Since forcing is upward closed, the single-deletion test suffices for minimality. The two substitutions, equality for Z, and minimum/minimal-size consequences follow. On C_n the two neighbors of i are i-1 and i+1, so every force crosses a step-two edge between these neighbors; a component is occupied exactly when seeded. The proof's phrase 'cyclic distance two' must be understood as step ±2 mod n: for n=3 the two neighbors are adjacent and the step graph is C3, and for n=4 it is two K2 components. The formulas as stated therefore hold also at both small n. Counting seed choices by parity gives the displayed polynomials and minimum counts. Base rotations and fibre swaps give transitivity; n≥5 yields connected triangle-free 4-regular graphs with 4n edges and the claimed exponential counts. I inspected verify.cpp, not executed uploaded code. It checks finite cases by a shared closure routine with separate ordinary/skew eligibility, not two separately written closure algorithms; the analytical argument, not finite agreement, proves the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.11 gives Z(G∘edgeless-m)≤nm−2 for connected bases with an edge and m≥2, by omitting one vertex above each endpoint of that edge.",
+          "Benson et al. use skew forcing in a bound for G×K_r, r≥4; Javaid et al.'s cycle corollary treats clique fibres."
+        ],
+        "reasoning": "A scalar inequality for the same product cannot recover all initial sets or minimality, and the other bounds/formulas do not apply to the independent-fibre product.",
+        "searches": [
+          "Javaid et al., arXiv:1607.04071v1, §3, Lemma 3.11 and Corollary 3.17",
+          "Benson et al., arXiv:1510.02421v4, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.cpp",
+        "Brimkov–Carlson, arXiv:2204.01810v2",
+        "Javaid et al., arXiv:1607.04071v1",
+        "Benson et al., arXiv:1510.02421v4",
+        "Resultary record 86ad1fa62971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The concluding question asks for sparse connected vertex-transitive graphs with exponentially many minimal zero-forcing sets.",
+          "Proposition 6 uses C5 Cartesian K_(n/5), whose growing clique factor forces growing degree.",
+          "The strongest indexed polynomial calculation uses clique fibres, where within-fibre adjacency changes the ordinary forcing moves."
+        ],
+        "reasoning": "Neither that dense example nor the inspected product results imply the 4-regular family with these exact counts. The same graph class appears in a scalar bound, but that bound does not imply the correspondence or either enumerator.",
+        "searches": [
+          "Brimkov–Carlson, arXiv:2204.01810v2, Proposition 6 and concluding §4",
+          "Javaid et al., Lemma 3.11",
+          "Resultary 86ad1fa62971, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The false-twin obstruction is exactly a size-two fort under the published fort definition.",
+          "The independent-fibre graph has all cross-pairs across a base edge, unlike G×K_r, which omits equal-fibre-label cross-pairs."
+        ],
+        "reasoning": "The generic fort criterion forces the at-most-one-white condition but not the classification of all forcing sets unless one proves the remaining white-neighbor counts simulate the skew rule. The inspected tensor-product result is not a reformulation of the same graph or its enumerator.",
+        "searches": [
+          "Resultary: independent-fibre lexicographic blowups, false twins, skew zero forcing and minimal forcing polynomials",
+          "Brimkov–Carlson, arXiv:2204.01810v2, fort passage",
+          "Benson et al., arXiv:1510.02421v4, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest distinct hit: 2026/11/8/SCOPE-closed-zero-forcing-polynomials-and-well-forcedness-of-clique-ex--86ad1fa62971, mirrored RESULT.md, offset 0."
+        ],
+        "reasoning": "The indexed record has the same base cycles and output type but complete, true-twin fibres. It does not give the independent-fibre polynomial or general skew lift. The bounded catalogue search did not supply an independent exact match.",
+        "searches": [
+          "Resultary: independent-fibre cycle blowups C_n[edgeless m]; zero-forcing polynomials, well-forcedness and sparse vertex-transitive minimal sets"
+        ]
+      },
+      "rationale": "The inspected product results give bounds or treat other products, and the strongest indexed cycle-polynomial comparator has true-twin clique fibres. The primary text confirms the exact sparse-family question; its existing Cartesian-product example is not bounded degree. The substantive new comparison is the exact labelled all-set and inclusion-minimal lift through independent fibres, used to give a concrete sparse family. The general fort definition, skew rule, and elementary cycle dynamics are not credited as new.",
+      "residual_risks": [
+        "Bounded primary and catalogue evidence is not proof of historical priority.",
+        "An uncatalogued equivalent under false-twin reductions or an earlier sparse example of a different form remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the target sparse question and relevant general machinery; the example given there is dense",
+          "evidence": "The fort condition is no outside vertex adjacent to exactly one fort vertex. The example is C5 Cartesian K_(n/5); §4 asks for a sparse connected vertex-transitive example with exponentially many minimal sets.",
+          "identifier_or_url": "https://arxiv.org/html/2204.01810v2",
+          "material_read": "Proposition 6 (HTML offset near 15756), fort passage (37083), concluding §4 (43032)",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Minimal Zero Forcing Sets",
+          "trigger": "Actual existence question, related examples, and fort machinery"
+        },
+        {
+          "assessment": "Same-product scalar upper bound; cycle equality in a different fibre case",
+          "evidence": "Lemma 3.11 obtains Z(G∘edgeless-m)≤nm−2 by taking a base edge u1~u2 (so the proof requires a nontrivial connected base); Corollary 3.17 concerns C_n∘K_m.",
+          "identifier_or_url": "https://arxiv.org/html/1607.04071v1",
+          "material_read": "§3, Lemma 3.11 and proof (HTML offsets 44830–46150) and Corollary 3.17 (50702)",
+          "method": "Bounded primary OA HTML passages",
+          "title": "On the zero forcing number of corona and lexicographic product of graphs",
+          "trigger": "Exact same lexicographic product in the independent-fibre case"
+        },
+        {
+          "assessment": "Relevant rule, different product and weaker conclusion",
+          "evidence": "Defines skew forcing and gives a bound for the tensor product G×K_r with r≥4, not a labelled all-set or minimal-set lift through independent lexicographic fibres.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02421v4",
+          "material_read": "§2.1, PDF pp. 3–4, offset 13928",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Power domination and zero forcing",
+          "trigger": "Possible existing skew-forcing/product transfer"
+        },
+        {
+          "assessment": "Related enumerative output, different fibre graph and forcing dynamics",
+          "evidence": "Gives the all-set polynomial and minimum-set classification for C_n[K_m], not C_n[edgeless m].",
+          "identifier_or_url": "2026/11/8/SCOPE-closed-zero-forcing-polynomials-and-well-forcedness-of-clique-ex--86ad1fa62971",
+          "material_read": "RESULT.md, offset 0 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Resultary search and bounded mirror text",
+          "title": "Closed zero-forcing polynomials and well-forcedness of clique-expanded cycles",
+          "trigger": "Closest indexed polynomial and minimal-set computation on expanded cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The transfer is structural and all-graphs: it relates ordinary and skew forcing without losing labelled enumerators or inclusion-minimal sets. This is stronger and more reusable than a scalar product bound. The cycle application connects it directly to an explicit question and retains degree four, connectivity and vertex-transitivity while achieving exponentially many minimal sets, with all such sets simultaneously minimum. These features motivate both the independent-fibre operation and the choice of cycle bases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

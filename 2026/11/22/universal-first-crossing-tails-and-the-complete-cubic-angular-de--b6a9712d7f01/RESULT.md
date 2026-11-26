@@ -1,115 +1,72 @@
-# Universal first-crossing tails and the complete cubic angular-degeneracy spectrum
+# Physical-time first-crossing tails from finite-order angular zeros
 
 ## Finding
-Consider a planar polynomial star-node flow with a strictly radially contracting odd-degree homogeneous nonlinear part. In every forward angular sector born at an angular equilibrium of finite multiplicity, the **original-physical-time first crossing** of a fixed downstream ray has a universal sharp late-time law for initial conditions sampled on any compact radial annulus. The principal exponent is determined by the multiplicity of the upstream angular zero, and its leading constant depends on the local radial equilibrium but **not** on the radial starting distribution except for its total boundary density.
 
-More precisely, under the assumptions below, put \(v_*=a_0/\lambda\), \(\rho_a=v_*^{-1/(2p)}\), and \(C_k=v_*/((k-1)c)\) when \(k\ge2\). Uniformly across every allowed starting radius, the first-crossing time \(T\) satisfies
+Let \(\dot z=\lambda z+Q(z)\) in the plane, where \(\lambda>0\), \(p\ge1\) is integral, and \(Q\) is a homogeneous polynomial vector field of degree \(2p+1\). Write \(u_\theta=(\cos\theta,\sin\theta)\), let \(J(x,y)=(-y,x)\), and set
 \[
-\lim_{\delta\downarrow0}\frac{T(r,\delta)}{\log(1/\delta)}=\frac{v_*}{c}\quad (k=1),
-\qquad
-\lim_{\delta\downarrow0}T(r,\delta)\,\delta^{k-1}=C_k\quad (k\ge2).
+a(\theta)=-\langle u_\theta,Q(u_\theta)\rangle,\qquad
+g(\theta)=\langle Ju_\theta,Q(u_\theta)\rangle.
 \]
-For an initial angle-radius density \(w\) with positive integrated density \(q_0\) along the upstream ray, these uniform laws give
+Assume \(a>0\) on the circle. Let the lifted angles \(\theta_a<\theta_c<\theta_a+2\pi\) satisfy \(g(\theta_a)=0\) and \(g>0\) on \((\theta_a,\theta_c]\), with \(g(\theta_a+\delta)=c\delta^k+O(\delta^{k+1})\) for an integer \(k\ge1\) and \(c>0\). Fix \(I=[r_-,r_+]\) with \(0<r_-<r_+<\infty\). Start at \((r,\theta_a+\delta)\), where \(r\in I\) and \(0<\delta\le h\le\theta_c-\theta_a\). Let \(T(r,\delta)\) be the first original physical time at which the lifted angle reaches \(\theta_c\), with \(T=0\) if the trajectory starts on that ray. Put \(v_*=a(\theta_a)/\lambda\). Uniformly on \(I\),
 \[
-\lim_{t\to\infty}\frac{\log\Pr(T>t)}t=-\frac{c}{v_*}\quad(k=1),
-\qquad
-\Pr(T>t)\sim q_0\,C_k^{1/(k-1)}t^{-1/(k-1)}\quad(k\ge2).
+\frac{T(r,\delta)}{\log(1/\delta)}\longrightarrow\frac{v_*}{c}\quad(k=1),\qquad
+T(r,\delta)\delta^{k-1}\longrightarrow C_k:=\frac{v_*}{(k-1)c}\quad(k\ge2).
 \]
-Consequently, for every \(s>0\), all moments \(\mathbb E(T^s)\) are finite for \(k=1\); for \(k\ge2\), the moment is finite **if and only if** \(s<1/(k-1)\), and diverges at the endpoint as well as above it.
-
-In the cubic case, the angular field is the restriction of a homogeneous quartic, so the finite-zero orders can be only \(1,2,3,4\), and **all four orders occur in explicit strictly contracting cubic polynomial flows**. For these examples, sampled with a uniform initial angle on a quadrant and any independent compactly supported positive radial distribution, the three heavy-tail exponents are exactly \(1,1/2,1/3\), with a fully explicit coefficient given below; the simple zero gives exponential rather than power-law first-crossing tails. The multiplicity ceiling and qualitative policycle types themselves are established background, not an originality claim.
-
-## Assumptions and scope
-Fix an integer \(p\ge1\), a real \(\lambda>0\), and a homogeneous real polynomial vector field \(Q:\mathbb R^2\to\mathbb R^2\) of degree \(2p+1\). For \(u_\theta=(\cos\theta,\sin\theta)\) and \(Ju_\theta=(-\sin\theta,\cos\theta)\), set
+Suppose the starting law is supported on the indicated annular sector and its angular offset has a density \(q(\delta)\) with \(q(\delta)\to q_0>0\) as \(\delta\downarrow0\). In particular this holds for a continuous probability density \(w(r,\theta)\) relative to \(dr\,d\theta\) with \(q_0=\int_I w(r,\theta_a)\,dr>0\); for a density relative to Euclidean area, absorb the polar Jacobian into \(w\). Then
 \[
- f(\theta)=\langle u_\theta,Q(u_\theta)\rangle,\qquad
- a(\theta)=-f(\theta),\qquad
- g(\theta)=\langle Ju_\theta,Q(u_\theta)\rangle.
+\lim_{t\to\infty}\frac{\log\Pr(T>t)}{t}=-\frac{c}{v_*}\quad(k=1),\qquad
+\Pr(T>t)\sim q_0\left(\frac{C_k}{t}\right)^{1/(k-1)}\quad(k\ge2).
 \]
-Assume \(a(\theta)>0\) for every real \(\theta\). Consider the original-time differential equation \(\dot z=\lambda z+Q(z)\). Choose two lifted real angular coordinates \(\theta_a<\theta_c<\theta_a+2\pi\) such that \(g(\theta_a)=0\), \(g(\theta)>0\) for every \(\theta\in(\theta_a,\theta_c]\), and for some integer \(k\ge1\) and real \(c>0\),
-\[
- g(\theta_a+\delta)=c\delta^k+O(\delta^{k+1})\qquad(\delta\downarrow0).
-\]
-Fix real \(0<r_-<r_+<\infty\) and a real \(h\) with \(0<h<\theta_c-\theta_a\). The starting coordinates are \((r,\theta_a+\delta)\) with \(r\in I=[r_-,r_+]\) and \(0<\delta\le h\). The hitting time \(T(r,\delta)\) means the **first original physical time** that the continuously lifted angle reaches \(\theta_c\). We do not reparametrize physical time by angle in defining \(T\).
-
-For ensemble statements let \(w(r,\theta)\) be a nonnegative continuous density with respect to the product coordinate measure \(dr\,d\theta\), normalized by \(\int_I\int_{\theta_a}^{\theta_a+h}w(r,\theta)\,d\theta\,dr=1\), and require
-\[
- q_0=\int_I w(r,\theta_a)\,dr>0.
-\]
-If the initial law is specified with respect to Euclidean area, its polar Jacobian \(r\) must be absorbed into \(w\). All limits keep the polynomial, coefficients, downstream ray, radial interval and initial density fixed.
+For \(k=1\) every positive moment of \(T\) is finite. For \(k\ge2\), the \(s\)-th moment for \(s>0\) is finite exactly when \(s<1/(k-1)\).
 
 ## Proof
-**1. Polar and inverse-radial dynamics.** For every nonzero trajectory write \(z=r u_\theta\). Homogeneity gives the exact equations
+
+For \(v=r^{-2p}\) the polar equations are \(\dot v=-2p\lambda v+2pa(\theta)\) and \(\dot\theta=g(\theta)/v\). Variation of constants bounds \(v\) between
 \[
- \dot r=r(\lambda-a(\theta)r^{2p}),\qquad
- \dot\theta=r^{2p}g(\theta).
+L=\min(r_+^{-2p},\min a/\lambda)>0,\qquad U=\max(r_-^{-2p},\max a/\lambda)<\infty.
 \]
-Put \(v=r^{-2p}\). Crucially this removes the nonlinear radial power from the radial equation in **physical time**:
+These bounds keep nonzero trajectories in a bounded positive annulus, so they exist at least through the first crossing. The angle increases up to the target and has speed at least \(g/U\); for each \(\delta>0\), the integral of \(U/g\) from the starting angle to the target is finite. This bound is uniform for offsets bounded away from zero.
+
+Integrate the log-radius derivative used in the periodic-orbit period computation of [2], now between the initial and crossing rays rather than around a closed orbit. In physical time \(1=a(\theta)/(\lambda v)-\dot v/(2p\lambda v)\), so
 \[
- \dot v=-2p\lambda v+2p a(\theta),\qquad
- \dot\theta=\frac{g(\theta)}{v}.
-\tag{1}
+T(r,\delta)=\frac1\lambda\int_{\theta_a+\delta}^{\theta_c}\frac{a(\theta)}{g(\theta)}\,d\theta
+-\frac{1}{2p\lambda}\log\frac{v(T)}{v(0)}.
 \]
-Set \(a_{\min}=\min_\theta a(\theta)>0\) and \(a_{\max}=\max_\theta a(\theta)<\infty\). Variation of constants in (1), with \(r\in I\), places \(v(t)\) between the fixed positive constants
+The endpoint term is bounded in absolute value by \(\log(U/L)/(2p\lambda)\), uniformly in \(r,\delta\). At distance \(x\downarrow0\) from the source, \(a(\theta_a+x)/g(\theta_a+x)\sim a(\theta_a)/(cx^k)\). Bounding this integrand between \(1\pm\varepsilon\) times that power in a fixed small interval gives the two divergent clocks; the integral beyond that interval is fixed and finite. This proves the stated uniformity. The formula includes the trivial crossing at \(\theta_c\) when the closed endpoint is allowed.
+
+For \(k\ge2\) the uniform clock bounds trap \(\{T>t\}\), for all sufficiently large \(t\), between the starting events
 \[
- L=\min\{r_+^{-2p},a_{\min}/\lambda\},
- \qquad U=\max\{r_-^{-2p},a_{\max}/\lambda\}
+\delta<((1-\varepsilon)C_k/t)^{1/(k-1)}
+\quad\hbox{and}\quad
+\delta<((1+\varepsilon)C_k/t)^{1/(k-1)}.
 \]
-for all \(t\ge0\). These bounds prevent positive-radius degeneration and finite-time escape, uniformly across initial states. On the selected sector \(\dot\theta>0\), and \(d\theta/dt\ge g(\theta)/U\). Thus every \(\delta>0\) reaches \(\theta_c\) in finite time, with the entire crossing contained in the angular sector.
+Offsets bounded away from zero cannot contribute to either tail for large \(t\). Since \(\Pr(\delta<x)\sim q_0x\), these bounds give the claimed constant as \(\varepsilon\downarrow0\). For \(k=1\) the same comparison with \((1\pm\varepsilon)(v_*/c)\log(1/\delta)\) gives the stated logarithmic rate. The tail integration formula \(\mathbb E T^s=s\int_0^\infty t^{s-1}\Pr(T>t)\,dt\) yields the moment criteria, with divergence at the power-law endpoint. No monotonicity in the starting radius or joint density of the two coordinates is required.
 
-**2. Uniform equilibration close to the upstream ray.** Write \(a_0=a(\theta_a)>0\) and \(v_*=a_0/\lambda\). Fix an arbitrarily small \(\eta>0\). By continuity choose a fixed small angular window \([\theta_a,\theta_a+\varepsilon]\) so that \(|a(\theta)-a_0|<\eta\) there. While the solution remains in this window, the explicit variation-of-constants identity yields
+## Cubic realization
+
+For \(p=1\), \(g\) is the restriction of the homogeneous quartic \(\langle J(x,y),Q(x,y)\rangle\). In a local slope coordinate based on a nonvanishing coordinate its finite-root orders are at most four, as a nonzero polynomial of degree at most four times a nonvanishing smooth factor. The resulting qualitative spectrum is known [1]. The following explicit examples realize each order for the physical-time law. Set
 \[
- |v(t)-v_*|\le |v(0)-v_*|e^{-2p\lambda t}+\frac{\eta}{\lambda}.
-\tag{2}
+Q_k(x,y)=\left(-x(x^2+y^2),-y(x^2+y^2)+P_k(x,y)\right),
+\quad (P_1,P_2,P_3,P_4)=(x^2y,xy^2,-x^2y,x^3).
 \]
-The initial difference is uniformly bounded for \(r\in I\). Therefore for any small desired error, there is a **fixed physical time** \(H\) independent of \(r,\delta\), after which the difference \(|v(t)-v_*|\) is as small as desired, provided the angle has not left the window. For sufficiently small \(\delta\), the angular trajectory remains inside the chosen window through \(H\), uniformly in \(r\), because \(g(\theta_a+\delta)\to0\) and \(v\ge L\). The angle \(\delta_H=\theta(H)-\theta_a\) is bounded above and below by fixed positive multiples of \(\delta\) when \(k=1\); for \(k\ge2\), the comparison \(\dot\delta=O(\delta^k)\) over a fixed physical interval gives \(\delta_H/\delta\to1\) uniformly. In either case the fixed initial physical time \(H\) does not affect the leading divergent crossing clock.
-
-**3. Sharp flight-time integral.** At angular coordinate \(\theta\), equation (1) gives \(dt/d\theta=v/g(\theta)\). For the time from \(\theta_a+\delta_H\) to \(\theta_a+\varepsilon\), estimate (2) bounds \(v\) between \(v_*\) plus or minus an arbitrarily small error, and the zero expansion bounds \(g\) between \(c\xi^k\) times factors arbitrarily close to one, where \(\xi=\theta-\theta_a\). The remaining time from \(\theta_a+\varepsilon\) to \(\theta_c\) is bounded uniformly over the compact sector by \(U\int_{\theta_a+\varepsilon}^{\theta_c}d\theta/g(\theta)\). The divergent part is thus sandwiched between arbitrarily close multiples of
+The angular factor is \(xP_k\) on the circle, and \(a=1-yP_k\). In the four cases \(|yP_k|\) is bounded by \(1/4\) or \(3\sqrt3/16\) by maximizing \(x^2y^2\), \(|xy^3|\), or \(|x^3y|\) on \(x^2+y^2=1\); hence \(a>2/3\). Take \(\theta_a=0\) for \(k=1,2\) and \(\theta_a=\pi/2\) for \(k=3,4\). Then on \(0<\delta\le\pi/4\),
 \[
- \frac{v_*}{c}\int_\delta^\varepsilon\xi^{-k}\,d\xi.
+g(\theta_a+\delta)=\frac{\tan^k\delta}{(1+\tan^2\delta)^2},\qquad a(\theta_a)=1.
 \]
-When \(k=1\) this integral is \(\log(1/\delta)+O(1)\). When \(k\ge2\) it equals \(\delta^{1-k}/(k-1)+O(1)\). Letting \(\delta\downarrow0\), then making the relative error arbitrarily small, proves both asserted uniform first-crossing asymptotics. In particular the exponent and prefactor are unchanged by radial starting data within the compact annulus.
-
-**4. Pushforward to the two-dimensional ensemble.** Let \(q(\delta)=\int_Iw(r,\theta_a+\delta)\,dr\). Continuity yields \(q(\delta)\to q_0>0\). The uniform first-crossing asymptotics imply that for any fixed relative error, and all sufficiently small \(\delta\), the survival event \(\{T>t\}\) is squeezed between the events where \(\delta\) is below the corresponding upper and lower inverse clocks. For \(k\ge2\) the inverse clock is \((C_k/t)^{1/(k-1)}\). Integrating \(q(\delta)\) over these small initial-angle intervals and letting the relative error vanish gives
+Choose the target \(\theta_c=\theta_a+\pi/4\). Sample the starting angle uniformly on the **open wedge \((\theta_a,\theta_a+\pi/4)\)**, independently of any radial probability law supported on \(I\). Thus \(q_0=4/\pi\), \(c=1\), and \(v_*=1/\lambda\). For \(k=1\) the logarithmic survival rate is \(-\lambda\). For \(k=2,3,4\) the survival laws are
 \[
- \Pr(T>t)\sim q_0(C_k/t)^{1/(k-1)}.
+\Pr(T>t)\sim\frac4\pi\left(\frac1{(k-1)\lambda}\right)^{1/(k-1)} t^{-1/(k-1)}.
 \]
-For \(k=1\), the uniform logarithmic clock yields \(\log\Pr(T>t)/t\to-c/v_*\), hence exponential upper and lower bounds on the survival probability with rates arbitrarily close to \(c/v_*\). Finally the tail-integral identity \(\mathbb E(T^s)=s\int_0^\infty t^{s-1}\Pr(T>t)dt\) establishes the exact moment threshold, including divergence at equality. All initial conditions with positive angular separation have finite individual crossing times; the heavy tails come solely from the density of starting points arbitrarily close to the invariant upstream ray.
+The sampling wedge is not a full quadrant. Initial states past the target are excluded.
 
-**5. Complete realizable cubic spectrum.** For \(p=1\), the polynomial \(g\) is the restriction to the unit circle of the degree-four homogeneous polynomial \(\langle J(x,y),Q(x,y)\rangle\). In a nonsingular local slope coordinate a nonidentically zero homogeneous quartic has a finite zero of order at most four. Hence \(k\in\{1,2,3,4\}\). The **multiplicity classification is standard background**; the exact ensemble laws for these order types are the quantitative conclusion.
+## Verification, relationship to prior work, and limitations
 
-For each \(k\in\{1,2,3,4\}\) define
-\[
- Q_k(x,y)=\bigl(-x(x^2+y^2),\;-y(x^2+y^2)+P_k(x,y)\bigr),
-\]
-where \(P_1=x^2y\), \(P_2=xy^2\), \(P_3=-x^2y\), \(P_4=x^3\). The angular polynomial is exactly \(xP_k\), and on the unit circle \(f_k=-1+yP_k\). For all four polynomials, \(|yP_k|\le3\sqrt3/16<1/3\) except the still smaller \(|x^2y^2|\le1/4\) terms. Consequently \(f_k<-2/3\) on the circle, proving strict radial contraction.
+The accompanying standard-library `check.py` checks the cubic identities on a finite grid and integrates four individual under-target trajectories in physical time. It does not sample the starting ensemble or establish a uniform or infinite-time limit. The analytic clock bound and the angular-marginal comparison supply those steps.
 
-For \(k=1,2\) choose \(\theta_a=0\); for \(k=3,4\) choose \(\theta_a=\pi/2\). In every case take \(\theta_c=\theta_a+\pi/4\), with \(g_k>0\) throughout the intervening open sector and at its right endpoint. Direct trigonometric substitution gives the **exact** local identity
-\[
- g_k(\theta_a+\delta)=\frac{\tan^k\delta}{(1+\tan^2\delta)^2},\qquad
- f_k(\theta_a)=-1.
-\]
-Thus \(a_0=c=1\), \(v_*=1/\lambda\), and \(C_k=1/((k-1)\lambda)\). If the starting angle is uniform on the open quadrant, independently of any radial law on \(I\), then \(q_0=4/\pi\). The resulting **exact leading tail coefficients** for \(k=2,3,4\) are
-\[
- \boxed{\Pr(T>t)\sim\frac4\pi\left(\frac{1}{(k-1)\lambda}\right)^{1/(k-1)}t^{-1/(k-1)}.}
-\]
-For \(k=1\), the sharp logarithmic exponential rate is \(\lim_{t\to\infty}t^{-1}\log\Pr(T>t)=-\lambda\). This explicitly realizes all cubic nonzero finite-zero multiplicities as distinct physical-time first-passage tail regimes.
-
-## Verification
-The standalone Python 3 script `check.py` uses only the standard library. It checks the exact angular zero factorizations and strict contraction on sampled directions and independently integrates the physical-time inverse-radial and angular equations with a fourth-order Runge–Kutta method for all four cubic examples. Finite diagnostic crossings match the predicted scaled constants and print `VERIFY_OK`. Run `python3 check.py`. This is a diagnostic, not a proof: the uniform radial bounds, exact polar identity, analytic comparison and density pushforward above establish the infinite-time conclusions.
-
-## Relationship to prior work
-Alarcón, Castro and Labouriau [1] establish the invariant circle, radial contraction, angular phase portrait, nonhyperbolic equilibria and cubic zero-multiplicity taxonomy for the same class of flows. Those qualitative facts and the quartic multiplicity ceiling are **not claimed as new**. Earlier work by Bendjeddou, Llibre and Salhi [2] also studies homogeneous polynomial star-node systems. General saddle-node bottleneck slowdown exponents have been studied by Kuehn [3], and neither ordinary one-dimensional slowing nor a scalar inverse-power integral is claimed as an original mechanism.
-
-A published result [4] gives exact original-time periods and Floquet exponents when the angular factor never vanishes. Other distinct published studies [5,6] examine time occupation along attracting periodic orbits as a strictly positive angular rotation rate approaches zero, including quadratic and quartic bottlenecks. Their hypotheses concern rotating cycles and stationary time samples, not first-crossing times from a genuine invariant source ray with a two-dimensional distribution of initial conditions. The contribution here is the **uniform annular initial-data law with sharp first-passage tail constants, moment cutoff and complete explicitly realized cubic spectrum**. No claim of novelty for the phase portrait or generic delay exponents is made.
-
-## Limitations
-This theorem concerns deterministic forward first-crossing times, not stochastic noise, long-run invariant-probability laws, or the residence-time distribution along a periodic orbit. It requires radial strict contraction, a compact positive radial starting interval, a nonzero finite-order angular source zero with no other zeros before the target ray, and positive continuous boundary density. A density vanishing at the source can change the tail exponent. The coefficient of an exact exponential tail at a simple angular zero is not claimed, only its sharp logarithmic rate. A prior general theorem on parabolic waiting-time ensembles could subsume parts of the pushforward argument; publication priority remains subject to further expert comparison. No independent mathematical audit has been performed.
+The phase portraits and cubic multiplicity taxonomy are established [1], and the underlying polar equations and logarithmic-radius period computation for cycles are known [2]. Parameter-dependent saddle-node delays are also known [3]. This result concerns tails of deterministic first-crossing times from an actual angular zero, with explicit constants and moment cutoffs for distributions of initial states, rather than perturbed periodic-orbit occupation, time-rescaled clocks, or stochastic forcing. At a simple zero only the logarithmic rate is asserted. If the starting angular density vanishes at the source, the stated ensemble exponents need not apply. Historical priority for possible general waiting-time results is not established.
 
 ## References
-1. B. Alarcón, S. B. S. D. Castro and I. S. Labouriau, *Global planar dynamics with a star node and contracting nonlinearity*, arXiv:2307.16020v1 (first posted July 29, 2023), https://arxiv.org/abs/2307.16020 ; full open preprint https://arxiv.org/html/2307.16020v2 ; journal https://doi.org/10.1007/s40687-024-00427-0 .
-2. A. Bendjeddou, J. Llibre and T. Salhi, *Dynamics of the polynomial differential systems with homogeneous nonlinearities and a star node*, Journal of Differential Equations 254 (2013), 3530–3537, https://doi.org/10.1016/j.jde.2013.01.032 .
-3. C. Kuehn, *Scaling of Saddle-Node Bifurcations: Degeneracies and Rapid Quantitative Changes*, arXiv:0807.1546 (2008), https://arxiv.org/abs/0807.1546 .
-4. *Exact angular return and physical-time Floquet rigidity for contracting homogeneous star-node cycles*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-angular-return-and-physical-time-floquet-rigidity-for-cont--7c00337eaa41 .
-5. *Four-gate physical-time concentration with unequal residence weights in a cubic star-node oscillator*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-four-gate-physical-time-concentration-with-unequal-residence-wei--41d1dd3d23ee .
-6. *A quartic depinning cusp and a resolved physical-time occupation law for a contracting cubic star-node flow*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-quartic-depinning-cusp-and-a-resolved-physical-time-occupation--ca713ddee5f9 .
+
+1. B. Alarcón, S. B. S. D. Castro and I. S. Labouriau, *Global planar dynamics with a star node and contracting nonlinearity*, [arXiv:2307.16020v2](https://arxiv.org/html/2307.16020v2), Theorem 7.2 and Tables 2–4.
+2. [Exact angular return and physical-time Floquet rigidity for contracting homogeneous star-node cycles](https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-angular-return-and-physical-time-floquet-rigidity-for-cont--7c00337eaa41/RESULT.md), proof of the physical-time period.
+3. C. Kuehn, *Scaling of Saddle-Node Bifurcations: Degeneracies and Rapid Quantitative Changes*, [arXiv:0807.1546](https://arxiv.org/abs/0807.1546), §2.1.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:58.997586Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)"
+      ],
+      "rationale": "Write m=dk² with d>1 squarefree. The two conjugate values of r² are q−k√d and q+k√d; the former is strictly positive because q is rational and r is real and nonzero. Their b-th powers remain unequal. Thus r^(2b) is irrational and belongs to both quadratic fields, forcing equality and n=de² with positive integer e. For odd b, division of r^b by (r²)^((b−1)/2) puts r=x+y√d in this field with 2xy=−k. If k is odd, u=v₂(x), v=v₂(y) satisfy u+v=−1 and δ=v₂(d)∈{0,1}. In the coefficient of √d of r^b the stripped valuation of the j-th odd term (before its binomial multiplier) progresses in steps of 2(v−u)+δ. If u≥0 the step is strictly negative and the j=b term, whose binomial multiplier is 1, has uniquely least valuation bv+(b−1)δ/2<0. If u≤−1 the step is strictly positive and the j=1 term, whose multiplier b is odd, has uniquely least valuation (b−2)u−1<0 for b≥3. Hence there is no cancellation at that valuation and the coefficient cannot be the integer −e. Conversely r=1/2−k√d works at b=1; for b=2j choose integer q>√m and expand (q−k√d)^j; for odd b≥3 with even k expand (1−(k/2)√d)^b. In both latter constructions all terms in the irrational coefficient have negative sign and the coefficient is a negative integer, giving a valid nonsquare n. Because δ≤1, k is even exactly when 4 divides m. This covers all allowed cases and avoids drawing an all-exponent conclusion from the recorded finite sweep.",
+      "residual_risks": [
+        "The witnesses are existential in n and may use a negative r. No claim is established for prescribed n or the additional requirement r>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9318dd22f8ba considers general algebraic shifts and field signatures but uses a single shift in both powers",
+          "d4ee84f2a1ed permits rational scaling yet still fixes a common shift and has one exponent equal to one"
+        ],
+        "reasoning": "The larger shift family or more general exponents under equal shifts do not subsume freely choosing two integer radicands; the scaled study overlaps a slice, not the classification.",
+        "searches": [
+          "Resultary same-field algebraic shift studies: 9318dd22f8ba and d4ee84f2a1ed, Findings and assumptions",
+          "Pisani Theorem 2, compare exponent scope and radical hypotheses"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.30658",
+        "2023 Simon Marais official solutions, B4",
+        "Resultary 9318dd22f8ba and d4ee84f2a1ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed shift the exponent pair {2,b} is excluded for b≥3, but in the frozen variable-shift problem m=8,b=3,n=50 works and yields a different coefficient in the same field"
+        ],
+        "reasoning": "The earlier exclusion with n=m is not an exclusion for every n. It does not imply the 2-adic obstruction for odd k or the constructions with other n.",
+        "searches": [
+          "Compare 2023 competition B4(b), official solutions pp. 14–16, and Pisani Theorem 2 with frozen RESULT.md lines 19–84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pisani, arXiv:2610.30658, Theorem 2, fixes one square-root shift for both expressions",
+          "For odd b, equality of fields reduces the variable-shift problem to the irrational coefficient of (x+y√d)^b being a negative integer with 2xy=−k, rather than equaling −k"
+        ],
+        "reasoning": "Equal fields do not force equal radicands. Fixed-shift equality imposes one coefficient value, whereas variable shifts impose integrality and sign.",
+        "searches": [
+          "Primary search: square root shifts rational powers different radicands Simon Marais Pisani 4 divisibility odd exponent quadratic field r squared r cubed sqrt m sqrt n",
+          "Resultary: rational powers with independently chosen square-root shifts and quadratic radical coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The signature-spectrum entry classifies field signatures with a common shift; the genus/rank entry studies common rationally scaled shifts. Neither states the exact admissibility law for an existential second integer radicand."
+        ],
+        "reasoning": "These are related exact classifications but under different conditions; no matching indexed classification was identified by the bounded search.",
+        "searches": [
+          "Local Resultary semantic comparison for the varying-radicand divisibility-by-four classification; inspected 9318dd22f8ba and d4ee84f2a1ed"
+        ]
+      },
+      "rationale": "The fixed-shift predecessor is materially different. The claim supported here is the full variable-second-shift classification, including the odd-exponent congruence and quadratic-field locking, not the cases with a prescribed common shift. Focused catalogue and primary comparisons did not identify coverage of that surviving claim.",
+      "residual_risks": [
+        "Exact versions in older arithmetic literature or using binomial trace/coefficient terminology may not have surfaced in the focused search. The related same-day catalogue records do not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-shift constraint; not covering independently chosen radicands",
+          "evidence": "For a fixed nonsquare radicand the permitted pairs have equal exponents or {g,2g} with odd g.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30658",
+          "material_read": "Primary PDF p. 1, Theorem 2",
+          "method": "Open primary PDF",
+          "title": "On the Open Problem in the 2023 Simon Marais Mathematics Competition",
+          "trigger": "Exact exponent classification for a square-root shift"
+        },
+        {
+          "assessment": "Same radical in both expressions",
+          "evidence": "B4(b) does not allow a second radicand chosen after the first one and b.",
+          "identifier_or_url": "https://www.simonmarais.org/uploads/8/2/3/5/82358688/smmc2023solutions.pdf",
+          "material_read": "Problem B4 and official solution, pp. 14–16",
+          "method": "Open official PDF",
+          "title": "2023 Simon Marais Mathematics Competition Solutions",
+          "trigger": "Origin of the problem and closest stated special case"
+        },
+        {
+          "assessment": "General algebraic shift shared across the powers",
+          "evidence": "Field signatures are bounded and realized for a single shift θ in both expressions.",
+          "identifier_or_url": "Resultary 2026/11/2, 9318dd22f8ba",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local publication mirror",
+          "title": "Real signature spectrum for algebraic shifts with two rational powers",
+          "trigger": "Broader algebraic shifts with two shifted powers"
+        },
+        {
+          "assessment": "A common rationally scaled shift; partial overlap only",
+          "evidence": "The k=2 case overlaps the b=1,n=m slice, not the odd-b integrality criterion with different shifts.",
+          "identifier_or_url": "Resultary 2026/11/2, d4ee84f2a1ed",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local publication mirror",
+          "title": "A genus and elliptic rank transition for rationally scaled quadratic shifts",
+          "trigger": "Rationally scaled radicals and exactly classified compatible powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proofs of necessity and sufficiency",
+        "Pisani Theorem 2"
+      ],
+      "rationale": "Letting the radical change is a natural relaxation of a named exponent-compatibility problem. The result completely identifies which obstructions survive: equality of fields persists, while odd exponents beyond one are possible precisely at the sharp divisibility-by-four threshold. The explicit witnesses and the valuation obstruction together settle all m and exponents; isolated examples or the same-shift theorem cannot give that separation.",
+      "residual_risks": [
+        "The value is in the complete classification, not in claiming new general quadratic-field or valuation methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

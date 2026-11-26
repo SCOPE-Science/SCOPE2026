@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:50:52.487718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the frozen theorem. On the centered space, for r>λ the derivative is (1−λ/r)I+(λ/r)uuᵀ, with u the unit centered radial direction; for r<λ it is zero. A nonconstant centered line intersects the sphere in at most two points, so piecewise integration and directional quotients as r decreases to λ identify the sharp coefficient with the maximal rank-one norm. In path differences, the norm of uuᵀ is V(u) max_j |uᵀb_j|, where b_j is a centered cut step. Writing V(u) as the maximum of (Dᵀσ)ᵀu, the rank-two Rayleigh calculation gives (||Dᵀσ||₂||b_j||₂+|(Dᵀσ)ᵀb_j|)/2. The inner product has magnitude one; alternating signs maximize the first squared norm at 4n−6 and a middle cut gives the second at floor(n²/4)/n. Their simultaneous maximizer gives the stated coefficient and a norming direction. For n≥3 every differentiable point of a nonconstant centered segment has derivative norm strictly below the coefficient; integration is strict for each finite positive-denominator pair, while perturbations by the cut step just outside the sphere approach equality. A same-sign exterior ray attains one in n=2 and at λ=0 the map is the identity. Centering and radial scaling give the one-input bound; Euclidean nonexpansivity follows from the stated convex proximal representation. Expanding the root gives n/2+1/8+O(1/n). Independent replay in branches/0941b798-12a2-427e-a36c-93ad058cfe5f/independent_finite_check.py enumerated signs and cuts through n=9 and reproduced near-sphere witnesses; those checks support the arithmetic, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard Euclidean ℓ₂ proximal shrinkage and Euclidean nonexpansivity are familiar, and the prior centered result states those properties as well as exact path stability for all thresholds.",
+          "The radial-retraction record concerns retractions onto ℓ_p balls in coordinate norms; the path-TV-ball projection record concerns another map, with exact two-input coefficient 1 or 2."
+        ],
+        "reasoning": "The comparisons must retain both the centered shrinker and the path seminorm. Standard Euclidean contraction is weaker with respect to the stated question; the direct centered result, not these analogues, is decisive.",
+        "searches": [
+          "1111820a6506, assumption paragraph and Proof §§1–3",
+          "Argyriou et al. arXiv:1104.1436v1, p. 4 Eq. (2.4)",
+          "Resultary 36a632bc9802 and 97d7a705aa9c Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py",
+        "Independent replay in branches/0941b798-12a2-427e-a36c-93ad058cfe5f/independent_finite_check.py",
+        "Resultary 1111820a6506, 36a632bc9802, 97d7a705aa9c",
+        "Argyriou et al., arXiv:1104.1436v1 p. 4",
+        "Huang–Breheny–Ma arXiv:1204.6491 p. 1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof writes the centered right cut rather than the centered left cut. These vectors differ by sign; the projection norm takes magnitudes. Both use alternating signs, a midpoint cut, and the same two-eigenvalue identity.",
+          "The prior proof gives a one-sided boundary perturbation and proves the same strict inequality for each fixed pair by integrating a pointwise strict derivative bound."
+        ],
+        "reasoning": "Even the witness and nonattainment are covered. Taking the limiting derivative from exterior radii instead of from a one-sided perturbation of the sphere does not produce any distinct surviving theorem.",
+        "searches": [
+          "1111820a6506/RESULT.md, Proof §2 and §3, offsets 2440–7003",
+          "Frozen RESULT.md Proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Q is exactly M; the prior T_λ is exactly G_λ as a map on all of Rⁿ. Its path V omits the closing edge and the displayed coefficient has the identical radical; the apparent case split at n=2 agrees with the formula's value one there."
+        ],
+        "reasoning": "Mean-preserving group soft thresholding, Euclidean-norm prox on the centered quotient, and the prior centered radial shrinker are here three names for the same operator. No change of normalization or threshold explains the match.",
+        "searches": [
+          "Resultary: centered Euclidean group soft threshold, mean-preserving shrinker, sharp open-path variation",
+          "1111820a6506/RESULT.md, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed record provides the all-dimensional formula itself, not just sampled small dimensions. Its Verification describes finite sign-chamber and boundary checks in addition to the analytic proof."
+        ],
+        "reasoning": "This is exact coverage over the entire range. Separate dimension checks improve confidence in correctness but do not produce a new invariant.",
+        "searches": [
+          "Resultary search for the exact centered path-TV Lipschitz coefficient; exact mirror 1111820a6506 Finding and Verification"
+        ]
+      },
+      "rationale": "A distinct indexed record, 1111820a6506, states the identical operator and seminorm, sharp formula for the same n and threshold ranges, limiting direction and nonattainment, boundary cases, asymptotics, and one-input and Euclidean bounds. The explicit proof already uses the same rank-one reduction and alternating-sign middle-cut optimization. This is demonstrable statement-level equivalence; it does not rely on inferring creation order from path dates or on lack of access to any other paper.",
+      "residual_risks": [
+        "Historical priority and attribution beyond equivalent coverage are not determined. Full text of Yuan–Lin was unavailable via the checked lawful routes; the originality decision instead rests on a fully readable exact match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct complete theorem-level overlap, including purported auxiliary facts",
+          "evidence": "Offsets 0–2454 define the same problem and answers; offsets 2440–4918 give centered cut and alternating signs; offsets 4750–7003 give norming perturbation and strict finite-pair bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-path-variation-instability-of-centered-euclidean-group-sof--1111820a6506",
+          "material_read": "RESULT.md Finding, assumptions, rank-one reduction/evaluation, sharpness and nonattainment, and Verification",
+          "method": "Local Resultary and exact published-record mirror passages",
+          "title": "Sharp path-variation instability of centered Euclidean group soft thresholding",
+          "trigger": "Exact nearest indexed match to operator, norm, formula, threshold and dimension cases"
+        },
+        {
+          "assessment": "Prior Euclidean proximal formula and nonexpansivity, not the distinct path-TV computation in that passage",
+          "evidence": "Eq. (2.4) gives the ℓ₂ norm proximal map; p. 4 states Euclidean nonexpansivity of proximal maps.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.1436",
+          "material_read": "v1 p. 4 Eq. (2.4) and accompanying proximal nonexpansivity discussion",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "Efficient First Order Methods for Linear Composite Regularizers",
+          "trigger": "Basic group shrinkage and the distinction between Euclidean and variation stability"
+        },
+        {
+          "assessment": "First uses different norms and retraction, second a different projection; neither is the decisive direct match",
+          "evidence": "Radial retraction uses ℓ_p ball and coordinate ℓ₁/ℓ∞ metrics. The path-TV-ball projection has coefficient 1 at n=2,3 and 2 at n≥4 with attainment.",
+          "identifier_or_url": "Resultary 36a632bc9802 and 97d7a705aa9c",
+          "material_read": "Exact mirrored Findings",
+          "method": "Local Resultary and published-record mirror excerpts",
+          "title": "Radial-retraction cross norms; variation sensitivity of projection onto a path-TV ball",
+          "trigger": "Nearby radial or path-TV exact moduli that could be mistaken for the same map"
+        },
+        {
+          "assessment": "No negative literature conclusion drawn; not needed for the exact indexed match",
+          "evidence": "Both full-text attempts returned HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2005.00532.x",
+          "material_read": "No full text obtained from cited lawful copies",
+          "method": "Bounded OA attempts at the DOI and identified alternative article page",
+          "title": "Model selection and estimation in regression with grouped variables",
+          "trigger": "Frozen citation for group shrinkage background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The known theorem itself is useful: it distinguishes one-input diminution from two-input amplification and gives a nonattained sharp constant. The frozen record supplies no independently new mathematical fact or stronger outcome beyond the already available coefficient, witnesses, and proof, so it does not add a valuable surviving contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

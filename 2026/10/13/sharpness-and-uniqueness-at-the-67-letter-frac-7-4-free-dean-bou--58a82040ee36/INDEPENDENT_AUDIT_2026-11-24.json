@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:24:56.664172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any admissible word of length at least 2 starts with one of eight allowed ordered pairs. The inversion-preserving permutation taking any such pair to 01 is unique, so the normalization loses no orbits and the final orbit has size eight. Alternating parity excludes exactly equal-letter and inverse-letter adjacent pairs; the repetition search handles all other constraints. A new forbidden factor after an append must be a suffix. For each p, it suffices to inspect the suffix of length ceil(7p/4), if present: any longer suffix of period p has a suffix of that length of the same period. This tests the inclusive threshold, regardless of whether the candidate period is least. The independent replay used masked two-bit comparisons for those shortest suffixes and computed D_3 from the actual sets of pairs and triples. Its length-24 probe found 350 normalized words; its full run found 414112 at length 67 with exactly the specified qualifying word, and 486776 at length 68, all pair-complete, with d3 counts 397780, 83006, 5990 for 0, 1, 2. It separately scanned the witness's factors and checked its palindrome and exact D_3={010,101,303}. Pair-completeness at length 68 ensures that further extensions can only remove minimal absent triples, so no longer qualifying word is missed; d3 need not be monotone on arbitrary incomplete prefixes. Independent reproduction: python3 /workspace/branches/4607a331-6161-4173-aef5-5e141050614b/replay.py, with exit-zero results in replay_counts.txt in the same directory. The frozen checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearby infinite construction in Lemma 20 is at 7/4+-free, permitting exponent exactly 7/4. The catalogue's length-58 pair-missing extremizer uses a different avoidance condition and threshold scope. A same-day tangram result uses a different alphabet and pattern constraint."
+        ],
+        "reasoning": "The weaker exponent exclusion does not construct a qualifying finite witness at this threshold. Missing a reduced pair also neither models d3>=3 nor counts equality cases in the exact class here.",
+        "searches": [
+          "arXiv:2104.06837v3, adjacent Lemmas 18–22",
+          "Resultary: sharp extremal Dean words, adjacent-pair avoidance and related orbit classifications"
+        ]
+      },
+      "checked_sources": [
+        "Badkobeh–Harju–Ochem–Rosenfeld, arXiv:2104.06837v3, Lemma 19 and surrounding lemmas",
+        "Resultary 230a936ae9a9 and d1949773b728"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same admissible set and its bound are known. Neither the bound nor the constructions in the citation establish nonempty equality or uniqueness; the two indexed orbit classifications concern other sets."
+        ],
+        "reasoning": "An upper bound even if obtained by finite search need not be attained. Without an equality certificate, the complete equality class calls for actual examination of length-67 survivors. The prior lemma removes any originality credit for the all-longer-length exclusion itself.",
+        "searches": [
+          "Badkobeh–Harju–Ochem–Rosenfeld Lemma 19 and neighboring constructions",
+          "Resultary 230a936ae9a9 and d1949773b728, actual findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 19 concerns exactly the same words and uses 7/4-free, not 7/4+-free. Its conclusion is '<68', which does not state that a word of length 67 exists. The closest Dean-orbit catalogue result uses the different property of missing an adjacent pair."
+        ],
+        "reasoning": "Normalize by alphabet inversion symmetry and identify D_3 via its proper factors; under these equivalent descriptions, the strongest prior statement still gives only an upper cutoff.",
+        "searches": [
+          "Resultary: Dean 7/4-free d3>=3 and length 67; inverse-preserving orbit and palindrome",
+          "Badkobeh–Harju–Ochem–Rosenfeld Lemma 19 (arXiv:2104.06837v3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected paper states the upper bound and neighboring constructions but does not list the length-67 witness or an equality table in the relevant passage. No comparable exact table surfaced; the nearby Resultary exact orbit concerns length 58 and a missing pair."
+        ],
+        "reasoning": "The published cutoff is not a census of the final admissible layer. The length-67 count with d3>=3 and actual witness are supplied by the exact search, not a prior table lookup.",
+        "searches": [
+          "Resultary: exact 67-letter witness string; length-67 Dean-word table and orbit",
+          "Literal witness and length check in arXiv:2104.06837v3, with bounded reading around Lemma 19"
+        ]
+      },
+      "rationale": "The prior lemma supplies the same strict upper bound |w|<68, but not its sharpness, the length-67 representative or the classification of equality. The distinct claim is exact attainment and a unique extremal orbit, not the prior upper bound or a new general algorithm.",
+      "residual_risks": [
+        "The searches and exact-string check are bounded. An unindexed enumeration or separate text could already classify the equality cases; nothing was inferred from the date of a same-day hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior upper bound only; neighboring plus-threshold constructions do not supply equality",
+          "evidence": [
+            "HTML offsets 24459–27443; Lemma 19 states |w|<68 under 7/4-free and d3>=3; Lemma 20 explicitly uses 7/4+-free."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.06837v3",
+          "material_read": "Lemmas 18–22, especially Lemma 19; corresponding PDF p. 9",
+          "method": "Lawful OA HTML and PDF, bounded passages",
+          "title": "Avoiding square-free words on free groups",
+          "trigger": "Same admissible class and published upper bound; possible equality coverage"
+        },
+        {
+          "assessment": "Related symmetry; not covering",
+          "evidence": [
+            "Unique length-58 representative avoiding 10, with eight global relabelings. The restriction is missing a reduced pair, not d3>=3 at the inclusive repetition threshold."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-unique-pair-missing-dean-extremizer-at-length-58--230a936ae9a9",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "Unique pair-missing Dean extremizer at length 58",
+          "trigger": "Closest apparent indexed Dean equality and symmetry statement"
+        },
+        {
+          "assessment": "Different combinatorial object and avoidance condition",
+          "evidence": [
+            "Classifies 18 ternary words in three orbits at length seven; not a result on Dean words."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-longest-ternary-3-tangram-free-words-have-length-seven--d1949773b728",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "The longest ternary 3-tangram-free words have length seven",
+          "trigger": "Same-day indexed sharp cutoff and orbit hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length 67 is the equality case left by an existing bound at a natural sharp repetition threshold, not an arbitrary enumeration layer. The explicit attaining word and its unique symmetry orbit settle both whether the published cutoff is sharp and what its equality cases are.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

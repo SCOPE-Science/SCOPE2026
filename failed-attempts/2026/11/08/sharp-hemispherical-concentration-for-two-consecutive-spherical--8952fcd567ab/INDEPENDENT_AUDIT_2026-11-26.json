@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:03:25.592384Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Longitude orthogonality gives the signed-order blocks; each pure degree has half its norm on the hemisphere, and m=±(ℓ+1) gives singleton blocks. The normalized Legendre Lagrange identity gives the signed overlap as the boundary Wronskian at 0 divided by 2(ℓ+1); the t=1 term vanishes (m=0 is smooth; for m≥1 the factors have endpoint order m/2). For j+m=2r, j-m=2s the normalized value at zero has modulus √((2j+1)B_r B_s/2). For j+m=2r-1, j-m=2s-1 the normalized derivative has modulus √((2j+1)(2r)(2s)B_r B_s/2). Adjacent degrees have matching signs in the value–derivative product in the even case and opposite signs in the reversed product in the odd case, giving positive overlap in both. Along with (2r+2)B_(r+1)=(2r+1)B_r this yields exactly the frozen F/G formulas and factors. Strict Cauchy–Schwarz on [0,1] bounds each overlap below 1/2, since neither factor is proportional to the other on an open interval. The strictly increasing ratios F_(j+1)/F_j, with F₀=1, give F_r F_s<F_(r+s) when r,s>0. Wallis gives G_r G_s<2/π<√(2/π)<F_ℓ, so only |m|=ℓ attains the maximum. Signs give the plus-combinations in the stipulated convention, with a single line at ℓ=0 (whose overlap is √3/4). The exact ratio of adjacent top gaps is √((2ℓ+3)(2ℓ+5))/(2ℓ+4), and the 1/(8ℓ) correction follows by expanding the factorial expression. The frozen checker and verification notes were inspected, not executed; finite quadrature does not prove the all-degree claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0284b88cef7a gives the half-energy multiplicity for arbitrary masks via full-rank parity-crossing blocks; this gives exactly two central modes here but not the other gaps.",
+          "The general Slepian cap matrix reduces to this same order-specific 2×2 matrix when the degrees are restricted to ℓ and ℓ+1.",
+          "Jaming–Speckbacher’s estimate concerns general finite-expansion concentration, not this exact adjacent-degree spectrum."
+        ],
+        "reasoning": "The general operator and central multiplicity are prior tools and outcomes. The indexed exact two-degree result is stronger still than the frozen claim because it orders both parity chains and compares them globally.",
+        "searches": [
+          "Resultary: degree mask hemisphere exact half-energy multiplicities parity Cauchy spherical Slepian concentration",
+          "arXiv:math/0408424 Eqs. (4.7), (4.13)–(4.15), and (5.6)–(5.7)",
+          "arXiv:2004.02474 Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_slepian.py",
+        "Resultary 47d69d7de672, 7e52ed02a14e and 0284b88cef7a",
+        "arXiv:math/0408424",
+        "arXiv:2004.02474",
+        "arXiv:math/0603271 (passage retrieval incomplete)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "47d69d7de672 states the two highest-|m| sum modes, multiplicity at ℓ=0, exact a_ℓ, and its Stirling expansion.",
+          "Taking a_(ℓ+1)/a_ℓ in that formula cancels to √((2ℓ+3)(2ℓ+5))/(2ℓ+4), exactly the frozen recurrence."
+        ],
+        "reasoning": "The original inequality, equality conditions, exact spectrum, monotonicity and non-unit asymptotic are covered. The simple quotient is mechanically implied and is not a surviving independent result.",
+        "searches": [
+          "47d69d7de672 Finding: exact a_ℓ and sharp ordering",
+          "7e52ed02a14e Finding and Legendre boundary proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "47d69d7de672 uses the same exact band and hemisphere, with Q_ℓ=C_ℓ, f_j=F_j, and g_j=(2j+1)B_j/√(2j+2)=G_(j+1). The shifted odd-parity indices therefore give termwise identical blocks and multiplicities.",
+          "7e52ed02a14e writes the same maximum in Gamma functions; Γ(ℓ+3/2)/(√π Γ(ℓ+1))=((2ℓ+1)/2)B_ℓ, giving the identical binomial constant."
+        ],
+        "reasoning": "The open versus closed hemisphere boundary has zero area; reindexing and gamma/binomial conversion do not create different spectral objects. Both exact statements include the same sharp eigenspace.",
+        "searches": [
+          "Resultary: hemisphere concentration adjacent two degrees spherical harmonics exact spectrum highest azimuthal order binomial overlap",
+          "47d69d7de672 and 7e52ed02a14e RESULT.md findings, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue match 47d69d7de672 enumerates the eigenvalue multiset symbolically for every ℓ, including the two 1/2 eigenvalues and complete exact binomial gaps.",
+          "It explicitly lists the sharp constant’s 1/(8ℓ) correction and the strict degree decrease."
+        ],
+        "reasoning": "A symbolic family is the relevant exact catalogue entry, not a numerical grid. The frozen evaluated spectrum and expansion are already present.",
+        "searches": [
+          "Resultary exact adjacent-degree spectrum / sectoral optimizer lookup",
+          "47d69d7de672 exact formula and multiplicities; 7e52ed02a14e exact boundary spectrum"
+        ]
+      },
+      "rationale": "Distinct indexed record 47d69d7de672 evaluates the same entire binomial spectrum on the same exact two-degree space and gives the same maximizing modes, sharp constant, strict degree decrease and 1/(8ℓ) correction. Its conclusion is stronger in ordering the nonmaximal gaps. A second distinct indexed record 7e52ed02a14e also gives the complete spectrum in Legendre boundary form and the same sharp maximizer, constant and limit. No meaningful new claim survives subtracting the coverage: the isolated consecutive-degree recurrence is a single quotient of the already stated sharp constant. This is demonstrated equivalent coverage, not an inference about priority from catalogue dates or a failure to retrieve other literature.",
+      "residual_risks": [
+        "The polar-gap paper’s relevant passages were not fully retrieved; neither their absence nor the catalogue dates are used to infer priority. The exact indexed overlap suffices independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Termwise equivalent spectrum and sharp law, stronger gap ordering",
+          "evidence": [
+            "Same even factors; odd factors g_j=G_(j+1).",
+            "Same highest-order sum modes and degree expansion, including 1/(8ℓ)."
+          ],
+          "identifier_or_url": "47d69d7de672",
+          "material_read": "RESULT.md offset 0–4596: Finding, assumptions and initial proof",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp sectoral concentration and complete eigenvalue ordering for two adjacent spherical degrees",
+          "trigger": "Exact same spectral family and binomial sharp law"
+        },
+        {
+          "assessment": "Equivalent gamma-form sharp constant and all-order boundary spectrum",
+          "evidence": [
+            "Complete 1/2±t multiset and two central values; same maximizing span and high-degree limit."
+          ],
+          "identifier_or_url": "7e52ed02a14e",
+          "material_read": "RESULT.md offset 0–3452: Finding, assumptions and Wronskian proof",
+          "method": "Resultary local mirror",
+          "title": "Sharp hemispherical localization for two consecutive spherical-harmonic degrees",
+          "trigger": "Same hemisphere and exact adjacent-degree mask"
+        },
+        {
+          "assessment": "Covers multiplicity of 1/2, not evaluated gaps",
+          "evidence": [
+            "Parity-crossing Cauchy blocks have full rank; the two unpaired signed orders give the only half-energy modes here."
+          ],
+          "identifier_or_url": "0284b88cef7a",
+          "material_read": "RESULT.md Finding and Proof from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact half-energy multiplicities for hemispherical spherical Slepian concentration with arbitrary degree masks",
+          "trigger": "Broader arbitrary-degree-mask result"
+        },
+        {
+          "assessment": "Contains the general block formula, not the explicit adjacent-degree optimizer in the inspected passages",
+          "evidence": [
+            "Eq. (5.6) is a 2π-weighted fixed-order cap integral, yielding the frozen overlap at the hemisphere when restricted to the two degrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0408424",
+          "material_read": "Eqs. (4.7), (4.13)–(4.15), pp. 9–10; (5.6)–(5.7), p. 15",
+          "method": "OA PDF literal lookups and bounded offset passages",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "General spherical/cap concentration matrix"
+        },
+        {
+          "assessment": "General bound, not an exact spectrum in the cited result",
+          "evidence": [
+            "Measure-coverage estimate for finite expansions, without this adjacent-degree block maximization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.02474",
+          "material_read": "Theorem 4.4, (4.35)–(4.36), pp. 14–15, near offset 48172",
+          "method": "OA PDF bounded passage",
+          "title": "Concentration estimates for finite expansions of spherical harmonics on two-point homogeneous spaces via the large sieve principle",
+          "trigger": "Prior finite spherical expansion concentration bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp concentration for a fixed two-degree band is a natural and potentially useful spectral problem. But the exact invariant, its optimizers and its quantitative large-degree behavior are all evaluated in a stronger matching record. The only possible isolated addendum, a consecutive ratio, is obtained by canceling consecutive central binomial coefficients in the existing formula; it has no independent mathematical contribution here. No repair to a surviving valuable finding is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

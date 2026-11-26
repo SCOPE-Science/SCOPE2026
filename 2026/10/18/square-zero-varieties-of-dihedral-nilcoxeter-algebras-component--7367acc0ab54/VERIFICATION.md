@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the square-zero count checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 using only the standard library. The code constructs the multiplication coefficient of each alternating word of lengths \(2\) through \(m\) directly from concatenation, identifies the two longest alternating words only at length \(m\), and checks \(x^2=0\). It enumerates all \(2(m-1)\) coefficients below longest degree, multiplying the resulting count by \(q\) for the independently free longest-word coefficient. The finite-field arithmetic includes prime fields \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\), together with \(\mathbb F_4=\mathbb F_2[h]/(h^2+h+1)\) and \(\mathbb F_9=\mathbb F_3[h]/(h^2+1)\). It computes the predicted expression separately from the word equations.
+## correctness
 
-The saved checker was executed successfully: `VERIFY_OK` after fifteen exhaustive parameter configurations. Examples: \((m,q)=(3,2):16\), \((4,3):135\), \((4,4):1792\), \((5,3):567\), \((6,3):2187\), \((8,2):1280\), \((9,2):1536\). The checks establish exactly the tested finite cases, not arbitrary-field irreducibility, component counts, or all lengths. Those statements are proved by symbolic triangular elimination and the final degeneration in `RESULT.md`. No independent audit has been performed.
+PASS
+
+The alternating-word multiplication gives two equations at each degree below m and one summed equation at m. The first nonzero degree r with 2r<m must be odd, and one of a_r,b_r vanishes. On a_r nonzero, each odd total degree determines the next even-index sum a_j+b_j=0, and each even total degree determines b_j, with coefficient a_r. In the even-total-degree step both equations agree: the odd–odd convolutions agree by reversal and the even–even terms agree because both factors change sign. At the longest word there is one constraint for m odd; for m even the two terms add to 2A_m, so the last constraint disappears exactly in characteristic two. This gives the stated stratum dimensions. The closed high-degree piece is the whole tail for odd m and the single displayed plane quadratic times the tail for even m. In even braid length and characteristic two with d even, adding tU_(d-1) to a high-degree solution creates below the top only the potentially nonzero term proportional to t(a_d+b_d), which vanishes; the top contributions cancel. Hence this smaller central piece is not another component. All other pieces contributing components have maximal dimension, and disjoint dense locally closed strata cannot have equal irreducible closures. Counting the affine factors, nonzero leading coefficient, and split/nonsplit lines gives all three rational-point formulas. Analytical replay: RESULT.md lines 35–67. Frozen verifier inspected, not executed; reported cases are not independent reproductions and are not needed by the uniform proof. The conclusion concerns reduced support, not the original equation scheme.
+
+## originality
+
+PASS
+
+The strongest parallels separate into (i) the same nilCoxeter algebra and braid parity but a different invariant (Ext) and (ii) square-zero loci and a characteristic-two jump but different algebras. The inspected statements do not determine the geometric components or arithmetic stratification of the frozen reduced internal locus. Pass is limited to that classification and the best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The reduced square-zero variety of the standard finite dihedral nilCoxeter family is a natural invariant. The uniform stratification resolves genuinely different parity and characteristic cases, including a dimension jump and a smaller stratum that merges into a branch closure. It yields exact geometric components and rational counts, including nonsplit central fibers, beyond a finite census or routine dimension estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

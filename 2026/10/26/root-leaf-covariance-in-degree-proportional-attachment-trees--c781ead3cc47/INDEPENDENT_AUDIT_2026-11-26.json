@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:47:12.702059Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original covariance and correlation claims are correct, but the frozen proof's unqualified leaf variance is false at n=2: p_2=1 gives −11/9 rather than 0. The code already handles this seed separately and its leaf-variance recurrence comparison starts at n=3. The repaired proof uses Var(L_2)=Var(L_3)=0 and restricts the expression (n−1+4p_n−16p_n²)/9 to n≥3. For the final claim, the conditional probabilities of selecting the root, a leaf, and both give the claimed survival ratio and means, and cancellation in the mixed product gives the prior covariance increment. The two summands telescope: Δ(np_n)=(n−3)p_n/[2(n−1)] and Δ((2n−3)p_n²)=−(2n−3)p_n²/[4(n−1)²]. The resulting exact formula has c_2=0; the increment at n=2 is zero and all subsequent increments are positive. The degree factorial moment H=E[D(D+1)] has multiplicative increment factor 1+1/(n−1), giving H=2(n−1). For V=Var(L), the conditional leaf-selection probability gives Cov(L,J)=V/[2(n−1)], and the unconditional Bernoulli variance gives the inhomogeneity in the repaired recurrence. Direct substitution verifies the displayed solution and its n=3 base. Stirling gives p_n=(πn)^−1/2+O(n^−3/2); this yields the exact constant correction −8/(3π) and variance growth (2−4/π)n and n/9, hence √n Corr→√(2/(π−2)). Correlation is undefined only at the deterministic leaf-count seed sizes considered, and strict covariance establishes positive variances thereafter. A new exact integer (D,L)-state replay through n=8 checked the covariance and corrected variance, and isolates the seed discrepancy (e.g. at n=4 it gives covariance 1/16 and leaf variance 1/4). The original program was inspected, not executed or changed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later 2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793, Finding",
+          "Brightwell–Łuczak discuss aggregate degree classes",
+          "Peköz–Röllin–Ross give fixed collections of early-vertex degrees",
+          "Hartle–Krapivsky use aggregate degree and leafdegree categories"
+        ],
+        "reasoning": "The later affine attachment theorem specializes to the same square-root leading order and sign at δ=0, but is later and does not supply the repaired constant. Fixed finite collections of early degrees exclude the growing leaf sum; aggregate covariances lack the tagged seed vertex. The exact earlier same-model result, not these broader but different observables, is the decisive overlap.",
+        "searches": [
+          "Resultary: preferential attachment tree tagged initial root degree total leaf count mixed moment covariance",
+          "arXiv:1012.5550 §1",
+          "arXiv:1402.4686 §1.1",
+          "arXiv:2602.01021 pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Earlier exact Resultary RESULT.md and two later comparisons identified above",
+        "arXiv:1012.5550",
+        "arXiv:1402.4686",
+        "arXiv:2602.01021",
+        "DOI 10.1002/rsa.3240040204 attempted, not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier record proves c_2=c_3=0, strict positivity and monotonicity thereafter, and c_n∼2√n/(3√π)",
+          "The repaired proof matches the earlier increment by telescoping two nonconstant sequences built from the survival law"
+        ],
+        "reasoning": "The recurrence and seed determine all covariance values, so an all-size exact formula in that sense was already established. The two-term evaluation identifies the finite correction −8/(3π) rather than just an unknown bounded summation remainder; neither the prior equivalent sum nor its leading asymptotic states that evaluation. The normalization is a consequence of the covariance and the marginal variance asymptotics, not credited as the discovery of a new joint covariance theorem.",
+        "searches": [
+          "Earlier Resultary exact match: RESULT.md Eqs. (1)–(6), (14)–(15), offsets 0 and 3478",
+          "Resultary: preferential attachment tree tagged initial root degree total leaf count mixed moment covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19, Finding and assumptions offset 0",
+          "Later 2026/11/2/SCOPE-sharp-root-degree-threshold-for-leaf-abundance-in-random-plane-r--7b9584f7d03d, Finding",
+          "arXiv:1012.5550, §1 p. 1, offset 1189"
+        ],
+        "reasoning": "The earlier indexed Barabási–Albert tree has the exact edge seed, degree-proportional transitions, and inclusive undirected leaf count of the frozen record, with q_n=p_n. Brightwell–Łuczak note PORT terminology for degree-proportional attachment, so names alone do not separate the models. The later rooted-plane-tree result specifically uses one plus child count and a different root/leaf convention; it is not a substitute for the earlier exact same-model covariance.",
+        "searches": [
+          "Resultary: exact covariance root degree total leaves edge-seeded degree-proportional attachment tree Cov(D_n,L_n)",
+          "Resultary: plane-oriented recursive tree PORT initial root degree leaf count covariance attachment one plus outdegree",
+          "Resultary: LPAT PORT edge seed equivalence degree proportional undirected preferential attachment rooted leaves covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19, Eqs. (3)–(4), exact all-n increment and sum",
+          "External query returned unrelated hits"
+        ],
+        "reasoning": "An exact finite-sum entry is prior evidence even though its expression looks different. It computes the same quantity at every n, not just an approximation or a few samples. The displayed earlier expression leaves a sum over k, and its asymptotic assertion specifies no constant term. The ineffective web lookup supplies no negative evidence.",
+        "searches": [
+          "Resultary: exact covariance root degree total leaves edge-seeded degree-proportional attachment tree Cov(D_n,L_n)",
+          "Web: \"degree-proportional attachment\" tree \"leaf\" covariance root degree initial vertex preferential attachment exact covariance"
+        ]
+      },
+      "rationale": "Pass for the repaired resummation and explicit finite-size constant, not for discovering the exact covariance, its sign, or its leading order. The October 13 record gives exactly the same covariance as a finite sum for every n, with identical process, observable pair, and survival probability. The repaired RESULT.md credits it and telescopes both summands, obtaining a form without an n-dependent sum and evaluating the previously unspecified constant term; the correlation normalization is reported as an interpretation, not needed as an independent novelty claim. The repaired scope also avoids treating PORT as a single model determined by name. No inspected earlier result states or directly supplies the summation-free form and constant, subject to bounded search limitations.",
+      "residual_risks": [
+        "Inaccessible historical PORT work or unindexed sources could contain a summation-free evaluation under a matching seed and leaf convention. The external keyword search was ineffective, so priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact finite-sum representation, sign and leading term; it covers the frozen claim at that level",
+          "evidence": [
+            "q_n is the same survival product; Eqs. (3)–(4) give the exact increment and sum",
+            "Eqs. (5)–(6) give the same signs and square-root leading constant, without the order-one correction"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "material_read": "RESULT.md Finding and assumptions offset 0; proof Eqs. (7)–(15), including mixed moment, and limitations",
+          "method": "Local record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, bounded passages",
+          "title": "Oldest-hub degree has positive square-root covariance with leaf abundance",
+          "trigger": "Exact same-model and same-observable covariance"
+        },
+        {
+          "assessment": "Later broader leading-order result, not earlier proof of the constant",
+          "evidence": [
+            "Weight d+δ with edge seed; δ=0 recovers positive square-root covariance"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793",
+          "material_read": "RESULT.md Finding",
+          "method": "Local record mirror",
+          "title": "Sharp root-degree/leaf-count covariance in affine preferential attachment",
+          "trigger": "Broader attachment theorem with the same observable pair"
+        },
+        {
+          "assessment": "Later related record with different initial root and counting conventions",
+          "evidence": [
+            "Ordered-child gaps give 1+outdegree weights; root children and leaves excluding the root are counted"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-root-degree-threshold-for-leaf-abundance-in-random-plane-r--7b9584f7d03d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local record mirror",
+          "title": "Sharp root-degree threshold for leaf abundance in random plane recursive trees",
+          "trigger": "Potential equivalence with the PORT convention"
+        },
+        {
+          "assessment": "Same model class and aggregate statistics, not the exact tagged mixed statistic",
+          "evidence": [
+            "Degree-proportional attachment from a small tree; notes study under plane-oriented terminology",
+            "Cites covariance for global degree-class counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5550",
+          "material_read": "§1 p. 1 and p. 3, offsets 1189 and 8302",
+          "method": "OA PDF, bounded passages",
+          "title": "Vertices of high degree in the preferential attachment tree",
+          "trigger": "Same attachment rule and naming ambiguity"
+        },
+        {
+          "assessment": "The edge-seeded N_1 weights equal degrees but the theorem concerns fixed early-vertex collections",
+          "evidence": [
+            "With initial weights (1,1) and one edge arrived per step, weight equals degree",
+            "Joint laws cover fixed early vertices, not the growing leaf observable"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.4686",
+          "material_read": "Model N_l pp. 1–2 and §1.1 theorem p. 3, offsets 3926 and 8826",
+          "method": "OA PDF, bounded passages",
+          "title": "Joint degree distributions of preferential attachment random graphs",
+          "trigger": "Joint-degree theorem could encode tagged and leaf dependence"
+        },
+        {
+          "assessment": "Aggregate observables, not one tagged degree",
+          "evidence": [
+            "Joint distributions and covariances of categories such as N_1, N_2, and N_(2,1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.01021",
+          "material_read": "pp. 4–5, offset 33416",
+          "method": "OA PDF, bounded passages",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Related exact covariance of leaves and degrees"
+        },
+        {
+          "assessment": "Exact convention and any relevant mixed-statistic treatment unverified",
+          "evidence": [
+            "Brightwell–Łuczak's PORT terminology was checked separately; the inaccessible paper is not treated as negative evidence"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240040204",
+          "material_read": "No primary full text read",
+          "method": "OA direct and VPN retrieval returned HTTP 403 and no identified lawful repository copy was found",
+          "title": "On the Structure of Random Plane-Oriented Recursive Trees and Their Branches",
+          "trigger": "Earlier potential model convention overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Only the genuine remainder is credited. The leading square-root approximation leaves an order-one error that need not be small at finite tree sizes. The resummation evaluates that bias, leaving an error of order n^−1/2, and gives exact values without summing over intermediate sizes. This quantifies the finite-size dependence of two natural, differently scaled observables. The correlation consequence explains the scale without claiming a joint law. The prior covariance existence, sign and leading result are not part of this value judgment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

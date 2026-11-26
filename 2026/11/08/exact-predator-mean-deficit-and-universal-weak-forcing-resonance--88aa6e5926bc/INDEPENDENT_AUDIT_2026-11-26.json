@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:32:36.364924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–123",
+        "Frozen VERIFICATION.md, lines 19–27, and verify.py (inspected, not executed)",
+        "Gao et al. arXiv:2610.39113v1, Eq. (4) for the damped frequency"
+      ],
+      "rationale": "Averaging P'/P and N'/N on a strictly positive periodic orbit gives the locked prey mean N* and the covariance formula. Independently, averaging P' gives ⟨NP⟩=N*⟨P⟩. Subtracting N* times the averaged logarithmic prey equation from the averaged prey equation then gives ⟨ρ(N−N*)(1−N/K)⟩=0. Expanding this gives the weighted-variance identity. It vanishes only for N constant at N*, which makes P and ρ constant. For each fixed positive ω the unforced coexistence Jacobian has negative trace and positive determinant, so the period map has derivative with spectral radius less than one. The analytic implicit-function theorem yields a unique nearby attracting branch; a half-period shift gives evenness of its means in A. The first prey harmonic from the linear equations has complex amplitude igω/(Ω²−ω²+iγω), g=N*(1−N*/K). Using the variance identity, the leading normalized deficit is A² divided by 2r₀², times γ²ω²/[(Ω²−ω²)²+γ²ω²]; evenness eliminates the cubic term. The factor is at most one, with equality exactly at ω=Ω. The benchmark frequencies use Ω and √(Ω²−γ²/4), respectively, and are distinct for the stated parameters.",
+      "residual_risks": [
+        "The exact law is conditional on a positive locked solution and does not apply across switching. The analytic branch and fourth-order remainder are local at each fixed frequency; the finite-amplitude optimum is not established. A sampled orbit in the packaged checker is not a rigorous threshold enclosure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper covers annual forcing, resonant amplification and threshold crossings; the checked quantities are extrema and the damped equilibrium frequency. Full text could not be inspected for the three other cited works; general websearch was unavailable."
+        ],
+        "reasoning": "Neither an extrema analysis nor a damped eigenfrequency gives the sign or magnitude of the averaged predator defect. Standard Volterra averaging and linear response are established methods, not claimed to be new. No inference of noncoverage is made for uninspected passages.",
+        "searches": [
+          "Gao et al. arXiv:2610.39113v1, abstract, Eq. (4), pp. 4–5",
+          "Taylor–Sherratt–White DOI 10.1007/s00285-012-0612-z",
+          "Benincà et al. DOI 10.1086/661902; Bai–Zhang DOI 10.3390/math10040655"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Gao et al., arXiv:2610.39113v1",
+        "Taylor–Sherratt–White (2013), Benincà et al. (2011), Bai–Zhang (2022), bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest overlap uses the identical smooth system and weak forced response; one of its candidate optima is prey resonance. Another same-day record invokes switching and extinction. The delayed mean-law and seasonal-harvesting analogues change the vector field or the observable."
+        ],
+        "reasoning": "The prey harmonic plus the new variance identity directly yields the mean-loss peak, so the frequency alone is not a distinct contribution. None of the inspected antecedent statements implies the strict forced covariance law for arbitrary positive locked cycles or gives the normalized mean-loss peak without the nonlinear averaging step.",
+        "searches": [
+          "Resultary mirror 667a5fa1b111, d15a1d3f02d5, cc653812d3fd, 3e9715258dce",
+          "Gao et al. pp. 1, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local result is a self-match. The same-day threshold-accessibility record uses the same response but concerns whether one orbit reaches two specified population thresholds. The delayed-model record gives a formally similar predator mean deficit for an unforced, different vector field."
+        ],
+        "reasoning": "Covariance and weighted variance are equivalent here by the averaged equations. An extremum of the prey transfer gain shares the frequency of the leading mean-predator loss, but is not equivalent to the exact nonlinear period-mean constraint. A different delayed model does not specialize to the claimed forcing covariance on these equations.",
+        "searches": [
+          "Local Resultary: forced logistic-prey period mean, weighted variance deficit, weak harmonic mean loss",
+          "arXiv:2610.39113v1 Eq. (4) and simulations",
+          "Mirrored 667a5fa1b111 and cc653812d3fd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assignment is the exact index hit. The motivating paper's benchmark gives the free damped frequency; the same-day records give different threshold or extinction observables. Neither is a table of normalized mean-deficit coefficients."
+        ],
+        "reasoning": "Plugging parameters into Ω reproduces a known linear-response scale where that gain is already treated, but a numerical frequency entry would not establish the exact mean law or the universal fractional height.",
+        "searches": [
+          "Local Resultary exact mean/deficit and resonance queries",
+          "Gao et al. parameter and eigenfrequency discussion around Eq. (4)",
+          "Mirrored threshold-accessibility and resonant-extinction findings"
+        ]
+      },
+      "rationale": "The closest same-model results cover harmonic response, damped free motion, or tipping and threshold accessibility. They overlap with the linear-response ingredients and with identifying a prey-response resonance, but not with a strict exact identity for the predator period mean on any locked coexistence orbit. The supported contribution is that identity and its normalized weak-forcing consequence, not a new linear-response method or independent discovery of the prey-response resonance. The inaccessible seasonal-forcing literature remains a risk, not adverse evidence.",
+      "residual_risks": [
+        "Taylor–Sherratt–White is the most relevant inaccessible seasonal-forcing comparison. General search was unavailable and no global priority claim follows. The same-day threshold-accessibility work shares the prey transfer calculation and resonance component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same system and damped frequency, different observable",
+          "evidence": "Gives √(Ω²−γ²/4) for free damped motion; tracks extremes and threshold crossings under forcing, rather than time-mean predator loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39113v1",
+          "material_read": "PDF pp. 1, 4–5; abstract (offset about 1800), Eq. (4) and discussion (about 19600), simulations (about 22400)",
+          "method": "Lawful OA PDF passages",
+          "title": "Frequency-induced Tipping: Resonance-Driven Tipping in a Threshold Predator-Prey System",
+          "trigger": "Same model, parameters, forcing and resonance"
+        },
+        {
+          "assessment": "Substantial transfer-response overlap; different objective and no mean-deficit statement",
+          "evidence": "The optimized threshold-accessibility frequency is selected among predator resonance, a balance frequency and prey resonance. It is not a time-mean objective; the shared date does not establish priority.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three-regime joint threshold accessibility under weak periodic forcing",
+          "trigger": "Closest same-system, same-day weak-forcing theorem"
+        },
+        {
+          "assessment": "Threshold-crossing mechanism, no matching mean law",
+          "evidence": "Treats weak resonant forcing producing extinction via Filippov threshold crossings, which are outside the smooth mean law's scope.",
+          "identifier_or_url": "2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5",
+          "material_read": "Mirrored finding",
+          "method": "Local Resultary mirror",
+          "title": "Frozen-safe extinction under arbitrarily weak resonant forcing",
+          "trigger": "Same-day forcing and resonance comparison"
+        },
+        {
+          "assessment": "Similar identity in a different model",
+          "evidence": "The variance type predator deficit is for a delayed, unforced vector field, not the positive growth forcing in this finding.",
+          "identifier_or_url": "2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd",
+          "material_read": "Mirrored finding",
+          "method": "Local Resultary mirror",
+          "title": "Delay-invariant period means and an exact phase-yield law",
+          "trigger": "Exact period means and variance-deficit analogue"
+        },
+        {
+          "assessment": "Different forcing mechanism and observable",
+          "evidence": "Invasion on a predator-free prey branch, rather than predator means on a coexistence cycle.",
+          "identifier_or_url": "2026/11/1/SCOPE-opposite-predator-invasion-shifts-under-zero-mean-seasonal-harve--3e9715258dce",
+          "material_read": "Mirrored finding",
+          "method": "Local Resultary mirror",
+          "title": "Opposite predator invasion shifts under zero-mean seasonal harvesting",
+          "trigger": "Seasonal forcing and predator changes"
+        },
+        {
+          "assessment": "Decisive full text not retrieved",
+          "evidence": "No statement-level noncoverage conclusion from access failure.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-012-0612-z",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher and lawful alternate-copy retrieval attempts",
+          "title": "Seasonal forcing and multi-year cycles in interacting populations: lessons from a predator-prey model",
+          "trigger": "Plausible earlier overlap on seasonal cycles"
+        },
+        {
+          "assessment": "No decisive full text inspected",
+          "evidence": "The reviews of other accessible results are not substitutes for these primary texts.",
+          "identifier_or_url": "10.1086/661902; 10.3390/math10040655",
+          "material_read": "Bibliographic identification only",
+          "method": "Bounded publisher and repository retrieval attempts",
+          "title": "Related works by Benincà et al. (2011) and Bai–Zhang (2022)",
+          "trigger": "Resonance or delayed predator–prey mean-law context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Gao et al. p. 5 for the extrema/tipping comparison",
+        "Independent averaging and harmonic calculation"
+      ],
+      "rationale": "The weighted-variance identity constrains population means without a small-forcing assumption or a simulated orbit, distinguishing changes in period means from the known amplitude and threshold effects. It provides an exact sign and mechanism for predator loss even when the prey mean stays locked, and a simple benchmark for the normalized small-amplitude effect.",
+      "residual_risks": [
+        "The benchmark does not locate finite-amplitude extrema or demonstrate extinction, and the exact law does not ensure existence beyond the local branch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

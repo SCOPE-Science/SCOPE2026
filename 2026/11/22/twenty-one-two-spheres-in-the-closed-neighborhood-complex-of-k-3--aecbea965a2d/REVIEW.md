@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph has twelve explicitly specified five-element closed neighborhoods. Complete enumeration gives exactly 250 nonempty simplices. Three deterministic pivot-order discrete-Morse matchings each have 114 disjoint pairs and exactly one critical vertex and twenty-one critical triangles. Every one of the 744 face-poset cover relations is oriented and the whole directed graph is proved acyclic by topological sorting, not by a sample or heuristic. Standard discrete Morse theory then gives the integral homotopy type of a wedge of twenty-one two-spheres, because no critical one-cells remain. The independently calculated mod-two chain ranks are consistent. Source: the complete definitions and code in `RESULT.md`, `verify.py`, and `verify_output.txt`. Mathematical limitation: this is a finite exhaustive certificate, not an infinite-family argument.
+## correctness
 
-## Originality — PASS, subject to residual priority uncertainty
-The closest directly related published clique-fiber Čech theorem gives \(S^1\vee\bigvee^{4n}S^2\) for \(K_3\square C_n\), but explicitly requires \(n\ge5\). This calculation resolves the excluded \(n=4\) case and finds different fundamental-group and second-homology behavior. Matsushita's product example has two complete factors; a broad square-completion theorem requires a triangle-free graph; and the exact triangular-cylinder result concerns the *open* neighborhood complex. Full statements and hypotheses were compared. Targeted exact-result searches found no covering table; absence of search hits is not a uniqueness proof. Residual risk: inaccessible or unindexed equivalent classifications.
+PASS
 
-## Mathematical value — PASS
-Four is the first natural cycle length excluded by the girth-at-least-five product theorem, where antipodal cycle vertices have two common neighbors. The missing case illustrates a real homotopy transition, not a routine restatement: the established lengths retain an essential circle, but this boundary case is simply connected and gains extra two-spheres. The exact self-contained finite classification can serve as a sharp test case for attempts to relax girth hypotheses; no general result for additional short-cycle products is asserted.
+The Cartesian adjacency rule gives twelve distinct equal-sized closed neighborhoods of five vertices, so these are exactly the maximal faces. An independent set-based reconstruction tests subsets of the 12-vertex universe for containment in one of them and gives all 250 nonempty faces and vector (12,54,112,60,12). At each pivot, toggling that vertex defines disjoint candidate pairs, so successive removal within a stage makes the same matching as simultaneous removal. For all three specified pivot orders the independent code obtained 114 pairs and critical vector (1,0,21,0,0), and used depth-first cycle detection on all 744 directed cover incidences, orienting just the paired ones upward. Finite discrete Morse theory therefore gives a CW complex with one vertex and just 21 two-cells, all attached to the vertex by constant maps; its ordinary homotopy type is the asserted wedge, proving the integral homology and fundamental-group conclusions. Finite-field ranks are not needed for the strongest conclusion.
 
-## Closest sources and limitations
-[1] T. Matsushita, *Closed neighborhood complexes of graphs*, 2025, arXiv:2511.12608.
-[2] *Clique-fiber Čech nerves over graphs of girth at least five*, 2026, public mathematical result.
-[3] *Square-completion splitting of closed-neighborhood complexes with codegree at most two*, 2026, public mathematical result.
-[4] *The triangular-cylinder neighborhood complex: a torus except at length four*, 2026, public mathematical result, on a different complex.
+## originality
 
-Only the twelve-vertex graph and its nonequivariant homotopy type are classified. The exact certificate has not received independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A genuine short-cycle exception to the verified closed Čech clique-fiber theorem. The closest closed theorem excludes base four-cycles, the classical complete-factor theorem has different hypotheses, and the nearby short-cycle open-complex computations do not state or imply the closed-complex homotopy type here.
+
+## value
+
+PASS
+
+This is the first base cycle precisely excluded by the natural longer-cycle theorem, where its bridging hypothesis fails. The computation decides that the stable fundamental circle disappears and provides the exact replacement homotopy type with a small replayable Morse certificate, rather than a homology-only sanity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

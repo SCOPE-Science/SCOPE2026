@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:51.021129Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kitajima's defining equations and Lemma 2.1 specialize to the stated p=1 series and positive order-raising integral with the distorted angle. Expanding H_r and using (a^(2k+2)−b^(2k+2))/(a−b)=(a+b)Σ a^(2j)b^(2(k−j)), with a+b=1, verifies the fourth-order divided difference coefficient by coefficient, including axes by the removable limit at x=0 and the diagonal by differentiation. The derivative has numerator −F(rx) where F(t)=t(2+cos t)−3sin t. On 0<t<π, F'''(t)=t sin t>0 with F(0)=F'(0)=F''(0)=0, and for t≥π the bound F(t)≥t−3>0 applies. Thus H'_r(x)<0 for every x>0. The strict inequality for F''' need not and does not hold at t=π, an immaterial endpoint slip; the strict inequality for F does hold there. The order-raising formula follows directly by integrating the series using the beta integral, with compact convergence and integrable weight at t=1 for every positive raising increment. Its positive weight propagates the fourth-order strict sign. The axis witness at order 0 is the sinc at 3π/2; the diagonal limits at orders 1 and 2 are 4sin(r/2) and −8cos(r/2)+16sin(r/2)/r, giving −4 and −8; at a=2/5, b=3/5 and r=5π the order-3 numerator has contributions 0 and −2/b², giving −200/(9π) after the prefactor. The claim is correct as to the strict threshold among integers and real orders at least 4, without classifying other real orders in the frozen statement. The inspected CHECK.py is finite supplementary corroboration, not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1997 publisher abstract states: 'for δ [ges] 2 d −1 the l-1 Riesz (R, δ) means of the inverse Fourier integral are positive, the lower bound being best possible' (inequality typesetting recovered as ≥). It concerns all dimensions d, and R=1 and d=2 give the planar tent relevant here.",
+          "Kitajima supplies the matching definition and an independently published positive order-raising formula. The Weisz survey bibliography distinguishes the 1997 positivity article from the 1996 discrete Fejér article and the 2001 summability article."
+        ],
+        "reasoning": "Specializing the prior all-dimension Fourier-integral theorem gives the same continuous sign threshold in the weak sense. Equality of thresholds is not a similarity of titles. The abstract does not resolve the additional absence of nonzero-frequency zeros at its critical exponent.",
+        "searches": [
+          "Berens & Xu, Math. Proc. Cambridge Philos. Soc. 122 (1997), 149–172, publisher abstract",
+          "Ferenc Weisz, arXiv:1206.1789, p. 168 references [7]–[9]",
+          "Kitajima arXiv:2603.21072 §1 and Lemma 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Berens–Xu 1997 official abstract and Xu publication listing",
+        "Kitajima arXiv:2603.21072 and doi:10.1007/s10474-026-01632-9",
+        "Weisz arXiv:1206.1789",
+        "Berens–Li–Xu 2001 abstract",
+        "zu Castell doi:10.1007/s00365-006-0666-z bibliographic/abstract evidence",
+        "Resultary same-day weighted-shift threshold record and targeted catalogue results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ω=4 the Berens–Xu threshold gives at least nonnegativity. For any fixed angle the defining order-four series is 4r⁴/Γ(6)+O(r⁶) near zero. Therefore the order-raising integral for every γ>0 integrates a nonnegative function positive on a nonempty interval and gives J_(4+γ)>0. If the lower-exponent prior claim is stated for δ>0, nonnegativity for the indicator at δ=0 would also imply positivity of the Riesz operators for δ>0 by positive scale averaging, contradicting sharpness. Thus sharpness excludes universal weak positivity for orders 1–3. Order 0 is outside the tent reduction, and its axis negative example is immediate from the source's elementary cosine integral."
+        ],
+        "reasoning": "The weak threshold, all strict claims above the endpoint and the existence of the smaller-order negatives (apart from the independent elementary order-0 instance) follow directly from the identified earlier theorem and published structural identity. An assertion of nonnegative Fourier kernel does not alone imply strict positivity exactly at the endpoint. That bounded distinction is the only meaningful unresolved originality point, not grounds to pass the frozen classification as new.",
+        "searches": [
+          "Berens–Xu 1997 publisher abstract, sharp positive ℓ1 Riesz means theorem",
+          "Kitajima 2026 Lemma 2.1 and defining series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For f_δ(x)=(1−|x₁|−|x₂|)_+^δ, δ≥0 (indicator at δ=0), use angular-frequency Fourier convention and let r=|ξ₁|+|ξ₂|>0, a=|ξ₁|/r, b=|ξ₂|/r. On the positive quadrant put x₁=tu, x₂=t(1−u), with Jacobian t. Evenness gives the angular integral 4∫₀¹ cos(rta u)cos(rtb(1−u))du=J_0(rt). Hence the Fourier transform is ∫₀¹ t(1−t)^δ J_0(rt)dt=Γ(δ+1)r^(−δ−1) J_(δ+1)(r). Every such a,b is attained by the distorted angle. All normalization factors are positive.",
+          "After a linear rotation and rescaling the ℓ1 ball in the plane is also an ℓ∞ ball. The concrete prior hit concerns continuous ℓ1 Fourier integrals, not just discrete lattice sums."
+        ],
+        "reasoning": "Nonnegativity of this multiplier's inverse Fourier kernel is the positivity condition for the Riesz convolution operator: if a continuous kernel is negative at a point, convolution with a nonnegative approximate identity detects it. The sign is the same under the Fourier versus inverse Fourier convention by evenness and positive normalization. This establishes exact object equivalence for ω≥1, not order 0.",
+        "searches": [
+          "Resultary diamond p-Bessel/Kitajima order-four positivity and ℓ1-radial summability queries",
+          "Kuttner positive definiteness / ℓ1 or maximum-norm truncated powers",
+          "Berens–Xu, 'summability of multiple Fourier integrals and positivity', Cambridge publisher theorem summary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close same-day Resultary Bessel-title hit instead concerns the numerical radius of a weighted shift; no equivalent sign statement was identified in that catalogue check. The exact exponent 3 for the comparable cutoff is already in the 1997 theorem by setting d=2."
+        ],
+        "reasoning": "A finite table cannot verify an all-radii, all-directions sign classification. The decisive exact comparison is the prior symbolic threshold for a larger family, not a numerical angle/radius match.",
+        "searches": [
+          "Resultary order-four diamond p-Bessel sign threshold and p-radial/ℓ1 summability searches",
+          "Same-date Resultary Bessel threshold and lattice-correction publication Finding",
+          "Cambridge publisher abstract giving the exact exponent 2d−1"
+        ]
+      },
+      "rationale": "The classification's sharp positivity threshold is materially covered by Berens–Xu's 1997 sharp ℓ1-Riesz positivity theorem: their d=2 case has δ≥3 for the same continuous Fourier kernel, which under the exact transform below is order ω=δ+1≥4. Even interpreting their 'positive' as only nonnegative, this implies the strict claim for every ω>4 by Kitajima's positive raising formula and the positive leading series term near r=0; their sharpness implies negative values at orders 1–3. The order-0 example is the elementary axis sinc. This is verified overlap with the central threshold, not a fail based on an inaccessible citation. The strict no-zero statement exactly at order 4 is a potential separate refinement, but the available prior theorem statement does not establish whether the prior proof already gives it. Its distinct originality has not been established, and the review does not assert it was proved earlier. Explicit witnesses and a short divided-difference derivation do not restore originality to the frozen threshold claim. No repaired finding is accepted.",
+      "residual_risks": [
+        "The 1997 proof was not read. It could supply strict positivity at the critical index, so the audit neither credits a new endpoint theorem nor states that strict endpoint positivity is already known from that proof.",
+        "Some related full texts remained inaccessible after lawful attempts; this limits the strict-endpoint comparison, not the decisive sharp nonnegative overlap supported by the official earlier statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive material coverage of the sharp nonnegative threshold; strict critical-order no-zero property unresolved",
+          "evidence": [
+            "The abstract expressly states positivity of ℓ1 Riesz means for δ≥2d−1 with best possible lower bound. For d=2, R=1 this is the continuous kernel corresponding to ω=δ+1, after a strictly positive factor."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/l1-summability-of-multiple-fourier-integrals-and-positivity/1CAF296C3E7FEF4F263B33E00AB91330",
+          "material_read": "Publisher abstract theorem sentence (indexed excerpt); author publication listing and Weisz reference [9] confirm 122 (1997), 149–172. The paper proof and exact strictness convention were not accessible.",
+          "method": "Primary publisher abstract excerpt and bibliographic cross-check; attempted lawful OA full-text retrieval via publisher and author listing",
+          "title": "ℓ-1 summability of multiple Fourier integrals and positivity",
+          "trigger": "Exact earlier ℓ1 tent Fourier positivity theorem under the quadrant reduction"
+        },
+        {
+          "assessment": "Defining and structural inputs; gives propagation, not a new base-case sign in those passages",
+          "evidence": [
+            "p=1 gives the stated series; Lemma 2.1 uses the weight τ(1−τ)^(γ−1), which transfers prior nonnegativity at order 4 to strict positivity at every higher real order."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.21072",
+          "material_read": "§1 Eqs. (1.1)–(1.2); §2 Lemma 2.1, OA offset 21949; advertised statements of Theorems 1.1–1.3",
+          "method": "Open-access HTML bounded passages",
+          "title": "Analytic Study of p-Bessel Functions: Fractional Calculus, Integral Representations, and Complex Extensions",
+          "trigger": "Exact normalization, angular transform and order-raising needed for equivalence and implication"
+        },
+        {
+          "assessment": "Same Fourier-derived family; inspected definition and recurrence are not a threshold classification",
+          "evidence": [
+            "The family and structural identities precede this frozen claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10474-026-01632-9",
+          "material_read": "§2.1, pp. 207, 209–210 (Eqs. 2.2 and 2.7–2.9)",
+          "method": "Open-access PDF bounded passages",
+          "title": "Fourier-analytic derivation of Hardy-type oscillatory identity for p-circle domains by generalized Bessel functions",
+          "trigger": "Earlier definition of the same generalized kernels"
+        },
+        {
+          "assessment": "Bibliographic corroboration and distinct triangular Dirichlet-kernel formula, not evidence of endpoint strictness",
+          "evidence": [
+            "Reference [9] is the 1997 continuous positivity paper, distinct from the 1996 Fejér and 2001 Riesz convergence papers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.1789",
+          "material_read": "p. 168, refs. [7]–[9]; p. 25, Lemma 5.2 context",
+          "method": "Open-access PDF bounded text",
+          "title": "Summability of Multi-Dimensional Trigonometric Fourier Series",
+          "trigger": "Precise bibliographic identification of the earlier continuous Fourier positivity source"
+        },
+        {
+          "assessment": "Abstract concerns convergence, not critical sign or zeros; no conclusion about unread text",
+          "evidence": [
+            "States almost-everywhere convergence for δ>0, distinct from kernel positivity at δ=3."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0019357701800045",
+          "material_read": "Accessible abstract summary; no full text obtained from ScienceDirect or CORE record 24589474",
+          "method": "Publisher abstract and lawful-copy lookup",
+          "title": "On ℓ1 Riesz summability of the inverse Fourier integral",
+          "trigger": "Related later primary work that might reproduce the earlier critical-case theorem"
+        },
+        {
+          "assessment": "Possible further overlap, not used to infer coverage or noncoverage",
+          "evidence": [
+            "Earlier p-radial setting is relevant; no exact critical-order strict assertion was available for comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00365-006-0666-z",
+          "material_read": "Bibliographic/abstract-level evidence only; no decisive full-text theorem passage obtained",
+          "method": "Lawful publisher OA/PDF attempts",
+          "title": "Generalized Bessel Functions for p-Radial Functions",
+          "trigger": "Cited older generalized p-radial framework and possible strict endpoint comparison"
+        },
+        {
+          "assessment": "Different object and sign invariant",
+          "evidence": [
+            "The threshold is for the numerical radius of a weighted shift, not a diamond ℓ1 Fourier kernel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-bessel-threshold-and-its-first-lattice-correction-for-geometri--1efa50a5d44f",
+          "material_read": "Published record Finding",
+          "method": "Configured local Resultary published evidence",
+          "title": "A Bessel threshold and its first lattice correction for geometric weights",
+          "trigger": "Same-day lexical threshold hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sign classification addresses a natural critical order for a Fourier-derived kernel, with exact witnesses distinguishing the threshold and a strict statement that prevents zeros in any direction at the critical order. The all-radii and all-angles conclusion is mathematically meaningful; the proof gives an explicit mechanism rather than a numerical sign survey. This scientific relevance does not give the known threshold originality credit or establish independent novelty of the endpoint refinement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

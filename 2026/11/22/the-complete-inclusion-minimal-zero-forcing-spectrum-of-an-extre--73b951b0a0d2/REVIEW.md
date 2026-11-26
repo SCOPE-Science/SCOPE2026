@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument covers all initial core cardinalities \(0,1,2,3\). When two core vertices are blue, the first force requires an endpoint pair or interior triple in the path, except that the at-most-one-white-path-vertex case already necessarily contains an endpoint pair. When all core vertices are blue, the forcing criterion reduces to an endpoint or adjacent path pair. These are exact necessary and sufficient statements. Removing each initial vertex distinguishes the inclusion-minimal configurations, and counting all disjoint cases gives \(8\), \(4m-15\), and \(2\). Full-subset direct simulations for path lengths \(4\) through \(14\) and larger sample checks agree; these finite checks are corroboration only.
+PASS
 
-## Originality — PASS, provisional historical priority
+A path vertex is blocked by two or more white core vertices. With no blue core vertex the process cannot start; with only one, an edge endpoint succeeds precisely from the full blue path, while the isolate can at best fill the path without unlocking the core. With two blue core vertices and at least two white path vertices, no core vertex can start; a path vertex can force the remaining core vertex iff all its path neighbours are blue. This is exactly an endpoint pair or an interior triple, and the same condition is automatic with at most one white path vertex because the endpoint pairs are disjoint. The resulting all-blue core and an adjacent path pair finish the path. With three blue core vertices the criterion is a blue endpoint or adjacent blue pair: if neither exists, every blue path vertex and every core vertex has at least two white neighbours. The listed minimal path patterns follow, and deleting a core vertex from any such pattern fails the next lower-core criterion. Counting gives 8, 4m−15 and 2, with the last two contributions combined at m=4. An independent fort-based exhaustive check gave the same polynomials for m=4–12; the case proof supplies the unbounded result.
 
-The same graph family and endpoint values appear in McKay–Ray–Valliere, arXiv:2609.35522, Proposition 3.3; those facts are explicitly excluded from the novelty claim. The inspected source does not enumerate all inclusion-minimal seeds. Brimkov–Carlson, arXiv:2204.01810, treats the distinct two-edge-matching/path join and related extremes. Related published results on clique–path joins and path-square forcing have different graphs or parameters and do not imply this census. Published databases and relevant terminology were searched for same-object and equivalent counts; no equivalent full census was identified. Uninspected historical publications remain a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This exact infinite-family census resolves the whole minimal-set spectrum of an extremal example that had been known only through its endpoint sizes. The long, linearly growing gap of omitted cardinalities and exact small-class multiplicities explain why this family maximizes discrepancy without supporting any intermediate minimal configurations; a meaningful enumerative refinement rather than a routine restatement of endpoints.
+The family, extremal gap and both endpoint sizes are known. The distinct claim is the complete labelled classification, multiplicities and absence of other sizes. The inspected same-family proposition does not give that classification and no independent equivalent or broader covering enumeration was found.
 
-## Scientific limits
+## value
 
-Only ordinary zero forcing on the specified family is addressed. Independent audit is outstanding, and priority remains provisional; reproducibility tests are finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is motivated by a known extremal discrepancy, not an arbitrary graph slice. The exact cardinality distribution exposes a linearly growing gap: for m≥6 almost all labelled minimal sets have only four or five vertices, two have m+1, and there are none in between. That stronger fact can be used in comparing minimal-set distributions on extremal families and does not follow from the extreme parameters alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

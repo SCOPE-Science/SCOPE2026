@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:42.685407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof, lines 19–54",
+        "VERIFICATION.md, exact certificate and scope",
+        "checker.py and checker_output.txt, inspected as evidence",
+        "Independent exact replay: python3 /workspace/audit_evidence/phase_replay.py, SymPy 1.14.0"
+      ],
+      "rationale": "Equal squared moduli put the difference of two coefficient outer products in the real Hermitian sampling kernel, with rank at most two. I independently constructed the measurement matrix directly on a standard Hermitian basis over the rationals and found nullity four. Using that independently computed basis, I formed all sixteen minors of size three and tested each of the four projective charts over Q(i) by normalizing one kernel coordinate to one. The Gröbner basis is [1] in every chart. Thus even the complexified pencil has no nonzero rank-at-most-two point; this independently proves the needed certificate without assuming the frozen pencil coordinates or its four reductions. Equal outer products imply equality up to phase, including the zero case. For the ambiguity at radius two, writing R=|ζ|² and T=ζ², the intensity gap of the displayed pair is 2(R−1)(R−2)(R−4)+4√14(R−2) Im T. It vanishes on the three stated orbits: R=2 on the middle one and T is real on the other two. The distinct odd/even supports exclude phase equivalence. Squared Gaussian norms are integers and the only nonzero orbits below squared radius five have representatives 1, 1+i, 2, so the exhibited design attains the restricted minimum.",
+      "residual_risks": [
+        "The exact chart calculation is for the specified nodes. It does not prove generic stability bounds, minimal cardinality, or any unrestricted radius statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalendar–Partington requires full circles and Liehr requires full parallel lines.",
+          "Resultary 0026bf390afd covers arbitrary degree with two regular concentric 2d-gons under a radius/angle criterion; at d=3 those rings are hexagons."
+        ],
+        "reasoning": "Continuous modulus data cannot be inferred from four samples per ring in this degree. The broader-degree two-polygon criterion has a different number of rings and a different angular grid. It cannot be specialized to three distinct square rings.",
+        "searches": [
+          "arXiv:2403.16255 §2.4, continuous circular modulus uniqueness",
+          "arXiv:2308.05722 Theorem 1.1, parallel lines and progression obstruction",
+          "Resultary 0026bf390afd, complete two-polygon criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and originals 0026bf390afd, 084df1c756b5, 07160f8e3fce",
+        "Bodmann–Hammen arXiv:1302.5487",
+        "Vinzant arXiv:1502.04656",
+        "Chalendar–Partington arXiv:2403.16255",
+        "Liehr arXiv:2308.05722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intersecting-circle construction imposes different node counts and circle geometry.",
+          "The three-square comparison changes one radius and orientation and proves a nullspace assertion for that specific site set.",
+          "The frozen radius optimum requires both injectivity at specified lattice sites and failure on the sole smaller orbit-set."
+        ],
+        "reasoning": "None of these hypotheses transfers to the given sites or yields the explicit smaller-radius ambiguity. In particular keeping the first two radii fixed precludes using common rescaling to identify the third, and the known arbitrary-frame minimum addresses a different constraint. The rank criterion is standard; the result is its exact use for this design and boundary.",
+        "searches": [
+          "arXiv:1302.5487 Theorem 2.3",
+          "Resultary 0026bf390afd Finding; 084df1c756b5 Finding",
+          "arXiv:2403.16255 Theorem 2.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bodmann–Hammen Theorem 2.3 supplies 12 cubic samples on two circles meeting at a suitable angle.",
+          "Vinzant exhibits an injective eleven-vector frame in C^4.",
+          "Resultary 084df1c756b5 gives three square orbits with representatives 1, 1+i, √3, not the tested lattice nodes."
+        ],
+        "reasoning": "All are related injectivity statements, but neither arbitrary frame coordinates, the two intersecting circles, nor changing the third square to radius √3 gives equality with these monomial evaluation functionals. The √3 square is not a Gaussian-integer orbit.",
+        "searches": [
+          "Resultary: cubic polynomial phase retrieval, Gaussian integer fourfold orbits, three concentric squares",
+          "arXiv:1302.5487 §2.3 and arXiv:1502.04656, cubic polynomial samples versus complex frame measurements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed three-square design explicitly lists nodes with third representative √3; the two-polygon entry lists a parametrized family of two regular rings, not three Gaussian squares.",
+          "Resultary 07160f8e3fce uses open line segments rather than exact finite lattice sites."
+        ],
+        "reasoning": "The literature and catalogue checked contain related exact configurations, but none identified this exact lattice triple or the radius-two ambiguity; same sample count is not an exact table match.",
+        "searches": [
+          "Resultary: twelve phaseless cubic samples, Gaussian integers, minimum radius, fourfold symmetric sites; 084df1c756b5 and 0026bf390afd"
+        ]
+      },
+      "rationale": "Prior work already gives 12 cubic measurements in other geometries and fewer in unrestricted complex frames. The distinct contribution supported here is the explicit Gaussian-integer three-square design and its restricted radius optimum, including a concrete ambiguity for the only competing smaller design.",
+      "residual_risks": [
+        "The checked searches and passages do not exclude an unindexed equivalent explicit integer-node frame or a general sparse sampling criterion under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same sample count at d=4, but different geometric hypotheses.",
+          "evidence": [
+            "Uses 2d−1 and 2d−3 samples on two suitably intersecting circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.5487",
+          "material_read": "§2.3, Theorem 2.3, p. 3, around offset 9531",
+          "method": "Original open PDF passages",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "Same cubic sample count and polynomial intensities"
+        },
+        {
+          "assessment": "Fewer unrestricted frame measurements; not a lattice radius result.",
+          "evidence": [
+            "Exhibits eleven injective complex-vector measurements in dimension four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.04656",
+          "material_read": "Abstract and introductory statement, p. 1, offsets 763 and 2233",
+          "method": "Original open PDF passages",
+          "title": "A small frame and a certificate of its injectivity",
+          "trigger": "Possible dominating minimum-cardinality result"
+        },
+        {
+          "assessment": "Continuous circle data, not sparse square samples.",
+          "evidence": [
+            "The hypotheses require modulus equality on the union of complete circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.16255",
+          "material_read": "§2.4, Theorem 2.16, pp. 11–12, offset 21101 onward",
+          "method": "Original open PDF passages",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Circular analytic phase retrieval"
+        },
+        {
+          "assessment": "Criterion for full parallel lines, not finite Gaussian orbits.",
+          "evidence": [
+            "Uniqueness for the specified entire-function spaces is characterized by the offsets not lying in an arithmetic progression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.05722",
+          "material_read": "Theorem 1.1, p. 2, around offset 5443",
+          "method": "Original open PDF passages",
+          "title": "Arithmetic progressions and holomorphic phase retrieval",
+          "trigger": "Arithmetic uniqueness criterion for node sets"
+        },
+        {
+          "assessment": "Two hexagons in degree three, not the three squares or radius boundary.",
+          "evidence": [
+            "The iff condition is distinct radii and nonzero sine of d times the angular offset."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 0026bf390afd",
+          "material_read": "Original Finding, offsets 0–2100",
+          "method": "Local repository mirror",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials of every degree",
+          "trigger": "Universal cubic retrieval with the same 12-sample count"
+        },
+        {
+          "assessment": "Different third square, outside the Gaussian-integer constraint.",
+          "evidence": [
+            "The three representatives are 1, 1+i and √3, with an explicit rank condition for those sites."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 084df1c756b5",
+          "material_read": "Original Finding and scope, offsets 0–1803",
+          "method": "Local repository mirror",
+          "title": "Twelve symmetric phaseless samples determine every complex cubic polynomial",
+          "trigger": "Closest indexed three-square phase-retrieval claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Independent projective-chart replay",
+        "Resultary 0026bf390afd and 084df1c756b5"
+      ],
+      "rationale": "Gaussian coordinates and complete rotational orbits give a natural exact, highly symmetric polynomial-sampling constraint. The first three available orbit radii fail, so just counting twelve measurements cannot settle the design question. A universal success at the next radius, paired with an explicit alias at the only smaller candidate, is a meaningful sharp design boundary. Neither a generic frame dimension count nor the prior 12-sample constructions give that information.",
+      "residual_risks": [
+        "No optimal noise constant or practical performance guarantee follows from the radius result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

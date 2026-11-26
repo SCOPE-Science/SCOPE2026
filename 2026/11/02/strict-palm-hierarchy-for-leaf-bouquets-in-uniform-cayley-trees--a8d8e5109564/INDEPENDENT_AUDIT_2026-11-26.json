@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:11:13.652461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a specified center and k selected pendant labels, deletion is a bijection onto all labeled trees on the m=n-k residual labels, with one tree if m=1. Thus every marked event has positive and equal probability and E S_(k,n)=n binom(n-1,k) tau(m)/n^(n-2). Reattaching makes the center a nonleaf; the other residual leaves are precisely noncenter labels absent from the uniform length-(m-2) Prüfer word. Joint absence of j designated labels has probability ((m-j)/m)^(m-2), so expansion in z-1 gives the displayed Palm PGF. At m=2 the empty word contributes one noncenter leaf; at m=1 there are only the k marked leaves. Summing over marked events identifies the Palm mean minus n p_n with normalized covariance. The initial gap is Var(L_n)/E L_n>0 by the star and path for n>=4. For m>=3, p_m<p_(m-1)<=1: the derivative of (x-2) log(1-1/x) is less than -1/(x(x-1)) for x>2, and the function extends continuously to x=2. Hence H(m)-H(m-1)=p_(m-1)+(m-1)(p_m-p_(m-1))<1, whereas H(2)-H(1)=1. This gives exactly the single terminal equality, and explains why it corresponds to stars. Finally p_m=e^(-1)(1+3/(2m)+O(m^-2)); for fixed k the two factors in covariance are n exp(-k)/k!+O_k(1) and k-(k+1)/e+O_k(1/n). Replay: frozen RESULT.md lines 43–95. The verification script was inspected but not executed; no finite check is used for the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernardi–Morales give a multitype child-degree enumerator. Janson gives fixed fringe-tree proportions, and Berzunza Ojeda–Holmgren–Janson give asymptotic distributions of fringe counts."
+        ],
+        "reasoning": "The general enumeration may supply the marked-tree counts, and fixed-fringe limits may yield related asymptotic constants. None of these inspected statements compares all k for a fixed finite n, including the star-only boundary of the Palm conditioning.",
+        "searches": [
+          "arXiv:1206.0598, Theorem 2",
+          "arXiv:1112.0510, Theorem 7.12",
+          "arXiv:2312.04243, fringe-count limits"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 138d3fe5058a, 6c93f3f984c0 and 1b72c9e47cf4",
+        "arXiv:1206.0598",
+        "arXiv:1112.0510",
+        "arXiv:2312.04243",
+        "DOI:10.1007/s00013-020-01476-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-spectrum proof gives a uniform residual tree; together with the vacancy argument used for siblings this accounts for the general Palm PGF. The degree-spectrum finding compares eventual covariance signs across degrees r at fixed k, not normalized covariance as k changes at fixed n."
+        ],
+        "reasoning": "The qualitative hierarchy is not a specialization in r or a change of notation for an earlier ordering. Starting with the shared formula at m>=2, it requires an additional uniform strict unit-increment bound on H(m), the nondegenerate k=1 anchor, and analysis of the previously excluded m=1 endpoint to determine exactly when equality is possible.",
+        "searches": [
+          "138d3fe5058a, Finding and Proof §§1–2",
+          "6c93f3f984c0, Exact Palm law",
+          "Frozen RESULT.md lines 67–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 138d3fe5058a pendant fan is exactly the unrestricted marked bouquet; 6c93f3f984c0 is its k=2 case, including the same size-biased law. The cherry in Junk–Schmidt–Weber has an extra degree-three condition."
+        ],
+        "reasoning": "The latter cherry statistic and exact-degree pendant stars are not aliases. Conditioning on a specified bouquet and weighting by the global count give the same leaf law by exchangeability, so the earlier sibling Palm result is an exact match for k=2.",
+        "searches": [
+          "Resultary: unrestricted pendant leaf-fan, marked leaf-neighbor bouquet, leaf-sibling Palm law",
+          "DOI:10.1007/s00013-020-01476-x, cherry definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Setting r=1 in Eqs. (2)–(3) of the same-day 138d3fe5058a gives the exact normalized covariance and asymptotic coefficient for k>=2 and m>=2. Record 6c93f3f984c0 already gives the exact two-leaf Palm PGF and leading covariance constant."
+        ],
+        "reasoning": "This is demonstrable formula coverage, not just a title match. Neither inspected finding states strict consecutive ordering, and the degree-spectrum identity does not include the k=n-1 endpoint.",
+        "searches": [
+          "Resultary: Palm hierarchy leaf bouquets and degree spectrum of uniform labeled Cayley trees",
+          "Resultary 138d3fe5058a, Eqs. (1)–(3); 6c93f3f984c0, Finding"
+        ]
+      },
+      "rationale": "Credit is confined to the sharp comparison across bouquet sizes, including its unique forced boundary tie. There is direct same-day catalogue coverage of the exact covariance and leading coefficient in the common range, and prior coverage of the k=2 Palm law. The general vacancy formula follows from the known uniform residual tree. Neither the overlapping covariance formulas nor the Palm pruning mechanism alone are original here. No priority order is inferred from the same-day catalogue entries.",
+      "residual_risks": [
+        "Other exact occupancy inequalities or fan results could state the same finite profile comparison under different terminology.",
+        "One tree-paper identifier, arXiv:2201.07360, listed by the related degree-spectrum record resolves to an unrelated article; the intended citation was not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct covariance and leading coefficient coverage; distinct cross-k hierarchy not stated",
+          "evidence": "r=1 makes p_m(r-k)=0 and leaves k+(m-1)p_m(1)-np_n(1). The asymptotic sign comparison varies r, not k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-pendant-leaf-fans-and-the-degree-spectrum-of-uniform-labeled-tre--138d3fe5058a/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(4), Assumptions, Proof §§1–2 opening; characters 0–3480",
+          "method": "Local Resultary mirror",
+          "title": "Pendant leaf-fans and the degree spectrum of uniform labeled trees",
+          "trigger": "Same marked unrestricted bouquets with degree-count covariance"
+        },
+        {
+          "assessment": "Exact k=2 law and asymptotic; comparison with unweighted trees rather than across k",
+          "evidence": "The designated n-3 boxes among n-2 after n-4 allocations give the same PGF after setting k=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-leaf-sibling-palm-dominance-in-uniform-labeled-trees--6c93f3f984c0/RESULT.md",
+          "material_read": "Finding and Assumptions, characters 0–2336; Proof §§1–2",
+          "method": "Local Resultary mirror",
+          "title": "Leaf-sibling Palm dominance in uniform labeled trees",
+          "trigger": "Exact size-biased law for unrestricted common-center pairs"
+        },
+        {
+          "assessment": "Possible alternative enumeration; not a stated covariance comparison",
+          "evidence": "Generates rooted multitype counts by the numbers of children of specific types.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.0598",
+          "material_read": "Theorem 2, pp. 3–4 (text near character 8500)",
+          "method": "Direct OA passage reading",
+          "title": "Counting trees using symmetries",
+          "trigger": "Broad multitype enumeration of labeled tree degrees"
+        },
+        {
+          "assessment": "Asymptotic fringe count law, not a finite normalized covariance hierarchy",
+          "evidence": "It gives the limiting proportion of vertices with a specified fixed fringe subtree.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.0510",
+          "material_read": "Theorem 7.12, Eq. (7.14), p. 23 (text near character 66500)",
+          "method": "Direct OA passage reading",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Potential coverage through local laws for conditioned random trees"
+        },
+        {
+          "assessment": "Different statistic and asymptotic question",
+          "evidence": "The cherry center has degree three, which is not required for a bouquet.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-020-01476-x",
+          "material_read": "Definition 3.1 and Remark 3.2 (p. 4, text near character 10400), Lemmas 3.5–3.6 and Theorem 3.3",
+          "method": "Direct OA passage reading",
+          "title": "Almost all trees have quantum symmetry",
+          "trigger": "Cherry enumeration on random trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite comparison answers how the conditional leaf-count enhancement changes with the degree of bouquet marking, rather than just whether pairs give enhancement. It distinguishes strict gain for every smaller increment from saturation at the star boundary; the covariance coefficients and vacancy counts alone are not the value justification. This is a modest structural result for a natural Palm ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

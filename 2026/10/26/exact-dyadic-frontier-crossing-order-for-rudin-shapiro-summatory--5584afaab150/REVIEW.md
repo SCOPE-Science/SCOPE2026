@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's integer domain, normalization, ordered edge indices and inverse-point indices were independently reconstructed from the signed binary-adjacency definition. Parity establishes that each pair of successive time indices is a vertical edge. Four-adic recurrences identify exactly \(2^k\) edges on the dyadic line, and the sign of the leading base-four digit fixes orientation. An induction using the companion sum recurrence gives an exhaustive permutation of the lower heights, permitting exact inversion. The attached verifier reconstructs the sums directly and checks all levels through \(k=7\). Finite tests do not replace the written proof.
+## correctness
 
-## Originality — PASS with residual risk
-The directly relevant 2023 full text contains the requisite recurrences and global geometric/counting theorems, but not the stated chronological dyadic height permutation and bit-dilation inverse. The earlier 1981 full paper addresses fractal dimension and global coverage. The 2013 plane-path documentation already provides **general coordinate inversion** and mentions the earlier-known boundary/interior visit multiplicity; neither is claimed new. The new narrowly specified structural result is an explicit closed form and chronological ordering at a canonical self-similar scale, rather than a new assertion that such inversion is possible. Search comparisons with named related sequence tables and current mathematical finding records uncovered no equivalent formula. The 1978 Brillhart–Morton primary text and a 1996 discussion were not fully inspected and may contain an equivalent expression; priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The dyadic frontiers are canonical self-similar cross-sections for the paperfolding walk. Their full ordered crossing permutation is a structural phenomenon (all even lower heights descending, followed by odd heights ascending), not merely a few numerical terms. The exact inverse evaluates the one or two visit times of an arbitrary lattice point on such a line by direct binary-digit arithmetic in logarithmic input length, avoiding traversal of the earlier quadratic-length path. These statements refine how a known plane-filling path fills its frontiers, while leaving arbitrary non-dyadic lines open.
+The binary sign rule gives a(2m)=a(m), a(2m+1)=(−1)^m a(m), so Q_(2m)=(S(m),T(m−1)) and Q_(2m+1)=(S(m),T(m)); the intervening odd-to-even steps are horizontal. The four-adic S recurrences make the 0 and 2 branches odd and halve the target after removing a trailing 1 or 3; since only m=0 gives S(m)=1, the entire S=2^k index set consists of exactly k digits in {1,3}, in the order B_k(p). In the two-bit blocks 01 and 11 the nonleading 3 digits contribute two adjacent-11 counts each, so the leading digit alone fixes orientation. The T recurrences T(4r+1)=2T(r−1), T(4r+3)=2T(r) give child lower heights (2h+2,2h) for downward edges and (2h−1,2h+1) for upward edges. Starting from heights 0 and 1, this yields precisely the descending-even and ascending-odd lists. The disjoint time pairs exhaust all visits, so the endpoints of the one or two incident height intervals give the claimed indices and multiplicities, with no visits outside 0≤v≤2^k. Inverting the two height formulas and interleaving binary digits takes O(k) digit operations. The supplied verifier was read, not executed; a separate bounded direct sign-and-walk replay passed for k=1–5. No finite horizon is used in the proof of completeness.
 
-## Limitations and nearest sources
-See RESULT.md and AUDIT.json for exact theorem scope, direct comparisons with Rampersad–Shallit (2023), Mendès France–Tenenbaum (1981), Ryde (2013), OEIS A093573 and incompletely accessible Brillhart–Morton papers. Same-model source comparison is not proof of publication priority. This review is not an external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the closed chronological pairing of the selected times with vertical edge heights on every dyadic line, and the explicit bit-dilation inverse obtained from it. The range, multiplicities, general coordinate inversion and recurrences are known; the horizontal-coordinate hit indices are also represented in OEIS. The joint height/time law is a short specialized derivation from the known recurrences but was not found as a prior exact theorem, nor as a direct substitution into an inspected global inverse or range formula. Neither priority nor a complexity improvement over general inversion is asserted.
+
+## value
+
+PASS
+
+Powers-of-two lines are natural boundaries of the four-adic recursion. The law gives their entire chronological edge permutation, including orientation, and an exact, no-scan map from height to the one or two visit times. It allows direct analysis of traversal order at arbitrarily large scales rather than recomputing positions or using the known multiplicity alone. The oriented height recursion, not a fresh table of S-hits or a new global coverage theorem, supplies that added usefulness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

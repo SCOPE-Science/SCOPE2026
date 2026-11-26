@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:58.237266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A two-sided stationary OU velocity and independent Poisson clock give the stationary position by integration from the last reset. The exponential age and finite OU second moments justify the integrations; the positive damping and occurrence of resets remove dependence on initial data. For an independent derivation put z=-gamma+i*omega and K(u)=Theta Re exp(z*u) at u>=0. The age integral gives S=C(0)=(2/r) integral_0^infty exp(-ru)K(u)du. The mixed correlation with future velocity at v>=0 is integral_0^infty exp(-ra)K(v+a)da=Theta Re[exp(z*v)/(r-z)]. The part of X_1(0) retained in X_1(t) gives exp(-rt)S; each future velocity increment at v is retained exactly when there is no reset on (v,t], an event independent of the clock before zero and of the entire velocity process. Integrating the mixed correlation with this survival factor gives the stated resolvent. The coefficient of exp(-rt) has numerator Theta[(r-gamma)(r-2gamma)(r+gamma)+(r+2gamma)omega^2] over the stated positive denominator. For r<gamma it is strictly positive and dominates; analyticity precludes compact-interval accumulation of zeros. For r>gamma the nonzero e^{-gamma*t} harmonic dominates and alternates strictly at arbitrarily large times. At r=gamma the covariance is a positive damping factor times 3+cos(omega*t)+(2gamma/omega)sin(omega*t), whose minimum is 3-sqrt(1+4gamma^2/omega^2). At equality the minima are isolated tangencies, not sign reversals. This checks both directions of the claimed classification and the thermal-intensity independence. The supplied check.py and verification notes were inspected, not run. The separate /workspace/branches/review-replay.py checked the survival-integral and resolvent representations by bounded quadrature; the sign theorem does not depend on numerical tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sign boundaries treat trapped run-and-tumble or run–pause processes. The same-day magnetization theorem has a Pareto-square renewal clock and a four-crossing claim. Shee derives moment/kurtosis regimes for a trapped active Brownian particle with orientation and position resetting. The inertial active-OU paper has a relevant abstract on MSD and position distributions but no independently readable full text."
+        ],
+        "reasoning": "These are plausible methodological analogues, not verified general coverage. Mechanical damping in a trapped linear oscillator or active direction memory with orientation jumps produces different drift eigenmodes and stationary mode weights; neither prescribes the offset-to-amplitude ratio for the reset-only thermal case.",
+        "searches": [
+          "Resultary:2206b2b3598e, f5af1393ce35, 2b4c50ec4d53, e3c6160c9468",
+          "arXiv:2409.06920v2, Abstract",
+          "doi:10.1088/1361-648X/ae8c0a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.07227",
+        "arXiv:2010.02103",
+        "arXiv:2401.12685",
+        "arXiv:2409.06920v2",
+        "doi:10.1088/1361-648X/ae8c0a (abstract)",
+        "Resultary:7dc5802bc275 (same record)",
+        "Resultary:2206b2b3598e",
+        "Resultary:f5af1393ce35",
+        "Resultary:2b4c50ec4d53",
+        "Resultary:e3c6160c9468"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In one-dimensional position-only resetting the magnetic sine term is absent. The closest covariance-sign records concern different hidden dynamics and do not fix this stationary mixed correlation. The reviewed thermal-process theorem uses the retained age covariance plus a survival term, whose weights give a minimum 3-sqrt(1+4 gamma^2/omega^2) at equal rates."
+        ],
+        "reasoning": "A generic oscillation-dominance argument for unequal decay rates is standard. It cannot classify the equal-rate case without the exact relative constant and oscillating amplitudes. The specific mixed covariance and its reset contribution supply the non-generic threshold; no inspected stronger result supplies them for this model.",
+        "searches": [
+          "arXiv:1812.07227, pp. 1, 2, 5",
+          "arXiv:2010.02103, p. 1",
+          "Resultary:2206b2b3598e and 2b4c50ec4d53, Findings",
+          "frozen RESULT.md, Proof lines 27–95"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gupta resets only position but treats one-dimensional underdamped Brownian motion; Abdoli–Sharma involve Lorentz-influenced active particles reset to a line; Olsen–Löwen reset velocity with position retained. The indexed exact match is the record itself."
+        ],
+        "reasoning": "Neither a change of position/velocity notation nor normalizing thermal intensity maps these models to the two-component rotating OU velocity with full spatial resetting. A normalized autocorrelation of this model would be exactly equivalent for signs, since S>0, but this equivalence does not erase the substantive difference in reset channel or dynamics of the competing sources.",
+        "searches": [
+          "Resultary: position-only resetting, magnetic memory and oscillatory covariance",
+          "\"position resetting\" underdamped Brownian particle magnetic field stationary position autocorrelation sign change cyclotron Poisson velocity unchanged inertial Langevin covariance",
+          "arXiv:1812.07227",
+          "arXiv:2010.02103",
+          "arXiv:2401.12685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 7dc5802bc275 is the bound record. Analogous exact covariance thresholds in the other records apply to different generators. The published reset literature inspected gives distribution or transport observables in adjacent models."
+        ],
+        "reasoning": "The appropriate exact lookup is a covariance formula for the same joint dynamics and stationary observable, not a finite numerical table. A verified formula for the same model would be strong coverage, because the sign criterion follows from its decay rates and coefficients; none was established in the consulted statements.",
+        "searches": [
+          "Resultary: stationary oscillatory position covariance, magnetic OU reset boundary",
+          "7dc5802bc275",
+          "2206b2b3598e",
+          "2b4c50ec4d53"
+        ]
+      },
+      "rationale": "Position-only inertial resetting, magnetic or active reset models, and several stationary covariance sign boundaries have prior coverage. Credit none of those ingredients, nor generic linear resolvent methods, as new. The supported distinct result is the exact stationary Cartesian lag-sign transition for a freely moving planar thermal magnetic OU velocity retained at complete spatial resets, including the offset-amplitude threshold and tangential boundary on the resonant line. The comparison is limited to the statements and models actually inspected.",
+      "residual_risks": [
+        "The primary comparison is passage-limited and the inertial active OU article was not read beyond its abstract.",
+        "A general theorem for retained linear internal variables under partial Poisson resetting or an earlier equivalent magnetic autocorrelation formula could subsume the result; the bounded comparison does not exclude that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same reset convention in one dimension; different process and inspected observables",
+          "evidence": [
+            "Position resets while velocity is unaffected; the inspected text focuses on position distributions, propagators and relaxation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07227",
+          "material_read": "PDF p. 1 abstract, p. 2 contents (offset about 1950), p. 5 model (offset about 11000)",
+          "method": "open primary PDF",
+          "title": "Stochastic resetting in underdamped Brownian motion",
+          "trigger": "closest archival position-only thermal inertial reset model"
+        },
+        {
+          "assessment": "active model with reset to a line",
+          "evidence": [
+            "The reset is to x=0 with periodicity in y; density, polarization, flux and first passage are studied."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.02103",
+          "material_read": "PDF p. 1, offset about 1200",
+          "method": "open primary PDF",
+          "title": "Stochastic resetting of active Brownian particles with Lorentz force",
+          "trigger": "Lorentz force plus spatial reset"
+        },
+        {
+          "assessment": "opposite reset channel",
+          "evidence": [
+            "Velocity resets while position is retained."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "PDF pp. 1–2, offset about 5400",
+          "method": "open primary PDF",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "adjacent inertial partial reset model"
+        },
+        {
+          "assessment": "different resetting, active dynamics and primary observable in inspected material",
+          "evidence": [
+            "Position and orientation resets in a trap; renewal moments and steady-state phase diagrams of excess kurtosis, not the magnetic stationary lag-sign classification as stated in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.06920v2",
+          "material_read": "Abstract and opening introduction, offset 30, through 3103",
+          "method": "open HTML primary text",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "targeted primary search for position reset with internal particle memory"
+        },
+        {
+          "assessment": "unresolved broader coverage; no whole-paper conclusion",
+          "evidence": [
+            "Abstract describes inertial active OU particles and computes MSD and position distributions in underdamped and overdamped regimes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1361-648X/ae8c0a",
+          "material_read": "publisher abstract only; open-copy retrieval did not yield a full-text passage",
+          "method": "primary search and lawful DOI/open-copy attempt",
+          "title": "Active Ornstein–Uhlenbeck particle under stochastic resetting",
+          "trigger": "plausible adjacent inertial OU resetting treatment"
+        },
+        {
+          "assessment": "theorem-level analogy in a different process",
+          "evidence": [
+            "An athermal inertial run-and-tumble particle in a harmonic trap has a negative covariance when underdamping and a condition on tumble correlation decay both hold."
+          ],
+          "identifier_or_url": "Resultary:2206b2b3598e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "A sharp autocorrelation sign boundary for an inertial run-and-tumble particle",
+          "trigger": "strongest distinct indexed stationary position-covariance sign theorem"
+        },
+        {
+          "assessment": "different hidden dynamics and trap",
+          "evidence": [
+            "Overdamped trapped run–pause particle with retained direction and reversal-biased runs."
+          ],
+          "identifier_or_url": "Resultary:f5af1393ce35",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "A sharp oscillatory memory boundary for a run–pause particle",
+          "trigger": "infinitely many alternating covariance signs"
+        },
+        {
+          "assessment": "tangency analogue in a different trapped process",
+          "evidence": [
+            "Trapped run–pause–reverse model has multiple branches and tangential zeros on a boundary."
+          ],
+          "identifier_or_url": "Resultary:2b4c50ec4d53",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "A tuned cancellation window for oscillatory position memory",
+          "trigger": "same boundary-tangency concept"
+        },
+        {
+          "assessment": "different covariance, clock and crossing claim",
+          "evidence": [
+            "At least four crossings of thermodynamic magnetization covariance under a Pareto-square renewal clock."
+          ],
+          "identifier_or_url": "Resultary:e3c6160c9468",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "local mirror",
+          "title": "Four alternating signs of temporal magnetization covariance",
+          "trigger": "distinct same-day sign-crossing and reset result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The survival of velocity memory under complete position erasure makes the stationary position autocovariance a natural observable. The calculation identifies not merely a crossover of two decay scales but exactly when arbitrarily late negative covariance remains possible, including a separate nonnegative tangency boundary. This distinguishes true reversals from zeros and shows why faster spatial resets do not remove the slowly decaying cyclotron contribution. The result does not count transient negative bands for r<gamma or assert measurable amplitudes at late times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

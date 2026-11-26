@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof distinguishes geometric fixed points from fixed vertices; it shows the exact folded orbit graph, derives the orientation-correct reduced Lefschetz formula, and verifies a uniform transfer recurrence via explicit integer matrix identities. The use of the published one-degree homology theorem and the invariant-quotient comparison is explicit. Computation checks the genuine graph and signed chain formula for small cases, but the unbounded statement follows from the proved transfer identity.
+## correctness
 
-## Originality
-PASS, subject to residual indexing risk. Wang's August 2026 source explicitly states the ordinary classification and cyclic character. Full relevant sections of Wang--Li's October 2026 73-page preprint, especially §§6.3, 8 and 10.3, give cyclic fixed spaces and cyclic character, not a reflection character for the two-three jump family. The present result determines every reflection class and the axis-dependent rational quotient ranks. The broad orbit-coordinate principle in Wang--Li is an input method, not an existing evaluation of the folded transfer polynomial. The published reflection computations for cycle-power cut complexes and other circulants concern different simplicial complexes.
+PASS
 
-## Mathematical value
-PASS. The dihedral reflection traces are not determined by the cyclic character and give different rational quotient homology for the two axis types at lengths divisible by four but not eight. The proof turns reflection-fixed geometry into an exact signed finite-state identity, providing a reusable method rather than merely another numerical sphere count.
+Reassessed the complete corrected RESULT.md in /workspace/repairs/4; the finding and quantifiers are unchanged. The frozen proof's four initial values P_3 through P_6 do not seed a stride-four recurrence valid only for L>=5. The replacement explicitly supplies P_5 through P_8=(-1,-1,+1,+1), with P_3,P_4 handled separately. For the fold, conjugate to k=-delta with delta=0 or 1; cross-pair edges depend on the end sums i+j+delta and n-i-j-delta. The explicit lists at each end delete exactly 1 and L-2, allowing them to coincide, and leave precisely ordinary jumps 2,3, including n=6. Invariant barycentric masses identify the geometric fixed space; an invariant face on a orbits containing t pairs has dimension a+t-1 and orientation sign (-1)^t, giving reduced Lefschetz number -P_L. Verified the row identities by independent integer stepping and the bases by direct subset counts. Wang–Li Corollary 6.3 verifies one homology degree with the quoted multiplicities, so Hopf trace gives (-1)^(d_n+1)P_L. Barycentric subdivision removes simplex inversions and the rational quotient cellular complex is the coinvariant complex, so the invariant rank is (b_n+trace)/2. Substitution gives vertex (-1)^q and edge (-1)^(q+1) at n=8q+4. Replay: `python /workspace/independent_checks.py 4` (rows, bases, and bounded orbit comparisons through n=120); the all-order conclusion follows from the corrected argument.
 
-## Residual limits
-No integral dihedral action, equivariant homotopy type, or comprehensive priority guarantee is claimed. The newer closely related manuscript was checked by full relevant sections; the earlier 13-page deposition was checked through public summary and dated version metadata. Independent inspection remains useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unchanged finding in the repaired proof adds all-reflection character values and two ordered quotient ranks for a precise circulant family. The inspected same-family sources determine ordinary homotopy and cyclic translation data; the closest distinct same-date indexed statement computes a dihedral law on a different graph. No ordering is inferred from sharing a date.
+
+## value
+
+PASS
+
+The repaired proof gives a concrete missing part of the dihedral representation for a natural infinite family with known homotopy and cyclic action. For n=4 mod 8 the two reflection quotients have distinct top rational ranks despite the identical underlying complex, an invariant not visible to the ordinary or cyclic results. The explicit finite-state calculation explains the pattern rather than extrapolating a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

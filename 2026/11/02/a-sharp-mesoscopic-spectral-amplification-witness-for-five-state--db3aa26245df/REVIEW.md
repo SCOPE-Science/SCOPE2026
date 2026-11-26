@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim is quantified over all nonzero real amplitudes and all positive mesoscopic frequency scales with \(\varepsilon/\omega_\varepsilon\to0\) and \(\omega_\varepsilon\to0\). For each \(\varepsilon>0\), the directed five-cycle is irreducible. Direct stationary-flux balance gives the occupation law. The zero-frequency result follows from renewal-reward covariance with independent exponential tours and the exact mean occupation. The nonzero-frequency limit is obtained from all five resolvent equations and the vanishing two-slow-site feedback. The completed-square polynomial identity proves global sharpness over the specified observable class. The witness \((-3,2,2)\) then gives a valid lower bound for the unrestricted five-state efficiency supremum; no unproved global equality is inferred. Exact independent rational computations reproduce the closed forms and check the relevant finite instances. The spectral limit is justified analytically, rather than inferred from numerical sampling.
+PASS
 
-## Originality (O): PASS, with residual risk
+The constant stationary flux is J=epsilon/(2+3epsilon), and the centered observable has mean subtraction m=J(x+y+z). For u solving (i omega−Q)u=f (using the centered Poisson equation at zero), stationarity and the two-sided Fourier convention give G=2 Re⟨u,f⟩_pi=J sum_j |u_j−u_{j+1}|², cyclically. At zero, u_j−u_{j+1}=f_j/r_j where r_j is the exit rate; thus G(0)/epsilon tends to (x²+y²+z²)/2+(x+y+z)²/4. At positive frequencies in the stated window, the two slow-step resolvent prefactors and slow centered forcing tend to zero, the three fast-step prefactors tend to one, and one tour has feedback tending to zero. The unique solution stays bounded and tends to (0,x,0,y+z,z); summing its squared jumps gives the asserted A after the flux factor. This works along every scale with epsilon/omega→0 and omega→0. B is strictly positive for nonzero triples and 12B−5A=[(4x+3y+3z)²+7(y−z)²]/4, giving exactly the line through (−3,2,2) as equality. For this observable, omega=√epsilon yields the limiting witness 7/12 via Gmax≥G(√epsilon). The proof gives a global lower bound only, not frequency-global sharpness for all amplitudes, finite-rate attainment, or an equality for eta_5*. The frozen rational-check script was inspected, not executed.
 
-The primary October 2026 source establishes the global upper bound \(\eta_N^*\le\cos^2(\pi/N)\), proves sharpness at \(N=3,4\), and leaves \(N\ge5\) open. It does not give the present explicit five-state lower-bound witness. The closest subsequent comparison concerns eigenvalue-sector spectral bounds, not a sharp observable-dependent power-spectrum ratio. A gene-feedback spectrum computation involves a different model. The claim is limited to the new \(12/5\) restricted-class amplification and the derived rigorous \(7/12\) five-state global lower bound, not the general spectrum definition, the existing upper bound or earlier three/four-state examples. Search and full-text comparison cannot establish exhaustive publication priority; a generic yet unlocated nonnormal-resolvent optimization remains the main residual risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The primary paper explicitly leaves five-state sharpness open, and its four-state construction supplies only a \(1/2\) lower benchmark by extension. The analytic \(7/12\) lower bound improves that benchmark strictly, and identifies the least three-amplitude optimization mechanism within a physically interpretable two-bottleneck Markov oscillator. The exact sum-of-squares bound is structurally informative rather than an arbitrary numerical example. The global five-state gap is not closed.
+The closest accessible result uses the identical efficiency definition and gives a five-state upper bound, but no lower witness of this strength; its established small-N equalities do not do so either. The indexed related results concern different observables or smaller cycles. The supported distinction is the sharp mesoscopic/DC ratio in the stated family and the resulting constructive lower bound, not the general spectral or regenerative method.
 
-## Source coverage and limitations
+## value
 
-Jia (2026), arXiv:2610.23310, primary full-text comparison; Xu and Meng (2026), arXiv:2608.22934, spectral-bound comparison; Gupta and Khammash (2022), DOI 10.1038/s41467-022-31263-x, general spectrum methodology; Jia, Qian and Zhang, arXiv:1909.09769, distinct hybrid gene-expression spectrum. The 2022 article was not available throughout in the inspected access route. Unknown general resolvent theorems remain possible. No finite entropy-production bound, unique finite-frequency peak, or global optimal efficiency is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The construction surpasses the sharp four-state benchmark 1/2 by 1/12 in a concrete five-state limit, narrowing a genuine gap in the known efficiency bounds. The amplitude extremizer makes this a sharp benchmark for one motivated family, not a numerical instance or an arbitrary choice of weighted observable. It sheds light on the contribution of fast excursions at frequencies above the slow transitions and makes no finite-dissipation or unrestricted optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

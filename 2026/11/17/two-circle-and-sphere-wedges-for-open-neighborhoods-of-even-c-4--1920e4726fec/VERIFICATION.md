@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification of the even \(C_4\square C_n\) open-neighborhood theorem
 
-Execute `python3 verify_even_tori.py` under Python 3; no third-party packages or external files are needed. Compare its stdout byte-for-byte with `EXPECTED.txt`.
+The proof in `RESULT.md` checks the unique maximal coface of each removed flank edge, the two elementary collapse pairs in each tetrahedron, and the resulting union of two-column tetrahedral boundaries. The barycentric formula for the strong deformation retraction agrees on all overlapping tetrahedra, fixes the retained union and commutes with all coordinate rotations and reflections. For the ordinary orbit space the proof identifies its points exactly with the quotient of one tetrahedral boundary by the permutations preserving its two column pairs, and gives explicit coordinates on that quotient as a closed disk. These exact arguments prove the all-parameter result.
 
-For every even \(n\in\{6,8,10,12,14,16,18,20\}\), the checker constructs all faces from the original four-vertex graph neighborhoods, constructs the two-stage discrete-Morse matching, validates every matched cover and every unique face usage, checks the residual critical-cell counts \((2,2,2n)\), and topologically sorts the directed Hasse diagram to certify acyclicity. It independently checks that the signed integer column-winding function is a cocycle on every triangle and evaluates to \(n\) on each of the two preserved row-zero cycles. For \(n\in\{6,8,10,12\}\) it additionally calculates complete reduced mod-two homology by chain rank, obtaining dimensions \((1,2,2n,0)\) in degrees zero through three.
-
-These are complete finite checks for each enumerated parameter, not proof for all even parameters. The infinite theorem relies on the explicit fiberwise Morse matching, its general acyclicity argument, and the integer winding obstruction written in RESULT.md. Neither a finite test nor a single field's Betti numbers would establish an integral sphere-wedge homotopy equivalence by itself. No independent mathematical audit has been carried out.
+The original standalone Python 3 script `verify_even_tori.py` and its expected stdout in `EXPECTED.txt` are unchanged. They check a different discrete Morse reduction with integer winding for \(n=6,8,\ldots,20\), and also the mod-two homology for \(n=6,8,10,12\). They corroborate the homotopy consequence in finitely many cases; they do not test the new embedded collapse target or equivariance.

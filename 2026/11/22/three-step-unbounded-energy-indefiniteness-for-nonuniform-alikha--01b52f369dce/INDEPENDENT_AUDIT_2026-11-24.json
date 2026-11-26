@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:28:24.901649Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the operator from its interpolation definition (RESULT.md lines 23–42) and verified the normalization and the three coefficient limits. With x=δ₂u, y=δ₃u and δ₁u=0, the first quadratic panel supplies the terms (2t−1)x/[ε(1+ε)] at both s₂ and s₃. At s₂, dominated convergence with the integrable majorant (1−t)^(−α) yields Jα(1)=1/(1−α)−2/(2−α)=Aα, and the current linear coefficient is O(ε^(−α)), hence disappears after multiplication by ε. At s₃, the first-panel limit is Jα(1+σ)=Bα, positive by reflecting half the interval against the strictly increasing kernel. The short second panel gives O(1) to the x coefficient and O(ε²) to the y coefficient since its kernel stays bounded and its derivative coefficient for y is O(ε). The third linear panel gives the positive finite constant σ^(1−α)/(1−α) to the y coefficient. Thus εΓ(1−α)B₃→Aα x²+Bα xy. Setting y=1 and x=−Bα/(2Aα) yields the stated strict negative constant, and the x=0,y=1 direction is positive for small ε. This is for each fixed 0<α<1, not a uniform endpoint assertion. Inspected both packaged checkers and outputs without executing them. Independent replay `python3 /workspace/replay/check_assignments.py 3` uses Lagrange interpolation and analytic moments, reproduces −3075.1592734497714868379217449 for the normalized half-order integer witness, and checks the scaled limits numerically at α=0.2,0.5,0.8. The replay is supplementary rather than the all-order argument; Decimal antiderivative evaluation is high precision, not exact radical arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quan–Wu gives τ_k/τ_{k−1}≥0.475329 as a uniform sufficient condition.",
+          "Liao–Zhu–Sun proves a nonnegative discrete-gradient decomposition for ratios ≥r⋆(α); the abstract locates r⋆ in (0.3865,0.4037)."
+        ],
+        "reasoning": "For every α under consideration, the second-to-first ratio ε eventually lies below either positive threshold. Neither theorem, even the weaker ratio restriction, implies the claimed behavior there.",
+        "searches": [
+          "Quan–Wu arXiv:2208.01384, Theorem 3.1",
+          "Liao–Zhu–Sun arXiv:2311.13216, Theorem 2.1 and (2.7)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 01b52f369dce (self-match)",
+        "arXiv:2208.01384",
+        "arXiv:2311.13216",
+        "arXiv:1909.10216"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quan–Wu discusses general-mesh positive semidefiniteness as open in its introduction, then obtains positivity with restrictions.",
+          "Liao–Tang–Zhou's theorem is a maximum principle with ratio and timestep restrictions for a numerical PDE, not a scalar energy counterexample."
+        ],
+        "reasoning": "Violating a sufficient ratio bound does not imply any negative energy. The fixed witness and its leading negative coefficient require a separate estimate of the interpolant coupling across the collapsing cell. The bounded adverse-mesh search did not substantiate an earlier equivalent.",
+        "searches": [
+          "Primary literature lookup: Alikhanov L2−1σ nonuniform mesh negative bilinear energy counterexample without step-ratio restriction",
+          "Quan–Wu introduction and Theorem 3.1",
+          "Liao–Tang–Zhou Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quan–Wu B_n pairs L_k^{α,*} with δ_k in (1.1); (2.1) uses the same quadratic and linear interpolants, evaluation point and kernel as the frozen result.",
+          "Liao–Tang–Zhou uses the reciprocal ratio τ_k/τ_{k+1} and an upper bound 7/4, so its ratio on the first pair is 1/ε, not ε."
+        ],
+        "reasoning": "Matching the scheme and removing a common positive Gamma normalization does not turn conditional positivity or a maximum-principle statement into unrestricted negative-energy coverage.",
+        "searches": [
+          "Quan–Wu arXiv:2208.01384, (1.1), (2.1), Caputo definition",
+          "Liao–Tang–Zhou arXiv:1909.10216, M1 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest exact hit: 2026/11/22/SCOPE-three-step-unbounded-energy-indefiniteness-for-nonuniform-alikha--01b52f369dce; its indexed description matches this frozen finding. No distinct materially matching catalogue record surfaced in the bounded comparisons."
+        ],
+        "reasoning": "The hit identifies the same claim and record, not independent coverage. A tabulated value at a fixed α or ε would not establish the continuum of orders and the exact ε→0 coefficient.",
+        "searches": [
+          "Resultary: three-step Alikhanov negative increment energy on a collapsing middle cell",
+          "Resultary: nonuniform L2−1σ unrestricted mesh negative quadratic energy and inverse-cell divergence"
+        ]
+      },
+      "rationale": "The same normalized unrestricted increment-energy form is studied in prior work, but the strongest inspected statements ensure positivity under ratio conditions. A collapsing middle cell is outside those conditions; the exact negative leading law for all fixed fractional orders neither follows from those sufficient conditions nor conflicts with them. The strongest exact catalogue hit is the bound record itself, not a distinct result. Pass is limited to the all-order fixed-increment obstruction and its exact asymptotic, not to the operator definition or conditional stability theory.",
+      "residual_risks": [
+        "A bounded adverse-mesh search cannot exclude older equivalent counterexamples in less indexed numerical-analysis literature; a further broad lookup was not completed. No claim of optimal ratio threshold or priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same form; sufficient positivity outside the collapsing-mesh regime",
+          "evidence": [
+            "Eq. (1.1) is the derivative–increment bilinear form.",
+            "The theorem gives 0.475329 as a sufficient uniform lower ratio bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01384",
+          "material_read": "pp. 2–5, introduction, (1.1), Caputo definition, (2.1), Theorem 3.1; OA text offsets 6578, 9638, 10617, 16979",
+          "method": "Read selected full-text OA PDF passages",
+          "title": "Global-in-time H1-stability of L2-1σ method on general nonuniform meshes for subdiffusion equation",
+          "trigger": "Same energy and interpolation operator"
+        },
+        {
+          "assessment": "Stronger conditional coverage, not the collapsing mesh or negative law",
+          "evidence": [
+            "Nonnegative G and R in the discrete-gradient identity require a strictly positive lower ratio r⋆(α)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.13216",
+          "material_read": "Abstract and pp. 6–7, Theorem 2.1 and (2.7); OA offsets 558, 23922, 24448",
+          "method": "Read selected full-text OA PDF passages",
+          "title": "Asymptotically compatible energy and dissipation law of the nonuniform L2-1σ scheme for time fractional Allen–Cahn model",
+          "trigger": "Weaker ratio restrictions might approach unrestricted meshes"
+        },
+        {
+          "assessment": "Conditional maximum principle with reciprocal ratios, not coverage of the finding",
+          "evidence": [
+            "M1 bounds τ_k/τ_{k+1} by 7/4; the collapsing mesh fails it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.10216",
+          "material_read": "p. 3 M1 and p. 8 Theorem 3.1; OA offsets 8863 and 25859",
+          "method": "Read selected full-text OA PDF passages",
+          "title": "A second-order and nonuniform time-stepping maximum-principle preserving scheme for time-fractional Allen–Cahn equations",
+          "trigger": "Earlier nonuniform operator; check adverse meshes and ratio convention"
+        },
+        {
+          "assessment": "Identical record, not a second result",
+          "evidence": [
+            "Same three-step mesh, all-order negativity and inverse-length divergence."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-step-unbounded-energy-indefiniteness-for-nonuniform-alikha--01b52f369dce",
+          "material_read": "Indexed description and bound RESULT.md Finding and assumptions",
+          "method": "Local Resultary lookup and frozen-source comparison",
+          "title": "Three-step unbounded energy indefiniteness for nonuniform Alikhanov fractional differentiation",
+          "trigger": "Exact topical catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This explicitly answers the unrestricted-positivity issue for the standard form with only three steps, a witness fixed independently of the collapsing length, and a sharp nonzero blow-up coefficient. It identifies which historical interpolation coefficient creates the obstruction rather than merely selecting a mesh outside a known theorem or reporting a floating-point negative value. This is directly useful when evaluating whether a proof relying on the unmodified increment-energy estimate can avoid mesh constraints. It is not a PDE instability, a maximum-principle violation, or an optimal ratio condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

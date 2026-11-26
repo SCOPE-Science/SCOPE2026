@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:51:30.724831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a core pair {a,b} and a third core agent u, exactly one arc from an endpoint to the other contains u, so exactly one endpoint prefers u to its partner. In the odd core, an unmatched u therefore has r+s-1=2k-r incident blockers with r pairs and s unmatched core agents, at least k. In even order an unmatched dummy adds one blocker to this count; if the dummy is matched to z, z instead wants every other core agent and has r+s=2k-r blockers among the remaining 2k agents. These cases cover all partial matchings and include the two-agent boundary. In the proposed matchings core pair offsets are k and k+1, so the matched core endpoints have at most k preferred alternatives. The residual core agent has exactly k blockers, whether unmatched or dummy-paired; a paired dummy cannot block with another core endpoint. The universal upper bound n-1 proves the claimed worst-case rate, not a universal sharp constant. For the threshold and census, I inspected the packaged code without executing it and ran a separate exact enumeration (checks/roommates_small.py, Python 3 with NumPy), generating matchings as disjoint subsets of edges and computing mutual preference by masks. Orders 1–4 had 1, 2, 18, 2634 strict symmetric profiles and none with optimum at least two. At n=5 the exact counts by optimum 0, 1, 2 were 9859346, 5331976, 7752, with 7272 of the last count complete-list. The five-agent cyclic instance already proves attainment. The census is not needed for the all-order construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior linear worst-case bound has a maximum-cardinality requirement, first exhibited with incomplete bipartite lists, and is extended to maximum-cardinality roommates."
+        ],
+        "reasoning": "A lower bound for a minimum over only maximum-cardinality matchings need not hold for a minimum over all partial matchings; deficient matchings may avoid forced pairs. The restriction is mathematically material.",
+        "searches": [
+          "Resultary: maximum-cardinality versus unrestricted minimax almost-stable roommates",
+          "arXiv:2601.14195, Proposition 3.6 and Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.14195",
+        "https://eprints.gla.ac.uk/2816/",
+        "Resultary record 347bce7c6c76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.5 supplies only an unrestricted Ω(log n) lower bound; Theorem 3.7 has the cardinality restriction. The Abraham–Biró–Manlove abstract addresses minimizing the total number of blocking pairs."
+        ],
+        "reasoning": "Neither of the stated minimax lower bounds implies an unrestricted linear lower bound, and a lower bound on the sum of blocking pairs does not, without a separate quantitative argument, yield the required concentration on one agent.",
+        "searches": [
+          "arXiv:2601.14195, Theorems 3.5 and 3.7",
+          "https://eprints.gla.ac.uk/2816/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glitzner–Manlove Proposition 3.4 uses precisely this maximum-incident-blocker objective with complete lists and unrestricted matchings, on recursive three-way cycles with 3^k agents and optimum k."
+        ],
+        "reasoning": "The earlier nested cycles are genuine overlap in technique and objective, not equivalent to the single circular core, or dummy extension, yielding the exact linear optimum here.",
+        "searches": [
+          "Resultary: exact minimax per-agent blocking-degree formula, cyclic complete preferences, and arbitrary partial matchings",
+          "arXiv:2601.14195, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No such comparison or threshold surfaced in the ranked catalog results checked. The inspected adjacent-inversion record SCOPE-a-single-adjacent-inversion-has-a-sharp-stability-threshold-near--347bce7c6c76 concerns whether an adjacent preference swap preserves a unique stable perfect matching."
+        ],
+        "reasoning": "The latter invariant says nothing about whether every partial matching on a five-agent profile has an agent with at least two blockers. The separate census verifies the cutoff, not its priority.",
+        "searches": [
+          "Resultary: five-agent threshold, exact formula floor((n-1)/2), and cyclic minimax construction"
+        ]
+      },
+      "rationale": "The objective and a cyclic lower-bound idea are prior. The distinct content supported by the comparisons is the explicit all-order complete-list family attaining floor((n-1)/2) against arbitrary partial matchings, its unrestricted linear worst-case consequence, and the exact five-agent onset. This is not a priority guarantee.",
+      "residual_risks": [
+        "The cyclic-preference search and ranked catalog results are not exhaustive; an equivalent construction or threshold under different terminology remains possible.",
+        "The Abraham–Biró–Manlove full text was not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for objective and nested cyclic construction, not the exact construction or unrestricted linear lower bound.",
+          "evidence": [
+            "Proposition 3.4 and Theorem 3.5 (extracted offsets 29866–41531 and 36595); Proposition 3.6 and Theorem 3.7 (38504–43426 and 41757–46741)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.14195",
+          "material_read": "Section 3.3, pp. 8–11, propositions and theorems controlling the two model variants.",
+          "method": "Lawful open PDF text; bounded statement and construction comparison.",
+          "title": "A Minimax Perspective on Almost-Stable Matchings",
+          "trigger": "Same objective; plausible prior cyclic construction or linear bound."
+        },
+        {
+          "assessment": "Different perturbation and different statistic; no implication for this minimax threshold.",
+          "evidence": [
+            "The statement concerns a single adjacent swap and preservation of a unique stable perfect matching."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-adjacent-inversion-has-a-sharp-stability-threshold-near--347bce7c6c76",
+          "material_read": "RESULT.md finding, offset 0.",
+          "method": "Published record via mirrored text.",
+          "title": "A single adjacent inversion has a sharp stability threshold",
+          "trigger": "Nearby exact finite stability threshold in rooms with strict preferences."
+        },
+        {
+          "assessment": "Described objective is aggregate; full-text coverage not assessed.",
+          "evidence": [
+            "The abstract describes minimizing the number of blocking pairs, not the maximum incident count."
+          ],
+          "identifier_or_url": "https://eprints.gla.ac.uk/2816/",
+          "material_read": "Institutional landing page and abstract only.",
+          "method": "Public repository page.",
+          "title": "Almost stable matchings in the Roommates problem",
+          "trigger": "Classical almost-stability model with blocking pairs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The circular-core argument closes the asymptotic order for concentrated blocking incentives under unrestricted matching, where allowing unmatched agents changes the lower-bound question. The exact value of the witness and the first five-agent obstruction distinguish a structural parity effect from a merely numerical rate or a lower bound forced by requiring cardinality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:43:28.972003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, equations (1)–(3) and proof steps (1)–(4)",
+        "VERIFICATION.md and CHECK.py, inspected without executing"
+      ],
+      "rationale": "The unvisited, once-pivoted and twice-pivoted blocks have top residual eigenvalues 1+rho, w and 0, so delta<w gives the exact weak/strict split including equality at w. Competing clocks have rates 2,w,delta, with a uniform choice between the untouched block's two indices; ordering the clocks recovers the residual-diagonal pivot law. At the first-contact maximum H the block count is 2r-L; at the completion maximum M it is 2r. The same background process J must be used in both coordinates. The convolution tail of U+V is (2 exp(-wt)-w exp(-2t))/(2-w); the maximum density and the independent conditional binomial count give the CDF. At marginal extreme levels u,v with v>u the common exceedance probability is bounded by 2 exp(-wv-(2-w)u)/(2-w)+exp(-2v), and r times this tends to zero. The joint CDF is the r-th power of the one-block no-exceedance probability, hence factors in the limit. A lower cutoff H>(1/2-epsilon)log r makes the expected number of outstanding completions beyond that cutoff o(r). Conditional count variances are O(r log r) at the two tight logarithmic times; the rank errors are o_p(r) without requiring independence of the two background counts. Delta=O(1/log r) makes the center-to-time Taylor remainder o_p(r) and both rank scales Theta(r). Independent finite check at r=2,s=3,w=3/4,delta=1/4: recursion with rate weights (8a,3b,c) and integration after x=exp(-t/4), F=1-(8/5)x^3+(3/5)x^8, agree at ranks 4 through 7 to 1.7e-15 (first mass 0.226019594440647).",
+      "residual_risks": [
+        "CHECK.py lines 55–56 generate separate binomial draws at the two times and lines 61–65 check only marginals: this is not a finite joint-law test. Some small recursion and matrix-profile parameters have delta>=w, testing identities rather than the stated strict spectral threshold correspondence. These limitations do not affect the analytical proof.",
+        "No claim beyond identical blocks, fixed rho and beta, exact pivots, and the stated background scaling; no finite-r uniform Gumbel error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General RPCholesky expected trace/error bounds and distribution-preserving acceleration are available. Divan–Gilles §3 Thm. 3.1 controls expected residual trace of approximate RPCholesky rather than its joint hitting distribution."
+        ],
+        "reasoning": "A broad expected-error bound does not determine the model's exact CDF or extreme dependence even when specialized to these matrices.",
+        "searches": [
+          "arXiv:2609.06287 §3",
+          "arXiv:2207.06503v6 Thm. 5.1",
+          "arXiv:2410.03969 §1.3.3 and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.20633v1",
+        "arXiv:2609.06287",
+        "arXiv:2207.06503v6",
+        "arXiv:2410.03969",
+        "Resultary 73b2b6cddee0, f45f200de90f, 8c50fd5eebb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known pivot distribution makes an exponential embedding possible. The cited spectral theorem and diagonal example constrain accuracy and scale but do not control the same-block joint extreme exceedance or two-time background occupancy."
+        ],
+        "reasoning": "The distinct-limit statement needs both the common-exceedance estimate for the two waiting stages and stochastic rank transfer; it is not implied by one-tier coupon estimates or the pivot rule alone.",
+        "searches": [
+          "arXiv:2608.20633v1 Thm. 1.4 and following example",
+          "arXiv:2410.03969 §1.3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Epperly's diagonal example concerns one spectral cutoff and a constant-success coupon scale, with no second Schur plateau. Resultary 73b2b6cddee0 gives a two-atom fixed-rank residual-trace distribution on a different family."
+        ],
+        "reasoning": "Neither the diagonal coupon model nor a fixed-rank trace law encodes the two linked hitting events; the latter does not determine joint operator-norm thresholds.",
+        "searches": [
+          "Resultary: RPCholesky joint stopping ranks, residual law, Gumbel cutoffs",
+          "arXiv:2608.20633v1 §1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact RPCholesky result gives two trace atoms after a fixed rank. The other two records address Gaussian Frobenius pruning or sequential Frobenius stopping."
+        ],
+        "reasoning": "These are mathematical records with exact laws, but none of those laws tabulates or represents the assigned weak/strict spectral rank pair.",
+        "searches": [
+          "Resultary: exact and sequential stopping or Gumbel cutoff comparisons; 73b2b6cddee0, f45f200de90f, 8c50fd5eebb7"
+        ]
+      },
+      "rationale": "The supported distinction is the linked exact two-tier operator-norm stopping law and asymptotic independence with the nonlinear rank centers, not the sampling scheme, exponential races, or a marginal coupon-collection limit.",
+      "residual_risks": [
+        "Two-stage coupon or hypoexponential extreme-value literature could provide a closer clock-law formulation; the comparison is bounded and does not settle publication priority universally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related one-cutoff bound, not joint law",
+          "evidence": [
+            "Diagonal example motivates a logarithmic budget and omits formal lower-bound details."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.20633v1",
+          "material_read": "Abstract and §1.4, Theorem 1.4 and following diagonal example (text offset 17440)",
+          "method": "OA primary HTML excerpt",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "Closest spectral/coupon comparison"
+        },
+        {
+          "assessment": "Relevant error-bound result, not the two-tier joint stopping law",
+          "evidence": [
+            "The stated theorem bounds expected trace for approximate RPCholesky in terms of spectral decay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287",
+          "material_read": "Abstract and arXiv HTML §3 Thm. 3.1 (text offset 16356)",
+          "method": "OA primary HTML excerpt",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+          "trigger": "Broad recent potential coverage; frozen record had abstract only"
+        },
+        {
+          "assessment": "Supplies trace-error guarantee, not the stopping-rank law",
+          "evidence": [
+            "Theorem controls expected trace error after enough pivots."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.06503v6",
+          "material_read": "Abstract; Thm. 5.1 (text offset 74623)",
+          "method": "OA primary HTML excerpt",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Base algorithm and general guarantee"
+        },
+        {
+          "assessment": "Preserves the base pivot law; no two-tier computation in compared statements",
+          "evidence": [
+            "Accelerated and simple sampling have the same pivot distribution; the theorem gives an expected trace bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.03969",
+          "material_read": "§1.3.3 (offset 13360) and §4 Thm. 1 (offset 52632)",
+          "method": "OA primary HTML excerpt",
+          "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+          "trigger": "Possible law coverage from distribution-preserving acceleration"
+        },
+        {
+          "assessment": "Exact but different law and matrix family",
+          "evidence": [
+            "At most two trace atoms after a fixed rank for a one-defect common-factor matrix."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 73b2b6cddee0",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirrored source read",
+          "title": "Exact two-atom residual law and sharp pivoting reversal on common-factor matrices",
+          "trigger": "Strongest indexed RPCholesky exact-law parallel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, equations (1)–(3)",
+        "Epperly, arXiv:2608.20633v1 §1.4"
+      ],
+      "rationale": "An exact operator-norm pivot budget for a natural block model is useful as an accuracy benchmark. A single trajectory exhibiting independent limiting fluctuations at two distinct spectral plateaux is information not supplied by a single cutoff or an order-of-growth budget. The nonlinear background center matters in the admissible critical size regime and is not a cosmetic reparametrization.",
+      "residual_risks": [
+        "Model benchmark, not a stopping theorem for generic kernel matrices or approximate pivots."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

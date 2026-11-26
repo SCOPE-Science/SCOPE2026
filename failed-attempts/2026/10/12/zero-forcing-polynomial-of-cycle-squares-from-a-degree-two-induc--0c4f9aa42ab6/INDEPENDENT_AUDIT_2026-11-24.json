@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:24.285629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the four-regular cycle square, initial induced degree at most two at all blue vertices permits no first force. A blue vertex with three or four blue neighbors fills its closed neighborhood, which consists of five consecutive cyclic vertices. In any proper maximal blue interval containing these five, the penultimate vertex can force the next vertex beyond the interval, so propagation reaches the whole graph. The length-five window test therefore describes exactly the failed sets for n≥7. Four-bit states give one closed walk with fixed time origin per labeled valid word, of weight z to the number of blue vertices. I reproduced det(I−uT) independently by sparse signed Laplace expansion, obtaining exactly 1−u−zu²−z²u³−z³u⁵+z⁴u⁷+z⁵u⁸. The negative logarithmic derivative in u, multiplied by u, gives the trace numerator and hence the failed-set coefficients; subtracting from (1+z)^n gives the forcing polynomial. Only coefficients n≥7 are interpreted as graph enumerators. At size four, the center plus three neighbors gives 4n presentations; two centers at distance one require the two remaining vertices to be the other consecutive common neighbors, and centers at distance two have only one common neighbor for n≥7. Thus only the n consecutive four-sets are counted twice, and they have exactly two centers. The crossing-edge bound gives 2|S|≤4(n−|S|) for failed S; the stated cyclic words attain the floor by the local test, including both residue boundaries. Replay: python3 /workspace/branches/independent_exact_checks.py, check_cycle_determinant(). The packaged Newton-identity checker and recorded n=7 through 14 census were inspected, not run; the unrestricted result follows from propagation and the fixed-size formal calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "27af5da49cb2, Finding case 3, gives Z(C_n^k)=2k and n(2k−1) minimum ordinary forcing sets at n≥2k+3.",
+          "Becker et al. give the general minimal-fort/maximal-failed-set correspondence and a recurrence for ordinary cycles, not squared cycles in the inspected corollary.",
+          "The accessible Gomez abstract announces circulant failed-zero-forcing numbers, while the retrieved Bermond–Peyrat material did not expose a theorem passage."
+        ],
+        "reasoning": "Substitution k=2 yields size four, count 3n and the same neighborhood-based description of minimum seeds. The general fort correspondence is relevant; ordinary-cycle counts cannot be substituted for cycle-square counts. The inaccessible articles are unresolved scope risks, not the evidence for failure.",
+        "searches": [
+          "Resultary: minimum zero forcing set census token jumping connectivity cycle powers 27af5da49cb2 3n",
+          "Becker et al., arXiv:2404.05963v1, Theorem 10 and Corollary 11",
+          "Bermond–Peyrat DOI 10.1137/0402039 / HAL-03200902; Gomez et al. DOI 10.20429/tag.2024.110105"
+        ]
+      },
+      "checked_sources": [
+        "Resultary square-of-cycle, fort and minimum-seed searches",
+        "Distinct original indexed records a06a1735df72 and 27af5da49cb2",
+        "Boyer et al. arXiv:1801.08910v1",
+        "Becker et al. arXiv:2404.05963v1",
+        "Deaett et al. arXiv:2307.00376v2, Observation 2.5",
+        "Gomez et al. DOI 10.20429/tag.2024.110105 (abstract)",
+        "Bermond–Peyrat DOI 10.1137/0402039 (bibliographic material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let a=u, b=zu², c=z²u³, d=z³u⁴ be the weights of gaps 1,2,3,4; a gap contributes its length to n and length minus one to blue cardinality. In order 1,2,3,4, use destination weights in the gap-transition matrix A with rows (a,b,c,d), (a,b,c,0), (a,b,c,0), (a,0,0,0). These are exactly the other record's allowed cyclic gap words.",
+          "For m white vertices the trace of A^m counts ordered gap tuples. To count the subsets of labeled residues, distinguish a white start in each set: n choices of starting residue for each tuple and m representations per set, giving factor n/m even for periodic tuples.",
+          "Thus the failed-set series, in orders n≥7, is the corresponding part of u∂_u sum_{m≥1} tr(A^m)/m = −u∂_u log det(I−A). The determinant reduces by merging equivalent states 2 and 3 to 1−a−b−c−ad+ad(b+c), precisely D(u,z). Its derivative is exactly the frozen numerator divided by D."
+        ],
+        "reasoning": "Both the classification and every coefficient follow by direct equivalence and a fixed small determinant, without further cycle-square forcing analysis or new enumerative restrictions. This is stronger evidence than merely observing that general simulation could compute the coefficients. The complementary successful-set formula and extremal deductions follow by subtraction and the indexed specializations. Neither comparison is based on title similarity or presumed priority from its displayed date.",
+        "searches": [
+          "a06a1735df72, Finding, Assumptions and scope, and proof step 1, local mirror offset 0",
+          "27af5da49cb2, original Finding and Assumptions and scope, local mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Different indexed record 2026/10/26/SCOPE-minimum-forts-of-squared-cycles-a-cyclic-gap-classification-and--a06a1735df72, Finding and proof step 1: for n≥6 a nonempty set is a fort iff all its cyclic gaps are 1–4 and each 4 is flanked by 1s.",
+          "The exact frozen self-record is not independent coverage."
+        ],
+        "reasoning": "The frozen propagation lemma makes every failure an initial stall. Hence its whole failed family is exactly the complements of the other record's forts. For these forts, every vertex outside has at least one neighbor inside because all gaps are at most four; the fort condition raises this to at least two, equivalent to induced blue degree at most two. The empty blue set corresponds to the full white fort; the full blue set is successful. This compares the same ordinary color rule, labels, and full range n≥7.",
+        "searches": [
+          "Resultary: ordinary forcing on cycle squares; failed-set induced degree; minimum and all forts of squared cycles; cyclic gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct fort record gives ceil(n/3) and the exact count of that fort layer, including a five-fort correction at n=10; these are the size and coefficient of the largest failed-set layer after taking complements.",
+          "No separate literal display of the frozen rational function was found in the compared sources."
+        ],
+        "reasoning": "The indexed count covers a full layer, not by itself the entire enumerator. The absence of a verbatim table does not evade coverage because the same record includes the exact gap rule and that rule yields the entire rational function directly.",
+        "searches": [
+          "Resultary: exact full cycle-square forcing/failed polynomial; exact largest failed set and minimum-fort multiplicities",
+          "a06a1735df72, Finding",
+          "Boyer et al., arXiv:1801.08910v1, polynomial framework"
+        ]
+      },
+      "rationale": "The strongest distinct indexed comparison, a06a1735df72, gives an all-forts gap law on the identical labeled cycle square throughout the frozen range. Every stalled initial blue set has a nonempty white complement that is itself a fort, and conversely a white fort makes the blue complement failed. Thus the other record's rule is equivalent to the full set classification, not merely to the numerical largest-failed-size corollary. Moreover the exact frozen rational function is a direct weighted cyclic-word evaluation of that very rule; the implication is exhibited below. The rational form is not stated verbatim in the comparison record. This is a decision on demonstrable coverage in the inspected corpus, not an attribution of historical priority or a claim that the later-displayed record preceded the frozen one.",
+      "residual_risks": [
+        "The two external cycle-power/circulant papers were not available for theorem-level reading; they may contain further relevant coverage. This did not determine the disposition.",
+        "The comparison establishes mathematical non-distinctness against the indexed statements, not who first proved either form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of all failed sets by complements and direct implication of the full enumerator via weighted gaps; also directly gives the largest failed size and multiplicity. No date-based priority inference.",
+          "evidence": [
+            "All gaps are 1–4, with a 4 allowed only between two 1s. Applies to labeled C_n² for n≥6. Gives minimum fort size ceil(n/3) and explicit counts."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-minimum-forts-of-squared-cycles-a-cyclic-gap-classification-and--a06a1735df72",
+          "material_read": "Original Finding, Assumptions and scope and proof steps 1–2, offset 0; prior-work discussion and limitations at 7256; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary identification followed by bounded reading of original local-mirror Markdown",
+          "title": "Minimum forts of squared cycles: a cyclic-gap classification and exact enumeration",
+          "trigger": "Identical graph and a classification of all forts, not just minimum forts"
+        },
+        {
+          "assessment": "Direct broader coverage of the minimum size, seed description and count; not by itself an all-cardinalities enumeration.",
+          "evidence": [
+            "Ordinary forcing, minimum seeds N[v] with one neighbor removed, exactly n(2k−1) of them at n≥2k+3."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-minimum-zero-forcing-set-census-and-token-jumping-connectivity-o--27af5da49cb2",
+          "material_read": "Original Finding and Assumptions and scope, offset 0, including n≥2k+3 case",
+          "method": "Resultary search, then read the exact original local-mirror file",
+          "title": "Minimum zero forcing set census and token-jumping connectivity of cycle powers",
+          "trigger": "Broader family appears to imply the frozen minimum coefficient"
+        },
+        {
+          "assessment": "General complementary extremal-set correspondence; compared cycle recurrence concerns ordinary C_n.",
+          "evidence": [
+            "Minimal forts are complements of maximal failed forcing sets; ordinary-cycle minimal forts have a Perrin recurrence."
+          ],
+          "identifier_or_url": "arXiv:2404.05963v1",
+          "material_read": "Theorem 10 near offset 25600 and Corollary 11 near 28850",
+          "method": "Bounded primary-source reading",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Potential broader implication from fort enumeration"
+        },
+        {
+          "assessment": "Plausible extremal overlap; accessible text insufficient for a family-specific theorem comparison.",
+          "evidence": [
+            "Determines failed zero forcing numbers for families of circulant graphs according to the abstract."
+          ],
+          "identifier_or_url": "DOI 10.20429/tag.2024.110105",
+          "material_read": "Article abstract, public page offset about 1200; full text not accessed",
+          "method": "Public abstract and bounded lawful full-text retrieval attempt",
+          "title": "Failed Zero Forcing Numbers of Trees and Circulant Graphs",
+          "trigger": "Circulant extremal result could cover the largest failed-set size"
+        },
+        {
+          "assessment": "No whole-document exclusion or overlap finding justified from the accessible material.",
+          "evidence": [
+            "The source concerns induced subgraphs of powers of cycles; no relevant theorem could be read."
+          ],
+          "identifier_or_url": "DOI 10.1137/0402039; HAL-03200902",
+          "material_read": "Bibliographic title/citation page only; no theorem passage available in attempted copies",
+          "method": "Publisher retrieval and identified HAL alternate attempted",
+          "title": "Induced Subgraphs of the Power of a Cycle",
+          "trigger": "Plausible structural source on cycle powers under induced-degree terminology"
+        },
+        {
+          "assessment": "Prior enumeration framework; the inspected opening does not give the cycle-square rational function.",
+          "evidence": [
+            "The polynomial counts zero forcing sets by cardinality and the paper presents formulas for graph families."
+          ],
+          "identifier_or_url": "arXiv:1801.08910v1",
+          "material_read": "Opening page, offset 0; polynomial definition and scope",
+          "method": "Bounded primary PDF reading",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Foundational polynomial and graph-family enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family and full cardinality distribution are naturally motivated, and the compact rational form is convenient. But as a separate contribution against the matched all-forts law, the frozen result adds only a complement reformulation and its routine weighted evaluation; the same local rule gives the identical denominator on a smaller state space. The extremal consequences are covered as well. No additional structural or quantitative conclusion survives this comparison to support a separate valuable claim, and no merely expository repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

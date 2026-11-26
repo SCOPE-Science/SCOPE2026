@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:00:26.130072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Epperly–Tropp–Webber, arXiv:2301.07825, equations (1.4)–(1.6) and (3.1)"
+      ],
+      "rationale": "With two unnormalized Rademacher vectors the leave-one-out projectors have rank one; the two squared sketch norms both equal S₂>0. Writing P_j=∑a_i^j g_i h_i, applying either residual projector in the basic estimate gives S₁+S₃/S₂−2P₁P₂/S₂+S₃P₁²/S₂². This proves equality before averaging and makes the sample-variance diagnostic (3.1) zero on every sample. The diagonal terms in the products cancel the constant beyond S₁, and the independent fair probe-product signs give the orthogonal pair characters with the stated coefficients, hence the stated MSE and unbiasedness. For two nonzero entries a,b the decisive factor is −ab(a+b); for at least three, equality of all pair sums would force all nonzero entries equal, in which case their pair sum is twice S₃/S₂. This exhausts zero risk in scope. For A=I_n the coefficients are all −2/n, giving MSE 2(1−1/n); the two-point n=2 law and the direct Hutchinson comparison follow exactly.",
+      "residual_risks": [
+        "Exact arithmetic, unnormalized estimator, diagonal A and exactly two sign probes. Perfect equality does not define a correlation coefficient in a zero-risk case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 relates expected internal squared error to actual variance through the pairwise correlation across all basic estimates; unnormalized and residual-normalized versions are distinguished."
+        ],
+        "reasoning": "The broad identity takes correlation as input; it does not identify where the estimators coincide or evaluate the true MSE on the diagonal class. The separately normalized version is not claimed.",
+        "searches": [
+          "XTrace arXiv:2301.07825 Proposition 3.1",
+          "Primary literature lookup on two-probe diagonal Rademacher XTrace diagnostic and variance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.07825",
+        "Resultary 2d755ae95a66",
+        "Epperly's 2024 probe-distribution article",
+        "PMC12338724 (attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At positive risk, perfect correlation is sufficient for zero expected diagnostic in Proposition 3.1; the earlier scalar result exhibits actual false stopping in its own scope."
+        ],
+        "reasoning": "Neither supplies evidence of samplewise equality universally for diagonal inputs at two probes, nor the coefficient-vanishing conditions (including the special signed rank-two class). The contribution is the explicit classification and exact risk, not inferring zero diagnostic once equality is known.",
+        "searches": [
+          "arXiv:2301.07825 equations (1.4)–(1.6), (3.1), Proposition 3.1",
+          "Resultary 2d755ae95a66, scalar-identity law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining paper uses m/2 isotropic vectors, rank-one projectors here, and the scaled empirical variance. Resultary 2d755ae95a66 gives joint laws for unnormalized sign-probed XTrace and XNysTrace on λI₂ with k≥3."
+        ],
+        "reasoning": "The sign-probe normalization and diagnostic agree, but k denotes probe count in the indexed result; its three-or-more theorem is not a two-probe arbitrary-diagonal theorem.",
+        "searches": [
+          "Resultary: sign-probed XTrace, exact MSE, false stopping and zero internal error",
+          "arXiv:2301.07825, §1.2.1 and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact law located already has a zero-diagnostic, 50% relative-error event of probability 2^{1−k} for λI₂ with k≥3. No exact two-probe all-diagonal risk formula or zero-risk classification was identified."
+        ],
+        "reasoning": "A joint-law table on that scalar family and probe range neither counts the pair coefficients for arbitrary diagonals nor gives the stated classification. The qualitative phenomenon is not new.",
+        "searches": [
+          "Resultary 2d755ae95a66, Finding and exact joint law",
+          "Literature lookup on exact diagonal XTrace error laws"
+        ]
+      },
+      "rationale": "Credit only the two-probe samplewise theorem across arbitrary real nonzero diagonals, the exact Walsh risk and its zero set. Both the general diagnostic mechanism and a close scalar-identity example of false stopping with more sign probes were already known. Neither inspected result gives the full finding at two probes.",
+      "residual_risks": [
+        "The traceax full text was not resolved; unindexed specialized derivations are possible. No claim of priority for generic false stopping or the scalar-identity example with k≥3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the estimator and general correlation mechanism, not this evaluation",
+          "evidence": [
+            "m/2 isotropic vectors; scaled empirical variance; correlation factor (1−ρ)/(1+(ℓ−1)ρ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.07825",
+          "material_read": "§1.2.1 p.4 (offset 13700); p.12 eq. (3.1) and Proposition 3.1 (offset 41200); §4.2 p.15 (offset 49000)",
+          "method": "Targeted OA primary-text inspection",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Original estimator and potentially covering diagnostic result"
+        },
+        {
+          "assessment": "Material earlier overlap in phenomenon and scalar family; not the same theorem",
+          "evidence": [
+            "k≥3 probes on λI₂; all relative signs equal with probability 2^{1−k}, reported error zero and true relative error one half."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-posterior-error-and-false-stop-law-for-sign-probed-xtrace--2d755ae95a66",
+          "material_read": "Finding and proof portions of RESULT.md, offsets 0–6677 and 7000–11044",
+          "method": "Published-record mirror inspection",
+          "title": "Exact posterior error and false-stop law for sign-probed XTrace",
+          "trigger": "Same diagnostic failure at scalar identity under sign probes"
+        },
+        {
+          "assessment": "General probe context, not exact leave-one-out diagonal risk",
+          "evidence": [
+            "Discussion compares probe distributions."
+          ],
+          "identifier_or_url": "https://www.ethanepperly.com/index.php/2024/01/28/dont-use-gaussians-in-stochastic-trace-estimation/",
+          "material_read": "Public HTML passage at offset 420",
+          "method": "Targeted webpage inspection",
+          "title": "Don't Use Gaussians in Stochastic Trace Estimation",
+          "trigger": "Rademacher versus Gaussian probe effects"
+        },
+        {
+          "assessment": "Not evaluated; no negative evidence inferred",
+          "evidence": [
+            "PMC did not supply a substantive passage and the alternate returned an access error."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12338724/",
+          "material_read": "No usable lawfully accessible full-text passage obtained",
+          "method": "Attempted PMC and identified Europe PMC alternate",
+          "title": "traceax: a JAX-based framework for stochastic trace estimation",
+          "trigger": "Later implementation and supported probe distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact projector/orthogonality check",
+        "Original XTrace diagnostic and scope"
+      ],
+      "rationale": "The minimal two-probe budget is a natural boundary of this empirical diagnostic, not an arbitrary finite slice. The theorem supplies a full class on which exchangeable estimates coincide and hide nonzero MSE, even for positive-definite inputs in dimensions above the matvec budget. The zero-risk classification and exact true-versus-reported risk are directly useful for testing diagnostics and interpreting small-budget behavior.",
+      "residual_risks": [
+        "No general adaptive stopping, normalized-estimator or more-probe performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

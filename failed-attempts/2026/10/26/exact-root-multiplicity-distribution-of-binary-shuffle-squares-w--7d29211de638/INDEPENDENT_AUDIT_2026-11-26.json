@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:51.411565Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed q, matching the copy with the first one and the copy with the last one gives q≤A≤2q and m−q≤C≤2(m−q). The unfilled before-one zeros of the second copy and after-one zeros of the first copy add to B, proving sufficiency. Requiring at least s+1 integers in the interval is equivalent to A,C≥2s and 2s+(A mod 2)+(C mod 2)≤B≤m−s. Subtracting 2s from every gap preserves outer parities and gives exactly the existence inequalities at m−3s, including empty ranges and m=0. Taking tail differences gives the census and extrema. Summing S(m) gives (1+x+x²)/(1−x)^3; taking the tail difference and summing in t gives the stated bivariate series. The limiting conditional tail follows from the quadratic leading term with t=floor(mu)+1; the conditional mean follows also by the incidence identity. A fresh exhaustive position-split check (/workspace/audit_replay_1.py) found identical root sets for all 252 words at m=0 through 6; at m=6 there were 27,45,18,1 words with respectively 0,1,2,3 roots. The all-length result rests on the proof, not the bounded replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Datko–Pawlik Proposition 1 counts (a+1)(b+1) outputs from the fixed root 0^a1 0^b; Theorem 2 gives special families with a unique root. The length-ten example 0000100100 has two roots.",
+          "Grytczuk–Pawlik–Pleszczyński Theorem 3 classifies membership, not all admissible q."
+        ],
+        "reasoning": "The earlier aggregate forward counts do not control overlaps of fixed-root output sets. The obstruction to distinctness is the exact catalogue match, not a claimed stronger theorem in the earlier papers.",
+        "searches": [
+          "Datko Pawlik Roots of Binary Shuffle Squares 2025 full text Proposition 1 Theorem 2 root multiplicities",
+          "Grytczuk Pawlik Pleszczyński Variations on shuffle squares Theorem 3 Corollary 1 two ones roots shuffle square"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Grytczuk–Pawlik–Pleszczyński arXiv:2308.13882v2",
+        "Datko–Pawlik doi:10.3390/sym17020305",
+        "OEIS A005448",
+        "Resultary ee8a475fe7fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older theorem gives B=0 with even A or 1≤B≤m, and its Corollary 1 gives S(m); a yes/no classifier plus a total incidence count does not specify the individual positive multiplicities.",
+          "The matched record gives every multiplicity and the same contraction. Formal summation of its tail difference and normalizing the quadratic at m−3 floor(mu) imply the frozen generating function and conditional limit law directly."
+        ],
+        "reasoning": "The earlier literature does not establish the full theorem in the inspected statements. The distinct equivalent record covers it irrespective of unresolved priority; the residual corollaries do not distinguish the findings.",
+        "searches": [
+          "Grytczuk–Pawlik–Pleszczyński arXiv:2308.13882v2, Section 2.5",
+          "Datko–Pawlik doi:10.3390/sym17020305, Proposition 1 and Theorem 2",
+          "Resultary ee8a475fe7fb exact spectrum and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record ee8a475fe7fb counts distinct root words of linear weight-two outputs, with n=m+1 and r=t. Its upper endpoint floor((A+B)/2) equals m−ceil(C/2), and its lower endpoint is the same as the frozen one.",
+          "It deletes 2(r−1) zeros from each of the three gaps and gives the inverse by inserting those zeros."
+        ],
+        "reasoning": "The match uses the same objects, root equivalence, interval and bijection. No change of quantifier or reversal from outputs per root to roots per output is needed.",
+        "searches": [
+          "Resultary: complete multiplicity distribution distinct roots per binary shuffle-square word with exactly two ones; tail count and three-gap peeling bijection",
+          "Resultary: binary shuffle squares root multiplicity inverse image overlaps fixed composition two ones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005448 gives 1+3n(n−1)/2, with Pawlik's 2023 interpretation as the number of length-2n two-one binary shuffle squares.",
+          "Record ee8a475fe7fb states H(n−3r+3) for the tail and H(n−3r+3)−H(n−3r) for the exact count, where H(j)=S(j−1). Its extremal counts under the same shift are 1,4,10."
+        ],
+        "reasoning": "OEIS gives only the t=1 tail; the catalogue theorem gives exactly the full spectrum, not just a matching initial table.",
+        "searches": [
+          "Resultary: H(n-3r+3) complete inverse root spectrum two-marker binary shuffle squares exact multiplicity",
+          "OEIS A005448 binary shuffle squares Pawlik 2023 length 2n exactly two ones"
+        ]
+      },
+      "rationale": "The substantive theorem has equivalent coverage in a distinct catalogue record: the same root interval, full inverse spectrum and three-gap bijection for all lengths. The catalogue path is dated after the frozen path, so this is a finding of exact duplication in the available record, not a finding that the assigned record lost historical priority or derived from the match. The generating function and conditional limit in the frozen record are automatic consequences of the matched theorem, not a distinct substantive result. The earlier papers and the OEIS entry cover only parts of the claim.",
+      "residual_risks": [
+        "The historical or editorial relationship between the two distinct records is not established. The direct equivalence does not imply which result was discovered first.",
+        "Focused primary searches do not settle priority in unindexed work or inaccessible supplementary material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers membership and positive total",
+          "evidence": [
+            "Even prefix ending in adjacent ones, or factor 10…01 of length 3 through n+1; total 1+3n(n−1)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.13882v2",
+          "material_read": "Section 2.5, Theorem 3 and Corollary 1 (HTML offsets 38190 and 41513)",
+          "method": "Open-access HTML passages",
+          "title": "Variations on shuffle squares",
+          "trigger": "Exact same output composition in prior literature"
+        },
+        {
+          "assessment": "Forward count and special inverse instances, not full inverse spectrum",
+          "evidence": [
+            "Fixed-root (a+1)(b+1) count; special uniquely rooted families and the explicit example 0000100100."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+          "material_read": "Proposition 1, p. 3; Table 3, p. 5; Theorem 2 and two-root example, pp. 7–8",
+          "method": "Publisher-hosted open-access PDF",
+          "title": "Roots of Binary Shuffle Squares",
+          "trigger": "Closest earlier paper on distinct roots and root counts"
+        },
+        {
+          "assessment": "Exact aggregate count only",
+          "evidence": [
+            "The entry counts weight-two shuffle squares, without separating them by number of roots."
+          ],
+          "identifier_or_url": "https://oeis.org/A005448",
+          "material_read": "Sequence formula and Pawlik comment dated 7 September 2023 (offsets 0 and 2852)",
+          "method": "Public sequence entry",
+          "title": "OEIS A005448",
+          "trigger": "Exact sequence and shuffle-square interpretation"
+        },
+        {
+          "assessment": "Equivalent main theorem and bijection; catalogue dates do not establish historical priority",
+          "evidence": [
+            "Its length is 2n and its threshold is r. The interval, three equal gap deletions, H(n−3r+3) tail, and consecutive-tail difference are exactly the frozen claim with n=m+1 and r=t."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-root-multiplicity-spectrum-of-two-marker-binary-shuffle--ee8a475fe7fb/RESULT.md",
+          "material_read": "Finding, scope, proof of root interval and contraction, and prior-work discussion (offsets 0–4860 and 5220–7917)",
+          "method": "Published text via local mirror",
+          "title": "Complete root-multiplicity spectrum of two-marker binary shuffle squares",
+          "trigger": "Distinct indexed exact match for the complete theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The ambiguity of sparse shuffle-square roots is a natural exact invariant and the gap bijection is mathematically useful. As a distinct contribution in the reviewed material it is already completely covered by the matched theorem. The remaining generating function, limiting law and incidence check are routine consequences or already covered by earlier forward counts; they do not supply a separate worthwhile unknown fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

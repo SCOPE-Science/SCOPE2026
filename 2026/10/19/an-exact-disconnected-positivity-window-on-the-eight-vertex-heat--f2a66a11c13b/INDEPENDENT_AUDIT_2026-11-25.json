@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:43.637323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With Q=-L, the Padé series has positive coefficients in degrees 1–5, zero in degree 6, and -1/1728 in degree 7. A path-distance d pair has a unique length-d walk; at distance 6 its degree-seven matrix power is strictly negative (one negative diagonal stay, no length-seven all-edge walk by parity), so the first nonzero Padé contribution there is positive. Diagonal continuity and finiteness then settle n<=7, including P1. At distance 7 the leading entry is -h^7/1728, proving obstruction on every larger path. For P8 the denominator matrix is positive definite and the explicit scalar D is positive on h>=0. An independent exact replay (python3 /workspace/replay_pade_path.py) used the Padé Taylor recurrence and powers of Q to compute coefficients of 4D times the step through degree 16, without running the interpolation checker. The degree-15 and -16 terms vanish in all entries; multiplying the degree-14 truncation by the degree-two denominator gives the exact degree-at-most-16 polynomial identity, since their Taylor coefficients agree to that degree. This reproduced both exceptional numerators, both rational root brackets, the decimal locations within 10^-15, and the 40+20 sign classes. Descartes gives one simple positive root for each controlling polynomial; for each other numerator with one sign change, the positive value at 9/2 and near zero put its sole positive root beyond 9/2. Thus on the closed positive window all other entries are strictly positive, with just the indicated pair vanishing at each endpoint. Outside it one controlling entry is strictly negative, while at h=0 the step is I. The exact certificate is not a sampling argument and is separate from the arbitrary-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary general CTMC result covers all generators of size at most seven for sufficiently small steps. Lóczi–Ketcheson show zero absolute-monotonicity radius for the fourth-order [2/2] map. Jin et al. prove threshold results for particular fully discrete finite-element schemes."
+        ],
+        "reasoning": "The first gives the positive side of the small-step dimension barrier outright; the second shows absence of a uniform guarantee, not the sign behavior of a given path. The finite-element threshold result has different scheme hypotheses, so it does not resolve the full P8 window.",
+        "searches": [
+          "Resultary 4aad2a3f58ab Finding and proof",
+          "arXiv:1303.6651 §2.2.1",
+          "arXiv:1510.02825v1 §4 Theorems 4.2–4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4aad2a3f58ab, 5b0558f2856d, 42b36260c821, 690509e7de2b and 73910250a06c",
+        "Zappavigna et al. 2012 p. 14",
+        "arXiv:1303.6651 §2.2.1",
+        "arXiv:1510.02825v1 §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directed witness already gives the general disconnected-window phenomenon and the known -h^7/1728 leading coefficient explains the distance-seven argument on paths. The P8 entry numerators and remaining sign classes here depend on its symmetric Laplacian and are not in the directed certificate."
+        ],
+        "reasoning": "Do not credit the coefficient or general barrier as new. Applying the coefficient to path walks is a short specialization. The complete window, both phase boundaries and the identification of the active entries require new instance-specific sign evidence, which the earlier dimension and unconditional-positivity theorems do not mechanically determine.",
+        "searches": [
+          "Resultary 4aad2a3f58ab, local-mirror offsets 0 and 4965",
+          "Zappavigna et al. 2012 p. 14",
+          "Resultary 73910250a06c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-stage Gauss completed step is exactly the [2/2] Padé heat map. Zappavigna et al. use the same rational map with an eight-state nilpotent one-way shift; 4aad2a3f58ab instead has an absorbing directed pure-birth generator."
+        ],
+        "reasoning": "The map is identical but neither generator is the reversible path. In particular the absorbing pure-birth window ends at 2sqrt(3), whereas the frozen upper endpoint exceeds 4, excluding equal positivity sets at the stated unit rates.",
+        "searches": [
+          "Resultary: Gauss–Legendre [2/2] path diffusion exact positivity, distance seven and P8 reentry",
+          "Zappavigna et al. 2012, p. 14",
+          "Resultary 4aad2a3f58ab Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4aad2a3f58ab contains an exact window for a pure-birth generator; 5b0558f2856d gives an exact recovery result for [0/2] on C8; 42b36260c821 gives exact intervals on paths and cycles for explicit RK4. 690509e7de2b concerns complete multipartite graphs. 73910250a06c classifies unconditional fourth-order Gauss positivity for weighted paths, not all permitted steps on an excluded path."
+        ],
+        "reasoning": "Exact results for the wrong matrix or method cannot supply this invariant. Exclusion from unconditional positivity supplies at most a negative instance, not the complete interval or its endpoints.",
+        "searches": [
+          "Resultary: exact heat-step intervals on paths and cycles, weighted paths and [2/2]",
+          "Resultary 4aad2a3f58ab, 5b0558f2856d, 42b36260c821, 690509e7de2b and 73910250a06c"
+        ]
+      },
+      "rationale": "The negative seventh coefficient and its small-step positivity-loss mechanism are prior. The earlier general CTMC result already gives small-step positivity through dimension seven, a dimension-eight obstruction and a disconnected window for a different directed generator. The supported distinct result is the exact complete positivity interval for the canonical symmetric reflecting P8, with different controlling polynomials and entry endpoints, plus the explicit path specialization on the obstructed side. Neither generic bounds nor a window for a directed example determine this one.",
+      "residual_risks": [
+        "Ranked corpus searches and bounded literature inspection do not rule out an unindexed exact result for this same reversible path and Padé map.",
+        "Priority is not inferred from nonmatching search results; the mechanism and related directed interval are explicitly credited as known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior coverage, different exact invariant",
+          "evidence": "Small-step positivity for all CTMC generators through seven states; exact {0} union [h0,2sqrt(3)] for an absorbing pure-birth chain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "material_read": "Finding and exact-window discussion",
+          "method": "Local-mirror full-text passages, offsets 0 and 4965",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Identical method, sharp dimension and exact disconnected window"
+        },
+        {
+          "assessment": "Same obstruction mechanism, not reflecting-path positivity",
+          "evidence": "The far entry of the eight-dimensional nilpotent shift is negative from -h^7 N^7/1728.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "p. 14, nilpotent and Hurwitz Metzler examples",
+          "method": "OA full text around offset 40500",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Known seventh-order coefficient and eight-state witness"
+        },
+        {
+          "assessment": "Method-level obstruction only",
+          "evidence": "Unique order-four (2,2) rational approximant is the [2/2] Padé map and has absolute-monotonicity radius zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+          "material_read": "§2.2.1, p. 6",
+          "method": "OA full text around offset 21846",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General uniform positivity obstruction for the same map"
+        },
+        {
+          "assessment": "Different spatial/time discretization",
+          "evidence": "Eventual positivity threshold under H^-1>0 and sufficient bounds for strictly Delaunay triangulations; no [2/2] reflecting-path window in these statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02825v1",
+          "material_read": "Abstract; §4, Theorems 4.2 and 4.3, pp. 9–10",
+          "method": "OA full text",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Possibly stronger positivity recovery theorem for heat discretizations"
+        },
+        {
+          "assessment": "None determines the same unit-rate P8 positivity set",
+          "evidence": "Respectively [0/2] on a cycle, explicit RK4, complete multipartite geometry, and unconditional positivity classification for weighted paths.",
+          "identifier_or_url": "5b0558f2856d; 42b36260c821; 690509e7de2b; 73910250a06c",
+          "material_read": "Result statements for each comparison",
+          "method": "Resultary and local mirror comparison",
+          "title": "Nearby Resultary heat-step positivity classifications",
+          "trigger": "Exact interval or stronger criterion for closely related paths and methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unit reversible path is a canonical conservative heat discretization, and eight is the first size where arbitrarily small steps fail. The exact window is useful for deciding positivity at any chosen step in this first obstructed geometry: it proves that decreasing the step can destroy positivity, and shows that making it large again also fails by a different entry. Neither A-stability nor a directed-generator example can answer that question for the reflecting path.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

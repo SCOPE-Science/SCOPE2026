@@ -2,95 +2,58 @@
 
 ## Finding
 
-For a community of \(s\ge1\) species with positive integer abundances \(n_1,\ldots,n_s\), independently and uniformly placed in a unit study region, let \(S(a)\) be expected richness in a subregion with area fraction \(a\), and let \(z(a)=d\log S(a)/d\log a\) be its instantaneous species–area exponent. Let \(r_1\) and \(r_2\) denote the numbers of singleton and doubleton species. The derivative of this exponent near complete sampling obeys the exact identity
+For a community with one singleton species and one species of abundance \(n\), place all individuals independently and uniformly in a study region. The local log–log exponent \(z(a)\) of expected richness as a function of relative sampled area \(0<a<1\) has the following complete classification: it is constant when \(n=1\), strictly decreasing when \(n=2\), and has exactly one stationary point when \(n\ge3\). In the last case the stationary point is a strict global minimum: \(z\) strictly decreases before it and strictly increases afterward. Its area is \(a_n=1-q_n\), where \(q_n\in(0,1)\) is the unique positive zero of \(P_n\) displayed below.
 
+Among all communities with deterministic positive integer species abundances, the smallest total census that permits such a fall and then rise is four individuals. The vector \((1,3)\) attains that minimum census, with the exponent minimized at
 \[
-\lim_{a\uparrow1}z'(a)=\frac{r_1(s-r_1)-2sr_2}{s^2}.
-\]
-
-Consequently a strictly positive (respectively negative) right-hand expression forces the local log–log exponent to increase (respectively decrease) throughout some terminal area interval. No sign conclusion is asserted at equality.
-
-For the particularly natural *one singleton and one common species* abundance vector \((1,n)\), the complete shape is sharp for all integers \(n\ge1\): \(z\equiv1\) when \(n=1\), \(z\) strictly decreases for \(n=2\), and for every \(n\ge3\) there is **exactly one** stationary point in \((0,1)\), a strict global minimum; the exponent decreases before it and increases after it. In the latter case the unique minimum is \(a_n=1-q_n\), where \(q_n\in(0,1)\) is the unique positive zero of the explicit polynomial \(P_n\) below. Thus **four individuals**, in abundance pattern \((1,3)\), are necessary and sufficient for a random-placement community to have a log–log species–area exponent that first falls and then rises as sampling area grows. This is minimal across all positive integer abundance partitions, not merely two-species communities.
-
-For \(n=3\), the minimum is located exactly at
-\[
- a_3=\frac{8-2\sqrt 7}{3}=0.90283245929\ldots.
+a_3=\frac{8-2\sqrt7}{3}=0.90283245929\ldots.
 \]
 
 ## Assumptions and scope
 
-Fix a measurable study region of area one and a subregion of relative area \(0<a<1\). For each \(i\), the \(n_i\) distinct individuals of species \(i\) have independent uniformly distributed locations; each is included in the subregion with probability \(a\). Total abundances are deterministic positive integers. No spatial dependence, species interaction or immigration is assumed. Expected observed species richness is
+The study region has area one and the subregion has relative area \(a\). Each of the \(n_i\ge1\) individuals of species \(i\), independently of the other individuals, is in the subregion with probability \(a\). Species abundances \(n_1,\ldots,n_s\), \(s\ge1\), are fixed. Under this classical model the expected richness and its local exponent are
 \[
- S(a)=\sum_{i=1}^{s}\bigl[1-(1-a)^{n_i}\bigr]>0,
- \qquad z(a)=\frac{aS'(a)}{S(a)}.
+S(a)=\sum_{i=1}^s[1-(1-a)^{n_i}],\qquad z(a)=\frac{aS'(a)}{S(a)}.
 \]
+The exponent concerns expected, not realized, richness; it is not a fitted power-law slope over a finite area range.
 
-The terminal derivative is the one-sided limit from \(a<1\); in the proof the polynomials extend continuously to \(a=1\). The theorem concerns the *local exponent*, not the first derivative of richness on ordinary linear axes or any fitted power-law slope over a finite observation window.
+For context, the complete-sampling derivative follows directly from the classical richness equation. If \(r_1\) and \(r_2\) are the numbers of singleton and doubleton species, then \(S(1)=s\), \(S'(1)=r_1\), and \(S''(1)=-2r_2\). Differentiating \(aS'/S\) and using continuity at \(a=1\) gives
+\[
+\lim_{a\uparrow1}z'(a)=\frac{r_1(s-r_1)-2sr_2}{s^2}.
+\]
+A strict sign implies the corresponding sign on a terminal interval, while a zero derivative at the boundary gives no sign conclusion by itself. This endpoint calculation is a corollary of the existing model, not a separate claim of originality, and does not count interior stationary points.
 
 ## Proof
 
-**Universal terminal law.** Put \(q=1-a\). Differentiation gives
+**Complete classification for \((1,n)\).** Put \(q=1-a\) and \(G_n(q)=\sum_{j=0}^{n-1}q^j\). Factoring the richness polynomial gives \(S(a)=(1-q)(1+G_n(q))\), so
 \[
- S(1)=s,\qquad S'(1)=r_1,\qquad S''(1)=-2r_2.
+z(a)=\frac{1+nq^{n-1}}{1+G_n(q)}.
 \]
+This is identically one for \(n=1\); for \(n=2\) the derivative of \((1+2q)/(2+q)\) with respect to \(q\) is \(3/(2+q)^2>0\), so the exponent strictly decreases with \(a\).
 
-The third identity holds because only abundance-two terms contribute nontrivially to the second derivative at \(q=0\). Since
+For \(n\ge3\), the quotient rule gives \(dz/dq=P_n(q)/(1+G_n(q))^2\), with
 \[
- z'(a)=\frac{S'(a)}{S(a)}+
-  \frac{a S''(a)}{S(a)}-
-  \frac{a S'(a)^2}{S(a)^2},
+P_n(q)=-\sum_{j=0}^{n-3}(j+1)q^j+(n-1)(2n-1)q^{n-2}
++n\sum_{j=1}^{n-2}(n-1-j)q^{n-2+j}.
 \]
-substitution at \(a=1\) proves the stated exact identity. Polynomials have continuous derivatives at \(a=1\), so any strict terminal sign persists on a sufficiently small nonempty interval immediately below one. The equality case is intentionally left unclassified by this first-order law.
+Indeed the numerator is \(n(n-1)q^{n-2}(1+G_n)-(1+nq^{n-1})G_n'\). The leading would-be term of degree \(2n-3\) cancels. The resulting coefficients are negative through degree \(n-3\) and positive from degree \(n-2\) through \(2n-4\). Also \(P_n(0)=-1\) and \(P_n(1)=n(n-1)(n+1)/2>0\). Descartes' rule and the intermediate value theorem give exactly one positive zero, in \((0,1)\); the sign is negative below it and positive above. Since \(dq/da=-1\), this yields precisely one strict minimum as claimed. In particular \(P_3(q)=3q^2+10q-1\), so \(q_3=(-5+2\sqrt7)/3\).
 
-**Two-species global classification.** For abundances \((1,n)\), set \(G_n(q)=\sum_{j=0}^{n-1}q^j\). The exact identity \(S(a)=(1-q)(1+G_n(q))\) yields
-\[
- z(a)=\frac{1+nq^{n-1}}{1+G_n(q)},\qquad q=1-a.
-\]
-For \(n=1\), the exponent is identically one. For \(n=2\), \(z=(1+2q)/(2+q)\), strictly increasing as a function of \(q\), hence strictly decreasing as a function of area.
-
-For every integer \(n\ge3\), differentiation with respect to \(q\) gives
-\[
- \frac{dz}{dq}=\frac{P_n(q)}{(1+G_n(q))^2},
-\]
-where
-\[
- P_n(q)= -\sum_{j=0}^{n-3}(j+1)q^j
- +(n-1)(2n-1)q^{n-2}
- +n\sum_{j=1}^{n-2}(n-1-j)q^{n-2+j}.
-\]
-The coefficient list of \(P_n\), in increasing powers of \(q\), has negative coefficients in degrees \(0,\ldots,n-3\), then positive coefficients in degrees \(n-2,\ldots,2n-4\). Thus there is exactly one sign change. Moreover
-\[
- P_n(0)=-1<0,\qquad P_n(1)=\frac{n(n-1)(n+1)}2>0.
-\]
-By Descartes' rule of signs (counted with multiplicity), \(P_n\) has at most one positive real zero, and the intermediate value theorem supplies one in \((0,1)\). Because the denominator above is strictly positive, \(z\) increases with \(q\) beyond that root and decreases with \(q\) below it. Since \(dq/da=-1\), \(z\) strictly decreases with area until the unique point \(a_n=1-q_n\) and strictly increases thereafter. It is therefore the unique strict global minimum. For \(n=3\), \(P_3(q)=3q^2+10q-1\), yielding the exact displayed value of \(a_3\).
-
-**Sharp minimum number of individuals.** Every total abundance \(\sum_i n_i\le3\) belongs, up to permuting species, to one of the single-species cases \((1),(2),(3)\), all-singleton cases \((1,1),(1,1,1)\), or the case \((1,2)\). All-singleton abundances yield \(z\equiv1\). The case \((1,2)\) is strictly decreasing by the formula above. For one species with \(n\ge2\),
-\[
- z(a)=\frac{nq^{n-1}}{G_n(q)}.
-\]
-Its derivative with respect to \(q\) is positive on \((0,1)\), since
-\[
- (n-1)G_n(q)-qG_n'(q)
- =\sum_{j=0}^{n-1}(n-1-j)q^j>0.
-\]
-Hence every one-species exponent strictly decreases with area. No community containing at most three individuals can exhibit the stated fall-then-rise. The verified \((1,3)\) construction contains four individuals and exhibits exactly that behavior, proving minimality.
+**Minimal census.** Among positive integer abundance partitions of at most three individuals, the only possibilities are all singletons, a single species, or the pair \((1,2)\). All-singleton exponents are constant, and the pair \((1,2)\) was handled above. For one species of abundance \(n\ge2\), the exponent is \(nq^{n-1}/G_n(q)\). Its derivative in \(q\) is positive on \((0,1)\) because the factor \((n-1)G_n-qG_n'=\sum_{j=0}^{n-1}(n-1-j)q^j\) is positive there. Thus it strictly decreases in area. The proven \((1,3)\) minimum establishes that four individuals suffice.
 
 ## Verification
 
-Run `python3 verify_species_area.py` using Python 3.10 or later; it has no third-party dependencies. Its exact integer-polynomial tests compare the closed formula for \(P_n\) with independently differentiated numerators for \(2\le n\le150\); it checks the singleton/doubleton endpoint identities in 19,607 finite abundance vectors; it numerically brackets a unique stationary location for \(3\le n\le250\); and it independently enumerates all integer abundance partitions with at most three individuals. The tests are finite checks of the derived identities and examples, **not a substitute for the all-integer analytical proof**. For the \((1,3)\) example, the critical quadratic and its exact radical root are verified directly.
+The accompanying `verify_species_area.py` compares the derivative numerator with independent exact integer-polynomial differentiation for \(2\le n\le150\), checks the classical endpoint calculation on 19,607 abundance vectors, numerically brackets the root and samples the derivative sign for \(3\le n\le250\), and enumerates abundance partitions through total census three. It also compares numerical values at \(n=3\) with the exact radical derived above. The independent variable in the polynomial checks is \(q=1-a\). The universal claims follow from the analytic proof, not the finite checks.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-The finite random-placement expected-richness equation is classical; He and Legendre (2002), Eq. (1), explicitly write it for arbitrary fixed species abundances, and their Table 1 already contains the *most uneven* special-abundance curve, including the two-species \((1,n)\) curve before differentiation. This prior formula is not claimed as new. Coleman (1981) is an earlier source of random-placement species–area relations. Tjørve, Kunin, Polce and Calf Tjørve (2008) explicitly examine nonmonotonic log–log species–area shapes from uneven occurrence and spatial patterns in a related gridded occupancy model, so qualitative reversals of curvature are **not** claimed as new either. The contribution here is the exact fixed-individual-count terminal sign law, all-\(n\) uniqueness of the one-common-species elasticity minimum, and its sharp four-individual onset. A separate two-species Poisson-placement calculation also has log–log slope turnings, but its unbounded independent abundance counts and two-turning structure do not imply this finite-census theorem.
+He and Legendre (2002), Eq. (1), give the classical random-placement expected-richness formula for fixed individual abundances. Their Table 1 contains the most uneven abundance case, including the \((1,n)\) richness curve for two species. Neither that curve nor the routine terminal derivative calculation is asserted to be new. The contribution is the all-\(n\) interior turning classification of its local exponent and the sharp four-individual onset over all abundance partitions.
 
-The closest older Coleman full text was not obtainable for complete comparison. In particular, the broader random-placement literature might contain an equivalent or stronger result; that priority risk remains. No claim of globally established originality is made beyond the stated inspected comparisons.
+Qualitative changes of shape in log–log species–area curves are not claimed as new; see Tjørve et al. (2008) for related work on abundance and spatial distribution. Resultary record `03c33baca66d` examines a different two-species model with independent Poisson processes and can have two turns. Its random census and unbounded area variable do not give the deterministic finite-census result here. Coleman's earlier random-placement paper was not available for a complete statement-level comparison, so historical priority is not certified.
 
-## Limitations
-
-The result concerns expected richness, not an individual realized sample. Spatial clustering, fixed occupied grid cells, finite-size specimen geometry, nonuniform species-location distributions, and alternative observation procedures can change the shape. The terminal derivative identity does not classify the equality case, and the complete interior turning count is proved only for the indicated two-species family, not all finite communities. The proof does not establish empirical detectability of the narrow late-area increase or global historical priority.
+The interior turning count is proved only for the singleton/common family, not for general finite abundance vectors. Spatial clustering, gridded occupancy, finite-size specimens, and other sampling models can produce different conclusions. The theorem does not establish empirical detectability of the turn.
 
 ## References
 
-1. Coleman, B. D. (1981). *On random placement and species-area relations*. Mathematical Biosciences 54, 191–215. DOI: `10.1016/0025-5564(81)90086-9`. Earlier model source; original complete text inaccessible for this comparison.
-2. He, F. and Legendre, P. (2002). *Species diversity patterns derived from species–area models*. Ecology 83, 1185–1198. DOI: `10.1890/0012-9658(2002)083[1185:SDPDFS]2.0.CO;2`. Available author-hosted full text: https://sites.ualberta.ca/~fhe/He-publications/He_Legendre02.pdf. First public publisher date verified as 2002-05-01.
-3. Tjørve, E., Kunin, W. E., Polce, C. and Calf Tjørve, K. M. (2008). *Species–area relationship: separating the effects of species abundance and spatial distribution*. Journal of Ecology 96, 1141–1151. DOI: `10.1111/j.1365-2745.2008.01433.x`. Publisher-hosted full HTML examined.
+- Coleman, B. D. (1981). *On random placement and species-area relations*. Mathematical Biosciences 54, 191–215. DOI: `10.1016/0025-5564(81)90086-9`.
+- He, F. and Legendre, P. (2002). *Species diversity patterns derived from species–area models*. Ecology 83, 1185–1198. DOI: `10.1890/0012-9658(2002)083[1185:SDPDFS]2.0.CO;2`. [Author-hosted full text](https://sites.ualberta.ca/~fhe/He-publications/He_Legendre02.pdf).
+- Tjørve, E., Kunin, W. E., Polce, C. and Calf Tjørve, K. M. (2008). *Species–area relationship: separating the effects of species abundance and spatial distribution*. Journal of Ecology 96, 1141–1151. DOI: `10.1111/j.1365-2745.2008.01433.x`.

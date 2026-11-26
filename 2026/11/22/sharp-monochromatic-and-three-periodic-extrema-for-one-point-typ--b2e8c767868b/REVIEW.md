@@ -1,11 +1,21 @@
-# Scientific review of the path-extension extremum
+# Independent mathematical audit
 
-**Correctness — PASS.** Every singleton extension is encoded by one of four states at each named vertex. The only forbidden local patterns are the two complementary positive colours across an old edge, so the four-state transfer is exact. The displayed sorted-deficit update is algebraically reconstructed from the four-state recurrence, and the componentwise comparison proves global extremality by induction. The initial deficit ties and subsequent strict inequalities establish all equality cases. The all-order proof does not depend on finite computations. The separate direct enumerator, transfer, characteristic-polynomial calculation and equality-case enumerations supply reproducible finite checks.
+## correctness
 
-**Originality — PASS, with historical uncertainty.** The full-text primary literature inspected treats free amalgamation in general, rainbow-free edge-colouring on fixed complete graphs, or extremal host graphs. None of its identified assertions provides the all-colouring comparison on an induced partial-colour path with a nonedge state, nor the rigid three-periodic minimizer. Relevant published research searches returned other rainbow-triangle or colouring-path problems with different statements. The maximal and minimal *integer sequences* do appear in OEIS in unrelated array/word interpretations; their numerical appearance is not presented as novel. No checked source establishes the claimed argmin/argmax characterization or implies it from a stronger theorem. Possible terminology-based priority overlap remains a specific risk.
+PASS
 
-**Mathematical value — PASS.** The result determines a natural extension-type complexity invariant under a fixed sparse parameter skeleton, with a sharp theorem over exponentially many named edge-colourings at each length. The extremizers exhibit opposite structural mechanisms—complete colour alignment versus forced three-colour frustration—and have provably distinct exponential rates. A sorted-deficit comparison principle supplies more than a routine evaluation of a single transfer matrix: it compares all matrix products and characterizes every extremizer.
+The frozen theorem's consecutive-triple characterization fails literally at n=3: (1,1) satisfies it vacuously but gives 50 types, not the minimum 49 given by (1,2). The complete repaired Finding makes the six periodic prefixes the definition for every n>=3 and restricts the triple test to n>=4. The repaired proof checks the two-edge case explicitly. Free amalgamation and homogeneity identify nonalgebraic types with admissible one-point patterns: triangles with the extra point can involve only consecutive old vertices, and free duplication gives infinitely many realizations. From v'_0=v'_c=S and v'_a=S-v_b, v'_b=S-v_a, the retained sorted deficits a<=b give the componentwise update (2S+a+b; S+a+b,2S+a,2S+b). The choice of the two smallest or largest retained deficits bounds all future states by monotone induction; the coefficient 2 of S makes a strict earlier loss persist. After one edge the smallest deficit belongs uniquely to that colour; repeating chooses it again. For minimizers the second colour differs from the first and the ranks after two edges are (second, first, unused). Selecting the largest deficit rotates the ranks from (1,2,3) to (3,1,2) and preserves strict distinctness and positivity of the colour components, forcing exactly the periodic continuations. The maximum recurrence follows from reducing the monochromatic transfer to a two-by-two matrix; the minimum product and characteristic polynomial reproduce the stated first values and Perron growth. The exact inequalities rho^(1/3)<7/2<(3+sqrt(17))/2 separate the rates. All corrected mathematical statements were reassessed.
 
-**Closest literature and boundaries.** Conant's general free-amalgamation framework establishes the ambient setting, but not these exact counts. Hoppen–Lefmann–Odermann and Bastos et al. have triangle-avoidance extension counts with colored edges required, most importantly complete old graphs; they do not imply the four-state free-amalgamation path theorem. The two OEIS numerical matches are explicitly disclosed. The statement does not extend to cyclic old graphs, non-pointwise-named types or more than three edge colours without new arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the finite-length comparison over all colour words and the exact equality classification, including the corrected short path. Neither the component counts for fixed words nor the numerical sequences are treated as new. The primary and catalog comparisons are bounded, not a proof of historical priority.
+
+## value
+
+PASS
+
+For a natural sparse named base in a standard homogeneous class the repaired theorem determines the structural limits of extension complexity across all colourings and gives every equality case. The sharper contribution is the uniform sorted-state comparison and its rigidity, not enumerating two already-tabulated sequences. The opposite equality patterns lead to genuinely distinct exponential rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

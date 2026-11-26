@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement defines the annealed, three-state-per-edge oriented binomial graph and two-hop path events, including all vertex distinctness requirements and endpoints \(0<p\le1\). The marginal factorization uses independent two-edge witnesses. Joint probabilities partition endpoint subgraphs from independent external witnesses. Triangle and four-endpoint polynomial counts were independently enumerated, and the two strict-sign polynomial factors are manifestly positive on the stated parameter interval. The exact standard-library checker passed 488 rational comparisons, including exhaustive graphs through five vertices. All-order correctness relies on the accompanying symbolic-algebra derivation, not finite enumeration.
+PASS
 
-## Originality — PASS (qualified best knowledge)
+For paths of one or two edges let s=p/2, A=1−s, q=1−s². Complementing both indicators preserves covariance; the common failure marginal is Aq^(n−2). Each external vertex contributes a factor independent of the others and of endpoint edges: 1−2s² for reverse/chain (opposite arc demands), 1−2s²+s³ for a fork (one shared arc), q² for disjoint requests. Endpoint reverse failure requires no edge; a fork needs just its two direct failures. For the chain, conditioning on the two direct failures makes the two interior witnesses have probabilities s²/A each and overlap s³/A², giving endpoint factor A²−2As²+s³. For the disjoint case the two direct failures leave four candidate two-step paths; two witness pairs conflict, two have probability s³ and two have probability s⁴, and every triple contains a conflicting pair. Its endpoint factor is A²(1−4s²+2s³+2s⁴). The chain deficit relative to A²q² is s³[1−2s+s(1−s)²]>0; the disjoint conditional surplus relative to q⁴ is s³[2(1−2s)+s³(4−s²)]>0. Reverse strictness follows from 1−2s<A², and fork strictness already holds on three endpoints (q<1). These checks cover the minimum vertex counts and p=1; p=0 is degenerate and identical requests have positive variance for p>0. Independently counted all orientations/absences for n=2,3,4,5 using adjacency bit sets and integer counts by number of edges, and compared joint laws and signs at p=0,1/9,1/2,5/7,1: python /workspace/branches/twohop_replay.py (3, 27, 729, 59049 configurations respectively). This is corroboration, not the all-order argument. Theorem 2.1 of Alm–Janson–Linusson establishes the stated unrestricted asymptotic contrast, including fixed p=1.
 
-The closest source is Alm–Janson–Linusson's unrestricted-path covariance result, which gives the *opposite* large-order sign for chain events at \(p>1/2\), so cannot cover the negative finite-two-hop chain law. Leander–Linusson treats unrestricted connectivity among four endpoints, not bounded-hop events. Narayanan's common-source positive association is known; the fork sign alone is excluded from novelty credit. Search comparisons for two-hop reachability, directed path correlations, and fixed-
- versus bounded-length reachability did not produce a source proving the exact five-type finite classification. Broader correlation identities not indexed in the searched material remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete correlation classification of the smallest nontrivial routing horizon in an established probabilistic graph model. Its central structural boundary shows that the counter-intuitive positive dependence of unrestricted chain reachability is genuinely a long-path effect: it cannot occur with zero-, one-, or two-edge routes. It additionally distinguishes the signed impact of sharing an endpoint versus sharing a directed arc role and gives exact finite formulas useful in local communication models.
+The evidence distinguishes the exact annealed classification for reachability in at most two steps from both unrestricted small-subgraph correlation theorems and biased biclique count results. No examined distinct result supplies the finite all-order sign pattern or its polynomial joint laws. The positive unrestricted side of the contrast is explicitly prior work.
 
-## Limitations and nearest literature
+## value
 
-The result does not generalize to all path lengths, fixed-edge-count random graphs, or biased edge directions. It does not supersede the unrestricted connectivity theorems of Alm–Janson–Linusson (2009/2011), Leander–Linusson (2013/2015), or Narayanan (2016/2018). The literature comparison is not an independent historical-priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The five symmetry classes form a natural complete classification, with exact probabilities as well as strict signs down to the smallest allowed order. The all-density negative chain law gives a specific threshold-horizon contrast with the known unrestricted result: short competing witnesses are insufficient for the positive high-density correlation. No priority or value is claimed for the unrestricted theorem itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

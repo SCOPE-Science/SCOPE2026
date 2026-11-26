@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:41:42.534604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–54; VERIFICATION.md; verify.py, lines 14–53",
+        "Existing rank-two polytope result 04d0301093d4, Assumptions and Proof, offsets 1280–3290, independently compared with the frozen proof"
+      ],
+      "rationale": "The surviving pairs are precisely those selecting different blocks of the partition into erased pairs and residual singletons. There are at least three blocks, and the class-total hypersimplex decomposition followed by selecting coordinates in each chosen class proves the claimed hull. Its fixed center has all inequalities strict for n≥5. For the translated hull scaled by R=√(2(n−2)/n), the minimum support on the zero-sum unit sphere is the centered inradius. Projected coordinate, singleton upper, and pair upper constraints give clearances α=√(2/((n−1)(n−2))), β=√((n−2)/(2(n−1))), and γ=(n−4)/(2(n−2)), respectively; β>α. The strictly decreasing α and strictly increasing γ cross between 6 and 7, with no equality at integer n. Every closest outward unit constraint normal attains the minimum since the centered ball contacts that halfspace. Conversely, for any minimizing unit support direction v the point ρv of the ball is on the hull boundary; an active inequality there forces its clearance to be ρ and its unit outward normal to be v by equality in Cauchy–Schwarz. This proves exactly the listed two hole regimes. Without erasures only the coordinate and singleton bounds occur and α is the minimum.",
+      "residual_risks": [
+        "The title's ‘dimension-seven’ is n=7 in the original coordinates; the zero-sum space is then six-dimensional and its sphere is S^5. The theorem body states n unambiguously.",
+        "The finite script tests the pair and negative-coordinate normals but not the positive singleton normals, despite the verification prose referring to all candidates. Their strict inequality is proved analytically. No finite random test is used to infer the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source states P(M)={x∈H: x_i≥0, x(C_j)≤1}, A=√((n−1)/n), B_j=√(h_j(n−h_j)/n), and a ball at c is contained exactly when c_i≥rA and c(C_j)≤1−rB_j."
+        ],
+        "reasoning": "These equivalences hold before the prior proof maximizes over c. At c_i=2/n they give exactly r=min{(2/n)/A,min_j (1−2h_j/n)/B_j}. Division by R turns the h_j=1 and h_j=2 options into β and γ, with α the first term. Comparing at 6 and 7 and monotonicity yields the stated transition for every matching, regardless of its cardinality.",
+        "searches": [
+          "04d0301093d4, Assumptions and Proof, bounded offset read 1280–3290"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 04d0301093d4, 868c8c022fa5, a9addfb59135 and 990eb4c5d9a6",
+        "arXiv:0801.3706 and arXiv:2611.05421",
+        "Frozen RESULT.md, Finding, proof and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior formula the closest normals come from the inequalities attaining minimum ratio of slack to projected norm. For h=2 the projected class-indicator unit vector is u_ab; for the lower coordinate constraint it is the negative centered-coordinate vector."
+        ],
+        "reasoning": "The minimizing directions follow from the standard one-line tangency argument: dot the radial contact point with an active unit normal and apply Cauchy–Schwarz; equality identifies that normal with the radius. There is no additional combinatorial, analytic or metric obstacle after substitution. Merely contrasting the two headline invariants (recentered vs fixed-center) misses the prior result explicitly used in the proof.",
+        "searches": [
+          "04d0301093d4 original Proof (exact feasibility at fixed c and projected normal formulas); 868c8c022fa5 Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only identified direct matching-erasure statement is the assigned record itself. For any allowed matching, surviving edge indicators are bases of the connected rank-two matroid with parallel classes its pairs and the remaining singletons."
+        ],
+        "reasoning": "Taking the polar support characterization of a centered ball is the standard metric translation from spherical covering to containment of a ball at the fixed center of this rank-two base polytope.",
+        "searches": [
+          "Resultary: matching erasures in simplex-edge spherical covering / Johnson deep holes",
+          "Resultary 04d0301093d4, exact intrinsic rank-two matroid inradius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "868c8c022fa5, Finding and Proof §1, gives the unaltered hypersimplex-code radius and all holes; its k=2 case gives the record’s baseline and negative-coordinate orbit. a9addfb59135 tabulates harmonic ranks and eigenvalues of that orbit, not covering. 990eb4c5d9a6 computes intrinsic inballs for cycle edge-midpoint hulls."
+        ],
+        "reasoning": "The identified exact catalog covers the unaltered answer, not matching erasures on its own. The harmonic and cycle answers concern a different invariant or a different set of vertices, and do not resolve originality of the erased code; the broader rank-two containment formula does.",
+        "searches": [
+          "Resultary: exact spherical Johnson deep holes and simplex-edge midpoints, records 868c8c022fa5, a9addfb59135, and same-day 990eb4c5d9a6"
+        ]
+      },
+      "rationale": "Direct mechanical coverage by the published rank-two inradius record 04d0301093d4. Its headline optimizes the center, but its proof already states the necessary-and-sufficient ball-containment inequalities at every specified center, with the exact projected normal norms. Substituting the uniform center and class sizes 1 and 2 yields the full matching-erasure cosine and switching rule; the generic halfspace equality condition yields exactly the proposed deep-hole normal directions. The earlier unaltered Johnson result also explicitly gives the claimed baseline. This is affirmative prior-implication evidence, not a judgment based on search failure.",
+      "residual_risks": [
+        "Historical coverage beyond the statement-level inspections is not exhaustive. The negative decision relies on an identified earlier exact implication, not on whether any paper explicitly names the threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the disputed full claim via its exact fixed-center proof statement",
+          "evidence": "The ball at c is contained exactly when c_i≥rA and c(C_j)≤1−rB_j; the proof explicitly supplies both projected norm formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4/RESULT.md",
+          "material_read": "Assumptions and Proof, offsets 1280–3290; Finding context",
+          "method": "Local published mirror, literal locate followed by bounded offset inspection",
+          "title": "Exact Euclidean inradius of connected rank-two matroid base polytopes",
+          "trigger": "Stronger rank-two formula for the exact same surviving convex hull"
+        },
+        {
+          "assessment": "Covers baseline and its deepest directions, not erasures",
+          "evidence": "Specializing k=2 for n≥5 gives exactly α and the negative-coordinate hole directions.",
+          "identifier_or_url": "2026/11/17/...868c8c022fa5",
+          "material_read": "Finding and Proof §1",
+          "method": "Local published mirror",
+          "title": "Sharp spherical deep-hole tails for Johnson hypersimplex codes",
+          "trigger": "Same unaltered Johnson configuration and exact metric"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Computes Gram eigenvalues and sampling ranks, not fixed-center inballs or erasures.",
+          "identifier_or_url": "2026/11/2/...a9addfb59135",
+          "material_read": "Finding and assumptions",
+          "method": "Local published mirror",
+          "title": "Exact-degree spherical-harmonic sampling of simplex-edge midpoints",
+          "trigger": "Same unerased centered edge-midpoint orbit"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Keeps the midpoints of a single Hamiltonian cycle and works in their intrinsic affine span.",
+          "identifier_or_url": "2026/11/22/...990eb4c5d9a6",
+          "material_read": "Finding and assumptions",
+          "method": "Local published mirror",
+          "title": "Exact intrinsic inballs and a mod-four center-locus transition for cycle edge-midpoint polytopes",
+          "trigger": "Same-day edge-midpoint inball formula"
+        },
+        {
+          "assessment": "The inspected passages establish context, not erasure coverage",
+          "evidence": "Musin identifies the two-distance set and discusses cardinality; Yi identifies the extremal isosceles-set construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.3706 ; https://arxiv.org/pdf/2611.05421",
+          "material_read": "p. 2 of each PDF (OA offsets near 4250 and 6250)",
+          "method": "OA PDF passage inspection after a targeted primary literature search",
+          "title": "Spherical two-distance sets; Isosceles sets and two-distance sets in Euclidean space",
+          "trigger": "Same simplex-edge configurations in primary literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof items 1–5",
+        "Prior 04d0301093d4, exact fixed-center inequalities; 868c8c022fa5, unaltered case"
+      ],
+      "rationale": "The spherical code is natural and the comparison across n can be useful as an illustrative corollary. As a stand-alone finding, however, the claimed phase boundary, all-matching uniformity and equality cases are the direct size-1/size-2 substitution and standard tangency consequence of the already known fixed-center feasibility statement. The record adds no surviving structural result beyond this routine specialization and the already known baseline. A new erasure regime is not established, so no repair is proposed.",
+      "residual_risks": [
+        "This does not deny the expository usefulness of the corollary or the potential value of a genuinely nonmatroidal erasure analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

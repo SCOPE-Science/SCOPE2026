@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Rota–Baxter identity reduces exactly to equality of two decomposable vector-valued bilinear maps. Separating the cases \(P(u)=0\), \(P(u)\in Ku\setminus\{0\}\), and \(P(u)\notin Ku\) gives the three necessary-and-sufficient operator families, with all weight and nondegeneracy hypotheses retained. In odd characteristic, a skew-adjoint square-zero operator has even rank, and the ternary Witt index is one, excluding the third branch at zero weight; a complementary-isotropic projection excludes it at nonzero weight. Projective conic counting yields \(q+1\) isotropic lines, and rank-one linear-map counting proves both total and square-zero formulas. Independent coefficient tests and explicit examples are recorded in `VERIFICATION.md` and `verify.py`; no finite run substitutes for the universal proof.
+## correctness
 
-## Originality — PASS (literature-qualified)
-The closest directly relevant full texts are Qaralleh–Mukhamedov–Khakimov (arXiv:2601.08669), a classification on maximal-nilindex nilpotent evolution algebras, and Ladra–Murodov (arXiv:1906.09098), a two-dimensional complex case analysis. Neither theorem includes the zero-annihilator rank-one algebra class in dimension three with finite-field counts. The 2026 survey (arXiv:2610.22248) discusses bilinear-form models and separately raises a perfect-algebra Rota–Baxter problem; it does not provide the three-branch operator criterion or the count/square-zero distinction here. Broader searches of equivalent statements and published mathematical results did not expose a dominating theorem. An unindexed equivalent treatment remains possible; absence from a database is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This is a complete all-weight structural classification on a natural infinite family of nonassociative algebras, not a fixed-coefficient computation. In three dimensions it yields uniform exact operator counts for every odd finite field and every isomorphism type of nondegenerate form. The finer square-zero count distinguishes \(u\) isotropic from anisotropic even though the full count does not. The result complements published operator classifications concentrated on nilpotent chains.
+Substitution in the original identity gives B(Px,Py)u = B(x,(P†+P+λI)y)P(u). If P(u)=cu with c nonzero, completing the square gives (P−cI)†(P−cI)=c(c+λ)I, and applying it to u forces c=−λ. The c=0 case is precisely the first family. If u and P(u) are independent, both scalar forms vanish, giving the two adjoint-complementary equations. Conversely each family satisfies the substituted identity (the third does so irrespective of P(u)). In dimension three an isotropic image has rank at most one. A skew-adjoint square-zero map has even rank, so the third family adds only the already-counted zero map at weight zero. At nonzero weight, −P/λ would be an idempotent with two complementary isotropic spaces, impossible in dimension three. The remaining two families are translates and disjoint at nonzero weight since their values on u differ. After finding an isotropic vector by the intersecting two square-value sets, the hyperbolic plane decomposition gives exactly q+1 isotropic lines. Each contributes q²−1 nonzero maps from V/Ku; for square-zero it contributes q−1 unless it is Ku itself, in which case all q²−1 contribute. Adding zero yields all four displayed counts over any odd finite field. A new direct enumeration of all 3⁹ matrices with B=I over F3 and u=(1,0,0) or (1,1,1) confirmed 33, 66, 66 for weights 0,1,2 and the weight-zero square-zero counts 9 and 15. The frozen checker was inspected, not executed. Its j≥i loop is sufficient by symmetry, although its verification note calls the pairs ordered. The finite checks are corroboration, not the proof.
 
-## Comparison and limits
-The nondegenerate rank-one algebras have \(\operatorname{Ann}(E)=0\) and \(\dim E^2=1\); they cannot satisfy the positive-dimensional nilpotent-chain hypotheses of arXiv:2601.08669. The present finite-field enumerator is not implied by the two-dimensional complex lists of arXiv:1906.09098. The survey's Question 39 concerns perfect algebras, so no resolution of that question is asserted. No claim is made for dimension-four counts, all nondegenerate evolution algebras, or an exhaustive classification of operator conjugacy classes. A human literature audit could find an equivalent statement not captured by the available sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected same-product records count idempotent algebra endomorphisms, not Rota–Baxter operators. Dimension-two operator classifications and the nilpotent chain normal forms do not imply this classification or ternary census. The algebra family, shift operation, and quadratic-space facts are not claimed as new. No equivalent operator classification and census was established in the inspected sources; this is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The one-dimensional-square family is natural and the criterion exhausts every weight without treating the families as disjoint. The ternary census identifies a concrete invariant that the total count misses: the square-zero subset detects isotropy of the square generator. It supplies labelled counts, not orbit counts or a classification of arbitrary evolution algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

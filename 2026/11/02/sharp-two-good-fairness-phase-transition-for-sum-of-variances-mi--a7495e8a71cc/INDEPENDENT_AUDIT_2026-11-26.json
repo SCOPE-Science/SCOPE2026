@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:13:30.457711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full feasible polytope can be verified directly. Adding the two proportionality surpluses gives (b−a)(d−c)≥0, so put h=d−c≥0. The separate constraints are y h≤f−e≤x h, where x=1−2a>y=1−2b>0. Thus p decomposes as 2c S + 2e Q plus a nonnegative residual supported on D,F with F/D ratio in [y,x]; the residual splits between H1 and H2 (and vanishes if h=0). This proves the four-vertex hull and supplies the corrected intermediate identity for the imprecise adding/subtracting sentence in RESULT.md line 22; it does not change the Finding. Direct variance evaluation gives Φ(Q)>Φ(S), Φ(H1)>Φ(H2)=Φ(R), and 4(Φ(R)−Φ(S))=g_x(y). The law of total variance adds a strictly positive between-mean term for any nontrivial mixture of the two tied candidates, whose first mean utilities differ. End signs g_x(0)<0<g_x(x) and strict concavity give one interior crossing. The two one-good-each allocations are EFX; in F, agent 1 has utility zero, fails EF1 and falls below its positive MMS. The exact witness values are 17/100 and 13/80 with t=5/6. These arguments apply on the stated open chamber, not its boundary. The frozen verifier and recorded 330 finite exact-rational checks were inspected, not executed; the universal conclusion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The variance paper gives an extreme-point reduction and support constraints. The few-agent approximation paper advertises ex-ante envy-freeness and ex-post EFX/MMS guarantees, a different problem from classifying optimizers of this objective."
+        ],
+        "reasoning": "The broad reduction provides a method, but does not determine the parametric feasible hull, which vertices can win, the sign curve or its number of crossings.",
+        "searches": [
+          "arXiv:2601.16579v1, Lemma B.2, Theorem B.5, Corollary B.8",
+          "arXiv:2602.14668, few-agent best-of-both-worlds guarantees"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.16579v1",
+        "arXiv:2602.14668 (abstract)",
+        "Resultary 59bd0565e416 and a329fdbf820d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available example solves a fixed system and finds a unique winner. The general argument does not give y(d−c)≤f−e≤x(d−c), the parametric reduction to S and R, or the sign/strict concavity of g_x on each admissible interval."
+        ],
+        "reasoning": "The preceding general tools are applicable, but extracting an exact two-regime boundary and the two-optimum tie needs additional parameter-uniform comparisons and a crossing proof. The new claim is that classification, not a reheated counterexample.",
+        "searches": [
+          "Babaioff–Grofman arXiv:2601.16579v1, Example 5.2 and proof in Appendix B.1, offsets 103885–110377"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At (a,b)=(0.04,0.38), the earlier unique optimum is (25/31)D+(6/31)F, and the one-good-each lottery used for comparison is S."
+        ],
+        "reasoning": "Normalization and relabeling put the earlier example within this identical model. It is a particular strict-R point, not a necessary-and-sufficient test for all normalized values.",
+        "searches": [
+          "Resultary: two agents/two goods ex-ante proportional variance minimization, fair versus unfair phase transition",
+          "Babaioff–Grofman arXiv:2601.16579v1 §5, Example 5.2 and Appendix B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant near-topic records 59bd0565e416 and a329fdbf820d describe ex-post envy-freeness probabilities in exponential and Bernoulli valuation models, respectively, not this fixed-valuation variance objective. Appendix B.1 of arXiv:2601.16579v1 is a point computation, not a phase table."
+        ],
+        "reasoning": "The output sought is a parametric theorem, not a numerical table or scalar witness. Neither random-valuation threshold nor a single prior example supplies it. The bounded catalogue search is not proof of absence.",
+        "searches": [
+          "Resultary semantic lookups for the fixed-valuation S/R classification and two-good fairness thresholds (limits up to 300)"
+        ]
+      },
+      "rationale": "The strongest prior source already gives the same failure mechanism and a unique R optimizer at a specific point in exactly this chamber. No originality is credited for existence of failure, that support mechanism, or reducing variance minimization to extreme points. The supported distinct result is the necessary-and-sufficient phase classification of all parameter pairs in the open chamber, including the single crossover and exact tie with no optimal mixtures.",
+      "residual_risks": [
+        "An unindexed parametric two-by-two optimization result or a differently named equivalent can remain undiscovered. The primary pointwise overlap is established, not speculative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior pointwise overlap and general method; not chamber-wide classification",
+          "evidence": [
+            "The (0.04,0.38) case has the unique optimizer (25/31)D+(6/31)F; Lemma B.2/Theorem B.5 and Corollary B.8 give the general extremality/support framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.16579v1",
+          "material_read": "§5 Theorem 5.1 and Example 5.2 near offset 64183; Appendix B.1 including extreme-point results and numerical example proof, offsets 103885–110377",
+          "method": "OA HTML, explicit comparison after normalizing and aligning allocations",
+          "title": "On Best-of-Both-Worlds Fairness via Sum-of-Variances Minimization",
+          "trigger": "Same minimal instance, exact objective and optimization constraints"
+        },
+        {
+          "assessment": "Stated objectives are different; no inference about uninspected passages",
+          "evidence": [
+            "The two-agent FPTAS promises ex-ante envy-freeness, ex-post EFX and approximate MMS."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.14668",
+          "material_read": "Abstract, offset 0",
+          "method": "OA HTML",
+          "title": "Near-Optimal Best-of-Both-Worlds Fairness for Few Agents",
+          "trigger": "Related few-agent fairness guarantees"
+        },
+        {
+          "assessment": "Different optimization targets and hypotheses",
+          "evidence": [
+            "Exponential or Bernoulli value randomness and ex-post envy-freeness probability, not parametric minimization of own-utility variance."
+          ],
+          "identifier_or_url": "Resultary 59bd0565e416; a329fdbf820d",
+          "material_read": "Ranked catalogue descriptions",
+          "method": "Local Resultary semantic lookup",
+          "title": "Resultary exponential and Bernoulli lottery-fairness threshold records",
+          "trigger": "Closest catalogue phase-transition hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal setting in which the proposed fairness objective was known to fail lacked a boundary identifying when the objective actually loses ex-post fairness. The classification determines both sides and distinguishes coexistence of two optima from an optimal interpolation at equality. This is a motivated exact gap in understanding the objective, not a new numerical witness or a claim for larger allocation problems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

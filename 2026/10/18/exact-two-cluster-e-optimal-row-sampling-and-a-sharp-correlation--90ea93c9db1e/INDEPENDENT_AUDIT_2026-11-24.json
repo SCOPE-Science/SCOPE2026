@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:36.461156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection on a unit row reduces squared error by its squared inner product with the error; minimizing the expectation over unit errors gives the stated sharp eigenvalue. The positive definite Gram matrix and the information matrix are related by orthogonal change of coordinates, including zero-probability cases. Smallest eigenvalue is concave in the probabilities, so averaging within the permutation groups loses nothing. The two contrast eigenvalues and the coupled 2×2 block then exhaust the spectrum. For r≤c the coupled block at uniform sampling is at least the contrast value, itself a global upper bound after averaging. For equal sizes, group interchange makes uniform optimal, with rate (a−pr)/(2p) when r>c. Independently, the coupled-mode maximum can be certified without differentiating: let g_A,g_B be the two class-mean directions in row space with Gram [[a,r√(pq)],[r√(pq),b]]. Take a unit test vector x with inner products (√p,−√q) times a positive κ. Its Rayleigh quotient against u g_A g_Aᵀ+v g_B g_Bᵀ is κ² for all feasible u,v. Solving the eigenvector equation with this Gram inverse gives u/v=(b+qr)/(a+pr) and κ²=(ab−pqr²)/(pb+qa+2pqr). The opposite inner-product signs select the lower eigenmode. Equality in the Rayleigh bound forces this ratio, so the concave coupled branch in u has a unique peak and is strictly increasing and then decreasing. For t=u/v≥1 the transverse bound is (1−c)v; after subtracting it from the coupled matrix the determinant is qc v²[tD−(1−c)] and the lower diagonal is qc v>0. This gives exactly the asserted crossing and clipped optimum, with agreement of the values at the boundary; for t≤1 both relevant modes increase. For fixed p,c,r in the specified open asymptotic range, ab−pqr²=a(1−c)+q(ac−pr²)>0, t₀ grows linearly and the optimum is eventually clipped at R. The uniform coupled Gram eigenvalue tends to a−pr²/c by its Schur-complement equation, so the rate ratio tends to R. Independent eigenvalue checks against 2,500 sampled simplex competitors per case covered uniform, equal-size, unclipped and clipped regimes; at q=10,000 the stated asymptotic example approaches 25/9. These are finite diagnostics, not a global proof. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower–Richtárik equations (5.3)–(5.4) optimize the smallest eigenvalue for arbitrary discrete sketches, and footnote 4 credits the RK optimization to Dai–Soltanalian–Pelckmans, whose equations (13), (15)–(17) give the same worst-case one-step objective and SDP.",
+          "Strohmer–Vershynin use squared row norm sampling, which is uniform here. The catalogue singleton-exception problem has no second transverse mode. Agaskar et al.'s public bibliographic/abstract material advertises exact MSE and optimal sampling, but their primary text was not resolved."
+        ],
+        "reasoning": "Both older SDPs cover the objective at every parameter but leave the optimizer unevaluated; they do not give the threshold or limiting ratio by direct substitution. A group of size one removes an active mode, so its solution does not settle both groups of size at least two. Exact MSE and the worst conditional one-step rate are different criteria unless a specific implication is proved.",
+        "searches": [
+          "Gower–Richtárik arXiv:1506.03296 §5.1 and its cited antecedent Dai–Soltanalian–Pelckmans",
+          "Strohmer–Vershynin arXiv:math/0702226",
+          "Agaskar–Wang–Lu DOI 10.1109/GlobalSIP.2014.7032145 and institutional repository",
+          "Resultary 809fa13c87b2 singleton exception"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61, VERIFICATION.md and verify.py",
+        "Dai–Soltanalian–Pelckmans arXiv:1402.2863",
+        "Gower–Richtárik arXiv:1506.03296",
+        "Strohmer–Vershynin arXiv:math/0702226",
+        "Resultary 6e183c9f201f and 809fa13c87b2",
+        "Agaskar et al. indexed abstract and lawful retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier general convex program still requires the within-group reduction, coupled-mode peak, and the transition against the smaller contrast eigenvalue. Resultary 6e183c9f201f supplies those optimizer regimes and a stronger uniqueness result; from its translated formula the large-q example and ratio can be derived along the same family."
+        ],
+        "reasoning": "This is a new evaluated special geometry relative to the inspected older generic problem, not a new generic SDP theorem. The complete two-block law is already subsumed by the later catalogue classification; its later indexed date does not resolve discovery priority or evidence of circulation before the frozen result.",
+        "searches": [
+          "Compare Gower–Richtárik (5.3)–(5.4), Dai et al. (15)–(17), and Resultary 6e183c9f201f §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For row Gram C and P=diag(π), the same nonnegative spectrum is given by AᵀPA and P^(1/2)CP^(1/2). Maximizing its smallest eigenvalue is exactly approximate E-optimal design, or trace-normalized diagonal congruence scaling, not condition-number minimization.",
+          "Resultary 6e183c9f201f gives the same sampling law with mean correlations ã=a/p, b̃=b/q and across-group d=r. Its middle per-row ratio c(1−c)/[p(cã−r²)] is (1−c)/D; its coupled and uniform regimes likewise match. Indexed 2026/11/02, after the frozen 2026/10/18 record."
+        ],
+        "reasoning": "The later formulation is not distinct merely because it uses group-mean correlations rather than Gram block eigenvalues. The earlier generic E-optimal formulation defines the same objective but does not evaluate it for these correlations.",
+        "searches": [
+          "Resultary semantic lookup for two-cluster randomized Kaczmarz, E-optimal design and correlated row sampling",
+          "E-optimal design/trace-normalized diagonal congruence comparison",
+          "Dai–Soltanalian–Pelckmans arXiv:1402.2863 §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later phase-law entry explicitly tabulates the regimes and rates, and proves full-simplex uniqueness. Earlier resolved references give SDP formulations, general remarks and numerical examples but no evaluated two-class phase law. A bounded primary query found no additional directly comparable older table; that is not evidence of absence."
+        ],
+        "reasoning": "The later formula gives exact coverage, not mere numerical coincidence. An earlier generic SDP or sampled numerical optimizer does not predetermine this evaluated sharp law.",
+        "searches": [
+          "Resultary 6e183c9f201f exact phase-law entry and proof",
+          "Primary-literature search for closed-form compound-symmetry E-optimal/Kaczmarz probabilities"
+        ]
+      },
+      "rationale": "Earlier work explicitly formulates the identical generic one-step E-optimal problem, including its SDP, so neither the objective nor the optimization formulation is new. The specific evaluated two-block solution, transverse/coupled transition and large-class advantage are not supplied by that generic formulation. A later indexed record is mathematically equivalent in the allocation and stronger in full-simplex uniqueness; no earlier coverage by that record was established. No priority claim is made.",
+      "residual_risks": [
+        "Agaskar et al. full-text comparison remains unresolved, and a general design/scaling paper indexed under a different name could have a more explicit formula.",
+        "The catalogue dates indicate indexed publication order, not first derivation or priority. The later exact overlap is substantive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The sharp one-step worst-case E-optimal sampling formulation is already explicit; no evaluated two-block formula in that treatment.",
+          "evidence": [
+            "Equations (15)–(16) maximize the least eigenvalue of Bᵀdiag(p)B or equivalently minimize the worst-case reduction factor via SDP."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+          "material_read": "§II Theorem 2, equations (13), (15)–(17), and Remarks 2–3, PDF offsets 12700–15627",
+          "method": "Lawful OA primary PDF",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Direct antecedent credited by Gower–Richtárik for the identical objective"
+        },
+        {
+          "assessment": "Same objective as a special case, without the analytic two-block optimizer.",
+          "evidence": [
+            "The generic SDP maximizes t subject to a weighted projector sum at least tI and simplex constraints; footnote 4 credits Dai et al. for the RK case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03296",
+          "material_read": "§5.1 equations (5.3)–(5.4), footnote 4 and bibliography ref. [6], offsets 52000–56707 and 101680–104070",
+          "method": "Lawful OA primary PDF",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Cited stronger general sketch-and-project SDP"
+        },
+        {
+          "assessment": "Uniform on normalized rows, not the adaptive two-group optimum here.",
+          "evidence": [
+            "Rows are sampled proportionally to their squared Euclidean norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0702226",
+          "material_read": "Squared row-norm probability rule, PDF p. 4 near offset 8200",
+          "method": "Lawful OA primary PDF",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "Canonical older selection law"
+        },
+        {
+          "assessment": "Equivalent optimizer regimes plus full-simplex uniqueness; later indexed publication.",
+          "evidence": [
+            "Under ã=a/p and b̃=b/q the stated middle branch equals the clipped allocation with R=(1−c)/D."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f",
+          "material_read": "RESULT.md statement and phase and uniqueness proof, offsets 0–7875, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Three-phase optimal sampling for two-cluster correlated Kaczmarz",
+          "trigger": "Direct closed-form phase overlap"
+        },
+        {
+          "assessment": "Material access risk; abstract concerns exact MSE, not sufficient to decide coverage of the phase law.",
+          "evidence": [
+            "Public abstract describes an exact MSE formula; it does not state the two-cluster rates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Indexed abstract/bibliographic descriptions only; no primary full text read",
+          "method": "Lawful institutional/publisher and DOI recovery attempts did not resolve full text",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Plausible additional sampling-optimization prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two exchangeable groups model clustered unit rows while keeping transverse modes in both groups. An exact solution of the worst-initial-error design problem identifies when the smaller class is oversampled and when an active contrast clips the allocation. The tunable unbounded rate advantage over uniform sampling shows that the regime change is not cosmetic. The precise benefit is a sharp one-step coefficient, not optimal finite-horizon MSE or wall-clock cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

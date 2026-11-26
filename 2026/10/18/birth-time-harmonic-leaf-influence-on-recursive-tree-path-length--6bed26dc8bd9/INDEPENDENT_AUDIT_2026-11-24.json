@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:33:26.320266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed j, leafhood independently excludes j from each later parent's choices, with probability product (j−1)/(n−1). On that event, delete j and relabel in birth order. The remaining independently uniform choices give a uniform size-(n−1) recursive tree, and no surviving depth changes. The conditioning leaves D_j's mean H_(j−1) unchanged. Since the unconditional increase in expected path length is H_(n−1), this directly verifies the conditional mean shift without assuming independence of D_j and the remaining tree. Multiplying by the event probability gives the label covariance; summing by reversing the harmonic sum gives −(n−2)/4. The adjacent differences in k=j−1 are (1+H_k−H_(n−1))/(n−1), strictly increasing; harmonic integral bounds approximate the whole profile uniformly to O(1/(n−1)) by u log u at u=k/(n−1). Its unique limiting minimum is at u=1/e. The variance constants also follow directly: if v_t=Var(P_t)/t², conditioning on the size-(t−1) tree gives v_t=(1−1/t²)v_(t−1)+Var(D_t)/t², with Var(D_t)=H_(t−1)−sum_(k<t)1/k² from the depth generating function. Iteration and changing the order of the resulting nonnegative sum give lim v_t=sum_(k≥1)(1/k−1/k²)/(k+1)=2−π²/6. The leaf count grows by one minus a conditional Bernoulli with parameter L_(t−1)/(t−1), so its variance obeys w_t=(1−2/(t−1))w_(t−1)+1/4 and yields w_t=t/12 for t≥3. Thus the correlation coefficient and domain are correct. An independent hand enumeration of the six parent pairs at n=4 gave mean 13/3 and label covariances −5/18, −2/9, 0, summing to −1/2; no execution of the frozen verifier. The deterministic last label and the n=2 degeneracy agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lundblad–Wagner includes uniform recursive trees at α=0, establishes asymptotic moments for the difference between mean leaf depth and mean vertex depth, and marks size, total leaves and path statistics jointly. Saunders's equal-column-sum criterion preserves uniformity within size strata under deletion rules; its exhibited last-in-first-out example deletes the deterministic last leaf."
+        ],
+        "reasoning": "Aggregate generating functions have no fixed-label indicator. The general deletion criterion would require a separate conditioning on leafhood of j and proof of its constant preimage counts, and does not itself give the conditional depth or summed path-length shift.",
+        "searches": [
+          "Lundblad–Wagner DOI 10.4230/LIPIcs.AofA.2026.2 Theorem 6, §3 eq. (12)",
+          "Saunders arXiv:1906.02720, Theorem 2.1 and Corollary 2.1.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.4230/LIPIcs.AofA.2026.2",
+        "arXiv:1906.02720",
+        "Resultary 57e8450fa564, 622c8793c9c4, 4e2828958fad",
+        "DOI 10.1017/S0963548399003855 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The aggregate recurrence uses the sum of depths over present leaves and identifies only the sum of covariances. Lundblad–Wagner's markers are also aggregate. The later fixed-label erasure theorem is sufficient: conditional total mean is E P_(n−1)+H_(j−1), giving the shift by subtraction."
+        ],
+        "reasoning": "The conditional erasure statement for arbitrary prescribed labels gives a direct implication and must be credited even where the target formula is not printed. The earlier deletion criterion and aggregate moment statements do not furnish that conditional representation or identify the label profile.",
+        "searches": [
+          "Lundblad–Wagner §3, pp. 2:7–2:8",
+          "Saunders Theorem 2.1 and its LIFO example",
+          "Resultary 57e8450fa564 Proof §2 and 4e2828958fad Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Later 622c8793c9c4 gives the same conditional shift, individual covariances and age profile. Later 4e2828958fad uses a fixed-label leaf erasure theorem which implies the shift after subtracting the missing unconditional mean increment. Same-day 57e8450fa564 gives the exact aggregate, not the resolved profile."
+        ],
+        "reasoning": "The conditional mean and individual covariance are equivalent given the positive leaf probability; credit the later direct match and implication. The sum over all labels is not an equivalent formulation of its summands.",
+        "searches": [
+          "Resultary fixed-label recursive-tree path length conditional on being a leaf: 622c8793c9c4, 4e2828958fad, 57e8450fa564",
+          "Web search: random recursive trees fixed label leaf conditional total path length conditional leaf deletion harmonic \"random recursive tree\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "57e8450fa564 Proof §2 establishes c_(n+1)=c_n−1/4 for c_n=Cov(P_n,L_n), yielding exactly −(n−2)/4. 622c8793c9c4 explicitly gives the indexed conditional harmonic shift and covariance."
+        ],
+        "reasoning": "The aggregate is counted as exact existing coverage without inferring a same-day sequence. The other indexed match is exact coverage of the profile now, not a verified pre-existing source relative to the frozen record.",
+        "searches": [
+          "Resultary 57e8450fa564, 622c8793c9c4, exact covariance findings and aggregate proof"
+        ]
+      },
+      "rationale": "The supported distinction is the fixed-birth-label conditional harmonic shift and influence profile at the frozen record, not merely its aggregate covariance or the marginal variances. There is distinct same-day exact aggregate coverage and a materially identical later indexed profile. Neither the same-day aggregate proof nor the earlier published passages gives the fixed-label profile. The catalogue comparison does not certify historical priority.",
+      "residual_risks": [
+        "An earlier fixed-label conditioning argument or exact profile may exist under different tree deletion or degree terminology; the indexed later matches do not determine priority.",
+        "The Dobrow–Fill source could not be inspected in full in this audit, and the marginal literature comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate first/second moment framework, not fixed-label conditional influence",
+          "evidence": [
+            "At α=0, moments of the difference of average leaf and vertex depths tend to 1/2 and 1/4. Equation (12) marks size, leaf count, external and total path lengths without a fixed birth-label variable."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "Open proceedings PDF §2 Theorem 6, pp. 2:5–2:6, and §3 pp. 2:7–2:8, eq. (12)",
+          "method": "Lawful open PDF, bounded passages",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Prior mixed path-length and leaf-generating-function result for the same model"
+        },
+        {
+          "assessment": "A criterion for uniformity conditioned on current size in an insertion/deletion process, not this fixed-label conditioning result",
+          "evidence": [
+            "The criterion requires constant column sums for a deletion kernel. The LIFO example removes the newest vertex and therefore treats the deterministic last-leaf case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1906.02720.pdf",
+          "material_read": "Section 2 Theorem 2.1 and Corollary 2.1.1, PDF pp. 3–5, including LIFO example",
+          "method": "Open arXiv PDF, read relevant offsets",
+          "title": "A Class of Random Recursive Tree Algorithms with Deletion",
+          "trigger": "Earlier deletion-based characterization found by the fixed-label search"
+        },
+        {
+          "assessment": "Exact overlap for the aggregate, with no intra-day ordering claimed",
+          "evidence": [
+            "The proof recurses the aggregate c_(n+1)=c_n−1/4 by total covariance, not conditional expectations at a specified leaf label."
+          ],
+          "identifier_or_url": "Resultary 57e8450fa564",
+          "material_read": "Mirrored RESULT.md Finding and Proof §2, offsets 3800–4927, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Exact negative path–leaf covariance and an independent mixed-scale limit",
+          "trigger": "Same-day exact total covariance for the same tree law"
+        },
+        {
+          "assessment": "Later indexed equivalent statement",
+          "evidence": [
+            "Same fixed-label harmonic shift, covariance, aggregate sum and age profile."
+          ],
+          "identifier_or_url": "Resultary 622c8793c9c4",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary search and mirrored text",
+          "title": "An exact leaf–path-length covariance profile in random recursive trees",
+          "trigger": "Strongest exact match to the conditional profile"
+        },
+        {
+          "assessment": "Later indexed erasure theorem, which gives a direct derivation of the conditional shift",
+          "evidence": [
+            "After conditioning specified labels to be leaves and deleting them, birth-order relabelling yields a uniform recursive tree."
+          ],
+          "identifier_or_url": "Resultary 4e2828958fad",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§1–3",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Conditional leaf erasure and the depth–leaf covariance profile",
+          "trigger": "Potential stronger prior implication via conditioning on specified leaves"
+        },
+        {
+          "assessment": "Abstract establishes subject and marginal-limit context, not a whole-paper exclusion of leaf-related statements",
+          "evidence": [
+            "The abstract describes the centered path-length limit; the cited public mirror returned HTTP 403 and the DOI lookup found no readable linked open copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+          "material_read": "Publisher abstract; full text not retrieved",
+          "method": "Web search for identification and lawful OA DOI/cited copy attempts",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Classical exact and asymptotic marginal path-length result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The label-specific effect identifies which birth times contribute most to the negative association of two natural tree statistics. Its exact harmonic magnitude and limiting maximally negative age 1/e cannot be read from the aggregate number or its decay in correlation. This is useful even apart from the marginal asymptotics and the separate aggregate computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

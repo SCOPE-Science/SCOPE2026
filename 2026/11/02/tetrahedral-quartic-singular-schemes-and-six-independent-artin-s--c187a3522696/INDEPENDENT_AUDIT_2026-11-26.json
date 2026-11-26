@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:34:04.199003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof Steps 1–4, VERIFICATION.md, verify_tetrahedral.py",
+        "Corrected /workspace/repairs/2/RESULT.md, completed collision equation and fibre classification",
+        "/workspace/reproductions/quartic.py and quartic.txt (Python 3)"
+      ],
+      "rationale": "Where the two coordinates on an edge are units, the derivative ideal is exactly the two complementary variables. The singular scheme is therefore the six disjoint quotients by the monic squares of the normalized two-term edge quadratics (including their constant coefficients), of rank four each. The equation at a colliding edge over A=the completed marked base has a critical transverse section and nondegenerate binary polar form over A[[s]], not just over the closed fibre. Two distinct isotropic directions over the algebraically closed residue field lift via Hensel's lemma and give a basis; every homogeneous transverse term above degree two is then removed using UδV+VδU by an invertible change preserving A, s and the edge ideal. The residual term is the square of the actual edge quadratic at t=t0+s, yielding UV+(s²+λs+μ)². The inverse formulas recover a_ij and b_i and prove that this pair can be used as two base parameters for that edge. Reducing at a collision gives UV+s⁴; a simple root permits Q as the third coordinate and gives UV+W². The independent wall parameters allow all 64 baskets by pattern, and finiteness of the singular locus forces geometric integrality and normality by the hypersurface criterion. Independent Python checks reproduced all 64 exact support sets over F4 and the edge trace counts for F4, F8 and F16 (and a separate F2 check); the relative normal form is justified by the symbolic proof, not those samples.",
+      "residual_risks": [
+        "The family is marked and all four diagonal coefficients must be units. The two completed parameters are independent for the fixed edge, not jointly twelve parameters for six edges. Nothing is asserted about a simultaneous resolution or the unmarked moduli space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part III introduces the general product-plus-square family and records generally 12 nodes, the Dwork case with six A3, and deformations of a characteristic-two A1. Part II gives local rational-double-point and Gaussian defect background. The desmic paper gives the six point forms uv=t^4 in its Kummer family."
+        ],
+        "reasoning": "The general construction motivates the parameter space, and known rational double-point splitting supplies a tool. The inspected results do not give a completed marked family over arbitrary simultaneous collision walls, or show that the remaining coefficients disappear from its relative equation while both edge parameters stay free.",
+        "searches": [
+          "Catanese–Schütt arXiv:2206.03295v1 §3.8 Example 19 and Remark 21",
+          "Catanese–Schütt arXiv:2110.03078v1 §2.1",
+          "Dolgachev–Kondō arXiv:2505.01033v1 §7"
+        ]
+      },
+      "checked_sources": [
+        "Catanese–Schütt Parts II and III; Dolgachev–Kondō §7",
+        "Resultary f0a07bc20820, 2253bd84ce62 and 7913d261353b; focused search for the corrected relative form"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If a sum of the six Artin–Schreier classes were trivial over an algebraic closure of F2, a coboundary would be defined over some F_(2^m); it is integral, hence regular, on the normal coefficient torus because it solves a monic Artin–Schreier equation. Over sufficiently large finite extensions it would impose a zero trace relation on all profiles, contradicting the earlier 64-profile theorem. Geometric connectedness is stable over algebraically closed extensions. The prior Jacobian ideal also gives the rank-four monic edge quotients directly on the nonzero-diagonal open."
+        ],
+        "reasoning": "Remove both of those consequences from the novelty claim, even though a direct pole proof of the splitting group in the original is mathematically sound. Prior fibrewise splitting at a constrained parameter point loses the parameter-dependent edge term. The repaired relative statement requires splitting over the completed base with its units and retaining two independent local coefficients at the chosen edge; this is not a substitution of variables in the paired-fibre theorem.",
+        "searches": [
+          "7913d261353b RESULT.md §§3–4",
+          "f0a07bc20820 RESULT.md Proof",
+          "2253bd84ce62 RESULT.md transverse splitting step over k[[s]]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After dividing by the product coefficient and taking square roots, the primitive Heisenberg form is a contained equal-diagonal subfamily with a12=a34, a13=a24, a14=a23. The desmic equation at characteristic two becomes an all-mixed-zero equal-diagonal specialization by taking (x,y,z,x+y+z+w) as coordinates."
+        ],
+        "reasoning": "Neither coordinate conversion frees the six paired or zero coefficients. The known fixed-fibre A3 normal form over k[[s]] does not state the completed family equation with the two varying deformation parameters over the entire parameter base.",
+        "searches": [
+          "tetrahedral square quartic characteristic two marked full coefficient base completed relative local equation at each edge A3 collision UV+(s^2+lambda*s+mu)^2 six independent pairs walls simultaneous singular scheme Catanese Schütt",
+          "Resultary 2253bd84ce62, Proof §§1–3",
+          "Dolgachev–Kondō §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f0a07bc20820 gives the exact coefficient torus of 12 A1s, the Jacobian ideal and two nonvertex roots per uncollided edge. 2253bd84ce62 gives a rank-24 singular scheme and A1/A3 classification for three paired collision walls. 7913d261353b gives the identical all-nonzero edge trace criterion and the 64 split profiles over F_(2^m) for m≥2."
+        ],
+        "reasoning": "The first fixes known scheme-theoretic inputs; the second gives a genuine specialization but cannot realize odd numbers of collided edges with its paired coefficients; the third is direct prior coverage of an original claimed arithmetic contribution. No such arithmetic claim survives as novelty in the repaired result.",
+        "searches": [
+          "Resultary f0a07bc20820 exact 12-node chamber",
+          "Resultary 2253bd84ce62 flat length-24 primitive Heisenberg quartics",
+          "Resultary 7913d261353b independent Frobenius splitting",
+          "Focused Resultary full coefficient base / edge collision normal form search"
+        ]
+      },
+      "rationale": "For the repaired finding only: the earlier exact 12-node chamber gives the ideal and simple-root cases; the paired Heisenberg family gives the fixed-fibre A3 splitting calculation when edges collide in matched pairs; primary case studies give the generic and all-collided endpoints. The corrected result treats the completed equation as an algebra over the full independent marked coefficient base, in an edge-preserving form that keeps the two local deformation parameters, and accounts for every mixed fibre stratum, not just those endpoints or paired collisions. It does not claim the ideal, flat rank alone, trace data, generic splitting group or the splitting lemma as new.",
+      "residual_risks": [
+        "Standard transverse formal splitting is not itself novel. The distinction rests on the edge-preserving equation over the full parameter base, with the independent collision walls, rather than on the technique or the earlier flatness, special cases and arithmetic. A prior unindexed formulation of this relative family normal form is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generic and special endpoint cases, not the relative marked collision normal form",
+          "evidence": "The product-plus-square family has generally 12 nodes; the Dwork specialization has six A3s; the deformation discussion is for A1 nodes.",
+          "identifier_or_url": "https://arxiv.org/html/2206.03295v1",
+          "material_read": "§3.8 Example 19 to Remark 21, HTML offsets 27328–31494",
+          "method": "Lawful open full text",
+          "title": "Singularities of normal quartic surfaces III (char=2, non-supersingular)",
+          "trigger": "Primary source for the exact family and A3 endpoint"
+        },
+        {
+          "assessment": "General input, not an explicit marked edge collision classification",
+          "evidence": "Local A_n information and Gaussian defect discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2110.03078v1",
+          "material_read": "§2.1, offsets 6302–8844",
+          "method": "Lawful open full text",
+          "title": "Singularities of normal quartic surfaces II (char=2)",
+          "trigger": "Primary local singularity and Gaussian defect analysis"
+        },
+        {
+          "assessment": "Explicit all-mixed-zero subfamily",
+          "evidence": "xyz(x+y+z+w)+αw⁴, with six uv=t⁴ singularities; w is the sum of the new four coordinate forms in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/html/2505.01033v1",
+          "material_read": "§7, offsets 84400–89698",
+          "method": "Lawful open full text",
+          "title": "Desmic quartic surfaces in arbitrary characteristic",
+          "trigger": "Six A3 points in characteristic two; possible equivalent model"
+        },
+        {
+          "assessment": "Prior coverage of exact torus, ideal, root-collapse test and simple-root model; disjoint edge freeness follows from the ideal",
+          "evidence": "V(F,J)=V(J,q²); nonzero mixed coefficient yields distinct edge roots, zero mixed coefficient collapses them, and a simple edge root has type A1.",
+          "identifier_or_url": "Resultary f0a07bc20820",
+          "material_read": "RESULT.md Finding, assumptions and proof, offsets 0–5657",
+          "method": "Local catalogue and mirrored full text",
+          "title": "Exact 12-node chamber for the tetrahedral square-quartic family in characteristic two",
+          "trigger": "Exact family and singular scheme calculation"
+        },
+        {
+          "assessment": "Paired-edge subfamily and the same fixed-fibre transverse splitting technique, not the full relative normal form",
+          "evidence": "Three mixed coefficients each control an opposite pair of edges, with fixed-fibre completed local model UV+h(s) over k[[s]] and basket (12−4r)A1+2rA3.",
+          "identifier_or_url": "Resultary 2253bd84ce62",
+          "material_read": "RESULT.md Finding, scope and Proof §§1–3, through offsets 6280–8658",
+          "method": "Local catalogue and mirrored full text",
+          "title": "The flat length-24 singular scheme and Cremona dual of primitive Heisenberg quartics in characteristic two",
+          "trigger": "Exact same style of flatness and A1/A3 collision theorem"
+        },
+        {
+          "assessment": "Directly covers the open-stratum criterion; implies full geometric generic splitting as explained above",
+          "evidence": "The Artin–Schreier constants are the same after renaming coefficients; every binary split trace profile occurs for q≥4.",
+          "identifier_or_url": "Resultary 7913d261353b",
+          "material_read": "RESULT.md Finding and exact descent / splitting-pattern proof, offsets 4250–6238",
+          "method": "Local catalogue and mirrored full text",
+          "title": "Independent Frobenius splitting of twelve nodes on tetrahedral quartic K3 models",
+          "trigger": "Strongest exact overlap for arithmetic assertions in the frozen finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, completed collision equation and resulting strata",
+        "Catanese–Schütt III Example 19 and Remark 21; Resultary 2253bd84ce62 for paired collisions"
+      ],
+      "rationale": "The marked family is the classical source of twelve-node quartics in characteristic two. A relative equation over its unrestricted coefficient ring near each wall identifies exactly which parameters change the collision and which transverse coefficients do not, even when different marked edges collide simultaneously. This gives local deformation data and all intermediate singularity types for the natural family without the paired symmetry; it is not a census of an artificial slice or just a recomputation of rank 24.",
+      "residual_risks": [
+        "No classification of the unmarked moduli, Picard lattices, or global resolutions over the coefficient base."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

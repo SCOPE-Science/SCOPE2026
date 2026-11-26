@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone Python script `verify.py` depends only on Python's standard library. Run it with `python3 verify.py`; success is indicated by `VERIFY_OK`.
+## correctness
 
-The script evaluates the original richness and expected-coverage formulas using exact `fractions.Fraction` arithmetic for the two rational abundance vectors and checks all six strict rational margins displayed in the proof, as well as one-sample coverage, normalization, and strict majorization. It independently computes the expectations for sample sizes one through three by enumerating all possible ordered samples and weighting their occurrence probabilities. These checks establish the enumerated rational identities without floating-point approximation.
+PASS
 
-The script does **not** infer all-effort inequalities from a finite sweep. Strict noncrossing for every real effort follows from strict convexity and majorization in the written proof. Existence of the equal-coverage crossing follows from continuity and the two exactly bracketed opposite comparisons. The proof does not determine an exact crossing coordinate or all possible crossing counts, and no independent external audit has occurred.
+The inclusion indicators for i.i.d. draws give the stated expectations via the probability (1-p_i)^m of missing species i. P strictly majorizes Q (strict first partial sum, equal second and total), and x ↦ (1-x)^m is strictly convex on (0,1) when m>1, yielding strict size order for all real m>1. Both R and C strictly increase and are continuous. Independently verified C_Q(2)<C_P(2)<C_Q(3), R_Q(2)>R_P(2), C_Q(7)<C_P(11)<C_Q(8), and R_Q(8)<R_P(11), with both P coverage levels above the two one-individual bases. Therefore Q wins at the first common coverage and P at the second; continuity forces a crossing. The proof uses only the integer brackets and strict monotonicity of the interpolants, so applies both to the real-power extension and to straight segments between integer-effort points. The result refutes the unrestricted continuous-curve implication of Appendix G, G1, and its G3 crossing-count claim under these conventions. It is not a claim that there are two un-interpolated integer pairs with exactly equal expected coverage, nor a statement about estimated rarefaction curves.
+
+## originality
+
+PASS
+
+The primary source's assertion is the proposition contradicted by the example, not prior coverage of it. The closest distinct indexed results concern size-based comparisons, including without-replacement settings, and do not retain a common expected-coverage axis. No verified preceding counterexample or implying result was identified for the stated pair and model in the bounded search.
+
+## value
+
+PASS
+
+A three-species example with all masses positive and equal true richness shows that the choice of effort standard can reverse qualitative expected rankings despite strict all-effort size dominance. It pinpoints a false universal assertion in the theoretical foundation of coverage standardization, and the polygonal check makes it useful without appealing to fractional sampling. It says nothing about the validity of coverage standardization for other purposes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

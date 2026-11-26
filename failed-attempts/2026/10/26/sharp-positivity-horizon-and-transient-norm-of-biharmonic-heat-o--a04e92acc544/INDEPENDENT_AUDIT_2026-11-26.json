@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:53.389804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope and proof lines 41–90",
+        "Frozen VERIFICATION.md and check.py (inspected only)",
+        "Independent replay: python3 -B /workspace/branches/independent_replay.py, check2"
+      ],
+      "rationale": "The point incidence matrix satisfies BB^T=A+2I and B^TB=(n-2)I+J. Centering its columns gives an orthogonal projector with entries (|S intersection T|-4/n)/(n-2); the positive Laplacian eigenvalues are n and 2(n-1). The stated disjoint entry follows from the spectral exponential, and the adjacent entry is strictly positive because n-4>=0 and e^(-n^2 t)>e^(-4(n-1)^2 t) for t>0. The diagonal is positive, rows sum to one, and symmetry gives the equality of the absolute row and column norm maxima. There are (n-2)(n-3)/2 disjoint positions per row. F_n starts at zero, its derivative changes once from negative to positive at the stated theta_n, and its limit is n-2>0; hence it has precisely one positive zero. The norm strictly falls from the peak to that zero and is flat thereafter. The given sign datum is an infinity-norm extremizer; for the 1-norm a unit coordinate vector attains the maximal column sum. For the graph-size limits, scaling time by n^2 gives the limit (1-r)(1-r-r^2-r^3), r=e^(-s). Bracketing its unique positive-time sign change with compact uniform convergence pins down the scaled zero. Expanding the explicit peak gives the stated limit and coefficient. In the independent replay the first-size defect estimator at n=10^6 is 1.4040750649, consistent with coefficient 1.4040753446, and direct exponentials agree with the norm and sign formulas for n=4,6,7.",
+      "residual_risks": [
+        "Finite samples support but do not prove the all-n formulas. The strict decrease ends at tau_n, not at infinite time; the norm thereafter is exactly one. The result is for the unnormalized Laplacian and counting norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongly regular theorem applies to all connected noncomplete strongly regular graphs and all alpha>0. With alpha=2 and (v,k,r,s)=(n(n-1)/2,2(n-2),n-4,-2), its a,b,C,h are n,2(n-1),2(n-1)/(n-2),(n-2)(n-3)/2.",
+          "The earlier multipartite law covers T_4=K_2,2,2 only within this family; the three-eigenvalue law for doubly nonnegative matrix powers gives only persistence after a positive time."
+        ],
+        "reasoning": "Multiplying the strongly regular scalar root expression by n-2 gives F_n exactly. Its norm prefactor and peak time become the frozen ones, and its sign statement distinguishes precisely the disjoint pairs.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-positivity-recovery-for-fractional-heat-on-all-connected-s--d37f7dd78e94",
+          "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "Johnson–Lins–Walch arXiv:1008.3568, Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "November 22 strongest exact Resultary record, Finding and proof",
+        "October 26 rook result",
+        "October 18 multipartite result",
+        "Johnson–Lins–Walch and Daners–Glück–Kennedy primary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At alpha=2 write u=exp(-n^2 theta_n). The exact specialized peak in the stronger theorem reduces to 1+2(n-3)(n-2)/(n(n-1))*[(3n-2)u/(2(n-1))-1]. Direct expansion gives n^2 theta_n=(log 2)/3+[8(log 2)/9-1/3]/n+O(n^-2); inserting this produces the frozen 1/n coefficient.",
+          "After the same substitution and s=n^2 t the scalar cutoff equation tends to 1-2e^(-s)+e^(-4s)=0; sign bracketing gives the unique positive-time root limit."
+        ],
+        "reasoning": "The asymptotic axis n->infinity is not one of the broader theorem's stated fixed-graph alpha limits, but obtaining all the frozen asymptotics from its exact formulas needs just routine Taylor expansion and simple-root convergence. Qualitative positivity persistence alone would not imply this.",
+        "searches": [
+          "November 22 strongly regular formulas for t_pk and h/v; frozen lines 80–90",
+          "arXiv:1008.3568, Theorem 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Square rook graphs have the same limiting constants in their side-length parameter, but their peak defect is 4(3*2^(-4/3)-1)/m to first order, rather than 1.404075.../n."
+        ],
+        "reasoning": "Matching limits alone do not establish equivalence of the two graph families. The finite-m rook law is not the finite-n triangular claim.",
+        "searches": [
+          "Local Resultary exact triangular graph / Johnson J(n,2) positivity and biharmonic endpoint norm",
+          "2026/10/26/SCOPE-exact-positivity-horizon-and-peak-amplification-of-biharmonic-he--621e2ef18776"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact parameter formulas in the strongly regular record expressly include triangular graphs and its verification checks the triangular graph on five points. The square-rook table is about a different family."
+        ],
+        "reasoning": "The parameter formula, not the finite triangular test or a near numerical match, covers every n and provides the needed exact peak value.",
+        "searches": [
+          "Resultary exact norm and peak for strongly regular graphs",
+          "November 22 strongly regular record, Finding and triangular-graph verification",
+          "October 26 exact rook results"
+        ]
+      },
+      "rationale": "The distinct indexed November 22 strongly regular graph theorem completely covers the finite-n result by exact substitution. It also gives the exact peak as a function of the graph parameters, and the large-n limit and first-order coefficient are direct evaluations/expansions of that expression; the printed coefficient need not be present verbatim for the coverage to be mechanical. There is no separate asymptotic obstruction or family structure in this claim not already determined by the explicit formula. This is current-catalogue coverage, not a claim that the later record anticipated the earlier dated frozen work.",
+      "residual_risks": [
+        "The later stronger record does not resolve historical priority; the same-day rook analogue also does not establish within-day ordering. Low-yield primary search was not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by specialization; not evidence of earlier priority",
+          "evidence": "Exact common nonadjacent entry, all-time norm, unique root and unique peak formulas for all connected noncomplete strongly regular graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-positivity-recovery-for-fractional-heat-on-all-connected-s--d37f7dd78e94",
+          "material_read": "Finding and kernel formulas offsets 0–3396; asymptotic scope and triangular verification around 5757–7957",
+          "method": "Local Resultary and OA mirror",
+          "title": "Sharp positivity recovery for fractional heat on all connected strongly regular graphs",
+          "trigger": "Strongest exact family and parameter coverage"
+        },
+        {
+          "assessment": "Close analogue, not equivalent for triangular graphs",
+          "evidence": "Exact rook positivity and norm; square rook coefficient differs despite matching leading limits.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-positivity-horizon-and-peak-amplification-of-biharmonic-he--621e2ef18776",
+          "material_read": "Finding and square-board formulas from offset 0",
+          "method": "Local Resultary and OA mirror",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat on rook graphs",
+          "trigger": "Material same-day generator and invariant overlap"
+        },
+        {
+          "assessment": "Includes the smallest triangular graph, not the family",
+          "evidence": "T_4 is complete tripartite with equal part size 2; for n>=5 the nonadjacency relation on distinct two-sets is not an equivalence relation extended by equality, so the graphs are not complete multipartite.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "material_read": "Finding and per-part norm/cutoff formulas",
+          "method": "Local Resultary and OA mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Possible inclusion via graph classes"
+        },
+        {
+          "assessment": "Qualitative persistence, not exact cutoff or norm",
+          "evidence": "A doubly nonnegative matrix with at most three distinct eigenvalues remains entrywise nonnegative under powers p>=1; apply to H_n(t_0) after any nonnegative time t_0>0.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.3568",
+          "material_read": "Theorem 5.3, p. 8, OA offset near 27064",
+          "method": "OA PDF",
+          "title": "The critical exponent for continuous conventional powers of doubly nonnegative matrices",
+          "trigger": "Potential primary no-gap implication"
+        },
+        {
+          "assessment": "Does not give the finite triangular formulas in the passages checked",
+          "evidence": "Qualitative eventual positivity, including finite matrices and the continuous squared Dirichlet Laplacian.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Sections 6 and 9; PDF pp. 15–16 and 32",
+          "method": "OA PDF",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Cited primary eventual-positivity context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and lines 80–90",
+        "November 22 general exact peak formula and its triangular substitution"
+      ],
+      "rationale": "The structural sharp cutoff and transient are mathematically meaningful, but already determined by the available strongly regular theorem. The remaining displayed coefficient is valuable as an illustrative comparison with rook graphs, not as an independent exact fact beyond the existing formula: it is its first elementary Taylor coefficient, with no new comparison inequality or nontrivial asymptotic step. The review identifies no distinct valuable remainder to repair.",
+      "residual_risks": [
+        "An exposition comparing familiar graph families may be useful for other purposes; this assessment concerns standalone added scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

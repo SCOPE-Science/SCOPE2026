@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is an all-\(n\), all-\(c\) exact variance identity and its third-order phase consequences. The proof uses the exact permutation covariance formula, independent Bernoulli cell jitters, explicit diagonal probabilities, exact row-sum and square-sum formulas, and polynomial collection. The uniform asymptotic follows from the bounded remainder and irrational rotation density; rational cases follow from exact phase cycling. The accompanying standalone verifier passed 733 rational assertions, including independent permutation enumeration. Finite checks do not substitute for the algebraic proof.
+PASS
 
-## Originality
+Let a_ij be each cell success probability, T their sum, A the sum of their squares, and S the sum of squared row totals (equal to the corresponding column sum by symmetry). For the number M of successful draws, E M=T/n and the non-diagonal term in E M² is (T²-2S+A)/(n(n-1)), since only pairs in distinct rows and columns may be jointly selected. With ns=m+θ, cells have the full/partial diagonal probabilities 1, 1-(1-θ)²/2, θ²/2. Integrating the row directly gives nonzero totals j+θ+1/2 for 0<=j<m, and θ²/2 if the extra row exists. This gives the stated A and S, including m=0 and m=n (the absent extra term at m=n is zero). Exact expansion of Var(M)/n² gives (1). Reflection preserves the sampling law and almost surely complements the indicator; the expectation is triangle area. With B=s(6θ²(1-θ)²-1)/12 the exact centered residual is n(V+B)/(n-1)+P(θ)/(12(n-1)), with bounded polynomials on the whole parameter square. This gives the uniform remainder, diagonal and endpoint cases, and the dense irrational or periodic rational limit sets, with the stated parity maxima.
 
-PASS with specialist historical-priority risk. The 2023 Krumscheid–Pettersson source contains the general variance/covariance structure and its asymptotic LHS projection theory, not the present exact all-offset polynomial, first phase at the third order, or rational-versus-irrational complete limit sets. The 2022 Liu–Owen work addresses conditional pre-integration and randomized QMC, not this exact LHS calculation. Prior work on independent jittered square grids concerns a different sampling design with distinct variance rate and leading-order phase behavior. Neither the basic LHS variance identity nor the leading-order constant alone is asserted as new. Search limitations and older-specialist coverage remain as recorded in the structured audit.
+## originality
 
-## Value
+PASS
 
-PASS. Discontinuous halfspaces are a natural benchmark for non-axis-aligned Latin-hypercube sampling. The result separates a stable leading \(n^{-1}\) error budget from a grid-alignment effect that survives at the first nontrivial subleading order, gives exact finite-\(n\) variance rather than an asymptotic approximation, and specifies all possible arithmetic limit values. This permits exact calibration and resolution-comparison tests for a canonical boundary-discontinuous integrand. A paper-sized extension or a downstream general theorem is not required for this complete natural finite-sample invariant.
+Best of current knowledge, the exact jittered-LHS finite-offset formula and the position and amplitude of the phase in the LHS expansion are a distinct result. Related indexed work has the same quartic phase and arithmetic classification for an independent grid, and general LHS variance machinery is known. Neither is credited as new here; the two estimators do not share their exact variance laws.
 
-## Closest literature and limitations
+## value
 
-General sampling variance theory and asymptotic LHS projection laws are acknowledged prior art. Finite-offset phase formulas for this sampling method were not found in the inspected material; that is not an assertion of global uniqueness. The proved range is restricted to uniformly randomized two-dimensional Latin hypercubes and a unit-slope straight threshold. No human or independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A diagonal threshold is a standard discontinuous benchmark whose two-dimensional interaction cannot be read off from one-dimensional stratum means. The all-offset, all-n variance is usable for exact calibration. It explains why increasing resolution changes variance smoothly to two orders before arithmetic dependence appears, and quantifies every possible third-order residual rather than only giving a convergence rate. This is specific to the Latin-hypercube estimator, not a new claim about the familiar quartic in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

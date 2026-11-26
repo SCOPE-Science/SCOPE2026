@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:44:54.005058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An A-source can cover exactly one new B vertex until its quota b is met, and conversely. Thus completion by t is exactly b≤S_t≤t-a with S_t∼Bin(t,q), and no t<N qualifies. At time N one quota is filled, the other has deficit |S_N-b|, and the extra mean is the deficit divided by the future opposite-source probability. For q_N=β_N+u_N/√N with u_N→u and t=N+floor(r√N), the centered binomial (S_t-b_N)/√N has limiting mean u+rβ and variance αβ, giving the displayed CDF for r≥0 (no atom at zero). The finite mean identity converges by the same triangular-array limit and uniformly bounded second moments of (S_N-b_N)/√N. At q=β_N this yields an O(√N) excess by Cauchy–Schwarz. The lower bounds b_N/q and a_N/(1-q) diverge at the endpoints and, at any minimizer, force |q-β_N|=O(1/√N). Along each convergent scaled subsequence the mean limit applies and comparison against every fixed shift forces the same minimizer: F′(u)=Φ(u/σ)/α-Φ(-u/σ)/β, strictly increasing, with root σΦ⁻¹(α) and F there equal to φ(Φ⁻¹(α))/σ. This does not assume exact finite-size uniqueness. At uniform vertex weights the binomial L¹ law gives the claimed linear ratio for unequal limiting parts. The uploaded checker was inspected, not executed; its recorded 1,470 exact checks cover finite strip probabilities and means only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newsvendor critical fractile yields the unique minimizer once the asymmetric Gaussian loss F is established but does not control the optimizers of the finite sequence of quota problems.",
+          "Deng–Wang Proposition 5.2 uses Eτ=2m+2E|Bin(2m,1/2)-m| in a two-clique lower bound; Corollary 4.2 addresses the fixed-d balanced biclique clock tail. Dimitrov–Plaxton vary neighbor choice, retaining uniform sources.",
+          "The 1994 inverse-sampling chapter abstract describes principally the soonest quota, not the later time for both frequency quotas."
+        ],
+        "reasoning": "The balanced lower bound and generic critical fractile are credited. Neither optimizes unequal fixed source-class probabilities across growing quotas. No examined broader theorem was shown to give the sharp all-minimizer shift.",
+        "searches": [
+          "newsvendor newsboy two quota negative binomial expected completion time Bernoulli success failure quota optimal sampling probability waiting time",
+          "arXiv:2611.11345v1 Corollary 4.2, Proposition 5.2",
+          "Dimitrov–Plaxton 2013 opening definition",
+          "Ebneshahrashoob–Sobel 1994 DOI 10.1007/978-1-4615-2494-6_13"
+        ]
+      },
+      "checked_sources": [
+        "Ebneshahrashoob–Sobel, Stat. Probab. Lett. 9(1) (1990), 5–11 (abstract only)",
+        "DOI 10.1007/978-1-4615-2494-6_13 (abstract)",
+        "arXiv:2611.11345v1",
+        "Dimitrov–Plaxton JDA 2013",
+        "Resultary c51f7839a720",
+        "Resultary b16d780f0472 (assigned self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even given the finite quota law, obtaining the stated optimizer needs localization of every exact minimizer and a triangular-array mean limit across converging shifts. The fixed balanced two-clique formula and a generic normal fractile lack these steps for the asymmetric problem.",
+          "The mirrored random-walk result varies part imbalance/neighbor control under forced alternation rather than the Bernoulli probability."
+        ],
+        "reasoning": "The 1990 paper is the exact model alias and might cover more. There is no positive evidence from its accessible material of the growing-quota optimizer or local CLT, and inaccessible full text is not a noncoverage finding.",
+        "searches": [
+          "Ebneshahrashoob–Sobel 1990 frequency-quota later waiting time, abstract and lawful OA searches listed above",
+          "Deng–Wang Proposition 5.2",
+          "Resultary c51f7839a720 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph theorem is exactly a later waiting time for b successes and a failures, with dependent individual quota times. Ebneshahrashoob–Sobel (1990) explicitly study sooner/later times for independent Bernoulli frequency and run quotas, including frequency quotas for general p.",
+          "Poissonization also expresses the expected time as the expected maximum of independent gamma waiting times of shapes b,a and rates q,1-q; it gives the mean correspondence, not identity of the discrete and continuous fluctuation laws.",
+          "Resultary c51f7839a720 uses a random walk with forced alternation, not fixed i.i.d. class sampling. The exact b16d780f0472 match is the frozen record itself."
+        ],
+        "reasoning": "The Bernoulli-frequency formulation is a genuine equivalence and serious prior overlap at finite size. Forced alternating or independent negative-binomial clocks in discrete time do not match the sampling mechanism.",
+        "searches": [
+          "\"two-quota\" inverse binomial fixed sampling probabilities Gaussian quantile optimal expected completion time bipartite coupon collection",
+          "two-quota Bernoulli allocation minimize expected time to meet both quotas fixed success probability negative binomial inverse-binomial optimal allocation threshold",
+          "bipartite graph coupon coverage fixed independent class sampling probability asymmetric quotas Gaussian quantile optimal completion time (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1990 primary abstract reports a generalized probability-generating function, means and variances for its quota problems; exact finite-law/mean overlap is credible and credited, but exact bound equations were not accessible.",
+          "The closest distinct Resultary finding states a maximum of geometric sums for a different random-walk model, not tabulated optimal q for these Bernoulli quota problems."
+        ],
+        "reasoning": "No independently inspected table or explicit quantitative optimizer expansion matches the growing asymmetric quotas. The finite binomial strip is elementary and is not the originality-bearing result.",
+        "searches": [
+          "\"Sooner and later waiting time problems for Bernoulli trials: frequency and run quotas\" abstract two frequency quotas stopping time",
+          "\"Sooner and later waiting time problems for Bernoulli trials\" PDF Ebneshahrashoob Sobel 1990",
+          "fixed independent class sampling Gaussian quantile quota optimizer (Resultary query above)"
+        ]
+      },
+      "rationale": "The finite probability problem is the classical later waiting time for two Bernoulli frequency quotas, not a new stopping-time formulation. The supported distinct contribution is the growing-quota local completion profile together with the sharp all-minimizer expansion for the mean under fixed independent weights. In the examined evidence, neither finite quota laws nor the known normal critical-fractile computation alone establish the full asymptotic optimizer theorem.",
+      "residual_risks": [
+        "The full 1990 Bernoulli-frequency-quota paper was not accessible through the attempted lawful routes; its possible asymmetric p-optimization content remains unresolved.",
+        "An older multiple-copy two-color collector or gamma allocation theorem with growing quotas might imply the mean optimizer. The bounded comparisons do not show universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct finite-problem overlap. Full-text implication for the optimal-p asymptotics unresolved.",
+          "evidence": [
+            "Independent Bernoulli trials, sooner/later times, general p for frequency quotas, pgf and moments"
+          ],
+          "identifier_or_url": "Ebneshahrashoob and Sobel, Statistics & Probability Letters 9(1), 1990, pp. 5–11",
+          "material_read": "RePEc abstract, opening passage; publisher full text inaccessible and lawful open PDF not located",
+          "method": "Public abstract and identified publisher and OA attempts",
+          "title": "Sooner and later waiting time problems for Bernoulli trials: frequency and run quotas",
+          "trigger": "Directly the same two-frequency-quota stopping problem"
+        },
+        {
+          "assessment": "Main stopping rule described is soonest quota; no whole-document inference.",
+          "evidence": [
+            "Multiple disjoint-cell quotas and a principal soonest-time stopping rule"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4615-2494-6_13",
+          "material_read": "RePEc abstract; chapter full text unavailable",
+          "method": "Opening public abstract",
+          "title": "Probability, Waiting-Time Results for Pattern and Frequency Quotas in the Same Inverse Sampling Problem via the Dirichlet",
+          "trigger": "Potential encompassing inverse-sampling rule"
+        },
+        {
+          "assessment": "Balanced fixed-source overlap only in these results.",
+          "evidence": [
+            "Fixed-d biclique clock tail; two-clique balanced excess identity and square-root bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11345v1",
+          "material_read": "Corollary 4.2 p. 11 near offset 41421 and Proposition 5.2 p. 14 near 52188",
+          "method": "OA primary PDF passages",
+          "title": "Extremal graphs for Alon's graph coupon-collector conjecture",
+          "trigger": "Closest graph-process source and balanced quota calculation"
+        },
+        {
+          "assessment": "Optimizes neighbor selection with uniform vertex sources, not independent class weights.",
+          "evidence": [
+            "Uniformly random source node in process definition"
+          ],
+          "identifier_or_url": "https://www.cs.utexas.edu/~plaxton/pubs/2013/jda.pdf",
+          "material_read": "Opening PDF p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Optimal Cover Time for a Graph-Based Coupon Collector Process",
+          "trigger": "Earlier graph coupon optimization"
+        },
+        {
+          "assessment": "Forced alternating walk and part-imbalance crossover, not i.i.d. quota bias.",
+          "evidence": [
+            "Walk dynamics and geometric-sum law"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-imbalance-transition-for-optimally-biased-bipartit--c51f7839a720/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 5000",
+          "method": "Resultary local mirror",
+          "title": "A square-root imbalance transition for optimally biased bipartite cover times",
+          "trigger": "Strongest distinct same-scale bipartite cover finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete bipartite graphs isolate a natural source-design question with no dependence on tie-breaking at neighbors. Reweighting reduces the linear excess of uniform vertex sampling to order √N at unequal limiting proportions; within this best scale, the nonzero quantile correction strictly improves the leading excess coefficient over exact quota balancing. The asymmetric completion profile determines deadline probabilities for all local weights, independent of the mean criterion. This is informative for the fixed i.i.d. design family without claiming superiority to adaptive or periodic schedules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

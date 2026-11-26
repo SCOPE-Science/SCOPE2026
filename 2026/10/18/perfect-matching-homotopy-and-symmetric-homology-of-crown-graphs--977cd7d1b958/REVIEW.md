@@ -1,17 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-Exact reconstruction enumerates every perfect matching and every subface for each of the four specified crown graphs. Sequential vertex toggles are an acyclic discrete-Morse procedure; full reversed-Hasse-DAG checks visit every nonempty simplex and covering incidence. They yield exactly one critical vertex and no critical dimensions other than the stated sphere dimension. Hence the homotopy types are integral wedge equivalences. Independent inclusion-exclusion recovers every face count. The symmetry character follows from the alternating trace identity, checked both by orbit parity and by direct simplex-orientation permutations; conjugacy-class averages are integral and match the stated invariants. These finite certificates do not support extrapolation beyond seven pairs.
+## correctness
 
-## Originality — PASS (qualified)
+PASS
 
-Literature checked: Bayer–Jelić Milutinović–Vega, arXiv:2209.02803v1, defining the perfect-matching complex and classifying honeycombs; Chandrakar–Singh, arXiv:2407.05809v1, classifying two-row grids and polygonal line tilings. The former's complete-bipartite result is for the *unpunctured* chessboard, not crown graphs. The latter's linear tilings do not contain crown graphs as a stated family. Indexed statements concerning crown suspensions, rook-graph neighborhood complexes and bounded-degree matchings use inequivalent functors and neither imply these wedge ranks nor their homology representation. Dedicated external and indexed searches found no statement with the same graph, functor, parameter range and character; this is evidence, not a uniqueness certificate. Residual risk: unindexed equivalent work or a general theorem not discovered by the searches.
+For two or more unmatched rows, every leftover column has at most one forbidden row, so any set of at least two rows sees every leftover column, and a singleton sees at least one. Hall therefore proves the claimed extension criterion; a lone unmatched row and column must have different labels. Independently regenerated all nonempty faces for n=4,5,6,7 (99, 734, 6335, 61984), applied the specified toggle orders and topologically sorted each entire directed Hasse graph (228, 2320, 25290, 298788 incidences). It left exactly one vertex and 4, 33, 256, 2175 critical cells in degrees 1, 2, 3, 4 respectively. Discrete Morse theory then gives the wedges, since the only lower-dimensional skeleton is a point. In the reduced Lefschetz trace a setwise invariant k-element face with c vertex cycles contributes (-1)^(k-1) times (-1)^(k-c), with empty contribution -1. The independent oriented-simplex computation matched all 30 entries, both character averages 1, and transpose eigenspace dimensions 1045 and 1130. Replay: python3 /workspace/branches/3cca69d2-2b25-4196-8b52-dd76a6087e1e/crown_independent.py 4 5 6 7; the same directory contains crown_independent_n4.json and crown_independent_n5_n7.json. This is exhaustive only for the finite claimed cases; no homotopy formula for larger n or formal certification is assessed.
 
-## Mathematical value — PASS
+## originality
 
-This is a natural graph family (the bipartite double covers of complete graphs), not arbitrary isolated test graphs. The four consecutive *positive-dimensional* perfect-matching-complex members have nontrivial growing sphere ranks, despite all being pure complexes of much higher dimension; the seven-pair case contains 61,984 nonempty simplices and retracts to a 2,175-sphere four-dimensional wedge. The natural full automorphism action on homology is determined by 30 exact character values and yields a nontrivial one-dimensional invariant class; these are not consequences of enumerating perfect matchings. The all-parameter extension criterion explains the underlying derangement-board face structure but does not itself imply the homotopy theorem. The finite limit reflects what the supplied complete certificate proves and is expressly not an infinite-family conjecture.
+PASS
 
-## Closest literature and limits
+Best-of-knowledge pass for the joint finite homotopy classification and the n=7 equivariant calculation, not a claim that each constituent fact is exclusive. A later-dated indexed record states the identical n=5 wedge and a finer n=5 character calculation; the overlap is real regardless of priority. Neither that statement nor the inspected general or same-day statements cover the four-case result and the n=7 table.
 
-The two identified papers treat honeycomb / polygonal-line perfect-matching complexes and review the ordinary chessboard case. The claimed removal of a full diagonal matching from the base graph changes the simplicial complex; transferring a result about the ordinary chessboard would be unjustified. No status beyond the explicit cases is asserted; rational characters do not classify integral equivariant lattices.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+These are the first four positive-dimensional homotopy types in a natural family distinguished from ordinary chessboard complexes. Explicit integral wedge types are useful benchmarks for further crown complexes, and the seven-label character gives invariants of the natural symmetry action, including the nontrivial difference between the transpose eigenspaces that ranks alone cannot detect. The value rests on these exact structural results, not merely the computation or the overlapping n=5 subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

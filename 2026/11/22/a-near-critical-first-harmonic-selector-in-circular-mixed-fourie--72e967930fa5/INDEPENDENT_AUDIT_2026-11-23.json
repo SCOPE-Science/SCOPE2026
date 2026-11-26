@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:48:03.216405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The adjacent recurrences cancel their mixed derivative terms; differentiating the proposed quartic primitive directly gives r(J_n^4-J_{n+1}^4). Its boundary values are zero and 2/[pi^2(2n+1)]. Hankel errors are integrable uniformly for 4<=p<=5 at each fixed order, and the difference of equal-mean periodic profiles is controlled by one bounded primitive, which justifies p down to 4 at fixed orders. The decisive uniform tail input was checked in Xu's original layout: (3.70), its transition estimate and Proposition 3.15's large-r estimate (3.75) give the mean tail A(4+t)v_k^(-t/2)/t; the p. 31 bounds for E1,E2,E3 are respectively 3/125, 13/55, 4/25 times (8/15)^t. Their sum is 578/1375 times that factor, so the frozen weaker bound is valid for k>=4, 0<t<=1. By contrast the fixed m lower tail from any large fixed R is A(4+t)R^(-t/2)/t-O_m(1), uniformly for that range. For k>=K use v_k>=v_K before sending t to zero: the difference of the two tails tends to (A(4)/2)log(v_K/R), which can dominate both errors; only finitely many k remain. This handles the quantifier issue. For arc length as stated, Parseval and Minkowski in L^(p/2)(r dr) give the coefficient (2pi)^2 times the squared modal gap and a pure mode 1 attains it. The common residue 3/pi^2, gap 2/pi^2 and (p-4)log(p-4)->0 give 4pi/sqrt(3) via the mean-value theorem. The frozen symbolic check was inspected, not executed; it would not establish the uniform Bessel bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu Theorem 1.2 gives constant dominance on the circle, while its full consecutive comparison is for d>=3. Remark 3 leaves the planar positive-order maximizing degree undetermined in general.",
+          "Section 3.2 is stronger than a mere fixed-order asymptotic, but its theorem uses the tail estimates for I_0 dominance; that statement does not compare I_1 to other positive degrees."
+        ],
+        "reasoning": "A higher-dimensional adjacent-monotonicity theorem and an all-admissible-p zero-mode theorem do not dominate the nonzero planar comparison. The candidate explicitly builds a different fixed-m versus all-k argument from the quantitative input.",
+        "searches": [
+          "arXiv:2610.19648v1, Theorems 1.2–1.3, Section 3.2 and Remark 3",
+          "Resultary critical-fourth-moment and all-real-exponent first-harmonic search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.19648v1",
+        "Resultary 4d8d086fa937, 02fc40e0dcf1, f07ac5a86b30",
+        "Targeted primary-literature and local-index searches listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-pair positivity allows an interval for each pair only, not a shared interval with unbounded k.",
+          "Monotonicity of v_k and a log(v_K/R) gap in the canceled singular tails exclude escape of maximizing order to infinity. The global cusp thus follows from the prior fixed-pair cusp only after the index is identified."
+        ],
+        "reasoning": "The substantive missing uniformity is supplied analytically, not by an interchange of a pointwise limit and a supremum. No separate originality is attributed to the recurrence, sharp-gap reduction or fixed-pair asymptotic.",
+        "searches": [
+          "Xu 3.70, 3.75, 3.77 and errors E1–E3 on p. 31",
+          "Resultary 4d8d086fa937, formulas (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu Section 4 converts squared stability with unnormalized measure into the maximum of I_k^(2/p) over k>=1.",
+          "Resultary sixth-power and q>=9 records solve the same maximization with different exponent ranges."
+        ],
+        "reasoning": "Compared the Bessel moment and spectral optimization formulations with the same radial measure and circle normalization, not just wording.",
+        "searches": [
+          "Resultary: circular mixed Fourier extension first angular harmonic near critical exponent 4 Bessel order uniform I_m I_k fourth moment gaps stability",
+          "Literature: Bessel Lp r dr order monotonicity near p=4 circle first angular harmonic radial angular mixed Fourier extension critical Bessel fourth moment gap Xu uniform order",
+          "Literature: sharp radial-angular mixed norm Fourier extension Xu global stability Bessel monotonicity first harmonic 2610.19648 endpoint circle mixed norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact critical table is an identity indexed by fixed pairs of orders and includes the fixed-pair square-root coefficient. The other exact first-mode catalogs cover q=6 and q>=9."
+        ],
+        "reasoning": "These are the matching exact modal formulas and parameter regimes, but none tabulates or settles a single open p interval approaching 4 uniformly over the unbounded upper index.",
+        "searches": [
+          "Resultary exact critical fourth-moment gaps 4d8d086fa937; first harmonic at exponent six 02fc40e0dcf1; first harmonic for real q>=9 f07ac5a86b30"
+        ]
+      },
+      "rationale": "The fixed-order endpoint gap and its normalized coefficient, the leading pole, and the general spectral stability reduction are prior work. The novel step supported here is a uniform near-critical open interval against every higher degree for each fixed lower index, in particular selection of the sharp first nonconstant degree. The prior fixed-index law cannot justify this quantifier, and Xu's uniform upper bound must be used with its v_k-dependent singular factor and a separate lower fixed-mode estimate to close the gap. The other first-mode determinations inspected are not near the endpoint.",
+      "residual_risks": [
+        "An earlier equivalent uniform-order comparison under other notation could affect priority.",
+        "The derivation relies on Xu's external quantitative Bessel estimates, whose stated form and applicability were inspected, not on a complete new proof of those estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Quantitative premise verified; results precede but do not settle nonzero near-critical maximization",
+          "evidence": "E1,E2,E3 estimates with common A/t term; K_d=(2pi)^d and lambda_* over k>=1; no identified unique nonconstant degree on the circle in general.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19648v1",
+          "material_read": "Section 3.2 original layout pp. 25–26 and 28–31 around (3.70), (3.75), (3.77), and error bounds; Section 4 and Remark 3 pp. 33ff for normalization and circle scope",
+          "method": "OA primary PDF and corresponding HTML passages",
+          "title": "Sharp radial–angular mixed norm Fourier extension and global stability on spheres",
+          "trigger": "Decisive external Bessel lemma and directly matching stability problem"
+        },
+        {
+          "assessment": "Covers all fixed modal gaps, not uniform maximization",
+          "evidence": "Fixed m<n expressly required; squared gap is canonical modal gap, not global stability constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-critical-fourth-moment-gaps-in-circular-fourier-extension--4d8d086fa937/RESULT.md",
+          "material_read": "Finding and scope, formulas (1)–(3), offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact critical fourth-moment gaps in circular Fourier extension",
+          "trigger": "Exact overlapping endpoint formula"
+        },
+        {
+          "assessment": "Exact same mode only in disjoint regimes",
+          "evidence": "First-degree optimization at q=6 and q>=9, respectively.",
+          "identifier_or_url": "Resultary 2026/11/1 02fc40e0dcf1 ; 2026/11/16 f07ac5a86b30",
+          "material_read": "Findings and initial hypotheses of both RESULT.md files, offset 0",
+          "method": "Local mirror full-text passages",
+          "title": "First-harmonic sharp sixth-power stability for circular mixed Fourier extension; First-harmonic sharp circular mixed-Fourier stability for every real exponent q>=9",
+          "trigger": "Same optimization and coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies the actual worst nonconstant degree in a sharp inequality at its critical boundary, in a regime not addressed by the known even/high exponents. Preventing mode escape makes the known fixed-mode endpoint coefficient into an exact global coefficient. The interval need not be optimal or explicitly numerical for this infinite-order conclusion to be useful; it does not settle the intermediate exponent regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

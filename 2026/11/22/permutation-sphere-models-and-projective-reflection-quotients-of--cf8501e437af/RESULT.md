@@ -1,101 +1,42 @@
-# Permutation-sphere models and projective reflection quotients of spider independence complexes
+# Equivariant permutation spheres for independence complexes of higher-arm spiders
 
 ## Finding
 
-For integers \(k\geq2\) and \(\ell\geq2\), let \(T_{k,\ell}\) be the tree formed by adjoining \(k\) disjoint paths of \(\ell\) edges to a common hub. Write \(X_{k,\ell}=|\operatorname{Ind}(T_{k,\ell})|\), where \(\operatorname{Ind}\) is the ordinary independent-vertex-set complex. The symmetric group \(S_k\) permutes the arms. It acts on the coordinate permutation representation \(\mathbb R^k\) and trivially on the other displayed factors.
+Let \(k\ge3\) and \(\ell\ge2\). Form a tree \(T_{k,\ell}\) by attaching \(k\) paths of \(\ell\) edges at a common hub, and let \(X_{k,\ell}=|\operatorname{Ind}(T_{k,\ell})|\). The full symmetric group \(S_k\) acts by permuting the arms. There are genuine \(S_k\)-homotopy equivalences
+\[
+X_{k,3m}\simeq_{S_k}*,\qquad
+X_{k,3m+1}\simeq_{S_k}S\!\left(\mathbb R\oplus(\mathbb R^m\otimes\mathbb R^k)\right),\qquad
+X_{k,3m+2}\simeq_{S_k}S\!\left(\mathbb R^{m+1}\otimes\mathbb R^k\right),
+\]
+with \(m\ge1\) in the first two cases and \(m\ge0\) in the third. Here \(S(V)\) is the real unit sphere, \(S_k\) permutes the basis of \(\mathbb R^k\), and the other factors have trivial action.
 
-**Equivariant classification.** For every \(m\geq1\),
-\[
-\begin{aligned}
-X_{k,3m}&\simeq_{S_k} *,\\
-X_{k,3m+1}&\simeq_{S_k} S\bigl(\mathbb R\oplus(\mathbb R^m\otimes\mathbb R^k)\bigr),\\
-X_{k,3m+2}&\simeq_{S_k} S\bigl(\mathbb R^{m+1}\otimes\mathbb R^k\bigr).
-\end{aligned}
-\]
-The last equivalence also holds for \(m=0\) (two-edge arms). Here \(S(V)\) is the unit sphere of a real orthogonal representation \(V\), and equivariant equivalence means a genuine \(S_k\)-homotopy equivalence, not just matching characters.
-
-**Geometric fixed spaces.** If \(H\leq S_k\) has \(o(H)\) orbits on the arms, there is a canonical PL homeomorphism
-\[
-X_{k,\ell}^{H}\cong_{\mathrm{PL}}|\operatorname{Ind}(T_{o(H),\ell})|.
-\]
-Consequently the fixed space is contractible when \(3\mid\ell\), is \(S^{m o(H)}\) up to homotopy for \(\ell=3m+1\), and is \(S^{(m+1)o(H)-1}\) up to homotopy for \(\ell=3m+2\). On the unique nonzero reduced integral homology line, an arm permutation \(\sigma\) acts by \(\operatorname{sgn}(\sigma)^m\) in the first sphere case and by \(\operatorname{sgn}(\sigma)^{m+1}\) in the second.
-
-**Exact reflection quotients.** The case \(k=2\) identifies \(T_{2,\ell}\) with the odd path \(P_{2\ell+1}\), and exchanging arms with its reversal \(\tau\). For every \(m\geq1\),
-\[
-\begin{aligned}
-|\operatorname{Ind}(P_{6m+3})|/\langle\tau\rangle&\simeq S^m*\mathbb{RP}^{m-1},\\
-|\operatorname{Ind}(P_{6m+5})|/\langle\tau\rangle&\simeq S^m*\mathbb{RP}^{m}.
-\end{aligned}
-\]
-The second formula also holds at \(m=0\), with \(S^0*\mathbb{RP}^0\) contractible. The star denotes the topological join, equivalent to an \((m+1)\)-fold unreduced suspension of the indicated projective space. Paths \(P_{6m+1}\), \(m\geq1\), have contractible independence complexes and contractible reversal quotients. In particular,
-\[
-\operatorname{Ind}(P_{17})\simeq S^5,\qquad
-|\operatorname{Ind}(P_{17})|/\langle\tau\rangle\simeq\Sigma^3\mathbb{RP}^2,\qquad
-\widetilde H_4\cong\mathbb Z/2\mathbb Z.
-\]
-The \(\mathbb Z/2\mathbb Z\) class does not arise from the integral homology of the unquotiented sphere.
+For any subgroup \(H\le S_k\) with \(o\) arm orbits, the geometric fixed space is canonically PL homeomorphic to \(|\operatorname{Ind}(T_{o,\ell})|\), allowing \(o=1\) or \(2\) in this fixed-space formula. Its homotopy type is a point, \(S^{mo}\), or \(S^{(m+1)o-1}\) in the three cases above. The ambient top reduced integral homology has orientation character \(\operatorname{sgn}^m\) or \(\operatorname{sgn}^{m+1}\) in the respective sphere cases.
 
 ## Assumptions and scope
 
-A simple path \(P_j\) has \(j\) vertices. A face of \(\operatorname{Ind}(G)\) is a subset of vertices containing no adjacent pair. The graph \(T_{k,\ell}\) has the hub \(c\) and vertices \(v_{a,j}\), \(1\leq a\leq k\), \(1\leq j\leq\ell\), with edges \(cv_{a,1}\) and \(v_{a,j}v_{a,j+1}\). All actions are the literal simplicial actions induced by permuting \(a\). Fixed spaces and quotients refer to **geometric realizations**, allowing barycenters of setwise invariant faces. No freeness hypothesis is imposed. The claim concerns finite trees and their arm-permutation group; it does not classify arbitrary tree automorphisms.
+The ordinary vertex independence complex has all vertex subsets containing no edge as faces. The vertices are a hub \(c\) and arm vertices \((a,j)\) for \(1\le a\le k\), \(1\le j\le\ell\); adjacency is between successive depths in the same arm and between \(c\) and the first vertex of each arm. The action is the literal geometric realization of this simplicial action. Fixed spaces include points in setwise invariant simplices, not just faces on individually fixed vertices. The representation-sphere equivalences are not asserted to be PL homeomorphisms. The claim is restricted to uniform arms and concerns a single model for all subgroups of the full arm permutation group.
 
 ## Proof
 
-**1. Path recurrence and the inclusion needed at multiples of three.** Write \(I_j=|\operatorname{Ind}(P_j)|\). The standard independence-complex folding lemma states: if distinct nonadjacent vertices \(u,v\) have \(N(u)\subseteq N(v)\), then deleting \(v\) preserves homotopy type. For \(P_j\), \(j\geq3\), take \(u=j\) and \(v=j-2\). After removing \(j-2\), the remaining graph is \(P_{j-3}\) disjoint from the edge joining \(j-1\) and \(j\). Hence
-\[
-I_j\simeq I_{j-3}*S^0\simeq\Sigma I_{j-3}.
-\]
-From \(I_1\simeq *\), \(I_2\simeq S^0\), and \(I_3\simeq S^0\), this gives \(I_{3m+1}\simeq *\), \(I_{3m+2}\simeq S^m\), and \(I_{3m}\simeq S^{m-1}\) for \(m\geq1\). Moreover, the inclusion \(I_{3m-1}\hookrightarrow I_{3m}\) is a homotopy equivalence: deletion of the last path vertex yields \(I_{3m-1}\) and its attaching link is \(I_{3m-2}\), contractible by the same recurrence. This last statement is about the **inclusion**, not merely two abstract spaces having the same homotopy type.
+For \(\ell\ge3\) remove every vertex \((a,\ell-2)\). There is an equivariant simplicial retraction onto the deletion: send each removed vertex to \((a,\ell)\), leaving the others unchanged. The only neighbor of \((a,\ell)\) is \((a,\ell-1)\), which is also a neighbor of the removed vertex. The replacement vertices on distinct arms are mutually nonadjacent. Consequently, for every independent face its union with its image is still independent. This is equivariant contiguity: affine interpolation inside each such union gives an equivariant homotopy relative to the deletion. This argument works even when \(\ell-2=1\), where the removed vertices also neighbor the hub.
 
-For completeness, the folding lemma follows from the elementary acyclic matching pairing every independent face that contains \(v\) and omits \(u\) with the face obtained by adding \(u\). The neighborhood inclusion ensures the latter is a face; the pairs form a valid cone matching on the star of \(v\), leaving precisely the deletion of \(v\). No quantitative finite experiment is needed for this step.
+The deletion is the disjoint union of the shorter spider with arm length \(\ell-3\) and \(k\) isolated edges, each edge being attached to no other vertex. The group acts diagonally by permuting the shorter arms and permuting the edges, without flipping either endpoint within a factor. Independence complexes turn disjoint unions into joins, so the step joins \(X_{k,\ell-3}\) with the permuted join of \(k\) copies of \(S^0\). Model that join as \(S(\mathbb R^k)\) by using the two points of the \(a\)-th factor as the two opposite directions of coordinate \(a\).
 
-**2. An equivariant hub pushout.** Deleting the hub \(c\) leaves \(k\) disjoint copies of \(P_\ell\), whereas the hub link is the independence complex of \(k\) disjoint copies of \(P_{\ell-1}\). Thus, with \(B=I_\ell^{*k}\) and \(A=I_{\ell-1}^{*k}\),
-\[
-X_{k,\ell}=B\cup_A(c*A).
-\]
-This is an exact invariant simplicial pushout, and the group permutes the \(k\) factors and fixes the cone apex. All inclusions are equivariant cofibrations after realization. If \(Y\) is an ordinary nonempty contractible finite complex, the \(k\)-fold join \(Y^{*k}\), under factor permutation, contracts \(S_k\)-equivariantly: use the same contraction of \(Y\) onto a selected point in every factor, then contract the resulting permutation simplex onto its invariant barycenter. In particular, every subgroup fixed space is contractible.
+The three starting models are as follows. For zero arm length the graph is the single hub, giving a point. For one edge the independence complex is the simplex on the arm vertices disjoint from the hub, with equivariant contraction of that simplex to its barycenter, giving \(S^0\) with trivial action. For two edges, deleting the hub gives the join of \(k\) two-point complexes. The only extra part is a cone from the hub on the simplex of the \(k\) leaf vertices, and it retracts onto that simplex by sending the hub to its invariant barycenter and fixing the simplex, with straight-line homotopy in the cone. The two-edge model is therefore \(S(\mathbb R^k)\). A join of spheres of orthogonal representations is the sphere of the direct sum, equivariantly by the square-root weighting of join coordinates. A join with a fixed-point model that equivariantly contracts to a point is an equivariant cone up to homotopy. Iterating the deletion proves all three claims, including \(\ell=2,3,4\).
 
-If \(\ell=3m+2\), the link \(A\) is equivariantly contractible, so the inclusion \(B\hookrightarrow X_{k,\ell}\) is an equivariant homotopy equivalence by the equivariant cofibration gluing lemma. Applying the *same* path sphere equivalence \(I_{3m+2}\simeq S^m\) to each join factor yields an equivariant equivalence
-\[
-B\simeq_{S_k}(S^m)^{*k}\cong_{S_k}S(\mathbb R^{m+1}\otimes\mathbb R^k).
-\]
-The join-to-unit-sphere map is natural under permutations of equal-dimensional factors.
-
-If \(\ell=3m+1\), \(B\) is equivariantly contractible. Collapsing this equivariantly contractible invariant subcomplex to a point induces an equivariant homotopy equivalence \(X_{k,\ell}\simeq_{S_k}\Sigma A\): on every subgroup-fixed space the contracted subspace is nonempty and contractible, and the fixed-space inclusions are cofibrations. Hence
-\[
-X_{k,3m+1}\simeq_{S_k}\Sigma(S^{m-1})^{*k}
-\cong_{S_k}S(\mathbb R\oplus(\mathbb R^m\otimes\mathbb R^k)),
-\]
-where the new suspension coordinate is invariant. Finally, if \(\ell=3m\), the path inclusion \(I_{\ell-1}\hookrightarrow I_\ell\) is a homotopy equivalence; its \(k\)-fold join is equivariant (the same inclusion in every factor) and is a fixed-pointwise equivalence for every subgroup. Coning off this equivariant equivalence gives an equivariantly contractible space. This proves the three cases.
-
-**3. An exact model of all fixed points.** Under \(H\le S_k\), every vertex orbit lies at a fixed arm depth. No such orbit contains adjacent vertices. A point of the geometric realization is \(H\)-fixed if and only if it gives equal barycentric weights to the vertices of each \(H\)-orbit, so it is a convex combination of barycenters of independent vertex orbits. The allowed orbit combinations are precisely independent sets of the spider with one arm per orbit of \(H\). The affine orbit-barycenter correspondence produces the asserted PL homeomorphism. Restricting the representation models of Step 2 to the \(H\)-fixed subspaces gives the sphere dimensions. The determinant of a permutation on \(\mathbb R^q\otimes\mathbb R^k\) is \(\operatorname{sgn}(\sigma)^q\); the degree of the induced sphere map equals this determinant, proving the integral orientation statements.
-
-**4. The projective-space orbit models.** When \(k=2\), decompose the permutation representation as \(\mathbb R^2\cong\mathbf1\oplus\varepsilon\), where \(\varepsilon\) is the one-dimensional sign representation. For \(\ell=3m+1\) the representation in Step 2 is \(\mathbf1^{m+1}\oplus\varepsilon^m\). For \(\ell=3m+2\) it is \(\mathbf1^{m+1}\oplus\varepsilon^{m+1}\). For any \(u,v\geq1\), the unit sphere of \(\mathbb R^u\oplus\varepsilon^v\) modulo the sign involution is homeomorphic to
-\[
-S^{u-1}*(S^{v-1}/(x\sim-x))=S^{u-1}*\mathbb{RP}^{v-1}.
-\]
-This follows directly by expressing a unit vector as a pair of vectors with squared norms adding to one: the ratio of norms is the join parameter, with the expected endpoint collapses. Equivariant homotopy equivalences descend to homotopy equivalences on orbit spaces. Setting \(u=m+1\), \(v=m\) or \(m+1\) proves both formulas. Reduced integral homology of \(\mathbb{RP}^{2}\) is \(\mathbb Z/2\mathbb Z\) in degree one; a triple suspension shifts it to degree four, proving the \(P_{17}\) instance.
-
-## Verification
-
-Run `python3 checks/verify_spider.py` using Python 3 and only its standard library. The checker directly enumerates all independent faces and geometric orbit-closed faces for \(32\) permutation/arm-length configurations (two- and three-arm spiders with lengths \(2\) through \(5\)), verifies equality with the one-arm-per-orbit simplicial model, checks Euler characteristics and orientation signs, and independently checks reversal-quotient Euler characteristics for \(58\) odd path widths. It outputs `VERIFY_OK`. These are bounded corroborations, **not** proofs of arbitrary lengths, equivariant homotopy types, or projective-space torsion; those follow from the preceding path recurrence, gluing and representation arguments.
+For the fixed space, a realization point is fixed by \(H\) exactly if its barycentric weights are constant on the vertex orbits. Each orbit is independent, and the compatibility of whole orbits is exactly the independence test on the smaller spider: adjacent positive depths give an edge precisely within a single arm orbit, and the hub forbids all first depths. Affine extension of the map from these orbit vertices to their barycenters gives the asserted PL homeomorphism. Taking fixed subspaces in the sphere models replaces \(\mathbb R^k\) by a space of dimension \(o\), giving the dimensions. Finally the degree of the sphere action is the determinant of the corresponding linear action. There are respectively \(m\) or \(m+1\) permutation blocks, so this is the stated sign power.
 
 ## Relationship to prior work
 
-The nonequivariant forest sphere-or-contractible theorem and the path trichotomy are established by Ehrenborg and Hetyei [1, Corollaries 6.1 and 6.3]; neither is claimed new. Kawamura [2] gives an independent inductive method for forest independence homotopy, not an identified classification of the geometric quotients above. Previously published path-reversal work [3, 4] determines the integral orientation sign and geometric fixed-space homotopy types for broader path independence parameters. Those fixed-space and character calculations **do not imply** the homotopy type or integral torsion of the ordinary orbit space. The added claim is a simultaneous equivariant representation-sphere model for uniform-arm spiders, giving exact projective-space joins for all the displayed odd-path reversal quotients. Work on projective suspensions for a bounded-independence *cycle* complex [5] concerns a different object and group action; its quotient theorem does not specialize to path independence complexes.
+Ehrenborg–Hetyei [1, Corollaries 6.1, 6.3] establish the underlying nonequivariant forest and path sphere-or-contractible results. Kawamura [2] studies nonequivariant homotopy types of forest independence complexes. The earlier *Reflection quotients of path independence complexes as projective suspensions* [3, Finding] gives the reversal representation and ordinary geometric orbit space for paths. In particular it already includes both odd-path projective join series, the contractible residue class and the integral torsion example at \(P_{17}\). None of these two-arm conclusions is an added finding here. The earlier subdivided-star record [4, Finding] gives the ordinary homotopy type and integral sign when \(\ell=2\) in the ordinary case. It does not assert a simultaneous equivariant model for the full arm action. The contribution concerns the full \(S_k\) action for higher-arm ordinary spiders: a path reversal calculation or separate orientation and fixed-space results do not specify this ambient equivariant homotopy type.
 
-## Limitations
+## Verification and limitations
 
-All equivariant equivalences are homotopy equivalences, not asserted PL homeomorphisms; only the fixed-orbit simplicial model is a PL homeomorphism. The result does not extend without further work to mixed-length arms or arbitrary tree symmetries. Finite checks do not establish infinite assertions. The available full text of the closest 2005 forest paper was inspected, and relevant published path-symmetry results were compared at the statement and proof levels; an equivalent unindexed treatment of the path quotient may still exist. The full text of Kawamura [2] was not obtained, so publication priority remains subject to that residual source-access risk.
+The proof uses an explicit equivariant retraction on every three-edge step, not an inference from ordinary homology. `python3 checks/verify_spider.py` independently tests contiguity of the fold on all faces in four higher-arm examples and compares orbit-face sets for selected subgroups, including the full \(S_3\). These are bounded tests of the combinatorial steps, not proofs of the infinite classification. Other arm lengths, other graph complexes and arbitrary automorphism groups are not covered. The available prior comparisons are not an exhaustive priority search; equivalent constructions in unindexed sources remain possible.
 
 ## References
 
-[1] R. Ehrenborg and G. Hetyei, *The topology of the independence complex*, European Journal of Combinatorics 27 (2006), 906–923, available online 2005-11-28, Corollaries 6.1 and 6.3 and Proposition 6.2, https://www.ms.uky.edu/~jrge/Papers/Independence.pdf .
-
-[2] K. Kawamura, *Homotopy types of independence complexes of forests*, Contributions to Discrete Mathematics 5 (2010), published 2010-09-28, https://cdm.ucalgary.ca/article/view/62064 .
-
-[3] *Path-reversal orientation of all higher-independence spheres* (2026), published mathematical record, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-path-reversal-orientation-of-all-higher-independence-spheres--d1cebdb99d99 .
-
-[4] *Reflection-fixed homotopy types of higher path-independence complexes* (2026), published mathematical record, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb .
-
-[5] *Projective suspensions in half-turn quotients of bounded-independence cycle spheres* (2026), published mathematical record, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-projective-suspensions-in-half-turn-quotients-of-bounded-indepen--4fbd7de8d13d .
+1. R. Ehrenborg and G. Hetyei, *The topology of the independence complex*, European Journal of Combinatorics 27 (2006), 906–923, https://www.ms.uky.edu/~jrge/Papers/Independence.pdf .
+2. K. Kawamura, *Homotopy types of independence complexes of forests*, Contributions to Discrete Mathematics 5 (2010), https://cdm.ucalgary.ca/article/view/62064 .
+3. *Reflection quotients of path independence complexes as projective suspensions*, Resultary, 2026-11-17, https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-reflection-quotients-of-path-independence-complexes-as-projectiv--0bdf05d1d268/RESULT.md .
+4. *Higher independence complexes of subdivided stars*, Resultary, 2026-11-08, https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-higher-independence-complexes-of-subdivided-stars-homotopy-types--e0ebcee83467/RESULT.md .

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The loss identity and finite-dimensional dissipative spectral decomposition show that the long-time norm equals the orthogonal projection on hub-vanishing eigenvectors. Deleting the hub yields two Dirichlet paths with strictly monotone energy parameter \(k/q\). The hub equation kills each even mode automatically, and allows one mixed mode for each common *odd* Dirichlet energy. Coprime reduction gives the sharp parity and gcd count; normalized sine vectors give the site formula and the exact two-triangle test. The packaged independent checker tests the hub boundary condition and orthonormality for 100 size pairs and verifies the dark dimension by exact Krylov rank for 36 size pairs. These finite checks are corroboration, not proof for all sizes.
+## correctness
 
-## Originality — PASS, best knowledge
-Relevant full-text comparisons are the finite absorbing quantum-walk transport work of Anishchenko–Blumen–Mülken (arXiv:1309.2827), spectral characterization of 2-rose graphs by He–van Dam (arXiv:1607.05466), and the general dark/bright first-detection theory of Thiel and coauthors (arXiv:1906.08112). The first studies other absorbing network geometries, the second proves isospectral graph identification rather than absorber-local eigenprojections, and the third studies discrete stroboscopic detection rather than the continuous lossy Hamiltonian. No inspected result gives the gcd/parity-resonance count and the exact localized survival law on two glued cycles. General eigenvector/controllability principles are credited, not claimed anew. Unlocated specialized graph controllability classifications might imply this application; exhaustive priority is not established.
+PASS
 
-## Mathematical value — PASS
-A single absorbing junction on a graph with two loops is a natural test for coherent trapping. The theorem gives a complete dimension and site-by-site nonabsorption classification for arbitrarily large cycles, identifies a nontrivial number-theoretic commensurability condition, and proves the counterintuitive strict enhancement of trapping when another loop is attached. This is a concrete structural transport result rather than an arbitrary finite sample or a known-table recomputation.
+For self-adjoint H the span of its hub-zero eigenvectors and its orthogonal complement reduce H and the loss projector. Taking the imaginary part of each eigenvector equation gives Im λ≤0 and equality only in the hub-zero sector. After restriction to the complement all generalized eigenmodes decay, so the limiting norm squared really is the initial orthogonal dark-projection weight for any γ>0. Deletion of the hub leaves path sine modes; for the Laplacian the principal blocks retain nonhub degree 2, so L=2I−A+2P_v implies the same dark vectors. The two endpoints of a mode cancel exactly for even indices. A coincidence at k/m=ℓ/n means (k,ℓ)=r(m/d,n/d), 1≤r<d. At mixed parity the even mode already exhausts the kernel; at even/even both are already counted. Only odd/odd adds a direction, with normalized coefficients proportional to (√m,−√n), giving precisely 2/(m+n) in the first-loop projection. This produces the floor and parity factor, and the r=1 term checks the stated strictness, including d=1, equal loops, and sites divisible by d. Tracing the projection gives the uniform-vertex mixture. The two triangles give 1/2+1/4. Independently computed modular hub-observability ranks for eight pairs (both H, two primes, e.g. 12,20 gives 16 dark directions, 6,10 gives 7, 4,6 gives 3); finite rank checks corroborate, not prove, the all-size result. The frozen script was inspected, not executed.
 
-## Scope and remaining risks
-No assertion about weighted graph, arbitrary local detector, open scattering channels, finite-time absorption or higher cycle bouquets. A broader unlocated theorem about the observability of rose graphs may subsume the parameter-specific law. Only a same mathematical model proof review and reproducible checking have been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the two-cycle parity-filtered resonance and exact local projection law. The hub-zero projection argument, Dirichlet sine basis and gcd matching are closely related to prior results and are not separately credited. The closest actual spider theorem uses one coupled endpoint per arm and never has a zero single-arm endpoint amplitude; the cycle attaches both endpoints and changes the rank by parity.
+
+## value
+
+PASS
+
+A two-loop hub is a natural minimal graph for quantifying how attaching a second loop can increase trapping-resistant survival. The exact parity/gcd and site-divisibility conditions specify when that effect exists, and the local projector gives its magnitude; the total dark dimension alone is insufficient to answer this transport question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

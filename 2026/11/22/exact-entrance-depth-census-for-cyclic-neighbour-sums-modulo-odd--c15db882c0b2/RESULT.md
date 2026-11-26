@@ -50,21 +50,11 @@ Y^q=pY^dW(Y)\quad\text{in }A,\qquad W(0)\not\equiv0\pmod p.
 \]
 As \(Y\) is nilpotent modulo \(p\), a polynomial in \(Y\) with invertible constant coefficient is a unit of \(A\). In particular, \(W\) is a unit. Multiplying the preceding relation by \(p\) gives \(pY^q=0\), since \(p^2=0\) in \(A\).
 
-**3. Counting kernels before \(q\).** For \(0\le t\le q\), the image ideal \(Y^t A\) is generated as a module over \(\mathbb Z/p^2\mathbb Z\) by
+**3. Counting kernels up to \(q\).** Put \(S=\mathbb Z/p^2\mathbb Z\). For \(1\le t\le q\), the cokernel of multiplication by \(Y^t\) is
 \[
-Y^t,Y^{t+1},\ldots,Y^{q-1}
-\quad\text{and}\quad
-pY^d,pY^{d+1},\ldots,pY^{\min(q-1,d+t-1)}.
+A/Y^tA\simeq S[Y]/(Y^t,Y^q-pY^dW(Y))=S[Y]/(Y^t,pY^d).
 \]
-Indeed, the first family comes from multiplying \(Y^t\) by \(1,Y,\ldots,Y^{q-t-1}\); the remaining powers reduce using \(Y^q=pY^dW\). As \(W\) is a unit modulo \(p\), multiplying the latter family by \(W\) does not change the span in the \(p\)-torsion layer. The monomial basis shows that the image has order
-\[
-|Y^tA|=p^{2(q-t)+\max(t-d,0)}.
-\]
-Consequently
-\[
-|\ker(Y^t:A\to A)|=p^{2t-\max(t-d,0)}=p^{\min(2t,t+d)}
-\quad(0\le t\le q).
-\]
+Here \(Y^q\) is zero modulo \(Y^t\), and \(W\) is a unit modulo \(Y^t\) since \(W(0)\) is a unit in \(S\) and \(Y\) is nilpotent in that quotient. The polynomial \(Y^q-pY^dW\) is the original monic relation, with \(W\) chosen as in part 2. In the last quotient the coefficients of \(Y^j\), \(0\le j<\min(t,d)\), range freely in \(S\); those with \(d\le j<t\) range freely modulo \(p\). Thus the cokernel has order \(p^{2\min(t,d)+\max(t-d,0)}=p^{\min(2t,t+d)}\). An endomorphism of a finite abelian group has equal kernel and cokernel cardinalities, giving the claimed kernel order. At \(t=0\) the map is the identity and its kernel has cardinality one, agreeing with the same formula.
 
 **4. Counting kernels after \(q\).** Write \(t=q+r\), \(r\ge0\). The same relation gives
 \[
@@ -86,7 +76,7 @@ which sums to \(531441\). The program prints `VERIFY_OK local_pairs=4 whole_matr
 
 ## Relationship to prior work
 
-Dular's *Cycles of Sums of Integers* (first publicly available 2019) defines the same cyclic update, computes period information, and characterizes periodic states over prime fields, including the constraints at lengths divisible by the prime; it does not present the prime-square first-entry population at every depth. Lewis and Tefft's 2024 preprint *The Maximum Length for Ducci Sequences on* \(\mathbb Z_m^n\) *when* \(n\) *is Even* gives a prime-power upper bound on maximum transient length. The later exact-maximal-length theorem resolves that upper bound and is **stronger in its range of moduli**, but its only transient statistic is the maximum, not counts for intermediate depths. The present law recovers that known maximum at exponent two as a corollary, so the maximum is not claimed as new. The contribution is the sharp two-phase distribution and the fraction at every entrance depth for the nonsquarefree case \(p\mid n\).
+Dular's *Cycles of Sums of Integers* characterizes periodic states over prime fields. Lewis and Tefft give a prime-power upper bound on maximum transient length. The later exact-maximal-length theorem [4] is stronger in its range of moduli; it also supplies the same primary group-ring reduction and its proof establishes the order-\(d\) factor in the mod-\(p^2\) relation \(Y^q=pY^dW\) (with \(Y=1-g\) in its notation). Neither that relation nor the maximum is claimed as new. The additional computation counts each intermediate cokernel, rather than finding only the first zero image, and gives the two-phase distribution and fraction at every entrance depth when \(p\mid n\).
 
 Breuer's *Ducci Sequences and Cyclotomic Fields* (2010) addresses cyclotomic periods and periodic tuples, with an abstract specifying the separable case \(p\nmid n\); the potentially relevant full text was not obtainable in this check. Work on modulo-four transient distributions concerns another prime and does not determine the odd-prime-square formula. The originality conclusion is relative to the inspected primary statements and searched mathematical records, not a guarantee against unindexed equivalences.
 
@@ -99,4 +89,4 @@ The result addresses odd-prime-square moduli and even lengths divisible by that 
 1. B. Dular, *Cycles of Sums of Integers*, arXiv:1905.01765 (first submitted 2019-05-05), *Fibonacci Quarterly* **58** (2020), 126–139; https://arxiv.org/abs/1905.01765.
 2. M. L. Lewis and S. M. Tefft, *The Maximum Length for Ducci Sequences on* \(\mathbb Z_m^n\) *when* \(n\) *is Even*, arXiv:2410.18204 (first submitted 2024-10-23); https://arxiv.org/html/2410.18204v1.
 3. F. Breuer, *Ducci Sequences and Cyclotomic Fields*, *Journal of Difference Equations and Applications* **16** (2010), 847–862; doi:10.1080/10236190802566509.
-4. *Exact maximal transient lengths for cyclic neighbour-sum dynamics*, publicly indexed mathematical note (2026-11-02), full RESULT inspected; a proof of the all-modulus maximal entrance length but not the time-by-time census.
+4. *Exact maximal transient lengths for cyclic neighbour-sum dynamics*, Finding and Proof §§1–2, https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-maximal-transient-lengths-for-cyclic-neighbour-sum-dynamic--8221ed9a0ac0/RESULT.md

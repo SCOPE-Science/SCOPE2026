@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The all-size proof is the closed stationary first/second moment generator identity with positive denominators. Stationary second moments exist by a total-number quadratic Lyapunov drift. Exact full-site rational moment calculations in the companion checker validate 82 separate stationary moment equations across four parameter settings, including the no-gradient case; finite checks are independent corroboration and not the proof of generality. The unique rate optimum follows from an explicitly strictly increasing cubic polynomial in a positive dimensionless rate.
+## correctness
 
-**Originality: PASS on examined evidence, with residual risk.** Giardinà–Redig–Vafayi (arXiv:0906.4664, §§2,8) introduce symmetric inclusion and the positive-correlation principle for endpoint reservoirs on chains. Floreani–Redig–Sau (arXiv:2007.08272, §§2,5) give a general two-reservoir correlation factorization, including the squared reservoir-difference factor. Kim–Sau (Commun. Math. Phys. 2026, §§1,6) study spectral gaps of sitewise-reservoir SIP, not this covariance. The present result solves a different all-site bath architecture and obtains an explicit all-size covariance, a within-shore ratio and a unique finite-rate maximum; the known positivity and contrast factorization are credited, not claimed. Searches of pertinent public research summaries and literature did not reveal a directly subsuming result. This absence is not proof of worldwide novelty; an unindexed matching computation is the main residual risk.
+PASS
 
-**Mathematical value: PASS.** The finite-rate optimum identifies a mathematically sharp tradeoff between correlation formation and throughput in an interacting stochastic transport model. The exact rate threshold, all-pair covariance structure and size-independent large-network optimal-rate limit serve as a benchmark for nonequilibrium inclusion dynamics. It is not merely a renaming of the known sign inequality.
+Reservoir births of total population N are bounded by an affine function of N, and bulk jumps preserve N, with bounded rates on every finite set N≤m. This yields nonexplosion; the affine negative drift gives positive recurrence with irreducibility from the births and deaths. For a direct integrability justification of quadratic stationary generator identities, L exp(θN)/exp(θN) has constant term γn(ρ_A+ρ_B)(exp(θ)−1) and coefficients γ(exp(−θ)−1)+λ_X(exp(θ)+exp(−θ)−2) on shore occupations. These coefficients are strictly negative for small positive θ, giving stationary exponential integrability by the drift criterion. The mean bulk drift cancels the bilinear terms, while the centered-product jump term is negative only for adjacent distinct sites. These give the four displayed equations, including the equality of the two same-shore covariances. Put p=κv, d=γ+p. Substitution of a+b=[2pe+v(T+2e)+(B_A+B_B)/2]/d and c=pe/d into the cross equation reduces the coefficient to 2[n(d²−p²)+γv], giving exactly the stated covariance. With x=κv/γ, the derivative of x(1+x)/(1+2x)² is (1+2x)⁻³, so the full sign is the claimed cubic test; the strictly increasing cubic gives the sole positive root and its large-n limit. The absolute current grows strictly only with unequal baths; equal baths give identically zero covariance and current and no unique maximum. Read RESULT.md, VERIFICATION.md and CHECK.py; did not execute the supplied script. Its rational finite cases check the reduction but the proof covers all allowed n.
 
-**Limits.** Positive \(\kappa,\gamma,\rho_A,\rho_B\); equal shore sizes \(n\ge2\); hopping \(v\ge0\). Uniqueness of the covariance maximum requires unequal reservoir means, while the formulas still cover equal means. No nonstationary or higher-moment claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior SIP duality and positivity or squared-reservoir-contrast structure are not claimed new. The inspected closest theories give covariance in terms of geometry-dependent dual absorption or study different graphs and contacts. They do not provide the evaluated all-site bipartite coefficient or the finite-rate maximum and its contrast with the current.
+
+## value
+
+PASS
+
+The rate is a natural control parameter for a symmetric transport network. The all-size formula determines quantitatively that greater mean transport does not imply greater cross-shore fluctuations: the current saturates monotonically while covariance peaks at an explicitly characterized finite rate and then vanishes. The within-shore ratio and large-size optimizer distinguish this from a finite example or an already-known positivity result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

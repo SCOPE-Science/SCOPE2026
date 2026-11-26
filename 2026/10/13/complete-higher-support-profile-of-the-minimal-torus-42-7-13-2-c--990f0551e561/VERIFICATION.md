@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It constructs the fourteen cyclic facets
-\[
-\{i,i+1,i+3\},\qquad\{i,i+2,i+3\},\qquad i\in\mathbb Z/7\mathbb Z,
-\]
-and generates every nonempty face. It checks the f-vector \((7,21,14)\), that every edge is in exactly two triangles, every vertex link is a six-cycle, and that the triangle orientations can be chosen consistently.
+# Independent mathematical audit
 
-The face-incidence generator is checked to have length \(42\), rank \(7\), row weight \(13\), and ordinary weight distribution
-\[
-1+7z^{13}+42z^{20}+43z^{21}+21z^{24}+14z^{25}.
-\]
+## correctness
 
-Every positive-dimensional subspace of \(\mathbb F_2^7\) is generated once in reduced-row-echelon form. The dimension counts
-\[
-127,\ 2667,\ 11811,\ 11811,\ 2667,\ 127,\ 1
-\]
-are checked against Gaussian binomial coefficients. Every subcode support is computed as the union of the supports of its RREF basis words, and the complete histograms are compared with `artifacts/certificate.json`.
+PASS
 
-Successful replay prints `VERIFY_OK`.
+The listed 14 facets have all 21 edges, with each oriented edge used exactly once in each direction and each vertex link a 6-cycle. This is a connected orientable closed surface of Euler characteristic zero, and the unique seven-vertex torus identifies the fixed example. The singleton columns give rank seven. Independent hyperplane/coset generation of 29,211 message spaces and the sum of their word weights divided by 2^(r−1) reproduced every bin, including the ordinary distribution and minimizer counts (7,21,21,14,119,42,1). The repaired formula specialization was independently checked on every induced vertex subset: maximum facet counts at sizes 6 through 0 are 8,4,2,1,0,0,0.
+
+## originality
+
+PASS
+
+For the repaired scope only: earlier work yields the hierarchy itself, but it neither counts all message subspaces of given support size nor gives the extremal multiplicities. No examined source determines the full distribution of this specific face code.
+
+## value
+
+PASS
+
+This canonical minimal surface model naturally defines its code via all faces. The complete table gives exact counts of extremal and nonextremal subcodes, including the many extra minimizers invisible to the induced-face formula. It is a concrete reference case for comparing support behavior of face codes; this value does not rely on recalculating the prior hierarchy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

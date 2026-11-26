@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The killed jump-diffusion has a finite mean symmetric exit time, verified by a uniform non-reset Brownian exit chance. The unique bounded backward solution is the absolutely convergent even-power series, obtained by coefficient matching and the absorbing endpoint conditions. Jensen and the inequality \(0\le U^j\le U\) for \(U=A^2\in[0,1]\) give the sharp coefficient comparisons. Equality and strictness follow from the second nontrivial moment coefficient. The stationary quadratic moment identity, weak-rate coefficient and fast-rate cosh-product asymptotics have been checked independently of the numerical BVP. The accompanying program passed 93 numerical verification checks; finite-dimensional numerical agreement is not the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary source, Biroli et al. (2024), treats first passage to one target under a deterministic multiplier, and includes a power-series recurrence. Pal and Prasad (2019) treat two absorbing endpoints under fixed-location restarting. Méndez et al. (2024) treat independent random reset positions, and Pierce (2022) treats fixed rescaling and stationary laws. The precise new statement is the complete **factor-distribution extremal classification** for symmetric exit at fixed second-moment retention, including equality cases, identical stationary variance and exponential fast-reset separation. The recurrence and fixed-location/full-reset limits are acknowledged prior techniques. No stronger published statement covering this full comparison was located in the checks described in AUDIT.json. Remaining risk: a more general monotonicity principle for stochastic jump kernels may imply the result without presenting it in this language; priority has not been independently certified.
+PASS
 
-## Mathematical value — PASS
-At fixed \(\mathbb E[A^2]\), all protocols have the same stationary variance, making that constraint physically natural rather than an arbitrary parameter slice. Yet their exit times differ sharply, with a rigorous minimum under occasional complete resets and a maximum under deterministic partial resets. The result supplies exact quantitative envelopes, uniqueness of the two protocols, and an exponentially large protocol-design distinction in the fast-reset regime. This is a motivated absorption-versus-stationarity comparison, not a reparameterization of the fixed-multiplier one-target formula.
+On blocks of a fixed length, no resets and a Brownian displacement exceeding 2L in magnitude force exit with probability bounded away from zero uniformly in the starting interior point. Thus the exit time is integrable, including for signed multipliers with endpoint atoms. Rather than assume analyticity of the mean, construct the candidate: the generator on x^{2n} gives 2Dn(2n−1)x^{2n−2}−r(1−m_n)x^{2n}. Inserting the factorial series cancels every positive degree and leaves −1. The series and its first two derivatives converge uniformly on the closed interval and its boundary values vanish. Stopped Dynkin's formula with the finite-exit bound identifies it with the mean. Jensen and U^j≤U for U=A² give q^j≤m_j≤q. At j=2, equality requires U=q a.s. or U∈{0,1} a.s., respectively, and any strictness enters with positive weight already at n=3 for r>0 and |x|<L. The on/off sum is cosh; for signed on/off factors flips are invisible for the symmetric exit statistic, not necessarily for the signed process itself. In a stationary construction on the whole line, integrate the past Brownian increments weighted by intervening reset-factor products. The squared product averaged at lookback u is exp(−r(1−q)u), making the integral square integrable with zero mean and variance 2D/[r(1−q)]. The n=3 coefficient difference is (1−q)Var(U)/720 at the center. At high rate the fixed-magnitude product coefficients tend to (q;q)_∞; in the cosh series, any fixed-degree initial part has vanishing relative weight. Comparing the two cosh scales yields the exact ratio, including the factor 1−q and the specified fixed-q regime.
 
-## Limits
-The theorem concerns symmetric mean exit only. It does not certify full first-passage distribution ordering, asymmetric target optimization, or priority across inaccessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The lower-envelope expression is a familiar fixed-location reset special case. The even product and its high-rate limit have a close fixed-multiplier, one-target precedent. The stationary quadratic statistic is also not the novelty. The supported distinction is the signed iid multiplier, symmetric absorbing interval and optimization over all laws at given q, with a strict classification and a quantitative gap. In the inspected sources, stationary convex-order results share the two extremizing laws, but do not establish this ordering of exit means or its gap.
+
+## value
+
+PASS
+
+A natural stationary measurement, the positional variance, leaves the mean escape time poorly identified. The result says exactly what can happen at that fixed measurement, for every interior start and every law, and quantifies the potentially exponentially large relative discrepancy at the center. Taking the same extremizers for first passage as for a stationary moment would not by itself justify that conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

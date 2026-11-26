@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:49:19.412252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently label the vertices b_j=2j, t_(j+1)=2j+1. The vertex Laplacian is that of the square of C_(2n), with shifts ±1 and ±2. For the chosen face orientations the face Gram matrix is 3I minus adjacency of the weak dual cycle C_(2n): each plus face shares just D_j and V_j with two minus faces, with opposite incidence signs. Thus for a (2n)-th root w=e^{it} the respective spectra are 4-2cos(t)-2cos(2t) and 3-2cos(t). Pair the modes t and t+pi to obtain the claimed bands including even-n degeneracies. The vertex Laplacian has just one zero; the face Gram matrix is strictly positive. Since B1 B2=0, the full edge operator then has a one-dimensional harmonic complement. The cellwise tuple (T,B,V,D)=(2,2,-1,1) gives a harmonic vector with nonzero circulation along a rail. The smaller nonzero-sector gradient branch decreases strictly with c, attains g_n at j=1,n-1, and g_n<=g_3=4, the remaining trivial-sector gradient eigenvalue. The curl minimum is 1. Equalizing a*g_n and 2-a uniquely optimizes their minimum. Directly g_6=3-sqrt(3)>1; cos(pi/7)>43/48>(sqrt(21)-1)/4, so g_7<1; g_n decreases and has the claimed n^-2 asymptotic. In doubled-cycle coordinates, a face eigenvalue of 4 requires w^2+w+1=0, while a vertex eigenvalue of 5 requires w^4+w^3+w^2+w+1=0. Since 3 and 5 are odd, their respective primitive roots occur iff 3 or 5 divides n. The opposite sectors supply the anchors from w=-1 for gradient 4 and curl 5. A shared eigenvalue acts by one scalar in both sectors, so scalar separation is impossible there. No converse excluding other shared eigenvalues is stated. Independent sorted-simplex incidence replay (evidence/5/reproduce.py and replay.txt) supports these calculations for n=3..26 but is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang et al. and Roddenberry et al. provide Hodge decompositions and motivate separate lower/upper filtering.",
+          "Grande and Schaub treat different low modes in point-cloud filtrations; their accessible full HTML verifies the general lower/upper distinction."
+        ],
+        "reasoning": "Those general results explain the gradient/curl sector split and filtering issue, but do not provide the model-specific gap crossover or the exact orders of roots causing the two shared eigenvalues.",
+        "searches": [
+          "arXiv:2103.12587 §III",
+          "arXiv:2109.08728 Theorem 1",
+          "arXiv:2311.14427 Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "https://mathworld.wolfram.com/AntiprismGraph.html",
+        "arXiv:2103.12587",
+        "arXiv:2109.08728",
+        "arXiv:2311.14427",
+        "2026/11/16/SCOPE-sharp-parity-dependent-spectral-gap-design-for-two-hop-cyclic-fo--7d65ea7876e3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separation by distinct lower/upper functions is standard, and same-eigenvalue obstruction for a scalar function is immediate spectral calculus.",
+          "The frozen statement identifies two size divisibility laws at the natural opposite-sector anchors 4 and 5, and a finite six/seven-cell weight reversal; the cited generic decompositions do not evaluate these quantities."
+        ],
+        "reasoning": "The contribution is not the equalization principle or generic impossibility of separating a shared eigenvalue. It is the evaluation on this particular pair of incidence operators: locating the bottleneck and the sharp size cutoff, and identifying which roots of unity create obstructions at the two anchors. No complete spectrum-intersection law is claimed.",
+        "searches": [
+          "arXiv:2103.12587 separate lower/upper filter construction",
+          "arXiv:2311.14427 Theorem 2.3",
+          "2026/11/16/SCOPE-sharp-parity-dependent-spectral-gap-design-for-two-hop-cyclic-fo--7d65ea7876e3, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The antiprism skeleton is a cycle square, and the audited primal graph has that realization explicitly. The face-side matrix on the annular triangulation is a shifted adjacency on the weak dual cycle, not a face operator of the closed capped antiprism.",
+          "Fourier diagonalization of both ordinary circulants already gives the individual band values after pairing opposite roots."
+        ],
+        "reasoning": "Do not claim the vertex band as a new graph spectrum. The comparison that matters is the coupled pair of vertex and face spectra with their sector labels and the fixed two-weight objective.",
+        "searches": [
+          "antiprism graph circulant C2n square of cycle face weak dual cycle Hodge edge spectrum optimal gradient curl mixing spectral gap divisibility resonance",
+          "cycle square antiprism graph cyclic annulus simplicial Hodge Laplacian triangle strip square of cycle dual cycle spectrum spectral gap gradient curl resonances eigenvalues 4 5",
+          "https://mathworld.wolfram.com/AntiprismGraph.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day distinct Resultary result optimizes least mean-zero singular gain of (I-S)(I+bS) with a unit budget; it does not use the triangulated face boundary matrix.",
+          "Vertex graph catalogs identify the cycle-square object but do not tabulate this edge-sector comparison."
+        ],
+        "reasoning": "Neither a graph adjacency catalog nor the other exact cyclic gain formula supplies the coupled Hodge gap and resonance assertions. The identical assigned catalog entry was excluded as a self-hit, not by date.",
+        "searches": [
+          "antiprism graph circulant C2n square of cycle face weak dual cycle Hodge edge spectrum optimal gradient curl mixing spectral gap divisibility resonance",
+          "2026/11/16/SCOPE-sharp-parity-dependent-spectral-gap-design-for-two-hop-cyclic-fo--7d65ea7876e3"
+        ]
+      },
+      "rationale": "The Hodge split, harmonic count and ordinary circulant spectra are established inputs. The directly supported contribution is their joint weighted gap design and the precise two anchored cross-sector coincidences on the specified annulus. Neither the analogous cycle gain optimization nor the general Hodge filtering framework covers these joint claims in the inspected sources.",
+      "residual_risks": [
+        "An equivalent two-sector formula may occur under another periodic strip or annular mesh description; the alias search and full-text passage checks are bounded.",
+        "Classical circulant spectra and generic Hodge filtering restrict what can be treated as original; absolute chronology is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cycle-square skeleton is classical; a face Gram matrix on the uncapped annular strip is not part of that identification",
+          "evidence": [
+            "The antiprism graph is isomorphic to a circulant graph, equivalently a cycle square"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/AntiprismGraph.html",
+          "material_read": "Opening graph identification, offsets 0–530",
+          "method": "OA website-mode passage",
+          "title": "Antiprism Graph",
+          "trigger": "Aliased cycle-square representation of the vertex graph"
+        },
+        {
+          "assessment": "Sector framework and filtering motivation, not this explicit annulus gap and intersection arithmetic",
+          "evidence": [
+            "Orthogonal gradient, curl and harmonic frequencies; separately tunable lower and upper filters"
+          ],
+          "identifier_or_url": "arXiv:2103.12587",
+          "material_read": "Contribution passage p. 1 and §III p. 2",
+          "method": "OA PDF offsets around 5800 and 14966–21703",
+          "title": "Finite Impulse Response Filters for Simplicial Complexes",
+          "trigger": "General combined and separate Hodge filters"
+        },
+        {
+          "assessment": "General decomposition and separation motivation, not exact cyclic annulus calculation",
+          "evidence": [
+            "Theorem 1 decomposes harmonic, gradient, and curl flows"
+          ],
+          "identifier_or_url": "arXiv:2109.08728",
+          "material_read": "Theorem 1 and separate spectral wavelet discussion, pp. 2–3",
+          "method": "OA PDF passages around offsets 11600–15079 and 18100–21495",
+          "title": "Hodgelets: Localized Spectral Representations of Flows on Simplicial Complexes",
+          "trigger": "General decompositions and bounds for Hodge spectral multipliers"
+        },
+        {
+          "assessment": "Addresses point-cloud filtrations and general distinctions, without this annular budget and the two divisibility equivalences in inspected passages",
+          "evidence": [
+            "Theorem 2.3 describes mode definitions and decomposition"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.14427",
+          "material_read": "Abstract and Theorem 2.3 discussion, offsets 0–2783 and 10000–13500",
+          "method": "OA full HTML passage inspection",
+          "title": "Disentangling the Spectral Properties of the Hodge Laplacian: Not All Small Eigenvalues Are Equal",
+          "trigger": "Plausible direct overlap on Hodge low modes and sector distinctions"
+        },
+        {
+          "assessment": "Optimizes a one-/two-hop difference, not separate gradient and curl weights for the annulus",
+          "evidence": [
+            "Unit-budget min mean-zero gain of (I-S)(I+bS), with parity-dependent optimizer"
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-parity-dependent-spectral-gap-design-for-two-hop-cyclic-fo--7d65ea7876e3",
+          "material_read": "Mirrored Finding specifying the objective and operator",
+          "method": "Resultary search followed by local mirror passage",
+          "title": "Sharp parity-dependent spectral-gap design for two-hop cyclic Fourier differences",
+          "trigger": "Strongest distinct same-date cyclic gap design hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural periodic simplicial mesh, the exact design weights and the size at which the preferred damping sector reverses give an actionable sharp relaxation bound. The two intersection tests address a distinct exact filter-design question: 4 and 5 are not arbitrarily chosen test numbers, but values anchored in the respective sectors by the w=-1 doubled-cycle mode at every size. The arithmetic gives infinite explicit failures of scalar separation while not claiming failures are confined to them. Value lies in the joint design and obstruction, not in carrying out a routine Fourier diagonalization in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

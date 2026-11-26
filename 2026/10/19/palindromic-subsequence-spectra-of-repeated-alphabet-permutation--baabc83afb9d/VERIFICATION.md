@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-This package includes `tools/verify.py`, a standalone Python 3 script requiring only the standard library. Run it from the extracted package root with `python tools/verify.py`.
+## correctness
 
-The script constructs the complete set of distinct subsequence words of each tested repeated-permutation host by iterating over host letters and adjoining each current subsequence with that letter. This is independent of the descent-count proof and does not count duplicate positional embeddings. It filters the resulting values for palindromicity and compares their full length histogram with the claimed binomial coefficient formulas. An additional direct greedy matcher independently tests explicitly generated palindromic candidates in bounded cases, and the program repeats the direct check for 150 alphabets with all relabeling permutations in three specified parameter families.
+PASS
 
-Actual executed output:
+A word needs exactly one plus its number of weak rank descents in permutation blocks: each such transition forces a new block and each strict ascent can stay in the current block. In a palindrome each mirrored transition pair contributes one descent if unequal and two if equal; the even center contributes one more. This gives m+e(h)+1 in both parities. For a half of length r and e equal transitions, the count is q times binomial(r−1,e) times (q−1)^(r−1−e), with each word represented once. Summing the odd and even least-block contributions gives qzt(1+zt)/(1−zt²(q−1+z)); summing over every available block count multiplies by 1/(1−z). The specialized recurrence and examples follow. At the extremal odd length 2k−1, the half has no equal transitions; no even length is as large. For q≥3 equality at distances one and two is impossible in the host, excluding longer contiguous palindromes by their centers. The positive dominant pole at t=1 is simple, strictly smaller in modulus than the other poles and not canceled.
 
-`ALL_REPEATED_PERMUTATION_PALINDROME_CHECKS_PASSED main_pairs 21 permutations 150 q_range 2..10 k_range 1..12`
+## originality
 
-The 21 full direct-enumeration cases are \(q=2\) with \(1\le k\le7\), \(q=3\) with \(1\le k\le5\), \(q=4\) with \(1\le k\le4\), \(q=5\) with \(1\le k\le3\), and \(q=6\) with \(1\le k\le2\). Additional algebraic boundary checks cover \(2\le q\le10\) and \(1\le k\le12\). A separate symbolic coefficient expansion of the proposed bivariate rational function was compared against the explicit binomial counts for \(q=2,3,4\) and \(1\le k\le5\); it agreed in all 15 instances.
+PASS
 
-Neither full finite enumeration nor the symbolic spot checks prove the theorem for all \(q\) and \(k\). The mathematical proof is the explicit necessary-and-sufficient block criterion followed by exact halfword counting. This check does not establish bibliographic priority or independent audit status.
+The exact two-copy length-three layer is earlier, and q=2 has the exact analogous enumerator. The whole q≥3, all-k spectrum is directly contained in a broader catalogue record dated after the frozen record, not established as earlier coverage. The prior results inspected do not supply the all-k named claim before the frozen record.
+
+## value
+
+PASS
+
+Fixed cyclic alphabet order gives a natural family for contrasting scattered and contiguous palindromes. The result identifies which individual palindromes first occur at each block count and gives a uniform exact length distribution for a general labeled alphabet, not just a maximum length or a finite set of new cases. The independence from the order of unequal letters in the halfword is the structural simplification enabling that count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

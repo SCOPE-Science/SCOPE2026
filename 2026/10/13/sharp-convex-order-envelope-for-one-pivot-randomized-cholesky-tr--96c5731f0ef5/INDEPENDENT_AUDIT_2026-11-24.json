@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:15.750168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With K=U diag(λ)Uᵀ, the weights λ_i U_ji²/S have the required pivot and size-biased spectral marginals. The conditional expectation of S−λ_i given j is exactly S−(K²)_jj/K_jj. Two applications of Jensen give the whole convex-order statement; all outcomes lie in [0,S]. Under strict convexity the upper equality requires one distinct eigenvalue on the support of each row of U, i.e. every coordinate vector is an eigenvector of K, including for repeated eigenvalues. Lower equality is exactly constant trace error. For lower attainability, the symmetric matrix diag(λ_i²−(M₂/S)λ_i) is traceless. An isotropic unit vector exists by interpolating between opposite-sign eigenvectors (or choosing any vector for the zero matrix); the perpendicular compression is again traceless. Induction gives a real orthonormal basis with zero diagonal quadratic form, hence all pivot trace errors equal m. The diagonal matrix attains the upper bound. Variance is continuous in the conjugation, and a column sign flip yields representatives of both extremizers in SO(n), giving every intermediate value. An independent check at spectrum (2,5,6) gives the constant-error matrix with diagonal (4,5,4) and entries K₁₃=K₃₁=2: each diagonal ratio is 5, hence trace error 8. The diagonal input has outcomes (11,8,7) and variance 24/13. Read RESULT.md §§Proof–Verification, VERIFICATION.md, verify.py and requirements.txt; the 28 rational and 490 numerical cases are recorded checks, not rerun or used for the universal proof. Single-pivot exact SPD only; convex order does not assert pointwise tail domination.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-step map Φ(K)=K−K²/tr K implies the common mean m. The multistep expected trace and high probability estimates address different functionals or quantifiers.",
+          "The two-step indexed orientation result treats a 3×3 spike and only states the orientation independence of the one-step mean."
+        ],
+        "reasoning": "Exact mean plus a bound on an expected matrix does not determine the upper scalar law. The lower Jensen inequality alone does not imply there is a real conjugate attaining it for every spectrum.",
+        "searches": [
+          "arXiv:2207.06503 §5.1",
+          "arXiv:2404.11487 §1.2",
+          "arXiv:2410.03969v3 Lemma 4.4",
+          "Resultary 8657b8293542"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "arXiv:2608.20633v1, 2207.06503, 2404.11487, 2410.03969v3",
+        "Resultary 23a3fc6123ad, 73b2b6cddee0, 8657b8293542, 9bb62c848ba0 and b698e0fd83ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orthostochastic spectral coupling λ_i U_ji²/S identifies a pivot-conditional scalar expectation; the prior expected residual identity only gives its unconditional mean.",
+          "The trace-zero Schur–Horn principle is classical. Here it is used on K²−(M₂/S)K to make the ratio constant, not on K to make the pivot probabilities uniform. The inspected orbitope record concerns inradii, circumradii and contact ranks."
+        ],
+        "reasoning": "Credit the standard Jensen and zero-diagonal theorems as ingredients. Neither the expected residual map, specialized indexed error laws, nor the orbitope geometry furnishes the sharp comparison and the two equality characterizations for this sampling law.",
+        "searches": [
+          "arXiv:2608.20633v1 §§1.1–1.2 and 4 versus frozen RESULT.md proof",
+          "arXiv:2207.06503 §5.1",
+          "Resultary b698e0fd83ad, Schur–Horn orbitope radii"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Epperly's Jensen inequality acts on tr f(A′); the frozen inequality acts on f(tr A′). These differ even for f(x)=x², which in the latter introduces cross products between eigenvalues.",
+          "The strongest conceptual indexed analogue convex-orders squared Frobenius error under residual singular-weight majorization in two-sided Gaussian reconstruction, not a pivot trace over an SPD spectral orbit."
+        ],
+        "reasoning": "The scalar conditional-expectation order and the prior matrix/spectral-functional comparisons are not equivalent formulations with the same random object.",
+        "searches": [
+          "Resultary: one-pivot trace-error convex order, size-biased spectral complement, orientation dependence",
+          "arXiv:2608.20633v1 §4",
+          "Resultary 23a3fc6123ad RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact two-atom law includes a first pivot but is for a one-defect common-factor family, not arbitrary SPD spectra with freely varied eigenbases.",
+          "The same-day one-column funNyström result uses a Gaussian sketch and matrix-power trace error, not this pivot sampling law."
+        ],
+        "reasoning": "An exact distribution for a specialized family or another sketch is not a table of these endpoints for all spectra; no such table was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: exact one-pivot residual trace distribution, sharp orientation and variance",
+          "Resultary 73b2b6cddee0 and 9bb62c848ba0 findings"
+        ]
+      },
+      "rationale": "Known results supply the pivot rule, exact mean and standard proof ingredients. The supported distinct claim is the sharp fixed-spectrum scalar convex-order envelope with both endpoint laws realizable over the real orthogonal orbit and strict-convexity equality criteria.",
+      "residual_risks": [
+        "An equivalent size-biased spectral/Rao–Blackwell characterization outside the inspected literature cannot be ruled out.",
+        "The adjacent Resultary 4916aa7e5711 random-orthogonalization item was summary-only; its available description treats a different potential. No priority claim is inferred from day-level dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different Jensen functional",
+          "evidence": "Bounds traces of convex spectral functions of the residual, not convex tests applied to its scalar trace.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20633v1",
+          "material_read": "§§1.1–1.2 and §4, p. 9",
+          "method": "Targeted primary OA full text",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "Closest one-step Jensen and trace-error analysis"
+        },
+        {
+          "assessment": "Covers mean but not extremal law",
+          "evidence": "Φ(A)=A−A²/tr A and its matrix-order properties support multistep mean bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "§5.1 pp. 19–20",
+          "method": "Targeted primary OA full text",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Exact one-step expected residual"
+        },
+        {
+          "assessment": "Overlapping mean identity; different contraction problem",
+          "evidence": "Exact mean for diagonal sampling, followed by Frobenius contraction for a different rule.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+          "material_read": "§1.2 pp. 2–3",
+          "method": "Targeted primary OA full text",
+          "title": "Randomly Pivoted Partial Cholesky: Random How?",
+          "trigger": "Sampling rule and sharp spectral contraction"
+        },
+        {
+          "assessment": "Expected multistep error, not single-step scalar convex order",
+          "evidence": "A deterministic spectral quantity controls expected trace-norm error.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.03969v3",
+          "material_read": "p. 17, Lemma 4.4 and surrounding text",
+          "method": "Targeted primary OA full text",
+          "title": "Embrace Rejection: Kernel Matrix Approximation by Accelerated Randomly Pivoted Cholesky",
+          "trigger": "Potential spectral envelope for pivot errors"
+        },
+        {
+          "assessment": "Conceptual but not statement-level overlap",
+          "evidence": "Majorization compares normalized squared Frobenius errors of two-sided Gaussian sketch reconstructions.",
+          "identifier_or_url": "2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary index and local mirror",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch",
+          "trigger": "Closest indexed convex-order result"
+        },
+        {
+          "assessment": "Fixed matrix family, not full spectral orbit",
+          "evidence": "At most two trace-error outcomes in a one-defect common-factor family.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-atom-residual-law-and-sharp-pivoting-reversal-on-commo--73b2b6cddee0",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary index and local mirror",
+          "title": "Exact two-atom residual law and sharp pivoting reversal on common-factor matrices",
+          "trigger": "Indexed exact pivot residual law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prior mean is exactly orientation-independent, so it cannot measure reliability across pivot coordinates. These sharp laws separate deterministic one-step error from its maximum possible convex dispersion with the whole spectrum unchanged, uniformly for all convex losses; the variance range quantifies the discrepancy. The exact coordinate extremizers and separate equality tests add useful diagnostics without promising a multistep or arbitrary-tail ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

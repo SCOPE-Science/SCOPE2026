@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:01:27.761362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use P(x,y,z)=(x,y,y,z), W=diag(w,w,1,1), element lengths r,1, and no end-node elimination. The local mass and its inverse give the stated M and B_w. The difference between either weighted restriction and the mass-orthogonal left inverse vanishes on range(P); the mixed terms with the mass-orthogonal inverse vanish. Thus B_w−M⁻¹ is positive semidefinite of rank at most one, and the SPD similar product has two unit eigenvalues. In the trace of B_wM the end nodes supply 8/3 and the two interface couplings subtract 2/3, leaving trace 2+4(r+1)(r+w²)/(3r(1+w)²). Subtraction of 4/3 leaves a positive factor times (w−r)², so the spectral ratio is minimized uniquely at w=r. For w=r^γ the correction is invariant under r↦1/r; at infinity it grows like r for γ<0, r/4 at γ=0, and r^(1−2γ) for 0<γ<1, vanishes identically at γ=1, and decays like 1/r for γ>1. At γ=1/2 it is exactly ((√r−1)/(√r+1))² before multiplication by 4/3, so the spectral-ratio supremum 8/3 is not attained at finite contrast. The Jacobi comparator is consistent: the squared normalized adjacent off-diagonals sum to 1/4. This is a three-DOF spectral ratio result, not an ordinary matrix two-norm estimate or a many-cell sufficiency theorem. Replay: RESULT.md displayed assembly/rank/trace and power analysis; verify_weighted_bras.py inspected, not executed, exact-rational finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general weighted spectrum reduction applies to positive W with any number of constraints, including q=1 here; the next slide bounds rank by q.",
+          "For diagonal-local-mass weights the weighted bound [(ω+ε)²/(4ωε)] gives 4/3 from ω=1/2 and ε=3/2. The bound alone would not show exactness or uniqueness; the exact reduction does."
+        ],
+        "reasoning": "The general exact weighted result dominates the spectrum claim, and includes interface-weight choices beyond those analyzed here. The unweighted paper supplies structural background but is not relied on for arbitrary weights.",
+        "searches": [
+          "Southworth, mfem.org/pdf/seminar/southworth2.pdf pp. 13–15",
+          "Krzysik–Southworth–Wimmer arXiv:2607.12138 pp. 4–7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_weighted_bras.py",
+        "Southworth seminar slides, especially slide 14",
+        "arXiv:2607.12138",
+        "Resultary b1da109e39bf and 073ddd6b1292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With scaled C̃=CW⁻¹ᐟ² and M̃=W⁻¹ᐟ²M_br W⁻¹ᐟ², the three scalar forms are G₀=1/w+1, G₋=C M_br⁻¹ Cᵀ=4(1/r+1), and G₊=C W⁻¹ M_br W⁻¹ Cᵀ=(r/w²+1)/3.",
+          "Their scalar product G₊G₋/G₀² is precisely 4(r+1)(r+w²)/(3r(1+w)²). Subtract 4/3 to obtain the nonnegative square; at w=r^γ the tail and the γ=1/2 supremum then follow immediately."
+        ],
+        "reasoning": "The implication uses only two local diagonal entries of the mass and inverse mass and the single standard continuity constraint. There is no additional spectral lemma or weight-dependent geometric argument. The exact numerical consequences need not have appeared verbatim for this to be a mechanical corollary.",
+        "searches": [
+          "Southworth slide 14, OA offset 11200–15168, subsection Assembly constraints control the spectrum",
+          "Frozen RESULT.md two-cell local blocks and C=(0,1,−1,0)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Southworth's weighted restriction agrees with the frozen R_w, and the same continuity constraint can be written C=(0,1,−1,0), with ker C=range(P).",
+          "Slide 14 states the nonunit spectral equivalence to G₀⁻¹G₊G₀⁻¹G₋ in weight-scaled coordinates, not merely a bound on that product."
+        ],
+        "reasoning": "For q=1 it identifies the one candidate nonunit eigenvalue exactly, independent of whether one calls it the BRAS condition number or the constraint-space scalar. The independent evaluation remains strictly above one.",
+        "searches": [
+          "Resultary: weighted BRAS two elements, complete spectrum, scalar powers of mesh contrast",
+          "Southworth seminar slides, pp. 6–8 and 13–15; exact constraint-space spectrum on slide 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The metric-star statement is for k≥3 and multiplicity averaging. Its formula algebraically extends to (r+1)²/(3r) at two arms, the w=1 specialization, but that is not within its stated k-range.",
+          "The periodic alternating-length result compares unweighted and diagonal-local-mass BRAS, not the three retained nodes or arbitrary w."
+        ],
+        "reasoning": "Neither inspected catalogue record states the full free-weight power family. Failure rests on direct specialization of an exact general theorem, not absence or presence of a matching numerical table or on presumed ordering of the same-day entries.",
+        "searches": [
+          "Resultary b1da109e39bf and 073ddd6b1292, opened local-mirror RESULT.md passages"
+        ]
+      },
+      "rationale": "The arbitrary-weight nonunit eigenvalue is a direct scalar specialization of the previously stated exact weighted BRAS constraint-space spectrum, not just compatible with its upper bound. The remaining optimum and power threshold follow from a square completion and elementary tail limits in that scalar formula. The known construction, rank result and exact spectrum reduction already cover the decisive invariant; no distinct mathematical step remains that supports the claimed originality.",
+      "residual_risks": [
+        "The two relevant catalogue comparisons share the frozen date; no intra-day priority claim is made.",
+        "The audit distinguishes exact nonunit-spectrum equivalence from the weighted condition bound; it does not claim to settle which source first wrote the two-cell power exponent explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact nonunit spectrum reduction, mechanically giving the target formula at q=1; the separate condition bound is not the decisive evidence.",
+          "evidence": [
+            "ker C=range(P), scaled mass and constraint, G₋=C̃M̃⁻¹C̃ᵀ, G₀=C̃C̃ᵀ, G₊=C̃M̃C̃ᵀ; the nonunit spectrum is that of G₀⁻¹G₊G₀⁻¹G₋.",
+            "B_w−M⁻¹ is positive semidefinite with rank at most the number of constraints."
+          ],
+          "identifier_or_url": "https://mfem.org/pdf/seminar/southworth2.pdf",
+          "material_read": "Slides 6–8 and 13–15, particularly slide 14, Assembly constraints control the spectrum (OA offsets 4500 and 11200–15168)",
+          "method": "Original OA PDF, bounded text-extracted passages, with independent substitution in the displayed forms",
+          "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning",
+          "trigger": "General weighted construction and potential exact coverage for one constraint"
+        },
+        {
+          "assessment": "Unweighted inverse and Schur-complement structure, not the arbitrary-weight result used for coverage.",
+          "evidence": [
+            "Unweighted preconditioner, Schur-complement identity, spectral lower and projector bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.12138",
+          "material_read": "pp. 4–7, Lemma 2.1 Eq. (2.8), Corollary 2.2 and Theorem 2.3; OA offsets 16000 and 22700",
+          "method": "Original OA PDF passages",
+          "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+          "trigger": "Underlying BRAS method and earlier exact identities"
+        },
+        {
+          "assessment": "Published statement for k≥3 multiplicity-weighted arms; its two-arm algebraic specialization agrees with w=1 only.",
+          "evidence": [
+            "Uses original unweighted multiplicity averaging, not an arbitrary independent element-scalar scaling."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 b1da109e39bf",
+          "material_read": "RESULT.md offsets 0 and 3300",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arithmetic–harmonic contrast controls the complete BRAS spectrum on metric stars",
+          "trigger": "Closest complete BRAS spectrum on a one-junction mesh"
+        },
+        {
+          "assessment": "Different periodic alternating-length model and two fixed weight choices; not the arbitrary power classification.",
+          "evidence": [
+            "Diagonal-local-mass BRAS on the alternating periodic mesh tends to condition number 1 in high contrast."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 073ddd6b1292",
+          "material_read": "RESULT.md offsets 0 and 4450",
+          "method": "Local mirror passages",
+          "title": "An exact mesh-contrast reversal for BRAS mass preconditioning",
+          "trigger": "Potential contrast-uniform weighted remedy in a related 1D model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural graded-mesh sanity check, and the exponent is convenient for interpreting the example. But the decisive invariant is an immediate local substitution into an existing exact reduction, and the residual minimization and exponent test are elementary consequences of that expression. The record supplies neither a new obstruction not already available from the reduction nor a many-cell conditioning implication. It is useful as a worked specialization, not a distinct valuable finding under the contract.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

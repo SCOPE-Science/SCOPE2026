@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite classification
+# Independent mathematical audit
 
-From a directory containing the two source files, run `g++ -O2 -std=c++17 verify_paley49.cpp -o verify_paley49 && ./verify_paley49` and then `python3 verify_paley49.py`. No third-party data, graph packages, online services, or numerical rounding are required. The C++ program reconstructs all 24 squares and every zero-containing queried support up to size five. The Python program uses the independent norm-character criterion, computes every zero-containing shattered four/five-support, partitions the five-supports into the two explicit symmetry orbits, and tests all fifth-vertex extensions from each shattered four-support.
+## correctness
 
-Observed terminal markers: `EXHAUSTIVE_SQUARE_ENUMERATION_CHECKS_PASS` and `INDEPENDENT_NORM_ORBIT_CHECKS_PASS`. Program assertions cover the full accepted numbers; source-file byte hashes are recorded in the containing package. These are finite exhaustive verifications, not a general proof for other field orders or an external independent audit.
+PASS
+
+Reviewed the zero-diagonal open-neighborhood convention, including centers on supports, and reproduced the whole census independently. In F_7[i] the norm of a+bi is a^2+b^2 and is u^8 on nonzero u; the square test is exactly membership of the norm in {1,2,4}, with zero excluded. Replay /workspace/audit-replay/4.py traverses unanchored increasing supports, partitioning all 49 centers by traces as each vertex is appended. Both splits of every previous trace cell must be nonempty; a failed prefix legitimately precludes a shattered superset. Counts are (1,49,1176,18424,199920,4704) exactly; 49 centers rule out 64 required traces at size six and thus all larger sizes. Applying the 2352 explicitly defined semilinear maps to each of the displayed representatives gives 2352 distinct images per orbit, disjoint, with union all shattered five-sets; this verifies freeness for the named group without claiming it is the full automorphism group. Enumerating the five four-faces of each five-set gives exactly 11760 faces of degree two and no positive degree other than two. All other 188160 shattered four-supports are maximal by heredity, and five-facets also exist. Counts and replay output are in /workspace/audit-replay/4.txt. The exact computation is a finite exhaustion for this one graph, not a bound extended to other fields.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass on the full arbitrary-support polynomial and the free orbits and facet-extension distribution. The quadratic-residue VC framework is known. The exact historical priority of the bare VC dimension at 49 remains unresolved and is not needed for this distinct census. Neither generic VC statements nor fixed consecutive character tests give the full arbitrary-support result in the material accessed.
+
+## value
+
+PASS
+
+The quadratic-residue translate class is a standard finite-field test of shattering. Order 49 is a small quadratic-extension case in which five queries are possible but six are ruled out, so the rank limit is natural. The exact fifth-face count, its two symmetry types, and the nonpure maximal fourth layer describe incidence structure a researcher cannot recover from VC dimension or strong regularity alone. This is a complete finite classification, not significance inferred from a single software run or a selected witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:49.378244Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95 and 105–107; VERIFICATION.md and CHECKER.py inspected, not executed",
+        "Independent bisection and Simpson integration at r=1.2, 2, 5: normalization error ≤1.1e−12, cost error ≤8.8e−11, and sampled residual ≤4.5e−16; corroboration only",
+        "Lawley arXiv:1909.09883, Theorem 1 and diffusion metric application"
+      ],
+      "rationale": "Reconstructed the proof over positive measurable unit-budget profiles with finite M and F (a.e. equivalence). For every positive multiplier the pointwise strict supporting-line inequality at the smooth stationary candidate integrates to a strict global minimum unless the competitor is equal a.e.; the budget cancels the common linear term. With D=d u² and h=r⁴−r the stationarity equation gives u⁴−u=h(1−x), and the Jacobian (4u³−1)/h gives both d=3r/(2r³+1) and the displayed logarithmic costs. Since d h²=3r³(r³−1)²/(2r³+1) is strictly increasing from zero to infinity, the multipliers range bijectively in reverse. Strict optimality at two weights orders the costs oppositely. Jensen and Cauchy–Schwarz give unique endpoints; matching a competitor’s intermediate M to the continuous curve and using the strict weighted inequality proves exhaustion, not just efficiency of candidates. Ratios are relative (mean 4/9 versus 1/2, an absolute decrease of 1/18). The stochastic interpretation is restricted as stated. At D∞, the U=(1−X)^(3/2) generator has coefficients (27/8)u and 9/8, with absorption at zero and reflection at one. For k=8s/27 the ODE solutions are A=0F1(;2/3;ku) and B=u^(2/3)0F1(;5/3;ku); W(A,B)=(2/3)u^(−1/3), B′(1)=(2/3)A(1), so the solution with g(0)=1 and g′(1)=0 has g(1)=1/A(1), exactly the stated Bessel transform. The transform gives finite mean 4/9 and via its large-s exponential √(32s/27) gives the short-time coefficient 8/27 (exponential tilt concentrates at order s^(−1/2)). The independent-copy extreme mean follows using this logarithmic tail and the finite mean; the upper contribution beyond (1+ε) times the log scale is at most the survival probability there to power N−1 times the single mean. This yields 32/27 relative to the regular homogeneous profile.",
+      "residual_risks": [
+        "No finite-N or profile-uniform asymptotic, or physical diffusion claim for all measurable competitors",
+        "Frozen checker contains a transform series consistency test, not a replay of the separate ODE numerical comparison reported in RESULT.md; the analytical ODE proof was checked independently"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Menon’s more general calculus-prescription family optimizes mean alone and contains the exact Itô endpoint",
+          "The bounded-diffusivity result is mean-only and gives a clipped-square-root profile",
+          "Lawley treats fixed-profile extremes in more general geometries but does not optimize jointly over a diffusivity budget"
+        ],
+        "reasoning": "Neither wider stochastic conventions nor wider geometries establish the fixed-Itô two-objective exhaustion.",
+        "searches": [
+          "arXiv:2611.17470v1 sections on stochastic prescriptions",
+          "Resultary 3f3ac01553f0",
+          "Lawley arXiv:1909.09883 §§II–III"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and published SCOPE mirror",
+        "arXiv:2611.17470v1",
+        "arXiv:1909.09883",
+        "arXiv:2206.14229",
+        "arXiv:2311.00818",
+        "Resultary edbbbd41dbc4 and 3f3ac01553f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean optimum is already Menon’s; same-day endpoint transform plus Lawley’s extreme-moment theorem implies the 8/27 coefficient",
+          "Neither source supplies positive-weight stationary profiles or their unique intersection with each intermediate mean level"
+        ],
+        "reasoning": "Those inputs and standard scalarization motivate the problem, but the explicit quartic normalization, objective formulas and complete unique classification still require a mathematical derivation.",
+        "searches": [
+          "Menon arXiv:2611.17470v1",
+          "Lawley arXiv:1909.09883",
+          "Resultary edbbbd41dbc4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dos Santos et al. compare inverse-time search efficiencies; these are not the metric-length fastest-copy coefficient",
+          "Lawley’s geometric exponent converts to F²/4, so replacing F by F² gives an equivalent Pareto objective, not a separate advance"
+        ],
+        "reasoning": "The fixed-profile moment law and single-searcher efficiency functionals do not supply the budgeted continuum of jointly efficient designs.",
+        "searches": [
+          "Local Resultary: fixed-budget diffusivity, mean-optimal early escape, Pareto first passage",
+          "arXiv:2206.14229",
+          "arXiv:2311.00818",
+          "arXiv:1909.09883"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "edbbbd41dbc4 contains the same endpoint transform and early-arrival penalty; Menon tabulates/formulates the endpoint profile and mean in the Itô case"
+        ],
+        "reasoning": "Credit the concrete endpoint overlap. A finite lookup or table of profiles cannot establish the continuum classification; no exact continuum law of the asserted form was found in the matched sources.",
+        "searches": [
+          "Local Resultary fixed-budget mean/earliest passage comparison: edbbbd41dbc4 and 3f3ac01553f0",
+          "arXiv:2611.17470v1 Eqs. (32)–(36)"
+        ]
+      },
+      "rationale": "Pass the supported distinct claim: complete fixed-Itô joint frontier with unique scalarized profiles, exact parametric costs and exhaustion. The mean-optimal endpoint and fixed-profile fastest-arrival theorem are known inputs. The separate same-day Resultary record has direct coverage of the singular endpoint transform and short-time penalty, which also imply the endpoint collective coefficient; that component gets no independent novelty credit and intra-day priority is unresolved.",
+      "residual_risks": [
+        "Best-of-knowledge comparison, not exhaustive priority certification",
+        "Shared singular endpoint has unresolved same-day priority; endpoint alone is not the supported distinction"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mean endpoint, not joint optimization",
+          "evidence": "D=(3/2)√(1−x), M=4/9, homogeneous ratio 8/9; the family shown varies the stochastic prescription",
+          "identifier_or_url": "https://arxiv.org/html/2611.17470v1",
+          "material_read": "§III.1, Eqs. (32)–(36), OA offsets approximately 20100–21500",
+          "method": "Primary OA full-text passage",
+          "title": "Optimal heterogeneous diffusivity profiles for mean first-passage minimization",
+          "trigger": "Same spatial budget and Itô boundary design"
+        },
+        {
+          "assessment": "Covers the fixed-profile law, not profile optimization",
+          "evidence": "Short-time exponent C yields fastest-copy moments at scale C/log N; diffusion example identifies the geodesic metric under regularity assumptions",
+          "identifier_or_url": "https://arxiv.org/html/1909.09883",
+          "material_read": "§II Thm. 1 Eq. (7); §III.2 Eqs. (16)–(19)",
+          "method": "Primary OA full-text passage",
+          "title": "Universal Formula for Extreme First Passage Statistics of Diffusion",
+          "trigger": "Exact fast-searcher scale and its applicability"
+        },
+        {
+          "assessment": "Reported efficiency objectives differ",
+          "evidence": "Mean inverse arrival time and reciprocal mean, not the leading fastest-copy expectation",
+          "identifier_or_url": "arXiv:2206.14229 and arXiv:2311.00818",
+          "material_read": "2022 abstract; 2023 abstract and §4 at OA offset about 30800",
+          "method": "OA passages, assessed only for the results read",
+          "title": "Efficiency of random search with space-dependent diffusivity; bounded-interval follow-up",
+          "trigger": "Same search/design terminology and possible alternative formulation"
+        },
+        {
+          "assessment": "Direct material overlap; no same-day priority inferred",
+          "evidence": "Same 0F1/Bessel transform for D=(3/2)√(1−x) and the same short-time early arrival penalty",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-mean-optimal-diffusivity-delays-the-earliest-escapes-while-accel--edbbbd41dbc4/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary result and mirror passage",
+          "title": "Mean-optimal diffusivity delays the earliest escapes while accelerating mean first passage",
+          "trigger": "Exact singular-endpoint overlap"
+        },
+        {
+          "assessment": "A different optimization problem",
+          "evidence": "Clipped square-root mean optimizer under strict diffusivity bounds, not an M–F frontier",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-sharp-saturation-threshold-for-bounded-diffusivity-first-passa--3f3ac01553f0/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary result and mirror passage",
+          "title": "A sharp saturation threshold for bounded diffusivity first passage",
+          "trigger": "Nearby constrained-profile optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof, particularly lines 16–38, 67–95"
+      ],
+      "rationale": "The entire resource-constrained two-cost design set is identified, not just the opposing directions of two extremizers. The unique profile at any prescribed efficient mean and its exact fastest-copy coefficient give a usable design benchmark; the singular endpoint makes the tradeoff quantitatively meaningful rather than a qualitative scalarization observation.",
+      "residual_risks": [
+        "Usefulness is for the fixed-profile large-N coefficient and normalized one-dimensional geometry, not a prescription for finite cohorts or general stochastic dynamics"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

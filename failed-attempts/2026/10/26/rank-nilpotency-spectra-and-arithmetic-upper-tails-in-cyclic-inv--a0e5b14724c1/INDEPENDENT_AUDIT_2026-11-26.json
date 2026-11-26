@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:57.080783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63 and 69; complete VERIFICATION.md and verify_cyclic_spectrum.py; independent replay: python /workspace/branches/reproduce_frozen_reviews.py 3"
+      ],
+      "rationale": "The domain of an f^t path requires t successive visited vertices in the domain; a fully selected orbit is never nilpotent. Otherwise the index is one plus the maximum cyclic run of selected vertices. A zero in each allowed word forces a unique closed state itinerary, so the trace counts labeled words, not necklaces. Independent orbit choices give the power n/d, and rotational restrictions are uniquely extended except for the empty map, giving 1−n. At t=1 the trace is one and at t=n every proper subset is allowed. For index t>n/2 only order n is possible; for t<n a unique run of t−1 ones has two distinct delimiters, with n−t−1 free sites, while t=n has one omitted site. For the limit, the probability of order d<s is at most s²/(2n). For d≥s a union bound over n starts gives the upper tail n2^(−s), and at least n/(2s) disjoint length-s blocks give the lower tail exp(−n2^(−s)/(2s)). Taking the two indicated logarithmic scales proves the concentration and vanishing nonnilpotent mass; the rotation/subset sampling bias at the empty map is at most 2^(−n) in total variation, so the conditioning is justified. An independent gap-composition count versus direct walks agrees in every rank/index cell checked for n=2 through 8, including the frozen n=6 and n=8 histograms.",
+      "residual_risks": [
+        "Finite replay does not prove the all-size assertions. Only first-order concentration, not a centered distribution, was verified analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "32e0cfa664d8 treats the larger dihedral family for n≥4, with the same rotational count explicitly written, includes differencing for exact index, and gives nφ(n) at the top.",
+          "Elliott et al. count isomorphism types of monogenic submonoids; the chain isometry records, including the same-day record, use a different monoid."
+        ],
+        "reasoning": "The dihedral result covers the rotational count for all substantive sizes; the two smaller direct examples do not meaningfully expand it. Chain and monogenic counts do not cover the cyclic concentration.",
+        "searches": [
+          "Resultary 32e0cfa664d8 RESULT.md Finding, Proof §§3–6",
+          "Elliott–Levine–Mitchell arXiv:2303.12387, §3 and Theorem 10",
+          "Resultary 3383014bbd25 and 9fb2eb7e1694"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 32e0cfa664d8, 6fca557893ec, 3383014bbd25 and 9fb2eb7e1694",
+        "arXiv:2211.02155 and 2303.12387",
+        "OEIS A261764"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact formula already includes differences of cumulative counts; for n≥4 and t>n/2, t≥3 so the reflection and repeated-extension terms cancel in those differences. Its powers-as-runs characterization leads to the single-long-run simplification.",
+          "The first-order cyclic limit uses an additional small-order probability bound and independent blocks; the checked chain extreme law is not the same theorem."
+        ],
+        "reasoning": "The previous calculation covers the core and determines the upper layers exactly; the compact binomial expression is a coefficient evaluation rather than a new census. The probability statement is a separate supported residual, not demonstrated to be prior-covered.",
+        "searches": [
+          "Resultary 32e0cfa664d8 RESULT.md Finding and Proof §§2–6",
+          "Resultary 3383014bbd25 extreme-value claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "32e0cfa664d8 Proof §§2–4 uses the same labeled cyclic membership words, zero-reset automaton, and count of rotations by order; its t and h correspond to the frozen d and t.",
+          "Fernandes establishes uniqueness of nonempty rotational extension."
+        ],
+        "reasoning": "Restricting the prior calculation to rotations discards reflections, rather than replacing a different invariant. The identical contribution already counts the ambient rotation/domain pairs; collapse the n empty pairs to one. The identity also yields the all-nilpotent rank formula on taking the bound n.",
+        "searches": [
+          "Local Resultary: 32e0cfa664d8, 6fca557893ec, 3383014bbd25, 9fb2eb7e1694",
+          "Fernandes arXiv:2211.02155, Lemma 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A261764 gives cumulative unranked counts for the full symmetric inverse monoid, e.g. 73 rather than 37 at n=4. The closest exact source here is the indexed closed-form rotational census, not that integer table.",
+          "6fca557893ec is a later cycle-isometry rank census including the rotational contribution; it does not settle priority for this record."
+        ],
+        "reasoning": "Neither a coincidence at a small size nor an unrestricted count is decisive, but the indexed exact divisor sum covers all rank cells after the empty-map correction.",
+        "searches": [
+          "OEIS A261764",
+          "Resultary 32e0cfa664d8 and 6fca557893ec"
+        ]
+      },
+      "rationale": "The central rank/index spectrum and the all-nilpotent rank polynomial are already supplied on the rotational component of a stronger indexed cycle-isometry census. The earlier Proof §§3–4 explicitly count that component with the same trace matrix and divisor sum, not just a total from which rotations could not be separated. The empty-map correction and n=2,3 checks do not supply a new spectrum. The closed upper-half expression is an explicit simplification of previously counted layers; the cyclic first-order probability limit was not located as an earlier statement. Neither qualification makes the original central contribution distinct.",
+      "residual_risks": [
+        "The bounded comparison does not certify the priority of the standalone cyclic logarithmic limit or of the simplified binomial upper-half formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of the core",
+          "evidence": "§4 explicitly gives B_(d,t)(z)^(n/d) for each order-d rotation, with φ(d) such rotations. §6 gives the all-nilpotent cycle factor and nφ(n) at index n.",
+          "identifier_or_url": "2026/10/12/SCOPE-rank-and-nilpotency-index-enumerators-for-partial-isometries-of--32e0cfa664d8",
+          "material_read": "RESULT.md offsets 0–6860, Finding and Proof §§2–6",
+          "method": "Resultary search; local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rank and nilpotency-index enumerators for partial isometries of finite cycles",
+          "trigger": "Strongest exact coverage match"
+        },
+        {
+          "assessment": "Object and unique extension antecedent",
+          "evidence": "The introduction gives the object and its size/rank/presentations; Lemma 1.1 uniquely extends a nonempty restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.02155",
+          "material_read": "PDF pp. 1–2, introduction and Lemma 1.1 (offsets 634, 9382)",
+          "method": "OA primary PDF",
+          "title": "On the cyclic inverse monoid on a finite set",
+          "trigger": "Primary source defining the same monoid"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classification and count are of monogenic submonoids up to isomorphism.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.12387",
+          "material_read": "PDF abstract, §3 and Theorem 10, offsets 0, 14438 and 22736",
+          "method": "OA primary PDF",
+          "title": "Counting monogenic monoids and inverse monoids",
+          "trigger": "Possible alternative counting formulation"
+        },
+        {
+          "assessment": "Different monoid and no rank marks",
+          "evidence": "T(4,4)=73 and T(6,6)=501; the rotational counts are 37 and 247.",
+          "identifier_or_url": "https://oeis.org/A261764",
+          "material_read": "Definition and table near HTML offset 392",
+          "method": "Public table",
+          "title": "Nilpotent subpermutations by maximum nilpotency index",
+          "trigger": "Exact tabulation check"
+        },
+        {
+          "assessment": "Different sample space",
+          "evidence": "Centered lattice extreme law concerns order-preserving isometries of a finite chain.",
+          "identifier_or_url": "3383014bbd25",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary and local mirror",
+          "title": "Nilpotency height, rank profiles, and a lattice extreme law for order-preserving partial isometries",
+          "trigger": "Closest logarithmic law match"
+        },
+        {
+          "assessment": "Different sample space, irrespective of date",
+          "evidence": "The partial isometries are of an ordinary finite chain.",
+          "identifier_or_url": "9fb2eb7e1694",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary and local mirror",
+          "title": "Joint rank and nilpotency-index distribution of partial isometries of a chain",
+          "trigger": "Same-day exact-enumeration match"
+        },
+        {
+          "assessment": "Subsequent related record, not priority evidence",
+          "evidence": "An all-nilpotent rank polynomial again displays the rotation divisor-sum component alongside other terms.",
+          "identifier_or_url": "6fca557893ec",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary and local mirror",
+          "title": "Nilpotent rank spectra and a binomial law for cycle partial isometries",
+          "trigger": "Additional cyclic spectral match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–35 and 49–63",
+        "Resultary 32e0cfa664d8 Finding and Proof §§2–6"
+      ],
+      "rationale": "A full rotation rank/index census is well motivated, but that is the already separated component of the prior census. The residual upper-half expression simplifies those same exact layers by marking the unique long run. The additional first-order scale applies ordinary run bounds to a mixture after discarding rare small-order rotations; it gives neither new fluctuation information nor a separate structural conclusion on how rotation arithmetic affects typical indices. These refinements do not establish enough distinct mathematical value for the submitted finding as a whole.",
+      "residual_risks": [
+        "The judgment is on the frozen contribution, not on a future arithmetic or centered distribution theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

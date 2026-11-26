@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:35.782872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–65",
+        "Frozen VERIFICATION.md, lines 19–31",
+        "Frozen verification/check_planck_modes.py, inspected as a diagnostic only"
+      ],
+      "rationale": "The frequency-law normalization is correct: R^-2 x^3/(exp(x/R)-1) = R f(x/R), so the hot term contributes f'(x/R) to the derivative. The single-Planck sign change follows from strict concavity of 3(1-exp(-x))-x; f'' is negative near a, positive near zero, and positive on [5,infinity) by the explicit second-derivative formula. For fixed small delta and eta, these signs give strict decrease of F_R' on [a,a+delta], strict increase on [5,eta R], and strict decrease on [(a-delta)R,aR], with opposite endpoint signs in each case. On the intervening intervals signs are uniform by compactness or exponential decay, and outside (a,aR) there is no zero. This proves the quantified root count and nondegeneracy, not by numerical sampling. Uniform slope at the cold root first gives x1-a=O(1/R), justifying its Taylor remainder; on the hot interval the slope is bounded above by -c/R, so the shift from aR is O(R^4 exp(-aR)). For the notch, F_R' is eventually negative at any fixed X>=5 and positive at any fixed small t times R, so x2 diverges with x2/R tending to zero. The derivative balance gives x2-2 log x2 = log R-log 2+o(1); first x2/log R tends to one, then substitution gives the subleading terms. The hot Rayleigh–Jeans contribution x2^2/R dominates the cold term 2 x2/R at the notch. Taylor estimates at both maxima also give the stated heights.",
+      "residual_risks": [
+        "The existence proof does not determine the smallest threshold. Floating-point clipping and underflow in the diagnostic cannot resolve the hot root's exponentially small shift; the proof does not depend on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khatri, Sunyaev and Chluba specify blackbody mixtures and derive a y-type term by expansion to second order in relative temperature contrast; that passage is a low-contrast result.",
+          "The continuous multicolor model in arXiv:1808.03942 specifies a power-law distribution of luminosity over temperatures, not a theorem for arbitrary two-atom weights."
+        ],
+        "reasoning": "The available general mixture formulations do not give an exact eventual root-count theorem or an asymptotic expansion for the large-contrast minimum on this scaling path.",
+        "searches": [
+          "arXiv:1205.2871, §§3–3.1, equations (3)–(5)",
+          "Focused primary literature search for the critical-point count of Planck mixtures"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1205.2871",
+        "arXiv:1808.03942",
+        "Resultary be57174ea22e and 5659a83fdb9d",
+        "Focused primary literature and Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-spectrum Wien decay supplies a term in the large-x balance, not the global root count or the Rayleigh–Jeans balance with the rescaled component.",
+          "The Schottky comparison guarantees at least two maxima with a minimum for a different function, rather than exactly two maxima for this frequency spectrum."
+        ],
+        "reasoning": "Deriving this claim still requires a uniform positive-axis interval analysis and the two-tail balance. The inspected earlier statements do not mechanically supply those conclusions.",
+        "searches": [
+          "Khatri–Sunyaev–Chluba, arXiv:1205.2871 §§3–3.1",
+          "Hou et al., arXiv:1808.03942 §2",
+          "Resultary Schottky and symmetric three-state exchange findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compared per-frequency radiance and the equivalent hot weight R^-2 with Hou et al.'s continuous temperature distribution in a photon-number spectrum (pp. 3–4).",
+          "The same-date Schottky record compares heat capacity versus inverse temperature, not frequency radiance; the symmetric-exchange record concerns a Markov line shape."
+        ],
+        "reasoning": "Neither a continuous distribution integrated into N(E), a different spectral model, nor a change to wavelength radiance gives the same exact derivative problem. In particular the frequency-to-wavelength Jacobian changes extrema.",
+        "searches": [
+          "Focused literature search for two-temperature Planck/blackbody spectral bimodality and large-separation extrema",
+          "Resultary semantic comparisons of two-temperature Planck mixtures and logarithmic spectral notches",
+          "arXiv:1808.03942, §2, equations (3)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two scoped catalogue near matches give different functions and different extrema results; no matching theorem was identified in those searches.",
+          "The object sought is a theorem uniform in a continuous parameter, not a datum in a finite spectrum table; a sampled grid of ratios cannot supply the finding."
+        ],
+        "reasoning": "The relevant exact repository check is for a published claim about the scaling family rather than numerical tables of blackbody spectra. Same-date records were compared scientifically without inferring priority from the calendar date.",
+        "searches": [
+          "Resultary semantic search for the model and asymptotic law (six targeted searches, up to 50 results each)",
+          "Resultary records be57174ea22e and 5659a83fdb9d, compared via mirror RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinction is exact large-contrast critical-point multiplicity together with the notch's logarithmic location (including the second logarithm and constant) and algebraic height for the specified frequency-domain scaling. The examined primary and catalogue statements do not cover that combination or imply it by a specialization. Neither mixtures themselves nor the single-temperature Wien law are new here.",
+      "residual_risks": [
+        "Unlocated studies of highly separated discrete blackbody mixtures could affect priority. Ranked and web searches are not evidence of exhaustive absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant physical model; inspected results address low contrast, not the bound theorem.",
+          "evidence": "Expansion through second order in relative temperature difference gives a y-type distortion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.2871",
+          "material_read": "§§3–3.1, pp. 3–4, extracted offset 10500, equations (3)–(5)",
+          "method": "Primary OA PDF passage",
+          "title": "Mixing of blackbodies: entropy production and dissipation of sound waves in the early Universe",
+          "trigger": "Mixtures of two Planck spectra and generalization to ensembles"
+        },
+        {
+          "assessment": "Different temperature measure and observable.",
+          "evidence": "A continuous power-law distribution on [T_min,T_max] is integrated into N(E); it is not the two-point frequency sum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.03942",
+          "material_read": "§2, pp. 3–4, extracted offset 8400, equations (3)–(5)",
+          "method": "Primary OA PDF passage",
+          "title": "Multi-color blackbody emission in GRB 081221",
+          "trigger": "Potential multitemperature spectral result"
+        },
+        {
+          "assessment": "Structural analogy without equivalent coverage.",
+          "evidence": "A three-level heat-capacity function has at least two maxima, and the theorem does not exclude additional ones.",
+          "identifier_or_url": "Resultary be57174ea22e",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Resultary mirror primary record",
+          "title": "Degeneracy-only splitting of Schottky peaks in an equally spaced three-level system",
+          "trigger": "Similar two-peak/vanishing-minimum asymptotic geometry"
+        },
+        {
+          "assessment": "Different line-shape model.",
+          "evidence": "Critical-point transitions concern a symmetric three-state Markov spectral-diffusion line shape, not Planck radiation.",
+          "identifier_or_url": "Resultary 5659a83fdb9d",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Resultary mirror primary record",
+          "title": "Two exact spectral coalescence thresholds in symmetric three-state exchange",
+          "trigger": "Ranked exact spectral-extrema analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and physical normalization",
+        "arXiv:1205.2871, §§3–3.1"
+      ],
+      "rationale": "The exact sum is a motivated two-temperature radiative model: the weight keeps the hot low-frequency derivative small around the cold peak while allowing a dominant hot peak. Resolving the entire axis distinguishes true bimodality from simply locating two approximate peak scales. The notch location and height quantify how the exponential cold tail and algebraic hot tail meet; neither the Wien displacement relation nor a peak-sampling diagnostic yields this information.",
+      "residual_risks": [
+        "The interpretation is restricted to this exact area scaling and spectral coordinate; it is not a general observational phase diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

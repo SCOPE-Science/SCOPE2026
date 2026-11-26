@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The theorem uses explicit zero-based occurrence conventions and includes the order-one boundary. The valuation formula proves palindromicity and linear Abelian-square avoidance. Equality of two Parikh vectors at any off-center crossing would force a length-\(2x\) factor to have twice the letter counts of the prefix of length \(x\). The former necessarily contains a larger ruler symbol, a contradiction. The unique occurrence intervals give the precise cut profile; uniqueness also excludes all Abelian cubes. Two independent exhaustive tests through order eight agree, but the infinite statement rests on the proof.
+## correctness
 
-**Originality (PASS, best-knowledge only).** The closest inspected primary paper is Cummings–Mays (2001), DOI `10.37236/1571`, whose Section 2 establishes linear Zimin Abelian-squarefreeness and whose later sections focus on shorter maximal linear words. Bullock (2004), DOI `10.37236/1770`, studies lengths of maximal linear Abelian-squarefree words. Glen–Halldórsson–Kitaev (2010), DOI `10.46298/dmtcs.513`, treats crucial Abelian-powerfree constructions. Those conclusions do not imply the exact circular Abelian-square occurrence set or the rotation counts. A separate earlier classification of ordinary circular tandem squares is not an Abelian-square classification: equal Parikh vectors permit further occurrences. Searches found no exact coverage; unindexed equivalent formulations remain possible.
+PASS
 
-**Value (PASS).** This is a complete all-order circular repetition classification for the original Zimin construction, including the exact full rotation histogram and cyclic Abelian-cube exclusion. Circularizing the classic linearly Abelian-squarefree words creates one Abelian square at *every* possible half-length, yet in the most rigid manner possible. An independently checked Abelian-squarefree palindrome counterexample shows the uniqueness is genuinely a two-adic structural feature, not a tautological palindrome argument.
+In one-based ruler indices the letter is 1+v2(j); two occurrences of a maximal valuation in a linear interval would have a higher valuation between them. Thus any circular square crosses the original cut. Palindromicity gives the square starting at N-d. For an off-center square, reflection puts the cut inside the second half: with x>0 letters of that half before the cut and y>0 after it, equality of the two Parikh vectors forces P(y+2x)-P(y)=2P(x). The contiguous factor on the left contains an index divisible by 2^r for r=floor(log2 x)+1, since its length is 2x; the prefix on the right has no such letter. This excludes off-center squares. A square survives exactly the cuts d<=c<=N-d, including its endpoints; a cube would give two distinct square starts at the same half-length. The base order has no admissible square. An independent carry-free integer encoding with doubled-word prefix sums verified exact occurrence pairs, all cut counts and absence of cubes through order 9, plus the length-21 counterexample. Replay: python3 /workspace/review-evidence/check_frozen.py (zimin). This is bounded corroboration, not the all-order proof.
 
-**Limits.** Alphabet labels remain distinct and circular factors make no more than one full traverse. The research does not classify arbitrary squarefree palindromes or make claims about longer repeated windings. Historical priority and external correctness remain open to independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard linear avoidance and the related seam-palindrome construction. The supported distinct claim is uniqueness among all indexed circular Abelian-square starts at every admissible half-length, with the exact rotation and higher-power consequences; no inspected source establishes that uniqueness.
+
+## value
+
+PASS
+
+This resolves the boundary dependence of a canonical linear Abelian-squarefree word: it locates every cyclic obstruction, gives a complete cut-by-cut count, and separates Zimin rigidity from general palindrome symmetry by a verified counterexample. It is an all-order structural classification, not just a count for a selected small rotation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

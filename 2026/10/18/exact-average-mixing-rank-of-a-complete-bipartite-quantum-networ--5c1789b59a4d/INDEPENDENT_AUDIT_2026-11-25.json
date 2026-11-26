@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:00.599681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Cesàro average is the sum of Schur squares of distinct-eigenvalue projectors; its quadratic form equals the sum of squared norms of E diag(x) E. For g≠1 the cross block has rank two and distinct positive singular values (the determinant is sqrt((a−1)(b−1))(g−1) and the off-diagonal entry of its left square is positive). The zero-energy constraints on each unmarked part give one singleton or contrast variable if its size is one or two, and no variable otherwise. The ±-paired nonzero-eigenvalue constraints can be checked independently using the diagonals of the support projector Q and H². For a,b≥3 these have marked-coordinate rows (1,1) and (g²+b−1,g²+a−1); the unmarked variables have zero mean. With either part of size 2, the marked and unmarked columns within that part give determinant ±(g²−1). These moment constraints yield exactly the asserted balanced exception and small-part contributions, including the deleted edge g=0. At g=1 the entire-part zero-sum subspace is dark; only a two-vertex contrast can survive in either part, and its part sum is zero so the bright constraints vanish. The rank drop and positive-definiteness statements follow. These analytic checks cover the quantifiers independently of the finite rational/spectral checks described by the frozen verifier, which was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The commutant-based bipartite rank bound uses a simple-spectrum hypothesis, not satisfied with a repeated dark zero eigenspace.",
+          "The strongly regular edge-perturbation result addresses state transfer and characteristic polynomials, including the balanced setting, but not the required spectral-projector diagonal constraints."
+        ],
+        "reasoning": "A characteristic polynomial or bound on rank is insufficient to force the exact nullity, notably at 3-by-3 and other repeated-eigenvalue cases.",
+        "searches": [
+          "arXiv:1709.03591 pp. 8–9",
+          "arXiv:1710.02181 p. 1",
+          "arXiv:2404.02236 pp. 12–13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1709.03591, 2208.08971, 1710.02181, 2404.02236, quant-ph/0608044, 1103.2578",
+        "Resultary 3d2ed0be59c4 and 70f3ea695414; deletion-alias search results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established Schur-square and commutant results yield a general kernel criterion.",
+          "The claimed rank still needs the tied-marked-coordinate test in the balanced case, the unmarked dark contrast test, and the exceptional two-vertex columns, none supplied by the inspected related results."
+        ],
+        "reasoning": "The claim uses known machinery but is not an immediate evaluation of the cited general rank bounds or an inequality for a different mixing measure.",
+        "searches": [
+          "arXiv:1709.03591 pp. 4,7–9",
+          "arXiv:2208.08971 p. 4",
+          "arXiv:1710.02181",
+          "Resultary 3d2ed0be59c4 and 70f3ea695414"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 70f3ea695414 treats Frobenius distance to uniformity optimized over random observation times on unweighted bicliques.",
+          "Resultary 3d2ed0be59c4 explicitly treats unweighted double-star trees.",
+          "The deletion-alias search located classical fastest mixing (422e1626e78a) and Hodge/gradient projection norms (a6d084f27adb, 430cc80014f3), rather than this spectral-projector kernel."
+        ],
+        "reasoning": "A Cesàro average of adjacency-walk probabilities, a weighted Markov transition optimum, an instantaneous mixing time, and an edge-space Hodge projector encode different constraints. A severed biclique is not generally a double star; the common four-vertex path is just one endpoint.",
+        "searches": [
+          "Resultary: weighted biclique average-mixing rank with a single nonunit or severed bond",
+          "Cesàro average mixing kernel rank near-complete bipartite adjacency K_m,n minus one edge, weighted edge deletion, two twin classes, unbalanced versus balanced",
+          "arXiv:1709.03591 and arXiv:quant-ph/0608044"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Godsil explicitly gives the average-mixing matrix of a path: the severed 2-by-2 biclique is P4, so its nullity-two special case is covered.",
+          "The exact arithmetic algorithm in Irrational quantum walks can give individual unweighted profiles, not the stated family-wide table or rule."
+        ],
+        "reasoning": "There is no separate census or numerical table in the contribution; an exact formula for a single path or an algorithm for specified inputs does not settle the all-real, all-size rule.",
+        "searches": [
+          "Resultary: single-edge defect and deletion aliases",
+          "arXiv:1103.2578 p. 1",
+          "arXiv:2208.08971 pp. 1,4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact nonunit single-cross-bond nullity law across all part sizes and all nonnegative couplings including deletion, with the unit case as baseline. The projector/commutant framework, particular small-graph endpoints and other notions of mixing are known. The strongest inspected comparators concern different graph families, different mixing observables, or general methods that do not supply the rank classification. No direct or stronger covering law was established in the bounded comparisons.",
+      "residual_risks": [
+        "The bounded literature and catalogue searches cannot exclude unindexed specialized results. The unweighted baseline and the path endpoint are not the advertised new contribution.",
+        "The strongest comparisons cover the cited passages, not every application of the general spectral methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers framework, not defective biclique law",
+          "evidence": [
+            "The cited bipartite rank restriction assumes simple eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "PDF pp. 4, 7–9, offsets 7286, 13118, 15268",
+          "method": "OA PDF passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General commutant equivalence and rank theorem"
+        },
+        {
+          "assessment": "Algorithmic rather than a family classification",
+          "evidence": [
+            "Unweighted graph setting and exact average-mixing formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.08971",
+          "material_read": "PDF pp. 1, 4, offsets 2233, 10005",
+          "method": "OA PDF passages",
+          "title": "Irrational quantum walks",
+          "trigger": "Exact average-mixing computation"
+        },
+        {
+          "assessment": "Related geometry and spectral methods; result inspected concerns a different invariant",
+          "evidence": [
+            "Perturbation for state transfer, possibly including endpoint loops; edge deletion characteristic polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.02181",
+          "material_read": "PDF p. 1, offset 481",
+          "method": "OA PDF opening statement",
+          "title": "State transfer in strongly regular graphs with an edge perturbation",
+          "trigger": "Edge perturbation on classes including balanced bicliques"
+        },
+        {
+          "assessment": "Broad context without the defective-biclique result in the inspected material",
+          "evidence": [
+            "Average-mixing rank discussion and open problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02236",
+          "material_read": "PDF pp. 12–13, offsets 60663,63981",
+          "method": "OA PDF passages",
+          "title": "Selected open problems in continuous-time quantum walks",
+          "trigger": "Rank problem context"
+        },
+        {
+          "assessment": "Different definition of mixing",
+          "evidence": [
+            "Universal mixing at a time, with weight design."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0608044",
+          "material_read": "PDF pp. 1–2, 5, offsets 0,6600,16831",
+          "method": "OA PDF passages",
+          "title": "Universal Mixing of Quantum Walk on Graphs",
+          "trigger": "Weighted complete multipartite walks"
+        },
+        {
+          "assessment": "Known path endpoint and framework; no unweighted biclique formula established by this inspection",
+          "evidence": [
+            "Path average matrix (2J+I+T)/(2n+2); reversal-antisymmetric vectors give its P4 kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "OA version p. 1 and beginning of §1, offsets 0–4127; literal phrase lookup for complete bipartite",
+          "method": "Identified lawful arXiv alternate and PDF passages",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Exact elementary graph cases and potential unweighted baseline"
+        },
+        {
+          "assessment": "Same invariant on a different graph family",
+          "evidence": [
+            "Unweighted D_(p,q) full rank iff p,q≥3 and p≠q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-kernel-and-sharp-full-rank-boundary-for-quantum-average-mi--3d2ed0be59c4",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact kernel and sharp full-rank boundary for quantum average mixing on double stars",
+          "trigger": "Structurally similar full-rank criterion"
+        },
+        {
+          "assessment": "Different time law, objective and weighted family",
+          "evidence": [
+            "Unweighted K_(a,b) and optimization of Frobenius distance to uniformity over random observation times."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-randomized-time-uniformity-deficit-on-complete-bipartite-q--70f3ea695414",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp randomized-time uniformity deficit on complete bipartite quantum walks",
+          "trigger": "Exact quantum-mixing result on bicliques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The average-mixing rank is a natural measure of linear distinguishability of the long-time position distributions. The classification identifies exactly which equal-size and small-part constraints survive a single coupling change, including why the rank can jump at the unit bond but does not vary with the strength of a nonunit bond. It treats the entire weighted family and gives a full-rank boundary, not just a few example matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

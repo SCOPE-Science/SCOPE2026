@@ -10,7 +10,7 @@ PASS, with historical-priority limits. Adler, Benediktsson and Macpherson, arXiv
 
 ## Mathematical value
 
-PASS. The exact rank/corank threshold and **every** maximum-support count solve a natural extremal question across all nondegenerate uniform hypergraph incidence graphs. The result isolates the mechanism by which including the neighborhood center can increase VC dimension by two, and exhibits a distinct adaptive/static separation on the subdivision of complete graphs. The structural statement that all maximum supports are point-only in dimensions at least four has potential reuse in support enumeration and model-theoretic trace counting. This goes beyond restating the generic VC dimension of a uniform set system.
+PASS. The exact rank/corank threshold and **every** maximum-support count solve a natural extremal question across all nondegenerate uniform hypergraph incidence graphs. Including the neighborhood center can increase VC dimension by one; the sharp adaptive/static separation on the subdivision of complete graphs is a distinct phenomenon. The structural statement that all maximum supports are point-only in dimensions at least four has potential reuse in support enumeration and model-theoretic trace counting. This goes beyond restating the generic VC dimension of a uniform set system.
 
 ## Limits
 

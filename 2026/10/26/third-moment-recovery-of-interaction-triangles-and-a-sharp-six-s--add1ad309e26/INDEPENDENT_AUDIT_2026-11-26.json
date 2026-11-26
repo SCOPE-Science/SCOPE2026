@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:27.254622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70",
+        "Frozen CERTIFICATE.json, sample frequency tables inspected and checked by the direct prism/bipartite count",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "At fixed k a product of edge indicators has expectation α_j=(k)_j/(n)_j for j distinct endpoints. A pair of distinct edges occupies three vertices in W=Σ binom(d,2) ways and four vertices otherwise. For triples with a middle edge, the endpoint-choice statistic K counts each three-edge path once and each triangle three times, so P=K−3T. Counting a distinguished wedge in a triple gives W(m−2)=3T+3S+2P+U, where S is the star count and U the five-vertex type; the six-vertex count is the remainder. These identities give the two degree-matched third-moment coefficients by inclusion-exclusion on the absent vertices. An independent direct recovery check is E[binom(Y_3,3)]=T/binom(n,3) and E[binom(Y_4,3)]=((n−3)T+S+P)/binom(n,4); the first two moments convert raw cubic moments to these factorial moments. In the prism, the two pure triples contribute two triangles and the mixed triples yield 12 two-edge and six one-edge sets. In K_{3,3} the two pure triples are edgeless and the 18 mixed triples have two edges. For k≥4 the complementary sample relation is Y_k=m−d(6−k)+Y_(6−k), so only k=3 differs. Binomial mixing gives the exact polynomial and summing its coefficients gives all three signs. Connected regular graphs of order below six are unique per realizable degree (only the trivial graph, edge, cycles and complete graphs occur); unequal degrees could not have identical edge means. The cubic graphs at order six follow by complementing the two possible 2-regular types.",
+      "residual_risks": [
+        "The six-vertex certificate census is finite corroboration; its full 688,128 equality count was not rerun. The arbitrary-n conclusion follows from the reconstruction, not the certificate.",
+        "Minimality is only within the connected regular simple graph comparison class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Motif Estimation via Subgraph Sampling gives the general retained-motif indicator sum under Bernoulli vertex sampling; H=K_2 yields this retained-edge observable, and conditioning on the sample size gives the fixed-k setup. Appendix A.2 concerns bounds on products of centered motif terms.",
+          "The indexed habitat-tree result gives the exact weighted triple census without triangles, leading to 6ΔK p^4(1−p)^2 for surviving edges."
+        ],
+        "reasoning": "The general sampling representation and the exact tree calculation account for much of the technique, but the inspected statements do not already identify both free statistics, and the tree identity eliminates the triangle direction by assumption.",
+        "searches": [
+          "arXiv:2011.03026 eqs. (1.1)–(1.2), §1.2 and Appendix A Lemma A.2; arXiv:1411.4942 §§1.1–1.3",
+          "Resultary: degree-matched surviving component or edge counts and third moments"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/26 54bd12285874",
+        "Resultary 2026/10/25 49a1005c0e97",
+        "Resultary 2026/11/8 db8837177936",
+        "arXiv:2011.03026",
+        "arXiv:1411.4942",
+        "DOI:10.1046/j.1461-0248.2002.00354.x (unavailable in bounded OA retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree proof explicitly attributes Δκ_3(C) to −ΔE[E^3] and computes it. It also uses same lower moments to derive a factor (z−1)^3 in its component PGF. It does not cover triangles or the connected cubic witness.",
+          "The zonotope comparison establishes that an unrelated, geometric statistic sees triangles at third order; it neither provides the retained-edge frequencies nor a transformation that yields them.",
+          "The independent Bernoulli moment specialization on trees even determines fixed-size tree moment differences by taking coefficients in the binomial mixing basis, but it gives no information for T≠0."
+        ],
+        "reasoning": "The implication on trees is real and not dismissed on the basis of the date or the title. The all-graph two-statistic inverse, and the cubic full-distribution example, survive that reduction.",
+        "searches": [
+          "Indexed habitat-tree RESULT.md proof §§1–4 at offsets 2500–6912; indexed graphical-zonotope Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditional PGF is the edge-count projection of the induced graphlet census, but the inversion uses only two third moments plus degrees, not a known census.",
+          "K coincides with the number of three-edge paths on a tree, because T=0; C=S−E converts the indexed third-cumulant difference to minus the independent-survival edge-moment difference for trees."
+        ],
+        "reasoning": "Treat equivalent observables on the tree subclass as overlap, but do not identify angular-width moments with rarefaction moments or equate the full graphlet census with the observed moments.",
+        "searches": [
+          "Resultary: fixed-size rarefaction, edge-induced survivor count distribution, triangle moments and prism versus K3,3",
+          "Graphlet census and Bernoulli vertex-sampled subgraph counting; arXiv:1411.4942 and arXiv:2011.03026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 25 graphical-zonotope finding has the same pair but tabulates angular-width moments. The November 8 two-regular cycle finding has an induced-edge interpretation and a C_6 vs C_3⊔C_3 contrast; its class does not contain the cubic graphs and its catalog entry is later."
+        ],
+        "reasoning": "The six-vertex census itself is standard. The specific degree-controlled observable, conditional PGF contrast and upper-tail differences are not outputs of those exact tables.",
+        "searches": [
+          "Resultary: prism K3,3 connected cubic equal first two moments, triangle recovery, fixed-size PGF and threshold risks",
+          "Resultary: six-vertex cycle contrast and third moments"
+        ]
+      },
+      "rationale": "The same-date habitat-tree result contains the tree specialization of the independent-survival cubic contrast, with the same edge-triple census method and a related PGF divisibility argument. The earlier graphical-zonotope result uses the same cubic witness to extract triangles from a different statistic. Neither supplies the two-size inverse problem with independent triangle and degree-mixing directions for general degree-matched graphs, or the exact whole-survivor edge-count risk reversal for the connected regular witness. The bounded pass concerns those conclusions, not priority for vertex-sampled motif calculus, the tree specialization, or discovery of the cubic pair.",
+      "residual_risks": [
+        "General induced-subgraph moment or graph-polynomial literature can supply the base moment expansions; the bounded comparison does not establish absolute priority.",
+        "The ecological robustness paper was not inspected in full. The reported overlap with the same-day tree record is unrelated to any inference of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact overlap for the tree subclass through C=S−E; different general class and PGF conclusion. Within-date priority is unresolved.",
+          "evidence": [
+            "The four tree triple counts and p^4−2p^5+p^6 factor appear explicitly in §2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874/RESULT.md",
+          "material_read": "Finding and proof §§1–4, especially offsets 2500–6912",
+          "method": "Resultary search and local mirror",
+          "title": "Degree-matched habitat trees conceal fragmentation in the first two moments",
+          "trigger": "Same survival model and third-order edge-triple contrast on trees"
+        },
+        {
+          "assessment": "Same graph witness, but different random observable.",
+          "evidence": [
+            "It controls angular width rather than numbers of edges in retained vertex sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-third-angular-width-moments-of-regular-graphical-zonotopes-recov--49a1005c0e97/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Third angular-width moments of regular graphical zonotopes recover triangles",
+          "trigger": "Same prism and K3,3 comparison and third-moment triangle discriminator"
+        },
+        {
+          "assessment": "Gives the general indicator representation and moment methodology, not the assessed exact recovery and witness in the inspected material.",
+          "evidence": [
+            "Equation (1.2) counts sampled copies by a sum of products of Bernoulli vertex indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.03026",
+          "material_read": "Abstract and pp. 2–3, equations (1.1)–(1.2); Appendix A Lemma A.2 location and bound context",
+          "method": "OA PDF passage reading",
+          "title": "Motif Estimation via Subgraph Sampling: The Fourth Moment Phenomenon",
+          "trigger": "Same vertex-induced sampling and motif moment framework"
+        },
+        {
+          "assessment": "Estimates counts from path sampling, not from conditional retained-edge-count moments.",
+          "evidence": [
+            "The six connected induced four-vertex patterns are sampling targets, not two compressed moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4942",
+          "material_read": "Abstract and §§1.1–1.3, pp. 1–2",
+          "method": "OA PDF passage reading",
+          "title": "Path Sampling: A Fast and Provable Method for Estimating 4-Vertex Subgraph Counts",
+          "trigger": "Four-vertex graphlet and three-edge-path counting"
+        },
+        {
+          "assessment": "Not relied upon for a negative coverage conclusion.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1046/j.1461-0248.2002.00354.x",
+          "material_read": "No full text recovered on bounded OA attempt",
+          "method": "OA DOI lookup",
+          "title": "Network structure and biodiversity loss in food webs: robustness increases with connectance",
+          "trigger": "Ecological survival and robustness antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 59–70",
+        "Exact counts for the two degree-matched tree shapes",
+        "Indexed habitat-tree and graphical-zonotope comparisons"
+      ],
+      "rationale": "There are two distinct structural directions: the cubic witness changes T at fixed K; two trees with degree sequence (3,2,2,1,1,1), arranging the degree-two vertices on different arms or the same arm, change K from 4 to 3 at fixed T=0. The result says when these genuinely different features can be recovered from a compressed survivor observable. The smallest connected regular witness gives a concrete ranking reversal between specified thresholds, not merely numerical disagreement in a third moment. This is a natural identifiability and counterexample claim without an empirical or statistical guarantee.",
+      "residual_risks": [
+        "Exact population moments and degrees are assumed; no precision, causal inference or robustness guarantee for measured food webs follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

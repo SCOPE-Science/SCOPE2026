@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:59.874704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every same-side pair is at distance two; a cross-side nonedge has distance three and can use the omitted b_n,a_1 in that order. Thus the proposed set is feasible. A complement of size zero or one leaves a selected same-side pair with no omitted common neighbor. For a complement of size two, two omissions on one side are impossible for n>=4 by the same obstruction. For n=3 with B entirely selected, b_1 and b_2 force a_1 omitted and the one selected a_i has i>1, so its length-three path to b_1 cannot avoid an internal selected B-vertex; the reversed case is symmetric. If the omissions are a_p,b_q, the largest selected A index is at least n-1 and must be <=q, so q>1. Then b_1 is selected, and a same-side pair containing b_1 forces p=1. Now a_n remains selected, forcing q=n. For the K_{n,n} comparison every choice of one omission from each side works and no same-side double omission works when n>=3, giving n^2. Independent replay: python3 /workspace/checks/1.py enumerates masks of all geodesic interiors and all complements of size at most two for n=2..14; it finds six size-two maxima for n=2 and just the claimed maximum for each n=3..14. This finite oracle is corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete half-graph polynomial gives every size coefficient and provably has degree 2n-2 and leading coefficient 1.",
+          "The distance-hereditary algorithm computes one optimal set per input, while the generic MV Poly algorithm counts all by subset checking."
+        ],
+        "reasoning": "The family-specific polynomial gives symbolic coverage and its proof identifies the maximizing set; generic finite algorithms alone would not establish the all-orders formula and uniqueness.",
+        "searches": [
+          "SCOPE-20261013-ac5be6025f34, Finding and Proof §4",
+          "arXiv:2307.10661v1, Theorem 5.4",
+          "arXiv:2507.01851v1, Algorithm MV Poly and Theorem 24"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261013-ac5be6025f34",
+        "arXiv:2105.02722v1",
+        "arXiv:2307.10661v1",
+        "arXiv:2507.01851v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof §4 derives the large-set upper bound, excludes same-side omissions including n=3, and proves that the only feasible two omissions are a_1 and b_n.",
+          "Di Stefano's theorem gives m+n-2 for K_{m,n} with m,n>=3; the same scalar for K_{n,n} does not yield uniqueness or even feasibility for the different half-graph edges."
+        ],
+        "reasoning": "The polynomial article proves the entire frozen Finding on identical assumptions. Its disclaimer limits what the polynomial article claims as new, not what it mathematically covers.",
+        "searches": [
+          "SCOPE-20261013-ac5be6025f34, Proof §4, especially offsets 4787 and 6792",
+          "arXiv:2105.02722v1, §4.4, Theorem 4.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261013-ac5be6025f34, Finding at offset 0, uses the same adjacency i<=j and existential shortest-path definition for n>=3, and explicitly identifies V minus {a_1,b_n} as the unique optimum.",
+          "The introduction of arXiv:2307.10661v1 uses the same existential notion and distinguishes it from general position."
+        ],
+        "reasoning": "The polynomial record refers to the same family and invariant, not a repeated-neighborhood generalization or an alternative visibility notion.",
+        "searches": [
+          "Resultary: half graph / chain / Ferrers graph, maximum mutual-visibility and visibility polynomial",
+          "arXiv:2307.10661v1, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed polynomial record's exact [z^(2n-2)]V_n(z)=1 and deg V_n=2n-2 hold for every n>=3, not merely tested n."
+        ],
+        "reasoning": "This indexed exact count already gives the scalar and the multiplicity; the labeled set is also present in its text.",
+        "searches": [
+          "Resultary: exact half-graph maximum-set count and visibility-polynomial coefficients",
+          "SCOPE-20261013-ac5be6025f34, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, SCOPE-20261013-ac5be6025f34, explicitly states and proves the identical all-n maximum-size and labeled uniqueness theorem, in addition to stronger enumeration. It is not the frozen record itself. Its wording treats the maximum facts as previously established, without identifying the frozen record as their source. Same-day archiving and that wording do not settle priority or provenance. The decision is based on demonstrated equivalent coverage, not on a claim that one record was published before the other.",
+      "residual_risks": [
+        "The two SCOPE records share a UTC publication date; their relative priority, and whether one reused the other, are not established. No judgment of attribution or historical priority is made.",
+        "Other literature may contain the same theorem, but is not needed for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent and stronger coverage; no demonstrated timestamp ordering or explicit dependency citation",
+          "evidence": "Finding at offset 0 and Proof §4 in pages at 4787 and 6792 give degree 2n-2, leading coefficient 1, and the same two omitted vertices for every n>=3. The new claims there are the full polynomial and its total count; provenance of the repeated maximum theorem is unspecified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-mutual-visibility-polynomial-of-half-graphs--ac5be6025f34/RESULT.md",
+          "material_read": "Finding and scope; Proof §4; Relationship to prior work and References; associated METADATA.json",
+          "method": "Resultary local search and exact mirrored passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete mutual-visibility polynomial of half graphs",
+          "trigger": "Strongest local match: all-cardinality enumeration on the same graphs"
+        },
+        {
+          "assessment": "Benchmark for different adjacency, not the half-graph classification",
+          "evidence": "For m,n>=3, K_{m,n} has mutual-visibility number m+n-2.",
+          "identifier_or_url": "arXiv:2105.02722v1",
+          "material_read": "§4.4, Theorem 4.7, p. 18",
+          "method": "OA primary-text comparison",
+          "title": "Mutual Visibility in Graphs",
+          "trigger": "Complete-bipartite benchmark"
+        },
+        {
+          "assessment": "Per-instance optimization, not symbolic uniqueness",
+          "evidence": "Algorithm A computes a maximum mutual-visibility set for a distance-hereditary graph in linear time.",
+          "identifier_or_url": "arXiv:2307.10661v1",
+          "material_read": "Introduction and Theorem 5.4, pp. 1–2 and 14",
+          "method": "OA primary-text comparison",
+          "title": "Mutual-visibility in distance-hereditary graphs: a linear-time algorithm",
+          "trigger": "Broader graph class with the same optimization invariant"
+        },
+        {
+          "assessment": "Generic enumeration, not a closed half-graph result in these passages",
+          "evidence": "Algorithm MV Poly tests all subsets and sums by size.",
+          "identifier_or_url": "arXiv:2507.01851v1",
+          "material_read": "Abstract and p. 11, Algorithm MV Poly and Theorem 24",
+          "method": "OA primary-text comparison",
+          "title": "On the Visibility Polynomial of Graphs",
+          "trigger": "Broader exact counting framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The uniqueness contrast with complete bipartite graphs is structurally informative in isolation, but the actual Finding gives no further invariant or classification beyond the exact labeled theorem already present and proved in the indexed full-polynomial record. Its elementary extremal argument is also present there. No distinct valuable remainder is preserved by narrowing or rewording the Finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

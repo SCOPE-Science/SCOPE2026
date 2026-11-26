@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:40:26.059078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–90",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt; inspected, not executed"
+      ],
+      "rationale": "Parseval reduces the minimization to maximizing the erased Gram eigenvalue, with retained bound 1−λmax(G_E)/N for the unnormalized Gram. Centering frequencies gives the real kernel D(h)=1+2cos(2πh/N); the consecutive matrix splits into a symmetric 2×2 block and the odd eigenvector, yielding the stated positive-root expression. A nonconsecutive triple has at most one distance-one edge. For N≥8, every other absolute kernel entry is at most d2≥1, so strict Perron comparison applies after relabeling. For N=7 the nonconsecutive row bound 3+d1+1 is strictly below the consecutive Rayleigh test 3+√2 d1+d2/2, since 2(√2−1)+(3−√5)/4>1. At N=6 the single-adjacency case has kernel magnitudes (2,1,0), giving 3+√5<3+2√2; no adjacency gives at most 5. Three retained distinct nodes give rank by Vandermonde, and the consecutive masks have a unique run start. This proves the complete equality and strict positivity claims.",
+      "residual_risks": [
+        "The recorded 211861 masks for N=6–48 are only finite floating-point corroboration. The analytical argument, not the recorded run, verifies the general theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1b09479ce727 adds the retained eigenvalue spectrum at the worst masks",
+          "Barnett p. 3 relates squared Fourier singular values to periodic discrete-prolate concentration but studies condition-number bounds for already contiguous submatrices",
+          "Marceca, Romero and Speckbacher §1.3, Thm. 1.3 bounds intermediate eigenvalue counts for regular domains in dimension d≥2"
+        ],
+        "reasoning": "The matching result with extra spectrum includes the frozen extremal theorem. The broader prolate and concentration works inspected do not give the needed exact comparison against arbitrary three-point masks.",
+        "searches": [
+          "Resultary mirror 1b09479ce727",
+          "arXiv:2004.09643v1",
+          "DOI:10.1007/s00205-024-01979-9"
+        ]
+      },
+      "checked_sources": [
+        "1b09479ce727",
+        "2b0922c7bba9",
+        "486de14133a7",
+        "e1e03f96b6f0",
+        "1200745c9cae",
+        "arXiv:2004.09643v1",
+        "DOI:10.1007/s00205-024-01979-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "e1e03f96b6f0 treats two Fourier rows with arbitrary erasure count",
+          "1200745c9cae optimizes an eigenvalue ratio for a different triple choice",
+          "1b09479ce727 already states the large-eigenvalue/retained-bound equivalent result and worst masks"
+        ],
+        "reasoning": "Two rows, or minimizing a ratio instead of maximizing a single eigenvalue, does not yield the theorem. The exact three-row match needs only Parseval normalization to recover the frozen formulation.",
+        "searches": [
+          "Resultary mirror e1e03f96b6f0",
+          "Resultary mirror 1200745c9cae",
+          "Resultary mirror 1b09479ce727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1b09479ce727 gives the same radical sharp retained lower bound and only consecutive erased triples",
+          "2b0922c7bba9 gives the same extremizers and bound after normalization",
+          "486de14133a7 writes the result as sharp residual energy with precisely the same masks"
+        ],
+        "reasoning": "Worst residual energy on unit vectors equals the least retained frame eigenvalue. The recovered bound and strict equality characterization match, not just the Fourier dimensions.",
+        "searches": [
+          "Resultary mirror 1b09479ce727",
+          "Resultary mirror 2b0922c7bba9",
+          "Resultary mirror 486de14133a7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding sections match the all-N≥6 constant and equality sets in addition to the matrix family."
+        ],
+        "reasoning": "These are theorem-level matches, stronger than any table of small orders; date labels alone establish no priority.",
+        "searches": [
+          "Resultary exact record 1b09479ce727",
+          "Resultary exact record 2b0922c7bba9",
+          "Resultary exact record 486de14133a7"
+        ]
+      },
+      "rationale": "Substantive equivalent coverage is verified: distinct indexed results state the same fixed three-band worst-erasure bound and all N cyclically consecutive equality masks, one with additional retained spectral information. The exact duplicates inspected carry later date labels than the frozen record. This is a finding of equivalent coverage and no established distinct remaining claim in the present assessment, not a finding that any of those records was first or that the frozen record was derived from them. The older two-row and condition-number results are not the basis for failure.",
+      "residual_risks": [
+        "The relationship and priority between the frozen result and the three exact indexed matches are not established.",
+        "Zhu et al. (2018) on discrete periodic time-frequency limiting eigenvalue distributions, cited by Barnett, was not inspected in full; earlier equivalent prolate formulations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage with additional spectral information",
+          "evidence": "Same sharp radical lower bound and equality only for the N consecutive triples.",
+          "identifier_or_url": "1b09479ce727",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp three-erasure stability of a cyclic three-mode Fourier frame",
+          "trigger": "Exact dimension, erasure count and cyclic setting"
+        },
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Same three-row frame, all orders N≥6, same rescaled bound and equality cases.",
+          "identifier_or_url": "2b0922c7bba9",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Consecutive erasures uniquely minimize stability of three-row cyclic harmonic frames",
+          "trigger": "Exact extremizer match"
+        },
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Same bound and equality masks stated as a residual-energy inequality.",
+          "identifier_or_url": "486de14133a7",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp three-erasure robustness for three-frequency cyclic sampling",
+          "trigger": "Residual-energy formulation"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Two-dimensional frames; extremizers governed by phase classes.",
+          "identifier_or_url": "e1e03f96b6f0",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "trigger": "Prior adversarial cyclic harmonic-frame extremum"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Optimizes largest-to-smallest ratio rather than the top eigenvalue and gives nearly equilateral optimal gaps.",
+          "identifier_or_url": "1200745c9cae",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Spectral extremum for Fourier triples"
+        },
+        {
+          "assessment": "Inspected result not covering",
+          "evidence": "Connects squared singular values to concentration but takes contiguity as a hypothesis and bounds condition numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.09643v1",
+          "material_read": "p. 3, offsets 8200–11462",
+          "method": "Lawful OA primary text",
+          "title": "How exponentially ill-conditioned are contiguous submatrices of the Fourier matrix?",
+          "trigger": "Periodic prolate concentration reduction"
+        },
+        {
+          "assessment": "Inspected result not covering",
+          "evidence": "Bounds the number of intermediate eigenvalues for regular domains in dimension d≥2, not the exact maximizing mask.",
+          "identifier_or_url": "https://doi.org/10.1007/s00205-024-01979-9",
+          "material_read": "Printed pp. 5–6, §1.3 and Thm. 1.3, offsets 12400–16566",
+          "method": "Lawful OA primary text",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "General discrete concentration theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 30–90"
+      ],
+      "rationale": "As a theorem this resolves a natural adversarial reconstruction question for a low-bandwidth Parseval frame: it gives exact noise amplification control through the sharp retained lower bound and identifies all loss patterns attaining it. A positivity-only Vandermonde argument cannot give this quantitative guarantee or equality classification. This is value of the mathematical result, not credit for a separate contribution where coverage duplicates it.",
+      "residual_risks": [
+        "The guarantee is for the ordinary lower frame bound with exactly three losses and the fixed contiguous three-mode band; no optimality for other decoders or bands is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

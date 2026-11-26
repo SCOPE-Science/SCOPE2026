@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:29:01.167291Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 6–36; VERIFICATION.md, verify.cpp, verification_output.txt inspected",
+        "Independent replay: python3 /workspace/branches/review_02_replay.py"
+      ],
+      "rationale": "For two seats the JR obstruction is at least ceil(n/2) unrepresented supporters of a single candidate. Take a maximum-support candidate z. Below half no JR obstruction exists; above half all z-pairs are JR. At exactly half, a failed pair {z,a} requires a witness whose support is precisely the complement of z's support, and a has no supporters in that complement. Pairing z with the witness gives a valid hub pair. If both z-replacements of a JR pair failed, neither of its members would cover any complementary voter, contradicting JR by the same witness. Thus the valid z-pairs form a nonempty dominating clique whenever it is needed. Pairwise distances follow: overlaps give one swap, a disjoint pair has a two-step path exactly via a JR cross pair, and otherwise it is at distance three. With at most four candidates every neighbour of a disjoint endpoint is a cross pair, so connectivity rules out a distance-three pair. In the six-voter witness e is universal: each endpoint misses two e-supporters while each cross pair misses three, and the e-hub path has length three. For five candidates I independently exhausted unordered tuples of ballot masks, fixing any disjoint endpoints by relabelling and checking JR by the original quota-size voter-group intersection condition, not the package's per-candidate count/BFS. The n=1,…,5 profile counts were 32, 528, 5984, 52360, 376992, with zero detours in every layer. The same check confirmed the six-voter witness's endpoint and bridge statuses.",
+      "residual_risks": [
+        "Voter minimality is proved only conditional on exactly five candidates; the result does not claim six voters are necessary for arbitrary candidate counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 supplies isolated examples only for k≥3. Theorem 3.7 gives approximate paths for general k. Theorem 5.1 gives exact JR geodesics with candidate-interval ballots."
+        ],
+        "reasoning": "The general theorem with weaker intermediate feasibility and the stronger metric theorem with narrower ballot assumptions both leave the unrestricted exact two-seat regime open to a distinct theorem.",
+        "searches": [
+          "Dong et al., Theorems 3.1, 3.7 and 5.1; arXiv:2504.15157v1 and published AAAI version"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Dong et al., DOI 10.1609/aaai.v40i20.38727",
+        "Resultary SCOPE-5ea6dcb6a811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No isolated vertex is strictly weaker than connectedness (even a line graph of two disjoint two-edge stars has no isolated vertices). Approximate intermediate vertices are not permitted here, and the witness shows the unrestricted distance can exceed the Johnson distance."
+        ],
+        "reasoning": "The elementary cross-pair test accounts for distances ≤2 but not for what happens when all cross pairs fail. The dominating exact-JR clique resolves that missing implication and forces distance three.",
+        "searches": [
+          "Dong et al. Proposition 3.3 and Theorems 3.7, 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.3 rules out isolated two-seat JR vertices in the nontrivial case, but does not say they lie in one component.",
+          "Theorem 3.7 allows 2-JR intermediate committees; these need not be JR.",
+          "Resultary SCOPE-5ea6dcb6a811 concerns reciprocal JR, support/quality optimization and one-substitution repair."
+        ],
+        "reasoning": "Using Johnson-graph terms, pivot terminology, or 'one swap' does not change these mismatches in permitted vertices and path guarantees. A statement about one repair in a reciprocal variant does not classify distances between all exact-JR endpoints.",
+        "searches": [
+          "Resultary comparisons for two-seat justified representation, exact JR reconfiguration, diameter/geodesics and one-seat exchanges",
+          "Dong, Frank, Peters & Suksompong, Reconfiguring Proportional Committees, Proposition 3.3 and Theorem 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact frontier covers quality-optimized reciprocal-JR pairs, not the five-candidate standard-JR extremal detour.",
+          "The older isolated witnesses described in Theorem 3.1 have k≥3 and are not two-seat distance-three witnesses."
+        ],
+        "reasoning": "The inspected extremal data describe different objects; neither gives the minimal-five-candidate detour or the conditional five-voter cutoff. The independent census supports correctness rather than priority.",
+        "searches": [
+          "Resultary exact two-seat support/reconfiguration related matches, including SCOPE-5ea6dcb6a811",
+          "Dong et al. Theorem 3.1 examples and Proposition 3.3 on two-seat isolation"
+        ]
+      },
+      "rationale": "The closest published reconfiguration framework does not imply unrestricted exact-JR two-seat connectivity, the sharp three-swap diameter, or the extremal witness. It distinguishes non-isolation, approximate intermediate committees, and geodesic paths for a restricted domain. The closest indexed two-seat same-day result concerns a different representation rule and objective.",
+      "residual_risks": [
+        "A bounded indexed and primary-source comparison does not rule out an unindexed equivalent. A same-day date does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model precedent, without the claimed unrestricted exact diameter and minimal witness",
+          "evidence": [
+            "k≥3 isolation; two-seat non-isolation; 2-JR intermediate guarantee; exact candidate-interval geodesics."
+          ],
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/download/38727/42689",
+          "material_read": "Publisher PDF pp. 4–5 and 7, Theorem 3.1, Proposition 3.3, Theorems 3.7 and 5.1; offsets 25965, 28227, 34781, 53665",
+          "method": "OA PDF passage inspection",
+          "title": "Reconfiguring Proportional Committees",
+          "trigger": "Same approval JR exchange graph; potential prior unrestricted or geodesic result"
+        },
+        {
+          "assessment": "Different JR variant and admissibility conditions, not equivalent",
+          "evidence": [
+            "Reciprocal JR under support and quality constraints; no metric classification of the graph of all standard-JR pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-minimum-support-quality-frontier-for-two-seat-reciprocal-r--5ea6dcb6a811",
+          "material_read": "Original RESULT.md finding",
+          "method": "Local mirror text inspection",
+          "title": "Exact minimum support-quality frontier for two-seat reciprocal representation",
+          "trigger": "Indexed two-seat exact result with a one-substitution repair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md pivot proof and sharp witness",
+        "Dong et al., Proposition 3.3 and Theorems 3.1, 5.1"
+      ],
+      "rationale": "The theorem closes the unrestricted two-seat case of the published exact reconfiguration problem and identifies precisely when the natural Johnson shortest path fails. The minimal-candidate witness shows a genuine obstruction despite connectivity and supplies a concrete sharp test instance. The conditional voter cutoff is a supporting extremal fact rather than a standalone brute-force claim.",
+      "residual_risks": [
+        "The result says nothing about exact-JR connectivity with three or more seats or about stronger representation axioms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

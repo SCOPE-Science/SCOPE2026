@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the three standalone verification programs from the extracted package directory with standard Python 3 and a C++17 compiler:
+## correctness
 
-```sh
-python3 verify.py
-g++ -O3 -std=c++17 verify.cpp -o checker
-./checker
-python3 verify_adaptive.py
-```
+PASS
 
-The Python program enumerates all even and odd permutations for \(n=2,3,4,5\). For every board support of cardinality at most \(n-2\), it compares all complete trace-frequency vectors, not just whether shattering occurs; for every matching support in that range it also checks each exact signed inclusion-exclusion multiplicity. For all matching supports of cardinality \(n-1\), it checks the exact signed trace count \((-1)^{|F|}\operatorname{sgn}(\pi_S)\) on every one of the \(2^{n-1}\) response patterns, and directly verifies the total-variation normalization and failure of shattering.
+On the full assignment board, let T and F be the positive and negative cells of a trace. Inclusion–exclusion on F sums the signed completion count for each T union U with coefficient (-1)^|U|. Nonmatchings contribute zero, and for a matching leaving two or more rows free, swapping their images cancels the signed count. At n-1 cells only the full-support term can survive, with the stated sign and magnitude one exactly for a matching. For short traces with T a matching, the residual board of order m has at most m-2 forbidden cells; a one-factorization leaves at least two surviving completions, and cancellation supplies both parities. If the support is a matching, ordinary inclusion–exclusion produces the stated factorial count before dividing by two. A match of n-1 cells has only one all-positive completion, and its sign class lacks the trace obtained by making just one cell negative: the residual two-row switch has the other sign. Heredity and the all-positive requirement give the exact shattered supports and their matching-number polynomial. Littlestone dimension is bounded by the positive child at every root, a single sign class on the board of order n-1; induction from the n=2 singletons gives n-2, matching the VC lower bound. For a deterministic tree, an inconsistent leaf has no mass, a consistent short-support leaf has zero signed difference, and a boundary leaf has absolute difference at most one. Because each parity class has n!/2 members, TV is the sum of these absolute differences divided by n!; at most 2^(n-1) leaves are possible, and the nonadaptive matching has that many unit terms. Convexity handles independent randomization, and equal priors give the stated Bayes success. The unrestricted dimensions n-1 follow by the same positive-child induction and shattering a near-perfect matching (at most m-1 forbidden residual cells). The n=2 boundary has TV one and both dimensions zero. Source verifiers and stored outputs were inspected, not executed. Independent bitset checks (python3 /workspace/review_checks.py 1) exhaust all supports and responses through size n-1 at n=2..5, including nonmatching boundary supports, and check both online dimensions. Finite checks supplement the proof.
 
-The C++17 program uses a separately written implementation and tests every support of size at most four for \(n=6\), i.e. \(66{,}712\) supports. It also tests all \(5{,}040\) matching supports of sizes five and six against a complete enumeration of both parity classes, including the signed trace difference on each of the \(4{,}320\) five-cell matching supports and every response pattern. The additional standalone Python verifier `verify_adaptive.py` independently computes the exact optimal signed transcript imbalance over every adaptive query tree of depth at most \(n-1\) for \(n=2,3,4\) using a memoized minimax recursion, confirming the zero-signal cutoff and the sharp total-variation formula. Recorded outputs are in `verification_output.txt`.
+## originality
 
-Finite enumeration neither proves the universal parity cancellation identity nor proves the all-order Littlestone upper bound. The proof in `RESULT.md` supplies both. The exact polynomial is a direct matching count once the structural criterion is established. No separate independent mathematical audit has been conducted.
+PASS
+
+The credited transitivity, matching counts and edge-restriction comparisons are not stand-alone contributions. The supported distinct claim is the exact first signed Boolean trace and optimal bounded-query distinguishing law, together with the sign-class structural classification, on row-to-image queries. None of the matching statements inspected in the catalogue or compared in the frozen package supplies that combination or its first-depth TV formula. This is bounded evidence, not a claim of historical uniqueness.
+
+## value
+
+PASS
+
+For a canonical permutation query model this identifies the first query budget with any statistical signal, computes the exact optimal signal and parity rule even against adaptivity, and describes what parity restriction does to the VC complex and online learnability. The leafwise signed boundary makes the result substantially more informative than a transitivity observation or a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

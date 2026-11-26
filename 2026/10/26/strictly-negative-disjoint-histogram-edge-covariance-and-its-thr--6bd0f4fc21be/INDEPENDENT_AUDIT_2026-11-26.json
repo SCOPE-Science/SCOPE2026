@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:19.699265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; VERIFICATION.md; inspected verify_disjoint_covariance.py without running it",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 2 — 72 exact signs by signed-difference convolution; independent balanced numerical values −0.0566580339, −0.0563661563 and −0.0563179073 for N=128,512,1024"
+      ],
+      "rationale": "Given block totals K,L, the two internal binomial splits are independent, so the covariance is that of their folded-walk means. The increment of a folded-walk mean is (2θ−1) times the expected sign plus the zero-return probability, hence nonnegative by monotone coupling to the fair walk. Conditional on K, the L mean is decreasing in K. The K=0 and K=N endpoints make the independent-copy covariance identity strict, including N=1 and the no-residual-mass case. For a biased pair the folded mean differs from its linear drift by an exponentially small L² error after averaging over its block count. For a balanced pair the central-binomial estimate and Taylor expansion give slope 1/√(2πNu) and O(N⁻¹ᐟ²) L² error, with an analogous slope for the other block. Multiplying the slopes by Cov(K,L)=−Nuv gives all four coefficients, and Cauchy–Schwarz controls the errors at their stated scales.",
+      "residual_risks": [
+        "The replay is finite. The theorem fixes cell probabilities and does not cover centered, overlapping, or shrinking-imbalance contrasts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part 2 Theorem 4.6 proves uniform disjoint-edge covariance −1/(πm)+O(N⁻¹), agreeing with and sharper than that special case here.",
+          "Part 4 Prop. 3.11's disjoint κ₂,₂ contribution specializes to −√(uv)/(2π) for balanced pairs; that proposition treats it as part of the order-one term.",
+          "The 1985 stochastic-ordering work was identified but full text was not retrieved."
+        ],
+        "reasoning": "A general negative-dependence framework can support the sign argument after folding and conditioning, but the dependence of the block totals alone does not give the folded means' distinct asymptotic slopes. The inspected centered theory does not dominate arbitrary biased uncentered profiles.",
+        "searches": [
+          "arXiv:2610.17046v1 §4.6",
+          "arXiv:2611.09592 Prop. 3.11",
+          "DOI:10.1016/0167-7152(85)90029-X"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record 53dd0b106fe8",
+        "arXiv:2610.17046v1",
+        "arXiv:2610.13366v1",
+        "arXiv:2611.09592",
+        "DOI:10.1016/0167-7152(85)90029-X (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniformity forces u=v=2/m and a=b=0. Proposition 3.11 is for centered differences and singles out one cumulant contribution; it does not establish the uncentered mixed law. The indexed sign gives no quantitative rate."
+        ],
+        "reasoning": "Neither uniform specialization, sign, nor a centered formula implies the mixed √N coefficient. Getting it requires the drift and fair-walk slope in the same conditional covariance; the ordinary nondegenerate two-drift leading term alone is not the valuable distinction.",
+        "searches": [
+          "Compare Theorem 4.6, Proposition 3.11 and the indexed exact-sign proof with the full fixed-profile limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-strict-negative-covariance-of-disjoint-multinomial-absolute-cont--53dd0b106fe8 proves the same strict sign with positive four participating cells, all N and arbitrary residual mass; no three-regime asymptotic.",
+          "Part 4's centered contrasts coincide only on balanced pairs: centering subtracts N(p_j−p_i)."
+        ],
+        "reasoning": "Different category labels and sign orientation leave absolute differences unchanged. Thus the indexed sign is exact overlap regardless of priority; centering is material in the mixed and biased regimes.",
+        "searches": [
+          "Resultary: disjoint multinomial absolute contrasts, strict negative covariance and scaling regimes",
+          "Banić–Elezović Parts 2 and 4: disjoint edges and centered versus uncentered contrasts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact sign and exact uniform coefficient are indexed or published as above; Part 1 Theorem 3.2 is a uniform first-moment formula. No inspected record states the full scaling law."
+        ],
+        "reasoning": "The plausible exact lookup is a theorem or formula indexed by the probability profile, not a numerical coefficient table. The matching uniform specialization and same exact sign are credited rather than treated as no matches.",
+        "searches": [
+          "Resultary local semantic search for arbitrary-probability disjoint absolute contrasts, all-N sign and N/√N/order-one scaling",
+          "arXiv:2610.13366v1 §3.3; arXiv:2610.17046v1 §4.6; arXiv:2611.09592 §3"
+        ]
+      },
+      "rationale": "The supported distinction is the fixed-profile uncentered three-regime theorem, particularly the mixed balanced/biased scaling and explicit coefficient with unrelated block masses. The sign theorem is demonstrably also indexed and the uniform asymptotic was published; neither is credited as a standalone novelty. The centered Part 4 shares the balanced statistic and the relevant cumulant contribution, but is not an equivalent for unbalanced pairs.",
+      "residual_risks": [
+        "Exact scope of the 1985 theorem was not retrieved; there may be implicit prior asymptotics in other expansions.",
+        "The full nonuniform, both-balanced order-one case was not settled by the passages checked in Part 4; no claim that the shared coefficient is new in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct uniform-profile overlap",
+          "evidence": "−1/(πm)+O(1/N) for disjoint uniform-null edges.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17046v1",
+          "material_read": "§4.6 Theorem 4.6 around offset 78400; §4.4",
+          "method": "OA article, statement-level inspection",
+          "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+          "trigger": "Cited exact uniform asymptotic"
+        },
+        {
+          "assessment": "Mean result, not the covariance scaling law",
+          "evidence": "Theorem 3.2 treats the uniform-null first moment.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13366v1",
+          "material_read": "Abstract and §3.3 around offset 26400",
+          "method": "OA article, targeted passages",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Cited edge-mean antecedent"
+        },
+        {
+          "assessment": "Unverified coverage risk, not a negative finding",
+          "evidence": "Frozen citation points to stochastic ordering for multinomial totals; no full-text theorem checked.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(85)90029-X",
+          "material_read": "Bibliographic identification; full text unavailable",
+          "method": "Lawful OA retrieval and alternate-copy attempts",
+          "title": "A concept of negative dependence using stochastic ordering",
+          "trigger": "Possible broader dependence coverage"
+        },
+        {
+          "assessment": "Balanced-case overlap in statistic and coefficient contribution; unbalanced statistics differ",
+          "evidence": "The κ₂,₂ term specializes to −√(uv)/(2π); dominance of that term in the full nonuniform balanced covariance is not established in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09592",
+          "material_read": "§3 Proposition 3.11, offsets 76000–86000",
+          "method": "OA article, targeted mathematical comparison",
+          "title": "Discrete total variation under the multinomial, Part 4",
+          "trigger": "Closest general-reference variance work, now available"
+        },
+        {
+          "assessment": "Exact overlap for strict sign, not full claim; listing date does not settle priority",
+          "evidence": "Same arbitrary positive participating masses and every N≥1; also treats Poissonization, not the three asymptotic regimes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-strict-negative-covariance-of-disjoint-multinomial-absolute-cont--53dd0b106fe8",
+          "material_read": "Finding and block-conditioning proof",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Strict negative covariance of disjoint multinomial absolute contrasts",
+          "trigger": "Strongest local Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding; Banić–Elezović Part 2 variance application and Part 4 centered comparator"
+      ],
+      "rationale": "A variance calculation for histogram total variation needs the covariance of disjoint terms. For fixed unequal profiles a Gaussian or purely uniform heuristic can miss the leading contribution: balancing one edge reduces the scale to √N, and balancing both leaves a nonzero constant. The coefficient and the regime distinction are useful for deciding when disjoint contributions can be neglected.",
+      "residual_risks": [
+        "No general-reference centered statistic or local-alternative transition law is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:22:44.490682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–54; frozen VERIFICATION.md and check.py, inspected only"
+      ],
+      "rationale": "Cauchy–Binet gives the sum of squared pair sines. Write theta=t·1+z with sum z=0; then the sum of squared pair differences is m||z||². On the folded interval, |sin u|≥2|u|/π, and the larger Gram eigenvalue is at most m, so the small-eigenvalue event is globally confined to ||z||≤πε/2. Near that diagonal the determinant is m||z||²+O(||z||⁴) and the larger eigenvalue is m+O(||z||²), giving the claimed transverse unit ball. The Jacobian is sqrt(m); after rescaling, dominated convergence applies for every interior t even if f vanishes, and endpoints have zero longitudinal measure. In the uniform m=2 case λ=1−cos|θ1−θ2|, and triangular integration gives leading coefficient 2sqrt(2)/L, an exact normalization check. Strict Jensen gives the unique continuous minimizer. Integrating the positive tail coefficient gives the strict inverse-moment cutoff for s>0, including divergence at equality; conditional OLS risk is σ² times the sum of the two inverse eigenvalues, so it is finite exactly for m≥4. The iid pair expectation follows from the double-angle cosine; zero mean of e^(2it) forces support on the endpoints by its positive interior imaginary part, and then equal masses. The singular probability is the probability all endpoint draws agree.",
+      "residual_risks": [
+        "No replay of the uploaded numerical diagnostics; the proof and exact m=2 check do not depend on them. The continuous-density tail and unconstrained OLS result do not cover constrained estimators or singular angle laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-facet support regression includes the measurement setting but its inspected results concern reconstruction and uniqueness. The two general least-singular-value papers assume independent entries and give bounds, not the exact coefficient for dependent trigonometric entries."
+        ],
+        "reasoning": "Neither the broader reconstruction theorem nor the independent-entry bounds yield the exact tail or critical inverse moments here.",
+        "searches": [
+          "arXiv:2201.03419 Cor. 3.5 and Prop. 3.6",
+          "arXiv:0802.3956 Thm. 1.1",
+          "arXiv:2408.14389 Thms. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.03419",
+        "arXiv:0802.3956",
+        "arXiv:2408.14389",
+        "arXiv:2610.31333",
+        "Resultary records ending 5fb2ea549d24, 0bd09ba633ae, 6eba4b8f5a9c, 83040a6c4736, and 6a97775be4e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For u=(cos θ,sin θ), E det(XᵀX)=m(m−1) det E(uuᵀ); hence maximizing expected determinant is exactly classical D-optimality for these regressors. The published full-circle and affine-fit statements do not include a nonuniform semicircle phase law."
+        ],
+        "reasoning": "The D-optimal identity and downstream moment integration are routine once the inputs are known. The particular sharp weighted diagonal calculation, and its contrast with a design having a positive rank-loss atom, are the supported distinction.",
+        "searches": [
+          "arXiv:2201.03419",
+          "Resultary circular sketch record ending 5fb2ea549d24",
+          "Resultary affine-fit record ending 83040a6c4736"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest circular-sketch record proves an exact tail and cutoff for uniform full-circle phases in a complex two-frequency matrix. The folded real Gram eigenvalue is half the corresponding m−|sum exp(2it)|, but the phases here occupy a semicircle with a possibly nonuniform density.",
+          "Lynch-Davies and Webb discuss near-dependence for close phases without a sharp tail coefficient."
+        ],
+        "reasoning": "The shared spectral expression and local diagonal mechanism do not identify the law or supply the folded arbitrary-density integral. No priority is inferred solely from record dates.",
+        "searches": [
+          "Resultary: folded rectangle support regression, circular sketches and small singular tails; 2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24",
+          "arXiv:2610.31333 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact records treat affine quadrature-weight norms, affine quadrature conditioning, or noisy affine slope moments; some have the analogous four-node threshold. None of these inspected statements tabulates the folded-angle Gram tail. The claimed coefficient is a functional of a continuous density, not a single finite parameter-table entry."
+        ],
+        "reasoning": "The matching cutoffs do not identify the underlying inverse eigenvalue or its leading constant.",
+        "searches": [
+          "Resultary: inverse moments, sharp heavy tails, and four-node risk thresholds; records ending 0bd09ba633ae, 6eba4b8f5a9c, and 83040a6c4736"
+        ]
+      },
+      "rationale": "The supported distinction is the exact folded-angle coefficient for arbitrary continuous densities and the associated finite-sample conditioning and design conclusions. The nearest circular-sketch result uses the same transverse mechanism, and the expected-determinant optimum itself is ordinary two-regressor D-optimality; neither is credited as a new general principle.",
+      "residual_risks": [
+        "An equivalent formula may occur in earlier circular-design or weighted tube calculations; the focused literature search did not return useful additional hits and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reconstruction setting, not the claimed probabilistic law",
+          "evidence": "Piecewise-quadratic least squares and reconstruction uniqueness, not an exact conditioning tail.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.03419",
+          "material_read": "pp. 2–3, Cor. 3.5 p. 12, Prop. 3.6 p. 13",
+          "method": "OA passage inspection",
+          "title": "Learning polytopes with fixed facet directions",
+          "trigger": "Broader fixed-facet support regression"
+        },
+        {
+          "assessment": "Different entry assumptions and type of bound",
+          "evidence": "Independent iid subgaussian entries, rather than the row law (cos θ,sin θ).",
+          "identifier_or_url": "https://arxiv.org/abs/0802.3956",
+          "material_read": "Theorem 1.1, p. 3",
+          "method": "OA passage inspection",
+          "title": "The smallest singular value of a random rectangular matrix",
+          "trigger": "Possible stronger lower-tail theorem"
+        },
+        {
+          "assessment": "Does not supply the coefficient in this dependent-entry model",
+          "evidence": "Independent-entry moment and anti-concentration bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.14389",
+          "material_read": "Theorems 1–2, p. 2",
+          "method": "OA passage inspection",
+          "title": "The smallest singular value of inhomogeneous random rectangular matrices",
+          "trigger": "Possible extension accommodating nonuniform designs"
+        },
+        {
+          "assessment": "Qualitative mechanism overlap",
+          "evidence": "Uniform phase and sign construction; nearly coincident phases lead to near-dependence.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31333",
+          "material_read": "§4.2, p. 30",
+          "method": "OA passage inspection",
+          "title": "Lynch-Davies and Webb, circular Fourier sketches",
+          "trigger": "Likely prior treatment of close phases and conditioning"
+        },
+        {
+          "assessment": "Related exact tail for a different phase law and normalization",
+          "evidence": "Uniform full-circle complex two-frequency sketch; missing the arbitrary-density folded coefficient and the contrasting two design optimizers.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24",
+          "material_read": "RESULT.md offsets 0–3272 and 7000–10050",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp small singular tails and inverse moment thresholds for a circular Fourier sketch",
+          "trigger": "Strongest Resultary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, statements and proof of the tail, OLS cutoff, and determinant comparison"
+      ],
+      "rationale": "The smallest eigenvalue controls noise amplification in this minimal support-reconstruction model. Its exact design-dependent tail distinguishes rank almost surely from finite mean-square error and singles out a continuous optimum. The contrast with the D-optimal design, which creates a positive singular mass, is substantive and interpretable even though the expected-determinant calculation alone is elementary.",
+      "residual_risks": [
+        "No conclusion about risk of constrained procedures, unknown orientations, or design optimality for other losses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

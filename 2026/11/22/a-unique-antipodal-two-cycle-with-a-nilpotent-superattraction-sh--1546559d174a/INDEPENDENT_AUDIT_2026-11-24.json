@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:22:40.492504Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, period-dividing-two reduction, phase Jacobians and detuning polynomial",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent analytic replay: reconstruct both cyclic equations, multiply the two phase matrices and rescale the characteristic polynomial before taking moduli"
+      ],
+      "rationale": "For the literal three-dimensional map, F²(P)=P forces the partner of (x,y,z0) to be (y,x,z1), with x=sin(z0), y=sin(z1), z0=qx+(p-r)y, z1=(p-r)x+qy. Conversely these equations suffice. For u=(x+y)/2 and v=(x-y)/2 they give u=sin(Au)cos(Bv) and v=cos(Au)sin(Bv). The strict sine bound forces u=0 even at |A|=1. The remaining equation has no nonzero solution at 0<B≤1 and exactly one positive solution when 1<B<pi: on 0<Bv≤B the sinc function decreases strictly from 1 to sin(B)/B≤1/B, with equality at the upper end only for B=pi/2. The negative root is the other phase of the same orbit. At the resonant value both phase derivatives are J0 with J0³=0, so the return Jacobian J0² is nilpotent (its square already vanishes). An iterate fixing each phase has derivative zero, and continuity of the derivative gives a local contraction in a small ball, establishing superattraction. For fixed p≠0,A and the stated transverse variation, implicit differentiation gives v'(pi/2)=0 and t=cos(Bv)=-(B-pi/2)+O((B-pi/2)²). The one-step characteristic polynomial is lambda³+rt lambda²-qt lambda-pt, and after scaling by |pt|^(1/3) the limiting polynomial has three simple unit-modulus roots. Its perturbation gives relative modulus error O(|t|^(1/3)). Evenness of cosine makes both phase Jacobians equal, so squaring the spectral radius gives the asserted leading coefficient |p|^(2/3), exponent 2/3, and continued local attraction.",
+      "residual_risks": [
+        "The reported finite diagnostics do not certify the census or any gain-uniform neighborhood.",
+        "The transverse limit fixes nonzero p and A; it is not uniform near p=0 and does not address higher periods or global basins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For positive a,g and strict |A|<1 the staircase record counts all positive sine lobes for every B>0, and at p=0 proves Schur sink windows including nilpotency at cos(d)=0; its p=0 characteristic polynomial has an exact zero factor.",
+          "The inspected 2023 and 2024 papers give the same family/subfamily; the inspected dynamics passages concern fixed points, numerical bifurcations, Lyapunov exponents and synchronization.",
+          "Muni's displayed map instead uses a squared argument in the sine term; Mammeri's full text was not obtained from either tried archive endpoint."
+        ],
+        "reasoning": "Credit the all-lobe theorem as stronger in B where its coefficient assumptions hold. Its stability classification is for a singular subfamily and cannot give the nonzero p constant term -pt that controls the cubic scaling. A broader model paper does not alone establish an exact cycle theorem.",
+        "searches": [
+          "Resultary 61ea9782206f, proof §§1–3 and prior-work discussion",
+          "Rajagopal 2023 §2; Almatroud 2024 §2",
+          "arXiv:2506.10788, displayed map",
+          "Mammeri 2017 BMAA9-1-1: cited URL and alternate EMIS archive"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1546559d174a (self) and 61ea9782206f",
+        "10.3390/sym15040780",
+        "10.3390/sym16081093",
+        "Mammeri 2017 BMAA9-1-1 (limited access)",
+        "arXiv:2506.10788"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The staircase proof directly implies the frozen principal-lobe count on the shared parameter strip. Its prior-work text says an earlier quantitative treatment covered B<pi and the nilpotent resonance, but gives no independent locator or nonzero-p law in the passage or references.",
+          "For p=0 it derives a quadratic for the nonzero phase eigenvalues; for p≠0 the cubic constant term changes the leading balance. The frozen result computes the detuning slope and exact constant after squaring the phase radius."
+        ],
+        "reasoning": "The covered census and p=0 resonance are not part of the originality credit. The generic Jordan perturbation law explains the fractional exponent once the full-rank detuning coupling is shown; it is not itself a statement about this orbit, how its angle varies with B or its return-radius coefficient. The checked same-map statements do not give the combined signed-regime and nonzero-p result.",
+        "searches": [
+          "Resultary 61ea9782206f, §§1–3 and Relationship to prior work",
+          "doi:10.3390/sym15040780 Eq. (1); doi:10.3390/sym16081093 Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rajagopal's map is exactly the same with alpha=mu=0, beta=p, gamma=q and delta=r. Almatroud's literal vector Eq. (2) uses p=beta_1, q=beta_2 and r=gamma.",
+          "Writing d=Bv converts v=sin(Bv) to d=B sin d and gives the staircase record's P_d. Under a=q,g=r the two antipodal parameterizations and principal-lobe counts coincide in the intersection of their hypotheses.",
+          "A reproduced catalogue statement at 1546559d174a is the frozen result itself, not a second source."
+        ],
+        "reasoning": "Model aliases and change of the period-two variable establish real overlap, not a wording coincidence. They do not equate the signed-coefficient and closed-|A| regime with a,g>0 and |A|<1, nor the fixed-nonzero-p detuning with p=0.",
+        "searches": [
+          "Resultary: antipodal, nilpotent and high-amplitude two-cycles for the sine-delay map; 1546559d174a and 61ea9782206f",
+          "Rajagopal et al. Eq. (1)",
+          "Almatroud et al. Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The staircase entry gives exact root counts on the principal and higher lobes and explicitly includes superattraction at p=0, cos(d)=0; it is not a distinct table entry for the nonzero-p spectral coefficient."
+        ],
+        "reasoning": "This is an exact real-parameter classification rather than a lookup of a standard orbit or special value. The relevant indexed exact theorem was tested directly for the same orbit, hypotheses and stability law, with partial but not total coverage.",
+        "searches": [
+          "Resultary 1546559d174a (self-match), 61ea9782206f (all-lobe exact census)"
+        ]
+      },
+      "rationale": "The literal map is prior work. The same-day staircase result demonstrably covers the principal-lobe census on |A|<1, q,r>0 and includes the p=0 nilpotent resonance. Its earlier-treatment remark gives no identifiable independent statement for the general-p law, and the same date does not establish priority. The supported distinct contribution is the closed symmetric-parameter strip with real unrestricted coefficients, together with the map-specific resonance and quantitative transverse return-radius law for fixed nonzero p. The generic fractional splitting of a nilpotent Jordan block and the shared part of the antipodal census are not credited as new.",
+      "residual_risks": [
+        "Same-day statements cannot settle publication order; the staircase's unidentified earlier-treatment remark may refer to this finding or another equivalent source.",
+        "Mammeri's exact coverage remains unverified; an indexed or unindexed source for the nonzero-p map-specific asymptotic could change the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable partial coverage; stronger in B on smaller coefficient regime; no nonzero-p radius law shown",
+          "evidence": "With a,g>0 and |A|<1, orbit roots satisfy d=B sin d, so the principal count coincides. Nilpotent return at cos(d)=0 is given in §3 for p=0. The earlier-treatment remark is not an independent source for the nonzero-p detuning.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-infinite-staircase-of-attracting-high-amplitude-two-cycles-in--61ea9782206f/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–3 (offsets 0–5654) and Relationship to prior work and references (offsets 7150–9614)",
+          "method": "Resultary and local mirror statement and proof inspection",
+          "title": "An infinite staircase of attracting high-amplitude two-cycles in a symmetric sine-delay map",
+          "trigger": "Same-day exact orbit theorem for the same family"
+        },
+        {
+          "assessment": "Exact model as a parameter specialization, no matched theorem in the inspected passages",
+          "evidence": "The third component is alpha+beta x+gamma y-delta sin(z)+mu z; alpha=mu=0 is exact. The inspected dynamics discussion emphasizes numerical behavior and symmetry.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15040780",
+          "material_read": "Abstract and §2 Eq. (1), PDF p. 3, text near offset 11517",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Same map within a five-parameter model"
+        },
+        {
+          "assessment": "Exact map; inspected passages give fixed-point and numerical context",
+          "evidence": "Eq. (2) is the identical vector map; no equivalence is assumed with the paper's separately printed scalar recurrence.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16081093",
+          "material_read": "Abstract and §2 Eq. (2), PDF p. 3, text offsets 11989–14278",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Multistability, Chaos, and Synchronization in Novel Symmetric Difference Equation",
+          "trigger": "Same literal three-dimensional equations"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "The frozen bibliography identifies the fixed-sine-coefficient predecessor; available access did not establish what it proves about small-gain two-cycles.",
+          "identifier_or_url": "https://emis.muni.cz/journals/BMAA/repository/docs/BMAA9-1-1.pdf",
+          "material_read": "Full text not read independently; bibliographic identification and frozen citation only",
+          "method": "OA attempts at the cited endpoint and the www.emis.de archive; exact-title search recovered the cited endpoint",
+          "title": "Symmetry and Periodic-Chaos in 3-D Sinusoid Discrete Maps",
+          "trigger": "Earlier possible r=1 special case with periodic phenomena"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": "The displayed sine term for the comparison uses -sin(z_n²), not -r sin(z_n).",
+          "identifier_or_url": "https://arxiv.org/html/2506.10788",
+          "material_read": "Displayed map around HTML offset 18619",
+          "method": "OA HTML equation inspection",
+          "title": "Discrete Lorenz Attractors in 3D Sinusoidal Maps",
+          "trigger": "Related period-doubling results in three-dimensional sine dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact closed-strip census and nonzero-p detuning proof",
+        "Resultary 61ea9782206f, exact census and p=0 Floquet criteria",
+        "Almatroud et al. §2, established model and fixed-point context"
+      ],
+      "rationale": "The first sine lobe is a natural threshold region of a published nonlinear model: an exact exclusion of non-antipodal competitors and a unique real cycle are useful context, but are not independently credited where the all-lobe result already applies. The distinct quantitative payoff is the attraction law at a fully vanishing return spectrum even for p≠0, where the phase derivative has a cubic, rather than the p=0 quadratic, splitting. It tells how quickly the resonant cycle loses superattraction when B is detuned and supplies a precise benchmark not given by the known singular-subfamily sink windows or by numerical bifurcation diagrams. The closed |A|≤1 boundary and signed coefficients specify the validity of that benchmark without artificial sign restrictions.",
+      "residual_risks": [
+        "No claim of a new model, new generic perturbation mechanism, all-parameter stability chart or large-scale dynamical consequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

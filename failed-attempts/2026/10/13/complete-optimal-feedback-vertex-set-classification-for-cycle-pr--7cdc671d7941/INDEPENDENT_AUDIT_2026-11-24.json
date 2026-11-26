@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:05.456694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, structural theorem and proof steps 1–5",
+        "VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "Each adjacent column square forces the occupied deletion columns to cover the cyclic column graph. Given a cover, contracting surviving rungs gives exactly the column cycle with double-deleted vertices removed and with edges at opposite-rail singleton pairs removed. No parallel edges are created even for n=3, and contraction preserves components and cycle rank. When there are only singleton deletions, the complement is a forest exactly when there is at least one cut, and then the cut count equals the component count. An odd minimum cover has one adjacent occupied pair, and its r complementary independent vertices have cyclic gaps of one unselected vertex each with one extra unselected vertex. This gives 2r+1 covers; the one cut imposes one independent rail constraint, so (2r+1)2^r trees. In even order, budget r forces alternating single deletions and no cut; at budget r+1 either one double in an alternating cover gives a path, or the singleton cover has two adjacent occupied pairs. The cyclic positive-gap count for its r-1 complementary independent vertices is (2r/(r-1))*binom(r,r-2)=r^2, including r=2. The two prescribed cut bits give independent constraints since the induced graph on the occupied columns is a forest, even if the pairs share a column. Each fixed bit pattern admits 2^(r-1) assignments; the patterns with one and two cuts occur twice and once, respectively. Adding the 2r*2^(r-1) one-double choices gives all three stated counts and attained induced-tree order.",
+      "residual_risks": [
+        "The recorded finite n=3..12 enumeration is corroborative only; it was not freshly replayed. Counts are labeled, not orbit counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3a90df7af775 adds the odd-prism token-sliding statistic to its minimum-set characterization.",
+          "933b550f71fe enumerates extremal induced forests in rectangular rook graphs, which include the triangular prism only in this family.",
+          "The general Bau–Beineke review defines the parameter. Both identified links for the same Verma–Binwal paper failed to return full text."
+        ],
+        "reasoning": "The separate comprehensive cyclic-prism result is the operative overlap. The rook graph formula covers n=3 only; optimum size or general degree bounds alone would not supply the counts or classification.",
+        "searches": [
+          "Bau–Beineke arXiv:math/0703544v1, decycling-number review",
+          "Verma–Binwal, Study of Decycling Number Problem in Prism Graph, journal and author-posted paths",
+          "Resultary 3a90df7af775 and rook graphs 933b550f71fe"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a90df7af775 (Finding and proof)",
+        "Resultary 933b550f71fe (leading coefficient)",
+        "arXiv:math/0703544v1 (abstract)",
+        "Verma–Binwal 2023 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With c forest components and e(S) internal edges of the deleted set, that proof obtains c+e(S)=2k-n. Odd optimum gives c=1. For even optimum the double type has e(S)=1, and the singleton type has e(S) equal to the count of same-rail adjacent occupied pairs."
+        ],
+        "reasoning": "For even optimum c=2-e(S), so the double type and exactly one-cut singleton type give trees, and the two-cut type gives two components. Each singleton cover has two independent cut bits, one assignment class per pattern (size 2^(r-1)); hence one-third of the singleton-type count gives Q and the rest after the double type gives T. The component split is mechanically implied by the verified equivalent coverage.",
+        "searches": [
+          "Resultary 3a90df7af775, degree identity near offset 3369 and column classification from offset 3510"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 3a90df7af775 empty columns are independent. For odd order the unique double-single run uses opposite rails. In even order either the double selected column is in an alternating cover, or a singleton cover has at least one opposed adjacent rail pair.",
+          "The induced-forest formulation takes the complement of the minimum feedback set."
+        ],
+        "reasoning": "An opposed adjacent pair is the frozen cut. The stated admissible configurations agree on the same labeled graph, not just on the numerical optimum.",
+        "searches": [
+          "Resultary local semantic search: optimal feedback sets on cycle/cyclic prisms, minimum decycling sets, maximum induced forests",
+          "Exact Resultary mirror for 3a90df7af775, Finding and proof §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former states the exact minimum and odd (2r+1)2^r and even (2r)(3r+2)2^(r-2) labeled totals, the same N_n in both cases.",
+          "The latter specializes on K_2 square K_3 to six optimum subsets."
+        ],
+        "reasoning": "This coverage is an all-size theorem, not an extrapolation from a numerical table or the n=3 coincidence.",
+        "searches": [
+          "Resultary 3a90df7af775, Finding at offset 0",
+          "Resultary 933b550f71fe, Finding at offset 861"
+        ]
+      },
+      "rationale": "Verified distinct Resultary coverage includes the minimum, all labeled minimum-set patterns and the parity-split total counts. The even component split also follows directly from its degree identity c+e(S)=2k-n and the given pattern counts, so the lack of a displayed separate T or Q formula there does not leave an additional scientific claim. The distinct record's displayed UTC date is later; the finding is one of equivalent existing coverage, not a determination of historical priority or dependence.",
+      "residual_risks": [
+        "Historical priority and any relationship between catalogue records are unestablished. The cited same-family 2023 article was not retrieved, but the substantive match is independently verified in the distinct catalogue record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent classification and total counts, implying the component split; separate record with later displayed UTC date; no priority conclusion",
+          "evidence": "Odd one opposed singleton pair; even double on an alternating cover or singleton cover with at most one same-rail neighboring deletion pair. In a forest c+e(S)=2k-n determines components.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-split-census-and-local-mobility-law-for-optimal-feedbac--3a90df7af775/RESULT.md",
+          "material_read": "Finding at offset 0, degree identity near offset 3369, and cycle criterion and exhaustive classification at offsets 3510–6131",
+          "method": "Read exact bounded passages in the local mirror",
+          "title": "A parity-split census and local mobility law for optimal feedback sets on cyclic prisms",
+          "trigger": "Exact same graph family and apparent full optimal-set classification"
+        },
+        {
+          "assessment": "Equivalent count for the triangular prism, not an all-cycle family",
+          "evidence": "R_{2,3}=K_2 square K_3 is precisely the n=3 prism; its extremal multiplicity is six.",
+          "identifier_or_url": "2026/11/2/SCOPE-acyclic-polynomials-and-extremal-induced-forests-of-rook-graphs--933b550f71fe",
+          "material_read": "RESULT.md, leading-coefficient statement near offset 861",
+          "method": "Read bounded local mirror passage",
+          "title": "Acyclic polynomials and extremal induced forests of rook graphs",
+          "trigger": "Extremal induced forests, including a prism boundary case"
+        },
+        {
+          "assessment": "Framework verified, whole-document coverage not decided",
+          "evidence": "The abstract describes the general decycling parameter and review scope, not complete prism-set counts.",
+          "identifier_or_url": "https://arxiv.org/html/math/0703544v1",
+          "material_read": "Abstract at offset 199 and attempted prism locator",
+          "method": "Read the primary abstract; literal locator did not return a match",
+          "title": "The Decycling Number of Graphs",
+          "trigger": "General framework and possible earlier prism statement"
+        },
+        {
+          "assessment": "Coverage beyond the frozen attribution remains unverified; not the grounds for failure",
+          "evidence": "Neither public route returned readable article text.",
+          "identifier_or_url": "https://advancedengineeringscience.com/article/2023/551.html",
+          "material_read": "No original passage retrieved",
+          "method": "Tried journal and identified same-paper ResearchGate copy (publication 374030403)",
+          "title": "Study of Decycling Number Problem in Prism Graph",
+          "trigger": "Same family and cited prior optimum-size theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, optimal-set structure and component split",
+        "Resultary 3a90df7af775, classification and degree identity"
+      ],
+      "rationale": "This is a natural complete classification of extremizers in a basic cubic family, not just a minimum-size or small-instance computation. The reduction to a column cycle explains the obstructions, distinguishes connected and disconnected extremizers, and parametrizes all optimal subsets. This is useful structural mathematical content independent of the originality failure; the component formulas alone are not an additional contribution beyond the matched structural theorem.",
+      "residual_risks": [
+        "No extra value claimed from recomputing the already implied component split, and no generalization to larger cylindrical widths is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The uniquely determined Lagrange quadrature weights have explicitly integrated cardinal-polynomial numerators. The affine normalization to ordered centered nodes makes their signs transparent; the mutually exclusive negative-weight events and their two-dimensional integrals give the exact sign probabilities. The tail proof isolates both adjacent node gaps, controls the complementary one-small-gap region by an explicit inverse-gap bound, and applies an exact hyperbola-area formula with matching upper and lower bounds. Letting the collision-square cutoff shrink proves the coefficient \(2\), and layer cake yields the strict moment frontier \(q=1\). The standalone exact-fraction checker verifies 560 finite cases, the independent probability integrals, and the tail constant, but finite evidence is not used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For the repaired tail claim, independently checked all three integrated Lagrange denominators and numerator F; L is the exact dual sup-norm amplification. On p,r<delta the positive numerators make only the middle weight negative and yield 1+2F/(pr). The product sublevel area is epsilon(1+log(delta^2/epsilon)); using g±delta with x-domains [0,1-2delta] and [0,1] gives matching scaled bounds after delta tends to zero. A fixed positive lower bound on one spacing leaves an O_delta(1/t) tail. The coefficient is 12 integral g=2 and layer cake gives the moment cutoff including divergence at q=1. The frozen sign integrations were also verified directly; their omission is for overlap, not error. Frozen verification and script inspected, not executed. The bounded area argument, not finite checks, establishes the limit.
 
-Van den Bos et al. (arXiv:1809.09842) construct positive-weight rules by selecting from additional samples, not by accepting three independent uniform nodes without changing them. Van den Bos and Sanderse (arXiv:1902.07477) characterize deterministic positivity regions for node addition, not the probability law or sharp operator-norm tail. Yu and Townsend (arXiv:2202.04722) bound absolute trigonometric quadrature weights under separated periodic grid perturbations, unlike free uniform-node collisions. Neumayer, Schäfer, and Ullrich (arXiv:2610.32699) give high-probability positive rules after using many independent candidates and adapting the weights; this does not imply the sign distribution or tail of the uniquely determined unadjusted rule from exactly three draws. Related fixed-node Newton–Cotes work controls different sign configurations. A published degree-two random-node interpolation moment theorem already yields the order-one moment threshold through a Lebesgue-constant upper bound, but does not provide this quadrature-specific sign distribution or the precise logarithmic tail coefficient. Searches of direct expressions, sign laws, aliases, quadrature condition measures, published mathematical records, and relevant source texts did not identify an implication strong enough to give the full stated theorem. Failure to find coverage is not proof of absolute priority; specialized legacy sources are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Absolute quadrature weight sum is the exact amplification of bounded independent sample-value perturbations. A common design strategy is to keep nodes that were sampled at random rather than optimize their positions. This theorem quantifies the smallest nontrivial quadratic-exact case: fully positive weights occur with probability only \(\frac12\log3-\frac13\), and a logarithmically enhanced double-collision mechanism forces infinite mean amplification. The exact probability and leading coefficient are not consequences of merely knowing that negative weights sometimes occur or that a related interpolation norm has an infinite mean. They provide sharp benchmarks for random-node quadrature stability and for evaluating node-selection strategies. Nothing is claimed for arbitrary integrands, higher node counts or floating-point computations.
+For the revised tail-only result, no matching law or stronger result implying the sharp coefficient for integrated Lagrange weights was found in the checked sources. Removed the covered sign law and the original contribution claim attached to it. The nearby fixed-point interpolation result is for a different norm and functional; same collision mechanism does not imply the repaired coefficient.
 
-## Residual scientific limits
+## value
 
-Independent examination and exhaustive historical publication-priority checks remain outstanding. The result assumes independent uniform draws, precisely three nodes, exact arithmetic and standard polynomial moments. The simulation and finite rational checks are diagnostics, not proof substitutes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The norm measures worst-case amplification of bounded sample errors in a natural minimal random-node rule. The sharp coefficient and logarithmic enhancement distinguish simultaneous close spacings from a single collision and establish a concrete moment cutoff (including infinite mean) rather than an arbitrary numerical stability statistic. No universal fixed-integrand error claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

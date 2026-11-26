@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:28.561382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80; VERIFICATION.md; checker.py lines 1–75 (read, not executed)."
+      ],
+      "rationale": "The complete positive-pair roots obey the signed-poset closure condition: a positive combination with at least two distinct summands has support of size at least three and is not a type-B root. Q_n has at most one negative coordinate and comprises the nonnegative unit cube and n caps of cross-section volume (1-t)^(n-1), hence volume 2. Independently compute the volume in the orientation X<=Y: Q_n is an upper set inside [-1,1]^n, so once X is in Q_n, the box [X,1] contains precisely the allowed Y. For X in the cube this gives volume 2^(-n) with N=0. For X in a cap at depth t, integrate both x_j and y_j in the positive coordinates to get [(1-t)^2/2]^(n-1), and split the y-coordinate at 0 into intervals of lengths 1 for N=1 and t for N=2. The two oriented volumes are therefore n·2^(1-n)/(2n-1) and 2^(-n)/(2n-1). Dividing each by Vol(Q_n)^2=4 and doubling for the disjoint reverse orientation almost surely gives the three unconditional masses. The mixed mass equals the sum of the other two, yielding the conditional half exactly. The total and the ratio to the cube law follow, including n=2 where the domain is a triangle. Inverting the cap depth CDF gives exactly the sampler T=1-U^(1/n).",
+      "residual_risks": [
+        "The reported finite-rational and ambient-rejection checks were not rerun. The sign-stratified oriented-volume derivation verifies the law for all stated dimensions without simulation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beck–Hlavacek's root inequalities give exactly Q_n for the stated root list, without stating this product-order two-point law in the inspected definitions and overview.",
+          "The sharp bounds record covers ordinary order polytopes and gives one-way bounds [2^(-n),1/(n+1)]. Its order-association mechanism does not extend to Q_n: (-1,1,1,...) and (1,-1,1,...) are both allowed but their coordinatewise minimum is not.",
+          "Jacobovic–Zuk's inspected opening concerns correlation of Pareto maxima of iid samples in a cube, not a sign-truncated pair volume."
+        ],
+        "reasoning": "The classical ordinary lower bound and signed geometry are established framework and benchmark. The domain is genuinely outside the hypotheses of the ordinary theorem, and the new strict violation does not contradict that theorem.",
+        "searches": [
+          "Beck–Hlavacek, arXiv:2311.04409v1, Definitions 1.5–1.6",
+          "Resultary/SCOPE de03dacfde51, Sharp Catalan and cube bounds for comparable random points of order polytopes",
+          "Jacobovic–Zuk, arXiv:2209.00346v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–25 and 82–94",
+        "Resultary/SCOPE de03dacfde51, d061062feb3e, 84c1d3d87a65",
+        "arXiv:2311.04409v1, arXiv:1910.01752v3, arXiv:2209.00346v1 passages listed above",
+        "Accessible description of Signed Orders, Choice Probabilities, and Linear Polytopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed geometry is a specialization of the root-inequality framework and the volume follows from single-point chambers. The two-point event cuts across those chambers; even two caps must share a negative label and then impose different comparison ranges based on their depths. The ordinary theorem only bounds a different class and has no negative-coordinate strata."
+        ],
+        "reasoning": "Credit the specialization and the general cube/order-statistic benchmarks. Computing the oriented two-point volume by cap sign is an additional step not given by those results, and no inspected formula implies the equal mixed versus unmixed mass.",
+        "searches": [
+          "arXiv:2311.04409v1, signed definition and overview",
+          "Resultary/SCOPE de03dacfde51, mirrored RESULT.md offsets 0–4763",
+          "arXiv:1910.01752v3, cumulative simplex comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In order-statistic terms, the signed truncation is x_(1)+x_(2)>=0; after fixing the minimum sign and a negative label, the remaining labels still enter the comparison coordinatewise. Fried's cumulative simplex coordinates are ordered uniforms and his first-order stochastic dominance probability is the chain value 2/(n+1).",
+          "The 2001 signed-orders/choice-probabilities paper was suggested by the search, but its accessible material concerns choice probabilities of signed orders, not an identified equivalence to uniform draws in this Q_n."
+        ],
+        "reasoning": "The order-statistic truncation is equivalent as an admissibility test, not as a replacement of labeled vectors by sorted vectors in the comparison. The simplex/chain law therefore does not apply; matching signed-order terminology is not a match of distributions or orders.",
+        "searches": [
+          "Literature: \"signed order polytope\" comparable random points probability coordinatewise",
+          "Resultary: order statistics simplex random points comparable first order stochastic dominance uniform probability; sign strata cap cube exact comparable probability beta integral",
+          "Fried, arXiv:1910.01752v3, Definitions 2.1 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit f6311499c4dc is this record itself. The strongest distinct hit is de03dacfde51 on the ordinary-polytope bounds. Mirrored Findings d061062feb3e and 84c1d3d87a65 address a truncated-beta marginal for a pointed order polytope and volume/imbalance of a different signed-chain family, respectively."
+        ],
+        "reasoning": "Neither matching dimension nor a beta marginal or a signed volume is a table for the total comparable-pair probability, still less for the joint sign-stratum masses. No separate exact table for those masses was established.",
+        "searches": [
+          "Resultary: signed order polytope comparable pairs positive roots cube cap; exact probability comparable independent uniform points order polytope conditional signs; signed order polytope uniform volume two points coordinatewise comparable probability"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact two-point product-order law, including the half-mixed identity, for the full dimensional complete positive-pair family. The definition and ordinary cube benchmark are prior results, and the volume is elementary from the signed chamber structure. Neither is a standalone novelty claim.",
+      "residual_risks": [
+        "Full text for the older choice-probability paper was unavailable; its precise scope is unresolved. The same truncation may occur in literature under other order-statistic or truncated-cube terminology. No priority certification is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains defining framework, not a match of the inspected two-point statement",
+          "evidence": [
+            "Order polytopes impose the signed root inequalities on [-1,1]^n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.04409v1",
+          "material_read": "Definitions 1.5–1.6 and overview, OA passage at offset 3153",
+          "method": "Bounded OA primary full text",
+          "title": "Signed Poset Polytopes",
+          "trigger": "Exact signed-polytope framework"
+        },
+        {
+          "assessment": "Exact bounds are for ordinary order polytopes",
+          "evidence": [
+            "Antichains give the cube bound and chains the upper bound; a min-closed lattice argument underlies the lower bound."
+          ],
+          "identifier_or_url": "Resultary/SCOPE de03dacfde51",
+          "material_read": "Mirrored RESULT.md offsets 0–2816 and 2816–4763 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Sharp Catalan and cube bounds for comparable random points of order polytopes",
+          "trigger": "Same comparison observable and the benchmark explicitly tested"
+        },
+        {
+          "assessment": "Different simplex and dominance comparisons",
+          "evidence": [
+            "The first-order and monotone-likelihood-ratio two-way probabilities are 2/(n+1) and 2/(n+1)! respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.01752v3",
+          "material_read": "OA passage at offset 1180, Definitions 2.1 and 3.1 and associated statements",
+          "method": "Bounded OA primary full text",
+          "title": "The probability that two random points on the n-probability simplex are comparable…",
+          "trigger": "Exact pair comparability under order-statistic transformation"
+        },
+        {
+          "assessment": "Abstract's maxima observable differs; no whole-document exclusion asserted",
+          "evidence": [
+            "Studies maxima among n>=3 iid cube vectors and asymptotic independence of maxima events."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.00346v1",
+          "material_read": "OA first-page abstract, offset 0",
+          "method": "Bounded OA PDF inspection",
+          "title": "A correlation inequality for random points in a hypercube with some implications",
+          "trigger": "Product-order geometry of random points in a cube"
+        },
+        {
+          "assessment": "No full-text determination",
+          "evidence": [
+            "Accessible material places the work in random-utility and binary choice probabilities; it does not identify the uniform pair event here."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0022249699912889",
+          "material_read": "Accessible description only; direct and configured alternate routes returned HTTP 403 for full text",
+          "method": "Bounded lawful OA attempts",
+          "title": "Signed Orders, Choice Probabilities, and Linear Polytopes",
+          "trigger": "Older seemingly related signed-order and probability work"
+        },
+        {
+          "assessment": "Different families and observables",
+          "evidence": [
+            "A one-point truncated beta marginal and a different signed-chain volume/imbalance law are not this pair sign law."
+          ],
+          "identifier_or_url": "Resultary/SCOPE d061062feb3e; 84c1d3d87a65",
+          "material_read": "Mirrored Findings",
+          "method": "Local mirror statement comparison",
+          "title": "An exact truncated-beta sampler and three-regime geometric limit; Exact volume and strict imbalance law for two-level signed chains",
+          "trigger": "Distinct related catalogue hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ordinary sharp bounds record de03dacfde51; frozen signed-family Finding and exact stratum calculation."
+      ],
+      "rationale": "This is a precise boundary of a known association result for a natural signed family, not a single small counterexample. The full-dimensional examples violate the ordinary lower bound at every n>=2 by an exact ratio and the sign-resolved law identifies which pairs account for the comparability mass. The dimension-independent half is a useful structural identity for checking this family.",
+      "residual_risks": [
+        "The law does not give an extremal bound over signed posets, and coordinatewise comparison need not be invariant under signed permutations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

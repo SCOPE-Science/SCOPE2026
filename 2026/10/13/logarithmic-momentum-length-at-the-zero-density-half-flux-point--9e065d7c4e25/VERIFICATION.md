@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Its critical chain is:
+# Independent mathematical audit
 
-1. Specialize the published exact symmetric-chain dispersion relation to \(A\in\mathbb Z+\tfrac12\), obtaining the exact non-flat band condition
-\[
-|\sin(\pi k)|\le\frac{2k\ell}{k^2\ell^2+1}.
-\]
-2. On each side of a sufficiently large integer \(n\), monotonicity gives exactly one edge and the scalar equations
-\[
-\sin(\pi\delta_n^\pm)=\frac{2(n\pm\delta_n^\pm)\ell}{(n\pm\delta_n^\pm)^2\ell^2+1}.
-\]
-3. The right-hand side is \(2/(\ell n)+O(n^{-3})\) because \(\delta_n^\pm=O(n^{-1})\). Combining this with \(\arcsin x=x+O(x^3)\) gives \(\delta_n^\pm=2/(\pi\ell n)+O(n^{-3})\).
-4. The \(n^{-3}\) width remainder is summable, giving the logarithmic momentum law. Under \(E=k^2\), each complete band has width \(8/(\pi\ell)+O(n^{-2})\); summing the convergent remainder gives the \(\sqrt E\) law.
+## correctness
 
-`verify.py` independently solves the exact scalar boundary equations for representative \(\ell\) and \(n\), checks the residuals, and confirms convergence of the scaled momentum and energy widths. It does not certify the infinite statement and is not a substitute for the proof.
+PASS
+
+Equation (33) at half-integer flux, after removing the isolated half-integer momenta, gives |sin(πk)|≤r_ℓ(k)=2kℓ/(k²ℓ²+1). For fixed ℓ the right side is O(1/n) throughout the cell about n, so the band must be within O(1/n) of n. On both sides of n the edge function sin(πδ)−r_ℓ(n±δ) has positive derivative near zero and changes sign, yielding exactly one interval. Substitution gives r_ℓ(n±δ)=2/(ℓn)+O(n^{-3}), and the cubic arcsine remainder gives the claimed two edges. Width errors in momentum are O(n^{-3}), hence summable, leaving 4 log K/(πℓ)+O(1). In energy the width is 2n(δ⁺+δ⁻)+(δ⁺)²−(δ⁻)²=8/(πℓ)+O(n^{-2}); there are √E+O(1) full bands and a bounded partial band. The omitted flat points have measure zero in either coordinate.
+
+## originality
+
+PASS
+
+The cited same-model source establishes integer localization and zero limiting momentum density at half flux, but its inspected statements do not quantify the surviving bands or the total occupied length on the zero-density scale. No same or stronger measure law for the target geometry was identified. No novelty is assigned to the dispersion equation, localization or vanishing density.
+
+## value
+
+PASS
+
+The half-flux point is selected by the known vanishing momentum density, not by an arbitrary parameter slice. The sharpened result proves that the remaining occupied momentum length is unbounded, fixes its logarithmic rate, and distinguishes shrinking momentum widths from asymptotically nonzero energy widths. Those statements resolve a natural ambiguity left by a zero-density limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

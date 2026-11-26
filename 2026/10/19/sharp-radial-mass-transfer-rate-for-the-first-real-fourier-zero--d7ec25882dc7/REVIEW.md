@@ -1,11 +1,21 @@
-# Scientific review: sharp radial Fourier-zero mass transfer
+# Independent mathematical audit
 
-**Correctness — PASS.** The sphere kernel's decreasing ODE energy proves that the first negative and first subsequent positive critical values are the relevant global extrema. This makes the mass-exchange bound valid uniformly over every measurable radial perturbation, even if unbounded. The simple root of the ball transform gives an exact comparison root; the explicit two-shell construction reaches the comparison slope. Its first zero is controlled by positivity away from the old root and derivative monotonicity near it. The Bessel recurrence gives the stated constant. The attached numerical code checks six dimensions but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS (limited historical-priority confidence).** Benguria–Levitin–Parnovski (arXiv:0801.1617), Section 9, already proves the qualitative nonconvex counterexample through radial redistribution, and that result is acknowledged and excluded from the novelty claim. Its statement and calculation give neither the sharp variation over all radial measurable mass transfers at prescribed symmetric-difference mass nor the two-shell optimal coefficient in every dimension. Gómez-Serrano et al. (arXiv:2609.10517) study convex bodies, whose admissible objects do not include the disconnected radial shell construction. Nearby Fourier-zero literature concerning convex bipyramids, affine polygons and Bessel zero-free strips addresses distinct constraints. Residual risk: an older optimization argument outside the inspected literature might contain the exact sharp variation.
+PASS
 
-**Value — PASS.** The natural perturbation budget \(|E\triangle B|=2t|B|\) measures the amount of mass redistributed and fixes scale. The sharp derivative identifies *where* redistributed mass must go (the second Bessel critical radius), not merely that a counterexample exists. The same exact quantitative law for all dimensions provides a benchmark separating radial nonconvex effects from convex isoperimetric behavior. It is a natural nontrivial refinement of the already known qualitative counterexample.
+The normalized sphere kernel solves φ″+(d−1)φ′/s+φ=0 and φ′ has the sign of −J_{d/2}. At its first two positive critical points s₁ and s₂, the values are negative and positive respectively by the Bessel recurrence and the simple-zero crossing signs. The energy φ²+φ′² decreases, bounding the magnitude after each critical point by its value there. Together with monotonicity up to s₁ and between s₁ and s₂, this proves precisely the needed global minimum and exterior maximum. For s₁≤s<s₂, the normalized transform is at most b_d(s)+t(φ(s₂)−φ(s₁)) for every admissible set; no radial moment or bounded support is needed. Its upper envelope crosses zero near s₁ with derivative −A_d<0 in frequency, and continuity plus positivity at zero then bounds every first zero. For the explicit set, subtract the integral over v∈[1−t,1] and add the integral over v∈[a^d,a^d+t], where v=r^d and the integrand is φ(sv^(1/d)). This gives the claimed C¹ first variation and O(t²) error locally in s. The resulting simple root is first by positivity below a fixed neighborhood and monotonicity inside it. The recurrence at the two J_{d/2} zeros gives the displayed coefficient, with the factor s₁/d in the unscaled Fourier convention.
 
-**Limits.** Not a convex-body result, not a finite-budget maximizing-set classification, and not an independent audit. The numerical tests are supplementary, not a substitute for ODE energy and simple-root arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the sharp first-order variational constant and two-component realization over all measurable radial sets under the stated mass-transfer budget. Qualitative outward zero movement and standard Bessel extremum facts are not new. The actual nearby perturbation and convex-body results do not supply matching radial upper and lower bounds at fixed symmetric difference.
+
+## value
+
+PASS
+
+The coefficient quantifies precisely how much the known outward movement can improve per unit of volume relocated in the natural radial perturbation class. It gives a dimension-dependent sharp benchmark and the shell at which to realize it, with uniform control even for unbounded competitors. This is not just another strict-improvement example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

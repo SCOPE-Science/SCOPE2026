@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-stage spherical-exponential formulas and the midpoint/double-extrapolation identities give closed one-step height maps. Symbolic sixth-order expansions, a uniform Taylor remainder, and an axisymmetry-induced scalar recurrence establish the global third-order coefficients and the fifth-order exceptional latitude. The standalone `verify.py` actually passed the stated algebraic and high-precision numerical checks. Numerical tests corroborate, rather than prove, the limits. The theorem concerns the height observable, not a higher global state order.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 source (Sect. 3.2) defines SRKRE\([1,2]\) and gives convergence/order analysis; the 2024 source (Sects. 3.1–3.5) defines STVDRK2 and discusses rigid rotation but not the two height-error coefficients, their sign boundary, sharp envelope or exceptional ring. Actual searches for SRKRE latitude drift, rigid-axis precession, spherical extrapolation and first integrals in mathematical research records found only distinct planar randomized rotations and unrelated spherical problems. Accessible historical claims of this slot had no matching height theorem. General geometric integration literature may have an equivalent modified-equation formulation, and that remains a priority risk; absence of search hits alone is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The axial height is a natural conserved first integral for the simplest non-geodesic sphere ODE. Its leading error is invisible to sphere-membership and ordinary state-order guarantees. The exact sign bifurcation and a latitude where one second-order method gains two further height orders distinguish two concrete algorithms and provide a diagnostic for preserving dynamics of spin/precession problems.
+Azimuthal equivariance reduces the two discrete schemes to scalar height maps. Using the spherical exponential C p+S(e3×p), with C=cos(tρ), S=sin(tρ)/ρ and ρ²=p_x²+p_y², I checked the sixth-degree vector Taylor coefficients in exact rational arithmetic, using the squared norm of the sum for the normalized midpoint and (2−||q_f−q_c||²)q_f−q_c for the extrapolation. With m=1−c², the two height multipliers are 1+m(2m−1)t⁴/8+m²(2−m)t⁶/24 and 1−m(1−m)t⁴/8+m²(1−m)t⁶/24, where t=ωh. Reflection reverses t without changing height, so the analytic remainders start at order eight. Uniformity near fixed interior c permits scalar telescoping over N=T/h. The per-step deviation satisfies |δ_{n+1}|≤(1+C h⁴)|δ_n|+O(h⁴) generally, with forcing O(h⁶) at c²=1/2 because the fourth-degree coefficient vanishes there. This gives δ_n=O(h³) or O(h⁵), respectively, and proves all three stated limits. Differentiating u³(1−u²)/8 gives the maximum at u²=3/5 and value 3√15/500 after factoring out Tω⁴. At the poles the vector field vanishes, and at the equator the stages and the local geodesic remain in the equatorial plane.
 
-## Closest literature and scientific limits
-- Lee–Leung (2026): spherical extrapolation definition and geometric/state-order guarantees, not a drift-sign theorem. https://link.springer.com/article/10.1007/s10915-026-03318-4
-- Leung–Chau–Lee (2024): original SFE/STVDRK2 and rigid rotation as a test class, not the claimed comparative latitude asymptotics. https://link.springer.com/article/10.1007/s10915-024-02702-2
-The claim is restricted to constant-speed rigid-axis rotation, sufficiently small h, and one fixed time horizon. Historical priority remains open to less obvious equivalent analyses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The methods themselves and their position convergence are prior. The supported distinct claim is the invariant-specific leading coefficient and sign contrast for rigid rotation, with the exact exceptional fifth-order term. No available matching statement covers those claims; the most relevant primary full texts could not be confirmed, so this is a bounded assessment.
+
+## value
+
+PASS
+
+Height is a natural exact first integral for the canonical rigid-axis flow. The result distinguishes two norm-preserving, second-order schemes in a property that their position order leaves undecided, quantifies the largest Richardson drift, and resolves a nontrivial cancellation latitude including its first surviving term. This supplies a precise benchmark for invariant preservation, not a claim of better position order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

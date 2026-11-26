@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:12:08.010451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On e1=0 the gradient components of e3 are e2+x_i². A singular point would have all coordinates equal in square and hence, projectively, all ±1. For e1=0 in characteristic three there must be four of one sign and one of the other, but these patterns have nonzero e3. Thus this is a smooth cubic, unlike the degenerate power-sum reduction. A fresh exact check of the two permutation orbits, cubic containment and cubing Frobenius (without executing the frozen verifier) gave 27 distinct lines, 15 fixed lines and six two-cycles. It also enumerated projective representatives and gave 25 and 145 points over F3 and F9. Replay: python3 /workspace/branches/55226c50-1827-4622-8dac-8509ada6bb3a/independent_exact_check.py. Smoothness and the 27-line theorem certify exhaustion. The line classes generate the rank-seven geometric Picard group, so F² acts trivially, and the trace formula over F3 gives trace (25−1−9)/3=5. Thus the plus/minus multiplicities are 6 and 1; the anticanonical class is fixed and the involution is a reflection in W(E6). The same trace formula for every extension proves the point and zeta formulas, not extrapolation from the two finite counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The centralizer bound applies to any S5 subgroup of W(E6); an involution commuting with an order-five element is A1 by the order-ten argument in Lemma 22.",
+          "Trace 7 (the split case) occurs only for q outside {2,3,5}."
+        ],
+        "reasoning": "No model-specific line enumeration is needed to establish nontriviality or the Weyl class at q=3. The general hypotheses are met by this surface itself, so this is not merely a comparison to an unrelated trace-5 example.",
+        "searches": [
+          "Vikulova arXiv:2407.09997, Lemma 7 and proof of Lemma 22 (OA offsets 34030 and 64785 onward)",
+          "Banwait–Fité–Loughran arXiv:1606.00300, Theorem 1.1, offsets 2500–3879"
+        ]
+      },
+      "checked_sources": [
+        "Vikulova arXiv:2407.09997",
+        "Banwait–Fité–Loughran arXiv:1606.00300",
+        "Resultary 2026/11/8/SCOPE-five-rational-point-orbits-on-the-characteristic-three-clebsch-c--fb921c5c316c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nontrivial A1 action has eigenspaces of dimensions six and one on Picard and the table gives its line orbit partition.",
+          "The standard finite-field trace formula stated in Banwait–Fité–Loughran applies to each extension, where Frobenius is raised to the extension degree."
+        ],
+        "reasoning": "Substituting F^n into the prior character gives 6+(−1)^n and directly yields the displayed zeta series. Smoothness is not asserted new. The coordinate presentation used in the exact checker is a certificate of these covered invariants rather than a separate motivated unknown invariant.",
+        "searches": [
+          "Combine Vikulova §3–4 and Lemmas 7, 22 with Banwait–Fité–Loughran Theorem 1.1 and Table 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vikulova §3 gives the Galois representation into W(E6) and centralization of rational automorphisms; Example 2 specifies coordinate-permutation S5 and the order-at-most-two bound.",
+          "Vikulova Lemma 22 proof identifies the nontrivial commuting involution as A1 explicitly."
+        ],
+        "reasoning": "The coordinate-permutation action is defined over F3 on V(e1,e3). The argument only uses the rational S5 on a smooth cubic; it does not reduce the classical power-sum equations modulo three or assume that the naive model is smooth.",
+        "searches": [
+          "Vikulova arXiv:2407.09997 §3 Galois image and §4 Example 2; Lemmas 7 and 22",
+          "Banwait–Fité–Loughran arXiv:1606.00300 §1.1 and §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The C16 row has order 2, Picard eigenvalue multiplicities 1^6,2 (the order-two eigenvalue −1), trace 5, and orbit type 1^15,2^6.",
+          "Resultary record 2026/11/8/SCOPE-five-rational-point-orbits-on-the-characteristic-three-clebsch-c--fb921c5c316c reports 145 points and all 27 lines rational after base change to F9."
+        ],
+        "reasoning": "The prior Weyl-class table, once the class is identified by the general results, supplies exactly the stated line cycle type. The related later record covers the F9 slice, not the F3 Frobenius class.",
+        "searches": [
+          "Banwait–Fité–Loughran Table 7.1, C16, OA offsets 86600–89000",
+          "Resultary characteristic-three Clebsch point orbits and rational lines"
+        ]
+      },
+      "rationale": "The purported new Frobenius identification, splitting and zeta series are already mechanically implied by prior theorems. Over F3 the coordinate permutations of this smooth symmetric model give a faithful rational S5-action, so its Galois image in W(E6) centralizes S5 and has order at most two by Vikulova, Lemma 7. It is not trivial: the no-split result over F3 in Banwait–Fité–Loughran, Theorem 1.1, excludes Picard trace 7. Vikulova's proof of Lemma 22 explicitly identifies the nontrivial involution commuting with the order-five element as A1, with Picard eigenvalues 1^6,−1. Banwait–Fité–Loughran's Table 7.1 then gives the 15 fixed lines and six two-cycles for this class, and the trace formula gives every claimed point count and zeta factor. This is coverage by direct implication, not a claim that either paper prints the frozen formulas verbatim for this equation. The later F9 catalogue record is overlapping corroboration, not earlier priority evidence.",
+      "residual_risks": [
+        "No claim of the earliest historical appearance of the explicit coordinates or formulas. The documented general implication decides the frozen invariant claim regardless of whether an earlier source prints the specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly applicable structural coverage, including identification of a nontrivial involution",
+          "evidence": [
+            "Coordinate permutations give the rational S5-action; centralizing Galois image lies in a group of order two.",
+            "Lemma 22 explicitly concludes τ is A1 and lists its seven Picard eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.09997",
+          "material_read": "§1 model context; Lemma 7; §3 Galois action around offsets 42899–43744; §4 Example 2 around 59486–60400; Lemma 22 proof at 64785–68285",
+          "method": "Lawful OA, located by literal search and read in bounded passages",
+          "title": "The most symmetric smooth cubic surface",
+          "trigger": "Same symmetry and the order-two Galois alternatives"
+        },
+        {
+          "assessment": "Rules out the trivial alternative and supplies exact line splitting for the remaining class",
+          "evidence": [
+            "a=7 is precisely the split case and is excluded for q=3.",
+            "C16 has eigenvalue data 1^6,2 and line cycles 1^15,2^6."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1606.00300",
+          "material_read": "§1.1 trace formula and Theorem 1.1, offsets 1756–3879; Table 7.1 header and C16 row, offsets 86600–89000",
+          "method": "Lawful OA, bounded statement and table passages",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Exclusion of split cubics over F3 and exact Weyl line cycles"
+        },
+        {
+          "assessment": "Later overlap on F9 points and lines, not priority evidence",
+          "evidence": [
+            "145 F9-points and 27 F9-defined lines; no F3 cycle or all-extension result in that passage."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-rational-point-orbits-on-the-characteristic-three-clebsch-c--fb921c5c316c",
+          "material_read": "Mirrored RESULT.md, Finding starting at offset 0",
+          "method": "Configured Resultary search and local-mirror passage inspection",
+          "title": "Five rational point orbits on the characteristic-three Clebsch cubic",
+          "trigger": "Same base-changed symmetric model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The model-specific arithmetic would be worth recording if it were not already mechanically determined. Here the claimed invariants follow from an existing no-split theorem, the symmetry centralizer result and the tabulated reflection action. A second line enumeration and direct counts at two fields provide reproducibility, but no separately posed unresolved scientific result survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

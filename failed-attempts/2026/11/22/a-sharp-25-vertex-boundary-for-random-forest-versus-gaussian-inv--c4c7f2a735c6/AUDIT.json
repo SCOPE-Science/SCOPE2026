@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every finite connected positive-weight graph, the determinant forest partition function yields \\(V_F=\\sum_j q\\lambda_j/(q+\\lambda_j)^2\\); diagonalizing the Gaussian kernel gives \\(V_G=2\\sum_j q^2/(q+\\lambda_j)^2\\). Completing the square in the exact difference, including Gaussian zero-mode variance \\(2\\), yields \\(V_G-V_F=(25-n)/12+\\frac1{12}\\sum_{j=2}^n[(\\lambda_j-5q)/(\\lambda_j+q)]^2\\). Equality forces all positive eigenvalues to be \\(5q\\); connectedness then forces \\(L=5q(I-\\mathbf{1}\\mathbf{1}^{\\mathsf T}/n)\\), so the graph has every edge with weight \\(5q/n\\). The complete-graph quadratic yields the precise reversal window. The included standard-library checker passed 612 exact rational assertions, including direct enumeration of rooted forests on small weighted trees; the all-dimensional proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 primary text proves general variance formulas, which are logically stronger inputs for any individual graph but do not by themselves state graph-wide sharp supremum or equality classification.",
+        "2022 primary text treats control variates/stratification and computational efficiency; it does not assert the 25-vertex universal bound."
+      ],
+      "reasoning": "Known formulas are acknowledged rather than passed off as new. Their direct implication for a fixed graph is elementary, while the universal max over all weighted connected graphs and unique optimizer require optimizing across admissible spectra and characterizing the Laplacian equality case. Publication priority for that extra optimization remains a risk.",
+      "searches": [
+        "random spanning forest versus Gaussian trace estimator exact variance dimension 26 crossover graph",
+        "root-count Gaussian Girard trace estimator variance complete graph 25",
+        "Barthelmé Tremblay Gaudillière Avena Amblard 2019 Gaussian Girard randomized forest variance comparisons",
+        "Pilavci Amblard Barthelme Tremblay 2022 inverse trace variance reduction spectral"
+      ]
+    },
+    "checked_sources": [
+      "Barthelmé et al. 2019 arxiv:1905.02086 (full conference PDF)",
+      "Pilavcı et al. 2022 arxiv:2206.07421 (full conference PDF)",
+      "Published research summaries on forest control variates, bipartition root-count ordering and Nyström estimator variance (titles in the comparison objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 paper gives \\(V_G=2\\sum_j q^2/(q+\\lambda_j)^2\\) in equation (6), and \\(V_F=\\sum_j q\\lambda_j/(q+\\lambda_j)^2\\) in equation (9), including the zero eigenvalue contributions.",
+        "The spectral identity \\(V_G-V_F=(25-n)/12+\\frac1{12}\\sum_{j=2}^n[(\\lambda_j-5q)/(\\lambda_j+q)]^2\\) is an exact algebraic consequence of those known identities.",
+        "Equality requires all nonzero eigenvalues \\(5q\\), enforcing \\(L=5q(I-\\mathbf{1}\\mathbf{1}^{\\mathsf T}/n)\\) and uniform complete-graph weights."
+      ],
+      "reasoning": "The result does not contradict published variances and is derived from them. The precise novel-claim layer is simultaneous sharp optimization over all connected weighted graphs, rigidity of equality and exact first reversal at 26. Those claims are not explicitly reported in the two fully inspected primary papers. Since the derivation is compact, an equivalent prior consequence cannot be ruled out.",
+      "searches": [
+        "2019 conference full text https://www.gretsi.fr/data/colloque/pdf/2019_tremblay412.pdf",
+        "2022 conference full text https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+        "sharp dimension threshold n=25 forest root count variance Gaussian Hutchinson inverse trace graph complete eigenvalue five q",
+        "random spanning forest versus Gaussian trace estimator exact variance dimension 26 crossover graph",
+        "root-count Gaussian Girard trace estimator variance complete graph 25"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barthelmé et al. 2019, eq.(6) gives Gaussian variance and eq.(9) gives root-count variance; their difference yields the scalar rational function but no global weighted-graph extremal graph is stated in the examined complete text.",
+        "The published finding “Exact star-graph tuning of random-forest trace control variates” treats variance-reduced forest estimation, not unmodified Gaussian variance."
+      ],
+      "reasoning": "The extrema may be recast as a bound on sums of rational functions over Laplacian eigenvalues or as a bound on a sum of squared normalized eigenvalue deviations; this algebraic equivalence was considered rather than just matching the phrase first reversal. No direct equivalent claim was identified; this is not proof of priority.",
+      "searches": [
+        "sharp dimension threshold n=25 forest root count variance Gaussian Hutchinson inverse trace graph complete eigenvalue five q",
+        "random spanning forest versus Gaussian trace estimator exact variance dimension 26 crossover graph",
+        "random spanning forests variance root count Gaussian trace complete graph universal n threshold",
+        "arxiv:1905.02086 complete conference PDF equations (6),(9)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding “Bipartition balancing orders rooted-forest component counts in likelihood ratio” concerns likelihood-ratio forest count on bipartite graphs, not estimator variance rivalry.",
+        "The published finding “A one-probe variance cliff for exchangeable Nyström trace estimation” concerns Nyström estimation rather than rooted forest versus Gaussian trace."
+      ],
+      "reasoning": "The result is a universal analytic theorem and a sharp order threshold, not an enumerated database entry or a recurrence of a known finite table. No exact source/table containing its extremum was located in searches.",
+      "searches": [
+        "sharp dimension threshold n=25 forest root count variance Gaussian Hutchinson inverse trace graph complete eigenvalue five q",
+        "root-count Gaussian Girard trace estimator variance complete graph 25",
+        "random forest Gaussian quadratic trace variance 25 vertices 26 vertices complete graph",
+        "published-claims search root-count Gaussian Girard trace estimator variance complete graph 25"
+      ]
+    },
+    "rationale": "The first-public 2019 work supplies the general Gaussian and forest variance spectra, but the inspected complete conference text does not give the graph-wide sharp excess maximization, unique equality graph, or the 25-to-26 first reversal. The 2022 complete conference text studies estimator improvements and empirical comparisons, not this graph extremal inequality. Direct statement-level searches against published research returned different sampling/forest estimators. The assertion is qualified because the new optimization is a short consequence of the published spectral identities; an unlocated equivalent corollary remains possible.",
+    "residual_risks": [
+      "The sum-of-squares extremal optimization is short and may exist as an unindexed corollary of the published general spectral variance comparison.",
+      "Available published-claims search results and selected primary references cannot establish global publication priority.",
+      "The theorem compares individual draw variance only and not equal-cost estimation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlies both known variances, but no statement of sharp all-graph extremum, unique uniform-complete optimizer or order-25 boundary observed",
+        "evidence": [
+          "arxiv:1905.02086; Gaussian variance eq.(6); forest root-count variance eq.(9); empirical comparison section"
+        ],
+        "identifier_or_url": "https://www.gretsi.fr/data/colloque/pdf/2019_tremblay412.pdf",
+        "material_read": "Complete accessible four-page 2019 conference PDF, including formulas, comparison discussion and references",
+        "method": "PDF textual reading cross-checked against page images; examined equations (6), (7), (9) and discussion of parameter-dependent superiority",
+        "title": "Estimating the inverse trace using random forests on graphs",
+        "trigger": "Foundational paper containing both estimators and their exact variance comparison"
+      },
+      {
+        "assessment": "Focuses on forest variance reduction, empirical comparison and implementation rather than the unmodified Gaussian-versus-forest graph-uniform sharp crossing",
+        "evidence": [
+          "arxiv:2206.07421; method and numerical comparison sections"
+        ],
+        "identifier_or_url": "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+        "material_read": "Complete accessible four-page 2022 conference PDF with variance reduction schemes and experiments",
+        "method": "PDF full-text inspection cross-checked against page images, focusing on variance comparisons, controlling/stratifying forest samplers, and conclusions",
+        "title": "Variance Reduction for Inverse Trace Estimation via Random Spanning Forests",
+        "trigger": "Potential broader forest variance estimator and spectrum comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4c7f2a7-35c6-46ca-b3ea-bc111ba6b864",
+  "value": {
+    "rationale": "The precise dimension-25 boundary and complete-graph uniqueness provide a sharp, non-asymptotic, graph-independent method-comparison benchmark for unmodified random-forest root-count and Gaussian quadratic-form inverse-trace estimators. The result identifies the first dimension permitting reversed one-draw variance and exact complete-graph regularization window. It makes no claim on runtime or on sign-probe/variance-reduced alternatives.",
+    "status": "PASS"
+  }
+}

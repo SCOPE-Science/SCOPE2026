@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:49:53.351135Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected statically"
+      ],
+      "rationale": "The scalar CARE on coordinate two is 2d−Kd²+1/K=0; on coordinate one the two terms cancel, all others vanish, and the closed-loop second eigenvalue is 1−Kd=−√2. Subtracting the equations of two putative stabilizing symmetric solutions gives the homogeneous Sylvester equation with Hurwitz coefficients and hence zero difference. For real K≥3, 0<d<1, so the unique best rank-one Frobenius truncation is e_1e_1ᵀ, with error d, residual norm 1/K, and closed-loop eigenvalue +1. For unrestricted orientation Y=zzᵀ, the feedback changes only row 2, so the eigenvalues are −1 with multiplicity n−1 and 1−Kz_2². Rank zero is excluded by this condition. Put y=z_2² and w=Σ_{j≥3} z_j². The exact squared error is (||z||²−1)²+d²+2(1−d)y+2w. Strict stability requires y>1/K, so the error is strictly above the claimed infimum. Unit z in span(e_1,e_2), with y decreasing to 1/K, proves sharpness and nonattainment at the marginal boundary. Dividing by d² gives (6−4√2)K+3−2√2, whose square root has the stated asymptotic. A relative cutoff that discards d leaves no actuation on the unstable mode; the example varies the gain and is not a uniform perturbation estimate at fixed coefficients.",
+      "residual_risks": [
+        "The support script uses exact checks for selected integer K and formula-based floating diagnostics for candidate orientations, not an independent matrix eigensolver or global optimizer. For example its concluding 1/K equality is tautological. No uploaded code was executed. The analytic proof, not those diagnostics, establishes the exact claim.",
+        "No uniform control of ||B|| or detectability conditioning as K increases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Zhou apply a relative positive-eigenvalue threshold in a factor update; Massei–Saluzzi use bandwidth truncation and separate residual/stability conditions for Newton–Kleinman iterates.",
+          "Massei–Saluzzi's Theorem 3.1 assumes W(L⁻¹AL) in the left half-plane, Q positive definite and a stable initial closed loop, among its sufficient conditions. The paper's Figure 3 does also discuss positive-diagonal A; the restriction must not be attributed to the entire paper.",
+          "RADI and Benner–Heiland–Werner develop iterative algorithms to approximate stabilizing solutions; inspected statements give no best-rank distance under the closed-loop constraint."
+        ],
+        "reasoning": "A sufficient check for stable algorithmic iterates does not establish the infimum across all PSD rank-one candidates, and the specific Theorem 3.1 cannot be specialized to this unstable A. The solver for indefinite quadratic terms targets iterative solution computation rather than the Frobenius price of the rank constraint.",
+        "searches": [
+          "arXiv:2607.14742 Algorithm 2.2",
+          "DOI:10.1007/s00211-026-01572-0, §§3.1.1–3.1.2",
+          "RADI, DOI:10.1007/s00211-017-0907-5",
+          "arXiv:2111.06516v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2139fec1d52c (self-match), 3b462c0cdecb and 2edd05e49817",
+        "arXiv:2607.14742",
+        "DOI:10.1007/s00211-026-01572-0",
+        "DOI:10.1007/s00211-017-0907-5",
+        "DOI:10.1002/rnc.1577 (author PDF)",
+        "arXiv:2111.06516v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Best spectral approximation is an application of Eckart–Young and the loss of a weakly weighted unstable direction is visible directly in a diagonal example.",
+          "The inspected general methods either certify a particular truncated controller or control residuals and stability in iterates under their hypotheses; they do not compare the exact least error of arbitrarily oriented rank-one PSD matrices."
+        ],
+        "reasoning": "Neither those sufficient conditions nor the routine observation about the discarded direction proves sharpness. The strict scalar boundary and an oblique minimizing sequence are needed; the comparison with the unconstrained spectral distance yields a distinct growth law rather than only another warning about truncation.",
+        "searches": [
+          "arXiv:2607.14742, p. 3 and Algorithm 2.2",
+          "Massei–Saluzzi DOI:10.1007/s00211-026-01572-0 §3.1.2",
+          "Skaf–Boyd author-hosted PDF §1.1",
+          "Resultary 3b462c0cdecb and 2edd05e49817, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here stability reduces to a scalar lower bound on one coordinate of the rank-one factor, but the objective is distance to X_* in Riccati-matrix coordinates, not distance to a controller coefficient vector.",
+          "Skaf–Boyd's author-hosted text minimizes discrete controller coefficient complexity under a relaxed performance certificate."
+        ],
+        "reasoning": "Direct controller coefficient quantization and model-order reduction do not enforce rank-one PSD structure in the matrix generating the feedback; reducing this family's stability test to one inequality does not identify the objective with existing controller complexity or gain-distance problems.",
+        "searches": [
+          "Resultary: exact stability price for PSD rank-one CARE approximants; closest stabilizing rank-one approximation",
+          "Web literature: algebraic Riccati equation low rank spectral truncation closed loop stability residual exact nearest stabilizing rank one approximation stabilizing low rank solution CARE Frobenius",
+          "Skaf–Boyd, DOI:10.1002/rnc.1577, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact target 2139fec1d52c is a self-match. Distinct hits 3b462c0cdecb and 2edd05e49817 are for positivity/PSD preservation by time-integration updates."
+        ],
+        "reasoning": "A PSD-cone-preserving integrator or a low-rank PSD repair to a step is not the stated CARE feedback constraint. The assessed catalogue hits do not tabulate this one-parameter sharp ratio; the bounded lookup does not establish absence elsewhere.",
+        "searches": [
+          "Resultary: sharp distance/stability price; stabilization-preserving rank-one PSD CARE; small residual but unstable feedback; stability cost versus unconstrained rank approximation"
+        ]
+      },
+      "rationale": "Credit pre-existing low-rank CARE solvers, residual and stability safeguards, and the general observation that performance constraints matter in truncation. The distinct contribution is an exact sharp distance over all orientations of rank-at-most-one PSD approximants for this family, with an unattained minimum and an unbounded normalized price. The sources examined do not give that optimization result.",
+      "residual_risks": [
+        "The literature comparison is bounded; a general fixed-rank nearest stabilizing approximation theorem or an equivalent constrained matrix-nearness example outside the inspected passages could subsume this family. No claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relative threshold and residual analysis, not the sharp constrained error",
+          "evidence": "Algorithm retains positive eigenvalues above a relative tolerance; the prior error analysis accounts for residual and truncation contributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14742",
+          "material_read": "p. 3, OA offset 9700, and Algorithm 2.2, p. 5, offset 18400",
+          "method": "Bounded primary OA PDF read",
+          "title": "Newton-Based Mixed Precision Iterative Refinement for Large-Scale Sparse Continuous-Time Algebraic Riccati Equations",
+          "trigger": "Direct eigenvalue-pruning precedent"
+        },
+        {
+          "assessment": "Bandwidth truncation under distinct assumptions and objectives",
+          "evidence": "The sufficient stability theorem constrains the transformed A numerical range, starting iterate, Q and residual; the present A has eigenvalue +1 and the optimized truncation is rank, not bandwidth, constrained.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-026-01572-0",
+          "material_read": "§3.1.1 offset 101800; §3.1.2/Theorem 3.1 offsets 104800–106318; Figure 3 context",
+          "method": "Bounded primary OA text",
+          "title": "On the data-sparsity of the solution of Riccati equations with applications to feedback control",
+          "trigger": "Truncation with explicit stabilizing-iterate safeguards"
+        },
+        {
+          "assessment": "Iterative solution approximation, not closest stabilizing fixed-rank PSD approximation",
+          "evidence": "The inspected passages describe iterative approximations to the stabilizing solution; they do not optimize error against the rank-one Hurwitz threshold.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-017-0907-5",
+          "material_read": "pp. 2 and 4, OA offsets 0 and 12326",
+          "method": "Bounded primary OA text",
+          "title": "RADI: a low-rank ADI-type algorithm for large scale algebraic Riccati equations",
+          "trigger": "Established low-rank stabilizing CARE computation"
+        },
+        {
+          "assessment": "Different variables, objective and dynamics",
+          "evidence": "Defines a discrete-time plant/controller, acceptable controller coefficient designs by relaxed performance, and coefficient complexity such as representation bit count.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/contr_coef_trunc.pdf",
+          "material_read": "Summary and §1.1, pp. 1–2, OA offset 415",
+          "method": "Lawful author-hosted journal text; DOI and Wiley routes did not expose full text",
+          "title": "Controller Coefficient Truncation Using Lyapunov Performance Certificate",
+          "trigger": "Potential equivalent stability-constrained truncation problem"
+        },
+        {
+          "assessment": "Inspected statement is an iterative solver result, not sharp nearest-approximant geometry",
+          "evidence": "Targets iterative low-rank solution of large-scale continuous-time Riccati equations with indefinite quadratic term.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.06516",
+          "material_read": "Abstract and novelty statement, p. 1, OA offset 0",
+          "method": "Bounded primary OA PDF read",
+          "title": "A low-rank solution method for Riccati equations with indefinite quadratic terms",
+          "trigger": "Closest additional primary literature hit for low-rank stabilizing Riccati approximations"
+        },
+        {
+          "assessment": "PSD-preservation repair for a Lyapunov flow integrator, not stability of CARE feedback",
+          "evidence": "Rank-two positivity threshold for projected exponential Euler; no nearest stabilizing Frobenius problem here.",
+          "identifier_or_url": "2026/10/25/SCOPE-rank-one-immunity-and-a-sharp-rank-two-positivity-transition-in--3b462c0cdecb",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Configured local catalogue mirror",
+          "title": "Rank-one immunity and a sharp rank-two positivity transition",
+          "trigger": "Closest distinct catalogue result on low-rank PSD repair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–5",
+        "arXiv:2607.14742, Algorithm 2.2",
+        "Massei–Saluzzi, §§3.1.1–3.1.2"
+      ],
+      "rationale": "The benchmark quantifies the stability cost of an approximation decision faced by low-rank solvers. Residual and best matrix error are O(K⁻¹), the exact solution's stability margin stays at least one, yet preserving stability at the same rank costs order K⁻¹ᐟ² in matrix error. Optimizing over oblique factors rules out the objection that the cost is only an artifact of requiring diagonal spectral factors.",
+      "residual_risks": [
+        "Illustrates an ill-conditioned, structured family with increasing actuator gain, not a bound for general low-rank solvers at fixed conditioning or an indictment of schemes which verify the closed-loop spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

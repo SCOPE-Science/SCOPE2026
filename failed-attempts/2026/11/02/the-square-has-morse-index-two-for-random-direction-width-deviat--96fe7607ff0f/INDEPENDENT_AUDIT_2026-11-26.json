@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:45:01.643175Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding line 6 and proof §§1–3",
+        "Frozen VERIFICATION.md, checker.py and requirements.txt, inspected but not executed",
+        "Independent direct support-width quadrature: /workspace/branches/333364e3-575a-4cb0-bfc7-f877cc0b1c0c/independent_width_hessian.py; 2^20 midpoint directions and step 0.005, Hessian entrywise error below 1.64×10^−4"
+      ],
+      "rationale": "The Hessian, criticality, determinant and index two are correct, but the Finding's unrestricted statement that precisely the symmetry-breaking variations decrease the functional to quadratic order is not correct as a sign characterization. Write u=a−1 and v=b−1. The quadratic term is π(u+v)²/64 + π(π−2)[(x−y)²−(x+y)²−(u−v)²]/256. The pure symmetry-breaking eigenspace x=y, u=−v is negative definite; directions leaving the parallelogram tangent can also have positive or zero quadratic term. For example (x,y,u,v)=ε(1,0,1,1) leaves the parallelogram locus and has positive quadratic term πε²/16, whereas (1,0,0,0) is null to this order. Conversely, mixed directions with sufficiently large negative projection also decrease without belonging to the negative eigenspace. Each pure negative mode can retain a reflection. Thus the correct statement is a decomposition into positive and negative planes, with the strict sign given by the quadratic cone inequality, not a 'precisely symmetry-breaking' condition on general variations. For the core proof, the absolute-projection identity verifies the given moment normalization. Setting z=u+v, the perimeter squared is 32+16z+4(x²+y²+u²+v²)+2z²+O(∥h∥³). In the numerator the opposite/diagonal kernel sum is 8+4z+z²+(x−y)², and the adjacent determinant sum contributes 8+4z with a dot-square half-sum 2(u²+v²)+(x+y)²+z². Dividing gives the displayed jet and no linear term. C² follows from the exact kernel at parallel pairs: after the linear cancellation its nonsmooth part starts at |det|³ with a smooth coefficient in det² and the nonzero dot product.",
+      "residual_risks": [
+        "Reading the disputed phrase narrowly as only about pure modes would remove the mathematical overstatement, but does not restore originality. The recorded verifier and the independent quadrature are not proofs of the exact jet or of higher-order signs on null directions."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published moment theorem gives the exact general kernel and the quadrilateral section gives an asymmetric-kite numerical candidate, not a full local shape Hessian. 1a583463a075 covers all diagonal ratios and cubic order for fixed-length perpendicular diagonals, including both negative modes at the square."
+        ],
+        "reasoning": "The general kernel is prior input, but the numerical/global discussion is not the local Hessian. A stronger restricted derivative on a two-parameter family cannot itself supply the four-dimensional criticality and signature. The separate full-chart result supplies them.",
+        "searches": [
+          "Akiyama–Kamae, journal Theorem 1 and §8 (preprint §7 for quadrilaterals)",
+          "Resultary 1a583463a075 rhombus instability and cubic cusp"
+        ]
+      },
+      "checked_sources": [
+        "Akiyama–Kamae, doi:10.1007/s00454-023-00545-6",
+        "Resultary ae14a66c3e0b, 1a583463a075, 0fca3299603f, dcfda0360928, c79f5c424519"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact full-chart source also states h²+k²=s²/4+(t−1)²/(π−2) for the quadratic transition. The constrained rhombus theorem supplies more terms on the negative plane but does not determine the remaining directions."
+        ],
+        "reasoning": "Narrowing the original sign-language overstatement to the pure negative modes or explicitly describing all descending quadratic directions gives no new claim: the full-chart source already gives both the modes and the cone, with the correct null-direction limitation.",
+        "searches": [
+          "Resultary ae14a66c3e0b, Finding and Assumptions and scope",
+          "Resultary 1a583463a075, square specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Variance divided by the squared mean equals the normalized second moment minus one. Unoriented-line averaging is the same as circle averaging for the π-periodic width. In ae14a66c3e0b use s=(x−y)/2, t=(a+b)/2, h=−(x+y)/4, k=(a−b)/4, by translating its coordinates to center the horizontal diagonal at zero."
+        ],
+        "reasoning": "Substituting these exact chart identities into the indexed expansion reproduces every coefficient of the frozen jet and hence the Hessian by congruence. This is an equivalence of the full four-dimensional labeled local shapes, not an inference from equal eigenvalue counts or equal square values.",
+        "searches": [
+          "Resultary ae14a66c3e0b, Finding and chart assumptions",
+          "Width deviation of convex polygons, arXiv:2201.06736 and journal Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ae14a66c3e0b states the full exact jet and Hessian. 0fca3299603f gives a random-width law for kites; dcfda0360928 and c79f5c424519 give moment/reconstruction results for parallelograms."
+        ],
+        "reasoning": "The kite law sees a reflection-symmetric slice, and the parallelogram records exclude the negative tangent plane from their shape domain. These are not full-moduli equivalents. The exact indexed full-moduli match is decisive and is not a numerical table.",
+        "searches": [
+          "Published Resultary/SCOPE ae14a66c3e0b, 1a583463a075, 0fca3299603f, dcfda0360928 and c79f5c424519"
+        ]
+      },
+      "rationale": "A distinct indexed result derives the exact same full four-dimensional jet, Hessian signature, negative midpoint-shift eigenspace and transition cone, in an equivalent diagonal chart. The indexed comparison bears a later catalogue date; the determination is duplicate mathematical coverage in the available corpus, not historical priority or an assertion that this result was known before the frozen item's date.",
+      "residual_risks": [
+        "The mentioned primary-literature sequel on infinitesimal deformations was not resolved. The indexed same-jet comparison does not establish which work was obtained first, and no assertion of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly equivalent full jet by coordinate change; also gives the quadratic sign cone",
+          "evidence": "Diagonal expansion in (s,t−1,h,k), Morse index two and exact quadratic cone; its moduli chart is related to the frozen chart by recentering the first diagonal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-square-is-a-two-negative-mode-saddle-for-polygonal-width-dev--ae14a66c3e0b/RESULT.md",
+          "material_read": "Finding and chart at offsets 0–2803; prior-work comparison and limitations, offsets 7056–9612",
+          "method": "Published local mirror after Resultary search",
+          "title": "The square is a two-negative-mode saddle for polygonal width deviation",
+          "trigger": "Exact width statistic, full local dimension and complete square Hessian"
+        },
+        {
+          "assessment": "Exact moment input, not full Hessian in the inspected passages",
+          "evidence": "General projection-width formula, unresolved four-gon minimum, numerical kite candidate, and a mention of planned work on infinitesimal deformations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00545-6",
+          "material_read": "Author-hosted journal PDF, Theorem 1 p. 8 and §8 pp. 25–26",
+          "method": "OA author-hosted journal copy after publisher redirect",
+          "title": "Width Deviation of Convex Polygons",
+          "trigger": "Primary paper introducing the exact functional and discussing quadrilateral extrema"
+        },
+        {
+          "assessment": "Stronger Taylor result on restricted fixed-length orthodiagonal planes only",
+          "evidence": "Negative-definite quadratic term and explicit cubic cusp for every fixed diagonal ratio, specialized to the square.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-two-axis-width-deviation-instability-and-cubic-cusp-of--1a583463a075/RESULT.md",
+          "material_read": "Finding offsets 0–1926 and proof/comparison around offset 4818",
+          "method": "Published local mirror after Resultary search",
+          "title": "Universal two-axis width-deviation instability and cubic cusp of rhombi",
+          "trigger": "Potential stronger square instability theorem"
+        },
+        {
+          "assessment": "Restricted width law, not complete second variation",
+          "evidence": "Exact law for kites, including the x=y=0 slice of the frozen chart.",
+          "identifier_or_url": "2026/11/1/SCOPE-three-spectral-singularities-reconstruct-asymmetric-kites-from-r--0fca3299603f",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Published local mirror after Resultary search",
+          "title": "Three spectral singularities reconstruct asymmetric kites from random width",
+          "trigger": "Related perturbations in a kite slice"
+        },
+        {
+          "assessment": "Restricted family results",
+          "evidence": "Moment/reconstruction claims on parallelograms do not vary diagonal midpoints independently and so cannot give the two other Hessian directions.",
+          "identifier_or_url": "Resultary dcfda0360928 and c79f5c424519",
+          "material_read": "Findings of both parallelogram reconstruction records",
+          "method": "Published local mirror after Resultary search",
+          "title": "Width statistics and area-calibrated width moments of parallelograms",
+          "trigger": "The two positive modes lie in this family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and limitations",
+        "Resultary ae14a66c3e0b, exact jet and cone",
+        "Akiyama–Kamae, quadrilateral discussion"
+      ],
+      "rationale": "A full local signature would be valuable distinct information beyond an open global minimization problem or an observed kite direction, but the same intrinsic jet and sharper transition statement are already covered. The frozen normalization and coordinate-specific eigenvalues are obtained by the explicit linear chart substitution. Correcting the sign language or keeping only the validated Hessian therefore leaves no distinct valuable result to repair.",
+      "residual_risks": [
+        "This does not assess the historical value of the first derivation or the open global minimization question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

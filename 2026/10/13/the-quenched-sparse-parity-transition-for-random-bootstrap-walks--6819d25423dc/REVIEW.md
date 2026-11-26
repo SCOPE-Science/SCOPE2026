@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Conditional on the entire input-sign path, the number of active Boolean coefficients at step \(n\) is precisely \(2^{N_n}\); their independent Bernoulli parity yields the exact mean \((1-2r_n)^{2^{N_n}}\). Independent coefficient rows and Hoeffding--Borel--Cantelli establish quenched Cesàro concentration by Fubini. The strong law separates the subcritical/supercritical cases. The supercritical coupling is eventually exact, not merely distributional. At criticality, elementary two-sided bounds on the parity mean and almost-sure negligible occupation of every fixed strip about zero prove pathwise convergence of normalized cross-variation to the positive-time occupation functional. Donsker, the arcsine law and the established cross-variation necessity criterion finish the proof. The exact checker passes 684 assertions; it supports finite identities only. No unproved continuum assertion is delegated to code.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The principal 2026 source studies random coefficient environments and proves independence of the Brownian coordinates under uniform ellipticity; the present coefficients vanish exponentially and are outside its hypotheses. The 2022 foundational source supplies a general Brownian-limit criterion and non-Gaussian deterministic sign-recycling examples, but not this sparse random-family threshold or the quenched phase classification. Comparison is by implication: the old criterion alone cannot calculate the row-parity asymptotics or determine the almost-sure critical environment behavior. A targeted search of published mathematical records and primary literature found no covering result. An older/unindexed equivalent sparse parity calculation remains possible.
+PASS
 
-## Value — PASS
-The natural number of coefficients evaluated along a typical path is approximately \(2^{n/2}\); tuning their individual activation probability across the reciprocal scale produces qualitatively distinct quenched regimes. The theorem gives a sharp structural boundary, a singular non-Brownian critical phase with an explicit arcsine law, and eventual pathwise coalescence in the supercritical regime. These are infinite-time conclusions in a current, motivated random-transformation model, not arbitrary parameter plugging or a finite tabulation.
+Fix the full input path first: level k uses exactly 2^{N_k} independent Bernoulli bits, so a_k=E(ζ_k|ξ)=(1−2r_k)^{2^{N_k}}, and the centered parities are independent across levels conditional on that path. The summable Hoeffding bound and then Fubini give a quenched almost-sure Cesàro error tending to zero for almost every environment, for each fixed α. On the sign strong-law event λ_k=2r_k2^{N_k} changes exponentially at α=1/2. Below it, a_k≤e^(−λ_k) tends to zero and the normalized bracket tends to zero uniformly by the partial-sum lemma; the conditional covariance matrix has diagonals 1 and off-diagonal ζ_{j−1}, and the scaled jumps are bounded by √(2/n), giving the martingale functional CLT. For α=0 the mean is identically zero at k≥1. Above the threshold Σr_k2^{N_k}<∞ along almost every input path, so conditional union bounds, Borel–Cantelli, and Fubini give finitely many negative parities; Y−X becomes constant, not necessarily zero. At criticality λ_k=2^{k/2−floor(k/2)}2^(−X_k/2). Bernoulli and exponential bounds make the mean uniformly close to 1 on X_k≥M and to 0 on X_k≤−M as M grows. A fixed strip has O_M(√m) expected visits by the local binomial bound, hence zero limiting visit fraction almost surely by dyadic Markov/Borel–Cantelli and monotonicity. Taking the countable intersection over M then gives the stated uniform occupation-time approximation. In the proof's index shift, compare with the centered partial sum through m−1 and add the single initial term 1/n; for a comparison at the same m the literal endpoint bound is 3/n rather than 1/n. Either gives the claimed uniform limit. Donsker and Brownian zeros of Lebesgue measure zero give joint convergence of (rescaled X, Q_n); the time-one positive occupation has Beta(1/2,1/2), with the stated mean and variance. For a direct necessity check, on each partition block [a,b] the product of walk increments minus Σ_{j=a+1}^b ζ_{j−1} is the martingale sum with coefficients (X_{j−1}−X_a)ζ_{j−1}+(Y_{j−1}−Y_a), multiplying ξ_j. Summing over m equal time blocks, isometry bounds the squared error after division by n by 2(1/m+1/n). A hypothetical Brownian pair would force its block product sums, as m grows, to its deterministic covariance, contradicting the arcsine bracket limit. Countably many integer horizons suffice. The supplied checker was inspected, not executed; finite parity checks cannot establish these limiting claims.
 
-## Closest sources and limitations
-Hamza–Tournier, arXiv:2610.01658v1, Section 3, Theorem 2; Collevecchio–Hamza–Shi–Williams, arXiv:2010.16000v2, Sections 3--4. The full pair's critical limiting process, convergence rates, and nonhomogeneous/dependent-coefficient extensions remain outside scope. Priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Verified coverage is partial: the α=0 endpoint is already uniformly elliptic, the predictable covariance criterion is classical in bootstrap walks, and the arcsine law is classical. The distinct supported claim is a quenched transition in the full inclusion-induced model with these exponentially decaying coefficient probabilities, including the critical reduction of its random parities to positive occupation time. The closest checked techniques and results do not provide that transition or reduction.
+
+## value
+
+PASS
+
+The model tests a natural limit of elliptic bootstrap-walk results: the exponentially small activation probability competes with an exponentially large random number of included bits. The full threshold rather than an arbitrary parameter slice is identified, and the critical behavior shows that two diffusive marginals can share a genuinely random macroscopic bracket. This adds a distinct mechanism, not a new proof of the arcsine law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

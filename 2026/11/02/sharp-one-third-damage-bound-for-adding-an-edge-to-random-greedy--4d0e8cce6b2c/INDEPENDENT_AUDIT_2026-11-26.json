@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:33.113947Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1) and (2) and proof lines 68–85; VERIFICATION.md and verify_greedy_matching.py",
+        "Corrected RESULT.md and VERIFICATION.md in repairs/1",
+        "Independent exact replay: python /workspace/audit_reproduction.py (record 1), 205 insertions on orders two through four by direct order enumeration, including 586 isolated-endpoint orderings."
+      ],
+      "rationale": "The frozen proof did not establish all of its isolated-endpoint refinement: its nonnegative induction branch uses k=deg(u)+deg(v)<=1, which is sufficient but not necessary for isolation; when, for example, one endpoint is isolated and the other has degree two, its k>=2 branch proves only the universal lower bound. The statement itself remains true. The corrected files branch first on isolation regardless of k. For a fixed order, conditioning on its first edge proves the vertex-deletion difference is in {0,1}: if that edge avoids the deleted vertex, both take it and reduce to smaller graphs, and otherwise apply the smaller-graph induction to its other endpoint in the deleted graph. Under uniform order this gives the two-vertex deletion loss at most two, or at most one when one vertex is isolated. Subtracting the two first-edge recurrences gives (m+1)Delta = 1+mu(G-{u,v})-mu(G) plus the sum over q old edges disjoint from uv of the smaller differences. Isolation is inherited in every such summand; hence delta is nonnegative in the entire corrected branch. Otherwise k>=2 gives the lower numerator -1-q/3 >= -(m+1)/3; the upper numerator is at most 1+q. The empty graph and the four-vertex path formed from two disjoint edges attain +1 and -1/3 respectively.",
+      "residual_risks": [
+        "Finite replay does not prove the universal statement; the corrected simultaneous induction does. The result concerns expected unweighted size, not pathwise lower damage -1/3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-date wheel record proves under a fixed inherited order that deleting any vertex cannot increase greedy cardinality and can decrease it by at most one, even though the headline concerns cycle-to-wheel augmentation. The later leaf-augmentation result proves stochastic dominance for uniform decoration of all cores and analyzes a single-leaf coupling in that setting."
+        ],
+        "reasoning": "The wheel's general lemma genuinely covers the isolated-endpoint assertion: delete the formerly isolated endpoint from the augmented graph. Deleting either endpoint gives a common smaller graph and also the upper bound. Even for arbitrary fixed orders, deleting both endpoints gives only a loss bound of two; the sharp expectation lower bound needs random-order recurrence and is not supplied there.",
+        "searches": [
+          "Resultary 6bc819eb2b23 §Proof.1; f7b5944c0147 §Finding and Proof.2",
+          "Miller–Pritikin DOI 10.1002/(SICI)1098-2418(199705)10:3%3C353::AID-RSA5%3E3.0.CO;2-V; Arnosti DOI 10.1287/stsy.2021.0082"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bc819eb2b23, 60a216f03efb, 40a6c4586bde and f7b5944c0147",
+        "arXiv:1907.07216, §§1 and 8.1",
+        "Public metadata and attempted lawful full-text retrieval for Miller–Pritikin, Arnosti and Dyer–Frieze",
+        "Repaired RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparing both processes to the same graph with one endpoint deleted yields a common-order interval [-1,1] from the prior lemma, not an expected interval [-1/3,1]. The exact bipartite insertion formula depends on its special terminal imbalance and added-edge selection probability."
+        ],
+        "reasoning": "Credit the one-sided claims implied by the lemma and the exact special-family law. Neither yields the sharp negative expectation bound for all graphs; the repaired contribution is that bound, not the one-vertex stability technique or the already implied refinements.",
+        "searches": [
+          "Resultary 6bc819eb2b23, §Proof.1 offsets 1920–3220; 60a216f03efb, Finding and proof offset 3616; f7b5944c0147, offsets 0–4700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform continuous edge priorities are uniform edge permutations. On a line graph they become vertex-order greedy independent sets; adding a nonedge to the original graph adds a vertex to the line graph, not an edge between existing vertices.",
+          "The nonmonotonicity in §8.1 and the same-day chord record concerns inserting/deleting an edge of the graph on which vertex-greedy independent set is run."
+        ],
+        "reasoning": "That equivalence does not equate the perturbations. The older independent-set phenomenon is related but does not give the matching insertion bound.",
+        "searches": [
+          "Resultary semantic searches on random greedy matching edge insertion, recourse, and coupling",
+          "ArXiv:1907.07216, introduction and §8.1; Resultary 40a6c4586bde"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adding one intrapart edge to K_{a,b} gives the exact expectation min(a,b)+Delta_{a,b} P_{a,b}(lambda), with Delta_{a,b} in {-1,0,1}; lambda=1 gives uniform edge order. The wheel law concerns adding a hub and its spokes, with pathwise change in {0,1}."
+        ],
+        "reasoning": "These tabulate or solve different domains. Neither exact family includes arbitrary insertion inputs, or the disconnected two-edge starting graph of the extremal example.",
+        "searches": [
+          "Resultary single-edge insertion comparison 60a216f03efb, Finding and independent-defect-clock proof; 6bc819eb2b23 exact change law"
+        ]
+      },
+      "rationale": "The repaired result explicitly credits the same-date separate wheel record's general deterministic vertex-deletion lemma: it entails isolated-endpoint monotonicity and the upper bound one. The surviving distinct contribution is the sharp worst-case expected lower bound -1/3 for arbitrary fixed graphs and single nonedges. The closest exact insertion law found applies only to one type of edge in a complete bipartite graph; it does not entail the arbitrary-graph lower bound. Equal catalog dates alone do not order work.",
+      "residual_risks": [
+        "Full text of plausible older matching sources, especially Miller–Pritikin, was not readable in the attempted routes. The claim is not a guarantee of historical priority.",
+        "Searches on insertion and recourse were bounded; the same-date relationship documents implication, not publication order or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual implication of nonnegative isolated-endpoint and +1 bounds, not of -1/3",
+          "evidence": "For any graph and total order, unmatched sets nested with one distinguished free vertex imply that deleting a vertex lowers cardinality by zero or one.",
+          "identifier_or_url": "Resultary 2026/11/2 record 6bc819eb2b23",
+          "material_read": "Finding and Proof.1, in particular offsets 1920–3220",
+          "method": "Mirrored statement and decisive proof passage; deletion comparison",
+          "title": "A Bernoulli hub gain for edge-greedy dimer matching on growing wheels",
+          "trigger": "Same-date edge-priority matching coupling and exact one-vertex stability"
+        },
+        {
+          "assessment": "Direct but special later comparison, not general coverage",
+          "evidence": "Expectation min(a,b)+Delta_{a,b}P_{a,b}(lambda) for insertion within a part of K_{a,b}.",
+          "identifier_or_url": "Resultary 2026/11/8 record 60a216f03efb",
+          "material_read": "Finding at offset 0 and independent-defect-clock coupling at offset 3616",
+          "method": "Mirrored exact theorem and rate normalization comparison",
+          "title": "A single intra-part adsorption channel creates an imbalance-driven response",
+          "trigger": "Same edge-greedy matching and single insertion after identifying lambda=1"
+        },
+        {
+          "assessment": "Related later leaf coupling, with stronger distribution comparison in the stated decorated setting",
+          "evidence": "Stochastic comparison for adding private leaves to already decorated cores. The proof considers a single pendant edge and alternation of differing greedy choices, with total-size accounting using one private neighbor per core vertex.",
+          "identifier_or_url": "Resultary 2026/11/8 record f7b5944c0147",
+          "material_read": "Finding and Proof §§1–2 through offset 4700",
+          "method": "Mirrored theorem and coupling passage",
+          "title": "Leaf augmentation stochastically improves random-greedy matching, with an exact decorated-path law",
+          "trigger": "Pendant insertion alias for an isolated endpoint"
+        },
+        {
+          "assessment": "Different perturbation under the matching-to-line-graph equivalence",
+          "evidence": "The process uses vertex priorities and accepts independent-set vertices, not matching edges.",
+          "identifier_or_url": "Resultary 2026/11/2 record 40a6c4586bde",
+          "material_read": "Finding and common-priority coupling, offsets 0 and 2072",
+          "method": "Mirrored model and update-object comparison",
+          "title": "Opposite short-chord effects on random-greedy jamming of cycles",
+          "trigger": "Same-date apparent single-edge sign reversal"
+        },
+        {
+          "assessment": "No implication from the examined independent-set deletion example",
+          "evidence": "Joining the centers of two stars shows the expected vertex-order greedy independent-set size is not monotone with edge deletion.",
+          "identifier_or_url": "https://arxiv.org/html/1907.07216",
+          "material_read": "Introduction at ~1051 and §8.1 around 77920–78163",
+          "method": "Lawful primary HTML passages",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Earlier nonmonotonicity under an isolated graph edit"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "The synopsis describes expected sizes and approximation ratios; it cannot exclude an insertion theorem elsewhere in the paper.",
+          "identifier_or_url": "DOI 10.1002/(SICI)1098-2418(199705)10:3%3C353::AID-RSA5%3E3.0.CO;2-V",
+          "material_read": "Public synopsis only; no full results read",
+          "method": "Author-hosted candidate PDF returned 403; bounded metadata comparison",
+          "title": "On randomized greedy matchings",
+          "trigger": "Foundational expected cardinality analysis in the same algorithm"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence",
+          "evidence": "The records identify relevant random-greedy matching work but do not resolve the sharp insertion bound.",
+          "identifier_or_url": "Arnosti DOI 10.1287/stsy.2021.0082; Dyer–Frieze (1991)",
+          "material_read": "Bibliographic context and reported problem scopes; no decisive full-text passages",
+          "method": "Lawful DOI and Wiley retrieval attempts returned 403; no identified readable alternate was recovered",
+          "title": "Greedy Matching in Bipartite Random Graphs; Randomized greedy matching",
+          "trigger": "Same random-edge matching lineage, possible coupling lemmas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, exact recurrence, induction and extremizers; same-date vertex-deletion comparison"
+      ],
+      "rationale": "An extra allowable match can make the randomized greedy policy worse, even though it cannot hurt the optimum. The repaired theorem quantifies exactly how bad one such change can be, by a graph-size-independent sharp constant stronger than the unit sensitivity from deleting vertices. The four-vertex example fixes the constant but is not the universal argument. This is a natural perturbation of a classical algorithm, not just a finite enumeration or a reformulation of the known deletion lemma.",
+      "residual_risks": [
+        "No guarantee for weighted greedy matching, other order rules, multiple updates or individual random outcomes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

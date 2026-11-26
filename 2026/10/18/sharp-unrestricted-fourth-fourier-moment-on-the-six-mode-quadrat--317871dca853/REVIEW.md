@@ -1,15 +1,21 @@
-# Scientific review: quadratic triangular Fourier aperture
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is entirely finite-dimensional and uses an exactly enumerated convolution quartic, an algebraic sum-of-squares rearrangement, Cauchy–Schwarz and arithmetic–geometric mean, and one-dimensional calculus. The exact identity in RESULT.md controls arbitrary nonnegative magnitudes, including boundary vectors; the phase equality argument then treats arbitrary complex coefficients. The derivative has one positive cubic root, giving a unique nonflat optimal ratio. The embedded checker independently enumerates the convolution coefficient dictionary and checks selected real/complex and finite-grid cases. Finite tests are not the proof of the universal statements.
+## correctness
 
-## Originality — PASS, best knowledge
-The exact same six-point frequency set occurs in the closest published triangular-aperture record, but that theorem explicitly assumes every amplitude equals one. Its sharp maximum \(102\) yields normalized \(17/6\); the present unrestricted constant is strictly larger, with unequal necessary magnitudes. Full primary-text comparisons of Ganzburg (2020) and the published finite-array constructions of Gu et al. (2021) and Du–Jiang (2022) found asymptotic metric inequalities or complementary arrays, not the target sharp finite synthesis norm. Related published sharp constants for different supports and moments do not imply this claim. Unindexed prior optimization is a remaining bibliographic risk. These comparisons establish best-knowledge originality, not absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-The complete total-degree-two triangular spectrum is the first nonrectangular bivariate analytic quadratic aperture with two distinct symmetry orbits. Its unrestricted coefficient norm is a natural operator invariant needed for exact norm comparison and stable finite-grid sampling. The result identifies a definite strict gap between constant and variable amplitudes and classifies all sharp complex extremizers, not just a numerical or phase-only optimum. The proof supplies a reusable positive-square reduction rather than a brute-force optimization.
+Independent enumeration of unordered two-sums yields 15 fibers, six with two representations: three corner-pair versus doubled-midpoint fibers and three corner-plus-opposite-midpoint versus midpoint-pair fibers. Their extra terms have coefficients 4 and 8 respectively, on top of 2T² minus the sum of fourth powers. Completing squares gives the stated two-mass bound; Cauchy–Schwarz and AM–GM attain it at uniform positive magnitudes within each orbit, and equality for positive masses forces those magnitudes. The pure-orbit boundary is strictly suboptimal. The derivative in the ratio variable has exactly the stated cubic factor, with a single positive root; numerical substitution agrees with the printed values. At the optimum three necessary phase comparisons fix the affine-character form, which is also sufficient in every fiber. Modulo m,n ≥5 all two-sum fibers remain distinct; at (4,4) positive extremizing coefficients give a strict surplus from the (0,0), (4,0), (0,4) collision.
 
-## Scope and limitations
-Only the six frequencies of the degree-two simplex, the fourth moment, and finite tori without two-sum aliasing are treated. No result is claimed for other degrees or general Newton polytopes. Independent mathematical and bibliographic audits have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest earlier result uses the identical support but fixes all six magnitudes at one. Its phase rigidity and nonaliasing grid transfer overlap, but neither gives the unrestricted constant, the nonflat optimizing ratio, nor the strict order-four excess at that constant. The inspected broader sources do not supply the missing optimization.
+
+## value
+
+PASS
+
+This is the first quadratic simplex in two variables, a natural small test of exact Fourier synthesis bounds. The orbitwise equalization is not a consequence of symmetry alone; the result identifies the nonflat magnitudes that actually win over the phase-only optimum, and resolves all equality cases and the sharp square sampling cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

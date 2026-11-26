@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:55.256806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal halves require 0 or 2 ones. For two, the midpoint must lie between the ones and their separating zero run has (b+j−i)/2 zeros to the left of it; this gives precisely the parity and band conditions, including endpoints. Each pair names a distinct string, and fixing i−j gives the stated interval intersection count. The continuum section length is piecewise linear with slopes 0 or ±1; rounding each cross-section and comparing the spacing-two sum to its integral costs O(n) uniformly. Integrating the clipped triangles gives the stated area. When b≥s/3 the rectangle bound is at most s²/9; when a or c is less than b<s/3 the rectangle bound is strictly below b(s−2b)≤s²/8. With both outer lengths at least b, the area is bs−2b²−|a−c|²/2 for |a−c|≤b, and bs−3b²/2−b|a−c| otherwise; the latter is below s²/10 for b>0, and b=0 has zero area. The unique equality case, rounding, and compactness prove the coefficient and rigidity. For (3k,2k,3k), summing 3k+1−|d| at the allowed even differences gives 4k²+3k+1, then add the unary count. The frozen verification and script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The five-run record proves asymptotic coefficient 1/16 for arbitrary positive lengths of the five runs, and proves an O(n) bound for at most four runs.",
+          "Kociumaka et al. establish unrestricted quadratic order, and Fici–Mignosi–Shallit exhibit a symmetric two-marked word with quadratic order, but neither gives this sharp coefficient."
+        ],
+        "reasoning": "Words with two ones have at most five runs, so the indexed upper bound applies, including degenerate run lengths. Its lower-bound witnesses already have exactly two ones. This is stronger coverage, unlike the earlier unrestricted order estimate.",
+        "searches": [
+          "Resultary five-run threshold for quadratic distinct Abelian-square density",
+          "arXiv:1604.02238, §2 Fact 2.1",
+          "arXiv:1701.00948, §3 Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "2026/11/8/SCOPE-sharp-quadratic-abelian-square-density-at-the-five-run-threshold--8655f359bb67",
+        "2026/10/25/SCOPE-exact-scattered-abelian-square-spectrum-and-cubic-extremizers-fo--0d687c15bbee",
+        "2026/10/26/SCOPE-exact-square-census-for-binary-words-with-two-marked-symbols--4960a7d58af1",
+        "arXiv:1604.02238",
+        "arXiv:1701.00948",
+        "arXiv:1802.04481"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-run proof gives the same continuum band inequality and the unique positive-area equality shape 3/8,1/4,3/8, along with the same explicit maximizing family."
+        ],
+        "reasoning": "Parity sampling of the band gives half its area with O(n) error (one rounding error per row and a Lipschitz section sum). The equality shape therefore gives both directions of the frozen rigidity by compactness and continuity. The exact boundary corrections are mechanical, not an independent substantive remainder. The comparison concerns mathematical implication, not order of discovery.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-quadratic-abelian-square-density-at-the-five-run-threshold--8655f359bb67, Proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-run proof classifies literal factors 0^i1^u0^b1^u0^j, for i,j positive, by |i−j|≤b and i+j+b even.",
+          "The 10/25 scattered Abelian-square result and 10/26 exact two-marked census concern scattered factors and ordinary squares, respectively."
+        ],
+        "reasoning": "For b>0, apply the five-run classification with one-runs of length 1 and ambient outer lengths a+1,c+1. The bijection (i,j)→(i+1,j+1) sends precisely the frozen rectangle of nonnegative endpoint lengths onto the classified rectangle, preserving difference and parity. Counting diagonals and adding unary zeros recovers the exact formula, even if a or c vanishes. For b=0 the two adjacent ones must straddle the midpoint, so i=j (including the factor 11); nonempty outer padding falls under the indexed three-run test.",
+        "searches": [
+          "Resultary two marked symbols / exactly two ones / distinct contiguous Abelian squares",
+          "2026/11/8/SCOPE-sharp-quadratic-abelian-square-density-at-the-five-run-threshold--8655f359bb67, Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A262249 is a finite table for all binary words, not the two-one maximum.",
+          "Simpson's lower bound uses the k,k,2k fixed family, not a classification of two-marked words.",
+          "The indexed five-run formula and its exact 4k²+k count for five-run factors of the 3k,2k,3k witness are explicit."
+        ],
+        "reasoning": "The unrestricted table is not decisive; the indexed symbolic formula is. In the witness, the missing boundary pairs contribute 2k+1 (the two even-coordinate axes, sharing the origin), giving the frozen mixed count. Unary factors then add floor(3k/2).",
+        "searches": [
+          "Resultary indexed two-marked and five-run exact classifications",
+          "OEIS A262249 scope in the five-run record References",
+          "Simpson arXiv:1802.04481, pp. 3–4"
+        ]
+      },
+      "rationale": "A distinct indexed five-run result provides stronger mathematical coverage of the contribution presented for acceptance, including the sharp constant, the equality shape of the band bound, and the witness. Its five-run classification even yields the full mixed formula by a one-unit shift of both endpoint lengths. Its displayed date is later than the frozen record's date; this assessment of demonstrable coverage does not assign historical priority, chronology of discovery, or dependence.",
+      "residual_risks": [
+        "The retrieved indexed comparison establishes coverage, not historical priority. The ranked search did not resolve whether any distinct same-day record also overlaps, and the finite table was assessed from its indexed scope, not used as evidence for theorem priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the asymptotic, equality shape and mixed classification; all other corrections are immediate",
+          "evidence": "Three-run criterion i=j with even middle length; exact five-run band and parity condition; unique band equality shape; same witness with 4k²+k five-run factors.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-quadratic-abelian-square-density-at-the-five-run-threshold--8655f359bb67",
+          "material_read": "Finding; Proof §§1–5, especially offsets 1904–7070; relation and limitations offsets 7300–9193",
+          "method": "Configured Resultary search and local mirror, decisive passages read by offset",
+          "title": "Sharp quadratic Abelian-square density at the five-run threshold",
+          "trigger": "Stronger indexed classification and identical extremal family"
+        },
+        {
+          "assessment": "Quadratic lower order only",
+          "evidence": "Uses equal-length outer and middle runs; no restricted sharp coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.00948",
+          "material_read": "§3 Proposition 1, p. 3, offset 12100",
+          "method": "Lawful OA primary PDF",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "Earlier two-marked lower construction"
+        },
+        {
+          "assessment": "Covers acknowledged asymmetric subfamily only",
+          "evidence": "Uses a^k b a^k b a^(2k) to give a lower bound for the unrestricted maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04481",
+          "material_read": "pp. 3–4, offsets 7000 and 9200",
+          "method": "Lawful OA primary PDF",
+          "title": "Solved and unsolved problems about abelian squares",
+          "trigger": "Exact fixed-subfamily count"
+        },
+        {
+          "assessment": "Unrestricted quadratic order only",
+          "evidence": "Uses the k,k,2k prototype in proving the order result.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.02238",
+          "material_read": "§2 Fact 2.1, p. 3, offset 12248",
+          "method": "Lawful OA primary PDF",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "Potential unrestricted stronger bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp extremal problem and its stability conclusion are scientifically motivated, but the only calculation not explicit in the stronger result is an elementary boundary translation and unary correction. The record does not determine exact restricted maxima or finite maximizers, and the residual elementary count after specialization does not supply a standalone valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

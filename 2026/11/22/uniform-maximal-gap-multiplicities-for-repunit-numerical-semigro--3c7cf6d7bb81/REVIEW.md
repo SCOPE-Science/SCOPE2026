@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The full Apéry formula of Liu–Xin–Ye–Yin, Lemma 3.3, applies to \(a=R_n\), \(d=1\), \(k=n-1\), and yields the exact membership heights. The proof checks the endpoint \(R_n=bR_{n-1}+1\), derives every height jump and its nonjoining terminal-suffix block, and proves every nonzero coefficient in the factorized histogram is \(b\). `CHECKER.py` independently verified 26 parameter pairs, including 8,585 missing-integer blocks and shortest-path Apéry tables. The finite checks are not an infinite certificate.
+## correctness
 
-**Originality: PASS on the inspected evidence, with a material residual risk.** The 2023 primary paper gives Apéry, genus and Frobenius invariants, not a stated run-length polynomial or uniform multiplicity. The 2022/2023 generalized-semisgroup paper does not give this statistic either. The 2015/2016 earliest repunit-semigroup paper is highly relevant; only abstract and metadata were accessible, so an implicit exact spectrum cannot be ruled out. Published isolated-gap results for a unit-shift family are not the same objects; two-generator run-frequency results do not dominate a formula uniform over \(n\)-generator repunit semigroups. Prior Apéry formulas encode the underlying data, but extraction of the gap-run factorization requires the proved jump recurrence; novelty is claimed only for that structural distribution, not for its antecedent Apéry description.
+PASS
 
-**Mathematical value: PASS.** This is a natural, fully classified missing-integer interval statistic for a classic Frobenius family. The statement gives all lengths, an unexpected uniform multiplicity, an explicit product polynomial, sharp endpoint lengths, and the total number of blocks simultaneously across arbitrary base and dimension. It is not a table recomputation, a single finite example or an arbitrary parameter slice.
+The cited Apéry formula applies with d=1, k=n−1 and a=R_n because R_(n+j)=b^j a+R_j and a≥n−2. The key minimization can also be seen directly: b^j=(b−1)R_j+1, so a combination with coin face value r' and coin count c contributes b^n r'+ac. In a fixed residue r, r'>r cannot beat a representation of r with at most r<a≤b^n coins. For fixed face value choose a minimum-coin representation lexicographically maximal from the largest coin down. For any nontop index j, (b+1)R_j=R_(j+1)+bR_(j−1) for j≥2, while (b+1)R_1=R_2. Also bR_j+R_i=R_(j+1)+(R_i−1) for i<j, with R_i−1=bR_(i−1) for i≥2 and zero for i=1. Exchanging never increases the count and improves the lexicographic choice. Thus nontop digits are ≤b, and a digit b has no positive lower digit. Each lower tail then has value at most R_(j+1)−1 through level j, so this representation is greedy. In the residue array 0≤r<R_n, the b regular copies of the smaller staircase have vertically shifted heights tb^(n−1); endpoint differences between copies and at the final residue vanish. All upward jumps are b by induction, starting with q_2(r)=br. A jump at r starts a missing suffix of length R_n−r in precisely b distinct rows, separated by multiples of R_n; monotonicity precludes other maximal blocks. Jump indices have distinct greedy digits with bottom coordinate 1 through b, and complementing digits via (b−1)R_j=R_(j+1)−R_j−1 yields offset n−1, the product, and both extrema. There are exactly b^n blocks; no uniqueness of a longest block is asserted.
 
-The main limitation is the unresolved older 2015/2016 full-text priority comparison; it does not make an existing Apéry formula new. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior papers supply the explicit Apéry set and classical numerical-semigroup invariants, not credited as novel. The supported distinct result is the b-fold histogram and factorized maximal-gap length spectrum. No equivalent spectrum or otherwise directly dominating result was established in the inspected statements.
+
+## value
+
+PASS
+
+The gap lengths refine the known Frobenius number and genus for a natural, well-studied family. The exact multiplicity law and digit factorization reveal a uniform regularity not captured by those statistics; the result is more informative than an endpoint or an isolated finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite rare-region theorem
 
-`verify.py` was run as a standalone standard-library program and reported 25,026 passing assertions. For all binary words of lengths 2 through 12, it directly computes the exact regional sum and checks expectation against the separate analytical interior/boundary run-count formula for three choices of parameters. It also checks zero-time expectation identities, branch formulas for the constrained and unconstrained minima, positivity of the post-threshold gap, and seeded finite samples.
+# Independent mathematical audit
 
-The exact expectation can be independently checked from \(\mathbb E N_{L,m}=p^2(L-m-1)(1-p)^m+2p(1-p)^m\) for \(1\le m<L\), together with the all-lossfree event of probability \((1-p)^L\). No numerical tests have been represented as proof of the asymptotic quenched theorem: the run-count concentration/constructive block arguments and deterministic saddle analysis in RESULT.md are the justification. Numerical convergence can be slow because the asymptotic scale is \(\log L\).
+## correctness
 
-The scope explicitly excludes exact survival of a finite microscopic dissipative quantum chain. All comments and quantities in the standalone program concern only the finite Bernoulli surrogate.
+PASS
+
+For a run of length m<L there are L−m−1 interior starts with two markers (probability p²q^m) and two endpoint starts with one marker (probability pq^m), where q=1−p. The all-free case adds its own q^L term. On windows m≈y log L the expected contribution has cost ay+u/y^β uniformly on compact y-windows; the upper tail is bounded by a constant times Σ_{m>K log L}m q^m=O(log L)L^(−aK), and the short-length tail by L^(−u/δ^β), so there is no loss in taking the unrestricted annealed minimum. For a typical landscape, the longest-run union bound cuts off beyond (ξ+η)log L. Markov's inequality and a union bound over O(log L) lengths give the count upper bound L^[max(1−ay,0)+ε]. This yields cost min(ay,1)+u/y^β over the enlarged interval, tending to the constrained cost as η decreases to zero. Conversely, for fixed y<ξ, disjoint blocks with two lossy markers generate independent distinct maximal runs with expected count of order L^(1−ay)/log L and concentrate above L^(1−ay−ε). These give the lower bound, including the edge by approaching ξ from below. The strict convex minimum has y*=(βu/a)^(1/(β+1)), reaches ξ at u_c=ξ^β/β, and gives the asserted strict post-threshold rate gap and second-derivative jump. Log zero on the all-lossy event is harmless since its probability is p^L.
+
+## originality
+
+PASS
+
+The supported distinct claim is the joint finite-size/time, typical logarithmic rate and its quantitative separation from the annealed rate for the defined Bernoulli surrogate. The continuum annealed saddle and rare-region physics are not new. The strongest inspected actual statements supply the annealed saddle or a longest-run input, not the paired run-count/weighted-survival limits.
+
+## value
+
+PASS
+
+The surrogate is motivated by rare-region relaxation, and the order of the size and time limits matters. The explicit threshold tells when its disorder mean ceases to represent a typical finite sample even at leading log order, and the positive exponent quantifies that failure. This is more informative than an annealed saddle or an estimate on the single longest run alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

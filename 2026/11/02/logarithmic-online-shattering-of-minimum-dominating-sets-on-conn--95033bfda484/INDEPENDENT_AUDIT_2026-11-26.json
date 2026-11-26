@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:37:09.114368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each minimum set has k+1 selected vertices and cyclic gaps ≤3; the one-unit deficit from 3(k+1) forces exactly one 2-gap. Its start determines one of the 3k+2 distinct translates. The pair {0,2} has trace multiplicities 1,k,k,k+1. For any triple appearing together, the arc carrying the 2-gap has length 2 modulo 3; any hypothesis containing its two endpoints must place its 2-gap on that arc. The third point lies in the complementary uniformly spaced arc, forcing one missing trace. The logarithmic adaptive lower bound follows from balanced splitting of the specified threshold restriction, whose modular traces were checked; the eight listed witness shifts give the fixed depth-three tree. The size of the whole class gives the upper bound, and the k=2 root-positive side has only three hypotheses, ruling out depth three. The cardinality and VC bounds give k=1 and the depth-three tree and cardinality give k=3. As a separate check, in cyclic order with step 3 the family becomes all translates of a single length-(k+1) interval. After any root query each side contains a consecutive block of k+1 hypotheses, and on each block translated intervals implement all prefix/suffix cuts, since the unused arc prevents wraparound into that block. This yields 1+floor(log2(k+1)) as a check on the weaker asserted lower bound, with a matching upper bound from the root-positive size. Independent direct domination enumeration and memoized version-space ranks for k=1,…,6 produced class sizes 5,8,11,14,17,20, all VC ranks 2, and online ranks 2,2,3,3,3,3. Replay: python3 /workspace/branches/ebf03e9c-fb18-4ff3-8432-1a49435c9dbc/independent_check.py (0.046 s for the six cases; output beside the script). The shipped script was inspected rather than executed, and C11_TREE.json matches the proof. No finite test is used to establish the infinite bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full three-residue archive gives Φ_{3k+2}(z)=1+(3k+2)z+k(3k+2)z², covering VCdim 2 but disclaiming any Littlestone formula. The same-day inclusion-minimal C11 archive has 44 concepts and dimensions 4 and 5. Daga and Ramu study cyclic switching budgets and arbitrary intervals, and cut the class at a forced zero to reduce to intervals of variable length on a path."
+        ],
+        "reasoning": "The inclusion-minimal class contains but is not the minimum-cardinality class; its dimensions give at most loose upper bounds on the subclass and no lower bounds or first-gap statement for it. General switch budgets do not constrain fixed cardinality and permit label patterns absent here.",
+        "searches": [
+          "Resultary 49796f81cbd6, full three-residue shattering law",
+          "Resultary 84ef6ec729bc, inclusion-minimal cycle gap",
+          "arXiv:2611.28727v1, §4 Lemma 10 and proof of Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_cycle_gamma.py and C11_TREE.json",
+        "Hernández-Gómez et al., DOI 10.3390/sym12122053",
+        "Resultary 49796f81cbd6 and 84ef6ec729bc",
+        "arXiv:2611.28727v1",
+        "Independent direct cycle enumeration and version-space check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known classification supplies the translate family but not balanced adaptive cuts in its version spaces. The proof of Theorem 2 for switch-budget classes uses complementation of the full class; complementation changes length from k+1 to 2k+1 for the frozen family. The original supplies an explicit threshold embedding and a uniform depth-three witness and obstructs depth three for C8."
+        ],
+        "reasoning": "The static formula and class size do not yield an online lower bound, and the larger interval/switching class does not supply the special split-tree witnesses by substitution. The proved graph-specific separation and small boundary are distinct from the known underlying domination classification and standard threshold fact.",
+        "searches": [
+          "Hernández-Gómez et al., Lemma 5 and the n-set bijection",
+          "Resultary 49796f81cbd6 Finding and Limitations",
+          "arXiv:2611.28727v1, Lemma 10 and Theorem 2 argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum dominating sets have unique 2-gap and size k+1. Multiplication by the inverse of 3 modulo 3k+2 sends P_k to consecutive residues: −P_k={0,3,…,3k} modulo n. Thus the learning problem is equivalent to translates of one fixed-length circular interval, not to unrestricted intervals."
+        ],
+        "reasoning": "Relabeling points preserves both dimensions. Finite threshold classes are a known source of a gap, but the graph family is the full optimum domination class and thresholds constitute only a restriction or branch thereof. A bound derived for all intervals of all lengths need not hold sharply for equal-length translates.",
+        "searches": [
+          "Resultary: cycle domination, VC, Littlestone, minimum and inclusion-minimal, C11",
+          "Littlestone dimension fixed-length circular intervals cyclic translates equal length mistake tree thresholds online learning minimum dominating sets cycle",
+          "Hernández-Gómez et al., Symmetry 12 (2020) 2053, §2.1.2 Lemma 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cycle paper already counts n members at n≡2 mod 3. The VC polynomial archive covers the static rank. The exact published-archive adaptive numbers found for C11 are for the larger 44-member inclusion-minimal class, not the 11-member optimum class."
+        ],
+        "reasoning": "The exact invariant depends on which hypotheses remain in each branch of a query. No inspected exact table for the matching minimum-cardinality class gave the first adaptive gap or the unbounded online growth.",
+        "searches": [
+          "Resultary exact C11 minimum versus inclusion-minimal shattering entries 49796f81cbd6 and 84ef6ec729bc",
+          "Hernández-Gómez et al., §2.1.2, cycle enumeration"
+        ]
+      },
+      "rationale": "The cycle domination enumeration is prior work and the static dimension is also covered by a distinct archive entry with a stronger VC support polynomial. The supported contribution is the quantitative online separation, including its first occurrence in this residue class. The closest domination/online archive hit is for all inclusion-minimal dominating sets, not the minimum-cardinality concepts. The strongest interval comparison inspected concerns unrestricted lengths or switch counts, not the fixed-length translate class. Best of available evidence; no priority claim for general thresholds, cardinality bounds, or the static enumeration.",
+      "residual_risks": [
+        "A fixed-length circular-interval theorem under another formulation could imply these graph dimensions via the modular relabeling. The inspected interval theorem uses all lengths, and a bounded search does not settle the former possibility.",
+        "Catalogue dates do not establish order of discovery; the static claim is not credited as novel on the basis of date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior class classification and count; not the reviewed adaptive invariant",
+          "evidence": [
+            "Cycle order 3m−1 gives minimum dominating sets in vertex bijection; substitute m=k+1."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+          "material_read": "§2.1.2, Lemma 5 and following enumeration, PDF pp. 9–10, extracted offsets about 21794 and 26760",
+          "method": "Lawful OA alternate PDF at https://pdfs.semanticscholar.org/1f7f/b0067f511d852f271bae96b019d88df39657.pdf after publisher access error",
+          "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+          "trigger": "Exact cycle class and n-set count"
+        },
+        {
+          "assessment": "Material static overlap; no online claim in scope",
+          "evidence": [
+            "Exact shattering polynomial for residue 2 and an explicit disclaimer of Littlestone results."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-minimum-domination-on-cycles-the-full-three-residue-shattering-l--49796f81cbd6",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and Limitations around 12250",
+          "method": "Local mirror full-text passages",
+          "title": "Minimum domination on cycles: the full three-residue shattering law",
+          "trigger": "Exact same minimum domination concept class and static dimension"
+        },
+        {
+          "assessment": "Different hypothesis class",
+          "evidence": [
+            "44 inclusion-minimal sets, with VC 4 and Ldim 5, not the 11 minimum-cardinality sets with VC 2 and Ldim 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "The first minimal-domination cycle gap: complete five-query traces",
+          "trigger": "Same C11 and adaptive-versus-static title and scope risk"
+        },
+        {
+          "assessment": "Variable-length intervals/switch-budget classes, not fixed-length translates",
+          "evidence": [
+            "Lemma 10 translates the class with a forced zero and at most 2j cyclic switches to unions of up to j intervals on a path, with no fixed length. The proof uses the symmetry under complement of the unrestricted cyclic switching family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.28727v1",
+          "material_read": "Abstract offset 0–3040; §4 Lemma 10 and beginning of Theorem 2 proof offset 38064–40363",
+          "method": "OA arXiv HTML full-text passages",
+          "title": "How many mistakes does it take to learn an interval? Exact Littlestone dimensions of intervals and their unions",
+          "trigger": "Equivalent cyclic interval geometry and exact adaptive complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result realizes unbounded adaptive/static separation within the full family of optimum solutions on connected vertex-transitive graphs of fixed degree two. The separation is not obtained by arbitrarily declaring a subclass of hypotheses; the graph fixes all concepts. Quantitative growth and the exact first boundary at C11 distinguish this from the generic observation that threshold classes can have a large online rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

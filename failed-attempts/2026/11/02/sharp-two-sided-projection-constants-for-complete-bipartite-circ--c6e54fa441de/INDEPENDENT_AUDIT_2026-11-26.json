@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:33:47.428960Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Permutation averaging preserves the range and fixes every circulation, and by convexity cannot increase either norm. The four stabilizer orbits of an edge leave only one scalar after the row and column constraints, and fixing a nonzero four-cycle fixes that scalar, so the average is Q. The all-p tensor norm follows by acting on separate fibers and testing on a rank-one matrix made of norming vectors, including p=1 and infinity. Writing α=(m−1)(n−1)/(mn), the diagonal and each of the three off-diagonal absolute blocks of a column contribute α to Q; the complement contributes 1−α on the diagonal and 3α off it. Symmetry gives the row sums, and the tie is exactly (m−2)(n−2)=2 at the two endpoint exponents. At p=2 both projections are nonzero orthogonal projections. The source script was inspected, not executed; finite tests are not needed for these universal arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4fee91105690, RESULT.md Finding offsets 0–2448, states all row/column-permutation-invariant norms, arbitrary shore sizes and both real and complex fields.",
+          "Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582v1, p. 1 abstract, names discrete tori and Hamming graphs as its main focus.",
+          "2026/11/2/SCOPE-sharp-two-sided-projection-constants-for-balanced-complete-multi--0ddb732c660c, catalogue summary: balanced graphs with at least three parts and entrywise ℓ1."
+        ],
+        "reasoning": "Every entrywise ℓp is in the earlier biclique theorem's stated norm class. The other multipartite record does not subsume this two-part class; the paper abstract is not a whole-paper exclusion.",
+        "searches": [
+          "invariant projections cycle spaces complete bipartite graphs bicliques",
+          "simultaneous minimization projection and complementary projection norms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–75",
+        "Frozen VERIFICATION.md and verify_projection.py (inspection only)",
+        "Resultary 4fee91105690 primary Finding offsets 0–2448; 6d849c3a6bbb, 0ddb732c660c, 455756fd66a8 indexed statements",
+        "arXiv:2305.12582v1, p. 1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorem expressly gives λ_p(Z)=||H_m||_{p→p}||H_n||_{p→p} for every 1≤p≤∞, with H_s the same centering matrix.",
+          "The complement P_B is the symmetric map I−Q; the cut optimum applies also at the conjugate exponent p′."
+        ],
+        "reasoning": "For each projection P onto Z, (I−P)* projects onto B and ||I−P||_{p→p}=||(I−P)*||_{p′→p′}≥||P_B||_{p′→p′}=||I−Q||_{p→p}; Q attains it. The p=2 and large-biclique limit statements are immediate from the already stated optimum and formulas.",
+        "searches": [
+          "4fee91105690, RESULT.md Finding offsets 0–2448",
+          "arXiv:2305.12582v1, p. 1 abstract",
+          "Frozen RESULT.md, proof steps 3–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-symmetry-optimal-biclique-projections-and-the-exceptional-unique--4fee91105690, RESULT.md Finding offsets 0–2448: double centering and its complement are optimal cycle/cut projections on every biclique in permutation-invariant norms.",
+          "2026/10/18/SCOPE-optimal-interaction-projections-on-weighted-hamming-rectangles--6d849c3a6bbb, catalogue summary: weighted Hamming-rectangle geometry, not these entrywise edge norms."
+        ],
+        "reasoning": "With the Euclidean pairing the cut space is the annihilator of the circulation space; P↦(I−P)* is a bijection from projections onto the latter to projections onto the former in the dual norm. The earlier cycle/cut formulation therefore covers the two minimizations.",
+        "searches": [
+          "complete bipartite circulation subspace projection norm complementary projection norm",
+          "zero row and column sum matrices minimal projection norm double centering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4fee91105690, Finding offsets 0–2448, gives cycle constant 4(m−1)(n−1)/(mn), cut constant 3−2/m−2/n+2/(mn) for ℓ1 and ℓ∞, their gap ((m−2)(n−2)−2)/(mn), and both ordered ties."
+        ],
+        "reasoning": "These are the same exact formulas: 3−2/m−2/n+2/(mn)=1+2(m−1)(n−1)/(mn). The equality cases are explicitly stated there.",
+        "searches": [
+          "complete bipartite circulation subspace projection norm complementary projection norm",
+          "zero row and column sum matrices minimal projection norm double centering"
+        ]
+      },
+      "rationale": "The earlier biclique record's Finding explicitly gives double-centering optima on both cycle and cut spaces for all row/column-permutation-invariant norms, both exact endpoint constants and ordered ties, and the all-p tensor product identity. Taking adjoints converts its cut-space relative projection minimum into exactly this record's I−P minimum. This is full mathematical coverage of the frozen finding, not an inference from its title or an access failure.",
+      "residual_risks": [
+        "This decision compares the earlier record's stated mathematical results and does not audit its separate optimizer-uniqueness theorem.",
+        "The cited arXiv:1807.03814v1 §5.1 boundary case was not independently read in full; the finding does not depend on that case for the originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering by the stated theorem and its dual interpretation",
+          "evidence": "All bicliques and all row/column-invariant norms, both endpoint constants and their exact comparison, and arbitrary-p tensorization are stated; an additional ℓ1 uniqueness theorem is beyond the frozen claim.",
+          "identifier_or_url": "2026/10/26/SCOPE-symmetry-optimal-biclique-projections-and-the-exceptional-unique--4fee91105690",
+          "material_read": "RESULT.md Finding offsets 0–2448: universal minimax assertion, explicit ℓ1 and ℓ∞ constants, tie and sign, and tensorization identity",
+          "method": "Local Resultary search and bounded primary local-mirror passage",
+          "title": "Symmetry-optimal biclique projections and the exceptional uniqueness of the square",
+          "trigger": "Same object, optimizer, norm class, and endpoint crossover"
+        },
+        {
+          "assessment": "Framework overlap; full coverage not determined from the abstract",
+          "evidence": "States main focus is discrete tori and Hamming graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582v1",
+          "material_read": "Page 1, abstract",
+          "method": "Bounded primary text retrieval",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Primary invariant-projection precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The simultaneous optimum and crossover are natural graph invariants, but the optimizer, constants, crossover, and tensorization are already documented. Restating the cut-space minimum via adjoints introduces no distinct invariant or extension.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:17.230391Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to the complete corrected /workspace/repairs/2/RESULT.md. In the frozen proof, line 22 allows b=t when t is nonzero and a≠t in characteristic two; this gives c=a, contrary to the asserted pairwise distinctness (e.g. t=1, b=1, a independent of 1 over F2 in F8). The repaired proof also excludes t, leaving at most four forbidden choices for q≥8; it verifies each distinctness constraint. The Finding and hypotheses are unchanged. I checked the other branches: coprimality with the unit group order makes every unit a d-th power; any nonunit base has d-th power zero at m≤d. The odd-field argument avoids all five bad choices, and three distinct nonzero residues lift by solving for the third unit. At q=5 the field omits zero, but the residue pattern (1,1,3) covers that fiber at m≥2; at q=4 the field covers only zero, while (a,a,t) with a≠t and distinct lifts supplies the nonzero fibers. At q=3,m=2 the only candidates for zero are three units from one residue class (no nonzero nonunit powers); these total 3 or 6 modulo nine. This necessity step is clarified in the repair. At m≥3 the same-residue construction avoids 0,z,z/2 in an ideal of size at least 9; the other target residues use two distinct lifts of the repeated residue. At q=2 parity forbids even targets at m≤d. At m>d the nonzero even value 2^d and two distinct odd values cover every even target, with choices 1 and 3 for the first odd value never both colliding. The three-odd construction covers all odd targets, including the two exceptional residues 5 and 7 where the indicated replacements are distinct modulo 2^m≥16. In F5 the pair sums cover all five residues, unlike the triple sums. Inspected the frozen checker without executing it; separate bounded checks validated the repaired XOR construction for every allowed t,a,b in F8, the mod 9 and mod 27 thresholds at d=5, and the m=d versus m=d+1 binary thresholds at d=3,5,7. These corroborate only finite cases; the repaired proof supplies the universal statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu's Theorem 7 gives explicit sufficient positivity via relative-error upper bounds with m,d,n fixed, and Theorem 9 addresses asymptotic relative equidistribution.",
+          "Appendix A documents Ding–Zhou's length-two odd-characteristic bounds and exact image/sieve machinery."
+        ],
+        "reasoning": "The inspected asymptotic/bound statements do not yield the necessary and sufficient small-q transition across all lengths; in particular the binary m>d case is outside the documented length-two odd-characteristic comparison. The counting formulas are genuine broader tools and may already recover individual cases.",
+        "searches": [
+          "arXiv:2610.28837v1 Theorems 7 and 9, Appendix A",
+          "DOIs 10.1016/j.jnt.2019.05.004 and 10.1016/j.jnt.2023.05.003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected /workspace/repairs/2/RESULT.md",
+        "arXiv:2610.28837v1 and arXiv:0708.2456",
+        "Ding–Zhou DOI metadata and Gu Appendix A's attributed results",
+        "SCOPE 7a4111089730"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The field theorem already yields both large-field coverage patterns and the m=1 failures; the positive large-field patterns also lift once all units are known to be powers.",
+          "Gu's finite positivity condition (30) is only sufficient. Appendix A attributes exact image/sieve formulas to Ding–Zhou, which may already give part of the length-two classification upon specialization."
+        ],
+        "reasoning": "Computability of the counts from a prior general sieve is not itself a uniform characterization of precisely when each count is positive. The checked distinct contribution is the resolution of the unresolved small-field cases together, including the parity obstruction for all m≤d and its sharp disappearance when the even power enters. No novelty credit is assigned to the known field cases or their direct large-field lifts.",
+        "searches": [
+          "Li–Wan Theorem 1.2 at k=3",
+          "Gu Theorem 7 and Appendices A–B",
+          "Ding–Zhou 2019 Theorems 3.2/6.1, 2023 Theorem 5.11 and Corollary 5.12 as described in Gu Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu studies the identical power-value set and the same subset-sum counting problem, rather than tuples of distinct bases.",
+          "SCOPE 7a4111089730 gives exact distinct-pair coverage, including the F5 pair boundary."
+        ],
+        "reasoning": "The general counting problem is the same, so any distinctness here is the finite positivity classification. Exact two-term coverage does not imply three-term coverage; F5 is a direct obstruction to that inference.",
+        "searches": [
+          "Resultary: distinct power-value additive coverage over index-one Galois rings",
+          "arXiv:2610.28837v1, distinct n-subset sums of nonzero power values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li–Wan's exact count for k-subsets of the nonzero field elements, also reproduced by Gu, settles the m=1 cases on setting k=3.",
+          "The inspected catalogue hit 7a4111089730 concerns two terms, not a table of exact triple positivity across lengths."
+        ],
+        "reasoning": "Credit the prior exact length-one classification and the known pair result. Neither table/formula alone records how the missing target fibers change for m>1, in particular when nonunit values appear. Shared catalogue dates do not decide priority.",
+        "searches": [
+          "arXiv:0708.2456 Theorem 1.2",
+          "arXiv:2610.28837v1 Appendix B Proposition 11",
+          "Resultary exact distinct power-value coverage"
+        ]
+      },
+      "rationale": "Re-audited the unchanged claim in the corrected manuscript. The remaining contribution is the exact all-length all-target positivity classification in the index-one regime, including small-field lifting thresholds and the binary nonunit transition. The length-one classification follows from prior exact counts and is credited. Neither a new counting framework nor priority for the individual field cases is asserted.",
+      "residual_risks": [
+        "Publisher full text for Ding–Zhou 2019 and 2023 was not available through the attempted lawful routes. Their exact formulas may imply additional finite length-two instances; neither absence nor priority is certified.",
+        "The field cases and direct large-field lifts are already implied by prior exact counts and unit power structure; the distinct contribution is narrower than the full displayed parameter table taken without qualification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count framework and finite sufficient bounds overlap, not the full explicit necessary and sufficient threshold in inspected statements.",
+          "evidence": [
+            "Theorem 7 assumes q^m≥4gn and certifies positivity when D_(m,g,n) q^(−γ)<1; the m,d,n asymptotic statements are fixed-parameter in q.",
+            "Appendix B reproduces the exact nonzero-field subset count."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.28837v1",
+          "material_read": "Introduction offsets 2500–7000; Theorem 7 near 36100; Theorem 9 near 39300–43595; Appendices A–B near 43900–52199",
+          "method": "Targeted primary OA HTML reading",
+          "title": "Subset sums of power values over Galois rings",
+          "trigger": "Same Galois-ring power-value subsets, including index one and size three"
+        },
+        {
+          "assessment": "Direct coverage of the field threshold at k=3.",
+          "evidence": [
+            "Gives the distinct k-subset counts separately for zero and nonzero target in F_q^×."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0708.2456",
+          "material_read": "Theorem 1.2 near offset 5300",
+          "method": "Targeted primary OA HTML reading",
+          "title": "On the subset sum problem over finite fields",
+          "trigger": "Exact prior count on the m=1 power-value set"
+        },
+        {
+          "assessment": "Relevant partial coverage; exact finite threshold overlap unresolved.",
+          "evidence": [
+            "Appendix A extracts all-target asymptotic bounds for p∤n in the relevant length-two comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2019.05.004",
+          "material_read": "DOI/publisher metadata; Gu Appendix A on Theorem 6.1 (pp. 166–167) and Theorem 3.2 proof (pp. 158–159); primary full text not obtained",
+          "method": "Lawful DOI/publisher and PDF attempts (unavailable), followed by inspected OA secondary attribution",
+          "title": "Subset sums over Galois rings",
+          "trigger": "Potential exact earlier overlap at m=2 in odd characteristic"
+        },
+        {
+          "assessment": "Substantial formula-level antecedent; no claim of having ruled out coverage of individual threshold cases.",
+          "evidence": [
+            "Gu specializes the formulas to the length-two odd-characteristic setting to obtain a coefficient majorant and asymptotic rates, including p dividing the subset size."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2023.05.003",
+          "material_read": "DOI/publisher metadata; Gu Appendix A on Theorem 5.11, Corollary 5.12 and equations (5.1)–(5.5); primary full text not obtained",
+          "method": "Lawful DOI/publisher and PDF attempts (unavailable), followed by inspected OA secondary attribution",
+          "title": "Subset sums over Galois rings II",
+          "trigger": "Potential exact prior image/counting formula covering special cases"
+        },
+        {
+          "assessment": "Exact distinct-pair result, not a three-term theorem; same-day priority not inferred.",
+          "evidence": [
+            "Its pair coverage is compatible with pair sums filling F5 even though triple sums omit zero."
+          ],
+          "identifier_or_url": "SCOPE 7a4111089730",
+          "material_read": "RESULT.md Finding near offset 250",
+          "method": "Published record via local mirror",
+          "title": "Exact pair counts and sharp additive coverage for power values",
+          "trigger": "Closest indexed exact threshold, in the same additive setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For fixed subset size three and the natural full-unit power-image regime, the table answers exactly when every target can be represented. It identifies where lifting distinct values within the same residue fiber is essential, where the zero target is a real obstruction, and where nonunit powers first change coverage. Those mechanisms give information not supplied by asymptotic equidistribution, the field-only answer, or direct enumeration at a few lengths. The proof correction leaves these conclusions and motivations unchanged.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:21:55.358535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary promoter covariance is p(1−p)e^(−s|t|). Conditional on its path, the stationary count is driven by a Poisson immigration process with survival e^(−δu); the conditional mean is the stable exponential convolution of kG. At two times the covariance is the mean shared-survivor term nbar e^(−δ|t|) plus the covariance of those conditional means. This yields the stated positive continuous spectrum and V=nbar+c/δ; solving γ′=−δγ+c e^(−st) for t≥0 gives the stated two-exponential or confluent lag. Sampling aliases a strictly positive spectrum, and independent observation noise adds a constant. The periodized covariance is its evaluation at the Fourier grid, so both the circulant and the original finite Toeplitz block are strictly positive even when an exponential coefficient is negative and σ=0. The geometric wrap gives the explicit two-column correction for each exponential. Four distinct bases give independent columns by the first four Vandermonde rows; at resonance differentiation adds the two polynomial times exponential columns and the first four confluent rows are independent. The two exchange blocks in the distinct case are invertible unless A=0 (B never vanishes); in the resonant case the cross-block determinant is −K² before scaling, so the four-column form is nonsingular. A=0 requires δ>s and k=(δ²−s²)/(s(1−p)), in particular the stated example. With full column rank, UHUᵀ has exactly the rank of H. The real Gaussian determinant/solve formulas apply to the covariance-matched surrogate and cost O(m log m); they do not give the true count likelihood or treat conjugate Fourier bins as independent circular Gaussians. Independent reproduction: python3 /workspace/checks/2.py (SymPy), output /workspace/checks/2.out. Exact entrywise periodization and ranks 4,2,4 were checked at m=4,5,8, including distinct and exceptional examples at actual model rates and a rational confluent kernel. Geometric phase summation by signed lag independently gives the illustrative relative cross-bin covariance 0.0053053655796. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Subba Rao–Yang gives a general exact inverse Toeplitz identity using out-of-window linear predictors; the displayed rank theorem is for pure autoregressive spectra. The paper discusses ARMA under approximation bounds in another section. Geoga's (1.4) has an approximation sign and its factors are assembled by randomized low-rank methods.",
+          "Fang et al. estimates a diagonal Fourier covariance via simulation in a Gaussian surrogate. The identified algorithm passage does not give the full exact stationary covariance.",
+          "A rational positive discrete spectrum also admits a fixed-order Gaussian ARMA/state-space route, with linear-time likelihood evaluation at fixed order, rather than constituting an asymptotic speed advantage for the FFT algorithm."
+        ],
+        "reasoning": "The use of the true Whittle diagonal and frequency-domain correction is standard, and prior exact representations cover the underlying operation in general. What needs a separate model analysis here is which lag modes survive, the rank of the actual correction at all specified parameters, and its explicit factors including the repeated mode. A general predictor identity or rational-spectrum state-space construction is not by itself a sharp rank classification.",
+        "searches": [
+          "arXiv:2404.16583, exact versus numerical correction; §1.2 and §5",
+          "Subba Rao Yang Reconciling the Gaussian and Whittle likelihood frequency domain arxiv exact ARMA finite sample low rank covariance matrix; Toeplitz periodization rank ARMA circulant",
+          "arXiv:2001.06966 Theorem 2.1, Corollary 2.1 and Theorem 2.3",
+          "arXiv:2611.07684v1 §3 and Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.16583",
+        "arXiv:2001.06966",
+        "arXiv:2611.07684v1",
+        "Resultary: 120f5c07b3b8; 6066d9b025f2 (summary/access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding two one-mode boundary identities gives a rank-at-most-four bound, but exact rank requires independence of the active columns, and on resonance the distinct-root expression is singular as a parametrization. The confluent correction has an invertible off-diagonal 2×2 coefficient block involving K>0, whereas loss of A at distinct rates removes a pair of columns.",
+          "The closest prior AR(p) rank theorem can cover a pure-AR subcase, including a repeated root if that spectrum is pure AR, but not the general non-AR parameter case. The positivity and explicit correction here refer to this specific true stationary covariance and its genuine periodization, not to a choice of arbitrary approximating circulant."
+        ],
+        "reasoning": "Neither the prior numerical low-rank result nor the model paper's diagonal approximation encodes the exceptional cancellation surface or establishes exact rank at coalescence for this family. The rank proof goes beyond invoking a fast linear-algebra identity, though its component tools are classical.",
+        "searches": [
+          "arXiv:2001.06966 Corollary 2.1 Eq. (2.9) and Theorem 2.3 Eq. (2.16)",
+          "arXiv:2404.16583 §1.2 and §5",
+          "arXiv:2611.07684v1 §3 and Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Whittle diagonal of the genuine discrete spectrum at Fourier frequencies is exactly the unitary diagonalization of the covariance periodization. Geoga uses this same diagonal in (1.4), calling its correction numerically low-rank. Its S1 covariance is a single exponential and the example's rank-2 approximation is an immediate exact boundary rank in that one-mode algebraic setting.",
+          "For positive C and P, C⁻¹−P⁻¹=−C⁻¹(C−P)P⁻¹, so an exact-rank theorem about a Whittle precision correction using inverse spectrum samples would count as equivalent rank evidence. Subba Rao–Yang gives rank 2p for the predictive DFT of pure AR(p), hence the corresponding exact covariance rank by this identity."
+        ],
+        "reasoning": "The different transforms and covariance-versus-precision descriptions must not be mistaken for novelty. In particular the isolated exponential residual is prior algebra, and the rank-2 example at cancellation is that prior special case once cancellation is known. The general two-rate model is not a pure AR(2) family: an arbitrary pair of weights does not satisfy γ(1)=(r+u)γ(0)/(1+ru), the pure AR(2) constraint for those roots, and observation noise only changes lag zero.",
+        "searches": [
+          "Resultary: exact periodization and sharp rank of Fourier covariance for sampled stationary two-state telegraph transcription",
+          "arXiv:2404.16583 §1.2 Eq. (1.4) and §5 S1 example",
+          "arXiv:2001.06966 Corollary 2.1 Eq. (2.9), Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct AR(1) record's actual finding gives parity-separated diagonal-plus-rank-one blocks for the covariance inverse in a DCT basis, not the two-mode telegraph periodization. The same-day boundary-commutator entry is an algebraically plausible neighbor; its catalogue summary points to a commutator of exponential convolution smoothers but the local original was not available, so this is not a statement-level exclusion. The assigned record itself was excluded as corroboration."
+        ],
+        "reasoning": "The inspected DCT record does not cover two active modes or the resonant correction on the stationary telegraph covariance. There is no inspected catalogued formula directly providing the full 4/2/4 classification. The missing same-day original remains a comparison limitation, not evidence of priority or noncoverage.",
+        "searches": [
+          "Resultary: exact stationary telegraph covariance, diagonal plus rank four, resonance and cancellation",
+          "2026/9/18/SCOPE-all-order-ar1-klt-fixed-dct-factorization--120f5c07b3b8",
+          "2026/11/22/SCOPE-boundary-induced-rank-four-and-two-spectral-scales-for-exponential-convolution-commutators--6066d9b025f2 (local mirror access attempted)"
+        ]
+      },
+      "rationale": "Restricted to the explicit exact modally resolved covariance correction for the stationary telegraph model at all the stated rates: the exact rank and positive periodized baseline, with cancellation and the confluent equal-rate case. Neither Fourier/Whittle correction, the one-mode boundary identity, nor exact or fast Gaussian surrogate likelihood in itself is original. Exact prior finite-window Whittle identities and exact ranks for pure autoregressions are substantial overlap; their rank theorem does not cover this entire covariance family, including arbitrary additive noise. The general exact identity does not state a sharp rank or an explicit finite correction for the two-exponential/confluent mixture. In the inspected model and Fourier references there was no stronger rank theorem mechanically providing the full classification. This assessment is bounded, not a priority guarantee.",
+      "residual_risks": [
+        "An earlier exact periodized covariance rank theorem for general rational-spectrum or exponential-polynomial kernels could cover this model-specific result. The distinct same-day boundary commutator was not fully readable; no date-based priority ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General numerical low-rank approximation and one-mode antecedent; not the stated sharp telegraph-mixture classification",
+          "evidence": [
+            "Eq. (1.4) is FΣFᴴ≈D+UVᴴ, with D the sampled spectral diagonal. The S1 example has covariance proportional to θ₂^k in nonnegative lag and reports 14+ digits from a rank-2 approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.16583",
+          "material_read": "Abstract p. 1; §1.2 Eq. (1.4), p. 4, OA offset 14900; §5 spectral densities and numerical results, offsets 64750 and 67100",
+          "method": "Primary OA PDF; decisive formula and example passages read by offset",
+          "title": "Fast Machine-Precision Spectral Likelihoods for Stationary Time Series",
+          "trigger": "Same sampled-spectral diagonal and low-rank correction, including single-exponential example"
+        },
+        {
+          "assessment": "Exact general transform of inverse Toeplitz, sharp rank result under the pure AR(p) spectrum hypothesis, not an exact rank theorem for this general ARMA-type mixture",
+          "evidence": [
+            "The inverse correction is F*Δ(f⁻¹)D_n(f), where D_n consists of predictive DFT coefficients. Theorem 2.3 gives rank 2p for n≥2p when f=σ²|φ_p|⁻², a stronger input restriction than positivity of a general rational spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06966",
+          "material_read": "Corollary 2.1 Eq. (2.9), p. 8, OA offset 26000; Theorem 2.3 and Eq. (2.16), pp. 11–12, offset 36500; ARMA scope located separately",
+          "method": "Primary OA PDF; bounded passage comparison and rank equivalence via an invertible left/right multiplication",
+          "title": "Reconciling the Gaussian and Whittle likelihood with an application to estimation in the frequency domain",
+          "trigger": "Plausible stronger exact finite-window covariance/precision correction via Fourier duality"
+        },
+        {
+          "assessment": "Numerical approximate Gaussianity and simulation-based diagonal covariance, not an exact stationary correction",
+          "evidence": [
+            "The algorithm uses a diagonal estimate and numerical Gaussianity, not the derived stationary finite-window rank law. Initialization details outside the inspected passages were not verified and are not needed for this scope comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.07684v1",
+          "material_read": "Abstract p. 1, §3 p. 3 (OA offset about 20300), Algorithm 1 p. 4 (about 24800)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Accelerating reaction network identification via frequency-domain analysis",
+          "trigger": "Same telegraph model and a Fourier Gaussian-surrogate likelihood"
+        },
+        {
+          "assessment": "Exact special kernel but covariance inverse in a DCT basis",
+          "evidence": [
+            "Parity-separated diagonal-plus-rank-one blocks for AR(1); neither a telegraph mixture nor a rank statement about its resonant periodization."
+          ],
+          "identifier_or_url": "2026/9/18/SCOPE-all-order-ar1-klt-fixed-dct-factorization--120f5c07b3b8",
+          "material_read": "Original RESULT.md finding",
+          "method": "Resultary then local primary mirror",
+          "title": "All-order AR(1) KLT fixed DCT factorization",
+          "trigger": "Closest inspected exact transformed covariance structure from the catalogue"
+        },
+        {
+          "assessment": "Materially related by summary; exact scope comparison unresolved",
+          "evidence": [
+            "Summary refers to a commutator of finite exponential convolution smoothers. No independent exact theorem passage was available."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-boundary-induced-rank-four-and-two-spectral-scales-for-exponential-convolution-commutators--6066d9b025f2",
+          "material_read": "Catalogue summary only; exact primary RESULT.md missing from local mirror",
+          "method": "Resultary and targeted local-mirror attempts",
+          "title": "Boundary-induced rank four and two spectral scales for exponential convolution commutators",
+          "trigger": "Same-day rank-four boundary structure for exponential kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating procedure uses a diagonal covariance on a Fourier grid. The exact finite-window correction identifies a concrete off-diagonal effect that persists at the equal relaxation rates used in the numerical example, quantifies its dimension independent of sample count, and specifies when one lag mode and only its corresponding rank pair disappear. That exact finite-frequency information is useful in its own right; evaluating a Gaussian surrogate by an FFT and a small solve is a use of the structure, not a claim of a speed record against Kalman filtering or improved inference for the non-Gaussian transcription data. The result does not address transient initialization or numerical stability arbitrarily near resonance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

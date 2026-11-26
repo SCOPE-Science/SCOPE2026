@@ -34,14 +34,15 @@ For \(\nu\) outside this open interval every law in that moment class has \(D\le
 \]
 In the explicit moment class \(\mu=12/25\), \(\nu=9/25\), the two extremizing laws have hard-contest biases \(2/25\) and \(-11/65\), respectively. For every \(\lambda>75\), the *same two focal laws* therefore have strictly opposite noisy-contest biases despite identical first two moments and a mean smaller than the rival mean. This robustness statement makes no claim that the hard-contest extremizers remain exact optimizers for finite \(\lambda\).
 
-**Finite-population consequences.** For every community size \(J\ge2\), and initial focal count \(1\le k<J\), the no-immigration fixation probability increases strictly with \(D\) and is exactly
+**Finite-population consequences.** For every community size \(J\ge2\), initial focal count \(1\le k<J\), and decisive-encounter probability \(0<c\le1\), the no-immigration fixation probability increases strictly with \(D\) on \([-1,1]\) and is exactly
 \[
 u_{J,k}(D)=\begin{cases}
-\dfrac{1-\bigl((1-D)/(1+D)\bigr)^k}{1-\bigl((1-D)/(1+D)\bigr)^J},&D\ne0,\\[4pt]
+0,&D=-1,\\[4pt]
+\dfrac{1-\bigl((1-D)/(1+D)\bigr)^k}{1-\bigl((1-D)/(1+D)\bigr)^J},&-1<D\le1,\ D\ne0,\\[4pt]
  k/J,&D=0.
 \end{cases}
 \]
-Here \(u_{J,k}\) is the fixation function and \(\nu\) remains the second ability moment. Thus the same two extremizing ability distributions simultaneously bound fixation for *every* community size and initial count.
+Here \(u_{J,k}\) is the fixation function and \(\nu\) remains the second ability moment. Thus the same two extremizing ability distributions simultaneously bound fixation for *every* community size and initial count. If \(c=0\) and there is no immigration, the count stays at its initial value, so fixation from an interior count is impossible for every \(D\).
 
 With immigration probability \(0<m<1\), metacommunity focal fraction \(0<\pi<1\), and encounter probability \(0<c\le1\), the exact finite-chain stationary abundance distribution also increases **strictly in monotone likelihood-ratio order** as \(D\) increases. Consequently those same endpoint laws simultaneously attain the smallest and largest stationary expectations for every nonconstant increasing function of focal abundance and the sharp upper/lower tails for every nontrivial abundance threshold. This is an exact finite-state result, not a diffusion approximation.
 
@@ -53,7 +54,7 @@ The focal ability distribution is allowed to have atoms. If one restricts a prio
 
 ## Proof
 
-**1. From noisy competition to a third-moment bias.** As \(\lambda	o\infty\), the inverse-logit \(\sigma_\lambda(X-Y)\) converges almost surely to \(\mathbf 1_{\{X>Y\}}\), because the continuous opponent ability law eliminates ties; dominated convergence establishes the hard-contest limit. The competitor's cumulative distribution is \(F(y)=3y^2-2y^3\). Its continuity eliminates ties. Conditioning on the focal draw gives \(W=\mathbb EF(X)=3\nu-2\mathbb EX^3\) and \(D=2W-1=6\nu-4\mathbb EX^3-1\).
+**1. From noisy competition to a third-moment bias.** As \(\lambda\to\infty\), the inverse-logit \(\sigma_\lambda(X-Y)\) converges almost surely to \(\mathbf 1_{\{X>Y\}}\), because the continuous opponent ability law eliminates ties; dominated convergence establishes the hard-contest limit. The competitor's cumulative distribution is \(F(y)=3y^2-2y^3\). Its continuity eliminates ties. Conditioning on the focal draw gives \(W=\mathbb EF(X)=3\nu-2\mathbb EX^3\) and \(D=2W-1=6\nu-4\mathbb EX^3-1\).
 
 **2. Exactly sharp third-moment bounds.** Cauchy–Schwarz applied to \(X^{3/2}\) and \(X^{1/2}\) gives \((\mathbb EX^2)^2\le(\mathbb EX^3)(\mathbb EX)\); equivalently \(\mathbb EX^3\ge\nu^2/\mu\). Equality requires all positive values of \(X\) to coincide. The prescribed moments force support \(\{0,\nu/\mu\}\) with the stated probabilities. Similarly, Cauchy–Schwarz applied to \(X\sqrt{1-X}\) and \(\sqrt{1-X}\) yields \((\mu-\nu)^2\le(\nu-\mathbb EX^3)(1-\mu)\), so \(\mathbb EX^3\le\nu-(\mu-\nu)^2/(1-\mu)\). Equality requires all values strictly below \(1\) to coincide, giving uniquely the stated \(\{(\mu-\nu)/(1-\mu),1\}\) law. Substitution into \(D\) gives the two endpoints. The boundary cases \(\nu=\mu^2\) and \(\nu=\mu\) have unique one-point and Bernoulli laws, respectively, so their envelopes coincide. Mixtures preserve both moments and interpolate \(D\) affinely. Algebra gives the width formula and its maximum via the arithmetic–geometric mean inequality.
 
@@ -69,7 +70,7 @@ proves \(W\le9\mu/8\). Equality forces the support of \(X\) to lie in \(\{0,3/4\
 \]
 Since the beta opponent's density never exceeds \(3/2\), conditioning on \(X=x\) and extending the integral to the real line yields a uniform win-probability difference at most \((3/2)\int_{-\infty}^\infty e^{-\lambda|z|}\,dz=3/\lambda\). Thus \(|D_\lambda-D|\le6/\lambda\). The positive benchmark bias \(2/25\) remains positive whenever \(\lambda>75\). The negative benchmark bias \(-11/65\) remains negative whenever \(\lambda>390/11\), hence certainly at the same \(\lambda>75\). With either stochastic win probability, the finite-community birth–death comparison below continues to hold upon substituting the relevant encounter bias.
 
-**5. Exact fixation monotonicity.** Without immigration, the transitions at every interior count are \(p_n^+=c h_n (1+D)/2\), \(p_n^-=c h_n(1-D)/2\). The absorbing harmonic equation has a unique solution at \(0\) and \(J\): successive increments form a geometric progression with ratio \(r=(1-D)/(1+D)\), yielding the fixation formula. For \(0<k<J\), rewrite it as \(\sum_{i=0}^{k-1}r^i/\sum_{i=0}^{J-1}r^i\). This is the lower-tail probability of a truncated geometric distribution on \(0,\ldots,J-1\); its likelihood ratio is strictly increasing in the index as \(r\) increases. Therefore fixation strictly decreases in \(r\), and strictly increases in \(D\), including across \(D=0\) by continuity.
+**5. Exact fixation monotonicity.** Without immigration, the transitions at every interior count are \(p_n^+=c h_n (1+D)/2\), \(p_n^-=c h_n(1-D)/2\). When \(c>0\) and \(-1<D<1\), the unique solution to the harmonic equation with boundary values \(u(0)=0\), \(u(J)=1\) has successive increments in geometric progression with ratio \(r=(1-D)/(1+D)\). For \(0<k<J\), \(u(k)=\sum_{i=0}^{k-1}r^i/\sum_{i=0}^{J-1}r^i\). This is the lower-tail probability of a truncated geometric distribution on \(0,\ldots,J-1\); its likelihood ratio is strictly increasing in the index as \(r\) increases. Therefore fixation strictly increases in \(D\) throughout \((-1,1)\), with the neutral value \(k/J\). At \(D=-1\) all interior changes are downward and at \(D=1\) they are upward, with strictly positive probability of a change at every interior count. The two fixation probabilities are therefore \(0\) and \(1\) respectively, extending strict increase to the endpoints.
 
 **6. Exact immigrating stationary ordering.** Under the stated parameter restrictions, the upward and downward transition probabilities are
 \[
@@ -78,12 +79,12 @@ q_n^-=(1-m)c h_n\frac{1-D}{2}+m(1-\pi)\frac nJ.
 \]
 They define an irreducible finite birth–death chain with a unique full-support invariant law \(P_D\) satisfying detailed balance \(P_D(n+1)/P_D(n)=q_n^+/q_{n+1}^-\). Every one of these adjacent ratios increases strictly with \(D\): the numerator is nondecreasing (strict except at \(n=0\)); the denominator is nonincreasing (strict except at \(n+1=J\)); at each edge at least one change is strict. Hence for \(D_2>D_1\), the stationary likelihood ratio \(P_{D_2}(n)/P_{D_1}(n)\) is strictly increasing in \(n\). A crossing-of-one argument for normalized positive probability vectors gives strictly larger upper tails at each \(1\le k\le J\), and strictly larger expectations for all nonconstant increasing observables.
 
-A reproducible closed stationary expression is available: write \(a=2(1-m)cW/(J-1)\), \(b=2(1-m)cL/(J-1)\), \(\alpha=m\pi/a\), and \(\beta=m(1-\pi)/b\), where \(W=(1+D)/2\), \(L=(1-D)/2\). Then
+A closed stationary expression that is also valid at \(D=\pm1\) uses \(a=2(1-m)cW/(J-1)\) and \(b=2(1-m)cL/(J-1)\), where \(W=(1+D)/2\), \(L=(1-D)/2\). Then
 \[
-P_D(n)=\frac{1}{Z}\binom Jn(\alpha)_n(\beta)_{J-n}(a/b)^n,
-\qquad Z=\sum_{n=0}^J\binom Jn(\alpha)_n(\beta)_{J-n}(a/b)^n.
+w_n=\binom Jn\prod_{i=0}^{n-1}(m\pi+a i)\prod_{i=0}^{J-n-1}(m(1-\pi)+b i),\qquad
+P_D(n)=\frac{w_n}{\sum_{j=0}^{J}w_j}.
 \]
-The rising factorial \((z)_n=z(z+1)\cdots(z+n-1)\), with \((z)_0=1\), makes every adjacent detailed-balance ratio immediate. The law is exact for every finite \(J\); no large-population limit is used.
+The empty product is one. Indeed \(w_{n+1}/w_n=(J-n)(m\pi+a n)/[(n+1)(m(1-\pi)+b(J-n-1))]=q_n^+/q_{n+1}^-\). For \(|D|<1\) this equals the rising-factorial expression obtained by factoring out powers of \(a\) and \(b\). The law is exact for every finite \(J\); no large-population limit is used.
 
 ## Verification
 

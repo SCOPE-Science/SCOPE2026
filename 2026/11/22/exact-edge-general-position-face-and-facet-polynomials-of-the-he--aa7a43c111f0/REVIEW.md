@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fano incidence axioms imply that every three-edge geodesic joins a nonincident point and line through one of three intermediate incidences. There are exactly 28 such pairs and 84 distinct forbidden 3-edge sets. A derived recurrence visits all 2,097,152 subsets and counts all valid sets by cardinality; maximality is determined by testing every possible one-edge addition. Two differently constructed enumerators, one geometric bitmask recurrence and one BFS-plus-recursive search, independently reproduce all coefficients. The entire finite state space is covered, and the geometric-to-mask correspondence is proved; no probabilistic extrapolation is used.
+PASS
 
-## Originality — PASS (priority provisional)
+In the Fano incidence graph the unique-line and unique-intersection axioms give distance 2 within each part, and distances 1 and 3 across parts. A nonincident point/line pair has three length-three geodesics; their edge triples are distinct because the endpoints and middle edges can be recovered from the path. Thus it is necessary and sufficient to avoid the 84 forbidden triples. The printed highest-index recurrence tests all subsets, and one-edge addability exactly tests maximality by heredity. I independently used nonzero vectors and covectors in F_2^3 with dot-product incidence (not cyclic line labels); all length-three simple paths are geodesics because an endpoint shortcut would form a four-cycle. The replay python3 /workspace/branches/audit_exact_124.py 4 marks all supersets of the 84 forbidden triples, then scans all 2^21 subsets with an explicit one-edge extension test. It gives face coefficients 1,21,210,1246,4725,11592,17962,16446,7875,1617,84, then zeros, and only facet coefficients 66,546,861,84 at sizes 7–10. Totals 61779 and 1557 agree, and labelled maximum sets have cardinality 10 and count 84.
 
-The 2021 foundational and 2023 extremal full papers do not cover the Heawood graph's complete edge-general-position and facet enumerators: their results address trees, hypercubes, Cartesian grids, graphs near extremal edge count, and block graphs. A 2025 study of diameter-three edge-general-position graphs treats the edge-count-minus-two regime and graphs with number four, not this graph with 21 edges and number ten; only the abstract and publication description were accessible, so a full-text historical risk remains. The 2026 graph-products/ILP paper's available abstract concerns product constructions and a general algorithm, not a fixed Heawood census; its full text was not read. Closely related published Fano incidence graph records concern distinct invariants. No covering full result or exact table was found using the recorded variant searches and comparison of actual implications. The absence of a search hit is not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Heawood graph is the canonical smallest projective-plane incidence graph and the cubic graph of girth six with 21 geometrically constrained edges. The exact face and facet polynomials capture all ranks of its geodesic-avoidance complex, including a four-level non-pure facet spectrum and 84 highest-cardinality sets. This goes materially beyond a scalar optimum: the exact distribution is a natural reference for geometric extremal combinatorics and for independent verification of edge-general-position search methods.
+The supported distinct finding is the complete labelled face and inclusion-maximal facet census for the Heawood edge-general-position complex. Primary definitions and exact extremal numbers for other graph families are prior, and a table of maxima alone would not subsume the two enumerators. The strongest located exact match was the identical published record, not a distinct prior. Bounded searches and full-text access limitations preclude a claim of global priority.
 
-## Residual limitations
+## value
 
-This is a finite, graph-specific result rather than a uniform theorem for projective planes of arbitrary order. Historical publication priority remains provisional because several later articles and unindexed sources were not fully inspected. Independent external validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Heawood graph is the canonical smallest projective-plane incidence graph, and the face/facet distributions of its geodesic-triple obstruction complex are meaningful beyond its extremal number. The labelled census is an exact test case for enumeration algorithms and shows quantitatively that saturation can occur at three smaller cardinalities than the maximum. The 84 maximum sets alone would not provide this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

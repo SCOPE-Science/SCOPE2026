@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:13:45.299867Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md, verify_orbits.py and verification_output.txt (inspected, not re-executed)",
+        "Araújo et al., Theorem 5.5, https://publi.math.unideb.hu/paper/1584/download/10_5486_PMD_2011_4703.pdf"
+      ],
+      "rationale": "Reconstructed rank-wise Burnside under the full action of Araújo et al., Theorem 5.5. A rotation with gcd g has invariant subsets periodic modulo g; choosing ℓ residue classes makes its shift in either subset (s/g)ℓ modulo rank, so every cyclic shift between the two subsets commutes. A reflection on an invariant rank-k subset acts in cyclic coordinates by i↦α−i, including k=1,2. A shift v from one subset to another commutes precisely if 2v≡β−α modulo k. Solvability is equivalent to equal numbers of restricted fixed points (one at odd rank; at even rank this distinguishes α even from α odd), and there are gcd(2,k) solutions. This verifies both fixed-map polynomials, including the separately counted empty map. At z=1 Vandermonde gives R=1+(n/2)binom(2g,g) and H=(2+f²+2 binom(f,2)²)binom(2m,m)−1, yielding the divisor sum with both reflection parities. Rank one and full rank classify respectively by unsigned displacement and inverse-paired rotations; rank n−1 gets (n−1)n² identity fixes and 2n total reflection fixes. Each nonidentity rotation has g≤n/2; the fixed-set union bound then proves the claimed exponential rarity and Stirling gives the total asymptotic. This is an all-n argument, not extrapolation from the supplied test vectors.",
+      "residual_risks": [
+        "Orbit polynomial concerns the stated monoid and simultaneous dihedral conjugation only; the archived finite checker is corroborative, not independent all-degree evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araújo et al. Theorem 5.5 identifies the full acting group; Umar Proposition 33 and Corollaries 34–37 give labeled sizes, including k binom(n,k)².",
+          "Earlier local record 1cda766d1c6b treats endpoint fibers of longest nilpotent chains at rank n−1; 8670f30aedd1 counts self-inverse restrictions of global dihedral symmetries."
+        ],
+        "reasoning": "Established action plus Burnside is the framework, but no inspected general theorem supplied the orbit counts without the fixed-map computation. A maximum-index stratum restriction or involution statistic on a smaller monoid is not a stronger census.",
+        "searches": [
+          "Araújo et al. DOI:10.5486/PMD.2011.4703",
+          "Umar, JIS 14 (2011), Article 11.7.5",
+          "Resultary: cyclic partial map dihedral conjugacy and rank"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror (assigned record and three distinct neighboring records above)",
+        "Araújo et al. (2011) Theorem 5.5",
+        "Umar (2011) §4",
+        "Li–Fernandes arXiv:2207.12823",
+        "Fernandes (2000), abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For reflections there can be two distinct restricted cycle types at the same even rank; conjugating cyclic shifts exist only for matching types.",
+          "Same-day 04b5ac24345d determines automorphism groups of partial-isometry monoids, not POPI_n element-orbit counts."
+        ],
+        "reasoning": "The known automorphism theorem gives the set to average over, not the requisite k-wise fixed sets. The rank and total corrections are not substitutions into the neighboring monoid enumerations.",
+        "searches": [
+          "Araújo et al. Theorem 5.5; Umar §4; Li–Fernandes arXiv:2207.12823",
+          "Resultary records 1cda766d1c6b, 8670f30aedd1 and 04b5ac24345d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit a39bad53d101 is the assigned finding itself, not independent coverage.",
+          "Li–Fernandes classify endomorphisms including the automorphisms of POPI_n; they enumerate endomorphisms, not simultaneous cyclic relabeling classes of partial maps."
+        ],
+        "reasoning": "Here orbit equivalence is u↦pup⁻¹ with the same ambient dihedral p on both sides. Neither labeled map counts, Green relations, nor the enumeration of endomorphisms gives that quotient.",
+        "searches": [
+          "Resultary: simultaneous dihedral rank orbits of cyclic-order-preserving partial injections",
+          "arXiv:2207.12823, Theorem 2.12 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=3, Umar's labeled rank counts are (1,9,18,3), not the orbit vector (1,2,4,2).",
+          "The matching frozen record is the same publication; distinct indexed related records do not tabulate these rank-orbit vectors."
+        ],
+        "reasoning": "Matching monoid and rank parameters in a table do not identify the statistic; labeled cardinalities omit nonidentity fixed sets.",
+        "searches": [
+          "Umar §4 rank tables",
+          "Resultary search for the all-rank dihedral orbit census and nearby dihedral partial permutation records"
+        ]
+      },
+      "rationale": "Credit the previously known full action and the labeled rank enumeration in full. The distinct result is the all-rank orbit enumerator with nonidentity stabilizer corrections and its explicit consequences. The closest actual statements inspected do not provide it. The assessment is best-knowledge, not a priority guarantee.",
+      "residual_risks": [
+        "The 2000 foundational article was not accessible in full; a separate paper on submonoids of the dihedral inverse monoid was also not open in the located copy.",
+        "An unlocated general cycle-index result or priority source may cover more; no date ordering inferred from same-day hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies acting group, not evaluated fixed-map or orbit polynomial",
+          "evidence": [
+            "For U in {OP_n, POP_n, POPI_n}, the automorphisms are generated by the cyclic relabeling and reflection."
+          ],
+          "identifier_or_url": "https://publi.math.unideb.hu/paper/1584/download/10_5486_PMD_2011_4703.pdf",
+          "material_read": "Theorem 5.5, journal p. 35 (PDF p. 12), statement and adjacent discussion",
+          "method": "Primary open PDF passage",
+          "title": "Automorphisms of partial endomorphism semigroups",
+          "trigger": "Identical monoid; establishes whether action is full"
+        },
+        {
+          "assessment": "Uses prior automorphism theorem; enumerates another statistic",
+          "evidence": [
+            "Theorem 2.12 invokes Araújo et al. Theorem 5.5 for POPI_n, which is not itself in the list of Theorem 2.11."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.12823",
+          "material_read": "Theorems 2.11–2.12, pp. 11–12, and endomorphism enumeration in §3",
+          "method": "Open preprint, statement and proof passage comparison",
+          "title": "Endomorphisms of semigroups of oriented transformations",
+          "trigger": "Same monoid and full endomorphism classification"
+        },
+        {
+          "assessment": "Labeled enumeration, not orbital enumeration",
+          "evidence": [
+            "Positive rank k has k binom(n,k)² elements; total 1+(n/2)binom(2n,n). Only the identity action has this full rank enumerator."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL14/Umar/umar2.pdf",
+          "material_read": "§4, Proposition 33 and Corollaries 34–37, PDF pp. 12–13",
+          "method": "Primary open PDF passage and table comparison",
+          "title": "Combinatorial Results for Semigroups of Orientation-Preserving Partial Transformations",
+          "trigger": "Same ordered partial maps and exact rank tables"
+        },
+        {
+          "assessment": "Restricted nilpotent subset and different statistic",
+          "evidence": [
+            "Maximum-index rank-n−1 chains, endpoint reachability and neighboring-endpoint counts only."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 1cda766d1c6b",
+          "material_read": "Finding in local mirror",
+          "method": "Exact statement comparison",
+          "title": "Parity reachability and totient fibres of longest nilpotent chains in orientation-preserving partial permutation monoids",
+          "trigger": "Same monoid at next-to-full rank"
+        },
+        {
+          "assessment": "Different monoid and invariant",
+          "evidence": [
+            "Counts involutions among restrictions of global dihedral permutations."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 8670f30aedd1",
+          "material_read": "Finding in local mirror",
+          "method": "Exact statement comparison",
+          "title": "The domain-rank involution polynomial of the dihedral inverse monoid",
+          "trigger": "Dihedral partial-map rank enumerator"
+        },
+        {
+          "assessment": "Distinct partial-isometry monoids and no element-orbit enumerator",
+          "evidence": [
+            "Metric preservation is required there rather than preservation of cyclic order, and the result concerns acting groups."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 04b5ac24345d",
+          "material_read": "Finding in local mirror",
+          "method": "Exact statement comparison",
+          "title": "Affine-to-dihedral automorphism collapse for cyclic and wheel partial isometries",
+          "trigger": "Closest additional same-day automorphism result"
+        },
+        {
+          "assessment": "Residual priority risk; no whole-document exclusion",
+          "evidence": [
+            "Abstract focuses on presentations and ideal/congruence structure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927870008827033",
+          "material_read": "Bibliography and abstract only",
+          "method": "Lawful open-source lookup; no full text verified",
+          "title": "The monoid of all injective orientation preserving partial transformations on a finite chain",
+          "trigger": "Foundational same-object paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (rank polynomial, divisor sum and next-to-unit count)",
+        "Araújo et al. Theorem 5.5; Umar §4"
+      ],
+      "rationale": "This is the complete natural rank stratification after quotienting a standard inverse monoid by its actual full automorphism group. The parity-dependent reflection contributions, exact next-to-unit orbit law, and generic-freeness bound resolve concrete consequences of stabilizers missed by labeled counts. The calculation is elementary but supplies an all-size explicit answer with no monoid generation needed.",
+      "residual_risks": [
+        "No enumeration of individual stabilizer types or semigroup conjugacy classes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

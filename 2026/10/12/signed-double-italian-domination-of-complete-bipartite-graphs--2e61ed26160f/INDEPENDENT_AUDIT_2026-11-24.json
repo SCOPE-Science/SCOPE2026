@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:44:00.097717Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–111",
+        "VERIFICATION.md and verify_output.txt",
+        "verify.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/audit-check-4.py",
+        "Almulhim (2023) Proposition 10"
+      ],
+      "rationale": "For each side, every vertex sees precisely the other side in its open neighborhood, so adding the vertex's own label gives the closed sum. A best subset omits negatives, giving the two positive-sum thresholds. At total weight ≤2, a negative shore sum can only be −1 or −2, making the other shore all ≥2 or all 3 respectively and the total ≥3. A zero sum needs a −1 on that shore, forcing the opposite sum ≥2 with no negatives; the only weight≤2 option there is two 1s, failing the defense threshold 3. If both sums are positive and the total ≤2, a sum 1 needs a −1, so the opposite sum must be ≥2. For m=2 the displayed weight-3 constructions have shore sums (4,−1) or (3,0) and meet all relevant defense thresholds. For m=3 they have sums (3,0), with opposite positive sum ≥2 even at n=3. For both sizes ≥4, negative sums make weight 3 impossible and nonnegative shore sums totaling 3 each force a −1 and therefore opposite sum ≥2, a contradiction. The parity constructions with sums (2,2) have positive sums ≥3 and are feasible. For (2,2), the published C4 value is 4; directly, weight 3 would have sums (0,3) or (1,2) up to exchange (−1 is not a two-label sum and −2 forces two 3s opposite). In (0,3), the shore (−1,1) cannot defend the opposite 1; in (1,2), the shore (1,1) cannot defend the opposite −1. All 1s attain 4. An independent sorted-shore enumeration matched all 121 cases, 3294225 state pairs, and the recorded aggregate of 9100528918 minima.",
+      "residual_risks": [
+        "The independent computation is confined to part sizes 2–12; the all-size result uses the symbolic proof. Stars are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 7a8a54de6f44 states a formula for r≥3 shores of size ≥2 and explicitly excludes complete bipartite graphs",
+          "The survey's signed-double-Italian passage, p.14, summarizes tree bounds and exact examples from the defining source"
+        ],
+        "reasoning": "Deleting a part changes all cross-shore closed sums and defense conditions; the r≥3 statement cannot be specialized to r=2. Bipartite hardness or bounds for trees do not give the exact asserted threshold.",
+        "searches": [
+          "Resultary: signed double Italian domination and dense complete multipartite graphs, including smaller-part threshold",
+          "Almulhim (2023), and Almulhim–Al Subaiei–Mondal (2024), DOI 10.3390/math12172771"
+        ]
+      },
+      "checked_sources": [
+        "Almulhim 2023 Proposition 10 and definition",
+        "Almulhim–Al Subaiei–Mondal 2024 p.14",
+        "Resultary entries identified above",
+        "Focused primary literature search on the signed-double-Italian complete-bipartite formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-part subset/closed constraints couple only to one opposite sum; the nearby multipartite theorem assumes three or more parts",
+          "The defining cycle proposition applies exactly at the included C4 instance"
+        ],
+        "reasoning": "Outside C4 the sharp results require a two-shore lower-bound obstruction and separate parity witnesses; no inspected result logically supplies those off-boundary minima.",
+        "searches": [
+          "Compare Resultary 7a8a54de6f44 and the defining-paper cycle proposition with the complete-bipartite constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almulhim (2023) uses exactly labels −1,1,2,3, closed-neighborhood sum ≥1, and open-subset thresholds 3 and 2 for labels −1 and 1",
+          "Same-day Resultary records 126dceeb398a, 3f4817864504, 0e19390f3de8, and 01438911ae14 use different invariants or graph families"
+        ],
+        "reasoning": "Merely matching labels or a numerical value is insufficient. Double Italian uses 0 and not −1; ordinary/global Italian rescue or signed domination constraints differ. The cited crown and barbell settings also differ from complete bipartite graphs.",
+        "searches": [
+          "Resultary: signed double Italian domination of complete bipartite graphs; same invariant with K_{m,n} notation",
+          "Published SDID definition and related Italian-record definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 10 gives γ_sdI(C4)=4, and C4 is K_{2,2}",
+          "No returned catalogue statement gave the off-boundary piecewise formula; the closest formula is 7a8a54de6f44 for at least three parts"
+        ],
+        "reasoning": "The known cycle value is an exact overlap, not part of the assessed novelty. Values on cycles and the Petersen graph do not fill any of the other ranges.",
+        "searches": [
+          "Resultary: values of γ_sdI(K_{m,n}), smaller part 2 or 3 versus at least 4, and C4 boundary",
+          "Almulhim (2023) exact-family examples, §4"
+        ]
+      },
+      "rationale": "The published C4 case is credited and excluded from novelty. Neither the inspected primary exact examples and survey nor the dense complete-multipartite record gives the two-part threshold off that boundary. Related Italian and Roman parameters are not equivalent to the label and defense conditions here.",
+      "residual_risks": [
+        "Bounded search cannot exclude an unindexed or differently stated exact result; a keyword miss is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant; exact C4 overlap, no two-part formula in inspected assertions",
+          "evidence": "Proposition 10 gives C4 value 4; exact examples include cycles and Petersen.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20231580",
+          "material_read": "Abstract/definition, PDF p.1; §4 Proposition 10, PDF p.11, printed pp.30905–30906",
+          "method": "Bounded primary OA passage inspection",
+          "title": "Signed double Italian domination",
+          "trigger": "Defines the invariant and has exact values"
+        },
+        {
+          "assessment": "Same definition; inspected survey passage does not supply the complete-bipartite threshold",
+          "evidence": "Credits defining source for tree bounds and exact graphs, then states Problems 19–20 about other characterizations.",
+          "identifier_or_url": "https://doi.org/10.3390/math12172771",
+          "material_read": "PDF p.14, signed double Italian domination passage, offset 68481–69995",
+          "method": "Read publisher OA PDF asset after locating literal phrase",
+          "title": "Survey on Roman {2}-Domination",
+          "trigger": "Survey of related parameters could supply a known exact family"
+        },
+        {
+          "assessment": "Does not subsume the two-part theorem",
+          "evidence": "Requires r≥3 parts of sizes ≥2, gives weight 2 if some part has size 2 and 3 otherwise, and excludes complete bipartite graphs.",
+          "identifier_or_url": "2026/10/13/SCOPE-signed-double-italian-domination-of-dense-complete-multipartite--7a8a54de6f44",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Resultary local-mirror passage",
+          "title": "Signed double Italian domination of dense complete multipartite graphs",
+          "trigger": "Same invariant on a nominally broader family"
+        },
+        {
+          "assessment": "Different invariants and graph classes",
+          "evidence": "Double, ordinary and global Italian domination of crowns; signed domination of barbells with two labels.",
+          "identifier_or_url": "Resultary 126dceeb398a; 3f4817864504; 0e19390f3de8; 01438911ae14",
+          "material_read": "Opening Findings and invariant statements",
+          "method": "Resultary local-mirror passages",
+          "title": "Related same-day crown-graph Italian domination and barbell signed domination findings",
+          "trigger": "Graph-domination catalogue neighbors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Defining-paper and multipartite comparisons"
+      ],
+      "rationale": "This is an all-size exact determination of a named graph invariant on a canonical family, not one arbitrary finite slice. It identifies where the two shores first both force negative labels in any candidate of weight 3, and gives witnesses on both parity classes. The threshold supports direct exact comparisons with other bipartite domination invariants without treating the known C4 evaluation as a contribution.",
+      "residual_risks": [
+        "No result on stars or general bipartite graphs, and no claim that the off-boundary theorem alone resolves a broad classification problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

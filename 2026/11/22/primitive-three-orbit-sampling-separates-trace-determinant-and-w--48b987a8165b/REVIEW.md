@@ -1,19 +1,21 @@
-# Scientific review: primitive three-orbit uncertainty split
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the restricted three-orbit minimization theorem, not the general Gaussian-conditioning formula. The conditional covariance equals the inverse principal precision compression. Its Dirichlet path blocks give exact A, D and E formulas; the arithmetic condition forces admissible steps immediately on either side of the excluded balanced step. Strict positive and decreasing second derivatives settle A and logarithmic D uniquely at the left step; the longest-gap formula settles E uniquely at the right step. The small-mass expansion is derived at fixed cycle size. Numerical tests of direct block inversion and high-precision primitive-step enumeration agree with the analytical theorem; their finite scope is explicit.
+PASS
 
-## Originality — PASS, qualified
+For λ>0 the Gaussian posterior on the unobserved coordinates has inverse principal precision. A gap of g edges gives a Dirichlet path on g−1 vertices (g=1 contributes an empty determinant-one block). The determinant recurrence gives sinh(gθ)/sinh θ, differentiation in λ gives the displayed Fθ, and the smallest path eigenvalue yields the stated increasing function of the longest gap. Up to reflection, the gaps are (t,t,3d−2t). Both d±1 are coprime to 3d since 3 divides d, whereas d is excluded. For h=Fθ or −log sinh(θ·), strict convexity makes 2h(t)+h(3d−2t) decrease up to d and increase thereafter. For the trace, the third derivative of x coth x has sign opposite to H(2x), where H(y)=y(cosh y+2)−3 sinh y and H and its first two derivatives vanish at 0 with H'''(y)=y sinh y>0. The negative log-sinh third derivative is also strictly negative. Hence the centered second difference strictly decreases; subtracting the two nearest primitive costs gives Δ²h(d+1)−Δ²h(d−1)<0. The maximum gaps are d+2 and d+1 respectively and any other primitive t has maximum at least d+2. The reflected optimal sets are distinct: a distinct step representing the same set would have to exchange its two nonzero sites with their doubles, forcing 3s=0. Jensen and the maximum-gap bound independently settle unrestricted optima, uniquely up to rotation. At fixed d, Fθ(g) has constant term (g²−1)/6 and θ² coefficient −(g⁴−1)/90−(g²−1)/36. The left and right candidates have equal squared-gap sums and fourth-power sums differing by 48d, giving −8dλ/15+O_d(λ²); the left-versus-balanced squared-gap excess is 6, giving the unit limiting premium. The λ=0 prior is not invoked. The n=9 exact rational example agrees with the path determinants 3,21,55 for block sizes 1,3,4 at λ=1. The checker was inspected, not rerun; it is supplementary, and the observable coordinate shift orbit concerns nominal observability, not forced-state reconstruction.
 
-The closest known pinned-cycle theorem already supplies unrestricted optimality and the trace-inverse path formula; the present statement would not pass if it merely repeated these. It instead establishes *opposite restricted optimal generators* for A/D versus E under full-orbit observability, requiring a strict third-derivative comparison absent from the unrestricted claim. Giribet–Feldberg establish general Gaussian residual conditioning and a nominal-visibility distinction without this arithmetic design result. Classical Ornstein–Uhlenbeck designs establish free equispacing, not constrained primitive generators. Published-record and relevant literature searches found no matching result under equivalent formulations. A wider undiscovered optimal-design theorem remains a bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The orbit generator is a structural constraint: it is exactly what makes one spatial sensor fully observable through time. Unrestricted free-spaced optimizers cannot respect that requirement when the size is divisible by nine. Even more strongly, no single primitive generator simultaneously optimizes average, generalized-volume and worst-direction forcing uncertainty. The theorem determines all three restricted optimizer classes (each unique up to reflection) and sharp costs for an infinite family, with a singular massless limit that makes the strict left/right trace preference disappear. This is a motivated exact design obstruction, not an arbitrary small-size calculation.
+The supported distinct claim is the opposite exact restricted optimizer for spectral norm versus trace and determinant across all masses and these cycle sizes. Unrestricted balanced gap extremizers and their explicit trace costs are closely covered and not new; the closest indexed comparison does not settle the orientation of the restricted gap imbalance. Same-day catalogue dates do not establish priority.
 
-## Limits and literature
+## value
 
-Applicable only to equally weighted cycles, three noiseless orbit samples, cycles divisible by nine and positive precision mass. It makes no claim for arbitrary sensor budgets, nonprimitive shifts, nontrivial observational noise, heterogeneous precision or complete forced-state error. Free-placement results and standard Gaussian formulas are explicitly credited. Independent bibliographic and mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A generator step is the natural exact condition for a single coordinate to traverse the entire nominal shift orbit. It forbids the free optimum and makes optimizing average or volume uncertainty incompatible with optimizing the worst direction, for every positive mass in an infinite family. The sharp optimizer and loss formulas are usable exact design information, not another statement of equispacing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

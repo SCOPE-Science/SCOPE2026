@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:25:05.370147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md, verify.py, requirements.txt and verification_output.txt",
+        "Independent exact rational replay from held-input flows on two basis states: python3 /workspace/branches/independent_checks.py 5; trace -1086/625, determinant 1591/2500, p(-2)=2903/2500, p(-1)=-253/2500."
+      ],
+      "rationale": "Integrating the held input gives the stated M(h). With K=k_p and D=k_d, its characteristic evaluations at +1 and -1 are Kh^2 and 4-2Dh; its determinant is 1-Dh+Kh^2/2. The real quadratic Schur test gives h<2/D and h<2D/K, with the lower determinant bound automatic there. For P=M(b)M(a), write s=a+b and p=ab. Direct expansion gives trace 2-Ds-Ks^2/2+(D^2-K)p+KDps/2+K^2p^2/4 and determinant 1-Ds+Ks^2/2+(D^2-K)p-KDps/2+K^2p^2/4. Thus det(I-P)=Ks(s-Dp), strictly positive since 1/a+1/b>D, and 2 det(I+P)=Phi. Also |det P|<1 as the product of the two one-step determinants. Hence Phi>0 is equivalent to Schur stability in the specified open range. At equality the second root is -det P in the open disk, so -1 is simple. At Phi<0 the monic characteristic polynomial is negative at -1 and positive sufficiently far to the left, giving a real root below -1. The rational witness reproduces both one-step Schur tests and the claimed two-step trace, determinant and signs.",
+      "residual_risks": [
+        "The reduction to a single inequality is proved only inside the two individually stable intervals for fixed positive gains and the specified ZOH feedback."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue finding additionally classifies the gain ratios for which every individually admissible pair remains Schur stable: (0,1/2] union [2,infinity), and gives the infimum of the margin. The accessible papers address bounds for arbitrary sampling, discrete sampling choices, multiagent consensus, or aperiodic Lur'e stability."
+        ],
+        "reasoning": "The broader methodological papers inspected do not themselves give the same exact iff test. The stronger catalogue finding explicitly does, in addition to characterizing the full gain-ratio regimes.",
+        "searches": [
+          "Resultary 18a80c1bcb0a, Finding and Proof",
+          "arXiv:2011.09221 p. 1; arXiv:2103.14353 p. 2; arXiv:2212.02922 pp. 8–9; HAL hal-04239552v1 pp. 2, 4, 20"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 18a80c1bcb0a (2026/11/8)",
+        "Frozen RESULT.md",
+        "arXiv:2011.09221",
+        "arXiv:2103.14353",
+        "arXiv:2212.02922",
+        "HAL hal-04239552v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identical normalized product expressions and |det P|<1 imply that Phi=0 gives a simple -1 with the other root inside the disk; Phi<0 gives a polynomial negative at -1 and a real root below it. The rational example has r=8/9 in the already-covered instability regime."
+        ],
+        "reasoning": "No leftover boundary phenomenon requires an additional nonautomatic proof once the published exact product criterion and its proof are known. Coverage does not resolve who derived the result first.",
+        "searches": [
+          "Resultary 18a80c1bcb0a, product determinant and exact two-step Jury conditions",
+          "Frozen RESULT.md lines 57–76, multiplier and witness statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With r=k_p/k_d^2, A=k_da, B=k_db, the other record's polynomial 8-4(A+B)+4(1-r)AB+r^2A^2B^2 equals Phi term by term. Its open square 0<A,B<min(2,2/r) is exactly the frozen domain after the same scaling."
+        ],
+        "reasoning": "The change of variables is invertible on the fixed-positive-gain model and preserves its ZOH period map up to state coordinates. This is the same boundary, not analogous behavior for a different controller.",
+        "searches": [
+          "Resultary: two-period ZOH PD double integrator, alternating stable periods and gain ratio",
+          "Resultary 18a80c1bcb0a, RESULT.md Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matching exact indexed result: the Finding gives the polynomial criterion and admissible square; the Proof gives the product determinant and both Jury quantities."
+        ],
+        "reasoning": "The exact database evidence is a formula for the full parameter domain, not a small-grid table. No matching numerical entry is required when an indexed theorem covers the entire classification.",
+        "searches": [
+          "Resultary: exact alternating sampling boundary, period-two monodromy, sampled double integrator",
+          "Resultary 18a80c1bcb0a, RESULT.md offsets 0 and 1800"
+        ]
+      },
+      "rationale": "The distinct published Resultary record 18a80c1bcb0a covers the same necessary-and-sufficient boundary on the same admissible domain and proves a stronger gain-ratio dichotomy. Its two-step characteristic evaluations also give the multiplier statements by the same determinant bound; the frozen witness is one instance of the instability range it covers. This is a determination of demonstrable coverage in the published corpus, not a finding of earlier priority, improper attribution or a mathematical error. The matching record bears a later catalogue date.",
+      "residual_risks": [
+        "The catalogue entry is dated after the frozen record. No historical priority or dependency follows from the coverage determination.",
+        "The independent retrieval attempts for the cited Fujioka and Guo full texts and the Kotyczka–Lefèvre double-integrator discretization paper did not resolve any earlier coverage; they do not affect the exact coverage already verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent criterion and strictly stronger classification.",
+          "evidence": [
+            "Normalized admissible domain, polynomial criterion, exact Jury identities, full gain-ratio dichotomy and margin infimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-gain-ratio-dichotomy-for-alternating-sampled-double-inte--18a80c1bcb0a",
+          "material_read": "RESULT.md Finding (offset 0) and Proof (offset 1800)",
+          "method": "Local publication mirror and variable-by-variable comparison",
+          "title": "A sharp gain-ratio dichotomy for alternating sampled double integrators",
+          "trigger": "Plausible exact coverage in normalized parameters"
+        },
+        {
+          "assessment": "Related, not evidence for this exact polynomial.",
+          "evidence": [
+            "Maximum interval guaranteeing stability for arbitrary schedules bounded by that interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.09221",
+          "material_read": "PDF p. 1, near offset 1650",
+          "method": "Open preprint passage comparison",
+          "title": "Data-driven analysis and control of continuous-time systems under aperiodic sampling",
+          "trigger": "Broader arbitrary-sampling stability problem"
+        },
+        {
+          "assessment": "Different schedule discretization, no exact frozen expression in the passage.",
+          "evidence": [
+            "Sampling intervals h_k in {1,...,h}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14353",
+          "material_read": "PDF p. 2, near offset 10100",
+          "method": "Open preprint passage comparison",
+          "title": "Data-driven analysis and controller design for sampled-data systems",
+          "trigger": "Broader varying-interval sample-and-hold analysis"
+        },
+        {
+          "assessment": "Different multivertex problem and sufficient conditions, not the single-agent alternating ZOH iff criterion.",
+          "evidence": [
+            "Sufficient contraction/controller conditions for consensus with changing topology."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.02922",
+          "material_read": "PDF pp. 8–9, offsets 25000–28491",
+          "method": "Open preprint passage comparison",
+          "title": "Sevim and Goren-Sumer, nonuniformly sampled multiagent consensus",
+          "trigger": "Double-integrator agents under nonuniform sampling"
+        },
+        {
+          "assessment": "The inspected aperiodic LMI bounds are not the exact ZOH PD monodromy formula.",
+          "evidence": [
+            "Inter-sample/jitter bounds in a Lur'e problem via LMI conditions."
+          ],
+          "identifier_or_url": "https://hal.science/hal-04239552v1/file/Lure_sampled_journal_preprint2023_v2.pdf",
+          "material_read": "PDF pp. 2, 4, 20, offsets 3250, 11250, 81750",
+          "method": "Lawful HAL copy; compare assumptions and conclusion",
+          "title": "Stability analysis of Lur'e systems under aperiodic sampled-data control",
+          "trigger": "Exact or sufficient jitter bounds in a broader control setting"
+        },
+        {
+          "assessment": "Independent coverage from these papers unresolved.",
+          "evidence": [
+            "No full-text evidence available from these attempts."
+          ],
+          "identifier_or_url": "DOI 10.3182/20080706-5-KR-100.2831; 10.1109/TAC.2009.2029304; 10.1111/j.1934-6093.2005.tb00409.x",
+          "material_read": "Full texts not obtained in the independent bounded attempts; frozen comparison read as self-review evidence only",
+          "method": "Lawful DOI/repository attempts",
+          "title": "Fujioka (2008, 2009) and Guo, variable sampling stability papers",
+          "trigger": "Frozen references that might contain an earlier specialization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 57–88; Resultary 18a80c1bcb0a Finding and Proof."
+      ],
+      "rationale": "The difference between fixed-interval and alternating stability is a worthwhile control question. As a contribution, however, this record supplies the already-covered special-case boundary and a routine spectral interpretation of the same Jury factors. The rational witness makes that interpretation concrete but adds no separate phenomenon beyond the stronger published gain-ratio classification. There is no surviving independently useful unknown exact claim in the frozen statement.",
+      "residual_risks": [
+        "This assessment is not a claim that period-two boundaries or examples of sampled-data instability lack pedagogical or engineering use."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

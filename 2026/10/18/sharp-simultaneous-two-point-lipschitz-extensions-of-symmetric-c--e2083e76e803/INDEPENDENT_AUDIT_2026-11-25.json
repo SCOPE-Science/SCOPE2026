@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:28:24.230799Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The metric conditions check the three triangle types: within-class sides t are at most both 2 and 2a; cross-class apex triangles require b-a<=1<=a+b; and triangles with both apices require b-a<=h<=a+b. Bounded extension preserves constants. Averaging conjugates by the independent class permutations and the class/apex swap preserves extension and does not increase the seminorm operator norm, so every candidate is bounded below by the infimum over invariant operators with a single real coefficient alpha. On [0,1], a distance-to-point test exactly attains each probability-barycenter edge contribution, (1+(w-1)alpha)/a and (w-(w-1)alpha)/b. The two-level class test gives the exact inter-apex norm |2alpha-1|/h. For alpha<0 use the class-level test at A and the distance test at B to bound the two old-to-new terms below by their values at 0; for alpha>1 swap these roles to bound by their values at 1. The new edge also dominates its respective endpoint value in both cases. Thus signed coefficients cannot improve the minimum. For L>=1, the three closed intervals [0,1], [(w-bL)/(w-1),(aL-1)/(w-1)] and [(1-hL)/2,(1+hL)/2] intersect exactly when each lower end is no larger than every upper end. This yields the claimed four terms after dropping the weaker b-versions by a<=b; no strict inequality is used at the feasibility boundaries. An alpha in the intersection at the closed optimum attains it. Finite-dimensional adjoint duality on the anchored spaces gives the same constant for the isometric free-space inclusion. As an exact spot check, at n=3,t=2,a=1,b=3/2,h=1/2 the two tight bounds force alpha=3/13 at L=14/13, while assigning each apex the mean of the farther class alone is contractive on its one-point extension. Read RESULT.md lines 4–79, VERIFICATION.md and check_two_apex.py. The package's LP is a supplementary unrestricted floating-point check, not a proof. The file as written lists 13 supercritical cases and one skipped w=1 case, so the narrative count of 12 is not independently established; the script was not executed and this count does not affect the Finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruè–Di Marino–Stra gives a general logarithmic bound for linear extensions from doubling spaces, not this sharp optimum.",
+          "The October 11 hypercube result adjoins only one transitive center; the October 25 two-center double-star and October 26 cyclic triple formulas concern different distance patterns."
+        ],
+        "reasoning": "Existence and general norm bounds or exact formulas for other attachment patterns do not determine which edge is active in the present minimax.",
+        "searches": [
+          "arXiv:1801.07533 Theorem 4.1",
+          "Resultary: exact one-point and multipoint extension from highly symmetric finite metric spaces"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dceb184368f3, 0f24c138d431, 2499d477ba35, 20fdc745d13b, 6e15c63e9614 original Findings; 55dc55bc9348 index summary only",
+        "Bruè–Di Marino–Stra arXiv:1801.07533 Theorem 4.1",
+        "Cúth–Doucha arXiv:2104.11519v1 §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the motivating parameter values each single-apex optimum is 1 for every h, while the joint optimum is 7/(6+h)>1 below h=1.",
+          "The one-point comparison contains no distance h or coupled inequality; the general results likewise do not yield the term (1+w)/(2a+(w-1)h)."
+        ],
+        "reasoning": "Independent sharp one-point extension bounds cannot recover a varying joint norm from two constant optima. The explicit norm of the difference of the two evaluation functionals and its simultaneous feasibility calculation are additional.",
+        "searches": [
+          "Resultary dceb184368f3 original Finding and Proof §§1–4",
+          "arXiv:1801.07533 Theorem 4.1 and arXiv:2104.11519v1 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The restriction/right-inverse and free-space relative projection problems have equal optimum by adjoints; the Wasserstein or signed transport norms of the invariant evaluation functionals are another representation.",
+          "Cúth–Doucha treats invariant projections onto orbit-space free spaces, not the particular relative inclusion with the inter-apex edge."
+        ],
+        "reasoning": "Neither the dual presentation nor the invariant projection construction evaluates the simultaneous relative constant. The extra constraint compares two optimal evaluation functionals on the same Lipschitz unit ball.",
+        "searches": [
+          "Resultary: two new points, equal equilateral clusters, relative Lipschitz-free projection and coupled transport",
+          "arXiv:2104.11519v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct record dceb184368f3 explicitly minimizes for a single apex; record 0f24c138d431 concerns Löwner ellipsoids of a Lipschitz dual ball.",
+          "Later multi-point entries 20fdc745d13b and 6e15c63e9614 were checked at their original Findings."
+        ],
+        "reasoning": "No checked catalogue statement tabulates the coupled profile for this metric. Same-day date alone does not determine priority; the one-point finding is different on its merits.",
+        "searches": [
+          "Resultary: sharp two-apex Lipschitz norm, two-cluster relative projection, joint h transition",
+          "Resultary exact same-day entries dceb184368f3 and 0f24c138d431"
+        ]
+      },
+      "rationale": "The supported distinction is the exact coupled two-apex norm and its h-dependent contractivity obstruction over all real-linear extensions. One-point cluster formulas, symmetry averaging, and the projection reformulation are prior machinery or overlapping subproblems, not themselves the contribution. The strongest distinct same-day match was read; it gives the one-apex problem, not a joint result.",
+      "residual_risks": [
+        "A bounded literature and catalogue check cannot rule out older exact coupled examples under transport, free-space or extension terminology.",
+        "The polygon-center mirror original and McShane's full text were not available; the latter concerns cited nonlinear context. No negative whole-document claim is made about either.",
+        "The same-day one-apex record's order is unresolved, but either order leaves the h-dependent simultaneous condition distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers each one-apex restriction, not the coupled optimization; date does not settle ordering",
+          "evidence": [
+            "Single added point with clusterwise barycentric weights and a minimax root; no joint u-v edge."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-one-point-linear-lipschitz-extension-on-heterogeneous-equi--dceb184368f3",
+          "material_read": "Mirrored RESULT.md Finding and proof §§1–4",
+          "method": "Primary catalogue mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp one-point linear Lipschitz extension on heterogeneous equilateral clusters",
+          "trigger": "Strongest catalogue match, same cluster model and unrestricted real-linear objective"
+        },
+        {
+          "assessment": "General existence and bounds, not a sharp case computation",
+          "evidence": [
+            "The theorem gives a logarithmic doubling-dependent bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "Theorem 4.1, p. 12",
+          "method": "OA primary text, passage at offset 36136",
+          "title": "Linear Lipschitz and C¹ extension operators through random projection",
+          "trigger": "Potential more general result on linear extensions"
+        },
+        {
+          "assessment": "General orbit-space result, not this relative projection constant",
+          "evidence": [
+            "Group-action projections complement the free space of the orbit space; this is not evaluation on two controlled new points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.11519v1",
+          "material_read": "Abstract and §3, especially Theorem 3.3, pp. 6–8",
+          "method": "OA primary text at offsets 0, 15635, 23000",
+          "title": "Projections in Lipschitz-free spaces induced by group actions",
+          "trigger": "Equivalent projection interpretation and invariance methods"
+        },
+        {
+          "assessment": "Different metrics and attachment patterns; later records, not evidence of earlier priority",
+          "evidence": [
+            "The first adds the two hubs to double-star leaves; the second is a cyclic triple over one equilateral source."
+          ],
+          "identifier_or_url": "2026/10/25/20fdc745d13b; 2026/10/26/6e15c63e9614",
+          "material_read": "Original RESULT.md Findings in the local mirror",
+          "method": "Primary catalogue passage comparison",
+          "title": "Two-center and cyclic-triple catalogue comparisons",
+          "trigger": "Closest multi-added-point catalogue hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact invariant addresses whether two individually contractive linear extensions can be realized by a single contractive operator. This natural compatibility question has a negative answer with a sharp threshold and fully attained norm in a whole symmetric metric family, not only a chosen example. The obstruction does not follow from the two separate extension constants and is relevant also to relative Lipschitz-free projection constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

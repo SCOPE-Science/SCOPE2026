@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:57:52.943543Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the corrected files in repairs/2. The frozen finding and proof explicitly depended on a false universal bound and wrongly treated the computed lower bound as redundant. Gravier et al. p. 4 does print 2|V|/(Delta+1), but subdividing each edge of K5 once gives 15 vertices of maximum degree 4 with an identifying code of size 5 (original vertices give singleton traces, subdivision vertices give distinct pairs), contradicting the claimed lower bound 6. Trace-incidence counting gives 2|V|/(Delta+2), only 7 here. The repair proves nine by upward closure, exhaustive rejection of every eight-set, and the all-point witness. I independently built lines as translates of 1-subspaces, enumerated the closed-trace hitting constraints, verified the claimed 1+36+72 families setwise, and built all exchange edges by common eight-subsets. Replay: python3 branches/independent_affine.py. It reproduced 37 vertices/126 edges with radius/diameter 1/2 and four 18-vertex, 27-edge components of radius/diameter 4/4. The cone follows from flag incidence. Fixing a parallel class, the omitted triples have sums 1 or 2 and only one-coordinate changes connect them. In the displayed Pappus incidence map, writing B-parameters as (u+d,v+e) reduces incidence to d+e=(e-d)^2 in F3; the solutions are (0,0),(1,0),(0,1), giving exactly the three specified edges. The maps are bijections since v-u and u+v are independent coordinates. Affine maps are transitive on flags and ordered noncollinear triples by carrying their corresponding bases to one another. Both point and line codes use closed neighborhoods throughout. The proof is exhaustive only for AG(2,3); it does not generalize to arbitrary orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravier et al. focus on vertex-transitive/strongly regular objects; the purported general maximum-degree bound as printed in Proposition 2 is false, independently of their actual graph families. The valid trace-count bound does not yield nine here.",
+          "The hereditary-class tables address complexity and approximability and the line-graph paper optimizes codes of a different graph transformation."
+        ],
+        "reasoning": "The examined broader work supplies models and bounds, not the full optimizer spaces or the geometry of their one-for-one exchanges in this biregular graph. The repaired proof does not depend on access to the original Karpovsky et al. paper.",
+        "searches": [
+          "arXiv:1411.5275 Proposition 2 and stated research scope",
+          "arXiv:1407.5833 Table 1",
+          "arXiv:1107.0207 opening definition",
+          "Karpovsky Chakrabarty Levitin 1998 On a new class of codes for identifying vertices in graphs theorem 2 lower bound PDF maximum degree V(r)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.5275",
+        "arXiv:1407.5833",
+        "arXiv:1107.0207",
+        "Pappus graph at aeb.win.tue.nl",
+        "Resultary 1c34b9cc3820, 489e5a87d0d8, 72b7354986c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the degree inequality nor the standard incidence description of Pappus supplies those optimal codes, their three orbits or the legal swaps.",
+          "Passing from the smaller Pappus input graphs to the full Levi graph adds line vertices and changes both domination and separation constraints. Their reported exchange components therefore do not imply the assigned exchange decomposition."
+        ],
+        "reasoning": "The actual additional result is the optimum-state space and how it splits under exact-budget exchanges on the full affine incidence graph. The lower-bound proof was corrected without changing that scope.",
+        "searches": [
+          "arXiv:1411.5275 p. 4, OA offset 11990–14137",
+          "Pappus graph reference, description of the deleted parallel class",
+          "Resultary close Pappus code findings, assumptions and move definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed trace identification is exactly hitting every closed neighborhood and every pairwise symmetric difference. Line-graph identifying codes (edge-identifying codes) apply to input L(G), not to H merely because L(H) appears inside the output.",
+          "The Pappus graph is the Levi graph obtained by deleting one parallel class in AG(2,3); recognizing that incidence model identifies the component once built, not the code census or exchange structure."
+        ],
+        "reasoning": "Open locating-dominating conditions and identifying codes on the smaller Pappus graph are not alternate expressions of the original closed-neighborhood condition on the full 21-vertex graph.",
+        "searches": [
+          "Resultary: AG(2,3)/ternary affine plane Levi graph, minimum closed-neighborhood identifying codes, 109 optimizers and Pappus exchanges",
+          "arXiv:1107.0207 p. 1",
+          "Pappus graph incidence model at aeb.win.tue.nl"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/18 indexed result gives 18 minimum open locating-dominating sets of size six on the 18-vertex Pappus input graph. The other Pappus records have 1028 size-nine identifying codes on that input graph. Neither is the table of optimal codes on the full 21-vertex Levi graph."
+        ],
+        "reasoning": "The matching graph-name and occasional size-nine parameter are real but not an exact count or exchange overlap for the assigned input and predicate. No matching exact table was verified.",
+        "searches": [
+          "Resultary: optimum AG(2,3) identifying-code census 109, exchange cone plus four Pappus graphs",
+          "Resultary 1c34b9cc3820, 489e5a87d0d8, 72b7354986c2, opening findings"
+        ]
+      },
+      "rationale": "The corrected record claims the complete optimum family, its three affine orbits and the exact exchange decomposition, not the minimum by itself. The closest indexed Pappus findings concern different input graphs and/or different trace predicates, even when they happen to include size-nine codes. The exact three-family classification and resulting five-state-component-type decomposition are not covered by the inspected materials. The apparent implication of a prior degree lower bound was removed after checking its actual validity.",
+      "residual_risks": [
+        "The original 1998 paper was not read in full; this does not affect the counterexample or the repaired proof.",
+        "Other indexing aliases or unpublished finite enumerations could contain equivalent optimizer spaces; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed general inequality is not valid as written; inspected scope does not cover the affine Levi classification",
+          "evidence": "Proposition 2 explicitly says maximum degree k and prints denominator k+1. The once-subdivided K5 gives a counterexample.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.5275",
+          "material_read": "p. 2 scope near offset 5994; p. 4 Proposition 2 and discharging setup, offset 11990–14137",
+          "method": "bounded original OA PDF passages",
+          "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+          "trigger": "Claimed source of the decisive lower bound"
+        },
+        {
+          "assessment": "Not the optimum exchange problem in the examined table",
+          "evidence": "Reports hereditary-class complexity and approximation results.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5833",
+          "material_read": "p. 2 Table 1, OA offset 7292",
+          "method": "bounded original PDF text",
+          "title": "Identifying codes in hereditary classes of graphs and VC-dimension",
+          "trigger": "Possible broader code classification"
+        },
+        {
+          "assessment": "Different input objects",
+          "evidence": "Uses edge codes of a graph to identify vertices in its line graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "p. 1 opening definition, OA offset 0",
+          "method": "bounded original PDF text",
+          "title": "Identifying Codes in Line Graphs",
+          "trigger": "Line graph in the stated cone and exact identification terminology"
+        },
+        {
+          "assessment": "Confirms a standard graph, not the optimal codes of the full plane",
+          "evidence": "Nine points and nine lines remain after deleting one parallel class of AG(2,3).",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Pappus.html",
+          "material_read": "Opening Pappus graph description, offset 0",
+          "method": "bounded website passage",
+          "title": "Pappus graph",
+          "trigger": "Exact incidence model behind the component isomorphism"
+        },
+        {
+          "assessment": "Different code predicate and input graph",
+          "evidence": "Uses size-six open locating-dominating sets on Pappus and their intersection graph.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-the-pappus-graph-reconstructs-itself-from-optimal-locating-domin--1c34b9cc3820",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "bounded local published mirror passage",
+          "title": "The Pappus graph reconstructs itself from optimal locating-dominating sets",
+          "trigger": "Earlier indexed code exchange/geometric overlap"
+        },
+        {
+          "assessment": "Different input graph and optimizer count",
+          "evidence": "The two inspected findings concern 1028 size-nine codes of the 18-vertex Pappus input graph, not 109 codes of the affine Levi graph.",
+          "identifier_or_url": "Resultary 489e5a87d0d8 and 72b7354986c2",
+          "material_read": "RESULT.md opening findings of both records",
+          "method": "bounded local published mirror passages",
+          "title": "Three locating-code exchange regimes in the Pappus graph; Two 514-state islands and 108 frozen minimum identifying codes",
+          "trigger": "Exact code exchange overlap approaching size-nine states"
+        },
+        {
+          "assessment": "Full primary proof not inspected; no attribution of the invalid inequality to this original source",
+          "evidence": "The mathematical repair uses a counterexample to the later printed proposition and a self-contained exhaustive lower bound.",
+          "identifier_or_url": "https://dblp.dagstuhl.de/rec/journals/tit/KarpovskyCL98.html",
+          "material_read": "Search-level bibliographic identification only; identified public text route returned no accessible paper",
+          "method": "primary search and lawful OA access attempt via identified ResearchGate page",
+          "title": "On a new class of codes for identifying vertices in graphs",
+          "trigger": "Original source named in the incorrect bound attribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On the canonical nine-point affine plane, a minimum code's identity matters for one-swap mobility. The incidence cone and four classical 18-vertex configurations characterize exactly which minimum identification systems can be connected without spare budget. This is structural information beyond optimum size or recognizing a standard Pappus graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

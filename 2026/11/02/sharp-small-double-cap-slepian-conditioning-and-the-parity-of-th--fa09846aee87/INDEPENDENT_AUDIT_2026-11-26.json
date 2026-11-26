@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:19:12.286330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 15–57",
+        "VERIFICATION.md lines 18–24",
+        "check_caps.py (inspected, not executed)",
+        "Simons and Dahlen arXiv:math/0603271v1 §4.2"
+      ],
+      "rationale": "For integer m≥0 and equatorial parity ε, associated Legendre polynomial degrees give exactly e^{imφ}(sin θ)^m(cos θ)^ε p(u), u=sin²θ and deg p≤r=floor((L−m−ε)/2). The two hemispheres and azimuthal integrals cancel in the quotient, yielding the stated weight u^m(1−u)^{ε−1/2}. For fixed j≤r, the local monic orthogonal polynomial scaled by s^{-j} at u=sv depends analytically on s near zero: the scaled moments do, and their limiting Gram matrix is positive definite. Its limit is the monic shifted Jacobi polynomial q_j. The shifted Rodrigues expression has leading coefficient binom(m+2j,j); integrating it against that polynomial by parts j times gives squared norm 1/(m+2j+1) before monic normalization, hence the claimed local squared norm h_j. The full Gram entries of the unscaled monic polynomials are B(m+i+j+1,ε+1/2)+O(s), because their lower-degree coefficients vanish at least as O(s). In a locally orthonormal basis, multiplying the full Gram matrix by h_r leaves a single nonzero limiting diagonal entry B(m+2r+1,ε+1/2) with entrywise O(s) error. Its associated largest eigenvalue is simple for small s (including the scalar block) and the reciprocal gives the smallest quotient and its relative O(s) error. The largest exponent L+1 requires ε=0 and m≡L mod 2. In those blocks the unique largest binomial factor is at r=floor(L/2), hence |m|=0 or 1 by L parity; the ±1 blocks are exact symmetry copies. For the largest eigenvalue, integrate a tangential Taylor expansion of |f|² over each small cap: the linear term averages to zero, and the error is O_L(s²) uniformly on the unit sphere of V_L. Each cap has area πs+O(s²). The evaluation Gram matrix at the two poles has equal diagonal (L+1)²/(4π) and off-diagonal (−1)^L(L+1)/(4π) by the addition theorem. Its top eigenvalue gives the claimed coefficient after multiplying by πs. Taking the positive square root of the quotient gives κ, with the stated error.",
+      "residual_risks": [
+        "The limit follows the shrinking-cap branch Θ↓0 (not the complementary branch of sin²Θ), with finite fixed L. No uniformity in L or thresholds uniform across different masks are shown. The supplied numerical checks are not used to establish the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper provides the full exact operator and notes ill-conditioning as caps shrink. Catalogue 8ca21ea63ef4 gives interlacing and largest-eigenvalue results for odd-degree bands on antipodal caps; 984cac538af7 gives the pure quadrupole spectrum instead of V_L. 9a85b4c3346c uses small equatorial belts, not small antipodal polar caps; 79b626324167 uses one polar cap and gives eventual zonality, rather than the parity split."
+        ],
+        "reasoning": "A pure degree or odd-degree subspace is not the whole V_L, and a different mask does not preserve the generalized quotient. The exact known matrix is a broader computational framework, not a quantitative asymptotic or a cross-order minimizing theorem.",
+        "searches": [
+          "arXiv:math/0603271v1 §§4.2 and 5.2",
+          "Resultary 8ca21ea63ef4, 984cac538af7, 9a85b4c3346c and 79b626324167"
+        ]
+      },
+      "checked_sources": [
+        "Simons and Dahlen arXiv:math/0603271v1 §§4.2, 5.2",
+        "Resultary local mirror 8ca21ea63ef4, 984cac538af7, 9a85b4c3346c, 79b626324167 and b091257c4da7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The commuting tridiagonal formulation gives blocks without selecting the cap-minimum across orders. The new comparison needs the monic Jacobi residual norm, which replaces the raw norm of the pure highest-vanishing monomial, and compares constants across sectors of identical vanishing exponent. Single-cap eventual zonality does not imply the odd-L antipodal |m|=1 result."
+        ],
+        "reasoning": "Exact matrix entries permit computing examples; finding the sharp coefficient across all fixed L and the eventual multiplicity requires the singular endpoint analysis and strict leading-coefficient comparison, not mere equation substitution.",
+        "searches": [
+          "arXiv:math/0603271v1 §5.2 Eqs. (82)–(85)",
+          "Resultary 8ca21ea63ef4 and 79b626324167"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (67) is the concentration matrix for the same region, with factor 1+(-1)^(ℓ+ℓ′); Eqs. (68)–(71) are the exact order/parity blocks. Eigenvalues of the complementary equatorial belt are 1 minus those of the same double-cap operator, so the weakest restricted direction here is a strongest direction on the complementary belt. No exact matched coefficient or least-order statement was identified by the focused catalogue queries."
+        ],
+        "reasoning": "Changing from spherical harmonic coefficients to beta moments is only a basis change. Neither it nor passing to the complementary mask yields the claimed coefficient without analyzing the degenerate endpoint and comparing blocks.",
+        "searches": [
+          "Resultary antipodal/double polar cap Slepian smallest eigenvalue, fixed bandwidth and shrinking caps",
+          "Simons and Dahlen arXiv:math/0603271v1 §4.2 Eqs. (65)–(71)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A same-day exact V₂ record b091257c4da7 treats a single hemisphere, at fixed aperture. The antipodal pure quadrupole exact branches concern a different space, and the published parity kernels provide matrices rather than the small-s coefficient."
+        ],
+        "reasoning": "There is no natural finite sequence/table lookup for the all-L asymptotic; the nearby exact spectral catalogues and the original operator formulas are the relevant exact sources. The exact special cases above do not determine this asymptotic family.",
+        "searches": [
+          "Resultary exact spherical Slepian spectra and fixed-degree cap asymptotics",
+          "Resultary 984cac538af7, b091257c4da7; arXiv:math/0603271v1 Eqs. (65)–(71) and (82)–(85)"
+        ]
+      },
+      "rationale": "The double-cap concentration operator and its exact order and parity blocks are known. The fixed-L sharp smallest-eigenvalue coefficient and the parity-dependent minimizer across the full low-pass space, with the resulting restriction condition number, are distinct from this operator formulation and from the related catalogue spectra inspected. The largest-eigenvalue coefficient follows comparatively directly from pole evaluations and is not the main novelty.",
+      "residual_risks": [
+        "Ranked searches are bounded and do not exclude earlier asymptotic computations using equivalent moment matrices. The known symmetry decomposition, addition theorem and classical Jacobi norm are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact model and block coverage, distinct sharp asymptotic",
+          "evidence": [
+            "Eq. (67) has the degree-parity filter, and Eqs. (82)–(85) give parity-restricted kernels and the commuting tridiagonal operator. The cited instability observation is qualitative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603271v1",
+          "material_read": "§4.2 p. 7 Eqs. (65)–(71), §5.2 p. 8 Eqs. (82)–(85); PDF text offsets 51093 and 57576",
+          "method": "Targeted lawful OA PDF passage reading",
+          "title": "Spherical Slepian functions and the polar gap in geodesy",
+          "trigger": "Same two antipodal polar caps and same full low-pass space"
+        },
+        {
+          "assessment": "Not a least-eigenvalue result for the full low-pass space",
+          "evidence": [
+            "The band uses odd degrees; the axial largest eigenvalue and the next eigenvalue are classified."
+          ],
+          "identifier_or_url": "8ca21ea63ef4",
+          "material_read": "RESULT.md statement on interlacing and the axial maximum",
+          "method": "Resultary local mirror primary text",
+          "title": "Weight-universal angular interlacing for odd-band antipodal spherical concentration",
+          "trigger": "Exact angular order comparison on the same mask"
+        },
+        {
+          "assessment": "Pure degree two, not V_L",
+          "evidence": [
+            "Three exact branches and a maximizing-mode transition are for pure quadrupole harmonics."
+          ],
+          "identifier_or_url": "984cac538af7",
+          "material_read": "RESULT.md spectrum and assumptions",
+          "method": "Resultary local mirror primary text",
+          "title": "A sharp quadrupole Slepian transition for antipodal spherical caps",
+          "trigger": "Exact spectral branches on the same cap mask"
+        },
+        {
+          "assessment": "A shrinking belt is not the complement of a shrinking pair of caps",
+          "evidence": [
+            "The small set is an equatorial belt, unlike the two polar caps in the frozen theorem."
+          ],
+          "identifier_or_url": "9a85b4c3346c",
+          "material_read": "RESULT.md mask and spectral statement",
+          "method": "Resultary local mirror primary text",
+          "title": "Narrow equatorial belts: sharp Slepian spectral hierarchy",
+          "trigger": "Fixed-L concentration hierarchy for a shrinking region"
+        },
+        {
+          "assessment": "Different mask and eventual symmetry, irrespective of chronology",
+          "evidence": [
+            "One north cap with an eventually zonal global minimum; it does not yield the odd-L ±1 eigenspace for antipodal caps."
+          ],
+          "identifier_or_url": "79b626324167",
+          "material_read": "RESULT.md one-cap model, sector floors and eventual minimizer",
+          "method": "Resultary local mirror primary text",
+          "title": "Sharp polar-cap Slepian spectral floors and Gauss–Jacobi nodal structure",
+          "trigger": "Closest fixed-degree Jacobi endpoint spectral floor"
+        },
+        {
+          "assessment": "Same-day fixed hemisphere result is not equivalent",
+          "evidence": [
+            "Exact V₂ spectrum for one hemisphere rather than two equal shrinking antipodal caps."
+          ],
+          "identifier_or_url": "b091257c4da7",
+          "material_read": "RESULT.md mask and finite-band statement",
+          "method": "Resultary local mirror primary text",
+          "title": "The complete quadratic hemispherical Slepian spectrum in every sector",
+          "trigger": "Possible exact small-L spectral overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof of sector comparison and condition number",
+        "Simons and Dahlen arXiv:math/0603271v1 §§4.2, 5.2"
+      ],
+      "rationale": "The result specifies both the direction that is hardest to recover from antipodal polar measurements and the exact leading conditioning penalty. Which symmetry wins cannot be read off from the vanishing exponent alone: multiple angular sectors share that exponent, and the winning sector changes with cutoff parity. This is a useful refinement of qualitative polar-gap instability, at the natural fixed-bandwidth shrinking-data limit.",
+      "residual_risks": [
+        "No joint high-bandwidth asymptotic or arbitrary-region conditioning bound follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

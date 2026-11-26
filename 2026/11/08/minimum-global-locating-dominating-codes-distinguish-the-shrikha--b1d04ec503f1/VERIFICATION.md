@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The following ordinary standard-library programs are included as standalone files. Execute each in the same directory as this document, without external packages:
+# Independent mathematical audit
 
-```
-python3 verify_bitmask.py
-python3 verify_set_independent.py
-python3 verify_symmetry.py
-```
+## correctness
 
-`verify_bitmask.py` constructs the two 16-vertex graphs from Cayley differences and row/column tests and verifies their degree and common-neighbor parameters. It enumerates every vertex subset of cardinality 0 through 5 and tests both original and complement open-neighborhood signature conditions. It checks the 96-neighborhood obstruction sets exactly and exhausts all possible one-element replacements, with and without adjacency constraint. Breadth-first search from every code verifies all distances, connectivity, radius and diameter. Its complete output is in `verify_bitmask.out`.
+PASS
 
-`verify_set_independent.py` reconstructs the graphs via unordered edges and independently evaluates set intersections without the first program's bitmask representation. It enumerates all subsets of cardinality 0 through 5 and independently constructs and counts exchange graph links and components, output in `verify_set_independent.out`.
+For an exterior vertex, the complement trace is the set-theoretic complement in the code, so distinctness transfers and globality fails exactly for full original traces. For either graph, fixing a center, the other 15 vertices have distinct two-element traces on its six neighbors: each pair of the six has precisely the center and one other vertex as common neighbors. Deleting one neighbor preserves distinctness and nonemptiness of these pair traces, and the center has the full five-set trace. Thus all 16·6=96 five-subsets of neighborhoods are LD but not global, and none can be repeated because two neighborhoods intersect in only two vertices. The same trace argument gives faithfulness of neighborhood actions. A fresh exhaustive reproduction checked all subsets through size five in both graph/complement pairs; minimum 5 in each, LD counts 1584/1968 and global counts 1488/1872. Exhausting the legal exchanges gave jump edges 18432/27072, slide edges 8160/11520, and all-source distances gave connected graphs with all eccentricities 5 for jumping and 6 for sliding. The explicit edge-preserving permutation groups reach orders 192 and 1152, the upper bounds from the faithful local actions on C6 and 2K3. Orbits were reproduced as 192 six times, 96 three times and 48 once, versus 576 three times and 144 once. Common SRG parameters give A²=4I+2J in both cases and force the same adjacency spectrum; the different counts thus establish the separation.
 
-`verify_symmetry.py` constructs 192 Shrikhande and 1152 rook-graph automorphisms, verifies that every permutation preserves every graph edge, and computes complete orbits of the minimum global locating-dominating codes; expected output is in `verify_symmetry.out`.
+## originality
 
-All source graphs are finite and are covered by the exhaustive loops; no inference from sampled configurations to infinite graph families is made. The short paper proof of the globality filter and the unique-neighborhood obstruction is independent of execution. The counting and distance statements require executable exhaustive enumeration, which is supplied in full. Verification does not establish bibliographic priority, and no external independent audit was performed.
+PASS
+
+The global location-domination definition, complement test, standard exchange rules and graph automorphism groups are background. The supported distinct claim is the exact pairwise comparison of global optimum multiplicities and exchange geometry. The closest distinct Resultary census uses identifying codes rather than global LD; the closest regular-graph literature concerns scalar parameters, with the same-family grid statements out of the audited order range. Priority is provisional given a genuinely relevant inaccessible optimal-ensemble paper.
+
+## value
+
+PASS
+
+Shrikhande and the rook graph are a canonical pair with the same strongly regular parameters and spectrum. Their exact different global-optimum multiplicities and exchange edge counts therefore give a meaningful obstruction to parameter- or spectrum-based recovery. The orbit and diameter data give a reproducible comparison of how those distinct optimal spaces can be navigated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

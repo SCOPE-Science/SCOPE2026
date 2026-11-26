@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:46.256073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Shell edge counts give first squared bond 2n and remaining b_r^2=(r+1)(n-r); positive bonds make the shell Jacobi matrix cyclic at the hub by induction on the tridiagonal recurrence. Its even–odd decomposition gives a positive squared block of dimension ceil(n/2). Only the first odd-shell diagonal is changed relative to a single cube, by +n. The normalized single-cube radial eigenvector at least positive frequency ell has corner squared amplitude binom(n,(n-ell)/2)/2^n by the Walsh projection; its shell-1 amplitude is ell/sqrt(n) times the corner amplitude. Its even and odd parts have equal norm by the bipartite eigenvector equations for ell>0. Thus the Rayleigh upper increment for the squared block is 2 ell^2 binom(n,(n-ell)/2)/2^n, and the lower bound is strict because the simple minimum eigenspace has nonzero shell-1 component. For odd n>=3 the two central binomial coefficients are equal and other terms contribute, giving 1<y_min<2. For n=2m the ratio of successive binom(2m,m-1)/4^m is (m+1)(2m+1)/(2m(m+2)), equal to one for m=1 and below one thereafter. At n=4 the Rayleigh bound is strict because its trial vector is not parallel to e_1 (nonzero off-diagonal) and is not an eigenvector after the perturbation. Thus 4<y_min<6 for even n>=4. Phase agreement for both signs of each supported frequency makes the squared frequencies commensurate; their positive integer trace forces rationality, and the monic integer squared polynomial forces integrality. In even n all squared bonds are even, so the determinant recurrence reduces to y^(n/2) mod 2 and excludes 5. At n=1 the two phases need only agree with each other; at n=2 the zero mode fixes their phase to 1, yielding the stated least times. Reviewed, not executed, the source script. Own exact finite corroboration (/tmp/opencode/frozen-review-replay.py, section 5) gives squared-block polynomials y-2, y-6, y^2-13y+18, y^2-24y+104 for n=1–4 and parity evaluations for even n through 30. The analytic argument is not inferred from those values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil gives the necessary ratio condition on supported eigenvalue differences for vertex periodicity. Kirkland–Monterde give vertex-periodicity results for the graph join, which adds all intergraph edges."
+        ],
+        "reasoning": "The ratio criterion does not decide whether this family's squared eigenvalue polynomials satisfy it; determining that uses new junction-specific bounds and parity. All-to-all joins do not model one-vertex identification.",
+        "searches": [
+          "arXiv:0806.2074, Thm. 2.2, vertex periodicity ratio condition",
+          "arXiv:2312.06906, graph-join definition and Cor. 8"
+        ]
+      },
+      "checked_sources": [
+        "Desaules et al. arXiv:2112.06885",
+        "Kirkland–Monterde arXiv:2312.06906",
+        "Godsil arXiv:0806.2074",
+        "Resultary 5e7f1f10213d and f559fa00b785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Desaules et al. discuss imperfect remote-corner revivals and their asymptotics, rather than asserting all-time exact nonreturn in the hub spectral measure. Godsil's necessary condition applies to the hub but does not evaluate any eigenvalue of its reduced matrix."
+        ],
+        "reasoning": "Having a specific cyclic Jacobi matrix and an abstract commensurability criterion still leaves the exact all-n arithmetic problem. The strict least-square bounds and even parity supply the missing obstruction, including n=4.",
+        "searches": [
+          "Desaules et al., arXiv:2112.06885 §II.B and revival figures",
+          "Godsil, arXiv:0806.2074, Thm. 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same graph appears explicitly in Desaules et al. §II.B, pp. 4–5 and Figs. 2–3, modeled by a sewn tridiagonal chain, with return dynamics measured at a remote Néel corner."
+        ],
+        "reasoning": "The even-reflection part of the sewn radial chain leads to the same shared-hub Jacobi block, so changing basis is not the main new content. A near-revival of the remote corner is not the statement that all phases in the hub support do or do not align at some positive time.",
+        "searches": [
+          "Resultary: hypercubes sharing one corner, corner-glued or wedged cubes, exact hub periodicity and commensurate supported spectrum",
+          "arXiv:2112.06885, §II.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary 5e7f1f10213d studies dark-state resonances and absorption lifetimes for an antipodally augmented single cube with a monitored sink. Resultary f559fa00b785 studies a universal apex on one cube and a discrete characteristic-two wave."
+        ],
+        "reasoning": "The actual observed quantities and adjacency constructions differ from unitary adjacency evolution on the coalescence; neither is a table or theorem of this family's hub periods. Ranked retrieval is bounded.",
+        "searches": [
+          "Resultary: two corner-identified hypercubes, shared-hub exact return, parity cutoff and hub-induced periods"
+        ]
+      },
+      "rationale": "The distinct supported finding is the exact shared-vertex periodicity cutoff, not the glued graph, its tridiagonal reduction, or the general ratio condition. The same graph is established prior art. No examined stronger result supplies the dimension-uniform spectral obstruction for the hub.",
+      "residual_risks": [
+        "Earlier work on vertex coalescence or folded spin chains may give the cutoff under different terminology. This is a bounded comparison, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and related dynamics, not an exact cutoff for return at the shared corner.",
+          "evidence": "Figs. 2–3 and surrounding text: remote Néel corner as initial state and an imperfect revival peak near t=6.282 in the limiting calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.06885",
+          "material_read": "§II.B, pp. 4–5, OA offsets about 21000–33925.",
+          "method": "Primary OA PDF passage read and observable comparison.",
+          "title": "Hypergrid subgraphs and the origin of scarred quantum walks in the many-body Hilbert space",
+          "trigger": "Identical graph and sewn radial reduction."
+        },
+        {
+          "assessment": "Different operation.",
+          "evidence": "Each vertex of one graph is joined to every vertex of the other; no vertex identification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06906",
+          "material_read": "Join definition p. 3 and periodicity Cor. 8 p. 5.",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Quantum walks on join graphs",
+          "trigger": "Potential general graph-combination periodicity theorem."
+        },
+        {
+          "assessment": "Supplies general ratio condition, not junction-specific arithmetic.",
+          "evidence": "Rational ratios of supported eigenvalue differences at a periodic vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.2074",
+          "material_read": "Thm. 2.2, pp. 3–4.",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Periodic Graphs",
+          "trigger": "General adjacency vertex-periodicity criterion."
+        },
+        {
+          "assessment": "Different operators and observables.",
+          "evidence": "Single augmented cube with sink/monitor or characteristic-two reversible wave with universal apex.",
+          "identifier_or_url": "Resultary 5e7f1f10213d and f559fa00b785",
+          "material_read": "Mirrored finding statements.",
+          "method": "Resultary search with local mirror passage reads.",
+          "title": "Arithmetic dark-state resonances; hub-induced period-eight parity transition",
+          "trigger": "Closest same-day technical and hub-period terminology matches."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hub is the distinguished junction in a studied quantum-walk model. Exact recurrence there is a natural contrast with perfect recurrence of the single cube and with high but imperfect peaks from remote corners. The all-dimension obstruction and genuinely attained low-dimensional exceptions resolve that distinction sharply; they do not claim bounds on approximate recurrence, remote-corner periodicity, or a Laplacian result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

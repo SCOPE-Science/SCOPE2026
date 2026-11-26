@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conclusion is an infinite, all-primitive-state statement, not an extrapolation from enumeration. The identities \(Q^7=I+2B\) and \(Q^{14}=I+4D\) hold exactly over the integers and \(B,D\) are unimodular. Their dyadic lifts give the required difference valuations. The seven parity triples arise from the transitive action of \(Q\bmod2\); two of them contribute one preimage to each target value, two contribute even fibers via parity-restricted isometries, and three contribute even fibers by translation pairing. The \(k=1,2\) boundaries are separately treated. All primitive initial triples were enumerated for \(k\le5\); the packaged checker verifies additional matrices and higher levels. The finite checks support, but are not substituted for, the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Modulo two the companion matrix acts on the seven nonzero vectors as multiplication by a nonidentity element of F_8^×, so a primitive return time is a multiple of seven. The lifts Q^7=I+2B and Q^14=I+4D give valuation ν₂(h)+1 for the matrix difference at shift 7h acting on a primitive vector, because both leading matrices are invertible modulo two. This proves the least state period. The three linear forms e, eB and eD modulo two are independent, so all seven nonzero branch types occur. For b=d=1, the difference valuations force a bijection from the full branch to the designated parity class, with one such branch per parity. For b=0,d=1 the two input parity classes map bijectively onto the same mod-four ball. For d=0, translating by 2^{k−2} pairs the inputs in each output fiber; k≥3 is essential to using the even-step lift. Thus exactly one contribution per fiber is odd. The mod-two counts are specifically 3 at zero and 4 at one; at modulus four the b=1 branches come in pairs per parity and b=0 branches contribute even counts.
 
-Taş–Karaduman prove period phenomena, and the closely related published Padovan zero-hit-variance result determines ensemble moments, but neither stated conclusion implies an odd number of visits to **every** residue on **every** primitive cycle. The proof of the prior zero-hit work already contains compatible matrix identities; those identities are acknowledged and the new point is the exhaustive mod-two analysis of all scalar fibers. Rowland–Yassawi's general constant-recurrence interpolation addresses limiting image densities, not these exact individual-cycle fiber parities. Kamlovskii's papers provide general frequency results; the inspected sections did not state this classification. Searches for equivalent formulations, dominating all-residue coverage, exact frequency tables, and implication from the closest results found no decisive covering claim. A general theorem hidden in the wider literature may still subsume the parity result, especially in the Galois-ring frequency literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant being evaluated is the natural residue-occurrence multiplicity along a full primitive Padovan cycle. Positivity of every fiber establishes full dyadic surjectivity simultaneously for all initial triples, whereas the stronger parity statement distinguishes the result from mere period-lifting or support-density calculations. This structural all-modulus boundary is not a cosmetic normalization or small finite table and can guide exact frequency and pseudorandom-orbit questions. No claim of a complete multiplicity histogram is made.
+Credit the previously stated period and lift identities to the earlier zero-hit record. The supported distinct contribution is odd multiplicity of every scalar residue over the state period for every primitive starting state, hence universal dyadic surjectivity. The inspected fixed-seed sections, cycle-averaged moments, and general density or frequency results do not cover that assertion.
 
-## Closest literature and limitations
+## value
 
-The closest arithmetic precedent is *Exact zero-hit variance for primitive Padovan orbits modulo powers of two* (2026); its exact period and scalar zero-hit moments do not determine residue-by-residue parity within individual cycles. Taş–Karaduman (2014), Rowland–Yassawi (arXiv:1602.00176, first posted 31 January 2016), and Kamlovskii (2009, 2013) frame the archival problem. This review does not establish priority against unindexed equivalent results. The checker performs finite tests only; the claim is restricted to primitive triples, the recurrence \(u_{n+3}=u_{n+1}+u_n\), and moduli \(2^k\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact parity for every target in every primitive orbit is strictly finer than a mean zero-hit count or a guarantee for the standard seed. It gives a uniform obstruction to missing any dyadic residue and explains why the coverage mechanism persists under arbitrary primitive initialization. The two low moduli mark where the odd-fiber law actually starts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

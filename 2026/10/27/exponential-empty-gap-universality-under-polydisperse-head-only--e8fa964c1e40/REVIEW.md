@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim fixes a translation-invariant marked Poisson proposal process, positive bounded connected intervals, strictly head-only acceptance, and finite cumulative arrival exposure. Independent splitting by proposed-head location supplies a rigorous product coupling up to first coverage of any test interval. The two outer survival events are independent, because a connected deposited interval cannot affect the opposite half-line without first intersecting the test interval. The no-internal-head event contributes the exact exponential factor. A distributional second derivative of the stationarity/Campbell gap identity then gives the complete gap-count density. A bounded-length chronological ancestor argument supplies construction and local finiteness. Direct continuum interval-union simulation agrees with the exponential profile for two mixed-length, directionally biased conditions, including time-inhomogeneous arrival intensity. Sampling is corroboration only.
+## correctness
 
-## Originality: PASS relative to the sources compared
-The closest direct predecessor, Gromenko–Privman–Glasser (arXiv:0712.3567), Sections III–IV, proves an exponential empty-gap distribution for *fixed-length* rods with symmetric orientations, and explicitly treats the model as exactly solvable in that setting. The assessed claim is the distribution-shape universality for genuinely random lengths, arbitrary direction bias, and time-varying rates. It does not assert a new solution for the monodisperse case. Araújo–Cadilhe (arXiv:cond-mat/0404422), Section II, examines *whole-rod exclusion*, a different rule with length-dependent jamming gap statistics. Semantic research-record queries and published-source searches yielded no covering statement; absence of a match cannot establish exhaustive priority. Residual risk remains from uncatalogued Poisson-cutting or random-fragmentation results of greater generality.
+PASS
 
-## Mathematical value: PASS
-The mean size and the *entire count-sampled distribution* of surviving gaps are natural observables for one-dimensional crack initiation and irreversible damage. The exact exponential law persists even though the polydisperse coverage fraction need not possess a closed formula. It distinguishes universal observable geometry from model-dependent coverage and supplies a direct rate-exposure diagnostic through the observable gap-length scale, while the usual hard-rod RSA does not share the property. The assertion is a structural robustness theorem for a genuinely heterogeneous family rather than a single numerical recomputation.
+At fixed finite t, bounded mark reach gives a graphical construction: for heads in a bounded window, the expected number of time-ordered backward chains of k+1 proposals is at most the window length times Λ(2ℓ₊)^k Λ^k/(k+1)!. Thus there are no infinite ancestry chains, locally the relevant Poisson graph is finite, and chronological acceptance is well defined. Survival of a fixed interval requires no interior proposal, since any head there would be accepted until the first hit. Until the first contact with the test interval, connected intervals from opposite sides cannot influence each other's decisions; the two killed half-line processes and the absent interior proposals are independent. Applying the same split at one point gives F=S₋S₊, so the interval survival probability is F exp(-Λx). Fixed endpoints have probability zero of being deposition endpoints by spatial diffuseness. All proposal heads are covered by time t, including rejected heads, so the spatial Poisson heads of positive intensity bound every vacant component on both sides. Bounded reach also gives locally finite boundary intensity and F≥exp(-2ℓ₊Λ)>0. The length-g gap contributes (g−x)₊ to the measure of possible test origins; the stationary Campbell identity and its second distributional derivative give q_t(dx)=FΛ² exp(-Λx)dx and its claimed normalization. The proof does not infer independence of gaps or a temporal stationary law. The supplied Monte Carlo script is diagnostic, not needed for the proof.
 
-## Limitations and comparison risk
-The theorem applies only to a pristine infinite homogeneous one-dimensional substrate with independent spatial Poisson attempts, connected positive bounded deposited intervals, and head-only exclusion. It does not imply independent gaps, determine the uncovered fraction, or establish a long-time scaling law. Published general Poisson-fragmentation literature is not exhaustively searched. Monte Carlo finite-window truncation has negligible but not mathematically excluded boundary effects; only the analytical proof establishes the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the generality is credited: the fixed-length, orientation-symmetric constant-rate head-only void law and the normalized gap law are already known. The inspected sources do not cover the full marked head-only claim or its factorization argument.
+
+## value
+
+PASS
+
+Exact universality of the count-sampled law when the mark-dependent coverage fraction and kinetics can change is useful. The proof explains which acceptance mechanism, rather than any closure specific to fixed lengths, controls the gap law. It separates the length distribution from both coverage and correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:47:50.411968Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47; VERIFICATION.md lines 19–32; supporting verification/check_fano.py and verification/check_pg3.py identified in the source package"
+      ],
+      "rationale": "Incidence geometry gives distance two within a shore and distances one or three across shores. Hence higher names are singletons and a double occurrence of 2 must be a nonincident point-line pair. For a mixed independent set, the selected t lines avoid a selected point, giving 1<=t<=q^2. The incidence moments are (q+1)t and t(t+q), since every ordered pair of distinct lines meets once. Cauchy–Schwarz gives at least (q+1)^2 t/(t+q) covered points. Subtracting t gives at least q because the remaining numerator is (t-1)(q^2-t). This yields the sharp mixed bound v-q (a single line and all nonincident points attain it) and confines any independent set of size v-1 or v to one shore. Counting capacities first gives k>=v, then excludes k=v since a full color-1 shore would force the two color-2 vertices onto the same other shore. The exhibited type I uses v+1. At this optimum a missing higher name would force the same excluded sizes (v,2), so all higher names are used and the only low-class sizes are (v,1) and (v-1,2). These give types I and II exactly. The high-name vertices cannot move to 1 (each has at least q neighbors of color 1) or 2 (the incumbent 2 on their shore already blocks it). A move to another higher name duplicates a singleton. Type I therefore has just the q^2 choices of a nonincident 1 turning into 2; in type II, only the missing same-shore element can return to 1. The opposite-shore 2 cannot turn to 1 since it has color-1 neighbors. Thus every leaf has a unique parent and the counting factors 2v, (v-1)!, and 1+q^2 are exact. The Fano and order-three counts have the stated values.",
+      "residual_risks": [
+        "The bounded programs were not run in this audit. The general proof uses only the plane axioms and applies conditionally on existence of a plane, for q>=2. The order-three reported computation is on configurations with singleton names forgotten, not the full named graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Moore-graph paper is credited for the optimum palette and the two maximum independent shores. The search located Large Incidence-free Sets in Geometries (EJC 19(4), P24) and A note on the chromatic number of Kneser graphs on chambers of a projective plane (arXiv:2605.12030); snippets concern incidence-free pairs and, in the Kneser case, equinumerous pairs."
+        ],
+        "reasoning": "Incidence-free pair bounds are relevant to the independence step. The usual incidence matrix bound on an unbalanced pair (P',T) is (q+1)^2 |P'| |T| <= q(v-|P'|)(v-|T|), equivalent to |P'| <= v-(q+1)^2 |T|/(q+|T|), the moment bound used here. That follows directly by Cauchy–Schwarz on centered incidence vectors, since the incidence matrix has squared singular value q off constants. The gap and packing-class analysis should therefore not be treated as inventing a new geometric bound. No available source passage gives the subsequent packing classification or reachability classes.",
+        "searches": [
+          "Fresán-Figueroa–González-Moreno–Olsen arXiv:1909.11638 Thm. 3.1 and Lem. 3.1",
+          "Primary-literature search for incidence-free pairs, near-maximum mixed independent sets, and projective-plane optimum packing recoloring"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–43 and 49–61",
+        "Resultary records dbc6e3a18c67, 29c49fb8469d, d236fa6e5766, 01488f36b261",
+        "Primary search and OA attempts on the exact packing and unbalanced incidence-free formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximum-independent-set lemma can force the shape of a full 1-class, but by itself cannot classify the optima having a 1-class of size v-1. Even once an incidence inequality shows that class is one-shore, the low-class capacity constraints and the frozen higher names are needed to recover every transition."
+        ],
+        "reasoning": "Neither the known palette-size theorem nor the compared incidence bounds are stronger classification theorems whose special case is the named recolouring graph. The record supplies the exact low-class alternatives, shows singleton names cannot move, and determines every component for all q>=2.",
+        "searches": [
+          "arXiv:1909.11638, stated projective-plane optimum and independent-set lemma; Resultary dominated projective-plane and affine packing classifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Broadcast coloring is cited as the earlier vocabulary for the distance rules. The related dominated-colouring record 29c49fb8469d computes mobility on the same incidence graph family, but its indexed components are v^2 copies of K_(q+1) x K_(q+1), with a different condition on color classes."
+        ],
+        "reasoning": "Terminological aliases for packing colorings leave the claim unchanged. A dominated class instead requires a shared dominator, and cannot identify the packing states or their q^2 possible moves. Ordinary proper, distance-two and star coloring of the Heawood instance also do not impose distance thresholds depending on the color name.",
+        "searches": [
+          "Resultary projective-plane packing/broadcast colourings and named single-vertex reconfiguration",
+          "Goddard et al. Broadcast Chromatic Numbers of Graphs (2008); Goddard–Xu DOI 10.7151/dmgt.1642"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogued exact target is the assigned result dbc6e3a18c67, a self-match. The parallel-class rigidity record d236fa6e5766 is a different exact packing-colouring census on affine-plane incidence graphs. The Heawood distance-two coloring record 01488f36b261 is indexed as using a spare color and a different coloring rule."
+        ],
+        "reasoning": "A table of optimum palette sizes or a catalog count with different distance predicates cannot provide the full named state graph. An affine plane has different incidence and distance structure; sharing a term such as packing census supplies no coverage of the all-projective-plane type classification.",
+        "searches": [
+          "Local Resultary queries for exact named projective-plane optimum packing census and mobility, including Heawood"
+        ]
+      },
+      "rationale": "Pass for the exact classification and enumeration of all optimal packing colourings and their full named optimal single-vertex recolouring graph. The bound v+1 and the maximum independent sets are prior. The incidence estimate used to obtain the near-maximum gap is standard in form; the comparison does not assert priority for incidence mixing or the estimate in an equivalent form.",
+      "residual_risks": [
+        "Decisive full primary text and the closest mirror texts were not available. An earlier classification in unavailable literature or an unindexed packing-mobility result is not excluded; neither the size v+1 nor standard incidence estimates are asserted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known optimum and maximum independent shore facts credited; possible details beyond the available synopsis remain unverified",
+          "evidence": "The frozen text credits Thm. 3.1 with v+1 and Lem. 3.1 with the two independent shores of size v.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.11638",
+          "material_read": "Frozen attribution and theorem/lemma locators at RESULT.md lines 49–60; exact external passages were not retrieved",
+          "method": "Read frozen comparison; bounded OA attempts on the open source",
+          "title": "On the packing chromatic number of Moore graphs",
+          "trigger": "Same incidence graph family and packing optimum; strongest direct possibility of further classification"
+        },
+        {
+          "assessment": "Relevant to incidence inequalities, not evidence against or in favor of exact priority for packing mobility",
+          "evidence": "The Kneser result's search description uses maximal equinumerous incidence-free point-line pairs; the EJC snippet connects incidence-free configurations to maximal arcs.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i4p24 ; https://arxiv.org/html/2605.12030v3",
+          "material_read": "Search snippets only; OA passages were not retrieved",
+          "method": "Focused primary-literature query and bounded OA attempts",
+          "title": "Large Incidence-free Sets in Geometries; A note on the chromatic number of Kneser graphs on chambers of a projective plane",
+          "trigger": "Dual geometric formulation of mixed-shore independent sets"
+        },
+        {
+          "assessment": "Different coloring predicate or different plane graph by available statement",
+          "evidence": "The first has dominated colorings and Cartesian complete-graph components; the second has affine lines and a parallel-class packing characterization.",
+          "identifier_or_url": "Resultary 29c49fb8469d and d236fa6e5766",
+          "material_read": "Exact local indexed summaries; no full mirror passages",
+          "method": "Local Resultary search and bounded mirror retrieval attempts",
+          "title": "Pencil rigidity and recoloring components of dominated colorings; Parallel-class rigidity and exact affine packing census",
+          "trigger": "Closest published catalog matches of graph family, optimal coloring or mobility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17 and 25–43"
+      ],
+      "rationale": "The exact forest shows how individually movable 1/2-label choices coexist with global freezing of every higher name. It gives reachability, full counts and component diameters for a standard family, including planes without coordinates over a field. This is information not present in the chromatic number, an independence bound, or a census of two small planes.",
+      "residual_risks": [
+        "The claim does not describe mobility with a spare color, name exchanges, or non-optimal intermediates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

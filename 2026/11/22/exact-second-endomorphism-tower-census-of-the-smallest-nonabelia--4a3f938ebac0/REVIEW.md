@@ -1,19 +1,21 @@
-# Scientific review of the second endomorphism tower of \(S_3\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-level ten-element endomorphism monoid follows from all three normal subgroups of \(S_3\). Its six units and four singular elements form a left-zero ideal with zero and an explicitly described unit action. A semigroup endomorphism takes the identity to one of five idempotents. For identity image, there are exactly ten restrictions to the unit group and five choices for each of four singular images, an explicitly exhaustive 6250-candidate test. The checker independently reconstructs the monoid from all six permutations and evaluates every candidate against 100 multiplication equalities; 33 remain. For each of the three singular nonzero identity images, the two-element local monoid allows three maps, plus a single map with zero identity image. Hence the full count is 43, with the rank polynomial recorded in RESULT.md. Finite enumeration is complete, not a sample.
+PASS
 
-## Originality — PASS, provisional
+The first monoid consists of the six units, a three-element left-zero ideal above zero on which the units act by conjugating transpositions on the left and trivially on the right, and zero. For an identity-preserving second map, an automorphic restriction to the units forces the image of zero to be zero and allows either collapse of the three singular idempotents to zero or their unique equivariant permutation (six maps of each rank 7 and 10). A restriction onto an order-two subgroup collapses the three idempotents to a common value, either zero or the singular idempotent fixed by that subgroup. The zero image then gives, per subgroup, two rank-3 maps and one rank-4 map. A trivial restriction maps the three singular idempotents to a common idempotent d and zero to any q satisfying dq=qd=q, giving one rank-1, eight rank-2 and three rank-3 maps. For a nonunital map, the local monoid of the image of 1 is either {0} or {0,t_s}, giving four constants and six rank-2 maps in all. Thus there are 33 unital and ten nonunital maps; the combined rank multiplicities at 1,2,3,4,7,10 are 5,14,9,3,6,6. The frozen checker was inspected without execution; independent reconstruction of the permutation table and exhaustive locally constrained homomorphisms was run successfully with python3 /workspace/branches/s3_independent_replay.py. The six full-rank maps are automorphisms of E1. If the wording about automorphisms of E2 is read literally as Aut(E2), the independent replay also verifies cardinality six: fixing each unit leaves all 43 elements distinguishable by invariant multiplication signatures, and the six inner automorphisms realize the six restrictions on the unit group. No assertion about later tower levels is tested.
 
-Gould–Grau–Johnson–Smith's recent tower paper explicitly assumes \(n\ge7\); its second-level classification does not imply the exact \(n=3\) count or the stated rank polynomial. An accessible historical endomorphism-tower rank result likewise assumes \(n\ge7\), and is not a special case at degree three. Targeted published-result searches for \(\operatorname{End}(\operatorname{End}(S_3))\), its possible sizes and rank spectrum yielded no covering statement. Unindexed degree-three calculations remain a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete second-level rank polynomial is a natural invariant for a canonical excluded boundary case in a recent classification program. It distinguishes identity-preserving from general semigroup endomorphisms, including ten genuinely nonunital maps, and establishes the full range of image sizes with gaps. This is an exact classification of a naturally occurring finite endomorphism tower, rather than an arbitrary numerical slice or an unsupported extrapolation.
+The exact catalog match is the frozen finding itself; no distinct covering census or structural theorem was identified. The nearest primary theorem explicitly excludes degree three. This is a bounded statement-level judgment, not a priority claim.
 
-## Limitations
+## value
 
-The claim is specific to \(S_3\). It relies on an exactly enumerated finite monoid, does not imply a general exception pattern, and makes no claim of established worldwide priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+S3 is the first nonabelian symmetric degree and lies outside the motivating large-degree classification. A complete second-tower image-rank census, with the unital/nonunital split, supplies a natural exceptional-degree benchmark and shows which ranks are possible, not just the size of a routine Cayley table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

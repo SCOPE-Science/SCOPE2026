@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:00:10.943620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed content only the scattered 01 count varies independently. Rotation changes it by n−k for a leading one and −k for a leading zero. After division by d these are a and −b, congruent modulo L=a+b; since b is invertible modulo L, the first L heights are distinct. Equality at L forces equal heights at all pairs of starts separated by L, so consecutive differences give period L, and the converse is immediate from the number of literal rotations. The counts of ones in consecutive length-L circular windows average b and change by at most one, forcing an exactly balanced window. It is a closed segment of the height walk. For d>1, removing it retains both endpoint levels and can lose at most L−1 interior levels. The shortened word has content ((d−1)a,(d−1)b) and the same normalized steps; induction starting at d=1 proves the upper bound. The two monotone runs of the clustered walk share exactly d−1 interior return heights, because b divides ta exactly when b divides t. This attains the upper endpoint, including a=1 or b=1. Coprime content gives n distinct signatures for every word. Inspected frozen verify.py and VERIFICATION.md without executing the script; its reported exhaustive length-2-to-12 diagnostic does not establish the proof or classify every upper-bound maximizer.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multiletter proof shows equality of rotation signatures iff the intervening segment is proportional to the content vector. Its proof of the minimum and equality uses no three-letter assumption. Its upper endpoint N uses at least three partially intersected monochromatic runs. Cassaigne et al. count conjugacy classes of contiguous factors of an infinite word."
+        ],
+        "reasoning": "The earlier proof gives the entire lower endpoint already. The multiletter maximum argument explicitly fails with two runs, and contiguous-factor cyclic complexity counts a different quotient.",
+        "searches": [
+          "0d4f8c02fe70, multiletter rotation spectra, proof Steps 1–3",
+          "Cassaigne–Fici–Sciortino–Zamboni arXiv:1402.5843"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d4f8c02fe70, fda1260be906, 0b67a9f3e612, 61bf2aed9328",
+        "arXiv:2510.07159 pp. 4–5, 16, 19",
+        "arXiv:2001.11732 Theorem 3",
+        "arXiv:1402.5843 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiletter collision criterion gives all binary lower equality cases outright. For d=2 the moments proof identifies the exact deficit as the number of balanced opposite-cut pairs; the existence of at least one balanced window then gives deficit at least one. The dispersion record has the same clustered maximizing word for a different functional."
+        ],
+        "reasoning": "For d>2, height multiplicities can exceed two; the d=2 deficit identity does not extend as stated. The repeated deletion argument yielding at least d−1 duplicate visits, with a matching construction, is not an implication in any of the checked general or exact work.",
+        "searches": [
+          "0d4f8c02fe70 proof Steps 1–3, offset 2340",
+          "fda1260be906 Finding and first proof step, offset 0",
+          "0b67a9f3e612 Finding, offset 300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a binary orbit inv(R_i)=k(n−k)−#01(R_i); exact support-size bounds for cyclic inversion numbers therefore would be equivalent. Richomme obtains geometrical and partition descriptions of the same scattered counts, while Lejeune–Rigo–Rosenfeld characterize binary equivalence by Parikh matrices, not cyclic support extrema."
+        ],
+        "reasoning": "The inversion transformation preserves the cardinality exactly. Major index is not identified by it; literal necklace period divisibility alone does not prove a lower bound for the coarser scattered-signature quotient.",
+        "searches": [
+          "Resultary binary 2-binomial rotation profiles and cyclic inversion support",
+          "public search for fixed-content cyclic inversion and major-index profiles",
+          "Richomme arXiv:2510.07159 and Lejeune–Rigo–Rosenfeld arXiv:2001.11732"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0d4f8c02fe70 gives the exact multiletter attainable interval; fda1260be906 gives exact moments for gcd=2; 0b67a9f3e612 gives exact bounds on the variance of the same profile; 61bf2aed9328 studies reconstruction fibers of the multiset at weight three."
+        ],
+        "reasoning": "A probability moment formula or an exact within-orbit variance is not a general support-size extremum. Reconstruction counts the words producing a specified multiset, not how many values one word produces. The same-day overlap is mathematical, not a priority inference.",
+        "searches": [
+          "Resultary exact cyclic 2-binomial rotation diversity, fixed content, inversion dispersion and reconstruction"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact binary upper endpoint n−d+1 over all content pairs. The lower endpoint and complete power equality criterion are already implied verbatim by the alphabet-independent proof in the earlier multiletter record, despite its nominal restriction to at least three letters. The same-day exact-moments record also gives the collision count for d=2, which together with a balanced-window argument yields the upper bound in that stratum. These do not supply the general binary deletion bound and sharp endpoint for arbitrary d.",
+      "residual_risks": [
+        "A cyclic inversion-support theorem under other terminology would be equivalent and the bounded public search cannot exclude it. The relative priority of the same-day gcd=2 record was not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the lower endpoint and equality even for binary content, not the binary upper bound",
+          "evidence": "The segment pair-count difference is c_a s_b−c_b s_a, and equality at L forces periodicity by comparing length-L windows. The no-collision block argument needs at least three runs.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-2-binomial-rotation-spectra-for-fixed-multiletter-content--0d4f8c02fe70",
+          "material_read": "RESULT.md Finding and proof Steps 1–3, offsets 0 and 2340",
+          "method": "Resultary local mirror",
+          "title": "Sharp 2-binomial rotation spectra for fixed multiletter content",
+          "trigger": "Earlier exact orbit extrema and power characterization"
+        },
+        {
+          "assessment": "A sharp partial overlap in arithmetic stratum d=2, not a general bound",
+          "evidence": "The deficit equals the number of balanced opposite-cut pairs when no class can have multiplicity three.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-second-moments-and-fluctuation-scale-of-cyclic-2-binomial--fda1260be906",
+          "material_read": "RESULT.md Finding, Assumptions and proof collision reduction, offset 0; prior work offset 6415",
+          "method": "Resultary local mirror",
+          "title": "Exact second moments and fluctuation scale of cyclic 2-binomial signature diversity",
+          "trigger": "Exactly the same statistic for gcd=2, same indexed date"
+        },
+        {
+          "assessment": "Different optimization functional",
+          "evidence": "The clustered word maximizes variance of the scattered-01 rotation profile, not an asserted count of distinct values.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612",
+          "material_read": "RESULT.md Finding, offset 300",
+          "method": "Resultary local mirror",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Same binary rotation profile and the same upper witness word"
+        },
+        {
+          "assessment": "Close statistic precedent, not the fixed-content cyclic support interval in inspected passages",
+          "evidence": "The geometric and partition descriptions concern individual scattered counts and full 2-binomial classes, not the number of classes encountered along one necklace.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Grid paths pp. 4–5, lattice structure p. 16, partitions p. 19; OA offsets 17119–20643, 61395, 71215–71624",
+          "method": "OA primary PDF",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Strong primary-literature match for the binary statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural binary-versus-multiletter distinction: fixed content forces collisions in every binary orbit when d>1 even though higher alphabets can realize full support. The exact binary deficit d−1 and the deletion mechanism explain this obstruction uniformly and give a useful benchmark for future profile or reconstruction results. The already known lower endpoint alone would not justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

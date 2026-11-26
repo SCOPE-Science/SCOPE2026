@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:46.439871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed valuation the odd part is balanced mod 4; f is also balanced separately on the even and odd cylinders. Parity splitting therefore gives C(h)=0 for odd h, and C(2q)=((−1)^q+C(q))/2. After translating to a close-pair endpoint, the triple has offsets divisible by 2^m. On shells of valuation below m the product is a fixed multiple of the same balanced odd-unit sign, hence integrates to zero. Rescale the remaining cylinder of mass 2^(−m) to offsets (0,d,h) with d odd and h even. The odd base point contributes zero, and the even base point leaves chi_4(d)/2 times the signed pair integral R(h/2). This is zero for an odd argument u and equals (C(u/2)−(−1)^(u/2))/2 for even u, giving all three valuation branches, including r=1 where the close-pair orientation is immaterial. Expanding the sign indicators recovers all eight probabilities. Haar inversion and f(−x)=−f(x) reverse the cubic and preserve the pair moments. Finite cylinder approximation identifies the Haar process with word frequencies. The stated frozen verifier checks 767 cases but its explanation of the error bound omits shifted residue 2^12: its sign is not determined mod 2^13 either. In the tested offset range every exceptional shifted argument is isolated, with the other factors fixed. Both exceptional types have conditional sign mean zero, so assigning zero to residue 0 contributes no error and the representative sign at 2^12 contributes at most 1/2^13 per offset. Thus the given error bounds still hold for these comparisons. The script's two cylinder assertions use the predictor; as an independent exact check I summed Haar cylinders for all 4005 triples (0,a,b) with −45<=a<b<=45 and a,b nonzero, and for lags 1 through 90. For each pattern I used depth 3 plus the maximum pairwise valuation, integrated high-valuation arguments by their zero conditional mean, and averaged the constant signs on the remaining residues. All matched the stated formulas and yielded +++ probabilities 3/16 and 1/8 for (0,1,4) and (0,3,4). The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deng and Moody pp.1-2 state their positive determination result for real internal spaces; Sec.7.2 gives a finite cyclic internal-space example.",
+          "The indexed abstract of the 2005 correlation/diffraction article concerns higher-dimensional paperfolding and Rudin-Shapiro; its full text could not be inspected lawfully on the attempted routes."
+        ],
+        "reasoning": "A model-set representation can express correlations as window intersections, but the inspected determination results do not evaluate the needed signed 2-adic integrals. The inaccessible article leaves a named comparison risk, not negative evidence.",
+        "searches": [
+          "arXiv:0901.4381v3 model-set two- and three-point correlation theory",
+          "Paperfolding higher-dimensional correlation DOI 10.1088/0305-4470/38/12/005"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1208.2856v1",
+        "arXiv:1010.2338v1",
+        "arXiv:0901.4381v3",
+        "Resultary 00812d5f14d3, 2158555bdbfa, e10bdf10572b and d3c38e79ee94",
+        "DOI 10.1088/0305-4470/38/12/005 (abstract/access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the known sign coding and Haar reflection immediately gives sign reversal of odd moments, but this alone allows a zero cubic for every triple. The evaluated signed pair integral and reduction to the minimum separation valuation are needed for all actual values and for the nonzero witness.",
+          "The interval-map record proves a different cubic array criterion, with C_(1,2)−C_(2,1)=theta A B/12 in its own model."
+        ],
+        "reasoning": "No credit is assigned for the codings, generic symmetry observation or moment expansion in isolation. The close-pair valuation split supplies the paperfolding-specific classification and the quantitative failure of reversal, not just a general characterization of what cubic statistics could detect.",
+        "searches": [
+          "Madill and Rampersad odd-part representation; Deng and Moody higher correlations; Resultary 2158555bdbfa cubic reversal comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Van Enter and de Groote pp. 2-3 define an overlap of two independently sampled configurations, and p.5 identifies a 2-adic internal space.",
+          "Madill and Rampersad pp.1-2 describe the same odd-part sign coding and define Abelian complexity of factors."
+        ],
+        "reasoning": "Neither the two-replica spatial overlap nor the Abelian-class count is the joint law of three fixed times on one orbit. Sharing the sign coding is not equivalent coverage of the evaluated correlations.",
+        "searches": [
+          "Paperfolding temporal and higher-order correlations, 2-adic model-set formulation",
+          "arXiv:1010.2338v1 and arXiv:1208.2856v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 00812d5f14d3 gives an evaluated all-lag three-site law for the period-doubling substitution; its sign mean is 1/3, in contrast to zero here.",
+          "Resultary e10bdf10572b enumerates adjacent run-length pairs, and d3c38e79ee94 treats generalized-paperfolding dyadic block and Abelian-power statistics.",
+          "Resultary 2158555bdbfa gives a cubic reversal test for full-branch interval maps, not the stationary paperfolding sign word."
+        ],
+        "reasoning": "These are exact indexed laws but for other observables or processes. The closest analogous all-lag record is not an alternative formulation of this law; no ordering is inferred from the shared catalogue date.",
+        "searches": [
+          "Resultary: all-lag paperfolding sign triples, exact three-site laws and time reversal"
+        ]
+      },
+      "rationale": "The distinct supported content is the evaluated cubic valuation law for all distinct integer triples of the regular-paperfolding sign process, together with its quantitative three-site orientation witness. The odd-part description and general correlation machinery are prior; the conversion from moments into cylinder probabilities is routine and is not counted as separate novelty. No equivalent of the exact evaluated law was found in the inspected sources.",
+      "residual_risks": [
+        "The 2005 higher-dimensional paperfolding correlation article remained inaccessible in full; scope of its one-dimensional or higher-order examples is unresolved.",
+        "Equivalent formulae in older Toeplitz or model-set literature could exist beyond the scoped comparisons; no exhaustive priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior odd-part coding; different statistic",
+          "evidence": "Defines the word by the residue mod 4 of the odd part and studies Abelian factor classes rather than fixed-lag sign products.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.2856v1",
+          "material_read": "Opening definitions and result, pp.1-2",
+          "method": "OA primary text near offset 1200",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Same ordinary paperfolding coding"
+        },
+        {
+          "assessment": "Shared dynamical structure, different observable",
+          "evidence": "The overlap averages over two separately drawn configurations, not three times of one configuration.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.2338v1",
+          "material_read": "Overlap definition pp.2-3 and 2-adic model-set passage p.5",
+          "method": "OA primary text offsets about 1500-2318 and 11200",
+          "title": "An ultrametric state space with a dense discrete overlap distribution: Paperfolding sequences",
+          "trigger": "Same process, overlap and 2-adic model-set structure"
+        },
+        {
+          "assessment": "General framework, not an evaluated 2-adic sign law",
+          "evidence": "Positive determination is stated for real internal spaces; Sec.7.2 is a different example over a finite cyclic group.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.4381v3",
+          "material_read": "Opening statements pp.1-2 and Sec.7.2 pp.14-15",
+          "method": "OA primary text offsets about 1800-6777 and 40500",
+          "title": "How model sets can be determined by their two-point and three-point correlations",
+          "trigger": "Potential general implication from model-set higher correlations"
+        },
+        {
+          "assessment": "Exact analogue for a different sign process",
+          "evidence": "The substitution has nonzero sign mean 1/3 and a different explicit cubic formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-three-site-laws-for-the-period-doubling-substitution--00812d5f14d3",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror passage at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact three-site laws for the period-doubling substitution",
+          "trigger": "Same dyadic setting and all-lag three-site format"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": "A cubic reversal criterion and an explicit asymmetric gap pair are computed for an interval-map coordinate, not dyadic paperfolding signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa",
+          "material_read": "RESULT.md Finding near offset 850",
+          "method": "Bounded local mirror passage",
+          "title": "Exact third-order correlations distinguish full-branch interval maps",
+          "trigger": "Cubic law detecting time direction"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "The accessible description points to correlation and diffraction of higher-dimensional sequences; it does not resolve whether the target cubic law is treated.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/38/12/005",
+          "material_read": "Indexed abstract only; no lawful full text found in the bounded attempt",
+          "method": "DOI/PDF OA attempt and repository recovery",
+          "title": "Correlation and spectral properties of higher-dimensional paperfolding and Rudin–Shapiro sequences",
+          "trigger": "Possible paperfolding correlation precedence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete evaluated three-site law of a natural stationary process, not a selected finite-lag coincidence. It identifies precisely which scale patterns produce zero or nonzero orientation information and gives a concrete cylinder statistic that distinguishes the reversed law even though all pair moments agree. The result is useful for comparing higher-order statistics of dyadic processes beyond their pair spectra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

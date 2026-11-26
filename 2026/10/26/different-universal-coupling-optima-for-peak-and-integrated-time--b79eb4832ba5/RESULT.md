@@ -6,7 +6,7 @@ In a pair of harmonically coupled overdamped Brownian particles connected to une
 (x+2)\log(1+x)=x^2,
 \qquad x_*=2.223254940100293\ldots.
 \]
-Thus \(u_{\mathrm{peak}}=1.111627470050146\ldots k>u_{\mathrm{area}}=0.707106781186547\ldots k\). Both ratios are independent of the two bath temperatures (provided they differ). In contrast, the infinitesimal-delay antisymmetric covariance slope increases strictly with coupling rather than possessing a finite optimum; this slope is the previously established mean-circulation observable, not a new result here.
+Thus \(u_{\mathrm{peak}}=1.111627470050146\ldots k>u_{\mathrm{area}}=0.707106781186547\ldots k\). Both ratios are independent of the two bath temperatures (provided they differ). In contrast, the **magnitude** of the infinitesimal-delay antisymmetric covariance slope increases strictly with coupling and has no finite maximizer. The signed slope increases for \(T_2>T_1\) and decreases for \(T_2<T_1\). Its magnitude agrees with the known mean-circulation law (Eq. (44) in [1]); the short-time law is not a new result here.
 
 ## Assumptions and scope
 Let \(Y_t=(Y_1(t),Y_2(t))^\top\) denote the mean-centered displacement along any fixed Cartesian axis of two particles in harmonic optical traps. The overdamped, unit-mobility SDE is
@@ -18,23 +18,23 @@ where \(k,u,T_1,T_2>0\), \(T_1\ne T_2\), and the Brownian drivers are independen
 \[
 \Delta_u(t)=\operatorname{Cov}(Y_1(t),Y_2(0))
 -\operatorname{Cov}(Y_2(t),Y_1(0)),\quad
-P(u)=\sup_{t\ge0}|\Delta_u(t)|,\quad
-J(u)=\int_0^\infty|\Delta_u(t)|\,dt.
+ P(u)=\sup_{t\ge0}|\Delta_u(t)|,\quad
+ J(u)=\int_0^\infty|\Delta_u(t)|\,dt.
 \]
 No claim is made about hydrodynamic multiplicative-noise corrections, nonquadratic forces, unequal particle mobilities, or finite-sampling uncertainties. The two-dimensional particle model has two independent coordinate copies of the specified centered process.
 
 ## Proof
 Write \(s=k+u\), \(A=\left(\begin{smallmatrix}s&-u\\-u&s\end{smallmatrix}\right)\), and \(\Theta=\operatorname{diag}(T_1,T_2)\). Since the eigenvalues of \(A\) are \(k\) and \(k+2u\), the stationary covariance \(C\) is the unique solution of \(AC+CA=2\Theta\). Its diagonal difference is
 \[
-C_{22}-C_{11}=\frac{T_2-T_1}{k+u};
+ C_{22}-C_{11}=\frac{T_2-T_1}{k+u};
 \]
 for completeness, \(C_{12}=u(T_1+T_2)/[2k(k+2u)]\) and \(C_{ii}=[T_i+u C_{12}]/(k+u)\). The two-time covariance matrix is \(\mathbb E[Y_tY_0^\top]=e^{-At}C\), where
 \[
-e^{-At}=\frac12\begin{pmatrix}e^{-kt}+e^{-(k+2u)t}&e^{-kt}-e^{-(k+2u)t}\\e^{-kt}-e^{-(k+2u)t}&e^{-kt}+e^{-(k+2u)t}\end{pmatrix}.
+ e^{-At}=\frac12\begin{pmatrix}e^{-kt}+e^{-(k+2u)t}&e^{-kt}-e^{-(k+2u)t}\\e^{-kt}-e^{-(k+2u)t}&e^{-kt}+e^{-(k+2u)t}\end{pmatrix}.
 \]
 Its off-diagonal antisymmetric part is therefore
 \[
-\boxed{\Delta_u(t)=\frac{T_2-T_1}{2(k+u)}\bigl(e^{-kt}-e^{-(k+2u)t}\bigr).}
+ \boxed{\Delta_u(t)=\frac{T_2-T_1}{2(k+u)}\bigl(e^{-kt}-e^{-(k+2u)t}\bigr).}
 \]
 For all positive delays the sign is fixed by \(T_2-T_1\). Differentiation in delay gives the unique global maximizer
 \[
@@ -42,31 +42,31 @@ For all positive delays the sign is fixed by \(T_2-T_1\). Differentiation in del
 \]
 Put \(x=2u/k\). Substitution and direct integration of the exponential difference give
 \[
-P(u)=\frac{|T_2-T_1|}{k}\,g(x),\quad
+ P(u)=\frac{|T_2-T_1|}{k}\,g(x),\quad
  g(x)=\frac{x}{(x+1)(x+2)}(1+x)^{-1/x},
 \]
 \[
-J(u)=\frac{|T_2-T_1|}{k^2}\,h(x),\quad
+ J(u)=\frac{|T_2-T_1|}{k^2}\,h(x),\quad
  h(x)=\frac{x}{(x+1)(x+2)}.
 \]
 (The factor \((1+x)^{-1/x}\) means \(\exp[-\log(1+x)/x]\).)
 
 To classify \(J\),
 \[
-h'(x)=\frac{2-x^2}{(x+1)^2(x+2)^2}.
+ h'(x)=\frac{2-x^2}{(x+1)^2(x+2)^2}.
 \]
 Hence the unique positive maximizer is \(x_{\mathrm{area}}=\sqrt2\), with \(h(\sqrt2)=3-2\sqrt2\). To classify \(P\), use
 \[
-\frac{d}{dx}\log g(x)=\frac{\log(1+x)}{x^2}-\frac1{x+2}
-=\frac{F(x)}{x^2(x+2)},\qquad
+ \frac{d}{dx}\log g(x)=\frac{\log(1+x)}{x^2}-\frac1{x+2}
+ =\frac{F(x)}{x^2(x+2)},\qquad
  F(x)=(x+2)\log(1+x)-x^2.
 \]
 Here \(F(0)=0\), \(F'(0)=2\), and \(F''(x)=x/(1+x)^2-2<0\) for every \(x\ge0\), while \(F(x)\to-\infty\). Strict concavity implies that \(F\) crosses zero exactly once after zero: \(g\) rises and then falls. Since \(F(2)=4\log3-4>0\), its positive zero satisfies \(x_*>2>\sqrt2\), proving the strict ordering of the two optima. Further, \(g(x)\to0\) and \(h(x)\to0\) at both endpoints \(x\downarrow0\) and \(x\to\infty\), confirming they are global maxima.
 
 Their optimal magnitudes are
 \[
-J(u_{\mathrm{area}})=(3-2\sqrt2)\frac{|T_2-T_1|}{k^2},\qquad
-P(u_{\mathrm{peak}})=0.096476371815292\ldots\frac{|T_2-T_1|}{k}.
+ J(u_{\mathrm{area}})=(3-2\sqrt2)\frac{|T_2-T_1|}{k^2},\qquad
+ P(u_{\mathrm{peak}})=0.096476371815292\ldots\frac{|T_2-T_1|}{k}.
 \]
 Finally \(\Delta'_u(0+)=u(T_2-T_1)/(k+u)\). Its absolute value increases strictly from zero toward \(|T_2-T_1|\) as \(u\to\infty\), unlike \(P\) and \(J\), both of which vanish in that limit. This last short-time slope is a restatement of an already known circulation law.
 

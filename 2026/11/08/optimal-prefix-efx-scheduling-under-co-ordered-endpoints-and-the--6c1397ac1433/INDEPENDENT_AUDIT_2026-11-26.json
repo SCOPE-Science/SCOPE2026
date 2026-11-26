@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:06:25.648734Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53; independent capacity, dominance and obstruction arguments",
+        "Frozen VERIFICATION.md, lines 1–25",
+        "Frozen CHECK.py, lines 10–112, inspected only: finite subset/sweep and equitable-assignment cross-checks"
+      ],
+      "rationale": "For any ordered selected subsequence, e_j <= s_(j+m) is necessary (otherwise m+1 are active at s_(j+m)) and sufficient (cyclic assignment). The new job's cyclic predecessor cannot still be active at acceptance, because then the m most recent accepted jobs are active. If g and o are the accepted and an arbitrary feasible index sequence, inductively g_(r-m) <= o_(r-m) implies e_(g_(r-m)) <= e_(o_(r-m)) <= s_(o_r). If there are still only r-1 acceptances at o_r, the first r-m have finished and o_r must be accepted. Base r<=m and the empty prefix hold directly. This proves cardinality optimality in each prefix; cyclic loads differ by at most one, the exact unweighted EF1/EFX condition. Half-open endpoints handle all ties. In the nested example each of the m-1 long jobs conflicts with every other job, so accepting all forces loads (3,1,...,1); deleting one long job permits (2,1,...,1), including m=2. Its length 1+2δ is within the prescribed range. Any solution of size at most m is trivially balanced; at size m+1, keep one compatible pair from an optimal schedule and isolate the other m-1 jobs. This proves the universal first obstruction size. The obstruction is outside co-ordering, not a counterexample within it.",
+      "residual_risks": [
+        "No formal certification; the attached finite checker is not evidence for arbitrary real endpoints or arbitrary m. The unweighted identical-machine hypothesis is essential to the load characterization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general unweighted online cardinality optimum is described via deadline replacement; Borst–Shahkarami–Vaish's general deterministic online fair ratio is 2−1/m, with revocation allowed.",
+          "The de Werra theorem reported by Gomes–Lima–dos Santos gives static equitable coloring of claw-free k-colorable graphs."
+        ],
+        "reasoning": "On co-ordered streams deadline replacement is never needed, supplying a direct precursor to the cardinality-only part. Neither a revocable optimum nor static equitability entails the same irrevocable machine assignments for all prefixes. The result adds that joint guarantee, not either component in isolation.",
+        "searches": [
+          "arXiv:2608.15159, pp. 7–9 and replacement rule pp. 18–19; references to Faigle–Nawijn",
+          "arXiv:1810.13036, pp. 2, 6–7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record cited above",
+        "arXiv:2608.15159",
+        "arXiv:2401.05648",
+        "arXiv:1810.13036",
+        "Faigle–Nawijn (1995), via cited description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier near-unit witness has one long job; extending it by overlapping copies gives the new upper witness cheaply, but needs an all-m load argument and a universal lower bound against smaller instances.",
+          "Static equitable colorability gives no online consistency of the same assigned colors; the earlier result's fixed-duration acceptance comparison is a proof template rather than an implication for all co-ordered durations."
+        ],
+        "reasoning": "The positive proof extends the same basic mechanics; the general obstruction uses the same motif. The actual claims which survive are the simultaneous prefix-optimality/irrevocability/EFX on the broader input model and exact minimality for every machine count arbitrarily close to unit lengths.",
+        "searches": [
+          "Earlier catalog RESULT.md Finding/Proof",
+          "Borst–Shahkarami–Vaish, Observation 1 and offline lower bound",
+          "Gomes–Lima–dos Santos, equitable coloring of claw-free graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalog record 2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3 explicitly proves irrevocable cyclic optimum and EFX after every prefix for equal-duration jobs.",
+          "Borst–Shahkarami–Vaish identify EF1 and EFX with equitable machine loads in this unweighted model.",
+          "Curbelo–Malko require an immediate color but have adversarial presentation order and optimize colors, not selected-job count."
+        ],
+        "reasoning": "The equal-duration restriction is directly covered and static/online coloring terminology does not create novelty. Equal-duration restrictions do not give an irrevocable online reduction preserving the prefix information of a variable-duration stream; the narrower catalog finding does not assert the full co-ordered result.",
+        "searches": [
+          "Local Resultary index: equal-duration jobs, cyclic prefix EFX and four-job perturbation",
+          "arXiv:2608.15159, Observation 1",
+          "arXiv:2401.05648, introduction and online coloring lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier catalog finding explicitly has the same three unit jobs plus one near-unit nested job, giving (unconstrained,fair)=(4,3) and no three-job obstruction for m=2.",
+          "The published lower-bound witness uses m−1 jobs of length 2m−1 and 2m−1 consecutive unit jobs, giving 3m−2 total and fair capacity at most 2m−1."
+        ],
+        "reasoning": "These are direct exact overlaps in the two-machine special case and in the obstruction geometry. The fixed m=2 case and the general larger witness are not a tabulation or classification of the exact all-m threshold at near-unit lengths.",
+        "searches": [
+          "Local Resultary mirror: 2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3, RESULT.md Finding and Proof",
+          "arXiv:2608.15159, lower-bound construction pp. 15–16"
+        ]
+      },
+      "rationale": "The creditable result is the variable-duration co-ordered, irrevocable prefix theorem together with the exact first obstruction size for all m at arbitrarily small duration deviation. Earlier catalog coverage of the equal-duration theorem and the exact m=2 perturbation is material and should be cited; those parts are not new. General optimal revocable scheduling, static equitable coloring, and the older long/short witness do not establish the two extensions. This is a best-of-knowledge statement-level comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The original Faigle–Nawijn and de Werra texts were not inspected directly. Related ordered scheduling and elementary extensions may have additional historical antecedents.",
+        "The equal-duration theorem and the m=2 near-unit case have demonstrated earlier catalog coverage; no novel credit for them alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equal durations and m=2 perturbation; does not make the two generalizations",
+          "evidence": "Cyclic assignments optimal and fair at every prefix for common duration; the same four-job near-unit construction and two-machine minimality.",
+          "identifier_or_url": "2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3",
+          "material_read": "RESULT.md, Finding and Proof, offset 0",
+          "method": "Local catalog mirror",
+          "title": "All-prefix optimal EFX for equal-duration jobs and its four-job perturbation barrier",
+          "trigger": "Direct overlap in model and obstruction"
+        },
+        {
+          "assessment": "General model, obstruction motif and precursor algorithms; not the combined restricted guarantees",
+          "evidence": "Observation 1: discrepancy at most one; m−1 long blockers over 2m−1 unit jobs; competitive ratio 2−1/m in general.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15159",
+          "material_read": "PDF p. 1; pp. 7, 9, 15–16, 18 and 36; offsets 1450, 25540, 32800, 52280, 61100, 118950",
+          "method": "Bounded OA text inspection",
+          "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+          "trigger": "Same unweighted EF1 interval scheduling problem"
+        },
+        {
+          "assessment": "Known replacement-based procedure is a precursor, not evidence of prefix EFX",
+          "evidence": "Borst–Shahkarami–Vaish describe replacing the latest-ending leader and attaining optimum without fairness.",
+          "identifier_or_url": "Faigle and Nawijn, Discrete Applied Mathematics 58(1):13–17 (1995)",
+          "material_read": "Not obtained directly; description and reference in Borst–Shahkarami–Vaish pp. 7, 18 and 36",
+          "method": "Lawful direct retrieval attempted; compared secondary description",
+          "title": "Note on Scheduling Intervals On-Line",
+          "trigger": "General optimal online cardinality scheduler"
+        },
+        {
+          "assessment": "Different objective and arrival model",
+          "evidence": "Adversarial Builder/Algorithm game can force seven colors at clique bound four.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05648",
+          "material_read": "PDF pp. 1–2, offsets 800/8700",
+          "method": "Bounded OA text inspection",
+          "title": "On the on-line coloring of unit interval graphs with proper interval representation",
+          "trigger": "Irrevocable online coloring of proper/unit interval inputs"
+        },
+        {
+          "assessment": "Gives static results, not prefix scheduling",
+          "evidence": "Reports de Werra's equitable k-colorability theorem for claw-free k-colorable graphs and treats claw-free chordal graphs algorithmically.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.13036",
+          "material_read": "PDF pp. 2, 6–7, offsets 6000/17800",
+          "method": "Bounded OA text inspection",
+          "title": "Parameterized Complexity of Equitable Coloring",
+          "trigger": "Equivalent static load-discrepancy objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–13, 25–53",
+        "Borst–Shahkarami–Vaish, general fair interval scheduling bounds",
+        "Earlier equal-duration catalog finding"
+      ],
+      "rationale": "The same simple no-recourse schedule certifies both fair and unconstrained welfare at every prefix for a substantive class beyond equal durations. The exact m+2 threshold identifies the smallest instance at which arbitrary intervals can lose welfare under fairness and rules out a guarantee based on near-equal durations alone. These are structural consequences, not novelty claims about cyclic coloring, general acceptance, or the obstruction template.",
+      "residual_risks": [
+        "No claim of a worst-case near-unit approximation ratio or a classification of all non-co-ordered streams."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

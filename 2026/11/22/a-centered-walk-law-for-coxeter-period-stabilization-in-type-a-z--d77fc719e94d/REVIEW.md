@@ -1,15 +1,13 @@
-# Review: centered-walk stabilization of type-A zero-Hecke Coxeter elements
+# Scientific review
 
-## Correctness — PASS
-The proof verifies the 0-Hecke comparator normalization, threshold commutation with binary cutoffs, crossing-grid precursor relations, the max-plus recurrence and its path-independent height telescoping. It obtains a pointwise formula for all positive integers \(n\ge3\), then independently counts paths with precise transfer matrices and proves the Brownian limit by Donsker's theorem. Exhaustive checks through eleven points and independent random larger checks corroborate, without replacing, the proof.
+## Correctness
 
-## Originality — PASS (best available evidence)
-The closest source is Kosuda (arXiv:1411.5761v1), which characterizes minimum-length Coxeter words yielding the longest permutation; its previously known fastest-case counts are credited. The finite general-case transfer matrices and Brownian supremum stabilization distribution are not implied by that minimal-threshold statement alone, and are absent from the inspected core arguments. Speyer (arXiv:0710.3188v1) provides general finite-group existence via admissible words, not quantitative random-time distributions. The established Coxeter/0-Hecke monoid presentation is treated as background, not new mathematics. Residual risk: a general periodic-comparator or heap theorem could imply the present formula without using this terminology. Some historical research records were unavailable; no uniqueness inference is made from that absence.
+The deterministic input is a type-A specialization of known sorting-word occurrence and block results. Its use here is justified by the greedy reduced-subword interpretation of Demazure multiplication. The direct crossing-grid derivation agrees with that specialization and handles all binary thresholds. The two parity cases amount to the same lazy walk with either an even central interval or an independent central sign. The finite transfer counts include the two-state odd minimum and the zero-step case. The walk has variance \(1/2\) per step and runs for asymptotically \(n/2\) steps, yielding the asserted factor \(1/2\) in the Brownian limit.
 
-## Value — PASS
-The repeated Coxeter sweep is a canonical structured sorting schedule, and its least absorbing power is a natural semigroup dynamical invariant. The explicit exact finite law is substantially stronger than a cutoff or fastest-case count; a square-root-scale, nondegenerate Brownian absolute-supremum limit explains typical versus extremal behavior and provides a reusable bridge from Coxeter orientations to probabilistic fluctuation theory.
+## Originality
 
-## Limitations
-Scope is strictly uniform distinct type-A Coxeter elements. The proof does not resolve implicit priority from all sorting-network literature, nor provide finite-size error estimates for the weak limit. Independent audit has not occurred.
+The pointwise stabilization formula is not an originality claim: it follows from Ceballos–Labbé–Stump, arXiv:1108.1776, Theorem 7.2, Algorithm 7.3 and Remark 7.6, together with the greedy Demazure interpretation. The retained claim is the finite all-threshold distribution and its Brownian fluctuation limit for uniform distinct Coxeter elements. The compared deterministic sorting-word, ordinary-power, and minimum-length square-root results do not supply that random law. The literature comparison is bounded, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## Scientific value
+
+The random law relates the absorption time of a natural repeated sorting schedule to an effective one-dimensional walk. It gives a nonextremal quantitative invariant for the uniform orientation ensemble, including the finite parity dependence and the fluctuation size and nondegenerate limit. Neither a deterministic list for a fixed orientation nor a census of the fastest cases reports this statistic.

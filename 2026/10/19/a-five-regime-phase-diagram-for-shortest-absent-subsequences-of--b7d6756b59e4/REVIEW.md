@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact greedy host-run-index lemma is proved by tracking each candidate's maximal constant runs, with every strict and equality boundary handled. It yields the full missing-set description and the five counts using rational generating functions. The independent direct finite enumerator verifies all 216 parameter triples with values from one through six. Finite verification supports, but does not replace, the proof.
+## correctness
 
-**Originality — PASS against inspected literature.** Kosche et al., *Absent Subsequences in Words*, arXiv:2108.13968, provides important general arch and shortest-absence characterizations. The published Fibonacci-extremal calculation for arbitrary binary strings optimizes a *maximum*, whereas this result determines actual values of a particular periodic family. The new statement is not the general theorem repeated under a name; it is a fully evaluated phase classification. Remaining risks: potentially unindexed equivalent periodic-power enumeration and limited material access to Okhotin's older paper.
+PASS
 
-**Value — PASS.** A complete algebraic exact classification of shortest missing scattered words of run-length-encoded periodic data has natural use in understanding subsequence universality and repeated-string extremal phenomena. The transitions at block heights one, two, and three are structurally motivated; the Fibonacci-to-exponential-to-singleton trichotomy is not a routine fixed small-instance computation.
+Earliest-position embedding is optimal by induction on the scanned letters. A requested run of length r starts at the first fresh host block of the correct symbol; with host capacity c it skips exactly floor((r−1)/c) intervening blocks of the opposite symbol. Each change of requested symbol then advances one block. For length L this gives terminal host index δ+L+Σ[2 floor((r−1)/c)−(r−1)], where δ is 1 iff the candidate starts in 1. For both capacities ≥2 all penalties are nonpositive; equality occurs for odd r at capacity 2, and only r=1 at larger capacities. Hence all lengths below 2k are present, and at 2k the absent words are exactly those starting in 1 with all penalties zero. These even-length words have an even number of runs, i.e. a sequence of 1-run/0-run pairs; the phrase 'even number of alternating symbol-pairs' in the proof should be read as an even number of runs, not a parity restriction on the number of pairs. The run-pair generating functions give coefficients F_{2k}, 2^{k−1} and 1. When a capacity is one, one symbol per block embeds every word of length k and a constant word fails at k+1. For a=1<b, at length k+1 a word with z between 1 and k−1 zeros contributes at most z−1 in zero-run penalties and hence is present; the all-one word also fits. With k zeros only putting the lone 1 first fails; with k+1 zeros the constant word fails. Reversal and complement give the swapped case. With both capacities one the failure threshold allows no switch from an initial 0 and at most one switch from an initial 1, giving exactly k+2 words. This includes k=1. Inspected the frozen verifier and reported checks; the general result follows from the proof, not the finite sample.
 
-**Limitations.** Binary alphabet, linear two-run block powers, shortest scattered subsequences only. Finite code is not an infinite certificate. Absolute novelty and independent validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general arch length rule and the exactly overlapping doubled-run Fibonacci branch are credited. The supported distinct content is the uniform classification across both run capacities, including the parity-to-singleton change and the mixed-capacity word families. The checked general algorithmic results do not establish this symbolic classification without the family-specific argument.
+
+## value
+
+PASS
+
+Two-run block powers form a natural periodic test family for subsequence universality. Giving whole word sets, not just lengths or sample counts, identifies the exact capacity threshold at which the shortest-absent language loses odd runs and the corresponding growth changes from Fibonacci to powers of two to a singleton. This distinguishes hosts with the same minimum absent length and is more than enumerating instances of a general algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

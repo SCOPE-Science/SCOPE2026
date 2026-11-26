@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:58.162499Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed original map, each of the two branches maps its half of the box onto the box up to its boundary, and has absolute Jacobian determinant 2. Backward iteration gives every length-n word mass 2^(-n), independently confirming STY (P4). The branch matrices are signed monomial; at each step exactly the column occupying output row 1 after the shift has its magnitude doubled. With input coordinate j=1+((-r) mod M) this gives the occupation count of post-step residue r. Multiplying by z_r on arrival gives the claimed row-vector PGF; at M=3,n=2 the four fair words give the four distinct monomials printed in the result. The Poisson relation (I−P)g_i=f_i gives increments (1−2S_j)f_i(R_(j−1)) and endpoint term Pg_i(R_0)−Pg_i(R_n), bounded by the oscillation 2(M−1)/M. Irreducibility and holding give ergodicity and uniform stationary occupation; the predictable covariance limit is I/M−11^T/M² and boundedness verifies martingale Lindeberg. Independently, every nonconstant Fourier eigenvalue λ=(1+ω)/2 has Re[λ/(1−λ)]=0, so the lag-covariance correction vanishes on the mean-zero subspace. The Euclidean range gives the condition-number law, and martingale orthogonality bounds the second moment of the normalized centered vector, so normalized ranges are uniformly integrable. For M=3, integration by parts gives E max Z_i=3∫φΦ²x dx=6∫φ²Φ dx=3/(2√π), hence the stated mean. Ergodicity also gives the common almost-sure growth rate. Read VERIFICATION.md and verify_twisted.py, not executed. The quoted 10,330 is a recorded count, not a fresh replay. The script actually loops over M=2 through 6 in the covariance check as well, not 2 through 8 as RESULT.md line 84 says. That does not affect the all-fixed-M proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "11d620ed5ef6 states the limits for M≥2, not just M≥3, and gives a formula for the expected range for arbitrary fixed M. It also states the almost-sure exponent equality. The primary search surfaced STY, whose inspected passages are coding and branch-derivative results, not a published CLT.",
+          "Indexed 38c423899acd is a later 3D large-deviation result, not needed to infer coverage. Indexed 765a4f4ba4c8 concerns a spatial-coordinate observable rather than singular exponents."
+        ],
+        "reasoning": "Restriction to M≥3, choice of units, and the explicit constant at M=3 do not add a new fluctuation theorem. The general covariance result must not be confused with equal asymptotic Lyapunov exponents alone.",
+        "searches": [
+          "Resultary 11d620ed5ef6, Finding, Assumptions and proof §§1–3",
+          "Primary search: twisted baker map singular values occupation covariance Gaussian condition number"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_twisted.py",
+        "STY, arXiv:2202.04304v3",
+        "Resultary 11d620ed5ef6, f1bd1c74fb3b, 7606b48ac163, 38c423899acd and 765a4f4ba4c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact stretch count, initial state r_0=0 and transition (Pg)(r)=(g(r)+g(r+1))/2 are explicit. Its scalar Poisson identity uses the same g(r)−g(r+1)=2f(r) and the same conditional signs ±f(r). The explicit mean is 2 E max Z_j times log 2/√M."
+        ],
+        "reasoning": "Weighting each specified transition by the arrival-state variable yields P diag(z) and matrix multiplication sums all paths, with no additional property of the map. The coordinatewise endpoint bound follows immediately by taking the oscillation of the displayed Poisson solution for an indicator. Evaluating the existing mean formula at M=3 is one Gaussian integration by parts. These presentation-level differences leave no scientifically distinct remainder of the frozen Finding.",
+        "searches": [
+          "11d620ed5ef6, proof §§1–3, mirror offsets 3588–6049, and Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "11d620ed5ef6 Finding and proof §1 identify the physical-coordinate stretches with (log 2) times cyclic occupation counts. The proof gives j(r)=1+((-r) mod M), exactly the fixed label change used here. The same Euclidean condition number and Lebesgue sampling are specified.",
+          "Earlier f1bd1c74fb3b concerns periodic algebraic eigenvalues; 7606b48ac163 samples selected real-spectrum iterate-fixed points. Neither statistic is this Lebesgue singular-value problem."
+        ],
+        "reasoning": "Divide the other record's stretch vector by log 2 and reindex by j(r); then its labeled limit is the frozen covariance limit and its condition-number limit is identical. This is not merely similar terminology or overlapping dimension.",
+        "searches": [
+          "Resultary: twisted baker singular-value fluctuations, isotropic Gaussian splitting, Gaussian condition-number range and occupation counts",
+          "STY, arXiv:2202.04304v3, §2.1 equation (2.1), §2.2 (P4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This indexed result contains exact all-n stretch identities for every itinerary and the complete initialized Markov model. Its Finding gives the exact covariance matrix and limiting mean in integral form. The matching scientific record has its own distinct catalogue ID, not the assigned frozen ID d68dfd494e1b."
+        ],
+        "reasoning": "The comparison is not a match of a few simulation values. The exact finite-n model and asymptotic formulas determine the full results across the entire frozen parameter domain.",
+        "searches": [
+          "Local Resultary search for the exact singular-exponent law and Gaussian covariance; direct lookup of record 11d620ed5ef6"
+        ]
+      },
+      "rationale": "A distinct, directly inspected Resultary record, 11d620ed5ef6, gives the same multinomial covariance CLT, Gaussian condition-number range and mean for the larger domain M≥2, along with the exact same finite-time occupation reduction. The separately displayed PGF is a direct encoding of the full law already specified by that reduction; the M=3 mean is a specialization. This is demonstrable equivalent coverage; it is not a finding that the November 1 record preceded the October 19 frozen record or that the frozen author derived anything from it.",
+      "residual_risks": [
+        "The dates are catalogue labels, not an established chronology of proofs or public priority. No provenance relationship between the distinct records is inferred.",
+        "The focused external search was bounded. Its failure to show an earlier independent fluctuation theorem does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed result covers the frozen claim, including the equivalent exact finite-time description; order of discovery not established.",
+          "evidence": "M≥2, L_j/log 2 is an occupation count from residue zero with fair cyclic hold/advance transitions. Its CLT covariance, Euclidean range and limiting mean match after division by log 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-isotropic-gaussian-splitting-of-finite-time-singular-values-in-t--11d620ed5ef6/RESULT.md",
+          "material_read": "Finding and assumptions, proof §§1–3, offsets 0 and 3588; mean proof §4 checked for comparison",
+          "method": "Local mirror RESULT.md, targeted passages",
+          "title": "Isotropic Gaussian splitting of finite-time singular values in the twisted baker map",
+          "trigger": "Strong exact match on original map, sampling, exponents and range"
+        },
+        {
+          "assessment": "Confirms original definitions, derivatives and fair branch coding; no matching fluctuation theorem in these passages.",
+          "evidence": "(P4) gives mass 2^(-n) to each prescribed branch word.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04304",
+          "material_read": "v3 p. 2 map, p. 6 §2.1 equation (2.1), p. 7 §2.2 (P4), offsets 4300, 11600, 18984",
+          "method": "OA paper passages",
+          "title": "The twisted baker map",
+          "trigger": "Original map and possible singular-value fluctuation theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Multinomial covariance despite temporal dependence is mathematically substantive, as is the distinction between Lyapunov rates and square-root-scale anisotropy. But those contributions are already covered by the exact matching result. The remaining arrival-weight PGF and elementary Gaussian constant are routine expressions of laws already determined there, not a new motivated invariant or valuable boundary. No distinct valuable repair is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

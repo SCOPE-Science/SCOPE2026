@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-`verify.py` is a complete standalone Python 3 script requiring only the standard library. Run `python3 verify.py` in the same directory; it prints `VERIFY_OK` only after all computations and assertions finish.
+## correctness
 
-The checker calculates the labelled formula and the cycle-type Burnside formula using exact arbitrary-precision integers and rational numbers. For \((p,q)=(2,2)\), \((2,3)\), \((3,2)\), \((3,3)\), and \((2,4)\), it obtains respectively \((11{,}401,3{,}067)\), \((1{,}252{,}925,111{,}183)\), \((3{,}771{,}875,324{,}244)\), \((847{,}519{,}079,24{,}206{,}336)\), and \((495{,}407{,}161,10{,}719{,}206)\) for (labelled, isomorphism) counts.
+PASS
 
-The first independent test evaluates the published FC condition directly on **every** binary relation for six small profiles of total size at most four, including the essential \((2,2)\) example. The next independently loops through every assignment of bottom-source rows and every possible single top-source row, tests the original FC condition rather than the support formula, and raises the allowable-row count to the number of upper worlds. This agrees with the labelled formula at \((2,2)\), \((2,3)\), and \((3,2)\). Finally, for \((1,3)\), \((2,2)\), and \((2,3)\), the program enumerates every relation fixed by each nonidentity order permutation using its ordered-pair orbits; it tests FC on each and compares those fixed counts with the derived cycle formula. Combining the independently counted identity fixed set with the nonidentity fixed sets recovers the isomorphism count by Burnside's lemma.
+On the ordinal sum of two antichains the only distinct comparable source pairs run from bottom to top. A bottom-source top target is maximal and must be repeated verbatim in every top row; a bottom target can be witnessed by any top target, or else only itself. This proves necessity and sufficiency of the U,T conditions. At fixed supports each hit bottom-source column has 2^p-1 nonzero choices. When T is empty each top row independently either has a top target or is forced on U; when T is nonempty only the columns in T are forced in top rows. These give exactly the two labelled terms. Under a pair of level permutations, an incidence block for cycles (d,e) has gcd(d,e) orbits. Hit target sets consist of whole cycles. With T nonempty there is one forced top-source pattern on each active top target cycle, with independently free top-to-bottom incidence, and subtracting the empty T term gives H1. With T empty, the top-row alternative is constant along each source cycle and forcing U removes exactly the incidence blocks to its active cycles, giving H0. Burnside class weights are 1/(z_lambda z_mu), since automorphisms cannot exchange levels. Direct exhaustive 2-by-2 validation over all 65536 relations tested the original quantified axiom and the normal form relation by relation. Fixed counts for identity, bottom swap, top swap and simultaneous swap are 11401, 355, 409, 103, averaging to 3067; formula arithmetic also reproduced every larger table row without claiming exhaustive enumeration there. Replay: /workspace/branches/814cdce7-110d-4a08-9590-ee0896a2ffc8/record2_oracle.py. The supplied verify.py was inspected, not run. The general counting argument, not the finite checks, establishes the formula for all positive level sizes.
 
-The exact counting theorem follows from the proof in `RESULT.md`. These finite computations are cross-checks and do not certify either infinite cardinalities or originality. They do not replace independent external mathematical review.
+## originality
+
+PASS
+
+The supported claim is the exact labelled and isomorphism census for arbitrary forward-confluent relations with both layers nontrivial, especially the full fixed-count formula. Prior coverage on chains and labelled rooted forks concerns boundary carriers; the two-sided two-level comparison imposes an additional axiom.
+
+## value
+
+PASS
+
+Complete two-level orders are a natural homogeneous family with incomparable worlds on both levels and a nontrivial automorphism group. The formula gives exact benchmarks for admissible relations and their isomorphism classes without enumerating every incidence matrix; the zero-versus-positive top-target distinction explains the constraint structurally and translates it into actual fixed counts, not just an invocation of Burnside. The orbit counts are useful for producing nonredundant finite-frame test collections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

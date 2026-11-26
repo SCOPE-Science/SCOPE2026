@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:10:57.001746Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the repaired proof. Gohn et al. supply the maximum length. Independently, two terms in the same units-digit block force its prefix digit product to be one. A start at residue b−1 would include two final digits b−1 separated by b. At residues 1 through b−2 the first two prefixes must be binary and consecutive, forcing the first to end in 0; either a third prefix would have to be binary despite ending in 2, or the run contains a final digit divisible by ell_b in its first block and final digit ell_b in its second block, forcing ell_b to divide b. Thus the start is b²c. The first full block is equivalent to binary c and L_b|b²c; the last ell_b terms then follow. Valuations at primes dividing b give the trailing zeros; ONLY M_1 has to be coprime to b. Verified each nontrivial Fourier factor bound, including the empty product, the fixed-prefix counts, both strict cutoffs and the endpoint comparison giving Theta bounds. Base 3 gives E_3(m)=2^(m−2) for m≥2 and first start 36 by parity. Replay: repairs/3/RESULT.md. Frozen verify.py was inspected, not executed; no finite test substitutes for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Restricted-digit divisibility estimates for coprime moduli and the maximal-run boundary theorem are prior ingredients."
+        ],
+        "reasoning": "The general discrepancy bounds do not themselves give the shell-by-shell leading-digit and trailing-zero reduction, its elementary all-length Fourier bound, or the two global counting phases for the starts.",
+        "searches": [
+          "Banks–Shparlinski, DOI 10.4064/aa112-4-1, introduction and Lemma 1",
+          "Gohn et al. JIS 25 (2022), Corollary 4 and Lemmas 7–8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Repaired RESULT.md",
+        "Resultary ranked exact-title and thematic comparisons",
+        "JIS article 22.8.7",
+        "Acta Arith. DOI 10.4064/aa112-4-1",
+        "arXiv:2403.14812v1",
+        "OEIS A055471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known maximum and classification plus the first full block imply the complete start criterion by gcd and lcm arithmetic.",
+          "Separate filtering at fixed residue offset and strict upper-shell digit cap produce the distribution and distinct global constants."
+        ],
+        "reasoning": "The prior implication covers the criterion as a standalone novelty claim; the remaining quantitative combination is supported and credited at its actual scope.",
+        "searches": [
+          "Gohn et al., Corollary 4, Lemmas 7–8, Theorem 9; Banks–Shparlinski, Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No directly matching ranked Resultary hit in the bounded search.",
+          "He–Sanna distinguishes the product of ALL digits, for Zuckerman numbers, from the nonzero-digit product used here."
+        ],
+        "reasoning": "The congruence on binary base-b prefixes is an exact translation of this run problem, not an identification with the full prodigious sequence or the all-digit-product census.",
+        "searches": [
+          "Resultary: exact finding title; b-prodigious consecutive runs and shell census",
+          "Gohn et al., Article 22.8.7; He–Sanna arXiv:2403.14812v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A055471 records in base ten a length-13 run 1111011111000 through 1111011111012; its start is an instance of the digit criterion (M_10=126)."
+        ],
+        "reasoning": "This is a real prior exact instance, not a table or formula for the all-base shell or limiting count.",
+        "searches": [
+          "OEIS A055471; Resultary exact-title and shell-census queries"
+        ]
+      },
+      "rationale": "For the repaired claim only: the known boundary theorem and elementary start reformulation are excluded from the originality claim. The inspected sources do not establish the quantitative longest-run census, fixed-prefix distribution, and two explicit global counting constants as a result or corollary. Standard Fourier methods are not claimed as new.",
+      "residual_risks": [
+        "Bounded indexed and passage-level search; an uncatalogued exact census or a stronger digit theorem with the same quantitative consequence is not excluded.",
+        "No originality asserted for the maximum length, boundary criterion, or roots-of-unity method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers maximum and implies criterion, not quantitative census",
+          "evidence": "Maximum b+ell; long maximal block starts confined to 1, cb² and cb²+b, with only cb² attaining the maximum.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf",
+          "material_read": "pp. 4–6, Corollary 4, Lemmas 7–8 and Theorem 9 (OA offsets 9150, 11500–16272)",
+          "method": "OA journal PDF, targeted passages",
+          "title": "Arithmetic Progressions of b-Prodigious Numbers",
+          "trigger": "Same maximum and boundary starts"
+        },
+        {
+          "assessment": "Relevant method/overlap, not the run census",
+          "evidence": "Divisibility estimates with coprime modulus for restricted-digit sets; no prodigious boundary classification.",
+          "identifier_or_url": "https://doi.org/10.4064/aa112-4-1",
+          "material_read": "intro pp. 313–314; Lemma 1 p. 316",
+          "method": "OA PDF, bounded text around offsets 0 and 6500",
+          "title": "Arithmetic properties of numbers with restricted digits",
+          "trigger": "General restricted-digit residue estimates"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Explicit contrast between all digits and nonzero digits.",
+          "identifier_or_url": "https://arxiv.org/html/2403.14812v1",
+          "material_read": "Introduction at Zuckerman definition, offset 3380",
+          "method": "OA HTML, targeted term",
+          "title": "Counting numbers that are divisible by the product of their digits",
+          "trigger": "Possible equivalent digital counting problem"
+        },
+        {
+          "assessment": "Concrete decimal overlap",
+          "evidence": "Length 13 and the first corresponding decimal example.",
+          "identifier_or_url": "https://oeis.org/A055471",
+          "material_read": "definition and run comment near offset 130",
+          "method": "Public page, targeted term",
+          "title": "Decimal prodigious integers",
+          "trigger": "Exact database or prior instance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting and locating longest runs is a natural question left by the known length theorem. The modulus and valuation parameters give explicit predictive shell counts; the fair-digit limit and two computable incompatible global power-law constants show a distributional phenomenon not conveyed by the existence or length of runs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

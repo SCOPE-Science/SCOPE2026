@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:18.077416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md and verification/verify.py (inspected, not run)",
+        "Independent exact content spot checks of the four examples"
+      ],
+      "rationale": "Choosing a marked one identifies gap words up to rotation; any shorter physical period preserves the ones and makes the word a proper power. Pure words contribute only at a and b. Möbius inversion of ordered words with fixed content and division by the free rotation-orbit size gives the necklace formula. For r,s>0 the two-run word A^rB^s is primitive; for r,s≥2 the four-run word A^(r−1)BAB^(s−1) is inequivalent and could only be imprimitive by squaring, which requires r=s=2. For an independent check of coverage beyond M, choose s∈[1,a] in the residue class bs≡n mod a. Since n>(a+1)b, the resulting r=(n−bs)/a is at least two. If s≥2, the four-run lemma applies since n>2(a+b) excludes (2,2). If s=1, then r>b and a second mixed content is (r−b,1+a), making two primitive two-run words of different content. At M=(a+1)b, the only nonnegative contents are (b,1) and (0,a+1); only the first is primitive, uniquely up to rotation. The alternative bound is strictly larger iff (a−1)(b−2)<2, possible only for (2,3). At 10 there the pure (5,0) word is a power; of the two cyclic patterns with content (2,2) only the two-run one is primitive. Four endpoint/next-period examples were independently spot-checked via content counts. The universal conclusion follows from the residue argument, not these examples or the author's reported finite runs.",
+      "residual_risks": [
+        "The result concerns the last low-multiplicity period and does not assert monotonic counts below it.",
+        "The frozen replay counts were not independently reproduced; no required analytic step depends on them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite S-gap theorem gives ζ(t)=1/(1−t^a−t^b) here; logarithmic differentiation and Möbius inversion recover Q_n.",
+          "The finite-gap least-period theorem holds for broader alphabets but is a set characterization."
+        ],
+        "reasoning": "The generating function gives counting in principle, not an exact symbolic bound for when every subsequent coefficient first stays at least two. In the mixed-content problem the ordinary coprime Frobenius obstruction shifts by a+b: ab is the last n without a positive representation, and pure words give no primitive orbit there. This is strictly below the claimed multiplicity-two threshold, so even a sharp existence conductor is not the finding.",
+        "searches": [
+          "Dastjerdi–Jangjoo arXiv:1108.3414, §2.3, finite-gap zeta theorem",
+          "De Jong arXiv:2510.10848, Theorem 3.19, finite-gap least periods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.3414",
+        "arXiv:2510.10848",
+        "Resultary 0881e8e9b148",
+        "Frozen assigned record 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zeta passage gives periodic-point counts p_n, related to Q_n by p_n=Σ_(d|n)dQ_d.",
+          "The assigned companion solves the separate alphabet {a,a+1,a+2}, which includes extra admissible orbits whenever it contains a two-letter subalphabet."
+        ],
+        "reasoning": "Coefficient extraction and inversion by themselves do not prove the all-n lower bound or its sharp endpoint in symbolic a,b. Two distinct word orders at the same positive content, the exceptional content (2,2), and the residue selection supply the additional argument. Larger alphabets can only increase counts and their lower bounds do not imply a lower bound for the two-gap subshift.",
+        "searches": [
+          "arXiv:1108.3414 finite-gap zeta theorem",
+          "arXiv:2510.10848 finite-gap support characterization",
+          "Frozen three-consecutive-return-length result, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same claim can be expressed as the last coefficient below two in a generating series of primitive cyclic words weighted by ar+bs.",
+          "De Jong's theorem instead identifies the support LPS(X(S))=Σ*_(S+1). The indexed decorated-gap result 0881e8e9b148 concerns an infinite Sturmian decoration and a different zeta question."
+        ],
+        "reasoning": "The support set distinguishes availability from non-availability, but not one from two. The exact weighted-necklace equivalence preserves orbit multiplicity, unlike projecting down to the support. The targeted public lookup was unavailable and supplies no negative evidence.",
+        "searches": [
+          "Resultary: two-length S-gap shifts, primitive weighted necklaces and the last singleton orbit",
+          "arXiv:2510.10848v1 §3, Theorem 3.19",
+          "Targeted public lookup: weighted primitive necklaces, two coprime lengths, last singleton/periodic orbit multiplicity, renewal systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior zeta identity is a coefficient generator, not a table of last singleton or two-orbit cutoffs over (a,b).",
+          "The known fixed-content necklace expression gives Q_n coefficientwise and is not claimed as new."
+        ],
+        "reasoning": "An exact count at given (a,b,n), even if tabulated, does not provide the sharp uniform conductor over all pairs. No exact table or parametric formula for that conductor was identified in the inspected sources.",
+        "searches": [
+          "Resultary exact two-gap multiplicity cutoff lookup",
+          "arXiv:1108.3414 §2.3 counting evidence"
+        ]
+      },
+      "rationale": "The supported distinct statement is the closed last-two-orbit obstruction for every coprime ordered pair of return lengths, including the exceptional pair and the sharp singleton count at the endpoint. The inspected prior literature supplies the least-period support and coefficientwise orbit counts, not this uniform cutoff. The proof uses primitive-content multiplicity and a sharp endpoint distinction beyond those known tools. This is a bounded, best-of-knowledge comparison, not a historical priority determination.",
+      "residual_risks": [
+        "Earlier equivalent results may be phrased in weighted necklaces, renewal systems, or run-length-limited coding. The targeted public lookup was unavailable; this is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finite-gap shift and exact zeta generator; no last-singleton theorem in these passages.",
+          "evidence": "The allowed numbers of intervening zeros enter ζ through t^(gap+1); its defining series uses periodic-point counts, not primitive orbit counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.3414",
+          "material_read": "Introduction, p. 1, offset 1300; §2.3, Theorem 2.3 of the inspected version, p. 7, offset 23000",
+          "method": "Targeted primary OA PDF passages",
+          "title": "Computations on Sofic S-gap Shifts",
+          "trigger": "Exact count framework on the very same finite-gap model"
+        },
+        {
+          "assessment": "Exact support characterization, not an orbit multiplicity formula or cutoff.",
+          "evidence": "The finite-gap least-period set is the almost sum-closure of the return lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.10848",
+          "material_read": "Theorem 3.19, pp. 18–19, offset 63200",
+          "method": "Targeted primary OA PDF passage",
+          "title": "On Sets of Periodic Orbit Lengths in Finitely Presented Dynamical Systems",
+          "trigger": "Potential stronger exact least-period result for the same model"
+        },
+        {
+          "assessment": "Different dynamics and zeta question; the inspected claim is not this finite two-gap cutoff.",
+          "evidence": "The result treats infinite Sturmian-decorated gap shifts.",
+          "identifier_or_url": "Resultary 2026/10/25/0881e8e9b148",
+          "material_read": "RESULT.md passage near offset 398",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Periodic zeta rationality versus Sturmian nonsoficity in decorated gap shifts",
+          "trigger": "Closest indexed comparison on gap-shift periodic and zeta structure"
+        },
+        {
+          "assessment": "Distinct three-letter alphabet and parity-dependent formula, no implication in the needed direction.",
+          "evidence": "Its hypothesis requires all three lengths a,a+1,a+2, not just two.",
+          "identifier_or_url": "Frozen assigned record 3",
+          "material_read": "Finding and assumptions",
+          "method": "Direct frozen text",
+          "title": "Sharp two-orbit conductor for three consecutive return lengths",
+          "trigger": "Companion sharp result for the same multiplicity threshold on a nearby gap family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "arXiv:2510.10848, least-period-support benchmark",
+        "arXiv:1108.3414, exact counting benchmark"
+      ],
+      "rationale": "Two coprime return lengths are a natural elementary mixing gap system. Two distinct primitive orbits is the first multiplicity question beyond least-period existence. The closed worst exception, including why (2,3) behaves differently, replaces arbitrary testing and gives an exact periodic-count benchmark for comparing this family with other shifts. The finding does not claim a general embedding or characterize smaller-period counts.",
+      "residual_risks": [
+        "Restricted to exactly two distinct coprime return lengths with minimum at least two and to multiplicity level two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

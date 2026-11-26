@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:58:11.255780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before the window the record event and pattern use disjoint independent observations. After the window the insertion rank at position i is independent of the relative-order permutation at positions 1,…,i−1: each earlier permutation has one extension at each possible insertion rank. This independence is from relative order, not from the actual preceding values. Inside the window, only a pattern prefix maximum of rank s can be a record. Among the j+k−1 ranks up to the end of the window, the set of k ranks assigned to the window is uniform even given its relative order. To beat the j−1 earlier observations the top k−s+1 of all these ranks must be in that set, a probability of binom(j+s−2,s−1)/binom(j+k−1,k)=Q_s(j,k). Subtract the window's unconditional record means and multiply by 1/k! to obtain the exact formula and independence of ambient n. At fixed k, Q_k=k/j−k(k−1)/j²+O_k(j⁻³); Q_(k−1)=k(k−1)/j²+O_k(j⁻³); all lower ranks are O_k(j⁻³). Rank k always contributes and rank k−1 contributes exactly when before k. Subtracting k/j−k(k−1)/(2j²)+O_k(j⁻³) gives the stated signed limit, also for k=2. The explicit 132 numerator is 4−3j over 6j(j+1)(j+2), hence its sign switch is correct. Read the frozen verification notes and script without executing the latter; exhaustive comparisons cover k≤4 and n≤6, with separate large-position rational checks for k≤7, not a proof of the unrestricted identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5bf194eee4a8 resolves every record position separately, while the frozen claim only asks for their sum for a single window.",
+          "The earlier pattern-moment article concerns classical occurrence counts; the consecutive-pattern survey's inspected opening frames enumeration and asymptotics, not this mixed positional law."
+        ],
+        "reasoning": "The elementary positional marginalization is available in the distinct broader Resultary result; generic occurrence-count theories are not the basis for claiming coverage.",
+        "searches": [
+          "Resultary: record/consecutive-pattern, pattern covariance spectra, mixed cycle/pattern statistics",
+          "arXiv:1312.3955 §§1–2 and arXiv:1504.07265 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5bf194eee4a8, b3ad3b36c62e and 5a13f0bb8311",
+        "Janson–Nakamura–Zeilberger arXiv:1312.3955",
+        "Elizalde arXiv:1504.07265",
+        "Joint descents/consecutive patterns under 3-1-2 avoidance (title-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing over i at fixed j leaves only the window and subtracts its harmonic terms; expanding shows ranks s≤k−2 contribute O_k(j⁻³), rank k always enters, and rank k−1 enters iff it precedes k."
+        ],
+        "reasoning": "The resulting nonzero j⁻² coefficient is exactly ±k(k−1)/(2k!), so both the finite law and the limit are mechanically implied. The corpus dates establish neither a prior discovery nor an order of conception.",
+        "searches": [
+          "Resultary 5bf194eee4a8, Assumptions and scope and Proof steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed law gives Cov(R_i,P_σ,j)=0 outside the window and [η_σ,r (σ_r)^(overline{j−1})/(k+1)^(overline{j−1})−1/(j+r−1)]/k! inside."
+        ],
+        "reasoning": "The rising factorial ratio is Q_σr(j,k), and η is precisely the prefix-record predicate. The indexed law yields the frozen total-record versus single-window formula by linearity.",
+        "searches": [
+          "Resultary: records versus fixed consecutive-pattern window; positional covariance; joint permutation statistics",
+          "Resultary 5bf194eee4a8, exact positional covariance law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first entry provides a symbolic all-parameter covariance formula, not just isolated small values; its displayed aggregate length-three vector sums over windows and is not the fixed-window quantity.",
+          "The other entries tabulate aggregate triple-pattern covariances or cycle-count/triple-pattern covariances, not the target record statistic."
+        ],
+        "reasoning": "The all-position formula is exact coverage. Neither a triple-pattern spectrum nor marginal equidistribution of cycle and record counts transfers the required joint law.",
+        "searches": [
+          "Resultary: record-pattern positional law and related length-three spectra; records 5bf194eee4a8, b3ad3b36c62e, 5a13f0bb8311"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary result (5bf194eee4a8) explicitly gives the stronger finite-band covariance kernel for arbitrary pattern length and every pair of positions, under exactly the same uniform-permutation hypotheses. Summing in the record position gives the frozen exact law; retaining the two highest rank terms of its displayed product gives the frozen limit and eventual sign. There is no materially uncovered assertion in the frozen finding. This is a judgment of demonstrable coverage in the available corpus, not a claim that the October 26 catalogue entry was published before the October 18 frozen record or that it establishes historical priority.",
+      "residual_risks": [
+        "Earlier literature priority remains unresolved; the originality determination relies on the explicit mathematical coverage in the available distinct record, not on a publication-order inference or inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger exact law; covers the frozen formula and limit",
+          "evidence": "The window-specific cross-covariance of each R_i is given explicitly; outside-window terms vanish.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-finite-band-record-consecutive-pattern-covariance-law-with-sha--5bf194eee4a8/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, displayed positional law (offset 0), and Proof steps 1–3",
+          "method": "Local published-record mirror, bounded passages",
+          "title": "A finite-band record–consecutive-pattern covariance law with sharp asymptotic extrema",
+          "trigger": "Exact same arbitrary-length positional observables"
+        },
+        {
+          "assessment": "Different pair of statistics",
+          "evidence": "Covariance of aggregate pattern counts, no record observable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact covariance spectrum of the six consecutive triple patterns",
+          "trigger": "Same-day consecutive-pattern covariance record"
+        },
+        {
+          "assessment": "Different global observable and window aggregation",
+          "evidence": "Cycle-count covariances do not transfer by marginal equidistribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-cycle-count-covariance-with-all-six-consecutive-triple-pat--5a13f0bb8311",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact cycle-count covariance with all six consecutive triple patterns",
+          "trigger": "Same-day mixed permutation statistic and consecutive patterns"
+        },
+        {
+          "assessment": "Classical pattern-count moments, not decisive positional coverage",
+          "evidence": "Counts are defined by subsequence occurrences.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.3955",
+          "material_read": "Sections 1–2, offsets 0 and 7149",
+          "method": "Bounded OA primary passages",
+          "title": "On the asymptotic statistics of the number of occurrences of multiple permutation patterns",
+          "trigger": "Potential broader moment theorem"
+        },
+        {
+          "assessment": "Relevant general setting, not source of the coverage judgment",
+          "evidence": "The opening covers consecutive patterns and related statistics, not the mixed law at issue.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.07265",
+          "material_read": "Abstract and §1, pp. 1–2",
+          "method": "Bounded OA PDF passages",
+          "title": "A survey of consecutive patterns in permutations",
+          "trigger": "Could identify related positional pattern enumerations"
+        },
+        {
+          "assessment": "Title concerns descent statistics in a restricted class; no full-text conclusion",
+          "evidence": "Full-text and webpage retrieval returned HTTP 403.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0195669809002327",
+          "material_read": "Title only; full text not retrieved",
+          "method": "Lawful OA and public webpage retrieval attempts",
+          "title": "The joint distribution of consecutive patterns and descents in permutations avoiding 3-1-2",
+          "trigger": "Potentially related joint distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical phenomenon is useful independently of priority: a local pattern window contributes to dependence with the global record count, and the order of just its two highest ranks controls the leading sign for every fixed pattern length. This gives a tractable positional explanation and distinguishes eventual sign from small-window-position behavior. It does not, however, provide a separate original increment over the stronger indexed kernel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:46.469294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd N, the core unanimously follows the initial majority M. A peripheral vertex follows the core's prevailing sign when 2X<c-1 or 2X>c+1 and keeps its own bit otherwise. In the keep-bit regime moving the c core bits to M cannot reverse the original majority. Hence c>ell rules out reversal, and for ell>c the low-core/high-total event is X<=floor((c-2)/2), X+Y> N/2, with its complementary counterpart. The joint binomial CLT gives correlation sqrt(c/N); the exceptional at-most-two core counts have probability O(c^(-1/2)), and the Gaussian angular measure gives arccos(1/sqrt(1+rho))/pi for finite rho>=1. One quarter is a limit, not a finite-system equality. The independent replay `python3 /workspace/reproduce.py` exhaustively checked 114408 labeled profiles and verified the (10,11) example separately. That computation does not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebotarev–Peleg's complete-bipartite coalition example illustrates the issue but is not a split-graph probability calculation. The two Kaniovski–Zaigraev manuscripts count aggregated outcomes of disjoint constituencies or states, not overlapping closed neighborhoods."
+        ],
+        "reasoning": "The inspected general voting frameworks do not supply this graph law; the strongest overlap is the actual split-graph update result.",
+        "searches": [
+          "Chebotarev–Peleg arXiv:2210.03410",
+          "Kaniovski–Zaigraev DOI 10.1016/j.orl.2022.05.003",
+          "Kaniovski–Zaigraev 2018 manuscript maj_inv.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary records 517ed2dd3465 and 7635c563d681",
+        "arXiv:2210.03410",
+        "Kaniovski–Zaigraev 2018 and 2022 OA manuscripts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the open map for ell>c, a reversal occurs exactly when the core and the population counts have opposite centered signs, except that a tied core retains bits and cannot cause inversion. The exact even-c binomial count follows. The open Gaussian sign limit therefore follows for every finite ratio; the closed-open probability difference is bounded by two central binomial masses."
+        ],
+        "reasoning": "The full limit including ell=c+1 is inherited, not a distinct consequence of the closed rule. The zero branch is common. The exact odd-core finite law removes the force-on-tie-margin profiles, which the published open map does not itself give.",
+        "searches": [
+          "Local-mirror SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465/RESULT.md, coordinatewise identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the compared open update at odd N, all clique vertices become the initial majority, while the independent set is zero, unchanged, or one according to 2X<c, 2X=c, or 2X>c."
+        ],
+        "reasoning": "For even c these are exactly the target closed-neighborhood update cases. For odd c only X=(c-1)/2 and X=(c+1)/2 differ. The open/closed naming alone is not a distinction for even c or for the finite-ratio limit.",
+        "searches": [
+          "Resultary: complete split graph majority, tie-retaining synchronous majority, majority reversal",
+          "SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465/RESULT.md, one-step formulas, offset 2250"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct record 517ed2dd3465 contains the exact coordinatewise open-neighborhood map. Distinct record 7635c563d681 states a hypergeometric reversal law for sequential updates on odd-by-odd complete bipartite graphs; its graph and sampling differ."
+        ],
+        "reasoning": "No exact closed odd-core table was identified; the statement-level comparator, not the title or the index date, controls coverage.",
+        "searches": [
+          "Resultary: split graph majority inversion and exact boundary; synchronous open-neighborhood attractors; bipartite reversal"
+        ]
+      },
+      "rationale": "The headline quarter boundary and the whole finite-ratio limit are already elementary consequences of the exact one-round open-neighborhood map in the distinct published complete-split-graph attractor record: identical at every even core size, differing only on two central X values at odd core sizes. The zero branch and even-core exact finite law also follow from that map. The odd-core finite tie-threshold adjustment is real and is not asserted to be already in the source; it does not establish originality of the advertised boundary. This is demonstrable implication, not an inference about chronological priority from a same-day listing.",
+      "residual_risks": [
+        "The same-day index date does not resolve priority; the coverage comparison is mathematical.",
+        "The exact closed odd-core count was not shown already known. The checked external voting passages do not exhaust historical literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the headline boundary by implication and the even-core one-step law; not the exact closed odd-core finite threshold.",
+          "evidence": "For odd N the clique follows 2s versus N; the independent set is zero, unchanged, or one according to 2X versus c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465/RESULT.md",
+          "material_read": "Finding and exact open-neighborhood coordinatewise formulas, proof offset 2250",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Exact majority attractors and sharp convergence on complete split graphs",
+          "trigger": "Identical graph and apparently different one-step convention"
+        },
+        {
+          "assessment": "Different model and limiting law.",
+          "evidence": "Sequential updating on odd-by-odd complete bipartite graphs, not one simultaneous update on a split graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-an-exact-hypergeometric-reversal-law-for-asynchronous-bipartite--7635c563d681",
+          "material_read": "Indexed statement and compared finding",
+          "method": "Resultary and local-mirror comparison",
+          "title": "An exact hypergeometric reversal law for asynchronous bipartite majority",
+          "trigger": "Same reversal observable and superficially similar two-part graph"
+        },
+        {
+          "assessment": "The read example is not the target probability law.",
+          "evidence": "Two vertices can influence a majority of local majorities in the complete-bipartite example.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03410",
+          "material_read": "p.22 complete-bipartite coalition discussion; theorem scope located near p.2 but not opened there",
+          "method": "Bounded OA passage inspection",
+          "title": "The Power of Small Coalitions under Two-Tier Majority on Regular Graphs",
+          "trigger": "Local-to-global majority reversal"
+        },
+        {
+          "assessment": "Different aggregation structure.",
+          "evidence": "Constituency and second-stage voting quotas, not the overlapping neighborhood map.",
+          "identifier_or_url": "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/maj_inv_asymptotic.pdf",
+          "material_read": "Section 2.1, p.3, offset 7800",
+          "method": "Bounded OA manuscript passage",
+          "title": "Asymptotic probability of majority inversion under a general binomial voting model",
+          "trigger": "Prior asymptotic inversion formula"
+        },
+        {
+          "assessment": "Different aggregation structure.",
+          "evidence": "Three-state, two-stage setting.",
+          "identifier_or_url": "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/maj_inv.pdf",
+          "material_read": "p.2, offset 1510",
+          "method": "Bounded OA manuscript passage",
+          "title": "The probability of majority inversion in a two-stage voting system with three states",
+          "trigger": "Earlier exact inversion-law work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical question, the exact probability of a one-step global reversal and its response to transferring one vertex between the classes are meaningful for a natural two-tier voting model. The quarter-versus-zero limit explains topology sensitivity, but is covered as assessed above; isolating the finite odd-core tie adjustment alone would not retain that motivation as a distinct boundary theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

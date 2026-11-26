@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:46:36.133158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67; VERIFICATION.md and checker.py inspected, not executed",
+        "Jiang et al. arXiv:2510.10259, general model and Appendix C, PDF pp. 4–5 and 16"
+      ],
+      "rationale": "The asymmetric payoff difference in Jiang's Appendix C reduces to the frozen equations at N=2. For D=δ_s+δ_d, q(p)=δ_s−Dp, a=r/2−1, use the physical-time coordinates u=log(x/(1−x))−1/x and v=log(p/(1−p)). Each is an increasing diffeomorphism onto R. The transformed system satisfies u̇=a/x+(r/2)q(p), v̇=ε[(1+θ)x−1], and its divergence in (u,v) is −a(1−x), of strict sign off r=2. Thus Bendixson–Dulac excludes every nonconstant periodic interior orbit there, irrespective of equilibrium existence. At r=2 the separated Hamiltonian in (u,v) has derivatives H_u=ε[(1+θ)x(u)−1], H_v=Dp(v)−δ_s, with u̇=−H_v and v̇=H_u. Each derivative strictly increases and tends to nonzero limits of opposite signs, so H is strictly convex, proper and has a unique minimum at the stated coexistence point. Its other levels are smooth compact circles with a nowhere vanishing tangent flow, hence form a family of periodic orbits. Integrating v̇, u̇, and d log(x/(1−x))/dt=xq(p) over each full period gives respectively the stated mean x, mean p, and mean xp; these are physical-time identities and give zero covariance. The PDF version inspected numbers the general model Eq. (7) and gives the asymmetric formula in Appendix C; the frozen Eq. (11) locator was not confirmed in that version, but the stated vector field is correct.",
+      "residual_risks": [
+        "Analytical reproduction; no independent execution of the frozen numerical example or formal verification claimed. Excludes neither boundary recurrence nor cycles at other group sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang gives the original asymmetric ODE and a strict oscillatory interval in the phase analysis; at N=2 the strict interval collapses, which does not itself settle equality or exclude all neutral cycles elsewhere. Weitz's Appendix A assumes P>S and divides by P−S, while the frozen critical payoff baseline is zero. The periodic-balance record concerns externally forced dynamics. Ito–Yamamichi full text could not be secured in the attempted lawful routes."
+        ],
+        "reasoning": "Neither a nonempty stable-cycle criterion nor a nondegenerate environmental-feedback theorem decides the zero-baseline center. The exact comparison is with the critical recurrence record plus its explicit Dulac algebra and the generator identities below.",
+        "searches": [
+          "arXiv:2510.10259, Section 3.2 and Appendix C",
+          "Weitz et al. DOI 10.1073/pnas.1604096113, Appendix A",
+          "Ito–Yamamichi DOI 10.1093/pnasnexus/pgae455",
+          "Resultary periodic public-goods balances: 8bb64a8c0963"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9b10913a4175, 5a8ff27e72a6, 8bb64a8c0963, 5b16fa425a6d and 86df437d1880",
+        "Jiang arXiv:2510.10259",
+        "Weitz et al. submitted-version Appendix A",
+        "Ito–Yamamichi DOI retrieval attempted; no full-text comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The critical recurrence record already uses B=1/[x²(1−x)p(1−p)] and displays the divergence as (xG_x−G)/[x²p(1−p)]. The numerator identity holds before imposing r=N; at N=2, Jiang's G is r/2−1 plus a term linear in x, so xG_x−G=1−r/2. The Lotka–Volterra proof obtains the mixed moment by taking antiderivatives whose derivatives are an arbitrary test function divided by the positive one-coordinate prefactor and then integrating the generator against invariant time measure."
+        ],
+        "reasoning": "The same Dulac identity gives strict divergence for all r≠2, without extending any higher-N argument. For the known critical orbits, the conditional-generator test is unchanged after setting H′(x)=φ(x)/[x²(1−x)] and K′(p)=ψ(p)/[p(1−p)]. Period integration gives zero mean of φ(x)(δ_s−Dp) and ψ(p)ε[(1+θ)x−1]. Taking φ=1,x and ψ=1 yields the full frozen moment triple, without time rescaling. The Lotka–Volterra theorem itself is not being applied to a different ODE; its explicit separable computation specializes directly with these divisors.",
+        "searches": [
+          "9b10913a4175 RESULT.md, Proof §§2 and 4, opening at offset 3040",
+          "2026/10/11/SCOPE-mutual-mean-independence-and-exact-zero-covariance-in-the-classi--5a8ff27e72a6, RESULT.md Proof, offset 3650 and following",
+          "Jiang arXiv:2510.10259 Appendix C, offset 85000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9b10913a4175 Finding and Proof §4 state the identical N=2 critical ODE and periodicity of every non-equilibrium interior trajectory. Its displayed H is the negative of the frozen first integral. Same-day records 5b16fa425a6d and 86df437d1880 are different collective-risk/sigmoid-feedback games, not equivalent."
+        ],
+        "reasoning": "For a=1/(1+θ), b=δ_s/(δ_s+δ_d), c=δ_s+δ_d and κ=ε(1+θ), the cited critical equations reduce term for term to the frozen system. Its first integral and periodic foliation prove the whole critical-center portion, not the off-critical exclusion or moments as printed.",
+        "searches": [
+          "Resultary comparisons for the N=2 asymmetric critical public-goods model, r=N recurrence, means/covariance and degenerate-baseline neutral oscillations",
+          "2026/11/8/SCOPE-critical-return-recurrence-dichotomy-in-nonlinear-environmental--9b10913a4175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jiang's phase diagram/threshold passage is not an exact table of this center or its time averages. 9b10913a4175 determines the equilibrium and all critical closed levels but does not tabulate these moments. 5a8ff27e72a6 gives the same form of moment identities for the classical Lotka–Volterra flow."
+        ],
+        "reasoning": "There is no table lookup for the frozen parametric moments in the inspected sources, and numerical averages could not verify an all-amplitude identity. Existing exact symbolic identities rather than a finite census settle the claim.",
+        "searches": [
+          "Jiang et al. arXiv:2510.10259, Section 3.2 phase classification and Appendix C",
+          "Resultary exact asymmetric neutral-cycle moments and mixed moment; 9b10913a4175 and 5a8ff27e72a6"
+        ]
+      },
+      "rationale": "The entire critical center and its first integral are equivalent to those of a distinct catalogue finding for the same model. Its displayed Dulac identity immediately gives the off-critical exclusion when the original payoff constant is retained at N=2. The physical-time moments are not printed in that finding, but follow by applying the previously stated conditional-generator calculation for separable growth rates with the positive one-coordinate factors replaced by the ones already displayed in the model. This is partial exact overlap plus direct implication for the remaining claims, not a finding that all formulas appeared verbatim or that one record had chronological priority.",
+      "residual_risks": [
+        "The search does not settle exact historical priority or whether the combined threshold and moments are printed elsewhere. The Ito–Yamamichi access gap does not support or determine this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact critical-case overlap and same structural Dulac identity; no printed moment triple or off-critical statement",
+          "evidence": "Same first integral up to sign; divergence numerator xG_x−G and universal critical square center at N=2.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-return-recurrence-dichotomy-in-nonlinear-environmental--9b10913a4175",
+          "material_read": "RESULT.md Finding, Assumptions, and Proof §§2 and 4 (offsets 0 and 3040 onward)",
+          "method": "Local mirror, direct statement and proof comparison",
+          "title": "Critical-return recurrence dichotomy in nonlinear environmental public-goods games",
+          "trigger": "Identical model and critical pairwise periodic foliation"
+        },
+        {
+          "assessment": "Different theorem/domain; exact generator computation carries across without substantive change",
+          "evidence": "Use H′(x)=φ(x)/x under invariance, then choose φ=x for the mixed moment; passage also gives the reciprocal identity.",
+          "identifier_or_url": "2026/10/11/SCOPE-mutual-mean-independence-and-exact-zero-covariance-in-the-classi--5a8ff27e72a6",
+          "material_read": "RESULT.md Finding, offset 0, and Proof at offset 3650 onward",
+          "method": "Local mirror passage inspection and direct specialization of the method",
+          "title": "Mutual mean-independence and exact zero covariance in the classical Lotka–Volterra flow",
+          "trigger": "Same time moment structure and generator proof"
+        },
+        {
+          "assessment": "Exact model input; inspected strict interval does not prove equality periodicity or time moments",
+          "evidence": "Asymmetric payoff difference is r/N times the environment-weighted sum of powers minus one; substituting N=2 makes it affine in x.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.10259",
+          "material_read": "Model pp. 4–5 (offsets 19112–24078); §3.2 p. 8 (offset 43000 onward); asymmetric Appendix C p. 16 (offset 85000 onward)",
+          "method": "OA PDF passage comparison",
+          "title": "Nonlinear Public Goods Game in Dynamical Environments",
+          "trigger": "Original exact public-goods vector field and phase regions"
+        },
+        {
+          "assessment": "The inspected derivation excludes the zero-baseline case in the frozen model",
+          "evidence": "P>S and a ratio with denominator P−S; that denominator vanishes for the critical baseline here.",
+          "identifier_or_url": "https://www.biorxiv.org/content/biorxiv/early/2016/11/04/043299.full.pdf",
+          "material_read": "Main text p. 3 and Appendix A, Eqs. (A1), (A7), (A10)–(A15), offsets approximately 77000–85000",
+          "method": "Lawful OA submitted-version PDF",
+          "title": "An oscillating tragedy of the commons in replicator dynamics with game-environment feedback",
+          "trigger": "Proposed broader center theorem for similar feedback dynamics"
+        },
+        {
+          "assessment": "Unresolved scope, not a negative finding",
+          "evidence": "403 responses and a PMC timeout prevented inspection of the decisive case.",
+          "identifier_or_url": "https://doi.org/10.1093/pnasnexus/pgae455",
+          "material_read": "No independent full-text hypotheses obtained; bibliographic identification only",
+          "method": "Lawful publisher and PMC attempts",
+          "title": "A complete classification of evolutionary games with environmental feedback",
+          "trigger": "Potentially stronger pairwise neutral-oscillation classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary 9b10913a4175 divergence and first integral",
+        "Resultary 5a8ff27e72a6 generator argument"
+      ],
+      "rationale": "The neutral boundary and amplitude-independent averages are natural dynamical questions. In this record, the full critical orbit geometry is already covered, while the off-critical conclusion is a direct readout from the same model's displayed divergence identity and the moments are routine stationary tests of the separated velocity factors on those known orbits. No independently nonmechanical gap is established by combining them.",
+      "residual_risks": [
+        "This judgment does not assess new results about perturbations, higher group sizes or nonlinear time statistics outside the frozen moment triple."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

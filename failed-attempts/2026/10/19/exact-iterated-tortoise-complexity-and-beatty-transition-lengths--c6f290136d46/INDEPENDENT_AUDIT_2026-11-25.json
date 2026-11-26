@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:54:23.033894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, mechanical-word assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md, checker.py and checks.txt (inspected, not executed)"
+      ],
+      "rationale": "Moving the leftmost 1 repeatedly deletes the first min(k, total ones) original 1s and appends them. For m<=n-k, if the first m+k original symbols have at least k ones, deleting the first k leaves precisely m prefix symbols; otherwise at least m zeros remain there. This gives the positive-part formula for Q_m. The appended suffix, or the entirely sorted word when fewer than k ones exist, gives the second case. For irrational mechanical factors each prefix count has a unique phase cut c_j. Q_n always jumps at c_n, and a cut c_j with j<n survives exactly when j*alpha>k. No image can recur after a jump because all output prefix counts are nondecreasing in phase. Thus the image count is 2+max(0,n-1-floor(k/alpha)), including k>n where both weight classes are sorted, and the last length of agreement with Abelian complexity is floor(k/alpha)+1.",
+      "residual_risks": [
+        "The recorded finite-slope regressions use decimal approximations. Correctness rests on the exact phase argument, not those regressions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed finding covers all stated positive lengths and iterates, notes the same proof works at k=1, and includes length zero. Campbell–Rampersad define the invariant but ask about Sturmian words in their conclusion."
+        ],
+        "reasoning": "No unhandled slope, length or iteration distinguishes the frozen assertion from the indexed result. The motivating paper does not supply the all-iterate formula in the passages inspected.",
+        "searches": [
+          "Resultary hit 0fc96ab6c467, Finding and proof §§1–3",
+          "Campbell–Rampersad, arXiv:2604.25811, §3 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0fc96ab6c467",
+        "Campbell–Rampersad arXiv:2604.25811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof counts merged interior cuts as min(n-1,floor(k/alpha)) and preserves the last cut by weight. The Finding explicitly states the first disagreement at floor(k/alpha)+2."
+        ],
+        "reasoning": "Subtracting merged cuts from n+1 gives the whole frozen profile, and its last value 2 gives the same cutoff. Definitions or a one-pass value alone would not imply the higher-iterate expression.",
+        "searches": [
+          "All-iterate tortoise complexity of Sturmian words, Finding and proof §§1–3",
+          "Campbell–Rampersad, arXiv:2604.25811, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-iterate tortoise complexity of Sturmian words, Finding: n+1-min(n-1,floor(k/alpha)) = max(2,n+1-floor(k/alpha)); alpha is the frequency of 1 and the iterated operation moves the leftmost 1 to the end."
+        ],
+        "reasoning": "The operator, intercept-independent factor language, quantifiers and two expressions are identical after a min/max rewrite.",
+        "searches": [
+          "Local Resultary, Sturmian iterated k-tortoise image complexity and Beatty/Abelian cutoff; hit 0fc96ab6c467"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives the complete two-parameter profile, not just a sample table."
+        ],
+        "reasoning": "Exact database coverage contains both every image count and every threshold requested.",
+        "searches": [
+          "Local Resultary exact formula hit 2026/10/25/SCOPE-all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed finding proves the exact image formula and exact Abelian-agreement cutoff for the same operator and all irrational slopes, n>=1 and k>=2. Its proof uses transformed zero positions and adjacent swaps rather than output prefix counts; this is a different proof of the same claim, not distinct coverage. This is a coverage decision, not a finding about first authorship, priority or dependence.",
+      "residual_risks": [
+        "Index dates do not establish priority or dependence.",
+        "The earlier one-pass assertion in the frozen discussion is not specifically sourced there; the indexed result verifies the specialization but not its first appearance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same finding",
+          "evidence": [
+            "Boxed complete profile; same first disagreement and Abelian cutoff; proof via shift of i-th zero to max(i,z_i-k) and merged adjacent-swap cuts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/RESULT.md",
+          "material_read": "Finding, scope and proof §§1–3, offsets 0–5599",
+          "method": "Local mirrored full-text passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-iterate tortoise complexity of Sturmian words",
+          "trigger": "Exact local indexed match"
+        },
+        {
+          "assessment": "Definitions and motivating question, not the matching theorem",
+          "evidence": [
+            "Defines k-tortoise complexity and Abelian agreement; conclusion asks about Sturmian generalizations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "§3 and conclusion (p. 15; PDF text offsets 14950–19300 and from 47450)",
+          "method": "Open-access paper text",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Introduces and motivates the same iterated invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Campbell–Rampersad arXiv:2604.25811, §3 and conclusion"
+      ],
+      "rationale": "The mathematical statement is useful: it answers the motivating Sturmian question for the entire family, identifies the exact transition from the two weight classes to linear growth, and relates all transitions to the slope. The binary finite-word prefix identity is a concise proof device. This intrinsic value does not supply distinct coverage.",
+      "residual_risks": [
+        "This is image complexity only, not the preimage multiplicities or a sorting-time classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

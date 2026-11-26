@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:08:09.458985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two equal deletion necklaces, align the outputs. Each presentation has n−ell intact starts among n−1 output starts, so at least n−2ell+1 positions are intact in both. Uniqueness makes their source starts identical. Cutting there gives equal linear deletions, which force all letters between the two deleted positions to agree. Conversely positions in one cyclic run give the same output. For the probability, the selected starts of the d-shift cannot contain a whole shift orbit: with g=gcd(n,d), the shortest cyclic interval containing a residue class has size n−g+1. In particular the order-two case cannot select an antipodal pair, so no undirected edge is counted twice. The ell constraints form a forest and their exact match probability is q^(−ell). The union bound under the same indexed-word coupling implies the TV estimate. The cyclic transition PGF is the trace of the nth power of (1−z)I+zJ divided by q^n; moving the constant-word atom gives R_n*. This also handles the repeated boundary edge at n=2. For n≥3 the indicators are pairwise independent, and n−1 path indicators are independent, yielding the stated moments and CLT; the coupling error transfers them at the claimed rates. The source checker was inspected, not executed: its deterministic loop omits ell=n/2 for even n despite the broader account in RESULT.md. The independently written /workspace/review_checks.py, argument 5, exhausted that boundary through n=14,8,6 for q=2,3,4 respectively (including n=2), with no failures. The proof, not the finite check, covers the full range. The exact PGF is for R_n*, not for D_n, and the source model is indexed uniform, not uniform over necklaces.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The de Bruijn record's indexed statement gives (q−1)q^(m−1) distinct outputs for order m≥2; such circles are m-unique, have length q^m≥2m, and have that many cyclic runs.",
+          "The indexed Poisson critical-window record concerns a fixed-weight binary regime, the indexed nonbinary full-shadow record concerns proper circles, and the trace-reconstruction comparison concerns recovering unknown inputs from random traces."
+        ],
+        "reasoning": "Specialized source families, a different limit regime and a reconstruction objective do not cover arbitrary unique-factor words or the indexed uniform q-ary coupling. The de Bruijn probability spectrum goes beyond the support count and is not claimed here.",
+        "searches": [
+          "Resultary comparisons for de Bruijn, full nonbinary and circular single-deletion diversity findings",
+          "arXiv:2512.02412v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 2341722fce11, 09f6b02deb24, fd9a7056759f, 36e95250619b, eef1c8604afc",
+        "arXiv:math/0207197v1 §§5 and arXiv:1202.1644v1 §§I–II via frozen source comparisons",
+        "arXiv:2512.02412v1 via the frozen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the de Bruijn support count nor the linear run count bounds the loss of cyclic run-distinct outputs under independent uniform sampling. The transfer requires the common intact start and the overlapping-shift forest estimate."
+        ],
+        "reasoning": "The cyclic color polynomial and binomial CLT are standard consequences once run counts are available; the credited addition is the mechanism that lets them describe the circular deletion statistic, with an explicit error.",
+        "searches": [
+          "09f6b02deb24 and fd9a7056759f (Resultary summaries)",
+          "arXiv:math/0207197v1 §5 (located in frozen source comparison)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen literature extracts describe the linear one-deletion descendant count as the number of linear runs. A cyclic identification can identify deletions from distinct runs (e.g. the alternating circle 0101 and its two positions carrying 0)."
+        ],
+        "reasoning": "The linear identity applies only after the new common-intact-factor argument has fixed a shared source cut; it does not supply that argument.",
+        "searches": [
+          "Resultary semantic comparison of unique short cyclic factors and circular one-deletion run counts",
+          "arXiv:math/0207197v1 §5",
+          "arXiv:1202.1644v1 §§I–II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed outdegree formula is a maximum over binary sources (e.g. n−2 for even n≥4), not a sourcewise criterion or a law. The identical record is not an independent antecedent."
+        ],
+        "reasoning": "The explicit reference law concerns the full run-count distribution and its coupling to the actual random shadow; no equivalent tabulated claim was identified in the inspected sources.",
+        "searches": [
+          "Resultary: sharp one-deletion outdegree of binary necklaces (2341722fce11)",
+          "Resultary: identical assigned record (eef1c8604afc)"
+        ]
+      },
+      "rationale": "Pass for the general deterministic short-factor synchronization and its quantitative IID circular-shadow law. The traditional linear run identity, the binary circular maximum, and the de Bruijn special case are overlap, not the full claim. Priority is bounded by the available comparisons.",
+      "residual_risks": [
+        "The identified primary OA and same-day local-mirror passages could not be retrieved independently in this review; no inference of absence follows from that limit.",
+        "An auxiliary lemma in nearby circular-deletion work could give equivalent synchronization; the dated index alone does not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear overlap; whole-text coverage not independently cleared",
+          "evidence": [
+            "The compared identity counts distinct linear descendants, without rotation identification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+          "material_read": "Frozen source's statement-level account of §5; independent OA retrieval did not complete",
+          "method": "Frozen RESULT.md:53–62 and its source annotations; attempted OA lookup",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classical run identity"
+        },
+        {
+          "assessment": "Special-case count overlap; calendar date does not establish precedence",
+          "evidence": [
+            "Order m≥2, (q−1)q^(m−1) output necklaces plus position-probability information."
+          ],
+          "identifier_or_url": "09f6b02deb24",
+          "material_read": "Indexed statement; local full-text lookup did not complete",
+          "method": "Resultary semantic comparison and requested decisive source passage",
+          "title": "An invariant one-deletion trace spectrum for every de Bruijn cycle",
+          "trigger": "Same operation and run-exactness in structured sources"
+        },
+        {
+          "assessment": "Extremal statement, not a stochastic or uniqueness theorem",
+          "evidence": [
+            "Maximum over necklaces rather than a classification by individual source factors."
+          ],
+          "identifier_or_url": "2341722fce11",
+          "material_read": "Indexed statement and frozen comparison at RESULT.md:53–63",
+          "method": "Resultary semantic comparison",
+          "title": "Sharp one-deletion outdegree of binary necklaces",
+          "trigger": "Same statistic on the binary alphabet"
+        },
+        {
+          "assessment": "Different stated source regime and statistic; uninspected auxiliary lemmas remain a risk",
+          "evidence": [
+            "Fixed-weight binary circles with a Poisson deficit limit, not the IID fixed-q run coupling."
+          ],
+          "identifier_or_url": "fd9a7056759f",
+          "material_read": "Indexed statement; local full-text lookup did not complete",
+          "method": "Resultary comparison and requested decisive source passage",
+          "title": "A Poisson critical window for circular single-deletion diversity",
+          "trigger": "Closest indexed circular probability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic quotient creates real cross-run collisions, so a deterministic sufficient condition and quantitative transfer to an explicit finite reference law are useful for circular deletion models. The bound is stronger than the displayed polynomial-rate corollary if ell=floor(n/2) is chosen, but the result does not determine the sharp failure probability or exact D_n histogram. Distinct outputs, not their probabilities, are the relevant invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

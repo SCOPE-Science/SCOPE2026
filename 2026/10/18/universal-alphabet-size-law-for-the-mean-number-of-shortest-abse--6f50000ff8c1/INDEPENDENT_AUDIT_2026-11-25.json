@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:07.807647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48 and 52–94",
+        "Frozen VERIFICATION.md and verify_qary_sas.py, inspected without execution; direct finite enumeration and pole calculation independently reconstructed"
+      ],
+      "rationale": "For K complete greedy arches, every K-letter target embeds, but the K terminal letters followed by a letter missing from the rest do not. Greedily scanning any absent target of length K+1 must make at least one match in every arch and exactly K matches overall. Thus absence is equivalent to one match per arch and none in the rest. Recounting transitions: if x=y the terminal letter either is x, or a unique x is inserted in a fully supported word on q−2 symbols; the length-plus-one insertion weight produces G+zG'. If x≠y an arch terminating in y is forbidden, one ending in x contributes zG_(q−1), and all other terminal choices require a y before the first x and no y after it, with full support among the q−3 other symbols across both sides. Inclusion–exclusion gives the displayed H. Summing constant row sums over K and adding the rest avoiding the last target letter yields the claimed rational series, including K=0. In the ternary simplification J=D₃+2E₃ has positive coefficients at degrees 3 and 4; Q(1/3)=−16/243, so the crossing of J=1 lies below 1/3. The nonnegative series is strictly increasing and its consecutive degrees exclude another pole on that circle. The derivative is positive and the numerator nonzero there. Independent bisection and the simple-pole residue give ρ≈0.3087879767626592, growth factor 1.079489353270837 and prefactor 1.692088487255384. Independent enumeration by building the set of all distinct subsequences of each host (without arch factorization) recovered every ternary coefficient through n=8, the q=4 values through n=6, and A₅(5)=6920.",
+      "residual_risks": [
+        "Finite enumeration is only corroboration. The fixed-alphabet assumption and distinction between distinct strings and embeddings are essential.",
+        "The displayed numerical asymptotic is only for q=3; no all-q pole theorem or biased-word law is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. give tight bounds at a given universality index, not the sum over each index class. Manea et al. enumerate patterns for supplied words. The Dyck-word record counts a restricted binary class and gives a maximum, not a first moment."
+        ],
+        "reasoning": "Extremal or per-host results do not fix the aggregate distribution of arch transitions. Same-day catalogue timing is not used to exclude a comparison.",
+        "searches": [
+          "arXiv:2407.18599, abstract and Section 3",
+          "arXiv:2504.21471, abstract",
+          "Resultary record 08e80223adbd"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968, 2407.18599, 2504.21471",
+        "Resultary e77c4e8d9f37, 729a1bce797c, 08e80223adbd and bounded lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The q≥3 off-diagonal term (q−2)zH_(q−3) arises from a distinct third terminal letter. No such case exists in a binary arch. The prior per-word characterization supplies allowed positions, not the number of completed arches realizing each marked transition across every host."
+        ],
+        "reasoning": "Neither switching the alphabet convention nor specializing an inspected prior formula gives the frozen theorem. A separate combinatorial summation and, for the ternary tail, a simple-pole argument are needed.",
+        "searches": [
+          "arXiv:2108.13968, Theorem 3.4",
+          "Resultary 729a1bce797c, weighted-law Finding",
+          "Frozen transition proof, lines 60–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior arch theorem characterizes shortest absent subsequences of one word by one position per arch. It uses the alphabet of the word; the frozen law includes words missing ambient letters."
+        ],
+        "reasoning": "For full-support hosts the structural characterization is closely related, and is credited, but it gives no D_q/E_q transition counts summed over all possible arches or fixed-length all-host mean.",
+        "searches": [
+          "arXiv:2108.13968, Definitions 2.2–2.3 and Theorem 3.4",
+          "Resultary searches for all-host shortest absent scattered-subsequence first moments and ternary rational laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching q≥3 law surfaced among ranked results. Entry e77c4e8d9f37 tabulates binary words by index, not shortest-absent counts. Entry 729a1bce797c gives the binary weighted law H(z,u)=2/(1-z-uz²(3-z)) and hence its binary first moment."
+        ],
+        "reasoning": "The binary first moment is genuine counterpart coverage only for q=2, which is outside the Finding. The surfaced binary first-moment record is dated after the frozen result; it does not confirm the frozen prose's uncited assertion that the binary law was already known at the time.",
+        "searches": [
+          "Resultary searches on fixed-ambient q≥3, all-word SAS means, and the ternary rational/pole specialization",
+          "Resultary entries e77c4e8d9f37, 729a1bce797c and 08e80223adbd"
+        ]
+      },
+      "rationale": "Pass for the fixed-ambient q≥3 aggregate first moment and the ternary specialization, not the arch characterization, individual-word enumeration, or a binary law. The closest inspected primary results give structural or extremal statements, and the closest indexed first moment is binary. In particular its transition rules do not count the new case in which the terminal letter differs from both successive target letters. No equivalent or dominating q≥3 result was found in the bounded comparison.",
+      "residual_risks": [
+        "Search rankings and primary text inspections were bounded; equivalents under other terminology may exist.",
+        "The frozen prose's historical attribution of a known binary law is not independently confirmed for the frozen publication date. The pass excludes that attribution and does not award binary novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Per-word architecture credited; distinct summation and alphabet convention",
+          "evidence": [
+            "The alphabet is alph(w), and Theorem 3.4 specifies valid choices from arches for a given host."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "Definitions 2.2–2.3 and Theorem 3.4; printed pp. 202, 204 (extracted offsets 11200–13345 and 17000–20428)",
+          "method": "Open primary PDF passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Closest primary structural characterization"
+        },
+        {
+          "assessment": "Extrema at fixed index, not an all-host aggregate",
+          "evidence": [
+            "Lower/upper bounds at specified absence length and universality are not a sum over the index class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+          "material_read": "Abstract and Section 3, PDF pp. 1, 4–5 (offsets 1606–2321 and 13474–16614)",
+          "method": "Open primary PDF passages",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Plausible broader count theorem"
+        },
+        {
+          "assessment": "Inspected abstract describes an enumeration algorithm for a supplied host, not an aggregate law",
+          "evidence": [
+            "The title does not imply an all-word sum and no whole-document claim rests on this abstract alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471",
+          "material_read": "Abstract, PDF p. 1 (offsets 0–3443)",
+          "method": "Open primary PDF passage",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Later shortest-absent enumeration"
+        },
+        {
+          "assessment": "Exact binary counterpart; does not cover q≥3",
+          "evidence": [
+            "The denominator 1-z-uz²(3-z) counts the binary case with a marked index."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c",
+          "material_read": "RESULT.md, weighted binary generating function and its univariate specialization",
+          "method": "Configured Resultary lookup and local mirror text",
+          "title": "Exact mean and universality-index distribution of shortest absent subsequences (binary)",
+          "trigger": "Closest indexed exact first moment"
+        },
+        {
+          "assessment": "Counts hosts by index rather than their absent-pattern multiplicities",
+          "evidence": [
+            "The series (1+z)/(1-z-2uz²) is not the marked SAS first moment."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "RESULT.md, binary index generating function",
+          "method": "Configured Resultary lookup and local mirror text",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Indexed all-word length law"
+        },
+        {
+          "assessment": "Different ambient class, statistic, and alphabet range",
+          "evidence": [
+            "Its extremum F_n pertains to binary Dyck words restricted to index n−1."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-near-perfect-subsequence-universality-in-dyck-words-an-exact-cen--08e80223adbd",
+          "material_read": "RESULT.md, Dyck-word census and extremal count statement",
+          "method": "Configured Resultary lookup and local mirror text",
+          "title": "Near-perfect subsequence universality in Dyck words",
+          "trigger": "Same-day indexed shortest-absent count comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition, all-q transition formula and ternary consequence",
+        "Prior structural and extremal comparators listed above"
+      ],
+      "rationale": "The shortest absence multiplicity differs from the universality index and is a natural statistic of a random word. The result computes it without enumerating host words, identifies a rational recurrence at each alphabet size, and quantifies the nontrivial exponential growth of the ternary mean. This is useful beyond per-word algorithms and worst-case bounds.",
+      "residual_risks": [
+        "The formula gives a uniform-source first moment, not typical behavior, concentration or likelihood under a nonuniform source."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

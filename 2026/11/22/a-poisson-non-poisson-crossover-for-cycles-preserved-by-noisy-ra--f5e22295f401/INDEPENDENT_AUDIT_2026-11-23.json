@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:59:44.691962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct cycles in one mapping cannot share vertices. For an ordered list of lengths, choose K distinct labels in order and divide by each cycle's length (no r! when the list is ordered); a specified collection has probability (s_n/n)^K from independent images and agreement, with s_n including redraw coincidences. The compact multiplicative functional expands in these ordered moments with r! division; harmonic sums on a compact rescaled band give a uniform exponential majorant. For K=O(1/δ_n) with δ_n√n→∞ the disjoint-label factor tends uniformly to one; for K=O(√n) its logarithm is −K(K−1)/(2n)+o(1). The resulting compact Riemann sums give the two stated Laplace functionals and factorial densities; first moments give local tightness, and exponential domination gives uniqueness. When s_n→s<1, finite-dimensional Poisson generating functions and a geometric bound on the expected count beyond L give also the total Poisson limit, including zero when s=0. For disjoint compact bands the adjusted covariance integral is finite and strictly negative since e^(−xy)<1. For N_ε=Xi_a((ε,b)), the same factorial-density comparison on a square gives Var N_ε≤E N_ε, and E N_ε=log(1/ε)+O(1). Chebyshev shows P(N_ε≤m)→0 for each m; monotonicity gives an infinite count almost surely on (0,b). The integral for the cross-band difference can remain finite as ε→0 but cannot be interpreted as the covariance of an infinite count. Finally, the exact first moment bounds the far tails by the integrable exponential or Gaussian envelopes. The positive threshold x carries no atom; truncation at a large B therefore turns vague convergence into convergence of the no-cycle-above-x event. Limiting inclusion–exclusion is absolutely summable by the stated split Gaussian bound on S², so the two largest-cycle formulas survive unchanged.",
+      "reproduction": {
+        "command": "python3 /workspace/branches/71629464-6020-4c38-98cf-fd3b88f0caa5/joint_factorial_check.py",
+        "evidence": "Independent exact finite map enumeration over all 50,068 base maps of sizes 2 through 6 at ρ=2/3: 2,824 ordered tuple checks (orders 1–4). For n=3 the common self-loop mean is 7/9, not the raw retention 2/3. Frozen verifier inspected, not run. This checks the unchanged finite identity, not point-process convergence, finite covariance range or extremes; those are shown analytically.",
+        "output": "/workspace/branches/71629464-6020-4c38-98cf-fd3b88f0caa5/joint_factorial_results.txt"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical conditional uniform-permutation cycle counts and the Rayleigh-scale cyclic core imply the fixed-scale unmarked limit. Conditional thinning by e^(−ax) then gives the critical marked description on compacts. Inhomogeneous p-mapping covers the ambient independent-image model; its inspected results concern the full mapping/exploration and cyclic points, not lengths avoiding the distinguished cemetery.",
+          "The cemetery's own outgoing edge, or conditioning on it pointing to itself when 1−s_n>0, leaves all cycles avoiding it unchanged. Full cyclic-point counts alone do not say which cycles avoid it or provide length-resolved noise asymptotics."
+        ],
+        "reasoning": "The fixed critical limit can be recovered from classical convergence and independent marking and should not be presented as a new unmarked process. The compact unmarked convergence does not by itself handle the regime 1/δ_n=o(√n), which uses shrinking bands on the old scale. A quantitative small-cycle result for the conditional permutation, combined with survival and a tail estimate, is an alternative proof path; none of the inspected broader statements already gives the common-cycle-scale conclusion across regimes. The historical p-mapping and constraint papers are a specific unresolved comparison risk, not evidence of noncoverage.",
+        "searches": [
+          "Aldous–Pitman arXiv:math/0402399 §§2.2–2.3; Aldous–Miermont–Pitman arXiv:math/0401115 independent-image framework",
+          "Jaworski DOI 10.2307/3213677 abstract and exact OA attempt; factorial moment paper stable/3214629 OA attempt; arXiv:math/0603529 model",
+          "Hansen–Jaworski 2010; Random Mappings with Constraints on the Cycle Lengths DOI 10.1007/s10958-022-06128-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0402399 and arXiv:2205.05579v1",
+        "arXiv:math/0401115 and arXiv:math/0603529",
+        "Jaworski DOI 10.2307/3213677 and stable/3214629 (limited access)",
+        "Hansen–Jaworski 2010 linked primary PDF (not extractable in attempted route)",
+        "Random Mappings with Constraints on the Cycle Lengths DOI 10.1007/s10958-022-06128-9 (redirect error, no full text)",
+        "Resultary periodic-vertex overlap exact record and independent-edge survival queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a>0 the factorial law is the a=0 one multiplied by the size-dependent retention factors, so the sign of the compact-band covariance transfers; it is not a distinct new dependence mechanism from the base mapping. At 1/δ_n=o(√n) the finite-label penalty vanishes instead of surviving, giving the independent Poisson law and a different void probability. For fixed s<1 the unchanged-map short-cycle Poisson law and finite tail also explain the elementary endpoint."
+        ],
+        "reasoning": "The classical limit, elementary thinning and no-noise extreme inversion provide significant antecedents. The repaired result identifies precisely when their finite-population dependence survives noise filtering, with an explicit factorial calculation and matching extremes across scales. Neither a mere change from vertices to cycles nor Poisson marking alone is the contribution; the crossover requires control as observation scale changes. No claim of priority for its separate elementary ingredients.",
+        "searches": [
+          "Aldous–Pitman arXiv:math/0402399 Theorem 6 and (7)–(9)",
+          "Finch arXiv:2205.05579v1 §3",
+          "p-mapping exact sources and Resultary independent-mapping overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional on the uniform base map, agreement is independent across vertices and independent of that map; hence disjoint cycles are independently kept with probability s_n^k. Equivalently redirect disagreements to a cemetery c to obtain independent destinations with probabilities s_n/n on ordinary vertices and 1−s_n at c. The desired cycles are precisely those avoiding c.",
+          "The Resultary Rayleigh-mixed overlap record, Finding and §1, explicitly counts vertices periodic under separate independent maps, not identical cycles. It can have many shared periodic vertices in the fully independent regime where the common directed cycle count here tends to zero."
+        ],
+        "reasoning": "These are genuine equivalent formulations of the updated claim, not differences in vocabulary. Counting cycles on the p-mapping excluding a distinguished target would cover the finite identity if length-resolved, and an asymptotic theorem at varying survival could cover the entire crossover. General joint periodic-vertex overlap does not distinguish the required directed edges.",
+        "searches": [
+          "Resultary: percolated random mapping deletion common cycles noise Poisson critical window Rayleigh Poisson Dirichlet",
+          "Primary searches: partial random mappings, absorbing vertices and cycle lengths; random mapping (T,P_j) and factorial moments; inhomogeneous p-mappings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch gives unperturbed longest-cycle laws using Rayleigh mixing of a conditional uniform permutation; that is the a=0 endpoint and not separately new.",
+          "The related exact record gives (n)_k/n^k for the tail of the ordinary cyclic-core size. The frozen finding's finite moments have an additional s_n^K and length denominator, corresponding to agreement across distinct cycle vertices. The older stable/3214629 indexed material describes factorial moments for total cyclic points and component counts; the primary paper was not retrieved."
+        ],
+        "reasoning": "No tabulation is needed for a closed factorial measure. The test for exact prior coverage is specifically a joint length-resolved law or pre-existing size-dependent survival theorem, not mere agreement of a single unperturbed cyclic-point or longest-cycle formula.",
+        "searches": [
+          "Resultary surviving directed cycle crossover and periodic-vertex overlap query above",
+          "Finch arXiv:2205.05579v1 §3; Jaworski historical factorial moment sources at stable/3213677 and stable/3214629"
+        ]
+      },
+      "rationale": "The unthinned critical process and longest-cycle limit are prior, as is the given-core uniform permutation description. The factorial formula for refreshed common cycles is an elementary counting extension and the fixed critical law an explicit size-dependent thinning; neither is a new general mapping principle. The non-covered contribution assessed here is the explicit joint noise-scale crossover and largest-cycle laws in the same experiment, including the limit at a moving mesoscopic cutoff and its change to strict critical dependence on positive compact bands. A theorem on length-resolved cycles in a partial mapping with a cemetery target and varying survival could cover this, but no such implication was established in examined material.",
+      "residual_risks": [
+        "Older p-mapping/partial mapping work with a cemetery, or a finer theorem on conditioned cyclic sets and cycle lengths, could give a directly dominating result. The uninspected primary texts of the two indexed historical p-mapping papers are material limits.",
+        "The original 1994 Aldous–Pitman article was not used in full; later primary texts support the unthinned comparison. No exhaustive historical priority claim is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical critical unmarked limit covered; determines fixed critical thinning with the additional survival calculation",
+          "evidence": "Cyclic-point count scales with bridge local time and conditional cycle sizes are those of a uniform permutation.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0402399",
+          "material_read": "pp.8–9, §§2.2–2.3, Theorem 6 and eqs. (7)–(9)",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Two recursive decompositions of Brownian bridge related to the asymptotics of random mappings",
+          "trigger": "Classical unmarked cycle-size process"
+        },
+        {
+          "assessment": "Unperturbed endpoint covered",
+          "evidence": "Longest-cycle law integrates the conditional uniform-permutation longest cycle against the Rayleigh cyclic-count limit.",
+          "identifier_or_url": "https://arxiv.org/html/2205.05579v1",
+          "material_read": "§3, pp.4–6",
+          "method": "OA primary article, bounded passages",
+          "title": "Components and Cycles of Random Mappings",
+          "trigger": "Exact longest-cycle endpoint"
+        },
+        {
+          "assessment": "General independent-image setting includes full map for cemetery representation, but inspected observables are different",
+          "evidence": "The construction and limits organize cyclic points and basins of the full p-mapping. Removing the cycle containing a distinguished state and controlling the remaining small-length bands is an additional operation.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0401115",
+          "material_read": "Opening model and §2.1–2.2 definitions, selected Theorem 1 material (OA offsets 0–23867)",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Weak convergence of random p-mappings and the exploration process of inhomogeneous continuum random trees",
+          "trigger": "Known broader inhomogeneous model with a salient target"
+        },
+        {
+          "assessment": "Potential overlap unresolved at theorem level; not a negative full-text judgment",
+          "evidence": "Indexed abstracts describe maps with general destination distributions and counts of cyclical points/components. The related arXiv paper treats totals in an exchangeable-indegree framework; it is not a substitute for the unavailable historical texts.",
+          "identifier_or_url": "https://doi.org/10.2307/3213677; https://www.jstor.org/stable/3214629",
+          "material_read": "Indexed abstract descriptions only; no primary proof of either accessible",
+          "method": "Exact lawful OA attempts and index descriptions; related but different arXiv:math/0603529 introduction inspected",
+          "title": "On a Random Mapping (T, P_j); Factorial Moments for Random Mappings by Means of Indicator Variables",
+          "trigger": "Potential exact general independent-image count, including distinguished targets"
+        },
+        {
+          "assessment": "Different observable even at full refresh",
+          "evidence": "It counts coincidences of cyclic vertices, and explicitly excludes matching cycles or edges; it gives common periodic vertices with asymptotically positive probability under independence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-rayleigh-mixed-poisson-overlap-law-for-periodic-vertices-of-in--7b69e39a8610/RESULT.md",
+          "material_read": "Finding, assumptions and §1, OA offsets 0–3520",
+          "method": "Resultary exact local mirror",
+          "title": "A Rayleigh-mixed Poisson overlap law for periodic vertices of independent random mappings",
+          "trigger": "Potential equivalent common periodicity statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An independently refreshed random mapping can retain periodic vertices without retaining their trajectories. For the stricter natural observable of identical directed cycles, the crossover identifies whether macroscopic count statistics can be treated as independent and quantifies the largest surviving trajectory at either scale. Strict dependence between finite bands, the effective redraw adjustment, and the different limiting extreme laws make the comparison informative beyond a single moment. The revised covariance scope removes a real defect: arbitrary size intervals reaching zero are not admissible finite-variance measurements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

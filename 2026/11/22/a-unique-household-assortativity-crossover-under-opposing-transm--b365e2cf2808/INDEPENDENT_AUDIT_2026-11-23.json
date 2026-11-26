@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:47.019157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The audited quantity is the size-two household branching-process reproduction number, not an individual reproduction number or a comparison of outbreak probabilities. Proportionate global mixing makes the recipient seed-type distribution independent of the sender; with equal population frequencies it is (1,r)/(1+r). Thus the next-generation matrix factors into sender-specific expected external offspring and that common recipient distribution, and its sole nonzero eigenvalue is their weighted mean. The Poisson no-contact probabilities over the fixed infectious period give the stated same-type and mixed-household mean formulas. Their difference is σF_r(x)/2, x=e^(−τ). The derivative F'_r(x)=r²h_r(x^(r−1)) has h_r(y)=1−2y+y^(r+1). Since h_r''>0 in (0,1), h_r(0)=1, h_r(1)=0, and h'_r(1)=r−1>0, there is one interior root of h_r, with signs positive then negative. F_r increases then decreases, starts negative at x=0, and decreases to zero at x=1; hence exactly one interior zero of F_r, with the order of signs reversed in τ. The endpoint τ=0 is not a positive crossing; r=1 is excluded. The fixed-contrast small-τ Taylor coefficient follows from F'_r(1)=0 and F''_r(1)=r²(r−1)². The two exact rational threshold examples check by direct substitution and concern separately specified global multipliers; a ranking crossing need not itself occur at R*=1. Replay: frozen RESULT.md lines 23–66, verification.py lines 30–51 (inspected, not executed), and Ball–Critcher §4.2.1. This is a many-household limit under the given Poisson, equal-frequency, deterministic-duration assumptions, not a field or finite-population finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ball–Critcher permits local rates not constrained to the rank-one form used globally; its weighted formula therefore covers both household compositions here. §4.2.2 discusses limits of comparing household structures by R*.",
+          "The earlier explicit matching theorem proves simultaneous R* increase and major-outbreak probability decrease in its own one-parameter setting."
+        ],
+        "reasoning": "The general formula yields each reproduction number separately. Neither its threshold condition nor its warning about comparing structures bounds the number of zeros in the difference between arrangements when the common local intensity varies.",
+        "searches": [
+          "Ball and Critcher (2026), DOI 10.1007/s00285-026-02359-5, proportionate global mixing and household threshold, Introduction and §§4.2.1–4.2.2",
+          "Resultary: two-type household matching and reproduction comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary household matching and crossover searches",
+        "Ball–Critcher DOI 10.1007/s00285-026-02359-5 §§2, 4.2.1–4.2.2 (definitions in the Introduction and threshold/comparison passages)",
+        "Resultary 33769d70b0e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (4.1) specializes to the two mean expressions by setting the household sizes, seed weights and directed pair probabilities; it contains no real-contrast root classification.",
+          "The prior matching theorem is an example at fixed parameters with constant equal global susceptibility weights and fixed local probabilities."
+        ],
+        "reasoning": "The formulas and outbreak criterion are covered, and should not be counted as the contribution. To turn those formulas into a uniform ranking crossover requires a separate convexity argument that gives the sign pattern and exactly one interior root for every r>1; that implication is not supplied by the inspected prior comparisons.",
+        "searches": [
+          "Ball–Critcher Eq. (4.1) and §4.2.2, OA PDF pp. 8–9",
+          "Resultary 33769d70b0e4 RESULT.md offsets 0 and 4930"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier matching record 33769d70b0e4 uses two-type size-two households and the same household R* object, fixes four local transmission probabilities and grants equal global susceptibility factors; it varies the mixed-pair fraction.",
+          "Ball–Critcher §4.2.1 Eq. (4.1) uses the same object after proportionate-mixing normalization."
+        ],
+        "reasoning": "Equating R* terminology and viewing same/mixed households as the extremes of a matching-fraction variable identifies a common framework. It does not turn a matching-fraction monotonicity result at fixed infection probabilities into a sign reversal in local intensity under susceptibility-biased seeds.",
+        "searches": [
+          "Resultary: household matching and R* versus major-outbreak probability",
+          "Resultary: same-versus-mixed household pairing crossover under opposing traits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen claim appears as its own identity hit; the separate close hit 33769d70b0e4 was checked in its mirrored statement and proof, without finding the reciprocal-trait one-crossing result there."
+        ],
+        "reasoning": "The object is a universal structural result, not a tabulated constant; the exact-record check tests for the matching one-crossing statement, not for an isolated numeric threshold witness.",
+        "searches": [
+          "Resultary: exact same-versus-mixed crossover claim and household-matching variants"
+        ]
+      },
+      "rationale": "The general reproduction number, seed weighting and invasion criterion are established premises. The supported distinct claim is the all-real-contrast, fixed-global-multiplier, exactly-one positive local-intensity crossing between two extreme size-two pairings in the specified reciprocal-trait family. The closest matching theorem varies a different parameter and addresses unequal behavior of two different observables; it does not supply this comparison. This is a best-of-inspected-evidence assessment, not a priority certification.",
+      "residual_risks": [
+        "Bounded corpus and focused primary-source comparison do not exclude an older exact multitype pairing theorem.",
+        "The older Ball–Lyne multitype household work was not independently inspected in full; its general framework is not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers framework, formulas by specialization and threshold; not the root classification",
+          "evidence": "The global contact rates have form βᵢκⱼ, local rates need not share that restriction, and Eq. (4.1) averages seeded-household offspring with susceptibility-biased type weights. Section 4.2.1 gives the R*>1 criterion.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02359-5",
+          "material_read": "OA PDF pp. 2–3, Introduction (offset 4100), and pp. 8–9, §4.2.1 Eq. (4.1), threshold and §4.2.2 (offsets 22900–28062)",
+          "method": "Bounded primary OA PDF passage inspection",
+          "title": "Multitype SIR epidemics among a population partitioned into households with proportionate global mixing",
+          "trigger": "Published premise and plausible broader coverage"
+        },
+        {
+          "assessment": "Same mathematical framework but distinct variable and comparison",
+          "evidence": "The local transmission probabilities and equal global susceptibility factors are fixed. The conclusion compares two observables as the fraction of mixed pairs varies, not the sign between two arrangements as local intensity varies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-household-matching-can-lower-outbreak-probability-while-strictly--33769d70b0e4/RESULT.md",
+          "material_read": "Finding, assumptions and proof, offsets 0–4937 and 4930–8429",
+          "method": "Bounded local-mirror reads",
+          "title": "Household matching can lower outbreak probability while strictly raising the household reproduction number",
+          "trigger": "Strongest separate published household matching overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict universal ranking switch rules out a fixed ranking of extreme household pairings in this reciprocal-trait family, even when type frequencies and individual trait values do not change. A finite example alone could not establish that the switch occurs exactly once for every contrast. This is a structural benchmark for interpreting a household-level invasion metric, not a real-world transmission or policy recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

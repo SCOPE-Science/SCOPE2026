@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The explicit rim/spoke parametrization proves that each feasible vertex-parity fibre has exactly \(2^m\) orientations. Every directed cycle in a wheel is either the consistently oriented rim or contains a directed triangle, as proved by following the spoke-direction switch along a directed hub-to-hub rim path. The four-state transfer entries implement exactly those triangle exclusions, and the correction removes precisely the two possible directed-rim cases when the prescribed parity vector is constant. The separate parity cases supply acyclic constructions, while source/sink parity rules exclude exactly the two constant signatures for odd rim size. A separately implemented direct-graph enumerator tests all cases for rim sizes 3 through 8. Finite checks are secondary evidence, not an infinite proof.
+PASS
 
-## Originality
+If e_i encodes the rim direction and s_i the outgoing spoke from the hub, the prescribed rim parity forces s_i=1+p_i+e_(i−1)+e_i mod 2. Hence every choice of rim bits determines one orientation, and even total indegree forces the hub parity to be the rim parity sum. A directed cycle through the hub must follow a rim path from spoke bit one to spoke bit zero, so its first 1-to-0 transition gives a directed hub triangle. Any cycle avoiding the hub is the directed rim. The corrected proof explicitly includes the possible directed rim triangle for m=3. The trace counts every labelled cyclic assignment once by the paired-state overlap and forbids exactly the local hub triangles. A constant rim-direction assignment can survive this local test only with constant spoke bits, equivalently constant p, giving the subtraction of two. Constant spokes in the solvable even-sum cyclic system e_(i−1)+e_i=q_i construct both complementary nondirected rims when q≠0. For odd m a choice of common spoke direction always gives even q-sum; for constant p the odd-degree source/sink obstruction is exact. For even m and odd p-sum a zero-parity site can be the unique incoming spoke and a rim source in the solvable cyclic system, forbidding all triangles. For even m and constant p, the hub is forced to be a sink or source, leaving exactly the two alternating rims. Fixed 4×4 products take O(m) arithmetic operations, not necessarily O(m) bit operations. The repair fixes the false universal assertion about triangles at m=3 without changing any claim or count.
 
-PASS on the accessible comparisons, with a remaining priority risk. The strongest nearby source by Gravier, Petiteau and Sivignon (arXiv:2603.09475, March 2026) studies feasibility and necessary parity/source/sink constraints and provides constructions for grids, cylinders and tori; its inspected principal claims and searchable full text do not give the wheel fibre enumerator. Mühlherr and Poullot (arXiv:2609.02249, September 2026) study edge-disagreement acyclic polynomials and wheel Hamiltonicity, not prescribed indegree parity. Stanley's classical chromatic-polynomial evaluation gives the sum of all fibre counts, but not their individual multiplicities. Searches of mathematical records and available research claims found no dominating formula. An unindexed equivalence remains possible; independent priority determination has not occurred.
+## originality
 
-## Value
+PASS
 
-PASS. The result computes the **entire labelled parity-fibre profile**, rather than only the existence of an acyclic orientation or the unrefined total number of acyclic orientations. The size-four transfer is uniform over infinitely many wheels, with a linear number of arithmetic operations per signature. The exact parity-dependent existence obstruction and the two-realization boundary cases give structural information that is not obtainable from the total count alone. This is a natural refinement of a contemporary orientation-feasibility problem, not an arbitrarily selected finite statistic.
+Bounded pass for the labelled wheel fibre formula and exact feasibility boundary. A later wheel Fourier result supplies the same counts by an explicit reduction; it is genuine later coverage, not evidence of prior coverage. The same-day open-path fan result is particularly close in method but not a theorem about the closed rim; no priority is inferred from its date.
 
-## Scientific scope and residual risk
+## value
 
-The proof treats all simple wheels with at least three rim vertices. Its time bound is in arithmetic operations. Existing parity-obstruction theory may subsume the existence part of the theorem but not the verified multiplicity formula; further unindexed literature may affect priority. Independent mathematical audit and independent bibliographic determination remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wheels are a natural simple closed-rim test family for parity-constrained acyclic orientation. The new information relative to feasibility or total counting is sharp labelled fibre multiplicity, in linear arithmetic time, with a complete obstruction and constant-vector boundary. The cyclic correction is required rather than a mere change of graph name from the fan recurrence; a researcher checking parity-refined counting on elementary planar families can use the exact formula and boundary counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

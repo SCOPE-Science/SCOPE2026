@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:02.433167Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact quadrature, endpoint expansion, reflected continuation and profile",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "In total concentration u and imbalance q, the equations are u̇=a u²q and q̇=−δu(1−q²)/2. Eliminating time gives u=Cδ(1−q²)^(a/δ). The physical-time quadrature diverges at both q endpoints, so it defines a complete nonstationary positive orbit approaching the origin at both ends; strict monotonicity of q yields the unique maximum. With k=a/δ and fixed q₀>0, the normalized quadrature on [0,q₀] has endpoint coefficients 1/(2q₀k) and (1−q₀²)/(4q₀³k²): for f=−log(1−q²), g=(1−q²)⁻¹ one has g/f′=1/(2q), and differentiating gives the second coefficient. A split away from q=0 controls the remainder O(k⁻³). The even quadrature gives exact time reversal with q changing sign, so compact-time dependence before t* also gives the reflected Riccati arc after t*. Substituting q=z/√k makes the centered clock kernel converge locally uniformly to exp(z²); strict monotonicity gives compact-uniform inverse convergence, including balanced data with Cδ=u₀ and diverging width.",
+      "residual_risks": [
+        "The proof does not take a limit at t=t* or make the endpoint expansion uniform as q₀ approaches zero. The script is a finite diagnostic, not evidence of uniformity or independent certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.13 concerns analytic integrability of perturbations of a specified integrable leading field, with a local analytic first integral led by x^p y^q(x−y)^r.",
+          "The indexed all-positive-rate network has an iff criterion for homoclinicity and fixed-rate tails, covers the δ>0 symmetric family geometrically, and excludes the all-equal endpoint."
+        ],
+        "reasoning": "Those results do not track the degeneration of the physical clock at the exchange boundary; Newton's full text was unavailable and cannot support a negative coverage assertion.",
+        "searches": [
+          "arXiv:1805.02873v1, Thm. 3.13",
+          "Newton, DOI 10.1137/1020007",
+          "Resultary record 4584b4463616, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2610.06130v1",
+        "arXiv:1805.02873v1",
+        "Newton DOI 10.1137/1020007 access attempt",
+        "Resultary 4584b4463616"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known example holds at one fixed rate triple and therefore contains no approaching boundary parameter. The general geometric results concern orbit shape or fixed-rate behavior, rather than a singular family of time parametrizations."
+        ],
+        "reasoning": "The exact invariant helps reduce the problem but does not by itself control time near the turning point. The endpoint expansion, inverse-kernel limit and time-reflection argument are substantive steps converting orbit geometry into the claimed physical-time limits.",
+        "searches": [
+          "arXiv:2610.06130v1, Example 2.1",
+          "arXiv:1805.02873v1, Thm. 3.13",
+          "Resultary 4584b4463616, fixed-rate classification and tails"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=1, δ=2, the frozen flow and first integral are literally the equations and xy/(x+y)^4 of Yeung–Erban's example.",
+          "Algaba–García–Reyes use analytic orbital equivalence and local first integrals for specified homogeneous quadratic leading fields."
+        ],
+        "reasoning": "The fixed-rate example is exact overlap for that orbit geometry. Orbital equivalence alone allows time changes, which do not preserve the event clock or normalized pulse profile being claimed.",
+        "searches": [
+          "Yeung–Erban, arXiv:2610.06130v1, Example 2.1",
+          "Algaba–García–Reyes, arXiv:1805.02873v1, Theorem 3.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hit is a later fixed-rate geometric classification for the same network, with no quantified δ→0 clock or crossover profile in its Finding."
+        ],
+        "reasoning": "The material database overlap is on the object and homoclinicity, not the singular-time formulas. A numeric invariant table cannot decide a parameter-dependent limit of an entire time profile.",
+        "searches": [
+          "Local Resultary search for the three-reaction homogeneous quadratic network and its homoclinic singular pulse; exact network hit 4584b4463616"
+        ]
+      },
+      "rationale": "The fixed-rate homoclinic geometry and first integral at (1,3,1) are explicitly prior; integrability is not the novelty. The supported distinction is the quantified degeneration in physical time: exponential height for fixed positive imbalance, the two-term event clock, the compact-uniform inverse-erfi profile, and the selected, species-swapped post-singularity limit. The inspected matching statements do not already give or mechanically imply this package.",
+      "residual_risks": [
+        "Broader search was limited by lookup availability. The Newton text was not inspected and older exact quadrature or asymptotic work may remain unlocated; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-parameter overlap",
+          "evidence": "ẋ=x²−3xy, ẏ=3xy−y², xy/(x+y)^4 and homoclinicity in the positive quadrant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06130v1",
+          "material_read": "PDF p. 3, Example 2.1, extracted offset 10966",
+          "method": "Bounded OA PDF inspection",
+          "title": "Classification of strongly non-hyperbolic critical points of planar second-order chemical reaction systems",
+          "trigger": "Identical network at the fixed rate triple (1,3,1)"
+        },
+        {
+          "assessment": "Different integrability statement, not a singular physical-time result",
+          "evidence": "Local analytic integrability is characterized by orbital equivalence for the given leading field.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.02873v1",
+          "material_read": "Abstract and PDF p. 7, Thm. 3.13 (offset 25108)",
+          "method": "Bounded OA PDF inspection",
+          "title": "The analytic integrability problem for perturbations of homogeneous quadratic Lotka–Volterra systems",
+          "trigger": "Broader homogeneous quadratic integrability"
+        },
+        {
+          "assessment": "Residual coverage risk",
+          "evidence": "Access attempt did not yield the paper; no decisive full-text statement was read.",
+          "identifier_or_url": "10.1137/1020007",
+          "material_read": "Citation; full text unavailable",
+          "method": "OA DOI retrieval and lawful-copy check",
+          "title": "Two Dimensional Homogeneous Quadratic Differential Systems",
+          "trigger": "Classical geometric classification"
+        },
+        {
+          "assessment": "Broader geometry and fixed-rate tail overlap; no priority inference from this later record",
+          "evidence": "Iff criterion for positive homoclinic trajectories; all-equal endpoint excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-homoclinic-extinction-threshold-and-logarithmic-critical-t--4584b4463616",
+          "material_read": "RESULT.md, Finding and relationship to prior work",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Sharp homoclinic extinction threshold and logarithmic critical tails",
+          "trigger": "Same three-reaction network, more general rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Limitations",
+        "Yeung–Erban, Example 2.1"
+      ],
+      "rationale": "This natural exchange-rate boundary is where a complete positive flow develops finite-time singular behavior in the limit. The peak scale and correction are needed to locate the increasingly narrow concentration excursion, the balanced regime exhibits an opposite time scaling, and the reflected arc identifies what the positive regularization actually selects after the limiting blow-up. These facts add dynamical information beyond the phase portrait or a conserved quantity.",
+      "residual_risks": [
+        "This is an exact deterministic symmetric model result; it is not a robustness claim for other rate triples, diffusion or chemical noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

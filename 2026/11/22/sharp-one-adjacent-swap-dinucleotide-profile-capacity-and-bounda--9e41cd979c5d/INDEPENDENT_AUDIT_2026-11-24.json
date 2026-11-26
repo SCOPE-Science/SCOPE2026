@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:16.132018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–62",
+        "VERIFICATION.md, check_local.py, check_global.py and both recorded outputs (inspected)",
+        "/workspace/branches/replay-2.py (independent exact replay)"
+      ],
+      "rationale": "These are distinct ordered, overlapping adjacent-pair histograms of linear words, with the unchanged word included. Each interior swap changes only the three local pairs on its four-symbol context. Independent integer histogram differences in alphabets of sizes 2,3,4 give one zero and 2,14,24 nonzero differences per specified support of sizes 2,3,4, respectively. A context uses at most four symbols; even a symbol canceled from the difference can be relabeled alongside the support into a fixed four-symbol set. Thus the finite classification lifts to every q, with q=2,3 checked separately. Row sums count all letters but the final one, and column sums all but the initial one. Interior swaps preserve both marginals, while unequal first and last swaps each change just one, and different ones, for n>=4. This proves the exact additive boundary formula, with n<=3 handled directly. In a repeated de Bruijn cycle of order four, any window of n>=q^4+3 covers the full context set. Exactly q^3 rotations fail each boundary inequality, so fewer than q^4 fail either when q>=3. For binary words a direct recomputation of actual swapped-word profiles gives maxima 1,1,2,3,4,4,4,4,5 at n=0 through 8. The family 01011 followed by t zeros and 01 has both required unequal boundary pairs and opposing nonzero interior changes from 0101 and 1100 for every t>=1. Finally the chance of a missing four-letter context is bounded by q^4 times an exponentially decaying disjoint-block omission probability at fixed q. Outside that event the offset is exactly the sum of the two independent endpoint inequality indicators. The unconditional distribution therefore converges to the claimed binomial law; no independence from the context-coverage event is assumed.",
+      "residual_risks": [
+        "The least saturation length for q>=3 is not classified. The boundary distribution is for fixed alphabet size and independent uniform letters, not arbitrary input distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "En Gad treats local substring-count differences in a bounded substring-edit framework in order to study hashing, confusability and redundancy; the read one-symbol cases are insertion, deletion and substitution.",
+          "The substitution record gives (q-1)(q^3-q+2) for q>=3, sharp from q^3+2, by triple-context coverage."
+        ],
+        "reasoning": "A swap can be represented by a bounded local edit, but a framework for such differences does not enumerate the swap-specific coincidences, endpoint separation or saturation. Two adjacent symbol substitutions in sequence are not a single permitted substitution.",
+        "searches": [
+          "arXiv:2609.19493 abstract and §2, offsets 56, 939, 16193–18579",
+          "2026/11/22 SCOPE substitution profile capacity 34ff8f27117b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.00517v1",
+        "DOI 10.1109/TIT.2017.2778143",
+        "arXiv:2609.19493",
+        "Resultary records 34ff8f27117b, 294c530e44d7, 4c63e213834d, c768d5e232e7 and the indexed self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single substitutions act on three-letter contexts and may change symbol content; interior swaps preserve content and require four-letter contexts.",
+          "Neither the word-level transposition count nor the bounded-edit hashing theorem gives the 2,14,24 counts by exact signed-vector support or the two independent endpoint contributions."
+        ],
+        "reasoning": "The inspected results provide ingredients and analogues but do not imply the exact swap image size via specialization, normalization, or an obvious reduction.",
+        "searches": [
+          "2026/11/22 SCOPE 34ff8f27117b RESULT.md Finding",
+          "arXiv:2609.19493 §2",
+          "Gabrys–Yaakobi–Milenkovic PDF p. 2550"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiah et al. count overlapping occurrences in profiles, the same observation representation at length two.",
+          "The word-level Damerau ball has the relevant adjacent move but counts distinct descendant words or code parameters, not the cardinality of its histogram image."
+        ],
+        "reasoning": "The directed pair histogram can also be viewed as ordered edge multiplicities of a word path. This retains profile equivalence but identifies many distinct words, so counting edited words or runs in those words does not count the image.",
+        "searches": [
+          "arXiv:1502.00517v1 §2: overlapping substring occurrence count profiles",
+          "Resultary: ordered pair histograms, one adjacent interchange and profile balls",
+          "Gabrys–Yaakobi–Milenkovic DOI 10.1109/TIT.2017.2778143, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary one-deletion record 294c530e44d7 gives maximum six first attained at length nine.",
+          "Same-day radius-two Kendall record 4c63e213834d enumerates descendant multiset words, not pair-histogram images. The close one-swap zigzag record c768d5e232e7 counts correcting code capacity in a different model."
+        ],
+        "reasoning": "The closest exact tables change the edit, the observation or the optimization objective. The indexed copy of the assigned result is a self-match, not separate evidence. Same-day records were compared on their actual claims.",
+        "searches": [
+          "Resultary: exact single-edit ordered bigram profile ball extrema and Kendall word-ball spectra"
+        ]
+      },
+      "rationale": "Profile histograms, word-level adjacent transpositions, local edit differences and de Bruijn cycles are established tools. The inspected matches do not give this at-most-one-swap histogram-image maximum, the sharp binary onset or the limiting boundary offset. The most relevant same-day comparison gives an exact answer for substitution, not swap. This is a bounded, best-of-knowledge assessment.",
+      "residual_risks": [
+        "A bounded search cannot exclude unindexed or implicit exact counts. General substring-composition discovery hits supply no evidence of absence; the comparisons are limited to the read passages and stated theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Common histogram representation; no exact adjacent-swap image theorem in inspected material",
+          "evidence": "The profile vector is indexed by length-ℓ substrings and records multiplicities; error-vector models have a different objective.",
+          "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+          "material_read": "§2, HTML offsets 4184–10158",
+          "method": "Bounded OA HTML inspection",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same ordered substring-count representation"
+        },
+        {
+          "assessment": "Word-level edit correction rather than histogram-image capacity",
+          "evidence": "The edits and correcting codes are defined on words in the Damerau metric.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2020/07/33_Damerau_IT18.pdf",
+          "material_read": "PDF p. 2550, abstract and introduction, offsets 0–2704",
+          "method": "Bounded OA PDF inspection",
+          "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+          "trigger": "Same local transposition; possible ball-count implication"
+        },
+        {
+          "assessment": "Relevant general method but no exact swap-profile count in inspected scope",
+          "evidence": "The local profile differences serve coding redundancy/confusability; the one-symbol list is insertions, deletions and substitutions.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19493",
+          "material_read": "Abstract and §2, offsets 56, 939 and 16193–18579",
+          "method": "Bounded OA reading of identified paper passages",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Closest primary lead for local differences and broader bounded substring edits"
+        },
+        {
+          "assessment": "Different edit and local support calculation",
+          "evidence": "It changes one symbol, obtains (q-1)(q^3-q+2) for q>=3 and uses length-three factors for its saturation theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-one-substitution-dinucleotide-profile-capacity-and-de-brui--34ff8f27117b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp one-substitution dinucleotide-profile capacity and de Bruijn extremizers",
+          "trigger": "Strongest same-day overlap in exact histogram maximum and de Bruijn witnesses"
+        },
+        {
+          "assessment": "Deletion rather than adjacent transposition",
+          "evidence": "Binary maximum six first at length nine for deletion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+          "material_read": "Catalogue and matching result statement",
+          "method": "Local catalogue mirror",
+          "title": "The complete one-deletion dinucleotide-profile ball distribution",
+          "trigger": "Exact binary profile-ball table"
+        },
+        {
+          "assessment": "Word descendants, not pair-profile images",
+          "evidence": "Counts radius-two outcomes on the multiset words themselves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "material_read": "Catalogue and matching result statement",
+          "method": "Local catalogue mirror",
+          "title": "Exact radius-two Kendall ball spectra for multiset words",
+          "trigger": "Same-day adjacent-swap ball enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–29, 46–62",
+        "2026/11/22 substitution profile-capacity statement (nearby but different edit)"
+      ],
+      "rationale": "For fixed-length reads that report only a directed pair histogram, the image of a single adjacent-swap ball measures actual ambiguity in the observation space rather than ambiguity of the underlying word. A sharp all-alphabet ceiling, explicit saturation, and the exact binary onset are useful benchmarks for that natural local-error statistic. The independent endpoint effects further explain why random long words fall short of the maximum with nonzero limiting probability even though they almost surely realize every interior change.",
+      "residual_risks": [
+        "No exact general-alphabet minimum length beyond the binary case, coding-rate bound, or multiple-swap result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:21:16.155415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a stationary observation time, the Poisson age and successive preceding gaps are independent Exp(r). Conditional on them, displacements on the disjoint Brownian intervals are independent; each unconditioned displacement has transform r/(r−μs−Ds²)=H(s) and is U−V with independent rates λ_+, λ_−. Applying the resets gives the series with scales (−b)^j, absolutely summable by finite first moments. This construction is stationary; coupling with the same noise yields difference (−b)^{N_t} times the initial difference and proves uniqueness. An interior moment parameter s can be enlarged to qs (q>1) still in the open interval; convergence of the positive products at qs by geometric scales gives uniform integrability for the transform at s. At either endpoint or outside, an independent constituent already has infinite exponential moment, hence so does the sum. The slowest positive term is U_0, while on the negative side only V_0 and bU_1 can be slowest; all other rates are separated strictly for fixed b. Isolating one slow exponential gives its rate times the tilted moment of the remainder as leading density coefficient by monotone convergence. At the tie the two slow terms are independent exponentials of the same rate; the Gamma(2) density gives the coefficient λ_−²E exp(−λ_−R_c) and the linear factor t, with the needed moment margin because the remainder rates are strictly faster. The companion exponential moments produce all four printed products; e.g. the critical multiplier is λ_−²(λ_+/Σ)(λ_−/Σ). This is a density asymptotic, not a claim equating density and cumulative-tail coefficients. Frozen supporting files were read, and the frozen script was not executed. An independent SymPy reproduction checked 24 rational pole and coefficient identities for finite truncations of depths 2–5; the infinite-limit conclusion rests on the convolution proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected perpetuity cases use nonnegative coefficients/innovations and all exponential moments for the innovation. The stable-process partial-reset theorem has positive contraction c∈(0,1). The drifted asymmetric-Laplace series of Tal-Friedman et al. uses 0≤a<1."
+        ],
+        "reasoning": "Two-step grouping produces a positive factor b², but the grouped asymmetric innovation still has a finite MGF interval and the rate tie is carried by its two separate exponential constituents. The inspected broad theorems do not give the critical density coefficient for this grouped law.",
+        "searches": [
+          "Kołodziejek arXiv:1711.08912v2, On perpetuities with light tails",
+          "Grzywny et al. arXiv:2412.15626v1, Stationary states for stable processes with partial resetting, Theorem A",
+          "Tal-Friedman et al. arXiv:2205.03363v2 eqs. (14)–(20) and App. C"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "arXiv:2204.07215v1; arXiv:2205.03363v2; arXiv:2406.08387v1; arXiv:1711.08912v2; arXiv:2412.15626v1",
+        "The four distinct Resultary findings in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-factor asymmetric series can be algebraically continued to signed factors at the level of finite transform products, and the stationary recursion is a reusable method. But signed factors make an originally positive exponential supply the slow negative tail, with two independent constituents of equal rate precisely at λ_+/λ_−. No such coefficient or resonance occurs in the inspected prior positive-factor or driftless statements."
+        ],
+        "reasoning": "The transition and critical prefactor require isolating the signed competing components and proving the respective remainder moment bounds. They are not a specialization of the stated formulas under their hypotheses.",
+        "searches": [
+          "Tal-Friedman et al. §III and Appendix C compared with frozen RESULT.md lines 51–79",
+          "Biroli et al. §II compared with the drifted three-regime statement",
+          "Pierce Appendix A residue expressions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pierce and Tal-Friedman et al. use nonnegative reset scales in the drifted model. Biroli et al. permit negative reset factors but their Eq. (6) has no drift; their stationary tails are symmetric.",
+          "Resultary 2026/10/18/SCOPE-a-universal-temporal-fourth-order-arrow-and-its-cancellation-und--4f8ef07add78 and 2026/10/26/SCOPE-hidden-reset-reflection-and-moment-rate-tomography-for-contracti--6dfc6932c2a0 concern temporal contrasts/moments of symmetric diffusion, not these spatial density tails."
+        ],
+        "reasoning": "Reflecting x changes the sign of the drift but leaves a negative proportional multiplier negative; it cannot reduce this model to a positive reset or zero drift. At zero drift the candidate rates tie only at b=1, excluded here.",
+        "searches": [
+          "Pierce arXiv:2204.07215v1 Eq. (1), Eq. (20), Appendix A",
+          "Tal-Friedman et al. arXiv:2205.03363v2 §III",
+          "Biroli et al. arXiv:2406.08387v1 §II and Appendices A–C",
+          "Resultary: signed proportional resetting, drift and stationary reflected-excursion tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected mode/residue formula of Pierce is for positive contraction; Biroli et al.'s exact large-|x| formula is symmetric. Distinct Resultary hits for a Brownian gas rare-excursion law and skew-gamma rigidity are, respectively, positive weak contraction and nonnegative random contraction.",
+          "No matching indexed explicit coefficients for the drifted sign-reversing density or its double-pole boundary were found in the examined results."
+        ],
+        "reasoning": "The adjacent exact stationary formulas have different pole/rate sets; neither is an exact formula table for this parameter family. Bounded lookup does not prove absence.",
+        "searches": [
+          "Resultary: negative reset multiplier and stationary left-tail transition with drift; signed affine resetting and exact rates",
+          "Pierce Eq. (20) and Appendix A (stationary modal coefficients); Biroli et al. Eq. (17)–(18) (stationary tail)"
+        ]
+      },
+      "rationale": "The closest primary works cover drift with a positive proportional factor and sign reversal with zero drift, respectively. They supply the constituent frameworks but neither contains the crossing of two distinct negative rates in the stated drifted signed model. The distinct indexed comparisons address temporal moments, positive weak resets, or different coefficient laws. The supported separate result is the stationary density transition with the exact critical and noncritical coefficients and finite-moment domain, not the stationary product framework itself.",
+      "residual_risks": [
+        "A broader signed affine-perpetuity or reset theorem may subsume the logarithmic rate or more; this bounded comparison does not establish historical priority.",
+        "The independent finite pole checks do not imply decay for an infinite product. The density argument is separate and analytic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Drifted but positive rescaling only",
+          "evidence": "Reset factor ε∈(0,1); asymmetric stationary exponential modes and their residues.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.07215v1",
+          "material_read": "p. 2 Eq. (1), p. 4 Eq. (20), Appendix A pp. 6–7",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "Closest prior drifted modal density"
+        },
+        {
+          "assessment": "Direct framework precedent, but drift result uses nonnegative a",
+          "evidence": "Fourier product and independent scaled asymmetric-Laplace innovations for 0≤a<1.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363v2",
+          "material_read": "§III Eqs. (14)–(20), pp. 4–5, and Appendix C p. 11",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Closest stationary product and asymmetric innovations"
+        },
+        {
+          "assessment": "Closest signed stationary law, without drift",
+          "evidence": "−1<a<1 permissible, but Brownian motion has zero drift and stationary tails are symmetric. The inspected appendices address passage/crossing calculations and simulation, not a drift extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.08387v1",
+          "material_read": "p. 3 Eq. (6), §II Eqs. (17)–(18), pp. 4–5; Appendices A–C pp. 14–17",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Signed factor and exact tail formula"
+        },
+        {
+          "assessment": "Not the signed, finite-MGF-domain innovation setting",
+          "evidence": "Nonnegative M,Q and all positive exponential moments for Q in the inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.08912v2",
+          "material_read": "Stated perpetuity and moment hypotheses and main log-tail setting",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "On perpetuities with light tails",
+          "trigger": "General affine-recursion tail theorem"
+        },
+        {
+          "assessment": "Positive factor; no drifted sign-reversal competition",
+          "evidence": "Stationary convergence for c∈(0,1).",
+          "identifier_or_url": "https://arxiv.org/abs/2412.15626v1",
+          "material_read": "Theorem A, pp. 2–3",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Broader reset-process stationarity theorem"
+        },
+        {
+          "assessment": "Different assumptions or observables",
+          "evidence": "Driftless temporal fourth-order arrow; common positive weak resets and gas large deviations; signed but symmetric random contractions and moment tomography; drifted law with nonnegative random factors and an inverse gamma classification.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-temporal-fourth-order-arrow-and-its-cancellation-und--4f8ef07add78; 2026/10/18/SCOPE-dilogarithmic-rare-excursion-law-for-a-brownian-gas-with-frequen--4da625e6e09e; 2026/10/26/SCOPE-hidden-reset-reflection-and-moment-rate-tomography-for-contracti--6dfc6932c2a0; 2026/11/22/SCOPE-skew-gamma-rigidity-for-drifted-brownian-diffusion-with-random-p--d33c85edceca",
+          "material_read": "Local-mirror RESULT.md findings and model assumptions of each identified record",
+          "method": "Resultary query and bounded mirror inspection",
+          "title": "Closest distinct Resultary findings for signed, rare-excursion, and drifted resetting",
+          "trigger": "Signed factor, stationary extremes, and drifted laws in indexed research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even though each reset contracts the position magnitude, reversing sign can turn a typical direction of rare excursions into the dominant source of unusually negative positions. The exact switching boundary, the linear prefactor missed by a single-rate approximation, and the matching exponential-moment interval characterize that mechanism in a natural minimal model. The density asymptotics give more information than the transform identity alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

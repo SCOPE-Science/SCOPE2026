@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns arbitrary fixed period \(p\ge1\) and arbitrary indices. The multiplication is explicitly reduced to canonical exponents. In the ternary multiplication-graph language, a two-round Ehrenfeucht–Fraïssé game is exactly determined by the sets of two-point atomic diagrams extending each first point. For transient first points the possible second-point diagrams depend only on exponent residue, parity, and whether the square remains transient. For tail first points they depend only on the exponent residue. Both halves of the transient range include all residues modulo \(\operatorname{lcm}(p,2)\) at and beyond the proposed threshold. The explicit rank-two formula is true precisely when there is an even positive multiple of \(p\) whose double remains transient. Direct exhaustive code checks reproduce the sharp boundary and the pointed-profile claim over thirty periods; they are supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to historical-literature risk
+For the ternary relational signature without constants or functions, Duplicator's available replies to the second move are exactly the atomic diagrams in the first choice's extension set; matching sets of those profiles is necessary and sufficient. For a transient first element the transient extension diagrams are equality, doubling, halving, and generic, with the generic always available for m>=5. Mixed diagrams are determined by residue, parity and the low/high doubling test. For tail first elements the diagrams depend on their residue and on which residues occur in the two transient intervals. Both intervals have at least L=lcm(p,2) consecutive exponents at m>=2L+1, realizing every required parameter. The rank-two sentence forces a nonidempotent x fixing the unique idempotent, hence transient and divisible by p; it is a square only if its exponent is even, and its own square is nonidempotent exactly when 2x<m under those constraints. Its least candidate is L, proving separation for every subthreshold index, including m=1. The independent multiplication-table check passed for periods 1–14 (378 formula cases, 56 counted profile comparisons plus the boundary check); the universal conclusion rests on the interval argument.
 
-The nearest inspectable semigroup source is Cabessa's Section 9.3.4, Lemma 9.15 (cyclic semigroup index, period, and terminal subgroup) and Proposition 9.16 (an \(\omega\)-semigroup game-theoretic degree). Those statements establish the algebraic decomposition but neither the first-order rank-two cutoff nor the distinguishing sentence. Distler (2010) addresses isomorphism/enumeration of small semigroups, not the asserted logical collapse in the accessible material. He (2014) supplies a broad quantifier-game framework rather than the specialized index-period law. The directly indexed research comparisons concerning cyclic groups and quantifier depth have different domains (groups, with no transient elements); their conclusions do not imply the new fixed-period semigroup index cutoff. Relevant full document portions are inspected where accessible. Uninspected portions of older works and obscure prior semigroup logic papers remain possible coverage risks; neither a database search nor partitioning of research topics establishes novelty by itself.
+## originality
 
-## Value — PASS
+PASS
 
-The index-period decomposition is one of the defining structural invariants of finite monogenic semigroups. The result resolves precisely when quantifier rank two stops seeing increasing transient length at each fixed period, and finds an optimal finite representative. The parity discontinuity is structural, reflecting the need for a transient square root and an idempotent absorber in the same pointed two-round type. Unlike an arbitrary enumeration slice, the cutoff works for every period and every index and distinguishes the stable class by an explicit optimal-rank formula. No downstream theorem is claimed or required.
+The profile criterion and monogenic index-period decomposition are established tools. The closest inspected results do not yield the exact fixed-period threshold or its parity split in the unnamed multiplication-graph language. This is a bounded best-of-knowledge judgment.
 
-## Limitations
+## value
 
-The theorem is not a classification across unequal periods or of all exceptional subthreshold equivalences. No independent review has been carried out. Equivalence to an unindexed historical result is a residual risk. Numerical tests cover only finite ranges, while the proof supplies the universal argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact logical cutoff for a basic algebraic family, with one separator for every smaller index. Fixed period leaves an unbounded size parameter; detecting the parity-driven change through two rounds exposes an interaction of modular absorption and transient squaring rather than only cataloguing small semigroups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

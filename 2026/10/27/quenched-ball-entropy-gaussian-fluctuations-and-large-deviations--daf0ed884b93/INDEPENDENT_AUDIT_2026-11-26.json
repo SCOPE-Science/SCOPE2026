@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:34.921305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each length-m equality pattern with l unequal edges is realized by q(q−1)^l words, giving independent Bernoulli edges. Dropping equal-letter swaps and comparing the first edge on which two effective matchings differ proves injection; each one-run of length l has F_{l+2} matchings. Renewal at the first zero gives the stated moment generating series A_t(z)/(1−hzA_t(z)), including the no-zero term. For all real t, Binet gives a positive limiting geometric coefficient, so A_t diverges at its positive convergence radius, even for negative t. The positive denominator root r is strictly inside that radius and simple; equality in the triangle bound on |z|=r together with the positive z coefficient excludes another zero there. A slightly larger disk with this single pole also works locally for complex t; subtracting c(t)/(1−z/r(t)) and using Cauchy gives the exponential error with c=A_t(r)/(hr[A_t(r)+r A'_t(r)])>0 on the real line. Tilt differentiation gives E_t R/E_t T and E_t[(R−P'_q(t)T)^2]/E_t T, strictly positive by the l=0,1 cycles, with E T=1/h at t=0. The analytic log-MGF expansion proves the CLT and O(1) cumulant errors; small positive and negative tilts give summable Chernoff bounds and hence almost-sure convergence in the prefix coupling, or any common coupling with the stated marginals. Bounded normalized log-volume and differentiability on the whole real line give the full good LDP. The annealed recurrence gives its stated root. For the alphabet limit write R=T log phi−d+e_L with e_l geometrically decaying. Then h E e_L=O(h^2), e_L=o_{L^2}(1), and hT has second moment tending to two and mean one. Thus R−mu T=d(hT−1)+o_{L^2}(1), giving the variance coefficient. Expanding the annealed root and using log u>1−1/u for u=sqrt(5)/phi proves the positive gap coefficient. The supplied script and output were inspected, not executed; finite ball and moment regressions do not prove the limit laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper counts effective swaps and aggregate volumes; the second concerns code constructions and covering, with an exact all-distinct Fibonacci count for permutations. The indexed result treats the identical center law and gives exact first/second moments and a renewal CLT. Generic renewal reward theory explains the form of the first two pressure derivatives."
+        ],
+        "reasoning": "Neither a permutation center with all letters distinct nor aggregate first and second moments determine the random-center distribution or the general pressure. A generic renewal CLT supplies the moment-ratio template but not the explicit all-real pole, exponential corrections or large-alphabet expansions.",
+        "searches": [
+          "Kovačević–Kiah–Goyal arXiv:2509.06692v3 Propositions 4 and 6",
+          "Ben Shimon–Zabokritskiy arXiv:2607.19566v1 abstract and Fibonacci passage p. 24",
+          "Resultary 9f94c09e1260 Finding"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/TIT.2017.2762676 Theorems 16 and 18; arXiv:2509.06692v3, 2607.19566v1, cond-mat/0106457v1",
+        "Resultary 9f94c09e1260 Finding and assumptions",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean root is implied by the earlier recurrence, and the fixed-q LLN and Gaussian law are already stated by the catalog comparator. To obtain the arbitrary-real root on the correct side of the convergence boundary requires the geometric initial-run decomposition and Binet boundary behavior; large-q terms require retaining the Binet offset and the fluctuations of the geometric cycle length."
+        ],
+        "reasoning": "Analyticity at finitely many fixed derivatives or values does not fix the full pressure, and the relevant standard limit theorems are proof tools, not direct specializations of equivalent model-specific statements delivering the surviving claims. The fixed-q Gaussian overlap is credited rather than dismissed based on the date.",
+        "searches": [
+          "Langberg–Schwartz–Yaakobi Theorem 18; Resultary 9f94c09e1260 first/second-moment and fluctuation statements",
+          "Random Fibonacci Sequences arXiv:cond-mat/0106457 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Antirun length l+1 in the published product gives F_{l+2} in the Bernoulli-edge formulation. The same V_n is the number of matchings of a Bernoulli-thinned path, or the solution of the Fibonacci-type update V_{i+1}=V_i+E_i V_{i−1} with initial volumes one. In the random Fibonacci work inspected, the coefficient is +beta or −beta, not an independent 0/1 reset coefficient.",
+          "Resultary 9f94c09e1260 uses n rather than m=n−1 and the names gamma and tau; its limit constants are exactly the frozen mu and sigma squared after this time normalization."
+        ],
+        "reasoning": "The published antirun formula and the indexed Gaussian limit are genuine equivalences for those components. Signed random recurrences, capacity, and channel-output distributions do not express all-real log-volume moments over the stated center law.",
+        "searches": [
+          "Langberg–Schwartz–Yaakobi doi:10.1109/TIT.2017.2762676 Theorems 16 and 18",
+          "Resultary search for limited-permutation random-center Fibonacci log-volume and quenched/annealed exponents",
+          "Random Fibonacci recurrence with Bernoulli zero resets, geometric runs and large deviations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog finding has the same one-layer model, the same two infinite log-Fibonacci series and the same strict typical/mean gap, plus rational generating functions at t=1,2. The earlier journal formulas give exact individual antirun counts and the mean recurrence."
+        ],
+        "reasoning": "The (q=2) numerical constants and the finite moment cases are not missing entries of a database. What remains distinct is the infinite family in arbitrary real t, Legendre rate and first large-q terms, none of which is supplied as a table or exact parameter specialization in those findings.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-exact-second-moments-and-gaussian-logarithmic-fluctuations-of-li--9f94c09e1260/RESULT.md, Finding and proof setup",
+          "Langberg–Schwartz–Yaakobi Theorems 16 and 18"
+        ]
+      },
+      "rationale": "Credit the unified explicit all-real pressure with locally analytic pole asymptotics, the LDP for uniform-center log ball volume and the large-alphabet entropy, variance and annealed-gap coefficients. The known Fibonacci ball product and arithmetic mean are not new. In addition, a distinct indexed result already covers the exact LLN and Gaussian constants and strict typical/mean gap; these are not credited as distinct by themselves. The frozen result as a whole is not a corollary of the indexed result or of the published channel formulas, since the full pressure, its rate function and alphabet asymptotics survive comparison. This is a coverage judgment, not a claim of historical precedence between records.",
+      "residual_risks": [
+        "Statement-level comparison is bounded. Other renewal or random positive recurrence work may treat this coefficient law or some of its fluctuations, not located in the focused searches. No claim of an exhaustive priority survey or of novelty for renewal theory itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers two specific ingredients",
+          "evidence": "Individual Fibonacci products and arithmetic mean recurrence, not the full all-real pressure.",
+          "identifier_or_url": "https://www.ece.mcmaster.ca/~schwam10/publications/MSjrnl35.pdf",
+          "material_read": "Theorems 16 and 18, p. 4, including antirun and uniform-center enumeration",
+          "method": "OA journal PDF passages, offsets around 28364 and 27004",
+          "title": "Coding for the ℓ∞-Limited Permutation Channel",
+          "trigger": "Exact ball product and annealed mean for the same channel"
+        },
+        {
+          "assessment": "Exact partial overlap, not coverage of the whole finding",
+          "evidence": "Gamma_q and tau_q squared equal the frozen mu_q and sigma_q squared. The comparison gives t=1,2 moment generating functions in length, not all-real pressure, LDP or alphabet expansions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-second-moments-and-gaussian-logarithmic-fluctuations-of-li--9f94c09e1260/RESULT.md",
+          "material_read": "Finding, assumptions, Bernoulli reduction and first/second-moment proof setup",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact second moments and Gaussian logarithmic fluctuations of limited-permutation ball volumes",
+          "trigger": "Same model and explicit log-volume Gaussian fluctuations"
+        },
+        {
+          "assessment": "Counting ingredients, not the surviving statistical claims",
+          "evidence": "Individual effective swaps and aggregate counts by swap count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06692v3",
+          "material_read": "Propositions 4 and 6, pp. 9–11 around offset 36655",
+          "method": "OA PDF passages",
+          "title": "Bounds on Codes Correcting Adjacent Transpositions",
+          "trigger": "Exact adjacent-swap counting formulas"
+        },
+        {
+          "assessment": "Covering and constructions; distinct center model for exact Fibonacci count",
+          "evidence": "The p. 24 ball about a permutation in S_b has F_{b+1} outputs, with all letters distinct; that does not quantify uniform q-ary random-center fluctuations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.19566v1",
+          "material_read": "Abstract and p. 24, Fibonacci passage around offset 97887",
+          "method": "OA PDF passage and literal locator",
+          "title": "Extinction Depth and q-ary Error-Correcting Codes for the Limited Permutation Channel",
+          "trigger": "Same radius-one channel and Fibonacci covering-ball count"
+        },
+        {
+          "assessment": "Different coefficient law",
+          "evidence": "The recurrence uses ± beta rather than Bernoulli 0/1. Its model as stated is not the geometric reset model.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0106457v1",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Random Fibonacci Sequences",
+          "trigger": "Possible equivalent random coefficient recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform-center ball volume is a natural geometric statistic of a specified channel. The exact all-real pressure distinguishes typical behavior, tails and arithmetic moments, and the explicit alphabet coefficients quantify how the gap closes. These provide information not available from mean volume, isolated Gaussian constants, or capacity bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

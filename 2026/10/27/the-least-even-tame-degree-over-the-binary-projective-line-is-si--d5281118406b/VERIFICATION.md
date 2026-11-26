@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification procedure
 
-With Python 3.10+ installed, execute `python verify_tame_bit.py` in a working directory containing all delivered artifacts; this requires only the Python standard library. It will exhaustively test all degree-2, degree-4, and degree-6 maps over the two-element field, calculate the exact ramification profile and two-sided projective orbits, and regenerate `tame_d6_pairs.txt`. The expected terminal summary is:
+# Independent mathematical audit
 
-```
-degree 2 all_maps 24 tame 0 profiles {}
-degree 4 all_maps 384 tame 0 profiles {}
-degree 6 all_maps 6144 tame 72 profiles {((1, 3), (1, 5), (2, 3)): 72}
-degree 6: two disjoint orbits of size 36, representatives x/(x^6+x^3+1) and x/(x^6+x^5+x^3+1)
+## correctness
+
 PASS
-```
 
-Execute `python verify_tame_sympy.py` with SymPy installed. It uses independent polynomial arithmetic for exhaustive degree-two and degree-four checks and for all 72 degree-six candidates in the certificate, yielding `INDEPENDENT SYMBOLIC PASS`. This second code does not perform a second complete search over all 6144 degree-six rational maps. The certificate has 72 distinct sorted two-integer rows and is regenerable from the primary code. All computations were completed with these files. The proof of the Hasse-jet criterion and the finite total search domain is presented in `RESULT.md`; the computation checks rather than replaces those arguments.
+For a normalized coprime pair A,B of maximal affine degree d, the cross-multiplied fiber at a finite point α is A(X)B(α)−B(X)A(α). Its multiplicity at α is exactly the geometric ramification index, including at poles; homogenization gives the test at infinity. The first jet vanishes identically precisely in the inseparable case. The supplied finite enumeration's search domain is exhaustive because the nonzero derivative numerator has degree at most 2d−2. I independently enumerated all pairs in degrees 2, 4, and 6 with branches/independent_tame.py, using the degree ≤d−1 square root of the ordinary derivative numerator to identify all possible finite ramification, then using synthetic division in the corresponding residue fields to measure fiber multiplicities, and the fiber degree deficit at infinity. Counts are 24/0, 384/0, 6144/72 (total/tame). All 72 rows agree with the delivered certificate, with profile (rational e=3, rational e=5, quadratic closed point e=3). Independent source and target swaps and translations generate two disjoint 36-element orbits, hence trivial two-sided stabilizers. Fiber coordinates at infinity, 1 and a primitive quadratic root α respectively give 0,1,α for f4 and 0,∞,1 for f3, with conjugation giving the remaining image. The frozen scripts were inspected, not run. The SymPy script's header overstates its test: its actual main enumerates degrees 2 and 4 and checks the 72 degree-six rows, as the frozen prose correctly specifies.
 
-## Limits
-These checks certify statements about rational maps defined over \(\mathbf F_2\); they do not test maps over arbitrary field extensions. No published mathematical claim of novelty can be inferred solely from successful programs.
+## originality
+
+PASS
+
+The precise characteristic-two arithmetic census, minimum among even degrees, and two-sided orbit and branch-value classification are distinct from general tame existence or a genus-zero-Galois-closure census. Same-domain SCOPE catalogues were compared at statement level.
+
+## value
+
+PASS
+
+The least even degree in the smallest finite field is a natural boundary for tame ramification, not an arbitrary cutoff. The complete census shows that the first possible degree has one geometric ramification signature but two arithmetically distinct branch-value configurations. In particular it gives an explicit minimal-even-degree three-point example and distinguishes it from all other classes without relying on a finite sample of extension points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

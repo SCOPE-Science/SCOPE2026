@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:45.575511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 33–61",
+        "Frozen VERIFICATION.md, lines 19–23; checker.py, lines 20–145"
+      ],
+      "rationale": "Every stable extension contains exactly one member of each partner pair: conflict-freeness rules out both and the private leaf cannot be attacked if neither is chosen. Every independent core set conversely yields such an extension, so each core disagreement contributes exactly two argument disagreements. For a fixed difference S, the two exclusive core sets are the ordered color classes of G[S]; each bipartite component, including a singleton, gives exactly two choices. The common core set must avoid S and all its neighbors, and every independent set in what remains gives a distinct ordered pair. This includes S empty, giving constant coefficient i(G). Bipartiteness is hereditary, so subsets of a largest induced bipartite set realize all intermediate sizes, and that largest set dominates the complement (an undominated vertex could be added as an isolate). Hence its common-set factor is one and both the endpoint and leading coefficient follow. The argument works with disconnected graphs and isolated vertices and with ordered, identical pairs.",
+      "residual_risks": [
+        "The recorded exhaustive check through five vertices and sampled six-vertex checks were inspected, not replayed; they are optional corroboration. The general proof does not depend on the implementation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fichte et al. give decision and maximum-value complexity results for general frameworks, with a shadow-copy reduction having cross-edges. The peer 507cf5e0d7fc instead treats a three-extension max-min objective on degree-one attacks; b542a4289c17 gives a path transfer-matrix polynomial where core vertices are not paired with private leaves."
+        ],
+        "reasoning": "Scope of the general decision problem is broader, but it is not an all-coefficients theorem. Neither peer dominates the present graph family and statistic together. The path comparison is also later than the frozen record.",
+        "searches": [
+          "arXiv:2605.13332v1, PDF pp. 4–5, 7 and 11",
+          "Resultary semantic search for ordered stable-extension disagreement, leaf-paired graphs and independent-set distances"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.13332v1",
+        "arXiv:1303.2564",
+        "Resultary 507cf5e0d7fc",
+        "Resultary b542a4289c17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shadow construction does not have a private leaf with only its own core neighbor. A maximum induced bipartite subset supplies the endpoint after the pair/coloring bijection, but alone supplies no coefficient or shared-choice factor."
+        ],
+        "reasoning": "No reduction in the inspected sources preserves both the full distribution and the fixed-S multiplicities. Do not credit novelty to the known meanings of the metric and the transversal parameter alone.",
+        "searches": [
+          "arXiv:2605.13332v1, p. 7 Claim 10 and p. 11",
+          "arXiv:1303.2564, p. 2",
+          "Resultary 507cf5e0d7fc and b542a4289c17, Findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paired-leaf identity is equivalent to counting ordered independent-set pairs by twice their core Hamming distance. Levit–Mandrescu count one independent set by size, not the intersection or disagreement of two sets. Fichte et al. define the same symmetric-difference metric."
+        ],
+        "reasoning": "A two-replica occupancy sum encodes the desired distribution by definition, but squaring the ordinary independence polynomial loses the pair's overlap. Neither is the explicit component-count times reduced-graph independence-count expression.",
+        "searches": [
+          "Primary-literature searches on independent-set pairs, Hamming distance polynomials and stable-extension disagreement",
+          "arXiv:1303.2564, p. 2",
+          "arXiv:2605.13332v1, pp. 4–5 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed polynomial comparison concerns bidirected paths; the earlier degree-one record outputs a max-min value for triples. The inspected ordinary independence polynomial is a different enumerator."
+        ],
+        "reasoning": "A finite distance table, even if it matched small graphs, would not cover a graph-uniform subset coefficient formula; no inspected indexed entry gives the claimed all-graph invariant.",
+        "searches": [
+          "Resultary indexes for stable-extension distance/disagreement polynomials and odd-cycle-transversal characterizations; inspected peer IDs 507cf5e0d7fc and b542a4289c17",
+          "Primary literature searches for independent-set pair/Hamming polynomials"
+        ]
+      },
+      "rationale": "The supported distinct result is the fixed-disagreement-set coefficient formula and the complete ordered stable-extension distance polynomial for private leaves, with its endpoint and ordered multiplicity. The metric, ordinary independence polynomial and odd-cycle-transversal equivalence are background. No inspected earlier statement gives or mechanically specializes to the fixed-S factorization.",
+      "residual_risks": [
+        "The pair-polynomial literature is broad and may use different terminology, such as a two-replica hard-core model or a hypercube subgraph invariant. Searches were bounded; an equivalent earlier fixed-S enumeration was not excluded in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared metric; distinct reduction and output",
+          "evidence": "The shadow-copy construction adds cross-edges; Claim 10 is a threshold reduction and the maximal-diversity questions are not a full polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.13332v1",
+          "material_read": "PDF pp. 4–5, 7, 11 (text offsets 16000, 24900, 37710)",
+          "method": "Primary open text, localized passages",
+          "title": "Diversity of Extensions in Abstract Argumentation",
+          "trigger": "Same distance, extension semantics and plausible independent-set construction"
+        },
+        {
+          "assessment": "Ordinary independence polynomial only in inspected definition and recurrence",
+          "evidence": "Variable tracks cardinality of one independent set, not pairwise Hamming distance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.2564",
+          "material_read": "p. 2, definition and recurrence (text offset 5200)",
+          "method": "Primary open text, bounded passage",
+          "title": "On f-Symmetries of the Independence Polynomial",
+          "trigger": "Possible equivalent independence-polynomial enumeration"
+        },
+        {
+          "assessment": "Different objective and framework class",
+          "evidence": "Weighted three-bin max-min formula for triples, not pair distance coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-three-viewpoint-stable-extension-diversity-for-degree-one--507cf5e0d7fc/RESULT.md",
+          "material_read": "Finding and proof at text offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact three-viewpoint stable-extension diversity for degree-one attacks",
+          "trigger": "Strong related earlier indexed result"
+        },
+        {
+          "assessment": "Related later result on a different class",
+          "evidence": "Transfer matrix counts pairs of maximal independent sets of a path, rather than arbitrary independent sets of a core graph realized by added leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-ordered-stable-extension-diversity-polynomial-of-bidirected--b542a4289c17/RESULT.md",
+          "material_read": "Finding and Proof §§2–3, and prior-work comparison (offsets 0, 7400)",
+          "method": "Resultary search and local mirror passages",
+          "title": "The ordered stable-extension diversity polynomial of bidirected paths",
+          "trigger": "Closest indexed match to full ordered polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–24, 41–51, 63–71",
+        "arXiv:2605.13332v1, pp. 7 and 11"
+      ],
+      "rationale": "Private fallback arguments give a transparent nontrivial class in which all stable-extension distances can be resolved. The formula conditions on the exact disagreement vertices and separates color-class choices from free shared choices. It determines the attainable distances and, unlike merely computing a diameter, counts maximizing ordered pairs; the transversal endpoint connects a semantics invariant to a natural graph parameter. The exponential formula is descriptive rather than an efficient general algorithm.",
+      "residual_risks": [
+        "Value is for the leaf-paired family and exact coefficients; no claim about arbitrary attacks or tractable computation on arbitrary cores follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:16:47.062604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to /workspace/repairs/4/RESULT.md, not to the frozen all-block canonical projection. The frozen claim has a genuine tie obstruction: with alpha=0, h1=t and h2=sqrt(15)(t²−t), Delta=2sqrt(15) but the degree-n=0 block has Gram I/6. The spectral projection for its equal pair has rank two, not rank one. The frozen proof also incorrectly counts at most one nonzero singular value at output frequency −1. The repair uses the smaller-eigenvalue Gram projection only in untied blocks and assigns zero at ties and frequency −1 for the lower-channel operator; the full row has exactly two negative-frequency singular values since their outputs bar(z) phi_i(t) are independent by Delta≠0. Both finite-block facts were checked independently by exact integrals in /workspace/branches/independent-replays.py 4. For n≥0 the normalized monomial images are centered h_i under Beta(n+1,s) times the common scalar sqrt(mu_n/mu_(n+1)). Beta moments show that X=n(1−t) has fixed-order moments (s)_k+O(n^−1). The centered Taylor remainder is O(n^−3) in L² by the sixth beta moment. The centered X and X² have limiting variance s, covariance 2s(s+1), and X² variance 2s(s+1)(2s+3). Subtracting the projection of centered X² onto centered X gives residual squared norm 2s(s+1); equivalently the centered wedge norm square is 2s²(s+1). The symbol wedge carries −Delta/(2n³), so the Gram trace is s||v||²/n²+O(n^−3), and determinant is |Delta|²s²(s+1)/(2n^6)+O(n^−7). Their quotient and positive roots give both coefficients with the stated error. Positive block rank follows because an affine dependence among 1,h1,h2 would force Delta=0. The asymptotic gap is strict, so the repaired projection omits only finitely many modes; the lower threshold, both logarithmic masses and rearranged tails are unchanged. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Laguerre theorem is for the fixed U,...,U^m power hierarchy, not arbitrary perturbed radial amplitudes. The bianalytic theorem uses order-two Toeplitz compression, gives one cubic scale and has threshold p>1/3.",
+          "Bourass–El-Fallah–Marrhich–Naqos Theorem 1.3 treats scalar anti-analytic-symbol Hankel singular values. Only the landing page/abstract for Keshavarzi–Wu was available independently."
+        ],
+        "reasoning": "Neither the inspected scalar law nor changing domain to the full bianalytic space provides a theorem of joint row leakage with a controlled Taylor remainder below the small n^−2 scale. No whole-article inference is made for the limited-access source.",
+        "searches": [
+          "Resultary 36e9af76bb65 full theorem and m=2 proof",
+          "Resultary db55972da5c1, offsets 0 and 5696",
+          "arXiv:2102.01743 v1 Theorem 1.3",
+          "DOI 10.1016/j.bulsci.2024.103402"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fa0228f06a7d (identical), 36e9af76bb65, db55972da5c1, 06a7f853640c, 4796d202ae39",
+        "arXiv:2102.01743 v1",
+        "DOI 10.1016/j.bulsci.2024.103402 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Laguerre fixed-power moments give the quadratic Taylor-model Gram. To transfer to smooth pairs requires an L² error below n^−2 and tracking the jet mixing on the small eigenchannel; the new argument establishes centered cubic error O(n^−3), and the trace/Gram-area transformation yields |Delta|/||v||.",
+          "The bianalytic comparison has a related antisymmetric jet but a different operator and a product-type cubic scale; scalar laws cannot determine covariance orientation between two images."
+        ],
+        "reasoning": "The repaired statement is not a parameter substitution in a fixed-channel theorem. Its extension controls the subdominant channel under complex smooth perturbations; omitting finitely many tied modes is not used to claim additional novelty.",
+        "searches": [
+          "Resultary 36e9af76bb65 proof continuation offset 5566",
+          "Resultary db55972da5c1 proof continuation offset 5696",
+          "arXiv:2102.01743 v1, Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The angular row Gram is a beta covariance matrix multiplied by mu_n/mu_(n+1), so the Laguerre covariance theorem is a materially equivalent benchmark in its fixed u,u² basis.",
+          "The distinct same-day 06a7f853640c was checked against the actual assigned source, lines 5–32 and 36–83. It concerns the single compact Jacobi tail of a normalized shift/diagonal commutator; its N^−2, p>1/2 power resonance is not the lower block branch of a pair of row Hankel channels."
+        ],
+        "reasoning": "Passing between the row and its positive covariance preserves the spectral comparison after taking square roots, but a single Jacobi companion has different matrix elements, domain decomposition and defining jets. The same day is not evidence for equivalence or priority.",
+        "searches": [
+          "Resultary comparison for weighted Bergman two-channel Hankel row, covariance, boundary jets and lower branch",
+          "Resultary 36e9af76bb65, offsets 0 and 5566",
+          "Resultary 06a7f853640c; assigned fifth frozen RESULT.md, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For h1=U−1 and h2=U²−1, v=(−1,0), Delta=−2; adding constants does not change covariances. The known eigenbranches s/n² and 2s(s+1)/n^4 give exactly this admissible row's singular moduli after square root and normalization, and convert the lower covariance threshold 1/4 to row threshold 1/2.",
+          "4796d202ae39 is one continuous radial-amplitude scalar Hankel with logarithmic decay. The exact full-row Resultary hit is the very same fa0228f06a7d record."
+        ],
+        "reasoning": "The fixed benchmark is covered, including the endpoint exponent; the variable jet coefficient across arbitrary smooth pairs is not a tabulation of those basis channels.",
+        "searches": [
+          "Resultary 36e9af76bb65, d=1 m=2 theorem",
+          "Resultary 4796d202ae39, mirrored RESULT.md offset 0",
+          "Resultary exact hit fa0228f06a7d"
+        ]
+      },
+      "rationale": "Reassessed for the repaired arbitrary-complex-C³ two-input theorem. The monomial hierarchy predecessor contains a direct polynomial row special case, including both branches and their thresholds; neither the fixed polynomial moment constants nor the finite-block tie convention is claimed as original. The distinct content is the jet-dependent lower coefficient and sharp error for all fixed nondegenerate smooth radial pairs, preserved by the repair.",
+      "residual_risks": [
+        "Keshavarzi–Wu full text was not independently accessible. General matrix Hankel or localized covariance theorems could anticipate this sharpening. The exact polynomial precedent makes the new scope narrower than the general technique; limited search does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Polynomial d=1,m=2 benchmark covered after square root, not a general smooth pair theorem",
+          "evidence": [
+            "Fixed U,...,U^m channels; branches at d=1,m=2 have constants s and 2s(s+1) at squared scales n^−2 and n^−4."
+          ],
+          "identifier_or_url": "Resultary 36e9af76bb65",
+          "material_read": "Mirrored RESULT.md Finding and proof/Schatten discussion, offsets 0 and 5566",
+          "method": "Configured Resultary discovery and local OA mirror",
+          "title": "Laguerre spectral branches of radial Bergman Toeplitz covariance defects",
+          "trigger": "Strongest direct covariance match"
+        },
+        {
+          "assessment": "Substantive analogy but different domain, invariant and scale",
+          "evidence": [
+            "Full bianalytic Toeplitz commutator, j^−3 asymptotics and p>1/3."
+          ],
+          "identifier_or_url": "Resultary db55972da5c1",
+          "material_read": "Mirrored RESULT.md Finding and proof, offsets 0 and 5696",
+          "method": "Configured Resultary/OA local mirror",
+          "title": "A universal boundary-jet law for noncommuting radial poly-Bergman Toeplitz operators",
+          "trigger": "C³ radial amplitudes and antisymmetric two-jet"
+        },
+        {
+          "assessment": "Same spectral exponents in one case do not establish equivalence",
+          "evidence": [
+            "K_g is a compact correction to a Jacobi matrix from one radial symbol; it has a single global Weyl tail, not two angular row bands."
+          ],
+          "identifier_or_url": "Resultary 06a7f853640c",
+          "material_read": "Assigned source RESULT.md lines 5–32 and 36–83",
+          "method": "Resultary lookup and direct frozen file comparison",
+          "title": "Boundary-jet Weyl laws for Bergman Toeplitz hyponormality companions",
+          "trigger": "Distinct same-day record with matching exponent and Schatten threshold at cancellation"
+        },
+        {
+          "assessment": "Covers scalar anti-analytic-symbol cases, not joint small-branch splitting",
+          "evidence": [
+            "Analytic phi supplies anti-analytic symbols and scalar laws, including the coordinate example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.01743",
+          "material_read": "v1 pp. 2 and 4, definitions and Theorem 1.3",
+          "method": "Lawful OA paper passages at offsets 7427 and 11880",
+          "title": "On singular values of Hankel operators on Bergman spaces",
+          "trigger": "Scalar singular-value asymptotics and weighted analytic Bergman setting"
+        },
+        {
+          "assessment": "Scott access does not establish whole-paper noncoverage; inspected context concerns scalar membership",
+          "evidence": [
+            "The accessible description concerns scalar Schatten criteria, not an explicit two-input branch asymptotic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.bulsci.2024.103402",
+          "material_read": "Landing page/abstract only; no full paper retrieved",
+          "method": "Lawful OA attempt at DOI; frozen RESULT.md line 96 for the claimed relationship",
+          "title": "Schatten class Hankel operators on weighted Bergman spaces induced by regular weights",
+          "trigger": "General weighted Bergman Hankel criteria"
+        },
+        {
+          "assessment": "Single channel with a different boundary regularity and invariant",
+          "evidence": [
+            "Symbol bar(z)(1+[log(e/(1−|z|²))]^−a) has scalar inverse-log decay, not jet splitting."
+          ],
+          "identifier_or_url": "Resultary 4796d202ae39",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Configured Resultary/OA local mirror",
+          "title": "Exact inverse-logarithmic singular values for continuous symbols",
+          "trigger": "Same angular beta-covariance mechanism for a radial-amplitude big Hankel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After removing the tied-block ambiguity, the useful content remains a stable, sharp description of the hidden scale of a rank-one leading covariance in a natural two-input Hankel problem. The second coefficient detects jet directions invisible to the first, with a distinct ideal threshold and an explicit nonpolynomial benchmark. This gives more than scalar upper bounds or a fixed moment-table computation; the claim does not extend to degenerate jets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

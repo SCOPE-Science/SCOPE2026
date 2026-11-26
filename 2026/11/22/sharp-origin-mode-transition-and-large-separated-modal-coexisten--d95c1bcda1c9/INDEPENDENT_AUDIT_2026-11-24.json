@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:09.742804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Geometric-series normalization and its twice-differentiated version give total mass one. Each affine comparison to zero is strictly negative for all b>0 unless q^kT_k>2; the latter set is finite by exponential decay, nonempty via k=1 if θ<2, and empty when θ≥2 by the decreasing ratios q(k+3)/(k+1). This gives the exact threshold including all ties and θ=2. Independent rational checks (python /workspace/independent_checks.py 2) find 35 competitors at θ=1/5, unique minimizer k=6 and b=31031/781688. For an analytic tail certificate the adjacent difference has the sign of b(k+2)(9−k)−1; since 24<1/b<28, the signs are just decrease for k=0,1, increase for k=2,…,5, and decrease for all k≥6. For minimizers as θ→0, compare with k≈x/θ. The lower bound (exp(k log(1+θ))−1)/(θ²(k+1)(k+2)) excludes both kθ→0 and kθ→∞ (including bounded k at the first endpoint). Along any convergent subsequence of rescaled minimizers the limit is therefore an interior global minimizer of (exp(x)−1)/x², by comparison to floor(y/θ) for each y>0. Its derivative numerator has derivative (x−1)exp(x), so its minimum is exactly x=1 (not before x=1 as in RESULT.md:89); the single positive zero is in (1,2), as claimed. High-precision independent root solving confirms both constants. The qualitative convexity typo does not affect the minimizer or the finding. No uploaded checker was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen statement comparison records PMiD PMF and quadratic adjacent inequalities in the defining paper. Earlier Poisson–xgamma work was credited with decrease–increase–decrease local behavior along α=θ.",
+          "The new asymptotic slice α~cθ², including A(θ), lies off the diagonal for small θ."
+        ],
+        "reasoning": "Known adjacent-mode inequalities reduce the candidate local maxima but do not compare a remote peak to zero at independent shapes, or determine the first small-θ mode crossover and its scaling.",
+        "searches": [
+          "Maya et al. DOI 10.3390/axioms11050193 §§3.1–3.2 and discussion; Altun et al. PMC9225500 Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and checker.py",
+        "Resultary d95c1bcda1c9 and 9956997214ea",
+        "Recorded comparisons to DOI 10.3390/axioms11050193 and PMC9225500; targeted primary retrieval unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local adjacent comparisons leave two separated candidate maxima whose heights still must be compared. The finite minimization comes from comparing heights directly and restricting the competitor set by exponential decay.",
+          "To derive the singular scaling one must identify the limiting minimand and exclude both escaping competitor regimes, not just control adjacent differences."
+        ],
+        "reasoning": "The submitted global tie and sharp first-transition asymptotics are not direct implications of the available local claims; the elementary envelope formula alone would be a weaker contribution.",
+        "searches": [
+          "Statement comparison to PMiD local-mode discussion and Poisson–xgamma Proposition 2, frozen RESULT.md:95–106 and AUDIT.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is the common-q mixture of geometric and negative binomial with shape 3: the geometric weight is θ²/(θ²+α), and the other weight is α/(θ²+α). This follows by expressing the masses as (1−q)q^k and (1−q)^3 q^k T_k/2.",
+          "The indexed generalized Poisson–Lindley coexistence result ending 9956997214ea gives a 0–2 example for a different law; overlap of the qualitative pattern is not identification of the target family."
+        ],
+        "reasoning": "The mixture is an exact alias and thus a genuine priority risk. The different Poisson–Lindley record is not shown to be a reparametrization, and the diagonal xgamma specialization only covers α=θ, not the independent-shape limit.",
+        "searches": [
+          "Resultary: Poisson–Mirra global modes, remote coexistence, low-rate modal threshold",
+          "Literature query: Poisson–Mirra distribution global mode local modes Maya 2022 modal threshold",
+          "Model formula and Poisson–xgamma diagonal comparison in frozen RESULT.md:95–105"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record matching all three items is d95c1bcda1c9, the frozen record itself. The relevant same-date but distinct hit 9956997214ea displays a {0,2} witness for generalized Poisson–Lindley.",
+          "Exact PMiD comparison at θ=1/5 yields the unique positive threshold minimizer 6; the adjacent polynomial certifies the unbounded tail."
+        ],
+        "reasoning": "The different global tie shows an analogy, not a table of this witness or small-rate constants, and the shared public date does not establish ordering.",
+        "searches": [
+          "Resultary lookup for the exact PMiD threshold, {0,6} witness and small-rate constants"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete first global origin transition with a certified remote tie and sharp inverse-rate/quadratic asymptotics. Comparison to zero by an affine difference is easy, and qualitative two-local-peak behavior and the law are known; neither is claimed here as a new result. Relevant retrieval failures are not evidence of absence.",
+      "residual_risks": [
+        "An equivalent geometric–negative-binomial mixture theorem in other notation or an uninspected part of the defining literature could contain a global threshold; no such statement was established by available evidence.",
+        "Closest indexed distinct record and cited primary mode sections could not be read freshly in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits the documented PMF and local inequalities; unavailable text precludes a full-document statement of noncoverage",
+          "evidence": "Adjacent inequalities and absence-of-bimodality discussion as documented in frozen source",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11050193",
+          "material_read": "Indexed mode snippet and frozen RESULT.md:95–105/AUDIT.json statement-level comparison to §§3.1–3.2; no fresh section passage",
+          "method": "Literature search and targeted lawful OA (publisher and static PDF alternate unsuccessful)",
+          "title": "On Discrete Poisson–Mirra Distribution: Regression, INAR(1) Process and Applications",
+          "trigger": "Exact same family and published modality section"
+        },
+        {
+          "assessment": "Displayed local-shape result overlaps with qualitative local bimodality but not the two-parameter global threshold",
+          "evidence": "α=θ specialization and documented decrease–increase–decrease behavior",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9225500/; DOI 10.1080/02664763.2021.1884846",
+          "material_read": "Frozen RESULT.md:97,106 and AUDIT.json comparison of Proposition 2; targeted full text inaccessible",
+          "method": "Targeted lawful PMC retrieval and comparison of available statements",
+          "title": "An one-parameter compounding discrete distribution",
+          "trigger": "Earlier overlapping subfamily and modality mechanism"
+        },
+        {
+          "assessment": "Different law and different tie; same date does not confer ordering",
+          "evidence": "Generalized Poisson–Lindley with tie at 0 and 2",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea",
+          "material_read": "Indexed Resultary claim; direct mirror retrieval unsuccessful",
+          "method": "Resultary and targeted mirror retrieval",
+          "title": "Sharp log-concavity boundary and nonadjacent modal coexistence …",
+          "trigger": "Closest distinct indexed exact coexistence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A global mode of zero is substantively different from a local shoulder or from a positive most probable count. The exact rational witness rules out a generally single-peaked interpretation and the asymptotics show the first jump can become arbitrarily large while the shape parameter is only of order θ². The exact finite criterion, infinite-tail proof and scaling answer a meaningful question in the introduced model, without claiming later positive-to-positive transitions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

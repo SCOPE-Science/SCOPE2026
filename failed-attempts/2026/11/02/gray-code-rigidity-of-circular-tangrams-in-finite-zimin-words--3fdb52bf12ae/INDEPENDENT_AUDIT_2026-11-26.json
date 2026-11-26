@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:22.065760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the literal recursion, position t uses a_{1+ν₂(t)}. Counting each valuation in a prefix gives its Gray parity t XOR (t shifted right by one); the Gray map is injective, and flipping its highest bit complements the binary index. This rules out a nonwrapping tangram and gives the unique wrapping start N−d for every positive admissible half-length d. Independently, every nonempty linear factor contains its highest-ranked letter exactly once: it contains the central letter or lies in one smaller copy. Thus no two distinct prefixes have equal parity. The word is a palindrome, so in any wrap the suffix and prefix have cancelling parity exactly when their lengths match; those two equal-length blocks are reversals. An abelian cube would give two length-2d abelian squares at distinct starts, impossible since 3d≤N. Rank 1 has no admissible positive d. checker.py was inspected, not executed; the rank-1–8 checks described there cover parity and the square/tangram sets, not a separate cube enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glen et al. state linear abelian-square avoidance, which is weaker than tangram avoidance. Dębski et al. state the stronger linear tangram-freeness explicitly. Fazekas et al. bound inequivalent abelian-square types in binary circles, not positioned occurrences in literal Zimin words."
+        ],
+        "reasoning": "Linear abelian-square-freeness alone would not exclude even factors that cannot be split into equal-Parikh halves. Claim 3 excludes all such factors and provides the missing stronger premise. The unrelated binary-circle bound is not needed for the implication.",
+        "searches": [
+          "arXiv:2407.03819, §3 Claim 3",
+          "Glen–Halldórsson–Kitaev DOI 10.46298/dmtcs.513, Zimin word",
+          "arXiv:2604.23188v1, binary circles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting checker.py and VERIFICATION.md",
+        "Dębski et al. arXiv:2407.03819",
+        "Resultary record 46d4b0f37cce",
+        "Glen et al. DOI 10.46298/dmtcs.513",
+        "Fazekas et al. arXiv:2604.23188v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A wrapping factor concatenates a suffix of length p and a prefix of length q. Palindromicity replaces the suffix by a prefix of length p without changing multiplicities; if p≠q, their parity difference is that of the nonempty linear factor between the two prefix endpoints, excluded by Claim 3."
+        ],
+        "reasoning": "Therefore even parity forces p=q, precisely the claimed positioned start, and p=q gives the abelian square by reversal. The known linear theorem excludes nonwraps directly. Two consecutive squares from a cube give the final exclusion immediately. This needs no extra structure of the Gray bijection or new case analysis.",
+        "searches": [
+          "Dębski et al. arXiv:2407.03819, Claim 3",
+          "Resultary circular palindrome spectrum, At each even length and Even centers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Words Avoiding Tangrams defines a tangram by all-even letter multiplicities and uses the same literal Zimin recursion. Claim 3 is exactly the absence of nonempty linear factors of zero prefix-parity difference."
+        ],
+        "reasoning": "Parity and the even-multiplicity definition agree. The known linear theorem is equivalent to injectivity of prefix parity, which is the only Gray-map property needed after using palindrome reversal to identify suffix and prefix parities.",
+        "searches": [
+          "Resultary: circular tangrams abelian squares finite Zimin word Gray code unique positioned start",
+          "Resultary: Zimin circular even-Parikh factors Gray code parity unique start N-d no abelian cube",
+          "Zimin tangram palindrome tangram-free longest word even multiplicity factor linear circular Zimin word"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day catalogue finding 46d4b0f37cce gives exactly one even circular palindrome per admissible length, at the same seam and with the same suffix–prefix formula."
+        ],
+        "reasoning": "The indexed palindrome classification covers the exact positioned palindrome family, but not on its own the exclusion of nonpalindromic even-Parikh factors. Its shared date does not determine priority; the earlier published tangram theorem gives the needed exclusion independently.",
+        "searches": [
+          "Resultary: circular tangrams Zimin words positioned even-Parikh Gray code",
+          "Resultary: the-complete-circular-palindrome-spectrum-of-finite-zimin-words--46d4b0f37cce"
+        ]
+      },
+      "rationale": "Dębski et al., Words Avoiding Tangrams, Claim 3 explicitly gives linear tangram-freeness of the same literal finite Zimin word, a stronger input than the linear abelian-square avoidance cited in the frozen record. Combined with the palindromicity immediate from the stated recursion, this mechanically gives the entire circular classification by cancelling nested prefixes. That is affirmative prior implication, not an inference from a missing exact title or from a catalogue date. The Gray-code proof is an alternative derivation of the same finding.",
+      "residual_risks": [
+        "No assertion is made about the earliest printed statement of the precise circular wording or the direction of dependence between same-day records. The fail rests on an explicit older premise and its direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier stated result mechanically implies the full main finding with palindrome reversal",
+          "evidence": "Claim 3 states that for every n≥1 the Zimin word has length 2ⁿ−1 and does not contain tangrams. The same passage defines Zₙ=Zₙ₋₁aₙZₙ₋₁, which makes it a palindrome.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.03819",
+          "material_read": "§3, Claim 3 and surrounding definitions/arguments, PDF p. 9, extraction offset 27500",
+          "method": "Open-access primary PDF, literal Zimin locator then bounded passage",
+          "title": "Words Avoiding Tangrams",
+          "trigger": "Potentially stronger linear tangram theorem for the same Zimin words"
+        },
+        {
+          "assessment": "Substantial partial overlap; not by itself exclusion of other even factors",
+          "evidence": "Its even palindromes are exactly the seam factors suf_d(Zₙ)pre_d(Zₙ), one at each even length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-circular-palindrome-spectrum-of-finite-zimin-words--46d4b0f37cce",
+          "material_read": "Finding around offset 844 and Even centers proof around offset 3795; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary index and local mirror",
+          "title": "The complete circular palindrome spectrum of finite Zimin words",
+          "trigger": "Exact family and positioned-length match"
+        },
+        {
+          "assessment": "Related linear abelian-power result, not the all-even linear exclusion by itself",
+          "evidence": "The paper asserts generalized Zimin words avoid abelian k-th powers, including ordinary Zimin words at k=2.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.513",
+          "material_read": "Zimin definitions and linear avoidance, extraction offset 4429; cube-free discussion near offset 7876",
+          "method": "Primary open-access PDF passage inspection",
+          "title": "Crucial abelian k-power-free words",
+          "trigger": "Cited result on linear repetitions in the same words"
+        },
+        {
+          "assessment": "Different alphabet and counting invariant",
+          "evidence": "The circular discussion counts inequivalent abelian-square types for binary circular words rather than positioned Zimin occurrences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.23188v1",
+          "material_read": "Abstract and p. 7, offset 27654",
+          "method": "Primary open-access PDF passage inspection",
+          "title": "Binary words containing few abelian squares",
+          "trigger": "Potential circular abelian-square count overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The positioned seam question is natural, but its exact answer requires only reversing a suffix and cancelling nested prefixes once the known linear tangram theorem is used. The absence of cubes is immediate from uniqueness. The reformulation illustrates the prior result but does not leave a nonroutine exact invariant or other distinct substantive claim in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

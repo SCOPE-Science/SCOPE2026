@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:57:15.643263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For traceless matrices polarizing X²=Q(X)I yields XY+YX=B(X,Y)I and ad_X²Y=4Q(X)Y−2B(X,Y)X. For X=0, nonzero isotropic X, and nonisotropic X the ranks are 0, 1, 2 with Y-fiber sizes q³, q², q respectively; the nonzero images are the line through X or X⊥ as asserted. For Z=0, W=0 necessarily; the total is q³+(q²−1)q²+(q³−q²)q=2q⁴−q². For nonzero nilpotent Z conjugate to E₁₂, X⊥Z means X is upper triangular, and [X,Z]=2aZ for diagonal a,−a. Nonzero isotropic X forcing Z lies on its line and gives W=0; each prescribed nonzero multiple fixes a and leaves q choices of the other coordinate. For Q(Z)≠0, ad_Z on Z⊥ squares to 4Q(Z) and therefore fixes the candidate X=−[Z,W]/(4Q(Z)) uniquely for W⊥Z. The determinant of 2ZW−B(Z,W)I gives Q([Z,W])=B(Z,W)²−4Q(Z)Q(W), proving the nonisotropy test. The equation a²+bc=s has q(q−1)+q times the number of square roots of s solutions, with the q(q−1) term added only once. For Q(Z) square, Z is diagonalizable and Z⊥ is the off-diagonal split plane; in the nonsquare case a nonzero isotropic vector in Z⊥ would make Z triangular after conjugation, which is impossible. These counts give the stated support and the conditional laws. All arguments use odd characteristic, labeled inputs, and no quotient by conjugacy for counting. The bundled verify_joint.py and verify_joint_output.txt were inspected, not rerun; the recorded support values for q=3,5,7,9 agree with the analytic count. VERIFICATION.md does not supply independent attestation or formal checking.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bandman–Gordeev–Kunyavskii–Plotkin give dominance/surjectivity for Engel polynomials, including type A₁.",
+          "Roy–Singh v2 §3 treats single-output fibers in existence, structure and lifting arguments over local rings.",
+          "Resultary 262c2a8aa5de is about a two-Engel map on free class-three nilpotent Lie algebras."
+        ],
+        "reasoning": "Neither using more general Lie algebras nor lifting across coefficient rings establishes exact simultaneous counts for prescribed consecutive output depths; the inspected results address different target problems.",
+        "searches": [
+          "Resultary: Engel Lie polynomial joint output fibers multiplicities trace zero 2x2 matrices",
+          "arXiv:1012.4106, Definition 4.2 and Theorem 4.3",
+          "arXiv:2607.21171, surjectivity, fiber, Proposition 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_joint.py and verify_joint_output.txt",
+        "Resultary 15c996388e82, 24b762013d79 and 262c2a8aa5de",
+        "arXiv:1012.4106 and arXiv:2607.21171v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected marginal proof provides contributing X by rank and Z⊥ and gives their individual preimage sizes. It even gives a triangular coordinate form for isotropic Z, but does not refine by [X,Z].",
+          "The frozen proof evaluates the bracket on the triangular plane for isotropic Z and proves that the inverse of ad_Z on Z⊥ carries nonisotropic W to nonisotropic X for nonisotropic Z."
+        ],
+        "reasoning": "The fixed-X data provide the starting measure for the pushforward, not its evaluated support or weights. The two different linear and quadratic analyses of the bracket are needed beyond the published marginal sum.",
+        "searches": [
+          "Resultary 24b762013d79, RESULT.md proof, character offsets 2050–5416",
+          "arXiv:2607.21171v2, §3, Propositions 3.1, 3.5, 3.6, 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1012.4106, Definition 4.2 uses iteration in the other input; its Theorem 4.3 and Corollary 4.4 address images at one depth.",
+          "Resultary 24b762013d79 fixes Z only and gives the four marginal strata, including the exact count at Z=0."
+        ],
+        "reasoning": "Changing Engel convention by switching input variables and the appropriate signs does not turn a one-depth target into a two-depth target. The zero row shares a known marginal but the nonzero-Z rows record a distinct invariant.",
+        "searches": [
+          "Resultary: joint fibers consecutive Engel outputs E2 E3 sl2 finite fields prescribed pair (Z,W) support multiplicity",
+          "Resultary: quadratic support joint distribution consecutive Engel outputs sl2 odd q",
+          "arXiv:1012.4106, Engel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned 15c996388e82 is a self-match only. Distinct 24b762013d79 gives N_q(Z)=2q⁴−q², 2q²(q−1), q(q−1)², or q(q²−1) according to the four odd-field strata.",
+          "The joint table sums over W to exactly these rows; it specifies no extra W choices at Z=0 but gives explicit partial support and multiplicities at every nonzero Z."
+        ],
+        "reasoning": "The closely matched exact table is materially overlapping evidence, not a duplicate of the joint table. The date shared by the two records does not resolve ordering.",
+        "searches": [
+          "Resultary: sl2 finite field two-Engel map exact fibers prescribed target ad_X^2 Y",
+          "Resultary: joint fibers consecutive Engel outputs E2 E3 sl2 finite fields prescribed pair (Z,W) support multiplicity"
+        ]
+      },
+      "rationale": "Pass is for the joint prescribed-pair distribution, not the already matched marginal table, the adjoint-square identity, or its fixed-X rank calculation. The strongest matching record even classifies all contributing X and their Y multiplicities for a given Z, but does not evaluate the images and multiplicities under X↦[X,Z]. That pushforward requires determining which W occur and how the admissible quadratically typed X map to them. The two nonzero Z cases use different arguments, with the nonisotropic case requiring an inverse and its quadratic behavior. The inspected results do not supply the joint refinement or a broader joint-fiber theorem implying it as a specialization.",
+      "residual_risks": [
+        "An older or unindexed joint calculation could have escaped this bounded comparison. The deferred broad web query is not negative evidence.",
+        "Date alone does not settle priority for the marginal result, and no marginal novelty is credited here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same one-output table and fixed-X rank/kernel facts; no evaluated pushforward by a third bracket.",
+          "evidence": "For nonisotropic Z, sum q per nonisotropic X in Z⊥; for nonzero isotropic Z, split nonzero multiples of Z from nonisotropic triangular X.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-complete-prescribed-target-two-engel-fibers-on-finite-three-dime--24b762013d79",
+          "material_read": "RESULT.md Finding and proof, including character offsets 2050–5416",
+          "method": "Lawful local published-record mirror",
+          "title": "Complete prescribed-target two-Engel fibers on finite three-dimensional trace-zero matrices",
+          "trigger": "Exact adjacent fiber table on same algebra and fields"
+        },
+        {
+          "assessment": "Single Engel polynomial image/surjectivity, not joint counts.",
+          "evidence": "The type-A₁ field-size condition in Corollary 4.4 reduces to |K|>1; the conclusion is qualitative target coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.4106",
+          "material_read": "PDF pp. 14–15, Definition 4.2, Theorem 4.3 and Corollary 4.4",
+          "method": "Lawful primary PDF, literal locate and bounded text",
+          "title": "Equations in simple Lie algebras",
+          "trigger": "General primary Engel-polynomial results"
+        },
+        {
+          "assessment": "Fiber existence/structure and lifting for individual Engel maps over local rings.",
+          "evidence": "Section 3 fixes a single Engel target and develops the solvability/lifting argument, not a count of consecutive targets over a finite field.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.21171",
+          "material_read": "v2 abstract and §3, PDF pp. 8–10, Propositions 3.1, 3.5, 3.6, 3.8",
+          "method": "Lawful primary PDF, literal locate and bounded text",
+          "title": "Surjectivity of Engel Maps over Trace Zero Matrices in M₂(O)",
+          "trigger": "Same trace-zero Lie object and explicit fiber discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Consecutive evaluations share an input pair; their dependence is a natural question not answered by knowing individual depth marginals. The table gives exact admissibility and multiplicity for every target pair at every odd q, including an isotropic atom at W=0 and uniformity on a different quadratic support in the nonisotropic case. These data permit counting constrained simultaneous Engel equations without enumerating inputs. They are neither a single recomputed entry nor a new name for the one-depth table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

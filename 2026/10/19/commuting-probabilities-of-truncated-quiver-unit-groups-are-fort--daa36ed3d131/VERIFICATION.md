@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification record
 
-Execute \(\texttt{python3 checker.py}\) using only the Python 3 standard library. The checker independently enumerates ordered pairs of units and compares their actual commutativity equations with a separate union-find subgraph sum in ten finite examples. Included cases cover a loop, parallel arrows, directed and transitive triangles, two finite-field characteristics other than two, and characteristic two. It separately verifies the exact cycle closed formula in nine numerical cases. The command prints \(\texttt{VERIFY_OK}\) on success.
+The nonisomorphism proof compares the kernels of two explicit character maps on \((\mathbb Z/(p-1))^3\). The cycle map has coordinate forms \(x-z,y-x,z-y\), whereas the transitive map has coordinate forms \(x+z,y-x,-y-z\). These yield the two displayed kernels and their distinguishing vector over every prime field in the stated range. This is a symbolic argument, not a finite search over group isomorphisms.
 
-The proof of the all-field theorem is symbolic: each arrow contributes a one-equation finite-field solution count, and the FK identity is obtained by expansion and counting constant colorings on connected components. The group nonisomorphism is proved by comparing full character-relation kernels for prime fields with \(p\ge5\); finite checks do not establish this infinite assertion. No automated isomorphism classifier or independent audit was used. No assertion of formal verification or exhaustive bibliographic novelty is made.
+For equality of the class-size multisets, the proof in `RESULT.md` counts classes at each fixed diagonal and radical support by a torus stabilizer; the calculation is independent of the arrow directions. At \(p=5\), all-equal diagonal labels contribute \(4(1+3+3+4)=44\) classes; labels with exactly two equal coordinates contribute \(3\cdot4\cdot3\cdot2=72\); and distinct labels contribute \(4\cdot3\cdot2=24\). Thus the total is \(140\). The original `checker.py` is ancillary: it checks some commuting-pair totals against a subgraph formula, not complete conjugacy-class-size distributions or nonisomorphism.

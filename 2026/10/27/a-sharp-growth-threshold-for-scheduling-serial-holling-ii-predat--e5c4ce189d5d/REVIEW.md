@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar field is globally forward-defined on the positive half-line, with a strictly increasing phase flow. Direct differentiation yields the commutator formula in `RESULT.md`. A variation-of-flow comparison argument establishes that a nonpositive Lie bracket implies the finite-time pairwise flow order without requiring inverse flows. Sorting by adjacent exchanges proves the global all-permutations claim. Above the explicit threshold the bracket is positive at some positive stock, and a second-order small-duration expansion forces a strict counterordering. The quadratic maximum algorithm handles positive, zero, infinite, and boundary-only suprema. The exact proof is supplemented by 1,500 rational commutator evaluations, 6,558 rational threshold-sign checks, exact rational examples, and numerical three-stage permutation comparisons. Scope excludes ties in saturation parameters and does not claim uniqueness of the optimum.
+## correctness
 
-## Originality — PASS, with risks
-The inspected 2008 functional-response article identifies the classical Holling-II search/handling mechanism and addresses predator interference and inference, not universal finite-time ordering. The inspected 2013 trophic-cascade paper compares functional-response models and steady food-web forcing, not fixed multistage schedule permutations. The inspected 2016 impulsive three-species paper considers persistence, stability, and bifurcation under periodic interventions, rather than exact permutation optimization. The plausible 2005 multiple-predator control paper was not obtained in full text despite open-access/preprint search and an attempted institutional retrieval; its incomplete comparison remains a priority risk. The closest old ledger claim concerns two **separate** predator assays and a crossing time, not compositions of serial treatment flows. Published general scalar-flow rearrangement results could subsume part or all of the statement: the claim therefore makes no priority or independence assertion.
+PASS
 
-## Value — PASS
-The question asks how to schedule preassigned predator phases to minimize a short-run pest population, while holding the treatment identities and times fixed. The result classifies **all initial densities and all positive duration assignments**, provides an exact computable parameter threshold for when a simple universal sorted schedule is valid, and proves failure immediately above the sharp boundary. The equality/zero/infinite cases of the threshold are material. The examples demonstrate that growth can reverse treatment order even when the prey stock declines under every individual phase. This supplies a genuine qualitative boundary to a natural ecological planning simplification; it is not a renamed equilibrium calculation or an isolated numerical experiment.
+Writing f_i=x g_i cancels the common product in the bracket, leaving x²(g_i g'_j−g_j g'_i); substitution gives the stated sign polynomial with positive common denominator. For the finite-time comparison, the defect DΦ_i^t·f_j−f_j∘Φ_i^t solves a scalar linear inhomogeneous ODE with zero initial value and forcing −W_ij∘Φ_i^t; an integrating factor gives its sign, and scalar comparison then puts the chronological i,j order below j,i. Uniqueness preserves inequalities under any suffix. Sorting by adjacent swaps gives both extrema. The quadratic sign is uniform exactly at or below the stated threshold, with r=0 handled directly if the supremum is infinite and no growth restriction when S≤0. Above threshold an actual x>0 with positive bracket exists even for a nonattained or infinite supremum: the two short stages give a strict opposite inequality and the other stages can be inserted by continuity with positive times tending to zero. This proves failure of universality, not a claim at arbitrary fixed durations. The declining-stock witness has both per-capita rates negative on (0,1), and substitution yields the two exact bracket signs there.
 
-## Closest literature and limits
-Pei et al. (2005), DOI 10.1016/j.jtbi.2005.02.003 (abstract only); Van der Meer and Smallegange (2008), DOI 10.1111/j.1365-2656.2008.01480.x (full HTML); Heath et al. (2013), DOI 10.1111/ele.12200 (full PMC article); Wang et al. (2016), DOI 10.1155/2016/3897234 (full HTML). The 2005 source may contain an unobserved implication. The result does not cover logistic growth, simultaneous predation, stochastic field populations, switching costs, or all finite-time preferences beyond the universal regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the universal positive-growth classification for these serial Holling-II fields and the within-decline reversal, not the method of using commutators or the adjacent-swap lemma. No inspected earlier result establishes or subsumes this model-specific classification.
+
+## value
+
+PASS
+
+For an explicitly fixed-duration stage model, it determines when a stock-independent sort is sufficient and exactly when it must fail as a universal rule. The threshold is computable without integrating trajectories or enumerating schedules. The declining-stock example rules out an intuitively plausible explanation based solely on prey actually increasing during a phase. This value is mathematical, not an empirical treatment recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

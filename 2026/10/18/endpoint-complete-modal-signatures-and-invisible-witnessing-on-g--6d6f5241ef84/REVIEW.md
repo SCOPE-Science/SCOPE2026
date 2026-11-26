@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The truth-degree semantics are fixed explicitly. Terminal leaves give precisely three uniform term roles: zero, their atomic value, and one. Their modal operators are constant, and the Gödel connectives preserve these roles. At the root, boxed and diamond values of a role are exactly its endpoint infimum and supremum. Structural induction therefore proves exact endpoint dependence at unrestricted modal depth. The formulas \(\Box p\) and \(\Diamond p\) recover the two endpoints, and witness attainment for all formulas is equivalent to both endpoint values occurring as leaves. The complete 12-class table supplies one checked formula for every possible signature and the finite algebra checker confirms closure. Dense rational leaves without/with endpoint leaves give an explicit non-witnessed/witnessed pair with identical global theorem sets and identical full local consequence relations. No finite experiment is treated as proof of the infinitary claims.
+PASS
 
-## Originality — PASS, with risk
+Under the declared fixed valuations, all leaves share the same strict order 0<s<1. At a terminal leaf Box always returns 1 and Diamond 0, and the three Gödel connectives act on that ordered triple uniformly. This proves by induction that the leaf-coordinate function of each formula is 0, s, or 1, with one common role. At the root a modal operation on these roles returns respectively 0, a or b as appropriate, and 1; the zero-weight root edge contributes only the neutral value. The propositional operations preserve the scalar root chain {0,a,b,1}. Box p and Diamond p recover a and b. At their extrema the neutral self-edge cannot supply a missing witness, since a<1 and b>0 even if a=0 or b=1. If both endpoints are present they witness the identity role, and constants or terminal evaluation cause no other witnessing obstruction. For 0<a<b<1 the signatures are distinct and the displayed table realizes each of the 12: Box bottom and Diamond p allow the needed root values independently of the leaf role, and Box bottom implies p gives the identity role with root 1. The pair with and without endpoint leaves has the same root theory and the same role-1 theory at every leaf, so universal local truth-one consequence agrees even for arbitrary premise sets. In fact the order of all formula degrees at a leaf also depends only on role. The conclusion distinguishes fixed-valued models, not class logics or frame validity. A fresh exact closure on vectors of actual world values gave 12 states on each of two finite stars with equal distinct interior endpoints and 9 on a singleton leaf set, outside the twelve-state hypothesis.
 
-The 2026 witnessed-model paper defines the semantics and proves a finite-model property; the May 2026 axiomatization paper characterizes modal consequence for the class, not exact model membership. Their accessible main statements and relevant proof sections, plus the 2025 crisp and 2011 Gödel modal treatments, do not give this twelve-signature endpoint classification or its fixed-model non-definability consequence, including indistinguishability by all local entailments. Direct searches for witnessing definability, equivalent endpoint normal forms, and complete star signature tables identified no coverage. A related published ordinal-regrading result handles *finite weighted frames under variable regrading*, and an earlier finite-height witnessing threshold concerns different quantifiers and does not imply fixed-valued model-theory equivalence. Residual risk: older papers on non-attained extrema, canonical Gödel models or modal elementarity may state the consequence implicitly or under different terminology; no absolute novelty guarantee is made.
+## originality
 
-## Value — PASS
+PASS
 
-Witnessed semantics and axiomatizations are active questions in Gödel modal logic. This theorem precisely separates a property of semantic models (whether an infimum/supremum is attained) from what the entire modal language can observe in a natural, countable crisp class. The complete twelve-element quotient is a finite structural invariant for *all* formula depths, rather than an arbitrary bounded computation. Its explicit indistinguishable pair prevents a common but substantial confusion between axiomatizing a valid theorem set and defining membership in the very semantic class that determines it. The hypothesis that interior truth constants are absent is essential and openly stated.
+The distinct contribution supported by the comparison is the exact whole-model twelve-signature classification and the explicit endpoint-completion pair with equal exact root degrees and all local consequence despite different witnessing status. The unary leaf normal form and finite extremal reduction have materially overlapping indexed evidence and receive no independent originality credit. None of the inspected claims establishes the whole-model classification or the preservation across the witnessed/unwitnessed pair. This is bounded evidence, not a certification of historical priority.
 
-## Limits and closest sources
+## value
 
-Ferrari et al. (2026), arXiv:2606.31906v1; Vidal and Rodriguez (2026), arXiv:2605.15810v1; Ferrari et al. (2025), DOI 10.1007/978-3-032-06085-3_8; Metcalfe and Olivetti (2011), arXiv:1105.1256v2. Historical priority, especially under a different name for endpoint completion, cannot be established exhaustively. The result is about fixed-valued models and does not imply failure of the published axiomatizations of witnessed-model logic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit pair answers a natural expressibility question raised by witnessed semantics. Even a full collection of local consequences of a fixed-valued model cannot decide attainment, although the logic of the witnessed class can have a completeness theorem. The exact all-depth signature algebra makes the observational limit concrete, rather than producing only a bounded countermodel or one formula that fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

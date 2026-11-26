@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:50:16.019253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–33 and 37–91",
+        "VERIFICATION.md; inspect-only verify.py",
+        "Independent replay: python -B /workspace/branches/independent_checks.py (differentiation)"
+      ],
+      "rationale": "Exact Taylor expansion on the quadratic gives error (h/2) B diag(Q^T C Q), with B=B0 Q. Orthonormality gives the squared-diagonal loss, even in a proper subspace. The diagonal sum is the trace; equality in the lower Cauchy–Schwarz bound requires equal diagonals, attainable by successively choosing a unit Rayleigh quotient at the mean and compressing to its complement. The Frobenius bound is attained by an eigenbasis. Normal fourth moments, divided by E||g||^4=k(k+2) for a standard Gaussian g whose direction is independent of its radius, give the claimed Haar risk. For every fixed designer law, Haar averaging of the adversary's orientation makes U^T Q Haar for each Q and yields the same lower bound; a Haar designer attains it for every U. Column sign symmetry cancels the mean vector, not its squared norm. Averaging signed differences gives centered differences in expectation at the same realized evaluation cost, and the third-derivative remainder has norm at most Mh^2 sqrt(k)/6. The trace-zero criterion and rank-one ratios follow directly, including k=1. A new exact check used a non-coordinate two-plane in R^3 and all four sign choices plus exact integration on the circle for k=2.",
+      "residual_risks": [
+        "The bounded arithmetic examples are not a minimax proof; the proof uses orientation chosen without observing the sampled frame, orthonormal probes, a common step, and exact noiseless evaluations. The C^3 extension controls only the bias of the expectation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schur–Horn accounts for feasible diagonals; equal diagonal feasibility in the real setting follows from the Rayleigh-compression argument or real Schur–Horn. The motivating smoothness bound is uniform in C with a norm bound, not fixed-spectrum and not a sharp expectation.",
+          "The October 26 record calculates orientation variance under Haar frames for central differences on cubics via fourth and sixth moments; the loss and curvature order differ."
+        ],
+        "reasoning": "Credit these general facts and the previous estimator fully. They do not already supply the specialized risk or its sharp adversarial statement.",
+        "searches": [
+          "Devadas–Haine–Stubis, The Schur–Horn Theorem (2015)",
+          "arXiv:2609.08277v1, Lemma 4.1",
+          "SCOPE-20261026-4466ecc35eeb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08277v1",
+        "arXiv:2106.07313v1",
+        "Devadas–Haine–Stubis (2015)",
+        "SCOPE-20261013-4bd5a359b778",
+        "SCOPE-20261026-4466ecc35eeb",
+        "SCOPE-20261102-654d1d9d1500"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal extrema are direct consequences once the exact loss is obtained, and the group-averaging lower bound is classical as a method. The cited smoothness bound cannot distinguish trace-zero from rank-one curvature or account for balanced bases. The central cubic moment formula is not a formula for the Rayleigh-diagonal square on quadratics."
+        ],
+        "reasoning": "The distinct conclusion requires identifying this particular loss, evaluating its invariant fourth-moment risk, and matching it to an adversarial lower bound. No novelty is assigned to Schur–Horn, sign symmetry or invariant minimax principles themselves.",
+        "searches": [
+          "arXiv:2609.08277v1, Algorithm 2 and Lemma 4.1",
+          "Devadas–Haine–Stubis (2015)",
+          "SCOPE-20261026-4466ecc35eeb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ryabchenko–Qian–Mou use exactly the k+1 one-sided projected estimator, but give a smoothness bound, not an exact spectrum-conditioned risk.",
+          "Smart Gradient rotates numerical-gradient coordinates; its central-difference comparison is two-sided, with a different quadratic truncation bias.",
+          "The November Haar-frame record uses the same quadratic error term but couples two updates in optimization rather than minimizing the single-frame worst-orientation risk."
+        ],
+        "reasoning": "Reducing to full coordinates on the subspace makes the estimator match the first source exactly; neither changing coordinates nor switching to central differences yields the orientation game. The related coupling problem does not establish that game either.",
+        "searches": [
+          "arXiv:2609.08277v1",
+          "arXiv:2106.07313v1",
+          "SCOPE-20261102-654d1d9d1500"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 measures stationary-iterate error for a descent update under isotropic curvature, using the mean summed direction; October 26 treats central differences on cubics; November 2 compares two-step couplings. The inspected findings do not give the one-sided fixed-spectrum single-estimate minimax law."
+        ],
+        "reasoning": "The nearby indexed statements were compared by loss, oracle and adversary, not by the presence of orthogonal random directions alone.",
+        "searches": [
+          "Resultary: one-sided orthonormal projected differentiation, Haar orientation risk and related fixed-radius errors",
+          "SCOPE-20261013-4bd5a359b778",
+          "SCOPE-20261026-4466ecc35eeb",
+          "SCOPE-20261102-654d1d9d1500"
+        ]
+      },
+      "rationale": "The estimator, balanced diagonal, Haar moments and invariant averaging are not new. The supported distinct contribution is the sharp basis-selection analysis for this estimator, in particular the exact minimax risk over orientation-independent frame laws for the fixed-spectrum quadratic problem. No inspected comparator states it or entails it by a parameter substitution alone.",
+      "residual_risks": [
+        "Bounded primary and indexed search; a specialized earlier calculation for the same noiseless one-sided risk may be unindexed.",
+        "An attempted open lookup of a general Hunt–Stein reference did not supply usable text; this does not establish absence of a general invariant decision theorem. The elementary group-averaging mechanism is explicitly treated as prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers estimator, not exact minimax risk",
+          "evidence": [
+            "k+1 one-sided function values; deterministic squared bound kL^2 tau^2/4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08277",
+          "material_read": "§4.1, Algorithm 2 and Lemma 4.1, p. 6, OA offset 27544",
+          "method": "Open-access PDF passage",
+          "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+          "trigger": "Identical estimator and evaluation cost"
+        },
+        {
+          "assessment": "Related basis choice; distinct two-sided comparison",
+          "evidence": [
+            "Rotation/reflection reparameterization and central-difference comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.07313",
+          "material_read": "pp. 4–5; OA offsets 18121 and 22986",
+          "method": "Open-access PDF passages",
+          "title": "Smart Gradient — An Adaptive Technique for Improving Gradient Estimation",
+          "trigger": "Rotated finite-difference gradients"
+        },
+        {
+          "assessment": "Classical diagonal feasibility; the displayed statement is Hermitian, not a finite-difference loss result",
+          "evidence": [
+            "Eigenvalue–diagonal majorization characterization"
+          ],
+          "identifier_or_url": "https://math.berkeley.edu/~phaine/files/Schur-Horn.pdf",
+          "material_read": "p. 2; OA offset 4795",
+          "method": "Open-access PDF passage",
+          "title": "The Schur–Horn Theorem",
+          "trigger": "Potential general theorem covering the minimum"
+        },
+        {
+          "assessment": "Different loss and no unknown eigendirection game",
+          "evidence": [
+            "Stationary-iterate risk depends on mean summed direction"
+          ],
+          "identifier_or_url": "SCOPE-20261013-4bd5a359b778",
+          "material_read": "RESULT Finding and its stationary-error formulation",
+          "method": "Local archive mirror",
+          "title": "A sharp signed direction reversal for fixed-radius structured zeroth-order updates",
+          "trigger": "Isotropic quadratic forward differences and signed frames"
+        },
+        {
+          "assessment": "Distinct oracle and objective degree",
+          "evidence": [
+            "Central-difference cubic orientation-variance result"
+          ],
+          "identifier_or_url": "SCOPE-20261026-4466ecc35eeb",
+          "material_read": "RESULT offsets 0–4393 and 4250–6438",
+          "method": "Local archive mirror",
+          "title": "Harmonic cubic rigidity and a sharp localization crossover for orthogonal probes",
+          "trigger": "Same full Haar orthogonal sampling and orientation moments"
+        },
+        {
+          "assessment": "Same local quadratic error term, different optimization question",
+          "evidence": [
+            "Two-step coupling, not single-frame minimax over the eigenspace orientation"
+          ],
+          "identifier_or_url": "SCOPE-20261102-654d1d9d1500",
+          "material_read": "RESULT Finding, offset 0",
+          "method": "Local archive mirror",
+          "title": "Spectral reflection coupling is sharp for two-step Haar-frame finite differences",
+          "trigger": "Same one-sided quadratic frame error"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–18, 53–73 and 91",
+        "arXiv:2609.08277v1, Algorithm 2"
+      ],
+      "rationale": "The projected one-sided estimator is a pre-existing evaluation primitive. This analysis answers a natural design question with fixed evaluation budget: span alone does not fix the error, a trace-zero compressed Hessian permits an exact choice, and Haar sampling attains the explicit price of not knowing eigendirections. The rank-one factors give a concrete attainable separation rather than just a smoothness estimate.",
+      "residual_risks": [
+        "No demonstrated optimum for adaptive query algorithms, noisy values or general nonquadratic mean-square risk; value is specific to the fixed orthonormal-frame design."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

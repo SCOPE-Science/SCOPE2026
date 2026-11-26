@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:26.172815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36; frozen VERIFICATION.md, gp_tensor_verify.py and recorded verification_output.txt",
+        "Independent small direct induced-P₃ replay (not the supplied code): at n=3,4 the nonempty face counts were 102,211; free collapse pairs 9,21; and missing triangles with valid disks 36,108. Euler ranks 11,36."
+      ],
+      "rationale": "In the stated categorical product every distinct nonadjacent pair has a common neighbor, so exactly the induced P₃ triples are forbidden. A P₃-free induced graph is a union of cliques. Independent sets lie in a row or column. A transversal three-clique cannot have a cell nonadjacent to all of it, and for a two-clique the only possible cells outside its component are the two opposite rectangle corners. This recovers the four face families. A row subset of at least three cells missing the chosen vertex has no coface outside its row; removing in descending cardinality leaves just its coface obtained by adjoining the chosen vertex. A rectangle triangle lies in exactly one higher-dimensional simplex, its rectangle. These are elementary collapses, leaving a finite two-complex with the complete one-skeleton. In the original complex, any missing triangle consists of two cells sharing a row or column and a third cell adjacent to both. In the row case insert X in the triangle and then Y in BCX to obtain precisely the five valid faces in the proof; transpose for the column case. Thus every triangular loop in the original complex contracts, and these generate edge loops. The row, column, matching and rectangle contributions to χ are 3, −2n, −6 binom(n,2)+n(n−1)(n−2), and 9 binom(n,2). The collapsed complex is simply connected with free integral H₂ of rank χ−1 and no other positive homology. Spherical representatives of an integral basis give a homology equivalence from the wedge, hence a homotopy equivalence by the simply connected Whitehead theorem. The Chinese remainder isomorphism for q prime and q≠3 identifies unit differences with nonzero differences in both factors, proving the Cayley specialization.",
+      "residual_risks": [
+        "The finite checks do not establish simple connectivity for all n; the explicit disks and collapses do. The proof is not equivariant and does not extend by assertion to a size-two factor or more factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9ade1087c3fb classifies and counts all faces for both factor sizes ≥3. Klavžar–Yero gives gp(K_p×K_q)=max(p,q) in this range. The Cayley paper's decisive full-text comparison was inaccessible."
+        ],
+        "reasoning": "These established larger-scope results give the facets or extremal number, not a simply connected two-dimensional spine. Broader graph parameter range alone does not imply stronger topology.",
+        "searches": [
+          "Resultary: general-position polynomials of categorical products of complete graphs and broader GP-complex homotopy",
+          "Klavžar–Yero arXiv:1906.00935v1, Prop. 3.3; DOI 10.1155/jom/3684640 for the Cayley overlap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 9ade1087c3fb, 97746ad05664, 9c72bc026ce0; self-match 834f7544a24d",
+        "arXiv:1906.00935v1, Prop. 3.3; DOI 10.1155/jom/3684640 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximum dimension or Euler characteristic does not imply either simple connectivity or collapse to dimension two. The prior geometry of row/column/rectangle/transversal faces enables the argument, but the uniform free cofaces and contractions of missing triangular loops are additional steps. The CRT corollary is an immediate graph identification once the categorical theorem is known."
+        ],
+        "reasoning": "Credit the Euler rank as a counting consequence, and n=3 as a topological consequence of the rook theorem. For n≥4 the integral wedge type requires a new homotopy argument, not merely substituting p=3 in the face polynomial.",
+        "searches": [
+          "Proof §§2–3 of Resultary 9ade1087c3fb; Finding in Resultary 97746ad05664",
+          "Klavžar–Yero Prop. 3.3, actual proposition and proof scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "97746ad05664 gives the rook wedge of 2^n spheres in dimension n−1 and n spheres in dimension 2; the same rook family is treated in 9c72bc026ce0. At n=3 the map (r,a)↦(r+a,r−a) over F₃ sends a difference nonzero in both coordinates to one nonzero in exactly one coordinate, and is invertible."
+        ],
+        "reasoning": "This is equivalent coverage at n=3, not merely the same number 11. For n>3 the categorical degree 2n−2 differs from rook degree n+1, and the rook theorem is not a statement about the claimed graph family.",
+        "searches": [
+          "Resultary: three-row rook general-position complexes; categorical-product sphere wedges and cluster complexes",
+          "Categorical-versus-Cartesian adjacency comparison with Resultary 97746ad05664 and 9c72bc026ce0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior polynomial yields the exact alternating face sum at p=3 and q=n. The earlier rook Finding supplies exactly 11 two-spheres via the n=3 isomorphism. The assigned 834f7544a24d entry is a self-match."
+        ],
+        "reasoning": "The complete enumeration determines the proposed rank conditional on a wedge of two-spheres. It is not a prior tabulation of the categorical homotopy types for n≥4.",
+        "searches": [
+          "Resultary: K3×Kn geodesic general-position complexes, sphere multiplicities and exact graph families",
+          "Original enumerator from 9ade1087c3fb, Proof §§2–3"
+        ]
+      },
+      "rationale": "The face classification, face-count polynomial and extremal size are prior. A previously indexed rook-graph result also covers the n=3 wedge through an actual graph isomorphism. The supported distinct contribution is the integral homotopy type for the categorical family beyond that overlap, with the two-dimensional collapse and uniform loop contractions. No stronger topological theorem covering that remaining family was established by the inspected sources.",
+      "residual_risks": [
+        "Equivalent topology in unindexed literature or the inaccessible unitary-Cayley full text cannot be ruled out. No separate novelty is assigned to the n=3 wedge, face polynomial, or CRT reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers face families and all face counts, not the claimed topology",
+          "evidence": "The row, column, rectangle and matching/transversal contributions for general p,q≥3 specialize to the stated χ.",
+          "identifier_or_url": "2026/10/26/SCOPE-general-position-polynomials-of-categorical-products-of-complete--9ade1087c3fb",
+          "material_read": "Original RESULT.md, Proof §§2–3",
+          "method": "Resultary local mirror",
+          "title": "General-position polynomials of categorical products of complete graphs and an infinite nonunimodal family",
+          "trigger": "Exact categorical family contained in prior full face classification"
+        },
+        {
+          "assessment": "Covers extremal number only",
+          "evidence": "For n₁≥n₂≥3 the maximum general-position set size is n₁.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.00935v1",
+          "material_read": "Prop. 3.3, p. 5 (OA offset near 13731)",
+          "method": "OA primary passage inspection",
+          "title": "The general position problem and strong resolving graph(s)",
+          "trigger": "Extremal categorical-product general position"
+        },
+        {
+          "assessment": "Exact topological coverage at n=3 via the F₃ coordinate change, not above n=3",
+          "evidence": "Rook wedge of 2^n copies of S^(n−1) and n copies of S²; at n=3 both summands are two-dimensional.",
+          "identifier_or_url": "2026/11/17/SCOPE-two-dimensional-defect-spheres-in-three-row-rook-graph-general-p--97746ad05664",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two-dimensional defect spheres in three-row rook-graph general-position complexes",
+          "trigger": "Topological result with an isomorphic small graph"
+        },
+        {
+          "assessment": "Rook graph theorem with the same n=3 overlap; dates do not settle priority",
+          "evidence": "The product is Cartesian, not categorical.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-homotopy-of-three-row-rook-general-position-complexes--9c72bc026ce0",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Integral homotopy of three-row rook general-position complexes",
+          "trigger": "Same-day similar wedge theorem"
+        },
+        {
+          "assessment": "The bound report describes numerical invariants of general and edge-general position; full comparison remains open",
+          "evidence": "The unavailable primary text does not substantiate a positive or negative homotopy comparison.",
+          "identifier_or_url": "https://doi.org/10.1155/jom/3684640",
+          "material_read": "Bound reference and bibliographic scope only; no decisive full-text passage retrieved",
+          "method": "Bounded lawful OA attempts; publisher access denied and no repository copy located",
+          "title": "General Position and Edge General Position Problems for Unitary Cayley Graphs: A Direct Product Approach",
+          "trigger": "Potential overlap on the CRT subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 43–47",
+        "Resultary 9ade1087c3fb and 97746ad05664"
+      ],
+      "rationale": "The result determines a natural simplicial complex up to integral homotopy for an infinite graph family, not merely an extremal size, count or mod-two invariant. The collapse removes facets of unbounded dimension, and the explicit loop fillings explain why the remaining rank is all in two-spheres. This sharpens the known face enumerator in a way that counts alone cannot supply.",
+      "residual_risks": [
+        "No integral equivariant refinement or extension to more rows is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

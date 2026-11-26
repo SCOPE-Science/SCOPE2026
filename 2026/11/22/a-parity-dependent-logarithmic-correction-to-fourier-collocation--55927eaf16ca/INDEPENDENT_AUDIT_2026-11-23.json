@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:43:35.092560Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The circulant entry S=N*P_0j uses a single Nyquist cosine on even grids and symmetric Fourier modes through (N-1)/2 on odd grids. The full Poisson-periodized Gaussian Theta is positive. Write c=Nt, d=N/2-j with 0<=j<=floor(N/2), and phi(c)=(c-pi²/c)/4. In the odd omitted tail, frequency (N+1)/2+l has nodal cosine (-1)^(j+l) sin(2pi*d*(l+1/2)/N), since (N/2)x=pi*j. This gives a geometrically summable multiplier d/N absent in the even bound. Using the nearest Gaussian image, the tail/Gaussian ratio on pi/2<=c<=2pi is bounded by a constant times N^-1/2 times exp(-N*phi(c)) on even grids, or N^-3/2 times that exponential on odd grids: one uses x²/(4t)-N²t/4 <= -N*phi(c)-pi²*d/(2c), so the factor d is uniformly absorbed on the compact c range. At c_plus=pi-(kappa*log N-B)/N, N*phi=-kappa*log N/2+B/2+o(1), with phi increasing. This proves strict positivity up to c=2pi when B is sufficiently large. For 2pi<=c<=2N the geometric prefactors and d/N are bounded, sqrt(t)<=sqrt(2) and phi(c)>=phi(2pi)>0. For t>=2 the constant mode exceeds the sum of all nonconstant magnitudes. Thus the upper bound is for every later real time. For the lower bound choose j=2*floor(N/4), hence d=0,1 (even) or 1/2,3/2 (odd). The two nearest Gaussian images together give a positive constant multiple of sqrt(N)*exp(-pi²*N/(4c)) uniformly when c→pi. At that even j, geometric domination gives the positive even tail factor tanh(c/2); the scaled odd linearized sine sum is sum_l (l+1/2)(-exp(-c))^l=(1-exp(-c))/(2(1+exp(-c))²)>0. The odd factor d/N survives because d is bounded away from zero. The resulting Gaussian/tail ratio at c_minus=pi-(kappa*log N+B)/N is a bounded positive prefactor times exp(-B/2)(1+o(1)), below one for sufficiently large fixed B. A negative entry there and the uniform upper positivity yield the stated bracketing and O(N^-2) error. Independent 220-digit replay at B=12 covered N=100–103, 128–131, 200–203, 256–259 and all upper-time entries. For N=100 and 101 the scaled lower witnesses were approximately -4.4500e-33 and -1.3949e-34; upper minima were 9.3425e-33 and 1.1275e-33. Replay: python3 /workspace/reviews/evidence/4-heat-check.py (mpmath). This finite arithmetic neither proves the asymptotic nor certifies positivity at all subsequent times; the analytical envelope does. Frozen verifier inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li bounds the sampled row norm by 1+O(N^-1) when N²*nu²*t>=100 log N and finds a norm excess at an early N^-2 time. Kim et al. analyze numerical experiments in a homogeneous Neumann cosine-transform setting."
+        ],
+        "reasoning": "Li's sign defect at an early time supplies no logarithmic recovery bound; an approximate upper bound cannot resolve sign in the tails. The Neumann numerical treatment is a different operator and does not determine the exact periodic semigroup's all-later-time horizon.",
+        "searches": [
+          "arXiv:2107.09438v1, Appendix B, Theorem B.1",
+          "Web: Effective maximum principles for spectral methods Fourier heat positivity partial Fourier heat kernels eventual positivity diffusion Junseok Kim Dong Li discrete kernel"
+        ]
+      },
+      "checked_sources": [
+        "Resultary even-grid horizon d4274dc28d8b",
+        "Dong Li arXiv:2107.09438v1 Appendix B",
+        "Kim et al. Electronic Research Archive 31 (2023), 5396–5405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier even-grid proof has the N^-1/2*exp(-N*phi(c)) upper bound, the even-offset tail factor tending to tanh(c/2), and the near-antipodal Gaussian bound. These continue uniformly as c→pi by geometric domination and a uniformly bounded offset factor."
+        ],
+        "reasoning": "Although the prior even theorem only states a fixed-c squeeze, reusing its bounds at c=pi-(log N±B)/N gives the even correction without a new mechanism. Those bounds and that Nyquist tail do not supply the missing first-order odd cosine cancellation or its matching signed sine series, which changes the prefactor power and yields kappa=3. The combined parity result is not covered.",
+        "searches": [
+          "Resultary d4274dc28d8b, full published proof, inequalities (3)–(5)",
+          "arXiv:2107.09438v1 Appendix B sampled amplification norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The propagator is a sampled Fourier cutoff of the periodic theta heat kernel. Because the circulant stochastic-row-sum matrix is real and preserves constants, discrete induced infinity norm exactly one is equivalent to entrywise nonnegativity, but an approximately unit norm is not."
+        ],
+        "reasoning": "Rescale Li's unit-period time by 4pi²*nu² to compare the same Fourier multiplier. The approach to norm one does not exclude exponentially small negative entries, which are exactly what control this horizon.",
+        "searches": [
+          "Resultary: odd Fourier pseudospectral grids exact heat semigroup sign last negative matrix t=pi/N - 3 log N/N^2 missing Nyquist sine cancellation periodic partial theta",
+          "Web: Fourier spectral collocation heat semigroup eventual entrywise positivity square partial theta maximum principle sharp time Nyquist parity logarithmic Dong Li periodic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading-order even-grid record supplies a few numerical entries at fixed c/N and proves a limit only on even grids. The closest indexed Neumann and finite-difference horizons use other operators."
+        ],
+        "reasoning": "The finite sign data do not give a statement uniform in N and all later real times, and the confirmed existing leading asymptotic excludes odd grids.",
+        "searches": [
+          "Resultary: Fourier collocation periodic heat eventual nodal positivity recovery horizon parity logarithm Nyquist",
+          "Resultary 2026/11/8 positivity-recovery horizon, Finding and Verification"
+        ]
+      },
+      "rationale": "The directly preceding even-grid theorem does not state the logarithmic correction, but its existing proof yields the even coefficient by a short uniform boundary-layer re-evaluation. The new content is chiefly the odd-grid first-order tail cancellation, the matching positive odd tail witness, and hence the sharp parity split in the eventual horizon. No inspected broader norm or other discretization result covers that odd coefficient. Historical priority is bounded by the sources inspected.",
+      "residual_risks": [
+        "Earlier partial-theta or spectral cutoff literature may encode an equivalent odd-grid sign threshold under another normalization. No historical priority certification is made.",
+        "Credit the prior even-grid tail/Gaussian mechanism; the even subclaim should not be presented as independent of those estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading even law; even log follows from its proof estimates; excludes odd grids",
+          "evidence": [
+            "Same even Nyquist convention, same even antipodal offset, and the same Gaussian-to-cutoff exponential balance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b/RESULT.md",
+          "material_read": "Finding, normalization, proof Steps 1–2 including (3)–(5), finite examples, limitations",
+          "method": "Published repository mirror",
+          "title": "A sharp N^-1 positivity-recovery horizon for Fourier-collocation heat flow",
+          "trigger": "Identical even-grid propagator and eventual positivity threshold"
+        },
+        {
+          "assessment": "Norm excess bounds, not strict entrywise recovery or parity-dependent last-negative-entry asymptotics",
+          "evidence": [
+            "Unit-period grid uses -N/2<k<=N/2 and the multiplier exp(-4pi²*nu²*t*k²). The norm is the sum of absolute nodal real kernel entries divided by N; for sufficiently large scaled time the upper estimate is 1+O(N^-1), not 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.09438v1",
+          "material_read": "Appendix B, sampled kernel setup and Theorem B.1 (HTML text offsets 375000–383000); related proof passages at 385000–402985",
+          "method": "Open full-text HTML, bounded passage inspection",
+          "title": "Effective maximum principles for spectral methods",
+          "trigger": "Closest general Fourier heat maximum-principle analysis"
+        },
+        {
+          "assessment": "Neumann rather than periodic setting; numerical results do not cover the cutoff parity law",
+          "evidence": [
+            "Section 2 explicitly imposes homogeneous Neumann data with a DCT/IDCT and nodal midpoints; Section 3 exhibits discrete maximum-principle violations."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/era/2023/9/PDF/era-31-09-273.pdf",
+          "material_read": "Abstract, Section 2 DCT discretization and opening of Section 3 numerical experiments",
+          "method": "Publisher public PDF text",
+          "title": "A maximum principle of the Fourier spectral method for diffusion equations",
+          "trigger": "Specific Fourier diffusion sign-recovery comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an unmodified spectral heat discretization, exact preservation of the nonnegative nodal cone is stronger than near-contractivity. The sharp leading odd law and its factor-three logarithmic advance resolve a parity-dependent sign effect at a physically motivated threshold, while uniform all-later-time positivity makes the claim about the last occurrence of negativity rather than a sampled sign. No exact finite-grid root or off-grid positivity is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

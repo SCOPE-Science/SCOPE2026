@@ -1,19 +1,21 @@
-# Review of the exact adiabatic migration-bias theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact mean-field ODE is reconstructed from the published death–birth transition rates. For the frozen system, direct polynomial elimination gives \((x-y)[1-(1-m)(x+y)]=0\); the analytic attracting branch near \((1,0)\) has \(x\ne y\), forcing the exact mean \(1/[2(1-m)]\). A uniform negatively symmetric Jacobian on a small invariant rectangle proves existence, uniqueness, and local attraction of its forced periodic orbit. An \(O(q/T)\) tracking estimate and an elementary trigonometric integral prove the stated slow-season value and strict inequalities. Symbolic computations and representative finite-period integrations are reproduced by `verify.py`, not used as substitutes for the proof.
+PASS
 
-## Originality
+The migration weights and death factor 1/2 agree with the source model's Appendix B in the specified symmetric equal-rate case. Clearing the two stationary denominators gives P+Q=(x−y)[1−(1−m)(x+y)]. At the isolated equilibrium the Jacobian is diag(−1/6,−1/4); the implicit branch has X=1−2m+4m²+O(m³), Y=3m−3m²+O(m³), so it stays in the physical rectangle and has X≠Y. Thus F(m)=1/[2(1−m)] there. At m=0 the artificial faces of a sufficiently small rectangle are strictly inward, and this persists uniformly for small m. The physical faces remain weakly inward; the symmetric part of the Jacobian is uniformly negative in that same convex rectangle by continuity. The time-T map is then a contraction, giving one attracting T-periodic orbit there for each T>0. On the x=1 and y=0 faces the inward drift is bounded below by a positive constant times m in the rectangle. Each distance to its physical face therefore satisfies w′≥−Lw+c m(t); integration over any preceding period rules out boundary contact even at isolated times when m=0. The moving branch has bounded derivative and |m′|≤πq/T, so contraction gives a uniform O(q/T) tracking error on the periodic orbit. Averaging F(q cos²θ) and substituting tan θ on the half interval gives 1/(2√(1−q)). It is strictly between F(q/2) and F(q); Taylor expansion of the equal-mean excess yields q²/16. This is local and adiabatic, not an all-amplitude, all-finite-period or stochastic-fixation statement. The frozen checker was inspected, not executed; the algebra and limit were independently reconstructed.
 
-**PASS, with residual risk.** The closest work is Masoumi, Kaveh, and Ejtehadi (arXiv:2610.08160v1; sections 2–4 and Appendices A–C), whose model and schedule are explicitly acknowledged. It reports numerical frequency shifts and discusses a peak-amplitude interpretation of long seasons, but does not derive the exact frozen-branch sum, exact adiabatic average, or positive equal-mean Jensen gap. Aubrée and coauthors (doi:10.1093/evolut/qpac067) analyze allele fixation in a pulsed mainland–island model, not this symmetric deterministic two-deme equilibrium. Focused mathematical-record searches and comparisons with accessible prior claims identified no covering result. Generic adiabatic tracking and Jensen's inequality are existing tools; the model-specific exact sum and its evolutionary comparison are the subject of this claim. Unindexed equivalent algebra or newer literature could still exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating model explicitly compares seasonal and constant gene flow. This theorem provides an exact, nonperturbative expression in migration amplitude for the slow-season limit on a specified branch, and gives a strict counterexample to a universal contraction-to-neutrality interpretation when the baseline is matched by migration mean. It distinguishes three physically different baselines, while quantifying the first nonzero difference at order \(q^2\). This is a structural population-genetic conclusion, not a mere numerical observation.
+The two-deme model, forcing schedule and average-frequency observable are established prior work. The supported distinct claim is the exact stationary balance on the small-migration separated-deme branch and its consequent slow-period value strictly between the equal-mean and peak baselines. In particular the source's full-amplitude interpretation does not state this answer; tracking the frozen equilibrium throughout the cycle gives a different limit in the proved regime.
 
-## Limits of the assessment
+## value
 
-The range of \(q\) is existentially small; finite population stochastic behavior and other parameter regimes are not assessed. Relevant mathematical literature outside the indexed and inspected sources could contain equivalent formulations. The analysis is not an independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact adiabatic invariant answers a specific comparison left ambiguous in the motivating model: matching the time-mean migration gives a strict increase, whereas matching its peak gives a strict decrease. The branch formula and uniform tracking establish this baseline dependence for a nonempty interval with a quantified leading excess, rather than drawing a conclusion from a few finite-period simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

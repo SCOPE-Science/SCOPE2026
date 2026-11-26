@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is based on finite-projective-plane incidences, not finite extrapolation. The crucial deterministic bound is that for any fixed \(r\) points, the number of lines meeting any active subset of those points differs from its sum of point-degrees by at most \(\binom r2\). This yields uniform multitime no-hit probabilities and the mixed factorial moments of a marked Poisson extreme process. Pairwise avoidance covariance is strictly negative, which provides exponential two-sided tails and thereby both first and second moment convergence. The checker independently verifies all finite incidence identities and a small exact coverage mean; it is supplementary. No unsupported finite-to-infinite implication is used.
+PASS
 
-## Originality — PASS with residual priority risk
+For any fixed active set A of distinct points, incidence and pair uniqueness give |A|k−binom(|A|,2)≤H(A)≤|A|k, hence log avoidance is −|A|/s+O(|q|^−2) for bounded |A|. The full-subset hypergeometric product gives the same uniform bound. For different deadlines, the sum of the active-set sizes across rounds is the sum of the individual deadlines; the log error across O(q log v) rounds is O(log v/q). This yields the mixed labelled survival asymptotics, with rounding error O(1/s). By interval inclusion–exclusion they give all mixed factorial moments of disjoint bounded interval counts, and bounded expected compact counts give vague point-process tightness. Counts above any fixed threshold also have the Poisson limit, with the expected number above an increasing upper threshold tending to zero, so the highest finitely many points converge jointly. The map x↦exp(−x) turns the limit into rate-one Poisson arrivals, giving the stated ranks and the Gumbel maximum. For the moments, both samplers have pair avoidance 1−(2k−1)/v: for the full sampler this uses k(k−1)=v−1. It is less than the square of the one-point avoidance probability by q/v². Thus Var(U_t)≤E(U_t), and 1/E(U_t) bounds early complete coverage, while E(U_t) bounds the late tail. At the early threshold up to s log v, log(1−1/s)=−1/s+O(1/s²) gives E(U_t) bounded below by a constant times exp(x); negative round thresholds give zero probability of early completion. Both centered tails are bounded by Ce^(−x), yielding the two Gumbel moments and both little-o differences since s is asymptotic to q. The argument needs only the plane axioms; the finite checks in CHECK.py were read, not executed, and do not prove any asymptotic conclusion. The detailed replay is RESULT.md §§1–4.
 
-The exact finite-order expectation comparison in Barak-Pelleg–Berend does not determine growing-order terminal extremes. The earlier fair-coverage general results give bounds for means, and the full-subset central limit/Poisson literature concerns different sampling laws. A general 1996/1997 Poisson uncovered-point theorem by Mikhailov is directly relevant and its complete text could not be retrieved; one-time marginal Poisson convergence alone does not imply the claimed marked multitime Poisson process or two moment expansions. Definitive comprehensive priority is not certified, and inaccessible possible broader coverage is openly flagged.
+## originality
 
-## Value — PASS
+PASS
 
-Projective-plane mechanisms are canonical structured fair draw systems for which finite exact computations show small differences from the unrestricted mechanism. The result gives a complete stochastic description of the final few uncovered points, in a growing-order regime not resolved by the motivating finite data. It quantifies a shared Gumbel fluctuation scale and first two cover-time moment orders despite distinct finite-law higher-order dependence. These are intrinsic natural observables of the same mechanism rather than arbitrary parameter slices.
+The supported distinct contribution is the multitime first-hit limit for restricted line draws along arbitrary existing plane sequences, with joint fixed terminal ranks and the first two cover-time moment asymptotics compared with uniform full subsets. No first claim is credited for one-time Poisson uncovered counts, a coupon-collector Gumbel law in a different model, or finite-order mean comparisons. The strongest checked design and coupon-collection results do not state the combination or imply the multitime estimates on their retrieved assumptions. Historical priority remains provisional, especially for broader random-covering results.
 
-## Closest literature and limitations
+## value
 
-The closest source is arXiv:2606.28216 (finite-order projective-plane expectations); arXiv:2510.25305 provides general fair-system expectation formulas. Uniform unrestricted-subset Poisson limits are studied by Betken–Thäle (2023). A potentially dominating general statement in Mikhailov (1996/1997) could not be examined in complete form and remains a priority risk. Rates of convergence and the sign of the finite-order expectation difference are not proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equality of block size and pair incidences does not make the samplers identical. The result explains why the same extreme process and the same leading cover-time fluctuations nonetheless hold despite different higher joint laws, for all projective planes without coordinates. The marked limit distinguishes higher waiting times from a single completion-time estimate, and the quantitative moment asymptotics explain what the limiting law does and does not resolve about the comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:09.667826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and verify_fibonacci_weight_edges.py, inspected only",
+        "Cai et al., arXiv:2001.01376v2, Definition 8 and Proposition 9"
+      ],
+      "rationale": "Write [a,b] for the first-to-last mismatch. Any single-deletion alignment with the deleted position in x earlier than that in y must cover [a,b]; equality outside [a,b] allows the deletion positions to be moved to a in x and b in y within constant runs, without changing the output. The other orientation gives b in x and a in y. Thus two distinct outputs require both orientations and b>a; the resulting relations x_i=y_(i+1), y_i=x_(i+1) force opposite alternating phases. Conversely the two orientations on such an interval give distinct outputs. In a pair of no-11 sources both external flanks, if present, must be zero. Independence of the two contexts and the unique 0/10 tiling of a zero-ending prefix give P²=(1−z−uz²)^−2. An even interval marks u^t z^(2t), and an odd interval marks z times this, with u tracking the lower weight. Each phase pair contributes once. Extraction and the binomial hockey-stick identity give the claimed counts and zero boundaries. Legal swaps pack any fixed-weight layer (including the singleton at maximal odd-length weight); B>0 joins consecutive positive layers, and the all-zero word is isolated. The positive double pole of A(z,1) is uniquely dominant, giving B/A→φ^−1 and the stated fractions. Independent replay: python3 /workspace/branches/independent_replay.py 5, grouping sources by distinct outputs and testing all layers through n=13. A separate direct deletion-set check extends finite comparisons through n=14; neither substitutes for the proof.",
+      "residual_risks": [
+        "Distinct output strings, rather than deletion positions, are essential. No independence-number or optimal-code assertion is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The AJC paper splits the larger Fibonacci hypercube by prefixes 0 and 10 and counts cross-prefix alternating runs with Fibonacci suffixes; Proposition 2 gives the unweighted recurrence and Proposition 3 discusses degrees.",
+          "The unrestricted binary record gives a marked interval formula multiplying placements by an ordinary binomial count of unconstrained exterior bits."
+        ],
+        "reasoning": "The AJC recurrence minus its Hamming-edge counterpart gives the earlier total; neither recurrence resolves endpoint weights. In the unrestricted composition formula the purported specialization requires testing legal exterior contexts for both phases and counting them separately on both sides. This is not substitution in its binomial expressions.",
+        "searches": [
+          "Rispoli–Cosares AJC 40, printed pp. 189–192",
+          "Resultary unrestricted binary composition abb547d65c0a",
+          "Resultary q-ary total 737fed325e91"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376v2",
+        "AJC 40 (2008) 187–196, Propositions 1–3",
+        "Resultary abb547d65c0a, ec0ea145ed6d, 737fed325e91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted recurrence uses suffix lengths, not compositions. The unrestricted composition proof counts exterior bits without boundary restrictions.",
+          "The larger graph is connected using flips excluded here, so its connectivity does not settle that of the two-read graph."
+        ],
+        "reasoning": "The two sources give the correct graph or a weight-counting blueprint. No inspected result gives the required constrained, flank-compatible weighted contexts or separates their contributions by interval parity. The extra enumeration is elementary, but recovers a bivariate invariant not determined by the previously evaluated totals; the univariate count itself is covered.",
+        "searches": [
+          "Rispoli–Cosares Propositions 1–3, including Proposition 2 proof",
+          "Resultary abb547d65c0a proof §§1–3, offsets 2557–7382"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai et al. equate two outputs with the nontrivial Type-A interval condition and establish the maximum of two.",
+          "Rispoli–Cosares identify single-run difference as adjacency in their Fibonacci hypercube. Their length-one edges must be removed to obtain this graph."
+        ],
+        "reasoning": "These are exact equivalent structural descriptions (with the length-one removal), not evidence of a new adjacency theorem. Merely requiring any common output instead gives a larger graph, even on the same vertices.",
+        "searches": [
+          "Cai et al., arXiv:2001.01376v2, Proposition 9",
+          "Rispoli–Cosares, AJC 40 (2008), Propositions 1–3",
+          "Resultary constrained one-read ec0ea145ed6d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "abb547d65c0a enumerates fixed compositions of the unrestricted graph; ec0ea145ed6d explicitly distinguishes its one-read threshold; 737fed325e91 gives unrestricted q-ary totals (binary 1+(n−2)2^(n−1))."
+        ],
+        "reasoning": "None is an exact table of the present layer-resolved two-output edges with both sources in the no-11 language. These meaningful matches differ in threshold or in the set of sources, not merely in notation.",
+        "searches": [
+          "Resultary: binary two-read composition edge spectrum, constrained Fibonacci deletion confusability, finite alphabet edge totals; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Exact IDs abb547d65c0a, ec0ea145ed6d, 737fed325e91"
+        ]
+      },
+      "rationale": "Credit the Type-A criterion, the larger Fibonacci hypercube, and its implication for the total unweighted census. The supported refinement is the fixed endpoint-composition edge census for the two-read induced source language, including its boundary and component consequences. The strongest composition match counts unrestricted sources; the strongest constrained matches either count a different overlap threshold or do not keep the weight variables. Same-day indexing does not settle priority.",
+      "residual_risks": [
+        "An unlocated weighted treatment of the Rispoli–Cosares Fibonacci hypercube could yield the same coefficients after subtracting length-one flips. No verified composition statement covering that subtraction was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior structural criterion, not a constrained layer census",
+          "evidence": [
+            "Deletion-ball intersection of size two is characterized by the nontrivial Type-A alternating interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376",
+          "material_read": "PDF p. 7, Definition 8, Proposition 9 and overlap bound, offsets 34800–37558",
+          "method": "Open-access primary PDF",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Potentially exact adjacency equivalence"
+        },
+        {
+          "assessment": "Covers graph description and implies total after removing one-bit flips; no fixed-weight evaluated census in these passages",
+          "evidence": [
+            "E_n=E_(n−1)+E_(n−2)+F_(n+2)−1; suffixes for cross-prefix edges start with zero or are empty."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/40/ajc_v40_p187.pdf",
+          "material_read": "Propositions 1–3; especially the proof of Proposition 2, printed p. 191, and its comparison with the Fibonacci cube",
+          "method": "Open-access journal PDF, relevant passages inspected",
+          "title": "The Fibonacci hypercube",
+          "trigger": "Same vertices and stronger adjacency including bit flips"
+        },
+        {
+          "assessment": "Same overlap criterion and parity decomposition; unrestricted exteriors, so its evaluated formulas differ",
+          "evidence": [
+            "For even length 2t, placement factor n−2t+1 and unrestricted exterior factor binom(n−2t,k−t); odd length treated analogously."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/abb547d65c0a",
+          "material_read": "Finding, proof §§1–3 and comparison, including offsets 3650–7382",
+          "method": "Local published mirror",
+          "title": "Composition-refined degree and edge spectrum of the binary two-read graph",
+          "trigger": "Strongest exact composition comparator, same-day entry"
+        },
+        {
+          "assessment": "Unrestricted total, not an induced-subgraph composition census",
+          "evidence": [
+            "Binary reduction 1+(n−2)2^(n−1)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/737fed325e91",
+          "material_read": "Finding and binary specialization",
+          "method": "Local published mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion graph",
+          "trigger": "Potential broad finite-alphabet census"
+        },
+        {
+          "assessment": "One-read graph, not this graph",
+          "evidence": [
+            "Adjacency requires nonempty output-set intersection, and the finding distinguishes the two-read case."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/ec0ea145ed6d",
+          "material_read": "Finding and precise overlap threshold",
+          "method": "Local published mirror",
+          "title": "Exact deletion-confusability spectrum of Fibonacci-constrained binary words",
+          "trigger": "Same constraint and close graph name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof",
+        "Rispoli–Cosares unweighted recurrence and unrestricted composition comparator"
+      ],
+      "rationale": "Composition is a natural stratification for constrained word families. The exact fixed-composition counts quantify ambiguous pairs within a constant-weight codebook and across its neighboring weights, information not supplied by the total count or by unrestricted-source edge densities. The refinement also resolves which layers meet and gives the preserve/change split. The value is this usable invariant and component structure, not the length of the generating-function derivation.",
+      "residual_risks": [
+        "The edge counts do not determine extremal code sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

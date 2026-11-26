@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every history has a universal canonical representative; local factor embeddings preserve canonical collisions. The short certificates for `000` and `0110` exclude all interior defects, while five independent endpoint collisions exclude two-endpoint defects. Every surviving one-endpoint witness has an explicit exact-two reverse-complement run-template classification for all lengths, separately enumerated for both ends. Exhaustive calculations through length twelve and independently generated normal forms through sixty support the claimed step-by-step proof. Finite calculations are not used to infer any infinite statement.
+PASS
 
-## Originality
+With two sequential PAL2 steps, a second start j≥i+4 commutes to the history (j−2,i), giving the canonical bound M_n. Local history collisions extend with fixed exterior context. The exact small spheres |D₂(000)|=1 and |D₂(0110)|=10 certify losses seven and four; any interior defect either lies in a constant triple or has the opposite bit on both sides. If only the two endpoints are defective, the three specified disjoint subsets of histories with sizes 3,2,3 force a loss of at least five, including at n=4. In parity coordinates an alternating source becomes constant; choose all ones. After one RC2 step the word is 1^a001^b, a≥2, a+b=n. The second 00 gives n−1 words, the mixed choices give (n−1)+(n−2) words, and 11 gives binomial(n,2) words with two zero pairs. The total is M_n. For an endpoint defect set N=n−1. The left first-step forms are 0101^N or 01^a001^b; the right forms are 1^N010 or 1^a001^b0, a≥2, a+b=N. The three mixed choices after the mixed first step coincide, and the mixed boundaries of the new zero pair and the original zero give the three four-zero templates on each side. On the right, the terminal 000 gives the extra three-zero word 1^N00011 from its last 00; among four-zero words only the first two families intersect, for b=1. For the five-zero templates, first insert after a+b ones and then after a to attain every spacing, including b=0 or 1. These run forms give the exact left and right spectra and equal totals M_n−3 for the four stated sources. Independent integer-bit insertion checked all words at n=4..12 and both RC spectra at n=4..60. Replay: python /workspace/branches/independent-checks/pal2.py.
 
-**PASS against inspected scientific evidence.** arXiv:2609.00779 (first public date 2026-09-01), specifically Sections 4 and 5.1–5.2, already proves the maximum and supplies a canonical normal form, but not the strict second cardinality, its four attaining sources or the unequal end-specific weight spectra. Public earlier results classify only the maximizers or finite code sizes. Closest records and implication comparisons are in AUDIT.json. An unindexed theorem that independently establishes the second level is the principal residual risk. The linked maximum-level research record was available as a search summary but not as complete article text.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem gives the complete immediately subextremal class of an intrinsic channel invariant, not merely a numerical example. Its local defect-exclusion argument explains why no internal or multiple equality is competitive, while the left/right run spectra reveal distinct mechanisms for two sources with the same second-level sphere size. This provides a precise stability benchmark for the already-studied two-error coding channel. It does not claim a new code construction.
+The known maximum, all maximizers, commuting-history bound and even-length parity conjugacy are prior. The distinct claim is the exact strict runner-up and complete set of four binary endpoint-defect sources, plus the two different RC2 weight spectra. The closest inspected maximum-level and confusability-code results do not yield these conclusions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A maximum alone supplies no quantitative separation from nearly extremal sources. The sharp three-descendant penalty and exact four equality cases connect specific neighboring defects to the channel sphere size. The parity-coordinate output weights distinguish the two positions even though the totals agree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

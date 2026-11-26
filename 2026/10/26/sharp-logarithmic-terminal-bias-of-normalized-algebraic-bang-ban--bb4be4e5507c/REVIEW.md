@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated conditions ensure each switch has a smooth inverse branch and no boundary singularity. The change-of-variables Jacobian is \(1/|S'|\), whose derivative has the exact orientation-sensitive denominator \(|S'|^3\). Oddness eliminates constant terms, the explicit moment integral gives the signed \(-\delta\log(1/\delta)/2\) coefficient, and the quadratic Taylor remainder plus the away-from-switch tail is \(O(\delta)\). Separate absolute integration gives the \(2\sqrt\delta\) constant. The double-integrator formulas are exact. Independent 65-digit quadrature comparisons and curved-switch tests completed successfully; they are checks rather than infinite proofs.
+## correctness
 
-**Originality — PASS (best-knowledge, not independent certification).** The full main sections of Wang et al. (arXiv:2309.03069v2, §§2–5) describe the normalized-algebraic switch surrogate and shooting experiments, not the exact weighted weak-bias sum or double-integrator asymptotic. Heidrich's 2021 thesis, Chapter 2 and the Table 2.1 algebraic entry, already describes the *same smoother*, and that prior ingredient is fully credited. Silva–Trélat (2010) analyze convergence under a distinct added-control regularization, and Agamawi–Hager–Rao (2019) address collocation switch placement; neither directly treats the frozen algebraic-sigmoid weighted error. Semantic research-record searches of log-bias, algebraic sign smoothing, and endpoint state errors produced no equivalent implication. A classical asymptotic-kernel result may nevertheless cover this expansion under other terminology; the relevant older thesis has been read materially but not all 200 pages inspected.
+PASS
 
-**Value — PASS.** The sharp, switch-local coefficient yields an interpretable terminal-state error predictor for a smoothing rule actually used in indirect control algorithms. It explains a meaningful order separation: \(L^1\) error \(\sqrt\delta\), ordinary velocity bias \(\delta\), and a larger \(\delta\log(1/\delta)\) position bias even on a basic controllable two-state system. The formula identifies exact cancellation for some observations and its failure for others; it is not merely another arbitrary test parameter or a numerical accuracy claim.
+The repaired finding passes. The frozen line 28 incorrectly scaled an absolute error by c1: for c1<0 with at least one switch this predicts a negative L1 error. The repair gives c1 on signed weak errors and |c1| on the strong error, and clarifies the possibly vanishing term in RESULT.md and SLOGAN.txt. Independently, on a monotone inverse branch t(s), the transformed weight is phi=w(t(s))/|S'(t(s))|, with phi'(0) exactly [w'S' - wS'']/|S'|^3, for both orientations. The kernel is the derivative of the even potential F_delta(s)=sqrt(s^2+delta)-|s|. Integration by parts on a fixed symmetric interval gives O(delta) boundary terms and minus the integral of F_delta*phi'. On sqrt(delta)<=s<=r, F_delta(s)=delta/(2s)+O(delta^2/s^3), and the inner part gives O(delta); hence its mass is (delta/2)log(1/delta)+O(delta). Multiplying by phi'(s)-phi'(0)=O(|s|) costs O(delta). Away from roots the kernel is uniformly O(delta). For the strong statement the even absolute kernel integrates on a symmetric interval to 2(r+sqrt(delta)-sqrt(r^2+delta)); the Jacobian at zero supplies the leading factor and its O(|s|) difference costs at most O(delta log(1/delta)). No roots gives O(delta). For the double integrator the terminal weights are 1 and T-t, yielding respectively zero and +1/2 logarithmic coefficients; an odd integrand gives exact velocity cancellation at the midpoint. The supplied high-precision quadrature script was inspected, not executed. This is a fixed-profile comparison, not an optimal-solution convergence theorem.
 
-**Main limitations.** The switching function is prescribed and nondegenerate; solved boundary-value controls, switching-time drift, boundary and singular arcs, noise and discretization are outside scope. The calculated \(O(\delta)\) remainder is not a complete next coefficient. Novelty is a documented comparison, not an exhaustive uniqueness guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge pass for the exact weighted log-bias coefficient with curvature and cancellation, the strong constant, and their terminal illustration at a fixed prescribed switch. The surrogate and inverse switching coordinate are not claimed new. The corrections to scaling and wording do not add a new priority claim.
+
+## value
+
+PASS
+
+The exact coefficient determines which weighted fixed-profile observations have an ordinary O(delta) error and which suffer logarithmic amplification, even when net velocity bias cancels. The sharp strong mass answers a complementary question about control error without cancellation. This is useful for interpreting a prescribed-switch smoothing scheme already in use; it does not claim to predict errors after reoptimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

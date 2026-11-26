@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scientific scope
+# Independent mathematical audit
 
-Run `python3 check_source.py > replay.json` and compare the generated UTF-8 bytes with `certificate.json` including its final newline. Only the standard Python library is required. The code exhausts all rooted-tree isomorphism types through ten vertices, groups them into unrooted-tree classes by canonical rooted-code minimization, and checks every source automorphism orbit distance histogram. The two exceptional orbit-pairs are then checked against all \(2^9=512\) equally weighted retained-edge masks. The certificate provides both exact moment numerators and full component-size distributions. Independent direct calculation on the first explicitly labeled ten-vertex witness and independent unrooted-tree enumeration agree.
+## correctness
 
-Rooted and free tree type totals at order ten are respectively 719 and 106. There are zero distinct same-tree root-orbit mean-curve collisions through nine vertices, exactly two at ten, and the two half-transmissibility variance differences are both nonzero. The elementary induction on rooted-code multisets supplies completeness of the finite search, not an assertion about larger trees.
+PASS
 
-The proof does not establish source recovery from finite noisy observations or from the mean curve at a single transmissibility. No external or independent audit has been performed.
+In a tree each target is reached precisely when its unique source-to-target path is open. Summing the path probabilities including the empty path gives the stated distance-histogram polynomial, even at p=0 and p=1. Polynomial identity on the interval is equivalent to matching all coefficients. Rooted isomorphism of two markings in one tree is exactly membership in one automorphism orbit. The supplied rooted-code construction is exhaustive by the multiset decomposition at the root, and minimizing that code over roots gives a complete free-tree invariant. The independent calculation uses leaf extensions (deleting a leaf gives a predecessor of every nontrivial tree), canonical one- or two-center decompositions, and rooted shapes for the orbits. It reproduces all order totals, no colliding orbit pairs up to nine, and exactly two at ten in different free-tree classes. Independently of the package's mask enumeration, multiplying integer component-size polynomials over child branches reproduces both exact laws and moments: first-moment numerators 1488 and 1920, respectively, and second-moment numerators (6032,6116) and (9120,9088) in the labelled witness order, all over 512. Equal means leave signed variance gaps -21/128 and +1/16 in that order. One variance measurement therefore separates exactly the cases not already separated by the curve.
+
+## originality
+
+PASS
+
+The distance-polynomial identity and exponential attenuation notion are known. The supported distinct contribution is the first within-tree collision order, its complete two-pair classification, and their separation by the single second statistic, not the underlying invariant. The strongest available comparisons establish related but different statements; this is a bounded best-of-knowledge assessment, not historical-priority certification.
+
+## value
+
+PASS
+
+The problem asks what a standard graph invariant can recover up to unavoidable symmetry in a fixed graph. The least failure order, complete list there and exact rescue by one second-moment statistic give reusable minimal obstructions and benchmarks for comparing graph invariants. The coalescence is equality of the whole polynomial, not a single accidental numeric tie or a repeat of tree-count tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:19:13.744507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct scores, any surviving edge other than the extreme pair misses at least the lesser endpoint gap D. When the extreme pair is deleted by a matching both next-best candidates survive, so the loss equals D there and zero elsewhere. Rank labels are uniform independently of order statistics, giving the independent Bernoulli factor k/binom(n,2). Two deleted edges sharing the maximum label give strict loss on the open configuration where their other endpoints are smallest and next smallest, and the bottom gap is smaller than the top; positive density on an interval gives it positive probability. Projection of a standard Gaussian onto H_n preserves edge differences, with independent chi_(n−1) radius of mean a_(n−1), so central symmetry gives width loss 2 EΔ/a_(n−1). Integrating the joint extreme density with all interior scores in (x+t,y−t) gives the displayed η integral. Gaussian rare-event counts on upper and lower disjoint windows converge jointly to independent Poisson processes; their first decreasing gaps are independent Exp(1) by the exponential-arrival ratio. Conditioning on the second largest and its event V≥u_n/2 gives the conditional scaled-gap upper tail e^(−s/2); the complementary binomial event contributes vanishing mean by Cauchy–Schwarz and the second moment bound for the Gaussian maximum. Thus u_n η_n→1/2, and the relative width-deficit error is independent of k by exact linearity. Independent exact enumeration checked 21,55,575 deletion sets at n=4,5,6 and found equality for the 9,25,75 matchings and strict average loss for every other set on the tested score vectors. Replay: /workspace/branches/204cddac-b09d-4cae-9c6c-abd9f4b61052/independent_finite_check.py and independent_finite_check_results.md. Uploaded code was inspected, not executed; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D’Alì et al. define the polytope family and study enumerative invariants; Kabluchko et al. give the Gaussian width representation.",
+          "9b6c77e4de8f explicitly takes n→∞ at fixed 0<p<1 before taking endpoint limits in p, averaging over the graph."
+        ],
+        "reasoning": "The known representation converts a loss theorem to a width theorem but supplies no extremizer. An annealed fixed-p limit is not a bound over all deterministic deletion sets.",
+        "searches": [
+          "D’Alì et al., arXiv:2201.09835",
+          "Kabluchko–Litvak–Zaporozhets, arXiv:1511.08479",
+          "Resultary 9b6c77e4de8f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 9b6c77e4de8f and dc46f79aadff",
+        "arXiv:2201.09835 and 1511.08479"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9b6c77e4de8f uses precisely the same limiting independent extreme gaps to prove c(p)∼(1−p)/2; its integrand tends to P(N_t=1)=e^(−2t).",
+          "The frozen optimum requires a pointwise domination tied to the rank labels and a missing-next-best-edge strictness argument, absent in the compared claims."
+        ],
+        "reasoning": "The order-statistic mechanism overlaps; passage to deterministic matching losses and uniqueness is not a substitution into the annealed limit. No priority or independence of the same-day work is inferred.",
+        "searches": [
+          "Resultary 9b6c77e4de8f Finding, conditional identity and Step 6; dc46f79aadff Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9b6c77e4de8f gives the missing-pair tail conditional on Gaussian scores for independent edge marks.",
+          "Resultary dc46f79aadff studies a single complete-bipartite vs complete comparison, not optimization over k omitted edges."
+        ],
+        "reasoning": "The edge span can be formulated as the best allowed pair in the sample range. Neither mapped result yields the same quantification over deterministic graphs or the atomless-score extremal law.",
+        "searches": [
+          "Forbidden-pair ranges and extreme order statistics, deletion of edges in Gaussian width",
+          "Resultary symmetric edge polytope Gaussian mean-width deficit and extreme gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b6c77e4de8f obtains 1/2 in c(p)/(1−p) from the lesser pair of independent limiting exponential gaps; neither comparison supplies the finite matching-deficit formula involving η_n."
+        ],
+        "reasoning": "The meaningful exact benchmark here is the finite-n width loss/equality formula, not an integer table for a graph's rank permutations. The number 1/2 alone is overlapping, not the claimed exact graph invariant.",
+        "searches": [
+          "Resultary 9b6c77e4de8f and dc46f79aadff, exact constants and scopes"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp finite-n, fixed-deletion-cardinality optimization and stochastic comparison, including matching equality and strict expected loss for other deletion patterns. Spherical normalization and Poisson gaps are standard and overlap materially with a same-day indexed finding. The strongest overlapping result concerns independent random edge retention at fixed p and does not imply the finite deterministic claim or its matching asymptotic by setting p to a function of n.",
+      "residual_risks": [
+        "Earlier equivalent statements under forbidden-pair range or ranked-edge terminology may exist; the one primary alias lookup returned unrelated results.",
+        "The same-day catalogue work does not establish chronological priority. The Poisson spacing argument and half coefficient are not treated as distinct novelties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-day overlap of method and scalar limit; does not cover fixed-cardinality deterministic extremizer",
+          "evidence": "G(n,p) annealed fixed-p theorem and Step 6 limit from e^(−2t).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-poisson-extreme-edge-gaps-and-the-sharp-mean-width-deficit-of-ra--9b6c77e4de8f/RESULT.md",
+          "material_read": "Finding, scope and proof at offsets 0–3819 and 7750–9406, with intermediate normalization and convergence passages",
+          "method": "Local mirror direct statement/proof comparison",
+          "title": "Poisson extreme-edge gaps and the sharp mean-width deficit of random symmetric edge polytopes",
+          "trigger": "Same geometry, Gaussian gaps, and limiting half coefficient"
+        },
+        {
+          "assessment": "Non-equivalent degeneration",
+          "evidence": "One prescribed complete-bipartite graph family, no all-F optimization or matching equality.",
+          "identifier_or_url": "Resultary dc46f79aadff",
+          "material_read": "Finding and scope at offset 0–3617",
+          "method": "Local mirror",
+          "title": "A sharp Gaussian mean-width loss for complete-bipartite symmetric edge polytopes",
+          "trigger": "Same complete-graph baseline and deterministic edge removal"
+        },
+        {
+          "assessment": "Geometry background in passages read",
+          "evidence": "Defines root-coordinate polytopes and studies gamma vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.09835",
+          "material_read": "p. 1 offsets 416 and 2314",
+          "method": "OA PDF passages",
+          "title": "On the gamma-vector of symmetric edge polytopes",
+          "trigger": "Exact polytope family"
+        },
+        {
+          "assessment": "General normalization, not graph extremizers in passages read",
+          "evidence": "Gaussian supremum representation of mean width.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "p. 2 offset 3956 onward",
+          "method": "OA PDF passages",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Potential Gaussian-width implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This optimizes a natural geometric invariant of the standard edge-root realization and classifies all maximizing fixed-size deletion patterns. The atomless-score stochastic statement is stronger than mean width alone and gives a reusable rank-order comparison, not just a computation on isolated graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

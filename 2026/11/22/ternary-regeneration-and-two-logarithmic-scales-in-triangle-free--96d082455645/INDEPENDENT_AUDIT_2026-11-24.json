@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:22:42.813605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exchangeability of 2n distinct ranks makes all (2n-1)!! matchings equiprobable, and interval Helly reduces triangle-freeness to sweep height at most two. After the initial opening, at every birth there are exactly three possibilities: close the carrier then open (B), open and close the newcomer (O), or open and close the previous carrier (N). Close the final carrier. This proves the bijection even for the empty code at n=1. Each non-B birth adds one earlier edge, O adds a leaf and N extends the carrier path. Component size k<n has two one-boundary placements and n-k-1 two-boundary placements; at k=n there is no boundary. Bounded finite-dependence gives the fixed-k component LLN. A typical degree is 1, R+J, or 1+R+J equiprobably, where R is the run of O before B/N with P(R=r)=(2/3)3^-r, and the independent terminal-edge indicator J is fair. Its generating function is z/3+(1+z)^2/[9(1-z/3)], giving 1/9, 16/27 and 16/3^(d+2) for d>=2. Truncating forward runs at h gives a finite-dependence variance bound and discarded expectation at most 3^(-h) plus negligible boundary, establishing the empirical rather than just single-vertex law. Deterministically M_n=1+L_non-B and L_O<=Delta_n<=L_O+2. For each run length, a union bound gives the upper limit; disjoint all-success blocks give the lower via (1-p^m)^floor((n-1)/m) tending to zero at m=(1-epsilon)log_(1/p)n. This supplies both constants and the ratio. Replay: python3 /workspace/branches/interval_reproduction.py, which independently computes the intersection graph and tests triangles by triples through n=6 (10395 matchings, 243 accepted at n=6), the bijective code counts, component means, caterpillar cores, and deterministic extreme bounds. The frozen checker actually uses ternary words of length n-1 for n<=10 (longest word length 9); the prose's 'through length ten' does not affect any theorem. Finite replay is not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path formula is described in frozen RESULT.md lines 85–87 as giving exact probabilities of the open-pair count path. A height-two path records whether each later birth starts a component or overlaps; in the overlap case there are two possible carrier identities.",
+          "Diaconis–Holmes–Janson and the Iliopoulos thesis address the ordinary endpoint model; the general graph-limit and degree/clique problem differ from this rare conditional structure in the available descriptions."
+        ],
+        "reasoning": "Weighting paths by the two choices at each overlap already gives the event probability and the binomial component count; the iid boundary indicators also determine the component-size spectrum and run law. Scalar height alone doesn't say which interval receives the next edge.",
+        "searches": [
+          "arXiv:2009.08113v1 Korbel–Mörters, Theorem and Lemma 3",
+          "arXiv:1102.2841v1 Diaconis–Holmes–Janson §2.3",
+          "Scheinerman DOI:10.1007/BF02189092; Justicz–Scheinerman–Winkler DOI:10.1080/00029890.1990.11995679"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.08113v1",
+        "arXiv:1102.2841v1 / PMC4578824",
+        "Essex thesis 14414",
+        "DOI:10.1080/00029890.1990.11995679",
+        "DOI:10.1007/BF02189092",
+        "Resultary 9e288e46509a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=4, codes OOO and NNN have the same open-count path but different graphs and maximum degrees: a degree-three star versus a path of maximum degree two.",
+          "Carrier-sensitive statistics require the local O/N edge assignment, the geometric mixture and a run bound for O alone."
+        ],
+        "reasoning": "Uniform matching refinements of a path can supply the representation, but the numerical degree law and distinct maximum-degree scale do not follow as mere readings of a height-path formula. The inspected summary of the unrelated unconditioned result supplies neither the representation nor the degree formulas for this conditioning.",
+        "searches": [
+          "arXiv:2009.08113v1 compared to frozen RESULT.md §§2, 4–5",
+          "Resultary 9e288e46509a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is also clique number at most two, sweep height at most two, or bipartite in the interval-graph model",
+          "Resultary 9e288e46509a covers degrees and universal vertices for paired-endpoint intervals, not the height-two conditional ensemble in its summary"
+        ],
+        "reasoning": "Exclusion of graph triangles is equivalent to a bound on concurrent intervals, not to sampling unlabeled caterpillar isomorphism classes. An unconditioned degree law is not a law under this rare conditioning.",
+        "searches": [
+          "Resultary: endpoint-pairing random interval graphs conditioned triangle-free, caterpillar carrier, degrees and logarithmic extremes",
+          "Web: random interval graphs endpoint pairing conditioned triangle-free forest caterpillar maximum degree Scheinerman Justicz Winkler rank matchings Korbel Mörters height two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct hit 9e288e46509a gives unconditioned low-degree Poisson and universal-vertex statements, per summary",
+          "The assigned article's own Resultary hit is the identical record, not independent coverage"
+        ],
+        "reasoning": "No compared distinct table supplies the conditional limiting degree frequencies or maximum degree through its run bound. The exact 3^(n-1) matching count is not credited as a new table value.",
+        "searches": [
+          "Resultary: exact height-two matching count and conditional degree spectrum of random interval graphs"
+        ]
+      },
+      "rationale": "Credit the known matching/path framework and its implications for the height-two count, component distribution and component-run extreme. The distinct finding is the conditional interval graph with tracked survivor identity, giving the explicit empirical degree law and maximum-degree scale and its separation from the component-size scale. This is a qualified statement-level judgment, not a priority certificate.",
+      "residual_risks": [
+        "Incomplete direct full-text access to plausible older work and the path formula; whole-document absence is not asserted.",
+        "A source addressing survivor identities and degree tails specifically under the height-two conditioning could reduce the distinguishable contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit path enumeration and consequences; whether additional primary passages cover carrier graph statistics remains unverified",
+          "evidence": [
+            "At height two the count path does not distinguish old-first from new-first closing, although the distinction changes the graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.08113v1",
+          "material_read": "Frozen RESULT.md §Relationship description and bibliographic Theorem/Lemma 3 locator; primary passage not obtained after targeted OA attempts",
+          "method": "Exact-source OA attempts and mathematical comparison of path versus matching refinements",
+          "title": "A path formula for the sock sorting problem",
+          "trigger": "Exact law for the analogous open-pair path and strongest prior implication"
+        },
+        {
+          "assessment": "Unconditional comparisons in the accessible descriptions; no exhaustive content exclusion",
+          "evidence": [
+            "The graph-limit paper is cited for typical dense graphs; that alone is not a rare-event conditional limit."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4578824/; https://repository.essex.ac.uk/14414/",
+          "material_read": "Public search entries and frozen description (§2.3 for the first; §§3.2,4,5 for the thesis). OA primary requests including the PMC alternate timed out.",
+          "method": "Literature search plus bounded same-source OA attempts",
+          "title": "Interval graph limits; Random Interval Graphs (Iliopoulos thesis)",
+          "trigger": "Same endpoint model, degree/clique behavior and plausible conditioning precedent"
+        },
+        {
+          "assessment": "Remaining historical risk, not evidence of absence",
+          "evidence": [
+            "The frozen description identifies independence number and universal intersections for Random Intervals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679; https://doi.org/10.1007/BF02189092",
+          "material_read": "Bibliographic/frozen abstract descriptions only; full text not inspected",
+          "method": "Targeted literature inquiry and review of frozen cited evidence",
+          "title": "Random Intervals; Random interval graphs (Scheinerman)",
+          "trigger": "Foundational same-model papers may treat the rare event implicitly"
+        },
+        {
+          "assessment": "Different ensemble and invariants on available evidence",
+          "evidence": [
+            "Summary concerns low degrees and universal vertices, not the triangle-free conditioned graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-coupled-poisson-extremes-of-degrees-and-universal-vertices-in-ra--9e288e46509a",
+          "material_read": "Resultary summary; local mirrored full text requested but not returned",
+          "method": "Semantic catalogue statement comparison and OA attempt",
+          "title": "Coupled Poisson extremes of degrees and universal vertices in random interval graphs",
+          "trigger": "Closest different exact degree/extreme result on the same endpoint model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Triangle-freeness is a natural rare constraint on this dense endpoint ensemble. Knowing that the result is a caterpillar forest or knowing its component count does not determine how the graph distributes degree. The carrier code gives an exact conditional sampler and identifies why degrees and connected components grow at distinct scales even in the same forest. The result is ensemble-specific and only first-order for extremes, but the separate scales and degree spectrum are useful exact benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

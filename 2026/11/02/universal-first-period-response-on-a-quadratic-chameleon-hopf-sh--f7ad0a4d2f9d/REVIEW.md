@@ -1,19 +1,21 @@
-# Scientific review: Universal first period response on a quadratic chameleon Hopf sheet
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equilibrium Jacobian factors exactly as \((\lambda+b)(\lambda^2-\alpha\lambda/b+1)\); transversality is \(1/(2b)>0\). With the normalized critical eigenvectors, the only contributing quadratic Hopf term produces \(G_{21}=5i/(b+2i)\) and \(\ell_1=5/(b^2+4)>0\), proving a subcritical branch for each fixed \(b>0\). A separate Poincaré–Lindstedt expansion proves both solvability equations, \(R^2=2(b^2+4)/(5b)\), and \(\omega_2=1/4\). Standard analytic nondegenerate Hopf theory upgrades the formal leading expansion to the genuine local periodic family. The included symbolic checker validates the critical identities; six periodic shooting runs corroborate the physical period and amplitude. It would be incorrect to regard these six runs as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The equilibrium and characteristic polynomial give a transverse crossing with real-part derivative 1/(2b) and a stable third direction for each fixed b>0. With q=(1,i,0) and p=q/2, the critical quadratic interaction B(q,q̄) is zero; h20 has third component −10i/(b+2i). The projected interaction gives G21=5i/(b+2i), so the stated normalization gives a positive l1=5/(b²+4). The real cubic coefficient of the complex amplitude equation is Re(G21)/2. Thus the squared leading complex radius is −α(b²+4)/(10b); x has leading oscillation 2r. The linear imaginary eigenvalue has zero α derivative; Im(G21)/2 times the squared radius gives the frequency shift −α/4 in physical (not rescaled) time. The radial Floquet exponent is −α/b+o(|α|); the other tends to −b. To justify the period remainder, the shooting equations with initial (x,y,z)=(ρ,0,α/b+ζ) may be written analytically after dividing x and y by signed ρ, since their subsystem is homogeneous in (x,y). At ρ=0, α=ζ=0, T=2π, the derivative of the x/ρ return residual in α is π/b, its T derivative is zero, the y/ρ residual has T derivative −1, and the z residual has ζ derivative exp(−2πb)−1 and zero α and T derivatives. Analytic implicit reduction gives a signed branch. In a signed parameter ε with α=−ε², the two signs are opposite extrema of the same locally unique orbit, so the period is even and analytic in ε; 1/Ω therefore has the claimed O_b(α²) remainder. The conclusion is local with no uniform claim at b=0 or at unbounded b.
 
-The defining Zhang et al. paper's full author-uploaded text was inspected in its dynamical equations, Sections 2–4, numerical damping studies, and Theorem 4.2. It proves subcritical Hopf specifically for \(\mu(z)=\alpha-z\), equivalent to \(b=1\), but neither evaluates the full damping-dependent \(\ell_1(b)\) nor states the universal period slope or physical amplitude law. The later Liu et al. chameleon analysis was inspected; it concerns a different vector field with different quadratic couplings, so its Hopf statements cannot imply the present formulas. Searches for general parameter, same polynomial terms, equivalent normal forms, period responses and published mathematical research findings did not identify a covering result. The closest indexed research on Sprott F/S and cubic jerk Hopf bifurcations concerns different equations and offers no direct corollary. A failed search does not establish absolute novelty; hidden/unindexed material and the undated August 2023 preprint label remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The damping parameter appears in the original model's numerical studies but not in its analytically solved Hopf sheet. Determining the general first focal coefficient proves nondegeneracy at every positive damping value and reveals how the repelling local cycle varies with damping; in contrast, the **first physical period correction is exactly independent of damping**. This gives a substantive quantitative calibration of the unstable periodic orbits near a stable equilibrium, which can organize the local basin geometry relevant to the defining study's hidden dynamics. The finding does not assert a global hidden-attractor theorem or a new general Hopf method.
+The original chameleon-system paper covers this exact field at b=1, including the direction and instability of the cycle and quantitative focus data. Credit those precedents, not just a qualitative result. The specified all-b coefficient, physical amplitude and damping-independent derivative are distinct results in the examined evidence; they are not obtained by rescaling the b=1 bifurcation statement or instantiating its raw focus number.
 
-## Closest literature and limits
+## value
 
-Zhang et al. (2023), *Mathematical Modelling and Control*, DOI 10.3934/mmc.2023032, Section 4, Theorem 4.2: b=1 subcritical Hopf, credited; the whole preprint was accessible via its author upload. Liu et al. (2025), *AIMS Mathematics*, DOI 10.3934/math.2025225: different quadratic flow. Kuznetsov (2004): general calculation only. This local theorem requires a fixed \(b>0\) and small \(\alpha\); there is no claim of uniformity at the damping endpoints, no global attractor census, and no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This adds a usable local benchmark for a previously studied flow. The derivative is measured in the original time variable and is invariant across all fixed positive dampings even while the physical amplitude and real Hopf coefficient change. This parameter cancellation and the precise small saddle-cycle expansion provide more information than the familiar qualitative Hopf classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

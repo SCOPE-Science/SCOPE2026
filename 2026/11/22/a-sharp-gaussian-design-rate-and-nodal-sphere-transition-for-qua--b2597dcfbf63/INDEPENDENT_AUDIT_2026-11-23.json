@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:01.622008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d≥1, a≥0 and c,D,s>0, distributional stationarity forces a unique source even among Borel measures: q=p−(L*p)/r. Gaussian differentiation gives (L*p)/p=cs[dθ+(d+2−θ)y−y²]. Its integral against p is zero since E[y]=d and E[y²]=d(d+2). Maximization over y≥0 gives y_*=(d+2−θ)_+/2 and the stated sharp positive rate. Strictly below it the forced continuous density is negative on an open set. Completing the square, or factoring out y if the maximum is at zero, gives the positive-radius shell (two points if d=1), fourth-order origin zero, and quadratic origin zero in exactly the stated regimes. For sufficiency the conservative diffusion has a well-posed martingale problem; one can also identify the invariant last-reset resolvent directly. For compactly supported smooth f let M(t)=∫p P_t f. The dissipative drift gives contraction for synchronous diffusion starts, so P_t f has bounded gradient; applying the backward equation with a cutoff and Gaussian tails gives M'(t)=∫(L*p)P_t f. Thus r∫exp(−rt)∫q P_t f dt=∫exp(−rt)(rM−M')dt=M(0). This argument needs no assumption of a semigroup preserving C₀. Common resets give uniqueness. The quartic polynomial tilt is nonconstant for finite r and is not a Gaussian density ratio; the exact optimization also gives the claimed cs d²/4 leading asymptotic and the harmonic variance obstruction. The supplied VERIFICATION.md and verify_quartic_reset.py were inspected, not run; reported finite moment checks are not the stationarity or dimension proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first work supplies general forward dynamics with distributed resetting in potentials; the second provides moment equations including harmonic confinement; the third concerns transient resetting-assisted equilibration in an anharmonic setting.",
+          "The inspected sharp Gaussian inverse design theorem for general linear multivariate OU has a matrix quadratic-source criterion, with linear drift as a hypothesis."
+        ],
+        "reasoning": "The forward equation supplies the inverse-source relation but does not state the exact optimizing radius, rate, nodal orders or dimension law for this target and drift. The broad linear result excludes cubic drift.",
+        "searches": [
+          "arXiv:2211.15372, §II",
+          "arXiv:2310.04840, abstract and §III",
+          "arXiv:2401.09958, pp. 1–2",
+          "Resultary linear Gaussian inverse design, ID suffix 08050fc52754"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_quartic_reset.py",
+        "Resultary IDs 08050fc52754 and ed929a1d730a",
+        "arXiv:2211.15372",
+        "arXiv:2310.04840",
+        "arXiv:2401.09958"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OU Gaussian source is described by a quadratic form in position. The frozen quartic Gaussian source instead has a nonzero positive quartic term in its density ratio and an interior radial maximum of (L*p)/p when θ<d+2.",
+          "The OU Student result has quadratic and fourth-order center zeros and a positive-radius shell but for alternate target tails; neither its drift nor target matches the frozen claim."
+        ],
+        "reasoning": "The general balance explains how to start the calculation; the positivity boundary for a nonlinear trap still has to be evaluated. The linear positivity theorem cannot account for the quartic-trap feasibility of all target variances or its quadratic dimension law. Credit the parallel geometric taxonomy, not priority for a generic node transition.",
+        "searches": [
+          "Local mirror of the linear Gaussian inverse-design result, offsets 0–5558 and 5400–10400",
+          "Local mirror of the harmonic Student/Pearson–VII result, offsets 0–5369",
+          "arXiv:2211.15372, Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2) supplies the familiar distributed-reset forward balance; solving it for the source is equivalent to the first step of the frozen proof.",
+          "The matching linear-OU Gaussian record is 2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754; the center-to-shell analogue is 2026/11/22/SCOPE-a-universal-reset-rate-floor-and-a-center-to-shell-transition-fo--ed929a1d730a."
+        ],
+        "reasoning": "Inverse source design, prescribed invariant marginals and center-to-shell nodal transitions are relevant aliases. The actual nonlinear drift and Gaussian target combination is not obtained by renaming the OU Gaussian or OU Student/Pearson–VII families.",
+        "searches": [
+          "Resultary semantic lookup: inverse Gaussian stationary-state design by independently sampled full-position resets, quartic confinement, sharp reset-rate threshold and nodal shell",
+          "arXiv:2211.15372, §II Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct exact classifications inspected were 08050fc52754 for linear OU/Gaussian and ed929a1d730a for harmonic OU/Student–Pearson VII. The latter has the same three types of zeros but in its own parameter family."
+        ],
+        "reasoning": "A closed criterion over continuous rates, variances and drift parameters is not a tabulated constant; the relevant check was for an indexed exact formula or phase diagram for this model. The distinct indexed formulas are for different objects.",
+        "searches": [
+          "Resultary finding index, sharp distributional reset-rate and boundary-node result for Gaussian stationary law under quartic drift"
+        ]
+      },
+      "rationale": "The distributed-reset forward equation and its inverse rearrangement are not original. The assessed result is the exact nonlinear quartic-trap, isotropic Gaussian feasibility diagram, including its rate scaling and specific nodal boundaries. The strongest retrieved antecedents cover Gaussian targets with linear drift or analogous boundary geometry for a different target and drift, not the stated diagram.",
+      "residual_risks": [
+        "Focused Resultary and primary citation comparison, not exhaustive priority across inverse stationary-control formulations.",
+        "The harmonic Student/Pearson–VII near match materially anticipates the geometric taxonomy; the comparison does not establish first publication of that general idea or priority between same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for linear OU, not a theorem for the nonlinear trap.",
+          "evidence": [
+            "The drift is stable linear multivariate OU; the unique Gaussian tilt and threshold are controlled by a matrix quadratic-source condition."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754",
+          "material_read": "Mirrored RESULT.md, offsets 0–5558 and 5400–10400.",
+          "method": "Bounded local mirror reads of statement and proof.",
+          "title": "Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets",
+          "trigger": "Exact Gaussian target and inverse reset feasibility theorem."
+        },
+        {
+          "assessment": "Substantial method and geometry overlap; no equivalence or date-based priority inferred.",
+          "evidence": [
+            "Its prescribed stationary family is Student/Pearson–VII in an isotropic harmonic OU potential, not Gaussian in a quartic potential; it also optimizes over target scale."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-reset-rate-floor-and-a-center-to-shell-transition-fo--ed929a1d730a",
+          "material_read": "Mirrored RESULT.md, offsets 0–5369.",
+          "method": "Bounded local mirror read of claim and assumptions.",
+          "title": "A universal reset-rate floor and a center-to-shell transition",
+          "trigger": "Distinct record with sharp rate and the same types of nodal transition."
+        },
+        {
+          "assessment": "Covers the underlying forward balance.",
+          "evidence": [
+            "The evolution equation has the reset sink and distributed source that force the inverse source on prescribing stationarity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "OA PDF p. 2, §II Eq. (2), near extracted-text offset 10000.",
+          "method": "Bounded OA passage and equation comparison.",
+          "title": "Entropy production of resetting processes",
+          "trigger": "General independently distributed-reset Fokker–Planck antecedent."
+        },
+        {
+          "assessment": "Moment framework, not the inspected quartic Gaussian inverse threshold.",
+          "evidence": [
+            "The relevant confined-particle example calculates distributed-reset steady-state moments in a harmonic potential."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "OA PDF abstract and §III, pp. 1 and 3, offsets 0 and 15600.",
+          "method": "Bounded OA reads.",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Stationary laws under distributed resetting with harmonic drift examples."
+        },
+        {
+          "assessment": "Different optimization and target in the passages inspected.",
+          "evidence": [
+            "It studies resetting-assisted transitions between equilibrium states, not the exact Gaussian invariant marginal inverse problem here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.09958",
+          "material_read": "OA PDF abstract and relevant passages on pp. 1–2, offsets 0 and 14900.",
+          "method": "Bounded OA reads.",
+          "title": "Resetting as a swift equilibration protocol in an anharmonic potential",
+          "trigger": "Resetting in a nonlinear potential."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact feasibility benchmark for a natural nonlinear perturbation of the harmonic trap: the variance obstruction of the harmonic model disappears, but the critical intervention rate grows quadratically with dimension and the forced density can first fail at a nonzero radius. Those features require a global positivity analysis and cannot be read off from moment matching or the existence of a distributed-reset forward equation. Value lies in the model-specific sharp diagram, not in maximizing a quadratic as a standalone exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

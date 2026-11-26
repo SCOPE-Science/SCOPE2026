@@ -1,19 +1,21 @@
-# Scientific review: parallel quadratic phosphorus recycling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each \(m\geq0\), multiplying the scalar vector field by the positive denominator \(\prod_j(K_j^2+P^2)\) produces a degree-\(2m+1\) polynomial with nonzero leading coefficient \(-a\). Thus the upper bound counts all positive roots, including multiplicities. Interlacing of attractors with other fixed points bounds the number of attracting equilibria. The constructive induction adds a channel of strength \(3K\) and saturation scale \(K\): old witness signs persist at finite fixed concentrations as \(K\) grows, while the new signs at \(K\) and \(4K\) are respectively positive and negative. This forces the maximal number of simple roots for every channel count. Exact rational two-channel signs and a finite-induction replay passed 58 assertions in `verify.py`. The computer checks are ancillary, not an infinite certification.
+PASS
 
-## Originality — PASS on inspected literature, with residual risk
+The product of the positive denominators is positive for all real P and monic of degree 2m (the empty product is 1). Clearing it leaves a polynomial of degree 2m+1 with leading coefficient -a: all recycling contributions have degree at most 2m. Multiplicity of a root is preserved because its denominator is nonzero. An attracting isolated positive root must have positive field immediately to its left and negative immediately to its right, since otherwise a solution on that side cannot approach it; thus any two attracting roots enclose a different root. This includes nonhyperbolic roots. For simultaneous sharpness start at m=0 with the two witnesses 0 and 1. Adding (K,3K) contributes at each old witness at most 3P^2/K, so all prior strict signs persist for sufficiently large K. At the new witness K the field is at least L+K/2; at 4K it is below L+sum(old r)-K, made negative by the same large-K choice. These are ordered after the last prior witness and add two sign changes. The resulting distinct positive roots saturate the degree bound and must all be simple, with alternating stability. The argument uses finite K at every fixed stage and proves all-m attainability, not a numerical cutoff. Independently evaluated the six stated two-channel witnesses with integer-safe rational substitution: 1/10, -906517/32500520, 9499/100040, -13/626, 7199/117290, -50783079899/252501010. Positive loading keeps the half-line forward invariant and the linear-loss upper bound gives global boundedness. The uploaded script was inspected, not executed.
 
-Zeng et al. (2017, DOI 10.1002/ecs2.1805) give the conventional one-feedback lake-phosphorus Hill model and bistability; Zhao et al. (first online 2024-10-02, DOI 10.1007/s10750-024-05701-4) document distinct internal-P loading mechanisms rather than deriving a sharp equilibrium count. Feliu and Wiuf (2015, DOI 10.1186/s12918-015-0164-0) present feedback-loop criteria in multistationary networks; those do not establish this specific all-\(m\) sharp scalar bound and construction. Two-sigmoid phosphorus models are already known to exhibit five roots, so the bare five-root phenomenon is NOT asserted original. The claim is the general sharp \(2m+1\) count and the inductive attainment for all positive *quadratic Hill* recycling contributions using only one dynamic variable. Duncan et al. (2021, DOI 10.1137/21M1398331, arXiv:2103.17184) was examined in its full preprint, including the switching-limit hypotheses and Theorem 3.13; that theory does not directly provide the exact finite-parameter bound and all-\(m\) construction here. Historical priority remains uncertain for other related sigmoid-sum inequalities. No inspected result directly states or implies this exact theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The all-\(m\) theorem distinguishes having \(m\) separately saturating instantaneous phosphorus feedback terms from conventional single-feedback bistability. It proves that the number of stable nutrient regimes can grow linearly without introducing additional dynamic state variables and gives a sharp upper bound for each chosen model complexity. This is an informative structural boundary for reduced lake models and a concrete rational three-attractor illustration, not a claim about observed regime counts, model adequacy, or an ecological intervention.
+Credit is restricted to the simultaneous sharp arbitrary-m equilibrium and stability counts for positive quadratic Hill terms driven by a single concentration. The closest indexed independent record already exhibits five distinct equilibria and three attracting states in a two-threshold phosphorus family; neither that phenomenon nor scalar bistability is credited as new. Available broader switching-network and feedback results do not supply the arbitrary-m finite-steepness conclusion under the same quadratic restriction. The full equations of the same-day comparison are unresolved, but two-channel overlap, even if exact for that subcase, does not cover the unbounded family.
 
-## Limits and research integrity
+## value
 
-All parameters in the construction are positive but not field calibrated. The result uses autonomous deterministic one-state dynamics with instantaneous quadratic saturation. Stochastic, delay, spatial and explicit sediment-state models are outside the proof. Literature inspection cannot exclude every historically equivalent theorem. No independent expert audit or external mathematical certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact simultaneous upper bound and realization settle whether a fixed shallow Hill nonlinearity intrinsically caps the number of stable scalar regimes independently of how many feedback pathways are included. The construction answers no without replacing the nonlinearities by step functions, using negative feedback gains, or adding state variables. This is a structural distinction between a one-channel textbook example and the unbounded number of regimes attainable with finite positive channels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

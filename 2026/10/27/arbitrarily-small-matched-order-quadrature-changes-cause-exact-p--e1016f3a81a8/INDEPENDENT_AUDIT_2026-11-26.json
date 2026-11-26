@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:17:36.872971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–51 and 53–81 (pointwise switch, nodal rules, missed tie case)",
+        "Frozen VERIFICATION.md lines 3–25; checks.py lines 26–76",
+        "/workspace/repairs/2/RESULT.md, Finding and Proof §§1–4; /workspace/repairs/2/checks.py",
+        "/workspace/audit-work/independent_checks.py, case 2"
+      ],
+      "rationale": "Pass on the corrected RESULT.md, not on the frozen universal one-update assertion at a tie. The frozen pointwise policy and distinct LHS/RHS nodes permit control 0 at the midpoint and 1 at both shifted left nodes when a=1; then a'=(3−ε²)/2 is neither cycle point (e.g. 3071/2048 at ε=1/32). The repair proves the sharp entry bound, clarifies matching midpoint assembly, and phrases the general two-fixed-point classification off the switch. For every allowed ε, set t=ε². Direct nodal summation gives p=2+t, q=1−2t; the cutoff construction makes these equalities exact. A tied update is (p+β)/(2+α(1/2)) with 0≤β≤q: midpoint policy 0 makes it >1; policy 1 makes it <1. It enters the exact primitive cycle at the next update, or immediately for either uniform tie. The generic strict branch images are p/2 and (p+q)/3, with neither equal to 1; a cycle cannot include the switch and the sign tests give the announced off-switch basins. In the residual case the t bias is independent of ties; from a≤1 the next value is >1, where the slope is 2t/3 and the fixed point is 1+t/(3−2t). With both sides at the midpoint the two affine residuals vanish at 1 with slopes 2 and 3. The symmetric Taylor bound and positivity give arbitrarily small discrepancies in the specified C² test norm. Independently enumerated all pointwise tie assignments for three exact-rational offsets (python3 /workspace/audit-work/independent_checks.py 2); this supplements the all-parameter inequalities. The frozen checker was inspected, not run.",
+      "residual_risks": [
+        "No claim at the generic moment equalities p=2 or p+q=3. The general fixed-point classification concerns strict branches; bias is measured against the consistent midpoint equation, not a continuum solution. Tests do not model finite-precision stopping behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall et al. explain the equivalence with matching rules and its loss with nonmatching rules. Their counterexample evidence is a two-dimensional numerical problem, not a uniform prescribed-small-perturbation theorem."
+        ],
+        "reasoning": "Exact Howard convergence for consistent evaluation does not guarantee convergence of a solve made with a different sampled forcing. The inaccessible exact-Howard full text is not evidence of absence; the decisive nonmatching comparison is directly supported by Hall et al.",
+        "searches": [
+          "Hall–Smears–Süli–Wells arXiv:2606.24806v1 §§2–3",
+          "Bokanowski–Maroso–Zidani DOI:10.1137/08073041X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 86–96",
+        "Hall et al. arXiv:2606.24806v1 §§2–3",
+        "Resultary indexed bf663838cf18",
+        "Corrected RESULT.md Finding and §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In (8) the same policy is sampled at distinct LHS and RHS nodes; it is a genuine algorithmic overlap. At the selected fixed HJB data the moment shifts have opposite net effects on the two policy roots; (9) instead uses the sampled nonlinear residual and contracts on its upper branch."
+        ],
+        "reasoning": "Specializing the algorithm is not itself new. A qualitative observation that quadrature may cause nonconvergence does not imply the opposite-signed moment shifts, persistence for every permitted offset, global orbit, or analytically specified biased contraction.",
+        "searches": [
+          "arXiv:2606.24806v1 (6)–(9), §3; corrected RESULT.md proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Written as a switched scalar map, both policy images are constants; the closest indexed one-node cycle is driven by Kirchhoff/Picard forcing, not a mismatch in evaluation and forcing quadratures. Hall et al. have exactly the two quadrature update conventions."
+        ],
+        "reasoning": "Translating to a switched map reveals the algebraic mechanism but does not identify a prior HJB realization with these fixed data and arbitrarily small quadrature changes.",
+        "searches": [
+          "Resultary: one-node finite-element two-cycles; bf663838cf18",
+          "arXiv:2606.24806v1 §2.3, equations (8)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 1 compares convergence histories for matching versus default quadratures on triangular meshes. The indexed Picard record uses a forcing threshold, not the pair of moments p and q."
+        ],
+        "reasoning": "Neither numerical histories nor the Picard threshold supply the exact two branches, cycle values, or residual fixed point for the all-offset one-hat family.",
+        "searches": [
+          "Hall–Smears–Süli–Wells arXiv:2606.24806v1 §3 Figure 1",
+          "Resultary: bf663838cf18"
+        ]
+      },
+      "rationale": "The surviving result is a fixed smooth-coefficient one-hat construction with arbitrarily small positive symmetric rule perturbations of the same affine exactness, exact global period two, exact residual-form bias and rate, and the strict moment criterion. Nonmatching quadrature, the two implementation forms, and qualitative nonconvergence versus slow convergence are already known and are not credited as new. Fixing the pointwise tie handling preserves the distinct result.",
+      "residual_risks": [
+        "The search and the exact-Howard access limitation do not establish universal historical priority. No originality claimed for the implementation split or qualitative divergence phenomenon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine qualitative and algorithmic prior coverage, not the repaired zero-tolerance one-hat result",
+          "evidence": "Equation (8) samples α_k at each of two sets of quadrature nodes. §3 reports failure versus only linear convergence with automatic quadrature in a two-dimensional experiment.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.24806v1",
+          "material_read": "§§2.1–2.3, equations (6)–(9), and §3 Figure 1 discussion (PDF text offsets 3700–19596)",
+          "method": "Lawful OA PDF and bounded passage inspection",
+          "title": "The Effect of Quadrature on the Convergence of Policy Iteration for Hamilton–Jacobi–Bellman Equations",
+          "trigger": "Same HJB algorithms and adverse quadrature phenomena"
+        },
+        {
+          "assessment": "Structural analogue, not the same equation or perturbation",
+          "evidence": "Cycle arises in a Kirchhoff/Picard problem above a forcing threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-forcing-threshold-for-picard-two-cycles-in-a-conforming--bf663838cf18",
+          "material_read": "Indexed finding and summary",
+          "method": "Configured Resultary semantic catalogue",
+          "title": "A sharp forcing threshold for Picard two-cycles in a conforming finite element method",
+          "trigger": "One-interior-node FE problem with a unique implicit solution and attracting two-cycle"
+        },
+        {
+          "assessment": "Residual literature access risk, not decisive",
+          "evidence": "Hall et al. directly distinguish matching and nonmatching evaluation (6)–(9), so no claim about the inaccessible paper's full scope is needed for the decision.",
+          "identifier_or_url": "https://doi.org/10.1137/08073041X",
+          "material_read": "Citation and stated scope in the frozen comparison; no independently accessed full text",
+          "method": "Lawful OA and identified public manuscript attempts; full-text access unavailable",
+          "title": "Some Convergence Results for Howard's Algorithm",
+          "trigger": "Could prove/exclude a general policy-iteration obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md, Finding, Proof §§2–4 and Limitations",
+        "Hall et al. arXiv:2606.24806v1 §3"
+      ],
+      "rationale": "The counterexample gives a concrete zero-tolerance boundary: fixed data, positive rules with identical affine exactness, a strongly monotone midpoint Bellman equation and arbitrarily small discrepancy do not ensure convergence across the policy tie. The exact amplitude, consistent residual floor and alternative biased contraction distinguish genuine cycle dynamics from numerical stagnation. This is worth retaining without a claim that it applies at strictly complementary solutions.",
+      "residual_risks": [
+        "One-dimensional exact-arithmetic counterexample dependent on a policy tie, not a universal failure of inexact policy iteration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

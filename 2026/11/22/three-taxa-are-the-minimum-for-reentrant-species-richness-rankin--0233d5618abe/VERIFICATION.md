@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3 standard library. The checker performs a coefficient-by-coefficient multiplication confirming the exact eleven-degree difference polynomial, rational sign bracketing of both interior zeros, strict signs at three explicitly rational values of \(e^{-v}\), numerical diagnostics of the plastic-constant expression, and 128,304 finite supplementary evaluations for positive integer two-taxon capture-rate quadruples. The proof of the general one-switch law is the sign/convexity argument in `RESULT.md`; the finite scan is not an exhaustive all-real-parameter certificate. The exact three-taxon root count follows from strict monotonicity of two factored polynomials, not from root-finding alone.
+## correctness
 
-The public Dryad record dates the relevant source material to 2024-08-27. The 2024-12-16 journal date is separately disclosed. The Kirtane field study does not calibrate the hypothetical positive rate vectors and cannot validate their real-world applicability. The mathematical statement is self-contained within the attached sources and checker; no external model fitting, independent audit, or field confirmation has been performed.
+PASS
+
+The marginal Poisson zero probabilities and linearity give the stated exponential difference, without requiring joint independence. The one-taxon sign is immediate. For two discordant taxa, divide Δ(v) by v and express it as the Laplace transform of 1_[b1,a1]−1_[a2,b2]. Nested intervals give one sign (or identity). Otherwise cancel their overlap: the two remaining intervals have opposite signs and are ordered. The ratio of the left to the right interval's Laplace masses is strictly increasing, by differentiating its log and comparing the two mean rates; thus any positive root is unique and transverse. Its existence is exactly opposite strict signs of the length difference at v=0 and of the leftmost surviving contribution at large v. Unequal minima give the latter sign; equal minima imply nesting. Equal total lengths give no interior zero. The concordant case is termwise. An independent exact check (python /workspace/branches/independent_frozen_checks.py 2) confirms the factorization for the six rates. Each of the two factors has one simple root in (0,1), and their roots are r and sqrt(r), so the signs and efforts follow. Simple crossings persist locally; compact subintervals away from the two roots retain their signs, and the positive total difference and separated smallest rate preserve the two tails uniformly for nearby rates. Appending identical rates cancels them exactly. No field validation or equal-total threshold is proved.
+
+## originality
+
+PASS
+
+Supported distinct claim: the minimum of three for two reversals at common nominal effort with unrestricted positive capture rates, together with the exact two-taxon criterion and the three-rate witness. Expected-richness formulas, multiple ecological crossings in general, and the underlying exponential-sign tools are not original here. The closest theorem imposes a normalization constraint on the exponentials and does not cover the witness or arbitrary rates.
+
+## value
+
+PASS
+
+The question arises when two methods have different total capture intensities but are compared at a common effort. The complete two-rate rule identifies when an endpoint reversal is possible, while the explicit robust three-rate example establishes where endpoint signs cease to determine the interior ranking. This is a sharp, interpretable boundary for the expectation model, not an empirical performance claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

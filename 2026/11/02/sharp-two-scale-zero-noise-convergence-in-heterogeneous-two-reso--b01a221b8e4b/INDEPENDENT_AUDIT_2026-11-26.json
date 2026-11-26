@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:19:24.739530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cost gap is x−t; the scalar logit residual grows at least linearly in t and has bounded integral term, giving one zero, with the same monotonicity for the hard-step residual. At t_0 the logistic-minus-step kernel has zero mass by oddness and first moment 2∫_0^∞ z/(1+e^z) dz=π²/6. Interior endpoint truncation is exponentially small, so the scalar residual at t_0 is O(σ²) and the shift is O(σ²); a uniform local expansion then gives −π²f′(t_0)/[6(1+f(t_0))]. After rescaling, the shift disappears relative to the logistic layer and the powers of the absolute difference have integrals 2 log 2 and 2 log 2−1; continuity supplies the factor ρ(t_0). The L² norm itself is of order σ^{1/2}, not σ. The interval between cutoffs gives the stated partition mass, which is o(σ²) if f′(t_0)=0. In the witness, the hard root solves 3t+t²/2=1. On a feasible rectangle based at p≡1/2 the cost-difference field has nonzero circulation, with antisymmetric cross-direction coefficient 3/64; this rules out an exact potential in the stated cost normalization, not a weighted potential. The residual is negative at −1/4 and positive at t_0 by pairing the logistic tails. At a cutoff 0<t<t_0<1/2, the positive noise derivative from x=t+z dominates its opposite at x=t−z because 2+x is increasing, with a positive unpaired interval to the right; for t≤0 it is directly positive. Implicit differentiation and the high-noise sigmoid limit give the strict all-noise decrease and endpoint −1/4. The frozen numerical script was inspected, not executed; the above arguments are uniform proofs in the specified regimes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuum paper treats non-potential positive-moment congestion and proves μ(B_i^σ△A_i)→0 for the deterministic induced partition; its conclusion names rates as future work.",
+          "The Resultary theorem allows nonlinear congestion in its two aggregate moments, but assumes uniform type, mass and the linear characteristic-weighted demand, and nonnegative partial derivatives of the gap in those moments."
+        ],
+        "reasoning": "The broad continuum theorem contains the model but not its rates. The quantitative theorem is broader in the congestion map and narrower in its moment kernels and type law; in particular B≥0 does not cover the possibility of a positive cutoff shift with f′(t_0)<0.",
+        "searches": [
+          "Dupont–Petit–Séguret arXiv:2610.18035, assumptions, Theorems 2.1–2.2, proof of 2.2 and Conclusion",
+          "Resultary 00dcb9499324, Finding and proof of logistic expansion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 00dcb9499324",
+        "arXiv:2610.18035, Theorems 2.1–2.2 and conclusion",
+        "Sommerfeld expansion reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof uses the moments of a logistic variable to expand uniform mass and linear weighted demand and propagates them through a scalar cutoff equation. The qualitative paper does not control the magnitude of that shift."
+        ],
+        "reasoning": "For the affine witness, the known cutoff shift directly yields its quadratic partition discrepancy since ρ=1. No credit is claimed for that implication, or for the standard smoothing method. The prior quantitative theorem does not control general f or weighted profile errors, and its local coefficients alone cannot determine all-scale monotonicity; the latter requires a separate sign argument across the full support.",
+        "searches": [
+          "Resultary 00dcb9499324, Proof §§2–3 and assumptions",
+          "Sommerfeld expansion notes, offsets 4200–5993",
+          "arXiv:2610.18035 Theorem 2.2 and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary 00dcb9499324, set M=∫p, E=∫xp, Δ=2M+E and the baseline threshold parameter to 1. Its θ=t_0, B=∂_EΔ=1, D=1+∂_MΔ+θ∂_EΔ=3+t_0. Its cutoff and L¹ coefficients therefore agree exactly on the frozen affine/uniform example."
+        ],
+        "reasoning": "This is genuine prior quantitative overlap, not just a similar observable. But a general density/weight profile does not reduce to those two moments under the same uniform type with intrinsic cost x. Transforming to uniform quantile changes intrinsic cost to the nonlinear quantile function and changes the local logistic layer.",
+        "searches": [
+          "continuum logit congestion games zero-noise quantitative convergence rate deterministic partition profile Sommerfeld expansion",
+          "Resultary: two-resource logit congestion sharp small noise solution arbitrary characteristic density heterogeneous weight logistic cutoff partition symmetric difference coefficient squared L2 profile global noise monotonic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially matched entry is 2026/10/25/SCOPE-opposite-quadratic-mass-and-demand-shifts-under-low-noise-conges--00dcb9499324.",
+          "The literature supplies the universal moment π²/6; catalogue hits on bounded Gibbs Lipschitz constants or logistic quantile numerical quadrature do not represent equilibrium noise asymptotics."
+        ],
+        "reasoning": "An exact constant lookup confirms the classical smoothing moment, not the coefficient after equilibrium feedback or the joint theorem. The catalogue result is the verified point of quantitative overlap; no exhaustive negative inference is made.",
+        "searches": [
+          "Resultary small-noise soft/hard/partition profile rate comparison",
+          "Sommerfeld expansion, classical logistic moments"
+        ]
+      },
+      "rationale": "The earlier uniform, two-moment Resultary theorem already covers the sharp cutoff and L¹ leading constants of the explicit affine example; even its cutoff expansion implies that example's hard-partition coefficient. The classical kernel moment and general qualitative equilibrium limits are likewise not new. The supported distinct content is the joint quantitative soft/hard profile theorem for arbitrary smooth positive type densities and weights (including f′ of either sign or zero), the squared-L² coefficient, and the all-noise monotonicity/endpoint result in the example. The latter does not follow from a local expansion.",
+      "residual_risks": [
+        "An equivalent general smooth-kernel small-noise result might be indexed under a different formulation. Static equilibrium asymptotics were compared, not a systematic review of logit dynamics.",
+        "The cutoff and L¹ asymptotics for the affine/uniform example are positively identified as prior overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cutoff and L¹ overlap on affine uniform subclass; not arbitrary density/kernels or all-noise monotonicity",
+          "evidence": [
+            "Only M and E under uniform measure appear in the logistic feedback. The assignment discrepancy is 2σ log 2+O(σ³) and the cutoff shift is −π² Bσ²/(6D)+O(σ⁴)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-opposite-quadratic-mass-and-demand-shifts-under-low-noise-conges--00dcb9499324",
+          "material_read": "Mirrored RESULT.md, offsets 0–9969, Finding, assumptions and proof; exact moment/scope passages rechecked",
+          "method": "Local Resultary mirror and exact substitution",
+          "title": "Opposite quadratic mass and demand shifts under low-noise congestion choice",
+          "trigger": "Sharp earlier rates for a nearly identical uniform model"
+        },
+        {
+          "assessment": "Framework and qualitative partition limit cover the model; no displayed sharp noise rates in these results",
+          "evidence": [
+            "Theorem 2.2 concludes convergence in symmetric difference for the induced deterministic partition; the conclusion proposes quantitative convergence rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18035",
+          "material_read": "PDF pp. 5–6 assumptions and Theorems 2.1–2.2, p. 19 proof, p. 25 conclusion",
+          "method": "OA PDF text, specialization to two positive linear moment costs",
+          "title": "Non-Potential Congestion Games with a Continuum of Players",
+          "trigger": "Motivating logit framework and quantitative gap"
+        },
+        {
+          "assessment": "Classical smoothing ingredient, not an equilibrium theorem",
+          "evidence": [
+            "The logistic density second moment is π²/3, yielding the classical coefficient π²/6."
+          ],
+          "identifier_or_url": "https://lampz.tugraz.at/~hadley/ss1/fermigas/sommerfeldtable/sommerfeld.php",
+          "material_read": "HTML offsets 4200–5993, second moment and expansion",
+          "method": "OA website text",
+          "title": "Sommerfeld expansion",
+          "trigger": "Possible classical analytic coverage of the smoothing coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The general weighted theorem quantifies a qualitative convergence gap: the residual diffusive choice layer is larger than the induced partition displacement, and the latter can lose its quadratic leading term. Both error measures are operationally distinct. Global strict cutoff decrease in the explicit non-exact-potential example connects the small-noise sign with the entire response, beyond the known local affine example asymptotic. No general monotonicity in the kernels or all-resource extension is assumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

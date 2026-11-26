@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:34.456159Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57 and VERIFICATION.md and ledrappier_verify.py as static evidence"
+      ],
+      "rationale": "An independent dual check is to impose the torus relation in F₂[X,Y]/(Xⁿ−1,Yⁿ−1): the coordinate functionals modulo the relation span F₂[t]/(gcd(tⁿ−1,(1+t)ⁿ−1)), by X=t and Y=1+t. The restriction rank is the dimension of the span of the images of tⁱ(1+t)ʲ for 0≤i<w, 0≤j<h. Before quotienting, each has degree at most w+h−2, and for each degree k from 0 through w+h−2 an admissible i+j=k supplies a monic polynomial of that degree. Triangular elimination gives the whole degree-<w+h−1 space. Reduction modulo the gcd has rank min(d_n,w+h−1), with no assumption about fitting inside one period. This also verifies the frozen proof's consecutive-coordinate rank mechanism. The locally legal rectangle has w+h−1 independent bits: specify its bottom row and right edge and generate subsequent rows from the rule, without wrapping. Rank-nullity now proves the image, fraction, fiber counts and criterion. Frobenius lifts the gcd and degree by 2^a. For odd m the roots of t^m−1 are simple; the maximal possible degree m−1 means that adding 1 takes each nonidentity m-th root to another m-th root. The group of m-th roots together with 0 is then stable under adding 1, and multiplying this relation by any member proves closure under all sums. It is a field of size m+1, which is a power of 2. Conversely those fields give all roots except 1, including the m=1 case. This verifies the iff independently of the binomial parity argument. Powers of two give the zero group; the density consequence follows by fitting the finite window into a sufficiently large Mersenne depth. All assertions use prescribed periods, not least periods.",
+      "replay": "python3 /workspace/review_checks/independent_checks.py 5 compares full n×n torus equation ranks with polynomial gcd degrees and appends coordinate observations for exact rank differences. Covers n=1…18 and 2,865 rectangles, including widths and heights beyond one period. The finite check does not prove the arithmetic or rank formulas for unbounded sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The algebraic fixed-point framework is broader than the square-period count and the mirror comparator gives the exact quotient of the finite torus relation ring. Salo proves qualitative density for broader systems and Kari–Moutot addresses periodicity of low-complexity configurations."
+        ],
+        "reasoning": "The quotient supplies the algebra for taking coordinate images, but the step from a quotient or a cardinality to ranks for a shape is to identify exactly the span associated to that shape. The broader dynamical statements do not determine the sharp finite-period depth or which odd parts maximize it.",
+        "searches": [
+          "Miles–Ward arXiv:1504.04973 §2 and Example 4.1",
+          "Resultary 7b06cdcad813, Proof §1",
+          "Salo arXiv:2504.11071 and arXiv:2603.16591",
+          "Kari–Moutot arXiv:1806.07107 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7b06cdcad813",
+        "arXiv:1504.04973 Example 4.1 and §2",
+        "arXiv:2504.11071",
+        "arXiv:2603.16591",
+        "arXiv:1806.07107"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof uses the quotient by (1+X+Y, X^m+1, Y^n+1) and its gcd presentation; on the square this yields exactly d_n and the two shift multipliers. The standard triangular generator-basis argument gives a consecutive-coordinate information set; the frozen proof identifies the rectangle with a consecutive seed window of length w+h−1."
+        ],
+        "reasoning": "The periodic dimension is already an immediate algebraic consequence and is not original. The rectangle profile is a short application once one establishes the non-counting step identifying the rectangle span; for instance the dual multipliers yield one monic polynomial of every degree 0…w+h−2 only by using the rectangle's degree geometry. Uniform fibers and proportions add no independent novelty. The all-odd-period converse requires determining when all but one root survive the second period constraint, which is not given by the Mersenne-only formula or the general quotient by itself.",
+        "searches": [
+          "7b06cdcad813 Proof §1 and Limitations",
+          "Miles–Ward Example 4.1",
+          "Cyclic code generator polynomial/information-set comparison with MacWilliams–Sloane"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7b06cdcad813 computes the dual action, kernel and maximal orbit for rectangular tori whose periods are powers of two times Mersenne numbers. Salo identifies the three-dot system as a cellular automaton spacetime."
+        ],
+        "reasoning": "The name rectangular in the first record describes the period lattice, not the observed window. Orbit size, global cardinality and rank of the projection to a locally legal window are different invariants. CA spacetime supplies the recurrence, but not the optimal window rank and arithmetic iff as stated.",
+        "searches": [
+          "Resultary three-dot rectangular/square period extension, local patterns, translation kernels",
+          "Miles–Ward arXiv:1504.04973 Example 4.1",
+          "Salo arXiv:2504.11071 §1.3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 4.1 attributes the exact Mersenne-square count to Lind and also reports trivial counts for subgroups of 2-power index; 7b06cdcad813 lists explicit cardinalities in its restricted-period family. None of those counts is a table of the ranks of restriction to rectangle sizes w,h."
+        ],
+        "reasoning": "A count table can determine the dimension of the full fixed group, but equal-dimensional subspaces need not have equal observation ranks. These exact counts are covered components, not evidence for the full profile or its converse arithmetic claim.",
+        "searches": [
+          "Resultary three-dot periodic counts and profiles (7b06cdcad813)",
+          "Miles–Ward Example 4.1, p. 15"
+        ]
+      },
+      "rationale": "Credit the standard dual periodic module and classical point counts, including the Mersenne count. The strongest same-day comparator proves a dual-module formula and orbit classification for restricted periods; its underlying quotient calculation is also applicable more generally. The supported contribution is the geometric rectangle restriction law for all square periods, via the contiguous seed window or dual total-degree span, and the converse arithmetic classification of the periods attaining the largest possible depth after scaling out the power of two. No inspected statement gives this pair of results or an already established rectangle-span theorem dominating it. The count and qualitative density are not credited as original.",
+      "residual_risks": [
+        "Lind's 1996 original (A zeta function for Zd-actions) was not compared at full-text theorem level; only the attribution and relevant claims in the accessible Miles–Ward successor and the mirror comparison were read. An earlier explicit degree-span or extension classification in coding or algebraic dynamics remains possible.",
+        "The rank law is close to the standard dual presentation. The distinction rests on the local window identification and the arithmetic converse, not the use of a cyclic code or the prior count in different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap in the module and counts, not the stated local-window profile or extremality iff",
+          "evidence": "The gcd presentation comes before specialization; the theorem assumes two Mersenne-form odd parts and computes the translation kernel and a maximal orbit. Its date does not establish priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-translation-kernels-and-maximal-orbits-in-rectangular-three-dot--7b06cdcad813/RESULT.md",
+          "material_read": "Finding, scope and Proof §1 (offset 0–3371), related work and limitations (8000–9743)",
+          "method": "Targeted local mirror passage reads",
+          "title": "Translation kernels and maximal orbits in rectangular three-dot shifts",
+          "trigger": "Strongest same-day exact Ledrappier torus match"
+        },
+        {
+          "assessment": "Count and module background covered, not evidence of the window-rank theorem",
+          "evidence": "Example 4.1 identifies the dual with F₂[t±¹,(t+1)±¹]; its Mersenne-square passage attributes the count to Lind. The extracted exponents flatten typographically, so no additional arithmetic inference was made from the extraction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.04973",
+          "material_read": "§2, p. 5 around offset 12500; Example 4.1 pp. 14–15 (offsets 43500–45835 and continuation)",
+          "method": "Targeted OA PDF passages",
+          "title": "The dynamical zeta function for commuting automorphisms of zero-dimensional groups",
+          "trigger": "Classical same-system periodic count and stronger counting framework"
+        },
+        {
+          "assessment": "Qualitative/dynamical conclusions, not sharp prescribed-period rectangle extension",
+          "evidence": "Dense periodic points in a broad class, three-dot spacetime representation, and a relation between dense totally periodic points and residual finiteness.",
+          "identifier_or_url": "arXiv:2504.11071; arXiv:2603.16591",
+          "material_read": "First abstract and §1.3.1 p. 6 (~16800); second Theorem 1 p. 2 (~5000)",
+          "method": "OA passage inspection",
+          "title": "Avoshifts, Unishifts and Nondeterministic Cellular Automata; Periodic points and residual finiteness of automorphism groups of subshifts",
+          "trigger": "Possible stronger extension/density theorem for the same system"
+        },
+        {
+          "assessment": "Different periodicity assertion",
+          "evidence": "Low-complexity configurations are periodic; it does not assign a finite-period image rank to windows.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.07107",
+          "material_read": "§2 p. 4 (~11800)",
+          "method": "OA passage inspection",
+          "title": "Nivat's Conjecture and Pattern Complexity in Algebraic Subshifts",
+          "trigger": "Pattern counts and periodicity in the Ledrappier system"
+        },
+        {
+          "assessment": "No negative coverage conclusion; generic information-set lemma not credited as new",
+          "evidence": "The constant coefficient 1 of the generator makes the first d coefficient columns of its successive shifts triangular with unit diagonal.",
+          "identifier_or_url": "MacWilliams–Sloane (1977)",
+          "material_read": "Bibliographic identification only; attempted Archive.org PDF/text unavailable within bounded retrieval",
+          "method": "Lawful OA attempt; lemma checked directly from the generator basis",
+          "title": "The Theory of Error-Correcting Codes",
+          "trigger": "Consecutive-coordinate information-set lemma for cyclic codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local-to-global question is natural for a classical spacetime shift: a fixed-point cardinality or qualitative density cannot tell which window sizes are guaranteed to extend at a specified period. The depth law provides exact surjectivity, obstruction fractions and multiplicities for arbitrary sizes; the Mersenne-odd-part iff identifies when that depth reaches the arithmetic upper bound. This is useful quantitative content distinct from the routine count, density and rank-nullity consequences taken alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

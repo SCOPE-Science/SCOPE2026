@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:10.898363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two reported bins intersect after reflecting B's bin through x↦1−x. The closure of a feasible interval has length at most w, including an isolated cut report (length zero) if the tie convention creates one. Therefore the mean utility X lies in [L,U] with U−L≤w. The extreme competing welfare ratios for the two possible choices are bounded by max(1,(1−L)/L) and max(1,U/(1−U)); zero denominators are handled by taking the other choice. Comparing them reduces to L+U≥1 for choosing A, and the selected candidate's mean is then at least (1−w)/2. Pairing a widest open cell with its reflected open cell gives one report profile whose compatible means approach (1−w)/2 and (1+w)/2; thus whichever deterministic winner is fixed, one endpoint sequence enforces the claimed supremum. This is a worst case over all finite n, not an equality claimed separately at every fixed n. At most 2t+1 cells are possible, so equality in w≥1/(2t+1) requires the full equally spaced partition. Each reflection pair must supply exactly one original threshold and this condition is sufficient, giving precisely 2^t choices and loss 1+1/t. The frozen exact-rational checker was inspected, not run; it checks only bounded cell profiles and the indicated finite optimizer selections.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 chooses geometric cuts with last threshold 1/(2m) and proves 2(2m)^(1/t), uniform in committee size; introductory single-winner bounds are order bounds in m.",
+          "The matching theorem concerns complete assignments; communication-based elicitation uses top alternatives plus buckets; runoff additionally elicits a second-round comparison."
+        ],
+        "reasoning": "The same-model upper bound specializes at m=2 to 2·4^(1/t), strictly above 1+1/t for each t≥1 and with no fixed-threshold width parameter. The other results change information or outcomes and do not dominate the claimed deterministic binary minimax problem.",
+        "searches": [
+          "arXiv:2610.13725, Theorem 3.6 and introduction (single-winner results)",
+          "arXiv:2401.09858, abstract and introduction",
+          "Efficient and Thrifty Voting by Any Means Necessary, §3.1 Theorem 1",
+          "The Distortion of Approval Voting with Runoff, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4 and accompanying checker",
+        "Local Resultary ranked exact-formulation searches",
+        "arXiv:2610.13725",
+        "arXiv:2401.09858",
+        "Thrifty voting primary PDF",
+        "Approval runoff primary PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.6 bounds virtual welfare using one-sided threshold interval endpoints and a discarded low-utility term; the proof applies to its designed geometric thresholds.",
+          "The binary result fixes arbitrary thresholds and needs the reflected bin intersections and a two-profile indistinguishability witness; the uniform 2t+1-cell equality forces the threshold-pair choices."
+        ],
+        "reasoning": "Neither plugging m=2 into an order guarantee nor applying a communication upper bound gives a simultaneous reflected-cell lower bound, an exact function of the maximum mesh width, or optimizer rigidity. No inspected stronger theorem mechanically provides these facts.",
+        "searches": [
+          "arXiv:2610.13725, pp. 10–11, Theorem 3.6 and proof; introduction single-winner discussion",
+          "Mandal et al., §3.1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest inspected literature match uses shared utility thresholds, unit-sum utilities, and permits single-winner additive welfare.",
+          "The related indexed two-option half-threshold stakeholder-lottery record eb11235bf9e7 studies selective consultation and extra rejection cost instead."
+        ],
+        "reasoning": "The binary model genuinely specializes the literature's threshold-approval model, but the stakeholder-lottery observation, feasible outcomes and loss do not reduce to this distortion. The exact formula is not asserted in the matched literature passages.",
+        "searches": [
+          "Resultary searches by title, fixed common thresholds with two unit-sum candidates, and symbolic distortion formula",
+          "arXiv:2610.13725, introduction, model, and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact-match indexed record surfaced in the ranked searches. The literal queries did not locate these expressions in the same-model paper; the inspected actual theorem states a different bound."
+        ],
+        "reasoning": "This is a continuum all-threshold formula and exact optimizer classification rather than a numerical table. The symbolic index and same-model theorem are material checks; keyword misses themselves are not proof of absence.",
+        "searches": [
+          "Resultary symbolic formula and fixed-threshold exact binary distortion searches",
+          "Literal formula, 1+1/t, 2^t and two candidates lookups in arXiv:2610.13725"
+        ]
+      },
+      "rationale": "The same shared-threshold elicitation model is present in prior work, but the inspected same-model general theorems and other located formulations do not determine the fixed-threshold binary minimax loss, its two-voter lower bound, or the exact finite threshold-design optimum with all optimizer sets. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "One broad web lookup retrieved unrelated results and is not evidence of absence.",
+        "Unlocated equivalences in binary elicitation or interval decision theory and unindexed prior formulations remain possible; the inspections do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model includes the specialization, but bounds are not its exact frontier",
+          "evidence": [
+            "For δ=(2m)^(1/t), Detδ has distortion at most 2(2m)^(1/t); the last threshold is 1/(2m)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13725",
+          "material_read": "Abstract and introduction (PDF pp. 1–2); §3.2 Theorem 3.6 and proof (PDF pp. 10–11; text offsets 36077–38275)",
+          "method": "Open-access PDF theorem and relevant passages",
+          "title": "The Distortion of Threshold Approval Multiwinner Voting",
+          "trigger": "Same common threshold and unit-sum model with single-winner case"
+        },
+        {
+          "assessment": "Complete matching is not one shared winner",
+          "evidence": [
+            "n agents are assigned n items, with deterministic order Θ(n^(1/t))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.09858",
+          "material_read": "Abstract and introduction (PDF pp. 1–2)",
+          "method": "Open-access PDF passages",
+          "title": "The Distortion of Threshold Approval Matching",
+          "trigger": "Closely related shared threshold model"
+        },
+        {
+          "assessment": "Different communication model and tradeoff",
+          "evidence": [
+            "Top-alternative elicitation and approximate-value buckets are used in the theorem."
+          ],
+          "identifier_or_url": "https://www.cs.toronto.edu/~nisarg/papers/thrifty.pdf",
+          "material_read": "Abstract and §3.1 Theorem 1 (PDF pp. 1 and 5)",
+          "method": "Open-access PDF passages",
+          "title": "Efficient and Thrifty Voting by Any Means Necessary",
+          "trigger": "Potential general elicitation theorem"
+        },
+        {
+          "assessment": "Second-round majority information is absent from the claim",
+          "evidence": [
+            "The first-round approvals are followed by a finalist selection and a second-round vote."
+          ],
+          "identifier_or_url": "https://www.cs.toronto.edu/~nisarg/papers/distortion-approval-runoff.pdf",
+          "material_read": "Abstract (PDF p. 1)",
+          "method": "Open-access PDF abstract for model comparison",
+          "title": "The Distortion of Approval Voting with Runoff",
+          "trigger": "Approval thresholds with a binary final choice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Binary choice is the basic common-winner case, and choosing a finite number of shared thresholds has a direct information-design purpose. The result supplies both a worst-case price for any prescribed thresholds and a sharp design prescription, including the exact penalty 1/t and all optimal choices. The two-voter witness explains why increasing the allowed population size is unnecessary for the minimax obstruction. These are precise quantities the general order bounds do not supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

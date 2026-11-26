@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:15.900060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–61; VERIFICATION.md and checker.py inspected, not executed",
+        "Schützenberger–McNaughton–Papert aperiodicity characterization; elementary finite-state Markov convergence",
+        "Replay: python3 /workspace/reviews/evidence/replay.py 3"
+      ],
+      "rationale": "In a 231/312-avoider the inversion graph is a union of cliques: any induced two-edge path on three positions would be 231 or 312. A clique containing positions i<j contains every intervening position, since an inversion from i to j forces at least one inversion with any intermediate position. These consecutive cliques are the decreasing layers, and the absence of cross-layer inversions determines the value order. Thus the n−1 bits are fair and independent. The terminal zero is correctly handled by the extra T0 in the matrix formula; the cut interpretation preserves first-order definability. Aperiodicity makes iteration of T0 stabilize at a fixed state within each closed class, so the finite chain converges and its stationary and absorption systems have rational solutions. In the pattern family, an overlap of length at most L is impossible by the final 1; for longer overlaps the shift is at most t+1 and the suffix includes the delimiter 1 among the first L characters, unlike the prefix. For a fixed start, conditioning on a designated marker there rules out all earlier overlapping hits; earlier disjoint hits depend solely on the prefix before it. This independently yields equal first-hit probabilities and justifies the replacement symmetry. Each marker ends in 1, so the terminal zero creates no extra hit. The k=floor((n−1)/N) independent blocks each hit one chosen marker with probability 2^−N; the case n−1<N is correctly covered. A pattern-at-x formula has N−1 nested existential position quantifiers and cut tests of rank two; least-start selection adds at most two, giving N+3. Disjunctions of O(b) patterns use polynomial written length, and endpoints a=0,b are valid. Bounded replay independently checked exact first-hit counts using the avoidance recurrence A_L=2A_(L−1)−b A_(L−N).",
+      "residual_risks": [
+        "The replay checks b in {1,2,3,4,5,7,8} and word lengths N through N+5 only; the universal result uses the proof, not extrapolation. No optimal complexity bound is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary studies respectively give a layered convergence law, density for small exponential permutation classes, regular-language encodings and limit existence, and general regular-language density/rationality results. The exact lower inclusion is independently present in the indexed layered record."
+        ],
+        "reasoning": "Density need not be attainment, and a convergence law alone need not identify its set of values. The direct exact indexed result, not a claim of exactness attributed to those broader papers, decides coverage.",
+        "searches": [
+          "Braunfeld–Kukla arXiv:2111.06307 Lemma 3.5 and Theorem 3.6",
+          "Falgas-Ravry et al. arXiv:2610.34328 Theorem 1.4",
+          "Markström–Räty arXiv:2610.22218v2 Theorem 1",
+          "Berthé–Goulet-Ouellet–Perrin DOI 10.4230/LIPIcs.ICALP.2025.143 Theorem 4.1 and Corollary 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e530b3eb3e8, a6bc6f17e360 and 2932dee3ccf2",
+        "arXiv:2111.06307, 2610.34328 and 2610.22218v2",
+        "DOI:10.4230/LIPIcs.ICALP.2025.143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof accepts any b distinct length-h payloads without 00, uses markers of length h+4, and has no-hit bound (1−b 2^−(h+4))^floor((n−1)/(h+4)). It uses a fixed list of occurrence formulas and a first-order least start."
+        ],
+        "reasoning": "Use payloads formed by concatenating 10 or 11 for t code bits. This gives b markers of length 2t+4. The same primitive successor and cut formulas yield rank at most 2t+7, and two disjunctions of b pattern formulas give polynomial length. This even dominates the frozen rate bound. The extra complexity annotations are mechanical, not a surviving separate theorem.",
+        "searches": [
+          "6e530b3eb3e8 Proof §§3–5, marker construction and quantitative first-hit bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 result is for uniform Av_n(231,312), with FO in the position and value orders. It states Q intersect [0,1] and the exact m/q multiple of the probability of a hit for each n. It checks the same definable cut interpretation."
+        ],
+        "reasoning": "These are identical objects and statistics, unlike Fibonacci-layered permutations or one-descent permutations. The language translation and rational probabilities are not a match based only on terminology.",
+        "searches": [
+          "Resultary: uniform layered permutations rational first-order spectrum, earliest nonoverlapping cut marker, and Fibonacci-class rational attainment",
+          "Resultary 6e530b3eb3e8 Finding and Proof §§1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed October 26 theorem specifies the entire exact spectrum, rather than a finite table. The distinct Fibonacci and one-descent records have different classes and are not exact substitutes."
+        ],
+        "reasoning": "No individual value match would decide equality of spectra; the full-set theorem does, and the two nearby same-date entries were kept as distinct comparisons.",
+        "searches": [
+          "Resultary: layered spectrum, Fibonacci-class rational attainment and exact one-descent FO spectrum",
+          "Local mirror 6e530b3eb3e8, a6bc6f17e360, 2932dee3ccf2"
+        ]
+      },
+      "rationale": "The October 26 indexed finding proves the same full rational spectrum for the same uniform layered class and logic, with the same exact finite-size first-marker identity and an exponential bound. Not only is its different marker family nonoverlapping, it mechanically gives at least as good size, convergence and rank bounds: with t=max(1,ceil(log2 b)), encode each t-bit label bit x as 1x. The length-2t payload then has no 00, so its 001-payload-1 marker has length 2t+4, one less than the frozen N. Its occurrence and least-start formulas give rank at most 2t+7 by the same direct quantifier count, and polynomial size. The alternative proof of rationality does not change the conclusion; the older entry even supplies effective evaluation from the sentence.",
+      "residual_risks": [
+        "An external targeted search did not return a usable result, which is not evidence of absence. The exact indexed overlap is established directly. No judgment about historical publication precedence or the relationship between the records is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent main claim and equal or stronger quantitative bounds by direct specialization",
+          "evidence": [
+            "Finding states exact spectrum and finite identity; §§3–5 give no-00 payloads, first-hit bijection, disjoint-block bound, and first-order realization."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-rational-first-order-probability-spectrum-of-uniform-layered--6e530b3eb3e8",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–5, offsets 0–8294 excluding the later relationship section",
+          "method": "Bounded local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; explicit specialization of the prior payload family",
+          "title": "The rational first-order probability spectrum of uniform layered permutations",
+          "trigger": "Exact class, distribution, language and spectrum match"
+        },
+        {
+          "assessment": "Convergence and interpretation; not exact attainment in the inspected statements",
+          "evidence": [
+            "Uniform interdefinability with convex linear orders and a first-order logical limit law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.06307",
+          "material_read": "PDF pp. 9–10, Lemma 3.5 and Theorem 3.6, offsets 22700–24720",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Logical limit laws for layered permutations and related structures",
+          "trigger": "Same natural model and FO limit law"
+        },
+        {
+          "assessment": "Density, not equality with all rationals",
+          "evidence": [
+            "The limiting-probability set is dense for the stated small exponentially growing permutation classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.34328",
+          "material_read": "PDF p. 6, Theorem 1.4 near offset 20375",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On first-order limiting probabilities for small permutation classes",
+          "trigger": "Broader statement about the limiting probability spectrum"
+        },
+        {
+          "assessment": "General language encoding and limit existence, not the full rational spectrum",
+          "evidence": [
+            "Regular encodings, rational generating functions for MSO restrictions, and convergence for FO."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22218v2",
+          "material_read": "PDF p. 5, Theorem 1 near offset 15144",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "First-order limits of small permutation classes",
+          "trigger": "Broader regular-language encoding and limit theorem"
+        },
+        {
+          "assessment": "Upper-side rationality context; does not state the layered spectrum claim",
+          "evidence": [
+            "General density/field-of-values results with rational Bernoulli measures as a special case."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.143",
+          "material_read": "Theorem 4.1, Corollary 5.1, extracted pp. 11 and 15, offsets 39038 and 55617",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Density of Rational Languages Under Shift Invariant Measures",
+          "trigger": "Relevant general density and rationality framework"
+        },
+        {
+          "assessment": "Different ensemble and lower inclusion, not an exact duplicate",
+          "evidence": [
+            "Uniform Av(231,312,321) is a proper subclass, with a different distribution on cut words."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-every-rational-occurs-as-a-first-order-limit-probability-in-the--a6bc6f17e360",
+          "material_read": "RESULT.md Finding, parameter class and finite-size identity",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "Every rational occurs as a first-order limit probability in the Fibonacci class",
+          "trigger": "Same-day nearby exact rational attainment using marker symmetry"
+        },
+        {
+          "assessment": "Different permutation class",
+          "evidence": [
+            "Uniform permutations with at most one descent are not the uniformly layered class."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-rational-first-order-probability-spectrum-of-one-descent-p--2932dee3ccf2",
+          "material_read": "RESULT.md Finding and class distinction",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "Exact rational first-order probability spectrum of one-descent permutations",
+          "trigger": "Same-day nearby probability spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; indexed record 6e530b3eb3e8, Finding and Proof §§3–5"
+      ],
+      "rationale": "Exact attainment instead of density and quantitative FO witnesses are worthwhile objectives. In this frozen claim the exact result and mechanism are covered, and the advertised length, rank and convergence bounds are already attained or improved by choosing a simple payload family in the existing construction. The differences are presentational rather than a motivated improvement or a new exact invariant. There is no distinct valuable remainder to repair.",
+      "residual_risks": [
+        "The verdict concerns this frozen contribution; no conclusion about optimal marker size or optimal first-order rank is intended."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a statement about every Frobenius action factoring through \(W(D_5)\), not an empirical statement about a finite list of fields. The blow-up intersection matrix independently recovers the folded-five-cube graph and the 40 induced four-cycles, all with anticanonical sum. An exact standard-library verifier reconstructs the full 1920-element group, its 18 conjugacy classes and all line/square actions, then checks signature injectivity in degree three and its failure in degree two. Nonstandard geometry and finite calculations are tied to executable source and a full 18-row CSV. The realization limits are expressly distinguished from the Weyl-action theorem.
+## correctness
 
-## Originality — PASS, qualified
-The Weyl geometry, the 16 lines, and the count 40 of square anticanonical sections are known in earlier literature. Full texts of the closest geometric and moduli references were inspected. A published finite-field del Pezzo trace classification considers a coarser invariant. The checked references and published-result searches did not yield the 18 joint spectra or the sharp three-extension inverse theorem; the conclusion is about a stronger arithmetic property, not a new enumeration of 40 divisors. An unindexed equivalent cycle-index or permutation-representation computation remains a concrete priority risk.
+PASS
 
-## Mathematical value — PASS
-The two canonical finite étale incidence schemes together retain exactly the complete arithmetic Weyl conjugacy class, whereas either separate zeta function loses information. The least uniform number of extension counts for the full Weyl group is three. This is a natural complete classification of a standard exceptional-curve configuration, useful when replacing a coarse Picard trace by geometric descent data; no broad application or new isogeny theorem is claimed.
+Reassessed the corrected theorem. With the conic class at zero, E_i at the five weight-four words u_i and H−E_i−E_j at u_i+u_j, the integral pairing agrees exactly with adjacency at binary distance four. A vertex and its five-neighbor permutation determine a graph automorphism, giving the even-affine W(D5) group. In any four-cycle the directions must repeat in opposite pairs because the only nonempty relation among distinct u_i is the sum of all five. This gives 10·4=40 squares. The sum D of the four components has D²=D·(−K)=(−K)²=4; the Hodge index theorem and the free blowup Picard lattice give D∼−K. Thus both finite Galois sets descend to finite étale schemes of the indicated degrees, also in characteristic two. Independent `python3 /workspace/reviews/reproduce_2_3_5.py` builds every square from the integral lattice, classifies all 1920 elements by signed cycle data (no splitting because an odd coordinate cycle allows adjustment of the conjugating translation to even parity), and matches all 18 class sizes, both spectra and six counts against the CSV. It gives 12 line spectra, 16 square spectra, 18 joint spectra, and 13,17,18 signatures at the three cutoffs. The unique degree-two collision is ((0,1),(4,1)); the 80-element class has square spectrum 1¹3¹6⁶ and third-degree pair (0,4), and the 160-element class has spectrum 1¹3⁵6⁴ and pair (0,16). The total finite étale zeta functions follow from the cycle factors. Neither the proof nor the repair asserts realization of all abstract types over a fixed field.
 
-## Closest literature and limits
-Bergvall–Gounelas (arXiv:1904.10249) gives Weyl-group and moduli geometry; Meroni–Ranestad–Sinn (arXiv:2209.01151, Proposition 3.3) gives the 40 geometric sections; Banwait–Fité–Loughran (arXiv:1606.00300) gives finite-field del Pezzo Frobenius traces. The present result neither claims the geometric ingredients new nor proves realization of every Frobenius type over each given field.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired classification is for the joint square/line arithmetic of a quartic del Pezzo, not the known configuration of forty geometric four-line sections or the already computed line-only spectrum count. The strongest verified broader classification uses a different output invariant (all Zariski chambers); the cubic-surface six-count version uses a different group and actions. Direct comparison did not establish coverage of the exact joint inverse statement; this is a bounded priority judgment.
+
+## value
+
+PASS
+
+The two low-degree schemes are defined by canonical geometry rather than selected after computing class separation. The exact sharp cutoff explains how combining genuinely insufficient individual zeta functions identifies the Weyl type, and identifies the precise two-degree obstruction. This is useful for replacing full incidence permutations with point counts and remains valuable with the corrected orbit-class size, without claiming new geometry of the 40 squares or field-by-field sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

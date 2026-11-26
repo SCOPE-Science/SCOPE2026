@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:02:38.342548Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the defined stationary occupancy Q_t, f(z)=e^(−αz)/2. A reset in (0,t] makes the terminal state conditionally independent of the initial one. Conditional covariance is therefore e^(−rt) times the covariance of the initial threshold and its free Gaussian evolution. Independent Poisson marking gives the bivariate-Poisson law, and total covariance adds the variance of the conditional mean, θ/8. For the Gaussian calculation, scale lengths by α and set G∼N(0,2u). Conditional on G=g, integration of f(z) times the shifted Laplace tail gives e^g/8 for g≤0 and 1/2−(3/8+g/4)e^(−g) for g≥0. Their normal average gives the claimed second integral, using E[e^(−G);G>0]=F(u)/2 and E[G e^(−G);G>0]=√(u/π)−uF(u). Exponential memorylessness above a threshold gives the first integral (1+F(u))/(4α). Strict decay follows by comparing Gaussian threshold probabilities for starting positions on opposite sides of the threshold; the large-lag expansion gives the stated prefactor. At zero lag the two variances are θ/2 and 3θ/8. Given almost every anchor configuration the stationary conditional path process is ergodic (finite-cylinder mixing and approximation), and Q_t has finite conditional mean. The ergodic theorem yields the anchor sum; its Poisson Laplace functional gives all cumulants and the first-anchor decomposition gives the Dickman identity. Independent nested Gaussian quadrature at D=r=ρ=1 produced conditional covariances 0.22294816322803, 0.038545082450942 and 0.00075536467487785 at u=0.2,1.5,5, agreeing with the formula; the frozen script was inspected, not run. Scope clarification: since the displacement starts stationary, Q₀ need not be zero; the occupancy-balance current since that stationary time origin would instead be Q_t−Q₀. The proof establishes the finding for the explicitly defined occupancy only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Brownian-rate mixture proof explicitly computes the fixed-rate building block and the total covariance with rate marks.",
+          "Dean et al. give general two-time effusion and Poisson-marking formulas, with Gaussian examples.",
+          "The run-and-tumble record shares the reset and anchor mechanisms but has different motion and only analogous formulas."
+        ],
+        "reasoning": "The rate-disorder proof directly covers the entire fixed-rate lag kernel without requiring that a point mass satisfy the density assumptions of its asymptotic theorem. The general effusion theorem alone does not evaluate this kernel, and an analogous run-and-tumble transform does not give it.",
+        "searches": [
+          "Rate-disorder Resultary mirror, model and Proof steps 1–4",
+          "Dean–Majumdar–Schehr, arXiv:2303.08961, two-time framework",
+          "Resultary stationary run-and-tumble reset current mirror"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary semantic search and two relevant mirrors",
+        "arXiv:2302.06696, 2303.08961, 1706.08192 and 2404.13988"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rate-disorder proof identifies the random conditional mean as the anchor sum and the time-average variance excess as the integrated conditional covariance. At fixed rate the exact kernel is integrable.",
+          "The known fixed point is W distributed as U^(1/θ)(1+W′)."
+        ],
+        "reasoning": "At fixed rate the mean square deviation of the time average from the anchor mean is O(1/T) by the covariance integral. Along T=n² this gives almost-sure convergence by Chebyshev and Borel–Cantelli, which extends to all T by nonnegativity of occupancy and (n+1)²/n²→1. The resulting mean is the Poisson sum of e^(−αz)/2; exponential spacing supplies exactly the standard Dickman fixed point after doubling. The joint law is the known marking formula with the already matched coefficient.",
+        "searches": [
+          "Rate-disorder Resultary mirror, Proof steps 1–4 on conditional mean and time-average variance",
+          "Bhattacharjee–Goldstein, Dickman characterization p. 1",
+          "Dean–Majumdar–Schehr, bivariate-Poisson derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror gives fixed-rate spatial integral F_m(√(2rt))/(4κ), where κ=√(r/D) and F_m(x)=(3−x²)Φ(−x)+xφ(x)."
+        ],
+        "reasoning": "At u=rt, Φ(−√(2u))=erfc(√u)/2 and √(2u)φ(√(2u))=√(u/π)e^(−u); hence F_m(√(2u))=e^(−u)h(u)/2. Multiplication by ρ gives exactly C_qu. The mirror's conditional-mean variance specializes to θ/8, giving exactly C_an.",
+        "searches": [
+          "Resultary: stationary Brownian resetting, frozen Poisson anchors, two-time current covariance and Dickman time average",
+          "Rate disorder transition in stationary Brownian reset current fluctuations, mirror Proof steps 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed rate-disorder record matches the exact functional coefficient, not just special lags.",
+          "The one-time Poisson stationary limit and the Dickman fixed point separately appear in earlier work."
+        ],
+        "reasoning": "A table of simulation values would not cover an all-lag identity. Here the match is a formula on the entire time domain. The Dickman fixed point is not itself evidence of a published Brownian time-average theorem.",
+        "searches": [
+          "Rate-disorder Resultary mirror, offsets 3300–5806",
+          "Di Bello et al., arXiv:2302.06696, stationary one-time law",
+          "Bhattacharjee–Goldstein, arXiv:1706.08192, p. 1"
+        ]
+      },
+      "rationale": "The frozen all-lag covariance and plateau have exact existing coverage in the fixed-rate calculation of the rate-disorder Resultary theorem. Its formulas also furnish a short direct implication for the almost-sure time average, with the Dickman identification supplied by the standard Poisson functional. The other record does not explicitly state that distributional identification, and its later catalogue date does not establish historical priority. No claim of an earlier Dickman statement for this gas is made.",
+      "residual_risks": [
+        "The later matching catalogue record does not establish historical priority or derivation between records.",
+        "No exact older statement of this physical-time Dickman law was identified in the bounded passage checks; this is not an exhaustive literature result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of the lag kernel; variance argument directly supports the fixed-rate time-average limit. Later catalogue date, no priority conclusion.",
+          "evidence": "Fixed-rate F_m expression, conditional mean sum, total covariance and variance identity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-rate-disorder-transition-in-stationary-brownian-reset-current-fl--211aa471cfd1/RESULT.md",
+          "material_read": "Finding and proof within offsets 0–7222, especially offsets 3300–5806",
+          "method": "Bounded local publication mirror reads",
+          "title": "Rate disorder transition in stationary Brownian reset current fluctuations",
+          "trigger": "Same Brownian dynamics at fixed reset rate and stationary covariance"
+        },
+        {
+          "assessment": "Analogy across different dynamics; reference to an unspecified Brownian formula does not establish priority.",
+          "evidence": "Stationary independent run-and-tumble resetting gives an analogous covariance transform and plateau, not a Dickman law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-two-time-current-covariance-and-ballistic-memory-in-a-rese--02d1060b6894/RESULT.md",
+          "material_read": "Finding, proof and relationship passages within offsets 0–10396",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-time current covariance and ballistic memory in a resetting run-and-tumble gas",
+          "trigger": "Same anchored setting and two-time observables"
+        },
+        {
+          "assessment": "Covers stationary one-time baseline, not a computation of the stationary lag covariance in the read passages.",
+          "evidence": "Particles reset to their starting locations; the long-time annealed one-time law is Poisson.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06696",
+          "material_read": "PDF p. 6 around offset 26319, resetting Brownian model around offset 44130",
+          "method": "OA passage inspection",
+          "title": "Current fluctuations in stochastically resetting particle systems",
+          "trigger": "Same independent resetting model and stationary single-time limit"
+        },
+        {
+          "assessment": "Structural coverage only; no evaluated Brownian-resetting kernel in the inspected treatment.",
+          "evidence": "General annealed bivariate Poisson law and quenched versus annealed covariance identities.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.08961",
+          "material_read": "Two-time formulas and definitions, PDF offsets 13594–17200",
+          "method": "OA passage inspection",
+          "title": "Effusion of stochastic processes on a line",
+          "trigger": "General two-time formalism could subsume the bivariate law"
+        },
+        {
+          "assessment": "Standard distribution and fixed point, not Brownian resetting.",
+          "evidence": "The defining distributional equality with independent uniform multiplier U^(1/θ).",
+          "identifier_or_url": "https://arxiv.org/abs/1706.08192",
+          "material_read": "PDF p. 1, offset around 336",
+          "method": "OA passage inspection",
+          "title": "Dickman approximation in simulation, summations and perpetuities",
+          "trigger": "Exact law of proposed time-average limit"
+        },
+        {
+          "assessment": "Only the inspected summary was compared; its finite-box setting is different.",
+          "evidence": "The abstract concerns finite-size passive and active effusion, not stationary independent resetting to Poisson anchors.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.13988",
+          "material_read": "PDF abstract, p. 1 offset 0",
+          "method": "OA passage inspection",
+          "title": "Current fluctuations in finite-sized one-dimensional non-interacting passive and active systems",
+          "trigger": "Other two-time effusion and fluctuation calculations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-time kernel gives a quantitative separation of dynamical correlation from static anchor variance. The time-average law interprets the surviving frozen disorder despite a simple Poisson marginal. Those are informative structural and physical statistics, not value assigned to the already known one-time law or to a bare special-function substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

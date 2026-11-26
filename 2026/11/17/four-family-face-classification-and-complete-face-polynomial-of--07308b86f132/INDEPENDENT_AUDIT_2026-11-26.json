@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:26:15.848147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root differences within each part, together with r_11, span the full (p+q−1)-dimensional zero-sum space; singleton signed rectangles expose every generator as a vertex. For potentials h,g the opposite-orientation maxima are max h−min g and max g−min h. A strict winner exposes just its extremal rectangle. In a positive tie, the two potential ranges share a midpoint; both nonzero widths give two rectangles with disjoint support, and exactly one zero width gives the corresponding constant-part case. Assigning the proposed extremal values realizes all listed data; projecting the two signed rectangles back to the parts recovers their labels, so the classification is disjoint. For Type II the internal direction spaces are disjoint and the sum over S_+ distinguishes the components, giving the independent join direction. In Types III–IV the two components share the constant part's zero-sum direction space, have independent direction spaces on the split part, and the sum over the first part distinguishes forward from reverse vertices. This gives the dimension shifts in the four generating terms and containment of signed vertex sets gives all incidences. The coefficient of t is 2[p binom(q,2)+q binom(p,2)]+4 binom(p,2)binom(q,2)=pq(pq−1). The top coefficient is 2+(2^q−2)+(2^p−2). At rank two Type I gives the listed simplex products, Type II is a point joined to an edge, and the constant-part cases contribute quadrilaterals only for a part of size two. In particular (2,2) gives the face vector (8,12,6), with all six two-faces quadrilateral. The nested verification/verify_bipartite_faces.py was located and inspected, not executed; it uses numerical supporting hyperplanes and ranks and checks integer counts at eight finite pairs. The all-parameter judgment is based on the exact support and dimension proof, not those numerical tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 describes connected face subgraphs via maximal bipartite subgraphs in induced graphs; the paper notes that passing from facets to subgraphs is not injective.",
+          "The complete-bipartite facet predecessor gives facet potentials and their count. The OA attempt for the newer decomposability paper timed out, so its cited triangular-face criterion was not independently read."
+        ],
+        "reasoning": "Connected unsigned subgraphs do not encode the relative signs, nor do they cover the two-component mixed rectangles. A facet-only formula gives the highest proper rank; an Ehrhart h* polynomial gives lattice-point information, not ordinary face ranks.",
+        "searches": [
+          "arXiv:2107.12315, Theorem 3",
+          "arXiv:1807.07678, Proposition 3.4 and Example 3.6",
+          "arXiv:2608.02445 triangular-face and decomposability comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Verification, VERIFICATION.md, verification/verify_bipartite_faces.py",
+        "arXiv:1807.07678",
+        "arXiv:2107.12315",
+        "EJC v29i3p24 (snippet only)",
+        "arXiv:2608.02445 (attempted)",
+        "Resultary 3feaadaf9c02, 32cb6c9025f6, eea1883022b3 and self-match 07308b86f132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact facet vertex lists determine the lattice in principle by intersections; the facet counts alone do not. Turning intersections into a disjoint formula requires analyzing extreme-set compatibility for both signs, recovering labels, and calculating the rank changes when a part is constant.",
+          "Type II is not a facet and may have two components; using only the connected subgraph criterion misses it. Constant-part and split-part faces have different dimension rules even though both use two rectangles."
+        ],
+        "reasoning": "An existing all-rank structural theorem specialized with no new classification would count as coverage. Here generic facet intersection is an enumeration algorithm, not a direct implication of the four-family formula or its intermediate coefficients without further mathematical work.",
+        "searches": [
+          "arXiv:1807.07678 Proposition 3.4 and Example 3.6",
+          "arXiv:2107.12315 Theorem 3",
+          "Resultary adjacent complete-bipartite records 3feaadaf9c02 and 32cb6c9025f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polar in potential space modulo constants satisfies |h_i−g_j|≤1 on all cross edges; the primal is the hull of the product-of-simplices forward base and its reflected base.",
+          "Example 3.6 gives product-of-simplices pieces in the facets. The located EJC snippet connects symmetric edge polytopes and Kantorovich–Rubinstein cuts; no exact K_{p,q} all-rank text was recovered there.",
+          "The distinct book-graph record eea1883022b3 counts norming faces of a different graph family and is a methodological analogue."
+        ],
+        "reasoning": "An equivalent dual all-rank face count would cover the claim. A polar identification or prismatoid description is not such a count: one must classify compatible signed support pairs and the shared direction spaces. The inspected statements do not do that at all ranks for these graphs.",
+        "searches": [
+          "Resultary: K_{p,q} symmetric edge polytope face polynomial, graph Lipschitz / Kantorovich–Rubinstein faces",
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes",
+          "arXiv:1807.07678 Example 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-rank hit 07308b86f132 is the assigned record itself. Distinct near-hit 3feaadaf9c02 concerns the one-skeleton; 32cb6c9025f6 concerns facet-area geometry for K_{2,q}.",
+          "The primary complete-bipartite facet count and the finite numeric examples are not an earlier table of all signed faces or all parameterized face vectors."
+        ],
+        "reasoning": "The known rank-one and facet data are overlap and are not claimed as original. Neither a fixed small face vector nor a one-skeleton or facet-area table gives the intermediate rank counts for arbitrary p,q.",
+        "searches": [
+          "Resultary: complete bipartite symmetric edge polytopes, face vectors and complete lattices",
+          "arXiv:1807.07678 complete-bipartite examples"
+        ]
+      },
+      "rationale": "Existing facet potentials, connected face-subgraph criteria, edge counts, and Ehrhart invariants substantially overlap the setup and some ranks. Pass applies to the disjoint signed-vertex classification, dimensional enumeration and closed all-rank polynomial, not to those inputs or special counts. The comparisons support that distinction without settling historical priority.",
+      "residual_risks": [
+        "A prior formula may be indexed under dual Lipschitz polytopes or centrally symmetric prismatoids rather than under this graph family.",
+        "The 2026 decomposability paper and the full Many Faces text were not retrieved; access failures are not negative priority evidence.",
+        "Adjacent Resultary comparisons are based on the returned scope of their summaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in facet potentials, counts, and facet geometry; no all-rank classification in those passages",
+          "evidence": "Complete-bipartite facets are described by the relevant potentials; a facet is described using two simplex-product pieces or a simplex product in a special case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Proposition 3.4 p. 6 (offset 23600), Example 3.6 p. 7 (offset 28000)",
+          "method": "Lawful OA PDF passage reads",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Same polytope, exact facets, product-of-simplices description"
+        },
+        {
+          "assessment": "Material general criterion for connected subgraphs, not a signed all-rank vertex enumeration",
+          "evidence": "Connected face subgraphs are maximal bipartite subgraphs in the induced graph; the facet-to-subgraph map loses information.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.12315",
+          "material_read": "Theorem 3 p. 5 (offset 18450), overview p. 2 (offsets 5773–5862)",
+          "method": "Lawful OA PDF passage reads",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General face-subgraph theorem potentially covering the classification"
+        },
+        {
+          "assessment": "Partial positive duality overlap; not a whole-paper comparison",
+          "evidence": "The located description connects adjacency polytopes to coordinate cuts of Kantorovich–Rubinstein polytopes.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v29i3p24",
+          "material_read": "Search snippet identifying the Theorem 6 adjacency/Kantorovich–Rubinstein connection; body not retrieved",
+          "method": "Literature search and bounded lawful OA attempt, timed out",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Duality and potential overlapping face-vector formulas"
+        },
+        {
+          "assessment": "Credit cited low-rank precedent provisionally; exact independent implication not assessed from unavailable text",
+          "evidence": "The frozen claim identifies a prior triangular-face criterion rather than claiming novelty for that criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02445",
+          "material_read": "Frozen citation and description only; OA full-text attempt timed out",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Minkowski decomposability of symmetric edge polytopes",
+          "trigger": "Cited general triangular-face criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification for a natural two-parameter graph family, not an arbitrary small-rank sample. Recovering actual signed vertex sets supplies incidences and distinguishes faces with the same dimension. The polynomial gives a direct alternative to reconstructing and deduplicating all facet intersections for each graph; the same rank analysis accounts for the exceptional quadrilateral contributions when one part has size two.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

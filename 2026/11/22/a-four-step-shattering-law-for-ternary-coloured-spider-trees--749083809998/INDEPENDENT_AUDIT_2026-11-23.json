@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:54:53.373832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two distinct equality queries at one vertex cannot both be positive, so a shattered set has at most one mark per vertex. For a fixed trace on a processed arm suffix the feasible terminal colour set M determines all predecessor choices: a singleton excludes its own colour; otherwise every predecessor colour can differ from some member. The two answers at a marked new vertex intersect those choices with the target singleton or its complement. Taking all masks for all traces, merging equal masks and rejecting any empty mask is exact; any existing impossible trace prevents global shattering. The empty-arm {7} sentinel lets the leaf take any colour. At the actual hub every triple of arm masks is attainable by independent choices of answer strings. A common hub colour, or separate permitted common colours for positive and negative hub answers, is both necessary and sufficient, since arms do not share any other vertices. Thus maximizing separately over weights of the three signatures does not lose information. The independently computed 20 states at length four match the table including its successor columns and all twenty D8-D4 differences of 3. Closure and the equality of whole weight vectors with one constant offset propagate to every later length by the max-plus identity, not by extrapolation. An unqueried vertex costs zero, a mark costs one. Balanced m=1 through 7 gives 4,6,8,10,13,15,17; the four residue classes starting at 4 through 7 then increase by 9 when all arms grow by four, proving the stated ceiling formula for every m>=1. The proof concerns static queries and three colours, not Littlestone dimension or higher-degree trees.",
+      "replay": "python3 /workspace/branches/788a00c6-acad-4baf-9a7e-69de7183db96/independent_check.py; regenerated weights and all successors, equal-arm values through 12, and checked all 58,624 marked sets on the seven sorted spiders with at most six arm edges against subsets of actual proper colourings. The frozen text and supplied certificate were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed path result covers max-degree-two graphs: n-floor(n/4) at three colours. Blanca et al. study recovering an unknown graph from samples of H-colourings, not equality-query shattering on one known graph. Walker concerns abstract VC and tree dimension."
+        ],
+        "reasoning": "Paths, cycles and double stars surfaced in the search, but none of their stated ranges includes arbitrary three positive spider arms. The hub may simultaneously be forbidden all three colours by an answer pattern whose restrictions to the arms are individually feasible.",
+        "searches": [
+          "Resultary: proper 3-colourings vertex colour equality VC dimension shattering three-arm spider trees period four equal arm formula",
+          "arXiv:1708.05118",
+          "arXiv:2203.12211"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.05118 (abstract)",
+        "Resultary path threshold, branching obstruction, and ternary cycle support classification (indexed summaries)",
+        "arXiv:2203.12211 (bibliographic comparison; full-text lookup not completed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path theorem supplies optima with no shared hub; it does not specify which terminal masks are achieved by optimum markings and therefore does not yield either an upper bound matching the four-step shift or a compatible construction at the hub. The (3,2,1) marked obstruction alone gives no attained value at all subdivisions."
+        ],
+        "reasoning": "The result's equality uses a stronger invariant than the scalar dimension, with all terminal signatures weighted simultaneously. Existing scalar path optima and one local forbidden configuration do not provide that invariant in their stated conclusions.",
+        "searches": [
+          "Resultary path-colouring threshold and branching-obstruction mathematical summaries",
+          "Blanca et al., arXiv:1708.05118 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a one-hot marked support, each bit string prescribes a list colouring with lists of sizes 1 or 2 at marked vertices and the full palette elsewhere. A shattered support means that all such list choices extend, not just that one list-colouring problem is solvable."
+        ],
+        "reasoning": "Tree list propagation checks one trace. Optimizing a common marking robust to all traces requires carrying the whole set of masks, and the periodic weight-vector statement is about that optimization, not routine list-colouring feasibility.",
+        "searches": [
+          "proper 3 coloring VC dimension vertex colour equality queries spider tree star forest shattering four-step period",
+          "Resultary: proper 3-colourings vertex colour equality VC dimension shattering three-arm spider trees period four equal arm formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record appeared along with the earlier branching-obstruction result (2026/10/26, 6dd09fced05e): among trees on at most seven vertices it singles out the (3,2,1) spider and reports VC dimension five there. No claim of novelty is made for that overlapping entry."
+        ],
+        "reasoning": "An exact small-tree entry or known persistent marked obstruction does not yield the entire D4 and D8 signature arrays, the exact growth at arbitrary lengths, or the balanced formula. The older small cases are expressly credited.",
+        "searches": [
+          "Resultary: proper 3-colourings vertex colour equality VC dimension shattering three-arm spider trees period four equal arm formula"
+        ]
+      },
+      "rationale": "Best of checked knowledge, the three-arm gluing law and twenty-state all-triple computation are not covered by the closest prior path theorem or bounded branching obstruction. The ordinary list-colouring feasibility algorithm for a fixed trace is not itself novel.",
+      "residual_risks": [
+        "The closest indexed path and branching records were not independently inspected in full; possible more general formulations are not ruled out.",
+        "List-colouring and robust constraint-satisfaction terminology could conceal an equivalent prior optimization theorem; web results for spider shattering were not useful evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different task: reconstruct an unknown graph from sampled colourings; not evidence for or against all-term coverage elsewhere in the paper",
+          "evidence": [
+            "Abstract asks how many uniform H-colouring samples suffice to learn the edges of G."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.05118",
+          "material_read": "Open PDF abstract and problem statement in abstract",
+          "method": "Compared what is observed, what is unknown and the claimed estimand",
+          "title": "Structure Learning of H-colorings",
+          "trigger": "Prior work connecting proper graph colourings with learning"
+        },
+        {
+          "assessment": "Overlap for that finite case; the stated results do not determine exact subdivisions",
+          "evidence": [
+            "The summary specifies the at-most-seven-vertex classification and gives V(3,2,1)=5, with one marked obstruction inherited by larger trees."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-the-first-branching-obstruction-to-three-colouring-shattering-on--6dd09fced05e",
+          "material_read": "Indexed theorem summary only; full text was not available in the local comparison",
+          "method": "Compared bounded classification, inherited obstruction and exact (3,2,1) value",
+          "title": "The first branching obstruction to three-colouring shattering on trees",
+          "trigger": "Exact same queries and a specific spider"
+        },
+        {
+          "assessment": "Path values are prior; the stated result does not cover gluing at degree three",
+          "evidence": [
+            "At q=3 the path VC dimension is n-floor(n/4); the summary treats colour palettes and online depth but does not assert a rooted arm signature formula."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-a-sharp-three-colour-palette-threshold-for-vc-and-online-shatter--5ed55547f077",
+          "material_read": "Indexed theorem summary only",
+          "method": "Compared max-degree-two scalar theorem to robust joint hub feasibility",
+          "title": "A sharp three-colour palette threshold for VC and online shattering of path colourings",
+          "trigger": "Same test model and path arms in isolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A three-arm spider is the first branching subdivision family beyond paths. Its shared hub obstructs naïve addition of three independent path optima. The exact finite-state rule covers every positive triple rather than a short list of examples: each arm has a uniform four-step law, and the balanced family has an explicit dimension at every length. These results quantify a structural shattering deficit in a natural family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

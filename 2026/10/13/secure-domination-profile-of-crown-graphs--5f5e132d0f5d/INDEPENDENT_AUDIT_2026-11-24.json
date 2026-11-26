@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:43.753754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the defender exchange proof for ordinary domination (closed neighborhoods). Both predicates guarantee initial domination: each vertex outside a shore's selection has an adjacent selected opposite-side vertex, including in the unique-defender case. In line 42 the p=0 swap argument uses initial domination, which forces the entire B shore selected if p=0; thus b_i really is still selected after exchanging b_j for a_i with j≠i. With p≥1 the exchange leaves at least two selected vertices in A, so in either case the B side is safe. On A, after losing a defender, q≥3 leaves at least two selected in B; for q=2, a 00 attack needs a retained defender from a 11 pair, while a 01 attack can retain its own matched B vertex. When q=1 and an A vertex is outside, it must be the sole such vertex and adjacent to the defender, exactly (a,c,d)=(1,0,1); q=0 requires no outside A vertex. Reflecting gives the other predicate. Multinomial counting is valid by labeled pair assignments. At n≥5 and size at most four neither shore can be full, and one selected vertex on a shore would force n−1 on the other; therefore both occupancies must be two and d≥1. The two stated profiles then give the stated minimum-set count. A fresh adjacency-mask replay at /workspace/branches/audit_crown.py checked the predicate and every bivariate coefficient for each n=3,…,8; minimum size and count outputs were (3,14), (4,62), (4,70), (4,135), (4,231), (4,364). Exhaustion on this range checks the implementation and small boundaries, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete multipartite polynomial treats ordinary secure domination, but a bipartite crown with a missing matching is not complete multipartite.",
+          "The secure-total crown classification rules out balanced occupancy (2,2) for all n≥3. The ordinary criterion allows that occupancy with a selected matched pair. Conversely the restrained crown predicate can admit single matching pairs as size-two sets, which are not ordinary secure dominating; restraint also rejects an entire shore, which is ordinary secure dominating."
+        ],
+        "reasoning": "A stronger predicate on the same graph does not enumerate the extra ordinary secure sets; unrestricted complete multipartite shore arguments also lose the defining index obstructions.",
+        "searches": [
+          "Resultary records 0ae94d81bd3c, 23a9be9d61aa and 0a4afac9ec94"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1080/09720529.2014.1001590 (access-limited)",
+        "DOI 10.62072/acm.2026.09025",
+        "Resultary 0ae94d81bd3c",
+        "Resultary 0a4afac9ec94",
+        "Resultary 23a9be9d61aa",
+        "Resultary 148df7e17e18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On crowns the secure-total rule tests ordinary exchange plus domination of all selected vertices after replacement; that extra demand suppresses the one-remaining-defender cases where the 01/11 information is decisive.",
+          "The prism result's identical size-four family for n≥5 accounts for that coefficient only, not the four-state equivalence. No statement in the independently inspected open sources establishes the latter for ordinary secure domination."
+        ],
+        "reasoning": "Prior overlap is substantial at the level of the object, polynomial methodology, and one coefficient. The retained conclusion distinguishes 00, 01, and 11 states in marginal occupancies and does not follow from any of the inspected analogue statements.",
+        "searches": [
+          "DOI 10.1080/09720529.2014.1001590 and publisher article routes",
+          "Resultary records 0a4afac9ec94 and 148df7e17e18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete prism K_n □ K₂ is the complement of a crown graph; the prism result uses secure connected rather than ordinary secure domination. Its classification gives exactly the same balanced size-four sets with a selected matched pair, explaining the equal minimum-set count for n≥5. It does not produce the whole crown classification: two disjoint triples of selected indices on the two shores are crown secure when n≥6 but fail the prism overlap/connectedness condition.",
+          "The ordinary secure-domination polynomial of paths is for a different graph family; the 2026 connected-secure polynomial article names paths, cycles, complete graphs, stars and coronas."
+        ],
+        "reasoning": "Compared the graph both as a matching deletion and by complementation, and distinguished replacement predicates. An ordinary cardinality specialization is weaker than the joint side-size profile.",
+        "searches": [
+          "Resultary: ordinary secure domination and secure-domination polynomial on crown graphs and K_{n,n} minus a matching",
+          "Public: crown graph, secure domination, secure dominating sets, polynomial, Pushpam Suseendran, K_{n,n} minus matching",
+          "Resultary record 148df7e17e18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact polynomials exist in the local entries for complete multipartite secure, crown secure-total, crown restrained, and complete-prism secure-connected domination. None of their inspected Findings gives the full ordinary secure crown polynomial or both side sizes for that predicate.",
+          "The reported metadata for the 2016 secure-restrained source concern values and equality questions, not a readable exact table for ordinary secure crowns."
+        ],
+        "reasoning": "A matching minimum count in a complement comparison is real but does not determine the enumeration at all other occupancies. The inaccessible source is not counted as evidence of noncoverage.",
+        "searches": [
+          "Resultary records 0ae94d81bd3c, 23a9be9d61aa, 0a4afac9ec94 and 148df7e17e18",
+          "DOI 10.62072/acm.2026.09025",
+          "DOI 10.1080/09720529.2014.1001590"
+        ]
+      },
+      "rationale": "The retained claim is the ordinary secure-domination all-set classification and side-size enumerator for crowns. The scalar minimum is explicitly excluded from priority, and the small-set counts are consequences and comparison context. The closest inspectable same-graph results use different predicates; material similarities are credited below.",
+      "residual_risks": [
+        "The unread 2016 same-object paper could include an all-set characterization or multiplicities; this could not be decided from the available bibliographic material.",
+        "Other poorly indexed results may state a crown profile in missing-matching terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Access-limited; scalar scope excluded, possible all-set overlap not determined",
+          "evidence": "The recorded description deals with secure and secure-restrained domination values and equality questions; no actual all-set passage could be retrieved.",
+          "identifier_or_url": "https://doi.org/10.1080/09720529.2014.1001590",
+          "material_read": "Citation and abstract/indexed description recorded in the frozen evidence; no independently readable body",
+          "method": "DOI and publisher article, abstract and PDF routes; alternate-copy retrieval attempt",
+          "title": "Further results on secure restrained domination in graphs",
+          "trigger": "Closest plausible archival same-object source"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The part-support criterion applies to complete multipartite graphs, not bipartite matching deletions.",
+          "identifier_or_url": "2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c",
+          "material_read": "RESULT.md Finding at 0 and prior-work passage near offset 5799",
+          "method": "Resultary local mirror",
+          "title": "Secure-domination polynomial of complete multipartite graphs",
+          "trigger": "Closest ordinary secure-domination polynomial on a broader-looking family"
+        },
+        {
+          "assessment": "Strict subset of ordinary secure sets; no ordinary all-set classification implied",
+          "evidence": "Each side needs at least two selected vertices, and if one shore is not full, the other needs at least three.",
+          "identifier_or_url": "2026/10/12/SCOPE-secure-total-domination-polynomial-of-crown-graphs--0a4afac9ec94",
+          "material_read": "RESULT.md offsets 0–2612, Finding, definition and start of proof",
+          "method": "Resultary local mirror",
+          "title": "Secure-total-domination polynomial of crown graphs",
+          "trigger": "Same graph, exact stronger-predicate classification"
+        },
+        {
+          "assessment": "Complement-index restraint, not defender exchange",
+          "evidence": "Requires every unselected vertex to have both a selected and an unselected neighbor; its minimum sets are the single matched pairs.",
+          "identifier_or_url": "2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+          "material_read": "RESULT.md offsets 0–2485, Finding and domination boundary rules",
+          "method": "Resultary local mirror",
+          "title": "Restrained-dominating-set profile of crown graphs",
+          "trigger": "Same graph and bivariate counting, different predicate"
+        },
+        {
+          "assessment": "Exact overlap of the n≥5 minimum family but not the all-set theorem",
+          "evidence": "Prism classification requires a common selected matching index and yields binom(n,2)(2n−3) balanced minimum sets for n≥4; its graph and connected replacement rule differ.",
+          "identifier_or_url": "2026/10/25/SCOPE-secure-connected-domination-of-complete-prisms-exact-cardinality--148df7e17e18",
+          "material_read": "RESULT.md offsets 0–2633, Finding and definition",
+          "method": "Resultary local mirror",
+          "title": "Secure connected domination of complete prisms: exact cardinality and minimality polynomials",
+          "trigger": "Complement graph, bivariate enumeration and matching minimum coefficient"
+        },
+        {
+          "assessment": "Different predicate and family list",
+          "evidence": "The article lists paths, cycles, complete graphs, stars and coronas.",
+          "identifier_or_url": "https://doi.org/10.62072/acm.2026.09025",
+          "material_read": "Publisher HTML family list and connected variant description around offset 1800",
+          "method": "Bounded public page retrieval",
+          "title": "On Connected Secure Domination Polynomial of Some Graphs",
+          "trigger": "Public polynomial precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates how the deleted matching affects defender exchanges and counts all sets by side sizes, including which rare marginal occupancies can be secure. This is a natural refinement of the scalar invariant on a standard graph family and gives more information than the stricter same-graph analogues or the single shared coefficient with complete prisms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

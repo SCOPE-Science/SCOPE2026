@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:31:39.156481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44 and 48–110",
+        "Frozen VERIFICATION.md, lines 19–27; verify.py, lines 65–140 (inspected, not executed)"
+      ],
+      "rationale": "With P=1u, A^k=P+t(I−P), t=(−1/(n−1))^k, and BP=P, so C_k=(1−t)P+tB. For k odd the worst possible entry is bounded below by (1−t)/n+t; this is positive for k≥3, and at k=1 strictness follows from B_ij<1 (at least two neighbors). Even k is a strictly positive mixture. Stationarity gives ν=(1−t)u(I−tB)⁻¹. Reversibility transfers this resolvent to the density h=u/π in L²(π). Each nonconstant mode of h is scaled by f_λ(t)=(1−t)/(1−tλ)>0, strictly decreasing because λ<1. Thus χ² is a sum of squared coefficients times f_λ², and the inverse-degree opinion is ηh, giving a sum of the same squares times f_λ after subtracting c_B=η. The imbalance vanishes exactly for equal weighted degrees, so both chains have the stated strictness, parity, and limits. On the quotient by constants the kernel acts as tB, giving exactly the non-Perron eigenvalues. Looplessness gives their B-eigenvalue sum −1, so ρ₂(B)≥1/(n−1). Equality would make all those eigenvalues −1/(n−1); reversibility and the zero diagonal then force π=u and B=A. Hence (n−1)ρ₂(B)>1 in the irregular case and its power 1/(k+1) strictly decreases, giving the per-step result.",
+      "residual_risks": [
+        "Read ‘odd switching period’ in the prose as odd complete-layer length k, i.e. an even total cycle length k+1; the displayed claims use k consistently.",
+        "The opinion chain is for the inverse-degree witness, not all opinions. Recorded finite rational tests corroborate examples and the quotient action, not the all-graph spectral and parity statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shiu–Naghizadeh establish primitivity-based consensus, a spectral product bound with degree-ratio factors, and an O(ρ₂(A)^k) consensus deviation.",
+          "Hallak–Dalal give a general SLEM upper bound for products of reversible stochastic matrices; the Friedkin–Johnsen comparator includes a persistent innate-opinion forcing term."
+        ],
+        "reasoning": "The wider product regime upper bounds do not give exact equality or sign, and a model with external persistent forcing does not supply this stationary distribution or its parity.",
+        "searches": [
+          "arXiv:2603.07633 Propositions IV.1, IV.3 and IV.4; Hallak–Dalal arXiv:2304.11634 Proposition 8; Abedinzadeh–Akyol arXiv:2510.01580"
+        ]
+      },
+      "checked_sources": [
+        "Shiu–Naghizadeh arXiv:2603.07633 and Allerton handle 2142/130286 (access attempt only for latter)",
+        "Hallak–Dalal arXiv:2304.11634",
+        "Abedinzadeh–Akyol arXiv:2510.01580",
+        "Resultary b5038faa36eb (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The literature gives magnitudes and upper bounds. The complete projector identity independently makes the quotient exactly t_k B.",
+          "The even-k resolvent admits a convex restart interpretation; odd k has negative t_k and cannot be covered just by that interpretation."
+        ],
+        "reasoning": "Exact sign and strictness come from the reversible modal sums with nonzero imbalance, not from large-k deviation magnitude or ordinary restart. The trace equality case is additional to general product bounds.",
+        "searches": [
+          "arXiv:2603.07633 Proposition IV.3–IV.4; arXiv:2304.11634 Proposition 8; restart/Markov-resolvent comparison with frozen RESULT.md lines 59–89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example IV.2 shows one three-agent k=1 stationary vector not componentwise between the isolated influence vectors.",
+          "The catalog summary for b5038faa36eb describes alternating-side consensus for complete/irregular layers and a three-person unit-seed example."
+        ],
+        "reasoning": "Componentwise noninterpolation at one k, alternating scalar consensus, and monotonic χ² interlacing of whole distributions are different claims. The catalog summary is a relevant partial overlap, not evidence that the universal χ², inverse-degree witness and rate conclusions were stated or implied there.",
+        "searches": [
+          "Resultary: alternating consensus bias, periodic multiplex switching, loopless complete-layer influence overshoot; b5038faa36eb",
+          "Shiu–Naghizadeh arXiv:2603.07633, §§IV-A–IV-B and Example IV.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalog summary includes a three-person seed example, and the paper contains a three-agent noninterpolation example. No exact entry for the universal χ² and rate law was established in them."
+        ],
+        "reasoning": "No isolated numerical example is claimed as novel. These exact example results do not evaluate χ² along every switching length or give the all-graph factor.",
+        "searches": [
+          "Resultary b5038faa36eb; arXiv:2603.07633 Example IV.2 and rate propositions"
+        ]
+      },
+      "rationale": "The general switching model, existence under primitivity, and possibility of noninterpolation in one example are documented prior results. Pass is for the uniform strict χ² parity interlacing, its specified inverse-degree consensus witness, and exact complete-layer spectral comparison. The closest catalog hit has real overlap in alternating consensus, but its available summary does not establish coverage of this combined theorem, and an inaccessible full text cannot establish or rule out further overlap.",
+      "residual_risks": [
+        "Earlier Allerton full text and exact b5038faa36eb statements were not retrievable. Further coverage in the signed Markov-resolvent literature remains possible; this is a scoped evidence-based decision, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in schedule and a single noninterpolation example; bounds rather than the claimed chains and complete-layer equality",
+          "evidence": "C=BA^k, one k=1 case, a spectral inequality and O(ρ₂(A)^k) deviation. Example IV.2 is in §IV-B.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.07633",
+          "material_read": "PDF pp. 4–6, §§IV-A–IV-B, Example IV.2, Propositions IV.1, IV.3 and IV.4; offsets 25000, 31800–39162 and 43200",
+          "method": "Bounded open PDF text inspection",
+          "title": "Coordination Games on Multiplex Networks: Consensus, Convergence, and Stability of Opinion Dynamics",
+          "trigger": "Same model, noninterpolation and convergence rates"
+        },
+        {
+          "assessment": "Unresolved for the exact proceedings paper",
+          "evidence": "No unavailable text was counted as negative evidence.",
+          "identifier_or_url": "https://hdl.handle.net/2142/130286",
+          "material_read": "No full-text passage retrieved from the proceedings handle; compared the accessible expanded arXiv:2603.07633 separately",
+          "method": "Lawful handle access (403)",
+          "title": "Coordination Games on Multiplex Networks: Consensus and Convergence of Opinion Dynamics",
+          "trigger": "Earlier proceedings version of closest prior"
+        },
+        {
+          "assessment": "General upper bound, not exact complete-layer quotient spectrum",
+          "evidence": "SLEM bounded using the factors and ratios of their stationary distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11634",
+          "material_read": "PDF p. 5, Proposition 8, offset 19450",
+          "method": "Bounded open PDF text inspection",
+          "title": "Hallak and Dalal, reversible stochastic matrix product spectral bound",
+          "trigger": "Broader result cited for switching rates"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "x[t+1]=Λ[t]W[t]x[t]+(I−Λ[t])s contains persistent innate opinions.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.01580",
+          "material_read": "PDF pp. 1 and 3, offsets 5200 and 16600",
+          "method": "Bounded open PDF text inspection",
+          "title": "Stability and Robustness of Time-Varying Opinion Dynamics: A Graph-Theoretic Approach",
+          "trigger": "Alternative switching opinion model"
+        },
+        {
+          "assessment": "Partial overlap verified at summary level; stronger overlap not determined, without priority inference from dates",
+          "evidence": "Alternating-side consensus in a complete/irregular switch and a three-person unit-seed example; summary does not resolve the full χ² and exact rates.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-alternating-consensus-bias-under-periodic-multiplex-switching--b5038faa36eb",
+          "material_read": "Catalog summary only; local mirror full text unavailable and exact record access timed out",
+          "method": "Resultary catalog comparison with a bounded full-text retrieval attempt",
+          "title": "Alternating consensus bias under periodic multiplex switching",
+          "trigger": "Close alternating-consensus catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–30 and 64–110; arXiv:2603.07633 Example IV.2 and Propositions IV.3–IV.4 for the comparison"
+      ],
+      "rationale": "The precise parity obstruction for every irregular supported network turns a one-off noninterpolation phenomenon into a sharp structural law with an exact regularity boundary. The bounded inverse-degree witness turns a distributional comparison into an observable consensus, while the exact contraction factor distinguishes influence bias from the speed of convergence.",
+      "residual_risks": [
+        "Specific deterministic switch order and complete loopless layer; no assertion for directed, generic asynchronous, or arbitrary opinion inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

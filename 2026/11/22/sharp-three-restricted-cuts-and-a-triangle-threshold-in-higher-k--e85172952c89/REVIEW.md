@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the full adjacency spectrum from an incidence filtration; the largest nontrivial adjacency eigenvalue gives the explicit boundary estimate \(|\partial S|\ge(d-t)s(1-s/N)\). The parameter inequalities hold for every \(k\ge3\), \(n\ge3k-1\) and strictly exclude all minimum-cut components of size at least four. A separate spectral argument proves connectivity after deleting any three vertices, making the exhibited cuts legitimate. The enumeration of paths and triangles is exact, and an independent brute-force checker corroborates both smallest boundary cases. Risks: the numerical checks cover only finite instances; the proof is responsible for the universal quantifier.
+## correctness
 
-**Originality — PASS with residual historical-priority risk.** The closest directly matching connectivity paper, Balbuena–Marcote (2019), determines the full restricted spectrum only for \(\mathrm{KG}(n,2)\). The 2023/2024 generalized-Johnson-graph work determines ordinary restricted and cyclic connectivity, not, as stated in the accessible abstract, the separate three-restricted path/triangle cut classification and its enumerator. Its full proof could not be examined, leaving an explicit possible-implication risk for the triangle-containing range. The 2011 four-cycle-free transitive-graph criterion is inapplicable because the present graphs contain four-cycles. The 2026 Kneser gonality paper addresses the two-restricted question. Targeted scholarly and indexed searches identified no equivalent all-\(k\ge3\) three-restricted theorem. Failed searches are not a uniqueness certificate.
+PASS
 
-**Value — PASS.** Three-restricted cuts are a natural three-vertex-fault-tolerance invariant in graph-network reliability. A sharp transition at the first order admitting disjoint triples, the complete family of extremizers, and an exact cut census give structural information for all higher Kneser graphs, beyond a bound or a small numerical improvement. The triangle-free endpoint is genuinely different from the cyclic-edge-cut invariant.
+The incidence filtration exhausts all vertex functions and has quotient eigenvalues (-1)^i binom(n-k-i,k-i). The i=2 layer is nonzero: for four distinct points a,b,c,e outside a fixed (k-2)-set U, the alternating evaluation at U+ac, U+be, U+ae, U+bc kills constants and single-point indicators but not the ac indicator. The alternating sign and decreasing magnitudes thus give the nonconstant upper adjacency eigenvalue t stated. t/d<=3/10, N>=56 and d>=10 imply the Rayleigh lower bound is greater than 3d for smallest components of size 5 or more; a size-four set costs at least 4d-12>3d-4. A connected triple attains exactly 3d-4 for a path and 3d-6 for a triangle, with existence governed by whether three disjoint k-sets fit. Deleting any three vertices cannot disconnect the complement: a smaller component would send at most 3 edges per vertex out but its Rayleigh bound is at least 3.5 per vertex. Therefore a suitable triple boundary is admissible. For an optimum, the smallest component must be such a triple, and equality forces no deletions besides its boundary. The unique small component distinguishes cuts, so choosing the path middle and two neighbors, or choosing three ordered disjoint sets and dividing by six, gives exactly the reported counts. The endpoint arithmetic gives (26,2520) at (8,3) and (54,280) at (9,3).
 
-**Closest literature and limitations.** References [2] and [3] in `RESULT.md` are particularly close. Priority remains provisional pending independent inspection of [3]'s inaccessible full proof. This result is restricted to \(n\ge3k-1\) and does not solve other \(p\)-restricted levels, cyclic connectivity or gonality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the checked exact higher-rank three-restricted classification and census, including the path/triangle boundary, not a priority award for every consequence. The closest literature is the generalized-Johnson restricted/cyclic work, whose accessible abstract does not expose a covering theorem. The cyclic and three-restricted values agree in the triangle range, making any earlier exact cyclic formula real overlapping coverage of that value; the precise hypotheses and any super-cyclic classification were not retrievable. Other inspected exact records concern different invariants or rank two. No verified dominating theorem for the joint full-range classification and census was found.
+
+## value
+
+PASS
+
+The sharp edge separation level and full optimizer set are natural invariants of the higher-rank disjointness graph. The switch from acyclic paths to triangles at three-way disjointness is reflected both in cut size and in the census. The uniform small-boundary argument excludes all larger competing components, including cuts initially allowed to have many components or redundant deletions. This extends beyond an isolated count or a rephrasing of ordinary or cyclic connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

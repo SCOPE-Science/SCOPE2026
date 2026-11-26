@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:26.075823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel mixture is strictly positive definite on distinct nodes because the component at every Q>0 is strictly positive definite. The even system gives the displayed exact threshold; the outer numerator at η=0 is a strictly positive cosh contribution plus Cov(e^(−Qd²),M_Q)≥0, since both functions decrease in Q, and η≥0 adds ηm(d). With M_Q=∫e^(−Qx²)μ(dx), directly m(0)A=−2Cov(Q,M_Q)+4E[Q²X²e^(−QX²)]>0, avoiding any need for a target moment. The second derivative of the integrand is uniformly bounded by a constant times Q, and the fourth-order expansion of k follows by dominated Taylor remainder using E[Q²]<∞. The determinant is 2Hd⁴+o(d⁴) at zero noise and 3cd²+o(d²) at η=cd²+o(d²) for c>0. The center and outer numerators respectively have leading coefficients m(0)(c−A) and m(0)(c+A/2) in d², including a zero limiting center at c=A without deciding its finite-d sign. These reproduce all stated limits and treat possibly negative thresholds. The Matérn-5/2 primitive differentiates to κ, with κ′(L)=−L(1+L)e^(−L)/3 and the inverse-gamma mixture has finite second moment. A fresh bounded numerical integration at λ=1,d=0.1 gave η_c≈0.000216563660 and noiseless w₀≈−5.528266003. The uploaded checker was read, not run; its reported groups are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The BQ positivity theorem for locally optimal designs does not have the required quantification over fixed sites. Hayakawa–Oberhauser–Lyons construct convex quadrature by recombination rather than classify unconstrained posterior weights.",
+          "Glaubitz–Reeger study RBF quadrature stability with data/support conditions and least-squares alternatives. Karvonen–Särkkä discuss positivity at scaled Gauss–Hermite nodes, with numerical evidence for their approximate weights."
+        ],
+        "reasoning": "Coefficient existence by an alternative algorithm, optimized design assumptions, and norm/stability control do not imply the all-spacing and small-spacing assertions for the stated estimator.",
+        "searches": [
+          "arXiv:1812.08509v2",
+          "arXiv:2107.09597v4",
+          "arXiv:2301.12998v1",
+          "arXiv:1803.09532v4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.08509v2",
+        "arXiv:2107.09597v4",
+        "arXiv:2301.12998v1",
+        "arXiv:1803.09532v4",
+        "SCOPE-20261122-4abd02fc5f66",
+        "SCOPE-20261122-426c35294c64",
+        "SCOPE-20261122-03a67fa70ba7",
+        "SCOPE-20261108-e0513184011d",
+        "SCOPE-20261102-841cfe0433d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed Gaussian / Gaussian-target-mixture result implies the exact pointwise sign rule on that slice and has global claims not made in this frozen record. It does not cover non-Gaussian scale-mixture targets such as general symmetric discrete laws, or mixing of kernel scales.",
+          "The Matérn-3/2 formula k(r)=(1+t|r|)e^(−t|r|) has a nonzero |r|³ term at r=0, ruling out a finite second Gaussian mixing moment; its uniform lengthscale limit at fixed nodes is not the smooth colliding-node limit."
+        ],
+        "reasoning": "The outer-sign mechanisms and Cramer reductions overlap on special cases, but the hypotheses on the kernel, target and limiting regime prevent either prior statement from implying the supported distinct joint law.",
+        "searches": [
+          "SCOPE-20261122-4abd02fc5f66, Finding and Proof §§1–4",
+          "SCOPE-20261122-426c35294c64 and SCOPE-20261122-03a67fa70ba7, Finding and exact weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pointwise H(q) in SCOPE-20261122-4abd02fc5f66 is exactly η_c when k(d)=q, k(2d)=q⁴ and the target is a Gaussian scale mixture. Its Proof §§1–2 also proves strict outer positivity on that family.",
+          "Karvonen–Kanagawa–Särkkä Corollary 1 concerns local optimality and total positivity; positivity at one such design is not positivity at every prescribed spacing."
+        ],
+        "reasoning": "Nugget, common noise variance and unmodified ridge weights are equivalent here. The same Cramer numerator is already used in narrower results. Neither source delivers the strict positivity lemma across mixtures of covariance scales and arbitrary symmetric targets or all three finite-moment collision limits.",
+        "searches": [
+          "Resultary: collision asymptotics Gaussian scale mixture covariance arbitrary symmetric probability three node Bayesian quadrature ridge sign threshold exact small spacing inverse square weights fourth order Gram determinant",
+          "SCOPE-20261122-4abd02fc5f66",
+          "arXiv:1812.08509v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261122-426c35294c64 and SCOPE-20261122-03a67fa70ba7 give the sharp fixed-interval Matérn-3/2 radius 6−√30 and positive outer weights, with no nugget.",
+          "SCOPE-20261108-e0513184011d gives exact nugget thresholds for arbitrary symmetric designs with a rank-three polynomial Legendre kernel. SCOPE-20261102-841cfe0433d1 gives exact noise-tail and mean-square constants for two random sites and power-exponential kernels."
+        ],
+        "reasoning": "The scalar radii, polynomial-kernel frontiers and two-site random-location tail tables are material baselines, but none yields the claimed finite-moment sign threshold and deterministic collision coefficients.",
+        "searches": [
+          "Resultary: Matérn 3/2 fixed interval symmetric three-node noiseless kernel quadrature positivity radius, equivalent finite-moment small-spacing smooth Matérn 5/2 nugget law",
+          "SCOPE-20261108-e0513184011d",
+          "SCOPE-20261102-841cfe0433d1"
+        ]
+      },
+      "rationale": "The supported distinction is the strict outer signs and sharp collision constants/regularized limits for Gaussian scale-mixture covariances and arbitrary symmetric non-point probabilities. Symmetry reduction and the corresponding pointwise formula on narrower families are not distinct novelty. The closest same-day target-mixture and rough Matérn results are credited below; date alone does not resolve priority.",
+      "residual_risks": [
+        "A more general integrated-cardinal inequality or colliding-kernel certificate under different terminology may not have been retrieved.",
+        "Same-day technical overlap is established, but its chronology is not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "optimized totally positive designs, not prescribed independent-nugget collision law",
+          "evidence": [
+            "All weights are positive under the stated smoothness, total positivity and local optimality conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509v2",
+          "material_read": "p. 9 Corollary 1, offset 68788; p. 1 abstract",
+          "method": "OA primary PDF",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "general BQ positivity and magnitude bounds"
+        },
+        {
+          "assessment": "uses a different rule construction",
+          "evidence": [
+            "Uses i.i.d. samples and recombination to construct convex weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09597v4",
+          "material_read": "p. 1 abstract and p. 2 convex weights, offset 8607",
+          "method": "OA primary PDF",
+          "title": "Positively Weighted Kernel Quadrature via Subsampling",
+          "trigger": "convex kernel weights"
+        },
+        {
+          "assessment": "inspected stability claims do not classify the fixed posterior signs",
+          "evidence": [
+            "Discusses compact supports, least-squares alternative, and negative weights under slight support overlap in tests."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.12998v1",
+          "material_read": "p. 1 abstract; §5, p. 10, offset 39981",
+          "method": "OA primary full text",
+          "title": "Towards stability results for global radial basis function based quadrature formulas",
+          "trigger": "RBF integrated-cardinal weight stability"
+        },
+        {
+          "assessment": "different design and positivity evidence",
+          "evidence": [
+            "Investigates Gaussian integration at scaled Gauss–Hermite designs, not arbitrary symmetric non-point targets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.09532v4",
+          "material_read": "p. 3, offset 7908; §5.3, around p. 21, offset 69000",
+          "method": "OA primary full text",
+          "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+          "trigger": "same kernel class in the Gaussian specialization"
+        },
+        {
+          "assessment": "exact pointwise overlap on narrower hypotheses, separate global theorem, no arbitrary-target covariance-mixture collision law",
+          "evidence": [
+            "Fixed squared exponential and Gaussian scale-mixture targets give H(q)=η_c under the convolution substitution."
+          ],
+          "identifier_or_url": "SCOPE-20261122-4abd02fc5f66",
+          "material_read": "Finding, Assumptions and Proof §§1–4",
+          "method": "frozen source and configured Resultary search",
+          "title": "A universal reentrant positivity law for three-node Gaussian-kernel quadrature",
+          "trigger": "equivalent pointwise nugget classification on the Gaussian slice"
+        },
+        {
+          "assessment": "rough kernel and noiseless, fixed-interval setting",
+          "evidence": [
+            "Matérn-3/2 on [−1,1], strict positivity for all inverse lengthscales iff a≥6−√30."
+          ],
+          "identifier_or_url": "SCOPE-20261122-426c35294c64",
+          "material_read": "Finding, Assumptions, Cramer formulas and outer-sign proof at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "A sharp all-bandwidth positivity radius for three-node Matérn quadrature",
+          "trigger": "closest same-day Matérn three-node positivity"
+        },
+        {
+          "assessment": "same rough-kernel sign frontier and flat-kernel limits; different regime",
+          "evidence": [
+            "Normalized uniform target, fixed a, noiseless, with t↓0 flat-kernel formulas."
+          ],
+          "identifier_or_url": "SCOPE-20261122-03a67fa70ba7",
+          "material_read": "Finding, Assumptions, matrix formulas and opening proof at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "A sharp lengthscale-uniform positivity frontier for three-node Matérn quadrature",
+          "trigger": "exact fixed-interval weight and asymptotic overlap"
+        },
+        {
+          "assessment": "different, nonstationary finite-feature kernel, worst over all n-node symmetric multisets",
+          "evidence": [
+            "Threshold η≥a₂ C_n is for the first three Legendre features."
+          ],
+          "identifier_or_url": "SCOPE-20261108-e0513184011d",
+          "material_read": "Finding and Assumptions at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "Sharp positivity frontier for three-feature Legendre Bayesian quadrature",
+          "trigger": "exact nugget thresholds at symmetric designs"
+        },
+        {
+          "assessment": "two random nodes and noise tails/MSE, not signs of deterministic symmetric three-node weights",
+          "evidence": [
+            "Regularized norm-squared expectation has an α=3/2 transition for power-exponential kernels."
+          ],
+          "identifier_or_url": "SCOPE-20261102-841cfe0433d1",
+          "material_read": "Finding and stated tails at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "A roughness threshold and exact noise tails for colliding-node kernel quadrature",
+          "trigger": "exact regularization and collision asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies the destabilized coordinate and sharp sign-restoration scale in a natural colliding design, with explicit coefficients for the divergent zero-noise regime and finite critical-regularization regime. The strict sign lemma is substantive for arbitrary symmetric targets without moments; it is not simply Gram-system inversion. The threshold classifies coefficients, not quadrature error or an optimal measurement-noise policy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:54:07.340267Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–116",
+        "Frozen VERIFICATION.md lines 19–29 and check_survivor.py lines 8–88, inspected only",
+        "/workspace/repairs/5/RESULT.md",
+        "python3 /workspace/independent_checks.py 5: symbolic affine endpoint-image and squared ratio checks over [2,4]; exact weighted characteristic polynomial; independent evaluation of d and r"
+      ],
+      "rationale": "For the repaired claim, endpoint signs and affine segment images justify the core arrow matrix for all real b in [2,4]. The only extra core hits are a finite set per branch; inverse images inside the core thus stay arclength-null and countable over all levels. The inverse branches give the exact survival recursion. Three simple cycles share C and have lengths 3, 4, 7 and arclength weights 1/4, 1/4, 1/16; the characteristic polynomial and primitive Perron asymptotic follow. For the disjoint-interior graph-directed system the same cycle weights raised to power d give the spectral-radius-one equation 1-2*4^(-d)-16^(-d)=0. Each point outside the survivor eventually hits a transient segment, all of which map to a plateau in finitely many steps. The repaired endpoint distinction follows from the explicit two itineraries and the distinct periodic itinerary; it does not add a numerical hypothesis.",
+      "residual_risks": [
+        "The independent symbolic replay covers the branch and determinant calculations, not a formal proof certificate for graph-directed dimension or the attracting-neighbourhood distinction. The analysis is for the graph, not for planar Lebesgue initial data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3's certified ranges do not include c=b in [2,4] at a=-1.",
+          "The 2026/10/18 result covers qualitative arclength-a.e. eventual plateau absorption for every a<0, b real."
+        ],
+        "reasoning": "The stronger qualitative statement subsumes the consequence about capture, but a null exceptional set does not supply its dimension, the finite survivor lengths, or their sharp decay.",
+        "searches": [
+          "arXiv:2503.02411 Theorem 3",
+          "Resultary 2026/10/18 record 335be622e78a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.01052",
+        "arXiv:2503.02411",
+        "Resultary 335be622e78a, 27f3d14b7453 and self-match d62f7b3284a3",
+        "Mauldin–Williams graph-directed dimension theorem, DOI:10.1090/S0002-9947-1988-0961615-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted simple loops have lengths 3,4,7; the metric weights 1/4,1/4,1/16 were checked independently from the specified branch geometry.",
+          "The graph-directed theorem gives a pressure criterion when the contraction ratios and open-set hypothesis are furnished."
+        ],
+        "reasoning": "The general pressure criterion and the already available symbolic model are ingredients; neither supplies the parameter-uniform metric branch decomposition, the finite arclength recursion with the right edge lengths, or the exact evaluated invariants.",
+        "searches": [
+          "arXiv:2410.01052 Proposition 38",
+          "Mauldin–Williams, DOI:10.1090/S0002-9947-1988-0961615-4",
+          "Resultary record 335be622e78a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 38 gives the unweighted entropy polynomial lambda^7-lambda^4-lambda^3-1, not the arclength-weighted spectral radius or similarity-pressure equation."
+        ],
+        "reasoning": "Writing both calculations as spectral radii is not an equivalence: one matrix counts symbolic paths and the other scales inverse-branch length. The arclength expansions on D and H differ from the other six, so a universal per-step rescaling would not give the metric laws.",
+        "searches": [
+          "Resultary semantic comparison: arclength survival, escape rate and dimension for the eight-edge core of the planar absolute-value map at a=-1, 2<=b<=4",
+          "arXiv:2410.01052 §5.7 and Proposition 38"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d62f7b3284a3 is the same theorem, not an independent record.",
+          "Record 27f3d14b7453 is for b=-13/16 and a six-cycle, with a different survivor.",
+          "The matching primary text specifies the eight named edges but tabulates the entropy, not the reviewed metric values."
+        ],
+        "reasoning": "Neither the distinct indexed dimension result nor the canonical graph description contains the claimed exact metric formulas for this survivor.",
+        "searches": [
+          "Resultary comparison of exact formulas for arclength survival and survivor dimension",
+          "arXiv:2410.01052 §5.7, Figures 60–61, Proposition 38"
+        ]
+      },
+      "rationale": "The final metric claims are distinct on the inspected evidence. The exact symbolic graph and its entropy are existing; the broader qualitative capture theorem is also existing and is cited as such. The escape and dimension formulas require the specific nonuniform Euclidean expansion weights, not just the unweighted adjacency or almost-everywhere absorption.",
+      "residual_risks": [
+        "Bounded comparison to the exact canonical graph sources and closest indexed findings; does not establish historical priority against unindexed related metric calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the canonical graph, core cover graph and its entropy, not the stated metric invariants.",
+          "evidence": [
+            "Names A,B,C,D,E,I,G,H and gives entropy root of lambda^7-lambda^4-lambda^3-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.01052",
+          "material_read": "§5.7 PDF pp. 66–67, Proposition 38, and Figures 60–61 PDF pp. 110–111",
+          "method": "Lawful primary PDF passage and figure inspection",
+          "title": "Invariant graphs and dynamics of a family of continuous piecewise linear planar maps",
+          "trigger": "Same map and parameter interval"
+        },
+        {
+          "assessment": "No coverage of the quantitative finding; stated convergence ranges do not include this interval.",
+          "evidence": [
+            "At a=-1 one has c=b, so the reviewed interval is c in [2,4]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.02411",
+          "material_read": "Theorem 3, PDF p. 7",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Entropy and omega-limit sets on invariant graphs for a class of planar piecewise linear maps",
+          "trigger": "Possibly broader orbit-statistics result"
+        },
+        {
+          "assessment": "Already covers qualitative arclength-a.e. capture; quantitative core statements remain distinct.",
+          "evidence": [
+            "For every a<0 and b real, points of the invariant graph never entering a plateau have zero arclength."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-full-arclength-absorption-by-flat-branches-for-every-parameter-i--335be622e78a",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Full-arclength absorption by flat branches for every parameter in the planar absolute-value family",
+          "trigger": "Direct broader published capture match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md",
+        "Cima et al., arXiv:2410.01052 §5.7",
+        "Qualitative capture finding 335be622e78a"
+      ],
+      "rationale": "The interval and core are motivated by the preexisting invariant graph and its symbolic model. Exact finite retained mass, its leading asymptotic, and the positive dimension of the null survivor are useful metric refinements: they distinguish transient persistence from the symbolic entropy and from a bare full-measure capture statement. The repair keeps these four-independent-parameter-geometry calculations and removes only a wrong interpretation of capture at the boundaries.",
+      "residual_risks": [
+        "No conclusion about general planar escape or other parameter windows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:32:17.701113Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>0, the conditional inclusion vector p_i/q has coordinates in [0,1] and sum at least one. The box cut by integer sum bounds is precisely the convex hull of the indicated subset vectors: two fractional coordinates permit opposite perturbations, and a single fractional coordinate either permits a perturbation or violates integrality of a tight sum bound. Thus if S≤2q the conditional law can be supported on sizes 1 and 2, attaining 2q−S, and if S≥2q it can be supported on sizes ≥2, attaining zero. For the upper endpoint, fixing mass s on sizes ≥2 leaves required aggregate inclusion mass y+s, with each coordinate capped by min(p_i,s), and it also requires y≥s. Conversely these conditions suffice by the same subset hull, filling capped coordinates to sum y+s and assigning the remainder to singletons. Equivalently the cap inequality is ∑(p_i−s)_+≤q−s, giving s_* as the maximum of zero and (sum of the k largest p_i minus q)/(k−1) over 2≤k≤d. The singleton constraints are exactly p_i≤q, and the empty constraint is s≤q. Every prefix ratio is ≤y and ≤q (use the total S and p_i≤q, respectively), so the minimal s is attainable. This also verifies the stated sorting complexity and the example prefix maxima 17/20 and 19/40, giving U=1/10 and 19/40. When q=0 the law is empty; when y=0 a disjoint singleton law works. Mixing the extremizers covers the interval. The packaged exact-rational LP code was inspected, not executed; CHECK_OUTPUT.txt records 190 feasible grid comparisons and the two examples, finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ansari v1 p. 2, offset 6750: CDF dominance plus measure domination characterize existence of a coupling with a prescribed maximum.",
+          "Bartl et al. v2 p. 11, offset 41510: maximum transport duality over component and maximum potentials for a bounded upper semicontinuous payoff.",
+          "Pinelis v1 p. 1: equal event probabilities and context of pairwise independence, with an exactly-one lower bound."
+        ],
+        "reasoning": "Ansari specializes to the Bernoulli feasibility conditions, not an additional count constraint. The dual theorem encompasses the optimization abstractly (finite Bernoulli support permits continuous payoff extensions) but requires solving the dual with labeled data. Equal-probability pairwise-independent lower bounds do not specialize to the arbitrary coupling upper endpoint.",
+        "searches": [
+          "Ansari arXiv:2610.30642v1 Theorem 1",
+          "Bartl–Kupper–Lux–Papapantoleon arXiv:1709.00641v2 Corollary 2.5",
+          "Exact lower bound on an exactly one probability Pinelis 2102.05170"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71, VERIFICATION.md, verify_bounds.py, CHECK_OUTPUT.txt (support inspected only)",
+        "Resultary 4989e0d47431 Finding and assumptions; 276990ec2acf indexed summary",
+        "arXiv:2610.30642v1 Theorem 1; arXiv:1709.00641v2 Corollary 2.5; arXiv:2102.05170v1 p. 1",
+        "Boros–Prékopa DOI 10.1287/moor.14.2.317 and Prékopa DOI 10.1287/opre.38.2.227, citation evidence only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The winner-label theorem optimizes a different vector with an almost sure one-label selection, regardless of ties; its two-coordinate displayed range is for continuous uniform margins.",
+          "In the frozen claim the labeled marginal caps apply only on outcomes of size at least two; the proof realizes that constraint via the integer-cardinality hull."
+        ],
+        "reasoning": "Neither choosing a label nor only imposing the maximum law records whether the label was unique. General LP duality or a cardinality hull lemma supplies tools, not the evaluated optimum: one must identify the strongest prefix bound, show it is compatible with all other constraints, and construct an attaining coupling. The count-only lower endpoint is elementary and not a basis for the originality pass.",
+        "searches": [
+          "Resultary 4989e0d47431, Finding and Assumptions",
+          "Ansari arXiv:2610.30642v1 Theorem 1",
+          "Bartl et al. arXiv:1709.00641v2 Corollary 2.5",
+          "Frozen RESULT.md lines 23–51"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 37–49: q−U is the mass on at least two successes, and the bound selects its minimum.",
+          "Winner-index polymatroid record 4989e0d47431, RESULT.md offsets 0–4569: J is a selected maximizing coordinate including under ties; atomlessness is required for the unique-winner strengthening."
+        ],
+        "reasoning": "The target also prescribes q as the law of the top order statistic and bounds the mass of the second largest at 1. A selected first-order winner does not give the second order statistic. For example, at q=1 and three p_i=1/2, exchangeable laws with count masses (1/2 at 1, 1/2 at 2) and (3/4 at 1, 1/4 at 3) have the same uniform chosen winner when ties are broken uniformly, but distinct singleton probabilities.",
+        "searches": [
+          "sharp lower probability of at least two Bernoulli successes given probability of at least one with heterogeneous individual probabilities prescribed both top order statistics",
+          "bounds second largest order statistic given maximum prescribed distribution marginals Bernoulli both maximum second Rychlik distribution order statistics feasibility union probability",
+          "Resultary R1/R2, 4989e0d47431"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search-result descriptions of Boros–Prékopa DOI 10.1287/moor.14.2.317 and Prékopa DOI 10.1287/opre.38.2.227 concern sharp exact event count bounds via binomial moments/LP; no primary passage retrieved for the former DOI.",
+          "Resultary 276990ec2acf catalogue summary concerns infinite exchangeability and binomial point mass envelopes at a fixed mean.",
+          "Frozen CHECK_OUTPUT.txt reports 190 passing cases and upper values 1/10 and 19/40 for the two equal-S,q examples."
+        ],
+        "reasoning": "With only S, q, d, the elementary count upper bound is (dq−S)/(d−1), which is 19/40 for both examples; the sharper 1/10 in the heterogeneous case requires labeled information. An exchangeable count envelope cannot cover heterogeneous labeled inputs. The frozen LP output is not an outside exact table or priority evidence.",
+        "searches": [
+          "Boros Prekopa 1989 exactly r events individual event probabilities fixed union probability exact event count singleton classical sharp bounds",
+          "sharp lower probability of at least two Bernoulli successes given probability of at least one with heterogeneous individual probabilities prescribed both top order statistics",
+          "Frozen CHECK_OUTPUT.txt"
+        ]
+      },
+      "rationale": "Credit the classical first-moment lower bound, the general maximum-coupling feasibility theorem and transport duality, and the same-day winner-label theorem for selecting one maximizer under ties. The supported distinct claim is the exact heterogeneity-sensitive upper endpoint for a unique Bernoulli maximum of value one, with attainment for arbitrary labeled input and prescribed union. The same-day winner-label theorem has a different objective and its unique-winner strengthening excludes atomic data. An equivalent explicit formula elsewhere remains possible; sampled search results are not historical priority evidence.",
+      "residual_risks": [
+        "The classical event-count papers were not read in full; an equivalent explicit inequality in event-bound or simultaneous-order-statistic literature has not been excluded.",
+        "No date ordering between the two November 2 findings is inferred; the distinction rests on the actual statistics and assumptions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same conditioning information, different statistic; atomic ties not constrained by its unique-winner statement",
+          "evidence": "J may choose any tied maximizer. Atomlessness and strict CDF separation are additional hypotheses for almost sure uniqueness; the displayed interval uses two continuous uniform margins.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-exact-winner-index-polymatroid-under-prescribed-marginals-an--4989e0d47431",
+          "material_read": "RESULT.md offsets 0–4569, theorem, unique-winner strengthening, example and assumptions",
+          "method": "Bounded local-mirror passage",
+          "title": "The exact winner-index polymatroid under prescribed marginals and a prescribed maximum",
+          "trigger": "Same-day result with fixed margins and maximum law, plus unique-winner example"
+        },
+        {
+          "assessment": "Covers feasibility, not singleton optimization",
+          "evidence": "Necessary and sufficient stochastic dominance and measure domination conditions for existence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30642v1",
+          "material_read": "§2 Theorem 1 p. 2, offset 6750",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Couplings with prescribed maxima",
+          "trigger": "Exact feasibility with maximum law and fixed marginals"
+        },
+        {
+          "assessment": "Variational framework, not the evaluated endpoint or extremizers",
+          "evidence": "Infimum over potentials on individual variables and the maximum, majorizing a payoff.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.00641v2",
+          "material_read": "Corollary 2.5 p. 11, offset 41510",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Marginal and dependence uncertainty: bounds, optimal transport, and sharpness",
+          "trigger": "General duality covering the constraint class"
+        },
+        {
+          "assessment": "Adjacent lower-bound problem under different input constraints",
+          "evidence": "Uses common probability p, then considers pairwise independence rather than a prescribed q and arbitrary labeled marginals.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.05170v1",
+          "material_read": "p. 1 abstract and opening discussion of equal probabilities and pairwise independence",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Exact lower bound on an ‘exactly one’ probability",
+          "trigger": "Exact-event-count precedence"
+        },
+        {
+          "assessment": "Classical LP/moment framework; exact scope of article not independently established",
+          "evidence": "Returned descriptions concern binomial moment based event-count bounds.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.14.2.317",
+          "material_read": "Search-return descriptions and frozen citation, not article full text",
+          "method": "Bounded citation search and attempted lawful DOI retrieval",
+          "title": "Closed Form Two-Sided Bounds for Probabilities that at Least r and Exactly r out of n Events Occur",
+          "trigger": "Closest classical count-optimization citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "When the union and event rates are known but dependence is not, the singleton probability measures how often a unique event accounts for a nonempty outcome. An exact interval with a fast arithmetic evaluation replaces an exponential-size joint-law optimization, and the unequal-marginal example shows a substantive tightening that cannot be recovered from the marginal sum alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

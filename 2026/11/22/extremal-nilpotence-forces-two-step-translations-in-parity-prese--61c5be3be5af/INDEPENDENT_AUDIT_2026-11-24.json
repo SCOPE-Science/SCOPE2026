@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:54:17.240891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–46",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Sareeto–Koppitz, arXiv:2208.03202v4, Proposition 1",
+        "Bounded replay: python3 /workspace/audit-evidence/3/direct_enum.py"
+      ],
+      "rationale": "The index of a nilpotent partial injection is the number of vertices in its longest path, and in this monoid a path is strictly monotone and stays in one parity class. Thus its index is at most ceil(n/2), attained by a full parity path. Equality forces that path to exhaust a largest parity class and hence to step +2 or −2. In the +2 case, an additional source bracketed by two mandatory sources has just the translated image available. An additional source adjacent to an end of the mandatory source list must map to an adjacent image on the correct side. For the only extra point beyond both the last mandatory source and its immediate successor (the last point n for an even chain with an odd maximal orbit), the only possible image above the final path image is n, a forbidden fixed point. The terminal orbit point itself cannot be a source. Taking inverses gives the −2 case. Restrictions of either translation satisfy both directions of fence preservation. With 2m+1 points the optional sources number m−1 for each of two directions; with 2m points there are four cubes of m−1 optional choices and the two cubes in each direction intersect only at the full translation, of rank 2m−2. This gives both enumerators and their evaluations at one, including n=3 and n=4. For n=1,2 all parity-preserving maps are partial identities, so only the empty one is nilpotent. Independent enumeration n=3–10 gave extremizer totals 2,6,4,14,8,30,16,62, matching all rank coefficients and verifying translation membership in each finite size.",
+      "residual_risks": [
+        "Exact enumeration only covers n=3–10; universality rests on the orbit and boundary arguments. Domain rank means source cardinality, not generating-set rank."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3383014bbd25 gives isometry height/rank profiles. cbbee36cc90b gives maximum index k+1 at fixed domain rank k among contractions. 6acaec0c4c01 gives a rank generating function for all nilpotent increasing partial injections.",
+          "Theorem 2.6 of arXiv:2203.06417v1 counts contraction rank and fixed-point data; the zero-fixed-point slice is nilpotent."
+        ],
+        "reasoning": "Neither isometries nor contractions contain all fence maps (1↦3 and 3↦7 is an admissible expansion). The general increasing-injection rank census has neither the weak adjacency/parity restrictions nor an index refinement. Presentations and maximal-subsemigroup classifications concern other invariants.",
+        "searches": [
+          "Resultary: extremal index for order-preserving partial isometries and contractions, and general nilpotent increasing injections",
+          "arXiv:2203.06417v1, Theorem 2.6",
+          "arXiv:2310.15809v1 and arXiv:2403.06957v1"
+        ]
+      },
+      "checked_sources": [
+        "Strongest distinct Resultary matches 11bfe7935353, cd10259c2cbb, 3383014bbd25, cbbee36cc90b and 6acaec0c4c01",
+        "arXiv:2208.03202v4, 2310.15809v1, 2403.06957v1 and 2203.06417v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 1 gives local adjacency and parity constraints, not conclusions about a longest path. The isometry law operates under a translation hypothesis; the square-zero law optimizes rank, not index."
+        ],
+        "reasoning": "The parity bound is elementary and the counts become subset counts once rigidity is known. The new implication needed to use a translation census is that a full largest-parity path constrains every extra domain point, including the boundary exception. The inspected earlier statements did not supply that implication. No date-based priority inference is drawn from the square-zero comparison.",
+        "searches": [
+          "arXiv:2208.03202v4, Proposition 1",
+          "Resultary same-monoid square-zero result 11bfe7935353 and partial-isometry index result 3383014bbd25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary consecutive-gap conditions (equal parity of the first points, equal gap parities, and simultaneous gap-one status) give exactly the frozen monoid.",
+          "The companion square-zero Finding 11bfe7935353 works in this exact monoid; cd10259c2cbb uses the same monoid for a census of all maps."
+        ],
+        "reasoning": "The definitions coincide under their gap formulation. Squaring to zero fixes an upper index of two and so differs from maximizing the index for n≥5. A census of all maps does not identify the extremal filtration.",
+        "searches": [
+          "Resultary: IOF_n^{par}, parity/fence nilpotent profiles, maximum-index parity-preserving increasing injections",
+          "External search: IOF_n^{par} nilpotent nilpotency index parity-preserving fence-preserving partial injections",
+          "arXiv:2208.03202v4, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cd10259c2cbb gives exact total and domain-rank counts of all maps in the exact monoid. 11bfe7935353 gives top-domain-rank square-zero counts in several congruence classes. 3383014bbd25 refines index by rank for order-preserving partial isometries."
+        ],
+        "reasoning": "The square-zero tabulation overlaps the full extremal set at n=3 and its two rank-2 maps at n=4, but not the four additional rank-1 maps at n=4 or the extremal-index stratum for n≥5. No table giving the whole exact-monoid global-index spectrum was established in the inspected records.",
+        "searches": [
+          "Resultary: rank/index and nilpotent-domain censes, including cd10259c2cbb, 11bfe7935353 and 3383014bbd25"
+        ]
+      },
+      "rationale": "The supported distinction is the global maximum-index locus and two-step rigidity for this particular monoid, with the rank census on that locus. The closest exact-monoid overlap classifies a fixed index bound (square-zero) at maximal domain rank; it covers some low-size entries but not this infinite family. Work already assuming isometry covers the smaller setting, not the assertion that extremizers in the fence monoid must be isometries. The bounded comparisons do not establish historical priority.",
+      "residual_risks": [
+        "An older theorem using other fence terminology or an overlapping nilpotency filtration could exist; the external keyword miss is not evidence against that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same monoid; supplies gap characterization, not extremal nilpotence",
+          "evidence": "Increasing pairs are characterized by parity and the consecutive gap conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.03202v4",
+          "material_read": "p. 3, Proposition 1 (PDF offset 10250), and title page",
+          "method": "Lawful OA primary PDF",
+          "title": "The rank of the semigroup of order-, fence-, and parity-preserving partial injections on a finite set",
+          "trigger": "Exact monoid definition and alias"
+        },
+        {
+          "assessment": "Their inspected statements concern presentations and ideal/Green structure; no conclusion about the entire texts from a keyword miss",
+          "evidence": "Both identify their same-monoid objective explicitly in the abstracts.",
+          "identifier_or_url": "arXiv:2310.15809v1; arXiv:2403.06957v1",
+          "material_read": "p. 1 abstract of each paper; literal term lookup for nilpotent",
+          "method": "Lawful OA PDF passage reads and bounded keyword location",
+          "title": "A presentation for a submonoid of the symmetric inverse monoid; The maximal subsemigroups of the ideals on a monoid of partial injections",
+          "trigger": "Subsequent papers on the very same monoid"
+        },
+        {
+          "assessment": "The theorem's fixed-point-free specialization is for contractions, not this monoid and index slice",
+          "evidence": "Rank and fixed-point census for order-preserving partial injective contractions.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.06417v1",
+          "material_read": "p. 1 definition and p. 6 Theorem 2.6 (offset 17600)",
+          "method": "Lawful OA primary PDF",
+          "title": "Combinatorial results for order-preserving partial injective contraction mappings",
+          "trigger": "Possible neighboring nilpotent rank table"
+        },
+        {
+          "assessment": "Real overlap at n=3,4 only, not the global-index classification",
+          "evidence": "Maximal domain rank subject to f²=0, with congruence-dependent top-rank counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-mod-four-square-zero-rank-defect-in-parity-preserving-fence-in--11bfe7935353/RESULT.md",
+          "material_read": "Finding at offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror read",
+          "title": "A mod-four square-zero rank defect in parity-preserving fence inverse monoids",
+          "trigger": "Closest distinct indexed match, identical ambient monoid and a nilpotent extremum"
+        },
+        {
+          "assessment": "Different filtration",
+          "evidence": "Total cardinality series and domain-rank coefficient formula for all elements.",
+          "identifier_or_url": "2026/11/8/SCOPE-algebraic-cardinality-series-and-sharp-growth-of-parity-preservi--cd10259c2cbb/RESULT.md",
+          "material_read": "Finding, offset 0, same mirror snapshot",
+          "method": "Local Resultary search and mirror read",
+          "title": "Algebraic cardinality series and sharp growth of parity-preserving fence inverse monoids",
+          "trigger": "Exact ambient monoid census"
+        },
+        {
+          "assessment": "Related rank/index law but the ambient isometry assumption supplies translation already",
+          "evidence": "Rank-refined nilpotency-height formula for order-preserving partial isometries.",
+          "identifier_or_url": "2026/10/25/SCOPE-nilpotency-height-rank-profiles-and-a-lattice-extreme-law-for-or--3383014bbd25/RESULT.md",
+          "material_read": "Finding, offset 170, same mirror snapshot",
+          "method": "Local Resultary search and mirror read",
+          "title": "Nilpotency-height rank profiles and a lattice extreme law for order-preserving partial isometries",
+          "trigger": "Counts the isometric extremizers potentially shared with this record"
+        },
+        {
+          "assessment": "Fixed-rank rather than global index, and contractions rather than fence maps",
+          "evidence": "Extremal index k+1 at rank k, with partition-based enumeration.",
+          "identifier_or_url": "2026/11/2/SCOPE-extremal-nilpotency-in-order-preserving-partial-contractions-is--cbbee36cc90b/RESULT.md",
+          "material_read": "Offsets 0 and 7100, same mirror snapshot",
+          "method": "Local Resultary search and mirror read",
+          "title": "Extremal nilpotency in order-preserving partial contractions is governed by integer partitions",
+          "trigger": "Plausible neighboring extremal nilpotence law"
+        },
+        {
+          "assessment": "No index refinement or parity/fence condition in the counted class",
+          "evidence": "Rank generating function for all nilpotent increasing partial injections.",
+          "identifier_or_url": "2026/11/22/SCOPE-large-deviations-of-nilpotent-partial-order-preserving-injection--6acaec0c4c01/RESULT.md",
+          "material_read": "Finding, offset 0, same mirror snapshot",
+          "method": "Local Resultary search and mirror read",
+          "title": "Large deviations of nilpotent partial-order-preserving injection ranks",
+          "trigger": "Broader increasing-injection rank count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and Proof",
+        "arXiv:2208.03202v4",
+        "Resultary cd10259c2cbb and 11bfe7935353"
+      ],
+      "rationale": "After the elementary bound, the remaining mathematical question is which non-isometric maps in a natural inverse monoid could attain it. The rigidity result rules all of them out and gives the exact extremal locus, with a different rank spectrum and intersection pattern for the two parities of n. This supplies structural information missing from an ambient cardinality or square-zero rank count.",
+      "residual_risks": [
+        "The result does not give nilpotency-index profiles away from the maximum, where nontranslations occur."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

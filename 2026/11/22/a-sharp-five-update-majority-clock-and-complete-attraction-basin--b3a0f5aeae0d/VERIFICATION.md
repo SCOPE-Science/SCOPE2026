@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite result is checked by three accompanying, independently structured standard-library Python programs: `check_direct.py`, `check_indegree.py` and `check_symmetry.py`. They have been executed against the files packaged here and reproduced `direct_output.txt`, `indegree_output.txt` and `symmetry_output.txt`.
+# Independent mathematical audit
 
-The first program enumerates all 4096 trajectories and builds orbit basins directly. The second constructs all 4096 transitions from a separate Petersen-to-Tietze graph construction and uses indegree stripping to recover all periodic orbits and their transient ancestry. The third enumerates every graph automorphism using the unique triangle and all permutations of the six remaining vertices; it then verifies equivariance and the spatial orbit counts.
+## correctness
 
-The witness 31 has trajectory 31, 198, 22, 192, 16, 0, 0, giving a sharp first-periodic-entry time of five. The programs prove a finite 12-vertex classification, not any claim about all graphs of a given order or a uniform infinite family. The literature comparison remains subject to unindexed equivalents; independent external validation has not been performed.
+PASS
+
+The explicit cubic graph and open-neighbor rule define the full 4096-state deterministic map. Exhaustive independent enumeration of first repeats gives the (period 1, period 2) entry rows (16,274), (136,994), (492,708), (360,252), (432,144), (216,72) at t=0 through 5. Grouping by the repeated suffix up to cyclic rotation yields all published fixed and two-cycle basin sizes and multiplicities, including both unanimous basins of 776. The maximum entry of 5 and period bound 2 imply F^7=F^5; 31→198→22→192→16→0→0 refutes F^6=F^4. An exhaustive action of the 12 edge-preserving permutations gives six fixed and 29 two-cycle spatial classes. Independently, contraction of the unique triangle identifies the automorphism group with a vertex stabilizer in the Petersen group S5 (recognizable from the five maximum independent stars in KG(5,2)); this stabilizer has order 2!3!=12.
+
+## originality
+
+PASS
+
+The verified distinct content is the exact Tietze first-entry, temporal-basin and spatial-orbit census; neither the classical period bound nor the order of the Tietze automorphism group is new. The closest retrieved dynamical census is for a different graph and does not give these data.
+
+## value
+
+PASS
+
+The Tietze graph is a standard cubic comparison to the Petersen graph, not an arbitrary choice of a twelve-vertex example. Its triangle inflation increases the exact worst settling time from four to five and substantially changes the recurrent and basin counts. The basin and symmetry tables distinguish that concrete change in local dynamics beyond the classical period bound and are independently useful as canonical test cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

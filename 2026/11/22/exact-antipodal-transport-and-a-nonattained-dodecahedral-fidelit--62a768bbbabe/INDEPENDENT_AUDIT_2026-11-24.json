@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:56:44.358794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the adjacency spectra and parity factors from exact Cartesian coordinates: with antipodes ordered in pairs, adjacency has blocks (B,C;C,B), and B+C and B-C have exactly the even and odd characteristic-polynomial factors in the table. Independently checked the unique graph-distance antipode for each vertex and the degree-three geometric eigenspace (eigenvalues 1, 0, sqrt(5), sqrt(5) on cube, octahedron, icosahedron, dodecahedron). Its projector has entries 3(u·v)/(N r^2), with r the vertex radius, so strict Cauchy–Schwarz excludes PGST for every distinct non-antipodal pair; the tetrahedron follows from A=J-I. The bounded exact reproduction is replayable with python -B /workspace/branches/platonic_reconstruction.py (SymPy); it passed the four parity, shell and geometric projector checks and both derivative and peak-value identities. The uploaded scripts were inspected but not run. Vertex transitivity gives diagonal weights m_lambda/N and hence the stated amplitudes. For the dodecahedron the two frequencies 1 and sqrt(5) have dense joint phase torus; strict convexity in cos(sqrt(5)t) reduces to endpoints. The negative endpoint has squared numerator at most 144, and the positive endpoint polynomial has only one interior stationary point x=-1/2, where the derivative changes from positive to negative and the squared numerator is 243. Equality additionally requires sqrt(5)t/(2pi) integral, impossible for nonzero rational t/(2pi) giving cos t=-1/2. For icosahedral antipodes odd Pell indices give q even, p odd, p-sqrt(5)q=1/(p+sqrt(5)q); evaluating at t=pi q gives the stated cos^4 limit. Exact transfer would require 6t and 2sqrt(5)t to be multiples of 2pi, which forces t=0 and fails the parity-phase condition. The single-frequency cube, octahedron and tetrahedron attain the stated values at pi/2, pi/3 and pi/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho–Guo–Guo–Vanhove Theorem 4.1, Lemma 4.2 and Corollary 4.5 constrain PST via antipodal two-covers and integral eigenvalues. These apply to the no-PST part but cannot exclude or prove PGST or optimize a subunit fidelity.",
+          "807100de0f76 gives the odd-dimensional cross-polytope global optimum cos^2(pi/N); N=6 is exactly the octahedral 3/4 row."
+        ],
+        "reasoning": "PST impossibility does not imply failure of PGST. The cross-polytope theorem supplies the exact octahedral row by substitution, but the dodecahedron and icosahedron are not cross-polytopes.",
+        "searches": [
+          "arXiv:1401.1745, perfect transfer on distance-regular graphs and antipodal covers",
+          "arXiv:2505.11986, general arithmetic criterion",
+          "Resultary 807100de0f76, global cross-polytope optimum"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 62a768bbbabe (assigned record)",
+        "Resultary 807100de0f76",
+        "Resultary b76f2b2b4572 (indexed family description)",
+        "arXiv:1401.1745",
+        "arXiv:2505.11986",
+        "arXiv:1607.03598",
+        "arXiv:0808.2261",
+        "arXiv:quant-ph/0309131 (founding cube attribution in frozen source)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the dodecahedral support 0,1,sqrt(5), the peak-transfer criterion does not give saturation; even proof of nonsaturation at every time would not give the strict sharp uniform bound.",
+          "Tsomokos et al. §IV gives (1-2/N)^2 at t=pi/2 when N=4k+2, which is 4/9 at N=6 in that passage. The global 3/4 is directly covered instead by 807100de0f76.",
+          "An exact dodecahedral calculation must retain rational phase constraints among 3,-2,1,0 while optimizing the independent irrational phase; using the sum of absolute weights loses this information."
+        ],
+        "reasoning": "Known general theory supplies tools and some obstruction/classification components. The exact nonattained dodecahedral value does not follow by reading off the projector bound or specializing the inspected graph-family theorems.",
+        "searches": [
+          "arXiv:2505.11986 Lemma 5.2/Theorem 5.4",
+          "arXiv:1401.1745 §4",
+          "arXiv:0808.2261 §IV",
+          "Resultary 807100de0f76, RESULT.md offset 505"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The peak-transfer paper uses a finite-time saturation of the spectral projector bound. For strongly cospectral dodecahedral antipodes, that bound is 1, not the sharp supremum 243/400.",
+          "The circulant paper treats adjacency PGST as a limiting phenomenon in cycles and related circulants; no matching Platonic calculation in the inspected passages."
+        ],
+        "reasoning": "A nonattained least upper bound of the dodecahedral transition probability is not the peak-transfer attainment criterion. Discrete-time, controlled or Laplacian walks do not represent the asserted uniform adjacency dynamics.",
+        "searches": [
+          "Resultary: dodecahedron antipodal uniform adjacency fidelity 243/400; Platonic graphs PGST",
+          "arXiv:2505.11986 Lemma 5.2 and Theorem 5.4",
+          "arXiv:1607.03598, adjacency PGST on circulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-match hit 62a768bbbabe is the assigned record itself, not independent coverage.",
+          "The strongest distinct table-like result is the cross-polytope formula in 807100de0f76. The related wheel-graph hit concerns rim antipodes in another graph family."
+        ],
+        "reasoning": "There is verified overlap for one row, already credited as known. The retrieved distinct comparisons do not give the dodecahedral bound or the combined all-five result; the search is not proof of absence.",
+        "searches": [
+          "Resultary: exact dodecahedron 243/400 nonattained state transfer; icosahedron antipodal pretty good state transfer",
+          "2026/10/4/SCOPE-exact-global-transfer-optimum-on-odd-dimensional-cross-polytopes--807100de0f76",
+          "2026/10/13/SCOPE-antipodal-pretty-good-state-transfer-on-wheel-graphs--b76f2b2b4572"
+        ]
+      },
+      "rationale": "The nonattained dodecahedral antipodal supremum 243/400 survives statement-level comparison and needs an actual joint-phase optimization, not a known upper bound or a generic transfer criterion. The classification combines older cases and general tools with graph-specific conclusions; it is not credited as five new cases. Checked narrow and broad result statements for the exact uniform-adjacency model. No compared distinct source supplies the dodecahedral sharp cap or the complete classification; priority remains best-of-knowledge. The cube and octahedral cases are not original contributions.",
+      "residual_risks": [
+        "Specialized or unindexed discussions of Platonic or antipodal-cover PGST may have calculated individual cases; no exhaustive priority determination is claimed.",
+        "The dodecahedral quantity is the supremum for antipodes only. Neither exact fidelity maxima for other dodecahedral pairs nor an optimal waiting-time law is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the octahedral case explicitly by special case",
+          "evidence": [
+            "Uniform adjacency; cos^2(pi/N) at t=pi/2±pi/N"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-global-transfer-optimum-on-odd-dimensional-cross-polytopes--807100de0f76/RESULT.md",
+          "material_read": "Finding passage at offset 505 of RESULT.md",
+          "method": "Bounded published-record mirror excerpt; specialize N=6",
+          "title": "Exact global transfer optimum on odd-dimensional cross-polytopes",
+          "trigger": "Broader exact optimum including the octahedron"
+        },
+        {
+          "assessment": "Supplies necessary and characterizing PST results, not all-time PGST or a nonunit supremum",
+          "evidence": [
+            "Two-vertex antipodal fibres and integral spectrum for PST"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.1745",
+          "material_read": "Theorem 4.1 p. 7 (offset 16150), Lemma 4.2 p. 8, Corollary 4.5 p. 10 (offset 22000)",
+          "method": "Bounded OA primary passages",
+          "title": "Perfect state transfer on distance-regular graphs and association schemes",
+          "trigger": "Broader distance-regular/antipodal family criterion"
+        },
+        {
+          "assessment": "Concerns saturation of a spectral bound, not this strict least upper bound",
+          "evidence": [
+            "Finite-time attainment of an upper bound; arithmetic conditions on supported eigenvalues"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.11986",
+          "material_read": "Abstract p. 1; Lemma 5.2 p. 7 (offset 30900), Theorem 5.4 p. 9 (offset 35100)",
+          "method": "Bounded OA primary passages; compared hypotheses to the parity spectrum",
+          "title": "Peak state transfer in continuous quantum walks",
+          "trigger": "Plausibly broader sharp transfer optimization"
+        },
+        {
+          "assessment": "Related PGST framework; the inspected cycle/circulant results do not cover these two Platonic antipodal conclusions",
+          "evidence": [
+            "Limit-sequence definition, cycle and circulant scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.03598",
+          "material_read": "p. 1, starting around offset 1500",
+          "method": "Bounded OA primary excerpt",
+          "title": "Pretty Good State Transfer on Circulant Graphs",
+          "trigger": "Potential PGST family overlap"
+        },
+        {
+          "assessment": "Prior cross-polytope dynamics; the compared passage is not the global optimization",
+          "evidence": [
+            "Formula at t=pi/2 for N=4k+2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0808.2261",
+          "material_read": "§IV p. 3, offset 15800",
+          "method": "Bounded OA full-text passage",
+          "title": "State Transfer in Highly Connected Networks and a Quantum Babinet Principle",
+          "trigger": "Cross-polytope adjacency transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform adjacency dynamics on the canonical Platonic skeletons give a natural finite benchmark. The exact nonattained subunit cap for the dodecahedron is not a norm estimate, a table lookup or a consequence of excluding perfect transfer. Its sharp value distinguishes this graph from proper PGST on its icosahedral dual, resolving an operationally meaningful limit in the fixed Hamiltonian model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

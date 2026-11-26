@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:35:07.007506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86, VERIFICATION.md and check_psk7.py",
+        "/workspace/branches/2081f99c-5b32-497b-988e-e98f0ee6baa8/reproduce_phase_enum.py",
+        "/workspace/branches/2081f99c-5b32-497b-988e-e98f0ee6baa8/reproduction_output.txt"
+      ],
+      "rationale": "Parseval applied to |P|² gives 49+2E. Modulating exponents by u+vj multiplies lag k by a single unit phase, and the first two exponents fix a unique gauge without dividing in Z/qZ. Each normalized array therefore accounts for q² arrays even at composite q. Independently computed lag histograms and exact cyclotomic energies exhaust all 29,007 normalized arrays; in the quadratic and cubic fields rational root bounds certify sign comparisons. The replay gives all stated minima and all stated normalized minimizer lists, including just the two conjugate seven-phase vectors, and counts 4,18,16,100,36,98 before normalization. At q=5, 31>13√5; at q=7 the isolating bound for t=2cos(2π/7) gives t>16/13 and hence 19−13t<3. Along with the q=2,3,4,6 energies this proves the first strict improvement. The supplied certificate's Machin bounds, order-41 cosine Taylor remainder (odd coefficient zero), Lipschitz correction and outward rounding are valid; the independent comparison does not rely on that implementation.",
+      "residual_risks": [
+        "The exhaustion is only for seven consecutive frequencies and the six specified alphabets; no continuous-phase or q≥8 optimum is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raei et al.'s broader optimization framework admits discrete roots and includes squared sidelobes as a specialization, but is a general optimization formulation. The Borwein–Ferguson abstract describes stochastic/calc­ulus-based local minima and candidates for the global base-energy minima, not exact q-constrained tables. Resultary cc64dab275f8 treats a seven-site two-dimensional hexagon, while 225492f9c9fb treats a punctured square."
+        ],
+        "reasoning": "An unrestricted-phase lower bound or candidate cannot specify which q-root vectors attain a different discrete minimum. Unequal supports have different difference multiplicities; the inspected two-dimensional exact theorems do not specialize to the consecutive one-dimensional progression.",
+        "searches": [
+          "arXiv:2104.03303 Section II, equation (3)",
+          "Borwein–Ferguson, Polyphase sequences with low autocorrelation, Abstract and Introduction",
+          "Resultary: seven-site and punctured-square Fourier aperture bounds"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7f7aa7e01e0e, 225492f9c9fb, cc64dab275f8",
+        "Borwein–Ferguson DOI 10.1109/TIT.2004.842778",
+        "Syms–Noorwali DOI 10.1088/1361-665X/ac8385",
+        "arXiv:2104.03303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known formulas give the test objective and reduction candidates; the code-family work concerns peak and cross-correlation; neighboring exact results vary the Fourier support."
+        ],
+        "reasoning": "The binary benchmark being known and the general objective being formulated do not imply that q=3,4,5,6 cannot strictly improve it or that exactly two normalized q=7 vectors do. Alphabet containment only handles divisibility, not successive q; the exact finite comparisons supply the new conclusions.",
+        "searches": [
+          "Frozen RESULT.md lines 88–100",
+          "Raei et al. discrete-phase objective",
+          "Syms–Noorwali Section 2",
+          "Resultary 225492f9c9fb and cc64dab275f8, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borwein–Ferguson Introduction distinguishes integrated base energy from peak autocorrelation and uses the same aperiodic sidelobes. The vector and threshold searches returned target 7f7aa7e01e0e, not a distinct prior result."
+        ],
+        "reasoning": "For length seven, base energy and fourth moment are equivalent by Parseval and merit factor is monotone in the energy. Peak sidelobes are not equivalent: lag six already has modulus one, regardless of how the other lags trade off.",
+        "searches": [
+          "Resultary: Barker seven, aperiodic integrated sidelobe energy, fourth moments, phase resolution threshold and optimizer vector",
+          "Literature: polyphase sequences with low autocorrelation and base energy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary table is the assigned record itself. Syms–Noorwali Table 1 is explicitly a table of examples of known base-six polyphase Barker codes; the Borwein–Ferguson paper describes candidate base-energy tabulation and a separate peak-modulus objective."
+        ],
+        "reasoning": "An example code or a candidate for a continuous-phase minimum does not certify optimality or count equality cases in each finite alphabet. Some Borwein–Ferguson table symbols were not legible in extraction, so no claim of entry-by-entry exclusion is made.",
+        "searches": [
+          "Resultary: exact six-alphabet minimum table, equality counts, seven-phase optimizer vector",
+          "Syms–Noorwali Table 1 and Section 2",
+          "Borwein–Ferguson tabulation references"
+        ]
+      },
+      "rationale": "Credit the classical Barker benchmark, the equivalent base-energy objective and known polyphase search methods. The distinct result supported by the comparisons is the sharp length-seven phase-alphabet threshold, exact minima over q=2,…,7, and complete equality cases. No separate retrieved statement supplies this classification.",
+      "residual_risks": [
+        "Specialized or unindexed low-autocorrelation code tables may contain an equivalent finite result. The literature comparison did not independently confirm every numerical entry in the continuous-phase tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the objective and search for optima; plausible numerical overlap, but no exact q-specific certification found. Table symbols were partly unreadable.",
+          "evidence": "The abstract calls the first search output good local minima, and describes candidates for global minima; the Introduction distinguishes the maximum sidelobe and the sum of energies.",
+          "identifier_or_url": "https://www.cecm.sfu.ca/~pborwein/PAPERS/P178.pdf; DOI 10.1109/TIT.2004.842778",
+          "material_read": "Abstract/Introduction, offsets 0–5014; statistical discussion and later table/figure extraction near 69750",
+          "method": "OA PDF literal locate and bounded offset reads",
+          "title": "Polyphase sequences with low autocorrelation",
+          "trigger": "Identical aperiodic base-energy objective and small-length candidate tables"
+        },
+        {
+          "assessment": "The objective includes the present minimization as a setting, not its exact solution.",
+          "evidence": "Equation (3) optimizes weighted powers of auto- and cross-correlation over either unimodular phases or an L-phase alphabet.",
+          "identifier_or_url": "https://arxiv.org/html/2104.03303",
+          "material_read": "Section II, equation (3) and following alphabet definitions, offsets 14500–16305",
+          "method": "OA HTML literal locate and bounded offset read",
+          "title": "Design of MIMO Radar Waveforms based on ℓp-Norm Criteria",
+          "trigger": "Discrete-phase integrated energy formulation"
+        },
+        {
+          "assessment": "Known code examples and peak/cross-correlation search, not the integrated single-code optima and counts.",
+          "evidence": "Table 1 is headed Examples of known polyphase Barker codes, base 6; the search discussion uses maximum autocorrelation and cross-correlation cutoffs for code pairs.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-665X/ac8385",
+          "material_read": "Page 4, offsets 14500–18650 and Table 1 caption/passage",
+          "method": "OA PDF locate and bounded offset read",
+          "title": "Polyphase codes for multiplexed acoustic signalling and sensing on pipes",
+          "trigger": "Small-alphabet exhaustive code searches and tabulation"
+        },
+        {
+          "assessment": "Different eight-frequency Fourier support; no priority inference from the common date.",
+          "evidence": "Support {0,1,2}² without the center, and minima 88,96,88,96−4√5,84.",
+          "identifier_or_url": "Resultary 225492f9c9fb",
+          "material_read": "RESULT.md Finding, offsets 0–1640",
+          "method": "Local mirror",
+          "title": "Exact five-alphabet fourth moments for the punctured square Fourier aperture",
+          "trigger": "Same exact phase-alphabet style and overlapping q"
+        },
+        {
+          "assessment": "Different two-dimensional support and optimum; no priority inference from the common date.",
+          "evidence": "Centered hexagon; continuous-phase range [63,175], with minimum 63 attained for even q.",
+          "identifier_or_url": "Resultary cc64dab275f8",
+          "material_read": "RESULT.md Finding, offsets 0–1344",
+          "method": "Local mirror",
+          "title": "Sharp fourth-moment range and phase rigidity of the seven-site hexagonal Fourier aperture",
+          "trigger": "Same number of sites and moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and benchmark discussion",
+        "Independent exact energy enumeration"
+      ],
+      "rationale": "The length is selected by the canonical binary Barker-seven benchmark rather than an arbitrary sample. The central fact is the exact first alphabet size that improves integrated sidelobe energy, with proof that five smaller alphabets fail and exact equality structure at the transition. This matters even if the numerical gain is modest: a coarser alphabet cannot deliver any gain for this benchmark.",
+      "residual_risks": [
+        "The result is a fixed-length benchmark, not a general phase-resolution law or a claim about peak sidelobe improvements."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

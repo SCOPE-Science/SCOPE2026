@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:01.817200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS is for the replacement files, not the original. The original fails twice: after multiplying by delta the omitted O(x) remainder contributes O(delta*x), which is not a uniform O(delta^2*y); and dropping the zeta shift before raising to 1/delta does not preserve relative equivalence under delta*X→infinity. In the repair the monotone defining series has one solution and bounds it uniformly away from any x>=epsilon for large X. DLMF's convergent series with the pole terms removed has uniform R=-zeta(-delta)*x+O(x^2) (functional equation plus Stirling for the tail). With B=-zeta(1-delta)>0 and z=(Gamma(delta)/(X+B))^(1/delta), log(x/z)=-log(1-R/(X+B))/delta=O(x/(1+delta*X)); convergence of the ratio to one allows x to be replaced by z. Gamma(delta) and B both equal delta^(-1)-gamma_E+O(delta), so the leading elementary formula contributes an extra O(delta) in relative error. The relative power-law ratio has log -log(1+B/X)/delta+o(1); bounding this term above and below proves the iff condition delta^2*X→infinity and the limits exp(-1/c) and zero on the two smaller scales. Along delta=exp(-2X), the original pure O(delta) relative error is disproved by a correction asymptotic to exp(-X)/2; along (delta,X)=(j^(-2),j^3), the original relative endpoint ratio tends to zero. These are analytic checks, not simulation. The corrected scope remains the reduced periodic saddle, with no bound on the omitted finite-temperature term or on the force.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The physical source supplies both pole terms and a separate fixed-dimension leading solution. DLMF supplies a general forward power series, not a uniform relative inverse with bounds as the order tends to one."
+        ],
+        "reasoning": "The decisive extension is not the identity or retaining two terms at fixed order; the remainder must be controlled uniformly and the comparison after exponentiation can change by a finite factor or go to zero. A fixed-dimension inverse does not cover this statement.",
+        "searches": [
+          "arXiv:1601.05435, PDF p. 3, Eq. (16) and the Regime II entry of (17)",
+          "DLMF Eq. 25.12.12 and its convergence domain"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Corrected RESULT.md and VERIFICATION.md under repairs/5",
+        "arXiv:1601.05435",
+        "DLMF §25.12 Eq. 25.12.12",
+        "Resultary records ending cc276694eb75 and 6dcf0f2a0db3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed d<3 the shift B in X+B is negligible in the power law; when d tends to 3 it is of order 1/delta. The repaired log comparison divides log(1+B/X) by delta, giving a nontrivial factor exp(-1/c) when delta^2*X→c."
+        ],
+        "reasoning": "The comparison and uniform remainder analysis are not provided by statement-level specialization of the anchor's separate dimensional limits. The counterexample path delta*X→infinity with delta^2*X→0 specifically distinguishes the new conclusion from importing the old fixed-d law uniformly.",
+        "searches": [
+          "arXiv:1601.05435, Eqs. (13), (16)–(18), PDF pp. 3–4",
+          "DLMF Eq. 25.12.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The repaired variables δ=(3-d)/2 and x=-sbar give the same order and argument as in the anchor. In Eq. (16) its two displayed terms are Gamma(delta)*x^(-delta)+zeta(1-delta). The canonical ideal-gas indexed record uses a different fugacity/large-deviation setting."
+        ],
+        "reasoning": "The two-variable saddle inversion is a limit of the same function as in the anchor, not a renaming of the separately stated fixed-dimension power law or the d=3 endpoint. The nearest indexed fugacity calculation is not an equivalent limit.",
+        "searches": [
+          "Jakubczyk–Napiórkowski–Sęk arXiv:1601.05435, Eqs. (12), (13), (16)–(18)",
+          "NIST DLMF §25.12 Eq. 25.12.12",
+          "Resultary record ending cc276694eb75"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records concern canonical ideal-gas large deviations and super-Gaussian Fourier zeros respectively. DLMF Eq. 25.12.12 is an identity in the forward variable; it does not tabulate a sharp two-parameter relative endpoint."
+        ],
+        "reasoning": "This is not an exact finite-table question. The relevant potential database overlap is a published joint asymptotic or uniform inversion; the inspected matches do not supply it.",
+        "searches": [
+          "Resultary strongest returned Bose-polylogarithm indexed record cc276694eb75 and same-day gamma crossover record 6dcf0f2a0db3",
+          "DLMF §25.12"
+        ]
+      },
+      "rationale": "For the replacement, credit the original model, saddle equation, gamma and zeta terms of the forward expansion, and both fixed-dimension endpoints to Jakubczyk–Napiórkowski–Sęk, and the full polylogarithm expansion to DLMF. The supported distinct result is the joint relative inverse estimate and its sharp separation between a logarithmic crossover on the delta*X scale and relative recovery of the power law on the delta^2*X scale. Neither the anchor's separate limits nor the distinct indexed sources inspected state this comparison. The verdict is best-of-knowledge and does not claim an exhaustive priority result.",
+      "residual_risks": [
+        "A nonindexed or differently phrased treatment of inversion near polylogarithm order one may contain the same result. The judgment is restricted to the corrected reduced-saddle statement and inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS FORWARD EXPANSION AND SEPARATE ENDPOINTS, NOT THE JOINT INVERSION",
+          "evidence": [
+            "The pre-reduction equation keeps the finite-temperature term; the below-three expansion displays both gamma and zeta terms; the Regime II solution uses the fixed-d leading power law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.05435",
+          "material_read": "PDF pp. 2–3, Eq. (12) offsets 17600–18068, Eq. (13) around offsets 18200–19624, and Eqs. (16)–(18) at offsets 23450–28347",
+          "method": "Lawful OA PDF passages",
+          "title": "Repulsive Casimir forces at quantum criticality",
+          "trigger": "Exact source model, same saddle and dimensional endpoints"
+        },
+        {
+          "assessment": "STANDARD FORWARD IDENTITY",
+          "evidence": [
+            "Gamma(1-s) times (log(1/z))^(s-1) plus the zeta-coefficient series for |log z|<2π and s not a positive integer."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/25.12.E12",
+          "material_read": "§25.12 Eq. 25.12.12, offsets 9460–11258 in §25.12",
+          "method": "Lawful OA equation and surrounding domain",
+          "title": "NIST DLMF, Polylogarithms",
+          "trigger": "Proof-critical series and possible general coverage"
+        },
+        {
+          "assessment": "DIFFERENT MODEL AND LIMIT",
+          "evidence": [
+            "The fugacity equation concerns canonical ideal-gas fluctuations, not the reduced mean-field saddle with order tending to one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-polylogarithmic-geometry-of-the-canonical-ideal-bose-condensate--cc276694eb75",
+          "material_read": "Matching record's canonical right-tail and fugacity statement",
+          "method": "Local Resultary mirror passage",
+          "title": "Polylogarithmic geometry of the canonical ideal-Bose condensate right tail",
+          "trigger": "Closest indexed Bose-polylogarithm statement"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT AND LIMIT",
+          "evidence": [
+            "Its parameter is a Fourier-decay power; there is no reduced Bose-gas polylogarithm saddle."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-gamma-phase-crossover-for-super-gaussian-fourier-zeros--6dcf0f2a0db3",
+          "material_read": "Finding on Fourier zeros as the super-Gaussian power increases",
+          "method": "Local Resultary comparison",
+          "title": "Gamma-phase crossover for super-Gaussian Fourier zeros",
+          "trigger": "Distinct same-day crossover match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform saddle approximation is useful precisely because the known endpoint expressions can be wrong by an arbitrarily large relative factor near the critical dimension. The corrected result identifies distinct logarithmic and relative scales and quantifies the latter boundary by exp(-1/c), including why one cannot retain the originally claimed error. It is not a claim of novelty for a Gamma/zeta expansion, nor a purported formula for the full finite-temperature force.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

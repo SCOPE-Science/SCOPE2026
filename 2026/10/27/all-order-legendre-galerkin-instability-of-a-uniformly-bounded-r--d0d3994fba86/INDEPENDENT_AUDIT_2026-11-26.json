@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:52:50.893220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 11–64; VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: python3 /workspace/branches/replay_2_3_4.py 3; direct integration of Rodrigues polynomials in rational arithmetic confirms the projection, parity and alternating trace for s=1..10"
+      ],
+      "rationale": "For fixed theta the Q-energy gives the stated two-sided time bound. Projecting multiplication by theta twice misses only the path through the first omitted Legendre polynomial, with coefficient a_s squared. Alternating parity yields the two blocks K and -K, with K=(-T+bU)D. The trace telescopes to (-1)^(s-1)b s^2/(4s^2-1); averaging the real parts gives the claimed abscissa bound for every s, including s=1. At s=2 the block has trace -4b/15 and discriminant (14b/15)^2-4/3<0, giving the displayed example. A positive-real-part eigenspace supplies real exponentially growing solutions. The square evaluation matrix at the s nodes, weighted for the probability measure, is orthogonal by degree 2s-2 exactness. It conjugates T and the quadrature U to the nodes and their squares respectively, including the zero node when present. Each block has the same positive energy bounds as the underlying realization. The rank-one identity concerns the theta-squared product matrix; the difference in the full two-component generators has rank two for b>0.",
+      "residual_risks": [
+        "The computation is corroboration only. No claim about all initial conditions, time integration schemes, or finite-time convergence as s grows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pulch–Augustin describe possible instability under SG of asymptotically stable systems and a stabilizing transform; Manfredi et al. prove exact agreement for first-order system matrices and discuss errors above first order"
+        ],
+        "reasoning": "An existential loss of stability does not guarantee it at every order for a conservative pencil. The quadratic generator is outside the linear coincidence theorem; a general product error does not determine the half-plane of any eigenvalue.",
+        "searches": [
+          "arXiv:1708.00958",
+          "arXiv:2308.07087v1",
+          "DOI 10.1007/s10665-017-9909-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07087v1",
+        "arXiv:1708.00958",
+        "10.1007/s10665-017-9909-7",
+        "arXiv:1307.0065",
+        "SCOPE-20261108-c92fdaf67f86 (synopsis)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pasini–Sahai show that the true-solution Legendre coefficients in their oscillator example decay at long times; the collocation factorization has higher-input-order error"
+        ],
+        "reasoning": "Decay of projected coefficients of the true solution is not instability of the coefficient ODE. The familiar Gaussian-product identity can explain the stable comparison, but does not imply the alternating boundary trace argument giving a positive spectral abscissa at every order.",
+        "searches": [
+          "arXiv:1307.0065 §3.2 Theorem 3.2",
+          "DOI 10.1007/s10665-017-9909-7 Theorem 4 and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pulch–Sète arXiv:2308.07087v1 pp. 1–2 distinguish ordinary projection from structure-preserving transformations",
+          "Manfredi et al., DOI 10.1007/s10665-017-9909-7, Theorem 4, compare Galerkin and collocation factorizations"
+        ],
+        "reasoning": "Neither re-expression in port-Hamiltonian variables nor the same-node pseudospectral formulation identifies a prior statement of the all-order unstable exact flow versus the stable collocated flow for this family.",
+        "searches": [
+          "Legendre stochastic Galerkin instability / port-Hamiltonian / Gaussian quadrature collocation",
+          "Resultary: Hamiltonian oscillator, projection instability, Legendre Galerkin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalog synopsis SCOPE-20261108-c92fdaf67f86 concerns Gaussian sketching and symmetrization of a reduced Hamiltonian system, not Legendre multiplication moments. Exact local mirror text did not resolve."
+        ],
+        "reasoning": "A probability of instability under a Gaussian sketch is not a spectral lower bound for each deterministic polynomial compression. No located indexed statement provides this family or trace certificate; this is a bounded catalog comparison, not a proof of absence.",
+        "searches": [
+          "Resultary: exact Galerkin oscillator instability; Gaussian projection instability of Hamiltonian systems"
+        ]
+      },
+      "rationale": "Projection-induced instability, failure of untransformed port-Hamiltonian structure, and Gaussian collocation aliasing are already known. The supported distinct claim is the specific uniformly conservative planar family with an explicit positive abscissa certificate at every finite exact order, contrasted with uniform boundedness at the same Gaussian order. The inspected statements do not yield the nonzero alternating-trace sign law.",
+      "residual_risks": [
+        "No exhaustive priority claim; older oscillator or Galerkin examples may contain an equivalent construction.",
+        "Rank-one multiplication error may be a direct specialization of standard quadrature-error results; it is not assigned standalone originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural issue and a different, transformed method",
+          "evidence": "The untransformed SG procedure need not preserve pH; transformation before applying SG is proposed.",
+          "identifier_or_url": "arXiv:2308.07087v1",
+          "material_read": "Abstract and §1, pp. 1–2",
+          "method": "OA text, relevant passages",
+          "title": "Stochastic Galerkin method and port-Hamiltonian form for linear first-order ordinary differential equations",
+          "trigger": "Direct structural antecedent"
+        },
+        {
+          "assessment": "Prior broad phenomenon, not this all-order certificate",
+          "evidence": "An SG system may be unstable despite asymptotically stable realizations; a Lyapunov-based transform preserves stability.",
+          "identifier_or_url": "arXiv:1708.00958",
+          "material_read": "Abstract and discussion, pp. 1–2",
+          "method": "OA text, abstract and stability passages",
+          "title": "Stability preservation in stochastic Galerkin projections of dynamical systems",
+          "trigger": "Potential prior stability counterexample"
+        },
+        {
+          "assessment": "Relevant general product mechanism; no target spectral law in inspected passages",
+          "evidence": "First-order PCE system matrices give exact coincidence; higher orders generally incur factorization error.",
+          "identifier_or_url": "DOI 10.1007/s10665-017-9909-7",
+          "material_read": "Theorem 4 p. 7 and conclusion p. 12",
+          "method": "OA theorem and conclusion passages",
+          "title": "On the relationship between the stochastic Galerkin method and the pseudo-spectral collocation method for linear differential algebraic equations",
+          "trigger": "Earlier Gaussian/SG factorization and error law"
+        },
+        {
+          "assessment": "A different long-time observable",
+          "evidence": "Legendre coefficients of the true solution tend to zero, not a claim about a growing Galerkin eigenmode.",
+          "identifier_or_url": "arXiv:1307.0065",
+          "material_read": "§3.2, Theorem 3.2, p. 8",
+          "method": "OA theorem passage",
+          "title": "Polynomial chaos based uncertainty quantification in Hamiltonian, multi-time scale, and chaotic systems",
+          "trigger": "Earlier uncertain Legendre harmonic oscillator"
+        },
+        {
+          "assessment": "Synopsis specifies a materially different operator and probability question",
+          "evidence": "Gaussian sketching and symmetrization of a Hamiltonian reduction rather than Legendre Galerkin and Gauss products.",
+          "identifier_or_url": "SCOPE-20261108-c92fdaf67f86",
+          "material_read": "Catalog synopsis, not underlying result file",
+          "method": "Resultary semantic search and exact-ID local mirror resolution attempted",
+          "title": "Exact Gaussian instability probability for least-squares sketches",
+          "trigger": "Closest projection-instability catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 33–61",
+        "arXiv:2308.07087v1 and DOI 10.1007/s10665-017-9909-7, comparative context"
+      ],
+      "rationale": "An explicit two-dimensional conservative example rules out restoration of exact coefficient-flow stability merely by taking any larger finite degree. Comparing at identical degree isolates an implementation choice and its exact boundary mechanism, rather than demonstrating only a finite-order numerical anomaly.",
+      "residual_risks": [
+        "No claim about accuracy of the bounded quadrature flow or size of the true large-degree abscissa beyond the given lower bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

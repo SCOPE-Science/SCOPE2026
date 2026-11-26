@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:55:33.294980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71",
+        "Frozen checker.py and VERIFICATION.md (read, not run; expected count rather than independent transcript)",
+        "Müller–Tomilov arXiv:2606.22693v1 Theorems 1.9 and 3.11 and Proposition 4.14"
+      ],
+      "rationale": "Taking coordinate moduli reduces each radius to the respective positive functional: the forward edge term is u_j u_(j+1)^(p−1), the backward term u_j^(p−1)u_(j+1). Weighted Young at ratio r has equality exactly when u_(j+1)=r u_j. Summing gives residual coefficients t−(p−1)/(pr) and t−1/(pr^(p−1)) on u₀^p respectively. Taking r=1 gives the plateau upper bound, matched by arbitrarily long constant blocks beyond the defect; equality would force a nonzero constant sequence in ℓ_p, including at either threshold. Above threshold choose r<1 to cancel the residual coefficient. The normalized geometric sequence gives equality and the individual nonnegative Young deficits force that same sequence of moduli for every maximizer. The positive nonzero diagonal term pins the argument of each nonzero edge term to zero in the complex triangle equality, so all phases coincide. The exponent-conjugate orientation symmetry is an independent check: mapping u_j to u_j^(p−1) takes the forward positive functional at p into the backward one at q, including normalization. Both supercritical formulas have form f(t)=t+(1−a)(a/t)^(a/(1−a)), with a the respective threshold. Then f(a)=1, f'(a)=0, and f''(a)=1/(a(1−a))=p²/(p−1). Both orderings of the thresholds and the meeting at p=2 follow. For the essential disk, translated phase-ramped normalized blocks are weakly null and give every point of the unit circle as a limit on either shift; convexity gives the disk and the unperturbed norm gives the reverse inclusion. The rank-one diagonal is compact and preserves the essential range, as supported by the inspected primary theorem.",
+      "residual_risks": [
+        "The checker counts floating-point finite-vector bounds, geometric evaluations and local Taylor diagnostics, not a proof, formal verification, or test of every phase and parameter. The analytic argument provides universality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Müller–Tomilov give general essential-range characterizations and the unperturbed shift disk. Martín–Merí–Popov's relevant cited results are numerical-index bounds and rank-one estimates for atomless L_p, not the atomic half-line perturbation family. Dedania–Patel's inspected general normed-algebra and unitization statements do not evaluate these operators."
+        ],
+        "reasoning": "The essential-range part follows from already available machinery and should be credited accordingly. An encompassing framework for spatial numerical ranges does not, in the inspected results, give the exact scalar extremum with this diagonal defect and its equality cases.",
+        "searches": [
+          "Primary: \"spatial numerical radius\" ell_p unilateral shift positive diagonal rank-one perturbation weighted shift Collatz-Wielandt variational formula",
+          "arXiv:2606.22693v1 Thms. 1.9, 3.11, Prop. 4.14; arXiv:1011.4785 Abstract and §3; DOI 10.5644/SJM.20.02.08, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 76–93",
+        "Resultary diagonal/Hilbert and edge-weight records read by exact finding",
+        "Primary papers listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Changing the weight on a unilateral shift edge adds an off-diagonal term that vanishes on e₀ in the norming-pair evaluation, whereas tP₀ gives t there. The essential disk follows by compact invariance. Weighted Young's inequality supplies the classical proof tool but must be balanced against the boundary contribution and saturated by a normalizable sequence."
+        ],
+        "reasoning": "Neither reparametrizing the one-edge theorem nor invoking compact invariance establishes the non-Hilbert ordinary radius or attainment classification. The separate optimization at this diagonal entry is necessary; its two orientation statements are related by the stated duality.",
+        "searches": [
+          "Resultary 17bf045f66f8 and 6d4363552adb exact operator definitions; arXiv:2606.22693v1 Thm. 3.11 and Prop. 4.14; focused variational literature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit c0a614ea9a58 is a self-match. The Hilbert Robin record 17bf045f66f8 has identical diagonal defect when p=2. On conjugate ℓ_p and ℓ_q the positive numerical-radius variational problems are identified by u↦u^(p−1), in agreement with Banach adjoint duality."
+        ],
+        "reasoning": "B at p is the adjoint of F at q, not of F at the same p unless p=2 under the canonical dual identification. Duality explains the pair of formulas and the common curvature but does not yield either supercritical non-Hilbert law from a calculation at p=2.",
+        "searches": [
+          "Resultary: spatial numerical radius, boundary defect, dual shift, Robin transition",
+          "Müller–Tomilov arXiv:2606.22693v1 Thm. 1.9 and Prop. 4.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Robin finding gives the exact threshold 1/2 and radius t+1/(4t) above threshold on complex ℓ₂. The one-edge finding gives different thresholds p^(1/p), q^(1/q) for an exceptional edge coefficient. The self-hit is not separate exact-table evidence."
+        ],
+        "reasoning": "The exact Hilbert specialization is already stated; the overlapping non-Hilbert shift record compares a different operator and not an exact table or closed formula for the diagonal family.",
+        "searches": [
+          "Resultary 17bf045f66f8 (Robin window), 6d4363552adb (one-edge thresholds), and exact diagonal-defect hit c0a614ea9a58"
+        ]
+      },
+      "rationale": "The distinguished content is the non-Hilbert exact radius and equality/transition classification for the scalar diagonal defect. The Hilbert law and essential disk ingredients are covered, and the two orientations are dual presentations at conjugate exponents, not independent novelty claims. The off-diagonal edge theorem is not this diagonal family.",
+      "residual_risks": [
+        "Older or differently indexed positive-operator variational literature may contain an equivalent exact theorem. The focused primary search was not a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers p=2 exactly; does not cover non-Hilbert exponents",
+          "evidence": "For S+tP₀ on complex ℓ₂ the threshold is 1/2, with supercritical radius t+1/(4t) and unit-disk essential range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-robin-critical-window-for-numerical-ranges-of-boundary-perturb--17bf045f66f8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A Robin critical window for numerical ranges of boundary-perturbed unilateral shifts",
+          "trigger": "Exact diagonal-defect precedent"
+        },
+        {
+          "assessment": "An off-diagonal first-edge change, not a diagonal boundary potential",
+          "evidence": "It modifies one shift weight and gives critical weights p^(1/p) and q^(1/q).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-numerical-radius-and-attainment-thresholds-for-one-edge-pe--6d4363552adb",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp numerical-radius and attainment thresholds for one-edge perturbations of ℓ_p shifts",
+          "trigger": "Exact non-Hilbert threshold and attainment comparator"
+        },
+        {
+          "assessment": "Proves the unperturbed disk and supplies compact invariance; no non-Hilbert diagonal formula in the inspected passages",
+          "evidence": "The essential range has weak-null characterizations and an intersection description over compact perturbations, and W_e(S) is the closed unit disk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22693v1",
+          "material_read": "Theorem 1.9, p. 9; Theorem 3.11 pp. 33–34; Proposition 4.14 pp. 50–51; offsets 25250, 84050, 126850",
+          "method": "OA PDF targeted passages",
+          "title": "Numerical and essential numerical ranges on ℓ_p",
+          "trigger": "Primary general ℓ_p theory and unilateral example"
+        },
+        {
+          "assessment": "Bounds in a different underlying measure-space setting",
+          "evidence": "The relevant numerical-index and rank-one estimates concern atomless L_p, not the discrete unilateral shift with one coordinate potential.",
+          "identifier_or_url": "https://arxiv.org/pdf/1011.4785",
+          "material_read": "Abstract p. 1 and §3, Theorem 3.1 p. 7; offsets 0 and 29600",
+          "method": "OA PDF targeted passages",
+          "title": "On the numerical radius of operators in Lebesgue spaces",
+          "trigger": "Potential broader rank-one numerical-radius theorem"
+        },
+        {
+          "assessment": "General properties, not a dominating evaluation of these shifts in the inspected material",
+          "evidence": "The passages address norms on normed algebras and unitizations and basic spatial-range properties rather than a weighted half-line variational formula.",
+          "identifier_or_url": "https://doi.org/10.5644/SJM.20.02.08",
+          "material_read": "Abstract pp. 255–256 and §2 Theorem 2.1 p. 256",
+          "method": "OA journal PDF at https://sjm.anubih.ba/index.php/sjm/article/download/522/495/541, offset 0",
+          "title": "The Spatial Numerical Range in Non-Unital, Normed Algebras and Their Unitizations",
+          "trigger": "Primary lookup's plausible general spatial-range antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38 and 57–71",
+        "Comparison with the diagonal Hilbert and non-Hilbert first-edge operators"
+      ],
+      "rationale": "The point potential is a natural test for when a compact perturbation changes the ordinary spatial radius without changing the essential range. Outside the Hilbert case the sharp threshold is orientation dependent at fixed p; exact radii, nonattainment versus a unique extremal shape, and the critical curvature quantify that effect. This is more than identifying the previously known Hilbert specialization or an upper bound from Young's inequality.",
+      "residual_risks": [
+        "No claim about the full ordinary numerical-range geometry, general diagonal potentials, or p=1,∞ follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

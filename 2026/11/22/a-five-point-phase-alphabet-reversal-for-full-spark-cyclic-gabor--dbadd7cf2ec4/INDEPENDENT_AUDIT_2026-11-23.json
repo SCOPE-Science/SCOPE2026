@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:45:34.211037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With L=lcm(5,q), the determinant is a cyclotomic integer, degree at most 8. Hadamard bounds every conjugate by 5^(5/2), so |norm|≤5^20. Each modular evaluation at a primitive root has prime-ideal kernel of residue degree 1; zero in both distinct characteristics forces divisibility of the norm by their product, larger than the bound. A nonzero reduction suffices in the opposite direction. The code's column and root powers agree with the displayed convention, and the scalar action is free with exactly q indexed words per normalized word. An independently written exact census (/workspace/branches/gabor_replay.py; supply the frozen witnesses.tsv as argument) used 2,130 column-set representatives for the translation action on (Z/5)^2: simultaneous time-frequency translation acts by an invertible left factor and nonzero column scalars. A mod-3001 elimination filter proved nonvanishing; every possible zero reached by the filter was decided by reducing the signed integer determinant polynomial modulo the appropriate cyclotomic polynomial. It reproduced normalized successes 0,5,60,205,0 and checked all 709 stored singular witnesses separately by exact reduction. The five binary successes had four equal signs and one opposite sign; restoring the scalar phase gives 0,10,180,820,0. The conclusion concerns exact linear inversion, not numerical stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic full-measure result allows the exceptional algebraic set to contain arbitrary specified finite phase alphabets. Noncyclic-group deficiency does not apply to the cyclic order-five group; the cyclic eigenvector obstruction has an extra symmetry hypothesis. Li's regularization perturbs an algebraic seed by a high-degree scalar times a full-spark vector, and does not stay in the quantized alphabets."
+        ],
+        "reasoning": "Generality in cyclic dimension is not coverage of the coordinate phase constraint. The census requires detecting cancellations after specialization.",
+        "searches": [
+          "Malikiosis arXiv:1304.7709v1 Theorem 1.2 and explicit construction",
+          "Malikiosis arXiv:1602.09012v1 Theorem 1.1 and cyclic Clifford-eigenvector discussion",
+          "Li arXiv:2609.09614v2 §2"
+        ]
+      },
+      "checked_sources": [
+        "Malikiosis arXiv:1304.7709v1 and arXiv:1602.09012v1",
+        "Li arXiv:2609.09614v2",
+        "Lawrence–Pfander–Walnut DOI:10.1007/s00041-005-5017-6, as stated and discussed in Malikiosis §2",
+        "Resultary nearby indexed five-/seven-cycle and quantized Gabor/lifting results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonzero multivariate maximal-minor polynomial can vanish throughout a finite sampling grid; the earlier generic proof does not supply the signs of its specialized values. The noncyclic theorem and algebraic perturbations neither cover indexed binary/ternary/quaternary counts nor imply the universal fifth-root failure."
+        ],
+        "reasoning": "Even if earlier constructions or obstructions account for individual windows, the full finite counts and exact binary-vs-fifth-root reversal do not follow from the examined broader results.",
+        "searches": [
+          "Malikiosis arXiv:1304.7709v1 §§1–2",
+          "Malikiosis arXiv:1602.09012v1 §§1–2 and cyclic discussion",
+          "Li arXiv:2609.09614v2 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent forms include all twenty-erasure-pattern linear recovery and STFT support at least 21 for every nonzero complex test vector. In the indexed pentaphase cross-ambiguity census both test vector and window have fifth-root coordinates, a much smaller set of possible orthogonality witnesses."
+        ],
+        "reasoning": "The quantifier over the test vector is decisive. A specific restricted-input witness can prove deficiency for that window, but a restricted support spectrum or absence of a restricted witness cannot prove full spark for all complex inputs.",
+        "searches": [
+          "Resultary: cyclic Gabor Z5 full spark phase alphabet binary ternary quaternary fifth roots low order finite minor census",
+          "Primary search: finite cyclic Gabor dimension 5 full spark binary sign fifth roots of unity phase windows exact enumeration all minors discrete Weyl Heisenberg Lawrence Malikiosis",
+          "Malikiosis arXiv:1304.7709v1 Theorem 1.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Seven-cycle results change dimension; quantized cyclic-basis parity counts concern a square selection rather than all maximal minors of an overcomplete orbit; lifting ranks concern matrix/projector tomography rather than rank of every five-column selection. The closest five-cycle cross-ambiguity table is not indexed by full-spark windows."
+        ],
+        "reasoning": "Neither an exact table for a different dimension nor one measuring support or a lifted rank classifies these minors. No independently published equal census was identified.",
+        "searches": [
+          "Resultary query above; seven-cycle third-root Fano and binary obstruction records; quantized-phase cyclic Gabor bases and exact Gabor lifting ranks",
+          "Primary search for all minors / finite phase window tables"
+        ]
+      },
+      "rationale": "The generic full-spark theorem and algebraic constructions do not enumerate or bound this finite set of unit-modulus windows. Known symmetry-based obstructions do not yield the entire five-alphabet census. No matching table was located in the examined literature or indexed records; priority is best of knowledge.",
+      "residual_risks": [
+        "An earlier equivalent tabulation indexed by polyphase codes, Weyl orbit minors, or erasure design may not have been surfaced. The independent census certifies the mathematics, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted cyclic full-spark existence and equivalences, not short-phase census.",
+          "evidence": [
+            "Theorem 1.2 gives full measure in C^N; Theorem 1.6 tests STFT against every nonzero f in C^N; §2 describes Lawrence–Pfander–Walnut's nonzero minor polynomial argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7709v1",
+          "material_read": "Definitions 1.1, Theorems 1.2 and 1.6, §2 prime-dimensional argument",
+          "method": "Open full-text PDF, focused reading",
+          "title": "A note on Gabor frames in finite dimensions",
+          "trigger": "General cyclic full-spark theorem and equivalent erasure/support claims"
+        },
+        {
+          "assessment": "Noncyclic obstruction and cyclic eigenvector criterion under stated hypotheses, not quantized-window census.",
+          "evidence": [
+            "Theorem 1.1 requires finite abelian noncyclic G. The introduction scopes the cyclic obstruction to eigenvectors of specified Clifford unitaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.09012v1",
+          "material_read": "Abstract, introduction, Theorem 1.1 statement, §2 projective conventions and maximal-minor criterion",
+          "method": "Open full-text PDF, focused reading",
+          "title": "Spark deficient Gabor frames",
+          "trigger": "Possible broader obstruction by group or Clifford symmetry"
+        },
+        {
+          "assessment": "The determinant-specialization construction is not a fixed-root-alphabet classification.",
+          "evidence": [
+            "Theorem 2.1 uses b+εh with field degree of ε larger than N; Remark 2.2 takes h(j)=ξ^(j²) with ξ a positive real algebraic number greater than one."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.09614v2",
+          "material_read": "Introduction, Theorem 2.1 and Remark 2.2",
+          "method": "Read open full-text HTML",
+          "title": "Explicit Full-Spark Gabor Windows with Quantitative Phase Retrieval",
+          "trigger": "Recent deterministic constructions that might yield short phase windows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension five is a small prime benchmark for exact frame designs under coarse phase constraints. The exact finite answer separates generic existence from attainable designs: two phases already permit arbitrary five-atom recovery, whereas every fifth-root word fails, even though the alphabet matches the ambient modulation order. The classes are nonnested, not a monotonicity contradiction. The full counts, small explicit binary designs and certified obstructions provide exact design information not supplied by generic full spark, without extrapolating to other dimensions or stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

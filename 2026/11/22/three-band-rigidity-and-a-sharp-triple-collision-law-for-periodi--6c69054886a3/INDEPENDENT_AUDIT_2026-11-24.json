@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:47:10.017273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked both the frozen mathematics and the revised exact-spectrum claim in /workspace/repairs/1/RESULT.md. In the exponent with k=q+sm, s times j is integral, so the cell DFT selects q exactly and leaves the normalized three-row block after a unit phase is removed. Centering the frequencies to −1,0,1 gives a real Gram matrix with adjacent entry a and endpoint entry b. Reflection gives the stated one-dimensional odd and two-dimensional even restrictions, and their dimensions yield the m-fold levels. The Vandermonde nodes are distinct before ε=1, making every level positive. Setting c=cos θ gives a−b=2(1−c)(1+2c)/3>0 in the open interval. Then Δ>3b/2 when b>0, ensuring that the odd level exceeds the lower even level, and for b<0 the upper-branch difference has the sign of 2(a−b)(a+b), with a+b=2ac. For b≥0 the upper even wins and c must be positive; hence the unique interior crossing is c=0, i.e. ε=1/4. Substitution gives (1/3,4/3,4/3); at ε=0 the Gram is the identity and at ε=1 it is all ones, giving rank m. The lower and upper comparisons establish the exact piecewise condition number. For the corroborating collision calculation, the Vandermonde product is (2 sin(θ/2))^4(2 sin θ)^2/27, leading 4θ^6/27; dividing by the odd level of order 4θ²/3 and the upper even level tending to 3 gives θ^4/27 for the least squared level, with even O(θ²) relative error. This independently verifies the constants and uniformity without relying on the finite power-sum tests. The inspected checker.py is standard-library only and was not executed. Scope is consecutive frequencies, equal weights and this symmetry, with no arbitrary-jitter extension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lin–Zhang relate nonuniform Fourier estimates to periodic interpolation norms; their cluster theorem assumes M≥4s and gives a lower bound with cluster exponent, not equality at M=s=N.",
+          "Batenkov et al. bound levels at scales proportional to N^(1/2)(Nh)^(j−1) for a single cluster in a rectangular regime. In particular the triple exponent is known, without this exact branch crossing."
+        ],
+        "reasoning": "The broader papers cover reduction ideas and collision scales. Their norm estimates do not imply pointwise equality, parity labels, multiplicities or an exact crossing.",
+        "searches": [
+          "Literature: periodic nonuniform Fourier interpolation and clustered Vandermonde singular spectrum for three-periodic jitter",
+          "Chen–Lin–Zhang arXiv:2608.21960v4 Theorem 1.2",
+          "Batenkov–Diederichs–Goldman–Yomdin arXiv:1909.01927v2 Theorem 2.3; arXiv:1809.00658v2 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py; repaired RESULT.md, SLOGAN.txt, METADATA.json and VERIFICATION.md",
+        "Resultary 0602ba6c6c22, 836b3df8b0b2, 34d52f2ee2dd, 92a65f43a0d4, a2fb2866e9f4",
+        "arXiv:2608.21960v4, 1909.01927v2, 1809.00658v2",
+        "DOI 10.1137/040609586 and 10.1137/16M1106287 (access limitations)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior aperture {−1,0,1} has variance of ω² equal to 2/9. Its midpoint limits are σ_min/δ²→1/(3√3) and δ²κ→9. With δ=(2π/3)t, these give exactly 4π²/(27√3) and 81/(4π²) in the frozen variables; repetition leaves extremal values unchanged.",
+          "The related alternating and pair-collision records change the number of spatial sites per period or the geometry; they do not produce this upper odd/even crossing."
+        ],
+        "reasoning": "The stronger midpoint constant theorem directly implies the headline collision constants. It does not give the repaired finite-parameter spectral classification. The revised Finding and slogan remove novelty credit for the known law rather than adding only a disclaimer.",
+        "searches": [
+          "Resultary 0602ba6c6c22, RESULT.md normalized aperture statement and leading limits",
+          "Resultary 836b3df8b0b2 exact alternating-jitter Finding",
+          "Chen–Lin–Zhang arXiv:2608.21960v4 pp. 1, 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After row/column phase adjustments and transposition, the repeated block is A_δ(0) in 0602ba6c6c22 with δ=2π(1−ε)/3, aperture {−1,0,1}, and normalized weights 1/3.",
+          "The repaired exact claim is a parity-resolved eigenvalue ordering for this block at every displacement, not just an asymptotic least-singular-value coefficient."
+        ],
+        "reasoning": "The block equivalence transfers the earlier limiting results exactly, but the earlier theorem states limits and optimizes a leading coefficient over source placements, not the nonzero-displacement band formulas or where their order reverses.",
+        "searches": [
+          "Resultary: symmetric three-periodic Fourier jitter exact three-band spectrum, quarter-step crossing and sharp triple collision",
+          "Resultary 0602ba6c6c22, Finding and proof",
+          "arXiv:1909.01927v2 Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 record includes the leading minimum singular and condition-number constants for the centered equal-weight aperture as its N=1 case. The alternating-jitter exact record instead has two bands 1±|sin(Nδ/2)|. The other closest findings treat local triple quadrature and noise amplification, symmetric pair collision, or a one-frequency replacement on two grids."
+        ],
+        "reasoning": "An exact indexed formula does cover both frozen leading collision constants; this is credited rather than repackaged. The catalogue comparisons do not tabulate or classify the repaired three-level spectrum over its full open interval.",
+        "searches": [
+          "Resultary exact interpolation and cluster records 0602ba6c6c22, 836b3df8b0b2, 34d52f2ee2dd, 92a65f43a0d4, a2fb2866e9f4, RESULT.md Findings"
+        ]
+      },
+      "rationale": "The frozen finding's separate advertised sharp leading collision law does not pass as a distinct contribution: the 2026-11-08 midpoint theorem gives both leading constants by exact unitary reduction and rescaling. This is established coverage, not a correctness defect or an inference from failed retrieval. The repaired finding is the exact repeated three-band spectrum and quarter-grid ordering transition over the full displacement interval. The collision expansion is retained only as a credited check and consequence. No inspected source yields the repaired spectrum and branch comparison, which are not implied by prior limiting constants or order bounds.",
+      "residual_risks": [
+        "The uninspected full texts of Strohmer–Tanner and Austin–Trefethen or older specialized polyphase treatments could contain the exact block diagonalization and spectrum; no historical priority claim is made.",
+        "The related same-day catalogue records do not establish relative release order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both leading constants follow by specialization; the repaired spectrum and crossing do not.",
+          "evidence": [
+            "States lim σ_min/δ²=√(μ4−μ2²)(1−u²)/√(6+2u²) and lim δ²κ=√(3(6+2u²))/((1−u²)√(μ4−μ2²)); u=0 for the midpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-midpoint-optimality-and-a-sharp-three-source-fourier-s--0602ba6c6c22/RESULT.md",
+          "material_read": "Finding, assumptions and proof, local mirror offsets 0–5164",
+          "method": "Resultary search and exact local mirror passage inspection",
+          "title": "Universal midpoint optimality and a sharp three-source Fourier superresolution constant",
+          "trigger": "Exact earlier symmetric triple prefactor and condition-number constant"
+        },
+        {
+          "assessment": "Related reduction and oversampled bounds, not exact critically sampled bands.",
+          "evidence": [
+            "Theorem 1.2 assumes M≥4s; the lower bound is of order √M(CMδ)^(κ−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21960v4",
+          "material_read": "Abstract p. 1; method and Theorem 1.2 p. 3, offsets about 5000 and 9000",
+          "method": "Primary OA passage inspection",
+          "title": "Smallest Singular Value Estimates for Nonuniform Fourier Matrices via Periodic Nonuniform Sampling",
+          "trigger": "Closest broad periodic interpolation bound"
+        },
+        {
+          "assessment": "Covers the cluster-size exponent, not the repaired exact spectrum.",
+          "evidence": [
+            "Theorem 2.3 gives two-sided scales in powers of normalized cluster separation, for a rectangular sampling matrix."
+          ],
+          "identifier_or_url": "arXiv:1909.01927v2; arXiv:1809.00658v2",
+          "material_read": "First paper Theorem 2.3 p. 6, offset about 23500; second paper abstract p. 1",
+          "method": "Primary OA passage inspection",
+          "title": "The Spectral Properties of Vandermonde Matrices with Clustered Nodes; conditioning of partial Fourier matrices with clustered nodes",
+          "trigger": "General singular-level law for clustered Fourier nodes"
+        },
+        {
+          "assessment": "Period two, not the three-periodic branch switch.",
+          "evidence": [
+            "Two levels 1±|sin(Nδ/2)| under alternating displacements."
+          ],
+          "identifier_or_url": "Resultary 836b3df8b0b2",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact spectral and positive-weight rigidity for alternating Fourier nodes",
+          "trigger": "Closest indexed periodic exact spectrum"
+        },
+        {
+          "assessment": "Other invariants or sampling geometries.",
+          "evidence": [
+            "Local triple quadrature/noise, single pair with linear singular collapse, and two shifted grids with a frequency replacement, respectively."
+          ],
+          "identifier_or_url": "Resultary 34d52f2ee2dd; 92a65f43a0d4; a2fb2866e9f4",
+          "material_read": "RESULT.md Findings",
+          "method": "Resultary search and local mirror",
+          "title": "Three-site positivity transition and quadratic noise blowup; positive quadrature under symmetric pair collision; one-defect two-grid parity law",
+          "trigger": "Closest other exact collision or sampled-grid records"
+        },
+        {
+          "assessment": "Full-text comparisons unresolved, not evidence against coverage.",
+          "evidence": [
+            "No statement-level exclusion is asserted for these inaccessible papers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/040609586; https://doi.org/10.1137/16M1106287",
+          "material_read": "Bibliographic identification, Strohmer–Tanner also cited in Chen–Lin–Zhang p. 42; neither primary full text retrieved independently",
+          "method": "Bounded lawful DOI/publisher and alternate-copy attempts",
+          "title": "Fast Reconstruction Methods for Bandlimited Functions from Periodic Nonuniform Sampling; Trigonometric interpolation and quadrature in perturbed points",
+          "trigger": "Historical periodic reconstruction or perturbed-grid interpolation could include three-coset specializations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The revised result gives a complete conditioning diagnostic for the natural three-site extension of a periodically interleaved Fourier grid. A practitioner can identify the least stable mode and which parity controls the norm at any displacement, across all critically sampled grid sizes, rather than knowing only that instability develops at a triple collision. The interior change of maximizing mode is a concrete spectral boundary not detected in the known collision limits. This is an exact narrow invariant, not credit for a standard Fourier decomposition or for rederiving a known leading constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

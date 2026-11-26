@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The greedy rule has the exact double-marginal formula \(2v(b)-v(a,b)\). Every anonymous ten-or-fewer-voter residual profile and every unordered two-ballot coalition is enumerated using the seven nonempty approval types. The exhaustive certificate reports no failures through eleven total voters and exactly six at twelve; a candidate-permutation test shows they form one orbit. The standalone code also checks the witness by independently evaluating rational PAV marginal contributions. Adding unanimous ballots preserves the witness for every larger electorate. No infinite claim relies on finite extrapolation: persistence is proved algebraically.
+PASS
 
-## Originality — PASS, subject to priority risk
+Independently exhausted the cases by generating compositions of the entire participating profile over seven ballot types, then deleting each feasible unordered pair of types. The verifier computes whole-committee scores with exact doubled harmonic weights (0,2,3), compares supersets conditional on each winning singleton, and checks all Cartesian outcome comparisons separately from the frozen algorithm. The count of visited pairs agrees with the bijection between a remaining electorate and an independent multiset of two ballots, namely 28 binom(n+4,6). Every tested size from n=2 to 11 gives zero beneficial pairs (the optional empty remainder at n=2 also gives zero); n=12 gives six among 224224, with one canonical candidate-relabeling representative. Independently tracing that witness gives first-stage supports (5,5,5) after abstention and (7,5,6) before, and winner sets {AB,AC} and {AB}, respectively. The A ballot is indifferent and the AC ballot weakly gains in all outcomes and strictly in one. Each appended unanimous ballot contributes one identical first-round vote and one identical doubled second-round marginal to every applicable choice, so the example extends to all larger sizes. No voter coalition exists for n<2.
 
-Bullinger et al. (arXiv:2312.08798v1) prove group participation for globally optimizing ABC scoring rules and individual participation of two-seat sequential Thiele rules, but do not state the present two-voter Kelly-coalition separation and its sharp finite enumeration. Lackner–Skowron survey the greedy rule and Dong–Lederer characterize sequential valuation rules without stating this exact bound. Relevant research-record comparisons concern other voting rules and implication patterns, not the same greedy two-seat coalition theorem. Undiscovered equivalent cases, supplements or general structural results remain a residual publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Group participation is a natural strengthening of individual participation, so the result answers a concrete boundary question left by the known two-seat individual guarantee. The smallest electorate, exact count and single symmetry orbit isolate a specific mechanism: a coalition can expose a tie allowing an additional approved seat for one member while harming no coalition member in Kelly's sense. Its finite, exact, reproducible classification makes the scope interpretable rather than an arbitrary sample.
+The same-rule Kelly literature covers different assertions: global PAV group participation, and sequential participation for single voters. The closest indexed census with all ties uses four candidates, three seats and one abstainer. The exact first two-voter failure at twelve total voters and its six-instance minimal orbit thus remain distinct in the inspected sources.
 
-## Important limitations
+## value
 
-The witness is Kelly-set-valued and tie-mediated; it does not give a strict improvement under every deterministic tie-break. Results are restricted to exactly two abstainers and exactly three candidates. This is a self-review, not independent priority determination or independent proof certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two seats are the natural low-size boundary at which known individual participation results prompt the joint-abstention question. Two abstainers and three candidates are the smallest nontrivial coalition and candidate-choice domains for this distinction. A sharp lower bound with a unique minimal orbit explains how a greedy all-ties choice correspondence breaks group participation even here, and the representative isolates exactly where Kelly weak-versus-strict comparisons enter. This is more useful than an isolated brute-force example without certified minimality or symmetry information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

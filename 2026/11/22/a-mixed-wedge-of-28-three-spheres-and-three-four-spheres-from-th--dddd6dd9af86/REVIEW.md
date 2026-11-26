@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact face predicate for the two-tolerance of three filled triangles yields 300 nonempty simplices. The included standard-Python certificate exhaustively verifies a 134-pair acyclic face-poset matching, 32 critical faces in dimensions zero, three and four, and the vanishing of all three integral Morse boundary columns. The zero attaching vectors imply a wedge of 28 three-spheres and three four-spheres, not just matching Betti numbers. An independent full mod-two boundary-rank computation gives the same dimensions. Finite exhaustive evidence is sufficient here because the domain has exactly nine labelled vertices; no infinite-family claim is made.
+PASS
 
-## Originality — PASS with residual priority risk
+For a fixed block, the best eligible subface is the intersection with that filled block. Thus the minimum outside-block cardinality predicate is exact. It gives the full 3-skeleton and 45 four-simplices: 18 of profile (3,2,0) and 27 of profile (3,1,1). No larger face is possible. The finite replay reproduced all 300 nonempty faces and all 134 matching pairs, sorted the reversed Hasse orientation on 1,053 incidences without a cycle, and found one critical vertex, 28 critical 3-cells and three critical 4-cells. The unit-incidence signed elimination for the top differential is valid: the upward matched and downward unmatched incidences form an acyclic dependency relation, and subtracting the multiple of the matched upper boundary removes the lower coefficient while preserving a cycle. All three integral Morse columns vanish (critical masks 62, 440, 454). Thus the Morse CW complex has 3-skeleton a wedge of 28 three-spheres. Hurewicz identifies its pi3 with H3, so every 4-cell attaching map is null; appending them wedges three four-spheres. This establishes homotopy type, not only Betti numbers. A separate mod-two calculation gives (8,28,56,42) for boundary ranks.
 
-The 2021 Kim–Lew two-facet sharpness construction is a single four-sphere; its statement does not classify three disjoint triangle facets. Selvaraja's 2026 chordal-graph tolerance study establishes bounds, not the exact homotopy type here. Results for unfilled one-dimensional graph inputs or parameter-one tolerance of disjoint simplexes have different input hypotheses or tolerance parameters and do not imply the finding. Targeted searches of published mathematical research records and scholarly literature revealed no equivalent nine-vertex three-facet classification. This is best-knowledge originality, not a proof that no unindexed equivalent computation exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The well-motivated two-facet sphere example is used to demonstrate the sharpness of general tolerance-complex bounds. The smallest balanced three-facet analogue provides a concrete, exact and nontrivial contrast: topology in two adjacent dimensions and a fully certified mixed sphere-wedge decomposition. The two independent integral multiplicities are not supplied by the prior Leray bounds and serve as a benchmark for proposed broader homotopy or collapsibility classifications.
+The earlier two-disjoint-facet sphere and general tolerance bounds do not classify this three-facet object. The contemporaneous explicit generalization records this as its previously calculated special case; no independently prior complete classification was located.
 
-## Sources and limitations
+## value
 
-References: Kim–Lew, *Leray numbers of tolerance complexes*, arXiv:2109.03030; Selvaraja, *Tolerance complexes of chordal graphs and squarefree symbolic powers*, arXiv:2611.14384. The result is specific to three disjoint filled triangles at tolerance two; no wider family or independently audited conclusion is asserted. Priority risk remains from unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first balanced three-facet counterpart to the classical two-facet sphere exhibits two genuine adjacent homotopy dimensions, showing why a Leray bound or the sum of visible top-dimensional spheres is not a topology classification. Its complete integral homotopy type is a useful small benchmark for wider tolerance classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

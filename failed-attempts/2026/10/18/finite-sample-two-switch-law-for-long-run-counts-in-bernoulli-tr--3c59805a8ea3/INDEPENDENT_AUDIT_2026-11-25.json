@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:11:30.034779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two covariance formulas and root locations are correct, but the Finding's unqualified k=2 negative-interval width (RESULT.md line 24) is false on the stated probability domain. At n=3,k=2, H=(1−2p)(2−p); on 0<p<1 the covariance is negative precisely on (1/2,1), whose width is 1/2, not 3/(4n−10)=3/2. At n=4 the width is 1/2 and the second root is on the boundary; for n≥5 both roots are interior and 3/(4n−10) is the width. At n=2 the interval is empty. For the core proof, condition on long-run start j: event B_j forces A_j, makes A_i impossible for the other starts in [j−1,j+k] intersected with the word, and is independent of the rest. For i=j−1 the contradiction is a required one against the forced zero preceding the long run, not a required zero as line 43 suggests. Independently, group words by J ones and R positive success runs. There are binom(n−J+1,R) placements of the zeros, binom(J−1,R−1) compositions of the ones, and R binom(J−k,R−1) compositions with a distinguished long run, using zero for impossible binomial entries. Weighting by p^J q^(n−J) gives the ordinary, long and mixed moments and verifies the covariance (also derived directly from the prior PGF below). For k≥3 and s=n−k≥1, H(0)=s+1, H(1/2)=−(k−2)(s+2)/4, H(1)=s−k, and the leading coefficient is positive, so the second root is interior iff s>k. The k=2 factorization and the separate n=k formula give the other stated placements, and division by s gives the limiting quadratic for fixed k≥3. The independent exact bounded replay (python /workspace/replay.py 4) verified 364 covariance instances and gives widths 1/2,1/2,3/10,3/14 for k=2 and n=3 through 6; it is not the general proof. The exact phase conclusion concerns linear iid common-p words and maximal success runs only.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Aki's closed double PGF covers arbitrarily many thresholds and enumeration types and gives mixed-moment recurrences. Fu supplies finite pattern-embedding machinery and examples including success/failure run joint counts. Kamalja's abstract advertises a joint PGF with several counting schemes, including at-least-k, in a Markov Bernoulli setting; full text was not retrieved. The accessible 2007 urn paper gives a joint distribution for (total length in long runs, number of long runs), not the pair at issue."
+        ],
+        "reasoning": "The direct basis for FAIL is the closed Inoue–Aki formula and its explicit specialization, not the ability to design an arbitrary automaton from Fu, a differently defined joint pair, or an inference from Kamalja's abstract.",
+        "searches": [
+          "Inoue–Aki 2005 §2, Propositions 2.1–2.4",
+          "Fu 1996 §§3, 4.1–4.2",
+          "Kamalja DOI 10.1007/s00362-013-0560-8, RePEc abstract",
+          "Makri–Philippou–Psillakis 2007 §3 and Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Inoue–Aki 2005 DOI 10.1007/BF02507029, §§1–2 (decisive)",
+        "Fu 1996 §§3–4",
+        "Makri–Philippou–Psillakis 2007 DOI 10.1239/aap/1198177236",
+        "Kamalja DOI 10.1007/s00362-013-0560-8 (abstract)",
+        "Makri–Psillakis DOI 10.1007/s11009-009-9147-1 (access attempts)",
+        "Stefanov DOI 10.1016/S0378-3758(99)00191-3 and Mytalas–Zazanis DOI 10.1016/j.jspi.2012.07.014 (abstract/landing only)",
+        "Resultary 5e29bbdfb592, 96bab7375d9e and 5c4560dfff3b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With z marking length and u,v the counts, substitute P=1+u(pz+(v−1)(pz)^k)/(1−pz) into their Φ=P/(1−qzP). At u=v=1, ∂vΦ=(pz)^k(1−pz)/(1−z)^2 and ∂u∂vΦ=∂vΦ+2q p^(k+1) z^(k+2)(1−pz)/(1−z)^3; ∂uΦ is the ∂v formula at k=1. Thus for s=n−k≥0, ET=p^k(1+s q), ER=p+(n−1)pq, and ERT=ET+2q p^(k+1)[binom(s,2)−p binom(s−1,2)] with infeasible terms zero. Subtracting ER ET gives the exact frozen polynomial for s≥1 and its separate s=0 identity. The root test is then substitution at 0,1/2,1 and the k=2 factorization."
+        ],
+        "reasoning": "No new joint-count theorem or higher moment argument is required to obtain the claimed invariant. The explicit n>2k cutoff, boundary root, and corrected k=2 width are routine consequences of the already implied quadratic, not a surviving independent novelty claim.",
+        "searches": [
+          "Inoue–Aki Eq. (2.1) Type II, Eq. (2.7), Proposition 2.3 Eq. (2.8), Proposition 2.4",
+          "Direct mixed-derivative extraction from the published double PGF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type II at threshold 1 counts every maximal success run once, and Type II at k counts each maximal success run of length ≥k once. On a success block of length i their weights from Eq. (2.1) are (1_{i≥1},1_{i≥k}). Inoue–Aki's vector N(n,(1,k);(II,II)) equals (R_n,T_n,k) exactly in both law and finite-word counting convention."
+        ],
+        "reasoning": "This is not a circular/linear substitution or an analogy with exact-length counts. It is their joint linear count with two already-authorized thresholds and the same independent common-p sampling law and endpoints.",
+        "searches": [
+          "Bernoulli linear sequence exact finite covariance joint number of all maximal success runs and number of runs length at least k bivariate generating function G(n,1) G(n,k) run length spectrum joint distribution",
+          "Inoue and Aki 2005 Joint distributions of numbers of success runs of specified lengths in linear and circular sequences finite probability generating functions PDF ism at least length",
+          "Inoue–Aki DOI 10.1007/BF02507029 pp. 354–357"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog hits concern a cyclic iid exact-length covariance spectrum, fixed-composition covariance densities, and finite cyclic fixed-weight exact-length covariance. They do not tabulate the target linear threshold statistic. The exact distribution is nevertheless furnished for every n,k,p by the earlier linear-binomial PGF, not just sampled entries."
+        ],
+        "reasoning": "The different catalog statements do not rule out earlier mathematical coverage. Proposition 2.3 has the actual exact object and its implications are stronger than an exact table of the covariance values.",
+        "searches": [
+          "Resultary semantic searches for the finite Bernoulli long-run covariance and two interior switches",
+          "Resultary 5e29bbdfb592, 96bab7375d9e, 5c4560dfff3b mirrored claims",
+          "Inoue–Aki Proposition 2.3 Eq. (2.8)"
+        ]
+      },
+      "rationale": "Verified mathematical coverage, not failure of access: Inoue and Aki (2005) give the exact double generating function for the joint distribution of this very pair in their linear iid Bernoulli model, choosing k-vector (1,k) and Type II for both coordinates. Substitution and ordinary differentiation give the stated finite covariance polynomial; all of the valid phase claims follow by elementary evaluation of that polynomial. This is a directly evaluated corollary of their stronger exact result, even if the sign-switch wording and the specialized polynomial are not printed there. The stronger coverage was identified in follow-up to Kamalja's cited-reference entry and checked against the actual full-text Proposition 2.3.",
+      "residual_risks": [
+        "Several cited original full texts and the full Kamalja paper remain unread; no claim about their exact coverage. The failure is supported by an accessible, directly compared stronger earlier theorem, not by those limitations. No assertion that later exact covariance claims in different models are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified stronger precise coverage of the covariance and mechanical implication of the valid phase claims",
+          "evidence": [
+            "For separate thresholds and counting schemes the double PGF is P/(1−qzP) with P=sum_i (pz)^i times the product of markers to the Eq. (2.1) weights. Choosing (1,k) and Type II twice yields the target paired counts and the mixed derivative displayed above."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "pp. 353–355: sample model, Type II definition and weight Eq. (2.1); pp. 356–357: Proposition 2.2, Eq. (2.7), Proposition 2.3 Eq. (2.8), Proposition 2.4",
+          "method": "Lawful ISM primary PDF, localized passages read by offset (2250, 11400 and Eq. (2.1) context), then explicit specialization and derivative extraction",
+          "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+          "trigger": "Potential exact prior joint PGF covering all thresholds in the linear model"
+        },
+        {
+          "assessment": "Relevant general embedding and different explicit joint example; not decisive coverage",
+          "evidence": [
+            "Finite embedding counts specified patterns, and §4.2 gives a joint law of success and failure run counts."
+          ],
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/oldpdf/A6n410.pdf",
+          "material_read": "p. 957, §3 pp. 961–962, §§4.1–4.2 pp. 965–968",
+          "method": "Lawful primary PDF passages",
+          "title": "Distribution Theory of Runs and Patterns of Multi-state Trials",
+          "trigger": "Earlier finite joint pattern-count methods"
+        },
+        {
+          "assessment": "Has threshold counts and an exact joint law for a different pair",
+          "evidence": [
+            "Theorem 4.1 treats S_n,k (total length in long runs) and G_n,k (number of long runs), not G_n,1 and G_n,k."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1198177236",
+          "material_read": "Cambridge PDF pp. 991,994,997–1000 and p. 1004 Theorem 4.1",
+          "method": "Lawful primary Cambridge PDF passages",
+          "title": "Success Run Statistics Defined on an Urn Model",
+          "trigger": "Earlier threshold-run exact joint distribution"
+        },
+        {
+          "assessment": "Potential further overlap; not needed for FAIL",
+          "evidence": [
+            "Abstract includes at-least-k counts in joint matrix polynomial PGFs; reference list gives the decisive Inoue–Aki source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00362-013-0560-8",
+          "material_read": "RePEc abstract and listed references, not full text",
+          "method": "Lawful RePEc page; publisher redirects and no recovered repository copy",
+          "title": "On the joint distribution of success runs of several lengths in the sequence of MBT and its applications",
+          "trigger": "Plausible broader Markov Bernoulli results for multiple thresholds"
+        },
+        {
+          "assessment": "Exact coverage not judged from title or access status",
+          "evidence": [
+            "ResearchGate returned HTTP 403 and publisher routes did not recover a readable manuscript."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-009-9147-1",
+          "material_read": "No full-text passage recovered",
+          "method": "Lawful publisher and author-hosted routes attempted",
+          "title": "On Success Runs of Length Exceeded a Threshold",
+          "trigger": "Primary threshold-statistic predecessor cited in frozen record"
+        },
+        {
+          "assessment": "Different count conventions and models",
+          "evidence": [
+            "First uses cyclic iid exact-length counts; second uses total and exact-length counts under fixed cyclic weight."
+          ],
+          "identifier_or_url": "Resultary 5e29bbdfb592 and 5c4560dfff3b",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Local mirror comparison",
+          "title": "Two-mode covariance spectrum for circular Bernoulli run frequencies; One-switch run-length covariance for fixed-weight binary circles",
+          "trigger": "Closest exact finite covariance catalogue records"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dependence question is naturally motivated, and the sign pattern could be useful as an exposition of this covariance. For an independent finding, however, the exact invariant is mechanically obtainable from the already published exact joint PGF for these counts, followed by the elementary quadratic test. Correcting the missing width boundary or narrowing to that sign test would not leave a distinct scientifically valuable result at the stated standard. No repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

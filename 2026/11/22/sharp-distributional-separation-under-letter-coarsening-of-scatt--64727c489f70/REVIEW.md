@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact finite family expansion of \(t^{Z_p}\), valid for real \(t\ge1\), and a shared-coordinate constraint. Rank \(i\) in a length-\(m\) embedding ranges over host positions \([i,i+n-m]\), so a newly equated pair of ranks separated by \(d\) cannot collide earlier than \(n=m+d\). The explicit two-embedding configuration at that length has exactly one newly resolved shared-letter conflict. This proves equality of the entire distribution before the threshold and strict moment separation thereafter. A separate complete ordered-pair argument derives both second-moment formulae. Exact-arithmetic executable checks corroborate the boundaries, with no claim that finite enumeration proves infinity.
+PASS
 
-## Originality — PASS against inspected evidence
+For every family of indexed embeddings, the joint indicator expectation is either zero on a letter conflict or q^(−union size) by independent uniform letters. Coarsening can only remove conflicts. This proves coefficientwise comparison of the generating polynomials expanded in t−1 and also raw integer-moment comparison, with equal means. If m≤n<m+d, ranks sharing a host site differ by at most n−m<d; coarsening cannot alter any family's compatibility, so the full polynomials, hence laws, agree. If n<m the laws are both zero counts. At length m+d the explicit pair of embeddings uses one shared site at ranks i,j realizing a shortest merge, all other shared sites at equal ranks, and d private sites on each side of the conflict. This pair gives strict PGF inequality at t>1 and, by repeating a member, strict comparison for every integer order r≥2. The witness persists with extra sites; equal means give the first variance separation as well. Every nonconstant pattern has an unequal adjacent pair, and a repeated-endpoints-only pattern shows sharpness of the uniform distinct-pattern threshold 2m−1 when q≥m. For the second moments the constant case has three site types, giving the multinomial, while equal-rank overlap in the injective case makes each of k+1 gaps an interleaving of equal-sized private runs, yielding the central-binomial generating factor. Independently enumerated the worked q=4 example using a prefix dynamic program on host words: equal laws for n=4,5,6 and exact second-moment gap 1/8192 at n=7 (python3 /workspace/branches/review_replay.py 5). Inspected the frozen script and recorded output, but did not execute the script.
 
-The 2006 general hidden-word study provides a framework for means and variances and may imply individual second-moment coefficients; no independent originality is claimed for generic pair enumeration. The 2020/2021 variable-pattern work studies asymptotic distributions. The April 2026 random-subsequence model studies joint randomness and free energies, not the equality-pattern order. A previously available finite binary four-letter variance hierarchy is a highly relevant restricted result, but its stated claim neither establishes a partial order over all alphabet-partitions at every pattern length nor a sharp first length at which full distributions diverge. The general coarsening/threshold combination is the novel claim examined here. A prior implicit derivation or inaccessible equivalent theorem remains possible, particularly in the earlier hidden-word literature and the fuller finite binary record.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers an extremal distributional question for the embedding count used in deletion channels: how repeated letters change collision dependence, and how much extra host length is necessary before this dependence is observable. It supplies an all-length partial order on equality patterns, an exact nontrivial delayed-detection threshold, global extrema for all higher moments, and usable exact bounding second-moment formulas. These are structural consequences rather than an arbitrary small parameter computation. The restriction to uniform independent hosts and the dependence of the injective lower bound on \(q\ge m\) limit applicability.
+The supported distinct content is the all-length coarsening order together with the exact first full-law and variance separation length, and the resulting sharp extremizer cutoffs. Overlap-based moment computation is existing hidden-word machinery; an earlier exact binary formula is recovered in one subcase. The evidence does not support calling the general overlap method, or every closed-form second-moment specialization, new.
 
-## Sources and remaining risks
+## value
 
-The closest primary comparisons are Flajolet–Szpankowski–Vallée (2006), Janson–Szpankowski (2020/2021), and Jeong–Pernice (2026). The earlier hidden-word variance machinery could potentially lead to the same monotonicity after a specialized analysis; historical priority is not independently verified. The binary four-letter hierarchy is known only from its available public summary here, so its uninspected details are a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equality partition of the pattern is a natural coarsening parameter for an indexed count whose mean cannot distinguish patterns. The smallest newly merged rank distance governs exactly when the entire law and the variance begin to detect the coarsening. That sharp cutoff provides a usable comparison even before evaluating any histogram, and explains the sharp ranges of uniqueness for the canonical maximal and minimal patterns. The conclusion is stronger than a known variance calculation at a single alphabet or length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

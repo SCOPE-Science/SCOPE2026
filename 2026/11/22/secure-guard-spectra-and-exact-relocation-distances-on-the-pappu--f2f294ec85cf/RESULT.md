@@ -2,74 +2,56 @@
 
 ## Finding
 
-Let \(H\) be the **18-vertex Pappus incidence graph** specified below. Its complete secure-domination cardinality polynomial is
-
+For the 18-vertex Pappus incidence graph \(H\) specified below, the complete labelled secure-domination cardinality polynomial is
 \[
 \begin{aligned}
-D_{\mathrm{sec}}(H;z)={}&1755z^{8}+13088z^{9}+24624z^{10}+24948z^{11}\\
+D_{\rm sec}(H;z)={}&1755z^8+13088z^9+24624z^{10}+24948z^{11}\\
 &+16899z^{12}+8316z^{13}+3042z^{14}+816z^{15}\\
 &+153z^{16}+18z^{17}+z^{18}.
 \end{aligned}
 \]
-
-Thus exactly \(93660\) labelled subsets are secure dominating, and \(\gamma_s(H)=8\). The generating polynomial for **inclusion-minimal** secure dominating sets is
+The total is \(93660\). The inclusion-minimal secure-domination cardinality polynomial is
 \[
-M_{\mathrm{sec}}(H;z)=1755z^{8}+3224z^{9}.
+M_{\rm sec}(H;z)=1755z^8+3224z^9.
 \]
-Every optimum is inclusion-minimal, but the graph also has \(3224\) inclusion-minimal nine-vertex configurations.
-
-Form reconfiguration graphs whose vertices are the \(1755\) minimum secure dominating sets, with an edge when one selected vertex is replaced by one unselected vertex and the new set remains secure. The **token-jump graph** permits any replacement; the **token-slide graph** requires the old and new vertices to be adjacent in \(H\). Both graphs are connected. The jump graph has \(12798\) edges, radius and diameter \(8\), with every configuration of eccentricity \(8\). The slide graph has \(4320\) edges, radius \(9\), diameter \(10\), with \(1539\) configurations of eccentricity \(9\) and \(216\) of eccentricity \(10\). The full 216-element automorphism group of \(H\) has thirteen orbits on optimum configurations: one of size \(27\), eight of size \(108\), and four of size \(216\).
+In particular, the known minimum size is eight, and the only inclusion-minimal configurations that are not minimum have size nine. There are exactly \(3224\) of these. The contribution is the census across **all** subset sizes and the exact description of the nonminimum, inclusion-minimal part. Optimum-set orbits and relocation metrics below are benchmarks of the enumeration, not separate claims of originality.
 
 ## Assumptions and scope
 
-All graphs are finite and simple, and all vertex subsets are labelled; no quotient by graph symmetry is taken in the polynomials. Work over \(\mathbb F_3=\{0,1,2\}\). Label nine point-vertices \(P(x,y)\) and nine line-vertices \(L(m,b)\). The only edges are
-\[
-P(x,y)L(m,b)\quad\Longleftrightarrow\quad y=mx+b\pmod3.
-\]
-This is the Pappus configuration viewed as the affine plane of order three with the vertical parallel class removed [3].
+Use point vertices \(P(x,y)\) and line vertices \(L(m,b)\), with \(x,y,m,b\in\mathbb F_3\). The only edges are \(P(x,y)L(m,b)\) for \(y=mx+b\). This is the Levi graph, not the nine-vertex point-collinearity graph [3]. The labels are distinguished in the polynomials.
 
-Write \(N[v]\) for a closed neighborhood. A set \(S\subseteq V(H)\) is dominating if \(\bigcup_{s\in S}N[s]=V(H)\). It is *secure dominating* if it is dominating and, for each \(u\notin S\), some adjacent \(v\in S\) satisfies \((S\setminus\{v\})\cup\{u\}\) dominating. Inclusion-minimal means no proper subset is secure dominating; minimum means smallest possible cardinality. Token-jump and token-slide moves are always between distinct **minimum secure dominating sets**; intermediate states must remain minimum and secure. Graph distance, eccentricity, radius and diameter have their usual shortest-path meanings.
+Let \(N[v]\) be the closed neighborhood. A set \(S\) dominates if \(\bigcup_{v\in S}N[v]=V(H)\). It is secure dominating if it dominates and for every \(u\notin S\), some adjacent \(v\in S\) has \((S\setminus\{v\})\cup\{u\}\) dominating. A secure set is inclusion-minimal if no proper subset is secure.
 
-## Proof
+## Proof by exhaustive enumeration
 
-The result is an exact finite enumeration with explicit exhaustive algorithms, rather than an all-orders symbolic formula. The following equivalence is the critical correctness lemma. For a selected vertex \(v\in S\), define its *private closed neighborhood relative to* \(S\) by
-\[
-\operatorname{priv}_S(v)=\{w\in V(H):N[w]\cap S=\{v\}\}.
-\]
-For \(u\notin S\) adjacent to \(v\), the swapped set \((S\setminus\{v\})\cup\{u\}\) dominates if and only if \(\operatorname{priv}_S(v)\subseteq N[u]\). Indeed, the only vertices that can lose their last selected closed neighbor when \(v\) is removed are precisely those private to \(v\), and adding \(u\) covers precisely \(N[u]\). This gives a finite neighborhood test for security; the accompanying independent checker directly tests domination after every candidate swap without using the private-neighborhood lemma.
+For a **dominating** set \(S\) and \(v\in S\), define \(\operatorname{priv}_{S}(v)=\{w:N[w]\cap S=\{v\}\}\). When \(v\) is removed, exactly these vertices lose their last selected closed neighbor. For adjacent \(v\in S\) and \(u\notin S\), the proposed swap dominates precisely when \(\operatorname{priv}_{S}(v)\subseteq N[u]\). The enumeration tests the same condition by computing the covering mask of the swapped set, not by assuming the swap is secure or that it can respond to later attacks.
 
-For reproducibility, identify \(P(x,y)\) with bit \(3x+y\), and \(L(m,b)\) with bit \(9+3m+b\). Consequently the vertex domain is **exactly** the integers \(s\) from \(0\) through \(2^{18}-1\). Let \(C_v\) be the 18-bit mask of \(N[v]\). Define the domination mask \(c(0)=0\) and, for nonzero \(s\),
-\[
-c(s)=c(s\mathbin{\mathrm{xor}}\ell)\mathbin{\mathrm{or}} C_v,
-\]
-where \(\ell\) is the least set bit of \(s\) and \(v\) is its position. This recurrence computes \(\bigcup_{v\in S}N[v]\) by induction on the number of bits. The security test first requires \(c(s)=2^{18}-1\). Then, for each unset bit \(u\), it tests each selected neighbor \(v\) and accepts \(u\) if the mask of \((S\setminus\{v\})\cup\{u\}\) dominates. The set is secure if and only if **every** unset bit passes. The exhaustive loop visits each of the \(262144\) masks once. Grouping accepted masks by population count gives every coefficient of \(D_{\mathrm{sec}}\).
+Give \(P(x,y)\) label \(3x+y\) and \(L(m,b)\) label \(9+3m+b\). Visit the integers \(0\) through \(2^{18}-1\), viewing each as one selected mask. Let \(C_v\) be the closed-neighborhood mask of vertex \(v\). The cover of the empty mask is zero, and the cover of a nonempty mask \(s\) is the bitwise union of \(C_v\) and the cover of \(s\) with its least set bit \(v\) removed. This recurrence is exact by induction on the number of selected vertices. Discard every mask whose cover is not full. For each other mask and each unset position \(u\), visit every selected neighbor \(v\) of \(u\) until a swap with full cover is found; otherwise discard the mask. Count each surviving mask once in the bin for its number of set bits. Thus every subset is tested against exactly the secure predicate, which gives \(D_{\rm sec}\).
 
-Secure domination is upward closed: a secure set remains secure after adding selected vertices. Hence a secure set is inclusion-minimal exactly when deletion of **every single** selected vertex breaks security. Applying this precise test to every accepted mask yields the coefficients of \(M_{\mathrm{sec}}\), and proves the claimed minimum and its multiplicity. No untested set or size is omitted.
+Adding vertices preserves security. Indeed, if \(S\subseteq T\) and \(u\notin T\), a defender \(v\in S\) for \(u\) in \(S\) also defends in \(T\): the new dominating set is a superset of the old one after the same swap. Consequently a secure set is inclusion-minimal exactly when every one-vertex deletion destroys security; a secure proper subset of \(S\) would also lie in a secure one-vertex deletion. Check membership in the accepted-mask list after every such deletion for each accepted mask. This supplies \(M_{\rm sec}\), including the exclusion of all sizes above nine.
 
-For the two reconfiguration graphs, list every accepted mask with exactly eight set bits. For each such \(s\), enumerate every ordered selected/unselected pair \((u,v)\), construct the switched mask, and insert the corresponding edge if that mask appears in the optimum list; for slides also require \(uv\in E(H)\). The code checks undirected adjacency and counts each edge once. Breadth-first search from **each of the 1755 vertices** computes its complete distance row; all searches reach every vertex. The edge counts, eccentricities, radii and diameters stated above are the exact outputs of these exhaustive bounded searches.
+## Optimum-class benchmarks
 
-For the symmetry orbit count, the affine transformations
-\[
-(x,y)\longmapsto(ax+b,cx+dy+e),
-\quad a,d\in\mathbb F_3^\times,\quad b,c,e\in\mathbb F_3
-\]
-induce \(108\) distinct point-and-line automorphisms. Composing them with the incidence duality \(P(x,y)\leftrightarrow L(x,-y)\) gives \(108\) further automorphisms; all \(216\) permutations are checked to preserve every edge. The known full automorphism group has order \(216\) [4], so this list is exhaustive. Their images of each optimum set are explicitly collected into orbits, yielding the thirteen sizes given above.
+The size-eight class is also the all-singleton sector of the weight-eight weak Roman optima [5]. A weak Roman unit transfer from a singleton defender to an unoccupied vertex yields a function whose support is exactly the swapped set. Thus weak Roman feasibility for singleton functions is equivalent to secure domination of their supports. The companion record gives \(1755\) such optima and the full orbit split of one orbit of size \(27\), eight of size \(108\), and four of size \(216\). Its prior-work discussion also reports \(12798\) jump edges and \(4320\) slide edges for this sector. The two same-dated records do not establish the direction of precedence; the overlap in the statistic is exact.
+
+The bundled enumeration reproduces these optimum-class counts. Two distinct optimum masks are joined by a jump exactly when their symmetric difference has size two; for a slide the two differing positions must be adjacent in \(H\). On these induced graphs (not the enlarged weighted-optimum graphs), breadth-first search from each optimum reaches all others. The jump eccentricities are all eight; in the slide graph \(1539\) are nine and \(216\) are ten. Thus the respective radius–diameter pairs are \((8,8)\) and \((9,10)\). These are reproducibility checks derived from the same optimum class, not the basis for distinguishing this census from [5].
+
+For the orbit check, the maps \((x,y)\mapsto (ax+b,cx+dy+e)\) with \(a,d\ne0\) over \(\mathbb F_3\) induce \(108\) distinct point-preserving automorphisms. The incidence duality \(P(x,y)\leftrightarrow L(x,-y)\) gives another \(108\); the established order of the full group is \(216\) [4]. Applying these maps to optimum masks gives the indicated orbits.
 
 ## Verification
 
-Run `python3 verify.py` with the Python standard library. It enumerates all masks, checks domination and secure swaps, constructs the exact jump and slide graphs, runs all-source breadth-first search, and enumerates the \(216\) explicit automorphisms and their optimum orbits; success prints `PAPPUS_SECURE_VERIFY_OK`. The independently formulated `independent_check.cpp` computes domination directly from the graph neighborhoods for every proposed swap, rather than using the cached domination-mask recurrence. Compile and run it using `c++ -std=c++17 -O2 independent_check.cpp -o check && ./check`; success prints `INDEPENDENT_DIRECT_SWAP_OK`. Both programs have been run from their actual supplied paths and passed. Their hardcoded expected counts are assertions against a complete, independently regenerated search, not input data defining the feasible sets.
+Run `python3 verify.py` to reproduce both polynomials and the optimum-class benchmarks, using Python 3 with no third-party packages. The program prints `PAPPUS_SECURE_VERIFY_OK` if its complete census and benchmarks agree with the recorded values. In a C++17 environment, `c++ -std=c++17 -O2 independent_check.cpp -o check && ./check` uses fresh vertex-wise domination tests for the swaps, rather than cached covering masks; it also checks every coefficient of both polynomials and the move metrics. Neither checker uses the claimed histograms to decide whether a subset is feasible.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Haythorpe and Newcombe [1] analyze secure domination in products involving paths and cycles and provide the guard-replacement definition, but do not address the Pappus incidence graph. Křišťan and Svoboda [2] study shortest **ordinary dominating-set** token slides, chiefly on trees and interval graphs, without the secure guard condition or this graph. The Pappus affine incidence construction is classical [3]; the 216-element automorphism order is known [4]. Related previously indexed classifications of secure domination on the Heawood and Möbius–Kantor graphs concern different incidence graphs; an indexed Pappus classification of *semitotal* and *locating-total* domination concerns different predicates, not consequences of this secure-domination census. No exact Pappus secure-polynomial or minimum guard-relocation classification was located in the targeted comparisons. The absence of a retrieved covering result is not a proof of absolute publication priority.
+An all-optimum census determines the coefficient at the optimum size and permits recovery of the optimum move graphs by direct restriction. It does not give the distribution of secure strict supersets and of larger inclusion-minimal sets. In [5] the displayed classification and transfer metrics cover weight-eight functions, so even allowing doubled vertices does not state the higher-weight secure census. For example, the \(3224\) inclusion-minimal nine-sets cannot be recovered as supersets of any eight-set in that census. The separate exhaustive tests in the present proof address that larger domain. Haythorpe and Newcombe [1] study the secure domination number on specified products and Möbius ladders. Křišťan and Svoboda [2] study token slides for ordinary dominating sets. Neither inspected statement supplies the higher-size secure spectra here. This comparison is not a claim of exhaustive historical priority.
 
-## Limitations
-
-The theorem is specific to the labelled 18-vertex **Levi graph**, not the different nine-vertex point-collinearity graph sometimes also called the Pappus graph. Its proof is exhaustive, exact and finite, using executable code; it is not an infinite-family statement. Move edges are possible optimum-preserving relocations, not necessarily moves of a *designated defender* responding to the currently attacked vertex. The integer outputs require replay of the finite enumeration for independently checkable assurance. Independent external mathematical review and exhaustive publication-priority clearance have not been performed.
+The result is specific to this labelled graph. No finite-order spectrum for other graphs or parameterized family is asserted. Relocation moves are between feasible minima, not a model of indefinitely adaptive guard defense.
 
 ## References
 
-1. M. Haythorpe and A. Newcombe, *The Secure Domination Number of Cartesian Products of Small Graphs with Paths and Cycles*, arXiv:2103.01406, first public 2021-03-02, https://arxiv.org/abs/2103.01406.
-2. J. M. Křišťan and J. Svoboda, *Shortest Dominating Set Reconfiguration under Token Sliding*, arXiv:2307.10847, first public 2023-07-20, https://arxiv.org/abs/2307.10847.
-3. K. Stokes, *Irreducibility of configurations*, Ars Mathematica Contemporanea 10 (2016), 169–181, first online 2015-09-11, §4.2 (affine-line construction of Pappus), https://dlib.si/stream/URN%3ANBN%3ASI%3ADOC-OCBGMHAN/db7b0708-b365-4c1d-ad1e-eb6bd0f88a7b/PDF.
-4. *Pappus graph*, standard graph reference recording its 216 automorphisms, https://en.wikipedia.org/wiki/Pappus_graph.
+1. M. Haythorpe and A. Newcombe, *The Secure Domination Number of Cartesian Products of Small Graphs with Paths and Cycles*, https://arxiv.org/abs/2103.01406.
+2. J. M. Křišťan and J. Svoboda, *Shortest Dominating Set Reconfiguration under Token Sliding*, https://arxiv.org/abs/2307.10847.
+3. K. Stokes, *Irreducibility of configurations*, Ars Mathematica Contemporanea 10 (2016), 169–181, §4.2, https://dlib.si/stream/URN%3ANBN%3ASI%3ADOC-OCBGMHAN/db7b0708-b365-4c1d-ad1e-eb6bd0f88a7b/PDF.
+4. I. N. Kagno, *Desargues' and Pappus' graphs and their groups*, American Journal of Mathematics 69 (1947), 859–863, https://doi.org/10.2307/2371806; see also [Pappus Graph](https://mathworld.wolfram.com/PappusGraph.html).
+5. *Mixed-guard weak Roman optima on the Pappus graph*, [Resultary record e85ac2992226](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-mixed-guard-weak-roman-optima-on-the-pappus-graph-twenty-symmetr--e85ac2992226), Finding and Relationship to prior work.

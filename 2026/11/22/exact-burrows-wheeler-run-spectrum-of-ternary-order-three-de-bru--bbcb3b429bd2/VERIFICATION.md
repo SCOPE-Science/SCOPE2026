@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The two C++17 source files in this package contain standalone complete enumerators. The first examines all \(6^9=10077696\) choices of nine local permutations and checks whether the induced successor permutation is a single \(27\)-cycle; the second enumerates all directed Euler tours of the nine-vertex ternary overlap graph after anchoring its unique edge `000`. Both independently build the BWT run-count pair and test all exact frequencies with assertions.
+## correctness
 
-Commands:
+PASS
 
-```text
-g++ -O2 -std=c++17 verify_orientations.cpp -o verify_orientations
-g++ -O2 -std=c++17 verify_euler.cpp -o verify_euler
-./verify_orientations
-./verify_euler
-```
+A length-27 de Bruijn necklace has distinct triples, hence distinct rotations, ordered by their triples. For each two-letter prefix the three predecessors are a permutation of the three letters, since all triples ending in that prefix occur once. Thus the 18 within-block changes are forced; the eight inter-block changes and the wrap comparison give r and c as claimed. Independently enumerated last-column blocks with the predecessor/LF map i -> 9*L[i]+floor(i/3). It is injective already on assigned rows, and an irrevocably closed proper cycle cannot extend to a single cycle. At a leaf all 27 rows return on one cycle, and reversing the predecessor walk spells the cycle with precisely the 27 row triples; that gives one necklace and no extra quotients by reversal or alphabet relabeling. Exact output from `python3 /workspace/review-evidence/02_lf.py` (full log `02_lf.csv` in that directory) matches all 18 cells, total 373248, both marginals and the extrema including the wrap-sensitive minima. Both supplied C++ certificates were inspected as text rather than executed. This establishes only the specified sentinel-free finite case.
 
-Observed outputs begin `ORIENTATION_CERTIFICATE_OK 373248` and `EULER_CERTIFICATE_OK 373248` respectively, and the eighteen subsequent comma-separated rows agree exactly. These runs were performed with the source files supplied here. The known independent total-count identity is \((3!)^9/3^3=373248\).
+## originality
 
-The source programs constitute a finite exhaustive certificate, not an infinite extrapolation. No independent external mathematical audit or formal proof-assistant validation has been conducted.
+PASS
+
+Credit the BWT block theorem, orbit correspondences and total count. The supported distinct claim is the exact joint run distribution and its extremal multiplicities. The closest inspected primary and indexed results neither give that distribution nor resolve its run-refined count by specialization of their statements.
+
+## value
+
+PASS
+
+This is a natural first ternary case with nine independent local permutation blocks before imposing global connectivity. The joint distribution quantifies both attainment/rareness of the compression-extremal cases and the effect of the wrap comparison, which is lost in a linear-only spectrum. It is a reproducible benchmark for run-enumeration and extremal constructions, not just a recomputation of the de Bruijn total or a new general run law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

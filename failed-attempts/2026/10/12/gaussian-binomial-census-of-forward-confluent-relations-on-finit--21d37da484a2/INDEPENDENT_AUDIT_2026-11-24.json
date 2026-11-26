@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:06.089938Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–37, and VERIFICATION.md; packaged verify.py inspected, not run",
+        "Independent replay: /workspace/branches/17071784-95f0-4bea-9f45-993c0ea888ac/independent_check.py"
+      ],
+      "rationale": "On the fixed labeled chain, any element in row z forces every higher row to be nonempty, and applying the axiom to the maximum of row z forces the higher maximum to be at least as large. Conversely that higher maximum is a witness for every element in row z. For r nonempty rows their positions are fixed, and a row of maximum m has 2^m choices; reversing the sequence of maxima gives a partition in an r by (n−1) rectangle counted by size at q=2. The r=0 term is the empty relation, and n=1 gives two relations. Independent bounded computation found no mismatch in the axiom-versus-characterization check across all 66,066 relations for n=1 through 4, reproduced the first four totals 2, 11, 198, 13377, and separately recovered all eight displayed values by formula evaluation.",
+      "residual_risks": [
+        "The finite check is exhaustive only through n=4; the result for all n uses the proof.",
+        "The frozen prior-work statement about no occurrence of 'enumerat' in the FIK paper is inaccurate: p. 20 uses 'an enumeration' in a different canonical-model argument. This does not affect the mathematical finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact indexed census also gives an asymptotic. f1e0f9b64170 imposes two interaction conditions and controls column as well as row maxima; 03b1c1fd9c86 imposes totality and strictly increasing endpoint sequences."
+        ],
+        "reasoning": "The first source contains the whole finding plus another result. The latter two constrain a different class and cannot be substituted for the forward-only census.",
+        "searches": [
+          "Resultary 75c9508e987d exact counts and asymptotic",
+          "Resultary f1e0f9b64170 and 03b1c1fd9c86 on related normal forms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 75c9508e987d, f1e0f9b64170, 03b1c1fd9c86",
+        "Balbiani et al., arXiv:2309.06309"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older indexed theorem states the suffix/weak-maxima normal form and uses the same partition-rectangle identity. FIK's primary-paper definition alone does not state this classification or table."
+        ],
+        "reasoning": "The indexed theorem directly covers the quantifiers, including r=0; the Gaussian-binomial rectangle identity by itself would not identify which relations are being counted.",
+        "searches": [
+          "75c9508e987d normal-form and counting proof",
+          "arXiv:2309.06309, (FC) definition and proof context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating paper names the identical quantified condition (FC) and credits Simpson's (F1). The indexed census uses labels 1 through n and allows the zero-suffix case."
+        ],
+        "reasoning": "Relabel i as i+1. The same support and maximum conditions result; for maximum m in the zero-based labels, or m+1 in the one-based labels, there are exactly m possible smaller partners. The m-dependent weight and all counts are invariant.",
+        "searches": [
+          "Local Resultary: Gaussian-binomial census of FIK relations on finite chains, 75c9508e987d",
+          "FIK forward confluence (FC) and Simpson (F1), arXiv:2309.06309 pp. 2, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75c9508e987d gives the identical fixed-r Gaussian coefficient, sums from r=0, and prints the same first six values. The two-condition census gives 9, 118 and 4849 for n=2,3,4 instead of 11, 198 and 13377."
+        ],
+        "reasoning": "This is a statement-level and table match in 75c9508e987d, not a coincidence of initial coefficients. The next two values are forced by the already stated formula.",
+        "searches": [
+          "Local Resultary 75c9508e987d, RESULT.md offsets 0–3990 and 4000–6968",
+          "Local Resultary f1e0f9b64170, exact finite counts"
+        ]
+      },
+      "rationale": "A separately indexed earlier record states the same forward-only characterization and the same exact fixed-r and total counts up to an order-preserving shift of labels. It also gives an asymptotic. Two extra numerical evaluations of an identical formula do not make the later claim distinct.",
+      "residual_risks": [
+        "The available evidence establishes coverage, not whether the later record is an independent rediscovery. It does not settle all external provenance of the older census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage after relabeling; additional asymptotic",
+          "evidence": [
+            "Same nonempty suffix, weakly increasing maxima, fixed-r coefficient, total from r=0 and first six values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-gaussian-binomial-census-of-fik-relations-on-finite-chains--75c9508e987d",
+          "material_read": "Mirrored RESULT.md offsets 0–3990 and 4000–6968",
+          "method": "Local statement and proof comparison",
+          "title": "Gaussian-binomial census of FIK relations on finite chains",
+          "trigger": "Exact theorem and integer values in distinct indexed record"
+        },
+        {
+          "assessment": "Identical condition; inspected passages do not state a chain census",
+          "evidence": [
+            "p. 4 states (FC); p. 2 identifies it as Simpson's (F1). p. 20's 'an enumeration' is unrelated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.06309",
+          "material_read": "OA pp. 2, 4 and unrelated occurrence on p. 20 (offsets 6353, 10905, 56145)",
+          "method": "Bounded primary full-text comparison",
+          "title": "A Natural Intuitionistic Modal Logic: Axiomatization and Bi-nested Calculus",
+          "trigger": "Original frame condition and Simpson attribution"
+        },
+        {
+          "assessment": "Distinct two-condition problem",
+          "evidence": [
+            "Column maxima are also constrained and n=2,3,4 counts differ."
+          ],
+          "identifier_or_url": "Resultary f1e0f9b64170",
+          "material_read": "Mirrored statement, interaction conditions and initial counts",
+          "method": "Local statement comparison",
+          "title": "Maxima normal form and exact census for chain birelational relations",
+          "trigger": "Related maxima-based census"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Totality and strict endpoint growth are additional and different conditions."
+          ],
+          "identifier_or_url": "Resultary 03b1c1fd9c86",
+          "material_read": "Mirrored theorem's conditions on endpoints and minimum-size cases",
+          "method": "Local statement comparison",
+          "title": "Endpoint normal form for expansive relations between finite strict chains",
+          "trigger": "Alternative chain-relation normal form"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 75c9508e987d"
+      ],
+      "rationale": "A first exact census of this natural modal-frame class would be useful, including for calibrating exhaustive small-chain searches. The full normal form and census are already covered, however; neither evaluating the same expression twice more nor changing the labels supplies a scientifically motivated new invariant or cutoff.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

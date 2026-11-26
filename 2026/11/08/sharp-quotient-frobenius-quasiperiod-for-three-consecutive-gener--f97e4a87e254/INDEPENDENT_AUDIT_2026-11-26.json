@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:06:15.559210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=qa+r with 0≤r<a, q generators realize precisely the offsets 0,…,2q. When r>2q, (q−1)(a+2)<qa, and q+1 generators exceed N. This gives exactly the stated intervals. Their top index at a=2t+ε is t−1. At index t−1−j the right endpoint H=(t−j)a−1 is ε+2j above the left one, and H−(H mod p) lies in the interval iff its remainder passes the stated inequality. At j_max the width is at least p−1 and a≥2p+4 ensures t−1−j_max≥0. Disjoint ordered intervals then prove the formula and the branch period 2p. For any eventual period T, CRT and equality of polynomials on infinite progressions force the signature (B,R) to be invariant under gcd(T,2p). For p=2k+1, the signature (p−1,p−1) forces ε=0,J=k; R_(k−1)>p−3 and R_(k−1)≡R_k+a (mod p) force residues 0 and p−1 modulo 2p, both attained. This pair cannot be exchanged by a cyclic translation. For p=2k the signature (p,p−1) occurs precisely at 0,p by the same preceding-remainder test, so only p could remain as a smaller period. At 1 and p+1 the bounds on j become 3j≥2k−2 and 3j≥k−2 respectively before remainder wraparound, giving unequal minimal indices for k≥2. At p=2 the two indices are zero but the remainders differ (1 and 0). Thus no smaller eventual period exists. Independent replay /workspace/quotient_replay.py finds minimal attainable residues by shortest paths and checks 9,936 exact Frobenius evaluations, with fitted branch signatures checked against all shifts for p=2,…,70. This is finite corroboration, not evidence by extrapolation. Frozen scripts and logs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 of Liu's GCNS paper has p|a and a+pd≥0; the encoding u=1,d=1−a fails that inequality for the target range. Proposition 4.1 requires d>0. Liu's two-consecutive generator result gives a period dividing p for a different base semigroup.",
+          "The exact least genus quasiperiod article has the same unrestricted quotient family and interval decomposition but counts gaps rather than maximizing them."
+        ],
+        "reasoning": "A two-generator base and a divisor-restricted subclass do not dominate the target domain. A genus branch has different linear/constant coefficients and does not specify the Frobenius branch signature.",
+        "searches": [
+          "arXiv:2604.26415v1 Thm. 3.2 and Prop. 4.1",
+          "arXiv:2607.23076v1 Thm. 5.3 and Cor. 5.5",
+          "Resultary: exact least genus quasiperiod and fixed-gap quotient periods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1809.09360v2",
+        "arXiv:2312.06096v1",
+        "arXiv:2604.26415v1",
+        "arXiv:2607.23076v1",
+        "2026/11/8/SCOPE-sharp-quotient-frobenius-quasiperiod-for-three-consecutive-gener--f97e4a87e254",
+        "2026/11/8/SCOPE-exact-least-genus-quasiperiod-for-quotients-of-three-consecutive--972b2eeba586",
+        "2026/11/8/SCOPE-exact-quasi-periods-for-fixed-gap-quotients-of-two-generator-num--9f48bb6b7364"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day genus proof gives all intervals I_q and explicitly counts their multiples of p. It establishes genus period 2 for p=2, whereas the target Frobenius period there is 4.",
+          "Liu's period theorem allows collapse in a different, two-generator quotient."
+        ],
+        "reasoning": "Selecting the last nonempty gap interval is directly possible from the shared decomposition, but least-period noncollapse needs new coefficient-signature analysis and does not follow even if the genus period agrees numerically for p≥3. Same-day chronology is unresolved.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-least-genus-quasiperiod-for-quotients-of-three-consecutive--972b2eeba586 RESULT.md Finding and Proof §1",
+          "arXiv:2312.06096v1 Theorem 1.3",
+          "arXiv:2607.23076v1 Cor. 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu's Theorem 1.3 parameters h=d=1, k=2 give the assigned base semigroup but only for p|a. Adeniran et al. §3 also requires the quotient factor to divide a in the relevant formulas.",
+          "The assigned Resultary match 2026/11/8/SCOPE-sharp-quotient-frobenius-quasiperiod-for-three-consecutive-gener--f97e4a87e254 is the publication of the same record."
+        ],
+        "reasoning": "The divisor cases were already covered and determine only a proper subset of residues; the identical catalogue entry is not an independent source.",
+        "searches": [
+          "Resultary for quotient Frobenius/quasiperiod for three consecutive generators",
+          "arXiv:1809.09360v2 §3",
+          "arXiv:2312.06096v1 Theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved the exact assigned item, a distinct same-family genus theorem and a fixed-gap two-generator analogue. Theorem 1.3 gives only the divisor-case Frobenius branches."
+        ],
+        "reasoning": "No inspected exact table or indexed formula independently gives the unrestricted Frobenius branches and their least period. A finite numerical table would not certify the quantifier over all p in the least-period claim.",
+        "searches": [
+          "Published Resultary matches for exact quotient Frobenius and genus quasiperiods",
+          "Liu arXiv:2607.23076v1 §5.1 and arXiv:2312.06096v1 Theorem 1.3"
+        ]
+      },
+      "rationale": "Pass for the unrestricted three-generator quotient branch theorem and in particular the noncollapse to any eventual period smaller than 2p. The exact interval decomposition is shared with the same-day genus article, and the highest nonempty interval formula is immediate from that decomposition; neither is credited as independent novelty on its own. The least Frobenius period is not an implication of the genus period or of the earlier divisor-restricted Frobenius formulas.",
+      "residual_risks": [
+        "Unknown earlier all-residue quotient result or hidden equivalent period theorem; no priority ordering inferred among same-day results. No isolated originality credit for the shared gap intervals or their direct maximum formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Divisor-restricted overlap",
+          "evidence": [
+            "Relevant family is ⟨a,a+k,a+2k⟩/d under d|a, with additional parameter hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09360v2",
+          "material_read": "§3 pp. 5–6, OA PDF offsets 19000–25451",
+          "method": "Targeted primary OA PDF inspection",
+          "title": "On the genus of a quotient of a numerical semigroup",
+          "trigger": "Three-term progression quotient Frobenius formulas"
+        },
+        {
+          "assessment": "Exactly covers the target progression under p|a",
+          "evidence": [
+            "Set h=d=1 and progression length parameter k=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.06096v1",
+          "material_read": "Theorem 1.3 p. 3; OA offset 6200",
+          "method": "Targeted primary OA PDF inspection",
+          "title": "On quotients of numerical semigroups for almost arithmetic progressions",
+          "trigger": "Proposed broader progression formula"
+        },
+        {
+          "assessment": "Stated hypotheses do not give the unrestricted claim",
+          "evidence": [
+            "Thm. 3.2 requires p|a and a+pd≥0; Prop. 4.1 uses d>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.26415v1",
+          "material_read": "Theorem 3.2 and Proposition 4.1, OA offsets 24000 and 26200",
+          "method": "Targeted primary OA PDF inspection",
+          "title": "The Frobenius problem for a class of quotients of numerical semigroups",
+          "trigger": "Generalized quotient theorem may dominate"
+        },
+        {
+          "assessment": "Two-generator analogue only",
+          "evidence": [
+            "⟨a,a+1⟩/p for a>p, quadratic period dividing p; the actual least period may be smaller."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23076v1",
+          "material_read": "Thm. 5.3 and Cor. 5.5 pp. 16–17, OA offsets 46600–53091",
+          "method": "Targeted primary OA PDF inspection",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "Frobenius quasiperiod for consecutive generators"
+        },
+        {
+          "assessment": "Same-day structural overlap; different invariant and different signatures",
+          "evidence": [
+            "Exact gap intervals and multiplicity floor sum (1); genus period 2p for p≥3, 2 for p=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-least-genus-quasiperiod-for-quotients-of-three-consecutive--972b2eeba586/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–3 opening, local mirror offsets 0–4292",
+          "method": "Resultary match, then original local-mirror passage",
+          "title": "Exact least genus quasiperiod for quotients of three consecutive generators",
+          "trigger": "Identical quotient family and minimal-period question"
+        },
+        {
+          "assessment": "Not equivalent to three-generator quotient",
+          "evidence": [
+            "Least period p in its stated fixed-gap two-generator setting."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-quasi-periods-for-fixed-gap-quotients-of-two-generator-num--9f48bb6b7364",
+          "material_read": "Finding, original local-mirror offset 0",
+          "method": "Resultary match and original statement comparison",
+          "title": "Exact quasi-periods for fixed-gap quotients of two-generator numerical semigroups",
+          "trigger": "Sharp quotient period in closely related family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Frobenius number is a canonical quotient invariant. A uniform least-period theorem determines which residue information cannot be discarded even for arbitrarily large a. In particular the smallest p has a genuine distinction from the closely related genus behaviour. This is stronger than computing examples or proving the existence of an unspecified eventual period, and does not purport to optimize the stabilization cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:08:49.001298Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53, VERIFICATION.md, both verify_*.py files, and dyck_isomorphism.json; the frozen scripts were not executed.",
+        "Independent exhaustive reconstruction: python3 /workspace/branches/3f6e029e-b8ed-4bfc-a51c-999c35e8b5ed/audit_record4.py; audit_record4.out records the independent isomorphisms and distance censuses. Jump: degree 10, 240 edges, radius=diameter=3, histogram (240,696,192). Slide: degree 4, 96 edges, radius=diameter=5, histogram (96,192,336,384,120). Each covers all 1128 unordered pairs.",
+        "Frozen-permutation data check: python3 /workspace/branches/check_record4_frozen_permutation.py. All 32 images are distinct and all 48 LCF edges agree."
+      ],
+      "rationale": "For the stated simple graph on Z_4^2, translations, coordinate interchange and (x,y)->(x,x−y) preserve D. Their nonzero offset orbits are D, the three order-two offsets Q, and C; C is not the full nonedge set. A singleton stops with 7 marked. Representatives of the three pair orbits have initial/final marked counts 10/10, 12/12 and 12/16 respectively; for (0,0),(1,2) the four listed forces have distinct unique unmarked targets. Thus all and only the 16·6/2=48 pairs of C are optimal. A jump keeps one endpoint, giving the line graph of the C-Cayley graph, and the displayed determinant-one linear map carries C onto D. For slides, the permissible partners of each fixed sensor induce two disjoint triangles under original adjacency. Splitting each fixed sensor into these two triangles gives the cubic graph H with one edge per optimal pair. Two edges meet precisely when the configurations keep a sensor and the two other endpoints are adjacent in G. The frozen 32-entry permutation was checked as data against the full edge sets and maps H onto the Dyck LCF graph. An independent exhaustive power-closure and graph reconstruction confirms both isomorphisms and both unordered distance histograms with the stated eccentricities. The rook comparison follows from the unmarked block with both sides at least two for two sensors, and the single unmarked cell for a triple meeting distinct rows and columns; the common degree and pair parameters yield cospectrality.",
+      "residual_risks": [
+        "The checks are exhaustive for the stated finite graphs only. The frozen documentation lists Python 3.9 as sufficient, but verify_power_domination.py uses int.bit_count(), introduced in 3.10; use Python 3.10 or newer when replaying the frozen scripts. This is a version-note issue, not a gap in the graph claim or in the separate replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected §1 defines TAR, TJ and TS including the requirement that swapped vertices be adjacent for TS; its stated power-domination study emphasizes TAR and TJ. The literature search returned no material additional result."
+        ],
+        "reasoning": "The framework supplies the move rule, not the Shrikhande-specific feasible configurations or adjacency of their slides. Neither the literal Shrikhande miss nor the unrelated search return is negative evidence about otherwise phrased theorems.",
+        "searches": [
+          "Bjorkman et al., arXiv:2201.01798v1, §1",
+          "Targeted primary literature search for Shrikhande power domination reconfiguration Dyck"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01798v1 §1",
+        "Brouwer, Dyck graph",
+        "Resultary 48ce98e1f82f, 6eba6f023d64 and self-hit d317c2fcd463"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior rook theorem directly implies the rook optimum, and the prior Dyck construction identifies the graph of Shrikhande triangles by shared edges. The jump/slide framework gives the definitions."
+        ],
+        "reasoning": "Those results leave out the nontrivial predicate selecting only C among the nonedge offsets and the use of original adjacency among successful partners at a fixed endpoint. The latter produces the two local triangles and turns the slide adjacency into a line-graph construction. The metric census is a consequence of the new structural identification, not the principal priority claim.",
+        "searches": [
+          "Brouwer Dyck graph construction",
+          "arXiv:2201.01798v1 §1",
+          "Resultary 48ce98e1f82f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brouwer identifies the cubic graph on Shrikhande triangles with adjacency by shared original edges. The reconstruction independently related H to that triangle graph and the LCF model. The distinct same-day slide theorem treats square rook graphs."
+        ],
+        "reasoning": "The triangle-graph identification is an equivalent presentation of the target graph and is not new. It does not determine which original unordered pairs power dominate or whether their slide cliques realize its line graph. The cospectral rook companion is a different input graph with a different optimum budget.",
+        "searches": [
+          "Local Resultary Shrikhande optimal power domination, Dyck line graph and token-slide search; d317c2fcd463, 6eba6f023d64, 48ce98e1f82f",
+          "Brouwer Dyck graph page, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rectangular-rook theorem characterizes placements by meeting at least p−1 rows or q−1 columns and gives minimum size p−1 for p<=q, which covers the rook comparison and, via its count formula, 416 minimum placements at p=q=4. The square-rook slide table gives diameter 2n−2 with n² extremal pairs. The identical result is the bound record itself."
+        ],
+        "reasoning": "Credit the known rook facts and standard Dyck graph fully. A table of exact Dyck data may already give distance information once the line-graph isomorphism is established, but is not evidence of the sensor correspondence. The exact same-day square-rook work concerns another family; date alone does not determine priority.",
+        "searches": [
+          "Resultary d317c2fcd463 identical hit and distinct 6eba6f023d64 and 48ce98e1f82f",
+          "Brouwer Dyck graph entry"
+        ]
+      },
+      "rationale": "The surviving distinct claim is the exact Shrikhande optimum-pair classification and the jump and edge-slide line-graph identifications with their distance data. The Dyck graph's independent construction from Shrikhande triangles, the standard move rules and the complete prior rook classification receive full credit. None of the inspected statements supplies the successful-offset classification and the relocation correspondences together.",
+      "residual_risks": [
+        "An earlier determination of the successful Shrikhande pairs or slide geometry in differently named monitoring or graph-reconfiguration work remains possible. Bounded source comparison is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits standard move definitions; inspected passage gives TAR/TJ scope, not a Shrikhande classification",
+          "evidence": "TS exchanges a single vertex along an edge; the study is described in terms of TAR and TJ.",
+          "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+          "material_read": "§1, HTML text offsets 3187–4829; literal Shrikhande query",
+          "method": "OA locate and bounded HTML read",
+          "title": "Power domination reconfiguration",
+          "trigger": "Primary framework for reconfiguration and potentially broader covering results"
+        },
+        {
+          "assessment": "Prior target graph and triangle construction, not the sensor theorem",
+          "evidence": "Triangles of the Shrikhande graph form the Dyck graph when adjacency is sharing an edge.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Dyck.html",
+          "material_read": "Entry opening construction, offset 0",
+          "method": "OA bounded webpage read",
+          "title": "Dyck graph",
+          "trigger": "Existing Shrikhande–Dyck equivalence"
+        },
+        {
+          "assessment": "Fully covers the rook feasible sets and power-domination minimum; no Shrikhande scope",
+          "evidence": "r(S)>=p−1 or c(S)>=q−1 is necessary and sufficient, with minimum p−1 and explicit minimum-set multiplicity.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2701",
+          "method": "Local Resultary and bounded mirror read",
+          "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+          "trigger": "Exact prior coverage of the rook contrast"
+        },
+        {
+          "assessment": "Same move rule, different graph family and result",
+          "evidence": "For K_n square K_n with n>=3 the slide diameter is 2n−2, with exactly n² extremal pairs.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-token-slide-diameter-and-antipodal-pairs-of-minimum-po--6eba6f023d64",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2632",
+          "method": "Local Resultary and bounded mirror read",
+          "title": "The exact token-slide diameter and antipodal pairs of minimum power domination on square rook graphs",
+          "trigger": "Distinct same-day minimum-power-domination slide metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23 and 26–50",
+        "Brouwer, Dyck graph",
+        "Exact independent relocation reconstruction"
+      ],
+      "rationale": "The Shrikhande graph is a canonical small strongly regular graph rather than an arbitrary board size. Its two relocation models give different classical line graphs, showing exactly how much restricting feasible moves to original edges changes optimal relocation distances. The identification explains the census and gives a reusable structural model. The cospectral rook twin illustrates that the common (16,6,2,2) parameters do not determine power-domination number; its known numerical value is not the main contribution.",
+      "residual_risks": [
+        "There is no extension to all strongly regular graphs or to paths through temporarily nonoptimal configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:59:23.402509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The combination counts in sizes 0 through 4 are 1,35,595,6545,52360. An independently written enumeration (branches/50fab930-c645-49c2-84ee-dd2297700735/reproduce_kg73.py and reproduction.txt, under /workspace) rebuilt the disjointness graph and monotone closure from closed neighborhoods and found 0,0,0,0,840 successful sets, exactly the generated pencil-plus-transversal family. The root is uniquely recoverable as the only point on three selected triples. Completing the three rooted pairs to a Fano design forces the four unrooted lines to be the given transversal and the three choices changing exactly two of its pair selections, since Fano lines meet in one point; this covers every interpair point pair once. Independently, exact cover of all 21 point pairs gave 30 labelled planes and their 840 distinct antiflags, with one preimage per placement. Removing the transversal permits the other seven transversals, only the complement disjoint from it. On removing a pencil line, the two retained lines and transversal have three different pairwise intersections. The old root forces the removed line; each other possible root gives one new pencil line, sharing a point with the removed line. Thus there are 13 jumps and one slide, and the independent graph traversal reproduced 5460 jump edges, distance shells (1,13,39,87,204,320,176) from every vertex, radius and diameter 6, and 420 slide components of order 2. Ground-point permutations act transitively on the pencil/transversal data. The enumeration checks the entire stated domain; no supplied verifier was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. discuss general minimum-set jumps and examples on complete, complete bipartite, path, cycle and wheel graphs. Curtis–Flagg–Hogben give a TAR survey/framework for vertex-set parameters.",
+          "Resultary f27159e6fd24 concerns three-sensor relocation on KG(n,2) for n≥8; 6e981f3b14e6 concerns power domination on two-subset Kneser graphs."
+        ],
+        "reasoning": "The general reconfiguration framework supplies definitions and comparative results, not the stated exact classification or distance/slide invariants. The two-subset scope does not cover the three-subset graph.",
+        "searches": [
+          "arXiv:2201.01798 §§4–5 minimum power-domination jumps",
+          "arXiv:2406.05509 abstract and introduction on TAR",
+          "Resultary: broader Kneser graph power domination and relocation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.15603",
+        "arXiv:2201.01798",
+        "arXiv:2406.05509",
+        "DOI 10.26493/1855-3974.1881.384",
+        "Resultary f6b4a7e2e817 (identical)",
+        "Resultary f27159e6fd24",
+        "Resultary 6e981f3b14e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brešar et al. give zero-forcing bounds in the 2r+1≤n≤3r regime and a formula for n≥3r+1; (7,3) is in the bounded regime.",
+          "In power domination N[S] is an initial zero-forcing set if S succeeds, but zero-forcing cardinality bounds do not characterize which closed-neighborhood unions force or which minima differ by legal moves."
+        ],
+        "reasoning": "Fano planes and the general jump/slide definitions are reusable ingredients. The complete four-set forcing class, one slide per vertex and the six-level jump profile require additional graph-specific information not implied by either the ordinary or zero-forcing conclusions.",
+        "searches": [
+          "Cornet–Torres arXiv:2308.15603 §2",
+          "Brešar–Kos–Torres DOI 10.26493/1855-3974.1881.384 abstract, p. 1",
+          "Bjorkman et al. arXiv:2201.01798 §§4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cornet–Torres identify size-7 2-packings with Fano planes and obtain gamma_(×k)(7,3)=7k for 1≤k≤5. Their k=1 case is ordinary domination."
+        ],
+        "reasoning": "Full Fano planes as dominating placements are not equivalent to antiflags as four-sensor power-dominating placements: here the initial closed neighborhood can be proper and subsequent unique-neighbor forcing is essential. The shared finite geometry is genuine but the parameters and placement sets differ.",
+        "searches": [
+          "Resultary: Fano antiflags, KG(7,3) minimum power domination and optimal sensor relocation",
+          "Primary query: \"KG(7,3)\" \"power domination\" reconfiguration",
+          "arXiv:2308.15603 §2 pp. 5,7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 840-set/jump/slide catalogue summary is the same bound record f6b4a7e2e817. The inspected independent exact same-graph result gives tuple domination values, not 840 minimum power-dominating placements or 420 complementary slide edges."
+        ],
+        "reasoning": "Same graph, but different invariant and different minimizing sets. The exact self match is neither a duplicate independent theorem nor a chronological comparison.",
+        "searches": [
+          "Resultary exact minimum power domination census, Fano antiflags and slide components on KG(7,3)",
+          "arXiv:2308.15603 p. 7 exact Kneser domination values"
+        ]
+      },
+      "rationale": "The exact four-sensor optimum classification for standard power domination and its jump/slide geometry survive comparison. Earlier ordinary and tuple domination on this very Kneser graph uses seven-line Fano planes, and prior work develops power-domination reconfiguration generally; neither supplies the four-set forcing classification or the jump/slide split. The exact same-ID catalogue entry is this finding, not independent evidence of earlier coverage.",
+      "residual_risks": [
+        "A finite-data appendix or a differently indexed odd-graph result could already contain all or part of this census. The web query did not yield a relevant paper and that is not proof of noncoverage.",
+        "No priority within the same catalogue date is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial geometric overlap but different domination process",
+          "evidence": [
+            "Seven-element 2-packing identified with a Fano plane; exact gamma_(×k)(7,3)=7k for 1≤k≤5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+          "material_read": "§2 p. 5 offset 15077 and p. 7 offset 21788",
+          "method": "Compare placement definition, exact values, and Fano classification",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Closest Fano-plane theorem for the same graph"
+        },
+        {
+          "assessment": "Supplies framework, not this classification",
+          "evidence": [
+            "TAR, jumps and slides; minimum power-domination results on other named graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01798",
+          "material_read": "p. 1 offset 3250 and §§4–5 pp. 13–14 offsets 50874/53774",
+          "method": "Compare moves and hypotheses of family-specific results",
+          "title": "Power domination reconfiguration",
+          "trigger": "Direct prior work on same reconfiguration parameter"
+        },
+        {
+          "assessment": "General framework, no inspected implication of the frozen census",
+          "evidence": [
+            "Surveys general TAR for parameters including power domination and zero forcing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.05509",
+          "material_read": "Abstract p. 1 offset 478 and introduction p. 2 offset 7097",
+          "method": "Check scope and move model",
+          "title": "TAR reconfiguration for vertex set parameters",
+          "trigger": "General reconfiguration work plausibly subsuming specific properties"
+        },
+        {
+          "assessment": "Related parameter; abstract results do not establish the four-set and relocation classification",
+          "evidence": [
+            "Zero-forcing bounds for 2r+1≤n≤3r, exact n≥3r+1 formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.1881.384",
+          "material_read": "English abstract p. 1, offsets 1206 and 1452–2618",
+          "method": "Compare definitions, parameter range and potential implications",
+          "title": "Grundy domination and zero forcing in Kneser graphs",
+          "trigger": "General zero-forcing results in a regime containing KG(7,3)"
+        },
+        {
+          "assessment": "Different KG(n,2) family, no within-day priority inferred",
+          "evidence": [
+            "Minimum three-sensor relocations for KG(n,2), n≥8."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-slide-extremals-and-a-radius-four-diameter-five-split-for-k--f27159e6fd24",
+          "material_read": "Catalogue's mathematical summary",
+          "method": "Check ground-set arity and stated scope; no whole-document negative inference",
+          "title": "Five-slide extremals and a radius-four diameter-five split for Kneser relocation",
+          "trigger": "Close same-day powers and reconfiguration comparison"
+        },
+        {
+          "assessment": "Different subset arity",
+          "evidence": [
+            "Concerns KG(n,2), not KG(7,3)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+          "material_read": "Catalogue's mathematical summary",
+          "method": "Compare the graph parameter of the stated result",
+          "title": "Power-domination polynomial and minimal-set dichotomy of two-subset Kneser graphs",
+          "trigger": "Earlier exact enumeration on related Kneser graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural small odd graph, not an arbitrary labelled instance. The exact family identifies all minimal-budget placements geometrically and makes the effect of constraining moves stark: all placements communicate in at most six unrestricted minimum-preserving jumps, but slides are confined to pairs. The Fano completion gives a structural explanation rather than just an unmotivated count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

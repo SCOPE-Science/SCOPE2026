@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:29.409099Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inserting the next label into an existing cycle or a new singleton of either colour gives the total (n+1)!. A prescribed j-position singleton set contributes 2^j(n−j+1)!, so expansion of the character as a product of (1−2 1_fixed) gives the displayed multiplier under unnormalized XOR convolution. The multiplicity of shell k is binomial(n,k). With density x exp(−x) on x>0 the moment representation is E[X^(n−k)(X−4)^k]. Subtracting adjacent shells inserts a factor 4, giving 4 times the shell k multiplier at order n−1. Integration by parts gives E[X f′]=E[(X−2)f]; for f(x)=(x−4)^n this yields M_(n+1)=(n−2)M_n+4n M_(n−1). The boundary spectra through n=8 give the sole null shell n=3,k=1 (nullity 3, rank 5), the negative shell at n=7 and the other claimed finite signs. The positive n=8 row and diagonal values M_8=15744, M_9=71936 start the joint induction: the next row strictly decreases, and its last entry stays positive by the recurrence. In positive dimensions k=0 is maximal by nonnegative counting mass; the sharp minima at n=6 and 8 are 112 at k=5 and 12928 at k=7, giving condition numbers 45 and 2835/101. For n≥9 the minimum is M_n. Dividing its sum by (n+1)! bounds each zero-extended term by 4^j/j! and gives termwise limit (−4)^j/j!, so the normalized minimum tends to e^−4. From /workspace, python3 reproductions/algebra.py walsh independently enumerated cycle-weighted permutations and applied an integer fast Walsh transform to the entire fixed-position histogram for n=1–8, matching all claimed rows. The frozen verifier was inspected, not executed. Neither finite check proves the all-order classification; the recurrence and domination argument do. No other number of cycle colours or non-Euclidean condition number is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes et al. treat constant and variable cycle weights, including the Ewens case. Ekad–Zeilberger treats cycle-weighted multiset derangement integrals. Resultary fd9ec6453677 gives the full-set Walsh theory for uniform permutations, including the spectral condition limit e²."
+        ],
+        "reasoning": "The general measure and multiset enumerators include weight two at the level of coefficients, but no inspected result establishes Walsh inertia across weights. The strongest framework overlap has weight one; changing weights moves the nullity and sign thresholds, so the one-colour result does not specialize to this claim.",
+        "searches": [
+          "arXiv:1109.5010v2 pp. 4–5 generalized Ewens measure",
+          "arXiv:2501.04189v1 Eq. (2), Laguerre integrals",
+          "Resultary: fixed-set Walsh recovery and dimension-free conditioning"
+        ]
+      },
+      "checked_sources": [
+        "Foata–Zeilberger 1984, Eqs. (1.2)–(1.7)",
+        "arXiv:0708.2643v1 Eq. (1.1)",
+        "arXiv:1109.5010v2 pp. 4–5",
+        "arXiv:2501.04189v1 Eq. (2)",
+        "Resultary fd9ec6453677 and b79c390c7b12",
+        "DOI 10.1137/0401043, no full text retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Foata–Zeilberger integral supplies the Gamma moment once the signed binomial transform is taken. The uniform full-set result supplies an analogous approach but different coefficients, signs, gaps and limiting condition number. Diaconis–Fulman–Guralnick's opening formula is for the uniform fixed-point count."
+        ],
+        "reasoning": "Credit the moment representation as closely implied, and the uniform proof as structural precedent. To determine the two-colour theorem still requires the exact sign changes at small orders and joint diagonal/row induction; these are not conclusions in the inspected earlier material. The same-day record does not fix chronological priority.",
+        "searches": [
+          "Foata–Zeilberger, Weighted Derangements and Laguerre Polynomials, pp. 17–18",
+          "arXiv:0708.2643v1 Introduction Eq. (1.1)",
+          "Resultary fd9ec6453677 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle colourings give Ewens weight 2^cycles, up to the common factor (n+1)!. Foata–Zeilberger with singleton classes and cycle weight 2 gives D_r=∫ x e^(−x)(x−2)^r dx for the weighted derangement counts. Then M_n=Σ_r binomial(n,r)(−2)^(n−r)D_r, and the mixed shell moments likewise expand using X=(X−2)+2 and X−4=(X−2)−2."
+        ],
+        "reasoning": "The weighted derangements and shifted Gamma polynomial descriptions give equivalent coefficient data after a binomial transform. This prior coverage is substantial, but a transform of a counting distribution does not in general control the signs or the locations of sharp minima.",
+        "searches": [
+          "Resultary: two-coloured permutation cycles, Ewens parameter two, fixed-position-set Walsh convolution",
+          "Resultary: shifted Gamma and Laguerre weighted derangements",
+          "Foata–Zeilberger (1984), Eqs. (1.2)–(1.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fd9ec6453677 has a different exact multiplier row formula, singularity at n=2, and positivity from n=4. b79c390c7b12 instead uses vertices in exact 2-cycles. The accessible Laguerre source gives enumerator formulas, not a table of the shell minima or inertia for this convolution."
+        ],
+        "reasoning": "None of those actual statements covers the tested n=3,6,7,8 cutoff pattern or its infinite continuation. A ranked search miss does not exclude an exact table elsewhere.",
+        "searches": [
+          "Resultary: n=6,8 positivity pattern and two-colour fixed-position Walsh gaps",
+          "Resultary: exact shifted Gamma, Laguerre and weighted-derangement coefficients",
+          "Resultary fd9ec6453677 and b79c390c7b12"
+        ]
+      },
+      "rationale": "Pass the supported all-order two-colour Walsh sign and exact conditioning classification. Ewens enumeration, the weighted fixed-set coefficients, and the equivalent weighted-derangement moment transform are prior or close deductions, not standalone novelty. The closest inspected full-set spectral record is for unweighted permutations; it does not cover the two-colour exceptional dimensions or sharp minima.",
+      "residual_risks": [
+        "Earlier special-function sign inequalities could cover these mixed moments or the full-character minimum; the named Laguerre positivity paper was not available for full-text comparison.",
+        "The same-day uniform fixed-set theorem is a material algorithmic and structural overlap. The date proves no ordering, and the bounded search cannot establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the weighted derangement integral, which implies closely equivalent coefficient data, but not the Walsh cutoff classification",
+          "evidence": [
+            "Cycle-weighted derangement enumerator equals a generalized Laguerre integral; singleton classes give the factors x−2 at cycle weight 2."
+          ],
+          "identifier_or_url": "https://irma.math.unistra.fr/~foata/paper/pub56.pdf",
+          "material_read": "Primary PDF pp. 17–18, Eqs. (1.2)–(1.7)",
+          "method": "OA full-text passage and specialization to singleton classes, then binomial transform",
+          "title": "Weighted Derangements and Laguerre Polynomials",
+          "trigger": "Potential earlier equivalent shifted-Gamma formula and sign theory"
+        },
+        {
+          "assessment": "Uniform permutation fixed-point count, not the two-colour full-set Walsh sign claim",
+          "evidence": [
+            "Opening equation concerns the limiting distribution of the number of fixed points."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.2643v1",
+          "material_read": "Introduction p. 1, Eq. (1.1)",
+          "method": "Primary OA PDF and object comparison",
+          "title": "On fixed points of permutations",
+          "trigger": "Classical prior fixed-point statistic and possible labelled incidence transform"
+        },
+        {
+          "assessment": "Covers the weighted distribution class, not its Boolean sign classification in the inspected passages",
+          "evidence": [
+            "Constant θ=2 recovers the probability version of the counting kernel's underlying measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.5010v2",
+          "material_read": "Generalized and constant-parameter Ewens definitions, pp. 4–5",
+          "method": "Primary OA PDF measure comparison",
+          "title": "Random permutation matrices under the generalized Ewens measure",
+          "trigger": "General cycle weights could include the two-colour result"
+        },
+        {
+          "assessment": "Integral enumeration, not the sharp Walsh inertia and gaps",
+          "evidence": [
+            "Eq. (2) concerns cycle-weighted multiset derangements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.04189v1",
+          "material_read": "pp. 1–2, Eq. (2)",
+          "method": "Primary OA PDF equation and hypothesis comparison",
+          "title": "Cycle-weighted multiset derangements and Laguerre integrals",
+          "trigger": "Possible stronger general special-function theorem"
+        },
+        {
+          "assessment": "Substantial overlap at weight one, not coverage at weight two",
+          "evidence": [
+            "Its multiplier is Σ_j binomial(k,j)(−2)^j(n−j)!, singular at n=2, positive from n=4, with limiting condition number e²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-dimension-free-walsh-recovery-of-permutation-fixed-point-s--fd9ec6453677",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Local Resultary mirror and statement/formula comparison",
+          "title": "Sharp dimension-free Walsh recovery of permutation fixed-point sets",
+          "trigger": "Strongest exact framework overlap: full labelled fixed-position convolution"
+        },
+        {
+          "assessment": "Different observable and weights",
+          "evidence": [
+            "It records vertices in exact 2-cycles under uniform permutations, not singleton positions under weights 2^cycles."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 b79c390c7b12",
+          "material_read": "RESULT.md, finding about exact 2-cycle vertices",
+          "method": "Local Resultary record comparison",
+          "title": "Sharp Walsh conditioning and central-frequency minima for permutation statistics",
+          "trigger": "Second close Walsh spectral record potentially using the same incidence vector"
+        },
+        {
+          "assessment": "No full-text coverage assessment; residual risk remains",
+          "evidence": [
+            "No passage from this source is used to assert noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0401043",
+          "material_read": "Title and DOI only; lawful direct and VPN full-text attempts returned HTTP 403",
+          "method": "Lawful retrieval attempts; used the distinct accessible Foata–Zeilberger theorem as corroborating context, not a copy of this paper",
+          "title": "Laguerre Polynomials, Weighted Derangements, and Positivity",
+          "trigger": "Potential prior special-function positivity relevant to the shifted moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-position incidence of a canonical nonuniform permutation measure is a natural recovery observable. The complete result distinguishes invertibility from positive definiteness, exhibits the isolated positivity and subsequent failure at n=6 and 7, and gives sharp stable recovery constants rather than a bound or a few numerical spectra. This adds substantive information beyond weighted-derangement counting and beyond the uniform-permutation spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

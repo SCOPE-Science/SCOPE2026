@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:51:59.391426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and verify.py (read only; direct-BVP RHS at lines 62–64)",
+        "Independent exact algebra replay: /tmp/opencode/scope_abp_exact.py"
+      ],
+      "rationale": "For fixed positive diffusivity the bounded-interval exit has an exponential moment. The stopped-drift likelihood produces the conditional covariance response because the endpoint term cancels in the conditional quotient. Reflection gives the sign T_- minus T_+. At U=0 the conditional times agree for all F by passive stopped-path reweighting, and elliptic analyticity, evenness in U and oddness in F then give the two-variable remainder. The independent harmonic derivation gives 2c20(0)-4m0(0)b20(0), where m0(0)=1/(16 epsilon). For the exact evaluation, rescale x by sqrt(epsilon), set Z=1/(2 sqrt(epsilon)), C=cosh Z and S=sinh Z. In the covariance, the b20, m1 and c1 derivative contributions have polynomial parts -Z^4/12, Z^4/24 and Z^4/24. The remaining elementary integrals are respectively (1/C+Z/S)(C-1-Z^2/2), (Z^2/3-ZS/(2C))(C-1)/C+(ZS-2(C-1))/(2C), and Z(ZS-C+1)/(2S)-Z^2 C(C-1)/(2S^2). Exact cancellation in the rational field with e^Z as an independent symbol reproduces the boxed formula. Its constant-denominator expansions at y=0 give both stated asymptotic coefficients and the exponential error. An independently coded harmonic discretization corroborated the closed values at epsilon=.03,.1,1. The archived direct finite-difference test was not used: its splitting RHS omits the adjacent right boundary contribution U/(2 step) to harmonic one, so it is not an exact centered-stencil implementation of that boundary problem at finite grid spacing. The analytical hierarchy and exact identity are unaffected.",
+      "residual_risks": [
+        "The sequential derivative and coefficient do not imply a fixed nonzero force asymptotic or a uniform joint limit. Numerical discretizations are corroboration only; the separate archived finite-difference check is not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix C derives the common bulk term by diffusivity differentiation and leaves the directional boundary-layer remainder.",
+          "The other inspected exact susceptibilities concern unconditioned mean escape in disks, annuli or planar regions."
+        ],
+        "reasoning": "The common term is identical in both directions, so it cancels. The broader same-model asymptotic estimate and other geometries do not assert the evaluated derivative of the remaining directional term.",
+        "searches": [
+          "arXiv:2609.27425v1 Appendix C, particularly (C41), (C45), (C55)–(C60)",
+          "Exact weak-activity, fast-rotation and chirality-related exit observables in Resultary"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.27425v1 §§IV.1 and C",
+        "Resultary b7fecaf47750, 02233086b6e8, 002988b5f1db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published comparison inspected gives R_sigma=O(epsilon^-3/2) at fixed F and epsilon²(T_+^(2)-T_-^(2)) tending to zero; it explicitly does not determine the leading directional part."
+        ],
+        "reasoning": "A fixed-F order bound cannot automatically be differentiated in F, and an upper bound would not determine either nonzero coefficient. The exact Green-function computation in the zero-force sector adds the evaluated quantity without claiming to settle the fixed-F problem.",
+        "searches": [
+          "arXiv:2609.27425v1 PDF p. 8 equations (48)–(51) and pp. 19–20 Appendix C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (48)–(51) have the same conditional geometry and the common term -sech²(F/4)/(16 epsilon²). The remainder is not evaluated.",
+          "The frozen covariance formula is consistent with the known reflection/reweighting formalism."
+        ],
+        "reasoning": "Using the same symmetry or path reweighting is not new; exact evaluation of the mixed force/weak-propulsion conditional coefficient and its first two small-diffusivity terms is the distinction.",
+        "searches": [
+          "Same-model uphill/downhill path reweighting and weak-propulsion directional difference, arXiv:2609.27425v1 §§IV.1 and C",
+          "Resultary local search for active Brownian weak-activity susceptibility / force and conditional exits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror shows an unconditioned absorbing-disk weak-propulsion coefficient, an unconditioned annulus boundary layer, and an unconditioned planar chiral weak-swimming coefficient."
+        ],
+        "reasoning": "There is no exact matching assertion among these hits: the two separately conditioned exit times and their odd-in-force difference are absent, irrespective of nearby asymptotic terminology.",
+        "searches": [
+          "Resultary local semantic search and exact records b7fecaf47750, 02233086b6e8, 002988b5f1db"
+        ]
+      },
+      "rationale": "The exact statistic is the derivative at zero of the directional difference in the order-U² coefficients, not the leading common weak-activity correction. The closest same-model primary source supplies a common bulk term and a remainder bound, explicitly without resolving the directional contribution. Nearby exact susceptibility results do not have this force-odd conditional observable.",
+      "residual_risks": [
+        "The broader literature search was limited; an uninspected general first-passage theorem or later derivation could cover an equivalent mixed response. No universal priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping setup, perturbation structure and leading common term; no resolved directional susceptibility in the inspected decisive passages",
+          "evidence": "The leading common correction cancels; the text leaves the leading directional difference open and treats its boundary-layer remainder.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27425v1",
+          "material_read": "PDF p. 8 equations (48)–(51), pp. 19–20 Appendix C equations (C41), (C45), (C55)–(C60)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Uphill and downhill first passage of an active Brownian particle: Asymmetry and exact path reweighting",
+          "trigger": "Same model, weak activity, same directional conditional means and strongest prior remainder estimate"
+        },
+        {
+          "assessment": "Different observable in each case",
+          "evidence": "Disk, annulus and chiral planar escape results concern unconditioned times, not a force-odd difference conditioned on two exits.",
+          "identifier_or_url": "b7fecaf47750; 02233086b6e8; 002988b5f1db",
+          "material_read": "Local-mirror Findings and assumptions on the measured mean times",
+          "method": "Local Resultary semantic lookup and mirror inspection",
+          "title": "Related Resultary active Brownian escape susceptibilities",
+          "trigger": "Closest exact weak-activity and boundary-layer claims from database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and analytic proof; arXiv:2609.27425v1 discussion after (51)"
+      ],
+      "rationale": "This resolves an explicitly undetermined directional contribution for a natural sequential force response, absent for passive drift diffusion. It supplies an exact positive-diffusivity calibration function and identifies the nonzero fast-rotation coefficient and its next algebraic correction, rather than just improving a bound by restricting parameters.",
+      "residual_risks": [
+        "It does not determine fixed-force bias dependence, the sign for all diffusivities, or a uniform crossover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

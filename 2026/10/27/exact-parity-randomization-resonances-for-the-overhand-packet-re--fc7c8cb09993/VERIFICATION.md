@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of exact parity resonances
 
-Run the pure-Python script `parity_verify.py`. It independently enumerates each subset of the \(n-1\) gaps for \(1\le n\le10\) and computes the signed permutation parity directly from its packet sizes. For each of four rational cut probabilities \(1/5,1/2,3/4,9/10\), it compares the exhaustive weighted expectation with the polynomial recurrence. The recorded successful output is in `verification_output.txt`: 40 exact-rational assertions pass, with two displayed sanity checks.
+# Independent mathematical audit
 
-The all-size root count and limiting density are certified by the trigonometric proof in RESULT.md: the phase is strictly increasing and spans an explicitly computed interval, and the inverse parameter transformation is differentiable and strictly monotone. Neither root count nor its limiting density is inferred from finite enumeration. The physical-convention sign adjustment uses the deterministic global reversal.
+## correctness
 
-Limits: no external independent audit; no direct historical full-text comparison for the 1989 overhand mixing article; no claim of full-permutation stationarity when parity is stationary.
+PASS
+
+A packet reversal has sign (-1)^(length choose 2); the ordered composition weights are p^(m-1)(1-p)^(n-m), so multiplying the signed single-packet series and summing the geometric series gives the stated denominator and initial conditions. With r=sqrt(1-p) the oscillatory solution has numerator sin(nθ)-r sin((n-1)θ), where p=2r cos θ. The argument shift of 1-r exp(-iθ) is arctan(sin θ/sqrt(1+cos²θ)), strictly increasing with positive derivative for 0<θ<π/2, with endpoint limits 0 and π/4. The increasing total phase runs strictly between 0 and nπ/2+π/4, giving exactly floor(n/2) positive integer multiples of π; the phase and parameter derivatives are nonzero at each crossing. At the repeated-root endpoint the formula limits to r^(n-1)[n-(n-1)r]>0. Above it both characteristic roots lie in (q,1); x^(n-1)(x-q) is strictly increasing there, giving positivity by the difference quotient. The zeros in θ differ from jπ/n by less than π/(4n), so the empirical law is the pushforward of the uniform θ law. Differentiating the inverse cosine gives precisely the stated density; the radicand has a simple endpoint zero. Below p* irrational rotations give both signs, and rational rotations form a repeated orbit of at least five equally spaced angles, which cannot stay in either closed semicircle. Multiplicativity of sign gives the exact parity distance; full reversal is a fixed sign factor under the alternate convention.
+
+## originality
+
+PASS
+
+The shuffle model, the general sign-character time law, and second-order recurrence methods are established. The substantive distinct claim supported by the searches is the exact finite-deck set of parity-uniform cut probabilities, its cardinality and simplicity, and its limiting parameter distribution. Agreement about the model or about sign expectations for another shuffle is not coverage of this claim.
+
+## value
+
+PASS
+
+Parity is the canonical two-point quotient of the walk. Determining all parameter values for one-step stationary parity at every deck size, and resolving their density and endpoint concentration, answers a natural exact randomization question not captured by the full-deck mixing scale. The novelty-bearing part is the root classification in the physical cut parameter rather than just a recurrence evaluation or a standard TV projection formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:15:53.435905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A swap of adjacent positions changes just the swapped pair in the value inversion graph. The graph of a layered permutation is a union of cliques on consecutive value intervals. Deleting an edge of a clique of order at least three makes an induced three-vertex path; adding a cross-clique edge also does so unless both endpoints are singleton cliques. These singleton layers must be consecutive because the entries are position-adjacent. Conversely those two moves preserve layering, so the legal changes are exactly 2↔1+1. The positions of long layers are fixed and the other gaps are independent monomer–dimer tilings. Their dimer starts are the no-adjacent-ones strings of length max(ℓ−1,0). Delete source-only dimers, then add target-only ones to realize Hamming distance; coordinatewise majority is admissible and is the unique Hamming median. Complementary alternating strings realize the factor diameter, including zero. Counting tilings gives F_{ℓ+1}, also F₁=1 in the empty gap. A signature is a gap followed by a sequence of (long layer, gap) pairs. Substitution of gap series (1−z)⁻¹ and 1+z for all signatures and for singleton components, respectively, with long-layer series z³/(1−z), gives both rational functions. Edges are counted by their dimer endpoint: a crossing at either end admits 2^{n−3} remaining compositions, at each of n−3 interior starts 2^{n−4}; n=1,2 separately. For all nonempty long-layer signatures the total free length is at most n−3; concatenation injects tuples of gap tilings into tilings of that total length, strictly fewer than F_{n+1}. The all-short component is the unique largest and its relative size decays as (φ/2)^n up to a constant, where φ is the golden ratio. Read the frozen verifier and output, not executed. Replay: python3 -B /workspace/review_evidence/independent_checks.py 2, enumerating from forbidden triples rather than layer compositions through n=7, testing all component distances (via inversion-set difference), all triples for unique medians, edge counts and both count sequences. This is finite evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The involution record gives the full graph on involutions under the identical move, with fixed nonconsecutive two-cycles and residual run Fibonacci cubes, the symmetric-difference distance and same largest component."
+        ],
+        "reasoning": "Every layered permutation is an involution. Within its ambient component, the maximal-span arcs of the fixed long matching recover the endpoints of the reversed long layers. The layered restriction forces the short middle pair of every even long layer to remain present; an odd long layer has only an isolated middle fixed point. Thus the intersection is obtained by fixing those Γ₁ factors, leaving precisely the gap cubes. This is substantial partial implication: the factor structure and distance then follow from the ambient theorem. The involution theorem does not identify that trace, and its global counts are for all involutions, including long matchings not arising from layers. No publication order is inferred.",
+        "searches": [
+          "Resultary 0fcd57a359c9 Finding and local criterion; Pudwell–Smith arXiv:1801.05005; Hsu DOI 10.1109/71.205649 OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.05005 §1",
+        "Resultary 0fcd57a359c9",
+        "Resultary 4137b27333a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ambient short-pair toggle need not preserve layering: for instance 4321→4231 splits the inner pair but leaves the involution class unchanged. The two-read gap moves preserve the presence of a dimer, which is not an invariant here."
+        ],
+        "reasoning": "The new restriction is not the assumption that all moves in the broader graph remain legal. Classifying its exact induced trace by long-layer positions and counting those signatures produces the distinct content; generic median and distance statements for the surviving factors are inherited, not additional independent novelties.",
+        "searches": [
+          "Comparison of the Findings and local move criteria of 0fcd57a359c9 and 4137b27333a1 to RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pudwell–Smith §1, p. 4 identifies the one-pass class and direct sums of decreasing permutations; two-read record 4137b27333a1 uses at least two shared distinct standardized one-entry deletions, not transpositions."
+        ],
+        "reasoning": "The two-read graph retains whether a gap contains a dimer while the current graph permits deleting the last dimer. They already differ at n=2 (no two-read edge versus one swap edge). Layered permutations are longest permutations in standard parabolics of S_n; the order restricted to those elements is not the same graph as restricting covers of the ambient right weak order. In particular splitting a length-three layer is not an ambient cover.",
+        "searches": [
+          "Resultary: layered permutations, Av(231,312), position-adjacent transpositions, frozen layers, Fibonacci cubes; Pudwell–Smith arXiv:1801.05005 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-read source gives different rational component/isolate functions and edge count (n−1)2^{n−4} for n≥4. The involution source counts all long matchings and gives (n−1)I_{n−2} edges for involution counts I_m. Pudwell–Smith counts layered vertices, not swap components."
+        ],
+        "reasoning": "None of those exact counts tabulates the layered-swap components or their isolates; a generic composition count is not itself the graph enumerator.",
+        "searches": [
+          "Resultary 4137b27333a1 and 0fcd57a359c9 counts, compared to layered transposition component/isolated-state counts; arXiv:1801.05005"
+        ]
+      },
+      "rationale": "The distinct content is the exact layered trace inside the swap graph and its global layered component, isolation and edge enumerators. The layered characterization, Fibonacci-cube facts, and the ambient involution component structure are not novelty grounds; the same-day involution result gives strong partial coverage, including the ambient distance rule and identity component, but does not give the layered trace or its enumerators.",
+      "residual_risks": [
+        "No primary weak-order or parabolic-interval result explicitly covering this trace and its enumerators was established. An unindexed equivalent remains possible.",
+        "Hsu Fibonacci-cube source was not accessible in the OA attempts; general Fibonacci-cube facts are not claimed novel. Same-day catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers input characterization, not the counted graph in the inspected passage",
+          "evidence": [
+            "Explicit one-pass class Av(231,312), direct sums of decreasing permutations and compositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.05005",
+          "material_read": "OA PDF §1, p. 4, offset 8802 through 10536",
+          "method": "Lawful OA PDF passage",
+          "title": "Two-stack-sorting with pop stacks",
+          "trigger": "Identical one-pass input class"
+        },
+        {
+          "assessment": "Ambient factor structure, largest component and metric covered; distinct layered slice and exact enumerators",
+          "evidence": [
+            "Preserves nonconsecutive two-cycles, toggles consecutive pairs; counts arbitrary long matchings, not the layered subset."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fibonacci-cube-components-and-a-poisson-mobility-law-for-involut--0fcd57a359c9/RESULT.md",
+          "material_read": "Finding, scope and local criterion at offset 0",
+          "method": "Resultary search and local mirror read",
+          "title": "Fibonacci-cube components and a Poisson mobility law for involutions in the permutahedron",
+          "trigger": "Same edges, larger vertex class and essentially matching component mechanism"
+        },
+        {
+          "assessment": "Different edge rule, component invariants and enumerators",
+          "evidence": [
+            "Requires two common distinct deletion outputs; separately preserves whether each gap has a 2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-two-read-common-minor-graph-of-layered-permutations-exact-co--4137b27333a1/RESULT.md",
+          "material_read": "Finding items 1–4 at offset 0",
+          "method": "Resultary search and local mirror read",
+          "title": "The two-read common-minor graph of layered permutations: exact components and edges",
+          "trigger": "Same vertices, same heavy-part terminology and similar exact enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question of which local edits preserve one-pass sortability has a natural uniform state space. The rigid layers and complete description of the feasible trace allow exact reachable-state counts and shortest routing, and the two exact global enumerators describe how fragmented this class is. These are not given by the ambient involution counts or the size of the sortable class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

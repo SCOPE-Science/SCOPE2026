@@ -2,89 +2,64 @@
 
 ## Finding
 
-Let \(X=\{0,1,\ldots,n-1\}\), where \(n\ge 2\), and put
+Let \(X=\{0,1,\dots,n-1\}\) with \(n\ge 2\), let \(Y=X\setminus\{0\}\) and \(m=n-1\), and put
 \[
-P_n=\{f:X\to X:f(0)=0\},\qquad
-S_n=\{f\in P_n:|f(X)|<n\}.
+P_n=\{f:X\to X:f(0)=0\},\qquad S_n=\{f\in P_n:|f(X)|<n\}.
 \]
-Composition is performed from left to right: \(x(fg)=(xf)g\). For distinct \(a,b\in X\), write \(e_{a\to b}\) for the map changing only \(a\) to \(b\). An \(e_{a\to b}\) belongs to \(S_n\) exactly when \(a\ne 0\). Let \(Y=X\setminus\{0\}\), \(m=n-1\), and let \(D_A\) have vertex set \(Y\) and arc \(a\to b\) whenever \(e_{a\to b}\in A\), for any set \(A\) of idempotents of \(S_n\).
+Compose on the right, so \(x(fg)=(xf)g\). For distinct \(a,b\in X\), the elementary collapse \(e_{a\to b}\) maps \(a\) to \(b\) and fixes every other point; it belongs to \(S_n\) precisely when \(a\ne0\).
 
-**Complete criterion.** For every \(n\ge2\), \(A\) generates \(S_n\) if and only if it contains each \(e_{a\to0}\), \(a\in Y\), and the arcs of \(D_A\) generate the full singular transformation semigroup on \(Y\). Thus, for \(m\ge3\), the latter condition is equivalent to \(D_A\) being strongly connected and containing a tournament; for \(m=2\) it requires both opposing arcs; for \(m=1\) it is vacuous.
+For a set \(A\) of idempotents in \(S_n\), let \(D_A\) be the directed graph on \(Y\) with an arc \(a\to b\) when \(e_{a\to b}\in A\). Then \(A\) generates \(S_n\) if and only if it contains every \(e_{a\to0}\) for \(a\in Y\) and the arcs of \(D_A\), interpreted as elementary collapses on \(Y\), generate the singular transformation semigroup on \(Y\). For \(m\ge3\), the second condition is equivalent to strong connectivity and containment of a tournament. For \(m=2\) it requires both opposing arcs; for \(m=1\) there is no nonroot condition.
 
-**Exact rank and extremizers.** The ordinary rank and the idempotent rank of \(S_n\) coincide and equal
+The ordinary rank and idempotent rank are
 \[
-\operatorname{rank}(S_n)=\operatorname{idrank}(S_n)=
-\begin{cases}
-1,&n=2,\\
-4,&n=3,\\
-\binom n2,&n\ge4.
-\end{cases}
+\begin{array}{c|ccc}
+& n=2 & n=3 & n\ge4\\\hline
+\operatorname{rank}(S_n) & 1&3&\binom{n}{2}\\
+\operatorname{idrank}(S_n) & 1&4&\binom{n}{2}.
+\end{array}
 \]
-For \(n\ge4\), the minimum idempotent generating sets are *exactly* the unions of all \(n-1\) compulsory arrows \(a\to0\) and one strongly connected tournament on the \(n-1\) unmarked vertices. At \(n=3\), all four available corank-one idempotents are compulsory. At \(n=2\), the unique singular map generates.
-
-Let \(s_m\) count strongly connected tournaments on \(m\) labelled vertices, with \(s_1=1\). The number of minimum idempotent generating sets is \(1\) for \(n=2,3\) and \(s_{n-1}\) for \(n\ge4\). Explicitly,
+For \(n\ge4\), the minimum idempotent generating sets are exactly the unions of all \(n-1\) arrows into \(0\) with the arcs of one strongly connected tournament on \(Y\). The minimum idempotent generating set is unique for \(n=2\) or \(3\). For \(n\ge4\) their number is \(s_{n-1}\), where \(s_m\) counts labelled strong tournaments and satisfies
 \[
-s_m=2^{\binom m2}-\sum_{k=1}^{m-1}\binom mk s_k 2^{\binom{m-k}2}
-\qquad(m\ge2).
+s_1=1,\qquad s_m=2^{\binom{m}{2}}-\sum_{k=1}^{m-1}\binom{m}{k}s_k 2^{\binom{m-k}{2}} \quad (m\ge2).
 \]
-In particular \(s_2=0\), \(s_3=2\), \(s_4=24\), and \(s_5=544\).
+In particular \(s_2=0,\ s_3=2,\ s_4=24,\ s_5=544\).
 
 ## Assumptions and scope
 
-All sets and transformations are finite. The distinguished element \(0\) is fixed by every map. The underlying order of the other points is irrelevant. A transformation is singular when its image has fewer than \(n\) points; a generating set for \(S_n\) need not contain the identity of \(P_n\). All rank statements refer to generation **inside the singular ideal \(S_n\)**, not generation of the whole pointed monoid \(P_n\), which has nontrivial units when \(n\ge3\).
-
-A tournament means one directed arc, in exactly one direction, for each unordered pair of distinct vertices. Strong connectivity means that directed paths connect every ordered pair of vertices. The quoted classical theorem of Howie states that the arc idempotents of a digraph on at least three points generate the entire singular full transformation semigroup precisely when the digraph is strongly connected and contains a tournament. The same fact is explicitly recalled in East--Gadouleau--Mitchell (2017), Introduction, and Cameron--Castillo-Ramírez--Gadouleau--Mitchell (2017), Introduction. The present claim concerns the pointed singular ideal, not the classical unpointed semigroup.
+Ranks refer to the minimum size of a generating set (arbitrary or idempotent) using nonempty products inside the finite singular ideal \(S_n\). Neither the units nor the rank of the full pointed monoid \(P_n\) are at issue. In a tournament, each pair of distinct vertices supports exactly one directed arc; strong connectivity requires a directed path between every ordered pair. The unpointed arc criterion used below is the classical theorem of Howie, as recalled by East, Gadouleau and Mitchell and by Cameron et al.
 
 ## Proof
 
-**1. Only corank-one idempotents can contribute to top-rank products.** Every map in \(S_n\) has rank at most \(n-1\). The rank of a product is at most the rank of any factor. Hence a product of rank \(n-1\) uses only rank-\(n-1\) factors. Every rank-\(n-1\) idempotent of \(S_n\) is an elementary collapse \(e_{a\to b}\) with \(a\ne0\), since its unique nonsingleton kernel class consists of two points, and one of these must be the fixed image representative.
+**Kernels and corank-one factors.** The image size of a product is at most that of any factor. For a rank-\((n-1)\) product in \(S_n\) all factors have rank \(n-1\), and the first factor has the same kernel partition as the product: the first kernel refines the final one and both have just one doubleton as their only nonsingleton block. Every unordered pair occurs as that doubleton, since an elementary collapse with nonroot source can be chosen for it. Therefore any generating set requires at least \(\binom n2\) generators. A rank-\((n-1)\) idempotent fixes its image, so it must be an elementary collapse. The sole idempotent with kernel doubleton \(\{0,a\}\) is \(e_{a\to0}\); all such arrows are thus compulsory for idempotent generation.
 
-For a product \(f_1\cdots f_t\) of rank \(n-1\), the kernel of \(f_1\) is contained in the kernel of the product and both kernels have exactly one doubleton class, so they are equal. For every unordered pair \(\{u,v\}\subseteq X\), some rank-\(n-1\) transformation with kernel doubleton \(\{u,v\}\) lies in \(S_n\). Thus every idempotent generating set must contain a rank-\(n-1\) idempotent with each such kernel. For \(\{0,a\}\), the only possible one is \(e_{a\to0}\); for \(\{a,b\}\subseteq Y\), the only possibilities are \(e_{a\to b}\) and \(e_{b\to a}\). This gives the lower bound \(\binom n2\) for \(n\ge3\), and makes the root arrows compulsory.
+**The nonroot condition is necessary.** Take a rank-\((m-1)\) transformation of \(Y\) and extend it to fix \(0\) on \(X\). Its rank is \(n-1\) and its preimage of \(0\) is \(\{0\}\). Consider a generating word in the corank-one idempotents. For a root-arrow factor \(e_{a\to0}\), if the image immediately before the factor contains \(a\), some nonroot input is sent to \(0\) and remains there under all later factors, an impossibility. Otherwise that root arrow is the identity on the preceding image and can be deleted without changing the value of the word. The initial preceding map is understood to be the identity for this argument. Removing all such ineffective factors leaves a nonempty word of nonroot arrows. Hence the nonroot arrows generate all rank-\((m-1)\) maps on \(Y\), which generate its full singular semigroup: below the top singular rank, split one point out of a nonsingleton fiber to an unused image value and then collapse that value back, inducting on rank deficit. This last argument is needed only when there are ranks below \(m-1\); for \(m=1\) no nonroot maps are needed.
 
-**2. Reduction to the unpointed singular semigroup.** Regard maps on \(Y\) as maps on \(X\) fixing \(0\). Suppose \(A\) contains all \(e_{a\to0}\) and its nonroot arcs generate \(\operatorname{Sing}(Y)\), the full singular transformation semigroup of \(Y\).
+**Sufficiency and the pointed reduction.** Suppose all root arrows are available and the nonroot arcs generate the singular maps on \(Y\). For a rank-\((n-1)\) map \(f\in S_n\), if its kernel doubleton lies in \(Y\), it sends no point of \(Y\) to \(0\), and its restriction to \(Y\) is singular. A word of the nonroot arcs therefore realizes \(f\). Otherwise its doubleton is \(\{0,a\}\). For \(m\ge2\) choose \(b\in Y\setminus\{a\}\) and take \(g:Y\to Y\) with \(g(x)=f(x)\) for \(x\ne a\) and \(g(a)=f(b)\). Then \(g\) is singular on \(Y\), and after extension by the fixed point \(0\) we have \(f=e_{a\to0}g\). When \(n=2\) the only singular pointed map is \(e_{1\to0}\). Finally, if \(f\) has rank \(r\le n-2\), take a nonroot point \(a\) in a nonsingleton fiber and an unused image value \(y\in Y\). Replacing \(f(a)\) by \(y\) produces a pointed map \(g\) of rank \(r+1\), with \(f=g e_{y\to f(a)}\). The second factor has rank \(n-1\) and has already been generated. Induction starting at rank \(n-1\) gives every lower rank. This proves the full criterion together with Howie's unpointed result, or the direct check that the two singular maps on a two-point set are constants and both are needed.
 
-Take a map \(f\in S_n\) of rank exactly \(n-1\). Its kernel has one doubleton. If that doubleton is contained in \(Y\), then \(f(Y)\subseteq Y\) (the preimage of \(0\) is \(\{0\}\)); hence the restriction \(f|_Y\) is singular of rank \(m-1\), and belongs to the semigroup generated by the nonroot arcs.
-
-If instead the doubleton is \(\{0,a\}\), then \(f(a)=0\), and \(f\) restricts to a bijection from \(Y\setminus\{a\}\) onto an \((m-1)\)-element subset of \(Y\). Since \(n\ge3\) implies \(m\ge2\), choose any \(b\in Y\setminus\{a\}\). Define \(g:Y\to Y\) by \(g(x)=f(x)\) for \(x\ne a\), and \(g(a)=f(b)\). Its unique doubleton kernel is \(\{a,b\}\), so \(g\in\operatorname{Sing}(Y)\). With \(g(0)=0\), one has exactly \(f=e_{a\to0}g\), which is a product of prescribed generators. The case \(n=2\) is immediate because \(S_2=\{e_{1\to0}\}\).
-
-**3. Lower ranks factor through the top singular rank.** Let \(f\in S_n\) have rank \(r\le n-2\). Since \(r<n\), some fiber of \(f\) contains two distinct elements; choose one of them, \(a\ne0\), and choose an omitted image value \(y\in Y\setminus f(X)\) (possible because \(0\in f(X)\)). Define \(g(a)=y\) and \(g(x)=f(x)\) for all other \(x\). Then \(g\in P_n\) has rank \(r+1<n\), and
+**Sharp ranks and idempotent extremizers.** A strong tournament exists for each \(m\ge3\): start with a directed three-cycle and add vertices, each with at least one entering and one leaving arc to the old tournament. The ordinary kernel lower bound is attained by combining such a tournament with the compulsory arrows; the resulting size is \(m+\binom m2=\binom n2\). Conversely, at that size an idempotent generating set has exactly one corank-one idempotent per kernel doubleton, so the nonroot digraph is a tournament and must be strong. At \(n=3\), the criterion forces the four available corank-one idempotents, but arbitrary generators need not be idempotent. In tuple notation (values at \(0,1,2\)), set
 \[
-f=g e_{y\to f(a)}.
+a=(0,0,1),\qquad b=(0,2,0),\qquad c=(0,1,1).
 \]
-The second factor is an allowed corank-one idempotent, while induction on the rank deficit expresses \(g\) as a product of allowed generators. Thus all of \(S_n\) is generated.
+Their products \(ab=(0,0,2),\ ba=(0,1,0),\ cb=(0,2,2),\ a^2=(0,0,0)\) supply the four remaining maps of \(S_3\), which has \(3^2-2!=7\) maps. This attains the kernel lower bound three and proves the strict difference between the two ranks here. At \(n=2\) the unique map is idempotent and the two ranks are one.
 
-**4. Necessity of the nonroot condition.** Consider the copies of the rank-\(m-1\) singular maps \(h:Y\to Y\), extended by \(h(0)=0\). Each such extension has rank \(n-1\) and has preimage of \(0\) exactly \(\{0\}\). Any factorization into idempotents of \(S_n\) must use only rank-\(n-1\) factors by step 1. Moreover, no factor may be a root arrow \(e_{a\to0}\), for after such a factor the preimage of \(0\) contains an additional input and can never shrink: all later factors fix \(0\). So the factorization consists entirely of nonroot arcs, and restricting to \(Y\) proves that those arcs generate \(\operatorname{Sing}(Y)\). Step 2 gives the converse. The classical arc-generation theorem now yields the stated connectivity/tournament criterion when \(m\ge3\); on two vertices both directions are necessary; on one vertex there is nothing to generate.
-
-**5. Sharp ranks and classification.** For \(n\ge4\), a strong tournament on \(m=n-1\ge3\) vertices exists: start with a directed triangle and, upon adding one vertex, give it at least one entering and one leaving arc relative to the old strong tournament, completing all remaining edges arbitrarily. Thus \((n-1)+\binom{n-1}2=\binom n2\) idempotents suffice. The lower bound in step 1 proves optimality. With exactly this many, every compulsory kernel pair contributes exactly one arc; the nonroot arcs must form a strongly connected tournament. This also proves the converse characterization. At \(n=3\), both nonroot directions are needed, giving four generators; at \(n=2\), only the root arrow is required.
-
-The ordinary rank is bounded below by the same \(\binom n2\) kernel argument even if generators need not be idempotent, and at \(n=3\) a set of three rank-\(2\) generators cannot generate both distinct rank-\(2\) nonroot constant maps while also meeting both rooted kernels: with only one generator for the nonroot pair, its repeated powers cannot provide the opposite constant map, and the root arrows cannot appear in a factorization of a nonroot transformation. Therefore the ordinary rank also equals the displayed idempotent rank. (At \(n=2\), the single map is idempotent.)
-
-**6. Counting extremizers.** For \(m\ge3\), the bijection with strong tournaments follows from step 5. Every tournament has a unique source strongly connected component of size \(k\), whose edges to all remaining vertices point outward. Choose its \(k\) labels, one of the \(s_k\) strong tournaments on them, and an arbitrary tournament on the remaining \(m-k\) labels. Summing the non-strong cases \(k<m\) and subtracting from all \(2^{\binom m2}\) tournaments gives the recurrence above. The two smaller cases are direct.
+**Counting the extremizers.** A tournament has a unique source strongly connected component: between distinct components all edges are oriented the same way, and the tournament on components is acyclic. If the source has \(k<m\) vertices, choose its labels and one of its \(s_k\) strong tournaments, attach every edge from it to the complement pointing outward, and choose any tournament on the remaining labels. This gives the stated subtraction formula for strong tournaments, applied here to count the minimum pointed idempotent generating sets. The two smaller cases follow directly from the criterion.
 
 ## Verification
 
-The standalone Python 3 file `verify.py` evaluates transformation compositions as tuples, independently enumerates all maps fixing \(0\), removes permutations, and computes the subsemigroup generated by each test arc set. For \(n=4,5\), it tests *every* nonroot tournament and checks that generation of the full pointed singular ideal is equivalent to strong connectivity; it counts \(2\) and \(24\) successful tournaments. At \(n=3\) it verifies the four-arrow generating set; at \(n=6\) it verifies that a cyclic strong tournament plus all root arrows generates all \(7656\) singular pointed maps. The independent recurrence yields \(s_1,\ldots,s_6=(1,0,2,24,544,22320)\). The observed console output is included as `VERIFY_OUTPUT.txt`.
-
-This computation verifies finite instances only. The infinite classification and rank statement rest on proof steps 1--6 and the cited classical arc-generation theorem.
+`python3 verify.py` enumerates singular pointed maps and checks composition closure for all nonroot tournaments at \(n=4,5\), the cyclic tournament at \(n=6\), the small idempotent cases, and the tournament recurrence. Its recorded output is in `VERIFY_OUTPUT.txt`. `python3 verify_n3.py` separately exhausts all candidate generating subsets of the seven singular maps on three points and of their idempotents, checking the ordinary rank three, idempotent rank four, and the explicit example. The general result follows from the kernel and factorizations above and the cited unpointed theorem, not extrapolation from finite checks.
 
 ## Relationship to prior work
 
-Assiri--Al-bar (2026, arXiv:2606.28477) identify the pointed transformation monoid \(P_n\) as the dominion of the order-decreasing transformation semigroup in the full transformation monoid, establishing a natural setting in which its singular ideal and generating sets matter. Their work counts elements and idempotents of the dominion; the current result instead classifies all idempotent generating sets of the singular ideal and determines the exact minimum and enumeration of extremizers.
+Howie's classical results give idempotent and arc generation, minimum size and the tournament criterion for the *unpointed* singular semigroup. Strong tournament enumeration itself is classical (Wright, as cited in East–Gadouleau–Mitchell); the recurrence is included to express the count of the pointed extremizers, not as a claim of a new tournament enumeration. Assiri and Al-bar study the point-fixing monoid (with root labelled 1) in the context of the dominion of order-decreasing maps, and explicitly treat its singular rank classes. Their printed equality of the semigroup generated by the corank-one class with the whole point-fixing monoid cannot include its units: no rank-\((n-1)\) generator product has rank \(n\). No equality of the full pointed monoid with that dominion is used here. Generation by the entire top singular rank is not itself the distinguishing claim; the criterion determines precisely which subsets of elementary idempotents suffice, with compulsory rooted arrows, tournament extremizers, and the difference between ordinary and idempotent ranks at three points.
 
-Howie (1966, 1978) proved the idempotent generation and minimum generator structure of the *unpointed* singular transformation semigroup. East--Gadouleau--Mitchell (2017) and Cameron--Castillo-Ramírez--Gadouleau--Mitchell (2017) describe this classical digraph criterion; it is used explicitly rather than re-claimed. The present additional step is a precise transfer through the compulsory rooted arrows together with a proof that every rooted singular map can be factored using the unpointed singular maps, including the exceptional two-point nonroot case.
-
-Dolinka--East--Mitchell (2015) treat maps preserving a set partition; this is not the same as requiring every transformation to fix a specified element. Xu--Gao--Lu--You (2022) study a 1-singular semigroup described through a non-singleton fiber property, not the pointed singular ideal defined here; only its abstract was accessible for direct comparison.
-
-## Limitations
-
-The theorem is an exact statement about singular maps fixing one distinguished point, not arbitrary submonoids or maps fixing several points. It depends on the established classical characterization of arc-generated unpointed singular transformation semigroups. No assertion about the rank of the full pointed monoid, or the full unit group, is made. Historical-priority uncertainty remains for terminology and less-indexed literature on rooted or fixed-point transformation semigroups, especially the 2022 publication whose complete text was not accessible in the consultation. The finite checker is corroborative, not a replacement for the all-dimensional argument.
+Partition-preserving maps and partial pointed maps involve different transformation semigroups. The abstract of Xu–Gao–Lu–You uses “1-singular” for a non-singleton property and does not identify its objects as this fixed-point singular ideal; no claim about their full definition or priority is made without the complete paper. The theorem does not extend here to several distinguished fixed points or to the rank of the full pointed monoid.
 
 ## References
 
-1. H. H. Assiri and J. A. Al-bar, *On the Dominions of Certain Semigroups of Transformations* (2026), arXiv:2606.28477, first submitted 2026-06-26. https://arxiv.org/abs/2606.28477
-2. J. M. Howie, *The subsemigroup generated by the idempotents of a full transformation semigroup* (1966), Journal of the London Mathematical Society 41, 707--716.
-3. J. M. Howie, *Idempotent generators in finite full transformation semigroups* (1978), Proceedings of the Royal Society of Edinburgh 81A, 317--323. DOI: 10.1017/S0308210500010647.
-4. J. East, M. Gadouleau, and J. D. Mitchell, *Structural aspects of semigroups based on digraphs* (2017), arXiv:1704.00937v2. https://arxiv.org/html/1704.00937v2
-5. P. J. Cameron, A. Castillo-Ramírez, M. Gadouleau, and J. D. Mitchell, *Lengths of words in transformation semigroups generated by digraphs*, Journal of Algebraic Combinatorics 45 (2017), 149--170. DOI: 10.1007/s10801-016-0703-9.
-6. I. Dolinka, J. East, and J. D. Mitchell, *Idempotent rank in the endomorphism monoid of a non-uniform partition* (2015), arXiv:1504.02520. https://arxiv.org/abs/1504.02520
-7. B. Xu, R. Gao, L. Lu, and T. You, *Rank of the 1-singular transformation semigroup* (2022), Journal of Shandong University (Natural Science) 57(12), 81--85. DOI: 10.6040/j.issn.1671-9352.0.2022.126.
+1. H. H. Assiri and J. A. Al-bar, *On the Dominions of Certain Semigroups of Transformations*, §2, https://arxiv.org/abs/2606.28477.
+2. J. M. Howie, *The subsemigroup generated by the idempotents of a full transformation semigroup*, J. London Math. Soc. **41** (1966), 707–716.
+3. J. M. Howie, *Idempotent generators in finite full transformation semigroups*, Proc. Roy. Soc. Edinburgh **81A** (1978), 317–323, https://doi.org/10.1017/S0308210500010647.
+4. J. East, M. Gadouleau, and J. D. Mitchell, *Structural aspects of semigroups based on digraphs*, Introduction and reference to E. M. Wright's *The number of irreducible tournaments* (1970), https://arxiv.org/html/1704.00937v2.
+5. P. J. Cameron, A. Castillo-Ramírez, M. Gadouleau, and J. D. Mitchell, *Lengths of words in transformation semigroups generated by digraphs*, J. Algebr. Comb. **45** (2017), 149–170, https://doi.org/10.1007/s10801-016-0703-9.
+6. I. Dolinka, J. East, and J. D. Mitchell, *Idempotent rank in the endomorphism monoid of a non-uniform partition*, https://arxiv.org/abs/1504.02520.
+7. B. Xu, R. Gao, L. Lu, and T. You, *Rank of the 1-singular transformation semigroup*, J. Shandong Univ. (Nat. Sci.) **57** (2022), no. 12, 81–85, https://doi.org/10.6040/j.issn.1671-9352.0.2022.126.

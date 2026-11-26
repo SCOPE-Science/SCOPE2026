@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:21:03.940815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71, VERIFICATION.md, and verification/check.py lines 1–91 (source inspected, not executed)",
+        "/workspace/branches/f5bbeeec-0063-45e7-bd17-e32f69c8f156/independent_check.py and dp-full.log"
+      ],
+      "rationale": "The KKT equations give common soft thresholding. On a strict exterior chamber of support size m and signed indicator q, differentiating the active constraint gives J=diag(|q|)-qq^T/m; m=1 gives zero. Every nonzero signed support occurs strictly: assign active input q_i(rho+R/m) and inactive input zero for rho>0. The interior contributes identity. Continuity and finite affine-cell subdivision bound all two-input ratios, including segments along cell boundaries, and any attaining direction can be scaled down inside a maximizing chamber to give a finite pair. The anchored difference isometry identifies its inverse-coordinate columns with tail indicators, so only those columns of J need be maximized. For fixed (m,k,t), with k the first tail index and t the signed tail sum, each row numerator is |q_i|(m 1_{i>=k}-t q_i). The number of used nonzeros, partial signed tail sum and last symbol are sufficient for every future transition and final feasibility. A prefix induction gives the exact score; O(n^3) triples times n positions times O(n^2) states with three transitions gives O(n^6) arithmetic operations and two O(n^2) layers. Rational comparisons use cross-products. Alternating support at odd indices and the constant tail give n for balanced signs; with odd support choose total sign -1 and last sign -1, so the active values sum to m-1/m and the odd-length final value is 1-1/m. This yields the two stated deficits, hence n-4/n. The upper estimate is the product of the l2-to-l1 norm sqrt(4n-3) of anchored differencing (alternating dual signs) and the l1-to-l2 norm sqrt(n) of cumulative summation, with Euclidean projection nonexpansive in between. A separate integer DP reproduced all values through n=15; exhaustive ternary words and tail columns independently matched through n=8.",
+      "residual_risks": [
+        "Finite reproduction does not prove the arbitrary-n bound or algorithm; those follow from the analytical argument. Complexity is stated in arithmetic operations and working-state space, not an implementation timing bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c92b6dad1bd0, RESULT.md at offset 0: weighted Euclidean cross-polytope projection with coordinate lp stability and active-subset formula.",
+          "b41b2d1d717e frozen RESULT.md lines 44–56: selected-set arithmetic averaging for the range-constrained projector on the quotient by constants."
+        ],
+        "reasoning": "Weighting the cross-polytope does not add a non-diagonal measurement norm. The shared threshold/Jacobian machinery reduces this problem to a search, but its standard coordinate-symmetry simplifications cannot maximize the anchored-difference norm. The oscillation problem deletes constants and realizes averaging rather than signed centering; neither theorem subsumes the other.",
+        "searches": [
+          "c92b6dad1bd0 and 5177ec842d41 local mirror",
+          "Duchi et al., DOI 10.1145/1390156.1390191",
+          "Primary discovery on anchored BV and Euclidean cross-polytope projection"
+        ]
+      },
+      "checked_sources": [
+        "5177ec842d41",
+        "c92b6dad1bd0",
+        "77979dc14d49",
+        "b41b2d1d717e",
+        "11350fe23281 (catalogue; mirror attempted)",
+        "1111820a6506 (catalogue)",
+        "4cc64e84e6f1 (self-hit)",
+        "Duchi et al. DOI 10.1145/1390156.1390191 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cross-polytope records already supply the same kind of active-face derivative, but optimize its coordinate-lp operator norm. A radial Euclidean-ball derivative outside is a multiple of I-uu^T, differing from masking inactive coordinates followed by signed centering."
+        ],
+        "reasoning": "The prior machinery explains the starting finite maximum. It does not compress its exponential signed patterns in path order; the tail-column and prefix-state optimization, finite exact complexity and near-n witnesses are not delivered by these statements. Same-day dating alone does not establish priority or negate overlap.",
+        "searches": [
+          "5177ec842d41 and c92b6dad1bd0 local RESULT.md, offset 0",
+          "11350fe23281 Resultary statement and targeted mirror retrieval",
+          "Direct comparison with b41b2d1d717e frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5177ec842d41, RESULT.md at offset 0: same-coordinate-lp modulus of cross-polytope projection.",
+          "77979dc14d49, RESULT.md at offset 0: ordinary l1-nearest-point selections with optimum 2-2/n.",
+          "11350fe23281 catalogue statement: anchored tree variation with Euclidean ball and endpoint-rooted path cases."
+        ],
+        "reasoning": "Anchored differencing is an l1 isometry for the measuring norm, but it changes the l1 feasible set to a linearly transformed cross-polytope and the projection distance to a non-coordinate Euclidean quadratic form. It is not a renaming of an lp-to-lp coefficient, and ordinary l1-metric nearest-point selection changes the projector itself. The endpoint-rooted path matches the norm, not the target set: a Euclidean ball is smooth with radial projection rather than signed threshold faces.",
+        "searches": [
+          "Local Resultary: anchored BV Euclidean l1-ball projection and related cross-polytope and rooted-tree variation results",
+          "5177ec842d41",
+          "77979dc14d49",
+          "11350fe23281"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed record 4cc64e84e6f1 is a self-hit. The cited coordinate-lp record gives 1 at p=2; the reviewed coefficient is already 3/2 in dimension two. The other close catalogue hits concern different maps or constraints."
+        ],
+        "reasoning": "No inspected distinct table has the same projector, measurement norm and parameters. Similar growth on rooted paths or an exact table for oscillation constraints is not a match of these coefficients.",
+        "searches": [
+          "Resultary IDs 4cc64e84e6f1, 11350fe23281, b41b2d1d717e, 1111820a6506, 5177ec842d41, c92b6dad1bd0 and 77979dc14d49"
+        ]
+      },
+      "rationale": "The distinction is the exact anchored-BV optimization over signed cross-polytope projection chambers, including the polynomial DP and linear lower witnesses, not the threshold rule or chamber Jacobian. The strongest same-projector results use coordinate norms; the closest anchored variation hit uses a radial Euclidean-ball projector. Neither evidenced statement covers this coefficient. This assessment is qualified by the unavailable passages noted below.",
+      "residual_risks": [
+        "Full text for the same-day rooted-tree record and the Duchi paper was not retrieved. No claim of whole-text noncoverage or same-day priority; unindexed broader optimal-constant results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers active Jacobians and coordinate-lp stability, not the anchored-variation coefficient",
+          "evidence": [
+            "Both input and output use a coordinate lp norm; exact maximum is over the corresponding active-coordinate centering norms."
+          ],
+          "identifier_or_url": "5177ec842d41",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Local mirror",
+          "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+          "trigger": "Strongest same-projector exact stability result"
+        },
+        {
+          "assessment": "Different norm despite allowing weights",
+          "evidence": [
+            "Finite active-subset formulas are for same-coordinate-lp stability."
+          ],
+          "identifier_or_url": "c92b6dad1bd0",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Local mirror",
+          "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+          "trigger": "Potential broader weighted theorem"
+        },
+        {
+          "assessment": "Different metric projection and different coefficient",
+          "evidence": [
+            "Uses ordinary l1 distance to define nearest points, generally allowing multiple selections, with optimum 2-2/n."
+          ],
+          "identifier_or_url": "77979dc14d49",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Local mirror",
+          "title": "Optimal Lipschitz nearest-point selections for real l1 balls",
+          "trigger": "Related sharp nearest-point Lipschitz invariant"
+        },
+        {
+          "assessment": "Evidenced statement concerns Euclidean balls, not l1 feasible balls; proof overlap beyond the statement remains uncertain",
+          "evidence": [
+            "Anchored-tree modulus for radial Euclidean-ball projection, with order-n behavior and endpoint-rooted path cases."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-rooted-tree-variation-sensitivity-of-euclidean-ball-projec--11350fe23281",
+          "material_read": "Catalogue claim; relevant full-text passage not retrieved",
+          "method": "Resultary and targeted local-mirror requests",
+          "title": "Sharp rooted-tree variation sensitivity of Euclidean ball projection",
+          "trigger": "Closest same-day anchored-variation hit; includes endpoint-rooted paths"
+        },
+        {
+          "assessment": "Distinct feasible set and measurement seminorm",
+          "evidence": [
+            "Clipping imposes max-minus-min, acts on vectors modulo constants, and optimizes binary switches, not signed words."
+          ],
+          "identifier_or_url": "b41b2d1d717e",
+          "material_read": "Frozen RESULT.md lines 5–42 and 44–58",
+          "method": "Direct frozen source inspection",
+          "title": "Exact polynomial-time variation modulus of oscillation-ball projection",
+          "trigger": "Same-day close hit with an exact algorithm"
+        },
+        {
+          "assessment": "Thresholding is credited as prior; no whole-paper exclusion is inferred",
+          "evidence": [
+            "The cited result is an efficient Euclidean l1-ball projection algorithm, not established here as a source of the anchored-BV sensitivity optimization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/1390156.1390191",
+          "material_read": "Frozen citation and comparison at RESULT.md lines 73–80; no primary passage retrieved",
+          "method": "Supplied author PDF returned 404; alternate proceedings full-text attempt timed out",
+          "title": "Efficient Projections onto the l1-Ball for Learning in High Dimensions",
+          "trigger": "Classical same-projector threshold algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For signal perturbations measured by an anchor and local differences, Hilbert nonexpansivity gives no usable sharp bound. The theorem identifies near-dimension amplification for a canonical real convex projector, supplies concrete finite witnesses, and provides exact rational dimension-by-dimension answers without sign-pattern enumeration. The ordered DP resolves a meaningful sharp stability problem, rather than computing a few examples or giving a faster algorithm for projection itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

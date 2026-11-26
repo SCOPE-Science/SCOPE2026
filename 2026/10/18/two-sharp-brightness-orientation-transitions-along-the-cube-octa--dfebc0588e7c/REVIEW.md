@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the complete area formula directly from 14 facet areas using Cauchy’s identity, optimizes it globally over two exhaustive spherical chambers, and proves exact equality directions and unique thresholds. The lower-bound proof uses extreme rays and the triangle inequality; the upper-bound proof uses Cauchy–Schwarz and checks its feasible equality rays. The `verify.py` direct convex-hull method checked 5,460 cases including both crossing parameters, and is supplemental to the all-real proof.
+## correctness
 
-## Originality
-PASS relative to inspected, accessible evidence. Earlier exact regular truncated octahedron and cuboctahedron brightness results cover the fixed parameters \(c=3/2\) and \(c=2\), which are openly excluded as new special cases. Fully inspected earlier mathematical results for the same family determine the facet-network spectrum, maximal contained tetrahedral volume, and ordinary illumination number. The known facet areas and Cauchy identity are inputs; none of these theorems classifies two separate continuum brightness-orientation crossovers at \(c=(7+\sqrt7)/6\) and \(c=(4-\sqrt2+\sqrt{10-6\sqrt2})/2\). General shadow optimization literature was checked via its accessible bibliographic description but not full text, leaving historical-priority uncertainty.
+PASS
 
-## Mathematical value
-PASS. Maximum and minimum brightness and their complete equality sets are natural extremal invariants of this familiar family, and both exact transition parameters lie strictly inside a single fixed combinatorial interval. The value rests on this double orientation phase diagram and not on computing already tabulated face areas or reproducing the known fixed-body cases.
+Reconstructed the facet areas by clipping octant triangles and coordinate squares/diamonds. For x≥y≥z≥0, Cauchy's sum reduces to 4(x+y+z+(x−y−z)_+). The two linear functionals on the resulting cones give the upper bounds by Cauchy–Schwarz, with the tilted vector feasible at and above b/a=2/3. In the balanced cone, 1≤xS≤S²/2 gives the lower bound with equality only at a face diagonal; in the dominant cone, normalize its three extreme rays and use strictness of the triangle inequality for mixtures. This gives the axis/face-diagonal crossing at b/a=√2−1. The derivative of b/a is negative on both open chambers; the radicals and orbit counts follow. At c=3 the two upper-bound expressions also coincide (b=0), but the candidate tilted/body-diagonal vector is not in the dominant cone; the proof's phrase about both orbits surviving applies only to the interior crossing. Directly B=4S at c=3, so the Finding's endpoint classification is correct. An independently written finite comparison of candidate values and ratios also passed; the all-direction and equality claims use the analytic proof, not sampling.
 
-## Limitations and comparison risks
-This is a theorem for three-dimensional orthographic projected area only, not an all-dimensional or all-convex-body bound. Historical priority is provisional; Burger–Gritzmann’s primary full text was unavailable by the online attempts. The earlier single-polytope shadow results and Cauchy’s formula are explicitly acknowledged. Finite numerical confirmations do not establish an infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known ingredients and fixed-body cases are not credited as new. The strongest matching indexed record genuinely duplicates both open-chamber transitions, including the maximizing and minimizing equality sets, but is indexed in November, after this frozen October record. It adds plateau/design discussion and does not cover the second chamber or endpoints. It is not evidence of antecedent coverage. The earlier same-family spectral theorem supplies the face areas, not the angular optimization. No inspected antecedent establishes the full claimed classification; this is not a claim of absolute priority.
+
+## value
+
+PASS
+
+A natural one-parameter family exhibits two different global orientation changes while its face lattice is unchanged. The exact tie directions and full extrema provide information not supplied by shape taxonomy, input facet data, or fixed-body examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

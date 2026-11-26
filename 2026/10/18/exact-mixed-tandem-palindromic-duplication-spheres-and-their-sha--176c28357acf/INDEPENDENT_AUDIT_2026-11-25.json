@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:26:54.636396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76, VERIFICATION.md and verify.py inspected without executing the frozen code",
+        "Independent literal enumeration of 7455 words: q=2 at n=2…10, q=3 at n=2…7, q=4 at n=2…5 and q=5 at n=2…4; checked sphere size, extrema, equality criteria, counts and rational means"
+      ],
+      "rationale": "Count distinct length-(n+2) outputs of exactly one insertion, without complements. At sites i<j, trimming the common outside portions reduces equality to B_i U=U B_j, where U=w_{i+2}…w_{j+1} and B_i,B_j are the two-letter inserts. For tandem this is exactly period two on w_i…w_{j+1}; equality classes are consecutive runs, giving 1 plus the distance-two inequalities. For two palindromic inserts, if j=i+1 the three aligned letters force the source triple constant. Otherwise the common middle has period two (both copies of U agree at a shift of two); U ends in w_jw_{j+1} whereas the final insert reverses these letters, making the two parity classes equal. Thus nonconstant palindromic sites give distinct outcomes. Constant sites already belong to the tandem set. For a nonconstant palindromic site i and a tandem site j≤i+1, comparison at the two inserted positions excludes equality. If j≥i+2 those positions require w_{i+2}=w_{i+1} and w_{i+3}=w_i; this is sufficient with j=i+2, giving exactly the abba subtraction. Saturation of both positive sums gives the q≥3 extremum and the count. For binary words, the deficit from n is #zeros minus #changes plus #101 in the transition word. A boundary zero-run costs length minus one and an interior run costs length minus two plus the indicator of length one. The all-zero transition word never maximizes. The qualifying runs give the stated generating function and each transition word has two preimages. Uniform expectation uses probability (q-1)/q for either inequality and (q-1)/q³ for each abba correction, with no corrections for n<4.",
+      "residual_risks": [
+        "Finite enumeration is not the unrestricted proof. The recorded 79073-word frozen run is not a fresh independent run.",
+        "The formula does not classify reverse-complement, repeated, or variable-length duplications."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected capacity paper distinguishes palindromic and reverse-complement duplication and treats correcting any number of such operations. The duplication-code construction paper is a plausible mixed-mechanism lead, but no full text was obtained on available lawful routes. The focused literature lookup returned no material result."
+        ],
+        "reasoning": "A coding result for multiple errors does not imply the exact source-wise one-step union absent an explicit count or implication. The inaccessible paper and empty query give no negative evidence.",
+        "searches": [
+          "Zeraatpisheh–Esmaeili–Gulliver DOI 10.1109/ACCESS.2020.2995812",
+          "Yohananov–Schwartz arXiv:2312.00394 abstract and introduction",
+          "Literature query: tandem duplication, palindromic duplication, mixed channel, single length two, union sphere size, distinct descendants, abba, Zeraatpisheh and Lenz"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.00052 §§3.1,3.3",
+        "arXiv:2312.00394 abstract and introduction",
+        "Resultary 0aca79ccebc0",
+        "DOI 10.1109/ACCESS.2020.2995812 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known component formulas do not determine the intersection size. For instance, 01100001 and 01110001 each give five tandem and five palindromic descendants, but respectively seven and eight in the union. Their transition words 1010001 and 1001001 both have four changes, and in each source two adjacent pairs of palindrome sites merge within constant runs. The first transition word has one 101, whereas the second has none. The frozen proof uses P_i=T_{i+2} as the sufficient witness at an abba and excludes all cross-channel collisions for nonconstant P_i without that pattern."
+        ],
+        "reasoning": "The nonconstant cross-mechanism collision classification is the needed extra result. The binary zero-run characterization and mean follow from the new union law, not from the separate source-wise counts.",
+        "searches": [
+          "Lenz et al. §§3.1 and 3.3 including Lemma 3",
+          "Frozen RESULT.md Lemma 3 and binary extremum proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lenz et al. include the zero-error center, so subtracting one converts the separate sphere conventions. The indexed reverse-complement law has B(w)=n-1-C(w) with complementary alternating triples as collisions; that alphabet map is absent in the frozen claim and does not give the tandem/reversal intersection."
+        ],
+        "reasoning": "Center inclusion is only a normalization; complementing the inserted copy changes the operation and the distinct-output problem. Neither a convention change nor an alphabet renaming identifies the reverse-complement formula with the stated union.",
+        "searches": [
+          "Lenz–Wachter-Zeh–Yaakobi arXiv:1707.00052 §§3.1 and 3.3",
+          "Yohananov–Schwartz arXiv:2312.00394",
+          "Resultary 2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed distribution, extrema and mean are for a reverse-complement sphere only. The primary exact counts are for individual channel spheres. No inspected table classifies the binary maximizers for the frozen union or its generating function."
+        ],
+        "reasoning": "A table for either individual channel, or a separate reverse-complement distribution, cannot reconstruct mixed outputs: the overlap depends on the source. Matching finite enumerations here supply correctness evidence, not novelty.",
+        "searches": [
+          "Local Resultary search for one-step length-two tandem/palindromic union and its strongest match 0aca79ccebc0",
+          "Lenz et al. arXiv:1707.00052 §3"
+        ]
+      },
+      "rationale": "Separate tandem and palindromic sphere formulas and general duplication-code settings are prior. The distinct result is the exact mixed union, especially its cross-channel intersection correction and the resulting alphabet transition and binary maximizing classification. The mean is a corollary, not a separate originality claim.",
+      "residual_risks": [
+        "The inaccessible duplication-code paper and differently indexed or unpublished mixed sphere work remain priority risks. No claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact separate-channel counts; no mixed count in inspected material",
+          "evidence": "Sphere includes the source; the length-two palindrome analysis identifies collisions within that mechanism.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.00052",
+          "material_read": "§3 introduction p. 4 at offset 13489 and §§3.1, 3.3 including Lemma 3 p. 5 from offset 13932",
+          "method": "OA primary PDF passages",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Strongest primary source counting single-error spheres for the same operations"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of absence",
+          "evidence": "No available copy was inspected; no exclusion is inferred.",
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2020.2995812",
+          "material_read": "Bibliographic identification; no substantive full-text passage obtained",
+          "method": "Lawful direct and VPN retrieval attempts, plus repository copy lookup",
+          "title": "Construction of Duplication Correcting Codes",
+          "trigger": "Plausible simultaneous tandem and palindromic code construction"
+        },
+        {
+          "assessment": "Related coding problem, not the tandem-reversal source-wise union in inspected passages",
+          "evidence": "The two operations are distinguished, and capacity questions address correction of any number of duplications.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.00394",
+          "material_read": "Abstract p. 1 at offset 1388 and introduction p. 2 at offset 4300",
+          "method": "OA primary PDF passages",
+          "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+          "trigger": "Possible language overlap and stronger duplication-channel theorem"
+        },
+        {
+          "assessment": "Different operation, collision word and extremal profile, irrespective of same-day archive ordering",
+          "evidence": "The law B(w)=n-1-C(w) counts complementary-alternating triples for reverse-complement descendants.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0",
+          "material_read": "Finding, local RESULT.md starting at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact one-step descendant spectrum for length-two reverse-complement duplications",
+          "trigger": "Strongest indexed same-date length-two descendant formula, with mean and extrema"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§Proof, Relationship to prior work",
+        "Lenz et al. single-error spheres in §3"
+      ],
+      "rationale": "The distinct descendants are the exact confusability neighborhood for a natural single-error channel permitting either copy orientation. A mixed neighborhood cannot be sized by adding the individual channel formulas. The correction identifies the precise local obstruction, and the alphabet-dependent extremum and binary maximizing census reveal which sources have the largest ambiguity. These exact local counts are useful independently of an optimal global code bound.",
+      "residual_risks": [
+        "This is a neighborhood theorem, not a claim of code capacity or an optimal duplication-correcting code."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

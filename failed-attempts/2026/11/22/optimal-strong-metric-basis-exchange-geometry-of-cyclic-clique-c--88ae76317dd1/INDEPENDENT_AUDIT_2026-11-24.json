@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:06:41.570574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof Steps 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected)",
+        "Rodríguez-Velázquez et al. arXiv:1307.4722 §2"
+      ],
+      "rationale": "The endpoints of a mutually maximally distant pair are its only possible strong resolvers. Conversely, maximally extend a geodesic through the pair to be resolved at either end as long as a neighbor at greater distance from the other end exists; the resulting MMD pair has at least one endpoint in any cover, which resolves the original pair. In the Cartesian host the distance is cycle distance plus the color mismatch indicator, and a pair is MMD exactly when cycle distance is maximal and colors differ. For even circumference this gives disjoint crowns; a crown with m≥3 has only entire shores as maximum independent sets because a mixed independent set has size at most two, while m=2 gives independent choices in disjoint edges. For odd circumference the steps ±k form the distance-k cycle. If j>0 positions in that cycle contain at least two colors, these positions are independent and force their adjacent positions to be empty. The intervening gaps have at least one missing position each, and one gap has at least two by odd parity; the closed neighborhood of the j positions thus has at least 2j+1 positions. The size bound (m−2)j+2k gives equality for m≥3 only at j=k with full fibers; all singleton positions instead give size at most n with equality only for a monochromatic layer. The case tie is (3,3). In a maximum odd-cycle independent set all gaps have one missing position except one gap of two. Following the two-step progression translates to steps ±1 in the original cycle, yielding precisely k-intervals. For odd n and m=2 the direct product is the single 2n-cycle with two alternating optima. Complementing preserves one-sided equal-size exchange costs. Opposite-block changes cost m (or 1 per separate edge when m=2), cyclic intervals exchange min(delta,n−delta) full fibers, and the two families in 3×3 exchange 2 across families and 3 within. Thresholds follow by retaining the weight-one cube/cycle adjacencies at the first corresponding budget. The only one-vertex exchanges occur across MMD pairs that are not host edges. These are universal arguments; support code was inspected but not used to infer all n,m.",
+      "residual_risks": [
+        "The topology and counting of nonoptimal independent sets are not claims reviewed here. Batch feasibility is for endpoints only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang Theorem 1.8: with vertex-transitive factors ordered by decreasing independence ratio, the product is MIS-normal unless the ratios tie with an IS-imprimitive factor or the lower-ratio factor is disconnected in the strict case. MIS-normal means every maximum independent set is the inverse image of a maximum independent set in a factor.",
+          "In each strict-ratio case here both factors in a component are connected. The only tied cases are K2×K2 and K3×K3; both factors are IS-primitive because their independence number is one. The clique-product row/column structure is also explicit in Goyal–Shukla–Singh Remark 2."
+        ],
+        "reasoning": "For odd n=2k+1 compare k/n and 1/m. For m=2 the latter wins; for m≥3 the former wins except for the tied (3,3). Thus in the strict cases the maximum sets are precisely preimages from the winning factor, and in (3,3) they are all rows and columns. For even n apply Theorem 1.8 separately to K2×Km; for m≥3 the K2 ratio wins and for m=2 the two-edge structure is explicit. This covers the actual optimizer families, including equality and the exceptions.",
+        "searches": [
+          "Zhang, arXiv:1007.0797 §1 Theorem 1.8 and the proof conclusion in §2",
+          "arXiv:1307.4722 Theorems 6 and 14",
+          "arXiv:1905.06926 Remark 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1007.0797 Theorem 1.8",
+        "arXiv:1307.4722 Theorems 3–4, 6 and 14",
+        "arXiv:1905.06926 Remark 2",
+        "arXiv:2307.12401 Theorem 22",
+        "Resultary 2189c58cd95e, 20c89bacf014, c69eac233aa9, e9f31746918a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximum independent set in an odd cycle splits its complementary gaps into ones and one two, so the lifted family consists exactly of intervals after the change of coordinates. Mixed row/column pairs in 3×3 intersect in one vertex; pairs within a row or column family are disjoint. Disjoint component products give Hamming exchange costs with the size of the changed block as weight.",
+          "The remaining two-layer odd m=2 case has disjoint layers. A unit-cost even m=2 change uses the endpoints of an MMD matching edge and cannot be a host slide."
+        ],
+        "reasoning": "All batch graphs follow from these immediate intersections and distances without a further classification or new invariant calculation. The prior product formula for the independence number alone would not suffice, but the stronger MIS-normality theorem does.",
+        "searches": [
+          "Explicit specialization of arXiv:1307.4722 Theorems 3–4 and arXiv:1007.0797 Theorem 1.8, compared with frozen Proof Steps 2–5",
+          "Goyal–Shukla–Singh Remark 2 for the 3×3 overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 identifies the strong resolving graph of a Cartesian product with the direct product of the respective strong resolving graphs; minimizing bases is equivalent to complementing maximum independent sets.",
+          "For an even cycle its strong resolving graph is an opposite-pair matching, and for an odd cycle it is an n-cycle in step-k coordinates. The strong resolving graph of a clique is the clique itself."
+        ],
+        "reasoning": "The problem is exactly optimizer classification in connected-cycle times clique or componentwise K2 times clique, followed by the equal-size symmetric-difference metric. It is not merely a similar independent-set problem.",
+        "searches": [
+          "Resultary cyclic strong metric basis exchange and cycle-clique categorical-product extremal sets",
+          "arXiv:1307.4722 §2 Theorems 3–4",
+          "Focused search for Zhang, MIS-normality and maximum independent sets of vertex-transitive direct products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2189c58cd95e and 20c89bacf014 concern homology or necklace invariants of Ind(C_(3r)×Km); e9f31746918a minimizes cardinality over dominating independent sets instead. Same-day c69eac233aa9 optimizes open packings of the Cartesian host.",
+          "Goyal–Shukla–Singh explicitly give the full row/column family for K_m×K_n, whose n=3 specialization is the exact exceptional optimizer family (and gives the other n=3 rows)."
+        ],
+        "reasoning": "None of the distinct inspected catalogue entries tabulates this exchange graph. The relevant exact structural coverage is in the product literature; no separate numerical table is needed to infer the result. Same host graph and shared terminology in the catalogue are not an equivalence.",
+        "searches": [
+          "Resultary strong metric exchange for cyclic clique cylinders; cycle-clique independent-set and homology records",
+          "arXiv:1905.06926 p.5 Remark 2 (K_m×K_n optimizer structure)"
+        ]
+      },
+      "rationale": "The full optimizer classification is covered by the prior Cartesian strong-resolving product reduction and Zhang's general maximum-independent-set structure theorem for direct products, not just a known dimension formula. The advertised exchange metrics, connectivity thresholds and slide obstruction are immediate coordinate comparisons on the resulting known families. An exact prior statement using batch-exchange terminology is unnecessary for this implication.",
+      "residual_risks": [
+        "Historical priority of the explicit batch-exchange wording is not established and not required for the mathematical coverage decision. The FAIL is based on a verified stronger theorem plus direct implications, not on search completeness or unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive structural coverage of optimizer families in every component and regime",
+          "evidence": [
+            "The only exceptions to MIS-normality allowed by the theorem are the tied imprimitive case and the disconnected lower-ratio factor in the strict case. Neither occurs here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1007.0797",
+          "material_read": "§1, preceding IS-primitivity definition and Theorem 1.8, p.5 (offsets 7490–10788); text of projection conclusion located at §2 end, p.8 (offset 18860)",
+          "method": "Primary OA PDF passage read and specialized by comparing independence ratios and connectedness",
+          "title": "Independent Sets in Direct Products of Vertex-transitive Graphs",
+          "trigger": "Plausible all-optimizer theorem rather than independence-number formula alone"
+        },
+        {
+          "assessment": "Gives exact reduction and dimensions; its dimension formula alone is not optimizer coverage",
+          "evidence": [
+            "(G square H)_SR is G_SR×H_SR; the dimension is its cover number."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4722",
+          "material_read": "§2 Theorems 3–4, pp.3–4 (offset 8500), Theorem 6 p.4 (12949), Theorem 14/Lemma 13 p.6 (19952)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+          "trigger": "Same strong-metric Cartesian products"
+        },
+        {
+          "assessment": "Explicit optimizer coverage for n=3",
+          "evidence": [
+            "Maximal independent sets of K_m×K_n are complete rows or columns."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.06926",
+          "material_read": "p.5 Remark 2 (offset 13300)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Exact structural overlap for clique×clique cases"
+        },
+        {
+          "assessment": "Homotopy result, distinct from optimizer structure",
+          "evidence": [
+            "Gives wedges of spheres for Ind(C_(3r)×Km)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.12401",
+          "material_read": "Theorem 22, p.24 (offset 53200)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Homotopy type of the independence complex of some categorical products",
+          "trigger": "Same categorical products in part of the odd family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 2–5",
+        "Zhang Theorem 1.8 and Rodríguez-Velázquez et al. Theorems 3–4; Goyal–Shukla–Singh Remark 2"
+      ],
+      "rationale": "The compilation is a convenient exposition, but after existing structural optimizer coverage the only residual step is taking intersections of full rows, columns, intervals or disjoint blocks. This gives graph powers and cutoffs by a routine substitution, and the slide observation only asks if exchanged MMD endpoints are adjacent. No distinct substantive gap or useful unknown exact fact remains in the frozen claim.",
+      "residual_risks": [
+        "This judgment does not deny value to general nontrivial strong-metric basis reconfiguration or to product results outside the frozen family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

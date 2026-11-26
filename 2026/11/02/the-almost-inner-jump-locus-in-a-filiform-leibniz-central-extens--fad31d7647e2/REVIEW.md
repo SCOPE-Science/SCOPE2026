@@ -1,15 +1,21 @@
-# Review of the almost-inner jump criterion
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is proved for every field and all dimensions at least four. After subtracting an inner derivation, the pointwise condition on the second generator constrains a derivation to a two-dimensional normal form, one direction of which is explicitly inner. A separate pointwise argument tests the remaining central direction for every vector; it exists exactly when the square-bracket parameter is nonzero. The right-annihilator computation establishes the dimension count, and the necessity at the zero parameter follows already from one generator. The verification script checks right Leibniz identities, derivation equations, and pointwise conditions for 60 configurations and fully enumerates derivations in eight small configurations. No finite check is used to infer the general theorem.
+## correctness
 
-## Originality — PASS relative to inspected material
-Adashev and Kurbanbaev (arXiv:2010.01904v2, §3.12, Theorem 3.13 and Proposition 3.14) give an upper-bound normal form but state that its extra direction always belongs to the almost-inner space. Their unconditional assertion is false when the square-bracket parameter vanishes. The present theorem supplies the missing necessary-and-sufficient parameter condition, an independent proof, and exact dimensions across all characteristics. Burde–Dekimpe–Verbeke (arXiv:1905.08145) treats Lie cases and can cover the all-zero special case; that special case is not asserted as new. Khudoyberdiyev–Omirov (arXiv:1305.2676) concerns deformation and cohomology, not the new locus. Kurbanbaev (2023) concerns thin and solvable families by its available abstract; no whole-document exclusion is claimed from that abstract. Searches of published mathematical records did not identify an equivalent full-parameter criterion. The risk of an earlier implicit correction remains.
+PASS
 
-## Mathematical value — PASS
-Almost-inner derivations are defined by a genuinely pointwise commutator condition. Exact distinction between inner and almost-inner maps is a structural invariant, not merely a parameter substitution. The theorem resolves a published universal misclassification into a sharp jump dichotomy: the AID quotient has dimension zero on one parameter hyperplane and one elsewhere, including the non-Lie members, with an exact finite-field count. This is a complete motivated classification for an infinite three-parameter family, without claiming to classify the additional higher-parameter extensions.
+With θ=0 the multiplication is a Lie bracket: the subspace spanned by e2,...,en is abelian and the bracket with e1 acts by a linear shift. The three modifications take values in the center and vanish when either input is in the span of e3,...,en, so they do not change the nested terms in the right Leibniz identity. This check uses no assumption on characteristic. Every right multiplication is therefore a derivation. Normalize an almost-inner D by subtracting a right multiplication so that D'(e1)=0. Its value on e2 must be t e3+s en, with s=0 if θ3=0, and the iterated brackets with e1 force all the other values. The inner R_(e1+θ1 e_(n−1)) fixes e1 in the sense that its value there is zero, and agrees with the shift on e2,...,e_(n−1). Subtracting t times this map leaves sE. The map E kills the derived subspace and has central image, hence is a derivation. When θ3=0, testing at e2 shows E is not almost inner. When θ3≠0, [x,e_(n−1)]=−x1 en works if x1≠0, and [x,e2]=x2θ3 en works if x1=0; these supply pointwise witnesses for E. For a right multiplication equaling E, testing on e2 would force the right coefficient of e1 to vanish and that of e2 to be θ3^−1, which gives a forbidden e3 component on e1. For a right multiplication equaling zero, test at e2 to kill the coefficient of e1, then at e1 to kill the coefficients of e2,...,e_(n−1), leaving just Ken. Thus Inn has dimension n−1 and E contributes exactly one dimension on the open stratum. In n=4, e3 and en are still distinct and e_(n−1)=e3, so the same tests apply; all divisions are by assumed nonzero field elements. The finite counts follow from the vector-space dimensions.
 
-## Limitations and closest literature
-The proof assumes all higher \(\beta\)-parameters vanish and does not assert a classification for the full filiform family. The principal prior result includes an upper bound, but not the corrected membership locus. No independent audit or exhaustive global priority search has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adashev–Kurbanbaev already give the broader F3 presentation and a normal form; their unconditional extra-summand assertion does not give the correct classification at θ3=0. Even over C, the β=0, (θ1,θ2,θ3)=(1,0,0) member is non-Lie and has [e2,L]=Ce3, which cannot contain E(e2)=en. The new content supported by the matched primary literature and bounded search is the exact criterion for this subfamily, with its arbitrary-field proof, not the upper bound or the extra direction in known cases.
+
+## value
+
+PASS
+
+This resolves a wrong universal membership assertion for a natural three-parameter subfamily and gives the exact boundary for every dimension and characteristic in scope. The distinction between a central derivation and a pointwise almost-inner derivation changes the quotient AID/Inn, so a user of the published normal form needs the corrected condition, not just a single counterexample. The finite cardinalities are useful consequences rather than the justification for the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

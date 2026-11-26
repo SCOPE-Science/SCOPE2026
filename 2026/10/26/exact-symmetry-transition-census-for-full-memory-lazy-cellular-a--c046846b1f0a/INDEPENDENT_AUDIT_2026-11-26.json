@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:18.393557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A full-memory rule changes precisely the identity coset of its source stabilizer H; every output is H-invariant. For the critical reverse fibre, work on B=G/H. If y has a nontrivial stabilizer P=K/H and the changed source p differs only at 0, a nonzero period t of p cannot belong to P: comparing 0 and t would give one changed and one unchanged symbol. If t is outside P, take k nonzero in P. Then p(t+k)=y(t+k)=y(t)=p(t), whereas p(k)=y(0)≠p(0), contradicting t-periodicity. Thus all q-1 reverse recolorings, and only those, have the required source stabilizer. The diagonal follows by subtracting strict transitions from (q-1)M_q(H), using the partition of q^[G:H] colorings by exact stabilizer; this partition also gives the Möbius inversion. In the binary quotients C2 and C2×C2, exactly the odd-sized supports are aperiodic and changing the identity makes the size even. In other quotients the displayed witnesses work: a unique colored site survives with a third color, a two-point support has no period if its nonzero point has order greater than two, and the four-set formed from three independent points in an elementary 2-group has nonzero sum, incompatible with an order-two period. The trivial quotient has q exact-stabilizer colorings and a positive diagonal. The frozen checker was inspected, not executed; its finite enumeration is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem concerns generation, including the global binary Klein-four obstruction. Its proof also notes the single exact-stabilizer orbit for a binary C2 quotient. The primary search produced no material additional source; that is not evidence of absence."
+        ],
+        "reasoning": "Generation and orbit-existence conclusions are not universal enumerations of labeled local rules. Accounting for the C2 orbit issue is important, but does not supply the exact diagonal count for arbitrary quotients and alphabets.",
+        "searches": [
+          "Primary websearch: ‘aperiodic colorings’ exact stabilizer counts finite abelian group Möbius inversion lazy cellular automata transition",
+          "arXiv:2610.18480v1, proof of Theorem 3.13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.18480v1",
+        "arXiv:2610.20329v1",
+        "Resultary 740d35a02fd8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once a uniform reverse fibre size has been proved, the diagonal follows by subtraction. Neither the prior single witness per subgroup pair nor an exact-stabilizer coloring count yields that fibre size for each y."
+        ],
+        "reasoning": "The nontrivial comparison is the invariance under choice of y and completeness of its q-1 reverse choices. It requires a separate symmetry argument even with the local action and all coloring totals in hand.",
+        "searches": [
+          "arXiv:2610.18480v1, Lemma 3.8 and proof of Theorem 3.13",
+          "Resultary 740d35a02fd8, Möbius derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.8 identifies the rule with a map moving the source orbit to the output orbit. Theorem 3.13's proof exhibits a strict-transition witness with source indicator of K\\H and output indicator of K."
+        ],
+        "reasoning": "Rephrasing the claim as counting reverse recolorings of one site in G/H separates per-output fibre cardinality from the existence of at least one generating transition. The latter is already known but does not give the former.",
+        "searches": [
+          "Local Resultary search for full-memory lazy cellular automata and exact stabilizers",
+          "arXiv:2610.18480v1, Lemma 3.8 and Theorem 3.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary necklace formula matches M_2(H) for cyclic G. The Klein-four paper gives 4,007 lazy-generated maps and a composition-length distribution, not a matrix of individual labeled rules by exact source and target stabilizers."
+        ],
+        "reasoning": "The cyclic formula covers a special case of a counting ingredient, not the transition statistic. Generated monoid elements and compositions are different objects from these one-step labeled rule fibres.",
+        "searches": [
+          "Resultary record 2026/10/13/SCOPE-necklace-stabilizer-classification-of-rank-in-partial-successor--740d35a02fd8",
+          "arXiv:2610.20329v1, §6 Proposition 6.3"
+        ]
+      },
+      "rationale": "Credit prior local-action and transition-existence results, the binary obstructions appearing there, and standard Möbius enumeration of exact stabilizers. The supported distinct part is the uniform (q-1)-element fibre over every individually specified output with a strictly larger stabilizer, and the complete labeled transition census that follows. The evidence does not establish priority for the ancillary aperiodic-coloring proportion in isolation.",
+      "residual_risks": [
+        "Broader aperiodic-coloring and equivariant-transformation literature could contain related symmetry bounds or the reverse-recoloring lemma in another formulation; the search was bounded and does not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local action and relevant existence and generation obstructions; inspected arguments do not count arbitrary output fibres.",
+          "evidence": [
+            "The indicator construction furnishes one strict-transition witness.",
+            "C2 quotient exact-stabilizer configurations are in one orbit; C2×C2 enters the global binary obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18480v1",
+          "material_read": "Lemma 3.8 and proof of Theorem 3.13, OA text near offsets 27650, 43800 and 48400",
+          "method": "Bounded OA HTML text inspection",
+          "title": "When do lazy and invertible cellular automata generate all cellular automata?",
+          "trigger": "Identical local maps and prior constructions of strict and equal stabilizer transitions"
+        },
+        {
+          "assessment": "Counts generated submonoid elements instead of individual rules classified by an input/output pair of stabilizers.",
+          "evidence": [
+            "It reports 59,712 elements in the lazy-and-invertible generated submonoid and 4,007 in the lazy-only submonoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.20329v1",
+          "material_read": "Abstract and §6 Proposition 6.3, OA text near offsets 0 and 29850",
+          "method": "Bounded OA text inspection",
+          "title": "Generation by lazy and invertible cellular automata over the Klein four-group",
+          "trigger": "Plausible exact census for a special group"
+        },
+        {
+          "assessment": "Covers cyclic binary exact-stabilizer counts, including a weight refinement, rather than lazy-rule transitions.",
+          "evidence": [
+            "For stabilizer size d in C_n the sum is ∑_{e|n/d} μ(e)·2^{n/(de)}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-necklace-stabilizer-classification-of-rank-in-partial-successor--740d35a02fd8",
+          "material_read": "RESULT.md Finding and Möbius derivation near offsets 0 and 4850",
+          "method": "Bounded local mirror text inspection",
+          "title": "Necklace stabilizer classification of rank in partial successor automata",
+          "trigger": "Distinct local Resultary match for exact stabilizer enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform fibre theorem upgrades known generation witnesses to the exact number of available labeled one-step rules for every pair of stabilizers. It determines which stabilizers admit a preserving rule together with the size of that class, and reduces enumeration of all classes to subgroup-lattice coloring counts without iterating over the rules. This is an exact invariant of the same natural maps studied in the generation literature, not a count for an arbitrary small group.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

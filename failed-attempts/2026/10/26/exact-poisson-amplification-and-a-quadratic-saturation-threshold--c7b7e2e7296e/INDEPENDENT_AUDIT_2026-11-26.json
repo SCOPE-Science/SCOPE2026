@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:04:57.829073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof (1)–(6), sign/cutoff and scaling arguments",
+        "VERIFICATION.md, Reproducibility",
+        "verify.py, exact finite checks and rank-one-shift test code inspected"
+      ],
+      "rationale": "Tensor projections give the pseudoinverse for the unnormalized Laplacian; the four orbit multiplicities are 1,n−1,m−1,(m−1)(n−1). Symmetry and zero row sums give both induced endpoint norms as twice the positive row mass, attained by the signs of one row on the full input space. For m≥3, R≥0 and summing over the root's row gives D+(n−1)R=(m−1)/m². The remaining candidate positive entry has numerator Cnum=−n²+(m²−m)n−m². Its smaller root is below m, and the larger is the claimed irrational ρ_m for m≥4. As an independent integer boundary check, Cnum is m²−2m−4>0 at n=m²−m−2 and −m−1<0 at n=m²−m−1. For m=3 it is −(n−3)²; direct substitution gives the m=2 exceptions. On the active branch the bound 3(m−1)/m² for m≥4 is less than 5/8, and the other cases establish unique equality at (2,2). Rescaling the branch formula for n=O(m) and the positive-part formula for n/m²→λ gives both claimed limits.",
+      "residual_risks": [
+        "Finite checks were not used to infer either asymptotic limit or the universal bound. The norm on mean-zero-restricted inputs is a different question."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellis gives product Green-function spectral methods; Beveridge gives a hitting-time representation.",
+          "The indexed anisotropic record's kernel is given directly for arbitrary positive factor conductances c,d and arbitrary factor sizes a,b."
+        ],
+        "reasoning": "The Ellis and Beveridge frameworks are broader but generic; the indexed explicit rook kernel is stronger in the exact needed sense, requiring neither inversions nor a remaining graph-dependent computation.",
+        "searches": [
+          "arXiv:math/0309080 §4, product-graph discrete Green function",
+          "arXiv:1505.06989, Green function via hitting times",
+          "Resultary 5af2045a6f93, anisotropic rook graph"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5af2045a6f93 Proof §1",
+        "Resultary 621e2ef18776 Finding",
+        "Ellis arXiv:math/0309080",
+        "Beveridge arXiv:1505.06989",
+        "Fontan–Altafini arXiv:2109.14587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel is (δ_us−1/a)/(abc)+(δ_vw−1/b)/(abd)+(δ_us−1/a)(δ_vw−1/b)/(ac+bd). Set a=m, b=n, c=d=1."
+        ],
+        "reasoning": "Evaluate at the four Boolean equality pairs, multiply absolute values by the obvious multiplicities, and use the zero sum to obtain the exact norm. In particular the column term has the sign of −n²+(m²−m)n−m²; its larger root is the cutoff. Summing the known entries within the root's row cancels the second and mixed terms, yielding the plateau. The small cases, global maximum and limits use routine comparison and rescaling of this same expression. No independent, nonmechanical statement remains in the assigned claim.",
+        "searches": [
+          "Resultary 5af2045a6f93, Proof §1 exact scalar kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 5af2045a6f93, Proof §1, gives G=L† and its pointwise kernel for anisotropic rook graphs.",
+          "Fontan–Altafini gives mixed signs for Laplacian pseudoinverses in general, not the rook-graph cutoff."
+        ],
+        "reasoning": "The target norm is the maximum absolute vertex row sum, equivalently the positive row mass times two. The published edge-space norm is not that norm; the relevant overlap comes from its explicit intermediate vertex kernel.",
+        "searches": [
+          "Resultary: rook-graph Green kernel, endpoint Poisson amplification, absolute row mass and sharp 5/8 bound",
+          "arXiv:2109.14587, signs of entries of Laplacian pseudoinverses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 5af2045a6f93 supplies the exact vertex kernel, although its scalar norm table/formulas concern the edge projector.",
+          "Record 621e2ef18776, Finding, concerns e^(−tL²) and its time-dependent positivity horizon, not L†."
+        ],
+        "reasoning": "No separate indexed table of exactly these vertex-norm values was identified. The exact kernel is stronger evidence than a table; the biharmonic heat record is a different operator.",
+        "searches": [
+          "Resultary: rook-graph vertex norm, quadratic support cutoff and 5/8; closest records 5af2045a6f93 and 621e2ef18776"
+        ]
+      },
+      "rationale": "There is a distinct indexed record that gives the exact pointwise kernel of this very pseudoinverse for all positive conductances. With both conductances set to one, only four scalar values and their immediate multiplicities remain. The endpoint norm and support claims in the frozen record are direct consequences of that stronger explicit kernel, not merely consequences of a general existence theorem. This is an overlap decision, not a claim about same-day priority.",
+      "residual_risks": [
+        "The related records share a displayed date; no chronological priority or direction of dependence is inferred. Exact mathematical coverage, rather than a verbatim norm statement, is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unweighted kernel is a specialization; the edge-space norm is a different stated result.",
+          "evidence": [
+            "Proof §1 explicitly gives the three spectral terms of L† and the scalar δ-kernel for all vertex pairs.",
+            "Proof §2 applies two edge differences to G, confirming the stated amplification is for an edge operator."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 5af2045a6f93",
+          "material_read": "Finding and Proof §1, in particular offsets 3000–4100; §2 for operator distinction",
+          "method": "Original RESULT.md via repository mirror",
+          "title": "Sharp bounded-error amplification and direction switching on anisotropic rook graphs",
+          "trigger": "Same graph family; stronger weighted exact kernel"
+        },
+        {
+          "assessment": "Covers general spectral product Green-function computation.",
+          "evidence": [
+            "Describes product-graph Green functions via factor spectral data."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0309080",
+          "material_read": "§4, pp. 5–6",
+          "method": "Original open PDF passages",
+          "title": "Discrete Green's functions for products of regular graphs",
+          "trigger": "Possible stronger product-kernel theorem"
+        },
+        {
+          "assessment": "General hitting-time expression, not the exact rook norm.",
+          "evidence": [
+            "The representation is for Green entries in terms of random-walk hitting times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.06989",
+          "material_read": "Abstract, p. 1",
+          "method": "Original open PDF passage",
+          "title": "A Hitting Time Formula for the Discrete Green's Function",
+          "trigger": "Alternative Green-function representation"
+        },
+        {
+          "assessment": "Explains mixed signs in general, not this rook-family threshold.",
+          "evidence": [
+            "Discusses the possibility of positive off-diagonal entries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.14587",
+          "material_read": "Abstract and Introduction, p. 1",
+          "method": "Original open PDF passages",
+          "title": "On the properties of Laplacian pseudoinverses",
+          "trigger": "Possible overlap with sign support transition"
+        },
+        {
+          "assessment": "Different operator and invariant.",
+          "evidence": [
+            "Studies squared-Laplacian heat and a time-dependent positivity horizon."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 621e2ef18776",
+          "material_read": "Finding and Assumptions and scope, offsets 0 and 2279",
+          "method": "Original RESULT.md via repository mirror",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat",
+          "trigger": "Same graph/amplification vocabulary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof (3)–(6)",
+        "Resultary 5af2045a6f93 Proof §1"
+      ],
+      "rationale": "The vertex endpoint norm and finite cutoff are naturally motivated, and the cutoff is a useful way to display the sign change. For this particular family, however, exact values and the boundary are mechanically obtained from the already available four-entry kernel by summation and a quadratic inequality. The frozen scaling and extremizer observations add no independently supported nonroutine result beyond that evaluation.",
+      "residual_risks": [
+        "This is not a judgment about endpoint Poisson estimates in graph families without an explicit orbit kernel."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

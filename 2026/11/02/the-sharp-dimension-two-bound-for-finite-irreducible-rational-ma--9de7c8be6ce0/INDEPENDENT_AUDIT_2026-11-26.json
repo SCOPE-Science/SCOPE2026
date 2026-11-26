@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:04.298738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recovered the rank-one bound without relying on the minimal-ideal reductions. Adjoin 0 and, for orbit notation, use S^1 allowing the identity. If there is a rank-one matrix A=u v, irreducibility makes span(S^1 u) the full plane, so some v s u≠0. The nonzero eigenvalue of As is then a rational root of unity by finiteness, hence ±1; (As)^2 is a rank-one idempotent e=u_0 v_0. The nonzero orbits U'=S^1 u_0 and V'=v_0 S^1 (omitting zero) span by irreducibility and its dual. All pairings v' u' are in {−1,0,1} since e t s e=(v' u')e is in S. Take one vector on each projective direction of each orbit. Two independent evaluations place the columns in at most four signed projective directions (coordinate axes and both diagonals); by duality the row count is also at most four. If either count is four, any covector on the other side has coordinates α,β with α,β,α+β,α−β in {−1,0,1}, so only two projective covectors are possible. Otherwise the product is at most 3·3. Any rank-one A sends a suitable u' to a nonzero column of U' and a suitable v' to a nonzero row of V', so its directions lie in these families. Writing A=λu_i v_j, pick v' and u' with v' u_i and v_j u' nonzero. The scalar v' A u' belongs to {−1,0,1} from e t A s e, so λ=±1. This upper-bounds all rank-one members, not only those in the minimal ideal, by 18. Invertible members form a finite group when present, conjugate over R into O(2) by averaging; rational rotational traces are integral and force orders 1,2,3,4,6. This gives at most 12 units and hence at most 31 including zero. For equality, checked the two signed orbits by applying R,F,−I directly (R cycles the three column and row directions up to sign). R has order 3, F conjugates it to R^−1 and det(F)=−1; adjoining the central −I doubles the group order to 12. The displayed pairing matrix gives closure of the 18 distinct signed outer products under multiplication or zero, and the four matrix units ensure rational irreducibility. The frozen scripts and recorded 961-product check were inspected without execution; the direct checks and all-semigroup argument above establish the conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer–Ryzhikov give 3^(n²) and the asymptotic exponential order, and §9 identifies finding the largest semigroups as further work. Steinberg proves the same upper bound through the minimal ideal. Here 3^4=81, not 31.",
+          "Bumpus et al. bound product length and semigroup size as a function that involves the generator count, not a sharp absolute dimension-two maximum."
+        ],
+        "reasoning": "These establish context and general bounds; none of the inspected results subsumes the exact dimension-two theorem.",
+        "searches": [
+          "Kiefer–Ryzhikov arXiv:2601.01236v2 abstract and §9",
+          "Steinberg arXiv:2601.03206v1 §§1–2",
+          "Bumpus et al. ICALP 2020, pp. 2–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "Indexed and primary sources in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general proof bounds by a ternary encoding in dimension n². At n=2 this is still 81. Converting the rank-one case to two spanning projective families with ternary pairings, proving their product ≤9 and arranging a 12-member group preserving both signed families supply information not given by that general numerical theorem."
+        ],
+        "reasoning": "Needed are a dimension-sensitive combinatorial restriction and compatible equality realization, not just substitution n=2 in an existing stronger theorem. The general structural reductions and classical subgroup order are not credited as novel.",
+        "searches": [
+          "Kiefer–Ryzhikov §9 outlook and Steinberg §2 proof mechanism versus frozen §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The apparent same-day match 0a4447340ca9 actually counts and classifies an inverse monoid of partial maps on M_2(F_q). It uses finite fields and counts maps, not members of an irreducible Q-matrix semigroup.",
+          "Steinberg arXiv:2601.03206v1 §2 gives the general zero-minimal-ideal approach, the closest equivalent framework, but no exact rank-two signed projective extremum in the inspected argument."
+        ],
+        "reasoning": "The standard equivalent Rees/trace framework is credited; it does not by itself optimize the two-dimensional incidence data. An inverse monoid of partial actions in characteristic p is neither the same count nor a reduction to it.",
+        "searches": [
+          "Focused local Resultary searches for finite irreducible rational matrix semigroups in dimension 2, maximum size 31, and rank-one incidence/Rees representations",
+          "Primary search: finite irreducible semigroup rational matrices two by two maximum 31 rank one Kiefer Ryzhikov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Bumpus et al. discussion points to maximal-order tables for finite subgroups of GL_n(Q); the cited table itself was not used as evidence. Even the exact group count of 12 controls only units, not the joint count of ranks zero, one and two. The local indexed match concerns a different finite-field object."
+        ],
+        "reasoning": "Group tabulation does not amount to a semigroup table, nor does group sharpness alone guarantee simultaneous sharpness in other ranks. No exact matching semigroup table was identified in the bounded comparison.",
+        "searches": [
+          "Local Resultary exact-cardinality lookup for irreducible rational 2×2 semigroups",
+          "Bumpus et al. ICALP 2020 p.2 discussion and footnote on maximal finite rational linear groups",
+          "Primary exact-number lookup, with main general papers inspected"
+        ]
+      },
+      "rationale": "The general bound, minimal-ideal method and finite rational subgroup constraint are prior work. The supported distinct result is the exact maximum of 31 in the irreducible dimension-two rational class, using a new rank-one count in the comparison and a joint equality example. Inspected stronger-looking general results do not supply that sharp count or example.",
+      "residual_risks": [
+        "An old or unindexed classification of rational planar finite matrix semigroups could settle this exact value. The conference slide PDF 26Grenoble.pdf associated with the asymptotic paper timed out in retrieval and is not used as scientific evidence; the primary paper's stated bound and outlook were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound and asymptotics, leaves exact largest sizes as further work",
+          "evidence": [
+            "General upper bound 3^(n²) and asymptotic 2^Θ(n²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.01236v2",
+          "material_read": "Abstract near offset 2220, §9 near 103700",
+          "method": "Primary OA HTML",
+          "title": "The asymptotic size of finite irreducible semigroups of rational matrices",
+          "trigger": "Exact same class of objects and direct general reference"
+        },
+        {
+          "assessment": "Same general bound and useful structural template; not a sharp planar count",
+          "evidence": [
+            "0-minimal ideal framework and general 3^(n²) theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.03206v1",
+          "material_read": "Abstract and §§1–2, offsets near 0–1600 and §2 minimal-ideal argument",
+          "method": "Primary OA HTML",
+          "title": "A short proof of a bound on the size of finite irreducible semigroups of rational matrices",
+          "trigger": "Same question and minimal-ideal reductions"
+        },
+        {
+          "assessment": "Bounds and subgroup context, not exact dimension-two semigroup coverage",
+          "evidence": [
+            "Generator-dependent size and length bounds; footnote on maximal orders for rational linear groups."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2020.115",
+          "material_read": "pp. 2–4 discussion and subgroup table citation near 3690, product-length bound near 10000 and size corollary near 10982",
+          "method": "Primary OA PDF from Dagstuhl",
+          "title": "On the Size of Finite Rational Matrix Semigroups",
+          "trigger": "Possible general theorem or classical classification reference"
+        },
+        {
+          "assessment": "Different counting problem",
+          "evidence": [
+            "Counts partial maps on M_2(F_q), not elements of finite irreducible subsemigroups of M_2(Q)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-partial-inner-automorphisms-of-two-by-two-matrix-semigroups-over--0a4447340ca9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Partial inner automorphisms of two-by-two matrix semigroups over finite fields",
+          "trigger": "Closest indexed dimension-two cardinality match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves the first nontrivial dimension of the exact extremal size question posed alongside the general asymptotic theorem. The bound distinguishes the contributions of units and rank-one matrices and the example proves they can be jointly maximal. It is substantially sharper than 81 and identifies a concrete projective restriction relevant to future exact classifications.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

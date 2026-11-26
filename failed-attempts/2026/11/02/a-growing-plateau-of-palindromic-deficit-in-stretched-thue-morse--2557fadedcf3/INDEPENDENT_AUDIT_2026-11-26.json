@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:58:53.890157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three-gap catalogue is exhaustive because the codes for three consecutive gaps have length at most 10, and all factors of length up to 16 are covered by the four occurring μ⁴ block pairs. For the transformed checker the single-block length is 8(M+2), already greater than 3M+5; coverage needs this single-block bound, not just the pair length. At N=2M+3 the one-, two- and three-b counts are 3, 3M+3, 0, and at N+1 they are 2, 3M+6, 2; each exterior split counted is realizable by catalogue flanks. For N+t a right-special word must have trailing run M or M+1. The single-b endpoint candidate would require repeated gap 2 for one extension; at the three-b endpoint the only minimal pairs (0,1),(1,0) cannot be followed by next gap 0. In the two-b case the flanking triples allow exactly (internal gap, terminal excess)=(0,1),(1,0),(2,0), and the middle choice loses one extension at t=M+1. For palindromes between N+1 and 3M+4 only two b's are possible, with integral equal exterior length (M+1+t−g)/2 for g∈{0,1,2}; the only potential g=1 case at 3M+4 fails parity, and at 3M+5 it needs both flank gaps positive, which is forbidden. Four b's at 3M+5 would require (0,1,0), absent. This gives all adjacent sums and the plateau, including M=1. Reversal closure follows also by reversing enclosing complete gap strings: μ^(2j)(0) are palindromic prefixes, and recurrence lets each factor be enclosed by b's. Nonnegativity and the Brlek–Reutenauer identity then yield the bound. Supplied outputs report finite exact tests, not an all-M proof; scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f05ad25e41ac proves T=2 on 2M+3 through 4M+6, followed by a zero block and a new positive term at 5M+9.",
+          "Frougny–Klouda investigates a different coding and does not cover the all-M family; Kim–Kwon provides the first positive point and the general defect identity."
+        ],
+        "reasoning": "The broader catalogue interval contains the entire target plateau. Its 2M+4 plateau terms plus the later single term imply D≥2M+5 by the same identity and reversal closure.",
+        "searches": [
+          "Resultary f05ad25e41ac, Finding and proof",
+          "Kim–Kwon arXiv:2609.16596 §§2,4.2,5.1",
+          "Frougny–Klouda, Factor and palindromic complexity of Thue–Morse's avatars, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_factors.py/.out, and verify_gap_catalog.py/.out",
+        "Kim–Kwon arXiv:2609.16596",
+        "Frougny–Klouda (2013)",
+        "Resultary f05ad25e41ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim–Kwon directly computes T(2M+3)=2 but not persistence; the later-dated catalogue entry supplies persistence through 4M+6 and a general exact flank criterion on the relevant word lengths."
+        ],
+        "reasoning": "The frozen plateau and defect lower bound are immediate restrictions/corollaries of the stronger content. The named right-special list is an explicit short presentation of the exact flank tests rather than a distinct uncovered result of comparable scope.",
+        "searches": [
+          "Kim–Kwon Proposition 4.3 and equation (5.2)",
+          "Resultary f05ad25e41ac Finding and Exact context count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The word and T statistic coincide in the frozen claim and f05ad25e41ac, with identical h_M and all M≥1.",
+          "The latter represents factors by an internal gap tuple and outer a-run lengths. Testing wa and wb by that exact criterion mechanically identifies right-special words; a first-difference count alone would not identify them."
+        ],
+        "reasoning": "The gap-context formulation is an equivalent description of the actual factor language on the target interval, not just of its cardinality.",
+        "searches": [
+          "Kim–Kwon arXiv:2609.16596 §4.2",
+          "Resultary: stretched Thue–Morse palindromic deficit, complexity and gap excursions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact thresholds give Δp=4 at 2M+3, 3 from 2M+4 to 3M+3 and 2 at 3M+4; the palindrome signatures are tabulated by number of b's, gap sum and symmetric padding capacity."
+        ],
+        "reasoning": "Summing these increments from Kim–Kwon's initial p and evaluating the signature inequalities gives the target p and P formulas, though the formulas are displayed differently.",
+        "searches": [
+          "Resultary f05ad25e41ac, Exact context count / Factor growth / Palindromic count"
+        ]
+      },
+      "rationale": "The main finding as frozen is covered in the current catalogue by a distinct stronger same-family record, which proves the larger complete initial plateau and gives exact factor-context and palindrome rules implying the requested profiles. Kim–Kwon already has the initial value. This is a content-coverage verdict, not a finding that the November 8 catalogue entry predates the November 2 entry or that the frozen proof is incorrect.",
+      "residual_risks": [
+        "The Nov. 8 catalogue path is later than the assigned Nov. 2 path. The snapshot establishes coverage and the path dates, not a priority or provenance conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact initial coverage, not the longer interval",
+          "evidence": [
+            "Computes p(N)=3M+6, p(N+1)=3M+10, P(N)+P(N+1)=4 and T(N)=2; states nonnegativity and the defect identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.16596",
+          "material_read": "§4.2 Prop. 4.3, (4.4)–(4.6), offsets 39900–46391; §2 offset 12120; §5.1 (5.2) offset 48839",
+          "method": "OA HTML",
+          "title": "On the number of palindromic factors of low complexity words",
+          "trigger": "Identical morphic family and first positive gap"
+        },
+        {
+          "assessment": "Stronger mathematical coverage; later path date, no earlier-priority inference",
+          "evidence": [
+            "T=2 through 4M+6 and again at 5M+9; exact factor-padding criterion and palindrome signatures imply the specialized profiles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-first-two-palindromic-gap-excursions-of-stretched-thue-mor--f05ad25e41ac/RESULT.md",
+          "material_read": "Finding, offsets 0–2400; Exact context count, Factor growth and Palindromic count, offsets 2350–5865; adjacent-sum table",
+          "method": "Resultary local mirror",
+          "title": "Exact first two palindromic-gap excursions of stretched Thue–Morse words",
+          "trigger": "Exact stronger same-word plateau"
+        },
+        {
+          "assessment": "Different coding",
+          "evidence": [
+            "The words studied reduce to their w_a for a=1,2; not the stated arbitrary-M stretching."
+          ],
+          "identifier_or_url": "Frougny–Klouda (2013)",
+          "material_read": "PDF p. 1, offset 2187, definition of coded words",
+          "method": "OA PDF",
+          "title": "Factor and palindromic complexity of Thue–Morse's avatars",
+          "trigger": "Possible equivalent Thue–Morse coding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A growing exact initial deficit interval is intrinsically useful, but the submitted interval and lower bound add no quantitative information beyond the stronger same-family catalogue result. The remaining explicit right-special shorthand is a direct specialization of the complete context criterion; no independently useful uncovered theorem survives as a bounded repair of this finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

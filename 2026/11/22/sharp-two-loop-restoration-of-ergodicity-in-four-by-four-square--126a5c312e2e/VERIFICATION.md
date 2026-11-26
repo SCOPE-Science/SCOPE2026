@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The attached `verify_ice_winding.py` independently reconstructs the \(2970\) configurations satisfying all 16 ice-rule equations and enumerates every allowed directed face or short winding cycle. Its exact integer union–find calculations test all \(256\) subsets of the eight designated winding cycles. The separate `verify_ice_hypercube.py` uses a Gray-coded four-cube and a two-outgoing-arcs-at-even-vertices construction, independently checks all ice configurations and tests the entire 256-subset criterion. To replay:
+## correctness
 
-```sh
-python3 verify_ice_winding.py
-python3 verify_ice_hypercube.py
-```
+PASS
 
-Both require standard Python 3 only, with no third-party packages or external files. Expected checks include 2970 states, 8768 face-only undirected edges, 69 face-only components, 19 after one fixed winding loop, 11 with two distinct parallel ones, and one after any transverse pair. Of all 256 designated subsets, precisely 225 are connected. The exactness is finite: no proof for larger tori or random dynamic mixing rates is supplied. The attached checkers are reproducibility evidence, not an independent scholarly audit.
+Summing the local ice equations along a cut shows that the positive-edge counts a and b (equivalently signed fluxes up to an affine normalization) do not depend on the cut. Face reversals preserve both; a directed horizontal reversal changes only a by one and a vertical one only b. Uniform horizontal and vertical orientations independently realize different cuts' flux values, giving necessity. I reconstructed the labelled state space by transfers between rows: for each incoming four-bit vertical row and each horizontal four-bit row, the ice equations uniquely determine outgoing vertical bits; retain binary outputs, concatenate four transfers and enforce periodic closure. Every ice orientation gives exactly one such sequence. Independently tested legal directed traversals by matching the four edges against either traversal orientation, then used graph search (not either frozen checker's union-find) over each designated subset. The result is 2970 states, 8768 facial edges, 69 facial components, 19 for any single designated loop, 11 for any parallel pair and one for every transverse pair. Across the 256 subsets, the numbers of subsets with 1, 5, 7, 11, 19, 69 components were respectively 225, 2, 8, 12, 8, 1. There are 16 minimizing pairs; supersets of a connecting pair remain connected. Positive proposals along all allowed types give the stated equivalence for irreducibility and a self-loop suffices for aperiodicity in that case. Replay: python3 /workspace/reproductions/review_02_ice.py (standard library). Both frozen verifiers were inspected, not executed. This is exhaustive only for the labelled C4 × C4 model and these fixed length-four loops; it proves no mixing-time result.
+
+## originality
+
+PASS
+
+Supports the minimal fixed-position transverse-loop criterion and the associated mixed-repertoire enumeration. The 2970 states and 69 face-only components are established prior overlap and specifically excluded from the distinct claim. Homological necessity and generic loop updates are not new here.
+
+## value
+
+PASS
+
+Face updates on a periodic constrained model are known to be disconnected. The exact smallest fixed update library that removes this obstruction on the canonical labelled 16-site graph is a useful finite benchmark and is not given by topology alone. In particular the result distinguishes allowance of all winding moves from just one specified move of each direction and gives concrete component counts useful for validating simulations. No dynamical speedup or larger-size conclusion is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

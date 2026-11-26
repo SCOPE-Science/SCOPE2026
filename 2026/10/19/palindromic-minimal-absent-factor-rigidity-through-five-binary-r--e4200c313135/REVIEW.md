@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source word's complete factor occurrence criteria are determined by traversal of its five maximal constant-symbol runs. They imply the five disjoint minimal-absence families after considering every candidate run count from one through six; larger counts cannot satisfy the present-prefix/present-suffix requirement. The resulting exact cardinality is an algebraic sum of the five family sizes. The three- and one-run reductions complete the at-most-five-run rigidity theorem, while `0010110100` supplies an explicit sharp seven-run counterexample. The standalone checker computes *whole minimal-absent-factor sets* for 1728 five-run choices and 342 shorter palindrome cases and verifies the two nonpalindromic factors in the counterexample. These finite checks support, but do not replace, the universal proof.
+PASS
 
-## Originality — PASS with residual risk
+I reconstructed the classification with the occurrence test that interior runs must be traversed in full. One- and two-run candidates give just the two forbidden unary extensions. In a three-run 010 candidate the middle run has length b or both ends must be singletons and the middle length is <b. At length b the supported outer-exponent pairs are two transposed rectangles, with unique internal minimal gap (min(a,c)+1,min(a,c)+1) if a≠c. A 101 candidate gives exactly the singleton ends with a supported zero-run length other than c. For a four-run 0^i1^j0^k1^h candidate, the entire first three runs lie in its shorter prefix and the last three in its shorter suffix. These force j=b, k=c, h≤b and i≤a (the transposed rectangle can allow (i,c) only if c≤a and i≤c). This also bypasses swapped prefix/suffix descriptions in the frozen four-run case split. A five-run candidate starting with 0 contains both four-run boundary blocks, which force it to occur; starting with 1 it must have singleton ends and both shorter factors occur exactly when its internal runs have lengths c,b,c with c≤a. Six runs cannot have both boundary deletions present, and seven or more retain too many runs. The families are disjoint and their counts sum to b+max(a,c)+1+1_{a>c}. The unary case uses the ambient missing letter, and the three-run case gives the shorter symmetric list. In 0010110100, the absent words 0011 and 1100 have present length-three prefixes and suffixes; the source is palindromic with seven runs and a palindrome cannot have an even run count.
 
-The closest primary work, Akagi et al., *Minimal Absent Words on Run-Length Encoded Strings* (arXiv:2202.13591), supplies general run-length enumeration and a five-category decomposition, rather than the closed symmetric five-run factor classification and sharp palindromicity threshold here. Mieno et al., *Palindromic Trees for a Sliding Window and Its Applications* (arXiv:2006.02134), treat minimal absent *palindromic* words defined by an inner-factor condition, not all ordinary minimal absent factors and their forced palindromicity. Accessible research-record and keyword searches did not identify equivalent parameter-uniform coverage, but search failure is not proof of novelty. A specialized example or equivalent theorem in an unindexed source remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full three-parameter classification makes the antidual factor language of low-run palindromes explicit without expanding long runs; the exact count depends on two simple run comparisons. More significantly, **palindromicity of every minimal absent factor** holds for *all* binary palindromes with at most five runs, with a certified sharp failure at seven. This is a natural structural threshold for compressed palindromic strings and absent-factor algorithms, not a numerical table extension or a change of terminology.
+Earlier work supplies general run-length MAW enumeration and an earlier three-run example, but in the inspected statements neither supplies the symmetric five-run closed classification or sharp universal palindromicity boundary. The closest indexed general five-run count has an exact partial overlap and leaves the crucial remainder unresolved.
 
-## Scientific limitations
+## value
 
-The classification is binary and for symmetrically patterned five-run words. It is not a general formula for all five-run nonpalindromes; the sharp counterexample does not classify seven-run cases. Finite computer checks cannot establish the universal statements, which rest on the given factor-incidence proof. Search coverage cannot exclude all unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reversal closure of the MAW set for a palindrome does not force its elements to be individually palindromic. The minimal-run transition is therefore a natural rigidity question. The five-family description explains why reversal does fix each minimal absence through five runs, and the seven-run counterexample identifies where this need no longer hold. This is a structural result for arbitrarily long words, stronger than checking short palindrome instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

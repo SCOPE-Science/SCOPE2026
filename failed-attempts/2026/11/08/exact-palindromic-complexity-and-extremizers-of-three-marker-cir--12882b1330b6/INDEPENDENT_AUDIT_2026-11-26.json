@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:56.808307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The circular windows have length at most n and palindromes are counted as distinct nonempty strings. With sorted gaps a<=b<=c, zero- and one-marker counts are c and b+1. For each distinct internal gap, the two-marker radii are bounded by the smaller exterior gap; repeated gap values contribute one range. Three markers require two equal internal gaps and twice the exterior radius at most the remaining gap. Summing yields all three claimed cases, including zero gaps. With distinct gaps n<=3c, so the maximum requires c=ceil(n/3). The deficit of (a,b) from (c-2,c-1) is 3c-n, and listing its splits with a<b gives exactly the claimed triples. The distinct-gap maximum beats the two-equal count by floor(n/2)-ceil(n/3)-1>=1 for n>=14 (check residues modulo six); all-equal is smaller. The dihedral action realizes all permutations of three gaps. The verification note and checker were inspected, not executed; the reported run is bounded. The independent Python replay /workspace/branches/replay_frozen.py matched literal windows for 640 sorted triples through n=28 and all maximizing classes for 14<=n<=28, corroborating rather than proving the unrestricted gap formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected indexed Eq. (2) gives the full bivariate distribution over necklace lengths and totals, in addition to the exact wordwise formula. The frozen record describes Simpson's general upper bound and a three-marker construction, but the author text was not retrieved in this review."
+        ],
+        "reasoning": "The indexed wordwise theorem covers all gap triples, without an n>=14 restriction. Neither the general upper bound nor one construction alone would supply all equality cases. The indexed result is decisive without assuming what Simpson's full text contains.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6",
+          "Simpson, Palindromes in circular words, DOI 10.1016/j.tcs.2014.07.012"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary October 26 three-marker distribution record, exact Eq. (1) and Eq. (2)",
+        "Simpson (2014) and OEIS A247000 retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For distinct gaps the indexed law reads 2n-c-2; c is minimized at ceil(n/3). The at most two-unit deficit from (c-2,c-1) gives the claimed class list. The indexed repeated-gap branches are strictly smaller for n>=14."
+        ],
+        "reasoning": "Optimizing the existing formula requires only splitting a deficit of 0, 1 or 2 and the displayed floor comparison. This is equivalent coverage of the mathematical content, not a priority conclusion based just on dates.",
+        "searches": [
+          "Indexed October 26 record Eq. (1), compared to frozen proof lines 59–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finding Eq. (1) of the indexed record (mirrored RESULT.md, offset 425): 3r+floor(r/2)+3; t+3r+floor(t/2)+4; r+3t+floor(r/2)+4; t+2s+2r+4, for all equal, lower equal, upper equal, and distinct sorted gaps respectively."
+        ],
+        "reasoning": "Set (r,s,t)=(a,b,c) and n=r+s+t+3. The four cases reduce exactly to the three formulas being audited. The earlier choice of rotation classes without identifying reversal does not change these per-word counts.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected rational bivariate generating function gives each fixed-length distribution exactly, and hence the attainable largest total as its largest supported exponent. A247000 as described in the frozen record concerns unrestricted binary circles and was not retrieved."
+        ],
+        "reasoning": "The unrestricted table would not isolate weight-three equality patterns. Independently, the inspected exact indexed distribution already provides the maximum as a support endpoint; the indexed wordwise law determines its achievers.",
+        "searches": [
+          "Indexed record's Eq. (2), mirrored RESULT.md offset 425",
+          "OEIS A247000 (OA attempted)"
+        ]
+      },
+      "rationale": "The exact sorted-gap formula is already stated and proved for the same family and circular-window convention in a distinct indexed result. Its straightforward integer optimization yields the maximum and all equality cases; the absence of an explicit table of those triples in the indexed result does not leave a substantively distinct claim.",
+      "residual_risks": [
+        "The full Simpson text was not available in the inspected sources, and the unrestricted OEIS entry was not independently read. This leaves external priority unresolved but does not weaken the exact indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complete count law; extremizers are a direct consequence",
+          "evidence": [
+            "The window length is capped at n, equality is literal string equality, and nonnegative sorted gaps parameterize all binary circles with three ones. Eq. (1) matches in each boundary case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-complete-palindromic-factor-distribution-for-binary-circles-with--5a2ce1363ba6/RESULT.md",
+          "material_read": "Finding, scope, Eq. (1), Eq. (2), and beginning of exact palette count proof, especially offset 425 onward; relationship section at offset 7543",
+          "method": "Indexed Resultary lookup and bounded local-mirror text inspection",
+          "title": "Complete palindromic-factor distribution for binary circles with three markers",
+          "trigger": "Direct Resultary match for number of markers and statistic"
+        },
+        {
+          "assessment": "Further historical coverage unresolved, not negative evidence",
+          "evidence": [
+            "Frozen RESULT.md lines 80–92 cites Lemma 6, Theorem 7 and Proposition 13; no decisive passage was retrieved here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Frozen bibliographic comparison and general circular-word search context only; no full text",
+          "method": "Primary literature search and lawful OA attempts at DOI and ScienceDirect",
+          "title": "Palindromes in circular words",
+          "trigger": "Same circular invariant; cited three-marker construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact sparse-marker invariant is natural, but the substantial wordwise computation is an existing exact result. The remaining display of maximizing patterns is a routine optimization of that same law over only the 0, 1, and 2 deficit cases. No separate nonmechanical mathematical contribution survives in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

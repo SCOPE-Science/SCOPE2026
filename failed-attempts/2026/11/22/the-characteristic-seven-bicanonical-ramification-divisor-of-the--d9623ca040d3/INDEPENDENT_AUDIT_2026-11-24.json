@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:51:48.569098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the complete bicanonical series by adjunction and the jet pivots at orders 0,1,2. In a separate exact computation (python3 /tmp/opencode/frozen_nov24_algebra.py, quartic part), put F=(1+(x+h)^4)/(1+x^4) and expand its fourth root as A=F^2/A^7, using A^7=1+a_1^7 h^7 modulo h^8. This differs from the frozen recursive fourth-power method. It recovers the exact pivot 5x^2/(1+x^4)^4, both zero determinants, and the stated seventh-row determinant. The simple noncoordinate zeros are 20 allowable choices of x times four y choices. At a coordinate point the tangent has order four and the six conic orders are 0,1,2,4,5,8. In positive characteristic one must justify identifying the intrinsic coefficient with the excess of order sums: in general the coefficient is at least the excess. Here the binomial leading-coefficient determinant at the coordinate points is 3 modulo 7, so equality holds there; at the other zeros it follows from the simple local Wronskian and integral excess. Degree 116 confirms completeness. Exact independent projective point enumeration using F49=F7[s]/(s^2+1) gave (coordinate, noncoordinate)=(0,8) and (12,80). The zeta product follows by counting quadratic orbits, and concerns reduced finite support, not the curve's zeta function. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torres (4.4) supplies the general relation from the Frobenius minimal polynomial. Maximality gives polynomial T+7, hence 7P+Phi_49(P) is linearly equivalent to 8P0. Maximality is also immediate since coordinate squaring gives a map from the maximal Hermitian degree-eight curve (or by the elementary count of 92 points).",
+          "Arakelian–Borges Theorem 2.4 explicitly gives the older conic nonclassicality criterion p dividing (n-2)(n-1)(n+1)(2n-1), but that statement is not used as if it gave the exact last order."
+        ],
+        "reasoning": "Maximality is not used just as a point count: its Frobenius relation constructs an actual bicanonical divisor with the required order at every geometric point.",
+        "searches": [
+          "Torres, arXiv:math/0011091, equations (4.3)–(4.5) and Lemma 4.15",
+          "Stöhr–Voloch, Weierstrass points and curves over finite fields, ramification-degree formula",
+          "Arakelian–Borges, arXiv:1502.05953, Theorem 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json and both exact verifiers",
+        "Torres arXiv:math/0011091",
+        "Arakelian–Borges arXiv:1502.05953",
+        "Resultary 75f11b45c109 and 5f7dec1c49ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At every noncoordinate point the tangent has order 2: in the affine chart its quadratic term is nonzero since x^2+x^6/y^4=-x^2/y^4. Thus 1,h,h^2,h times the tangent, and the tangent squared have orders 0,1,2,3,4. The Frobenius relation produces a sixth section with divisor 7P+Phi_49(P), hence order exactly 7 at nonrational points and 8 at rational points. The first five orders and dimension six rule out a still higher generic last order, without any conic-order priority assumption.",
+          "At the coordinate hyperflexes the tangent-line order is four, giving local order-sum excess three. The 80 other rational points have excess one. The general ramification-degree formula gives 116; the lower bounds from these 92 points already sum to 116, and thus force all coefficients and no other support.",
+          "For the explicit symmetric description, the fourth powers of F49 units are mu_12, with F7* the subgroup of index two and the other coset on the trace-zero F7-line (u^7=-u). In u+v=-1, neither exactly one nor both terms can be in the other coset. This gives X^24=Y^24=Z^24 and the converse follows since mu_24 lies in F49. The F7 count is the elementary fourth-power test (2,4) or (4,2), four points each, and determines the entire finite support zeta function."
+        ],
+        "reasoning": "This derivation proves the exact generic and local orders, weights, support and splitting using the established stronger relation, the degree formula and elementary properties of the given plane model; it is not a thematic overlap or a missing-proof objection.",
+        "searches": [
+          "Torres, arXiv:math/0011091, equation (4.4) and Lemma 4.15(1)",
+          "Arakelian–Borges, Theorem 2.4 conics",
+          "Fermat quartic characteristic 7 complete bicanonical Hasse ramification divisor hyperflex 80 points Garcia Voloch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These catalogue checks found the exact assigned record and distinct characteristic-seven hyperelliptic and good-characteristic Fermat comparisons. The bicanonical series is also exactly the maximal-curve Frobenius series |8P0|: a rational coordinate hyperflex P0 has 4P0 canonical."
+        ],
+        "reasoning": "Checking the alias as a Frobenius linear-series Weierstrass divisor materially changes the comparison: the general Frobenius divisor relation can be applied to this complete series, whereas the generic nonclassicality criterion alone would not give the result.",
+        "searches": [
+          "characteristic 7 Fermat quartic complete bicanonical ramification divisor 80 points 12 hyperflexes weights",
+          "Fermat quartic Hasse order sequence (0,1,2,3,4,7) bicanonical characteristic seven hyperflex",
+          "Fermat quartic characteristic seven conic nonclassicality maximal genus three F49 bicanonical points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hyperelliptic result has eight weight-four branch points and 84 simple points despite sharing the generic sequence and divisor degree. The good-characteristic Fermat record concerns 48 proper sextactic points in characteristics at least eleven. Neither is this exact table. The identical indexed record is not independent priority evidence."
+        ],
+        "reasoning": "A matching degree or generic order sequence does not identify the curve or weighted support. The established prior coverage here comes instead from a general theorem.",
+        "searches": [
+          "Resultary characteristic-seven genus-three nonclassical bicanonical Wronskian genus-three hyperflex search",
+          "75f11b45c109",
+          "5f7dec1c49ab"
+        ]
+      },
+      "rationale": "The principal claim, including the entire weighted divisor and not merely generic nonclassicality, is a short corollary of the existing maximal-curve Frobenius linear-series relation and the standard ramification-degree formula. This was established by a covering implication, not by identifying a verbatim prior table or by treating unavailable material as adverse evidence. The displayed coordinate Wronskian is a valid direct computation of that divisor, but is not an independently claimed new ramification invariant.",
+      "residual_risks": [
+        "No claim is made to know the first explicit coordinate Wronskian or table. The original Garcia–Voloch full text and complete distinct catalogue texts were not obtained. The negative originality judgment relies on the displayed positive implication, not those access limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem applies after identifying the maximal Frobenius polynomial and bicanonical series",
+          "evidence": [
+            "Equation (4.4) gives the linear equivalence obtained by evaluating the Jacobian minimal polynomial at Frobenius; (4.5) defines the induced series."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/math/0011091",
+          "material_read": "Section 4, bounded passages around (4.3)–(4.5) and Lemma 4.15(1)",
+          "method": "Lawful arXiv full-text HTML conversion",
+          "title": "The approach of Stöhr–Voloch to the Hasse–Weil bound with applications to optimal curves and plane arcs",
+          "trigger": "Frobenius linear-series covering implication"
+        },
+        {
+          "assessment": "The inspected theorem states conic nonclassicality, not the exact divisor",
+          "evidence": [
+            "For p>5, the conic series is nonclassical iff p divides the displayed product including 2n-1."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1502.05953",
+          "material_read": "Theorem 2.4 and its immediate context",
+          "method": "Lawful arXiv full-text HTML conversion",
+          "title": "Frobenius nonclassicality of Fermat curves with respect to cubics",
+          "trigger": "Potential exact earlier generic conic order sequence"
+        },
+        {
+          "assessment": "No verdict about contents outside the verified criterion; independent general implication suffices",
+          "evidence": [
+            "Theorem 2.4 of arXiv:1502.05953 reproduces the criterion."
+          ],
+          "identifier_or_url": "doi:10.1016/0022-314X(88)90007-8",
+          "material_read": "The cited conic criterion as reproduced in the later primary article; original full text unavailable",
+          "method": "Attempted lawful primary retrieval and checked the later primary statement",
+          "title": "Fermat curves over finite fields",
+          "trigger": "Closest historical source on Fermat conic orders"
+        },
+        {
+          "assessment": "Respectively a different curve and different characteristics",
+          "evidence": [
+            "Hyperelliptic weights four/eight points plus 84 simple; other result characteristic at least eleven with 48 proper sextactic points."
+          ],
+          "identifier_or_url": "Resultary 75f11b45c109 and 5f7dec1c49ab",
+          "material_read": "Indexed scientific statements, not entire records",
+          "method": "Local Resultary searches",
+          "title": "Exceptional characteristic-seven bicanonical Wronskian and four Frobenius spectra of Fermat-quartic sextactic points",
+          "trigger": "Strongest distinct catalogue comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The model is natural and the verification is useful as an alternate computation, but the proposed standalone contribution is the divisor, weights, arithmetic support and generic orders, all mechanically forced by the prior Frobenius series once one notes a rational hyperflex and the noncoordinate tangent order. The coordinate determinant and pivot certify the same conclusion in one trivialization rather than supply a separate motivated new invariant. No scientific repair is made just by adding the prior proof alongside the direct calculation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:08:07.341361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–100",
+        "Frozen VERIFICATION.md and verification/verify.py (read only)",
+        "python /workspace/review_evidence/4.py (SymPy and exact rational recurrence; passed)"
+      ],
+      "rationale": "Word reversal keeps R and sends U to mn−U. Given the initial symbol and R, each pair of positive compositions of the specified lengths is equally likely, giving independence. Stars and bars gives the weak-composition factorial moment 2(M−s)(M−s−1)/(s(s+1)); exchangeability plus the fixed sum then gives the displayed projection covariance. After centering both compositions, the two linear terms and one bilinear term have zero pairwise inner products by independence and zero means. Recomputed the staircase sums by subtracting squared row/column sums divided by the other dimension and then adding the squared grand sum divided by the matrix size. The even orientations have equal mass and opposite offsets ±P/(2k); their between-orientation variance is therefore required. The odd orientation weights are (m−k)/(N−2k) and (n−k)/(N−2k), and both feasible orientations have mean P/2. A zero-weight orientation need not have a valid composition; its term is omitted, so substitution and the formula extend to the maximal imbalanced odd stratum. Equal counts at k=m=n exclude the undefined denominator. The symbolic replay verified both variance reductions and all three strict-gap identities. With a=m−k and b=n−k the right-odd gap is positive when a+b>0, the left-odd gap has a positive constant even at a=b=0, and the even-step numerator is positive since P≥k. A separate exact prefix recurrence for counts, inversion sums and squared sums confirmed every feasible stratum up to 14 of each symbol.",
+      "residual_risks": [
+        "The finite recurrence is a cross-check; the composition identities and algebra prove the theorem for all positive counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE031 supplies the joint partition area/distinct-positive-parts enumerator G(q,t) in any rectangle (directly in the proof), not just its q marginal. Conger–Viswanath supply unconditional multiset inversion moments and normal approximation."
+        ],
+        "reasoning": "Write λ_i for zeros after the ith one. Then U=|λ|, the corner count D is exactly the number of 10 transitions, and R=1+2D+last−first for binary endpoints. First=1 iff λ_1=n; last=1 iff λ_m=0. Forcing λ_1<n replaces n by n−1, and forcing λ_m=0 replaces m by m−1. With inclusion–exclusion on the two restrictions, the earlier identity already supplies the joint generating function by endpoints and thus U at fixed R. It does not give the comparisons of normalized variances across the strata.",
+        "searches": [
+          "Resultary 2026/9/15/SCOPE031, definitions, result and Lemmas 1–3",
+          "arXiv:math/0508242, Lemma 2.6 and Theorem 2.12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0712c2da4770, 50b596d23f6a, c6b28ad6d93d and SCOPE031",
+        "arXiv:math/0508242",
+        "arXiv:1707.04351"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two q differentiations of the endpoint-refined earlier generator at q=1 recover second moments. Madden counts runs of specified lengths, not mixed area/run moments."
+        ],
+        "reasoning": "The extraction yields sums and normalized moments, so a new joint-distribution invariant is not credited. The inspected identity does not mechanically assert the strict signs of differences of those normalized moments, including at the feasible boundaries. The composition reduction and the positive gap factorizations supply that extra analysis.",
+        "searches": [
+          "SCOPE031 area/corner generator, explicit endpoint reduction",
+          "arXiv:math/0508242 pp. 3, 7 and 11; arXiv:1707.04351, Theorem 1.1 and Proposition 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2 November entry uses the identical U and R under the identical null and identifies centered U with centered Wilcoxon rank up to sign. Its even numerator is the expanded submitted numerator. In the odd orientation mixture, the weighted linear terms a−3b and b−3a give (N²−8P+2kN)/(N−2k), precisely the submitted fraction."
+        ],
+        "reasoning": "Odd troughs versus their feasible neighbors are the same adjacent inequalities as even peaks, and the even-step inequality also matches; the later entry additionally asserts odd-subsequence decrease. It is not merely a change of name or a nearby problem. The 2 November versus 18 October catalogue dates do not demonstrate earlier priority or the entries' provenance.",
+        "searches": [
+          "Resultary: conditional Wilcoxon variance under fixed-composition runs",
+          "Resultary 0712c2da4770, Finding and Assumptions, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0712c2da4770 is a direct later match to exact variances and both adjacent comparisons. Also dated 2 November, 50b596d23f6a gives Cov(W,R)=0 and Cov(W²,R)=−ab(ab−1)/(3N), a weighted aggregate, not a stratum table. The 4 October record gives pairwise transition-indicator covariance signs only."
+        ],
+        "reasoning": "Neither the weighted covariance nor the local transition table determines each normalized variance. The explicit equivalent later match is material but does not settle earlier publication.",
+        "searches": [
+          "Resultary: parity-sawtooth and joint squared rank sum/run results (0712c2da4770, 50b596d23f6a) and fixed-composition transition indicators (c6b28ad6d93d)"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit all-size sign classification and positive gap formulas, with evaluated parity-dependent variances as the means of deriving them. The joint enumerability of U and R, and hence extraction of moments as such, are covered by an earlier area/corner identity after endpoint refinement. An exact equivalent of the submitted variance and parity conclusions was also identified in a distinct later-dated catalogue entry; this is documented overlap, not shown earlier coverage or a finding about provenance.",
+      "residual_risks": [
+        "Mood (10.1214/aoms/1177731825), Wald–Wolfowitz (10.1214/aoms/1177731909), and Mann–Whitney (10.1214/aoms/1177730491) were identified and official bibliographic material consulted, but bounded lawful OA attempts did not yield their original full texts. No whole-document exclusion is made.",
+        "The relationship between the equivalent later catalogue entry and the frozen entry is not established. An earlier evaluated sign result could still have escaped the search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the submitted claim, later catalogue date, no earlier priority demonstrated",
+          "evidence": "Both variance formulas agree under the orientation mixture; its even-step and adjacent strict inequalities match, and it adds odd-step decrease.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-parity-sawtooth-law-for-conditional-wilcoxon-variance-under-fi--0712c2da4770/RESULT.md",
+          "material_read": "Finding, Assumptions and start of proof, offset 0–3361",
+          "method": "Resultary search and OA local-mirror passage",
+          "title": "A parity-sawtooth law for conditional Wilcoxon variance under fixed-composition runs",
+          "trigger": "Identical joint statistics and exact parity ordering"
+        },
+        {
+          "assessment": "Broader enumerative coverage after explicit endpoint refinement, not the sign classification",
+          "evidence": "The proof gives G(q,t)=Σ_i (t−1)^i q^{i(i+1)/2}[n choose i]_q[n+m−i choose m−i]_q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/15/SCOPE031/RESULT.md",
+          "material_read": "Definitions, Result and Proof Lemmas 1–3, offsets 610–3102",
+          "method": "Resultary search and OA local-mirror passage",
+          "title": "Closed q-binomial expansion for the corner-weighted rectangle generating function",
+          "trigger": "Earlier joint area/corner enumeration under the partition encoding"
+        },
+        {
+          "assessment": "Later aggregate comparison only",
+          "evidence": "The squared-rank/run covariance is a single weighted summary of the conditional variances.",
+          "identifier_or_url": "Resultary 50b596d23f6a",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary search and local mirror",
+          "title": "Exact squared rank-sum and runs covariance under the two-sample null",
+          "trigger": "Mixed conditional rank/area and run statistic"
+        },
+        {
+          "assessment": "Related earlier run-only result",
+          "evidence": "It compares local transition covariances; no inversion/run mixed moment is in its stated result.",
+          "identifier_or_url": "Resultary c6b28ad6d93d",
+          "material_read": "Finding, offsets 51–1204",
+          "method": "Local-mirror statement",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Same fixed-content conditioning and run statistic"
+        },
+        {
+          "assessment": "Marginal moments and limit laws only in the decisive statements",
+          "evidence": "The inversion variance there is taken over the entire multiset-permutation population, not a run stratum.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0508242",
+          "material_read": "pp. 1, 3, 7 and 11; Lemma 2.6 and Theorem 2.12",
+          "method": "OA PDF passages",
+          "title": "Normal approximations for descents and inversions of permutations of multisets",
+          "trigger": "Prior binary case of uniform multiset inversions"
+        },
+        {
+          "assessment": "Different enumeration",
+          "evidence": "Counts specified numbers of runs of specified lengths; no conditional inversion variance in those statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.04351",
+          "material_read": "Theorem 1.1 and Proposition 1.2, pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "A Generating Function for the Distribution of Runs in Binary Words",
+          "trigger": "Run generating functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(10)",
+        "SCOPE031 joint enumeration comparison"
+      ],
+      "rationale": "Two standard statistics of the same fixed-size null exhibit an exact and nonmonotone interaction. Reversal forces the conditional means to be equal, but supplies no ordering of dispersions; the strict peaks at every even count and the exact gaps determine which successive strata gain or lose inversion variability. This is useful information beyond the computable joint enumerator or marginal rank variance. It is a complete boundary-sensitive statement for a natural conditioning variable, not a small-instance anomaly.",
+      "residual_risks": [
+        "No result on testing power, tails, or the value of an applied procedure is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

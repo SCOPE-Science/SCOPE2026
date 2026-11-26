@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:05:33.531709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equal-block averaging operator is an orthogonal projection on L2; the forcing depends only on the two means and has range in that projection. Hence the means follow the stated exact smooth ODE and the residual is e^(-dt) times its initial value, also for arbitrary non-step L2 data. The bounded averaging and Lipschitz tanh give a globally Lipschitz vector field. On the antisymmetric line, z=L_-s>0 parametrizes the branch by u=d z/(L_- tanh z); tanh z-z sech^2 z is positive since its derivative is 2 z sech^2 z tanh z, so this maps bijectively to u>d/L_-. The block Jacobian eigenvalues divided by d are -1+(L_±/L_-)2z/sinh(2z). The antisymmetric mode is negative and the common mode changes sign once because sinh(2z)/(2z) is strictly increasing from 1 to infinity and L_+/L_->1. The exact residual identity lifts hyperbolic instability/stability; no nonlinear classification at the zero eigenvalue is claimed. In the consensus branch the formula with L_+ as denominator shows the larger eigenvalue is already negative whenever the nonzero branch exists, and the other is smaller. Thus four distinct stable equilibria coexist above u_*. Read, did not run, the source script. Fresh 55-digit working-precision bisection (/tmp/opencode/frozen-review-replay.py, section 4) corroborated z_*=1.08865949248265338, u_*=4.10098722992990467 and common-mode eigenvalues 0.06286519187 at u=4 and -0.21137394900 at u=4.5 for the given example. Uniqueness and full-L2 stability are analytic, not numerical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graphon and community-detection results give leading-mode equilibrium behavior near a primary bifurcation. The tunable-sensitivity results supply general agreement/disagreement branches near onset according to the interaction signs."
+        ],
+        "reasoning": "Leading-mode behavior near onset is compatible with the later existence and stabilization of a subdominant antisymmetric branch. It does not determine the number, sign or locations of its high-gain stability changes.",
+        "searches": [
+          "arXiv:2609.14086, Prop. 1 and Thm. 2",
+          "arXiv:2409.08004, Prop. 1 and Thm. 1",
+          "arXiv:2009.04332, Thm. IV.1 and Cor. IV.1.1"
+        ]
+      },
+      "checked_sources": [
+        "Xing–Bizyaeva–Johansson arXiv:2609.14086 and arXiv:2409.08004",
+        "Bizyaeva–Franci–Leonard arXiv:2009.04332",
+        "Resultary 54f16cf83e3f and 56f902ee9956"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-influence primary branch in the community paper has same-sign opinions near onset. The closest cubic Resultary record also has an initially unstable polarized branch that eventually stabilizes, but the mechanism and numerical condition are derived for bounded-confidence cubic dynamics."
+        ],
+        "reasoning": "Neither a local primary bifurcation theorem nor the other flow gives the unique common-mode crossing on a non-primary branch for the tanh equation, or certifies coexistence with two stable consensus states throughout u>u_* in L2.",
+        "searches": [
+          "Behavior of Nonlinear Opinion Dynamics over Large Networks, Eq. (3) and Thm. 2",
+          "Learning Communities from Equilibria of Nonlinear Opinion Dynamics, Prop. 1 and Thm. 1",
+          "Resultary 54f16cf83e3f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xing–Bizyaeva–Johansson (2026) gives the same continuum model when self-weight and bias vanish. The older Resultary 54f16cf83e3f gives a transverse saddle-to-attractor switch for symmetric polarized states in a two-group cubic bounded-confidence flow."
+        ],
+        "reasoning": "The block model is an exact restriction of the graphon equation, not a new model; its planar Jacobian sign change is a separate calculation. The cubic and tanh branches have different nonlinearities and validity ranges and are not equivalent by rescaling gain.",
+        "searches": [
+          "Resultary: two-community polarization, transverse stability threshold, strictly positive tanh graphon and high attention",
+          "arXiv:2609.14086, graphon Eq. (3)",
+          "arXiv:2409.08004, §II.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 54f16cf83e3f gives cubic-model thresholds 2 beta and 3 beta with a confidence constraint epsilon>1/sqrt(3); same-day 56f902ee9956 gives period-two cycles for a softmax attention map, not graphon stationary states."
+        ],
+        "reasoning": "Comparison of the actual symbolic thresholds and model classes found neither to be a table or formula for the claimed hyperbolic threshold. This was a bounded search, not exclusion of all prior results.",
+        "searches": [
+          "Resultary: sharp threshold for stable polarized branches; positive graphon tanh; attention and coexisting attractors"
+        ]
+      },
+      "rationale": "The supported increment is the exact single secondary stability switch of the polarized branch and the resulting full-L2 coexistence of four stable equilibria in the stated strictly positive, zero-feedback, equal-two-block tanh model. The graphon flow, bifurcation methods, and polarization/multistability more generally are established antecedents.",
+      "residual_risks": [
+        "An unlocated result for two-cell cooperative sigmoid or recurrent neural systems could subsume the planar threshold after changing coordinates. Bounded inspection does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the model and leading-eigenfunction approximation near primary onset, not the high-gain polarized switch.",
+          "evidence": "Thm. 2 treats leading-mode patterns near bifurcation rather than the global-in-gain stability of a secondary branch.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.14086",
+          "material_read": "Eq. (2), Prop. 1, graphon Eq. (3), Thm. 2, PDF pp. 2–5 (OA offsets 11690, 22100, 37300).",
+          "method": "OA primary PDF passage comparison.",
+          "title": "Behavior of Nonlinear Opinion Dynamics over Large Networks",
+          "trigger": "Same graphon model; potential general equilibrium theorem."
+        },
+        {
+          "assessment": "Primary near-onset same-sign branch for positive influence, not later stability of anti-aligned states.",
+          "evidence": "Thm. 1 uses equilibria close to bifurcation for community inference.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.08004",
+          "material_read": "§II.A, Prop. 1 and Thm. 1, pp. 2–3 (OA offsets 9478 and 20100).",
+          "method": "OA primary PDF passage comparison.",
+          "title": "Learning Communities from Equilibria of Nonlinear Opinion Dynamics",
+          "trigger": "Positive tanh opinion dynamics and community equilibrium patterns."
+        },
+        {
+          "assessment": "Generic bifurcation antecedent, not an exact high-attention threshold for the restricted positive graphon.",
+          "evidence": "Effective cooperation versus competition determines sign patterns of primary small-amplitude branches.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.04332",
+          "material_read": "Thm. IV.1 and Cor. IV.1.1, pp. 7–8 (OA offset 57080).",
+          "method": "OA primary PDF passage comparison.",
+          "title": "Nonlinear Opinion Dynamics with Tunable Sensitivity",
+          "trigger": "Broader agreement/disagreement and bifurcation mechanisms."
+        },
+        {
+          "assessment": "Cubic bounded confidence and softmax period-two map respectively; neither is the claimed tanh graphon.",
+          "evidence": "Cubic polar branch is saddle between 2 beta and 3 beta under the confidence condition; the softmax finding concerns attracting cycles instead of stationary states.",
+          "identifier_or_url": "Resultary 54f16cf83e3f and 56f902ee9956 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "material_read": "Mirrored findings; former also relevant stability proof passage at mirror offset 6000.",
+          "method": "Local Resultary retrieval and mirror text comparison.",
+          "title": "Sharp transverse stability barrier for polar equilibria; attention-temperature threshold for coexisting attractors",
+          "trigger": "Closest sharp two-community stability switch and same-day attention/coexistence match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a strictly cooperative positive kernel the initially unstable anti-aligned branch need not stay unstable: increasing gain past a sharp parameter-dependent boundary makes polarized states and same-sign equilibria simultaneously robust to arbitrary small L2 perturbations. Distinguishing saturation-induced stability from mere branch existence is a motivated gap in the near-onset picture. The exact two-block threshold is useful as a test case, without implying global basin behavior or an empirical claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

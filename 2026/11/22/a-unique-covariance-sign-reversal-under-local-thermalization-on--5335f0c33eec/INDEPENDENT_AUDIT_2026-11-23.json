@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:52:24.660553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the stationary pair covariances by a different moment representation. A pair of independent exponential energies of means s_i,s_j, after uniform redistribution, is a mixture of two independent exponentials with common mean w uniform between s_i and s_j: the old total has Laplace transform [(1+zs_i)(1+zs_j)]^{-1}, which is the segment average of (1+zw)^{-2}, and splitting at a fresh uniform fraction gives the independent exponential pair conditional on w. Each complete refresh sets its hidden mean to the reservoir mean. The hidden process on [T,T+Δ]^N is compact Feller, yielding a stationary exponential mixture with finite moments. Common-clock coupling of the energies cannot increase the L1 distance at an exchange and removes the refreshed coordinate's distance at rate g. The conditional expected distance decays at least as exp(−gt) from each fixed pair of initial states; bounded truncation of the resulting probability estimates gives uniqueness even for arbitrary a priori stationary laws. Normalize hidden means by subtracting T and dividing by Δ, so their resets are to 1 at the hot site and 0 elsewhere. Exchange replaces both by a common convex combination; on a hot–cold edge its second moment is (E S_H²+E S_C²+E S_H S_C)/3. The analogous cold–cold term and the rate-one counts of other neighbors give an independent four-equation solve. Because energies are conditionally independent given means, off-diagonal covariances are Δ² times the normalized hidden covariances. Independent replay: python /workspace/independent_checks.py (kmp routine) yields exactly the reported quartic P_N and cubic Q_N after multiplying by the reported D_N and taking the indicated signs. The original generator moments agree using E U²=1/3 and E U(1−U)=1/6. The positive denominator, strictly positive coefficients of Q_N, and (+,+,−,−,−) coefficients of P_N in descending order for N≥3 establish the signs and one simple critical root. Substituting g=Ns gives N^{-4}P_N(Ns)→2s(3s+1)(2s²−1); signs at fixed positive ratios straddling 1/√2 bracket the unique root for large N. This uses unit rate per unordered edge, not a unit total rate at each vertex. The submitted notes and code were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hidden-temperature theorem gives a stationary mixture and general moment identities, with explicit covariance analysis on a one-dimensional graph in §4.1.",
+          "The generalized driven-model theorem uses a reservoir x↦(x+Y)B with gamma and beta variables and explicitly distinguishes the full reset f↦E f(Y)−f(x)."
+        ],
+        "reasoning": "A general representation and moment calculation framework underlies the result; it does not already quantify which pair classes have a fixed or changing sign here. A theorem for the add-and-split boundary kernel cannot be substituted for the full-site reset kernel.",
+        "searches": [
+          "arXiv:2310.01672, Theorem 2.3 and Eqs. (2.13)–(2.17)",
+          "Giardinà–Redig–van Tol doi:10.1007/s10955-025-03393-1, §2.3 and Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "De Masi–Ferrari–Gabrielli arXiv:2310.01672",
+        "Giardinà–Redig–van Tol doi:10.1007/s10955-025-03393-1",
+        "Resultary 5335f0c33eec (self-match), 39db3e082c10, 065f172b2ea0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general moment relation and the reset remark give a viable route to recovering the pair formulas; an independent solve using that route recovered the same P_N,Q_N. That reduction still needs the complete-graph four-variable coupling and the resulting polynomial signs and N-scale limit.",
+          "Bipartite cancellation occurs in a different pair class, whereas the other complete-network model changes the reservoir operator."
+        ],
+        "reasoning": "The existence of a solvable degree-two system is prior technology. No checked stronger theorem gives the sign or root count under the present graph and refresh rules: the all-N coefficients, their signs and the scaled limiting polynomial are model-specific. The two distinct indexed records do not specialize to the frozen sign classification.",
+        "searches": [
+          "De Masi–Ferrari–Gabrielli arXiv:2310.01672, Eq. (2.4), Theorem 2.3 and §4.1",
+          "Resultary 39db3e082c10 and 065f172b2ea0, exact Finding and model assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Masi et al. p. 5 Eq. (2.4) explicitly describe independent full exponential resets as the original boundary convention, distinct from the boundary-edge update in their main model. They state that their approach works for that convention.",
+          "Conditional independent exponentials imply that hidden-temperature off-diagonal covariance is exactly the energy off-diagonal covariance before affine normalization; this alternative formulation was checked, not dismissed."
+        ],
+        "reasoning": "All-site resets can be formulated in the reset-boundary convention by placing a refresh term at every site and assigning it rate g. Replacing energies by hidden means or recoding rates per site does not create a new theorem. The prior passage supplies the mechanism, not its covariance sign classification for this generator.",
+        "searches": [
+          "Resultary: one thermal impurity, KMP complete graph and bipartite graph, exponential refresh covariance sign transition",
+          "De Masi–Ferrari–Gabrielli arXiv:2310.01672, Eq. (2.4), Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 5335f0c33eec is the frozen record itself. The bipartite result 39db3e082c10 uses the same clock and refresh conventions but gives an opposite-shore cold–cold critical rate g*/n→(1+√3)/2 on K_{n,n}.",
+          "The complete-network result 065f172b2ea0 has edge-coupled reservoirs, a positive covariance formula, and no full-site refresh threshold."
+        ],
+        "reasoning": "A common scaling or the keyword complete graph is insufficient. The exact pair covariances and numerical constants depend on the adjacency, the clock normalization, the reservoir transition, and the pair class. Neither distinct indexed statement is an exact entry for the reviewed classification.",
+        "searches": [
+          "Resultary: quartic stationary covariance zero under KMP single-impurity local thermalization, records 5335f0c33eec, 39db3e082c10 and 065f172b2ea0"
+        ]
+      },
+      "rationale": "The exchange, reset operator, and hidden-temperature method are prior material. The complete-graph, one-impurity result supported as distinct is the explicit stationary pair-covariance classification (hot–cold zero and sign orientation, cold–cold positivity, and the critical scaling), not a new general mixture representation or moment closure. The reset-boundary version of prior KMP is a genuine derivation route, but no inspected result gives this graph-specific classification. The closest same-day comparison uses the identical local transition but different adjacency and sign-changing pair class.",
+      "residual_risks": [
+        "The reset-boundary hidden-temperature method can be specialized to this setting. An earlier explicit complete-graph specialization or a more general pair-sign classification could exist outside this bounded search; no historical priority or ordering is inferred from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework and explicit reset antecedent, not an exact complete-graph sign result",
+          "evidence": [
+            "Theorem 2.3 identifies stationary energy moments with factorial-weighted moments of the hidden temperature; the p. 5 remark describes full exponential resets. Its specialized covariance analysis is for a chain, not this complete graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.01672",
+          "material_read": "pp. 5–6 boundary update and Eq. (2.4) remark; pp. 7–9 Theorems 2.2 and 2.3 and Eqs. (2.13)–(2.17)",
+          "method": "Inspected lawful OA PDF passages including decisive reset convention and moment identities",
+          "title": "Hidden temperature in the KMP model",
+          "trigger": "General stationary KMP covariances, hidden-temperature mixtures and reset-boundary variant"
+        },
+        {
+          "assessment": "The theorem uses a different generator; the full reset is mentioned separately",
+          "evidence": [
+            "The driven update retains a beta fraction of old energy plus gamma reservoir energy; it is not complete exponential replacement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-025-03393-1",
+          "material_read": "§2.3 pp. 11–12, Eqs. (27)–(29), Eq. (35) and driven-model Theorem 2.3",
+          "method": "Lawful OA passage inspection",
+          "title": "Intertwining and Propagation of Mixtures for Generalized KMP Models and Harmonic Models",
+          "trigger": "Potential broader reservoir and covariance representation"
+        },
+        {
+          "assessment": "Close sister calculation but different graph and sign-changing pair",
+          "evidence": [
+            "On K_{n,n}, opposite-shore cold pairs switch, with g*/n→(1+√3)/2; the complete-graph theorem instead has sign-changing hot–cold pairs and positive cold–cold pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cold-cold-anticorrelation-from-a-single-thermal-impurity-on-a-bi--39db3e082c10",
+          "material_read": "Mirrored RESULT.md, Finding and normalization, offset 0",
+          "method": "Resultary and exact local mirror",
+          "title": "Cold–cold anticorrelation from a single thermal impurity on a bipartite graph",
+          "trigger": "Same-day all-site reset KMP covariance threshold with precisely one hot site"
+        },
+        {
+          "assessment": "Different reservoir dynamics and covariance law",
+          "evidence": [
+            "Two edge-coupled reservoirs replace the independent full resets; the stated covariance is positive and has no reset-rate transition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-current-neutral-internal-exchange-creates-exact-long-range-kmp-e--065f172b2ea0",
+          "material_read": "Mirrored RESULT.md, Finding and model at offset 0",
+          "method": "Resultary and exact local mirror",
+          "title": "Current-neutral internal exchange creates exact long-range KMP energy correlations",
+          "trigger": "Same-day complete-network KMP stationary covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves which pair class reverses under increasing thermostat strength even on the most symmetric interaction graph with a single temperature defect. It distinguishes a genuine anticorrelation from a general positive-fluctuation intuition and predicts how per-site thermostat strength must grow relative to unit-per-edge exchange. This system-specific classification is useful beyond the routine act of deriving second-moment equations, and the stated scope keeps it separate from other reservoir mechanisms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

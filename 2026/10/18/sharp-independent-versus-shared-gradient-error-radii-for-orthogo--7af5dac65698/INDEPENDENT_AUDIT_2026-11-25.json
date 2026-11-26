@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:06:29.504600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/branches/independent-replay.py, check2"
+      ],
+      "rationale": "The directional derivatives along −p are −a p₁ and −b p₂. Below the independent radius, the endpoint x-order and reverse y-order are strict; every segment point also has positive coordinate sum, since each endpoint's sum is at least min(a,b)−sqrt(2)δ>0. An interior projection is therefore along the positive normal. For an endpoint projection, the variational inequality and the strict endpoint orders force the other coordinate to be positive once the coordinate facing its true gradient is positive. The half-small-norm witness is a horizontal or vertical segment; pushing the relevant endpoint slightly past the axis, while tilting the segment so that the endpoint stays optimal, yields strict ascent at any larger allowance. For shared errors the fixed normal (b,a) has positive inner product with the whole translated segment below d₀=ab/sqrt(a²+b²); endpoint variational inequalities cover cases when the normal foot leaves the segment. At equality translating by −p₀ sends the unperturbed interior foot to zero, and translating by −(1+ε)p₀ sends it to −εp₀, still its interior foot. The ratio simplifies to 2max(a,b)/sqrt(a²+b²) with the claimed endpoint behavior. Independent replay `python3 /workspace/branches/independent-replay.py 2` passed 6,542 exact rational below-threshold grid checks and exact equality and above-threshold witnesses in both regimes. The proof supplies the universal claims.",
+      "residual_risks": [
+        "This is a pointwise exact-projection criterion; it does not supply a uniform nonlinear step size or a stochastic convergence result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former estimates the movement of the direction map via Lipschitz/Hölder regularity; the latter shares a sample, with objective-specific gradients and corrections, and uses a minimum-norm hull combination."
+        ],
+        "reasoning": "Movement norm control or estimator construction is not a sharp strict coordinate-sign guarantee with paired endpoint-error witnesses. The examined statements do not imply either sharp radius in this exact setting.",
+        "searches": [
+          "Huang–Chen arXiv:2607.15412 Lemmas 1–2",
+          "Zhao et al. arXiv:2608.22945 Algorithm 1 and Remark 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Désidéri 2012, DOI 10.1016/j.crma.2012.03.014",
+        "arXiv:2608.22945",
+        "arXiv:2607.15412",
+        "Resultary 9fdac9a3d23e, fc2e1936c0cb, 39df47931288"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical inequality is p·hᵢ≥||p||² for input gradients; combining it with the endpoint-error bound and the unperturbed distance gives gᵢ·p≥||p||(||p||−δ), ||p||≥d₀−δ."
+        ],
+        "reasoning": "That generic implication yields δ<d₀/2, strictly weaker than both sharp radii. It gives neither the special endpoint effects nor the sharp ascent witnesses.",
+        "searches": [
+          "Désidéri, Lemma 2.1 and Theorem 2.2; Huang–Chen Lemmas 1–2; Zhao et al. Remark 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9fdac9a3d23e treats unperturbed Aligned-MTL angle/norm conflict windows; fc2e1936c0cb concerns a CAGrad control parameter; 39df47931288 treats a one-objective Gaussian probe risk."
+        ],
+        "reasoning": "None of those formulations becomes the robust minimum-norm segment projection by identifying its parameter with the Euclidean endpoint error radius. The same-sample estimator also is not in general an identical additive shift.",
+        "searches": [
+          "Targeted exact-radius and shared-perturbation local search; Resultary searches for sharp two-gradient common-descent thresholds and noisy-gradient alignment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three closest inspected indexed findings address Aligned-MTL, CAGrad or one-objective Gaussian risk. The exact local hit was the frozen record itself."
+        ],
+        "reasoning": "No distinct table or exact record of the two error thresholds surfaced. The indexed threshold tables regulate different variables and are not pointwise error-radius data.",
+        "searches": [
+          "Resultary semantic search and local search for the displayed radii and shared perturbation wording"
+        ]
+      },
+      "rationale": "Neither the strongest matching catalogue records nor the examined primary MGDA statements establish this sharp comparison of independent bounded errors and identical translations relative to strict descent against the true gradients. Known projection geometry supplies the variational setup but does not state or supply both exact robust thresholds without the special sign and endpoint analysis. This is a bounded comparison, not a priority determination.",
+      "residual_risks": [
+        "Bounded searches cannot exclude an equivalent robust-projection calculation in specialist literature under a different name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General input-gradient rule, not robust true-gradient sharpness",
+          "evidence": "Minimum-norm projection satisfies p·hᵢ≥||p||² for input gradients.",
+          "identifier_or_url": "https://comptes-rendus.academie-sciences.fr/mathematique/item/10.1016/j.crma.2012.03.014.pdf",
+          "material_read": "Article p.316, Lemma 2.1 and Theorem 2.2",
+          "method": "Bounded OA original passage",
+          "title": "Multiple-gradient descent algorithm (MGDA) for multiobjective optimization",
+          "trigger": "Classical minimum-norm common-descent rule"
+        },
+        {
+          "assessment": "Does not establish identical-error sharp radius",
+          "evidence": "The same sample is used across objectives, but tasks still have distinct gradients and corrections; the cited aggregation passage does not classify true derivative signs under norm-bounded perturbations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22945",
+          "material_read": "PDF pp.5–6, same-sample passage, Algorithm 1 and Remark 3.1",
+          "method": "Bounded OA original passages",
+          "title": "A Momentum-Based Variance-Reduced Algorithm for Federated Multiobjective Optimization",
+          "trigger": "Sample-sharing and server-side minimum-norm combination"
+        },
+        {
+          "assessment": "Does not give the sharp sign thresholds",
+          "evidence": "Direction-map Lipschitz estimates under nondegeneracy and general bounded-set 1/2-Hölder estimates differ from exact coordinate-sign robustness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.15412",
+          "material_read": "PDF pp.2–3, direction definition and Lemmas 1–2",
+          "method": "Bounded OA original passages",
+          "title": "Regularity-Aware Stochastic MGDA with Adaptive Conflict-Avoidant Update Direction Control",
+          "trigger": "Plausibly stronger direction perturbation theorem"
+        },
+        {
+          "assessment": "Different direction map and variables",
+          "evidence": "Unperturbed conflict as a function of angle and norm ratio, not minimum-norm projection with perturbed endpoints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-uniform-aligned-mtl-has-a-sharp-full-rank-conflict-window--9fdac9a3d23e/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Uniform Aligned-MTL has a sharp full-rank conflict window",
+          "trigger": "Sharp two-gradient sign classification"
+        },
+        {
+          "assessment": "Threshold in a different parameter",
+          "evidence": "CAGrad hyperparameter thresholds for common descent and progress equalization, no adversarial gradient-error radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-two-task-cagrad-has-sharp-common-descent-and-equalization-thresh--fc2e1936c0cb/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two-task CAGrad has sharp common-descent and equalization thresholds",
+          "trigger": "Near match on sharp common-descent thresholds"
+        },
+        {
+          "assessment": "Different objective and invariant",
+          "evidence": "One-objective estimation risk from Gaussian probe covariance, not true multiobjective sign under bounded segment-endpoint perturbations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-alignment-threshold-for-minimax-anisotropic-gaussian-fin--39df47931288/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp alignment threshold for minimax anisotropic Gaussian finite-difference estimation",
+          "trigger": "Near match on sharp noisy-gradient threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Désidéri Lemma 2.1 and Theorem 2.2",
+        "Zhao et al. Algorithm 1 and Remark 3.1"
+      ],
+      "rationale": "This isolates the exact price of allowing distinct rather than identical errors for a standard multiobjective direction rule, even when the two per-gradient budgets are the same. The comparison is pointwise and idealized but substantive: the sharp radius changes by a factor between sqrt(2) and 2, and the explicit adversarial bound is not just a continuity estimate.",
+      "residual_risks": [
+        "Identical additive errors are stronger than sample reuse or generic correlation; the comparison is not a performance prediction for a particular estimator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

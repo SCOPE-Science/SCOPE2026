@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-For a connected graph, the two metrics are exact functions of the unordered pair-distance histogram:
-\[
-L(G)=\frac{\sum_r r h_r}{\binom{n}{2}},
-\qquad
-E(G)=\frac{\sum_r h_r/r}{\binom{n}{2}}.
-\]
 
-The embedded `verify_efficiency_path_boundary.py` uses only the Python standard library.
+# Independent mathematical audit
 
-It enumerates every labeled simple graph for
-\[
-2\le n\le6,
-\]
-filters exactly for connectivity, computes all-pairs shortest-path distances by breadth-first search, and compares exact rational metric pairs within every fixed \((n,m)\) group.
+## correctness
 
-It reproduces the connected labeled graph counts
-\[
-1,\ 4,\ 38,\ 728,\ 26704
-\]
-and finds zero strict ranking reversals through six vertices.
+PASS
 
-For the displayed seven-vertex witnesses it verifies distance histograms
-\[
-1^7,2^6,3^6,4^2
-\]
-and
-\[
-1^7,2^7,3^4,4^2,5,
-\]
-the common degree multiset
-\[
-(1,1,2,2,2,3,3),
-\]
-and exact values
-\[
-L(A)=\frac{15}{7},\quad E(A)=\frac{25}{42},
-\]
-\[
-L(B)=\frac{46}{21},\quad E(B)=\frac{188}{315}.
-\]
+For n>=2 both statistics are means over the same unordered pairs; same-sign changes of L and E are precisely strict ranking reversals because lower L and higher E are preferred. Order one does not define these normalized metrics and poses no pairwise comparison. I inspected the proof, verification and checker and independently enumerated labeled edge sets by size, computed all-pairs distances with Floyd–Warshall, and compared integer distance sums and reciprocal sums scaled by lcm(1,...,n−1) within each (n,m). The connected counts for orders 2 through 6 were 1,4,38,728,26704; no strict reversal was found. Two distinct metric pairs split ties at six and none do earlier. At n=m=7 I reproduced the stated degree multiset and distance histograms (7,6,6,2) and (7,7,4,2,1), giving L(A)=15/7<L(B)=46/21 and E(A)=25/42<E(B)=188/315, with gaps 1/21 and 1/630. Replay: python3 -I /workspace/review_math.py 4. No seven-vertex all-pair classification is needed for sharpness or claimed.
 
-Run:
+## originality
 
-`python3 verify_efficiency_path_boundary.py`
+PASS
 
-The first output line must be:
+The supported distinct result is the first strict divergence under fixed order and edge count, with an explicit same-degree witness. The graph metrics and their general non-equivalence are already established, and there is a known complete catalogue of graph structures through seven vertices. The checked sources do not already give the exact ordering comparison or threshold.
 
-`VERIFY_OK`
+## value
 
-The finite lower bound is exhaustive; the seven-vertex existence statement is verified directly from the complete shortest-path data of the two explicit graphs.
+PASS
+
+Matching order and edge count controls the contribution of adjacent pairs and is a natural constraint when comparing network structure. Matching degrees in the smallest witness additionally isolates arrangement from degree distribution. The precise strict boundary (as opposed to tie splitting a vertex earlier) yields a useful finite test for when the two widely used measures cannot be substituted as ranking criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

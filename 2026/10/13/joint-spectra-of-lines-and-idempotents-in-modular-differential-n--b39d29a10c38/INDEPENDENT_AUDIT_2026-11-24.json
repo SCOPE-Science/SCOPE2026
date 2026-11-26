@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:35:44.442693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiation descends modulo t^p in characteristic p; right commutativity follows from commutative multiplication and the associator is -fg (T h)' for T=partial_t+M_a. The line condition for a normalized generator is fT(f)=lambda f. For a unit normalize its constant coefficient to 1 and cancel f: T(f)=lambda. The lower coefficients uniquely solve this as h_a+lambda g_a, since each division is by 1 through p-1. The remaining equation is sigma_a+lambda tau_a=0. A valuation-one generator normalized at t has lambda=1 by its leading coefficient, and cancellation modulo t^(p-1) forces g_a, which already is idempotent. For valuation r>=2 a nonzero lambda is impossible; the leading term of ff' is of order 2r-1 with nonzero coefficient r times the square of the leading coefficient if that degree survives. Both terms of fT(f) vanish exactly for 2r-1>=p, giving a projective tail of dimension floor((p-1)/2) before projectivizing. On any closed line, nonzero multiplication coefficient gives exactly one nonzero idempotent by scaling, and zero gives none. Holding the lower p-2 parameters fixed, varying a_(p-2) does not change g_a and shifts tau_a by the same amount (g_a begins in degree one); after this choice varying a_(p-1) does not change h_a and shifts sigma_a by the same amount. This gives the uniform fibers and all four rows. At p=2, g_a=t, h_a=1+a_0 t, sigma_a=a_1+a_0^2, tau_a=a_0, and the projective tail is empty; the four count pairs are still distinct even at q=2. Read VERIFICATION.md and checker.py without executing the frozen code. Its direct tests and its separate recurrence-fiber enumerations are finite corroboration; the argument here needs neither extrapolation from small fields nor a simplicity classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Theorem A classifies simple finite-dimensional Novikov algebras over algebraically closed k of characteristic p>2 by N(alpha,beta), with an isomorphism criterion.",
+          "Remark 4.9 gives dimension-p exhaustiveness for Osborn–Xu models; Corollary 4.6 explicitly constructs an idempotent x=x^(1) for positive divided-power dimension."
+        ],
+        "reasoning": "The structural theorem encompasses a broader range of simple dimensions, but on different fields and with different conclusions. Neither the theorem nor the idempotent corollary gives the number of unit idempotents and zero-square lines, the all-parameter fiber sizes, or the characteristic-two analysis.",
+        "searches": [
+          "Liu–Pei–Xia arXiv:2610.34896v1, Theorem A, Corollary 4.6, Remarks 4.8–4.9",
+          "Zhelyabin–Zakharov DOI 10.1134/S0037446624030169",
+          "Osborn DOI 10.1080/00927879208824486"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Liu–Pei–Xia arXiv:2610.34896v1",
+        "Resultary 65e93eba2f24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p>2 the two-tail coefficient family b t^(p-2)+c t^(p-1) from the normal form realizes the obstruction pairs tau=b and sigma=c; x is the valuation-one idempotent there, as in the prior corollary.",
+          "The unit solutions require solving the affine top-degree obstruction equation and counting its nonzero-lambda solutions, and the nilpotent line tail follows a different valuation test. The uniform q^(p-2) multiplicity for arbitrary labeled coefficients comes from two separate triangular top-coefficient dependencies, not an isomorphism criterion."
+        ],
+        "reasoning": "Even a geometric reduction to tail normal forms would not by itself say how many arbitrary labeled a land in each obstruction fiber over K, or how many embedded lines carry idempotents. These are the precise extra calculations.",
+        "searches": [
+          "arXiv:2610.34896v1 Corollary 4.6 and Remarks 4.8–4.9; compare original Proof §§2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Pei–Xia explicitly use u circle v = u(delta(v)+b v); in dimension p ordinary monomials relate to the divided powers by factorials of degrees 0 through p-1, so delta is ordinary differentiation.",
+          "Their dimension-p Osborn–Xu specialization has just the two highest coefficient positions occupied. A line subalgebra is equivalently a projective solution of fT(f) proportional to f, not an associative ideal or an isomorphism class."
+        ],
+        "reasoning": "The same multiplication occurs in the primary source, and its normal forms must be credited; classification up to isomorphism does not itself provide the projective point and idempotent census over F_q. The matched Resultary joint census concerns a different multiplication and predicate.",
+        "searches": [
+          "Resultary: Novikov truncated polynomial F_q[t]/(t^p) all labeled differential products f(g prime + a g) counts joint distribution nonzero idempotents one-dimensional subalgebras canonical obstructions sigma tau",
+          "arXiv:2610.34896v1, Theorem A and Remark 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed joint finite-field census gives a Gaussian-binomial formula for associative ideal dimension and generator number in a degree-three truncation, not the Novikov spectrum.",
+          "The strongest Novikov source matches normal forms and idempotent existence, not a table in q,p. The samples in the frozen verifier are not outside exact database evidence."
+        ],
+        "reasoning": "The object to compare is an entire symbolic joint distribution by p and q including nonsimple labeled parameters, not an isolated count at p=2 or p=3. The retrieved tables and structural formulas do not cover it.",
+        "searches": [
+          "Configured Resultary search for the joint differential Novikov invariants",
+          "Resultary 2026/10/13/SCOPE-bivariate-ideal-and-generator-census-of-truncated-symmetric-alge--65e93eba2f24 Finding",
+          "arXiv:2610.34896v1, Theorem A and Corollary 4.6"
+        ]
+      },
+      "rationale": "The supported claim is the exact joint spectrum with uniform multiplicities across all labeled finite-field differential parameters, with explicit line representatives. Neither the established differentiable-product construction, isomorphism normal forms of simple algebras, nor existence of idempotents is new. The strongest matched normal-form result has a genuine overlap in dimension p, but the inspected statements are over an algebraically closed field of characteristic greater than two and do not count finite-field embedded lines, nonzero idempotents or labeled parameter fibers.",
+      "residual_risks": [
+        "The 2024 representation paper and 1992 Osborn paper did not yield open full text in the DOI attempts. Older simple-algebra normal forms may encode some single-parameter cases in other language; no categorical priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap for simple isomorphism classes and existence/construction of an idempotent; not the labeled finite-field census",
+          "evidence": [
+            "Product u(delta(v)+b v)",
+            "Tail coefficients -b x^(p^n-2)+a x^(p^n-1) for Osborn–Xu normal forms",
+            "Corollary 4.6 checks b x^2=0 and x circle x=x"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.34896",
+          "material_read": "Theorem A p. 2 near offset 5384; product p. 13 near 49750; Corollary 4.6 p. 13 at 51421 and proof; Remarks 4.8–4.9 p. 15 near 57600 and 59517",
+          "method": "Lawful open PDF, targeted passages",
+          "title": "Classification of Finite-Dimensional Simple Novikov Algebras",
+          "trigger": "Closest primary normal-form and idempotent result for the same differential product"
+        },
+        {
+          "assessment": "Same-day finite-field truncation but ordinary associative ideals, not one-dimensional Novikov subalgebras or idempotents",
+          "evidence": [
+            "Joint polynomial by ideal dimension and minimum module generator count"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-bivariate-ideal-and-generator-census-of-truncated-symmetric-alge--65e93eba2f24",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–1876",
+          "method": "Configured Resultary semantic search and exact local mirror text",
+          "title": "Bivariate ideal and generator census of truncated symmetric algebras",
+          "trigger": "Highest targeted indexed joint-count comparison"
+        },
+        {
+          "assessment": "Credit the established construction; exact spectral coverage unresolved, not ruled out by retrieval failure",
+          "evidence": [],
+          "identifier_or_url": "10.1134/S0037446624030169",
+          "material_read": "No primary full text retrieved in DOI attempt",
+          "method": "Lawful OA direct/VPN and DOI repository-copy lookup",
+          "title": "On Finite-Dimensional Simple Novikov Algebras of Characteristic p",
+          "trigger": "Cited antecedent for differential representation"
+        },
+        {
+          "assessment": "Potential older overlap on individual idempotent forms; unavailable source cannot settle counting priority",
+          "evidence": [],
+          "identifier_or_url": "10.1080/00927879208824486",
+          "material_read": "No full text retrieved",
+          "method": "Lawful OA DOI attempt and repository-copy lookup",
+          "title": "Simple Novikov algebras with an idempotent",
+          "trigger": "Plausible older idempotent implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural joint census for a standard family, not a chart of a few small products. It explains why the line count alone cannot tell whether a second idempotent exists and gives the exact frequency of that distinction over any finite field of the characteristic. It separates the high-valuation square-zero geometry from a two-obstruction locus controlling unit representatives, and precisely identifies the statistic on labeled products rather than making an isomorphism-class claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

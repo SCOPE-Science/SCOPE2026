@@ -1,19 +1,21 @@
-# Review of Chow-projective degree formula
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim has the exact domain \(n\ge3\), \(1\le p\le n-2\), complex reduced cycles, and the standard Chow embedding. The pair component is the generically degree-two image of the product of Grassmannians with polarization \(h_1+h_2\); the quadric component is the generically birational image of \(\mathbb P(\operatorname{Sym}^2S^\vee)\) with Chow polarization \(\xi+2h\). The projective-bundle and equivariant-localization steps yield the asserted expression without unproved extrapolation from samples. The separate Grassmannian coefficient computation agrees with the fixed-point calculation in five examples, including the known \(92\) and \(140\). These checks do not establish independent verification.
+PASS
 
-## Originality
+An irreducible degree-two p-fold has span dimension at most p+1 by the degree–codimension bound and is a quadric hypersurface there; every other degree-two cycle is a pair of p-planes, counted with multiplicity. Smooth quadrics exist since p≥1; two general p-planes span more than a (p+1)-plane since n≥p+2. Thus the projective-bundle and symmetric-product images are distinct components and have dimensions D and 2d. The essential polarization: the wedge of the k linear forms defining a complementary probe restricts to a vector in ∧^(K−1)S* = S⊗det S*. Evaluating the universal quadratic gives a section linear in the tautological quadric and in (det S*)². It has no base point: choose a restriction of full rank with kernel any chosen line on which the quadratic is nonzero. Consequently the hyperplane pullback is ξ+2h, and the map has generic degree one by uniqueness of the span. Pushforward in the lines convention gives s_j(Sym²S*) and the base tangent weights b−a give the stated denominators. On the pair component multiplication of Chow forms gives h₁+h₂ on the ordered product; generic degree two and the rectangular tableau count yield the displayed factor and degrees. The dimensions have difference p(2n−3p−3)/2; at equality precisely the two top-dimensional multiplicity-one components contribute, with the tie in the range for odd p at n=3(p+1)/2. Ran python3 /workspace/reproductions/3.py: direct localization on the full quadric bundle (individual monomial-line fixed points, weights 3^i) and independent Young-lattice recursion agree in six parameter cases, including (3,6) with degrees 6522193496 and 288592936632 and sum 295115130128. This checks arithmetic and signs in addition to the geometric proof; no uploaded checker was executed, and the frozen verification statuses are not independent certification.
 
-PASS, qualified. Chen–Hu–Ma's 2026 analysis supplies the two-component geometry and topological invariants, not this all-dimensional projective-degree calculation in the sections inspected. Bürgisser–Kohn–Lairez–Sturmfels explicitly compute the \((p,n)=(1,3)\) degrees \(92\) and \(140\), which are excluded from novelty. The available published-finding corpus records, checked own findings, and the additional searched literature did not show the all-parameter formulas or the first higher tie value. General intersection-theoretic machinery makes the formulas potentially implicit in earlier results; an exhaustive historical priority determination is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The degree of a Chow component is a natural enumerative intersection number in the canonical embedding, rather than an ad hoc finite statistic. The calculation gives explicit degrees for both irreducible components throughout a two-parameter family and a complete top-dimensional dominance rule. In particular, for dimension-two cycles in \(\mathbb P^4\) the quadric component dominates and has degree \(2865\); for one-dimensional cycles in the same ambient space the pair component dominates and has degree \(11550\). At the first higher-dimensional tie \((p,n)=(3,6)\) the total is \(295115130128\). This extends a previously isolated computed benchmark.
+The supported distinction is a uniform evaluation of the standard Chow-form degree of the full quadric component and its integration into the all-parameter degree calculation, not the component decomposition, projective-bundle descriptions, known conic/line-pair benchmark, or a new localization technique. The pair degree and the dimension comparison are largely direct from known parameterizations and multiplication of Chow forms; their inclusion completes the formula rather than constituting separate novelty. The closest related degree result concerns the strict common incidence locus, not a full component. No inspected statement or immediate specialization gives the full quadric integration and numerical evaluations throughout this range.
 
-## Prior literature and limits
+## value
 
-The closest source is Chen–Hu–Ma, arXiv:2610.39498v1 (2026-10-29), especially the projective bundle description. Bürgisser–Kohn–Lairez–Sturmfels, arXiv:1508.07219, Section 2, cover the \((1,3)\) exact numbers. W. Hu's 2021 survey describes components but was not fully accessible for an exhaustive comparison of intersection-theoretic formulas. The result does not calculate ideals, singular schemes, or complete Hilbert polynomials.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The standard Chow degree is a canonical enumerative invariant, and the top-dimensional degree can miss a whole irreducible component in this family. The uniform quadric calculation makes that component's degree available even at parameter values where it would be invisible to the degree of the whole variety; the distinct dimensions and the equal-dimension ties give precise rules for using the component calculations. This is more than recomputing the known conic benchmark or evaluating a single unmotivated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

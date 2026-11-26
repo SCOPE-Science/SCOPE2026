@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:27:56.886697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "arXiv:2610.21829v1, Theorem 1.2 (= 4.7), PDF p. 3, offset 11580"
+      ],
+      "rationale": "The diagonal expectation satisfies the Reynolds identity of weight −1 and fixes the unit. The cited graded theorem applies to all n>=1. Its product in the coordinate tensor basis has coefficient delta_jk/2; the factor 2^(n−1) in degree n matches the matrix-unit product, with the degree-zero left and right actions matching rows and columns. Localizing the central polynomial subring gives the stated order. The ideal tM₂(O) is its radical: for x in this ideal the diagonal of 1−x reduces to 1 modulo t and the off-diagonals to 0, so the inverse given by the adjugate lies in the order. The quotient is k×k. Identify P1=O⊕tO and P2=tO⊕O as columns. Then Je1=tO², J²e1=t²O², and the proposed map is (x,y)↦t(x+y). It is onto and is an isomorphism on the tops, hence is a projective cover (the order is semiperfect with the two coordinate idempotents lifting the quotient). Its kernel is anti-diagonally isomorphic to P1∩P2=tO². Since this nonzero kernel is the kernel of a projective cover, the target Je1 is not projective. Starting with the cover P1→S1 gives the repeating syzygy in the minimal resolution and infinite projective dimension. Central localization preserves projective resolutions and bounds global dimension of the localization by that of the original ring, proving the asserted infinite global dimension.",
+      "residual_risks": [
+        "The syzygy statement uses minimal projective covers over the specified localization. This is an exact algebraic check, not a numerical replay or formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graded theorem fixes multiplication for every positive degree; in the swap case P(e_j e_k)=delta_jk/2 times the unit. Its Proposition 6.12 separately calculates global dimensions for (k,id) and (k,0). The zero operator there is not unital and does not itself give this example.",
+          "The tiled-order passage expresses projective-resolution kernels of irreducible lattices in terms of projective-lattice intersections and works with exponent vectors of projective lattices and their uniformizer shifts."
+        ],
+        "reasoning": "The matrix form needs only evaluation of the theorem on the coordinate idempotents and a degree rescaling. For the homological claim, specialize the intersection construction over the actual order; the radical column is a rank-one lattice in the split simple fraction-field module. Since two summands cover it, the sole intersection gives its kernel without a higher-rank analysis.",
+        "searches": [
+          "arXiv:2610.21829v1, Theorem 4.7 and Proposition 6.12",
+          "Zhuravlev–Tsyganivska, Projective lattices of tiled orders, §3, printed pp. 17–18"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21829v1, Theorem 4.7 and Proposition 6.12",
+        "Projective lattices of tiled orders, §3",
+        "Resultary local 416d0d9ceb86 and order queries",
+        "Jategaonkar DOI and 2012 projective-resolution paper (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the Reynolds theorem the basis of every positive degree is the tensor-product basis and the rescaling by 2^(n−1) gives exactly the stated matrix order.",
+          "In the two-summand instance of the prior intersection method, the two images tP1 and tP2 have exponent vectors (1,2) and (2,1); the sum map has kernel their intersection by z↦(z,−z). The coordinatewise minimum is (1,1), the maximum (2,2). Thus after removing a common uniformizer the next lattice equals the input lattice, whose top has two simple coordinates and is not projective. The simple-module and global-dimension assertions follow by its first radical step and central localization."
+        ],
+        "reasoning": "These substitutions recover the exact order and the repeating minimal-syzygy invariant, not merely a qualitative analogy about global dimension. The original contribution is a concrete illustration of those constructions, rather than a mathematically distinct stronger or nonroutine exact result. No assertion of verbatim prior treatment is needed for this implication.",
+        "searches": [
+          "arXiv:2610.21829v1, offset 11580",
+          "Projective lattices of tiled orders, §3, offsets 8430–10784 and 11340–14594",
+          "Projective resolution of irreducible modules over tiled order, 2012 (access attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Reynolds expectation is the average for the order-two group swapping coordinates, a case explicitly contemplated immediately after the graded theorem.",
+          "Conjugation by diag(1,t) in the form D^(−1)ΛD gives the ordinary two-by-two tiled order with upper off-diagonal O and lower off-diagonal t²O. Transpose identifies left and right lattice formulations for the original symmetric exponent matrix."
+        ],
+        "reasoning": "The order is not a new class and is not identified with its radical-square-zero quotient Λ/tΛ. The actual integral lattice presentation, not the path algebra of the quotient, is the equivalent form used for comparison.",
+        "searches": [
+          "Resultary local searches for Reynolds operator rings and tiled/Eichler orders with repeating syzygies",
+          "arXiv:2610.21829v1, Theorem 1.2 (= 4.7)",
+          "Projective lattices of tiled orders, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 416d0d9ceb86 concerns counts of Reynolds maps on a two-dimensional affine Lie algebra, not this associative order. No exact catalogue entry was established.",
+          "The actual Proposition 6.12 gives the polynomial and dual-numbers examples over R=k. The older same-class tiled-order paper was located but not read in full."
+        ],
+        "reasoning": "No exact table entry is asserted. The relevant indexed invariant here is the exponent-matrix specialization (diagonals 0, off-diagonals 1, or its conjugate with off-diagonals 0 and 2), not dimension two of the input vector space. The originality decision uses verified implications, not an inferred table hit.",
+        "searches": [
+          "Resultary local Reynolds/operator-ring and order-invariant lookups",
+          "arXiv:2610.21829v1, Proposition 6.12",
+          "Jategaonkar, DOI 10.1090/S0002-9947-1974-0349729-3, AMS and JSTOR alternate"
+        ]
+      },
+      "rationale": "The construction is correct, but its claimed content is covered by direct specialization of inspected prior constructions. On the Reynolds side Theorem 4.7 explicitly includes finite-group averaging; taking the two-coordinate swap makes its structure constants scalar matrix-unit constants in every positive degree. On the order side the published projective-lattice construction already computes the kernel from intersections of projective lattices. Here the simple's radical is the two-coordinate lattice tO². The two shifted projective lattice summands for this lattice are (tO,t²O) and (t²O,tO); their sum and their only pairwise intersection are (tO,tO) and (t²O,t²O), respectively. The latter is homothetic to the former, so the repeated kernel is the direct two-summand case of the established construction. This comparison does not assert that an earlier paper printed this Reynolds example verbatim. The failure is mechanical prior implication, not the inability to access the older papers.",
+      "residual_risks": [
+        "The 1974 and 2012 papers may give closer or verbatim coverage; their exact statements were not accessible. The negative originality judgment is a mathematical implication from the available passages, not a priority claim about these uninspected texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct generic coverage of the ring presentation for this averaging action; its cited one-dimensional dimension calculations are separate examples",
+          "evidence": "The graded decomposition and its multiplication are explicit for every degree; the next paragraph explicitly discusses finite-group averaging. Proposition 6.12 gives k[Q] and k[Q]/(Q²) and their dimensions, not the two-coordinate global dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21829v1",
+          "material_read": "PDF p. 3, offset 11580, Theorem 1.2 (= 4.7) and following example; pp. 28–29, offset 93368, Proposition 6.12 and proof",
+          "method": "Lawful original PDF, bounded theorem passages",
+          "title": "Modules and Operator Rings of Reynolds Algebras",
+          "trigger": "Exact graded description and prior global-dimension examples"
+        },
+        {
+          "assessment": "Prior kernel construction covers the calculation after two-column specialization; no claim of an earlier printed Reynolds example",
+          "evidence": "For reduced tiled orders the indecomposable projectives are the coordinate idempotent lattices. The work describes the kernel of the projective resolvent of an irreducible lattice in terms of intersections of projective lattices, and treats π^a P_i∩π^b P_j through coordinate exponent comparisons. The order here is transpose-invariant, so the right-lattice formulation transfers to columns.",
+          "identifier_or_url": "https://bphm.knu.ua/bphm/article/download/4/2",
+          "material_read": "§3 opening, printed p. 17 at offsets 8430–10784; p. 18, exponent-vector intersection and Theorem 3.1 at offsets 11340–14594",
+          "method": "Lawful journal PDF, bounded original Ukrainian text and formulas",
+          "title": "Projective lattices of tiled orders",
+          "trigger": "Existing projective-kernel construction on the same class of orders"
+        },
+        {
+          "assessment": "Exact prior treatment unresolved; not used to decide failure",
+          "evidence": "The AMS PDF and identified public-copy attempts returned HTTP 403, and JSTOR did not expose the original text.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1974-0349729-3",
+          "material_read": "No usable theorem passage; identified JSTOR stable 1997030 landing page only returned a challenge",
+          "method": "Lawful AMS PDF, JSTOR and identified public-copy attempts",
+          "title": "Global dimension of tiled orders over a discrete valuation ring",
+          "trigger": "Cited older primary work on precisely the tiled-order class after conjugation"
+        },
+        {
+          "assessment": "Additional exact prior coverage unresolved",
+          "evidence": "The article is cited in §3 for the kernel construction; primary and identified secondary accesses did not yield readable original text.",
+          "identifier_or_url": "https://nasplib.isofts.kiev.ua/bitstream/handle/123456789/152247/13-Zhuravlev.pdf?sequence=1",
+          "material_read": "2012 bibliographic citation in Projective lattices of tiled orders; original 2012 theorem passage unavailable",
+          "method": "Lawful repository PDF and MathNet issue access attempts",
+          "title": "Projective resolution of irreducible modules over tiled order",
+          "trigger": "Earlier source cited for the projective resolution construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–53 and 59–65",
+        "arXiv:2610.21829v1, graded finite-group averaging theorem",
+        "Projective lattices of tiled orders, §3"
+      ],
+      "rationale": "A proper unital average is a natural test case, and an explicit minimal resolution can be useful in an exposition. Here, however, the graded description for group averages, followed by the smallest two-summand case of the standard lattice-intersection calculation, yields the whole exact invariant by degree rescaling and two coordinatewise minima/maxima. The example adds neither a new obstruction nor a nonroutine boundary/classification, and the precise repeating kernel requires no genuinely additional invariant calculation beyond that specialization. This is not a rejection based on the small size or on lack of downstream applications.",
+      "residual_risks": [
+        "The judgment concerns only the exact isolated finding; it does not rule out value for a classification or a different family of proper Reynolds averages."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

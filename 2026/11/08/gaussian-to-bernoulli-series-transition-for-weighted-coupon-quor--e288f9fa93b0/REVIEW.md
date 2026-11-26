@@ -1,15 +1,21 @@
-# Scientific review: Gaussian-to-Bernoulli-series weighted-quorum transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ranked \(\ell^2\)-coefficient limit for homogeneous exponential discovery clocks follows from a finite-head characteristic-function expansion with a Gaussian residual tail. The local increment variance is \(O(s_n^3)\), which is enough to invert the strict threshold at scale \(s_n\). Direct cumulants distinguish the Bernoulli-series and Gaussian possibilities, and elementary generalized harmonic-number asymptotics give the transition at Zipf exponent \(1/2\). All boundaries \(0\le\rho\le1\) and \(0<\theta<1\) are covered; no stopping-time moment convergence is assumed or claimed. The standalone exact-rational checker passed 1019 assertions, which support but do not replace the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Checked the rephrased normalized theorem: rate rescaling gives iid unit exponentials, squared profile mass is at most one, and the characteristic-function tail remainder is controlled by the next ranked coefficient times the tail squared mass. The Bernoulli series is an L²-bounded martingale. The local centered mass increment has variance O(s_n³), leaving deterministic slope 1−θ on the s_n scale; the exact strict-crossing event gives weak convergence even for atomic limits. Nonzero third cumulant, or negative fourth cumulant when θ=1/2, distinguishes every nonzero profile. Power-sum and zeta evaluation at the harmonic endpoint and the single-heavy-weight example follow from the displayed coefficients. No time-moment limit is inferred. CHECK.py was inspected as finite corroboration, not executed.
 
-Müller and Šebek (arXiv:2607.08551v1) introduce this weighted quorum setting and state a first-order universality theorem for homogeneous clocks. The new claim is at the fluctuation scale, where the Zipf \(\ell^2\) boundary separates Gaussian and non-Gaussian limits. Own historical findings on the same source concern finite macroscopic atoms or aligned rate-and-weight Zipf models; neither implies the homogeneous diffuse-weight second-order theorem. Searches in the research index and external literature found no direct statement of this phase transition. Withers–Nadarajah's 2010 Edgeworth theory assumes bounded unnormalized weights, while the non-Gaussian harmonic endpoint has non-Lindeberg weights. Allouche–Gobet's 2026 weighted-quantile theory is a serious neighboring literature but its full text was inaccessible. The motivating paper's latter sections were also inaccessible; consequently hidden exact prior coverage is possible, and formal historical priority is not settled.
+## originality
 
-## Value — PASS
+PASS
 
-A diffuse-weight hypothesis alone gives the same deterministic first-order quorum time for all weight profiles. The theorem identifies precisely why this universal behavior masks distinct limiting fluctuation shapes, gives their entire ranked-coefficient limit family and an explicit power-law transition at \(\rho=1/2\). The harmonic endpoint's exact non-Gaussian fourth-cumulant signature \(-4/5\) supplies a concrete statistical distinction. This is a natural and reusable description of the uncertainty of threshold completion, not merely a small improvement to a known numeric bound.
+The narrowed arbitrary ranked-profile theorem, including a Bernoulli series plus an independent Gaussian remainder of nonzero variance, survives the demonstrated Zipf overlap on the inspected evidence. This is not a finding of publication priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired result explains why diffuse weights give first-order universality but not necessarily Gaussian second-order fluctuations. Arbitrary profiles classify a mixed regime which cannot appear in the earlier Zipf family; this is substantive beyond the known endpoint transition and classical fixed-time limit tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

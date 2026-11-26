@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:23:06.990829Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–102",
+        "Frozen VERIFICATION.md and verify_hopf.py, inspected without execution",
+        "Independent exact jet calculation and explicit two-equilibrium substitutions; replay described in rationale",
+        "Paarporn arXiv:2311.02745v1, environmental equation, Jacobian, and Figure 3"
+      ],
+      "rationale": "At an interior equilibrium x=s=λ/κ, n(β)=[log(s/(1−s))/β−(bs+d)]/q. This gives the stated equilibrium trace derivative and the trace-zero off-diagonal Jacobian with A=Hβ_*q<0 and B=εκn_*(1−n_*)>0. Setting v=(n−n_*)/(B/ω) gives the stated orientation and unscaled time. For an independent exact jet check, use z=u−ωv, j=1−2s, C=−aω/(Hq) and substitute z/H+Cuv into the sigmoid Taylor series via the derivative recurrence P_{m+1}=s(1−s)P_m'. With D=1−6s+6s², the first-component cubic combination f_uuu+f_uvv is D(1+ω²)/H²−2ωjC, and f_uv(f_uu+f_vv)/ω is [−jω/H+HC]j(1+ω²)/(ωH). The environmental diagonal quadratic and relevant cubic derivatives vanish. Since D−j²=−2H, their sum times H is −2(1+ω²)+r(ω²−1), giving exactly 16Hℓ₁ without division by 1−2s. The signs follow by the slope and intercept in ω², and bifurcation direction requires the nonzero trace crossing. The independent equilibrium and frequency substitutions give r=−1/4, β_*≈5.676683215 and positive derivative 25/162 for the published example, and r=12/5 and derivative 34/125 for the second. Its zero occurs at ω²=11, yielding ε_c=82.416241918341879… . No conclusion about a Bautin bifurcation follows at that zero. In the published source the boxed logit system omits ε in the resource equation, but the original environmental equation, Jacobian and Figure 3 caption include the timescale, supporting the model used in the frozen result.",
+      "residual_risks": [
+        "The coefficient magnitude is tied to the stated coordinates and time scale; conclusions are local and require nonzero trace crossing and coefficient for an ordinary Hopf bifurcation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirrored headline is a restricted payoff class, but its normal-form calculation before its final substitution uses only logistic sigmoid derivatives, the bilinear interaction, the positive-determinant zero-trace identities, and the vanishing second-component derivatives. All these hold in the frozen family. A different λ>0 can be absorbed in the environmental speed before identifications, or one can use m directly.",
+          "The published source identifies the local-stability calculation as future work; related static logit and replicator(-mutator) ODEs do not directly yield this coefficient."
+        ],
+        "reasoning": "Do not equate the two headline assumption sets. Instead, the actual displayed general identity within the restricted proof supplies the claimed extension by algebra with no use of the extra payoff signs. The primary literature alone would not establish exact coverage.",
+        "searches": [
+          "Mirrored ffc33c1d1e71 Finding and proof §2",
+          "Paarporn arXiv:2311.02745v1 §§II–IV and Conclusion; related arXiv:2409.05044, 2105.04659, 2205.10734"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Related Work",
+        "Resultary ffc33c1d1e71, actual statement and coefficient derivation",
+        "arXiv:2311.02745v1, 2409.05044, 2105.04659, 2205.10734"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the mirror put U=P−s_m and V=R+T, with s_m its depleted payoff parameter. Then r=(1−θ)(U−V)/(V+θU), so r+2=(1+θ)(U+V)/(V+θU) and r−2=[(1−3θ)U−(3−θ)V]/(V+θU). With ω²=εβ_hH(V+θU)n_h(1−n_h), the mirror's full affine coefficient is recovered.",
+          "The broader r<−2 sign regime is the negative-slope, positive-intercept case of the shared symbolic coefficient. The frozen result provides no additional structural or higher-order theorem in that regime."
+        ],
+        "reasoning": "The equivalence is exact both before and after payoff specialization. Neither changing examples nor spelling out the signs of a linear function in the general symbols leaves a scientifically distinct remainder to repair.",
+        "searches": [
+          "Read both ffc33c1d1e71 §2 and frozen RESULT.md lines 42–102; check payoff substitution with the mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirrored X=x−p, Y=(−j/ω)(n−n_h), with j=β_h Q B_0, gives exactly v=(n−n_*)/(m/ω), since −j/ω=ω/m.",
+          "The mirror's 16ℓ₁ formula before specializing its payoffs becomes the frozen identity with r=ah/B_0 and mβ_h=−ω²/(H B_0)."
+        ],
+        "reasoning": "The normalization as well as the formula is identical after relabeling. Relative signs are not the only evidence of equivalence.",
+        "searches": [
+          "Resultary local search: logit game environmental feedback, exact first Lyapunov coefficient, timescale Hopf transition",
+          "Mirrored ffc33c1d1e71 Proof §2, offsets 4626–7746"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored first-Lyapunov calculation and threshold are exact rather than a table. Its witness ε_c≈23.6071 differs numerically from the frozen witness ε_c≈82.4162.",
+          "The second frozen example corresponds to θ=1/4, R=2/5, depleted payoff parameter 1/10, T=1/10, P=53/5, all satisfying the mirror's assumptions. The Figure 3 example likewise fits that class."
+        ],
+        "reasoning": "A different numerical witness does not avoid coverage by the exact formula: applying it to the frozen parameters produces the displayed values. Figure 3 itself gives only one simulated speed, not the all-speed sign.",
+        "searches": [
+          "Resultary search for exact logit environmental Hopf law and critical speeds; ffc33c1d1e71 Finding and admissible witness",
+          "Paarporn v1 Figure 3 and §§II–III for the exact payoff mapping"
+        ]
+      },
+      "rationale": "The mirror record ffc33c1d1e71 contains the same coefficient in the same rotation, not merely similar criticality or a different example. Its proof §2 displays 16ℓ₁=−2/Q−ah/(QB_0)+mβ_h(2B_0−ha), before imposing any payoff-specific algebra on that expression. Here Q=H, B_0=q (the frozen payoff derivative), h=1−2s, and m=εκn_*(1−n_*), called B in the frozen Jacobian. Thus ah/B_0=r and ω²=−mβ_h Q B_0. Direct substitution gives 16ℓ₁=[(r−2)ω²−(r+2)]/H identically. The strict payoff inequalities in the mirrored statement are needed for the mirrored branch-existence and sign restrictions, not for this displayed coefficient calculation; the two-sided slope/intercept sign classification in the frozen result follows immediately from it at any permitted transverse Hopf point. Both frozen examples fall in the mirrored payoff class and merely evaluate the same law. This is demonstrable statement and formula coverage, not a date-based priority or attribution judgment.",
+      "residual_risks": [
+        "No priority or provenance conclusion is supported by catalogue dates. A later published Paarporn version was not established; the decision rests on confirmed formula overlap, not missing literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The restricted model's proof contains an algebraically identical unspecialized rotation coefficient; threshold examples are covered evaluations",
+          "evidence": "Section 2 explicitly gives 16ℓ₁=−2/Q−ah/(Q B_0)+mβ_h(2B_0−ha), followed by the payoff specialization; identical to the frozen formula via ω²=−mβ_h Q B_0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-hopf-criticality-transition-in-a-logit-game-with-environme--ffc33c1d1e71/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–4626; coefficient calculation and admissible witness, offsets 4626–7746",
+          "method": "Configured mirror, bounded direct statement and proof reads",
+          "title": "Exact Hopf-criticality transition in a logit game with environmental feedback",
+          "trigger": "Same environmental logit Hopf criticality, exact timescale transition"
+        },
+        {
+          "assessment": "Same Fig. 3 model and observed cycles at ε=0.5; no inspected exact all-speed coefficient",
+          "evidence": "Figure specifies ε=0.5 and β_h=5.6767. The text leaves derivation of Hopf-cycle stability for future work; p. 3 boxed equation omits ε but the stated resource law and Jacobian include it.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.02745v1",
+          "material_read": "v1 HTML §§II–III offsets 7840 and 13700; §IV-A Figure 3 at offset 27700 (PDF p. 5); future-work discussion near 34974; PDF environmental equation p. 2 and Jacobian p. 4",
+          "method": "Open HTML and PDF bounded passages; checked unversioned and v2 availability",
+          "title": "The madness of people: rational learning in feedback-evolving games",
+          "trigger": "Identical learning law and Figure 3 parameter source"
+        },
+        {
+          "assessment": "One-dimensional static game rather than environmental Hopf setting",
+          "evidence": "Static two-strategy logit analysis, without a second environmental dynamical variable.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.05044",
+          "material_read": "OA HTML introductory/model scope near offset 615",
+          "method": "Bounded open text read",
+          "title": "An Analysis of Logit Learning with the r-Lambert Function",
+          "trigger": "Related sigmoid-logit analysis"
+        },
+        {
+          "assessment": "Different strategy equation",
+          "evidence": "Uses replicator rather than sigmoid-logit dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04659",
+          "material_read": "OA HTML model near offset 6836",
+          "method": "Bounded open text read",
+          "title": "Different Environment Feedback in Fast-slow Eco-evolutionary Dynamics",
+          "trigger": "Related environmental feedback and Hopf stability theory"
+        },
+        {
+          "assessment": "Different learning law, not an equivalent sigmoid-logit coefficient",
+          "evidence": "Replicator–mutator strategy dynamics coupled to resource feedback.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.10734",
+          "material_read": "OA HTML abstract and model near offsets 443 and 7588",
+          "method": "Bounded open text reads",
+          "title": "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback",
+          "trigger": "Related coefficient/limit-cycle analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Examples and Limitations",
+        "Paarporn arXiv:2311.02745v1 §IV-A and concluding discussion"
+      ],
+      "rationale": "The mathematical question is worthwhile: a transversal Hopf crossing alone does not determine whether the small cycles attract or repel, and varying only the environmental timescale can reverse that stability while the equilibrium and rationality threshold stay fixed. An exact coefficient addresses an explicit gap in the published example. This is intrinsic scientific value of the theorem, not additional value from renaming the existing identity or evaluating another parameter set.",
+      "residual_risks": [
+        "The classification is local and offers no independent higher-order result at the zero coefficient, global attractor classification, or distinct repair surviving the matched proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

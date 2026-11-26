@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-All commands below use Python 3's standard library. The three scripts are embedded in full alongside this file.
+## correctness
 
-```text
-python3 code/verify_shadow.py
-python3 code/verify_lcs.py
-python3 code/verify_fractional.py
-```
+PASS
 
-- `verify_shadow.py` enumerates the 90 source words and all distinct length-four deletion outputs from two deleted positions; verifies every pairwise compatibility bit, exact increasing-clique counts, the stated four-word witness, and the entire fourteen-orbit classification under alphabet permutations and reversal.
-- `verify_lcs.py` independently constructs source words by choosing symbol positions and derives all pairwise compatibilities from a conventional dynamic-programming longest-common-subsequence computation; it verifies every compatible pair, triple and quadruple, and checks each possible fifth vertex extension.
-- `verify_fractional.py` checks all primal packing and dual covering constraints with exact fractions on all source words and reads. Both objective totals equal five.
+The 90 sources are precisely the ordered strings with two of each of three labeled symbols. Two sources are confusable if and only if they both contain the same length-four subsequence: duplicate deletion choices from one source contribute one read, not several. Independently generated all sources and the 54 admissible reads by filtering Cartesian products, tested subsequences by a greedy scan, and iteratively grew increasing lists of sources with disjoint read masks, using the union of occupied read masks rather than a compatibility graph. Each admissible codebook appears once, since it has a unique increasing order. The counts from sizes 0 to 5 are 1,90,1164,1788,144,0; absence of size five excludes larger codes. The four-word example was found among the 144. The images of the 14 frozen representatives are pairwise disjoint and exactly exhaust the 144, with four classes of size six and ten of size twelve, for the stated action of symbol relabelings and reversal. Independently tested both fractional certificates in integer units: primal objective 300/60 and maximum read load 60/60; dual has 30 positive reads of weight 1/6 and minimum source coverage 6/6. Weak duality proves exactly five, distinct from the integer optimum four. Replay: python3 /workspace/reproductions/2.py. This exhaustive argument applies to the specified length, composition, and ordered read channel only.
 
-Executed results:
+## originality
 
-```text
-word_count=90
-compatible_k_set_histogram=[1, 90, 1164, 1788, 144, 0]
-maximum_size=4
-maximal_codebook_count=144
-orbit_counts={6: 4, 12: 10}
-independent_lcs_exhaustion: counts=90,1164,1788,144; five_sets=0
-primal_sum=5 dual_sum=5: rational LP optimum exactly 5
-positive_primal_words=48
-positive_dual_reads=30
-```
+PASS
 
-The certificate proves only a finite exact claim. Two different algorithmic formulations reduce correlated coding mistakes but do not substitute for an external mathematical audit. For historical originality, the 2014 *Deletions in Multipermutations* full paper remains an uninspected risk, and no assertion of priority is absolute.
+Best-of-knowledge pass for the precise ordered-shadow packing number, maximizing-codebook and orbit censuses, and fractional optimum. The strongest same-parameter Ulam hit has a different metric and symmetry, not a conflicting enumeration of this problem; the same-source one-deletion theorem is a different confusability graph. Full-text limitations for the direct multipermutation literature remain material risks, not support for negative coverage claims.
+
+## value
+
+PASS
+
+Composition (2,2,2) is the smallest uniformly repeated ternary source space, a natural benchmark for ordered deletions with repeated symbols. It gives an exact integral obstruction not captured by the natural deletion-shadow LP, which permits five rather than four. Moreover the census specifies all equality configurations up to the channel's natural symmetries, useful for comparing short-code designs and stronger relaxations even though no asymptotic claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

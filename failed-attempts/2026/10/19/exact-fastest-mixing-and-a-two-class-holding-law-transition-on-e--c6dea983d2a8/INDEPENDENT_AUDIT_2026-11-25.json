@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:18.908339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54",
+        "Frozen VERIFICATION.md, requirements.txt and verify.py (inspected, finite numerical checks only)"
+      ],
+      "rationale": "Dihedral averaging is feasible and does not increase the nonconstant operator norm. In Fourier cosine coordinate x the drop is aU(x)+bV(x), with U=2(1−x) and V=4(1−x²). On a=qb the endpoints c and −1 have the same drop bE, and strict concavity gives the minimum there. The quadratic vertex is −q/4. For 4|n it lies strictly to the right of the midpoint of −sin(2π/n) and 0 since 1−cos(2π/n)<sin(2π/n); the positive nodes are farther from the vertex, so 0 is nearest. For n≡2 mod 4 the vertex is −s², strictly between −s and 0, with −s and +s the two grid nodes bracketing it, so −s is nearest. Both arguments include the smallest size in their regime. The upper and lower sampled drops therefore balance at b=2/(M+E). The proposed holding is strictly positive by the two residue-class formulas. For arbitrary orbit probabilities, the constraint vector (U(d),V(d)) is a strictly positive combination of the vectors at c and −1: the coefficient at c is V(d)/V(c), and the other coefficient is positive because U(x)/V(x)=1/[2(1+x)] increases as x decreases. Their sum is M/E by evaluation at (q,1). It follows that (M/E)(1−μ)≤1+μ, with equality forcing the two independent endpoint constraints and hence invariant uniqueness. Direct substitution and s∼π/n prove the holding law and all limits. Full-matrix uniqueness is not implied.",
+      "residual_risks": [
+        "No claim about nonreversible chains, finite-time total variation or uniqueness among spatially varying optimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "68c871d2f31e covers every n≥5; 1e4c2afd1cba independently gives the n≥6 formula using extreme cosines and the interior contact, and handles n=5 separately. Boyd's ordinary cycle uses only one-hop edges."
+        ],
+        "reasoning": "Restriction to even n≥8 leaves the same problem, with no new hypothesis or proof obligation. Generic symmetrization or the one-hop cycle alone would not settle it.",
+        "searches": [
+          "68c871d2f31e and 1e4c2afd1cba Findings",
+          "Boyd et al. journal §3.1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 68c871d2f31e and 1e4c2afd1cba",
+        "Boyd et al. §3.1.1",
+        "Saha–Das Theorem 3.2",
+        "Assigned odd-square record (complementary parity, not the basis of subsumption)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula gives a and h explicitly; d=0 for n divisible by four and −sin(π/n) otherwise. It already gives n²(1−μ)→8π²."
+        ],
+        "reasoning": "Insert the two d values into the identical optimizer. This yields h/a=1 and (1+2sin(π/n))/2 respectively, and from a∼2π²/n² follows n²h→2π² or π². No unproved comparison or residual extremal problem is introduced by extracting the two classes.",
+        "searches": [
+          "68c871d2f31e Finding and scope",
+          "Bound even holding formulas, RESULT.md lines 12–20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "68c871d2f31e Finding gives l=sin²(π/n), r=sin²(π floor(n/2)/n), j=floor((n+2)/4), u=sin²(πj/n), D=l r+u(l+r−u); its a=(l+r−1)/(2D), b=1/(8D), h=1−2a−2b."
+        ],
+        "reasoning": "For even n, r=1, q=4l and its j=ceil(n/4). Substitution x=1−2u gives E=16l and M=16u(l+1−u). Thus E+M=16D and the other formula is identical for a, b, h and μ, on the same full symmetric feasible set.",
+        "searches": [
+          "Resultary: exact fastest symmetric mixing on two-hop cyclic networks; second power of a finite cycle",
+          "Public query: squared cycle / square of a cycle Markov chain jumps ±1 ±2 odd even explicit optimal weights thesis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-size formula in 68c871d2f31e covers the infinite family. Saha–Das Theorem 3.2 gives a spectrum for the unweighted adjacency operator."
+        ],
+        "reasoning": "No finite table is asserted; the indexed family formula supplies exact optimizer data for every parameter. The adjacency spectrum is not itself the constrained optimum.",
+        "searches": [
+          "Resultary exact formulas/contacts for weighted squared cycles",
+          "Saha–Das The Square Graph of a Cycle Graph, Theorem 3.2"
+        ]
+      },
+      "rationale": "The exact discrete-time two-hop cyclic optimum, orbit weights, unique circulant optimizer and active frequencies are covered by the earlier indexed all-order result 68c871d2f31e. The mod-four holding identities and subsequential limits are forced by evaluating its exact holding weight, rather than an additional optimization result.",
+      "residual_risks": [
+        "Indexed ordering and exact mathematical coverage are established separately from historical priority. The limited public search cannot establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly subsumes the even-n optimizer and the holding formulas by specialization",
+          "evidence": "Formula in l,r,u for a,b,h,μ; same three Fourier contacts and uniqueness among circulant walks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirror offsets 0–2521",
+          "method": "Resultary lookup and local mirror exact passage",
+          "title": "Exact fastest symmetric mixing on two-hop cyclic networks",
+          "trigger": "Earlier exact all-order theorem on the same stochastic feasible set"
+        },
+        {
+          "assessment": "Equivalent on the audited range; later indexed date",
+          "evidence": "With extreme cosines U,L and contact V, Δ=(V−L)(U−V), T=Δ+2(1−L)(1−U), gives p₁=−(U+L)/T, p₂=1/(2T), μ=Δ/T. For L=−1, E+M=4T and M−E=4Δ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 374–3461",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Exact fastest mixing on the second power of every finite cycle",
+          "trigger": "Exact all-parity optimizer with alternate variables"
+        },
+        {
+          "assessment": "Ordinary one-hop cycle, not square",
+          "evidence": "Two distinct neighbors and one-orbit Laplacian eigenvalues 2−2cos(2πk/n).",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§3.1.1, p. 8 in PDF (journal p. 800), equations (3.3)–(3.4)",
+          "method": "Primary OA PDF passage",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Foundational exact cycle theorem and possible support alias"
+        },
+        {
+          "assessment": "Unweighted spectral formula, not orbit-weight optimization",
+          "evidence": "Theorem 3.2 has adjacency eigenvalues 2cos(2πr/n)+2cos(4πr/n).",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v16i4.3246",
+          "material_read": "Abstract/introduction and Theorem 3.2, pp. 1 and 4",
+          "method": "Primary OA PDF passages",
+          "title": "The Square Graph of a Cycle Graph",
+          "trigger": "Published source on the same graph family and spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md holding formulas and limits",
+        "68c871d2f31e exact orbit weights"
+      ],
+      "rationale": "The exact all-order extremal problem and the interpretation of holding are mathematically useful. As a separate result beyond the earlier full optimizer, this record only reads off its even subsequence and takes leading Taylor coefficients. The mod-four observation is an informative annotation to that theorem, but the frozen record does not establish a new structural or extremal fact beyond these mechanically determined consequences.",
+      "residual_risks": [
+        "No genuinely distinct surviving theorem identified for repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

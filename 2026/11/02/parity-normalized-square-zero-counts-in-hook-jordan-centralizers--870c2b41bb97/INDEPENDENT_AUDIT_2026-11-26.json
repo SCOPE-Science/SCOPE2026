@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:03:34.108182Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof lines 34–61; verify.py; VERIFICATION.md",
+        "Independent finite replay by full-matrix enumeration, three prime-field cases"
+      ],
+      "rationale": "As t-modules, R=F_q[t]/(t^n) and W=F_q^r with tW=0 give diagonal blocks f,D and off-diagonal maps t^(n−1)b and evaluation at zero times c. Their lower-right cross product vanishes since n≥2, while their upper-left cross product is t^(n−1)bc. The constant term forces f(0)=0; the remaining equations are D²=0, bD=Dc=0 and f²+t^(n−1)bc=0. The flag im D=U⊆K=ker D and the induced isomorphism W/K→U yield exactly G_{r,k}; b descends to (K/U)* on restriction and c to K/U, each with q^k lifts. The first nonzero coefficient of f², when present, is the square of the first nonzero coefficient of f at twice its degree. For n=2h this forces valuation at least h and bc=0; for n=2h+1 it leaves only the equation a_h²+bc=0. In both cases the higher free coefficients give q^h. On a quotient of dimension s>0, a nonzero form has q^(s−1) vectors in every pairing fiber, while the zero form gives q^s vectors and forces a_h=0 when relevant. This produces the stated H factors, both equal to 1 at s=0, and their difference is (q−1)q^(s−1)(q^s−1) for positive s. The k=0 term gives strictness for r≥1; no square-root count or characteristic assumption is used. Centralizer size follows from n+2r+r² free coordinates. Independent spot replay enumerated all d×d matrices over each listed prime field by base-q expansion and filtered by ordinary matrix products XB=BX and X²=0: for (n,r,q)=(2,1,3),(3,1,2),(2,2,2), the centralizer sizes and square-zero counts were (243,15),(64,8),(1024,44). The all-parameter decision rests on the proof; the frozen checker and recorded output were inspected but not executed.",
+      "residual_risks": [
+        "The independent spot replay is finite and did not include extension fields; the algebraic argument covers them, including characteristic two.",
+        "The formula is for n≥2 and counts labelled elements, not conjugacy classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "dcecf6f4a319 counts rank-at-most-one square-zero elements for arbitrary base partitions, covering a subset of the present count. c71ec5f31f3e counts orbits rather than the labelled fiber. Britnell–Wildon and Khatami–Košir treat possible commuting types, the latter over an infinite characteristic-zero field. Bringmann et al. aggregate over base matrices and do not fix this square-zero fiber."
+        ],
+        "reasoning": "A stronger range of base types does not give higher-rank multiplicities for this observable. Neither a list of realizable types nor an aggregate pair count determines the square-zero multiplicity in one fixed commutant.",
+        "searches": [
+          "Resultary: rank stratified all square-zero matrices commuting with fixed nilpotent Jordan matrix exact count finite field",
+          "Resultary: dcecf6f4a319 and c71ec5f31f3e",
+          "arXiv:1001.0811v1 p.1; arXiv:2605.27692v1 pp.1–2; SIGMA 22 (2026) 016, equations (1.1), (4.2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0260ec1ac7b2, 50a5542dfb83, dcecf6f4a319, d4ef1eac31b1, c71ec5f31f3e",
+        "arXiv:2404.19483v1, 1001.0811v1, 2605.27692v1, 2212.08425v1, 2409.13553v2, 2105.07918v2",
+        "Bringmann–Chern–Franke–Heim, SIGMA 22 (2026), 016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n=2 analysis enforces pairing zero on K/U. The r=1 odd analysis sees a scalar square plus a one-dimensional pairing, with D necessarily zero. The general odd tail requires controlling the surviving degree n−1 term simultaneously with the positive-rank tail D and all its pairing fibers."
+        ],
+        "reasoning": "Unifying the known slices is not just a parameter substitution: for odd n the lowest functorial square coefficient survives in degree n−1, and the rank-dependent dimension and lift factors matter simultaneously. The proof must derive the reduced equation and count q^(2s) solutions for each s, including s=0, across all ranks. That supplies the all-r comparison, which the slices and abstract encodings do not themselves establish.",
+        "searches": [
+          "0260ec1ac7b2 and 50a5542dfb83, local reduced equations plus hypotheses",
+          "Huang arXiv:2404.19483v1 §3",
+          "Web: finite field count square-zero endomorphisms commuting with fixed nilpotent Jordan matrix hook partition centralizer Hall polynomial quiver representations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count is the cardinality of square-zero S-endomorphisms of S⊕(S/(t))^r for S=F_q[t]/(t^n); Huang's relation-counting framework accommodates this same object but the inspected equations do not evaluate the fiber."
+        ],
+        "reasoning": "Distinguish evaluating the exact cardinality from restating it as a representation count, and labelled elements of a fixed commutant from simultaneous-conjugation orbits. The correspondence preserves the count but the formal encoding does not supply the parity law.",
+        "searches": [
+          "Resultary: square-zero elements in centralizer of J_n plus r singleton zero Jordan blocks complete finite-field count rank D Gaussian binomial",
+          "Resultary: reduced pairing a_h squared plus bc zero square-zero Jordan hook centralizer finite fields",
+          "Huang arXiv:2404.19483v1 §3 (3.19)–(3.20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0260ec1ac7b2 gives the per-k factor G_{r,k}[q^(2r−2k)+(q−1)q^r], exactly the n=2 formula (also for s=0). 50a5542dfb83 gives the r=1 totals q^h(2q−1) and q^(h+2) and their rank refinement. d4ef1eac31b1 enumerates nilpotent types for r=1 and credits the earlier r=1 census."
+        ],
+        "reasoning": "The exact indexed subfamilies and flag factor are existing coverage. They do not contain data for the general positive-rank tail strata in odd long hooks. A finite checker is not prior coverage and cannot substantiate originality.",
+        "searches": [
+          "Resultary: hook Jordan centralizer several singleton blocks square-zero count parity normalized explicit formula",
+          "Resultary: 0260ec1ac7b2, 50a5542dfb83, d4ef1eac31b1"
+        ]
+      },
+      "rationale": "The credited distinct content is the all-tail count and normalized parity separation for a long hook, especially the odd n≥3, r≥2 fiber. Resultary 0260ec1ac7b2 already gives (and rank-refines) n=2, and 50a5542dfb83 already gives the r=1 parity family and more rank information there. The even normalized generalization is effectively the n=2 count after extracting free coefficients; neither overlap evaluates the odd hook when the square-zero tail can have positive rank. Inspected primary frameworks encode the counting problem or classify possible types, but do not give a theorem that evaluates this mixed pairing and valuation fiber. Pass is best of available evidence for the general result, not originality of the subcases or of the flag factor.",
+      "residual_risks": [
+        "A more general evaluated representation-counting formula, including under Hall or quiver terminology, could imply the general claim; none was established in the inspected passages.",
+        "Targeted passages and indexed statements are not an exhaustive historical survey. The special cases identified above are existing coverage regardless of the relationship between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n=2 for its stated tail range and the rank-flag mechanism",
+          "evidence": "Same G_{r,k} and vanishing pairing on K/U with q^k lifts, plus rank refinement.",
+          "identifier_or_url": "2026/10/25/SCOPE-rank-refined-square-zero-centralizers-of-a-rank-one-nilpotent-ma--0260ec1ac7b2",
+          "material_read": "RESULT.md, Finding and pairing computation, offset 0 onward",
+          "method": "Local mirror, statement and factor comparison",
+          "title": "Rank-refined square-zero centralizers of a rank-one nilpotent matrix",
+          "trigger": "Exact match to n=2 with an arbitrary tail"
+        },
+        {
+          "assessment": "Covers r=1 for n≥3, with stronger rank refinement in that range",
+          "evidence": "Reduced loci V(bc), V(bc+z²); same even and odd totals.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-geometry-and-rank-census-in-hook-nilpotent-centralizers--50a5542dfb83",
+          "material_read": "RESULT.md, offsets 0 and 1439, parity loci and census",
+          "method": "Local mirror, statement and hypotheses comparison",
+          "title": "Parity geometry and rank census in hook nilpotent centralizers",
+          "trigger": "Exact match to normalization on J_n⊕J_1"
+        },
+        {
+          "assessment": "Counts a strict rank-restricted subset, not the full fiber",
+          "evidence": "Arbitrary base partition but second matrix has rank at most one.",
+          "identifier_or_url": "2026/11/2/SCOPE-rank-one-square-zero-centralizers-exact-jordan-transitions-and-a--dcecf6f4a319",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror, hypotheses comparison",
+          "title": "Rank-one square-zero centralizers: exact Jordan transitions",
+          "trigger": "Same-day broader domain of nilpotent centralizers"
+        },
+        {
+          "assessment": "Encodes the problem without evaluating the specific fiber in the inspected passage",
+          "evidence": "Polynomial-relation tuple counts in End_S(N) include the equation X²=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.19483v1",
+          "material_read": "§3, Eqs. (3.19)–(3.20)",
+          "method": "Lawful OA full text, targeted equations",
+          "title": "Commuting matrices via commuting endomorphisms",
+          "trigger": "Possible broad endomorphism relation-counting implication"
+        },
+        {
+          "assessment": "Type existence over an infinite characteristic-zero field, not finite-field labelled multiplicities",
+          "evidence": "Scope is possible Jordan types of commuting nilpotents.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.27692v1",
+          "material_read": "Abstract and p.2 preliminaries",
+          "method": "Lawful OA full text, targeted scope passages",
+          "title": "Jordan types commuting with a hook partition",
+          "trigger": "Same hook shape and nilpotent commutation"
+        },
+        {
+          "assessment": "Class/type existence rather than the selected fiber's count",
+          "evidence": "Asks which similarity classes contain commuting representatives.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811v1",
+          "material_read": "p.1 abstract and statement of the problem",
+          "method": "Lawful OA full text, targeted scope passage",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Finite-field commuting class framework"
+        },
+        {
+          "assessment": "Global pair counts, not the fixed-hook square-zero fiber",
+          "evidence": "The second passage counts commuting nilpotent pairs with no fixed hook base or square-zero condition.",
+          "identifier_or_url": "SIGMA 22 (2026), 016",
+          "material_read": "p.1 Eq. (1.1), p.6 Eq. (4.2)",
+          "method": "Lawful OA full text, targeted equations",
+          "title": "Asymptotics for the Enumeration of Commuting Matrices over Finite Fields",
+          "trigger": "Broad exact finite-field commuting counts underlying asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural finite-field fiber is determined for every rank of the square-zero tail block, and its size exhibits a strict residual parity gap after the free long-block coordinates are divided out. This separates parity from simple dimension growth and gives the probability of square-zero for a uniform commuting matrix. In the previously uncovered mixed regime it is an exact invariant of the hook centralizer, including characteristic two, rather than a tiny test instance or re-enumeration of the two known boundary slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:15.321385Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The support-line formula gives L_j(r)=kappa(1-r_j)/(1-r_j+c r_j), since the supports of the two summands add to one. At c=1 the shifted supports would lie in a cyclic eigenspace with eigenvalue strictly between the k=1 and k=2 values, so the shift vanishes. At c≠1 write D=1-r+c r and c=(1-lambda)^2/lambda^2: the transformed x is lambda D/(1-lambda), and lambda^2 D+(1-2lambda)(1-r)=(1-lambda)^2 verifies the reciprocal substitution with positive x. In the recurrence proof the reciprocal first moment makes adjacent characters orthonormal in the 1/x-weighted inner product. The multiplier identity follows from -mu_k=4 sin((k-1)alpha) sin((k+1)alpha) and cotangent subtraction; the cotangent differences telescope to 2 cot(alpha). Equality in the resulting Bessel sum would force both s_2=s_4=1, impossible for distinct characters on a grid with strictly positive weights. Weighted Cauchy–Schwarz is therefore strict for nonzero higher-mode part h. Expanding the weighted square of x minus its constant and first-harmonic parts then gives B(x)≤kappa N, with equality only if both parts beyond the constant vanish. The recurrence imposes equality and x=1. At N=4 opposite equations give x_0=x_2, x_1=x_3 and x_0 x_1=1. For polygons, opposite sides of each rectangle have equal length; comparing opposite proportionality equations forces equal opposite supports, and the atom formula and converse follow. The frozen NumPy script was inspected, not executed; recorded samples cannot prove strictness at every positive weight, which follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A gives one origin-symmetric solution for irreducible symmetric planar data; the extension to centered bodies generally is posed as a conjecture. Even N≥6 lies in the symmetric subclass if symmetry is separately imposed.",
+          "Theorems I and II of arXiv:2601.13159 are cone-volume image/existence statements, not uniqueness for arbitrary positive supports."
+        ],
+        "reasoning": "Evenness of prescribed atoms does not by itself authorize imposing symmetry on the unknown in these theorems. Thus the located broader image/fiber results do not yield the frozen no-symmetry conclusion.",
+        "searches": [
+          "Baumbach–Chen–Henk arXiv:2610.21533v1 Theorem A and Conjecture A",
+          "Baumbach arXiv:2601.13159v1 Theorems I and II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–162, VERIFICATION.md and source check_recurrence.py",
+        "Monahan arXiv:2611.13375v1",
+        "Baumbach–Chen–Henk arXiv:2610.21533v1",
+        "Baumbach arXiv:2601.13159v1",
+        "Resultary same-day source comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The relaxed adjacent-pair inequalities have the alternating equality pattern in even periods; the odd-period strictness argument does not exclude it. The checked proof excludes attainment by an actual vector since E_2 and E_4 are not proportional.",
+          "The prior symmetric-fiber theorem concerns only the solution intersected with the origin-symmetric subclass, not the full preimage."
+        ],
+        "reasoning": "The even weighted equality obstruction is needed to extend the odd proof. The prior statements do not give that obstruction or another no-symmetry proof for this data.",
+        "searches": [
+          "Monahan arXiv:2611.13375v1 Theorem 6.7 and Lemma 6.8",
+          "Baumbach–Chen–Henk arXiv:2610.21533v1 Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L_j(x)=kappa/x_j is exactly the constant cone-volume atom equation on the regular fan after positive scaling. For an even regular fan, that is antipodally even data even if the unknown polygon is not assumed symmetric.",
+          "Monahan's inequality and equality theorem in Theorem 6.7 applies to odd N≥5, not even N."
+        ],
+        "reasoning": "Both the reciprocal recurrence and its constant-data planar discrete log-Minkowski formulation were checked. Treating only origin-symmetric solutions for even data does not establish that every solution is itself symmetric.",
+        "searches": [
+          "Resultary: even periodic reciprocal recurrence, regular polygon cone-volume proportional Minkowski summands, exceptional square",
+          "Primary comparison: arXiv:2611.13375v1 §6 and arXiv:2610.21533v1 Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6f6c8e12a26a is the identical record. The two nearby same-day entries concern polar projection bodies and linear support sampling, respectively."
+        ],
+        "reasoning": "No matching constant-atom fiber classification was located among those entries. This is a universal nonlinear rigidity assertion over positive real support numbers, not a single numerical invariant with an applicable exact table; finite samples of a Fourier norm cannot substitute for the classification.",
+        "searches": [
+          "Resultary query above, with original passages checked for 6f6c8e12a26a, 51597b4da38f and ce4a182d3d39"
+        ]
+      },
+      "rationale": "The material contribution supported here is rigidity without imposing symmetry on the summands or on the positive solution in the regular even fan, and the sharp distinction between the square and higher even orders. Monahan's odd-period method and known centered symmetric uniqueness are inputs/overlaps, not claimed novel; the elementary rectangular boundary is not a general new uniqueness theorem.",
+      "residual_risks": [
+        "Primary-text comparison was bounded to decisive passages. The independent primary web-search attempt did not return results, and no separate general planar log-Brunn–Minkowski passage was verified; an earlier equivalent nonsymmetric uniform-data classification not located in the checked sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Odd-period case and proof framework; different even-period equality issue",
+          "evidence": "The theorem assumes odd N≥5 and Lemma 6.8 proves strictness of the relaxed bound using odd parity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13375v1",
+          "material_read": "§6 Theorem 6.7 and Lemma 6.8, offsets 141050 and 148440",
+          "method": "Open-access HTML passage reader",
+          "title": "A topological approach to the discrete dual Minkowski problem",
+          "trigger": "Same recurrence and closest analytic theorem"
+        },
+        {
+          "assessment": "Origin-symmetric subclass covered; unrestricted regular even fiber not established there",
+          "evidence": "Theorem A counts origin-symmetric solutions. The regular pentagon example has three solutions for (4,4,1,1,4); that fan is not antipodal and the example is not a counterexample here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21533v1",
+          "material_read": "p. 3, offset about 8500, Theorem A and Conjecture A; p. 8 offset 27800",
+          "method": "Open-access PDF passage extraction",
+          "title": "On the solution sets of the cone-volume map",
+          "trigger": "Plausibly stronger exact fiber uniqueness"
+        },
+        {
+          "assessment": "Image and existence results, with symmetry imposed in the symmetric part",
+          "evidence": "Theorem I restricts to origin-symmetric polytopes, and Theorem II gives necessary conditions for existence for nonsymmetric data.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.13159v1",
+          "material_read": "p. 1 abstract; p. 3 Theorems I and II, offsets 6500–10000",
+          "method": "Open-access PDF passage extraction",
+          "title": "On the discrete logarithmic Minkowski problem in the plane",
+          "trigger": "General planar cone-volume results"
+        },
+        {
+          "assessment": "Different observables and inverse problems",
+          "evidence": "One compares directional ratios for projection bodies; the other analyzes linear support samples, not cone-volume atoms.",
+          "identifier_or_url": "2026/11/22/51597b4da38f and 2026/11/22/ce4a182d3d39",
+          "material_read": "Original Findings",
+          "method": "Local mirror",
+          "title": "Angular defect laws for polar projection bodies of regular polygons and parity-sharp inverse instability in one-per-sector support sampling",
+          "trigger": "Distinct same-day indexed regular-fan comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a natural exceptional case at the even-parity boundary of the weighted Fourier argument. It proves a global discrete uniqueness result in positive supports without assuming central symmetry of the unknown, and identifies exactly where a fixed regular sum can have nonhomothetic proportional-cone-volume summands in the even regular case. The square family explains why the boundary cannot simply be removed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

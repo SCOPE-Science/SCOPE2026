@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:10.534607Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Exact only for the labeled ternary span-three census; does not count all spans or all shorter periods.",
+      "rationale": "There are thirteen nonzero negation pairs, giving the upper bound; the displayed word attains it. Feasible maximal words correspond bijectively to distinct labeled cyclic edge tours of complete pair selections. A balanced graph with connected active undirected support is strongly connected on that support; loops count toward degrees but cancel from the tree Laplacian. In the BEST formula one can fix a single outgoing edge at the active root, rather than multiply by the root degree. A separately written enumeration fixing the minimum chosen edge and tracing feasible unused-edge paths, without determinants or BEST, exhausted all 8192 selections and reproduced 8120 unbalanced, 12 balanced disconnected, 60 Eulerian and the full tours/degree histograms. It obtained 288 distinct rotation classes, 3744 indexed words (the distinct windows force least period 13), and 72 orbits of size four. Independently, negation cannot preserve a selected edge set. Reversal would require an index reflection of thirteen edge positions, which has only one fixed edge, whereas a full selector contains four palindromic triples. Negated reversal sends each selected palindrome to its forbidden negative. These facts also explain freeness without computation.",
+      "replay": "python3 /workspace/replay.py 2",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 and Example 4.1 give the optimal period and a length-13 ternary case. Span-two result 1b0c56bbbd5f covers arbitrary alphabet involutions but excludes counts of optimizers."
+        ],
+        "reasoning": "Broader existence is prior; neither statement is a stronger enumeration yielding these counts.",
+        "searches": [
+          "arXiv:2603.25286v1 §4",
+          "Resultary: involution-avoiding cyclic windows"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.25286v1",
+        "Resultary 8c9cf33f292b (self-match)",
+        "Resultary fb673a16d5fe",
+        "Resultary bbcb3b429bd2",
+        "Resultary a080b92af285",
+        "Resultary 1b0c56bbbd5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orientable-cycle census counts eight length-nine rotation classes under forbidden reversal of a triple and uses alphabet permutations and reversal for its second quotient."
+        ],
+        "reasoning": "Reversal of coordinates and negation of labels have different fixed triples and maximal feasible lengths; the counts cannot be transported by relabeling. One optimal construction and a general Euler-tour counting framework leave the aggregate and its refinement undetermined.",
+        "searches": [
+          "Resultary: maximum ternary order-three orientable cycles a080b92af285",
+          "arXiv:2603.25286v1 Theorem 3.2 and Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.2 identifies negative-avoiding words with antinegative Eulerian subgraphs; Remark 3.1 notes multiple circuits per graph."
+        ],
+        "reasoning": "The representation is equivalent but the published representation alone does not evaluate the circuit sum or symmetry census.",
+        "searches": [
+          "Resultary: maximal ternary span-three negative-avoiding cycles and Euler circuits",
+          "arXiv:2603.25286v1 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8c9cf33f292b is the assigned record itself. fb673a16d5fe enumerates 218564 support sets for order four and length 40; bbcb3b429bd2 counts 373248 full length-27 order-three de Bruijn rotation classes."
+        ],
+        "reasoning": "The other tables count different state spaces, not an equivalent table of these thirteen-edge selections or tours.",
+        "searches": [
+          "Resultary: exact ternary census, 288 rotations and 72 orbits; de Bruijn and negative-avoiding spectra"
+        ]
+      },
+      "rationale": "The bound, existence and antinegative Euler subgraph representation are prior. The complete cyclic-tour census, orbit count and selector refinement are not furnished by the strongest inspected sources under equivalent definitions.",
+      "residual_risks": [
+        "Bounded comparison does not exclude an older or differently formulated unpublished or unindexed equivalent table. Same-day dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior framework and period, not the census in inspected passages",
+          "evidence": "Graph correspondence, 13 upper bound and one optimal ternary example; no tour evaluation given in these passages.",
+          "identifier_or_url": "https://arxiv.org/html/2603.25286v1",
+          "material_read": "§3.2 Theorem 3.2 and Remark 3.1 (offset 11873); §4 Theorem 4.1 and Example 4.1 (offset 18920)",
+          "method": "Open HTML theorem and example passages",
+          "title": "Negative Avoiding Sequences",
+          "trigger": "Exact objects and same maximal ternary parameter"
+        },
+        {
+          "assessment": "Different order, counts supports rather than tours",
+          "evidence": "Order four, length 40, 218564 support sets among 274624 balanced choices.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-factor-support-and-composition-spectrum-of-ternary-orde--fb673a16d5fe",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete factor-support and composition spectrum of ternary order-four negative-avoiding cycles",
+          "trigger": "Strongest distinct indexed match"
+        },
+        {
+          "assessment": "Different avoidance involution and quotient",
+          "evidence": "Eight length-nine classes for reversal avoidance.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-classification-of-maximum-ternary-order-three-orientabl--a080b92af285",
+          "material_read": "RESULT.md offsets 0 and 3500",
+          "method": "Resultary local mirror",
+          "title": "Complete classification of maximum ternary order-three orientable cycles",
+          "trigger": "Exact nearby census in same ternary span"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first ternary three-window optimizer problem asks for all positional cyclic designs achieving the exact distinguishability bound, not a single witness. The counts distinguish the design space, its actual symmetries and how differently eligible balanced supports contribute. The finite cutoff is fixed by the extremal problem; it is not an arbitrary truncation or a claim of practical performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

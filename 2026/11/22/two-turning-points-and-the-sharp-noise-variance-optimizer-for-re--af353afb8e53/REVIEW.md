@@ -1,19 +1,21 @@
-# Scientific review: reflection-symmetric three-bin variance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact categorical covariance of the two adjacent differences under multinomial sampling. The multivariate central limit theorem and uniform fourth-moment bounds justify convergence of variances, not just convergence in law. The bivariate Gaussian folded-absolute-moment identity gives an exact limiting coefficient. Under the monotone correlation coordinate \(r\), differentiation gives an explicit numerator \(H(r)\) whose second derivative is strictly positive on the complete admissible interval. One-sided signs at both endpoints and at \(r=0\) then prove the existence of precisely two simple turning points and determine their order. An explicit interior comparison beats both boundary limits. The code reproduces the finite-support covariances, numerical roots and values, and finite multinomial moments; these checks support, but do not replace, the analytic theorem.
+PASS
 
-The checker does not establish an independent mathematical audit or a finite-sample optimizer. The theorem is for the leading variance coefficient under fixed positive trinomial probabilities and a matched reference.
+The centered sum and difference of the two adjacent increments have per-draw variances 2a and 18a(1−2a), respectively; by reflection the increments have equal variance. This recovers v=a(5−9a), c=a(9a−4) and the strictly increasing correlation coordinate r from −4/5 to 1. The categorical CLT and a uniform fourth-moment bound for normalized sums justify convergence of both first and second moments of the absolute-value statistic. The folded-Gaussian product moment yields the stated V. Differentiating in r gives the stated positive-prefactor multiple of H, and differentiating twice gives H″=(1+r)(15+4r−10r²)/(1−r²)^(3/2), strictly positive since the quadratic is concave and positive at both ends. The signs at −4/5, 0 and 1 are +,−,+; strict convexity excludes a third root and yields the three monotonicity intervals. At a=1/2 the edges coincide, giving 1−2/π, and a=0 gives zero. At a=1/4 the two individual folded variances already sum to (11/8)(1−2/π), and their covariance is nonnegative. The first interior stationary point is therefore the unique global maximum including the endpoints. Direct 55-digit numerical differentiation and root finding in a reproduce both stated extrema and variance values independently of root finding on H.
 
-## Originality — PASS against inspected literature
+## originality
 
-The closest known source is Banić–Elezović, *Discrete total variation under the multinomial, Part 4: variance under a general distribution* (arXiv:2611.09592v1, 2026-11-06). Its general folded-Gaussian variance formula applies to the present profile and implies the *formula* for the coefficient after substitution, but the inspected sections give neither its complete two-turning-point classification nor a sharp optimizer of the matched-null coefficient on the reflection-symmetric three-bin line. Its explicit alternating combs in §4.2 have even bin counts. The authors' Part 5 (arXiv:2611.14735v1, 2026-11-10) instead studies cyclic variation, with an additional edge. The earlier Hoel–Kamat uniform-case calculations do not optimize nonuniform probability profiles.
+PASS
 
-The closest published results encountered in semantic claim searches concern large deviations of uniform histograms, sample-size conditioning of uniform-histogram roughness, and multinomial local statistical power. These neither imply the new optimizer theorem nor present the same exact classification. A relevant full-text search for this exact parameter optimization was negative, but a search is not proof of historical novelty. The greatest residual priority risk is an obscure general optimization of folded bivariate Gaussian absolute sums, or an unindexed related histogram result.
+The limiting variance coefficient is already implied by the general Banić–Elezović open-chain theorem (and uses a classical Gaussian folded moment). The supported distinct claim is the exact stationary-point count and global extremum classification along the chosen symmetric path. The strongest catalogue analogue concerns the cyclic statistic with three edges. It cannot determine the open-chain turning points, and the known general variance theorem does not state this optimizer or its analytic characterization.
 
-## Value — PASS
+## value
 
-The reflected three-bin family is the minimal two-edge null model with a tunable dependence parameter; it is motivated independently of the numeric answer. The theorem gives an exact globally worst noise profile for Gaussian-scale calibration, and reveals a second non-monotone regime near the center-bin depletion boundary. The strict-convexity reduction gives a global classification rather than an isolated computational extremum. No finite-sample, nonsymmetric, or statistical-power optimality is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-bin reflection-symmetric line is the smallest matched-reference path with two interacting edges and a varying interior mass. The exact worst-case leading variance and the second turning point give a useful small-model calibration benchmark: depleting the center bin past the minimum increases, rather than further decreases, the leading null noise. The result is a complete global shape comparison, not a computed value at an arbitrary test point or recomputation of the known variance coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

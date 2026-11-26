@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:00:40.750895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strong Markov and spatial translation yield iid adjacent-site passages, and reflection gives independence of passage time and sign. On the central half-cell, with K=r+z and b=sqrt(K/D), the solution is f(z)(r+z cosh(bx))/K. On the exterior half-cell it is [r+z cosh(b(ℓ-x))]/K plus a multiple of sinh(b(ℓ-x)); matching eliminates that multiple and gives f=(z+r cosh a)/(r cosh a+z cosh 2a). Thus 1/f=1+z A(z) with A(z)=2sinh²(a_z)/(z+r cosh a_z), so μ=A(0) and CV²=1-2A′(0)/μ², yielding the claimed expression. For the pole step, the survival numerator in time is E[exp(kX_t);τ>t]. It is bounded by exp(|k|ℓ) times an exponentially small survival probability (a fixed reset-free interval has a uniform positive probability of Brownian exit). Its transform is analytic in a strip. The explicit f decays as exp(-c sqrt(|Im z|)) high in a narrower strip by the hyperbolic-cosine formula. At k=0, nonlattice τ excludes all other imaginary-axis roots, and f′(0)=-μ supplies simplicity. Compactness on bounded frequencies and the high-frequency bound give an isolated dominant pole for all sufficiently small complex k. After subtracting the survival term, the transformed renewal expression has the decaying factor cosh(kℓ)f(z), so contour shifting gives a locally uniform exponential remainder and justifies differentiating the logarithmic expansion. Expanding cosh(kℓ)f(Λ)=1 gives fourth rate ℓ⁴(3m₂-5μ²)/μ³. The series for 2F has vanishing linear and cubic terms and positive higher coefficients by (9/4)^n>2n+1 for n≥3 and direct n=2. The upper bound follows from the strictly positive higher coefficients of α(cosh(2α)+3)-4sinh α. The endpoint expansions give both sharp bounds and the stated small- and large-rate fourth-coefficient limits. Independent numerical evaluation with ℓ=D=1 at α=1.606115298802767 gives CV²≈0.7216066686, D_eff≈1.1692300894, fourth rate≈0.3854250203 and excess prefactor≈0.07048228031. The supplied checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue match adds a real-tilt scaled-cumulant-generating-function result. Alston–Bertrand treat diffusivity and also different reset protocols with waiting time or finite-speed returns."
+        ],
+        "reasoning": "Extensions to altered protocols do not give the desired all-rate cumulant sign in the instantaneous model. The matched catalogue record does cover that strict sign with the same formula.",
+        "searches": [
+          "88701ce95655, RESULT.md, Finding and scaled-cumulant-generating-function statement",
+          "arXiv:2401.12772v1, supplement Eqs. (S1)–(S5), (S17)–(S18)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "arXiv:2401.12772v1 and author-hosted copy; publisher DOI access attempt",
+        "Resultary 88701ce95655, mirrored RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antecedent provides exactly f(z), and differentiating twice gives the claimed CV²; applying the symmetric fixed-step identity gives the fourth-rate expression. The same-model catalogue match also verifies the strict inequalities and coefficient sign explicitly."
+        ],
+        "reasoning": "A first-passage transform determines moments but does not by itself establish these strict inequalities for all rates without a sign argument. The distinct complete catalogue theorem covers even that part. Its date does not demonstrate that the frozen record was preceded.",
+        "searches": [
+          "Alston–Bertrand arXiv:2401.12772v1, Eq. (12) and supplement §II.A",
+          "88701ce95655, mirrored RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match has the same adjacent-site renewal time rather than the interval between Poisson events, and the same unwrapped displacement for nearest-site Poisson resetting."
+        ],
+        "reasoning": "Periodic nearest-site resetting and resetting to the nearest point of ℓZ denote the same translation-invariant model here. Both the strict CV interval and the growth coefficient of the fourth cumulant match.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-a-strict-fourth-cumulant-sign-law-for-diffusion-with-periodic-ne--88701ce95655, RESULT.md",
+          "arXiv:2401.12772v1, Eqs. (12)–(13), (17) and supplement §II.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This catalogue entry gives the analytic interval 2/3<CV²<1 and identical exact positive fourth rate for every α>0, not merely a numerical table at selected reset rates."
+        ],
+        "reasoning": "Finite tables or the numeric diffusion optimum are not exact coverage of a continuous positive rate parameter. The indexed analytic theorem is exact coverage.",
+        "searches": [
+          "Resultary 88701ce95655, mirrored RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The two main conclusions are both explicitly covered by a distinct Resultary record on the identical model, with a further scaled-cumulant-generating-function result. That record is catalogue-dated after the frozen one; this is duplicate statement coverage at review time, not evidence of earlier publication, dependence, or priority. In the inspected earlier same-model primary paper the transform is known, the formulas are derivable, and the strict all-rate window/sign were not found stated.",
+      "residual_risks": [
+        "The later archive date of the matching entry does not establish who derived the theorem first. The publisher equation locator was not verified; no independent primary web search was needed to establish the exact catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact source of transform, mean and diffusivity; inspected passages do not state the sharp window or fourth-rate sign theorem",
+          "evidence": [
+            "Eq. (12) gives identical f(z); Eq. (13) gives μ; Eq. (17) gives D_eff. The supplement repeats the first-passage calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12772v1",
+          "material_read": "Preprint PDF pp. 3–4, Eqs. (12), (13), (17); supplement §II.A Eqs. (S17)–(S18) and related variants; author-hosted copy also accessed",
+          "method": "Compare transforms algebraically and determine what is stated versus deduced by differentiating",
+          "title": "Boosting macroscopic diffusion with local resetting",
+          "trigger": "Same process, transform and known diffusivity"
+        },
+        {
+          "assessment": "Published equation numbering not independently established; frozen mathematics verified against the preprint",
+          "evidence": [
+            "In the accessible preprint the transform is Eq. (12), and Eq. (13) is the mean."
+          ],
+          "identifier_or_url": "doi:10.1103/PhysRevE.111.034114",
+          "material_read": "No publisher PDF passage; HTTP 403. Same work inspected in arXiv v1 and the author-hosted copy.",
+          "method": "Attempt direct lawful publisher full text and compare accessible copies",
+          "title": "Boosting macroscopic diffusion with local resetting (published version)",
+          "trigger": "Frozen citation to published Eq. (13)"
+        },
+        {
+          "assessment": "Exact coverage of the frozen theorem plus additional SCGF scope; later catalogue date, no priority inference",
+          "evidence": [
+            "Same open interval (2/3,1) and identical universal positive long-time fourth-cumulant coefficient."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-a-strict-fourth-cumulant-sign-law-for-diffusion-with-periodic-ne--88701ce95655",
+          "material_read": "Local-mirror RESULT.md, Finding, exact CV and fourth-cumulant statements and real-tilt SCGF scope",
+          "method": "Compare observables, parameter choices, strict inequalities and coefficient",
+          "title": "A strict fourth cumulant sign law for diffusion with periodic nearest-site resetting",
+          "trigger": "Exact matching strict window and all-rate cumulant sign"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement the strict all-rate sign and sharp variability interval answer a natural question beyond the known mean/diffusivity. They identify the threshold CV²=2/3 for symmetric fixed-length renewal displacements and predict the sign of the leading non-Gaussian correction without a finite-rate fit. This scientific motivation does not remove the exact coverage on originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

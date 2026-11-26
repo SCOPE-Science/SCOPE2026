@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed physical-time process is specified as unit Poisson proposal intensity on a finite circle with unit rod length. The accepted center-space rate is the exact length of the admissible set. The proof checks all threshold endpoints: one accepted rod jams for \(1\leq L\leq2\), a second jams for \(2<L\leq3\), and a third possibly deposits for \(3<L\leq4\). For the last regime the second center is uniform on an interval of length \(L-2\), which yields the exact third-stage survival integral. Above circumference four, the explicit open cylinder of mutually compatible first proposals creates a single admissible interval of arbitrarily small length. Its next-deposition mean integrates a nonintegrable \(1/\varepsilon\) singularity over a set of positive density. The finite-size checks in `checks.py` pass, but the all-size conclusion rests on the proof.
+PASS
 
-## Originality
+After any acceptance the next positive-rate waiting time is exponential at the Lebesgue measure of the available centers. The accepted count is bounded by floor(L), and zero-measure contact placements never occur. After the first rod the residual unoccupied arc is an interval of length L−1; its feasible-center length is (L−2)_+. For 2<L≤3 a second rod leaves both empty arcs of length at most one, hence jams. For 3<L≤4 split the residual free length L−2 after the second rod by a uniform position on [0,L−2]; the two empty arc lengths are x and L−2−x. At most one exceeds one, so the resulting positive rate has density 2/(L−2) on (0,L−3), with the remaining mass at zero. Independence from the earlier clocks follows from independent Poisson times and locations up to the stopping time and rotation invariance; a fourth rod is impossible almost surely even at L=4. Integrating exp(−at) against that rate density gives the stated tail, while adding the independent light-tailed clocks changes its large-t expression only by O_L(t⁻²). Integration yields the truncated mean and divergence. For L>4, k=floor(L/2)+1 satisfies k+1<L<2k. Prescribe the first k labeled proposals in cyclic order near a configuration with first center gap 2 and other gaps all (L−2)/(k−1)∈(1,2). Keeping one clockwise chart fixed gives a product box in first-center and gap coordinates with unit Jacobian. Move the first gap through 2+ε and hold the remaining free coordinates in that box so the last gap stays in (1,2). All k proposals are accepted, the remaining rate is ε, and the mean of the next wait integrates against a positive constant density to infinity. This argument handles even integer L, not only generic circumferences. Replay: integrate the two subintervals 0≤x<L−3 and 1<x≤L−2, and use the gap-coordinate Jacobian above for L>4. The packaged quadrature and sampling are supporting tests, not the continuum proof.
 
-**PASS under the literature comparisons described, with documented residual priority risk.** The closest work of Privman and Yan (2016) uses Pomeau's mechanism for power-law jamming kinetics on patterned substrates; it does not give the exact finite-circle last-deposition-time phase transition and coefficient. Purvis et al. (2015) analyze coverage–availability scaling, Huillet (2003) uses a free-deposition circle process explicitly different from Rényi's sequential exclusion, and the available Kumar (2026) abstract concerns finite *interval* configuration and absorption-count laws. No matching or dominating published statement emerged from the semantic claim, alias, or gap-parameter searches. Some original complete texts were inaccessible, and independent priority verification remains outstanding.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result explains a singular distinction between almost-sure completion and expected physical completion time, with a sharp circumference-three cutoff; the threshold boundary is not inferred from infinite-substrate coverage. The exact terminal-time coefficient and logarithmic truncated mean on \(3<L\leq4\) quantify the rare near-jammed sample paths and supply a reproducible finite-volume benchmark for physical-time adsorption simulations. The proof also isolates the geometric near-fitting-gap mechanism responsible for the all-size infinite-mean result.
+The supported increment is the physical last-acceptance time law on a finite continuum ring: the sharp mean cutoff (including the equality case), the exact first nontrivial terminal-stage survival, and its explicit coefficient. Small-gap power laws and discrete-lattice jamming times are not new. The inspected prior results do not entail this combination.
 
-## Boundaries
+## value
 
-The \(1/t\) coefficient is claimed only through circumference four, not for all larger circles. The result does not cover discrete lattices, multiple rod lengths, finite-number trial protocols, or artificially accelerated sampling of successful arrivals. Older general jamming laws are not claimed as new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A.s. finite completion despite infinite expected physical time is a concrete distinction for a canonical finite-volume stochastic process, and the exact cutoff shows it begins immediately when a nearly fitting third placement becomes possible. The explicit tail and truncated mean quantify the resulting rare events and give a benchmark that cannot be read from either count-only parking algorithms or infinite-volume coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

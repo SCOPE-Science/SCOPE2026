@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:37.486156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nontame part of the odd-prime cyclic unit group has order p^(m−1); its e-th powers form 1+p^min(m,s+1) R. On the prime-to-p factor the image has order r. Raising v to p−1 removes the tame factor and is invertible on principal units, so condition (P) is exact. For v in the image, each of h residue roots has p^d lifts. The affine iteration multiplies b by S_e(u). For u≡1 mod p the integer odd-prime lifting identity gives valuation min(s,m), also directly true for u=1. Otherwise u−1 is a unit and (u−1)S_e(u)=v−1 gives valuation ν_m(v−1). Multiplication by a coefficient of valuation j has image p^jR and kernel size p^j, including j=m. Summing these disjoint root classes proves the stated target formula. For each of the (r−1)p^(m−1−d) nonprincipal multipliers all p^m translations occur; for each of the p^(m−1−d) principal multipliers exactly p^(m−a) occur. This proves the image size and depth stability for m>s. It also gives the identity, field and tame-exponent cases, and the final p-element image followed by collapse along the indicated (p−1)p^s chain, not an ordering claim for arbitrary larger integers e. Translation order p^m and an embedded unit of order p−1 force the sharp group exponent. The frozen checker and log were inspected, not executed. A separate affine doubling count (`python3 /workspace/independent_checks.py 4`) passed 1,017,468 target comparisons on the frozen grid: 280 rows, 215 distinct (p,m,e) triples because the input lists repeat some exponents. These finite checks do not establish the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day chain-ring affine theorem 04cb023485eb uses precisely the relevant ambient group family, but evaluates iterated right Engel words with multiplier-one output, not e-th powers. The same-day product-of-commutators theorem 1d912b1a3c07 also uses a different word.",
+          "The wreath theorem 566b58b310cf gives powers on an elementary-abelian base with a cyclic shift; the square-zero quiver theorem 1c150d6b326e concerns finite-field algebras. Even where a field-level affine instance is available, arbitrary mixed-characteristic depth does not follow."
+        ],
+        "reasoning": "No inspected theorem that quantifies over bigger rings and the same ambient group also quantifies over this power word and its targets; the power-word theorems on other group families do not subsume arbitrary cyclic-ring depth.",
+        "searches": [
+          "Resultary 04cb023485eb, 566b58b310cf, 1d912b1a3c07, 1c150d6b326e; arXiv:math/0609571"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04cb023485eb, 566b58b310cf, 1c150d6b326e, 0a4181d7ad6d, 1d912b1a3c07; identical 823a0776595f excluded",
+        "arXiv:1511.07252; arXiv:math/0609571; arXiv:2106.12781; arXiv:2203.09316; arXiv:2608.02281",
+        "Deaconescu–Walls, The Y factor (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order lemma can settle when a p-element powers to identity but does not count roots of nonidentity elements. The class-size and representation data do not supply which preimage classes power to a given class for an arbitrary e.",
+          "For v≡1 and h>1 the two root families can contribute different kernel cardinalities p^min(s,m) and p^ν_m(v−1) to different nested translation ideals. In particular t=0 and t≠0 can have different counts even with the same v=1 multiplier, e=p−1."
+        ],
+        "reasoning": "The original result resolves both lifting and the distribution of translation images, not solely membership, order or a standard cyclic-group root count. No stronger inspected theorem yields this census by specialization.",
+        "searches": [
+          "Kovács–Nedela arXiv:1511.07252 Lemma 4; Becker arXiv:math/0609571 p. 1; Pradhan–Sury arXiv:2106.12781 p. 2; Resultary 0a4181d7ad6d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The power-graph abstract studies graph structure/spectrum, not the simultaneous counts for a specified exponent and target. Kovács–Nedela Lemma 4 gives element orders in a metacyclic p-group.",
+          "Endomorphisms on the cyclic multiplier group give at most the hp^d multiplier choices; they do not count the translation lifts, which depend on the residue class of each root even for fixed v."
+        ],
+        "reasoning": "Divisibility, element order and unlabeled power-graph adjacency are not equivalent to the target-specific counts, especially the split between residue-one and other roots for principal v.",
+        "searches": [
+          "Resultary: cyclic holomorph power words, affine x^e=y fibers, prescribed powers in metacyclic and semidirect groups",
+          "arXiv:2608.02281; arXiv:1511.07252, Lemma 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "823a0776595f is the identical record, excluded as prior evidence. The distinct exact power-fiber censuses evaluate different groups; the affine tables in 0a4181d7ad6d list conjugacy and character information, not all power maps. Pradhan–Sury state irreducible representation and rational group algebra results."
+        ],
+        "reasoning": "A character table is not a power-class map. The searched data do not give a prescribed-target count by both v and t, and the frozen bounded grid is validation, not evidence of earlier priority.",
+        "searches": [
+          "Resultary exact all-target power fiber and chain-ring affine records: 823a0776595f, 0a4181d7ad6d, 1c150d6b326e, 566b58b310cf",
+          "arXiv:2106.12781, p. 2"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct result is the complete prescribed-target two-contribution count at arbitrary odd-prime cyclic-ring depth and every positive exponent. The closest same-family word-map source treats Engel words, not powers. Known affine group structure, order and character data provide ingredients, not the evaluated translation multiplicities for all multiplier-root classes. No claim of novelty for the geometric sum identity, cyclic roots, the field boundary alone, or the elementary exponent calculation.",
+      "residual_risks": [
+        "Historical metacyclic presentations, root counts or explicit power-class tables may contain an equivalent evaluated result outside inspected material.",
+        "Deaconescu–Walls full text was not verified. No order is inferred from same-day Resultary dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different word on a broader family; no date-order inference.",
+          "evidence": "The iterated right Engel word W_k(X,Y) has targets with multiplier one; the formula is not a unary power map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-valuation-universal-engel-fibers-and-subgroup-spectra-in-chain-r--04cb023485eb",
+          "material_read": "Finding at offset 306 and comparison at 10578",
+          "method": "Resultary search; exact local-mirror passages",
+          "title": "Valuation-universal Engel fibers and subgroup spectra in chain-ring affine groups",
+          "trigger": "Strongest distinct same-day affine-group word-map overlap"
+        },
+        {
+          "assessment": "Different group and exponent regime.",
+          "evidence": "The base is F_q^(p^a), with regular cyclic shift; the powers have exponent p^b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-prime-power-word-fibers-and-power-image-subgroup-thresh--566b58b310cf",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Complete prime-power word fibers and power-image subgroup thresholds for cyclic regular wreath groups",
+          "trigger": "Same-day exact powers and image thresholds"
+        },
+        {
+          "assessment": "Different coefficient algebra; no coverage of the claimed arbitrary depth.",
+          "evidence": "The power map is on finite-field quiver unit groups with square-zero radical.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Complete power-map fibers in radical-square-zero quiver unit groups",
+          "trigger": "Earlier exact all-target power census"
+        },
+        {
+          "assessment": "Conjugacy and character data, not power fibers.",
+          "evidence": "The stated invariants are classes, their sizes and ordinary characters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d",
+          "material_read": "Finding, offset 409",
+          "method": "Resultary search and local mirror",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings",
+          "trigger": "Earlier tables for the same groups"
+        },
+        {
+          "assessment": "Different word and group family.",
+          "evidence": "The theorem counts products of commutators on cyclic-by-cyclic groups.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-surface-word-twins-of-different-nilpotency-class-in-cyclic-by-cy--1d912b1a3c07",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Surface-word twins of different nilpotency class in cyclic-by-cyclic prime-power groups",
+          "trigger": "Same-day exact word maps on cyclic semidirect products"
+        },
+        {
+          "assessment": "Order information for a p-group is partial background only.",
+          "evidence": "Lemma 4 computes element orders, not the full holomorph's all-target root multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.07252",
+          "material_read": "Lemma 4, PDF p. 3, offset 9752",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Skew-morphisms of cyclic p-groups",
+          "trigger": "Metacyclic power/order background"
+        },
+        {
+          "assessment": "Group presentation background.",
+          "evidence": "The stated goals are presentations for holomorphs of abelian groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609571",
+          "material_read": "Introduction, PDF p. 1, offset 0",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Some observations regarding the holomorphs of finite abelian groups",
+          "trigger": "Presentation for the same holomorphs"
+        },
+        {
+          "assessment": "A different invariant of the identical family.",
+          "evidence": "Results specify irreducible representations, Schur indices and rational group algebra.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.12781",
+          "material_read": "Main results overview, PDF p. 2, offset 6061",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Rational and quasi-permutation representations of holomorph of cyclic p-groups",
+          "trigger": "Strong same-family representation comparison"
+        },
+        {
+          "assessment": "Studies regular subgroups rather than power-map distributions.",
+          "evidence": "The stated object is mutual normalization among the regular subgroups.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.09316",
+          "material_read": "Abstract/overview, PDF p. 1, offset 712",
+          "method": "Lawfully available arXiv PDF",
+          "title": "The mutually normalizing regular subgroups of the holomorph of a cyclic group of prime power order",
+          "trigger": "Same odd-prime cyclic holomorphs"
+        },
+        {
+          "assessment": "Adjacent but not a matching stated result; no whole-paper negative claim.",
+          "evidence": "Adjacency in the power graph and its spectral/graph structure are stated as topics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.02281",
+          "material_read": "Abstract, PDF p. 1, offset 788",
+          "method": "Lawfully available arXiv PDF",
+          "title": "Spectral Properties of Power Graphs of Metacyclic Groups",
+          "trigger": "Power-map terminology and metacyclic groups in primary search"
+        },
+        {
+          "assessment": "Access limited; not negative evidence.",
+          "evidence": "The frozen synopsis describes orbit partitions, but the PDF retrieval was unavailable.",
+          "identifier_or_url": "https://ssmr.ro/bulletin/pdf/56-3/articol_6.pdf",
+          "material_read": "No independently verified full-text passage",
+          "method": "Lawful PDF retrieval attempted through configured routes",
+          "title": "The Y factor",
+          "trigger": "Possible holomorph orbit or class-power relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The holomorph is a standard affine group and exact unary word fibers are natural invariants. The uniform count in one multiplier stratum and the two nested-ideal contributions in the other identify a sharp root concentration and exact attainable fraction across depths, not just a known group exponent, a single census, or reuse of a cyclic-unit formula. The image-density and terminal-chain statements clarify the distribution's behavior; no broad extension to all chain rings or even primes is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

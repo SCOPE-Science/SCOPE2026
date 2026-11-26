@@ -1,19 +1,21 @@
-# Review of exact word reversal and infinite symbolic memory
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The branch formulas and invariant density agree with the original map and density in Kraaikamp–Langeveld (2016), Section 2.1. Independently, the monotone change of variable \(z=x/(4-x)\) gives a normalized invariant \(dz/(z\log3)\); the two explicitly computed inverse branches satisfy the exact Perron–Frobenius balance. A finite binary cylinder is exactly the interval obtained by its ordered inverse-branch composition. Its endpoints are projective columns of a positive integer matrix \(M_wQ\), so integrating the invariant logarithmic density produces \(|\log(ad/bc)|/\log3\). The matrices satisfy \(M_jQ=QM_j^{\mathsf T}\), yielding an identity for *every* reversed word by induction. The all-zero branch has an exact fixed point and contraction ratio \(1/4\), giving its cylinder formula. A strict derivative inequality makes the successive all-zero conditional probabilities nonconstant at arbitrarily long histories and excludes every finite Markov order. No step uses finite enumeration as a universal proof.
+PASS
 
-## Originality — PASS (best-knowledge, not priority certification)
+The inverse branches in x are h_0(x)=4/(5−x) and h_1(x)=4/(1+x); z=x/(4−x) sends them to (1+z)/4 and (1+z)/(4z) on J=[1/3,1]. The pushed-forward probability dz/(z log 3) is normalized and its two transfer contributions sum to 1/(z log 3). The composed inverse branches send the two endpoint columns of Q to the columns of K_w. They are nonsingular and their endpoint entries are positive, so every cylinder has positive measure and integrating the logarithmic density gives |log(ad/bc)|/log 3. The two explicit symmetric products M_jQ imply the full reversed product identity, not merely equality of selected short words. The branch boundary and its iterated preimages are null; reversal is of the stationary digit law, not invertibility of the interval map. The affine first branch fixes 1/3 and shrinks by 1/4, giving the exact all-zero cylinder formula. For t>0 the derivative of log(1+t/4)/log(1+t) has the sign of (1+t)log(1+t)/4−(1+t/4)log(1+t/4), which starts at zero and has strictly positive derivative. The all-zero continuation probabilities therefore strictly decrease to 1/4 and cannot be constant for histories sharing a finite last-m suffix. This also rules out independence. The frozen checker was inspected, not executed; its bounded word tests are not the general proof.
 
-The source map and invariant density are explicitly prior art. The 2016 source develops natural extensions, invariant-density approximations, matching and entropy, without asserting an exact finite-word reversal theorem or a non-finite-Markov theorem. The full 2012 paper of Dajani–Hensley–Kraaikamp–Masarotto develops the more general class of flipped continued fractions, but its inspected framework and invariant-measure conclusions likewise do not state either of these assertions. Existence of a two-dimensional natural extension or a stationary density does not by itself force reversal symmetry: the decisive matrix intertwining identity is an additional model-specific check. Targeted mathematical literature and research-record searches found no stronger comparison that entails this precise all-word identity. Possible earlier general symmetrization results for special Möbius maps remain a real historical-priority risk and warrant specialist review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Reversibility at every block length is a structural property of a non-invertible dynamical digit observable, much stronger than invariance or matching one-digit frequencies. Here it coexists with strictly varying conditional probabilities along arbitrarily long identical symbol runs. The combination identifies a reversible process with genuine infinite memory and supplies every cylinder probability by exact finite matrix arithmetic; it is not a rephrasing of the invariant-density calculation or a narrow arbitrary finite statistic. Its scope is intentionally confined to this historically motivated two-branch map.
+Limit the distinct contribution to the explicit finite-word matrix law, the model-specific symmetrization, and particularly the exact run law used to prove infinite Markov order. The map, marginal and natural extension are prior. The reversal conclusion is closely tied to that exact prior extension, and a coordinate-swap proof can be derived from it as detailed below; no separate priority for a new natural extension or a general reversal principle is awarded. The inspected sources do not supply the model-specific whole-word law with its strict zero-run memory obstruction.
 
-## Reproducibility and limitations
+## value
 
-The standalone exact-arithmetic checker covers 4,094 nonempty words through length eleven, tiled-cylinder endpoint identities, the density transfer balance at five rational points, and all-zero identities through length 59. Its output was `VERIFY_OK 4094`. The infinite proof is analytic. The statement does not imply that the interval map is time invertible, that other flipped continued-fraction maps have the same reversal property, or that the symbolic process is mixing with a specified rate. A historical equivalent theorem could exist outside the inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact law and long-run conditionals distinguish reversibility from finite-order prediction in a natural published two-branch model. The strict memory obstruction gives information not supplied by the known invariant density as a one-point statistic or by short-block symmetry. This is a useful precise structural example for this observable, not a claim of a new general theory of reversible processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

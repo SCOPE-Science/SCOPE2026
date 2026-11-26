@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:27:36.452578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The intermediate Euclidean projection has spatial direction x/||x|| and radial size (κt+||x||)/(1+κ²). Its derivative depends affinely on the projected radial fraction in (0,1): the two limits are the radial rank-one projector and the complementary tangent projector, with the same axial row. Each absolute row sum is convex in this fraction, so its maximum is at a limit. Maximizing the axial row uses ||u||₁≤√d; fixing |uᵢ|=s for a spatial row yields equality in the remaining Cauchy–Schwarz bound by taking the other coordinate magnitudes equal. To pass from derivatives to the global coefficient, integrate on generic translated segments (the boundaries have measure zero), then pass to the desired segment by continuity. Row-sign directions at smooth points give the reverse inequality, including endpoint limits. For the lower uniform bound, put Δ=√d−√(d−1)<1. At s=1/√2 the B excess after multiplying by 1+κ² is κ/√2+(1−Δ)/2, and the C excess is 1+κ/√2+κ²(1−Δ)/2; A also exceeds its leading term. For the upper bound use s√(1−s²)≤1/2 and κ/(1+κ²)≤1/2; the respective additive errors are at most 1, (1+√2)/2 and 3/2. Thus the signed uniform bound is correct. The three profile branches have minima at the two switches, both 2/5, and the endpoint limits at κ→0 and κ→∞ are 1/2, giving the claimed confinement. This is an analytic audit of RESULT.md lines 44–90. The supplementary verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thinh Theorem 3.2 gives calm B-differentiability of the general circular-cone projector, not the optimized row-sum formulas. The planar Resultary record changes the ambient minimization metric to ℓp. The Zhou et al. and Zhang–Liu full texts were not accessible through the attempted lawful routes."
+        ],
+        "reasoning": "Derivative existence and qualitative projection stability alone do not establish exact coordinate Lipschitz moduli; the earlier all-aperture record, not these broader methods, proves direct coverage.",
+        "searches": [
+          "DOI 10.32508/stdj.v23i4.2426 Theorem 3.2",
+          "DOI 10.1080/02331934.2014.951043 Proposition 4.2",
+          "DOI 10.1155/2018/4607853",
+          "Resultary 2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary d5fc2548a47f, 2d1b9aa4230e and fbfc40872e9c",
+        "DOI 10.32508/stdj.v23i4.2426",
+        "DOI 10.1080/02331934.2014.951043 and 10.1155/2018/4607853 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof already uses 0≤a√(1−a²)≤1/2 and equality at a=1/√2. The printed objectives retain the denominator 1+κ². The text states its asymptotic result with fixed κ, not an explicit uniform bound."
+        ],
+        "reasoning": "Apply the same two upper-bound/test-point operations before taking a limit: the remainder ratios are bounded by 1, (1+√2)/2 and 3/2, and the loss Δ in replacing √(d−1) by √d is smaller than the positive offsets at the same test point. These direct inequalities already yield the frozen one-sided uniform estimate. Minimizing the printed g amounts to monotonicity on its three branches, and the uniform estimate immediately transfers this to moving apertures. No new extremal calculation is required.",
+        "searches": [
+          "Resultary d5fc2548a47f proof §4, mirrored offset 5096"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier all-aperture Finding gives max{1,A,B⁻,B⁺}: A=(κ²+κ√d)/(1+κ²); B⁻ maximizes κa+a²+√(d−1)a√(1−a²) over a in [0,1] and divides by 1+κ²; B⁺ similarly maximizes κa−κ²a²+κ²√(d−1)a√(1−a²) and adds 1 after division. Its limiting g and branch regions are identical."
+        ],
+        "reasoning": "Set a=s, B⁻=B_d, B⁺=C_d. The norms, Euclidean projector, dimension, and unrestricted κ all match. The standard Lorentz result instead covers only κ=1.",
+        "searches": [
+          "Resultary 2026/11/17/SCOPE-three-sharp-aperture-regimes-for-coordinatewise-stability-of-euc--d5fc2548a47f",
+          "Resultary 2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue contains an exact scalar prescription for every finite pair (κ,d), rather than a numerical table. The standard Lorentz catalogue entry independently gives the exact κ=1 row transition: spatial for d=2,3,4 and axial value (1+√d)/2 for d≥5."
+        ],
+        "reasoning": "Since the parameter domain is continuous, a numeric table could only cover slices. The identified exact formula gives full finite coverage.",
+        "searches": [
+          "Resultary d5fc2548a47f Finding",
+          "Resultary 2d1b9aa4230e Finding"
+        ]
+      },
+      "rationale": "The earlier 2026-11-17 Resultary record d5fc2548a47f states the identical exact finite-dimensional optimization for every κ and d and the identical limiting profile and three regimes. The uniform error statement is not verbatim there, but is a direct bound on those already-published scalar objectives using the same maximizing test coordinate and denominator; the optimization and confinement follow immediately. The frozen finding cannot be credited as distinct on these additions. This is demonstrated coverage, not failure to establish historical priority due to inaccessible literature.",
+      "residual_risks": [
+        "The unresolved conic-programming sources may give additional historical coverage. Neither is needed for the exact catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap and direct implication for the added envelope",
+          "evidence": "Same A,B⁻,B⁺, same g, same thresholds and same a=1/√2 argument.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-three-sharp-aperture-regimes-for-coordinatewise-stability-of-euc--d5fc2548a47f/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0); proof §§3–4 and limitations (offset 5096)",
+          "method": "Resultary query and local mirror full-text passage inspection",
+          "title": "Three sharp aperture regimes for coordinatewise stability of Euclidean circular-cone projections",
+          "trigger": "Exact all-aperture match"
+        },
+        {
+          "assessment": "Covers κ=1 only",
+          "evidence": "Exact spatial-to-axial transition at d=5.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "material_read": "Finding and proof §2",
+          "method": "Local mirror full-text passage inspection",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "Standard slope special case"
+        },
+        {
+          "assessment": "Different metric projection",
+          "evidence": "Nearest point is selected using the ambient ℓp metric.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror full-text passage inspection",
+          "title": "Exact planar stability and nonexpansivity rigidity for ℓp projections onto scaled Lorentz cones",
+          "trigger": "Scaled cones with alternative coordinate norms"
+        },
+        {
+          "assessment": "Generalized differentiability background",
+          "evidence": "Calm B-differentiability at each point, rather than exact coordinate row optimization.",
+          "identifier_or_url": "https://doi.org/10.32508/stdj.v23i4.2426",
+          "material_read": "Journal pp. 732 and 735, abstract and Theorem 3.2",
+          "method": "OA journal PDF inspection",
+          "title": "On the calm B-differentiability of projector onto circular cone and its applications",
+          "trigger": "General circular-cone projector"
+        },
+        {
+          "assessment": "Specific Proposition 4.2 not independently resolved",
+          "evidence": "No negative coverage conclusion drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1080/02331934.2014.951043",
+          "material_read": "No primary full text obtained; publisher route unavailable",
+          "method": "Lawful DOI/full-text retrieval attempt",
+          "title": "Variational analysis of circular cone programs",
+          "trigger": "Cited generalized projector derivative representation"
+        },
+        {
+          "assessment": "Detailed overlap not resolved",
+          "evidence": "No negative coverage conclusion drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/4607853",
+          "material_read": "No primary full text obtained through publisher or alternate Hindawi PDF",
+          "method": "Lawful OA retrieval attempts",
+          "title": "A Projection Neural Network for Circular Cone Programming",
+          "trigger": "Projector and convergence analysis for circular cones"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The coordinate stability question and the moving-aperture optimization are mathematically natural. However, the principal exact optimization and regimes were already established, and the displayed quantitative increment is a routine bound on that same exact formula, not a new finite-dimensional extremal result. The 3/2 error is not claimed or shown to be the best uniform constant, and the record gives no new finite-dimensional crossover or optimizer. No independently valuable surviving claim is established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

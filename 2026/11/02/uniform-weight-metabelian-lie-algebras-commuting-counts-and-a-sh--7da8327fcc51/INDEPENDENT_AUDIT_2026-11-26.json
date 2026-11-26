@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:54.908392Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and assumptions, lines 5–17; proof Steps 1–5, lines 21–41",
+        "VERIFICATION.md and verify.py, inspected without execution",
+        "Fresh finite enumeration of the row-minor constraints and independently computed weight-subset ranks"
+      ],
+      "rationale": "For each fixed toral tuple the commutator equations are the two-by-two minors between the evaluated weight row and the corresponding radical row. There are q radical choices for a nonzero weight row and q^r for a zero weight row. Expansion over subsets forces all toral coordinates to annihilate the selected weights, giving q^{r(d−rank S)} choices and the stated matroid formula. Uniform ranks give the binomial grouping; at r=1 the count is q^{m+d}. In the pair variety the locus with no vanishing weight rows is a rank-m vector bundle over a nonempty open subset of H² and has irreducible closure Y of dimension 2d+m. Away from H²=0 the vanishing rows are indexed by fewer than d independent weights, so their proportionality equations can be achieved on a one-parameter deformation into the open bundle. This gives the set-theoretic union Y∪E². To decide the small-m case, take B with ker B=im A, where A is the m-by-d weight matrix. Any m−d columns of B are independent because a dependency supported there would give a vector in im A annihilated on a complementary set of d independent weights. For m<2d, deleting any column of the stacked matrix K(U) leaves full row rank on a common dense open set: partition the remaining columns into two groups of size at least m−d and use one radical coordinate on each group for the full-rank specialization. The kernel then contains a vector with all coordinates nonzero, lifting the two scaled radical columns to im A. This produces a straight-line deformation into the open bundle, so E²⊆Y. When m=d the zero-row B gives the same conclusion immediately. For m≥2d, E² cannot be contained in Y: its dimension is at least that of Y, and at equality containment would force equality of irreducible closed sets, impossible since Y contains nonzero toral pairs. This independently confirms the component threshold and both dimensions. The supplied full-column-rank K(U) exclusion is consistent with it. Fresh enumeration of the actual row-minor equations matched 21 subset-rank comparisons, including nonuniform spanning weights and U_{2,4} over F₃. In the latter case the counts for arities 1, 2, 3 were 729, 18225, 657801. The checks can be replayed by enumerating toral tuples and all candidate length-r radical rows over the prime field, testing every minor and summing the products of row counts.",
+      "residual_risks": [
+        "The arithmetic census is conditional on representability over the specified field and does not recover the full matroid or count orbits.",
+        "E² is the zero-toral fiber, not the square of the Lie center; this terminology does not affect the proof.",
+        "The geometry is over an algebraic closure for the reduced pair variety. The finite checks do not imply any scheme-theoretic or all-arity geometric statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodwin–Röhrle treat the Borel nilradical and distinguished orbits. Goddard's Theorem 1.2 is an irreducibility classification for Borel subalgebras by reductive-group type.",
+          "Indexed record 0ff13a9762e6 treats the three-block nilradical n_{1,2,c} for its pair transition at c=4, with dimensions 6c and 5c+4."
+        ],
+        "reasoning": "A sharp threshold in a nilradical is not a theorem about the diagonal semidirect product with nonzero weights: the former is nilpotent, whereas a nonzero weight gives some adjoint action with nonzero eigenvalue in the latter. Borel classifications use root-system hypotheses rather than arbitrary uniform weight representations. Low-dimensional or special Borel examples do not cover the parameter family and both component dimensions.",
+        "searches": [
+          "Primary-literature search for commuting varieties of solvable and diagonal metabelian Lie algebras",
+          "Goodwin–Röhrle, arXiv:1209.1289v1",
+          "Goddard, Commuting varieties and nilpotent orbits, Birmingham thesis, Theorem 1.2",
+          "Resultary 0ff13a9762e6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and exact entries 8e790fc6774d, 0ff13a9762e6 and 38b9edb44d0d",
+        "arXiv:1209.1289v1, p. 1",
+        "Goddard's Birmingham thesis, Theorem 1.2",
+        "arXiv:1408.2166v1, p. 1 and Theorem 3.4",
+        "Bibliographic and access check for Commuting varieties of r-tuples over Lie algebras"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arithmetic polynomial follows directly from the classical rank expansion once the bracket fiber counts are identified.",
+          "The diagonal rank-one source classifies admissible uniserial modules. The inspected Borel and three-block nilradical results describe commuting components for their own structural settings, not a dense-open lifting criterion for uniform diagonal weights."
+        ],
+        "reasoning": "The arithmetic simplification is not offered as a new general identity. The decisive distinct geometric step is proving that every commuting pair off the zero-toral fiber belongs to one closure, and that the entire fiber also belongs to it exactly when m<2d. Neither the matroid polynomial specialization nor a module classification directly gives that geometric containment.",
+        "searches": [
+          "Classical matroid rank-generating expansion and the indexed incidence-algebra Potts/Tutte expression",
+          "Cagliero–Szechtman arXiv:1408.2166v1, p. 1 and Theorem 3.4",
+          "Goddard thesis, Theorem 1.2, and indexed three-block transition 0ff13a9762e6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing θ=q^{r−1}−1, the formula is q^m θ^d T_M(1+q^r/θ,1+θ) for r>1, with r=1 obtained from the original sum. This is an exact equivalent formulation, not a new matroid polynomial.",
+          "The inspected incidence-algebra record 8e790fc6774d gives a Potts/Tutte expression and recovery theorem for split-separable tuples of a finite incidence algebra; 38b9edb44d0d concerns an inner-commutator rank distribution in radical-square-zero quiver algebras."
+        ],
+        "reasoning": "The incidence-algebra formula is a real conceptual overlap: character differences on edges can produce a graphical weight matroid, and very small specialized systems may agree. The indexed statement concerns split-separable tuples and graphical/comparability data, not arbitrary represented weights or the full uniform-weight family. Its arithmetic Tutte recovery does not classify geometric components. The quiver record counts ranks rather than the same pairwise commuting tuples.",
+        "searches": [
+          "Resultary semantic comparisons for diagonal metabelian commuting tuples and Potts/Tutte formulations",
+          "Resultary records 8e790fc6774d and 38b9edb44d0d",
+          "Cagliero–Szechtman, arXiv:1408.2166v1, diagonal rank-one extensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact count is for a finite incidence algebra; the closest threshold and dimensions are for a three-block nilradical. The quiver entry is a different rank invariant."
+        ],
+        "reasoning": "No inspected table was found for these Lie-algebra tuple counts and dimensions. A table of abstract Tutte polynomials for uniform matroids would supply the arithmetic polynomial after the specialization has been proved, but it would not establish the commuting interpretation or the component classification.",
+        "searches": [
+          "Resultary searches for commuting-tuple rank sums, matroid-dependent counts and a sharp reducibility transition",
+          "Local indexed entries 8e790fc6774d, 0ff13a9762e6 and 38b9edb44d0d"
+        ]
+      },
+      "rationale": "The rank-generating sum is classical and is a direct Tutte specialization; the credited arithmetic contribution is its interpretation as a commuting-tuple census for this diagonal Lie family. The strongest distinct claim is the sharp two-component transition and component dimensions in the uniform-weight reduced pair variety. Same-day indexed results provide genuine analogues, not matching theorems for this family. The conclusion is based on inspected statements, not on priority inferred from timestamps or on search misses alone.",
+      "residual_risks": [
+        "The all-arity count has explicit classical rank-generating coverage as a polynomial; novelty is not assigned to that algebraic identity.",
+        "The full text of the located r-tuple article was not recovered. The limited literature review does not rule out unlocated general coverage or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related arithmetic mechanism in a different class",
+          "evidence": "The counts recover the comparability graph's Tutte/random-cluster polynomial for split-separable tuples in finite incidence algebras; the zero-toral component transition is not the subject of the result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d",
+          "material_read": "RESULT.md, local text offset 1690",
+          "method": "Local Resultary mirror",
+          "title": "A Potts–Tutte formula for commuting split-separable tuples in finite incidence algebras",
+          "trigger": "Exact all-arity commuting counts with a Tutte/random-cluster invariant"
+        },
+        {
+          "assessment": "Closely related geometry for another family",
+          "evidence": "For the indicated three-block nilradical with middle block size 2, reducibility begins at c=4 and the dimensions are 6c and 5c+4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rank-stratified-commuting-tuples-and-a-sharp-reducibility-transi--0ff13a9762e6",
+          "material_read": "RESULT.md, local text offset 1260",
+          "method": "Local Resultary mirror",
+          "title": "Rank-stratified commuting tuples and a sharp reducibility transition",
+          "trigger": "Sharp reducibility threshold and component dimensions for a Lie commuting variety"
+        },
+        {
+          "assessment": "Analogous invariant, not the commuting-tuple census",
+          "evidence": "It gives an inner-commutator rank distribution tied to a graphic matroid.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "RESULT.md, local text offset 342",
+          "method": "Local Resultary mirror",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Matroid-controlled commutator invariant"
+        },
+        {
+          "assessment": "Does not supply broader coverage in the passages inspected",
+          "evidence": "The objects are C(u) for Borel nilradicals; specified component results use distinguished B-orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1289",
+          "material_read": "v1 p. 1, PDF text offsets 291–3498",
+          "method": "Original open-access paper, targeted passage",
+          "title": "On commuting varieties of nilradicals of Borel subalgebras of reductive Lie algebras",
+          "trigger": "Primary results on components of Lie commuting varieties"
+        },
+        {
+          "assessment": "Uses different structural hypotheses",
+          "evidence": "The theorem classifies Borel-subalgebra commuting-variety irreducibility by reductive-group type, not by the size and rank of a uniform weight configuration.",
+          "identifier_or_url": "University of Birmingham thesis, Goddard (2017)",
+          "material_read": "Theorem 1.2, PDF pp. 3–4, offset 9520",
+          "method": "Original open thesis, targeted theorem passage",
+          "title": "Commuting varieties and nilpotent orbits",
+          "trigger": "Solvable Borel commuting-variety irreducibility classification"
+        },
+        {
+          "assessment": "Relevant Lie-algebra setup, different invariant",
+          "evidence": "The theorem concerns admissible uniserial modules of a diagonal extension, not its intrinsic commuting varieties or tuple census.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.2166",
+          "material_read": "v1 p. 1, offset 0, and Theorem 3.4, p. 7, offset 22371",
+          "method": "Original open-access paper, targeted passages",
+          "title": "Indecomposable modules of 2-step solvable Lie algebras in arbitrary characteristic",
+          "trigger": "Diagonal abelian extensions with one-dimensional toral part"
+        },
+        {
+          "assessment": "Unresolved source-specific risk",
+          "evidence": "Full-text access returned HTTP 403; no negative comparison of the article's theorems is inferred.",
+          "identifier_or_url": "ScienceDirect title identified in the primary-literature search",
+          "material_read": "Bibliographic identification only; no primary theorem passage recovered",
+          "method": "Lawful open-access retrieval attempt",
+          "title": "Commuting varieties of r-tuples over Lie algebras",
+          "trigger": "Potential general coverage of Lie commuting tuples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, general matroid census and exact dimension threshold",
+        "Indexed commuting-count and component-transition analogues",
+        "Borel and nilradical geometry context in Goddard and Goodwin–Röhrle"
+      ],
+      "rationale": "The transition separates arithmetic dependence on the weight matroid from a geometric phenomenon: the dimension of the zero-toral fiber eventually forces another component, and the deformation proves this is the first possible threshold. Giving the exact components, dimensions and equidimensional boundary for a natural characteristic-independent family is useful beyond the routine rank expansion. The arithmetic count adds an explicit all-arity invariant rather than a collection of small field counts.",
+      "residual_risks": [
+        "The geometric classification is not asserted for all weight matroids or higher commuting-tuple varieties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

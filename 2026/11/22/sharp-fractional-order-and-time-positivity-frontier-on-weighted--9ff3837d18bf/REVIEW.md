@@ -1,19 +1,21 @@
-# Scientific assessment: weighted-triangle fractional heat positivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any positive triangle weights the exact spectral projectors reduce all off-diagonal entries of \(e^{-tL^\alpha}\) to two exponentials and a constant. The identity \(D^2-(S-3w)^2=-3(w-w')(w-w'')\) proves that only a uniquely weakest edge can have a positive high-frequency projector coefficient. Strict convexity of \(y^r\) then proves one and only one negative-time interval above the displayed unique critical order. Stochastic row sums give the exact induced maximum-norm formula, a single derivative zero gives the peak, and explicit spectral expansions give the two singular limits. The standalone checker gave 20,272 supplementary assertions; numerical tests are not substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+Trace and the principal minors give λ₊+λ₋=2S and λ₊λ₋=3Q. From the two spectral projectors on the complement of the constant vector, an edge w has heat entry (1−exp(−qt))/3 + B_w(exp(−pt)−exp(−qt)), with p=λ₊^α, q=λ₋^α and B_w=(λ₋/3−w)/(λ₊−λ₋). The identity (S²−3Q)−(S−3w)²=−3(w−w′)(w−w″) orders the cut λ₋/3 between the least and second-least weights, with equality at the least exactly for a tied minimum. Thus only a unique weakest edge can be negative; the repeated-eigenvalue equal-weight case has a single nontrivial exponential and is strictly positive for t>0. For weakest-edge B=B_m>0 set A=B+1/3. Its derivative is exp(−qt)[Aq−Bp exp(−(p−q)t)], whose bracket is strictly increasing. It is nonnegative at zero exactly for α≤α*, and then strictly positive for t>0, including at the order endpoint. At α=1 the derivative at zero is m>0. Above α* the derivative has exactly one zero, with the stated logarithmic time, and k(t) rises thereafter to 1/3 from a strict negative minimum; it crosses zero once at the stated implicit root. Diagonals are positive by the spectral projections; row sums are one, so the only negative pair gives the claimed row norm amplification, whose unique peak precedes recovery. The equal-stronger family gives eigenvalues 3−2ε,3 and ratio 3 in the numerator of α*. For fixed C>1 the other family has λ₋=3−3δ/2+O(δ²) and λ₊=2C+1−δ/2+O(δ²), giving numerator log(1/δ)+log(4(C−1)/3)+O(δ) and the stated denominator up to O(δ). The profile, not a separately stated height formula, gives the peak height. The script verify_triangle.py was read, not executed; its floating-point checks do not establish the quantifiers in the theorem.
 
-The closest background is Benzi–Bertaccini–Durastante–Simunec (2020), https://doi.org/10.1093/comnet/cnaa017, and Benzi–Simunec (2020), https://arxiv.org/abs/2012.08389. These establish the fractional graph Laplacian framework and preserve the Markov property for \(0<\alpha\le1\). Estrada (2021), https://doi.org/10.1088/1367-2630/ac14ac, discusses an unweighted triangle and other network comparisons, not the complete weighted superunit-order phase diagram. A published result on fractional heat over *unweighted noncomplete complete multipartite graphs* has different weight and graph hypotheses and does not imply the weighted complete triangle theorem. Mathematical-record searches for weighted triangles, a unique weakest edge, critical powers, order-time positivity, and M-matrix equivalences yielded no direct implication match. These observations support qualified best-knowledge originality; a specialist earlier classification of powers of three-by-three M-matrices remains an unresolved priority risk. A failed search is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Weighted complete triangles are the smallest complete networks in which an order above one can destroy the positive semigroup property, while two-vertex complete graphs cannot exhibit that phenomenon. The result is a complete natural classification for *all* positive edge weights and *all* fractional powers, extending to an exact transient time window, sharp maximum-norm amplification and peak, and different logarithmic versus reciprocal critical-order divergences near symmetry. The precise positivity frontier matters for interpreting higher-order graph spectral filters as mass-preserving but potentially sign-indefinite diffusion maps.
+Qualified pass for the explicit weighted-triangle order and time formulas, exact transient amplification and its peak, and the two distinct conductance-degeneracy laws together. The qualitative unique-recovery statement is not credited as wholly distinct: for a unique minimum a same-day weighted-star result gives the sign pattern by exact spectral reparametrization. Its available indexed statement does not give the triangle amplification and peak formulas or the two singular conductance limits. The same-day records are not chronologically ordered by the evidence.
 
-## Limitations and residual risks
+## value
 
-The theorem does not cover directed networks, zero conductances, or more than three vertices. The recovery time is an implicit unique root. Relevant historical graph-functional-calculus or M-matrix literature could contain equivalent unindexed results; the numerical script is supplementary and no external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit all-order and all-time positivity test on the smallest complete network where superunit powers can produce transient negative heat. The exact row-norm profile quantifies the failure of contractivity, and the two conductance limits show how rapidly the critical order becomes inaccessible near a tie in two natural regimes. The contribution is confined to these quantitative weighted-triangle results, not to the already overlapping generic occurrence of a recovery interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

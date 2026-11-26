@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:52.877236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–98",
+        "Frozen VERIFICATION.md and verify_selection.py, inspected without execution"
+      ],
+      "rationale": "Checked the entire initial-support and rate quantifiers. The simplex and all coordinate faces are invariant. With s*=1−δ, W=Σr_i x_i and G=Σp_i x_i x_{i+1}, the exact identity S′=(s*−S)W−G yields S′≥s*r_min S−(r_max+Σp_i)S², hence an eventual positive population floor. The ratio y_i=x_i^(1/r_i)/Z with Z=x_a^(1/r_a) at the first occupied index cancels the vacancy term exactly: (log y_i)′=−p_{i−1}x_{i−1}/r_i. Since all y_i are nonincreasing, S≤Σ(y_i(0)Z)^(r_i), so the population floor bounds Z away from zero. The first species of each occupied run has constant y_i; a predecessor bounded away from zero forces exponential decay, while an integrable predecessor yields a strictly positive limiting y_i. This proves alternating support on each run, including singleton runs and initially absent gaps. Every adjacent product decays exponentially, and the forcing equation (S−s*)′=−W(S−s*)−G makes S−s* exponentially small. The survivor quadrature has a unique normalization root with positive derivative, giving exponential coordinate convergence. Time averaging the exact log ratio gives the extinction exponents for initially present eliminated species only. At a fully supported odd equilibrium the even rows form the diagonal invasion block; the odd block has rank one and eigenvalue −Σ_odd r_iℓ_i, leaving precisely the asserted tangent zeros. Read the checker without executing it: there are 420 ratio assertions over 105 rational cases, not 420 distinct cases, plus the population-balance assertions and four finite RK4 examples. This wording issue does not affect the analytic proof.",
+      "residual_risks": [
+        "Requires a common break-even vacancy and positive predation on each edge; the rate is not uniform when an upstream species starts arbitrarily rare. The positive composition is trajectory-dependent, not a unique attractor common to all initial states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hou gives convergence to a unique interior equilibrium under stated competitive-LV conditions; full-support trajectories here lose coordinates and may select different points of a boundary continuum.",
+          "Poley–Baron–Galla treats random hierarchical interactions by dynamic mean-field methods, not fixed finite deterministic paths with prescribed initial support.",
+          "The Baigent–Ching primary text was not recovered from either cited lawful endpoint; no exclusion is based on that access failure."
+        ],
+        "reasoning": "An interior point attractor or stability and abundance information for a random cascade does not determine the support, endpoint or exponents in this setting. The three-species comparison remains limited.",
+        "searches": [
+          "arXiv:0711.3385, competitive LV global attractor, Theorem 2.1 and Corollary 2.4",
+          "arXiv:2208.01569v1, hierarchical generalized LV",
+          "Baigent–Ching, DOI 10.1080/17513758.2020.1736656 and UCL eprint 10093501"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09027v1",
+        "Resultary fe1c9e5a7741",
+        "arXiv:0711.3385",
+        "arXiv:2208.01569v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent-coexistence prohibition and independent-set bound do not select one independent set dynamically.",
+          "In the homogeneous indexed subcase, integrating its displayed adjacent/run ratio and using its survivor convergence gives the same sharp decay exponent even without a separately worded exponent theorem."
+        ],
+        "reasoning": "Credit both the stated homogeneous theorem and its direct exponent corollary. The unequal-rate statement requires the weighted cancellation and a positive lower bound on the common scale, rather than changing a parameter in the homogeneous theorem.",
+        "searches": [
+          "arXiv:2609.09027v1, §VI and demographic assumptions",
+          "Resultary fe1c9e5a7741 mirrored RESULT.md, finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier greedy rule on a path is precisely parity relative to the first occupied site of each run. Its common r,d equations identify an exact homogeneous subcase of the frozen equations.",
+          "For unequal r_i the exact ratio uses powers 1/r_i. Substituting z_i=x_i^(1/r_i) leaves terms z_j^(r_j) in the shared vacancy and predecessor terms; it is not a transformation into the earlier homogeneous LV equation."
+        ],
+        "reasoning": "The selection rules are equivalent at equal rates, not new terminology for a new homogeneous result. Different r_i cannot in general be obtained just by a common time rescaling or a relabeling.",
+        "searches": [
+          "arXiv:2609.09027v1, path exclusion and demographic conditions",
+          "Resultary: exact greedy survival in hierarchical vacancy chains, record fe1c9e5a7741"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive match, fe1c9e5a7741, states left-to-right greedy selection and exponential convergence in the same model with common reproduction and mortality. It also gives an exact three-species terminal composition and explicitly excludes heterogeneous demography."
+        ],
+        "reasoning": "This is materially overlapping prior indexed coverage, not the identical record or an unrelated match. It does not contain the arbitrary unequal-rate theorem.",
+        "searches": [
+          "Local Resultary: hierarchical vacancy chain, greedy survival, terminal abundance, common-break-even path selection"
+        ]
+      },
+      "rationale": "The earlier homogeneous-demography version already covers run-parity selection and exponential convergence and implies its own corresponding extinction exponents. The frozen theorem's substantive extension is to genuinely unequal reproduction and proportional mortality rates with common break-even vacancy. That class, with weighted limit composition and sharp exponents, is not implied by the homogeneous theorem or the general convergence statements inspected.",
+      "residual_risks": [
+        "A sharper three-species overlap with Baigent–Ching or an unlocated general theorem tailored to equal break-even thresholds is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Homogeneous equilibrium restrictions and numerical variants do not give the selected support under the frozen heterogeneous-rate hypotheses",
+          "evidence": "The adjacency exclusion assumes identical reproduction and mortality; numerical changes of reproduction at fixed mortality need not preserve common break-even vacancy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09027",
+          "material_read": "PDF pp. 1, 10–14, offsets 0, 61876, 71284, 74338, 77600–81356",
+          "method": "OA primary PDF passage inspection",
+          "title": "Selection Rules for Species Coexistence in a Hierarchical May–Leonard Model",
+          "trigger": "Source model and possible support-selection theorem"
+        },
+        {
+          "assessment": "Covers homogeneous selection and exponential convergence; homogeneous sharp exponent follows from the ratio and limit",
+          "evidence": "The left-to-right greedy rule on occupied runs is run parity. The record expressly excludes heterogeneous demographic rates.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-greedy-survival-and-terminal-abundance-in-a-symmetric-hier--fe1c9e5a7741",
+          "material_read": "Mirrored RESULT.md offsets 176 and 5298, finding and proof continuation",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "Exact greedy survival and terminal abundance in a symmetric hierarchical chain",
+          "trigger": "Exact same support and convergence in homogeneous demography"
+        },
+        {
+          "assessment": "The stated single interior attractor result is not the conclusion for this system",
+          "evidence": "The theorem uses its C_k conditions, whereas the reviewed system loses coordinates and has a continuum of possible limiting compositions.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.3385",
+          "material_read": "PDF pp. 1, 3–4, Theorem 2.1 and Corollary 2.4, offsets near 0, 9000 and 12289",
+          "method": "OA primary PDF passage inspection",
+          "title": "Global attractor in competitive Lotka–Volterra systems",
+          "trigger": "Potential broader deterministic convergence theorem"
+        },
+        {
+          "assessment": "Different random-cascade regime in the material read",
+          "evidence": "Dynamic mean-field analysis addresses how random hierarchy affects stability and survivor abundance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01569",
+          "material_read": "PDF p. 1, abstract and model description",
+          "method": "OA primary PDF bounded inspection",
+          "title": "Generalised Lotka–Volterra model with hierarchical interactions",
+          "trigger": "Related hierarchical LV formalism"
+        },
+        {
+          "assessment": "Exact coverage unassessed",
+          "evidence": "Both lawful copies returned access errors; the frozen record describes a three-species balance-simplex analysis.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2020.1736656",
+          "material_read": "Citation only, no primary passage accessed",
+          "method": "DOI and linked UCL deposit attempts",
+          "title": "Balance simplices of 3-species May–Leonard systems",
+          "trigger": "Possible restricted three-species overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and weighted-ratio proof",
+        "Samanta et al. equilibrium restriction",
+        "Resultary fe1c9e5a7741 homogeneous comparison"
+      ],
+      "rationale": "The unequal-rate extension separates the effect of turnover from the common ecological threshold: distinct clocks and attack strengths change terminal composition and extinction speed but not the support picked from each initially occupied run. That answers a selection question left open by equilibrium counting and identifies which individual disappearance rates depend on the selected trajectory. The contribution is more than the equilibrium independent-set restriction or a rerun of the homogeneous rule.",
+      "residual_risks": [
+        "No inference about changing break-even ratios, ecological robustness under stochasticity, or quantitative finite-observation times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

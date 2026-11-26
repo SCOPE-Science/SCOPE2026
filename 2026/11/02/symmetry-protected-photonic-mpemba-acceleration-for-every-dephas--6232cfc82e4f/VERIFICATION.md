@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`. For an independently constructed finite-dimensional check, run `python check.py` in a directory containing the attached script with Python 3, SymPy, NumPy and SciPy installed. The checker constructs the Liouvillian from Hamiltonian matrix units rather than relying on the claimed block spectrum, compares characteristic polynomials, and symbolically verifies both shifted Routh–Hurwitz sets of identities. It also samples positive dephasing ratios and reconstructs time-evolved physical density matrices. The recorded run passed 387 checks.
+## correctness
 
-The symbolic identities and the analytical cubic stability argument prove the global strict inequality. Finite sampling cannot establish it alone. The state-pair comparison uses natural-log relative entropy against the uniform density matrix, and the large-time logarithmic rates are insensitive to polynomial Jordan factors. Independent scientific audit has not been performed; no third-party certification is implied.
+PASS
+
+In dimensionless time Jt the dissipator is q times the sum of the site-projector Lindblad terms. Trace and positivity are preserved. An independent exact matrix-unit construction, python3 /workspace/checks/02_spectral_certificate.py (SymPy), gave the stated full characteristic polynomial and verified the cubic discriminant, both shifted Hurwitz identities, the q=3 branch test and the cyclic Krylov spaces of the two specified deviations. The cubic discriminant is strictly negative for every q>0, and evaluation at −2q/3 orders its unique real root and the conjugate pair's real part on the two sides of 3. At 3 just real parts coincide. The odd quadratic is defective at 2√2; all other scalar or quadratic spectator real parts equal −q and cannot dominate. Shifting the cubic by the leading odd root real part gives positive A,B,C and AB>C both below the odd exceptional point and above it with b in (0,√2]; hence strict spectral separation without sampling. Zero is simple and all nonzero modes are stable. Cyclicity excites the full leading generalized eigenspace in each active block; spectral projection and finite-dimensional Jordan form give the claimed norm log-slopes even on real-part ties and at the odd exceptional point. Near the stationary state the natural-log entropy deficit is (3/2)Tr(X²)+O(||X||³), doubling the log-slopes. The initial pure deficit is log 3 and the near state has strictly interior spectrum and nonzero deficit for the given ε. Strict separation of the log-slopes yields an eventual ordering for each fixed set of parameters, not a uniform time estimate. Expansion of the simple cubic root near q=0 gives −3q/4+O(q³); substitution r=uR, u=1/q, gives R=−6+O(u²) at large q. With the odd formula these give limits 5/4 and 3. The frozen 387-check count is recorded evidence, not the independent replay.
+
+## originality
+
+PASS
+
+The open-chain generator, entropy diagnostic and parity-related suppression mechanism are precedented. Credit only the exact finite-q three-site rates, their strict all-q comparison and the resulting statement for the explicit pair. The closest verified statements do not give that comparison.
+
+## value
+
+PASS
+
+The open three-site path is the smallest reflection-symmetric open line with a center site and an independent odd diagonal perturbation. The theorem resolves whether the entropy acceleration persists outside the previously motivated strong-dephasing regime in that minimal example. It provides exact rates, two distinct spectral events without gap closing, and finite limiting acceleration factors useful for validating approximations. It does not claim an all-chain theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

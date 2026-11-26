@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:31:50.843025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient vector V^{-1}N for a generator factor V has covariance (V^T V)^{-1}, not the Gram matrix itself. Its exact law is g+sTu with s^2=(1-epsilon)/epsilon. Condition on g: the mixed-sign event restricts sT to (L,U), whereas for unanimous signs it is sT>H after a global sign change. Integrating the standard normal density gives a global cubic remainder about zero, bounded by |x|^3/(6 sqrt(2 pi)); fixed nonzero coordinates ensure the three extrema have finite third moments. The mixed gap has positive expectation because the feasible interval has positive length on an open Gaussian event; the maximum of at least two independent nondegenerate centered normals has positive mean. Replacing 1/s by sqrt(epsilon)+O(epsilon^{3/2}) yields both claimed errors. For equal magnitudes the sign-count integral is strictly log-convex by Hölder: the odds Phi(aT)/Phi(-aT) are nonconstant for 0<epsilon<1. Its p to n-p symmetry gives strict decrease to the midpoint. In the leading constant, the p labeled normals occupy exactly the p lowest ranks with conditional probability 1/binomial(n,p); only then does the interval have length equal to the stated adjacent spacing. Read RESULT.md lines 52–105, VERIFICATION.md and verify_angles.py; the recorded finite numerical result was not rerun and does not prove the theorem. No uniformity near zero coordinates or strictness at epsilon=1 is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Set rank one and lambda_1=epsilon-1 in the theorem; it evaluates the entire family through a single Gaussian integral."
+        ],
+        "reasoning": "The broader theorem covers evaluation and gives an immediate avenue to the asymptotics. It does not compare sign counts; strictness uses nonconstant odds and symmetry, and the spacing coefficient needs a separate label-exchange argument.",
+        "searches": [
+          "Schange, arXiv:2610.28084v1, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.28084v1",
+        "arXiv:1706.08092v1",
+        "Resultary:a0ab7b813e9c",
+        "Resultary:3cba4b68834c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing Schange gives the orthant integral; rescaling and bounding the remainder gives the rates. The proof of strict order and of the exact spacing interpretation uses additional structure, not just substituting parameters.",
+          "The inspected top-rank spacing events and section-statistic formulas do not supply a theorem on all signed orthants or the coefficient for this cone family."
+        ],
+        "reasoning": "The result is accepted for the combined geometric classification and coefficient identification, not as priority for one-factor Gaussian integral evaluation or the general use of Gaussian ranks in convex geometry.",
+        "searches": [
+          "arXiv:2610.28084v1, Theorem 3.1",
+          "arXiv:1706.08092v1, §§4.1–4.3",
+          "Resultary record 3cba4b68834c, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generator-cone angle is the orthant probability for the inverse Gram covariance; Schange's formula represents exactly this angle and permits signed loadings.",
+          "The inspected simplex intrinsic-volume formulas involve near-coincidences of top Gaussian ranks, not a mean adjacent gap at the arbitrary sign-count split."
+        ],
+        "reasoning": "Passing to signed orthants of a one-factor Gaussian is an exact re-expression, not a new integral. The new comparison concerns all sign partitions in that re-expression.",
+        "searches": [
+          "arXiv:2610.28084v1, §§2–3",
+          "arXiv:1706.08092v1, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned record a0ab7b813e9c, not distinct coverage. The related 2026/11/1 Resultary record 3cba4b68834c concerns Gaussian spacings in regular-simplex hyperplane sections."
+        ],
+        "reasoning": "A spacing statistic in a random section is not the angle of the Gram-generator cone, and the inspected section claim does not give this signed angle ordering or gap coefficient.",
+        "searches": [
+          "Resultary: signed rank-one cone angles, square-root collapse, balanced signs, Gaussian spacings"
+        ]
+      },
+      "rationale": "Credit Schange with the exact low-rank integral, including the signed negative-rank-one specialization. The supported distinction is the structural comparison across its fixed-spectrum sign patterns together with the explicit sharp singular coefficients, in particular their adjacent-rank spacing identity. Rescaling the known integral is a short route to the leading laws; the formula alone is not a stated or automatic ordering across sign counts or an order-statistic identity. Those require identifying strict log-convexity in the sign-count exponent and using the random label allocation in the mixed-sign limit. Neither the simplex equicorrelation results nor the inspected regular-simplex section result covers this comparison.",
+      "residual_risks": [
+        "A formulation in the literature on exchangeable Gaussian orthants or Bernoulli mixtures might contain a closer sign-pattern comparison; the bounded comparison does not establish exhaustive priority.",
+        "The inspected regular-simplex passages do not rule out related spacing formulas elsewhere. The short derivability of the asymptotic powers from the integral limits the scope of the novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the integral and provides the starting point for the limits, but not the signed classification or spacing result in the inspected passages.",
+          "evidence": "Gamma=I+sum lambda_j u_j u_j^T with lambda_j>-1; rank one permits lambda_1=epsilon-1 and arbitrary signed u.",
+          "identifier_or_url": "https://arxiv.org/html/2610.28084v1",
+          "material_read": "§2 Gram setup and §3 Theorem 3.1 (HTML offsets 11248 and 28118)",
+          "method": "Bounded primary full-text passages",
+          "title": "Solid-angle formulas for simplicial cones and random shifted sections of polytopes",
+          "trigger": "Direct general integral covering negative rank-one Gram matrices"
+        },
+        {
+          "assessment": "Related, not the asserted mixed-sign cone classification or mean adjacent-gap coefficient.",
+          "evidence": "Regular-simplex intrinsic volumes are related to probabilities of nearly tied top ranks.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.08092",
+          "material_read": "§§4.1–4.3, PDF pp. 18–19",
+          "method": "Bounded primary PDF passage",
+          "title": "Expected volumes of Gaussian polytopes, external angles, and multiple order statistics",
+          "trigger": "Possible Gaussian spacing/angle equivalence"
+        },
+        {
+          "assessment": "Different geometric event.",
+          "evidence": "Studies hyperplane sections of regular simplices, with coefficients expressed via Gaussian order statistics.",
+          "identifier_or_url": "Resultary:2026/11/1/SCOPE-gaussian-spacing-laws-and-rare-balanced-cuts-of-regular-simplice--3cba4b68834c",
+          "material_read": "RESULT.md opening statement",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian spacing laws and rare balanced cuts of regular simplices",
+          "trigger": "Strongest separate local analogue on spacings and balance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete strict ordering and sharp singular law show what generator lengths and the Gram spectrum fail to determine, even on the simplest nontrivial low-rank family. The difference is geometric rather than a numerical refinement: at the identical spectrum the limit can be one half or zero, and a particular adjacent Gaussian spacing quantifies the collapse at each mixed sign split. The value is the structural comparison and precise boundary geometry, not computing one more instance of a known integral.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:05:55.843531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof: Exact distributions, Mean and residue law, Early and late crossings, Signed critical-window expansion",
+        "Frozen VERIFICATION.md; verify.py inspected, not executed (bounded exact-rational corroboration)",
+        "Frozen AUDIT.json (self-review, not independent evidence)"
+      ],
+      "rationale": "On an iid coupon tape independent of the Bernoulli burst indicators, the burst policy needs ceil(T_n/b) nonempty rounds. The mean conditional on the tape is b times that number, so the extra expectation is exactly the rounding residual. Each integer draw-count at least n is possible, giving both strict bounds on this expectation. For b=2 the residual is the odd-time indicator; the product of the independent geometric waiting-time generating functions at −1 is (−1)^n/binom(2n−1,n), giving the parity correction. For general fixed b, the modulus at every nontrivial bth root of unity is exponentially small because a positive fraction of parameters j/n lie in [1/4,1/2] and each corresponding factor is uniformly below one; Fourier inversion gives the exponential residue estimate. Before n rounds the burst process can complete with positive probability, whereas the fixed process cannot. In the large-round tail the single-missing coupon bases are α=1−1/n and β=1−1/b+(1−1/n)^b/b, with 0<α<β<1; all larger missed-set terms have strictly smaller bases, giving the reverse order eventually. In the window, the log of the burst/single miss-probability ratio is (b−1)(j/n)²/2+O_b((j/n)³). For j bounded by J=ceil(4 log n/log log n), the omitted Bonferroni terms are bounded by exp(O(J))/(J+1)!=n^(−4+o(1)), negligible after scaling by n/log n. On the same range the Taylor exponent of the ratio is O_b(j² log n/n) uniformly small, giving summable scaled domination C j² exp(C'j)/j!. Hence one may take termwise limits and sum, obtaining (b−1)/2 times the second derivative of the Gumbel CDF. At x=0 the scaled limit is zero, with no finite-size sign asserted there.",
+      "residual_risks": [
+        "b and x are fixed in the asymptotic statement; no growing-b or uniform-in-x estimate is supplied, and finite crossing uniqueness is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferrante–Frigo allow repeated types in a group and express the expected group count by inclusion–exclusion in group miss probabilities. Their result applies to active b-draw groups.",
+          "Betken–Thäle obtain a critical-window Poisson approximation with total-variation error of order log n/n for fixed-size distinct groups. Berrebi et al. treat labeled recovery with sizes in 1,…,n in the stated model. The random-size survey was not retrieved in full."
+        ],
+        "reasoning": "General expectations give the exact mean after accounting for the independent gap between active groups. Even at the right scale a bound of order log n/n does not determine the coefficient, sign, or cancellation point of the relative CDF correction; the labeled recovery model also has a different observable and excludes zero in its stated group-size law.",
+        "searches": [
+          "Ferrante–Frigo arXiv:1209.2667v2 §3 Prop. 5",
+          "Betken–Thäle arXiv:2202.07485v1 Theorem 3",
+          "Berrebi et al. arXiv:2502.02968v1 §II Definition 2",
+          "Kobza–Jacobson–Vaughan doi:10.1007/s11009-006-9013-3 and institutional abstract"
+        ]
+      },
+      "checked_sources": [
+        "Ferrante–Frigo 1209.2667v2; Betken–Thäle 2202.07485v1; Berrebi et al. 2502.02968v1",
+        "Kobza–Jacobson–Vaughan abstract record and lawful access attempts",
+        "Three Resultary records documented above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting q(S)=(1−|S|/n)^b into the group formula gives E ceil(T_n/b), and scaling by b gives the exact burst mean. This is real coverage of the computable finite mean. The parity expression and residue correction use the ordinary waiting-time product in the frozen proof.",
+          "For independent bursts, the miss base is 1−1/b+(1−j/n)^b/b, not the distinct-packet base. The relative log miss base contributes (b−1)j²/(2n²) before the factorial-moment sum."
+        ],
+        "reasoning": "Neither the covered mean nor the inspected Poisson error estimate provides the signed comparison. Unlike the neighboring single-marginal corrections, the result takes the difference before scaling, so its coefficient measures a change in the sampling law at the same expected budget.",
+        "searches": [
+          "Ferrante–Frigo Prop. 5; Betken–Thäle Theorem 3; closest actual Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day variable-packet majorization result uses deterministic size vectors with the same total and uniform subsets without replacement. The related finite reversal index summary compares fresh packets with adaptive replacement.",
+          "The signed second-order analogue uses pairs of distinct coupons and compares one cover CDF with a Poisson approximation."
+        ],
+        "reasoning": "A deterministic equal total is not an equal expected random budget in round time, and using distinct coupons changes the miss probability. A signed correction to a single marginal against a surrogate is not the difference of the two stated round-policy CDFs. The same date does not establish priority.",
+        "searches": [
+          "Configured Resultary semantic search: equal-mean zero-or-b batch versus singleton, with replacement; rounding/parity penalty; signed Gumbel CDF crossover; random-size coupon groups",
+          "Resultary 7e357d032a8b, 7cd71c5d69bc and 7c256b72ae70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected exact asymptotic formula in the index is a distinct-pair versus Poisson correction, not for equal-mean zero-or-b bursts versus deterministic singleton draws.",
+          "Ferrante–Frigo's exact expectation formula provides a literature formula comparison rather than independent evidence for the signed limit."
+        ],
+        "reasoning": "A finite numeric table cannot capture this all-fixed-b asymptotic profile in continuous x; indexed exact theorem formulas are the relevant database check. A bounded search nonmatch is not evidence of exhaustive priority.",
+        "searches": [
+          "Configured Resultary exact-formula searches: zero-or-b signed window, parity/rounding formula, critical-window coefficient",
+          "Resultary 7c256b72ae70, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The pass is for the explicit signed, relative Gumbel-window limit for these equal-mean round policies, not for generic cover-time formulas, the use of inclusion–exclusion, or merely obtaining the burst mean. Ferrante–Frigo already give an exact repeated-type group expectation from which that mean follows by the mean interarrival time. Available related signed and approximation results use materially different sampling and comparison targets. No exact or stronger antecedent of the signed two-policy statement was established in the bounded checks.",
+      "residual_risks": [
+        "The 2007 survey's full text and the adaptive-replacement catalog record's original text were not accessible during the check. Higher-order random-group results under unexamined terminology could potentially imply the signed comparison. No claim of exhaustive historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies exact active-group mean; no relative signed limit in the passage read",
+          "evidence": "Inclusion–exclusion formula for mean group count in terms of the probabilities that a group misses each subset.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.2667v2",
+          "material_read": "§3 Proposition 5, pp. 9–10, offset 16367",
+          "method": "OA PDF passage inspection",
+          "title": "A note on the coupon-collector’s problem with multiple arrivals and the random sampling",
+          "trigger": "Relevant grouped draw expectation with repetition"
+        },
+        {
+          "assessment": "Fixed-size without-replacement model; error bound rather than signed two-policy profile",
+          "evidence": "Group draws contain a fixed number of distinct types; unseen-count Poisson approximation at order log n/n.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07485v1",
+          "material_read": "Abstract/Introduction p. 1 and Theorem 3 p. 3, offsets 0 and 11487",
+          "method": "OA PDF passage inspection",
+          "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+          "trigger": "Same asymptotic scale in group drawing"
+        },
+        {
+          "assessment": "Adjacent labeled-recovery model, not the two round policies",
+          "evidence": "Group size K in 1,…,n in Definition 2 and matching recovery objective.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.02968v1",
+          "material_read": "Introduction and §II Definition 2, offsets 6359 and 16245",
+          "method": "OA PDF passage inspection",
+          "title": "The Labeled Coupon Collector Problem with Random Sample Sizes and Partial Recovery",
+          "trigger": "Broader-looking random-size collection model"
+        },
+        {
+          "assessment": "Relevant finite-distribution and expectation framework; full-text noncoverage not established",
+          "evidence": "Abstract discusses random sample sizes and Markov chains; publisher retrieval redirected/timed out and no OA repository copy was located.",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-006-9013-3",
+          "material_read": "Institutional abstract documented in frozen audit; publisher access response and repository search only for full text",
+          "method": "Lawful OA lookup and publisher attempt",
+          "title": "A survey of the coupon collector’s problem with random sample sizes",
+          "trigger": "Potential general coverage for randomly sized rounds"
+        },
+        {
+          "assessment": "Different budget comparison and sampling rule",
+          "evidence": "Deterministic packet-size vectors with equal total, uniform subsets sampled without replacement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-stochastic-majorization-law-for-variable-size-coupon-packets--7e357d032a8b",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A stochastic majorization law for variable-size coupon packets",
+          "trigger": "Same-day adjacent variable-size stochastic ordering"
+        },
+        {
+          "assessment": "Summary suggests different processes; not a whole-document exclusion",
+          "evidence": "Summary describes fresh r-packets versus an adaptive rule, with a finite mean-time reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-finite-cover-time-reversal-for-independent-packets-versu--7cd71c5d69bc",
+          "material_read": "Index result summary only; exact source retrieval timed out",
+          "method": "Configured Resultary search and local mirror attempt",
+          "title": "A sharp finite cover-time reversal for independent packets versus adaptive replacement",
+          "trigger": "Similar cover-time reversal terminology"
+        },
+        {
+          "assessment": "Different correction and sampling; later date",
+          "evidence": "Signed log n/n correction for distinct unordered pairs against a Poisson approximation, with a cancellation point.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-second-order-completion-law-for-two-at-a-time-coupon-co--7c256b72ae70",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A signed second-order completion law for two-at-a-time coupon collection",
+          "trigger": "Closest signed critical-window analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, early/late and signed-window theorems",
+        "Ferrante–Frigo Prop. 5 and Betken–Thäle Theorem 3 for comparison"
+      ],
+      "rationale": "Matching the expected throughput leaves the mean, earliest possible coverage and completion probability in opposition. The signed leading term determines which policy has the greater completion probability at fixed points to either side of the cutoff center, even though their marginal Gumbel limits agree; its coefficient gives the magnitude of that difference. This yields concrete distributional information beyond the already available group expectation or an order-of-error estimate.",
+      "residual_risks": [
+        "Does not select a policy at the exact window center or prove a single finite crossover, and is specific to these two policy laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

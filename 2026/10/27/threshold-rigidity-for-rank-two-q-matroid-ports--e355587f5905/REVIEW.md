@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rank axioms imply that adding a loop does not change rank. If loops exist, a complement can be chosen so that a non-loop line is reconstructing while a loop line is not, contradicting threshold behavior; the one-loop-line case forces every plane through a rank-one line to have rank one and hence contradicts total rank two. If there are no loops, any nonuniform rank-two q-matroid has a rank-one plane, which yields the same contradiction. The converse follows by substituting the uniform rank function.
+PASS
 
-## Originality
+Submodularity makes adjoining a rank-zero line rank-preserving. For any nonloop secret S there is a rank-two plane through S: otherwise the induction on sums of two hyperplanes containing S in RESULT.md propagates rank one to E. Such a plane supplies a nonreconstructing line in every complement to S. If the matroid has a loop L, the rank-one plane S+L has a nonloop line other than S and L (its intersection with the loop subspace is exactly L); choose a complement of S containing that line to obtain a reconstructing line as well. In the loop-free nonuniform case, choose S in a rank-one plane; its intersection with any complement supplies a reconstructing line. Either yields two lines with different reconstruction behavior in one port, impossible for any integer dimension threshold, including an empty port. In the uniform case adjoining S increases dimension by one and increases rank exactly at dimensions zero and one, giving threshold two.
 
-**PASS, bounded best-knowledge assessment.** The closest literature is Dinesen et al., arXiv:2504.18294, which introduces q-polymatroid ports and proves the MRD/uniform-to-threshold direction, and Byrne et al., arXiv:2601.07567, whose Proposition 41 proves the same direction and whose conclusion identifies the broader classification as open. The relevant sections inspected do not state the rank-two converse. The earlier paper could not be fully reviewed from its primary arXiv endpoint in this run, so a residual coverage risk remains. Targeted mathematical research-record searches returned no equivalent rank-two converse; search coverage cannot certify global uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** This supplies a complete rank-two case of a motivated open classification direction in rank-metric access structures. The all-ports hypothesis is essential to the statement; no claim is made for higher rank or near-threshold behavior.
+The surviving distinct claim is the converse with all nonloop secret lines and complements, for arbitrary rank-two q-matroids including those with loops. The uniform-to-threshold direction is prior work. No equivalent or dominating statement was established by the inspected primary sources and bounded Resultary searches.
 
-## Limitations
+## value
 
-The result concerns integer-valued rank-two q-matroids, including the subclass induced by rank-metric codes. It does not characterize which codes represent the uniform q-matroid or classify general rational q-polymatroids.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It settles a natural first nontrivial rank of a documented classification question. It shows exactly when threshold access survives every choice of secret line and complement, using a mixed-line obstruction that detects both loops and dependent planes. This is a structural converse, not another example of the known sufficient condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

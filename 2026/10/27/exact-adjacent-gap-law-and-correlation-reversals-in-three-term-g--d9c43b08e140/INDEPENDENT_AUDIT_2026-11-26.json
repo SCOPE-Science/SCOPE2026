@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:09:04.701315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen check.py, especially lines 20–47 and 62–93, inspected, not executed",
+        "Complete repaired RESULT.md at /workspace/repairs/3/RESULT.md"
+      ],
+      "rationale": "This is the final assessment of /workspace/repairs/3/RESULT.md. The frozen Finding did not specify the direction of an ordered pair, and normalization was asserted for every n even when there are no pairs. These are corrected explicitly: scan decreasing summand indices for the displayed PGF, transpose it for increasing indices, and pool only when the total is positive (certainly for n≥p+q+2, witnessed by B_{n−p−q−2} followed by 1). Order matters: at (p,q)=(1,2), [uv²] is zero in the decreasing-index PGF, whereas [u²v] is ab(1−z)/(1+b)>0. Rechecked the full repaired argument: the first dropped unit and the next nonzero digit determine each full block uniquely; the terminal suffix is a proper coefficient prefix. C(z)=1 has a simple root and no same-modulus competitor because the block lengths contain consecutive integers. For one marked block or two marked consecutive blocks the generating function is T·W/(1−C)^2, with W the block weight or consecutive product. The total word count is Θ(z^−n) and the full block count Θ(n z^−n), so boundary errors vanish in the ratio, and marked-count ratios tend to W(z). A bulk block contributes one external-to-next-first pair, plus one internal-to-external pair for type B; evaluating at u=v=1 gives the normalization 1+b. The two marginals coincide, and after subtracting p from both gaps the mean is (h_0−bd)/(1+b) and the product moment is (h_0−bd)(1−b)h_0/(1+b), giving exactly the factored covariance. The golden-root identity and independently checked residual signs at the two rational brackets establish the three witnesses; covariance is invariant under transposition.",
+      "residual_risks": [
+        "Fixed p,q pointwise convergence under pooled weighting. No uniform parameter rate, full sign classification or independence at zero covariance. The archived finite enumeration is corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 conditioned Markov chain yields limiting single-gap statistics and can motivate higher-order calculations. The three-term transfer-matrix paper explicitly limits the small-gap argument to p<q+2."
+        ],
+        "reasoning": "An algorithmic Markov representation supplies ingredients but the inspected gap theorems do not give the product-of-blocks evaluation and explicit mixed-moment phase witnesses in both spacing regimes.",
+        "searches": [
+          "arXiv:1405.2379 §§1.3–1.4 and §4.1 Theorems 4.1–4.2",
+          "arXiv:2610.23991v1 Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "Repaired Finding and prior-work comparison",
+        "arXiv:2610.23991v1 and 1405.2379",
+        "Resultary …e1b50eee415c, …4cfd4bc432af, …517e2023bbb9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen et al.'s geometric tail concerns P(g) only; Ben-Ari–Miller's theorem statements inspected likewise concern one-gap distributions. The mixed product moment here distinguishes an internal-to-external gap within a block from an external-to-next-first pair across blocks."
+        ],
+        "reasoning": "Single-gap law does not determine either pair order or the mixed moment. The general representation may be used in an alternative derivation, but evaluated sign changes require joint-law information not supplied by the compared outputs.",
+        "searches": [
+          "Chen et al. same-family single-gap formula and Appendix B",
+          "Ben-Ari–Miller conditioned Markov representation and single-gap results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same recurrence and pooled interval are used by Chen et al.; their P(g) concerns just one gap. The repaired theorem states both scan orientations by transposition."
+        ],
+        "reasoning": "Reversal cannot turn a one-variable marginal into an ordered joint law. The repaired PGF is not generally symmetric, although its covariance is invariant under reversal.",
+        "searches": [
+          "Three-term PLRS bivariate adjacent summand gaps and covariance sign reversal",
+          "arXiv:2610.23991v1 Theorems 1.6–1.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "…e1b50eee415c and …4cfd4bc432af concern Padovan binary increments and bigrams; …517e2023bbb9 concerns adjacent gaps of cyclotomic-polynomial exponents."
+        ],
+        "reasoning": "Those explicit frequency tables count different objects, not gaps between successive summands of this legal expansion family. Search misses are not evidence of absence.",
+        "searches": [
+          "Resultary semantic queries for the exact three-term law, bivariate PLRS gaps, sign reversal and Markov/renewal formulas"
+        ]
+      },
+      "rationale": "For the repaired claim, reversal of index order is just a convention, not an originality claim. The supported distinct content remains the explicit ordered two-gap PGF for the three-term coefficient family over the full spacing range, and the signed lag-one covariance witnesses. The prior work covers single gaps and provides relevant general techniques, not the evaluated two-gap law or those witnesses.",
+      "residual_risks": [
+        "A public keyword lookup was unproductive and is not counted as negative evidence. An unindexed explicit pair-law evaluation or one implicit in a more specialized Markov derivation is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-family single-gap results and a domain restriction, not an ordered pair law",
+          "evidence": [
+            "P_n(g) pools gaps from all decompositions in the interval; Theorem 1.6 gives a one-gap geometric tail, and Theorem 1.7 uses the restricted small-gap transfer matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.23991v1",
+          "material_read": "§1.2 Definition 1.5 and Theorems 1.6–1.7, text near offsets 9700–12100; Appendix B near 64800",
+          "method": "OA HTML bounded passages",
+          "title": "Gaps for PLRS with zero coefficients",
+          "trigger": "Exact same coefficient word and interval"
+        },
+        {
+          "assessment": "Markov method and general single-gap theorem; potential alternate derivation",
+          "evidence": [
+            "Uniform legal strings modeled by a conditioned chain, with a limiting pooled single-gap measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2379",
+          "material_read": "§§1.3–1.4, PDF pp. 8–9, and §4.1 Theorems 4.1–4.2, pp. 23–24",
+          "method": "OA PDF bounded passages",
+          "title": "A Probabilistic Approach to Generalized Zeckendorf Decompositions",
+          "trigger": "General conditioned chain that might imply joint statistics"
+        },
+        {
+          "assessment": "Different sequence and gap observable",
+          "evidence": [
+            "Binary increments of a nested Padovan recurrence."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-nearest-neighbor-frequencies-and-negative-correlation-in-t--e1b50eee415c",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact nearest-neighbor frequencies and negative correlation in a Padovan recurrence",
+          "trigger": "Indexed nearest-neighbor covariance match"
+        },
+        {
+          "assessment": "Different sequence and observable",
+          "evidence": [
+            "Bigrams of an automatic difference word, not summand-index gaps."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sixth-order-transition-recurrence-and-exact-bigram-law-for-the--4cfd4bc432af",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sixth-order transition recurrence and exact bigram law for the Padovan difference word",
+          "trigger": "Indexed exact adjacent-pair law"
+        },
+        {
+          "assessment": "Different gap-bearing object",
+          "evidence": [
+            "Gaps between nonzero exponents in a cyclotomic or semigroup polynomial, not PLRS expansions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-adjacent-gap-transitions-in-binary-cyclotomic-polynomials--517e2023bbb9",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact adjacent-gap transitions in binary cyclotomic polynomials",
+          "trigger": "Indexed ordered adjacent-gap count law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof",
+        "arXiv:2610.23991v1 §1.2 and Appendix B"
+      ],
+      "rationale": "Successive-gap statistics measure a natural local dependence that single-gap laws leave open. The explicit two-variable expression is uniform across fixed p,q, including the less tractable spacing range of the single-gap transfer-matrix predecessor, and gives exact zero, positive and negative lag-one examples in the same q=1 family. The repaired order convention is justified by orientation-dependent joint probabilities; it leaves the scientific content unchanged.",
+      "residual_risks": [
+        "The three witnesses do not characterize all sign regions or establish independence at zero covariance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

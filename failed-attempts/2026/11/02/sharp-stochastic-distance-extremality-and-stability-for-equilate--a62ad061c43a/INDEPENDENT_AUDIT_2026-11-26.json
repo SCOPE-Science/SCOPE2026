@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:50:46.915483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–136",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "/workspace/audit_evidence/recompute.py: tree_metric; output recompute.out"
+      ],
+      "rationale": "For same-edge samples (probability 1/m), distance is |U−V|. For any distinct pair, distance is δ+U+V where δ counts intervening edges, since the geodesic exits and enters at fixed endpoints. A pendant edge can have at most m−1−k other edges with separation at least k for 0≤k≤m−2: if a far edge exists, a route to it exhibits k closer intervening edges. Deletion preserves all other separations; induction gives the sharp path count binom(m−k,2). The star has δ=0. Applying the common nonnegative-noise kernel and the identical same-edge mixture proves FOSD. Below threshold 1 the only contributing distinct pairs are incident pairs, giving the stated coefficient. The identities A−(m−1)=Σ_v binom(deg(v)−1,2) and A≤binom(m,2) with equality iff all edge pairs meet give the two uniqueness conclusions. The mean is 1−2/(3m)+2Σδ/m², with Σδ=Q by counting intermediate edges via cuts. Q for the path counts triples by the middle edge, and Q for the star is zero. Ordered real laws have W1 equal to the mean difference. Each internal edge contributes at least m−2 since its positive cut sizes sum to m−1; equality forces just one such edge with cut sizes 1 and m−2, precisely the subdivided-edge star, including m=3. The endpoint mean and W1 constants follow. Independent line-graph BFS checks on 5910 increasing-label trees corroborated the discrete tails and sharp gap.",
+      "residual_risks": [
+        "The independent enumeration covers only its stated sizes; the analytic proof covers all sizes and thresholds.",
+        "The frozen checker constructs labeled trees through seven vertices, but its exhaustive rational CDF grids use up to six vertices, plus separate sharp-family checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2 states D(G)≤D(PK_{n,s}) for every connected graph of given order n and size s, with ≤ defined coordinatewise for sorted all-pair distance sequences. With s=n−1 the path-complete graph is the path.",
+          "The continuous mean comparison for equal-edge trees is already Proposition 4.4 of Garijo et al.",
+          "Wang–Hu's second-minimum weighted Wiener theorem at n=m+1 and unit weights gives W=m²+(m−2), with the subdivided-edge star as equality shape."
+        ],
+        "reasoning": "The path-complete graph theorem is stronger than the frozen discrete upper-tail inequality; means alone would not imply it. The star is a trivial lower distance-sequence extremizer for a tree with a fixed number of distance-one pairs. The stronger Wiener statement covers the numerical extremal ingredient of the claimed nonstar transport bound.",
+        "searches": [
+          "Dankelmann arXiv:2411.13439 §3 and §4 Lemma 2",
+          "Garijo–Márquez–Silveira arXiv:2103.11676 Proposition 4.4",
+          "Wang–Hu, The Wiener Index for Weighted Trees, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Dankelmann arXiv:2411.13439; Tratnik–Žigert Pleteršek arXiv:1609.04182; Garijo et al. arXiv:2103.11676; Wang–Hu (2012), Theorem 3",
+        "Resultary d84810868262, 874c43902707 and 9033f9f4f47c",
+        "Jelen (2002) repository; Doyle–Graver DOI 10.1002/jgt.3190060410 and Dahl DOI 10.1002/net.20202 (access checks only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose a common uniform rank from the trimmed sequences and use the same U+V noise on the distinct-edge branch; on the same-edge branch couple identically. This directly transports the known discrete order to the claimed continuous one.",
+          "For 0<t<1 the only distinct-edge contribution is t²/2 per incident ordered edge-pair; strictness away from the star/path follows from their unique extremal adjacency counts.",
+          "The cut identity W(T)=Σ_g(a_g+1)(b_g+1)=m²+Q(T) converts the known second-minimum Wiener difference into the stated W1 gap via 2/m², with the same equality case."
+        ],
+        "reasoning": "No new distance-order lemma is needed beyond the known coordinatewise one. The exact metric-tail and transport constants follow from the fixed mixture kernel, elementary degree counts and linear conversions; they do not leave a distinct substantive claim in the frozen result.",
+        "searches": [
+          "Dankelmann arXiv:2411.13439 §3 and Lemma 2 combined with arXiv:1609.04182 Theorem 3.2",
+          "Wang–Hu 2012 Theorem 3; Garijo et al. Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For trees H(T,x)=x H_e(T,x)+|V(T)| and H_e(T,x)=H(L(T),x). For distinct edge pairs δ=d_L−1.",
+          "The sorted multiset of all δ equals the sorted vertex distances after dropping the m initial ones and subtracting 2; first and last edges of an unoriented vertex path of length ≥2 give the underlying bijection."
+        ],
+        "reasoning": "The edge-separation tails used in the frozen proof are just a fixed shift of the established distance-sequence formalism with the common first block removed. Coordinatewise order of the sorted distances is equivalent to stochastic order for uniformly drawn pair indices.",
+        "searches": [
+          "Graph distance sequences, path domination, Wiener-type indices; Dankelmann arXiv:2411.13439",
+          "Tratnik–Žigert Pleteršek arXiv:1609.04182 Theorem 3.2 and Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d84810868262 features the same extremal shape but uses variance, which is a different statistic.",
+          "874c43902707 gives a signed-spline arclength-sampled CDF for arbitrary positive edge lengths, not the extremality theorem; 9033f9f4f47c features a nonextremal collision of whole laws."
+        ],
+        "reasoning": "The ranked catalogue matches do not directly give the frozen extremal-order/W1 statement. The decisive coverage is the published discrete theorem and its reduction, not a match at the title or catalogue-table level.",
+        "searches": [
+          "Resultary: unit-edge metric-tree distance law, arclength star and path, nonstar second-extremum, Wasserstein",
+          "Resultary mirror d84810868262, 874c43902707, 9033f9f4f47c"
+        ]
+      },
+      "rationale": "The frozen result is correct, but its main whole-law comparison is a direct consequence of an earlier componentwise extremal theorem for complete discrete distance sequences (Dankelmann, arXiv:2411.13439, Lemma 2), combined with the already known edge/vertex-Hosoya identity and the elementary uniform-edge sampling kernel. This is verified prior implication, not an inference from matching titles, means, or unavailable literature. The small-distance coefficients are read directly from the adjacency count under that kernel. The transport conversion uses ordered-law mean differences, and the second-minimum cut sum and shape are already the unit-weight case of Wang–Hu's second-minimum Wiener theorem. The exact continuous wording need not appear in those sources for the claim to be covered.",
+      "residual_risks": [
+        "Jelen, Doyle–Graver and Dahl full texts were not retrieved; they may affect historical attribution, but the proven prior implication is independent of them.",
+        "No chronological priority is inferred from same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication",
+          "evidence": "Definition uses sorted distances of all unordered distinct vertex pairs and componentwise ≤. Lemma 2 states D(G)≤D(PK_{n,s}) at fixed order and size; for trees s=n−1 so PK_{n,s} is a path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.13439",
+          "material_read": "v1 first page; §3 definition on p. 4 (offset 10700 onward); §4 path-complete definition and Lemma 2 on p. 5 (offset 15220 onward)",
+          "method": "Targeted literature search and OA PDF passage inspection",
+          "title": "Distance Sequences to bound the Harary Index and other Wiener-type Indices of a Graph",
+          "trigger": "A stronger vertex distance-sequence theorem would settle the main order by reduction"
+        },
+        {
+          "assessment": "Exact discrete conversion",
+          "evidence": "H_e(G,x)=H(L(G),x) and H(T,x)=xH_e(T,x)+|V(T)|.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.04182",
+          "material_read": "PDF pp. 2–3, offsets 4380 and 8173, definition, Theorem 3.2 and Corollary 3.3",
+          "method": "OA primary PDF passage inspection",
+          "title": "Relationship Between the Hosoya Polynomial and the Edge-Hosoya Polynomial of Trees",
+          "trigger": "Conversion of vertex-pair to edge-pair histograms"
+        },
+        {
+          "assessment": "Prior continuous mean order, not whole-law order by itself",
+          "evidence": "The proposition states μ_c(S)≤μ_c(T)≤μ_c(P) for equal-edge trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.11676",
+          "material_read": "p. 17, Proposition 4.4, offset 60000",
+          "method": "OA primary PDF passage inspection",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "Prior continuous arclength star/path extremizers"
+        },
+        {
+          "assessment": "Exact coverage of the second-minimum index ingredient",
+          "evidence": "Second-minimum Wiener value (n−1)B+(n−3)a_min, with weighted double-star extremizer S^{min}_{1,n−3}; unit weights give the one-subdivision star and difference m−2.",
+          "identifier_or_url": "Wang and Hu, WSEAS Transactions on Mathematics 11(12), 2012, p. 1130, Theorem 3",
+          "material_read": "PDF p. 4, journal p. 1130, offsets 23600–29285, Theorem 3",
+          "method": "OA primary PDF passage inspection and unit-weight specialization",
+          "title": "The Wiener Index for Weighted Trees",
+          "trigger": "Prior discrete nonstar sharp gap and equality case"
+        },
+        {
+          "assessment": "Different statistic; no date-based priority inference",
+          "evidence": "The same equality shape occurs with a different variance gap; no FOSD or W1 statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-minimum-geodesic-distance-variance-on-unit-edge-met--d84810868262",
+          "material_read": "Mirrored RESULT.md offsets 0–2961 and 2500–5637",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp second minimum geodesic-distance variance on unit-edge metric trees",
+          "trigger": "Close same-model sharp nonstar extremal record"
+        },
+        {
+          "assessment": "Broader encoding, not extremizers",
+          "evidence": "Signed-spline CDF for arbitrary positive edge lengths and a mean formula, no stated star/path order or sharp nonstar W1 result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-degree-deficit-distance-spline-and-cubic-branching-law-for-m--874c43902707",
+          "material_read": "Mirrored RESULT.md offsets 0–5459",
+          "method": "Resultary search and local mirror inspection",
+          "title": "The degree-deficit distance spline and cubic branching law for metric trees",
+          "trigger": "Broader continuous distance-law formula"
+        },
+        {
+          "assessment": "No conflict with extremal uniqueness",
+          "evidence": "Collision of nonisomorphic trees does not supply an extremizer sharing a star or path law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-minimal-nine-vertex-collision-for-intrinsic-distance-laws-of-uni--9033f9f4f47c",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Minimal nine-vertex collision for intrinsic distance laws of unit-edge metric trees",
+          "trigger": "Same whole-law invariant and possible uniqueness conflict"
+        },
+        {
+          "assessment": "Unresolved, not used to decide coverage",
+          "evidence": "No verified primary passage; both attempts on the exact PDF link returned landing or abstract material only.",
+          "identifier_or_url": "https://publications.rwth-aachen.de/record/52768/files/Jelen_Frank.pdf",
+          "material_read": "Bibliographic/index identification only; full text was not accessible",
+          "method": "OA attempts on publisher repository and exact identified PDF link via both configured routes",
+          "title": "Superdominance Order and Distance of Trees",
+          "trigger": "Plausible older tree-distance dominance theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Dankelmann arXiv:2411.13439, Lemma 2",
+        "Tratnik–Žigert Pleteršek arXiv:1609.04182, Theorem 3.2",
+        "Wang–Hu, Theorem 3"
+      ],
+      "rationale": "The continuous stochastic interpretation is useful as an exposition of the discrete ordering, but the asserted advance is a direct equal-edge sampling conversion of the known distance-sequence order. The local tail formulas are the first mixture coefficients, and the nonstar gap is the known discrete second-minimum Wiener value in the corresponding W1 units. No distinct independently useful new invariant, threshold or stability phenomenon survives those reductions in this record.",
+      "residual_risks": [
+        "This conclusion does not diminish the expository usefulness of a continuous coupling, or assess possible genuinely new weighted-tree variants not claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:47:21.004808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two vertices in row i, their closed-neighborhood symmetric difference consists exactly of their two columns off row i, so at most one column can have all its selected cells confined to row i. The transposed condition is necessary and sufficient for the other adjacent pairs; non-domination requires an empty row and an empty column. With an empty column, every other column must have at least two selected cells, giving the strict bound 2(l−1)>2l−s; with no empty column the singleton columns have distinct occupied rows and at most s of them exist. Equality in 2l−s forces exactly one singleton per row and double occupancy elsewhere. Every template meets both adjacency conditions and dominates, and its row-to-singleton injection is unique, giving the stated labelled product count. For nonadjacent vertices with equal traces, each row's singleton must appear in the other trace, forcing the crossed singleton positions. Their traces agree exactly when neither row is touched by a double column. Inclusion-exclusion therefore counts both full coverage and coverage with exactly one untouched row. At q=l−s=0 no code is globally identifying for s≥3. For q>0 the threshold 2q≥s−1 is sufficient by taking disjoint pairs until at most one row remains, using one further pair if necessary and repetitions for surplus columns; it is necessary by capacity. Inspected VERIFICATION.md, CHECKS.txt, the two C++ verifiers and the Python occupancy verifier without executing them; finite checks corroborate both the unrestricted minimum proof and global-subcount reasoning, without exhausting larger boards.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local-code paper's stated applications are binary hypercubes and infinite grids; its definitions apply but do not give the rectangular rook minima.",
+          "Foucaud et al. give a general sufficient criterion for ordinary edge-identification using a pendant-free edge cover and no two isolated selected edges inducing a C4. Their Proposition 10 gives the exact ordinary minimum on squares.",
+          "The frozen record attributes the ordinary rectangular optimum and necessary same-shore incidence condition to Goddard–Wash; scanned full text was not readable in the available OA route, and the Junnila et al. full text was not retrieved."
+        ],
+        "reasoning": "Global separation is strictly stronger, and optimizing under it cannot supply all local optima in the regime before the transition. Even where the two cardinalities agree, the local-only optima and total local count are not recovered from the ordinary value.",
+        "searches": [
+          "Herva–Laihonen–Lehtilä, arXiv:2302.13351, definitions, scope, and §2",
+          "Foucaud et al., arXiv:1107.0207, Lemma 7 and Proposition 10",
+          "Goddard–Wash, ID codes in Cartesian products of cliques, and Junnila–Laihonen–Lehtilä DOI 10.1016/j.dam.2018.03.050"
+        ]
+      },
+      "checked_sources": [
+        "Herva et al. arXiv:2302.13351",
+        "Foucaud et al. arXiv:1107.0207",
+        "Goddard–Wash associated OA landing/scan, not full text inspected",
+        "Junnila et al. DOI 10.1016/j.dam.2018.03.050, no full text retrieved",
+        "Resultary exact self hit and distinct even-square ordinary-code record",
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt, local_ident_direct.cpp, local_ident_occupancy.py and optimal_codes_direct.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local templates are pendant-free: code edges incident at a column with two selected cells cannot have both other endpoints of degree 1, and each row has only one leaf-column neighbor. In K_{s,l}, any two isolated code edges have endpoints inducing a C4. Lemma 7 implies global identification when at most one such edge occurs; the crossed unselected edges give the converse exactly as in the prior square proof.",
+          "The reported ordinary size formula max{2l−s,l+floor(s/2)} meets 2l−s precisely at q≥floor(s/2)=ceil((s−1)/2)."
+        ],
+        "reasoning": "The ordinary-code filter on the templates has prior coverage by restriction and must be credited accordingly. It does not yield the local template family. With that independently determined family, the distinct quantitative contribution is enumeration of all local minima and of the ordinarily identifying subset within it.",
+        "searches": [
+          "Read Foucaud et al. Lemma 7 and the isolated-edge necessity argument in Proposition 10; compare with the frozen proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_s□K_l is L(K_{s,l}), so this is adjacent-edge separation by a selected edge set, not global edge identification or local locating-domination.",
+          "Every local optimum in the record induces a spanning edge set in K_{s,l}. The isolated selected edges are precisely singleton columns incident to untouched rows."
+        ],
+        "reasoning": "The line-graph reduction translates the ordinary part exactly and reveals overlap. It does not identify global edge-identifying codes with locally separating ones; e.g. every optimum on the square is local and none is global. The focused external search produced an unrelated hit, not evidence of absence.",
+        "searches": [
+          "Focused rectangular rook graph local identifying code / Cartesian product of cliques lookup",
+          "Foucaud et al., arXiv:1107.0207, Definition 5, edge-identification in line graphs and Lemma 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2026/11/22/SCOPE-all-minimum-local-identifying-codes-of-rectangular-rook-graphs-a--f0be81b91bd1 is the same frozen result.",
+          "Distinct matching-object record 2026/11/22/SCOPE-four-orbit-types-and-exact-enumeration-of-minimum-identifying-co--fb33fb75dc16 classifies ordinary codes of size 3k on the even square K_{2k}□K_{2k}."
+        ],
+        "reasoning": "The latter family has size 3k versus 2k for local minima on that board, and no local minimum there is global. This object-level comparison, not the catalogue dates, excludes equivalence.",
+        "searches": [
+          "Local Resultary search for all rectangular rook graph local identifying optima, forms and ordinary subcount"
+        ]
+      },
+      "rationale": "The credited contribution is the exact local-minimum family for all labelled rectangles and its two counts. The ordinary-identification criterion on these templates is an instance of established line-graph results, and the ordinary transition agrees with (and given the local minimum follows from) the previously reported ordinary size formula; neither is credited as a separate novelty. The strongest inspected prior sources do not determine the local extremizers or produce the count over that family.",
+      "residual_risks": [
+        "The inaccessible same-family Goddard–Wash text could contain stronger ordinary results than the reported necessary condition and scalar value; it was not used as negative evidence.",
+        "A differently indexed adjacent-edge separation classification may exist; the review establishes neither global priority nor exhaustive search coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same local problem; stated families do not cover this rectangular two-clique classification",
+          "evidence": [
+            "The Hamming model used in §2 is binary hypercubes F^n with F={0,1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13351",
+          "material_read": "Abstract p. 1; definitions pp. 3–4, OA offsets 9200–13891; scope and start of §2 p. 7, offsets 19950–22885",
+          "method": "Lawful OA PDF passages",
+          "title": "Optimal Local Identifying and Local Locating-dominating Codes",
+          "trigger": "Same local code notion"
+        },
+        {
+          "assessment": "Covers ordinary filter on the template and known square ordinary cardinality, not the local classification or counts",
+          "evidence": [
+            "Lemma 7 excludes pairs of isolated selected edges whose four endpoints induce C4.",
+            "Proposition 10's proof explicitly observes that two order-2 components cause an unseparated pair of cross edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.0207",
+          "material_read": "Definition 5 and pendant-free discussion (p. 2, offsets 7232–9940); Lemma 7 (p. 4, offsets 11045–13149); Proposition 10 and proof (pp. 4–5, offsets 14600–20292)",
+          "method": "Lawful OA PDF and direct specialization",
+          "title": "Identifying Codes in Line Graphs",
+          "trigger": "Rook graph is the line graph of the complete bipartite graph"
+        },
+        {
+          "assessment": "Exact contents beyond the reported statements remain an access risk; does not negate the positive overlap comparison from Foucaud et al.",
+          "evidence": [
+            "Frozen RESULT.md §Relationship to prior work reports Lemma 2.3(A) and the ordinary scalar bound; this is not represented as an independent reading of that lemma."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-085/id-codes-in-cartesian-products-of-cliques/",
+          "material_read": "Bibliographic/landing evidence only; available published PDF was image-only without extractable text; no readable identified alternate full text retrieved",
+          "method": "OA retrieval attempts; no whole-document conclusion from the landing page",
+          "title": "ID codes in Cartesian products of cliques",
+          "trigger": "Cited same-family ordinary classification and incidence bound"
+        },
+        {
+          "assessment": "Different optimizing family on the same underlying graph in the even-square slice",
+          "evidence": [
+            "Ordinary minima have size 3k and four orbit types, rather than the size-2k local singleton family."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-orbit-types-and-exact-enumeration-of-minimum-identifying-co--fb33fb75dc16",
+          "material_read": "Opening Finding in local mirror RESULT.md",
+          "method": "Local mirror and comparison of parameter regime and local versus global requirements",
+          "title": "Four orbit types and exact enumeration of minimum identifying codes",
+          "trigger": "Closest distinct Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local identification on a natural graph family can behave quite differently from ordinary identification. The proof explains exactly how the local optimum avoids ordinary constraints, and the exact two counts quantify that gap across every labelled rectangle, not just a numerical coincidence or a few boards. Inclusion-exclusion in isolation is routine; the useful result is the exhaustive minimum family to which it applies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:02.772801Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a deletion-minimal word any chosen pair of embeddings covers all positions, or an uncovered position could be deleted. Each symbol therefore occurs once or twice. Put C=1...n-1. A single zero forces C on each side with no extra positions, hence C0C, whose two required embeddings are unique. For two zeros, A can always reuse the first instead of a later zero, and B can always reuse the last instead of an earlier zero. If a nonzero symbol j occurs just once, both embeddings must pass through it. The prefix required by A through the cut contains the prefix required by B, so one A-prefix embedding can serve both: minimality forces the left part to equal 0...j-1. The symmetric right requirement is the longer B suffix j+1...n-1,0. Thus the only such word is 0C0, with each position essential. All other candidates have every symbol twice and hence length 2n. The exhibited E_n has a unique embedding of A: its earlier zero and all second copies of nonzero letters are forced in forward order. B must use its later zero and all first copies in reverse forcing order. These embeddings are disjoint and exhaustive for n>=3, proving minimality and attainability, not a classification of every full-length word. For n=2, a word containing both 01 and 10 has at least three runs and therefore contains 010 or 101; minimality gives precisely those two. Inspected RESULT.md lines 23–43, verify.py, VERIFICATION.md and verification_output.txt. The bundled Python 3 alignment enumeration and separate small direct search are finite corroboration, not required for the proof; their recorded outputs were read and not re-executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sopp et al. give general essential-index characterization and finite-instance enumeration",
+          "The 1996 reference concerns general extremal minimal supersequences; original full text unavailable",
+          "890be64c626b allows repeated shifted permutations but focuses on the full-length layer for alphabets of sizes 3 through 5"
+        ],
+        "reasoning": "A longest-length or top-layer result cannot determine missing submaximal lengths, and fixed-input enumeration is not an all-n symbolic classification.",
+        "searches": [
+          "arXiv:2603.22591v1 Sections 3 and 5",
+          "DOI 10.1006/inco.1996.0011",
+          "Resultary 890be64c626b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 10a0d52c68a3 and 890be64c626b",
+        "arXiv:2603.22591v1",
+        "10.1006/inco.1996.0011 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General essentiality accounts for the 2n upper bound, while the frozen singleton cut specifically uses nested subsequence requirements on either side of the shared j",
+          "Earlier opposite-block result covers only n=2; finite alphabet top-layer count does not constrain shorter layers"
+        ],
+        "reasoning": "Obtaining the two shorter words requires the family-specific prefix/suffix comparison and a proof that all other minimal words use all double occurrences. No inspected general statement mechanically provides that classification or the all-n attainability proof.",
+        "searches": [
+          "arXiv:2603.22591v1 Lemma 3.1 (essential positions)",
+          "Resultary 10a0d52c68a3 and 890be64c626b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.1 characterizes minimality by essentiality for at least one input at each position",
+          "Resultary 10a0d52c68a3 includes the same two binary words at just its block-length-one boundary"
+        ],
+        "reasoning": "Deletion-minimality is the essential-position notion, not shortest common supersequence. The other indexed spectrum uses repeated runs over a two-letter alphabet; after the boundary case it cannot be identified with the distinct-letter rotation by relabeling or reversing.",
+        "searches": [
+          "Resultary: minimal common supersequence length spectrum for one-step cyclic shifts, opposite blocks, essential positions",
+          "Sopp et al. arXiv:2603.22591v1 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At repetition k=1, 890be64c626b yields 1, 8, 34 words in the full-length layer for n=3,4,5 respectively, matching the frozen finite data",
+          "The frozen computed profile covers only n=2 through 8"
+        ],
+        "reasoning": "Exact finite top-layer overlaps are credited but neither confirm the complete spectrum on those instances nor constitute a uniform exact classification. The claimed result does not include a general count of full-length words.",
+        "searches": [
+          "Resultary length/profile terms for cyclic permutations",
+          "890be64c626b local mirror Finding",
+          "Frozen verification_output.txt"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the uniform n>=3 length spectrum for the one-step shift of a distinct-letter permutation, with rigidity of both shorter words and an all-n full-length witness. Earlier opposite binary blocks share precisely the separate n=2 boundary when their blocks are singletons. A distinct cyclic-sequence catalogue entry covers full-length counts at n=3,4,5, but neither shorter layer nor the all-n assertion. General position characterizations, fixed-input enumeration and longest-word algorithms do not by themselves yield the singleton-cut rigidity or missing intermediate lengths. This is a best-of-knowledge finding with a specific full-text access limitation, not a priority guarantee.",
+      "residual_risks": [
+        "The Fraser–Irving–Middendorf original full text was not accessible in the attempted lawful routes; a special instance or older differently formulated antecedent is possible.",
+        "Ranked catalogue and literature checks do not establish exhaustive absence of other coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Essentiality and general enumeration overlap; no uniform cyclic specialization in the inspected result",
+          "evidence": [
+            "Every position of a minimal output is essential for some input. This gives the two-embedding bound but not the exact symbolic spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+          "material_read": "Introduction and Sections 3 and 5; Lemma 3.1 around offset 14326",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "Closest general characterization and enumeration"
+        },
+        {
+          "assessment": "Unavailable original; does not justify either a coverage claim or an exclusion",
+          "evidence": [
+            "Frozen RESULT.md references longest-minimal-common-supersequence algorithms and notes original access limitation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/inco.1996.0011",
+          "material_read": "Bibliographic identification and frozen abstract description; no full text",
+          "method": "Publisher attempt and OA lookup without a retrieved repository copy",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Historical general extremal minimal-supersequence work"
+        },
+        {
+          "assessment": "Covers binary boundary only",
+          "evidence": [
+            "For 0^m1^m versus 1^m0^m, the count at length 3m+j is 2 binom(m+j-1,j)^2 for 0<=j<m; m=1 gives two length-three words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-length-spectrum-of-minimal-common-supersequences-of-opposi--10a0d52c68a3",
+          "material_read": "Local RESULT.md Finding, offsets 0–359",
+          "method": "Ranked Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact length spectrum of minimal common supersequences of opposite binary blocks",
+          "trigger": "Exact spectrum in superficially similar opposite-order construction"
+        },
+        {
+          "assessment": "Exact partial coverage; date is not used as the reason to exclude full coverage",
+          "evidence": [
+            "Counts maximum-length 2qk words for q=3,4,5 and repetitions k; no shorter lengths asserted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-full-length-minimal-common-supersequence-counts-for-the-first-th--890be64c626b",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Ranked Resultary and local mirror",
+          "title": "Full-length minimal common supersequence counts for the first three cyclic-permutation alphabets",
+          "trigger": "Matching cyclic family at repetition one"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural one-letter rotation, the result explains why deletion-minimal (as opposed to shortest) words can jump from a unique shortest word to two much longer possible lengths, with an unbounded interval of absent lengths. The rigidity of the two shorter words and existence at the absolute 2n bound are independent structural information, not counts extrapolated from small alphabets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

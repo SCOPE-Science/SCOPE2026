@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:14:15.596504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact formula and unique maximizing pair are correct. The frozen Finding's unqualified claim that the maximizer is not an edge composition is false for 3 <= N <= 6; repairs/3/RESULT.md states the correct cutoff N >= 7 without changing the theorem. Omitting a success/failure gives Q masses p and 1-p. The two P atoms both equal the Bin(N,p) mean atom. On L <= floor(N/2) the successive ratio is C_(N-k-1)/A_k, with C_m=(1+1/m)^(m-1) strictly increasing by the logarithmic derivative and A_k=(1+1/k)^k. At m=3k+1 the comparison after kth roots and clearing positive denominators leaves 2k+1 in favor of A_k. At m=3k+2 the second-order Taylor lower bound after kth roots exceeds 1+1/k by (k+1)/(2k^2(3k+2)^2). Thus increase occurs iff N >= 4k+3, with strict decrease otherwise. The half-range peak is floor((N+1)/4), and reflection yields distinct maximizers, including the no-adjacent-comparison case N=3. The corrected edge cutoff follows directly from that floor. Independent exact checks from the defining laws reproduced both winners and both strict adjacent signs at N=3..80 via python -B reviews/check_hypergeometric.py; the finite check is not the proof. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 locates an edge maximizer under n-1 <= N/2. With n=N-1 this is only N=3,4 in the present range. Its displayed statement is not an all-N uniqueness claim."
+        ],
+        "reasoning": "The prior theorem partially covers only the small populations and does not dominate the asserted range.",
+        "searches": [
+          "Dümbgen–Samworth–Wellner, arXiv:1905.03009, Theorem 2 and its proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1905.03009",
+        "Local Resultary near-census binary urn relative entropy entry 5c28676f124f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-composition proof supplies an evaluable ratio, not the strict adjacent sign threshold N=4k+3. Total variation and KL bounds/optimizers do not imply this exact directed point-mass maximum across compositions."
+        ],
+        "reasoning": "The threshold and resulting unique pair require the additional sharp discrete comparison, not just substitution into the earlier extremizer theorem.",
+        "searches": [
+          "arXiv:1905.03009 Theorem 2, fixed-L proof, and adjacent total-variation comparisons",
+          "Near-census binary-urn relative entropy Resultary entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pointwise hypergeometric/binomial ratio and its count maximum are given for fixed L; the one-omission reduction is an edge-adjusted reciprocal binomial atom, with a different (outer) optimization over L still to perform."
+        ],
+        "reasoning": "The fixed-L count optimizer and the binomial mean atom formulation do not give the maximizer over population composition.",
+        "searches": [
+          "Leave-one-out/near-census hypergeometric versus same-p binomial composition extremizers; density ratio/relative error",
+          "arXiv:1905.03009, proof of Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct Resultary match shares the one-omission model and same-p comparator but optimizes directed KL divergence. It gives an asymptotically near-balanced composition, not the exact maximal-ratio pair.",
+          "No exact table or same-claim indexed record identified in the checked results."
+        ],
+        "reasoning": "Same distributions and sample size do not establish equality of discrepancies or extrema.",
+        "searches": [
+          "Local Resultary search: one omission/near-census, hypergeometric/binomial, density ratio and composition optimizer",
+          "2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f/RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact outer composition optimizer in the one-omission, directed maximal-density-ratio regime, not the fixed-composition count maximization or the binomial atom reduction. The corrected small-N edge qualification does not enlarge that claim.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an equivalent calculation under older likelihood-ratio or relative-error terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap, not all-N outer optimization",
+          "evidence": [
+            "Edge theorem requires n-1 <= N/2; the proof locates the maximizing count for fixed (N,L,n) at ceil((n-1)L/N)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.03009",
+          "material_read": "Theorem 2, p. 5, and proof on pp. 18–20 (OA text offsets near 12100 and 54900)",
+          "method": "OA passage reading and comparison after n=N-1 substitution",
+          "title": "Bounding distributional errors via density ratios",
+          "trigger": "Identical approximation problem and plausible earlier outer maximization theorem"
+        },
+        {
+          "assessment": "Different discrepancy and different optimizer",
+          "evidence": [
+            "Directed KL; minority size asymptotic to n/2-sqrt(n)/2+o(sqrt(n)), not a quarter-population maximal mass-ratio extremizer."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f/RESULT.md",
+          "material_read": "Finding from offset 0, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror statement comparison",
+          "title": "A square-root imbalance maximizes near-census binary urn relative entropy",
+          "trigger": "Closest indexed result sharing the one-omission setup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact, sharp composition extremum for a natural near-census endpoint of a published approximation problem. It exhibits a qualitative change from edge maximizers to asymptotically quarter/three-quarter proportions and quantifies the cutoff, including small boundary cases. It does not claim an intermediate-sample phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:07.025382Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem holds. The restriction of the inverse Fourier transform from the band to a finite observation set is Hilbert–Schmidt, and its product with its adjoint is the sinc compression. Strict positivity on the single interval ensures a simple even positive top state. Reflection on the translated interval followed by the two-component sum/difference gives the exact blocks T±C_D, with kernel K_W(D−x−y). Their isolated leading eigenvalues are the top two overall for large D because C_D=O(D⁻¹) in norm. At D=d+τ/d, put s=x+y and ε=(−1)^n. Expanding gives ε[−sin(ωs)/d+(ωτ cos(ωs)−s sin(ωs))/d²]/π with uniform operator O(d⁻³). The first-order kernel sends φ to −Aq/π and has expectation zero; the second-order expectation is (ωA²τ−2AB)/π. The reduced-resolvent term L is the same in both branches. Differentiating the kernel gives a uniform expansion of its τ derivative; taking its expectation in the normalized branch eigenvectors φ+O(d⁻¹) gives slope 2εωA²/(πd²)+O(d⁻³) for the signed gap. Opposite endpoint signs and strict monotonicity yield an exact unique crossing in the stated window, with detuning τ_*+O(d⁻¹). Leading-order unrestricted expansion gives the global sorted formula by parity. The area estimate uses bounded continuous K_W on finite sets, not global L¹: the word 'integrable' in the frozen assumptions is inaccurate if read globally, since |sin(ωt)|/|t| has divergent integral, but this is not a premise of the theorem or its proof. A new 64-node full-block and parity-matrix diagnostic at (a,W)=(1/4,1/2) and (0.6,0.3), including odd and even n=31,64,129, matched the branches, slope signs and centroid values; replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/checks/frozen_review_checks.py sinc. This is numerical corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9ba5ac6c3bc3 gives unique exact crossings in fixed half-distance windows and a stronger signed gap expansion for unrestricted separations",
+          "89cae306647a treats normalized sinc at every fixed positive interval length, including all the short intervals under review",
+          "The OA papers address single-interval optimality, stability, or the growing-scale Fredholm determinant, not the two leading eigenvalues in this setting"
+        ],
+        "reasoning": "The wider windows contain the compact-detuning neighborhood for large n; the located crossing lies in that neighborhood. The exact result is not an implication of rearrangement or stability, and the Fredholm determinant does not specify the leading doublet. The catalogue comparisons, not these remote papers, establish coverage.",
+        "searches": [
+          "9ba5ac6c3bc3 and 89cae306647a, Findings and hypotheses",
+          "arXiv:2607.19192v1, Theorem 1.1",
+          "arXiv:2610.01299v1, detached-piece example",
+          "arXiv:2003.08136v1, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:9ba5ac6c3bc3",
+        "Resultary:89cae306647a",
+        "arXiv:2607.19192v1",
+        "arXiv:2610.01299v1",
+        "arXiv:2003.08136v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The commutator (λ−T)(xφ)=(A/π)q follows by subtracting the two integral formulas, so the frozen resolvent coefficient is L=AB/π",
+          "For the normalization y=2Wx in 89cae306647a, length is 4Wa, separation R=2WD, detuning t=(2W)²τ, C_a=(2W)A² and Q_a=(2W)²L"
+        ],
+        "reasoning": "Under this unitary dilation the global term and [Q_a±|C_a t−2Q_a|]/n² become exactly the frozen global and resonant terms. Evaluating the resonant law at the exact crossing of the other record gives its common height with the claimed error. Writing the same coefficient via a reduced resolvent is not a new spectral conclusion.",
+        "searches": [
+          "89cae306647a, Finding and Proof Step 1 (exact commutator)",
+          "9ba5ac6c3bc3, signed parity gap and crossing location"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 9ba5ac6c3bc3 use bandwidth B_comparator=2W, length ℓ=2a, half-distance L_comparator=D/2, and its M,M_1=A,B respectively",
+          "The comparator gives L_n=n/(2B_comparator)+M_1/(πMn)+O(n⁻²) with an exact transverse equality of the two top branches"
+        ],
+        "reasoning": "Translate the spatial union to center it. The bandwidth restriction B_comparator ℓ<1 becomes 4Wa<1, and doubling the listed half-distance gives d_n+2B/(πAn)+O(n⁻²)=d_n+τ_*/d_n+O(d_n⁻²). The parity gap coefficients also agree under doubling.",
+        "searches": [
+          "Resultary: moment-shifted parity resonances for maximal Slepian concentration (9ba5ac6c3bc3)",
+          "Resultary: resonant doublet splitting for Paley–Wiener concentration on distant intervals (89cae306647a)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first states an exact multiplicity-two crossing with the corresponding first shift and uniqueness; the second gives the boxed global and uniform resonant two-eigenvalue laws"
+        ],
+        "reasoning": "An asymptotic law for a continuum of separations is not a finite-table question. The exact indexed statements—not numerical resonance scans—give the actual overlap. The second source alone establishes cancellation rather than exact crossing, so the first source is essential to full coverage.",
+        "searches": [
+          "Resultary 9ba5ac6c3bc3 and 89cae306647a, boxed results"
+        ]
+      },
+      "rationale": "The exact crossing and shift are covered by the distinct Resultary record 9ba5ac6c3bc3 (in larger fixed-width windows, with a global two-term signed gap). The global leading and compact-detuning two-eigenvalue formulas, including the common second-order height, are covered in 89cae306647a with arbitrary interval length. The two papers together cover the precise claimed conclusions under explicit dilation and translation. The separate catalogue entries have later path dates; the finding is substantive overlap of the reviewed claim with the existing catalogue, not an assertion of earlier historical priority or a derivation relationship. No distinct scientific conclusion remains simply from presenting both equivalent results together.",
+      "residual_risks": [
+        "The dates of catalogue paths do not establish historical priority or independence between overlapping findings.",
+        "The Slepian–Pollak and Donoho–Stark full texts were inaccessible through the tried lawful routes; no claim about their full coverage was used in the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact crossing and shift covered in equivalent units; a wider uniqueness window and global signed gap are also stated",
+          "evidence": [
+            "Unique L_n in [n/(2B)−1/(8B),n/(2B)+1/(8B)], with exact multiplicity two and shift M_1/(πMn)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-moment-shifted-parity-resonances-for-maximal-slepian-concentrati--9ba5ac6c3bc3/RESULT.md",
+          "material_read": "Finding, assumptions, parity reduction and gap derivation, offset 0 onward",
+          "method": "Local Resultary mirror, original RESULT.md",
+          "title": "Moment-shifted parity resonances for maximal Slepian concentration on two distant intervals",
+          "trigger": "Plausible exact crossing match"
+        },
+        {
+          "assessment": "Covers both expansions under scaling, but does not assert exact equality",
+          "evidence": [
+            "Normalized leading term C_a|sin(πR)|/(πR); resonant coefficient Q_a±|C_a t−2Q_a| with Q_a=c_a d_a/π"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-resonant-doublet-splitting-for-paley-wiener-concentration-on-dis--89cae306647a/RESULT.md",
+          "material_read": "Finding, assumptions, exact commutator and leading/resonant perturbation passages",
+          "method": "Local Resultary mirror, original RESULT.md",
+          "title": "Resonant doublet splitting for Paley–Wiener concentration on distant intervals",
+          "trigger": "Plausible match for centroid and splitting not fully specified by a gap law"
+        },
+        {
+          "assessment": "Different bound, geometry or spectral invariant/limit in inspected passages",
+          "evidence": [
+            "One-interval fixed-measure optimizer; stability and a detached vanishing piece; Fredholm determinant under growing scale"
+          ],
+          "identifier_or_url": "arXiv:2607.19192v1; arXiv:2610.01299v1; arXiv:2003.08136v1",
+          "material_read": "Abreu–Speckbacher abstract and Theorem 1.1; Zelent abstract and detached-piece passage; Fahs–Krasovsky opening problem and limit",
+          "method": "Lawful OA primary PDFs",
+          "title": "Optimal concentration and stability in the Paley–Wiener space; Sine-kernel determinant on two large intervals",
+          "trigger": "Frozen cited sources that might address nearby parameter limits"
+        },
+        {
+          "assessment": "Access limitation, not evidence for or against coverage",
+          "evidence": [],
+          "identifier_or_url": "Slepian–Pollak (1961); Donoho–Stark (1993)",
+          "material_read": "No full-text passages retrieved",
+          "method": "Lawful DOI/publisher and identified Archive.org routes attempted",
+          "title": "Prolate spheroidal wave functions, Fourier analysis and uncertainty—I; A note on rearrangements, spectral concentration, and the zero-order prolate spheroidal wavefunction",
+          "trigger": "Foundational prolate and rearrangement references"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact displaced degeneracy is scientifically more meaningful than a small numerical gap. Here, however, that degeneracy, its shift, and the doublet expansions are all reproducible from the overlapping findings; evaluating the common height then requires only substitution. The reviewed record determines no higher-order coefficient, additional band range or other separate invariant. There is no substantive remaining increment to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

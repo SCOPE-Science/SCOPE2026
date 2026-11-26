@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:16.409266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–68; VERIFICATION.md and check.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/66980433-20bc-45d1-b1e0-ad822e75277c/independent_check.py; exact even-permutation frequencies, symmetric/skew covariance and full Gram ranks at n=4,…,8. Ranks 3,12,20,30,42; at n=5 centered Walsh Gram eigenvalues 1 and 5/3."
+      ],
+      "rationale": "The signed derangement count is det(J−I)=s(n−1); the single-edge signed count is s by conjugation and the deterministic n occupied edges. The reciprocal signed count is minus the residual derangement determinant. Four distinct endpoints give zero determinant because two unrestricted rows coincide, and summing over the other occupied edges then gives the chain signed count s. Combining with ordinary completion counts yields the stated even joint probabilities. On the zero-row/column subspace the reciprocal, chain and disjoint coefficient sums are H_ji, −2H_ji and H_ij+H_ji; this gives covariance αI+β transpose. The symmetric and skew sector dimensions use unsigned and oriented complete-graph incidence ranks. Walsh coordinates multiply centered covariance by four; the outer product of the mean vector (including the constant coordinate) gives τ and the remaining deterministic directions are null. At n=4 the skew eigenvalue is zero, giving nullity ten. For n≥5 the derangement recurrence gives the claimed positive levels; β changes sign only at the two odd exceptions n=5,7 because the odd-size numerator is D_(n−4)−(n−1), negative at 5 and 7 and strictly positive from 9 onward. To obtain the stated O(n^−4) remainder for the squared condition number, use the alternating inclusion-exclusion bound D_m=m!/e+O(1), not just D_m/m!→1/e. It gives α=n^−1+O(n^−2) and β=n^−4+O(n^−5).",
+      "residual_risks": [
+        "The tables in frozen VERIFICATION.md are incidence covariance eigenvalues, not Walsh Gram eigenvalues; the latter are four times larger in the centered sectors. The exact finite check does not establish the all-n conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Ewens Proof Steps 1–2 give Z_m, all three class numerators, and the covariance action and multiplicities on the same zero-margin coefficient space. The Oct. 26 uniform case is θ=1 and has identical covariance levels 15/44 at n=5. Miska gives signed imbalance; Ku–Wong studies a Cayley graph instead."
+        ],
+        "reasoning": "The unconditioned baseline alone is not enough and its isotropy does not carry over. The prior polynomial family is strictly more informative than that baseline and supplies the parity component by projection.",
+        "searches": [
+          "Resultary Ewens covariance 85125daabf20 and unconditioned covariance a208797ec285; Miska arXiv:1508.01987 and Ku–Wong arXiv:1207.3878"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 85125daabf20, a208797ec285, b49d92b488a8, b86983a249f4",
+        "Miska arXiv:1508.01987; Ku–Wong arXiv:1207.3878"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recurrence gives Z_m(1)=D_m and Z_m(−1)=1−m, including m=0,1. Its reciprocal numerator θ Z_(n−2), chain numerator Z_(n−2)+θ Z_(n−3), and disjoint numerator Z_(n−2)+2θ Z_(n−3)+θ² Z_(n−4) evaluate at −1 to n−3, −1, and 0. Combining with +1 yields the frozen A_e,B_e,C_e and F/2 exactly. The earlier action already shows diagonalization by transpose.",
+          "The resulting difference is eight times [D_(n−4)−s(n−1)]/F in the centered Gram. Evaluating the first few derangement numbers and using recurrence growth gives exactly the stated order exceptions and non-tightness; the quotient of extreme centered levels gives the condition number."
+        ],
+        "reasoning": "These are identities of finite polynomials given by the earlier proof; the probability-law restriction θ>0 does not restrict evaluation of their unnormalized counts. Even projection is an elementary character filter. No independent spectral argument beyond that filter, the standard one-dimensional mean contribution, and the arithmetic of the known counts is needed.",
+        "searches": [
+          "85125daabf20 RESULT.md Proof Steps 1–2, local mirror offset 0; comparison with even-class counts and Gram action in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any event A on derangements let P_A(θ)=sum over π in A of θ^{K(π)}. Since sign(π)=(−1)^{n−K(π)}, its even count is [P_A(1)+(−1)^n P_A(−1)]/2. The prior Ewens record gives P_A as explicit polynomials for the normalizer and every relevant joint edge class.",
+          "The frozen first-band contrasts are the covariance of the same incidence coordinates up to a factor four; the constant and coordinate means give the one additional rank-one eigenvalue."
+        ],
+        "reasoning": "Positive-weight Ewens sampling is not itself even sampling, but parity projection of the exact unnormalized polynomials is an equivalent route to the stated spectral data. Cayley graph and full Walsh multiplier spectra are different objects.",
+        "searches": [
+          "Resultary even derangement Walsh Gram and symmetric/skew assignment covariance; 85125daabf20, a208797ec285, b49d92b488a8 and b86983a249f4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former order-five even-permutation result has 60 samples without excluding fixed points, not the 24 even derangements. Miska's parity count and the uniform covariance table are narrower pieces, not the target spectrum. The prior Ewens polynomials generate the needed data uniformly."
+        ],
+        "reasoning": "There is no need to infer the infinite classification from matching small-size table entries. The exact published formula, rather than a finite table lookup, settles the implication.",
+        "searches": [
+          "Exact covariance data in 85125daabf20 and a208797ec285; Resultary b86983a249f4, exact order-five even permutation analysis; Miska arXiv:1508.01987 Sect. 5"
+        ]
+      },
+      "rationale": "The earlier Ewens record 85125daabf20 gives the necessary cycle-weight polynomial counts and covariance action. An explicit two-evaluation parity projection recovers all the even-conditioned pair data, after which its covariance decomposition and the elementary conversion to the Walsh basis give the claimed Gram spectrum. One need not assume an Ewens probability law at negative parameter. The n=4 kernel, tightness, ordering and condition asymptotic are elementary consequences of those explicit inherited formulas.",
+      "residual_risks": [
+        "No separate external web query was completed for this record. The decisive conclusion is mechanical implication from an inspected earlier source, not a claim about the first explicit public statement of the even-conditioned formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the entire even-conditioned covariance by polynomial parity projection",
+          "evidence": "Three unnormalized completion polynomials, the Z_m recurrence, and the transposition action on the identical sectors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-unique-ewens-isotropy-parameter-and-harmonic-sector-reversal-f--85125daabf20/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Steps 1–2, local offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique Ewens isotropy parameter and harmonic-sector reversal for derangement assignments",
+          "trigger": "Exact general covariance on the same coordinates with cycle-weight parameter"
+        },
+        {
+          "assessment": "Uniform measure only",
+          "evidence": "The two levels coincide at 15/44 at order five, in contrast to the even-conditioned split.",
+          "identifier_or_url": "Resultary a208797ec285",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The complete covariance spectrum of uniform derangement assignment scores",
+          "trigger": "Earlier unconditioned covariance baseline"
+        },
+        {
+          "assessment": "Different operator and conditioning",
+          "evidence": "Multipliers for all derangements rather than a first-band Gram on even derangements.",
+          "identifier_or_url": "Resultary b49d92b488a8",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "The sharp sparse Walsh cancellation threshold for derangement matrices",
+          "trigger": "Same-day nearby Walsh statement"
+        },
+        {
+          "assessment": "Different support and Walsh question",
+          "evidence": "Uses all 60 even permutations in full assignment coordinates.",
+          "identifier_or_url": "Resultary b86983a249f4",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Exact Walsh cancellation and optimal recovery for the five-letter alternating group",
+          "trigger": "Even-permutation exact tabulation at five labels"
+        },
+        {
+          "assessment": "Background parity enumeration",
+          "evidence": "Even and odd derangement counts and imbalance, not the Gram decomposition.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.01987",
+          "material_read": "Section 5, p. 44, offset 176908",
+          "method": "Open-access primary text",
+          "title": "Arithmetic Properties of the Sequence of Derangements and its Generalizations",
+          "trigger": "Parity-weighted derangement counts"
+        },
+        {
+          "assessment": "Different spectrum",
+          "evidence": "Cayley adjacency spectrum on the symmetric group, not coordinate assignment covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.3878",
+          "material_read": "p. 1, offset 1904",
+          "method": "Open-access primary text",
+          "title": "Solving the Ku-Wales conjecture on the eigenvalues of the derangement graph",
+          "trigger": "Spectral derangement terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Gram, ordering and tightness assertions",
+        "Earlier Ewens counts and covariance, 85125daabf20 Proof Steps 1–2"
+      ],
+      "rationale": "Parity-restricted sampling is a natural problem, and rank loss and sector reversal are meaningful phenomena. Here the exact phenomena are already readable from the cycle-weight polynomials by a two-point parity filter and from the existing sector decomposition. The Gram scaling, isolated small sizes, and elementary sign checks do not supply an independently new exact invariant beyond that implication.",
+      "residual_risks": [
+        "This addresses the first-band claim only; it does not evaluate higher-degree Walsh spectra or other unproved parity-restricted invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

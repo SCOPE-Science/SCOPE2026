@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:14.450394Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four characters factor through D8/<r²>; the faithful block has determinant x²+y²−z²−w² in central-pair differences. If only one central sector is present, support is even. The basic product bound follows from independent translates selected greedily to cover previously uncovered entries. At support three, left translation and automorphism reduce to a single rotational coset, or to two rotations and a reflection with rotation separation 1 or 2, accounting for 8+32+16 subsets. In the first case the scalars come in duplicate pairs and at least two survive; the real determinant (a−c)²+b² is strictly positive. In the separation-one mixed case two independent signs give four scalars, at most one zero, and a zero scalar forces the determinant to be ±2ab≠0. In the separation-two case a scalar cancellation forces c²=(a+b)² and nonzero determinant −4ab; without the cancellation all four scalars survive. This proves the three-point bounds. At support five, rank≤3 needs exactly one scalar and a rank-one faithful block. The four pair sums are ±t with t≠0, so three pairs must be singletons. Their squared differences are t²; the zero determinant forces the fourth to have squared difference t² as well, an impossible fourth singleton. At seven, rank≤2 restricts to one sector. Other lower rows come from the product bound. Independent exact rank calculations on the regular multiplication matrices confirm all nine distinct witnesses, yielding both stated profiles. Replay: python3 /workspace/reproductions/group_rank.py (SymPy). This verifies upper witnesses only; analytic lower bounds quantify over arbitrary amplitudes. The supplied checker and notes were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alagic–Russell supplies kσ≥8; Jiang–Liu–Wu studies equality/minimizers, not all exact-support minima.",
+          "Chen–Fan–Luo (3.14) supplies the strengthened group-action bound; on odd exact support in the regular action, X_S is the right stabilizer, which has order dividing both k and 8. Thus at k=3,5,7 the lower bounds from (3.14) are respectively 4,3,2. The exact two-spike law gives the common k=2 row."
+        ],
+        "reasoning": "The strengthened bound already yields the complex k=3 lower bound; even with this strengthening the numerical inequalities alone leave k=3 real and k=5,7 unresolved. Theorem 3.12 depends on an additional support-restricted span dimension; extracting a sharp table needs more than inserting group size.",
+        "searches": [
+          "arXiv:math/0608702",
+          "arXiv:1408.1165",
+          "arXiv:2211.11204v3",
+          "2026/10/11/SCOPE-exact-two-spike-rank-support-law-on-arbitrary-finite-groups--29d4924b2b7c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0608702",
+        "arXiv:1408.1165",
+        "arXiv:2211.11204v3",
+        "Resultary 29d4924b2b7c, 4c46c48edabe, 502b53e637a6, 43499b938eaa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At support five the general bound with trivial right stabilizer allows rank three; the central-pair determinant argument rules it out for D8, and that candidate actually occurs in Q8.",
+          "At support three the real-rotation determinant is strictly positive, whereas it can vanish over C. A field-uniform inequality cannot by itself produce the two different minima."
+        ],
+        "reasoning": "The exact profiles rely on group- and field-specific deductions, not renaming an existing uncertainty bound.",
+        "searches": [
+          "Chen–Fan–Luo Eq. (3.12), Eq. (3.14); Jiang–Liu–Wu equality results; exact Q8 spectrum Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier rank is dim(FGf) by F[D8]≅F⁴⊕M₂(F) for both fields.",
+          "The order-eight quaternion convolution table is complex, and gives rank 3 at weight 5 instead of D8's 4; cyclic DFT support counts apply to a different algebra with scalar irreducibles."
+        ],
+        "reasoning": "The group-algebra rank is genuinely equivalent on D8, but not interchangeable across groups even of the same order or with isomorphic abstract complex group algebras: exact support is tied to the group basis.",
+        "searches": [
+          "Resultary: D8/D4 square group exact weighted support, real versus complex; rank of convolution at fixed Hamming weight",
+          "arXiv:2211.11204v3, Theorem 3.12 and Corollary 3.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November's antipodal occupancy table is for complex Q8 and differs at support five. The same-date spinor record treats binary polyhedral rank-one coefficients, including Dic2≅Q8, not D8; the same-date tetrahedral record treats A4 at fixed weighted rank three.",
+          "The indexed odd-prime dihedral three-tap and order-ten four-tap results do not address this square group profile."
+        ],
+        "reasoning": "No covering two-field D8 table was identified. Same-date records were compared by object and quantifier, not presumed earlier or later. Bounded lookup does not establish uniqueness.",
+        "searches": [
+          "Resultary: exact support Dihedral D8(D4) rank-weighted Fourier/convolution ranks; order-eight profiles",
+          "4c46c48edabe",
+          "502b53e637a6",
+          "43499b938eaa"
+        ]
+      },
+      "rationale": "The complete field-sensitive D8 profiles survive the strongest located comparisons, most notably the support-five obstruction and the real support-three bound. Prior general uncertainty inequalities, including a stronger group-algebra bound that forces the complex support-three lower bound, and the exact general two-spike law are not new here.",
+      "residual_risks": [
+        "An unindexed square-group group-ring rank table or a sharper specialization of support-sensitive inequalities could cover further entries. No full-coverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers product inequality only",
+          "evidence": [
+            "kσ≥|G|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0608702",
+          "material_read": "Abstract and group-rank statement",
+          "method": "OA full-text passage",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "Base group-rank bound"
+        },
+        {
+          "assessment": "Equality analysis, not a D8 full profile",
+          "evidence": [
+            "Donoho–Stark bound and equality cases are not non-equality minima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.1165",
+          "material_read": "Theorems 5.2, 6.4 and 6.13, PDF pp. 16,20,28",
+          "method": "OA statements and exact-support comparison",
+          "title": "Noncommutative Uncertainty Principles",
+          "trigger": "Equality formulas for rank-weighted uncertainty"
+        },
+        {
+          "assessment": "Covers sharper lower bound, not the two tables",
+          "evidence": [
+            "(3.14) yields k·dim(FGf)≥8+k−|X_S|; for odd k the stabilizer factor is 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.11204v3",
+          "material_read": "Abstract and pp. 28–29; Thm. 3.12/Cor. 3.13, (3.12)/(3.14)",
+          "method": "OA text and regular-action specialization",
+          "title": "Sharp Uncertainty Principle for Transitive G-Sets over Arbitrary Fields and Finite Groups",
+          "trigger": "Stronger formulation for arbitrary fields and regular action"
+        },
+        {
+          "assessment": "Different group, differing value at support 5",
+          "evidence": [
+            "Quaternion complex profile (8,4,4,2,3,2,3,1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-antipodal-occupancy-fourier-rank-spectrum-on-q-8--4c46c48edabe",
+          "material_read": "Finding, offset 0; comparison section offset 9950",
+          "method": "Local mirror and comparison of complex row minima",
+          "title": "Complete antipodal occupancy Fourier-rank spectrum on Q8",
+          "trigger": "Closest exact nonabelian order-eight table"
+        },
+        {
+          "assessment": "Different group and rank stratum",
+          "evidence": [
+            "Dic2 is Q8, and the result classifies single-block rank-one coefficients."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-spinor-coefficient-zero-sets-and-projective-rigidity-across-fini--502b53e637a6",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror; group and rank stratum comparison",
+          "title": "Spinor coefficient zero sets and projective rigidity across finite binary polyhedral groups",
+          "trigger": "Related rank-one group coefficients on same date"
+        },
+        {
+          "assessment": "A4 at fixed rank, not D8 profile",
+          "evidence": [
+            "Fixed weighted rank three on A4 excludes support five and seven."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-time-support-spectrum-at-rank-weighted-fourier-size-three--43499b938eaa",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror and comparison of group and variable minimized",
+          "title": "Exact time-support spectrum at rank-weighted Fourier size three on the tetrahedral group",
+          "trigger": "Related exact-support gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square group gives a canonical nonabelian rank-weighted uncertainty benchmark, not a random support pattern: each of its eight exact-support strata is resolved over two fields. The sharp support-five obstruction is visible neither in the basic support-product bound nor in the order-eight quaternion analogue, and the support-three difference isolates the field-sensitive rank behavior of the faithful block. These exact minima contain information that a monotone at-most-support envelope loses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

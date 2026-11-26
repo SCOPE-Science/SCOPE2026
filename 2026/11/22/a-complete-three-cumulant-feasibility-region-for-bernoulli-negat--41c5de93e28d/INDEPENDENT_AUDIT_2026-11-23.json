@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:48:03.915462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pgf about 1 factors as (1+pz)(1-az)^(-nu), a=theta/(1-theta). Its log yields m=p+nu*a, v=-p^2+nu*a^2, and t=kappa_[3]/2=p^3+nu*a^3. For fixed m,v the positivity of A=m-p and B=v+p^2 together with 0<p<1 is equivalent to max(0,sqrt(max(0,-v)))<p<min(1,m); this interval is nonempty exactly under the two stated strict prerequisites. Positivity gives the unique inverse a=B/A, nu=A^2/B. The third-coordinate function F=p^3+B^2/A has derivative 3p^2+4pB/A+B^2/A^2>0. At p=0 (v>=0) or p=sqrt(-v) (v<0) its limiting values are v^2/m and (-v)^(3/2). At the upper end m<=1 there is a genuine divergence since v+m^2>0, including m=1; for m>1 the limit is 1+(v+1)^2/(m-1). This proves strict necessity and sufficiency and uniqueness; the implicit function theorem with positive F' yields smoothness also at v=0 or m=1 at interior parameter points. For feasible negative v, approaching p=sqrt(-v) gives a->0, nu*a->m-sqrt(-v)>0, so the negative-binomial term tends to a Poisson term by its pgf and t tends to the unattained lower limit. Bin(N,q) has t/(-v)^(3/2)=1/sqrt(N), proving the stated incompatibility. The rational match has (m,v,t)=(1/2,-1/8,61/800), versus t=1/32 for Bin(2,1/4). Scope: population factorial cumulants of the strictly interior independent convolution, not a sample or boundary-model theorem.",
+      "reproduction": "Built an independent rational check without executing the uploaded code: for j=0,...,3 let M_j=(nu)_j*(theta/(1-theta))^j and use the falling-factorial moment of the sum M_j+j*p*M_(j-1). Form cumulants by the moment-to-cumulant polynomials. Across p=1/4,1/2,2/3,19/20; nu=1/7,3/4,2,20; theta=1/12,1/2,7/8 (48 cases), checked exact reconstruction, the equation m*p^3+2*v*p^2+t*p+v^2-m*t=0, and 40 exact bisection iterations bracketing the original p on the admissible fiber. Also probed both endpoints with p of relative distances 1/2,1/10,1/100,1/1000 on fibers (m,v)=(1/2,1/3),(1,-1/4),(2,0),(2,-1/4), and recomputed the stated rational example; all passed. The frozen script has a non-substantive bookkeeping typo: there are 3+3+1+4+192=203 executed assert statements on a successful run; its print expression adds one extra. The finite count is not needed by any step of the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ong et al. describe the generalized inverse trinomial product of NB and binomial PGFs with linked equal exponents—on the Bernoulli subfamily this does not permit an independent NB shape—and cite Kemp for validity conditions for a larger product-PGF class.",
+          "The Poisson-binomial effective-trial hierarchy and zero-inflated NB threshold hits are distinct laws and different questions."
+        ],
+        "reasoning": "A valid-PGF parameter domain or third-order inequalities for a different ensemble do not characterize this complete mean/dispersion-conditioned interval. A theorem on the full three-moment image for a broader product family could subsume the result if it identified this constrained subfamily, but such a statement was not found in material read.",
+        "searches": [
+          "10.3390/stats6030059 Introduction (GIT and Kemp)",
+          "Resultary: Bernoulli negative binomial shifted count law three factorial cumulants attainable moment region and identifiability"
+        ]
+      },
+      "checked_sources": [
+        "10.3390/stats6030059 (law, PGF and moment/dispersion statements)",
+        "Resultary: same-family thinning/log-concavity and hazard laws; Poisson-binomial cumulant hierarchy; Poisson–transmuted geometric inverse (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (2) gives mean and variance and the following paragraph compares variance and mean. Eq. (5) directly implies the component cumulant expressions after differentiation.",
+          "The full inverse instead needs a remaining scalar variable; its positivity interval, strict derivative, and two endpoint images separate m<=1 from m>1 and enforce a strict binomial exclusion."
+        ],
+        "reasoning": "The component identities are immediate prior inputs. Neither their tabulation nor deciding the sign of v states or supplies the full third-coordinate image and global uniqueness.",
+        "searches": [
+          "10.3390/stats6030059 Sections 2.1–2.2 Eq. (2), dispersion comparison, Eq. (5)",
+          "Bernoulli negative binomial convolution first three factorial cumulants identifiability moment feasibility shifted negative binomial Ong Sim 2023 Poisson binomial method moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ong et al., Eqs. (1)–(5), describe the same law as a mixture of an NB and its unit shift: factoring the common pgf leaves the Bernoulli pgf.",
+          "The Resultary same-family neighbor with suffix ccc124e0694b classifies thinning and log-concavity, not this moment image. The Poisson–transmuted geometric three-moment nonidentifiability result deals with a different family."
+        ],
+        "reasoning": "Bernoulli addition and unit-shift mixing are exact aliases; the forward law is prior. Using ordinary moments instead of factorial cumulants is a triangular invertible change for orders 1–3 and would not make an existing moment-image theorem new; no such equivalent image was identified in the examined results.",
+        "searches": [
+          "Bernoulli negative binomial convolution first three factorial cumulants identifiability moment feasibility shifted negative binomial Ong Sim 2023 Poisson binomial method moments",
+          "Resultary: Bernoulli negative binomial shifted count law three factorial cumulants attainable moment region and identifiability",
+          "10.3390/stats6030059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved exact catalog entries include the target itself, thinning/log-concavity and hazard-shape transitions on the same family, and summaries about other families; none of the neighboring summaries states a three-cumulant feasible-region table.",
+          "The source paper's abstract describes simulations of tests, ML and PGF-based estimation and empirical comparison, not a table of sharp third-coordinate boundary functions."
+        ],
+        "reasoning": "A distribution-fitting example or numerical parameter estimate at a given point cannot determine the strict intervals on all fixed-(m,v) fibers. No independently earlier exact boundary tabulation was identified.",
+        "searches": [
+          "Resultary: Bernoulli negative binomial shifted count law three factorial cumulants attainable moment region and identifiability",
+          "10.3390/stats6030059 model and stated estimation results"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit image and unique smooth three-cumulant inversion with the sharp binomial obstruction, not for the count law, its PGF, or standard component cumulant calculus.",
+      "residual_risks": [
+        "Kemp's full historical paper was not inspected; the comparison to that family is based on its description in Ong et al. The date of the cited model paper is not a certified historical priority date for the underlying product family.",
+        "A specialized method-of-moments treatment or a general moment-map result could contain an equivalent characterization; the supplemental literature query seeking another copy of the Ong article was unavailable, not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent model, with first and second moment/dispersion formulas; no matching inverse-image result in the inspected passages",
+          "evidence": [
+            "Eq. (1) uses a pmf and its shift; Eq. (2) gives mean and variance under the mixture; Eqs. (3) and (5) specify the exact NB instance.",
+            "The abstract and Introduction describe estimation by ML and PGF methods."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/stats6030059",
+          "material_read": "Abstract, Introduction (GIT and Kemp), Sections 2.1 and 2.2 through the displayed pgf, in the publisher's open PDF",
+          "method": "Public MDPI PDF mirror https://mdpi-res.com/d_attachment/stats/stats-06-00059/article_deploy/stats-06-00059-v2.pdf; standard article URL returned 403",
+          "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
+          "trigger": "Same exact statistical model and potentially covering moment estimation"
+        },
+        {
+          "assessment": "Summary-level comparison only: studies two distinct distributional properties, not the inversion of moments",
+          "evidence": [
+            "The reported cutoffs are for binomial-thinning self-decomposability and global log-concavity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-thinning-and-log-concavity-boundaries-for-bernoulli-negati--ccc124e0694b",
+          "material_read": "Indexed summary only",
+          "method": "Resultary search",
+          "title": "Sharp thinning and log-concavity boundaries for Bernoulli–negative-binomial counts",
+          "trigger": "Exact same law and sharp parameter boundaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a specifically proposed count model, the attainable set determines whether a three-moment fit exists and whether its parameters are unique, including near the underdispersed boundary. The sharp obstruction distinguishes the family from multi-trial binomials even when the first two moments can match. This is a useful complete feasibility result, not merely the standard log-PGF derivative calculation or a claim about estimation from finite samples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:44.737525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof applies to two distinct noiseless locations, exact saturated cost, fixed ell>0 and unit GP scale. Writing u=1/x, v=1/y, rho=exp(-(y-x)/ell), inversion (or scalar affine GLS) gives J=(u-v)^2/(1-rho^2)+2uv/(1+rho). Set w=(u-v)/C; the feasible range is 0<w<=1-2/C, nonempty for C>2. Then y-x=4w/[C(1-w^2)]. The two elementary bounds 1/s <= 1/(1-exp(-s)) <= 1+1/s give 0 <= J/C^3-(ell/8)w(1-w^2) <= 1/C uniformly, including both endpoint regimes. This proves the finite-budget bound by reciprocation. The leading cubic has its only maximizer at w=1/sqrt(3), feasible for C>=3+sqrt(3); this proves the sharp infimum limit. Compactness and the strict maximum prove the 'if and only if' for all admissible families, via y/x=(1+w)/(1-w). One simulator at x=1/C has scalar covariance and free-intercept variance C^-2. Independent replay: python3 /workspace/reproduction/frozen_checks.py 5; affine minimum-variance weights from the original covariance at two length scales, two budgets and four ratio regimes (including coalescence and y=1). For ell=2, C=10^6, the sharp ratio gave C^3 V=10.39226884551 versus limiting 6 sqrt(3); the endpoint regimes were much worse. The finite checks corroborate but do not prove uniformity. The source checker was inspected, not executed; the recorded 114 checks are not independent attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sparse GRE gives a general polynomial-mean GP criterion and a multidimensional numerical selection example, not a uniform solution of the scalar two-point cost problem.",
+          "DOI 10.1002/asmb.749 full text was not lawfully available in the attempted routes; no negative claim about its whole contents is made."
+        ],
+        "reasoning": "The relevant general objectives define what to optimize but do not give its scalar supremum or control budget-dependent escape to either boundary. Stationary constant-mean estimation would not, merely by dividing outputs by x, reproduce the present design: the regressor for the intercept then becomes 1/x and both locations carry an exact reciprocal cost.",
+        "searches": [
+          "arXiv:2604.02072, posterior variance; sequentially sampling points",
+          "Resultary: Ornstein Uhlenbeck optimal designs parameter estimation exponential covariance spacing sample size",
+          "DOI 10.1002/asmb.749, optimal design; Abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published mathematics index; b27c43c7986c",
+        "Oates et al., arXiv:2401.07562v1",
+        "Oates, Howey and Karvonen, arXiv:2604.02072",
+        "Zagoraiou and Baldi Antognini, DOI 10.1002/asmb.749 (access attempts only)",
+        "Frozen RESULT.md and verification materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The GRE objective is known; the formula must still be optimized along y-x=4w/[C(1-w^2)]. Controlling w approaching 0 or 1 is essential to the claimed quantifier and absent from the finite-grid comparison.",
+          "The trisection theorem uses independent noise and an integral estimand, with no reciprocal-fidelity constraint."
+        ],
+        "reasoning": "The evaluated sharp constant, global bound and all-family rigidity require a uniform design reduction and optimization, rather than reading off a parameter or applying the grid observation. No earlier theorem inspected supplies that optimization.",
+        "searches": [
+          "arXiv:2401.07562v1, posterior variance; experimental design to select; Example 10",
+          "arXiv:2604.02072, posterior variance",
+          "Resultary b27c43c7986c, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 10 uses b(x)=x, c(x)=1/x and a fixed-length-scale rough Matérn kernel but searches only 20 candidate points.",
+          "Resultary b27c43c7986c gives trisection for stationary exponential-kernel integral estimation with observation noise, not the free-intercept limit at x=0."
+        ],
+        "reasoning": "Writing the criterion as intercept GLS or using an exponential/Matérn-1/2 alias does not identify the grid problem or the stationary-process quadrature problem with the continuous reciprocal-budget variance.",
+        "searches": [
+          "Resultary: rough exponential kernel two fidelity inverse cost sharp cubic law ratio 2+sqrt3 Gauss Richardson",
+          "Resultary: two point GRE fidelity design exponential kernel cost 1/x+1/y=C asymptotically optimal ratio",
+          "arXiv:2401.07562v1, Example 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent appeared in the inspected published Resultary matches; the nearest exponential-kernel two-site record supplies the ratios 1/3 and 2/3 for a different target and setting.",
+          "The 20-site candidate experiment does not tabulate a limiting continuous ratio or a sharp coefficient."
+        ],
+        "reasoning": "An exact matching design record would matter; a finite grid cannot establish the limiting ratio and the uniform nonasymptotic variance bound. There is no integer sequence or standard table index for the continuous model as such.",
+        "searches": [
+          "Resultary: C^3 posterior variance 12 sqrt(3) over ell ratio 2+sqrt(3)",
+          "arXiv:2401.07562v1, Example 10 and its finite-grid comparison"
+        ]
+      },
+      "rationale": "The GRE variance, cost criterion, first-order envelope and use of a rough Matérn family were already established. The supported distinct claim is the evaluated continuous two-location sharp law at unit scale, rigidity of the limiting allocation, and the uniform finite-budget inequality. The inspected grid, integration and multidimensional design problems do not cover that claim. This is a best-of-knowledge judgment, not an exhaustive priority certificate.",
+      "residual_risks": [
+        "The 2009 exponential-design paper was not independently read in full; a stronger general design theorem or unindexed special-case calculation may exist.",
+        "Searches and targeted passage reads are not exhaustive; the distinct result is not the general GRE criterion or the rough-kernel setup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes background objective and finite-grid precedent, not the continuous sharp asymptotics",
+          "evidence": "First-order envelope and reciprocal cost on 20 candidates; reports an apparent concentration preference in the rough case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.07562v1",
+          "material_read": "Posterior-variance/design passages and Example 10, PDF p. 17, text offset 59602",
+          "method": "OA PDF targeted passage read",
+          "title": "Probabilistic Richardson Extrapolation",
+          "trigger": "Same GRE framework, cost and rough kernel family"
+        },
+        {
+          "assessment": "Related objective and experiment, not the same theorem",
+          "evidence": "General polynomial-mean GP; numerical batches of candidates in a three-dimensional domain with Matérn-1/2 kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.02072",
+          "material_read": "Posterior variance p. 8 (offset 30327), sequential design p. 52 (offset 163164)",
+          "method": "OA PDF targeted passage read",
+          "title": "Sparse Probabilistic Richardson Extrapolation",
+          "trigger": "Later GRE method includes budgeted rough-kernel selection"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not evidence of absence",
+          "evidence": "The frozen discussion concerns stationary exponential covariance and spacing design, rather than the fidelity-weighted reciprocal-cost model; this description was not independently established from the article.",
+          "identifier_or_url": "https://doi.org/10.1002/asmb.749",
+          "material_read": "No independent mathematical passage retrieved; frozen bibliographic comparison inspected",
+          "method": "OA DOI and publisher routes attempted; 403 and no OA repository copy identified",
+          "title": "Optimal designs for parameter estimation of the Ornstein–Uhlenbeck process",
+          "trigger": "Classical exponential-covariance optimal design"
+        },
+        {
+          "assessment": "Different covariance, observations, target and cost; mathematical nonequivalence, not inferred from dates",
+          "evidence": "Optimizes two noisy observations for integrals of a stationary process; equal noise and process variances give sites 1/3,2/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-noise-universal-trisection-for-two-site-exponential-kernel-quadr--b27c43c7986c/RESULT.md",
+          "material_read": "Finding and assumptions, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Noise-universal trisection for two-site exponential-kernel quadrature",
+          "trigger": "Nearest published two-site exponential-kernel design from Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two fidelities are the smallest nontrivial comparison to one fidelity in the published inverse-cost setting. The exact continuous optimal ratio gives a concrete design, and the sharp cubic law establishes an entire extra inverse-budget power despite rough covariance. The uniform bound and uniqueness distinguish a genuine design benchmark from a pointwise Taylor expansion. This is fixed-scale model variance, not guaranteed simulator error or unrestricted many-point optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

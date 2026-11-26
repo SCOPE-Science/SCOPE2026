@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-Run `python3 checks/verify_python.py`; it reconstructs both cubic graphs from generalized Petersen edges, checks an explicit isomorphism from the Desargues \(\(GP(10,3)\)\) model to the two-subset-disjointness model, examines each of the \(2^{20}\) possible selected subsets separately for both graphs, and verifies all twenty-one coefficients. Expected marker: `PYTHON_EXACT_PASS`.
+## correctness
 
-Compile `c++ -std=c++17 -O2 checks/verify_cpp.cpp -o verify_cpp` and run `./verify_cpp`. This constructs Desargues from disjoint pairs in a five-element set, the dodecahedral graph from its generalized Petersen edges, scans all twenty-bit integers for each graph, asserts all coefficients and their exact support comparison, and prints `CPP_EXACT_PASS`. The execution has no external data or package dependency.
+PASS
 
-Both checks were executed successfully with their complete assertions enabled. The enumerated predicate tests only nonempty and mutually distinct open-neighborhood signatures of the vertices **outside** the selected set, as required for ordinary locating domination. It does not inadvertently impose the identifying-code condition on selected vertices. The claimed reliability dominance follows algebraically from seven strictly positive coefficient differences and the Bernoulli subset probability. No infinite-family or probabilistic asymptotic statement is certified; the result is for two explicit finite graphs.
+For ordinary locating domination it is necessary and sufficient that the selected set hit each closed neighborhood N[x] and each set {x,y} ∪ (N(x) △ N(y)). The pair condition is automatic if either vertex is selected, and otherwise says that their selected-neighbor signatures differ. I independently formed these hitting constraints and computed the upward closure of their complements' failure indicators via a Boolean subset transform: a detector mask fails exactly when its complement contains a required hitting set. The replay /workspace/independent-evidence/1.py exhausts all 2^20 masks and matches all 21 coefficients in both graphs and both models of Desargues. Totals D=362841 and P=384459; P−D has exactly (220,2460,6660,7228,3880,1050,120) at degrees 7–13. The supplied Python isomorphism certificate is a bijection with the stated adjacency test. A uniform k-set divides the coefficient by binomial(20,k); the independent deployment difference has a positive sum of Bernoulli weights for 0<p<1. At p=0 both fail; at p=1 both succeed. No authored script was executed.
 
-Independent scholarly audit: not performed.
+## originality
+
+PASS
+
+Credit the known minimum sizes and minimum counts, and the same-day analogue on the same graph pair. The inspected earlier statements do not supply the complete ordinary locating-domination vectors or their strict Bernoulli ordering. Pass for those exact statements, not for first counting the minima or introducing a general reliability transformation.
+
+## value
+
+PASS
+
+Locating domination is a natural detection invariant, and the full labelled cardinality distribution is the sufficient precise data for uniform and iid detector deployment. The two canonical cubic graphs have equal order but different geometry; the exact dominance at every interior probability, and its limited support in budget, are nontrivial information beyond the known difference of minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

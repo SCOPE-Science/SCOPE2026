@@ -1,23 +1,21 @@
-# Scientific review: polynomial universality in two-guru viscosity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is exact for finite, fixed, acyclic delegation forests with two independent gurus and fair random ties. The coefficients of any integer polynomial vanishing at both viscosity endpoints are realized as differences of nonnegative level populations, with a unit baseline at each nonempty level. Equality of the total sizes follows from the endpoint condition. The probability of correct choice is the competence of the heavier guru, or the mean competence at a weight tie. The explicitly factored polynomials therefore establish an arbitrary number of separate global-optimum intervals and a fixed-grid accuracy gap of at least \(1/10\). A star and a three-vertex path establish the six-voter strict-interior example. The all-forests size-five lower bound is proved by separately considering the possible counts of gurus and the corresponding weighted-majority rule; any interior threshold is handled by fair averaging, so cannot exceed both endpoint accuracies. A standalone standard-library Python verifier performs exact rational tree construction and checks, plus a complete labeled-forest enumeration through five voters. Finite checks are corroboration, not substitutes for the universal polynomial and lower-bound arguments.
+PASS
 
-## Originality
+Rooted trees realize every positive contiguous level profile with level zero equal to 1, by assigning all vertices at each level to one parent at the previous level. Adding a common positive baseline to the positive and negative parts of each coefficient therefore realizes the exact polynomial difference, including coefficient gaps. P(1)=0 proves equal component sizes, and two singletons handle P=0. The sign decides which guru prevails when ballots differ; a fair tie yields the average competency. The specified simple internal zeros with positive last interval give exactly m maximizing components. Every fixed finite grid leaves a closed rational subinterval in its complement, on whose interior the second constructed integer polynomial is positive and nowhere else. The six-voter star versus path difference is t(1−t). For at most five voters, two gurus have a fixed weight ordering on (0,1]. Three gurus either retain ordinary majority or a single heavier guru crosses the other two combined weights once; ties average the two rules. With just one delegator and three gurus, the possible tie is only at 1, and all interior voting rules are identical to that at 0. Four gurus with one delegator have a fixed rule on (0,1]: in a 2–2 split the larger guru prevails, and a 3–1 split remains a majority win. One guru or no delegators makes the rule constant. Thus there is no strict interior advantage over both endpoints for any competencies in the smaller forests.
 
-**PASS with residual specialist-priority uncertainty.** Armstrong, Alouf-Heffetz and Talmon (arXiv:2405.06698, IJCAI 2024) introduce the exact viscosity-weighted epistemic voting framework, explain its piecewise-constant group-accuracy objective, and exhibit an interior optimum using nine gurus. Those observations are not claimed as new. The inspected primary statements do not assert realization of *every* integer polynomial with zero endpoint values by just two gurus and equal component sizes, nor an unbounded number of disjoint global-optimum intervals, a predetermined-grid impossibility gap, or the sharp size-six minimum. Boldi et al. (2011) establish attenuated path and ranking ideas, but the inspected relevant material does not supply this accuracy-universality theorem. Published mathematical-record searches and accessible prior claims yielded no equivalent statement; the search cannot prove absolute publication priority. General results on prescribed polynomial zero patterns or Katz-score rank crossings may imply a portion of the realization construction, and further specialist checking remains worthwhile.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The structural realization lemma answers a natural expressivity question in a model where the viscosity parameter is intended to tune collective decision accuracy. It shows no uniform bound on the number of accuracy-optimal parameter windows even on two-root forests; preselected finite grids can miss a constant accuracy improvement, while a six-voter example gives the exact first population size where both endpoint policies lose to an interior choice. These are concrete boundaries for parameter tuning and delegation-network design, not arbitrary coefficient enumeration. The finding deliberately does not rule out input-aware exact optimization algorithms.
+Prior viscous-democracy work introduced the accuracy problem, exhibits an interior optimum, recognizes interval-wise behavior, and empirically samples a fixed grid. The supported distinct results are exact two-tree polynomial universality with equal sizes, arbitrarily many optimal components, the uniform worst-case fixed-grid gap, and the sharp six-voter boundary.
 
-## Closest literature and scope
+## value
 
-1. B. Armstrong, S. Alouf-Heffetz, N. Talmon, *Optimizing Viscous Democracy*, arXiv:2405.06698, first public 2024-05-08, https://arxiv.org/abs/2405.06698 ; https://doi.org/10.24963/ijcai.2024/292 . Read the published full-text sections on viscosity weights, accuracy, and pathological parameter choices.
-2. P. Boldi, F. Bonchi, C. Castillo, S. Vigna, *Viscous Democracy for Social Networks*, Communications of the ACM 54(6), 2011, pp. 129–137; author manuscript https://chato.cl/papers/boldi_bonchi_castillo_vigna_2011_viscous_democracy_social_networks.pdf . Read relevant path-weight, parameter and score-ranking material; this does not amount to an exhaustive priority investigation of all later Katz applications.
-3. The MSC2020 classification 91B12 (Voting theory), https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=91B72 .
+PASS
 
-The claim does not treat cyclic delegations, endogenous or strategic changes to the fixed forest, correlated guru opinions, multiple alternatives, different tie-breaking, or realistic branching restrictions. The two-guru construction may be large. Independent external audit has not been conducted.
+An exact universality result constrains what structural simplifications are possible in a natural optimization problem. It turns a known example of an interior optimum into unbounded topology of the optimal set and a uniform 1/10 obstruction to graph-independent grid sampling, even with just two ballots. The exact first forest size for a strict interior advantage also distinguishes the phenomenon from arbitrary larger constructions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

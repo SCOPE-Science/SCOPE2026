@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:54:06.837244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Simultaneous matched-index permutations and part interchange give exactly three pair orbits. The grounded diagonals remain d=n−1+t, and connectivity gives positive definiteness. The bipartite adjacency spectrum pairs ±singular values with extra zeros; the same-part block has Gram matrix h²I+(n+2h)J on the smaller side, h=t−1. For matched leaders use J+hI on n−1 indices, and for unmatched leaders split differences among the common matched indices from the two-dimensional compression. This verifies the three spectral costs. Independently clear denominators using K=n+2h, L=2d−1, H=2d²−n, P=KH, A=d²+L+2h. The matched numerator is 4n²d⁴K²−2n²d²K²L−2n²K²L²−(n²−4)d⁴L²+n(n−2)d²KL². The unmatched-minus-same numerator is 4d⁴(A²−2P)−2d²AP−2K²H²−d⁴H²+d²KH². Exact integer coefficient multiplication in (n−3,t) and (n−3,t−1), respectively, agrees with all displayed coefficient rows of CERTIFICATES.md. Descartes, the negative constant and the positive value at 1/2 prove uniqueness and direction of the switch. The latter numerator proves strict unmatched domination by same-part at t≥1; for 0<t<1 entrywise nonnegative inverse Neumann series strictly increase at an affected entry from matched to unmatched, and the trace of the inverse square is the sum of squared entries. Orbit sizes give n, n(n−1), n(n−1), hence n² minimizing pairs at equality. At 1/2, Q=6n⁴−18n³+O(n²) and Q'=8n⁷−28n⁶+O(n⁵), verified by coefficient arithmetic. Q has degree at most seven in n, bounding its second derivative uniformly on a fixed t-neighbourhood. A bracket of radius O(n⁻⁵) around the stated two-term root follows by Taylor signs and uniqueness. The J1 version gives the stated cubic and scale; the unmatched-minus-same J1 difference also simplifies to [d²(n−2)+2nK]/(dKH)>0. Independent exact arithmetic at n=3,t=9/20 recovered both signed rational differences; direct exact grounded-matrix evaluation across all 15 pairs corroborated the witness. Replay from RESULT.md and the two cleared polynomials above is all-size; bundled script and notes were inspected, not executed. Scope is positive matching weight, unit off-matching conductance, two perfect leaders and the combinatorial grounded matrix, not general second-order dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper gives an error/joint-centrality identity in its noise-free leader framework; the second provides higher-order coherence and general selection machinery. The tripartite case has no variable matching conductance."
+        ],
+        "reasoning": "Generic spectral or selection formulas do not determine the signs of the orbit differences for all weights or their crossing scales. The multipartite classification is not a theorem on these matching-weighted bipartite graphs.",
+        "searches": [
+          "arXiv:1407.1569, Eqs. (39)–(40)",
+          "arXiv:1905.09156, higher-order coherence and submodular leader selection",
+          "Resultary 430e926b8985 (unweighted tripartite J2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CERTIFICATES.md, VERIFICATION.md, verify.py and REVIEW.md",
+        "Resultary 06bc40f827e8 and 430e926b8985",
+        "arXiv:1407.1569 and 1905.09156, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-family J1 places its boundary a distance of order n⁻² below 1/2. J2 has a cancellation making the distance of order n⁻³, and unmatched exclusion requires a separate J2 comparison. General expressions do not assert the key numerator signs."
+        ],
+        "reasoning": "Neither the inverse-power change nor the new boundary scale is a parameter substitution or immediate consequence of a prior exact optimizer.",
+        "searches": [
+          "06bc40f827e8, RESULT.md Finding and root asymptotics",
+          "430e926b8985, RESULT.md Finding",
+          "Fitch–Leonard equations (39)–(40) and Mackin–Patterson overview"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The grounded squared trace is equivalently the squared Frobenius norm of the symmetric inverse, or sum of squared inverse eigenvalues. The prior same-family cost is the first inverse moment, not that squared norm. At the supplied exact witness the moments order matched and same-part in opposite directions."
+        ],
+        "reasoning": "The equivalence within J2 does not identify J1 with J2, and the witness explicitly rules out inheriting J1 optimizers.",
+        "searches": [
+          "Resultary: matching-weighted biclique, two grounded leaders, inverse-square grounded Laplacian, J2, higher-order coherence transition",
+          "06bc40f827e8 (same graph; first inverse power)",
+          "arXiv:1407.1569, two noise-free leaders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-family lookup has a cubic for J1. The exact J2 switch found separately is for K_(1,m,m+1), classified as m=2 versus m≥3. No distinct exact table in the inspected results gives the degree-six matching-weight transition."
+        ],
+        "reasoning": "A table on a different graph or for a different inverse power is not an exact lookup for the continuously weighted problem.",
+        "searches": [
+          "Resultary: exact two-leader threshold, inverse-square grounded coherence, weighted complete bipartite/weighted biclique",
+          "06bc40f827e8 and same-day 430e926b8985, RESULT.md Findings"
+        ]
+      },
+      "rationale": "The exact same-family J1 cubic and orbit optimizer classification are credited. The J2 threshold and its cubic-order boundary layer are distinct. The inspected general leader-coherence formulas and nearby exact J2 graph classification do not imply this J2 sign comparison, polynomial root, or separation scale.",
+      "residual_risks": [
+        "Web lookup was non-diagnostic; an unindexed or differently expressed inverse-square theorem is not excluded.",
+        "Same-day indexing does not establish order, and the inspected higher-order overview is not a whole-paper negative finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact J1 prior, not J2",
+          "evidence": "The objective is tr(L_FF^−1); the cubic separates matched and same-part, and unmatched never win.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-cubic-two-leader-coherence-transition-on-matching-weighted-bic--06bc40f827e8",
+          "material_read": "RESULT.md statement and classification at offset 450; cubic-root asymptotics near offset 5820",
+          "method": "Lawful local Resultary mirror",
+          "title": "A cubic two-leader coherence transition on matching-weighted bicliques",
+          "trigger": "Identical weighted graphs, budget, and orbit geometry"
+        },
+        {
+          "assessment": "Related J2 result with substantially different network hypotheses",
+          "evidence": "Two middle-part leaders for m=2 and singleton plus middle-part for m≥3; no matching-weight parameter.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-part-inverse-square-leader-switch-on-k-1-m-m-1--430e926b8985",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Lawful local Resultary mirror",
+          "title": "A three-part inverse-square leader switch on K_(1,m,m+1)",
+          "trigger": "Distinct same-day exact two-leader J2 optimizer"
+        },
+        {
+          "assessment": "First-power leader-error framework, not an inverse-square orbit comparison",
+          "evidence": "Two noise-free leaders' total system error is expressed via joint centrality.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "OA PDF p. 12, equations (39)–(40), around offset 48350",
+          "method": "Lawful OA PDF inspection",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Exact two-leader error formula might cover an objective reduction"
+        },
+        {
+          "assessment": "The read passage describes general higher-order coherence and selection, not the stated weighted-family classification",
+          "evidence": "Submodular/greedy approach is general selection machinery rather than an exact matching-weight transition in that passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.09156",
+          "material_read": "OA p. 1 overview, around offset 400",
+          "method": "Lawful OA PDF inspection",
+          "title": "Submodularity in Systems with Higher Order Consensus with Absolute Information",
+          "trigger": "Higher-order leader coherence and optimization framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On an infinite tunable network family, the result chooses all minimizing leaders including weights of ties and rules out one orbit. The contrast with the same family's established first-power threshold shows the choice of coherence objective changes actual optimal leader locations, on an interval with a quantified nonzero width, not merely the objective's numerical value. The independently verified small rational example makes that distinction directly testable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: diagonal-metric permutahedral projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For strictly decreasing generating coordinates, every face is a product of ordinary permutahedra indexed by an ordered partition. The proof reconstructs the diagonal weighted projection on each face affine hull and its exact induced coordinate-maximum operator norm, then maximizes across all realizable faces. Replacing the maximizing inverse weight by the global maximum and selecting the smallest remaining inverse weights gives the closed finite formula. Every maximizing face has a nonempty open projection cell, ensuring a finite sharp pair. The exact-rational checker separately compares 600 finite cases and verifies two explicit finite optimality witnesses against all 120 vertices. The full infinite claim rests on the stated analytic argument, not on the experiments.
+PASS
 
-## Originality — PASS, with priority risk
+Rearrangement forces the consecutive-value groups of every ordered-partition face; distinct generating entries make the coordinate differences span the sum-zero tangent space of each block. Every subset is realizable as one block with all other coordinates singleton. If T is a face's tangent space, inputs mapping to its relative interior have the form z+W⁻¹v with z in the face and v in the corresponding normal cone. Since T and W⁻¹T⊥ are complementary (positivity of W), face and cone relative interiors give a full open affine cell. The face-affine equality-constrained minimizer on a block B is y_i−a_i(∑_{j∈B}y_j−γ_B)/∑_{j∈B}a_j; the absolute row sum is 1+(|B|−2)a_i/∑_B a_j for |B|≥2 (zero for singleton blocks). The closed cells cover all inputs by the projection optimality condition, so summing affine bounds along segments yields the global upper bound. A short coordinate-sign perturbation in an open maximizing cell attains it exactly. For each fixed block size one can replace the maximizing row weight by a global maximum A and take the remaining smallest weights; ties do not affect the result. The full block gives the lower metric bound 2−2/n with equality requiring equal weights; the supremum n−1 is approached by divergence of one inverse weight, but all denominators strictly exceed A. For the proper-face example the candidates are 1+100/102, 303/103 and 503/203. Independently reconstructed two exact KKT witnesses and obtained 303/103: python3 /workspace/reproductions/check_frozen_math.py 5. No uploaded checker was executed.
 
-The closest projection literature is Lim–Wright (2016), whose uniform-separability hypothesis excludes nonuniform diagonal quadratic objectives; Moondra–Mortagy–Gupta (2021), which gives face-stability and projection algorithms without this sharp anisotropic coordinatewise coefficient; and Padrol–Pilaud–Poullot (2023), which supplies ordered-partition face geometry but not sensitivity. The available search of earlier mathematical records and published results found no equivalent sorted-prefix formula. Existing unweighted permutahedron, entropy soft-rank, weighted simplex, and \(\ell_p\) cross-polytope coefficients concern different maps and do not imply this weighted-metric maximum-norm result without additional work. A broader older treatment of separable convex optimization over polymatroids could still contain equivalent stability information, and no exhaustive publication-priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines an exact robustness budget for anisotropically weighted least-squares ranking projection, independent of the rank magnitudes. It reveals that the worst error amplification can arise on a proper face, which makes estimates based only on the global sum constraint wrong, and identifies uniform diagonal weights as the unique optimal metric family for this endpoint robustness objective. The sharp coefficient is computable by sorting and a prefix scan; these conclusions are specific structural information, not just an application of generic Euclidean nonexpansivity.
+The supported distinct claim is the exact unweighted coordinate-input/output norm for anisotropic quadratic projection: the prefix maximum over possible active blocks, finite attainment, and proper-face distinction. Standard face geometry and projection algorithms supply ingredients, not the sharp maximization in available statements. Neither the self-hit nor the distinct log-KL record establishes prior coverage. Exact primary passages on some of the known methods were inaccessible, so this is a bounded assessment.
 
-## Scope and independent validation
+## value
 
-The proof applies only to strictly decreasing generating ranks, positive diagonal quadratic metrics, and ordinary coordinate maximum norms. The supplementary finite checker does not constitute an infinite-dimensional or third-party proof. An earlier equivalent theorem, particularly within nonuniform separable polymatroid projection literature, remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact coordinate amplification is useful when diagonal losses give differently scaled coordinate penalties but the error budget is per-coordinate. A proper face can defeat the natural prediction from the full affine hull; the formula identifies which subset carries the worst error without enumerating all faces, and quantifies how much the weights matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

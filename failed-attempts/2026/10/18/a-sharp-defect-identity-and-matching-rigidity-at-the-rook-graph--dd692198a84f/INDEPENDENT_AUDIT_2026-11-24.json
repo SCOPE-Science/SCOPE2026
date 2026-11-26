@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:54:14.914179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a proper square board, a non-cell colour occurs in the open neighbourhood once for each endpoint palette containing it; the cell colour occurs zero times. Thus defects are precisely equal row and column palettes. In the named n+1 palette this means equal omissions, including with an unused colour. Each colour occupies a matching of size n-a_s on both sides, so the omitted rows and columns of that colour have equal sizes and induce all a_s² defective cells of that component. These components partition both index sets; Σa_s=n. The nonnegative integer terms a_s(a_s−1) give the bound and exact equality criterion; parity follows modulo two. Deleting row and column 0 of the addition table modulo n+1 leaves respective omissions i and j, so just the n diagonal cells are defective. A complete cyclic Latin board with one unused colour realizes n². The n+2 chromatic background follows from the AVD bound and the obstruction. RESULT.md lines 19–33 suffice for every n≥2. The supporting verification/check_rook.py was inspected, not executed; its direct multiplicity checks and enumerations at n=2,3 are only finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balister et al. Theorem 1.2 gives the bipartite Δ+2 upper bound, which together with the omission obstruction yields the known numerical chromatic threshold n+2.",
+          "The inspected abstract and opening of Pradhan–Sharma concern PCF complexity and algorithms; they are not evidence for or against a census elsewhere in that paper."
+        ],
+        "reasoning": "The general existence bound alone is not the source of the defect census. The covering argument comes from earlier rook-specific omission balance plus the pointwise palette test.",
+        "searches": [
+          "Adjacent Vertex Distinguishing Edge-Colorings, DOI 10.1137/S0895480102414107, Theorem 1.2",
+          "Pradhan–Sharma, arXiv:2608.10874"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and VERIFICATION.md; verification/check_rook.py",
+        "Resultary 2026-10-13 odd-chromatic rook graph record",
+        "Resultary 2026-10-18 PCF two-colour-gap record",
+        "Resultary 2026-11-02 rich-edge witness record",
+        "Balister et al., DOI 10.1137/S0895480102414107",
+        "arXiv:2608.10874 (partial)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 13 proof counts occurrences of x as n−r_x and n−c_x, giving r_x=c_x and Σr_x=n, and explicitly identifies the cell with matching omissions as failing.",
+          "All pairs with a given omission x form the Cartesian product of the two omission classes. This is K_{r_x,r_x} and contributes r_x²; U−n=Σr_x(r_x−1), so degree one everywhere characterizes the minimum. The cyclic array on the nonzero residues modulo n+1 has omissions i and j and realizes that equality without an additional existence theorem."
+        ],
+        "reasoning": "The earlier proof yields the complete bad-cell relation, not merely an existential lower bound. The claimed census and rigidity are elementary readouts of that same relation, with direct cyclic sharpness.",
+        "searches": [
+          "2026/10/13/SCOPE-odd-chromatic-number-of-rook-graphs--4827bdd1e654, Proof offsets 1500 and 2800",
+          "2026/10/18/SCOPE-a-two-color-gap-for-proper-conflict-free-coloring-of-square-rook--fb9f4a963e44, Proof §§1,3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary proof expressly gives the open-neighbour colour multiplicity as the sum of the two palette indicators for non-cell colours; a witness of odd multiplicity is therefore exactly a singleton.",
+          "Balister et al. call a colouring AVD when incident colour sets differ at the ends of every edge. The rook graph is L(K_{n,n}), making that condition the identical witness test at each cell."
+        ],
+        "reasoning": "Neither changing odd to conflict-free nor passing to the line graph changes the failed-edge set on this domain.",
+        "searches": [
+          "Resultary: rook graph odd and proper conflict-free colouring, omission counts and subthreshold defects",
+          "Balister et al., DOI 10.1137/S0895480102414107, p. 237",
+          "2026/10/13/SCOPE-odd-chromatic-number-of-rook-graphs--4827bdd1e654, Proof, offset 1500"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day two-colour-gap record proves the palette test and equality of omission multisets for any proper colouring with the n+1 budget; its lower-bound proof uses one matching-omission pair rather than explicitly giving the complete count.",
+          "The November rich-edge result counts a different kind of witness under a 2n−1 palette and is later; its n-sized extremum is not coverage."
+        ],
+        "reasoning": "There is material indexed overlap in the exact domain and proof, even though no verbatim formula or defect table was identified in those records. The same-day date does not establish order.",
+        "searches": [
+          "Resultary: rook graph proper conflict-free/odd colourings, matching defects and missing colours",
+          "2026/10/18/SCOPE-a-two-color-gap-for-proper-conflict-free-coloring-of-square-rook--fb9f4a963e44, Proof §§1,3",
+          "2026/11/2/SCOPE-sparse-rich-edge-witnesses-in-optimal-balanced-bipartite-colouri--14e0e5ba1983, Finding"
+        ]
+      },
+      "rationale": "The earlier 2026-10-13 rook-graph odd-colouring proof already gives both the per-cell palette test and equality of every row/column omission count. Because multiplicities in this graph are at most two, odd and singleton witnesses are identical. Counting all pairs in the earlier argument instead of just one mechanically gives the bicliques, their sum-of-squares size and the equality criterion. The two endpoints use routine restrictions of the cyclic addition table. This is mechanical coverage, not a claim that the earlier source states the formula verbatim. The same-day proper conflict-free record separately confirms the two ingredients but is not used to infer priority.",
+      "residual_risks": [
+        "The 2026-10-18 ordering is unresolved and is unnecessary to the decision.",
+        "This is not a claim about who first wrote the formula explicitly; other AVD and PCF literature was not inspected exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage of the census and matching criterion from the exact omission relation and balance, not an explicit defect enumeration in the source",
+          "evidence": [
+            "Proof gives the two indicators for each non-cell colour, r_x=c_x, Σr_x=n and failure at a matching omission."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-odd-chromatic-number-of-rook-graphs--4827bdd1e654/RESULT.md",
+          "material_read": "Proof, offsets 1500 and 2800: local test, square lower bound and modular upper example",
+          "method": "Local mirror, bounded passage reads and cellwise comparison",
+          "title": "Odd chromatic number of rook graphs",
+          "trigger": "Earlier exact same board and potentially equivalent witness predicate"
+        },
+        {
+          "assessment": "Explicit same witnesses and omission balance, not a verbatim census; intra-day order not established",
+          "evidence": [
+            "Step 3 pads to the n+1 palette, equates omission multisets, and invokes Step 1 on a pair with equal omissions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-two-color-gap-for-proper-conflict-free-coloring-of-square-rook--fb9f4a963e44/RESULT.md",
+          "material_read": "Proof §§1,3–4, including offset 2200 for the omission argument",
+          "method": "Local mirror, bounded reads",
+          "title": "A two-color gap for proper conflict-free coloring of square rook graphs",
+          "trigger": "Distinct same-day record on the identical PCF threshold"
+        },
+        {
+          "assessment": "Establishes the general upper bound and the classical equivalent formulation, not the quantified census in the inspected passages",
+          "evidence": [
+            "Distinguishing incident-colour sets; bipartite Δ+2 upper bound."
+          ],
+          "identifier_or_url": "https://www.memphis.edu/msci/people/pbalistr/avdec.pdf",
+          "material_read": "Definition and lower-bound context p. 237; Theorem 1.2 p. 238",
+          "method": "Author-hosted PDF, targeted passage reads at offsets 0 and 3735",
+          "title": "Adjacent Vertex Distinguishing Edge-Colorings",
+          "trigger": "Classical edge-colouring formulation and threshold"
+        },
+        {
+          "assessment": "Partial inspection only, no full-text negative inference",
+          "evidence": [
+            "Available material discusses complexity/algorithms in other graph classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.10874",
+          "material_read": "Abstract and opening",
+          "method": "Targeted arXiv access",
+          "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+          "trigger": "Recent study of the same PCF invariant"
+        },
+        {
+          "assessment": "Different quantity at a different palette and later date",
+          "evidence": [
+            "Rich-neighbour edge colourings use 2n−1 colours and demand rich edges with all neighbouring edges differently coloured."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sparse-rich-edge-witnesses-in-optimal-balanced-bipartite-colouri--14e0e5ba1983",
+          "material_read": "Indexed finding and witness definition",
+          "method": "Local Resultary and claim comparison",
+          "title": "Sparse rich-edge witnesses in optimal balanced bipartite colourings",
+          "trigger": "Exact minimum n on balanced complete bipartite graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The subthreshold failure count is a natural diagnostic, and its concise presentation is useful, but the complete defect relation already follows immediately from the earlier rook proof. Counting its blocks, using a_s²≥a_s, and dropping a row and column of the cyclic table do not supply an independently substantive new exact fact. No stronger enumeration or classification of the actual minimizer colourings is proved.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

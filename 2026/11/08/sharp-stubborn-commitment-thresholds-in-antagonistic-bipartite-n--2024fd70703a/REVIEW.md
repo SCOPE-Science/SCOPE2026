@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact model and quantified vertex-pinning operations are defined in `RESULT.md`. The proof uses the coupled majority/minority response constraints to show a lower bound on either side's pin count. For weak equilibria, both opposite-side counts must tie if neither side reaches its half-size ceiling, forcing even-even part sizes. For active-strict equilibria, strict majority responses contradict one another unless a pinned side exceeds half its size. Explicit constructions meet both bounds; the minimum-case structure yields the binomial random-intervention formula. Independent exhaustive checks of all pin placements and action profiles for both part sizes through five passed. The all-size claims rest on the argument, not on enumeration.
+## correctness
 
-**Originality — PASS (qualified).** Pei, Cao and Zhang (2026) explicitly prove the unmodified complete-bipartite existence condition, and Cao, Sánchez and Zhang (2026) give three-type sufficient conditions. Neither inspected text establishes the exact minimum conversion costs, the active-strict conversion gap or the minimum-budget success probability; the new lower-bound and placement statements are not obtained merely by repeating either earlier sufficiency result. Searches for pinning, commitment, strict Nash, matching pennies on complete bipartite graphs, and related reformulations found no dominating published theorem. The earlier results and the accessible prior comparable claim were compared by implication, not title. No proof of global novelty is claimed; unindexed interventions in graphical games remain a literature risk.
+PASS
 
-**Mathematical value — PASS.** The recent model explicitly identifies stubbornness as a stabilization mechanism, but its general conditions do not quantify the *least* intervention needed on an antagonistic two-community network. The theorem resolves this natural control-cost question, exposes an extensive gap between weak equilibria maintained only by ties and strict equilibria, and shows precisely why randomly deployed minimum-cost pins can be unreliable (e.g. probability \(1/28\) on \(K_{4,4}\) for the active-strict goal). These are structural and intervention-design facts rather than arbitrary parameter substitutions. Results are limited to binary unweighted complete bipartite networks and do not characterize dynamics.
+Write u and v for the left and right action-1 minus action-0 counts. An untied right shore forces every flexible conformist to its majority; an untied left shore forces every flexible rebel to its minority. Below both weak thresholds the flexible players are strict majorities of their shores, so an untied shore yields contradictory majority signs around the two responses. Both ties require even-even, where they can be achieved without pins. Below both strict thresholds both shores retain flexible players and hence must be untied; each flexible bloc is at least half its shore, yielding the same sign contradiction. Unanimous eligible-side pins achieve the thresholds by having the flexible players on that shore take the other action. Necessity at a positive minimum puts all pins on one eligible side by the lower bounds. For left-only pins the right sign s is nonzero: the right is unanimous if u is nonzero, and if u=0 in the positive weak case the right size is odd. All flexible left players choose s. If p pins choose s then su=a−2k+2p, which must be nonpositive in the weak case and negative in the strict case. At the threshold either bound forces p=0. For right-only pins, similarly the left sign s is nonzero and if p pins use s then sv=2p−b, which must be nonnegative or strictly positive, respectively, so p=k. This also covers a completely pinned shore since the other shore is fully flexible. Count two unanimous assignments for each eligible labeled k-subset; the distinct shores give disjoint descriptions and the uniform denominator is 2^k binom(a+b,k). The examples reduce to 16/448 and 40/960. The inspected verify.py checks only sizes 1 through 5 and was not executed; the proof covers all nonempty shores under the stated topology and active-only strictness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The even-even zero-pin criterion is known, and general sufficient conditions cover related constructions. The distinct result is the positive optimum and all minimum-budget pin descriptions and probabilities, with the active-strict contrast. No inspected theorem or indexed finding implies that combination.
+
+## value
+
+PASS
+
+This class makes it possible to distinguish three operationally different questions: whether ties alone permit equilibrium, the least commitment that permits equilibrium without flexible-player ties, and the chance of success when minimum-cost placements and actions are sampled rather than designed. The necessity and full characterization give sharp budget and reliability information not conveyed by a single construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

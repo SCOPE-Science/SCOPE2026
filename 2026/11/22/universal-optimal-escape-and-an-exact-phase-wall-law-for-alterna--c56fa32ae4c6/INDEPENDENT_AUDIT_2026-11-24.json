@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:02.210511Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the substochastic path sum in RESULT.md lines 28–60. Both matrices have determinant −r; nonnegativity and positive stationary weights give S_N ≥ min(π) times the sum of the product entries, at least min(π) r^(N/2). The alternating product is rI plus the square-zero lower off-diagonal with coefficient b(a+1−b). Multiplying its power by π and by either the all-ones vector or K_0 times that vector gives both parities with the stated normalization, including S_0=1. If a periodic word is not alternating cyclically, its doubled word contains an equal consecutive pair. The equal-symbol square is positive and multiplication by other factors preserves positivity; the period product is therefore primitive. Its Perron eigenvalue strictly exceeds the geometric mean of the two eigenvalue moduli, and its contribution to survival is positive. Survival monotonicity sandwiches lengths between successive period multiples, so the strict rate comparison holds along all horizons. The only even-skeleton change is 1→0; each of its n possible placements has mass γr^n, the two constant paths together have mass r^n, and the conditional location is uniform for n≥1. Independent rational checks gave S_4=4/27 at a=b=2/3 and S_4=7/256 at a=3/4,b=1/4, the latter with crossing mass 3/256 at each of two locations. CHECK.py was inspected, not executed; its finite tests are supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-hole spectral-radius formula uses B∘P. The inspected quenched framework allows random holes over an ergodic base, but the inspected passages do not state the optimal scheduling and wall conclusions."
+        ],
+        "reasoning": "An escape-rate representation can in principle handle a periodic schedule after adjoining its phase, but does not compare the radii of all phase products or determine the conditional within-survivor skeleton.",
+        "searches": [
+          "arXiv:2401.05118v2, Section 3, Theorem 3.4",
+          "arXiv:2307.00774, abstract and introduction",
+          "Resultary: Markov transition matrix moving prescribed forbidden word 00 11 alternating holes exponential escape rate determinant"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71, VERIFICATION.md and CHECK.py (static)",
+        "Resultary c56fa32ae4c6, 91c8d26540fd, 962cd78c291c, a999edc596d5 and 16c74f282d59",
+        "arXiv:2401.05118v2 and arXiv:2307.00774, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier moving-hole findings establish the fair alternating optimum at every horizon, a stronger type of optimization there. The Markov fixed-hole result determines escape for the nonmoving holes 00 and 11."
+        ],
+        "reasoning": "The fair theorem's stronger finite-time conclusion cannot transfer to all a,b (RESULT.md gives the a=b=0.99 failure); radii for individual killing matrices do not determine the lower rate bound over their noncommuting products or the Jordan-derived path law.",
+        "searches": [
+          "Resultary 91c8d26540fd, Finding",
+          "Resultary 962cd78c291c, Finding",
+          "arXiv:2401.05118v2, Theorem 3.4 and Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 91c8d26540fd and 962cd78c291c match the alternating survival (N+2)/2^(N+1) for the Lebesgue binary coding; 16c74f282d59 treats biased iid but fixed holes."
+        ],
+        "reasoning": "Doubling with Lebesgue measure forces a=b=1/2. Biased iid forces a=b and γ=1; correlated stationary binary chains allow both unequal diagonals and a nonunit γ. A fixed-cylinder bias comparison does not optimize moving holes.",
+        "searches": [
+          "Resultary: alternating binary Markov holes determinant escape exponent arbitrary transitions exact survival uniform switching location periodic uniqueness",
+          "Resultary: biased Bernoulli measure alternating moving holes forbidden 00 and 11 exact survival law escape exponent",
+          "Web: \"moving hole\" \"alternating\" escape rate Markov measure binary holes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue hit c56fa32ae4c6 is the assigned record itself; same-day a999edc596d5 instead treats 000/111 and 16c74f282d59 treats fixed holes. Table 1 of arXiv:2401.05118v2 computes individual length-two-cylinder radii."
+        ],
+        "reasoning": "The fixed-hole table covers useful constants for constant schedules, but not alternating products; length three is a different hole system and even reverses the alternating-rate comparison.",
+        "searches": [
+          "Resultary: exact alternating hole survival law Markov binary transition correlated Markov chain Jordan periodic schedule",
+          "Resultary: alternating binary Markov holes determinant escape exponent arbitrary transitions exact survival uniform switching location periodic uniqueness",
+          "arXiv:2401.05118v2, Example 3.5/Table 1"
+        ]
+      },
+      "rationale": "The fair iid doubling case is already covered and is not credited as new. The supported distinct scope is arbitrary strictly positive binary Markov transitions: the optimum over prescribed schedules for asymptotic escape, strict periodic equality classification, and exact Markov-dependent survival and conditional wall law. The inspected fixed-hole and time-dependent frameworks do not give those joint conclusions.",
+      "residual_risks": [
+        "Bounded searches do not establish publication priority; an uninspected result on deterministic open Markov systems or lower spectral radii could give equivalent coverage. No novelty inference is drawn from the irrelevant external search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair binary subcase already covered",
+          "evidence": [
+            "Lebesgue doubling with 00/11 gives the exact fair survival and finite-horizon alternating optimum."
+          ],
+          "identifier_or_url": "Resultary 91c8d26540fd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp moving-hole escape envelopes and a zero-entropy alternating phase for the doubling map",
+          "trigger": "Same two moving holes and fair-case exact formula"
+        },
+        {
+          "assessment": "Covers equal digit probabilities; base two gives the fair subcase",
+          "evidence": [
+            "Uniform integer-base-map digits do not encode arbitrary strictly positive binary transition matrices."
+          ],
+          "identifier_or_url": "Resultary 962cd78c291c",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Optimal alternating Markov-hole escape in integer expanding maps",
+          "trigger": "Alternating escape for endpoint two-digit holes"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": [
+            "Holes are 000/111 in fair doubling; a period-three schedule beats alternation asymptotically."
+          ],
+          "identifier_or_url": "Resultary a999edc596d5",
+          "material_read": "RESULT.md Finding offset 0 and comparisons offset 7396",
+          "method": "Local mirror passage inspection",
+          "title": "The first failure of alternating escape for complementary three-cylinder holes",
+          "trigger": "Same-day analysis of moving complementary holes"
+        },
+        {
+          "assessment": "Fixed holes in a biased iid source; not the moving-hole question",
+          "evidence": [
+            "It compares escape from two separately fixed cylinders as the bias varies."
+          ],
+          "identifier_or_url": "Resultary 16c74f282d59",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A logarithmic bias phase law for equal-measure Bernoulli cylinders",
+          "trigger": "Same-day biased binary escape theorem"
+        },
+        {
+          "assessment": "Static-hole framework and exact special cases, not scheduling optimization",
+          "evidence": [
+            "Formula uses the spectral radius of B∘P for a fixed forbidden-word set."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.05118v2",
+          "material_read": "Section 3, Theorem 3.4 and Example 3.5/Table 1; OA offsets 8800 and 40000",
+          "method": "Targeted OA full-text passages",
+          "title": "On Escape rate for subshift with Markov measure",
+          "trigger": "Identical class of sources and length-two cylinder holes"
+        },
+        {
+          "assessment": "Conceptual context; no exact overlap established from the material read",
+          "evidence": [
+            "Studies quenched transfer operators in ergodic environments, which may include periodic environments as a setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.00774",
+          "material_read": "Abstract and introductory passages, OA offsets 0 and 2800",
+          "method": "Targeted OA HTML passages",
+          "title": "Thermodynamic Formalism and Perturbation Formulae for Quenched Random Open Dynamical Systems",
+          "trigger": "Broad time-dependent hole framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison over arbitrary predetermined words and strict periodic classification go beyond evaluating a single Perron root. The same exact product explains why a linear survival prefactor and an asymptotically uniform switching location coexist with optimal exponential escape. The failure of finite-horizon optimality for a biased source makes the distinction between finite and asymptotic optimization substantive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

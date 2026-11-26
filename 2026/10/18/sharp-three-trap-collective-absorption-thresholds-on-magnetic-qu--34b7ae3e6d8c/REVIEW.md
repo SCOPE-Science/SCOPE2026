@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every nonempty proper sink set and every strictly positive local loss rate, the proof identifies the nondecaying subspace of a finite dissipative Hamiltonian and shows that the complementary semigroup decays. Pair-degenerate Bloch eigenvalues occur only at zero or half magnetic flux; the sink-node conditions reduce to integer divisibility, giving exact dark dimension and localized survival probabilities. A finite Fourier sine sum proves the profiles. The sharp three-trap obstruction is characterized by three congruence equivalence relations: necessity uses transitivity and the pigeonhole principle; sufficiency uses the Chinese remainder theorem. The smallest admissible lengths are \(60\) at zero flux and \(105\) for the simultaneous flux requirement. Numerical matrix calculations independently reproduce \(9{,}852\) spectral configurations and \(128{,}670\) sitewise projections, including both sharp examples. Computational checks supplement and do not substitute for the all-size proof.
+PASS
 
-## Originality — PASS, with documented limitations
+The span of Hermitian hopping eigenvectors vanishing on the sinks reduces both hopping and loss. On its orthogonal complement, taking the imaginary part of each lossy eigenvalue's Rayleigh quotient forces strictly negative imaginary part, since equality would force the eigenvector into that dark span. The finite-dimensional complementary semigroup therefore tends to zero, including in the presence of Jordan blocks. In the Bloch basis, degeneracy requires 2Φ=0 modulo 2π; a simple mode cannot vanish at a sink. In a doublet there is just one line of candidates, with a sine envelope around the first sink and divisibility condition N | (2k−p)(t−a). At zero flux this gives h frequencies before identifying opposite signs and deleting self-pairs. At half flux the solvability condition is N/g odd, and the g odd-frequency representatives give floor(g/2) doublets after deleting the possible unpaired zero-sine representative. Summing squared site amplitudes by the finite geometric-series identity gives the stated zero-flux profile and the enhanced half-flux survival at the even-g antipode. For the thresholds, each dark edge needs an effective congruence (odd p | N or mod 2 if 4 | N at zero flux). A shared congruence on two edges darkens the triple; three distinct congruences suffice by assigning a different equal pair in each modulus by CRT. At half flux an even cycle already forces every dark pair into the same full 2-power residue class, making the whole triple dark. For odd N both flux tests coincide. The least admissible sizes are 4·3·5=60 and 3·5·7=105; direct gcds give pair dimensions (2,4,1) and (1,2,3) at the respective claimed fluxes, with no collective dark state.
 
-Agliari–Mülken–Blumen (2009), especially their Eq. (22), already discuss generic zero-flux trap arrangements through a first-order decay formula and explicitly handle periodic and clustered patterns. Those facts are credited, not presented as new. The inspected source does not state the precise pairwise-dark/collectively-bright criterion, sharp cutoff \(60\), simultaneous two-flux cutoff \(105\), or the complete arbitrary-set flux-resolved localized-survival classification. The earlier two-trap flux formula also does not by itself provide the multiset congruence-obstruction theorem. Gönülol et al. (2010) treat a coined discrete-time trapped walk and do not cover this setting. Semantic research-record comparisons did not reveal equivalent coverage, but undetected prior results and deductions from the classical Fourier correction remain plausible residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest cycle supporting collective complete absorption in spite of pairwise protection is a motivated, exact structural threshold in coherent transport. The obstruction is governed by three independent congruence classes, not an arbitrary parameter choice. Requiring the same reversal under half-quantum flux shifts the sharp threshold from \(60\) to \(105\) and rules it out on every even cycle. Exact sitewise survival probabilities make the distinction experimentally interpretable within the idealized model. Neither a broad many-body theorem nor a dynamical relaxation law is claimed.
+The entire two-sink specialization is prior indexed content, and an earlier perturbative source has the key unfluxed arbitrary-placement phase condition in implicit form. The submitted novelty is the collective three-edge classification with sharp first sizes, in the context of exact all-set flux-dependent site survival. The strongest inspected statements do not give that classification or an equivalent general theorem subsuming it.
 
-## Closest literature and limitations
+## value
 
-E. Agliari, O. Mülken, A. Blumen, *Continuous-time quantum walks and trapping* (2009), arXiv:0903.3288v1, Sections III–VI, particularly Eq. (22); M. Gönülol et al., *Survival probability in a one-dimensional quantum walk on a trapped lattice* (2010), arXiv:1008.0085. The known two-site magnetic-cycle result is excluded from the claimed advance. Verification applies to ideal single-particle coherent hopping, positive onsite loss and static flux. Strong prior coverage risk stems from the general arbitrary-trap expression in the 2009 paper; the contribution claimed is the sharp three-trap obstruction rather than that expression alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Existence of a stationary state for each pair need not give a dark state common to the triple; the theorem classifies exactly when this failure is possible and shows that changing flux imposes a qualitatively different 2-adic obstruction. The two minima answer natural finite questions rather than selected example searches. The site formulas also distinguish existence from the ability of a localized particle to populate the dark space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

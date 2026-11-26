@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the paired-cubic irreducibility theorem
+# Independent mathematical audit
 
-The attached `verify.py` uses an Eratosthenes sieve to list every prime through \(850\) (exactly \(146\) primes). For each prime it constructs the full rational-map image \(T_p\) and computes \(N_p=p-|T_p\cup(-T_p)|\). Independently, for all primes through \(101\), it evaluates the two original cubics at every field element and compares the resulting irreducibility counts. The observed zero-count primes are exactly \(2,3,5,13\).
+## correctness
 
-The analytical proof does not infer a universal assertion from computation. It proves geometric monodromy \(S_3\times S_3\) and genus \(13\) in characteristics at least \(11\); a Frobenius twist and the Weil bound give \(\lvert9N_p-(p+1)\rvert\le26\sqrt p+93\). The explicit lower bound is positive at every integer \(p\ge851\), leaving the finite sieve only to classify primes below that cutoff.
+PASS
 
-The certificate also evaluates example values \(N_7=N_{11}=2\), \(N_{13}=0\), \(N_{17}=2\), \(N_{19}=2\), \(N_{23}=2\), and \(N_{29}=6\). The exact symbolic derivative, discriminant, resultant and branch indices are established algebraically in `RESULT.md`; the standalone certificate concerns finite arithmetic, not a computer-assisted proof of the Weil bound. Independent audit has not been performed.
+Negating X in Q reduces the test to f_c and f_−c. Independently checked the cubic discriminant −t²(3t²−14t+27), the derivative of −X³/(X²+X+1) and the quadratic resultant 63504. For p≥11 the poles are simple; the geometric inertia types are a 3-cycle at 0 and transpositions at the two simple discriminant roots for each cover. Each cover is connected with S3 closure. The two quadratic discriminant square classes differ at their disjoint simple roots, so the two geometric closures have trivial intersection: any nontrivial common S3 quotient would have the quadratic quotient. The arithmetic action embeds in S3×S3 and already contains the geometric product, so there is no constant extension. Tame inertia in the compositum is cyclic, of order three at the common branch point and two at the four remaining ones. Riemann–Hurwitz gives genus 13; the twist fiber on an unramified rational base point contributes either zero or the centralizer size nine, since irreducibility is the 3-cycle class in each coordinate. No finite ramified parameter qualifies. At most 12+4·18+9=93 extra points can lie over the exceptional parameters including infinity, giving the claimed estimate by Weil. For p≥851, p+1−26√p−93 is increasing and positive already at 851 (759²>676·851). A separately written direct-root test of both polynomials, not the uploaded rational-map sieve, exhausted all 146 primes through 850 and returned exactly 2,3,5,13 as the zero counts. Opposite parameters then give pairs for all remaining odd primes. The bound is proved for p≥11 only, and no extension-field classification is asserted.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the concrete genus-13 calculation and explicit all-prime existence classification for this sign pair, including the finite cutoff and exception list. The polynomial family and general Chebotarev mechanism are antecedents, not new. The exact algebraic and arithmetic comparison was made against the available overlapping statements; no conclusion about absolute priority is inferred from search misses or limited access.
+
+## value
+
+PASS
+
+A natural pair of specializations of a single family is classified at every prime, rather than only for a density-one set or sufficiently large unknown primes. The regular compositum and explicit genus give a calculable cutoff, and the exceptions include 13 as well as very small characteristics. This is a meaningful finite-to-uniform classification, not a table with an arbitrary search bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

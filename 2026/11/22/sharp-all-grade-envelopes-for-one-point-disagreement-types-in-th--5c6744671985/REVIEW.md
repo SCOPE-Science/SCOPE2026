@@ -1,19 +1,21 @@
-# Scientific review: sharp all-grade disagreement-type envelopes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Each nonalgebraic singleton type is uniquely a pair of insertion gaps in two independent linear orders. The grade is exactly the symmetric difference of the two corresponding named predecessor prefixes. The upper bound counts parity-constrained possible grid positions, and the explicit folded permutation fills every such position. The lower bound follows from endpoint values and unit changes of each row's grade, with the middle-row overlap handled separately. Reversing the second order exchanges grades \(k\) and \(n-k\); identity and reversal attain the lower bounds. The finite verifier independently enumerates all permutations through nine parameters, tests the folded constructions through eighty, and agrees with a second direct grade calculation for small bases. The arbitrary-size assertion rests on the analytic proof, not finite runs.
+PASS
 
-## Originality
+In the generic two-order Fraïssé limit, any pair of gaps is realized by the one-point extension property, and ultrahomogeneity makes any two realizations of the same gap pair have the same type over the parameters. For a grade-k pair, h=|A_i∩B_j| obeys max(0,i+j-n)<=h<=min(i,j) and 2h=i+j-k. Thus (u,v)=((i+j-k)/2,(i-j+k)/2) is an integer pair exactly in the claimed candidate rectangle; the inverse always gives legal gaps. For the folded list, the first and third clauses enumerate the parity of k in the disjoint intervals [1,k] and [k+1,n], and the other two enumerate the opposite parity in [1,n-k] and [n-k+1,n]. At a candidate cell, an odd position fails the intersection test exactly when t<=k-i, with k-i<=j, and every odd t>k is counted since j-k<=i. The even positions counted are exactly the positive evens up to i-k (if positive), since i-k<=min(j,n-k) and the far even fold gives a value at least 2n-k+1-j>i. Hence h=ceil(j/2)+floor((i-k)/2)=u by the parity constraint. For the lower bound with 2k<=n, the row walk starts at i and ends at n-i, changing by ±1. Each of the first and last k+1 rows contributes, with two different endpoints in the shared row when n=2k>=2. Reversing the second order complements grade, giving the opposite lower bound. The reverse permutation has d=min(i+j,2n-i-j) and the identity has d=|i-j|, attaining the correct lower sides including k=0,n and n=1. No exhaustion of all maximizing permutations is required or claimed.
 
-**PASS, subject to ordinary historical-priority uncertainty.** Cameron's primary article treats the underlying homogeneous two-order structure and its Fraïssé classes, whereas Linman–Pinsker treat its reducts and permutation group. Another prior result gives exact *expected* values for every grade over random permutations; expectations do not imply the all-grade deterministic envelopes. Relevant prior research records prove stronger equality classifications for grades one and two; the new theorem subsumes their numerical upper bounds and therefore does **not** claim those special cases as new. Its distinct asserted content is a sharp envelope at each arbitrary grade and a closed construction saturating the entire two-dimensional candidate rectangle, coupled to a sharp lower envelope. Searches for prefix symmetric-difference spectra and two-order one-point types did not locate an all-grade theorem; this is negative search evidence, not a uniqueness certificate. A possible nonindexed equivalent result remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The disagreement grade measures the logical disagreement between the two orders on each named parameter; this is a canonical statistic of complete singleton types, rather than a freely chosen parameter slice. At central grades the universally fixed total \((n+1)^2\) decomposes into coefficients whose sharp possible range has a factor of order \(n\). Constructing extremizers for every level shows that those bounds are not merely necessary geometric constraints. The theorem applies to all sizes and grades; it is not a recomputation of the previously covered low-grade special cases.
+The supported distinct contribution is the sharp pointwise lower and upper envelopes at all grades with a grade-specific constructor, not the two-gap encoding, the previously catalogued upper bounds at grades one and two, or the exact average. Distinct 2026-11-22 records were compared without presuming their order or priority.
 
-## Scope and remaining risks
+## value
 
-The theorem does not classify every equality case at all grades or all joint coefficient spectra. The references and accessible records provide material comparisons, but cannot rule out a differently phrased theorem on permutation-prefix symmetric differences or two-order insertion grids. Finite verification is supplementary to the written proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Grading the one-point type count by its actual order disagreements refines the otherwise constant (n+1)^2 count. Exact envelopes and witnesses show that the central-grade count varies from order n to order n^2 as the parameter pattern changes, a genuinely quantitative feature not determined by the known mean or small-grade bounds. The explicit witness saturates every admissible cell at the chosen grade, rather than joining isolated finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact variation-of-constants covariance is a polynomial moment matrix on the controllable nilpotent chain. The signed error's entries are exactly the scalar quadrature errors of monomials divided by factorials. The first nonzero moment therefore appears only at the bottom-right entry in dimension \(m+1\), and the next dimension has an explicit strictly negative two-by-two principal minor. The published IF-SSPRK2/3 stage combinations reduce exactly to composite trapezoidal/Simpson quadrature when the source is constant. The resulting error magnitudes and Vandermonde rank identities have been checked with rational arithmetic in `verify.py` (56 dimension/panel cases); infinite quantifiers follow from the written proof, not from tests.
+PASS
 
-## Originality — PASS, with historical-priority qualifications
+In the lag variable the vector is (1,t,t²/2!,…), so with zero-based indices the error is E_ij=δ_(i+j)/(i!j!), where δ_d is numerical minus exact moment. For n≤m all entries vanish; at n=m+1 only (m,m) can be nonzero. The principal block at (m−1,m+1) has zero first diagonal and nonzero off-diagonal δ_(2m)/[(m−1)!(m+1)!], which certifies both signs independently of higher moments. Exact covariance is a positive definite polynomial Gram matrix; strict weights and distinct nodes give numerical rank min(n,r) by Vandermonde evaluation. The published stages reduce under the integrating factor to trapezoid and Simpson, respectively. Expanding the first omitted monomial on a panel gives h³/6 and h⁵/120, respectively, independent of panel origin by exactness on lower degrees. Hence the global omitted moments are Th²/6 and Th⁴/120, the rank-one coefficients Th²/6 and Th⁴/480, and the minors −T²h⁴/144 and −T²h⁸/518400. Continuity of each strictly negative minor at fixed T,N justifies the stated Hurwitz perturbation, with no uniform radius asserted. Inspected the supplied moment/rank checker and verification notes; the 56 reported cases are bounded support, not a rerun or a proof of the general claim.
 
-Comparison was by implication, not shared keywords. The original 2026 integrating-factor method establishes positive semidefiniteness and a norm estimate, not a finite-time first-missing-moment matrix-order classification. The published planar-rotation study establishes aliasing and rank recovery in dimension two, not nilpotent polynomial-moment Loewner-sign thresholds. A previously published mathematical finding establishes a stationary indefinite-error theorem for distinct positive decay rates and general positive quadratures, but does not imply exact one-sided rank-one errors and all-step indefinite phase boundaries for finite-time nilpotent chains. The separate universal trapezoid Loewner-order frontier concerns all-source one-step upper bounds for a fixed drift, not this dimension-sharp finite-horizon chain classification. Classical moment theory may contain an equivalent formulation not identified in the checked sources; no exhaustive priority certificate is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a natural **complete classification** of when positivity-preserving quadratures can also provide one-sided covariance error on a controllable chain. It distinguishes three practically different properties — positive semidefinite numerical output, positive definite numerical output, and sign-definite approximation error — with exact, dimension-dependent thresholds. The second-to-third order transition postpones loss of a one-sided matrix-error interpretation by one entire state dimension, and the finite-time failure persists at arbitrarily small steps. Such distinctions matter when covariance bounds, uncertainty enclosures and invertibility are required, rather than norm convergence alone.
+Pass for the finite-horizon signed-error classification by the first omitted moment and its exact dimension thresholds, not for the SSP stage reductions or application rank staircases in isolation. The same-day rank record has stronger coverage of those staircases; the older trapezoid order result already supplies the basic one-sided obstruction in a related form. Neither establishes the complete general phase including Simpson and indefinite errors at every positive panel count, and no equivalent was located in the bounded comparisons.
 
-## Sources and limitations
+## value
 
-Primary source: Zhang, Lan and Jing, arXiv:2606.15703v1, Sections 2–3, especially the IF-SSPRK2/3 formulas and the positivity result. Related prior scientific records: “Exact covariance aliasing and a sharp ellipticity crossover for integrating-factor Lyapunov integrators”; “Exact Loewner-order frontier for covariance trapezoids in Lyapunov flows”; “Inertia of high-order positive quadrature stationary covariance errors” (distinct-rate stationary setting). Background: Trefethen (2022) on polynomial quadrature exactness; Berg–Szwarc (2014) on moment Hankel matrices. The general theorem assumes exact polynomial moments, and the named integrator conclusions assume a rank-one constant source on a nilpotent chain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dimension threshold is a concrete diagnostic for a motivated question: positivity of an integrating-factor covariance update does not ensure either Loewner bound on the true covariance. The witness uses only the first omitted moment and survives later moments and arbitrarily many panels, even when the numerical covariance has full rank. It is an exact finite-horizon obstruction, not merely the familiar quadrature order or a rank-deficiency example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

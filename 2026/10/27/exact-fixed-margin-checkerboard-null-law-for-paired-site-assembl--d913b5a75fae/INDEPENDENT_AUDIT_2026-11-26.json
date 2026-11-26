@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:56:08.465265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A labeled site is one unordered nonloop pair, so sum s_ij=m and s_ij^2=s_ij+2 binom(s_ij,2). Expansion gives QC=9Q-5m+2B. A multiplicity profile has exactly m!/prod s_ij! labeled realizations; multiplying the edge factors and taking degree 3 at every species encodes exactly those weights and u^B, giving the PGF after normalization. The sum of margins gives m=3n/2, with the smallest positive admissible n=2; its only matrix gives an inclusive tail of 1. For n=4, subtracting sums of degrees of opposite vertex pairs forces equality of the corresponding opposite edge multiplicities. Thus there are three nonnegative multiplicities summing to 3, with types (1,1,1), (2,1,0), and (3,0,0). Permuting the types and assigning distinct site labels gives 720, 1080, and 60 matrices with B=0,2,6 respectively. As C=4+B/3, only the maximum gives a strict 5% upper-tail result (60/1860=1/31). The argument is exact for the stated labeled uniform margins; the frozen code and certificate were inspected and agree with the hand derivation at the critical size, not used as proof of the all-size law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greenhill–McKay gives asymptotic enumeration for allowed edge multiplicities and uses factorial weights for pairing counts. Tishby et al. treats cycle counts of degree-two regular graphs, explicitly not degree >=3. A lawful full-text attempt for Artzy-Randrup–Stone did not yield the text."
+        ],
+        "reasoning": "Allowed-multiplicity asymptotics and the pairing weight do not provide the exact finite collision distribution or threshold. Degree-two components and their cycle laws do not specialize to cubic species graphs. Prior work on sampling a null also would not by itself give this exact law.",
+        "searches": [
+          "arXiv:1303.4218, abstract and pairing calculation",
+          "arXiv:2301.03686, Introduction",
+          "10.1103/PhysRevE.72.056708, bounded OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.json (inspection)",
+        "Mirrored Resultary records 3c02012c5939 and 5ae3afb45038",
+        "arXiv:1303.4218 and arXiv:2301.03686",
+        "Bounded primary lookup and retrieval attempts as recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Factorial weights are established counting tools; the cited multigraph paper studies counts with a set of allowed multiplicities. The earlier exact C-score moments do not condition on all site degrees."
+        ],
+        "reasoning": "Knowing an allowed-multiplicity count, or first two moments under another ensemble, does not yield the entire distribution of summed pair collisions for a uniformly labeled fixed-margin matrix, or the exact mass 1/31 at the top. The coefficient extraction uses a standard mechanism, but the statistical identification and exact calibration require the matched weights and counting the actual critical profiles.",
+        "searches": [
+          "Resultary mirrored Finding passages 3c02012c5939 and 5ae3afb45038",
+          "Greenhill–McKay arXiv:1303.4218, p. 22 around offset 51351"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With column sum two, each site is a labeled edge of a loopless cubic multigraph. B counts unordered pairs of parallel edges (equivalently 4-cycles of the bipartite incidence graph), and identical vertex-labeled multigraph profiles do not all have equal probability."
+        ],
+        "reasoning": "A genuine equivalent graph law must weight each multiplicity profile by 1/prod s_ij! before normalization and mark each binom(s_ij,2). A uniform census of unlabeled sites or graphs does not generate this distribution.",
+        "searches": [
+          "Resultary: exact checkerboard C-score fixed margins and paired-site assemblages",
+          "Focused primary search: exact C-score fixed-margin law / regular multigraph parallel-edge counts",
+          "arXiv:1303.4218, pairing weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 3c02012c5939 gives moments for independent fixed-row subsets without fixed column sums; 5ae3afb45038 gives a deterministic bound with five sites and row sum two. The frozen source compares Stone–Roberts' small 4-by-4 all-degree-two design; the original paper's full text was not retrieved in this review."
+        ],
+        "reasoning": "Neither the indexed moment computations nor a deterministic extremum is a full fixed-both-margins frequency law. The cited 4-by-4 example has different margins from the six-site critical case; no claim is made to have checked the whole primary paper for other cases.",
+        "searches": [
+          "Resultary: checkerboard null moments, exact C-score bounds, and cubically regular site-pair assignments",
+          "10.1007/BF00317345, bounded OA retrieval and frozen cited comparison"
+        ]
+      },
+      "rationale": "Credit the C-score, the fixed-margin null framework and standard factorial coefficient weighting. The supported distinct claim is the exact distribution of the collision statistic under these two prescribed margins and its explicit minimum-design calibration. The closest inspected results use different nulls, study other margins, or establish unmarked/asymptotic graph counts.",
+      "residual_risks": [
+        "Full primary text was unavailable for Stone–Roberts and Artzy-Randrup–Stone in this review; equivalently weighted exact collision counts could also exist under other graph terminology. No conclusion of historical uniqueness is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different ensemble and quantities",
+          "evidence": [
+            "Independent rows sampled from fixed-size species subsets; exact mean and variance, without column-sum conditioning."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-forest-factorization-gives-exact-finite-null-moments-for-the-che--3c02012c5939",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2106",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Forest factorization gives exact finite null moments for the checkerboard score",
+          "trigger": "Nearest indexed exact C-score null result"
+        },
+        {
+          "assessment": "Deterministic bound for other margins",
+          "evidence": [
+            "Five sites and each species in two sites, no uniform-null calibration."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-five-habitat-checkerboard-score-bound-for-species-occupy--5ae3afb45038",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–1920",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A sharp five-habitat checkerboard score bound",
+          "trigger": "Nearest indexed small-design exact score"
+        },
+        {
+          "assessment": "General pairing weights and asymptotic counting; not the submitted exact marked law",
+          "evidence": [
+            "Parallel classes contribute factorial pairing weights; the main enumeration is asymptotic with prescribed degrees and allowed multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.4218",
+          "material_read": "Abstract p. 1 offsets 0–1782 and pairing discussion p. 22 around offset 51351",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic enumeration of sparse multigraphs with given degrees",
+          "trigger": "Multigraph weighted enumeration with parallel edges"
+        },
+        {
+          "assessment": "Degree-two rather than the cubic graph with marked parallel-pair counts",
+          "evidence": [
+            "The study singles out c=2, not c>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03686",
+          "material_read": "Introduction p. 2 at offset 4550",
+          "method": "OA PDF passage inspection",
+          "title": "The distribution of the number of cycles in directed and undirected random 2-regular graphs",
+          "trigger": "Exact regular-graph cycle statistics"
+        },
+        {
+          "assessment": "Foundational score definition credited; whole-paper coverage unresolved",
+          "evidence": [
+            "Search description identifies the C-score construction; frozen RESULT.md cites an all-two-margin example."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00317345",
+          "material_read": "Search description and frozen citation comparison only; DOI and publisher full-text attempts did not yield the article",
+          "method": "Focused literature search and bounded OA attempts",
+          "title": "The checkerboard score and species distributions",
+          "trigger": "Original C-score and prior small incidence example"
+        },
+        {
+          "assessment": "No negative coverage inference from the access limit",
+          "evidence": [
+            "Frozen RESULT.md describes uniform fixed-margin sampling and sampling biases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.72.056708",
+          "material_read": "Frozen bibliographic comparison; no primary full text retrieved",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Generating uniformly distributed random networks",
+          "trigger": "Fixed-margin incidence sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete conditional law is relevant to a named co-occurrence statistic when exact tails matter in small designs. The natural first nondegenerate cubic paired-site design already allows strict rejection, with a verified attainable p-value, whereas the only smaller design never does. This is a concrete resolution limit and a check for fixed-margin null calculations, not an arbitrary table entry or a claim of ecological causation or power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

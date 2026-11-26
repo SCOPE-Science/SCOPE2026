@@ -1,19 +1,21 @@
-# Scientific review of the Heawood asynchronous freezing law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact graph is the seven-point/seven-line Fano incidence graph. Every strict-majority update flips a vertex incident to two or three disagreeing edges, so the discordant-edge count decreases strictly. The absorption recursion is triangular in that count and uniquely determines every rational probability. All 16,384 states and 15 Bernoulli-sector sums are computed without truncation in two independent graph presentations. The three-seed result also has a direct bridge-activation race proof. The scripts reconstruct and verify the exact coefficients, 58 stable states, 56 exceptional seed sets and full polynomial.
+PASS
 
-## Originality — PASS on examined evidence
+For independent rate-one clocks the next effective flip is uniform among vertices disagreeing with at least two neighbors; its cut decrement is one or three, giving an exact acyclic probability calculation. Both nonempty stable classes have minimum induced degree two and thus size at least six; a seven-set would consist of a hexagon and an extra vertex that cannot have two hexagon neighbors by girth six. A hexagon and its complement are stable, with six cross edges. For three seeds the monotone two-neighbor closure excludes consensus-plus and all mixed states except for noncollinear same-shore triples. In their six-cycle, a lost original seed cannot be recovered before another bridge involving it activates, which itself requires that seed. The success race has factors 3/6, 2/5, 1/3. A separate exact script, /workspace/evidence/reproduce_heawood.py, built Fano incidence by binary dot products, propagated Bernoulli-sector mass forward in decreasing cut order across all 16,384 states, and reproduced all fifteen rational sums, the q-polynomial, the fixed-state census, each of the 364 three-seed probabilities, the p=1/2 fraction and the 83.04 ratio. Positive polynomial coefficients imply strict increase then decrease through q=p(1-p). The finite exhaustion proves the numerical coefficients for this graph, not for other kinetics or graphs.
 
-The most relevant published same-graph result, *A two-step majority projection and exact attraction basins on the Heawood graph*, already determines the 58 fixed states and synchronous attraction basins. Those facts are credited. Its synchronous maps cannot imply the present continuous-time asynchronous absorption law, which is governed by branching rate-one transitions. The full primary text of Castellano et al. (arXiv:cond-mat/0501599) and the numerical random-network analysis of Baek et al. (arXiv:1112.5927) discuss general zero-temperature ordering but not this Fano-incidence Markov chain. Related exact asynchronous studies on the Petersen and icosahedral graphs have different graphs and update probabilities. Queried research records and public scholarly searches did not reveal the boxed law or the per-triple \(1/15\) probability. The remaining priority risk is an unindexed or differently formulated equivalent calculation; search absence alone is not novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Heawood graph is the smallest cubic graph with girth six and is the canonical incidence graph of the Fano plane. It is a natural benchmark for zero-temperature metastable kinetic Ising systems on sparse highly symmetric networks. The precise probability of dynamically entering a nonconsensus hexagonal trap differs sharply from the already known synchronous dynamics with the identical set of fixed configurations. The rare three-seed nucleation threshold is characterized by noncollinearity, a natural Fano-geometric condition, rather than an arbitrary numerical restriction. The calculation gives the complete initial-density response, not merely the fixed-state count.
+The supported distinct claim is the rate-one asynchronous harmonic measure and exact three-seed Fano law, not the already established synchronous fixed-state census or a new general Markov-chain method.
 
-## Scope and uncertainty
+## value
 
-The result is only for the specified fourteen-site zero-temperature, zero-field asynchronous rule and Bernoulli seeds. It does not generalize automatically to all cubic graphs, other kinetics or positive temperature. Literature comparison is not exhaustive across unindexed works, and independent scientific review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact initial-density response on the canonical cubic Fano incidence graph gives a finite benchmark for kinetic metastability, comparing protocols with identical stationary traps but very different accessibility. The noncollinearity criterion and per-seed success probability explain which minimal droplets matter, independently of reporting a state census. It is not a claim of a general kinetic theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

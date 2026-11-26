@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Chinese remainder construction yields an obstructed value in each stipulated interval; the proof checks endpoints, residue classes, all nonnegative representations, and the prime factor forcing a nonprimitive pair. The prime number theorem supplies the logarithmic normalization with the correct quantifier order, and the \(a=2\) case is exact by explicit witnesses.
+PASS
 
-## Originality
+The frozen formula for a=2 is true, but its asserted resolution was already known. The replacement finding consists only of the finite obstruction for a>=3 and its fixed-a liminf. Re-audit of the replacement: gcd(a,Q_a(R))=1 gives a CRT class modulo m=aQ_a(R). Its first representative above Rb lies at most m beyond Rb and strictly below (R+1)b by m<b. Reduction of any nonnegative representation modulo a forces y congruent to -1 modulo a, so y>=a-1>=2 and is coprime to a; y<=R by the upper interval endpoint. If no such y exists, there is no representation. Otherwise any prime factor of y divides Q_a(R) and n but not a, and hence also divides x. The argument works if x=0 or if Q_a(R)=1. With fixed a, the omitted prime logarithms have bounded sum, so log Q_a(R)=R+o(R); taking floor((1-epsilon)log b) makes m<b for every sufficiently large coprime b, proving the liminf with constant one. The repair's two replay examples were checked, including the empty product. A separate seven-example nonnegative-solution enumeration corroborated the frozen finite obstruction; the uploaded verify.py was inspected rather than executed. Finite examples are not the proof.
 
-PASS, qualified. The principal 2026 paper proves existence and bounds from above, with plots and conjectures about fixed-coefficient behavior, but does not state a logarithmic lower bound for every admissible second coefficient or the bounded/unbounded dichotomy. Mathematical research-record searches and available earlier claims showed no equivalent or stronger implication. The earlier 2023 dissertation is a live residual coverage risk because its full text was unavailable; the 2026 treatment acknowledges that antecedent.
+## originality
 
-## Value
+PASS
 
-PASS. This settles the scale distinction between the two-coefficient boundary and every larger fixed first coefficient, and gives a uniform lower bound of order \(b\log b\), rather than just the conventional constant multiple of \(ab\). The explicit finite obstruction can inform the study of exceptional Farey denominators.
+This passes only for the repaired finding. The original novelty assertion for the exact a=2 formula fails: two inspected primary sources predate the frozen record and state that very formula on the entire claimed range. The replacement credits them and removes that component from the finding. The surviving contribution is the explicit uniformly applicable finite witness in (Rb,(R+1)b) and its sharpening from a published subsequence lower bound to the all-coprime-b lower bound with leading liminf constant one. An earlier joint-growth primorial result does not cover fixed a; a later distinct indexed record has exactly the same asymptotic and a closely related but differently formulated finite construction. That overlap is disclosed and no independent priority for the shared asymptotic is claimed.
 
-## Closest literature and limitations
+## value
 
-Jaffe (arXiv:2610.17267v1, Sections 4, 6 and 7) establishes finiteness, Jacobsthal upper bounds, and conjectural behavior, not this deterministic lower growth law. The 2023 dissertation abstract is earlier related material, not fully inspected. No matching exact result was identified, but independent originality verification is needed. Sharpness of the logarithmic constant and upper growth remain unknown.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite obstruction can be replayed for any admissible b above a simple explicit threshold, and resolves a demonstrable gap left by the earlier subsequence bound. It establishes divergence of g(a,b)/b uniformly over large b at each fixed a>=3, in contrast to the known bounded a=2 behavior. This is a meaningful change in quantifier and order, not a new claim based on recomputing the prior exact boundary. Value is re-evaluated on the finite obstruction and all-b asymptotic only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

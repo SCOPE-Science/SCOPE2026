@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical decomposition is a genuine bijection: in characteristic \(p\), \(a^{p+1}=a\) implies \(e=a^p\) is idempotent and \(x=a-e\) is \(p\)-nilpotent in the corner \(eAe\); conversely every such pair solves the power equation. Idempotent lifting with fixed diagonal is verified by the explicit invertible intertwiner and unit-orbit stabilizers. The finite-height formula follows from radical products supported on chains; the first excluded chain is measured by an explicit monomial. The asymptotic is proved with a nonzero polynomial coefficient of a \(p\)-th power and a finite-field polynomial zero bound, yielding the exact antichain leading coefficient. The height boundary follows by selecting a maximum-chain rank level. Direct verifiers exercised prime fields and an extension field, but the general proof does not depend on their exhaustiveness.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Gargate–Gargate (arXiv:2009.04243, dated 2020-08-30) is the closest directly relevant paper and is motivated by counting \((k+1)\)-potents over incidence algebras. Its stated standing assumptions exclude \(\operatorname{char}K\mid k\), whereas the present object takes \(k=p=\operatorname{char}K\). That paper's separable-root case thus does not entail these characteristic-resonant radical fibers, first height threshold, and antichain leading asymptotics. Gargate–Gargate's involutions (arXiv:1907.06805) similarly exclude the resonant case. Garcés–Khrypchenko's potent preservers (DOI:10.1016/j.laa.2021.11.020) and primitive-idempotent product preservers (arXiv:2206.01788) treat map-preservation problems rather than counts. Standard idempotent lifting and polynomial zero bounds are not asserted novel. No matching result was found in the accessible comparison records, but this is not a proof of publication priority. Residual risk: a general theory of inseparable potent equations, particularly incidence-algebra papers outside inspected titles, may subsume part of the result.
+PASS
 
-## Value — PASS
-The phenomenon is forced by a natural characteristic boundary at which polynomial separability fails. The complete explicit low-height and sharp first-chain counts classify a mathematically defined full subclass, and the antichain transversal leading coefficient detects an exact height cutoff for all finite posets. The result provides arithmetic poset invariants with a nontrivial asymptotic interpretation rather than a numerical gain on a single parameter choice.
+The equation implies (a^p)^2=a^p and a^pa=a. Since a commutes with e=a^p, (a−e)^p=0, and a−e lies in eAe. Conversely e+x gives a solution and has p-th power e; hence the parametrization is bijective. The diagonal of x vanishes. The element e d_S+(1−e)(1−d_S) intertwines d_S and e and has unit diagonal. The orbit–stabilizer count in 1+J(P) therefore gives q^{c_P(S)} choices for e, because exactly the crossing entries are forbidden in the stabilizer. Its corner is the incidence algebra on S, with the induced order, and the empty corner contributes one. Partitioning strict pairs into inside S, outside S, and crossing gives the low-height result when every chain has at most p vertices. On the chain of p+1 vertices only the full corner has a restriction: the product of the p successive entries must vanish. Hence the number subtracted is exactly (q−1)^p q^{binom(p,2)}. Independently, for any taller induced corner one can make the endpoint entry of x^p equal 1 by using only the chosen p successive edges of a chain; it is thus a nonzero degree-p polynomial, giving the uniform bound p q^{m(S)−1}. Terms can attain q^{m(P)} only for unrestricted corners whose complements contain no comparable pair, which gives H_p(P). At height p+1, the chain-ending rank strictly increases and takes all p+1 values on every maximum chain, so a rank level is an antichain meeting each such chain. At greater height an antichain cannot remove more than one vertex from a maximum chain. These bounds also apply to edgeless P (where the error is zero). The chain assertion in frozen verify.py line 53 is not reached: its comparison list uses range(n) rather than range(n−1). A separate bounded direct replay tested the closed formula at (p,n)=(2,2),(2,3),(3,3),(3,4), obtaining counts 7,43,136,4996 and threshold subtractions 2 and 216; the symbolic product test proves the general result regardless of the dead assertion.
 
-## Limitations
-General unrestricted-height \(p\)-nilpotent radical fibers remain unevaluated. Field-size asymptotics fix characteristic. The verifier enumerations are finite examples rather than an infinite-field proof. Full publication priority is not claimed. The original 2020 paper was read in available full text; preservation papers were checked to their accessible relevant mathematical statements, so complete-document noncoverage is not asserted for inaccessible portions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The diagonal-idempotent census and primary decomposition are existing ingredients. The distinct contribution supported here is their use for the repeated-root census, with evaluated low-height and first-threshold formulas and the all-poset top-exponent law in fixed characteristic. The closest counted split-separable equations do not give the p-nilpotent corner factor, and the related exact nilpotency census is for a restricted subclass.
+
+## value
+
+PASS
+
+The repeated-root regime is the natural missing case for the motivated counting problem. The highest possible point-count exponent detects an exact height transition, and its coefficient at the threshold counts antichain transversals of maximum chains. This genuinely uses the repeated-root constraints for a growth invariant of arbitrary finite posets; the unevaluated fiber reduction is not presented as the entire contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

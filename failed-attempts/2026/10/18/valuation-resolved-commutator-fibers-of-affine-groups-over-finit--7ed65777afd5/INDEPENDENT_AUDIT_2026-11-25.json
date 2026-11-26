@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:28.289231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding including the central-target sentence and proof of the fiber law",
+        "VERIFICATION.md; checker.py: inspected exact group product/inverse enumeration and fiber/site-of-support checks; not executed"
+      ],
+      "rationale": "The fiber law itself is correct, but the Finding falsely calls the valuation-layer targets central. For example, in AGL_1(Z/9Z), conjugating (1,1) by (2,0) gives (1,2), so the valuation-zero translation (1,1) is not central. In general, commutation with all translations forces the multiplier of a central element to be 1, and (1,t) is then central exactly when (a-1)t=0 for all units a. For q>2 a unit difference can be a unit, so only t=0 is central. For q=2 the unit differences form the maximal ideal and the central translations are indexed by its annihilator pi^(n-1)R. The intended layer counts hold for translation targets, not central targets. To check the valid part, subtract the translations of gh and hg (their multipliers agree); the resulting commutator translation is (a-1)y-(b-1)x. For fixed units its image is pi^s R with s=min(v(a-1),v(b-1)), and each nonempty fiber has q^(n+s) elements. There are N_s^2-N_(s+1)^2 pairs at s<n, and only (1,1) as a pair of units at s=n. This proves the formula, the q=2 cutoff, and strict increase on the attained layers. Summing the identity fiber gives |G| times N_0+(q^n-1)/(q-1), in agreement with the examples and class count. Changing 'central targets' to 'translation targets' fixes the false count wording but does not remove the coverage issue.",
+      "residual_risks": [
+        "Replay with python3 checker.py; selected modular and dual-number rings corroborate the formula, not the claim about centrality. The checker compares the identity fiber with a supplied class-number formula, not a separate partition of the group into classes.",
+        "The argument does not count fibers for general non-chain rings."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed character table covers all the same residue sizes and chain lengths. Pradhan–Sury's cyclic additive case is narrower. Kasai's Lemma 2.1 gives the same affine commutation equation, and its common-centralizer criterion concerns a different counting question."
+        ],
+        "reasoning": "The all-chain-ring character values, not the narrower representations or the common-centralizer criterion, give the required covering theorem.",
+        "searches": [
+          "Published finding 0a4181d7ad6d, Assumptions and proof",
+          "arXiv:2106.12781v1, cyclic p-group holomorph representations",
+          "arXiv:2604.02063v1, affine groups of finite commutative principal ideal rings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and mirrored character-table finding 0a4181d7ad6d",
+        "Targeted passages in arXiv:2010.01188v1, arXiv:2106.12781v1 and arXiv:2604.02063v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r<n the resulting fiber is |G| times [N_0+sum_(m=1)^r q^(n-m)-q^(n-r-1)/(q-1)]; at r=n omit the last negative term. At r=0 this gives q^(3n-1)(q-2). Its successive differences are (q^2-1)q^(3n-r-2) at 1<=r<n and q^(2n) at r=n, exactly q^(n+r) M_r in the frozen formula. The layer sizes are the same differences of chain ideal sizes."
+        ],
+        "reasoning": "This recovers every prescribed fiber including unattainability for q=2 at level zero, mixed-characteristic uniformity, and strict increase. It requires only the standard character sum and substitution after the stronger table.",
+        "searches": [
+          "Published finding 0a4181d7ad6d, Every character value and degree multiplicities; Frobenius ordered pair count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The table uses translation-first coordinates, so its (t,1) is the frozen (1,t). At such a target of valuation r it has N_0 inflated unit characters of ratio 1 and q^(n-m) characters for each m=1,...,n with ratio 1 for m<=r, -1/(q-1) for m=r+1, and zero otherwise."
+        ],
+        "reasoning": "Frobenius's sum of character-to-degree ratios, times |G|, yields the same ordered commutator count (the values at translations are real and invariant under negating t).",
+        "searches": [
+          "Resultary: prescribed affine commutator fibers, conjugacy and ordinary character spectra over chain rings",
+          "Published finding 0a4181d7ad6d, Finding and Every character value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full table gives every character value and its degree, not just class sizes or the commuting probability. Its identity sum agrees with the zero-fiber check, but the nonidentity rows are what establish all layers."
+        ],
+        "reasoning": "No exactly worded fiber table is needed; the inspected full table suffices quantitatively.",
+        "searches": [
+          "Resultary: AGL_1 chain-ring character tables and translation target word maps",
+          "Published finding 0a4181d7ad6d, explicit S_m(t) rows",
+          "arXiv:2010.01188v1, commuting probabilities"
+        ]
+      },
+      "rationale": "The valid all-target law is a direct consequence of the full character values in the distinct indexed record Conjugacy and ordinary character spectra of affine groups over finite chain rings. Its detailed table covers the exact same chain-ring assumptions, both mixed and equal characteristic, and includes residue field of order two. The standard Frobenius commutator formula turns the explicit character-to-degree ratios at translations directly into the prescribed fibers. This demonstrates coverage even without a verbatim fiber claim. The two records have the same displayed date; neither precedence nor derivation is inferred.",
+      "residual_risks": [
+        "Earlier cyclic-ring character tables may imply that special case; the MathOverflow discussion cited by the indexed table was not accessible and its asserted thesis comparison was not verified.",
+        "This is a verified implication, not a conclusion about historical priority between the two indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication of all fibers; publication ordering not established",
+          "evidence": [
+            "The three-case S_m formula at multiplier 1 and the q^(n-m) rows of that type are exactly the data in the commutator-count sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offsets 380–2822; Every character value, nonisomorphism example, and scope, offsets 4800–8877",
+          "method": "Lawful local mirror, targeted passages",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings",
+          "trigger": "Complete character table of the identical affine group"
+        },
+        {
+          "assessment": "Common algebraic setup, different primary claim",
+          "evidence": [
+            "Uses (a-1)d=(c-1)b for commutation and proves a common-centralizer obstruction, not a prescribed nonzero-target census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.02063v1",
+          "material_read": "Abstract; §2 Lemma 2.1 and §3 Theorem 3.1, pp. 1–3",
+          "method": "Targeted lawful OA primary PDF passages",
+          "title": "Cross-Commuting Nonabelian Squares in Affine Groups over Finite Commutative Principal Ideal Rings",
+          "trigger": "Same affine group and unit-difference equation"
+        },
+        {
+          "assessment": "Cyclic-ring special case; full fiber implication not assessed here",
+          "evidence": [
+            "Studies ordinary and rational representations of Hol(C_{p^n}); does not give all-chain-ring coverage in the inspected summary."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.12781v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Targeted lawful OA primary PDF passage",
+          "title": "Rational and Quasi-Permutation Representations of Holomorph of Cyclic p-Groups",
+          "trigger": "Representations can imply fibers for cyclic additive rings"
+        },
+        {
+          "assessment": "Identity fiber context only in inspected material",
+          "evidence": [
+            "Concerns commuting probabilities, rather than the nonidentity valuations studied here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.01188v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Targeted lawful OA primary PDF passage",
+          "title": "On commuting probabilities in finite groups and rings",
+          "trigger": "Identity commutator fiber"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md fiber formula and q=2 support split",
+        "Published finding 0a4181d7ad6d, all character values and degree multiplicities"
+      ],
+      "rationale": "Nonidentity word-map fibers over chain rings are a natural question, and a direct ideal-filtration proof is a convenient explanation. But the surviving invariant and its valuation and residue-size consequences are mechanically recoverable from the inspected full table by one standard character sum. No further independent mathematical gain is established by the frozen finding; the direct calculation is useful exposition of covered data.",
+      "residual_risks": [
+        "No judgment is made about the value of the stronger character-table classification itself or of a different word map."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

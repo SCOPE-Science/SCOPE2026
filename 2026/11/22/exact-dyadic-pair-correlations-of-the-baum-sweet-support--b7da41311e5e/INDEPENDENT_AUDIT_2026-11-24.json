@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:06:02.783757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md and both checks/*.py (read only)",
+        "/workspace/reproductions/exact_checks.py 3"
+      ],
+      "rationale": "In RESULT.md §§1–4 split n=a2^r+s with the same padded suffix before and after the shift. For a>0 that is not all ones, write a=U0^e1^j with U ending in 1. If j>0, the old and new internal zero runs have lengths e and e-1; if j=0 the new internal run forces e odd and the unchanged suffix's leading run must be even, giving an odd joined run in the old word. Thus a=2^j-1, allowing j=0. When j>0, both the suffix's leading zero length h and h+j must be even; for j=0 the incremented word supplies the required leading-zero condition even if n=0. Other zero runs must be even, and the converse follows by concatenation. The strict upper bound is exactly 2t+r<m with j=2t, and tiling gives F_(r+1) suffixes. Summing F_i for positive support lengths and adding zero gives F_(m+2), so the scale conclusions follow. The independent check `python3 /workspace/reproductions/exact_checks.py 3` uses recursive support generation and verifies 78 complete sets through m=12. The proof, not finite checks, gives the unbounded claim.",
+      "residual_risks": [
+        "The enumeration does not address non-dyadic lags or cyclic pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pseudorandomness results are bounds; the gap laws quantify over consecutive support elements."
+        ],
+        "reasoning": "Bounds and adjacent-gap frequencies do not specialize to the exact noncyclic incidence at every power of two.",
+        "searches": [
+          "arXiv:1710.03026, Baum–Sweet passage",
+          "Resultary: complete return-gap law and exact dyadic gap law for Baum–Sweet"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and both adjacent-gap records above",
+        "OEIS A060142",
+        "Mérai–Winterhof arXiv:1710.03026",
+        "Targeted primary-literature search for Baum–Sweet exact dyadic pairs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former studies adjacent gaps within layers; the latter counts adjacent gaps with endpoints below a dyadic cutoff. Neither gives the concatenation constraints on successive gaps needed to count arbitrary pairs."
+        ],
+        "reasoning": "For example lag four already occurs for a nonconsecutive pair 0,4, with 1 and 3 also in the support. The gap histograms alone cannot count such pairs; known support recurrences generate the sequence but do not furnish the exact arbitrary-pair law without further reasoning.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+          "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A060142 gives the closure n→2n+1,4n and the even-zero-run support description; Mérai–Winterhof identify the same sequence and give pseudorandomness bounds."
+        ],
+        "reasoning": "Shift intersection of the closure-defined set and the indicator-product count are equivalent formulations; the inspected passages give the set or a bound on a different statistic, not the fixed-shift intersection.",
+        "searches": [
+          "OEIS A060142",
+          "arXiv:1710.03026, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060142 tabulates individual support positions; the exact target search hit was the frozen record itself; the other materially close indexed records tabulate adjacent gaps."
+        ],
+        "reasoning": "Individual support entries enable finite recomputation but are not a table or closed form for the claimed two-parameter family.",
+        "searches": [
+          "OEIS A060142",
+          "Resultary: Baum–Sweet power-of-two lag pair incidence"
+        ]
+      },
+      "rationale": "The distinct claim is the exact set and count of all forward support pairs at dyadic lags. The closest same-support records determine consecutive-gap statistics instead. Neither those results nor inspected automatic-sequence bounds supply the carry classification needed here. Priority is assessed only against inspected evidence.",
+      "residual_risks": [
+        "The targeted literature query gave no decisive result; this is not evidence of absence.",
+        "The 1976 Baum–Sweet paper was not compared in full; unindexed equivalent support-intersection results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related, not covering",
+          "evidence": "Classifies successive gaps in fixed binary-length layers and their frequencies.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+          "material_read": "RESULT.md opening statement and adjacency scope, offset 0",
+          "method": "local mirror",
+          "title": "Exact dyadic gap law for the Baum–Sweet support",
+          "trigger": "same support and dyadic scale"
+        },
+        {
+          "assessment": "related, not covering",
+          "evidence": "Histogram is restricted to successive support elements below 2^K.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "local mirror",
+          "title": "The complete return-gap law for the Baum–Sweet sequence",
+          "trigger": "exact dyadic histogram for the same sequence"
+        },
+        {
+          "assessment": "same support; no exact pair count in inspected entry",
+          "evidence": "Closure from zero under 2n+1 and 4n, equivalently even zero runs.",
+          "identifier_or_url": "https://oeis.org/A060142",
+          "material_read": "definition and recurrence, offset 0",
+          "method": "public page",
+          "title": "Baum–Sweet support",
+          "trigger": "equivalent support and database check"
+        },
+        {
+          "assessment": "different statistic in inspected passage",
+          "evidence": "Definition, well-distribution bounds and generating function rather than exact finite support intersections.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.03026",
+          "material_read": "Baum–Sweet passage, pp. 4–5, OA text offset 9767",
+          "method": "OA PDF passage",
+          "title": "On the pseudorandomness of automatic sequences",
+          "trigger": "correlation and related measures for automatic sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§3–5",
+        "Compared adjacent-gap records"
+      ],
+      "rationale": "Powers-of-two shifts probe carry at prescribed binary scales in a standard sparse automatic support. The exact positions as well as counts explain the contrast between logarithmic growth at fixed lag and the positive support-relative incidence at half-block lag. This is a useful correlation benchmark distinct from consecutive gaps or single-point density.",
+      "residual_risks": [
+        "No implication about general-lag autocorrelation or statistical independence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

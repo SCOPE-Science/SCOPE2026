@@ -1,76 +1,64 @@
-# Short-edge geometric-phase response detects attachment location in quantum graphs
+# A short-edge spectral response distinguishes endpoint and hub attachment
 
 ## Finding
 
-Let \(a,b>0\), \(a\ne b\), and \(S=a+b\). Compare two compact metric graphs with standard Neumann conditions at leaves and Kirchhoff conditions at internal vertices:
-
-1. a path with edge lengths \((\varepsilon,a,b)\), where the edge of length \(\varepsilon\) is at an endpoint;
-2. a three-arm star with arm lengths \((\varepsilon,a,b)\), where the short arm of length \(\varepsilon\) is attached at the hub.
-
-For the normalized first positive eigenstate, let
+Fix \(a,b>0\), \(a\ne b\), and write \(S=a+b\). Compare a metric path whose endpoint edge has length \(\varepsilon\) and whose two other edges have lengths \(a,b\), with a three-arm metric star of arm lengths \(\varepsilon,a,b\). For the normalized first positive eigenstate, write
 \[
-E_1(\varepsilon)=\int_{-1/2}^{1/2}\left(\xi^2-\frac14\right)|g_1(\xi;\varepsilon)|^2\,d\xi,
-\qquad A_{11}(\varepsilon)=\varepsilon\,\frac{\partial E_1}{\partial\varepsilon},
+ E_1(\varepsilon)=\int_{-1/2}^{1/2}(\xi^2-1/4)|g_1(\xi;\varepsilon)|^2\,d\xi,
+ \qquad A_{11}(\varepsilon)=\varepsilon E_1'(\varepsilon),
 \]
-where \(g_1\) is the scaled eigenfunction on the short edge. Then, as \(\varepsilon\downarrow0\) with \(a,b\) fixed,
+where \(g_1(\xi;\varepsilon)=\sqrt{\varepsilon}\,\psi_\varepsilon(\varepsilon(\xi+1/2))\) is the unitary rescaling of the eigenfunction on the short edge. Then as \(\varepsilon\downarrow0\),
 \[
-A_{11}^{\mathrm{path}}(\varepsilon)=-\frac{\varepsilon}{3S}+O(\varepsilon^2),\qquad
-A_{11}^{\mathrm{star}}(\varepsilon)=-\frac{\varepsilon}{3S}\cos^2\!\left(\frac{\pi a}{S}\right)+O(\varepsilon^2).
+ A_{11}^{\rm path}=-\frac{\varepsilon}{3S}+O(\varepsilon^2),\qquad
+ A_{11}^{\rm star}=-\frac{\varepsilon}{3S}\cos^2(\pi a/S)+O(\varepsilon^2).
 \]
-Thus the ratio of the two coefficients tends to \(\cos^2(\pi a/S)\), strictly between zero and one. In the geometric-phase convention of Smilansky and Sofer, the coefficient multiplying the short-edge term \(\rho_1^2\nu_1^2\) is \(-\pi^2 A_{11}/2\), so these coefficients have the same limiting ratio. The two graphs have the same edge-length multiset; the difference records where the short edge is attached.
+The star-to-path ratio tends to \(\cos^2(\pi a/S)\in(0,1)\). Thus this local eigenfunction observable distinguishes the two attachment locations despite the common edge-length multiset.
+
+The same ratio applies to the diagonal quadratic term of a specific *length-cycle functional* from the first preprint [1], as defined below. This is not a ratio of Berry phases in the published convention [2].
 
 ## Assumptions and scope
 
-The graph Laplacian acts as \(-d^2/dx^2\) on every edge. Leaves have Neumann conditions and internal vertices satisfy continuity and the Kirchhoff sum-of-outward-derivatives condition. The long-edge lengths \(a,b\) are fixed and positive, with \(a\ne b\). The short-edge limit is \(\varepsilon\downarrow0\). The first positive eigenvalue is simple for sufficiently small positive \(\varepsilon\); the condition \(a\ne b\) ensures that the limiting first excited eigenfunction does not vanish at the hub. For interpreting \(A_{11}\) as a quadratic phase coefficient, the edge-length modulation amplitude must be small compared with \(\varepsilon\), and the adiabatic limit assumed in the cited quantum-graph phase formula is in force.
+Use the edge Laplacians \(-d^2/dx^2\), Neumann conditions at leaves, and continuity and the Kirchhoff derivative condition at internal vertices. Normalize in the original metric-graph \(L^2\) space. The lengths \(a,b\) are held fixed, and no uniform estimate as \(a\) approaches \(b\) is assumed. The length-cycle functional uses a Taylor expansion in modulation amplitude at fixed positive short length before sending the short length to zero.
 
 ## Proof
 
-For any simple normalized eigenbranch whose eigenfunction remains bounded and varies smoothly along a short edge, the scaled eigenfunction satisfies
-\[
-g_1(\xi;\varepsilon)=\sqrt{\varepsilon}\,\psi_\varepsilon\!\left(\varepsilon(\xi+1/2)\right).
-\]
-As \(\varepsilon\to0\), its value along that edge tends to the limiting eigenfunction value \(\psi_0(v)\) at the attachment vertex \(v\). Therefore
-\[
-E_1(\varepsilon)=\varepsilon|\psi_0(v)|^2\int_{-1/2}^{1/2}\left(\xi^2-\frac14\right)d\xi+O(\varepsilon^2)
-=-\frac{\varepsilon}{6}|\psi_0(v)|^2+O(\varepsilon^2).
-\]
-The simple eigenbranch depends analytically on \(\varepsilon\) near zero in these two models, so differentiating the expansion gives
-\[
-A_{11}(\varepsilon)=-\frac{\varepsilon}{6}|\psi_0(v)|^2+O(\varepsilon^2).
-\]
+On the path, degree-two Kirchhoff conditions give a single Neumann interval of length \(S+\varepsilon\). The short-edge expression is the restriction of the normalized first cosine eigenfunction. On rescaling its squared modulus is \(\varepsilon\) times an analytic function of \(\varepsilon\) with value \(2/S\) at zero, uniformly for \(|\xi|\le 1/2\).
 
-For the path, deleting the short endpoint edge leaves a Neumann interval of length \(S\). Its normalized first positive eigenfunction is \(\psi_0(x)=\sqrt{2/S}\cos(\pi x/S)\), with \(x=0\) at the endpoint. Hence \(|\psi_0(0)|^2=2/S\), giving \(A_{11}^{\mathrm{path}}=-\varepsilon/(3S)+O(\varepsilon^2)\).
-
-For the star, the positive eigenvalues obey the secular equation
+For the star, on an arm of length \(\ell_j\), the Neumann condition at its leaf gives the form \(C_j\cos(k(\ell_j-x))\) with \(x\) measured outwards from the hub. For \(k>0\), continuity and the Kirchhoff condition have a nonzero solution exactly when the pole-free secular determinant vanishes:
 \[
-\tan(k\varepsilon)+\tan(ka)+\tan(kb)=0.
+ D(k,\varepsilon)=\sin(k\varepsilon)\cos(ka)\cos(kb)+\cos(k\varepsilon)\sin(kS)=0.
 \]
-At \(\varepsilon=0\), the identity
+Indeed, before specializing the lengths, the determinant is the sum of \(\sin(k\ell_j)\) times the product of the two other cosines; this follows by eliminating the common value at the hub in the homogeneous linear equations. The determinant does not divide by any cosine. In the limit it is \(\sin(kS)\), with simple roots at 0 and \(k_0=\pi/S\). The implicit-function theorem gives a unique real root near each, with the near-zero root remaining exactly zero. Uniform convergence and a positive lower bound for \(|\sin(kS)|\) on the intervening closed subinterval exclude smaller positive roots for small \(\varepsilon\). The root near \(k_0\) is therefore the first positive wavenumber. All three arm cosines there are nonzero, since \(a,b>0\), \(a\ne b\), and \(\varepsilon\) is small. Setting the hub value to 1 fixes all three amplitudes analytically; division by the positive analytic square root of the squared norm normalizes them. The norm is analytic because each edge integral can be put on a fixed interval with its length as prefactor. The first positive eigenvalue is simple along this branch.
+
+The two long arms in the limit form a Neumann interval with the hub at distance \(a\) from one end. The limiting squared hub value is \(2\cos^2(\pi a/S)/S\). Hence on the short arm \(|g_1|^2\) is again \(\varepsilon\) times an analytic function of \(\varepsilon\), with value at zero given by that intensity. In each graph we can differentiate the Taylor expansion
 \[
-\tan(ka)+\tan(kb)=\frac{\sin(kS)}{\cos(ka)\cos(kb)}
+ E_1(\varepsilon)=-\frac{\varepsilon}{6}|\psi_0(v)|^2+O(\varepsilon^2),
+ \qquad \int_{-1/2}^{1/2}(\xi^2-1/4)\,d\xi=-\frac16,
 \]
-shows that the first positive root is \(k_0=\pi/S\). Since \(a\ne b\), both denominators are nonzero there, and the root is simple; the implicit-function theorem gives a smooth eigenbranch for small \(\varepsilon\). The limiting graph is the same Neumann interval of length \(S\), but the star hub lies at position \(x=a\). Its limiting first positive eigenfunction therefore has hub amplitude squared
+where \(v\) is the limiting attachment, endpoint or hub. This gives the two formulas and their ratio. Reversing the choice of endpoint of the long interval does not change the squared intensity.
+
+## The length-cycle functional and the Berry phase
+
+For a unit-period modulation of only the short length, \(L(\tau)=\varepsilon+\rho\cos(2\pi\nu\tau)\), with \(\nu\) a positive integer and \(|\rho|<\varepsilon\) sufficiently small, consider the explicit functional from [1, Eq. (47)]:
 \[
-|\psi_0(a)|^2=\frac{2}{S}\cos^2\!\left(\frac{\pi a}{S}\right).
+ \mathcal F[L]=\frac18\int_0^1 (L^2)''(\tau) E_1(L(\tau))\,d\tau
+  =-\frac14\int_0^1 L(\tau) (L'(\tau))^2 E_1'(L(\tau))\,d\tau .
 \]
-Substitution into the short-edge formula yields \(A_{11}^{\mathrm{star}}=-\varepsilon\cos^2(\pi a/S)/(3S)+O(\varepsilon^2)\). Dividing the two asymptotic expressions proves the ratio. Because \(a,b>0\) and \(a\ne b\), \(0<\cos^2(\pi a/S)<1\).
+The second equality is periodic integration by parts. The quadratic coefficient of \(\rho^2\nu^2\) is \(-\pi^2 A_{11}(\varepsilon)/2\), since the period average of \(\sin^2(2\pi\nu\tau)\) is \(1/2\). This is the diagonal term in [1, Eqs. (49)–(50)], where the functional was introduced via a period-rescaled contribution. No claim about the full finite-rate phase of the evolving wavefunction is needed here.
 
-Smilansky and Sofer's leading adiabatic formula writes the quadratic contribution from edge \(1\) as \(-\pi^2\rho_1^2\nu_1^2 A_{11}/2\). The common factors \(\rho_1^2\nu_1^2\) cancel in the ratio, proving the phase-response statement.
+By contrast, [2, Eqs. (3.23)–(3.25)] defines the adiabatic Berry phase by the Berry connection. For these small single-edge cycles one can choose a continuous real normalized eigenstate with the same sign at the beginning and end. Its connection vanishes, since a real normalized vector is orthogonal to its derivative. The Berry phase is therefore zero modulo \(2\pi\) in each graph, rather than having the nonzero quadratic coefficients of \(\mathcal F\). The Berry winding phase of a star around the degeneracy line in [2, Corollary 3.7] concerns different cycles.
 
-## Verification
+## Verification and limitations
 
-The proof uses the exact integral \(\int_{-1/2}^{1/2}(\xi^2-1/4)\,d\xi=-1/6\), the Neumann-interval eigenfunction, and the star secular equation. The first positive path eigenvalue is \(\pi^2/(S+\varepsilon)^2\). For the star, the simple root near \(\pi/S\) follows from the displayed tangent identity and the implicit-function theorem; no finite numerical scan is used as proof. The asymptotic error terms are for fixed \(a,b\) with \(a\ne b\). The result is an asymptotic statement, not an exact formula at finite \(\varepsilon\).
+The proof is analytic, not a numerical root search. The determinant argument excludes poles and competing lower branches; analyticity after separating the short-length prefactor justifies differentiation. The result is not an exact identity at finite \(\varepsilon\), a statement uniform in nearly equal long-arm lengths, or a classification of graph topologies. At \(a=b\) the limiting hub intensity is zero and the stated positive ratio is outside scope.
 
 ## Relationship to prior work
 
-Smilansky and Sofer derive the adiabatic geometric-phase formula for moving metric graphs and work out a three-arm-star example. Their discussion asks whether geometric phases can reveal graph features and includes higher-order ground-state calculations for a three-star. The present claim instead concerns the first positive eigenstate and a singular short-edge limit, comparing an endpoint attachment with an interior hub attachment at the same edge lengths. Berkolaiko, Latushkin, and Sukhtaiev study operator convergence when edges shrink, while Berkolaiko, Borisov, and King classify spectral and resolvent asymptotics for a short edge under general vertex conditions. Those works provide context for the limiting graph but do not state this geometric-phase response ratio.
-
-## Limitations
-
-The result does not classify all graph topologies from geometric-phase data. It concerns one simple excited eigenbranch, a single short edge, standard Neumann–Kirchhoff conditions, and the limit \(\varepsilon\downarrow0\). It does not apply at \(a=b\), where the limiting first excited mode has a node at the hub and the leading star coefficient vanishes.
+The first preprint [1, §3.2 and §4] gives the general functional and star expressions but not the normalized first-positive-mode response at a shrinking endpoint versus a shrinking hub attachment. Its higher-order analytic star examples concern the ground state. The final article [2] instead treats the Berry phase. The shrinking-edge work [3,4] addresses operator convergence, resolvent or spectral asymptotics rather than this derivative of a rescaled short-edge moment and its path-versus-star ratio.
 
 ## References
 
-1. U. Smilansky and G. Sofer, “Time evolution and the Schrödinger equation on time dependent quantum graphs,” *Journal of Physics A: Mathematical and Theoretical* 57 (2024), 065204. First public preprint: arXiv:2210.14652 (26 October 2022). DOI: 10.1088/1751-8121/ad1fb6.
-2. G. Berkolaiko, Y. Latushkin, and S. Sukhtaiev, “Limits of Quantum Graph Operators With Shrinking Edges,” arXiv:1806.00561 (first posted 2 June 2018); *Advances in Mathematics* 352 (2019), 632–669.
-3. G. Berkolaiko, D. I. Borisov, and M. King, “Exotic eigenvalues and analytic resolvent for a graph with a shrinking edge,” arXiv:2308.06362 (first posted 11 August 2023); *Analysis and Mathematical Physics* 13 (2023), article 90. DOI: 10.1007/s13324-023-00853-3.
+1. U. Smilansky and G. Sofer, *Time dependent quantum graphs, the geometric phase and knots on closed Lissajous figures*, [arXiv:2210.14652v1](https://arxiv.org/abs/2210.14652v1), especially Eqs. (47)–(50).
+2. U. Smilansky and G. Sofer, *Time evolution and the Schrödinger equation on time dependent quantum graphs*, J. Phys. A **57** (2024), 065204, [DOI:10.1088/1751-8121/ad1fb6](https://doi.org/10.1088/1751-8121/ad1fb6); [arXiv:2210.14652v2](https://arxiv.org/abs/2210.14652v2), §3.2.
+3. G. Berkolaiko, Y. Latushkin, and S. Sukhtaiev, *Limits of Quantum Graph Operators With Shrinking Edges*, [arXiv:1806.00561](https://arxiv.org/abs/1806.00561), Adv. Math. **352** (2019), 632–669.
+4. G. Berkolaiko, D. I. Borisov, and M. King, *Exotic eigenvalues and analytic resolvent for a graph with a shrinking edge*, [arXiv:2308.06362](https://arxiv.org/abs/2308.06362), Anal. Math. Phys. **13** (2023), 90.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:02.931433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A configuration returning after three steps has a harmonic total firing-count vector on the connected graph, so primitive states fire once or twice at each vertex. For a vertex firing once in phase i, write its chip count at firing as degree plus u; its next two counts are u plus the number of same-phase neighbors and degree+u minus the number of predecessor-phase neighbors. The conditions are equivalent to 0<=u<predecessor count. Iterating the predecessor requirement around the shores forces every phase on both. The resulting intervals give independent choices at fixed phases and the baseline mn+sum a_i b_i, since each cross-shore edge contributes one plus its equal-phase indicator. The complement commutes with the map, exchanges once and twice, and is nonnegative for the orbit states by the intervals; the total mass reflects at 4mn-m-n. Each fixed phase profile fills a band through 2mn-m-n. The bottom is mn+m+n-3 by minimizing the excess overlap, attainable with disjoint excess supports. The upper endpoints are onto colorings and the lower endpoints are disjoint-excess colorings: for both shores >3 their support sizes are (1,1), (1,2) or (2,1); a fixed double-support shore of size s contributes s(2^(s-1)-2s) assignments. This gives the stated E. A return after three but not one implies an orbit of length three. Inspected the frozen verification notes, code and captured outputs without executing the uploads. An independent symmetry-reduced census of all box-confined states with label multiplicities, compared coefficientwise via `python3 /workspace/reproductions/frozen_checks.py 3`, agrees for (2,4), (3,3), (3,4), (4,4) and (4,5). The box is exhaustive at these sizes since each periodic nonfixed vertex has a nonfire update and the interval 0 through 2d-1 is forward-invariant for that vertex. The finite census does not prove the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier census states the polynomial and support theorem for arbitrary finite connected simple graphs, and characterizes existence by a simple cycle of length divisible by three.",
+          "The Middle Stair returned abstract states period two in the same open central mass interval; the older graph-theory citations in the frozen record concern allowed periods, firing-word restrictions and a central exclusion theorem. The latter full-paper comparisons were not independently confirmed."
+        ],
+        "reasoning": "A complete bipartite graph has a cycle of length divisible by three iff both shores have size at least three: the shortest such even length is six, and both shores must supply at least three distinct vertices. The older general census is stronger than period-only comparisons and includes all bipartite parameters.",
+        "searches": [
+          "Earlier record 99e5dddcdc6e RESULT.md equations (1)–(3)",
+          "Jiang arXiv:1003.0943",
+          "Jiang–Scully–Zhang arXiv:1211.6786",
+          "Ji–Li–Wang arXiv:2408.10508",
+          "The Middle Stair for Complete Bipartite Parallel Chip-Firing arXiv:2608.01350"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40, 44–104, 110–122",
+        "Earlier Resultary 99e5dddcdc6e RESULT.md equations (1)–(3), passage from proof of (5)",
+        "arXiv:2608.01350v1 abstract",
+        "arXiv:1003.0943, arXiv:1211.6786 and arXiv:2408.10508 (frozen locators and full-text retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier endpoints are |E|+h_*, 2|E|-|V|, 2|E| and 3|E|-|V|-h_*, with reflection exponent 4|E|-|V|. There are no interior holes in either earlier interval."
+        ],
+        "reasoning": "Substitute |E|=mn, |V|=m+n and h_*=m+n-3 to obtain every claimed endpoint and gap, not only a bound. The outer closed form is an elementary evaluation of the minimizing-coloring count already specified by the general theorem, not a separate structural result warranting a repair.",
+        "searches": [
+          "Earlier record 99e5dddcdc6e, RESULT.md equations (1)–(3) and fixed-phase construction near its (5), versus frozen RESULT.md lines 5–36 and 65–104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RESULT.md equation (1) counts temporal orbits and sums z^(|E|+h) times the product of predecessor-count polynomials, plus its reflected term, over all phase assignments, with overall factor 1/3."
+        ],
+        "reasoning": "Multiplying by 3 converts orbit to initial state counts without changing the masses. On K_(m,n), h=sum a_i b_i, and predecessor counts on the two shores are b_(i-1) and a_(i-1). Grouping phase assignments gives exactly the multinomial and both polynomial terms of the frozen result.",
+        "searches": [
+          "Resultary: initially primitive period-three parallel chip-firing, weighted phase polynomial, complete bipartite mass bands",
+          "2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier RESULT.md gives inner endpoint orbit count |A(G)|/3 and outer endpoint count |{s in A(G):h(s)=h_*}|/3, and full intervals in terms of h_*; the frozen RESULT.md lines 112–116 disclaim novelty for the previously known thin side."
+        ],
+        "reasoning": "In this specialization A(G) is exactly the product of the two onto coloring sets. Set a_i=1+u_i and b_i=1+v_i; h_*=m+n-3 and the earlier minimizing-coloring set is given by u_i v_i=0 at every i. Its elementary three-support-case count yields E. Earlier text was not observed explicitly printing E, but gives the exact counts being evaluated.",
+        "searches": [
+          "Earlier record 99e5dddcdc6e RESULTS, exact support and endpoint counts after equation (2)",
+          "Resultary: thin-side K_(3,b) and complete-bipartite three-cycle tables"
+        ]
+      },
+      "rationale": "Earlier Resultary record 99e5dddcdc6e, primary RESULT.md equations (1)–(3), directly proves the labelled weighted three-phase census, reflection, exact full bands, and endpoint-coloring counts for every connected simple graph. Multiply its polynomial by three to count initial configurations rather than orbits; specialize to K_(m,n) and group colorings by shore populations. This gives exactly the frozen polynomial. Its all-graph support and endpoint rules give the frozen ones by the elementary bipartite overlap minimization and evaluation of the resulting coloring counts. The explicit presentation in the two shore sizes is useful but is covered, not a new census theorem. This verdict rests on the inspected earlier theorem, not on an unavailable publication or the already credited thin-shore result.",
+      "residual_risks": [
+        "The earlier opening theorem does not explicitly list the formula in the two shore sizes; coverage is by the exact specialization shown here.",
+        "No independent priority inference is drawn from any unavailable primary passage or from the unidentified thin-side-only source; neither is needed for this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage of the original theorem",
+          "evidence": [
+            "Per-coloring baseline |E|+h, product of predecessor interval polynomials and a reflected term, divided by three.",
+            "Two full support bands in terms of h_*, and endpoint orbit counts by all admissible and minimum-h colorings."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e",
+          "material_read": "Primary RESULT.md: opening theorem equations (1)–(3), located and read at offsets 335–2824; fixed-phase construction near (5) located at offsets 3691–5069",
+          "method": "Configured Resultary and targeted reading of local-mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two contiguous chip-energy bands and an exact three-cycle census",
+          "trigger": "Earlier all-connected-graphs census and endpoint rule"
+        },
+        {
+          "assessment": "Covers middle exclusion in the same open band; outer enumeration not determined from this excerpt",
+          "evidence": [
+            "If 2ab-a-b<|sigma|<2ab, the eventual period on K_(a,b) is two."
+          ],
+          "identifier_or_url": "arXiv:2608.01350v1",
+          "material_read": "Returned abstract statement only; full text not confirmed",
+          "method": "Primary literature search excerpt",
+          "title": "The Middle Stair for Complete Bipartite Parallel Chip-Firing",
+          "trigger": "Same graph and central energy gap"
+        },
+        {
+          "assessment": "Cited period/complement background; no full-text exclusion asserted",
+          "evidence": [
+            "The frozen record credits allowed periods, equal firing counts and complementation."
+          ],
+          "identifier_or_url": "arXiv:1003.0943",
+          "material_read": "Frozen RESULT.md lines 110–122 referencing Proposition 2.5 and Theorem 3.10; no decisive primary full text recovered",
+          "method": "Frozen related-work comparison and targeted lawful OA attempt",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Complete-bipartite period theorem cited in the assignment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Mass-resolved periodic dynamics is a worthwhile invariant. In this submission, however, the new presentation groups the existing exact coloring census by the two shore profiles and evaluates the already specified endpoint counts using three disjoint-support cases. It does not isolate a new structural or exact invariant beyond that direct specialization; the simplifications do not provide a substantively useful surviving claim for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:40.035401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md, verify.py, VERIFY_OUTPUT.txt"
+      ],
+      "rationale": "Every exponent partition of m is realizable using distinct primes, and both divisor counts give the product of f(a)=(a+1)/2. In a maximizer for m>=2, merging 1 with any other part increases the product; splitting a>=6 into 3 and a-3 multiplies the product by 2(a-2)/(a+1)>1. Replacing each 5 by 3+2 preserves the product. Among the remaining parts, 2+2 is worse than 4, 2+4 is worse than 3+3, and 4+4+4 is worse than four 3s. Thus the only candidates by residue are all 3s, one 4 with 3s, or either one 2 or two 4s with 3s. The two-4 pattern wins the last comparison by 25/24 if m>=8. A maximizer with any unreduced 5 would produce a 2 on reduction, hence is possible only at m=5 (a 5 cannot occur at m=2). This recovers every equality case and proves the formulas without a cutoff. Inspected the frozen exact-rational partition verifier and its recorded check through m=40 (215307 partitions); that is supporting evidence only and was not executed.",
+      "residual_risks": [
+        "The theorem is for the denominator 2^omega, not general k; the supplied computational sampling ends at m=40."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 paper states an average-order problem and quotes a size-based maximum-order theorem for D(n); the latter constrains growth in n, not Omega(n).",
+          "Karras treats the larger family d(n)/k^omega but for a summatory objective."
+        ],
+        "reasoning": "The larger parameter family does not cover this objective; size-based asymptotic extrema cannot give exact layer winners when prime sizes are unrestricted.",
+        "searches": [
+          "Derbal and Karras, doi:10.1016/j.crma.2016.03.007, pp. 1–2; citation to Derbal, INTEGERS 12 (2012), A44",
+          "Karras, arXiv:2209.14573, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.14573",
+        "doi:10.1016/j.crma.2016.03.007",
+        "OEIS A000792",
+        "2026/11/8/SCOPE-a-two-term-mean-for-the-divisor-ratio-on-square-completed-intege--0532cbd9760f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arithmetic factorization is known. It leaves unresolved the competition of 2 with 4+4 after adding or removing 3s, and whether replacing 5 by 3+2 loses equality cases."
+        ],
+        "reasoning": "The exact classification requires additional equal-sum product comparisons; it is not a parameter substitution into the compared divisor or integer-product results.",
+        "searches": [
+          "Karras pp. 1–2; Derbal and Karras pp. 1–2; OEIS A000792",
+          "Indexed square-completion result, RESULT.md opening theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karras explicitly identifies the same factor (a+1)/2 at k=2, but his main results are mean values.",
+          "The nearest indexed same-function result 2026/11/8/SCOPE-a-two-term-mean-for-the-divisor-ratio-on-square-completed-intege--0532cbd9760f concerns D evaluated at the next square, not all partitions at fixed Omega."
+        ],
+        "reasoning": "Rewriting as a product over parts changes notation, not the claim; neither comparison optimizes that product on the required domain.",
+        "searches": [
+          "Local Resultary/published SCOPE semantic lookup: fixed Omega divisor/unitary-divisor ratio d(n)/2^omega and maximizing exponent partitions",
+          "Karras, arXiv:2209.14573, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000792 maximizes the product of ordinary parts; the classical residue-two optimum uses a 2, whereas the frozen weighted product uses two 4s at every residue-two m>=8. No exact table for the latter was identified in the checked material."
+        ],
+        "reasoning": "The periodic resemblance does not identify sequences or equality cases.",
+        "searches": [
+          "OEIS A000792, entry and formula",
+          "Local Resultary/published SCOPE lookup for same-object exact classification"
+        ]
+      },
+      "rationale": "The same multiplicative function and the classical analogous partition problem are known. The complete fixed-total-multiplicity envelope and maximizing exponent multisets are distinct on the checked evidence. The prior size-growth and mean results do not supply the needed exact comparisons at equal sum.",
+      "residual_risks": [
+        "Derbal (2012) was compared through the explicit quotation, not its full text; Bouakkaz–Derbal (2023) full text was not independently inspected. An equivalent older weighted-partition result under other notation remains possible. A general web query yielded irrelevant results and adds no affirmative evidence of distinctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same function; different objective",
+          "evidence": [
+            "Defines the prime-power factor and states mean-value results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.14573",
+          "material_read": "pp. 1–2, offsets 1100 and 4750",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic formula for the multiplicative function d(n)/k^omega(n)",
+          "trigger": "Exact same multiplicative factor at k=2"
+        },
+        {
+          "assessment": "Checked statements concern mean values or size-based maximum order",
+          "evidence": [
+            "Defines D=d/d*; quotes Derbal (2012) for growth as a function of n."
+          ],
+          "identifier_or_url": "https://comptes-rendus.academie-sciences.fr/mathematique/item/10.1016/j.crma.2016.03.007.pdf",
+          "material_read": "pp. 1–2 and bibliography p. 4, offsets 100, 5200, 18880",
+          "method": "OA PDF passage inspection",
+          "title": "Valeurs moyennes d’une fonction liée aux diviseurs d’un nombre entier",
+          "trigger": "Same ratio and quotation of earlier maximum-order theorem"
+        },
+        {
+          "assessment": "Analogous but not the same partition product",
+          "evidence": [
+            "Optimizes raw parts, with different residue corrections and equality cases."
+          ],
+          "identifier_or_url": "https://oeis.org/A000792",
+          "material_read": "Entry and formula, offset 0",
+          "method": "OA public entry inspection",
+          "title": "Maximum product of parts in a partition",
+          "trigger": "Apparent equivalent period-three optimization"
+        },
+        {
+          "assessment": "Not an extremum at fixed Omega",
+          "evidence": [
+            "Two-term mean of D at square-completed integers."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-two-term-mean-for-the-divisor-ratio-on-square-completed-intege--0532cbd9760f",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A two-term mean for the divisor ratio on square-completed integers",
+          "trigger": "Closest local Resultary same-function result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Karras arXiv:2209.14573, p. 1",
+        "OEIS A000792"
+      ],
+      "rationale": "Fixed total prime multiplicity is a natural arithmetic slice independent of prime size. An exact envelope with all equality cases provides information neither the mean nor the asymptotic maximum order supplies, including the genuine tie at m=5 and the change in the residue-two optimizing pattern.",
+      "residual_risks": [
+        "This is a fixed-multiplicity maximum, not a claim about the distribution of D among integers or an improvement to a size-based asymptotic theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: trajectory budget for quadratic-value identification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The observation map in modal coordinates has basis columns \(\big((\lambda_i\lambda_j)^t z_i^{(k)}z_j^{(k)}\big)_{k,t}\); its time grouping gives the universal upper rank bound. The explicitly constructed starts \(z_i^{(k)}=(2^{2^{i-1}})^k\) make the within-product blocks ordinary Vandermonde matrices on pairwise distinct nodes. Distinct product classes separate by the temporal Vandermonde matrix once the observation horizon is at least their count. Rank and minimum trajectory count follow without a genericity assumption. Genericity follows from a nonzero maximal minor; positive-definite ambiguity follows by a small symmetric kernel perturbation. The stable-geometric example follows by an exhaustive symbolic pair-count argument. The packaged script independently checks 643 finite-field ranks but is not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Under the invertible congruence Q=VᵀPV, a column for the unordered pair (i,j) factors into the temporal vector at μ=λ_iλ_j and the values of the monomial z_i z_j on the actual starts. Time zero handles μ=0. With H≥s, distinct μ give independent temporal Vandermonde columns, so a left inverse separates the classes and the total rank is the sum of their ranks. Each is bounded by min(r,m_μ). The stated b_i make each unordered b_i b_j distinct: off-diagonal sums of two distinct binary powers have two bits, whereas diagonal sums carry to distinct one-bit exponents. Taking z_i^(k)=b_i^k supplies ordinary Vandermonde blocks and all of them attain their bounds simultaneously. This proves a maximum, not a statement for all starts. A nonzero polynomial minor gives the asserted genericity for absolutely continuous joint choices. Full rank is equivalent to r≥max m_μ. Below that, adding and subtracting a sufficiently small symmetric kernel vector from I gives two positive-definite alternatives. For the geometric family, each fixed index sum pairs disjoint indices with at most one diagonal pair; the maximum ceil(n/2) occurs at i+j=n+1, and the 2n−1 product values are distinct. Nonzero modal coordinates are cyclic for distinct eigenvalues by the ordinary Vandermonde, so n≥3 indeed separates ordinary cyclicity from quadratic identification. The supplied finite-field checker was inspected; the proof is over the reals and does not depend on it.
 
-Baltussen et al. (2026) explicitly require full rank for the quadratic-value least-squares regression and suggest extra initial conditions; they do not calculate the minimum. Zhou (2016) gives the largest-eigenspace-multiplicity output-count result for **unrestricted** linear sensors on a lifted system, which captures the necessity, but does not establish sufficiency when every output is the symmetric rank-one tensor of an actual trajectory start. The simultaneous structured Vandermonde construction and exact rank at every trajectory count distinguish the claim. Van Waarde et al. (2020) treat input-driven collective excitation, not this restricted autonomous quadratic regression. Gosea and Gugercin (2022) treat frequency-domain quadratic-output model interpolation, Berkane et al. (2023) state observation with known quadratic-output matrices, and Tu and Recht (2018) include stochastic excitation. A generic lifted observability theorem combined with an unindexed structured-sensor construction could subsume this result and remains a literature risk; no independence is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The recent terminal-value fitting proposal requires a full quadratic-regression matrix but leaves the required initial-condition budget unspecified. This result provides an exact finite experiment-design invariant (product-multiplicity), identifies a distinct-eigenvalue class where arbitrarily long single trajectories provably fail, and gives an explicit constructive way to remove that failure. Such a classification affects how deterministic data collection is planned rather than merely improving a constant in a generic rank bound.
+Best-of-knowledge pass for the structured exact rank and deterministic simultaneous attainability with rank-one trajectory starts. It is not originality for the unrestricted observability multiplicity bound, standard time separation, or terminal cost fitting. The relevant full-text comparison has access limits; the closest available evidence does not establish rank-one sufficiency or this rank law.
 
-## Scope and risks
+## value
 
-The theorem assumes a known fixed real-diagonalizable transition and exact quadratic measurements, at least as many time samples per trajectory as distinct spectral products, and unrestricted start states. Explicit starts may be very ill-conditioned; constraints on starts or shorter horizons are not classified. No claim is made about numerical precision, statistical robustness, or full nonlinear MPC performance. The lower-bound connection to unrestricted lifted observability is prior art; structural sufficiency is the assessed contribution. An unknown unindexed equivalence is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp separate-trajectory requirement gives an experiment-design obstruction that more time cannot fix. Even stable distinct ordinary eigenvalues and a cyclic start may have product collisions; exhibiting exact attainability by genuine starts turns the multiplicity lower bound into a usable identifiability criterion. The result concerns noiseless unrestricted quadratic forms, not numerical conditioning or a shorter-horizon tradeoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

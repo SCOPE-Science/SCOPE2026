@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:33:05.866145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Regeneration at the common reset justifies the stationary generator identities. Reflection makes the covariance diagonal and the horizontal mean real. For Z=X+iY the isotropic translational quadratic variation cancels in Z^2; the equations for E[exp(i Theta)], E[exp(2i Theta)], E[Z], E[Z exp(i Theta)] and E[Z^2] close with rates r+d, r+4d, r+k, r+k+d and r+2k respectively. Centering subtracts (E[Z])^2, essential for the crossings. Clearing the positive denominators gives P=2(r+k)^2(r+d)^2-r(r+2k)(r+k+d)(r+4d). Its signs have two changes for every k,d>0 including k=d with the zero cubic term removed, while P(0)>0, P(d)=-d^2(2d^2+9dk+2k^2)<0 and P ultimately positive. Thus the two bracketed roots are simple and exhaustive. At D=0 the transverse variance is strictly positive by the displayed moment formulas and the longitudinal variance is bounded below by the variance of its conditional mean given reset age: the latter mean is continuous, vanishes at age zero, and is positive for every positive age. Nonzero horizontal mean rules out rotational invariance about the trap origin, not merely unequal eigenvalues. With b=k/d and x=r/d the four limits follow by sign bracketing near the simple roots of the appropriate rescaled polynomials: 2-4y-2y^2 and x^2(x-2)(x+1) for b small, 2-4x and y^3-4y for b large. The bracket at x=1 identifies the branches at each scale. An independent bounded symbolic check confirmed the quartic, the sign identity at d, the four scaled limits and the free factorization. The supplied verification.py was inspected but not executed. At k=0 the exponential reset age still gives finite stationary moments and the remaining crossing is 2d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shee solves the same process with k>0 and explicitly gives the moments, but the inspected reentrant analysis is for excess kurtosis. Kumar et al. have no trap and their formula gives precisely one positive crossing, at r=2d.",
+          "Same-model catalogue entries classify recovery from transverse lagged coefficients or a mixed third-cumulant reversal, neither of which is the covariance classification."
+        ],
+        "reasoning": "The free result is the exact k=0 boundary; it cannot constrain the positive root tending to zero, or prove a second positive root under confinement. The trapped moment formulas enable but do not provide a general positive-root classification.",
+        "searches": [
+          "Shee arXiv:2409.06920v2 §6 and Appendix D.2",
+          "Kumar–Sadekar–Basu arXiv:2008.03294 Eq. (6) and Appendix B",
+          "Resultary 846dab8f4f22 and 554b8e1b368c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "arXiv:2409.06920v2 and 2008.03294",
+        "Resultary 846dab8f4f22, 554b8e1b368c and 403d011b461a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact centered anisotropy quartic and cancellation of D follow by direct combination of the known moments, and the k=0 root follows directly from the earlier free variance difference. What remains is the uniform two-simple-roots proof at positive k,d and the confinement asymptotics: it requires determining the sign at r=d, exhausting positive roots with multiplicity and tracking distinct rescalings."
+        ],
+        "reasoning": "Neither an algebraic recipe for the covariance at fixed parameters nor a statement about kurtosis implies the number of crossings without separate analysis. The verdict does not treat the raw formula, noise cancellation, or known free crossing as new exact invariants.",
+        "searches": [
+          "Shee v2 Eqs. (9), (14), (D.16), (D.19)",
+          "Kumar–Sadekar–Basu Eq. (6), (B2)–(B3)",
+          "Shee v2 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the reset frame the equal-time covariance is diagonal. Isotropy is equivalently zero real centered complex second moment, or equality of parallel and perpendicular centered variances. Shee's total MSD minus the parallel raw second moment supplies the perpendicular raw second moment; subtracting the squared parallel mean then gives the reviewed scalar formula.",
+          "The catalogue record on transverse lagged autocovariance identifies dynamical parameters, not a zero of equal-time centered anisotropy; same-model mixed third cumulants and orientation-only fourth cumulants are different moments."
+        ],
+        "reasoning": "Centering and equality at lag zero define a particular invariant; results on raw second moments, lag derivatives, or kurtosis should not be mistaken for its zero set. Conversely, changing units does not distinguish the prior moment formulas from the frozen ones.",
+        "searches": [
+          "Shee arXiv:2409.06920 mean, MSD and parallel variance",
+          "Kumar–Sadekar–Basu arXiv:2008.03294 coordinate variance and simultaneous resetting",
+          "Resultary simultaneous reset harmonic trap covariance/isotropy and reentrant transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed equal-model records concern lagged transverse covariance or third-cumulant sign, not the two crossings. Exact moment formulas are found in Shee and exact free variances in Kumar et al.; no exact finite-confinement root/sign classification was found in the inspected passages."
+        ],
+        "reasoning": "This is a universal polynomial root theorem, not an exact finite table. The benchmark k=d=v=1 and single free crossing do not constitute or replace the all-parameter result.",
+        "searches": [
+          "Resultary searches on centered active-particle covariance and reentrant isotropy",
+          "Shee Appendix D.2",
+          "Kumar–Sadekar–Basu Eq. (6)"
+        ]
+      },
+      "rationale": "Pass for the global finite-confinement classification, including the paired confinement scalings. The same-model moments, centered scalar anisotropy obtained by subtracting them, and the free-particle crossing are not independently original. The primary trapped-model paper's reentrance concerns kurtosis; its equations supply the inputs but no theorem on the number, simplicity, location and singular behavior of the positive centered covariance crossings. Literature and catalogue comparisons are bounded.",
+      "residual_risks": [
+        "An unindexed explicit classification using the known moment formulas may exist; the bounded comparison is not a priority guarantee.",
+        "No isotropy of the entire centered law, independent reset clocks, or anisotropic thermal noise is inferred from the covariance result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying moments; inspected reentrance is for kurtosis",
+          "evidence": "Total MSD, longitudinal second moment and squared mean recover the covariance difference exactly. The frozen references (60), (63) correspond to moments whose v2 locators are (D.16) and (D.19).",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06920",
+          "material_read": "Retrieved v2 PDF pp. 3, 6, 8 and 20, Eqs. (1)–(3), (9), (14), (D.16), (D.19); §6 p. 14 (OA offsets about 8200, 20200, 26800, 67000, 69750, 48000)",
+          "method": "OA primary PDF and matched passages",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Exact same model, known moments, and reentrance terminology"
+        },
+        {
+          "assessment": "Covers the free-particle limit's single crossing; not finite-confinement theorem",
+          "evidence": "Subtracting the stationary variances gives v_0^2(r-2D_R)/[(r+D_R)^2(r+4D_R)], with root r=2D_R.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03294",
+          "material_read": "Eq. (6), p. 5, and Appendix B Eqs. (B2)–(B3), p. 17 (OA offsets about 29200 and 129623)",
+          "method": "OA primary PDF and matched passages",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Known no-trap boundary of the same common reset protocol"
+        },
+        {
+          "assessment": "Parameter identification from derivatives of lagged covariance, not zero-lag anisotropy classification",
+          "evidence": "Only transverse lag derivatives enter the identification; there is no equality of centered longitudinal and transverse variances being classified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-covariance-coefficients-identify-three-relaxation-rates-in--846dab8f4f22",
+          "material_read": "Finding and lagged transverse observable",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Four covariance coefficients identify three relaxation rates",
+          "trigger": "Same model and covariance terms in catalogue"
+        },
+        {
+          "assessment": "Different order and observable",
+          "evidence": "The classified sign is that of a mixed third cumulant, not the difference of centered second moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-unique-transverse-third-cumulant-reversal-under-complete-reset--554b8e1b368c",
+          "material_read": "Finding and mixed-third-cumulant scope",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "A unique transverse third-cumulant reversal under complete reset",
+          "trigger": "Nearby same-model reversal theorem"
+        },
+        {
+          "assessment": "Different reset protocol, motion and cumulant",
+          "evidence": "The particle is passive and freely diffuses with anisotropy; there is no propulsion, confinement or common position reset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-fourth-cumulant-isotropy-under-orientation-only-resetting--403d011b461a",
+          "material_read": "Finding and model assumptions",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Sharp fourth-cumulant isotropy under orientation-only resetting",
+          "trigger": "Catalogue isotropy match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number and direction of sign reversals are qualitative predictions for an entire continuum of stable traps, not a fixed-parameter moment recomputation. The singular limits explain how the transition missing in the free model is lost and how the two confinement scales separate in a strong trap. These predictions use centered rather than raw moments and identify experimentally meaningful reset-rate regimes independent of isotropic translational noise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

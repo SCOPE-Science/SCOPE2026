@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:05:00.634809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 21–71. Because ℓ divides n−1, the right-hand side is coprime to n; hence gcd(n,φ(n))=1. A repeated prime factor would divide φ(n), and an even composite would share the factor 2 with φ(n); thus only odd squarefree composites need consideration. For n=pq with distinct primes, an independent valuation argument confirms the exclusion: choose a prime r at which p−1 and q−1 have unequal valuations s<t. Then v_r(pq−1)=s, by expanding (p−1)+(q−1)+(p−1)(q−1), whereas v_r(φ(pq))=s+t. Divisibility requires v_r(ℓ)≥t. If s=0 this is impossible because ℓ divides pq−1; if s≥1 it requires valuation at least 2, impossible since ℓ is squarefree. This also confirms the logic of the frozen gcd argument: the coprime quotients a,b must divide ℓ, while gcd(ab,hab+a+b)=1 forces ab to divide h and then the complementary factor of ℓ, contradicting squarefreeness unless p=q. Directly, 1729=7·13·19, φ(1729)=1296, and 3·1728=4·1296 with 3 a squarefree divisor of 1728. The reduced-denominator test d is valid by canceling gcd(φ(n),n−1): admissibility is exactly d squarefree and d|n−1. Read VERIFICATION.md, verify.py and verification_output.txt; the reported finite regression was not rerun and is not needed for the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada's p. 1 ω≥7 passage is for ordinary Lehmer numbers; the p. 5 reduction for almost Lehmer gives odd and squarefree.",
+          "A238574 takes k as an exponent in φ(n)|(n−1)^k, and the two-prime subset A238575 begins with 15."
+        ],
+        "reasoning": "The classical class is narrower. The power-divisibility class is broader: an admissible almost-Lehmer multiplier gives φ(n)|(n−1)^2, while the power family allows examples with extra prime multiplicities. In particular φ(15)=8 divides 14^3 but not any admissible ℓ times 14. The k in that comparison is not an arbitrary coefficient; a solution with a power does give some unrestricted multiplier.",
+        "searches": [
+          "Yamada official PDF pp. 1–2 and 5",
+          "OEIS A238574 and A238575"
+        ]
+      },
+      "checked_sources": [
+        "Yamada, Journal of Integer Sequences 24 (2021), Article 21.5.5",
+        "OEIS A337316, A338998, A238574, A238575",
+        "Resultary local catalogue and records 4316b401d3f6, c7e355b44925"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known odd squarefree reduction leaves products of two distinct odd primes. The inequality of local valuations at some prime of p−1 or q−1 produces a contradiction only after putting both squarefreeness of ℓ and its divisibility into the local condition.",
+          "The two published analogous support barriers use β(n)|n−1, not the same cofactor restriction with φ."
+        ],
+        "reasoning": "None of the inspected results implies the two-prime exclusion for almost Lehmer. The elementary local argument contributes the missing obstruction rather than renaming the classical support bound.",
+        "searches": [
+          "Yamada Article 21.5.5 p. 1 vs pp. 2, 5",
+          "OEIS A337316, A338998 and A238575",
+          "Resultary SCOPE 4316b401d3f6 and c7e355b44925 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yamada and A337316 give the identical squarefree-divisor definition.",
+          "It is equivalent to d squarefree and d|n−1 for d=φ(n)/gcd(φ(n),n−1), or to φ(n)|rad(n−1)(n−1).",
+          "Resultary SCOPE 4316b401d3f6 and c7e355b44925 use the alternating β instead of φ."
+        ],
+        "reasoning": "Neither an alternating-Lehmer theorem nor a theorem for the classical divisor with no multiplier implies the support bound for this enlarged but differently constrained class. The reduced denominator is an equivalent test, not itself a proof of exclusion.",
+        "searches": [
+          "Resultary: almost-Lehmer semiprime/support obstruction and equivalent Lehmer terminology",
+          "Yamada Article 21.5.5 pp. 2, 5",
+          "OEIS A337316"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A337316 is the exact almost-Lehmer sequence, beginning at 1729. A338998 explicitly verifies 1296|3·1728 for 1729 under the 1-nearly condition. A238575 records semiprimes for the different power condition."
+        ],
+        "reasoning": "The examples and the exact sequence are known, so the audit assigns no originality to locating 1729 or recomputing its divisibility. A finite list of eligible n does not exclude two-prime support at unbounded size.",
+        "searches": [
+          "OEIS A337316 comments and definition",
+          "OEIS A338998 definition and example",
+          "OEIS A238575 initial terms"
+        ]
+      },
+      "rationale": "The definition, odd squarefree reduction and witness 1729 are prior work, and the classical Lehmer bound concerns a proper subclass. The distinct claim is the unbounded semiprime exclusion under the exact almost-Lehmer constraint, making the known witness sharp in the number of distinct prime factors.",
+      "residual_risks": [
+        "The elementary obstruction may have been noted under a different divisor-power formulation or in less searchable discussions not covered by these comparisons. A matched sequence and absence of a direct match in ranked searches do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the class, reduction and example, not a bound for its semiprimes in the inspected passages.",
+          "evidence": "Definition uses a squarefree divisor of n−1, lists 1729 first, and reduces composites to odd squarefree n. The ω≥7 discussion is for ordinary Lehmer.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Yamada/yam3.pdf",
+          "material_read": "p. 1 offset 1332; p. 2 offsets 3261 and 3535; p. 5 offset 11558",
+          "method": "Official OA PDF text passages",
+          "title": "On Almost Lehmer Numbers",
+          "trigger": "Defines the exact class and gives lower-support context"
+        },
+        {
+          "assessment": "Exact database match, not a universal support proof.",
+          "evidence": "Same squarefree-divisor condition; initial entry 1729.",
+          "identifier_or_url": "https://oeis.org/A337316",
+          "material_read": "Definition and initial terms, offset 0",
+          "method": "Public sequence page",
+          "title": "Almost Lehmer numbers",
+          "trigger": "Exact-class database"
+        },
+        {
+          "assessment": "Witness already known; does not give the universal lower bound.",
+          "evidence": "Explicit example φ(1729)=1296|3·1728.",
+          "identifier_or_url": "https://oeis.org/A338998",
+          "material_read": "Definition offset 0; example near offset 1422",
+          "method": "Public sequence page",
+          "title": "1-nearly Lehmer numbers",
+          "trigger": "Exact sharp witness under the 1-nearly restriction"
+        },
+        {
+          "assessment": "Different multiplier constraint; not a counterexample or coverage of the frozen result.",
+          "evidence": "Parent uses φ(n)|(n−1)^k; 15 occurs in the two-prime subsequence.",
+          "identifier_or_url": "https://oeis.org/A238575",
+          "material_read": "A238575 initial terms and A238574 parent definition",
+          "method": "Public sequence pages",
+          "title": "k-Lehmer numbers and the two-prime-factor subsequence",
+          "trigger": "Plausibly contradictory two-prime examples in adjacent Lehmer class"
+        },
+        {
+          "assessment": "Different arithmetic function; no date-based priority inference.",
+          "evidence": "For β(n)|n−1 the only composite solution of distinct support at most two is 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-two-prime-support-barrier-for-t-th-s-alternating-lehmer-problem--4316b401d3f6",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Two-prime support barrier for T. H. S.'s alternating Lehmer problem",
+          "trigger": "Closest catalogue support bound in Lehmer terminology"
+        },
+        {
+          "assessment": "Not a dominating theorem because it uses β in place of φ and lacks the almost-Lehmer hypothesis.",
+          "evidence": "Alternating β-divisibility requires ω≥4 for odd and ω≥5 for even solutions, apart from 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-parity-separated-prime-support-obstructions-for-the-alternating--c7e355b44925",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Parity-separated prime support obstructions for the alternating Lehmer problem",
+          "trigger": "Nearby stronger-looking support inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum distinct support is a natural exact invariant of an established Lehmer class. Unlike the known odd squarefree reduction, this result rules out the entire lowest remaining composite support, with a local obstruction showing why the squarefree multiplier constraint excludes two primes even though the adjacent power class admits them. The known example supplies sharpness, not the contribution by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

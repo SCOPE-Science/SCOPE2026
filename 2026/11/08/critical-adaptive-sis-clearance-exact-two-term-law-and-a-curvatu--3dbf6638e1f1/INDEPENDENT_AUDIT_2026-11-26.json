@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:43:10.887779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed complete replacement /workspace/repairs/3/RESULT.md. Inward boundary signs and y'=y times a bounded coefficient give forward invariance and finite-time positive prevalence. Scalar comparison gives (z−z0)_+ exponentially small and y'≤−y²+g(t)y with integrable nonnegative g; the integrating factor gives y=O(1/t). Stable linear forcing for z−z0 tends to zero, so (log y)'→0. Forcing O(y^j) in a stable scalar equation implies response O(y^j) by choosing a late relative-variation rate ε with jε below the eventual damping, then convolving the exponentials. In succession this gives w=O(y), w−h1 y=O(y²), and w−h1 y−h2 y²=O(y³). Matching y² in w' gives A2−L1 h1−L0 h2=−Kh1. Thus r'=K+KB/r+O(r⁻²), r∼Kt, then r−Kt=O(log t); the derivative of r−Kt−B log t is absolutely integrable. Exact substitution gives h2=−κ/4−1/16 and B=κ/3−1/4, including zero at κ=3/4. Original lines 129–130 incorrectly said no lower-order constant changes with curvature if read for the finite asymptotic constant C. Indeed take common initial data y=s, z=z0+h1 s, with s small. Here y≤(1/s+t)⁻¹ and the stable expansion, now with initial quadratic defect O(s²), leaves r'=K+KB/r+O(r⁻²+s exp(−ηt)) with constants uniform in small s for each fixed κ (the log-variation bound is O(s)). Integrating (r−B log r)'−K gives C=1/s+B log(Ks)+O(s); for κ=0 and 1 the difference is nonzero for sufficiently small s. The repair removes this assertion and clarifies model dependence without changing the valid finding. Replay: repaired proof §§1–5 and this comparison; frozen verify.py was inspected but not run. Deterministic ODE only, no uniform-in-model or stochastic claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Theorem 2 states global stability at R0<1",
+          "The mirrored multigroup record assumes n≥2, φij(0)=0, ψij(0)>0 and gives Perron-profile limits for t yi and t(1−zij)"
+        ],
+        "reasoning": "On z≤z0, rescale to S=z/z0. The resulting affine link equation has zero-baseline breaking ζ(b−b(0)c/c(0))≥0 and creation ξc/z0, so a synchronized multigroup specialization can cover leading behavior there. It does not supply all initial z or the cubic drift, logarithm and finite remainder.",
+        "searches": [
+          "Achterberg–Sensi–Sottile arXiv:2407.17639v3 §3.4",
+          "Resultary 96c9306c6507 §Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.01224",
+        "arXiv:2407.17639v3",
+        "Resultary 96c9306c6507, 647aa1fcac9f, 4105e5caa4dc",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py; repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant-response paper example decouples contact relaxation and does not compute response curvature; prose and summary table differ at equality",
+          "The generic scalar normal form gives B as minus the cubic coefficient divided by K"
+        ],
+        "reasoning": "The log form itself is mechanically implied once the cubic drift is known. Neither the constant-response example nor the normal form determines the exact stable-contact lag A2+(K−L1)h1, its global applicability, or the explicit sign transition in this model.",
+        "searches": [
+          "arXiv:2209.01224 §4.1",
+          "Frozen/repaired §§3–5 versus the scalar quadratic–cubic normal form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (3) is the same ODE and Eq. (7) gives the same threshold; §3.4 classifies equality as undetermined by the stated analysis",
+          "647aa1fcac9f gives a reciprocal law with sign reversal in a rational SIS–activity system"
+        ],
+        "reasoning": "In the inhibitory system, changing activity to the transmission multiplier yields a contact equation quadratic in that multiplier, not the affine linear breaking/creation equation with y-only responses. It does not give the frozen model's jet coefficient.",
+        "searches": [
+          "Resultary: critical adaptive SIS reciprocal prevalence logarithmic asymptotic",
+          "Achterberg–Sensi arXiv:2209.01224 §2 and §3.3–3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored Findings give respectively a leading multigroup Perron profile, an inhibitory activity relaxation resonance, and a four-compartment SIRCm law"
+        ],
+        "reasoning": "These same-date records materially overlap in threshold or asymptotic form but do not state the positive-baseline adaptive SIS response-jet law; no priority ordering inferred from the date.",
+        "searches": [
+          "Resultary: critical clearance, reciprocal-time law, feedback-controlled logarithmic correction; 96c9306c6507, 647aa1fcac9f, 4105e5caa4dc"
+        ]
+      },
+      "rationale": "Pass for the model-specific critical global law with explicit positive-baseline response-jet logarithmic term, finite remainder, and curvature crossing. Neither the adaptive SIS equations, the threshold, the generic critical normal form, nor all first-order critical behavior are claimed new. The repaired text adds no priority claim.",
+      "residual_risks": [
+        "Focused queries and comparison of located sources do not exclude unlocated reductions or equivalent asymptotics.",
+        "Priority among same-date catalogue records is unresolved; this decision is about the distinct model-specific statement, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ODE; positive-baseline critical linear stability not resolved; constant responses a special case",
+          "evidence": [
+            "The two differential equations and R0=τz0 coincide",
+            "The equality case is described as undetermined in §3.4"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-08498-4",
+          "material_read": "OA arXiv:2209.01224 HTML §2 Eq. (3), §3.3 Eq. (7), §3.4 Eq. (8), §4.1; offsets near 7000, 19550, 21000, 28600",
+          "method": "OA primary text",
+          "title": "A minimal model for adaptive SIS epidemics",
+          "trigger": "Identical single-community model and threshold"
+        },
+        {
+          "assessment": "The cited global theorem is strictly below threshold",
+          "evidence": [
+            "Theorem 2 requires R0<1",
+            "Zero baseline breaking gives equilibrium link density 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.17639v3",
+          "material_read": "§2 Eq. (2), §3.3, §3.4 Theorem 2; offsets near 3000, 18000 and 19800",
+          "method": "OA primary HTML",
+          "title": "A minimal model for multigroup adaptive SIS epidemics",
+          "trigger": "Broader adaptive network theorem"
+        },
+        {
+          "assessment": "Material leading-order overlap; no two-term positive-baseline law",
+          "evidence": [
+            "φij(0)=0; n≥2; limits t yi→ri/κ and t(1−zij)→γij/κ"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-critical-clearance-with-prevalence-responsive-links-in-mul--96c9306c6507/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2993",
+          "method": "Local Resultary mirror",
+          "title": "Sharp critical clearance with prevalence-responsive links in multigroup SIS networks",
+          "trigger": "Exact critical equality and related link equations"
+        },
+        {
+          "assessment": "Different transmission and activity law, same generic asymptotic shape",
+          "evidence": [
+            "Activity y'=κ(kx−y), transmission factor η/(1+sy); B=sk(ζ/κ−1)"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-reciprocal-time-law-and-relaxation-rate-resonance-in-in--647aa1fcac9f/RESULT.md",
+          "material_read": "Finding and both displayed vector fields, offsets 0–1731",
+          "method": "Local Resultary mirror",
+          "title": "An exact reciprocal-time law and relaxation-rate resonance in inhibitory SIS–activity dynamics",
+          "trigger": "SIS logarithm and sign-changing coefficient"
+        },
+        {
+          "assessment": "Different four-compartment SIRCm dynamics",
+          "evidence": [
+            "Inverse I expansion has L/K log t and coefficients involving recovered and cross-immune compartments"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc/RESULT.md",
+          "material_read": "Finding and explicit coefficients, offsets 0–1719",
+          "method": "Local Resultary mirror",
+          "title": "Universal critical relaxation and a feedback-controlled logarithmic correction in the SIRCm flow",
+          "trigger": "Cross-model asymptotic and feedback sign change"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves nonlinear clearance at the critical boundary left by a zero Jacobian eigenvalue for every physical infected initial state. Its leading and logarithmic jet formulas distinguish response curvature at the same equilibrium and leading decay rate, including a sharp sign boundary; the finite remainder makes this distinction precise. This is a deterministic mathematical prediction, not a stochastic or empirical claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

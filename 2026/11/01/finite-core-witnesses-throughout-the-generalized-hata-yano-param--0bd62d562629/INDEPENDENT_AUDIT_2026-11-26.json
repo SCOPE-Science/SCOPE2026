@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:48.422795Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any delta in (0,1/6] choose r>=1 so that a=1/(3*2^r)<4 delta, then choose a<c<min(2a,4 delta). This guarantees c<1/3 and c/2<a<c<2a. The external branches required by the cited model agree because the lower breakpoint is at least 1/3 and the upper breakpoint at most 2/3. On [c,1-c/2) the right branch of f0 starts at 2 delta>c/2 and ends below 1-c, while its left branch is between c/2 and 1/3; on [c/2,1-c) the left branch of f1 starts at c and is below 1-2 delta<1-c/2, while the right branch starts at least at 2/3 and ends below 1-c/2. Thus the half-open core is admissible. The atoms a,2a,...,1/3 and their reflections 2/3,...,1-a put precisely the endpoints in opposite strips. At all interior atoms the two maps go to the preceding and following atom. In particular f1(1/3)=2/3 and f0(2/3)=1/3 even at delta=1/6, where the equality branches give the same values; the first and last sites deterministically reflect inward. Detailed balance holds with weights proportional to the path degrees (1 at the endpoints, 2 inside, total 2(2r+1)). Both gate masses are equal and positive. For positive-measure sets choose support atoms and a nearest-neighbor path of positive probability, proving annealed metric transitivity; aperiodicity is not required. Theorem 1.2 and Remarks 1.3 and 1.5 of Nakamura–Nakano–Toyokawa–Yano now give the ordinary arcsine law for each support point, whose point mass is absolutely continuous with respect to this discrete measure. The original-time and accelerated maps are not identified. The supplied rational checker was inspected, not executed; the strict inequalities prove the continuum statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The problem-posing paper constructs a deterministic core at delta>=1/8 and explicitly asks for the nonzero family. The unperturbed Hata–Yano theorem covers delta=0. Inoue–Toyokawa study Lebesgue-equivalent sigma-finite invariant measures for random piecewise convex maps."
+        ],
+        "reasoning": "Neither a result at zero nor the construction for the upper parameter range covers the missing positive interval. A Lebesgue-equivalent invariant measure for a physical system does not provide an atomic stationary probability for the induced core.",
+        "searches": [
+          "arXiv:2206.00226 v1 and v2, Section 1.2.2 and Problem 1.7/1.8",
+          "Hata–Yano arXiv:2108.01332 Eq. (1.13) and Theorem 1.2",
+          "Inoue–Toyokawa arXiv:2303.10873 invariant-measure scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and core_path_checker.py",
+        "arXiv:2206.00226v1/v2",
+        "arXiv:2108.01332v1",
+        "arXiv:2303.10873v1",
+        "Resultary af7ff7fcfb7b and 5028359ab319"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2 is conditional on an annealed metrically transitive core-invariant probability with positive gate masses. Its remarks already imply ordinary and pointwise limits given equal masses and discrete support.",
+          "The later indexed comparator's general dyadic lattice transition formulas permit a separate finite-core construction beyond its stated subsequence: take a sufficiently small dyadic endpoint b on the lattice, choose b<c<min(2b,4 delta) with c<1/3, and truncate symmetrically so the two core maps reflect at the endpoints. This yields dyadic witnesses, not the exact thirds-based support."
+        ],
+        "reasoning": "The limit-law inference is expressly credited to prior work. The earlier problem-posing theorem does not imply existence of a witness at any specified missing delta. The later dyadic method should not be understated as only a discrete-sequence limitation on what one can infer, but neither is it an earlier solution or an implication of the specific frozen probability on different atomic points.",
+        "searches": [
+          "Nakamura–Nakano–Toyokawa–Yano Theorem 1.2, Remarks 1.3 and 1.5",
+          "af7ff7fcfb7b Sections 1–3, mirror offsets 1080–6244"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact problem is to construct a core-invariant annealed metrically transitive probability charging both gates, not to find any invariant measure of the original maps.",
+          "Resultary af7ff7fcfb7b uses the same accelerated core definitions, a dyadic reflected path at delta_k=2^(-k-2), and a distinct direct physical dyadic walk for all positive parameters."
+        ],
+        "reasoning": "For matching delta values the two chains can have the same abstract transition shape, but their atomic sites and reflection cuts differ (the frozen sites have reduced denominator divisible by three). A physical occupation law on the dyadic lattice does not identify initial sites on the thirds lattice.",
+        "searches": [
+          "Resultary lookup for generalized Hata–Yano / induced-core reflecting walks and stationary gate measures",
+          "Generalized Hata–Yano Problem 1.8 finite core invariant measure delta arcsine solution",
+          "Nakamura–Nakano–Toyokawa–Yano arXiv:2206.00226, core maps and Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "af7ff7fcfb7b, indexed 2026/11/8, specifies finite reflected core probabilities on the sequence delta_k=2^(-k-2), with c=4 delta_k and equal endpoint masses; it also gives the full dyadic lattice's transition formulas for every positive delta. 5028359ab319 instead concerns biased unperturbed Hata maps."
+        ],
+        "reasoning": "This is exact overlap on the abstract chain at infinitely many parameters and a related all-parameter pointwise limit, not an exact catalogue match to the frozen all-parameter thirds-based invariant probabilities. The stated finite-core range in the comparator is only a sequence; its timestamp is later in the index and not proof of provenance or dependence.",
+        "searches": [
+          "Local Resultary search for all-positive-parameter stationary finite generalized Hata–Yano cores; inspected af7ff7fcfb7b and adjacent 5028359ab319"
+        ]
+      },
+      "rationale": "The supported contribution is an explicit thirds-based stationary finite-core witness charging both gates for every nonzero generalized Hata–Yano parameter, notably all previously uncovered 0<delta<1/8 in the problem-posing paper. The prior conditional limit theorem is not itself new. The closest distinct indexed finding has a meaningful overlap in the same reflected-path mechanism and has all-parameter arcsine examples on a different dyadic lattice; it is indexed a week later and does not give the specific non-dyadic witness. No first-publication claim is made.",
+      "residual_risks": [
+        "The focused literature query produced no hits; this is not evidence of absence. Indexed comparisons do not rule out an earlier unpublished or unindexed finite-core construction.",
+        "The related indexed dyadic work shows close alternative coverage; no inference about dependence or publication priority is warranted from the directory dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior theorem and partial parameter coverage, not an existence result for all nonzero delta",
+          "evidence": "Generalized occupation law given transitive invariant core; equal strip masses and discrete support imply ordinary law from each atom. Deterministic core only asserted for delta>=1/8 in this family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.00226v1 and https://arxiv.org/pdf/2206.00226v2",
+          "material_read": "v1 pp. 4–6 Theorem 1.2, Remarks 1.3 and 1.5, Section 1.2.2; v1 p. 8 offset 23925 Problem 1.7; v2 theorem offset 12333, remark offset 14941, Problem 1.8 offset 24940",
+          "method": "Primary open PDF passage and definition comparison",
+          "title": "Arcsine law for random dynamics with a core",
+          "trigger": "Original posed problem and exact limit-law hypotheses"
+        },
+        {
+          "assessment": "Unperturbed model, not positive-delta stationary core",
+          "evidence": "The original map and arcsine statement for Lebesgue-absolutely-continuous initial distributions do not furnish the finite witnesses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.01332v1",
+          "material_read": "Eq. (1.13), p. 3, and Theorem 1.2, p. 4",
+          "method": "Primary open PDF passages",
+          "title": "Arcsine and Darling–Kac laws for a piecewise linear random interval map",
+          "trigger": "Original unperturbed model and possible broader occupation theorem"
+        },
+        {
+          "assessment": "Different invariant-measure object",
+          "evidence": "Studies Lebesgue-equivalent ergodic sigma-finite measures, not the disclosed induced-core atomic probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.10873v1",
+          "material_read": "p. 2, offset 5255",
+          "method": "Primary open PDF scope passage",
+          "title": "Invariant measures for random piecewise convex maps",
+          "trigger": "General invariant-measure theorem possibly covering the hypothesis"
+        },
+        {
+          "assessment": "Substantive overlap, later index date and distinct support",
+          "evidence": "Its c=4 delta_k witness is dyadic and tied to a stated subsequence; its full physical lattice can also be truncated with a new choice of c, still on dyadic sites.",
+          "identifier_or_url": "Resultary 2026/11/8/…af7ff7fcfb7b/RESULT.md, mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding at offset 0 and assumptions, path/weights, physical iteration at offsets 1080–6244",
+          "method": "Local mirror passage and transition/parameter comparison",
+          "title": "Dyadic finite core chains and pointwise arcsine laws below the generalized Hata–Yano cutoff",
+          "trigger": "Closest same-model, same reflected walk and occupation-law classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This explicitly fills an existence gap asked in the original core-law paper, including the whole small positive interval not covered by its deterministic construction. The concrete finite measure gives checkable witnesses and identifiable initial points rather than asserting a new limit theorem or relying on sampling parameters. The separate Gharaei–Homburg question and all-initial-point behavior are not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

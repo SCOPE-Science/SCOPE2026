@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The directed-edge recurrence counts each infected person once, includes the probability of a failed contact back to the already infected parent, and terminates on a finite tree. The center-rooted canonical parenthesis representation gives one representative per tree isomorphism class; attaching all possible leaves generates all trees inductively. Exact rational arithmetic checked all \(1301\) unlabelled trees at order \(13\) and all lower orders. Independent weighted-path summation checked the exact \(14\)-vertex witness vector and its positive \(1/576\) gap.
+PASS
 
-## Originality
+At the end of a simple path in a tree the previous vertex is the only already visited neighbor. The continuation counts the current vertex once and divides the sum of forward continuations by the full degree, retaining the killing probability of the backward contact. The seed has no forbidden neighbor. The recurrence terminates on the proper oriented-edge components. Deleting a leaf produces a smaller tree, so growing all leaf attachments from one representative per class is exhaustive by induction. Center decomposition is invariant; sorted rooted shapes determine rooted isomorphism, and a sorted pair of rooted halves determines bicentered isomorphism. An independent exact run compared all vertex maxima against leaf maxima on 2287 classes of orders 2–13, with per-order counts including order 1 of 1,1,1,2,3,6,11,23,47,106,235,551,1301. Recurrence and exact path-prefix sums independently agreed on the order-14 witness, confirming the unique maximum at degree-two vertex 0 of 49/16, best leaves 10 and 13 at 1763/576, and gap 1/576. For order 2 both vertices are leaves. No assertion that every maximizer is a leaf below the cutoff is needed.
 
-**PASS, with discovery risk.** The one-contact infection chain is equivalent to a simple random walk stopped just before its first attempted vertex revisit. Tishby, Biham and Katzav (arXiv:1606.01560) study precisely that stopping mechanism for randomly seeded Erdős–Rényi ensembles. Their ensemble distribution does not establish the fixed-tree, vertex-specific leaf-optimality boundary. Kenah and Robins supply general SIR outbreak-network theory; Gómez and colleagues use reinfecting one-contact dynamics and stationary outcomes; Enright and Kao study a different exact outbreak-size computation on time-expanded DAGs. None of the inspected primary full texts gives or implies the sharp order-14 classification. Equivalent unindexed fixed-tree results remain a residual possibility.
+## originality
 
-## Value
+PASS
 
-**PASS.** Maximizing spread from one deliberately chosen seed is a natural centrality/epidemic-control question. A strict internal optimum appears at a precisely identified first network order even though every smaller tree has some optimal leaf. The margin is small but the existence and sharp minimum order are qualitative structural facts, and the exact enumeration rules out smaller counterexamples. No applied impact claim is made.
+The first-repetition killed-walk formulation is established and supplies the correct comparison, not a novelty claim. No checked source gives the combined all-tree lower bound and sharp first counterexample for this precise full-neighbor starting-vertex mean. Relevant Resultary tree-source records change the law or the extremal question. The accessible general walk results change the graph ensemble and starting-vertex quantifier.
 
-## Scope and limitations
+## value
 
-Connected simple unweighted trees; one randomly chosen neighbor per infected individual, one infectious attempt, permanent removal, and a deterministic initial seed. This is not a theorem about general cyclic graphs, classical multi-contact SIR, or non-backtracking walks. Verification uses complete finite enumeration for the lower bound and an analytic recurrence plus explicit exact instance for the upper bound; no infinite census is asserted. Independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The starting-vertex optimization is natural for a killed walk on a tree, and the result answers whether a leaf can always be used as an optimal start. The strict interior optimum refutes that structural heuristic and the exhaustive lower bound makes the failure order sharp. The small gap matters for the strict extremal question, not as a claim about epidemic effect sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

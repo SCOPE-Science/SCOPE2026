@@ -1,22 +1,21 @@
-# Scientific review of the corona fundamental-group theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-parameter result for finite simple graphs whose deletion of any vertex is connected. The proof isolates the contractible all-leaf simplex, shows that each original-vertex leaf link has exactly two components, and applies van Kampen to obtain one free generator per original vertex. The unbalanced edges are characterized exactly by the absence of an equidistant vertex, are proved to lie in no triangle, and contribute one free generator each. All other root-pair edges can be attached with an allowable leaf triangle as cancelling cell pairs; the remaining triangle attaching words are null via connected leaf-link components. Higher faces cannot alter the fundamental group. Integer first homology follows by abelianization. Independent graph-BFS and modular boundary calculations check 469 two-connected graph instances and 16 cycle-corona instances; computations corroborate but do not replace the proof. No arbitrary graph with a cut vertex is included.
+PASS
 
-## Originality — PASS with residual risks
+All pairs are faces, and the leaf simplex L is contractible. For root i, its leaf link has exactly two components: its own leaf is isolated and the other leaves contain the connected graph G−i in their link one-skeleton. After contracting L, the subcomplex containing at most one root per face is a wedge of the suspensions of these two-component links, each contributing one free generator by van Kampen. Collapse of L is valid for a contractible CW subcomplex. A nonadjacent root pair admits a leaf triangle at an internal vertex of a shortest root-to-root path; for adjacent roots a leaf triangle requires, and is equivalent to, equality of the third root's distances to the endpoints. Without such equality an adjacent pair occurs in no root triangle either, since a distance difference of one forces a geodesic equality. Pair every eligible new root edge with one permitted leaf triangle; each is a relative elementary expansion, while each unbalanced edge contributes a free circle. In the quotient by L, every non-own-leaf arrow from root i represents the same path class p_i, by coning a path in the connected link component. Thus every paired root edge represents p_i p_j^(−1), all unused root-leaf triangle relations are redundant, and every allowed three-root triangle telescopes to the identity. Higher cells do not affect π1. Abelianization gives integral H1 without torsion; bipartite distance parity and the odd-cycle antipodal witness give the corollaries (including v=3). The recorded homology computations, read along with their distance and elimination code, probe only finite graphs over finite fields; they neither establish freeness nor rule out integral torsion. No required computation substitutes for the proof.
 
-Closest same-object source: *General-position polynomials of sunlet graphs via cyclic gaps* (2026-10-12) fully determines the cycle-corona face polynomial, not its fundamental group. Rather's 2026 corona paper likewise treats enumeration, a six-cycle example and polynomial behavior; its abstract and an exact literature comparison in the fully read sunlet study were available, but its own full text was inaccessible. Other nearby published graph-complex topology addresses different complexes (the ladder general-position complex, multipartite and rook cases, and cyclic-polytope tuple complexes). Searches for graph-corona fundamental groups, isomorphic formulations, nonabelian presentations, first homology, and equidistance-parameter coverage found no result implying the all-graph theorem. Semantic search is not a uniqueness certificate; unindexed results and the unread primary full text remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural 2026 enumeration problem is upgraded to a nonabelian topological invariant for the entire family of 2-vertex-connected base graphs. The rank is governed by the geometrically meaningful absence of a vertex equidistant from an edge's endpoints; cycle parity causes a sharp doubling, and all edges contribute for bipartite bases. The characterization distinguishes structural root-link effects from higher-dimensional unknown topology. The result is neither an arbitrary parameter slice nor a rewrite of a counting formula: the nonabelian group and its freeness do not follow from known face enumerators.
+The distinct result is the free-group rank formula for all bases with connected vertex deletions, using unbalanced edges to handle both bipartite and nonbipartite cases. The complete-bipartite restriction is already covered more strongly and is not credited as new. The wider bipartite and sunlet statements are evaluated as corollaries of the general classification, not as claims that every instance was previously unknown.
 
-## Closest literature and limitations
+## value
 
-- B. A. Rather, *Explicit Formulas and Unimodality Phenomena for General Position Polynomials*, arXiv:2603.06930, first public 2026-03-06.
-- *General-position polynomials of sunlet graphs via cyclic gaps*, 2026-10-12, full `RESULT.md` inspected at the publicly accessible published-finding corpus repository.
-- Iršič et al., *General position polynomials*, arXiv:2401.05696.
-- The formula requires every original vertex deletion to leave a connected graph. It does not classify full homotopy type or higher homology. Numerical checks cannot prove all-parameter group freeness. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classification computes a nonabelian invariant and explains which geometric features generate free circles, reducing an arbitrary simplicial presentation with many triangle relations to a distance test on edges. For example, a 5-cycle with one chord has both balanced and unbalanced edges, a case beyond the bipartite formula and cycle parity. The general rank law and redundant-triangle argument add substantive structure beyond enumeration or the earlier complete-bipartite subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

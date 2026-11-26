@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:20:16.736390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45; VERIFICATION.md lines 19–27; verification/verify.py lines 49–101, 119–144; verification/verify_output.txt lines 73–84",
+        "Independent restricted-growth enumeration for the six-vertex boundary: 203 partitions, 50 valid, 29 optimal with three blocks",
+        "Corrected RESULT.md and VERIFICATION.md in repairs/1"
+      ],
+      "rationale": "The frozen high-girth theorem is correct, but the frozen local generalization fails for K₁: its two neighborhood conditions are vacuous, yet the displayed one-block partition has no partner. The repaired RESULT.md requires Δ≥1 for the local theorem. For Δ≥2 the intersecting coalition edges give a universal hub via the star/triangle dichotomy. A hub failing total domination requires a neighbor of a single witness in each distinct partner; otherwise all partners must meet a single outside edge, giving at most two. For Δ=1 any graph admitting a coalition partition must be a nonempty matching, and the only TOIDS is the full graph, so exactly two blocks are possible. In the repaired construction V∖N(v) leaves only v undominated, N(v) is independent, and there is at least one singleton neighbor to repair the failure. With δ≥2 and girth≥5, triangles exclude internal edges in N(v), and four-cycles exclude two neighbors there of a vertex outside N[v]. The repaired six-vertex argument gives the valid partition ({0,1,2},{3},{4,5}); four blocks would force a maximum-degree domination witness with one neighbor in each partner, leaving a same-shore degree-two vertex undominated by at least one hub-partner union. The corrected verification notes distinguish visiting all partitions from scoring all of them: line 91 of the unchanged verifier skips leaves no larger than the incumbent, which is sound for the maximum. Complete corrected scientific files are provided in repairs/1.",
+      "residual_risks": [
+        "The frozen verifier and its output were inspected, not rerun. It does not cover the Δ=1 local case; the matching proof does. The independent boundary enumeration and the administrative wording of reproducibility do not substitute for the proof at arbitrary graph order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buntina–Golmohammadi bound the number of partners by Δ and give a universal hub in a maximum partition. The multipartite hit is for connected complete multipartite graphs with at least three parts and at least one nonsingleton part, and gives value three."
+        ],
+        "reasoning": "Those upper ingredients do not construct Δ distinct partners. The multipartite family contains triangles and lacks the required independent neighborhood, so its formula is not broader coverage of the local or high-girth theorem. The unavailable query has no negative evidential weight.",
+        "searches": [
+          "arXiv:2607.23623v2, Theorem 1 and Lemma 2",
+          "Primary query: total outer-independent coalition / girth / maximum degree (lookup unavailable)",
+          "2026/10/13/SCOPE-total-outer-independent-coalition-number-of-noncomplete-multipar--84e4a89ad2e8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 47–59",
+        "arXiv:2607.23623v2 as scoped above",
+        "Three exact Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2(iv) already gives C_t^oi(C_n)=3. The other stated family formulas and the hub/partner bound do not entail a lower bound under the repaired neighborhood predicates."
+        ],
+        "reasoning": "Credit the upper bound and cycles. Degree-two cycles are only one subclass; the construction uses the two-neighborhood structure to yield Δ distinct partners even when Δ is unbounded. The matching check in the repair handles a boundary, not a separate originality claim.",
+        "searches": [
+          "arXiv:2607.23623v2 Theorem 1, Lemma 2 and Theorem 2(iv)",
+          "Closest complete multipartite and cycle-census Resultary findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TOIDS combines total domination with an independent complement, equivalently a total dominating vertex cover. The crown-graph record uses ordinary total domination coalitions and does not enforce the complement condition."
+        ],
+        "reasoning": "Equality for ordinary total coalition partitions is not an equivalent statement for this invariant; both the valid pairs and the prohibited individual parts depend on the predicate. The corrected finding is compared under the TOIDS definition.",
+        "searches": [
+          "Resultary: total outer-independent coalition, degree equality, high girth and local neighborhood formulations",
+          "arXiv:2607.23623v2, definitions and Theorems 1–2",
+          "2026/10/26/SCOPE-total-coalition-partitions-of-crown-graphs-a-four-vertex-deficit--a4c08ede6de7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day crown finding has TC(Cr₃)=3 and TC(Cr_n)=2n−4 for n≥4 for a different predicate. The cycle census takes the exact TOI cycle value three as known and counts optimum partitions."
+        ],
+        "reasoning": "The cycle record is genuine subclass overlap, not a table or identity for arbitrary nonregular high-girth graphs. A catalogue date alone does not decide scientific priority.",
+        "searches": [
+          "Local Resultary: four exact-invariant/family/degree/girth variants",
+          "2026/10/26/SCOPE-total-coalition-partitions-of-crown-graphs-a-four-vertex-deficit--a4c08ede6de7",
+          "2026/11/8/SCOPE-exact-census-of-maximum-total-outer-independent-coalition-partit--a6a31c1e0939"
+        ]
+      },
+      "rationale": "The repaired theorem retains a sharp lower construction for the full high-girth class and a local positive-degree criterion. The maximum-degree ceiling and cycle subclass are covered by prior work and are not credited as new. The strongest inspected exact-invariant results do not establish the matching lower bound for the claimed general class.",
+      "residual_risks": [
+        "Primary-search transport was unavailable for the targeted girth query; no absence inference is drawn. A prior exact high-girth or local theorem not found in the inspected sources could alter originality. No priority is inferred from catalogue ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the ceiling and cycle slice",
+          "evidence": "At most Δ partners; a block partnered with all others in a maximum partition; exact value three on cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.23623v2",
+          "material_read": "Theorem 1 p. 5 offset 12742; Lemma 2 p. 6 offset 15976; Theorem 2(iv) p. 8 offset 21423",
+          "method": "OA PDF bounded passages",
+          "title": "Total outer-independent coalition in graphs",
+          "trigger": "Founding paper, exact predicate and possible degree theorem"
+        },
+        {
+          "assessment": "Different invariant and family",
+          "evidence": "Ordinary total-coalition numbers for the crown graph family; no outer-independence condition.",
+          "identifier_or_url": "2026/10/26/SCOPE-total-coalition-partitions-of-crown-graphs-a-four-vertex-deficit--a4c08ede6de7",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary and mirrored record",
+          "title": "Total coalition partitions of crown graphs",
+          "trigger": "Strong same-day family and matching-deletion analogue"
+        },
+        {
+          "assessment": "Exact formula for a different family",
+          "evidence": "Value three for connected complete multipartite graphs with at least three parts and a part of size at least two.",
+          "identifier_or_url": "2026/10/13/SCOPE-total-outer-independent-coalition-number-of-noncomplete-multipar--84e4a89ad2e8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary and mirrored record",
+          "title": "Total outer-independent coalition number of noncomplete multipartite graphs",
+          "trigger": "Same invariant and exact-family formula"
+        },
+        {
+          "assessment": "Overlapping cycle values only, additional census on that subclass",
+          "evidence": "The value three for cycles is used as known; optimum cycle partitions are counted.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-census-of-maximum-total-outer-independent-coalition-partit--a6a31c1e0939",
+          "material_read": "RESULT.md Finding at offset 189",
+          "method": "Local Resultary and mirrored record",
+          "title": "Exact census of maximum total outer-independent coalition partitions",
+          "trigger": "Same invariant and extremal partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and proof",
+        "Frozen RESULT.md lines 47–55; compared Buntina–Golmohammadi bounds"
+      ],
+      "rationale": "The corrected finding is still an exact extremal theorem for a natural unrestricted class: it identifies when a known degree ceiling is achieved in all graphs of minimum degree two and girth at least five, constructs an optimum partition, and exhibits a structural obstruction at girth four. Nonregular and disconnected cases are included. The value is in the sharp construction and broad class, not the minor Δ=1 scope repair or the known cyclic cases.",
+      "residual_risks": [
+        "The theorem gives a sufficient condition; it is not a full characterization of degree-sharp graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

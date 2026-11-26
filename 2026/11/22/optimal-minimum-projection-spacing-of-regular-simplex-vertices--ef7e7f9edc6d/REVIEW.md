@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes all quantifiers: each fixed integer \(d\ge3\), unit-edge regular simplex, normalized Haar direction, minimum consecutive sorted vertex projections and small positive \(\varepsilon\). Embedding the projection scores on a centered radius-\(1/\sqrt2\) sphere is exact. The sorted-gap Gram matrix is the inverse type-\(A_d\) Cartan matrix, whose determinant, row sums and positive entries are explicit; these certify the sharp maximum and all its equality cases. The coarea density includes the sphere's radius factor, the \((d+1)!\) chambers, and the exact determinant Jacobian. The positive-root substitution has the correct factor of two from the quadratic delta. Compact uniform asymptotics justify the \(O_d(\varepsilon^d)\) error; the same uniform density convergence implies total variation. The standalone checker reproduces the tetrahedral exact integral and first coefficients, without being treated as an infinite proof.
+PASS
 
-## Originality — PASS, historical priority provisional
+In the centered coordinate model the projected vector is uniform on the radius-1/sqrt(2) sphere in the zero-sum hyperplane. In any label chamber the inverse difference map has Gram matrix M equal to the inverse path Cartan matrix, with determinant 1/(d+1), positive entries, and row sums a_j. Thus g^T M g >= A_d(min g_j)^2, with equality only at the positive equal-gap point of each chamber. This gives the stated maximum and (d+1)! oriented maximizers. Coarea with the gap Jacobian (d+1)^(-1/2) and the slack change of variables h_j=s q_j/a_j gives the displayed integral: the positive root solves 2ts+s^2H=B_t and its radial derivative is 2(t+sH). Summing chambers and dividing by sphere area gives exactly the stated prefactor. At t=0 the chambers exhaust the sphere up to ties, and at t>=g_d the strict event is empty. Uniformly on the compact q-simplex as t=g_d-epsilon increases, s=A_d epsilon+O_d(epsilon^2) and the inverse denominator is g_d^(-1)+O_d(epsilon). Integrating over simplex coordinate volume 1/(d-1)! gives C_d and the stated error; normalizing the same uniformly expanded density gives total variation convergence. Coordinate permutation leaves that density invariant, giving exact independent uniform label order. An independent 80-by-80 Gauss–Legendre quadrature on the tetrahedral simplex at t=0 gave 1.000000000000; substitution into C_d gives 2*5^(5/2)/(3*pi). These spot checks do not prove the general formula; the supplied verifier was inspected, not executed.
 
-The 2015 regular-polytope width paper and the 2011 tetrahedral-width paper were read in full mathematical text; neither studies the smallest adjacent projection gap. Full results of the three most relevant related published simplex studies were inspected. They address Gaussian affine-section counts or the range of projected coordinates, not the optimization of all internal consecutive vertex gaps. The new claim is not implied by a known range law: an arithmetic-progression maximizing set replaces two-level support-width extremizers, and the conditional gap vector is distinct. Bounded research-record and literature searches found no matching exact probability or Dirichlet refinement. Earlier equivalent statistical terminology might nevertheless exist, so absolute historical priority is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Minimum pairwise resolution of a projected simplex vertex set is a natural and genuinely different geometric quality functional from projection width: it measures whether **all** labelled vertices remain visually distinguishable on a line. The sharp deterministic resolution, the probability of a near-optimal viewing direction in every fixed dimension, a computable exact finite-threshold integral, and the complete conditional weighted-gap profile answer a cohesive geometric-probability question. They describe a nontrivial rare event with an \(\varepsilon^{d-1}\) exponent and characterize its internal error-sharing, not a numerical recomputation or a one-parameter restatement of a width result.
+Best of the inspected evidence: the complete statement for minimum adjacent projected spacing, including its finite-threshold and conditional endpoint laws, is distinguishable from both projection-width results and affine-section results. The exact catalogue hit is the assigned item itself, not a separate claim.
 
-## Closest literature and limits
+## value
 
-Kabluchko–Litvak–Zaporozhets (2015) prove random width moment and Gaussian range relations; Finch (2011) treats the tetrahedral width; later published results on random simplex sections and width endpoint geometry were compared in their full result texts. None gives the new minimum adjacent-gap endpoint and marked limit by implication. The theorem is for regular simplices, Haar directions and fixed dimension; no independent audit or exhaustive historical-priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A support-width statistic cannot tell whether every projected vertex is resolvable. The exact survival integral quantifies whole-configuration resolvability at a prescribed tolerance, while the sharp tail and conditional weighted gap law explain how the near-optimal directions share that tolerance. The combined findings go materially beyond the elementary equal-gap optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

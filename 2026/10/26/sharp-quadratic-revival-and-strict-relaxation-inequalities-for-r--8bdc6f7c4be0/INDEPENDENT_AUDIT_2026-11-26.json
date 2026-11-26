@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:03:10.434048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated normalization the central H commutes with every noise conjugation, the dissipative law stays diagonal, and measurement after coherent evolution convolves that law with the central probability Q_s. Central Fourier transforms are scalar with factors exp(-gamma*t*(1-r_lambda)) and kappa_lambda respectively. Counting-measure Plancherel gives the claimed 1/n! prefactor and nonnegative deficit. At finite t the classical factors are positive in every mode. Equality forces unit absolute value of every scalar transform of Q_s, including the trivial one, so Plancherel gives squared mass one. The resulting single atom is central and hence the identity for n>=3. Since the coherent operator is a convolution, its identity column being a phase times the identity basis vector forces scalarity. For the period the content gaps for n=3,4 have gcd 3,2; for n>=5 the three displayed partitions exist and have gaps n, 2(n-1), 3(n-1), of gcd one. Dividing the normalized denominator C by that gcd gives the least period in units of 2*pi. For the curvature, the transposition amplitudes at leading order are -i*delta/C and H^2(e,e)=1/C; real H makes each Q_delta(g) even. Thus Q_delta=delta_e+(delta^2/C)(mu_2-delta_e)+O(delta^4), giving exactly the stated K_n, positive because the standard mode has positive spectral gap. At t=0 the physical phase is zero; the fixed-t deficit function has the stated expansion in its formal phase variable. For bounded corroboration, independently assembled 6- and 24-dimensional matrices at gamma=0.7, t=0.8 (index (g,h) receives 1/C for each tau with g=tau*h) gave revival Frobenius errors below 1e-14 and positive deficits 0.193350989 and 0.263066558 at half the respective periods. At delta=0.004 the divided deficits were 0.168669855 and 0.098016012 versus analytic coefficients 0.168670687 and 0.098016258. Uploaded verify.py and its recorded PASS were inspected, not rerun; proof, not this bounded test, gives the all-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He et al. give the convolution, Fourier formulation, nonstrict total-variation bound and quadratic expansion of Q.",
+          "Gerhardt–Watrous' upper-bound periodicity covers arbitrary conjugacy classes in their unnormalized model."
+        ],
+        "reasoning": "The total-variation inequality is a different observable. For squared counting-L2 the argument must identify the equality set via the positive weights and central point-mass condition. The K coefficient is an explicit consequence of using the older expansion in the new deficit formula, not a new coherent-law expansion.",
+        "searches": [
+          "He et al. Eqs. (68)–(76) and App. B",
+          "Gerhardt–Watrous Prop. 7 for conjugacy-class walks"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "arXiv:2609.13387v1",
+        "arXiv:quant-ph/0305182v1",
+        "Resultary 1d96c6dfdb78 and 0e1a12411b1d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=5, nonzero transposition characters have absolute values 1 or 2; their dimensions are 1,4,5,5,4,1. Equation (132) gives 2*pi*20/1=40*pi, while content gaps with gcd one give 2*pi*10=20*pi.",
+          "The full least-period computation supplies an all-size gcd witness using three partitions and the two exceptional spectra. The earlier TV result and the kernel Taylor series do not identify which Q_s have unit modulus in all Fourier modes."
+        ],
+        "reasoning": "The older arithmetic is sufficient for recurrence, not minimality; its suggested growth from finite data is not a conflicting theorem about the minimum transposition period. The sharp L2 comparison needs a separate equality argument, not merely applying the earlier TV bound in another norm.",
+        "searches": [
+          "He et al. arXiv:2609.13387v1 Eq. (132), q-class specialization q=2",
+          "Gerhardt–Watrous Prop. 7 and §3.2",
+          "Resultary 1d96c6dfdb78 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gerhardt–Watrous' transposition-character formula gives the same spectrum c_lambda/C after normalization, and their unnormalized full identity period 2*pi becomes 2*pi*C.",
+          "Scalar revival and identity revival coincide for this spectrum with the computed gap gcd; a point-mass distribution revival also coincides because the group center is trivial."
+        ],
+        "reasoning": "Compare exact least scalar periods, not periods in unnormalized Hamiltonian time or times of being a common multiple. The spectrum and recurrence upper bound alone do not evaluate the gap gcd uniformly.",
+        "searches": [
+          "He et al., arXiv:2609.13387v1 Appendix B Eq. (132)",
+          "Gerhardt–Watrous, quant-ph/0305182v1 §3.2 and Prop. 7",
+          "Resultary: transposition walk exact least revival and L2 relaxation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-card TV finding lists eigenvalues 1,-1,0, which already imply the n=3 period. Its closed finite law is same-model special-case evidence.",
+          "The standard-mode Bessel record addresses one representation mode, not the full equality profile. The transposition spectral data are available via the character formula; the Appendix B graph uses a recurrence construction, not a verified table of minimum periods."
+        ],
+        "reasoning": "Credit the known small case and exact spectra. Neither a one-mode formula nor a finite plot establishes all-size minimum periods, and the three-card case does not supply the general deficit theorem.",
+        "searches": [
+          "Resultary 1d96c6dfdb78 and 0e1a12411b1d",
+          "Gerhardt–Watrous §3.2 exact character formulas and He et al. Appendix B Fig. 10"
+        ]
+      },
+      "rationale": "The normalized model, convolution, spectral input, a recurrence upper bound and the quadratic expansion of the coherent law have prior coverage. The verified prior statements do not give the evaluated least-period gcd for all n with its exceptions, or the finite-time L2 equality set and positive local deficit at exactly those phases. The distinction between a common revival and the least scalar revival is substantive; the closest prior recurrence arithmetic overestimates the least period already for n=5. The exact joint classification, not general nonstrict convolution contraction, is the supported contribution.",
+      "residual_risks": [
+        "Equivalent exact least-period calculations or exact equality formulations in unindexed literature may exist.",
+        "More S_3 consequences can be deduced from earlier explicit finite laws; that special case is not the basis for originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, convolution and Taylor antecedents, plus a sufficient but potentially nonminimal recurrence",
+          "evidence": [
+            "Eq. (72) is a total-variation comparison. Eq. (76) expands the coherent law, not the exact deficit in L2.",
+            "Eq. (132) selects nonzero characters and uses 2*pi times the LCM of dimensions divided by the character gcd; the ensuing growth discussion says likely and relies on a plot."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.13387v1",
+          "material_read": "Equations (68)–(76), HTML offsets about 64200–68821; Appendix B Eq. (132) and Fig. 10, offsets 104900–107355",
+          "method": "OA versioned HTML bounded passages, with independent n=5 specialization",
+          "title": "Quantum Stochastic Walks on the Permutation Group",
+          "trigger": "Same dynamics and normalization, exact recurrence and mixing antecedents"
+        },
+        {
+          "assessment": "Normalized upper bound and explicit spectral data, not minimality computation",
+          "evidence": [
+            "The unnormalized class spectrum gives U(2*pi)=I; the transposition-character formula gives the content eigenvalues."
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0305182v1",
+          "material_read": "§3.2 and Prop. 7 p. 7, PDF offset about 25280",
+          "method": "OA versioned PDF bounded passages",
+          "title": "Continuous-time quantum walks on the symmetric group",
+          "trigger": "Prior integral-period result and exact transposition spectrum"
+        },
+        {
+          "assessment": "Exact S_3 antecedent in TV; three-card period follows already",
+          "evidence": [
+            "It optimizes six-state total variation with retuned coupling and gives the normalized eigenvalues 1,-1,0."
+          ],
+          "identifier_or_url": "Resultary 1d96c6dfdb78",
+          "material_read": "Mirrored RESULT.md around offsets 500 and 752",
+          "method": "Resultary search then local mirror passages",
+          "title": "Sharp finite-time mixing envelope for the three-card quantum stochastic shuffle",
+          "trigger": "Exact same-model small-size dynamics"
+        },
+        {
+          "assessment": "One representation mode and its scaling limit, not the full-mode equality theorem",
+          "evidence": [
+            "The claim is about the standard-character mode and a Bessel-square crossover."
+          ],
+          "identifier_or_url": "Resultary 0e1a12411b1d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search then local mirror passage",
+          "title": "A Plancherel–Bessel crossover for the standard mode of quantum random transpositions",
+          "trigger": "Exact mode coefficient for the coherent transposition law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized least period is a natural invariant with physically different scaling from a recurrence upper estimate. The measured-law equality result identifies exactly when coherent coupling makes no improvement in the specified squared distance, and the positive explicit curvature quantifies how strictness starts near those phases. Neither the equality set nor the rate coefficient is extracted from an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

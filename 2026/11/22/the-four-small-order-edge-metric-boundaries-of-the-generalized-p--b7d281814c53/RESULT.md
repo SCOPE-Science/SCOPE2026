@@ -1,37 +1,37 @@
-# The four small-order edge-metric boundaries of the generalized Petersen family \(P(n,3)\)
+# Counting the minimum edge-resolving sets of \(P(n,3)\) at orders seven through ten
 
 ## Finding
-For every integer \(n\ge7\), the edge metric dimension of the simple cubic generalized Petersen graph \(P(n,3)\) is
-\[
-\beta_e(P(n,3))=\begin{cases}3,&n\in\{9,10\},\\4,&n=7,8\text{ or }n\ge11.\end{cases}
-\]
-At the four formerly excluded orders \(n=7,8,9,10\), the respective numbers of minimum edge-resolving landmark subsets are exactly \(469,368,18,160\). Hence the three-landmark exceptions form a finite two-order island immediately before the published stable range.
+
+For the generalized Petersen graphs \(P(n,3)\) at \(n=7,8,9,10\), the respective numbers of minimum edge-resolving vertex subsets are **469, 368, 18, and 160**. These are labelled subset counts, not counts up to automorphism. The corresponding minimum sizes \(4,4,3,3\) are already stated in the concluding remarks of Wang, Wang and Zhang [1]; their Theorem 1.1 proves size four for every \(n\ge 11\). The contribution here is the four multiplicities, not the dimension classification or the two exceptional orders.
 
 ## Assumptions and scope
-For integers \(n\ge7\), set \(V=\{u_i,v_i: i\in\mathbb Z/n\mathbb Z\}\). Give \(P(n,3)\) the outer edges \(\{u_i,u_{i+1}\}\), spokes \(\{u_i,v_i\}\), and inner edges \(\{v_i,v_{i+3}\}\), with indices cyclic. These are \(3n\) distinct undirected edges. The distance from landmark vertex \(w\) to edge \(e=\{a,b\}\) is \(\delta(w,e)=\min(d(w,a),d(w,b))\), with \(d\) ordinary shortest-path graph distance. A set \(S\subseteq V\) resolves the edges if, for every two distinct edges, some \(w\in S\) gives different values of \(\delta\). No weighting, vertex-visibility or edge-to-edge distance is used.
+
+For \(n\ge7\), write the vertices as \(u_i,v_i\) for \(i\in\mathbb Z/n\mathbb Z\). The \(3n\) distinct undirected edges are \(\{u_i,u_{i+1}\}\), \(\{u_i,v_i\}\), and \(\{v_i,v_{i+3}\}\). The distance from a landmark vertex \(w\) to an edge \(\{a,b\}\) is \(\min(d(w,a),d(w,b))\) for shortest-path graph distance \(d\). A landmark set resolves the edges when each pair of distinct edges is distinguished by at least one landmark. Only orders seven through ten are counted.
 
 ## Proof
-For each \(n\in\{7,8,9,10\}\) take the explicitly specified \(2n\)-vertex, \(3n\)-edge graph, obtain the integer shortest-path matrix by breadth-first search, and form its vertex-by-edge matrix \(M\), where \(M[w,e]=\delta(w,e)\). For any \(k\)-subset \(S\) of landmark rows, it resolves precisely when the \(3n\) column vectors of \(M\) restricted to \(S\) are all distinct. The accompanying `verify_exhaustive.cpp` enumerates **every** subset of cardinalities two, three and four in lexicographic order and directly compares all pairs of edge signatures. The exhaustive counts are:
 
-| \(n\) | Resolving pairs | Resolving triples | Resolving four-sets |
-|---:|---:|---:|---:|
-| 7 | 0 | 0 | 469 |
-| 8 | 0 | 0 | 368 |
-| 9 | 0 | 18 | 1359 |
-| 10 | 0 | 160 | 3200 |
+For each order, compute all vertex distances by breadth-first search in the specified graph and form the vertex-by-edge matrix \(M[w,\{a,b\}]=\min(d(w,a),d(w,b))\). The graph is connected since the outer cycle meets every inner vertex by a spoke. A set of rows resolves if and only if restriction to those rows leaves the \(3n\) columns pairwise distinct. Enumerating all unordered row subsets of sizes two, three and four gives:
 
-Thus each of the four boundary minima follows: existence is exhibited by a positive count, and smaller candidate sizes fail, because resolving is upward-closed under adjoining landmarks. In the index convention where integers \(0,\ldots,n-1\) denote \(u_0,\ldots,u_{n-1}\), and integers \(n,\ldots,2n-1\) denote \(v_0,\ldots,v_{n-1}\), explicit resolving witnesses are respectively \(\{0,1,2,7\}\), \(\{0,1,2,11\}\), \(\{0,12,13\}\), and \(\{0,2,13\}\). The 2020 theorem of Wang, Wang and Zhang independently proves \(\beta_e(P(n,3))=4\) for every \(n\ge11\), closing the stated infinite-range formula without extrapolating finite enumeration.
+| \(n\) | Resolving pairs | Resolving triples | Resolving four-sets | Number at minimum size |
+|---:|---:|---:|---:|---:|
+| 7 | 0 | 0 | 469 | 469 |
+| 8 | 0 | 0 | 368 | 368 |
+| 9 | 0 | 18 | 1,359 | 18 |
+| 10 | 0 | 160 | 3,200 | 160 |
 
-## Verification
-Compile `verify_exhaustive.cpp` with `g++ -O2 -std=c++17 verify_exhaustive.cpp -o verify_gp3` and run `./verify_gp3`; exact expected output is embedded in `cpp_results.txt`. Independently run `python verify_networkx.py` (requires NetworkX), which constructs the edges independently, uses NetworkX all-pairs shortest paths, and tests every row-subset by signature uniqueness; its output is `python_results.txt`. The two programs agree on all four minimum subset counts and witnesses, using separate edge-ordering and test implementations. The C++ checker also records all resolving 4-subsets for the two three-landmark cases. These are finite exhaustive tests for exactly the four orders, not an infinite proof.
+The enumeration independently recovers the known minima: resolving is preserved under adding vertices, so in each case the absence of resolving sets of the previous size rules out all smaller sets. With \(u_i\) represented by \(i\) and \(v_i\) by \(n+i\), the first minimum witnesses in lexicographic order are \(\{0,1,2,7\}\), \(\{0,1,2,11\}\), \(\{0,12,13\}\), and \(\{0,2,13\}\), respectively.
 
-## Relationship to prior work
-Wang, Wang and Zhang, arXiv:2005.08038 (first publicly posted 2020-05-16, later in Journal of Combinatorial Optimization), prove the stable \(n\ge11\) part but do not cover the four orders enumerated here. The 2023 article *Edge Resolvability in Generalized Petersen Graphs* studies \(GP(2\ell+1,\ell)\) mainly for \(\ell\ge11\) and \(GP(2\ell,\ell)\) for large \(\ell\), not the present fixed-inner-step small-order census; the family overlaps in its graph notation at \(n=7\), but its published main statements do not supply the minimum-set counts. The 2018 generalized-Petersen work addresses fixed steps one and two, with a lower bound for other steps. Distinguish these ordinary edge-metric results from vertex metric dimension, size-restricted edge resolving variants and double generalized Petersen graphs.
+## Reproduction
 
-## Limitations
-The finite counts are exhaustive only for \(7\le n\le10\). The classification for \(n\ge11\) uses the separately credited published theorem. This does not claim a complete edge-resolving polynomial or automorphism orbit census. Literature search does not establish absolute priority; independent mathematical auditing has not been performed.
+From the record directory, compile `verify_exhaustive.cpp` using `g++ -O2 -std=c++17 verify_exhaustive.cpp -o verify_gp3` and run `./verify_gp3`; `cpp_results.txt` records the output across sizes two through four. Running `python3 verify_networkx.py` with NetworkX enumerates through the first successful size for each order; `python_results.txt` records its reported minimum counts and first witnesses. Both tests enumerate every subset at each size they report; neither estimates counts by sampling or checks other orders.
+
+## Relationship to prior work and limitations
+
+Wang, Wang and Zhang [1, §6] explicitly state all four dimensions. At order seven, they use the isomorphism \(P(7,3)\cong P(7,2)\) and Filipović, Kartelj and Kratica [2, §2.3 and Table 5]. An explicit isomorphism swaps the layers and sends index \(i\) to \(2i\) modulo seven: a step of one becomes an inner step of two, and a step of three becomes an outer step of minus one. The scalar at order eight and the two order-nine and order-ten exceptions also appear in [1, §6]. Neither that passage nor [2, Table 5], which gives a single representative basis for \(P(7,2)\), is a census of all optimal landmark subsets.
+
+The counts distinguish the number of optimal choices even at orders with the same dimension. The cutoff is the four orders preceding the published stable-range theorem, not an arbitrary sample of the stable range. No counts outside these four orders or up to symmetry are claimed. Historical priority for the multiplicities is qualified by the sources inspected.
 
 ## References
-- D. G. L. Wang, M. M. Y. Wang, S. Zhang, *The edge metric dimension of the generalized Petersen graph \(P(n,3)\) is 4*, arXiv:2005.08038 (first posted 2020-05-16); Journal of Combinatorial Optimization 43 (2022), 460–496, doi:10.1007/s10878-021-00780-8.
-- *Edge Resolvability in Generalized Petersen Graphs*, Symmetry 15 (2023), article 1633, doi:10.3390/sym15091633.
-- V. Filipovic, A. Kartelj, J. Kratica, *Edge metric dimension of some generalized Petersen graphs*, arXiv:1807.00580 (2018).
+
+1. D. G. L. Wang, M. M. Y. Wang, and S. Zhang, *The edge metric dimension of the generalized Petersen graph \(P(n,3)\) is 4*, Theorem 1.1 and §6, [arXiv:2005.08038](https://arxiv.org/abs/2005.08038), Journal of Combinatorial Optimization 43 (2022), 460–496, [DOI](https://doi.org/10.1007/s10878-021-00780-8).
+2. V. Filipović, A. Kartelj, and J. Kratica, *Edge metric dimension of some generalized Petersen graphs*, §2.3 and Table 5, [arXiv:1807.00580](https://arxiv.org/abs/1807.00580).

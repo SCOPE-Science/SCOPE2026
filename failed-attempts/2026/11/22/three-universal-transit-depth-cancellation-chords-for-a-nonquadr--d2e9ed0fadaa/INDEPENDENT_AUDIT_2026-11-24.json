@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:32.030650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disk area measure is 2 mu dmu. Independent exact elimination of the weighted three-by-three normal equations gives the fitted fractional term -8/231+(40/77)(mu+mu^2); positive definiteness of the Gram matrix follows from the positive integral of the square of each nonzero polynomial. Fitting the free constant makes the mean residual exactly zero, and the true mean is positive. At fixed b<1 the planet is wholly inside the disk for sufficiently small radius, and continuity gives the leading occulted-area factor times the local intensity; the common mean therefore reduces the normalized difference to a nonzero multiple of the single residual. With t=sqrt(mu) this residual is -1/231 times the quoted quartic. Its three disjoint rational sign brackets and the three Descartes sign variations give exactly three positive roots, simple and in (0,1). The endpoint at b=0 is not a zero and b=1 is excluded. The quartic is positive at t=1; since t decreases as b grows, the model-minus-true sign sequence for c>0 is +,-,+,-. Positivity of the fitted law is needed only for its physical interpretation, not the root calculation. Replay: python3 /workspace/branches/independent_checks.py 1, including rational bracketing and independent coefficients from the published product formula. The frozen script was inspected, not run. There is no conclusion for finite planets or transit-fitted coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1994 paper treats arbitrary distinct real exponents above -1/2, identifies the best L^2 fractional-power approximation error from its preceding powers and gives exactly n interior zeros. In §4, non-sign-changing zeros count twice and the bound also includes x=1; the n distinct interior zeros therefore change sign.",
+          "Keers studies a mu^(3/2) law in finite transit retrieval; Espinoza–Jordán's inspected fitting procedures do not use the exact free continuous 2 mu projection here. Heller supplies analytic normalizations/depth context, not the projected residual."
+        ],
+        "reasoning": "The closest astronomy studies share the physical ingredients but not the exact calibration; the approximation theorem, not those empirical comparisons, directly dominates the mathematics of the bound finding. It determines exact coefficients as well as the root-count and sign feature for every admissible ordered exponent list.",
+        "searches": [
+          "Borwein–Erdélyi–Zhang author-posted PDF §2 (2.6),(2.8) and §4 (4.1),(4.2), Corollary 4.2",
+          "Keers et al. arXiv:2410.18617v1 Eq. (3) and §2.4",
+          "Espinoza–Jordán arXiv:1503.07020 §2 and arXiv:1601.05485 §3.1.1",
+          "Heller arXiv:1901.01730 §2.3.2 and §2.3.6"
+        ]
+      },
+      "checked_sources": [
+        "Borwein–Erdélyi–Zhang, Trans. Amer. Math. Soc. 342 (1994), 523–542, author PDF BEZmuntz.pdf",
+        "arXiv:2410.18617v1",
+        "arXiv:1503.07020",
+        "arXiv:1601.05485",
+        "arXiv:2409.03812v1",
+        "arXiv:1901.01730",
+        "Local Resultary d2e9ed0fadaa, 0c312599056c, 8825bff56c70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exponents (0,1/2,1,3/4), the numerator product over the first three exponents and the denominator product of differences over all other exponents give coefficients (-8,120,120,-231) in that order.",
+          "Thus L_3(x)=-8+120 x^(1/2)+120 x-231 x^(3/4). The approximation error is L_3/(-231). Under t=x^(1/4) and x=1-b^2 this is exactly minus the frozen quartic divided by 231, with t in (0,1) at the roots.",
+          "The constant is in the fitted span, so the mean residual vanishes. Division by the common positive disk mean cannot move the zeros. Corollary 4.2 and the §4 sign-count bound supply three sign-changing interior zeros; numerical evaluation merely displays them."
+        ],
+        "reasoning": "This is a direct parameter specialization and coordinate conversion of the stronger known exact residual and zero theorem. No additional nonstandard lemma, new root relation, or independent finite-radius effect is needed for any part of the stated cancellation invariant.",
+        "searches": [
+          "Author-posted BEZmuntz.pdf at extracted offsets 4200–12178, 34400–39819",
+          "Bounded independent arithmetic replay of Eq. (4.2) at the transformed exponents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With x=mu^2, the area-weighted problem becomes ordinary L^2([0,1],dx). The fitted span is {1,x^(1/2),x}, and the residual on x^(3/4) is the error with the exponent 3/4 placed last.",
+          "The cited primary source writes L_n/c_nn as exactly the L^2 error for approximating x^lambda_n by the span of the preceding powers; (2.6) applies to distinct exponents without a monotone-order requirement.",
+          "The original definition differs from an intensity law with fixed normalization or a simultaneous light-curve fit; those are not used in the reduction."
+        ],
+        "reasoning": "The astrophysical weight is removed by an exact change of variable, not by an approximate equivalence or analogy. The same ordered basis and omitted function occur in a direct specialization of the prior theorem; subtracting any fitted baseline and multiplying by the nonzero coefficient do not alter the zero set.",
+        "searches": [
+          "Local Resultary: normalized small-planet depth zeros and disk-area quadratic projection omitted 3/2 limb law",
+          "Muntz Legendre polynomials explicit coefficients formula orthogonal arbitrary distinct real exponents shifted weight exact simple zeros Borwein Erdelyi Zhang",
+          "Borwein–Erdélyi–Zhang, §2 Corollary 2.2 and Theorem 2.4; §4 opening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue record d2e9ed0fadaa is the assigned result, not a separate source of priority. The distinct 0c312599056c and 8825bff56c70 hits concern projection operator norms, not this residual.",
+          "No distinct table of the three numerical b values was located in the bounded comparison. The older coefficient product gives their exact defining polynomial all the same."
+        ],
+        "reasoning": "The absence of a tabulated decimal triple does not distinguish the claim: exact algebraic specifications are more decisive than a printed approximation, and the assigned record's own mirror is not prior corroboration.",
+        "searches": [
+          "Local Resultary: exact limb-darkening projection chords and Jacobi-weighted/radial quadratic projection",
+          "Local mirror SCOPE-d2e9ed0fadaa RESULT.md offsets 774 and 3900",
+          "Borwein–Erdélyi–Zhang §4 Eq. (4.2) explicit product"
+        ]
+      },
+      "rationale": "The exact invariant is mechanically implied by the existing stronger Müntz–Legendre best-approximation and zero theorem of Borwein, Erdélyi and Zhang (1994). After x=mu^2, the residual is exactly their degree-three error for the ordered exponents (0,1/2,1,3/4). Their explicit finite product gives the precise quartic, not merely a qualitative zero count. The physical statement then follows by the fixed midtransit coordinate change and common disk mean. This is demonstrated prior coverage, not an inference from a title, a keyword miss, or an inaccessible source.",
+      "residual_risks": [
+        "The bounded astronomy inspection does not resolve who first displayed these particular impact-parameter decimals. That is not needed for the coverage decision: the earlier stronger theorem gives exactly their defining roots.",
+        "No claim is made about historical priority among earlier approximation-theory sources cited by Borwein–Erdélyi–Zhang."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable stronger coverage: same residual after a measure-preserving substitution, exact product reproduces the defining quartic, and prior zero theorem applies",
+          "evidence": [
+            "The first §4 paragraph identifies L_n/c_nn as the error function of the best L^2 approximation to x^lambda_n by earlier powers.",
+            "Eq. (4.2) gives all coefficients; (4.1) requires distinct real exponents above -1/2. Corollary 4.2(1) gives exactly n interior zeros."
+          ],
+          "identifier_or_url": "https://people.tamu.edu/~terdelyi/papers-online/BEZmuntz.pdf",
+          "material_read": "Lawful author PDF §2 Corollary 2.2 and Theorem 2.4 (author PDF pp. 3 and 5, extracted offsets within 4200–12178); §4 opening, (4.1)–(4.2), Corollary 4.2 (author PDF pp. 12–13, offsets within 34400–39819); author publication list item 31 identifies Trans. Amer. Math. Soc. 342 (1994), 523–542",
+          "method": "Bounded primary passage inspection, with exact independent coefficient replay against the moment calculation",
+          "title": "Müntz systems and orthogonal Müntz–Legendre polynomials",
+          "trigger": "Plausibly exact arbitrary-power L^2 projection residual and root theorem"
+        },
+        {
+          "assessment": "Related intensity exponent and retrieval bias, not the exact projection; not the source of the originality failure",
+          "evidence": [
+            "Uses a mu^(3/2) term; simulates finite transits with radius ratio 0.1 and fits the radius ratio and limb-darkening coefficients to light curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.18617v1",
+          "material_read": "PDF p. 3 Eq. (3) and simulation setup; §2.4 p. 4",
+          "method": "Compare fitted variables, weight and regime in the stated methods",
+          "title": "Reliable Transmission Spectrum Extraction with a Three-Parameter Limb Darkening Law",
+          "trigger": "Same fractional-power stellar intensity term"
+        },
+        {
+          "assessment": "Inspected methods differ, in particular from continuous area weighting",
+          "evidence": [
+            "Fits normalized sampled atmospheres with specified angular sampling or 100 evenly spaced mu values, not weight 2 mu dmu."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.07020",
+          "material_read": "PDF p. 1 Eq. (1), p. 3 §2 fitting methods",
+          "method": "Compare the actual interpolation/sampling and normalizations to the exact area-weighted free fit",
+          "title": "Limb darkening and exoplanets: testing stellar model atmospheres and identifying biases in transit parameters",
+          "trigger": "Potential prior analytic quadratic intensity fits"
+        },
+        {
+          "assessment": "The inspected experiment is a finite-radius retrieval comparison, not the exact projection residual",
+          "evidence": [
+            "Several finite planet radii and nonlinear input intensity profiles are used in light-curve retrievals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.05485",
+          "material_read": "PDF p. 5 §3.1.1",
+          "method": "Compare light-curve retrieval experiment with fixed geometry and leading depth error",
+          "title": "Limb darkening and exoplanets – II. Choosing the best law for optimal retrieval of transit parameters",
+          "trigger": "Possible same-calibration transit bias results"
+        },
+        {
+          "assessment": "The inspected simulation is not the frozen weighted approximation problem",
+          "evidence": [
+            "Finite transit simulations with radius ratio 0.1 and impact parameter b=0 in the inspected section."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.03812v1",
+          "material_read": "PDF p. 2 §2.1",
+          "method": "Compare experiment, adopted law and planet geometry",
+          "title": "Biases in Exoplanet Transmission Spectra Introduced by Limb Darkening Parametrization",
+          "trigger": "Related study of dependence on quadratic limb-darkening parametrization"
+        },
+        {
+          "assessment": "Provides analytic physical normalization context, does not select the frozen limb coefficients or residual",
+          "evidence": [
+            "Disk-average and transit-chord-average formulae for quadratic laws, and a comparison of overshoots between laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.01730",
+          "material_read": "PDF abstract, p. 4 §2.3.2 Eqs. (14)–(18), p. 5 §2.3.6",
+          "method": "Compare definitions and disk-average/geometric inputs to the projection statement",
+          "title": "Analytic solutions to the maximum and average exoplanet transit depth for common stellar limb darkening laws",
+          "trigger": "Closely related exact depth normalizations and chord formulae"
+        },
+        {
+          "assessment": "Same record; no distinct priority evidence",
+          "evidence": [
+            "Same area-weighted fit, three physical impact parameters and excluded finite-radius/curve-fit settings."
+          ],
+          "identifier_or_url": "SCOPE-three-universal-transit-depth-cancellation-chords-for-a-nonquadr--d2e9ed0fadaa",
+          "material_read": "Local mirrored RESULT.md, including offsets 774 and 3900",
+          "method": "Compare catalogue identity and exact quartic to assigned evidence",
+          "title": "Three universal transit-depth cancellation chords for a nonquadratic stellar limb profile",
+          "trigger": "Exact local Resultary hit"
+        },
+        {
+          "assessment": "Operator-norm results, not individual fractional-power residual zeros",
+          "evidence": [
+            "One gives a degree-two projection norm with a Jacobi weight, the other an asymptotic projection norm on weighted balls."
+          ],
+          "identifier_or_url": "SCOPE-0c312599056c ; SCOPE-8825bff56c70",
+          "material_read": "Local mirrored Findings at offset 0 for both records",
+          "method": "Compare operators, metric and claimed invariants",
+          "title": "Exact Jacobi-weighted quadratic projection gain and radial-to-boundary phase transition for quadratic projection",
+          "trigger": "Closest distinct Resultary projection hits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stellar example is well motivated and can be a pedagogical benchmark. But the exact invariant asserted by the frozen record is mechanically generated by a known error-polynomial and zero theorem, with one measure substitution and the usual fixed-geometry depth normalization. It therefore does not meet the value requirement for a narrow exact invariant. No independently established finite-radius, alternative-calibration or inference consequence remains in the frozen finding to rescue it.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

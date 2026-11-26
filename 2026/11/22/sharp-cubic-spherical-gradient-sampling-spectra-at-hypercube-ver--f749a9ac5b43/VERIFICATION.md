@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility of cubic spherical-gradient sampling identities
+# Independent mathematical audit
 
-The complete proof for every integer \(d\ge3\) appears in `RESULT.md`. It relies on the finite-dimensional signed-permutation decomposition, the exact spherical even-monomial moment formula, and exact vertex signs. It does **not** infer a uniform theorem from a finite test.
+## correctness
 
-## Standalone checker
+PASS
 
-With Python 3 installed, execute `python3 check_cubic_gradient.py` in the extracted artifact directory. No third-party dependencies, network calls, numeric tolerances, external test data or random seeds are required.
+For exact-degree harmonic cubics the sphere Laplacian eigenvalue is 3(d+1); both sphere and corner measures are probability-normalized. The singleton sign-character block consists of x_i(a x_i²+Σ_{j≠i} b_j x_j²) with 3a+Σ b_j=0. Off-axis permutations split it into the line Z_i and the zero-sum contrasts Q_{i;jk}, of dimension d−2. Each triple character supplies the single square-free line R_{ijk}. For both Hermitian forms signs separate distinct characters, the permutation-invariant pairing of the line with contrasts is zero, and each contrast Gram form is scalar on the standard zero-sum coordinate space. Permutations also identify ratios across blocks of a given type. At a corner the projected gradient of Z_i is (3/d−3/(d+2))(e_i−x_i x), giving energy 36(d−1)/(d³(d+2)²); Q vanishes at corners but has ambient (already tangent) energy 8/d²; R has ambient energy 3/d² and radial squared component 9/d³. The sphere squared norms of these representatives computed from degrees two, four and six are respectively 6(d−1)/(d(d+2)²(d+4)), 4/(d(d+2)(d+4)), and 1/(d(d+2)(d+4)). Dividing by 3(d+1) times these norms verifies all three branches including d=3 and their multiplicities. Only R vanishes for d=3, hence rank six. The ratios T/Z=d(d+2)/3 and S/Z=(d−3)(d+2)/2 exceed one for d≥4, and T/S=2d/[3(d−3)] gives the exact tie at 9. The condition numbers refer respectively to the ratio of squared singular values and its square root. RESULT.md, VERIFICATION.md and check_cubic_gradient.py were inspected, not executed; the reported d=3–7 Gram checks do not supply the arbitrary-dimensional argument.
 
-The checker builds each independent cubic harmonic basis element and its Cartesian derivatives. It obtains normalized sphere moments from double factorials and signed-cube moments from even-exponent parity, then forms each spherical Gram entry and each sampled-tangent-gradient Gram entry exactly as `fractions.Fraction`. It checks the three eigenvalue identities, all cross-block identities, the dimension counts, the trace identity and the condition-number formulas for dimensions \(3\) through \(7\). This is a full pairwise check of the entire finite matrices for each tested dimension, not a sample of rows.
+## originality
 
-Observed output: PASS for dimensions \(3,4,5,6,7\); harmonic dimensions \(7,16,30,50,77\) respectively. The \(d=3\) kernel has dimension one; cases \(d=4,5,6,7\) are full rank. The all-dimensional ordering including the crossover at \(d=9\) follows from the displayed exact rational eigenvalue ratios, rather than any extrapolated numerical trend.
+PASS
 
-## Limits
+Best of current knowledge, the exact gradient-only spectrum on the full-support signed cube is distinct. Same-node scalar results and a same-day different-node gradient result are strong method-level overlaps, not the same spectral result.
 
-No external expert audit or independent mathematical validation is claimed. The checker cannot rule out an undiscovered priority precedent, and its finite tests do not prove untested dimensions. All needed input formulas and code are embedded in this package.
+## value
+
+PASS
+
+The cube is a natural orbit and gradient-only reconstruction is materially different from scalar interpolation. The exact branches quantify the rank recovery in d≥4, the surviving cubic blind mode in d=3, and the transition determining the sharp upper bound and condition growth. These are directly usable quantitative recovery bounds for the specified nodes and norm; finite full-rank checks, scalar interpolation ranks or a general derivative evaluation algorithm do not give them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

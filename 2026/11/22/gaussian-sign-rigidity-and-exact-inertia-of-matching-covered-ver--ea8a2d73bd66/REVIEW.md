@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex-mask multiplicity is exactly the count of perfect matchings on the covered set, yielding odd double factorials. Gaussian even moments reproduce these integer weights without a limiting approximation. The centered-chi-square moment generating function has only positive nonconstant coefficients after order one, establishing \(a_j>0\) for every \(j\ge2\). Expansion in even Gaussian powers then proves the exact nonnegative formula for every Fourier multiplier and isolates precisely \((q,d)=(1,0),(1,1)\) as the zero cases. Binomial alternating-sum identities prove the full inertia. The independent finite checker passed 11,014 exact assertions; the infinite claims rest on the written proof, not the checker.
+PASS
 
-## Originality — PASS under bounded comparisons
+Walsh diagonalizes the unnormalized real symmetric convolution. A covered mask of size 2r has (2r-1)!! preimages, giving the Gaussian multiplier E[(1-Z²)^q(1+Z)^(n-2q)] after a possible reversal of all signs. Independently, the centered moments a_j=E[(Z²-1)^j] satisfy a_0=1, a_1=0 and a_(j+1)=2j(a_j+a_(j-1)) for j≥1 by Gaussian integration by parts. In the expansion of (-1)^q times the multiplier, all terms are nonnegative: Z^(2r)=(1+(Z²-1))^r. The constant term proves strict positivity for q=0 or q≥2; for q=1 the Z² term suffices exactly when n-2q≥2. Thus n=2,3 have only the stated zeros, n=0,1 are identities, and the exceptional ranks are both two. For n≥4, reflection and the alternating partial-binomial sum give positive-minus-negative count zero at n=2m and 2(-1)^m binom(2m,m) at n=2m+1. An independent exact evaluation by weight classes through n=50 summed (-1)^a binom(k,a) binom(n-k,b)(a+b-1)!! over a+b even (1,326 values); it agreed on signs, zeros and inertia. The frozen verify.py was inspected, not executed; its recorded 11,014 assertions are finite corroboration, not the all-order proof.
 
-The reviewed 2004 Wagner manuscript, its 2008 rewrite, and Drake's 2009 complete-graph Hermite treatment supply and analyse broad matching polynomials, but they do not explicitly give the \(\pm1\) vertex-coverage sign classification, the exact zero list, or the convolution inertia. The Heilmann–Lieb nonvanishing region used by Wagner excludes the mixed negative-real assignments in the claim; Drake's Hermite moments and orthogonality do not by themselves state the fixed-sign expansion (1). A semantically targeted search of existing mathematical findings found related all-matching *edge*-incidence Walsh results, including complete-graph and \(K_{3,n}\) cases, but not the *covered-vertex* counting kernel or its inertia. The result is a genuine specialization of known enumerative objects, so priority is qualified: an unindexed multivariate identity explicitly evaluated on \(\pm1\) assignments could cover it.
+## originality
 
-## Value — PASS
+PASS
 
-The covered-vertex mask is the canonical sufficient statistic recording which vertices participate in a partial matching, and its weight distribution is nontrivial because many matchings share one mask. The theorem characterizes exactly when this loss of edge information still permits invertible Boolean counting convolution and supplies the complete real spectral inertia at every large dimension, including a balanced-sign law at even orders and a central-binomial imbalance at odd orders. These are structural all-order facts that do not follow simply from the total matching count or polynomial real-rootedness. No stronger conditioning or extension beyond complete graphs is claimed.
+The mixed-sign evaluation is of a classical polynomial, and a prior edge-spectrum identity gives the same signed evaluations as a restricted transform, plus partial nonvanishing. Neither establishes the full real sign rule, exceptional zero list and inertia. The distinct specialization passes on the examined evidence, not as an exhaustive priority claim.
 
-## Primary literature and residual risk
+## value
 
-- Wagner, arXiv:math/0412059, 2004: degree-constrained subgraph enumeration and matching real-rootedness; reviewed Introduction and matching statements.
-- Wagner, arXiv:0803.1659, 2008: multivariate matching polynomial, Section 3 and Example 4.1; the positive half-plane is not the mixed-sign cube.
-- Drake, arXiv:0909.1655, 2009: Sections 1 and 5, complete graph, Hermite, Gaussian moments, and generating functions; no covered-mask inertia comparison in inspected passages.
-- Residual risk: overlooked direct sign-evaluation corollary in the wider matching-polynomial literature, including non-indexed source material. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The kernel is the natural pushforward that retains which vertices a matching covers and forgets how they were paired. The theorem isolates all failures of convolution inversion and gives a balanced or centrally biased inertia according to the parity of the host size. These invariants of the full counting operator are not recoverable from total matching counts or the prior dyadic gaps alone. It does not assert sharp conditioning or a classification for other hosts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

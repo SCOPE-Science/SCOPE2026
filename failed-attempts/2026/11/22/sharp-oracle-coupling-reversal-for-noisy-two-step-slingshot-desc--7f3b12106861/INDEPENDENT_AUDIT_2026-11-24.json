@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:10:52.853615Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–53,55–105,117–119",
+        "VERIFICATION.md and supplied verify.py (inspection only)",
+        "/workspace/branches/b5d69b66-b2a8-45ed-a561-db7e60dd1956/independent_exact.py"
+      ],
+      "rationale": "The two signed descent/ascent steps act respectively by I−rS and I+rS, with noise signs −h,+h. Thus the pair endpoint is a z+h[ξ₁−(I+rS)ξ₀], with a=1−r². Centering and independent pairs give the exact sum of innovation second moments, with geometric ratio a²; the horizon and invariant-risk optima reduce to the same positive multiple of the one-pair cost. In the two swap eigendirections the marginal variances are v and Cauchy–Schwarz gives cost at least v(|1±r|−1)² per coordinate. Nonzero multipliers force equality or sign reversal almost surely; isotropy makes both equalities feasible together. At r=1 the plus equality remains necessary, and one can take an independent minus output with the prescribed marginal. Consequently the optimizer is unique off r=1 among arbitrary joint laws, as claimed. Division by 1−a²=r²(2−r²) gives the stationary formulas; independent noise has total pair cost v(4+2r²), and identical reuse has 2vr². The finite-horizon and small-r limits follow. The conditional-unbiasedness caveat concerns conditioning on the full information after the first call; with that requirement the cross term is zero. Bounded exact reproduction checked multipliers and several horizons, including R*=18/41 at r=3/5 and swap/reuse/independent risks 26/7,36/7,86/7 at r=6/5 with σ=v=1.",
+      "residual_risks": [
+        "Only the scalar, fixed-marginal, pair-independent Gaussian oracle and stable range are claimed. The second call can be conditionally biased after the first call."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:44–53,113–115 credits the preexisting signed steps and deterministic polynomial reduction and describes related stochastic extragradient papers; decisive primary passages were not retrieved.",
+          "For arbitrary M and equal spherical marginals, write M=L diag(sᵢ)Rᵀ. Coordinate Cauchy–Schwarz gives vΣ(sᵢ−1)² and Y=LRᵀX attains it, the general polar alignment solution. Here L,R differ only by the sign flip of the antisymmetric eigenvector above one."
+        ],
+        "reasoning": "The classical optimization dominates this two-eigenvalue instance. The existing deterministic update matrices, substituted with the frozen additive noise, give exactly the M used as input, and no state-dependent or cross-pair problem remains.",
+        "searches": [
+          "Shugart–Altschuler arXiv:2505.01423, signed deterministic steps and paired reduction",
+          "Dowson–Landau (1982), multivariate-normal Fréchet distance; Bhatia–Jain–Lim arXiv:1712.01504, Bures–Wasserstein and Procrustes",
+          "Gorbunov et al. arXiv:2111.08611; Vlatakis-Gkaragkounis et al. arXiv:2306.16502"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:44–115",
+        "Indexed Resultary comparisons above",
+        "Primary lookup attempts under the named arXiv identifiers and Gaussian transport references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The only input to the general transport solution is the frozen second-call propagation matrix I+rS; its singular values are 1+r and |1−r|, and its polar factor switches precisely when the second eigenvalue crosses zero.",
+          "The minimized cost is v[r²+(|1−r|−1)²]. Multiplying by h²(1−a^(2n))/(1−a²) gives the finite-horizon noise term with no further minimization; independent and same-call comparators simply evaluate cross-covariance at zero and vI."
+        ],
+        "reasoning": "This explicitly recovers the switch, uniqueness, exact risks and independence of the horizon from established general tools and the existing signed update. The singular boundary follows immediately from dropping the cost term that depends on cross-correlation on the zero eigenspace. An unprinted specialization is still covered.",
+        "searches": [
+          "Compare RESULT.md:57–105 to the signed GDA update and the Gaussian Euclidean W₂/Procrustes formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:66–96 reduces to E∥Y−MX∥² with M=I+rS, X,Y∼N(0,vI). For nonsingular M, the pushforward to (MX,Y) is a bijection onto all couplings of N(0,vMMᵀ) and N(0,vI), with the same squared cost.",
+          "The Gaussian transport formula is v tr(MMᵀ+I−2(MMᵀ)^(1/2)); the optimal map acting on MX is (MMᵀ)^(-1/2), so Y=(MMᵀ)^(-1/2)MX."
+        ],
+        "reasoning": "This is the same optimization, not an analogy in covariance. The established Gaussian transport optimum is unique in the nonsingular regimes and gives Y=X or Y=SX because M has eigenvalues 1+r and 1−r. The endpoint rank drop removes only the zero-eigenvalue condition.",
+        "searches": [
+          "Resultary searches under signed two-step/slingshot GDA, fixed Gaussian oracle marginals, polar-factor coupling and spectral reflection",
+          "Dowson–Landau, The Fréchet distance between multivariate normal distributions (1982); Bhatia–Jain–Lim, arXiv:1712.01504"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed parity-obstruction theorem treats isotropic Gaussian oracle marginals, polar coupling and finite/stationary risks for normal strongly monotone linear extragradient.",
+          "Indexed Haar-frame theorem concerns a two-step spectral-sign switch at αλ=1; indexed same-day curvature work concerns stationary-risk sampling for predictor/corrector extragradient. The exact signed-slingshot hit is the reviewed record itself."
+        ],
+        "reasoning": "These distinguish a directly comparable mechanism from an exact GDA statement. Neither dates nor an exact-rule miss imply novelty; the strongest catalogue analogue already uses the same optimization technology, and the exact implication here is mathematical.",
+        "searches": [
+          "Resultary signed-slingshot fixed Gaussian marginal search; polar-factor Gaussian noise and spectral-sign switching searches",
+          "2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41",
+          "2026/11/2/SCOPE-spectral-reflection-coupling-is-sharp-for-two-step-haar-frame-fi--654d1d9d1500",
+          "2026/11/22/SCOPE-curvature-heterogeneity-permits-an-interior-optimal-two-stage-st--a79434e38772"
+        ]
+      },
+      "rationale": "No distinct retrieved source was shown to print this exact GDA formula. The core claim is nevertheless mechanically covered: take the known signed GDA update matrix for the second call and use it as the argument of the classical squared Gaussian transport/orthogonal Procrustes problem. The optimizer is its polar factor; its sole sign change is read directly from 1−r. The rest is a scalar geometric series or elementary second moments. The rejection is based on this exact implication, not on inaccessible primary text or a matching title.",
+      "residual_risks": [
+        "Exact matching source wording and historical priority of the slingshot benchmark were not passage-verified. This does not affect the stated direct general-theorem implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic schedule credited, no assertion about complete text coverage of the noisy benchmark",
+          "evidence": [
+            "RESULT.md:46–53,113 attributes the schedule and deterministic polynomial reduction."
+          ],
+          "identifier_or_url": "arXiv:2505.01423v2",
+          "material_read": "Frozen attribution and schedule, not fetched primary passages",
+          "method": "Citation comparison and lawful full-text attempt; timed out",
+          "title": "Negative Stepsizes Make Gradient-Descent-Ascent Converge",
+          "trigger": "Exact signed update providing M and a"
+        },
+        {
+          "assessment": "The standard general result covers the optimizer by direct application; exact section references and source wording not independently verified",
+          "evidence": [
+            "With covariances vMMᵀ and vI the general Gaussian trace formula reduces to vΣ(sᵢ−1)² and the map to the polar factor; the reduction is written above."
+          ],
+          "identifier_or_url": "Dowson–Landau (1982); arXiv:1712.01504",
+          "material_read": "Named classical results and explicit independent reduction; no decisive retrieved primary passages",
+          "method": "Named-source checks and OA attempt for Bhatia–Jain–Lim; compare Gaussian covariance transport exactly",
+          "title": "The Fréchet distance between multivariate normal distributions; On the Bures–Wasserstein distance between positive definite matrices",
+          "trigger": "General Gaussian squared-cost and polar-factor optimizer"
+        },
+        {
+          "assessment": "Related coverage, not an independently inspected exact formula in these entries",
+          "evidence": [
+            "Indexed polar coupling for extragradient, spectral sign switching for Haar-frame descent, and stationary-risk stage design for extragradient."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41; 2026/11/2/SCOPE-spectral-reflection-coupling-is-sharp-for-two-step-haar-frame-fi--654d1d9d1500; 2026/11/22/SCOPE-curvature-heterogeneity-permits-an-interior-optimal-two-stage-st--a79434e38772",
+          "material_read": "Indexed statements, not full corpus texts",
+          "method": "Resultary and matching mirror attempt",
+          "title": "A parity obstruction to perfect coupled-noise cancellation; Spectral reflection coupling; Curvature heterogeneity in two-stage stochastic extragradient",
+          "trigger": "Closest broader and distinct same-day indexed comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–53,57–105; exact Gaussian transport reduction and indexed polar-coupling comparison above"
+      ],
+      "rationale": "The benchmark is well posed and can illustrate coupling versus fresh calls. But its only optimizing decision is the sign of one known propagator eigenvalue in the standard polar alignment problem. The horizon risks and comparators then follow by routine substitutions; neither the singular point nor the stationary limit resolves an additional research obstacle beyond that established implication.",
+      "residual_risks": [
+        "A nontrivial unbiased-oracle, multi-mode or nonlinear extension would be a different claim, not a repair validated here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

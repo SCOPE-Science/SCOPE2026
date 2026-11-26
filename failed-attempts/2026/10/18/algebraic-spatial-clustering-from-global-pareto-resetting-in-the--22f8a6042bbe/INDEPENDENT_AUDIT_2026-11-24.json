@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:15.732847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–96; VERIFICATION.md and verify.py inspected only",
+        "/workspace/review_checks/1_ballot.py (independent finite corroboration for (ℓ,p,τ₀)=(3,1,1),(3,2,1),(8,1,2),(8,2,2))"
+      ],
+      "rationale": "The equilibrium age density is the reset survival divided by the mean wait. Conditional on the age and averaged over the fixed IID reset template, the voter dual gives a connected pair product only when the two walks coalesce. Their separation has jump rate one per direction; the bounded Laplace solution and substitution s=(1−v)²/v give the two beta integrals, convergent exactly for ℓ>p. The short-age tangent bound, Poisson jump tail at each t≤τ₀ and integration by parts give the sign and the advertised cutoff error; taking the gamma-ratio limit and using duplication gives the stated coefficient. Independently at positive temperature, the graphical dual copies at rate γ and is killed by a fresh fair spin at rate κ. Before coalescence both lineages must survive, giving fixed-age covariance E[e^(−2κT)(1−m₀²e^(−2κ(t−T))); T≤t] for the separation walk of rate γ per direction. Its Laplace transform at 2κ is q^ℓ, giving the uniform bound. The law of total covariance then yields the common-age variance; it is positive for biased templates since A is nondegenerate. A separately written ballot/gamma mixture checks four cutoff-sensitive cases numerically. The claim is annealed, not a quenched statement.",
+      "residual_risks": [
+        "The numerical replay is not exact arithmetic or an infinite proof; the frozen numerical support also uses a quadrature approximation and does not test the positive-temperature comparison. The analytic proof supplies the relevant quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 record combines the identical sharp zero-temperature tail and exact Mellin moment with susceptibility/block fluctuation results and an infinite-mean age limit. The November 8 finding gives the sharper positive-temperature polynomial times exponential tail for symmetric initial spins (and the same exponential upper bound), not a nonzero-mean plateau theorem."
+        ],
+        "reasoning": "The zero-temperature claim is embedded in a stronger analysis. For the positive-temperature clause distinguish the covered symmetric bound from the elementary biased initial-template age covariance.",
+        "searches": [
+          "2026/11/2/SCOPE-algebraic-spatial-correlations-and-a-sharp-susceptibility-thresh--da40ba33c965",
+          "2026/11/8/SCOPE-sharp-spatial-correlation-and-self-averaging-transition-in-paret--0b4cdb898dc6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary da40ba33c965 and 0b4cdb898dc6",
+        "arXiv:2602.15495v1, arXiv:2002.04867v1 and arXiv:2207.08590v6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed cutoff proof already bounds the discrepancy by the truncated inverse moment and uses the rate-two Poisson estimate, instead of integrating it in t. Apply that estimate with the cutoff endpoint replaced by each t≤τ₀ and integrate p t^(−p−1) F(t), which directly gives the factor 1+p/(ℓ−p).",
+          "At positive temperature the only addition from a nonzero IID mean is a fixed-age boundary value 1−m₀² exp(−2κt) in [0,1] and the variance of the age-dependent mean. Killed-walk comparison and total covariance therefore give the stated plateau and bound without a new asymptotic estimate."
+        ],
+        "reasoning": "These different presentations do not yield a distinct sharp mechanism or invariant beyond the already covered central result. The cutoff estimate is a routine truncated-moment sharpening and the biased plateau is a conditioning identity.",
+        "searches": [
+          "Resultary da40ba33c965 RESULT.md offset 5690 onward, cutoff proof; 0b4cdb898dc6 exact killed first-passage identity; frozen positive-temperature comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary da40ba33c965 writes the same update normalization and global Pareto equilibrium age with a once-sampled fixed reset field. Its b is the frozen p=α−1. It gives the same exact spatial constant for any IID spin mean.",
+          "Grange treats independent sitewise Poisson clocks, not the same renewal or coalescence problem."
+        ],
+        "reasoning": "The strongest match is the same stochastic model and annealed covariance, not a magnetization law or independent-site reset variant.",
+        "searches": [
+          "Resultary: global Pareto-reset Glauber spatial correlations and susceptibility / coalescing random walks",
+          "arXiv:2602.15495v1, arXiv:2002.04867v1, arXiv:2207.08590v6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp constant and gamma ratio occur verbatim in mathematical form in the indexed proof; the frozen finite-distance error is not printed there."
+        ],
+        "reasoning": "No finite data catalogue would establish a universal continuous-parameter asymptotic; the relevant exact indexed entries are these theorem statements and their certificates, not a table of numerical correlations.",
+        "searches": [
+          "Resultary da40ba33c965, Finding and proof §§3–4; 0b4cdb898dc6, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the exact central theorem for the same fixed IID reset field, same age law, same time normalization, same sharp zero-temperature coefficient, and identical inverse hitting-time gamma ratio and mechanism. It gives a weaker quantitative cutoff estimate, not the exact displayed finite-distance bound. The different bound follows by integrating the very same Poisson tail over the cutoff range; the positive-temperature statement adds a standard common-age covariance decomposition, not a new sharp spatial result. The overlap is established at statement and proof level, without inferring priority from record dates.",
+      "residual_risks": [
+        "Catalogue dates do not establish priority. The broader literature search was bounded and did not establish absence. No inaccessible item is used as a reason for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS central zero-temperature claim",
+          "evidence": "Same negative moment, sharp coefficient, Poisson cutoff mechanism; it uses Cauchy–Schwarz rather than the frozen explicit cutoff factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-algebraic-spatial-correlations-and-a-sharp-susceptibility-thresh--da40ba33c965",
+          "material_read": "RESULT.md Finding and proof offsets 3300, 5690 and 6250",
+          "method": "Bounded local-mirror reads and formula comparison",
+          "title": "Algebraic spatial correlations and a sharp susceptibility threshold",
+          "trigger": "Exact global Pareto spatial match"
+        },
+        {
+          "assessment": "Stronger on the symmetric slice only",
+          "evidence": "States a polynomial prefactor on the exponential decay at m₀=0, and credits da40ba33c965 for the corresponding zero-temperature result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-spatial-correlation-and-self-averaging-transition-in-paret--0b4cdb898dc6",
+          "material_read": "Finding at offset 0 and relationship passage at offset 6200",
+          "method": "Bounded local-mirror reads",
+          "title": "Sharp positive-temperature spatial correlation prefactor in globally Pareto-reset Glauber chains",
+          "trigger": "Same positive-temperature resetting model"
+        },
+        {
+          "assessment": "Model antecedent",
+          "evidence": "Conclusion proposes spatial correlations and domain growth as future work after the magnetization study.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.15495v1",
+          "material_read": "Abstract and PDF conclusion p. 12 (offset 43674)",
+          "method": "Bounded primary-text reads",
+          "title": "Ising Model with Power Law Resetting",
+          "trigger": "Original global Pareto Glauber model"
+        },
+        {
+          "assessment": "Different wait law and focus",
+          "evidence": "Constant-rate Poisson global resetting, magnetization distributions, and a prospective two-point study.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867v1",
+          "material_read": "PDF abstract and concluding two-point remark (offset 33150)",
+          "method": "Bounded primary-text reads",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Global fixed-field reset comparison"
+        },
+        {
+          "assessment": "Different reset geometry",
+          "evidence": "Independent sitewise resetting, and a corresponding two-point/domain-wall calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08590v6",
+          "material_read": "PDF abstract and p. 19 (offset 69800)",
+          "method": "Bounded primary-text reads",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Voter two-point resetting analogue"
+        },
+        {
+          "assessment": "Not relied on for coverage",
+          "evidence": "The unreset dual and comparison were derived independently for the frozen claim.",
+          "identifier_or_url": "doi:10.1063/1.1703954",
+          "material_read": "No full-text passage obtained",
+          "method": "Bounded lawful OA attempt returned HTTP 403; no accessible repository copy established",
+          "title": "Time-Dependent Statistics of the Ising Model",
+          "trigger": "Classical unreset dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and cutoff/temperature proofs",
+        "Resultary da40ba33c965 exact moment and cutoff",
+        "Resultary 0b4cdb898dc6 symmetric positive-temperature result"
+      ],
+      "rationale": "A sharp equilibrium spatial law under global heavy-tailed resets is a natural worthwhile target, but the tail and exact gamma coefficient are already supplied elsewhere. The residual contribution replaces an already super-polynomial cutoff estimate by elementary tail integration, without a separate use or sharp short-distance result; the biased plateau is standard total covariance and is not claimed as new. No independent valuable remainder was established.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

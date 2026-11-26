@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:39:58.529821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sylvester symmetry gives c/2 elements of the semigroup below c when zero is included; replacing zero by the absorber leaves that size unchanged. The minimal positive summand is a, so the first length at which all words vanish is ceil(c/a); when a=c=2 the quotient is just the absorber and the formula is still correct. For the reconstruction, c >= a(a-1), and if h=ceil(c/a), then c/a <= h < c/a+1 <= c/(a-1), whence a=ceil(c/h) and b=1+c/(a-1). This independently verifies the frozen strict reconstruction. For a=2, b is absent and any nontrivial quotient is monogenic. For a>=3 both generators are present and are precisely the indecomposables; the powers of b first vanish at a-1, whereas the powers of a first vanish at length >=a if b>=a+2. Thus no exchange is then possible. For b=a+1 all nonempty monomials through degree a-2 survive, those of degree >=a-1 vanish, and the small monomials are distinct because a relation between a and a+1 needs exponent changes divisible by a+1 and a, respectively. Exchange is therefore an actual order-two automorphism, not just a candidate permutation. Inspected the frozen finite checker and recorded output without executing the checker; the uniform proof does not depend on either.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delgado–Fernandes gives general invariant and presentation machinery and poses Conjecture 6.2 for symmetric numerical semigroups.",
+          "Cabanillas gives broader pseudo-Frobenius computations for integer-dilation quotients."
+        ],
+        "reasoning": "The symmetric-semigroup conjecture is not a proved dominating theorem. The stronger tools for dilation quotients concern another operation.",
+        "searches": [
+          "arXiv:1210.2910v1, Remark 2.3, Thm 4.9, Cor. 4.10 and §6.3",
+          "arXiv:1904.08240v2 §5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Delgado–Fernandes arXiv:1210.2910v1",
+        "Resultary e5140886fb31 and 3e6d21d2ad79",
+        "Cabanillas arXiv:1904.08240v2",
+        "García-García and Moreno-Frías repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 2.3 already implies ceil(c/a). The theorem and corollary characterize permissible bijections/permutations of minimal generators using defining relations."
+        ],
+        "reasoning": "Those results do not assert that distinct admissible multiplicities have distinct ceilings at fixed conductor or that the transposition preserves truncation precisely in the stated consecutive-generator family. The strict bound c>=a(a-1) and the monomial cutoff argument resolve those two family-specific issues.",
+        "searches": [
+          "Delgado–Fernandes Remark 2.3, Thm 4.9 and Cor. 4.10",
+          "Resultary: near-diagonal conductor Rees quotient automorphism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delgado–Fernandes collapses I_c in the positive numerical semigroup, which matches the frozen no-identity convention.",
+          "Records e5140886fb31 and 3e6d21d2ad79 instead use {n:pn in S}, including near-diagonal pairs."
+        ],
+        "reasoning": "The named Rees quotient is the same object as in the conjecture. Dividing a numerical semigroup by an integer produces a different infinite additive semigroup, not an equivalent description of the finite truncation.",
+        "searches": [
+          "Resultary: conductor Rees quotient two-generated numerical semigroups rigidity",
+          "Resultary: consecutive-generator conductor quotient automorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 computes quotients through conductor 11; §6.3 distinguishes these by size and nilpotency but does not establish all-conductor injectivity."
+        ],
+        "reasoning": "Small instances are covered and provide examples, not the unbounded theorem or the all-parameter automorphism split.",
+        "searches": [
+          "Delgado–Fernandes Table 1 and §6.3",
+          "Resultary: Delgado Fernandes conjecture size nilpotency class two-generator reconstruction"
+        ]
+      },
+      "rationale": "The distinct supported contribution is uniform recovery of both generators from the two elementary quotient invariants, together with the explicit automorphism classification. The Frobenius/symmetry count, quotient nilpotency formula and general presentation criterion are established ingredients, not independent novelty claims. Neither the inspected finite tables nor the general criterion supplies the uniform inequality and exact exceptional family.",
+      "residual_risks": [
+        "Full text of García-García and Moreno-Frías was not available through the inspected routes.",
+        "The bounded indexed comparison does not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established inputs, finite examples and general conjecture, not the explicit family classification",
+          "evidence": "Rem. 2.3 takes the least k with km>=c; Cor. 4.10 tests automorphisms by minimal-generator permutations and relations; the table stops at conductor 11.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.2910",
+          "material_read": "v1 pp. 1–3 and 9–12: convention, Rem. 2.3, Thm 4.9, Cor. 4.10, Table 1, §6.3 and Conj. 6.2",
+          "method": "OA PDF passage inspection",
+          "title": "Rees quotients of numerical semigroups",
+          "trigger": "Exact quotient convention, rigidity conjecture, and prior formulas"
+        },
+        {
+          "assessment": "Different quotient and invariant",
+          "evidence": "The quotient is {n:pn in <a,b>}, and rigidity concerns near-maximal pseudo-Frobenius type.",
+          "identifier_or_url": "Resultary e5140886fb31",
+          "material_read": "Finding and scope",
+          "method": "Local mirror passage inspection",
+          "title": "Rigidity and a forbidden near-maximal type for two-generator numerical-semigroup quotients",
+          "trigger": "Strongest indexed terminology and two-generator overlap"
+        },
+        {
+          "assessment": "Different quotient and invariant",
+          "evidence": "It describes membership, gaps and invariants of {n:(a-1)n in <a,a+k>}.",
+          "identifier_or_url": "Resultary 3e6d21d2ad79",
+          "material_read": "Finding and scope",
+          "method": "Local mirror passage inspection",
+          "title": "Residue-tail geometry of near-diagonal two-generator semigroup quotients",
+          "trigger": "Near-diagonal family comparison"
+        },
+        {
+          "assessment": "Full-text overlap unresolved",
+          "evidence": "Abstract describes general morphism algorithms; no exact family statement was available for inspection.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-011-9349-z",
+          "material_read": "Repository abstract only",
+          "method": "Repository abstract and attempted publisher retrieval",
+          "title": "On morphisms of commutative monoids",
+          "trigger": "Potential general automorphism or morphism coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural unbounded class of quotients from the symmetric-semigroup rigidity conjecture is completely classified by two inexpensive intrinsic invariants, and the exact nonrigid automorphism family is identified. This supplies a reusable reconstruction criterion and a sharp structural boundary, without claiming the general conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

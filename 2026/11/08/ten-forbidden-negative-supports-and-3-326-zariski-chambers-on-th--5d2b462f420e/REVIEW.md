@@ -1,15 +1,21 @@
-# Scientific review: ten forbidden supports and 3,326 chambers
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed numerical invariant is attached to the smooth characteristic-zero surface, with all twelve negative curves proved exhaustive by adjunction and the nef elliptic fiber. The rational elliptic surface has three sections: an explicit flex of order three, its inverse, and the zero section; Shioda–Tate and unimodularity exclude further sections. The height pairing places the nonzero sections on components three and six of the nine-gon. Every forbidden configuration is a singular principal submatrix. Schur complements prove that all other supports are negative definite. Two independent finite tests—exact rational positive-definiteness and avoidance of the ten forbidden configurations—agree on every one of the 4,096 possible subsets, with the support polynomial stated in RESULT.md. The finite calculation evaluates, but does not replace, the geometric proof of completeness.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Jarvis–Lang–Ricks, arXiv:0908.1831, Section 1.F and Appendix A.1, classify the surface and present its equation, but not the chamber support structure. Bauer–Funke–Neumann, arXiv:0912.0958, Proposition 1.1, proves the general negative-definite-support correspondence, and Bauer–Schmitz, arXiv:1204.4373, describes a stronger general algorithm and a specific Segre–Schur quartic application. The proposed contribution is the explicit ten-element minimal-obstruction classification and the evaluated chamber polynomial on this particular elliptic surface. Searches for the named surface, the count, and equivalent graph descriptions found no directly covering result. Closest previously recorded chamber calculations concern different surfaces and different negative-curve graphs. General algorithms make the computation feasible and give a way to derive it; their existence is not misrepresented as a novelty of the method. There remains a risk of earlier specialist tables or unpublished computations.
+PASS
 
-## Mathematical value — PASS
-The nine-gon rational elliptic surface has a geometrically distinguished cyclic fiber and maximal three-torsion Mordell–Weil subgroup. The theorem classifies all attainable negative supports of big divisors by ten minimal graph obstructions, explains why all larger excluded supports fail, and evaluates the entire support distribution, rather than adding a small incremental numerical bound. It distinguishes this semistable configuration structurally from the previously studied additive-fiber cases. Its scope is a complete natural classification for one classical surface, not a universal chamber-counting theorem.
+On the smooth rational elliptic model, Shioda–Tate gives rank zero and the discriminant/index of the trivial lattice in the unimodular Néron–Severi lattice gives order three. The explicit nonzero flex confirms the torsion, and the height equation c(9−c)/9=2+2(P·O) forces c=3 or 6 and P·O=0; inversion gives the other component. The sections are pairwise disjoint. Nefness of the fiber and adjunction with K=−F force every negative irreducible curve to be a reducible-fiber component or a section, exhausting the graph. After taking the negative intersection form and eliminating each selected section, only marked cycle vertices have diagonal lowered to one. A proper cycle subset breaks into paths: unmarked paths and paths with one endpoint mark are positive definite; an internal mark contains the singular marked star, and two endpoint marks contain the singular arc with both sections. The full fiber is already singular. The ten sets form an antichain, so the obstructions are exactly the minimal ones. Independent exact inclusion–exclusion over their union sizes (python3 /workspace/independent_checks/chambers.py) gave coefficients 1,12,66,220,492,768,837,612,270,48 with all higher coefficients zero and sum 3326. The established chamber correspondence adds precisely one nef chamber.
 
-## Verification and limits
-The included `verify_chambers.py` uses only exact fractions and exhaustively tests all 4,096 possible subsets. It reproduces `verification_output.txt`; its code and output are included with the proof. The classification uses classical external theorems (Shioda–Tate, section heights, Zariski decomposition), whose applicability was checked. The historical-priority assessment is provisional and is not a substitute for an independent literature or mathematical audit. No claim about Mori chambers, positive-characteristic reductions, or all extremal rational elliptic surfaces is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established surface classification and the general chamber-counting algorithm are not original here. The supported distinct result is the ten minimal singular configurations and the evaluated size distribution for X_9111. Inspected same-date studies treat related but different surfaces; the exact indexed hit is this very record. No inspected distinct source covered this explicit classification.
+
+## value
+
+PASS
+
+This surface is the classical extremal rational elliptic surface with the nine-gon fiber, not an arbitrary graph slice. The ten exclusions characterize individual supports without a matrix test for each subset. The size-refined count then measures the negative-part strata, including 48 largest supports; the structural characterization is useful separately from the evaluated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:14.226366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md lines 19–25; verify_poset_c2.py lines 8–73 and 78–127; census.txt lines 1–20",
+        "Independent replay: python3 /workspace/independent_orders.py orders 8; /workspace/independent_orders.out"
+      ],
+      "rationale": "Independently reproduced the census through order eight by deleting/reinserting the entire minimal antichain (multisets of upsets covering all old minima), with exact within-color isomorphism and joint refinement of the full atomic pair type. The unoriented incomparable and equality counts in the strict-poset signature are determined by the cell totals and the two directed counts, so the frozen directed-only refinement is sufficient. This gives equal isomorphism and C² counts through seven (1,2,5,16,63,318,2045), then 16999 isomorphism types, 16997 classes, and precisely two classes of size two. The first consists of 2C4 versus C8 in the comparability graph. In the second each poset has eight covers incident to the intermediate level, but A2 has two additional bottom-to-top covers and B2 has none; both are connected. Equitable profiles certify the witnesses at every depth. Adding isolated points preserves the common equitable profiles and cannot erase the component distinction in the nonisolated subposet. The empty case is unique.",
+      "residual_risks": [
+        "The census is only through order eight; the larger-order statement is existence, not a census. The frozen 3.9+ compatibility claim is off by one: int.bit_count requires Python 3.10 or later. This does not affect the mathematical calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 01ec53ee7e90, RESULT.md lines 5–20 and 42–46 gives the complete partition through eight even in the presence of positive-size mutual-comparability classes; the only collisions are antisymmetric.",
+          "Kiefer–Schweitzer–Selman give general relational C² machinery; no separate finite poset census was established from the passages inspected."
+        ],
+        "reasoning": "The preorder theorem implies no collisions for all strict posets through seven and exactly the two reported doubletons at eight.",
+        "searches": [
+          "Resultary: finite preorder and finite topology C² thresholds",
+          "arXiv:1503.08792, pp. 2 and 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed record 01ec53ee7e90 and local frozen source; Kiefer–Schweitzer–Selman arXiv:1503.08792; Brinkmann–McKay Table 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical oriented row codes give the same cover and connectivity invariants. Both height-two witnesses have no isolated vertices."
+        ],
+        "reasoning": "The larger-order existence statement is not printed in the preorder record, but follows immediately from its height-two witnesses by adjoining the same number of isolated vertices to both, which gives a common equitable partition and leaves the original comparability components as the nontrivial components.",
+        "searches": [
+          "Record 01ec53ee7e90, RESULT.md lines 22–24, 42–46; compared with frozen record 2, RESULT.md lines 41–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 01ec53ee7e90, RESULT.md lines 7–9, 22–24 and 44: exactly the same two antisymmetric witness pairs, with different components/cover counts."
+        ],
+        "reasoning": "On posets, replacing < by its reflexive closure translates formulas with the same two names and preserves isomorphism. Thus the result on T₀ specializations is precisely the strict-order result. The literature query gave no matching evidence and is not used to infer priority.",
+        "searches": [
+          "Resultary: eight-point C² collisions in finite posets and preorders",
+          "Websearch: Ahrens et al. color refinement posets two-variable counting logic C² finite posets eight 16,999 16,997"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists 16999 unlabeled posets at eight; it does not count logical equivalence classes.",
+          "The distinct preorder record's output gives the same base count and lists exactly two doubletons, both with all class sizes one."
+        ],
+        "reasoning": "The 16997 poset classes follow exactly by subtracting two from 16999; the isomorphism count alone would not imply the logic census.",
+        "searches": [
+          "Brinkmann–McKay, Posets on up to 16 points, Table 1; OEIS A000112 as cited in frozen RESULT.md",
+          "Record 01ec53ee7e90, verify_output.txt lines 8 and 16–19"
+        ]
+      },
+      "rationale": "The distinct indexed finite-preorder census covers the entire finite poset result by restriction and prints the same four witnesses. The empty case and disjoint addition of singleton antichain elements are immediate consequences or boundary conventions, not an uncovered scientific claim. This is a statement-level domination finding, not a historical-priority inference from same-day dates.",
+      "residual_risks": [
+        "Same-day records do not establish temporal priority. The search did not identify an Ahrens et al. source or an earlier independent small-poset logic table; no conclusion about absolute priority is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finite poset claim by restriction; higher orders follow by disjoint extension",
+          "evidence": [
+            "Exactly two C² doubletons, both antisymmetric, with the identical four codes and structural distinctions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-eight-point-counting-logic-boundary-for-finite-preorders-and--01ec53ee7e90",
+          "material_read": "Frozen RESULT.md lines 5–28 and 30–58; verify_output.txt lines 8 and 16–19",
+          "method": "Match the local frozen source and its supporting evidence to the catalogue result",
+          "title": "The eight-point counting-logic boundary for finite preorders and topologies",
+          "trigger": "Strongest distinct indexed match"
+        },
+        {
+          "assessment": "General methods; not evidence of a published specialized census in the passages read",
+          "evidence": [
+            "Relates refinement to counting types and describes encodings of relational atomic information."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "PDF pp. 2, 5–6, offsets 4120, 15098, 19894",
+          "method": "OA full-text passage comparison",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "General identification of binary relational structures"
+        },
+        {
+          "assessment": "Isomorphism count only",
+          "evidence": [
+            "The 16999 unlabeled posets at order eight are tabulated."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/papers/posets.pdf",
+          "material_read": "Table 1, PDF p. 10, offset 27704",
+          "method": "OA full-text table inspection",
+          "title": "Posets on up to 16 points",
+          "trigger": "Exact earlier table for the same objects and orders"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 39–49; record 01ec53ee7e90, RESULT.md lines 7–24 and 42–46"
+      ],
+      "rationale": "The first failure and its two distinct obstructions are a meaningful boundary in isolation, but already present in the broader indexed result. The only explicit additions are the vacuous empty case and routine isolation padding; no independently useful unknown remainder survives.",
+      "residual_risks": [
+        "This is an assessment of incremental contribution, not a rejection of finite enumeration or the mathematical usefulness of the threshold."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

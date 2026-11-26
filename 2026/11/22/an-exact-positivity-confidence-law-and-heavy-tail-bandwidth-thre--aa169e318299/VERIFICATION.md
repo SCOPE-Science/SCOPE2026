@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Independent reproducibility instructions
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy, using `requirements.txt` for minimum compatible versions. The script directly integrates a Gaussian kernel against a Gaussian density, constructs two-node Gram matrices and computes their unconstrained weight vectors, compares the signs against the claimed algebraic inequalities, estimates positivity probabilities from independent random nodes, and checks exact beta formulas, tail constants, and the dimension-six threshold. The replay completed 6,163 finite tests and exited successfully.
+## correctness
 
-For mathematical verification beyond numerical examples, check the four logical bridges in `RESULT.md`: (i) exact Gaussian kernel means and the two-by-two inverse; (ii) independent standard Gaussian sum and difference coordinates and the conditional normal law; (iii) the beta law of a ratio of independent chi-square variables; (iv) incomplete-beta endpoint asymptotics and the layer-cake moment formula. These together prove the claim for every integer dimension, positive kernel shape and positive moment exponent. Sampling and finite checks do not prove universal assertions.
+PASS
 
-The proof concerns two independent Gaussian nodes with a kernel whitened by the integration covariance. At zero shape the kernel matrix is singular and the reported value is only a one-sided limit. Near that limit direct floating-point inversion can be ill-conditioned. Positivity of unconstrained quadrature weights is not a guarantee of accurate numerical integration or of optimal bandwidth. No external independent mathematical audit has been performed.
+Whitening reduces the Gaussian nodes and the kernel distance to standard coordinates. Completing the square gives q_i=(1+2h)^(−d/2) exp(−h‖z_i‖²/(1+2h)); the Gram inverse has positive denominator and both numerators are positive precisely when |‖z_1‖²−‖z_2‖²|<(1+2h)‖z_1−z_2‖². Orthogonal sum/difference coordinates U,V are independent standard Gaussians. Conditional on V≠0, U·V/‖V‖ has a fixed N(0,1) law independent of V; the ratio is therefore |Z|/χ_d, equivalently |t_d|/√d. Independent chi-square normalization gives the stated beta probability and complementary beta survival function of H=(|Z|/χ_d−1)_+/2. For H>0 exactly one sign changes; H=0 is an atom with no sign change at positive h. The small-beta endpoint gives the stated c_d, and layer cake yields convergence exactly for positive p<d, including logarithmic divergence at p=d. At fixed beta endpoint z, substitution x=z s^(1/b) in the beta integral and the gamma ratio give z^b(1−z)^(−1/2)/√(πb), b=d/2, which checks the dimension asymptotic. Strict monotonicity follows by the positive ratio density and coupling χ²_{d+1}=χ²_d+G². The exact flat-limit checks at d=5 and d=6 are 1/2+4/(3π) and 43/(32√2), on opposite sides of 0.95. The infimum is one-sided because the Gram matrix at h=0 is singular.
+
+## originality
+
+PASS
+
+The distinct claim is the all-dimension law for positivity of both unconstrained finite-shape weights, including the per-pair threshold distribution, tail and reliability cutoff. The inverse-Gram construction, Gaussian kernel means, and Student/beta distributional identities are known ingredients. The closest inspected random Gaussian design reports averaged proportions, not this event's exact law; the related indexed three-node result treats a different, flat-limit Lagrange sign criterion. The available statements neither give the standardized two-node sign reduction nor imply the claimed probability and threshold family by specializing parameters.
+
+## value
+
+PASS
+
+The sign question is motivated for random unconstrained Bayesian quadrature, where prior numerical work measured positivity. This result gives a calibrated exact confidence in the smallest nontrivial design, not just an example of negative weights. The dimension-six uniform cutoff separates designs with and without a 95% guarantee across bandwidths, and the sharp shape-moment frontier identifies when a mean or variance of the required tuning parameter exists. These are independently useful design benchmarks despite the intentionally narrow setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

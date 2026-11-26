@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:39:59.618202Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–55; VERIFICATION.md and verify_spider.py, inspected and not executed",
+        "/workspace/branches/77cc054d-a2f4-4e04-b204-10f950ef21fb/independent_spider_check.py"
+      ],
+      "rationale": "On the unfilled tree a descending link is a discrete set and has a cone vertex exactly when an earlier neighbor is unique. Without a center-matched incidence, each arm supports only a subset of {A_i,C_i} or the isolated B_i; the maximal choices are realizable by processing B-arms before c and other arms after c. An order for a one-B choice also matches c, which causes no problem for downward closure. If D_i matches c, all other u_j come after c, excluding B_j; both advertised extensions with D_i are attained by explicit orders. Its link is coned by A_j for any j≠i. After removing all D_i, each C_i is dominated by A_i. The remaining join is the boundary of the n-cross-polytope. Its equivariant inclusion is a homology isomorphism, and permuting degree-zero join factors of the fundamental cycle contributes the sign of the arm permutation, without requiring equivariance of the deletion order. Of the 2^n join facets, exactly n one-B facets extend to a D-facet; adding the 2n D-facets gives 2^n+n. The all-B and all-A,C facets have distinct dimensions for n≥3. An independent full vertex-order enumeration and link check through n=4 corroborate the proof.",
+      "residual_risks": [
+        "Finite replay covers n≤4; the exact decomposition proves the unbounded claim. The boundary case n=2 is not credited as new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knudson–Owens-White abstract: divides full and pure complexes and lists paths P_n (n edges), stars S_n and simplex families",
+          "Resultary 9f25582f2bc2: tree purity criterion; a365e2daebfe: broader multipath collapse for subdivided forests"
+        ],
+        "reasoning": "An unsubdivided star or a path does not include the branching n≥3 example. A purity characterization cannot give its strong core or facet enumeration; the broader forest collapse acts on the different multipath complex.",
+        "searches": [
+          "Knudson–Owens-White arXiv:2609.06844 Definition 4.2 and Theorem 6.6 leads",
+          "Resultary strong tree purity and crosspolytopal collapses for bidirected subdivided forests"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2609.06844v1 p. 1",
+        "Resultary 09fa810d6117, a365e2daebfe, 348812728b63, 9f25582f2bc2, 0de42a6380fb and a32a0d575582",
+        "RESULT.md lines 57–72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary Morse comparison reports a wedge of n−1 n-spheres on this same tree, not S^{n−1}",
+          "The multipath indexed statement gives the same final sphere but not the strong-complex links or facets"
+        ],
+        "reasoning": "Neither ordinary-Morse homology nor the multipath collapse computes which unique-neighbor incidence sets extend in strong matchings. The additional arm/center facet and link analysis is what yields the asserted strong collapse and exact facet count.",
+        "searches": [
+          "Donovan–Scoville Cor. 3.14 lead, arXiv:2207.13780; Resultary ordinary extended-star Morse representations 348812728b63",
+          "Resultary 09fa810d6117 relative to the exact face model in RESULT.md lines 20–40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 09fa810d6117, same tree and sphere/sign outcome for bidirected multipaths",
+          "RESULT.md lines 28–38, 57–60 give actual allowable strong faces"
+        ],
+        "reasoning": "The all-A,C strong face has n center-pointing incidences and violates the multipath constraint. Conversely the multipath constraints do not enforce the unique-earlier-neighbor restriction excluding B_j when D_i is present for j≠i. Thus matching sphere dimensions and actions are not statements about an equivalent complex.",
+        "searches": [
+          "Resultary once-subdivided stars, two-edge spiders, strong discrete Morse matching, ordinary Morse and bidirected multipath complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0de42a6380fb covers the full strong complex of C_10; a32a0d575582 covers bouquets of triangles and squares; 09fa810d6117 covers multipaths on these stars"
+        ],
+        "reasoning": "None of these distinct indexed statements tabulates the full strong complex or its facet counts for this tree family; n=2 is separately credited to the path classification.",
+        "searches": [
+          "Resultary full strong Morse complexes on once-subdivided stars and same-day strong-complex classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full strong matching complex in the branching case, specifically its structural collapse, action and facets. The strongest same-tree/same-sphere result is credited for a different simplicial complex.",
+      "residual_risks": [
+        "The exact deeper primary passages and full catalogue texts were not all available; equivalent unindexed strong-tree work or a broader theorem is not ruled out. No priority is assigned among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes terminology and the path convention P_n has n edges; deeper passages not recovered.",
+          "evidence": [
+            "PDF extraction lines 13–23: full and pure strong matchings and listed path/star/simplex calculations"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.06844",
+          "material_read": "Abstract, p. 1",
+          "method": "ArXiv PDF preview and targeted requests for Definition 4.2 and Theorem 6.6",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Same strong complex; possible classification of the audited family"
+        },
+        {
+          "assessment": "Non-equivalent complex on the same graph",
+          "evidence": [
+            "The known result concerns bidirected multipaths, which do not allow the audited all-A,C facet"
+          ],
+          "identifier_or_url": "Resultary 09fa810d6117",
+          "material_read": "Indexed claim and frozen comparison at RESULT.md lines 57–60",
+          "method": "Local catalogue comparison and attempted mirror full-text retrieval",
+          "title": "Bidirected two-edge spiders collapse to cross-polytope spheres",
+          "trigger": "Same tree and homotopy/action outcome"
+        },
+        {
+          "assessment": "Ordinary, not strong, matching complex; do not credit an ordinary Morse result as new.",
+          "evidence": [
+            "Corollary 3.14 is cited for a wedge of n−1 spheres of dimension n"
+          ],
+          "identifier_or_url": "https://nyjm.albany.edu/j/2023/29-54p.pdf",
+          "material_read": "Locator and theorem statement cited at RESULT.md lines 60 and 68; primary PDF passage not recovered",
+          "method": "Frozen literature comparison, lawful PDF attempt and independent catalogue match 348812728b63",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Same-tree ordinary Morse classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 20–52 and 57–63"
+      ],
+      "rationale": "This is a natural branching family beyond paths and stars. A strong collapse identifies a canonical embedded sphere supporting the symmetry action, and the full facet classification shows why the much larger nonpure complex cannot be inferred just from its homotopy type or from the ordinary Morse analogue.",
+      "residual_risks": [
+        "The theorem does not classify other arm lengths or the full equivariant homotopy type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

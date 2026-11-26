@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:17:46.945166Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–23 and 25–55",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)"
+      ],
+      "rationale": "Summing the finite Green sequence ∑_{j=0}^n r^j sin((j+1)θ)/sin θ gives the claimed phase and amplitude, with A(0)=(r−1)^2. The zero of Φ_n−π is at π/(n+1−1/(r−1))+O_r(n^−4), and the growing amplitude means each target root is an angular displacement O_r(r^−n/n²) above it. For either target the crossing equation is strictly monotone in a phase band of size O(1/n) around π: the phase derivative is n+O_r(1) and the arcsine derivative is O_r(r^−n). Subtracting the equations for the two target levels gives an angular separation asymptotic to (r−1)π/(r^{n+3}n²); multiplication by 2r sin θ gives 2π²(r−1)r^−n/(r²n³). Consecutive phase roots have angular separation asymptotic to π/n², giving 2rπ²/n³ and then the stated ratio. In the open window, the two threshold signs give X_n<0 and X_{n−1}>r^−2. For an explicit check of the earlier signs, at the upper angular endpoint the (n−1)st phase is at most π+O_r(r^{−n+1}/n). Hence for j≤n−2 the phase is below π by subtracting at least θ of order 1/n; fixed sufficiently large j also have positive phase, and the finitely many smaller j have positive limits from the finite Green sequence. The proof's alternative wording about being below π at the last positive iterate need not hold for j=n−1; that sign is supplied separately by the threshold, as above. The actual orbit therefore first reaches two negative coordinates at step n and resets in the next two steps. Nothing before then is (1,1), since the second coordinate is less than 1 after every preceding strictly positive first coordinate, and the first coordinate at step n+1 is negative. Strict signs give a neighborhood with the same itinerary, and the two negative branch maps compose to a constant reset, stronger than just zero derivative.",
+      "residual_risks": [
+        "The checker performs finite sign and itinerary assertions and reports normalized coefficients; it is not an asymptotic certificate.",
+        "The branch and root analysis is pointwise in fixed r>1; no endpoint, r→1, or global gap-dynamics classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact finite-iterate formulas and a conditional n+2 return are given for general (T,D)."
+        ],
+        "reasoning": "The two-parameter representation is broader as a formula, but the conditional return does not establish the all-large-n fixed-slice itinerary, first-root interleaving or sharp two-scale asymptotic widths. The search miss is not evidence of absence.",
+        "searches": [
+          "arXiv:2402.06230v1 §§3–5, especially §4 Eq. (9)",
+          "Primary literature search for max-plus first-half-turn period windows and fixed-determinant gap asymptotics (no useful lead)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.09300v1 and arXiv:2402.06230v1, specified passages",
+        "Resultary 532755a6950a decisive statement and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal theorem gives gap ∼π²2^−n/n³, width ∼8π²/n³ and ratio ∼2^−n/8.",
+          "Here at fixed D=4 the two constants are π²/2 and 4π², with the same ratio."
+        ],
+        "reasoning": "The contrasting constants rule out substitution of the common limiting parameter into the prior diagonal formulas. General finite-branch formulas are an input, not a result on monotonicity, asymptotic target differences or earlier positive signs along the new path. Credit the shared exponential mechanism and diagonal result.",
+        "searches": [
+          "Local Resultary 532755a6950a Finding and proof",
+          "arXiv:2402.06230v1 §§3–5",
+          "arXiv:2107.09300v1 Eqs. (4)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published max-plus equations give the same B=1 reset map and negative-quadrant two-step return.",
+          "The related indexed theorem uses T=D=R, not a slice D=r² independent of T."
+        ],
+        "reasoning": "The map and reset itinerary are the same under notation change, but holding D fixed is a different parameter path from T=D. Neither variable relabeling nor taking the common point (T,D)=(4,4) makes the two derivatives along these paths identical.",
+        "searches": [
+          "Local Resultary search for fixed-determinant reset oscillator windows and thin gaps, strongest nonself hit 532755a6950a",
+          "Ohmori–Yamazaki arXiv:2107.09300v1 Eq. (2); arXiv:2402.06230v1 Eq. (1), §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 numerically locates finitely many periods and threshold intervals at D=2; Table 1 supplies diagonal T=D thresholds.",
+          "The indexed exact asymptotic supplies a sharp result on T=D→4."
+        ],
+        "reasoning": "The data anticipate the periodic mechanism and finite windows but do not give the infinite fixed-D staircase or its width constants. The indexed result is an exact comparison on a nonidentical path.",
+        "searches": [
+          "arXiv:2402.06230v1 Table 3",
+          "arXiv:2107.09300v1 Table 1",
+          "Local Resultary 532755a6950a"
+        ]
+      },
+      "rationale": "Qualified to the fixed-D all-large-n staircase and its sharp window and gap constants. The reset map, two-step reset, crossing equations, and conditional n+2 return are prior. The exponential-gap mechanism is also prior on a different path; the matching ratio at the shared limiting point is not by itself distinctive.",
+      "residual_risks": [
+        "A separate unlocated two-parameter asymptotic might imply the result by restriction. The matched diagonal theorem is not such a result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes reset conditions, conditional exact return and finite threshold data; no matching fixed-D asymptotic in the decisive passages.",
+          "evidence": [
+            "Relation Y_{n+1}+DX_n=1 and conditional n+2 return",
+            "Numerical D=2 threshold intervals"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.06230v1",
+          "material_read": "§1 Eq. (1), §3.1 Eqs. (2)–(3), offsets 0–9240; §4 Eq. (9) and Table 3, offsets about 13000–19000",
+          "method": "OA HTML passages",
+          "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+          "trigger": "Exact same two-parameter map and D=2 slice"
+        },
+        {
+          "assessment": "Diagonal windows and intervening gaps, not an asymptotic for all fixed determinants.",
+          "evidence": [
+            "Period n+2 conditional on first entry to reset region",
+            "Diagonal first/second coordinate boundary equations and threshold tables"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.09300v1",
+          "material_read": "Eq. (2), offsets 0–4981; Eqs. (4)–(7), Table 1, offsets about 4900–11372",
+          "method": "OA HTML passages",
+          "title": "Discrete bifurcation analysis of limit cycles in a max-plus dynamical system",
+          "trigger": "Same reset mechanism on diagonal T=D"
+        },
+        {
+          "assessment": "Substantial prior overlap; varying T=D gives different leading scales for the two widths, in their constants, than fixed D at the same endpoint.",
+          "evidence": [
+            "Diagonal T=D→4 gap and window constants π² and 8π², as against fixed D=4 constants π²/2 and 4π²"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponentially-thin-parameter-gaps-in-a-max-plus-reset-oscillator--532755a6950a/RESULT.md",
+          "material_read": "Finding, hypotheses and proof of the crossing widths",
+          "method": "Local indexed mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exponentially thin parameter gaps in a max-plus reset oscillator",
+          "trigger": "Sharp asymptotic in same map at same limiting point"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the crossing scales",
+        "arXiv:2402.06230v1 Table 3",
+        "Resultary 532755a6950a diagonal constants"
+      ],
+      "rationale": "Fixed determinant is a natural experimental and theoretical slice already present in the numerical literature. Certifying every sufficiently high primitive period with nonzero width and extracting the exponential separation from its polynomial-width neighbor gives information that finite threshold diagrams can miss. The constants separate trace-only tuning from simultaneous trace/determinant tuning.",
+      "residual_risks": [
+        "This resolves the canonical reset orbit, not uniqueness among all attractors or the nature of the open gaps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives an exact finite-cell quadratic-form identity, including the Fourier normalization, the diagonal constant \(2\gamma-2-2\log N\), the cross-cell coefficient \(c_k\), the strictly positive summable discrepancy \(d_k\), and a zero-extension translation energy. This supplies bounded logarithmic Fourier energies for discrete Perron histograms, compactness in \(L^2\), and vanishing discrete remainder. Dense smooth step approximations give the reverse bound. Positivity and simplicity of the continuum limiting ground state are taken explicitly from Chen–Weth's established theorem. The finite checker tests algebraic normalization, not the infinite limit.
+## correctness
 
-**Originality — PASS, with residual risk.** Li–Villavert (2011) and Cheng–Li (2013) treat the identical discrete critical HLS matrix but supply only logarithmic two-sided estimates, i.e. \(2\log N+O(1)\), not the additive limit or rescaled eigenvector convergence. Chen–Weth establishes continuum log-Laplacian spectral theory but does not relate that operator to these discrete matrices. Full text of Zhou–Trinajstić's related 2007 Harary-bound paper was compared; it bounds eigenvalues through graph row sums, not the second-order limit. Singular-symbol Toeplitz literature examined deals with different bulk/jump regimes. The separate Wiley 2007 Harary paper was available only in abstract/indexed form; equivalence under another terminology or a general spectral-edge theorem is a documented risk.
+PASS
 
-**Value — PASS.** The additive spectral constant and the entire limiting positive Perron profile are natural unresolved quantitative features of the motivating critical HLS matrix. The exact all-size positive remainder identifies a structural bridge between discrete reciprocal-distance matrices and the continuum logarithmic operator; the result is not a small finite numerical improvement or a rephrasing of the known continuum ground-state theorem.
+With the stated Fourier convention the quadratic form is the negative of the 2 log|s| form. The cutoff reciprocal kernel plus diagonal 2 log epsilon+2 gamma yields this multiplier; for the unit constant on (0,1) the renormalized value is 2 gamma-2, and rescaling a unit cell subtracts 2 log N. Direct cross-cell integration gives c_k even at k=1, whose corner is integrable. Strict Jensen gives c_k>1/k; the symmetric triangular second moment is 1/6, giving the cubic leading term, and the second differences telescope against H_m to 1-gamma. Polarization with zero extension gives the exact stated identity for every unit complex vector, including all shift terms k>=N. The constant-vector lower bound and bounded remainder give a lower bound on the continuum form along the Perron sequence. Compact support controls low frequencies and the lower form bound gives a high-frequency Fourier tail O(1/log R), hence strong L2 precompactness. The phrase 'boundedness of the logarithmic kernel near zero' in line 69 is inaccurate; the kernel there is integrable and the Fourier transforms are uniformly bounded, so dominated convergence gives precisely the needed low-frequency convergence. Fatou gives the high-frequency inequality. The fixed shifts k/N vanish on every strongly convergent subsequence and summability removes the entire discrete remainder. Compression and mollification give density in the logarithmic form norm. The cell-average error for a smooth test function has sup norm O(1/N) and uniformly bounded total variation, giving squared translation differences bounded by min(O(N^(-2)),O(|h|/N)); integration proves H^t convergence for 0<t<1/2 and thus the Rayleigh recovery bound. The resulting continuum maximizer is unique in the nonnegative unit class by Chen–Weth, so all Perron histograms converge. The finite checker was inspected, not executed; it checks finite algebra and gives sample eigenvalues, not a proof of this limit.
 
-**Closest literature and limitations.** See Li–Villavert (2011, original critical path-matrix bounds); Cheng–Li (arXiv:1306.1649, later multidimensional extension and optimizer theory); Chen–Weth (arXiv:1710.03416, continuum eigenbasis); Zhou–Trinajstić (2007, Harary spectral bounds); Lee–Dai–Bettelheim (arXiv:0708.3124, different Toeplitz edge regime). No elementary closed form or certified numerical enclosure for the continuum constant is asserted. Independent mathematical audit remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same matrix, bounded-error growth, finite positive optimizer, and continuum ground-state theorem are established prior work. In the inspected sources none gives the additive limit, strong profile convergence, or exact cell-form identity of this matrix. The pass is limited to those distinct claims.
+
+## value
+
+PASS
+
+It sharpens a natural critical finite HLS problem from a bounded error to an exact spectral constant and identifies the optimizer's continuum shape. The exact cell comparison also explains why the continuum operator gives the unshifted additive constant and why the discrete correction disappears. A numerical enclosure or convergence rate would be separate work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

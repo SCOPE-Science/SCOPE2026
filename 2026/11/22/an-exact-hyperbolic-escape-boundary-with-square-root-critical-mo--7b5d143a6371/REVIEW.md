@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof directly derives the exact product recurrence, separates the two invariant signs, and closes the only delicate alternatives (bounded height for subcritical data, strictly positive terminal velocity for supercritical data). Riemann-sum comparison and summable expansions establish all error orders, including the critical coefficient \(1/2\) of \(\log n\). The standalone current-package checker passed 600 exact-rational comparisons/identities and 16 numerical regime/asymptotic diagnostics. Finite checks are not offered as proofs of infinite-time claims.
+## correctness
 
-**Originality — PASS within accessible evidence.** The source article by Zhang and collaborators (2022) establishes the family and equilibrium line but does not give this exact separator or its three-way sharp time laws. Two closely related published mathematical results were inspected in full: one requires positive feedback \(a>0\) on the fixed-line slice, and the other requires both \(a>0\) and nonzero drift \(d>0\). Neither covers the negative-feedback \(a=-1\), \(d=0\) theorem. Source-date and unindexed-priority risks are identified in AUDIT.json.
+PASS
 
-**Value — PASS.** The invariant hyperbola supplies an exact global basin boundary on a mathematically natural zero-forcing parameter boundary already studied numerically. It demonstrates that locally transversely attracting fixed-line points coexist with open ballistic-escape initial conditions, separated by a square-root critical trajectory. Its logarithmic asymptotics quantify genuine dynamical differences invisible to fixed-point eigenvalues or finite-time plots.
+With u=cx and p=uy, multiplication of the two updates gives p'−1=(p−1)(1+p/(1+y²)). Hence the sign classes and the invariant equality are exact. Below the curve, if y were unbounded, the decrease in p for y≥1 would be at least (1−p₀)/2 times the increment in log y, contradicting bounded p. For finite limit Y, uₙ is bounded by u₀qⁿ, with q=Y²/(1+Y²); summability of log(q(yₙ)/q) gives the positive limiting prefactor and summing uₙ gives the stated tail for Y−yₙ. On the curve sₙ=yₙ² obeys Δsₙ=2+1/sₙ. First sₙ=2n+O(log n), then Δ(sₙ−2n−log(n)/2)=O(log(n)/n²), giving the constant and error. Above the curve, Δ(y²)≥2p₀, so y grows without bound. If u had zero limit, its telescoping decrement sum is a left Riemann sum for ∫ from yₙ to ∞ of (1+t²)⁻¹, with error at most uₙ/(1+yₙ²); this forces pₙ→1, impossible. For v=lim uₙ>0, yₙ/n→v and summing the same decrements first gives uₙ−v=O(1/n), then yₙ=vn+O(log n). The summand is consequently 1/(vk²)+O(log(k)/k³); summing it and then subtracting the harmonic drift from y proves both displayed errors. Strict y-increase excludes periodic orbits. Replay: frozen RESULT.md §§1–5, lines 39–101. VERIFICATION.md and verify.py were inspected, not executed; the floating-point checks cannot certify the separatrix or infinite-time limits.
 
-Scientific limits: only exact-real \(x,y,c>0\), \(a=-1\), \(b=d=0\). No assertion about other quadrants or a full four-parameter classification. The two publisher-listed manuscript-online dates differ; either is earlier than 2024-11-15. Novelty still requires independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact endpoint invariant and global hyperbolic partition, including the quantitative laws on its three identified regions. The nearby parabolic study recovers the limiting critical log coefficient by the same type of Riemann-sum estimate and is substantial mathematical overlap, but does not identify the exact endpoint critical initial conditions. No priority is inferred from same-day dating. The originating article remains an explicit outstanding primary-source risk.
+
+## value
+
+PASS
+
+For an existing dynamical family at an equilibrium-line parameter, local stability does not answer which positive initial states converge to that line and which escape. The explicit all-state separator answers that question without shooting or asymptotic parameter fitting and identifies a distinct critical motion, with quantitative convergence and scattering on its two sides. Even relative to the nearby parabolic model the endpoint's exact basin test is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

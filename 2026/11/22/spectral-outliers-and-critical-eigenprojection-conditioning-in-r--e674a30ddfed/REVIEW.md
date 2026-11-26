@@ -1,23 +1,21 @@
-# Scientific review: radial Bergman diagonal Markov spectral outliers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each admissible radial weight, Panja's Kraus formula gives precisely the inhomogeneous pure-birth operator \((P_wx)_n=(\delta_n/d)x_{n+1}+(1-\delta_n/d)x_n\). Strict moment log-convexity and boundary support imply \(\delta_n\downarrow1\). The operator is a compact perturbation on \(\ell^\infty\) of \((1-1/d)I+(1/d)B\); direct Fredholm analysis of the backward shift gives its essential circle and index. The eigenvector recurrence proves the entire closed disk is point spectrum; a tail inverse followed by finite back-substitution exhausts the exterior spectrum. For beta weights, both right and left eigenvectors are computed explicitly, with the left vector in \(\ell^1\), and the rank-one projection's exact norm follows from a hypergeometric sum. Its critical asymptotic is a genuine limit, not a finite experiment. The packaged rational/float diagnostic provides supplementary consistency checks, not an infinite-dimensional proof.
+PASS
 
-## Originality — PASS, qualified
+For the displayed Kraus map, applying it to a diagonal telescopes the holding terms, giving the explicit Markov bidiagonal with forward coefficient a_n=δ_n/d. Strict moment log-convexity follows from Cauchy–Schwarz for a nonconstant squared radius; the ratios have limit 1 because the nth roots of the moments tend to 1 by support near radius one. The operator differs from bI+aB by a norm limit of finite-rank truncations. For the backward shift the open disk has index +1 by explicit bounded recurrence, and the rim has nonclosed range by finite-support tapering approximate eigenvectors at positive distance from its kernel. The eigenvector multiplier has limiting modulus |λ−b|/a; on the rim use |λ−β_n|≤a_n. Outside, a bounded eigenvector must terminate at λ=β_j, which lies outside exactly when δ_j>2. Cutting beyond j gives an invertible tail; the head has distinct diagonal entries, so the isolated eigenvalue is algebraically simple. The same cut and a Neumann series give the resolvent off the displayed spectrum. For beta weights the moments give δ_n=(n+A)/(n+1). The right mode decreases to its last nonzero index j; the left recurrence yields the stated alternating Pochhammer tail with absolute sum 2(1−r_j)^(−A−j−1) by differentiation of the binomial series. Their overlap is exactly one; aligning input signs attains the rank-one norm. At α=j+ε, 1−r_j=ε/(j+1+ε), and ε^(−ε)→1 supplies the sharp constant and exponent 2j+3.
 
-The precise claim is the full spectrum of the new channel's canonical diagonal restriction, the moment-ratio outlier criterion, and the beta-weight exact spectral-projection/merger exponent formulas. Panja [1] supplies the unital completely positive channel and fixed-point characterization but does not investigate its diagonal restriction's spectrum or projections. Trefethen, Contedini and Embree [2] investigate random iid bidiagonal matrices and a general resolvent mechanism, not the deterministic monotone moments or hypergeometric Riesz-projection asymptotics. Ordinary compact-perturbation shift Fredholm theory is a known ingredient, explicitly acknowledged. Searches of existing mathematical records and the accessible related literature did not identify a statement subsuming the complete claim; absence of hits does not prove novelty. A previous deterministic bidiagonal eigenprojection theorem might still dominate some portion of the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Panja's diagonal subalgebra is canonical and invariant; spectral data there distinguish radial weights despite the universal geometry of the essential circle. The precise condition \(\delta_j>2\) counts nonnormal isolated modes for arbitrary admissible radial weights, and for classical beta weights the count is \(\max(0,\lceil\alpha\rceil)\). More substantially, the exact Riesz-projection norms have sharply different odd-order blow-ups at consecutive merger thresholds, quantifying a spectral-conditioning instability invisible to the fixed-point classification or ordinary spectral set alone. This is a natural spectral invariant of a newly defined operator, not an arbitrary finite slice.
+The strongest supported distinction is the exact external moment threshold on the diagonal channel and, for beta weights, the summed projection norm and sharp merger law. The channel construction, pure-birth interpretation and compact-perturbation shift framework are not the originality claim.
 
-## Closest work and limits
+## value
 
-[1] Samir Panja, arXiv:2611.09731v1 (2026-11-06), https://arxiv.org/html/2611.09731v1 .
+PASS
 
-[2] L. N. Trefethen, M. Contedini and M. Embree, *Spectra, pseudospectra, and localization for random bidiagonal matrices* (2001), https://people.maths.ox.ac.uk/trefethen/publication/PDF/2001_96.pdf .
+Even for a canonical invariant commutative subalgebra of a positive channel, isolated spectral modes can have very large projections. The explicit sequence of odd critical exponents gives a differentiated conditioning law rather than a generic statement of divergence, with the all-weight moment threshold locating where the phenomenon can occur.
 
-The theorem does not describe the whole completely positive superoperator. The projection formula is specialized to beta weights. Independent bibliographic comparison may still find an older general Riesz-projection calculation in a deterministic bidiagonal framework.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

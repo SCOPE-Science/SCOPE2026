@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:05:44.943923Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_minimal.py (inspection only)",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "Independent symbolic generator solution",
+        "arXiv:1207.1006 §5.1.2 and §5.2"
+      ],
+      "rationale": "In the repaired active class, empty sites remain ON, and on the triangle every occupied OFF can activate because it has an empty ON neighbor. All-ON configurations communicate by alternating hops with activation; choosing hop destinations realizes all five phase/occupation types and their relabelings. Independently constructed and solved the exact five-state lumped chains. The only rate difference is the escape rate from the split state with both occupied clocks OFF, 2c versus c. With escape rate αc, collision mass is (c+1)(c+2) divided by (c+1)(c+2)+2/α+4c+2c². This yields both stated stationary laws for all c>0 and the positive factorized gap, tending to 1/6 at zero and decaying as 1/(9c²). With all clocks initially ON, there is at most one OFF site when there is one particle (OFF implies occupied) or when there are only two sites (every hop leaves an ON source). Hence all eligible neighbors are ON in the smaller cases. The repair excludes all-OFF absorbing states rather than asserting they do not exist. Replay: python3 /workspace/branches/reproduce_triangle_seasons.py, output /workspace/branches/triangle_seasons_reproduction.txt.",
+      "residual_risks": [
+        "The identified stationary law of the gated process is not a statement about arbitrary stationary mixtures on the unrestricted phase space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original dynamics is analyzed in the fully connected thermodynamic limit in the 2009 article.",
+          "The exact finite-size product law of the 2012 article applies to the modified symmetric ring and excludes all-clocks-OFF states in Eq. (36).",
+          "The 2015 model has open boundaries and exact one-site laws, not the closed three-site canonical comparison."
+        ],
+        "reasoning": "The exact product solution covers one of the models, not the independent-clock generator on this finite system. The repair uses the active class so there is no mismatch with the product-law scope.",
+        "searches": [
+          "arXiv:0906.0709 Eqs. (2), (7) and mean-field discussion",
+          "arXiv:1207.1006 §§5.1.2, 5.2.2",
+          "arXiv:1504.06309 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0906.0709",
+        "arXiv:1207.1006 §§5.1–5.2",
+        "arXiv:1504.06309",
+        "dc9245657979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published weights with u(n)=n give f(0)=1, f(1)=(c+1)/c, f(2)=(c+1)(c+2)/(2c²), so 3f(2)/(3f(2)+3f(1)²) is exactly the gated probability.",
+          "The split double-OFF type has different escape rates in the two generators. The independent-model law requires its own finite balance, not substitution into the gated law."
+        ],
+        "reasoning": "The modified probability is mechanically implied and explicitly credited; the finite independent law, its all-rate gap and the scoped first size are not supplied by that implication.",
+        "searches": [
+          "arXiv:1207.1006 §5.1.2 Eqs. (51)–(53), §5.2.2",
+          "arXiv:0906.0709 fully connected model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clock increments at rate c and arrival resets in the 2009 process match the independent on–off rules.",
+          "In Eq. (56) the gated process samples a neighbor using hopping probabilities at each rate-c attempt. On the symmetric three-site ring, its two neighbors are the other two sites, giving the stipulated rate c times the fraction ON."
+        ],
+        "reasoning": "The topology match is the three-site symmetric one-dimensional ring, not a citation by analogy to a two-dimensional triangular lattice.",
+        "searches": [
+          "Resultary: exact canonical three-site two-particle on–off zero-range collision gap and neighboring clock activation",
+          "arXiv:0906.0709 pp. 1–2",
+          "arXiv:1207.1006 §5.2.1 Eq. (56)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local formula matches were the assigned record and its slogan.",
+          "The closest indexed resetting result concerns reentrant distal correlations in an open three-site exclusion process with particle-specific resetting, not this conserved two-particle clocked system."
+        ],
+        "reasoning": "No inspected exact entry gives the original collision probability or signed gap. Matching site count and a resetting mechanism do not identify the generator or occupancy measure.",
+        "searches": [
+          "Local frozen corpus: three-site collision formulas and on-off zero-range dynamics",
+          "Resultary: finite original versus gated single-site clustering gap",
+          "dc9245657979 Finding"
+        ]
+      },
+      "rationale": "The corrected scope matches the physically active class of the exact symmetric-ring model in the literature and does not reclaim the known gated canonical law. The supported contribution is the finite original-model stationary collision probability and its strict signed discrepancy at the first active-class size. The exact gated product law and mean-field behavior of the original model do not determine this difference.",
+      "residual_risks": [
+        "Bounded searches do not rule out an unindexed finite-size comparison with the same active-class hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines original generator; inspected factorization is thermodynamic",
+          "evidence": [
+            "Rate-c independent clock increments; arrival reset; uniform destinations among j≠i give the fully connected process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0906.0709",
+          "material_read": "pp. 1–2, Eqs. (2), (7) and fully connected discussion",
+          "method": "OA primary PDF",
+          "title": "Condensation in Temporally Correlated Zero-Range Dynamics",
+          "trigger": "Original on–off dynamics and potential finite fully connected law"
+        },
+        {
+          "assessment": "Exact gated law already covered; original finite comparison not covered by it",
+          "evidence": [
+            "Neighbor sampling and acceptance in (56); symmetric product extension in §5.2.2; (36) excludes all-OFF and the occupation-zero OFF weight is zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.1006",
+          "material_read": "§5.1.2 Eqs. (36), (51)–(53) and §5.2.1–5.2.2, including Eq. (56), pp. 24–25 for symmetric model",
+          "method": "OA primary PDF",
+          "title": "Motion of condensates in non-Markovian zero-range dynamics",
+          "trigger": "Literal gated rule and strongest exact finite canonical prior"
+        },
+        {
+          "assessment": "Open-boundary result, not the canonical ring",
+          "evidence": [
+            "Exact one-site open process and mean-field chain treatment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.06309",
+          "material_read": "p. 1 scope and abstract",
+          "method": "OA primary PDF passage",
+          "title": "Temporally correlated zero-range process with open boundaries: Steady state and fluctuations",
+          "trigger": "Exact one-site clocked law with linear departure"
+        },
+        {
+          "assessment": "Different state space, mechanism and invariant",
+          "evidence": [
+            "Open exclusion process with particle-specific resetting rather than clocks at sites in a closed zero-range process."
+          ],
+          "identifier_or_url": "dc9245657979",
+          "material_read": "Finding",
+          "method": "Resultary mirror",
+          "title": "Reentrant distal occupation correlations in a three-site exclusion process",
+          "trigger": "Nearby three-site resetting process in local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and five-state balance",
+        "arXiv:1207.1006 original versus modified models"
+      ],
+      "rationale": "The repaired finite boundary case pinpoints when the solvable neighbor-gated surrogate first changes a natural stationary observable, holding all hopping and reset rules fixed. The all-rate sign and distinct slow- and fast-clock scales distinguish physical neighbor gating from an artifact of an arbitrarily chosen absorbing start. This is a useful exact benchmark even without a general-size inequality.",
+      "residual_risks": [
+        "No claim about the sign for more particles, other topologies or thermodynamic condensation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

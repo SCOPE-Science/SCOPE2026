@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:37:44.508148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The m minimal winners are exactly the veto bloc united with each respective committee. Each veto seat has normalized DP weight 1/(a+t); each committee seat has weight 1/[m(a+t)], yielding C(t)=(mt+a)/[m(a+t)^2]. Clearing the positive denominators in C(t)-C(1) leaves (t-1)[m(a^2-t)-a(2a+t+1)]. The ratio is the product of (t+a/m)/(1+a/m)<t and ((a+1)/(a+t))^2<1; along m=a^2 both factors approach their bounds. For the one-to-two comparison, m<=2 or a=1 cannot work, a=2 needs m>=8, a=3 needs m>=4, and a>=4 needs m>=3. At the only other a>=4 borderline with a*m=12 and m>=3, (4,3) fails. Thus 13 is sharp within the family; the gain is 1/1600 at (3,4). The adjacent comparison numerator is m[a^2-t(t+1)]-a(2a+2t+1), strictly decreasing in t; C(t) tends to zero. An independent full Boolean-coalition scan, testing winning status and all immediate predecessors for both t=1 and t=2 up through 13 pre-subdivision seats, found only (3,4) with a gain. Replay: python3 /workspace/review-checks.py (voting section); the finite scan is not used to justify the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.1 gives the general squared-DP functional up to a positive scale. The two-class games of §6 allow every subset of the designated size within each class, not specified disjoint committees of size a>1 when m>1."
+        ],
+        "reasoning": "The singleton-committee and single-committee degeneracies overlap with threshold cases but cannot realize the amplification region. The general definition makes the base formula easy, but no inspected broader comparative theorem settles the selective-split sign, extremal ratio, or minimum size.",
+        "searches": [
+          "Abe arXiv:2606.05655 Proposition 4.1 and §6; Resultary selective subdivision and concentration under voting-rule modifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.05655",
+        "Resultary 6c4230e73303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform replication applies to all voters and decreases the functional; the present nontrivial cases alter only veto-seat multiplicity. The inspected insertion record changes the set of minimal winning pairs and analyzes a different statistic change."
+        ],
+        "reasoning": "Credit the base concentration definition and routine membership evaluation; the central sign criterion, sharp supremum, first size and one-turn classification are for a different operation and not corollaries of the comparative results inspected.",
+        "searches": [
+          "Abe §3.2 pp. 3–4, Proposition 4.1 p. 6, §6 pp. 11–14; Resultary 6c4230e73303 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abe’s uniform t-replica requires all copies of every participating player and scales concentration by 1/t; §3.2 even starts with a one-veto, two-singleton-committee example but replicates all three roles."
+        ],
+        "reasoning": "Conjunctively cloning one veto role is an equivalent description of the candidate. Cloning every role is not: it also changes each committee’s size, invalidating the uniform scaling argument when they are held fixed.",
+        "searches": [
+          "Resultary: selective common-veto cloning, conjunctive subdivision, squared Deegan–Packel concentration, disjoint petal committees",
+          "Abe arXiv:2606.05655 §3.2; targeted literature lookup for selective veto replication"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Abe gives comparisons in two-class threshold systems, not the indexed committee family’s 13-to-14 witness. The material related result 6c4230e73303 studies insertion of a minimal winning pair, not subdivision."
+        ],
+        "reasoning": "Neither class-size/threshold tables nor edge insertion produce the (3,4) comparison or establish its minimality for selective splitting. No exact covering indexed result was located in the bounded checks.",
+        "searches": [
+          "Resultary: selective-veto increase threshold, 13 pre-subdivision voters, near-t-fold amplification; Abe §6 parameter comparisons"
+        ]
+      },
+      "rationale": "The definition, the squared-index form, and uniform all-player replication are prior. Relevant primary passages and the related indexed result do not provide the selective-veto classification, its sharp fixed-t envelope, or the minimal amplification witness in this family. The originality assessment credits the operation and its consequences, not the direct evaluation of the index by counting memberships.",
+      "residual_risks": [
+        "Broader player splitting and merger literature was not exhausted; no claim is made about the full Lasisi–Allan paper on annexation and merging.",
+        "The underlying index is prior; priority of a general selective splitting rule outside the inspected passages is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior measure and uniform scaling; does not classify selective subdivision of one common veto seat",
+          "evidence": "Uniform replication divides by t; the two-class extension treats all threshold-sized subsets rather than specified disjoint committees in the nondegenerate amplification regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.05655",
+          "material_read": "§3.2 pp. 3–4; Proposition 4.1 p. 6; §6 pp. 11–14",
+          "method": "Lawful open primary paper, definitions, worked example, and class-threshold passages",
+          "title": "Measuring Concentration of Power in Approval Voting Games",
+          "trigger": "Source of the concentration measure and strongest replication comparison"
+        },
+        {
+          "assessment": "Different operation and family; catalogue date also later",
+          "evidence": "Adds a minimal winning pair to a sparse graph of pairs and studies deterministic and random changes, not subdividing a co-required position.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-lattice-window-law-for-concentration-after-adding-a-decisive--6c4230e73303",
+          "material_read": "RESULT.md statement and deterministic criterion",
+          "method": "Local published-record mirror",
+          "title": "The lattice-window law for concentration after adding a decisive pair",
+          "trigger": "Closest indexed change in the same power concentration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perturbation isolates a natural design question that uniform replication does not answer: whether replacing a veto by several jointly required seats necessarily reduces power concentration. The exact opposite-regime criterion, almost t-fold gain, in-family minimum, and one-turn dependence give reusable benchmarks. The minimum is not a claim about arbitrary voting games, or about normative institutional desirability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

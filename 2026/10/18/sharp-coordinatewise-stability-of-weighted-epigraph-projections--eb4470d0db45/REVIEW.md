@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The strictly convex scalar projection reduction, exact derivatives on every active chart, and explicit strict realization of every subset establish that the induced maximum row sums are globally sharp. The sorted-prefix lemma follows from strict add/remove improvement thresholds. A rank-two Rayleigh quotient proves the universal design upper bound and exhausts all equality patterns. The unweighted polar comparison follows from the independent soft-threshold derivative computation. Exact rational subset enumerations and an independent standard-library numerical checker corroborate the critical formulas. No finite enumeration is used in place of the general proof.
+## correctness
 
-## Originality — PASS, with limitations
-Ding–Sun–Toh (2010) establishes unweighted \(\ell^1\)/\(\ell^\infty\) epigraph projectors, their directional derivatives and uniform scaling. Chierchia et al. (2012) establishes weighted maximum-norm epigraph projection formulas. Neither inspected source provides the combined heterogeneous sharp \(\ell^\infty\)-sensitivity theorem, its sorted-prefix computational reduction, or the complete \(n+1\)-pattern optimal-weight design classification. The unweighted polar comparison is not asserted novel; it follows from earlier projector formulas. Related linear and nonlinear projection stability results concern different convex sets or norms. Historical priority beyond the inspected literature is not certified.
+PASS
 
-## Value — PASS
-The quantitative effect of anisotropic weighting matters whenever epigraphical Euclidean projection is used while tolerances are measured coordinatewise. The complete stability invariant and polynomial-size candidate reduction give computable worst-case guarantees; the sharp \(\sqrt n\)-scale design law and its two structurally different extremizer families identify how geometry causes amplification. A calibrated cone is nonexpansive in this metric despite its polar dual being expansive, showing the impact of duality and norm selection.
+For output height θ≥0, the spatial minimizers are coordinate clips, and the remaining scalar objective is strictly convex. On a strict clipped support S the active height-spatial derivative block is the rank-one orthogonal projector in direction (1,(σ_i a_i)_{i∈S}); the unclipped block is identity. The specified input at θ=1 realizes every S in an open chart, so segment integration and small row-sign perturbations give equality in the global formula. At an optimal subset for R, every unforced included a is ≤1/R and every excluded a is ≥1/R, by deletion and insertion, respectively. Ties can be ordered as a prefix. This proves the candidate count both with no forced coordinate and with one forced. Singletons give strict expansion at any non-unit reciprocal weight. For k active coordinates, a rank-one orthogonal projector in dimension k+1 has maximum row sum bounded by (1+√(k+1))/2: writing q for its diagonal entry, Cauchy–Schwarz bounds the row by q+√(kq(1−q)). Equality at the ambient ceiling forces full support and a distinguished coordinate larger in magnitude than every other coordinate by √(n+1)+1, the other magnitudes being equal. Normalizing the height coordinate gives exactly the n+1 listed positive designs; strict chart realization attains the bound. For the positive dual at unit weights, the active block is the complementary hyperplane projector with row sum 2k/(k+1); full support is feasible and gives the claimed constant. The negative polar has the same modulus by reflection. The frozen script was inspected, not executed.
 
-## Limits and remaining risks
-The proof is finite-dimensional over real coordinates. The weight optimizers assume no constraint on total weight. The unweighted projector formulas and their derivatives are established prior art, so the scientific contribution rests on heterogeneous exact stability, sorted-prefix reduction, and sharp weight-design extremizers. A prior formulation using generalized Jacobian norms of weighted polyhedral cones could contain the same result; independent bibliographic and mathematical review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact unconstrained design maximum for the weighted maximum-norm epigraph together with the exhaustive classification of its attaining weight vectors. Credit the earlier projection and derivative theory; the exact subset modulus is also a direct Moreau-complement consequence of the matching indexed weighted ℓ1 chart matrices, and the unweighted dual comparison is already covered. The generic matrix ceiling, taken alone, is not a distinct result. None of the inspected sources optimizes across reciprocal-weight designs for the maximum-norm epigraph or identifies which weights realize the ceiling; that requires the full-support and equality optimization, not just a numeric ceiling or duality of the cones. The unresolved complete-text comparison with Liu et al. limits this judgment. No priority conclusion is made from catalogue dates.
+
+## value
+
+PASS
+
+The coordinatewise perturbation question is natural because Euclidean nonexpansivity does not control the largest coordinate error sharply. Beyond the generic ceiling, the design theorem says whether it is realized by this specific family and gives every calibrating weight vector that realizes it, distinguishing height and spatial failure modes. These exact equality cases are useful for choosing or ruling out worst-case anisotropic calibrations. The covered polar example is not counted separately.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

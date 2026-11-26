@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:15.557966Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62; VERIFICATION.md and check_folded_cube.py inspected, not executed; folded_line_verification.txt lines 1–7",
+        "Independent replay: python3 /workspace/branches/d3901569-03f2-4f28-a2a9-d1204c596fce/independent_edge_rank.py; exact binary elimination on independently assembled edge adjacency, d=3 through 7. Observed ranks (F,F²,F³): (6,0,0), (14,4,0), (30,10,0), (62,26,0), (126,54,0)."
+      ],
+      "rationale": "Over F2 the incidence factorization is exactly F=B^T B, including the zero diagonal. The connected graph gives im B=J (the even-sum hyperplane) and ker B^T=<u> with u in J, so rank F=2^d-2. BB^T is multiplication by q=e2+...+ed in the square-zero group algebra; q^2=0 gives F^3=0. The off-diagonal-one alternating matrix of e2 has corank zero or one. After pairing variables, removing a degree-k term uses replacements of partner variables by degree-(k-1) corrections; cross terms start at degree 2k-2>k and the linear part remains invertible. Each pair contributes homology dimension two, and an unpaired variable contributes a factor of two. Thus rank q=2^(d-1)-2^floor((d-1)/2). Restriction to J removes exactly one rank since q has degree two and qJ has minimum degree three; B^T removes one more since q times the product t3...td is the top monomial u, with d>=3. The claimed Jordan counts and extinction histogram follow by ranks of iterates. At d=3 the square vanishes but F has rank 6, so the last step is exactly two; the counts 1, 1023, 64512, 0 and density 63/64 agree. At d>=4 the square has strictly positive rank. The unaugmented comparison also follows by writing its vertex element as a nonzero linear form, with rank 2^(d-1), and making the same two rank cuts.",
+      "residual_risks": [
+        "Finite checks corroborate the rank formulas but do not supply the all-d proof. No formal proof verification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "69a62e027bca explicitly removes every higher homogeneous term using degree-(k-1) substitutions and computes the rank from paired variables and one radical coordinate. That argument uses no distance-operator hypothesis after identifying the quadratic jet; the theorem's literal finding is narrower than the proved rank step."
+        ],
+        "reasoning": "For odd d the quadratic jet of q is exactly the cited e2. For even d extend q to the algebra on d+1 variables without using the new variable. Its quadratic form in d+1 variables has one radical coordinate, hence is congruent to e2 in that odd dimension. Rank on the extended algebra is twice rank on the original; applying the cited rank argument gives rank q=2^(d-1)-2^floor((d-1)/2) in both parities.",
+        "searches": [
+          "Resultary 69a62e027bca local mirror, quadratic-jet proof at offsets 3620–5987",
+          "Ghinelli–Key–McDonough, Hulls of codes from incidence matrices of connected regular graphs, repository listing"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 69a62e027bca, 9cbed31719f4, 5e85ef5ddf48",
+        "Fish–Key–Mwambene (2010), indexed material",
+        "Liu–Pan–Cao (2014) and Ghinelli–Key–McDonough (2014), limited access as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The latter proof applies B^T to the image of the vertex operator on the augmentation ideal, and subtracts one for the top monomial; its Jordan and kernel-size conversions use only F^3=0 and the first two ranks."
+        ],
+        "reasoning": "For the augmented q the exact same restriction/quotient gives rank q-2: q itself survives modulo qJ by its quadratic term, and q t3...td is the top monomial. Square-zero multiplication gives the vanishing cube and the graph-independent incidence calculation gives the first rank. Neither the Jordan law nor the extinction counts add a remaining independent exact calculation.",
+        "searches": [
+          "69a62e027bca quadratic-jet proof offsets 3620–5987 and 9cbed31719f4 incidence-rank/Jordan proof offsets 3600–7278"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9cbed31719f4 treats the unaugmented graph and obtains square rank 2^(d-1)-2 and two size-two blocks; 5e85ef5ddf48 uses the same augmented graph but studies real cut/cycle projections."
+        ],
+        "reasoning": "Neither graph naming nor equality of the first-power ranks makes these statements identical. The relevant reformulation is multiplication in the vertex group algebra followed by restriction and quotient under the incidence maps. The antipodal quotient is not this graph.",
+        "searches": [
+          "Resultary searches for augmented/folded hypercube line-graph binary adjacency, Jordan and parity ranks: matched records 9cbed31719f4, 69a62e027bca, 5e85ef5ddf48",
+          "Fish–Key–Mwambene DOI 10.1016/j.jsc.2010.03.012; Liu–Pan–Cao DOI 10.1155/2014/167623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit adjacent catalogue formula 2^(d-1)-2 is for L(Q_d), not the antipodally augmented line graph. The coding baseline is also indexed under the unaugmented cube. No verified lookup returns an explicit table for the augmented line-graph ranks."
+        ],
+        "reasoning": "The result is an all-d formula, not an isolated entry; inspected neighboring formulas do not give a verbatim match. Absence of a verbatim match does not undo the rank implication.",
+        "searches": [
+          "Resultary records 9cbed31719f4, 69a62e027bca and 5e85ef5ddf48; indexed Fish–Key–Mwambene abstract and cited theorem"
+        ]
+      },
+      "rationale": "A distinct indexed result for higher-distance vertex parity already gives, in its proof, the decisive rank rule for arbitrary higher jets above the maximal-rank odd-dimensional alternating quadratic part. The entire new-looking square-root defect follows mechanically from that rule, using a dummy variable in even dimension and the same two incidence rank cuts exhibited by the separate unaugmented line-graph record. The exact augmented graph is not stated in either, but applying their results yields the exact claimed ranks and hence the entire transient law. This is verified deductive coverage, not a determination of which of the same-day records came first.",
+      "residual_risks": [
+        "Date labels do not establish publication order or attribution. The lack of Fish–Key–Mwambene article full text and other access gaps may conceal further coverage but are not the basis for the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finding is about distance-k vertex operators, but proof gives the normal-form/rank computation used here",
+          "evidence": "Elimination of all higher jets and formula 4^m-2^m in dimension 2m+1; adding an unused variable makes it apply in the even case too.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-linear-quadratic-rank-law-for-higher-distance-hypercube-parity--69a62e027bca/RESULT.md",
+          "material_read": "Finding and quadratic-rank proof, in particular offsets 3620–5987",
+          "method": "Local mirror bounded pages",
+          "title": "A linear–quadratic rank law for higher-distance hypercube parity dynamics",
+          "trigger": "Potential general coverage of the key modular rank calculation"
+        },
+        {
+          "assessment": "Exact formula there is for the unaugmented graph; incidence reduction and conversion to transient law transfer directly",
+          "evidence": "rank F=N-2; rank F²=dim B^T(sI)=(2^(d-1)-1)-1; Jordan blocks recovered from iterate ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-step-nilpotence-and-constant-two-block-multiplicity-in-cub--9cbed31719f4/RESULT.md",
+          "material_read": "Finding and proof, notably offsets 3600–7278",
+          "method": "Local mirror bounded pages",
+          "title": "Three-step nilpotence and constant two-block multiplicity in cube edge parity",
+          "trigger": "Closest edge-dynamics catalogue match"
+        },
+        {
+          "assessment": "Same graph, different operator and field",
+          "evidence": "Real Euclidean cut and cycle projections rather than the modular edge-parity adjacency and its iterate ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-central-binomial-endpoint-projection-norms-on-antipodally-augmen--5e85ef5ddf48/RESULT.md",
+          "material_read": "Opening finding, offset 0",
+          "method": "Local mirror bounded page",
+          "title": "Central-binomial endpoint projection norms on antipodally augmented cubes",
+          "trigger": "Graph-identical match under different invariant"
+        },
+        {
+          "assessment": "Verified scope of abstract is unaugmented; exact augmented coverage in unread material unresolved",
+          "evidence": "Line graphs of ordinary n-cubes; the unaugmented square-rank computation can also be established independently by the linear group-algebra element.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jsc.2010.03.012",
+          "material_read": "Indexed abstract and description of Theorem 1; not article full text",
+          "method": "Literature lookup; DOI route and identified author PDF attempted; 403 and TLS failure respectively",
+          "title": "Binary codes from the line graph of the n-cube",
+          "trigger": "Closest published adjacency-code and hull result"
+        },
+        {
+          "assessment": "No reliance on whole-document noncoverage",
+          "evidence": "Frozen RESULT.md lines 68–80 describes real vertex spectra for the first and incidence-code hull generalities for the second.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/167623 ; https://research.aber.ac.uk/en/publications/hulls-of-codes-from-incidence-matrices-of-connected-regular-graph/",
+          "material_read": "Frozen references and attributed scope; no full text",
+          "method": "Publisher/repository retrieval attempted; access limited",
+          "title": "Some Properties on Estrada Index of Folded Hypercubes Networks; Hulls of codes from incidence matrices of connected regular graphs",
+          "trigger": "Folded graph and general incidence/hull alternatives"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–28 and 34–62",
+        "Quadratic-jet and incidence reductions compared under originality"
+      ],
+      "rationale": "The graph and the edge-extinction invariant are well motivated, and the formula is useful as a worked application. As a standalone exact-invariant finding, however, the claimed square-root term is the already available quadratic-jet rank with the incidence correction; the remaining multiplicities and densities are just the same ranks translated into other statistics. The claimed exact fact is mechanically implied rather than an independently needed new computation.",
+      "residual_risks": [
+        "The value decision concerns the submitted invariant law, not the utility of explaining this application to readers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

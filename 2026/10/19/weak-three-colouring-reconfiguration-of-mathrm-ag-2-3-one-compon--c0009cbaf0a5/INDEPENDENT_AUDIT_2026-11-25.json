@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:29:55.271968Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier source files and both recorded JSON-line transcripts",
+        "Replacement RESULT.md, SLOGAN.txt, VERIFICATION.md and strict replay"
+      ],
+      "rationale": "In AG(2,3), three distinct points form a line precisely when their sum vanishes. The five-arc contradiction counts ten lines containing pairs and all twenty incidences, leaving two lines in a four-point complement. Every weak colouring of nine points then uses all three colours with the stated three compositions. Counting equal-colour pairs shows exactly the (1,4,4) type is strict. With the singleton at the origin, strict colourings assign pairs of the four line directions to the other colours; each such four-point class is line-free since a triple contains an opposite pair and has nonzero sum. This gives 162 assignments, no strict-to-strict edge, and affine/palette transitivity (send independent representatives of the designated two directions to any target pair). The independent full replay found 3762 vertices, 16848 edges, degree counts 162 of 8 and 3600 of 9, with exact recorded hashes, all eccentricities, and the stated legal shortest ten-move witness. For the replacement, the dedicated rooted replay verifies strict partner counts 32,22,16,80,8,1,2 at distances 4 through 10 and checks both distance-ten partners are cyclic palette permutations. Transitivity transfers both assertions to every root. Counting each unordered pair twice yields 2592,1782,1296,6480,648,81,162. The graph used for distances includes every weak state without quotienting. The revised verification retains the frozen front matter verbatim.",
+      "replay_paths": [
+        "/workspace/replay/review_2.py",
+        "/workspace/repairs/2/verify_strict_distances.py"
+      ],
+      "residual_risks": [
+        "A bounded finite result only; shortest paths are in the weak graph, not the induced strict subgraph, and intermediate strict states are not excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "22 November Finding: 3762 vertices, 16848 edges, radius 9, diameter 10, five affine/palette orbits, 306 peripheral states with two antipodes each. 18 October lean-colouring result allows monochromatic lines and forbids two-coloured lines. Araujo-Pardo–Martínez-Sandoval Theorem 1.7 is about AG(2,4) up to equivalence. Cardinal et al. treats Boolean NAE satisfying-assignment moves, not the named size-three palette for this plane."
+        ],
+        "reasoning": "The catalog result is stronger on the original global classification but its output does not stratify by a pair of endpoint types. Broader-looking affine or Boolean frameworks have different allowed states, orders or moves.",
+        "searches": [
+          "Resultary 2026/11/22/...--01f5dae5fbed",
+          "arXiv:2601.19043v2 Theorem 1.7",
+          "arXiv:1805.04055v1 abstract and §2",
+          "Resultary affine-plane lean colouring and larger recolouring hits"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary targeted searches and exact 22 November ambient theorem, code and verification",
+        "Original primary paper and related OA affine and NAE passages",
+        "Targeted weak/strict literature queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published all-pairs statistics pool (strict, strict), (strict, nonstrict), and (nonstrict, nonstrict). Two antipodes per strict state do not in themselves assign them to the strict class or identify the specific palette reassignments. The bicoloring paper's result concerns vertex assignments, not path costs in the larger state space."
+        ],
+        "reasoning": "The reported marginal counts do not give the conditional histogram or its endpoint identities. The new computation plus strict-root transitivity is substantive for those claims; the matching ambient extrema and counts are expressly not claimed as new.",
+        "searches": [
+          "22 November Resultary Proof and Verification, offsets 4200–6876",
+          "Colbourn–Dinitz–Rosa p. 10",
+          "Targeted Resultary and literature strict-endpoint searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colbourn–Dinitz–Rosa, EJC #R25, defines a bicoloring as having two colours on each block; order-nine table: (4,4,1). The Hesse plane is the same 9-point incidence system. The 22 November Resultary statement uses the same weak graph and names singleton-colour endpoints as one of two peripheral types."
+        ],
+        "reasoning": "Three named assignments with no monochromatic block are precisely the ambient state model; the repair conditions both endpoints to the distinct exact-two-colours class, not to all peripheral colourings. The labelled metric is not the metric on isomorphism classes or on the induced strict subgraph.",
+        "searches": [
+          "Resultary: strict bicoloring palette cycles affinities Steiner triple system AG(2,3) graph distance distribution restricted endpoints among all weak three colorings exact 2592 1782 1296 6480",
+          "weak colouring single-point recolouring Steiner triple system order nine AG(2,3) diameter",
+          "Steiner triple system bicoloring weak reconfiguration AG(2,3) strict color endpoint distances 162 2592 1782 palette permutation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later result prints a total-pair histogram and the order-nine paper tables static size splits. In verify_all_pairs.cpp offset 0–1683, the complete source increments distances[dd[j]] for each j>i, with no endpoint type filtering; it does not print a matrix or partner identities. The orbit script uses BFS for eccentricity/antipode counts."
+        ],
+        "reasoning": "Neither table supplies the ordered-root or unordered-strict-pair data. No exact endpoint-restricted table was found in the checked sources; the cited program could be modified and rerun to extract it, which is not published output coverage.",
+        "searches": [
+          "22 November Resultary Finding and Verification; verify_all_pairs.cpp and verify_orbits.py",
+          "Colbourn–Dinitz–Rosa order-nine table and precise numeric literature query"
+        ]
+      },
+      "rationale": "For the repaired strict-endpoint claim only. Colbourn–Dinitz–Rosa give the known bicoloring notion and size split; the later exact ambient classification gives ambient and orbit-level information but neither the strict-to-strict histogram nor the palette identities of the farthest strict endpoints. Its all-pairs verifier accumulates a single unstratified histogram and does not preserve a labeled distance matrix. The exact endpoint-restricted tally requires an additional conditional computation; related affine plane and NAE studies do not supply it. No historical priority claim is made.",
+      "residual_risks": [
+        "Unindexed strict-endpoint computation may exist. Aggregate orbit and distance results are material partial overlap; the repaired claim is restricted to other output.",
+        "Catalog dates do not adjudicate first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original global claim and extends it; does not state repaired conditioned histogram or palette partners",
+          "evidence": "Exact global metrics and type classification, two antipodes per peripheral state, aggregate all-pairs table; C++ loop counts all j>i without stratification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-peripheral-affine-types-in-optimal-weak-three-colourings-of--01f5dae5fbed/RESULT.md",
+          "material_read": "Finding and Proof/Verification, especially offset 4200–6876, plus verify_all_pairs.cpp whole small computation and the distance-related verify_orbits.py passages",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Two peripheral affine types in optimal weak three-colourings of the nine-point plane",
+          "trigger": "Same named-colour graph and exact metrics"
+        },
+        {
+          "assessment": "Static class split and terminology, not reconfiguration",
+          "evidence": "Weak means more than one colour on a block; bicoloring means exactly two; order nine has (4,4,1).",
+          "identifier_or_url": "https://doi.org/10.37236/1457",
+          "material_read": "Definitions and printed p. 10 order-nine row",
+          "method": "OA PDF passages and numeric literature search",
+          "title": "Bicoloring Steiner Triple Systems",
+          "trigger": "Same incidence system and exact-two-colour constraint"
+        },
+        {
+          "assessment": "Different order and invariant in the exact classification read",
+          "evidence": "Uniqueness up to structural equivalence for a minimum arc-proper 3-colouring of AG(2,4).",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.19043v2",
+          "material_read": "Abstract and Theorem 1.7, p. 4",
+          "method": "OA PDF passages",
+          "title": "The arc chromatic number for Galois projective planes, affine planes and Euclidean grids",
+          "trigger": "Colour classes as affine arcs"
+        },
+        {
+          "assessment": "Context, no implication identified",
+          "evidence": "Planar monotone Boolean NAE clauses under single-variable flips, not the fixed labelled ternary Hesse state space.",
+          "identifier_or_url": "https://arxiv.org/html/1805.04055v1",
+          "material_read": "Abstract and §2",
+          "method": "OA passages",
+          "title": "Reconfiguration of Satisfying Assignments and Subset Sums: Easy to Find, Hard to Connect",
+          "trigger": "General reconfiguration via not-all-equal moves"
+        },
+        {
+          "assessment": "Different admissible lines",
+          "evidence": "Every line monochromatic or rainbow, not the strict or weak rule considered here.",
+          "identifier_or_url": "2026/10/18/SCOPE-parallel-class-rigidity-and-full-lean-colouring-spectrum-of-fini--d7d2f7c0a1ae",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror",
+          "title": "Parallel-class rigidity and full lean-colouring spectrum",
+          "trigger": "Related affine-plane colouring term"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired theorem and its strict-root computation",
+        "Known strict-bicoloring notion and ambient classification for comparison"
+      ],
+      "rationale": "Strict bicolorings are a distinguished established constraint class, not an arbitrary slice. They allow no moves within the strict rule, so weak relaxation raises a natural metric question: how many legal steps actually separate the strict assignments? The endpoint table gives the full cost spectrum for a uniform strict root and identifies exactly the two palette changes attaining the large cost. It is not a reprise of the known palette size, static split, or ambient diameter.",
+      "residual_risks": [
+        "Fixed canonical affine plane; the finite tally is not a general reconfiguration theorem or a measure of the number of available paths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:21:15.195548Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–71",
+        "VERIFICATION.md, lines 19–27",
+        "verify.py",
+        "Independent replay: python3 /workspace/review_checks/ladder.py (SymPy)"
+      ],
+      "rationale": "In the cubic graph the selected-neighbor threshold is 1 plus the membership bit. On the n two-vertex columns, ordinary transitions enforce this test at the middle column, and the closing edge swaps rows. A labelled assignment corresponds to exactly one term of the twisted trace with a fixed starting column; this also works for n=2, whose three neighbors are distinct. Independently verified the determinant and the adjugate-trace numerator at 33 distinct integer weights: each coefficient has degree at most 32, so these are exact polynomial identities, not a finite-width extrapolation. The two low excess series simplify as stated, giving four size-n sets when 4 divides n, and 2n or 3n size-(n+1) sets in the other even or odd cases. Direct vertex enumeration agrees for widths 2 through 8. The width-zero and width-one terms are formal traces only.",
+      "residual_risks": [
+        "The result counts labelled sets, not graph automorphism orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 77–89 describes general cubic bounds/equality structure and separate snark applications; relevant primary passages were unavailable. The earlier indexed Möbius-ladder distribution is a stronger enumerative claim than just the minimum law."
+        ],
+        "reasoning": "General bounds are not enough to recover enumerative coefficients; reviewed overlap rests on the targeted earlier distribution, not on a purported general literature theorem.",
+        "searches": [
+          "arXiv:2606.22422",
+          "arXiv:2610.01796",
+          "arXiv:2610.26259",
+          "Resultary: 2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md",
+        "Resultary descriptions of records 77dd8b032d42 and 502418830498",
+        "Primary retrieval attempts for arXiv:2606.22422, 2610.01796 and 2610.26259"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coefficients of the rational series recover every labelled count by cardinality; the minimum and its multiplicity are the first nonzero degree and coefficient of each polynomial."
+        ],
+        "reasoning": "Once the same exact cardinality distribution is available, formal trace conventions cannot distinguish the scientific content. No additional invariant or new consequence is identified in the frozen Finding.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-a-rational-enumeration-of-1-limited-dominating-sets-in-m-bius-la--77dd8b032d42",
+          "RESULT.md, lines 7–31 and 66–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both indexed descriptions concern 1-limited domination in Möbius ladders, including the 4, 2n, 3n minimum counts. The explicit selected-vertex condition is important: cubic (1,2)-domination and global strong defensive alliances have the relevant one-outside/two-inside thresholds, unlike domination defined by a [1,2] cap on outside vertices."
+        ],
+        "reasoning": "The decisive hits use the same object and invariant, rather than a similarly named but different restriction; they do not require an alias-based identification.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-a-rational-enumeration-of-1-limited-dominating-sets-in-m-bius-la--77dd8b032d42",
+          "Resultary: 2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498",
+          "arXiv:2610.01796"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 26 indexed description: rational generating function for all cardinalities and minimum-set census 4, 2n, 3n. October 18 indexed description: full domination polynomial and the same minimum-size and minimum-count laws."
+        ],
+        "reasoning": "These are positive matches to the exact infinite census, not merely isolated values or similar titles. Full-text coefficient comparisons were unavailable.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-a-rational-enumeration-of-1-limited-dominating-sets-in-m-bius-la--77dd8b032d42",
+          "Resultary: 2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498"
+        ]
+      },
+      "rationale": "Two distinct earlier indexed Resultary records jointly provide strong specific evidence of coverage: both report the same ladder distribution and minimum census, and the October 26 record explicitly reports the rational enumeration for every cardinality. On the stated cubic Möbius ladder and selected-vertex predicate, the all-cardinality counts determine the same polynomial sequence. A different transfer representation or the addition of width-zero/one artificial trace terms would not make that census a new claim. This is a scientific rejection on the available positive coverage evidence, not a claim that the exact numerator and denominator were compared from primary full texts.",
+      "residual_risks": [
+        "The two earlier Results were not readable in full; the judgment credits their precise indexed claim descriptions but does not certify their proofs or establish an identical N/D presentation.",
+        "No negative whole-paper conclusion is drawn from missing primary literature passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong specific overlap; exact rational-function form not compared",
+          "evidence": "The description reports every-cardinality rational enumeration and the same 4, 2n, 3n minimum-set counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-rational-enumeration-of-1-limited-dominating-sets-in-m-bius-la--77dd8b032d42",
+          "material_read": "Indexed claim description",
+          "method": "Local Resultary search; matching full text not returned by the mirror",
+          "title": "A rational enumeration of 1-limited dominating sets in Möbius ladders",
+          "trigger": "Exact rational census and minimum counts"
+        },
+        {
+          "assessment": "Corroborating earlier coverage",
+          "evidence": "The description reports the full distribution and the same minimum-size and minimum-count laws.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498",
+          "material_read": "Indexed claim description",
+          "method": "Local Resultary search; matching full text not returned by the mirror",
+          "title": "The 1-limited domination polynomial and exact minima of Möbius ladders",
+          "trigger": "Exact graph, predicate and distribution"
+        },
+        {
+          "assessment": "Scope and ladder implications not independently established",
+          "evidence": "The frozen comparison describes structural results and snark applications, not the specific enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26259",
+          "material_read": "Local cited scope in RESULT.md lines 77–89; no decisive primary passage obtained",
+          "method": "Primary literature search and attempted OA retrieval",
+          "title": "Structural aspects of 1-limited domination in cubic graphs",
+          "trigger": "General low-excess structure could imply part of the result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Indexed Resultary records 77dd8b032d42 and 502418830498"
+      ],
+      "rationale": "A first exact weighted census of this natural cubic family would be useful, and the symbolic computation here is sound. But the submission does not distinguish a new invariant, boundary case, or mathematical consequence beyond the earlier all-cardinality census; an alternative expression for the same series is not independently motivated.",
+      "residual_risks": [
+        "The assessment is specific to the frozen finding, not to the utility of transfer methods or limited domination generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

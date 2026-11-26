@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a sharp growth law for the minimum Frobenius number over all embedding-dimension-three complete-intersection numerical semigroups at each multiplicity. By the established gluing theorem, every member is \(a\langle b,c\rangle+d\mathbb N_0\) with \(2\le b<c\), \(\gcd(b,c)=1\), \(a\ge2\), \(d\in\langle b,c\rangle\) nonminimal, \(\gcd(a,d)=1\). The Apéry argument proves \(F=a(bc-b-c)+(a-1)d\). The disjunction \(m=d\) or \(m=ab\) is exhaustive. In each case, \(c\ge b+1\) and AM–GM imply the stated uniform lower bound. A unit-finding estimate from Möbius inversion gives a coprime integer within \(4^{\omega(m)}+1\) consecutive integers near \(\sqrt m\), allowing a gluing with \(F=2m^{3/2}+o(m^{3/2})\). The standard symmetry property of complete intersections converts the Frobenius result to genus. The standalone verifier reproduced all declared finite cases.
+## correctness
 
-## Originality — PASS (self-review)
-The relevant 2026 preprint of Li and Zhang, arXiv:2608.21556v1, explicitly discusses minimization of Frobenius number and genus as natural follow-ups, but proves only realizability of embedding-dimension/multiplicity pairs. The complete accessible 2017 preprint by García-García et al., arXiv:1712.05220v1, supplies algorithms for minimal Frobenius number and genus across **all** semigroups at each pair, but no analytic sharp asymptotic for the complete-intersection subclass. The 2012 Robles-Pérez–Rosales abstract concerns pairwise-coprime triples, whereas three-generated complete intersections have a pair of generators with a nontrivial common factor in their gluing form. Dedicated literature and mathematical-index searches found no equivalent or stronger theorem. Nonetheless equivalent formulations in classical gluing estimates or unindexed literature remain a bibliographic risk; a failed search is not proof of uniqueness.
+PASS
 
-## Value — PASS
-Li and Zhang's fixed-invariants existence theorem specifically motivates optimization of Frobenius number and genus. A universal sharp first-order asymptotic with coefficient two (and one for genus), effective uniform finite lower and upper bounds, and an explicit witness for every multiplicity answers a structural part of that quantitative problem. The coprimality-window argument handles arbitrary highly composite multiplicities; the result is neither a single example nor a routine substitution into the existence characterization. The exact minimizing semigroups and lower-order error remain open.
+For the three-generated CI gluing, write U=<b,c> and S=aU+dN_0. Since d is in U and gcd(a,d)=1, the least element in each residue class modulo d is a times the corresponding least representative from U, with residue permuted by a. This gives F=a(bc-b-c)+(a-1)d. If m=d, use a>=m/b and bc-b-c>=b^2-b-1 to get m[b+(m-1)/b-2]>=2m sqrt(m-1)-2m. If m=ab, then d>=m and the bound is m(a+b-2)-a>=2m sqrt(m)-(5/2)m, since b>=2. For the upper bound take b=floor(sqrt(m)), c=b+1. For m>=4, m exceeds the two-generator Frobenius number and both minimal generators, so it is a nonminimal positive element of U. A coprime a>m/b yields a valid minimal gluing with multiplicity m. Inclusion–exclusion over squarefree divisors loses at most 2^omega(m), whereas (4^omega(m)+1) phi(m)/m exceeds that loss. The factorial lower bound on the product of distinct prime divisors gives 4^omega(m)=m^{o(1)}, hence the witness has a,b~sqrt(m) along all m and the Frobenius ratio tends to 2. The lower bound matches and symmetry gives g=(F+1)/2 pointwise and for the minima. At m=4 the claimed class is nonempty (for instance <4,6,9> is the gluing with a=3,b=2,c=3,d=4).
 
-## References, checks, and limits
-Primary sources actually examined: Li–Zhang arXiv:2608.21556v1 (entire HTML text, especially gluing and Discussion), García-García et al. arXiv:1712.05220v1 (full available arXiv-rendered text, notably Sections 3–4), and the abstract of Robles-Pérez–Rosales, DOI 10.1090/S0025-5718-2011-02561-5. The absence of an inspected full text for the last paper is explicitly retained as residual bibliographic uncertainty. The finite arithmetic checks independently verify a large set of constructions and gluing instances but do not certify the asymptotic theorem. The scientific proof uses established gluing and two-generator formulas cited in the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical gluing and individual Frobenius expressions are known, and an indexed result gives a stronger exact optimum on the square-multiplicity subfamily. The supported distinct claim is a limit through every integer multiplicity, with explicit two-sided estimates and a uniform coprimality-window construction, not an exact optimum or a claim of priority for the square slice.
+
+## value
+
+PASS
+
+The complete-intersection restriction changes the admissible class materially, and the fixed-multiplicity question is independently motivated. The theorem supplies the optimal leading constants through all multiplicities, including arbitrary prime factorizations not controlled by the square optima, plus explicit witnesses and a uniform lower bound. The value is the sharp extremal law over the whole class, not the known gluing formula or the affine genus conversion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

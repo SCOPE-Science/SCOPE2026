@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:23.317949Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–48",
+        "VERIFICATION.md lines 19–25 and inspected verify.py",
+        "Independent replay: python /workspace/review-evidence/3.py"
+      ],
+      "rationale": "Away from 2, an odd prime maps to an even composite and a composite to a prime, so an odd cycle must contain 2. If k+2 is composite, the next steps from 2 go through an odd prime and an even composite to a prime at step four; that either returns too early or has an even composite at step five. Otherwise the first three steps end at P+(2(k+1))=q; q=2 returns too early and q>2 gives the last composite k+q. It returns to 2 exactly for a power of two. Conversely q<=k+1<k+2 separates the three primes and also precludes equality of the two even composites. Determinism yields uniqueness. In the divisor parametrization 2^m+1=q+(k+1)=qh, so h>=3 is odd, and P+(q(h-1))=q iff P+(h-1)<=q; reversing gives all hypotheses and positive odd k. The separate direct return-time test from 2 using trial division reproduced exactly (5,3,3), (21,11,5), (51,13,6), (59,5,6), (1365,683,11) for the stated finite range.",
+      "residual_risks": [
+        "The replay is bounded by k<=5000. Unbounded correctness rests on the parity and orbit argument, not the enumeration. No formal certification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das Theorem 2.7 and Open Issues, pp. 5–6",
+          "November 8 Resultary record 9c96b12d92f9 covers primitive periods through four",
+          "Dubickas full-text retrieval attempts did not recover substantive content"
+        ],
+        "reasoning": "Finiteness of loops for each parameter and known periods through four do not constrain period five by an iff. Dubickas's broad setting remains a bibliographic risk, not negative evidence. The later November 22 record gives an additional odd-cycle statement as well as exact period-five overlap.",
+        "searches": [
+          "Das arXiv:2312.06629 sections 2–3",
+          "Dubickas DOI 10.3390/axioms13020107",
+          "Resultary: exact short-period classification for a shifted largest-prime-factor map"
+        ]
+      },
+      "checked_sources": [
+        "Das arXiv:2312.06629",
+        "Dubickas DOI 10.3390/axioms13020107 access attempts",
+        "Resultary ebc5df72c2be and 9c96b12d92f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 in Das controls a different quantifier (number of loops for fixed k)",
+          "The later exact criterion immediately gives the cofactor formula by rearranging 2^m+1=q+(k+1)"
+        ],
+        "reasoning": "The condition on k+2 and the forced return by a power of two are not consequences of the reported periods or general finite-loop bound alone. The cofactor formula is equivalent to the criterion, not separate novelty over any matching theorem.",
+        "searches": [
+          "Das sections 2–3, finite-loop theorem and period questions",
+          "Resultary ebc5df72c2be statement and relevant proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 22 Resultary record ebc5df72c2be, RESULT.md offsets 0–7705",
+          "Das arXiv:2312.06629 pp. 1–2 and section 3"
+        ],
+        "reasoning": "The later source's q>2 and k+q=2^t for t>=2 are identical to odd prime q and power-of-two k+q here, and its unique orbit is identical. The source is dated later and does not state the cofactor formulation. Das's observed loops do not characterize every qualifying k.",
+        "searches": [
+          "Resultary: Das arithmetic map exact period-five cycle criterion, odd shift and largest prime factor",
+          "Websearch: Das odd-cycle rigidity exact five-cycle criterion and largest prime divisor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed statements ebc5df72c2be and 9c96b12d92f9; Das's observed periods in section 3"
+        ],
+        "reasoning": "The exact match in the index is later. A finite loop census or list of examples cannot certify the unbounded set of odd shifts, which is the novelty-bearing result; the five sample parameters are not treated as an independent novelty claim.",
+        "searches": [
+          "Resultary map and exact five-cycle criterion search, including indexed loop results"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact characterization and uniqueness for every positive odd shift, with its divisor reformulation. Das defines the same map and discusses attainable periods but does not supply this classification in the inspected text. A very close later record is credited explicitly; it does not establish prior coverage of the assigned result. This is a best-of-knowledge finding, not proof of priority.",
+      "residual_risks": [
+        "Dubickas's technical full text was not recovered; an unindexed earlier equivalent remains possible.",
+        "The catalogue dates distinguish the observed publication dates; no assertion about private discovery dates is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original setting and partial information, no exact five-cycle classification in inspected passages",
+          "evidence": [
+            "Theorem 2.7 bounds the number of loops for each fixed parameter; section 3 reports observed periods and asks about realizing all periods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06629",
+          "material_read": "pp. 1–2, Theorem 2.7 and Open Issues on pp. 5–6",
+          "method": "Lawful OA PDF inspection",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Original definition and period questions"
+        },
+        {
+          "assessment": "Unresolved possible coverage",
+          "evidence": [
+            "Attempts did not recover full technical sections; no stronger-period conclusion inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms13020107",
+          "material_read": "Landing/abstract-level information only; no full text recovered",
+          "method": "Lawful DOI, publisher PDF and identified alternate copy attempts",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "Plausibly broader iteration framework"
+        },
+        {
+          "assessment": "Exact later overlap with additional rigidity statements",
+          "evidence": [
+            "Same odd-k hypotheses, q>2, power-of-two condition, and unique five-state orbit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-odd-cycle-rigidity-and-the-exact-five-cycle-criterion-for-a-prim--ebc5df72c2be",
+          "material_read": "RESULT.md statement and proof, offsets 0–7705",
+          "method": "Local published-record mirror",
+          "title": "Odd-cycle rigidity and the exact five-cycle criterion for a prime-increment map",
+          "trigger": "Strong exact Resultary hit"
+        },
+        {
+          "assessment": "Classification ends at four",
+          "evidence": [
+            "The covered primitive periods are one through four, not five."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9",
+          "material_read": "RESULT.md short-period claim and scope",
+          "method": "Local published-record mirror",
+          "title": "Exact short-period classification for a shifted largest-prime-factor map",
+          "trigger": "Nearby classification in the same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof; Das section 3"
+      ],
+      "rationale": "This classifies the next odd period after three in a natural published dynamical system, for all positive odd shifts, and explains why there is at most one such cycle. The exact tests reduce the search to prime divisors of 2^m+1 and a cofactor check. Value lies in the exhaustive parameter characterization, not the isolated examples or the algebraic recoding alone.",
+      "residual_risks": [
+        "No claim about even shifts, longer periods, or infinitely many qualifying odd shifts is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

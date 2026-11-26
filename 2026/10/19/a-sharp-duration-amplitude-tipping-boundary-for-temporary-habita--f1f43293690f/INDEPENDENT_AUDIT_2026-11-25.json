@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:22.113755Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–96, particularly the basin estimate at line 56",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "/workspace/repairs/4/RESULT.md (complete corrected proof)",
+        "/workspace/repairs/4/VERIFICATION.md (scientific notes corrected; existing JSON front matter unchanged)",
+        "/workspace/branches/audit_allee_example.py (independent symbolic derivative and quadrature)"
+      ],
+      "rationale": "Reassessed the unchanged theorem with the corrected proof. The frozen extinction bound u'<=-(a/2)u on u<a/2 does not follow and is false on that region at sufficiently small v near its upper prey edge. The replacement gives the valid bound u'<=-(a/2)(1-phi_0 a/2)u. It also supplies an explicit recovery argument instead of presuming a uniform attracting neighborhood from local stability. On fixed fast intervals the pulse converges to the v=v_0 scalar solution with predator displacement O(epsilon). After restoration the baseline factorization -phi_0(u-1)(u-w) implies that the limiting scalar orbit tends to 1 above w or 0 below. A bounded additional fast transient above w puts the full solution in the entropy sublevel E<epsilon h(w), h=u-1-log u, since its predator entropy is O(epsilon^2). There the energy derivative is -phi_0(u-1)^2(u-w); the compact invariant sublevel has the coexistence point as the only invariant zero-dissipation set. Below w the transient puts the full solution in the invariant low-prey region and both coordinates decay. The quadratic's maximum decreases up to the physically relevant fold; its vertex cannot reach w before or at that fold, since q_phi(w)<v_0 for phi>phi_0. This proves the subthreshold result and the immunity region from F(1) versus v_0. Above the fold the denominator is positive, the layer solution crosses w exactly once, and separation of variables gives s_c. Its derivative is strictly negative because the denominator derivative is u^2(u-a)>0. Completing the square at the interior fold and rescaling by sqrt(phi_1-phi_c) yields the stated prefactor. An independent symbolic derivative verifies the example's antiderivative and independent quadrature gives 13.421142615246071 between the two pulse lengths. No argument takes the long-time limit inside the fast-time convergence step.",
+      "residual_risks": [
+        "No outcome is assigned at s=s_c. All small-epsilon thresholds depend on the fixed parameters, and the estimates are not claimed uniform near the fold, near the duration boundary, or for s growing with 1/epsilon."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older strong-Allee studies give autonomous phase-plane and stable-manifold background.",
+          "f7e958313282 gives sufficient coexistence and extinction certificates in the identical autonomous system for each epsilon>0, without claiming the whole basin separator."
+        ],
+        "reasoning": "Autonomous sufficient basin tests can support the restoration step but do not determine the limiting switched trajectory or its crossing time. Neither inspected ramp nor autonomous result is a stronger theorem about this forcing family.",
+        "searches": [
+          "arXiv:2610.12319v1 §§4–5",
+          "Wang–Shi–Wei 2011 abstract and Eq. (1.2); Van Voorn et al. 2007 abstract and §4.2.2",
+          "Resultary f7e958313282 Findings and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12319v1 §§4–5",
+        "Local Resultary f7e958313282",
+        "Wang–Shi–Wei (2011) and Van Voorn et al. (2007) author manuscripts",
+        "Karakoç et al., PMC5381073",
+        "Ratajczak et al. (2017), full-text retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ramp result varies the rate of a moving parameter; the comparator basin thresholds do not propagate a trajectory through a pulse and a switch back.",
+          "The repaired result uses a branch obstruction for subfold pulses, an exact crossing of the baseline root w for superfold pulses, and an interior quadratic bottleneck to obtain the singular constant."
+        ],
+        "reasoning": "The prior model and basin results supply ingredients, but neither establishes the full phase diagram, including the forbidden amplitude strip and the travel-time singular law. Similarity of qualitative intensity–duration effects is not an implication of these quantitative bounds.",
+        "searches": [
+          "arXiv:2610.12319v1 Eq. (9)–(12) and Proposition 8",
+          "f7e958313282 RESULT.md offsets 0–2395; Karakoç et al. Modeling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hennessy–Popović–Sattar use the same two biological state equations, but treat phi as dynamically ramped. Proposition 8 is a critical ramp-rate and folded-saddle canard result.",
+          "Karakoç et al. study pulse/press recovery in a time-discrete model with alternative-resource coupling, not the same pulse flow."
+        ],
+        "reasoning": "The frozen-predator pulse-fold and the ramped folded saddle depend on different forcing dynamics and are not interchangeable threshold parameters.",
+        "searches": [
+          "Resultary same strong-Allee model, separatrix and pulse-duration searches",
+          "Primary literature on strong-Allee pulse duration, prey-nullcline fold, basin crossing and tipping under restoration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined record's entropy sublevel matches the repaired recovery certificate, and its high-predator certificate involves a time from a Lambert W branch, not the shock-duration integral here."
+        ],
+        "reasoning": "No exact table is needed for the continuous parameter classification, and the closest catalogue entry covers the autonomous certificate rather than the pulse threshold. The comparison assesses mathematical coverage, not catalogue date priority.",
+        "searches": [
+          "Local Resultary exact model and fast rectangular-pulse threshold search; best match 2026/11/22/...--f7e958313282"
+        ]
+      },
+      "rationale": "The repaired claim is the exact rectangular fast-pulse-and-restoration phase diagram starting at baseline coexistence, with a fold amplitude, explicit immunity range, scalar travel time and its exact divergence coefficient. The same-model ramp result and same-model autonomous certificates establish model and basin ingredients, not this classification. In particular the autonomous entropy function used in the repair is credited and is not claimed as new.",
+      "residual_risks": [
+        "Ratajczak full text remained unavailable. Another explicit rectangular-pulse result for this system, or a stronger switched-system theorem with the same exact reductions, has not been exhaustively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, different forcing and threshold",
+          "evidence": "Ramped inverse capacity increases at rate r, with tracking/extinction separated by a folded-saddle mechanism at a critical ramp rate.",
+          "identifier_or_url": "arXiv:2610.12319v1",
+          "material_read": "§4 equations (9)–(12), offset 17800; §5 Proposition 8, offset 24783",
+          "method": "Lawful OA full text by bounded passages",
+          "title": "A minimal model for rate-induced tipping to extinction",
+          "trigger": "Identical state equations and direct motivating threshold work"
+        },
+        {
+          "assessment": "Direct overlap in an autonomous basin ingredient, not the switched theorem",
+          "evidence": "Same H=epsilon h(u)+v-v_*-v_*log(v/v_*) and barrier epsilon h(u_c). The other test assumes low prey or a sufficiently large starting predator; no pulse crossing-time classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-explicit-opposing-basin-certificates-in-a-strong-allee-tippi--f7e958313282",
+          "material_read": "RESULT.md offsets 0–2395 and around 6800",
+          "method": "Local Resultary mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two explicit, opposing basin certificates in a strong-Allee tipping model",
+          "trigger": "Closest same-model basin comparison; same entropy certificate"
+        },
+        {
+          "assessment": "Autonomous threshold background, not the pulse comparison",
+          "evidence": "Threshold curve and phase-plane/global bifurcations for strong-Allee systems.",
+          "identifier_or_url": "Wang, Shi & Wei (2011), author manuscript",
+          "material_read": "Abstract and Eq. (1.2), pp. 1 and 3–4, offsets 0 and 4978",
+          "method": "Lawful OA author manuscript",
+          "title": "Predator–prey system with strong Allee effect in prey",
+          "trigger": "Potential broader autonomous separatrix result"
+        },
+        {
+          "assessment": "Related autonomous basin geometry",
+          "evidence": "Stable-manifold separation and global bifurcations in two autonomous models.",
+          "identifier_or_url": "Van Voorn et al. (2007), author manuscript",
+          "material_read": "Abstract p. 2 and §4.2.2 p. 13, offsets 0 and 26144",
+          "method": "Lawful OA author manuscript",
+          "title": "Heteroclinic orbits indicate overexploitation in predator–prey systems with a strong Allee effect",
+          "trigger": "Potential general separatrix mechanism"
+        },
+        {
+          "assessment": "Different equations and recovery objectives",
+          "evidence": "A time-discrete Lotka–Volterra-type model with alternative resource coupling, not the given slow–fast strong-Allee system.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5381073/",
+          "material_read": "Abstract p. 1 offset 419 and Modelling p. 3 offset 12150",
+          "method": "Lawful OA PDF",
+          "title": "Transient recovery dynamics of a predator–prey system under press and pulse disturbances",
+          "trigger": "Closest empirical/model pulse recovery analog inspected"
+        },
+        {
+          "assessment": "Exact coverage unresolved; no whole-document exclusion inferred",
+          "evidence": "The frozen record attributes qualitative and computational intensity/duration observations to this paper.",
+          "identifier_or_url": "Ratajczak et al., Ecological Monographs 87 (2017), 198–218",
+          "material_read": "Reference details and frozen attribution only; no independent full-text passage",
+          "method": "Lawful DOI and repository routes attempted; returned HTTP 403",
+          "title": "The interactive effects of press/pulse intensity and duration on regime shifts at multiple scales",
+          "trigger": "Possible intensity/duration framework coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof",
+        "arXiv:2610.12319v1 Proposition 8",
+        "Resultary f7e958313282"
+      ],
+      "rationale": "The same restored habitat leads to distinct asymptotic states determined by a calculable joint amplitude/duration boundary. The result makes the sharp difference between outright immunity and a finite-time transition explicit, and the bottleneck coefficient quantifies the pulse duration near the minimal tipping amplitude. These are useful mathematical distinctions from a ramp-rate threshold and from separate autonomous basin certificates.",
+      "residual_risks": [
+        "No predictive extrapolation to field populations, stochastic dynamics, arbitrary initial conditions, or finite-epsilon proximity to the boundary is warranted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:47.754178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the normalized circle a nonzero Hilbert transform of a real trigonometric polynomial has mean zero, attains zero, and has no positive-measure absolute-value levels. Its W quantity is therefore the supremum of E(lambda)/D(lambda), with E the positive-part integral and D the strict superlevel measure. At every lambda below the maximum, Osękowski's shifted obstacle-majorant difference at r=|Hf|-lambda>0 is strictly positive where |f|<1, since the arctangent sum is zero at A=0 and has strictly positive derivative for A>0. This set has positive measure in each nonempty superlevel set of a normalized nonconstant polynomial. The source mean-value inequality gives E-D<0; the ratio is continuous and tends to zero at the maximum since it is bounded by max|Hf|-lambda. This makes the supremum strictly below one, rather than merely each level ratio. Uniform perturbations by epsilon change W by at most 2 epsilon, so compactness gives an attained strict gap on each unit sphere. Constants give C_0=0 and nesting gives weak monotonicity. In the global sharpness witness, a rearrangement value with positive excess gives a tail ratio at least as large since D(lambda) is at most the chosen rearrangement measure. Moving the level to a nearby regular level from above preserves the ratio up to arbitrary error by right continuity. Poisson means converge in L1 for the transform (bounded input gives an L2 transform), giving convergence of the two tail quantities there. Fixed-radius truncations of input and transform converge uniformly, and the input norms converge to a value at most one. This yields finite-band ratios arbitrarily close to one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves W(Hf)≤||f||∞ for all bounded inputs, and finds witnesses approaching equality. Indexed cyclic and sampled Fejér results are finite cyclic operator norms in different Banach spaces."
+        ],
+        "reasoning": "The global bound implies C_N≤1 but not the strict inequality or sharpness on the union of the polynomial bands. The source's proof supplies the tools to derive these further statements.",
+        "searches": [
+          "Osękowski §2, Lemma 2.3 and proof of (1.4), including the sharpness construction",
+          "Resultary: cyclic Hilbert transform, conjugate Fejér, finite-circle endpoint and Hilbert kernel bounds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–92",
+        "Frozen VERIFICATION.md",
+        "Osękowski DOI 10.1007/s11785-015-0454-y",
+        "Indexed Results 5a7ab3055d8e, 8110ee2a687d, 9e51b61c1915, c859a91cf2a6 and 93171c0ccb28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The majorant agrees with its obstacle on x=±1 and is strict at |x|<1, |y|>lambda; the primary witness comes from a strip conformal map with general bounded boundary input."
+        ],
+        "reasoning": "Strictness at a level does not imply strictness of a supremum. Compactifying the level set, then the band unit sphere, gives the required two uniformities. The global witness must separately be approximated at a regular level to control W; uniform approximation of arbitrary bounded inputs is not presumed.",
+        "searches": [
+          "Osękowski PDF pp. 1137–1140, majorant and bounded-data sharpness witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected primary source uses normalized circle measure and rearrangement of absolute value. Its integrated shifted obstacle is E(lambda)-D(lambda)."
+        ],
+        "reasoning": "The same continuous rearrangement norm can be written using strict superlevels. Finite cyclic multiplier norms are not equivalent to it.",
+        "searches": [
+          "Resultary: periodic Hilbert transform, weak L-infinity, finite Fourier band, strict endpoint bound",
+          "Osękowski DOI 10.1007/s11785-015-0454-y, rearrangement definitions and inequality (1.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact endpoint entries, 5a7ab3055d8e and 8110ee2a687d, count cyclic multiplier or smoothed finite cyclic norms. The finite-circle spline projection entry 93171c0ccb28 has a qualitatively similar strict gap for a different norm and operator."
+        ],
+        "reasoning": "None of the compared finite-index sequences gives C_N for circle trigonometric polynomials. An unsuccessful bounded search does not prove absence.",
+        "searches": [
+          "Four focused Resultary searches for the finite-band sequence, weak rearrangement endpoint, and continuous/cyclic variants; bounded primary literature search for the finite-band inequality"
+        ]
+      },
+      "rationale": "Pass is for the continuous-circle finite-band strict gap and recovery of sharpness with increasing bandwidth, not the already sharp global constant or construction. The primary source supplies the strict obstacle gap and bounded-data witness, but not a uniform strict bound for the entire L-infinity unit sphere at fixed degree or the sharpness recovery by polynomials. These require separate level, compactness and approximation steps. Bounded comparisons found no exact or broader indexed coverage of the pair of conclusions.",
+      "residual_risks": [
+        "The result is a close consequence of the published majorant and sharpness proof; unindexed discussions of nonattainment or polynomial approximations may contain an equivalent result.",
+        "No quantitative bandwidth-defect bound or strict stepwise increase is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the global bound and witness and supplies the majorant, not the stated finite-band result",
+          "evidence": [
+            "Shifted majorant at (|y|-lambda)_+, strict interior gap and nonpositive integral; conformal witness gives at least c-2lambda"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11785-015-0454-y",
+          "material_read": "Open Springer PDF pp. 1134–1140: definitions, §2, Lemma 2.3, proof of (1.4), sharpness (offsets 0–7000, 10000, 14980 and 19630)",
+          "method": "Bounded full-text reading and checking substitutions and endpoint behavior",
+          "title": "A Sharp Weak-Type (∞,∞) Inequality for the Hilbert Transform",
+          "trigger": "Same periodic Hilbert transform and rearrangement endpoint"
+        },
+        {
+          "assessment": "Different operator space and norm",
+          "evidence": [
+            "DFT multiplier on finite Z_N and exact l1/l-infinity norms rather than continuous rearrangement"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local indexed search and statement inspection",
+          "title": "Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform",
+          "trigger": "Closest indexed exact Hilbert endpoint comparison"
+        },
+        {
+          "assessment": "Different smoothed multiplier and finite-grid endpoint",
+          "evidence": [
+            "Cotangent-sum formulas for finite cyclic norms, not the polynomial subspace restriction"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact endpoint norm of the Nyquist-sampled conjugate Fejér transform",
+          "trigger": "Indexed Fourier cutoff and endpoint variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers whether the global sharp endpoint can be witnessed in a finite Fourier model: no single fixed band attains it, yet unbounded bandwidth suffices to recover it. The gap is a uniform obstruction at every finite degree, not merely a strict inequality at a test function.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

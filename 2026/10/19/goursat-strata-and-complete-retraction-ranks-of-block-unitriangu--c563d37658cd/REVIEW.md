@@ -1,15 +1,21 @@
-# Review of Goursat strata and complete retraction ranks of block-unitriangular radical braces
+# Independent mathematical audit
 
-## Correctness
-PASS. The nonzero central multiplier case is forced to be the identity by the invertibility of the two off-diagonal blocks, while the zero central multiplier case is equivalent to a projection onto a subspace with ordered zero multiplication. The Goursat correspondence counts these subspaces without duplication. Projection-complement counts and graph functionals give the precise powers of the field size. Explicit finite-field matrix and subspace enumeration (including a degree-two extension field) agrees with all tested coefficients. The general theorem rests on the proof rather than the finite tests.
+## correctness
 
-## Originality
-PASS within inspected coverage. The primary brace and endomorphism sources establish structural notions, decompositions, or group-to-brace constructions but not the specified-image and rank-refined enumeration of this algebra. The associated Heisenberg Lie algebra has a strictly weaker alternating-isotropy condition: its familiar rank count does not determine the ordered product-zero subspaces whose Gaussian–Goursat strata are counted here. Search coverage does not prove uniqueness; equivalent results in older bilinear-geometry or radical-ring studies remain a risk. No claim of independent historical discovery is made.
+PASS
 
-## Value
-PASS. The family contains a genuinely noncommutative three-step nilpotent radical algebra in every dimension and finite-field order. Its full retraction-image poset and cardinalities are natural invariants for the associated braces. The theorem identifies a sharp forbidden rank interval, determines exact fibers over each image, and gives the nontrivial Goursat convolution that differentiates algebra/brace homomorphisms from group or Lie homomorphisms.
+For field-linear multiplicative maps only, A^2=kz is invariant and F(v+sz)=Tv+(phi(v)+cs)z. Multiplicativity is B(Tv,Tw)=cB(v,w) for the ordered product B((u,w),(u',w'))=uw'; idempotence adds T^2=T, c^2=c and phi T+c phi=phi. If c=1 and v lies in ker T, the pairing equation in both orders puts v in the intersection of the two radicals of B. These radicals are complementary coordinate spaces, so T is invertible even though B is degenerate; idempotence forces T=I, then phi=0. For c=0 proper maps are exactly projections T onto subspaces S with B(S,S)=0 and lifts phi=eta T. For each S of dimension r there are q^r distinct graph images and q^(r(2n-r)) complementary kernels per image. For coordinate projection dimensions a,b, zero product says the projected spaces pair trivially; they have [n choose a]_q [n-a choose b]_q choices. Goursat kernels leave t-dimensional quotients matched by an isomorphism; their choices give [a choose t]_q[b choose t]_q|GL_t(q)| and r=a+b-t. This proves the complete map count including the identity. At r=n, t=0 and a+b=n; for rank one, counting nonzero (u,w) with uw=0 and dividing by q-1 gives the reported coefficient. The submitted checker was inspected but not run. A separately written bounded enumeration of all q^9 maps on the 3-dimensional algebra, testing the ordered multiplication on basis pairs and idempotence, gave rank-1 multiplicities 8,18,32 over q=2,3,4 (one zero and one identity each). Independently extending binary subspaces and testing zero products on bases gave dimensions 0 through 3 counts 1,35,77,16 at n=3. Direct enumeration of the 2^16 quotient matrices at q=n=2, retaining idempotent zero-product projections and counting graph functionals, gave ranks 0,1,2,5 with multiplicities 1,144,320,1. These replay procedures test bounded cases; the algebraic proof covers arbitrary q,n.
 
-## Scope and limitations
-Only \(\mathbb F_q\)-linear brace/algebra homomorphisms are counted. The Gaussian and complement-counting inputs are standard; the combined family census is the assessed claim. The companion checker covers bounded cases only, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the complete retraction-map classification of this one-sided, degenerate pairing, not for the Gaussian–Goursat image census by itself. There is exact same-algebra coverage of proper image counts and very close coverage of the map-count formula for a different, nondegenerate multiplication; neither theorem as stated covers idempotent maps for the one-sided product. This is a narrow distinction, and the two matching ingredients should not be treated as independent discoveries.
+
+## value
+
+PASS
+
+The map problem is natural for the basic noncommutative three-block nilpotent radical: classify all the direct multiplicative splittings and their ranks. The answer distinguishes associative retractions from Lie ones and excludes an entire interval of intermediate ranks, while giving a projection/kernel description of every proper retraction including all field extensions. This is more than recomputing a subspace table, although the complementary-kernel factor by itself is standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

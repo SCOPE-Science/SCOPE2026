@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:03:21.055060Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique cyclic 00000 anchors each rotation class, with no complement or reversal quotient. The de Bruijn graph of binary four-blocks has a directed edge for each five-block, so traversing each edge once with the zero loop first enumerates the claimed population exactly. Each adjacent pair occurs eight times; 01 and 10 give distance 16 at shift 1, so the minimum cannot exceed 16. Independent anchored Euler enumeration gave 2,048 cycles, the five bins 36,114,1212,682,4, and the exact same four canonical optimizers with one reversal/complement orbit and the stated 18/20/16 profile. A local CSV-field comparison confirmed the entire regenerated table, including all 2,048 frozen data rows and header. Replay implementation: /workspace/branches/106edc92-44a2-4d07-b5e2-d037564e97f1/euler_reproduce.py. The identity R(s)=32−2d(s) gives the claimed signed autocorrelation values. No extrapolation beyond order five is justified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary statement covers every rotation class at the same order and gives its full signed autocorrelation; reversal and complement are additional symmetries, not quotients for the table. The 2011 signed maximum result only gives the worst positive sidelobe group at this order."
+        ],
+        "reasoning": "The full phase-retrieval data are strictly stronger than the extremal signed maximum and histogram, with exactly the same input population. A scalar general bound is weaker.",
+        "searches": [
+          "Resultary: cyclic phase retrieval binary order-five de Bruijn full autocorrelation",
+          "Fujisaki–Nabeshima Table I and Spinsante–Andrenacci–Gambi correlation discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 132a86d69a57, RESULT.md and cycles.csv",
+        "Fujisaki–Nabeshima (2011), DOI 10.1587/nolta.2.400",
+        "Spinsante–Andrenacci–Gambi (2011), DOI 10.1186/1687-1499-2011-4",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.csv"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same table identifies each cycle, its reversal/complement orbit and signature. Its optimal rows share the profile recorded in the frozen finding."
+        ],
+        "reasoning": "For each row compute m=max(R1,…,R16), tally 16−m/2, and retain the m=0 rows. Their profiles translate entrywise and the symmetry metadata verifies the orbit (or one can apply the two operations to a listed word). This is a mechanical extraction without new enumeration or structural mathematics.",
+        "searches": [
+          "Resultary 132a86d69a57, Finding, Assumptions and cycles.csv schema and optimizer rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed unnormalized bipolar autocorrelation is R(s)=32−2d(s). Fujisaki–Nabeshima divide by 32; Spinsante et al. also tabulate maximum absolute sidelobes, which is a different objective."
+        ],
+        "reasoning": "Thus δ=16−max_{s≠0}R(s)/2. The four optimizers have maximum positive sidelobe 0 but absolute maximum 8; data aggregating only absolute maxima cannot recover the signed statistic.",
+        "searches": [
+          "Order-five de Bruijn signed autocorrelation maximum positive sidelobe spectrum",
+          "Fujisaki–Nabeshima DOI 10.1587/nolta.2.400, signed normalization",
+          "Resultary 132a86d69a57"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier cycles.csv lists each 00000-rooted representative and lags R1–R16; R(32−s)=R(s) supplies the other lags. The row for 00000100101000111110101100110111 has R5=−4, R14=R16=−8, and other stored lags zero. The 2011 Table I accounts for 36 sequences with signed maximum 16 in raw units (the δ=8 bin). The 12/784 results in the DS-CDMA paper use absolute sidelobes."
+        ],
+        "reasoning": "The exact earlier per-cycle table supplies both words and values; the signed and absolute 2011 summaries do not alone supply all five bins.",
+        "searches": [
+          "Resultary 132a86d69a57 cycles.csv",
+          "Fujisaki–Nabeshima Table I, order-five rows",
+          "Spinsante–Andrenacci–Gambi F4/F8 thresholds"
+        ]
+      },
+      "rationale": "An earlier exact phase-retrieval record supplies the full autocorrelation vector of each of the same 2,048 named rotation classes. The entire claim is a direct reduction of those exact data: take the signed maximum over the nonzero lags, count the resulting minima, and select the optimizer rows. The frozen result therefore adds no distinct invariant not already determined by that stronger per-cycle table. The two 2011 papers do not by themselves establish this full overlap.",
+      "residual_risks": [
+        "Specialist literature could also state the complete signed spectrum explicitly. Its possible existence is not used for the decision, which rests on verified earlier exact catalogue data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage by full exact per-cycle data",
+          "evidence": "2,048 canonical cycles, 526 full signatures and symmetry orbit data; the table records the signed R1–R16 for every cycle and explicitly contains the optimizer vector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "RESULT.md Finding and Assumptions from offset 0; cycles.csv header and optimizer rows including offsets 21050–22304",
+          "method": "Local mirror bounded text and row inspection",
+          "title": "Almost-complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Same order, rotation convention, and stronger per-cycle autocorrelation data"
+        },
+        {
+          "assessment": "Earlier exact bottom bin but not full census in the inspected table",
+          "evidence": "Order 5: normalized positive peak 0.5 at lags 10,22 for 4 sequences or lag 16 for 32 sequences; total 36. Negative minima are reported separately.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/nolta/2/4/2_4_400/_pdf/-char/en",
+          "material_read": "Signed normalization pp. 401, 403 and Table I pp. 405–406 (offsets 14864–19792)",
+          "method": "Primary OA PDF passage and table inspection",
+          "title": "On auto-correlation values of de Bruijn sequences",
+          "trigger": "Same signed statistic and order-five exact data"
+        },
+        {
+          "assessment": "Absolute threshold enumeration does not determine the signed optimum",
+          "evidence": "Positive bound 16 for span five; 12 and 784 at the absolute peak thresholds 4 and 8, respectively.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "Correlation bound pp. 4–5 and F4/F8 subsets p. 8, offsets 19735–24733 and 39591–41898",
+          "method": "Primary OA passage inspection",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Exact order-five population and autocorrelation thresholds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The signed autocorrelation optimum is a natural finite coding invariant, but the earlier complete per-cycle database already answers the exact question by one extremum and tally per row. Neither the histogram nor the four-word and common-profile presentation adds an unknown independently useful fact. No valuable distinct remainder was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

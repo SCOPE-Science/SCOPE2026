@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:20:36.701965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79",
+        "VERIFICATION.md lines 19–27",
+        "checker.py lines 13–67",
+        "arXiv:2405.13531, Section 3, equations (2)–(3)"
+      ],
+      "rationale": "For each pair the dot product is uniform on [-1,1], so Z and 1/Z have the same survival 1/(1+z^2) and mean π/2. On Z≥1 the reciprocating term is bounded and the rescaled density converges to 2r^-3 along the collision ray; on Z<1 exchange Z and 1/Z to get the antipodal ray (zero if the parameter vector vanishes). Distinct pair kernels are independent in pairs, including edges sharing one point by conditioning on that point and rotational invariance. With finitely many edges, two contributions above a fixed fraction of x have probability O(x^-4). For a test function supported away from zero, a nonzero test contribution forces some edge to exceed a fixed positive fraction of x; a uniform continuity bound on the event only that edge exceeds a much smaller fraction proves additivity as the latter fraction tends to zero. Multiplication by 2/n yields binom(n,2)(2/n)^2=c_n; the deterministic centering is irrelevant to the limit. For unbounded tail sets, the union bound gives uniform x^2-scaled mass O(M^-2) outside radius M, so vague convergence can be applied to the two scalar tails with boundary of measure zero. This yields c_n(1+a_+^2) and c_n a_-^2; integration and inversion then give the moment threshold, 2c_n(1+a^2) log x, and upper quantile constant. Covers n=2, negative and zero a, and coincident or absent rays. The supplied numerical checker was read, not run; its finite scalar checks do not certify the finite-sum theorem.",
+      "residual_risks": [
+        "No simultaneous growing-n limit, error bound for a fixed significance level, or formal verification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bakhshizadeh Theorem 2.4 is a concentration bound and Lemma 2.14 an n→∞ LDP statement; the original stereographic Theorem 1 is an n→∞ weighted chi-square limit for q≥3."
+        ],
+        "reasoning": "Neither result supplies the fixed-n exact spherical coefficients or vector rays. A finite-sum regular-variation lemma can supply aggregation once the geometry-specific edge measures and joint extreme negligibility have been established.",
+        "searches": [
+          "arXiv:2301.11563, heavy-tailed U-statistics",
+          "arXiv:2405.13531, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.13531",
+        "arXiv:2301.11563",
+        "Resultary 3e5f8742448d, de1ec85ab44c and d1a9e8cd5a65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinite variance gives neither a rate nor two signs; the growing-n results cannot be sent to large threshold with n held fixed. The exact endpoint pair calculations and shared-vertex extreme control supply the missing ingredients."
+        ],
+        "reasoning": "The inspected coverage supplies known inputs, not the final measure. The moment and quantile consequences are deductions from the new constants, not independent originality claims.",
+        "searches": [
+          "arXiv:2405.13531, Section 3 and discussion",
+          "arXiv:2301.11563, Theorem 2.4 and Lemma 2.14",
+          "Resultary de1ec85ab44c, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (2)–(3) of the original paper define the identical kernel and normalization, and p. 8 notes non-finite variance at q=2 for every a. The q=2 treatment after Theorem 1 proposes truncation rather than finding an untruncated extreme-tail measure.",
+          "de1ec85ab44c gives a joint growing-n logarithmically normalized Gaussian law for the same two stereographic channels."
+        ],
+        "reasoning": "The reciprocal transformation matches the objects exactly; infinite variance and the Gaussian limit in sample size are not equivalent to the two directional, fixed-n tail constants.",
+        "searches": [
+          "arXiv:2405.13531, Section 3 and discussion",
+          "Resultary comparison by stereographic statistic, fixed-sample extremes and two-ray tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3e5f8742448d is the identical frozen record, not distinct evidence. Closest distinct same-statistic entry de1ec85ab44c gives a growing-sample limit; d1a9e8cd5a65 gives a fixed-sample index-two tail for a different, argmax-normalized KS statistic."
+        ],
+        "reasoning": "No exact indexing or table match found apart from the identical record; equal tail index for a different normalized random variable is not coverage.",
+        "searches": [
+          "Resultary: exact two-ray stereographic extreme law and related spherical/KS tail records; matching RESULT.md entries"
+        ]
+      },
+      "rationale": "Bounded searches and statement comparisons support the fixed-sample two-ray measure and explicit extreme constants as distinct; neither the underlying statistic nor its infinite variance is the new finding.",
+      "residual_risks": [
+        "An earlier specialized calculation or regular-variation application outside the inspected literature could exist; the bounded comparison does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the statistic and notes infinite variance, not the fixed-sample law in the inspected passages.",
+          "evidence": [
+            "Parameter a multiplies tan(θ/2) and the factor is 2/n; the stated conventional limit needs q≥3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.13531",
+          "material_read": "PDF pp. 3–4, equations (2)–(3), Theorem 1 and q=2 truncation; p. 8 infinite variance discussion",
+          "method": "Lawful OA PDF passage inspection, offsets 9212, 15480 and 43476",
+          "title": "A stereographic test of spherical uniformity",
+          "trigger": "Identical statistic and parameter range"
+        },
+        {
+          "assessment": "Bounds and growing-n LDP do not settle these fixed-n asymptotic equivalents.",
+          "evidence": [
+            "Lemma 2.14 takes n→∞; Theorem 2.4 bounds an exceedance probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11563",
+          "material_read": "PDF p. 5 Theorem 2.4 and p. 9 Lemma 2.14",
+          "method": "Lawful OA PDF passage inspection, offsets 20405 and 40846",
+          "title": "Exponential tail bounds and Large Deviation Principle for Heavy-Tailed U-Statistics",
+          "trigger": "Plausible stronger theorem for heavy-tailed U-statistics"
+        },
+        {
+          "assessment": "Different order of limits, with no fixed-n extreme constants in the inspected statements.",
+          "evidence": [
+            "Joint logarithmically normalized Gaussian limit as n grows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmic-gaussian-null-limit-of-the-untruncated-stereographic--de1ec85ab44c",
+          "material_read": "RESULT.md offsets 0 and 7226, joint limit and finite-n infinite-variance context",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Logarithmic Gaussian null limit of the untruncated stereographic statistic",
+          "trigger": "Strongest distinct match, identical statistic"
+        },
+        {
+          "assessment": "Different statistic and mechanism.",
+          "evidence": [
+            "Location-normalized empirical KS statistic rather than singular spherical pair sums."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-pareto-two-tail-for-the-two-sided-argmax-normalized-empi--d1a9e8cd5a65",
+          "material_read": "RESULT.md finding at offset 94",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "A sharp Pareto-two tail for the two-sided argmax-normalized empirical statistic",
+          "trigger": "Fixed-sample index-two tail analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and limitations",
+        "arXiv:2405.13531, q=2 variance and truncation discussion"
+      ],
+      "rationale": "For an existing test whose untruncated S² version has no variance, the constants give exact fixed-n rare-significance calibration and explain which geometric events make different parameter choices fail together. For negative a the two events drive opposite signed tails, and the ray statement adds joint information not supplied by a scalar infinite-variance assertion.",
+      "residual_risks": [
+        "No approximation accuracy for practical finite thresholds, power benefit, or design claim for tuning a from the data is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

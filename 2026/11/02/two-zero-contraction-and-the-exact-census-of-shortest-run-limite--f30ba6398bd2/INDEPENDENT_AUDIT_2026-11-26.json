@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:33:54.746591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected not executed",
+        "/workspace/repairs/3/RESULT.md"
+      ],
+      "rationale": "The cyclic host excludes 0^r, but its targets are all linearly admissible length-(r+1) words. Exactly three windows are removed from the full overlap graph. Removing them makes u=10^(r-1) short one outgoing edge and v=0^(r-1) short one incoming edge; because r≥2 they are distinct, and one extra traversal must be the unique edge e_r from u to v. In a full de Bruijn tour the unique entrance to 0^r from another vertex, the loop, and the unique exit are consecutive in that order, as the loop must be used and the vertex cannot be revisited from outside. Replacing that passage by e_r achieves the bound. Conversely, expanding either occurrence of e_r restores the full tour, and these are the only choices. A shortest necklace is primitive because other factors occur once, so rotation cannot identify its two distinct marked occurrences; the expansions are genuinely different necklaces. The ordinary necklace count at order r+1 is 2^(2^r-r-1), exactly twice the claimed count. The four given examples follow by substitution.",
+      "residual_risks": [
+        "The verification marker is expected output, not evidence of a fresh execution. The all-order argument rests on the graph bijection and the classical binary de Bruijn enumeration, not the small cases, cofactors or sampled tours in the script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-alphabet result gives the rational excess series for the same cyclic host and linear targets, plus an optimal Eulerian augmentation. With q=2 and window length r+1 its coefficient gives excess one. The distinct same-day short-window result gives the one-edge optimal bridge and explicitly excludes a count of distinct Euler tours."
+        ],
+        "reasoning": "Both results cover the optimum and the shared augmentation at these parameters; neither gives the rotation-compatible contraction and its exact fibres in the inspected proof. The repaired text credits the overlap and does not set a chronology for the same-day entry.",
+        "searches": [
+          "SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d",
+          "SCOPE-exact-shortest-cyclic-covers-of-zero-run-free-windows-before-rep--fd51f9f719e9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 475811a7997d, fd51f9f719e9, 90c9032f6f7f",
+        "HAL tel-00628709",
+        "arXiv:0711.1695, 2403.01454, 2510.16545, 2005.03102",
+        "Bernardini et al., CPM 2021, DOI 10.4230/LIPIcs.CPM.2021.9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known optimum determines the augmented graph at this parameter. BEST can count its labeled tours in terms of a cofactor; relating that cofactor to the full graph and accounting for duplicate labels could also yield the number. The classical unconstrained count alone says nothing about which shorter necklaces are obtained or whether the fibres agree at the level of rotations."
+        ],
+        "reasoning": "The repaired finding is the explicit two-to-one map, not priority for a numerical consequence abstracted from it. The proof identifies the inverse at the string level and rules out fibre collapse by primitivity, neither of which follows from simply applying an Euler-tour count to the known optimum.",
+        "searches": [
+          "475811a7997d, optimal augmentation and Eulerian existence proof",
+          "fd51f9f719e9, Steps 5–6 and Limitations",
+          "Classical binary de Bruijn necklace formula; BEST and directed matrix-tree comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moreno's thesis §4.2.2 defines target membership by w∞ and uses every target once. Sawada–Gabrić's forbidden-run universal cycles likewise impose the run test on cyclically viewed target factors. Chee et al. 2024 define all windows to be distinct and maximize length. The target list here instead includes words such as 0^(r-1)10, which are linearly legal but fail their own periodic test."
+        ],
+        "reasoning": "Cyclically admissible targets and no-repeat tours exclude a feature essential to this result, the forced repeated e_r in a cover of all linearly admissible windows. Lexicographic minimality among different targets is not minimum covering length.",
+        "searches": [
+          "Moreno–Matamala arXiv:0711.1695v1; Moreno thesis tel-00628709",
+          "Sawada–Gabrić arXiv:2510.16545 §4.5",
+          "Chee et al. arXiv:2403.01454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed three-zero result gives length 14 at window length four, with an admissible optimum witness, and the earlier all-alphabet result lists the same length. Neither is an all-order census of the optimizing necklaces. The more general early and same-day excess statements enumerate required repetitions, not the necklaces attaining them."
+        ],
+        "reasoning": "An exact optimum value or even one optimum witness does not enumerate the unmarked optima. Searches located overlaps in the length and balancing data but no covering map for the optimizers.",
+        "searches": [
+          "SCOPE-shortest-cyclic-covers-of-binary-words-avoiding-three-consecutiv--90c9032f6f7f",
+          "475811a7997d and fd51f9f719e9; binary zero-run cyclic cover count and de Bruijn contraction"
+        ]
+      },
+      "rationale": "For the repaired finding: the known covering theorems already account for the optimal length and factor profile. The inspected statements and constructions do not establish the explicit two-to-one contraction onto unmarked optimal necklaces, or its inverse distinguished-occurrence interpretation. This is a claim of distinct mathematical content relative to the comparisons, not a priority guarantee.",
+      "residual_risks": [
+        "An unindexed treatment of the same edge contraction or an older equivalent formulation is not excluded. The thesis comparison is to the inspected definitions and theorem, not a claim about every paragraph. Priority is not inferred from same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers length and the balancing profile, not the explicit fibre structure in the passages read",
+          "evidence": "All q,r≥2 and window orders n≥r are covered; the excess series at n=r+1 and q=2 has coefficient one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–2500; augmentation and excess proof offsets 4700–8552",
+          "method": "Resultary search and exact local-mirror reads",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "Earlier theorem with the same host/target definitions and a larger parameter range"
+        },
+        {
+          "assessment": "Covers the one-edge augmentation, expressly not the number of distinct Euler tours",
+          "evidence": "Optimal path lengths and bridges are forced in the first regime; the Limitations section distinguishes a multiset of added edges from a count of Euler tours.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-zero-run-free-windows-before-rep--fd51f9f719e9/RESULT.md",
+          "material_read": "Finding; proof near offsets 4500–8897; Limitations near offsets 8850–10746",
+          "method": "Resultary search and exact local-mirror reads",
+          "title": "Exact shortest cyclic covers of zero-run-free windows before repeated-run overlap",
+          "trigger": "Distinct matching same-day optimal-bridge statement"
+        },
+        {
+          "assessment": "Finite matching optimum, not the rotation-fibre theorem",
+          "evidence": "At window length four the length is 14; the witness avoids 000 even though the lower bound allows all cyclic hosts.",
+          "identifier_or_url": "SCOPE-shortest-cyclic-covers-of-binary-words-avoiding-three-consecutiv--90c9032f6f7f",
+          "material_read": "Finding offsets 0–3288",
+          "method": "Local-mirror statement read",
+          "title": "Shortest cyclic covers of binary words avoiding three consecutive zeros",
+          "trigger": "Same-day fixed threshold includes r=3 and windows of length four"
+        },
+        {
+          "assessment": "The inspected restricted-language theorem uses a different target family and no repeated windows",
+          "evidence": "It defines w in the restricted language when the periodic word w∞ belongs to the subshift, and the length of the circular sequence is the number of such targets.",
+          "identifier_or_url": "https://theses.hal.science/tel-00628709/document",
+          "material_read": "English summary p. 2; partial-cycle discussion near offset 27850; §4.2.2 definitions and Theorem 4.2.1, printed pp. 39–40, offsets 72789–76316",
+          "method": "Lawful OA thesis via configured reader, followed by bounded PDF text reads",
+          "title": "De Bruijn graphs and sequences in languages with restrictions",
+          "trigger": "Highly relevant thesis on words avoiding constant runs and a plausible older source"
+        },
+        {
+          "assessment": "Periodic target criterion and lexicographic minimization, not repeat-allowed optimal covering",
+          "evidence": "The theorem is about an Eulerian graph for the periodic language, and seeks a minimum lexicographic label.",
+          "identifier_or_url": "https://arxiv.org/html/0711.1695v1",
+          "material_read": "Definitions, objective and Theorem 2.1, offsets 0–5985 and 6350–9718",
+          "method": "OA article passage read",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Closest title in the original comparison"
+        },
+        {
+          "assessment": "Optimizes and enumerates a no-repeat problem, not the same set of necklaces",
+          "evidence": "An (n,s)-sequence is defined by distinct admissible length-n windows; the section considers maximum length and related counts.",
+          "identifier_or_url": "https://arxiv.org/html/2403.01454",
+          "material_read": "Abstract, §1 window definitions offsets 4050–8450, and §4 enumeration opening offsets 58124–61724",
+          "method": "OA article passage read",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Plausible stronger forbidden-run enumeration missed by the original comparison"
+        },
+        {
+          "assessment": "Different target admissibility criterion",
+          "evidence": "The forbidden-run construction covers cyclically admissible factors exactly once.",
+          "identifier_or_url": "https://arxiv.org/html/2510.16545",
+          "material_read": "§4.5, offsets 32800–38070",
+          "method": "OA article passage read",
+          "title": "Sawada and Gabrić, universal cycles with forbidden runs",
+          "trigger": "Closely related construction for cyclically admissible factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, inverse construction and primitivity proof",
+        "475811a7997d and fd51f9f719e9, known optimization and augmentation"
+      ],
+      "rationale": "The explicit map relates ordinary cycles to all optimal run-limited cycles at the first width where repeats are forced. It gives a concrete reconstruction from either marked occurrence, an exact count and equal multiplicity of preimages, so in particular it transfers uniform sampling without reweighting. These are structural properties of the family of optimizers, not just an alternate derivation of the known minimum length.",
+      "residual_risks": [
+        "No other window width, alphabet or equivalence by reflection is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

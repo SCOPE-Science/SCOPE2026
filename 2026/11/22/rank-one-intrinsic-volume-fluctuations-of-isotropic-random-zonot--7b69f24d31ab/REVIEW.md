@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Steiner intrinsic-volume expansion into Gram determinants holds with unit segment lengths and the stated convention. The two-vector conditional expectation follows from the Gram–Schmidt beta-projection product, and its constant \(c_{d,k}\) is independently checked at multiple \((d,k)\) values. Canonical U-statistic orthogonality gives the finite covariance with \(V_2\), while the bounded higher kernels yield the claimed smaller-order residual variance. The common angular kernel is a centered negative definite square-root transform; its opposite has strictly positive, trace-class even harmonics by a Bernstein mixture of the positive-definite kernels \(e^{rt^2}\). A finite-harmonic CLT plus a Hilbert–Schmidt tail bound proves the joint limit and sharp support. The companion program corroborates determinant normalization, spectral degree-two coefficients and the d=3 residual variance. Computer checks do not establish the infinite-dimensional spectral convergence; that step is analytical.
+PASS
 
-## Originality — PASS, provisional priority
+The repaired result keeps the fixed-d joint law and exact regressions. The Steiner Gram-determinant sum has constant first projection. The squared height off the j-plane is Beta((d-j)/2,j/2), giving a telescoping conditional mean c_{d,k} times the two-vector area. Summing the canonical pair projection gives the binomial multiplicity and the exact covariance. Higher canonical kernels are orthogonal, including across orders; the variance of the order-j contribution is O(n^{2k-j}), proving the residual and correlation rate. For the negative centered sine-of-angle kernel, the Bernstein representation is positive on mean-zero modes: the tensor kernel of degree 2m has a positive quadratic form on each nonzero harmonic of that degree, since its tensor moment contracted with the harmonic's coefficient tensor is the squared L2 norm. Odd and constant modes vanish. Mercer on the diagonal and the Hilbert–Schmidt identity give the trace s_d and squared trace v_d. The finite harmonic CLT uses the truncated kernel; the tail has variance at most half its squared Hilbert–Schmidt norm uniformly in n. A small finite chi-square prefix and an independent small nonnegative tail give the sharp upper endpoint; the first mode makes the lower tail unbounded. The original line 92 falsely said the correlation equals one when one index is two. For k>2 the continuous residual at coincident inputs is c_{d,k}s_d binom(n,k)(binom(k,2)-1)>0; full support and zero mean imply strictly positive residual variance. The repair replaces the false equality and explicitly restricts the fixed-cutoff display to the truncated statistic. The main asymptotic and exact mean/covariance claims are unchanged.
 
-The 2022 random-zonotope valuation paper supplies intrinsic-volume expectations, but its Gaussian central limit theorem requires a nonzero first Hoeffding projection, which is exactly zero here. Prior recorded three-dimensional volume and independently rotated full-body surface-area fluctuation results were materially inspected: the former resolves one \(d=3,k=3\) marginal, and the latter may cover a second \(d=3,k=2\) marginal by continuously degenerating its full-dimensional summand to a segment; neither covers the new joint all-dimensional theorem. The new claim is the entire all-dimension joint vector with its exact pair covariance, universal rank-one asymptotics, and common non-Gaussian spectrum. Search terms included degenerate Hoeffding, spherical intrinsic-volume covariance, and joint zonotope fluctuations. A general stochastic-geometry theorem proving the same statement implicitly remains a real historical-priority risk, so this is not a claim of exhaustive uniqueness or independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Volume, surface area and intermediate intrinsic volumes are standard independent geometric measurements of random Minkowski sums. Their asymptotically perfect dependence is not visible from known separate expectations or an isolated 3D volume limit. Exact cross-covariances and the universal shared distribution clarify which geometric information genuinely varies at second order, and sharply distinguish isotropic fixed-length sampling from the generic Gaussian first-order regime. The statement covers every intrinsic index and fixed dimension, not a tuned or arbitrary numerical slice.
+Pass for the common fixed-dimensional joint fluctuation and quantitative cross-intrinsic-volume result. Existing means, the d=3 volume marginal and standard harmonic/U-statistic machinery are not new contributions.
 
-## Remaining limitations
+## value
 
-No anisotropic, random-length, high-dimensional-uniform or finite-sample joint-density theorem is asserted. The probabilistic limit has not been audited independently. Source comparisons are substantial but not a historical-priority certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First-order Gaussian theory misses exactly this isotropic fixed-length model. The result explains why all higher intrinsic-volume fluctuations become collinear, supplies the finite-sample coefficient and an error rate, and identifies a common non-Gaussian law with sharp one-sided bound. These are consequences about dependence, not a recomputation of the known means or a single marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

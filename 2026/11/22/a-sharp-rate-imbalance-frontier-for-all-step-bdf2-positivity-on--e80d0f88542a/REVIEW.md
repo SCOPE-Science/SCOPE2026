@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one Markov projector decomposes every multistep transition into stationary and centered responses. The sharp scalar lower envelope is proved by a critical-point calculation at the second step, four exact shifted-polynomial positivity certificates, and a uniform oscillatory bound for every later index. A rational-matrix verification independently checks the constructed formula. The positivity statement is for all positive timesteps and all finite indices, not a finite enumeration extrapolation.
+## correctness
 
-**Originality — PASS (provisional priority).** The classical scalar BDF2 threshold and first-negative timing were identified and excluded from the claim. Published variable-step BDF2 stability theorems and an optimized two-step multistep family with free starting histories have different assumptions or quantifiers. The latter includes standard BDF2 at its parameter value \(\kappa=0\), but its universal independent-history requirement is stricter than the fixed backward-Euler start considered here. Comparisons of exact statements, including three relevant full-text original research reports, did not yield a prior result implying the specific standard-BDF2 all-timestep two-state rate-ratio classification. Residual risk: unindexed older cone-invariance and multistep literature could supply an equivalent corollary.
+PASS
 
-**Value — PASS.** An exact, sharp rate-imbalance frontier distinguishes multistep A-stability from probability preservation even though the centered decay response oscillates. It is useful for deciding whether an ordinary BDF2 integrator with a specified starter can be used with any timestep on a minimal chemical-exchange or two-state CTMC system. It does not extrapolate to larger generators, arbitrary histories, or uncertain steps.
+Reconstructed the analytic all-index proof in RESULT.md. The complementary stationary/centered projections give M_n=Π+z_n(I−Π), with unit row sums, off-diagonal sign set by 1−z_n, and diagonal lower condition z_n≥−min(a,b)/max(a,b). For 0<r<1/2 the real roots are (2∓√(1−2r))^−1 and the stated BE-started coefficients have the larger-root coefficient exceeding the subtracted one by one; thus z_n>0. At r=1/2 the repeated-root solution is 2^−n(1+n/3)>0. The first-difference recurrence then proves strict decrease in this regime. For r>1/2, matching z₀ and z₁ gives the stated trigonometric solution. Using |sin(nθ)|≤n sinθ bounds |z_n| by 2^−n(1+n/3), hence z_n<1 for n≥1 and |z_n|≤5/192 for n≥7. Independently checked the shifted polynomials from the recurrence and the four quadratic discriminants (−1843840, −101573568, −5495631872, −124090302464 in index order). The split about t=2 for P₃ and the positive higher coefficients in P₄–P₆ give strict positivity, so z₃,…,z₆>−29/1000>−(17−12√2). For n=2 the rational derivative has its only positive zero at r=3+3√2, a strict minimum with z₂=−(17−12√2); n=0,1 cannot tie. Reciprocating proves the claimed rate boundary and its unique normalized equality step for one diagonal. For fixed positive rates the real-root regime is safe and the complex-root bound also gives uniform |z_n|≤5/[3(3+2r)] for n≥2 as r→∞; z₁→0 separately. The exact 40:1 witness has r=7 and z₂=−1/34, hence (M₂)₁₁=−3/697. Inspected VERIFICATION.md, verify.py and the recorded output; did not execute the uploaded script. Its checks are finite support, not the all-index proof. Scope is constant step, irreducible two-state row generator, BE startup from one initial law and exact arithmetic.
 
-**Closest mathematical literature.** Hundsdorfer–Ruuth–Spiteri (2002) gives general multistep monotonicity conditions; a 2026 scalar BDF2 result quantifies delayed sign loss but not the uniform negative envelope; and another 2026 result solves an optimized two-step family **including BDF2 at one parameter value**, but only under a stronger arbitrary-history quantifier. Li–Liao (2022) addresses variable-step stability, not exact stationary-mass positivity. Full references and scope limitations appear in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the scalar sign boundary and phase representation, standard stationary projection, and multistep monotonicity framework. The supported claim is the sharp quantitative global negative envelope, uniquely at the second step, and the consequent necessary and sufficient all-step imbalance frontier for the precise BE-started history. The nearest arbitrary-history classification includes classical BDF2 as a parameter value but demonstrably has different quantifiers.
+
+## value
+
+PASS
+
+The sharp rate-ratio criterion answers a natural question not resolved by generic step restrictions: can a standard BE-started integrator preserve every initial probability for every step on the simplest irreducible exchange? It shows how a signed centered mode is compatible with positivity because of the stationary mass, gives an exact obstruction at the second step, and distinguishes intermediate failures from eventual large-step safety. This is an exact model-specific invariant and explanation, not a claim for general Markov generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:53:01.891147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 4–68, including the trace tables; frozen VERIFICATION.md and verify_heawood.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/213f7836-ba36-445e-972f-a561b765b857/heawood_check.py"
+      ],
+      "rationale": "For a specified point shore of a maximal independent set, the line shore is forced to contain exactly the disjoint lines; both shores must dominate the omitted vertices. The Fano pair-incidence counts then leave just the 2 full shores, 14 one/four-shore concepts and 21 two/two-shore concepts. An all-positive trace enforces independence. For any monochromatic four-set a three-positive trace fails, either on a collinear triple, which intersects all lines, or on a three-subset of an off-line four-set, whose unique disjoint line would force the fourth point. Two lines leave just two off-line points, so every independent five-set contains a monochromatic four-set. The two mixed quadruple witness tables and the collinear triple witnesses give all remaining traces, using collineations and duality. Every other independent triple extends to a mixed quadruple. On the 2+2 type, the pair of lines determines the remaining two points and the collineations are transitive on unordered pairs of lines; on the 3+1 type the line stabilizer is transitive on its four off-line points. Shore-preserving automorphisms are GL(3,2) because preserving the triples preserves sums of distinct nonzero vectors; duality swaps the shores. A fresh exhaustive computation checked all 16,384 supports and found 37 concepts, face counts (1,14,70,154,77), and 336 automorphisms with facet orbit sizes (14,21,56).",
+      "residual_risks": [
+        "The exhaustive result is specifically for the Heawood graph and all inclusion-maximal independent sets, with vertex queries. It does not test any all-projective-plane extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Héger–Nagy treat projective-plane domination at large order q>81. The private-leaf realization result assumes a leaf attached to each core vertex; the cycle and Shrikhande/rook records use other graph families."
+        ],
+        "reasoning": "Heawood has order q=2 as a plane and is leaf-free, so neither of the broader hypotheses applies. Other finite MIS classifications are not dominating cases for this incidence graph.",
+        "searches": [
+          "Resultary: Heawood graph shattering complex maximal independent sets independent dominating sets vertex traces",
+          "arXiv:1603.02933; Resultary 0e9b40ed52ce, 4d0afc364bee, 3100cb0cc362"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 70–78; Bickle Theorem 9; arXiv:1808.07369, 1611.01474, 1603.02933; Resultary e9b5f8960619, 0e9b40ed52ce, 4d0afc364bee, 3100cb0cc362"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coloring proof uses maximal independent sets as color-class bounds, and the polynomial literature counts concepts by their cardinality; the same-graph minimum domination record changes the concept class."
+        ],
+        "reasoning": "Cardinality and concept descriptions alone do not give trace surjectivity, the monochromatic obstruction or facet type. These require the Fano geometry and all signed witnesses; a general ability to enumerate traces is not a prior classification.",
+        "searches": [
+          "Bickle Theorem 9; arXiv:1808.07369; Resultary e9b5f8960619"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jahari–Alikhani define independent dominating sets equivalently as inclusion-maximal independent sets.",
+          "Bickle, proof of Theorem 9, analyzes the Fano nonincidence choices giving the full shores, the 1+4 sets and the 2+2 sets."
+        ],
+        "reasoning": "Independent-dominating concepts are precisely the frozen concepts. The point/line shores of their mixed concepts are maximal nonincidence rectangles (bicliques). Bickle supplies the underlying structures for coloring, not their restrictions across all vertex subsets or the facet orbits.",
+        "searches": [
+          "Web: Heawood graph vertex shattering all maximal independent sets independent dominating sets Boolean traces classification",
+          "Web: Heawood graph Fano plane \"maximal independent sets\" 37 maximal bicliques nonincidence independent domination enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Perarnau–Perkins give 147 independent four-sets, not 77 shattered four-sets. The other Heawood shattering entry has polynomial 1+14z+70z² from 21 minimum ordinary dominating sets. Bickle already supplies the concept types underlying the census."
+        ],
+        "reasoning": "No distinct matching table of all vertex traces or of the 91 facets was identified. The existing enumerations should not be read as repeats of this count or claimed as new ingredients.",
+        "searches": [
+          "Resultary: Heawood graph maximal independent sets 37 independent dominating sets cardinalities 4 5 7 concept classification shattering",
+          "arXiv:1611.01474; Resultary e9b5f8960619; Bickle Theorem 9"
+        ]
+      },
+      "rationale": "The complete trace and facet classification, not the underlying enumeration of Heawood independent sets or the Fano incidences, is the supported contribution. Bickle's 2-tone coloring proof already analyzes the same concept types. The closest same-graph catalogue comparison uses a different family of concepts, and the broader MIS-shattering examples checked do not imply the Heawood result. This is a bounded literature judgment, not a priority certificate.",
+      "residual_risks": [
+        "The targeted search recovered an older concept-type analysis, rather than a trace theorem. Unindexed exact trace classifications remain possible; a keyword miss or an unavailable adjacent graph paper is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for underlying concepts, not trace classification",
+          "evidence": "Uses the Fano axioms to describe full shores and the 1+4 and 2+2 configurations in the proof of non-2-tone-6-colorability.",
+          "identifier_or_url": "https://allanbickle.wordpress.com/wp-content/uploads/2016/05/2tonejcpaper.pdf",
+          "material_read": "Theorem 9 proof, pp. 5–6, offsets 11920–14609, and title page",
+          "method": "Open PDF, locate and read by offset",
+          "title": "2-Tone Coloring of Joins and Products of Graphs",
+          "trigger": "Candidate earlier analysis of Heawood maximal independent sets"
+        },
+        {
+          "assessment": "Counts concepts by size, not traces",
+          "evidence": "An independent dominating set is a maximal independent set; the polynomial records counts by cardinality.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "Abstract p. 1 and §1 p. 2, offsets 0 and 4296",
+          "method": "OA PDF passages",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "Equivalent concept definition and possible census"
+        },
+        {
+          "assessment": "Different counted sets",
+          "evidence": "Heawood's ordinary independence polynomial has fourth coefficient 147, not the shattering coefficient 77.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.01474",
+          "material_read": "§1.2, p. 5, offset 11933",
+          "method": "OA PDF passage",
+          "title": "Counting independent sets in cubic graphs of given girth",
+          "trigger": "Exact Heawood polynomial comparison"
+        },
+        {
+          "assessment": "Inspected domination theorem does not cover q=2 traces",
+          "evidence": "Large-order projective-plane domination result applies at q>81.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.02933",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "Domination in finite projective planes",
+          "trigger": "Possible broader incidence-graph coverage"
+        },
+        {
+          "assessment": "Different concept class; same date is not a priority determination",
+          "evidence": "Uses 21 minimum ordinary dominating sets and gives polynomial 1+14z+70z²; mentions earlier all-MIS studies without identifying an exact trace result.",
+          "identifier_or_url": "Resultary e9b5f8960619",
+          "material_read": "Scope offset 600 and prior comparison offset 9116",
+          "method": "Local mirror passages",
+          "title": "The minimum-domination shattering complex of the Heawood graph",
+          "trigger": "Same graph and shattering under a different concept family"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Private leaves are required for the realization theorem, the cyclic forbidden-gap classification applies to cycles, and the two remaining graph examples are not Heawood.",
+          "identifier_or_url": "Resultary 0e9b40ed52ce, 4d0afc364bee, 3100cb0cc362",
+          "material_read": "Finding passages, offset 0 of each local copy",
+          "method": "Local mirror passages",
+          "title": "Private-leaf flag realization, cycle shattering, and Shrikhande/rook classifications",
+          "trigger": "Broader framework and other exact MIS-shattering results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 6–11 and 38–65; independent exhaustive trace and orbit calculations"
+      ],
+      "rationale": "The natural Fano incidence graph gives a complete nonpure shattering example where a collinear triple or dual pencil is individually shattered but cannot extend, whereas every mixed independent quadruple is a facet. The exact counts and orbit types make the geometric obstruction a useful benchmark for MIS trace complexes; the result is more than a dimension or concept-count exercise.",
+      "residual_risks": [
+        "The example does not give an analogous classification for other projective planes or a homotopy classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

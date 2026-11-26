@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:42.339103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complete-reset coupling establishes uniqueness and the exponential backward age gives finiteness of all used moments. Independently, the generator L=VΔ_X+Λ²∂²_ω+r(f(0)−f) gives LV=2Λ²−rV, LQ=2dV−rQ, L(V²)=12Λ²V−rV² and L(QV)=2dV²+2Λ²Q−rQV. Stationarity gives Var(V)=20Λ⁴/r² and Cov(Q,V)=48dΛ⁴/r³. The centered block then has a repeated eigenvalue −r and the coupling Q→2dV, which yields P_t(V−EV)=e^(−rt)(V−EV) and P_t(Q−EQ)=e^(−rt)[Q−EQ+2dt(V−EV)]. This verifies both ordered covariances including t=0, their strict inequality for t>0, the ratio, rate inversion and the unique normalized peak by differentiation of u exp(−u). Linear coordinates each have generator eigenvalue −r and diagonal stationary covariance, giving the variance-matched OU covariance, not equality in law. The frozen script was inspected, not executed; its 321 recorded checks range over nine dimension/parameter cases, with three distinct scale/rate pairs, not nine distinct pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra et al. §4 specifies simultaneous full resetting and the exponential renewal law, sufficient for averaging the free polynomial coefficients. Mesquita et al. use a shared Brownian diffusivity but an unreset, initially localized gas. Sokolov full text was not verified."
+        ],
+        "reasoning": "The primary implication uses the exact same model's explicit free formula plus its reset law, not a claim that arbitrary resetting or fixed-diffusivity fluctuation–dissipation relations yield these constants.",
+        "searches": [
+          "Primary-literature search: Brownian diffusing diffusivity under resetting, mixed squared-position lag covariance and time direction",
+          "arXiv:2205.00549v1 §4",
+          "arXiv:2506.20859v2",
+          "DOI:10.1103/PhysRevLett.130.067101"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Santra–Basu–Sabhapandit arXiv:2205.00549v1",
+        "Resultary shared-bath energy-memory record 20953d731b6d",
+        "Resultary random-amplitude arrow 4f8ef07add78, summary only",
+        "arXiv:2506.20859v2 and Sokolov DOI:10.1103/PhysRevLett.130.067101 (not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At free age a and lag t the derivatives of Eq. (21) give reverse free covariance (16/3)Λ⁴a³ and forward (16/3)Λ⁴a³+16Λ⁴ta² per coordinate. Given no reset, average these using A~Exp(r) and add the covariance of the conditional means 2Λ² age and 2dΛ² age² at ages A and A+t. The free terms average to 32dΛ⁴/r³ in either order, plus 32dΛ⁴t/r² forward. The age-mean terms give 16dΛ⁴/r³ in either order, plus 8dΛ⁴t/r² forward. A reset in the lag makes the centered covariance contribution zero; multiplying by e^(−rt) gives exactly the frozen formulas.",
+          "In the shared-bath proof h=ω²−Eω² and g_j=X_j²−EX_j² have Var(h)=20Λ⁴/r² from its two ω moments, Cov(g_j,h)=48Λ⁴/r³, P_t h=e^(−rt)h and P_t g_j=e^(−rt)(g_j+2th) from the displayed generator block. Pairing with the opposite observable gives the two formulas directly."
+        ],
+        "reasoning": "Neither history ordering adds an undetermined moment to the known free expression and renewal protocol. The ratio, reset-rate inversion and peak are arithmetic or one-variable differentiation once the two coefficients are obtained. The remaining linear-coordinate comparator follows immediately from zero free drift and complete resetting.",
+        "searches": [
+          "arXiv:2205.00549v1, Eq. (21) and complete-reset renewal Eqs. (35)–(39)",
+          "Shared-bath energy-memory RESULT.md, mirror offsets 2940–4667"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For different free coordinates let K(b,a)=Cov(X_i(b)^2,X_j(a)^2), b>a. Santra et al. give K(b,a)=(16/3)Λ⁴a³(2b−a). Conditional on ω, the coordinate squares have independent Brownian drivers and means 2∫V; therefore ∂_bK/2=Cov(V_b,X_j(a)^2) and ∂_aK/2=Cov(X_i(b)^2,V_a). For d=1 use an auxiliary copy with the same ω and an independent driver; the one-coordinate mixed laws are unchanged."
+        ],
+        "reasoning": "The literature uses two positions rather than position and volatility, but provides a differentiable integrated form of the same free mixed-covariance kernel. The same stochastic reset model transfers the evaluated kernel to stationarity.",
+        "searches": [
+          "Resultary: shared Brownian stochastic diffusivity, common Poisson reset, time-ordered energy volatility covariances and fourth-order arrow",
+          "arXiv:2205.00549v1 §3 Eq. (21) and §4 Eqs. (35)–(39)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-25 shared-bath record has the identical model and gives the precise stationary mixed inputs and centered generator equations in its proof, although its finding is squared-position/squared-position. The same-day random-amplitude result was identifiable from its catalogue summary but not inspectable in the mirror; its advertised model is different and the summary was not treated as exact coverage."
+        ],
+        "reasoning": "The relevant exact lookup is indexed symbolic results, not a table of dimensional numerical values. Exact evaluated coefficients may be covered in the proof of a different displayed covariance theorem.",
+        "searches": [
+          "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d",
+          "Resultary same-day random-amplitude Brownian resetting, fourth-order arrow, record 4f8ef07add78"
+        ]
+      },
+      "rationale": "Santra–Basu–Sabhapandit's explicit free cross-coordinate square covariance, Eq. (21), differentiated in the later or earlier observation time, gives both needed free energy–diffusivity covariances. Their very same complete Poisson reset model and exponential renewal then yield both stated coefficients by elementary moments of the age. A distinct later-indexed Resultary record also evaluates all same-model stationary inputs and the exact centered generator block, from which the ordered ratio follows immediately. The failure is demonstrable mathematical implication, not a claim that the papers literally state the ratio or that the later-indexed record has historical priority.",
+      "residual_risks": [
+        "The same-day random-amplitude mirror text and Sokolov's full text were unavailable in the checked routes; they may add related comparisons. The failure rests on positive equation-level evidence, not on those gaps or a chronological claim about catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; contains an evaluated integrated cross-time covariance and the renewal needed for implication, not a literal stationary mixed ratio.",
+          "evidence": "Eq. (21) gives (16/3)Λ⁴a³(2b−a); Eq. (20) identifies the conditional integrated diffusivity and §4 resets all coordinates and diffusivity together.",
+          "identifier_or_url": "https://arxiv.org/html/2205.00549v1",
+          "material_read": "§3 Eqs. (20)–(22), offsets 15100–17474; §4 Eqs. (35)–(39), around offset 24000",
+          "method": "Lawful OA full-text passages",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Identical Brownian diffusivity and complete-reset dynamics; possibility of evaluated mixed kernels"
+        },
+        {
+          "assessment": "Mechanically implies both orderings; indexed later, not evidence of historical priority over the frozen finding.",
+          "evidence": "It gives Eω², Eω⁴, Cov(X_j²,ω²)=48Λ⁴/r³ and the closed centered linear block Lh=−rh, Lg_j=2h−rg_j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d/RESULT.md",
+          "material_read": "Finding and proof; decisive moment and generator passages, mirror offsets 2940–4667",
+          "method": "Published RESULT.md, local mirror",
+          "title": "Exact shared-bath energy memory under Poisson resetting",
+          "trigger": "Same stochastic model and lagged energy moments"
+        },
+        {
+          "assessment": "Different unreset and nonstationary setting.",
+          "evidence": "The gas starts localized and evolves with a shared Brownian diffusivity D=B².",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.20859v2",
+          "material_read": "Opening model passage, PDF offset 0",
+          "method": "Lawful OA preprint",
+          "title": "Dynamically emergent correlations in a Brownian gas with diffusing diffusivity",
+          "trigger": "Common Brownian diffusivity and higher-order correlation context"
+        },
+        {
+          "assessment": "Full-text comparison unresolved and not used for failure.",
+          "evidence": "No full-text result was recovered.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.130.067101",
+          "material_read": "Citation and indexed description, no full-text passage",
+          "method": "Lawful publisher retrieval attempt",
+          "title": "Linear Response and Fluctuation-Dissipation Relations for Brownian Motion under Resetting",
+          "trigger": "Potential reset-correlation identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The causal time ordering is a natural diagnostic and the formulas are useful, but as a standalone contribution the narrow invariant is mechanically recovered from the explicit previously published kernel and the same renewal model. The inversion and peak are immediate scalar manipulations, and the OU covariance match is the ordinary first-moment reset identity. No further independently substantive exact fact remains in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined without external data, and the 84-matchings enumeration is checked against an independent vertex-deletion recurrence. Both methods agree on all 42 single-edge and 861 pairwise incidences; all pairwise counts are even. Expanding each sign product to quadratic order proves every signed sum is congruent to 4 modulo 8 for the full 42-dimensional cube. A gauge spanning tree rigorously partitions all characters into 32768 classes; complete integer Walsh transforms agree with direct 84-term sums in each class. The spectrum has extrema 4 and 84, and the Hilbert-space condition ratio follows. The provided verifier executes all necessary finite calculations without relying on a historical log.
+PASS
 
-## Originality — PASS (bounded primary comparison)
+Independent exact reconstruction from the seven cyclic Fano lines gave a connected cubic graph on 28 vertices with 42 edges, 84 distinct perfect matchings of size 14, 28 matchings through every edge, and pair co-occurrence counts 0:84, 4:21, 6:168, 8:168, 10:84, 12:168, 14:168. Branching on the minimum available degree exhausts matchings because every perfect matching chooses exactly one available neighbor of that vertex. In the sign product expansion modulo 8, the constant is 84, every linear term is a multiple of 8, and the even pair counts kill all quadratic terms. On each matching a vertex switch contributes one minus sign; a connected graph has 2²⁷ distinct vertex switches, and a spanning tree fixes exactly one representative of each orbit. In the supplied BFS gauge, the independent integer transform and direct 84-term sums agree at all 32,768 frequencies, with absolute counts 4:21000, 12:9548, 20:1890, 28:300, 36:28, 84:2, and the stated signed splits. Thus the entire group spectrum has no zero, and the extreme singular values 4 and 84 give condition number 21 for the unnormalized convolution. The signed splits refer to the BFS tree in the verifier (root the first lexicographically ordered triple, visit neighbors in increasing order), not to arbitrary spanning trees.
 
-Biggs (1973), *Three Remarkable Graphs*, DOI 10.4153/CJM-1973-040-1, proves the existence and 84-count of the perfect matchings but does not calculate all signed sums or binary edge Fourier coefficients. Dejter (2010), arXiv:1002.1960, develops the geometry and related cycles rather than the matching Fourier spectrum. The 2025 Symmetry matching-polynomial study reports ordinary unsigned matching enumeration, not sign-dependent Fourier coefficients. Related published Walsh findings on other graphs or other matching families do not logically dominate the six-level Coxeter calculation. Searches for Coxeter-graph signed dimer, Walsh and Pfaffian variants did not reveal an equivalent statement; an unindexed or inaccessible equivalent computation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The Coxeter graph is a canonical highly symmetric cubic graph with an even number of perfect matchings, so blanket noncancellation is not implied by parity of the total count. The all-signings modulo-eight rigidity is a substantive arithmetic structural fact, not merely a finite table, while the exact six-level Fourier spectrum and condition number give a complete recovery benchmark for its natural matching codebook. Claims are confined to this motivated canonical object; no broad-family significance is assumed.
+Biggs establishes the Coxeter graph's unsigned count, and a distinct same-day result on Desargues uses the same mod-eight mechanism. Neither gives the Coxeter pair-incidence premise or its 15-bit signed spectrum. The distinct claim is the graph-specific exact classification and invertibility; no originality is credited for the generic Walsh decomposition, switch reduction, or Boolean sign-product identity.
 
-## Scope of review
+## value
 
-Only this one exact mathematical claim and its accompanying reproducible calculations were assessed. There is no independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete character spectrum of a canonical matching measure on a classical symmetric graph, not a selected finite sample. It settles potential cancellation for every binary edge signing and determines both invertibility and exact numerical conditioning. The pair-incidence explanation pinpoints the obstruction to a zero, and the precise extrema and multiplicities could be reused in studying the inverse or comparing symmetric graphs. The value is the exact invariant of Coxeter, rather than novelty of the computation or a claimed universal law for cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

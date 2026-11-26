@@ -1,15 +1,21 @@
-# Review of bounded short-return waves in Rule 110
+# Independent mathematical audit
 
-## Correctness — PASS
-The single final theorem concerns exactly three primitive temporal orbit populations \(C_8(n)\), \(C_9(n)\), and \(C_{10}(n)\) on every labelled binary ring \(n\ge3\). The finite-history graph is defined directly from Rule 110's eight-bit truth table. Every ring state returning after \(t\) updates gives a unique spatial closed walk in the height-\(t\) graph, and conversely. The all-graph SCC inventory for heights 1, 2, 3, 4, 5, 8, 9, 10 was reconstructed using the package's actual `verification/verify_short_clocks.py` and checked against its listed vertices, edge counts, and minimal column periods. At heights eight and nine every cyclic component is a simple directed cycle, so trace formulas follow exactly without extrapolation. At height ten every cyclic component consists entirely of columns with temporal periods dividing five or two, eliminating all ten-period histories. Direct Boolean evolution of every ring configuration through circumference 20 reproduced these formulas. The proof covers all ring sizes; the finite direct test is supporting evidence only. Limitation: the theorem does not classify other temporal periods, transient entry, or basins.
+## correctness
 
-## Originality — PASS (historically qualified)
-The existing archived Rule 110 study of five-step returns gives an exponential Lucas census but only through height five. The published six/seven-period classification gives a 63-vertex seventh-return component and proves absence at period six, but does not evaluate heights eight, nine, or ten. The published Rule 110 one-step-image spatial zeta concerns a different invariant and cannot yield exact temporal histories. Cook (2004) reports the A and B gliders' time/space displacement vectors, which plausibly provide the primitive eight- and nine-period **examples**; these finite examples are expressly **not** claimed new. Martínez et al. (2007) present the relevant de Bruijn technology and up-to-ten-generation zero-shift diagrams, while their 2016 finite collider paper treats engineered glider interactions. The primary sections inspected do not give the complete all-size primitive-eight and primitive-nine multiplicities together with forbidden ten-period theorem. Stricker (2023) records numerical finite-size period spectra, not the present all-length counts. Existing general transfer methods are acknowledged as precedent. A missing or unindexed evaluation of the same height-nine and height-ten graphs remains the principal priority risk.
+PASS
 
-## Value — PASS
-This supplies a natural complete next block of unknown short-return classes in a canonical universal cellular automaton, rather than a special initial condition or an arbitrary cut of a state space. The exact, bounded eighth and ninth orbit populations contrast sharply with the already known exponentially proliferating fifth and seventh orbits; the tenth-return set has **no** genuinely ten-periodic points. The three cases reveal isolated traveling waves, a three-divisor arithmetic resonance, and a strict composite-period obstruction. Exact all-ring counts and the bound of eight primitive nine-orbits settle the short-return entropy comparison and provide sharp tests for proposed glider decompositions. The claim does not depend on portraying the individual A/B glider examples or finite transfer technology as new.
+The frozen census is correct, but its eight-site witness read in increasing site order is false: 00111101 has preperiod 5 and eventual period 16. The replacement explicitly declares the orientation and gives all phases of the valid least-period-eight word 00101111; 000111 has least period nine. The replacement also distinguishes the 31 vertices after degree pruning from the 30 in cyclic SCCs. A separate graph build enumerated both side columns using the local constraints at each fixed middle column and ran SCCs without degree pruning; it reproduced every row at heights 1,2,3,4,5,8,9,10, with temporal periods measured on pairs of columns. Configurations fixed at height t give unique indexed cyclic walks and vice versa because the rule is deterministic. Each simple length-l component contributes l exactly when l divides n. Subtracting the appropriate proper-divisor fixed sets and dividing by the phase count proves C8 and C9. At height 10 every closed walk stays in an SCC with a common period dividing 2 or 5, so all such states are in Fix(F²) or Fix(F⁵); no extrapolation over n is used. The corrected limsup convention gives zero entropy for heights 8 and 9.
 
-## Closest literature and remaining limits
-The key comparisons are Wolfram (2002), Cook (2004, Figure 5), Martínez et al. (2007, Figure 8 and Section 4.3), Martínez–Adamatzky–McIntosh (2016, finite collider sections), Stricker (2023, Sections 2–3), and the published fixed-iterate Rule 110 results for times five, six and seven. The historical finite examples and the underlying de Bruijn method are treated as known; the same-map priority search and inspection have not located a dominating all-length statement. This is not an independent mathematical audit, and it does not prove priority against inaccessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding claims only the evaluated all-circumference census for primitive 8, 9 and 10 on labelled rings. Prior transfer-graph methods, separate lower heights, and individual glider witnesses are not claimed as novel.
+
+## value
+
+PASS
+
+A complete short-return census in the standard Rule 110 model resolves three consecutive low periods without a spatial cutoff. It exhibits a natural contrast with exponential lower clocks, and a universal absence at 10 despite positive lower-divisor sectors. The arithmetic populations distinguish all ring sizes and are usable data, not a finite-size conjecture or an isolated witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

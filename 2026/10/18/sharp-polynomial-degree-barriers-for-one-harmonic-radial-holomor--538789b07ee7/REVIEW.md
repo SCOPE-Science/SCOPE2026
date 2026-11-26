@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof does not infer an infinite theorem from finite computation. It derives the exact weighted Fourier coefficient formula by integrating finite sums. The highest nonzero Fourier mode has a unique noncancelling endpoint product. Its support-span identity forces the degree constraint. Arithmetic-geometric mean applied to the two endpoint energies gives a sharp bound; the strict growth of its closed form in the lowest support index yields the unique global optimizer and its full phase family. The trigonometric two-parameter construction proves every amplitude below the bound is realized. Direct algebra gives the exact minimal degree and boundary asymptotic. The same proof yields the stated arbitrary-measure moment maximum when all moments are positive. The scope correctly excludes \(\varepsilon=1/2\) from finite polynomial realization.
+PASS
 
-## Originality — PASS, best knowledge
+Expanding a finite |P|² gives the lag-ℓ coefficient as the sum of a_(j+ℓ) conjugate(a_j) weighted by M_(2j+ℓ); for the frozen power weight M_n=1/(n+β+1). At the largest support gap M−m there is exactly one contributing pair, and its moment is positive. Thus the support diameter is exactly k for a nonzero single harmonic. Interior terms need not vanish in general. Put X=|a_m|²M_(2m) and Y=|a_(m+k)|²M_(2m+2k). The mean-one energy gives X+Y≤1; AM–GM bounds the amplitude by M_(2m+k)/(2√(M_(2m)M_(2m+2k))). Conversely, using just those two monomials with energies cos²u,sin²u realizes all amplitudes up to that value at any prescribed phase. This proves the moment companion (moments multiply the coefficient products, as obtained directly by integration). In the power case the ratio is 1/2 times √(1−k²/(2m+k+β+1)²), strictly increasing in m; hence m=d−k is forced at equality, along with X=Y=1/2 and absence of interior coefficients. Matching a_(m+k) conjugate(a_m) to the positive-mode phase gives the stated equality family. Solving the amplitude inequality yields the ceiling/max in the minimum degree, with no issues from squaring because 2d−k+β+1>0. The sharp bound stays below 1/2 at every finite d, while at zero a constant suffices; 1−4ε²=4δ(1−δ) gives the stated inverse-square-root asymptotic with a bounded rounding error. Separate replay `python /workspace/review_checks/frozen_probes.py` passes exact rational complex-coefficient examples at three weights and the equality-at-1/2 atomic-measure limit. No frozen script was executed. The frozen 110-instance symbolic subtotal is hard-coded while its displayed triangular-range loops actually run 120 unweighted pairs; this reporting discrepancy has no role in the proof.
 
-The closest primary full-text source is Kot–Pierzchała's 2021-online general existence theorem for holomorphic preimages of strictly positive radial-intensity boundary targets. Its constructive argument uses approximate high-degree polynomial building blocks; the main theorems and relevant lemmas do not determine exact minimum polynomial degree, sharp amplitude for fixed degree, or the equality family. The 2021 circular-domain analogue similarly uses lacunary polynomials for existence rather than quantitative single-harmonic polynomial inversion. The classical Fejér–Riesz theorem concerns the unaveraged boundary modulus, a different coefficient relation, and does not imply this weighted radial degree threshold. Searches of indexed related mathematical claims found results on Bergman circle traces and Carathéodory–Fejér coefficient bounds but not the same nonlinear radial inverse with exact degree. An equivalent older weighted-autocorrelation or analytic-inversion formulation remains a residual bibliographic risk; a negative search does not establish absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The focal Radon-inversion theorem supplies unrestricted holomorphic existence but not complexity. The positive one-harmonic target is the simplest nonconstant test family, and its approach to a boundary zero naturally probes finite polynomial realizability. The result determines this entire family for all harmonics, all real power weights, and all finite degrees, including equality rigidity. It reveals the universal inverse-square-root cost in the positivity margin and a strict gap relative to ordinary Fejér–Riesz boundary factorization. This is a motivated, exact finite-complexity threshold rather than a random isolated numerical value; no paper-sized general theorem is claimed.
+For the precise one-harmonic finite-degree extremal problem, the sharp formula with equality and converse is distinct from unrestricted holomorphic inversion, weighted trace norms and boundary spectral factorization in the inspected material. The overlap with the unweighted Radon operator and energy normalization is real and is not claimed as novel.
 
-## Residual limitations
+## value
 
-The statement does not provide degree bounds for arbitrary positive trigonometric data, nor numerical stability estimates. Priority has been checked by claim implications against the listed sources and indexed records but not independently adjudicated against all older literature. The symbolic and finite tests reproduce aspects of the result but the proof, not the tests, carries infinite quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The holomorphic existence theorem leaves polynomial complexity open. Single-harmonic data are the simplest nonconstant family in which to separate that question from boundary factorization. The strict finite-degree margin, unique extremizer, all-amplitude converse and exact coefficient of the degree blow-up yield a complete benchmark near a vanishing target. This is more informative than an isolated test or the known mean identity, without claiming a result for arbitrary data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

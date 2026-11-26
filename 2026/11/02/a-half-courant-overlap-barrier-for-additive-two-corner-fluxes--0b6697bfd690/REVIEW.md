@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact \(x\)-invariant contact solution is a distributional solution of the displayed two-component conservation law. Finite-face interval overlaps and inclusion-exclusion give the exact continuous-time flux. The quadratic hinge, mixed-difference separability criterion, and discontinuity of the second horizon derivative follow by elementary exact integration. Strict hyperbolicity in the positive-state bilinear case follows from a positive symmetrizer and a strictly positive normal discriminant. The explicit Courant-one example is proved by exact integer inequalities. The standalone rational checker corroborates 10,500 cases, including independently integrated piecewise contact states; it is not used as an infinite proof.
+PASS
 
-## Originality
+For the specified x-independent solution the normal derivative vanishes distributionally and the two contacts are transported at ±v. On the face each active set has length vt up to t=L/v and their intersection has length (2vt−L)_+. The four possible state values give an exact binary mixed-difference expansion for the flux; the two single-indicator terms agree with the independently isolated endpoint problems. Integrating the intersection length yields εv(H−L/(2v))_+²ΔΦ, including both endpoint horizons and equality at the threshold. If ΔΦ is nonzero the first derivative is continuous but the one-sided second derivatives differ by 2εvΔΦ. Vanishing on all subrectangles of the stated state domain gives Φ_pq=0 there (divide by area and shrink), hence separability and its converse. With positive-state tests this conclusion concerns the positive state rectangle; it does not determine unused negative states. For Φ=pq, diag(q,p) symmetrizes both Jacobians. A nonzero n_x gives a strictly positive discriminant contribution 4ε²n_x²pq, while n_x=0 gives the distinct speeds ±v. The symmetrized normal-direction x part has eigenvalues 0 and ε(p+q)n_x, and the y part has norm v|n_y|, so the uniform spectral bound is √29/5 in the example. The isolated value is 171/1000 and the hinge adds 16/1000; the squared full Courant bound is 2349/2500<1. The supplied rational checker was inspected, not run; the analytic derivation establishes the continuum claim for the explicit transported solution.
 
-PASS with residual priority risk. The closest accessible primary comparison, Gallardo–Schneider–Castro (2018), discusses approximate one-dimensional and two-vertex flux assemblies, including its four-wave HLL model and its multidimensional stability range. Its displayed constructions do not give an exact finite-face contact-overlap identity or an if-and-only-if separability criterion. Gaburro–Ricchiuto–Dumbser (2025) presents complete multidimensional upwind and corner flux constructions, rather than a stated exact two-contact hinge formula; its full accessible primary PDF was examined in relevant sections, including the physical flux quadrature target and Osher/RD/N numerical vertex-flux formulas. Those formulas do not state the exact opposite-contact face-time integral or mixed-difference separation law. Semantic database searches for the specific two-contact interaction and endpoint-correction equivalences yielded no directly covering published result. The classical transport solution and mixed finite difference are acknowledged; independent historical priority remains unverified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. For a natural compact face, the result locates a sharp onset of a previously unquantified two-corner nonlinear interaction at tangential Courant \(1/2\), derives its exact magnitude, and characterizes exactly when two independent endpoint contributions suffice for every state. It supplies a strictly hyperbolic test with a full characteristic Courant number below one, so the obstruction matters when deciding whether vertex-level information alone can give an exact face integral at the relatively large time steps of interest to multidimensional flux schemes. It is a diagnostic theorem, not a demonstration of failure of any particular complete solver.
+The supported distinct claim is an exact physical finite-face overlap defect for two independently transported contacts, with a sharp half-Courant transition, a separability criterion and a strictly hyperbolic sub-Courant-one witness. Published solvers furnish real face-plus-corner precedents, but do not by their inspected equations give the two isolated physical corrections or the resulting mixed-difference hinge. This is not a priority claim for inclusion-exclusion or corner transport generally.
 
-## Closest literature and limitations
+## value
 
-Relevant sources are arXiv:2506.00207 (relevant full PDF sections inspected) and arXiv:1811.05188 (relevant full HTML sections examined). The exact result is confined to two transverse contacts, a nonlinear normal flux, and horizons not exceeding one face-transit time. Novelty beyond the consulted papers is a best-knowledge assessment; independent mathematical review and broader archival priority search remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit benchmark separates the onset of a missing physical interaction from ordinary full-speed CFL-one stability. Both corner predictions are exact in isolation, so the failure isolates the additive ansatz rather than quadrature or a limiter. The threshold, defect and zero condition give concrete tests for a class of corner-flux constructions without implying anything about the stability of an existing coupled solver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

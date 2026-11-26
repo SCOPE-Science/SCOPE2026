@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The accompanying `checker.py` exhaustively enumerates all two-parent histories through six vertices, using exact rational expectations and moments. It checks the five stated formulas, signs of the local finite-variance corrections, positivity of \(H_{31}-4\), and a rational upper bound proving the limiting variance deficit is negative. It prints `PASS 153 finite assertions` when successful. The unbounded \(n\) theorem is verified by the explicit conditional-moment and martingale-orthogonality proof; finite computations are not an infinite certificate. The classical multiple-zeta identity is stated with its elementary integral representation in RESULT.md.
+The accompanying `checker.py` uses exact rational arithmetic to enumerate all two-parent histories up to six vertices and compare the triangle mean and variance with their formulas. Other moments and cross-moments in that script are known identities included as checks, not findings claimed here. The script also checks a finite sign pattern for the local triangle corrections and a rational upper bound on their sum to infinity. The proof for all sizes and the limiting constant are in `RESULT.md`; the bounded enumeration is supplementary.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:57:55.632761Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 24–69; VERIFICATION.md lines 19–27",
+        "verify.py lines 12–97 and 125–149; verification-output.json",
+        "independent_crosscheck.py and independent-output.txt",
+        "/workspace/reproductions/check_5.py and check_5.txt (independently written and executed)"
+      ],
+      "rationale": "Taking complements in the ordinary cut definition gives precisely the complexes avoiding disconnected induced k-sets. I independently constructed KG(5,2), its line graph, both forbidden families and both full face posets; rebuilt the specified matching, and topologically sorted every reversed-cover diagram. For k=4,5 respectively: 1185/2556 forbidden sets, 767/2457 nonempty dual faces, 285/916 pairs with both recorded hashes reproduced, and 2355/9690 covers with every face processed. The complete critical-cell profiles are one point plus 196 two-cells and one point plus 624 three-cells, so Forman's CW theorem gives the integral wedges, with all higher cells attaching to the point. Integral combinatorial Alexander duality has shift 15-i-3=12-i and gives the asserted original homology in degrees 10 and 9. Direct enumeration of original cut-side faces and binary boundary ranks also agrees, but is not the integral proof.",
+      "residual_risks": [
+        "Only k=4,5 for L(KG(5,2)); dual homotopy, not original cut-complex homotopy. The original-side computation checks only mod two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cut Complexes II, p. 2 (text offset 6900), describes k=3,4 wedge results for grid graphs.",
+          "f934e656621e, RESULT.md offset 0, computes the ordinary dual four-cut wedge for the 12-vertex L(Q_3)."
+        ],
+        "reasoning": "Neither the grid class nor a separate line-graph case includes L(P) at these thresholds; the latter is not a theorem for line graphs in general.",
+        "searches": [
+          "arXiv:2304.13675; arXiv:2407.08158; f934e656621e"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored records d8043fe70f6a, f934e656621e, dc53c501c962, 6bb3046dadc0, c1edb9622b73",
+        "arXiv:2304.13675 and arXiv:2407.08158, cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary Petersen-specific example concerns its two-cut, and the comparable cuboctahedral dual four-cut calculation delivers 63 S^2 for L(Q_3).",
+          "The ordinary-cut definition and general Morse and duality tools do not supply an acyclic matching with the two critical-cell profiles on L(P)."
+        ],
+        "reasoning": "The wedge topology is not recovered by changing a parameter in those proofs; the face-poset and matching verification is specific to this host and its higher-dimensional faces.",
+        "searches": [
+          "f934e656621e; dc53c501c962; 6bb3046dadc0; arXiv:2304.13675 and arXiv:2407.08158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c1edb9622b73, RESULT.md offset 0, studies the intrinsic closed-ball nerve of L(P) at 3<=r<4.",
+          "The primary ordinary cut construction dualizes to avoidance of all disconnected induced k-sets, not the common-ball nerve criterion."
+        ],
+        "reasoning": "A same-host metric nerve is not an equivalent formulation of the connected-k-subset condition.",
+        "searches": [
+          "Local Resultary: Petersen line graph ordinary cut, Alexander dual, and disconnected-subset avoidance",
+          "c1edb9622b73; arXiv:2304.13675"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d8043fe70f6a is the exact self-match.",
+          "The k=4 and k=5 Petersen records give, respectively, 26 S^5 and S^3 wedge 5 S^4 for original cut complexes of the ten-vertex Petersen graph."
+        ],
+        "reasoning": "Different host graphs and different reported invariants; no separate matching tabulation found in the inspected sources.",
+        "searches": [
+          "Four focused local Resultary comparisons for the graph and k=4,5 dual cut wedges",
+          "d8043fe70f6a; dc53c501c962; 6bb3046dadc0"
+        ]
+      },
+      "rationale": "The exact indexed match is the record itself. The closest line-graph analogue uses a different host and one threshold; the sources on the Petersen graph itself and on the intrinsic metric nerve do not cover the claimed wedges. No exact earlier statement or dominating result was established in the bounded comparison.",
+      "residual_risks": [
+        "Bounded comparison, not a global priority guarantee; an unindexed equivalent finite calculation is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different host or threshold in relevant example",
+          "evidence": "Delta_2(P) is a wedge of six spheres of dimension six.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Petersen example, p. 20, text offset 83206",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Original ordinary-cut definition and possible Petersen coverage"
+        },
+        {
+          "assessment": "Relevant grid results do not include this host",
+          "evidence": "The k=3,4 wedge results summarized there concern grid graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Grid-wedge scope, p. 2, text offset 6900; literal Petersen and line-graph searches",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Possible general four-cut wedge coverage"
+        },
+        {
+          "assessment": "Closely related but not equivalent; no priority inferred from date",
+          "evidence": "L(Q_3), twelve vertices, gives a dual wedge of 63 two-spheres.",
+          "identifier_or_url": "f934e656621e",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Local mirror",
+          "title": "Ordinary four-cut complex of the cuboctahedral graph",
+          "trigger": "Same-day ordinary four-cut Alexander dual of a line graph"
+        },
+        {
+          "assessment": "P rather than L(P), original rather than dual",
+          "evidence": "The stated wedges are 26 S^5 and S^3 wedge 5 S^4 on the ordinary original complexes.",
+          "identifier_or_url": "dc53c501c962; 6bb3046dadc0",
+          "material_read": "RESULT.md at offsets 318 and 94 respectively",
+          "method": "Local mirror",
+          "title": "Ordinary four-cut and ordinary five-cut complexes of the Petersen graph",
+          "trigger": "Same thresholds and Petersen terminology"
+        },
+        {
+          "assessment": "Different simplicial construction",
+          "evidence": "Metric ball nerve for 3<=r<4 has 21 three-spheres.",
+          "identifier_or_url": "c1edb9622b73",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Local mirror",
+          "title": "Intrinsic Čech nerve of the line graph of the Petersen graph",
+          "trigger": "Same 15-vertex host and potential equivalent formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–22, 36–63 and 71–77",
+        "Comparative cuboctahedral and Petersen records cited above"
+      ],
+      "rationale": "The two neighboring ordinary cut thresholds on a natural symmetric line graph give exact integral test cases distinct from the Petersen graph and from the earlier grid settings. The full Morse certificate rules out hidden torsion and additional homotopy features on the duals despite the presence of higher-dimensional faces; either list of binary ranks alone would not do so. These provide concrete comparison cases for whether pure dual wedge behavior persists across thresholds in line graphs of cubic graphs.",
+      "residual_risks": [
+        "A finite result on one host, not a line-graph family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

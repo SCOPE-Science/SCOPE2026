@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary generator establishes the two needed moments and the zero mean. The two-time covariance conditions on the absence of any reset and integrates to the Green–Kubo coefficient; the independent complete-cycle regenerative reward calculation matches that coefficient symbolically. The extrema theorem follows from two exact derivative factorizations and a Descartes sign-count argument, not from numerical root plots. The reset variance is finite and positive, all rate parameters are strictly positive, and the zero-reset limit is treated separately. A standalone symbolic/rational/high-precision checker was run successfully. Numerical calculations do not establish novelty, and the proof does not claim properties for finite observation durations.
+PASS
 
-## Originality — PASS (self-review, residual priority risk)
+Complete renewal to a centered position and independent fair sign kills the contribution to E[X_0 X_t] from paths with a reset before t. The two stationary moments and exponential response give the covariance integral stated in the proof; the asymptotic variance is twice that integral, with no change to extrema under positive rescaling. Independently, on an uninterrupted cycle in units k=v=1, the Laplace transforms at x of E[X_t sigma_t] and E[X_t^2] are A=1/[x(x+g+1)] and M=(S+2A)/(x+2), from their zero-cross-moment and variance-S initial data. Integrating the cycle reward's second moment over time pairs with survival factor exp(-x times the later time) gives H=x(M+A/(x+g))/(x+1), precisely the stated H. python3 /workspace/reproductions/audit_reset.py (SymPy) reproduces this identity, both derivative factorizations, endpoint formulas and the exact rational witness. In Q_g the only potentially negative coefficients are constant/linear/quadratic and their thresholds are strictly ordered in reverse power order; Descartes' rule gives one simple positive zero for g<g_c and none for g≥g_c. Divergence of R as x approaches sqrt(2) forces the unique minimum to be inside the interval. Positive crossings of S-R yield the claimed min/max ordering and the excluded-rate-zero case S=S_0; at the trough S=S_* the derivative touches zero quadratically, so there is no extremum (horizontal inflection). At x=sqrt(2) the derivative of the position-reset term is zero, not strictly negative as the prose says; the active term is strictly negative by positivity of P_g, so H'<0 there and the finding is unchanged. The unreset stationary case has limit H(0)=1/g; the stated numerical critical g and baseline crossing agree.
 
-The motivating paper arXiv:2310.04840v1 covers the same model and its single-time moments, notably stationary variance/kurtosis. Its Eqs. (36)–(44) and discussed figure concern moment dependence on resetting laws, not the Green–Kubo integral of temporal covariance or the two-extremum time-average variance classification. arXiv:2306.09453v1 studies a harmonic active particle driven by *resetting noise* while retaining the continuous particle position; this does not imply the theorem for resets of both position and sign. Published research and semantic record searches did not identify an equivalent sharp phase threshold or implication from stronger coverage. Search failure alone is not a proof of priority; a previously unlocated semigroup/renewal specialization remains possible. The one-time moment identities and renewal tools are acknowledged prior ingredients, and independent priority evaluation is outstanding.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The Green–Kubo coefficient controls the leading uncertainty of empirical time averages in active-matter measurement. Its resetting-rate optimum need not follow the one-time stationary-variance optimum. A complete, sharp two-extremum/no-two-extremum phase classification and an exact rational example in which uncertainty crosses its no-reset baseline provide a motivated dynamical reliability boundary, not an arbitrary narrow invariant. The result supplies a reproducible stationary-noise benchmark for active transport subject to intervention.
+The model and static moments are prior work. The distinct finding is the global stationary time-average variance phase diagram: two positive-rate extrema precisely for g below the quartic threshold and S in the stated open window, with a sign-changing reversal relative to the baseline possible. Neither the same-model static moment results nor the compared dynamic resetting results supply that criterion.
 
-## Closest literature and limits
+## value
 
-Olsen (2023), arXiv:2310.04840v1 (self-review, one-time moments), and Guéneau–Majumdar–Schehr (2023), arXiv:2306.09453v1 (different reset rule), are the closest primary sources examined. The claim uses noninteracting, harmonic, independent-Poisson, full-reset dynamics; no general interacting-particle or finite-time claim follows.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp condition tells when tuning a reset rate can drive stationary estimation noise down, up and down again. This physically meaningful observable differs from the static position variance; the exact two-parameter window, degenerate boundary and baseline-crossing witness give a usable benchmark and not merely an example of nonmonotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

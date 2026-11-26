@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:17.109631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; check.py, requirements.txt and check_output.txt (inspected, not executed)"
+      ],
+      "rationale": "The probability latitude integral is sinc(at) on a sphere of radius a, so the normalized mixture is one at zero and at nonzero zeros has the same multiplicity as H=sin(t)+sin(rt)/r. H_t factors into two cosines. If either vanishes, sin(t)=±sin(rt); because r is strictly between zero and one the coefficient 1±1/r cannot vanish, and both sines must vanish at a repeated zero. The integer phases are opposite in parity exactly at odd multiples of qπ for a reduced opposite-parity pair p,q. There H_tt vanishes and H_ttt=cos(⁠t₀)(r₀²−1) is nonzero, so the root contributes exactly two to multiplicity minus distinct count. Also H_r=−cos(t₀)t₀/r₀ there. Substituting δ=u³ and t−t₀=uw into the analytic expansion leaves a holomorphic quotient by u³ whose limiting cubic has three distinct roots with C³=6t₀/[r₀(r₀²−1)]. The simple-root implicit function theorem and a fixed-disk Rouché count give three simple roots with the stated error; conjugation fixes the real branch and exchanges the two off-axis branches. This is an analytic all-parameter check, not reliance on the recorded numerical examples.",
+      "residual_risks": [
+        "Fixed t₀,r₀ for the detuning theorem; no uniform estimate as frequency increases or r₀ approaches one. No individual zero-count asymptotic inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The located Bezubik–Strasburger theorem transforms functions measured on one sphere. González Vieli's abstract concerns uniqueness from restriction data and Bessel zeros. Logan's title identifies a maximum zero count problem; full text was not accessible."
+        ],
+        "reasoning": "The single-shell formula yields the profile by linearity, not the common vanishing classification for the sum. A maximum-count bound as such does not specify simultaneous zeros or radius detuning. No stronger coverage was established in accessible material.",
+        "searches": [
+          "Bezubik–Strasburger arXiv:math-ph/0603011 Theorem 3",
+          "González Vieli DOI:10.1017/S0004972711002942",
+          "Logan DOI:10.1137/0514024 via SIAM and lawful alternate lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked and exact-neighbor lookup; both published neighbors above; Bezubik–Strasburger, González Vieli and Logan comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed annulus resonance is for a different numerator; the indexed Bessel statement concerns ratios of distinct zeros of the same spherical Bessel function. The model-specific split uses both H_ttt and H_r at the simultaneous root."
+        ],
+        "reasoning": "Generic unfolding of a triple zero predicts an exponent once the order and transversality are known, but does not supply these resonance parameters, multiplicities, or their detuning coefficient.",
+        "searches": [
+          "Actual Finding/Assumptions of both Resultary neighbors; Bezubik–Strasburger Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent profile numerator is sin(t)+sin(rt)/r. The matched volume-annulus record instead includes in dimension one the difference sin(t)−sin(rt), up to the normalization, with double roots when (1+r)/(1−r) has reduced odd numerator and even denominator."
+        ],
+        "reasoning": "Different amplitudes and signs change the simultaneous zero and derivative conditions. For opposite parity p,q here, (q+p)/(q−p) has both numerator and denominator odd, unlike that double-root condition.",
+        "searches": [
+          "Resultary: concentric spherical shells Fourier zeros, including companion annulus and two observation sphere results",
+          "Literature lookup aliases: equal-mass two-shell sinc sum, two centered uniform mixtures and two-frequency exponential sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close published annulus record treats volume-annulus zeros; the two observation sphere record treats ratios of zeros of a single j_l with l≥1 and spherical harmonic recoverability. No exact matching progression or detuning coefficient appeared in the bounded lookup."
+        ],
+        "reasoning": "Neither indexed output tabulates or classifies repeated zeros of the bound two-sinc sum. No priority order is inferred from dates.",
+        "searches": [
+          "Resultary: equal-mass two-shell triple Fourier zeros and cubic-root splitting; arithmetic concentric-shell frequency zeros"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact arithmetic multiplicity classification of the equal-mass two-shell sum and the evaluated local radius-detuning law, not for the transform of an individual sphere, generic cube-root behavior, or setting up a sum of sincs. The nearest actually inspected results have different measures or observables.",
+      "residual_risks": [
+        "Logan's detailed hypotheses and conclusions were not inspectable. Earlier equivalences in piecewise-uniform mixture or exponential-sum literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct measure and double-zero condition",
+          "evidence": "Volume measure, with one-dimensional shell double zeros under odd/even reduced (1+r)/(1−r).",
+          "identifier_or_url": "2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+          "trigger": "Concentric radial shell Fourier zeros and rational resonance"
+        },
+        {
+          "assessment": "Different harmonic recovery problem",
+          "evidence": "Distinct positive zeros at a fixed order l≥1 have irrational ratio; application to observation spheres.",
+          "identifier_or_url": "2026/10/26/SCOPE-rationally-separated-frequency-spheres-detect-every-nonconstant--acdde5641585",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror, same snapshot",
+          "title": "Rationally separated frequency spheres",
+          "trigger": "Two spheres, arithmetic Bessel zeros"
+        },
+        {
+          "assessment": "Classical individual shell transform, not the mixture's coincident zero conditions",
+          "evidence": "Fourier transform formula for a measure on one sphere and harmonic decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0603011",
+          "material_read": "Theorem 3, p. 6, offset about 20150",
+          "method": "OA PDF, targeted passage",
+          "title": "A New Form of the Spherical Expansion of Zonal Functions and Fourier Transforms of SO(d)-Finite Functions",
+          "trigger": "Primary formula for shell Fourier transforms"
+        },
+        {
+          "assessment": "Identifies a distinct restriction uniqueness setting; no whole-document exclusion inferred from abstract",
+          "evidence": "One supporting sphere with arbitrary density and observations on a sphere.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972711002942",
+          "material_read": "Abstract, PDF p. 1, offset about 500",
+          "method": "OA PDF, abstract comparison only",
+          "title": "A uniqueness result for the Fourier transform of measures on the sphere",
+          "trigger": "Fourier uniqueness and spherical Bessel zeros"
+        },
+        {
+          "assessment": "Access-limited comparator, no inference of noncoverage from access failure",
+          "evidence": "The stated topic is maximum zero counts; no exact matching statement was inspected.",
+          "identifier_or_url": "https://doi.org/10.1137/0514024",
+          "material_read": "Title/citation only; detailed hypotheses not read",
+          "method": "Publisher attempt returned 403; lawful alternate lookup did not locate readable full text",
+          "title": "Extremal Problems for Positive-Definite Bandlimited Functions. III. The Maximum Number of Zeros in an Interval",
+          "trigger": "Potential broad coverage of counts with multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; direct derivative and detuning check; comparison with the two indexed radial Fourier findings"
+      ],
+      "rationale": "For a natural positive radial model built from just two probability shells, the result specifies exactly when radial signals have higher-order nulls, their locations and multiplicity excess, and which nearby complex zeros remain real when the radius is detuned. The sharp parity boundary excludes all other ratios and repeated real roots, and the coefficient quantifies sensitivity to radius. This is more than the classical spherical transform or citing generic Puiseux scaling.",
+      "residual_risks": [
+        "Value is for the equal-mass two-shell setting and its exact instability, not a general theory for more shells or dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

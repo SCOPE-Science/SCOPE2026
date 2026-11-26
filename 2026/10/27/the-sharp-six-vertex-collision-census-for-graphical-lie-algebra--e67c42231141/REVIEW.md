@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The previously known support-rank formula is re-derived from the edge-bracket equations over an arbitrary field. The new claim is a finite *complete* graph-isomorphism census: `verify.py` iterates every labeled graph on up to six vertices and computes every orbit under the full symmetric group, then compares exact coefficient dictionaries of the formal polynomial. It verifies 156 six-vertex isomorphism classes, 149 distinct rank polynomials, and precisely seven doubleton collisions, with none on smaller orders. A concrete nonisomorphic witness is certified by different triangle-intersection patterns, and all its rank multiplicities agree in exact field-matrix computations for prime fields of sizes 2, 3, and 5. The nonisomorphic-Lie-algebra conclusion in odd characteristic follows from Mainkar's published reconstruction theorem.
+PASS
 
-## Originality — PASS, with bounded residual risk
+On the repaired statement: the bracket kernel forces unsupported neighbors of the support to zero and equates the ratios y_u/x_u within each component of the induced support, leaving the other unsupported coordinates free. This yields rank |N[S]|−c(G[S]) in every characteristic, with (q−1)^|S| vectors for support S. Edge coordinates are immaterial to rank: the full Lie-algebra stratum contains q^|E| times as many vectors as the vertex stratum, not the reverse. Equality of formal polynomials is equivalent to equality of coefficient arrays in the (q−1)^s t^r basis, and different orders are excluded by evaluation at t=1. The reviewed complete canonical enumeration and separate bounded reproduction agree: graph classes/signatures 1,1,2,4,11,34 through five, and 156 classes, 149 signatures, 142 singletons and seven doubletons at six. The listed pairs match CENSUS.txt. The displayed witness has the same six rank counts for both graphs, summing to q^6, but the triangle intersections differ; the graphical Lie-algebra isomorphism theorem gives nonisomorphism in characteristic not two. The repair also distinguishes Rossmann's C from his F and aligns the written certificate description with the actual canonicalization at n≤5 and orbit marking at six. None of the census data or the sharp cutoff changes.
 
-Rossmann's prior Equation (1.2) is *literally the same* polynomial: its formula, rank identity, and group class-size interpretation are credited fully, not presented as new. The new assertion is the sharp first collision at six graph vertices and the exact seven-pair census. The inspected Remm, Mainkar, and Rossmann texts give motivations, graph reconstruction, and the general invariant but do not state that six-vertex classification. Available six-vertex Rossmann–Voll ask-zeta tables list a distinct matrix-module invariant, not explicit classes of the two-variable vertex-support polynomial; indirect derivability from those data remains a priority risk. A previous related result on seven-vertex groups does not contain a smaller-vertex census. This is a best-knowledge comparison, not uniqueness proof by failed searching.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp failure threshold settles a natural completeness question for an established algebraic graph polynomial. Listing all seven indistinguishable pairs identifies the exact small-order obstruction and shows that *the entire* adjoint-rank and centralizer-dimension distributions are insufficient to classify finite-field graphical two-step nilpotent Lie algebras even when dimensions agree. This is a motivated finite classification, not a routine recomputation of the known subset formula.
+Best-of-knowledge pass for the complete six-vertex fiber classification and the sharp lower bound for Rossmann's C polynomial. The formula and its relation to the class-size distribution, graphical Lie-algebra reconstruction and the graph catalogues are not new. A distinct Resultary record explicitly uses the same connected witness, so witness equality alone is not the basis for this originality judgment. No compared source supplies the complete collision partition and minimality together.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete small-order injectivity boundary is a natural test of a known two-variable invariant: it states where all possible adjoint-rank and centralizer-dimension multiplicities first cease to determine an underlying graph and precisely how the first failures occur. The seven-pair partition, no larger fibers at the boundary and equal-dimension nonisomorphic Lie-algebra application are useful exact information, not another computation of a named known polynomial for one isolated graph. The value rests on the complete boundary, not on novelty of the example in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

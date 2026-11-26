@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:55:41.652350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61; VERIFICATION.md; verify_witt.py and verify_full_output.json, inspected read-only",
+        "Evans–Fuchs Theorem 1(a),(c)"
+      ],
+      "rationale": "Independently recover the restricted scalar identity as follows. For a unit f, D_f^p is a derivation commuting with D_f; its coefficient divided by f therefore has zero derivative and is constant. Write rho=[x^(p-1)](1/f). The normalized coordinate y with derivative f_0(1/f-rho*x^(p-1)) is defined by integration in degrees 0 through p-2 and has y=x+O(x^2). In this coordinate the coefficient of D is A+B*y^(p-1) with A=f_0, B=-f_0^2*rho. Applying D^p to y and taking constants gives B*(p-1)!*A^(p-1): each of the p-1 remaining applications must lower by one. Dividing by A gives lambda=f_0^p*rho=[x^(p-1)]f^(p-1). The unit operator is cyclic by the distinct descending leading degrees of the iterates of x^(p-1); lambda varies bijectively with f_(p-1) for each fixed lower tuple. For f_0=0, f_1 nonzero, triangularity gives distinct eigenvalues i*f_1, with p-1 choices of f_1 precisely for nonzero (p-1)-st powers. If f starts in degree k>=2, the h-th power raises the first degree of x^j by h(k-1), with nonzero leading coefficient exactly when j+h(k-1)<p. Its power ranks are max(p-1-h(k-1),0), giving the claimed lengths and the constant block. The strata sum correctly, including the zero tuple. On the nonzero roots Frobenius multiplies by lambda^((q-1)/(p-1)); this identifies the quotient by (p-1)-st powers with the roots of unity and yields orbits of length d and the stated M_d. These are natural-action multiplicities, not adjoint invariants.",
+      "residual_risks": [
+        "The stored finite tests do not certify the Frobenius classification independently; that conclusion follows from the symbolic orbit argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Premet classifies regular derivations over an algebraically closed field up to algebra automorphisms, using a natural-action Jordan condition; Evans–Fuchs give the p-th-power relation."
+        ],
+        "reasoning": "Geometric regular orbits and a scalar annihilator alone give neither all nonregular lengths nor sizes of coefficient fibers and Frobenius splitting over finite extensions.",
+        "searches": [
+          "Premet arXiv:1405.2426, Theorem 2",
+          "Evans–Fuchs arXiv:math/0111271, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Evans–Fuchs Theorem 1",
+        "Premet Theorem 2",
+        "Yao–Chang §2 and §3",
+        "Resultary mirrored Witt, skew-derivation and substitution entries at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar identity makes the nonzero annihilator squarefree but does not by itself establish cyclicity or prescribe its scalar-fiber counts. Prior valuation-stratum sizes agree with the number of tuples, not the natural Jordan shapes."
+        ],
+        "reasoning": "Credited content is the uniform scalar-fiber analysis, the nonregular nilpotent power-rank calculation, and their arithmetic census, not the squarefreeness corollary or the tuple counts in isolation.",
+        "searches": [
+          "Evans–Fuchs Theorem 1(a),(c)",
+          "Premet Theorem 2",
+          "Resultary finite Jacobson–Witt centralizer spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Jordan-profile record computes ad(D) on the nilradical/full Lie algebra, whereas this operator is D on the truncated polynomial ring. Yao–Chang treat commuting Lie pairs and centralizers."
+        ],
+        "reasoning": "Adjoint centralizer dimensions, adjoint Jordan partitions and commuting-tuple counts do not identify the natural-action characteristic polynomial or all natural-action ranks.",
+        "searches": [
+          "Resultary: natural Witt rational canonical forms, adjoint Jordan profiles and valuation strata",
+          "Yao–Chang arXiv:1301.5667 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue hit is this record itself. Distinct strongest hits are adjoint profiles, centralizer and commuting-tuple counts, plus same-day skew derivations and truncated substitutions."
+        ],
+        "reasoning": "These catalogue counts classify different operators or different populations; none of the inspected entries gives an exact competing table of natural representations and finite-field multiplicities.",
+        "searches": [
+          "Targeted Resultary searches for Witt natural action and exact finite-field multiplicities, including same-day Jordan rankings"
+        ]
+      },
+      "rationale": "Credit the known restricted-power identity, geometric regular-element strata and elementary valuation counts. Available statements do not cover the joint finite-field natural-representation census, in particular the multiplicities per nonzero scalar and splitting type combined with the full nonregular nilpotent rank profile.",
+      "residual_risks": [
+        "Bounded literature and indexed-result inspection; an equivalent arithmetic enumeration outside these sources has not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of a cited input",
+          "evidence": "(f∂)^[p]=C(f)f∂ with C(f)=-∂^(p-1)(f^(p-1)).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0111271",
+          "material_read": "PDF p. 1, Theorem 1(a),(c)",
+          "method": "OA passage at offset 0",
+          "title": "On the Restricted Lie Algebra Structure for the Witt Lie Algebra in Finite Characteristic",
+          "trigger": "Exact restricted power formula"
+        },
+        {
+          "assessment": "Partial overlap on regular types",
+          "evidence": "Works over an algebraically closed field, identifies ker D=k1 for regular elements and describes G-conjugacy and a natural Jordan condition; not a finite-field census.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2426",
+          "material_read": "PDF pp. 1–2 and pp. 8–9, Theorem 2",
+          "method": "OA theorem passage, extracted offset 28884 onward",
+          "title": "Regular Derivations of Truncated Polynomial Rings",
+          "trigger": "Possible stronger natural-action normal form"
+        },
+        {
+          "assessment": "Different operator/invariant",
+          "evidence": "Stratifies Lie-centralizers and pairs with [x,y]=0 rather than powers of D on A.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5667",
+          "material_read": "§2 Lemma 2.3 and §3; PDF p. 3 at offset 8464",
+          "method": "OA targeted passages",
+          "title": "Nilpotent Commuting Varieties of the Witt Algebra",
+          "trigger": "Potential full nilpotent classification"
+        },
+        {
+          "assessment": "Meaningful adjoint overlap, not equivalent",
+          "evidence": "One counts Jordan types of ad(f∂); the other counts ker ad(f∂) and has the same elementary valuation counts. Neither gives the natural action census.",
+          "identifier_or_url": "2026/11/8/SCOPE-jordan-profile-rigidity-on-the-witt-nilradical-and-a-sharp-ambie--bf818b324fe3; 2026/10/13/SCOPE-exact-centralizer-spectrum-and-commutativity-degree-of-the-finit--4fde8cddc8d0",
+          "material_read": "Both findings; nilradical relationship section",
+          "method": "Resultary local-mirror RESULT.md at offsets 0 and 7911 where applicable",
+          "title": "Jordan-profile rigidity on the Witt nilradical; Exact centralizer spectrum and commutativity degree of the finite Jacobson–Witt algebra",
+          "trigger": "Closest published exact Witt counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, Premet Theorem 2, Resultary adjoint-Jordan comparison"
+      ],
+      "rationale": "Provides one natural representation census uniformly in characteristic and extension degree, distinguishing total nilpotent mass from Jordan shapes and distinguishing semisimplicity from splitting over the ground field. Those distinctions furnish exact counts for natural spectral strata that adjoint commutativity results cannot replace.",
+      "residual_risks": [
+        "No classification of algebra-automorphism conjugacy or adjoint spectra is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

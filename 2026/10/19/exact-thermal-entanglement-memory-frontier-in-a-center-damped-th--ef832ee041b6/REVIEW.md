@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies an explicitly faithful stationary reference state, uses the Lindblad dissipative commutator identity to exhaust all peripheral modes and proves convergence for every initial state. The singlet and triplet stationary density matrices, their normalization, the reduced endpoint matrix and the Wootters formula reconstruct the stated sharp concurrence threshold exactly. The checker reports 306 supplementary assertions. Finite samples do not substitute for the proof.
+PASS
 
-## Originality — PASS (residual risk)
+The number operator N commutes with H, and q^N/(1+q)^3 is faithful and stationary: its center populations obey γ₋q=γ₊. End swap commutes with all parts of the generator, so sector projection yields two normalized stationary states with center marginal τ₂ and end weights 1:q:q² in the triplet and pure singlet in the other sector. For any imaginary-axis adjoint eigenoperator, the stationary trace of the dissipative commutator identity is zero. Faithfulness and positivity of each rate force commutation with both center ladders, hence identity on site 2. The independent center ladder terms in [H,X] then force the end part to commute with both collective ladders (J≠0). The ladders connect |00⟩, |T⟩, |11⟩ with nonzero coefficients, and their common kernel is exactly the singlet; using their commutator also separates the end-excitation weights. The resulting two-dimensional commutant is spanned by the sector projectors, both fixed. Uniform boundedness excludes imaginary-axis Jordan blocks, so the arbitrary-state limit follows with the two conserved sector weights. As a separate check of concurrence, the spin flip exchanges |00⟩ and |11⟩ and preserves the singlet/triplet projectors. The square-root eigenvalues entering Wootters are therefore w,b,b,b with b=(1−w)q/(1+q+q²), giving max(0,w−3b) even when w<b. For |100⟩, w=1/2, so concurrence is positive exactly when positive q differs from 1, and at q=e^(-βω) approaching 1 it is (βω)²/6 to leading order. Equality at the threshold gives zero.
 
-The closest source, Çakmak et al. (arXiv:2604.18707), treats the loss-only dark-state geometry and notes that finite-temperature excitation destroys its Hilbert-space decoherence-free vectors; it does not state the positive-excitation two-sector stationary attractor or singlet-weight concurrence threshold. Buča–Prosen (arXiv:1203.0943) provide the known general symmetry-multiplicity framework; Huang–Guo–Yi (arXiv:0908.0592) study a different end-reservoir thermal three-site XX model. The known strong-symmetry principle, singlet/triplet decomposition and Wootters formula are not novel. The claim is the complete model-specific positive-pumping state and sharp end-entanglement frontier. A broader fixed-point classification might imply part of the construction, and selected searchable literature is not an exhaustive uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-A vanished noiseless-vector DFS does not preclude memory in a mixed stationary sector. The exact threshold reveals how the initial antisymmetric weight and finite thermal excitation jointly control nonzero end-spin entanglement, and identifies a separable initial state with persistent generated concurrence at every strictly positive finite inverse temperature. The three-spin mirror-symmetric setting is the smallest natural chain with two end sites separated by one thermally damped site.
+Credit prior work for the center-loss dark mode, the strong-symmetry memory mechanism and Wootters' concurrence. The independently supported distinct claim is the explicit positive-rate center-only attractor for arbitrary initial states and its exact entanglement frontier, including product-state entanglement generation; no inspected prior result gives or specializes to that conjunction.
 
-## Limits
+## value
 
-Strictly local center jumps with both positive rates, equal nonzero hoppings and exactly three qubits. The zero-pumping boundary, larger chains, asymmetric couplings, global Davies baths and finite-time convergence rates are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest chain with a dissipative center and two ends already distinguishes loss of noiseless vectors from the persistence of mixed-state memory. The quantitative threshold predicts whether the surviving memory is actually entangled, not merely whether multiple fixed points exist. It also settles the sign and near-balanced-rate scale of entanglement generated from a concrete product state. These predictions are not supplied by the existence bound from symmetry alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

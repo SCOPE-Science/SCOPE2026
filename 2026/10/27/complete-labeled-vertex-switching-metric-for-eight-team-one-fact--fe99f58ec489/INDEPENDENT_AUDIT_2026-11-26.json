@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:30:45.157578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For anchors a,b, each other vertex is incident to two distinct factor nodes, and each non-anchor factor has one a-edge and one b-edge. Contracting factors gives the cycle components of z -> the partner of b in the factor containing az. Swapping a and b on one such cycle leaves one edge at both anchors in each affected factor and leaves all other vertices properly matched. It is an involution and preserves the cycle partition, so the excluded connected case cannot become an allowed reverse move. Full state canonicalization must retain vertex labels and erase only factor labels. My exact independent replay fixed the round order by the partner of vertex 0, used pairing recursion in each round, generated switches by permutation cycles, deduplicated targets, and obtained 6,240 states, 66,360 edges and the stated degree and cycle-signature counts. A separate alternating-cycle test identified exactly the 960 degree-14 states as perfect. Adjacent transpositions generate all of S_8, act by graph automorphisms and gave the same six orbit sizes; sparse unweighted shortest paths from each representative visited all states and reproduced all six distance vectors. Weighting representatives by orbit sizes gives eccentricity 5 for 5,790 states and 6 for 450, hence radius 5 and diameter 6 (private replay /workspace/branches/replay/switch.py and switch.txt). The matching checker was inspected; the coloring checker's VERIFY_OK does not by itself assert the printed profiles, but the matching computation and independent replay verify the full table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper studies larger complete graphs as well, but its switching-graph metrics are for isomorphism classes; Section 8 directs the reader to Figure 1 for eccentricities of the six-class K8 quotient."
+        ],
+        "reasoning": "Coverage of larger orders in the quotient does not cover even K8 with labels fixed. Its connected quotient neither entails fixed-label connectivity nor determines any of the six fixed-label distance distributions.",
+        "searches": [
+          "Kaski et al. Sections 5, 6, 8 and Figure 1"
+        ]
+      },
+      "checked_sources": [
+        "Kaski et al. DOI 10.37236/3606, Sections 1, 3, 5, 6, 8 and Table 1",
+        "Local Resultary/SCOPE index and the binary-matrix switch-metric Finding named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kaski et al. identify an isolated perfect-factorization class in the factor-switch quotient, and allow class-preserving vertex switches as loops. Transition multiplicities and within-orbit behavior are collapsed in the quotient."
+        ],
+        "reasoning": "The known class and its factor-move obstruction are credited. Neither degree 14 in the vertex-switch graph nor labeled diametral distances are obtained from the class graph by substituting an orbit size. One has to resolve concrete moves and shortest paths among the labelled states.",
+        "searches": [
+          "Kaski et al. Sections 3, 5, 6 and Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaski et al. use the same proper-cycle vertex switch in Section 3, but Sections 1 and 5 identify vertex relabelings and collapse parallel edges; the frozen graph only erases factor order."
+        ],
+        "reasoning": "Proper seven-edge colorings modulo global color names are equivalent to the frozen states; quotienting by permutations of the eight vertices is a second, materially different operation. A factor switch on a two-color union is not this anchored switch.",
+        "searches": [
+          "Resultary local queries for fixed-label K8 one-factorizations, vertex switching, 6240 and 960/14",
+          "Kaski et al., Switching in One-Factorisations of Complete Graphs, Sections 1, 3, 5 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kaski Table 1 gives six vertices, six non-loop edges, one component and two loops for the vertex-switch quotient; Section 6 has two vertices each of degrees 1, 2 and 3 ignoring loops. The closest inspected local switch-metric analogue has 2,040 labelled 5x5 binary matrices with row and column sums two and 2x2 checkerboard moves."
+        ],
+        "reasoning": "The K8 table is exact prior quotient coverage, not the fixed-label count or metric table. Coinciding radius/diameter in the matrix analogue does not match the object or moves.",
+        "searches": [
+          "Resultary local exact-title and parameter queries for K8, fixed labels, 6240 and 960/14",
+          "Kaski et al. Table 1 and Section 6",
+          "2026/11/8/SCOPE-the-sharp-switch-metric-and-two-antipodes-of-five-by-five-binary--1c0c30b68b11"
+        ]
+      },
+      "rationale": "Supported for the exact fixed-label single-component switch graph, with the historical move, class census and quotient data credited separately. The 960/14 comparison is between perfect states' lack of factor moves and their nonzero fixed-label vertex-switch degrees, not a new definition or a quotient claim.",
+      "residual_risks": [
+        "Bounded index results cannot exclude a differently indexed or unpublished explicit fixed-label enumeration. Prior quotient computations alone neither establish nor negate its existence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior switch, quotient and perfect class; no fixed-label metric in these results",
+          "evidence": [
+            "The single-cycle case is excluded because it only produces an isomorphic result.",
+            "The quotient identifies vertex relabelings, retains class-preserving moves as loops and collapses parallel edges.",
+            "The six-class K8 vertex quotient has one component, whereas the K8 factor quotient has two and includes the perfect isolated class."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3606",
+          "material_read": "Abstract/Section 1 pp. 1–2 (offsets 1413, 3841); Section 3 p. 5 (15800); Section 5 and Table 1 p. 10 (33400); Section 6 p. 12 (37500); Section 8 pp. 19–21 (69100)",
+          "method": "Lawful OA publisher PDF",
+          "title": "Switching in One-Factorisations of Complete Graphs",
+          "trigger": "Same switch definition and K8 table; likely direct overlap"
+        },
+        {
+          "assessment": "Different object and operation",
+          "evidence": [
+            "States are 5x5 binary matrices with row and column sums 2, moves are 2x2 swaps, and there are 2,040 states."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-sharp-switch-metric-and-two-antipodes-of-five-by-five-binary--1c0c30b68b11",
+          "material_read": "RESULT.md, offset 256",
+          "method": "Local Resultary mirror",
+          "title": "Sharp switch metric and two antipodes of five-by-five binary matrices",
+          "trigger": "Closest returned exact labeled switch-metric analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "K8 is the small complete-graph case singled out by the established switch literature with a perfect class separated under factor switches. Fixing labels answers the different scheduling/reconfiguration question of how many actual moves are needed without renaming teams. The result proves all concrete schedules communicate within six moves, exactly quantifies access out of every otherwise factor-switch-frozen state, and identifies which labeled orbits attain the worst case. The six-class quotient does not determine this behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

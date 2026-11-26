@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:08.897834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the delivered indices. The conditional mean is the chord on each surviving gap of length L, and integrated conditional variance is L²/6. In the original-gap coordinates d_i=t_{i+1}−t_i (i=0,…,n), two gap pieces i,j belong to the same surviving interval iff all |i−j| intervening samples fail. Thus 6R=dᵀA d with A_ij=(1−p)^|i−j|. This also verifies the frozen ordered-site quadratic. The all-delivered term gives strict convexity. With q=1−p, the inverse of A is tridiagonal with end diagonals 1, interior diagonals 1+q² and neighboring entries −q, all divided by 1−q² (direct multiplication, also for n=1 and q=0). Consequently A⁻¹1 is proportional to (1,p,…,p,1), the normalized vector lies in the strict simplex interior, and 6R_min=1/(1ᵀA⁻¹1)=(2−p)/(2+(n−1)p). This yields the claimed times, uniqueness, endpoint and asymptotic statements. Repeated times add no bridge information conditional on the delivered values; zero gaps are allowed under the per-index model. Even interpreting duplicates as one common site-delivery indicator does not improve a coincident design: independent attempts at that site weakly increase the chance of acquiring its value, and even that per-index design is strictly worse than the distinct optimum. A fresh exact-rational mask check gave 56 risk and gradient assertions for n=1,…,7 and four probabilities; replay with python3 /workspace/branches/f20efe93-6320-4ae1-a122-3f47c3179813/independent_mask_check.py. The frozen checker was inspected, not executed. The finite checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santin assumes intact sites and optimizes the supremum power function. Frasca et al. use homogeneous independent failures but optimize expected worst distance to a functioning sensor.",
+          "Frasca et al., introduction p. 2, describe Cortés as assuming a known number of failed sensors with a largest-distance objective and consequent clustering; this is indirect evidence, not inspection of the 2012 paper."
+        ],
+        "reasoning": "The competing objectives and information models do not provide a stronger theorem covering integrated path MSE under independent Bernoulli delivery. Random delivery time and adaptive/causal timing are not the fixed-grid erasure problem.",
+        "searches": [
+          "arXiv:2210.15959, Theorem 5",
+          "arXiv:1404.7711, abstract and introduction",
+          "DOI:10.1016/j.sysconle.2011.10.007",
+          "DOI:10.1049/cth2.12205"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.07591",
+        "arXiv:2210.15959",
+        "arXiv:1404.7711",
+        "DOI:10.1016/j.sysconle.2011.10.007 (attempted; secondary discussion only)",
+        "DOI:10.1049/cth2.12205 (attempted)",
+        "Resultary ...--849744f935dc (identity), ...--71ce7bada853, ...--9fdef871a456, ...--b74a94417317, ...--469b84c92627"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The noiseless theorem agrees with this grid at p=1; no missing-sample risk enters it. Frasca's maximum-gap-type criterion and the scalar quadrature designs do not evaluate the squared-gap expectation.",
+          "The gap covariance A has the familiar AR(1) inverse, which makes its simplex optimum immediate once the path-risk identity is supplied; none of the checked design statements supplies that identification or this exact finite-budget posterior risk."
+        ],
+        "reasoning": "Credit the known p=1 geometry and the standard algebra. The p-dependent boundary/interior spacing and risk are not a parameter restriction of the compared design theorems.",
+        "searches": [
+          "arXiv:2210.15959 Theorem 5 and arXiv:1404.7711 introduction",
+          "Resultary ...--b74a94417317 and ...--469b84c92627, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path loss gives squared surviving-gap lengths. The near quadrature hits ...--9fdef871a456, ...--b74a94417317 and ...--469b84c92627 target a scalar integral; ...--71ce7bada853 targets integrated path energy.",
+          "Friedrich et al. reconstruct a multipoint fractional bridge conditional on existing sites, without deriving the erased-site optimizer."
+        ],
+        "reasoning": "Trace of posterior covariance differs from the variance of a scalar integral; even for an ordinary bridge, the latter gives cubed rather than squared gap lengths. The appearance of an exponential matrix in the gap calculation does not turn exponential-kernel scalar quadrature into the same design problem.",
+        "searches": [
+          "Resultary: Brownian bridge path reconstruction with independent erasures and exact grid/risk",
+          "Resultary: erasure-robust exponential and Green-kernel designs",
+          "arXiv:2005.07591"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact grid and risk hit was the submitted record itself. The two distinct same-day Brownian-bridge hits have scalar losses, as stated in their mirrored Findings."
+        ],
+        "reasoning": "Formula-level catalogue comparison was applicable and performed; this continuous design is not an integer-sequence table problem. No distinct catalogue formula checked matches this objective.",
+        "searches": [
+          "Resultary exact-grid/risk query, 2026/11/22 ...--849744f935dc",
+          "Resultary same-day Brownian-bridge erasure designs ...--71ce7bada853 and ...--9fdef871a456"
+        ]
+      },
+      "rationale": "Within the sources inspected, the proved distinct claim is the full-path integrated posterior MSE optimum and sharp risk for a fixed, finite grid with homogeneous independent erasures. Neither Gaussian interpolation itself nor equal spacing without erasures is credited as new. The geometric matrix inverse is classical; the erasure-aware path loss and optimal design, not a new matrix identity, are the contribution.",
+      "residual_risks": [
+        "The original Cortés and Peng–Chen–Gong texts were not obtained. Frasca's secondary description partially resolves the Cortés comparison but cannot exclude additional results there.",
+        "The exact-formula external lookup did not supply usable evidence; the comparisons are against named accessible statements, not an assertion of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No-erasure equal-spacing comparison only.",
+          "evidence": "Unique optimum for the supremum power-function error over intact sites.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+          "material_read": "Theorem 5, p. 5, offset 21552",
+          "method": "Open primary PDF",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Potentially covering Brownian bridge design theorem"
+        },
+        {
+          "assessment": "Interpolation background, not site optimization under erasures in inspected material.",
+          "evidence": "Construction accepts arbitrary sampled points and varies the Hurst exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.07591",
+          "material_read": "Abstract, p. 1",
+          "method": "Open primary PDF",
+          "title": "Stochastic interpolation of sparsely sampled time series via multi-point fractional Brownian bridges",
+          "trigger": "Same reconstruction family"
+        },
+        {
+          "assessment": "Different cost; its Cortés comparison also points to a different failure model.",
+          "evidence": "Expected largest distance to active sensor; attributes known failure count and largest-distance cost to Cortés [3].",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.7711",
+          "material_read": "Abstract, p. 1; introduction, p. 2 offset 5361",
+          "method": "Open primary PDF",
+          "title": "Optimal One-Dimensional Coverage by Unreliable Sensors",
+          "trigger": "Same one-dimensional Bernoulli failure model and secondary Cortés comparison"
+        },
+        {
+          "assessment": "No direct noncoverage conclusion from the unavailable text.",
+          "evidence": "The inspected secondary discussion describes fixed known failure count and largest-distance cost, rather than iid-erasure integrated bridge variance.",
+          "identifier_or_url": "https://doi.org/10.1016/j.sysconle.2011.10.007",
+          "material_read": "Bibliographic citation and description in Frasca et al.; original full text unavailable",
+          "method": "DOI and author-publications route attempts; secondary passage in OA Frasca PDF",
+          "title": "Deployment of an unreliable robotic sensor network for spatial estimation",
+          "trigger": "Closest named unresolved spatial-estimation source"
+        },
+        {
+          "assessment": "Title suggests random delay rather than failed fixed-grid bridge observations; no full-text exclusion claimed.",
+          "evidence": "The stated subject is Wiener processes with random delivery time.",
+          "identifier_or_url": "https://doi.org/10.1049/cth2.12205",
+          "material_read": "Bibliographic title only independently available",
+          "method": "DOI retrieval returned no readable paper",
+          "title": "Optimal sampling policy of multi-dimensional Wiener processes with random delivery time",
+          "trigger": "Another sampling problem with unreliable delivery"
+        },
+        {
+          "assessment": "Scalar targets, not full path.",
+          "evidence": "J=∫B versus Q=∫B², each estimated under its own scalar quadratic loss.",
+          "identifier_or_url": "Resultary 2026/11/22 ...--9fdef871a456 and ...--71ce7bada853",
+          "material_read": "Finding passages specifying targets and risks",
+          "method": "Local mirror",
+          "title": "Universal high-dropout spacing law for Brownian-bridge quadrature; exact reliability-dependent design for quadratic Brownian bridge",
+          "trigger": "Distinct close matches with the same process and erasures"
+        },
+        {
+          "assessment": "Different objectives, even in a pinned Brownian limit.",
+          "evidence": "Both estimate ∫X with two queries, not integrated pointwise posterior variance.",
+          "identifier_or_url": "Resultary 2026/11/22 ...--b74a94417317 and ...--469b84c92627",
+          "material_read": "Finding passages",
+          "method": "Local mirror",
+          "title": "Unique erasure-robust two-node quadrature for exponential Gaussian processes; bandwidth-driven separation in two-request Green-kernel quadrature",
+          "trigger": "Potential generalized Gaussian-kernel designs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full-path posterior error under missing exact data is a natural distinct loss. The finite-budget optimum tells how far to hold samples from the known endpoints, how the adjacent gaps shrink relative to those margins as p decreases, and the exact residual risk. It supplies a useful analytical benchmark without claiming applicability to general kernels or deployment policies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

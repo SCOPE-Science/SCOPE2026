@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:20:41.580072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–77",
+        "Frozen VERIFICATION.md and johnson_projection_check.py (inspected, not executed)",
+        "/workspace/repairs/2/RESULT.md, VERIFICATION.md and check_eventual_width.py",
+        "Resultary 2367a878c8dc, three scaling regimes and Poisson peak"
+      ],
+      "rationale": "The frozen kernel, exact row norm, equality of endpoints, complement symmetry, and asymptotic results check out. The centered-coordinate covariance is scalar on the sum-zero subspace; the absolute row sum attains the infinity norm by choosing that row's signs. Normalized kernel second moment is one, so hypergeometric weak limits pass to absolute moments. Below the sqrt(n) scale the first absolute centered moment is at most 2k^2/n; on that scale factorial moments give the Poisson limit; above it all expected hypergeometric cells diverge and the normal limit applies. Poisson peaks at consecutive half-integers decrease by the strict midpoint integral comparison, so the unique leading peak localizes all smaller maximizing widths. The repaired theorem proves the exact eventual optimizer, not asserted in the original. Within the localization window k(k-1)/(n-1) is strictly between 0 and 1, so only disjoint pairs contribute to the negative part. Dividing the two neighboring positive binomial factors gives the sign polynomial n^2-(2k^2+2k+1)n+3k^3+2k^2+k. Its discriminant 4k^4-4k^3+1 lies strictly between the squares of 2k^2-k-1 and 2k^2-k for k>=2. The smaller root is below n in the window; the larger has floor 2k^2+floor(k/2) and is never an integer, yielding a unique turning layer and excluding ties. This crossing lies inside the window for large n and leads exactly to ceil((sqrt(32n+1)-1)/8). Ran python3 /workspace/repairs/2/check_eventual_width.py: 143 exact full smaller-width scans and 48 exact adjacent transition pairs passed. Independent row-matrix and spot checks also agree with the frozen non-asymptotic formula.",
+      "residual_risks": [
+        "The final theorem is eventual, with no proven earliest cutoff. Bounded exact scans only corroborate the formula; global eventual localization is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filmus gives the harmonic decomposition. Elezović's centered hypergeometric MAD identity collapses to a boundary mass, with stated asymptotics at fixed proportions. The matched degree-two Resultary finding treats a different primitive idempotent and fixed-density asymptotics."
+        ],
+        "reasoning": "None of those broader ingredients yields a finite adjacent-width sign comparison for the shifted affine row kernel. Symmetrizing projections onto the same subspace yields the canonical relative projection as a minimizer, but does not optimize its norm across k.",
+        "searches": [
+          "Filmus arXiv:1406.0142 Johnson eigenspaces",
+          "Elezović arXiv:2608.06232 §3 Theorem 3.1",
+          "Resultary f9735429621e second Johnson spherical projector"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2367a878c8dc and f9735429621e (the latter finding-level candidate)",
+        "Filmus arXiv:1406.0142",
+        "Elezović arXiv:2608.06232",
+        "The repaired RESULT.md and exact checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Since ||P_0||=1, the first-harmonic and affine norms differ by at most 1 uniformly; their normalized sequences have identical three-regime limits. Unique peak separation after taking limits implies localization of all maximizing affine widths.",
+          "The repaired exact sign threshold comes from the sparse affine factor (k-1)/(n-k) times the disjointness probability. The arithmetic location of its sign change, including exclusion of equality, is not obtained by an O(1) norm comparison, a limit, or the centered deviation formula."
+        ],
+        "reasoning": "The original leading optimizer statement transfers mechanically, whereas the repaired theorem resolves a discrete comparison on each side of an exact integer threshold. The proof uses localization only to put all optimizers in the sparse window; the exact boundary follows from a separate adjacent binomial-ratio and discriminant argument.",
+        "searches": [
+          "Resultary 2367a878c8dc, Proof, offsets 3900–6470; scope and limitations",
+          "Elezović §3 and Filmus harmonic decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2367a878c8dc proves the same three regimes, sparse peak and asymptotic maximizing scale for the degree-one projector alone; its scope and limitations explicitly withhold a finite-n optimizer or uniqueness.",
+          "The exact-threshold search returned the asymptotic result and other projectors or geometries, not the repaired optimizer statement. Primary exact-threshold lookup did not return a relevant match; this is not negative evidence of priority."
+        ],
+        "reasoning": "The repaired result concerns P_0+P_1, not P_1. Moving the sign threshold by the constant shift cannot be ignored before comparing adjacent widths at finite n. The exact rounding and no-ties conclusion is absent from and not inferred by the compared first-harmonic asymptotic theorem.",
+        "searches": [
+          "Local Resultary: affine and first Johnson projector endpoint norm and sparse all-width optimization",
+          "Local Resultary: exact eventual affine maximizing width, threshold 2k^2+floor(k/2), sqrt(32n+1)",
+          "Primary search: Johnson slice affine coordinate projection endpoint norm exact finite maximizing layer and the repaired threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue entry says maximizing widths are characterized asymptotically and explicitly does not assert finite-n uniqueness.",
+          "The frozen numerical values at several sample sizes are consistent with the repaired formula but do not establish any exact eventual rule."
+        ],
+        "reasoning": "This is a symbolic formula for an unbounded sequence of optimizing layers, not a lookup or recomputation of a known table. The compared record does not list the finite threshold law, and its numerical checks do not certify it.",
+        "searches": [
+          "Local Resultary exact eventual affine-layer threshold and rounding search",
+          "Resultary 2367a878c8dc, Assumptions and scope and Limitations"
+        ]
+      },
+      "rationale": "Pass for the repaired exact eventual lattice threshold and finite no-ties law. The frozen leading-scale result does not survive as a distinct claim: the first-harmonic record gives all width regimes and the same unique peak, and adding the constant projector changes every norm by at most one. This is demonstrable equivalent asymptotic coverage, not a claim about which record was first. The unoptimized finite affine row expression is standard kernel evaluation and is not credited by itself. The repaired exact threshold instead uses the affine shift to get a different finite adjacent-layer comparison, whose discriminant locates precisely the step relative to integers.",
+      "residual_risks": [
+        "Historical priority is not determined by catalogue dates. An older finite-width optimization for the affine rather than first-harmonic projector may exist outside the inspected material. No separate novelty is asserted for the kernel or leading asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen asymptotics via norm-one comparison, not the exact repaired threshold",
+          "evidence": "Proof gives zero, Poisson and Gaussian regimes and uniquely maximizes the Poisson crossover; scope excludes constants and withholds finite-n uniqueness.",
+          "identifier_or_url": "2026/11/1/SCOPE-the-sharp-worst-slice-endpoint-norm-of-the-first-johnson-spectra--2367a878c8dc",
+          "material_read": "Finding, scope, Proof offsets 3900–6470 and Limitations near offset 7450, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "The sharp worst-slice endpoint norm of the first Johnson spectral projection",
+          "trigger": "Same all-width asymptotic constant, peak and optimizer location"
+        },
+        {
+          "assessment": "Spectral decomposition, not the finite optimizer",
+          "evidence": "Identifies the harmonic components; does not supply cross-width endpoint-norm comparisons in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/1406.0142",
+          "material_read": "OA offsets 0–6922, abstract, decomposition and representations indexed by (n-d,d)",
+          "method": "Lawful OA HTML",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Johnson harmonic decomposition for these slices"
+        },
+        {
+          "assessment": "Centered deviation covered, shifted optimization not obtained",
+          "evidence": "E|X-mu|=2g(ceil(mu))P(ceil(mu)) for the hypergeometric law; announced hypergeometric asymptotics have fixed-proportion margins.",
+          "identifier_or_url": "https://arxiv.org/html/2608.06232",
+          "material_read": "Abstract near offset 818; §3 Theorem 3.1, offsets 10824–14496",
+          "method": "Lawful OA HTML full-text passages",
+          "title": "The mean absolute deviation of the classical discrete distributions: collapse identities, complete asymptotic expansions, and enveloping series",
+          "trigger": "Exact overlap deviation and related asymptotic estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–19 and 85–86",
+        "Repaired RESULT.md, Finding and exact sparse-window comparison",
+        "Resultary 2367a878c8dc, Limitations"
+      ],
+      "rationale": "The finite maximizing cardinality is a natural extremal parameter already motivated by the frozen problem, which explicitly left the discrete optimizer open. The repair turns its scale into a unique exact rounding law and gives the largest norm without an all-width scan. This identifies both sides of every sufficiently large transition and answers when two neighboring smaller widths can tie, information neither the limiting constant nor finite tabulation gives.",
+      "residual_risks": [
+        "No claim of exact optimizer at every small n, explicit onset, or a nonuniform-slice generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

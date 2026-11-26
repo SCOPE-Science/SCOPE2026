@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:09.621576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the comparison. For nonzero x, dilate x by V(x)^(-1/(d+mu)) to the compact nonempty level set K (properness and homogeneity); on K the positive continuous F has minimum m>0. Rescaling gives F(x)>=m V(x)^(d/(d+mu)), with equality on the rays through the minimizers. The optimal HJB feedback gives dV/dt=-F-|u|^q/q. Integrate the inequality for V^(mu/(d+mu)) while V is positive; once V is zero, nonnegativity and monotonicity keep it zero. This includes x=0. For the example the weights (7/5,6/5) give degree 2 and satisfy the strict parameter constraint; the powers exceed 1. Constancy on K would imply V=C F^(11/10), whose last derivative vanishes at (s,0), s!=0. The drift there is also zero, contradicting HJB. Therefore max_K F is an upper, not lower, coefficient for F, in a genuinely admissible example. This does not refute a bound that could exploit the control-cost term. Bibliographic erratum: in the actual v1 PDF the target is Theorem 6.4, equation (6.1), followed by Remark 6.5; the frozen text misnumbers it but identifies the correct displayed argument. Replay: RESULT.md proof and example, lines 25–57; compare the cited PDF at pp. 13–14. VERIFICATION.md has narrative evidence only; no uploaded computation or formal certificate is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.6 gives two-sided commensurability with separate positive constants. Corollary 7 gives a settling-time bound conditional on a derivative inequality."
+        ],
+        "reasoning": "These cover the comparison machinery and give a generic valid estimate under the stated hypotheses, but do not identify this printed maximum as the wrong lower constant or exhibit a nonconstant F on the optimal value-function level.",
+        "searches": [
+          "arXiv:2607.22191v1, Lemma 2.6",
+          "arXiv:2501.11255, Corollary 7, equation (9)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22191v1",
+        "arXiv:2501.11255",
+        "Focused Resultary published-record queries on the control bound",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original lemmas yield generic commensurability and the value-function homogeneity, and the scalar integration is standard. The original passage neither proves constancy of F on K nor gives a witness that disproves it."
+        ],
+        "reasoning": "Credit the prior implications, including finite-time settling under a correct lower comparison. The source-specific error diagnosis depends on identifying the wrong extremum and showing the extrema can differ for admissible optimal control; no earlier inspected statement covered that contribution.",
+        "searches": [
+          "arXiv:2607.22191v1, Lemmas 2.6 and 6.1, Theorem 6.4",
+          "arXiv:2501.11255, Corollary 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OA primary passage uses max_{V=1} F twice, in the bound and the derivative step. The focused Resultary results supplied no distinct matching correction."
+        ],
+        "reasoning": "Normalizing F/V^(d/(d+mu)) by the weighted dilation converts the lower constant to the infimum on K, not the supremum. The two formulations are not equivalent, by the anisotropic example.",
+        "searches": [
+          "Resultary: homogeneous finite-time optimal control level-set minimum vs maximum",
+          "arXiv:2607.22191v1, Theorem 6.4 and equation (6.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching indexed entry was returned by the focused Resultary check; the exact coefficient in the inspected source is the maximum."
+        ],
+        "reasoning": "There is no numerical table to exhaust: this is a symbolic correction uniform in the parameters. Exact matched coverage would be a record correcting the same lower bound or supplying the same separation in the admissible class.",
+        "searches": [
+          "Resultary: Weng–Chitour–Mason homogeneous finite-time bound comparison constant",
+          "arXiv:2607.22191v1, equation (6.1)"
+        ]
+      },
+      "rationale": "The general scalar comparison and homogeneous commensurability are known and are not the contribution. The distinct claim is the correction of the explicitly printed extremum in this particular theorem's F-only step, with an admissible control example separating the extrema. The inspected source uses max, not min; no distinct equivalent correction or example was identified in the bounded checks.",
+      "residual_risks": [
+        "Focused search is not exhaustive; an unindexed erratum, later version, or equivalent earlier observation is possible.",
+        "The printed maximum-based numerical settling-time bound is not itself disproved; only its justification from dV/dt<=-F and the proposed lower bound for F is addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same control problem; covers the homogeneous comparison framework but prints the opposite extremum in the claimed lower comparison",
+          "evidence": [
+            "Lemma 2.6 has a lower c1 and upper c2; Theorem 6.4 and (6.1) use c=max_{V=1}F. The next numbered item is Remark 6.5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.22191v1",
+          "material_read": "Lemma 2.6 (p. 5, text offset 17600); end of Lemma 6.1, Remarks 6.2–6.3, Theorem 6.4 and proof, equation (6.1) (pp. 13–14, offset 48500)",
+          "method": "OA PDF, located and read the relevant passages",
+          "title": "Finite-Time Stabilization of Linear Systems via Optimal Control",
+          "trigger": "Exact source of proposed correction and closest general comparison"
+        },
+        {
+          "assessment": "Generic derivative-to-time bound, not the source-specific correction",
+          "evidence": [
+            "The comparison constant must already satisfy the derivative hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.11255",
+          "material_read": "Corollary 7, equation (9), PDF text around offset 26300",
+          "method": "OA PDF passage",
+          "title": "Bounding the Settling Time of Finite-Time Stable Systems using Sum of Squares",
+          "trigger": "Potential broader settling-time coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This fixes a directional error in a quantitative finite-time guarantee for a standard chain of integrators. The example shows it is not a harmless choice of extreme values within the theorem's admissible cost class; using the correct extremum provides an applicable bound without asserting a trajectory-level counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

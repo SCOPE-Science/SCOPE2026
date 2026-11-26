@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:31:37.440946Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The face excess is the sum over parts of max(0, occupancy-1). The faces with their possible doubled part i form Xi, the complete-graph one-skeleton in part i joined to the other discrete sets. Distinct Xi intersect exactly in K. The inclusion of the discrete set in its connected graph is nullhomotopic; joining the homotopy makes the inclusion of K factor up to homotopy through a contractible cone on the remaining factors. At each successive union both maps from K are thus null, the inclusions are cofibrations, and the homotopy pushout adds Xi and one suspension of K as wedge summands. The connectedness needed for this splitting holds even at r=2. A complete graph on a_i vertices has circle rank binomial(a_i-1,2), zero for a_i=2; combining its join contribution with the r-1 suspensions gives the stated integer B. For the trace, a fixed face is a union of vertex cycles. On a length-ell orbit of parts the at-most-one-per-part choices are empty or a vertex cycle of length ell, of which there are f_O. The unique doubled part must be individually fixed; inside it the pair is two fixed points or one transposition. The reduced alternating contribution of a fixed oriented simplex with k vertex cycles is (-1)^(k-1), including -1 for the empty face; hence the formula, without dividing by any 1-f_O or assuming equal sizes. In the all-size-two case each Xi is contractible, and in the exact sequence of (X,K) the relative groups identify naturally with the copies of H_(r-1)(K) indexed by the parts; their boundary is the sum. K is the boundary sphere of the cross-polytope, so its orientation character is the determinant of the signed permutation of the coordinate axes. The augmentation kernel therefore gives the claimed integral lattice, not merely the same trace. CHECK.py and VERIFICATION.md were inspected, not executed: the five test group orders are 48, 384, 144, 1296 and 576, for 2448 trace checks; the modular boundary checks are not used to infer the integral homotopy or module statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim–Lew give the definition and general Leray bounds. Selvaraja identifies the tolerance independence complex with the corresponding elongation and applies at t=1 here; standard matroid shellability already gives the top-sphere wedge.",
+          "Moci–Pezzoli Theorems 16 and 19 give general equivariant descriptions via nonspanning complexes and, under simplicity, the lattice of flats. Their Theorem 25 specializes to the dual complete-graph matroid, a different object."
+        ],
+        "reasoning": "Credit the previous equivariant reductions as well as the ordinary homotopy consequences. They do not state a specialization giving the displayed character or the integral size-two lattice. In particular, the simple-dual lattice formula does not apply uniformly as size-two parts give parallel pairs in the dual.",
+        "searches": [
+          "Kim–Lew arXiv:2109.03030 Theorem 1.5 and §6",
+          "Selvaraja arXiv:2611.14384v1 §8 and Theorem 8.4",
+          "Moci–Pezzoli arXiv:2001.03760v3 §§4, 7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14384v1",
+        "arXiv:2109.03030",
+        "arXiv:2001.03760v3",
+        "Resultary 21ea0f3e7b55, e63f8a21ef2d, and current self-match 61d0b213c45a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once matroid concentration is known, the sphere count can be recovered by an ordinary alternating face count.",
+          "The generic equivariant method describes a homology representation in terms of another matroid complex or lattice; extracting this group's trace still requires accounting for cycles of equal-size parts and the orientations of the unique doubled part.",
+          "The size-two result determines the integral augmentation kernel, not a representation over a characteristic-zero field alone."
+        ],
+        "reasoning": "The ordinary wedge implication is covered and the Euler calculation is routine. Neither the concentration nor the available general representation reduction evaluates the full-group trace or establishes the integral lattice as a parameter substitution.",
+        "searches": [
+          "Selvaraja Theorem 8.4 plus matroid independence-complex homotopy",
+          "Moci–Pezzoli Theorems 16, 19 and 25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The excess is matroid nullity for the direct sum of the uniform matroids U_(1,a_i); this is exactly the independence complex of its first elongation, not merely an analogous construction.",
+          "Resultary 21ea0f3e7b55 uses two disjoint full simplices and tolerance at least two; e63f8a21ef2d uses induced forests of the same class of graphs, not the excess-at-most-one predicate."
+        ],
+        "reasoning": "The first-elongation alias identifies real same-object prior coverage of the underlying complex. The catalogue neighbors with related actions do not have the same face set or module calculation; 61d0b213c45a is the identical reviewed entry.",
+        "searches": [
+          "Resultary: one-tolerance complete multipartite joins, first elongation of a rank-one partition matroid, equivariant homology and part exchanges",
+          "Selvaraja arXiv:2611.14384v1 §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formulas in the matching Resultary entry 61d0b213c45a belong to the assigned record itself. The exact representation results in 21ea0f3e7b55 and e63f8a21ef2d have different input complexes.",
+          "No further material comparison emerged from the bounded external search."
+        ],
+        "reasoning": "The nearby explicit formulae are not tables for these complexes. Fixed modular sample computations do not constitute a prior all-size formula or an integral lattice determination.",
+        "searches": [
+          "Local Resultary search for exact multipartite tolerance ranks and full automorphism characters",
+          "Focused external primary-literature lookup for this elongation and representation"
+        ]
+      },
+      "rationale": "The supported refinement is the explicit full-group trace including exchanges of equal-sized parts, with an integral description when all sizes are two. Identification with a matroid elongation and the ordinary top-dimensional wedge are prior consequences; the product multiplicity is a direct exact evaluation rather than a new structural matroid theorem.",
+      "residual_risks": [
+        "An unindexed specialization of an equivariant matroid formula may exist. The scoped comparison does not establish global first priority.",
+        "For mixed sizes the full group is a product of wreath-product factors indexed by size. Only the all-size-two case supplies an integral representation; the other sizes yield a rational character, not an equivariant homotopy splitting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the object and applicable Leray result; wedge is a consequence of standard matroid topology",
+          "evidence": "Tolerance applied to an independence complex equals the independence complex of the matroid elongation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14384v1",
+          "material_read": "§8, PDF pp. 25–26, including Theorem 8.4",
+          "method": "OA arXiv PDF",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "Same tolerance matroid object"
+        },
+        {
+          "assessment": "Framework and bounds, not this homology representation",
+          "evidence": "General bounds are given for tolerance complexes of collapsible complexes; the later matroid use is in colorful Helly applications.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.03030",
+          "material_read": "Definition (p. 1), Theorem 1.5 (p. 3) and §6 (pp. 14–15)",
+          "method": "OA arXiv PDF",
+          "title": "Leray Numbers of Tolerance Complexes",
+          "trigger": "General tolerance and matroid antecedents"
+        },
+        {
+          "assessment": "General reductions, not a prior evaluation for this elongation",
+          "evidence": "Provides equivariant nonspanning-complex and flat-lattice results, and an evaluation for the dual of the complete-graph matroid.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.03760v3",
+          "material_read": "§4, Theorems 16 and 19 (PDF pp. 13–14); §7, Theorem 25 (pp. 16–17)",
+          "method": "OA arXiv PDF",
+          "title": "Representations of automorphism groups on the homology of matroids",
+          "trigger": "Strong general equivariant prior"
+        },
+        {
+          "assessment": "Other complex and other tolerance domain",
+          "evidence": "Uses a disjoint union of two full simplices at tolerance at least two.",
+          "identifier_or_url": "Resultary 2026/11/22/21ea0f3e7b55",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Equivariant homology and fixed-point topology of two-block tolerance complexes",
+          "trigger": "Same-day tolerance and block-exchange representations"
+        },
+        {
+          "assessment": "Distinct face predicate",
+          "evidence": "Computes homology modules of induced-forest complexes rather than of a one-tolerance clique complex.",
+          "identifier_or_url": "Resultary 2026/10/25/e63f8a21ef2d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Integral symmetry modules of multipartite induced-forest complexes",
+          "trigger": "Same graph family and symmetry group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nontrivial tolerance extension of the ordinary multipartite join is a natural structured test family. A compact trace formula for the whole automorphism group resolves the missing information about part exchanges, allowing direct invariant-subspace and representation calculations beyond the known non-equivariant wedge. The all-size-two lattice also distinguishes the actual integral action from its trace. The bare wedge deduction alone would not justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

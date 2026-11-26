@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:53:10.348490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–43",
+        "VERIFICATION.md",
+        "check.py lines 33–91"
+      ],
+      "rationale": "The opening Finding admits s∈(0,1] and says that b=1 always has a gain with a nonzero nilpotent return Jacobian. At the included orthogonal endpoint u=e₁, v=e₂, b=1, the return Jacobian is diag(1−a,0); it is nilpotent only at a=1, when it is zero. Exact annihilation then takes just two steps in the quadratic model. The detailed theorem restricts its nonzero and four-step assertion to 0<s<1, and that qualified theorem is correct. Independently, T=(I−bvvᵀ)(I−auuᵀ) has trace 2−a−b+ab(1−s) and determinant (1−a)(1−b); the three quadratic Schur inequalities reduce to the two displayed inequalities and abs>0. If the determinant exceeds one then some modulus exceeds one, and a negative characteristic-polynomial value at −1 forces a real root below −1. For b=1 the spectrum is {0,1−as}; at a=1/s with s<1 the return is nonzero of rank one and squares to zero, while invertibility of the first phase precludes uniform three-step annihilation. At a nonlinear stationary point the chain rule gives the same return derivative and a Taylor bound gives local quadratic attraction of G², not exact nonlinear annihilation. Thus the frozen opening assertion, not the restricted derivation, is refuted.",
+      "residual_risks": [
+        "The checker covers only selected rational directions and a quartic perturbation, not the included orthogonal counterexample. It was inspected, not run. The qualified theorem makes no nonlinear boundary stability claim."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The GAP work concerns rates for relaxed alternating projections. The frozen Ridenhour comparison credits general modified-gradient stability and limits of individual preconditioner bounds; the paper text was not obtained."
+        ],
+        "reasoning": "A rate theorem on a gain-restricted domain does not cover arbitrary positive gains without checking its hypotheses; a general sufficient gradient bound is not the same as the sharp return criterion. Broader exact coverage remains plausible and is not rejected on title evidence.",
+        "searches": [
+          "Fält–Giselsson arXiv:1703.10547; alternate Lund University records",
+          "Ridenhour arXiv:2611.14756v1",
+          "RESULT.md lines 55–61"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed findings 5263c0c81502 and d828788ae3af",
+        "Fält–Giselsson indexed descriptions and primary citation, arXiv:1703.10547",
+        "Frozen RESULT.md lines 55–67 as attribution and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact projection substitution transfers any existing spectral formula for the same two line relaxations, and the nonlinear zero derivative follows mechanically from any known nilpotent linearization by chain rule and Taylor. The decisive GAP parameter passage did not become available; the indexed one-step frontier is not such a formula on its own."
+        ],
+        "reasoning": "If the earlier principal-angle law has the same unrestricted domain, the all-gain linear claim is covered, and merely attaching standard nonlinear local Taylor theory cannot rescue it. The available source passages do not verify this implication's antecedent in an exact prior theorem, so the review does not label the all-gain formula proved already known.",
+        "searches": [
+          "Fält–Giselsson arXiv:1703.10547, principal angles and spectral formulas",
+          "Resultary d828788ae3af",
+          "RESULT.md lines 26–43, 55–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I−a uuᵀ=(1−a)I+aP_(u⊥), and likewise for v. For the negative quadratic the return is exactly the product of two relaxed projections onto lines, not merely analogous to it. Fält–Giselsson is indexed as studying generalized alternating projections for two linear subspaces."
+        ],
+        "reasoning": "Any prior principal-angle block spectral criterion for unrestricted positive relaxations mechanically transfers. Credit this equivalent model and the classical tools; the available abstract/search passages did not expose the exact parameter theorem or all-gain domain.",
+        "searches": [
+          "Fält–Giselsson, generalized alternating projections, principal angles and block spectrum",
+          "Resultary: relaxed alternating projections and two-phase rank-one gradients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5263c0c81502 is the identical frozen record. A distinct earlier indexed finding d828788ae3af concerns a one-step nonexpansivity frontier for relaxed alternating projections and angle-dependent transient expansion."
+        ],
+        "reasoning": "The identical hit supplies no independent priority. One-step safety and return Schur stability are distinct properties; the earlier indexed comparison does not state the full two-gain region or nonlinear return, though its full text was unavailable.",
+        "searches": [
+          "Resultary: sharp two-phase stability and four-step superattraction",
+          "Resultary d828788ae3af"
+        ]
+      },
+      "rationale": "Bounded pass only for the explicit treatment of all positive gains in this fixed two-gain model and its formulation for local nonlinear returns, on the available comparison statements. The identification with two relaxed linear projections is exact and earns no novelty credit; the Schur and Taylor tools and the nilpotent-product mechanism are also standard. The exact GAP spectral/parameter theorem was not retrieved, so independent historical priority is not established and no whole-paper noncoverage judgment is made. This bibliographic distinction does not establish a nonroutine contribution (value assessment).",
+      "residual_risks": [
+        "No decisive full-text GAP theorem or Ridenhour passage was obtained. There may be direct or mechanical prior coverage of the linear classification, including b=1 nilpotence. The model equivalence is certain but does not alone locate a prior exact theorem. Inaccessibility is not the basis of rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Very close equivalent linear model; exact all-positive-gain theorem coverage unresolved",
+          "evidence": "Alternating relaxed projections on two subspaces is the model studied. This review supplies the exact elementary substitution for the lines u⊥ and v⊥, not a claim to have read the full GAP theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.10547; https://lup.lub.lu.se/search/publication/edbb4c52-621f-4ace-a8b9-61e0d5a0660f",
+          "material_read": "Indexed scholarly descriptions and primary citation; no spectral lemma or parameter theorem text",
+          "method": "Focused primary-literature lookup; targeted OA attempts at arXiv abstract and PDF timed out; identified Lund catalogue alternatives",
+          "title": "Optimal convergence rates for generalized alternating projections",
+          "trigger": "Same relaxed two-projection product and principal-angle block spectrum"
+        },
+        {
+          "assessment": "General stability credited, exact coverage unverified",
+          "evidence": "The frozen comparison describes discrete modified gradients and notes that individual anisotropic bounds can be conservative.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14756v1",
+          "material_read": "Frozen RESULT.md lines 55–56 and 64 attribution only",
+          "method": "Targeted lawful OA retrieval timed out",
+          "title": "Stability of equilibria in discrete-time modified-gradient systems and the multivariate breeder’s equation",
+          "trigger": "Potential general nonlinear stability and anisotropic product antecedent"
+        },
+        {
+          "assessment": "Related one-step norm criterion, not shown to subsume the positive two-gain Schur region",
+          "evidence": "The summary treats one-step nonexpansivity and discusses optimal spectral rates; it does not explicitly state the present two-gain law or nonlinear return.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary; matching mirror full text unavailable",
+          "title": "Sharp one-step safety frontier and angle-dependent transient expansion",
+          "trigger": "Prior sharp threshold for closely related relaxed alternating projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–43 and 55–61",
+        "Local Resultary d828788ae3af summary for related relaxation behavior",
+        "Direct restriction of the b=1 return to its range v⊥"
+      ],
+      "rationale": "The model is natural, but the surviving facts are routine deductions without a substantive new boundary phenomenon beyond the standard product calculation. The unrestricted 2×2 region is the textbook second-order Jury test applied directly to trace and determinant. With b=1, the return lands on the line v⊥; for a unit w on that line it acts by the scalar 1−a(uᵀw)²=1−as. Therefore placing this scalar at zero both forces the two-return cancellation and makes the large gain 1/s transparent; its divergence as the angle closes needs no additional result. The claimed nonlinear effect is then exactly the universal chain-rule/Taylor consequence of a square-zero derivative, with no new nonlinear coefficient, boundary behavior, or robustness quantified. Correcting the orthogonal sentence would leave only these standard deductions, so no valuable repair was supplied.",
+      "residual_risks": [
+        "This does not judge the value of the broader alternating-projection or modified-gradient problems; it concerns only the stated two-dimensional calculation and automatic local lift."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

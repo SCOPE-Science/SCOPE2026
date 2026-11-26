@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:20.421731Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At μ=0 the mean resets to C and in (d,z) the exact map is (K sin(z)d,z+d), K=2h. Full real periodicity forces d_1=-d_0; d_0=0 gives no primitive two-cycle, and otherwise both charges satisfy sin(z)=-1/K. This proves nonexistence below K=1; at K=1 charges differ by a nonzero multiple of 2π and the step block squares to the identity. For K>1 any two distinct admissible charges give a cycle, with exchange of the two phases not producing a new orbit. The two-step block is the product of [[-1,q_j],[1,1]], with q_j=K d_j cos(z_j). Same-class gives q_1=-q_0 and eigenvalues 1±q_0, one of modulus >1. Opposite-class gives q_1=q_0 and a scalar return (1+q_0)I. Normalizing the first phase to the +θ charge by translation gives signed displacement -2θ+2πj; only j≤0 can give a sink, exactly when 0<ρ(θ+π(-j))<1. The remaining full-space multiplier is zero. Counting nonnegative integers strictly below the cutoff gives the ceiling, including omission of equality where a multiplier is -1. Both factors of the stability product are increasing in h, and at h=1 even the n=0 product is π/√3>1. Since ρ∼2√(h-1/2) and θ=arctan ρ, the claimed divergence follows. For a finite selected set of sinks the log stays away from zero on open neighborhoods of μ=0 and both orbit phases, sufficient for a local two-sided IFT even though a globally defined map for negative μ is unnecessary. D(F²-Id) is invertible, and continuity preserves strict stability, distinct phases, and inequivalence (choose disjoint neighborhoods of the distinct nonzero absolute charge displacements). Local contraction in a suitable equivalent norm gives an open basin. Take the minimum of the finite continuation radii. These are proof checks, not a re-execution of the frozen numerical diagnostic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peng gives numerical coexistence of quasi-periodic, chaotic, hyperchaotic and period-four attractors and broadly asserts infinitely many coexisting attractors. Resultary 827557a5829d gives unbounded primitive period-two cycles for (α cos x+βx sin(πy), y+x) without establishing attraction. Resultary 61ea9782206f gives infinitely many parameter windows with a sink from a sine lobe in a different 3D sine-delay map."
+        ],
+        "reasoning": "Numerical multistability, primitive cycle existence without attraction, and a sequence of parameter windows with one sink do not imply unbounded simultaneous strict period-two sinks at a common h and all sufficiently small positive μ.",
+        "searches": [
+          "Primary literature: sine-charge memristive period-two sinks and multistability; Peng §3.3.2 and conclusion",
+          "Resultary: two-cycle resonance towers and attracting high-amplitude sine-delay staircases"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/sym16080990",
+        "Resultary 827557a5829d, 61ea9782206f, b7d0000bf41d, 7d5c7e558e44; 99d91d888cc2 (the identical entry)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (1) includes μ=0, but the 3D numerical sweep describes μ in (0,1). The equilibrium-line result has a neutral tangent multiplier and concerns period one. The distinct staircase concerns (y,sin z,p x+a y-g sin z)."
+        ],
+        "reasoning": "The missing implication is the phase classification on the zero-input boundary, where the return blocks for opposite sine charges coincide. Neither generic hyperbolic persistence nor the inspected numerical/period-one/sine-delay results supply the initial arbitrarily large family of sinks to continue.",
+        "searches": [
+          "Peng Eq. (1), (3), §§3.2–3.3 and Conclusions",
+          "Resultary 61ea9782206f, 827557a5829d, b7d0000bf41d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 99d91d888cc2 is this same finding. The underlying 3D recurrence is exactly Peng's Eq. (3), including γ only in the cosine, not the logarithm. Record 7d5c7e558e44 treats the different planar map (x+sin(x+y), ax) and one or three cycles per translation cell."
+        ],
+        "reasoning": "A phase-lattice formulation is equivalent only with the mean-reset and difference/charge equations of this map and a strict Floquet condition. A different sine-memory lattice is not such an equivalence.",
+        "searches": [
+          "Resultary: sine-charge/difference memory map with z+x-y, period-two Floquet multipliers and attracting staircase",
+          "Peng et al., DOI 10.3390/sym16080990, Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Peng's plots resolve sample attractor basins at selected parameters. The same-map Resultary b7d0000bf41d Finding instead gives an asymptotic count and transverse spectra for equilibrium lines at fixed μ>0 and γ→∞."
+        ],
+        "reasoning": "Plots and fixed-point-line counts are not exact primitive-two counts at μ=0, nor are they a table of the threshold sequence. No equivalent staircase database match is supported by the searches.",
+        "searches": [
+          "Resultary: exact zero-input sink staircase and Floquet counts; b7d0000bf41d",
+          "Peng Figures and discussion in §3.3.2"
+        ]
+      },
+      "rationale": "The governing equation and claims of multistability are prior. The covered distinction is the exact primitive-two hyperbolic sink count and its divergent asymptotic for this specific map, plus the simultaneous continuation of any finite number to small positive gain. The continuation theorem itself is standard. The closest separate findings study different cycles, parameter limits or maps.",
+      "residual_risks": [
+        "The Xiang et al. related DOI 10.1142/S0218127424501244 was not inspected in full; direct OA retrieval failed. The Almatroud–Pham primary source for the distinct planar model was not retrieved. These limits do not establish absence of prior equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Origin of the map, but inspected results do not establish the two-cycle staircase",
+          "evidence": [
+            "Eq. (3) has the same two opposite sine terms and the charge update z+x-y. Eq. (1) gives k=0.1 and μ in [0,1]. The multistability passages analyze numerical basins and do not give the stated return multipliers or count."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym16080990",
+          "material_read": "Publisher PDF Eq. (1), p. 3; Eq. (3), p. 5; parameter sweep p. 9; §3.3.2 pp. 11–12 and Conclusions p. 13",
+          "method": "Lawful original PDF, compare equations, hypotheses, numerical and analytical statements",
+          "title": "Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map",
+          "trigger": "Exact published map and multistability claims"
+        },
+        {
+          "assessment": "Different recurrence; no hyperbolic-sink classification",
+          "evidence": [
+            "Planar map (α cos x+βx sin(πy),y+x), with primitive cycles for β>1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-cycle-resonance-towers-in-a-fixed-point-free-sine-memo--827557a5829d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-cycle resonance towers in a fixed-point-free sine-memory map",
+          "trigger": "Unbounded primitive two-cycles with a sine-memory lattice"
+        },
+        {
+          "assessment": "Similar named phenomenon for a different map and parameter-window quantifier",
+          "evidence": [
+            "Sine-delay recurrence (y,sin z,p x+a y-g sin z), in which the p=0 subfamily has infinitely many windows with an attracting lobe cycle."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinite-staircase-of-attracting-high-amplitude-two-cycles-in--61ea9782206f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "An infinite staircase of attracting high-amplitude two-cycles",
+          "trigger": "Exact attracting two-cycle staircase"
+        },
+        {
+          "assessment": "Precisely the same map; periods, parameters and stability conclusion are different",
+          "evidence": [
+            "Studies equilibria at fixed μ>0 and γ→∞, with one neutral tangent multiplier."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-linear-proliferation-and-spatial-equidistribution-of-equilibrium--b7d0000bf41d",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror, compare recurrence, limits and stability",
+          "title": "Linear proliferation and spatial equidistribution of equilibrium lines in a cosine–memristor map",
+          "trigger": "Identical 3D map and unbounded count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural multistability question becomes a complete count for a defined orbit type, with an exact boundary scaling and a theorem of arbitrarily many simultaneous open-basin sinks at small positive gain. It distinguishes strict attraction from repelling or neutral recurrence without relying on basin plots, and makes no claim about global basin sizes, all gains, or nonlinear endpoint stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

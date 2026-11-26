@@ -1,19 +1,21 @@
-# Review of the phase-resolved augmented Kaczmarz finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original scalar augmented Kaczmarz update [1, equation (18)] has been reconstructed algebraically. The stable transition matrix has spectral radius \(\sqrt{1-p}\). Exact Lyapunov solutions for independent forcing and two-step epoch forcing yield the displayed covariance matrices. Both variance differences factor over a strictly positive denominator; the unique crossover in \((0,1)\) is \(3-\sqrt5\). The actual standalone symbolic code reproduces the identities. Initial states are arbitrary fixed finite vectors; the expected-error limits are not sample-path results.
+PASS
 
-## Originality — PASS, with priority risk
+Morshed's Eq. (18) gives the fixed-penalty primal/auxiliary recurrence on unit rows; Algorithm 2 as printed is the adaptive counterpart, not a constant-penalty specification. The record explicitly specializes to fixed penalty, so Eq. (18) suffices. Eliminating z, with y=x-bar(b) and q=1-p, gives y_{k+1}=2q y_k-q y_{k-1}+p xi_{i_k}; take y_{-1}=y_0+z_0. The companion matrix T=[[2q,-q],[1,0]] has roots q±i sqrt(pq) of modulus sqrt(q). Thus deterministic starts decay and stable covariance limits exist at both phases. In a separate symbolic reconstruction with unit noise variance, solve the three independent entries of X=A X A^T+B B^T with (A,B)=(T,(p,0)^T) for IID and (T^2,(T-I)(p,0)^T) for the epoch-boundary process driven by independent opposite-sign pairs. The mid-epoch covariance is T X T^T+(p,0)^T(p,0), as the fresh first signed observation is independent of the boundary state. Solving these equations in the companion coordinates reproduces all three risk numerators and both difference factors in RESULT.md. The quadratic in H is 5(p-4/5)^2+4/5; the boundary difference has positive numerator 4q(1-q^2+4q^3), and the mid-epoch difference changes sign only at p=3-sqrt(5). Evaluation at p down to zero gives both reshuffled slopes sigma^2/4 and IID limit sigma^2/2. The frozen verifier validates the displayed covariance substitutions and factorizations, not a claim about finite-time or sample-path ordering.
 
-The source [1] establishes the algorithm for consistent systems, not this inconsistent two-phase variance comparison. The closest mathematical coverage is [2], which analyzes random reshuffling *including momentum* through stationary power spectra after uniformly randomizing the epoch origin. Its general **phase-averaged** stationary variance cannot, by that stated claim alone, distinguish epoch-boundary from within-epoch error or imply their opposite comparisons. This finding instead reconstructs the cyclostationary two-phase covariance and gives an exact sharp reversal. The white-noise momentum analysis [3] does cover the essential with-replacement covariance mechanism, which is treated only as a benchmark here. No independent novelty audit has occurred; an equivalent phase-aware computation in the broader stochastic-gradient literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Random reshuffling is widely recommended as an improvement over with-replacement row selection. The smallest inconsistent Kaczmarz problem with shared dual memory exhibits a genuine **phase-dependence**: every epoch boundary improves, yet intermediate-step mean square is worse above an explicit penalty threshold. This warns against interpreting phase-averaged reshuffling improvements as per-iteration guarantees, and identifies an exact hyperparameter range where such extrapolation fails. The example is the natural smallest epoch, not an arbitrary numerical slice.
+The supported distinct claim is the fixed-phase reshuffled risks and their sharp within-epoch comparison for the two inconsistent identical rows, not the algorithm, the exact IID formula (already implied by a prior white-noise momentum theorem), or reshuffling variance as a general mechanism. The closest prior heavy-ball reshuffling theorem averages over a randomized epoch offset and does not give the conditional sign reversal. This is a bounded best-of-knowledge decision.
 
-## Limitations and nearest work
+## value
 
-The result applies only to two inconsistent identical scalar rows and constant penalty, and it compares limiting expected squared error. It does not assess nonstationary penalties, heterogeneous rows, finite-horizon signs, global nonlinear methods, or almost-sure behavior. Source [2] provides general phase-averaged coverage and is the principal residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest inconsistent data set with fresh random epochs isolates a real distinction between evaluation at epoch boundaries and at intermediate updates. The exact parameter where an improvement becomes a penalty at the intermediate phase is useful when interpreting stationary comparisons that report only an endpoint or a time average. The example defeats inference of a per-phase ordering from a favorable epoch-boundary result, without claiming a general ordering, and contributes more than a recomputation of known IID variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

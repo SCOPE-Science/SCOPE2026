@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:32.702316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 43–126",
+        "Frozen VERIFICATION.md and check_flux.py"
+      ],
+      "rationale": "An entrance appending i requires that the overlap contain exactly the other types and the outgoing draw differ from i, giving the factor p_i(1-p_i). For coverage, condition on positions reserved for a pair and on the remaining letters; the conditional chance of both pair symbols, for K≥2 reserved positions, strictly increases on balancing an unequal positive pair, with positive probability of a configuration covering the other symbols. For flux at M=n,n+1, permutations and one duplicated type give the two stated products; for M=n+1 balancing increases z(C−2z) on 0<z≤s²/4, with C≥s² for fixed sum s. Boundary vectors have zero flux. In the binary case the displayed derivative numerator starts at 1, ends at 0, and its derivative strictly changes sign once from minus to plus for k≥3, giving exactly one interior maximizer on the half interval. At M=4 the maximum is at pq=1/6; for large k the root is between 1/(k+1) and 2/(k+1) and its equation gives (k+1)t_k→1. Independently reconstructed the curvature: with r=n−1, the contributions from differentiating p_i(1−p_i) twice and from the mixed terms give −2B and −2(r−1)LB/r, after scaling by n^L; the latter uses r H_{r,r−1}(L−1)=B. Fixing two overlap slots occupied by a perturbed letter leaves H_{r,r−1}; using both perturbed letters leaves H_{r,r−2} with opposite sign. Summing gives r L(L−1)[r H_{r,r−1}−(r−1)H_{r,r−2}]. Its eventual positive leading term is (r/n)^L L²/r before scaling; permutation symmetry makes this direction certify the tangent Hessian, while n=2 follows separately. The choice p_1=1/M gives the stated lower bound by its i=1 term; uniform overlap conditioning gives the upper bound. Inspected proof and exact finite checker without executing the packaged code; the infinite conclusions do not depend on sample checks.",
+      "residual_risks": [
+        "For more than two types no general sharp onset or sharp global maximum is claimed. The comparison is not one of hitting-time laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 concerns stationary-entry hitting-time limits in a more general setting, applied to other coupon-loss mechanisms, not maximization of the fixed-window crossing rate.",
+          "The November 2 indexed result states a sharp fixed-n asymptotic maximum and optimizing profile, strengthening the frozen lower bound."
+        ],
+        "reasoning": "A general limit theorem using the entry rate as input does not compare different p. The later sharp global asymptotic strengthens one part without providing priority over the October frozen record.",
+        "searches": [
+          "arXiv:2605.14511, Theorem 2.3",
+          "Resultary: 2026/11/2/SCOPE-optimal-nonuniform-stationary-entry-flux-for-long-expiring-coupo--8e90a6498c3f"
+        ]
+      },
+      "checked_sources": [
+        "Long arXiv:2604.26298v1 and arXiv:2605.14511",
+        "Berthet arXiv:1703.01886",
+        "Three Resultary records identified above",
+        "Frozen relationship-to-prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long's Stirling-number coefficient is the weighted overlap formula at p=u, not a statement about its derivatives in directions transverse to u.",
+          "The later sharp constant and local-sign statements mathematically strengthen parts of the result; neither counts as an identified earlier proof."
+        ],
+        "reasoning": "A crossing identity, even when recognized as a binary run exit, is not the optimizer bifurcation without a root/shape argument; the prior uniform formula also cannot tell the sign of the full-simplex Hessian. No priority is asserted for ordinary coupon coverage or the uniform crossing identity.",
+        "searches": [
+          "arXiv:2604.26298v1, Theorem 3.1 and Section 4",
+          "arXiv:1703.01886",
+          "Resultary November 8 and November 2 Findings above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Long, Theorem 3.1 and Remark 3.2, define the same stationary crossing versus coverage distinction at uniform sampling. For n=2 the same event is exit from a monochromatic M-block: a^M b or b^M a, hence probability p^M q+q^M p.",
+          "Berthet models ordinary nonuniform first collection, with no expiring window or stationary crossings."
+        ],
+        "reasoning": "Uniform sampling fixes p; neither its flux nor ordinary first-collection formulas settle the maximum of the symmetric binary run-exit rate as the Bernoulli parameter varies. The run-exit equivalence is a real alternate formulation, not a different mechanism. No earlier optimum for this two-direction rate was established in the bounded search.",
+        "searches": [
+          "Sliding-window/expiring coupon entry flux and runs/level-crossing comparisons",
+          "arXiv:2604.26298v1",
+          "arXiv:1703.01886"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 Finding overlaps exactly on binary threshold M=4 and eventual local instability, with a sharp Hessian criterion as extra content.",
+          "The November 2 three-type Finding gives uniform optimality through M=5 and local minimality for M≥6, and determines the maximizers at M=6."
+        ],
+        "reasoning": "These are genuine indexed overlaps, not simply title matches and not independent evidence of earlier priority. The three-type onset and exact local criterion are not asserted by the frozen theorem.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-exact-local-instability-and-the-binary-optimizer-bifurcation-for--f7a668eee4d3",
+          "Resultary: 2026/11/2/SCOPE-sharp-symmetry-breaking-at-six-draws-in-three-colour-expiring-co--87a4ca8e9442"
+        ]
+      },
+      "rationale": "The supported distinction is variational: optimality over the sampling simplex, including the exact binary threshold and eventual all-alphabet local reversal. Uniform flux is directly prior, and coverage maximization is a comparator, not the distinctive claim. Later indexed findings overlap and in places strengthen the result; the later records checked do not establish a prior independent covering theorem.",
+      "residual_risks": [
+        "Earlier binary run-arrival or scan-statistics optimization under different terminology remains possible; bounded search is not proof of absence.",
+        "The relation (derivation versus repackaging or extension) between the later exact local-instability result and the frozen result is not established by the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the uniform specialization and entry/coverage distinction",
+          "evidence": [
+            "The entry event in Theorem 3.1 is W_{t−1}∉A and W_t∈A with uniform draws."
+          ],
+          "identifier_or_url": "arXiv:2604.26298v1",
+          "material_read": "PDF p. 4, Theorem 3.1 and Remark 3.2; Section 4 context",
+          "method": "OA passage inspection",
+          "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+          "trigger": "Same crossing definition and mechanism"
+        },
+        {
+          "assessment": "General entrance-time limit does not optimize this objective",
+          "evidence": [
+            "The theorem is a hitting-time theorem; the applications use other loss rules."
+          ],
+          "identifier_or_url": "arXiv:2605.14511",
+          "material_read": "PDF p. 5, Theorem 2.3",
+          "method": "OA passage inspection",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Related entry-rate analysis and potentially general limit theorem"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": [
+            "Expected collection time in ordinary coupon collection has no sliding expiration."
+          ],
+          "identifier_or_url": "arXiv:1703.01886",
+          "material_read": "PDF p. 1, model and objective",
+          "method": "OA passage inspection",
+          "title": "On Von Schelling Formula for the Generalized Coupon Collector Problem",
+          "trigger": "Nonuniform coupon probabilities"
+        },
+        {
+          "assessment": "Later-dated overlap plus sharper local criterion",
+          "evidence": [
+            "Same M=4 binary breakpoint and eventual strict local minimum at uniform."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-local-instability-and-the-binary-optimizer-bifurcation-for--f7a668eee4d3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and mirrored text",
+          "title": "Exact local instability and the binary optimizer bifurcation",
+          "trigger": "Closest exact statement match"
+        },
+        {
+          "assessment": "Later exact special-case refinement",
+          "evidence": [
+            "Exact onset M=6 and global maximizers at that length for n=3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-symmetry-breaking-at-six-draws-in-three-colour-expiring-co--87a4ca8e9442",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and mirrored text",
+          "title": "Sharp symmetry breaking at six draws in three-colour expiring coupon collection",
+          "trigger": "Same objective and sharp low-dimensional boundary"
+        },
+        {
+          "assessment": "Later global asymptotic refinement",
+          "evidence": [
+            "Sharp C_{n−1}/M maximum asymptotic and asymptotic optimizer profile."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-optimal-nonuniform-stationary-entry-flux-for-long-expiring-coupo--8e90a6498c3f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and mirrored text",
+          "title": "Optimal nonuniform stationary entry flux for long expiring coupon windows",
+          "trigger": "Potential coverage of long-window separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–37, 73–125",
+        "Long arXiv:2604.26298v1, Theorem 3.1 and Remark 3.2"
+      ],
+      "rationale": "Shows that maximizing time spent in coverage and maximizing the frequency of entering it have different solutions for the same model. The exact binary threshold and optimum, together with eventual local reversal and exponential separation for every fixed alphabet, give a useful baseline for nonuniform sliding-window analysis without asserting a nonuniform waiting-time result.",
+      "residual_risks": [
+        "For larger alphabets the general sharp threshold and maximizing vector are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

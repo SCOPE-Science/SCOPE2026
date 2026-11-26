@@ -1,15 +1,21 @@
-# Scientific review — three-row rook four-cut topology
+# Independent mathematical audit
 
-## Correctness — PASS
-The result uses the ordinary cut complex, with facets complementary to disconnected four-vertex induced subgraphs, and its Alexander dual characterized by forbidden disconnected four-subsets. The row/rectangle classification is exhaustive for every number of columns. A row-major acyclic vertex-toggle matching of the rectangular core has only the explicitly listed three-dimensional critical cells; the column-extension case audit gives a uniform count, not a finite-data extrapolation. The core is consequently a wedge of three-spheres. Precisely \(6\binom n3\) otherwise-missing transversal triangles attach along loops in this simply connected core, giving a wedge of two-spheres. Integral Alexander duality then proves the two stated reduced integral homology ranks of the original cut complex. The independent face enumeration, complete finite Hasse DAG tests, and mod-two boundary ranks reproduced the predicted pattern for their specified ranges. The all-parameter conclusion rests on the combinatorial matching induction, not on those finite tests.
+## correctness
 
-## Originality — PASS against inspected evidence
-The original cut-complex papers cover clique prisms, path-grid graphs and other families, but not ordinary four-cut complexes of \(K_3\square K_n\) for all \(n\ge4\). Relevant indexed rook results are the all-size three-cut classification and the \(4\times4\) ordinary four-cut homology calculation. The known \(3\times3\) four-cut example is a smaller instance of the displayed formula, excluded from the novelty range and distinguished explicitly from the all-length result. Neither a change of cut parameter nor an isolated different-board calculation implies the present formula. Searches also tested connected-four-subset independence complexes, rook rectangles, matching triangles, Alexander duality and mixed-dimensional homotopy. Priority outside the inspected sources is not certified.
+PASS
 
-## Value — PASS
-This is a complete natural infinite-family classification, not a recomputation of a known table entry: it determines both integral homology degrees of the original ordinary four-cut complexes and the full mixed-dimensional homotopy types of their duals. The two-sphere multiplicity is explained by transversal triangles; a separate three-sphere term is explained by rectangular-core topology. The positive next-to-top homology yields a uniform nonshellability obstruction. The distinction from three-cut rook topology and from path-grid four-cuts is structural.
+The frozen theorem is true, but the frozen uniform critical-cell calculation (RESULT.md lines 35–46) is not established by its column-extension paragraph: it asserts the surviving configurations and persistence of old terminal statuses without tracking which deletion/insertion pairs are still available when new-column pivots are interleaved with old ones. The finite tests do not fill this gap and no false critical count at any n was found. The replacement proof in repairs/5/RESULT.md proves the same claim without that matching. Edge-component counting in the bipartite row–column incidence graph proves exactly the row/rectangle core and the 6*C(n,3) additional maximal triangles. The closure F -> rows(F)×columns(F) retracts the face poset up to homotopy onto the face poset of a product-of-simplices subcomplex. Keeping a spanning tree of row edges first gives a subcomplex homotopy equivalent to two suspensions of the column simplex's 2-skeleton, each a wedge of C(n-1,3) three-spheres. The third row edge times the column triangles contributes C(n,3) more 3-cells with null attaching maps into this 2-connected subcomplex. Each additional transversal triangle then attaches by a null loop, producing the stated S² summands. Integral Alexander duality on precisely 3n vertices gives degrees 3n-6 and 3n-5 and the nonshellability obstruction. The replacement also gives the explicit disconnected quadruple establishing nonvacuous purity for n>=4.
 
-## Closest literature and limitations
-The cut-complex definition and existing prism theorem appear in Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675, especially Section 7.3. The sequel arXiv:2407.08158, Section 5, concerns lattice path grids \(P_m\square P_n\). Closest indexed computations are *Integral and equivariant homology of three-cut complexes of rook graphs* (2026/10/11) and *Integral four-cut homology separates the Shrikhande and rook graphs* (2026/11/2). The new work claims neither a homotopy classification for the original cut complex nor a full equivariant decomposition. An independently checked general proof or a presently unindexed equivalent classification could alter the assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired proof leaves the theorem and its n>=4 scope unchanged. No inspected statement implies the uniform ordinary four-cut classification on three-row rook boards. The closest overlap is a same-day record for exactly n=3, which is expressly excluded; the record date alone determines no priority.
+
+## value
+
+PASS
+
+A natural infinite-family classification explains the two homology degrees by separate mechanisms, the rectangle core and transversal triangles. It gives uniform torsion-free integral homology and a nonshellability obstruction not supplied by published three-cuts or path grids, as well as the dual's full homotopy type. The repaired product model makes the structural reason for the ranks explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

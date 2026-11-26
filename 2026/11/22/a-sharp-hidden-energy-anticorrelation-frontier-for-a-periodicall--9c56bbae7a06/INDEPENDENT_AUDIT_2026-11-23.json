@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:16:24.182511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–87 and numerical example",
+        "Frozen VERIFICATION.md and checker.py, inspected as text"
+      ],
+      "rationale": "For J=diag(1,−1), KJ+JK=2aJ, so the unique stable periodic covariance is T₀K⁻¹+q(t)J where q′=−2aq+2δσ. Half-period antisymmetry fixes q(0)=−(δ/a)tanh(aτ). Integration of q(t)² on the positive half-period gives (δ/a)²[1−tanh(aτ)/(aτ)]; its mean over both halves is zero. The globally randomized phase gives time translation invariance. Conditional future increments have mean zero, so the covariance at lag h≥0 is e^(−Kh) times the averaged one-time covariance, and the opposite lag is its transpose. The covariance of the conditional variances is −E[q²], whereas the off-diagonal covariance is the constant −kT₀/(a²−k²); conditional Wick pairing thus adds exactly twice its square. The marginal fourth cumulants are 3E[q²], and the mixed one is −E[q²]. F increases strictly from 0 to 1 because the numerator of F′ has derivative 2z sech²(z)tanh(z). Thus for k≠0 a finite crossing requires R>√2u/(1−u²), and some R<1 meets this precisely when 0<u<√(2−√3). Equality in the contrast condition gives a zero only at infinite half-period; k=0 is strictly negative at every positive half-period. The illustrative parameters give target 128/729 as stated.",
+      "residual_risks": [
+        "The all-lag equality is an equality of second moments, not full time-series laws. The fourth cumulants use the global uniform-phase mixture; fixed-phase marginals are Gaussian.",
+        "Equal diagonals are used for the exact fourth-order formula; they are not a necessary condition for the general covariance-averaging identity with constant K and isotropic average noise."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two primary models are two-dimensional Langevin systems with fixed bath temperatures; the time-dependent effective-temperature paper has constant bath temperatures and a constant external bias. The APS/DOI access check for the oscillating-bath paper returned 403."
+        ],
+        "reasoning": "The inspected fixed-bath models have no nontrivial random-phase conditional variance fluctuations in stationarity, so their Gaussian moment formulas alone cannot cover this result. Full-document coverage is unresolved for the inaccessible paper, rather than ruled out by access failure.",
+        "searches": [
+          "arXiv:2201.04903",
+          "arXiv:1302.4056",
+          "arXiv:2011.03124v1",
+          "DOI 10.1103/PhysRevE.108.024148"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index and its primary mirror passages listed above, with the exact self-match separated",
+        "Cerasoli et al. arXiv:2201.04903 and 2011.03124v1 and Dotsenko et al. arXiv:1302.4056, passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed switched-stiffness results address one-coordinate Markov switching, equilibrium-like covariance and non-Gaussian higher moments. The cited gyrator spectral literature compares fixed equilibrium and nonequilibrium temperature configurations."
+        ],
+        "reasoning": "The general constant-drift Lyapunov averaging and conditional Gaussian moment identities explain the lower-order match, but do not give the response amplitude or the competition between a negative conditional-variance covariance and a positive Wick term. The square-wave solution and optimization over positive bath temperatures are needed for the exact single crossing and coupling boundary.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-spectral-cancellation-and-gaussian-covariance-camouflage-i--d57d3a9e09b2",
+          "2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710",
+          "arXiv:2201.04903, model passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A constant-bath dimer makes one coordinate's full path law an equilibrium OU law at a tuned temperature ratio. A thermally noiseless active model with periodic orientation renewal exhibits phase-averaged squared-coordinate covariance sign changes."
+        ],
+        "reasoning": "The former is a genuinely Gaussian scalar marginal, not a phase mixture with a two-coordinate equilibrium covariance and nonzero fourth cumulants. The latter has the fourth-order observable and a random phase but not the same linear thermal noise or cancellation mechanism. Neither distinct same-day claim is equivalent; no priority inference is drawn from date.",
+        "searches": [
+          "Resultary semantic search for two-coordinate thermal OU covariance matching and square-wave fourth-order anticorrelation",
+          "2026/11/22/SCOPE-a-unique-two-bath-tuning-makes-a-dissipative-gaussian-dimer-exac--8e558034cb4c",
+          "2026/11/22/SCOPE-reentrant-cross-coordinate-energy-correlations-under-periodic-or--7535028cfbf4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold and F profile were found in the indexed instance of the target itself. Other resolved hits feature different driving and do not supply this particular exact curve."
+        ],
+        "reasoning": "This is a continuous parameter theorem, not lookup or recomputation of one sample point. The self-hit does not count as independent coverage; the tested index does not establish priority.",
+        "searches": [
+          "Resultary searches for periodic bath swapping, cross-squared-coordinate covariance and the sharp coupling cutoff",
+          "2026/11/22/SCOPE-a-sharp-hidden-energy-anticorrelation-frontier-for-a-periodicall--9c56bbae7a06"
+        ]
+      },
+      "rationale": "The scoped contribution is the exact fourth-order sign frontier in a phase-randomized thermal OU pair despite its whole equilibrium covariance function. Neither covariance camouflage by itself, Gaussian phase mixing by itself, nor sign changes in unrelated periodically driven observables are claimed new. The resolved related indexed papers use materially different models or observables.",
+      "residual_risks": [
+        "The oscillating-temperature heat-transport paper could not be inspected independently; its full coverage remains unresolved.",
+        "A periodic linear thermal circuit or general Gaussian-mixture analysis under other terminology may cover the exact classification. The negative search result is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different mechanism and order of equality",
+          "evidence": [
+            "Fixed baths; one scalar equilibrium-OU path law at a tuned contrast, not periodic modulation of the two conditional variances."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-two-bath-tuning-makes-a-dissipative-gaussian-dimer-exac--8e558034cb4c/RESULT.md",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Resolved index hit in local primary mirror",
+          "title": "A unique two-bath tuning makes a dissipative Gaussian dimer exactly equilibrium in one coordinate",
+          "trigger": "Distinct same-day two-bath equilibrium-matching theorem"
+        },
+        {
+          "assessment": "Same type of observable, not the thermal OU threshold",
+          "evidence": [
+            "Periodic orientation renewal of a noiseless active system; no bath swapping or equilibrium matching of full position covariance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-reentrant-cross-coordinate-energy-correlations-under-periodic-or--7535028cfbf4/RESULT.md",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Resolved index hit in local primary mirror",
+          "title": "Reentrant cross-coordinate energy correlations under periodic orientation renewal",
+          "trigger": "Distinct same-day sign theorem for the same fourth-order observable"
+        },
+        {
+          "assessment": "Structural analogue, not the two-coordinate bath-temperature crossing",
+          "evidence": [
+            "Single coordinate, Markov-switched stiffness; here drift is fixed and two thermal noises exchange strength."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-spectral-cancellation-and-gaussian-covariance-camouflage-i--d57d3a9e09b2; 2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710",
+          "material_read": "Primary RESULT.md passages at offsets 460 and 100, respectively",
+          "method": "Resolved index hits in local primary mirror",
+          "title": "Switched-trap covariance camouflage results",
+          "trigger": "Related covariance hiding with higher-order differences"
+        },
+        {
+          "assessment": "Fixed baths in the inspected model and a spectral observable, not this time-dependent fourth-order law",
+          "evidence": [
+            "T₁,T₂ are fixed and the equal-temperature case is equilibrium."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.04903",
+          "material_read": "PDF p. 3, extraction offset 13300, model",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Spectral fingerprints of non-equilibrium dynamics: The case of a Brownian gyrator",
+          "trigger": "Same fixed-drift two-coordinate thermal system and equilibrium observability question"
+        },
+        {
+          "assessment": "Establishes background thermal Gaussian model, without the phase-mixture term",
+          "evidence": [
+            "Fixed T_x,T_y and equilibrium Gibbs case at T_x=T_y."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.4056",
+          "material_read": "Model, printed pp. 3–4, extraction offset 7900",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Two-temperature Langevin dynamics in a parabolic potential",
+          "trigger": "Primary fixed-bath quadratic model"
+        },
+        {
+          "assessment": "Transient effective temperatures are different from periodically swapped bath temperatures",
+          "evidence": [
+            "Fixed bath temperatures with constant external bias."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2011.03124v1",
+          "material_read": "§2, offset 3500",
+          "method": "Bounded primary OA HTML reading",
+          "title": "Time-dependence of the effective temperatures of a two-dimensional Brownian gyrator with cold and hot components",
+          "trigger": "Time dependence in two-coordinate hot/cold gyrator"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": [
+            "Access failure does not establish noncoverage; the decision does not rely on the frozen account of the article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.024148",
+          "material_read": "No primary passages independently read; DOI and APS retrieval failed",
+          "method": "Lawful OA access attempt, HTTP 403",
+          "title": "Energy transport between heat baths with oscillating temperatures",
+          "trigger": "Close bath-temperature driving terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, covariance identity, Fourth-order formulas, and crossing regime"
+      ],
+      "rationale": "In a natural symmetric thermal model even the whole second-order stationary time series fails to distinguish the switched baths from equilibrium. Negative squared-coordinate covariance is impossible for a centered Gaussian pair, and this result says exactly when it is visible and when no permissible contrast yields a crossing. It supplies a diagnostic regime and a sharp limit on it, rather than merely the existence of non-Gaussian phase mixtures.",
+      "residual_risks": [
+        "The squared-coordinate covariance is not a heat-current or entropy-production law and no finite-sample detection guarantee is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

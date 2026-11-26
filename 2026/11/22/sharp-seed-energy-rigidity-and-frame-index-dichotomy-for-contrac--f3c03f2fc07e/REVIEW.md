@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orbit-frame Stein identity \(S=Q+WSW^*\), with \(AI\le S\le BI\), gives a diagonal telescoping lower bound for every finite prefix. Tonelli identifies the diagonal trace with total seed energy, even if infinite. The canonical defect construction is \(A\)-tight by strong stability of the adjoint. For finite energy and positive weight product, dominated convergence gives the limiting diagonal of \(S\), and equality forces every diagonal entry to be \(A\). Positivity then forces \(S=AI\), and the unique seed frame operator is \(A(I-WW^*)\). Finite booster families have explicitly verified diagonal frame operators and energy. Edge cases \(\|W\|=1\), \(D=0\), \(D=\infty\), and infinitely many nonzero deficits are treated. The finite exact-rational checker is diagnostic, not a surrogate for proof.
+PASS
 
-## Originality — PASS (qualified)
+Re-audited repairs/3/RESULT.md. Frozen RESULT.md line 37 incorrectly suggests E_N need not be monotone. Writing R_N=P_(N+1)^(-2), the exact decrement is E_N−E_(N+1)=A x_(N+1)(R_N−1)≥0, now stated and proved. In the repaired claim the diagonal Stein relation gives the partial-trace lower bound s_M+Σ_(n<M)x_n s_n; summing initial diagonals is exactly seed energy by nonnegative summation. Strong stability of W* gives the tight defect construction, even for infinite trace. At finite equality the β-ratios are at most one and their limits with summable q_k give lim s_n=A and s_n=A where x_n>0. At zero-deficit indices the sequence cannot decrease before the next pinned value or the limit A, so all s_n=A; positivity then forces S=AI. Rank and the positive-product Riesz orbit establish the cardinality assertions. The repaired booster has diagonal A up to N and A/P_k² thereafter, and the exact energy formula and limit remain unchanged. Frozen checker.py is only a finite exact diagnostic; the proof and decrement calculation are the replay path, without executing the supplied script.
 
-The full source [1] supplies general defect/Stein results and the canonical Parseval seed construction and already handles positive weight products and strict contractions. It stops short of settling the norm-one zero-product case in its weighted-shift example and gives no sharp lower seed-energy theorem and finite-seed nonattainment/approximant formula. The abstract index formulas in [2] can provide ingredients but do not explicitly cover these sharp cost and rigidity conclusions. Searches for dynamical-frame minimum seed energy, orbit-frame weighted shifts, products, Stein traces, and their equivalent formulations identified no exact match in accessible indexed findings. A broader frame-cost result not indexed by those terms remains a residual bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The lower bound is a directly interpretable minimum total sensor/seed norm budget for stable infinite-time reconstruction, with an exact equality classification and attainable-or-not finite-design phase diagram. The example with norm-one shift and vanishing total product fills a genuinely different boundary regime from the strict-contraction obstruction. This is a natural exact optimization invariant rather than an arbitrary finite numerical cutoff.
+For the corrected finding, credit the known Parseval defect-rank index, canonical shift defect seeds, and one-generator positive-product and strict-contraction index cases. The distinct claim is the sharp budget over arbitrary seed families, finite-energy equality rigidity, the explicit nonincreasing finite-seed approximation, and the extension by the budget to all zero-product shifts.
 
-## Scientific limits
+## value
 
-The result is specific to positive contractive unilateral shifts, fixed lower frame bound, and full infinite orbits. It neither treats finite-horizon measurements nor proves uniqueness among all published results. The source literature already contains the Stein and Parseval mechanisms; novelty concerns the global energy, its equality rigidity, finite design approximation, and full shift dichotomy. An unindexed equivalent result could alter the originality assessment. The diagnostic checks only finite algebraic instances.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result separates two useful design budgets: one seed may suffice while every energy-minimizing family needs infinitely many, and norm-one shifts may still rule out all finite acquisition families. The sharp energy and explicit near-minimizers quantify that distinction, including boundary examples. The corrected monotonicity supplies an exact improvement guarantee as the truncated defect family is enlarged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

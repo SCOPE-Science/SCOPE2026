@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:46.915361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–77",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Replay: python3 /workspace/branches/reproduce_frozen.py 3"
+      ],
+      "rationale": "Cyclic overlapping windows identify the words bijectively with labeled Euler tours modulo rotation in the corresponding residual de Bruijn digraph. Balance forces the omitted three edges to decompose into directed simple cycles (edge-disjoint); there are only two loops, one alternating two-cycle, and two primitive period-three cycles. A loop plus the alternating cycle affects distinct vertices for m≥2, as does each simple three-cycle, so no vertex is isolated by these deletions. For fixed residual graph, fixing one surviving first edge removes rotation with no stabilizer or extra factor. All active degrees are one or two, so BEST reduces to the directed tree count, including zero when disconnected. For balanced L, det(L+J) is N times a Laplacian cofactor on N vertices; the full chain satisfies P^m=J, giving cofactor 2^(N−1)/N and the displayed telescoping inverse. The two-cycle update is rank one; alternating suffix-prefix overlaps give 2(−1/2)^k on its signed endpoint vector. In the period-three case the determinant lemma gives K with row difference Z_i−Z_{i+1} along the deleted directed edges. All cyclic two-bit prefixes of the period are distinct, so only the last, one-bit overlap can match two phases. Independently recomputed the truncated geometric sums by subtracting their first excluded term; each K entry is affine in z in each residue class. Exact evaluations at four rational z values certify the full cubic-degree determinant identity in all three classes. At m=2 the period-three term is zero; for m≥3 it is strictly positive by the displayed formula, and the two-cycle term is positive for all m≥2. Direct rotation-canonical binary word enumeration gave totals 2 and 12 at n=3,4, split by combined types as (2,0) and (8,4). Summing the two complementary missing sets in each type and taking the limit gives the stated integer counts and proportions.",
+      "residual_risks": [
+        "Direct word enumeration was only at n=3,4. The determinant identities were checked exactly as polynomial identities, and the graph proof supplies all n≥3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. study the probability that a deletion set admits a tour or trail, with exact results for up to two deletions or binary n≤4. Champlin et al. study existence for complementary classes. The indexed all-order two-defect counts are for q≥3 and shortfall two."
+        ],
+        "reasoning": "Existence only tests whether the multiplicity is nonzero. Changing the alphabet or deleting two edges does not give the period-three update or its tree-count determinant. The classical BEST and matrix-tree framework applies but does not evaluate that determinant or the two type counts.",
+        "searches": [
+          "Chen–Kitaev–Sun arXiv:1908.01116, introductory definitions and binary table",
+          "Champlin–Godbole–Tomlinson arXiv:1303.3323, Theorem 5",
+          "Resultary 91541f51dfe4, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Gabrić–Holub–Shallit arXiv:1903.05442; Chen–Kitaev–Sun arXiv:1908.01116; Champlin–Godbole–Tomlinson arXiv:1303.3323",
+        "Resultary 152536a5a424, 91541f51dfe4 and 4f258063228e",
+        "Fredricksen DOI 10.1137/1024041 and OEIS A317586 (access limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-deletion linear-word record classifies the same four balanced triples and counts deletion sets, not tours. Gabrić et al. leave the general enumeration question open in the inspected counting discussion. Fredricksen's full survey was inaccessible; the later paper discusses its two-defect formula, not a verified absence of a three-defect result."
+        ],
+        "reasoning": "Knowing which triples occur, or even their connectivity, does not give the rooted arborescence count for any triple. Evaluation of the alternating-cycle and phase-sensitive period-three updates yields new exact ratios, rather than a substitution into the earlier existence or finite counting statements.",
+        "searches": [
+          "Resultary 152536a5a424, proof §§1–3",
+          "Gabrić–Holub–Shallit §4 general counting discussion",
+          "Fredricksen DOI 10.1137/1024041 (full text attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generalized de Bruijn words in the primary paper have maximal circular factor complexity and the paper counts modulo cyclic shift. The three-deletion universal-word record uses the same deleted edge language, while the nonpalindromic-factor record covers only a prescribed set of three-letter factors."
+        ],
+        "reasoning": "At length 2^n−3 the distinct length-n windows give maximal complexity. For shorter windows all 2^(n−1) words occur because each length-(n−1) vertex remains active, and longer windows are distinct because the length-n windows are distinct. Thus the generalized-de-Bruijn table uses the same equivalence and indeed has matching entries. Linear words and factor sets defined by a nonpalindromic predicate are different objects.",
+        "searches": [
+          "Gabrić–Holub–Shallit arXiv:1903.05442, Definition 1 and §4",
+          "Resultary 152536a5a424 and 4f258063228e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives 2,176 at length 29, and Table 4 gives 59,768,832 at length 61. Both are exact overlaps with the frozen n=5,6 totals. The live OEIS entry was not available beyond a landing page in the attempted route."
+        ],
+        "reasoning": "Finite exact totals reproduce the same object at those lengths and are not new; they do not give per-deletion multiplicities or determine the all-order formula. No claim is made about unseen OEIS comments or formulas.",
+        "searches": [
+          "Gabrić–Holub–Shallit Tables 1 and 4; OEIS A317586 as identified in that paper",
+          "Chen–Kitaev–Sun binary existence data"
+        ]
+      },
+      "rationale": "Credit the known balanced missing-set classification and published finite totals. The supported distinct content is the all-order cyclic Euler-tour multiplicity for each of the two missing types, hence also the exact total and limiting type ratio. Neither published existence counts for deletion sets nor previously tabulated generalized de Bruijn words furnish these formulas.",
+      "residual_risks": [
+        "The uninspected Fredricksen full text and live OEIS material, or unindexed work, could contain an equivalent expression. This is not a negative finding about those sources or a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finite totals, not the all-order or per-type expressions",
+          "evidence": "Counts modulo cyclic shift; 29→2176 and 61→59768832; general enumeration left open; identifies OEIS A317586.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.05442",
+          "material_read": "Definition 1 and p. 3 (offset 7550), Table 1 p. 6 (20100), §4 and Table 4 pp. 11–12 (33400, 35248, 35500)",
+          "method": "Open primary PDF",
+          "title": "Maximal State Complexity and Generalized de Bruijn Words",
+          "trigger": "Exact normalized sequence and finite count overlap"
+        },
+        {
+          "assessment": "Existence probabilities and low-order cases, not multiplicities",
+          "evidence": "Exact for at most two omitted words or binary orders ≤4; counts feasible deletion events.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+          "material_read": "Scope p. 1 (offset 2688), definitions p. 2 (5983), binary table p. 3 (7800)",
+          "method": "Open primary PDF",
+          "title": "On the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Potential broader deletion theorem covering shortfall three"
+        },
+        {
+          "assessment": "Covers deletion-set structure and linear existence, not cyclic tour counts",
+          "evidence": "10·2^n−56 deletion sets admitting linear universal words for n≥4; the four balanced triples also occur in its proof.",
+          "identifier_or_url": "Resultary 152536a5a424",
+          "material_read": "Finding and proof §§1–3, offsets 0 and 3400",
+          "method": "Local mirror",
+          "title": "Exact universal-word probability after three binary factor deletions",
+          "trigger": "Same three deleted factors and same balanced-type classification"
+        },
+        {
+          "assessment": "Different alphabet and deficit",
+          "evidence": "Per-type formulas for q≥3 and two missing factors.",
+          "identifier_or_url": "Resultary 91541f51dfe4",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Exact two-window-defect enumeration of nonbinary de Bruijn necklaces",
+          "trigger": "All-order defect counting with related matrix update"
+        },
+        {
+          "assessment": "Different factor condition",
+          "evidence": "Uses abc with a≠c, not exactly three deletions from the full binary factor set.",
+          "identifier_or_url": "Resultary 4f258063228e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact enumeration of nonpalindromic three-factor universal cycles",
+          "trigger": "Exact universal cycle enumeration with three-factor terminology"
+        },
+        {
+          "assessment": "Existence theorem, not this enumeration",
+          "evidence": "Constructs universal cycles for complementary word classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3323",
+          "material_read": "Abstract p. 1 (offset 895), Theorem 5 p. 3 (9230)",
+          "method": "Open primary PDF",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "General universal-cycle existence for complementary classes"
+        },
+        {
+          "assessment": "Unresolved access limitation",
+          "evidence": "The later discussion addresses a two-window result and does not verify the absence or presence of a three-window formula.",
+          "identifier_or_url": "https://doi.org/10.1137/1024041",
+          "material_read": "No full text reached; related two-defect discussion read in Gabrić et al., p. 12",
+          "method": "OA DOI routes and repository recovery attempted",
+          "title": "A Survey of Full Length Nonlinear Shift Register Cycle Algorithms",
+          "trigger": "Historical possible shortfall enumeration"
+        },
+        {
+          "assessment": "Live formula and comments not verified",
+          "evidence": "The accompanying primary table gives the finite counts described above.",
+          "identifier_or_url": "https://oeis.org/A317586",
+          "material_read": "Landing page only; sequence identified in Gabrić et al., p. 3",
+          "method": "OA website attempt and primary-paper comparison",
+          "title": "OEIS A317586",
+          "trigger": "Exact database linked from primary counting table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23 and 31–73",
+        "Gabrić–Holub–Shallit §4",
+        "Resultary 152536a5a424"
+      ],
+      "rationale": "Three missing windows are a natural next exact deficit for near-universal binary cycles. The formula answers how many cycles survive, not merely whether they survive, and reveals a nontrivial split between the two admissible missing patterns, a sharp zero at minimal order, and a limiting comparison with full cycles. A future enumeration can use these exact per-type counts in place of exponentially large Euler-tour or cofactor computations.",
+      "residual_risks": [
+        "Scope is labeled binary factors, shortfall exactly three, and oriented cycles modulo rotations only; no formula is implied for arbitrary deficits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

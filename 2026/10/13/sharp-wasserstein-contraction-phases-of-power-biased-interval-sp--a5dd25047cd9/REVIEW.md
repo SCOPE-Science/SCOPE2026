@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-dimensional CDF identity supplies an exact local \(W_1\) derivative. The global optimal constant is the supremum of that local derivative by the integral upper bound and local lower bound. Both derivative factors, the sign partition, and the strict increase of \(R_p(t)\) are explicitly reconstructed. Endpoint limits provide sharpness. Finite exact-rational and numerical checks are supporting evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS, with risk
-Shah and Winstein's complete six-page manuscript specifies the same transition and proves stationary-law and Doeblin assertions, but neither its definitions, results, remarks, nor appendix supply a \(W_1\) coefficient or its parameter phases. A statement about total-variation ergodicity does not imply sharp Euclidean \(W_1\) Lipschitz constants; the infinite coefficient for \(0<p<1\) illustrates why. Targeted semantic-record and primary-literature searches did not locate a covering sharp theorem. The broad iterated-random-functions literature is an uneliminated priority risk.
+PASS
 
-## Value — PASS
-The exact coefficient answers a natural stability question for the already studied one-parameter family and reveals three distinct phenomena: loss of Euclidean Lipschitz regularity immediately above the median case, complete state-independence at the uniform kernel, and a sharp expansion threshold at \(p=3\). It also provides explicit geometric \(W_1\) mixing estimates for the genuine contraction regimes, complementary to Doeblin mixing in the original work.
+On each compact interior state segment the CDF at each threshold is continuous and piecewise C^1 in the state, with a uniformly bounded derivative. Integrating its absolute derivative gives the global upper bound by the supremal local L1 speed, and dominated convergence gives the reverse bound via infinitesimal pairs. Independently, let q=x^p/(x^p+(1-x)^p). Twice the speed is |xq'-q|+|1-q-(1-x)q'|. For p>1 and x<=1/2, q<=x and xq'/q=p(1-q)/(1-x)>1. When the second signed term is nonnegative the speed doubled is 1-2q-(1-2x)q'<=1; otherwise it is q'-1. With x=(1+tanh u)/2, q=(1+tanh(pu))/2, hence q'=p cosh^2(u)/cosh^2(pu)<=p. Reflection covers the other half. The left-end limit is 1/2 and the center speed is (p-1)/2. For 0<p<1, q'~p x^(p-1), which forces unbounded speed at the left endpoint. For p=0 and p=1 direct substitution gives 1/2 and 0. This proves the exact constants, including p=2 and p=3, with no need for endpoint states or numerical extrapolation. The frozen check_w1.py is a finite regression check, not the proof; it was inspected but not executed.
 
-## Limits and literature
-The result is one-step and tied to Euclidean ground cost, \(p\ge0\). It does not replace the known stationary-law theorem. Main source: Shah–Winstein, arXiv:2605.03206v3, §3; general background Diaconis–Freedman (1999). Potentially covering obscure general coupling results may remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the full sharp one-step Euclidean W1 coefficient and its contraction thresholds for the existing kernel. The p=1 case is already immediate from the defining density; neither that case nor the prior stationary-law theorem is credited as new.
+
+## value
+
+PASS
+
+This sharp coefficient is a natural invariant of an existing Markov family and tells when a one-step Euclidean coupling argument can work. It gives both the exact loss of strict contraction at p=3 and a uniformly mixing phase with no finite one-step Wasserstein Lipschitz bound, neither of which the prior mixing theorem supplies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

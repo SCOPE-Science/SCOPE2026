@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:53:32.001573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–53",
+        "VERIFICATION.md lines 19–23",
+        "check.py lines 9–104 (static inspection)",
+        "Independent enumeration of small full-support binary incidence patterns"
+      ],
+      "rationale": "The identity XY=R(X)×C(Y) makes squares precisely the rectangles and makes each fiber over a square intrinsic. On the rectangular band of idempotents, equality of all right products recognizes equal row support, and equality of all left products recognizes equal column support. Therefore the induced automorphism is a pair of independent index permutations. In each fiber, missing-row/missing-column inclusion-exclusion counts all incidence patterns with full support; subtracting its unique rectangle gives N. For v≥2, appending a full row injects the nonrectangular full-support u×v patterns into those on (u+1)×v. A pattern with one entry missing in the new row is full-support (both dimensions at least two) and is outside the image; hence the increase is strict. Appending full columns gives the needed weak monotonicity, and transposition gives the dual strictness. Thus the maximum nonrectangular fiber size over column supports is N_(|A|,b), which distinguishes the row cardinalities for b≥2. The dual maximum distinguishes the columns for a≥2. Conversely every cardinality-preserving pair can be lifted by arbitrary compatible bijections of the nonrectangles preserving the unique rectangle per fiber; these respect all products by the initial identity. Choosing a common indexing of nonrectangles at each pair of dimensions gives a homomorphic splitting and the stated permutation action, so the factorial order follows. Singleton rigidity follows from the support sizes (1,1); when a dimension is one the operation is one-sided zero, so arbitrary permutations work, including a singleton/nonsingleton transposition unless a=b=1. Independently enumerated nonrectangles with full support to obtain N_(1,2)=0, N_(2,2)=6, N_(2,3)=24 and N_(3,3)=264. In (2,2) the only nontrivial kernel factor is the invariant full-support fiber, so the semidirect product is direct and has order 2880. The supplied script was read, not executed. Its product routine uses the support identity directly, so checking it is not an independent verification of the multiplication identity or an exhaustive search of unrestricted candidate permutations; the proof establishes both the identity and exhaustiveness.",
+      "residual_risks": [
+        "Applies to the nonempty power of a fixed finite rectangular band; no claim for inclusion/union automorphisms or infinite bands."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Tringali prove singleton preservation for inverse semigroups, while a rectangular band except 1×1 has noncommuting idempotents and is not inverse. Their introduction attributes global determination for completely simple and completely 0-simple semigroups to Tamura's 1986 results, notwithstanding the narrower-looking paper title. Retrieval for Tamura's 1984 rectangular-group paper was bibliographic only."
+        ],
+        "reasoning": "Global determination asserts existence of a base-semigroup isomorphism when power semigroups are isomorphic; it does not say that a particular isomorphism restricts to one on singletons, much less enumerate all automorphisms. The inverse theorem cannot be applied merely because rectangular bands are regular. The 1984 paper is potentially more directly relevant but not readable from the inspected links.",
+        "searches": [
+          "Liu–Tringali arXiv:2610.29525v1 §1 and §5 Corollary 5.3",
+          "Tamura DOI:10.1016/0021-8693(86)90002-5, landing page and Liu–Tringali discussion of Theorems 5.9 and 6.8",
+          "Public query: Tamura Power semigroups of rectangular groups Math Japonica 29 671 678 pdf full text singleton automorphisms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b973ff149146",
+        "arXiv:2610.29525v1",
+        "Tamura–Shafer 1968 and Tamura 1984/1986 limited access as specified",
+        "Tringali bibliography and the exact-title public search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The null-inflation structure already prescribes independent permutations of each nonzero fiber part and a size-compatible action of the idempotent band. The substantive further calculation is that the entire size array distinguishes |A| via max_C N_(|A|,|C|)=N_(|A|,b), and similarly distinguishes |C|. The November 8 mirror supplies support maps and fiber maps but does not state this support-cardinality evaluation, the explicit automorphism-group order, or the singleton threshold in its inspected finding."
+        ],
+        "reasoning": "Once cardinality rigidity is known, lifting, splitting by fiber labels and taking factorials are routine. The structural description alone does not decide what support permutations preserve sizes: the monotonicity/max argument uses the actual rectangular incidence counts. That step also explains why the one-sided boundary differs rather than merely supplying a renamed form of the decomposition.",
+        "searches": [
+          "Tamura–Shafer 1968 null-component attribution in RESULT.md lines 61,68",
+          "Liu–Tringali §1 and Corollary 5.3",
+          "Resultary b973ff149146, Finding and prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A support fiber is a null semigroup (all products equal its rectangle), consistent with the 1968 decomposition attributed in the frozen record. The mirrored November 8 RESULT explicitly describes endomorphisms by separate support maps and compatible fiber maps. Its invertible maps have exactly the general size-compatible fiber description."
+        ],
+        "reasoning": "The terms square fiber, null component and support fiber describe the same structural decomposition here. The November 8 general endomorphism characterization materially overlaps and implies the abstract size-compatible bijection description. It is catalogued later, and its attribution to earlier automorphism work names no source; it is not itself evidence that the cardinality classification was established in an earlier primary work.",
+        "searches": [
+          "Tamura–Shafer, Power semigroups II, Notices AMS 15 (1968), p. 395; attempted exact AMS retrieval",
+          "Resultary 2026/11/8/SCOPE-the-full-endomorphism-monoid-of-a-finite-rectangular-band-power--b973ff149146",
+          "Tamura, Power semigroups of rectangular groups, Math. Japon. 29 (1984), 671–678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror's 2×2 example gives 9,530,217 endomorphisms, not a tabulated 2880 automorphisms; it does identify how to restrict the fiber maps to bijections. The checked historical catalogue entry for Tamura 1984 confirms volume 29(4), pp. 671–678 and links only bibliographic information in the located passage."
+        ],
+        "reasoning": "A total endomorphism count is not the corresponding unit-group order. No earlier exact automorphism table was actually retrieved; this is not negative publication evidence. The entirety of the present formula, not just the small count, is the relevant comparison.",
+        "searches": [
+          "Resultary b973ff149146, mirrored numerical examples and full endomorphism finding",
+          "Tringali power semigroup bibliography, exact Tamura 1984 title",
+          "Public exact-title search for Tamura 1984"
+        ]
+      },
+      "rationale": "The rectangular-band/null-fiber decomposition and general power-semigroup reconstruction questions are prior; they should not be credited as new. The supported distinct claim identifies the size classes of both projections intrinsically, giving the exact automorphism group/order and sharp singleton-rigidity boundary for all finite rectangular bands. The strongest accessible earlier passages do not establish the needed support-size rigidity. The later indexed endomorphism classification materially overlaps the general fiber-map description and is explicitly compared below. Access to the strongest older primary candidates remains incomplete; pass is to the best of present evidence, not a claim of absolute priority.",
+      "residual_risks": [
+        "The 1968, 1984 and 1986 primary texts were not fully accessible. In particular a more explicit automorphism or cardinality statement in Tamura 1984 could change the priority assessment.",
+        "The later catalogue record's unnamed earlier automorphism result was not resolved to a source; the later classification's actual overlap is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the attributed structure as background; no whole-document judgement or verified earlier automorphism formula.",
+          "evidence": [
+            "The frozen attribution says a rectangular band of null semigroups; the proof of XY=R(X)×C(Y) verifies this structure directly."
+          ],
+          "identifier_or_url": "https://www.ams.org/journals/notices/196802/196802FullIssue.pdf (Notices AMS 15 (1968), p. 395)",
+          "material_read": "Frozen attribution at RESULT.md lines 61 and 68; primary passage unavailable through the attempted direct and alternate routes.",
+          "method": "Attempted pinpoint primary retrieval; contrasted accessible literature citations without substituting the distinct 1967 paper.",
+          "title": "Power semigroups II",
+          "trigger": "Claimed earlier null-component theorem for the exact base family."
+        },
+        {
+          "assessment": "Bibliography verified; substantive primary statements unread and not used as noncoverage evidence.",
+          "evidence": [
+            "The bibliography records the exact title, volume, issue and pages; it does not state any theorem from the paper."
+          ],
+          "identifier_or_url": "Math. Japon. 29(4) (1984), 671–678; https://salvo-tringali.github.io/home/biblio-on-power-semigroups.html",
+          "material_read": "Exact title in bibliography around offset 14287; public exact-title retrieval located Tamura's survey citation, not the primary paper. Journal route attempted but unavailable.",
+          "method": "Exact bibliographic search, publisher-route attempt, and bounded inspection of the specialized bibliography; identified survey access also unsuccessful.",
+          "title": "Power semigroups of rectangular groups",
+          "trigger": "Rectangular bands are rectangular groups with trivial group factor, so a stronger classification in this exact paper is plausible."
+        },
+        {
+          "assessment": "Accessible secondary evidence establishes global determination relevance, but does not verify a statement about all automorphisms or singleton preservation in the primary paper.",
+          "evidence": [
+            "Liu–Tringali attribute completely simple as well as completely 0-simple global determination to the 1986 work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-8693(86)90002-5",
+          "material_read": "Primary landing/abstract only; secondary exact discussion of Theorems 5.9 and 6.8 in Liu–Tringali §1, offsets 3500–7465.",
+          "method": "OA primary retrieval attempt and bounded secondary statement comparison.",
+          "title": "Isomorphism problem of power semigroups of completely 0-simple semigroups",
+          "trigger": "Potential broader exact base class and rigidity results."
+        },
+        {
+          "assessment": "The singleton-preservation theorem requires inverse semigroups, a condition absent from the nontrivial base bands.",
+          "evidence": [
+            "The finite/finitary distinction does not change the power here; the inverse assumption does."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.29525v1",
+          "material_read": "Abstract/§1 at offsets 0 and 3500–7465, Corollary 5.3 §5 near offset 50000.",
+          "method": "Bounded primary HTML passage inspection.",
+          "title": "Kobayashi's problem for power semigroups of inverse semigroups",
+          "trigger": "Exact singleton-rigidity question in another large class."
+        },
+        {
+          "assessment": "Material abstract fiber-map overlap and later indexed date; its unnamed reference to earlier automorphism work does not establish provenance beyond that.",
+          "evidence": [
+            "Separate row/column support maps and compatible fiber maps classify endomorphisms, with 9,530,217 in the 2×2 example. The earlier automorphism work mentioned there is not identified by source."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-the-full-endomorphism-monoid-of-a-finite-rectangular-band-power--b973ff149146",
+          "material_read": "Mirrored RESULT.md offsets 0–3764 and prior-work paragraph at offset 6250 onward, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local Resultary lookup and exact local mirror passage comparison.",
+          "title": "The full endomorphism monoid of a finite rectangular-band power semigroup",
+          "trigger": "Strongest exact indexed match; broader map class on the same objects."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof §§3–5 and Finding",
+        "Liu–Tringali §5 (inverse singleton comparison)",
+        "Resultary b973ff149146 (endomorphism comparison)"
+      ],
+      "rationale": "The theorem recovers two support cardinalities from multiplication alone even though the automorphisms need not preserve an element's size or inclusion. This yields a complete exact group and a sharp nontrivial singleton-preservation boundary outside the inverse case. The boundary and intrinsic recovery explain why the result is more than a recount of the smallest group or a restatement of the null-fiber structure.",
+      "residual_risks": [
+        "No implication is claimed for rectangular groups with nontrivial group factor or for broader Rees matrix semigroups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

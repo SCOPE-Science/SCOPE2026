@@ -1,15 +1,21 @@
-# Review of the local-to-global digit-sum classification
+# Independent mathematical audit
 
-## Correctness
-PASS. Necessity follows from the strict inequality between the numerical value and base-\(b\) digit sum of every digit \(d\ge b\). For sufficiency, the prescribed low \(B=b^k\) digits fix the base-divisible residue, while a greedy repunit correction uses only \(O_{B,m}(\log s)\) of the \(s-d\) free high unit digits. The construction is verified modulo \(\operatorname{lcm}(s,m_1)\) and the base-smooth modulus separately; Chinese remainder completion is exact. Tests cover every \(m\le30\), every residue, \(2\le b\le5\), and \(1\le k\le3\). Finite checks are corroborative, not a proof of infinitude.
+## correctness
 
-## Originality
-PASS, subject to independent bibliographic review. Kominers (arXiv:2602.01252v1) gives infinitely many two-base Niven witnesses for moduli coprime to \(b\), with no classification when \(\gcd(m,b)>1\). Harrington–Litman–Wong (arXiv:2303.06534v1) prove a single-base every-progression theorem that does not enforce equality of digit sums. Witno (Fibonacci Quarterly 54(1), 2016) proves sparse-repunit and prescribed trailing-digit single-base Niven results, not the complete noncoprime equal-digit-sum two-base residue spectrum. Targeted research-record, equivalent-formulation, and literature searches did not locate the full theorem; unindexed overlap remains possible.
+PASS
 
-## Mathematical value
-PASS. The result supplies a complete admissible-versus-forbidden dichotomy for every arithmetic progression, with explicit asymptotically sparse admissible residue classes modulo \(b^{kv}\): exactly \(b^v\) classes. The logarithmic-length modular adjustment establishes that every local digit obstruction is the only obstruction to simultaneous digit-sum divisibility. The distinction is structural and exact rather than a numerical extension.
+Independently checked the all-parameter construction and its boundary cases. In a padded k-digit block, the base-b digit sum of d is ≤d with equality exactly for d<b, so equality across blocks requires every B-digit below b. Reduction modulo m_0 then sees just v low blocks. For the converse fix an allowed prefix c and its digit sum d, and write c-d=(B-1)T. By CRT there are unbounded s≡r mod m_1 prime to B (use s≡1 mod rad(b)); set N=lcm(s,m_1) and q=N/gcd(N,B-1). For R=(-T) mod q, the repunits U_j=(B^j-1)/(B-1), starting at U_1=1, satisfy U_{j+1}=BU_j+1. In descending greedy division each remainder entering its U_j step is less than U_{j+1}, so its quotient is at most B. The number of scales is at most log_B(1+(B-1)R) for R>0; an empty sum suffices at R=0. As N≤sm_1, this correction uses O(log(s+1)) unit slots, fewer than s-d for large allowed s. Place those slots at pairwise distinct exponents ≥v in the prescribed congruence classes modulo ord_N(B), and put the remaining slots at distinct exponents congruent to zero. This changes neither the prefix nor the overall digit-sum count s. Modulo N the resulting number is s+(B-1)(T+R)≡s; this simultaneously gives divisibility by s and the residue r modulo m_1. The prefix gives r modulo m_0, and unbounded distinct sums yield infinitely many distinct positive integers. v=0 gives c=d=T=0; the trivial modulus/order convention and R=0 include the boundary cases. At m=B^v the prefix map is injective and has b^v values. This analytic replay verifies the universal theorem; the supplied modular checker was inspected, not executed.
 
-## Limits
-No classification is asserted for simultaneously Niven integers whose two digit sums differ. The result does not quantify global counting density or optimize witness size. Priority review by an independent expert or exhaustive bibliography is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Kominers for the entire coprime-modulus subcase, including unbounded equal sums. The supported distinction is the exact arbitrary-modulus residue criterion and noncoprime sufficiency preserving a prescribed permitted prefix, not general existence of power-related simultaneous Niven numbers or single-base repunit identities.
+
+## value
+
+PASS
+
+Removing coprimality from the existing power-related progression problem introduces a real obstruction, not just a change of parameters: some classes cannot contain any equal-sum numbers, while every permitted class has simultaneous Niven witnesses with unbounded sums. The exact low-prefix decision and preservation of that prefix while enforcing divisibility solve this natural local-to-global problem for arbitrary mixed or base-supported moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

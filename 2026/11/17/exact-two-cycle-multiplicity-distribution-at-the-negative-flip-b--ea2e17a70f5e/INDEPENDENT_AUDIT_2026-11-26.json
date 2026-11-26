@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:32:56.157142Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93, VERIFICATION.md and CHECK.py inspected, not executed",
+        "Direct independent two-floor inequality derivation and exact representative boundary check",
+        "Hoseana arXiv:2406.14055v1 §2, Theorem 2, PDF p. 5"
+      ],
+      "rationale": "After one iteration every point is integer, so a primitive pair can be written x,x+k with x an integer and k>0. Putting d=2-epsilon, the two floor inequalities intersect exactly at mu-k-1+epsilon k < d x <= mu-k. This both proves the strict cutoff k<1/epsilon and gives at most one pair for each k. Conjugacy by integer translation gives period d. Put p=k mod 2. Modulo one in v={mu/d}, the allowed interval starts at p/2+epsilon k/(2d) and ends, exclusively, at p/2+(1-epsilon k/2)/d; the latter is at most (p+1)/2 since k>=1. Hence there is no wrap, only matching parity is possible, and intervals nest within each half. The mth interval in each half gives the survival length; adding lengths and summing over k=1 through ceil(1/epsilon)-1 gives the stated mean, including reciprocal-integer cutoffs. For w equal to phase within a half, the matching parity lattice with mesh 2 epsilon is cut off by epsilon k<=2dw and epsilon k<2(1-dw). The smaller cutoff is at most one, and if it equals one the strict inequality excludes the potential endpoint. Counting either lattice differs from cutoff divided by its mesh by at most one, including when an endpoint is excluded. Thus epsilon times the count differs from min(dw,1-dw) by at most epsilon; replacing d by 2 adds at most epsilon/2. Under uniform phase the four linear branches yield F uniform on [0,1/2], with CDF Lipschitz constant two, so the coupled CDF error is at most 3 epsilon. At epsilon=1/4 and k=3 the lower offset 5/4 indeed admits {-1,2}, while at offset 3/2 the strict upper test excludes this gap. This is a closed argument for all stated real parameters, not an inference from the finite frozen check.",
+      "residual_risks": [
+        "The phase and CDF results apply to normalized offset modulo d (and uniform offset for the distribution), not random initial states or random orbit noise."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoseana treats other slope regimes as well, with cycle counts for fixed parameters. Rozikov et al. treat mu=0, where -1<lambda<0 leads to convergence to zero and lambda=-1 gives two-cycles for nonzero integers.",
+          "Contracted rotations use a fractional-part map on [0,1) and parameter locking for rational rotation number; this does not count potentially many primitive two-cycles of the negative-slope integer-valued map."
+        ],
+        "reasoning": "The stronger fixed-parameter cycle census supplies input to the distribution calculation, not the parameter law as a stated theorem. No-offset dynamics or rotation-number parameter intervals do not subsume these correlated gap events over the full offset period.",
+        "searches": [
+          "Hoseana Theorem 2",
+          "Rozikov–Sattarov–Usmonov arXiv:1503.07129v1 Theorem 1",
+          "Laurent–Nogueira arXiv:1704.05130 pp. 1–3, Theorem 3",
+          "b81ca333b81c mirrored RESULT.md Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.14055v1; doi:10.1080/10236198.2024.2428386 (journal retrieval attempted)",
+        "b81ca333b81c",
+        "ea2e17a70f5e (self-hit)",
+        "arXiv:1503.07129v1",
+        "arXiv:1704.05130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2 is sufficient mathematical input for the new deduction once the parity-specific windows, their nesting and the lattice cutoff are established.",
+          "The basin-selection result gives paired cycles j and L+U-j, so it also determines the count floor((U-L+1)/2) at fixed offset after computing endpoints. Its stated settling limit is from large integer states with fixed r,mu, not a limit with r increasing to one uniformly over phase."
+        ],
+        "reasoning": "The survival law is not obtained by summing marginal gap probabilities: that would give only a mean. The position and one-sided endpoints of the two nested families are needed for the full survival law, and a separate uniform lattice estimate is needed for scaling, including exact boundary offsets. These are substantive deductions from known pointwise results, not a parameter renaming.",
+        "searches": [
+          "Hoseana arXiv:2406.14055v1 Theorem 2, PDF offset 12250",
+          "b81ca333b81c mirrored RESULT.md, offsets 0–4004 and 7550–9686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoseana's general slope lambda becomes -1+epsilon. His gap and floor expressions then exactly coincide with the reviewed fixed-offset count.",
+          "The map of b81ca333b81c is floor(mu-r x) with r=1-epsilon, exactly the same family in the overlap. Its measure formulas are for x at fixed mu."
+        ],
+        "reasoning": "Changing slope notation adds no novelty. The reviewed law varies mu over a conjugacy period and observes cycle counts, not the Lebesgue sizes of limit-cycle basins in the domain of x.",
+        "searches": [
+          "Hoseana arXiv:2406.14055v1 §2 Theorem 2, DOI 10.1080/10236198.2024.2428386",
+          "Local Resultary: quantized affine contractions, floor dynamics cycle multiplicity and negative flip; b81ca333b81c and ea2e17a70f5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ea2e17a70f5e is the assigned finding itself. b81ca333b81c explicitly describes its input-state basins by the endpoints of the fixed interval of f^2. The known explicit floor sum gives exact counts for fixed offsets, not an exact survival table under uniformly sampled offsets."
+        ],
+        "reasoning": "Agreement of deterministic counts, including those in examples from the earlier record, cannot be counted as an independent match of a probability over parameters. A law is more than evaluating the known counting formula at tabulated offsets.",
+        "searches": [
+          "Local Resultary ea2e17a70f5e and b81ca333b81c",
+          "Hoseana arXiv:2406.14055v1 Theorem 2 count formula"
+        ]
+      },
+      "rationale": "Fixed-offset cycle enumeration is already known for the exact family and directly gives the same positive-gap floor differences. The distinct result is the exact law and uniform singular-limit profile over offset. This uses an analytical reduction of correlated gap events to two disjoint nested families, not a claim of a new classification of periodic points. The strongest indexed same-family overlap concerns the distribution of basins over states and settling from remote initial states, rather than the distribution of the number of primitive cycles over offsets.",
+      "residual_risks": [
+        "The journal version of Hoseana was not separately inspected and may include additional results beyond the preprint. Unlocated parameter-statistics results remain possible; absence is not inferred from retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent fixed-offset enumeration; supplies prerequisite for, but does not state, the parameter law or uniform scaling in the inspected theorem",
+          "evidence": [
+            "The -1<lambda<0 case has maximum candidate gap ceil(1/(1+lambda))-1 and gives the sum of differences of floors for the number of two-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.14055 (journal DOI 10.1080/10236198.2024.2428386)",
+          "material_read": "Submitted PDF §2 Theorem 2, p. 5 at offset 12250; no separately inspected typeset journal text",
+          "method": "Lawful alternate arXiv copy after publisher denial",
+          "title": "The dynamics of one-dimensional quasi-affine maps",
+          "trigger": "Same floor-affine family and exact fixed-offset cycle enumeration"
+        },
+        {
+          "assessment": "Determines fixed-parameter pairing and basins; distinct state-space measures and transient-time limit",
+          "evidence": [
+            "The f^2 fixed integers form [L,U], paired by j -> L+U-j. For fixed r,mu each interior two-cycle basin has Lebesgue measure 2/r in the initial state x, and settling is asymptotic as |x| grows."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c",
+          "material_read": "Mirrored RESULT.md offsets 0–4004 (Finding, scope, endpoint calculation) and 7550–9686 (example, prior comparison, limitations)",
+          "method": "Resultary and targeted local-mirror full-text reads",
+          "title": "Outermost-cycle basin selection and logarithmic settling for quantized affine contractions",
+          "trigger": "Strongest distinct indexed overlap on identical maps"
+        },
+        {
+          "assessment": "Special phase mu=0 only",
+          "evidence": [
+            "For -1<lambda<0 all initial points converge to zero; at lambda=-1 nonzero integers have least period two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.07129",
+          "material_read": "Definition on p. 2 and Theorem 1 p. 4 at PDF offset 11800",
+          "method": "Lawful arXiv primary text",
+          "title": "The dynamical system generated by the floor function",
+          "trigger": "Earlier negative-slope floor-map dynamics"
+        },
+        {
+          "assessment": "Different map and periodicity observable",
+          "evidence": [
+            "The fractional-part contraction x -> {alpha x+delta} has parameter intervals for rational rotation numbers, with at most one periodic orbit, rather than the primitive two-cycle multiplicity considered here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.05130",
+          "material_read": "pp. 1–3, definition and Theorem 3",
+          "method": "Lawful arXiv primary text",
+          "title": "Rotation number of interval contracted rotations",
+          "trigger": "Possible equivalent parameter-window framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Near a unit negative slope, the known fixed-parameter counts alone do not show how typical or uniform the growth is as offsets are varied. The nested-window description gives all finite survival probabilities and a deterministic phase profile distinguishing offsets with very different growth. A uniform error also controls every discontinuity and implies a quantified distributional limit. These results characterize meaningful parameter sensitivity of a standard quantized dynamical system beyond reenumerating its periodic points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

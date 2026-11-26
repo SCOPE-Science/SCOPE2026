@@ -56,7 +56,11 @@ The quantity \(1+\frac32s^2\) lies in \(1+3\mathbb Z_3\), so has a unique square
 \[
 H(s)=s\sqrt{1+\frac32s^2}.
 \]
-Because each generalized binomial coefficient \(\binom{1/2}{n}\) lies in \(\mathbb Z_3\), the convergent binomial expansion has the form \(H(s)=s+3K(s)\), where \(K\) is a convergent power series with coefficients in \(\mathbb Z_3\). In particular \(K\) is one-Lipschitz, and for distinct \(s,u\in\mathbb Z_3\),
+Write \(R(s)=\sqrt{1+(3/2)s^2}\) for the root congruent to one modulo three. The difference of squares gives, for distinct \(s,u\),
+\[
+H(s)-H(u)=(s-u)\left(R(s)+\frac{3u(s+u)}{2(R(s)+R(u))}\right).
+\]
+Since \(R(s)+R(u)\equiv2\pmod3\), the parenthetical factor is congruent to one modulo three. Thus
 \[
 \nu_3(H(s)-H(u))=\nu_3(s-u).
 \]
@@ -72,7 +76,7 @@ H(s)^2\equiv4(y-c_k)/27\pmod{3^{k-3}}.
 \]
 Because \(H\) is a bijection modulo \(3^{k-3}\), there are precisely \(\rho_{k-3}(z)\) solutions in \(s\bmod3^{k-3}\). Each has exactly nine lifts to \(s\bmod3^{k-1}\), giving the asserted factor nine. For a nonzero square target modulo \(3^j\), writing \(z=3^{2a}v\) with \(v\equiv1\pmod3\) shows that there are two square roots modulo \(3^{j-2a}\) and \(3^a\) lifts for each; when \(z=0\) there are exactly \(3^{\lfloor j/2\rfloor}\) roots. This proves every case of \(\rho_j\).
 
-**4. Image counts and the limit.** The first image ball contributes \(3^{k-1}\) distinct targets. The second contributes exactly \(Q_3(\max\{k-3,0\})\): when \(k\le3\) it is one target, while for \(k\ge3\) multiplying by the unit \(27/4\) identifies it with squares modulo \(3^{k-3}\). The quadratic residues modulo \(3^n\) are zero together with residues of even valuation \(2a<n\) and square unit part, giving
+**4. Image counts and the limit.** The first image ball contributes \(3^{k-1}\) distinct targets. The second contributes exactly \(Q_3(\max\{k-3,0\})\): when \(k\le3\) it is one target, and for \(k>3\) two square arguments give the same target precisely when they are congruent modulo \(3^{k-3}\), since \(27/4=3^3/4\) with \(1/4\) a unit. The quadratic residues modulo \(3^n\) are zero together with residues of even valuation \(2a<n\) and square unit part, giving
 \[
 Q_3(n)=1+\sum_{a=0}^{\lfloor(n-1)/2\rfloor}3^{n-2a-1}\quad(n\ge1).
 \]

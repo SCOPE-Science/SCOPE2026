@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:21:20.862693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The seen-factor mask and last min(3,|w|) bits describe exactly what new factor can appear on the next input bit, by induction on word length; the predicate tests only the fifteen required factors, allowing the optional factor arbitrarily often. Reachability is finite transition closure. Refinement starting with acceptance yields agreement on all suffixes of length at most d after d rounds. Stability of the nested partition certifies agreement for arbitrarily long words; a strict split in the last changing round certifies sharpness. Independent run `python3 /tmp/opencode/factor-review.py` used target-specific sets of missing factors and collapsed all fulfilled states at construction. For the first eight patterns in increasing binary order it obtained (8435,11121,9670,10152,9956,9537,8524,11746), and the reverse order for the complementary eight. Sharp depths were 17 for 0000/1111 and 18 elsewhere; the preceding round was strictly coarser in every case (e.g., 8431 vs 8435 for 0000 and 11113 vs 11121 for 0001). This quotient computation was exhaustive for all input lengths, not limited by a sample of words. The frozen Moore and Hopcroft implementations were inspected without executing them; their common seen-mask representation has a different raw state count from the target-specific independent check. Complement relabels letters; reversal sends 0001 to 1000 and the verified state counts differ by exactly 625. The classification is only for one specified optional factor of length four in the binary alphabet.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary shortest-absent-substring article defines the problem on a given finite string and finds a shortest absent substring; it does not in the inspected passage classify minimal recognizers across all inputs.",
+          "The three-factor spectra count words at fixed length by which factors occur; the wildcard result enumerates partial words covering all sixteen four-bit words exactly once."
+        ],
+        "reasoning": "Neither a per-input absence algorithm, counts of words by factor subset, nor wildcard universal words give the complete deterministic right-language quotient for each fifteenth-factor requirement.",
+        "searches": [
+          "arXiv:2605.04826v1",
+          "2026/10/12/SCOPE-the-sharp-full-support-threshold-for-binary-three-factor-spectra--e450d182bc9b",
+          "2026/10/12/SCOPE-complete-binary-order-four-universal-partial-word-enumerator--2e57c8213fa8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.04826v1",
+        "OEIS A375919 (citation only; access limited)",
+        "Resultary 23793036421a (self), 41db0a4c16d8, 4c2a5e159cc3, e450d182bc9b, 2e57c8213fa8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-factor language is strictly contained in each optional-factor language: the frozen Moore code constructs an input with exactly fifteen different windows for each omission. The monitored factor set can change on different prefixes, so altering the acceptance predicate changes right-language equivalences."
+        ],
+        "reasoning": "A state count for a strict sublanguage does not determine that for its superlanguage. A generic minimizer is a method, not a table or structural theorem yielding these class counts or the least uniform distinguishing depth. The same-day reversal counterexample does not imply this pair or its 625 gap.",
+        "searches": [
+          "OEIS A375919 (full-factor census cited by the frozen record)",
+          "Resultary 41db0a4c16d8 and 4c2a5e159cc3 (scope comparisons)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day reversal record requires all length-k scattered binary words while avoiding contiguous 0^d1 or its reversal, and obtains gap d-1.",
+          "The cyclic cover record optimizes a circular word covering all length-n words that themselves avoid a given forbidden factor, and gives six reversal/complement classes."
+        ],
+        "reasoning": "A de Bruijn edge-coverage formulation of the present language requires all but one edge and permits the omitted edge; it neither forbids that edge nor minimizes a circular cover length. Reversal is an actual language correspondence here, not a left-to-right state-complexity symmetry. The subsequence result uses a different observable and a different restriction.",
+        "searches": [
+          "Local Resultary: one specified optional length-four factor, de Bruijn coverage and reversal",
+          "2026/11/22/SCOPE-an-unbounded-reversal-gap-for-constrained-subsequence-universali--41db0a4c16d8",
+          "2026/11/2/SCOPE-exact-shortest-cyclic-binary-covers-for-all-four-bit-forbidden-f--4c2a5e159cc3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed optional-factor hit is this very record. The cited OEIS full-factor entry was not retrievable in the lawful bounded lookup (including its text form). Independent calculation confirmed 13212 for the comparison language requiring all sixteen factors, not any one-exemption language. The general web results identified no decisive matching theorem."
+        ],
+        "reasoning": "The cited full-factor table concerns a different acceptance predicate. Recovering its value corroborates the mathematical comparison, not the contents or historical scope of the uninspected entry. No distinct exact exemption table was identified among inspected sources.",
+        "searches": [
+          "OEIS A375919",
+          "Resultary exact optional four-factor spectrum query; record ending 23793036421a (self)",
+          "Focused web search on binary factor coverage and minimal DFA state counts"
+        ]
+      },
+      "rationale": "The contribution is the exact fifteen-required-factor spectrum and sharp suffix complexity. Neither full-factor universality nor the same-day constrained scattered-subsequence reversal result states it. The generic coverage construction and minimization are standard; the claimed new content is the exact pattern dependence and reversal counterexample in this contiguous-factor language. Same-day chronology is not used to resolve priority.",
+      "residual_risks": [
+        "Full OEIS entry and attachments uninspected; a specialized table or broader exact theorem might not be indexed.",
+        "The same-day analogue was compared on mathematical content, not inferred publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the cited full-coverage antecedent, not equivalent to the exemption pattern. Uninspected entry material could have related extensions.",
+          "evidence": "Full four-factor coverage has 13212 states in the independent check; entry described in source as requiring every factor.",
+          "identifier_or_url": "https://oeis.org/A375919",
+          "material_read": "Frozen description, RESULT.md lines 57 and 66; public entry and text form not recovered",
+          "method": "Bounded lawful OA lookup; independent full-factor quotient comparison",
+          "title": "Number of states in the minimal DFA for full binary factor coverage",
+          "trigger": "Possible exact table in full-factor literature"
+        },
+        {
+          "assessment": "Different question in the retrieved definition and result",
+          "evidence": "Shortest absent substring of a given finite string, rather than minimal recognizer for all words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04826",
+          "material_read": "PDF p.1 near extraction offset 3420",
+          "method": "Open primary PDF excerpt",
+          "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+          "trigger": "Factor absence formulated as a general algorithmic problem"
+        },
+        {
+          "assessment": "Conceptually overlaps, different languages and exact results; date establishes no order",
+          "evidence": "Scattered length-k subsequence universality and a forbidden factor, gap d-1.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-unbounded-reversal-gap-for-constrained-subsequence-universali--41db0a4c16d8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An unbounded reversal gap for constrained subsequence universality",
+          "trigger": "Distinct same-day exact reversal-asymmetry claim"
+        },
+        {
+          "assessment": "Different optimization and enumeration objectives, not equivalent state complexity",
+          "evidence": "Forbidden-factor cyclic covers through order 15; fixed-length words with prescribed three-factor presence.",
+          "identifier_or_url": "Resultary 4c2a5e159cc3 and e450d182bc9b",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact shortest cyclic binary covers; sharp full-support threshold for binary three-factor spectra",
+          "trigger": "Subset coverage, cyclic/reversal symmetries and factor presence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting a single requirement from the familiar binary full-factor monitor is a natural perturbation: it isolates how the geometry of one edge in the order-three de Bruijn graph affects exact right languages. The eight distinct answers, extremal patterns, sharp uniform suffix lengths, and concrete reversal gap establish that this perturbation is not captured by full-factor coverage or complement/reversal symmetry alone. Four is the first order allowing eight complement classes and these data give exact quantitative benchmarks for reductions and symmetry conjectures, not just code examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

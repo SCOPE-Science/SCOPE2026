@@ -1,97 +1,44 @@
-# Minkowski asymmetry of edge-transitive cut polytopes via MaxCut
+# Which edges pin the Minkowski centers of a cut polytope?
 
 ## Finding
 
-Let \(G=(V,E)\) be a finite simple undirected graph with at least one edge; isolated vertices are permitted. Suppose its automorphism group is transitive on its edge set. Set \(m=|E|\), and let
-\[
-P_G=\operatorname{conv}\{\chi_{\delta(S)}:S\subseteq V\}\subset\mathbb R^E,\qquad
-M=\max_{S\subseteq V}|\delta(S)|.
-\]
-For a full-dimensional convex body \(P\), its Minkowski asymmetry is
-\[
-s(P)=\min_{c\in\mathbb R^{\dim P}}\inf\{s\ge1:-(P-c)\subseteq s(P-c)\}.
-\]
-Then \(M>m/2\),
-\[
-\boxed{s(P_G)=\frac{m}{2M-m}},\qquad
-\boxed{c_*=\tfrac12\mathbf1_E},
-\]
-and \(c_*\) is the **unique** minimizing Minkowski center.
+Let \(G=(V,E)\) be a finite simple undirected graph with \(E\ne\varnothing\), and let \(P_G\) be the convex hull of its ordinary cut-indicator vectors in \(\mathbb R^E\). Isolated vertices and disconnected graphs are allowed. Write \(h=\tfrac12\mathbf1_E\). If \(\mathcal M_G\) is the set of minimizing Minkowski centers, the following criterion determines its affine hull without imposing edge transitivity.
 
-For every integer \(r\ge2\), every integer \(a\ge1\), and the complete \(r\)-partite graph with \(r\) equal parts of size \(a\),
+For \(\sigma\in\{-1,1\}^V\), let \(x^\sigma_{uv}=\sigma_u\sigma_v\), and define the polytope
 \[
-\boxed{s(P_{K_{a,\ldots,a}})=
-\begin{cases}r-1,&r\text{ even},\\r,&r\text{ odd}.
-\end{cases}}
+ D_G=\{a\in\mathbb R^E:1+a\cdot x^\sigma\ge0\text{ for all }\sigma\}.
 \]
-Thus asymmetry is invariant under equal-size vertex blowup in this family, though the ambient dimension grows quadratically with \(a\). In particular, this gives \(r-1\) for even complete graphs \(K_r\) and \(r\) for odd ones.
-
-## Assumptions and scope
-
-Graphs are simple and finite; disconnected edge-transitive graphs and isolated vertices are allowed. All cut vectors use ordinary nonnegative \(0/1\) coordinates, not signed roots or correlation coordinates. The convex body is the *whole* cut polytope in the Euclidean edge-coordinate space; the Minkowski asymmetry is affine-invariant and does not depend on a Euclidean norm. Transitivity is on edges, not necessarily vertices. The formula does not claim to hold for arbitrary non-edge-transitive or weighted graphs.
+Let \(D_G^*\) be the face maximizing \(\sum_e a_e\), and let \(E_*\subseteq E\) be the union of the supports of the vectors in \(D_G^*\) (support means the set of nonzero coordinates). Then
+\[
+ \operatorname{aff}\mathcal M_G=\{c\in\mathbb R^E:c_e=1/2\ (e\in E_*)\},
+ \qquad \dim\mathcal M_G=|E\setminus E_*|.
+\]
+In particular the center is unique if and only if the dual optimum admits a vector of full support. Equivalently, \(E_*\) is the union of the supports of the normals of the facets of the signed cut polytope incident to its negative diagonal radial endpoint. The criterion is about the affine hull, not the global extent of the center set along free coordinates.
 
 ## Proof
 
-**Full dimensionality.** The empty cut gives the zero vector. For each edge \(uv\in E\), the identity
-\[
-2\mathbf e_{uv}=\chi_{\delta(\{u\})}+\chi_{\delta(\{v\})}-\chi_{\delta(\{u,v\})}
-\]
-holds coordinatewise, so the cut vectors span \(\mathbb R^E\). The average over all vertex sign assignments is \(h=\tfrac12\mathbf1_E\); as an average with positive weights of all cut vectors, \(h\) is interior.
+**Switching and the dual problem.** Pass by the affine map \(x\mapsto\mathbf1_E-2x\) to the signed cut polytope \(K=\operatorname{conv}\{x^\sigma\}\). Multiplication by \(x^\sigma\) coordinatewise defines an invertible diagonal map \(T_\sigma\) preserving \(K\), since \(T_\sigma x^\eta=x^{\sigma\eta}\). Under uniform vertex signs, the edge characters are mean zero and pairwise orthogonal (edges are distinct unordered pairs). If a linear functional is constant on the signed cut vectors, averaging makes that constant zero and pairing with each character makes all coefficients zero. Thus \(K\) is full dimensional, and its average \(0\) over the signed cuts is interior.
 
-**Switching and optimal center.** For a cut vector \(d\in\{0,1\}^E\), let \(T_d\) be the affine involution
-\[
-(T_d x)_e=d_e+(1-2d_e)x_e.
-\]
-Since cut vectors add by symmetric difference modulo two, \(T_d(P_G)=P_G\). If \(c\) is a feasible center for dilation \(s\), then so is \(T_d(c)\): affine transformations commute with homotheties about their transformed centers. The feasible-center set is convex, since its conditions are \((s+1)c-x\in sP_G\) for every \(x\in P_G\). Averaging \(T_d(c)\) over the vertex-sign switching group produces \(h\), since every edge coordinate is complemented in half the group elements. Hence \(h\) minimizes asymmetry.
+For dilation \(s\), a center \(b\) for \(K\) is feasible if \(((s+1)b-x^\sigma)/s\in K\) for all \(\sigma\). This defines a convex, switching-invariant set. Consequently, if any center is feasible at \(s\), so is its switching average \(0\). At \(0\) the membership tests reduce by switching to \(-\mathbf1_E/s\in K\). Let \(s=s(K)\) be the least admissible dilation and \(p=-\mathbf1_E/s\). It is the negative-diagonal radial endpoint; no point further along that ray can belong to \(K\), even if \(s=1\), because \(K\subset[-1,1]^E\). Now \(D_G=-K^\circ\), where \(K^\circ=\{q:q\cdot y\le1\text{ for all }y\in K\}\). The polar membership tests at \(p\) show \(s=\max_{a\in D_G}a\cdot\mathbf1_E\). The active facet tests at \(p\) are exactly the vertices of the dual face \(D_G^*\), with the facet normal sign reversed.
 
-**Exact radial threshold.** At \(c=h\), the image of the reflected cut vertex \(d\) under \(T_d\) is the constant vector \(t\mathbf1_E\), where \(t=(s+1)/(2s)\). Thus
+**Pins.** For a feasible \(b\) at this optimal \(s\), switching the reflected point for \(x^\sigma\) produces
 \[
--(P_G-h)\subseteq s(P_G-h)
-\quad\Longleftrightarrow\quad t\mathbf1_E\in P_G.
+  p+\frac{s+1}{s}T_\sigma b\in K.
 \]
-Let \(t_*\) be the largest scalar for which \(t_*\mathbf1_E\in P_G\). The linear inequality \(\sum_{e\in E}x_e\le M\) valid for \(P_G\) yields \(t_*\le M/m\). Choose a maximum cut and average its incidence vector over the graph automorphism group. Edge transitivity forces every coordinate to equal \(M/m\), proving equality \(t_*=M/m\). To see \(M>m/2\), choose a random vertex bipartition with the two sides as balanced as possible; each fixed edge crosses with probability greater than \(1/2\) when \(|V|\ge2\). Consequently a cut strictly exceeds half the edges. Rearranging \(t_*=(s+1)/(2s)\) gives \(s=m/(2M-m)\).
+Apply any \(a\in D_G^*\): it satisfies \(1+a\cdot p=0\), so \(a\cdot T_\sigma b\ge0\) for every \(\sigma\). This signed sum has expectation zero, hence it vanishes for every \(\sigma\). Pairing with the edge character \(x_e^\sigma\) gives \(a_e b_e=0\) for every \(e\). Consequently every minimizing \(b\) vanishes on \(E_*\).
 
-**Unique center.** Write any other minimizing center as \(c=h+z\), and put \(s=m/(2M-m)\). For each cut vector \(d\), the reflected point \(y_d=((s+1)c-d)/s\) lies in \(P_G\). Switching gives
-\[
-T_d(y_d)=\frac Mm\mathbf1_E+\frac{s+1}{s}\big((1-2d_e)z_e\big)_{e\in E}.
-\]
-Apply the maximum-cut inequality to obtain
-\[
-\sum_{uv\in E}\sigma_u\sigma_v z_{uv}\le0
-\quad\text{for all }\sigma\in\{-1,1\}^{V},
-\]
-where \(d_{uv}=(1-\sigma_u\sigma_v)/2\). Its expectation over independent uniform vertex signs is zero, hence every inequality is equality. Multiplying the equality by \(\sigma_u\sigma_v\) and averaging, the pairwise-orthogonality of distinct edge characters \(\sigma_u\sigma_v\) implies \(z_{uv}=0\). Thus \(c=h\) uniquely.
+**No further affine constraints.** Let \(L=\{b:b_e=0\ (e\in E_*)\}\). For \(b\in L\), every active facet constraint at \(p\) remains an equality at \(p+((s+1)/s)T_\sigma b\), for each \(\sigma\). Every other facet has strict slack at \(p\); the list is finite, and \(\|T_\sigma b\|_2=\|b\|_2\). Thus all the remaining tests hold for every sufficiently small \(b\in L\), uniformly in \(\sigma\). These \(b\) are feasible; the affine hull is exactly \(L\) in the signed coordinates and gives the displayed formula in the original coordinates. A full-support optimal vector exists when \(E_*=E\), since a nonempty polytope cannot be covered by finitely many coordinate hyperplanes none of which contains its affine hull. This proves the uniqueness criterion.
 
-**Balanced complete multipartite graphs.** For \(K_{a,\ldots,a}\) with \(r\) parts, write \(x_i\in\{0,\ldots,a\}\) for the number of vertices of part \(i\) assigned to the first shore. A cut contains
-\[
-F(x_1,\ldots,x_r)=\sum_{i<j}\big(a(x_i+x_j)-2x_ix_j\big)
-\]
-edges. This is affine in each coordinate separately. From any maximizing assignment, choose for each part a maximizing endpoint \(x_i\in\{0,a\}\), preserving optimality. Thus some maximum cut assigns every part monochromatically. If \(k\) whole parts lie on one side, its size is \(a^2k(r-k)\). Therefore
-\[
-M=a^2\left\lfloor r^2/4\right\rfloor,
-\quad m=a^2\binom r2.
-\]
-Substitution gives \(s=r-1\) for even \(r\), and \(s=r\) for odd \(r\), independent of \(a\), with the unique center as above.
+## Examples and the edge-transitive specialization
 
-The proof also supplies a constructive polyhedral certificate: \((M/m)\mathbf1_E\) is the average of automorphic images of any maximum cut, and switching this average by each cut produces every reflected cut vertex at the optimal dilation.
+If \(G\) is edge-transitive, write \(m=|E|\) and \(M=\operatorname{MaxCut}(G)\). The average of the signed cut vectors of maximum cuts is \((1-2M/m)\mathbf1_E\). The inequality \(\sum_e y_e\ge m-2M\) on \(K\) shows that this point is the negative diagonal endpoint. Here \(M>m/2\), since a uniformly random cut has mean size \(m/2\) and includes the empty cut with positive probability. Hence \(s=m/(2M-m)\), and \(a=(2M-m)^{-1}\mathbf1_E\) belongs to \(D_G^*\) and has full support. The criterion gives the unique center \(h\). For a balanced complete \(r\)-partite graph of part size \(t\), \(m=t^2\binom r2\) and \(M=t^2\lfloor r^2/4\rfloor\): the cut size is affine separately in the number of selected vertices from each part, so a maximizing choice can be made at an endpoint in each part. The quantitative specialization therefore gives \(r-1\) for even \(r\) and \(r\) for odd \(r\).
+
+For a nontransitive example, attach \(q\) pendant edges to one vertex of a triangle. The signed cut polytope is the product of the signed triangle cut polytope with \([-1,1]^q\), since each leaf sign can choose its bridge coordinate independently for each triangle cut. The triangle has \(s=3\) and a unique center at zero in signed coordinates. By projecting a reflected containment to each factor, and taking products for the reverse direction, the product has \(s=3\). The cube factor has precisely \(|b_e|\le1/2\) as its factor-three center condition, since \(\max_{x_e\in[-1,1]}|4b_e-x_e|=4|b_e|+1\). Thus the original centers have the triangle edges pinned at \(1/2\) and the \(q\) bridge coordinates ranging independently in \([1/4,3/4]\). This illustrates why having a switching-invariant center does not suffice to prove uniqueness.
+
+## Relationship to prior work and scope
+
+Switching symmetries are standard in cut-polytope geometry (Deza and Dutour Sikirić, [arXiv:1501.05407](https://arxiv.org/abs/1501.05407)). The numerical optimization \(\max_{D_G}\sum_e a_e\) is the Boolean edge-shell Turán constant minus one, by finite-group Fourier positivity. The edge-transitive MaxCut value for this optimization was given in *Turán constants of Boolean edge shells on edge-transitive graphs* ([Resultary](https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-tur-n-constants-of-boolean-edge-shells-on-edge-transitive-graphs--8b1ea7ca3db1/RESULT.md)); it also equals the cubical chromatic number minus one on that class by Šámal, [arXiv:0911.2589](https://arxiv.org/abs/0911.2589), Lemma 2.1 and the cubical-coloring normalization. The numerical specialization here is an application, not a claim of a new MaxCut formula. Center-dimension results for a specified minor-free family with pentagonal and triangle constraints appear in *A fivefold asymmetry barrier and center-dimensional transition for \(K_{3,3}\)-minor-free cut polytopes* ([Resultary](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-fivefold-asymmetry-barrier-and-center-dimensional-transition-f--230587b7259c/RESULT.md)). The criterion here describes the affine hull for general simple graphs through the support of the full optimum face; it does not give that face without solving a cut optimization problem, nor does it decide publication priority exhaustively.
 
 ## Verification
 
-The accompanying standalone `verify.py` uses only the Python standard library and exact integer/rational arithmetic. Run `python verify.py`. It enumerates all edge-transitive labeled simple graphs on two through five vertices, checks every max-cut automorphism average and switching identity, and checks the closed balanced multipartite expression for \(2\le r\le11\), \(1\le a\le6\). Where the total vertex count is at most twelve, it also exhaustively computes the maximum cut for that multipartite graph. The observed check totals are 174 graphs, 1,508 automorphism actions, 2,422 cut switches, and 60 multipartite parameter pairs. The infinite statements, center uniqueness and dimension independence are proved above, not inferred from enumeration.
-
-## Relationship to prior work
-
-Nikolaev, *On 1-skeleton of the cut polytopes* (arXiv:2402.13591v1, first posted 2024-02-21), analyzes graph diameter and clique number of cut-polytope skeletons, including complete multipartite graphs. These are combinatorial graph distances, not affine reflection asymmetry. Deza and Dutour Sikirić, *Enumeration of the facets of cut polytopes over some highly symmetric graphs* (arXiv:1501.05407v6), determine facet orbits of specified highly symmetric graphs and explicitly describe switching symmetries. Their treatment provides group-structure background, not the stated Minkowski optimal-center or MaxCut-ratio theorem. Chimani, Juhnke-Kubitzke, Nover and Römer, *Cut Polytopes of Minor-free Graphs* (arXiv:1903.01817v1), study facets and simplicity/simpliciality in minor-restricted classes. Barahona and Mahjoub, *On the Cut Polytope* (1986), develop the classical cut-polytope framework and facet/switching methods. The result here uses familiar switching and averaging facts to determine a different affine-invariant quantity.
-
-An odd-girth formula for \(K_5\)-minor-free cut polytopes does not imply this classification beyond that class: already \(K_5\) has asymmetry \(5\), whereas every nonbipartite graph in the minor-free classification with a triangle has asymmetry \(3\). The hypotheses are materially different; no implication is inferred across them.
-
-## Limitations
-
-The universal formula assumes edge transitivity, and the explicit parity law assumes equal part sizes. MaxCut may be hard to evaluate on other edge-transitive graph families, so the ratio does not universally provide a polynomial-time numerical evaluation. The result concerns the usual cut polytope, not a weighted variant, a projected cut polytope, or a one-skeleton graph diameter. Literature searches and examination of the specified primary works do not establish universal publication priority; an earlier equivalent statement under coefficient-of-symmetry or orbit-averaging terminology remains possible. No independent audit has been conducted.
-
-## References
-
-1. A. V. Nikolaev, *On 1-skeleton of the cut polytopes*, arXiv:2402.13591v1 (2024), https://arxiv.org/html/2402.13591v1 .
-2. M. Deza and M. Dutour Sikirić, *Enumeration of the facets of cut polytopes over some highly symmetric graphs*, arXiv:1501.05407v6 (2015), https://arxiv.org/html/1501.05407v6 .
-3. M. Chimani, M. Juhnke-Kubitzke, A. Nover and T. Römer, *Cut Polytopes of Minor-free Graphs*, arXiv:1903.01817v1 (2019), https://arxiv.org/html/1903.01817v1 .
-4. F. Barahona and A. R. Mahjoub, *On the cut polytope*, Mathematical Programming 36 (1986), 157–173, https://www.lamsade.dauphine.fr/~mahjoub/Papers/BM86.pdf .
+The support criterion is proved above by the switched facet tests, character orthogonality and finite slack. It needs no computational hypothesis. The accompanying original finite checker corroborates only the numerical edge-transitive and balanced multipartite specializations.

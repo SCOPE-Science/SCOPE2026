@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The two embedded standalone programs have different distance constructions: `verify_bfs.py` builds the disjointness graph and computes breadth-first-search distances; `verify_intersection.cpp` uses the explicit intersection-class distance law. For each labelled graph with \(7\le n\le11\), both examine every unordered vertex pair, every potential landmark, and every resulting exact bisector. Their outputs establish the same finite minimum resolving-neighborhood size, threshold and distinct maximum-bisector multiplicities.
+## correctness
 
-The Python and C++ output records are attached as `verify_bfs.out` and `verify_intersection.out`. Re-run with `python3 verify_bfs.py`, then `c++ -O2 -std=c++17 verify_intersection.cpp -o verify_intersection && ./verify_intersection`. Required dependencies are the Python standard library and a C++17 compiler. No binary dependency, external data, or network access is required.
+PASS
 
-Computational verification covers only \(7\le n\le11\). For all \(n\ge7\), correctness rests on the independently stated combinatorial distance-count and incidence-frequency proof. The check does not perform an external audit, establish originality, or settle unmentioned parameters.
+A nonresolving set is contained in a distance bisector, so the threshold is the largest bisector size plus one. At n=7 intersections of size 0,1,2,3 give distances 1,3,2,0. In the distance-three case with endpoints abc and ade and remaining points f,g, the path through def and bcg proves the upper bound, and no common disjoint triple exists. Equal distances then mean equal counts in the exclusive parts. For exclusive size k=3,2,1, the sum of binom(k,j)^2 binom(7−2k,3−2j) is 9,13,15 respectively. The 15-sets depend only on the pair of switched points, recoverable by their multiplicities 5 rather than 7. For n≥8 all nonadjacent distinct pairs have distance two. With q=binom(n−3,3) and c_r=binom(n−6+r,3), the number of distinguishers for overlap r is 2(q−c_r) plus two if r>0 (adjacent endpoints are already counted). This is strictly minimized at r=2, since c2>c1 and c2−c0>1, already at n=8. Its value is 2+2 binom(n−4,2). For overlap two, distinguishers are the two endpoints and the triples avoiding their shared pair K and choosing exactly one switch point in T. Ground-point frequencies on K, the complement of K∪T, and T are 2, 2(n−5), and 1+binom(n−4,2) in strictly increasing order, even at n=8. Thus both K and T are uniquely recoverable and the labelled census follows.
+
+## originality
+
+PASS
+
+The supported distinction is the rank-three minimum-distinguishing-neighbourhood calculation together with the labelled largest-bisector classification and the exact loss of witness uniqueness at n=7. Known Kneser distances, abstract threshold reductions and constructions of small resolving sets are not claimed as new.
+
+## value
+
+PASS
+
+For this natural connected Kneser family the universal landmark threshold is a worst-case guarantee not determined by ordinary metric dimension. The exact count and characterization also identify all obstructions at the sharp bound and explain why they merge tenfold only at the odd graph. This is a full natural rank family with a genuine exceptional order, rather than an isolated table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

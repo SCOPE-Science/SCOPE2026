@@ -1,11 +1,21 @@
-# Scientific review: optimal-action suppression under success conditioning
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated model has two nonabsorbing decision states and an absorbing zero-reward state. The downstream update gives an exact geometric law for policy odds; substituting the resulting telescoping downstream values into the upstream odds recursion gives the stated formula for every integer iteration. The sign of the exact adjacent difference gives the complete increasing/decreasing/plateau classification, including equality at the integer crossing. The logarithmic turning time and the \(\Theta(p^\alpha)\) minimum follow from an exact fractional-part decomposition. The rational family establishes unbounded delay and suppression with a fixed optimal Bellman advantage. The included independent direct-versus-closed recurrence checker passed 26,460 exact rational comparisons and 744 explicit-family steps. Computational tests supplement, rather than establish, the infinite theorem.
+## correctness
 
-**Originality — PASS, subject to listed risk.** Brun and Sun, arXiv:2610.03642, prove monotone value improvement and eventual optimality for the update, and give a generic product identity; they do not formulate the two-stage telescoping closed form, one-turn classification, or quantified suppression. Štrupl and coauthors, arXiv:2107.09088, establish global and asymptotic linear convergence for reward-weighted regression but their worked finite-state example has only a single active decision state. Russo, arXiv:2601.18175, establishes the one-step conservative policy-improvement characterization rather than multi-iteration trajectories. Wang and coauthors, arXiv:2609.36945, analyze long transients for softmax REINFORCE on bandits, which is a different update and setting. Searches of the corresponding terms, aliases, and public research summaries did not identify a prior statement with the same exact two-stage conclusion. Residual risk: algebraically equivalent constructions might appear in earlier EM/policy-iteration or multiplicative-weights literature under different names; limited indexing does not prove novelty.
+PASS
 
-**Mathematical value — PASS.** The two-stage chain is the smallest natural architecture permitting downstream improvement to reverse the relative ranking of upstream actions. The result completely characterizes the upstream probability shape and shows that value monotonicity does not prevent arbitrarily severe transient suppression of an action with a *fixed positive optimal Bellman advantage*. The exact minimum and startup length quantify a credit-assignment limitation that is not expressed by asymptotic convergence rates. The theorem makes no empirical sample-complexity claim.
+The B odds multiply by 1/epsilon. With D_k=p+(1-p)epsilon^k and D_0=1, its current-policy value is D_(k+1)/D_k, so the A odds are R_0(gamma/r)^k D_k. The sign of their difference is that of p(gamma-r)+(1-p)epsilon^k(gamma epsilon-r). At r<=gamma epsilon it is strictly positive and at r>=gamma strictly negative, including the endpoints. In between its sign is that of tau-epsilon^k, so the ceiling formula is correctly indexed and equality produces exactly one flat update (also at the start if tau=1). For small p, epsilon^K/tau is confined between epsilon and 1, while tau is of order p; substituting into the odds gives the claimed positive exponent 1-log(gamma/r)/log(1/epsilon). The specified family yields tau=4^(-N), q_N=q_(N+1) with the stated rational expression, and optimal-continuation gap 3/8 throughout, even though the current-policy gap is negative during suppression. At fixed old B value the A update increases value by the two-action variance of the Q values divided by the old value, possibly zero at equality. Replacing the old B value by the strictly larger new value then increases A value strictly since the delayed action retains positive mass.
 
-**Scientific limitations.** Assumes exact Bellman evaluation, stationary full-support tabular policies, deterministic one- or two-step termination, nonnegative rewards and fixed discount. No claim is made about stochastic estimation, general Markov chains, function approximation, or independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Q/V update, product-of-Q formula, and value monotonicity are prior. The supported distinction is the worked two-stage fixed-gap construction with arbitrary suppression depth and duration, together with its exact one-turn law and small-support exponent. The closest analogous suppression theorem inspected uses softmax gradient steps, not this update; the cited general reweighting identities alone do not assert the construction or scaling. This is a best-of-knowledge decision, not a priority certificate.
+
+## value
+
+PASS
+
+This separates value improvement from retention of optimal-action support in a minimal sequential example for an exact update. Arbitrarily many decreasing steps and an arbitrarily deep trough at a fixed positive optimal Bellman gap make this more than a one-step reversal or a vanishing-gap example. The exact turning and trough laws identify the support parameter that controls the effect and give a benchmark for analysis of iterative reweighting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

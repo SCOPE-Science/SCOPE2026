@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:14.393245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Defant–Kravitz maximum-letter recursion proves both language inclusions, since each lower-alphabet output block can be lifted independently. To check the ambiguous initial concatenation, let B(z) count distinct words in I_{q-1}I_{q-1}. Splitting at successive maximum letters then gives the exact unambiguous block-level series A_q=A_{q-1}+z B/(1-z A_{q-1}), with A_{q-1} coefficientwise <= B <= A_{q-1}^2. The smaller-alphabet growth induction makes A_{q-1} diverge at its radius and z A_{q-1}(z) strictly increase through 1 at an interior first root. On the root circle there are no other zeros of the renewal denominator: the z and z^2 coefficients are positive, so equality in the triangle inequality requires the positive real point. The positive numerator and simple pole give the claimed two-sided exponential bounds (indeed a positive leading constant), and the interior root gives strict monotonicity. In the binary case every word ending in 1 and only those and all-zero words are possible. For larger q the specified four-letter factor would force a descending length-two image between consecutive maxima; a direct length-two check excludes it. Independent aligned windows give the stated exponential bound. For the sextic, splitting every binary prefix after its last 1 gives I_2 I_2 all binary words, which yields the stated rational A_3 and the sextic as its denominator minus z times its numerator. Decimal bisection (`python /workspace/branches/frozen_replay.py 5`) gives lambda_4=3.5503790656826695146745…. The frozen enumeration was read as bounded corroboration, not a proof for arbitrary lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant–Kravitz supplies the recursion for arbitrary alphabets. Taking its image and invoking regular-language closure gives the grammar and regularity, so those observations alone are not credited as a distinct counting result.",
+          "Campbell–Rampersad explicitly studies binary factor classes; this does not range over all finite words on larger alphabets."
+        ],
+        "reasoning": "The known recursion does not assert the dominant pole of the distinct-output generating function. Deriving it requires accounting for ambiguity in the first merged block and isolating a uniquely parsed recurrent block.",
+        "searches": [
+          "arXiv:1809.09158 Def. 1.1",
+          "arXiv:2604.25811v3 abstract and §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_tortoise_entropy.py, verification_output.txt",
+        "Defant–Kravitz arXiv:1809.09158 Def. 1.1",
+        "Campbell–Rampersad arXiv:2604.25811v3",
+        "Resultary e29424595bbe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary rational function is an exact prerequisite for the displayed q=4 polynomial, but only after the general dominant-root relation is established. The earlier ternary formula alone does not identify the poles for the four-symbol image language.",
+          "The repeated-marker factorization produces the renewal series, controls the initial ambiguity, and allows a forbidden-intermarker-block argument uniformly for every q>=3."
+        ],
+        "reasoning": "The polynomial arithmetic and the q<=3 overlap are not counted as independently novel. Existing results compared do not give the uniform radius recursion or universal density cutoff without the distinct-output analysis.",
+        "searches": [
+          "arXiv:1809.09158 Definition 1.1",
+          "Resultary e29424595bbe, exact A_3 and limitations",
+          "arXiv:2604.25811v3 §§ background and 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-letter-pop stack and the maximum-letter recursion are the same tortoise map (Defant–Kravitz, Def. 1.1).",
+          "Counting distinct outputs of all length-n words equals counting fibers of the map on the full free alphabet, but counting fibers represented among factors of a fixed infinite word is a restricted version, not an equivalent theorem."
+        ],
+        "reasoning": "Compare both the stack and the block grammar formulations and distinguish global image counts from restricted factor complexity or a distribution on the outputs.",
+        "searches": [
+          "Resultary: tortoise image language, exact ternary rational growth, fixed alphabet renewal",
+          "Defant–Kravitz arXiv:1809.09158 Definition 1.1",
+          "Campbell–Rampersad arXiv:2604.25811"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct match SCOPE-exact-ternary-tortoise-image-language-and-rational-growth--e29424595bbe gives exactly the same ternary grammar, rational A_3 and lambda_3, in addition to binary ingredients."
+        ],
+        "reasoning": "This is demonstrable overlapping coverage regardless of priority. The record is restricted to q=3 and does not supply the q>=4 conclusions; the shared calendar date does not settle chronological order.",
+        "searches": [
+          "Resultary: exact ternary tortoise image language and rational growth"
+        ]
+      },
+      "rationale": "Pass for the supported uniform sharp growth characterization and fixed-alphabet density dichotomy, with the quaternary constant as a consequence. The word recursion is prior and the binary/ternary specializations are covered; neither gets originality credit. No established broader source supplies the stated all-alphabet renewal root or its sparsity consequence.",
+      "residual_risks": [
+        "Focused comparison, not an exhaustive priority search for fixed-alphabet image counting. The exact ternary overlap is not bibliographically identified in the frozen References and the observed comparison does not order the two indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the map and decomposition, not of the renewed image-growth assertion in that passage.",
+          "evidence": "Definition decomposes at the largest letter, merges the first two transformed blocks and inserts the copies of the maximum after the later blocks; equal letters cannot share successive stack positions.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+          "material_read": "Definition 1.1, p. 3, PDF near offset 9000",
+          "method": "OA PDF bounded passage",
+          "title": "Stack-sorting for Words",
+          "trigger": "Exact map definition and strongest general input recursion"
+        },
+        {
+          "assessment": "Related binary factor enumeration; different family of domains.",
+          "evidence": "Explicit binary-word scope and factor classes of infinite sequences, not the full-alphabet image count for q>=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "v3 abstract p. 1, background p. 3 around offsets 5900–7400, §3 pp. 6–7 around offset 13200",
+          "method": "OA PDF bounded passages",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Potential equivalent image counting via tortoise fiber equivalence"
+        },
+        {
+          "assessment": "Equivalent q=3 result; narrower than the submitted theorem.",
+          "evidence": "Same binary-prefix/marked-block ternary grammar, A_3 and lambda_3; stated scope is ternary and does not claim q>=4 counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-tortoise-image-language-and-rational-growth--e29424595bbe",
+          "material_read": "RESULT.md offsets 0–5138 and 5300–6290, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary hit and bounded source passages via mirror reader",
+          "title": "Exact ternary tortoise image language and rational growth",
+          "trigger": "Exact indexed overlap of a stated specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural word stack map, the supported result determines the exponential size of the reachable set at every fixed alphabet size, not merely whether sorting succeeds on special words. The universal recurrence turns that rate into an exact algebraic quantity, and the binary positive-density versus larger-alphabet exponential-decay transition is a meaningful qualitative separation. This concerns image cardinality, not Shannon entropy or fiber sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

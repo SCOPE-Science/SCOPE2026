@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:30:44.279228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44; VERIFICATION.md and check_projection.py (read, not executed)",
+        "Corrected RESULT.md at repairs/3/RESULT.md, Finding and proof, reread after writing",
+        "Blondel et al., arXiv:2002.08871, Proposition 3, Lemma 2 and Proposition 4",
+        "Independent interior finite-difference spot checks for b=(4,2,1), limiting ratio 12/7"
+      ],
+      "rationale": "The frozen coefficient, the near-vertex example and nonattainment are correct, but the last sentence of frozen proof Step 3 says the only possible sharp limit is toward a vertex. For b=(3,2,1), the midpoint (5/2,5/2,1) of an edge gives a counterexample: interior approximants have the same third-coordinate limiting derivative 2(1−1/6). The replacement proves sharpness along interpolations to any minimum-coordinate face and removes the exclusivity assertion. It also treats boundary segments explicitly. Along every affine segment the sorting and pool comparisons have finitely many changes, because each candidate comparison is an analytic function on a neighborhood of the compact interval, with identically zero comparisons settled by fixed tie conventions. Each active block has derivative row sum 2(1−μ_i/B_I). For a proper block B_I<B, and for a full block with μ_i>m the bound is also strict. At differentiability times with μ_i=m the corresponding logged coordinate is at its global minimum and its tangential derivative is zero. Integration gives strictness in every coordinate for any distinct inputs. Positive interior interpolants toward a minimum coordinate allow the total-mass softmax derivative to attain the limiting bound. Euclidean block centering gives the quadratic comparison, and b=e^ρ gives m/B=(e−1)/(e^n−1).",
+      "residual_risks": [
+        "Frozen finite PAV tests are for geometric weights and cannot certify all positive b or the strict inequality on tie strata. The proof treats those cases; the correction is not a characterization of all extremizing sequences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lim–Wright reduce uniformly separable Bregman projection onto permutahedra to isotonic optimization after sorting.",
+          "Blondel's block derivative and projection chain rule give exactly the known local differential ingredients."
+        ],
+        "reasoning": "Neither broader reduction supplies a sharp global maximum norm or finite-pair strictness by specialization. The prior local calculus is fully credited and reused.",
+        "searches": [
+          "Lim–Wright PMLR 51 (2016), §3",
+          "Blondel et al. ICML 2020, Propositions 3 and 4 and Lemma 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and corrected RESULT.md",
+        "Resultary exact self-match 58773a9495f6",
+        "Blondel et al. arXiv:2002.08871",
+        "Lim–Wright PMLR 51 (2016)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local derivative leads by a row sum to 2(1−μ_i/B_I), but does not determine which feasible extreme is approachable on a full sensitivity block or what happens on persistent ties.",
+          "The centroid interpolation gives admissible full-block witnesses; strict segment estimates use minimal-coordinate tangencies. The quadratic global value follows readily by centering, and the asserted entropy rank formula is substitution and scaling."
+        ],
+        "reasoning": "The main theorem is a short sharp global analysis of the known formulas rather than new differentiation. The compared results do not already establish the needed sharp global bound and nonattainment. The repaired example of a nonvertex sharp limit follows by the same argument and is not claimed as a separate novelty.",
+        "searches": [
+          "Blondel Proposition 3, Lemma 2, Proposition 4 and equation (6), against repaired proof of sharpness and strictness",
+          "Lim–Wright §3 Bregman isotonic reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At w=log b the published P_E(z,w) is exactly the frozen F_b(z); P_E is a logged output, not μ itself.",
+          "The published rank target ρ=(n,…,1) and equation (6) give entropy P_E(−θ/ε,ρ) with feasible set P(e^ρ), but quadratic P_Q(−θ/ε,ρ) with feasible set P(ρ)."
+        ],
+        "reasoning": "The map and the comparator family are genuinely the same published maps after reparameterization; the distinction is the sharp global coordinate sensitivity theorem, not either definition.",
+        "searches": [
+          "Local Resultary: logarithmic KL permutahedron sharp coordinate modulus and entropy versus quadratic soft rank",
+          "Blondel arXiv:2002.08871, definitions of P_E and r^Ψ_ε"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit 2026/11/22/SCOPE-sharp-coordinatewise-sensitivity-of-logarithmic-kl-permutahedron--58773a9495f6 is the frozen record itself."
+        ],
+        "reasoning": "This is an analytic all-parameter quantity, not a finite table extrapolation. No separate exact record was substantiated by the catalogue comparison; the identical entry is not prior evidence.",
+        "searches": [
+          "Local Resultary: coefficient 2(1−min(b)/sum(b)), log KL projection, soft-rank sharpness"
+        ]
+      },
+      "rationale": "The exact map, pool formulas, and block Jacobians are already in Blondel et al., and the soft-rank specialization by indexing and scaling is not separate novelty. The assessed distinction is the sharp all-input coordinate modulus and the strict finite-pair inequality. These require the feasible minimum-to-mass bound and a realizing limit, plus control on boundary segments. No matching sharp global result was identified in the statement-level comparison, which does not claim historical priority.",
+      "residual_risks": [
+        "Known blockwise calculus is very close prior work. OpenReview RKHDV40omz and equivalent exact margins in other Bregman/convex-duality formulations remain priority risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map and block calculus overlap, no sharp maximum-norm global theorem in the compared statements",
+          "evidence": "The entropic pool derivative is the stored block softmax, and the projection derivative is I minus the isotonic derivative after sorting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.08871",
+          "material_read": "PDF pp. 2–6, offsets 13798, 17600, 20000, 28200–31000 and 36400; eq. (6), Props. 3–4 and Lemma 2",
+          "method": "OA passage inspection",
+          "title": "Fast Differentiable Sorting and Ranking",
+          "trigger": "Defines the exact target map and known local Jacobians"
+        },
+        {
+          "assessment": "Known isotonic reduction for a wider class, not an exact sensitivity statement",
+          "evidence": "Uniformly separable Bregman objectives reduce to isotonic optimization after sorting.",
+          "identifier_or_url": "https://proceedings.mlr.press/v51/lim16.pdf",
+          "material_read": "PDF pp. 1 and 3, §3, offset 18100",
+          "method": "OA passage inspection",
+          "title": "Efficient Bregman Projections onto the Permutahedron and Related Polytopes",
+          "trigger": "Broader Bregman projection reduction"
+        },
+        {
+          "assessment": "Access limitation; no conclusion about coverage from the snippet",
+          "evidence": "Potentially related log-KL gradient analysis remains unresolved.",
+          "identifier_or_url": "https://openreview.net/forum?id=RKHDV40omz",
+          "material_read": "Search listing only; no usable primary text from forum, PDF or API",
+          "method": "Bounded OA attempts for the identified record",
+          "title": "SoftJAX & SoftTorch: Empowering Automatic Differentiation …",
+          "trigger": "Search index mentions smooth gradients from permutahedron projections, including log-KL"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and corrected proof, in particular Upper bound and strictness, Sharpness, and Soft ranks",
+        "Blondel equation (6) for the motivation and identical soft-rank maps"
+      ],
+      "rationale": "A sharp coordinate perturbation budget for a natural differentiable ranking map is directly useful: the modulus depends only on minimum relative mass, converges to a very different value from local behavior on many pool patterns, and yields a strict comparison to quadratic rank at the same scale. The finite-pair strictness explains why testing moderate finite pairs will not recover the worst-case modulus.",
+      "residual_risks": [
+        "The result is a sharp worst-case invariant; it does not compare accuracy, training behavior or practical robustness away from worst-case inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

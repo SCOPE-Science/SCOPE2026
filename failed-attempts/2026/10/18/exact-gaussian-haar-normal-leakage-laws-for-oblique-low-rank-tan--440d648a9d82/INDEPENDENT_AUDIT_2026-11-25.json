@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:23:03.332994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The universally defined Haar factor in RESULT.md lines 29–35 omits the admissible case ell=r and d=r+1: it is not full, not in the finite partial range, and fails the written condition r<=ell<=r+1<d. Step 4 repeats this restriction. This is an undefined branch of the claimed law, not a counterexample to the other displayed values. In the missing case the true value is infinity: for d=2,r=ell=1 and U=e_1, Haar gives A=tan(theta) for a uniform row angle modulo pi, whose square has infinite integral. More generally, conditioning on G in the Haar-frame trace identity gives (d-ell) tr[(G^T G)^(-1)] for all partial Haar counts; each inverse-Wishart diagonal is the reciprocal of a chi-square with ell-r+1 degrees of freedom by projecting one independent Gaussian column off the others, hence a divergent mean here. The correct partial-Haar infinite range requires ell<d and ell<=r+1, with neither restriction implying the other. Full Haar remains identically zero. I checked the remaining algebra: with C the normal coordinate block, squared leakage equals ||AC||^2+||CB^T||^2+||ACB^T||^2; independence and isotropy give the stated finite law, while an infinite one-sided contribution suffices on every fixed C!=0. The three bounds are simultaneously attained with C an outer product of top right singular vectors. The bundled CHECK.py factor helper orders the branches correctly but its listed cases do not test partial Haar with ell=r=d-1; the finite samples cannot establish the boundary.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly–Webber handle real and complex embeddings, arbitrary rank designs and multiple right-hand sides; their Prop. 5.7 also treats invertible weights. Carrel–Grigori Lemma 4.2 gives the same two-sided oblique tangent operator.",
+          "Lacotte et al. study asymptotic inverse moments of compressed Gram matrices for iterative Hessian sketching; Niu et al. analyze different sampling/OLS and CUR biases."
+        ],
+        "reasoning": "The first two sources provide the ingredients with precisely matching hypotheses. Other inspected related results are not exact coverage of this target.",
+        "searches": [
+          "Epperly–Webber arXiv:2605.19096v1 §§2.1 and 5, Prop. 5.7; Carrel–Grigori arXiv:2607.03402v1 §4; Lacotte et al. arXiv:2002.00864v5 Lemma 4.3; Niu et al. arXiv:2605.24955v1 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:2605.19096v1, 2607.03402v1, 1609.00048v2, 2002.00864v5, 2605.24955v1",
+        "Resultary 23a3fc6123ad, 3ac2429e030f, 3e196d12ddfb, 359d8df14ce8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On U_perp C V_perp^T, the complementary oblique operator (I-L)N(I-R)^T has coordinates F_A C F_B^T, where F_A=[-A;I], F_B=[-B;I]. Its normal block is C. The discrepancy is the negative of the other blocks, and its norm squared is ||F_A C F_B^T||^2-||C||^2.",
+          "Condition on one sketch and apply the known one-sided residual expectation on the other; repeat on the remaining sketch. The result is (1+a_L)(1+a_R)||C||^2 before subtraction. Realized squared operator norm before subtraction is lambda_max(F_B^T F_B tensor F_A^T F_A)."
+        ],
+        "reasoning": "The named two-sided identity and the sharp realized bound follow by elementary tensorization, not a new sketch mean or new spectral extremal problem. Orthogonality at full Haar and the Wishart pole in the partial case are boundary checks on the same mechanism.",
+        "searches": [
+          "Carrel–Grigori Lemma 4.2; Epperly–Webber Theorem 2.1 and Prop. 5.7 proof; Tropp et al. arXiv:1609.00048v2 Fact A.1/Lemma A.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set the least-squares design to U and its right-hand side to U_perp C. Its optimal solution is zero and the sketched solution is AC. The excess squared residual above ||C||^2 is exactly ||AC||^2. Theorem 2.1 supplies both means; Proposition 5.7 with weighting R=I gives the Haar factor in these same coordinates."
+        ],
+        "reasoning": "The one-sided objects and correction factors are mathematically identical under this substitution, for arbitrary fixed residual shape and rank.",
+        "searches": [
+          "Resultary: Gaussian–Haar oblique tangent leakage, residual spectra and Haar least-squares attenuation",
+          "Epperly–Webber arXiv:2605.19096v1 Theorem 2.1 and Proposition 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23a3fc6123ad gives the exact one-sided Gaussian mean including the residual norm, and a rank-one beta-prime law; 3ac2429e030f tabulates different generalized-Nystrom leave-out moment laws.",
+          "3e196d12ddfb gives distributional Haar attenuation for rank one and explicitly traces the known mean to Epperly–Webber, whose formula covers all ranks. 359d8df14ce8 gives independent-Gaussian mean 1/(ell-2)+1/(ell-2)^2 for the symmetrized rank-one operator, not the unsymmetrized mean."
+        ],
+        "reasoning": "The strongest match is a prior exact arbitrary-rank formula, not extrapolation from a rank-one table. The symmetrized operator has a different first-order leakage contribution. Later records are used for coverage and references, not as proof of priority.",
+        "searches": [
+          "Resultary 23a3fc6123ad, 3ac2429e030f, 3e196d12ddfb and 359d8df14ce8; Epperly–Webber Thm. 2.1 and Props. 5.6–5.7"
+        ]
+      },
+      "rationale": "Epperly–Webber already give both exact one-sided factors for arbitrary rank, not just the Gaussian or rank-one case. The stated finite two-sided mean is a direct product of their two known identities applied to the normal coordinates of Carrel–Grigori's projector. The realized supremum is the elementary top eigenvalue of the same tensor-product Gram, minus one. The cited inverse-moment mechanism also gives the moment boundary by the standard reciprocal-Wishart test. This decision is about directly implied scientific content, not a claim that the exact two-sided wording appears in the source.",
+      "residual_risks": [
+        "The prior sources inspected do not necessarily state the exact unsymmetrized two-sided formula in this wording. The finding of coverage is by the explicit mathematical implication above, not by absence of other literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-sided Gaussian and Haar means for all ranks in finite regime; direct input to the frozen two-sided formula",
+          "evidence": [
+            "Theorem 2.1 uses coefficients 1+r/(ell-r-alpha) and 1+[(n-ell)/(n-r)]r/(ell-r-alpha). Proposition 5.7 is equality at R=I, and its proof uses complement isotropy and inverse matrix-beta trace minus r."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.19096v1",
+          "material_read": "Theorem 2.1, offset 8001; Proposition 5.7 statement and proof, offsets 63089–70946",
+          "method": "OA article locate and bounded passage reads",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "Exact previous mean-error theorem identified by the Haar attenuation record"
+        },
+        {
+          "assessment": "Same operator and one-sided specialization",
+          "evidence": [
+            "Lemma 4.2 gives LZ+ZR^T-LZR^T and Remark 4.3 admits an identity sketch on one side."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.03402v1",
+          "material_read": "§4 Lemma 4.2, offset 43825 onward; Proposition 4.4, offset 49137",
+          "method": "OA article passage reads",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Exact projector defining the claimed discrepancy"
+        },
+        {
+          "assessment": "Direct one-sided Gaussian overlap",
+          "evidence": [
+            "Gaussian pseudoinverse expectation is r/(ell-r-1) and the residual norm enters as the Frobenius factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.00048",
+          "material_read": "v2 Appendix A Fact A.1, p.25, offset 80435; Lemma A.5, p.29, offsets 100564–104334",
+          "method": "OA PDF passages",
+          "title": "Practical sketching algorithms for low-rank matrix approximation",
+          "trigger": "Prior one-sided Gaussian risk and inverse moment"
+        },
+        {
+          "assessment": "Asymptotic compressed-Gram comparison, not needed for direct coverage",
+          "evidence": [
+            "Limiting inverse moments of Haar and SRHT ensembles in iterative Hessian sketching."
+          ],
+          "identifier_or_url": "arXiv:2002.00864v5",
+          "material_read": "Lemma 4.3, p.7, offset 33866",
+          "method": "OA PDF passage",
+          "title": "Optimal Iterative Sketching with the Subsampled Randomized Hadamard Transform",
+          "trigger": "Haar inverse-moment comparison cited by frozen result"
+        },
+        {
+          "assessment": "Different sampling/OLS and CUR problem",
+          "evidence": [
+            "Inverse-Gram bias and row-sampling comparison, not the independent tangent operator."
+          ],
+          "identifier_or_url": "arXiv:2605.24955v1",
+          "material_read": "Remark 2.5 and Theorem 2.6, p.4, offset 16135",
+          "method": "OA PDF passage",
+          "title": "Debiasing random oblique projections for subsampled OLS and fast CUR",
+          "trigger": "Cited bias/variance law for oblique random projections"
+        },
+        {
+          "assessment": "Stronger distributional result at rank one; points to earlier arbitrary-rank mean",
+          "evidence": [
+            "Provides the independent beta multiplier and names Epperly–Webber Theorem 2.1 and Proposition 5.7 as covering the mean."
+          ],
+          "identifier_or_url": "Resultary 3e196d12ddfb",
+          "material_read": "Finding, offsets 0–2174; Relationship to prior work, offsets 8460–10778",
+          "method": "Resultary and local mirror text",
+          "title": "Independent beta attenuation of Gaussian least-squares sketch error by a Haar sketch",
+          "trigger": "Exact Haar/Gaussian ratio on the rank-one least-squares analogue"
+        },
+        {
+          "assessment": "Related rank-one symmetrized benchmark, not used as priority evidence",
+          "evidence": [
+            "Independent-Gaussian mean after symmetrization and moment boundaries depending on coupling."
+          ],
+          "identifier_or_url": "Resultary 359d8df14ce8",
+          "material_read": "Finding and Assumptions offsets 0–3145",
+          "method": "Resultary and local mirror text",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank tangent projection",
+          "trigger": "Tangent-projection moment and exact Gaussian formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Normal contamination is relevant to sketch-based low-rank integration, but the central quantitative claim is a direct conditioning/tensor product of exact known least-squares means for the known projector. The realized bound likewise reduces immediately to the norm of two stacked matrices, with a rank-one tensor maximizer. Correcting the missing Haar branch would make a sound exposition, but would not supply an independent valuable result; no repaired finding is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:34.987426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–105",
+        "VERIFICATION.md and verify.py (inspected only)",
+        "/workspace/branches/dfc9dd5a-5138-4513-b29b-fe40647984df/own_factorial_sweep.py",
+        "/workspace/branches/dfc9dd5a-5138-4513-b29b-fe40647984df/factorial-large.txt"
+      ],
+      "rationale": "The positive pressure root exists uniquely for every finite penalty. Inducing an ergodic measure at markers yields a finite-mean gap marginal r, whose entropy is finite by comparison to q_j=exp(-t-pa_j); the two-sided gap code generates the induced system. Kac and Abramov reduce the pressure inequality to nonnegativity of relative entropy; equality fixes the marginal and the iid gap process. The all-zero measure has strictly smaller variational pressure. At t_n=log(n-1+s), eventual doubling bounds the normalized sum of smaller gaps by a vanishing multiple of a_{n-1}/a_n (plus a finite prefix), and the larger-gap exponential tail, even with its length factor, tends uniformly to zero on positive pressure compacts. Monotonicity brackets a_n p_n and length bias gives condensation and the mean. For the microscopic law, geometrically stopping at the next distinguished gap gives the displayed transform: after division by q_n only the j=n−1 term survives, giving s/(s+1−exp(-u)). The blocks of intervening gaps are independent. Their mean normalized at the *macroscopic* scale is (1−pi_n)/pi_n, so neighboring starts are asymptotically unit spaced. Under stationarity, conditioning on the distinguished gap containing zero (probability tending to one) gives a uniform integer offset independent of both sides; minimum rescaled separation 1 reduces vague convergence on compacts to finitely many starts and gives joint phase independence. For factorials, the lower-length normalized sum is 1/n+O(n^-2); the quadratic Taylor remainder is O(n^-2) and the upper tail is exponentially small on compact s-ranges, giving the stated signs and coefficients. A separate bisection sweep for s=.3,.5,.7 and n=40,80,160,320 checked the factorial formulas and exact-delay transform against their limits, not the spatial convergence. No uploaded code was executed.",
+      "residual_risks": [
+        "The finite numerical check is only for factorial gaps and specified interior s. The exact argument, not the numerical sweep, proves the general limits. Neither endpoint boundary layer nor arbitrary microscopic first-moment convergence is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haydarov et al. give pressure and uniqueness more generally",
+          "Climenhaga–Thompson §3.3 use even factorial lengths to demonstrate failure of almost specification",
+          "Baker–Ghenciu Prop. 2.1 and Ramirez–Somers Theorems 1.1, 3.3 give entropy formulas"
+        ],
+        "reasoning": "The broader thermodynamic results cover the starting structural normalization, not these joint moving-penalty asymptotics. A factorial spacing example used for a specification counterexample does not study its Gibbs sampling and renewal times.",
+        "searches": [
+          "arXiv:2606.17031v1 renewal potentials",
+          "arXiv:1011.2780 factorial S-gap construction",
+          "arXiv:1411.7167 and arXiv:2501.08438 entropy formulas"
+        ]
+      },
+      "checked_sources": [
+        "Haydarov et al. arXiv:2606.17031v1",
+        "Climenhaga–Thompson arXiv:1011.2780",
+        "Baker–Ghenciu arXiv:1411.7167",
+        "Ramirez–Somers arXiv:2501.08438",
+        "Resultary 166969f68799 and b26e936756a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general weighted root and iid law mechanically imply the initial renewal description",
+          "The reviewed proof additionally controls shorter-length aggregate error, longer rare delays, and the stationary offset under different normalizations"
+        ],
+        "reasoning": "The lattice phase follows standard stationary-renewal reasoning once concentration is known; it is not separately credited as a new renewal principle. The pressure window, the limiting law on the smaller scale, their joint stationary characterization and the factorial coefficients do not follow by substituting the parameters into any inspected asymptotic statement.",
+        "searches": [
+          "Haydarov et al. Theorem 1.1 and Lemma 3.4",
+          "Climenhaga–Thompson §3.3 and verified geometric-gap Resultary finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haydarov et al., arXiv:2606.17031v1, Theorem 1.1, Lemma 3.4, equations (8) and (10)",
+          "Resultary 166969f68799 gives a geometric-gap sparse-frequency entropy expansion"
+        ],
+        "reasoning": "Substitute S={a_j−1} and constant weight −t in the weighted renewal equation, then take the usual stationary two-sided extension. This matches the pressure and iid gaps, but not the moving penalties log(n−1+s) or the two start-point scales. Fixed geometric ratios fail the divergent-ratio assumption, and the entropy expansion concerns a different quantity.",
+        "searches": [
+          "Renewal-type potentials on S-gap shifts; superlacunary pressure, length-biased condensation and distinguished-start limits",
+          "Resultary semantic search for gap-shift pressure and renewal limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "166969f68799 has a log-periodic second-order entropy law for geometric gaps",
+          "b26e936756a7 concerns renewal pressure and Poisson defects for a geometric fixed-point potential"
+        ],
+        "reasoning": "These are the closest catalogued exact asymptotic formulas; neither is a table or theorem for a stationary exact-long-gap start clock with corrections at the preceding permitted gap length. The search was bounded.",
+        "searches": [
+          "Resultary semantic lookup of geometric and factorial/superlacunary gap-shift pressure and renewal asymptotics"
+        ]
+      },
+      "rationale": "The weighted root equation and Bernoulli inducing law are covered by prior work, as are the underlying renewal/length-bias tools. The supported distinct claim is the parameter-window scale separation: the pressure and length-bias concentration, combined with the geometric microscopic inter-start correction and its joint limit with the stationary phase, plus the factorial coefficients.",
+      "residual_risks": [
+        "A broader renewal triangular-array theorem or a specialized sparse-gap asymptotic not recovered in the bounded search might cover part of the joint limit. No claim to world priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural thermodynamic part via the constant-weight specialization",
+          "evidence": "Normalizes the inducing probability by sum(exp(psi(n)−P(n+1)))=1 and gives the Bernoulli weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17031v1",
+          "material_read": "Theorem 1.1 p. 3 offset 8000; Lemma 3.4 and eqs. (8), (10), pp. 8–9 offset 20808",
+          "method": "Primary PDF offset reading",
+          "title": "Effective Intrinsic Ergodicity for Renewal-Type Potentials on S-Gap Shifts",
+          "trigger": "Weighted pressure and equilibrium law for the same class of shifts"
+        },
+        {
+          "assessment": "Covers the use of factorial examples, not their moving-parameter clock law",
+          "evidence": "Takes S={(2n)!} to exhibit failure of almost specification.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.2780",
+          "material_read": "§3.3 p. 11 offset 31131",
+          "method": "Primary PDF offset reading",
+          "title": "Intrinsic ergodicity beyond specification: beta-shifts, S-gap shifts, and their factors",
+          "trigger": "A prior factorial S-gap example and uniqueness setting"
+        },
+        {
+          "assessment": "Unweighted pressure normalization background",
+          "evidence": "Gives the unweighted S-gap entropy equation.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.7167",
+          "material_read": "Proposition 2.1 p. 4 offset 9516",
+          "method": "Primary PDF offset reading",
+          "title": "Dynamical properties of S-gap shifts and other shift spaces",
+          "trigger": "Classical gap entropy formula"
+        },
+        {
+          "assessment": "Broader unweighted entropy results, not the parameter-window limits",
+          "evidence": "Stated formulas treat (S,w)-gap entropy and S-gap entropy.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.08438",
+          "material_read": "Theorems 1.1 and 3.3 pp. 2 and 5 offsets 5322 and 13490",
+          "method": "Primary PDF offset reading",
+          "title": "(S,w)-Gap Shifts and Their Entropy",
+          "trigger": "Broader gap-shift entropy statements"
+        },
+        {
+          "assessment": "Different spacing regime, observable and correction",
+          "evidence": "For allowed lengths 1,b,b²,… the entropy expansion has a log-periodic correction at sparse frequency.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-log-periodic-second-order-entropy-law-for-geometric-gap-shifts--166969f68799",
+          "material_read": "Mirrored finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic catalogue search and local mirror reading",
+          "title": "Log-periodic second-order entropy law for geometric gap shifts",
+          "trigger": "Closest earlier catalogued gap asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers what a stationary observation sees as markers become expensive: gaps with vanishing marker-conditioned probability occupy nearly all time. It identifies both the distance scale of a stationary near-lattice and a smaller nondegenerate correction tied to the second-largest relevant length, rather than merely computing an entropy root or confirming concentration numerically.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

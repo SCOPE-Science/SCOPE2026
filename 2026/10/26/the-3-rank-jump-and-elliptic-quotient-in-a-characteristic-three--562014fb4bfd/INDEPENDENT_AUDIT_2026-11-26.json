@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:01.874689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and frozen SymPy verifier source inspected, not executed",
+        "Independent replay: python3 /workspace/checks/frozen_math.py 3"
+      ],
+      "rationale": "With X+Y+Z=1 and t=X−Y, write X=Z−1−t, Y=Z−1+t. Then r=1−Z−t² and d=t−t³. Exact substitution recovers the stated quotient polynomial up to a unit, and the cycle acts by t↦t−1, with r,d invariant. Away from infinity the map is finite étale since the Artin–Schreier derivative is −1. In the chart Z=1 the line at infinity is w=0; the quartic there is −u⁴, with w derivative 1+λ at the unique point. For λ≠−1, completing the elliptic square gives the stated monic cubic, with discriminant (λ−1)/(1+λ)^5 and c4=λ²/(1+λ)². This gives the exact two singular parameters and j=λ⁶/(λ²−1). At the unique fixed point, w=u⁴/(1+λ)+O(u⁵) and the action in local parameter u satisfies σ(u)−u=(w−u²)/(1+u), of valuation two. Thus the sole lower break is one and the different has exponent four. Deuring–Shafarevich then gives f3(C)=3f3(E). Independently, on the smooth plane quartic the Hasse–Witt coefficient matrix from F² has diagonal λ²−λ and one cyclic off-diagonal −λ; its determinant is (λ(λ+1))³ and the matrix vanishes at λ=0, corroborating the full rank classification on the smooth locus. The own symbolic replay checked the affine polynomial, boundary terms, discriminant and Hasse–Witt matrix universally modulo three.",
+      "residual_risks": [
+        "The geometric smoothness, quotient and rank assertions exclude λ=±1; genus and rank are geometric, not rational-point counts over finite ground fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The BKS family at q=3 has genus five, with a different quotient. Tafazolian's computed Hasse–Witt vanishing covers the Klein member. Bars was not accessible."
+        ],
+        "reasoning": "General ramification and rank formulas do give the rank implication once the elliptic quotient, its j and the one-point branching are established, but they do not identify the specific quotient of this genus-three family.",
+        "searches": [
+          "Borges–Korchmáros–Speziali arXiv:2202.05765 §8; Deuring–Shafarevich for cyclic covers; Tafazolian arXiv:2609.33185v2 §9.2; Bars seminar retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Elkies (1999), Egan, Tafazolian arXiv:2609.33185v2, Borges–Korchmáros–Speziali arXiv:2202.05765",
+        "Resultary 05ba569c6d6b; Bars retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elkies identifies the quotient of the central Klein curve, including supersingularity in characteristic three. BKS's genus-five source is not this plane quartic; the matching moduli function does not determine a specific cyclic degree-three cover."
+        ],
+        "reasoning": "The novelty of the rank formula is tied to the explicit pencil computation, not to the rule for rank in a one-branch-point cyclic cover. No intervening correspondence implying the reviewed quotient was identified.",
+        "searches": [
+          "Elkies §§2–3 and BKS §8 compared with the different group actions; general Artin–Schreier and Deuring–Shafarevich implications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "05ba569c6d6b gives j(μ)=−μ⁶/[(μ−1)^4(μ+1)] for a genus-one Klein-four quotient; μ=λ/(1+λ) makes this exactly λ⁶/(λ²−1) in characteristic three, and matches its zero locus.",
+          "Elkies and Egan treat the central order-three action or quotient."
+        ],
+        "reasoning": "Equivalence of j-invariants under the fractional-linear substitution establishes actual elliptic moduli overlap, not equivalence of source curves, subgroup actions or covering maps. The exact-equation search was unproductive and does not exclude an alternate normal form.",
+        "searches": [
+          "Resultary: characteristic-three Klein quartic pencils, cyclic coordinate quotients, elliptic rank stratification; 05ba569c6d6b",
+          "Primary literature exact-pencil equation search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reparametrized quotient j-function and supersingular parameter are covered for the elliptic moduli map. The central zero-rank value is explicitly known. No inspected exact source gives the noncentral 3-rank values for the quartic pencil or the wild map from it."
+        ],
+        "reasoning": "The q=3 elliptic-family table is not a table of 3-ranks of its genus-three cyclic covers; the central quartic table is only one specialization.",
+        "searches": [
+          "Resultary exact j and p-rank jump for characteristic-three Klein pencil; checked 05ba569c6d6b",
+          "Tafazolian §9.2 exact Klein quartic matrix calculation"
+        ]
+      },
+      "rationale": "There is exact overlap for the elliptic moduli map after a parameter change, and known central-curve coverage. Neither the j-function in isolation nor the zero-rank Klein specialization carries the originality pass. The distinct result established here is the explicit wild C3-cover description for this smooth plane quartic pencil, with its ramification and the consequent rank classification of the genus-three source. The inspected other elliptic family is obtained by a different quotient from genus five; knowing its j-map does not produce this map from the quartics.",
+      "residual_risks": [
+        "An uninspected characteristic-three genus-three normal form or relationship between the two covering families could change the comparison. The exact overlap already established for j is not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct central-member coverage, not the varying pencil.",
+          "evidence": "Constructs the genus-one E_k quotient by order three, describes branching, and treats supersingularity in characteristic three.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "§2 printed pp. 68–69, text offsets 53500–55000; §3 Characteristic 3, around 90600–95000",
+          "method": "OA PDF bounded passages",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Classical Klein curve and order-three quotient"
+        },
+        {
+          "assessment": "Central equation and action, not the wild pencil-wide result.",
+          "evidence": "Gives u³v+v³w+w³u=0 and cyclic coordinate permutation of order three.",
+          "identifier_or_url": "https://www.gregegan.net/SCIENCE/KleinQuartic/KleinQuarticEq.html",
+          "material_read": "Website text around offsets 1400 and 11400",
+          "method": "OA website passage inspection",
+          "title": "Klein's Quartic Equation",
+          "trigger": "Classical equation and symmetry attribution"
+        },
+        {
+          "assessment": "Covers λ=0, not the family.",
+          "evidence": "Reports that the Klein quartic Hasse–Witt matrix vanishes for p≡3,5,6 mod 7.",
+          "identifier_or_url": "https://arxiv.org/html/2609.33185v2",
+          "material_read": "§9.2 around HTML offset 206500",
+          "method": "OA HTML passage inspection",
+          "title": "A classification of zero p-rank curves with large automorphism groups in odd characteristic",
+          "trigger": "Exact 3-rank precedent for the central fibre"
+        },
+        {
+          "assessment": "Scope of the unreachable material remains unverified.",
+          "evidence": "Connection refused on the tried routes.",
+          "identifier_or_url": "https://stnb.cat/media/xerrades/presentacions/gen3talk.pdf",
+          "material_read": "No primary passage obtained",
+          "method": "Lawful direct and alternate OA route attempted",
+          "title": "On the automorphism groups of genus 3 curves",
+          "trigger": "Potential genus-three normal form equivalence"
+        },
+        {
+          "assessment": "Equivalent elliptic moduli pencil via μ=λ/(1+λ), not the genus-three wild cover.",
+          "evidence": "j(μ)=−μ⁶/[(μ−1)^4(μ+1)] and zero at μ=0.",
+          "identifier_or_url": "Resultary 05ba569c6d6b",
+          "material_read": "Finding and displayed j-function",
+          "method": "Resultary lookup and local record mirror",
+          "title": "Klein-four quotients of a nonlinear invariant plane curve pencil",
+          "trigger": "Characteristic-three elliptic quotient of a different plane pencil with a similar j-rank locus"
+        },
+        {
+          "assessment": "Different source family; no implication of the reviewed C3-cover construction was shown.",
+          "evidence": "Different quotient description and g(X)=q²−q−1, which is five at q=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.05765",
+          "material_read": "§8, Propositions 8.3–8.5, pp. 26–27, text offsets 84350–86763",
+          "method": "OA PDF bounded passages",
+          "title": "Borges–Korchmáros–Speziali plane curve pencil",
+          "trigger": "Underlying primary source for the matched elliptic quotient's family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, independent Hasse–Witt check, central Klein precedent and reparametrized elliptic comparison"
+      ],
+      "rationale": "The cyclic pencil through a classical quartic gives a natural test of wild ramification and ordinarity under deformation. The explicit cover and the complete geometric jump calculation locate exactly where ordinarity fails on the entire smooth pencil, rather than merely demonstrating some ordinary members. The one-branch analysis and its connection to the varying elliptic quotient are useful even though the same elliptic moduli occurs in another family.",
+      "residual_risks": [
+        "No moduli universality or claim about all C3-invariant plane quartics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: first-jet circular Bargmann–Fock sampling
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Unit-normalized discrete Fourier decomposition yields \(M\) two-column blocks with positive determinants \(M\sqrt{p_kp_{k+M}/x}\), which proves injectivity for all positive radii. The product gives the exact Gram determinant and its unique maximizing radius. The proof bounds both extreme block eigenvalues between dimension-polynomial multiples of the larger and smaller corresponding Poisson weights. Uniform Stirling and elementary convexity then prove the fixed-scale large-deviation spectrum. The two endpoint column-norm comparison excludes sequences of radii escaping the linear scaling regime, establishing the genuinely global rate and rigidity of near-optimal scaling. Independent numerical singular-value, determinant, and limiting-rate tests passed. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality
+The factorial basis, Gaussian weight, 1/√M and two-channel unitary DFT give residue blocks with columns √p_n(1,(n−x)/√x)^T for n=k,k+M, p_n=e^{−x}x^n/n!. Their positive determinants M√(p_k p_{k+M})/√x establish interpolation, and their Gram determinants multiply to M^{2M}e^{−2Mx}x^{2M(M−1)}/∏n!, maximized uniquely at x=M−1. For x/M in a compact positive interval the unweighted 2×2 block has operator norm O(√M) and determinant M/√x of order √M, so its least singular value is bounded below by a positive constant. This quantitatively reduces the squared condition exponent to the extremal Poisson-weight ratio, uniformly with log-error O(log M) before division by M. Stirling yields I_ρ(s)=ρ−s+s log(s/ρ), whose oscillation on [0,2] is the displayed F (the mesh endpoint error is O(1/M)); endpoint balancing gives the unique ρ=2/e. No escaping radii improve the rate: with N=2M−1, r=x/N and d_n the squared column norm, d_N/d_0 ≤(1+N)e^N r^{N−1} when r≤1 (N!≥(N/e)^N) and d_N/d_0≥r^N/4 when r≥2 (N!≤N^N). Either escape makes the scaled log squared condition diverge. The uniform compact estimate and the trial x=(2/e)M then justify the infimum limit and localize every rate-optimal sequence. Independent direct complex value/derivative matrix checks matched the full block SVD and log Gram determinant in 20 cases across M=2–12. Those cases do not certify the asymptotics.
 
-**PASS on the inspected published statements; historical priority remains uncertain.** The 2020 weighted-Fock multiple-sampling paper treats density theorems for infinite sets. The 2011 coherent-state circle paper supplies value-only Poisson spectra. The 2024 polynomial-multiplicity paper treats geometric array criteria. The closest accessible published mathematical records on weighted one-circle Fock frame conditioning concern value-only observations, while a sparse first-jet projection theorem addresses a single target mode. Neither implies the mixed first-jet critical-system minimax rate or the disparity between the determinant and condition-optimal radii. Earlier specialized confluent-frame literature could nonetheless contain an equivalent and has not been exhaustively ruled out.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Derivatives allow exactly half as many angular nodes as value-only critical interpolation, making the stability of that acquisition architecture a natural quantitative question. The theorem shows that this economy does not remove exponential ill-conditioning, determines the exact exponential cost and a unique asymptotically optimal radius, and separates determinant maximization from stability minimization. Those are structural, design-relevant properties rather than a routine rank computation. The result is deliberately limited to the specified equal-weight circle and derivative normalization.
+The same rate curve, optimized exponent, and radius scale are already obtained for the point-only design on the same polynomial space by rescaling its exact earlier formula; these numerical facts are not new in isolation. The supported distinct result is that the critically sampled first-jet design, with half as many sites on that space, has the same rate despite aliasing, with an exact coupled spectrum and a different determinant objective. The point-only result supplies the rate function after, not before, establishing control of the new residue blocks and exclusion of escaping jet radii.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+First jets allow exact recovery with half the sites but that alone says nothing about noise amplification. Quantifying the sharp obstruction for the actual normalized sampling operator shows that derivative enrichment does not improve the leading conditioning exponent per coefficient and specifies the required radius scale. Comparing to the exact determinant optimum also rules out determinant tuning as a surrogate for worst-case conditioning at exponential order in this design. This is a useful negative design result despite the shared point-only exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

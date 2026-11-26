@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:00.098871Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–67",
+        "VERIFICATION.md:19–23",
+        "verification/check.py and verification/output.txt",
+        "Independent finite check: python3 /workspace/branches/frozen_math_reproduction.py cubelike; 135 nonempty even-degree generator sets for one fixed nonzero functional in each dimension up to four, using direct fiber counts and direct neighborhood validation."
+      ],
+      "rationale": "Odd valency gives the bipartition coloring directly. At even valency, a maximal support supplies a nonzero Boolean moment and a minimal nonzero moment has positive degree and all proper submoments zero. Expanding a pattern indicator leaves precisely that moment in the parity sum, for every pattern. Translating by a vertex shows that both second-color classes in its opposite shore have odd size and the pair construction is proper. A hypothetical proper strong odd coloring with at most three colors at positive even degree must use both other colors at every vertex, giving A x_c = 1+x_c over F₂. Since the translations commute and square to the identity, A²=0 and A1=0; applying A forces x_c=1, impossible. None of the arguments requires connectedness. The odd Hamming shell has the coordinate-sum bipartition and degree binomial(d,r), including r=d when allowed.",
+      "residual_risks": [
+        "The finite check corroborates the upper construction only; the algebraic proof, not enumeration, excludes three colors and supplies all dimensions.",
+        "The frozen Python 3.8 compatibility claim in VERIFICATION.md is inaccurate: the script uses int.bit_count(), available starting in Python 3.10. This is a reproducibility-note defect, not a defect of the theorem or its proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwon–Park have sparse-graph hypotheses and degree-dependent bounds; Caro et al. give product submultiplicativity for Cartesian, direct and strong products; neither gives the parity dichotomy on arbitrary regular Boolean Cayley graphs."
+        ],
+        "reasoning": "A cubelike quotient of a hypercube need not be a Cartesian product, and a strong odd coloring on a covering cube need not descend through a quotient. The inspected product bounds give no odd-fiber coordinate construction.",
+        "searches": [
+          "arXiv:2401.11653 Thms. 1.2–1.3 and literal cubelike",
+          "arXiv:2410.02336 Thm. 4.2 and literal submultiplicative",
+          "arXiv:2202.12882 Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.20763",
+        "arXiv:2401.11653",
+        "arXiv:2410.02336",
+        "arXiv:2202.12882",
+        "Resultary and the two named published catalogue findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cube and complete multipartite proofs address restricted graph structure, while the frozen theorem uses a nonzero Boolean moment to construct a neighborhood-parity splitting and a square-zero adjacency operator to forbid three colors."
+        ],
+        "reasoning": "No compared result gives either the all-generator four-color upper bound or the stated even-degree obstruction as a corollary on the full class; the odd-degree branch alone is an immediate general observation.",
+        "searches": [
+          "arXiv:2509.20763 Prop. 26",
+          "arXiv:2410.02336 Thm. 4.2",
+          "Both complete multipartite catalogue findings listed above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 26 gives exactly 2/4 for the hypercube; in the target notation this is a coordinate-basis connection set.",
+          "arXiv:2202.12882 Thm. 1 requires an odd count of at least one neighbor color, not odd counts for every present neighbor color."
+        ],
+        "reasoning": "The cube formula is an exact special case, not an equivalent formulation for dependent S; results for the weaker odd chromatic number cannot substitute for strong odd coloring.",
+        "searches": [
+          "Resultary: strong odd cubelike Cayley graph",
+          "Resultary: odd Hamming distance graph strong odd coloring",
+          "Resultary: strong odd chromatic number hypercube parity theorem",
+          "arXiv:2509.20763 Prop. 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-strong-odd-chromatic-number-of-complete-multipartite-graphs--0c97f3a5ea07 and 2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7 give r+e for complete multipartite graphs with r shores and e even shores. Their complete bipartite formulas agree on the Cayley examples with complete bipartite components.",
+          "The second is a distinct same-day record; no within-day priority follows from that date."
+        ],
+        "reasoning": "These exact catalogue formulas cover a proper subclass, not general S or the Hamming-shell family.",
+        "searches": [
+          "Resultary: strong odd coloring complete multipartite odd color classes",
+          "Resultary: strong odd coloring exact complete bipartite graphs",
+          "Resultary: odd Hamming distance graph strong odd coloring"
+        ]
+      },
+      "rationale": "Credit the immediate odd-degree bipartition argument and the known hypercube and complete-bipartite special cases. The supported distinct assertion is the exact even-degree result and odd-fiber construction for unrestricted admissible Boolean generator sets, including dependent sets. No inspected earlier statement supplies this remainder.",
+      "residual_risks": [
+        "The search is bounded to the named primary texts and published catalogue searches; alternate terminology for parity split colorings or other literature could supply overlapping results. No global priority conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PROPER_SUBCLASS",
+          "evidence": "Strong odd chromatic numbers 2 for odd cube dimension and 4 for even dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+          "material_read": "Proposition 26, p. 22",
+          "method": "OA PDF passage located by literal proposition name and read in context",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact cube dichotomy"
+        },
+        {
+          "assessment": "DIFFERENT_HYPOTHESES_AND_BOUND",
+          "evidence": "For example, chi_so ≤ Delta+4 when mad ≤ 20/7.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11653",
+          "material_read": "Theorems 1.2–1.3, p. 4",
+          "method": "OA PDF theorem passage",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "General bounds for the precise invariant"
+        },
+        {
+          "assessment": "PRODUCT_BOUND_DOES_NOT_IMPLY_CLAIM",
+          "evidence": "Bounds are given for standard graph products, not arbitrary quotients by binary relations between generators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Theorem 4.2, p. 18",
+          "method": "OA PDF passage with the submultiplicativity statements",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Potential covering product result"
+        },
+        {
+          "assessment": "WEAKER_INVARIANT",
+          "evidence": "An 8t+4 bound for proper odd coloring of subgraphs of a t-tree strong product with a path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12882",
+          "material_read": "Theorem 1, p. 2",
+          "method": "OA PDF theorem passage",
+          "title": "Odd colourings of graph products",
+          "trigger": "Related product theorem for neighborhood parity"
+        },
+        {
+          "assessment": "PRIOR_PROPER_SUBCLASS",
+          "evidence": "The r+e formula gives 4 for two even shores, and 2 for two odd shores.",
+          "identifier_or_url": "2026/10/12/SCOPE-strong-odd-chromatic-number-of-complete-multipartite-graphs--0c97f3a5ea07",
+          "material_read": "Finding and bipartite specialization",
+          "method": "Published record mirror",
+          "title": "Strong odd chromatic number of complete multipartite graphs",
+          "trigger": "Exact bipartite strong odd formulas in the catalogue"
+        },
+        {
+          "assessment": "PROPER_SUBCLASS_NO_WITHIN_DAY_PRIORITY_INFERRED",
+          "evidence": "The complete multipartite characterization and coloring counts require all edges between distinct shores.",
+          "identifier_or_url": "2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7",
+          "material_read": "Finding and coloring-count extension",
+          "method": "Published record mirror",
+          "title": "Strong odd colorings of complete multipartite graphs are odd block partitions",
+          "trigger": "Distinct catalogue match on exact proper colorings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:24–67",
+        "arXiv:2509.20763 Prop. 26"
+      ],
+      "rationale": "The hard even-degree branch gives a dimension- and valency-independent exact invariant for a natural class of constrained Cayley graphs and an optimal coloring from a Boolean projection. The obstruction and construction extend beyond independent generators and the ordinary cube to dependent systems and odd-distance shells, where binomial parity becomes an explicit decision rule.",
+      "residual_risks": [
+        "No analogous result is claimed here for nonbipartite cubelike graphs or for Cayley graphs on other groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

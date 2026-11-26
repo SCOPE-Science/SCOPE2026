@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 CHECK.py` in the directory containing both `CHECK.py` and `CHECK_OUTPUT.txt`.
-The program uses only the Python standard library and enumerates all multiplication-table pairs in its named finite examples; it also checks the finite-field rank formulas and convex-order stop-loss inequalities at the support breakpoints.
-The expected terminal marker is `VERIFY_OK`, and the recorded output appears in `CHECK_OUTPUT.txt`.
+## correctness
 
-These finite computations do not by themselves establish the universal theorem. The universal proof rests on nilpotence lifting over a nilpotent ideal, an exact matrix nilpotent count, uniformity of a block restriction, rank enumeration, and the chord inequality for convex functions.
+PASS
 
-The relative variance identity for dimension two is also obtained symbolically in the proof. The strict comparison for arbitrary semisimple products follows by iterative replacement of independent positive factors, not from the finite tests.
+A nilpotent Jacobson radical makes reduction reflect nilpotence; equal-size fibers give the equality of propensities pointwise, not just equality of the means. For a rank-r matrix A, AB maps into W=im A. Its restriction to W is uniform in End(W) by surjectivity of B↦AB|W, and AB is nilpotent exactly when that restriction is. The Fitting-decomposition sum for q^(m²)/|GL_m| telescopes on subtracting the dimension-(m−1) identity, giving q^(m²−m) nilpotents, including the separate trivial m=0 case. Counting image spaces and surjections recovers the rank masses; counting expected kernel elements gives mean 2a−a² for one block. For the convex bound, given block propensity Z, choose an endpoint H∈{a,1} with conditional mean Z; the marginal mass at 1 is a. Independent such choices over the blocks give E[∏H_i | (Z_i)]=∏Z_i. Jensen is strict for every strictly convex function when some block has a positive chance of intermediate rank, since all endpoints are positive and the conditional product is then nonconstant. For n=2 the shadow variance is a(1−a)^3 at a=q^(−2). Its excess over the matrix variance is E[(1−Z)(Z−a)], supported only at rank one and equal to q/(q+1) times the shadow variance. Truncated polynomial factors have the required orders and residue fields. The frozen multiplication-table verifier and output were inspected as finite evidence only; the reasoning checks the general theorem independently of them.
 
-No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Credit the earlier matrix-block propensity (including exact rank conditioning), the scalar mean, and standard radical reduction and convexity ingredients. The distinct contribution supported by the comparisons is the strict commutative-shadow comparison for the full propensity distribution, including its precise equality criterion and equal-order examples. The rank-law extension is elementary once the block result is known; it is not an independent priority claim.
+
+## value
+
+PASS
+
+The conditional law retains information the usual nilpotent-product probability loses: equal-order rings with equal scalar probabilities can be distinguished by the entire spread of partner counts, with strict inequality detected already by variance. The equality criterion identifies commutativity of the semisimple quotient, not of the original ring. The exact order-q^4 pair and ratio quantify a natural comparison made for all blocks, rather than a small isolated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

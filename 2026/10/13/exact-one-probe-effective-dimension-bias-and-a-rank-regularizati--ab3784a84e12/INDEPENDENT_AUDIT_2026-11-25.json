@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:40:21.469571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The empty leave-one-out sketch is zero, so Eq. (3.2) indeed reuses the single probe. Diagonalize A by real orthogonal invariance; write U=ω₁²,V=ω₂² and s²=a(a+ζ),t²=b(b+ζ). The sole nonzero Nyström eigenvalue is (a²U+b²V)/(aU+bV), yielding T=(aU+bV)²/(s²U+t²V). Subtracting T from the exactly unbiased probe of fζ(A) gives UV(at/s−bs/t)²/(s²U+t²V) pointwise. In polar coordinates the radial mean is 2. The angular identity E[cos²θ sin²θ/(s²cos²θ+t²sin²θ)]=1/[2(s+t)²] follows from E[1/(s²cos²θ+t²sin²θ)]=1/(st) and the linear identities for the cos² and sin² numerators; continuity covers s=t. This proves the bias and its equality case. The exact ratio to b/(b+ζ) is bounded by replacing (s+t)² by s² and tends to one when b,ζ→0 at fixed a. The expectation then tends to one because the weak contribution is bounded. For fixed b, the ζ↓0 bias is (a−b)²/(a+b)²; for fixed ζ the b↓0 bias is zero, establishing the stated noncommutation. An independently written 65,536-node quadrant midpoint quadrature matched the predicted expectation within 1.3×10⁻¹² in five cases, including (a,b,ζ)=(2,2,3) and (2,10⁻⁴,10⁻⁴). The frozen verify.py and VERIFICATION.md were inspected, not executed. Finite checks only corroborate the analytic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "FlexTrace's spectral-tail bias inequality is for k≥4 and the all-k unbiasedness statement there is for linear f. The idealized i-FlexTrace is a different estimator."
+        ],
+        "reasoning": "Neither the high-probe inequality nor linear unbiasedness determines the nonlinear k=1 exact bias or a matched-scale lower limit.",
+        "searches": [
+          "arXiv:2603.05721v1, Theorem 3.3 and surrounding bias analysis",
+          "Resultary search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.05721v1",
+        "arXiv:2209.11023v3",
+        "Resultary 2026/10/18/…2a86145c3a4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting k=1 into Eq. (3.2) specifies the same random variable. Loewner monotonicity gives its downward bias, and the indexed flat-spectrum expectation yields zero at a=b."
+        ],
+        "reasoning": "These implications are credited. Obtaining the claimed scale and sharpness needs the actual Gaussian expectation of the positive quadratic-ratio residual, not a substitution into an existing bound.",
+        "searches": [
+          "arXiv:2603.05721v1, Eq. (3.2), Algorithm 3.1, Theorem 3.3",
+          "Resultary flat-spectrum finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "FlexTrace Eq. (3.2) is a reused-probe quadratic form when k=1, whereas funNyström §5.1 approximates the target by the trace of a sketched matrix function.",
+          "The inspected flat-spectrum Resultary result uses the same estimator but assumes A=λI and gives EH=nf(λ)."
+        ],
+        "reasoning": "The trace-of-sketch estimator is not the present estimator even in the flat case: it is deterministic at k=1 on λI₂, whereas the reused quadratic form multiplies f(λ) by the Gaussian squared radius. Flat-spectrum coverage gives the zero-bias equality case, not the anisotropic identity.",
+        "searches": [
+          "Resultary: FlexTrace one Gaussian probe exact bias effective dimension regularization rank weak eigenvalue Nyström reused sketch Gaussian ratios",
+          "arXiv:2603.05721v1, Table 1 and §3.1",
+          "arXiv:2209.11023v3, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 specifies the target tr(A(A+ζI)⁻¹), not bias values. The inspected indexed flat-spectrum formula gives EH=nf(λ) with a=b only."
+        ],
+        "reasoning": "There is no discrete census to exhaust in this continuous problem. The relevant exact-result index and the motivating paper's table cover the target or a special case but not this two-variable bias law and boundary.",
+        "searches": [
+          "Resultary search above",
+          "arXiv:2603.05721v1, Table 1"
+        ]
+      },
+      "rationale": "The estimator, effective-dimension function, and nonnegative-bias mechanism are established. The exact anisotropic two-eigenvalue bias, its sharp weak-mode comparison and nonuniform rank limit are the distinct contribution supported by the inspected evidence.",
+      "residual_risks": [
+        "An equivalent Gaussian quadratic-form moment may be catalogued under other terminology. No absolute publication-priority claim is made, and the angular integration itself is not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Estimator and bias sign are prior; the compared bounds do not give this exact low-budget law",
+          "evidence": [
+            "Eq. (3.2) substitutes the full Nyström f(Ahat) for f(A); Theorem 3.3's nonlinear tail bound requires k≥4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.05721v1",
+          "material_read": "Table 1, §3.1 (3.1)–(3.2) and Algorithm 3.1, §3.2 Theorem 3.3",
+          "method": "Primary open article with bounded passages at 15290, 30000 and 36900",
+          "title": "FlexTrace: Exchangeable Randomized Trace Estimation for Matrix Functions",
+          "trigger": "Defines the same estimator and target, and treats bias"
+        },
+        {
+          "assessment": "Different estimator",
+          "evidence": [
+            "Section 5.1 approximates tr(B) by tr(B_k) with B=f(A); this is not a sketch-dependent reused quadratic form."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.11023v3",
+          "material_read": "Effective-dimension example and §5.1 opening definition",
+          "method": "Primary open article, located exact definitions",
+          "title": "Randomized Low-Rank Approximation of Monotone Matrix Functions",
+          "trigger": "Same function and Nyström effective-dimension trace setting"
+        },
+        {
+          "assessment": "Partial overlap confined to flat spectra",
+          "evidence": [
+            "A=λI_n and EH=n f(λ) for 1≤k≤n; no unequal eigenvalues in the compared claim."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-and-diagnostic-undercalibration-for-gaussian-ex--2a86145c3a4b",
+          "material_read": "Finding, hypotheses and mean/variance identities",
+          "method": "Resultary search and mirrored primary statement, offset 85",
+          "title": "Exact covariance and diagnostic undercalibration for Gaussian exchangeable traces on flat spectra",
+          "trigger": "Closest indexed exact moments for the same Gaussian FlexTrace estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The effective dimension and one-matvec estimator are defined independently by the motivating algorithm. The smallest nonflat spectrum already exposes a sharp failure of uniform weak-mode recovery: shrinking the tail at fixed regularization removes the bias, but shrinking regularization with the tail retains an order-one bias. That distinction is useful when choosing regularization and probe budgets; it is not a statement about variance, higher dimensions or multiple probes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

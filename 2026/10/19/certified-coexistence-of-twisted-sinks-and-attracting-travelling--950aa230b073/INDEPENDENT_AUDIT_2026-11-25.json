@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:44.144104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–84, VERIFICATION.md and verify_triangle_cycle.py (inspected, not run)",
+        "Independent exact replay: /workspace/evidence/independent_checks.py (check_record4), output /workspace/evidence/independent_checks.log"
+      ],
+      "rationale": "The sum-zero edge-difference torus is the full relative-phase quotient, with two tangent directions. In the chart (a,b,−a−b), F_h(z)−Pz=(2π,0,−2π) is exactly the two residual equations and the preserved sum. At h=57/50 I independently certified the stated box with exact rational arithmetic: a separate preconditioner is the exact inverse of a rational Taylor midpoint Jacobian, Machin's formula bounds π, and Taylor remainders bound the trigonometric errors. The derivative drift has row-sum bound 7hr since component cosine displacements are at most r,r,2r. Defect <10⁻⁹ and contraction factor <10⁻⁵ give strict inclusion in the radius-10⁻⁸ box and a genuine zero by Banach's theorem. Independent uniform entry bounds for the co-rotating derivative give −1.56<tr<−1.55 and 0.70<det<0.71 across the box, so all three strict quadratic Schur inequalities hold. Permutation equivariance gives F_h³=(P⁻¹F_h)³; its derivative at the orbit point is B³, which contracts in both eigenvalue directions. Distinct representatives in (−π,π) ensure prime period three. Each point of the orbit has two positive coordinates and one negative in this representative interval, while each reflected point has one positive and two negative; oddness gives a disjoint sink orbit. The two uniform twists have tangent multipliers −71/100. The implicit-function theorem (I−B invertible) and strict stability give persistence near h=57/50; the travelling sinks have open positive-measure basins, excluding almost-global attraction by the twists there.",
+      "residual_risks": [
+        "The certificate concerns the stated box and the two-dimensional quotient, not a global attractor census or a quantified maximal interval of persistence. The sign-reflected orbits both satisfy the same permutation relation; reflection here refers to negating the phase differences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two Huygens works give strict descent or almost-global convergence on intervals bounded by h<2/3 for C₃, and give the equilibrium framework. The 2008 Kuramoto work analyzes phase chaos and periodic attractors with four oscillators and nonuniform frequencies."
+        ],
+        "reasoning": "The graph results do not extend their attractor conclusions to 57/50; the 2008 system has a different analyzed size, frequency regime, and coupling sign. Local twist stability by itself cannot imply that other attractors coexist or are absent.",
+        "searches": [
+          "arXiv:2610.10993v1 graph descent and triangle twist analysis",
+          "arXiv:2610.19953v1 Lyapunov interval and concluding open question",
+          "Maistrenko et al. (2008) original journal PDF, pp. 217–221"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993v1 and 2610.19953v1",
+        "Vasylenko–Maistrenko–Hasler (2004), original PDF; Maistrenko et al. (2008), original PDF",
+        "DOI 10.1142/S0218127425300320 (abstract and metadata only)",
+        "Resultary 32d3c49b541d and 2e5d3c4aa08c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vasylenko–Maistrenko–Hasler §3.1 supplies the twist multiplier 1+K/2, which becomes 1−3h/2; its periodic-orbit discussion in the conclusion is tied to nonzero frequency differences (offset 34920).",
+          "The 2025 abstract material gives a torus decomposition and fixed-point analysis, but lawful full-text attempts did not obtain its periodic-orbit results.",
+          "The ring paper states the high-step almost-global question rather than an existence theorem for competing sinks."
+        ],
+        "reasoning": "The fixed-twist part follows by substitution of the known multiplier. The separate high-step existence and strict two-dimensional stability of a travelling orbit, and thence its sign partner and robust competing basins, do not follow from the examined fixed-point, descent or different-frequency orbit results. The 2025 comparison remains unresolved rather than negative evidence.",
+        "searches": [
+          "Compare same-map ring conclusion at arXiv:2610.19953v1 offset 66037, 2004 §3.1 and 2025 DOI 10.1142/S0218127425300320 against the frozen coexistence certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vasylenko–Maistrenko–Hasler, eq. (7), §3.1 at PDF pp. 9–10 (printed pp. 319–320; offset 19600): three equal frequencies give the same two-dimensional phase-difference equations with K=−3h. The inspected phase portrait and stability statements describe positive K.",
+          "Buescu–Oliveira, arXiv:2610.19953v1, offsets 3400 and 66037: same C₃ map and convention; the extension of almost-global convergence beyond the Lyapunov interval for odd rings is posed as open."
+        ],
+        "reasoning": "In the 2004 coordinates u=x−y, v=z−x, the third cyclic difference is −u−v; the coupling term in eq. (7) is minus the corresponding Huygens term times K/3. Thus h=57/50 maps to K=−171/50, not to a positive-K example. The equivalent-map finding is old, but the inspected equal-frequency result does not assert the attracting prime-three coexistence in the repulsive regime. A fixed point of the co-rotating map is not a fixed point of the original phase-difference map unless it is invariant under the cyclic permutation.",
+        "searches": [
+          "Resultary: repulsive Huygens triangle travelling period-three sinks, twisted-state coexistence, h=57/50",
+          "Primary literature: discrete-time three-oscillator Kuramoto, repulsive signed coupling, periodic attractors",
+          "Exact-title lookup of Vasylenko–Maistrenko–Hasler (2004) and institutional original PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 32d3c49b541d, original RESULT.md offset 0, describes the same map but transversely unstable period-two branches near h=4/3 and is later (2026-10-25).",
+          "Earlier Resultary 2e5d3c4aa08c, original RESULT.md offset 0, describes critical relaxation toward a nonhyperbolic class at edge weights 1,1,1/2 and low step."
+        ],
+        "reasoning": "Neither the saddle branches nor the unequal-weight critical fixed class is an exact match or a theorem containing the certified two prime-three sinks on the equal-weight full torus. No indexed exact claim or table was found in the bounded comparison.",
+        "searches": [
+          "Resultary: exact h=57/50, period-three orbit certificate, twisted sinks, equal-weight oscillator triangle"
+        ]
+      },
+      "rationale": "Bounded pass for the specific two twisted sinks and two hyperbolic travelling prime-three orbits coexisting at h=57/50, and the resulting obstruction beyond the descent range. The same Huygens map and the twists are known, and older identical-frequency Kuramoto equations give exactly this map after the signed change K=−3h. The directly inspected older three-oscillator analysis studies the opposite sign in its equal-frequency phase portrait and does not certify the prime-three coexistence here. The inaccessible 2025 article remains a material priority risk; no noncoverage inference is drawn from its abstract or from failed retrieval.",
+      "residual_risks": [
+        "The inaccessible full 2025 article may report a matching numerical or exact orbit; the available material does not settle that. Relevant prior work under signed Kuramoto parameterizations may be unindexed. No priority claim beyond the evidence examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and known twist minima, not high-step coexistence",
+          "evidence": "The descent bound is h<2/3 for K₃; the cited direct twist analysis in the triangle discussion uses h<1/3.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "HTML offsets 0 and 69213, model, descent range and triangle twist analysis",
+          "method": "Primary article passage comparison",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Same edge map and three-oscillator equilibrium geometry"
+        },
+        {
+          "assessment": "Same map and open high-step question, not a prior witness at 57/50",
+          "evidence": "Almost-global convergence in the strict descent range h<2/Λₙ; continuation outside that range on odd rings is posed as open.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19953v1",
+          "material_read": "HTML offsets 3400 and 66037, Lyapunov interval and conclusion",
+          "method": "Primary article passage comparison",
+          "title": "Almost-global convergence to twisted states in discrete Huygens rings",
+          "trigger": "Same C₃ quotient and exact global attraction question"
+        },
+        {
+          "assessment": "Unresolved; cannot establish equivalence or noncoverage",
+          "evidence": "Abstract material mentions three-oscillator conserved quantity, fixed-point stability and a fundamental-trapezoid tiling. It does not settle the signed parameter map or the detailed periodic-orbit claims.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127425300320",
+          "material_read": "Available search-indexed abstract material and bibliographic records; no lawful full text retrieved",
+          "method": "Publisher/preview routes and OA recovery, then identified ADS and J-GLOBAL records",
+          "title": "Synchronization in Small, Fully Coupled Systems of Discrete-Time Kuramoto Oscillators",
+          "trigger": "Highly plausible same-size periodic-dynamics comparator"
+        },
+        {
+          "assessment": "Different analyzed oscillator and frequency regime; leads to an actual three-oscillator precedent",
+          "evidence": "The analyzed model has four oscillators with nonidentical frequencies and positive coupling; the references identify the earlier N=2,3 study.",
+          "identifier_or_url": "https://imath.kyiv.ua/~nosc/admin/private/published_files/601/NOSC6012008111999.pdf",
+          "material_read": "Published PDF pp. 217, 219, 221, offsets 843, 5423, 7606, 12615, and reference [19] at offset 32100",
+          "method": "Identified lawful copy of the published article and primary passage inspection",
+          "title": "Phase Chaos and Multistability in the Discrete Kuramoto Model",
+          "trigger": "Older discrete sine-coupled multistability"
+        },
+        {
+          "assessment": "Exact model equivalence upon sign change, but the inspected identical-frequency result treats fixed points and the positive-coupling portrait",
+          "evidence": "Identical oscillators give the same phase-difference map at K=−3h, with twist multiplier 1+K/2. The conclusion describes periodic-orbit analysis for nonzero detunings, not this equal-frequency repulsive coexistence.",
+          "identifier_or_url": "https://imath.kyiv.ua/~nosc/admin/private/published_files/189/NOSC189200472000.pdf",
+          "material_read": "Original PDF eqs. (6)–(8) and §§3.1–3.2, offset 19600 (printed pp. 319–320); concluding discussion offset 34920",
+          "method": "Identified institutional published copy, literal phrase location followed by bounded original passage inspection",
+          "title": "Modelling the phase synchronization in systems of two and three coupled oscillators",
+          "trigger": "Actual three-oscillator paper cited by the older multistability literature"
+        },
+        {
+          "assessment": "Later and different period and stability",
+          "evidence": "Period-two branches near h=4/3 are saddles on the quotient.",
+          "identifier_or_url": "2026/10/25/SCOPE-transversely-unstable-period-doubling-cycles-in-the-discrete-huy--32d3c49b541d",
+          "material_read": "Original indexed RESULT.md offset 0",
+          "method": "Indexed match and original passage comparison",
+          "title": "Transversely unstable period-doubling cycles in the discrete Huygens triangle",
+          "trigger": "Same quotient map and periodic bifurcations"
+        },
+        {
+          "assessment": "Different weights and attractor type",
+          "evidence": "Uses edge weights 1,1,1/2 and addresses low-step relaxation to a nonhyperbolic fixed class.",
+          "identifier_or_url": "2026/10/11/SCOPE-critical-relaxation-and-an-exceptional-exponential-circle-in-a-d--2e5d3c4aa08c",
+          "material_read": "Original indexed RESULT.md offset 0",
+          "method": "Indexed match and original passage comparison",
+          "title": "Critical relaxation and an exceptional exponential circle in a discrete oscillator triangle",
+          "trigger": "Earlier triangle attractor result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31, 71–80",
+        "arXiv:2610.19953v1 conclusion, HTML offset 66037"
+      ],
+      "rationale": "This supplies a rigorous motivated witness in the gap between the triangle's global descent range and the twists' local stability range. An explicit hyperbolic travelling sink, in fact two, gives positive-measure alternative basins that persist, directly distinguishing local twist stability from almost-global twist attraction. The rational parameter is useful as a reproducible witness rather than a claim that this exact parameter is a bifurcation threshold.",
+      "residual_risks": [
+        "No optimal coexistence interval, full bifurcation diagram, or basin-size estimate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

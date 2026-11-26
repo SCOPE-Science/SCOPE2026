@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any finite nonempty forest, threshold \(\theta\ge2\) and number of states \(\kappa\ge3\), every excitation at time \(t\) forces an embedded complete \(\theta\)-ary tree of height \(t\). The proof makes the nonbacktracking condition explicit: excitations cannot occur on the same vertex at a separation of two steps, and a nonbacktracking walk in a forest is simple. The matching lower bound is a literal wave of excitations from the leaves of a maximal branching witness toward its root, with zero activity outside the witness. Thus the exact fixed-forest worst-case clock is \(H_\theta(F)+\kappa-1\); the sharp size-only logarithm follows by counting witness vertices and attaching inactive extra vertices. Separate full-state and constructive checkers passed 241 unlabelled-tree parameter cases covering 1,882,829 initial states and 8,896 constructed tree tests. The computations corroborate but do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-Bello and Sivakoff, arXiv:2108.06404, Lemma 2.7(ii), prove extinction on a finite rooted tree within its depth plus the number of states, but do not identify the sharp forest-dependent extinction maximum or its complete-branching invariant. Their depth bound diverges on growing paths, while the exact worst clock for paths with at least three vertices is the number of states. The published 2026 induced-density excitation budget applies more broadly to graphs but bounds total excitation events, not this exact clock. The inspected 2018 Doba full text and 2016 Gravner–Lyu–Sivakoff preprint use one-contact excitation, so their hypotheses differ. The 1993 threshold-range archive source concerns spatial-lattice excitation and its abstract is insufficient to certify the full text does not mention an equivalent tree bound. Searches against published records and the accessible historical ledger found no statement implying the shape-wise identity. The possible existence of unindexed equivalent formulations remains a residual priority risk.
+PASS
 
-## Value — PASS
-The problem of the latest possible signal on a finite excitable network is dynamical rather than a gratuitous graph statistic. The exact tree-shape clock is naturally indexed by the maximum embedded branching causal witness; this quantifies how branching, rather than radius, controls the last excitation. The universal size law is sharply logarithmic for all trees, contrasted with linear depth-based prior bounds, and is attained at every size. It holds for arbitrary refractory-state count and contact threshold in one theorem, and can be calculated from an explicit message-passing recurrence. The claim concerns a natural complete family rather than selected examples.
+An excitation at time t>0 requires theta distinct predecessor excitations at t-1. Immediate spatial reversal would force the same vertex to be excited two updates apart, impossible for kappa>=3. Each causal walk is therefore a simple path, and unique paths from the root in a forest force injectivity of the entire selected witness, not just of each branch. No excitation is possible past H; all last excitations clear kappa-1 updates later and initially refractory states cannot delay extinction beyond this. To attain the bound, excite only the deepest leaves of a maximum witness. Inductively the only new excitations are its next shallower level, which is still at rest; an outside component has at most one attachment to the witness, and a vertex in the witness other than a parent gets at most one active neighbor. The root is nonzero at H+kappa-2, so absorbing rest is first reached at H+kappa-1. The argument includes H=0, isolated vertices, and disconnected forests. Counting witness vertices yields the displayed floor logarithm; pendant padding realizes every n, including n=1. The directed recurrence selects the theta-th largest independent branch height by truncating taller branches. Inspected both frozen scripts and their recorded output; did not rerun uploaded code. A distinct bounded script passed 1356 labelled-forest/parameter checks, including disconnected forests through order five and all initial states therein. This enumeration only tests ranks zero and one; higher ranks are established by the proof, not by those cases.
 
-## Closest literature and limitations
-The closest material is Lemma 2.7(ii) of Bello and Sivakoff (2021), the 2026 published induced-density excitation-budget result, and the finite-graph single-contact theory of Doba (2018). No claim of historical uniqueness is made. The method uses acyclicity, at least two contacts and at least one full refractory time; it does not cover cycles, one-contact excitation or two-state systems. The finding has no independent expert assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-day complete-tree witness and the earlier logarithmic degree-bound and density-budget results are material coverage of ideas or restricted conclusions. Credit these explicitly; the surviving claim is the exact all-forest shape invariant and attainment, across the stated thresholds and refractory lengths, with the sharp all-size integer law. Inspected statements do not supply that theorem. The same-day date does not settle order.
+
+## value
+
+PASS
+
+The theorem resolves the sharp feasible excitation time on each fixed forest, distinguishing shapes with the same order or even large depth. The embedded complete branch witness is necessary and sufficient for worst-case delay and yields a computable invariant, plus a sharp logarithmic maximum attained at each size without a maximum-degree assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

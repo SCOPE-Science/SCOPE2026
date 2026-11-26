@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:20.147721Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each normalized vector of coordinate sum one determines a unique rank-one symmetric projection; for distinct lines the two products cannot be equal and nonzero, so adjacency is orthogonality. A partial orthonormal frame has nonsingular complement W; it is terminal exactly when W is alternating, equivalently the canonical dot-product vector lies in the frame span. Nonalternating forms over this perfect field diagonalize: a remaining symplectic plane can be absorbed using [1]⊥H≅I₃. As a separate count check, for a nonterminal ordered prefix with residual dimension d there are q^(d−1) norm-one successors. Exactly one is terminal when d is odd (the residual canonical vector), and none when d is even. Thus nonterminal prefixes grow by q^(d−1)−1_{d odd}, which equals G_d/G_{d−1} for d≥2; for d=1 the only successor is terminal. This recovers the two ordered counts G_n/G_{n−k} and G_n/H_{n−k} on their allowed branches, including the zero alternating complement. Division by k! gives unordered cliques; the empty clique is separate and forbidden terms are omitted (G₀ is not used). Verified both n=4 example polynomials and m₂=16, m₄=160, m₆=32 for (6,2). Inspected VERIFICATION.md and verify.py without running them: all-size finite enumeration is configured for ten cases, with literal product checks on six, not a universal or formal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kramer–Stroppel cover diagonalizable symmetric bilinear isometry groups in characteristic two; Iosevich–Senger count asymptotic orthogonal tuples in large finite-field subsets.",
+          "The all-idempotent graph record yields a clique polynomial and maximal size 2^n, without the rank-one/self-adjoint restriction."
+        ],
+        "reasoning": "An all-idempotent clique count is not a count for the induced rank-one symmetric subgraph; even maximality need not be inherited. General bilinear-form geometry provides tools, not the exact alternating versus nonalternating count, and asymptotic tuples do not yield this finite enumerator.",
+        "searches": [
+          "arXiv:2208.11326 §1",
+          "Iosevich–Senger Theorem 1.1",
+          "Resultary 4918be237860"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Murray 1501.00862",
+        "Kramer–Stroppel 2208.11326",
+        "Iosevich–Senger R151",
+        "Lorenz–Zimmermann DOI 10.1007/s10801-025-01493-5",
+        "Resultary 00e8b0fff4f8, 449d5040be68, 4918be237860, a2f16599b2ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quadratic paper's reduced adjacency uses b_Q(x,y)=a with an alternating polar form in characteristic two; here the underlying symmetric form is nonalternating and every vertex has bilinear self-pairing one.",
+          "After the old projection and form inputs, the proof identifies the canonical-vector obstruction to extension and counts each residual type, including a possible alternating complement before full length."
+        ],
+        "reasoning": "Prior orthogonal-basis existence and standard group sizes do not by themselves enumerate nonextendible unordered partial frames; a separate type split and orbit or extension count is needed. The quadratic graph's proved adjacency and tables do not furnish that split.",
+        "searches": [
+          "Lorenz–Zimmermann Definitions 1.1 and 4.1, Lemma 4.4",
+          "Murray Lemma 3.5 and Kramer–Stroppel §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact geometric equivalent is the graph of mutual orthogonality on anisotropic lines normalized to coordinate sum one. Murray identifies the corresponding projection and orthogonal kernel.",
+          "The two rank-one nilpotent records use square-zero matrices. The rank-one Boolean idempotent record uses Boolean relation multiplication."
+        ],
+        "reasoning": "The projection reformulation is old; the same commuting terminology in other graphs does not give equivalence, since their vertices and the condition for an extension differ.",
+        "searches": [
+          "Resultary 00e8b0fff4f8, 449d5040be68, 4918be237860, a2f16599b2ee",
+          "Murray arXiv:1501.00862 Lemma 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives clique numbers in characteristic-two quadratic representation graphs and Table 4 counts maximum cliques, not all inclusion-maximal cliques; adjacency starts with Q(x−y)=a. The indexed exact polynomials concern the rank-one square-zero graph or all idempotents.",
+          "For the frozen graph C_{4,2}=1+8z+16z²+8z³+2z⁴, and the invariant checked is the whole coefficient list plus the separate inclusion-maximal counts."
+        ],
+        "reasoning": "Neither a maximum-only table in another graph nor exact data for a larger/different vertex class yields the complete target polynomial or the terminal sizes and counts.",
+        "searches": [
+          "Lorenz–Zimmermann DOI 10.1007/s10801-025-01493-5 Tables 2 and 4",
+          "Resultary 00e8b0fff4f8 and 4918be237860"
+        ]
+      },
+      "rationale": "Bounded pass for exact all-size clique and terminal-frame enumeration of the specified ordinary-transpose rank-one graph, not for the classical projection correspondence, bilinear form classification or group orders. The closest checked graph theorems and indexed counts concern different adjacencies or allow different vertex classes, and none supplies the two residual-type enumerators for this graph.",
+      "residual_risks": [
+        "Zhou–Gu–Wan was not available for exact statement comparison; an equivalent prior under alternate orthonormal-frame or graph terminology may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general projection identification",
+          "evidence": [
+            "A nondegenerate subspace is the image of a unique self-adjoint idempotent with orthogonal-complement kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00862",
+          "material_read": "Lemma 3.5, PDF pp. 10–11, offset near 34820",
+          "method": "OA targeted PDF passage",
+          "title": "Symmetric bilinear forms and vertices in characteristic 2",
+          "trigger": "Orthogonal projection equivalence in characteristic two"
+        },
+        {
+          "assessment": "Classical structural input; not the inspected claim of all-size clique counts",
+          "evidence": [
+            "Separates the characteristic-two nonalternating symmetric setting; gives an orthogonal-basis result for nonalternating forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.11326",
+          "material_read": "Introduction and §1.2, PDF pp. 2 and 4, offsets near 2900 and 8500",
+          "method": "OA targeted PDF passages",
+          "title": "Hodge operators and groups of isometries of diagonalizable symmetric bilinear forms in characteristic two",
+          "trigger": "Potential prior nonalternating form and frame results"
+        },
+        {
+          "assessment": "Asymptotic tuple result, not all-size exact orthonormal frame/terminal enumeration",
+          "evidence": [
+            "The theorem is on sufficiently large subsets and asymptotic orthogonal tuple counts."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r151/pdf/",
+          "material_read": "Theorem 1.1, PDF p. 1",
+          "method": "OA targeted PDF passage",
+          "title": "Orthogonal systems in vector spaces over finite fields",
+          "trigger": "Counts orthogonal tuples in finite-field dot-product spaces"
+        },
+        {
+          "assessment": "Related graph, different form and maximum-only data in the relevant tables",
+          "evidence": [
+            "Global adjacency is Q(x−y)=a, and in the reduced graph Q(v)=a the adjacency is b_Q(x,y)=a; the tables concern clique number and maximum cliques."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01493-5",
+          "material_read": "Definition 1.1 p. 3, Tables 2 and 4 pp. 4–5, Definition 4.1 p. 11 and Lemma 4.4 p. 13",
+          "method": "OA targeted PDF passages",
+          "title": "Cliques in representation graphs of quadratic forms",
+          "trigger": "Most plausible published clique and exact count comparison"
+        },
+        {
+          "assessment": "Distinct invariant inputs or vertex products",
+          "evidence": [
+            "The compared vertex classes are square-zero rank-one, all idempotents over a finite commutative local ring, and Boolean relations, not the specified normalized dot-product projections."
+          ],
+          "identifier_or_url": "00e8b0fff4f8; 449d5040be68; 4918be237860; a2f16599b2ee",
+          "material_read": "Mirrored RESULT findings, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Resultary commuting rank-one, idempotent, and Boolean graph records",
+          "trigger": "Exact same-terminology graph enumerators"
+        },
+        {
+          "assessment": "Unresolved comparison; not evidence of absence",
+          "evidence": [
+            "Full text was not available by the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2016.05.036",
+          "material_read": "No theorem or table passage recovered",
+          "method": "Lawful DOI and repository access attempts",
+          "title": "Subconstituents of orthogonal graphs of characteristic 2",
+          "trigger": "Potential subconstituent description under another graph name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural question for the commuting graph is whether partial commuting families are extendible to maximal cardinality. The alternating complement gives a real obstruction, including isolated vertices or two-vertex terminal families in unbounded dimension. Resolving every terminal size and count together with the full counting polynomial quantifies this phenomenon across all characteristic-two orders; a maximum-clique calculation alone would miss it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

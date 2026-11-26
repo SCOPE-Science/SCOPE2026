@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem has a uniform proof for all finite connected graphs of cyclomatic number at most one. The accompanying `verify.py` provides an independent finite consistency check.
 
-The script embeds graph6 representatives for all \(79\) connected Graph Atlas graphs on at most seven vertices whose cyclomatic number is \(0\) or \(1\). For each graph it:
+# Independent mathematical audit
 
-1. checks connectedness and the cyclomatic number;
-2. computes the stable color-refinement partition directly;
-3. computes the automorphism-orbit partition by exhaustive testing of all vertex permutations; and
-4. asserts equality of the two partitions.
+## correctness
 
-It also constructs the explicit \(8\)-vertex bicyclic counterexample consisting of two triangles joined through two internal path vertices. The script verifies that its cyclomatic number is \(2\), that its stable color partition differs from its automorphism-orbit partition, and that the six degree-\(2\) vertices form one stable color class while splitting into two automorphism orbits.
+PASS
 
-The checker returns:
+The stable partition is equitable. Two same-color lifts in a universal cover admit a rooted isomorphism: match neighbors by color, and after the first level omit one parent of the same paired color on each side. Iterate on the tree of lifts. For a tree the cover is the finite tree itself. In the unicyclic case, the vertices whose removal leaves two infinite components are exactly the spine, so the rooted isomorphism translates or reflects the spine, inducing a well-defined cycle symmetry modulo its length. The induced decoration maps need not themselves be periodic: choose one rooted isomorphism per cycle residue, taking the specific lifted map at the residue of the first vertex. This yields a finite-graph automorphism carrying it to the second. Every automorphism preserves refinement colors. In the eight-vertex witness the degree-three vertices have three degree-two neighbors and every degree-two vertex sees one neighbor of each degree. The degree partition is equitable, but the four degree-two triangle vertices cannot be permuted to the two connector vertices; triangle interchanges and end-for-end reversal give the claimed orbits. C3 disjoint union C4 checks the disconnected limitation. The embedded atlas test is optional corroboration, not the basis of the all-order conclusion; its code was inspected, not run.
 
-`VERIFY_OK atlas_graphs=79 n<=7 beta<=1 counterexample_beta2=PASS`
+## originality
 
-The embedded atlas check is finite and corroborative only. The theorem for arbitrary order rests on the universal-cover proof in `RESULT.md`. No external or independent certification is claimed.
+PASS
+
+Pass for the class-wide connected unicyclic orbit-recovery theorem and the resulting sharp universal threshold. Neither tree refinability, bare-cycle refinability nor the eight-vertex sharpness witness is an original component. The exact witness has antecedents; these are credited below. No claim of a bicyclic classification is made.
+
+## value
+
+PASS
+
+Recovering the actual automorphism orbits, rather than just an equitable partition, is a structural guarantee on an entire first cyclic class. The exact cycle-rank boundary differentiates global orbit recovery from the weaker local count test; the credited witness makes clear why the broad guarantee cannot continue to rank two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

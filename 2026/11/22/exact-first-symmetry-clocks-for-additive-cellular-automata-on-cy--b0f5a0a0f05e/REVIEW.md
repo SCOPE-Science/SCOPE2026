@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim distinguishes initial symmetry, positive first-symmetry onset, and never-acquired symmetry. Every nontrivial translation stabilizer contains a prime-order subgroup. For all primes other than the characteristic \(p\), the shift-fixed subspace contains the entire nilpotent primary summand, and the complementary update is invertible. For order \(p\), an exact polynomial-gcd degree gives preimage dimensions \(n/p+\min(t,(p-1)p^{a-1})\); inclusion–exclusion removes already-existing other-prime symmetry. Möbius inversion counts initially aperiodic configurations, giving the infinite mass by subtraction. The final geometric law is an exact quotient, not an asymptotic guess. The independent exhaustive standard-library checker passed 26 cases totaling 30,852 inputs. The infinite theorem is justified by the written proof, not inferred from enumeration.
+PASS
 
-## Originality — PASS within checked evidence
+T is elapsed time to the first nonidentity spatial symmetry, with T=0 for initially symmetric words, counting indexed words. In the cyclic module over F_q with modulus z^n-1, for each d|n the period-dividing-d condition at time t is the kernel of (z^d-1)(1-z)^t. The kernel dimension is the degree of its gcd with z^n-1: writing n=p^a m and d=p^b d0 with p not dividing m,d0, z^d-1 divides z^n-1 and has root-1 multiplicity p^b, so the dimension is d+min(t,p^a-p^b). This includes a=0. Commutation makes symmetry persistent, so M_t=#(T>t) is precisely the Möbius inversion sum over d|n of mu(n/d) times q to that kernel dimension. M_0=B_q(n). If p does not divide n the sum is time independent. Otherwise, only terms with b=a or b=a-1 survive; the latter have d=n/(pr), r|rad(m), and mu(pr)=-mu(r). Hence M_t=B_q(n)-(q^min(t,L)-1)H_q(n,p). Taking differences and the eventual constant gives precisely the finite, zero-time and infinite masses. H counts words of length n/p avoiding all prime-order symmetries from primes dividing m, so is positive (use a word with one marked site, or the vacuous one-site case). This ensures the sharp cutoff and well-defined conditional reverse-lag law, obtained by dividing by (q^L-1)H. For every prime ell different from p, the kernel dimension d=n/ell is constant in time, and the preimage kernels are nested, so such a symmetry cannot first appear. Any wholly new nontrivial stabilizer therefore contains the order-p subgroup. For m=1 the formula gives M_L=0. A commuting unit factor preserves each shift fixed subspace bijectively, so it preserves each word's clock, not just the distribution. Independently compared direct entry-or-repeat simulations with the per-divisor kernel-count formula in 26 rings over F_2, F_3, F_4 and F_9: all 30852 initial words agreed in the complete histograms. Replay: python3 /workspace/independent_replays.py 3.
 
-Primary comparison: Banda–Caughman–Lehman (2026, arXiv:2611.15751v1) explicitly proves symmetry irreversibility (section 8), not the update-by-update first-symmetry census or its universal reverse-lag law. Cordovil–Dilão–Noronha da Costa (1986, Proposition 2.4 and Theorem 2.5) studies spatial-period divisibility and **temporal** periodic orbit counts; the requested first appearance of nontrivial spatial symmetry is a different observable. Contemporary additive-CA entropy work likewise does not imply an exact finite-ring first-passage law. Closest mathematical research records concern temporal entry times for Rule-90 perturbations, sequential Rule-60 classes, or spatial translation kernels of different shifts. Neither a semantic search nor novelty of terminology proves historical uniqueness: prior first-passage classifications outside inspected sources remain a real priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The law answers a naturally motivated inverse of symmetry irreversibility: precisely when, and for what fraction of initial conditions, can an equivariant update create symmetry? It exposes characteristic-dependent sharp clocks, a nontrivial persistent aperiodic population on mixed-length rings, and a universal geometric fluctuation conditioned on acquisition. These are structural dynamical statistics across every ring length, not a single finite example or a restatement of the count of initially symmetric configurations.
+The nearest checked literature gives static symmetry and stabilizer irreversibility, or temporal orbit periods. The closest distinct Resultary clocks apply to different update rules. No examined result gives the positive-time order-p shells with the exclusion of preexisting other-prime spatial symmetry, the complete first-spatial-passage law, and its reversed geometric consequence for the stated family.
 
-## Boundaries
+## value
 
-The result is restricted to the difference rule times an invertible shift polynomial and uniformly counted finite-field rings. No expert independent validation has been performed. Specialized early additive CA literature beyond the inspected 1986 article may contain equivalent first-entrance results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant quantitatively refines general symmetry irreversibility for a canonical cyclic linear rule: a period drop may never occur, but if it occurs after time zero it has a characteristic-prime cutoff and an exact reversed lag law independent of the prime-to-p factor. Counting every start and showing pointwise invariance under multiplication of the rule by a unit make this structural rather than an isolated cycle enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

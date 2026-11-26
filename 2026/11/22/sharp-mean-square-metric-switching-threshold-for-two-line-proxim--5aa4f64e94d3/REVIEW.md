@@ -1,19 +1,21 @@
-# Review of the two-line reciprocal metric-switching law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS, self-review.** Orthogonal projection onto the two lines gives the explicit two-component update. Reciprocal symmetry makes the conditional second-moment matrix exactly scalar, and independence turns this one-step identity into an all-time identity. The factorization of the scalar growth rate establishes all strict and equality cases; Schur's quadratic criterion handles the separate deterministic comparator. The rational example distinguishes mean-square divergence from periodic linear convergence exactly. The packaged standard-library verifier passed 1481 exact-rational assertions. Numerical experiments and finite enumeration are not treated as proofs of the universal statement.
+PASS
 
-## Originality
+Taking the Euclidean projections for a scalar metric in the stated update keeps z on V and u on its orthogonal line. In orthonormal line coordinates the map is T(m)=[[p,cs/m],[−mcs,p]] with p=c². For fixed m it is similar to T(1) by diag(1,m), with eigenvalue modulus c. In T(m)^T T(m) the off-diagonal is proportional to 1/m−m, and its diagonal terms differ only by swapping m² and m^-2. Reciprocity and the second-moment assumption cancel the off-diagonal and equalize the diagonal to lambda=p²+p(1−p)v. Independence from the past makes this a conditional norm identity at every step, including k=0 by initialization, hence the exact geometric moment for each starting vector. Since lambda−1=−(1−p)[1−(v−1)p], the strict, neutral and expansive regimes and the uniform reciprocal two-point boundary follow, with random equality at r²=2+sqrt(3) still contractive at every 0<p<1. Orthogonal lines, though excluded in the theorem's proof setup, give T=0 and do not affect the all-noncoincident-lines threshold. For the periodic product the trace is 2p²−p(1−p)q, q=r²+r^-2, and determinant p²<1. Of the two remaining Schur tests only 1+3p²−p(1−p)q>0 restricts q. The ratio (1+3p²)/[p(1−p)] is 6+(3p−1)²/[p(1−p)], so strict all-angle stability needs q<6 (at equality p=1/3 gives eigenvalue −1). At p=9/10,r=2 the random factor is 801/800 and the periodic trace/determinant are 99/80 and 81/100, yielding nonreal roots of modulus 9/10. Neither the periodic nor the random result overstates the pathwise conclusion.
 
-**PASS, qualified.** The primary 2026 variable-metric splitting paper supplies the exact proximal update and controlled-metric convergence results, not an unrestricted iid metric theorem. The closely matching published two-period result already supplies the deterministic uniform threshold \(3+2\sqrt2\), which is expressly credited. It cannot alone imply the current exact iid second-moment identity and sharp \(2+\sqrt3\) threshold. Classical fixed-metric and nonstationary convergence results have different hypotheses. Searches of published mathematical results and the related literature identified no stronger covering exact iid claim. The full text of one relevant stochastic preconditioned splitting article was inaccessible, so historical priority is not established exhaustively.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result pinpoints a sharp distinction among fixed, periodic and freshly randomized metric choices in a natural convex feasibility model and provides a complete distribution/angle safety test. The structural contrast matters when evaluating robustness of variable-metric proximal schemes. The result is limited to reciprocal distributions, two lines, and mean-square convergence; it does not contradict safeguarded schemes or establish almost-sure divergence.
+Best-of-knowledge pass for the independent reciprocal-metric second-moment law, its sharp stability boundary, and the explicit separation from deterministic alternation. The earlier deterministic threshold is covered and receives no originality credit; generic covariance propagation is also a standard ingredient.
 
-## Closest literature and limitations
+## value
 
-Suh and Isaac, *Variable Metric Three Operator Splitting*, arXiv:2610.38935v1; *Sharp two-period metric-ratio barrier for convex-subspace three-operator splitting*, published 2026-11-08 (public result linked in RESULT.md); Lorenz and Tran-Dinh, arXiv:1801.03765; Bauschke and coauthors, arXiv:1309.4709; Dong, Bredies and Sun, arXiv:2212.13001 (abstract only). Important unresolved risk: the last paper's full text could not be inspected. The necessary-and-sufficient mean-square threshold does not classify pathwise behavior in the divergent regime.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The case isolates a meaningful risk in dropping a metric safeguard: two individually stable metrics, even contractive in strict alternation, are not interchangeable with independent switching for expected joint squared error. The exact thresholds, equality regime and all-starting-state law make this a usable stability test and give a counterexample without numerical ambiguity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

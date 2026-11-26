@@ -1,11 +1,21 @@
-# Assessment of the periodic quadratic Nyquist dimension theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim explicitly specifies the uniform periodic torus and six local total-degree-two coefficients. Every interface equation is derived directly from vertex and averaged normal-derivative matching; Fourier diagonalization exhausts all global modes. A complete case analysis gives one degree of freedom per Fourier character except a three-dimensional fiber at \((-1,-1)\). The exact-rational standalone global row-reduction checks match on six mesh sizes, including every parity case; these are supplements, not the proof.
+## correctness
 
-**Originality — PASS subject to priority uncertainty.** Ma--Xing--Zhang (arXiv:2610.32048v1, Sections 2--3) establish the analogous bounded homogeneous space and do not impose periodic identifications. Zeng--Zhang--Zhang (arXiv:1903.00938v2, inspected opening, Section 4.1 and its exact Theorem 4.1, and relevant appended definition) work on bounded simply connected domains; their \(mn+1\) formula includes different boundary restrictions, and full-PDF search found no periodic treatment. Yim--Sheen (DOI:10.1002/num.23023) treat \(P_1\), not \(P_2\), but already establish that parity-dependent dimensions can arise for a different nonconforming periodic element. A specialized older quadratic periodic spline theorem remains a genuine unexcluded risk, and an inaccessible full-text \(P_1\) comparison was not used to certify a negative.
+PASS
 
-**Value — PASS.** This is a natural complete dimension classification for the periodic counterpart of the recent minimal-degree rectangular biharmonic element; the even-even anomaly changes the exact number and structure of degrees of freedom. The two additional Nyquist freedoms matter when constructing periodic trial-space bases and solvers. They are not claimed to cause a stiffness nullspace or to invalidate published bounded-domain results.
+Independently parameterize a cell polynomial by its four corner values, interpolated bilinearly, plus free coefficients c_x,c_y of x^2-1 and y^2-1. This is exactly the six-dimensional total-degree P2 space. In a Fourier character (z,w), continuous vertex values come from one common amplitude V. The two slopes of the bilinear part at the center are a_x=V(z-1)(1+w)/4 and a_y=V(w-1)(1+z)/4. The edge-average derivatives are a_x±2c_x and a_y±2c_y in reference coordinates; physical scales are constant within each direction and cancel. Matching yields 2(1+z)c_x=(z-1)a_x and 2(1+w)c_y=(w-1)a_y. With neither character -1 the two bubbles are determined by V. With just one -1 its equation forces V=0 and leaves precisely its one directional bubble free. With both -1 neither equation restricts V or the two bubbles; bilinear interpolation of the alternating corner values is Vxy. Hence the three listed checkerboard modes are independent and exhaustive in that character. The sum of complex dimensions equals the real dimension on complexification. This derivation also works with two cells in either direction: interfaces are indexed modulo the mesh, with each physical edge and its identification imposed. It supplies the all-size rank proof without running the frozen finite checker.
 
-**Scope and limitations.** The result does not extend to nonuniform meshes, arbitrary-dimensional tori, or physical PDE error rates. A parity effect in other element families predates this theorem. Independent external audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The continuity conditions themselves are established reduced rectangular Morley conditions. The distinct claim is the exact periodic dimension and kernel fiber: bounded rectangular Morley results use different global constraints, and the cited periodic parity comparison concerns P1. No inspected matching source states or directly implies the P2 torus result.
+
+## value
+
+PASS
+
+This is a natural periodic trial space for a physically motivated continuity condition. Exact parity and explicit shapes tell a basis builder when two additional degrees of freedom are required and which local components carry them; the bounded-domain dimension cannot provide this information. This is a dimension mechanism, not a claim of defective Hessian energy or solver instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

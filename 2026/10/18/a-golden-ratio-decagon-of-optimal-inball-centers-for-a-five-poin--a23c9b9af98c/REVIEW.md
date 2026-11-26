@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polar-vertex characterization follows directly from rank four of the active incidence constraints on five sites. Every such connected tight-edge graph has a spanning tree, so the 125 Prüfer trees and 16 sign patterns per tree exhaust all vertex candidates, not merely a sample. Exact rational parameter intervals give the five complete interior families and endpoint collapses. Direct polynomial length differences isolate the ten contacting normals; the determinant \((t^2-t-1)^2\) locates the sole possible loss of center uniqueness. At the golden ratio the exact projector, projected length table, ten distinct family-D directions, and strict bounds excluding A/C/E complete the regular-decagon proof. The bundled verification program was executed and reported `ALL EXACT CHECKS PASSED`; independent reproduction remains unperformed.
+PASS
 
-## Originality — PASS, with residual risk
+The repaired center-locus theorem and radius are correct. The frozen endpoint proof falsely counted twenty t=2 longest normals; there are ten. Indeed the t=2 cyclic increments are a five-cube section of sum zero: four saturated increments split two positive and two negative, with the fifth zero. Per location of the zero, the three sign patterns up to negation give squared norms 14/5, 6/5 and 2, each occurring ten times overall. At t=1 range-one two-level potentials give norm-square multiplicities 4/5:10 and 6/5:20. Family B contains maximizing normals at both endpoints; the cyclic determinant is one there, so endpoint centers are unique. Interior active differences have rank four iff their graph is connected; scanning all four-edge choices and signs with exact affine feasibility intervals proves the full classification. The five-orbit norm calculation makes B uniquely maximal. Central symmetry makes the origin optimal, and the signed longest normals force every center into their annihilator. Their cyclic determinant is (t²−t−1)²; at phi the span has rank two and its complement is the frequency-two plane. The nonzero projected D orbit has ten directions (five rotations and negatives), making the decagon. Squared norms and strict rational Cauchy–Schwarz bounds prove the other inactive families cannot cut it. Independent replay: python3 /workspace/branches/pentagon_independent.py; passed exhaustive affine intervals, endpoint histograms, cyclic determinant, exact Fourier projections, projected orbit, and strict bounds. The packaged script was inspected, not executed. Complete corrected files are under /workspace/repairs/5/.
 
-Gordon–Petrov, *Combinatorics of the Lipschitz Polytope* (arXiv:1608.06848), Theorem 1, covers the 70-vertex number for generic five-point metrics. No novelty is attributed to that count. Inspected mathematical comparisons against this paper, D’Alì–Delucchi–Michałek (arXiv:1910.05193, the metric-duality and graph sections), and Aliaga (arXiv:2102.01219, introduction and central extreme-point statements) do not imply the sharp exceptional parameter or complete optimal-center decagon. Targeted mathematical-record searches found related but different metric families. An unindexed equivalent classification remains a residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural one-parameter interpolation between equilateral five-site geometry and the five-cycle metric exhibits a sharp geometric phase transition: at precisely the golden ratio, an origin-centered maximal Euclidean inball acquires a nontrivial two-dimensional regular-decagon set of admissible centers. The exact equality locus, including its radius and combinatorial geometry, is a structural feature of transportation norms, not simply a routine count of the polytope's facets.
+Pass only the complete optimal-center locus, including the exceptional regular decagon. The longest-polar-norm problem, the radius it determines and the full interior norm census have exact equivalent coverage in a distinct Resultary record dated November 8, 2026; this is overlap, not evidence of that record's priority over the October record. The repair explicitly credits that coverage and uses those calculations as supporting facts. The radius and longest normals alone do not show that D supplies all the sides or that A, C and E are strictly redundant at phi.
 
-## Scientific limits
+## value
 
-The ambient Euclidean structure is fixed canonically in the zero-sum subspace; the theorem does not transfer to arbitrary metrics or arbitrary Euclidean coordinate changes. Exhaustive case enumeration has been programmatically checked but not independently audited. Closest covered result: Gordon–Petrov generic total of 70 vertices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural low-dimensional transportation norm exhibits a precise isolated loss of uniqueness in a Euclidean inball problem. The center-locus result distinguishes a proper decagon from the entire allowable contact plane and identifies which noncontact inequalities control translations. This is a structural geometric classification beyond the scalar radius or a vertex-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

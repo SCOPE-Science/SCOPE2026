@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:05:11.114397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof in RESULT.md, lines 34–60. XOR of the observed bits by the phase-dependent first forbidden bit turns each phase into L or F, with F exactly at a cyclic match. The matrices telescope by a genuine conjugacy over a period. At zero matches, prefixes are descending binary strings so there are n+2 words of length n+1 and exactly two recurrent two-sided points at phase zero, giving the asserted escape probability and zeta function. A product containing F has positive off-diagonals and a positive bottom-right entry: the property holds for L^a F and survives right multiplication by either factor. Its square is positive. In the strict comparison, F L^a F minus L^(a+1) F is the nonzero nonnegative matrix with first row (1,a) and second row zero; multiplying on either side by the invertible nonnegative factors keeps the difference nonnegative and nonzero. The comparison preserves length and primitivity, so strict Perron monotonicity applies, including for adjacent F factors. The trace and determinant of F L^(p−1) are p and −1, yielding the bound and equality for all p, including p=1. Choosing the first bits and the set of matches freely gives the schedule multiplicities. The monodromy counts labelled paths (including parallel edges) so traces count symbolic periodic points and the primitive Perron measure yields the dimension through cylinder decay. The canonical binary convention gives the stated Lebesgue normalization; the countable difference at ambiguous endpoints does not affect the dimension argument. The submitted checker was inspected, not executed and not used as an infinite proof. 'Sixteen original transition choices' in the verification paragraph is a typo: there are four individual matrices (sixteen period-two schedules).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheriyath–Agarwal compare static unions of equal-length cylinders by word correlations.",
+          "91c8d26540fd analyzes the two endpoint holes and periodic alternating zero entropy; ae0aa2f134e9 gives a density condition for zero growth for the same endpoint holes; 962cd78c291c also restricts to endpoint holes."
+        ],
+        "reasoning": "The endpoint results overlap for a proper subfamily and the static-hole theorem uses a phase-independent union. Even a generic phase-augmented Perron prescription does not give a uniform spectral inequality and equality set as the hole schedule varies.",
+        "searches": [
+          "arXiv:1905.11767, PDF pp. 1–2",
+          "Resultary f19d7b26fc6b, 91c8d26540fd, ae0aa2f134e9 and 962cd78c291c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary f19d7b26fc6b, 91c8d26540fd, ae0aa2f134e9 and 962cd78c291c",
+        "arXiv:1312.7030",
+        "arXiv:1905.11767",
+        "2014 Fibonacci matrix product search result (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed b≥3 overlap result gives dimension by the spectral radius for a fixed periodic code.",
+          "The frozen proof uses the additional strict comparison FL^aF ≥ L^(a+1)F in the binary gauge, iterated at fixed p."
+        ],
+        "reasoning": "Even carrying the overlap transfer recipe to b=2 would not itself imply the comparison across codes. The inspected moving and static hole passages supply no replacement comparison giving precisely one match as the equality condition.",
+        "searches": [
+          "Resultary f19d7b26fc6b, Finding offsets 0–1446",
+          "arXiv:1312.7030 Eq. (6)",
+          "arXiv:1905.11767 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f19d7b26fc6b, Finding offsets 0, 452 and 1446: same cyclic match indicator and a transfer/Perron prescription, for alphabet b≥3.",
+          "Livorati et al., PDF pp. 1–2 and Eq. (6): oscillatory moving holes and escape, not products of the two gauge matrices."
+        ],
+        "reasoning": "The equivalent optimization is the smallest Perron root of a length-p L,F product containing at least one F, not the computation of a Perron root for a supplied schedule. Neither comparison gives the minimizing word or equality classification.",
+        "searches": [
+          "Resultary: moving two-digit holes and overlap-code classification",
+          "Resultary: periodic binary shear/Fibonacci products and entropy minimization",
+          "arXiv:1312.7030"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed Resultary statements give a different-alphabet transfer formula or endpoint-hole envelopes, not a table or closed enumeration of binary first-positive cases.",
+          "The 2014 Fibonacci product paper surfaced by title/snippet only; no applicable table or exact result was verified there."
+        ],
+        "reasoning": "Finite schedule data would overlap a table of tested periods but would not establish the all-period bound. No matching exact table was verified; this does not certify absence.",
+        "searches": [
+          "Resultary: periodic forbidden binary pairs, overlap defects and first positive entropy",
+          "Primary literature search: binary shear/Fibonacci transition product minimization"
+        ]
+      },
+      "rationale": "The distinct supported finding is the sharp smallest positive entropy for all binary schedules and its exact equality characterization, together with the zero-entropy boundary. The transfer formalism and overlap parameter alone receive no novelty credit. The strongest matching indexed overlap classifications concern a different alphabet size or the two endpoint holes rather than the full four-hole optimization. No inspected prior statement supplies the sharp minimization; priority under an equivalent matrix-product formulation remains a limitation.",
+      "residual_risks": [
+        "The relevance of the inaccessible 2014 primary paper remains unresolved.",
+        "Equivalent extrema under matrix or periodic symbolic terminology may be unindexed; the catalogue and literature comparisons are not an exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material transfer-model overlap; b≥3 rather than the binary extremal dichotomy",
+          "evidence": [
+            "Match indicator, prefix-count transfer product and Perron dimension for periodic codes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-overlap-code-classification-of-moving-two-digit-holes--f19d7b26fc6b",
+          "material_read": "RESULT.md Finding offsets 0, 452 and 1446",
+          "method": "Resultary search and matching local mirror source",
+          "title": "Complete overlap-code classification of moving two-digit holes",
+          "trigger": "Same overlap invariant and periodic holes"
+        },
+        {
+          "assessment": "Proper endpoint subfamily, with overlap on zero entropy, not the all-four-hole positive gap",
+          "evidence": [
+            "First Finding gives finite survival envelopes and periodic alternating zero entropy; second gives the zero-density repeated-choice criterion."
+          ],
+          "identifier_or_url": "Resultary 91c8d26540fd; ae0aa2f134e9",
+          "material_read": "Openings of both RESULT.md Findings",
+          "method": "Resultary search and matching local mirror sources",
+          "title": "Sharp moving-hole escape envelopes; Sparse repetition is the exact zero-growth boundary for two moving holes",
+          "trigger": "Closest indexed binary endpoint specialization"
+        },
+        {
+          "assessment": "Relevant motivation, not a located four-cylinder discrete schedule minimum",
+          "evidence": [
+            "Position and size oscillate using continuous boundaries in Eq. (6); the cited analysis uses numerical and analytical escape estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.7030",
+          "material_read": "PDF pp. 1–2, including Eq. (6), offsets 2200, 6700 and 9700",
+          "method": "Lawful OA primary PDF targeted reading",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same map with moving holes"
+        },
+        {
+          "assessment": "The compared statements concern static equal-length cylinder unions",
+          "evidence": [
+            "The authors compare escape for fixed unions using correlations of the forbidden words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.11767",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5848",
+          "method": "Lawful OA primary PDF targeted reading",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "Correlation-based forbidden-cylinder escape and entropy"
+        },
+        {
+          "assessment": "Coverage unresolved; no scientific inference from the access failure",
+          "evidence": [],
+          "identifier_or_url": "2014 ScienceDirect search result under this title",
+          "material_read": "Search title/snippet only; primary text access returned HTTP 403",
+          "method": "Primary literature search and OA retrieval attempt",
+          "title": "Products of 2×2 matrices related to non-autonomous Fibonacci difference equations",
+          "trigger": "Possible equivalent matrix-product extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For genuinely distinct moving holes of the same size, the theorem gives both an exact zero-growth mechanism and a sharp prohibited interval of escape rates. The equality condition gives a way to recognize the sparse slow-growth regime without multiplying a long list of matrices. This is an all-period structural result about dynamical escape, not merely a finite schedule census or use of a transfer matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

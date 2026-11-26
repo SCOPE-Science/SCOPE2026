@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The wrapped density is derived by an absolutely convergent linear-geometric sum of a normalized parent, giving the exact ratio of neighbors. Strict log-concavity fixes all possible mode patterns. The derivative of the scalar threshold is strictly below \(-1\) by an elementary AM–GM inequality, which gives exactly one crossing of each admissible integer. The threshold for six sectors is the unique positive sextic zero, enclosed by rational signs. A monotone-in-resolution comparison and a mean-value expansion prove the sharp exponential threshold limit. The standalone finite checker supports but does not replace these proofs.
+PASS
 
-## Originality
+The geometric and first-moment series independently give w(r)=theta^2 q^(m-3)q^(-r)(r+b)/(q^m-1), q=1+theta, b=theta+2+m/(q^m-1). Neighbor ratios strictly decrease, and their difference from 1 has the sign of H_m-r. With A=theta sum(q^k), strict AM–GM gives m^2 q^(m-1)/A^2 < theta^(-2), so H'_m<-1. Expanding the finite sum gives H_m(0+)=(m-5)/2, not attained, while H_m(infinity)=-infinity. Therefore the only nonnegative integer thresholds are j<(m-5)/2. This handles m=2 (vacuous interior concavity), m=5 (endpoint limit 0 but no tie), and m=6 (first positive threshold). In all cases H_m<m-1, so there is no missing overflow sector; every claimed unique mode occurs on an interval and any tie is exactly adjacent. For m=6 clearing theta A and removing theta^2 yields the stated sextic. For the large-m transition, A/m increases strictly in m at fixed theta; t_m increases toward t_*=sqrt(2)-1 by pointwise convergence of H_m. Its positive lower bound t_6 and the mean-value theorem give t_*-t_m=O(m(1+t_6)^(-m)), so ((1+t_m)/sqrt(2))^m tends to one. The derivative of 1/t-t-2 then gives the stated limiting coefficient 1/(4+2sqrt(2)).
 
-**PASS, with historical-priority limitations.** The primary 2022 WPL study already derives the PMF and adjacent recurrence; these are fully credited. Its inspected shape discussion consists of plots, not a complete analytic threshold classification. The 2024 survey reproduces the model and its statistical applications but not the stated boundary. A published WDLE modal-staircase theorem treats a distinct wrapped model with different parameter dependence and a different minimum resolution; the general adjacent-ratio technique is not claimed as new. Searches of mathematical research records and accessible previous mathematical claims did not identify a statement implying the WPL-specific sharp classification or large-resolution asymptotic. Other old weighted-geometric shape literature may warrant independent examination.
+## originality
 
-## Value
+PASS
 
-**PASS.** A *complete* description of the global modes of a published directional model determines which observed sectors can be most probable, exactly when the modal sector changes, and what angular discretization is required for a nonzero mode. The transition from a universal zero mode at up to five sectors to moving modes at six or more sectors is a sharp, interpretable boundary. The large-resolution transition converges to a natural unwrapped-atom threshold with a quantified finite-resolution correction. These are parameter-dependent structural restrictions rather than a recomputation of existing density tables.
+Pass for the WPL-specific all-resolution threshold classification, six-sector cutoff and sharp first-threshold asymptotic, not for the underlying PMF, recurrence or the general method of comparing ratios. The strongest available analogous result concerns WDLE, with materially different cutoff and upper sector. The identical catalog entry is not evidence of earlier coverage.
 
-## Scope and related literature
+## value
 
-The result is fixed-origin and concerns population masses, not fitted-data inference. Closest references are Chesneau–Bakouch–Hussain (2022), Bell–Nadarajah (2024), and the separately published WDLE mode-staircase theorem (2026). The last shares a proof technique but has different mass and different transition thresholds. Exact independent historical priority remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result explains exactly what angular discretization is required for a moving modal sector in an existing circular distribution, and how the first transition approaches its unwrapped threshold. The unique global phase transitions, including the low-resolution obstruction, are not just plots or a numerical rerun of the PMF.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

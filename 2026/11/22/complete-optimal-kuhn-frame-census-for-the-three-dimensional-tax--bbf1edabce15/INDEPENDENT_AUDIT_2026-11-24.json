@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:34:42.748201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49",
+        "VERIFICATION.md",
+        "verify_frames.py, especially lines 55–167 and 170–219",
+        "orbit_classes.csv",
+        "Independent record2.py and record2.log"
+      ],
+      "rationale": "Independently embed R^3 into R^4 by taking dot products with (+++),(+--),(-+-),(--+). This is an l1-to-linf isometry onto the hyperplane with coordinate sum zero. If the vertex coordinate ranges are [l_i,u_i], a fitting center at radius r exists exactly when each interval [u_i-r,l_i+r] is nonempty and their product meets the hyperplane, i.e. the sum of lowers is <=0<= the sum of uppers. This verifies the exact opposite-pair and parity bounds without assuming the list of dual extreme points. Each nonempty column subset sum occurs as an edge in some ordering; integrality gives a width cutoff of 2 below 3/2 and 3 at 3/2, with parity-sum cutoffs of 5 and 6 respectively. An independent bounded sweep tested three orders per frame, the other three being central reflections of these tetrahedra in the packet midpoint. Below 3/2 there were 24 necessary independent candidates, all index 2, and none fit; the unit frame fits the radius-3/2 cube ball. At 3/2 the prefilter yielded 512/408/288/56 candidates at indices 1/2/3/4, and 512/408/0/8 passed. The separate orbit regeneration matched all 23 CSV rows including sizes and representatives. Replay: python3 -I /workspace/branches/independent-checks/record2.py; output at /workspace/branches/independent-checks/record2.log. Original checker was inspected, not executed.",
+      "residual_risks": [
+        "Exact exhaustion is for unordered independent integer frames with separate fitting centers, not arbitrary lattices, simultaneous common centers, or ordinary lattice covering radii."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xue gives kappa_i(B_p^n,Z^n)=i^(1/p)/2. Lian–Xue's general Kuhn-packet theorem is a sufficient covering construction from independently translated tetrahedra. SCOPE fd86244b6f0d counts planar l1 frames and SCOPE 1a9ae5099955 is for the linf cube."
+        ],
+        "reasoning": "The stronger formula covers the radius exactly, not the minimizers. The two nearby equality-set classifications do not specialize to a three-dimensional l1 octahedron.",
+        "searches": [
+          "arXiv:2610.39034v1, Eq. (3.2), p. 6",
+          "arXiv:2606.14584v3, Theorem 1.1, p. 2",
+          "Resultary planar Manhattan and cube-optimal Kuhn frames"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39034v1",
+        "arXiv:2606.14584v3",
+        "arXiv:2609.23210v2",
+        "Resultary bbf1edabce15, fd86244b6f0d, 1a9ae5099955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1,n=i=3, Eq. (3.2) gives 3/2. Inserting 3/2 in rho_p(B)^3 >= (27/32)|det B| gives |det B|<=4, and the displayed equality matrix attains 4."
+        ],
+        "reasoning": "Credit those consequences to prior work even where not stated as an integer-frame claim. In particular the inequality allows index 3 and cannot exclude it or give the counts at any allowed index; the finite classification adds this information.",
+        "searches": [
+          "arXiv:2610.39034v1, Eq. (3.2)",
+          "arXiv:2609.23210v2, Theorem 8.1 and equality construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary formulations permit independent translates of the permutation tetrahedra; the octahedron paper's rho_p(B) is the same per-frame objective. Integer columns and possible proper sublattices fit Xue's definition."
+        ],
+        "reasoning": "The classification is not novel by renaming a covering invariant. The equivalence is exact for the objective, not evidence of a preexisting equality-set enumeration. Ordinary lattice covering radius is a different quantity.",
+        "searches": [
+          "Resultary: three-dimensional taxicab octahedron integer Kuhn packet optimal lattice frames, determinant and signed-coordinate orbits",
+          "arXiv:2610.39034v1, definition of kappa-covering minima",
+          "arXiv:2609.23210v2, definition of rho_p(B)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed table belongs to the frozen record itself; the other catalog entries enumerate different norm/dimension problems. The octave-specific determinant theorem identifies an equality example, not a complete list."
+        ],
+        "reasoning": "Do not count the mirror of the same record as independent prior coverage or infer priority from a catalog date. The inspected comparators give no alternative exact census.",
+        "searches": [
+          "Resultary: exact taxicab optimum frame counts 928, 512/408/8, and 23 orbits",
+          "Resultary bbf1edabce15, fd86244b6f0d, 1a9ae5099955",
+          "arXiv:2609.23210v2, Theorem 8.1 and proof"
+        ]
+      },
+      "rationale": "Credit only the complete optimum-frame census, index-three exclusion, and orbit classification. The value 3/2 is already an exact specialization of Xue's formula, and Lian–Xue's determinant theorem already gives the index ceiling and an index-four optimizer. Neither determines the full equality set. No distinct indexed or inspected primary claim was found that gives or implies this census.",
+      "residual_risks": [
+        "The catalog and inspected sections do not prove absolute priority; a nonindexed exact optimizer table may exist. An unproductive web lookup was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimum radius, not the optimizer census",
+          "evidence": "Max over translated permutation simplices; Eq. (3.2) gives i^(1/p)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39034",
+          "material_read": "v1 definition on p. 1 and l_p specialization Eq. (3.2) on p. 6",
+          "method": "OA PDF passage inspection",
+          "title": "On kappa-covering minima",
+          "trigger": "Same objective and potentially broader exact theorem"
+        },
+        {
+          "assessment": "Covers index ceiling and one extremal optimizer, not its uniqueness up to symmetry or the other indices",
+          "evidence": "rho_p(B)^3 >= (27/32)|det B|; matrix T attains rho_p(T)=3/2 and |det T|=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23210",
+          "material_read": "v2 pp. 26–27, definition and Theorem 8.1; p. 31 equality verification",
+          "method": "OA PDF passage inspection",
+          "title": "The lattice covering density of the regular octahedron",
+          "trigger": "Same norm, packet radius, and equality question"
+        },
+        {
+          "assessment": "General sufficient covering criterion, no optimum-frame enumeration",
+          "evidence": "Convex hull of independently translated standard Kuhn tetrahedra gives a lattice covering.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.14584",
+          "material_read": "v3 p. 2 Theorem 1.1",
+          "method": "OA PDF passage inspection",
+          "title": "Minimal Covering Bodies and a Minkowski-Type Criterion for Lattice Coverings",
+          "trigger": "General translated-Kuhn formulation"
+        },
+        {
+          "assessment": "Exact hit is self; other results are analogous but do not cover this problem",
+          "evidence": "Planar l1: 24 optimizers; 3D linf cube: 128 optimizers. Neither is the 3D l1 classification.",
+          "identifier_or_url": "SCOPE bbf1edabce15; fd86244b6f0d; 1a9ae5099955",
+          "material_read": "Matching Findings and normalization; frozen mirror and earlier planar/cube statements",
+          "method": "Local Resultary search and mirrored RESULT.md inspection",
+          "title": "Resultary Kuhn-frame classifications",
+          "trigger": "Exact catalog and related optimizer tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof and orbit_classes.csv",
+        "arXiv:2609.23210v2, Theorem 8.1"
+      ],
+      "rationale": "The natural normalized octahedral Kuhn fitting problem already has an optimum and sharp determinant bound; the census answers the outstanding equality-set question. In particular, it proves a missing determinant class even while the next higher determinant occurs. The complete canonical table permits reuse in further exact geometry without rebuilding the enumeration. The point is not the prior numerical optimum.",
+      "residual_risks": [
+        "This is a complete classification in the specified norm and lattice, not a general-dimensional theorem or a classification of all fitting centers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

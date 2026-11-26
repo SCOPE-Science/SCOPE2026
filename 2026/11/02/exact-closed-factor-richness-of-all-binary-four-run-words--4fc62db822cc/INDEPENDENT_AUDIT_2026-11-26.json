@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:46.019447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This passes for the corrected RESULT.md under repairs/5, not the frozen proof as written. The frozen line 43 asserted that different endpoint letters preclude a border, which is false (0101 has border 01); the frozen four-run argument also omitted why the suffix of a proper border cannot start inside the first run. The replacement proves the needed transition lemma: such a suffix includes the first transition but shortens the initial run, whereas a matching prefix with a transition includes the whole initial run. The suffix must start in a later run of the initial letter. For two runs there is none; for three runs the border is unary and is closing exactly when the outer run lengths coincide; for four runs the only possible border of 0^i1^b0^c1^j is 0^i1^j, occurring exactly at the two 01 transitions if i<=c and j<=b. Including the unary powers and empty word gives n+1+xy. Maximizing xy over positive integers with sum at most floor(n/2) forces the largest allowed sum and balanced pairs (strict increase of floor(s^2/4) for s>=2); the residual is zero or one and all placements are accounted for, including n=4. The ordered length-pair weight for a fixed minimum is z^(2x)(1+z)/(1-z), giving the bivariate series and, by differentiation in u at one, z^4/((1-z)^6(1+z)^2). This analytic argument covers all lengths. The supplied verifier was inspected but not executed; its finite comparisons are diagnostic and neither needed for the general theorem nor a substitute for the repaired proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 23 characterizes binary CR-poor words as bitonic. Theorem 25 gives a quadratic lower bound via four equal blocks and, for off-multiple lengths, an additional residual run. Parshina–Puzynina prove an unrestricted asymptotic n^2/6, with an upper bound n^2/6+7n/6+1."
+        ],
+        "reasoning": "Identifying the zero-excess words locates the boundary but does not quantify positive excess. The unrestricted upper bound and a particular lower construction leave the exact four-run number and equality cases undetermined.",
+        "searches": [
+          "arXiv:1305.6395 Theorems 23 and 25",
+          "arXiv:2111.00863 Section IV, Theorem 3′ and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_closed_four_runs.py; corrected repairs/5/RESULT.md",
+        "arXiv:1305.6395 and arXiv:2111.00863",
+        "Resultary 2ab04efc05f9, 86328d0d91d6, 1e0e560a116f, 41aa7a29dd06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior construction bounds the number from below on a specified equal-block family; the early characterization gives only whether the excess vanishes. The exact two-mark formula agrees where one of x,y comes from two singleton runs."
+        ],
+        "reasoning": "These do not give the exact four-run border class 0^i1^b0^c1^j for all allowed i,j, needed for a count of xy in addition to the baseline. The maximization and generating series are direct consequences once the new general parameter formula is proved.",
+        "searches": [
+          "arXiv:1305.6395 Theorem 25 proof and adjacent remark",
+          "Resultary 2ab04efc05f9 RESULT.md offset 638"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed factors are complete returns to a proper factor, apart from the designated empty and singleton cases. 2ab04efc05f9 counts nonempty closed factors in 0^p1 0^q1 0^r. At p=0 or r=0 with four runs its count agrees after adding one; this forces both runs of 1 to be singletons before any letter swap."
+        ],
+        "reasoning": "Neither swapping the alphabet nor adding the empty count removes the two-mark constraint, which excludes general four-run exponents. Same-day searches 1e0e560a116f and 41aa7a29dd06 concern minimal absent or minimal unique factors, not complete returns.",
+        "searches": [
+          "Resultary: binary four-run words, closed-factor complexity, complete returns, exact run-constrained counts",
+          "Badkobeh–Fici–Lipták Theorems 23 and 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 86328d0d91d6 reports unrestricted binary maxima at lengths 25–27; the Parshina–Puzynina appendix gives the unrestricted small-length table. Resultary 2ab04efc05f9 is the exact two-mark formula."
+        ],
+        "reasoning": "Neither unrestricted finite table recovers the maximum by linear run count or its multiplicities for every n. The only exact inspected formula on overlapping instances needs the two-mark restriction.",
+        "searches": [
+          "Resultary closed-rich maxima and sharp closed-factor complexity",
+          "arXiv:2111.00863 table through length 24"
+        ]
+      },
+      "rationale": "The corrected theorem retains the all-positive four-run case, with exact counts, maximizers and multiplicities, and both formal series. The closest exact Resultary comparison covers only the boundary with exactly two occurrences of one letter, and is now credited explicitly. The classical four-block construction gives a lower bound, and the known unrestricted asymptotic and short tables do not imply the exact restricted formula or equality cases. Pass is for the all-positive classification and its consequences, not historical priority for the boundary or the balancing and series algebra in isolation.",
+      "residual_risks": [
+        "The ranked catalogue searches and inspected papers do not eliminate unpublished or unindexed exact results under other closed-factor or complete-return terminology. The two-mark boundary is known and is not claimed as a new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage and lower bound only",
+          "evidence": "Bitonic words are CR-poor; the construction a^k b^k a^k b^k a^(n-4k) yields at least (k+1)(k+2)/2 closed factors, not the formula on arbitrary run lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+          "material_read": "Theorem 23 p.8 around offset 22177; Theorem 25 and nearby remark p.9 around offset 24161",
+          "method": "OA arXiv PDF text",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Foundational binary CR-poor classification and comparable four-block construction"
+        },
+        {
+          "assessment": "Unrestricted asymptotic and finite tables, different scope",
+          "evidence": "Unrestricted binary maximum is asymptotic to n^2/6; the exact general maximum is left open in the conclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+          "material_read": "Theorem 3′ p.9 around offset 29817; conclusion p.14 around 51940; table p.15 around 55542",
+          "method": "OA arXiv PDF text",
+          "title": "Finite and Infinite Closed-Rich Words",
+          "trigger": "Exact and asymptotic closed-factor extremality"
+        },
+        {
+          "assessment": "Covers a proper four-run subfamily",
+          "evidence": "For nonempty counts on 0^p1 0^q1 0^r the excess above n is max(A,B)(min(A,B)+1) with A=min(p,q), B=min(q,r); p=0 or r=0 covers the relevant boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-closed-factor-complexity-with-exactly-two-marked-positions--2ab04efc05f9/RESULT.md",
+          "material_read": "Finding around offset 638",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp closed-factor complexity with exactly two marked positions",
+          "trigger": "Strongest matching closed-factor formula with run parameters"
+        },
+        {
+          "assessment": "Unrestricted finite maximum, not classified by runs",
+          "evidence": "Reports unrestricted binary maxima at three fixed lengths, not a four-run formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6/RESULT.md",
+          "material_read": "Local-mirror offsets 149 and 4404",
+          "method": "Resultary search and local mirror",
+          "title": "Exact binary closed-rich maxima at lengths 25–27",
+          "trigger": "Exact closed-factor count tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly four linear runs is the first binary run class beyond the bitonic CR-poor regime, not an arbitrary slice. The theorem measures how the positive excess begins, classifies the closed factors responsible for it at every run profile, and determines exact maximizers and their frequencies. The contrast between the four-run leading coefficient 1/16 and the unrestricted 1/6 makes the restricted result useful even though it does not solve the unrestricted problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

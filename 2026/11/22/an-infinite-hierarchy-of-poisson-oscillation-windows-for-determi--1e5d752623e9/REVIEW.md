@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The update trichotomy follows from inspecting the open-neighborhood counts of any vertex as its own color count minus one and all other color counts unchanged. This proves both the exact two-cycle condition and one-step convergence in all other cases. Disjoint top-class selections give the coefficient formula. The multinomial factorial moments give a Poisson count of cells of occupancy \(k\), with higher loads absent and lower top-load multiplicities divergent; the noncritical-power-law case uses the same second moments. Direct finite checks and exact counts passed for all stated small inputs. Risk: the scaling index \(k\) must be fixed, and no uniformity for growing \(k\) follows.
+## correctness
 
-**Originality (PASS, with residual historical risk).** The closest identified clique plurality papers analyze randomized local-sample or undecided-state protocols, not the open-neighborhood deterministic incumbent-retaining modal rule. The binary majority literature and three-opinion computational-complexity results likewise do not imply the exact all-palette dynamics. A closely related complete-bipartite multicolor result establishes a distinct single birthday window for two interacting shores, not the infinite hierarchy on a clique. General occupancy-maxima research can supply some probability tools but has no identified statement about the associated period-two dynamics or this exact finite orbit enumerator. Search and full-text comparisons do not establish absolute novelty; unindexed equivalents are possible.
+PASS
 
-**Value (PASS).** The exact class-count criterion shows a distinctive failure mode of full-neighborhood plurality: a unique plurality reaches consensus immediately, whereas two maximal communities force a permanent oscillation. The natural random-initial-state question exhibits not merely a birthday peak but an infinite hierarchy of separated, sharp critical color-palette exponents and the same optimized probability at each. This provides a full deterministic census and an explicit scaling benchmark for many-opinion network dynamics. The classical occupancy ingredient is not alone presented as a new result.
+A vertex of color a observes c_a−1 in its own bin and c_b in every other bin. One global maximizer attracts all vertices in one step (vertices of that color keep it, possibly at a tie); two maximizers swap their nonempty classes and leave smaller classes untouched; three or more maximizers leave every vertex with a tied local mode. The swap preserves the global occupancies, has primitive period two immediately, and attracts no transient. Choosing its unordered pair of named colors, their size m and their two labelled vertex sets leaves the remaining exponential multinomial coefficient with cap m−1; this gives B(n,q), including q=2, and B/2 cycles. For fixed j,r, under q≫n direct multinomial counting gives E[(X_j)_r] ∼ (n^j q^(1−j)/j!)^r. In a fixed k window this gives X_k⇒Poisson(λ_k), divergence and relative-variance concentration of X_{k−1} (also for k=2), and P(M≥k+1)≤binom(n,k+1)/q^k=o(1). The events J=2 and X_k=2 differ only if M>k or X_{k−1}≤2, proving the limit. Between critical exponents the analogous higher-load bound and diverging concentrated X_k imply vanishing oscillation probability; above 2 even a repeated color disappears with high probability. Differentiation gives the unique maximum at λ_k=2 and the stated c. Replay: frozen RESULT.md Proof (1)–(5). The bundled checker and finite output were inspected without execution and are not relied on for asymptotic conclusions. The result is for fixed k and uniform independent initialization, not growing k or α≤1.
 
-**Limitations.** This claim is for loopless complete graphs and fixed critical indices. It does not cover sparse graph families, nonuniform opinion probabilities, or randomized tie rules. Independent validation and comprehensive historical priority checks are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact dynamical identification and finite orbit census joined to the full sequence of sharp fixed-k windows for this specific deterministic incumbent-retaining clique rule. The occupancy factorial moments are standard and are not credited as a separate new probability theorem. The closest checked indexed result is a different graph with a different update reduction, and the closest clique protocol inspected uses random samples and random ties.
+
+## value
+
+PASS
+
+An exact criterion and census for the persistence of disagreement give a useful benchmark for deterministic many-color dynamics: a whole sequence of critical power-law scales with the same optimized nonconsensus oscillation probability, separated by scales with vanishing oscillations. The work is useful as a combined classification and probabilistic limit, not as a general occupancy advance or a uniform-in-k phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:12:20.652735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–112; VERIFICATION.md; check_lune_gradient.py (read only)",
+        "/workspace/review_evidence/correctness.md §3; python3 -B /workspace/review_evidence/independent_checks.py 3"
+      ],
+      "rationale": "The complete gradient Gram spectrum and both extremal switches check analytically. Frobenius unit trace-free symmetric matrices have global Dirichlet norm squared 4/(d+2). In the normalized Z,C,S sector the longitude-zero diagonal is (1,1−2/d,1+2/d), with only Z–C off diagonal, sqrt((d−2)/d); rotation then gives the longitude harmonics of orders 2 and 4. The mixed pair has zero-longitude values 1±(d−2)/(2d), and transverse trace-free quadratics contribute the mass eigenvalue. Integration gives the stated blocks and multiplicities. With t=cos L, the competing odd planar branch meets an extremal radial branch only at t²=d(d−2)/8; for d=4 the solutions are excluded endpoints, and only d=3 gives interior ties. The radial determinant divided by the mass squared is (d+2)L²/(3d)+O(L⁴), giving the reported condition-number constants. Analyticity proves strict positivity on both the lune and its complement. The independent cubature reproduced 24 full Gram spectra including both switch apertures; the all-parameter proof does not depend on sampling. Square radius has the beta law as in RESULT.md; the radial notation in one verifier comment does not affect its moments.",
+      "residual_risks": [
+        "Only pure degree two and full tangential gradients; no regional Laplace boundary problem or bound for mixed-degree spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The vector Rayleigh quotient in Eq. (19) supplies a general variational construction and radial/tangential blocks, with the commuting-operator construction for caps; it does not specialize and diagonalize this fixed-degree lune gradient block.",
+          "Bates et al. formulate scalar limited colatitude–longitude Slepian concentration on S².",
+          "Resultary 6162fab5602a uses the same gradient quotient but only for |x_d|≥t, with O(d−1) symmetry, three branches, and the dimension-independent switch 1/sqrt(2)."
+        ],
+        "reasoning": "Neither a general concentration matrix without evaluated entries and ordered eigenvalues nor a different region with different symmetry decides the lune switch theorem.",
+        "searches": [
+          "Michel–Plattner–Seibert arXiv:2103.14650v1 §§2, 4.2",
+          "Bates–Khalid–Kennedy arXiv:1608.03031",
+          "Resultary: tangential-gradient concentration spherical quadrupoles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and its published local mirror (IDs above)",
+        "arXiv:2103.14650v1",
+        "arXiv:1608.03031",
+        "Nafees–Khalid–Kennedy DOI:10.1109/TSP.2020.2983644"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integration by parts adds a boundary-flux term to the degree-two scalar energy, so the scalar concentration eigenvalues alone cannot be converted by a global eigenvalue normalization. The cap operator is zonal, whereas the lune mixes planar and radial sectors and selects a separate planar odd eigenline."
+        ],
+        "reasoning": "The new local Gram block and branch inequality are needed beyond the available scalar and vector constructions; the standard tools and common conditional gradient identity are not themselves novel.",
+        "searches": [
+          "Scalar-lune 03bb0ccb58c4 Finding and Proof §§2–3",
+          "Antipodal-cap gradient 6162fab5602a Finding and Proof §§1–2",
+          "Michel–Plattner–Seibert §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gradient map identifies this quotient with vector L² concentration on the fixed-degree poloidal gradient subspace, not the whole bandlimited vector-harmonic space.",
+          "Nafees–Khalid–Kennedy's differential problem is a difference of scalar concentration energies over two regions, not a tangential derivative."
+        ],
+        "reasoning": "The change to vector notation preserves the quantity only on the specified restricted subspace. Differential Slepian and scalar Dirichlet boundary-value nomenclature do not make these operators equivalent.",
+        "searches": [
+          "Resultary: Exact complete Dirichlet tangential gradient concentration spherical lune quadratic harmonic degree two on sphere normalized gradient energy 3/8 two symmetry transitions",
+          "https://arxiv.org/html/2103.14650v1 §4.2 Eq. (19)",
+          "https://zubairkhalid.org/papers/J18.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3cfdd280c69a is the frozen finding itself, not independent coverage.",
+          "03bb0ccb58c4 actually gives a scalar lune top crossing arccos(2/d) in every dimension and tie dimension d−1.",
+          "The strongest inspected same-date neighbour 6162fab5602a has a cap spectrum, not this lune table; date is not used to establish priority.",
+          "The cited November scalar-switch path 440750a519f4 was not retrievable from the mirror; no comparison of its unread contents is asserted."
+        ],
+        "reasoning": "The available exact tables have different observables or different regions. The inaccessible cited item remains a risk, not negative evidence.",
+        "searches": [
+          "Resultary semantic query on complete Dirichlet tangential-gradient lune spectrum and 3/8 transition",
+          "Local mirror IDs 3cfdd280c69a, 03bb0ccb58c4, 6162fab5602a and cited path 440750a519f4"
+        ]
+      },
+      "rationale": "The strongest inspected overlaps are the same quadratic/lune problem with a scalar norm, the same quadratic-gradient problem on antipodal caps, and the general vector Slepian framework. None gives or mechanically yields the six lune branches and the dimension-three-only pair of switches. This is a bounded best-of-knowledge decision.",
+      "residual_risks": [
+        "The exact cited November scalar-switch record was inaccessible; its full text is not classified.",
+        "Other unindexed or differently parameterized vector Slepian specializations could exist; the assessment is not an absolute historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar quotient, not gradient quotient",
+          "evidence": "Top mode switches at arccos(2/d) for every d≥3 and has tie dimension d−1.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4",
+          "material_read": "RESULT.md, Finding and Proof §§2–3, character offsets 0–6047",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp quadratic spherical-lune concentration and its dimension-dependent optimizer transition",
+          "trigger": "Same degree and same lune; possible exact spectral overlap"
+        },
+        {
+          "assessment": "Different geometric region and symmetry reduction",
+          "evidence": "Two antipodal caps |x_d|≥t yield three O(d−1) branches and a universal maximizing switch; no lune or dimension-three-only switch.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-dimension-free-optimizer-switch-for-tangential-gradient-concen--6162fab5602a",
+          "material_read": "RESULT.md offsets 0–4075, Finding, Assumptions and beginning of Proof",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A dimension-free optimizer switch for tangential-gradient concentration of spherical quadrupoles",
+          "trigger": "Same operator form, same degree and same-date independent record"
+        },
+        {
+          "assessment": "Unresolved access, not a finding of noncoverage",
+          "evidence": "Exact cited path unavailable in inspected snapshot.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-symmetry-switches-for-quadratic-spherical-harmonics-on--440750a519f4",
+          "material_read": "No primary text; frozen citation only",
+          "method": "Focused local search and exact published-mirror path attempt",
+          "title": "Two sharp symmetry switches for quadratic spherical harmonics on a lune",
+          "trigger": "Cited closely related result with the same two extremum types"
+        },
+        {
+          "assessment": "General vector concentration operator, not the evaluated restricted lune spectrum",
+          "evidence": "Eq. (19) is the vector L² Rayleigh quotient; cap construction and radial/tangential split.",
+          "identifier_or_url": "https://arxiv.org/html/2103.14650v1",
+          "material_read": "OA HTML §§2 and 4.2, offsets 24300–28790 and 109400–118699",
+          "method": "Bounded primary full-text inspection",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Possible vector-gradient general theorem"
+        },
+        {
+          "assessment": "The inspected formulation is scalar, not concentration of the gradient subspace",
+          "evidence": "Spatially limited scalar signals represented in the spherical harmonic basis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.03031",
+          "material_read": "Introduction, OA extracted offsets 3200–6150",
+          "method": "Primary OA PDF passage",
+          "title": "Slepian Spatial-Spectral Concentration Problem on the Sphere: Analytical Formulation for Limited Colatitude-Longitude Spatial Region",
+          "trigger": "Exact limited-longitude matrix could cover a lune specialization"
+        },
+        {
+          "assessment": "Differential refers to subtracting regional scalar energies",
+          "evidence": "Maximizes energy over one region at the expense of energy over a second region.",
+          "identifier_or_url": "https://zubairkhalid.org/papers/J18.pdf",
+          "material_read": "OA PDF p. 2, extracted offsets 17800–20232",
+          "method": "Primary OA PDF passage",
+          "title": "Differential and Weighted Slepian Concentration Problems on the Sphere",
+          "trigger": "Differential terminology may suggest derivatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–40, 101–112; independent derivation and comparison above"
+      ],
+      "rationale": "For gradient observations of global quadratics, the extremal eigenvalues quantify sharp norm recovery, and the full spectrum specifies all observable symmetry sectors. The dimension-three-only pair of switches and the sharp narrow-lune conditioning law distinguish genuinely different observation behavior from scalar concentration and from caps. These conclusions are useful independently of a higher-degree extension.",
+      "residual_risks": [
+        "No claim about discrete sampling, arbitrary regions, noise, or other polynomial degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

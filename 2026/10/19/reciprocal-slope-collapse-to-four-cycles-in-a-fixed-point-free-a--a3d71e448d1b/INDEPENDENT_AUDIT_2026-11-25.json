@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:11:14.361021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set L=1 by scaling. Direct substitution gives [-r^2,-r) -> [1-r,0) -> [r,r^2) -> [0,r-1) -> [-r^2,-r), with slopes 1/r,r,1/r,r. The product is one and every composition is an affine bijection of its original bounded interval onto itself, hence the fourth iterate is the identity. Distinct intervals exclude any smaller period. Neutrality is in the return-map sense on the stated core; no ordinary differentiable multiplier at the discontinuity or Lyapunov stability of its endpoint orbit is needed. In the closed core, the omitted points are exactly r^2 -> r-1 -> -r -> 0, so eventual entry is established including all endpoints. The holes (-r,1-r),(r-1,r) map onto (0,r),(-r,0) respectively, each covering precisely the opposite hole among the two. Backward inversion on each allowed branch shrinks length by 1/r, giving two survivor intervals each of length L/r^n for survival at times 0 through n. The alternating pair +/- r^2 L/(r+1) belongs strictly to these intervals and has fourth-core-external period two and second-iterate multiplier r^2; the shrinking diameters exclude every other survivor. No other orbit outside Q can be periodic. Normalizing survivor length by 2r^2L yields P(N>n)=r^(-n-2); differencing gives the stated point masses, and summing gives 1/[r(r-1)]. This is formally a closed-core entry time. The half-open core has the same entry-time law for uniform starts since the union of all iterated preimages of the three omitted points is countable (the map is finite-to-one), though the two times need not agree pointwise. The uploaded exact-rational checker was read, not run; it tests a finite grid and finitely many survivor lengths, not the continuum classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of the open article covers absence of fixed points for 0<m1<1 and m2>0, including the frozen slice. Theorem 2 addresses a particular chaotic parameter choice.",
+          "The same article's Figure 2 discussion uses x0=0.11; m2=5 and b1=4 are fixed, and the plotted period-four range is m1 in (0.1,0.2)."
+        ],
+        "reasoning": "The fixed-point-free assertion is already covered. A local or sampled periodic window does not establish behavior at the reciprocal endpoint or describe all initial conditions, boundary orbits or the entry-time distribution.",
+        "searches": [
+          "10.3390/electronics12020444, Section 2, Theorems 1–2 and Figure 2 discussion",
+          "10.1142/S021812742150200X",
+          "10.1007/978-3-031-02472-6_8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check.py",
+        "Electronics 12 (2023) 444, exact branch equations and dynamics passages",
+        "Resultary af278b76d784",
+        "Originating 2021 DOI and related 2022 chapter DOI (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With rho=m1 and sigma=m2 and rho*sigma=1, the indexed controlling quantity rho(sigma-1)=1-rho is below the prime-three threshold.",
+          "The primary map formulas and absence of fixed points specify neither a four-interval cyclic core nor its two alternating escape holes."
+        ],
+        "reasoning": "No periods one or three leaves many possible dynamical regimes. Even the slope cancellation on a four-branch itinerary would not imply all points reach that itinerary, the boundary assignment, or the survivor measure. Those are supplied by the frozen global interval argument.",
+        "searches": [
+          "Resultary af278b76d784, theorem on prime-three orbits",
+          "10.3390/electronics12020444, equations (1)–(3) and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 equations give a=b1/m1 and b2=m2 b1/m1 with exactly the frozen open/closed branches including at zero.",
+          "The Resultary prime-three record af278b76d784 analyzes the same rescaled four-branch family."
+        ],
+        "reasoning": "Substituting m1=1/r, m2=r, b1=L gives a=rL and b2=r^2L, identifying the family and branch conventions. Scaling out L leaves the product-one slice, not the principal chaotic example with slope product four.",
+        "searches": [
+          "Resultary: four-branch fixed-point-free interval map, reciprocal slopes, global eventual period four and capture tail",
+          "10.3390/electronics12020444, Section 2, equations (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed entry gives an exact prime-three count controlled by rho(sigma-1); the open primary article gives a numerical bifurcation scan, not an exact all-parameter census of four-cycles."
+        ],
+        "reasoning": "There is no finite numerical invariant in the reviewed claim to look up: the relevant exact match would be a classification on the entire reciprocal curve or a formula for its survivor measure. The retrieved exact census concerns a different least period and the scan cannot replace a continuum result.",
+        "searches": [
+          "Resultary af278b76d784, mirrored Finding, offset 0",
+          "10.3390/electronics12020444, Figure 2 and its discussion, p. 4"
+        ]
+      },
+      "rationale": "The open 2023 primary article confirms the same four-branch map including the interval conventions, gives an existing no-fixed-point theorem, and reports period-four windows in a scan with m2 fixed at 5. That scan uses a single starting point and places the period-four window below, not on, the reciprocal point m1=1/5. The closest inspected indexed result in the same family is a sharp prime-three classification and excludes period three on this subcurve; that exclusion gives neither eventual period-four capture nor a transient law. The supported distinction is the global period-four census together with the exact exceptional orbit and geometric capture law on the full reciprocal curve. The oldest paper and related chapter were not inspected in full, so historical priority is not certified.",
+      "residual_risks": [
+        "The originating 2021 article and related 2022 chapter were not checked in full text. They or another earlier family analysis could contain an equivalent classification.",
+        "No conclusion is claimed for neighboring off-curve parameters or floating-point implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and older no-fixed-point statement; does not establish the reviewed global classification in the inspected passages",
+          "evidence": [
+            "Equation (1) has the same boundary conventions, equations (2)–(3) fix the parameter substitution, and the period-four bifurcation window is a one-orbit open interval below the reciprocal parameter value."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/electronics/electronics-12-00444/article_deploy/electronics-12-00444.pdf",
+          "material_read": "Sections around equations (1)–(3) and Theorems 1–2, pp. 3–4, offsets 14400, 17727; Figure 2 discussion, p. 4, offset 18850",
+          "method": "Scoped original publisher OA PDF passages, identified alternate link after landing-page failure",
+          "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+          "trigger": "Same branch formulas and published period-four windows"
+        },
+        {
+          "assessment": "Shares the model but does not imply the period-four classification or escape law",
+          "evidence": [
+            "Its prime-three threshold is controlled by rho(sigma-1), which on the reciprocal slice is 1-rho<1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-prime-three-border-collision-and-expansion-gap-in-a-fixed--af278b76d784/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and scoped mirrored result passage",
+          "title": "Sharp prime-three border collision and expansion gap in a fixed-point-free map",
+          "trigger": "Exact low-period census for the same family"
+        },
+        {
+          "assessment": "Priority risk; not claimed to be noncovering",
+          "evidence": [
+            "The open article attributes the branch map and fixed-point-free criteria to this source, but those examined reproduced statements are not an all-orbit theorem for the reciprocal line."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+          "material_read": "Bibliographic reference and its theorem statements reproduced in the open 2023 article; no original full text read",
+          "method": "Bounded lawful publisher retrieval attempts returned an access error; no repository copy was identified",
+          "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+          "trigger": "Originating paper on this exact map family"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "The supplied citation identifies the chapter but no inspected passage supports or rules out a reciprocal-slope classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-02472-6_8",
+          "material_read": "Bibliographic citation only; full text not independently inspected",
+          "method": "Bounded lawful publisher retrieval did not yield a readable chapter",
+          "title": "Comparative Analysis of Chaotic Features of Maps Without Fixed Points",
+          "trigger": "Related chapter comparing maps without fixed points"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The reciprocal curve is motivated by exact cancellation of expansion and compression, not a hand-picked numerical example. The classification replaces isolated trajectories or bifurcation plots with a full description, including the endpoint conventions and the unique exceptional cycle. The transient law quantifies how finite-time observations can hide the eventual exact period-four behavior near r=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

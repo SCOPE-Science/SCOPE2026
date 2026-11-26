@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:51:48.562794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated each seed size up to the first percolating size, using asynchronous activation by precomputed neighbour pairs (the same least closed superset as synchronous activation). Exchanges were built by bucketing states on a common (k-1)-subset, then retaining Hamming-distance-one changes for sliding. Full translation and coordinate-permutation orbits and BFS on the full graphs reproduced 144 and 16960 states, orbit counts 2 and 18, all four edge totals, connectivity, and all eccentricities. The complete seed-list hashes match both frozen certificates. In Q5 the unique central slide orbit has 960 members, represented by {0,3,13,30}; eccentricity 10 and 11 counts are 11200 and 4800, and BFS also gives distance 11 for the exhibited endpoints. Replay: python3 branches/independent_cube.py. The proof is finite and does not cover d>=6 or inclusion-minimal states of larger cardinality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.7 gives the threshold-two grid lower bound ceil(sum_i(a_i-1)/2)+1, hence 3 and 4 in these two cubes.",
+          "The Hamming-graph paper discusses sequentially spanning minimum sets and uses closure via coordinate projections for probabilistic thresholds."
+        ],
+        "reasoning": "The lower bound and exhibited percolating seeds establish the optimum sizes. Neither the extremal size statement nor the projection lemmas determine the optimum exchange metrics.",
+        "searches": [
+          "‘Bootstrap percolation on the high-dimensional Hamming graph’ ‘minimum’ percolating sets hypercube exact count Q4 Q5 Morrison Noel",
+          "arXiv:1506.04686 Theorem 1.7",
+          "arXiv:2406.13341 §§1.2, 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.04686",
+        "arXiv:2406.13341",
+        "Resultary 09c956503fd7, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known grid bounds cover minimum sizes once attained. The indexed Q4 orbit list yields the two orbit sizes and 144 total directly. The lists do not give shortest distances in an induced state graph; even knowing all Q4 states would require constructing moves and doing a further metric calculation."
+        ],
+        "reasoning": "The separate exact jump/slide invariants and the change to a unique central orbit in T5 survive the identified coverage.",
+        "searches": [
+          "arXiv:1506.04686 Theorem 1.7",
+          "arXiv:2406.13341 §2.2",
+          "Q4 Resultary symmetry/delay classification, actual opening Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Q4 symmetry/delay result classifies inclusion-minimal percolating sets; restricting to its 3-seed classes yields precisely the same minimum states up to isometry.",
+          "The coordinate-subcube formulation concerns the same bootstrap closure; internal spanning and sequential spanning describe seeds, not sequences of legal exchanges."
+        ],
+        "reasoning": "A legal move joins two distinct optimum sets with a common (k-1)-subset, with an extra cube-adjacency constraint for a slide. This is different from a bootstrap infection update or sequential spanning.",
+        "searches": [
+          "Resultary: minimum two-neighbour bootstrap seeds in Q4 and Q5, jumping and sliding exchange, Q5 center",
+          "arXiv:2406.13341 §2.2, Definition 2.9 and Lemma 2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Q4 record gives exact 3-seed orbit sizes 48 and 96, with distance signatures (2,2,4) and (2,3,3). It does not tabulate jump/slide edges or eccentricities and concerns Q4, not Q5."
+        ],
+        "reasoning": "This is genuine overlap for the Q4 normalization, not for the move-graph table. No earlier Q5 seed count or matching center table was verified in this comparison.",
+        "searches": [
+          "Resultary: Q4/Q5 minimum bootstrap seed counts and isometry orbits with exchanges",
+          "2026/11/22/SCOPE-the-four-symmetry-and-delay-classes-of-minimal-two-neighbour-see--09c956503fd7/RESULT.md"
+        ]
+      },
+      "rationale": "Pass for the optimum jump/slide graphs, their exact metrics, and the Q5 central orbit. Minimum sizes already follow from the Morrison–Noel lower bound and matching seeds. The Q4 optimum census of 144 sets in two orbits also occurs in a distinct indexed record; its publication dates do not decide priority. Neither the matching census nor the inspected closure framework gives reachability, edge totals or the distance profiles without additional analysis.",
+      "residual_risks": [
+        "No comprehensive priority claim for the seed counts or orbit counts; an inaccessible or unindexed enumeration could overlap.",
+        "Earlier work on high-dimensional thresholds and the 2006 hypercube paper was not exhaustively compared; an unindexed exact small-cube reconfiguration analysis remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower bounds on optimum size; not the exchange-table result in the examined theorem",
+          "evidence": "Threshold-two grid formula specializes to lower bounds 3 and 4.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.04686",
+          "material_read": "§1 Theorem 1.7, OA HTML offsets about 5600–8817",
+          "method": "bounded original open-access text inspection",
+          "title": "Extremal Bounds for Bootstrap Percolation in the Hypercube",
+          "trigger": "Minimum sizes and possible finite hypercube corollaries"
+        },
+        {
+          "assessment": "Related closure and random-threshold results, not the target adjacency or metrics",
+          "evidence": "Uses internally spanned projections and sequential spanning, not minimum-state jumps or slides.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.13341",
+          "material_read": "§1.2 near offset 12611; §2.2 Definition 2.9 and Lemma 2.10 near offsets 23786–28986",
+          "method": "bounded original open-access text inspection",
+          "title": "Bootstrap percolation on the high-dimensional Hamming graph",
+          "trigger": "Projection formulation and classification of minimum spanning sets"
+        },
+        {
+          "assessment": "Direct overlap on two Q4 optimum seed orbits and census, not the reconfiguration graph; precedence not inferred",
+          "evidence": "Among 256 inclusion-minimal sets, exactly 48+96 have size three, split into two specified orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-four-symmetry-and-delay-classes-of-minimal-two-neighbour-see--09c956503fd7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local published mirror, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The four symmetry and delay classes of minimal two-neighbour seeds in Q4",
+          "trigger": "Exact indexed Q4 count and orbit overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum seed counts do not show whether one can relocate seeds without losing percolation, or what a worst-case relocation costs. The two first nontrivial cubes here separate the effects of jumping and sliding, and distinguish self-centered Q4 from a Q5 slide graph with a single central orbit and distinct radius and diameter. The exact finite graphs give a benchmark for minimum-budget reconfiguration, not a general-dimension claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

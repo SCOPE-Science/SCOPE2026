@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:13:23.957628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient test gives 28(XYZ)^3=0 at a singular point, forcing a zero coordinate and then all zero at every permitted prime (in characteristic three the gradient consists of cubes). The rational line A=(1,1,1) restricts the quartic to minus a square. I checked the table independently in Z[z]/(Phi_7), without the frozen script: in basis 1,z,...,z^5 put B=A G S with coordinates (-1,0,0,-1,0,2), (-3,-2,-2,-2,-2,-3), (0,1,1,3,1,1). Direct cyclic polynomial multiplication modulo Phi_7 checks F(Sx)=49F(x), sigma_2(B)=(B_3,B_1,B_2) and sigma_6(B)=BG. The four seeds A,B,sigma_2(B),sigma_4(B) each give a 7-element orbit under G (two nonzero coordinates suffice), all lying among the bitangents since G and S preserve the curve projectively. Their projective orbits are distinct: G preserves coordinate absolute squares; the squared moduli of B sum to 21 and have distinct entries (their coefficient tuples are (6,0,-4,1,1,-4), (10,0,5,4,4,5), (5,0,-1,-5,-5,-1)), and the two conjugate vectors cyclically rotate them. A has uniform normalized coordinate moduli. This constructs all 28 geometric lines. Sigma_2 cycles the three non-A orbits and acts by j->2j on A G^j. Sigma_6 preserves each orbit and acts on indices by j->c-j, fixing one per orbit. The generator sigma_5=sigma_6 sigma_2 has only 3- and 6-cycles on the three non-A orbits together; its cube is sigma_6 with three fixed points there, so these are one 3-cycle and three 6-cycles. On the A orbit it adds one fixed point and one 6-cycle. The order-six permutation is faithful, which proves the minimal field. In characteristic not two, the odd theta-characteristic torsor component is finite étale of degree 28. On a plane quartic an odd theta characteristic has exactly one section by Clifford and parity, and doubling its effective divisor gives a unique canonical line, including hyperflexes. Smoothness and finite étale base change over Z[1/14] transport these permutations to each allowed Frobenius, sending z to z^q. Read the frozen finite-field certificate; dual row multiplication by a generator rather than its inverse produces the same orbit. The frozen script was not executed. Neither the exact check nor the theorem asserts rationality of tangency points.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkies's proposition identifies all 28 lines via the conjugate 3-Sylow subgroups; the explicit cyclotomic matrices realize the full geometric orbit.",
+          "Plaumann–Sturmfels–Vinzant give general algorithms and an Edge quartic example, not the same-model table in the inspected passages.",
+          "Resultary 332d2be7d5dd gives the identical table plus zeta functions and a distinct-reduction certificate."
+        ],
+        "reasoning": "The generic algorithm alone would not establish coverage. The explicit same-model orbit does; from it one only compares existing algebraic line classes under six cyclotomic substitutions. Once the generic action is known, the theta-characteristic specialization is standard. The later indexed record is not treated as an earlier source.",
+        "searches": [
+          "Elkies §1.1, §1.2, §1.5 proposition part (ii)",
+          "Plaumann–Sturmfels–Vinzant arXiv:1008.4104",
+          "Resultary search: cyclotomic Frobenius of Klein quartic bitangents"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_klein_bitangents.py",
+        "Elkies §§1.1, 1.2, 1.5",
+        "Bethea–Brazelton §4.1",
+        "Plaumann–Sturmfels–Vinzant as scoped above",
+        "Resultary 332d2be7d5dd, 8f153f4c7a23, 79484edb8cd9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seed and matrices in Elkies specify the 28 cyclotomic projective lines without any new geometric enumeration theorem. Substitution z->z^r and cross-multiplication of dual rows gives the permutations. A length-six cycle forces the kernel to be trivial.",
+          "At odd good primes finite étale odd theta characteristics identify the specialized line classes with the unramified generic action, so replacing p by p^e takes the correct power.",
+          "The later full Resultary Finding explicitly prints the same statement."
+        ],
+        "reasoning": "The additional exact arithmetic and faithfulness are computations on a prior complete model-specific certificate, not unknown invariants beyond what that certificate mechanically provides. Standard specialization translates the generic action to all permitted finite fields without a new family-specific structural lemma. No claim is made that Elkies printed the table or that the later record has temporal priority.",
+        "searches": [
+          "Elkies full orbit, §1.5 pp.65–66; explicit generators, §1.1 Eqs. (1.2)–(1.3)",
+          "Bethea–Brazelton §4.1",
+          "Resultary 332d2be7d5dd Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elkies identifies the same X^3Y+Y^3Z+Z^3X quartic and supplies the matrices and full orbit through X+Y+Z=0; the scalar in (1.3) is projectively immaterial.",
+          "Bethea–Brazelton use the same equation and give a transitive 28-bitangent action, isotropy S3 and four real bitangents."
+        ],
+        "reasoning": "The actual plane model matters, not only the geometric isomorphism type. Dual pullback by the explicit group matrices enumerates line classes for precisely this model. Four real lines directly account for the sigma_6 profile but not faithfulness by themselves.",
+        "searches": [
+          "Elkies: Eqs. (1.2)–(1.3), (1.9)–(1.10), §1.5 28 bitangents",
+          "Bethea–Brazelton arXiv:2410.09242v1 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "332d2be7d5dd states exactly Q(zeta_7), the four Frobenius profiles 1^28; 1^4 2^12; 1 3^9; 1 3 6^4, and the same extension-field counts.",
+          "8f153f4c7a23 explicitly gives the characteristic-three profile and extension counts on the same plane model. 79484edb8cd9 explicitly gives characteristic-five line equations and the same order-six profile."
+        ],
+        "reasoning": "This is exact indexed coverage, not a title match. The two characteristic slices cannot imply all residue classes. The full exact match is dated later; the characteristic-three record is same-day and no ordering is inferred from that date.",
+        "searches": [
+          "Resultary 332d2be7d5dd Finding offset 0",
+          "Resultary 8f153f4c7a23 and 79484edb8cd9 Findings"
+        ]
+      },
+      "rationale": "The arithmetic invariant is correct, but the same-model projective generators over Q(zeta_7) and a seed for their full 28-line orbit are explicit in Elkies, enabling a mechanical exact Galois orbit comparison; faithfulness reads off from the cycle lengths and the all-good-prime assertion follows by standard finite-étale specialization. The source does not have to print the resulting permutations to cover the calculation this directly. There is also a distinct exact full indexed match, dated later, which establishes catalogue overlap and is not used to infer earlier priority. The same-day characteristic-three result and the real bitangent count are narrower partial coverage, not sole grounds for failure.",
+      "residual_risks": [
+        "Klein's 1879b §5 was not independently retrieved; there could be earlier explicit arithmetic statements, but this is not needed for the mechanical implication from Elkies.",
+        "Indexed dates are not used to infer access, authorship, or ordering of same-day results. No extension to twists or to fields of tangency is reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model full explicit orbit makes the invariant mechanically recoverable",
+          "evidence": "Matrix (1.3) is the scalar-normalized cyclotomic involution attributed to Klein. Part (ii) identifies all 28 bitangents via conjugate 3-Sylow subgroups; the discussion gives X+Y+Z=0 as the seed.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "§1.1 Eqs. (1.2)–(1.3), §1.2 Eqs. (1.9)–(1.10), §1.5 pp.65–66 (OA offsets around 9500, 14500 and 41645–47961)",
+          "method": "Bounded primary PDF text, decisive matrix and orbit passages rechecked",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Potentially decisive explicit model, action and bitangent orbit"
+        },
+        {
+          "assessment": "Partial conjugation-profile coverage, not full splitting-field table",
+          "evidence": "States transitive action, isotropy S3 and four real bitangents on this model.",
+          "identifier_or_url": "https://arxiv.org/html/2410.09242v1",
+          "material_read": "§4.1, offsets 30000–34499",
+          "method": "Bounded OA primary text",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Same Klein model and real arithmetic"
+        },
+        {
+          "assessment": "Generic methods and a different running example; not decisive for exact coverage",
+          "evidence": "Develops exact quartic bitangent methods and illustrates them on the Edge quartic.",
+          "identifier_or_url": "https://arxiv.org/html/1008.4104",
+          "material_read": "Offsets 2000–5598, method and running example",
+          "method": "Bounded OA scope inspection",
+          "title": "Quartic Curves and Their Bitangents",
+          "trigger": "Potential explicit bitangent arithmetic,"
+        },
+        {
+          "assessment": "Exact full coverage, later dated; not evidence of earlier priority",
+          "evidence": "Same equation, degree 28, each residue-class cycle profile, extension counts and exact characteristic-zero field; adds zeta functions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclotomic-frobenius-classification-of-the-klein-quartic-bitange--332d2be7d5dd/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2337",
+          "method": "Local mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclotomic Frobenius classification of the Klein quartic's bitangents in odd characteristic",
+          "trigger": "Exact distinct indexed match"
+        },
+        {
+          "assessment": "Exact partial coverage, no inferred ordering",
+          "evidence": "The characteristic-three slice gives one fixed line, one 3-cycle and four 6-cycles, with extension counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-frobenius-twisted-tangent-residuals-and-bitangent-fields-of-the--8f153f4c7a23",
+          "material_read": "Finding, characteristic-three formulas and profile",
+          "method": "Local mirror text",
+          "title": "Frobenius-twisted tangent residuals and bitangent fields of the Klein quartic",
+          "trigger": "Same-day arithmetic bitangent record"
+        },
+        {
+          "assessment": "Later, exact characteristic-five overlap",
+          "evidence": "Exact dual-line equations and profile 1,3,6^4 over F_5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-arithmetic-bitangents-of-the-klein-quartic-in-characteristic-fiv--79484edb8cd9",
+          "material_read": "Finding, characteristic-five bitangent lines and Frobenius profile",
+          "method": "Local mirror text",
+          "title": "Arithmetic bitangents of the Klein quartic in characteristic five",
+          "trigger": "Same residue-field certificate regime"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mod-7 table is a natural and useful presentation for applications, but as a standalone exact-invariant finding it recomputes data mechanically encoded by the prior explicit same-model orbit, then uses a standard unramified specialization. The finite-field computation and explicit table improve convenience and reproducibility without establishing a surviving scientifically distinct invariant or structural result in this frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

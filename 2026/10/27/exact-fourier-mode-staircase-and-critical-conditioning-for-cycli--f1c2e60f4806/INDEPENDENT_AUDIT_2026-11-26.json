@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:00.347023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repairs/1/RESULT.md, complete corrected interpretation and proof",
+        "Frozen RESULT.md, lines 4–69",
+        "Frozen VERIFICATION.md and check_bergman_spectrum.py (inspected, not executed)"
+      ],
+      "rationale": "The repaired finding claims exactly the minimum and maximum classification, expressly allowing other ties. With the stated Gram convention the roots-of-unity filter picks exponents j modulo N, and summation gives the positive eigenvalues. Adjacent ratios decrease with j and cross one at j=T_N(q). The hyperbolic-sine derivative and the two endpoint expansions establish the attainable staircase range. Strict log-concavity and the strict endpoint ratio place the unique minimum at N-1, including N=2. For fixed c, the error in j log(1-c/N) is O_c(1/N) on the whole grid; this and the denominator limit give the uniform profile. Its derivative changes sign only at x_c, and its positive equal endpoint values give the limiting minimum. Evaluation at x_c gives the condition number and its small/large-c limits. Synthesis uses the Gram quadratic form, so its condition number is the square root of the Gram ratio.",
+      "residual_risks": [
+        "No classification of nonextremal coincidences is asserted.",
+        "The sample script does not certify the infinite limiting law; c must be fixed in the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aadi et al. describe sampling and interpolation with multiplicities in weighted Bergman spaces.",
+          "The same-day Dirichlet record gives a uniform cyclic Gram profile 1+1/[c(j+tau)] at r_N^2=1-exp(-cN) and a condition number tending to 1+1/(c*tau).",
+          "The larger kernel-power family of the capture record takes monomial degree to infinity at fixed orbit size and residue."
+        ],
+        "reasoning": "Geometric sampling criteria do not state exact finite extrema. The Dirichlet formula has different coefficients, limiting profile and critical scaling. The general-power capture problem covers the Fourier norms but optimizes a different objective with different quantifiers. A shared catalogue day neither makes the Dirichlet result equivalent nor settles priority.",
+        "searches": [
+          "arXiv:2202.07263",
+          "2026/10/27/SCOPE-critical-exponential-boundary-layer-for-cyclic-dirichlet-gram-sp--e03594da668d",
+          "2026/11/22/SCOPE-exact-cyclic-bergman-kernel-approximation-and-its-gamma-capture--973f6bafeca1"
+        ]
+      },
+      "checked_sources": [
+        "repairs/1/RESULT.md",
+        "arXiv:2202.07263, abstract",
+        "Indexed Szegő, Dirichlet, and cyclic Bergman capture statements above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-kernel capture optimizes a single residue's projection at fixed size; it does not compare all residues as q varies.",
+          "The repaired proof uses monotonicity of T_N(q) to count all top transitions and a uniform expansion on j/N∈[0,1] to obtain the Gram ratio."
+        ],
+        "reasoning": "Simple substitution into the capture norms recovers the basic Fourier input, but not the count, location or uniqueness of all maximizing-mode transitions. The conditioning law also requires uniform many-node asymptotics and sharp extrema, not insertion into the fixed-size Gamma law.",
+        "searches": [
+          "Capture RESULT.md Finding, Assumptions, and Proof §1",
+          "Same-day Dirichlet RESULT.md Finding",
+          "repairs/1/RESULT.md, Maximum staircase and Critical scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The capture record's Proof §1 gives the residue-vector squared norms r^(2j) Σ_l a_(j+ml) (r^(2m))^l, for a_n=(beta)_n/n!.",
+          "The Szegő regular-orbit eigenvalues of the other record are d(1-r^2)r^(2l)/(1-r^(2d)), hence strictly decreasing with l."
+        ],
+        "reasoning": "At beta=2, m=N and r^2=q, the capture norms times N(1-q)^2 are the normalized Gram eigenvalues, so the finite formula cannot be treated as a distinct contribution in isolation. At beta=1 the coefficients are constant, not the Bergman weights n+1; the Szegő alias cannot account for an interior maximal-mode staircase.",
+        "searches": [
+          "Resultary cyclic Bergman, regular-orbit kernel spectrum and conditioning",
+          "2026/11/22/SCOPE-exact-cyclic-bergman-kernel-approximation-and-its-gamma-capture--973f6bafeca1",
+          "2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact spectral-extrema or limit table emerged from these comparisons. The frozen finite DFT cases are numerical checks only."
+        ],
+        "reasoning": "A finite database is not a substitute for an all-N continuous-radius classification and fixed-c many-node limit. The closest exact available algebraic data are the capture norms, credited under equivalent formulations.",
+        "searches": [
+          "Cyclic Gram profile and exact mode candidates from the Resultary comparison",
+          "Frozen VERIFICATION.md"
+        ]
+      },
+      "rationale": "The repaired contribution is the exact extremal-mode staircase and the uniform many-node Bergman conditioning law. Cyclic Fourier filtering is standard, and the available same-kernel projection theorem gives the residue norms and hence the basic finite eigenvalue formula. Its fixed-orbit high-monomial-degree optimization does not already give this extremal-mode classification or many-node scaling. The strongest same-day match inspected has a different kernel and boundary scale.",
+      "residual_risks": [
+        "A bounded search cannot rule out an unindexed formulation in orbit-frame or interpolation theory; the frozen text's nonspecific attribution of a published Hardy/Szegő analogue was not recovered as a definite citation.",
+        "Neither catalogue dates nor these mathematical comparisons certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader motivation; the inspected statement does not establish exact cyclic spectral coverage or document-wide absence.",
+          "evidence": "Treats weighted sampling and interpolation with possibly unbounded kernel multiplicities including p=2 and infinity.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07263",
+          "material_read": "p. 1, abstract near OA offset 486",
+          "method": "Lawful OA abstract passage",
+          "title": "Multiple sampling and interpolation in Bergman spaces",
+          "trigger": "Primary Bergman sampling and interpolation comparison"
+        },
+        {
+          "assessment": "Different kernel's monotone spectrum.",
+          "evidence": "Its normalized Szegő-kernel seeds give a finite geometric progression, not the Bergman affine-times-geometric spectrum or staircase.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+          "material_read": "RESULT.md, opening Finding, offset 0",
+          "method": "Resultary search and local mirror statement",
+          "title": "Sharp determinant stability and conditioning of concentric Szegő kernel configurations",
+          "trigger": "Hardy regular-orbit spectral analogue"
+        },
+        {
+          "assessment": "Analogous questions but non-equivalent kernel, scaling and law.",
+          "evidence": "Its squared radius is 1-e^(-cN), its limit is 1+1/[c(j+tau)], and its spectral condition number tends to 1+1/(c*tau).",
+          "identifier_or_url": "2026/10/27/SCOPE-critical-exponential-boundary-layer-for-cyclic-dirichlet-gram-sp--e03594da668d",
+          "material_read": "RESULT.md, opening Finding, offset 0",
+          "method": "Resultary search and local mirror statement",
+          "title": "Critical exponential boundary layer for cyclic Dirichlet Gram spectra",
+          "trigger": "Distinct same-day record with uniform cyclic Gram limit and conditioning"
+        },
+        {
+          "assessment": "Implies the finite Gram eigenvalue formula after normalization; no matching extremal or many-node claim in these passages.",
+          "evidence": "Explicit residue-vector squared norms for general kernel power beta, plus optimized monomial capture as monomial degree grows with orbit size fixed.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cyclic-bergman-kernel-approximation-and-its-gamma-capture--973f6bafeca1",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §1, offsets 0–3677, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local mirror and statement-level algebraic reduction",
+          "title": "Exact cyclic Bergman kernel approximation and its Gamma capture law",
+          "trigger": "Same kernel and node set with exact formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md Finding and Proof",
+        "Cyclic Bergman capture comparison, Proof §1"
+      ],
+      "rationale": "For normalized interpolation on a regular ring the worst upper mode changes discretely with radius, while the worst lower mode never changes. This affects sharp finite synthesis bounds; the uniform critical profile determines the limiting conditioning with an explicit dependence on how close to the boundary the nodes are. Fixing the overbroad degeneracy wording retains both useful results, beyond the finite spectrum computation alone.",
+      "residual_risks": [
+        "No applications to irregular nodes, other kernels, or joint regimes with varying c are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

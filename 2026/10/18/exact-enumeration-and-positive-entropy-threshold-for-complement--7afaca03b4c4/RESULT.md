@@ -4,7 +4,7 @@
 
 Write \(\overline{x}\) for the bitwise complement of a binary word \(x\). For an integer \(\ell\ge1\), call a finite binary word **\(\ell\)-complement-avoiding** when there is no binary factor \(x\) of length \(\ell\) for which both \(x\) and \(\overline{x}\) occur (possibly overlapping) as contiguous factors of the word. Let \(a_\ell(n)\) count such words of length \(n\), including the empty word at \(n=0\).
 
-For the first exponentially growing case \(\ell=3\), the complete ordinary generating function is
+The exact enumeration concerns \(\ell=3\). Its complete ordinary generating function is
 \[
 \boxed{\sum_{n\ge0}a_3(n)z^n=\frac{1+z^2+z^3+z^4-4z^6-2z^7-2z^8}{(1-z)(1-z-z^3)}.}
 \]
@@ -19,7 +19,7 @@ Moreover, write \(\lambda>1\) for the unique real root of \(\lambda^3-\lambda^2-
 \boxed{a_3(n)=C\lambda^n+4+O(\lambda^{-n/2})},\qquad
 \lambda=1.465571231876\ldots,\quad C=2.626846119704\ldots.
 \]
-For \(\ell=1\), there are exactly two valid nonempty words at each length; for \(\ell=2\), \(a_2(1)=2\), \(a_2(2)=4\), and \(a_2(n)=6\) for every \(n\ge3\). Thus \(\ell=3\) is the sharp threshold for positive exponential growth: the number of admissible words has exponential growth rate one at \(\ell\le2\), and at least \(\lambda>1\) at every \(\ell\ge3\).
+For comparison, at \(\ell=1\) there are exactly two valid nonempty words at each length; at \(\ell=2\), \(a_2(1)=2\), \(a_2(2)=4\), and \(a_2(n)=6\) for every \(n\ge3\). Together with the exact triple count these facts recover the sharp threshold for positive exponential growth: the growth rate is one at \(\ell\le2\), and at least \(\lambda>1\) at every \(\ell\ge3\). The qualitative threshold is a consequence of earlier constructions as well (see below); it is not claimed as a separate new result.
 
 ## Assumptions and scope
 
@@ -60,7 +60,7 @@ The coefficients of \((1+z+z^2)/(1-z-z^3)\) satisfy \(b_0=1,b_1=2,b_2=3\) and \(
 
 The denominator \(1-z-z^3\) has one simple positive root \(r\in(0,1)\), with reciprocal \(\lambda>1\) satisfying the displayed cubic. Its other reciprocal roots are a complex-conjugate pair of modulus \(\lambda^{-1/2}<1\): the product of the three roots of \(x^3-x^2-1\) is one, and the two remaining roots have equal modulus. The residue at \(z=r\) gives coefficient \((1+r+r^2)/(r(1+3r^2))\) multiplying \(\lambda^n\). The two other roots contribute \(O(\lambda^{-n/2})\) and the \(4/(1-z)\) term contributes exactly four for sufficiently large \(n\). This proves the asymptotic statement.
 
-**Step 5: the threshold.** A nonempty word avoiding complementary single letters must be constant, giving \(a_1(n)=2\) for \(n\ge1\). For \(\ell=2\), avoiding simultaneous \(01\) and \(10\) forces at most one transition; avoiding simultaneous \(00\) and \(11\) then forces one of its two nonempty runs to have length one. At length \(n\ge3\) there are exactly two constant words and four single-transition words, giving six. For \(n=1,2\) all binary words are admissible. Finally, if a word avoids complementary triples then it avoids complementary factors of every length \(\ell\ge3\), because any length-\(\ell\) complementary pair would have complementary length-three prefixes. Thus \(a_\ell(n)\ge a_3(n)\) for every \(\ell\ge3\), completing the threshold proof.
+**Step 5: the threshold.** A nonempty word avoiding complementary single letters must be constant, giving \(a_1(n)=2\) for \(n\ge1\). For \(\ell=2\), avoiding simultaneous \(01\) and \(10\) forces at most one transition; avoiding simultaneous \(00\) and \(11\) then forces one of its two nonempty runs to have length one. At length \(n\ge3\) there are exactly two constant words and four single-transition words, giving six. For \(n=1,2\) all binary words are admissible. Finally, if a word avoids complementary triples then it avoids complementary factors of every length \(\ell\ge3\), because any length-\(\ell\) complementary pair would have complementary length-three prefixes. Thus \(a_\ell(n)\ge a_3(n)\) for every \(\ell\ge3\). For each fixed \(\ell\), a prefix of length \(n\) and succeeding suffix of length \(m\) of an admissible word are themselves admissible, and the pair recovers the word. Hence \(a_\ell(n+m)\le a_\ell(n)a_\ell(m)\), and subadditivity of the logarithms gives existence of the exponential growth rate.
 
 ## Verification
 
@@ -68,9 +68,9 @@ Run `python verify.py` with Python 3 and SymPy installed. The program (i) carrie
 
 ## Relationship to prior work
 
-Currie, Dvořáková, Ochem, Opočenská, Rampersad and Shallit introduced and analyzed classes of infinite binary words that avoid complementary factors of fixed length. Their arXiv preprint dates from 20 September 2022, and their journal article appeared in 2025. Theorem 3 and Section 5 focus on critical exponents, infinite-word factor languages, and transitions from polynomial to exponential complexity under additional repetition restrictions. The present theorem addresses a different exact enumerative question: the number of **all finite labeled words of each length**, with no repetition restriction, avoiding simultaneous complementary length-three factors. The inspected paper does not give the rational generating function, its order-three recurrence, or its asymptotic leading constant.
+Currie, Dvořáková, Ochem, Opočenská, Rampersad and Shallit [1] study complement avoidance together with repetition restrictions. In particular, their Theorem 17 gives an injective uniform morphism on ternary squarefree words whose binary images have only \(0,1,01,10\) as complementary factors. The exponentially large ternary squarefree family therefore already gives exponentially many triple-complement-avoiding words along lengths divisible by the uniform image length. Taking prefixes transfers the lower bound to all lengths with at most a constant loss. Combined with the elementary bounded counts for \(\ell\le2\), this gives the qualitative threshold independently of our exact count. The contribution here is the closed count for **all finite labeled words of each length**, with no repetition restriction, including its recurrence, asymptotic amplitude, and constant correction.
 
-The related paper by Baranwal and collaborators enumerates binary words avoiding contiguous **antisquares** of the form \(x\overline{x}\). Such local contiguous concatenations are different from a pair of complementary factors at arbitrary positions. Neither that growth result nor general transfer-matrix existence statements supply the rational function above without the explicit finite calculation.
+Baranwal and collaborators [2, Theorem 19] show that the number of binary words having no contiguous antisquares other than \(01,10\) grows as \(\Theta(\lambda^n)\), with exactly the same root \(\lambda\). This does not identify the languages or their counts: \(0110\), for example, satisfies the complementary-triple condition but is itself an antisquare of length four. The root alone is not the distinct enumerative claim, and the antisquare asymptotic does not give the rational function or its coefficients for complementary triples.
 
 ## Limitations
 

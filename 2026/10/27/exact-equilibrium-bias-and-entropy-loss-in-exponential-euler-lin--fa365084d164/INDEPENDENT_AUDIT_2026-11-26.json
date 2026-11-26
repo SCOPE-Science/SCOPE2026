@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:44.672144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and verify.py as recorded checks (not executed)",
+        "arXiv:2408.13601v1, Eq. (2.6)",
+        "/workspace/branches/9179b77f-4c44-4808-94dd-493d207ccad7/record3_check.py and record3_numeric.txt"
+      ],
+      "rationale": "The primary integrator source confirms the placement of the exponential inside the jump Kraus factors. The Kraus completeness relation is e^(-hD) + integral_0^h D e^(-sD) ds = I. On diagonals the map is I-L diag(f_h(d)), with positive holding probabilities and an irreducible support; its fixed probability is proportional to 1/f_h(d) by the connected Laplacian kernel, or detailed balance. Applying it to the uniform vector and using strict decrease of f_h proves the regularity equivalence for every h>0. On each two-entry coherence block, the eigenvalues are exp(-hs) ± w_ij f_h(s), s=(d_i+d_j)/2. They have modulus below one for n>=3 since s>w_ij on each edge. For n=2 the symmetric coherence has eigenvalue one and sufficiently small real coherence on I/2 gives non-diagonal stationary densities. The one-step diagonal displacement is h^2 Ld/(2n)+O(h^3), whereas the stationary displacement is h(d-bar(d)1)/(2n)+O(h^2). The entropy deficit at uniform has quadratic term n/2 times the squared norm of the displacement, giving the stated h^4 and h^2 coefficients and the numerical example. A fresh finite check compared direct jump and block matrices, stationary residuals, iteration, and high-precision entropy ratios on the weighted three-vertex witness, and included a regular control. It corroborates the algebra without certifying the universal theorem.",
+      "residual_risks": [
+        "Entropy loss is from the maximally mixed input or measured relative to its entropy, not monotonicity of entropy for arbitrary inputs. Small-step expansions hold for a fixed graph. The stiff-step limit asserted is of the invariant distributions, not a mixing theorem for the limiting map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary FREE theorems provide positivity and trace preservation, which hold on irregular as well as regular graphs. The pure-positivity and trace conclusions do not assert preservation of I/n. The attempted midpoint-source retrieval did not yield decisive full text."
+        ],
+        "reasoning": "CPTP does not imply unitality. Neither the standard channel properties nor finite-horizon consistency alone give the invariant density or the stated entropy orders under fixed-step iteration. No claim is made about other integrators.",
+        "searches": [
+          "Resultary: weighted graph Hermitian edge-flip Lindblad channel unital degree regular",
+          "arXiv:2408.13601v1, Theorems 3.1 and 3.3",
+          "arXiv:2506.00346v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and the local mirror dimension-sharp mixing RESULT.md",
+        "arXiv:2408.13601v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known formula, the algebraic identity E_h-I = L_generator K_h holds for K_h(rho)=integral_0^h exp(sA)rho exp(sA*) ds. Thus stationary-state computation is a kernel transform; on graph diagonals K_h is multiplication by f_h(d). The inspected same-method results do not give the graph coherence blocks or both entropy coefficients."
+        ],
+        "reasoning": "The identity explains which part is a short consequence of the published map and standard invariance, not a new general Markov-chain law. The frozen result adds the exact weighted-regularity criterion, the edge-coherence classification and attraction, and the quantitative mismatch between local and equilibrium entropy defects on the specified family. The inspected prior theorems do not themselves imply that package by parameter substitution.",
+        "searches": [
+          "Web search: \"exponential Euler\" Lindblad stationary state weighted graph Hermitian jumps unital stationary distribution entropy defect",
+          "arXiv:2408.13601v1, Eq. (2.6) and Sec. 3",
+          "Dimension-sharp mixing slowdown RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source specifies exp(hA) rho exp(hA*) plus jumps with L_k exp(sA) rho exp(sA*) L_k*. Its Eq. (2.7) instead puts exponentials around an already jumped matrix; that standard exponential Euler scheme need not have these invariants."
+        ],
+        "reasoning": "The comparison is to the actual FREE formula, not just similarly named exponential integrators. The diagonal formulation is the reversible Markov chain that has conductances proportional to w_ij and a state-dependent holding law. Its fixed vector after that reduction uses standard detailed balance.",
+        "searches": [
+          "Resultary: FREE Lindblad exponential Euler graph Hermitian jumps exact invariant stationary density",
+          "arXiv:2408.13601v1, Eq. (2.6) and Remark 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed dimension-sharp mixing record computes mixing factors and the invariant maximally mixed density for the same FREE method on a uniform directed jump cycle. The indexed coherent-stationary-state record concerns a different collision channel on an infinite ladder."
+        ],
+        "reasoning": "The directed-cycle equilibrium and mixing results are material same-method prior coverage, but a uniform jump cycle has no degree irregularity to test and uses directed jumps rather than Hermitian edge flips; it cannot give the frozen irregular-family coefficients or criterion. The three-vertex witness is supportive rather than the principal originality claim.",
+        "searches": [
+          "Resultary: Lindblad numerical integrator stationary state biased degree graph Euler map",
+          "Resultary: quantum entropy defect one-step exponential Euler Lindblad maximally mixed h^4 stationary entropy h^2"
+        ]
+      },
+      "rationale": "The method, positivity, trace preservation, and diagonal detailed-balance argument are not new. The supported distinct content is the exact all-step phenomenon on weighted undirected edge-flip graphs: irregularity creates degree-biased equilibrium, with convergence of the quantum state despite the possibility of coherences, and distinct explicit leading entropy defects at one step and at equilibrium. The closest same-method indexed result treats a uniform directed jump cycle rather than the irregular Hermitian family.",
+      "residual_risks": [
+        "An uninspected numerical invariant-measure result for an equivalent algebraic scheme could cover more of the weighted graph case. The comparison does not establish priority against all Lindblad integrator literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact method and general positivity/trace properties covered; no such graph invariant and entropy theorem in compared passages",
+          "evidence": "Eq. (2.6) places the exponentials within the jumps as in the frozen record, while Eq. (2.7) does not.",
+          "identifier_or_url": "https://arxiv.org/html/2408.13601v1",
+          "material_read": "Eq. (2.6), Remark 2.1 and Eq. (2.7), offset 11900; Theorems 3.1 and 3.3, offsets 16750 and 20793",
+          "method": "Bounded OA primary-source comparison",
+          "title": "Full- and low-rank exponential Euler integrators for the Lindblad equation",
+          "trigger": "Same published algorithm; possible broader stationary-state theorem"
+        },
+        {
+          "assessment": "Genuine same-method prior in a different jump family",
+          "evidence": "Exact mixing on a uniform directed jump cycle to an unbiased invariant density; no weighted-irregular Hermitian edge-flip case.",
+          "identifier_or_url": "2026/10/18/SCOPE-dimension-sharp-mixing-slowdown-in-a-trace-preserving-exponentia--211259f4d566",
+          "material_read": "Local mirror RESULT.md, Finding at offset 0",
+          "method": "Resultary lookup and bounded matching source statement",
+          "title": "Dimension-sharp mixing slowdown in a trace-preserving exponential integrator",
+          "trigger": "Same FREE method, exact stationary state and quantum mixing"
+        },
+        {
+          "assessment": "Different channel and state space",
+          "evidence": "The invariant is for an infinite-ladder collision channel rather than weighted graph FREE.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-coherent-stationary-state-and-lindblad-limit-of-an-energy--3f9bf0ed939e",
+          "material_read": "Indexed claim",
+          "method": "Resultary indexed statement comparison",
+          "title": "Exact coherent stationary state and Lindblad limit of an energy-ladder collision channel",
+          "trigger": "Vault match for exact Lindblad-related stationary states with coherences"
+        },
+        {
+          "assessment": "Not used as evidence of either coverage or noncoverage",
+          "evidence": "No mathematical passage relied on.",
+          "identifier_or_url": "arXiv:2506.00346v1",
+          "material_read": "No decisive passage retrieved",
+          "method": "OA retrieval timed out",
+          "title": "Full- and low-rank exponential midpoint schemes for forward and adjoint Lindblad equations",
+          "trigger": "Related scheme from the same research line"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and limitations",
+        "arXiv:2408.13601v1, FREE definition and structural properties"
+      ],
+      "rationale": "It identifies and quantifies a persistent equilibrium error in a positivity- and trace-preserving integrator. The bias is first order in step size although the local entropy signal at the unbiased state is fourth order, so checking only one step can obscure the long-run distortion. The all-step regularity criterion and minimal irregular example make the conclusion actionable for this natural family.",
+      "residual_risks": [
+        "No general Lindblad equilibrium error guarantee is obtained for other jump operators, Hamiltonians, or truncations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

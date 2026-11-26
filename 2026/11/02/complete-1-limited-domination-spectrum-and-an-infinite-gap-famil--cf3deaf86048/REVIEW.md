@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete enumeration follows from a bijection between feasible cyclic four-symbol column words and closed walks in a fully specified sixteen-state weighted graph. A ten-state recurrent restriction yields an exact finite determinant identity; the supplied standalone executable checks that identity over the integer polynomial ring by signed subset expansion. The characteristic-root perturbations, checked through second order by direct substitution into two explicit polynomials, derive the asserted coefficient formulas for all integers \(n\ge3\). The independent direct adjacency census covers the full size distribution through \(n=8\), but only the structural and algebraic arguments establish the infinite result. The global edge-cut bound proves the minimum \(n\), while the perfect-matching cut classification proves its exact multiplicity.
+## correctness
 
-**Originality — PASS, qualified.** Closest full primary sources are the newly introduced limited-domination framework of Božović et al. (arXiv:2606.22422), Radić–Tepeh's cubic-graph complexity and Goldberg-snark minima (arXiv:2610.01796), Tepeh's Cartesian-product bounds (arXiv:2606.22428), and Allagan's cyclic-word count of **ordinary** prism domination (arXiv:2601.03488). The first three treat the same selected-vertex capacity condition but do not give a full size enumerator for cyclic prisms; the fourth studies a different, weaker property on exactly the same graph. The present sharp coefficient gap cannot be derived merely by changing the terminology of ordinary domination. Semantic mathematical-record comparisons also found no covered or stronger corresponding theorem. A previously unlocated \((1,2)\)-domination polynomial or a general domination-spectrum theorem is the principal residual priority risk. The known/general lower bound on the minimum size, taken alone, is not represented as new.
+PASS
 
-**Value — PASS.** This is not just a restatement of a standard transfer algorithm: it produces an explicit factored rational generating function for the complete infinite family and shows that an entire natural parity class has an internal cardinality hole immediately above its optimum. Ordinary domination spectra have no internal holes; imposing the natural unit outside-neighbour capacity breaks upward closure in an exact, quantified manner. The smallest-layer counts identify both a period-four minimum-configuration distinction and a parity threshold for a provably absent next layer. These structural and enumerative features motivate the precise invariant without requiring a downstream application.
+The local inequality uses three distinct neighbors for n>=3, including the triangle layer at n=3; it requires at least one selected neighbor outside D and at least two inside D. An indexed mask sequence fixes a unique based closed walk, so the trace has no division by n. An exact independent signed-subset determinant computation on all 16 states gives the stated factorization (16 nonzero terms). There is also a small algebraic check: on the ten recurrent states the odd layer-swap sector has determinant 1-tz+t^2 z^3; eliminating unit pivots in the even sector gives (1-tz-t^2 z^3)(1-tz^2-(t^3+t^4)z^4)-2t^3 z^5=(1-tz)Q. The cut bounds give the sharp minimum n; equality forces exactly one crossing edge at each vertex, giving the two layers or the four phases of 0011. In the normalized characteristic factors the nonzero base roots are simple within each factor; roots vanishing at z=0 contribute only from degree n onwards. Direct expansion at 1,-1,i,-i in the quintic gives the four recorded Taylor rows, so summing n-th powers proves the two near-minimum formulas even at n=3. For even n a full layer plus an adjacent pair in the other layer witnesses positivity at n+2, establishing the internal gap and non-unimodality.
 
-**Limits and closest literature.** The formula concerns labelled circular prisms and \(1\)-limited domination, not general product graphs. Literature checks do not establish exhaustive historical uniqueness. Full external independent assessment is outstanding. The program verifies finite calculations and does not certify novelty or act as an infinite enumeration by itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass relative to the inspected antecedents for the labelled size distribution and the explicit low layers and parity gap, not for the scalar minimum or the transfer-matrix method. A distinct Nov. 8 Resultary entry states exactly the same full series and minimum count; it is equivalent coverage and entails the parity gap, not merely a similar topic. It is indexed after the Nov. 2 frozen entry and supplies no evidence of pre-existing coverage of that entry. No independence or first-discovery claim follows from these dates.
+
+## value
+
+PASS
+
+A natural constrained domination polynomial on a canonical cubic family is determined exactly. The near-minimum coefficients reveal a genuine infinite support gap, explaining why the intuition from ordinary domination polynomials fails under this selected-vertex constraint. This is more informative than either a generic bounded-width transfer construction or the scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

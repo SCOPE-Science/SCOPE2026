@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:22:39.755962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4; VERIFICATION.md; inspected verify_orbit_sampling.py",
+        "Independent replay: python3 /workspace/replays/5.py"
+      ],
+      "rationale": "At each top-row extension of a suffix of rank r, the rows modulo its span are the orbit choices: one coset gives no rank increase, and q^(m-r)-1 increase rank. Equivalently the point transfer divides by q^r in both cases since the new row adds r to the affine orbit dimension. Suffix ranks and exponents are invariant under invertible unitriangular suffix operations. This yields the stated joint weight and exponent, not point-weighted counts. Moving each rank increase left of its latest possible stage gives the rectangle partition and the nonnegative defect. The weight divided by q^{k(n-k)} is at most q^{-defect}; both the partition series and its first moment converge for q>1. The latest centered pattern contributes at least half of q^{floor(n²/4)} by Bernoulli's inequality, including n=2. The centered Gaussian lattice estimates then bound both requested expectations uniformly in n, and the elementary bound on binom(R,2) yields the linear expected exponent error. Independent enumeration via elementary row-addition generators corroborated the joint census at (n,q)=(3,2),(4,3),(5,2),(6,2), and the two reported sample means follow from independent profile weights.",
+      "residual_risks": [
+        "The constants may depend on q; finite replay corroborates, but the partition estimate proves the all-dimensions result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Properzi–Van Antwerpen study orbit length invariants via common-divisor graphs; Yan discusses upper-unitriangular matrix actions and adjoint clusters. Lim's asymptotics count irreducible representations by degree, and the inspected theorem is in the regime q tending to infinity."
+        ],
+        "reasoning": "These scopes do not provide the asserted quantitative equal-left-orbit law at fixed field size.",
+        "searches": [
+          "arXiv:2306.12415",
+          "arXiv:1004.2674",
+          "FPSAC 2026 article 3, On asymptotics of unitriangular groups"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --10a296ae216c",
+        "arXiv:2306.12415, arXiv:1004.2674, arXiv:2311.08023",
+        "DOI:10.37236/6829",
+        "Lim, FPSAC 2026 article 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary record explicitly leaves out the equal-orbit asymptotic, while giving the same-action uniform-point law. Prior rank layers or exact size counts are meaningful inputs, not claims of joint asymptotic concentration."
+        ],
+        "reasoning": "One must analyze the normalized orbit weights, including the dependence of L on the whole suffix path. The summable partition bound and the lower normalization at rank near n/2 are additional mathematical steps, not a relabeling of the known point limit or a look-up of finite counts.",
+        "searches": [
+          "Resultary --10a296ae216c typical-exponent and limitations passages",
+          "arXiv:2311.08023 §2 Proposition 4",
+          "DOI:10.37236/6829 §2 recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-family Resultary --10a296ae216c gives a uniform-point exponent with an n log_q n second-order correction; Yan §3.1 identifies the left action as row operations."
+        ],
+        "reasoning": "A random point size-biases the law on distinct orbits by q^L. A typical exponent for that measure does not determine a typical exponent for equal orbit weights. Neither conjugation, automorphism orbits nor character degrees describe this left action.",
+        "searches": [
+          "Resultary: uniform distinct lambda-orbit size asymptotics for strictly upper-triangular matrix braces",
+          "upper unitriangular group left orbits strictly upper triangular matrices orbit size asymptotic q-Stirling rank distribution naturally labelled posets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q-Stirling recurrence and the 3-free naturally labelled poset count recover unrefined or rank-layer counts, including the q=2 sequence referenced in the record. The same-family Resultary entry supplies finite orbit-size counts as well."
+        ],
+        "reasoning": "The finite count by size already determines the finite equal-orbit exponent distribution after normalization; finite counting itself is credited. The inspected count formulas do not state or supply a bound on the nonnegative defect in the joint distribution, nor directly estimate the claimed limiting law.",
+        "searches": [
+          "Cai–Ehrenborg–Readdy DOI:10.37236/6829 §2",
+          "Bevan–Cheon–Kitaev arXiv:2311.08023 Proposition 4",
+          "Resultary --10a296ae216c Finding and exact transfer"
+        ]
+      },
+      "rationale": "The supported distinct claim is fixed-q concentration under equal weighting of distinct left-action orbits, including the bounded mean defect and the 1/8 exponent. It does not claim the exact finite transfer, unrefined counts, unitriangular action, or the uniform-point exponent as new.",
+      "residual_risks": [
+        "A bounded comparison does not exclude an unindexed equivalent equal-orbit asymptotic. No chronological priority is inferred from the shared catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage of finite transfer and the distinct uniform-point law; same-day chronology not established",
+          "evidence": "Counts distinct orbits by size and states uniform-point n²/2-n log_q n+O_P,q(n), not the equal-orbit limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-logarithmic-defect-of-typical-lambda-orbit-sizes-in-unitriangula--10a296ae216c",
+          "material_read": "RESULT.md Finding/exact transfer at offset 0; exponent and scope passages at offset 6000",
+          "method": "Local mirrored full result text",
+          "title": "Logarithmic defect of typical lambda-orbit sizes in unitriangular matrices",
+          "trigger": "Same action, exact transfer and typical exponent"
+        },
+        {
+          "assessment": "No equal-orbit asymptotic in the inspected results",
+          "evidence": "Studies lambda-orbit lengths and common-divisor graph structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.12415",
+          "material_read": "Abstract and orbit definitions, PDF pp. 1 and 4",
+          "method": "OA PDF passages",
+          "title": "Common divisor graphs for skew braces",
+          "trigger": "Lambda-orbit numerical invariants"
+        },
+        {
+          "assessment": "Established action machinery, distinct cluster results",
+          "evidence": "Left operations are row operations; cluster construction uses left and right actions.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.2674",
+          "material_read": "§3.1, PDF pp. 7–8",
+          "method": "OA PDF passages",
+          "title": "Representations of finite unipotent linear groups by the method of clusters",
+          "trigger": "Same unitriangular matrix action"
+        },
+        {
+          "assessment": "Finite enumeration context",
+          "evidence": "Restricted-growth model and q-Stirling recurrence, not the asserted joint orbit-size concentration.",
+          "identifier_or_url": "https://doi.org/10.37236/6829",
+          "material_read": "§2, PDF pp. 2–3",
+          "method": "OA journal PDF passages",
+          "title": "q-Stirling Identities Revisited",
+          "trigger": "Equivalent unrefined counts via q-Stirling layers"
+        },
+        {
+          "assessment": "Covers finite unrefined totals and layers",
+          "evidence": "Counts 3-free naturally labelled posets by minimal-element count, related to the q=2 q-Stirling layers.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.08023",
+          "material_read": "§2, Proposition 4, PDF pp. 3–4",
+          "method": "OA PDF passages",
+          "title": "On naturally labelled posets and permutations avoiding 12–34",
+          "trigger": "Potential equivalent layer and total counts at q=2"
+        },
+        {
+          "assessment": "Different random object and asymptotic regime",
+          "evidence": "Counts irreducible representations of degree q^e, with Theorem 1.1 an asymptotic as q tends to infinity.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2026/3.pdf",
+          "material_read": "Abstract, introduction and Theorem 1.1, PDF pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "On asymptotics of unitriangular groups",
+          "trigger": "Unitriangular asymptotics search match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Same-family Resultary uniform-point law"
+      ],
+      "rationale": "The change from point weighting to equal orbit weighting changes the leading exponent by a factor of four. The result also locates the typical rank to bounded mean error and the orbit exponent to bounded mean defect relative to that rank, information beyond an unrefined orbit census.",
+      "residual_risks": [
+        "No fixed-lattice limiting distribution or field-uniform estimate is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

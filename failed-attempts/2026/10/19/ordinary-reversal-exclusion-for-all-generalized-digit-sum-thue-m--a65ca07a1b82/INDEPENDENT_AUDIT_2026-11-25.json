@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:31.529228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–4 and concluding witness",
+        "VERIFICATION.md and check_factors.py, inspected as finite corroboration, not executed"
+      ],
+      "rationale": "The block identity gives +1 at every within-block gap. Two gaps contain at least one such gap, so a reversible triple has differences +1 and −1 and is a palindrome. Three gaps for b≥3 contain at least two +1 gaps, leaving no room for the two −1 gaps that reversal would require. For b=2 even windows are (a,a+1,b,b+1) and odd windows are (a+1,b,b+1,c). Same-parity reversals require 2=0 mod m; opposite-parity reversals require a constant coarse triple, impossible because each triple contains an aligned increasing pair. Taking a reversed leading four-factor inside any longer reverse proves exclusion at all greater lengths. The digits at indices 2,3,4 for b=2,m=3 give the witness 121. These arguments include composite moduli and the periodic bases; none requires a finite-prefix extrapolation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For m≥3 and g=gcd(b−1,m)≤2 the indexed theorem gives exactly 2m palindromic triples and no reversible factor of length ≥4. For g≥3 it excludes every reversible factor of length ≥2.",
+          "Starosta's antimorphisms reverse and replace each symbol k by x−k; Rampersad–Shallit give existence constructions, not the general digit-sum theorem."
+        ],
+        "reasoning": "The two gcd cases exhaust the assigned domain and show actual, strictly broader coverage. Twisted reversal closure and existence of particular avoiding words do not give that coverage.",
+        "searches": [
+          "Resultary: arithmetic sharp cutoffs for reflected factors",
+          "Starosta arXiv:1104.2476, Proposition 2",
+          "Rampersad–Shallit arXiv:math/0311121, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: f12270a0ea48, 4c1615f0a563, 6ece0d5d3c7b",
+        "arXiv:2406.09302v4, arXiv:1104.2476, arXiv:math/0311121, DOI 10.46298/dmtcs.282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gcd theorem specializes directly to the frozen universal conclusion and provides a length-three palindrome when g=1 (in particular b=2,m=3).",
+          "The DMTCS result says arbitrarily long palindromes occur iff m≤2. Question 62 gives the binary mod-3 identity and suggests cases with modulus >4."
+        ],
+        "reasoning": "Bounded palindrome length alone neither fixes the cutoff nor excludes unequal reversed factors. In contrast the indexed gcd theorem directly entails both, including sharpness of the uniform cutoff.",
+        "searches": [
+          "Resultary f12270a0ea48 Finding and cutoff proof",
+          "DMTCS 10.46298/dmtcs.282 abstract",
+          "arXiv:2406.09302v4 p. 31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The index theorem defines reversibility as occurrence of the ordinary reverse, including self-reversal; its r counts classes exactly as in the frozen statement.",
+          "Question 62 states the r=ρ identity for b=2,m=3; equality counts distinct reverse pairs, not palindrome absence."
+        ],
+        "reasoning": "The exact equivalence of the indexed word, reversal convention and class count makes its theorem a substantive match. The published binary example alone does not imply the stronger reversal exclusion.",
+        "searches": [
+          "Resultary: ordinary reversal, generalized Thue–Morse, digit-sum, reflection complexity",
+          "The reflection complexity of sequences over finite alphabets, Question 62"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f12270a0ea48 states the complete cutoff and r=ρ on the entire frozen domain; 4c1615f0a563 matches the binary subfamily and 6ece0d5d3c7b the bases b≥3."
+        ],
+        "reasoning": "A finite table could not settle the quantified cutoff. Here the index contains theorem statements rather than just examples or exact parameter hits. The latter two documentary path dates do not by themselves establish priority.",
+        "searches": [
+          "Resultary exact theorem and generalized Thue–Morse aliases; local result statements f12270a0ea48, 4c1615f0a563 and 6ece0d5d3c7b"
+        ]
+      },
+      "rationale": "A distinct indexed theorem, Arithmetic sharp cutoffs for reflected factors of generalized Thue–Morse words, states the same results for precisely the same digit-sum words and ordinary reversal, and strictly strengthens them by the gcd classification. Its proof also supplies length-three reversible palindromes when gcd(b−1,m)≤2, so the sharp universal cutoff is covered as well. The exact digit example 121 does not constitute a distinct mathematical result. This is demonstrated coverage, not a judgment about attribution or first-public priority.",
+      "residual_risks": [
+        "First-public timestamps of the indexed results were not independently established; equivalence and subsumption do not require priority inference from path dates.",
+        "One general literature query was uninformative; no negative inference is drawn from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the frozen result",
+          "evidence": "The stated trichotomy for g=gcd(b−1,m) includes the frozen cutoff, singleton classes at length ≥3, and sharpness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/12/SCOPE-arithmetic-sharp-cutoffs-for-reflected-factors-of-generalized-th--f12270a0ea48/RESULT.md",
+          "material_read": "Finding and scope at offset 0; proof beginning around offset 3900",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Arithmetic sharp cutoffs for reflected factors of generalized Thue–Morse words",
+          "trigger": "Strongest indexed match; same word and reversal convention"
+        },
+        {
+          "assessment": "Overlaps the b=2 case",
+          "evidence": "The same length-four exclusion and length-three reflection identity for all m≥3 in base two.",
+          "identifier_or_url": "Resultary record 4c1615f0a563",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Reversal-freeness at length four for every nonbinary digit-sum residue word",
+          "trigger": "Binary-base subfamily match"
+        },
+        {
+          "assessment": "Overlaps b≥3 and gives additional gcd information",
+          "evidence": "Length-four exclusion and the corresponding reflection-complexity identity over b≥3,m≥3.",
+          "identifier_or_url": "Resultary record 6ece0d5d3c7b",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Base-uniform reflection rigidity and a gcd law for digit-sum words",
+          "trigger": "Bases b≥3 subfamily match"
+        },
+        {
+          "assessment": "States a special case and suggests others, not the universal theorem",
+          "evidence": "The question uses base 2 and states the m=3 identity for n≥3; the extension is phrased as an apparent property for moduli above four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302v4",
+          "material_read": "Question 62, p. 31",
+          "method": "OA PDF passage inspection",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Named prior question about exactly the ordinary complexity identity"
+        },
+        {
+          "assessment": "The abstract gives the long-palindrome criterion, not a cutoff or reversal-pair theorem",
+          "evidence": "Arbitrarily long palindromes occur precisely at m≤2.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/282/download",
+          "material_read": "Abstract on p. 1",
+          "method": "OA PDF passage inspection; other extracted text is corrupted",
+          "title": "Sums of Digits, Overlaps, and Palindromes",
+          "trigger": "Ordinary palindromes for the same digit-sum family"
+        },
+        {
+          "assessment": "Dihedral closure refers to twisted reversal",
+          "evidence": "The antimorphism Ψ_x sends a letter k to x−k and reverses concatenation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.2476",
+          "material_read": "Abstract and Proposition 2, p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Generalized Thue-Morse words and palindromic richness",
+          "trigger": "Possible equivalence via reversal symmetries"
+        },
+        {
+          "assessment": "Existence results, not a theorem for all digit-sum words",
+          "evidence": "The periodic ternary example avoids reversible factors of length at least two; the other construction is a nonperiodic ternary example for length at least three.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0311121",
+          "material_read": "Theorems 1 and 2, p. 2",
+          "method": "OA PDF passage inspection",
+          "title": "Words avoiding reversed subwords",
+          "trigger": "Potential prior reversal cutoff theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:2406.09302v4, Question 62"
+      ],
+      "rationale": "As mathematics, the uniform sharp cutoff is a useful structural fact about a standard word family: it separates ordinary reversal from twisted symmetry and reduces reflection-complexity computation to ordinary factor counting from length three on. This assesses the content, not incremental originality or grounds for acceptance.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

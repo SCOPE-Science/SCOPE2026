@@ -1,19 +1,20 @@
 {
   "correctness": {
-    "rationale": "Exact all-size proof: in a temporal-four return every active vertex must rotate at every update, and connectedness forces all vertices active unless the state is all rest. Fixing hub phase zero reduces the successor-neighbor condition to a 16-state pair transfer with 9-state forbidden-no-1 correction. Integer Faddeev-LeVerrier character polynomials give determinant factors (1+z^2)(1-z-2z^2-2z^3-z^4-z^5) and 1-z-z^2-z^3. Matrix-trace generating function then proves exact sequence and quintic growth. Actual standalone checkers independently reproduce characteristic polynomials/CH and directly enumerate all 4^(n+1) states for n=3..8. The asymptotic comparison uses rigorous unique-positive-root bracketing and spectral gaps; no basin claim is asserted.",
+    "rationale": "Exact all-size proof: in a temporal-four return every active vertex must rotate at every update, and connectedness forces all vertices active unless the state is all rest. Fixing hub phase zero reduces the successor-neighbor condition to a 16-state pair transfer with 9-state forbidden-no-1 correction. Integer Faddeev-LeVerrier characteristic polynomials give determinant factors (1+z^2)(1-z-2z^2-2z^3-z^4-z^5) and 1-z-z^2-z^3. Matrix traces prove the exact sequence. The standalone checkers reproduce the characteristic polynomials and directly enumerate all 4^(n+1) states for n=3..8. The corrected asymptotic proof bounds nonleading quintic roots by lambda-1, strictly below the tribonacci root; a mere spectral gap below lambda would not establish the stated error. No basin claim is asserted.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
         "Gravner, Lyu, Sivakoff (arXiv:1610.07320) explicitly restrict their main graph results to three colors, not four.",
-        "The published four-state tripartite result 6411c0882be0 applies to complete tripartite graphs; W_n for n>=4 is not complete tripartite.",
+        "The four-state complete tripartite result 6411c0882be0 applies to W_4=K_{1,2,2} and already gives its count; no W_n for n>=5 is complete tripartite.",
         "The published wheel result 45299ac945e0 imposes two excited neighbors, extinguishes all orbits, and is not the threshold-one process.",
         "The Greenberg--Hastings and Durrett--Griffeath classical work concerns model construction and spatial waves; no inspected statement gives this all-n wheel four-cycle rational census."
       ],
-      "reasoning": "Explicitly compared both state count and graph hypotheses and the logical consequences of the published statements. The closest same-graph result uses three states; same-four-state results use non-wheel graphs or a different threshold. None implies the claimed four-state wheel characteristic polynomial or growth reversal.",
+      "reasoning": "Compare state count, threshold and graph hypotheses. The same-graph all-length comparator uses three states; the same-four-state complete tripartite result covers W_4 only among simple wheels, while the same-four-state extinction result changes the threshold. Neither implies the all-length characteristic polynomial or growth reversal.",
       "searches": [
         "Greenberg Hastings multicolor graph four-state wheel periodic orbit census",
         "four-state Greenberg Hastings excitation graph with leaves complete graph attractors basins",
@@ -25,6 +26,7 @@
     "checked_sources": [
       "published-research:c503df57632e",
       "published-research:6411c0882be0",
+      "published-research:a56bc883e0df",
       "published-research:14573b2e63f6",
       "published-research:45299ac945e0",
       "arxiv:1610.07320",
@@ -35,10 +37,10 @@
     "claim_vs_prior_implication": {
       "evidence": [
         "Prior three-state wheel P_n has asymptotic root 2.2055694304; new four-state result has quintic root 2.3352947989 and its exact orbit subtraction has a tribonacci factor.",
-        "The claimed absolute-versus-relative reversal compares those two exact asymptotics, credits the prior three-state theorem, and is not an implication of it without the new four-state polynomial.",
+        "The absolute-versus-relative reversal credits the prior three-state theorem and needs the four-state polynomial; the known four-state W_4 count is not sufficient to deduce growth.",
         "The 1978 original full text was not accessible: the accessible full-text routes were unsuccessful; only the abstract and later textbook exposition were examined."
       ],
-      "reasoning": "If a prior generic method supplies color-successor constraints, it still does not supply the explicit four-color wheel transfer determinant, sequence, two roots, or the reversal. Existing exact models differ in the premises; no stronger located statement dominates all asserted numbers. The unresolved original full text is disclosed and remains a priority uncertainty.",
+      "reasoning": "The earlier successor-neighbor condition does not supply the all-length four-color wheel transfer determinants or either growth comparison. The complete tripartite formula implies one entry, which is credited. The unresolved original full text remains a priority uncertainty.",
       "searches": [
         "Two spectral scales in three-state excitation on wheel graphs record c503df57632e full RESULT.md",
         "four-state excitation on tripartite graphs record 6411c0882be0 full Finding and Proof excerpt",
@@ -63,17 +65,17 @@
     },
     "exact_database_or_table": {
       "evidence": [
-        "The indexed record searches returned wheel three-state result c503df57632e, threshold-two wheel result 45299ac945e0, and other-four-state graph results, not an exact four-state wheel table.",
-        "The exact sequence 6,20,50,120,308,756 was independently constructed from the defined transfer and direct update algorithm."
+        "Indexed record searches returned the three-state wheel result c503df57632e, threshold-two wheel result 45299ac945e0, and four-state complete multipartite results, not a complete four-state threshold-one wheel table.",
+        "The tripartite Greenberg–Hastings formula in 6411c0882be0 gives 81 four-step returns on W_4=K_{1,2,2}; subtract the all-rest state and divide by four to get 20. The cyclic cellular automaton formula in a56bc883e0df gives the same primitive-four count, not the same fixed-point count."
       ],
-      "reasoning": "Compared exact graph, palette, threshold, orbit definition, and numerical sequence rather than matching titles. No equivalent exact table was identified; unindexed historic tables remain a residual risk, not a proof of uniqueness.",
+      "reasoning": "The complete tripartite formulas provide the isolated W_4 entry but not the series or its growth. Search coverage of tables is bounded.",
       "searches": [
         "wheel graph four state excitation primitive 4 cycles growth x5-x4-2x3-2x2-x-1",
         "four color Greenberg Hastings wheel primitive four cycles tribonacci correction",
         "Greenberg Hastings four state wheel orbit counts 6 20 50 120 308 756"
       ]
     },
-    "rationale": "Queried published mathematical research records by exact wheel/four-state parameters, aliases, growth polynomial and three-/four-color equivalents, and inspected the same-graph three-state result, four-state tripartite/bipartite results, threshold-two wheel result, and relevant classic published literature. The closest same-graph theorem gives three-state cubic counts only; none of the inspected results implies the new four-state two-determinant census, quintic or normalization reversal. Original 1978 full-text retrieval failed; this unresolved historical priority risk remains explicit.",
+    "rationale": "The three-state wheel asymptotic and the four-state W_4 entry are credited. Neither those sources, the threshold-two wheel result, nor the general phase-coloring condition yields the all-length four-state wheel census or the growth reversal. The original 1978 full text was not inspected; priority remains qualified.",
     "residual_risks": [
       "Full primary text of the 1978 Greenberg-Hastings paper was unavailable despite OA search and attempted institutional access; an unindexed exact wheel census cannot be absolutely ruled out.",
       "The separate publicly known three-state wheel cubic is explicitly credited; the new claim is the four-state quintic and comparison, not the three-state result."
@@ -98,13 +100,22 @@
         "trigger": "Broad arbitrary-graph model statement and possible stronger coverage"
       },
       {
-        "assessment": "Complete tripartite graphs do not contain wheel W_n, n>=4, under those hypotheses",
-        "evidence": "The cited result explicitly takes G=K_{a,b,c}; wheel rim has a cyclic edge structure, not three complete independent shores.",
+        "assessment": "Exact overlap at W_4, not an all-wheel result",
+        "evidence": "Take shores (1,2,2) for W_4, giving 81 four-step returns and 20 primitive four-cycles. W_3=K_4 has four singleton shores; for n>=5 the rim is not complete bipartite.",
         "identifier_or_url": "published-research:6411c0882be0",
         "material_read": "Opening 6500 characters of RESULT.md containing full Finding, Assumptions and initial Proof",
-        "method": "Checked graph-definition constraints and statement implications",
+        "method": "Compared graph hypotheses and specialized the exact return-count formula",
         "title": "Four-state excitation on tripartite graphs: identical four-cycle orbits, different transients, and exact extinction",
         "trigger": "Same threshold and palette, potential generalization"
+      },
+      {
+        "assessment": "Also covers the isolated W_4 entry via successor-color dynamics",
+        "evidence": "The exact complete tripartite formula at shores (1,2,2) applies to the shared four-cycle predicate and gives 20 orbits.",
+        "identifier_or_url": "published-research:a56bc883e0df",
+        "material_read": "RESULT.md statement and formula, offsets 0–3499",
+        "method": "Compared the four-phase predicate and specialized the count",
+        "title": "Sharp three-step period collapse and exact orbit counts for four-color cyclic dynamics on tripartite graphs",
+        "trigger": "Second exact tripartite four-cycle formula"
       },
       {
         "assessment": "Biclique hypotheses cannot include wheels because wheels contain triangles",
@@ -145,6 +156,7 @@
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "same_model_review",
   "same_model_review_status": "passed",
   "schema_version": 1,

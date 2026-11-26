@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:23:55.250905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–97",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution; its finite probability comparisons cannot establish a joint law or a limiting theorem"
+      ],
+      "rationale": "I reconstructed the joint law from the minimum norm problem: let u be the normalized all-ones vector and z the projection of u onto ker Xᵀ. Then <u,z>=||z||²=T, so w=z/(√M T) is the unique minimum norm feasible vector. Haar invariance gives T=U/(U+V) in law with degrees M−d,d. The stabilizer of u forces the conditional direction of z−Tu to be uniform on the sphere in u⊥, independently of T, including the two-point sphere for M=2. A centered Gaussian represents that direction. Hence positivity is R_M²<U/V, where R_M is the maximum of the negated centered standardized Gaussians and is positive almost surely; strictness causes no issue because the independent ratio has a density. Independently checking the asymptotics, centering and rescaling perturb the squared maximum by O_P(log M/√M), and Mills' ratio at √(B_M+2t) gives exactly e^(−t)/M to first order. In the critical window both chi-squares concentrate and the scale of ratio fluctuations is O_P((log M)^(3/2)/√M)=o_P(1), small in the additive window; continuity of the extreme-value law gives exp(−exp(−t)). On either side, comparison after division by 2 log M yields the zero-one statement. At d/M→δ∈(0,1/2) the ratio stays finite and the Gaussian maximum diverges. Wendel's binomial tail gives feasibility with probability tending to one (the general-position hull has no boundary inclusion of 0 almost surely); assigning small positive masses to every node and using the shifted interior target gives strict positivity on all the nodes.",
+      "residual_risks": [
+        "The Dirichlet-type radial calculation uses a Haar subspace from exact Gaussian sampling; the limit does not assert uniform finite-M error, positivity at higher polynomial degree, or a non-Gaussian extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bělík–Narayan–Turnage discuss relative-admissibility-based concentration and positive rules constructed by pruning. Migliorati–Nobile analyze a different weighted/randomized scheme with sufficient sample counts. Wendel controls the hull event for any centrally symmetric general-position law."
+        ],
+        "reasoning": "A sufficient positivity guarantee, a rule modified by pruning, and existence of some convex weights do not identify the distribution of the selected unweighted minimum-norm weights.",
+        "searches": [
+          "arXiv:2609.09506 §1.1",
+          "arXiv:1812.07761 p. 4",
+          "Wendel DOI 10.7146/math.scand.a-10655"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09506",
+        "arXiv:1812.07761",
+        "Resultary c97a80bc1618",
+        "Resultary 6eba4b8f5a9c",
+        "Wendel 10.7146/math.scand.a-10655 (primary text not extracted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendel immediately gives the unconstrained linear-scale feasibility comparison but not the probability of the designated weights. The catalogue's three-node formula has no dimensional growth. The known classical extreme-value theorem and chi-square concentration explain the limiting functional form only after the exact positivity reduction for these weights."
+        ],
+        "reasoning": "The strongest inspected prior conclusions do not imply the additive B_M+2t window for the chosen estimator. Credit the ingredients, not a new Gaussian extreme-value theorem or new convex-hull theorem.",
+        "searches": [
+          "arXiv:2609.09506 and 1812.07761 positivity statements",
+          "Resultary c97a80bc1618, Proof §5",
+          "Wendel DOI 10.7146/math.scand.a-10655"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen equations (1), (4) and (5) are equivalent to normalization of a Haar nullspace projection followed by a maximum-coordinate comparison. The Gaussian Resultary match gives a univariate affine formula and three-node positivity, not the growing-dimensional joint distribution."
+        ],
+        "reasoning": "A prior result stated in nullspace or regression coordinates would count if it recovered the joint weights or the same maximum comparison in the required changing dimension. Sharing Gaussian projection ingredients or one finite event is not that statement.",
+        "searches": [
+          "Randomized affine least-squares weight positivity as a Gaussian nullspace projection and centered-sphere maximum",
+          "arXiv:2609.09506, §1.1; Resultary c97a80bc1618 and 6eba4b8f5a9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c97a80bc1618 gives P≈0.6542 at d=1,M=3, versus 3/4 for feasibility; 6eba4b8f5a9c gives univariate uniform-node finite-sample and tail laws. Both matches display dates later than the assigned record."
+        ],
+        "reasoning": "The exact matched Gaussian probability is genuine finite-sample overlap, not a table or theorem for varying dimensions; the uniform-node law is for a different sampling distribution.",
+        "searches": [
+          "Resultary c97a80bc1618 and 6eba4b8f5a9c: affine least-squares positivity and Gaussian nodes"
+        ]
+      },
+      "rationale": "The Haar beta radius, independent sphere direction, Gaussian extreme-value theorem and Wendel hull formula are standard ingredients and not claimed independently. The supported distinct statement is their exact identification with the selected affine weights and the resulting sharply centered growing-dimension Gumbel law and linear-vs-logarithmic separation for that particular estimator. Once the weight representation is in hand the asymptotic does follow by standard concentration and extreme-value theory; the relevant prior cubature guarantees and closest catalogue special cases do not supply that representation and event at growing dimension.",
+      "residual_risks": [
+        "Bounded search: a prior equivalent growing-dimensional formula or sign threshold in the random-projection or calibration-weight literature remains possible. The empty focused search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related concentration and pruning methodology, not the growing-dimensional Gaussian weight law in inspected passages",
+          "evidence": "Relative admissibility and reference-weight conditions; constructive pruning to positive cubatures.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09506",
+          "material_read": "§1.1, pp. 2–3, OA text offsets 7800–15785",
+          "method": "Bounded primary text",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "Same randomized least-squares construction and positivity question"
+        },
+        {
+          "assessment": "Different randomized construction and sufficient bounds, not this necessity/window statement",
+          "evidence": "The described positivity sample scale is at least quadratic in approximation-space dimension up to a logarithmic factor for its construction.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.07761",
+          "material_read": "p. 4, OA text offset 17000",
+          "method": "Bounded primary text passage",
+          "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+          "trigger": "Potential broader theorem for positivity of randomized cubature"
+        },
+        {
+          "assessment": "Material but finite-sample and later match",
+          "evidence": "The exact probability is for three nodes in one dimension and is compared to Wendel feasibility at those parameters.",
+          "identifier_or_url": "c97a80bc1618",
+          "material_read": "RESULT.md, Finding and Proof §5, offsets 0–7555",
+          "method": "Local published-record mirror",
+          "title": "A density-universal collision law and exact Gaussian positivity",
+          "trigger": "Closest exact Gaussian positivity hit"
+        },
+        {
+          "assessment": "Univariate uniform sampling; later match",
+          "evidence": "Three-node positivity and weight-norm tail laws do not have the isotropic Gaussian growth setting.",
+          "identifier_or_url": "6eba4b8f5a9c",
+          "material_read": "RESULT.md, Finding and Proof §§1–4, offsets 0–7804",
+          "method": "Local published-record mirror",
+          "title": "Heavy tail and positivity laws for random affine least-squares quadrature",
+          "trigger": "Exact affine least-squares positivity and weight laws"
+        },
+        {
+          "assessment": "Credit the classical feasibility formula, not the selected-weight law",
+          "evidence": "The binomial count is for separation of the origin from the convex hull, not for signs of one particular estimator.",
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+          "material_read": "Primary scan identified; no extractable passages obtained. Formula read in frozen Eq. (9), with a special case corroborated by c97a80bc1618 Proof §5",
+          "method": "Lawful OA attempted; secondary corroboration explicitly segregated",
+          "title": "A Problem in Geometric Probability",
+          "trigger": "Controls existence of some weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3), (5) and (9)",
+        "Prior guarantees and exact feasibility comparison assessed above"
+      ],
+      "rationale": "For random Gaussian affine integration the exact formula predicts when the cheap minimum-norm rule loses positivity even though positive moment matching remains feasible. The log–log correction and limiting probability distinguish sampling sequences having the same leading ratio, which a mere sufficient scale or the usual hull test cannot do.",
+      "residual_risks": [
+        "Practical significance is confined to the distinguished exact affine rule and these sampling assumptions, not general quadrature accuracy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

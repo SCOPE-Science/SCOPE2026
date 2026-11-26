@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Butcher coefficients and unique-SSP optimum are explicitly identified in Weng–Yu–Zhu, Theorem 5.2. Triangular stage substitution yields the rational-power stability function already published for negative-real stability. The analyticity and \(\varepsilon\mapsto-\varepsilon\) symmetry make the logarithmic expansion odd; the coefficient \(P(z)\) is obtained by Taylor expansion and checked independently. Substituting weak real damping and taking modulus gives the exact leading function; \(\lvert\sin t\rvert<\lvert t\rvert\) establishes strict positivity. A derivative bounded away from zero supplies a unique local crossing. Exponentiating the logarithmic energy expansion proves the long-horizon limit. The standalone verifier passes 97 finite cross-checks but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, qualified.** The arXiv primary source proves optimality and gives coefficients, not this spectral asymptotic. The closest published published-finding corpus result proves a real-axis cutoff and explicitly declines to classify the complex plane; its exact transfer formula is acknowledged and reused. The 2007 original coefficient paper, the 2019 full text with four-stage stability plots, and the 2026 algebraic-stability obstruction do not state or imply the sharp explicit large-stage weak-damping profile, its boundary location, or the accumulated energy law merely as stated results. The calculation is a new asymptotic implication of the already-known rational transfer, not an independently new algorithm. Unindexed analyses of imaginary-axis asymptotics remain a priority risk; no search is treated as proof of novelty.
+PASS
 
-## Value
-**PASS.** Fourier-mode energy stability is a standard desideratum for hyperbolic semidiscretizations. The source family is uniquely optimized for nonlinear SSP radius yet can generate artificial amplification on imaginary modes; an exact damping profile at large stage count is an interpretable quantitative design limitation. The \(s^{-2}\) frontier and accumulated \(s^2\)-step energy law distinguish this effect from ordinary low-frequency truncation error and from the already-understood negative-real scalar cutoff. It is not an arbitrary parameter slice: the quadratic stage-count scaling is the first nonzero defect and the wave frequency is the natural nondimensional spectral variable.
+The classical row recurrence gives R_s=1−c_s+c_s q_s^s. Write ε=1/s, p=δ_s−γ_s, g=γ_s. Then p+g=ε/c_s and p−g=1/c_s−1. On a fixed bounded complex z-domain, log(1+pz)−log(1−gz) starts at εz; its ε³ coefficient is z/2−z²/4+z³/12, by the linear, quadratic and cubic logarithmic terms. It is odd in ε, with uniform remainder O(ε⁵) by analyticity near ε=0; division by ε and exponentiation give an even R_s expansion through ε². Evaluating at iω−ηε² gives the stated squared-modulus coefficient F(ω)−2η and uniform O(ε⁴). Strict |sin u|<|u| for u≠0 proves the positive defect. On a fixed small real λ interval, the analytic estimates also give convergence of the λ derivative of the squared modulus to 2e^(2λ) by Cauchy estimates. The crossing is unique there for sufficiently large s; the residual at λ=−F/(2s²) is O(s⁻⁴), hence so is the root error. At ω=0 the root is exactly 0. Multiplying the logarithmic squared modulus by floor(Ts²) proves the claimed energy limit. The source's SSP optimality premise is correct for the displayed family, with tableau uniqueness understood up to stage permutations.
 
-## Closest literature and limitations
-Weng–Yu–Zhu (arXiv:2610.37425v1); Ferracina–Spijker (Leiden 2007-11, §3.3); *Exact real-axis stability frontier* (published 2026-11-08, full RESULT.md); Fekete–Horváth (2019, §2.2 and Figure 2); Gottlieb et al. (arXiv:2611.07981v1, §5). The theorem is asymptotic, uses bounded fixed frequencies, and does not settle finite-stage imaginary-axis stability or nonnormal problems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact complex stage-transfer representation and the SSP-optimal family are known and credited. The strongest matched record uses that transfer for a negative-real stability interval and stiff large-stage endpoints. Its theorem, coefficient expansions and finite-stage alternatives do not give an evaluated bounded-complex weak-damping layer or the quadratic-step energy defect. The new result is the uniform asymptotic analysis of the transfer in that distinct regime, not the tableau or transfer itself.
+
+## value
+
+PASS
+
+SSP optimality is not a modal energy guarantee. The defect establishes a concrete cost for a standard optimal family: even fixed undamped nonzero frequencies amplify, and a specific weak damping threshold is needed to offset the artificial energy drift. The first nonzero, frequency-dependent defect matters because its effect is order one after O(s²) steps. This differs from both finite-stage plotting and stiff scalar real-axis decay and gives a quantitative, testable calibration for the intended modal regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

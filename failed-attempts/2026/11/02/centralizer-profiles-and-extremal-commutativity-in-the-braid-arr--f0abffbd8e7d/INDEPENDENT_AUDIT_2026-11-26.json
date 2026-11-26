@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:33.510217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–61",
+        "Frozen VERIFICATION.md, lines 19–23; face_band_verify.py, lines 7–66"
+      ],
+      "rationale": "The two products list the same nonempty cells; their row-first and column-first orders differ exactly when a pair of cells has reversed row and column indices. Thus each commuting partition is an arbitrary ordered partition inside each A_i, with the consecutive restrictions joined or kept separate independently at each interface. This yields the claimed factor and the multinomial composition multiplicities. The representation F_m = (1/2)∑_{r≥0} r^m/2^r gives strict log-convexity by Cauchy–Schwarz (the powers are not proportional on the positive support). Moving a unit from a larger part to a part at least two smaller lowers the product, and moving a unit from a part greater than one to a part at least as large raises it. This proves the precise balanced and concentrated equality cases, including trivial boundary compositions. The block generating function is T=(e^z−1)/(2−e^z), giving 1+T/(1−2T) and the Stirling expansion. The unique closest poles are log 2 and log(4/3), with residues −1/2 and −1/12 for the ordered Bell and commuting-pair series; taking the ratio of coefficients with the factorials gives the stated probability. The supplied Python checker is consistent with testing all pairs through n=5, not a proof of the asymptotic or extrema.",
+      "residual_risks": [
+        "The recorded checker was inspected, not executed; the general results were verified by reconstructing the mathematical argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 26 paper counts ordered pairwise commuting r-tuples in the same monoid by assigning a nonempty subset of the r positions to each cut of the common product.",
+          "The same-day rank-three comparison treats a different family of arrangements and itself refers to existing type-A parametrization and pair counts."
+        ],
+        "reasoning": "At r=2 each cut has three possible decorations, yielding exactly the frozen formula. The rank-three comparison is not needed to establish that implication and establishes no same-day priority.",
+        "searches": [
+          "Resultary: SCOPE-complete-commuting-clique-geometry-of-the-braid-face-monoid--493f7b5a1c64",
+          "Resultary: SCOPE-rank-three-face-monoid-commuting-spectra-are-chamber-polygon-spe--8c75760483b9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-26 commuting clique geometry (mirrored full-text passages)",
+        "Resultary 2026-11-02 rank-three commuting spectra (mirrored passages)",
+        "Commins, arXiv:2404.00536, §2.1",
+        "Frozen record's attribution of the numerical sequence to OEIS A050352"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof partitions independently within each block and makes binary choices at the interfaces, as here; its fixed-r asymptotic at r=2 yields C_n∼n!/[12(log(4/3))^(n+1)].",
+          "The prior profile reduces the optimization under a fixed block budget to an exchange of two coordinates of a separable sum ∑log F_{m_i}."
+        ],
+        "reasoning": "The prior count plus the standard ordered-Bell asymptotic already gives the stated probability. The not-explicitly-matched extrema follow by standard strict log-convexity of positive moments and a two-coordinate exchange; they do not restore novelty to the profile or the tuple-count theorem.",
+        "searches": [
+          "Oct. 26 Resultary record, mirrored RESULT.md, offsets 1050 and 5457–6500",
+          "Frozen RESULT.md, lines 38–42 and 57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record characterizes commutation by absence of opposite nonzero signs on any hyperplane.",
+          "Commins defines the same ordered-partition monoid via the lexicographic list of nonempty intersections."
+        ],
+        "reasoning": "A pairwise sign conflict for the hyperplane x_i=x_j is precisely an opposite strict block ordering of i and j. The prior compatible-sign criterion and the frozen no-reversed-cells criterion are the same condition.",
+        "searches": [
+          "Resultary: SCOPE-complete-commuting-clique-geometry-of-the-braid-face-monoid--493f7b5a1c64",
+          "Commins, arXiv:2404.00536, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier theorem gives 2^(k−1)∏F_{m_i} and aggregates by positive compositions with multiplicity n!/∏m_i!, exactly the asserted distribution.",
+          "The known sequence and EGF are already acknowledged under a different interpretation in the submission."
+        ],
+        "reasoning": "The decisive match is stronger than a numerical table: it covers the individual centralizers for the exact monoid. The r=2 EGF for positive n is (e^z−1)/(4−3e^z), and adding the empty case gives the frozen EGF.",
+        "searches": [
+          "Earlier Oct. 26 Resultary record, mirrored RESULT.md, offset 1050",
+          "OEIS A050352, as identified in the frozen RESULT.md, lines 20 and 67"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary theorem already proves the same type-A centralizer profile, the composition-weighted distribution and the broader ordered commuting tuple count with the same cut bijection and corresponding asymptotic. Its r=2 specialization gives the semigroup interpretation claimed here, not merely the matching OEIS numbers. The fixed-k extremizers were not found stated there, but are a standard strict log-convexity consequence of the known profile; the probability limit just divides the earlier count by F_n².",
+      "residual_risks": [
+        "An explicit prior statement of the fixed-k equality cases was not located; their absence is not asserted. The verdict rests on the verified earlier profile and interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact centralizer and degree distribution overlap; tuple count dominates the pair count and implies its asymptotic. No explicit fixed-k extrema in the inspected passages.",
+          "evidence": [
+            "|C(α)|=2^(b−1)∏F_{|A_i|} with composition multiplicities.",
+            "T_{n,r}=∑_b b! S(n,b)(2^r−1)^(b−1) by cut decorations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-commuting-clique-geometry-of-the-braid-face-monoid--493f7b5a1c64",
+          "material_read": "Mirrored RESULT.md, statement/distribution and sign criterion at offset 1050; cut and centralizer proofs at offsets 5457–6500.",
+          "method": "Local Resultary lookup and bounded mirror inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4).",
+          "title": "Complete commuting clique geometry of the braid face monoid",
+          "trigger": "Same monoid, commuting profiles and stronger tuple count."
+        },
+        {
+          "assessment": "Confirms identical object and multiplication. The retrieved passage does not supply an enumerative centralizer theorem.",
+          "evidence": [
+            "Faces are ordered set partitions; product lists nonempty block intersections in lexicographic order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.00536",
+          "material_read": "§2.1, PDF pp. 4–5, text offsets 12088 and 13291.",
+          "method": "Focused literature lookup and OA text inspection.",
+          "title": "Invariant theory for the face algebra of the braid arrangement",
+          "trigger": "Primary definition of the same monoid and multiplication."
+        },
+        {
+          "assessment": "Commuting-tuple theorem for arbitrary essential central rank-three arrangements, not an independent match of the fixed-k type-A extrema.",
+          "evidence": [
+            "Counts depend on chamber-facet spectra; the record acknowledges earlier type-A work."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rank-three-face-monoid-commuting-spectra-are-chamber-polygon-spe--8c75760483b9",
+          "material_read": "Mirrored RESULT.md theorem and relationship-to-prior-work passage.",
+          "method": "Local Resultary lookup and bounded mirror inspection.",
+          "title": "Rank-three face-monoid commuting spectra are chamber polygon spectra",
+          "trigger": "Related commuting spectra in face monoids."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–26, 38–42 and 57",
+        "Earlier Oct. 26 Resultary centralizer and commuting-tuple theorems"
+      ],
+      "rationale": "The centralizer profile and commuting-pair interpretation are mathematically natural, but already established. Once the profile is known, the remaining probability and fixed-k extremes are respectively a quotient of known asymptotics and the standard balancing/concentration rule for a product of strictly log-convex terms. The frozen record identifies no additional invariant or question making either deduction a distinct valuable replacement claim.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

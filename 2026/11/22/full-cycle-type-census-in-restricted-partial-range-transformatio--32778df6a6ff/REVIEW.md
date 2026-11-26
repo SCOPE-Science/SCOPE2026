@@ -1,17 +1,21 @@
-# Scientific assessment: full cycle-type census in restricted-partial-range transformation semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim counts maps \(f:X\to X\) satisfying \(f(Y)\subseteq Z\), for \(1\le |Z|\le |Y|\le |X|\), by the complete directed-cycle partitions inside \(Z\) and \(X\setminus Y\). The directed-cycle location argument excludes cycles meeting \(Y\setminus Z\). Prescribing the two cycle permutations leaves exactly two independent parent forests: a complete rooted forest on \(Z\), with the intervening \(Y\setminus Z\) vertices attaching directly to \(Z\); and a complete rooted forest on \(X\) with root set \(Y\cup C_W\). The directed matrix-tree determinant proves both forest factors. All zero-width and all-root boundary cases have explicit conventions. The derivation of the factorized stable-rank polynomial, both probabilities, and parameter recovery follows without hidden genericity assumptions. The standalone exhaustive checker independently enumerated all maps in all 56 size triples with \(1\le k\le m\le n\le6\), checked every occurring pair of cycle types and periodic-vertex counts, and checked total cardinality and probability identities. Finite enumeration is supporting evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS relative to checked evidence
-Jin (2021) introduces the nested restricted-range semigroup and treats its rank and isomorphism. Jin–You (2023) explicitly enumerate all, regular and idempotent transformations, but do not establish a two-region cycle-type distribution or eventual-period census in the sections examined. Hansen–Jaworski (2010) give the established forest-plus-cycle viewpoint for random mappings; that method is credited rather than claimed. The new precise statement is the evaluation of that mechanism for the nested semigroup to obtain the exact independent two-zone cycle-type counts and the bivariate reconstruction consequence. Searches of related mapping and semigroup literature did not identify the same statement. The assessment is qualified: broader implicit enumeration in random-mapping theory may exist, and the inspected pages of the 2010 work do not exhaust all possible related generalizations.
+PASS
 
-## Mathematical value — PASS
-This is a complete, nontrivial classification of eventual cycle structures and periods for a natural and previously investigated infinite family of transformation semigroups, across all nested-set cardinalities. It distinguishes elements of the same semigroup by their actual long-term dynamics, not only by cardinality, image rank or idempotence. The independent factorization gives an exact \(m/n\) absorption probability, while the bivariate polynomial reconstructs the three size parameters outside an identified sharp degeneracy. The full type formula makes exact counts of every eventual semigroup period directly computable by partition sums and Möbius inversion. No asymptotic law, arbitrary functional-graph isomorphism classification, or independent validation is claimed.
+The objects are total maps on X, restricted only by f(Y) being contained in Z. Once a path enters Y it enters Z and never leaves, so cycles are wholly in Z or wholly outside Y. For specified cyclic vertices and permutations, delete their outgoing cycle edges. The noncyclic vertices in Z form a forest rooted at the a cyclic Z vertices and vertices in Y outside Z have k independent target choices each. Outside Y the forest roots are the m vertices of Y together with the b designated cyclic vertices outside Y, since no path can return to the exterior after entering Y. The rooted complete-graph forest minor is NI-J on the nonroots, giving r N^(N-r-1), with the empty minor equal to 1. These choices are independent and recover the map uniquely. Choosing the root sets and the two permutations yields (1); partition summation yields (2). Normalizing the product gives independence and the two probabilities, including the all-root case w=0. The stable image supports a permutation, so eventual period is the lcm, with divisor Möbius inversion valid. Bidegrees recover k and w; for fixed k,w the coefficient sum k^m(m+w)^w is strictly increasing in m except for the stated singleton family.
 
-## Closest sources and limits
-- J. Jin, *On the Rank of Semigroup of Transformations with Restricted Partial Range* (2021), DOI 10.2298/FIL2114925J; source of the semigroup and its parameter structure.
-- J. Jin and T. You, *Semigroup of transformations with restricted partial range: Regularity, abundance and some combinatorial results* (2023), arXiv:2306.00822; source of previous cardinality/regular/idempotent formulas.
-- J. C. Hansen and J. Jaworski, *Random mappings with a given number of cyclical points* (2010), Ars Combinatoria 94, 341–359; classical forest–permutation framework.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is explicit joint arbitrary cycle-type enumeration and the resulting independent stable-rank factors for this nested restricted partial range. The one-zone rooted-forest calculation and the permutation/lcm identification are prior mechanisms; total cardinality and generating rank are already known. Inspected related theorems and indexed records do not imply the two-zone result without the new separation at Y.
+
+## value
+
+PASS
+
+The periodic part is the canonical eventual action of each transformation. Resolving the two cycle profiles goes beyond an unrestricted rooted-forest exercise: it gives the full distribution of stable-image sizes and exact periods under a natural semigroup restriction, makes the two rank counts independent despite exterior attachments into Y, and retains enough information to distinguish cardinality triples with precisely one exception family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

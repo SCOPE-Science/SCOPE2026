@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:12.896959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the probability normalization, Fourier convolution gives exactly the stated gain J and the squared norm term. J tends to minus infinity as t approaches one at fixed r. For small r, bounding each positive Poisson term confines all fits with J>=1 to t<=2r/(1-r). In disk coordinates the Hessian there is -4I+O_a(r^2), so the sole optimizer is fixed by reflection and its real coordinate is r cos(a)+O_a(r^3)>0. For delta=1-r near zero, a competitor gives J-1 of order 1/delta with positive coefficient. Every global optimizer must therefore have one Poisson term of that order, forcing both 1-t and the distance to one source to be O(delta). The scaled penalty excludes (1-t)/delta near zero while the scaled positive terms stay bounded. On this compact scaled region the objective tends to 2(1+k)/((1+k)^2+s^2)-1/k, which has its unique maximum at (1+sqrt(2),0), of value 3-2sqrt(2) and with negative-definite Hessian. Cancelling delta in the rational expression gives an analytic extension locally; hence there is one critical branch per source, both attaining the global optimum by reflection. With K=2+sqrt(2), the near-source second derivative is asymptotic to -4/(K^3 delta^3) uniformly between zero and the optimal displacement h=o(delta), while the other derivative is asymptotic to -K delta sin(2a)/(1-cos(2a))^2. This gives the inward quartic shift with the claimed coefficient. Subtracting the gain from ||F||^2=1/(2 delta)+O_a(1) gives the stated error. The source check.py supplies integration and finite stationary diagnostics, not a global search; a separate stationary check at a=0.7 and delta=0.0025 gave (depth, h/delta^4, delta times error) about (2.41010,-48.8390,0.32800), approaching (2.41421,-48.58997,0.328427). The proof is the global certificate. Neither uniformity in a at its endpoints nor the number of intermediate transitions is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular m-source result gives two optimal directions above r=1/sqrt(2) when m=2, for an antipodal pair only.",
+          "The concentration-bias/boundary-layer result uses a common center and a concentric fit. Bailey–Codling full text was not retrieved on the bounded lawful attempt."
+        ],
+        "reasoning": "Neither inspected catalogue result contains the interior separated pair as a specialization. An unavailable article does not support a negative coverage claim.",
+        "searches": [
+          "Resultary 67718666ce63 and c39128e11afd; matched Poisson approximation results",
+          "Bailey–Codling DOI 10.1007/s10182-020-00380-7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 24d362b94140, 67718666ce63 and c39128e11afd",
+        "Bailey thesis Appendix C2",
+        "Bailey–Codling DOI/publisher access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the antipodal problem the two maxima are symmetry-pinned to the source directions; here stationarity against the displaced far source gives C_a>0. The concentric case has no competing source directions.",
+          "Fourier convolution yields the objective but does not determine global localization, fitted depth, branch count or the optimal error without the variational argument."
+        ],
+        "reasoning": "The exact endpoint and common-center results do not imply the asserted inward shift and joint optimization for any fixed interior separation. A pure mode calculation at a prescribed product radius would not by itself give the joint optimum or error.",
+        "searches": [
+          "Resultary 67718666ce63 regular-cluster Finding; Resultary c39128e11afd concentric Finding; Bailey Appendix C2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wrapped-Cauchy density relative to Lebesgue measure equals P_r/(2 pi), so squared-L2 fitting corresponds after a constant rescaling.",
+          "Bailey's two-wrapped-Cauchy example has a shared center mu_0, differing concentrations and a mixing weight, not two distinct angular sources of equal concentration."
+        ],
+        "reasoning": "The density alias is genuinely equivalent at matched parameters, but the inspected common-center model is not an equivalent parametrization of two distinct fixed centers.",
+        "searches": [
+          "Normalized L2 Poisson-kernel fit of two distinct angular sources; wrapped-Cauchy least-squares mixture compression",
+          "Bailey thesis, equations (6.9), (6.12)–(6.14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title and constants returned under 24d362b94140 identify the assigned record itself. Distinct nearby same-day entries describe the antipodal or concentric cases, respectively."
+        ],
+        "reasoning": "The identical record does not constitute an independent prior result, and the distinct records were compared by geometry rather than excluded by date.",
+        "searches": [
+          "Resultary universal two-peak circular Poisson boundary layers",
+          "Resultary 24d362b94140, 67718666ce63, c39128e11afd"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint endpoint classification for the normalized fit at fixed nonzero, nonantipodal separation, including the fitted radial depth, strictly inward angular drift, and the leading optimal error. The strongest compared primary and catalogue statements cover other center geometries. The judgment is bounded by the identified access and priority limitations.",
+      "residual_risks": [
+        "Bailey–Codling full text not inspected; wider literature priority, including equivalent formulations of constrained rational approximation, is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct antipodal endpoint",
+          "evidence": "Regular m=2 has a pair of exactly opposite sources and two optimal directions above r=1/sqrt(2).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-three-four-cluster-threshold-for-single-poisson-appr--67718666ce63",
+          "material_read": "Finding, regular m-source setup and m=2 clause",
+          "method": "Resultary search and locally mirrored result",
+          "title": "A sharp two-three-four cluster threshold for single Poisson approximation",
+          "trigger": "Same objective and two-source branch splitting"
+        },
+        {
+          "assessment": "Different geometry and fit restriction",
+          "evidence": "Concentric components and a concentric fit, not different angular peaks.",
+          "identifier_or_url": "2026/11/22/SCOPE-convex-order-concentration-bias-and-a-sharp-boundary-layer-law-f--c39128e11afd",
+          "material_read": "Finding and common-center hypothesis",
+          "method": "Resultary search and locally mirrored result",
+          "title": "Convex-order concentration bias and a sharp boundary-layer law",
+          "trigger": "Boundary layer for a single Poisson fit"
+        },
+        {
+          "assessment": "Related least-squares setup, no distinct-source endpoint theorem in the inspected example",
+          "evidence": "Mixture at common mu_0 with concentrations rho_1,rho_2 and weight omega, comparing wrapped-Cauchy and wrapped-normal fits.",
+          "identifier_or_url": "https://repository.essex.ac.uk/26383/1/Thesis_2(1).pdf",
+          "material_read": "Appendix C2 pp. 169–170, equations (6.9), (6.12)–(6.14), extracted offsets 367500–377784",
+          "method": "Lawful institutional-repository OA PDF passages",
+          "title": "Modelling and Analysis of Individual Animal Movement",
+          "trigger": "Primary wrapped-Cauchy squared-fit precedent"
+        },
+        {
+          "assessment": "Unresolved primary-source access, not negative evidence",
+          "evidence": "DOI/publisher redirects did not yield accessible full text.",
+          "identifier_or_url": "https://doi.org/10.1007/s10182-020-00380-7",
+          "material_read": "Citation and DOI/publisher access attempts; full text not read",
+          "method": "Bounded OA attempts, no identified accessible repository copy recovered",
+          "title": "Emergence of the wrapped Cauchy distribution in mixed directional data",
+          "trigger": "Plausible closely related mixture literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result explains a forced change from the bisector to two global optima in a fixed-normalization projection problem where simply placing a fitted kernel on a source peak does not solve the optimization. The universal residual cost and depth describe the scale of the compression loss, and the fourth-order angular drift resolves how the distant source still influences a concentrated fit. The global localization and branch count give these expansions a concrete variational meaning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

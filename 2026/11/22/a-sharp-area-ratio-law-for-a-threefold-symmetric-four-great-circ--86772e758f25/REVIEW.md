@@ -1,11 +1,21 @@
-# Review of the threefold-symmetric great-circle area-ratio law
+# Independent mathematical audit
 
-**Correctness — PASS.** All fourteen sign cones are classified, with two empty sign patterns. The spherical excess area formulas sum to the whole sphere. The increasing auxiliary derivative ratio gives strict signs, unique transitions and the sharp global minimum *within the specified family*. The independent sign-enumeration checker reproduces the cell spectrum from geometry, rather than assuming the symbolic formulas.
+## correctness
 
-**Originality — PASS (priority remains provisional).** Bhowmick's 2026 paper defines the full ratio problem but addresses asymptotic large numbers of circles, not an exact four-circle parameter profile. The 2022 scholarly survey explicitly credits Heppes for maximizing the minimum four-circle area; that older theorem is not claimed anew, and it does not itself assert the cell-type transition or complete ratio curve. Bezdek and Lángi study inradius/circumradius rather than area-ratio parameters. No equivalent profile was identified in the compared research records, searches and relevant examined text. The original 1958 Heppes paper was not examined in full, and independent historical-priority review remains necessary.
+PASS
 
-**Mathematical value — PASS.** The largest/smallest cell-area ratio is a named geometric extremal problem. A complete exact curve within its natural smallest-dimensional threefold symmetry class, including the second cell-type transition and all equality cases, is a motivated structural benchmark. It is more than recalculation of the already known tetrahedral minimum-cell area, and no assertion is made about the unrestricted problem.
+The normal map has rank three with the positive relation u₀+u₁+u₂+3t u₃=0. In a mixed sign orthant, rescale the signed absolute normal coordinates by the relation coefficients and normalize the sum on each sign block to 1. The resulting plane section is the product of the two simplices of dimensions p−1 and q−1, where p+q=4. This proves exactly two top-triple triangles of type A, six other triangles of type B and six quadrilaterals of type C. Spherical excess gives the stated areas. A local correction to RESULT.md line 51: in a quadrilateral the angle order is α,α,β,β up to cyclic order and reversal, not alternating. This follows from the square section: the two corners with the same active constraint on the sign block containing the fourth normal are adjacent. The angle multiset, excess, and every area and ratio claim are unchanged. The derivative ratio ρ=−α′/β′ increases from 0 to √3 and equals 1 at 1/3. Hence A−B switches sign there; C−B vanishes at both endpoints with derivative changing once from positive to negative; C−A starts positive, has one derivative turn, is still positive at 1/3, and tends to −2π. This gives the unique maximum-cell switch. On the first branch C′/A′ strictly decreases, and C/A exceeds its current value by the weighted-average formula and C(0)>0. Starting at 1/3, C/B is a tail average of the strictly increasing function 2(ρ−1)/(2−ρ), so strictly increases; A/B strictly increases on the final branch. The ratio diverges at both ends, and substituting t=1/3 and independently bisecting the switch give 2.465777523812557 and 0.519200060611418. The packaged checker was read, not executed.
 
-**Limits.** No nonsymmetric four-circle classification is provided. The numerical checker independently corroborates but cannot establish the infinite-parameter theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heppes already proved the smallest-cell extremality of the cuboctahedral net, and the eight-triangle/six-quadrilateral count and tetrahedral example are not new. The surviving result is the exact ratio profile for the specified symmetric family, including the distinct largest-cell switch and the strict ratio minimum.
+
+## value
+
+PASS
+
+This is a natural deformation of the classical tetrahedral net for an established great-circle objective. Its complete ratio law provides an exact benchmark with a non-obvious separation between the ratio optimizer and the change of largest-cell type, not just a recomputation of the tetrahedral areas. Its utility and scope are restricted to the specified symmetric family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

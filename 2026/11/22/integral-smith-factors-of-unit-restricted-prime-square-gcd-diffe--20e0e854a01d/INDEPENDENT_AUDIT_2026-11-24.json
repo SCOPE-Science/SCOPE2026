@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:27:26.584915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof (1)–(4), and the two-residue case; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent bounded replay: /workspace/branches/independent_smith_checks.py gcd checked all eight symbolic nonzero three-minors of K and used modular unit-pivot elimination on the original matrices for p=2,3,5,7,11 at the relevant torsion primes."
+      ],
+      "rationale": "The three possible gcd values give ps I + s(I_s ⊗ J_p) + J. In a class-reference/difference basis the difference block is scalar ps and its repeated coupling is concentrated on the primitive vector of all ones, splitting off ps I of size s(p−2). In the remaining two copies of the class module, the integral basis consisting of the constant vector, one coordinate vector and s−2 differences splits off the stated T blocks: J kills the differences, sends the coordinate vector to the constant vector, and multiplies the latter by s. This gives precisely the displayed K. The two minors −ps and 2s² give the gcd s (all two-minors are multiples of s); every three-minor is divisible by p²s² and one is exactly p²s². Together with the unit entry and determinant 6p⁴s⁴ this proves the factors of K and hence the ordered global chain. At p=2 the two-by-two gcd of entries and determinant are 2 and 12. The multiplicity count and the exceptional 3-primary consequence hold, including the empty block at p=3.",
+      "residual_risks": [
+        "The finite pivot checks are corroboration, not a replacement for the all-prime integral reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6bac5dc6cda2 generalizes the kernel to positive powers but fixes p full classes, each of size p.",
+          "47e5f01be76b gives an exponent and modular rank on full prime-power residue sets; 2dd8584629f4 treats full squarefree moduli; 80ff7fa8ea64 replaces ordinary gcd by a unitary divisor of a polynomial-value difference."
+        ],
+        "reasoning": "Wider parameters in the kernel or the modulus do not supply a theorem on subsets of classes of the same sizes used here. No matching general hierarchical Smith formula was established by the search.",
+        "searches": [
+          "Resultary 6bac5dc6cda2, 47e5f01be76b, 2dd8584629f4, 80ff7fa8ea64",
+          "Focused hierarchical/generalized GCD Smith literature search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: 20e0e854a01d, 6bac5dc6cda2, 47e5f01be76b, 2dd8584629f4, 80ff7fa8ea64",
+        "arXiv:1205.4603 and arXiv:1205.5932; bibliography/access attempt for 10.1080/03081081003709819"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the full matrix in the power-one case the constant eigenvalue is p(3p−2); for the unit restriction it is 3ps, and the number of classes is s. In particular at p≡2 mod 3, p odd, the full power-one matrix has no 3-torsion and the unit matrix has one order-3 factor.",
+          "The full proof uses that the number p of classes is invertible at every ℓ≠p. At ℓ|s the analogous decomposition need not be integral; the residual T and K Smith calculations resolve exactly that issue."
+        ],
+        "reasoning": "Some p-local technique transfers, but the published full-matrix conclusion and its away-from-p reduction cannot simply be specialized. An actual new integer calculation is required.",
+        "searches": [
+          "6bac5dc6cda2, RESULT.md, Proof §§1–4, especially the averaging lemma and p-local Schur pivot",
+          "arXiv:1205.4603, arXiv:1205.5932; DOI:10.1080/03081081003709819"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit matrix is the two-level constant-block matrix ps I + s(I_s ⊗ J_p) + J with s=p−1; compare the p-class all-residue model in 6bac5dc6cda2, Proof §1.",
+          "Sander–Sander and Liu–Zhou use 0/1 adjacency on all residues, not this weighted matrix."
+        ],
+        "reasoning": "Rewriting in block or Cayley language does not equate the unit principal submatrix with the whole matrix. A 0/1 graph's spectral classification is not an integral classification of this weighted kernel.",
+        "searches": [
+          "Resultary: unit-restricted gcd-difference matrices at p² and all-residue cyclic power-gcd Smith forms",
+          "Primary search: hierarchical/generalized gcd matrices and integral Smith forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 20e0e854a01d is the assigned finding itself; the distinct all-residue record 6bac5dc6cda2 was compared regardless of its matching date."
+        ],
+        "reasoning": "A self-match is not independent coverage. The nearest separate explicit classification has a different matrix size and does not tabulate the unit-restricted factors. No relative priority is inferred from the date.",
+        "searches": [
+          "Resultary semantic lookup of the exact unit-indexed kernel and prime-square Smith factors"
+        ]
+      },
+      "rationale": "The strongest located theorem with the same kernel uses every residue. Its away-from-p proof averages over p classes; that step is unavailable at primes dividing p−1 for the unit restriction, and its final coprimalities also change. Neither taking a principal submatrix of a Smith diagonal nor specializing its power parameter gives the claimed factors. The ordinary index-GCD theorem and spectral graph results are also different. This is a statement-level judgment, not a priority certificate.",
+      "residual_risks": [
+        "No lawful full text of Ilmonen–Haukkanen was obtained; comparison is limited to the attributed object.",
+        "The focused external search for general hierarchical Smith formulas was inconclusive. An unindexed exact block theorem could subsume the computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the unit restriction",
+          "evidence": "On p blocks of size p the authors split by averaging at each ℓ≠p; p−1 blocks invalidate this step at ℓ|p−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-smith-factors-of-cyclic-power-gcd-matrices-at-odd-prime--6bac5dc6cda2/RESULT.md",
+          "material_read": "Finding and scope; Proof §§1–4, local mirror offsets 1710–5763",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Complete Smith factors of cyclic power-GCD matrices at odd prime squares",
+          "trigger": "Same kernel at power one and same modulus; strongest distinct match"
+        },
+        {
+          "assessment": "Related, not a full Smith classification of the unit restriction",
+          "evidence": "Full residue indices; exponent and modular rank.",
+          "identifier_or_url": "Resultary 47e5f01be76b",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "The exact cokernel exponent of prime-power cyclic GCD matrices",
+          "trigger": "Prime-power gcd-difference integral invariants"
+        },
+        {
+          "assessment": "Different regime",
+          "evidence": "Full residues and squarefree moduli.",
+          "identifier_or_url": "Resultary 2dd8584629f4",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "Complete integral Smith invariants of cyclic GCD-difference matrices at squarefree moduli",
+          "trigger": "Complete Smith classification for gcd-difference"
+        },
+        {
+          "assessment": "Different kernel",
+          "evidence": "All-residue polynomial value differences with a unitary divisor, not this ordinary gcd on units.",
+          "identifier_or_url": "Resultary 80ff7fa8ea64",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "Smith forms of unitary divisors of polynomial-value differences",
+          "trigger": "Potential general polynomial/kernel theorem"
+        },
+        {
+          "assessment": "Different matrix and invariant",
+          "evidence": "Adjacency is membership of gcd(a−b,n) in a divisor set on all of Z_n; the invariant is graph energy.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.4603",
+          "material_read": "PDF pp. 1–2, definitions and scope",
+          "method": "OA PDF",
+          "title": "The maximal energy of classes of integral circulant graphs",
+          "trigger": "Cyclic gcd-difference graphs"
+        },
+        {
+          "assessment": "Different matrix and invariant",
+          "evidence": "Adjacency detects unit differences; vertices are not restricted to units and the matrix is not weighted by gcd.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.5932",
+          "material_read": "PDF pp. 1–2, definitions and scope",
+          "method": "OA PDF",
+          "title": "Spectral properties of unitary Cayley graphs of finite commutative rings",
+          "trigger": "Unit and prime-power Cayley adjacency"
+        },
+        {
+          "assessment": "Cited for ordinary index-GCD; not independently checked against the full primary text",
+          "evidence": "The cited formulation uses gcd(i,j) on index sets, unlike gcd(a−b,p²).",
+          "identifier_or_url": "10.1080/03081081003709819",
+          "material_read": "Bibliographic citation and characterization in the frozen package; no full text obtained",
+          "method": "Lawful DOI and publisher-page retrieval, both unavailable",
+          "title": "Smith meets Smith: Smith normal form of Smith matrix",
+          "trigger": "Potential ordinary GCD matrix Smith theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and reduced blocks T,K",
+        "Resultary 6bac5dc6cda2, full-residue comparison in Proof §§1–4"
+      ],
+      "rationale": "Units are the canonical primitive positions at modulus p², not an ad hoc selection. The full integral chain for this natural restriction supplies information a spectrum or the full-circulant Smith factors do not give. In particular it isolates exactly one order-3 factor when p≡2 mod 3 even though that prime is absent from p(p−1) and, for odd such p, from the unrestricted matrix. The integral reduction across the p−1 classes explains the torsion created by restricting rather than just recording an example.",
+      "residual_risks": [
+        "Value is the prime-square classification; no extension to higher depths is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

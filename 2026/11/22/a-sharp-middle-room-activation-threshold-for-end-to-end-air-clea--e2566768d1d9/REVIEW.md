@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The steady-state equation is well defined for every admissible budget, because the connected exchange Laplacian plus at least one positive sink is positive definite. The end-to-end inverse entry is the constant positive cofactor \(k^2\) divided by the determinant. Fixed-middle endpoint balancing is strict unless endpoints receive equal rates. Along that family, strict log-determinant concavity proves uniqueness; derivative signs at the feasible boundaries and one quadratic equation yield the complete, exact threshold and interior optimizer. The two-room minimality comparison is an exact quadratic. The accompanying independent determinant/Cramer calculations and 54,269 numerical assertions corroborate, rather than replace, these deductions.
+PASS
 
-## Originality: PASS on inspected evidence
+For all admissible allocations the quadratic form of M is the sum of the baseline, path edge energies, and nonnegative coordinate penalties. With v=0 a vector in the null space would be constant, then vanish because some x_i>0. Thus M is positive definite and a unique steady state exists. The (1,3) cofactor is k², so c₃=qk²/det M with a positive denominator. Set a=v+k and b=v+2k. The determinant is (a+x₁)(b+x₂)(a+x₃)−k²(2a+x₁+x₃). With x₂ fixed it increases strictly under endpoint balancing except at equality, giving x=(u,F−2u,u). Along that line D′/2=g(u)=(a+u)(F+k−3u)−k². Independently of the logdet argument, g is a quadratic with negative leading coefficient and g(0)=aF+kv>0, so it has exactly one positive root with a sign change. At F/2 its derivative criterion is D′(F/2)=(4kv−2vF−F²)/2, giving the stated threshold including the endpoint optimum at equality. Above it the positive quadratic root lies strictly within the interval and is the displayed radical; g(u)=0 forces F−3u=k²/(a+u)−k<0. Hence F/3<u<F/2 and 0<x₂<u. At v=0 the threshold is zero and all positive budgets are interior. The two-room inverse entry has a positive constant numerator k and a denominator uniquely maximized at equal splitting; an intermediate room first exists on a three-vertex path. For k=1,v=1/2,F=2, direct substitution gives u≈0.8586778913 and c₃≈0.09290658561 for q=1. The supplied verifier and verification note were inspected, not executed. This is the stated continuous-budget steady receptor model, not transient exposure, arbitrary graphs or a field validation.
 
-The closest primary full texts were Antonopoulos–Dillon–Gall (2024), https://doi.org/10.3390/pollutants4010003, on fixed filtration interventions in a single-zone steady home model, and Kikumoto–Ooka (first online 2022), https://doi.org/10.1002/2475-8876.12318, on single-cleaner placement and adjoint concentration in one-dimensional flow. Neither supplies the stated allocation among three coupled room sinks. Another existing three-room calculation compares time-dependent single-cleaner placements, not the unrestricted steady resource split. General log-determinant concavity guarantees unique optima but does not give the active-set threshold without new model-specific analysis. Searches for equivalent inverse-matrix, Green-function and diagonal-budget formulations did not find a dominating published phase classification. A related multizone ventilation paper was only available through an abstract; broad historical priority remains provisional.
+## originality
 
-## Value: PASS
+PASS
 
-The exact support transition answers a specific air-cleaning design question: when is it worthwhile to allocate *any* removal capacity to the transit room rather than all to the pollutant source and exposed destination? The critical budget depends only on background loss and inter-room exchange, not source intensity. This first possible interior-room activation in the equal-volume path family is a nontrivial analytical benchmark for multizone transport optimization; it is not merely an algebraic re-expression of a known concentration or a proposal for direct building deployment. Its idealized and fixed-exchange assumptions are explicit.
+Bounded pass for the three-room explicit activation and unique budget allocation. The two-room remote-concentration equal split, cofactor algebra and logdet concavity are not new. The closest inspected sources address a distinct control set, geometry or objective, or give general methods without a same-model support classification. The decision is not a claim of worldwide priority or absence of related air-cleaner research.
 
-## Scope and remaining risks
+## value
 
-No finite experiments substitute for the proof. The objective is only one steady downstream concentration with symmetric exchange and continuously divisible rate costs. An earlier general mathematical resource-allocation theorem not identified in the inspected sources could contain this specific case, and practical multizone systems can invalidate the assumptions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The receptor placement and continuously divisible air-cleaning budget give a natural design question before any algebra. The exact transition gives an actionable distinction within the ideal model: a positive background sink creates an interval of budgets at which the only connecting room is optimally left unfunded, whereas no such interval exists when the sink is zero. The solution gives both the threshold and actual unique rates, not only generic convexity or a small numerical witness. This is a deliberately minimal path classification, not a claim of practical performance in uncontrolled buildings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

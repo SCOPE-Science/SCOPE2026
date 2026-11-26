@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Forbidden overlaps of at most length three depend only on the first and last three symbols. The argument proves that the optimum at any length \(n\ge6\) equals \(3^{n-6}\) times the maximum product over the 27 three-letter prefixes. Both a complete 134,217,728-leaf recursive enumeration and an independent incremental Gray-code enumeration, using the literal pairwise overlap predicate, give the same 72 bound and the same 42 maximizing prefix sets. Each equality case forces the full Cartesian-product code; the 42 therefore classify all lengths, not just the base case. The six alphabet permutations and reversal yield the four stated orbits. The C++17 checker also directly checks an explicit witness. No experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to residual source access.** Blackburn–Esfahani–Kreher–Stinson [1] already develop prefix/suffix restricted-overlap constructions and binary bounds; those ingredients are credited. Cai–Wang–Feng [2] treat q-ary \((1,k)\) constructions and report exact \(k=2\) optima in their abstract, but their full text was unavailable. Stanovnik [3] treats additional general bounds/constructions. Yang–Ding [4] give a ternary construction attaining the same 72 coefficient, and tabulate their construction sizes; the existence of that size is therefore expressly **not** new. The claim compared for originality is the *global sharpness* of 72 over all ternary \((1,3)\)-overlap-free codes, plus the exhaustive classification and orbit structure of all optimizers. Those statements were not found in the inspected material or semantic research records. An unindexed or inaccessible prior proof remains possible.
+PASS
 
-**Mathematical value — PASS.** This is the first nonbinary overlap window beyond \((1,2)\) naturally adjacent to the published exact cases. It establishes an unrestricted sharp packing bound rather than just improving a construction, and gives the complete 42-member extremal design catalogue valid at every length. That distinction matters for synchronization-code design with exactly the first three overlaps forbidden; the general upper bounds and a matching construction alone do not classify all competing optimal designs.
+For n>=6 the three-letter endpoint blocks are disjoint, and every cross-prefix/suffix comparison is decided by these blocks, including self-pairs. For the observed prefix set P, the suffix set lies in the full compatible set S(P), so the code is contained in P times the free middle words times S(P). Conversely the full product is admissible. The independent chunked subset-OR census exhausts every one of the 134217728 prefix masks, obtaining product 72 for exactly 42 masks with (prefix size,suffix size) multiplicities (6,12):6, (8,9):15, (9,8):15 and (12,6):6. A maximum code must use the full product; S(P) is nonempty and its code recovers P as the set of actual prefixes, so there are exactly 42 labelled maximum codes at every n>=6. Permuting symbols and reversing words acts on the saturated pairs as stated; an independent check finds disjoint representative orbits of sizes 12,12,12,6 whose union is all 42 maximizing pairs. The proposed size-72 witness passes all 15552 ordered pair/overlap-length comparisons at n=6. The valid reason for that witness is that every forbidden-length prefix starts with 0 and every forbidden-length suffix starts with 1 or 2; different first and last symbols alone would only exclude length one. Replay with python3 /workspace/branches/58b5f690-3f98-400f-a95a-e5adec20c352/census.py (NumPy); equality_pairs.txt in the same directory contains the equality pairs. The finite calculation proves the base problem, and factorization proves the all-length statement.
 
-**Scope and limitation.** The result is for three symbols, lengths at least six, and only forbidden prefix/suffix overlaps of lengths one to three. The finite optimization is computationally exhaustive and checkable from source, but not reduced to a concise symbolic inequality. The Cai–Wang–Feng full text was inaccessible and literature novelty cannot be established absolutely. No external/independent mathematical audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The length reduction and the lower bound of 72 times 3^(n-6) are prior. The supported distinct claims are the matching global upper bound and the complete equality classification for the labelled ternary codes. The closest exact results differ in alphabet, overlap interval or fixed-weight restriction. No inspected general bound forces this optimum, and the exact prior construction gives only some maximum codes.
+
+## value
+
+PASS
+
+The first short-overlap parameter beyond the exact k=2 result gives a natural ternary base capacity problem. The prior construction provides a concrete extremal candidate and the inspected general bounds are looser; the unrestricted upper bound closes that gap. A complete equality classification distinguishes inequivalent optimal constructions that the size alone could not identify, and applies at every length of the factorization, rather than just to a single small codebook.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

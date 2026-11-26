@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:56.896634Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–109 and 111–189",
+        "Frozen verify_extremes.py lines 3–48 and VERIFICATION.md lines 3–15",
+        "Independent direct-formula checks: unique case at y=10^7 had nonwinner mass about 1.206e-6; tied case at y=10^8 gave weights (0.120851571, 0.879148429, 1.72e-10)."
+      ],
+      "rationale": "For each fixed x write A_m=pi_m(x) kappa_m(x)^lambda_m>0. Component m contributes A_m y^(-lambda_m)(1+O(y^-1)) to survival and lambda_m A_m y^(-lambda_m-1)(1+O(y^-1)) to density, by the exact density formula rather than differentiation of an asymptotic equivalent. Finite positive sums leave C_* = sum over minimum-shape tiers of A_m, yielding both equivalents and hazard lambda_*/y. The same quotient by survival proves the asserted posterior limits, including ties. For a unique minimum with competitors, the error is the sum of their posterior probabilities and is asymptotic to (sum of A_m at gap Delta)/C_* times y^-Delta. This implies the printed possibly weaker rate. With a single tier, if allowed, localization is exact and Delta is not needed. Nothing here is uniform in varying x.",
+      "residual_risks": [
+        "The frozen checker samples thresholds and does not certify the quantitative rate; the proof supplies the rate. No formal attestation or verification is credited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rahmouni states the component survival and density powers and minimum-shape dominance; finite positive-sum dominance and the Bayes update apply regardless of the softmax parametrization.",
+          "The abstract of Younis et al. concerns censored two-component Lomax estimation and priors, not a localization theorem."
+        ],
+        "reasoning": "The pointwise tail/posterior calculation only requires the component laws and positive finite weights; no regression-specific estimation result is needed.",
+        "searches": [
+          "Rahmouni DOI 10.3934/math.2026261, pp. 6336–6337; finite-mixture component tail and survivor allocation comparison",
+          "Younis, Aslam and Bhatti DOI 10.2991/jsta.d.210616.002"
+        ]
+      },
+      "checked_sources": [
+        "Rahmouni DOI 10.3934/math.2026261",
+        "Younis et al. DOI 10.2991/jsta.d.210616.002 (abstract)",
+        "Resultary record da67f56116ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiply the published component survival by y^lambda_m to get kappa_m^lambda_m. Terms with greater shape have zero limit after rescaling by y^lambda_*. The exact density gives the same terms with factor lambda_* after the additional y rescaling.",
+          "Taking the ratio of the published finite-mixture joint survivor weight to total survival yields the displayed posterior and gives order y^-Delta for the sum of the other weights."
+        ],
+        "reasoning": "This recovers the entire frozen claim, including the tied limits and the weaker printed rate, without an additional model-specific lemma or assumption.",
+        "searches": [
+          "Rahmouni §3.3 and component survival on p. 6337"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 3.3 explicitly identifies the minimum shape as governing the tail. Its component survival, (lambda_m/(lambda_m+theta_m(x)y))^lambda_m, is exactly the frozen formula with kappa_m=lambda_m/theta_m(x).",
+          "The strongest inspected catalogue neighbor da67f56116ae computes a tail constant and terminal hazard for an infinite log-series mixture with a common component exponent, not this conditional-tier statement."
+        ],
+        "reasoning": "The named regression model is the same under scale reparameterization. Survivor-tier probabilities are latent-class posteriors, not a competing-risks identification. No separate equivalent catalogue entry was established.",
+        "searches": [
+          "Resultary semantic lookup for F-LLoM finite Lomax mixtures, minimum shape and extreme-survivor latent tiers",
+          "Rahmouni DOI 10.3934/math.2026261, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That record covers LGF, with polylogarithmic tail constants and corrections; it does not evaluate these F-LLoM tier posteriors."
+        ],
+        "reasoning": "There is no finite table target: the claim is a symbolic formula for arbitrary positive parameters. The searched catalogue did not establish a literal match; this is not a novelty certificate.",
+        "searches": [
+          "Resultary semantic lookup (50 ranked results), direct inspection of record 2026/10/12/SCOPE-exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae"
+        ]
+      },
+      "rationale": "The dominant tail index and dependence on minimum-shape weights and scales are already in the primary source. The remaining closed forms are immediate implications of its exact finite-mixture component laws: scale the positive sum, divide density by survival, and apply Bayes to the tier-by-survival joint probability. This is prior implication, not a claim that the source prints the posterior limit verbatim.",
+      "residual_risks": [
+        "Bounded literature/catalogue coverage does not determine whether the exact posterior formula also appears in print. The decision rests on demonstrated coverage by implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the minimum-shape claim explicitly and the remaining limits by direct implication",
+          "evidence": "Component density and survival have powers −lambda_m−1 and −lambda_m; mixture dominated by the smallest shape; constant depends on weights and scales; exact Lomax survival is printed.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026261",
+          "material_read": "§3.3, PDF p. 8 / journal p. 6336 and component survival on PDF p. 9 / journal p. 6337",
+          "method": "OA full-text passage read, literal match near offset 24633",
+          "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis",
+          "trigger": "Primary model and strongest exact prior implication"
+        },
+        {
+          "assessment": "Adjacent estimation literature; no conclusion about whole-document noncoverage",
+          "evidence": "Bayesian estimation, prior choice and posterior risks with censoring.",
+          "identifier_or_url": "https://doi.org/10.2991/jsta.d.210616.002",
+          "material_read": "PDF p. 1, abstract only",
+          "method": "OA text passage",
+          "title": "Preference of Prior for Two-Component Mixture of Lomax Distribution",
+          "trigger": "Earlier Lomax mixture work cited in the record"
+        },
+        {
+          "assessment": "Shared tail/hazard theme, different mixture and asymptotic question",
+          "evidence": "Infinite log-series mixture with a shared exponent; gives an exact constant and lambda/y hazard but not the heterogeneous finite-mixture class posterior.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+          "material_read": "RESULT.md, opening claim and asymptotic formulas",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Exact polylogarithmic tail constants and quantile correction for the LGF model",
+          "trigger": "Strongest Resultary overlap on tail constants and hazard"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scope and claimed interpretation, RESULT.md lines 91–109 and 208–220",
+        "Rahmouni §3.3"
+      ],
+      "rationale": "The distinction between unconditional tier weights and survivor weights is interpretable, but the fixed-covariate formula only makes explicit the established tail dominance by a finite coefficient sum and an elementary Bayes ratio. The rate does not even resolve more sharply than the leading competing term delivers directly. No nonroutine identification or uniform tail problem is tackled. A useful explanatory calculation is not a substantive new result here.",
+      "residual_risks": [
+        "This assessment does not cover a different problem with varying covariates or a statistical inference guarantee from censored data."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

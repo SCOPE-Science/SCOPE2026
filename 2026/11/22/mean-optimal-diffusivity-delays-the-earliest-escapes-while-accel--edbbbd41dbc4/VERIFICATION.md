@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the distributional first-passage theorem
+# Independent mathematical audit
 
-Execute `python3 verify.py` from a directory containing the provided `verify.py`. The script requires only Python's standard library. It checks:
+## correctness
 
-- the exact rational Taylor coefficients giving the mean, second moment, variance and squared coefficient of variation;
-- the positive rational cubic lower bound for the normalized Bessel series up to \(43/25\), and a numerical bracket for the first positive Bessel zero;
-- consistency of the Laplace transform with its hypergeometric series and the homogeneous cosh transform at representative Laplace arguments;
-- the exact small-time action and early penalty, the principal-eigenvalue inequality, and a smooth strictly positive regularization via independent shooting integration.
+PASS
 
-A successful replay gave first zero \(1.866350858874\), normalized optimal first eigenvalue \(2.939005289604\), and homogeneous eigenvalue \(2.467401100272\). At regularization \(\delta=10^{-4}\), the intrinsic action was \(1.087736124\), the mean \(0.444444876\), and the numerical first eigenvalue \(2.938853340\), with unit length and mean diffusivity.
+With zero Itô drift, the mean at reflection is the integral of (L−x)/D(x), and Cauchy–Schwarz at the fixed arithmetic budget gives the stated mean optimizer. The absorbing zero of D_* is accessible; the inverse speed coefficient is integrable and the correct Laplace conditions in y=1−x/L are u(0)=1 and u′(1)=0. The reflected solution has transform 1/0F1(;2/3;8sL²/(27D₀)); the order −1/3 in the spectrum comes from the derivative condition, not the order 2/3 of the Dirichlet solution. The Bessel product and summability of reciprocal squared zeros give the independent exponential sum; Taylor expansion gives the stated means and variances. The two log-Laplace asymptotes have the form −a√s+O(log s), and the exponential Tauberian theorem gives early log-CDF constants −a²/4, whose difference is −5L²/(108D₀). At the singular endpoint the integrable weight makes the energy-space embedding into weighted L² compact; the positive first Dirichlet–Neumann eigenfunction has positive survival coefficient at reflection. The alternating cubic lower bound is positive up to 43/25, giving 27j²/32>121/49>π²/4 and the strict late exponent. The signs imply a crossing by continuity, not uniqueness. The smooth regularizations have the stated budget and converge in inverse diffusivity in L¹. The short-time action is the intrinsic interval length: the coordinate integral of D^(−1/2) gives a constant diffusion coefficient and bounded drift for each fixed δ>0, so reflection and bounded drift do not change the leading Brownian hitting exponent. The derivative-unit-sphere bound on the Rayleigh denominators yields principal-eigenvalue continuity, preserving the late sign for small δ.
 
-The infinite exponential-sum representation, spectral positivity, early-time limiting asymptotics, and persistence for all sufficiently small positive regularizations are proved analytically in `RESULT.md`; finite experiments do not certify those infinite statements. The interval in which a CDF crossing occurs and the number of its crossings are not determined.
+## originality
+
+PASS
+
+The mean optimizer and its gain are prior, the Bessel-law method is standard, and the early exponent has material overlap including an exact same-day catalogue match for that component. The supported distinct contribution is the explicit bounded reflected comparison at that optimizer, especially the strict principal-rate advantage over the homogeneous law, with persistence of the two opposing endpoint signs under positive budget-normalized perturbations. Neither the early penalty nor the mere existence of a crossing is counted as an independent originality claim beyond its available implications.
+
+## value
+
+PASS
+
+A design that minimizes the mean need not favor the fastest searchers. With identical physical length and arithmetic diffusivity budget, this exact example distinguishes a strictly worse very-early CDF from a strictly faster late survival rate, not just a smaller mean or an unspecified crossing. The constants quantify the difference in a canonical profile and the all-small-δ persistence shows it is not merely an absorbing-end degeneracy artifact. This is useful for distinguishing time-sensitive objectives in bounded search models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

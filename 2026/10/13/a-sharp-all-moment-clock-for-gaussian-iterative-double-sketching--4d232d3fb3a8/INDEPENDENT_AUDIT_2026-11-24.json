@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:03:30.719358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 44–138 and VERIFICATION.md; verify.py inspected but not executed",
+        "Wang–Ouyang–Xu, Algorithm 1 and Eqs. (6)–(7)",
+        "Independent replay checks/frozen_replay.py, option 1"
+      ],
+      "rationale": "Algorithm 1 and Eq. (7) use one shared Gaussian prefix matrix and the fixed inverse r/a, where a is the squared norm of the first r entries of the design column. The strict upper hypothesis on m_j avoids the source's exact-gradient switch. The coefficient of the standardized head response Z in x_t is a^(−1/2)P_t(1/a); the leading coefficient of P_t is the product of −μr c_j/m_j, with c_j the squared norms of the extra rows, each positive almost surely. The rest is polynomial in 1/a of degree at most t. All coefficients have finite positive moments and are independent of a; finite-sum bounds give integrability when E[a^(−p(t+1/2))] is finite. For an independent lower-bound argument, condition on all design-column Gaussians. Then x_t is centered normal, and the disjoint head and extra response coordinates imply variance at least P_t(1/a)^2/a. For each fixed extra design block with nonzero leading coefficient, the conditional p-th absolute moment therefore bounds a positive multiple of a^(−p(t+1/2)) on a sufficiently small interval. Integration against the chi-square density proves divergence for r≤p(2t+1), logarithmic at equality, also for t=0. All finite iterates exist for a>0. For one step the conditional variance is (1−qc/a)^2/a+q²c/a², c~χ²_k independent of a. Substituting E[c]=k, E[c²]=k(k+2) and the three inverse chi-square moments gives the stated formula exactly. Independent replay `python3 /workspace/checks/frozen_replay.py 1` passed 81 exact rational response-weight updates, including the leading-power scaling and one-step variance. The replay is not the integrability proof.",
+      "residual_risks": [
+        "The proof covers the stated single-column instance, not the structured implementation, data-dependent schedules, or arbitrary least-squares instances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The IDS Gaussian conditional prediction-error theorem requires a high-dimensional limit, not d=1 fixed width. The structured algorithm bounds have different sketches and high-probability hypotheses.",
+          "Lacotte–Pilanci treats exact-gradient IHS with independent refreshed sketches in its expected-squared-error theorem."
+        ],
+        "reasoning": "Neither asymptotic conditional statements nor theorems for independent refreshed inverse Gram factors control this fixed correlated inverse reused across all the updates.",
+        "searches": [
+          "Resultary: iterative double sketching Gaussian IDS heavy-tailed error moment threshold unconditional",
+          "Wang–Ouyang–Xu Theorems 3.1, 3.3, and 4.1–4.3",
+          "Lacotte–Pilanci §4 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Ouyang–Xu PMLR 162 (2022)",
+        "Lacotte–Pilanci arXiv:1911.02675",
+        "Resultary 53f4487a6dcc",
+        "Resultary d93c1b8eb1d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "IDS supplies the recurrence; the source's m_j=N convention replaces it with an exact gradient. The related IHS reuse-run theorem does not cover the nested finite-prefix gradient with random initialization. The inverse chi-square law supplies the cutoff for a given exponent only."
+        ],
+        "reasoning": "The new step is to establish the noncancelling a^(−t−1/2) term despite reuse of the same head response in both initialization and subsequent forcing; the inverse moment law then gives the claimed boundary. No inspected stronger theorem supplies this step for these assumptions.",
+        "searches": [
+          "Resultary 53f4487a6dcc, Finding and related-work passage",
+          "Wang–Ouyang–Xu Algorithm 1, Eqs. (6)–(7) and Theorem 3.1",
+          "Lacotte–Pilanci §4 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 53f4487a6dcc gives Gaussian IHS moment thresholds with a deterministic nonzero start and exact gradients under sketch refresh/reuse; the frozen IDS uses a random sketched start and correlated gradient prefixes.",
+          "Wang–Ouyang–Xu Eqs. (6)–(7) specify those prefixes."
+        ],
+        "reasoning": "Translation between moment and heavy-tail wording does not equate the recursions: the correlated initialization contributes a^(−1/2), and the nonzero leading multiplier contains the random extra-row norm, not the deterministic exact-gradient factor. The one-step quadratic expectation also depends on extra-row noise and its scale.",
+        "searches": [
+          "Resultary: Gaussian iterative double sketching IDS unconditional moments heavy tails inverse chi-square scalar iteration moment integrability",
+          "Web: ‘iterative double sketching’ unconditional moments heavy tails Gaussian IDS inverse moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "53f4487a6dcc gives all-order cutoffs for distinct scalar IHS reuse runs; d93c1b8eb1d0 compares exact one-shot cutoffs and tails for scalar least-squares sketches, including a dense Gaussian comparator."
+        ],
+        "reasoning": "A one-shot dense Gaussian cutoff may account for t=0, not the dependence on every t and schedule or the x_1^2 formula. The IHS thresholds do not list these initialized nested-prefix moments.",
+        "searches": [
+          "Resultary unconditional moments / heavy tails / Gaussian IDS queries",
+          "Local Resultary records 53f4487a6dcc and d93c1b8eb1d0"
+        ]
+      },
+      "rationale": "The inspected sources supply the algorithm, underlying inverse-moment facts, or distinct cutoffs for one-shot sketches and iterative Hessian sketching. They do not give or imply the sharp all-real-p threshold for source-initialized nested Gaussian IDS on this instance or its nonasymptotic one-step mean-square formula. The novelty claim is limited to that combination and scope, not inverse-chi-square tails or moment thresholds in general.",
+      "residual_risks": [
+        "The literature and index checks are bounded, not a priority claim. Alternate formulations of small-denominator tails for correlated gradient/initialization schemes may not be retrieved by IDS terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary transcription confirmed; inspected results do not cover the unconditional moments",
+          "evidence": "One shared Gaussian matrix for all prefixes; m_t=N uses S_t=I; Theorem 3.1 is conditional and high-dimensional, Theorem 4.3 is structured and high-probability.",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/wang22t/wang22t.pdf",
+          "material_read": "PDF pp. 4–8: Algorithm 1, Eqs. (6)–(7), switch definition, Theorems 3.1, 3.3, 4.1–4.3 (offsets 20445–27430, 31500, 40479, 48626, 57500)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Iterative Double Sketching for Faster Least-Squares Optimization",
+          "trigger": "Exact algorithm and most plausible source of existing coverage"
+        },
+        {
+          "assessment": "Substantial conceptual overlap, different update and start; no priority inferred from the date",
+          "evidence": "All-order cutoff under reuse and refresh for exact-gradient IHS with a deterministic nonzero start.",
+          "identifier_or_url": "Resultary 2026/10/13, 53f4487a6dcc",
+          "material_read": "RESULT.md offsets 0 and 7887, finding and relationship to prior work",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp refresh-run moment clock for Gaussian iterative Hessian sketching",
+          "trigger": "Closest indexed moment clock"
+        },
+        {
+          "assessment": "One-shot overlaps in technique and base case, no iterative result",
+          "evidence": "One-shot scalar inverse-moment and tail comparisons for tensor and dense Gaussian sketches.",
+          "identifier_or_url": "Resultary 2026/10/12, d93c1b8eb1d0",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian sketch families",
+          "trigger": "Exact scalar sketch moments and possible base-case overlap"
+        },
+        {
+          "assessment": "Exact expectation for a distinct algorithm",
+          "evidence": "Independent refreshed embeddings and finite first and second inverse-Gram moments yield the expected squared rate; Gaussian range m≥d+4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.02675",
+          "material_read": "PDF p. 11, §4, Theorem 4.1, offset 45100",
+          "method": "Open-access PDF passage inspection",
+          "title": "Faster Least Squares Optimization",
+          "trigger": "Expected error and inverse moments in IHS"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and Gaussian recurrence",
+        "Wang–Ouyang–Xu conditional/high-probability regimes"
+      ],
+      "rationale": "The simplest full-rank least-squares example already separates almost-sure existence from unconditional risk for the published algorithm. The width budget to obtain a given moment rises exactly with the iteration count, and no strictly oversized non-full finite gradient prefix changes that budget. For example r=5 can give finite initialization mean square and infinite one-step mean square. This is a sharp warning about which error summaries exist, not merely a different constant in a convergence rate or an isolated bad random seed.",
+      "residual_risks": [
+        "No inference to practical floating point, the structured implementation, or generic data is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

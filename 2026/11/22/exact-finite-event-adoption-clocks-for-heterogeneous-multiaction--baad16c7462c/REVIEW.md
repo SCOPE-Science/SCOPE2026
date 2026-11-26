@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof starts from the exact monotone frozen-seed recurrence; endpoints of the entire admissible outsider cube are attainable and trap all histories. The uniform first-hit equivalence and optimality are checked with both endpoints. Every extremal action coordinate changes direction monotonically, giving the finite event count. Exact geometric relaxation, threshold strictness and tie cases prove the algorithm. The standalone checker reproduces the four-action rational instance and 260 comparative trajectories; the abstract theorem is not inferred from finite tests.
+## correctness
 
-**Originality: PASS (literature-bounded).** The 2026 source by Munif et al. already proves monotonicity and a robust seed criterion and only supplies a sufficient admission cascade. It explicitly warns that the cascade need not be exhaustive for more than two actions. The new contribution is an exact all-alphabet necessary-and-sufficient adoption determination and least uniform time, not order preservation itself or the discovery that a sufficient test may fail. The earlier July strategic-communication preprint motivates the quantizer mechanism; its full text was inaccessible, and unindexed historical subsumption remains possible. The 2018 continuous-time quantized model uses different dynamics.
+PASS
 
-**Value: PASS.** The gap between sufficient network-weight tests and complete guarantees is a natural research question in discrete-action influence networks. An exact terminating event algorithm and sharp individual clocks answer it for all finite action alphabets, including four or more levels, with a bound independent of potentially long waits between switches.
+Robustness makes the reduced outsider map exact for every admissible initial state. Nondecreasing quantizers and nonnegative weights make it isotone on the invariant cube. Iterating from its bottom and top gives nested bounds; both extreme initializations are themselves admissible. Once both extreme actions equal a, their opposite monotonicities and their ordering keep both there. Conversely, if every admissible initialization adopts permanently, the two extreme ones do so; the later of their times is the sharp uniform time. During a constant action stage the geometric update holds through the first change, including all simultaneous changes. For an upward crossing the limit must be strictly above an unreached cut, with equality at a finite iterate allowed; for a downward crossing both the limit and the crossing iterate must be strictly below the cut. These rules and the monotone sum of level distances prove termination within the claimed number of changes. Independent exact substitution yields T_3=4 and T_4=3 in the example: the upper private state at time 3 is (67/200,121/200), with actions (9/10,0), and at time 4 is (67/400,229/400), with actions (0,0). The lower actions are (0,0) from time 3. Both scalar admission thresholds are max(1/5,7/10)=7/10, above the actual seed weight 2/5. At time 1 the exact ties at -4/5 and 4/5 take the higher action as stipulated.
 
-**Limits.** Requires a preverified robust seed, deterministic synchronous dynamics, fixed weights, and exact input comparisons. No general numerical bit-complexity guarantee, finite-sample statistical inference or claim that all trajectories converge. Scientific priority remains conditional on available literature; no outside independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected prior results supply monotonicity, robust-cluster tests, and significant overlap in exact two-sided adopter sets and scalar-rule counterexamples. The supported distinction is the joint least-uniform clocks and finite event-skipping bound for general finite ordered alphabets in the stated regime, not the idea of two-sided comparison or the existence of a scalar-rule counterexample by itself.
+
+## value
+
+PASS
+
+The exact clock is a stronger and practically different invariant than a sufficient cascade or an eventual consensus claim. Fast-forwarding through constant action stages addresses arbitrarily long silent waits while detecting truly nonadopting outsiders; the exact tie-sensitive example shows why a sufficient scalar rule cannot stand in for this procedure. The bound is on scientifically relevant action events, not computational running time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

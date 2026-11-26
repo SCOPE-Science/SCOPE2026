@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:53:51.104809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a noncollapsed fixed base, normalization to length one preserves the Euclidean apex-gradient norm. The stated elliptic metric and derivatives give the squared norm in RESULT.md (1). An independent exact reproduction verified the cleared polynomial, the shifted coefficients and all 128 Bernstein coefficients (minima 1718469527/469762048 and 288; replay: /workspace/branches/3dbda92c-2485-4edd-8898-6d479ecc4c55/record4_math_check.py). There is also a direct check: using t^3 >= 3t/25 - 2/125, P0 is bounded below by 6544t^2 - (65512/25)t + 33008/125, which has negative discriminant. In P1/(t+2), extract 1512t(t-4/5)^2; the remaining 729t^4 - (104/5)t^2 - (2592/25)t + 144, plus higher positive terms, is positive both on [0,1] and on [1,infinity). P2 is nonnegative. On a straight apex path, continuity and vanishing at the base line join the two half-plane gradient bounds for both signs. Coincident fixed endpoints give zero identically. Telescoping gives 9/32 for three moves. The derivative at apex (1/2,1/3) independently reproduces the stated radical and relative gap of about 0.003335 to the upper endpoint; it does not identify the exact optimum. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dimension-dependent signed and unsigned displacement bounds reduce to 2 sqrt(3) times the all-vertex displacement bound for planar triangles."
+        ],
+        "reasoning": "Even setting two of the displacements to zero gives only that larger coefficient. The general dimension theorem does not decide the new constant.",
+        "searches": [
+          "arXiv:2303.13486, Theorem 4.9(b) in retrieved PDF",
+          "arXiv:2602.17630, Theorem 2.4(b) in retrieved PDF"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2602.17630",
+        "arXiv:2303.13486",
+        "Resultary 4173c1569b81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One moving vertex changes each incident side length by at most its displacement. Moving all vertices by at most epsilon changes each side length by at most 2 epsilon."
+        ],
+        "reasoning": "The side-length estimate thus yields unsigned coefficients 3/8 and 3/4 by direct transfer, versus 3/32 and 9/32 here. It has no matching Euclidean-apex extremal witness. The published signed bound likewise does not reach these coefficients.",
+        "searches": [
+          "arXiv:2602.17630 p. 5",
+          "Resultary 4173c1569b81, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2303.13486, retrieved PDF p. 18, Definition 4.7: volume squared over semiperimeter to power 2n-1",
+          "Resultary 4173c1569b81, RESULT.md offsets 304–1992: same function in side-length variables"
+        ],
+        "reasoning": "In dimension two the published normalization is exactly A^2/p^3. Equality of the function does not identify the vertex Euclidean displacement with the side-length sup norm.",
+        "searches": [
+          "Local Resultary: A^2/p^3, triangle strength, one-vertex 3/32",
+          "Primary literature: triangle simplex strength, Lipschitz vertex perturbation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact-constant record: SCOPE-sharp-side-distance-lipschitz-constant-for-triangle-strength--4173c1569b81; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, RESULT.md offsets 304–1992."
+        ],
+        "reasoning": "That record proves 3/8 in side-length sup norm, expressly not the optimal vertex-coordinate constant. No separate indexed exact vertex-coordinate bracket was identified in the bounded search.",
+        "searches": [
+          "Local Resultary: simplex strength and triangle strength, A^2/p^3, one-vertex 3/32"
+        ]
+      },
+      "rationale": "The published qualitative Lipschitz result and its much larger constants do not imply the vertex-coordinate upper bound or its near-optimality bracket. The closest indexed sharp constant concerns a different metric and transfers only to weaker vertex-coordinate bounds.",
+      "residual_risks": [
+        "Bounded searches do not rule out an unindexed treatment of the same shape functional.",
+        "The exact one-vertex optimum and the sharp all-vertex coefficient are not determined by this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative Lipschitz continuity, not the new constant",
+          "evidence": "2 lambda_n times epsilon, lambda_2=sqrt(3). The frozen reference's theorem number differs in the retrieved version.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.17630",
+          "material_read": "OA PDF p. 5, offset 15334, Theorem 2.4(b) in retrieved version",
+          "method": "Targeted OA text passage",
+          "title": "The strength of a geometric simplex is a key ingredient in a polynomial-time classification of unordered point clouds by Lipschitz continuous invariants",
+          "trigger": "Closest all-vertex signed and unsigned result"
+        },
+        {
+          "assessment": "Same normalization and a weaker bound",
+          "evidence": "Volume squared over p^(2n-1), with all-vertex coefficient 2 lambda_n. The numbering differs from the frozen references.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.13486",
+          "material_read": "OA PDF p. 18, offset 46446, Definition 4.7 and Theorem 4.9(b) in retrieved version",
+          "method": "Targeted OA text passage",
+          "title": "The strength of a simplex is the key to a continuous isometry classification of Euclidean clouds of unlabelled points",
+          "trigger": "Original normalization and general perturbation theorem"
+        },
+        {
+          "assessment": "Distinct perturbation metric; not dominating",
+          "evidence": "Exact 3/8 in side-length sup norm; does not assert an optimal vertex-coordinate constant.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-side-distance-lipschitz-constant-for-triangle-strength--4173c1569b81",
+          "material_read": "Mirrored RESULT.md offsets 304–1992",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Sharp side-distance Lipschitz constant for triangle strength",
+          "trigger": "Indexed exact constant for the identical strength function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a global quantitative improvement for a motivated point-cloud invariant, valid through degeneracy and orientation changes. It lowers the all-vertex bound from 2 sqrt(3) to 9/32 and places the intrinsic one-vertex coefficient in a bracket of relative width under 0.4 percent. The narrow bracket is supported by a concrete local shape witness rather than merely an incremental upper-bound adjustment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

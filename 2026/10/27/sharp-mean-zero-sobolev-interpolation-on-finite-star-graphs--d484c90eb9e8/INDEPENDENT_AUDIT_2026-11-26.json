@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:28.117730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–71",
+        "VERIFICATION.md; inspect-only check_star.py",
+        "Independent replay: python -B /workspace/branches/independent_checks.py (star)"
+      ],
+      "rationale": "Normalize a nonzero leaf value to 1 by complex scaling. Given the center c, the other leaves have prescribed mean; replacing them by it strictly decreases both quadratics unless already equal. The imaginary part of c adds a positive multiple of its square to both quadratics, so the optimal c is real. The reduced quadratics are exactly M_n and E_n. Independent symbolic differentiation and discriminant factorization reproduce p_n and its strictly negative discriminant (the remaining polynomial has positive coefficients at n=2+m), including p_n(-1/n)=-(n^2-1)^2/n^2 and p_n(0)=2n. Coercivity then makes the unique root the global minimum. At the center, fixed-value averaging gives n/(n+1)^(3/2), strictly below the coefficient of the trial leaf witness (n/(n+1))^(3/2). The optimizer's other magnitudes are less than 1 even at n=2; the strict averaging conditions and symmetry therefore give precisely all equality cases. Both reduced quadratic minima exceed 1. With h=1/n, h^3 p_(1/h)(c) is analytic with c-derivative 1 at the origin; c=-2h^2+4h^3-10h^4+O(h^5). Independent substitution gives M_n E_n=1+2h+3h^2+O(h^4), whose inverse square root is 1-h+2h^3+O(h^4). The independent n=2 value is 0.584928489376185786… .",
+      "residual_risks": [
+        "No extension to other graphs, weights or mass and energy conventions; the single numerical value is a check, not the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilyin–Zelik give the sharp interpolation envelope with equality Green representers; the θ=1/2 prefactor is 2.",
+          "Ilyin–Laptev–Zelik give the infinite-line θ=1/2 sharp constant 1 with no extremal, not a finite-star theorem."
+        ],
+        "reasoning": "Using mean-zero projection on a finite graph gives sup_λ 2 sqrt(λ) times the projected resolvent diagonal. This gives what to maximize but supplies no optimizer, strict vertex comparison, or high-valence evaluation on stars.",
+        "searches": [
+          "arXiv:1303.0957v1, pp. 3–4 after Theorem 2.5",
+          "arXiv:1407.0675v1, §2, Corollary 2.2 and Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.0957v1",
+        "arXiv:1407.0675v1",
+        "SCOPE-20261025-11248e46ffd9",
+        "SCOPE-20261026-83ec9a3463df",
+        "SCOPE-20261025-42b6f79c6b58",
+        "SCOPE-20261108-c77435a98c36"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the star's spectral weights gives projected leaf diagonal (n−1)/(n(1+λ))+1/[n(n+1)(n+1+λ)] and hub diagonal n/[(n+1)(n+1+λ)].",
+          "The exact path and cycle optimizations are not this two-pole star calculation."
+        ],
+        "reasoning": "The resolvent and spectral weights alone give a parametric envelope. Establishing uniqueness, the leaf-over-hub gap, closed scalar cubic and exact asymptotic cancellation requires new optimization and analysis on this family, not passing a known explicit classification to a smaller case.",
+        "searches": [
+          "arXiv:1303.0957v1 after Theorem 2.5",
+          "SCOPE-20261025-11248e46ffd9 and SCOPE-20261026-83ec9a3463df, Findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November metric-tree result has leaf-only extremizers and star constant 1−2/(3n), but uses continuous arclength H^1 and divides by derivative energy alone.",
+          "The Green-function principle is equivalent to a one-variable optimization after projecting out constants, not a previously evaluated star equality profile."
+        ],
+        "reasoning": "Leaf extremality on a continuum metric star cannot be transferred to the stated counting-mass product by a change of units. The finite Laplacian resolvent is genuinely equivalent as an optimization formulation and is credited as a method.",
+        "searches": [
+          "Finite unweighted mean-zero star product interpolation; cubic root and one distinguished leaf; high-valence expansion",
+          "SCOPE-20261108-c77435a98c36",
+          "arXiv:1303.0957v1, Eq. (1.4) and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Path: endpoint Green-vector extremizers and 2−2 sqrt(2) N^(-1/2)+O(N^-1). Cycle: Fourier resolvent and 1−(3/2)N^(-2/3)+O(N^(-4/3)). The all-order central-extremizer finding uses zero extension and an energy quotient rather than the mean-zero product.",
+          "Metric stars have different mass, energy functional and constant. No evaluated discrete-star match was located in the inspected findings."
+        ],
+        "reasoning": "The earlier finite-graph analogues use genuinely different adjacency and spectral measures, while the star analogue changes the mathematical problem. Absence of a matching indexed result is only bounded evidence.",
+        "searches": [
+          "Resultary: mean-zero unweighted finite-star sharp product constant; cubic/root and single-leaf profile; n^-3 correction",
+          "SCOPE-20261025-11248e46ffd9",
+          "SCOPE-20261026-83ec9a3463df",
+          "SCOPE-20261025-42b6f79c6b58",
+          "SCOPE-20261108-c77435a98c36"
+        ]
+      },
+      "rationale": "Credit the general sharp Green-function envelope and earlier exact path and cycle evaluations. The distinct supported result is the exact discrete-star specialization including unique optimizer, global dominance of leaves, the equality profile and the cubic high-valence correction. The strongest continuum star hit concerns a different functional and notion of mean.",
+      "residual_risks": [
+        "The exact star problem could have appeared as an unindexed discrete Green-function calculation. A single nonmatching primary query is weak evidence; general resolvent methods are not claimed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General variational coverage, not numerical or exact evaluation for the finite-star family",
+          "evidence": [
+            "Sharp constant as a weighted supremum of the Green diagonal and a Green-function equality representer"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.0957",
+          "material_read": "printed pp. 3–4, equation (1.4) and formula after Theorem 2.5",
+          "method": "Open-access PDF passages",
+          "title": "Green's function asymptotics and sharp point-wise interpolation inequalities",
+          "trigger": "Strong general sharp product-norm theorem"
+        },
+        {
+          "assessment": "Infinite lattice instead of a finite mean-zero star",
+          "evidence": [
+            "Infinite-line sharp constant 1 without an extremal"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.0675",
+          "material_read": "§2, printed pp. 12–14, Corollary 2.2 and Theorem 2.2",
+          "method": "Open-access PDF passages",
+          "title": "Sharp interpolation inequalities for discrete operators and applications",
+          "trigger": "Exact discrete θ=1/2 interpolation"
+        },
+        {
+          "assessment": "Exact path result; no star specialization",
+          "evidence": [
+            "K_N=max F_N and endpoint Green-vector extremizers"
+          ],
+          "identifier_or_url": "SCOPE-20261025-11248e46ffd9",
+          "material_read": "RESULT Finding and Proof §§1–2",
+          "method": "Local archive mirror",
+          "title": "A square-root boundary deficit for sharp discrete path interpolation",
+          "trigger": "Same product and mean-zero convention on a nearby graph family"
+        },
+        {
+          "assessment": "Different graph spectrum, vertex orbit and asymptotic",
+          "evidence": [
+            "Fourier sum envelope; N^(-2/3) leading defect"
+          ],
+          "identifier_or_url": "SCOPE-20261026-83ec9a3463df",
+          "material_read": "RESULT Finding and Proof §§1–3",
+          "method": "Local archive mirror",
+          "title": "Fractional finite-size defect in sharp cyclic Sobolev interpolation",
+          "trigger": "Same cyclic finite-graph optimization"
+        },
+        {
+          "assessment": "Different normalization and functional",
+          "evidence": [
+            "Zero-extended sequences; finite-difference energy and central Green-vector extremizers"
+          ],
+          "identifier_or_url": "SCOPE-20261025-42b6f79c6b58",
+          "material_read": "RESULT Finding and Proof",
+          "method": "Local archive mirror",
+          "title": "All-order sharp pointwise discrete Sobolev constants and central extremizers",
+          "trigger": "Other exact discrete extremizer classification"
+        },
+        {
+          "assessment": "Different continuum problem; not discarded merely because dated later",
+          "evidence": [
+            "Derivative-energy quotient for mean-zero continuous H^1 functions and constant 1−2/(3n)"
+          ],
+          "identifier_or_url": "SCOPE-20261108-c77435a98c36",
+          "material_read": "RESULT Finding and Assumptions",
+          "method": "Local archive mirror",
+          "title": "Sharp star-path extremals and a subtree-cut formula for Sobolev inequalities",
+          "trigger": "Exact leaf extremality on a star"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–24, 29–71 and 79–80",
+        "Finite path and cycle comparisons listed in originality"
+      ],
+      "rationale": "Stars give a canonical family with arbitrarily large degree contrast. The exact sharp point-evaluation product constant and all extremizers settle which orbit controls the bound and give a usable benchmark for localized graph inequalities. The first nontrivial correction beyond 1−1/n and vanishing quadratic term distinguish a precise invariant across the whole family, rather than an isolated sample or a restated resolvent bound.",
+      "residual_risks": [
+        "The value is an exact benchmark on the stated family, not evidence of a theorem for general graphs or weighted stars."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

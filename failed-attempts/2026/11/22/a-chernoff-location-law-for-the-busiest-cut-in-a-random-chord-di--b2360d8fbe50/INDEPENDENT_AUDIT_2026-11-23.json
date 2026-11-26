@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:28:06.566319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and finite verification evidence",
+        "Groeneboom–Lalley–Temme, arXiv:1305.6053v2, Introduction and definition (1.1)",
+        "Janson, arXiv:math/0701288v1, §§1, 6 and 8"
+      ],
+      "rationale": "Conditioning on the scan without exposing the identities of future partners makes the down-step probability exactly H_k/(2n−k). Summing single and ordered disjoint double crossing-edge indicators gives E(H_k)=k(2n−k)/(2n−1) and E[H_k(H_k−1)]=k(k−1)(2n−k)(2n−k−1)/((2n−1)(2n−3)); subtracting the squared mean gives the displayed variance. The centered recursion has bounded martingale innovations and conditional variance 4p(1−p). On compact n^(2/3) windows the product q_r is bounded away from zero, Doob plus reversal gives sup|Y|=O_P(sqrt(n)), and the accumulated centered regression is O_P(n^(1/6)). Thus the normalized innovation martingale has variance clock tending to elapsed time and negligible jumps; anchoring at the middle gives the two-sided limit with diffusion one. The exact mean drop supplies −t²/2. For localization, write Y_(n+r)−Y_n=q_r sum_{j=1}^r ξ_(n+j)/q_j+(q_r−1)Y_n. Doob bounds the first maximum's second moment by O(R) and 1−q_r=O(R/n) bounds the second by O(R²/n), giving the stated summable annular probabilities (including the terminal truncated annulus). Beyond n/2, the two-edge switch couples choices of the next partner, so bounded differences make the uniform centering error o_P(n), smaller than the order-n deterministic gap. The compact argmax/supremum mapping and this tail bound prove the joint theorem, also for leftmost ties. Brownian scaling gives 2^(2/3) times the conventional location; the Brownian local law of the iterated logarithm gives positivity despite the quadratic drift, and the unbounded positive tail of B(1)−1/2 with a.s. finiteness gives nondegeneracy. The frozen checker was inspected, not run; the review rests on analytic reconstruction and exact agreement with the earlier model under the coupling below, not on finite enumeration.",
+      "residual_risks": [
+        "The positivity sentence in the frozen text needs Brownian excursions that dominate t², not just positive excursions; the standard local iterated-logarithm statement supplies exactly this.",
+        "No moment convergence or finite-size rate for the joint pair is asserted by the frozen theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson Theorem 8.2 gives the whole rank-process Gaussian limit; Theorem 8.3 gives the exact local Brownian-parabolic process for the uniform-time realization. Section 8 explicitly carries over the proofs of §6, including bounds on the positive outer-window excess.",
+          "Theorem 8.5 gives both weak convergence of the excess over rank n and a leading expectation correction. Janson attributes that theorem and the leading-order maximum CLT to Louchard–Kenyon–Schott (1997); the latter full text was not inspected here."
+        ],
+        "reasoning": "This is substantially closer than generic cube-root methods or a single global Gaussian bridge: the same process already has the required local weak limit and estimates to take the global maximum. No inference about unread portions of earlier articles is needed.",
+        "searches": [
+          "Janson arXiv:math/0701288v1 Theorems 8.1–8.5 and §6 Eqs. (6.43)–(6.57)",
+          "Louchard–Kenyon–Schott DOI:10.1137/S0097539791196603",
+          "Daniels–Skyrme DOI:10.2307/1427054 and Daniels DOI:10.2307/1427162"
+        ]
+      },
+      "checked_sources": [
+        "Janson, arXiv:math/0701288v1 (2007), published Ann. Comb. 12 (2009), 417–447",
+        "Louchard–Kenyon–Schott DOI:10.1137/S0097539791196603 (metadata and Janson attribution)",
+        "Daniels–Skyrme DOI:10.2307/1427054 (abstract/citation trail)",
+        "Acan arXiv:1501.01489v1 and Groeneboom–Lalley–Temme arXiv:1305.6053v2",
+        "Resultary crossing-cut Green kernel synopsis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8.3 centers at uniform time 1/2 and yields sqrt(2) B(x)−2x² for time 1/2+x n^(−1/3). For the count N_n(t) of the 2n independent endpoints up to time t, sup_t|N_n(t)−2nt|=O_P(sqrt(n)) (empirical CDF bound); consequently (rank−n)/n^(2/3)=2x+o_P(1) uniformly. Rank n occurs at x=o_P(1); continuity of the local process limit makes its centering equivalent on height scale n^(1/3). Substituting x=s/2 and Brownian scaling gives exactly B(s)−s²/2.",
+          "Section 8 transfers the positive outer-excess bounds of §6, not merely the limiting maximum: outside |x|≤A the expected positive excess over Y_n(1/2), divided by n^(1/3), is O(1/A)+o(1). For the transfer, Eq. (8.2) replaces the quadratic loss −nx² in (6.55) by −2nx² and multiplies the S_(n,2) term by two; the martingale variance bound of order nx and the global moment bounds retain their orders. The compact maximum is strictly positive in the limiting process, so comparing it to δ>0 and the outer maximum using Markov's inequality gives tightness of all maximizing locations. The rank change preserves their order.",
+          "Jointly taking the argmax and maximum on compact windows, then removing the cutoff using those bounds, gives the frozen pair. Argmax uniqueness and compact convergence make the choice of leftmost rank immaterial asymptotically."
+        ],
+        "reasoning": "The joint formula need not have been printed in those exact variables to be covered. It is a routine continuous-mapping consequence of the prior local process, its existing localization estimates, and the exact pairing bijection; it is not a consequence of the global bridge alone. The frozen direct discrete martingale proof does not undo that implication.",
+        "searches": [
+          "Janson arXiv:math/0701288v1 §1 pairing bijection, §6 Eqs. (6.45)–(6.57), and §8 Eqs. (8.1)–(8.2), Theorems 8.3 and 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson §1 specifies a uniformly random sequence of arrivals A_i and departures D_i subject only to A_i preceding D_i. Removing labels gives every perfect matching of the 2n ranks n! times; at each rank k, stored items are precisely edges with one endpoint scanned, so Y_(n,k)=H_(n,k) in the coupled models.",
+          "In §8 the rank process is embedded as intervals with two independent U(0,1) endpoints per item; the rank of the leftmost maximizing time is the leftmost maximizing cut."
+        ],
+        "reasoning": "The equivalence is of the entire path, not a marginal analogy. Replacing a queued item by its arrival/departure chord preserves both statistics under review.",
+        "searches": [
+          "Resultary: the exact crossing-cut Green kernel and Gaussian bridge for uniform pairings maximum open chords limiting law",
+          "Resultary: unmatched socks random sock sorting maximum number of single socks sock drawer occupancy on matching random interval maximum",
+          "Janson, arXiv:math/0701288v1, §§1 and 8",
+          "Daniels–Skyrme DOI:10.2307/1427054 citation trail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a weak-limit claim, so the covering evidence is an exact limit theorem rather than a finite enumeration table. In Janson Theorem 8.5 the random centering is exactly Y_(n,n), normalization n^(−1/3), and the limit V is precisely sup_s(B(s)−s²/2) by Theorem 1.3.",
+          "The Bernoulli/crossing-cut small-size tables cannot establish priority of the limit. The corpus Green-kernel synopsis gives a global bridge, which is not the strongest prior result."
+        ],
+        "reasoning": "The exact theorem and constants, not merely the same qualitative scale, match the frozen height coordinate. The joint claim is tested additionally by implication from the already-localized process.",
+        "searches": [
+          "Janson arXiv:math/0701288v1 Theorems 1.3 and 8.3–8.5",
+          "Groeneboom–Lalley–Temme arXiv:1305.6053v2",
+          "Resultary crossing-cut Green kernel lookup above"
+        ]
+      },
+      "rationale": "The matching scan is exactly the previously studied uniform priority-queue history, also called the sock-sorting process. Janson §8 explicitly identifies the uniform pairing, already proves the identical midpoint-centered excess limit (Theorem 8.5, also giving its leading mean correction), and supplies the local process and localization estimates from which the location and joint limit follow by rank change and the usual argmax mapping. This is positive prior-coverage evidence, not a conclusion from unsuccessful searching.",
+      "residual_risks": [
+        "The exact wording of the earliest explicit location theorem in the queueing literature was not established, nor was the 1997 paper's full text inspected. The originality failure does not depend on either: the accessible 2007 preprint gives prior height and direct joint implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact model and height law, and structurally implies the joint location/height theorem",
+          "evidence": [
+            "§1: uniform pairings of 1,…,2n into n pairs.",
+            "Thm. 8.3: sqrt(2) B(x)−2x², and Thm. 8.5: n^(−1/3)(Y_n*−Y_(n,n))→V.",
+            "§8 explicitly carries over §6 proofs with constant changes; (6.53) and (6.56) bound the positive excess in all outer regions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701288v1; https://doi.org/10.1007/s00026-009-0007-z",
+          "material_read": "Accessible full preprint: §1 pairing description and Theorem 1.3; §6 centering and outer-window proof of Theorem 1.3, Eqs. (6.45)–(6.57); §8 process construction (8.1)–(8.2), proof transfer and Theorems 8.1–8.5. Published abstract and references also inspected.",
+          "method": "Compared primary PDF pairing description with HTML/TeX equations, coupled paths by rank, and converted scales and cutoff estimates",
+          "title": "Sorting Using Complete Subintervals and the Maximum Number of Runs in a Randomly Evolving Sequence",
+          "trigger": "Exact priority-queue/sock-sorting alias and potential prior local maximum law, identified through the peaked-random-walk citation trail"
+        },
+        {
+          "assessment": "Earlier priority for the height theorem is reported by Janson; exact additional claims remain unread",
+          "evidence": [
+            "SIAM J. Comput. 26(4), 1006–1042 (1997).",
+            "Janson §8 expressly cites it for Theorems 8.4 and 8.5."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539791196603",
+          "material_read": "Bibliographic record plus precise attribution following Janson Theorem 8.5; full paper not retrieved",
+          "method": "DOI and attempted publisher lookup; compared Janson's full-text attribution",
+          "title": "Data Structures' Maxima",
+          "trigger": "Earlier source of the exact same-model maximum law according to Janson"
+        },
+        {
+          "assessment": "Joint Brownian approximation precedent; citing list identifies exact-model priority literature, not used to claim this article studies matchings",
+          "evidence": [
+            "Abstract discusses epidemics and fiber bundles; citing works include Louchard–Kenyon–Schott and Janson."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1427054",
+          "material_read": "Publisher abstract, references and citing works; no full text",
+          "method": "Direct publisher page and reference trail",
+          "title": "The maximum of a random walk whose mean path has a maximum",
+          "trigger": "Classical maximum and location framework; citation trail to same-model work"
+        },
+        {
+          "assessment": "The inspected statements concern intersection degrees, cores and whole-chord growth; that comparison alone misses the equivalent priority-queue path",
+          "evidence": [
+            "Introduction defines the uniform pairing and distinguishes simultaneous-crossing statistics of a different kind."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489v1",
+          "material_read": "Abstract, introduction, chord-degree section and description of growth objectives",
+          "method": "Primary PDF, compare what is optimized and what is exposed",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Original chord-diagram terminology and statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Janson, arXiv:math/0701288v1, Theorems 8.3 and 8.5 and proof transfer from §6",
+        "Frozen statement and limitations"
+      ],
+      "rationale": "The location and height are meaningful statistics, and the direct scan proof offers explanatory value. But the frozen contribution is presented as a new joint law, not as a demonstrated new methodological improvement, sharper rate, or result for a different model. The model is exactly the earlier priority-queue model; the height law is already explicit and the joint law follows from the earlier local weak limit and tail bounds by a rank change and standard joint mapping. No further scientific gain is established by recasting it as a chord cut.",
+      "residual_risks": [
+        "An attributed alternative proof may be useful expository material. No independent surviving new claim or completed repair was established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

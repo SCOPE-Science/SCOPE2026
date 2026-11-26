@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:18:55.769075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48; VERIFICATION.md; verification.py",
+        "Independent direct majority and cycle matching enumerations for 3≤n≤8"
+      ],
+      "rationale": "On a mismatched rung the rung neighbor has the wrong color, so both horizontal neighbors of each endpoint must have that endpoint's color. This propagates the same ordered mismatch through the connected cycle, giving exactly two separated states. Otherwise the rungs agree and each vertex needs only one horizontal neighbor of its own color, exactly excluding singleton cyclic runs. With k blue columns and r runs of each color, counting ordered compositions of k and n−k into parts at least two and then marking a labeled blue-run start gives the stated binomial product times n/r. This argument counts labeled words correctly even when they have rotational symmetry, since each specific word has exactly r marked starts. The separated colorings add twice at m=n regardless of parity. In synchronized words the color-change edges are an even matching of C_n and the initial color is free. The two-state cycle matching trace and parity filter at z=±1 give L_n+2cos(nπ/3), plus two separated states. This gives the stated entropy and the minimum nonzero blue counts, with six four-blue states at n=4 where both classes contribute. An independent bounded check inspected all 87,360 labeled colorings for n=3 through 8, checking neighbor agreement and comparing every mass bin; totals were 4, 8, 14, 22, 32, 48. Replay the direct check by iterating masks 0 through 2^(2n)−1, rejecting any mask with more than one differing neighbor at any vertex, and accumulating by popcount. The supplied verifier was inspected, not executed.",
+      "residual_risks": [
+        "Finite enumeration is supplemental. The propagation, composition, and matching bijections establish the statements for all n≥3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arkhipov relates majority fixed states to internal partitions of regular graphs but gives no all-length prism count. Zehmakan gives the cycle asymptotic and local characterization. The later seam-response record also treats a Möbius ladder and period-two counts."
+        ],
+        "reasoning": "General internal partitions provide a reformulation but not a graph-specific spectrum; the cycle theorem supplies only the synchronized motif. The later record broadens the dynamics and geometries covered but does not give the claimed colored-mass refinement.",
+        "searches": [
+          "arXiv:2406.07026v1, §1",
+          "arXiv:2302.06760v1, Theorem 2.8 and Appendix A.6",
+          "Resultary:69a75f8bbc7c, Finding and proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06760v1",
+        "arXiv:2406.07026v1",
+        "Resultary:69a75f8bbc7c",
+        "Resultary:57f5300a1a71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zehmakan characterizes the appropriate cycle colorings and gives growth of order φ^n, not the labeled two-layer mass census. The frozen proof separately derives global mismatch propagation and tracks the blue run compositions."
+        ],
+        "reasoning": "The general graph equivalence does not force propagation of mismatched rungs, and the cycle growth result does not mechanically give the mass spectrum. Once the later two-class prism classification is supplied, the refinement can be derived by standard composition counting, but that later comparison does not show that earlier literature supplies the starting classification or the full claim.",
+        "searches": [
+          "arXiv:2302.06760v1, Theorem 2.8 and Appendix A.6",
+          "arXiv:2406.07026v1, §1",
+          "Resultary:69a75f8bbc7c, Finding and proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For cubic graphs, fixed majority colorings are exactly matching cuts (sides labeled and monochromatic states included): a vertex can have at most one incident cut edge.",
+          "Zehmakan recognizes no-solitary-vertex cycle words under deterministic keep-your-color ties. The indexed prism and Möbius record states the same two prism fixed-state classes and exact total."
+        ],
+        "reasoning": "Internal partitions alone do not enumerate this graph. The deterministic cycle condition gives the synchronized sector of the prism because the rung supplies one agreeing neighbor; it does not decide which nonsynchronized configurations survive. The later indexed prism statement overlaps exactly on classification and total, not on mass refinement.",
+        "searches": [
+          "arXiv:2406.07026v1, §1 internal partitions",
+          "arXiv:2302.06760v1, Theorem 2.8 and Appendix A.6",
+          "Resultary:69a75f8bbc7c, prism fixed points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The seam-response Finding gives f_P(n)=L_n+2+2cos(nπ/3), the exact total in the frozen result; it does not resolve m. The antagonistic-multiplex indexed summary shares a local no-isolated-color motif but suggests a different update rule; its underlying mirror text was unavailable."
+        ],
+        "reasoning": "The first match is a real exact overlap for the total, with a later catalog date, not evidence of earlier coverage of the mass spectrum. The second is unresolved, not cleared by title-level evidence. Exact small-prism totals or basin tables do not determine an all-length mass formula.",
+        "searches": [
+          "Resultary:2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c",
+          "Resultary:2026/11/22/SCOPE-intermediate-antagonism-and-the-quartic-entropy-of-frozen-multiplex-opinion-states--57f5300a1a71"
+        ]
+      },
+      "rationale": "The general internal-partition equivalence and the no-isolated-letter condition on cyclic words are prior. The strongest inspected earlier sources do not give the all-state prism classification and its labeled mass spectrum. A later indexed record explicitly overlaps on the prism classification and exact total but not the blue-count spectrum. The pass credits the supported prism-specific result, not priority for internal cuts, the synchronized-word motif, or the Lucas calculation in isolation.",
+      "residual_risks": [
+        "Earlier equivalent prism enumerations in metastability, matching cuts, or cellular automata were not excluded. The Agur–Fraenkel–Klein majority-rule primary PDF was not text-extractable in the bounded attempt; no coverage judgment is based on it. The later indexed overlap does not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior characterization and growth of the synchronized-word subproblem only",
+          "evidence": "No solitary vertex is the deterministic cycle condition, with Θ(φ^n) stable colorings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.06760v1",
+          "material_read": "Theorem 2.8 PDF p. 6 (text offsets 46800–49618); Appendix A.6 p. 11 (101700–104763)",
+          "method": "Primary open PDF, targeted passages",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Potential prior cycle transfer to the prism"
+        },
+        {
+          "assessment": "General reformulation, not a prism census",
+          "evidence": "An internal cut requires each vertex to have at least as many same-side as other-side neighbors.",
+          "identifier_or_url": "https://arxiv.org/html/2406.07026v1",
+          "material_read": "§1, OA offsets 1700–4741",
+          "method": "Primary open HTML, bounded passage",
+          "title": "Majority Dynamics and Internal Partitions of Random Regular Graphs: Experimental Results",
+          "trigger": "Main equivalent graph notion"
+        },
+        {
+          "assessment": "Later exact partial overlap; mass spectrum not stated",
+          "evidence": "Same prism fixed-state classification and Lucas/cosine total; additional period-two and Möbius results.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c",
+          "material_read": "Finding and proof §§1–2, mirror OA starting at offset 0",
+          "method": "Local index and mirrored record",
+          "title": "A Lucas-number seam response in majority oscillations on prism and Möbius ladders",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Unresolved beyond the different rule suggested by the summary",
+          "evidence": "The summary refers to antagonistic coupling rather than strict unweighted three-neighbor majority.",
+          "identifier_or_url": "2026/11/22/SCOPE-intermediate-antagonism-and-the-quartic-entropy-of-frozen-multiplex-opinion-states--57f5300a1a71",
+          "material_read": "Indexed summary only; mirror unavailable",
+          "method": "Local index and attempted mirror retrieval",
+          "title": "Intermediate antagonism and the quartic entropy of frozen multiplex opinion states",
+          "trigger": "Related two-layer fixed-state motif"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–32 and 36–48",
+        "arXiv:2302.06760v1, Theorem 2.8 and Appendix A.6",
+        "Resultary:69a75f8bbc7c"
+      ],
+      "rationale": "The prism is a natural cubic benchmark where tie behavior disappears but the layers can still separate. The exact blue-mass spectrum answers more than a total or a positive exponential rate: it distinguishes the exceptional two separated states from all synchronized states, including their contribution at odd n, and gives the smallest self-sustaining groups. The full labeled census is useful even without basin or convergence information.",
+      "residual_risks": [
+        "The fixed-point masses do not determine basins, oscillations, or likelihood of reaching a given opinion balance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

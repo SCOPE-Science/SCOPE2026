@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:45:36.255724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–83",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspection only)"
+      ],
+      "rationale": "For 0<T<1 the even overlap is L²−t² on |t|≤h and (1−|t|)²−h² on h≤|t|≤L, with h=T/2, L=1−T/2. Its second derivative has densities −2 and +2 and jumps −2(1−T) at ±h and T at ±L. Fourier transforming gives the stated general formula for F=(2πν)²A. At T=2/3 the two cosine coefficients balance and L=2h; the trig factorization gives the stated sin² factor and Q and the limit 10/27 at zero. The endpoint signs of Q alternate. On a positive-sine half-period, a root has cos x<−1/2, hence Q'<0. On a negative-sine half-period Q'>0 at every root: this is immediate for cos x≥0; otherwise cos x>−1/2 and −sin x>sqrt(3)/2 dominate the possible negative contribution, using x>π. Nonzero derivatives give isolated strict crossings, so there cannot be two roots of the same crossing orientation in one interval. Q=3 at positive sine-square lattice roots, giving exact double zeros there; zero frequency is not a root. The two simple plus one double zero per Doppler period 3 give the two counts. For c=2π/3 or 4π/3 let x_0=2πk+c and ε=1/x_0. The root equation in δ=x−x_0 is 1+2cos(c+δ)+2ε sin(c+δ)/(1+εδ)=0; implicit differentiation at ε=0 gives δ'(0)=1, hence the quoted positive shift after rescaling. For the Hessian, differentiate F in (T,ω) with ω=2πν. At ω=6πn and T=2/3, F and its first derivatives vanish, and (F_TT,F_Tω,F_ωω)=(0,−2ω/3,4/9). Dividing by ω² and applying ∂_ν=2π∂_ω gives the displayed Hessian. Its indefinite nondegenerate quadratic form gives two transverse analytic zero branches by the analytic Morse lemma, with slopes 0 and 9n.",
+      "residual_risks": [
+        "The recorded finite symbolic and quadrature checks were not rerun. The analytic census is only at the specified lag for real Doppler; the planar assertion is only local near the specified nonzero resonant zeros."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaming gives a moment-dependent local zero-free neighborhood. The indexed theorem concerns sech-power signals, a fixed-lag zero density, and a special m=2 equation. Li et al. give a generic cross-ambiguity definition in a different pulse-shaping setting."
+        ],
+        "reasoning": "Neither local general coverage, a different window's asymptotic density, nor the definition of the transform implies an exhaustive census or a mixed Hessian for this window and lag.",
+        "searches": [
+          "arXiv:math/0606397v1 Thm. 3.1",
+          "Resultary 2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1",
+          "arXiv:2306.08704v2 Eq. (3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0606397v1",
+        "arXiv:1311.7359v1",
+        "Resultary 28776a6c4316, b60cc263b217 and a9366ccdb6a1",
+        "arXiv:2306.08704v2",
+        "arXiv:2506.22935v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General results treat local exclusions, Zak invariants, other window profiles, or frame bounds. The classical distributional derivative formula only reduces the transform to an overlap-jump computation."
+        ],
+        "reasoning": "Even an isolated fixed-lag factorization would not by itself classify the two-variable nodal set; the sign-at-root exclusion of extra zeros and the full mixed Hessian are the substantive additional claims. No inspected stronger statement was found that mechanically supplies them.",
+        "searches": [
+          "arXiv:math/0606397v1 §3",
+          "arXiv:1311.7359v1 Thm. 3.2",
+          "Resultary a9366ccdb6a1 and same-window 28776a6c4316"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed same-window records give frame bounds or Zak-fiber transitions. Kloos–Stöckler Thm. 3.2 classifies a single Zak zero in a fundamental cell for PEB-splines. For the standard centered Haar signed half-interval step the overlap is constant negative for 1/2<T<1, giving −sin(πν(1−T))/(πν) with only simple roots at ν=3n when T=2/3."
+        ],
+        "reasoning": "A representation of the same signal by its Zak transform is not a classification of self-ambiguity zeros. Nor does the coincident Haar lattice give equivalent multiplicities or the second nodal branch. The unnamed Haar reference itself could not be identified; the comparison is a direct calculation for the standard Haar convention.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-gabor-frame-bounds-for-the-triangular-spline-at-the-ration--28776a6c4316",
+          "Resultary 2026/11/8/SCOPE-two-zak-fiber-transitions-in-sharp-half-density-hat-spline-gabor--b60cc263b217",
+          "arXiv:1311.7359v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed same-window formulas give frame quantities, and the literature hits read give a generic cross-ambiguity definition or computational formalism, not a table or formula for the exact nonzero-lag hat case."
+        ],
+        "reasoning": "A single-window Fourier transform or tabulated value at an isolated frequency cannot substitute for the transform of the shifted product, still less the complete census. The relevant check is an exact overlap-transform formula under equivalent scaling, coupled with what it implies about zeros; the bounded search did not settle global priority.",
+        "searches": [
+          "Resultary same-window and exact ambiguity comparisons: 28776a6c4316, b60cc263b217, a9366ccdb6a1",
+          "Targeted query: triangular B-spline self-ambiguity function Wigner ambiguity nonzero delay exact formula Doppler zeros Hessian",
+          "arXiv:2306.08704v2 and arXiv:2506.22935v1"
+        ]
+      },
+      "rationale": "Credit the standard piecewise-polynomial Fourier and analytic nodal-set methods. The supported distinction is the complete real-Doppler classification at the geometrically balanced lag together with the nondegenerate two-variable crossings and explicit tangent slopes. The strongest same-window comparisons concern the Zak transform or Gabor frame operator, not this self-ambiguity slice. General local exclusion theorems do not yield remote root counts or Hessians, and the standard Haar step at the same lag has simple zeros on a single regular branch, not these double zeros and crossings. This bounded comparison does not certify first publication.",
+      "residual_risks": [
+        "The frozen record's unnamed Haar analysis is not source-identified. An unindexed equivalent spectrum or overlap calculation may exist; inspection and search do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different locality and scope",
+          "evidence": [
+            "Theorem concerns a zero-free neighborhood associated with moments, not explicit remote zero locations or crossings for the hat."
+          ],
+          "identifier_or_url": "arXiv:math/0606397v1",
+          "material_read": "§1 definition p. 1, OA offset 1242, and §3 Thm. 3.1 p. 5, around offset 19000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Zero-free regions of radar ambiguity functions and moments",
+          "trigger": "General prior on ambiguity zeros"
+        },
+        {
+          "assessment": "Zak zeros, not self-ambiguity zeros",
+          "evidence": [
+            "Single Zak zero in a fundamental cell for PEB-splines; connections to polynomial B-splines are discussed."
+          ],
+          "identifier_or_url": "arXiv:1311.7359v1",
+          "material_read": "Abstract p. 1 offset 0, Introduction p. 2 near offset 5462, §3 Thm. 3.2 p. 12 near offset 33000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Spline-window zeros under a related transform"
+        },
+        {
+          "assessment": "Same window, different operator and invariant",
+          "evidence": [
+            "Gabor frame bounds for a rational near-critical lattice, not self-ambiguity at a fixed lag."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gabor-frame-bounds-for-the-triangular-spline-at-the-ration--28776a6c4316",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirrored full-text passage",
+          "title": "Exact Gabor frame bounds for the triangular spline at the rational lattice",
+          "trigger": "Indexed exact calculation for the same window"
+        },
+        {
+          "assessment": "Different invariant regardless of its later date",
+          "evidence": [
+            "Zak-fiber frame bounds rather than a self-ambiguity zero census."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-zak-fiber-transitions-in-sharp-half-density-hat-spline-gabor--b60cc263b217",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and proof §§1–3, offsets 0–3841",
+          "method": "Local Resultary search and mirrored full-text passage",
+          "title": "Two Zak-fiber transitions in sharp half-density hat-spline Gabor bounds",
+          "trigger": "Same window and exact analytic transitions"
+        },
+        {
+          "assessment": "Different windows and census",
+          "evidence": [
+            "Zero density |T|R+O(1) for sech-power signals and a special m=2 equation do not give hat zero locations or Hessians."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–3200",
+          "method": "Local Resultary search and mirrored full-text passage",
+          "title": "Spherical-Bessel delay scaling for integer-power hyperbolic secant windows",
+          "trigger": "Indexed fixed-delay ambiguity zero count"
+        },
+        {
+          "assessment": "Inspected results concern constructed communications basis pulses, not the claimed classification",
+          "evidence": [
+            "Eq. (3) gives a generic cross-ambiguity definition. A term miss is not a whole-paper priority determination."
+          ],
+          "identifier_or_url": "arXiv:2306.08704v2",
+          "material_read": "Abstract p. 1 at offset 0; Eq. (3), p. 2 near offset 9400",
+          "method": "Lawful OA primary PDF passage and term lookup",
+          "title": "On the Pulse Shaping for Delay-Doppler Communications",
+          "trigger": "Targeted search for an earlier alternate ambiguity formula"
+        },
+        {
+          "assessment": "General computational context, no pertinent result in the inspected material",
+          "evidence": [
+            "The abstract gives a general differentiable computational formulation, not this mixed Hessian or exact window census."
+          ],
+          "identifier_or_url": "arXiv:2506.22935v1",
+          "material_read": "Abstract, PDF p. 1 at offset 0; spline-term lookup",
+          "method": "Lawful OA primary PDF passage and term lookup",
+          "title": "Differentiable Radar Ambiguity Functions: Mathematical Formulation and Computational Implementation",
+          "trigger": "Targeted search hit for ambiguity derivatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5",
+        "Jaming Thm. 3.1 for contrasting local zero exclusion"
+      ],
+      "rationale": "The standard hat spline and its self-ambiguity are natural, and the slice is dictated by the overlap geometry: the interior knots lie halfway to the support endpoints precisely where the two boundary-jump weights balance. The consequence is more informative than a transform evaluation: it gives two interlaced simple-root sequences, exact double multiplicity on the lattice, and resolves whether each double trace zero is an isolated degeneracy or a transverse crossing under a delay perturbation. The explicit local geometry is useful even without a nearby-lag global census.",
+      "residual_risks": [
+        "No general theorem or completeness away from the resonant lag is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

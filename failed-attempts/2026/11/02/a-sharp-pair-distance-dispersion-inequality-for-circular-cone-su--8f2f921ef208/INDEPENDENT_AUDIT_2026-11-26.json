@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:25.585390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the developed sector let delta be the shorter separation on the angular circle. Its range is [0,alpha], with alpha<pi; the chord in the corresponding wedge stays inside the radial disk. Any path through the apex has length at least r+s; an apex-avoiding path whose lifted angular sweep reaches pi also has length at least r+s, by cutting at its first such angle and using radial distance on the remainder. For smaller lifted separations the planar chord bound and monotonicity in separation give the claimed cosine law. Independent area sampling gives radial moments E[r]=2ell/3, E[r²]=ell²/2, with delta independent and uniform, yielding ell²(1−8 sin(alpha)/(9alpha)). At fixed area the derivative of the normalized function has numerator g=8(2 sin(alpha)−alpha cos(alpha))−9alpha with g''=8alpha cos(alpha); g' rises and then falls with one zero in each half, and g(0)=0, g(pi/2)>0, g(pi)<0 force exactly two interior zeros with the stated signs. The endpoint limits and f(pi/3)<1/pi ensure the smaller zero is the unique global minimizer. Independent numerical bisection agrees with the displayed precision up to last-digit roundoff. Fixed-slant coupling delta=alpha U gives almost sure strict increase for positive radii and U>0. Alpha is half the developed angle, not half the physical apex angle. The supplied simulation was inspected, not executed; it is supplementary, not a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "cc597f8daf41 gives the same inequality and equality throughout 0<x≤pi, including the disk, and separately treats abstract angles beyond the disk.",
+          "Bacher–Sturm p. 1 gives the general metric-cone cosine rule and radial measure, but does not optimize the uniform finite-disk statistic."
+        ],
+        "reasoning": "The later comparison contains the entire frozen fixed-area domain as a restriction. The generic older metric rule is background rather than a stated optimization theorem.",
+        "searches": [
+          "Resultary cc597f8daf41: sharp mean-square geodesic separation across the disk transition",
+          "Bacher–Sturm arXiv:1003.2114v1, metric cones"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d12fe765925b",
+        "Resultary b319e1ca315a",
+        "Resultary cc597f8daf41",
+        "Bacher–Sturm arXiv:1003.2114v1",
+        "Tu–Fischbach arXiv:math-ph/0201046v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b319e1ca315a, offsets 1500–2250 and 6910–9410, treats the moment and fixed-slant angle coupling as known, while focusing on upper tails.",
+          "The generic cosine law implies the pointwise coupling by taking delta=alpha U, and the uniform radial and angular moments give the exact expectation. Tu–Fischbach instead concerns ambient distances in spherical volumes."
+        ],
+        "reasoning": "The coupling is a direct consequence of the standard distance rule once coupled at fixed slant. The sharp fixed-area conclusion does require optimizing that profile, but is explicitly covered in cc597f8daf41, rather than merely inferred from a nearby constant or a standard metric reference.",
+        "searches": [
+          "Resultary b319e1ca315a, Finding and Relationship to prior work",
+          "Bacher–Sturm arXiv:1003.2114v1 and Tu–Fischbach arXiv:math-ph/0201046v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d12fe765925b uses slant R and developed half-angle t, with A=tR² and normalized second moment Q(t); setting (R,t,A)=(ell,alpha,S) gives the frozen function.",
+          "cc597f8daf41 uses developed half-angle x and obtains 16 sin x=x(9+8 cos x), both stationary points, and the same optimal value."
+        ],
+        "reasoning": "Changing the half-angle or slant-radius notation does not change the metric, sampling, derivative equation or optimum. The inverse-ambiguity record itself does not give exact uniqueness of the optimum; the Nov. 8 record does.",
+        "searches": [
+          "Resultary: intrinsic cone geodesic random-pair second moment, fixed-area dispersion and angle minimizer",
+          "Resultary d12fe765925b and cc597f8daf41, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact profile and the defining analytic root and value, not just matching rounded constants, are indexed in the compared results."
+        ],
+        "reasoning": "No separate sequence or finite table is applicable: the invariant is a continuous function with a transcendental defining equation. Direct exact indexed-statement coverage is the relevant comparison.",
+        "searches": [
+          "Resultary statement-level comparisons d12fe765925b and cc597f8daf41"
+        ]
+      },
+      "rationale": "Distinct indexed records materially cover the frozen mathematics. The same-date inverse-ambiguity finding already gives the identical normalized second-moment function for the same geometry and sampling. The same-date tail record explicitly treats the second moment and angle ordering as existing results, without establishing who first obtained them. The Nov. 8 record states the exact sharp inequality, unique minimizing angle and the second stationary point, on a domain including the entire frozen one. Thus exact coverage of the central theorem is demonstrable in the inspected corpus; this is not a finding that the Nov. 8 record preceded the frozen result, nor a determination of within-day or historical priority.",
+      "residual_risks": [
+        "Same-date listing does not establish order. The exact covering record is later and does not establish historical priority. The bounded primary-literature search did not identify an external publication stating this optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact profile overlap, not an exact optimizer theorem",
+          "evidence": "E[D²]/A=Q(t); endpoint and two interior comparisons prove roots in three disjoint intervals without classifying every stationary point.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-open-threefold-inverse-ambiguities-for-intrinsic-distances-on-fl--d12fe765925b/RESULT.md",
+          "material_read": "Finding and Proof, including offsets 2800–5999",
+          "method": "Bounded local mirror excerpts",
+          "title": "Threefold inverse ambiguities for intrinsic distances on finite cones",
+          "trigger": "Same cone, area and second-moment profile"
+        },
+        {
+          "assessment": "Acknowledges the moment and coupling without assigning their priority; derives a different tail law",
+          "evidence": "The intrinsic point-pair second moment and stochastic ordering with cone angle are said to have been previously obtained.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-upper-distance-tails-at-the-tip-rim-transition-of-a-finite--b319e1ca315a/RESULT.md",
+          "material_read": "Finding offset 1500 and Relationship to prior work offset 6910",
+          "method": "Literal locate and bounded local mirror reads",
+          "title": "Sharp upper distance tails at the tip-rim transition of a finite cone",
+          "trigger": "Same geometric distribution and angle ordering"
+        },
+        {
+          "assessment": "Exact central theorem, in a broader domain; later record",
+          "evidence": "Same two roots, same global minimum and equality at total angle 2x_−; includes the planar disk and separately analyzes larger abstract angles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-mean-square-geodesic-separation-and-a-third-order-transiti--cc597f8daf41/RESULT.md",
+          "material_read": "Finding including offsets 600–3120, assumptions and decisive proof offsets 4250–6084",
+          "method": "Bounded local mirror excerpts",
+          "title": "Sharp mean-square geodesic separation and a third-order transition",
+          "trigger": "Exact optimum and critical equation"
+        },
+        {
+          "assessment": "Standard geometric input, not the fixed-area optimum",
+          "evidence": "Metric-cone cosine formula and radial reference measure.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.2114v1",
+          "material_read": "p. 1, Introduction §1.1, around offset 2900",
+          "method": "Lawful OA PDF passage",
+          "title": "Ricci Bounds for Euclidean and Spherical Cones",
+          "trigger": "Generic metric and measure on cones"
+        },
+        {
+          "assessment": "Different metric and sampling domain",
+          "evidence": "Ambient pair distances in spherical volumes, not intrinsic geodesics on the lateral cone.",
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0201046v1",
+          "material_read": "p. 1 around offset 700",
+          "method": "Lawful OA PDF passage",
+          "title": "Random Distance Distribution for Spherical Objects",
+          "trigger": "Random distance exact formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, the sharp fixed-area classification answers a natural scale-invariant shape question and distinguishes it from the strict ordering at fixed slant. In particular, classifying the two stationary points and eliminating the near-disk competitor supplies information not given by the cosine law or the moment integral alone. This scientific utility does not restore distinctness in the corpus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

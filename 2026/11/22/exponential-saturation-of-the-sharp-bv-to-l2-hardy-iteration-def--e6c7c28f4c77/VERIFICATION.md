@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limitations
+# Independent mathematical audit
 
-Execute `python3 check_hardy.py` with a standard Python 3 installation. The checker passed 188 assertions for exact rational-polynomial cancellation and numeric quadratures/root brackets. It does not certify the infinite mathematical statements by finite enumeration: those follow from the written measure representation, Gamma identity, monotonicity proof, and asymptotic estimates.
+## correctness
 
-The exact symbolic cancellations tested are \(P_m-P_m'=S_{m-1}^2\) for the incomplete-Gamma polynomial representation of the single-jump squared error, and the polynomial derivative identity for the cumulative root equation. The numerical tests compare independent root and norm expressions and sample iteration indices. Boundary behavior \(L=0\) and \(L\to\infty\) is proved in the text, not inferred from a finite cutoff.
+PASS
 
-No independent mathematical audit has been performed. No numerical experiment is presented as a uniqueness proof or an asymptotic certificate.
+With real BV and open-interval variation, represent f modulo constants by integrating upper step functions against Df. The probability kernel for H^m gives bounded integrands against the finite variation measure, justifying interchange; Minkowski then gives the optimal norm as the supremum of single-jump norms. Products of m independent uniforms give a Gamma(m,1) logarithmic delay and the stated Q_m residual. Its squared norm R_m satisfies R_m'=Q_m²-R_m and integration by parts gives the displayed root equation; the bracket is strictly decreasing and its limit is at most -1. The unique maximizer forces variation supported at a single jump, including both jump signs. The m=1 squared norm is t(1-t), and Q_{m+1}>Q_m for positive arguments proves strict growth. The root lies between b_m and (1+epsilon)b_m by a Gamma lower-tail bound, which then gives 0<=m log(L_m/b_m)<=-log Q_m(L_m)=O(exp(-cm)). In the Poisson tail expansion at L_m, L_m^m/m! tends to 1/2, and successive terms after factoring the lead are uniformly geometrically dominated and tend to (1/e)^j. This yields the exact squared-deficit prefactor after Stirling. No weighted or general Lp claim is inferred.
+
+## originality
+
+PASS
+
+The closest known formula uses the same averaging/variation model but integrates the step residual to power one rather than two. The L2 norm, strictly monotone root equation, rigidity and precise squared-deficit coefficient are a distinct conclusion; neither the L1 formula nor standard Hardy operator norms supply that root or coefficient.
+
+## value
+
+PASS
+
+The variation-ball identity defect is an interpretable exact error benchmark for repeated prefix averaging, rather than the usual Hardy operator norm. It determines all worst inputs and their boundary migration and distinguishes the norm-dependent saturation coefficients from the analogous L1 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

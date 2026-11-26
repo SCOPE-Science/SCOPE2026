@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:51:12.333408Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–96",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Since 0<t_m<1, the origin is interior to every disk. Along each radial direction the farthest center is the one nearest the opposite direction, so the active circle changes at the bisectors, producing exactly m genuine arcs. At a switching point of radial distance s, resolving the unit vector from the center gives sin β=s sin α and cos β=t_m+s cos α, hence sin(α−β)=t_m sin α and β=(π−u)/m. Polygon area plus the m unit circular segments gives A_m=mβ−m sin β sin(α−β)/sin α, including the zero polygon area of the lens. For F(x)=sin(ux)sin((π−u)x)/(x sin πx), the sign of its logarithmic derivative after multiplication by x is g(ux)+g((π−u)x)−g(0)−g(πx), where g(z)=z cot z. Strict concavity on [0,π/2] makes this positive by applying the strict chord inequality twice. This yields strict increase of A_m and the disk limit from F(0)=u(π−u)/π. Taylor expansion gives the deficit coefficient u²(π−u)²/(3π). With q=P/2 the formula is q−(m/2)sin(2q/m)+m cot(π/m)sin²(q/m), giving both small-perimeter expansions and the zero quadratic term at m=2. Expanding instead at u=0 gives A_m=π−2u+cot(π/m)u²/m+O_m(u³). The frozen numerical script was inspected, not executed; none of the strict claims depends on sampled inequalities.",
+      "residual_risks": [
+        "Only planar unit disks in the specified regular orbits and strict interior perimeters; no optimum over irregular configurations is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drach–Tatarko proves equal-perimeter lens minimality and equality rigidity among planar λ-convex bodies.",
+          "Basit–Lángi studies extremal C-polygons around a fixed body, not the equal-perimeter regular center orbit.",
+          "c6bd6da6d1eb treats spherical constant-width odd-gons, not the planar unit-disk family of this record."
+        ],
+        "reasoning": "The lens theorem does imply A₂<A_m for m≥3, and classical isoperimetry gives the upper disk bound. Neither orders consecutive intermediate members; the Dowker sequence and the spherical problem compare differently constrained objects.",
+        "searches": [
+          "arXiv:2610.40291v1 main theorem",
+          "arXiv:2307.04026v5 Theorem 1",
+          "Resultary: spherical Reuleaux area convergence c6bd6da6d1eb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and references",
+        "Drach–Tatarko main theorem",
+        "Basit–Lángi Theorem 1",
+        "Resultary earlier circular-gap and later regular-area records",
+        "Kratky bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lens lower bound and disk upper bound are already implied; the frozen strict derivative test addresses the interior comparisons.",
+          "The later half-perimeter record takes the order and circle limit as input, while the older circular-gap theorem gives a positive deficit above its limiting disk area at fixed b: mF_b(2π/m)−π(b−1)²=(b−1)²π³/(3bm²)+O_b(m⁻⁴)."
+        ],
+        "reasoning": "A known area expression can supply the exact formula by substitution if the perimeter map is available, and Taylor expansion is routine thereafter. The strict global common-perimeter ordering needs a sign statement equivalent to strict growth of F; no such prior implication was found in the compared statements.",
+        "searches": [
+          "Drach–Tatarko main theorem versus frozen strict adjacent-m comparison",
+          "Basit–Lángi Theorem 1 versus fixed-perimeter normalization",
+          "Resultary f9b90fbb340d and 1c25b18e16e8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b0c48ac08665 writes the same area as n(β−a sin β) at center radius a. Substitution of a=t_n and β=P/(2n) yields the frozen formula exactly; its monotonicity is for the isotropic constant as a varies.",
+          "f9b90fbb340d repeats the common-perimeter profiles and credits the frozen hierarchy before optimizing the lens-area gap over perimeter.",
+          "1c25b18e16e8 proves the exact area sum over circular gaps, giving m F_b(2π/m) for regular centers on the unit circle and disk radius b>1."
+        ],
+        "reasoning": "Scaling the older circular-gap identity by t_m sends its centers to radius t_m and its disks of radius b=1/t_m to unit disks, giving the exact integral t_m² m F_{1/t_m}(2π/m) for this area. This is formula-level coverage in integral coordinates. The fixed-perimeter comparison varies b with m, so the older optimization over angular gaps or fixed-b rate does not establish the adjacent-m order here. The later exact match is acknowledged reuse, not earlier coverage of the hierarchy.",
+        "searches": [
+          "Resultary: regular fixed-perimeter disk intersection area hierarchy",
+          "Resultary: exact circular-gap area laws Gaussian fluctuations intersections equal unit disks centers fixed circle radius 1c25b18e16e8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier circular-gap identity supplies the rescaled exact integral; the later regular-array and half-perimeter records give the closed trigonometric form, and the latter also cites this hierarchy.",
+          "Kratky's equal-circle intersection article is a credible formula precursor, but the original full text was not retrieved."
+        ],
+        "reasoning": "The analogue of an exact table here is a symbolic area profile. The profile is equivalent under center-radius reparameterization; this is not evidence of an earlier result on the strict common-perimeter hierarchy. Expansions are elementary once the profile and its normalization are known.",
+        "searches": [
+          "Resultary: exact areas of regular arrays of intersecting disks",
+          "Kratky DOI 10.1088/0305-4470/11/6/006"
+        ]
+      },
+      "rationale": "Credit the established lens and disk bounds; formula-level priority is not asserted. The distinct contribution supported by the comparison is the strict ordering of the intermediate regular intersections at common perimeter, with precise convergence and endpoint behavior. The closest fixed-perimeter reuse in the corpus is later and expressly credits this result.",
+      "residual_risks": [
+        "Kratky's full text was inaccessible. Priority for the elementary closed form as distinct from the known exact integral, or for an unlocated earlier equivalent interior ordering, is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lens endpoint, not the intermediate hierarchy",
+          "evidence": "The planar λ-convex lens minimizes area at equal boundary measure and is the only equality case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.40291v1",
+          "material_read": "Abstract and main theorem, pp. 1–2",
+          "method": "OA PDF offsets 0 and 5000",
+          "title": "A complete solution to the reverse isoperimetric problem for λ-convex bodies",
+          "trigger": "Same fixed-perimeter lens baseline under stronger hypotheses on no particular center placement"
+        },
+        {
+          "assessment": "Different optimization and normalization",
+          "evidence": "The circumscribed C-polygon sequence is defined by optimizing relative to a fixed C-convex body, not by matching its perimeter to a prescribeable common P.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.04026v5",
+          "material_read": "Abstract, definitions and Theorem 1, pp. 1–3",
+          "method": "OA PDF offsets 0, 3412 and 7360",
+          "title": "Dowker-type theorems for disk-polygons in normed planes",
+          "trigger": "Possible area monotonicity theorem for disk-polygons by number of sides"
+        },
+        {
+          "assessment": "Unresolved prior formula overlap",
+          "evidence": "The title treats precisely equal circular disks. No technical passage was accessible to compare the formula or monotonicity.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/11/6/006",
+          "material_read": "Bibliographic/title evidence only",
+          "method": "OA DOI lookup failed to supply full text; no identified lawful alternate relied on",
+          "title": "The area of intersection of n equal circular disks",
+          "trigger": "Plausible general exact-area formula"
+        },
+        {
+          "assessment": "Exact area is covered in rescaled integral form; fixed-b optimization and rate are under a different constraint",
+          "evidence": "The regular case is m F_b(2π/m), with F_b(s) the integral of ρ_b² on [0,s/2]. All limits fix b; the regular intersections approximate B(0,b−1) from outside.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8",
+          "material_read": "RESULT.md Finding, assumptions and beginning of radial proof, offsets 0–3527",
+          "method": "Resultary search and local mirror via raw record URL",
+          "title": "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+          "trigger": "Earlier exact area for centers on a circle"
+        },
+        {
+          "assessment": "Later equivalent area formula with a different strict ordering",
+          "evidence": "A_{n,a}=n(β−a sin β) and isotropic-constant growth with center radius a at fixed n.",
+          "identifier_or_url": "2026/11/22/SCOPE-strict-isotropic-constant-growth-for-intersections-of-regular-ar--b0c48ac08665",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Strict isotropic-constant growth for intersections of regular arrays of disks",
+          "trigger": "Same center orbit and exact area"
+        },
+        {
+          "assessment": "Later reuse with explicit credit; new optimization over P",
+          "evidence": "Uses A_m(P), the strict hierarchy and circle limit credited to the frozen finding, then maximizes the lens gap and gives a stability envelope.",
+          "identifier_or_url": "2026/11/22/SCOPE-half-perimeter-extremizers-and-sharp-quadratic-lens-gap-stabilit--f9b90fbb340d",
+          "material_read": "RESULT.md offsets 0–4798 and 8140 onward",
+          "method": "Resultary and local mirror",
+          "title": "Half-perimeter extremizers and sharp quadratic lens-gap stability for regular disk intersections",
+          "trigger": "Exact overlap on equal-perimeter profiles and lens gap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen strict monotonicity and endpoint expansions",
+        "Drach–Tatarko lens theorem"
+      ],
+      "rationale": "Holding perimeter fixed compares a natural sequence linking two familiar extremizers without changing the resource being constrained. The strict intermediate order is stronger than the two endpoint inequalities, and the positive deficit coefficient and cubic-to-quadratic change at the lens quantify geometrically different regimes. These are useful as exact benchmarks even without optimization over irregular centers.",
+      "residual_risks": [
+        "The hierarchy makes no claim for arbitrary center placements."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

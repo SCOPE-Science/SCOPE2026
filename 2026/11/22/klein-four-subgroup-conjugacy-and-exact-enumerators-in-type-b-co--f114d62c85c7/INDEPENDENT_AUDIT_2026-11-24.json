@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:46.756522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; frozen verify.py (inspected)",
+        "Corrected RESULT.md, VERIFICATION.md and verify.py under /workspace/repairs/4/",
+        "Exact replay: python /workspace/repairs/4/verify.py"
+      ],
+      "rationale": "The retained class-count proof is correct. A transitive signed K-action is determined up to monomial equivalence by a line stabilizer H and its sign character, with no further conjugacy identification when K is abelian. This gives four size-one types, six size-two types, and one size-four type. Passing from embeddings to images requires precomposition by Aut(K)=S₃ in addition to target conjugation. I verified that a transposition fixes two size-one types and swaps the others, and fixes two size-two types with two swaps; a three-cycle fixes the trivial size-one type and has one size-one triple and two size-two triples. Every nontrivial automorphism fixes the unique size-four type. In a fixed profile the multiplicities must agree around each type cycle, yielding the repaired P,T,C factors. The noninjective orbits are exactly the target classes of elements of order dividing two, giving the two size-one factors and one size-two factor of I. The order-eleven pole of P at 1 has principal coefficient 1/(2⁶·4)=1/256; other poles have smaller order, and the proper rational series has poles only at twelfth roots of unity. Partial fractions prove the exact quasipolynomial claim and leading coefficient. The removed labeled EGF was mathematically correct; the issue was prior implication, not a false formula. I reran the rewritten class-only checker and confirmed all coefficients through rank ten and the actual conjugacy classes through rank five.",
+      "residual_risks": [
+        "The direct census is exhaustive only through rank five. The all-rank statement uses the independently checked signed-action proof and proper rational partial fractions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tamanoi’s two formulas (1-16) specialize at a point to normalized homomorphism counts and the ordinary product for target-conjugacy classes of maps. The Müller full text was not inspectable in the available copies. Burns–Pfeiffer Theorem 1.2(a)(i) addresses maximal-order abelian subgroups, not all copies of C₂²."
+        ],
+        "reasoning": "The stronger homomorphism framework is exact prior coverage of P and, with elementary kernel subtraction, of the labeled EGF. It does not evaluate the fixed-multiset series for nonidentity source automorphisms. Maximal-order classification cannot substitute for an all-rank census of all Klein-four images.",
+        "searches": [
+          "Tamanoi, Generalized orbifold Euler characteristics of symmetric orbifolds and covering spaces, arXiv:math/0309133, Theorems C and D",
+          "Thomas Müller, Enumerating Representations in Finite Wreath Products, DOI 10.1006/aima.1998.1885",
+          "Burns–Pfeiffer, DOI 10.1017/S0017089522000143"
+        ]
+      },
+      "checked_sources": [
+        "Tamanoi, Theorems C and D; exact point specialization and source-quotient calculation",
+        "Resultary exact and A₄ profile records",
+        "Burns–Pfeiffer Theorem 1.2(a)(i); Tout §4.3; Klawuhn–Schmidt §2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After q=2z, Tamanoi’s exponential formula for source C₂² contributes 4z, 6z² and 2z⁴ from subgroup indices 1, 2 and 4. The source-C₂ and trivial EGFs are exp(2z+z²) and exp(z). Subtract three quotient terms and add two trivial terms, then divide by six, giving exactly the original EGF. The ordinary product identifies P, not (P+3T+2C)/6−I. The A₄ analogue uses signed profiles in the same target for another source."
+        ],
+        "reasoning": "The labeled EGF is covered whether or not the exact expression was printed. The repaired OGF is not a parameter substitution into the prior formulas: it calculates fixed points under source-generator changes, then removes the nonfaithful image orbits. Same-day ordering of the related catalogue entries is not inferred.",
+        "searches": [
+          "Tamanoi (1-16), (1-17), point specializations for Γ=C₂²,C₂,1 and G=C₂",
+          "Resultary signed-profile A₄ result 53a6a63291b4, Finding and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed record f114d62c85c7 is the assigned original. Tamanoi’s bundle classes equal target-conjugacy classes of homomorphisms, with a fixed source and without an injectivity requirement."
+        ],
+        "reasoning": "Unlabeled signed K-sets are equivalent to target-conjugacy classes of maps. Subgroup classes are not equivalent to those alone: they require injectivity and a further quotient by source automorphisms.",
+        "searches": [
+          "Resultary: Klein-four inner subgroup conjugacy classes in the hyperoctahedral or signed-permutation wreath-product groups of type B/C",
+          "\"Klein four\" subgroups \"wreath product\" generating function C2 wr S_n conjugacy classes signed permutations",
+          "Tamanoi Theorem D (1-17): equivariant principal bundles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact series are those of the assigned record. The A₄ profile result gives a structurally similar but different-group census. No separate exact Klein-four subgroup-conjugacy table was located in the bounded search."
+        ],
+        "reasoning": "An A₄ table cannot be relabeled to give the class counts for K: transitive types and the automorphism action differ. The direct rank-zero-to-five census checks correctness, not bibliographic novelty.",
+        "searches": [
+          "Resultary bound record f114d62c85c7 and A₄ analogue 53a6a63291b4",
+          "Targeted Klein-four and signed-wreath generating-function literature search"
+        ]
+      },
+      "rationale": "The original two-enumerator claim fails originality in part: Tamanoi’s Theorem C (1-16) already implies exactly the labeled-subgroup EGF by parameter specialization and standard kernel-lattice subtraction. The corrected result removes that formula as a contribution and attributes the known signed-profile framework. What survives is the ordinary class series: the product for target conjugation alone is already known, but it gives only P. The repair explicitly accounts for source-generator changes by the cycle types of Aut(K) and for faithfulness, giving T, C and I. Neither the theorem inspected nor a distinct exact indexed or published result inspected gave that subgroup-class calculation. The pass is for the narrower finding, not the original combined claim.",
+      "residual_risks": [
+        "A source-automorphism-twisted general wreath-product enumeration or otherwise equivalent subgroup-class census could exist outside the inspected material. Müller's full text was not inspectable, so no claim about its coverage beyond bibliographic identification is made.",
+        "No priority inference is made from the relative order of same-date catalogue results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original exponential formula by specialization and gives the P factor of the retained OGF, not the source-automorphism quotient",
+          "evidence": "At M=pt, χ_H^{orb}(pt;G)=|Hom(H,G)|/|G|, yielding the labeled exponential count after rescaling q. The second part counts ordinary homomorphism conjugacy classes with source held fixed.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0309133",
+          "material_read": "Theorem C (1-16) and Theorem D (1-17), journal pp. 797–798, extracted offset around 19550 onward",
+          "method": "Open primary PDF passages",
+          "title": "Generalized orbifold Euler characteristics of symmetric orbifolds and covering spaces",
+          "trigger": "General wreath-product homomorphism counts and profile classification"
+        },
+        {
+          "assessment": "Identical assigned original claim",
+          "evidence": "Both exact series and the degree-ten quasipolynomial are present.",
+          "identifier_or_url": "2026/11/22/SCOPE-klein-four-subgroup-conjugacy-and-exact-enumerators-in-type-b-co--f114d62c85c7",
+          "material_read": "Finding, local matched offset 346",
+          "method": "Resultary and matched full text",
+          "title": "Klein-four subgroup conjugacy and exact enumerators in type B",
+          "trigger": "Exact series and coefficients"
+        },
+        {
+          "assessment": "Close method analogue with different finite source",
+          "evidence": "Uses faithful signed transitive profiles to count A₄ subgroups, not K=C₂².",
+          "identifier_or_url": "2026/11/22/SCOPE-tetrahedral-subgroup-profiles-and-normalizers-across-hyperoctahe--53a6a63291b4",
+          "material_read": "Finding and Proof §1, offset 0",
+          "method": "Resultary and matched full-text passage",
+          "title": "Tetrahedral subgroup profiles and normalizers across hyperoctahedral groups",
+          "trigger": "Same target groups and subgroup-profile method"
+        },
+        {
+          "assessment": "Classifies a different selection of subgroups",
+          "evidence": "For maximal order in type B/C the forms are C₂^s×C₄^t with s+2t=r, not a census of every Klein-four class.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089522000143",
+          "material_read": "Abstract and Theorem 1.2(a)(i), PDF pp. 1–2",
+          "method": "Open primary PDF passages",
+          "title": "Maximal order Abelian subgroups of Coxeter groups",
+          "trigger": "Published type B/C subgroup classification"
+        },
+        {
+          "assessment": "Individual element types",
+          "evidence": "Uses multipartitions and marked types for elements, rather than source automorphism orbits of faithful actions.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.13241v1",
+          "material_read": "§4.3 p. 7 and Proposition 4.3 p. 8",
+          "method": "Open primary paper passages",
+          "title": "Generalized characters of the generalized symmetric group",
+          "trigger": "Possible signed wreath conjugacy classification"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Treats transitive subsets and their statistics, not embedded elementary abelian subgroup classes in the inspected portions.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.20495v3",
+          "material_read": "Abstract p. 1 and §2.1 p. 5",
+          "method": "Open primary paper passages",
+          "title": "Transitivity in wreath products with symmetric groups",
+          "trigger": "Possible wreath-product subgroup statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof",
+        "Tamanoi’s target-conjugacy formula and the related A₄ profile comparison",
+        "Corrected verify.py, direct classes and rational coefficient checks"
+      ],
+      "rationale": "The retained invariant is a natural all-rank conjugacy census in the signed permutation Weyl groups. It supplies class counts independent of chosen generators and avoids enumerating the factorial-sized target group, with an exact series and growth law. The three source cycle types and the faithfulness subtraction distinguish this from an already-known count of labeled embeddings or target-conjugacy classes of homomorphisms. The repair does not rely on the covered EGF or extra motivation to supply value.",
+      "residual_risks": [
+        "The value is the exact rank-two class census, not a claim of novel general enumeration machinery or a solution for all elementary abelian ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

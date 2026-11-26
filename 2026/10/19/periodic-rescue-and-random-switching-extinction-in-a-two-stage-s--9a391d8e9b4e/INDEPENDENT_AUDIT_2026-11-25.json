@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:42.638231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two updates give the diagonal product with entries b_j s_i and s_j b_i. For every 0<q<1, each parity subsequence has transition matrix P² with off-diagonal entry 2q(1−q)>0, equal stationary weights, and aperiodicity. Applying the finite-state ergodic theorem to the two parity logs gives (b₁b₂s₁s₂)^(1/4) for both positive stage components. A last odd update changes the log total by a bounded amount. At q=0 the two positive components retain both diagonal branches, giving √max(b₁s₂,b₂s₁); strict separation is exactly the unequal-cross-product case. At q=1 the environment stays fixed, outside the interior formula. The example has both squares I/4 and alternating two-step diagonal entries 1/64 and 4, confirming 1/2, 2 and 1/2 for the three respective modes. For the mean, condition on the Markov state and regroup the resulting four coordinates by stage; the expected-state matrix then has off-diagonal blocks diag(b)P and diag(s)P. This yields the two quadratic factors and the stated radical expression for its Perron root. Irreducibility suffices despite period two, because the strictly positive left Perron vector bounds the sum of expected coordinates above and below by constant multiples of μ(q)^t, even from a fixed starting environment. The smaller root of 8x²−17(1−q)x+2−4q is at most 1/2 for q≤1/2 (nonnegative roots with product at most 1/4), and negative for q>1/2. The sign of this polynomial at x=1 is that of 13q−7, giving exactly the stated mean threshold. Critical means exponential rate one, not survival. The strict modal comparisons persist by continuity within the admissible demographic region; a strict mean comparison is locally stable at any fixed q away from criticality, not a universal unchanged threshold under perturbation. A separate exact symbolic replay at branches/92cfc60a-415e-4304-81cb-edefcf2af840/reproduce_expected_multiplier.py confirmed the characteristic factorization, P(1)=13q−7 and μ(7/13)=1. The uploaded verifier was inspected, not run; its path enumerations and simulations were not needed for the infinite-time proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanz treats general stochastic age-structured models and an IID rich/poor fertility example, including mean growth with typical extinction.",
+          "Monmarché et al. and the false-rescue record operate with continuous-time flows; the positive-retention comparison concerns different discrete matrices and schedule regimes."
+        ],
+        "reasoning": "The conceptual comparison of mean with typical rates is prior; the inspected formulations do not yield the exact interior-q law and its singular deterministic endpoint for a discrete two-cycle life history with no stage retention.",
+        "searches": [
+          "Sanz, arXiv:2402.03827, Sections 2.1, 7 and 8",
+          "Monmarché–Schreiber–Strickler, arXiv:2408.11179, model description",
+          "Resultary continuous-time false-rescue window and two-stage retention threshold records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_exact.py",
+        "Resultary ranked index and three relevant record mirrors",
+        "Sanz arXiv:2402.03827",
+        "Chitour–Mazanti–Sigalotti arXiv:1812.08399",
+        "Monmarché–Schreiber–Strickler arXiv:2408.11179",
+        "Grant–Benton DOI:10.1006/tpbi.1996.0021 (abstract-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General ergodic and Perron tools are available; the mean versus typical separation is stated in Sanz. The inspected stronger-looking product paper gives equality criteria rather than these two computed rates.",
+          "The nearby duration-invariant theorem uses individually critical matrices; the retention theorem singles out a common Perron vector at a retention crossover."
+        ],
+        "reasoning": "The frozen claim needs separate parity ergodicity for all interior persistence, both branches in the deterministically alternating two-step product, and the direction of the mean threshold from the conditioned recurrence. None of the inspected results jointly provides those inputs as a specialized theorem. The arbitrary rational threshold is an illustration, not originality by itself.",
+        "searches": [
+          "Chitour–Mazanti–Sigalotti, arXiv:1812.08399, equality discussion p. 3",
+          "Sanz, arXiv:2402.03827, pp. 6 and 15–17",
+          "Resultary retention and duration-invariant alternation, mirror Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest two-stage alternating Resultary theorem has strictly positive matrices with within-stage retention and compares ordered schedules.",
+          "The matrix-product paper's inspected main-result discussion compares deterministic and Markov probabilistic spectral radii and characterizes equality conditions."
+        ],
+        "reasoning": "In cyclic Leslie language the result is about age parity under random sampling; in random-product language it evaluates the almost-sure rate for a particular Markov family. The positive retention theorem does not operate at the zero-diagonal boundary or evaluate parity mixing. A general strict-gap criterion does not compute either the parity exponent or the expected-state threshold.",
+        "searches": [
+          "Resultary semantic search: cyclic two-age Leslie / anti-diagonal semelparous matrices, strict alternation, Markov persistence and mean rescue threshold",
+          "Chitour–Mazanti–Sigalotti, arXiv:1812.08399, deterministic versus probabilistic joint spectral radii",
+          "Sanz, arXiv:2402.03827, stochastic two-age Leslie example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed examples and Sanz's numerical model have different operators or switching assumptions. None of those statements supplies the exact matrices, characteristic factors, and 7/13 comparison of the frozen example."
+        ],
+        "reasoning": "The example was checked against exact model statements, not inferred to be distinguished merely by a different decimal threshold. There is no identified domain table beyond the inspected result index and worked examples; a deferred web lookup supplies no negative evidence.",
+        "searches": [
+          "Resultary local ranked search for the explicit anti-diagonal example and threshold 7/13; inspected closest same-topic mirror findings",
+          "Sanz, rich/poor two-age example, pp. 15–16"
+        ]
+      },
+      "rationale": "The supported distinct contribution, to the best of the statement-level evidence checked, is the exact parity-dependent boundary law for this semelparous class and its joint comparison with the exact ensemble threshold in a single witness. The general distinction between typical and mean growth, deterministic versus probabilistic matrix-product gaps, and the use of Markov-conditioned expectation matrices are not new. No inspected stronger result supplies this boundary calculation or the combined rescue and extinction regimes.",
+      "residual_risks": [
+        "Grant–Benton could contain a stronger parity or convergence treatment not recoverable from its abstract.",
+        "Other work on cyclic Leslie matrices or Markov monomial products may express the formula in another notation. The primary-literature search was bounded and one deferred lookup yielded no evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different hypothesis and threshold variable.",
+          "evidence": "Strictly positive retention matrices; alternating versus long blocks; common Perron vector at the crossover, rather than anti-diagonal q-dependent random switching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-unique-survival-threshold-reverses-the-advantage-of-environmen--21d96ab3451f",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique survival threshold reverses the advantage of environmental alternation",
+          "trigger": "Closest indexed two-stage alternation and threshold model"
+        },
+        {
+          "assessment": "Conceptual overlap, different dynamics.",
+          "evidence": "Continuous-time Markov switching gives a different mean threshold and false-rescue window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-mean-growth-threshold-and-a-rigorous-false-rescue-window--314121caa017",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local publication mirror",
+          "title": "A sharp mean-growth threshold and a rigorous false-rescue window",
+          "trigger": "Exact mean-positive and typical-collapse window"
+        },
+        {
+          "assessment": "No stated implication for the frozen random law.",
+          "evidence": "Alternating-growth criterion for individually critical systems, not the strictly declining constant-season witness plus parity-random law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-duration-invariant-growth-phase-for-alternating-critical-two-s--7abe31e6f5a1",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local publication mirror",
+          "title": "A duration-invariant growth phase for alternating critical two-stage systems",
+          "trigger": "Exact alternation theorem for demographic matrices"
+        },
+        {
+          "assessment": "Strong conceptual prior coverage, no exact matched formula in passages inspected.",
+          "evidence": "Mean growth can coexist with almost-sure extinction; rich/poor two-stage example treats IID fertility variation and bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.03827",
+          "material_read": "Section 2.1 and mean discussion p. 6 around offset 12800; Section 7 pp. 15–16 around 40400; Section 8 p. 17 around 45800",
+          "method": "OA preprint passage inspection",
+          "title": "Conditions for growth and extinction in matrix models with environmental stochasticity",
+          "trigger": "Same stochastic demographic setting and possible two-stage special case"
+        },
+        {
+          "assessment": "Gap background, not numerical exponent or mean threshold.",
+          "evidence": "Compares deterministic and Markov probabilistic joint spectral radii and characterizes equality.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08399",
+          "material_read": "Abstract p. 1 offset 0; main-result discussion p. 3 around offset 9300",
+          "method": "OA passage inspection",
+          "title": "On the gap between deterministic and probabilistic joint spectral radii for discrete-time linear systems",
+          "trigger": "Possible general result on switching-product gaps"
+        },
+        {
+          "assessment": "Different operators and time convention.",
+          "evidence": "Continuous-time population ODE with Metzler matrices and periodic or Markov environmental dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.11179",
+          "material_read": "Model description p. 2, offset around 8735",
+          "method": "OA passage inspection",
+          "title": "Impacts of Tempo and Mode of Environmental Fluctuations on Population Growth",
+          "trigger": "Periodic and random environmental schedules for population growth"
+        },
+        {
+          "assessment": "Unresolved potential overlap; not treated as evidence of absence.",
+          "evidence": "The accessible abstract-level material did not allow comparison of the full stochastic convergence statements with the frozen exact formulas.",
+          "identifier_or_url": "https://doi.org/10.1006/tpbi.1996.0021",
+          "material_read": "Landing page and abstract only",
+          "method": "DOI lookup and bounded search for lawful open text; no full text recovered",
+          "title": "The Impact of Environmental Variation on Demographic Convergence of Leslie Matrix Population Models",
+          "trigger": "Plausible coverage of parity effects in stochastic Leslie models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The completely semelparous model is a natural demographic boundary. The exact q-independent almost-sure extinction rate despite arbitrarily rare departures from deterministic rescue identifies a meaningful singular limit, and the mean calculation gives a precise regime where expected growth misdiagnoses typical behavior. The contribution is the controlled boundary example and class-level mechanism, not the threshold number in isolation or a claim about populations with nonzero stage retention.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

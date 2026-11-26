@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:11.204776Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–56 and VERIFICATION.md; enumerate_incidence.cpp; orbit_exchange.py; verify_symplectic.py",
+        "Replay: python3 /workspace/branches/audit01.py; output /workspace/branches/audit01.out"
+      ],
+      "rationale": "In a cubic graph the inactive set loses exactly its vertices of induced degree at most one each synchronous round. Thus it vanishes exactly when the initial inactive graph is a forest. For a nonempty complement the bound 45−3k+e(S)≤29−k forces k≥8; a seed with empty complement is already larger. At k=8 the seed is independent and the complement is a tree, and conversely this suffices. For one exchange, each of the three pairs among the neighbors of the removed seed vertex gives a cycle in its union with the tree. A viable replacement must lie on all three corresponding tree paths, hence at their unique median. Deleting it leaves two or three tree branches, each joined exactly once to the returned seed vertex. The median has three incident edges in the tree plus returned vertex and hence no other seed neighbor. This proves the single replacement for each of eight seed vertices. Independently, the audit enumerated disjoint duad triples for the synthemes and scanned independent eight-sets by duad shore size, applying simultaneous pruning to each complement. It found 111,225 independent eight-sets and 12,780 contagious sets with the stated nine shore counts and six finishing-time counts. Connecting by common seven-subsets gave 51,120 edges and component-size counts {9:70,12150:1}; every nine-component has degree eight and so is K9. All four island shore profiles match. Adjacent transpositions on the six symbols independently gave exactly 40 orbits with multiplicities {15:2,60:2,90:3,120:4,180:4,360:19,720:6}.",
+      "residual_risks": [
+        "The exhaustive run uses the independently proved independence reduction, not all unrestricted eight-sets. The S6 orbit census uses only the stated relabellings, not an action of the full automorphism group. On the empty-complement boundary the proof's forest edge inequality must not be used, but that case does not affect the minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic decycling lower bound is ceil((n+2)/4); Payan–Sakarovitch give equality for cyclically 4-edge-connected cubic graphs and an independent/tree partition when n=2 mod 4. Rapaport et al. treat random-initialization dissemination thresholds."
+        ],
+        "reasoning": "These cover the lower bound and the relevant existence/structure theory or a different probabilistic objective. No exact lists, round census or connectivity classification follow from those cited statements.",
+        "searches": [
+          "Nedela–Seifrtová–Škoviera arXiv:2309.11606, Theorems 1.1–1.2; DOI 10.1007/s00453-009-9309-0"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1587/transinf.2015EDL8021; arXiv:2309.11606; DOI 10.1007/s00453-009-9309-0",
+        "Resultary c5758dc3a0c2, 5fa1b052bdf0, 445764726c21, 9fe747acb02d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5fa1b052bdf0 describes a full automorphism group of order 1,440 and a color-preserving S6 of order 720, without listing the action's orbits on seeds. The cubic existence theorem provides partitions but not their number."
+        ],
+        "reasoning": "Knowing the subgroup and the degree of each exchange vertex does not give the orbit-size multiplicities or exchange components; even eight-regularity leaves many possible decompositions. The simultaneous pruning law also requires the actual tree census.",
+        "searches": [
+          "Compare arXiv:2309.11606 Theorems 1.1–1.2 and Resultary 5fa1b052bdf0 with the census and exchange claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takaoka–Ueno state that cubic irreversible 2-conversion is equivalent to the feedback vertex set problem and credit earlier work. The seed and induced tree are complements in the size-eight classification."
+        ],
+        "reasoning": "A census of the maximum induced trees or minimum feedback vertex sets in this same graph could cover the seed count via complement, with the same single-exchange adjacency. The equivalence itself does not enumerate that family, its rounds or orbit sizes.",
+        "searches": [
+          "Irreversible 2-conversion; cubic feedback vertex sets; maximum induced trees of Tutte–Coxeter",
+          "DOI 10.1587/transinf.2015EDL8021, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c5758dc3a0c2 reproduces the assigned finding, including all numbers. Related 445764726c21 gives 252 minima for Pappus and six K6 components plus a 216-vertex component; same-day 9fe747acb02d counts 45 optimum exponential-dominating sets for Tutte–Coxeter."
+        ],
+        "reasoning": "The exact match is the frozen record itself; the other results change the graph or the objective. Neither is an exact table for the eight-seed configurations in this graph.",
+        "searches": [
+          "Resultary exact count 12,780; Tutte–Coxeter optimum conversion; feedback-vertex/tree partition; orbit and round census"
+        ]
+      },
+      "rationale": "The known reductions and sharp cubic decycling theory do not supply the exact Tutte–Coxeter state-space structure. The supported distinct contribution is the full labelled optimal count, the specified subgroup orbit and synchronous round distributions, and the disconnected one-exchange classification. The matching exact catalogue hit is this same record, not an independent antecedent.",
+      "residual_risks": [
+        "The original Payan–Sakarovitch paper was not directly inspected; its theorem was checked as stated by Nedela et al. Unindexed older enumerations or tables of induced trees may overlap. Negative search results do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known reduction; no inspected Tutte–Coxeter census",
+          "evidence": "The cubic problem is FVS; a seed-free cycle stays inactive.",
+          "identifier_or_url": "https://doi.org/10.1587/transinf.2015EDL8021",
+          "material_read": "J-STAGE PDF p. 1; OA offsets 4922–5050",
+          "method": "Open primary PDF",
+          "title": "A Note on Irreversible 2-Conversion Sets in Subcubic Graphs",
+          "trigger": "Equivalent cubic optimization"
+        },
+        {
+          "assessment": "Covers structural ingredients; not the exact census",
+          "evidence": "General lower bound, plus Payan–Sakarovitch equality and coherent partitions under the specified connectivity and parity.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.11606",
+          "material_read": "pp. 1, 3; Theorems 1.1–1.2",
+          "method": "Open primary PDF, targeted statements",
+          "title": "Decycling cubic graphs",
+          "trigger": "General theorem on the optimum and its complements"
+        },
+        {
+          "assessment": "Different random-initialization problem",
+          "evidence": "Studies dissemination thresholds across graph classes, not enumeration of minimum deterministic seeds.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-009-9309-0",
+          "material_read": "pp. 16–17, abstract and introduction",
+          "method": "Open primary PDF",
+          "title": "On Dissemination Thresholds in Regular and Irregular Graph Classes",
+          "trigger": "Nearest threshold dissemination topic"
+        },
+        {
+          "assessment": "Interprets subgroup only",
+          "evidence": "Full group has a color-swapping coset in addition to the color-preserving S6 subgroup.",
+          "identifier_or_url": "Resultary 2026/10/18/5fa1b052bdf0",
+          "material_read": "RESULT.md, offsets 237 and 2587–4295",
+          "method": "Local published-finding mirror",
+          "title": "The full 1,440-symmetry homology character of the Tutte–Coxeter graph",
+          "trigger": "Same graph and natural action"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "252 Pappus optima; exchange components are six K6 and one of size 216.",
+          "identifier_or_url": "Resultary 2026/10/26/445764726c21",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-finding mirror",
+          "title": "Seven exchange components of minimum decycling sets in the Pappus graph",
+          "trigger": "Same invariant in a related cubic incidence graph"
+        },
+        {
+          "assessment": "Different domination objective",
+          "evidence": "Counts 45 minimum exponential-dominating sets.",
+          "identifier_or_url": "Resultary 2026/11/22/9fe747acb02d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-finding mirror",
+          "title": "Flag rigidity and a three-replacement threshold for exponential domination",
+          "trigger": "Same graph and exchange theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–19 and 31–41; independent exchange and profile audit"
+      ],
+      "rationale": "A canonical cubic girth-eight cage provides a natural exact test case where minimum feedback vertex sets are complements of maximum induced trees. Even though every optimum has eight exchanges, the graph fragments into seventy cliques and a giant connected component. This complete contrast between local and global mobility and the specified symmetry and timing profiles provide a useful baseline for reconfiguration and cascade models on cages.",
+      "residual_risks": [
+        "No general cage result or structural description of the giant component beyond its size and connectivity is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the polynomial blind-alternative theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The pair kernel matches the 2021 source's complete-data U-statistic. The population CDF integration identity, projected variance, all four critical derivatives, exact pure-perturbation values and the nonzero Jacobian were reconstructed. The analytic implicit-function theorem makes the two cancellations simultaneous and exact for all sufficiently small fixed nonzero perturbations. Positivity follows by uniform continuity of the polynomial derivative; midpoint CDF deviation shows strict nonuniformity. The nondegenerate bounded U-statistic CLT proves equality of the *first-order* normal laws, not finite-sample distributions. `verify.py` independently checks the algebra by symbolic exact integration.
+PASS
 
-## Originality (O): PASS, qualified
+For the specified iid, complete-data kernel k=-min(x,y)+(x²+y²)/2, direct conditional integration gives the first projection (up to an additive constant) and multiplying its variance by four gives the asymptotic variance. I independently integrated the kernel split at x=y with polynomial densities in exact rational arithmetic. Replay: python3 /workspace/reproductions/five_projected_variance.py. This gives null mean 0 and variance 1/45, the two-by-two mean/variance Jacobian [[1/15,1/35],[0,4/945]], and along x+cH the exact pair (-c²/30,1/45-c²/420-c⁴/225). The determinant 4/14175 is nonzero, so the analytic implicit-function theorem gives the exact jointly constrained local solution, with zero linear terms and quadratic coefficients 29/112 and 9/16. Endpoints stay fixed, the derivative converges uniformly to one, and the midpoint displacement c/4 excludes the null and bounds Kolmogorov distance from below. The nondegenerate bounded-kernel U-statistic CLT and continuity of the normal tails give rejection probability tending to alpha at each fixed stated null cutoff; empirical-CDF convergence gives KS consistency. This proves a fixed-alternative asymptotic fact for the unstudentized test, not finite-sample equality or a censoring claim.
 
-The complete-data sections, asymptotic theorems, numerical alternatives and conclusions of arXiv:2106.06368 and its 2023 open journal version were inspected. Both supply the signed scalar contrast and its null variance but not the two-cancellation polynomial family. The 2021 Ebner–Liebenberg–Visagie integral-square test is a distinct, omnibus-consistent statistic: its theorem does not dominate a claim about the scalar U-statistic. A separate indexed extropy blind-alternative construction addresses a different functional. Search is not proof of priority, and general U-statistic/implicit-function tools are standard. Residual risk: an unindexed or differently titled source could already give this exact family.
+## originality
 
-## Value (V): PASS
+PASS
 
-Matching just a population moment is a generic blind spot; matching both the moment and the *entire first-order Gaussian null distribution* is substantially stronger. The new construction shows that the published two-sided test has asymptotic power exactly \(\alpha\) for a continuum of smooth fixed alternatives, while the CDFs stay a positive Kolmogorov distance \(|c|/4\) from uniformity. This directly informs interpretation of this test's evidence and distinguishes it from genuinely omnibus integrated-square variants. The limit applies only to uncensored observations and the unstudentized normal cutoff.
+Zero-signal smooth alternatives, the original statistic, and its CLT/variance formula are not credited as new. The supported distinct content is an analytic nonuniform family with the asymptotic variance matched to the null exactly as well as its mean, converting scalar blindness into equality to size at every fixed asymptotic normal cutoff. The strongest available near-match statements describe conservative rather than size-equal power, and give no equivalent joint-level-set construction. Priority is qualified by unavailable full texts.
 
-## Closest sources and limitations
+## value
 
-The source article is Kattumannil–Sreedevi (arXiv:2106.06368, 11 June 2021), revised as Sreedevi–Kattumannil (2023, doi:10.1007/s42952-023-00205-8). The nearby omnibus squared-characterization paper is Ebner–Liebenberg–Visagie (arXiv:2108.06391). Classical U-statistic and implicit-function results are acknowledged. No claim is made about censoring, a global analytic continuation, finite-sample equality or independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A rigorously null-matched family is more informative than a zero-signal example: it exhibits a blind spot at every fixed nominal level for a published test, even for positive smooth alternatives independently detectable by an omnibus test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

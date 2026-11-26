@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:53:48.667712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t>0 use x−z∈t∂f(z). At any differentiability point z of nonzero slope p, set x=z+(s+t)p; exact composition and the singleton ∂f(z) force the intermediate point to be z+sp. Inner-step optimality then gives p∈∂f(z+sp) for every s>0. Subgradient inequalities at two points on that ray show f is affine there; derivative monotonicity and local absolute continuity yield only a constant negative ray, a possible flat interval, and a constant positive ray, with missing rays allowed. This also handles nonattainment: the no-flat, one-signed case on the full line is affine. The outward hinge form gives clipped translations with total time s+t; affine functions give translations everywhere. For positive kink slopes the composite minus direct map is −min(sa,x−ta) on [ta,tb] and −min(tb+sa−x,t(b−a)) on [tb,tb+sa], and zero elsewhere. These formulas agree at tb and yield the sharp error there. Reflection handles both negative slopes and x=ta, and the zero-containing subgradient case is a minimizer hinge with zero error. Zero times and equal slopes give zero directly. Inspected the frozen supporting files; the loop count is (325)(16)(2)+(9)(6)(16)(7)+(3)(9)(3)=16,529, matching the reported count, not a new execution. Exact grid tests are only corroboration; the arbitrary finite convex proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.5 identifies gradient-flow and variational paths under a further spectral condition for absolutely one-homogeneous functionals.",
+          "The continuous subgradient flow is generally a semigroup even when its finite-time resolvents are not: f=x²/2 gives P_1P_1=x/4, P_2=x/3."
+        ],
+        "reasoning": "The first result can overlap symmetric distance-to-point penalties in one dimension, but does not classify scalar finite convex penalties with asymmetric slopes, an interval of minimizers, or no minimizer. Existence of a flow semigroup does not characterize equality with each single resolvent step.",
+        "searches": [
+          "Bungert–Burger–Chambolle–Novaga arXiv:1901.06979, Theorem 4.5",
+          "scalar maximal monotone resolvent/implicit Euler and gradient-flow semigroup comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_scalar_prox.py",
+        "arXiv:1901.06979, arXiv:1909.05795, arXiv:2209.06200",
+        "Resultary d338409d8bbc, 8681e6f10f14, d44c6a142d0f, 2b35f1a5b89c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The propagation p∈∂f(z+sp) follows from the singleton at z and the exact finite-step identity, not merely the usual resolvent representation. The witness tb for positive slopes arises only when comparing the two time-scaled breakpoints, and gives a defect even for a positive piecewise-linear slope pair that is not a norm."
+        ],
+        "reasoning": "The matched broader results do not entail this propagation for all scalar penalties or the uniform sharp formula. Credit the standard one-step map and known norm cases rather than treating them as new.",
+        "searches": [
+          "arXiv:1901.06979, Theorem 4.5",
+          "arXiv:1909.05795, scalar explicit proximal mapping scope",
+          "Resultary d44c6a142d0f and 2b35f1a5b89c Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target law in resolvent notation is (I+s∂f)⁻¹(I+t∂f)⁻¹=(I+(s+t)∂f)⁻¹ on the whole line.",
+          "Combettes defines a composition involving a linear operator and a set-valued operator/function, not temporal composition of the two maps; Planiden–Wang provides formulas for scalar pieces but not the rigidity or the two-time supremum."
+        ],
+        "reasoning": "A calculus for single proximal operators, or a different operator composition, neither gives the necessity for arbitrary convex f nor computes the optimized two-step defect.",
+        "searches": [
+          "resolvent semigroup property one dimensional scalar convex proximal operators characterize when resolvents form nonlinear contraction semigroup monotone graph",
+          "Planiden–Wang arXiv:1909.05795, scalar piecewise proximal formulas",
+          "Combettes arXiv:2209.06200, resolvent composition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d338409d8bbc is the frozen finding itself. Same-day 8681e6f10f14, d44c6a142d0f and 2b35f1a5b89c concern star-graph total variation, ℓ_p norms in n≥2, and sums of Euclidean group norms respectively."
+        ],
+        "reasoning": "Even a one-dimensional restriction of a norm family gives a limited class of homogeneous penalties, not arbitrary scalar finite convex functions or a kink with both slopes of the same sign. Same-date indexing does not settle priority.",
+        "searches": [
+          "Resultary: scalar proximal semigroup rigidity exact time-additivity and nonminimizing one-kink defect"
+        ]
+      },
+      "rationale": "Standard subdifferential resolvents, scalar piecewise proximal formulas, and one-homogeneous settings overlap in ingredients and special cases. The inspected sources do not supply the all-finite-scalar necessity or the explicit sharp two-time kink envelope.",
+      "residual_risks": [
+        "Bounded search was not decisive for historical priority: older scalar autonomous differential-inclusion or monotone-graph results may use different terms. No inspected statement supplies both the necessity and quantitative kink conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional overlap on absolutely one-homogeneous functionals, not the classification",
+          "evidence": "Identifies paths subject to the spectral subgradient condition p(t)∈∂J(p(t)).",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06979",
+          "material_read": "Theorem 4.5 p.13, around OA offset 39200",
+          "method": "OA primary text",
+          "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+          "trigger": "Gradient-flow and proximal path equivalence"
+        },
+        {
+          "assessment": "Explicit one-step formulas are related ingredients, not inspected coverage of all-convex rigidity",
+          "evidence": "The stated formulas are for scalar piecewise-cubic functions and higher-dimensional gauges.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.05795",
+          "material_read": "Scope and introduction p.2, around OA offset 3400",
+          "method": "OA primary text",
+          "title": "Proximal mappings and Moreau envelopes of single-variable convex piecewise cubic functions and multivariable gauge functions",
+          "trigger": "Exact scalar piecewise proximal formula"
+        },
+        {
+          "assessment": "Not the same composition in the stated scope",
+          "evidence": "The operation composes a linear operator with a set-valued operator or with a function.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.06200",
+          "material_read": "Abstract p.1, OA offset 0",
+          "method": "OA primary text",
+          "title": "Resolvent and Proximal Compositions",
+          "trigger": "Potential equivalent operator terminology"
+        },
+        {
+          "assessment": "Different penalties and dimensions",
+          "evidence": "The first classifies stars by leaf count, the second restricts to norm exponents in n≥2, and the third concerns disjointness of distinct Euclidean coordinate groups.",
+          "identifier_or_url": "Resultary 8681e6f10f14; d44c6a142d0f; 2b35f1a5b89c",
+          "material_read": "Each original Finding at mirror offset 0",
+          "method": "Original texts in local mirror",
+          "title": "Three-leaf semigroup rigidity of star-graph total variation resolvents; Exact time-additivity classification and signed defect for Euclidean ℓ_p proximal maps; Exact semigroup rigidity for overlapping Euclidean group penalties",
+          "trigger": "Same-day semigroup and defect analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a complete scalar classification at a natural boundary between an implicit time step and an exact flow, with no smoothness or attainment hypothesis, and a sharp input-uniform obstruction at the first nonminimizing kink. This identifies precisely when a nonlinear time discretization is exact, rather than only testing families of examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

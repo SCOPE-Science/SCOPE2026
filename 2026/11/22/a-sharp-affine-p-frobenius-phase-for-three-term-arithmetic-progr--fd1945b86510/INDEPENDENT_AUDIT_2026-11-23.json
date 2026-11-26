@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:59:42.526674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–109",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent finite replay: node /workspace/review-evidence/exact-checks.js, a=5,…,34 and 2≤d≤floor(a/2)."
+      ],
+      "rationale": "Counting (y,z) base values with multiplicity in residue dr gives D(n) by a prefix count, so g_p is max_r(T_r−a) for the (p+1)st base T_r. The rows y+2z=r+ka have step a, lengths floor((r+ka)/2)+1 and starts a ceil((r+ka)/2)+d(r+ka). These formulas reproduce the frozen parity inequalities. With U=a(p+m)+(2a−1)d, rows 0–1 already suffice when p<K_r; otherwise their entries lie below U and row 2 supplies the missing counts. This does not sort the rows globally. In r=a−1, row 1 reaches U and row 2 starts U+a(a+d−p), so exactly p entries precede U, even at the tie p=a+d. At p₀=a+d+1, lower U by a−2d. Rows 0–1 plus the first needed row-2 entries work when p₀≥K_r. When p₀<K_r at most one of the previously counted row-1 entries exceeds the reduced threshold (the reduction is strictly less than the step a), and L₂(r) is below the threshold by at least 2d. For r=1, the reduced threshold is the relevant row-2 entry and L₃(1) is one full step above it; the immediately preceding residue point has at most p₀ entries. This gives equality and the change from residue −d to d. Coprimality makes a=2d impossible. Independently checked all 2817 levels and their maximizer residues across 147 coprime pairs via direct base histogram and residue prefix sums, with a terminal block of a consecutive counts exceeding p₀ to certify each finite tail.",
+      "residual_risks": [
+        "Finite replay is supplemental only. No maximal-left-endpoint claim or formula beyond p₀ is supported or required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Woods gives general fixed-generator restricted-partition and eventual level-set information, not the stated uniform finite family and breakpoint.",
+          "Subwattanachai requires a selected generator divisible by at least one of the others after dividing that pair by their gcd. Here adjacent generators are coprime and all raw generator ratios are strictly below 2. The sole exceptional pair gcd is 2 for (a,a+2d) when a=2m; neither m nor m+d divides 2m+d, since 0<d<m and m+d<2m+d<2(m+d)."
+        ],
+        "reasoning": "The conditional three-variable formula cannot be applied by permuting the generators, and the eventual statements and general denumerant techniques do not directly supply this finite-p law.",
+        "searches": [
+          "Primary literature search for the phase and endpoint of p-Frobenius numbers in three-term arithmetic progressions",
+          "Woods arXiv:2011.00600, Theorems 8 and 12",
+          "Subwattanachai arXiv:2309.09149, Theorem 1 and Remarks 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052",
+        "arXiv:2309.09149",
+        "arXiv:2011.00600",
+        "Resultary fd1945b86510, d6ba501caf95 and 6dc430dbb315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Komatsu–Ying stop at m; d6ba501caf95 covers the next single level m+1 by fixed threshold counts. The consecutive result allows varying p but excludes all d in the frozen theorem."
+        ],
+        "reasoning": "One adjacent value agreeing with the affine extrapolation does not prove a whole affine interval or when it breaks. Substitution into the consecutive theorem does not introduce coprime d≥2. The uniform multirow estimates and endpoint comparison are additional mathematics.",
+        "searches": [
+          "Direct comparison with arXiv:2206.13052 Theorem 1, d6ba501caf95 Finding and proof steps 2–4, and 6dc430dbb315 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The (p+1)st residue base statistic is the corresponding p-Apéry element; the generalized Frobenius value is their maximum minus a. Komatsu–Ying use these objects only at 0≤p≤m.",
+          "The same-day d6ba501caf95 p-Apéry theorem covers exactly p=m+1, even giving the p-genus there. Its proof evaluates at fixed p-specific positions using only two rows."
+        ],
+        "reasoning": "The equivalence in terminology does not bridge the missing p range: near the asserted right boundary, row-two entries (index k=2) must be taken into account, including their competition between residues.",
+        "searches": [
+          "Resultary progression affine phase, first post-range thresholds, consecutive denominations and restricted partitions",
+          "Komatsu–Ying arXiv:2206.13052, Theorem 1",
+          "Resultary d6ba501caf95, Finding and residue proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-match index hit fd1945b86510 is the frozen record itself. The separate d6ba501caf95 at the same date gives p=m+1 only. The earlier 6dc430dbb315 covers consecutive denominations d=1, even proving the analogous first break."
+        ],
+        "reasoning": "The independent hits are adjacent in p or in d, not an exact result/table covering the frozen family. The date of the adjacent record alone does not establish its within-day priority.",
+        "searches": [
+          "Resultary semantic queries for exact progression range and first-break formula",
+          "Local-mirror original statements d6ba501caf95 and 6dc430dbb315"
+        ]
+      },
+      "rationale": "The strongest distinct same-day result gives the adjacent level p=m+1 for d≥3 and agrees there with extrapolating the affine expression, but does not give any of the frozen levels or the first break. The prior d=1 analogue and general denumerant or Apéry machinery do not give this uniform d≥2 phase and its exact endpoint.",
+      "residual_risks": [
+        "An unindexed formula or a more powerful exact restricted-partition result could supply equivalent coverage. The bounded searches are not a claim of historical priority, especially within the same date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, earlier p range, not broader coverage.",
+          "evidence": "Theorem 1 explicitly restricts p to 0≤p≤floor(a/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "Primary p. 5 Theorem 1 and p. 3 introductory statement",
+          "method": "Bounded OA PDF reading at offsets 12593 and 7204",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Same progression and p-Apéry formulas"
+        },
+        {
+          "assessment": "Not applicable under any generator permutation.",
+          "evidence": "Theorem 1 and Remark 2 impose divisibility by one of the remaining generators divided by their gcd; the only normalized pair requiring separate checking is (a,a+2d) for even a.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.09149",
+          "material_read": "Primary p. 3, Theorem 1 and Remarks 2–3",
+          "method": "Bounded OA PDF reading at offset 7940",
+          "title": "Generalized Frobenius Number of Three Variables",
+          "trigger": "General three-generator explicit Frobenius formula"
+        },
+        {
+          "assessment": "General level-set and eventual laws; not the uniform finite phase and its break.",
+          "evidence": "The inspected fixed-generator statements do not identify this interval as a function of both a and d.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.00600",
+          "material_read": "Primary Theorem 8, p. 3, and Theorem 12, p. 5",
+          "method": "Bounded OA PDF reading at offsets 7090 and 12057",
+          "title": "The Generalized Frobenius Problem via Restricted Partition Functions",
+          "trigger": "Potentially stronger general thresholds for denumerants"
+        },
+        {
+          "assessment": "Material adjacent result, not equivalent coverage; posting order unknown.",
+          "evidence": "Fixes p=floor(a/2)+1 and d≥3; explicitly asserts nothing for other thresholds. Its two-row evaluation applies at the fixed inputs used in steps 2–4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-first-post-range-representation-thresholds-for-three-term-arithm--d6ba501caf95/RESULT.md",
+          "material_read": "Finding and residue-count proof, offsets 0 and 2325, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic retrieval and bounded local-mirror read",
+          "title": "First post-range representation thresholds for three-term arithmetic progressions",
+          "trigger": "Closest distinct same-day progression result; frozen formula extrapolates to its level"
+        },
+        {
+          "assessment": "Analogue outside the frozen parameter domain.",
+          "evidence": "Uses (a,a+1,a+2), with its affine interval through a+1 and break at a+2.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary semantic retrieval and bounded local-mirror read",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Closest earlier structural analogue of affine phase plus first break"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and row-competition proof",
+        "Komatsu–Ying Theorem 1 and the d6ba501caf95 adjacent calculation"
+      ],
+      "rationale": "This is an exact threshold classification across an interval whose length grows with the parameters, in a standard arithmetic-progression family with a known low-p theory. It identifies a change of the controlling residue and the first departure from linearity, information not furnished by an isolated next level, eventual growth, or bounded enumeration.",
+      "residual_risks": [
+        "Value is for the stated interval and first break, not for all p or other progression lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

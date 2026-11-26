@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:34.670653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The projective action is faithful by the three-point test; the order of PGL2 is the full permutation order at q=2,3. Swapping an inversion sends both ratios inside the original interval [b_k/a_j,b_l/a_i] for i<j and k<l; adjacent swaps terminate, including when weights tie. For i<j both r_j/r_i and its reciprocal are at most n, and equality in the chain of bounds requires exactly the stated repeated weight and 1,n endpoints. The kernel-column construction gives weights equal to nonzero length minus the kernel multiplicity, has rank two with at least two distinct represented kernels, and gives both sharp examples for every n≥3 with the specified zero padding. For n=2 the only rank-two code is the whole space. At q=4 the translations, nonzero dilations and inversion act evenly and generate a group of order 60; the odd transposition is the only weight-preserving matching. Every feasible matching has product of ratios 1 and is not constant, so it has an upward ratio at least 10/9 and a downward one at most 9/10. The identity attains both. The algorithm examines a constant number of messages and candidate projective maps and hence is linear in block length over either fixed field.",
+      "reproduction": "Inspected the bundled verify.py without running it. An independent exact enumeration of all 60 even permutations of the two displayed quaternary weight vectors, using rational ratios, gives minimum 100/81. The arbitrary-length result follows from the analytic proof, not a finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Fox–Morrell give the n² general linear bound and the n bound for a not necessarily linear map, plus a binary dimension-two example with distortion n. Their example uses n−3 zero columns, so it attains n for n≥3, not n=2. The coding classification source permits a field automorphism in its equivalence convention."
+        ],
+        "reasoning": "The witness already establishes binary attainment but is not an all-pair bound. Allowing nonlinear maps or field automorphisms enlarges the feasible set and cannot establish the same linear optimum.",
+        "searches": [
+          "The Code Distortion Problem, LIPIcs Lemmas 15–17; associated arXiv paper on general bounds",
+          "Bouyukliev et al., Computer classification of linear codes, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.26261",
+        "DOI 10.4230/LIPIcs.APPROX/RANDOM.2026.24",
+        "Cameron, Group Theory Notes 6",
+        "Bouyukliev–Bouyuklieva–Kurz, Computer classification of linear codes",
+        "d4edaa765343",
+        "c2ab438c2c3e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published binary pair supplies exactly one attainment family; its nonlinear theorem supplies only a potentially different minimizer. The later q=4 formula (min_i a_(i+1)/a_i)² for cross-class equal enumerators gives 100/81 for 6,7,8,9,10."
+        ],
+        "reasoning": "Credit the prior binary lower bound and the later publication's exact specializations explicitly. The compared older general statements do not imply the frozen remaining optimal-map theorem, ternary sharpness, and exact field-linear parity obstruction.",
+        "searches": [
+          "LIPIcs 2026.24 Lemmas 15–17; arXiv:2607.26261 p. 2 and §§2.5; bounded same-topic Resultary passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The linear-distortion definition agrees with the published problem; the classical permutation actions at q=2,3,4 are S3,S4,A5. The later binary record gives exactly the binary sorted formula and a stronger characterization of sharp pairs; the later quaternary record gives exactly the obstruction and generalizes it."
+        ],
+        "reasoning": "Projective directions remove the scalar repetition in Hamming weight, but identifying the allowed permutations is not itself the sorted ratio optimization. The q=4 obstruction is for field-linear maps, not for all semilinear code equivalences.",
+        "searches": [
+          "Resultary searches for rank-two code distortion, sorted projective weights and projective equivalence",
+          "Bennett–Fox–Morrell arXiv:2607.26261 and LIPIcs §2.5",
+          "Cameron, Group Theory Notes 6, §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-diameter-and-rigid-extremizers-of-binary-rank-two-code-dis--d4edaa765343 gives the same binary formula and sharp diameter. 2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e gives the same length-ten 100/81 example and a broader exact parity-class formula."
+        ],
+        "reasoning": "These are exact statement overlaps in the respective subcases, not title matches. Neither is earlier on the available dates; no corresponding prior exact table containing the full linear formula in both fields surfaced in the inspected material.",
+        "searches": [
+          "Resultary rank-two code distortion queries; bounded reads of the closest binary sharp-diameter and quaternary parity-split RESULTS"
+        ]
+      },
+      "rationale": "The credited binary example already gives the n lower-bound witness, and the projective group action is classical. The supported contribution is the exact linear optimization for all pairs in rank two over both small fields, with the uniform bound, equality criterion, and quantified obstruction at q=4. Two later indexed records give significant overlap, but neither date establishes priority or provenance; they are not evidence of earlier coverage of this record.",
+      "residual_risks": [
+        "An older finite-linear-code equivalence or bottleneck matching formulation could give additional overlap; no comprehensive priority claim is supported.",
+        "The two later indexed items do not establish independence or provenance; the general web query did not yield a usable additional match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers binary attainment for n≥3, not the two-field formula or restricted linear all-pair n bound in the compared passages",
+          "evidence": [
+            "General linear n²; not necessarily linear n; explicit binary rank-two pair padded by n−3 zeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26261; DOI 10.4230/LIPIcs.APPROX/RANDOM.2026.24",
+          "material_read": "arXiv p. 2 and §2.5, pp. 11–12; LIPIcs Lemmas 15–17, pp. 11–12",
+          "method": "Bounded lawful OA readings of preprint and proceedings",
+          "title": "The Code Distortion Problem",
+          "trigger": "Original problem and potentially covering sharp bound"
+        },
+        {
+          "assessment": "Covers the group facts, not code distortion",
+          "evidence": [
+            "Natural actions identify PGL2(2) with S3, PGL2(3) with S4, and PGL2(4) of order 60 with A5."
+          ],
+          "identifier_or_url": "Peter J. Cameron, §6.2",
+          "material_read": "§6.2 pp. 4–5, offsets 8350–12335",
+          "method": "Bounded original text",
+          "title": "Group Theory Notes 6",
+          "trigger": "Earlier projective permutation equivalence"
+        },
+        {
+          "assessment": "Uses a broader semilinear equivalence notion",
+          "evidence": [
+            "Coordinate permutations and nonzero scalings together with field automorphisms are allowed."
+          ],
+          "identifier_or_url": "Bouyukliev, Bouyuklieva and Kurz, Computer classification of linear codes",
+          "material_read": "p. 1, offsets 1800–3785",
+          "method": "Bounded original text",
+          "title": "Computer classification of linear codes",
+          "trigger": "Possible equivalence from the weight enumerator"
+        },
+        {
+          "assessment": "Equivalent binary formula and sharper binary extremizer shapes, recorded later",
+          "evidence": [
+            "Sorted formula, n≥3 diameter n, sharp profiles (1,n−1,n) versus (2t,2t,2t)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-diameter-and-rigid-extremizers-of-binary-rank-two-code-dis--d4edaa765343",
+          "material_read": "RESULT.md offsets 0 and 5400",
+          "method": "Indexed search and local mirrored full-text passages",
+          "title": "Sharp diameter and rigid extremizers of binary rank-two code distortion",
+          "trigger": "Exact binary overlap"
+        },
+        {
+          "assessment": "Stronger later field-linear classification",
+          "evidence": [
+            "Parity classes for distinct weights, Frobenius caveat, and length-ten distortion 100/81."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e",
+          "material_read": "RESULT.md offsets 0 and 5350",
+          "method": "Indexed search and local mirrored full-text passages",
+          "title": "The parity split in quaternary rank-two code distortion",
+          "trigger": "Exact boundary example overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact optimal field-linear map in a natural first nontrivial dimension of an established code distortion problem and identifies when the sharp all-pair upper bound is attained. It also exhibits explicitly where weight spectra stop being sufficient, quantitatively rather than by a bare non-equivalence example. The already known binary witness is not counted as the main value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

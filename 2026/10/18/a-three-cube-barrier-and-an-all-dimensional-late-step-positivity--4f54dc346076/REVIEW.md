@@ -1,13 +1,21 @@
-## Correctness
-**PASS.** The arbitrary-dimensional claim follows from Walsh diagonalization, the exact \(O(h^{-1})\) nearest-neighbor term and a strictly positive binomial recurrence for every dimension at least three. The complete first-obstruction classification follows from four exact three-cube rational expressions and one Descartes sign-change argument. The supplied code tests the displayed identities, not an exhaustive enumeration of arbitrary dimensions.
+# Independent mathematical audit
 
-## Originality
-**PASS, with residual bibliographic risk.** The 2010 paper by Zappavigna, Colaneri, Kirkland and Shorten studies general Padé positivity and gives sufficient conditions and examples, but does not identify this hypercube threshold. Related published work establishes the sharp eight-state **small-step** obstruction on a pure-birth chain, and an earlier hypercube result treats the high-dimensional small-step obstruction and a seven-cube window; neither supplies the all-dimensional **late-step** sign coefficient, first failing cube, and exact three-cube timestep boundary. The general Walsh transform and the existence of Padé positivity failures are expressly prior mathematics. Specialized unindexed numerical-analysis literature might contain an equivalent cube calculation.
+## correctness
 
-## Value
-**PASS.** The theorem isolates a concrete physical/algorithmic mismatch: despite A-stability, a symmetric positive-definite mass-preserving implicit fourth-order update can move positive mass to a negative nearest-neighbor value at large steps. It establishes a sharp structural cutoff in hypercube dimension, an exact engineering timestep boundary for its first instance, and a general closed-form asymptotic sign witness rather than an arbitrary numerical counterexample.
+PASS
 
-## Literature limitations
-The evidence supports an exact mathematical theorem and a best-knowledge originality comparison, not a claim of exhaustive bibliographic uniqueness or independent verification.
+At rate one per coordinate the Walsh eigenvalues of Q_d are -2k; the shell weights are the coefficients of (1-z)^j(1+z)^(d-j). The scalar numerator and denominator are positive, r_0=1, and symmetry follows from the orthogonal spectral decomposition. The exact heat kernel is a tensor product of strictly positive two-state kernels for h>0. Let D_k=1+kh+k^2 h^2/3, so r_k=1-2kh/D_k. The off-diagonal two-cube shells simplify to h/D_2 and h(1/D_1-1/D_2), both strictly positive, as is h/D_1 on the one-cube. On Q_3 inserting the four coefficient lists (1,3,3,1), (1,1,-1,-1), (1,-1,-1,1), (1,-3,3,-1) and clearing positive denominators gives the displayed four shell numerators. The first, third and fourth have positive coefficients after their h factors are removed; the second is -3h times the quartic. Descartes' sign rule and the sign change from h=0 to infinity give a unique positive threshold; exact rational evaluation brackets it between 8.583763463733358 and 8.583763463733359. At zero the update is the identity; at the cutoff only the neighbor shell vanishes. For arbitrary fixed d, expansion of 1-2kh/D_k gives 1-6/(kh)+O(h^-2). The constant terms cancel off the diagonal; the neighbor coefficient is -6 S_d/2^d. Pascal's identity gives the increment (2^(d+1)-1)/(d+1) in the reciprocal-binomial sum, yielding the stated increment of S_d. Since S_3=1/6, the leading term is negative in every d>=3. The uploaded verifier was inspected, not executed: it makes finite exact checks (including a bracket 8<h<9), not a proof of the recurrence for unbounded d or a computation of the printed root precision.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the unit-rate reversible cube sharp first-failure threshold and the universal late-step edge sign, not standard Walsh diagonalization, the elementary small cubes taken alone, or generic Padé nonpositivity. A separately indexed November 8 result mathematically covers the whole claim at two stages and extends the sign law to even stage counts; a second November 8 product theorem covers the dimension boundary and large-step sign but not the sharp quartic. Both are later displayed than the frozen October 18 record, and the inspection did not establish an earlier version or priority. The earlier same-map general-CTMC obstruction and same-day different-map cycle theorem are different claims. No inspected earlier result establishes the full cube theorem.
+
+## value
+
+PASS
+
+A sharp admissible timestep on the smallest failing reversible Boolean cube and an explicit negative edge sign in every larger dimension distinguish endpoint mass positivity from unconditional spectral stability for a natural implicit fourth-order method. The obstruction is structural and materially more informative than sampling a bad timestep or giving another directed counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:32:14.985286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–44, 48–94 and 98–104",
+        "check.py:13–93 and VERIFICATION.md:19–21 (inspected, not rerun)",
+        "In the four-row example the squared row norms are 9,9,2,2 and B^TB=diag(20,2), giving atoms 2 and 11 with masses 9/11 and 2/11."
+      ],
+      "rationale": "In a real Gram factorization A=BB^T with B^TB diagonal, the residual trace is T minus the Rayleigh quotient of B^TB in the chosen row direction, where T=lambda1+lambda2. With t the squared fraction of a nonzero row in the second eigendirection, that gives R=lambda2+(lambda1−lambda2)t. Weighting the rows by squared norm/T gives E[t]=lambda2/T, hence exactly the stated mean. Conversely two rows of norm squared w_j T/2 with second-coordinate fractions t_j and opposite signs of the second coordinate give diagonal covariance contributions w_j T(1−t_j,t_j), without off-diagonal terms. Summing gives the two strictly positive eigenvalues and ensures the two pivots associated to atom j have the prescribed total mass w_j; the endpoint and one-atom cases need no exceptions. Jensen and the secant bound yield attainable convex-order and variance extremes; for m<u<=lambda1 the inequality R−lambda2 >= (u−lambda2)1_{R>=u} is exact on the two-point witness supported at lambda2 and u. The deterministic law handles u=m and lower, and the interval support handles u>lambda1. No fixed-dimension claim is needed.",
+      "residual_risks": [
+        "This analytic check covers exactly one pivot and varying dimension; no formal/external attestation. The recorded three-atom trials sample the endpoint-plus-center pattern and are not a substitute for the paired-row proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly's one-step convex residual lemma applies in particular when the residual has rank one, yielding the endpoint upper estimate for its class of convex functions.",
+          "Divan–Gilles give a trace expectation bound for approximate pivoting using elementary symmetric polynomials."
+        ],
+        "reasoning": "A sharp upper estimate on convex averages, even if established, is not an inverse law theorem. Neither inspected result constructs matrices giving all admissible laws or determines the sharp attained tail at every threshold.",
+        "searches": [
+          "arXiv:2608.20633, Thm. 1.2, Cor. 1.3, Lemma 4.2",
+          "arXiv:2609.06287, Thm. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.06503; 2608.20633; 2609.06287; 2404.11487",
+        "Resultary 73b2b6cddee0 and 2bb9e4395f06",
+        "ScienceDirect PII S1063520315000433 (unresolved access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trace of A−A²/tr(A) gives the frozen mean. After a nonzero pivot of rank-two A, the residual has rank one, so a convex spectral bound closely overlaps the endpoint bound.",
+          "The different diagonal-square sampling in Steinerberger controls Frobenius contraction.",
+          "The tail upper inequality is elementary; its sharpness as a bound over inputs requires an attaining matrix, which the inverse law supplies."
+        ],
+        "reasoning": "The mean and interval give standard convex and tail inequalities, but known bounds alone do not show that the intermediate two-point witnesses or arbitrary multiple atoms obey the Gram orientation constraints at fixed eigenvalues.",
+        "searches": [
+          "arXiv:2207.06503, Algorithm 1 and Eq. (5.3)",
+          "arXiv:2608.20633, Lemma 4.2",
+          "arXiv:2404.11487, §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a real two-dimensional Gram frame the masses are squared row norms divided by T and the atoms specify direction-dependent Rayleigh quotients.",
+          "The publisher source on generalized Schur–Horn and optimal frame completions returned HTTP 403; no theorem from it was treated as having been read."
+        ],
+        "reasoning": "Prescribing norms and a frame-operator spectrum alone does not prescribe the direction-dependent Rayleigh quotients of individual rows. The exact requirement here is a decomposition into real rank-one terms with a simultaneous constraint on weights and projected coordinates. Potential literature giving that stronger decomposition remains a residual risk.",
+        "searches": [
+          "Frame completion and generalized Schur–Horn for prescribed row weights with fixed frame operator",
+          "Chen et al., sampling (2.6) and Eq. (5.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "73b2b6cddee0 (later path date) gives a two-atom law for a positive-definite common-factor family after k pivots, classified by whether an exceptional coordinate has been selected.",
+          "2bb9e4395f06 treats a rank-two Frobenius contraction boundary under power-diagonal sampling."
+        ],
+        "reasoning": "A two-atom law in a structured positive-definite family, or an exact contraction for a power rule, does not cover arbitrary atom count or the converse in the fixed-spectrum class. No equivalent exact catalogue statement was verified.",
+        "searches": [
+          "Resultary: exact one-pivot rank-two residual laws, fixed spectrum, diagonal-weighted Cholesky",
+          "Resultary 73b2b6cddee0 and 2bb9e4395f06"
+        ]
+      },
+      "rationale": "Do not credit the pivot rule, the mean, or a new general convex risk inequality. The supported distinct content is the exact inverse statement: every finite scalar law with the specified interval and mean is attained by real rank-two inputs of the specified spectrum, and the worst-case intermediate tail is attained within that class. The inspected work gives expectations, convex estimates, or different input/sampling restrictions, not this realizability and sharpness.",
+      "residual_risks": [
+        "A prior equivalent decomposition theorem in frame, moment or ensemble theory may exist; the general frame-completion source named above was not read. No historical-priority guarantee follows from the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pivot rule and fixed-spectrum mean covered, full law not supplied by these results",
+          "evidence": "The expected residual matrix is A−A²/tr(A).",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "Algorithm 1 p. 2; Eq. (2.6) p. 5; §5.1 Eq. (5.3) p. 20, OA offsets 5246, 20963, 77200",
+          "method": "Bounded OA full-text inspection",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Original algorithm and one-step mean"
+        },
+        {
+          "assessment": "Partial convex-order overlap, no converse in the inspected statements",
+          "evidence": "One-step expected convex spectral-function bound; multistep error results do not prescribe an attained distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+          "material_read": "Thm. 1.2 and Cor. 1.3 p. 2, Lemma 4.2 p. 9, OA offsets 9522 and 39527",
+          "method": "Bounded OA full-text inspection",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "One-step convex estimates and multistep tails"
+        },
+        {
+          "assessment": "Trace expectation bound rather than exact scalar-law feasibility",
+          "evidence": "Expected-error estimates using elementary symmetric polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287",
+          "material_read": "Thm. 3.1 p. 5, OA offset 19129",
+          "method": "Bounded OA full-text inspection",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+          "trigger": "General trace risk for approximate RPCholesky"
+        },
+        {
+          "assessment": "Different sampling rule and norm",
+          "evidence": "Frobenius contraction for pivots proportional to squared diagonal entries.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+          "material_read": "Abstract p. 1 and §2.1 p. 3, OA offsets 0 and 8959",
+          "method": "Bounded OA full-text inspection",
+          "title": "Randomly Pivoted Partial Cholesky",
+          "trigger": "Related one-step pivoting and risk bounds"
+        },
+        {
+          "assessment": "Later by record path date; different inputs and law",
+          "evidence": "Positive-definite common-factor family, at most two values after k pivots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-atom-residual-law-and-sharp-pivoting-reversal-on-commo--73b2b6cddee0/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirrored result reader",
+          "title": "Exact two-atom residual law and sharp pivoting reversal on common-factor inputs",
+          "trigger": "Exact trace-residual law in the index"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "One-step Frobenius contraction under diagonal-power sampling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-rank-two-exponent-boundary-for-power-diagonal-cholesky-p--2bb9e4395f06/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirrored result reader",
+          "title": "A sharp rank-two exponent boundary for power-diagonal Cholesky pivoting",
+          "trigger": "Exact indexed rank-two pivoting analysis"
+        },
+        {
+          "assessment": "Unresolved frame-theory comparison",
+          "evidence": "HTTP 403; no theorem read or inferred from the title.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1063520315000433",
+          "material_read": "Search citation only",
+          "method": "Attempted OA retrieval",
+          "title": "A generalized Schur–Horn theorem and optimal frame completions",
+          "trigger": "Possible stronger frame-realization analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:11–40, 69–94 and 98–104",
+        "arXiv:2207.06503 Eq. (5.3); arXiv:2608.20633 Thm. 1.2 and Lemma 4.2 (context)"
+      ],
+      "rationale": "A spectrum-only expectation does not quantify the reliability of the randomized numerical step. The converse resolves whether that information can be strengthened to a finer universal distributional constraint: in this base case there is none except finite support, the interval, and the mean. In particular, exact attainable probability at any threshold and actual equal-spectrum witnesses show why the first moment cannot certify typical behavior. The elementary bounds by themselves would not be the contribution.",
+      "residual_risks": [
+        "The result gives worst-case as opposed to typical-input information, and variable-dimension rank-two sharpness is not a general high-rank or multistep confidence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

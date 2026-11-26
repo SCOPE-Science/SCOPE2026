@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:54.926620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and scope; VERIFICATION.md; verify.py and verification_output.txt (inspected, not executed)",
+        "python3 /workspace/audit_evidence/finite_checks.py 4"
+      ],
+      "rationale": "For the 36 vertex metric, independently enumerating cliques through size five gives (36,162,186,36,0); any larger clique would contain a five-clique. The tetrahedra are exactly the 36 neighborhood simplices and the 42 outside triangles are precisely the distinct alternating triples of the 21 listed hexagons. The two-spoke step equation leaves a=3,b=1, and the only spokeless hexagons are the three inner rings. In the neighborhood complex, each nonadjacent pair has a unique graph midpoint by girth, so neighbor-only triangles first collapse with their tetrahedra, then centered triangles collapse along their distance-two edges. Transport of the exceptional attaching maps along the resulting retraction is a homotopy-invariant CW attachment, not a collapse of the full Rips complex along edges now shared with exceptional triangles. Traversing either alternating triangle, the actual midpoint words trace its own hexagon. The second disk on each gives a sphere after the first disk, hence 21 spheres. With just the first disks, each outer-spoke hexagon has a free inner edge before adding the inner disks; collapse then leaves the outer circle and pendant spokes. Each transported inner loop traverses that circle once, with degree +1 (checked by the signed path substitution), so the first fills it and the two remaining give two more spheres. This proves the integral homotopy type independently of modular arithmetic. At radius one there are no graph triangles and the connected 36-vertex 54-edge graph has cycle rank 19.",
+      "residual_risks": [
+        "Nonequivariant and fixed radius two on graph vertices; does not compute higher radii or persistence maps. The reviewed structural argument suffices without assuming that arbitrary group Tietze moves preserve a two-complex homotopy type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-power collapse requires girth >=7 at radius 2 or a separate closed-neighborhood cover criterion, and both fail.",
+          "The hexagon-packing result requires edge-disjoint hexagons; each outer edge here lies in three outer-spoke cycles."
+        ],
+        "reasoning": "None of the verified broader collapse theorems classifies this clique complex directly.",
+        "searches": [
+          "arXiv:1104.0433 Proposition 2.2 and Theorem 3.1",
+          "70b9bc9b3abb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match ef25cdf8e51d",
+        "c6f4ddebbf06",
+        "arXiv:1104.0433",
+        "70b9bc9b3abb",
+        "d4c834641f87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier stable proof uses n/gcd(n,3)>=7 to exclude short inner rings and checks the maximal exceptional triangles under n>=19.",
+          "At 18 the extra inner rings have length six and yield six additional maximal alternating triangles; their transported loops have degree one, not zero or a multiple of three."
+        ],
+        "reasoning": "The method adapts, but the stable statement omits precisely the additional rings and cannot decide this boundary statement by substitution; the new clique and attaching-map analysis is required.",
+        "searches": [
+          "c6f4ddebbf06 Finding and Proof §§1–2, offsets 0 and 2550",
+          "70b9bc9b3abb Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusive VR(G;2) for graph vertices is the clique complex of G squared. The undirected inner step 15 is the same as step -3 mod 18; step 2 is different.",
+          "The inspected GP(n,2) record concerns 8<=n<=12."
+        ],
+        "reasoning": "The radius and graph-square formulations have identical faces; changing the inner step to 2 does not give an equivalent graph problem.",
+        "searches": [
+          "Resultary generalized Petersen GP(18,3) radius-two integral homotopy",
+          "Adamaszek, arXiv:1104.0433"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue homotopy match is the assigned record itself; the earlier record explicitly reports only mod-two Betti numbers (0,23) in degrees (1,2) here and withholds integral homotopy."
+        ],
+        "reasoning": "The exact earlier ranks corroborate, but neither imply simple connectivity nor identify the integral homotopy type.",
+        "searches": [
+          "Resultary GP(18,3), scale-two integral wedge of 23 spheres and graph powers",
+          "Focused web lookup for GP(18,3) Vietoris–Rips and graph-square homotopy",
+          "c6f4ddebbf06 boundary clause"
+        ]
+      },
+      "rationale": "The prior calculation already gives the ranks over F2 at this exact parameter and the same outer-hexagon mechanism in the stable regime. The distinct claim is the integral homotopy classification at the previously excluded boundary, with the degree-one effect of the three additional rings, not the number 23 as a mod-two Betti value or the stable proof technique itself.",
+      "residual_risks": [
+        "The focused literature query was uninformative. Bounded source comparisons do not exclude an unindexed exact integral computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stable formula and exact mod-two data are known; integral boundary conclusion expressly not asserted",
+          "evidence": [
+            "n>=19 gives S^1 wedge n S^2; n=18 has mod-two ranks 0,23 and no asserted integral homotopy type."
+          ],
+          "identifier_or_url": "c6f4ddebbf06",
+          "material_read": "Finding, assumptions and Proof §§1–2, offsets 0 and 2550",
+          "method": "Local full-text mirror passages",
+          "title": "Persistent hexagon spheres in generalized Petersen graph thickenings",
+          "trigger": "Same family and exact reported boundary data"
+        },
+        {
+          "assessment": "Neither sufficient condition applies",
+          "evidence": [
+            "girth at least 3r+1; separate criterion that all cliques of the graph square lie in closed neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "Proposition 2.2, p. 3, offset 10100; Theorem 3.1, p. 4, offset 14347",
+          "method": "OA primary PDF passages",
+          "title": "Clique complexes and graph powers",
+          "trigger": "General theorem phrased directly in graph powers"
+        },
+        {
+          "assessment": "Does not cover overlapping six-cycles",
+          "evidence": [
+            "Distinct six-cycles must be edge-disjoint."
+          ],
+          "identifier_or_url": "70b9bc9b3abb",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "A hexagon-packing classification of scale-two graph Rips complexes",
+          "trigger": "Same radius and girth"
+        },
+        {
+          "assessment": "Different graph parameters",
+          "evidence": [
+            "Inner step 2 and 8<=n<=12."
+          ],
+          "identifier_or_url": "d4c834641f87",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "Five exceptional scale-two Rips homotopy types for GP(n,2)",
+          "trigger": "Petersen exception alias comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen homotopy argument and independent clique/loop checks",
+        "c6f4ddebbf06 stable theorem and exact boundary clause"
+      ],
+      "rationale": "This is the natural first omitted parameter of a proven family, already recognized by a boundary mod-two anomaly. The added degree-one attaching loops determine whether the stable circle survives and provide an integral answer that field ranks cannot give, with an explicit explanation of the change.",
+      "residual_risks": [
+        "Value is for this sharp radius-two boundary, not a new stable-range or equivariant classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

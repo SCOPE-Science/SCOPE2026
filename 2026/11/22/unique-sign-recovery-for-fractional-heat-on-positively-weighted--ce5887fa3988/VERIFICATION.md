@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The theorem is established by the explicit arrowhead spectral projector, its ordered sign blocks, the strict convex-order inequality for the initial slope, and the generalized Descartes bound on zeros of exponential sums. Each step, including repeated conductances, is proved in `RESULT.md`.
+## correctness
 
-For a reproducible independent numerical spot check, install `numpy` and `scipy` and run:
+PASS
 
-```bash
-python verify_star.py
-```
+The radial arrowhead secular function increases strictly between its distinct poles, with the stated interlacing and the constant mode at zero. The contrast eigenspaces at a tied conductance contribute −1/s_a for distinct leaves of that class and zero for cross-class or hub–leaf pairs. Thus every off-diagonal leaf entry has the nonempty coefficient blocks +,−,+, including with ties; a hub–leaf entry has blocks +,− and total zero, so strictly decreasing exponential weights give positivity. Leaf-pair total mass and first spectral moment both vanish. Subtracting the secant across the negative block (a supporting affine function for a singleton) proves a strictly positive multiplier entry for strictly convex φ, hence a simple negative initial slope. The two-zero bound can be confirmed directly: on writing x=e^(−t), choose p and q between successive coefficient blocks in the ordered transformed exponents. The factors (x d/dx−q)(x d/dx−p) multiply each coefficient by two signed factors so all the resulting terms are positive. Two applications of Rolle's theorem to the weighted derivatives bound the original zeros by two with multiplicity. The positive limiting constant mode therefore forces exactly one additional zero, positive and simple. Connected Metzler positivity and the subunit Bernstein integral prove the complementary regime. Unit row sums give the sharp maximum-norm equivalence including t=0 and at the last recovery itself. Independent polynomial projectors for conductances (1,1,3) give the predicted signs and, for φ(λ)=λ+λ², recoveries near 0.1371912067726 and 0.0562820850536 for tied and cross-class pairs respectively.
 
-The checker reconstructs the symmetric weighted graph Laplacian and uses `scipy.linalg.eigh` and `scipy.optimize.brentq`. It checks the leaf-pair identity \((L^2)_{ij}=w_iw_j\), the nonnegativity window, hub–leaf positivity, row-sum preservation, and sign changes on 216 weighted configurations/orders, yielding 1,608 pair-level trials. Tested examples include repeated weights and several unequal-weight configurations. This checker passed in the present package. It uses floating-point arithmetic, so it is not a formal certificate, exhaustive search, proof of unique roots, or independent validation. The universal proof is analytic and does not assume untested numerical limits.
+## originality
 
-A simple symbolic check is the uniform star formula, where all leaf pairs share the kernel
-\[
-\frac1{m+1}-\frac1m e^{-tw^\alpha}+\frac1{m(m+1)}e^{-t((m+1)w)^\alpha}.
-\]
-The proof's ordering argument also treats nonuniform and tied weights by class-level spectral projections; it does not extrapolate the uniform example.
+PASS
 
-Scientific limits: only symmetric combinatorial weighted stars with strictly positive spokes are covered. The times of positivity recovery are implicit finite spectral roots, and the identity of the last leaf pair is not generally resolved. Independent audit is unperformed.
+Credit existing subunit positivity, equal-conductance fractional-heat recovery, and the overlap with the uniform mixed-heat record. The supported distinct contribution is single simple time-domain recovery for every pair with arbitrary positive spoke weights, including ties, and its extension to strictly increasing, strictly convex spectral functions. Neither general eventual positivity nor an arbitrary-weight resolvent threshold supplies this time-domain result.
+
+## value
+
+PASS
+
+For heterogeneous stars, early negativity and eventual positivity alone leave the whole intervening sign diagram undetermined. The theorem supplies one simple recovery for every leaf pair, all-time positivity at hub–leaf entries, and the exact global time from which maximum-norm contractivity holds. The convex spectral condition identifies a reusable mechanism beyond a single graph power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

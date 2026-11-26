@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-- The proof reduces the full code problem to \(abq^2\) disjoint complete bipartite conflict components and isolated vertices for any disjoint corner sets \(A,B\).
-- `check_binary_optima.py` directly generated binary matrices and overlap edges. Each of two oriented candidate graphs has \(128\) vertices and splits into four \(K_{16,16}\) components, giving \(16\) optimal codebooks per orientation; all \(32\) satisfy both overlap conditions. Exactly four distinct complete-cylinder lifts are checked; the remaining 28 optimum codebooks are non-lifts.
-- Independently, `check_milp.py` solved each binary oriented graph as a \(128\)-variable binary integer program with \(1024\) overlap constraints, returning optimum \(64\) twice. Requires SciPy.
-- `check_exhaustive.py` enumerated full candidate matrix sets for the indicated corner partitions with alphabets of sizes \(2,3,4\), checked the component decomposition and every selected code's validity, and checked the integer optimization through alphabet size \(500\).
+## correctness
 
-Finite checks do not certify unbounded parameters; the symbolic conflict-graph proof supplies those. This is not an independently audited or externally certified proof.
+PASS
+
+Checked RESULT.md lines 27–58 from the literal corner-overlap definition, including self-pairs. The observed corner sets A,B are disjoint. A two-square equality requires the prefix matrix center in B and the suffix matrix center in A; the common square is a unique component label. For sizes a,b this yields abq² disjoint complete bipartite components with side sizes bq⁴ and aq⁴, plus ab(q−a−b)q⁶ isolated vertices. A maximum takes the whole larger side (either entire side on a tie), giving ab(q−min(a,b))q⁶. With a≥b, equality in a≤q−b is necessary, and comparing the integers next to q/3 gives the unique smaller size floor((q+1)/3). This forces both large-alphabet orientations and the stated labeled count. For q=2, the four K(16,16) per orientation give sixteen choices each; only the two constant-side choices per orientation are unrestricted diagonal lifts. Inspected VERIFICATION.md and all three scripts without executing them. Their finite scope is supplementary; the exact graph argument supplies the universal upper bound and equality cases.
+
+## originality
+
+PASS
+
+Best of current evidence, the claimed distinction is the unrestricted square-overlap upper bound and labeled rigidity, including the binary non-lifts. The numerical lower bound and the lift are prior; the exact capacity and classification are not established by those prior claims.
+
+## value
+
+PASS
+
+Order three is the first order with both corner-symbol and proper two-square constraints. It is natural to ask whether the standard diagonal-lift construction loses capacity or misses optimizers. The exact answer distinguishes the rigidity for every q≥3 from the 28 binary non-lifts that the construction misses, supplying structural information not contained in the lower-bound construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

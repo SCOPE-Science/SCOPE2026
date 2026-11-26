@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every candidate orientation is controlled because on each breakpoint interval the weighted support function has strict negative second derivative. The eleven alternatives have independent enclosing-interval lower gap greater than \(0.01\) at the known \(16.8^\circ\) parameter. Each branch is \(4\)-Lipschitz in the angle in radians, so the entire nearby interval preserves strict dominance because \(\pi/450<0.01\). The exact reflected support reduces to one trigonometric equation. Necessity for smaller trims, sufficiency via explicit coordinates, and unique translation at equality are fully accounted for. The included checker reproduces the finite certificate; the continuum argument is analytic. Remainder risk: the interval library and the three-support lemma are external prerequisites, both explicitly identified.
+## correctness
 
-**Originality — PASS (provisional).** The relevant primary full text (arXiv:2611.16204v1, Sections 2 and 6, Table 4 and Lemma 6.5) only establishes noncontainment through \(3.6^\circ\) and containment from \(3.7^\circ\), then explicitly notes this numerical bracket. This result proves the unresolved complete dichotomy for that test arc and the unique contact at the exact cutoff. The prior paper supplies many key ingredients, so the increment is sharply distinguished and not represented as a new general covering theorem. published-finding corpus searches for the Z-arc, trim and numerical cutoff and web alias searches did not identify this precise statement. Unindexed priority and prior implicit derivability remain residual risks; independence has not been established.
+PASS
 
-**Mathematical value — PASS.** The problem is a naturally singled-out obstruction used in the literature for the still-open universal arc-covering threshold. Exactly characterizing its disappearance, not just improving a decimal bound, yields a complete containment and rigidity classification and an explicit support-gap transition. This makes the test's precise strength, and its intrinsic limitation as a universal obstruction, mathematically transparent. The numerical improvement alone would not suffice, but the full sharp one-arc phase transition is a motivated exact geometric invariant.
+Center the parallelogram of four vertices; its support in direction u equals half the sum of the absolute projections of its short side and its long side. Weights sin(120°-s), cos(s), and 1/2 on outward normals at 270°, 120°, and s cancel translation and give the stated G. The weights are positive throughout the relevant interval. On each interval of fixed projection signs G''=-G<0, so only the twelve listed cases need comparison. An independently written exact-rational enclosure (Machin pi bounds, integer square-root enclosures and Taylor remainders) certified every other gap greater than 12047/1000000 at s=16.8° and opposite optimal-gap signs at the two trim endpoints; replay: python3 /workspace/audit-work/zarc_rational.py. Each breakpoint branch is 4-Lipschitz in radians: in a moving branch the final angular argument is fixed and the first two terms have derivatives bounded by 2 each; a fixed branch gives a smaller bound. Thus the largest possible pairwise drop pi/450 is less than the certified gap. At the minimizing orientation, the given Q-placement has radial supports attained at Q0/Q1 and Q2, and the chord-facing support is at Q3. Its scalar products with p_30 and minus p'_30 give A and B exactly, hence the threshold and sine law. The norm of Q3 has square 5317/5328 and the other vertices are coordinatewise dominated in the first quadrant; they satisfy the two wedge inequalities and have strictly smaller chord projections. Convexity then contains the entire path. Nested trims extend the containment dichotomy outside the bracket. At equality all support slacks vanish, the two radial constraints pin the translation, and the extra half-turn gives the same centrally symmetric trace with reversed orientation. Endpoint interval containment of zero in the frozen checker provides consistency, not a proof of the analytic identity; the support calculation supplies the latter.
 
-The nearest primary literature is the 12 November 2026 article of Panraksa and Wichiramala, especially its Lemma 6.5, Proposition 6.6, and Example 6.4. The result is entirely conditional on its established support lemma and does not address its other open covering/minimality questions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact cutoff and its rigidity and support-gap law, not for the Z-arc, candidate placement, finite-angle method, or 3.6°–3.7° bracket already in Panraksa–Wichiramala. Their single-parameter ordering does not establish minimality throughout the bracket; the inequality certifying continued strict dominance and equality analysis distinguish the result.
+
+## value
+
+PASS
+
+This is the canonical named obstruction behind an existing lower bound for a natural covering problem. Knowing its final feasible trim and unique contact geometry lets a researcher separate how far this test can obstruct coverage from what would require a different arc. The value is the sharp boundary with rigidity and quantitative support gap, not the small decimal improvement in isolation; the universal threshold remains undetermined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

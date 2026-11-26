@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:32:29.073913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–39; VERIFICATION.md; both frozen scripts and their recorded outputs inspected, not executed",
+        "Replay: python3 /workspace/reviews/evidence/replay.py 5"
+      ],
+      "rationale": "An isomorphism between perfect algebras has disjoint column supports because products of images of distinct basis elements vanish and the target squares are independent. Since there are four nonempty columns and four coordinates, each support is a singleton; over F2 each nonzero entry is 1. Respect for squares is precisely simultaneous index relabeling. For a singular algebra in this dimension the square span is a proper ideal if nonzero, and zero multiplication has proper ideals. For nonsingular A, a terminal strong component gives a proper ideal if the graph is not strongly connected; otherwise multiplying a nonzero ideal element by a basis vector supplies a square, and multiplying squares propagates along arrows to all four independent squares. For exhaustive replay I generated the ordered bases of F2^4 by extending the row span, not by testing every binary matrix, then tested Boolean transitive closure and removed complete relabeling orbits. This recovers 20,160 invertible matrices, 11,658 qualifying labelled matrices, 516 simple orbits and 392 other perfect orbits. Both group-by-group count vectors and the eight decimal representatives agree. The five fixed counts 11,658,72,62,9,6 give 516 by Burnside. Group order determines the S4 subgroup type here except at order four, where an element of order four distinguishes C4 from V4. The two-transitive action of A4 on ordered pairs has the same diagonal and off-diagonal orbits as S4, so exact A4 cannot occur. In fact the only qualifying S4-invariant matrix is I+J, with all off-diagonal entries 1 and all diagonal entries 0.",
+      "residual_risks": [
+        "The reproduction is exhaustive for precisely GL4(F2); neither the counts nor the exclusion of other types extrapolate to other fields, dimensions or algebra group schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey realizes arbitrary finite groups in varying even dimension and lists arbitrary-field dimension-four simple classification as Question 25. The 2018 four-dimensional classification is nonsimple and excludes characteristic 2. The binary maxima theorem gives 24 as the dimension-four attainable maximum but no intermediate group frequencies."
+        ],
+        "reasoning": "A group-realization bound and a maximum do not classify the weighted orbit set, and a characteristic restriction and a simplicity restriction cannot be dropped in reading a classification.",
+        "searches": [
+          "arXiv:2610.22248 Theorem 10 and Question 25",
+          "arXiv:1801.03856 scope and introduction",
+          "Resultary record e363cae5955a Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and local-mirror records 0a1e95678f35 and e363cae5955a",
+        "arXiv:2310.12368, 2610.22248 and 1801.03856"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known tools give ordinary rank/perfectness, graph simplicity, and a permutation-orbit formula for the unrestricted count. The target needs the joint stabilizer type and connectivity filter, including distinguishing C4 and V4, which have the same order."
+        ],
+        "reasoning": "The joint frequency distribution requires additional exact enumeration of the constrained matrices; it is not a specialization of the aggregate count or the maximum. The two-transitivity obstruction to A4 is elementary and the S4 maximum is covered; neither is treated as the independent contribution justifying this pass.",
+        "searches": [
+          "Wei–Zou Theorem 6.1 and Example 6.1",
+          "arXiv:2610.22248 Theorems 4, 6, 10 and Question 25",
+          "Resultary e363cae5955a and 0a1e95678f35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The monomial isomorphism theorem and graph criterion reduce the equivalent problem to stabilizer frequencies for nonsingular binary 4×4 adjacency matrices of strongly connected loop-allowed digraphs under simultaneous vertex relabeling. The inspected results state the reductions, not the resulting frequencies."
+        ],
+        "reasoning": "A transpose arising from the opposite convention for square coefficients reverses all arrows, preserving strong connectivity and the full relabeling stabilizer. Perfect and idempotent in the sense E²=E are the same restriction. Neither naming convention hides a match with the aggregate 908 or the five-dimensional table.",
+        "searches": [
+          "Resultary: four-dimensional perfect binary evolution algebra simple symmetry census, full automorphism spectrum, and simple binary automorphism maxima",
+          "Wei–Zou arXiv:2310.12368 Theorem 1.1",
+          "Kaygorodov–Martín González–Viruel arXiv:2610.22248 Theorems 4 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei–Zou's displayed 908 counts all perfect classes over F2 in dimension four. Resultary 0a1e95678f35 gives 85,411 perfect classes and a thirteen-type spectrum in dimension five, with no simplicity restriction. No exact matching table was identified in these bounded comparisons."
+        ],
+        "reasoning": "The unrestricted count 908 cannot by itself yield the 516 simple classes or identify their subgroup strata. A change from dimension five to four and from all perfect to simple changes the data being counted.",
+        "searches": [
+          "Resultary searches on the four-dimensional binary simple group-type distribution and five-dimensional analogue",
+          "Wei–Zou arXiv:2310.12368 Theorem 6.1 and Example 6.1; Resultary 0a1e95678f35 Finding"
+        ]
+      },
+      "rationale": "Pass the joint simplicity and abstract full automorphism-group census in dimension four over F2, not the monomial change-of-basis theorem, the simplicity criterion, the known unrestricted total 908 or the existence of an S4 example by itself. The strongest exact comparisons inspected have different restrictions or different invariants. The current survey presents the arbitrary-field dimension-four simple classification as an open question; this does not establish priority for its finite-field slice, but the inspected material does not cover the table. The earlier nonsimple classification does not include this characteristic or the simple family.",
+      "residual_risks": [
+        "Best-of-knowledge assessment; the 2018 introduction mentions a future simple classification not identified in these comparisons. An unindexed small-field enumeration might exist. The general open question alone is not evidence that its finite-field slice was unanswered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact antecedent for the reduction and the unrestricted aggregate, not the simple stabilizer census",
+          "evidence": [
+            "The monomial criterion becomes simultaneous permutations over F2; Example 6.1 states 908 unrestricted perfect classes in dimension four."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "PDF p. 2, Theorem 1.1 near offset 5169; p. 35, Theorem 6.1 and Example 6.1 near offset 95180",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Same field and dimension, explicit orbit enumeration"
+        },
+        {
+          "assessment": "Known structural criteria and broad realization in other dimensions; no exact F2 census in these passages",
+          "evidence": [
+            "Theorem 4 states monomiality for perfect algebras. Theorem 10 realizes groups in dimension 2m. Question 25 asks for the classification of four-dimensional simple evolution algebras over arbitrary fields and records the perfectness and strong-connectivity criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "PDF pp. 4, 6, 10 and 23; Theorems 4 and 10 at offsets 12949 and 35984; higher-dimensional classifications near offset 20444; Question 25 and its Theorem 6 reference at offsets 82313–84582",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Simple automorphism groups, known classifications and potential follow-up to the 2018 work"
+        },
+        {
+          "assessment": "Non-simple, characteristic different from 2; no coverage of the frozen census within the stated scope",
+          "evidence": [
+            "The abstract specifies nonsimple algebras over characteristic different from 2; the introduction mentions a prospective simple classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.03856",
+          "material_read": "PDF p. 1 abstract near offset 0 and p. 2 introduction near offset 4800",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Classification of four dimensional perfect non-simple evolution algebras",
+          "trigger": "Plausible same-dimension classification and scope uncertainty in the frozen discussion"
+        },
+        {
+          "assessment": "Different dimension and no simplicity filter",
+          "evidence": [
+            "Explicit thirteen-type table for GL5(F2) up to relabeling, not the GL4(F2) simple locus."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35",
+          "material_read": "RESULT.md Finding and Assumptions at offsets 0–2223",
+          "method": "Bounded local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete automorphism-type spectrum of five-dimensional perfect binary evolution algebras",
+          "trigger": "Closest matching exact group-frequency table by terminology and field"
+        },
+        {
+          "assessment": "Covers the maximum and attainability, not the histogram",
+          "evidence": [
+            "Even-dimensional maximum is n!, and the argument uses the same strong-connectivity and nonsingularity hypotheses."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-parity-dependent-automorphism-maxima-for-simple-evolution--e363cae5955a",
+          "material_read": "RESULT.md Finding and Assumptions at offsets 0–2340",
+          "method": "Bounded local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp parity-dependent automorphism maxima for simple evolution algebras over F2",
+          "trigger": "Broader family containing the dimension-four parameter exactly"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and assumptions; Wei–Zou's unrestricted aggregate; survey Question 25 and Resultary simple binary maxima"
+      ],
+      "rationale": "The field and dimension are a natural bounded classification setting: four basis elements permit distinct commuting and cyclic stabilizers of order four, and the simple locus isolates algebras with no decomposition by a proper ideal. A classification or realization study in this family needs the actual cell counts, not just the maximum or an unrestricted number of orbits. The census supplies all labelled and unlabelled frequencies and explicit representatives, quantifies rigidity, and records a structural obstruction to exact A4. Its value is the previously unaccounted joint exact census, not the use of brute force or the known reductions.",
+      "residual_risks": [
+        "A useful exact finite baseline, not a claim of a uniform classification or a new general realization theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

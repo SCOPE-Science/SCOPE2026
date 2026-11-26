@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Proof forces the exact letter content via 0^(2m+1) and (10)^m1, equates single-one coverage with c in {i,i+1}, rules out duplicate ranks, classifies all interval covers via endpoint values and 1/2 gaps, and proves all resulting words cover every legal target by 010 pair blocks. Boundaries including m=0 are handled. The standalone checker tests all 36,940 minimal-count hosts for k=1..12 and construction coverage k=13..20. Finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest own ledger row 5c1ec55d-e163-4f2c-a12c-ce3eab0ee8c0: states general optimal length and uniqueness only when k divisible by r+1; no all-optima count at nondivisible lengths.",
+        "published-finding corpus 2026/11/2/SCOPE-exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e: exact optimizer length/count for ONE-marker target family, not the complete 11-free target family.",
+        "published-finding corpus: Sharp Fibonacci overhead for universal cyclic covers of the golden-mean language (2026-11-08); uses contiguous cyclic windows, not scattered subsequences."
+      ],
+      "reasoning": "The run-capped master theorem has broader parameter coverage for LENGTH but gives no odd equality characterization. The one-marker problem has strictly fewer targets and a generally shorter optimum; the cyclic factor-cover problem has a different containment relation. Neither dominates the present optimizer classification.",
+      "searches": [
+        "published-finding corpus: For every r k binary words avoiding contiguous 1^(r+1) minimum common scattered subsequence master length 2k-floor(k/(r+1)) uniqueness divisible no classification remainder",
+        "published-finding corpus: exact 3k/2 shortest common supersequence all binary length k words avoiding 11 optimal Fibonacci-language hosts",
+        "web: Adamson subsequence universality finite regular language all permitted subsequences supersequence",
+        "web: Fibonacci strings shortest common supersequence all binary strings without consecutive ones"
+      ]
+    },
+    "checked_sources": [
+      "Own accessible ledger row 5c1ec55d-e163-4f2c-a12c-ce3eab0ee8c0 (recoverable claim only, for overlap)",
+      "Own current-week ledger item 47abd322-0a26-4fbc-b307-7015251b9fe2 (nonoverlapping restricted-overlap binary code)",
+      "arxiv:2311.10658 (primary, inspected)",
+      "arxiv:1309.0422 (primary, inspected)",
+      "published-finding corpus published closest: 2026/11/2/SCOPE-exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e",
+      "published-finding corpus: Sharp Fibonacci overhead for universal cyclic covers of the golden-mean language (2026-11-08, summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior length 2k-floor(k/2) and uniqueness at even k are already accounted for, not new.",
+        "The new theorem classifies EVERY optimal odd-k word even with no host run constraint, yielding exactly (k+3)/2 words and a rank interval test.",
+        "Adamson et al. count/rank all-alphabet k-universal words accepted by automata, not this subclass target coverage.",
+        "Lagoutte–Tavenas discuss a distinct k=3 set with all binary triples except 111; its unique optimum 01010 does not contradict the three optima for 11-free triples."
+      ],
+      "reasoning": "Only the common minimum length follows from earlier work. No prior statement tested yields the nontrivial equality characterization and parity-dependent count; the singleton-pattern criterion is restricted to exact extremal letter content and is not a generic consequence of the known length.",
+      "searches": [
+        "Own ledger row 5c1ec55d-e163-4f2c-a12c-ce3eab0ee8c0 (claim search for run-capped master theorem)",
+        "published-finding corpus: exact shortest common supersequences for all one-marker binary words",
+        "arXiv:2311.10658 full primary PDF: shortest; Fibonacci; consecutive; cover",
+        "arXiv:1309.0422 primary PDF: restricted input family and example length three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact older length statement for master words avoiding 1^(r+1) targets reports the optimal length but explicitly gives no nondivisible-length optimizer count; its r=1 case does not classify odd lengths.",
+        "Adamson et al. arXiv:2311.10658, Definitions 3 and 11 and Sections 3–5, define universal words containing every alphabet word, not only 11-avoiding words.",
+        "Lagoutte–Tavenas arXiv:1309.0422, Introduction and Section 2, concern SCS complexity with other prescribed input sets."
+      ],
+      "reasoning": "The new odd-length count m+2 and exact interval-cover characterization do not follow logically from the optimal length or uniqueness at even lengths. Full-alphabet universality and separately constrained SCS decisions have different target sets. No identical expression or construction was found in the actual searches.",
+      "searches": [
+        "published-finding corpus: shortest common supersequence all Fibonacci words length k no consecutive ones",
+        "published-finding corpus: Fibonacci language subsequence universal cover shortest word all 11-free patterns",
+        "web: \"no consecutive ones\" \"subsequence\" \"shortest common supersequence\" count",
+        "web: \"Fibonacci words\" \"shortest supersequence\" all fixed length subsequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-m odd optimizer list or matching sequence 2,3,4,... for odd target lengths surfaced in these searches.",
+        "The present direct verifier enumerated 36,940 minimal-letter-content hosts through target length 12 and found counts 2,3,4,5,6,7 for odd target lengths 1,3,5,7,9,11; this establishes only a finite check, not bibliographic priority."
+      ],
+      "reasoning": "The exact small cases corroborate the infinite proof but cannot establish originality. No known-table recomputation is asserted: the result is the all-parameter classification, including a new sufficiency criterion.",
+      "searches": [
+        "published-finding corpus: optimal shortest common supersequences all Fibonacci 11-avoiding binary k words all odd extremizers count (k+3)/2",
+        "published-finding corpus: single-one pattern suffices universal for all 11-free subsequences extremal",
+        "web: \"m+2\" \"010\" \"shortest common supersequence\" Fibonacci",
+        "web: \"all binary strings\" \"no consecutive\" \"supersequence\""
+      ]
+    },
+    "rationale": "The prior run-capped master theorem covers the optimal length and even-length uniqueness, which are explicitly excluded from the novelty claim. It does not assert the exact odd-length family, count m+2, or unrestricted-host 11-avoidance. Inspected primary literature concerns full-alphabet universality, hardness of differently restricted SCS, or contiguous-factor cover; no searched source gives the stated odd optimizer classification. Residual unindexed-priority risk is recorded.",
+    "residual_risks": [
+      "An unindexed or unpublished equality-case classification could already yield the same m+2 formula.",
+      "The accessible previous length theorem is used only as a deduplication claim, not re-audited; it does not assert the odd-length optimizer list.",
+      "The published-finding corpus service searches by semantic similarity; failure to retrieve an equivalent theorem is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different, full-alphabet target universality and automata algorithms; no complete 11-avoiding target odd optimizer classification in inspected material.",
+        "evidence": [
+          "arXiv:2311.10658, p.1 abstract; pp.2-4 definitions and motivation; pp.6-18 methods; p.18 conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Abstract, introduction and related-work comparison, definition of k-universal words, regular-language universality problems, Section 3 decision results, Section 4 counting/ranking and conclusions; full text searched for Fibonacci/consecutive/cover.",
+        "method": "Opened 21-page arXiv v1 primary PDF, inspected extracted text and visual screenshot of page 1, searched relevant phrases and reviewed conclusions.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Primary source in 2023 on subsequence universality, regular constraints, and counting."
+      },
+      {
+        "assessment": "Different restrictions and complexity-hardness results, not a full all-length Fibonacci language optimizer count.",
+        "evidence": [
+          "arXiv:1309.0422, pp.1-3; example all length-three binary words except 111 has unique optimum 01010"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1309.0422",
+        "material_read": "Abstract, introduction and main input-restriction definitions, specific three-bit example, Section 2 construction and problem setting.",
+        "method": "Opened seven-page arXiv primary PDF, read page 1-3 text and visual screenshot of page 2.",
+        "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+        "trigger": "Closest primary generic SCS complexity paper with restricted binary source patterns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a999d7db-7c66-4f76-8bd2-eae7c9f88256",
+  "value": {
+    "rationale": "This gives the previously missing exact equality-case classification for the natural complete golden-mean target family: the odd optimum set has exactly m+2 elements, and every optimizer automatically obeys the same local constraint as its targets. An exponential family of targets collapses to a linear single-marker test at sharp letter content. These natural global equality cases and the exact count are not a mere restatement of the known optimal length.",
+    "status": "PASS"
+  }
+}

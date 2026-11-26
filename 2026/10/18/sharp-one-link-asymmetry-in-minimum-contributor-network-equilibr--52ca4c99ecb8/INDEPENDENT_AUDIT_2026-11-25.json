@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:14.828142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated best-shot response rule, a pure equilibrium is exactly an independent dominating set. Let H=G+uv. A minimum set of H remains independent in G. Removing uv can leave at most one endpoint undominated (the other must be selected). It is then safe to add the undominated endpoint, so i(H)≥i(G)−1. For the other direction, a minimum set S of G with k vertices survives unchanged unless both endpoints are in S. In that case, after discarding t from S for either t=u or t=v, the other endpoint covers t and exactly the private outside neighbors of t lack coverage. A maximal independent set of those neighbors restores domination without touching any retained vertex. The two private-neighbor sets are disjoint and outside S, so choose the smaller to get i(H)−k≤−1+floor((n−k)/2)≤floor((n−4)/2). For the upper witness, the two ends of a four-vertex path with a,b≥1 attached leaves are an independent dominating pair and no vertex is universal. Closing the path into a cycle leaves three cases: retaining one end forces all leaves of the other end and one middle vertex, giving attained costs b+2 or a+2, and retaining neither forces all leaves and one middle vertex, giving a+b+1. Balance a and b for the sharp increase. For the lower witness, a star with one edge subdivided has a dominating pair but no universal vertex; connecting the center to the far leaf makes the center universal. For n=4,5, P_n to C_n gives zero change; at n=3 the sole possible connected insertion is P_3 to C_3 and both have i=1. The supplied finite verifier was inspected as corroboration, not a substitute for the proof. Both endpoints of the interval are attained; the theorem does not require that every intermediate integer is realized.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue witness is for n=2k+2, k≥2. Xu studies independence bondage (edge deletion to raise i), and the stability paper studies deletion of a vertex."
+        ],
+        "reasoning": "The matched even-order witness provides an achieved value but no universal bound. The threshold and vertex-deletion results do not dominate the hypotheses or conclusions of the single-insertion theorem.",
+        "searches": [
+          "Resultary 06da55dca1ec Finding and proof",
+          "Xu arXiv:1204.4010 Section 8.4",
+          "Independent Domination Stable Trees and Unicyclic Graphs, doi:10.3390/math7090820"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06da55dca1ec",
+        "Dall’Asta–Pin–Ramezanpour FEEM 33.2009",
+        "Xu arXiv:1204.4010",
+        "Independent Domination Stable Trees and Unicyclic Graphs, doi:10.3390/math7090820",
+        "Kavitha–David equitable edge-addition paper (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue witness changes n−i from 2k to k+1 and hence i from 2 to k+1. Dall’Asta–Pin–Ramezanpour consider the network exogenous and expressly distinguish changing it. Bondage concerns the existence of upward changes under deletions, not the maximum improvement or deterioration magnitude."
+        ],
+        "reasoning": "The earlier model and equivalent even-order example give context and partial witness coverage. Neither implies the private-neighbor replacement bound, the signed sharp decrease, and the odd-order witnesses together.",
+        "searches": [
+          "Resultary 06da55dca1ec, Finding and proof",
+          "FEEM 33.2009 p. 9",
+          "Xu Section 8.4; equitable edge-addition-stability citation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum pure-equilibrium contributor count is i(G); worst-equilibrium protection in 06da55dca1ec is n−i(G), so its decrease equals the increase of i(G).",
+          "For edge deletion on H with connected remainder, the signed comparison is the negative of the insertion comparison on G."
+        ],
+        "reasoning": "The protection terminology does not hide a distinct invariant for the even-order existential witness. A threshold for deleting enough edges to increase i(H), however, is not the signed difference for a specified edge.",
+        "searches": [
+          "Resultary: best-shot single added link, minimum independent dominating set, worst-equilibrium protection",
+          "Dall’Asta–Pin–Ramezanpour, FEEM 33.2009, p. 9",
+          "Xu arXiv:1204.4010 Section 8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact achieved upper-end values k−1 for n=2k+2 and the six-vertex example are covered by 06da55dca1ec. Xu's inspected examples give bondage numbers for particular graph families, not a table of the signed magnitudes for insertions."
+        ],
+        "reasoning": "Neither provides the full sharp bound at every order for arbitrary connected graphs. The supplied labelled-graph enumeration is corroboration, not the novelty claim.",
+        "searches": [
+          "Resultary: precise one-edge independent-domination change and exact extremal witnesses",
+          "Resultary 06da55dca1ec",
+          "Xu arXiv:1204.4010 Section 8.4"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp universal signed comparison and its attainment at all orders, including odd-order upper witnesses. A distinct same-day catalogue record has an equivalent upper-bound witness at every even order ≥6 and the six-vertex positive example; these existential claims are not separately credited. It does not state a universal upper bound, the lower bound, or the odd-order tree witnesses. No priority order is inferred from the shared date.",
+      "residual_risks": [
+        "The even-order witness claim overlaps a same-day finding; relative priority is not established.",
+        "The equitable paper's exact theorem was not accessible as text. An unlocated theorem for ordinary independent-domination edge sensitivity remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-date coverage of all even-order upper witnesses, not of the universal upper theorem or the other endpoint",
+          "evidence": [
+            "On 2k+2 vertices, worst-equilibrium cost equals n−i(G) and changes from 2k to k+1 after one insertion: i(G+e)−i(G)=k−1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-added-contact-can-sharply-reduce-worst-equilibrium-protection--06da55dca1ec",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4403",
+          "method": "Resultary search and local mirror passages",
+          "title": "An added contact can sharply reduce worst-equilibrium protection",
+          "trigger": "Equivalent extremal link-addition witness under another objective name"
+        },
+        {
+          "assessment": "Perturbation threshold not a bound on magnitude or the opposite sign",
+          "evidence": [
+            "Independence bondage minimizes the number of edge deletions needed to increase independent domination; examples include paths, cycles and complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1204.4010; doi:10.1155/2013/595210",
+          "material_read": "Section 8.4, PDF p. 54, offset near 148931",
+          "method": "OA PDF passage",
+          "title": "On Bondage Numbers of Graphs: A Survey with Some Comments",
+          "trigger": "Inverse edge operation on the same graph parameter"
+        },
+        {
+          "assessment": "Prior interpretation and fixed-network optimization, not a link-sensitivity theorem in the compared passage",
+          "evidence": [
+            "The network is exogenous; allowing the planner to change it is described as a different problem."
+          ],
+          "identifier_or_url": "https://feem-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/NDL2009-033.pdf",
+          "material_read": "FEEM paper p. 9, offset approximately 15622",
+          "method": "OA PDF passage",
+          "title": "Optimal Equilibria of the Best Shot Game",
+          "trigger": "Same best-shot model and objective"
+        },
+        {
+          "assessment": "Different graph operation",
+          "evidence": [
+            "Stability is under removal of a vertex, not insertion or removal of an edge."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math7090820",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA PDF abstract passage",
+          "title": "Independent Domination Stable Trees and Unicyclic Graphs",
+          "trigger": "Independent domination and stability for the witness graph classes"
+        },
+        {
+          "assessment": "Available description concerns an equitable invariant; exact conditions remain unverified",
+          "evidence": [
+            "The retrieved description concerns equitable domination/independent domination rather than the ordinary independent domination number."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20092/vol-092-paper%2019.pdf",
+          "material_read": "Indexed description only; Theorem 27 text not retrieved",
+          "method": "Lawful OA PDF retrieval found no extractable text",
+          "title": "Equitable Total Domination Edge Addition Stable Graphs",
+          "trigger": "Potentially overlapping edge-addition stability statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local graph edit trades improved domination against broken independence. The exact worst-case asymmetry quantifies both effects and supplies a graph-size limit on the minimum pure-equilibrium contributor count. The universal bound and the all-order sharpness, rather than the independently known even-order counterexamples alone, make the result useful. It does not predict which equilibrium a network will select.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

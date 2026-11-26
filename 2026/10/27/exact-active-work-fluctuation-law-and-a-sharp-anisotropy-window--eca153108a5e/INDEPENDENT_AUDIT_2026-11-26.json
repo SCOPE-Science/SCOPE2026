@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:01:43.145073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, hypotheses and proof, lines 5–116",
+        "Frozen VERIFICATION.md, lines 19–27",
+        "Frozen check_entropy_work.py, lines 6–83, inspected without execution"
+      ],
+      "rationale": "Independently reconstructed using D W_T=[UY]_0^T−∫Y dV, where Y and V are the centered states. With c=E[YV]=s²/(κ+Γ), the Poisson solution for Γ(YV−c) is ψ=(Γ(YV−c)+hV)/(κ+Γ). Combining its martingale with −∫Y dM^V gives the Brownian coefficient √(2/D) ΓV/(κ+Γ) and jump (h−κY)ΔV/[D(κ+Γ)]. Since q_v(ΔV)²=Γ(2s²+hv), insertion of E[Y²]=(D+c)/κ and E[Y²V]=2hc/(2κ+Γ) gives exactly the stated variance. Stationarity gives an O(1) L² endpoint and hence a vanishing scaled endpoint covariance; ergodicity gives bracket convergence, and bounded switching rates plus E[(1+|Y|)^4]<∞ bound the expected normalized jump Lindeberg term by O(1/T) at fixed cutoff. Differentiation reduces the peak criterion to comparing 2h²/s² with G(t), which decreases from 1 to 0 on [0,1]. Solving 2(r−1)²<r gives 1/2<r<2, with strict decrease for positive stiffness at both endpoints and the symmetric peak at Γ. The free limit is one-sided, not an unconfined stationary law.",
+      "residual_risks": [
+        "The packaged Monte Carlo starts the position at zero and is not an exact finite-time stationary test. No simulation or formal certificate is needed for the analytic result. The observable excludes any separate internal-state entropy contribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harmonic RTP field theory uses symmetric rates and gives entropy production and correlation functions; the discrete cumulant paper uses a finite reflecting track and a path-probability entropy functional; the free-gas result uses ABP/AOUP dynamics."
+        ],
+        "reasoning": "These results do not dominate the continuous-position, asymmetric two-state harmonic problem for the integrated active-force observable.",
+        "searches": [
+          "arXiv:2012.02900",
+          "arXiv:2207.12091",
+          "arXiv:1804.03099"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.16955",
+        "arXiv:2012.02900",
+        "arXiv:2207.12091",
+        "arXiv:2302.12535",
+        "arXiv:1804.03099",
+        "Resultary findings …683b42b6d2e0, …82e1d04ffdf8, …5bc6e7ea2706"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-state bracket contains a separate h² term from the pointwise flip-rate–state relation. Neither the known mean nor symmetric RTP or Gaussian-force specialization contains this asymmetry term."
+        ],
+        "reasoning": "General additive-functional tools supply the method but not the evaluated competition of the two stiffness terms or its threshold.",
+        "searches": [
+          "Paoluzzi et al. §IV Eq. (72) and Fig. 1",
+          "Garcia-Millan–Pruessner §3 and correlation appendix",
+          "Semeraro et al. harmonic AOUP work calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paoluzzi et al. §IV Eq. (72) matches the mean with κ=μk; its Fig. 1 is a plot of that mean against rate asymmetry, not of normalized variance against stiffness.",
+          "Semeraro et al. study the same type of work observable and allow endpoint distinctions, but their active force is Gaussian OU."
+        ],
+        "reasoning": "Equating active work and entropy up to an endpoint does not turn a mean rate into its second cumulant, and matching a two-time force covariance across driving models does not transfer the work variance.",
+        "searches": [
+          "Focused public lookup for asymmetric harmonic RTP active-work fluctuations",
+          "arXiv:2404.16955",
+          "arXiv:2302.12535"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26 …683b42b6d2e0 computes fourth cumulants of experimenter work in a translated trap; 2026/11/2 …82e1d04ffdf8 computes work from an on/off harmonic potential; 2026/11/22 …5bc6e7ea2706 gives an AOUP variance rate and lagged-work covariances."
+        ],
+        "reasoning": "The strongest matches change the observable or forcing law; none of these inspected entries gives the two-state rate-ratio window.",
+        "searches": [
+          "Resultary semantic comparisons for telegraphic work, active-work variance/CLT, harmonic trapping and noise thresholds"
+        ]
+      },
+      "rationale": "The stationary mean is already published, and the martingale CLT is standard. The supported distinct content is the evaluated long-run active-work variance and its exact rate-ratio peak criterion for the asymmetric harmonic telegraph process.",
+      "residual_risks": [
+        "The public search was low yield. Equivalent formulas in unindexed work or in a general evaluated telegraph-current theorem are not excluded. No historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean coverage, not fluctuation law",
+          "evidence": [
+            "Published rate equals Γs²/[D(κ+Γ)]; Fig. 1 varies rate ratio for fixed trap settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.16955",
+          "material_read": "§IV Eq. (72), PDF p. 5, and Fig. 1, p. 6",
+          "method": "OA PDF passages",
+          "title": "Entropy production of run-and-tumble particles",
+          "trigger": "Same asymmetric harmonic model and entropy observable"
+        },
+        {
+          "assessment": "Symmetric-force entropy and correlations, not the asserted asymmetric functional",
+          "evidence": [
+            "Velocities ±w and switching α/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.02900",
+          "material_read": "Eq. (3), §3 and correlation appendix passages, PDF pp. 3, 9–10, 16",
+          "method": "OA PDF passages",
+          "title": "Run-and-tumble motion in a harmonic potential: field theory and entropy production",
+          "trigger": "Harmonic thermal RTP predecessor"
+        },
+        {
+          "assessment": "Different geometry and path functional",
+          "evidence": [
+            "First three cumulants for a reflecting 2N-state track."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.12091",
+          "material_read": "Abstract and model/entropy, PDF pp. 1–3",
+          "method": "OA PDF passages",
+          "title": "Fluctuations of entropy production of a run-and-tumble particle",
+          "trigger": "RTP entropy-production cumulants"
+        },
+        {
+          "assessment": "Gaussian propulsion, not two-state switching",
+          "evidence": [
+            "Work is integrated active force against displacement, with AOUP rate functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.12535",
+          "material_read": "Work definition and endpoint discussion, PDF pp. 1–4",
+          "method": "OA PDF passages",
+          "title": "Work fluctuations for a harmonically confined Active Ornstein-Uhlenbeck Particle",
+          "trigger": "Same trap and active-work observable"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": [
+            "Free active-gas ABP/AOUP fluctuation laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.03099",
+          "material_read": "PDF p. 3, cumulative work discussion",
+          "method": "OA PDF passage",
+          "title": "Hidden entropy production and work fluctuations in an ideal active gas",
+          "trigger": "Integrated active-work fluctuation analogue"
+        },
+        {
+          "assessment": "Not fixed-trap active-force work",
+          "evidence": [
+            "Symmetric switching, translating trap, fourth cumulant of experimenter work."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-fourth-cumulant-sign-law-for-telegraphic-particles-in-moving-h--683b42b6d2e0/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local catalogue mirror",
+          "title": "A fourth-cumulant sign law for telegraphic particles in moving harmonic traps",
+          "trigger": "Closest catalogue RTP work match"
+        },
+        {
+          "assessment": "Different work mechanism",
+          "evidence": [
+            "Work injected by switching the harmonic potential on and off."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local catalogue mirror",
+          "title": "Gaussian work fluctuations without finite exponential moments in a switched harmonic model",
+          "trigger": "Harmonic work CLT and exact variance"
+        },
+        {
+          "assessment": "Different driving process and classification",
+          "evidence": [
+            "AOUP lag correlations and a variance rate with no orientation-rate ratio."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-thermal-noise-frontier-for-lagged-active-work-correlations--5bc6e7ea2706/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local catalogue mirror",
+          "title": "Sharp thermal-noise frontier for lagged active-work correlations",
+          "trigger": "Harmonic active-work correlations and variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, variance and stiffness classification",
+        "arXiv:2404.16955 Eq. (72)"
+      ],
+      "rationale": "A sharp, speed- and temperature-independent distinction separates monotone confinement response from a strict finite-stiffness maximum. The variance is a natural statistic of the same active work whose mean was known; the competing stiffness terms and exact boundary rates are useful beyond merely invoking a CLT.",
+      "residual_risks": [
+        "Value is confined to the stated active-work observable and the two-state harmonic model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

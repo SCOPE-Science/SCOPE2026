@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:43.164221Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof and Assumptions, including the absence of a global angular-gap assumption",
+        "VERIFICATION.md and verification/verify.py (inspected, not executed; numerical transients are not exact certificates)",
+        "Independent symbolic check: python3 /workspace/branches/recompute_5.py (SymPy), passed nested-denominator expansions and exact endpoint algebra"
+      ],
+      "rationale": "Uniform start makes a contribution to the zero Fourier mode pass from zero back to zero, so excursions past mode three require at least eight propulsion multipliers; the degree-six moment and log-moment jets are exactly those of the seven-mode truncation, for every time. Its positive a,b,c ensure an isolated eigenvalue at zero. On a sufficiently small complex k disk the analytic projection has nonzero initial/terminal overlap, and the other spectral part decays relative to it uniformly. Taking the local logarithm and differentiating gives t times the eigenvalue derivatives plus O(1), without assuming a gap for high modes. An independently expanded Schur complement gives λ=p/[2(a+λ−p/(4(b+λ−p/(4(c+λ)))))] with p=v²k² and D=0, reproducing all three rates. The independent Brownian term is exactly Dk². For b=a/2 the first two raw moments of Y=cos Δ are m and q=(3+m)/4. Nonnegative (1±Y)(Y−z)² give the sharp third-moment bounds by completing the square; their two-point equality laws have the same m,q, so mixing fills the interval. At m=−3/4 these reduce to the point mass at Y=−3/4 (zero weights are allowed). The upper bound for w=m₃ is strictly below 1 for m<1, so c>0 throughout. The lower endpoint minus the target is (m−1)(7m+5)/[4(1+m)] and the upper endpoint is strictly above the target. At m=−5/7 equality forces support {−1,−1/2} with masses 3/7 and 4/7, whose symmetric angular lift is unique.",
+      "residual_risks": [
+        "The result is for stationary uniform initial angle and positive first-three harmonic relaxation rates; vanishing angular gaps outside those modes need not imply usual mixing properties.",
+        "Cancellation means vanishing linear cumulant rates, not finite-time Gaussianity or higher-order cancellation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jung shows dependence of an order-2j moment on only the first j Fourier harmonics for arbitrary circular turning; Britton et al. give recursive higher-moment methods.",
+          "The fourth-envelope record covers arbitrary turning laws at fixed first complex harmonic, hence includes the symmetric real-harmonic fourth-cumulant slice."
+        ],
+        "reasoning": "The general moment methods are prior and permit further calculations. No inspected statement supplies the explicit general sixth cumulant and a sharp feasible moment range after fourth cancellation; fourth-order coverage cannot determine the third harmonic.",
+        "searches": [
+          "arXiv:2308.00554 equations (9), (16)",
+          "arXiv:2608.23519 p.14",
+          "Resultary 0a534892a5b1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a534892a5b1, 4b8a628ea42f, c86e0f02b51e",
+        "arXiv:2608.23519, 2308.00554, 2211.07337, 2002.02872"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fourth-envelope result covers the −3/4 boundary. Uniform redraw gives m₁=m₂=0, whereas fourth-neutrality at m₁=0 needs m₂=1/2.",
+          "To obtain the new sign classification one needs the sharp third cosine harmonic range at fixed first and second harmonics, with constructive extremizers; the moment methods alone do not impose this constraint."
+        ],
+        "reasoning": "The fourth-neutral feasible range is covered in part by the stronger fourth-order result, but the new joint feasibility and unique angular law are not consequences of that range or a single uniform-turn moment computation.",
+        "searches": [
+          "Resultary 0a534892a5b1, real first-harmonic envelope",
+          "arXiv:2308.00554 finite-harmonic statement",
+          "arXiv:2211.07337 uniform redraw"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0a534892a5b1 is a shared Poisson turning model and overlaps at order four. Record 4b8a628ea42f uses a 1D moving/resting chain; c86e0f02b51e uses a trapped diffusing/reversing swimmer.",
+          "In the isotropic model, a projected even moment is a universal angular factor times its radial counterpart, so a radial sixth moment genuinely provides projected sixth-order input at the same parameter values. The inspected explicit example is for uniform redraw only."
+        ],
+        "reasoning": "The appropriate comparisons are between projected cumulants or converted radial moment expansions, with the same dynamics and time-limit normalization; neither a different active model nor the uniform redraw example gives joint cancellation in the arbitrary-law family.",
+        "searches": [
+          "Resultary projected cumulant envelopes, fourth-neutral sixth rate, and free/trapped active transport",
+          "arXiv:2608.23519 around (51)–(53) and higher-order recursive discussion",
+          "arXiv:2211.07337 (20)–(21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact formulas are uniform-redraw fourth and sixth moments, partial-turn fourth moments, or discrete/trapped cumulant sign laws for other models.",
+          "No inspected distinct record contained the exact arbitrary-law sixth rate together with the −5/7 and 3/7,2/7,2/7 classification."
+        ],
+        "reasoning": "A direct exact formula or threshold in an existing record would be coverage without a data table; the exact available special cases and fourth-order laws do not furnish that angular classification.",
+        "searches": [
+          "Resultary exact sixth/ fourth cumulant boundaries and angular turning laws",
+          "arXiv:2211.07337 equations (20)–(21)",
+          "arXiv:2002.02872 equation (29)"
+        ]
+      },
+      "rationale": "Accept the distinct general sixth-order result and sharp joint-cancellation classification for this turning model. The same-day fourth-envelope record materially covers the fourth-order feasible boundary −3/4; no priority inference follows from the date and that part is not credited as new. Arbitrary-distribution Fourier hierarchies and explicit uniform-redraw sixth moments are antecedents, not the −5/7 threshold or equality law.",
+      "residual_risks": [
+        "Focused literature and catalog comparison, not a comprehensive priority claim; general recursions may have been taken to sixth order in unexamined sources.",
+        "Fourth-order overlap is demonstrable; same-day catalog dating does not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlapping fourth-order result",
+          "evidence": "Range at fixed first complex harmonic includes the −3/4 real-harmonic fourth-neutral boundary; it does not classify sixth cancellation.",
+          "identifier_or_url": "Resultary 0a534892a5b1",
+          "material_read": "Finding and envelope analysis, mirror offsets 0–4929 and 4700–7887",
+          "method": "Local mirror",
+          "title": "Sharp fourth-cumulant envelopes at fixed persistence and chirality",
+          "trigger": "Same model and fourth-order limit"
+        },
+        {
+          "assessment": "Distinct moving/resting model",
+          "evidence": "1D three-state result has a negative long-time sixth rate on its fourth-neutral surface, not a threshold in angular harmonics.",
+          "identifier_or_url": "Resultary 4b8a628ea42f",
+          "material_read": "Finding and analysis, mirror offsets 0–4800 and 4500–8479",
+          "method": "Local mirror",
+          "title": "Fourth-cumulant neutrality conceals a sixth-cumulant sign reversal",
+          "trigger": "Prior fourth-neutrality with sixth-sign analysis"
+        },
+        {
+          "assessment": "Stationary trap, distinct law",
+          "evidence": "Rotational diffusion and Poisson reversals in a harmonic trap; not free projected-displacement rates.",
+          "identifier_or_url": "Resultary c86e0f02b51e",
+          "material_read": "Finding, mirror offset 0–2886",
+          "method": "Local mirror",
+          "title": "Nested fourth/sixth cumulant sign boundaries for a trapped directional swimmer",
+          "trigger": "Same-order active-particle cumulants"
+        },
+        {
+          "assessment": "General motion/moment method, not inspected sharp cancellation",
+          "evidence": "Fourth radial moment visits modes ±2, and the recursive diagrams extend to higher moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.23519",
+          "material_read": "PDF p.10, eqs. (51)–(53), offset 50042; p.14, offset 68339",
+          "method": "OA PDF passages",
+          "title": "Run-and-tumble particles with preferred reorientation",
+          "trigger": "General angular-turning Fourier hierarchy"
+        },
+        {
+          "assessment": "Covers finite-harmonic moment dependence",
+          "evidence": "Even radial moments of order 2j use only Fourier coefficients through j for exponential run times.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.00554",
+          "material_read": "PDF p.3 eqs. (9), (16), offset 21800",
+          "method": "OA PDF passage",
+          "title": "Hyperdiffusion of Poissonian run-and-tumble particles in two dimensions",
+          "trigger": "Arbitrary turning law and finite-harmonic closure"
+        },
+        {
+          "assessment": "Exact special case outside fourth neutrality",
+          "evidence": "Uniform-angle redraw, with explicit sixth moment and expandable long-time corrections.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.07337",
+          "material_read": "§3 eqs. (20)–(21), PDF p.6 offset 18500",
+          "method": "OA PDF passage",
+          "title": "Long time behavior of run-and-tumble particles in two dimensions",
+          "trigger": "Explicit sixth spatial moment"
+        },
+        {
+          "assessment": "Fourth-order antecedent",
+          "evidence": "Fourth moment depends on first two cosine harmonics; excess kurtosis and relaxation are discussed.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.02872",
+          "material_read": "Partial reorientation discussion, eq. (29), PDF p.5 offset 31305",
+          "method": "OA PDF passage",
+          "title": "Run-and-tumble bacteria slowly approaching the diffusive regime",
+          "trigger": "Partial reorientation and fourth order response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md fourth-neutral feasible interval, sixth-rate signs and equality law",
+        "Resultary 0a534892a5b1 and arXiv:2608.23519"
+      ],
+      "rationale": "Matching the diffusion rate or cancelling long-time kurtosis leaves genuine higher-order differences. The theorem says exactly when a physically realizable angle law can remove the next even cumulant growth, gives both feasible signs away from the obstruction, and identifies the unique extremal design. The sharp bound over all turning probability laws is the distinctive value beyond expanding a Fourier hierarchy.",
+      "residual_risks": [
+        "The finding does not identify all higher-order or finite-time departures from normality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

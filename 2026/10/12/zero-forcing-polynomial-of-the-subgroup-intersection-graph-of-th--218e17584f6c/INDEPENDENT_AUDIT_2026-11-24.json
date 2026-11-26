@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:24:06.539832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The maximal subgroups are the inverse images of the p+1 lines of G/Z, and any noncentral cyclic subgroup of order p is confined to the one maximal subgroup belonging to its image. The order-p subgroups in each elementary abelian maximal subgroup other than the center are its p private leaves. Thus there is a clique of p+2 core vertices and p(p+1) leaves. Two white leaves in one block cannot be separated. With at most one white per block, blue leaves can first color every hub. If the center is white with one white leaf in every block, the center and those leaves form a fort: each hub meets it twice, all other vertices zero times. Otherwise the blue center or a fully blue leaf block permits finishing. This criterion gives u^(p²−1)(1+u)^(p+1)[(1+u)(u+p)^(p+1)−p^(p+1)]. Size p² permits no blue hubs: all blocks leave one white if the center is blue, or exactly one block leaves none if the center is white. The two counts p^(p+1) and (p+1)p^p sum as claimed, and N−p²=2p+2. Independent replay: python /workspace/audit_checks.py 1 generates subgroups by closure for p=3,5 and tests all 131072 initial sets on the actual p=3 intersection graph, matching the criterion and all coefficients, including 189 at degree 9. This corroborates rather than proves the all-prime statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The clique-decoration Finding assigns s_v>=2 to every root and uses the root already blue or its entire private clique blue to define the effective blue set. With independent leaves a single blue leaf can force its root even with one white leaf remaining, so that transfer is not the stated process here.",
+          "Boyer et al. supply the general enumerator and a threshold-graph characterization, not the partial independent leaf-bundle census. Lawful full text access for Kayacan–Yaraneri did not succeed."
+        ],
+        "reasoning": "This is genuine methodological proximity, not direct broader coverage. Even an earlier description of the core and leaf blocks would not itself establish the forcing criterion.",
+        "searches": [
+          "05266193a935, Finding and formula (1)",
+          "Boyer et al., arXiv:1801.08910, definition and Theorem 10",
+          "Kayacan and Yaraneri, doi:10.4134/JKMS.2015.52.1.081"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json and VERIFICATION.md",
+        "arXiv:1801.08910",
+        "doi:10.4134/JKMS.2015.52.1.081",
+        "Resultary 05266193a935, eb2af46a6335, a6a25056f93a, 76b3b36dbf52, 4c19bfd5fce5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Domination does not test the one-white-neighbor propagation constraint. Full decoration and the one-leaf assumption in the two close enumerators each fail for the exact target."
+        ],
+        "reasoning": "No located statement yields both the twin-leaf restriction and the fort involving the center by specialization. It is that joint condition, rather than counting a polynomial from already classified sets, that is the scientific contribution.",
+        "searches": [
+          "eb2af46a6335 same-object domination result",
+          "05266193a935, effective-root condition and hypotheses",
+          "a6a25056f93a minimum sets on fully whiskered complete graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed hit eb2af46a6335 concerns the same odd extraspecial subgroup-intersection graph but computes domination parameters.",
+          "a6a25056f93a concerns one leaf at every vertex of a complete graph, unlike p leaves at all but one core vertex.",
+          "The exact graph here contains an induced P4, so the threshold-graph criterion in Boyer et al. Theorem 10 does not specialize to it."
+        ],
+        "reasoning": "The same graph should be tested under both the group and partially decorated clique descriptions. A fully whiskered clique does not have the same false-twin blocks or the center obstruction.",
+        "searches": [
+          "Resultary: extraspecial exponent-p subgroup-intersection zero forcing polynomial and minimum sets",
+          "Resultary: clique with private leaves, pendant stars, whiskered complete graphs and zero forcing enumerators",
+          "arXiv:1801.08910 literal corona and threshold graph passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching census was found among inspected comparators. The three-dimensional subspace-intersection census 4c19bfd5fce5 is a different graph (26 vertices over F3, versus 17 here at p=3); the quaternion comparison 76b3b36dbf52 has a different quotient."
+        ],
+        "reasoning": "Compare the graph and parametric polynomial, not just invariant names or a product-minus-obstruction shape. Ranked retrieval is not a certificate of absence.",
+        "searches": [
+          "Resultary ranked comparisons: extraspecial/Heisenberg p^3 exponent-p, subgroup intersection, p² and (2p+1)p^p zero forcing endpoints",
+          "Resultary: private-leaf decorated complete graphs and subgroup-intersection forcing census"
+        ]
+      },
+      "rationale": "The distinct content supported by the comparisons is the complete forcing criterion and two minimum regimes for this partially decorated core, not the subgroup-intersection construction or a generic private-module method. Exact same-family prior domination results and closely related polynomial results do not give the accepted claim. In particular the same-day clique-decoration theorem has internal clique edges necessary to its effective-root reduction; its assumptions and effective-root process do not hold for the private independent leaves and naked center in this finding. Priority is not inferred from catalogue dates.",
+      "residual_risks": [
+        "The structural literature full text was not available; an under-indexed lemma for independent rather than clique attachments could overlap.",
+        "Same-day catalogue membership is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same methodology but not a specialization, regardless of same-date provenance.",
+          "evidence": "Requires a private K_(s_v) with s_v>=2 at each root and tests zero forcing of the effective root set.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-zero-forcing-enumerators-of-clique-decorated-graphs--05266193a935/RESULT.md",
+          "material_read": "Finding and formulas (1)–(5), characters 0–2450",
+          "method": "Local mirror bounded full statement",
+          "title": "Zero-forcing enumerators of clique-decorated graphs",
+          "trigger": "Generic private-decoration transfer, potentially dominant"
+        },
+        {
+          "assessment": "The class in the relevant theorem does not contain this graph.",
+          "evidence": "Threshold graphs exclude the induced P4 consisting of two adjacent hubs and one leaf from each.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Definition, p. 1; threshold criterion Theorem 10, p. 8; corona literal lookup",
+          "method": "Open full paper passage comparison",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Published graph-family forcing enumeration"
+        },
+        {
+          "assessment": "Possible prior structural description; not used to make a whole-document novelty claim.",
+          "evidence": "The title and frozen comparison concern planarity of the exact graph construction.",
+          "identifier_or_url": "doi:10.4134/JKMS.2015.52.1.081",
+          "material_read": "Bibliographic identification and frozen structural comparison; full text unavailable on lawful routes tried",
+          "method": "DOI, journal/alternate access checks and preserved evidence",
+          "title": "Finite groups whose intersection graphs are planar",
+          "trigger": "Same subgroup-intersection convention, possible structural coverage"
+        },
+        {
+          "assessment": "Same graph, different invariant.",
+          "evidence": "Ordinary, total and paired domination constraints are not the standard zero forcing constraint.",
+          "identifier_or_url": "Resultary eb2af46a6335",
+          "material_read": "Indexed theorem comparison",
+          "method": "Local Resultary statement comparison",
+          "title": "Domination in subgroup intersection graphs of odd extraspecial groups",
+          "trigger": "Same algebraic graph family"
+        },
+        {
+          "assessment": "Does not cover the partially decorated core.",
+          "evidence": "One leaf per vertex versus p >= 3 leaves at the p+1 maximal vertices and no leaf at the center.",
+          "identifier_or_url": "Resultary a6a25056f93a",
+          "material_read": "Indexed polynomial and minimum-set scope",
+          "method": "Local Resultary comparison",
+          "title": "Zero forcing sets of fully whiskered complete graphs",
+          "trigger": "Same decorated core model with a different pendant rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extraspecial groups form a natural infinite nonabelian family. The undecorated center produces an exact fort obstruction and two qualitatively different optimal configurations; the full enumerator gives a test case for zero forcing on subgroup-intersection graphs, in which the incidence structure and propagation constraints can both be checked directly. No minimum-rank or larger-group extension is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

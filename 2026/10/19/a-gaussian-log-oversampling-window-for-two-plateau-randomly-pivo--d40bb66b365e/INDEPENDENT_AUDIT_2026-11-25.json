@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:32:45.243119Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–98; frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Repaired RESULT.md, Finding, Proof §§1–3, and finite-law context"
+      ],
+      "rationale": "In the repaired statement the current diagonal rule means sequential size-biased removal. Exponential races have this law by the minimum and memorylessness identities, and conditional on the final heavy clock the light count is binomial. The unit-rate maximum has mean H_r and bounded variance by independent exponential spacings. Hence its clock induces a random binomial mean μ_n+O_P(1), because the remainder O_P((log r)²/n) goes to zero. In the conditional centered characteristic function the quadratic term tends to −t²/2 and the uniform cubic error O(mp_n|t|³/μ_n^(3/2)) vanishes in probability. Boundedness of characteristic functions permits mixing and the O_P(1) shift vanishes after scaling. The residual trace after r+s pivots with h heavy coordinates left is m−s+(a−1)h. At the prescribed window the strict inequality a−1>εm+s eventually holds, so success means L≤s. Rounding does not change the continuity limit. Monotonicity of residual trace gives the extended zero/one limits without requiring the exact event reduction outside the window. The retained finite identities follow by binomial expansion of the conditional mass and generating function, and the fixed-rank comparison follows by mixing the conditional Poisson limit over the exponential spacings.",
+      "residual_risks": [
+        "The finite published checker supports the finite formulas, not the asymptotic theorem. No simulation or claim about finite-size Gaussian accuracy is used.",
+        "The boundary ε=λ is excluded and μ_n cannot in general be replaced by its leading equivalent at window precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly's two-level capture example has heavy-to-light ratio of order (n−r)/r and discusses an r log r cost for capture under a spectral guarantee. The other two-level result concerns k-DPP rather than sequential sampling. The general spectral/trace bounds are not exact limiting success probabilities."
+        ],
+        "reasoning": "At growing r the example's a/n goes to zero rather than tending to a fixed positive λ. Neither its order-of-cost claim nor the bounds and alternate sampling model specialize to the trace limit in the repaired finding.",
+        "searches": [
+          "Epperly, arXiv:2608.20633v1 pp. 2–4, Theorem 1.2 and Corollary 1.3 and two-level capture example",
+          "Divan–Gilles, arXiv:2609.06287v1 p. 5 Theorem 3.1",
+          "Chen–Epperly–Tropp–Webber, arXiv:2207.06503v6 Appendix C.4"
+        ]
+      },
+      "checked_sources": [
+        "Fog author copy nchyp1.pdf, §2",
+        "arXiv:2207.06503v6",
+        "arXiv:2608.20633v1",
+        "arXiv:2609.06287v1",
+        "Resultary 73b2b6cddee0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The urn law and the trace identity determine each finite success probability in the critical regime, but do not already give its scaling limit. The repaired proof shows that the near-exhaustion random heavy time contributes bounded count fluctuations while the conditional binomial count fluctuates on the growing scale √μ_n."
+        ],
+        "reasoning": "A routine parameter substitution yields the finite law, not the changing-parameter distributional limit with its centering and exact trace-event reduction. The Gaussian window is retained as the distinct theorem; no novelty is claimed for exponential races or the binomial CLT.",
+        "searches": [
+          "Fog §2; Epperly arXiv:2608.20633v1 p. 4, OA offset 17600–20400; Divan–Gilles Theorem 3.1; Resultary 73b2b6cddee0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same proportional weighted draws, P(L≤ℓ)=P(X_(r+ℓ)=r), where X_k counts heavy coordinates after k draws. The exact mass is the difference of adjacent endpoint probabilities. The RPCholesky rule is this same sampling law on the diagonal family."
+        ],
+        "reasoning": "This is exact coverage of the finite distribution, whether tabulated or written as an integral or product sum. The repaired theorem is instead a specific asymptotic of these endpoint events and their effect on residual trace.",
+        "searches": [
+          "Fog, Calculation Methods for Wallenius' Noncentral Hypergeometric Distribution, §2 equations (1)–(6)",
+          "Chen–Epperly–Tropp–Webber, arXiv:2207.06503v6 equation (2.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Wallenius expression is an exact lookup formula for finite endpoint probabilities and recovers all masses. The retrieved Resultary exact residual law is a one-defect common-factor matrix law, not a growing heavy plateau. The Appendix C.4 formula is for another pivot-set distribution."
+        ],
+        "reasoning": "The finite formula is already covered. The pertinent remaining exact comparison is a limit giving the entire Φ(x) transition under the same growth and contrast; no such matching statement was found in these checked sources.",
+        "searches": [
+          "Fog, §2 equations (1)–(6), fixed-sample Wallenius probabilities",
+          "Resultary searches for two-plateau RPCholesky capture law and Gaussian window; record 73b2b6cddee0",
+          "Chen–Epperly–Tropp–Webber Appendix C.4"
+        ]
+      },
+      "rationale": "For the repaired claim, the finite identity and fixed-rank comparison are explicit supporting context rather than separate originality claims. Credit the Wallenius finite law and the existing two-level pivot-capture analysis. The surviving claim is the growing-rank Gaussian log-oversampling scale and trace-success curve at fixed positive a/n. The closest inspected pivot-capture result is at contrast of order n/r, and the ordinary fixed-draw formulas or general trace bounds do not directly yield this Gaussian window.",
+      "residual_risks": [
+        "This is bounded statement-level comparison, not a priority proof. Equivalent endpoint asymptotics might appear in older successive-sampling or biased-urn literature under another notation.",
+        "The original Wallenius dissertation was not read; the published Fog formulation suffices to establish exact finite-law coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original finite law by endpoint specialization and differencing, not the repaired trace-window theorem",
+          "evidence": "The draw probability is proportional to remaining color count times odds; the mass is the product of binomial factors times the Wallenius integral for d>0, with the complete sample a deterministic endpoint.",
+          "identifier_or_url": "https://www.agner.org/random/theory/nchyp1.pdf",
+          "material_read": "Author-copy pp. 1–2, §2 equations (1)–(6), OA offsets 0–9482 including model, fixed-draw formula and d>0 condition",
+          "method": "Lawful author PDF; bounded primary-text reading",
+          "title": "Calculation Methods for Wallenius' Noncentral Hypergeometric Distribution",
+          "trigger": "Exact same sequential two-color biased-urn law"
+        },
+        {
+          "assessment": "Closest asymptotic pivot-capture analysis, but a different contrast and guarantee",
+          "evidence": "All heavy coordinates are needed in its spectral example at ratio of order (n−r)/r; the capture cost discussed there is of order r log r.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20633v1",
+          "material_read": "Theorem 1.2/Corollary 1.3, pp. 2–3 (OA offsets 9742–12730), and p. 4 capture example (17600–20400)",
+          "method": "OA primary PDF passages",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "Two-level diagonal pivot capture in the same algorithm"
+        },
+        {
+          "assessment": "Same algorithm and familiar spectrum, but the relevant Appendix C.4 computation is for k-DPP",
+          "evidence": "Equation (2.6) uses current residual diagonal; Appendix C.4 evaluates expected error for fixed-cardinality determinantal sampling.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503v6",
+          "material_read": "p. 5 eq. (2.6) (OA offset 20375), Appendix C.4 pp. 31–32 (offsets 122833, 126700, 129839)",
+          "method": "OA primary PDF passages",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Origin of pivot rule and two-level test spectrum"
+        },
+        {
+          "assessment": "Expected-residual bound, not the critical success distribution",
+          "evidence": "The bound is expressed through elementary symmetric polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287v1",
+          "material_read": "Theorem 3.1, p. 5, OA offset 19349",
+          "method": "OA primary PDF passage",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+          "trigger": "Potential broader trace theorem"
+        },
+        {
+          "assessment": "Different matrix family and pivot statistic; no growing-rank Gaussian window",
+          "evidence": "Residual trace has two possible values depending on selection of the exceptional coordinate in a common-factor matrix.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-atom-residual-law-and-sharp-pivoting-reversal-on-commo--73b2b6cddee0",
+          "material_read": "RESULT.md Finding on the one-defect family and exact two-atom law",
+          "method": "Resultary lookup and local-mirror statement comparison",
+          "title": "Exact two-atom residual law and sharp pivoting reversal on common-factor covariances",
+          "trigger": "Existing exact finite RPCholesky residual-trace law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof §§2–3",
+        "Epperly arXiv:2608.20633v1, pp. 2–4"
+      ],
+      "rationale": "The repaired theorem gives instance-specific operationally interpretable mathematical information not available from an expected-error bound: it resolves both the oversampling threshold and the probability across its transition. It separates the bounded heavy-clock fluctuations from Gaussian light-count fluctuations, explaining the scale and why a limit for the last heavy clock alone gives the wrong success window.",
+      "residual_risks": [
+        "The value is the sharp transition for this diagonal test family, not evidence of similar performance on dense matrices or in floating point."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

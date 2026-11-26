@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:16:19.142884Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–105",
+        "Frozen VERIFICATION.md and inspected check_moment_collision.py (not executed)",
+        "Independent exact integer arithmetic for the radical witness"
+      ],
+      "rationale": "Combining the two geometric series gives numerator (1-q)(1+alpha q)(1-rz), where r=q(q+alpha)/(1+alpha q). Normalizing at z=1 yields the stated logarithmic PGF and the first three factorial cumulants. With a=q/(1-q), b=q²/(1-q²), fixing the second cumulant at s² gives c²=a²+b²−s². On the specified interval a>s>b, hence b<c<a and the inverse r-to-alpha formula is strictly interior. The identity c²−(a+b−s)²=2(a−s)(s−b)>0 with a+b−s>0 makes lambda positive even at mu=s. The third-cumulant half F_s has equal endpoint values s³ and strictly exceeds them inside: for d=a²−s²>0, the increment of x^(3/2) over [s²,s²+d] exceeds that over [b²,b²+d]. Every intermediate height therefore crosses on both sides of an interior maximizer, without any unimodality assumption. Continuous dependence of the maximum on s follows by putting the interval on [0,1]; the coordinate change (mu,s,y) to factorial cumulants is a homeomorphism for s>0, and the raw-moment conversion is triangular and invertible. Independently recomputed the exact witness 8409²−401³=6230080 at s=1, q=3/5; the endpoint values are 1 so the level 3/2 has two distinct interior preimages at mu=1. The factorial cumulants (1,1,3) yield ordinary cumulants (1,2,7) and raw moments (1,3,14). The nearest PGF pole at 1/q is not canceled, so differing q means differing laws, not relabeling.",
+      "residual_risks": [
+        "The displayed point has mu=s, not mu>s as in the sufficient open-region construction; both assertions are proved separately. No exact fiber cardinality or full-distribution identification claim is needed. The frozen checker is finite and not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later paper uses the same PGF (theta in place of lambda), gives first four raw moments and a latent-mixture EM treatment. No moment-fiber theorem was found in those passages.",
+          "The broader-mixture search surfaced general mixture literature but no result shown to give strict interior collisions on this constrained family."
+        ],
+        "reasoning": "A broad result would need to guarantee two preimages within the q,q² and shared-Poisson constraint and not merely nonidentifiability somewhere in a bigger space; the inspected evidence does not do so.",
+        "searches": [
+          "Literature search: identifiability first three moments two component mixture geometric distributions moment map same moments Poisson convolution",
+          "Poisson–Transmuted Geometric Convolution for Overdispersed Count Data, Statistics and Applications 24(1), 187–220, §§3.2–3.3 and 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published-source mirror",
+        "arXiv:2306.07219v1",
+        "Statistics and Applications 24(1), 187–220",
+        "Published record a79d7c8f6d1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model, PGF and first three moments are furnished by the 2023 preprint, with MLE and EM operating on the count distribution.",
+          "The reviewed theorem additionally builds an interior fixed-second-cumulant path and proves an interior third-cumulant bulge with matched endpoints."
+        ],
+        "reasoning": "A formula for the outputs of a parametric map or a likelihood estimation procedure does not classify inverse moment fibers. The proof of two crossings with positive lambda and different nearest poles is substantive additional analysis.",
+        "searches": [
+          "arXiv:2306.07219v1 Eqs. 1, 3–4, 9, 13–15 and §§4–4.2",
+          "Literature search: A new count model based on Poisson-Transmuted Geometric convolution Nandi Chakraborty Biswas full text generating function moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's latent Bernoulli mixture contains two PoiG laws sharing lambda with fixed geometric ratios q and q²; it does not give independent mixture nodes.",
+          "The change from raw to factorial cumulants is invertible; the witnesses have different q and hence different PGF radii."
+        ],
+        "reasoning": "This is a failure of moment inversion in a constrained mixture, not label switching, an equivalence of the full laws, or a theorem about an unconstrained mixture automatically applying to the constraint.",
+        "searches": [
+          "Resultary: PoiTG three moment identifiability parameter inversion geometric mixture",
+          "Resultary: geometric mixture moment identifiability Poisson convolution two parameter triples same moments",
+          "arXiv:2306.07219v1 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed collision (including 1,3,14) is the assigned result itself, 2026/11/22/SCOPE-open-three-moment-nonidentifiability-in-the-poisson-transmuted-g--7bcc800b630d.",
+          "Distinct same-day entry 2026/11/22/SCOPE-all-poisson-transmuted-geometric-counts-are-binomial-thinning-se--a79d7c8f6d1e concerns thinning self-decomposability and compound-Poisson structure for the same family."
+        ],
+        "reasoning": "The identical entry supplies no separate coverage; the strongest distinct entry was compared by claim rather than date and has a different invariant, not a collision or a table of moment fibers. Same-day publication order is not inferred.",
+        "searches": [
+          "Resultary: Poisson-transmuted geometric open three-moment nonidentifiability moment collision",
+          "Resultary: same first three raw moments distinct Poisson geometric mixture law q q squared alpha",
+          "Resultary: PoiTG Poisson transmuted geometric convolution method of moments three parameters"
+        ]
+      },
+      "rationale": "The known PMF, moments and latent-mixture representation are not new. The verified additional claim is the open collision region with distributionally distinct interior preimages, and the exact interior-parameter witness (1,3,14). No equivalent coverage was found in the strongest inspected distinct sources.",
+      "residual_risks": [
+        "Focused statement-level comparisons do not settle absolute priority. An unindexed constrained-mixture moment theorem, or an uninspected passage outside those located, could alter the conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, moments and latent mixture covered; inspected passages do not supply the inverse-fiber conclusion",
+          "evidence": [
+            "Mixture with q and q²; Poisson convolution; PGF and raw moments; same-rate latent-mixture formulation for EM."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07219v1",
+          "material_read": "Eq. 1 and Eqs. 3–4 (HTML offsets 3298, 8269); Eq. 9 and Eqs. 13–15 (18252, 20173); estimation and §4.2 (39503, 59491)",
+          "method": "Open arXiv v1 full text; versioned copy available despite unversioned PDF error",
+          "title": "A new count model based on Poisson-Transmuted Geometric convolution",
+          "trigger": "Defining model and moment formulas"
+        },
+        {
+          "assessment": "Same model and moment expressions; no covering result in the inspected passages",
+          "evidence": [
+            "The first four raw moments and common-rate latent-mixture EM are given, not moment collision sets."
+          ],
+          "identifier_or_url": "https://ssca.org.in/media/10_SA042052025_R1_SA_04092025_Anupama_Nandi.pdf",
+          "material_read": "p. 193 §§3.2–3.3 (text offsets 16016, 18173), p. 200 §4.2",
+          "method": "Official openly available journal PDF; alternate ResearchGate endpoint was inaccessible",
+          "title": "Poisson–Transmuted Geometric Convolution for Overdispersed Count Data",
+          "trigger": "Later work on the identical family"
+        },
+        {
+          "assessment": "Different property; no demonstrated implication",
+          "evidence": [
+            "The conclusion concerns thinning and compound-Poisson structure, not the number of preimages of the first three moments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-poisson-transmuted-geometric-counts-are-binomial-thinning-se--a79d7c8f6d1e",
+          "material_read": "RESULT.md at offsets 0 and 4352",
+          "method": "Local published-source mirror",
+          "title": "All Poisson–transmuted geometric counts are binomial-thinning self-decomposable",
+          "trigger": "Strongest distinct indexed result on the identical family"
+        },
+        {
+          "assessment": "Identical record, not independent prior evidence",
+          "evidence": [
+            "Both assert an open collision region and the same exact raw-moment triple."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-open-three-moment-nonidentifiability-in-the-poisson-transmuted-g--7bcc800b630d",
+          "material_read": "Indexed record RESULT.md at offsets 0 and 6400; corresponding frozen Finding",
+          "method": "Local published-source mirror and frozen comparison",
+          "title": "Open three-moment nonidentifiability in the Poisson–transmuted geometric count family",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "arXiv:2306.07219v1 model, moments and estimation sections"
+      ],
+      "rationale": "This is a structural failure of globally unique three-population-moment estimation in an established three-parameter count model. An open set rules out an isolated coincidence, strict model parameters rule out endpoint degeneracy, and genuine distributional distinctness separates the finding from redundant parameter labels or a numerical ill-conditioning example. The exact witness gives an independently usable check of any proposed general inversion.",
+      "residual_risks": [
+        "No conclusion about higher moments, likelihood identifiability, or finite-sample estimation quality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

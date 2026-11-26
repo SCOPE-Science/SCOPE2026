@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:24.705678Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–72",
+        "Frozen verify.py, lines 17–64 and 117–139; VERIFICATION.md lines 18–21",
+        "Independent symbolic det(M_1−x M_0)/det(M_0), with M_k=[mean(d_i^(k+p+q))] for p,q=0,1"
+      ],
+      "rationale": "Checked the inverse of the compressed resolvent, not the compression of A. In the Krylov basis with first vector b/||b||, the off-diagonal of J is the positive standard deviation of r_i under b_i² weights, giving distinct nodes. Equality of a Ritz node with a spectral endpoint would require a nonzero affine function of r_i to vanish at the other two distinct levels. Affine exactness gives the coordinate multiplier as the two-node interpolant of exp[−t(r⁻¹−1)/γ]; its positive slope for t>0 and the sign test at r_min establish the global first crossing, including ties in the largest decay rate. The one- and two-level invariant cases are exact. A separate symbolic moment-pencil calculation in the basis {b,Db} gives the limiting resolvent characteristic polynomial x²−(10/21)x+1/84 and horizon 0.079671742512472362. For D=A_L the same pencil gives, after x=L−h/L, the characteristic polynomial 1/2−h+O(1/L); at x=3/2−h/L it gives h−1/2+O(1/L). These yield the stated root expansions and the logarithm 2 log L+O(1) in the polynomial horizon. The supplied floating-point checks are only corroboration.",
+      "residual_risks": [
+        "Exact arithmetic; the positive limiting horizon is at fixed unit shift in the specified family, not a bound uniform over all families or shifts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary parity theorem treats the extreme mode at incomplete polynomial depths and expressly excludes rational projections. Bergermann–Stoll §4.3 gives an a-posteriori rational-Krylov error estimate, not a sign comparison."
+        ],
+        "reasoning": "The polynomial parity theorem can inform the transformed extreme-mode question but does not give the stiffness comparison between two algorithms acting on the same A_L. An error bound is not an exact coordinate sign or first-crossing formula.",
+        "searches": [
+          "Resultary 66922def8ca6, Finding and Assumptions and scope",
+          "arXiv:2303.09482 §4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary polynomial positivity records fb3579f163d8 and 66922def8ca6",
+        "Katrutsa–Botchev–Oseledets equation (2.3) and Algorithm 2.1",
+        "Bergermann–Stoll §4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply the earlier horizon theorem with eigenvalues 1−r_i and Ritz nodes 1−η_+, 1−η_−. After division by α the threshold is exactly the submitted T_γ, with the same maximal-rate crossing. Neither inspected source supplies the limiting compressed-resolvent Ritz polynomial with two positive nondegenerate nodes or the distinct endpoint asymptotics for A_L."
+        ],
+        "reasoning": "The unrestricted threshold formula is covered as a corollary. Establishing the stiff separation requires additional spectral asymptotics: one Ritz pair stays interior and separated for the transformed family, while the untransformed upper Ritz node has a gap ∼1/(2L) from L. This is not a substitution of fixed data into a previously stated stiff-limit theorem.",
+        "searches": [
+          "Resultary fb3579f163d8 mirror offset 0–5248",
+          "arXiv:1909.13059 §2 pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published shift-and-invert algorithm uses exactly the inverse of the compressed resolvent. Set D=I−R. Then the polynomial Krylov subspace for D is the same subspace, and its compression is I−J. In two dimensions H=cI+α(I−J), with α=1/(γη_+η_−)>0, by matching its two eigenvalues."
+        ],
+        "reasoning": "For signs the scalar factor exp(−ct) is immaterial. The universal sign law is equivalent to polynomial Lanczos on D at time αt, and the exact threshold follows by rescaling. The novel comparison is instead against polynomial Lanczos on A, not on D.",
+        "searches": [
+          "Resultary lookup for inverse-compressed-resolvent positivity horizon and the stiff-limit constant",
+          "arXiv:1909.13059 §2 equation (2.3)",
+          "Resultary fb3579f163d8 Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact index result was the earlier polynomial horizon fb3579f163d8. A same-day parareal title d036e6948156 concerns an optimized coarse propagator in its index summary, not a projected resolvent; full mirror material was not available."
+        ],
+        "reasoning": "The polynomial entry controls the sign after time-rescaling but does not tabulate the stiffness limits. No exact earlier entry for the limiting comparison was identified; the parareal summary is not whole-record evidence.",
+        "searches": [
+          "Resultary search for compressed-resolvent sign and 0.07967174251247 stiff limit"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit noncollapsing stiff-limit witness and its unbounded ratio against the polynomial horizon on the same original operator. Neither the shift-and-invert algorithm nor the universal two-node sign law in isolation is credited as new: the latter is a direct time-rescaled consequence of the earlier polynomial sign theorem on a transformed operator. The Finding and prior-work section emphasize the stiff-limit comparison, which was not covered by the sources checked.",
+      "residual_risks": [
+        "The focused general search was inconclusive, and the Druskin full text was unavailable. An earlier explicit separation under an equivalent formulation remains possible.",
+        "The universal horizon alone would not pass originality as a separate finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the sign law on I−R with positive time-rescaling, not the explicit stiff-limit comparison",
+          "evidence": [
+            "Exact first crossing at the largest diagonal rate of the polynomial operator, given by its two Ritz values."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+          "material_read": "RESULT.md Finding, Assumptions and proof, mirror offsets 0–5248",
+          "method": "Local mirror plus affine reduction on the two-node compression",
+          "title": "The exact positivity horizon of the two-step Lanczos exponential",
+          "trigger": "Same two-node positivity mechanism and exact threshold"
+        },
+        {
+          "assessment": "The reduced exponential algorithm is established",
+          "evidence": [
+            "The reduced matrix is gamma^-1(compressed-resolvent^-1−I)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.13059",
+          "material_read": "§2 pp. 3–4, equation (2.3) and Algorithm 2.1",
+          "method": "OA original text and match of the projected matrix",
+          "title": "Practical shift choice in the shift-and-invert Krylov subspace evaluations of the matrix exponential",
+          "trigger": "Exact same rational projection"
+        },
+        {
+          "assessment": "Broader polynomial-depth theorem, not a rational stiff-limit comparison",
+          "evidence": [
+            "Even incomplete depths have an extreme-mode crossing; odd depths protect it; rational projections excluded from scope."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-parity-and-the-unique-extreme-mode-sign-transition-in-incomplete--66922def8ca6",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof",
+          "method": "Local mirror, compare hypotheses and conclusion",
+          "title": "Parity and the unique extreme-mode sign transition in incomplete Lanczos",
+          "trigger": "Stronger polynomial result on sign transitions"
+        },
+        {
+          "assessment": "Rational approximation error estimate rather than exact coordinate-sign threshold",
+          "evidence": [
+            "A-posteriori estimator for the rational Krylov approximation error."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.09482",
+          "material_read": "§4.3, pp. 12–13",
+          "method": "OA original text and statement comparison",
+          "title": "Adaptive rational Krylov methods for exponential Runge–Kutta integrators",
+          "trigger": "Rational Krylov approximation of matrix functions"
+        },
+        {
+          "assessment": "Coverage undetermined",
+          "evidence": [
+            "No full theorem used for either coverage or noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2008.04.046",
+          "material_read": "Bibliographic record; attempted full text returned HTTP 403",
+          "method": "Lawful full-text retrieval attempted; no comparison asserted from the title",
+          "title": "On Monotonicity of the Lanczos Approximation to the Matrix Exponential",
+          "trigger": "Plausibly related sign or monotonicity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–4",
+        "Earlier polynomial horizon fb3579f163d8 and published shift-and-invert formulation"
+      ],
+      "rationale": "A concrete stiffness counterexample distinguishes positivity failure of two established approximations applied to the same diagonal system. Ordinary Lanczos loses positivity on a time scale tending to zero, but the compressed-resolvent projection retains a quantifiable positive window without preserving positivity forever. This addresses a property not measured by general error estimates; the universal threshold by itself is a reformulation, not the main value.",
+      "residual_risks": [
+        "No error superiority, positivity-preserving solver, or result for general dimensions of the projection is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

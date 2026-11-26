@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is the standard-height Cayley hull of the unit coordinate cube and its polar cross-polytope, not a symmetric Mahler body. Both exact volumes are derived from first principles: the section formula uses \(\ell_1\)-distance to a coordinate cube and Beta integration; the dual formula uses exact vertical fibers and determinant-one coordinate differences in ordered orthants. Strict convexity of the polar-volume functional (also treated by Pavlov–Telen) ensures a unique center. Logarithmic strict concavity proves a unique stationary root; the dimension comparison, harmonic-number expansion and convergent exponential product prove monotonicity and the asymptotic constant. The bundled standalone checker passed 96 exact-rational and 16 independent geometric convex-hull checks, but finite checks are not substituted for the proof.
+## correctness
 
-## Originality — PASS (best-knowledge priority)
-The close primary construction, Pavlík (2026, arXiv:2611.13896, Theorems 5.2/5.8), concerns face lattices and realizability; its relevant full-text sections do not evaluate the Santaló point or volume product. A public result on the *same* origin polar supplies its unshifted volume and Ehrhart period phenomena; that component is explicitly attributed rather than claimed new. Another recorded Cayley Santaló classification has **regular-simplex** layers, not a cube and cross-polytope; it neither gives the present dimension-dependent factors nor the asymptotic comparison to the cube product. Pavlov–Telen give general methods and uniqueness, not this explicit family. Further published-finding corpus aliases, lattice tables, general Santaló and Cayley searches identified no covering formula for this exact center and \(e^2/4\) limit. Residual risk: unindexed work or a hidden specialization of a general parametric formula could anticipate the result. No independent priority adjudication is claimed.
+PASS
 
-## Mathematical value — PASS
-The recent bipolar construction provides a natural all-dimensional, noncentrally symmetric Cayley polytope. Its exact Santaló center and Mahler product are intrinsic affine-invariant quantities, not an arbitrary data slice. The theorem answers an infinite-family centrality problem, identifies an exact monotone migration of the center, and finds a nontrivial universal normalized product limit \(e^2/4\), despite increasing face complexity. That limit differs in nature from the known regular-simplex Cayley asymptotics and supplies a concrete benchmark for asymmetric layered-polytopal Santaló geometry.
+The slice aB∞+bB1 consists of the points with ∑(|x_i|−a)_+≤b; selecting the excess coordinates and integrating the resulting beta monomials gives the stated primal volume. The shifted polar's vertical fiber is [2−(1+t)||u||₁−(1−t)||u||∞]_+/(1−t²). In an ordered positive chamber the successive differences give simplex coefficients j+1+(j−1)t and unit Jacobian; the sign/order count and layer-cake integral give the stated polar volume. Strict convexity of polar volume and sign symmetry force the optimizing center to lie on the axis. The log denominator has negative second derivative, derivative at zero positive for d≥2, and derivative tending to −∞ at the top. The positive term gained going to d+1 moves its unique zero strictly up. With δ=1−τ and a_j=(j−1)/(2j), stationarity gives 1/δ=1/(2−δ)+∑a_j/(1−δ a_j). The lower bound (d−H_d)/2 on the sum gives δ=O(1/d), hence expansion gives 1/δ=d/2+O(log d). The log of the inverse correction product tends to one, and the remaining normalized factor tends to e/4. Checked d=1 directly (square, ratio one), and d=2 gives the stated radical and product. Inspected the frozen verification and checker without running them. The optional loop is over layer dimensions d=1–4, i.e. ambient dimensions 2–5, and the finite checks alone do not prove the asymptotic statements.
 
-## Limits and closest literature
-The result applies only to the precise cube/cross-polytope layers. The preceding unshifted-polar volume is credited; the Santaló optimum and asymptotic constant are the new content. The center is not claimed to optimize any unrelated functional, and the normalized cube comparison is not stated as a nonsymmetric Mahler inequality. Main sources: Pavlík, arXiv:2611.13896; Pavlov–Telen, arXiv:2402.18955; public mathematical record *An Ehrhart quasiperiod reversal for a cube–cross-polytope Cayley polar*. Independent validation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The origin polar volume and Cayley construction are credited prior work. Inspected comparisons do not establish the full displaced optimum, monotone drift, or optimized e²/4 ratio; these are the supported distinct claim.
+
+## value
+
+PASS
+
+This is a natural nonsymmetric Cayley family. An exact center law exhibits a systematic drift that is invisible in the known origin-polar volume, and the optimized ratio to the cube is a quantitatively useful affine comparison. No universal nonsymmetric Mahler bound is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

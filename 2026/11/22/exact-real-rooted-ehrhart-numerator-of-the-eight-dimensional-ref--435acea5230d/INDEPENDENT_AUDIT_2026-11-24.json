@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:39:32.902471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–86; VERIFICATION.md and verify.py inspected only",
+        "Independent replay /workspace/branches/ehrhart_replay.py; run with python3 and SciPy (only hull proposals use floating point, all decisive checks are exact)",
+        "Hofscheier–Nill arXiv:2611.08819v1, §2 and Theorem 2.1"
+      ],
+      "rationale": "The six-dimensional free-sum gauge is the sum of the two Q gauges, by the convex-combination definition. The last two coordinates uniquely select nonnegative apex weights m/3 and n/2 and leave base scale k-m/3-n/2. This proves the lattice-fiber bijection. An independent replay proposed facet planes with a triangulated hull and then proved completeness in exact arithmetic: the halfspaces contain all inputs, their normals positively span, and all feasible nonsingular triple intersections are exactly the input vertex set. It found 8,11,18 primitive facets at heights 1,3,6. The Q shells were recomputed by counting exact vertical integer intervals in each rational dilation jQ/6. With shell series S(X), the slice counts are coefficients at 6k of S(X)^2/((1-X)(1-X^2)(1-X^3)), so no h* coefficients were assumed. It reproduced all nine lattice counts and all nine coefficients, their sum 6882246, and gamma=(1,4189,191491,825921,246354). Separately, P has the two apex-weight inequalities and 37^2 normalized primitive inequalities from pairs of Q facets; each pair gives a five-dimensional face of B joined to the two apices, hence a facet. The apex-weight facets also have lattice distance one; all paired inequalities have integral normal and right-hand side one after multiplying by six, giving reflexivity. The reciprocal quartic was reconstructed from the coefficients. Its endpoint sign pairs (+,-),(-,+),(+,-),(-,+) on (-5000,-4000),(-50,-40),(-7,-6),(-3,-2) certify four simple roots below -2, which give eight distinct negative roots of h*. The volume is h*(1); the separate determinant-of-apex-displacements factor 6 in the source is also correct.",
+      "residual_risks": [
+        "The proof is specific to the displayed lattice coordinates and standard lattice, not to all eight-dimensional reflexive polytopes. The independent replay does not rely on a floating-point root computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun and Beck–Jayawant–McAllister give conditional multiplicativity and more general lattice-point generating functions. Neither Q factor has lattice polar: primitive facet heights include 3 and 6."
+        ],
+        "reasoning": "The simple reflexive-factor product is not applicable. The broad generating functions are methodological antecedents, not an automatic real-rootedness result or an exact table entry.",
+        "searches": [
+          "Braun DOI 10.37236/1153 Theorem 1",
+          "arXiv:1207.0164 Theorems 1.1, 1.3–1.4",
+          "Braun–Davis DOI 10.1007/s00026-016-0337-6"
+        ]
+      },
+      "checked_sources": [
+        "Primary sources and Resultary mirror IDs in source_inspections",
+        "Target Resultary 435acea5230d is not an independent precedent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric theorem fixes the input but does not count dilates. The general generating-function framework still requires the actual nonreflexive gauge arithmetic; the other real-root theorem treats a different family."
+        ],
+        "reasoning": "One needs the complete lattice-count certificate and the exact quartic sign computation, neither a parameter substitution in a coefficient table nor an implication of the compared root theorem.",
+        "searches": [
+          "Hofscheier–Nill Theorem 2.1 and §3",
+          "Beck–Jayawant–McAllister Theorems 1.3–1.4; Resultary 67f25e9a2dad, offset 4527"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original P_8 is the identical two-apex construction over Q_3 circ Q_3. The 17 November same-polytope entry 14ef98e8fc89 instead computes its Euclidean inball."
+        ],
+        "reasoning": "The h* invariant is unchanged by identifying the same lattice polytope under another name. An inball or the given f-vector counts do not determine its Ehrhart numerator.",
+        "searches": [
+          "Resultary 1371-facet reflexive Hofscheier–Nill h-star and Ehrhart numerator",
+          "arXiv:2611.08819v1 §2, Theorem 2.1; §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself supplies its coefficients. The same-polytope record supplies only its inball invariants; the same-day other Ehrhart result is for oriented four-cycle simplices in dimension three."
+        ],
+        "reasoning": "None supplies an independently tabulated matching h* or a sufficient computation of it; unindexed polytope databases were not exhaustively searched.",
+        "searches": [
+          "Resultary same-polytope and exact h* comparison; target 435acea5230d, prior inball 14ef98e8fc89, same-day 67f25e9a2dad",
+          "Hofscheier–Nill explicit coordinate construction and geometric counts"
+        ]
+      },
+      "rationale": "The construction and extremal facet count are known. In the inspected original and compared work the exact numerator and its strict negative-real root property were not given. General free-sum tools do not state these invariants for this explicit nonreflexive base and do not mechanically settle the quartic signs without the new arithmetic.",
+      "residual_risks": [
+        "An unindexed computed entry or an earlier calculation could contain these coefficients. Braun–Davis full-text comparison remains incomplete, particularly for weaker unimodality consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry credited; no matching numerator in the decisive passages",
+          "evidence": "Same coordinates and two apex directions, reflexive 8-polytope with 44 vertices and 1371 facets; Q_3 has facet heights 1,3,6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08819",
+          "material_read": "§2, PDF pp. 2–3, Theorem 2.1, and §3 discussion of Q_3 and P_8",
+          "method": "OA PDF primary-text inspection",
+          "title": "Reflexive polytopes can have doubly exponentially many vertices",
+          "trigger": "Original construction of the identical polytope"
+        },
+        {
+          "assessment": "General method, with conditional simple product",
+          "evidence": "One factor must have lattice polar for the simple product criterion; theorem is not an evaluation for this pair.",
+          "identifier_or_url": "https://arxiv.org/html/1207.0164",
+          "material_read": "Theorems 1.1, 1.3–1.4, around offsets 6100 and 12000",
+          "method": "OA primary-text inspection",
+          "title": "Lattice-point generating functions for free sums of convex sets",
+          "trigger": "Potential covering free-sum series theory"
+        },
+        {
+          "assessment": "Hypothesis fails for the Q pair",
+          "evidence": "Ehrhart-series multiplication assumes one reflexive factor.",
+          "identifier_or_url": "https://doi.org/10.37236/1153",
+          "material_read": "Theorem 1, PDF p. 2",
+          "method": "OA journal PDF",
+          "title": "An Ehrhart series formula for reflexive polytopes",
+          "trigger": "Cited reflexive-factor product formula"
+        },
+        {
+          "assessment": "Hypotheses and conditional implications not verified",
+          "evidence": "No negative literature inference is made from access failure.",
+          "identifier_or_url": "https://doi.org/10.1007/s00026-016-0337-6",
+          "material_read": "Citation; publisher and PDF routes did not yield the full text",
+          "method": "Lawful OA attempts",
+          "title": "Ehrhart series, unimodality, and integrally closed reflexive polytopes",
+          "trigger": "Cited real-rootedness/unimodality context"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Gives the unique inball's center, radius and nine incident facets.",
+          "identifier_or_url": "Resultary 14ef98e8fc89",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The unique nine-contact Euclidean inball of the 1,371-facet reflexive polytope",
+          "trigger": "Earlier result on the identical object"
+        },
+        {
+          "assessment": "Different object and hypotheses",
+          "evidence": "Formula and threshold for a three-dimensional simplex family.",
+          "identifier_or_url": "Resultary 67f25e9a2dad",
+          "material_read": "RESULT.md passage near offset 4527",
+          "method": "Local mirror",
+          "title": "Sharp Ehrhart shape thresholds for uniform oriented four-cycle simplices",
+          "trigger": "Same-day exact h* and real-rootedness hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Hofscheier–Nill Theorem 2.1"
+      ],
+      "rationale": "This is a specific motivated extremal counterexample, not an arbitrary finite lattice polytope. The exact numerator determines the entire dilate census; the certified eight distinct negative roots add a concrete strong shape property not explained by the facet counterexample or by palindromicity. A researcher comparing Ehrhart shape of known extremal reflexive examples can directly use this invariant.",
+      "residual_risks": [
+        "No general root theorem for extremal reflexive polytopes follows from one example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

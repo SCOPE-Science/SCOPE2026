@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:02.879208Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated the polar normals directly in Z[√5] using the cube corners (±2,±2,±2) and cyclic permutations of (0,±(1+√5),±(√5−1)). Dot products with the scaled given vertices verify 20 distinct supporting triples; these normals have length √12. Cauchy's formula therefore gives B(u)=(1/2)max_v u·v for the 1024 signed sums of ten polar representatives. The independent exact calculation gave 18 squared-norm levels, with leading pairs (168+72√5, count 20) and (168+56√5, count 60), one top ray per face normal. It verified 30 adjacent-face edges, exactly 6 opposite-sign pairs at every top ray, all off-diagonal normal cosines ≤√5/3, minimum absolute cosine ≥1/3, and both strict cap inequalities. The same calculation is replayable in /workspace/branches/audit_icosa.js with Node; uploaded checker inspected, not run. Hence for t>B1 the maximal rays give all caps, separated and in fixed sign chambers, and the cap area is 2π(1−t/B+). At B1 additional sign sums can add only isolated directions; B+ has only the top directions, of area zero. Indeed the computation found the 60 second-tier radial directions strictly outside all B1 top caps, so slightly below B1 there is positive extra area and this upper band is sharp. The cap sum gives 10(1−t/B+), and 400B1²<361B+² proves the band contains strictly more than half the mass. Facet-normal and silhouette assertions do not require treating the isolated endpoint directions as hexagons. Uniformity of conditional cap label/orientation holds for the positive-mass upper events, not for conditioning at B+.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas's theorem gives a sum of apertures Θ_q(t) over cells for q in vert(P−P); full text was accessible for the review, including the explicit tetrahedral brightness section.",
+          "Finch's introduction and abstract formulate projection moment questions and discuss cube/tetrahedron area/perimeter, not this constant upper density.",
+          "SCOPE c7a816d5da40 states a different ten-direction cap law for a symmetric tetrahedron, with normalized lower endpoint √(7/8)."
+        ],
+        "reasoning": "A general density expression would reproduce the law after the explicit data in its aperture terms are derived, but does not determine those data or the icosahedral silhouette side counts. Thus the standalone upper-band computation and marking, not the general procedure, are the novelty basis.",
+        "searches": [
+          "Abas arXiv:2609.26202 Theorem 3.4 and §5.4",
+          "Finch arXiv:1203.2464v1 introduction",
+          "Resultary same-day tetrahedral cap-law c7a816d5da40"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_icosa_brightness.py",
+        "arXiv:2609.26202",
+        "arXiv:1203.2464",
+        "Resultary 3db14789bb66, 43964e3c07f3, 76ed33fc3859, 4bb075dff7ea, c7a816d5da40, 356880455323 (indexed only), and the frozen self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For P=ΠI, Abas's formula still needs the maximal and second-tier possible radii/support geometry and identification of full circular apertures. The separate face-facing tests for the hexagonal mark do not occur in that formula.",
+          "The area-weighted silhouette work expressly excludes complete conditional distributions; the same-day tetrahedral and indexed dodecahedral analogues do not identify the icosahedral projection-body normal fan."
+        ],
+        "reasoning": "The abstract cap argument is available, but the exact breadth of this cap phase (and whether it is a majority) and its six-edge incidence require a new, exhaustive, solid-specific geometry calculation. Prior coverage of the method is not prior coverage of the assessed precise invariant.",
+        "searches": [
+          "Abas arXiv:2609.26202 Theorem 3.4 primary passage",
+          "Resultary 43964e3c07f3 limitations; c7a816d5da40 and 356880455323 cap analogues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_I=h_{ΠI}=(1/2)w_{ΠI}; the general polytope width law is therefore genuinely relevant after transforming the object.",
+          "The same-solid shadow diameter 4bb075dff7ea is a distinct statistic. The regular dodecahedron's own brightness integrates a different normal set (six antipodal facet axes, not ten), so ordinary duality does not turn it into this brightness law."
+        ],
+        "reasoning": "Check brightness under its support-function and width aliases, but distinguish projecting the original solid from projecting its polar and distinguish width of the projection body from diameter of a shadow.",
+        "searches": [
+          "Resultary: regular icosahedral brightness / shadow area orientation density, marked upper tail, dodecahedral dual",
+          "Abas arXiv:2609.26202 §1.2 and Theorem 3.4",
+          "Resultary 4bb075dff7ea and 356880455323"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3db14789bb66 gives the three silhouette probabilities, 43964e3c07f3 gives the corresponding first area-weighted moments, and 76ed33fc3859 gives exact icosahedral variance; none specifies the brightness density on an interval.",
+          "4bb075dff7ea is an exact icosahedral upper-tail law for shadow diameter, with a different cutoff.",
+          "e735c228c1c2 is the indexed self-match; no independent exact icosahedral brightness-band table was identified."
+        ],
+        "reasoning": "Existing finite summaries and moments do not determine a continuous law or its joint silhouette mark. Diameter's cap/band geometry aims at a different invariant.",
+        "searches": [
+          "Resultary: projected area / icosahedron / Platonic variance and area-weighted silhouettes, exact corpus IDs 3db14789bb66, 43964e3c07f3, 76ed33fc3859, 4bb075dff7ea"
+        ]
+      },
+      "rationale": "Pass is for the explicit icosahedral upper band, its exact majority mass and its hexagonal mark, not Cauchy's formula, generic spherical cap tails, or a general polyhedral density method. The strongest same-object nearby records give side counts, area-weighted moments, variance, or a different metric. Abas gives a genuinely applicable general theorem after passing to the projection body, but applying it does not supply the required icosahedral normal-cell geometry, breakpoints, numerical band mass, or silhouette mark. Related same-day solid-specific cap laws are not discarded on date grounds; the examined tetrahedral one differs and the dodecahedral full record remains an access risk, distinct from the evidence against equivalence of the solids' projection bodies.",
+      "residual_risks": [
+        "An earlier specialized evaluation under projection-body or zonotope terminology could overlap; the review is bounded, not a historical-priority certificate.",
+        "The full same-day dodecahedron record was not retrieved, so only its indexed scope and structural distinction were assessed.",
+        "Abas provides a genuine prior general method; the pass is limited to the exact icosahedral interval and silhouette marking, not polyhedral density methods in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method overlap and applicable to ΠI, but a theorem in terms of unspecified cell apertures, not the explicit icosahedral classification.",
+          "evidence": [
+            "Theorem 3.4 gives f_W(t) as a sum of Θ_q(t)/(4π||q||) for vertices q of P−P.",
+            "§5.4 explicitly computes brightness for tetrahedral geometry, not the assessed icosahedral band."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202",
+          "material_read": "§1.2 p. 2 (OA 4900), Theorem 3.4 and proof pp. 14–15 (45950–49911), §5.4 p. 32 (98600–99200), p. 71 (222400)",
+          "method": "Lawful primary OA PDF passage comparison, open theorem and proof; literal icosahed- locator was also tried, not used as proof of absence",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Direct general theorem using spherical cell geometry; possible equivalent brightness via support function"
+        },
+        {
+          "assessment": "Covers unweighted polygon types, not the upper tail of projected area.",
+          "evidence": [
+            "Computes probabilities for counts 6, 8, 10 and their discrete mean."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/1 record 3db14789bb66",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror",
+          "title": "Exact hexagon–octagon–decagon law for icosahedral shadows and dual dodecahedral sections",
+          "trigger": "Same icosahedral silhouette observable"
+        },
+        {
+          "assessment": "First weighted/conditional moments, not explicit conditional or unconditional distributions on the band.",
+          "evidence": [
+            "Gives E[B 1_{N=k}] and conditional means for k=6,8,10; the limitations explicitly exclude full conditional distributions."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/10/18 record 43964e3c07f3",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 7800, including limitations",
+          "method": "Resultary query and local mirror",
+          "title": "Exact area-weighted silhouette law and reverse area–complexity ordering for the regular icosahedron",
+          "trigger": "Same solid, both area and shadow types"
+        },
+        {
+          "assessment": "Variance is a moment, not a law on an interval.",
+          "evidence": [
+            "Provides scalar exact variance for the icosahedron and distinguishes variance from a full brightness law."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/10/11 record 76ed33fc3859",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 7100",
+          "method": "Resultary query and local mirror",
+          "title": "Exact orientation-variance spectrum of Platonic shadow areas",
+          "trigger": "Exact brightness statistic for the same solid"
+        },
+        {
+          "assessment": "Different random variable.",
+          "evidence": [
+            "Uses six vertex-equator bands and a first triple-overlap cutoff for diameter, not face-normal caps for projected area."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/10/25 record 4bb075dff7ea",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 6450",
+          "method": "Resultary query and local mirror",
+          "title": "An exact upper-tail law for random icosahedral shadow diameters",
+          "trigger": "Closest same-solid geometric upper-tail wording"
+        },
+        {
+          "assessment": "Methodologically close, but another solid and no icosahedral incidence classification.",
+          "evidence": [
+            "States 5(1−z) from √(7/8) to 1 for its normalized symmetric tetrahedral case."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/22 record c7a816d5da40",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror",
+          "title": "A sharp ten-direction brightness bound and its complete tetrahedral law",
+          "trigger": "Same-day explicit cap-based linear brightness law"
+        },
+        {
+          "assessment": "Residual scope risk, not a failure of originality by itself; indexed law is explicitly for the other solid.",
+          "evidence": [
+            "Indexed summary reports upper-brightness cap law and ten-sided brightest shadows; same-day dating does not decide priority."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/22 record 356880455323",
+          "material_read": "Indexed Resultary statement only; local full record unavailable, attempted matching source retrieval did not yield text",
+          "method": "Configured Resultary search and bounded matching-source retrieval",
+          "title": "Sharp two-endpoint brightness laws and silhouette selection for the regular dodecahedron",
+          "trigger": "Dual Platonic solid and an indexed analogous cap/marked-shadow result"
+        },
+        {
+          "assessment": "The inspected results concern related projection moments; no implication for this exact band was established.",
+          "evidence": [
+            "Abstract concerns area/perimeter dependence for cube and tetrahedral random projections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2464",
+          "material_read": "v1 abstract and opening definitions of widths and planar projection observables, OA 0–2048",
+          "method": "Lawful primary OA PDF passage",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Classical random projection area literature cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact distributional invariant for a canonical solid under natural Haar orientations. The explicit band is not merely an infinitesimal endpoint expansion: it contains over half the orientations and has a sharp cutoff, constant density, and an exact link to the six-sided projection type. The band provides computable probabilities and marked orientation sampling unavailable from the known silhouette counts and first two area moments. The finite certificate resolves the crucial full-cap and incidence conditions; it is not a numerical census promoted to a full distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

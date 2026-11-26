@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:51:12.757896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–127, with independent checks of the Fourier constants, uniform tail bound, and optimizer compactness",
+        "VERIFICATION.md and CHECKER.py inspected without execution; recorded numerical checks alone do not certify the limits"
+      ],
+      "rationale": "The derivative of a periodic real BV input has equal positive and negative masses V/2. Coupling them represents the input modulo constants by V/2 times an average of arc indicators (the derivatives agree as measures). The triangle inequality gives the upper bound and an arc of variation two gives equality. Pairing positive and negative Fourier frequencies and dividing by four gives the coefficient 1/(2π²) in (1). With h=t^(1/α), the arc sum divided by h has grid spacing 2πh and converges uniformly at bounded d/h to (∫g−F(d/h))/(2π). One integration by parts gives ∫g=2Γ(1−1/α)(1−2^(1/α−1)). The oscillatory part is O(h/sin(πd)) by summation by parts and integrable g', so diverging d/h gives only B; d/h→0 gives zero. For the Fourier tail, for p in a compact subset of (−1,2), subtract the damped uncut power u^p exp(−δu) from its cutoff version. The difference vanishes near zero and its third derivative has uniformly bounded L¹ norm for δ↓0 (outside the cutoff, the derivative terms are bounded by multiples of u^(p−3)). Three integrations by parts and the damped Gamma integral give the stated cutoff coefficient with O(z^(−3)) error. For fixed α, if the second power 3α−2 exceeds 2, the remainder after the first term already has integrable third derivative; at the integer value 2 its cutoff transform is rapidly decaying. Thus the leading coefficient Γ(2α−1)sin(πα) is strictly negative, forcing compact positive minimizers and the strict short-pulse improvement. Near α=1 the first unused power is p=2+4ε times a smooth function of u^(1+ε). The only potentially singular third-derivative term has the factor p−2, whose product with ∫₀¹u^(p−3)du is bounded, and it vanishes at ε=0. This makes the two-term expansion uniform. At α=1 the displayed positive Laplace mixture yields F₁(z)>0 at every finite z, so the negative minimizers escape as ε↓0. If εz→0 their positive second term dominates: the negative-to-positive ratio is O(εz^(1+ε)), which tends to zero since z≤1/ε eventually; the remainder is smaller as well. If εz→∞, all terms are o(ε²), worse than the test value at z=2/(πε). On the intervening compact εz scale, the limiting profile 1/u²−π/u has its unique minimum −π²/4 at u=2/π, proving both limits and the coefficient π/8 after dividing by 2π.",
+      "residual_risks": [
+        "Fixed-exponent short-time and Poisson-boundary limits are sequential; no joint t,α uniform bound or uniqueness of the fixed-α minimum or equality functions is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available descriptions address torus regularity, the singular part of Df, subordinated Besov/Triebel–Lizorkin estimates, and short-time heat-flow characterization of BV respectively",
+          "The frozen record compares these scopes at lines 132–141; original theorem passages were not recovered in the independent retrievals"
+        ],
+        "reasoning": "Those descriptions do not supply a sharp squared L² residual at the torus variation endpoint, an optimizing frequency transform, or its minimizer drift. No whole-document coverage exclusion is inferred from descriptions alone.",
+        "searches": [
+          "Roncal–Stinga arXiv:1209.6104 torus fractional Laplacian and semigroup",
+          "Ponce–Spector arXiv:1603.08663 fractional nonlocal BV limits",
+          "Knopova DOI 10.1002/mana.202000061 fractional caloric smoothing",
+          "Short-time heat flow and functions of bounded variation in R^N"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact hits and distinct operator comparisons",
+        "Frozen RESULT.md lines 3–45, 85–141",
+        "Bounded primary literature and mirror lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian exact result has a finite constant rescaled arc length; the frozen rescaled minimizer diverges at the Poisson boundary",
+          "The indexed Poisson-mixture result instead gives antipodal extremizers and a half-order crossover"
+        ],
+        "reasoning": "An operator-general arc reduction, even if already available, would yield only a finite-time maximization for the new multipliers. It does not imply the two competing terms −πε/z and 1/z² in the critical transform or control all global minimizers. Substituting α=2 gives no such information at α=1.",
+        "searches": [
+          "Decisive indexed Gaussian claim 7bee99d6a8aa and fractional Poisson-mixture claim 8e1e09f82c1d; local mirror attempts",
+          "Frozen RESULT.md lines 62–127"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact interior/Poisson hit is the frozen record 7a0bf76b866b itself",
+          "The distinct Gaussian exact analogue 7bee99d6a8aa describes two-jump arc extremizers and a worst-arc length 2z_*sqrt(t)"
+        ],
+        "reasoning": "Compare the squared residual divided by variation squared, rather than a BV smoothing bound or a heat-content loss. The Gaussian result matches this objective at α=2, not for 1<α<2 or in the approach to α=1.",
+        "searches": [
+          "Resultary: sharp periodic BV-to-L² residual for fractional smoothing and arc extremizers",
+          "Resultary: quadratic Poisson boundary and short pulse for fractional heat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact relatives: 7bee99d6a8aa Gaussian heat; 1a083add3aa3 backward-Euler heat; 9f69981acbc3 twice-centred Steklov; 8e1e09f82c1d fractional Poisson-mixture with a half-order transition",
+          "The exact hit reporting π/8 and 2/π for this stable semigroup was the frozen record itself"
+        ],
+        "reasoning": "These are operator-specific variational constants, not interchangeable instances of a table of the same function. None of the distinct statements gives the optimized stable-semigroup coefficient at order 1+ε.",
+        "searches": [
+          "Resultary: exact BV variation residual and sharp pulse coefficient",
+          "Resultary exact-order comparisons for the Gaussian, implicit Euler, Steklov and fractional Poisson-mixture operators"
+        ]
+      },
+      "rationale": "The distinct supported claim is the optimized interior stable-order short-pulse law and especially its singular boundary at order one. Arc extremality and a shrinking pulse also occur in closely related exact work, so they are not counted as new unrestricted principles. The strongest Gaussian exact match is at order two only and supplies neither the sign mechanism of the interior fractional tail nor the quadratic Poisson-boundary coefficient and length scale.",
+      "residual_risks": [
+        "The strongest distinct Gaussian and Poisson-mixture comparisons rest on available exact indexed statements, not full proofs. Primary theorem access was incomplete. The bounded verdict is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material structural overlap, not coverage of the interior-order or boundary law; shared date does not settle priority",
+          "evidence": "Gaussian heat worst-arc length 2z_*sqrt(t) and a sharp periodic BV residual coefficient.",
+          "identifier_or_url": "2026/11/22/SCOPE-microscopic-two-jump-extremizers-for-sharp-periodic-heat-approxi--7bee99d6a8aa",
+          "material_read": "Actual indexed claim on Gaussian arc extremizers, length and sharp coefficient; original theorem passage not retrieved",
+          "method": "Local Resultary search and local mirror attempts",
+          "title": "Microscopic two-jump extremizers for sharp periodic heat approximation",
+          "trigger": "Strongest distinct same-objective stationary-order match"
+        },
+        {
+          "assessment": "Different approximation and crossover; no implication of the order-one onset from the available result",
+          "evidence": "Antipodal extremizers and a small-time transition at one half, not an optimized stable residual with εz→2/π.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-antipodal-extremizers-and-a-half-order-crossover-for-p--8e1e09f82c1d",
+          "material_read": "Indexed statement, not full proof",
+          "method": "Local Resultary and mirror attempts",
+          "title": "Universal antipodal extremizers and a half-order crossover for Poisson-mixture approximation",
+          "trigger": "Poisson-related sharp extremizers and crossover"
+        },
+        {
+          "assessment": "Geometry, analytic tools and norm/functional distinctions identified at available statement level",
+          "evidence": "Torus semigroup regularity and BV singular variation extraction are not optimization of the normalized squared residual.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.6104 ; https://arxiv.org/abs/1603.08663",
+          "material_read": "Available description of Roncal–Stinga and frozen statements at lines 132–141; sought primary passages not recovered",
+          "method": "Focused primary literature search and lawful exact-paper retrieval attempts",
+          "title": "Fractional Laplacian on the torus; On formulae decoupling the total variation of BV functions",
+          "trigger": "Same periodic fractional semigroup and closest BV fractional functional"
+        },
+        {
+          "assessment": "No verified covering statement; cannot rule out uninspected content",
+          "evidence": "Metadata confirms the stated general regularity setting rather than the specific sharp residual optimization.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.202000061",
+          "material_read": "DOI metadata/title and frozen comparison; theorem text unavailable",
+          "method": "Lawful DOI-page inspection and OA attempt",
+          "title": "Bochner's subordination and fractional caloric smoothing in Besov and Triebel–Lizorkin spaces",
+          "trigger": "Plausible general fractional smoothing estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(4), (7)–(9)",
+        "Comparison with Gaussian and Poisson-mixture exact results"
+      ],
+      "rationale": "The exact norm distinguishes interacting, vanishing-length arcs from independent separated jumps. The strict gain for every interior stable exponent, positivity at the Poisson boundary, and simultaneous quadratic gain and diverging rescaled pulse length explain where that effect disappears. These resolve a concrete sharp-constant and structure question beyond the general method of reducing to arcs.",
+      "residual_risks": [
+        "The variational minimum is exact but not an elementary closed form at arbitrary stable order; no joint scaling law is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

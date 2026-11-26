@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-dimensional proof derives the rank-\(m\) projector from unsigned incidence, computes the complete signed-graph eigenspace decomposition, and obtains an identity for the exact local loss, not only a Taylor approximation. Sharpness is witnessed by explicit arbitrarily small rotations, with complete equality conditions. At \(m=4\), the fixed-sign argument gives the entire local four-dimensional equality manifold, and Perron–Rayleigh theory proves strict gain after weight optimization. Simple-eigenvalue perturbation determines the coefficient \(48/125\). The included numerical checker passed 2330 supplementary assertions; its finite experiments are not the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The primary August 2026 source constructs the frame and calculates its unperturbed value. The closest publicly available theorem, *Sharp weight rigidity and a spectral crossover for regular-simplex midpoint frames*, studies nonuniform weights at the **fixed** Gram projector, and expressly rules out moving-frame stability from its scope. The new result instead varies the rank-\(m\) projector, classifies a local sign chamber, and identifies strict optimized-weight ascent along an equal-weight plateau. ArXiv:2609.03200 concerns increasing ambient dimension, and arXiv:2608.02429 concerns graph eigenvalues and universal bounds. The inspected hypersimplex manuscript computes other frames and global finite tables, not this local profile. The calculation uses classical Ky Fan and perturbation theory; it does not claim those methods are novel. Unindexed equivalent published work and the inaccessible full text of an abstract-only related 2026 paper remain publication-priority risks.
+PASS
 
-## Mathematical value — PASS
-This is the sharp local geometry of a natural conjectural extremizer family, not a generic low-dimensional norm exercise. The complete exact Frobenius rigidity law for all higher dimensions includes a dimension-seven spectral equality crossover, while at dimension four the equal-weight objective has a full manifold of false stationary candidates that the true optimized-weight frame objective strictly rejects. The universal second-order coefficient \(48/125\) makes the distinction quantitative. No global optimality conjecture is claimed solved.
+From the incidence identity BᵀB=(q−2)I+J, the midpoint Gram projection has the stated three nonzero entry types. Thus its sign matrix is 2BBᵀ−2I−J and on the constant, midpoint, and remaining spaces its eigenvalues are (−m²+7m−4)/2, 2(m−2), and −2. As F is the trace against this sign matrix divided by N in the sign neighborhood, the loss is exactly the two spectral-gap-weighted leakage traces. Their sum is half the squared Frobenius distance. Testing a rotation toward either complementary eigenspace gives sharpness, and comparing the gaps yields the equality sets and the m=7 crossover. A different projection cannot be another local optimum within the sign neighborhood for m≥5: stationarity under conjugating rotations would require it to commute with the sign matrix, and a missing top-eigenvalue direction could then replace a lower one by arbitrarily small improving rotations. At m=4 the constant and midpoint spaces tie, so the equal-value locus near P₀ is the dimension-four Grassmannian of hyperplanes in their sum. Writing the complementary normal w near c, the row sums of the absolute Gram are 8/5+4/N−4w_e². The constant-vector Rayleigh quotient equals the top eigenvalue only for constant row sums, forcing w=c locally. The derivative at zero sends c to −(4/5)u while the constant Rayleigh quotient stays fixed. The unperturbed weighted eigenvalue gap to the u-space is 8/5+1/15=5/3, giving the Taylor coefficient (16/25)/(5/3)=48/125. Independently built midpoint vectors give max leakage error 3.19e-15 in 21 perturbations across seven dimensions, with small-angle weighted coefficients 0.38399756 to 0.38399960 across sampled directions. This supplements the exact trace and perturbation proofs.
 
-## Closest literature and scientific limits
-Deregowska–Lewandowska, *Maximal Projection Constants and Extremal Vector Configurations* (arXiv:2608.08695, Section 2); the publicly available *Sharp weight rigidity and a spectral crossover for regular-simplex midpoint frames*; Kumar–Mohar–Mojallal–Pragada (arXiv:2609.03200); Sivashankar–Tang–Wakhare (arXiv:2608.02429); and *Hypersimplex frames beyond the simplex bound* (2026). The analysis is real, local, in the unchanged-entry-sign neighborhood, and says nothing about global frame optima or complex variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the midpoint configuration, its baseline value and fixed-frame weight spectrum, and the standard spectral variational and eigenvalue perturbation tools. The supported distinct claim is the behavior as the real Gram projection varies: the sharp local leakage and equality diagram and the exceptional dimension-four flat with strict optimized-weight ascent and explicit curvature.
+
+## value
+
+PASS
+
+The local geometry of a natural candidate projection-constant frame is useful independently of the global conjecture. The theorem distinguishes dimensional regimes, identifies which directions are cheapest at fixed weights, and shows that a whole equal-weight flat in rank four is nevertheless improving when weights adapt. The explicit positive coefficient measures that instability rather than just detecting a larger value elsewhere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

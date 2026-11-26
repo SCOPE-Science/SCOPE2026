@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:28.653279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the four fixed-axis orders, C beats L iff a≤r and beats R iff d≤r; if either extreme instead has a>r or d>r it is both the Condorcet and first-round majority winner. Thus a unique Condorcet winner always exists. In the center-winner region, failure under every tie-break is exactly m=b+c<min(a,d): when C ties for last an extreme can be eliminated, and when an extreme is eliminated C wins the final pairwise comparison. Both a,d≤r force m≥1. For fixed m the integer interval for a is [max(m+1,r+1−m),min(r,2r−2m)]; its cardinality is m up to floor(r/2), then 2r−3m up to floor((2r−1)/3), then zero. Each choice has m+1 splits of m and the uniform denominator is binom(n+3,3). The range convention gives zero for n=1,3. Dividing the numerator by n³ and scaling m by n gives the two integrals of t² on [0,1/4] and t(1−3t) on [1/4,1/3], totaling 7/864. Piecewise polynomial Riemann sums with order-one rounded endpoints and O(n²) errors in the original count justify the stated O(1/n) convergence after normalizing by the denominator, which has leading coefficient 1/6. Hence the limit is 7/144. Independent check: python3 /workspace/branches/independent_checks.py 1; output /workspace/branches/independent-1.txt. It enumerates 12,740 histograms through n=25 using all pairwise margins and all legal first eliminations, e.g. 2 failures at n=5 and 46 at n=17. The frozen script was inspected, not executed. The computation does not prove the limit or extrapolate the result to different cultures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamwa–Merlin–Top use the same binom(n+3,3) IAC denominator and include Hare, but calculate a variable-electorate event. Walsh gives the four orders under the independent ballot model. The 2003 proximity-paper search description concerns plurality efficiency; no readable primary full text was obtained."
+        ],
+        "reasoning": "General domain or polytope methods can be applied to the current event but do not already evaluate its separate inequalities. An independent-ballot probability weights histograms by multinomial coefficients; its conclusion cannot be specialized into this uniform count. The proximity-paper snippet is only a locator, not evidence of whole-document noncoverage.",
+        "searches": [
+          "HAL hal-03143741v2, pp. 8, 15–16 and Appendix p. 25",
+          "arXiv:1503.02766v1, §2",
+          "scholarly query on Condorcet efficiency and proximity to single-peaked preferences"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10a294dece8f and 297e69065897",
+        "Kamwa–Merlin–Top hal-03143741v2",
+        "Walsh arXiv:1503.02766v1",
+        "Miller 2012 conference manuscript",
+        "Condorcet Efficiency and Proximity to Single-Peaked Preferences (2003), scholarly search description and access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-order domain and feasible-histogram denominator are known, but neither determines the numerator. The closest IAC paper imposes inequalities for a change under removal of voters, not the present conjunction of two pairwise majority constraints with a strict first-round loss."
+        ],
+        "reasoning": "Obtaining 7/144 requires integrating the length of the eligible extreme counts against the center-split multiplicity, and the exact finite formula depends on strict versus weak endpoints. That is a new event evaluation on the checked evidence, not a mere substitution into a previously solved probability.",
+        "searches": [
+          "Walsh arXiv:1503.02766v1, §2",
+          "Miller 2012 pp. 1, 5",
+          "Kamwa–Merlin–Top hal-03143741v2, IAC section and Appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-at-a-time plurality runoff is Hare in Kamwa–Merlin–Top; the same IAC domain there is used for participation and abstention reversals. The closest Resultary Condorcet-exclusion region (10a294dece8f) considers stable two-lotteries rather than IRV.",
+          "General center-elimination logic is background, not an independent novel mechanism in this claim."
+        ],
+        "reasoning": "The correct equivalent event is strict plurality elimination of the Condorcet-winning center, not exclusion by a lottery or change of winner upon abstention. Tie-dependent failure would also differ at finite odd n even though some boundary differences disappear in the same large-n volume.",
+        "searches": [
+          "Resultary: fixed-axis single-peaked IAC IRV failure; Hare Condorcet efficiency; center squeeze and anonymous composition counting",
+          "HAL hal-03143741v2, Hare and IAC sections",
+          "Miller 2012, Monotonicity Failure in IRV Elections with Three Candidates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-culture table gives a different event, including 1/36 for a negative-abstention result at the plurality parameter, rather than the static Condorcet-failure volume. The IRV probability record 297e69065897 uses posterior probabilities on 15 potentially truncated ballot types, not four unweighted histogram counts. No matching finite-sum or exact-limit entry surfaced."
+        ],
+        "reasoning": "The different weighting or event prevents those entries from supplying this exact finite count, and numerical coincidence alone would not establish event equivalence. Untabulated or unindexed cases may have been missed.",
+        "searches": [
+          "Resultary: exact anonymous-histogram probabilities, fixed axis, IRV, center squeeze and the Condorcet criterion",
+          "HAL hal-03143741v2 Appendix p. 25",
+          "Resultary 297e69065897"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact finite odd-n count and rational limiting probability of the robust Hare/Condorcet failure event under fixed-axis uniform anonymous histograms. The four ballots, center-elimination possibility and general IAC counting approach are not original. Same-rule and same-culture primary work was examined, but measures different events. No stronger or equivalent count was identified in the bounded comparisons below; historical priority is not certified.",
+      "residual_risks": [
+        "The 2003 proximity study's linked copy returned HTTP 403 and a readable lawful copy was not located; the snippet alone does not establish its full coverage.",
+        "An unidentified earlier restricted-domain Condorcet-efficiency or exact IAC tabulation could contain the count or an equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The strongest checked same-rule and same-culture comparison, but for different profile events.",
+          "evidence": "Hare identified; common histogram denominator; appendix gives negative-abstention probability, including 1/36 at the plurality setting, not a Condorcet consistency count.",
+          "identifier_or_url": "https://hal.science/hal-03143741v2",
+          "material_read": "Abstract p. 2 (OA offset 1624), Hare definition p. 8 (21959), IAC pp. 15–16 (45989–50657) and appendix p. 25 (78007).",
+          "method": "Lawful OA primary passages.",
+          "title": "Scoring Run-off Rules, Single-peaked Preferences and Paradoxes of Variable Electorate",
+          "trigger": "Same three-candidate single-peaked IAC culture and plurality runoff family."
+        },
+        {
+          "assessment": "Establishes the domain, not the anonymous failure law.",
+          "evidence": "Lists the four admissible orders; treats uniform independent ballots, not equal weight per count vector.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.02766v1",
+          "material_read": "p. 1, §2, OA offset 0.",
+          "method": "Lawful OA primary passage.",
+          "title": "Generating Single Peaked Votes",
+          "trigger": "Fixed-axis domain of four strict orders."
+        },
+        {
+          "assessment": "Relevant deterministic election framework, not this fixed-axis IAC probability.",
+          "evidence": "Studies monotonicity and Condorcet concepts for IRV; no anonymous conditional count is established by these passages.",
+          "identifier_or_url": "https://userpages.umbc.edu/~nmiller/MONFAIL.CONF.FIN.REV.pdf",
+          "material_read": "pp. 1 and 5, OA offsets 0 and 11384.",
+          "method": "Lawful OA manuscript passages.",
+          "title": "Monotonicity Failure in IRV Elections with Three Candidates",
+          "trigger": "Three-candidate IRV and Condorcet/center elimination."
+        },
+        {
+          "assessment": "Different social choice rule and no IAC count.",
+          "evidence": "Criterion for zero probability under stable two-lotteries, not all-tie-break IRV failure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-condorcet-exclusion-criterion-and-two-support-transition--10a294dece8f",
+          "material_read": "Local-mirror RESULT.md, finding on the Condorcet exclusion region.",
+          "method": "Resultary catalogue and local mirror.",
+          "title": "A sharp Condorcet exclusion criterion and two-support transition",
+          "trigger": "Condorcet-winner exclusion in the same small single-peaked domain."
+        },
+        {
+          "assessment": "Different event, ballot domain and probability model.",
+          "evidence": "Dirichlet posterior for 15 potentially truncated types; not a uniform four-order population count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-quartic-residual-risk-law-for-first-choice-only-instant--297e69065897",
+          "material_read": "Local-mirror RESULT.md, finding on the posterior winner probability.",
+          "method": "Resultary catalogue and local mirror.",
+          "title": "An exact quartic residual-risk law for first-choice-only instant runoff",
+          "trigger": "IRV probability with exact limiting behavior."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated rule-efficiency benchmark on the smallest single-peaked domain with an IRV center squeeze. The absence of majority cycles does not ensure Condorcet consistency: under uniform anonymous histograms the robust failure rate has a nonzero limit, in contrast to independent uniform ballots under which the center first-choice share approaches 1/2 and the extremes approach 1/4 each. The exact finite calibration, including elimination ties and the first nonzero cases, and the limiting constant answer a specified probability question rather than recasting the deterministic center-squeeze observation. No empirical prevalence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

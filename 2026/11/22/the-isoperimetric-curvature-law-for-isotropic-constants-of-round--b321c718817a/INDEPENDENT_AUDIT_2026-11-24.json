@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:20:26.957751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–110, especially (4)–(14)",
+        "VERIFICATION.md lines 19–25; verify.py lines 13–60 and 63–139 (read, not executed; the numerical arcs are discretized)",
+        "Independent analytic support-line comparison as above"
+      ],
+      "rationale": "I checked the edge moment identity using centered vertices: the mean of xxᵀ on the opposite side is S/6 for each side, while Q₀=A S/12; the first variation therefore cancels the area normalization. The strip contribution to Q₂ is A I by the divergence theorem, and the sector and moving-centroid terms give the traces in (12)–(13). An independent way to see the coefficient is to compare with the homothetic triangle obtained by translating all three support lines outward by t. Its area is A+Pt+(P²/4A)t², and its J stays 1/108. Relative to circular rounding it adds exactly (P²/(4A)-π)t² in area, confined to O(t) neighborhoods of the original vertices: a point in the excess cannot project to an edge interior because the offset support constraint would force its distance to be at most t. Each vertex has the same leverage vᵀQ₀⁻¹v=8/A, and centering corrections to the difference of second moments enter only at order t³ because the original centroid is zero. Thus removing the excess area D t² changes J/J(0) at order t² by -8D/A+4D/A=-4D/A, giving the claimed coefficient. The outer area and moments are polynomial in t near zero by strip/sector integration, so the one-sided derivatives are justified, not inferred from just a pointwise remainder. The inner support-line shift is exactly an incenter homothety for -r<t≤0. The sharp triangle perimeter inequality gives the equilateral equality case and positivity of the deficit; the right curvature and known area determine the positive perimeter.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangle result caab5157a777 proves a rectangle-specific quadratic coefficient and all-radius decrease. c7d29f80bf57 gives a signed cube expansion in general dimension, not a simplex result.",
+          "Richter–Saorín Gómez compare S(K)^n/vol(K)^(n−1) along parallel bodies."
+        ],
+        "reasoning": "Neither different shape classes nor surface/volume monotonicity dominates an exact centered covariance determinant statement for disk offsets of all triangles.",
+        "searches": [
+          "Resultary searches on outer-parallel-body covariance curvature and higher-dimensional cube rounding",
+          "arXiv:2003.14182, definition and Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e09883060ca0, caab5157a777, c7d29f80bf57, 7220229bf166",
+        "arXiv:2003.14182 pp. 1–2",
+        "Frozen RESULT.md lines 115–121"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar Steiner gives A+Pt+πt². The centroid-path record supplies first moments, while the regular polygon record relies on regularity and scalar inertia. The assigned trace identity needs both the second-moment correction and moving-centroid subtraction."
+        ],
+        "reasoning": "Known moment tools are inputs; they do not assert the equality of vertex leverage or the triangle-specific cancellation reducing centered curvature to the isoperimetric deficit. An earlier explicit general centered triangle formula would be material, but none was established in the inspected evidence.",
+        "searches": [
+          "Richter–Saorín Gómez Thm. 1.1; regular polygon moment formulas e09883060ca0; triangle centroid path 7220229bf166; primary literature search for general parallel-body moment formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e09883060ca0 uses exactly det(Cov)/area² for disk offsets, with exact n-gon area and inertia polynomials. n=3 gives the equilateral response.",
+          "7220229bf166 covers scalene triangle outer offsets, but its invariant is the first-moment centroid path."
+        ],
+        "reasoning": "The first moment alone cannot recover the variance determinant. Affine equivalence of triangles cannot transfer the regular-polygon result: a nonsimilarity sends the disk to an ellipse.",
+        "searches": [
+          "Local Resultary searches on all-triangle, scalene, and rounded-simplex normalized covariance/second moments",
+          "Resultary e09883060ca0 Proof §§1–2 and 7220229bf166 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact polynomials for n=3 apply to the fixed regular shape. No retrieved exact table or formula evaluated the normalized centered second-order coefficient for arbitrary triangle shapes."
+        ],
+        "reasoning": "An exact centered-covariance table for arbitrary triangle offsets could cover this claim by expansion, but a single regular case or a list of example values does not.",
+        "searches": [
+          "Resultary exact formula and shape queries for triangle covariance, isoperimetric deficit and local rounding",
+          "e09883060ca0 exact inertia and area formulas at offsets 2766–3461"
+        ]
+      },
+      "rationale": "The equilateral specialization is already covered by the exact regular-polygon formulas. The supported distinct claim is the single deficit law for all nondegenerate triangles, including scalene ones, and the sharp consequences in that larger class. Closely related same-day records do not establish the general triangle identity. No historical-priority assertion is made.",
+      "residual_risks": [
+        "An older, less searchable exact rounded-triangle second-moment formula could cover the response by expansion. A general Steiner-formula chapter surfaced in search but no decisive moment passage was obtainable after redirect errors; it supplied no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equilateral specialization, not scalene law",
+          "evidence": "Same isotropic normalization and exact area/inertia polynomials for regular n-gons.",
+          "identifier_or_url": "Resultary 2026/11/22/e09883060ca0",
+          "material_read": "RESULT.md Finding offset 0 and Proof §§1–2 offsets 2766–3461",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp isotropic-constant monotonicity for circular roundings of all regular polygons",
+          "trigger": "Exact equilateral overlap"
+        },
+        {
+          "assessment": "Different shape class",
+          "evidence": "Its rectangle expansion is 1/144−(4−π)t²/(288ab)+O(t³), with all-radius decrease.",
+          "identifier_or_url": "Resultary 2026/11/22/caab5157a777",
+          "material_read": "RESULT.md Finding offset 0 through 1894",
+          "method": "Local Resultary and mirror",
+          "title": "Strict isotropic decrease along Euclidean outer parallel bodies of rectangles",
+          "trigger": "Same-day exact parallel-body covariance curvature"
+        },
+        {
+          "assessment": "Analogue, not implication",
+          "evidence": "Flat inner erosion and quadratic outer response for cubes; the planar case is a square.",
+          "identifier_or_url": "Resultary 2026/11/8/c7d29f80bf57",
+          "material_read": "RESULT.md Finding offset 0 through 2236",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp isotropic response to Euclidean rounding of cubes",
+          "trigger": "Signed rounding transition and second-order response"
+        },
+        {
+          "assessment": "First moments only for this comparison",
+          "evidence": "Classifies centroid paths as hyperbolic, straight or constant according to triangle symmetries.",
+          "identifier_or_url": "Resultary 2026/10/25/7220229bf166",
+          "material_read": "RESULT.md Finding, triangle passage at offset 1498",
+          "method": "Local Resultary and mirror",
+          "title": "Hyperbolic curvature paths and quantitative triangle rigidity",
+          "trigger": "Same disk offsets of scalene triangles"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Surface area and volume alone, no centered covariance determinant in the theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.14182",
+          "material_read": "PDF pp. 1–2, definition and Theorem 1.1, offsets 3100 and 5530",
+          "method": "OA paper text",
+          "title": "On the monotonicity of the isoperimetric quotient for parallel bodies",
+          "trigger": "Potential general parallel-body isoperimetric law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(3), (12)–(14); nearest regular-polygon and centroid-path results"
+      ],
+      "rationale": "Across all triangle shapes a priori shape-dependent second moments and moving centroids reduce to one classical deficit. This links an affine invariant under a Euclidean perturbation to a recoverable Euclidean perimeter and gives a sharp equilateral extremizer after scale normalization. The distinction between inner homothety and outer corner rounding is structural; the value is not in redoing the regular case or claiming global monotonicity.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

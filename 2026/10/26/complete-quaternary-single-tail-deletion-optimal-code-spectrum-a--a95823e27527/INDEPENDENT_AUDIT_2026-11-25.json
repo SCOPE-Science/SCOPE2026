@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:49.377316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md; verify.py (inspected, not run); verify_output.txt",
+        "Independent replay: python3 /workspace/review_evidence/replay_2.py"
+      ],
+      "rationale": "Possible outputs retain the last symbol and, for longer words, are the unchanged word or its immediate suffix. Conflicts are exactly parent–child and sibling pairs in four disjoint suffix trees. In each tree a four-vertex clique (the root and its three children) and six length-3/length-4 pairs bound a code by seven words, attained by the root and all leaves. Equality forces one choice per block; the three sibling groups independently contribute x4(x4+2x3) unless the short selected word is their parent, in which case both leaves are forced. This gives the stated P and factors across terminal symbols. The rooted transfer recurrence also follows: choosing the root forbids every child, while excluding it allows at most one child, with no cross-branch conflicts among lower selections. Direct independent packing of the actual output masks recovered all seven local optimal profiles. Convolving them four times and weighting by word length gave 8,503,056 global optima of size 28, minimum length 88 with multiplicity 4096 and unique composition (4,0,12,12), and maximum length 104 with multiplicity 81.",
+      "residual_risks": [
+        "The replay explicitly checks the four-symbol case; the transfer recurrence at other alphabet sizes is justified by the proof, not by the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 supplies sharp size and a construction. The earlier rank-order work treats constant-size sequences and Kendall-tau order changes, not the present prefix deletion."
+        ],
+        "reasoning": "The broader capacity theorem specializes to 28 but contains no formula for the number or compositions of maximum sets. The order-change model does not specialize to this deletion-ball model.",
+        "searches": [
+          "arXiv:2605.19148v1, Theorem 6; DOI 10.1109/ISTC65386.2025.11154607 via arXiv:2606.00978v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.19148v1",
+        "arXiv:2606.00978v1",
+        "Resultary 9818c4545657 and 8dfbc67ba593"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source gives an upper bound attained by an optimal construction; the Resultary census in the same alphabet concerns minimum covers in a fixed-length model."
+        ],
+        "reasoning": "Capacity or an exhibited attaining construction may recover cardinality and properties of that one construction, but not how many other equality cases or which length profiles occur. The two short-word cases and sibling-group analysis give that missing information.",
+        "searches": [
+          "arXiv:2605.19148v1, p. 5, Theorem 6; the two Resultary exact classification records listed above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior deletion ball is at-most-t left-tail deletion, which for t=1 agrees with the immediate-suffix-or-unchanged model. Taking each two-output ball as the corresponding edge of the suffix tree and representing a root singleton by an edge to a private dummy node gives a weighted maximum-matching formulation."
+        ],
+        "reasoning": "A general independence or matching enumerator is a computational representation, not by itself the specific equality-case factorization and length profile. No equivalent closed evaluation was established by the inspected sources; the broad web hits did not bear on the comparison.",
+        "searches": [
+          "arXiv:2605.19148v1, p. 3; Resultary semantic searches for labeled partial-permutation single prefix-deletion optima",
+          "Web literature search on optimal labeled partial-permutation prefix-deletion code enumeration and suffix trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary record uses fixed composition and arbitrary-position deletion. The four-symbol record classifies six-word minimum covers of length-three words, with 644 covers and 120 perfect correcting codes in that census."
+        ],
+        "reasoning": "The two same-day results are distinct; neither has the same state space, error operation and optimization criterion. Their numeric tables cannot be read as a maximum-code composition table for the frozen model.",
+        "searches": [
+          "Resultary: SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657",
+          "Resultary: SCOPE-complete-enumeration-of-optimal-four-symbol-length-three-deletio--8dfbc67ba593"
+        ]
+      },
+      "rationale": "Pass is restricted to the enumeration, composition and length extrema of all maximum labeled codes. The size 28 and existence of optima in precisely this model are prior work. The closest inspected exact classification records count different configurations, and the theorem giving the known maximum does not determine its full set of equality cases.",
+      "residual_risks": [
+        "Bounded comparison does not exclude an unindexed equality-case classification or an already evaluated multivariate matching polynomial for this particular tree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and maximum size, not the all-maxima count in the inspected result",
+          "evidence": "At most t initial deletions; Theorem 6 establishes an optimum giving 28 for q=4,t=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19148",
+          "material_read": "v1 p. 3, deletion-ball definition (offset 27520); p. 5, Theorem 6 (offset 48500)",
+          "method": "Open-access primary-source passage comparison",
+          "title": "Correcting Tail Deletions in Rank Modulated Composite Encoding for Data Storage in DNA",
+          "trigger": "Exact model and known cardinality"
+        },
+        {
+          "assessment": "Different error model",
+          "evidence": "Constant-size sequences and Kendall-tau changes of order, rather than a word or its immediate suffix.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.00978",
+          "material_read": "v1 p. 3 (offset 19200)",
+          "method": "Lawful arXiv version after DOI route unavailable",
+          "title": "Rank Modulated Composite Encoding for Data Storage in DNA",
+          "trigger": "Related cited error model, DOI 10.1109/ISTC65386.2025.11154607"
+        },
+        {
+          "assessment": "Different words and deletion rule",
+          "evidence": "Ternary fixed-composition words subjected to arbitrary-position deletion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657",
+          "material_read": "RESULT.md Finding and word/deletion assumptions",
+          "method": "Local Resultary full-text mirror",
+          "title": "Permutation-successions classification of optimal ternary sparse codes",
+          "trigger": "Same-date labeled optimum classification"
+        },
+        {
+          "assessment": "Different counting problem",
+          "evidence": "Counts six-word minimum covers in a fixed-length-three deletion setting, including the perfect-code subcount, not variable-length maximum correcting selections.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-enumeration-of-optimal-four-symbol-length-three-deletio--8dfbc67ba593",
+          "material_read": "RESULT.md Finding and minimum-cover statement",
+          "method": "Local Resultary full-text mirror",
+          "title": "Complete enumeration of optimal four-symbol length-three deletion covers",
+          "trigger": "Same-date exact four-symbol census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, equality-case proof and scope",
+        "Known optimum comparison with arXiv:2605.19148v1",
+        "Independent replay_2.py"
+      ],
+      "rationale": "The exact labeled optimum spectrum distinguishes cardinality-optimal selections that have very different total lengths and identifies the unique minimum-length composition. Four symbols is the first nontrivial profile case beyond the rigid three-symbol maximum, where the root and two length-three leaves are forced in each component. A designer or enumerative researcher can use the exact composition frequencies, rather than a single construction, to assess the cardinality–length tradeoff in this model.",
+      "residual_risks": [
+        "Length is a combinatorial objective, not a measured physical cost. The census does not apply to arbitrary-position deletion, multiple deletions or codes factored by label permutations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:58.675694Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original is mathematically sound: forcing a cycle changes the cyclic-triangle expectation by k/4, and global reversal and relabeling leave just the adjacent-pair invariant quadratic mode, with the stated variance and coefficient. The repaired RESULT.md rederives this as background directly from Walsh coefficients. In its new claim for lengths k≥5, a proper subset of an underlying simple cycle cannot contain a cycle component; therefore a four-edge support on four vertices is impossible, and on five vertices the only contributing residual support is a four-edge path. A fixed oriented path extends to (n−5) falling (k−5) directed words; reversal contributes the same sign to its degree-four coefficient. Division by the triangle coefficient gives 1/[4(n−3)(n−4)] for every k≥5. The path products are mutually orthogonal, with (n) falling 5 over 2 such products. The residual on v≥6 vertices has O_k(n^v) possible supports with unnormalized coefficients O_k(n^(k−v)), giving normalized variance O_k(1) and zero residual for k=5. The five-vertex variance is exactly the triangle variance divided by (n−3)(n−4); Taylor expansion gives the positive coefficient 1/2 in the n^(−2) triangle correlation gap. For two lengths ≥5, the common first two components have variance Theta(n³) and the remaining cross-covariance is O(1), which gives the n^(−3) bound. All exact formulas are for n≥k; asymptotics fix lengths. The frozen code and its recorded finite checks were inspected, not executed, and are not certification of the new result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed projection is onto every centered score class, a larger diagnostic family than triangles alone, but its proof computes only mixed covariances with that family.",
+          "Komarov–Mackey give a deterministic count of five-cycles through edge scores. Andersson's paper reports scope on general tournament subgraph asymptotics, but the actual theorem was not available."
+        ],
+        "reasoning": "Orthogonality to score counts supplies no residual variance or coefficient on a four-edge path; a deterministic length-five formula can at most give a single special case unless an all-length theorem is proved.",
+        "searches": [
+          "Resultary 4b9c5be28426, Finding and projection proof",
+          "Andersson 1998, doi:10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V",
+          "arXiv:1410.6828, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4b9c5be28426 and 3b4b1b16fef5",
+        "Linial–Morgenstern arXiv:1405.1576",
+        "Komarov–Mackey arXiv:1410.6828",
+        "Andersson 1998 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Score classes contain the centered triangle through T_n=binom(n,3)−sum_j binom(j,2) N_j; their larger projection specializes exactly to the original projection on triangles.",
+          "The length-four proof uses a four-edge support on four vertices; such a support is forbidden in a simple cycle of larger length. The repaired proof counts the five-vertex replacement rather than using a length-four specialization."
+        ],
+        "reasoning": "The original headline finite relation is covered. The remaining distinct mathematical content is a computed next mode and sharp variance separation, not a relabeling of the score-class theorem or its immediate scalar consequence.",
+        "searches": [
+          "4b9c5be28426, RESULT.md offsets 0, 4050 and 5470",
+          "3b4b1b16fef5, Finding and proof, offsets 0 and 4381",
+          "arXiv:1405.1576, Observation 1.2; arXiv:1410.6828, Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The score-profile theorem has exactly the original triangle coefficient on the same probability space.",
+          "The earlier indexed length-four theorem has an explicit four-vertex residual and n^(−1) gap; it is not the repaired length-at-least-five theorem."
+        ],
+        "reasoning": "Translation to the invariant quadratic Walsh sector gives the original mode, while the repaired expansion concerns a different orthogonal sector and different correlation exponents.",
+        "searches": [
+          "Resultary: random tournament directed cycle triangle covariance exact cycle count Walsh projection subgraph counts",
+          "Resultary: random tournament directed simple cycle counts exact variance triangle correlation n^-2 Walsh four edge path five vertices residual covariance fixed length",
+          "Primary literature: fair random tournaments fixed directed simple cycle counts correlation cyclic triangles five-vertex path second fluctuation exact variance Andersson Janson Hoeffding projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed length-four theorem computes residual variance exactly; the frozen verifier reports finite exact moments through n=6."
+        ],
+        "reasoning": "Finite tournament tables cannot settle the all-length fixed-k asymptotic coefficients. The relevant exact symbolic special case was compared and explicitly credited; no novelty is claimed solely for the isolated five-cycle identity.",
+        "searches": [
+          "Resultary exact variance and five-vertex path query above; indexed record 3b4b1b16fef5",
+          "Frozen VERIFICATION.md and verify.py"
+        ]
+      },
+      "rationale": "Pass only for the delivered five-vertex refinement, not for the original exact covariance and common triangle mode as stand-alone novelty. The score-profile result already explicitly projects every centered cycle count to the stated triangle coefficient times the centered triangle count in a space containing triangles. This gives the exact covariance (the elementary triangle variance supplies the normalization) and, with the one-dimensional invariant quadratic subspace, the same quadratic projection. That is demonstrable mathematical coverage independent of chronology. Its inspected statement and proof give no higher-order variance or correlation estimate. The repaired result identifies and counts the first surviving motif for lengths ≥5, giving a common second component and sharper explicit rates not supplied by the score-profile result or the known length-four computation.",
+      "residual_risks": [
+        "No historical priority is inferred from the same-day placement of the score-profile record.",
+        "Andersson's unavailable full text might contain a general higher-order expansion implying part or all of the sharpened result; unavailability is not evidence of noncoverage.",
+        "The isolated five-cycle formula may be derivable from older exact deterministic identities; the positive assessment is for the joint all-length five-vertex mode and rate distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact scalar projection and mixed covariance; no five-vertex variance calculation in inspected material",
+          "evidence": [
+            "Centered triangle count lies in the score-class span; exact cycle projection onto that whole span is a_(k,n) times the triangle count. Prior-work section refers to earlier cycle/triangle decomposition without establishing which record or publication order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-score-profile-projection-rigidity-and-square-root-covariance-pha--4b9c5be28426/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2345; proof/verification at 4050–5472; prior-work discussion at 5470–7382",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Score-profile projection rigidity and square-root covariance phases for directed cycles",
+          "trigger": "Same cycle coefficients and potentially larger exact projection"
+        },
+        {
+          "assessment": "Exact four-cycle special case, outside repaired k≥5 range",
+          "evidence": [
+            "The four-cycle coefficient is (n−3)/2 and residual variance is (3/64) binom(n,4), giving a gap of order n^(−1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5",
+          "material_read": "Finding at offset 0 and proof at offset 4381",
+          "method": "Resultary and local mirror RESULT.md",
+          "title": "Exact orthogonal decomposition of three- and four-cycle counts in random tournaments",
+          "trigger": "Earlier exact residual variance and correlation"
+        },
+        {
+          "assessment": "Deterministic length-four relations, not the repaired all-length rate",
+          "evidence": [
+            "Observation 1.2 is a relation of four-vertex tournament densities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1576",
+          "material_read": "Abstract and Observation 1.2, PDF pp. 1 and 3, offsets 0 and 4874",
+          "method": "Primary OA PDF",
+          "title": "On the number of 4-cycles in a tournament",
+          "trigger": "Earlier exact deterministic relation of triangles and four-cycles"
+        },
+        {
+          "assessment": "Potential separate route to the five-cycle special case; not all-length five-vertex mode",
+          "evidence": [
+            "It counts five-cycles by edge scores in an arbitrary deterministic tournament."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6828",
+          "material_read": "PDF p. 4, Theorem 2.1, offsets 8500+",
+          "method": "Primary OA PDF",
+          "title": "On the number of 5-cycles in a tournament",
+          "trigger": "Exact formula for the boundary case of the repaired range"
+        },
+        {
+          "assessment": "Material historical comparison unresolved",
+          "evidence": [
+            "General random-tournament subgraph count asymptotics are in scope; no exact Walsh refinement could be read from accessible material."
+          ],
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V",
+          "material_read": "Bibliographic/abstract context; no full theorem obtained",
+          "method": "Targeted primary search; OA DOI and publisher retrieval blocked, no lawful open copy identified",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Plausibly encompassing tournament-subgraph decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves the first non-triangle source of fluctuation for an entire natural family: the four-cycle rate does not describe any fixed longer length, and the five-vertex fluctuation cancels when comparing two longer lengths to each other. The positive universal coefficient and exact shared normalized correction are substantive information, not a looser rephrasing of the common triangle projection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

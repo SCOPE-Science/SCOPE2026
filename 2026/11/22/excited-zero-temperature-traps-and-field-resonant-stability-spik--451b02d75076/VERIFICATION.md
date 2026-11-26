@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-Two standalone standard-library Python certificates were executed: `python3 verify_finite.py` and `python3 verify_independent.py`. Each independently enumerates all 4096 configurations of the labeled icosahedral graph, computes seven exhaustive field classes, and checks the exact local-stability decompositions and ground-state counts. A separate graph-isomorphism check was performed to verify that the explicit two-pentagon construction is the icosahedral graph, with 12 degree-five vertices and 30 edges. The exact-field proof uses the possible odd neighbor sums, so checks at representatives certify whole open intervals.
-
-The verification concerns a finite exact enumeration only. It does not certify any positive-temperature timescale, all multi-spin-flip stability, or historical novelty. Independent audit: not performed.
+Run `python3 verify_finite.py` in the source directory. This standalone standard-library script constructs the icosahedral edges exactly in the quadratic integer ring, checks all 4096 labeled spin masks and all twelve single flips per state at each of the seven field representatives, and compares the complete weak, strict, and ground-state inventories. It checks connectivity as well as induced degrees for the low-field family; ten states have a down-spin hexagon and ten an up-spin hexagon, with two triangles on the opposite sign class. It checks external degrees for the middle-field family and antipodality for the high-field family. `RESULT.md` supplies the threshold and energy-comparison arguments that extend the exact table to all nonnegative fields. Neither checker nor proof addresses thermal lifetimes, multi-spin escape or historical priority.

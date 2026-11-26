@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three prefix-width formulas follow by direct edge counting. The critical hub-swap cut proves impossibility at width \(t\), and all five classes of canonicalizing swaps have explicit no-increase or at-most-\(t\) cut bounds. The balanced bridge at budget \(t+1\) changes only the center cut and is feasible in both hub orders. Symbolic prefix DP counts all states at the tight budget. The independent direct-edge enumerator matches the two-component and connected cases for all orders through \(t=3\), and all sampled constructive routes preserve the budget. Risk: nontrivial normalization steps are separately articulated; computation at finite orders is not treated as proof.
+## correctness
 
-**Originality — PASS, qualified.** The two full-text sources in the guiding literature prove an arbitrary-graph factor-two reconfiguration upper bound, not a sharp \(t+1\) connectivity threshold for balanced double stars or exact two-component counts at budget \(t\). Targeted searches, semantic-index searches for two-hub/broom/caterpillar aliases, and the accessible earlier one-hub star claim yielded no result whose statement implies this one. This is a best-knowledge assessment, not a mathematical proof of publication priority. Unindexed and differently named earlier treatments remain a residual risk.
+PASS
 
-**Value — PASS.** The strict hub-order bottleneck pinpoints the exact amount of extra width needed to restore order mobility on a natural infinite family of trees. An all-input constructive route and exact component sizes turn a generic factor-two guarantee into sharp algorithmic and structural information. The result is narrower than the general problem but the transition is mathematically substantive and occurs for all values of the branching parameter.
+Count private edges across prefixes with zero, one or two hubs: the widths are a+b, t-a+b+1, and 2t-a-b for U before V. Only a direct adjacent U/V swap changes orientation, and it presents middle widths t+1±(a-b), so it cannot occur at budget t or below. Each orientation is nonempty at t by A^tUVB^t and its mirror; at any lower nonempty budget exchange the two labeled classes and hubs to see that both orientations occur. An adjacent swap changes only the prefix between the swapped entries: BA→AB leaves that cut unchanged outside the hubs and lowers it by two inside; BU→UB and VA→AV bound the new cut by an unchanged neighboring cut minus one. After evacuating the wrong external classes and sorting the middle, UA→AU has new cut a+1≤t and BV→VB has new cut t-b≤t. Same-class label swaps preserve all widths. The passes therefore normalize every feasible order at budget at least t in O(t²) moves. The bridge with h=floor(t/2) has widths bounded by max(2h,t+1,2t-2h)=t+1 in either hub order. The recurrence appends one available symbol and tests the resulting prefix; assigning leaf labels multiplies by (t!)². Independent replay: python3 /workspace/branches/202fc70b-cbfc-4afc-9663-4988e7880669/edgecut_check.py. Its direct edge-cut permutation enumeration and BFS found profiles (1,1)/(16), (16,16)/(296), and (1224,1224)/(13536) at t/t+1 for t=1,2,3; its prefix DP found M_t=1,4,34,160,950,4424 through t=6. The bounded checks corroborate rather than prove the general result. The frozen verifier was inspected, not run. No shortest-path claim is established.
 
-The closest primary source is Arrighi et al., *Order Reconfiguration Under Width Constraints* (MFCS 2021, DOI 10.4230/LIPIcs.MFCS.2021.8), and the expanded JGAA 2023 article (DOI 10.7155/jgaa.00628). Limitations: no exact distances, unequal-hub-size theorem, or guarantee against unindexed earlier equivalents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same order-reconfiguration model is established; the finding is the exact connectivity threshold, the obstruction at the tight budget, and the component census on a specific two-hub tree family. Located results do not cover these claims; this is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The family is a natural minimal extension of a star with a genuine order-change obstruction. Identifying the exact extra budget, an explicit crossing move, routing inside both orientations, and their exact size adds information neither generic factor-two slack nor a feasibility count gives. The result is limited to unit-weight balanced double stars.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

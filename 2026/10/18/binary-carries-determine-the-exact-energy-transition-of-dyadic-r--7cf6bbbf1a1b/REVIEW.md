@@ -1,23 +1,21 @@
-# Scientific review of the dyadic Riesz-product energy transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact objects are cylinder-consistent positive probability measures on the compact group of dyadic integers, for a fixed real amplitude \(0<a<1\). The finite-norm claim is an identity for every integer \(N\ge0\); the energy claim quantifies over every real \(s>0\). The three decisive calculations were reconstructed directly: character orthogonality converts the squared product into a congruence of digits in \(\{-2,-1,0,1,2\}\); a parity carry in \(\{-1,0,1\}\) produces the stated two-state matrix; and independent pair collisions at level \(N\) have probability \(2^{-N}S_N\). The coefficient of the critical pole is obtained from the dominant eigenvalue by an exact geometric series, not by numerical extrapolation. Exact-rational and direct trigonometric finite-level checks pass. Boundaries \(a=0\), \(a=1\), and \(s=s_c\) were treated explicitly. Finite checks corroborate but do not constitute an infinite proof.
+PASS
 
-## Originality — PASS with a named access risk
+Haar averaging over the two lifts of a residue changes the sign of the next cosine, giving consistent positive cylinder masses 2^(-N)R_N. Squaring each factor gives digit weights h_0=1+a²/2, h_±1=a, h_±2=a²/4. In the Fourier sum, the congruence is modulo 2^N, so all three terminal carries, not just zero, count. The even digit-plus-carry transition yields states -1,0,1, with the two signed states having equal weight, and gives the stated matrix, trace and determinant. The characteristic polynomial is positive at 0, negative at 1 and positive at 2; S_0=1 and S_1=1+a² fix the two-root formula and the positive leading weight. The level-N collision probability is 2^(-N)S_N and tends to zero. Telescoping the kernel between adjacent scales gives a nonnegative energy sum with multiplier 1-2^(-s), also valid truncated at N by capping the valuation. The generating function, convergence threshold, pole and linear critical truncation all follow from the two roots; the smaller root contributes boundedly at criticality. An independent finite computation at a=1/2, N=4 gave S_4=4633/2048 via all 625 digit tuples and agreed with the direct residue average and the transfer. Source: /workspace/branches/c70fc0f0-dc2e-4174-ac8c-981994cb03fb/independent_carry_check.py. The frozen checker was inspected, not executed; no finite check establishes the all-level theorem.
 
-Liu–Liao (arXiv:2609.22881, sections 1–4) establishes general \(p\)-adic energy identities and the Fourier dimension of \(p\)-adic Riesz products, including conductor collisions when \(p=2\). Neither its main theorems nor the materially inspected proof sections state the constant-amplitude dyadic collision transfer matrix, the exact energy rational function, the energy-dimension Perron exponent, or the pole residue. Fan–Zhang (2009, sections 1 and 7) does calculate energy dimensions for \(p\ge3\) using dissociated characters, but the transition to adjacent dyadic characters is not covered by those hypotheses. Earlier Zhang (2009) studies **dyadic** Riesz products and their Hausdorff dimension, so it is the closest priority risk; only its abstract and bibliographic information were accessible. Its full paper was not read, and no absence claim is made about its body. Four targeted searches of published mathematical findings and additional primary-literature searches found no equivalent statement; the closest returned finding about the Minkowski question-mark correlation dimension concerns a different measure, transfer operator and exponent. The inaccessible paper could still contain an equivalent identity. The originality judgment is best-knowledge and not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The correlation/energy dimension is an established natural invariant: it quantifies near-diagonal mass concentration and determines exactly which singular Riesz energy integrals converge. In the adjacent binary conductor family, doubling relations destroy the dissociated-character factorization available for odd primes; the proof instead resolves all carries with two states. The result gives a continuous exact energy exponent across the nontrivial amplitude range, an explicit formula for every subcritical energy, and precise critical divergence, none of which follows merely from qualitative Hausdorff or Fourier dimension statements. The special family is selected by the canonical consecutive dyadic conductors and constant amplitude, rather than by arbitrary parameter slicing. No general multifractal or absolute continuity claim is made.
+The supported distinction is the exact L² transfer and evaluated energy of the constant real-amplitude consecutive dyadic measure. Generic energy/Fourier identities and a Fourier-dimension theorem for the same object are antecedents, not this evaluation. The most plausible historical same-object full-text comparison remains unresolved; there is no verified prior equivalent in the material inspected.
 
-## Closest sources and limitations
+## value
 
-- C. Liu and L. Liao, *P-adic s-energy and Fourier dimension*, arXiv:2609.22881 (2026), https://arxiv.org/abs/2609.22881.
-- A. Fan and X. Zhang, *Some Properties of Riesz Products on the Ring of p-Adic Integers*, J. Fourier Anal. Appl. 15 (2009), https://doi.org/10.1007/s00041-009-9059-z; the energy computation assumes odd prime bases.
-- X.-Y. Zhang, *Riesz products on the ring of dyadic integers*, J. Math. Anal. Appl. 357 (2009), https://doi.org/10.1016/j.jmaa.2009.03.067; full-text comparison unavailable.
+PASS
 
-The finding covers real constant amplitudes and consecutive dyadic conductors only. An unindexed previous treatment remains possible, especially in the inaccessible 2009 dyadic paper.
+The first dependent conductor regime changes the scale of pair collisions on a natural compact group. An exact transfer determines both the energy threshold and its sharp coefficient, quantifying behavior that Fourier dimension zero does not describe. This is more useful than a finite numerical norm or a general unevaluated energy identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review of the complete split friendship result
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim precisely fixes the symmetric \(+1/-N\) valuations, nonnegative utilities for Nash welfare, allowed singleton deviations and all integer ranges. A coalition containing any enemy forces negative utility, so both optimal positive-welfare and Nash-stable partitions are clique partitions. Positive Nash product is feasible exactly when \(r\ge s\). In the positive regime, merge any core-only block into a peripheral block, then use the strict-convexity transfer of \((k+1)\log k\) to establish the product and labeled optimizer count. Strictly profitable core transfers show there can be only one core-containing Nash block; the remaining deviation checks prove exactly \(s\) Nash equilibria. Literal-payoff exhaustive partition checks pass in the bounded test range. Finite checks do not prove the theorem; the analytic arguments do.
+## correctness
 
-## Originality
-PASS within the inspected literature. Pagano–Schlenga give the underlying model, clique characterization and a four-player failure of Nash stability at an optimal Nash-welfare partition; those are credited as prior. Published three- and four-role complete multipartite welfare classifications cover the low-core welfare specializations, also credited. Full text comparisons do not give the all-positive-integer \((r,s)\) complete Nash-stable census nor the persistent positive-optimum/zero-at-every-Nash-equilibrium separation for unbounded core size. The full-text matching-edge perturbation and a split anti-coordination equilibrium result involve different hostility edges or utility systems. Priority risk from unindexed equivalent formulations remains and independent historical priority has not been assessed.
+PASS
 
-## Value
-PASS. The question is motivated by a specific known distinction between contractual and ordinary Nash stability. The exact family shows that no Nash-stable partition approximates Nash welfare by any finite factor even when a Nash-stable partition exists, a stronger structural result than failure of the welfare maximizer to be stable in one example. Closed optimal and equilibrium counts reveal the role of core-to-periphery imbalance, including the sharp positive-product feasibility threshold; this is a natural exact classification, not an arbitrary subgraph size calculation.
+With enemy value -N, any player sharing an enemy would receive at most -2, so individually rational blocks are cliques, as are Nash-stable blocks since singleton exit is allowed. If two blocks contain core agents, one can move from the no-larger block to the larger block and strictly gain. A peripheral must join the resulting sole core block if it has none. Conversely, once there is one peripheral in the core block, a core player already earns r>=1 and can get at most one elsewhere; neither kind of peripheral can gain by any move, with outside-to-core utility r-N=-s. Thus there are exactly s labeled equilibria, including equality r=1 and the s=1 one-block case. Positive Nash product requires one distinct core per peripheral, so is feasible exactly for r>=s. At a positive optimum merging any core-only block into a mixed block strictly improves the product. For the resulting core counts k_i>=1 the log product is the sum of (k_i+1)log(k_i); strictly increasing successive differences force all surplus onto one peripheral. This gives product (r-s+1)^(r-s+2), whose (r+s)-th root is the stated welfare, and the labeling counts s! binom(r,s-1) for r>s and r! for equality. For r>=s>=2 all equilibria have a zero-utility singleton despite a positive optimum.
 
-## Limits
-Scope is a complete split network with fixed symmetric unit-friend/large-enemy utility and ordinary unilateral deviations; no arbitrary graphs, veto stability, or independent scientific validation are claimed. The earlier four-player example and low-core formulas are not new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the joint exact optimum and ordinary Nash census on the full complete-split family, including the zero-welfare separation at every equilibrium throughout the positive-optimum regime s>=2. The clique lemma, a small welfare/stability conflict, and low-core welfare and optimizer counts have existing coverage and are not credited separately.
+
+## value
+
+PASS
+
+This is a natural complete classification in a standard core–periphery family. It gives exact welfare and optimizer statistics and shows that even choosing the best ordinary Nash equilibrium cannot achieve positive welfare in arbitrarily large instances where full positive welfare is feasible. This is stronger than exhibiting a bad equilibrium or one unstable optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

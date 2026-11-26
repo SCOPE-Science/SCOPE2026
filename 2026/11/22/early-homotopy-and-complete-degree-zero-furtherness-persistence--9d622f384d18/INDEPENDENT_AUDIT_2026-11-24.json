@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:06:10.845509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79, VERIFICATION.md and verify.py inspected; the frozen checker was not executed.",
+        "Independent exact replay: python3 /workspace/branches/reproduce_furtherness_h0.py. Literal truncated weights and submask comparabilities with elder-rule merges verified complete H0 barcodes for all 56 valid triples with 3<=n<=8.",
+        "Independent example replay: python3 /workspace/branches/a3e8bb19-fcd3-4ce3-a95d-4ac88f1afd25/record5_independent_check.py. At (6,2,3) the (H0 rank,H1 rank) pairs at 0,1,3,4 are (1,0),(13,0),(4,9),(1,26); there are no exterior 2-simplices in these stages."
+      ],
+      "rationale": "For 2<=r<n and r<=k<n, with [n] retained, the zero stage is the cone on the rooted downset. Exterior rank r enters at 1; an exterior rank-(r+1) point has weight r+1 if it contains exactly one outside element, and r+2 otherwise. A rank-(r+2) point containing an outside element has at most r+1 elements in the center, so its downset difference is at least binom(r+2,r)+1; passing to a subset containing an outside element yields the same lower bound for every higher rank. In the early window any chain touching the exterior is at most an edge because nothing inside the center lies above an exterior point. The core is a contractible CW subcomplex, and its compatible collapses give a graph at each stage. At r+1 and for each chosen exterior element there are binom(k,r) new points and binom(k,r-1) adjacent exterior rank-r points; each new point has r+1 incident edges, one to the core. Subtracting the increased vertex count from the edge count gives (k-r)binom(k,r-1) circles per exterior element, and exactly i=d-a rank-r points remain isolated. At r+2 the rank-r Johnson swap paths through rank r+1 prove connectivity; if E is the number of exterior rank-(r+1) points, the quotient has d+E+1 vertices and (r+1)E edges, giving c=rE-d. The old cycle lattice embeds and is saturated because a nonzero multiple cannot have support only in old edges unless the original cycle already does. This proves the integral split injection. On H0 use the class of S and, for each exterior rank-r point v, the difference [v]-[S] until it merges; these form integral bases at every stage. The differences die precisely at r+1 and r+2 in the claimed multiplicities. Each later entering point contains an already present rank-r subset, so there are no more births. The argument includes k=r and n=r+1, when some multiplicities or circle ranks vanish.",
+      "residual_risks": [
+        "Finite checks test small sizes and do not establish all-parameter integral homotopy or split injections. The written compatible graph model and integral bases do. Later positive-degree persistence is not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives one essential degree-zero class, level-one births for minimal points incomparable with the center, and no later births. The full-Boolean result classifies all degrees for the untruncated space."
+        ],
+        "reasoning": "The general theorem supplies the birth pattern, including the d minimal outside subsets in this setting; it does not give precise death thresholds, homotopy types or the map on H1. The all-degree theorem is stronger in degree but does not have broader poset hypotheses.",
+        "searches": [
+          "Badra–Singh arXiv:2610.16386v1 Theorem 4.1, PDF pp. 7–8, OA offset 21843 onward",
+          "Resultary d2db8c5d42da Finding and method"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16386v1 Theorem 4.1",
+        "Resultary d2db8c5d42da, 06baeffcb578, 8ff573fb2efc, 08ffcf2bf667"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Badra–Singh's generic H0 theorem already gives bivariate data consisting of the essential class and the finite birth level/count in this setting. The full-Boolean proof uses the untruncated weight 2^|A|−2^|A intersect S|."
+        ],
+        "reasoning": "The same generic birth pattern is consistent with different death multiplicities. The computed truncated rank-(r+1) entrance weights and the old/new graph cycle lattices are needed for the claimed deaths and split map; substituting a root rank into the untruncated formula does not reproduce them.",
+        "searches": [
+          "arXiv:2610.16386v1 Theorem 4.1",
+          "Resultary d2db8c5d42da offsets 0–4968 and 4800–8745"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonempty-Boolean result has r=1. The proper Boolean-sphere result removes the top and studies atom/coatom roots. The rank-span result varies allowable chain rank spans. The same-day weak-order result uses ordinal sums of antichains."
+        ],
+        "reasoning": "Truncating before computing downsets is not restricting the r=1 filtration: it deletes some of the very points counted by the weight. For instance exterior rank r now has weight 1 regardless of its intersection with S. A rank-span restriction or removing the top is also a distinct filtration/operation; incomparable sets of different sizes occur in general, unlike in an ordinal sum of antichains.",
+        "searches": [
+          "Local Resultary search for rooted furtherness persistence of rank-truncated Boolean and subset posets; d2db8c5d42da, 06baeffcb578, 8ff573fb2efc, 08ffcf2bf667"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact barcode formulae were located for all nonempty subsets with untruncated downsets and for different proper-Boolean and ordinal-sum families; the rank-span formulae use a different grading of chains."
+        ],
+        "reasoning": "No located exact table uses this combination of the rank floor, included top and arbitrary proper center. The same-day result 08ffcf2bf667 is an exact related result, but there is no identification of the full families, and no priority inference from its date.",
+        "searches": [
+          "Resultary d2db8c5d42da, 06baeffcb578, 8ff573fb2efc and 08ffcf2bf667, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "Credit the general degree-zero birth theorem and the earlier full all-degree nonempty-Boolean barcode. The distinct contributions are the early integral graph homotopy and map, and the exact degree-zero deaths for r>=2 with downsets computed after truncation. No inspected result covers those claims.",
+      "residual_risks": [
+        "The bounded source comparisons do not exclude an unindexed proof for rank-selected Boolean posets or an implicit equivalent degeneration argument. No historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit prior coverage of the general birth/essence statement, not the family-specific death and homotopy claims",
+          "evidence": "One essential class, level-one births from minima incomparable to the center, no later births.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16386v1",
+          "material_read": "Theorem 4.1, PDF pp. 7–8, offset 21843 onward",
+          "method": "OA bounded PDF text",
+          "title": "Persistence diagrams of finite topological spaces",
+          "trigger": "General theorem potentially covering degree zero"
+        },
+        {
+          "assessment": "Covers r=1, not the new rank floor",
+          "evidence": "Theorem treats all nonempty subsets with their untruncated lower-Alexandrov downsets.",
+          "identifier_or_url": "2026/11/1/SCOPE-complete-integral-furtherness-barcodes-of-boolean-subset-posets--d2db8c5d42da",
+          "material_read": "Mirrored RESULT.md offsets 0–4968 and 4800–8745",
+          "method": "Local Resultary and OA mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete integral furtherness barcodes of Boolean subset posets",
+          "trigger": "Strongest all-degree result in same Boolean furtherness setup"
+        },
+        {
+          "assessment": "Different poset and center restrictions",
+          "evidence": "Nonempty proper subsets and atom/coatom centers.",
+          "identifier_or_url": "2026/10/25/SCOPE-extremal-root-furtherness-barcodes-on-boolean-sphere-posets--06baeffcb578",
+          "material_read": "Mirrored RESULT.md statement and scope",
+          "method": "Local Resultary and OA mirror",
+          "title": "Extremal-root furtherness barcodes on Boolean sphere posets",
+          "trigger": "Potential alternative Boolean truncation"
+        },
+        {
+          "assessment": "Different filtration",
+          "evidence": "Filters by the allowed spans of chains, not by downset difference to a fixed center.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-integral-persistence-of-rank-span-filtered-proper-boole--8ff573fb2efc",
+          "material_read": "Mirrored RESULT.md statement and scope",
+          "method": "Local Resultary and OA mirror",
+          "title": "Complete integral persistence of rank-span filtered proper Boolean lattices",
+          "trigger": "Potential ranked-Boolean integral persistence equivalence"
+        },
+        {
+          "assessment": "Different poset family",
+          "evidence": "Ordinal sums of antichains with layer widths at least two.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-rooted-furtherness-barcodes-and-reconstruction-of-finit--08ffcf2bf667",
+          "material_read": "Mirrored RESULT.md opening statement, offset 0",
+          "method": "Local Resultary and OA mirror",
+          "title": "Complete rooted furtherness barcodes and reconstruction of finite weak orders",
+          "trigger": "Same-day exact complete rooted barcode result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–40 and 58–79",
+        "arXiv:2610.16386v1 Theorem 4.1 for the general birth baseline"
+      ],
+      "rationale": "Removing the bottom ranks of the Boolean inclusion poset is a natural change of finite space, not a numerical slice of the full-Boolean result. It gives two distinct component-merger thresholds tied to how many elements lie outside the center, an integral cycle lattice with a controlled inclusion, and a complete coefficient-independent H0 invariant across all thresholds. These are explicit useful refinements of general birth-only results.",
+      "residual_risks": [
+        "The homotopy phases stop before exterior rank r+2 can enter. No all-degree barcode or classification of arbitrary rank-selected posets is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

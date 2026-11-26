@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The volume determinant is separately affine in the four tetrahedron vertices; maximizing over the convex hull localizes a maximizer to the two circles. The two possible allocations reduce to the equilateral-triangle bound and a two-chord determinant bound, both sharp. The logarithm of the normalized two-chord objective is strictly concave with an interior optimizer, giving the radical closed form. Strict monotonicity of its normalized optimum gives precisely one crossing with the triangle branch.
+## correctness
 
-**Originality — PASS within searched literature, with remaining priority risk.** Finch (arXiv:1211.4514, full HTML) treats ambient volume, surface area, and mean width, not maximal tetrahedra. Nash et al. (arXiv:1612.09382, introduction, main theorem and searched full HTML) treat convex algebraic geometry, not contained tetrahedra. Semantic search of published geometric claims found results about the maximum tetrahedron in a cube–octahedron intersection, the equal-radius polar bicylinder, and intrinsic volumes of a three-disk hull; none implies a two-disk unequal-radius maximum or its crossover. A failure to find a result does not prove historical novelty; unindexed treatments remain possible.
+PASS
 
-**Value — PASS.** The invariant is the unrestricted sharp four-point approximation of a classical convex body, not an arbitrary finite table entry. Varying the radii produces two genuinely different equality constructions, a uniquely determined algebraic transition, and a uniform formula that includes an interesting regular-tetrahedron endpoint. This gives a stable geometric benchmark for extremal approximation of orthogonal circular hulls.
+Compactness supplies a maximum. For a sign that attains the absolute maximum, the signed determinant is separately affine; a linear functional on each disk attains its maximum at a rim point, and the larger of the two disk maxima is the hull maximum. Replacing one vertex at a time therefore gives at least one maximizing tetrahedron on the generating circles. The 4+0 cases are flat, and in 3+1 the inscribed triangle area bound follows, for example, by maximizing the product of the sines of its angles at fixed circumradius; the perpendicular apex height gives the stated sharp branch. In 2+2, subtracting chord endpoints and removing chord-vector components of an inter-endpoint column gives the determinant of both full chord vectors and the midpoint difference. Hadamard and the triangle inequality bound it, and both attain equality with opposite axial midpoints and perpendicular cross chords. The scaled objective vanishes on u=1 or v=1, is positive in the interior and increases into the square from either positive part of the zero-coordinate edges. Its log is strictly concave by the diagonal strict curvature of the two log-square-root terms plus a concave log of an affine function. The interior equations yield the claimed positive quadratic root and chord lengths. Strict increase of H for positive ratios follows by holding the smaller-ratio interior optimizer fixed; continuity and endpoint values 1/3 and 8/(9√3) give exactly one crossing. Independently, H²=4(k+1)^4/[9k(2k+1)^2(k+2)]; the positive branch-equality equation on k≥1 gives ρ₀=0.67116753624387024… by decimal bisection. The numerical statement about agreement with the two-chord branch is evidence about that assigned distribution only, not the unrestricted maximum below the transition; the analytic proof explicitly handles both distributions.
 
-No independent validation has occurred. The bound concerns existence of maximizing constructions and does not purport to classify every maximizer.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equal-radius value, generating-circle reduction there, and a stronger equal-radius equality statement already have exact indexed coverage. The equal-radius value is also implied by the classical spherical simplex bound. Originality is supported for the unequal-radius formula and the unique switch between two sharp distributions, without credit for the already covered equal family endpoint or for inventing the domain.
+
+## value
+
+PASS
+
+The natural radius ratio tests whether the symmetric two-chord maximizer persists as the disks become unequal. The exact negative answer—a switch to a triangular base and a single apex—provides a nontrivial sharp example of changing optimizer type, with an explicit dividing parameter and exact extremal values. It goes beyond the already determined symmetric value and remains useful without a complete description of every maximizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

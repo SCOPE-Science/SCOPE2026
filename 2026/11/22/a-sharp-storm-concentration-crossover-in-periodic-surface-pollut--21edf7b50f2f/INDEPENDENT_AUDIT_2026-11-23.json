@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:13:15.155307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For identical events spaced by Δ with retention s in (0,1), the post-event map b→s(b+aΔ) contracts to aΔs/(1−s); the time average over an interval is that fixed point plus aΔ/2. Applying this directly at Δ=T and Δ=T/2 with doses 2^p x and x gives the two means. The difference has the sign of coth(x/2)/coth(2^(p−1)x)−2. The logarithmic derivative is −1/sinh(x)+2^p/sinh(2^p x), strictly negative because sinh(u)/u increases for positive u and p>0. The ratio decreases from 2^p to 1, proving strict split advantage even at p=1 and precisely one crossover with the stated orientation for p>1. At p=2 the tie reduces to cosh²(x)−cosh(x)−1=0, with exactly one positive x. The supplied finite checker was inspected, not run; the result follows for the full domain analytically. The two policies remove the same total aT per period in this model, so the conclusion is only about time-average retained mass.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The leaching comparison covers renewal timing at fixed mean interval and fixed retention. The three-stage result optimizes the order of specified rates for exported-pool exposure; the stochastic wash-off result concerns signs and bounds for autocovariance.",
+          "Vinck et al. use time-dependent intensity and divide wash-off flux by runoff volume for concentration; the inspected model passages do not derive this retained-burden phase diagram."
+        ],
+        "reasoning": "Varying depths simultaneously changes renewal frequency and retention, so the fixed-event law cannot dominate both policies. Other retrieved wash-off comparisons have different objectives or allowed controls.",
+        "searches": [
+          "Resultary renewal convex-risk law, three-stage stormwater exposure ordering and stormwater wash-off correlation bounds",
+          "Vinck et al., pp. 4–5, Eqs. (2)–(3)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Vinck et al. DOI 10.3390/w15050931",
+        "Mao et al. DOI 10.1016/j.envpol.2024.123766 (abstract only)",
+        "Resultary periodic-leaching, stormwater stage-order and wash-off correlation records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Periodic constant-retention means provide familiar input formulas. The stage-order theorem does not change the size of the impulse or compare these periodic averages."
+        ],
+        "reasoning": "Mean formulas alone leave a comparison of two different intervals and two nonlinearly linked retentions. The strict monotonic ratio and its endpoint limits resolve that problem, including a transition absent from the p=1 base law.",
+        "searches": [
+          "Direct implication comparison with Vinck et al. Eq. (2) and the Resultary periodic-leaching Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vinck et al., pp. 4–5, assume a constant average dry buildup rate within a capped model and use W=C2 q B, which integrates to exponential retention in total depth if no other storm-phase processes act.",
+          "The periodic-leaching result treats fixed fractional loss per event and an objective equivalent to mean retained stock; it varies inter-event timing, not depth allocation."
+        ],
+        "reasoning": "Even though the state variable may be salt mass or pollutant mass, fixed fractional loss does not encode the changed per-event dose. The linear-in-intensity storm law gives the p=1 retention special case, not the superlinear unique tie.",
+        "searches": [
+          "Resultary periodic leaching and stationary pollutant wash-off comparisons",
+          "Vinck et al., DOI 10.3390/w15050931, build-up/wash-off equations",
+          "Primary literature search for nonlinear exponential stormwater wash-off and storm allocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior catalog result supplies exact stationary-mean comparisons under fixed fractional removal, and Vinck et al. point to Table A5 for wash-off coefficient values.",
+          "Neither is a table of crossover doses or an equivalent exact two-policy rule for the continuum p>1."
+        ],
+        "reasoning": "This is a continuum comparison; fitted coefficient tables or a single evaluated dose do not establish its existence, uniqueness and signs over all p and x.",
+        "searches": [
+          "Resultary stationary mean wash-off and periodic leaching exact formulas",
+          "Vinck et al. Eq. (2) and accompanying discussion of calibrated wash-off parameters"
+        ]
+      },
+      "rationale": "Constant dry buildup, exponential event retention and regularly spaced fractional removal are established ingredients. The supported distinct claim is the exact allocation crossover at fixed rain depth and period when changing event count also changes the per-event removal strength by a power law. No inspected prior statement supplies the two-policy threshold and direction over the whole range of p and x.",
+      "residual_risks": [
+        "Mao et al. full text not available through tried lawful routes; a related 2020 modified wash-off study was also accessible only via search material.",
+        "Equivalent comparisons under other application terminology or in uninspected storm sequencing literature remain possible; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model-level antecedent, not the inspected two-policy crossover",
+          "evidence": "Constant average dry buildup with a maximum; wash-off rate W=C2 q B; concentration then calculated from wash-off and runoff volume.",
+          "identifier_or_url": "https://doi.org/10.3390/w15050931",
+          "material_read": "Original PDF pp. 4–5, Figure 2 discussion and Eqs. (2)–(3), text locators 31500 and 36900",
+          "method": "Lawful publisher PDF at https://mdpi-res.com/d_attachment/water/water-15-00931/article_deploy/water-15-00931.pdf",
+          "title": "A New Decision Support Tool for Evaluating the Impact of Stormwater Management Systems on Urban Runoff Pollution",
+          "trigger": "Closest cited buildup and exponential wash-off model"
+        },
+        {
+          "assessment": "Does not compare different rain depths and frequencies at fixed total depth",
+          "evidence": "Regular spacing minimizes stationary mean mass at fixed mean interval and a fixed loss fraction per event.",
+          "identifier_or_url": "2026/11/2/SCOPE-periodic-leaching-minimizes-stationary-salt-mass-a-renewal-conve--5c34dadd131c",
+          "material_read": "RESULT.md Finding and Assumptions, locator 0",
+          "method": "Resultary and local mirror result text",
+          "title": "Periodic leaching minimizes stationary salt mass: a renewal convex-risk law",
+          "trigger": "Closest exact periodic scheduling comparison for retained mass"
+        },
+        {
+          "assessment": "Different control and objective",
+          "evidence": "Orders three specified rate stages by integrated exported-pool exposure.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-three-stage-stormwater-exposure-ordering-with-continued-po--056749ef0302",
+          "material_read": "RESULT.md Finding and Assumptions, locator 0",
+          "method": "Resultary and local mirror result text",
+          "title": "Sharp three-stage stormwater exposure ordering with continued pollutant supply",
+          "trigger": "Same application and exact policy comparison"
+        },
+        {
+          "assessment": "Different statistic; date alone does not establish priority",
+          "evidence": "Autocovariance signs in a model of random interstorm additions and removals, not periodic mean under two depth allocations.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sign-transition-and-universal-correlation-bounds-for-sto--e823682c1cc2",
+          "material_read": "RESULT.md Finding, locator 0",
+          "method": "Resultary and local mirror result text",
+          "title": "A sharp sign transition and universal correlation bounds for stormwater wash-off",
+          "trigger": "Nearby fractional-removal result"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not negative evidence",
+          "evidence": "Metadata identifies a field wash-off and initial-runoff splitting study; no claim about the full text follows from the abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/j.envpol.2024.123766",
+          "material_read": "Landing-page/abstract material only",
+          "method": "Lawful DOI and alternate bibliographic repository routes attempted",
+          "title": "Characterization of road-deposited sediment wash-off and accurate splitting of initial runoff pollution in heterogeneous urban spaces",
+          "trigger": "Plausibly close title and cited motivating field study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two prescribed policies expose competing effects of a larger dose per event and shorter dry gaps. The exact boundary tells a modeler when the direction reverses, including a domain where the one-storm policy never wins, without requiring simulation or values of a and T. This is useful within the idealized stock model, not a field recommendation, a global scheduling optimum, or a reduction in total export.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

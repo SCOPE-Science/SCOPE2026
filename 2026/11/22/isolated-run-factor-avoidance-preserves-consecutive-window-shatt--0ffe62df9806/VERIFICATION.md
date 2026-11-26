@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone Python 3 checker `verify.py` directly enumerates forbidden-factor-avoiding concepts and every possible coordinate support for each test domain, calculates all Boolean traces, checks the geometric window criterion, and separately computes the face-polynomial coefficient formulas. It covers linear lengths 0 through 10 and circular lengths from \(r+2\) through 10 for each \(1\le r\le4\).
+## correctness
 
-Executed command: `python verify.py`. Outcome: `PASS direct trace tests: 70 cases, 16260 supports; all polynomial coefficients and VC ranks verified`. The reported path/cycle coefficient examples at lengths eight and ten are reproducible. These tests independently check the small instances; the universal theorem is justified by the terminating zero-gap splitting proof, not by finite tests.
+PASS
 
-The priority comparison used bibliographic and indexed statement searches. Johnson (2021) was inspected in accessible full HTML; the general s-extremal article was read in accessible HTML; the forbidden-substring algorithm paper was inspected through its abstract. The closest indexed two-trigram statement was available as a summary, not a verified full-document comparison. No external independent audit or formal proof assistant check is claimed.
+A fully queried length-m window can receive the forbidden trace, so cannot occur in a shattered support. Conversely set all free sites to one and inspect consecutive zeros. Every bad gap of distance m−1 has queried zero endpoints and some unqueried interior site, since its whole window is not queried. Inserting a zero there destroys just that bad gap and creates only smaller gaps. One can do this once per initially bad gap; no new bad gaps need to be considered. The cyclic argument includes gaps across the boundary, and there is no bad gap with at most one zero when n≥m. This proves shattering for every trace, including the empty path and n=m on the circle. Avoidance of 1^m gives the same support test by filling free sites with zero; this is not language equality. The bounded-run compositions on either side of path separators give the path coefficient and generating series. On the cycle, marking an unselected coordinate counts each size-k support n−k times, establishing the n/(n−k) factor without assuming rotation freeness. Minimum separator counts follow from disjoint blocks on the path and packing n−q selected sites into q runs of length ≤m−1 on the circle; both bounds are attained. Independent direct trace projections on 24 cases for r=2,3,4 agreed with the support tests and VC dimensions and reproduced both displayed n=9, r=2 coefficient lists.
+
+## originality
+
+PASS
+
+The supported distinct claim is the replacement of a monochromatic run by the isolated-run factor at the level of the full shattering complex, uniformly for r≥2 on both path and circle. Credit the r=1 path case and the ordinary bounded-run enumeration as prior. The closest statements inspected address different words, boundary conditions, or query predicates.
+
+## value
+
+PASS
+
+An unbounded family of nonmonochromatic obstructions has exactly the same coordinate-query complex as simple run avoidance, although the concept languages differ. The extension mechanism makes that equivalence explicit and yields a sharp one-rank loss from periodic boundaries at every nonmultiple, as well as all support counts. This is structural information about completion, not just a recounted bounded-run sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

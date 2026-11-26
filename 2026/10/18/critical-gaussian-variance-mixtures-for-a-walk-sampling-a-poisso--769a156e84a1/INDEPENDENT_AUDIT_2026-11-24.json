@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:42:09.586592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(9), variance and support argument",
+        "Frozen VERIFICATION.md and checker.py, lines 16–89 (inspected, not executed)"
+      ],
+      "rationale": "Conditioning on the independent observer fixes a trace of observation sites. In the compensated Poisson trajectory integral the variance is λ times n plus twice the sum of transition kernels over increasing time pairs. The third moment of one trajectory's trace summed over starting sites is bounded by 6n times the square of the sum of the kernel suprema over gaps, at most 96n². Taylor expanding the centered characteristic exponent at scale n^−3/4 then gives a uniform O(n^−1/4) error. The observer FCLT has unit diffusion and drift κ. At macroscopic gaps its increments always satisfy the particle kernel's parity, producing lattice span two in the local limit; together with the two time orders this gives 4λ/√(2π). Gaps shorter than εn give O(√ε) after scaling, so the Riemann sums converge jointly with the observer and have a bounded limit. Conditional characteristic functions tested against bounded continuous path functions identify the claimed joint mixture. For the polynomial, shared Poisson occupation gives the Charlier covariance δ_(ℓ,m)ℓ!(λQ)^ℓ. Uniformly even before averaging over observers, Q^ℓ=O(k^−ℓ/2), so all ranks ℓ≥2 have total variance O(n log n) and are negligible. Gaussian averaging over an increment gives e^(−κ²u/4)/√2, yielding the stated variance, including 8λc₁²/(3√π) at zero. Full support of B_κ and continuity distinguish neighborhoods of the zero path from steep linear paths, so the mixing variance is not constant and the fourth moment exceeds the Gaussian fourth moment.",
+      "residual_risks": [
+        "The finite checker exercises walk-trace identities and sample values of the variance, not the joint distributional limit. The proof assumes a fixed polynomial with nonzero first Charlier coefficient, fixed particle intensity and finite κ; it does not prove a higher-rank or time-indexed statistic limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1401.4498 matches the Poisson field but its tagged walker depends on local occupancy and the CLT concerns the walker, not sampled counts.",
+          "The inspected Poisson-additive-functional results in arXiv:2512.02922 do not formulate this independently moving-path limit. The usual static scenery conditional variance is based on a fixed spatial field, not the time-dependent heat kernel."
+        ],
+        "reasoning": "Changing the observer or the field changes the covariance mechanism; existing Gaussian approximations by themselves do not identify the Brownian-path random conditional variance.",
+        "searches": [
+          "arXiv:1401.4498 Random Walk on Random Walks",
+          "Jaramillo–Murillo-Salas arXiv:2512.02922",
+          "Castell et al. arXiv:1002.1878",
+          "Huang–Rang–Su arXiv:2603.15308"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.15308",
+        "arXiv:1401.4498",
+        "arXiv:2512.02922",
+        "arXiv:1002.1878",
+        "SCOPE-7435461eecaa",
+        "SCOPE-b9f048a9e93f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark A.7 explicitly leaves failure of a normal limit unresolved; variance growth of order n^(3/2) does not decide the distribution on the n^(3/4) scale.",
+          "The fixed-drift normal approximation does not supply pathwise convergence uniformly for v_n on the n^−1/2 scale. Here the conditional variance has a nonconstant heat-kernel functional limit, not just a scalar variance."
+        ],
+        "reasoning": "The proof needs both a uniform conditional Poisson Gaussian approximation and a parity-aware singular-kernel limit jointly with the path. Neither follows from the cited annealed second moment or fixed-drift statement.",
+        "searches": [
+          "Huang–Rang–Su Theorem 1.4, Lemma A.6, Remark A.7 and Example A.9",
+          "Jaramillo–Murillo-Salas, arXiv:2512.02922 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day SCOPE-7435461eecaa uses frozen sign scenery from a Pascal transformation and studies a bootstrap Brownian pair and cross-variation, not Poisson occupations.",
+          "SCOPE-b9f048a9e93f uses a high-dimensional harmonic run-and-tumble model with stick-breaking variance, not a walk sampling this field.",
+          "Huang–Rang–Su study this particle-sampling setup, but their fixed nonzero drift normal limit and symmetric variance computation do not state a critical-window joint mixture."
+        ],
+        "reasoning": "A Gaussian conditional law is a shared form, not an equivalent statement: the probability model, scaling, and mixing functional must match. The same-day index date is not used as evidence of priority.",
+        "searches": [
+          "Resultary searches by the frozen title/model, n^(3/4) mixture, dynamic Poisson particle field and Brownian-path conditional variance",
+          "Huang–Rang–Su arXiv:2603.15308, Theorem 1.4 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example A.9 gives exactly 8λ/(3√π) for the symmetric linear case, agreeing with the frozen variance at κ=0 and c₁=1. No equal finite-κ profile was seen in the checked passages or index matches."
+        ],
+        "reasoning": "The earlier constant is covered, not a separate contribution. This is an analytic distributional statement, not an exact finite table claim; the relevant comparison is to exact known constants and profiles.",
+        "searches": [
+          "Huang–Rang–Su Appendix A, Example A.9",
+          "Resultary: explicit variance and normal mixture for Poisson-walk sampling"
+        ]
+      },
+      "rationale": "Pass is for the joint path and statistic critical-window limit, its non-Gaussianity for every finite drift parameter, and the explicit variance crossover. The symmetric n^(3/2) variance and its zero-drift constant are known and excluded from novelty. The closest same-model primary source leaves the non-Gaussian question open in the passages inspected.",
+      "residual_risks": [
+        "Searches do not prove historical priority. An unlocated singular-test theorem for an independent random path in a Poisson particle field could supply broader coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact symmetric variance overlap only; different fixed-drift law",
+          "evidence": "Fixed drift has an annealed normal approximation with linear variance; Appendix A does not resolve nonnormality at zero drift and gives the linear symmetric variance constant.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.15308",
+          "material_read": "Theorem 1.4, PDF p. 4; Appendix A, Lemma A.6, Remark A.7 and Example A.9, p. 40",
+          "method": "Lawful open-access primary PDF",
+          "title": "Normal approximation for the polynomial functionals of correlated random field sampling along random walk path in dimension 1+1",
+          "trigger": "Same particle-field and observer model; possible existing CLT and variance constant"
+        },
+        {
+          "assessment": "Different observer and observable",
+          "evidence": "Walker transitions use site occupancy; limits concern the walk itself.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.4498",
+          "material_read": "Model on PDF p. 2 and Theorem 1.2, p. 3",
+          "method": "Lawful open-access primary PDF",
+          "title": "Random Walk on Random Walks",
+          "trigger": "Essentially the same dynamic Poisson environment"
+        },
+        {
+          "assessment": "Relevant methods; no matching random-path statement in these passages",
+          "evidence": "Poisson-initialized particle functional normal approximation does not give the Brownian-conditioned variance here.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.02922",
+          "material_read": "PDF p. 1 and §5, pp. 11–12",
+          "method": "Lawful open-access primary PDF",
+          "title": "Asymptotics for additive functionals of particle systems via Stein's method",
+          "trigger": "Possibly broader Poisson particle additive functional theorem"
+        },
+        {
+          "assessment": "Different static covariance",
+          "evidence": "The walker samples fixed iid spatial marks rather than a Poisson system of moving particles.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.1878",
+          "material_read": "PDF p. 1, model definition",
+          "method": "Lawful open-access primary PDF",
+          "title": "A local limit theorem for random walks in random scenery and on randomly oriented lattices",
+          "trigger": "Classical n^(3/4) scenery mixture analogue"
+        },
+        {
+          "assessment": "Distinct model",
+          "evidence": "Bootstrap pair, frozen sign scenery and cross-variation; no Poisson trace or critical observer drift.",
+          "identifier_or_url": "2026/10/18/SCOPE-hidden-independent-scenery-quenched-normality-and-variance-three--7435461eecaa/RESULT.md",
+          "material_read": "Statement and model in RESULT.md",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Hidden independent scenery: quenched normality and variance",
+          "trigger": "Strongest same-day semantic scenery hit"
+        },
+        {
+          "assessment": "Distinct model",
+          "evidence": "High-dimensional harmonic run-and-tumble system with stick-breaking random variance.",
+          "identifier_or_url": "SCOPE-b9f048a9e93f",
+          "material_read": "Finding statement in RESULT.md",
+          "method": "Local mirror",
+          "title": "A random radius law and conditional Gaussian fluctuations",
+          "trigger": "Conditional Gaussian variance match by keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (23) and (27) in the Finding (line locators)",
+        "Huang–Rang–Su, Appendix A, Remark A.7"
+      ],
+      "rationale": "This resolves a specific open distributional question for symmetric sampling while separating the path-conditioned Gaussian law from the annealed non-Gaussian one. The finite scaled-drift family and explicit second moment describe how the statistic changes in the critical regime, not merely that its variance grows faster than n.",
+      "residual_risks": [
+        "The theorem does not itself match the fixed-drift regime or give a quantitative global crossover beyond finite κ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

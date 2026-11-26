@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:28:04.393246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two unfolded odds are A=r(1+b)/alpha and B=(1+rb)/(alpha*r), where 0<r<1 and 0<b<=1 for the ordered half-domain. A<1; while B<1 the order is preserved and r decreases by a factor at most 2r0/(1+r0)<1, contradicting B<1 once r<1/alpha. At the first B>=1, including equality, (r',b')=(AB,1/B), which lands in [0,4/alpha^2] x [0,1] and strictly preserves the physical ordering. The closed rectangle is an auxiliary continuous extension at zero odds, not an enlargement of the physical initial data. It is invariant and lands in the smaller rectangle with r<=min(5/32,4/alpha^2). In max{2alpha|dr|,|db|} the two Jacobian row bounds there are 55/64 and 3/4; the mean-value inequality and Banach give geometric convergence. Substitution gives the stated fixed point in the trap (r_*<=2/alpha^2<=1/8), with the announced physical coordinates. Swap symmetry handles the other half-domain. Independent bounded replay: python /workspace/review_replay.py 1 passed the symbolic branch and fixed-point checks, norm constants and a tie at alpha=4; the universal assertions use the inequalities above, not sampled trajectories.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separate catalogue result covers all alpha>2 for unequal strict-interior starts, proves finite permanent switching and gives a two-step log-odds rate and finite entry bound.",
+          "The 2003 general max-equation article was not available in full; its abstract does not settle its applicability."
+        ],
+        "reasoning": "Every frozen parameter lies in the broader range. The unproved applicability of the 2003 source is immaterial to the positive evidence of coverage.",
+        "searches": [
+          "Resultary e45300fa3ccd, Finding and Assumptions",
+          "DOI 10.1023/A:1022833112788"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e45300fa3ccd",
+        "arXiv:2611.13318v1",
+        "DOI 10.1023/A:1022833112788"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Satur supplies the fixed points and local attraction; the reported numerical global behavior does not prove a global basin.",
+          "Only a boundary-initial edge is visibly missing from the catalogue quantifier. If x>y=1/2, then b=1, A<1 and the new smaller maximum is >1/2 unless B=1. At that tie r=1/(alpha-1), r'=(2/alpha)r<r and b'=1, so B'>1 and the next state is unequal and strictly interior. Symmetry gives the remaining edge."
+        ],
+        "reasoning": "The broader theorem applies after at most two steps at the claimed endpoint, so this quantifier does not evade coverage. Its log-odds rate does not give the exact one-step bound on the named rectangle; that is a proof-level difference.",
+        "searches": [
+          "Satur, arXiv:2611.13318v1 Theorem 3, section 5.1 and conclusion",
+          "Resultary e45300fa3ccd exact hypotheses and branch formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue theorem writes precisely the same max-normalized map. Its z,w odds equal r*b,b, its ratio w/z equals 1/r, and its smaller-coordinate switch ratio R_y is 1/B."
+        ],
+        "reasoning": "The transformed statements are the same map, ordered half-square, limiting fixed-point coordinates and mixed branch, not an analogy to an unrelated max system.",
+        "searches": [
+          "Resultary: normalized two-player maxima global convergence, switching branch, odds contraction",
+          "arXiv:2611.13318 Eq. (1)",
+          "Resultary e45300fa3ccd, Finding, Assumptions and Proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The line of research has a distinct catalogue entry e45300fa3ccd, containing the exact limiting pair and branch claim, not merely a matching numerical data table. Its two-step norm is different and no match for the literal 55/64 certificate was established."
+        ],
+        "reasoning": "Statement-level coverage of the mathematical finding matters more than matching the constant or title verbatim.",
+        "searches": [
+          "Resultary semantic search: high-resource two-maxima attraction and absorbing mixed branch"
+        ]
+      },
+      "rationale": "The central global basin and permanent mixed-branch theorem is already covered by a distinct published catalogue theorem for every alpha>2. The same-day label is not evidence of which proof came first. The closed lower endpoint is a short entry argument, and the exact one-step weighted-norm estimate is a different certificate rather than a new global selection phenomenon.",
+      "residual_risks": [
+        "Exact publication ordering is unresolved between the distinct same-day records.",
+        "The full 2003 max-equation text and unindexed equivalents were not checked; this does not undo the documented catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_CORE_IN_STRONGER_PARAMETER_RANGE",
+          "evidence": "The exact rational map and fixed points match; the stated alpha>2 theorem with permanent switching and c_alpha=3/4+1/(2alpha) controls every off-diagonal strict-interior start.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-global-convergence-and-an-explicit-two-step-contraction-in-the-s--e45300fa3ccd/RESULT.md",
+          "material_read": "Original Finding, Assumptions and opening Proof Step 1, file offsets 102–3078",
+          "method": "Local catalogue search and bounded source-file read from the publication mirror",
+          "title": "Global convergence and an explicit two-step contraction in the supercritical two-player maxima map",
+          "trigger": "Exact same-map global convergence and switching claim in local catalogue"
+        },
+        {
+          "assessment": "SAME_MAP_LOCAL_THEOREM_NUMERICAL_GLOBAL_EVIDENCE",
+          "evidence": "The convergence theorem there is local and the global evidence is numerical.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13318",
+          "material_read": "Eq. (1) p. 2, Theorem 3 p. 22, section 5.1 p. 33 and conclusion p. 39",
+          "method": "OA primary-text inspection of the specific formulas, theorem and numerical discussion",
+          "title": "From oscillations to symmetry breaking in a two-dimensional piecewise-smooth dynamical system",
+          "trigger": "Originating exact map and proposed global behavior"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "The abstract does not identify the normalized two-maxima map; retrieval failure does not show noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1022833112788",
+          "material_read": "Abstract only; no theorem-level comparison",
+          "method": "Public abstract and attempted lawful DOI/publisher full-text retrieval",
+          "title": "Global behavior of the solutions of a max-equation and of a system of two max-equations",
+          "trigger": "Potential older general max-equation coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Global branch absorption is substantive as mathematics, but it is already supplied over a wider parameter range. The remaining edge-of-square start reduces to the broader theorem, and the one-step constant in a different metric, though correct and useful in this proof, is not shown to answer a separate substantive rate, sharpness or robustness question. No genuinely valuable independent remainder was established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

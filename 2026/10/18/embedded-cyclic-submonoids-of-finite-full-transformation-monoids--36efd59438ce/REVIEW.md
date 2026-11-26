@@ -1,15 +1,21 @@
-# Review of the embedded cyclic-submonoid enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The distinction between an ambient-identity-containing generated submonoid and a positive-power-only cyclic semigroup is explicit. The proof establishes the exact generator-fiber sizes, counts all functional digraphs with height at most one, supplies the full Möbius-inverted height–period refinement, and proves a sharp asymptotic with a separate estimate of the weighted correction. Direct generated-submonoid enumeration and independent rational-series enumeration agree degree by degree through six, while independent cycle-type enumeration agrees and continues through eighteen. The enumerators are finite checks, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS within the checked literature
-Elliott–Levine–Mitchell (2023) determine abstract isomorphism types by allowable threshold and period, not the number of actual embedded submonoids, their multiple-generator fibers, or their all-degree counts. The earlier finite transformation-subsemigroup census has a different finite-degree scope. A related published labeled monounary-algebra enumeration contains the auxiliary height-one EGF and the same Lambert-W pole but counts a different property; the exact submonoid count and deficit are not consequences of the source statement. Targeted research-record searches and web searches for aliases, exact small values, embedded monogenic submonoids, and asymptotics did not reveal dominating coverage. An unindexed equivalent formulation and incomplete direct sequence-table checking remain specific risks.
+PASS
 
-## Value — PASS
-The source's natural classification problem leaves open the quantitative distinction between realizable isomorphism types and the actual embedded objects in \(T_n\). The complete height–period profile records how these submonoids are distributed, including the exceptional number of generators. The sharp Lambert-W asymptotic describes the generator-collision deficit, and a separate bounded-period argument gives the same leading rate for the probability that a given transformation has a different generator. These are mathematically motivated invariants, not an arbitrary parameter slice or merely a small computational extension.
+For f^{i+d}=f^i with d>0 the image under f^i is periodic and every cycle length divides d; the converse holds. Hence the first repeat is at h and h+p. A height≥2 map cannot be recovered from another power, while height zero and one give cyclic groups of order p (the latter with a nonambient identity), with φ(p) generators. This also validates the frozen partition sum and the divisor-Möbius height/period formula, which the repair no longer claims as contributions. The deficit is H_n−G_n, with H_n the count of height≤1 maps and G_n their reciprocal-totient weight. The cycle-of-stars series 1/(1−ze^z) has its unique nearest simple pole at ρ, with coefficient factor 1/(1+ρ). The periods of bounded totient form a finite set, whose shallow class is dominated by an entire restricted-cycle series. Outside that class the weight is arbitrarily small, proving G_n=o(H_n). Removing periods 1 and 2 separately proves that the count of maps with a second generator has the same equivalent, not the same exact count. Stirling gives the displayed exceptional probability. The replacement also removes the corrupted totient glyph in the frozen last proof paragraph.
 
-## Boundaries
-All proofs concern total self-maps of finite nonempty sets and their ambient-identity-containing generated submonoids. No claim is made about conjugacy classes, the positive-power-only convention, or partial maps. A direct exhaustive proof-checker was limited to sizes at most six and is not an infinite proof. The closest auxiliary height-one map enumeration was inspected in full; any unnoticed broader cyclic-semigroup enumeration remains a literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies only to the sharp deficit equivalent and the associated sharp exceptional probability. Two distinct indexed records give the same embedded generator-fiber theory and total census, one also a stable-rank refinement. The repair credits these counts and restricts the contribution to the sharp asymptotic. Catalogue dates later than the source-path date do not establish priority, provenance or independence.
+
+## value
+
+PASS
+
+Quantifying precisely how rarely the map-to-submonoid correspondence fails to be injective distinguishes a leading rate and constant from a generic exponential upper bound. The result also resolves the difference between the deficit, which weights each fiber by its excess size, and the number of affected maps. The finite-period bound genuinely controls the correction for the natural generator-collision question; the shared mapping-class pole by itself does not.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The representation is explicitly decomposed into four scalar blocks and one two-dimensional block, whose determinant is \(x^2+y^2-z^2-w^2\). Every lower bound is justified analytically: the finite-group uncertainty inequality covers the coarse cases, the three complete three-point support orbits give the field-specific distinction, and the one-scalar-plus-rank-one identity excludes Fourier rank three at five spatial sites. The exact Gaussian-integer checker directly confirms all proposed witnesses and exhausts the \(56\) triple supports into orbits of sizes \(8,32,16\). The normalization leaves ranks unchanged.
+## correctness
 
-## Originality — PASS
-The compact-group uncertainty theorem of Alagic–Russell (arXiv:math/0608702) gives the universal product lower bound but not this exact dihedral eight-point profile; Jiang–Liu–Wu (arXiv:1408.1165) characterize equality minimizers, whereas the new three-, five- and seven-support minima are generally non-equality cases. Chen–Fan–Luo (arXiv:2211.11204) refine general group uncertainty, but the described bounds do not supply both real/complex exact-support rows and the five-support determinant obstruction. Searches also checked the cyclic order-eight Fourier matrix, a generalized-dihedral three-tap census (which assumes odd characteristic and unit coefficients), and endpoint isotype-projection results (norms rather than Fourier support). A quaternion-group profile concerns a different nonisomorphic group and cannot imply this table.
+PASS
 
-## Value — PASS
-This is the complete exact-support uncertainty invariant of the smallest dihedral nonabelian symmetry group. It isolates a genuine field-dependence at three sites and a nonmonotone exact-support obstruction at five sites. These distinctions vanish in the ordinary coarse \(k\sigma\ge8\) inequality and inform finite-group sparse convolution ranks. The classification is complete for a natural object rather than an arbitrary restricted support slice.
+The four characters factor through D8/<r²>; the faithful block has determinant x²+y²−z²−w² in central-pair differences. If only one central sector is present, support is even. The basic product bound follows from independent translates selected greedily to cover previously uncovered entries. At support three, left translation and automorphism reduce to a single rotational coset, or to two rotations and a reflection with rotation separation 1 or 2, accounting for 8+32+16 subsets. In the first case the scalars come in duplicate pairs and at least two survive; the real determinant (a−c)²+b² is strictly positive. In the separation-one mixed case two independent signs give four scalars, at most one zero, and a zero scalar forces the determinant to be ±2ab≠0. In the separation-two case a scalar cancellation forces c²=(a+b)² and nonzero determinant −4ab; without the cancellation all four scalars survive. This proves the three-point bounds. At support five, rank≤3 needs exactly one scalar and a rank-one faithful block. The four pair sums are ±t with t≠0, so three pairs must be singletons. Their squared differences are t²; the zero determinant forces the fourth to have squared difference t² as well, an impossible fourth singleton. At seven, rank≤2 restricts to one sector. Other lower rows come from the product bound. Independent exact rank calculations on the regular multiplication matrices confirm all nine distinct witnesses, yielding both stated profiles. Replay: python3 /workspace/reproductions/group_rank.py (SymPy). This verifies upper witnesses only; analytic lower bounds quantify over arbitrary amplitudes. The supplied checker and notes were inspected but not executed.
 
-## Literature comparison and limitations
-Exact overlap checks found no equivalent complete dihedral profile. The residual risk is that an unindexed finite-group algebra/code theorem may imply the table after additional specialization. The theorem is restricted to \(D_8\); no classification of all optimizers or of larger dihedral groups is asserted. General theorems establish some endpoints, so the substantive novelty is the full, field-sensitive profile and the interior obstructions. Independent scientific validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete field-sensitive D8 profiles survive the strongest located comparisons, most notably the support-five obstruction and the real support-three bound. Prior general uncertainty inequalities, including a stronger group-algebra bound that forces the complex support-three lower bound, and the exact general two-spike law are not new here.
+
+## value
+
+PASS
+
+The square group gives a canonical nonabelian rank-weighted uncertainty benchmark, not a random support pattern: each of its eight exact-support strata is resolved over two fields. The sharp support-five obstruction is visible neither in the basic support-product bound nor in the order-eight quaternion analogue, and the support-three difference isolates the field-sensitive rank behavior of the faithful block. These exact minima contain information that a monotone at-most-support envelope loses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

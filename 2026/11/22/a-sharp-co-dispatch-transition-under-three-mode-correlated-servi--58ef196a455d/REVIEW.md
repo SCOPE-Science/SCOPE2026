@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim reviewed:** Complete global waiting-time minimizer for one guaranteed periodic departure and three correlated optional departures under the specified four-mode operating law; in particular, the exact co-dispatch criterion \(uv\geq w(u+v+w)\) and the symmetric threshold \(3-2\sqrt2\).
+## correctness
 
-## Correctness — PASS
-The actual four-mode gap-squared expectation is derived directly from uniform passenger arrival. For every specified positive real scenario weight the full quadratic is strictly convex since the all-service mode has positive weight. Symmetry reduces the two terminal gaps to equality; the free stationary solution and boundary KKT derivatives exactly prove the unique global minimizer. Formula normalization, positive remaining gaps, the radical threshold and rational benchmark were checked. The standalone checker ran successfully against the current mathematical files, with 165 rational probability triples plus exact competition and benchmark checks. These finite checks supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
-Statement-level comparisons with opaque earlier records `823a3384-8ec8-4e13-a9b3-6a5ef8ed7179` and `5690be0c-1bb0-4d68-ad4d-4e4598ea12cf` distinguish independent-service and two-candidate results from the new three-optional correlated family. Full primary HTML text of Gkiotsalitis (2020) and Dou and Li (2023) describes different objectives and stochastic inputs and does not state the proved activation threshold. The familiar headway-squared waiting-time identity is credited. Zhao et al. (2006) and a 2019 rolling-rescheduling paper were only partially accessible; a broader exact scenario-optimization result remains a possible priority risk. Search nonmatches alone have not been treated as proof of novelty.
+For a uniform arrival, an actual interval of normalized length l contributes l² to 2W/T. The guaranteed departure bounds every within-period wait, even when adjacent cycle statuses are dependent or some phases coincide. The four outcomes give the stated convex quadratic; the w term makes it strictly convex and averaging c,d is strictly improving unless they agree. After substitution the reduced Hessian has determinant 4Q. Solving the gradient equations produces the stated interior gaps, with a,c,d positive and b=(w(u+v+w)−uv)/(2Q). On b=0 the tangential derivative vanishes at a=(2u+v+w)/H and the inward derivative is 2(uv−w(u+v+w))/H. These certify the unique optimizer, including threshold equality, without searching other faces. For u=v=(1−w)/2, the inequality reduces to (1−w)²≥4w. Independently substituting the rational example gives W/T=29/138 versus 19/80 and reduction 151/1311. Frozen verify.py and VERIFICATION.md were inspected, not executed; the 165 rational tests only supplement the proof. No optimization over label order or positive minimum headways is established.
 
-## Value — PASS
-The exact co-dispatch phase occurs despite strictly positive probability that all optional vehicles operate, reversing the intuition that any positive simultaneous service warrants strict timetable separation. The complete three-weight classification and the exact \(3-2\sqrt2\) threshold identify a reproducible decision boundary, while the \(u=v=9/20\), \(w=1/10\) benchmark reduces mean waiting by exactly \(151/1311\) relative to uniform nominal headways. The result serves as a tractable diagnostic for correlation-aware dispatch assumptions, not an empirical operational recommendation.
+## originality
 
-## Closest literature and limitations
-Zhao, Dessouky and Bukkapatnam (2006), DOI 10.1287/trsc.1060.0170; Gkiotsalitis (2020), DOI 10.1049/iet-its.2019.0725; Dou and Li (2023), DOI 10.3390/pr11020574; and Gkiotsalitis's 2019 rolling-horizon study, DOI 10.1080/15472450.2019.1681992. There is no observed capacity, running time, advance passenger information, minimum spacing or transfer penalty in the model. Independent bibliographic priority review and empirical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The expectation identity and quadratic-programming method are standard. The closest inspected statements do not give or subsume the exact co-dispatch phase and piecewise optimizer for the prescribed correlated law. This is a bounded coverage judgment, not a claim of publication priority.
+
+## value
+
+PASS
+
+The competing outage patterns make a natural design question: can it be optimal to spend no headway between two departures that still sometimes operate together? The theorem gives a robust positive-probability region, exact boundary, and a unique optimizer on both sides; it shows concretely why strict separation intuitions from independent cancellations need not hold. The value is in that design law, not in the elementary wait identity or the illustrative percentage; there is no real-service calibration or deployment claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

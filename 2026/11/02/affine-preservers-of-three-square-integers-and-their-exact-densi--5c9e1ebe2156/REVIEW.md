@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Legendre's three-square theorem converts representability to explicit forbidden 2-adic cylinders. The proof establishes equivalence of integer preservation and 2-adic inverse-image inclusion, treats odd slopes by Haar-measure rigidity, excludes slopes with exactly one factor of two using a quantitative measure obstruction and residue contradiction, and resolves all other cases by repeated division by four and residues modulo eight. The disjoint counting recurrence gives the density \(3/20\). A separate exact checker corroborates the classification, but no inference from finite data replaces proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-The inspected ternary-square primary paper establishes restricted almost-prime representations and uses the same classical forbidden classes, not affine preservers. The inspected related affine-preserver paper treats sums of two triangular numbers, polygonal numbers, and sums of two squares; none directly implies the classification for sums of three squares, whose obstruction set is specifically 2-adic. Actual searches of literature, other published mathematical records revealed no statement covering the classification and density, including searches for affine endomorphisms, value-set preservers, Legendre exceptions, and equivalent 2-adic formulations. The possibility of an earlier differently named theorem remains; no independent priority audit was performed.
+PASS
 
-## Value — PASS
-The full affine endomorphism classification is a natural structural invariant of a classical representation set, and gives an unexpected explicit rational density \(3/20\) for positive affine maps. Unlike a bare congruence example, this accounts for every integer multiplier and intercept, the zero-intercept boundary, nested scaling by four, and the asymptotic frequency, using a reusable local-obstruction rigidity principle. The analogous affine classification of other thin additive value sets motivates asking this question, while the three-square set has positive density and a different obstruction geometry.
+For the forbidden 2-adic set E, its closure off E is the singleton 0 and its Haar measure is 1/6. A nonzero point of T^{-1}(E) outside E gives a whole cylinder containing a nonnegative integer counterexample; zero is already an input. An odd slope preserves measure, making the inclusion equality almost everywhere: any nonzero preimage of 0 has a neighborhood either inside or outside E but with a mixed preimage of E, a contradiction. Hence b=0 for an odd slope and checking the mod-8 odd classes gives a≡1. A slope 2u with u odd and b odd has preimage measure 1/4, impossible. For b even its 2-adic zero t lies in the closure of E by preimages of high forbidden cylinders, so t is 0,4,7 mod 8. The preimage of 28 mod 32 then has residue t+14/u mod 8, none of 0,4,7, contradiction. Common division by four preserves membership of the output; for the remaining slope divisible by four, outputs 1 or 2 mod 4 always pass, and 3 mod 4 needs a fixed residue 3 mod 8 (otherwise n=0 or 1 fails). This also gives the stated valuation conditions. Disjoint pair buckets give the recurrence, whose main term sums (9/64) times the geometric series of ratio 1/16; floors contribute only O(X) by geometric summation.
 
-## Closest literature and limitations
-She, Sun, and Zhou, arXiv:2606.04744v1, §1 and Theorem 1.3, study constrained ternary-square representations; Matijasevick, arXiv:2610.36284v1, §6.4 and §7.6, treats other sets under affine maps. Possible broader or older work on affine endomorphisms of ternary quadratic form value sets is an originality risk. The result does not classify negative-affine maps or arbitrary ternary quadratic forms. Mathematical correctness is supported by proof and finite exact checks; independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported content is the complete affine-preserver classification for the fixed ternary form, including positive intercepts and the pair density. The ordinary Legendre obstruction and the excluded-value density 1/6 are classical inputs, not originality claims. Compared indexed and published statements address different value sets or distributions and do not cover this classification and count.
+
+## value
+
+PASS
+
+This is a complete arithmetic classification for a canonical classical value set, not a list of congruential examples. It separates homogeneous from positive shifts, rules out every slope of dyadic valuation one at the reduced level, and gives an exact count and limiting fraction for all positive pairs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

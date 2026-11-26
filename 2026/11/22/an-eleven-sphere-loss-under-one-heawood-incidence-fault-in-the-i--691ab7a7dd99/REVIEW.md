@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact fourteen-vertex Fano incidence definition, independent all-pairs shortest paths, complete Čech facet enumeration and three fully acyclic discrete-Morse matchings establish the homotopy types and primitive inclusion. The relative matching has exactly eleven degree-two critical cells and is checked acyclic on the full intact face poset. Integral conclusions come from the cell attachment proof, not the supporting mod-two rank computation.
+## correctness
 
-**Originality — PASS against checked literature.** The complete publicly available Heawood Čech persistence result determines only the intact 48-sphere stage. The graph-incidence vertex-fault result computes a different Rips nerve and cannot imply the edge-fault Čech result. Targeted published-finding corpus/source searches did not find an equivalent calculation. The Adams–Shukla–Singh source supplies the graph-Čech definition and facet formula; its complete text was inaccessible, so this review does not assert a whole-document noncoverage determination. Unindexed work remains a risk.
+PASS
 
-**Value — PASS.** The Heawood graph is the smallest cubic graph of girth six. At the first nontrivial Čech scale, losing a single incidence edge deletes exactly eleven *primitive* integral sphere generators, and the inclusion admits an explicit relative Morse splitting. That is a motivated topological fault-stability benchmark, not a mere isolated face count.
+For an interior witness on a unit edge, the distance from a vertex center is the minimum of the two distances via its endpoints. At distance at most 3/2 from the witness, at least one of the endpoint distances is at most one, since those distances are integral. Thus the edge midpoint also witnesses the face. A witness at a vertex is covered by an incident midpoint witness. This gives the closed-neighborhood union facets and verifies that the nerve built with the recomputed metric is an actual subcomplex. The incidence multiplier sends the differences 0,1,3 in a 3-cycle, and translations give all 21 incidence edges. An independently written bit-mask reconstruction exhausts both face sets and tests topological sorting of the oriented Hasse incidences. Intact: 847 faces, 399 pairs, one critical vertex and 48 triangles, 3010 incidences. Faulted: 714 faces, 338 pairs, one critical vertex and 37 triangles, 2498 incidences. Relative: 133 faces, 61 pairs and exactly 11 critical triangles, acyclic also on the full intact poset leaving the faulted subcomplex untouched. Replay evidence: heawood_independent_check.py at /workspace/branches/0b485231-2e8a-489a-85ea-b40bceed8a3d; the frozen verifier was read, not executed. Absolute discrete Morse theory gives wedges of two-spheres; relative acyclic matching gives attachments under the base. The 11 attaching circles are null in the simply connected faulted nerve, so the under-base splitting and primitive integral map follow, not just mod-two ranks or a difference of Betti numbers.
 
-**Scope and limits.** One edge and one Čech scale only; no all-graph or multiple-fault theorem. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact scale-three 48-sphere wedge is established earlier and receives no novelty credit. The one-edge recomputed-metric nerve and the under-base inclusion are not supplied by the inspected exact baseline, analogous fault results, or the general facet formula.
+
+## value
+
+PASS
+
+The canonical cubic Fano incidence graph and its already-known scale-three sphere wedge motivate testing a single incidence fault at exactly that stage. The result describes the integral comparison map and the under-base homotopy, not merely a face or Betti count. This exact robustness test is useful for the given nerve without implying an all-scale, all-fault, or equivariant theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

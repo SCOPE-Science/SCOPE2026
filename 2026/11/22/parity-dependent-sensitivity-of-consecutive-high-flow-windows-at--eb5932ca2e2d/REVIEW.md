@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary transition matrix and feasible interval were reconstructed independently. The all-horizon even/odd first variation follows from an exhaustive first-order classification of no-wet-pair paths; the four-day exact objective and five-day strict-concavity proof handle boundary values and quantifiers. The standard-library checker passed 1014 exact rational assertions. Enumeration does not establish the all-horizon theorem; the path proof does.
+## correctness
 
-## Originality — PASS on inspected evidence
-The nearest published published-finding corpus result treats stationary wet fraction one half, with its four-day optimum and long-window analysis acknowledged. Oh, Park and Kim's 2022 full text supplies general Markov run probabilities; the new result is a constrained high-wet-frequency derivative sign and finite-horizon optimizer phase classification, not a new run recurrence. Jubb et al. supply applied motivation rather than this mathematics. Savelyev et al. (2003) and Lou (1996) full text remained inaccessible; their general formulas pose historical priority risks. Exact searches, sources and implication comparisons are recorded in AUDIT.json.
+PASS
 
-## Value — PASS
-The parity-sensitive boundary phenomenon holds for every window length, with an exact decreasing wet-frequency threshold at even windows, and a strict global difference between four and five days. This is useful as a mathematically sharp benchmark for repeated high-flow opportunities when the daily wet fraction is fixed. It is not a fish-management prescription: real flow levels, passability and memory need fitting.
+With v=1-s and r=(1-pi)/pi, the two-state WW-killed kernel has trace 1-v/r and determinant -v^2/r. Thus A_(N+2)=(1-v/r)A_(N+1)+(v^2/r)A_N for A_N=1-F_N, with A_1=1 and A_2=1-pi*s. At s=s0 (v=r), A_(2m)=2*pi*r^m and A_(2m+1)=r^m. Differentiating the recurrence there gives D_(N+2)=r*D_N+A_(N+1)/r-2*A_N for D_N=A'_N, with D_1=0 and D_2=-pi. Solving separately in each parity gives precisely the two claimed derivatives after negation, including m=1. The criterion is conditional, not unconditional sign alternation: the even derivative is negative only for pi>pi_m. The same recurrence gives F_4=pi*s*(3-2s) and the stated cubic factor in F'_5. Its G'_pi is strictly positive on the admissible interval: for pi<=6/7 use s(1-s)<=1/4 (equality in the resulting bound at pi=6/7 could only occur at an inadmissible s=1/2), and for pi>6/7 minimize G'_pi at s0>1/2, where (10*pi^2-15*pi+6)/pi>0. F'_5 has the stated strict opposite signs at the endpoints; clipping the separate four-day parabola and using strict concavity for five days proves both global results.
 
-## Scope and limitations
-Only occurrence of a two-wet-day run is modelled. Arbitrary even-window formulas establish *first-order* behavior at one boundary, not full global maxima beyond four days; at exact threshold higher-order effects remain unspecified. The stationary first-order weather model, fixed marginal and endpoint laws are essential. Historical novelty is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The probability and fair-chain extrema have identifiable precedents; the distinguishing classification holds at varying persistence under an unequal stationary marginal and is not given by those fair-chain conclusions or by the inspected general run probabilities alone.
+
+## value
+
+PASS
+
+At fixed frequency, greater wet persistence can initially reduce the chance of any wet pair for sufficiently wet even horizons, despite strictly increasing it for all odd horizons at the same boundary. The explicit threshold sequence and the four-versus-five day change in optimizer status quantify when relying on persistence alone gives the wrong intuition; they give a sharp benchmark for constrained Markov run risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

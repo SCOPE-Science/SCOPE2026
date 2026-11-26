@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The embedded exact checker prints `PASS 1642 assertions` and the fourteen strict signs at sample size 14. It independently sums the exact multinomial probability weights for all compositions into three box counts at every sample size from 2 through 21 and compares the result with the general moment formula. It also checks four dominant-base inequalities, the algebraic power bounds, selected witnesses at sizes 150, 160, 200, and 300, and the complete two-box covariance signs for a finite test range.
+## correctness
 
-The infinite-family statement for every integer \(t\ge15\), the three-box minimality, and the open-neighborhood persistence rely on the explicit arguments in RESULT.md; finitely many checker assertions cannot by themselves establish any of these quantified claims. All arithmetic in the checker uses exact Python integers and combinatorial coefficients. The investigation does not certify uniqueness against every historical source and does not constitute independent mathematical validation.
+PASS
+
+Write K=3-M_0. The product of means uses binomial marginal probabilities; the joint term sums only distinct boxes, with the unused mass (1-p_i-p_j)^{n-r}. At r=n a zero mass to the zero power means there are no remaining allocations, so the factor is one. The common binomial and denominator factors are positive, leaving the sign of H. Independent ordered-allocation dynamic programming produced all fourteen signs ++++-+++++---- at n=14. Separate integer maximization of the positive and negative bases reproduced the four displayed pairs and checked that the certified ratios to the powers t,2t,2t,t exceed the appropriate opposing term counts 6 or 9 already at t=15. Since all ratios exceed one, this proves the signs for every later integer t. The strict inequalities persist simultaneously by continuity after normalization of the positive weights (the max of finitely many continuous bases is continuous), preserving the same lower bounds and hence the same cutoff uniformly. Two boxes have M_0 M_r=0 for r<n and positive means of M_0 and M_r; M_n=M_0 gives strict negative covariance at n for n>=2 and positive box probabilities. One box has constant K. The infinite claim is at least three sign reversals witnessed by the sampled signs (sign variation ignoring zeros), not an exact sign sequence or a claim of exactly three switches for all large n. Replay: python3 -B /workspace/branches/frozen_review_replay.py 4. Frozen script inspected, not executed.
+
+## originality
+
+PASS
+
+The elementary multinomial moment identity is not new. The strongest local overlap is a distinct later-path finite three-species witness with different probabilities and n, and the same minimum box count. Neither it nor the earlier homogeneous law gives the quantitative robust infinite family, and no exact three-box match was found in the inspected primary passages. Path dates establish neither provenance nor priority; this pass concerns the materially stronger distinct persistence claim with its stated finite certificate and scope.
+
+## value
+
+PASS
+
+The result tests whether a natural uniform one-switch law is stable when box probabilities differ. The three-box boundary is minimal and the exact signs show that failure is neither a finite-n accident nor restricted to one exceptional vector. The dominant-base bounds supply an explicit cutoff and common-neighborhood stability, not just isolated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

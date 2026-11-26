@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For one-prime support, the equation reduces exactly to \((M-1)(p^a-1)=2\), giving only \((2,3)\) and \((3,2)\). For two-prime support, writing the two prime-power blocks as \(A=x+1\) and \(B=y+1\) reduces the problem to \((M-1)xy=x+y+2\). The case in which one of \(x,y\) equals \(1\) is excluded by parity, while \(x,y\ge2\) forces \(M-1=1\) and then \((x-1)(y-1)=3\), yielding \(N=15\). Direct substitution verifies all three solutions. The proof is unbounded and does not rely on the finite checker.
+## correctness
 
-## Originality
-**PASS.** The focal paper studies \(M\varphi^*(N)=N\pm1\), but its unitary-totient support theorem is formulated for larger support and does not give the complete \(\omega(N)\le2\) plus-equation classification. The classical unitary Lehmer problem and representative later papers concern \(M\varphi^*(N)=N-1\). OEIS entries checked provide values/inverse counts rather than this structural classification. Semantic searches for the equation, aliases of the unitary totient, low support, semiprimes, and the exceptional value \(15\) found no covering result.
+PASS
 
-## Value
-**PASS.** The result closes the first two natural prime-support layers of an explicitly studied Lehmer-type plus equation with no exponent or size cutoff. The reduction to a two-variable Diophantine equation explains why \(15\) is the sole two-support case, rather than merely identifying it computationally.
+The exact block factorization defines the unitary totient without a squarefree hypothesis. For one prime power A, (M−1)(A−1)=2 gives the two pairs for A=2,3. With two distinct-prime blocks A=x+1, B=y+1, the equation is kxy=x+y+2, k=M−1≥1. If x=1 then A=2 and y is positive and even, so (k−1)y=3 is impossible; the symmetric case is identical. If x,y≥2 then 2xy−x−y−2=(x−2)(2y−1)+3y−4>0, so k=1. The factorization (x−1)(y−1)=3 gives A,B=3,5 in either order. Direct substitution confirms all three ordered pairs (N,M). Independently enumerating prime powers and products of powers of different primes through 10^6 gave 367460 unique eligible N and precisely (2,3),(3,2),(15,2), in agreement with the recorded output. Replay: `python3 /tmp/opencode/frozen-independent-checks.py totient`. The classification is proved without this cutoff.
 
-## Closest literature and limitations
-The closest source is Yamada's 2023 treatment of \(M\varphi^*(N)=N\pm1\), which supplies the surrounding problem but not this low-support classification. Subbarao's 1998 paper and later unitary-Lehmer work concern the minus equation. No claim is made for \(\omega(N)\ge3\), and unindexed historical duplication remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected comparisons do not give the unrestricted-exponent, low-support plus-sign classification. In particular Yamada's quoted 2010 result is written N=Mφ*(N)+1, which means Mφ*(N)=N−1, not N+1. Yamada's own ± bounds are related but do not classify these cases.
+
+## value
+
+PASS
+
+Fixing support at one or two is a natural first classification for an explicitly studied arithmetic equation. The theorem identifies the only composite solution in that layer and rules out all nonsquarefree composites there, without a size or exponent cutoff. The sign and the distinct-prime parity obstruction are essential; it is not a recomputation of table entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

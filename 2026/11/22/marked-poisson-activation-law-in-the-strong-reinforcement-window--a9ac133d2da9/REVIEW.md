@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The initial two-vertex state has precisely one already-active vertex (the root). Conditional on the complete tree of size \(t\), the total parent-selection weight equals \(t+a(t-1)\), and each as-yet-childless nonroot vertex has selection weight one. An independent rare marked trial accepted only at a childless vertex with the deterministic probability \(a(t-1)/(t+a(t-1))\) reproduces the exact conditional activation kernel. The expected number of rejected marks is bounded by \(2(n-2)/a^2\), proving joint-history total variation. Riemann-sum convergence of the independent trial Laplace functional establishes the marked Poisson process; the coupling error vanishes in the finite-intensity scaling. Exact rational enumeration corroborates finite cases (see checker_output.txt).
+PASS
 
-## Originality — PASS subject to historical priority limitations
+At size t the sum of the outdegrees is t−1, hence the total weight is D_t=t+a(t−1). Given the activation history, each eligible nonroot label has probability 1/D_t; the root is already ineligible at size two and the newborn enters as a leaf. Per step an independent proposal of each nonroot label with probability 1/[a(t−1)] followed by acceptance at rate a(t−1)/D_t for eligible labels exactly reproduces this complete history. The rejection probability is t/(aD_t)+(H_t−1)/D_t with H_t the number of already active vertices including the root. The expectation of H_t−1 is at most (t−2)/a, by counting all earlier positive proposals. The two numerators sum in expectation to at most 2(t−1) over a common denominator aD_t, yielding 2/a² per step, even at t=2; for n=2 the two empty histories agree. This is a total-variation bound on the labelled joint law, not just the count law. In the stated triangular array n/a_n² tends to zero. Taking logs of the independent reference Laplace functional incurs an O(n/a_n²) error, and the mark inside each time slice is uniform on the label grid j/t. The grid Riemann sums converge uniformly away from t/n=0; the bounded integrand and the vanishing relative fraction of early times complete the limit on the compact square including λ=0. The root-star event is exactly zero nonroot activations and its reference probability is (1−1/a_n)^(n−2). The source VERIFICATION.md, checker.py and checker_output.txt were inspected without execution; the reported exact finite checks are source evidence, not independent execution or a certificate of the limit.
 
-The nearest primary paper, Angel–Goldschmidt–Michaeli (arXiv:2611.18353v1), analyzes fixed-parameter cover times rather than triangular-array first-activation birth-age marks. Benkner–Wagner's 2022 increasing-tree treatment supplies fixed-parameter fringe counts, not the complete marked-history law. Published rare-innovation recursive-forest and growing-color activation results establish related Poisson or activation behavior, but the inspected descriptions do not cover the same labelled two-coordinate object or the stated finite-sample coupling. The original histories inspected for overlap do not contain this claim. No claim of exhaustive priority or independent literature certification is made.
+## originality
 
-## Value — PASS
+PASS
 
-The first-time appearance of new parents is the natural tree-branching observable that distinguishes star-like condensation from the many-parent regime when linear reinforcement grows with tree order. The result identifies not just the count but the **joint chronology and relative age of every activated parent**, with a uniform total-variation approximation over all labelled event sequences. It supplies a quantitative critical-window structural law outside the fixed-parameter cover-time results and can inform more detailed genealogy or cover-time analyses without asserting that such extensions are proved.
+The complete affine leaf-set occupancy construction in the distinct same-date leaf-repulsion result covers more of the mechanism than a change in seed wording suggests: a ghost-leaf conditioning reduction transfers its exact finite leaf-history law to this model. Credit that overlap fully. The supported distinct increment is the uniform whole-history approximation by a particular independent reference with explicit error 2(n−2)/a² and the joint critical birth-time and birth-label law, rather than the exact finite leaf kernel, the fact that proposals can be taken independently, or the star probability alone. The approximation requires bounding repeat and rate errors; it is not a statement of the exact occupancy theorem. The date supplies no ordering between the two records.
 
-## Residual limitations
+## value
 
-There could be an equivalent general rare-innovation theorem or an unindexed preferential-attachment result that implies the marked law after reduction. Sources that were available only through abstracts or search summaries were not treated as fully read. The result is reviewed analytically and computationally by the same review process, without external mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A quantitative approximation for the full finite birth-labelled experiment is useful for arbitrary joint first-parent queries and need not reconstruct the reinforced tree. Its vanishing-error range a≫√n is broader than the fixed finite-intensity critical window; the critical limit then gives the interpretable independent fractional birth labels and event times. The finite-survival formula and zero-event limit in isolation would support a much smaller contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

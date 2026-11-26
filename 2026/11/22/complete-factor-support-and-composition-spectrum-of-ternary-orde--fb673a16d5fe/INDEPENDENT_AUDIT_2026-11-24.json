@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:51:09.239973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 26–35, VERIFICATION.md, verify_supports.cpp lines 18–89, verify_supports.py lines 13–90 and witnesses.txt lines 5–11",
+        "Corrected /workspace/repairs/3/RESULT.md; corrected 000 argument and exact-code description reassessed",
+        "Replay (NumPy): python3 /workspace/branches/c808e070-b23e-4252-ab48-9fcbf2075302/independent_supports.py; stdout in the same directory at full.out. The half tables have 2^20 rows each; three fixed 54-bit fields injectively encode all 27 signed coordinates, bounded by 20 per half; every opposite-flow match is individually tested for connectivity. Six literal witnesses and their six negations were checked."
+      ],
+      "rationale": "The frozen proof's parenthetical asserting three reciprocal nonself pairs at 000 was inaccurate. The corrected full RESULT.md at /workspace/repairs/3/RESULT.md identifies the two distinct antipodal pairs: {0001,0002} contributes exactly one outgoing edge and {1000,2000} exactly one incoming edge; 0000 is excluded. Thus the claimed unit in/out degrees and zero flow are correct. Every nonzero vertex pair has total outdegree 3 and total indegree 3, so opposite flows justify the 13 coordinates. Each 40-edge support chooses exactly one member of every pair, and a directed Euler circuit exists exactly when the flow vanishes and the nonzero-degree underlying graph is connected. The independently reproduced census used all 27 coordinates, so it did not depend on the reduction. It confirmed 274624 balanced, 218564 connected and 56060 disconnected selections and every row at j=8..19, with no other j. The 13 antipodal pairs beginning with zero force exactly 13 zeros in any realizing word. The repaired text also correctly says that the C++ code Gray-enumerates each half, not just one. No statement, count or code changed.",
+      "residual_risks": [
+        "The exhaustive domain is ternary order four only; tours or cyclic words with the same support are not individually counted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives the odd-alphabet bound (k^n−1)/2; Theorem 7.2 proves existence, and Example 7.1 constructs a 40-factor support at the precise audited parameters.",
+          "Example 5.3 rejects a particular pseudoweight-only maximizer construction."
+        ],
+        "reasoning": "Neither universal extremal existence nor a worked support determines how many balanced selections are disconnected or how allowable compositions are distributed.",
+        "searches": [
+          "Mitchell–Wild Theorems 4.1 and 7.2; Examples 5.3 and 7.1"
+        ]
+      },
+      "checked_sources": [
+        "Mitchell–Wild arXiv:2603.25286v3",
+        "Same-day span-three and identical-record Resultary sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary example gives 39 four-tuples plus 1111 and one length-40 sequence. The nearby SCOPE result counts length-13 ternary selections and tours."
+        ],
+        "reasoning": "Neither supplies the order-four set of antipodal selections, its exact connected/disconnected split, or any implication determining all twelve j-coefficients.",
+        "searches": [
+          "Resultary SCOPE-exact-census-of-maximal-ternary-span-three-negative-avoiding-cyc--8c9cf33f292b",
+          "arXiv:2603.25286v3 Example 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Supports are selected directed de Bruijn edges. Eulerian realization identifies supports with balanced connected selections, not with the count of Euler circuits.",
+          "Negative orientability uses reversal relations, unlike the audited coordinatewise negation."
+        ],
+        "reasoning": "A count of tours or an enumeration under reversal is not equivalent unless the induced support counts under the same negation action agree; the compared work does not give such a census.",
+        "searches": [
+          "Resultary: ternary order-four negative-avoiding factor supports, balanced and Eulerian selections",
+          "Mitchell–Wild arXiv:2603.25286v3 §§4, 5, 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned record itself. The strongest distinct same-day exact census reads span three, with 72 balanced selections, 60 connected and 288 cycles modulo rotation.",
+          "Exact-number text checks found no hits in v3; the actual theorem and example were also read."
+        ],
+        "reasoning": "The distinct census uses a different span and object (order three, including cycle counts). Shared dates establish no priority, and a bounded miss does not prove novelty.",
+        "searches": [
+          "Resultary: 274624 balanced, 218564 connected, order-four ternary negative avoidance",
+          "arXiv:2603.25286v3 targeted text checked for exact counts and construction"
+        ]
+      },
+      "rationale": "The distinct claim is an exact census of labeled order-four factor supports, including failures of connectivity and composition stratification. It is not a new maximum-period theorem or existence statement. Correcting the degree explanation does not change that claim.",
+      "residual_risks": [
+        "Unindexed exhaustive computations or other equivalent formulations remain possible. This is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers bound and existence, including explicit order-four attainment; not the finite census in the inspected passages",
+          "evidence": "Maximum bound 40 for ternary order four and an explicit length-40 sequence, but not a table of supports.",
+          "identifier_or_url": "https://arxiv.org/html/2603.25286v3",
+          "material_read": "§4 Theorem 4.1, Example 5.3, §7 Theorem 7.2 and Example 7.1",
+          "method": "Lawful OA HTML offsets around 19916, 32900 and 43200–50686",
+          "title": "Negative Avoiding Sequences",
+          "trigger": "Same negation property and same maximum order-four parameters"
+        },
+        {
+          "assessment": "Same technique, different order and counted objects; no priority inference from date",
+          "evidence": "Span three, period 13; 72 balanced and 60 connected selections, 288 rotation classes of cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-census-of-maximal-ternary-span-three-negative-avoiding-cyc--8c9cf33f292b",
+          "material_read": "RESULT.md finding, assumptions and census",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact census of maximal ternary span-three negative-avoiding cycles",
+          "trigger": "Strongest distinct exact census with the same avoidance relation"
+        },
+        {
+          "assessment": "Identical assigned record, not separate prior evidence",
+          "evidence": "All twelve rows and the three totals match the bound record.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-factor-support-and-composition-spectrum-of-ternary-orde--fb673a16d5fe",
+          "material_read": "RESULT.md finding, table and scope",
+          "method": "Resultary local mirror, offset 0, compared with frozen RESULT.md",
+          "title": "Complete factor-support and composition spectrum of ternary order-four negative-avoiding cycles",
+          "trigger": "Exact-number search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected finding, balance and connectivity proof, and independently reproduced composition table"
+      ],
+      "rationale": "For the natural maximal order-four avoidance problem the census determines which local balance solutions cannot be realized as cyclic supports and exactly which compositions are possible. Connectivity eliminates 56060 balanced choices; the complete composition table is additional information not implied by one maximizing example or the extremal bound. The proof repair retains this substantive content.",
+      "residual_risks": [
+        "The cutoff is the fixed order-four problem; no formula for varying order or enumeration of full cyclic words is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

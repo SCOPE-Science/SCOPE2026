@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:14:28.518543Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–82; VERIFICATION.md and CHECKER.py inspected and not executed"
+      ],
+      "rationale": "Normalizing independent Exp(1) variables is uniform for intrinsic simplex volume; selecting the minimum at y and applying memorylessness gives m∫exp(−my)(1−exp(−(c−1)y))^{m−1}dy and hence aB(a,m). For the Euclidean distance, convexity reduces the maximum of distance to the inscribed convex set to a simplex vertex. A candidate nearest e_i has x_i≤c/(m+c−1); fixed x_i forces squared distance at least m(1−x_i)²/(m−1), and the upper coordinate bound with all remaining coordinates equal achieves equality. Thus d=√(1−1/m)·a/(1+a). Independently, the beta expression equals ∏_{j=1}^{m−1}(1+a/j)^{−1}. Taylor expansion term by term gives log V=−aH_{m−1}+a²H_{m−1}^{(2)}/2+O(a³), uniformly for 0≤a≤1/2; H_{m−1}=log m+γ+O(1/m) and H_{m−1}^{(2)}=π²/6+O(1/m). Finite scaled distance implies L_m a→s; at infinite scaled distance monotonicity with a=T/L_m gives limsup V≤e^(−T) for each T. The product gives strict monotonicity and exact endpoint limits ensuring a unique fixed-p quantile. Substituting a=O_p(1/L_m) and solving gives a=q/L_m+(π²/12)q²/L_m³+O_p(L_m^−4); expanding a/(1+a) gives (3) including its positive cubic correction. For c=t mL_m, a=1/(tL_m)+O_t(1/(mL_m²)), giving (4) after exponentiation.",
+      "residual_risks": [
+        "The expansion is uniform for the stated auxiliary small-a range and fixed p or t in the two specialized formulas, not for arbitrary varying p or t. The metric normalization is the intrinsic metric of the specified regular simplex."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazakov gives the fixed trisection volume and an integer-ratio finite sum",
+          "3e2432049d4d gives a general-center Hilbert ball volume functional and an optimal center",
+          "Shao and Nielsen, Lemmas 8–9, concern polygonal ball geometry"
+        ],
+        "reasoning": "The general-center formula strictly covers the normalized volume calculation by specialization, but does not relate it to Euclidean Hausdorff distance from the original simplex. The inspected classical shape/facet results are not Euclidean distance–volume comparisons. The fixed-ratio bulk limit is a different observable and fixed-ratio regime.",
+        "searches": [
+          "Kazakov arXiv:2606.02087 §§2–3 and conclusion; Aldridge trisection exposition; Nielsen–Shao §§2–3; Resultary bulk, polar and Hilbert-ball variants"
+        ]
+      },
+      "checked_sources": [
+        "Kazakov arXiv:2606.02087, Aldridge (2026), Nielsen–Sun arXiv:1704.00454, Nielsen–Shao DOI:10.4230/LIPIcs.SoCG.2017.67",
+        "Resultary 3e2432049d4d, 26d47f09e2ad and d79d6553a85b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3e2432049d4d derives the beta mass and the leading law using exponential extrema; its proofs do not calculate nearest points to simplex vertices or the distance calibration",
+          "The coefficients γ and π²/12 in the small-parameter volume expansion follow from the exact product and standard harmonic-sum limits"
+        ],
+        "reasoning": "Continuity and monotonicity extend the indexed Gumbel limit to moving thresholds, including endpoint limits, so converting c to Hausdorff distance supplies the same leading law once the independent metric computation is known. The precise joint profile requires that geometric extremum, and the quantile correction further requires asymptotic inversion in the Euclidean metric. The standard asymptotic expansions and the leading law are not new ingredients by themselves.",
+        "searches": [
+          "Compare normalized Euclidean mass formulas, centroid Hilbert Gumbel law, fixed-ratio bulk laws and trisection/integer-ratio formulas to equations (1)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3e2432049d4d Finding and Proof §§1,3,5: centroid Hilbert distance log(max x_i/min x_i) and its Gumbel quantiles",
+          "Nielsen–Sun arXiv:1704.00454, Fig. 6, pp. 7–8 and Thm. 1 (p. 11), simplex Hilbert balls"
+        ],
+        "reasoning": "K_m(c) is the ordinary simplex Hilbert ball of radius log c at the centroid in the convention without a half factor. Thus r=log m+log log m+t gives volume exp(−e^(−t)), the same central-volume crossover as the frozen law when log(m)d→e^(−t). This is a true parameter equivalence for the leading volume transition, not evidence for the Euclidean nearest-vertex distance or its inverse-quantile expansion.",
+        "searches": [
+          "Resultary: ratio bounded central simplex polytope Hausdorff distance volume logarithmic transition fixed volume Euler correction",
+          "Resultary: central simplex coordinate ratio Hausdorff logarithmic volume transition exact distance sqrt(m(m−1))/(m+c−1) polytope",
+          "External search for Hilbert simplex centroid normalized Euclidean volume, Gumbel and Hausdorff transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d79d6553a85b formula (2) matches the primal beta volume for real c>1",
+          "26d47f09e2ad Finding is fixed-ratio bulk geometry; relationship passage (offset 7200 onward) refers without a citation to a volume/Hausdorff finding",
+          "3e2432049d4d has the identical centroid beta-volume and Gumbel threshold"
+        ],
+        "reasoning": "The checked catalogue record for polar volumes reproduces the volume input; the Hilbert record overlaps the volume threshold. The uncited prior-finding description in the bulk entry matches the subject of the frozen record but does not itself give the joint formulas, the quantile expansion or a traceable distinct source for them. These are coverage comparisons, not chronological priority conclusions.",
+        "searches": [
+          "Resultary matching exact central simplex ratio-volume/Hausdorff, Euler correction, polar and Hilbert-ball cases"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint Euclidean Hausdorff–volume calibration, including the third-order distance quantile. The general volume input is not credited as new. The indexed centroid Hilbert-ball result gives the exact same normalized central volume and the leading threshold in equivalent ratio coordinates; that leading volume phenomenon is not credited separately. It does not supply the ambient Euclidean Hausdorff distance, its joint law with volume, or the Euler-corrected Euclidean inverse calibration. The same-day bulk record's unnamed reference to a prior volume/Hausdorff transition is an unresolved identity reference, not a second stated theorem establishing coverage of the joint quantitative profile.",
+      "residual_risks": [
+        "The uncited transition in the same-day bulk record may refer to this original finding or to a separately published calculation; the passage does not resolve that identity.",
+        "Classical order-statistics or projective-metric work may contain a historically equivalent Euclidean calibration. The inspected search returns and source passages do not establish unique priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers trisection and integer-ratio inclusion–exclusion, not the joint calibration",
+          "evidence": [
+            "Trisection gives the reciprocal binomial; the conclusion gives an integer-division finite sum and discusses questions about other ratios and scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02087",
+          "material_read": "Abstract, §§2–3 (pp. 2–3), conclusion (p. 6)",
+          "method": "OA PDF passages",
+          "title": "Generalization of Marion's Theorem: Volumes of Central Polytopes Obtained by Trisecting the Edges of Simplices",
+          "trigger": "Same ratio-bounded simplex and exponential method"
+        },
+        {
+          "assessment": "Fixed c=2 only in the inspected derivation",
+          "evidence": [
+            "Uses max Y/min Y≤2 and an alarm-clock ordering for the fixed trisection volume."
+          ],
+          "identifier_or_url": "https://mpaldridge.github.io/blog/marions-theorem.html",
+          "material_read": "Public page, offset 0, trisection proof",
+          "method": "OA website text",
+          "title": "A (more) probabilistic proof of a geometric result",
+          "trigger": "Exponential ratio proof of the same trisection case"
+        },
+        {
+          "assessment": "Directly covers the volume input and leading volume crossover in Hilbert-radius coordinates, not the Euclidean Hausdorff calibration",
+          "evidence": [
+            "At the centroid Q_n=(n/(e^r−1))B(n/(e^r−1),n); r=log n+log log n+t gives exp(−e^(−t))."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-centroid-optimality-and-a-gumbel-volume-threshold-for-hilb--3e2432049d4d",
+          "material_read": "Finding, Proof §§1–5, Relationship to prior work and Limitations, offsets 0 and 5185",
+          "method": "Resultary search and local mirror passages",
+          "title": "Sharp centroid optimality and a Gumbel volume threshold for Hilbert balls in simplices",
+          "trigger": "Exact same centroid-restricted volumes and equivalent leading transition"
+        },
+        {
+          "assessment": "Bulk theorem is distinct; unresolved whether its unnamed prior-finding reference is to the frozen record itself",
+          "evidence": [
+            "The bulk proof assumes fixed c and studies coordinate limits/radius; the limitations exclude c_m varying. The prior-finding sentence supplies no identifier or expansion."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-truncated-exponential-bulk-geometry-of-uniform-central-simplex-p--26d47f09e2ad",
+          "material_read": "Finding, fixed-ratio beta localization, Relationship and Limitations (offset 7200 onward)",
+          "method": "Resultary search and local mirror passages",
+          "title": "Truncated-exponential bulk geometry of uniform central simplex polytopes",
+          "trigger": "Same cutoff polytope and an explicit uncited description of a logarithmic Hausdorff–volume transition"
+        },
+        {
+          "assessment": "Matches primal volume input; contribution concerns polar volume and product",
+          "evidence": [
+            "The beta expression in formula (2) is for the identical real-ratio central body."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-polar-volumes-of-ratio-bounded-simplex-central-polytopes--d79d6553a85b",
+          "material_read": "RESULT.md formula (2) and Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact polar volumes of ratio-bounded simplex central polytopes",
+          "trigger": "Exact same body, potentially same joint identities"
+        },
+        {
+          "assessment": "Geometric conventions and shape, not the inspected dimension-varying joint calibration",
+          "evidence": [
+            "Ball shape and facet complexity are treated; neither inspected result gives the distance–volume expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.00454; https://doi.org/10.4230/LIPIcs.SoCG.2017.67",
+          "material_read": "Nielsen–Sun pp. 7–8 and Thm. 1 on p. 11; Nielsen–Shao Lemmas 8–9, conference pp. 67:2–3",
+          "method": "OA PDF passages",
+          "title": "Clustering in Hilbert simplex geometry; On Balls in a Hilbert Polygonal Geometry",
+          "trigger": "Classical equivalent Hilbert formulation and geometry of these balls"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4) and exact nearest-point proof; Resultary 3e2432049d4d, 26d47f09e2ad for contrast"
+      ],
+      "rationale": "The exact Euclidean metric calibration quantitatively separates Hausdorff approximation from relative-volume approximation for a natural symmetric family, in a regime not addressed by fixed trisection. It identifies how close one can be at a prescribed nontrivial retained fraction, with an explicit third-order distance and a matching volume correction in dimension-dependent truncation. Even where the leading volume law is recognized in Hilbert variables, the ambient worst-case Euclidean displacement and its finite-size precision are useful, distinct geometric information; this is not a claim of value for rewriting the beta identity or the Gumbel parameter alone.",
+      "residual_risks": [
+        "The phenomenon is an exact calibration of this symmetric family under the specified scale, not a general Euclidean Hausdorff–volume theorem for arbitrary convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

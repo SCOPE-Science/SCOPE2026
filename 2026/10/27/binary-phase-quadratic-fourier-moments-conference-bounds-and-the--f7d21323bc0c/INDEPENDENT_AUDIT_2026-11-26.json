@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:45.507584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–48",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen checker.py and CHECKS.txt (read, not executed)",
+        "Independent replay: python3 /workspace/repro_record4.py; standard-library script, exhaustive direct-product counts and exact arithmetic over F5 and F9"
+      ],
+      "rationale": "On the continuous normalized torus the squared norm of P^2 separates repeated edges (weight 1 each), shared-vertex edge pairs (weight 4 each), and four distinct indices with three matching products (weight 36 when all agree and 4 otherwise). This gives equation (2), with increment 32 per collision. Each four-set contributes three unoriented cycle products; all three matching signs agree exactly when all three products of two different matching signs are positive. The weighted four-walk trace counts each of these cycles eight times and has n(n−1)(2n−3) nondistinct-vertex walks of weight 1. Since (S^2)_ii=n−1, the trace gives equation (1). Each off-diagonal square is nonnegative, and in odd order each is at least one, with exactly the stated equality criteria. For Paley's all-positive infinity row, the required finite-field off-diagonal correlation is −1: for x≠z substitute (x−y)/(z−y) on y≠z to sum the quadratic character over the field with 1 omitted. Symmetry uses chi(−1)=1. Thus the bordered square is qI, and deleting infinity subtracts the all-ones matrix from qI. Switching leaves each collision unchanged and uniquely normalizes the incident row. An independent exact Python replay using literal matching products rather than the frozen two-mask parity method exhausted the 8, 64, 1024 and 32768 normalized assignments at n=4,5,6,7 and reproduced (minimum, multiplicity)=(0,6),(0,12),(0,12),(5,3024). It independently verified both finite Paley witnesses, every indicated induced submatrix, and all seven moment values. The 7-set incidence bound gives b≥binomial(n,4)/7, and equality at order 10 forces every 7-subset optimal, giving equality for 7–10 by the same incidence identity. The order-6 Paley witness has b=0, inherited below order 6.",
+      "residual_risks": [
+        "The finite run supports the enumerative base and examples, not the unbounded prime-power statement or the Fourier identity; those were checked algebraically. No arbitrary complex-phase or larger-dimension sharpness conclusion is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conference-matrix spectra and principal submatrices are classical and supply the sharp witnesses here. The square-free Fourier-layer theorem gives a sharp upper bound allowing arbitrary complex coefficients, not minima for binary signs. The Seidel enumeration handles all switching classes, but the compared statistical tables summarize class and spectral counts, not the required fourth-moment minimum."
+        ],
+        "reasoning": "Broader ambient coverage or an extremum in the opposite direction does not give the new minimization law; the known witnesses do not exclude a different signing with smaller collision count at seven vertices.",
+        "searches": [
+          "DOI:10.1007/s10623-021-00858-8 §§2–4",
+          "Resultary record 49c8d2da27e1, Finding and generality note",
+          "arXiv:1703.02943 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.02943 and 2204.10775",
+        "DOI:10.1007/s10623-021-00858-8",
+        "Resultary 49c8d2da27e1",
+        "Szöllősi 2018 enumeration talk"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-order parity bound alone implies b≥4 at n=7 (tr S^4≥294 gives 32b≥112), whereas the exact result requires b≥5. Paley's order-10 solution and its submatrices give upper bounds, not the universal n=7 obstruction. The exact base, followed by incidence, supplies the finite sharp lower bounds, and the Fourier/trace bridge gives the moment invariant in every order."
+        ],
+        "reasoning": "The checked conference facts, generic trace identity and parity do not mechanically imply the decisive extremal cutoff. There is also a direct obstruction beyond parity: switch at order 7 so all products of incident edge signs are positive (switch by their original products, whose total is 1). Then every off-diagonal entry of S^2 is 1 mod 4. The hypothetical b=4 forces exactly one unordered pair with entry −3 instead of 1, so S^2=5I+J−4(E_ij+E_ji). The rational two-dimensional space of vectors constant on the distinguished pair and its complement carries S^2 as [[3,5],[2,10]], with polynomial x^2−13x+20, while the other eigenvalues are 5 and 9. This space is the kernel of that polynomial in S^2 and hence is preserved by S. The determinant of the rational restriction of S would square to 20, impossible. This checks that nontrivial additional structure at order seven is genuinely used rather than a parameter substitution.",
+        "searches": [
+          "arXiv:1703.02943 §3 Table 1, DOI:10.1007/s10623-021-00858-8 §§2–4, and frozen RESULT.md equations (1)–(2) and incidence argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For triangle sign tau_ijk=S_ij S_jk S_ki, four triangle signs agree on a four-set exactly when all three matching signs agree. Normalize the three edges incident to one of its vertices to +1 to see this directly. Hence b counts four-sets inducing the full or empty two-graph. Ordinary edge-monochromatic K4 multiplicity is a different invariant, as are the tournament and high-uniformity hypergraph switching problems in arXiv:2204.10775."
+        ],
+        "reasoning": "The precise alternate invariant is homogeneous triples in each four-set of the switching-invariant two-graph, not a graph K4 whose six edges all agree in a fixed gauge.",
+        "searches": [
+          "Two-graph Ramsey homogeneous four-subsets 7 minimum monochromatic K4 two-graphs Seidel fourth moment frame potential",
+          "arXiv:1703.02943 §§2–3",
+          "arXiv:2204.10775 Theorems 1.1 and 4.7",
+          "Resultary queries for binary phases, complete quadratic torus layer, fourth moments and Seidel deficit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 confirms 54 switching-and-relabelling classes at order 7 and 33120 at order 10, and gives counts of distinct characteristic polynomials, not a table of the polynomials or of their fourth coefficients. §2 describes construction of representatives. Their full list, if evaluated for b or the fourth trace, would suffice to establish the finite extrema; the inspected tables themselves do not give these values. The resolved Resultary upper-bound record has a different extremal direction; the older opaque reference was not resolved."
+        ],
+        "reasoning": "Credit actual enumeration coverage, but distinguish generated class representatives and counts from a quantified extremum of the chosen invariant. Independent evaluation and the algebraic reduction here do not rest on recomputing an already tabulated fourth trace.",
+        "searches": [
+          "Szöllősi, Enumeration of Seidel matrices (2018 talk), pp. 6–14",
+          "Szöllősi–Östergård, arXiv:1703.02943, §2 and §3 Table 1; literal searches 'fourth' and 'Ramsey'",
+          "Resultary 49c8d2da27e1 and opaque frozen reference bbffed0a-87b1-4413-ab31-580c2a2c2667"
+        ]
+      },
+      "rationale": "Pass the exact binary torus minimum/deficit and the quantitative seven-vertex obstruction together, not Seidel switching, graph enumeration, the conference construction, or the general square-free upper bound. There is a precise equivalent two-graph extremal count and a pre-existing catalogue of the ambient classes, but the inspected catalogue publishes neither the relevant fourth-trace extremum nor the collision counts. The inspected upper bound and conference results do not yield the seven-vertex lower bound or convert it to this moment law.",
+      "residual_risks": [
+        "An older two-graph result may quantify the exact same homogeneous four-set invariant; the two named inaccessible papers and the unresolved opaque upper-bound ID do not settle that risk. The explicit catalogue representatives themselves were not evaluated in a separate run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete class enumeration; inspected tables do not tabulate the target score or fourth moment",
+          "evidence": "Table 1 counts classes and distinct polynomials; §2 describes graph6 representation and canonical augmentation. It discusses a three-vertex invariant and suggests possible four-vertex invariants.",
+          "identifier_or_url": "arXiv:1703.02943",
+          "material_read": "§2 ending, PDF offsets 20100–22700, and §3 introduction and Table 1, offsets 22950–27083",
+          "method": "OA primary arXiv PDF, located and paged by offset",
+          "title": "Enumeration of Seidel matrices",
+          "trigger": "Complete catalogue covering the target dimensions and computation of spectra"
+        },
+        {
+          "assessment": "Catalogue enumeration, superseded for comparison by the paper",
+          "evidence": "Reports canonical augmentation and order-7 and order-10 class counts.",
+          "identifier_or_url": "https://www.math.auckland.ac.nz/~waldron/NZATG-2-2018/Talks/szollosi.pdf",
+          "material_read": "pp. 6–14 enumeration slides; final slide gives the paper citation",
+          "method": "OA talk PDF, offsets 0, 4999, 20700",
+          "title": "Enumeration of Seidel matrices (talk)",
+          "trigger": "Family of exact switching-class catalogue entries"
+        },
+        {
+          "assessment": "Classical witness and spectral background; not the minimum theorem",
+          "evidence": "Defines conference matrices by CC^T=(n−1)I and discusses Paley and principal-submatrix spectra.",
+          "identifier_or_url": "DOI:10.1007/s10623-021-00858-8",
+          "material_read": "§§2–4, pp. 1983–1988, PDF offsets 0, 4980, 9980",
+          "method": "OA primary PDF",
+          "title": "Spectral symmetry in conference matrices",
+          "trigger": "Paley/conference equality mechanism and principal submatrices"
+        },
+        {
+          "assessment": "Not the same invariant",
+          "evidence": "Treats tournament/higher-tournament switching and edges in a 6-uniform hypergraph, not homogeneous four-sets of this two-graph.",
+          "identifier_or_url": "arXiv:2204.10775",
+          "material_read": "Theorem 1.1 and Theorem 4.7, PDF offsets 2760 and 27400",
+          "method": "OA primary PDF",
+          "title": "Turán numbers and switching",
+          "trigger": "Plausible switching extremal formulation with a seven-vertex bound"
+        },
+        {
+          "assessment": "Upper bound for arbitrary complex coefficients, not binary minima",
+          "evidence": "Degree-two case is context; main new range is k≥3.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1",
+          "material_read": "RESULT.md Finding and scope of the new range, offsets 0 and 4769",
+          "method": "Resultary local mirror",
+          "title": "Sharp fourth moments and phase rigidity of all square-free Fourier layers",
+          "trigger": "Nearest Resultary fourth-moment result"
+        },
+        {
+          "assessment": "Insufficient material to determine exact coverage",
+          "evidence": "Available snippet concerns regular two-graphs/conference graphs.",
+          "identifier_or_url": "ScienceDirect PII S0166218X18302610",
+          "material_read": "Search snippet only; primary OA attempt returned HTTP 403",
+          "method": "Lawful OA attempt",
+          "title": "Two-graphs and NSSDs: An algebraic approach",
+          "trigger": "Related algebraic two-graph and conference literature"
+        },
+        {
+          "assessment": "Insufficient material to determine exact coverage",
+          "evidence": "Available snippet concerns switching and triple signatures, not a confirmed minimum for this invariant.",
+          "identifier_or_url": "ScienceDirect PII S0024379518301472",
+          "material_read": "Search snippet only; primary OA attempt returned HTTP 403",
+          "method": "Lawful OA attempt",
+          "title": "On switching classes of graphs",
+          "trigger": "Potential equivalent switching-class counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(2) and incidence argument",
+        "arXiv:1703.02943 Table 1",
+        "Resultary 49c8d2da27e1"
+      ],
+      "rationale": "The exact deficit connects the minimum of a natural binary Fourier-layer norm to conference structure and identifies infinite sharp families. The finite cutoff is structurally motivated: seven vertices is the first unavoidable four-mode collision and the sharp obstructing multiplicity propagates via incidence, with matching witnesses through ten. This is more than listing existing switching classes or recomputing a known table; it isolates a meaningful invariant and explains when it first forces a moment gap.",
+      "residual_risks": [
+        "No classification of all signings or minima beyond the stated dimensions and equality families; no new conference construction is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

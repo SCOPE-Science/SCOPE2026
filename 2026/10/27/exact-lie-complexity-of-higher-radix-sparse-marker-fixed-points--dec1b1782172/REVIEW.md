@@ -1,19 +1,21 @@
-# Scientific review — higher-radix Lie spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof handles each necessary case: initial short lengths, the marker residue constraint on two ones, exclusion of the too-long zero run, and bijective desubstitution at all longer divisible lengths. The potential subtlety—cyclically shifting a substituted word by fewer than \(r\) places—is justified by the common \(r-1\) initial zeros in every substitution block. All quantifiers are explicit for integers \(r\ge3,n\ge1\). Finite prefix tests agree but are not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual uncertainty
+In the one-sided fixed point, all ones occur at block ends. The preimage has no adjacent ones, so the longest zero run is 2r-1 (attained in the image of 10; the initial run is only r-1). For n<2r every one-marker rotation 0^a 1 0^b fits using the images of 10 or 01 and the zeros in the next block, since min(a,b)<=r-1. Together with the zero necklace this gives two. Two chosen ones in a complete necklace force both complementary circular distances to be multiples of r, by considering cuts on either arc. Thus such necklaces require r|n, and at the only multiple r in the base interval two ones cannot fit. At nonmultiples above the base interval even the one-marker necklace fails, since one rotation would need at least 2r zeros. For n=rm with m>=2 the zero necklace is impossible. The marker residue fixes block phase in every occurrence of an aligned representative, so completeness implies completeness of the unique preimage up to rotation. In reverse, every complete preimage has a zero (it cannot be 1^m), hence its image has a marker; every offset below r of an aligned occurrence is realized by replacing only initial zeros by zeros from the next block. Images cannot collapse two preimage necklaces because a rotation between aligned marker-containing words moves by a multiple of r. This proves the recursion; n=r is covered separately by the base case. Dividing out whole powers works for composite r as well. There are 2(r-1) possible reduced lengths, each yielding a disjoint geometric progression, proving both counting consequences. The supplied verify_lie.py was read, not executed. Separate 50,000-letter prefix checks at r=2,3,4,5 matched in all 108 cases; replay: /workspace/branches/4e9d84bc-9d85-4c3b-b17e-1da8dfe33aa9/small_lie_check.py, log small_lie_check.log in the same directory. The all-length proof does not rely on prefix saturation.
 
-Bell–Shallit's automaticity theorem does not state the explicit higher-radix formula. Earlier cyclic-complexity work counts the different, weaker 'some rotation' condition, and the Sturmian Lie-complexity paper treats another word class. A known radix-two result is excluded from the novelty claim. Searches of available research records did not locate an equivalent higher-radix classification; a differently named general Toeplitz or sparse-marker theorem remains an uneliminated risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is an explicit natural family of nonperiodic uniform substitution words. The exact two-or-zero spectrum for every length and every higher radix is a complete classification of the conjugacy-complete language, with an unusual sparse support of \(2(r-1)\) geometric length families. It sharpens broad automaticity information to explicit constants and arithmetic support, rather than merely tabulating isolated values.
+The exact radix-two spectrum exists in a distinct Resultary record. The frozen claim excludes it. The inspected evidence does not supply the all-integer r>=3 spectrum or its higher-radix desubstitution bijection. This judgment credits the overlap and does not infer priority from the shared date.
 
-## Closest literature and scientific boundaries
+## value
 
-Bell and Shallit (arXiv:2102.03821); Cassaigne et al. (arXiv:1402.5843); De Luca and Fici (arXiv:2206.00995); Li (arXiv:2207.05859). The proof does not assert broader automatic-sequence classification. It does not claim the radix-two instance as new; an equivalent unindexed higher-radix treatment may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The higher-radix family is defined by a natural period-doubling substitution with sparse fixed-phase markers. Its all-rotations spectrum is a stricter invariant than ordinary factor counts. The classification determines a logarithmically sparse support explicitly, including composite radices, and its desubstitution shows how whole necklace classes, not just individual factors, are preserved. This is a substantive exact family calculation beyond the known binary-length control, not a new general theorem about all substitutive words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

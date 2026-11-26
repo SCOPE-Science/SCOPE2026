@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:16:20.331904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39 and 41–110",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent audit_five_ary.py and audit_five_ary_output.txt"
+      ],
+      "rationale": "The odd denominator leaves the binomial valuation unchanged; Legendre or Kummer gives 2s₂(n)−s₂(5n), exactly the outgoing carries of n+4n. The two previous input bits and one incoming carry are sufficient; zero padding drains the two delayed bits and any remaining carry. The independently constructed eight-state matrix gives det(I−zM)=D and initial-state Cramer numerator (1−uz)(1+z+(2−u)z²+z³), proving the formal identity for every L including 0. As another check, the state generating functions for 001/100 and 011/110 coincide, q101=u q010 and (1−uz)q111=u²(1−z)q000; elimination gives the same rational function. The first derivative at u=1 decomposes as z/(1−2z)²−1/(1−2z)+(1/(1−z)+(1+z)/(1+z²))/2, yielding the claimed exact mean. At u=1 the denominator factors as (1−2z)(1−z⁴) and the numerator does not cancel the pole at 1/2. For F(λ,u)=λ⁵D(1/λ,u), the derivatives (Fλ,Fu,Fλλ,Fλu,Fuu) at (2,1) are (15,−15,64,−34,−20), hence λ′=1 and λ″=8/5. The log moment generating function has linear-in-L part L log(λ(e^t)/2), with first two derivatives 1/2 and 21/20; the analytic amplitude contributes O(1), and the other poles give a uniform exponentially small error near t=0. Taylor expansion at imaginary arguments of order L^−1/2 gives the asserted weak Gaussian limit. Independent histograms and means agree through L=20 (2,097,151 index instances across blocks), with direct binomial quotient checks for 0≤n<128. The finite checks alone say nothing about a convergence rate or translated intervals.",
+      "replay": "Run python3 audit_five_ary.py from the directory containing the independent replay code; audit_five_ary_output.txt records the exact polynomial and expanded finite checks.",
+      "residual_risks": [
+        "The theorem does not establish a local limit theorem or a rate of convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 34811cfc1a4a fixes n and p and varies the arity, rather than fixing arity five and enumerating n on dyadic blocks. Record 02997d82d076 fixes arity three, uses n+2n and finds variance coefficient 11/12. The inspected opening of Sobolewski concerns regularity of analytic valuations, not an evaluated carry histogram."
+        ],
+        "reasoning": "The quantifiers of the varying-arity law and fixed-ternary law do not yield this fixed-five distribution. An unevaluated regularity or fixed-modulus algorithm is not the explicit valuation census; the earlier modular paper's inaccessible portion remains a coverage risk.",
+        "searches": [
+          "Resultary records 34811cfc1a4a and 02997d82d076",
+          "Sobolewski DOI:10.1007/s11139-023-00710-8",
+          "Kauers–Krattenthaler–Müller arXiv:1107.2015"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 74e266357ef1, 1539d2c2119c, 02997d82d076, 34811cfc1a4a, 0127e93f9dac",
+        "DOI:10.1007/s11139-023-00710-8",
+        "arXiv:1107.2015 (full-text access limited in this comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the assigned rational function at u=0 gives the known zero shell; extracting [u] gives z³(1+z)/(1−z−z³−z⁴)², exactly the same-day shell. The ternary variance 11/12 is a different carry process."
+        ],
+        "reasoning": "The full formula contains both low shells, but the converse would need new information on higher valuations and their weights. The full law is distinct without assigning an unsupported order to the two same-day records.",
+        "searches": [
+          "Five-ary odd-support and valuation-one Findings, Resultary 74e266357ef1 and 1539d2c2119c",
+          "Ternary dyadic valuation law, Resultary 02997d82d076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sought weights are 2s₂(n)−s₂(5n), equivalently the carry count of n+4n. The nearby exact binomial-ray report 0127e93f9dac instead counts carries of 2n+3n. The valuation-one result 1539d2c2119c concerns the exact same statistic but only its coefficient of u."
+        ],
+        "reasoning": "A theorem on the full distribution of the carry count of n+4n would be equivalent even without naming Fuss–Catalan numbers. The inspected ray theorem changes the summands, and the two low shells do not determine the whole distribution.",
+        "searches": [
+          "Resultary comparison: five-ary valuation, binary n+4n carry counts, and nearby binomial rays; records 74e266357ef1, 1539d2c2119c, and 0127e93f9dac",
+          "DOI:10.1007/s11139-023-00710-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-ary odd-support record counts F_{ceil(L/2)+2}F_{floor(L/2)+2} odd entries with F₀=0,F₁=1. The valuation-one record gives z³(1+z)/(1−z−z³−z⁴)² for exactly that shell."
+        ],
+        "reasoning": "Both are exact all-depth enumerators and are credited, not dismissed as isolated finite tables. Neither enumerates the positive valuations above one or supplies the full law.",
+        "searches": [
+          "Resultary records 74e266357ef1 and 1539d2c2119c, RESULT.md Findings"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full fixed-five dyadic valuation distribution and its exact mean and Gaussian fluctuation constant. The two lowest shells have direct published coverage; the valuation-one record is dated the same day, which does not establish priority. No disclosure of the full all-shell law, or stronger result specializing to it with the stated parameters, was established in the sources inspected.",
+      "residual_risks": [
+        "Unindexed equivalent formulas for the full distribution of carries in binary self-addition with lag two may exist.",
+        "The dates do not order the two same-day five-ary records, and the earlier modular-computation paper was not independently read at the decisive passages for this comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers parity and the exact zero shell, not the positive valuation distribution.",
+          "evidence": [
+            "Parity criterion n & (n<<2)=0 and Fibonacci-product dyadic counts."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-binary-zero-run-spectrum-of-the-five-ary-fuss-catalan-numb--74e266357ef1",
+          "material_read": "RESULT.md, Finding and limitations, offsets 0 and 5400",
+          "method": "Local published full-text passages",
+          "title": "Exact binary zero-run spectrum of the five-ary Fuss–Catalan numbers",
+          "trigger": "Same sequence, prime and dyadic blocks"
+        },
+        {
+          "assessment": "Exactly covers the coefficient [u] but not the full series; relative priority unresolved.",
+          "evidence": [
+            "The Finding states the exact V=1 characteristic and generating function z³(1+z)/(1−z−z³−z⁴)²."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-first-binary-valuation-shell-of-five-ary-fuss-catalan-numb--1539d2c2119c",
+          "material_read": "RESULT.md, Finding and limitations, offsets 0 and 5400",
+          "method": "Local published full-text passages",
+          "title": "Exact first binary valuation shell of five-ary Fuss–Catalan numbers",
+          "trigger": "Exact same object and valuation, with material overlapping coefficients"
+        },
+        {
+          "assessment": "Analogous method, different shift and valuation law.",
+          "evidence": [
+            "C₃(n)=binom(3n,n)/(2n+1), carries in n+2n and asymptotic variance 11L/12+O(1)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-dyadic-two-adic-valuation-spectra-of-ternary-fuss-catalan--02997d82d076",
+          "material_read": "RESULT.md offsets 0 and 5300, Finding and scope",
+          "method": "Local published full-text passages",
+          "title": "Exact dyadic two-adic valuation spectra of ternary Fuss–Catalan numbers",
+          "trigger": "Nearest all-valuation formula at a neighboring arity"
+        },
+        {
+          "assessment": "Does not give the histogram in n at fixed arity.",
+          "evidence": [
+            "The enumeration variable is arity, with n and p fixed."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-prime-arity-valuation-spectra-and-sharp-periods-for-fuss-cat--34811cfc1a4a",
+          "material_read": "RESULT.md offsets 0 and 5400, Finding and scope",
+          "method": "Local published full-text passages",
+          "title": "All-prime arity valuation spectra and sharp periods for Fuss–Catalan numbers",
+          "trigger": "Plausible general parameter coverage"
+        },
+        {
+          "assessment": "Different binomial ray; no change of variables giving the target was established.",
+          "evidence": [
+            "It counts carries in 2n+3n rather than n+4n."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-binary-valuation-fibres-on-the-binomial-ray-binom-5n-2n--0127e93f9dac",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published full-text passage",
+          "title": "Exact binary valuation fibres on the binomial ray binom(5n,2n)",
+          "trigger": "Nearby all-depth carry census with top argument 5n"
+        },
+        {
+          "assessment": "The inspected statements classify regularity, not the evaluated five-ary dyadic histogram.",
+          "evidence": [
+            "Analytic valuation framework and Lucas-sequence applications."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11139-023-00710-8",
+          "material_read": "Open-access article, PDF pp. 1–2, abstract and opening definitions and scope",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "On k-regularity of sequences of valuations and last non-zero digits",
+          "trigger": "Potential general theorem on valuation sequences"
+        },
+        {
+          "assessment": "Inaccessible in this comparison; not negative evidence.",
+          "evidence": [
+            "The frozen record identifies Section 13 for possible fixed-modulus coverage; this audit does not infer whole-document noncoverage from that description."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2015",
+          "material_read": "Bibliographic identification; no independently retrieved decisive full-text passage for this comparison",
+          "method": "Lawful open-access retrieval attempts, including alternate access; timeouts",
+          "title": "A method for determining the mod-2^k behaviour of recursive sequences, with applications to subgroup counting",
+          "trigger": "Fixed-modulus methods for related Fuss–Catalan coefficient sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 74e266357ef1, 1539d2c2119c and 02997d82d076"
+      ],
+      "rationale": "For the classical full five-ary tree counts, and equivalently the natural binary self-addition n+4n, the bivariate generating function evaluates every divisibility stratum on every dyadic block. Positive strata above one and the fluctuation constant 21/20 carry real information beyond the published low-shell results. Counting every shell and controlling typical fluctuations are distinct useful tasks; the contribution is not the routine use of Kummer's theorem or transfer matrices by itself.",
+      "residual_risks": [
+        "Value is for fixed five-ary, prime-two, initial dyadic blocks; it makes no claim of a general arity theorem or a quantitative Gaussian approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

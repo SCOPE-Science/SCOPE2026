@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers every nonnegative integrable position-dependent reversal rate with fixed spatial integral. Its proof obtains the backward equations from the continuous-time velocity-jump generator, uses the outgoing absorbing conditions to fix the unique solution, and reduces optimization to two sharp first-moment inequalities over positive measures. Both strictness assertions follow because integrable profiles have no atoms. Explicit approximating rectangular profiles prove both bound sharpness, and an interpolation argument proves all interior values are attained. Finite-grid generator checks in `verification.py` corroborate the normalization and formulas; no finite computation is used to establish the infinite-class result.
+## correctness
 
-## Originality — PASS, with residual risks
-Leydolt (1993) treats telegraph first-passage laws with two boundaries at uniform switching; Angelani et al. (2014) permit spatially varying tumble rates but solve a reflecting-to-absorbing first-passage setup, not the present function-space optimization. Newby and Keener (2011) use spatially inhomogeneous velocity jumps for turning-point escape; only a publisher abstract was accessible, so direct full-text exclusion is unavailable. Angelani (2023, 2024) analyzes flexible boundary configurations or rate optimization for spatially uniform bulk rates. Guéneau et al. optimize a uniform rate under confining potentials. None of the inspected full texts states an unrestricted fixed-integral spatial-rate design problem, its sharp mean interval, or its symmetry obstruction. Equivalence under other terminology remains a residual bibliographic risk; database nonmatches alone do not prove novelty.
+PASS
 
-## Mathematical value — PASS
-An integrated spatial switching budget is a natural control resource in velocity-jump transport, bacterial motility and persistent search. The complete sharp attainable range resolves both extremes without artificial finite-dimensional parameterization, demonstrates a nonintuitive strict advantage of asymmetric reorientation over ballistic motion, and proves a contrasting global obstruction for every symmetric profile. The geometric concentration limit is mathematically essential rather than a small numerical improvement.
+At the start of each flight there is at least e^(−η) probability of reaching an absorber before another reversal; the number of reversals has a geometric tail, so there is no explosion and the mean exit time is finite. Conditioning on the first reversal gives flight integral equations on the two signs with the outgoing boundary data. Their continuation term has sup norm at most 1−e^(−η); a bounded absolutely continuous solution of the backward equations satisfies those equations by the integrating-factor formula and is therefore the actual mean even for L¹ rates. In dimensionless units D'=−1 and U'=2hD, where h(t)=(L/v)λ(Lt), D=(T_+−T_-)/2 and U=(T_++T_-)/2 are scaled by v/L. Imposing U(0)=D(0) and U(1)=−D(1) gives D(t)=(1/2+m)/(1+η)−t and the stated moment formula. With left mass a, the two first moments enter with strictly negative and positive coefficients, respectively. Moving both moments toward the source in their own half-intervals gives the lower bound (1/2+η min(s,1−s))/(1+η); maximizing using the outside endpoints gives [(1+η)^2/2−2(a−η/2)^2]/(1+η). Absolute continuity forbids both equalities for η>0. A source-adjacent strip of width ε has excess ηε/[2(1+η)] above the lower endpoint in the prescribed placement; two equal endpoint strips of width ε have deficit ηε/2 below the upper endpoint, in the normalized units. Continuity along convex combinations fills the open interval. For a symmetric rate m=η/2, so U starts and ends at 1/2 and is monotone up then down. The zero-budget case is ballistic. The frozen lattice checks are finite corroboration only.
 
-## Limits of verification
-The extremal values are only approached by increasingly concentrated integrable profiles. Other budget choices and bounded-rate constraints are outside scope. External independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bulk backward equations, the constant-rate two-absorber mean, and scalar optimal-rate phenomena are covered. The supported distinction is the full sharp open range over arbitrary nonnegative integrable flip-rate profiles at fixed spatial mass, including concentration placements and the symmetry obstruction. None of the inspected passages or nearest catalogue hit establishes that result; unresolved texts are named below.
+
+## value
+
+PASS
+
+The fixed spatial integral is a distinct and natural design constraint. The result identifies both the best and worst possible mean and shows why neither is realized by a finite-width profile, rather than comparing a few rates. It also explains precisely why an asymmetric rate layer can beat the ballistic mean off center while reflection-symmetric rates never can. This gives a meaningful sharp baseline for transport models without imposing pointwise rate caps; rate-capped designs and other observables are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

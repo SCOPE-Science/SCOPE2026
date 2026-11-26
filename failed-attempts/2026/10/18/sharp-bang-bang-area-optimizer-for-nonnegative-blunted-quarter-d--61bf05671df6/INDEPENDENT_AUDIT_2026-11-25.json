@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:58:49.717604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated ordered boundary (RESULT.md line 30) is not a closed parametrized path: the first edge ends at b(0), so the next arc has to run from b(0) to b(2m), not in reverse. For example r=k has b'(theta)=(k-1/2)v_theta with k<1/2 and distinct endpoints. The printed Green identity at lines 39–48 uses the forward orientation of both arcs: det(a,a')+det(b,b')=2r c·u+1/2 and the two edge determinants sum to sin(2m)/2. With that local correction, closure, support-function convexity, the complementary width cos(z)+cot(m)sin(z), reducedness by singleton active faces, and the area/strict-concavity/dual-certificate proof all check. The resulting theorem is not disproved. The numerical bracket was independently reproduced by exact rational Taylor bounds and sine bisection, using /workspace/branches/8fadda2c-4e70-49ad-9f28-fe40bf3a3f7e/repro_fixed_m.py (not the frozen script). It brackets the formula, not the universal optimum by itself. The orientation correction alone cannot leave a distinct surviving claim given the indexed coverage below.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "df7f77ac86a5 allows all bounded measurable signed splits with both vector moments, so contains the frozen symmetric nonnegative class.",
+          "7004d3c44340 explicitly traverses both arcs at increasing parameter and gives a different cubic L1 stability result for nonnegative profiles.",
+          "Kominers p. 2 constructs the smooth cosine family and p. 8 leaves area optimization open."
+        ],
+        "reasoning": "The larger paired-arc class has the same unique solution on the entire frozen angle interval. Neither the indexed theorem nor the frozen result proves the unrestricted reduced-body optimum.",
+        "searches": [
+          "Resultary paired-arc nonparametric area maximum and reduced-body curvature stability; matched records df7f77ac86a5 and 7004d3c44340",
+          "arXiv:2606.28612 Section 2 and concluding remarks"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; independent rational bracket reproduction",
+        "arXiv:2606.28612v1",
+        "Resultary 369c8e768fcb, d114e83fb3e1, df7f77ac86a5, 7004d3c44340"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later exact expansion gives area gap at least integral(p'^2-p^2), where p(t) integrates the moment-zero difference against the forward sine kernel, and p(0)=p(2m)=0.",
+          "Both moments of the perturbation vanish, so the frozen two-sided potential z is 2p after translation; Dirichlet Poincaré immediately yields the frozen coefficient (1-4m^2/pi^2)/4 in front of integral(z'^2)."
+        ],
+        "reasoning": "Even the weak-topology stability statement is a direct bound from the stronger record's displayed identities. The earlier smooth ansätze alone could not determine an optimizer over measurable profiles.",
+        "searches": [
+          "df7f77ac86a5 RESULT.md proof Steps 2–4, mirror offset 4800; 7004d3c44340 RESULT.md proof Step 1, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later optimizer threshold arcsin(2 sin m - csc m) equals the frozen arcsin(-cos(2m)/sin m) and saturates the same two outer intervals.",
+          "The later area m-a/2+cos(m)sin(a)-sin(2a)/4 is the frozen expression after expanding the trigonometric products."
+        ],
+        "reasoning": "Identical body and optimizer, not merely the same fixed angle or a similarly named geometry.",
+        "searches": [
+          "Resultary fixed-m paired-arc measurable bang-bang curvature optimizer; matched record df7f77ac86a5",
+          "Local mirror df7f77ac86a5 RESULT.md offsets 0 and 4800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At m=15/16 Kominers gives 0.786215602719126… and the earlier fixed-angle affine-cosine optimizer gives 0.787183526696405…; the two-angle/amplitude result gives 0.7888437886… across its slice.",
+          "df7f77ac86a5 gives the exact function at every m, hence already covers the 15/16 value without an identical printed decimal, and reaches 0.7945785086… at its best angle."
+        ],
+        "reasoning": "The narrow rational bracket confirms an evaluation of the covered function, not an independent new invariant. The stronger example dominates the frozen lower bound as a current benchmark.",
+        "searches": [
+          "Resultary 369c8e768fcb, d114e83fb3e1, and df7f77ac86a5; Kominers arXiv:2606.28612v1 p. 7"
+        ]
+      },
+      "rationale": "The distinct 2026/11/1 indexed paired-arc theorem covers the same construction, optimizer, area formula and the stated Poincaré stability bound, in a larger signed and nonsymmetry-restricted feasible class; it additionally optimizes the angle. This is demonstrable current coverage, not a finding that the November record precedes the October frozen record or that either copied the other. The earlier Kominers construction and two affine-cosine optimizations do not by themselves imply the infinite-dimensional optimizer.",
+      "residual_risks": [
+        "Current indexed coverage is established; historical authorship, chronology beyond the displayed dates, and priority are not adjudicated.",
+        "The surveyed sources do not give a complete census of unrestricted reduced-body examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Defines the paired support curves and closing condition in a smooth cosine family, obtains 0.786215602719126…, and disclaims optimization of the chosen parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.28612",
+          "material_read": "Section 2 p. 2; pp. 7–8, example and conclusion, v1",
+          "method": "Primary open PDF, targeted passages",
+          "title": "A reduced planar body with area greater than pi Delta^2/4",
+          "trigger": "Foundational construction and earlier benchmark"
+        },
+        {
+          "assessment": "NARROWER_CLASS",
+          "evidence": "Fixes m=15/16 and only optimizes the amplitude in the smooth cosine ansatz; the bang-bang profile is not in that slice.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-area-optimizer-on-the-fixed-angle-blunted-quarter-disk-sli--369c8e768fcb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact area optimizer on the fixed-angle blunted quarter-disk slice",
+          "trigger": "Exact optimization at the same displayed angle"
+        },
+        {
+          "assessment": "NARROWER_CLASS",
+          "evidence": "Varies angle and nonnegative cosine amplitude, not measurable curvature profiles; best area about 0.7888437886.",
+          "identifier_or_url": "2026/10/11/SCOPE-unique-optimal-blunting-angle-in-a-two-parameter-family-of-reduc--d114e83fb3e1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Unique optimal blunting angle in a two-parameter family of reduced planar bodies",
+          "trigger": "Best comparison in smooth cosine family"
+        },
+        {
+          "assessment": "BROADER_CURRENT_COVERAGE",
+          "evidence": "Signed class, identical threshold and optimized area, perturbation identities implying frozen stability, and exact optimization over m.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-nonparametric-area-maximum-in-the-paired-arc-reduced-body--df7f77ac86a5",
+          "material_read": "RESULT.md Finding and proof Steps 2–4 (offsets 0, 4800–9666)",
+          "method": "Local mirror passages and algebraic statement comparison",
+          "title": "Sharp nonparametric area maximum in the paired-arc reduced-body construction",
+          "trigger": "Strongest matching measurable-profile theorem"
+        },
+        {
+          "assessment": "RESTATES_OPTIMIZER_AND_ADDS_DIFFERENT_STABILITY",
+          "evidence": "Restates same fixed-angle optimizer, fixes arc order, and studies a separate sharp L1 stability exponent.",
+          "identifier_or_url": "2026/11/17/SCOPE-cubic-curvature-order-stability-and-its-sharp-failure-for-paired--7004d3c44340",
+          "material_read": "RESULT.md Finding, assumptions and proof Step 1, offsets 0–4417",
+          "method": "Local mirror passage",
+          "title": "Cubic curvature-order stability and its sharp failure for paired-arc reduced bodies",
+          "trigger": "Exact optimizer and possible duplicated stability theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-angle optimizer and area gap resolve a natural variational question over measurable profiles in a concrete reduced-body construction; the discontinuous optimizer explains why smooth cosine tuning misses achievable area. This structural value is separate from the failure of distinctness and from any claim of a current best unrestricted lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

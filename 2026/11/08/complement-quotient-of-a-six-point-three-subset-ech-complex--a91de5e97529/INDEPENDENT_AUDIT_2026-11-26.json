@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:32:04.377858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification_output.txt; static inspection of verify.py",
+        "Independent exact computation: python3 -B /workspace/reviews/check_1.py"
+      ],
+      "rationale": "The intrinsic common-center predicate places X in the cross-polytope boundary on ten antipodal pairs; the triangle inequality excludes a complementary pair from any simplex and hence excludes every setwise fixed simplex. Independently enumerated all nonempty partial choices from the ten pairs, filtered by distances to the twenty genuine centers, and checked the full two-skeleton and the six disjoint representative triple orbits with witnesses. The full two-skeleton of S^9 is simply connected, and higher cells do not affect pi1. The free double cover therefore gives pi1(Y) and integral H1(Y) both C2. For rational homology I independently oriented faces by their pair order (preserved by complement), split chains into the two characters, and used exact fraction-free pivot elimination after checking both boundary-square identities integrally. The plus ranks, in degrees 1–9, are 9,81,399,1020,1215,840,360,90,10; minus ranks are 10,80,400,1020,1215,840,360,90,10. The plus homology is the geometric quotient's rational homology by transfer, with reduced ranks 6 and 15 in degrees 3 and 4 only. The minus ranks in homology are 5 and 15 in those degrees, proving the claimed traces. Because distances between distinct triples are 2,4,6, there is no intervening change of complex for closed radii in [2,4).",
+      "residual_risks": [
+        "No claim or computation of integral higher homology, integral representation or full quotient homotopy type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas studies finite symmetric-difference spaces and lists wedge counts for the three-subset layer. The inspected table lists ordinary homotopy types, not actions or quotients."
+        ],
+        "reasoning": "The exact nonequivariant datum is covered in the broader family, but the wedge counts do not specify how the complement acts.",
+        "searches": [
+          "Biswas arXiv:2609.32786v1, §5 (larger r), especially §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Biswas arXiv:2609.32786v1; Resultary exact and distinct nearby matches above; frozen definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary wedge description and freeness imply pi1(Y)=C2 and fix the alternating trace relation 1−tr(H3)+tr(H4)=0; they do not fix either trace separately."
+        ],
+        "reasoning": "Both prior ranks plus Euler characteristic allow multiple algebraic splittings. A degreewise character computation or additional genuinely equivariant constraint is needed.",
+        "searches": [
+          "Biswas §5.1 table and closed-ball convention; comparison with transfer and Lefschetz for the free involution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same geometric quotient over Q can be formulated as the trivial-character summand on the intrinsic Čech complex; the nontrivial summand then gives traces by subtraction.",
+          "The indexed weight-three Rips character uses pairwise distance at most two, so it lacks the distance-four edges present in X.",
+          "The indexed complement-refined Rips record uses two- and four-subsets, not this middle layer and nerve."
+        ],
+        "reasoning": "Neither Rips comparison is the same chain complex or an equivariant model identified with X. The cross-polytope itself also differs: it has all partial antipodal choices as faces, not just those with a simultaneous center.",
+        "searches": [
+          "Resultary: six-coordinate subset complexes with complement symmetry and equivariant homology",
+          "Biswas, arXiv:2609.32786v1, Introduction and §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record itself; the strongest distinct matches are the complement-refined two/four-layer Rips record and the weight-three Rips record.",
+          "Biswas's §5.1 row for F^6_3 has 11 copies of S^3 and 30 of S^4 at parameter 4 ≤ r < 8, with closed ball radius r/2."
+        ],
+        "reasoning": "The prior table covers exactly the two credited ordinary ranks, not the quotient ranks. Catalogue summaries were compared on objects and reported invariants; inaccessible full records do not establish noncoverage beyond these statements.",
+        "searches": [
+          "Resultary: complement quotient of the six-point three-subset Čech complex and complement homology traces",
+          "Biswas §5.1, table for 4 ≤ r < 8"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the degreewise complement-character split and rational quotient homology. Biswas already tabulates the unquotiented ranks of this exact complex. The simply connected cover and the quotient fundamental group are elementary here; they are not the reason for the originality pass. The closest distinct indexed symmetry computations concern different Rips complexes.",
+      "residual_risks": [
+        "Full texts of the distinct indexed Rips records were not retrieved. The comparison is limited to their actual reported objects and claims; equivalent unindexed calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact underlying complex and credited ordinary ranks; not a character calculation in the inspected passages",
+          "evidence": [
+            "§5.1 row Čech(F^6_3;r), 4 ≤ r < 8: 11 S^3 and 30 S^4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.32786v1",
+          "material_read": "Introduction's closed r/2-ball convention, §2.1 nerve definition, §5.1 computational table",
+          "method": "Primary OA HTML passages",
+          "title": "Čech complexes for finite sets",
+          "trigger": "Same finite metric layer and scale"
+        },
+        {
+          "assessment": "Closest symmetry match reports a different vertex set and Rips construction",
+          "evidence": [
+            "Scale-two Rips on two- and four-subsets, complement-even/odd dimensions 15/14 in its reported representation."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-complement-refined-symmetric-group-homology-of-the-six-coordinat--5f926e544668",
+          "material_read": "Resultary indexed statement only; full text not retrieved",
+          "method": "Local catalogue comparison",
+          "title": "Complement-refined symmetric-group homology of the six-coordinate Rips space",
+          "trigger": "Complement-equivariant homology in six coordinates"
+        },
+        {
+          "assessment": "Different face predicate",
+          "evidence": [
+            "Inclusive distance-two Rips and coordinate-permutation characters, not the geometric complement quotient of the Čech complex."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-symmetric-group-homology-character-of-constant-weight-three-hamm--11db16b6cb70",
+          "material_read": "Resultary indexed statement only",
+          "method": "Local catalogue comparison",
+          "title": "Symmetric-group homology character of constant-weight-three Hamming Rips complexes",
+          "trigger": "Same vertex layer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Biswas §5.1; frozen quotient definition; independent character-chain calculation"
+      ],
+      "rationale": "Complement is a canonical free symmetry on this central weight layer. At the cited scale the complex has two nonzero higher rational homology groups. The exact split 6+5 and 15+15 is useful to determine quotient homology and how ordinary homology is distributed between the two characters, information neither the known wedge counts nor the free-action alternating trace gives. This is a motivated finite invariant, not an asserted family theorem or a recomputation of the ordinary homology table.",
+      "residual_risks": [
+        "The application is to this exact intrinsic metric layer and scale; the computation does not classify other quotients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

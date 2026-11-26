@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:37.035065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An internal cut has a one-letter border. At a boundary cut, a proper border of x^p y^q x^r y^s x^t y^u starts with x and ends with y; six runs would force an initially shortened suffix run, and four runs would force p<=r=t and u<=s=q, hence already imply the two-run border. The two-run border exists exactly for p<=t and q>=u. Rotating that criterion gives all six indicators, and no unbordered shift is duplicated since an unbordered word is primitive. The all-length enumeration is exact: for each weak-order type, positive level increments are independent and an increment contributes its tail multiplicity to the length. The finite exact check python3 /workspace/review_replay.py words independently classified all 169 type pairs by literal longest-border computation, regenerated the five nonzero common-denominator polynomials by formal polynomial arithmetic, and found counts (1,0,15,42,81,30,0). Ordinary compositions at lengths 6 to 11 give no U=5 before 11 and twelve at 11; (1,1,2,3,2,2) is one witness. In the proof's positivity sentence it is the reciprocal of the denominator, not the denominator itself, that has nonnegative power-series coefficients; its (1-z)^-2 factor ensures positivity at every later length. The two sixth-order leading terms at 1 are both 1/2; alternatively the 36 strict order pairs split 18/18, equally weighted by permutation symmetry, and ties occupy only O(n^4) compositions. The result counts ordered positive sextuples of linear zero-start words, not necklaces.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harju–Nowotka's global bound, as reported in Clokie–Gabrić–Shallit, is n/2 for n>=4. Holub–Müller characterizes exactly two unbordered conjugates for arbitrary binary words. Clokie–Gabrić–Shallit treats global extremality and realizability and the expectation on unrestricted random binary words."
+        ],
+        "reasoning": "The U=2 characterization includes the six-run U=2 subset. Neither global extremal bounds nor the unrestricted expected value determines the conditional six-run joint distribution or the six-run minimum length for five.",
+        "searches": [
+          "doi:10.1016/j.jcta.2004.07.009",
+          "arXiv:1504.02222 fully bordered",
+          "arXiv:1904.08187 Theorems 3,13,14"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "Resultary three-marker and four-marker exact records",
+        "doi:10.1016/j.jcta.2004.07.009",
+        "arXiv:1504.02222",
+        "arXiv:1904.08187v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal or singleton marked runs remove an entire triple of independent comparisons, leading only to the gap disagreements. The unrestricted results do not identify the weak-order interactions that yield five rotations or the 18/18 split on strictly ordered triples."
+        ],
+        "reasoning": "The unrestricted class result about two unbordered rotations is an implication for that part only. Neither it nor a fixed small marker count specializes forward to the remaining full family or supplies the exact bivariate weak-order count.",
+        "searches": [
+          "Three-marker local gap law, Finding at offset 0",
+          "Fully bordered words, Section 2",
+          "Circularly squarefree words and unbordered conjugates, Sections 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At b=d=f=1 the formula is exactly the known three-marker gap law [a!=c]+[c!=e]+[e!=a]. Complementation gives the analogous slice for three zeros. The later four-marker record intersects cases b+d+f=4."
+        ],
+        "reasoning": "Marker gaps with unit marked runs do not capture the rank comparisons between three freely varying positive runs of the other letter. Positional counts and distinct conjugate counts coincide for the unbordered part, but linear sextuples must not be identified with rotation classes in the enumeration.",
+        "searches": [
+          "Resultary: six-run binary words unbordered cyclic rotations run lengths four five",
+          "Resultary: three-marker border correlation and exact unbordered-conjugate spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior three-marker records give exact all-length distributions for a strict slice. A later four-marker record gives distributions conditional on a different count. No inspected table contains the frozen all-length six-run counts; the older primary article's tables were not read."
+        ],
+        "reasoning": "An exact distribution for fixed marker count or unrestricted binary words does not enumerate all ordered six-part compositions. Missing tables are not used as evidence of novelty.",
+        "searches": [
+          "Resultary: exact six-run spectrum 0^a1^b0^c1^d0^e1^f",
+          "Resultary: exact three- and four-marker unbordered rotation spectra",
+          "ArXiv primary-text table checks in 1504.02222 and 1904.08187"
+        ]
+      },
+      "rationale": "The marker-law overlap and the prior general characterization of U=2 are real special portions of the finding and are not credited as new. The surviving joint claim is the exact six-parameter criterion with arbitrary positive run lengths on both letters, its rational fixed-length distribution, and the 4/5 conditional limit. No inspected prior result supplies these; the closest exact databases cover bounded marker counts instead.",
+      "residual_risks": [
+        "Harju–Nowotka full text and any accompanying tables were not retrieved; exact additional subfamily coverage there is unresolved. The indexed searches do not rule out an unindexed exact six-run treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified covered slice, not general six-run family",
+          "evidence": "Number of unbordered rotations is the sum of the three zero-gap inequalities; also enumerates by length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-marker-border-correlation-a-local-gap-law-and-its-exact-di--8c6645349a80/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Indexed local mirror",
+          "title": "Three-marker border correlation: a local gap law and its exact distribution",
+          "trigger": "Direct gap-law equivalent when three one-runs have length 1"
+        },
+        {
+          "assessment": "Same verified special case",
+          "evidence": "The three-run gap disagreements account for all unbordered rotations at three ones.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4/RESULT.md",
+          "material_read": "Finding: three-one gap criterion and all-length law",
+          "method": "Indexed local mirror",
+          "title": "Exact unbordered-conjugate spectrum of binary words containing three ones",
+          "trigger": "Earlier exact law for fixed marker count"
+        },
+        {
+          "assessment": "Different restricted family with a partial intersection",
+          "evidence": "Exactly four ones, rather than freely varying lengths for the three one-runs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-four-marker-unbordered-rotation-spectrum-of-binary-wor--c307a6bb3ca8/RESULT.md",
+          "material_read": "Finding: four-gap criterion and generating functions",
+          "method": "Indexed local mirror",
+          "title": "The exact four-marker unbordered-rotation spectrum of binary words",
+          "trigger": "Fixed marker spectrum near the three-marker case"
+        },
+        {
+          "assessment": "Global bounds established indirectly; original full-text comparison unresolved",
+          "evidence": "Later account attributes U<=n/2 for n>=4 and an even-length equality result; not relied on for a full-text absence claim.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+          "material_read": "Landing data; comparison via Clokie–Gabrić–Shallit Section 1 p. 2 at offset 5000",
+          "method": "DOI and lawful repository-copy check; accessible later primary account",
+          "title": "Border correlation of binary words",
+          "trigger": "Foundational binary unbordered-conjugate bounds, possible exact subfamily analysis"
+        },
+        {
+          "assessment": "Includes all six-run U=2 cases but not the complete conditional spectrum",
+          "evidence": "Fully bordered means precisely two unbordered conjugates; the characterization and palindrome consequence apply beyond restricted run counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+          "material_read": "Abstract p. 1 and Section 2 p. 3 (offset near 9800)",
+          "method": "OA primary text",
+          "title": "Fully bordered words",
+          "trigger": "General U=2 classification"
+        },
+        {
+          "assessment": "Global results, not this conditional model",
+          "evidence": "Global maximum attained by a Thue–Morse factor; results on feasible counts and unrestricted random-word expectation.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.08187v1",
+          "material_read": "Section 1 p. 2, Theorem 3, Theorem 13 p. 11 and Theorem 14 p. 12 (offset near 33800)",
+          "method": "OA primary text",
+          "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+          "trigger": "Global maxima, realizability, and probability law of unbordered rotations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six runs is a natural structural regime: four-run proper borders must be considered but are subsumed by a two-run criterion, turning a word-level problem into comparisons of two independent run triples. This yields sharp finite-length thresholds and a nondegenerate conditional limiting distribution that unrestricted word statistics and marker counts do not reveal. The fixed-length rational generating functions and the threshold are exact usable enumeration results, not a finite census presented as a theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

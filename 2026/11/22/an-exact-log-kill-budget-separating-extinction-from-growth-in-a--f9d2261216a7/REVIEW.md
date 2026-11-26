@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal optimizer follows by expressing the pulse matrix's Perron root through its trace and fixed determinant. Strict convexity of the trace gives the unique clipped square-root allocation, including both possible boundary optima. The exact example has a positive Metzler generator with positive natural mortality in both stages, a rational exponential obtained from the spectral projectors, and a precise two-policy spectral sign certificate. The budget crossing is unique by monotonicity in the fixed survival product. The released `verify.py` reproduces the algebra and finite comparisons without claiming that experiments prove the universal statements. Critical equality is unclassified.
+PASS
 
-## Originality — PASS, literature-bounded
+For positive E=e^(τA), fixing s1*s2=q fixes the determinant qd and leaves trace ux+qv/x on [q,1]. The positive discriminant and determinant make the Perron root strictly increasing in the trace. The unique trace minimum is the projected square-root critical point (q=1 is a singleton); sqrt(q) is interior for q<1, where it is stationary exactly when u=v. For the example, independently reducing the exponential via eigenvalues 1 and −3 gives u=53/64, v=83/64, d=1/4 and ρ(E)=2. On the balanced branch the minimum is sqrt(q)(sqrt(uv)+sqrt(uv−d)). Its unit crossing is interior and gives the smaller root of 64q²−3887q+1024; the other branch cannot recross because scaling any feasible larger-product optimum down gives a strictly smaller multiplier at the smaller product. Equal treatment crosses at 1/4. The rational witness checks by determinant 13/200 and characteristic polynomial at 1 equal to 59/9600. Long et al.'s hypotheses for fixation are satisfied; upper comparison with full resistance proves extinction, and eventual lower comparison with a common factor (1−ε) of full resistance proves growth under strict inequalities. The analysis does not classify neutral nonlinear dynamics; the multiplier at the optimum is 1 at q_c, not necessarily for every split. Inspected but did not execute the uploaded checker: verify.py lines 28–68 locate the exact witness and algebraic diagnostic; lines 67–76 sample alternative splits only for the displayed E.
 
-The same ecological source is Long, Adjei and Patel, arXiv:2609.10581 (first public September 5, 2026). Its full-text Theorems 5–7 establish resistance fixation and classification by the full-resistance Floquet multiplier, but not optimal splitting of a prescribed log-kill budget. Patel and De Leenheer, arXiv:2310.07616, explicitly hold the survival matrix fixed and vary treatment period. Earlier Friedland/Nussbaum matrix log-convexity and generic Perron optimization are credited as prior; their existence does not by itself state the exact admissible allocation or constructed sharp budget interval. Relevant indexed results on fixed-strength pulse timing, stage-specific season ordering, and environment persistence have different decision variables. The accessible earlier related two-life-stage species-turnover claim concerns community stability, not treatment-dose allocation. Full historical priority remains uncertain, especially given older generic matrix-scaling literature and accessible summaries lacking complete texts.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper raises practical questions about which stage-specific insecticide effects produce ecological control despite evolution of resistance. A common total logarithmic survival-reduction budget is a natural mathematical measure for combining independent multiplicative kill factors. The finding characterizes **all** feasible budget splits in a two-stage system and identifies an exact open interval of budgets in which equal allocation predicts unbounded population growth while another allocation guarantees extinction. This is a qualitative intervention-policy distinction, not a small parameter tuning or an empirical efficacy claim.
+Pass is for the exact positive-survival constrained allocation and explicit strict same-budget population-fate reversal in the stated stage model, not for the Perron criterion, resistance fixation, diagonal-scaling convexity, or the elementary trace minimization as a standalone result. Checked the closest indexed same-day sibling separately; it studies a dominance-rate transition, not a budget allocation. The inspected primary results supply tools and the biological interpretation but do not give this allocation or reversal by specialization of their conclusions. This is a bounded evidence judgment, not priority certification.
 
-## Closest literature and limitations
+## value
 
-- A. D'Ovidio Long, A. Adjei and S. Patel, https://arxiv.org/abs/2609.10581 — exact model and resistance-fixation prior, not fixed-product allocation.
-- S. Patel and P. De Leenheer, https://arxiv.org/abs/2310.07616 — spectral criteria and treatment-period optimization at fixed survival matrix.
-- S. Friedland, https://doi.org/10.1080/03081088108817381 — general convex spectral functions; possible special-case historical coverage risk.
-- R. D. Nussbaum, https://doi.org/10.1016/0024-3795(86)90233-8 — strict matrix spectral log-convexity background.
-- The model neglects density dependence, fitness costs, stochastic dynamics, and the empirical relation between dose and survival. The theorem makes no conclusion at neutral Floquet multiplier one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The point is not the square-root arithmetic or merely a better multiplier. At the same aggregate survival product, targeting and equal allocation make opposite long-run predictions over a sharp open interval, even after resistance fixation. The exact feasible minimizer and rational witness make the reversal independently usable as a benchmark; neither the cost model nor the example is promoted to field advice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:48:13.360569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An Euler tour in the binary order-two de Bruijn multigraph is equivalent to a single cyclic word; balance gives a=a′, b=b′, a+d=b+c and the non-isolated support must be connected. This equivalence includes n=1 and n=2 because the vertex overlaps are periodic. With both bridges present, put p=min(a,b), q=|a−b| and s=min(c,d); the length is u+v+4p+3q+2s, with one choice of bridge ordering at q=0 and two at q>0. This yields the four-vertex contribution z^4(1+z^3)/[(1−z)^2(1−z²)(1−z³)(1−z⁴)]. With only one bridge, the opposite loop must be absent, giving twice the triangle series; with no bridges there are only the alternating and two constant families. Their sum is the claimed rational function. Its degree-zero polynomial part affects only n=0, and the uncancelled primitive third and fourth poles force period divisible by 12. The fifth-order pole has coefficient 1/12, giving 1/288 on n^4. The code maximum is one per attained class. Independent literal enumeration through n=18 and formal-series numerator recovery through degree 60 matched (python3 /workspace/reproduce_reviews.py 1).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah–Puleo–Milenkovic sandwich the closed feasible profiles between positive and nonnegative flow counts; their general framework gives exponent 8−4=4, and the flow quasipolynomials have periods dividing the cycle-length LCM 12.",
+          "92625b7494d0 gives composition-refined counts for the same circular binary trigrams, with total equal to the frozen GF."
+        ],
+        "reasoning": "General asymptotics alone do not determine disconnected-support corrections or prove least period. The exact fixed-composition refinement is stronger and its sum yields the claimed total.",
+        "searches": [
+          "arXiv:1410.8837 Theorem 4.5",
+          "arXiv:1502.00517 Lemma 3.2 and Theorems 3.3, 3.5",
+          "Resultary 92625b7494d0 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f0526690baa6, 92625b7494d0, 1516a959f63f, 9b2754288e6b, 246b4cc4bcec, 5ce7c84ef38b",
+        "arXiv:1502.00517 and arXiv:1410.8837",
+        "Jacquet–Knessl–Szpankowski, Counting Markov Types",
+        "OEIS exact-term search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-order binary example is for bigram counts, and 246b4cc4bcec counts n−2 linear triples with endpoints and has leading coefficient 13/288, not 1/288.",
+          "f0526690baa6 proves connected-support feasibility, the genuine third/fourth poles and exact noiseless code cardinality. The composition-refined entry also implies the enumerator by summation."
+        ],
+        "reasoning": "Neither the bigram table nor the linear result mechanically establishes this cyclic theorem; the distinct indexed circular results do cover it. The dates are evidence about catalogue labels, not sufficient evidence to decide who first obtained the theorem.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski, Counting Markov Types, binary example",
+          "Resultary 246b4cc4bcec and 92625b7494d0",
+          "Resultary f0526690baa6 §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f0526690baa6 uses the eight ordered triple counts of all positive lengths modulo n, including n=1,2, and has the same connected circular support partition. Its four-vertex summand is z^4(z²−z+1)/[(1−z)^4(1−z²)(1+z²)(1+z+z²)], exactly the frozen one by factoring 1−z².",
+          "1516a959f63f is an equivalent support-decomposed cyclic count, and 9b2754288e6b has the same reduced GF.",
+          "Cyclic trimer compositions in 5ce7c84ef38b merge ordered coordinates and are not equivalent."
+        ],
+        "reasoning": "Identifying position, wrap and count conventions and factoring the denominators identifies all coefficients, not merely a matching start to a sequence. Rotation of a source word changes neither definition; this is not a necklace count.",
+        "searches": [
+          "Resultary: cyclic binary trigram profiles exact capacity period twelve generating function K(n)",
+          "Resultary: exact ordinary generating function cyclic trigram profile counts first terms 2 3 4 6 8 13 18 27 38 53",
+          "Resultary f0526690baa6 Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS exact-term lookup did not match; this does not rule out a transformed sequence.",
+          "The indexed f0526690baa6 table agrees through n=18 and includes n=19=512; the explicit period-12 quasipolynomial and support sum certify the match at all n."
+        ],
+        "reasoning": "Matching initial entries are corroboration; all-length coverage follows by algebraic equality and identical parameters.",
+        "searches": [
+          "Literature: \"2, 3, 4, 6, 8, 13, 18, 27, 38, 53\" cyclic trigram profile OEIS",
+          "OEIS lookup of the first 18 terms",
+          "Resultary 1516a959f63f, 9b2754288e6b and f0526690baa6"
+        ]
+      },
+      "rationale": "The exact claim is already covered in distinct indexed records, most fully f0526690baa6: same ordered cyclic profile data down to n=1, same necessary and sufficient support cases, same count, least period, leading term and capacity interpretation, with an explicit quasipolynomial. These matching entries carry later catalogue dates than the frozen assignment's path. This finding of equivalent existing coverage does not establish earlier publication, independent discovery, derivation or attribution priority on either side. No mathematically distinct remainder of the frozen Finding is established.",
+      "residual_risks": [
+        "Catalogue dates do not establish actual priority, provenance or dependency among the frozen result and distinct equivalent records.",
+        "Earlier unindexed or differently formulated exact counts were not excluded. This does not affect the demonstrated equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen profile, feasibility, exact count, period and capacity; later catalogue label",
+          "evidence": "Same modulo-n indexing and five connected support types, same four generating contributions and same noncancelling poles, with an explicit formula for all n.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cyclic-binary-three-gram-profiles-a-period-twelve-capacity--f0526690baa6",
+          "material_read": "RESULT.md Finding at offsets 0–1550, proof passage offsets 2180–4896 and least-period/capacity passage around offset 6150",
+          "method": "Local mirror passage inspection",
+          "title": "Exact cyclic binary three-gram profiles: a period-twelve capacity quasipolynomial",
+          "trigger": "Strongest equivalent claim"
+        },
+        {
+          "assessment": "Summation gives exact frozen count; later catalogue label",
+          "evidence": "Counts by composition sum to the same GF.",
+          "identifier_or_url": "2026/10/26/SCOPE-composition-refined-enumeration-of-circular-binary-trigram-spect--92625b7494d0",
+          "material_read": "RESULT.md Finding, total series and first terms",
+          "method": "Local mirror passage inspection",
+          "title": "Composition-refined enumeration of circular binary trigram spectra",
+          "trigger": "Stronger fixed-composition enumeration"
+        },
+        {
+          "assessment": "Equivalent count; later catalogue label",
+          "evidence": "Same support decomposition, first 16 coefficients match.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-cyclic-trigram-profile-count-for-binary-circular-words--1516a959f63f",
+          "material_read": "RESULT.md support-decomposed series and initial terms",
+          "method": "Local mirror passage inspection",
+          "title": "Exact cyclic trigram profile count for binary circular words",
+          "trigger": "Matching exact series"
+        },
+        {
+          "assessment": "Equivalent enumerator; states period dividing twelve",
+          "evidence": "Same GF and first 18 terms; least period follows from the same poles.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b",
+          "material_read": "RESULT.md GF, table and period statement",
+          "method": "Local mirror passage inspection",
+          "title": "Exact cyclic binary three-gram profile enumeration",
+          "trigger": "Matching count and period"
+        },
+        {
+          "assessment": "Covers general growth and flow period bound, not the specific connected enumeration",
+          "evidence": "Actual profiles lie between positive and all nonnegative flows; these enclosing counts are not the exact profile census.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "pp. 6–8, Lemma 3.2 and Theorems 3.3, 3.5; offsets 34200, 38073, 42073",
+          "method": "OA PDF passage inspection",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "General cyclic profile and flow counting theorem"
+        },
+        {
+          "assessment": "Bigram rather than trigram count",
+          "evidence": "Balanced 2×2 transition matrices have quadratic growth.",
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/2768/download",
+          "material_read": "p. 3 binary example, offset 7093",
+          "method": "OA PDF passage inspection",
+          "title": "Counting Markov Types",
+          "trigger": "Earlier explicit cyclic binary count"
+        },
+        {
+          "assessment": "Different boundary convention and invariant",
+          "evidence": "Linear words with n−2 occurrences and endpoint imbalance give 13/288, not the cyclic 1/288.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-asymptotic-for-binary-trigram-multispectrum-capacity--246b4cc4bcec",
+          "material_read": "RESULT.md Finding and conventions",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp asymptotic for binary trigram multispectrum capacity",
+          "trigger": "Prior dated result in similar notation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The scalar count and period are useful for circular profile codes, and the mathematics is not trivial. As a distinct contribution in the checked literature and catalogue, however, the same exact invariant, realizability cases, least period and interpretation are already available, including a composition refinement. There is no additional exact invariant, boundary case or method in the frozen Finding whose distinct scientific value survives that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the coordinate-cross endomorphism classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact truncated-branch basis, reduces all endomorphism equations to independent pairwise-annihilating tuples, proves the valuation criterion by leading-term noncancellation, and identifies all coordinatewise-minimal valuation vectors. Those yield the full reduced component decomposition. Disjoint valuation strata prove the all-prime-power point count. The finite checker independently verifies ten output-branch cases, four complete endomorphism and automorphism counts, and twenty valuation-poset component classifications. It does not certify nonreduced Hom-scheme structure.
+## correctness
 
-## Originality
-PASS within the recorded source comparisons. Moore's 2007 fiber-product paper studies homological invariants. The broad characteristic-zero monomial-algebra papers from 2024–2026 study automorphism groups and their reconstruction properties. An exact-family public result from October 2026 fully covers the coordinate-cross automorphism group, which is therefore not presented as original. It does not establish all noninvertible endomorphism components, their dimensions or all point counts. A prior nearby endomorphism scheme for a truncated complete intersection imposes different relations. The main remaining risk is an earlier treatment under zero-product tuple or truncated-branch terminology.
+PASS
 
-## Value
-PASS. This is a complete geometric and arithmetic invariant of a natural multibranch Artinian local algebra family: every component is explicit, the exact boundary of non-equidimensionality is found, and for at least three branches and length at least four the invertible maps occupy only lower-dimensional components. The complete finite-field census measures the entire endomorphism monoid, not merely its known group of units.
+The positive-degree output branches multiply independently, and no further truncation equations arise. In a branch, multiplication modulo t^N is zero exactly when the two orders sum to at least N. If the minimum order a is below N/2 it is unique and imposes order ≥N−a elsewhere. Otherwise the central component suffices for even N; for odd N the all-high tuple lies in each space associated to a=(N−1)/2. The lower-bound vectors of the listed spaces are incomparable. The reduction/product step is valid here even over imperfect k: modulo any prime containing the coefficient equations, apply the valuation test in the fraction field of the domain quotient, so that the prime contains one of the listed coordinate primes in each branch. The radical is the intersection of the resulting coordinate primes; flat field extension preserves that finite intersection. This justifies geometric components without invoking a general rule about products of reduced schemes. Their dimensions follow by counting free coordinates. For even N the gap between the central space and a=1 when r,d≥3 is (r−2)(N/2−1); for odd N compare a=1 and a=2. Invertible tangent matrices are monomial, selecting exactly the permutation products of a=1 spaces. For counting, the all-high stratum contributes q^(r floor(N/2)), and fixing the unique low index and exact valuation a contributes (q−1)q^(d+(r−2)a). These counts are disjoint; independence gives the r-th power. All field-valued algebra maps preserve augmentation because each generator image is nilpotent.
 
-## Independent validation and limits
-Only the reduced augmentation-preserving endomorphism variety is classified, and the independent audit is outstanding. Finite enumerations support but do not replace the proof. Historical priority beyond inspected sources is not conclusively settled.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the complete valuation-component description and endomorphism count for arbitrary d, not the same-family automorphism theorem. The inspected prior work does not cover the noninvertible endomorphism geometry and count. There is an exact overlap on small truncation lengths in a later indexed record, not evidence of earlier coverage.
+
+## value
+
+PASS
+
+End rather than Aut records which degenerations and noninvertible maps occur in this natural family of finite-dimensional singular algebras. A complete list of its geometric components, the exact equidimensionality boundary, and the fact that automorphism-bearing components can be smaller than components without automorphisms are useful geometric information distinct from the group. The uniform point count gives a comparable exact invariant over all finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

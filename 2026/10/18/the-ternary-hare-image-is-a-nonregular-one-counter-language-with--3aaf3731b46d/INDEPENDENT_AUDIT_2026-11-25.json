@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:34.813901Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md recursive definition, Proof and exact enumerator; VERIFICATION.md, checker.py and computation.txt as frozen evidence",
+        "Fresh bounded replay: python3 /tmp/opencode/reproduce_1_2.py, hare section. A strict-pop stack implementation evaluated every ternary input through length eight and explicit weak cuts checked every candidate output and every individual fiber; image counts were 1,3,6,11,20,36,64,113,199."
+      ],
+      "rationale": "Hare sorts any binary segment, since splitting at all maximal 1s leaves only zeros. Splitting a ternary input at its k copies of 2 gives k+1 such segments and moves the 2s to the end. Therefore each 10 in the binary prefix of an output must cross a segment boundary and there are at most k. Conversely the cuts at all 10s produce nondecreasing pieces; pad with empty pieces, then interleave k separators. This includes the empty prefix and the k=0 binary case. The ordered weak cuts are unique for the segment lengths of any one input, and choosing each segment with its prescribed counts gives the product of binomial coefficients, so summation neither omits nor duplicates inputs. A deterministic machine increments for 10 and decrements (saturating at zero) on the final 2-block, using finite state for phase and previous symbol and accepting at counter zero. Appending 2^i separates (10)^i and (10)^j for i<j. A prefix with d descents has 2d mandatory run letters in 2d+2 run exponents, giving z^(2d)/(1−z)^(2d+2) and the stated binomial counts. The terminal block contributes z^d/(1−z), yielding the rational series; its denominator expands to 1−3z+3z²−2z³+z⁴, giving the recurrence. For λ(λ−1)²=1 there is just one real root (the local maximum on [0,1] is 4/27 and negative λ cannot solve it). The other reciprocal roots have modulus λ^(−1/2) by the conjugate-pair product. The coefficient of (1−z/r)⁻¹ is −1/[r(1−r)q′(r)] for q(z)=(1−z)²−z³, agreeing with the given constant; division by 3^n gives exponential decay.",
+      "residual_risks": [
+        "The finite replay is a consistency check; the classification and asymptotic for arbitrary n depend on the combinatorial and analytic proofs. Only one pass and the fixed ternary alphabet are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint gives general exact hare fertility via valid hook configurations and Catalan factors, hence includes all ternary examples and also decides membership by positive fertility. Campbell–Rampersad's accessible first version gives binary hare=sort and studies stack-sorting equivalence on subword factors; the inspected passages give no full ternary image theorem."
+        ],
+        "reasoning": "General exact fertility is covered; the contribution is not a first computation of all fibers in principle. The prior hook formula does not itself state or supply the elementary binomial factorization or directly establish the descent inequality and language classification.",
+        "searches": [
+          "Defant–Kravitz arXiv:1809.09158v1 Theorem 3.2 and 2020 Remark 1.2; Campbell–Rampersad arXiv:2604.25811v1 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Defant–Kravitz published paper and arXiv:1809.09158v1; Campbell–Rampersad arXiv:2604.25811v1; OEIS A077855; Resultary 6c21b2d55722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary sorting is given in the earlier literature and the image criterion is a short deduction using cuts at all descents and padding with empty pieces; the language boundary uses a separate infinite distinguishing family. The general hook formula already implies a fertility value for each output, but not the specific compact binomial expression as stated."
+        ],
+        "reasoning": "The numerical sequence could be extracted once the structural identification is made; it does not recover that identification or the fibers. Prior recursion and fertility are building blocks, not inspected prior statements of the explicit ternary criterion or the automata boundary.",
+        "searches": [
+          "Compare Defant–Kravitz recursion and fertility theorem, Campbell–Rampersad binary sorting, and the OEIS interpretation with the frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant–Kravitz's original recursion matches the frozen operator; the published 231-avoidance assertion concerns sorting to the nondecreasing word, which is one fiber type, not the full image. The later Resultary 6c21b2d55722 gives the same local criterion and language class."
+        ],
+        "reasoning": "Zero-based relabeling leaves the operator unchanged. Local membership tests apply to every ternary output, not just existence of a sortable input or the identity-output fiber.",
+        "searches": [
+          "Resultary and primary literature: hare stack-sorting on ternary words, fertility/image, 10 descents with maximal-letter separators, one-counter/nonregular language; Defant–Kravitz Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives the same series and recurrence with other interpretations. The November 22 Resultary finding explicitly gives the same ternary image, deterministic one-counter/nonregular classification and length generating function, and additionally discusses fixed content; it excludes an individual-fiber classification from its scope."
+        ],
+        "reasoning": "OEIS covers the numeric enumerator, not the operator interpretation. The later indexed statement is direct structural overlap but not evidence of earlier coverage; it does not cover the exact individual-output binomial fiber formula.",
+        "searches": [
+          "OEIS A077855 exact coefficient sequence and denominator; Resultary 6c21b2d55722 exact image/Parikh enumeration"
+        ]
+      },
+      "rationale": "Pass for the local ternary image criterion, its language-theoretic boundary and the simple explicit ternary fiber specialization. The general fertility formula is prior, and the output-count sequence, series, recurrence and numerical growth are not distinct numerical results; their identification with the ternary image is the contribution. The exact image criterion and language classification also occur in a later Resultary record, explicitly distinguished below.",
+      "residual_risks": [
+        "An unindexed equivalent local criterion or specialization of general fertility cannot be excluded. The pass is bounded to the supported distinct structural claim, not historical priority of all exact counts or a claim to the first exact fertility formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator and identity-sortability results; directs reader to the preprint for the full fertility formulas.",
+          "evidence": "PDF text offsets 7400; 12580–13189; 24200 and 27900.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+          "material_read": "Definition 1.1 p. 53; Remark 1.2 p. 55; Proposition 3.1 and Theorem 3.3 pp. 58–60",
+          "method": "OA primary PDF passages",
+          "title": "Stack-sorting for words (published)",
+          "trigger": "Original operator, sortability and fertility scope"
+        },
+        {
+          "assessment": "Exact fertility for arbitrary words is already covered; the formula uses valid hook configurations and Catalan factors, not the stated ternary cut/binomial form.",
+          "evidence": "Theorem 3.2 near PDF text offset 39000.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09158v1",
+          "material_read": "§3 Theorem 3.2, PDF p. 12",
+          "method": "OA PDF passage retrieval",
+          "title": "Stack-sorting for words (preprint)",
+          "trigger": "General theorem possibly covering the individual fibers"
+        },
+        {
+          "assessment": "The inspected passages give binary sorting and fixed-sequence subword questions, not the claimed global ternary image/language class. The frozen access limitation was resolved for this version.",
+          "evidence": "Text near offset 8100: hare on binary words equals ordinary sorting.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811v1",
+          "material_read": "First version, §§2–3, pp. 4–6",
+          "method": "OA full-text passage retrieval",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Closest stack-sorting equivalence study"
+        },
+        {
+          "assessment": "Existing numerical enumeration under other interpretations.",
+          "evidence": "Entry A077855, including the series 1/((1−x)(1−2x+x²−x³)).",
+          "identifier_or_url": "https://oeis.org/A077855",
+          "material_read": "Initial terms, recurrence, generating-function entry and listed interpretations",
+          "method": "OA database entry",
+          "title": "OEIS A077855",
+          "trigger": "Exact enumeration sequence and rational generating function"
+        },
+        {
+          "assessment": "Direct statement overlap in a later catalogue entry, without the individual fiber classification.",
+          "evidence": "Finding states {u2^c : d₁₀(u)≤c}, deterministic one-counter/nonregularity and the same length series; limits near offset 6700.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-ternary-hare-image-language-sharp-parikh-spectrum-and-nonreg--6c21b2d55722",
+          "material_read": "RESULT.md Finding and limitations",
+          "method": "Local Resultary mirror",
+          "title": "The ternary hare image language, sharp Parikh spectrum, and nonregularity",
+          "trigger": "Exact matching statement on the ternary image and language class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Exact image, Complete fibers and Language boundary; Campbell–Rampersad comparison with the binary case"
+      ],
+      "rationale": "The first alphabet beyond binary sorting already gives a genuine regular-to-nonregular boundary. The local image test, simple one-counter recognition and exact individual binomial fibers provide access to the full information collapse for arbitrary ternary words, rather than re-tabulating an integer sequence or merely invoking general hook formulas.",
+      "residual_risks": [
+        "The theorem does not address larger alphabets, other sorting operators or iteration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

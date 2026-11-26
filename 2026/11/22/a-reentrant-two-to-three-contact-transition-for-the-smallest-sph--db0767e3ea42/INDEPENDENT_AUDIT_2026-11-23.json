@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:14:08.000313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strong convexity and coercivity give a unique center; the half-turn about the x-axis interchanges t and −t, so the center lies on that axis. The decisive continuum reduction also has a direct proof. For 0<t<L set λ=(1−cos t)/(1−cos L); then d_x(t)^2=(1−λ)d_x(0)^2+λd_x(L)^2+η²(t²−λL²), where d_x is distance to (x,0,0). Since sin(t/2)/(t/2)>sin(L/2)/(L/2), the last term is strictly negative for η>0. Thus the three samples −L,0,L control the entire ball and there cannot be additional contacts. This also handles the decreasing-throughout case for negative x omitted from the prose list in Proof Step 2; the maximizer conclusion there is correct. The two quadratics intersect at v=−k/[2(1−c)]; to the left the center-sample quadratic is active and strictly decreasing, and to the right the endpoint quadratic minimizes at max(c,v). This recovers both radii and the endpoint-only versus three-contact cases, with three curve contacts at equality even though the endpoints alone certify the ball. For c<0 the criterion is η²≤q(L). The derivative of log q strictly decreases from +infinity to −2/π by the displayed second derivative, q starts at zero and q(π)=4/π², giving the peak, the exact lower and upper crossing rules, the one-point tangency, and the L=π boundary at η=2/π. At fixed L>π/2 the pieces share first derivative 1/[2(1−c)] and have unequal second derivatives 0 and −1/[4(1−c)^3]. Independent high-precision root illustrations (`python3 /workspace/checks/helix.py`, mpmath) give L_*≈2.670778089087041, η_*≈0.6874374448319006 and 2.309578751557750, 3.071208826768052 for η=0.65. The root computation is illustrative; uniqueness and all-span claims follow from the analytic inequalities. The frozen checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jahn's Theorem 2.7 concerns finite sites in a strictly convex normed plane. The Resultary polynomial moment-curve theorem fixes the Euclidean embedding (t,t²,...,t^d) and explicitly limits extensions to other embeddings.",
+          "A general finite support bound or classical minimum ball of a triangle does not select these three samples or certify that their ball encloses the curve."
+        ],
+        "reasoning": "The continuous arc in 3D is not covered by the finite planar theorem or isometric to the polynomial-parametrized example in its fixed metric. Stronger general existence theory leaves the main containment comparison unproved; the sinc inequality selects the specific supporting candidates and excludes all other contacts.",
+        "searches": [
+          "Jahn arXiv:1410.4725 Theorem 2.7",
+          "Resultary: published polynomial moment curve minimum enclosing sphere two three contacts thresholds implication circular helix"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1410.4725 Theorem 2.7",
+        "González–Maddocks–Smutny Section 7.2 (frozen account and independent access attempts only)",
+        "Resultary polynomial moment curve, acute triangle and diameter originals (mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Targeted primary-literature and ranked exact-object searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the acute-triangle paper the middle dot product is ab[H(a,b)−η²]. With a=b=L one has H(L,L)=−cos L(sin(L/2)/(L/2))²=q(L), and the outer dot products equal 1−cos(2L)+2η²L²>0. Its exact peak and monotonicity, plus evaluating q(π), already give the two sign changes for the symmetric triple where appropriate.",
+          "That calculation determines the regimes for the three sampled points by classical triangle geometry, but does not address distances of the other points to their optimal center. Positive acute-triple probability on a full turn can coexist with only two contacts for the full-turn enclosing ball (η=0.65 is an example)."
+        ],
+        "reasoning": "The coincidence of thresholds is structural, not numerical. The genuine extra step is a strict continuous farthest-point inequality at every axial center; without it the optimal ball of those three samples could fail to enclose the rest. The phase boundaries and contact comparison for the entire curve only follow once this bridge is established. The derivative matching for the actual enclosing radius likewise requires the correct whole-arc branch formulas.",
+        "searches": [
+          "Resultary acute-triangle extinction original RESULT.md, Proof §§1–2, text offsets 0–5619",
+          "Resultary helix diameter-contact original RESULT.md, statement offset 0",
+          "Resultary polynomial moment-curve original RESULT.md, offsets 0 and 1900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the Euclidean Chebyshev center of the arc or its convex hull, equivalently the claim that the smallest ball of the symmetric three samples contains the whole arc. The primary search returned elementary helix parametrization/speed notes, not a theorem on that minimax.",
+          "The frozen comparison describes the helix-thickness work as minimizing local/contact-sphere radii. Its primary passage was not independently accessible, so the frozen reading is not whole-paper exclusion."
+        ],
+        "reasoning": "For each center, taking the farthest distance over the set or its convex hull gives the same value. The order and constraints of minimization in a thickness objective differ from first taking that farthest distance over a specified bounded arc. The equivalence with enclosing the whole arc by the ball of three prescribed points is a sharper screen than a hit on either 'helix' or 'sphere'.",
+        "searches": [
+          "Primary literature: \"minimum enclosing sphere\" \"circular helix\" finite arc Euclidean smallest ball",
+          "Resultary: minimum enclosing ball circular helix arc continuous Euclidean Chebyshev center radius pitch contact transitions",
+          "Resultary: circular helix segment smallest enclosing sphere two endpoint contacts midpoint contact reentrant two-three-two",
+          "González–Maddocks–Smutny (2002), Section 7.2 retrieval attempt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself was the top match and is not independent evidence. The distinct helix findings examined are exact full-turn diameter/rare chord and exact acute-triangle extinction; the polynomial record gives explicit balls for a different curve.",
+          "The acute-triangle record prints the very same peak locations and pitch, and provides the same boundary function on symmetric triples. The diameter record has a different critical slope near 0.3785867471 and concerns a pairwise maximum."
+        ],
+        "reasoning": "These are meaningful exact overlaps and comparisons, not an assertion of no matches. A full-turn diameter alone is only a lower bound on twice the enclosing radius; an acute-triple threshold alone is not a census of the farthest curve contacts. The compared results do not give the two-parameter minimum ball of the continuous helix. Ranked lookup is not an exhaustive table search.",
+        "searches": [
+          "Resultary: exact table formula minimum enclosing Euclidean balls trigonometric moment curve cos t sin t eta t helix arc",
+          "Resultary: minimum enclosing ball circular helix arc continuous Euclidean Chebyshev center radius pitch contact transitions",
+          "Resultary: helix minimum enclosing ball circumball covering sphere continuous finite segment"
+        ]
+      },
+      "rationale": "Qualified for the exact continuous-arc enclosure and its contacts. The same-day acute-triangle record already evaluates the identical q(L) on the symmetric slice, its maximum and the associated critical pitch; those are shared calculations, not a separate originality credit. The distinct assertion is that the finite symmetric triple actually determines the optimal ball of the entire continuous arc, and determines all its contacts. Neither the triangle-angle optimization nor the full-turn diameter result establishes that containment assertion. No priority ordering within the shared date is inferred.",
+      "residual_risks": [
+        "The primary helix-thickness paper could not be independently reread; do not infer noncoverage from an inaccessible file. An unindexed exact circumball calculation or stronger theorem for curves may anticipate the continuum reduction.",
+        "The critical pitch and symmetric triple boundary are already present in another same-day record, with no ordering inference. The originality assessment rests on the global containment and exact contact theorem, not those constants in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite planar support theory does not give the continuous helix formulas",
+          "evidence": [
+            "The theorem concerns finite subsets in a strictly convex normed plane and minimal enclosing discs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.4725",
+          "material_read": "Theorem 2.7, PDF p. 4, text offset 9330 (bounded read beginning at 9150)",
+          "method": "OA literal locator and primary PDF passage",
+          "title": "Geometric Algorithms for Minimal Enclosing Discs in Strictly Convex Normed Planes",
+          "trigger": "Potential more general support-point classification"
+        },
+        {
+          "assessment": "Frozen evidence points to thickness, not containment; whole source not independently ruled out",
+          "evidence": [
+            "The frozen comparison describes point-tangent and tangent-tangent sphere radii for helix thickness."
+          ],
+          "identifier_or_url": "https://sma.epfl.ch/lcvmwww/publications/data/articles/65/paper.pdf",
+          "material_read": "Frozen AUDIT's Section 7.2 description, not independently readable primary full text",
+          "method": "Lawful OA attempt to cited PDF and follow-up alternate-copy screen",
+          "title": "Curves, circles, and spheres",
+          "trigger": "Same type of helix and extremal sphere radii"
+        },
+        {
+          "assessment": "Polynomial embedding and different thresholds, not an isometric specialization",
+          "evidence": [
+            "The statement explicitly distinguishes polynomial moment curves in fixed Euclidean coordinates from trigonometric embeddings or nonorthogonal images."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/8/SCOPE-two-and-three-contact-points-for-minimum-enclosing-spheres-of-sy--6a878f319c33/RESULT.md",
+          "material_read": "Theorem and metric scope at text offsets 0 and 1900",
+          "method": "Local mirror of original result",
+          "title": "Two and three contact points for minimum enclosing spheres of symmetric moment-curve hulls",
+          "trigger": "Closest earlier exact minimum-ball contact transition"
+        },
+        {
+          "assessment": "Covers the symmetric angle boundary and its maximum. Does not establish the minimum ball of the continuous arc or absence of other contacts",
+          "evidence": [
+            "The exact function H on a=b=L equals q(L). Its peak and G(t)=0 coincide; the result optimizes/sample-counts angles, not enclosing all points."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-a-sharp-acute-triangle-extinction-threshold-on-one-turn-circular--f1ed96daa402/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, text offsets 0–5619",
+          "method": "Local mirror of original result, direct formula comparison",
+          "title": "A sharp acute-triangle extinction threshold on one-turn circular helices",
+          "trigger": "Same helix, symmetric endpoint/midpoint triple, and numerically identical critical pitch"
+        },
+        {
+          "assessment": "Pairwise distance maximum for full turn, not center-to-arc minimax",
+          "evidence": [
+            "Distinct pitch threshold near 0.3785867471 and claims about chord pairs and tails."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-a-sharp-diameter-contact-and-rare-chord-transition-for-a-one-tur--95f5401c25eb/RESULT.md",
+          "material_read": "Complete finding at text offsets 0–3062",
+          "method": "Local mirror of original result",
+          "title": "A sharp diameter-contact and rare-chord transition for a one-turn circular helix",
+          "trigger": "Same curve with exact endpoint/interior transition for a related Euclidean invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical positive-pitch circular helix is a natural nonplanar test for Euclidean containment. A future calculation can enclose a full continuum and know exactly which samples are boundary contacts without optimizing over a mesh or trusting a diameter approximation. Even with the symmetric triple's angle boundary known, transferring it to the true arc minimum ball is meaningful: for nested arcs at a fixed pitch the third contact can appear and later cease to be on the ball, and the true radius is C¹ but not C² in k across contact creation. This is limited to total span at most one turn and positive pitch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

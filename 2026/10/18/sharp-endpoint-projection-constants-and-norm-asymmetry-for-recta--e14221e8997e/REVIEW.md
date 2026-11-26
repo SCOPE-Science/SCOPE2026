@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim identifies real edge-space endpoint projection constants of both graph-gradient (cut) and circulation (cycle) spaces. The complete symmetry classification, adjoint correspondence \(Q_t=I-P_t^{\mathsf T}\), signed orbit sums, convex minimizations, and positive endpoint-gap factorizations give a proof for all integer axis sizes \(3\le m<n\). The independent exact-rational checker successfully performed 28,641 finite assertions, including projection idempotence and cycle divergence, but finite assertions are not substituted for the analytic theorem.
+## correctness
 
-**Originality: PASS, with residual indexing risk.** The 2023 primary work by Dilworth–Kutzarova–Ostrovskii characterizes invariant projections for same-alphabet Hamming graphs, including square rook graphs, but not the unequal-axis four-constant result. Their 2018 work develops averaging for recursive diamond and Laakso graph families. Yan et al.'s orthogonal rook-graph Hodge projectors concern graph learning, not optimal Banach projection norms. Mathematical-record searches for the equivalent gradient/circulation formulation and for asymmetric rectangular Hamming projection constants did not produce stronger direct coverage. These searches cannot rule out all unindexed sources.
+PASS
 
-**Value: PASS.** The unequal-axis rook graph is a natural infinite two-parameter family with two edge orbits. Its minimum \(\ell_1\) and \(\ell_\infty\) projection norms distinguish in opposite directions on cut and cycle spaces, with explicit positive gaps and optimizers different from orthogonal projections. This is a structural phenomenon absent in the fully symmetric equal-axis case, with relevance to transportation-cost and Lipschitz-free quotient geometry.
+Reconstructed RESULT.md lines 48–73. Signed averaging preserves the range and its pointwise identity, hence reduces the global infimum to equivariant projections without changing the norm problem. In a mean-zero potential column, the endpoint transposition forces the signed coordinate difference and the opposite-coordinate stabilizer leaves exactly the two coefficients shown. The product decomposition then yields the three normalization equations: a complete-graph Laplacian is multiplication by its order on the mean-zero factor. These equations leave exactly one real parameter. I−Pᵀ, not generally I−P, bijects the cut and cycle projections. For 0≤t≤1 the pure-axis sum is 2(m−1)/m on the first orbit for both row and column: the absolute complete-graph difference mass is 2(m−1) and the other-coordinate weights are nonnegative with sum 1/m. The mixed block contributes 2(n−1)t/m to the column and 2(n−1)(1−t)/n to the row, since the row uses the opposite-axis input potential. The swapped contributions follow, and the cycle diagonals give the corrections 1−2d because 0<d<1. Each maximum has an interior crossing with opposite slopes and is convex on all of R (absolute sums), so the crossing is a global minimum, including against parameters outside [0,1]. The symbolic replay confirmed the four crossings, strict endpoint difference factors, and the four (3,4) values. The proof concerns the real unweighted edge coordinates, m≥3 and n>m, and does not require uniqueness of arbitrary minimizers.
 
-**Scientific limits.** Only real scalars, unequal axis sizes of at least three, and endpoint exponents are covered; intermediate exponents, full nonsymmetric-minimizer classifications, and exhaustive bibliographic uniqueness are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the four unequal-axis optima and strict within-space endpoint asymmetry, not for symmetry averaging, adjoint-complement duality or the equal-axis formulas. The two closest distinct same-day catalogue records were compared on actual domains, without assuming publication order.
+
+## value
+
+PASS
+
+Endpoint projection constants are intrinsic linear-extension/complementability invariants for natural graph subspaces. The product just beyond the equal-axis symmetry case separates l1 and l∞ in opposite directions for cut and cycle, and identifies the nonorthogonal optimizers. These exact values answer whether square-case endpoint equality survives unequal axes and give sharp benchmarks, rather than just bounds from a chosen projector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

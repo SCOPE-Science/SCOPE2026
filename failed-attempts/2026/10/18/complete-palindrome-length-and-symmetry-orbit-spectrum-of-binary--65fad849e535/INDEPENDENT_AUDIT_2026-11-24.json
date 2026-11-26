@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:43:11.276220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite search is exhaustive: a canonical rotation has its unique all-zero length-five window first; following the successive five-bit windows gives a directed Hamiltonian cycle of the shift graph on the 32 distinct windows. Conversely every such tour starting with 0 and closing back to 0 spells one canonical cycle by reading leading bits. An independent exact search in /workspace/review-checks/debruijn5.py used this state graph, tracked visited windows, checked closure, and tested each circular substring against the corresponding substring of the reversed doubled word. It produced all eight rows of the frozen cycle and orbit-size table, the total 2048 cycles and 528 orbits (32 size-two, 496 size-four, none size-one), and both extremal witnesses and their exhibited palindromes. The computation also found exactly 64 reverse-complement-fixed rotation classes; neither reversal nor complement alone fixes a class. A palindrome is tested by literal reversal, never reverse-complement, and all starts and lengths up to 32 are included. Distinctness of the unique five-zero factor forces a one on either side, giving a separate analytic lower bound of seven. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed joint statement includes 23 supported pairs of distinct-palindrome count and longest length, and gives a complete per-cycle inventory. Anisiu et al. concern generation of palindromes and finite-word complexity. A247000 concerns the maximum count of distinct palindromes in arbitrary circular binary words."
+        ],
+        "reasoning": "The classical palindrome-generation/count results examined do not classify longest length here. The exact indexed per-cycle inventory concerns precisely the right family and is strictly richer than its published longest-length marginal.",
+        "searches": [
+          "8196e282ed1c, RESULT.md Finding, Assumptions and search for orbit/complement",
+          "Anisiu–Anisiu–Kása, arXiv:1002.2723v1, Introduction and Proposition 2",
+          "Simpson, DOI 10.1016/j.tcs.2014.07.012 and OEIS A247000"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8196e282ed1c RESULT.md and full_census.tsv",
+        "arXiv:1002.2723v1",
+        "OEIS A247000",
+        "Simpson DOI 10.1016/j.tcs.2014.07.012 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using any canonical rotation function can, the orbit size read from an indexed word w is the cardinality of {can(w), can(Rw), can(Cw), can(RCw)}; a single size-s orbit contributes exactly s rows of the same longest length."
+        ],
+        "reasoning": "The entire refinement is a direct rowwise transformation and aggregation of an existing exact dataset: divide the grouped row counts by s to get the orbit counts. It is not claimed to be written explicitly in the indexed paper, nor is historical precedence inferred from record dates.",
+        "searches": [
+          "Indexed 8196e282ed1c RESULT.md and companion full_census.tsv",
+          "Focused primary-literature search for the order-five longest circular factor distribution and symmetry refinement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both records count rotation classes, use factors rather than subsequences, compare factors with literal reversal, and use lengths 1 through 32. L(W) of the indexed result equals Λ(w) here exactly."
+        ],
+        "reasoning": "No change of rooting, length cutoff or palindrome definition separates the longest-length claims. The group action is an additional grouping of these same rotation classes.",
+        "searches": [
+          "Resultary: longest circular palindrome, order-five binary de Bruijn cycles, reversal/complement orbit spectrum",
+          "8196e282ed1c, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed statement prints 7:200, 8:192, 9:856, 10:128, 11:392, 12:32, 13:200, 15:48. The declared complete companion TSV has columns cycle_bits, total_distinct, longest and profile_lengths_1_to_32; the initial rows were directly inspected. OEIS A247000 tabulates a different statistic."
+        ],
+        "reasoning": "The indexed exact marginal is an explicit match. Keeping cycle bits together with longest preserves all information needed for the additional symmetry grouping, unlike an aggregate length-only table.",
+        "searches": [
+          "Resultary exact longest-length histogram search",
+          "8196e282ed1c, RESULT.md offset 0 and full_census.tsv header and first rows at offset 0",
+          "OEIS A247000 comments at offset about 300"
+        ]
+      },
+      "rationale": "The distinct indexed joint census 8196e282ed1c states the identical maximum-length distribution and provides a per-word exact table containing both canonical cycle_bits and longest. Its stronger table mechanically supplies even the frozen symmetry refinement: for each row, test the three involutions modulo rotation, take the resulting orbit size and group by the already tabulated longest column. The joint paper does not print this grouping, but no additional palindrome calculation, cycle enumeration or mathematical criterion is needed. This is a judgment of coverage in the present indexed corpus, not attribution of priority; the covering record's displayed date is later.",
+      "residual_risks": [
+        "The complete Simpson article was not obtained. Chronological priority or dependence of the two exact records is not determined. The originality failure rests on demonstrable indexed coverage, not on either access limits or chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical marginal; supplies a complete table sufficient to derive the symmetry grouping",
+          "evidence": [
+            "The full inventory is reported per canonical word, and the TSV actually includes both cycle_bits and longest."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-joint-palindromic-spectrum-of-binary-order-five-de-brui--8196e282ed1c",
+          "material_read": "RESULT.md Finding and Assumptions at offsets 0–3151; full_census.tsv header and first rows at offsets 0–1490",
+          "method": "Local published-record mirror, direct statement and table-field comparison",
+          "title": "Complete joint palindromic spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Exact matching longest-length distribution and stronger source data"
+        },
+        {
+          "assessment": "Palindromic generation and finite-word complexity, not the exact longest-length statistic over all cycles",
+          "evidence": [
+            "Generation of palindromes of prescribed length is a different use of de Bruijn words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.2723",
+          "material_read": "Abstract, Introduction/Proposition 2, around OA offset 2700",
+          "method": "Lawful OA primary text passage",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Use of de Bruijn words for palindromes"
+        },
+        {
+          "assessment": "Available description concerns distinct counts; full text coverage unresolved, not used to rule out overlap",
+          "evidence": [
+            "A247000 maximizes the number of distinct palindromes over unrestricted circular binary words."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Available public description and the related OEIS A247000 definition; no journal full text obtained",
+          "method": "Publisher and DOI access attempt; public database comparison",
+          "title": "Palindromes in circular words",
+          "trigger": "Circular palindrome extremal results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "In the absence of the published inventory, the order-five symmetry-sensitive census would represent a reasonable finite benchmark. As a distinct result now, the longest-length table is already present and the remaining orbit-size split is a routine grouping of known canonical words and their tabulated values. Merely retaining that split would repackage the existing census rather than establish a non-mechanically-implied exact invariant or a new structural theorem about palindromes.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

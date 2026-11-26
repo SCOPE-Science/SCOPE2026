@@ -1,4 +1,4 @@
-"""Numerical and exact-low-dimensional checks for cube Thales-ball union volume.
+"""Numerical checks for cube Thales-ball union volume.
 
 Only finite checks: the all-dimensional identities and the asymptotic
 statement are proved in RESULT.md.
@@ -59,15 +59,14 @@ def verify():
         got = volume_via_moment(n)
         assert abs(got/expected-1) < 5e-13, (n, got, expected)
     z, b, growth = saddle()
-    assert abs(z-0.839923675692331) < 1e-12
-    assert abs(b-1.4109435619770525) < 1e-11
-    assert abs(growth-1.6976302022205325) < 1e-11
+    assert abs(z-0.83992367569237) < 1e-12
+    assert abs(b-1.41094356197717) < 1e-11
+    assert abs(growth-1.69763020222053) < 1e-11
     for n in (16, 32, 64):
         exact_ratio = volume_via_moment(n) / (2.0**n)
         estimate = 2*growth**n/math.sqrt(2*math.pi*n*b)
         assert abs(exact_ratio/estimate-1) < 0.15/n, (n,exact_ratio/estimate)
-    # Independent geometric integration using random sphere directions,
-    # not the coefficient-generating formula.
+    # Independent geometric integration using random sphere directions.
     rng = random.Random(274618)
     samples = 100000
     n = 3
@@ -78,7 +77,7 @@ def verify():
         total += (sum(abs(x) for x in xs)/r)**n
     estimate = math.pi**(n/2)/math.gamma(n/2+1)*total/samples
     assert abs(estimate-(2+4*math.pi)) < 0.16, estimate
-    # Exact direct radial quadrature in dimension two.
+    # Midpoint angular quadrature in dimension two.
     dt = math.pi/50000
     integral = 0.0
     for i in range(50000):
@@ -86,8 +85,8 @@ def verify():
         integral += (abs(math.sin(t))+abs(math.cos(t)))**2
     integral *= dt
     assert abs(integral-(2+math.pi)) < 1e-7
-    print('PASS: exact low-dimensional moments, saddle constants,')
-    print('      finite-size asymptotic, independent geometric checks')
+    print('PASS: numerical checks of low-dimensional moments, saddle constants,')
+    print('      finite-size asymptotic, independent geometric integrals')
 
 
 if __name__ == '__main__':

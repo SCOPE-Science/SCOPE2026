@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:36.027280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marked odd-multiplicity model gives the recursion: at even weights halve all parts; at odd weights split between exactly one unit part (two possible markings of that part when n>1) and at least three (delete two units and preserve marking). Positivity gives strict odd-index increase by the recursion. For n<2^k the unrestricted binary-partition coefficient bounds the count after a factor 2^k for markings. At u=k/2^k, the tail of the Euler product from J=k−ceil(log₂ k) is bounded by the convergent product of (1−exp(−2^(j−1)))^−1. The initial factors contribute at most ∑_{i<J}(k−i−log₂ k+O(1)), yielding k²/2−k log₂ k+O(k). In the lower construction, the prescribed counts of the r=k−ceil(log₂ k)−2 nonunit sizes use weight at most 2^k/(2k)+2^k/4, below 2^k−1. The filler unit multiplicity is odd and positive, and the product of the numbers of multiplicity choices is injective; taking its log gives the matching lower order. The two odd dyadic endpoints bracketing n differ by O(k) at the stated precision, giving the uniform odd-index result. Even-index scaling is correctly excluded. An independent recurrence/ordinary-partition DP checked the constant-scale sandwich at nine dyadic endpoints (python3 /workspace/branches/independent_checks.py); those finite examples do not prove the asymptotic. The supplied script and verification notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens–Boettcher identify a_2(j)=b(2j) and reproduce the de Bruijn expansion with leading square (ln j−ln ln j)^2/(2 ln 2) and all remaining terms O(ln j) at the target precision. Unit deletion gives b(2j+1)=b(2j).",
+          "Resultary c8609e8e75b8 establishes a relative semi-Pell/semi-Fibonacci growth rate but only O(log n log log n) error in the absolute logarithmic growth."
+        ],
+        "reasoning": "The exact expansion for the unrestricted object has enough precision because the elementary sandwich loses only O(log n); the direct same-sequence hit has insufficient precision to determine the second term by itself.",
+        "searches": [
+          "De Bruijn, On Mahler's Partition Problem",
+          "Mertens–Boettcher arXiv:0912.2459, §I and §II eq. (6)",
+          "Resultary c8609e8e75b8, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and semi_pell_growth_verify.py",
+        "arXiv:2303.11493, 1912.11148, 0912.2459",
+        "Keith–Munagi, Online Journal of Analytic Combinatorics 18 (2023), paper 2",
+        "OEIS A000123",
+        "Resultary c8609e8e75b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Send unrestricted multiplicity a of 2^i to odd multiplicity 2a−1 of 2^(i+1), then fill with unit parts and mark the maximum; this gives b(floor(n/4))≤s(n) for odd n. The reverse inequality s(n)≤2n b(n) follows from at most 1+floor(log₂ n) occupied sizes.",
+          "After dividing the classical natural-log estimate by ln 2, its quadratic and log-log terms are (log₂ n)^2/2−(log₂ n)log₂(log₂ n); conversion of the nested log introduces only a linear log term."
+        ],
+        "reasoning": "Both bounds have identical terms at the asserted precision. No new estimate of an asymptotic constant, relative count or oscillation is needed to obtain the entire Finding, including its dyadic specialization.",
+        "searches": [
+          "Ballantine–Beck Theorem 6.1 combined with Mertens–Boettcher §II eq. (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ballantine–Beck §6 gives the same semi-Pell recursion and Theorem 6.1 identifies its partition count with odd-binary overpartitions with largest part marked. Keith–Munagi give the same recursion in a composition setting."
+        ],
+        "reasoning": "The alternative partition and composition names refer to the same positive-index sequence. The odd-overpartition equivalence allows direct odd-multiplicity encoding of unrestricted partitions.",
+        "searches": [
+          "Resultary: semi-Pell odd-index two-term logarithmic growth / binary overpartitions",
+          "Ballantine–Beck arXiv:2303.11493, §6",
+          "Keith–Munagi arXiv:1912.11148 and Power Compositions and Semi-Pell Compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000123 encodes b(2j) and explicitly gives the de Bruijn formula in its formula section (Flajolet, 2008). The indexed RESULT.md c8609e8e75b8 gives the same semi-Pell sequence but not this precise absolute coefficient."
+        ],
+        "reasoning": "The OEIS formula concerns the exact comparator, not the semi-Pell count directly; table values cannot establish a log-log coefficient. The transfer uses the proven sandwich rather than comparing sequences numerically.",
+        "searches": [
+          "OEIS A000123, definition and Philippe Flajolet's asymptotic-formula entry",
+          "Resultary: semi-Pell and semi-Fibonacci absolute or relative growth"
+        ]
+      },
+      "rationale": "The stronger classical unrestricted binary-partition asymptotic transfers at exactly this precision through a direct multiplicity encoding in the published semi-Pell overpartition model. Forgetting the markings gives the upper comparison. For the lower comparison, take any binary partition of m=floor(n/4). For each occupied 2^i of multiplicity a≥1, put 2a−1 copies of 2^(i+1); the new nonunit weight is at most 4m≤n−1 for n odd. Add units to reach n and mark the largest size. The image has all multiplicities odd; the original multiplicities are recovered from the nonunits. Thus b(floor(n/4))≤s(n)≤2n b(n), where b is the ordinary binary partition count. De Bruijn's two terms for log b carry over because both rescaling n by a constant and multiplying the count by 2n change the logarithm by O(log n). This is a direct squeeze using the pre-existing model, not a claim that the inspected sources already print the semi-Pell asymptotic verbatim. The later relative-growth record alone would be too coarse to determine the coefficient.",
+      "residual_risks": [
+        "No assertion of literal historical publication of the semi-Pell formula. The original de Bruijn PDF was not retrieved; the stronger binary-partition statement was read in accessible corroborating sources, and the transfer was established independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the same overpartition model, not the displayed absolute estimate",
+          "evidence": "Equates the semi-Pell count with the restricted odd-binary overpartition count; concluding remarks ask about comparing growth.",
+          "identifier_or_url": "https://arxiv.org/html/2303.11493",
+          "material_read": "§6 definition/recurrence and Theorem 6.1 (around offsets 79950 and 85491), §12 growth question (offset 144568)",
+          "method": "OA article passage inspection",
+          "title": "Partitions Enumerated by Self-Similar Sequences",
+          "trigger": "Exact prior semi-Pell interpretation"
+        },
+        {
+          "assessment": "Same recurrence; inspected results are combinatorial and arithmetic",
+          "evidence": "gives s(2t)=s(t) and s(2t+1)=2s(2t)+s(2t−1).",
+          "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+          "material_read": "p. 2, equation (1.2) and surrounding discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Power Compositions and Semi-Pell Compositions",
+          "trigger": "Same sequence under composition terminology"
+        },
+        {
+          "assessment": "Prior combinatorial model",
+          "evidence": "Defines semi-Pell compositions and their counting sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11148",
+          "material_read": "Composition interpretation in the accessible preprint",
+          "method": "OA preprint passage inspection",
+          "title": "Binary Compositions and Semi-Pell Compositions",
+          "trigger": "Earlier same-sequence source"
+        },
+        {
+          "assessment": "Stronger comparator estimate, transferred by an explicit sandwich",
+          "evidence": "For k=2 the displayed log expansion for a_k(j) has first term (ln j−ln ln j)^2/(2 ln 2), with the rest bounded at O(ln j).",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.2459",
+          "material_read": "§I at p. 1 (a_k counts k-ary partitions of kj); §II eq. (6) at p. 2",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotics of lagged Fibonacci sequences",
+          "trigger": "Exact classical comparator asymptotic; accessible source quoting de Bruijn"
+        },
+        {
+          "assessment": "Original access limitation, not negative evidence",
+          "evidence": "Accessible sources attribute the stronger unrestricted binary-partition expansion to de Bruijn.",
+          "identifier_or_url": "http://www.dwc.knaw.nl/DL/publications/PU00018536.pdf",
+          "material_read": "Original full text not retrieved; formula read in arXiv:0912.2459 eq. (6) and OEIS A000123",
+          "method": "Bounded OA attempts; checked the formula in accessible sources",
+          "title": "On Mahler's Partition Problem",
+          "trigger": "Original classical asymptotic"
+        },
+        {
+          "assessment": "Binary-partition comparator, not direct semi-Pell estimate",
+          "evidence": "Explicit log formula with square, linear and smaller terms, including periodic term.",
+          "identifier_or_url": "https://oeis.org/A000123",
+          "material_read": "Description and Flajolet formula paragraph around offset 8900",
+          "method": "OA public page inspection",
+          "title": "Number of binary partitions: partitions of 2n into powers of 2",
+          "trigger": "Exact comparator sequence and indexed formula"
+        },
+        {
+          "assessment": "Same sequence but a different relative result and a weaker absolute estimate",
+          "evidence": "p(N)/f(N)=N^(1+o(1)); the absolute error is O(log N log log N), which allows different second coefficients.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-relative-logarithmic-growth-of-semi-pell-and-semi-fibonacc--c8609e8e75b8",
+          "material_read": "RESULT.md Finding, including relative ratio and absolute error near offset 524",
+          "method": "Local Resultary mirror",
+          "title": "Sharp relative logarithmic growth of semi-Pell and semi-Fibonacci partition counts",
+          "trigger": "Exact same semi-Pell sequence and growth question"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The odd-index growth question is motivated and the submitted self-contained proof is valid. At the specified precision, however, the result does not distinguish the semi-Pell family from ordinary binary partitions: constant-scale embedding and the polynomial markings factor preserve both terms. The proof does not supply a finer semi-Pell invariant such as the linear log term or a sharper count ratio that survives this comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

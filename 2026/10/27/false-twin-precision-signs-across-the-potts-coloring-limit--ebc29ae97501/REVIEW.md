@@ -1,18 +1,21 @@
-# Scientific review — false-twin precision signs
+# Independent mathematical audit
 
-## Correctness: PASS
-The conditional coloring factorization is exact because false twins are nonadjacent with the same neighbor multiset. Conditioning on the entire coloring of other vertices produces two iid Bernoulli variables with random success probability. The covariance Schur complement gives exactly \(Q_{uv}=-R/[S(S+2R)]\), and positive definiteness ensures denominators and inversion are valid. At positive weight, two positive-probability neighbor-color assignments with identical fixed-color indicators but different conditional success probabilities prove strictness when the common neighborhood contains at least two vertices; the exceptional cases are affine. At zero weight, a clique neighborhood yields an explicit affine conditional probability. A nonclique admits two proper extensions with identical indicator vector and distinct numbers of neighbor colors when the palette has at least as many colors as vertices. Exact rational enumeration independently verified 588 cases including boundaries. Finite checks do not serve as an infinite proof.
+## correctness
 
-## Originality: PASS, with priority uncertainty
-The inspected Potts spatial-mixing papers concern decay, contraction, and influences of conditional distributions, rather than this exact inverse covariance entry and its positive-temperature versus proper-coloring clique criterion. The spectral-independence influence matrix is not the precision matrix of the projected one-color field. The previously available proper-cycle precision calculation is a symmetric special family and does not imply the all-graph false-twin statement or temperature classification. General Schur complements and conditional-iid regression identities are recognized classical ingredients, not original components. No direct equivalent or broader theorem was identified in the searches and source passages read; earlier implicit statistical-mechanics treatments remain a material priority risk.
+PASS
 
-## Value: PASS
-The result connects a natural graph neighborhood invariant (clique versus nonclique) to an exact zero pattern of an observable precision matrix. In particular a shared clique of size at least two causes a zero at the proper-coloring limit and a strictly negative entry at every nonunit positive temperature; this is a nontrivial structural boundary for projecting a categorical Gibbs field onto one-color indicators. The complete graph-independent sign bound and sharp temperature classification go beyond a numerical example or a direct parameter substitution.
+The covariance has full affine support: the all-zero indicator and each coordinate indicator occur, using full support at w>0 or a proper (q−1)-coloring with one vertex recolored to color 1 at w=0. Conditioning on the full colors off the twins makes the twin indicators iid Bernoulli(p). Removing the linear projection onto the observed indicators leaves diagonal S+R and off-diagonal R, with S=E[p(1−p)]>0 and R the squared projection residual. At w=0 the proper (q−1)-coloring supplies a conditioning assignment with color 1 and at least one other color available at the twins. Inverting this Schur block gives −R/[S(S+2R)]; this also works with no conditioning coordinates, using projection onto constants. At positive w the two same-indicator assignments differ in denominators by (w−1)(w^(d−1)−1), nonzero exactly in the range needed for strictness when d≥2; the d≤1 and w=1 cases are affine. At w=0 a clique gives an affine indicator formula because its d colors are distinct. With q≥max(3,|V|), two extendable proper assignments avoiding color 1, one injective and the other identifying a nonedge in N, give different p at identical indicators, proving the converse. No converse is asserted for all smaller admissible palettes. The reported 588 exact cases supplement the general proof; the supplied script was inspected, not executed.
 
-## Literature and limits
-- Bencs–Berrekkal–Regts (2023), arXiv:2310.04338: antiferromagnetic Potts mixing on trees, not this precise twin-precision sign theorem in inspected sections.
-- Chen–Liu–Mani–Moitra (2023), arXiv:2304.01954: spatial mixing and algorithmic colorings, not a full inverse covariance identity for a fixed color.
-- Chen–Galanis–Štefankovič–Vigoda (2020), arXiv:2007.08058: spectral independence and mixing, with a different influence operator.
-- General Schur complements are standard; the historical existence of a specialized equivalent remains unresolved. The zero-temperature iff criterion is restricted to palettes of size at least the vertex count.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full false-twin sign and zero classification across the Potts-to-coloring limit is distinct from the inspected cycle special case, generic residual algebra, and coloring influence results. Only the graph- and palette-specific result, not the general Schur-complement identity, is credited.
+
+## value
+
+PASS
+
+The theorem gives an exact structural criterion for absence versus presence of a linear partial association even though the two vertices are independent given the full other spins. It exhibits a genuine change in the precision zero pattern at the proper-coloring limit, not a rephrasing of graphical separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

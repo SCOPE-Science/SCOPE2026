@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:07:30.169850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For z=a x the heavy-ball polynomial is λ²−(1−t+β)λ+β. The Schur conditions 1−β>0, t>0 and 2(1+β)−t>0 all hold, as does r<1. The augmented system is therefore stable, the initialization contributes no limiting mean square, and the stationary comparison requires only the innovation variance. I independently eliminated ξ to obtain an AR(3) for z with coefficients (h+r, −β−rh, rβ), h=1−t+β, and innovation variance t²σ². Solving its lag-one through lag-three Yule–Walker equations symbolically and substituting into the lag-zero equation reproduces the proposed variance difference, including the factor −2βtσ² multiplying Q and the positive denominator (plus the x=z/a scaling). Replay: /workspace/independent_checks.py, momentum; the example differences are −1/30 and 446/7095. Q is convex in β, strictly negative at β=1, and has constant coefficient C=rt²+(1−r)t−(1+r). If C≤0 the chord places Q strictly below zero inside (0,1). If C>0 there is exactly one crossing there, the smaller quadratic root for r>0 and t−1 at r=0. The derivative of C in t is positive; C(1,r)=−r and C(sqrt(2),r)=(sqrt(2)−1)(1−r), while ∂C/∂r=t²−t−1<0 along the root. This gives the claimed boundary equality behavior, strict monotone threshold and limiting endpoints, without a Gaussian assumption or optimization over t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kühn–Rosenow's App. B.1 gives a general covariance sum; their evaluated colored-noise case uses negative triangular lag covariances with finite range.",
+          "Gadat et al. use decreasing steps and martingale increments; Dang et al. give convergence and noise-neighborhood bounds, not exact stationary sign comparisons."
+        ],
+        "reasoning": "The evaluated colored case is not a dominating class containing the nonnegative geometric AR(1) covariance. Neither convergence result implies the exact crossover.",
+        "searches": [
+          "arXiv:2306.05300, Theorems 4.1 and 4.3 and App. B",
+          "arXiv:1609.04228, stochastic-heavy-ball hypotheses and convergence",
+          "arXiv:2401.06738, fixed-step and noise-adaptive heavy-ball convergence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.03636",
+        "arXiv:2306.05300v3",
+        "arXiv:1609.04228",
+        "arXiv:2401.06738",
+        "Resultary local mirror 6f3da69dd7fc",
+        "Focused public literature query for the exact threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a stable recursion, the covariance-sum identity does allow insertion of the full AR(1) covariance; it does not evaluate that sum and compare against zero momentum on this domain.",
+          "The one-step curvature match gives no threshold as a function of t. The focused literature lookup returned general stochastic-heavy-ball results rather than an evaluated positive-AR(1) sign criterion."
+        ],
+        "reasoning": "Evaluating and factoring the variance difference between the two algorithms under the same AR(1) noise, followed by the unique-root and monotone-threshold argument, goes beyond restating a broad covariance identity or a known special-case inequality.",
+        "searches": [
+          "arXiv:2306.05300, Eq. (B.7) and the specialization in App. B.2",
+          "Focused literature lookup for an exact fixed-step AR(1) momentum-benefit threshold",
+          "Local-mirror t=1 AR(1) momentum comparison, record ending 6f3da69dd7fc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Ziyin–Ueda's white-noise formula compared with β=0 gives t>1+β, exactly the frozen r=0 slice.",
+          "Filtering the AR(1) input through the heavy-ball recursion is equivalent to a stable AR(3) output, but the color-specific sign of its variance difference is not in the inspected framework."
+        ],
+        "reasoning": "State-space, covariance-sum and frequency-domain formulations represent the same stationary variance. A general representation is not yet a derived comparison across momentum for the positive AR(1) kernel.",
+        "searches": [
+          "arXiv:2012.03636, exact stationary momentum covariance compared with zero momentum",
+          "arXiv:2306.05300, scalar linear state-space covariance with lagged input",
+          "Resultary: scalar heavy-ball AR(1) noise and sign of stationary variance benefit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local-mirror record 2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc gives exact AR(1) variance at the curvature-matched step t=1 and finds strict worsening for positive r and β>0."
+        ],
+        "reasoning": "This is an exact overlap on t=1, credited as such, but the fixed-t restriction excludes the entire improvement region t>τ(r). The distinct result is therefore not general coverage; priority is not inferred just from listing dates.",
+        "searches": [
+          "Resultary: AR(1) heavy-ball stationary variance, positive-persistence comparison, and sign-reversed optimal momentum"
+        ]
+      },
+      "rationale": "The admitted overlap is exact white-noise covariance and its fixed-step comparison, plus a distinct indexed curvature-matched t=1 comparison. The supported distinct claim is the all-t, positive-AR(1) sign and threshold classification. The strongest colored covariance framework provides a way to calculate variance, not a previously derived inequality or an explicit closed comparison on this domain.",
+      "residual_risks": [
+        "A specialized closed transfer calculation or exact comparison in filtering/control or stochastic optimization could have escaped the bounded search.",
+        "This assessment does not claim that the covariance formalism, the white-noise restriction, or the curvature-matched comparison standing alone is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct white-noise coverage, not positive-persistence classification",
+          "evidence": [
+            "Scalar specialization gives ησ²(1+β)/[a(1−β)(2(1+β)−t)] and the derived inequality t>1+β."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.03636",
+          "material_read": "§4.2 and Corollary 1 Eq. (8), PDF p. 4, offsets 28000–34000; §4.3; App. E around offset 138000",
+          "method": "Lawful primary arXiv PDF, bounded passages",
+          "title": "Noise and Fluctuation of Finite Learning Rate Stochastic Gradient Descent",
+          "trigger": "Exact finite-step stationary heavy-ball covariance"
+        },
+        {
+          "assessment": "General covariance-sum machinery and an evaluated different colored model, not the frozen sign classification",
+          "evidence": [
+            "Theorem 4.1 gives negative finite-range epoch lag covariances. Eq. (B.7) uses full lagged covariances and can be specialized to a summable AR(1) law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.05300v3",
+          "material_read": "Eq. (1); Theorems 4.1 and 4.3, PDF pp. 4, 7, 11; App. B.1–B.2, offsets around 62500, 67000 and 73300",
+          "method": "Lawful primary arXiv PDF, bounded passages",
+          "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent",
+          "trigger": "Closest inspected prior exact colored-noise momentum fluctuation result"
+        },
+        {
+          "assessment": "Decreasing-step convergence theory with martingale increments, different objective and stochastic regime",
+          "evidence": [
+            "The step sequence is γ_n=γ/n^β; Theorem 4 gives convergence/rate bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.04228",
+          "material_read": "§2.2 and step assumptions, PDF pp. 3–4 (offsets 14000, 18000); Theorem 4 p. 6 (offset 28500)",
+          "method": "Lawful primary arXiv PDF, bounded passages",
+          "title": "Stochastic Heavy Ball",
+          "trigger": "Earlier stochastic heavy-ball theory and plausible convergence overlap"
+        },
+        {
+          "assessment": "Noise neighborhood and changing-step convergence bounds rather than an exact fixed-step AR(1) frontier",
+          "evidence": [
+            "The bounds include constant-step behavior but not a conditional sign comparison between exact stationary variances at the same step."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.06738",
+          "material_read": "Theorem 1, PDF p. 4 around offset 18000; Algorithms 1–2 and Theorem 4, pp. 7–8 around offset 34500",
+          "method": "Lawful primary arXiv PDF, bounded passages",
+          "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+          "trigger": "Heavy-ball momentum and noise in quadratic optimization"
+        },
+        {
+          "assessment": "Genuine t=1 overlap, not a variable-t threshold",
+          "evidence": [
+            "At t=1, positive persistence makes any positive admissible momentum worsen stationary variance."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc",
+          "material_read": "Local mirror RESULT.md, finding and curvature-matched step assumption",
+          "method": "Local Resultary mirror",
+          "title": "Sign-reversed optimal momentum and the one-ninth antipersistent threshold",
+          "trigger": "Exact same AR(1) noise and heavy-ball model on a parameter slice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed step and objective curvature, changing only temporal persistence can reverse whether momentum helps. The exact classification turns that phenomenon into a design criterion: below the persistence-dependent threshold no positive momentum helps at all, while above it a single crossover determines the allowable interval. The criterion and its strict boundaries add scientific information beyond either a general covariance formula or the single reversal example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

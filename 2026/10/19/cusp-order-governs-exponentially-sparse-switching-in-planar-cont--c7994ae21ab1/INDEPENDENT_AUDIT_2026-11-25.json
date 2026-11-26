@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:47:39.151482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict separation condition resets each upper visit below the switch; in a lower run the positive ratio y/x^p grows by lambda^(1-p), so visits recur. For q=1/lambda and a=1-lambda*x_tau, the first upper iterate after the reset is the least integer m with (p-1)m>tau+1+log_q(a^p/y0). The resulting tau'=(p/(p-1))*tau+O(1) is uniform along the fixed orbit. Dividing by successive powers of R=p/(p-1) and summing the bounded-error tail gives a limit and an O(1) unscaled error. The limit is positive since tau tends to infinity and the remaining tail from any visit in units of that visit is bounded by K/(R-1). Inversion gives the log count. At p=2, a tends to 1 strictly from below after the first visit, so floor(log_q(a^2/y0)) is eventually ceil(log_q(1/y0))-1, including at integer log heights. This argument applies only with positive initial height and without equality hits under the stated separation condition.",
+      "reproduction": "Independent replay: use Python Fraction for lambda=1/5, x=1/2, y=1/25; at each integer time starting at 0 record the time if y>x*x, reject equality, and simultaneously update (x,y) to (1-lambda*x,lambda*y) if upper or (lambda*x,lambda*y) otherwise. The first ten visit times are 2,8,20,44,92,188,380,764,1532,3068. Initial (2/3,1/125) gives 3,11,27,59,123,251,507,1019,2043,4091; (1/2,1/10) gives 1,6,16,36,76,156,316,636,1276,2556. No equality was encountered in those finite runs. The supplied checker was inspected as evidence, not run; finite trajectories do not establish the asymptotic or boundary-hit exclusion for all time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The revised proof treats a stable ghost orbit and its limit set in the parabolic example; it gives no growth or rounding estimate for its actual return times."
+        ],
+        "reasoning": "Set and stability conclusions do not supply a uniform bounded error for the recurrence, let alone all real p>1 under the stated separation condition.",
+        "searches": [
+          "arXiv:1108.1501v2 Proposition 4.2 and its proof",
+          "Resultary power-cusp sparse-switching searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification program",
+        "arXiv:1108.1501v1",
+        "arXiv:1108.1501v2",
+        "Resultary searches and nearest record identifiers listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof uses x_(n_k)<sqrt(lambda^(n_k)*y0) to show convergence of horizontal reset states, not a first-passage floor law.",
+          "The new clock needs the first strict crossing after contraction and the one-sided integer-height limit of its logarithmic term."
+        ],
+        "reasoning": "The rate and exact eventual arithmetic are not consequences of the cited attractor/ghost-orbit theorem alone. The same map is the input to a separate quantitative first-return analysis.",
+        "searches": [
+          "arXiv:1108.1501v1 Proposition 3.3 proof, pp. 13–14",
+          "arXiv:1108.1501v2 Proposition 4.2 proof, p. 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same parabolic branches and actual increasing visit sequence occur in v1 pp. 13–14; v2 pp. 7–8 presents the lexicographically indexed ghost orbit.",
+          "Recent Resultary cusp and residence-spectrum hits concern interval bifurcations or a tropical-mutation area ensemble, not these trajectories."
+        ],
+        "reasoning": "The ordinal omega^2 indexing of ghost states is not an asymptotic law for the natural-number branch-visit times. The qualitative repeated-visit statement is prior, not an alias for the quantitative result.",
+        "searches": [
+          "arXiv:1108.1501v1 Example 3.2 / Proposition 3.3",
+          "arXiv:1108.1501v2 Example 4.2 / Proposition 4.2",
+          "Resultary semantic queries for cusp-contraction return times and parabolic switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned indexed records: 2026/11/17/SCOPE-exact-power-law-residence-spectrum-at-the-parabolic-tropical-mut--36b9d4b36cff and 2026/11/22/SCOPE-a-variable-exponent-cusp-and-inevitable-high-degree-bistability--b9e8fc30adbd; neither describes this return clock.",
+          "The antecedent shows a finite trajectory plot, not a table of exact return offsets or a general identity."
+        ],
+        "reasoning": "The proposed invariant is an exact recurrence over real parameters and initial data, not a lookup of finite orbit times. The nearest indexed results and prior finite plot do not supply it.",
+        "searches": [
+          "Resultary semantic search for exact dyadic visit times, power-cusp switching and return spectra",
+          "arXiv:1108.1501v2 pp. 7–8, figure and proof"
+        ]
+      },
+      "rationale": "Credit the antecedent for the parabolic map, infinitely many upper visits and the ghost-orbit/omega-limit analysis. The supported distinct result is the quantitative actual-time law for general p and the eventual integer-affine clock at p=2. No equivalent statement or stronger result supplying this law was identified in the checked material.",
+      "residual_risks": [
+        "A bounded search does not exclude an equivalent first-return computation elsewhere in piecewise-contraction or switching-system literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the p=2 map and qualitative recurrence but not actual-time estimates",
+          "evidence": "Defines X1={y<x^2}, X2={y>x^2} and the two branches; proves the omega-limit description from the visits n_k and x_(n_k) tending to 0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.1501v1",
+          "material_read": "PDF pp. 13–14, Example 3.2 and Proposition 3.3, beginning near text offset 56377",
+          "method": "Lawful OA PDF, targeted passage inspection",
+          "title": "Beyond Periodicity for Piecewise Contracting Maps",
+          "trigger": "Same parabolic model in the earliest version"
+        },
+        {
+          "assessment": "Ghost indexing and stability are prior; no quantitative law for natural-number visits in the corresponding proof",
+          "evidence": "The return times used in the proof and the lexicographic omega^2 clock describe different objects; the plotted trajectory is finite.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.1501v2",
+          "material_read": "PDF pp. 7–8, Example 4.2 and Proposition 4.2; text near offsets 31974 and 34333–34682",
+          "method": "Lawful OA PDF, targeted passage inspection",
+          "title": "On the Asymptotic Properties of Piecewise Contracting Maps",
+          "trigger": "Frozen citation to the revised parabolic example and its ghost-orbit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This assigns a precise time scale to a known recurrent, nonperiodic switching example whose limit set does not specify visitation frequency. It isolates the cusp order from the contraction strength at leading order, gives a bounded counting error for every admitted orbit, and resolves the integer-height resonance rather than discarding it as exceptional.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:50:13.274318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66",
+        "Asai–Kubo–Kuo, arXiv:math/0104137, pp. 1–2, Theorem 1",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 9–81 (inspected, not executed)"
+      ],
+      "rationale": "Writing L−1 as a sum of indicators that a second label is in the tagged block, a contribution to (L−1)T requires a third, distinct label to be singleton. Merge the tagged pair and delete the singleton; the fixed-k count is S(n−2,k−1), and the two marginal operations give S(n−1,k) and S(n−1,k−1). Without conditioning the analogous three counts are B_(n−2), B_(n−1) and B_(n−1). The normalized Bell log-concavity inequality makes the unconditional bracket at most −n B_(n−1)^2/(n−1), strictly negative for n≥2. The binary Stirling formula gives the positive two-block numerator. With n−2 blocks, a triple or two pairs are the only possibilities, with positive counts A and D; their singleton counts and conditional tagged-size means differ by 1 and 2/n. The two-shape covariance is therefore 2AD/[n(A+D)^2]. Both formulas agree where the two strata coincide (n=4). At n=5 direct evaluation gives −345/676 unconditionally, 8/45 for K=2, and 12/125 for K=3. No intermediate sign is required.",
+      "residual_risks": [
+        "The frozen finite verifier does not prove the signs outside its range. The universal conclusion follows from the counting, the two exact specializations and the tested hypothesis of the cited Bell inequality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finding (1) in 6f80a2684078 gives all the needed size-class covariances for n≥k+2, k≥3. Its proof gives E(X_1X_s)=E(X_s)F_(k−1)(n−s), even at k=2 by marked deletion into a one-block partition.",
+          "The earlier indexed asymptotic hierarchy and Arratia–DeSalvo's total-variation approximation to the size profile in the n−k≈t√n regime do not give the exact all-n result.",
+          "Timashev's MathNet abstract confirms the exact model but indicates asymptotic analysis; the exact overlap is unresolved without full text."
+        ],
+        "reasoning": "The exact mixed profile data, rather than the one-crossing sign theorem or any approximate profile law, are the stronger relevant coverage. The deterministic fixed-k strata k=1,n−1,n contribute zero and need no sign theorem.",
+        "searches": [
+          "Resultary 6f80a2684078, Finding (1), proof (3) and marked-block deletion",
+          "Resultary e02b38cbb42b, fixed-density singleton–size-class asymptotics",
+          "Arratia–DeSalvo arXiv:1807.03926, Theorem 1.2",
+          "Timashev DOI 10.4213/dm201 and English DOI 10.1515/156939203322385919"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f80a2684078 and e02b38cbb42b",
+        "Asai–Kubo–Kuo arXiv:math/0104137",
+        "Gnedin–Pitman arXiv:math/0412494",
+        "Arratia–DeSalvo arXiv:1807.03926",
+        "Timashev DOI 10.4213/dm201 (abstract)",
+        "Frozen RESULT.md, lines 71–79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing (1) against s(s−1)/n yields the frozen Stirling identity: Σ_s s(s−1)binom(n,s)S(n−s,k−1)=n(n−1)S(n−1,k) by marking an ordered pair in a block; the mixed sum with F_(k−1)(n−s) similarly marks an additional outside singleton, giving n(n−1)(n−2)S(n−2,k−1).",
+          "At n−2 blocks, X_2=2−2X_3 and X_1=n−4+X_3 with X_3 binary; the weighted covariance is (2/n)Var(X_3), explicit from the same indexed mixed profile law. At k=2 the marked-deletion expression with F_1 reduces to the elementary binary Stirling evaluation. For the unconditional sign, the known Bell bound applies immediately after the analogous deletion and contraction count."
+        ],
+        "reasoning": "The main conditioned formulas and endpoints are direct evaluations of the stronger mixed information, not a coincidence of notation or sample size. The negative unconditional sign is a short separate Bell-bound consequence, not represented as an exact statement of the other indexed record.",
+        "searches": [
+          "6f80a2684078, equations (1), (3), and marked deletion",
+          "Asai–Kubo–Kuo, arXiv:math/0104137, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing X_s for the size counts gives E[L | (X_s)]=n^(-1)Σ_s s²X_s and T=X_1 in the identical uniform fixed-k model. Because Σ_s sX_s=n, Cov(L,T | K=k)=n^(-1)Σ_{s≥2}s(s−1)Cov(X_s,X_1 | K=k)."
+        ],
+        "reasoning": "Tagged block size is not a block count, but its mixed covariance with any profile statistic is the given linear functional of the profile covariances. No extra variance formula for X_1 is needed.",
+        "searches": [
+          "Local Resultary: 6f80a2684078, singleton–block dependence in fixed-block set partitions",
+          "Gnedin–Pitman, arXiv:math/0412494, finite-n Gibbs partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive indexed exact record uses formula (1) for the input mixed covariances; its parent model and constant F_1 are specified in the Finding. The second indexed record gives asymptotics, not such exact entries. OEIS retrieval yielded no table evidence."
+        ],
+        "reasoning": "Coverage comes from a formula valid across the natural parameter range, not from matching Bell/Stirling tables or a few covariance values.",
+        "searches": [
+          "Local Resultary: 6f80a2684078 and e02b38cbb42b",
+          "OEIS A000110 and A008277 (landing-page/unavailable results)"
+        ]
+      },
+      "rationale": "The exact conditional joint-moment contribution is covered by a distinct indexed record's marked block-count moment formula via size bias and linearity. The matched exact formula is stated for k≥3 and n≥k+2, covering the n−2 endpoint for n≥5 and the full nondegenerate interior. The same record's deletion identity, explicitly using F_1, also applies at k=2 without its stronger monotonicity theorem. No source was verified to state the combined unconditional-versus-extremes contrast verbatim; that does not recover originality for the frozen exact conditional contribution. This statement-level coverage does not assign priority between same-day records.",
+      "residual_risks": [
+        "Exact coverage within Timashev's full paper was not established. Older priority for the unconditional contrast is not settled. The same-day index dates establish neither direction of priority; the fail is grounded in demonstrable conditional implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material stronger coverage of the exact conditional statistic after profile aggregation; restrictions on the one-crossing theorem are not needed for deletion",
+          "evidence": [
+            "Cov(X_1,X_s)=binom(n,s)S(n−s,k−1)/S(n,k)·[F_(k−1)(n−s)−F_k(n)].",
+            "F_1(m)=1_{m=1}, with E(X_1X_s)=E(X_s)F_(k−1)(n−s) from a single marked deletion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-singleton-block-dependence-has-one-sign-transition-in-fixed-bloc--6f80a2684078/RESULT.md",
+          "material_read": "Finding (1), assumptions and marked-deletion step with (3), offset 0 through start of proof step 2",
+          "method": "Configured local Resultary search and bounded mirror read",
+          "title": "Singleton–block dependence has one sign transition in fixed-block set partitions",
+          "trigger": "Same fixed-k model and exact mixed profile count"
+        },
+        {
+          "assessment": "Different asymptotic scope, not the exact mixed law",
+          "evidence": [
+            "Treats Cov(X_1,X_j) in a fixed-density regime."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-conditional-singleton-size-class-covariance-has-a-sharp-hierarch--e02b38cbb42b",
+          "material_read": "RESULT.md Finding on fixed-density asymptotic covariances",
+          "method": "Local Resultary search and mirror read",
+          "title": "Conditional singleton size-class covariance has a sharp hierarchy",
+          "trigger": "Overlapping fixed-count partition statistics"
+        },
+        {
+          "assessment": "Verified input theorem, not a claim about mixed covariances",
+          "evidence": [
+            "Log-concavity of B_j/j! supplies B_nB_(n−2)≤nB_(n−1)^2/(n−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0104137",
+          "material_read": "pp. 1–2, identification with order-2 Bell numbers and Theorem 1 (OA offsets 0 and 6048)",
+          "method": "Bounded OA PDF text reads",
+          "title": "Bell numbers, log-concavity, and log-convexity",
+          "trigger": "Strict unconditional sign uses normalized Bell inequality"
+        },
+        {
+          "assessment": "Provides framework, not the exact covariance statement",
+          "evidence": [
+            "Uniform fixed-k partitions occur at finite n; their use does not require a consistent fixed-k family over n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0412494",
+          "material_read": "pp. 1–2, finite-n Gibbs construction (offsets 0 and 4488)",
+          "method": "Bounded OA PDF text reads",
+          "title": "Exchangeable Gibbs partitions and Stirling triangles",
+          "trigger": "General exchangeable model"
+        },
+        {
+          "assessment": "Related profile approximation, not the exact small-excess or all-n formula",
+          "evidence": [
+            "Theorem concerns total-variation approximations when n−k is of order √n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03926",
+          "material_read": "p. 2, Theorem 1.2 (offset 4474)",
+          "method": "Bounded OA PDF theorem read",
+          "title": "Arratia–DeSalvo, arXiv:1807.03926",
+          "trigger": "Plausibly stronger distribution of block-size profile near maximal K"
+        },
+        {
+          "assessment": "Plausible access risk, not negative evidence or the basis for the failure",
+          "evidence": [
+            "Abstract confirms the model and an asymptotic setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.4213/dm201",
+          "material_read": "MathNet abstract only; no primary paper passage retrieved",
+          "method": "Public abstract and lawful OA attempts at the original and English version (10.1515/156939203322385919)",
+          "title": "Random partitions of sets with a known number of blocks",
+          "trigger": "Same fixed-k uniform law; plausible prior moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and relationships to prior work",
+        "Resultary 6f80a2684078, Finding and marked-deletion proof",
+        "Asai–Kubo–Kuo arXiv:math/0104137, Theorem 1"
+      ],
+      "rationale": "Sensitivity to conditioning on the number of blocks is a natural question, but here the conditioned mixed invariant is a linear aggregate of already available exact profile covariances, and the extreme cases just evaluate that aggregate on the two-block and two-shape strata. The remaining unconditional sign is obtained by a single standard Bell inequality after elementary label counts. Juxtaposing the three signs is illustrative, but the record supplies no distinct conditional regime, structural dependence result or further precise unknown invariant beyond these evaluations.",
+      "residual_risks": [
+        "This is a judgment on the incremental result, not a denial that the sign contrast is useful for exposition. No claim is made about signs at other intermediate block counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

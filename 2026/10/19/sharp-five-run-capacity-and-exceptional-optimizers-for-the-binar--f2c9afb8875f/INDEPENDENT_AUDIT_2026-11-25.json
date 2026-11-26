@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:16:10.693044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4; VERIFICATION.md; verify.py inspected",
+        "Independent replay: python3 /workspace/reproductions/3.py; output /workspace/reproductions/3.txt"
+      ],
+      "rationale": "For the scattered pattern, every occurrence uses four strictly ordered runs. A five-run host either has an unusable leading 1-run or an unusable trailing 0-run; deleting it and padding a participating run strictly improves any positive count. At four runs the count is the product of their lengths, maximized by balancing the positive integer parts. In the proposed six-run host the second selected bit lies either in the inserted singleton 1 or in the following run of length b-1. Summing these two contributions leaves the gain (a-1)(b-1+d)-cd over abcd; the four balanced residues yield t^2-3t+1, t^2-t, t^2 and t^2-t, each strictly positive in its n>=9 range. I separately enumerated all compositions of n with both starting bits, counting by the middle two runs, and obtained unrestricted/restricted pairs (1,1), (2,2), (5,4), (9,8), (16,16) at lengths 4–8. The six-run witnesses 010101 and 0010101 achieve 5 and 9, respectively. This proves the claimed exact exception set, with no extrapolation or assertion of six-run global optimality.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Menon–Singh Corollary 4.2 is limited to targets with at most three runs; its following example treats alternating targets at one specific host length.",
+          "Barton's clumpy-host conclusion requires a clumpy target, whose repeated symbols must occur consecutively; 1212 does not qualify."
+        ],
+        "reasoning": "None of these hypotheses yields the capacity/equality classification across every n for the specific four-run target.",
+        "searches": [
+          "Menon–Singh §4 and concluding questions; Barton, Packing Densities of Patterns, §2"
+        ]
+      },
+      "checked_sources": [
+        "Menon–Singh, arXiv:2306.07870",
+        "Barton, EJC 11 R80",
+        "Resultary 04f933f8b9f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking alternating length ell=4 and host length ell+2 in Menon–Singh gives M_6>Q_6 directly, with the unique longer alternating optimizer.",
+          "The same substitution does not address n=7,8 or n>=9; the frozen proof requires a separate comparison with a balanced four-block product and supplies six-run witnesses."
+        ],
+        "reasoning": "Credit the actual corollary at six, not just antecedent motivation; the checked prior does not imply the complete threshold.",
+        "searches": [
+          "Compare frozen theorem with Menon–Singh §4, pp. 10–11 and Barton §2, p. 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 4's longer alternating host covers the n=6 comparison even if the initial bit differs under the relabeling.",
+          "Resultary record 04f933f8b9f9 treats 00101 and 01101: neither has the length/equality pattern of 0101."
+        ],
+        "reasoning": "Relabeling must not disguise the n=6 overlap, but cannot identify these five-letter targets with the four-letter target. The comparator is the all-length theorem, not just any example of a six-run maximizer.",
+        "searches": [
+          "Resultary: alternating/scattered binary 0101 optimizer and four-to-six-run packing",
+          "Menon–Singh arXiv:2306.07870, §4; binary 0101 = 1010 under complementation and 1212 under relabeling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest explicit catalogue profile: 04f933f8b9f9, mirrored Finding near offset 300, finite profiles through host length eight for 00101 and 01101.",
+          "No applicable exact profile was identified by the broad lookup; its noisy returns are not negative proof."
+        ],
+        "reasoning": "The finite data in the closest catalogue entry concern different targets and do not determine the maxima needed here or the all-length exclusion.",
+        "searches": [
+          "Local Resultary search for the binary scattered 0101 maximizing-count/optimizer profile and finite run threshold; broad literature lookup on binary 0101 subsequence count maxima and run structure"
+        ]
+      },
+      "rationale": "The length-six failure and its alternating witness are already in Menon–Singh, as the frozen text credits. The supported distinct result is the exact five-run capacity together with the complete finite exception set and explicit six-run improvements for every other length. The analogous published catalogue result treats different patterns, and the closest structural results compared do not supply this classification.",
+      "residual_risks": [
+        "No exhaustive priority claim; a stronger result in unindexed or inaccessible sequence/packing literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case coverage, not full classification",
+          "evidence": "For alternating targets of length ell>=4 and hosts of length ell+2, the unique optimum is the longer alternating host.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07870",
+          "material_read": "Section 4, PDF pp. 10–11, Corollary 4.2 and adjacent alternating-pattern discussion",
+          "method": "OA primary PDF passage",
+          "title": "Subsequence Frequency in Binary Words",
+          "trigger": "Same frequency statistic and run-constrained versus unrestricted optimizers"
+        },
+        {
+          "assessment": "Related, different targets",
+          "evidence": "Finite profiles through length eight for 00101 and 01101; a six-run optimizer for 00101 does not address 0101.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-first-four-run-subsequence-packing-split-in-binary-words--04f933f8b9f9",
+          "material_read": "Mirrored RESULT.md finding near offset 300",
+          "method": "Local Resultary search and mirrored original",
+          "title": "The first four-run subsequence-packing split in binary words",
+          "trigger": "Closest Resultary finite-profile and six-run optimizer hit"
+        },
+        {
+          "assessment": "Hypothesis excludes target",
+          "evidence": "Clumpy maximizers are guaranteed for clumpy targets, not for alternating repeated-symbol 1212.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r80/pdf/",
+          "material_read": "Section 2, PDF p. 6; extracted text near offset 16850",
+          "method": "OA primary PDF passage",
+          "title": "Packing Densities of Patterns",
+          "trigger": "Potential general structural optimizer theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen all-length comparison; Menon–Singh §4"
+      ],
+      "rationale": "The known alternating counterexample shows that matching the target's four runs can fail once. The reviewed theorem determines exactly when even a five-run budget fails, and shows that a six-run witness already certifies this obstruction at every nonexceptional length. The isolated return to equality at n=8 is part of a full structural boundary, not an arbitrary small-value census. The balanced-product formula alone is elementary; the value is its exact comparison to unrestricted packing.",
+      "residual_risks": [
+        "The result gives no guarantee that six runs suffice for an unrestricted maximizer at large lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

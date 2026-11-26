@@ -1,15 +1,21 @@
-# Scientific review: truncated-Gaussian first-zero onset
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The exact Gaussian-tail decomposition is checked against its error-function representation. The rescaled Laplace integral has an absolute remainder at most \(1/(4L^2)\) in the bracket, uniformly for all real frequencies; one differentiated estimate controls compact \(C^1\) convergence. A global full-Gaussian-versus-tail comparison excludes earlier zeros, while one full oscillation of the endpoint term guarantees a negative value within the claimed boundary layer. The elementary zero-geometry argument establishes the sole exceptional phase. Fixed-cutoff integration by parts establishes one simple zero in every sufficiently distant sine lobe. High-precision checks support, but do not substitute for, these arguments.
+## correctness
 
-## Originality
-**PASS with historical-access risk (self-review).** The closest full text is Lonke (2021), whose sector positivity already supplies \(|\xi|\le 2L\) as a zero-free band and whose error-function bounds inform part of the lower-tail comparison. Neither its proposition nor its proof constructs a first zero beyond that band or a logarithmic/phase-resolved onset law. Csordas (2013) treats entire Fourier-transform zeros through positive definite kernels, not this moving truncation limit. NIST DLMF Section 7.13 tabulates complex zeros of \(\operatorname{erf}\) and \(\operatorname{erfc}\), not zeros of \(\operatorname{Re}\operatorname{erf}(L+i\xi/2)\). Earlier partial material by Ross, Fiddy and Nieto-Vesperinas illustrates finite-Gaussian-transform zero geometry, and Tallis establishes truncated-normal moment transforms; their full texts were not available, so potentially unindexed equivalent asymptotics remain a substantive priority risk. No independence or exhaustive literature certification is asserted.
+PASS
 
-## Value
-**PASS (self-review).** Hard truncation is natural in Fourier windowing and compact-support probability kernels. The theorem determines a singular first-real-zero threshold on a logarithmically thin frequency scale, gives its complete leading oscillatory profile, and isolates an exceptional phase tangency. This distinguishes mere zero-free-sector bounds from the actual frequency at which cancellation begins. The result is an analytic asymptotic classification, not merely a numerical table or a routine finite-mode extrapolation.
+Subtracting the two Gaussian tails from the full Fourier transform gives the stated real-erf identity. With x=L+v/L the endpoint integral has remainder at most 1/(4L^2) in the bracket and partial-xi derivative O(L^-3), by the integrable v^2 and v^3 exponential bounds. Substituting the boundary coordinate y gives the factor sqrt(pi) exp(-y), amplitude 1/sqrt(2), phase shift pi/4 and the compact-uniform error, also for the y derivative. The Gaussian term dominates the global bound on both tails through y=-2 for large L; a point with cosine one between y=4 and 4+2pi is strictly negative. Thus the first zero is in a bounded y-window. Simultaneous profile and derivative vanishing require y=log(2sqrt(pi)) and theta=-y mod 2pi; the second derivative is 1 there. At that phase, to the left of this point twice the profile is exp(u)-cos(u)-sin(u)>0 for u>0. At every other phase the first profile zero crosses, and the global lower bound and uniform convergence exclude earlier zeros. There is no assertion of convergence at the exceptional phase. At each fixed L, integrating by parts in the exact formula for xi F_L and separately in its derivative provides eventual sine and cosine dominance, giving one simple zero per lattice neighborhood and only finitely many remaining zeros. The packaged check.py and check_output.txt were inspected, not rerun. Numerical examples are corroboration only; all decisive claims were checked analytically.
 
-## Scope and outstanding risks
-The first-zero result requires \(L\to\infty\); the phase-selected convergence excludes one explicitly characterized phase. No full classification of low real or complex zeros at fixed cutoff is claimed. The 1980 finite-Gaussian-transform treatment and the 1961 truncated-normal paper were accessible only in part, limiting historical priority assessment. The conclusions rely on a finite Gaussian tail and do not transfer automatically to smooth apodization or other window profiles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supportable distinction is the matched first-real-zero law and phase-selected first-zero limit with a single explicitly identified tangency of the limiting profile. The Gaussian transform identity, endpoint asymptotics as a method, the zero-free sector |xi|<=2L, and the elementary fixed-cutoff endpoint census are not the basis of this originality judgment. Neither the closest inspected special-function result nor the strongest related same-day indexed theorem covers the onset and phase selection for this hard cutoff. This is a bounded comparison, with a specific unresolved risk in earlier finite Fourier transform work.
+
+## value
+
+PASS
+
+This locates the first failure of the positive Gaussian Fourier profile caused by a sharp aperture. The moving first crossing is not captured by the classical fixed-aperture large-frequency census. The exact log-scale displacement, phase dependence, and isolated possible tangency describe quantitatively why a naive constant-offset or universally continuous phase limit is inadequate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

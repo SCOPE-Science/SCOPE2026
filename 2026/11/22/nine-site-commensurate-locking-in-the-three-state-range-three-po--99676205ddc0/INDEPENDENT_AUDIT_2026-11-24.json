@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:56:01.808330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md and verify.py inspected as text",
+        "Independent replay from /workspace: python3 checks/potts_tight.py; output checks/3.txt"
+      ],
+      "rationale": "For n≥7, clockwise offsets 1,2,3 cover each undirected interaction once. Each block of four consecutive sites is a clique and has at least one mono­chromatic pair; bonds at distances 1,2,3 are counted in 3,2,1 such blocks. Thus n≤3m1+2m2+m3≤3E/J. Equality is exactly the local condition that each four-site word has one equal pair and that pair is adjacent. I independently checked the finite transition graph on length-three overlaps by testing all 81 four-site words. The 18 allowed triples each have one predecessor and one successor, forming two disjoint directed cycles of length nine, with words 001220112 and its interchange of 1 and 2. For each n≥7, a named equality configuration with an indexed starting site is exactly a length-n closed walk in this tight graph: overlaps reconstruct the spins and all local conditions, without dividing by any rotation or color symmetry. This establishes the iff for all n, 18 distinct states for each multiple of nine, and the frozen description by three bad-bond phases and six color renamings. On that subsequence the energy density is J/3 and log(18)/n tends to zero. When 3 divides n but 9 does not, strictness and integrality give the claimed gap of at least J above the lower bound.",
+      "residual_risks": [
+        "The closed-walk classification proves equality and its degeneracy, not exact ground energies or degeneracies outside the commensurate subsequence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Glumac–Uzelac abstract and Introduction specify power-law couplings, finite-range scaling and critical behavior. The 1985 title specifies first and second neighbor interactions. The focused search also surfaced a finite-field Potts study on the square lattice, not the finite ring."
+        ],
+        "reasoning": "General transfer methods let one formulate this case but do not supply the radius-three equal-coupling bound and nine-site rigidity without a specific calculation. A study restricted to radius two or to a square lattice does not specialize to this ring. The unavailable 1985 full text is not evidence of noncoverage.",
+        "searches": [
+          "Tonegawa Kaburagi exact ground states three-state antiferromagnetic Potts chain finite-range third-neighbor interaction commensurate phases zero temperature",
+          "arXiv:hep-lat/9303016v1 and DOI 10.1143/JPSJ.54.4312"
+        ]
+      },
+      "checked_sources": [
+        "Primary and local-mirror passages cited above; publisher bibliographic title for the 1985 article only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antiprism uses distance-one and distance-two edges on 2n sites and gives minima 0,1,2 and a labeled degeneracy by residue modulo three. The long-range paper studies critical-temperature/exponent behavior."
+        ],
+        "reasoning": "The added distance-three edges alter both the tight local constraints and which periodic colorings close. Neither the radius-two exact result nor the long-range scaling statements yield the bound's equality criterion or the 18 named ground states here.",
+        "searches": [
+          "Mirror Findings and Assumptions of ba947c996866 and c18ef7eaf550; arXiv:hep-lat/9303016v1 Abstract and Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n≥7 there are 3n edges. The objective E/J is 3n minus the number of edges crossing the three labeled classes.",
+          "Resultary record c18ef7eaf550 instead uses disconnected induced triples in constructing a simplicial three-cut complex of cycle powers."
+        ],
+        "reasoning": "The equivalent cut claim is a maximum cut of size at most 8n/3 with equality iff 9 divides n and a classification of labeled maximizing partitions at equality. The same graph terminology in the topological record does not make its three-cut complex a maximum three-cut optimization.",
+        "searches": [
+          "Radius-three cycle powers and maximum three-cut of the third power of a cycle; Resultary searches for Potts, cycle powers, and maximum 3-cuts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "99676205ddc0 is the assigned record itself. Distinct local near matches concern radius-two antiprism frustration/degeneracy (ba947c996866) and a simplicial cut invariant (c18ef7eaf550)."
+        ],
+        "reasoning": "The closest distinct catalogue statements are not tables of the radius-three ground states. The search for matching period and state count found no independent exact table in the inspected results; this is not evidence that no table exists.",
+        "searches": [
+          "Local Resultary for radius-three Potts ground states and periodic cycle powers; public literature for third power of a cycle, maximum 3-cut and third-neighbor Potts"
+        ]
+      },
+      "rationale": "The accessible sources checked do not identify the equal-coupling radius-three antiferromagnetic equality cases. The closest local Potts result has interaction radius two, the available Glumac–Uzelac text compares long-range critical scaling, and the cited Tonegawa–Takasaki–Kaburagi paper is specified as radius two by its bibliographic title but could not be read in full. Priority of the exact all-size rigidity result is assessed on this bounded evidence.",
+      "residual_risks": [
+        "The closest cited 1985 study was not accessible in full; any extension there is untested. Less accessible or unindexed finite-range ground-state work could contain an equivalent result. No categorical priority inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different couplings and critical-behavior question",
+          "evidence": "Models decaying r^(-(1+σ)) interactions and studies finite-range scaling of phase boundaries and correlation-length exponents.",
+          "identifier_or_url": "https://arxiv.org/html/hep-lat/9303016v1",
+          "material_read": "Abstract and Introduction, HTML offsets 0–2987",
+          "method": "Lawful OA primary text passage inspection",
+          "title": "Critical behaviour of the 1D q-state Potts model with long-range interactions",
+          "trigger": "Finite-range transfer matrices for 1D Potts systems"
+        },
+        {
+          "assessment": "Title-level radius-two distinction, no full-text conclusion",
+          "evidence": "The title explicitly specifies finite field and first and second neighbors; attempted full-text routes were denied, failed, or returned a login page.",
+          "identifier_or_url": "https://doi.org/10.1143/JPSJ.54.4312",
+          "material_read": "Bibliographic title only; no verified full manuscript passage",
+          "method": "DOI, publisher/J-STAGE landing and PDF routes attempted lawfully, including alternate J-STAGE locale; no readable full text",
+          "title": "Exact Ground State of the Finite-Field Three-State Potts Model on the One-Dimensional Lattice with First and Second Neighbor Interactions",
+          "trigger": "Closest identified 1D exact ground-state article for the same number of colors"
+        },
+        {
+          "assessment": "Different interaction radius and equality theorem",
+          "evidence": "On 2n sites it uses cyclic distances 1 and 2 and gives exact minima and degeneracies classified modulo three.",
+          "identifier_or_url": "Resultary ba947c996866",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Residue-three frustration and quadratic ground-state multiplicity on an antiprism",
+          "trigger": "Very close exact Potts energy and labeled degeneracy classification"
+        },
+        {
+          "assessment": "Topological invariant, not a cut optimum",
+          "evidence": "Uses disconnected induced triples to define a simplicial complex and studies collapse and homology.",
+          "identifier_or_url": "Resultary c18ef7eaf550",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp Alexander-dual collapse for ordinary three-cut complexes",
+          "trigger": "Same cycle-power and three-cut keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scope and proof, and the independent tight-window classification",
+        "Radius-two antiprism comparison and long-range scaling study"
+      ],
+      "rationale": "The frustrated third power of a cycle is a natural uniform finite-range antiferromagnetic system. Its unavoidable positive defect density alone would not fix any commensuration period or count the minimizers. The proof explains why the bond pattern has period three but the named colors require period nine, and why the ground-state count is bounded and exact on infinitely many sizes. This is a structural conclusion, not extrapolation from a finite energy table.",
+      "residual_risks": [
+        "No classification of noncommensurate optimum states, positive-temperature transition, or infinite-volume phase claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

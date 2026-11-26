@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses Petrukhin's published S5 semantic clauses and establishes a structural induction for arbitrary modal depth. Every exceptional-status modality maps all-classical arguments to a fixed classical value. The two-world countermodel changes the designated component for each of the sixteen excluded targets while fixing the complete pointwise theory of the eight-modality sublanguage. The checker independently evaluates all truth and falsity clauses on the finite witness models; it is a consistency test, not a replacement for the induction.
+## correctness
 
-**Originality — PASS, subject to stated residual risk.** The version of record of Petrukhin (2026), Definition 6 and Hypothesis 13, explicitly formulates but does not settle the sixteen cases. Propositions 8–12 relate other presentations of the operators, and the paper's embeddings use necessity/possibility rather than only the exceptional-status language. The present all-eight-family separation is formally stronger than the hypothesis. Semantic searches and published-record comparisons did not reveal a covering statement; this does not establish universal novelty or exclude an unlocated proof. Odintsov–Skurt–Wansing (2019) concern broader FDE modal definability but not these exact 2026-indexed operators in the accessible abstract.
+PASS
 
-**Value — PASS.** The result supplies a complete resolution of a specific, explicitly formulated modal-definability question rather than a routine numerical observation. Its classical-subalgebra obstruction gives a reusable method for proving strong expressive separations among modal status operators, while the simultaneous eight-operator formulation resolves all sixteen cases without separate ad hoc construction.
+The t,f values are closed under all five pointwise propositional connectives, including the specified implication (T: T(A) implies T(B), F: T(A) and F(B)) and Boolean negation (the truth table swaps t,f). With a wholly classical operand everywhere, neither b,n nor their conflations occur. The published two-component semantic tests therefore make both b/n essence variants constantly t and both accident variants constantly f for each index. In particular the falsity clause for the complemented accident is true because every world avoids the conflated index; this is needed for the induction on arbitrary nesting. At a fixed root the entire restricted language depends only on the atomic values at that root. For a t/f/T/F target its exact-value or component test agrees with the corresponding classical test. Make that test true at the root for the plain variants and false for the complemented-test variants. The target essence is true in the constant model and false when the other world is flipped, and its accident counterpart reverses that truth bit. The falsity clauses also give the complementary classical bits in these cases. The models agree on every root atom, including extra variables, so the obstruction rules out even designated-truth-only definitions. A counterexample among universal two-world models suffices against a definition required on the entire S5 class.
 
-The conclusion is limited to the precise signature and universal-frame semantics stated in the result. Independent evaluation and comparison with any unpublished work are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The journal article explicitly poses the sixteen nondefinability cases as a hypothesis about each corresponding b/n pair; it does not supply this proof in the inspected hypothesis, neighboring propositions or comparison with the paper's richer language. The frozen result excludes simultaneous use of the eight operators at arbitrary depth and even rules out designated-bit agreement. The strongest inspected distinct catalogue result on the full 24-modal signature gives finite normal forms and preservation of classical values but not locality in the b/n fragment. The inspected older literature concerns different FDE modal systems. No covering result was established in these comparisons.
+
+## value
+
+PASS
+
+The result answers a specific published expressive-power question and makes the obstruction insensitive to mixing the exceptional-status families or weakening definability to truth designation alone. The two-world construction and induction explain why the defining language misses the remote-world dependence, rather than simply running a finite search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

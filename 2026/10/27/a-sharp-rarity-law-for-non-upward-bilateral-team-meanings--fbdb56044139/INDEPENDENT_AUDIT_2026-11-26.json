@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:38.141769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The semantic input is expressive completeness for weak ideals on the fixed labelled valuation domain, for support only. A nonempty finite weak ideal contains its union U by binary closure. Convexity then makes it an upset inside P(U), and every nonempty upset of P(U) has maximum U and is a weak ideal globally. The empty family counts once and is globally upward closed; the nonempty globally upward-closed families are exactly the layer U=V. This gives both counts including k=0. Dedekind numbers are nondecreasing by embedding upsets with extra coordinates ignored, so the tail from k≤N−2 is at most 2^N M_{N−2}. At even N the middle coefficients at N, N−1 and N−2 have successive ratios tending to 2 (the first ratio is exactly 2). The established estimate log₂ M_m∼binom(m,⌊m/2⌋) thus makes the log gaps of order B_N, which dominates N. This yields the first-order equivalents, the −B_N/2 logarithmic rate, and conditional probability N(M_{N−1}−1)/E_N→1. A separate exhaustive direct classification for N≤4 and arithmetic at N=8 reproduced the reported values (python3 /workspace/reproductions/frozen_checks.py 2). The N=8 check uses published Dedekind inputs, independently read in OEIS A000372; it is not a new enumeration of M_8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum-team representation and expressive completeness are established in Anttila–Knudstorp and explicitly transferred to BSL denotations by Aloni et al.",
+          "Jenssen–Malekshahian–Park review the stronger Dedekind estimates for the individual M_m. The later coatom-sphere theorem aab120a18afb identifies a coatom P(V\\{v}) for each v, not all weak ideals supported within V\\{v}."
+        ],
+        "reasoning": "The broad inputs cover the structural reduction and the M_m growth, not the relative sizes of the exceptional weak-ideal classes as a totality. Coatom status in the lattice of all properties is not the same as maximum-team cardinality inside one property.",
+        "searches": [
+          "arXiv:2503.21850, pp. 19–20, Lemma 3.2 and Theorem 3.5",
+          "arXiv:2610.15680v1, pp. 7–8, §3.1",
+          "arXiv:2411.03400v2, p. 1",
+          "Resultary aab120a18afb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.21850",
+        "arXiv:2610.15680v1",
+        "arXiv:2411.03400v2",
+        "OEIS A000372 and exact sequence query",
+        "Resultary b6bc8aa2674e, 24b7fe63d90e and aab120a18afb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior representation essentially gives the binomial-Dedekind sum once one separates the empty family. It does not by itself give the asymptotics.",
+          "The Dedekind log estimate evaluates each Boolean lattice; comparing dimensions and bounding all tails uniformly accounts for the one-omission equivalent. None of the inspected Census or coatom statements makes that relative-error comparison."
+        ],
+        "reasoning": "Credit the known ingredients and the immediate exact count; the new content assessed is the distribution law, which is not a specialization of a previously stated weak-ideal concentration theorem in the inspected sources.",
+        "searches": [
+          "Anttila–Knudstorp, Lemma 3.2",
+          "Jenssen–Malekshahian–Park, introduction",
+          "Resultary exact weak-ideal coatom and nearby census claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the complete fixed set of valuations, support-only BSL classes are exactly the weak ideals, equivalently convex union-closed collections of subsets. Nonempty ones are determined by a labelled maximum and a nonempty upset within it.",
+          "The one-letter modal-depth spectrum b6bc8aa2674e uses support plus antisupport and yields 39, 64 and 66 by depth; the two-variable record 24b7fe63d90e counts 3,938 convex meanings before taking orbits and does not require union closure."
+        ],
+        "reasoning": "The two numerical antecedents do not count the same objects. In the equivalent finite weak-ideal formulation, the claimed asymptotic concerns the fraction outside the full-maximum stratum, not a quotient by symmetries or a count of syntax.",
+        "searches": [
+          "Resultary: BSL support meanings, weak-ideal census, almost all convex union-closed families",
+          "arXiv:2503.21850, Lemma 3.2; arXiv:2610.15680v1 §3.1",
+          "Resultary b6bc8aa2674e and 24b7fe63d90e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000372 lists M_0 through M_8 with M_8=56130437228687557907788, matching every needed input; it counts upsets, not weak ideals.",
+          "The query for the initial weak-ideal totals 2,4,11,42,283 returned no sequence. The materially related Resultary numeric counts concern other equivalence relations or lack union closure."
+        ],
+        "reasoning": "The table supplies known summands and checks the finite arithmetic. The absence of a returned transformed sequence is bounded search evidence, not a claim of absence, and the novelty judgment is not based on the numbers alone.",
+        "searches": [
+          "OEIS A000372, offset 355",
+          "OEIS exact sequence query 2,4,11,42,283",
+          "Resultary: exact finite weak-ideal census and exceptional support counts"
+        ]
+      },
+      "rationale": "Credit the prior weak-ideal semantics, maximum-team representation, and Dedekind estimates in full. The exact census is a direct enumeration using that representation. The distinct contribution supported here is the quantitative BSL rarity law as a synthesis: a relative-error equivalent for the entire exceptional count, a logarithmic exponent, and concentration of the defect on the one-omission layer. It requires connecting and controlling the strata, not just quoting the estimate for a single Boolean lattice. None of the inspected statements already gives or dominates that quantitative conclusion; historical priority is not certified.",
+      "residual_risks": [
+        "An older enumeration or concentration law for finite convex union-closed set families under other terminology could subsume the synthesis. Ranked searches are bounded; the cited Dedekind Project page was not inspected in full, but the required entries are independently verified in A000372."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural antecedent, not a stated rarity law",
+          "evidence": "Lemma 3.2 represents a nonempty convex union-closed property by intervals ending at the union of that property. Theorem 3.5 establishes the corresponding propositional expressive completeness.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.21850",
+          "material_read": "pp. 19–20, Lemma 3.2 and Theorem 3.5; related Theorem 3.7 at p. 22",
+          "method": "Open primary PDF passages",
+          "title": "Convex Team Logics",
+          "trigger": "Same finite convex union-closed objects"
+        },
+        {
+          "assessment": "Direct semantic basis",
+          "evidence": "This section states both that BSL denotations are weak ideals and that every weak ideal is the denotation of a BSL formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15680v1",
+          "material_read": "§3.1 pp. 7–8, offsets 26862 and 32513",
+          "method": "Open primary PDF passages",
+          "title": "Teams, Truthmakers, Translations",
+          "trigger": "Exact BSL denotations in the claimed quotient"
+        },
+        {
+          "assessment": "Dedekind asymptotic input, not a BSL result",
+          "evidence": "The introduction gives the established leading logarithmic estimate and discusses sharper estimates and known exact terms.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.03400v2",
+          "material_read": "Introduction p. 1, offset about 3800",
+          "method": "Open primary PDF passage",
+          "title": "On Dedekind's problem, a sparse version of Sperner's theorem, and antichains of a given size in the Boolean lattice",
+          "trigger": "Input asymptotics for the count of upsets"
+        },
+        {
+          "assessment": "Exact input table confirmed, not the proposed derived spectrum",
+          "evidence": "The sequence starts at n=0 with 2, lists the exact quoted values through n=8 and identifies the objects as upsets.",
+          "identifier_or_url": "https://oeis.org/A000372",
+          "material_read": "Opening data and comments, offsets 355–1653",
+          "method": "Public sequence page",
+          "title": "Dedekind numbers",
+          "trigger": "Exact M_0 through M_8 and convention for empty families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform sampling of labelled semantic classes has a well-defined distribution independent of syntax or a choice of formula length. The probability statement is more informative than the census alone: the logic admits non-upward meanings, they occupy an asymptotically vanishing fraction at an explicit rate, and almost all exceptions have precisely one missing valuation in their largest supporting team. These are useful facts about the semantic space; they do not imply analogous syntactic or full bilateral sampling laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

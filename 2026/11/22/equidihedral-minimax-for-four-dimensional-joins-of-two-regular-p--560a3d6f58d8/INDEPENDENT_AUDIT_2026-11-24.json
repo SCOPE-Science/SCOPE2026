@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:36:44.043936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polar of the orthogonal free sum is the product of the polygon polars, with vertices given by pairs of outward edge normals divided by their polygon inradii. Every product edge changes exactly one factor; there are mn edges of each type, dual to distinct primal ridges even if the angle values coincide. With u=pi/m, v=pi/n, U=(a cos u)^(-2), V=(b cos v)^(-2), the primal exterior-angle cosines are 1-2t sin²u and 1-2(1-t) sin²v for t=U/(U+V). The interior angle pi-arccos(C) increases in C. The larger cosine is minimized at the unique interior crossing, t=sin²v/(sin²u+sin²v), giving the displayed minimax and a/b=tan u/tan v. The allowed t are exactly (0,1); uniqueness is up to overall scale. Unit radii balance the angles precisely when m=n. The inspected code checks normal dot products on five order pairs and three radii ratios, not the universal statement or independent recognition of facets; it was not executed. The argument and theorem are restricted to centered regular polygons in orthogonal planes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product and skew-product angle-sum results do not optimize a largest individual angular separation in the polar.",
+          "The antiprism varies height over radius with parallel rotated bases; the bipyramid varies apex heights above a polygon in three dimensions."
+        ],
+        "reasoning": "Neither class contains the centered orthogonal four-dimensional free sums, and the angle-sum results do not imply the radius ratio or uniqueness.",
+        "searches": [
+          "Korotov–Vatne §§2, 3.2",
+          "Resultary dihedral minimax: 12f724b4a957, f1951a545e4b"
+        ]
+      },
+      "checked_sources": [
+        "Medgyes arXiv:2611.14674v1 and arXiv:2611.10078v1",
+        "Korotov–Vatne DOI 10.1007/s00022-024-00732-7",
+        "Resultary 560a3d6f58d8, 39bb61329a2e, 0fcd3e8e3622, 12f724b4a957, f1951a545e4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The volume theorems specify unit-circumradius pentagon–pentagon and square–pentagon free sums as extremizers. The indexed probabilities concern spherical measures at primal vertices, at fixed unit radii."
+        ],
+        "reasoning": "These results provide the example polytopes and motivation but neither provide nor constrain the competing ridge cosines as the radii vary. The present conclusion compares different radius ratios and shows why the unequal-order volume optimizer is not angle balanced.",
+        "searches": [
+          "Medgyes arXiv:2611.14674v1 Theorem 4.5; arXiv:2611.10078v1 Theorems 5.1 and 7.1",
+          "Resultary 0fcd3e8e3622"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A primal 2-ridge in dimension four corresponds to a polar edge, whose chord angle is measured at the polar origin. Theorem 1 of Korotov–Vatne instead sums interior dihedral angles at ridges of the Cartesian product."
+        ],
+        "reasoning": "Passing from the free sum to the product interchanges the relevant face dimensions; a product ridge angle is not the angular separation of the endpoints of a product edge. No equivalently stated minimax was identified.",
+        "searches": [
+          "orthogonal polygon join / centered regular polygon free sum / polar product literature comparison",
+          "Korotov–Vatne DOI 10.1007/s00022-024-00732-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "560a3d6f58d8 is the identical assigned record, not separate coverage. Distinct same-date 39bb61329a2e computes ridge geometry of a signed-simplex hull, and 0fcd3e8e3622 treats vertex normal-cone probabilities of unit-radius free sums."
+        ],
+        "reasoning": "The strongest exact hit is a self-match; the distinct entries do not supply the two-variable angle optimization. No numerical table could establish the universal unique minimizer by its values alone.",
+        "searches": [
+          "Resultary semantic lookup for orthogonal regular polygon free-sum dihedral minimax"
+        ]
+      },
+      "rationale": "The strongest inspected same-geometry results concern inscribed volume or vertex normal-cone probabilities. The strongest minimax analogues concern other feasible families. The product-angle literature concerns a different face dimension after duality. The bounded comparison supports the distinct radius minimax and its sharp equality classification, not novelty of polarity or of the volume-extremizer geometry.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison does not exclude a differently indexed free-sum or polar-chord minimax theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the antecedent volume optimum only.",
+          "evidence": [
+            "The inscribed maximizer is uniquely the two orthogonal regular pentagons."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14674v1",
+          "material_read": "Theorem 4.5, extracted-text offset 28300",
+          "method": "OA HTML passage",
+          "title": "The inscribed 4-polytope of maximal volume with ten vertices",
+          "trigger": "same regular pentagon–pentagon join"
+        },
+        {
+          "assessment": "Gives volume comparison, not a minimax for angles.",
+          "evidence": [
+            "Theorem 7.1 identifies the square–pentagon volume maximizer; Theorem 5.1 bounds volume within specified joins."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.10078v1",
+          "material_read": "§5 Theorem 5.1, offset 53700; §7 Theorem 7.1, offset 59600",
+          "method": "OA HTML passages",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "same square–pentagon example and wider join comparison"
+        },
+        {
+          "assessment": "Different face dimensions and objective.",
+          "evidence": [
+            "Theorem 1 expresses the product sum as the sum of factor dihedral sums plus a right-angle mixed term. Theorem 3 bounds a skew-product sum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00022-024-00732-7",
+          "material_read": "Abstract and §2 Theorem 1 (PDF pp. 1, 4–5); §3.2 Theorem 3 (pp. 10–11)",
+          "method": "OA PDF passages",
+          "title": "On dihedral angle sums and number of facets for product polytopes",
+          "trigger": "potential broader coverage after polarity"
+        },
+        {
+          "assessment": "Self-match excluded; other claims differ.",
+          "evidence": [
+            "The simplex hull varies dimension and not the two polygon radii; the cone measure is at vertices of unit-radius free sums."
+          ],
+          "identifier_or_url": "Resultary 560a3d6f58d8, 39bb61329a2e, 0fcd3e8e3622",
+          "material_read": "Findings, including the mirrored assigned and simplex-hull RESULT.md initial passages",
+          "method": "local catalogue and primary record comparison",
+          "title": "Orthogonal free-sum and simplex-hull catalogue records",
+          "trigger": "exact and same-object or same-invariant hits"
+        },
+        {
+          "assessment": "Analogues, not dominating families.",
+          "evidence": [
+            "The fitted scales are antiprism height/radius and apex heights in a bipyramid, respectively."
+          ],
+          "identifier_or_url": "Resultary 12f724b4a957, f1951a545e4b",
+          "material_read": "indexed statements of the fitted families and objectives",
+          "method": "local catalogue comparison",
+          "title": "Equidihedral minimax for regular antiprisms and bipyramids",
+          "trigger": "possible stronger minimax analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exactly resolves angular balancing in the natural orthogonal regular-polygon family that occurs in sharp inscribed-volume problems. Both the unique scale and optimal maximum are useful: they distinguish the two known volume-extremizing examples and show concretely when the equal-radius volume geometry can fail the angle objective. The contribution is the complete restricted optimum and ridge census, not the standard product-polar identity or a claimed global four-polytope optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

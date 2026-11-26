@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:25.648201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For shore sizes a,b and intersection c, the edge count ab−c exceeds a+b−1 for a,b≥3 or a=2,b≥4 and its transpose. The remaining cyclic exceptions are exactly disjoint 2-by-2 index sets and 2-by-3 sets with intersection smaller than two. Full containment in 2-by-3 gives a path; a nonempty overlap in 2-by-2 gives a path or a matching and permits extension to 2-by-3. Empty or singleton shores extend to (1,n), which is maximal precisely for n≥4; any acyclic 2-by-3 set is maximal. Counting these cases gives both polynomials, including M_3=6z^5 and M_4=32z^5. Complementation reverses inclusion and transforms sizes k to 2n−k, including 32z^3 at n=4. Simultaneous index permutations and shore interchange act transitively; two same-shore vertices have a common neighbor and the graph is regular and connected. Independent degree-at-most-one peeling of every vertex subset for n=3,…,7 reproduced the polynomials; the classification proves all n. Replay: python3 /workspace/branches/independent_finite_checks.py 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 record counts forests by vertices and components for K_{p,q} with a matching of size t removed.",
+          "Ghalavand–Li Theorem 2.1 gives forest number n+1 for balanced bipartite graphs of order 2n with minimum degree at least n/2+1."
+        ],
+        "reasoning": "Taking p=q=t=n and setting the component variable to one gives F_n. The minimum-degree theorem applies to crowns for n≥4 but only gives the scalar maximum, not the inclusion-maximal spectrum; that stronger overlap comes from October 18.",
+        "searches": [
+          "2026/10/12/SCOPE-bivariate-induced-forest-enumerator-of-matching-deleted-biclique--373532fcf326",
+          "arXiv:2501.05145 Theorems 2.1 and 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof; supplied verification and checker read",
+        "Resultary October 12 and October 18 exact Finding passages",
+        "arXiv:2501.05145 Theorems 2.1 and 2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two complete classification cases, boundary n=3, coincident degrees n=4 and unbounded gap are recovered exactly from the indexed October 18 finding."
+        ],
+        "reasoning": "Previously recorded statements cover every substantive conclusion. The new univariate presentation and standalone check do not supply a distinct refinement.",
+        "searches": [
+          "2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696, Finding",
+          "arXiv:2501.05145 Theorems 2.1 and 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 record gives F_n(u,v) and M_n(u,v) by shore sizes and the same exact complement polynomial."
+        ],
+        "reasoning": "Specialize u=v=z. Vertex complementation is the same involution relating maximal induced forests and minimal feedback sets, so the change of formulation adds no new statement.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696, Finding",
+          "Resultary: 2026/10/12/SCOPE-bivariate-induced-forest-enumerator-of-matching-deleted-biclique--373532fcf326, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding explicitly records 6 maximal forests at n=3, 2n of singleton/full-shore type and n(n−1)(n−2) of nested 2-by-3 type for n≥4, the same feedback-set polynomial, and the same support {5,n+1} and omitted sizes 6,…,n for n≥6."
+        ],
+        "reasoning": "This is exact all-parameter coverage, not a table of corroborating small instances.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696, Finding"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary finding states the stronger shore-graded enumerators, the same maximal-set classification, the identical minimal-feedback polynomial and the identical support gap. A second earlier finding covers the all-forest enumerator with a component refinement on a larger graph family. This is demonstrable coverage in the indexed record, not a claim about worldwide priority.",
+      "residual_risks": [
+        "This comparison establishes indexed coverage, not external publication priority; a wider literature search cannot negate this exact overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire finding; shore grading is stronger.",
+          "evidence": [
+            "F_n(u,v), M_n(u,v); nested-index (2,3) and (1,n) types; feedback-set polynomial and gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+          "material_read": "Finding, offset 280",
+          "method": "Local mirror, statement comparison and specialization",
+          "title": "Acyclic and maximal-forest polynomials of crown graphs",
+          "trigger": "Same graph and maximal-forest invariant"
+        },
+        {
+          "assessment": "Covers the all-forest polynomial; its maximum counts alone do not cover all maximal sets.",
+          "evidence": [
+            "Phi_{p,q,t}(x,y) on matching-deleted K_{p,q}; take p=q=t=n and y=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-bivariate-induced-forest-enumerator-of-matching-deleted-biclique--373532fcf326/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, specialization of graph and grading",
+          "title": "Bivariate induced-forest enumerator of matching-deleted bicliques",
+          "trigger": "Same forest invariant under broader matching deletion"
+        },
+        {
+          "assessment": "Scalar and shore restrictions on maximum forests, not the complete classification.",
+          "evidence": [
+            "Minimum degree ≥n/2+1 implies forest number n+1; n−1 meets this threshold for n≥4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.05145",
+          "material_read": "Theorems 2.1 (p. 3) and 2.3 (p. 5)",
+          "method": "Open PDF, bounded theorem read",
+          "title": "On Maximum Induced Forests of the Balanced Bipartite Graphs",
+          "trigger": "Known maximum forest size on dense balance-bipartite graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An unbounded gap in inclusion-maximal forest sizes in a vertex-transitive bipartite family is a meaningful structural phenomenon, but it and the complete classifications are already supplied by the October 18 record. The remaining one-variable specialization and routine complement enumeration do not furnish independent mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

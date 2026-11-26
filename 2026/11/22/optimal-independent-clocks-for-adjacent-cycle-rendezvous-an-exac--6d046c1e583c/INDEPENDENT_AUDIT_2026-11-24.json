@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:21:16.054590Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–89",
+        "VERIFICATION.md lines 19–23",
+        "CHECK.py lines 18–60"
+      ],
+      "rationale": "The difference walk has eigenvalues (1−p+p cos θ_k)². The Fourier Dirichlet solution with value zero at 0 has numerator 1−cos(xθ_k); at separation one it cancels the corresponding factor in 1−λ_k. Aliasing the absolutely convergent Poisson series for (2−p+p cos θ)^(-1) onto multiples of n gives the signed parity factor and the k=0 subtraction −1/(2p). Summands 1/(2p−a_k p²) have positive second derivative. At p↓0 the mean diverges; at p=1 for even n parity is invariant and rules out meeting. For odd n, division by 2 mod n maps the relative walk to a half-lazy nearest-neighbor walk starting at distance coordinate (n±1)/2, with mean 2x(n−x)=(n²−1)/2. The general interior bound at p=2/3 beats this for odd n≥5; the explicit triangle mean does so for n=3. Uniformly near p₀=2/3 the closed form has exponentially small parity error (also after differentiation), giving H′=nG′+1/(2p²)+O(n²ρ^n). The derivative sign brackets the optimizer, and G″(p₀)=81√3/16 gives the stated displacement and mean with their remainders. The event T≥t is determined before tick t and independent of that tick's move count; summing its expected reward gives 2pH. Differentiating then proves strict increase and the unattained limit n−1. Independent checks solved the killed chain rationally for 3≤n≤8 at four rational probabilities each and checked n(2/3−p_n) towards 2√3/27 by derivative bisection for n through 1920. Replay and output: /workspace/branches/47465195-6b34-4c40-b915-ab68e89b7c95/independent_check.py and independent_check.log in that directory. The frozen CHECK.py was read, not run.",
+      "residual_risks": [
+        "Both walks use independent trials with the same move probability, fixed adjacent start and endpoint-only observations. The finite computations corroborate the formulas but not strict convexity or asymptotic bounds on their own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Tan–Krishnamachari directly uses the relative chain and a spectral inverse-gap sum for uniform initial separation.",
+          "The frozen record attributes symmetric Markovian optimization and convexity on cycles to Alpern–Gal; §15.4.1 was not recovered independently.",
+          "Alpern–Zeng's Proposition 3 studies gathering of three agents on C_3 and refers to the 1995 two-agent work."
+        ],
+        "reasoning": "The relative-chain and standard Dirichlet/Fourier machinery generalize; substituting separation one gives a natural spectral specialization. A uniform-start mean alone lacks the separation-one numerator and does not provide the quantitative clock optimum and total-jump objective.",
+        "searches": [
+          "arXiv:1408.2005, §2.2.1 Theorem 1 and equations (16)–(17), §2.2.2",
+          "Alpern–Gal DOI:10.1007/b100809, §15.4.1",
+          "Alpern–Zeng DOI:10.1007/s13235-022-00427-1, §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 001e879932da",
+        "arXiv:1408.2005",
+        "DOI:10.1007/s13235-022-00427-1",
+        "Alpern (1995) index/abstract; Alpern–Gal chapter not recovered"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed adjacent start contributes precisely the spectral factor canceling 1−cos θ_k, unlike the known uniform-start sum. Summing the resulting series and dropping the zero mode gives a nonzero constant correction −1/(2p)."
+        ],
+        "reasoning": "Give credit to the classical spectral method: the cancellation is its specific adjacent-start application. Obtaining the interior optimum for both parities, extracting the shift from the zero-mode subtraction, and optimizing a different expected reward are not statements entailed by the inspected random-start asymptotics or bipartite optimizer.",
+        "searches": [
+          "Zhang–Tan–Krishnamachari §2.2.1 equations (16)–(17)",
+          "Resultary 001e879932da Finding",
+          "Alpern (1995), §5 as cited by Alpern–Zeng §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct Resultary record 001e879932da uses a common holding probability, opposite-part start on K_{a,b} and cube-root asymptotics.",
+          "Alpern's abstract/index describes the discrete cycle for symmetric Markovian strategies with randomly placed players in the general formulation; the full text was not accessible."
+        ],
+        "reasoning": "The mapping hold=1−p changes no substantive claim, but the complete bipartite graph and asymptotic regime do. A random start is not the separation-one boundary condition on a general cycle. The assigned item itself is not independent comparison evidence.",
+        "searches": [
+          "Resultary: adjacent-start independent cycle rendezvous and common-clock optimum",
+          "Resultary: exact mean rendezvous and laziness transition",
+          "Alpern (1995) DOI:10.1137/S0363012993249195"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite cycle examples are reported by the frozen record for the Alpern–Gal chapter; that table or text was not independently checked.",
+          "The directly read Alpern–Zeng three-agent triangle optimum uses hold 1/3, i.e. move 2/3; this matching number is not a two-agent check. That paper also treats three-agent gathering on C_5.",
+          "The triangle in the frozen finding is explicitly not claimed new."
+        ],
+        "reasoning": "A matching p for n=3, whether observed for a different objective or derived directly from the two-agent chain, cannot establish the all-size sequence or its n^(-1) coefficient. No read table matches the full adjacent-start time and move comparison.",
+        "searches": [
+          "Resultary: exact cycle meeting times and mean rendezvous optimizer",
+          "Alpern–Gal §15.4.1, cited finite cycle examples",
+          "Alpern–Zeng §§4.1, 4.2 and 5.1"
+        ]
+      },
+      "rationale": "Pass for the fixed-adjacent all-size optimization with explicit finite-size correction and opposing move-count objective, not for the relative-chain/spectral machinery, generic convexity method, or triangle optimizer. The strongest available Fourier comparison averages over initial separations. The closest exact cycle-strategy source, Alpern (1995), and the cited Alpern–Gal chapter remain material priority risks because their decisive pages were not recovered independently. The frozen Alpern–Zeng characterization is imprecise: its cited triangle optima are for three-agent objectives, and it points to Alpern (1995), §5 for the two-agent rendezvous problem. The independent evidence supports the distinct quantitative finding; it does not certify historical priority.",
+      "residual_risks": [
+        "The 1995 paper and 2003 chapter may contain closer adjacent-start computations than can be checked from the available excerpts. No negative inference from access failures was used.",
+        "A specialized earlier optimizer correction or move accounting result may remain uninspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related question but different graph, start and asymptotic result",
+          "evidence": "Start in opposite parts on K_{a,b}, with unique optimizer and cube-root scaling rather than adjacent-cycle correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-mean-rendezvous-times-and-a-cube-root-laziness-transition--001e879932da",
+          "material_read": "RESULT.md Finding, starting at offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact mean rendezvous times and a cube-root laziness transition",
+          "trigger": "Closest distinct common-clock rendezvous optimization record"
+        },
+        {
+          "assessment": "Material unresolved coverage risk",
+          "evidence": "General random-placement description and cycle result; official route returned 403 and Warwick was a landing page. Cannot rule out an adjacent-start subcase.",
+          "identifier_or_url": "https://doi.org/10.1137/S0363012993249195",
+          "material_read": "Publisher/index abstract-level descriptions; no full text",
+          "method": "Direct lawful publisher and Warwick access attempts",
+          "title": "The Rendezvous Search Problem",
+          "trigger": "Closest earlier symmetric Markovian cycle rendezvous result"
+        },
+        {
+          "assessment": "Reported relevant overlap; contents beyond the attribution remain unresolved",
+          "evidence": "Random initial placement is reported in the frozen record, not independently established from the unavailable chapter.",
+          "identifier_or_url": "https://doi.org/10.1007/b100809",
+          "material_read": "No original chapter passage recovered; frozen RESULT.md line 99 credits it",
+          "method": "Lawful DOI and chapter preview attempts",
+          "title": "The Theory of Search Games and Rendezvous",
+          "trigger": "§15.4.1 reportedly optimizes common clocks and reports finite examples"
+        },
+        {
+          "assessment": "Methodological coverage; displayed formulas are for uniform start",
+          "evidence": "Relative kernel M=PPᵀ and inverse-gap sum under uniform initial distribution; Θ(N²) for the simple walk in §2.2.2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2005",
+          "material_read": "§2.2.1 Theorem 1 and equations (16)–(17), PDF pp. 3–4 offsets 2800–9276 and 9000–13944; §2.2.2 p. 5 from offset 14350",
+          "method": "OA primary text",
+          "title": "On the Meeting Time for Two Random Walks on a Regular Graph",
+          "trigger": "General circulant Fourier meeting-time method with independent moves"
+        },
+        {
+          "assessment": "Does not directly establish two-walker triangle optimum; points to Alpern (1995)",
+          "evidence": "Three-agent distancing and gathering on C_3 and three-agent gathering on C_5; §4.2 cites previous two-agent work in Alpern (1995), §5.",
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s13235-022-00427-1.pdf",
+          "material_read": "§§4.1–4.2, Propositions 2–3, pp. 295–296 offsets 22200–27353; §5.1 p. 303 from offset 44450",
+          "method": "OA publisher PDF",
+          "title": "Social Distancing, Gathering, Search Games: Mobile Agents on Simple Networks",
+          "trigger": "Cited triangle optimum and larger-cycle comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§3–5",
+        "Zhang–Tan–Krishnamachari §2.2",
+        "Resultary comparison 001e879932da"
+      ],
+      "rationale": "Fixed adjacent start is a natural local benchmark, distinct from a uniform-start quadratic-time search. The exact parity-sensitive formula explains an order-n optimized time and supplies a finite-size correction; the strictly conflicting movement objective shows why optimal calendar time does not optimize actual activity. The joint quantitative comparison is useful beyond the routine spectral reduction and the small-cycle examples.",
+      "residual_risks": [
+        "The optimum is not asserted for arbitrary starting separation, unequal/adaptive clocks, coordination, or mid-edge meetings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is all integers \(a,b\ge1\), \(m\ge2\) for the complete deterministic residue-output Moore machine counting positional scattered \(0^a1^b\) subsequences. The proof separately establishes the least binomial-vector zero-count period, injectivity of its phase representation, full affine-module accessibility, and output distinguishability by a finite family of pattern suffixes. In particular, the positive-word realization of inverse affine maps follows from their invertibility on a finite set; no inverse input letters are presumed. The prime-power valuation argument handles composite moduli. The independent finite checkers reproduced all claimed small cases and direct positional counts; no finite test is used to infer the unbounded statement.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest exact predecessor for \(0^a1\) already has \(mP_a(m)\) states, and the \(0011\) predecessor already has \(m^3\gcd(m,2)\) Moore states. Both are the corresponding specializations of the new all-parameter formula; neither known special case is presented as new. Neither inspected proof gives unrestricted terminal-one length \(b\), while the new result proves that each such letter contributes exactly one independent \(\mathbb Z/m\mathbb Z\) state coordinate. The 2024 generalized Parikh-matrix paper and the 2026 XNFA paper were inspected in available full text; they provide representation and complexity contexts rather than this exact orbit classification. The 2026 Parikh-matrix universality paper and a 2011 trie-automaton paper could not be inspected completely; their abstracts do not assert this result, but unknown implicit coverage remains a limitation. Search absence is not treated as an absolute proof of novelty.
+PASS
 
-## Value — PASS
-Counting arbitrary scattered occurrences by automata is natural, but the **minimum deterministic memory** for retaining residues is a distinct structural invariant. The theorem determines that invariant for an entire two-parameter pattern family and every modulus, exhibiting the sharp contrast between prime-power staircase growth in the first run and multiplicative \(m\)-growth for every added symbol in the last run. This gives a concrete compression and reachability theorem, not a mere recomputation of an isolated instance or an arbitrary finite census.
+For the zero-run binomial vector, Vandermonde gives the period condition binom(T,j)=0 mod m for 1<=j<=a; necessity from a shift-period of just binom(r,a) follows by evaluating the difference in the binomial basis at r=0,...,a-1. For each p^e dividing m exactly, let h=floor(log_p a) and v=v_p(T). If v>=e+h, binom(T,j)=(T/j)binom(T-1,j-1) suffices for all j. Otherwise, when v<=h the coefficient at j=p^v is nonzero mod p by the base-p digit at v; when h<v<e+h the coefficient at j=p^h has valuation v-h since the low h digits of T-1 are all p-1. This proves the claimed period P. If vectors at r and s coincide, triangular Vandermonde induction forces all the coefficients for T=s-r to vanish, so the phases are distinct. On the degree-1-through-b coefficient module Y, returning the zero count to its fixed phase while appending one 1 realizes F_0(Y)=(1+X)Y and F_1(Y)=(1+X)Y+X, by choosing intermediate phases corresponding to 0 and a. These are permutations, so their inverses are realized by positive powers. F_1 F_0^{-1} translates by X; conjugates translate by X(1+X)^j for j=0,...,b-1. Their coefficient matrix is triangular with diagonal 1, yielding every Y over the residue ring, even over composite m. Advancing by zeros then realizes each phase. For two vectors, choose the highest differing prefix coordinate j and append the target tail of length a+b-j. Smaller differences cannot reach the output in that many symbols, larger differences are zero, and the j-th difference advances along one matching path with coefficient 1. Thus every phase-coefficient pair is distinguishable for the Moore output. At m=2 it also separates either Boolean residue class. Independent BFS and refinement on the uncompressed prefix-vector recurrence agreed on 101 bounded parameter triples, including composite moduli. Replay: `python3 /workspace/branches/review_checks.py 4`.
 
-## Sources and limits
-Closest exact statements: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330 and https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-moore-state-complexity-of-modular-scattered-0011-counts--f0fa64081c4c. Additional primary literature: https://arxiv.org/html/2407.04462v1, https://arxiv.org/abs/2607.00742, https://arxiv.org/abs/2610.06717, and https://doi.org/10.1142/S0129054111008817. Access limits prevent a definitive historical-priority statement, and no external independent validation has occurred. The composite-modulus fixed-residue Boolean-DFA problem and patterns with three or more runs remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The b=1 exact Boolean bounds and period mechanism, and the exact Moore count for 0011, are credited antecedents. The supported distinction is the uniform exact full-residue state count for both run lengths unrestricted, with each added terminal 1 contributing a free modular coordinate. No compared source establishes that family or an applicable stronger exact theorem; generalized counting maps and periodic binomial phases alone do not establish the necessary orbit and separation.
+
+## value
+
+PASS
+
+The result determines the exact deterministic memory for the natural class of all binary two-run patterns and all moduli, rather than an isolated additional pattern. It explains the asymmetry between the initial-run prime-power staircase and the multiplicative cost of each terminal extension; the group of return loops gives a reason why the second-run coordinates are independent even over composite moduli. The exact count separates genuinely needed memory from the naive full prefix-counter bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

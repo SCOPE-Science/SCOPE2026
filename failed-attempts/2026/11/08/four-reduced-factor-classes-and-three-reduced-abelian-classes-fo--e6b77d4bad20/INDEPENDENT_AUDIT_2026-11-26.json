@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:53:54.297073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complexity counts and quantitative fiber/merger assertions hold. Complementation gives 0<β<1/2 with no 11. With s the first letter, the number of changes is K_n+K_(n−1)−s, so only t_1,t_(n−1),t_n affect the reduction, and successive regions give four different (s,changes) pairs. Counting ordinary rotation cells and summing their lengths gives the stated rank gaps and natural frequencies. An equal reduced Parikh vector for different reduced words requires the same even run count and opposite starting letters; the stated merger holds in every realized order. The list of cases is nonminimal: APT is impossible, since in the carry case { (n−1)β }>1−β>β forces P<A<T. The additional APT row is vacuous; if read as an attainability assertion it is false. TPA, TAP and PAT all occur. The length-one/two checks and restoration by complement are correct. An independent exact rational cell check (branches/replay_04.py) used 891 representatives of open slope-order chambers for 3≤n≤25, reproducing all actual orders, multiplicities, interval masses and mergers. The all-length result uses the symbolic argument, not this bounded check. The frozen verifier was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1301.5104v1 pp. 13–14 gives P^(k)(n)=n+1 through 2k−1 and 2k thereafter. In the lexicographic enumeration u_(i+1)=g_(σ(i))(u_i), its proof preserves class for k≤σ(i)≤n−k and has exactly 2k classes. arXiv:1804.08724v2 gives the rotation cells and the individual factor frequencies as cell lengths."
+        ],
+        "reasoning": "For k=2 all changes internal to consecutive blocks outside the three exceptions are equivalences; exactly four classes implies each of the four resulting blocks is a different class (for n=3 all cells already differ). The ordinary cells occur in increasing lexicographic order, since the earliest changed prefix count increases across a cut, and g_j occurs at t_j. This recovers the exact rank differences, and the sums of cell lengths telescope to the four claimed lengths.",
+        "searches": [
+          "arXiv:1301.5104v1, §4, Theorem 4.1, Lemma 4.2 and proof",
+          "arXiv:1804.08724v2, §2 Theorem 2 and Corollaries 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.5104v1",
+        "arXiv:2509.16034",
+        "arXiv:1804.08724v2",
+        "Resultary 0fc96ab6c467 and 1ab89cbe47d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the four known cut cells use m=K_n, s=K_1 and e=K_n−K_(n−1), with K_j=floor(x+jβ). The reduced Parikh vector is (m+1−s−e,m). For TPA or TAP, exactly regions two and four give the same m and s+e=1. For PAT those regions are one and three. APT is impossible for 0<β<1/2."
+        ],
+        "reasoning": "The reduced-Abelian refinement is the direct grouping of the known partition by total ones and unordered endpoints; the frequency and cardinality sums require no new equivalence or frequency theorem. Substituting the three breakpoint indicators in these data yields precisely the merger rule.",
+        "searches": [
+          "arXiv:1301.5104v1, Proposition 2.8 and proof of Theorem 4.1",
+          "arXiv:1804.08724v2, §2 rotation frequencies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1301.5104v1 p. 6, Proposition 2.8 states that episturmian factors are k-Abelian equivalent iff ordinary Abelian equivalent and they have the same prefix and suffix of length k−1 (as applicable at k=2). arXiv:2509.16034 pp. 1–2 defines run reduction and reduced Abelian equivalence."
+        ],
+        "reasoning": "Without 11, the ones count is unchanged by reduction and there are m+1−s−e zero runs, including the all-zero case. The first and last symbols are preserved. Hence run reduction is exactly the 2-Abelian partition of these fixed-length factors. For reduced Abelian equivalence the data are (m,s+e), so this is the reversal quotient of that same partition, not a four-fiber partition previously unknown under a different name. Above slope one-half apply binary complementation.",
+        "searches": [
+          "Sturmian k-Abelian class cardinalities / 2-Abelian rotation intervals and reversal",
+          "arXiv:1301.5104v1, Lemma 2.3 and Proposition 2.8",
+          "arXiv:2509.16034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is a self-hit. The distinct catalogue matches concern a move of the leftmost 1 to the end or reduced Abelian complexity in Thue–Morse, not the same map and language. The 2013 theorem is the exact ordinary reduced-count table after the equivalence, and its proof partitions all factors, not just the Fibonacci example."
+        ],
+        "reasoning": "The arXiv theorem already gives 2,3,4 for n=1,2,≥3. Its universal cut description yields the exact numerical fibers at any slope, so lack of another titled run-reduction table does not establish originality.",
+        "searches": [
+          "Resultary: aperiodic Sturmian run-collapse fibers / reduced Abelian factor counts",
+          "Resultary 0fc96ab6c467 and 1ab89cbe47d7",
+          "arXiv:1301.5104v1, Theorem 4.1 and Example 4.3"
+        ]
+      },
+      "rationale": "The record omits the decisive Sturmian 2-Abelian classification of Karhumäki–Saarela–Zamboni (arXiv:1301.5104v1, Proposition 2.8 and Theorem 4.1 with Lemma 4.2 and its proof). On factors with no 11 and a fixed length, put m=|w|_1 and let s,e be its first and last letters. The reduced word has m ones and m+1−s−e zeros and first letter s; these determine s,e,m, which in turn determine the reduced word. The same s,e,m characterize 2-Abelian equivalence by Proposition 2.8 (also directly by the counts of each length-two factor). Thus the four-type run reduction is the known 2-Abelian partition in another form. The prior proof identifies its cuts in lexicographic order at the three exceptional transitions j=1,n−1,n, exactly the three rotation breakpoints, giving the fiber sizes and, with the ordinary rotation-frequency correspondence, their frequencies. Reduced Abelian equivalence simply forgets the ordering of s,e, i.e. takes reversal orbits of the known types. Evaluating s,e,m on the known three cuts gives the displayed merger by direct substitution; it does not supply a substantively distinct classification.",
+      "residual_risks": [
+        "The bounded search is not a first-priority survey. The negative originality decision rests on the explicit mathematical implication from the inspected 2013 theorem and its proof, not on search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers ordinary reduction partition and gives cut data implying the Abelian grouping by unordered endpoints",
+          "evidence": "Endpoint-plus-Parikh characterization; lexicographic neighbor swaps; all internal swaps preserve class and exactly 2k classes occur.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "v1 pp. 4, 6, 13–14, Lemma 2.3, Proposition 2.8, Lemma 4.2, Example 4.3 and proof of Theorem 4.1; central text offsets 19330–21109, 41602–45117",
+          "method": "Open-access PDF text by locator then offset",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "2-Abelian equivalence of same-language factors and known four-class plateau"
+        },
+        {
+          "assessment": "Defines the invariants; cited examples are different sequences",
+          "evidence": "Replace every maximal run by its letter; compare reductions up to rearrangement in the Abelian version.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.16034",
+          "material_read": "PDF pp. 1–2, offsets 0, 1650 and 3900",
+          "method": "Open-access PDF text",
+          "title": "Reduced complexities for sequences over finite alphabets",
+          "trigger": "Exact concepts and motivational source"
+        },
+        {
+          "assessment": "Supplies rotation and frequency inputs, not by itself the equivalence relation",
+          "evidence": "The n+1 ordinary factors correspond to rotation intervals, with natural frequencies their lengths.",
+          "identifier_or_url": "https://arxiv.org/html/1804.08724v2",
+          "material_read": "§1 and §2 Theorem 2 and Corollaries 2–3, offsets 4043–4585 and 36300–39500",
+          "method": "Open-access text passages",
+          "title": "Partitioned Factors in Christoffel and Sturmian Words",
+          "trigger": "Coverage of rotation cells and frequency aggregation"
+        },
+        {
+          "assessment": "Different transformation",
+          "evidence": "Moves the leftmost 1 to the right end rather than collapsing runs.",
+          "identifier_or_url": "0fc96ab6c467",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary body via local mirror",
+          "title": "All-iterate tortoise complexity of Sturmian words",
+          "trigger": "Catalogue Sturmian image complexity and Abelian cutoff"
+        },
+        {
+          "assessment": "Different sequence and later record",
+          "evidence": "Thue–Morse maxima, not Sturmian types.",
+          "identifier_or_url": "1ab89cbe47d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary body via local mirror",
+          "title": "Sharp four-adic envelope and first peak of reduced Abelian complexity",
+          "trigger": "Catalogue match on reduced Abelian complexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The reduced complexities are motivated, but the exact four fibers are a known partition under the proved equivalence, and the new terminology for the three Abelian classes is obtained by directly forgetting endpoint order. The size and frequency formulas then sum those same cells. No independently useful unknown exact fact beyond this mechanical specialization is established in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

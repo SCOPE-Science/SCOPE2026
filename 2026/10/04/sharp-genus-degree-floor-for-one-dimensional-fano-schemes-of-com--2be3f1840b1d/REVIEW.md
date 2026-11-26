@@ -1,28 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published genus-degree formula for one-dimensional Fano schemes and reduces the claim to the arithmetic inequality
-\[
-B\ge2.
-\]
-With \(q=k+1\) and \(R_i=\binom{d_i+k}{k}\), the expected-dimension equation gives the exact identity
-\[
-qB=\sum_i(d_i-1)R_i-(q^2+1).
-\]
-The cases \(r\ge3\), \(r=2\), and \(r=1\) are then complete. The only equality in the first case is \(q=2\) with exactly three quadrics; two quadrics violate the expected-dimension divisibility, and the one-equation and mixed two-equation cases are strict. The resulting parameters are \(k=1\), \(n=6\), and multidegree \((2,2,2)\). The source independently records degree \(128\) and genus \(129\) there.
+## correctness
 
-The bundled finite checker replays the arithmetic classification on a large bounded range but is not used as the infinite proof.
+PASS
 
-## Originality
-PASS. The primary source states the exact genus-degree formula and the three standard line-curve examples, while a later broad survey recalls those examples and the same formula. Neither inspected source states the universal inequality
-\[
-g\ge e+1
-\]
-nor the uniqueness of equality across arbitrary positive \(k\), codimension, and multidegree. Claim-specific semantic and web searches using inequality, equality, and numerical formulations did not locate a covering statement.
+Debarre–Manivel require δ⁻=min(δ,n−2k−r)>0 for the connected smooth nonempty scheme in expected dimension. Their strict-positivity equivalence away from a single quadric applies here. In the quadric case δ=1 gives (k+1)(2n−3k−2)=2, so k=1,n=3, excluded and correctly known to have two rulings. Hiep's formula, equivalently Grassmannian adjunction, gives g=1+Be/2 with e>0. With q=k+1 and R_i=binom(d_i+k,k), the expected-dimension identity gives qB=Σ(d_i−1)R_i−q²−1. For r≥3 the sum is at least 3q(q+1)/2≥(q+1)², with equality only at q=2, three equations, all quadrics. For r=2, two quadrics give 1+ΣR_i≡1 mod q and are inadmissible. One cubic or larger gives the lower bound q(q+1)(2q+7)/6>(q+1)². A single degree ≥3 for q≥3 gives q(q+1)(q+2)/3>(q+1)². At q=2 a hypersurface has even degree by divisibility, and hence after the quadric exclusion d≥4, giving d²−1>9. Equality therefore forces k=1,n=6 and the three quadrics. Independently, on Gr(2,7) the Plücker degree is the coefficient of x⁶y⁵ in (x−y)(x+y)[4xy(x+y)]³, namely 64(6−4)=128, giving g=129. This also confirms unique distance g−e=1 and no genus-zero or genus-one case in the stated range. The bundled script was inspected, not executed; its finite grid and fixed degree calibrations are not the proof.
 
-Residual risk: because the proof is short after the general formula is known, an unindexed classical source may contain the same corollary.
+## originality
 
-## Value
-PASS. The theorem gives a sharp global geometric constraint for all one-dimensional Fano schemes of positive-dimensional linear spaces on general complete intersections. It excludes rational and elliptic cases uniformly and identifies the unique extremal curve, rather than supplying another isolated numerical example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The geometry theorem, genus–degree identity and numerical equality specimen are known. The distinct claim is universal sharpness and uniqueness over every allowed k, codimension and multidegree, proved by the arithmetic classification under δ=1.
+
+## value
+
+PASS
+
+For naturally polarized moduli curves in Grassmannians, this gives a sharp universal lower bound on the canonical-to-Plücker ratio and locates the only extremal complete-intersection type. It excludes rational and elliptic curves in this family and distinguishes the three-quadric curve from all other admissible families, rather than merely recomputing its known genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

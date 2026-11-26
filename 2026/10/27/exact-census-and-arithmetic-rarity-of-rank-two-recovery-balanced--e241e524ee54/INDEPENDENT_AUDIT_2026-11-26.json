@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:27.241341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A zero column is known before sampling and a nonzero column cannot be, so no balanced rank-two code has a zero column. For a nonzero target in direction i and t≥1 draws, recovery fails exactly when all t draws come from a single occupied direction j≠i: in dimension two two distinct nonzero directions already span. These events are disjoint and have probabilities (a_j/n)^t. Summing the discrete survival tail including time zero gives E_i=1+Σ_(j≠i) a_j/(n−a_j), agreeing with the source's Poissonized expression. Equality of expectations is precisely equality of the occupied multiplicities, so r|n with 2≤r≤q+1. Choosing directions, assigning the n labels in equal parts, and making q−1 independent scalar choices per column gives the numerator count. A full-rank generator's left GL₂ action is free and its orbits are exactly row spaces. For the nondegenerate denominator exclude one-direction lists from all nonzero columns; for the all-code denominator choose two independent rows. These steps work for every prime power, including n=2, and the numerator is zero if there is no eligible r. Stirling gives r^(n+r/2)/(2πn)^((r−1)/2) for the leading multinomial term, and each smaller candidate is exponentially dominated uniformly over the finite list of r at fixed q. The polynomial subsequence concerns the nondegenerate denominator only. The frozen exact-arithmetic verifier and its recorded prime-field results were inspected, not rerun; no extension-field computation is required by this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sparse-paving matroid prevalence bound explicitly says its measure implies nothing about representable ones. The generalized random-access paper addresses specified information coordinates or subsets. The catalogue optimum counts draws to full-message coverage, using a most-even assignment over all directions."
+        ],
+        "reasoning": "None gives the needed probability for uniform labeled rank-two row spaces. A full-message optimizer may be coordinate-balanced when q+1 divides n but does not capture every eligible divisor; away from that divisible subsequence the objectives can even prefer different profiles.",
+        "searches": [
+          "arXiv:2610.28820v1 §§III, V and Remark 3",
+          "arXiv:2608.20152v1 §1",
+          "2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.txt",
+        "arXiv:2401.15722; arXiv:2610.28820v1; arXiv:2608.20152v1",
+        "Resultary 2026/10/4/…db2f9e82bdf9 and 2026/11/8/…ceb01d6cdac7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general expectation formula specializes readily to the equal-multiplicity criterion. Neither it nor the compared sparse-paving prevalence or full-message optimizer already formulates a stronger enumeration that yields the two probabilities by specialization."
+        ],
+        "reasoning": "The distinct part is combining all eligible profiles in the labeled matrix count with the free GL₂ quotient and comparing the dominant admissible divisor across lengths. These are elementary methods; the coordinated exact population and asynchronous length regimes are the result, not the general expectation machinery.",
+        "searches": [
+          "arXiv:2401.15722 §3, coordinate expectation identity",
+          "arXiv:2610.28820v1 §§III and V",
+          "2026/10/4/…db2f9e82bdf9, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two cited works define recovery using membership of the target column in the sampled span or matroid closure. The latter studies a uniform matroid population, not counts of distinct finite-field row spaces."
+        ],
+        "reasoning": "The recovery property depends on the matroid, but the sampling population is not determined by a count of matroids: individual labeled matroids need not correspond to equal numbers of field representations. The claim includes all equally occupied profiles, not just full occupation of the projective line.",
+        "searches": [
+          "Resultary: rank-two projective direction multiplicities, recovery-balanced codes, exact count of labeled subspaces",
+          "arXiv:2401.15722 §3; arXiv:2610.28820v1 §§II-A, III, V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest earlier catalogue record gives a rank-two optimum, not the census. The later quinary classification organizes codes of prescribed weight enumerator up to monomial equivalence and does not tabulate labeled row spaces over arbitrary fields."
+        ],
+        "reasoning": "The latter quotients by coordinate relabelings and scalings whereas the frozen claim quotients only by basis changes. It supplies no exact count for the target measure. No exact prior table for that measure was located by the bounded checks.",
+        "searches": [
+          "Resultary 2026/10/4/…db2f9e82bdf9; 2026/11/8/SCOPE-quinary-rank-two-weight-isospectral-codes-a-complete-projective--ceb01d6cdac7",
+          "Focused primary search for rank-two recovery balance and projective multiplicity enumeration"
+        ]
+      },
+      "rationale": "Support is for the explicit census of distinct labeled subspaces over general finite fields and the exact divisor-sensitive rarity law. The recovery metric and the structural criterion's expectation-level derivation are not credited as new general results. The actual comparable sources inspect different populations or recovery objectives and do not establish the enumerated census or both probabilities.",
+      "residual_risks": [
+        "A bounded search does not exclude an implicit census under other coding or enumeration terminology. The conclusion credits the explicit quantitative result rather than absolute historical priority or a new expectation identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same metric and general expectation formula; no rank-two population formula in the checked passages",
+          "evidence": "Defines target-column recovery in the sampled span, proves invariance under code basis and gives sum_i E_i=kn.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.15722",
+          "material_read": "§3, OA offsets 30380–34049",
+          "method": "Bounded OA HTML passages",
+          "title": "A Combinatorial Perspective on Random Access Efficiency for DNA Storage",
+          "trigger": "Same coordinate-recovery balance definition and possible rank-two implication"
+        },
+        {
+          "assessment": "Same closure-level property but different, unrestricted sparse-paving population",
+          "evidence": "Prevalence at most 4/n for the stated sparse-paving population; Remark 3 says it implies nothing about representable ones.",
+          "identifier_or_url": "https://arxiv.org/html/2610.28820v1",
+          "material_read": "§II-A offsets 5300–8898; §III 10800–14593; §V 30400–33409",
+          "method": "Bounded OA HTML passages",
+          "title": "A Matroidal Framework for Random Access in Linear Codes",
+          "trigger": "General balance and prevalence theorem potentially covering the census"
+        },
+        {
+          "assessment": "Real overlap of the fully equal profile, but objective and population differ",
+          "evidence": "Full-message waiting time minimized by distributing multiplicities among the q+1 directions as evenly as possible.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9",
+          "material_read": "Finding and proof excerpts, mirror offsets 0–5468",
+          "method": "Bounded local-mirror full-text inspection",
+          "title": "Exact rank-two optimum for DNA coverage depth",
+          "trigger": "Exact solution for rank-two projective multiplicity profiles"
+        },
+        {
+          "assessment": "Studies specified information-coordinate retrieval, not this coordinate census",
+          "evidence": "Targets e_i and subsets of them.",
+          "identifier_or_url": "https://arxiv.org/html/2608.20152v1",
+          "material_read": "§1, offsets 4300–6715",
+          "method": "Bounded OA HTML passages",
+          "title": "The Generalized Random Access Problem for Linear Codes",
+          "trigger": "Rank and finite-geometry recovery formulas"
+        },
+        {
+          "assessment": "Postdated, q=5 and monomial classes rather than labeled subspaces",
+          "evidence": "Uses PGL₂(5) orbits of multiplicity assignments for a prescribed weight enumerator.",
+          "identifier_or_url": "2026/11/8/SCOPE-quinary-rank-two-weight-isospectral-codes-a-complete-projective--ceb01d6cdac7",
+          "material_read": "Finding and relevant excerpts, offsets 0–5216",
+          "method": "Bounded local-mirror full-text inspection",
+          "title": "Quinary rank-two weight-isospectral codes: a complete projective classification",
+          "trigger": "Exact rank-two classification via projective multiplicity profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recovery balance is a preexisting natural property; the result gives its exact frequency in two clearly defined code populations. The largest-divisor law resolves why lengths at the same fixed field size can have polynomial rarity, exponential rarity or exact absence, which a single typical-length bound would miss. This is useful information about the natural ensemble despite elementary proof methods and the rank-two restriction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

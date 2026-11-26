@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:41.235004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:17–43",
+        "VERIFICATION.md and the frozen enumeration/witness files, inspected rather than executed",
+        "/workspace/branches/64e15b4e-3a1b-4a57-8673-35e17bace2fc/reproduce.py (independently written and run; python3 reproduce.py)",
+        "/workspace/branches/64e15b4e-3a1b-4a57-8673-35e17bace2fc/full.txt (totals and attaining paths)"
+      ],
+      "rationale": "The displayed constants are maxima over the specified starts and preferences, not assertions that each profile attains both. Relabeling fixes the first truthful order and preserves adjacency, picking, and gains. An independent replay of all 14,400 report pairs and their eight directed adjacent changes per state found 88,800 unchanged allocations and 26,400 one-for-one exchanges. This proves independence of cardinal magnitudes because the deviator's strict gain is exactly the rank comparison of the two exchanged goods. Topological elimination exhausted all 14,400 states for each of the 120 remaining true orders; longest-path recursion counted arcs, giving 1,584,000 improving arcs in total, no cycles, and maxima 18 and 6. Both are attained: for true orders (01234,01234) one witness starts at (23410,43210), and for true orders (01234,31240) a six-move witness starts at that truthful pair. Each step was checked under the positive utility 5 minus zero-based rank. Exhaustion proves the bounds only for the stated five-good move rule; only maximal sequences terminate at a local equilibrium.",
+      "residual_risks": [
+        "Exact finite enumeration, not a theorem for more goods, unrestricted report changes, or global Nash equilibrium."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-item adjacent result is proved; the result for at least five items is conjectured. The item-preserving convergence uses a different restriction.",
+          "The unrestricted two-agent response cycle uses ten items."
+        ],
+        "reasoning": "Neither the item-preserving positive theorem nor the unrestricted negative example dominates the specified adjacent five-item graph.",
+        "searches": [
+          "arXiv:2610.23040 Theorem 3.14 and Conjecture 3.15",
+          "arXiv:1705.09444 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index: 347bce7c6c76, 687e5d5d0bf4 and returned exact-census hits",
+        "arXiv:2610.23040",
+        "arXiv:1705.09444"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Four-good convergence and a five-or-more conjecture provide neither exhaustive five-good edge directions nor path lengths from truthful starts."
+        ],
+        "reasoning": "Even a termination proof alone would not imply these two exact lengths and attaining paths.",
+        "searches": [
+          "arXiv:2610.23040 Theorem 3.14, Conjecture 3.15; arXiv:1705.09444 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3.6 gives the adjacent-report swap; the paper considers best-response manipulations, whereas the frozen graph admits every strictly improving adjacent swap.",
+          "Resultary records 347bce7c6c76 and 687e5d5d0bf4 concern stable-roommate inversions and swaps of seats, respectively."
+        ],
+        "reasoning": "Neither another kind of preference swap nor convergence under a narrower move selection establishes universal acyclicity of these edges.",
+        "searches": [
+          "Resultary semantic searches on five-good adjacent-swap dynamics, truthful starts, round-robin convergence and sequential-allocation cycles",
+          "arXiv:2610.23040 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned top-50 results from the four searches did not furnish a matching five-good census or table of the two sharp lengths."
+        ],
+        "reasoning": "No matching finite census was located in the checked index; finite search is not exhaustive.",
+        "searches": [
+          "Resultary semantic searches for the exact five-good lengths and truthful-start census"
+        ]
+      },
+      "rationale": "The supported distinction is the exact five-good ordinal census of every strictly improving adjacent edge and the two sharp path bounds. The closest same-mechanism source proves a four-item convergence result and conjectures a continuation to at least five; it does not give the census or the two constants.",
+      "residual_risks": [
+        "Bounded semantic queries and a limited primary-literature search do not rule out an unindexed five-good census or an equivalent potential-game formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close non-dominating prior convergence result",
+          "evidence": "Two agents and four items in the theorem; at least five in the conjecture; no five-item exact path lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23040",
+          "material_read": "§3 p. 6 Definition 3.6 and p. 12 Theorem 3.14 and Conjecture 3.15",
+          "method": "OA PDF passage inspection",
+          "title": "On the Convergence of Iterated Round Robin",
+          "trigger": "Same mechanism and adjacent reports"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Ten goods and unrestricted report changes in the example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09444",
+          "material_read": "Theorem 1, p. 4 and its example",
+          "method": "OA PDF passage inspection",
+          "title": "Equilibria in Sequential Allocation",
+          "trigger": "Two-agent response cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five is the first number of goods beyond the published four-item positive boundary. Proving termination for every improving edge and measuring the exact cost in moves from arbitrary and truthful initialization give meaningful, different benchmarks for this local dynamics; the cardinal-independence check makes them robust across all admissible additive values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

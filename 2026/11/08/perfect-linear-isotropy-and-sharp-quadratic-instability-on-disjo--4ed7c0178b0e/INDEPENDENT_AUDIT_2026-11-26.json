@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:23:38.487085Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md, check_axis_caps.py and requirements.txt (inspected; checker not executed)",
+        "Independent quartic-moment and leading cap-mass derivation in this review"
+      ],
+      "rationale": "The 2d caps are disjoint up to measure zero also at t=1/sqrt(2): a shared point has exactly two nonzero coordinates of equal magnitude. Sign flips and permutations make the linear concentration form scalar, and the sum of the linear coordinate squares shows its value is μ=σ(E_t). For degree two, the sign characters separate each x_i x_j and the entire diagonal sector, and permutations act on the trace-free diagonal form through a matrix with common diagonal and common off-diagonal. Writing a=∫_{E_t}x_1^4 and b=∫_{E_t}x_1²x_2² gives eigenvalues d(d+2)(a−b)/2 and d(d+2)b, respectively. Independently, the quartic H=∑_i x_i^4−3/(d+2) has conditional mean u^4+3(1−u²)^2/(d+1)−3/(d+2) on a cap with axis coordinate u. Integrating this mean gives ∫_{E_t}H=2d B_d T_d/[(d+1)(d+2)], since the weighted quartic is the negative derivative displayed in the proof divided by (d+1)(d+2) and multiplied by c_d. The identity a+(d−1)b=μ/d gives ∫_{E_t}H=d(d−1)(a−3b)/(d+2). Hence the gap is d(d+2)B_d T_d/(d²−1), and the multiplicity-weighted mean of the eigenvalues is μ; these recover both printed levels. The gap is positive since T_d≥(d−2)/2. Both E_t and its complement contain open sets, so a nonzero harmonic restriction has strictly positive squared mass on each. For δ=1−t², the caps centered on axes 1 and 2 give b∼4c_d δ^{(d+1)/2}/[(d−1)(d+1)] by integrating u²(1−u²)/(d−1); the remaining axes contribute one higher power. With μ∼2dc_d δ^{(d−1)/2}/(d−1), the trace identity gives λ_D∼d(d+2)c_d δ^{(d−1)/2}/(d−1). The quotient and its square root are exactly the two constants claimed. The argument works for complex coefficients with the stated Hermitian forms.",
+      "residual_risks": [
+        "The narrow-cap limit fixes d. The proof is for pure harmonic degrees one and two and does not justify applying the same eigenvalues to a cumulative band or to the overlapping-cap regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Slepian matrix is given by region integrals of harmonic products. Cap design results concern exact cubature, including a zonal cap subdesign."
+        ],
+        "reasoning": "The matrix formula sets up the problem but does not determine the two mask-dependent levels. Exactness of a cubature rule does not assert fourth-moment isotropy for this continuous union or furnish the sharp ratio.",
+        "searches": [
+          "arXiv:math/0408424, §4.1, eqs. (4.2)–(4.9)",
+          "Li–Chen, Spherical Designs for Approximations on Spherical Caps (2024), abstract and accessible background"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§2–4 and prior-work discussion",
+        "Resultary records 4ed7c0178b0e, 9f4968253e7d, 0f8681c6a2f5",
+        "arXiv:math/0408424 §4.1",
+        "Li–Chen (2024), abstract and background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The simplex theorem includes an isolated tetrahedral isotropy aperture; the coordinate-cap result instead gives two strictly separated levels throughout its allowed aperture range. The two-cap result studies the smallest eigenvalue and optimal placement on S²."
+        ],
+        "reasoning": "The common low-degree moment method does not make one pair of eigenvalue formulas a corollary of the other. The fourth-moment contrast requires the contribution of all signed-coordinate cap orientations, and the leading off-diagonal eigenvalue has an additional vanishing order.",
+        "searches": [
+          "arXiv:math/0408424 §4.1",
+          "Resultary records 9f4968253e7d and 0f8681c6a2f5, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary entry ending 4ed7c0178b0e is the reviewed record. The same-day simplex entry ending 9f4968253e7d has d+1 cap centers and multiplicities d and (d+1)(d−2)/2, unlike the signed-coordinate mask."
+        ],
+        "reasoning": "Quadratic concentration and the squared singular values of restriction are the same spectral problem. Passing to arbitrary orthogonal coordinates does not turn simplex vertices into antipodal coordinate pairs.",
+        "searches": [
+          "Local Resultary search for signed coordinate caps, cross-polytope masks and pure-degree quadratic Slepian spectra",
+          "Simons–Dahlen–Wieczorek, arXiv:math/0408424 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula belongs to the reviewed record; the simplex formula and two-cap placement optimization have different masks and multiplicity patterns or objectives."
+        ],
+        "reasoning": "The claim is an exact formula in d and t rather than a value for a selected test case. Neither compared specialized result gives that formula or its narrow-cap coefficient.",
+        "searches": [
+          "Local Resultary spectra for cap masks, records 4ed7c0178b0e, 9f4968253e7d, 0f8681c6a2f5"
+        ]
+      },
+      "rationale": "The defensible distinction is the explicit degree-two spectrum and sharp conditioning contrast for the signed-coordinate cap mask. The scalar linear calculation and the concentration framework are classical or routine ingredients. The closest indexed spectra use materially different center configurations; the general sources inspected do not supply the specific fourth moment or the conditioning coefficient. This is a bounded comparison, not a global priority claim.",
+      "residual_risks": [
+        "Same-day records were compared without inferring within-day priority. The specialized harmonic-analysis and cubature literature is not exhaustive; parts of the Li–Chen paper were not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close same-day analogue, not an equivalent theorem",
+          "evidence": "d+1 simplex axes and branches of multiplicity d and (d+1)(d−2)/2; tetrahedral isotropy at an isolated aperture.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-band-quadratic-slepian-spectrum-for-simplex-centred-cap-mask--9f4968253e7d",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two-band quadratic Slepian spectrum for simplex-centred cap masks and an isolated tetrahedral isotropy",
+          "trigger": "Same pure quadratic degree and full spectrum for disjoint caps"
+        },
+        {
+          "assessment": "Different mask, dimension and optimization",
+          "evidence": "Two disjoint caps on S² and the minimum eigenvalue as a function of placement.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-separation-and-a-spectral-phase-transition-for-two-spher--0f8681c6a2f5",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Optimal separation and a spectral phase transition for two spherical sampling caps",
+          "trigger": "Sharp low-degree spectral claims about disjoint caps"
+        },
+        {
+          "assessment": "Covers the general concentration matrix, not the evaluated geometry in these passages",
+          "evidence": "Matrix entries are integrals over R of harmonic pairs, followed by the ordinary concentration eigenproblem.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "§4.1 eqs. (4.2)–(4.9), arXiv PDF pp. 8–9",
+          "method": "OA primary text",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "General region-spectrum formulation"
+        },
+        {
+          "assessment": "Related quadrature formulation; no exact-mask coverage identified in the inspected material",
+          "evidence": "Exact spherical polynomial quadrature and a zonal cap t-subdesign are the stated objects.",
+          "identifier_or_url": "SIAM J. Numer. Anal. 62(6) (2024), 2506–2528, Li and Chen",
+          "material_read": "Abstract p. 2506 and accessible background passage",
+          "method": "OA text retrieval; further passage timed out",
+          "title": "Spherical Designs for Approximations on Spherical Caps",
+          "trigger": "Cubature could supply fourth-moment identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "arXiv:math/0408424 §4.1",
+        "Resultary 9f4968253e7d, Finding"
+      ],
+      "rationale": "The natural hyperoctahedrally symmetric mask provides an exact, quantified failure of second-moment isotropy to ensure stable quadratic recovery. Linear relative conditioning stays exactly one, while two geometrically identifiable sectors of harmonic quadratics are observed at different powers of cap width, with an explicit dimension-dependent leading ratio. The eigenspaces and gap explain which modes are poorly observed, beyond giving a counterexample or a few numerical values.",
+      "residual_risks": [
+        "This concerns continuous relative conditioning. It is not a discrete sampling, absolute lower-bound, or noisy minimax guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

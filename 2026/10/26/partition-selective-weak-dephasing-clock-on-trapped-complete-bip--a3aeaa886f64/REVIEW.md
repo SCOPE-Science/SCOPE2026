@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives an orthogonal dark/bright decomposition for all \(m,n\ge2\), proves strictly stable complementary dynamics, and establishes positive-dephasing absorption by Hilbert–Schmidt dissipation. Projection of site-local dephasing onto dark density operators produces an invertible, negative definite effective generator. Its exact eigenrelations on the two class projectors yield the announced singular integrated-survival coefficient for all fixed rates and all density matrices. The boundary \(m=2\) is covered by the convention that the trap-side dark projector vanishes. Independent computations exercise finite cases but are not used as infinite-size evidence.
+PASS
 
-## Originality — PASS (relative to inspected evidence)
+The central frozen coefficient is correct, but its categorical scope statement denying uniform remainder bounds as nontrap weights tend to zero is false. The complete corrected claim and proof are in /workspace/repairs/4/RESULT.md. On the three-dimensional bright block a nondecaying vector would have trap amplitude zero, then B-uniform amplitude zero by the trap row, then A'-uniform amplitude zero; hence the zero Liouvillian eigenspace consists exactly of dark-dark matrices and is semisimple. At positive class rates, zero real dissipation forces a diagonal eigenoperator with zero trap entry; vanishing off-diagonal commutator along every edge forces zero. The compressed dephasing is negative definite (no nonzero site-diagonal dark-dark matrix), and sends Q_A and Q_B to -alpha Q_A/k and -beta Q_B/n. The Schur inverse gives the coefficient by self-adjointness and yields the stated localization, pairwise difference and bright-only criteria, including k=1. For the repair, exact dark-population balance writes q'_t=L_br q_t-d'_A F_a-d'_B F_b for the compressed bright density. Integration gives -L_br^{-1} applied to q_0+d_A(0)F_a+d_B(0)F_b, positive of trace one. Integrating the dark balances gives the remainder as its integrated bright diagonal weighted by (1,k,n). Invertibility at zero noise then gives a uniform bound for small epsilon over bounded weights without a positive lower bound, while absorption still requires the stated positive-rate hypotheses. In 24 independent numerical comparisons varying sizes, rates (one or both small), and strengths, the full integrated solution minus the singular term agreed with the bright-resolvent remainder to max absolute error 1.23e-8 (python /workspace/independent_checks.py 4). This diagnostic does not prove the perturbative or uniform statement.
 
-The closest primary sources concern trapping with generic topology (Gaab–Bardeen 2004), ordered-chain noise-assisted efficiency with competing loss (Kassal–Aspuru-Guzik 2012), fully connected spin-bath transport probabilities (Marais et al. 2014), and path-selected dephasing on multi-sink networks (Behzadi et al. 2014). A later graph-transport paper analyzes only coherent trapping (Razzoli–Paris–Bordone 2020/2021). None of the accessible substantive texts implies the all-initial-state, class-dependent small-dephasing coefficient for \(K_{m,n}\). The 2004 full text was unavailable, so this is not an exhaustive priority claim. A star-hub formula covers only a one-vertex trap class, not the two-nontrivial-class case of the theorem; a cycle weak-noise formula likewise does not imply the bipartite coefficients.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural two-orbit quantum transport network with a local trap, and the invariant is the integrated survival/mean absorption time. An exact nonzero weak-noise coefficient is not determined by the zero-noise survival fraction alone. The formula classifies every coherent initial state as bounded or divergent in the limit, quantifies the competing roles of two controllable dephasing rates, and gives the exact size-minus-one law in each source class. It supplies a structural transport law rather than a one-size enumeration or a trivial renaming of an existing special case.
+The supported distinct contribution is the explicit two-weight coefficient for every coherent or mixed state on K_(m,n), and the checked repair retains it and gives a rate-uniform remainder by a bright compression. Related same-day results on cycles and stars establish overlapping techniques, not this graph and coefficient. Later bipartite records materially cover localized or uniform-mixture special cases at equal rates, but do not cover arbitrary input coherence or independent rates. No priority assertion is based solely on dates.
 
-## Residual risks and boundaries
+## value
 
-The leading coefficient has a fixed-parameter interpretation only. Equal-size asymptotics, nonuniform couplings, finite-time distributions and added recombination are not covered. Gaab–Bardeen (2004) was materially available only as an abstract; full-text priority cannot be ruled out. The analytical proof and the provided finite checks have not received independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact functional of coherent initial conditions and two independent rates distinguishes states with identical site populations and puts a quantitative clock on each dark sector of a natural network. It is not supplied by coherent capture probabilities or localized equal-rate data. The corrected remainder estimate also separates the genuine singularity from the bounded transient when either class dephases far more slowly than the other.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

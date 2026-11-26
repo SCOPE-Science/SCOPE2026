@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone Python 3 artifact `verify_period_doubling.py` has been run as `python3 verify_period_doubling.py 13`, yielding `VERIFY_OK`. Every integer \(k\) from \(0\) through \(13\) is checked at length \(3\cdot2^k\), with expected total class count \(2^{k+1}+k+3\), all three exact weight-group sizes, and the central weighted-position arithmetic progression.
+# Independent mathematical audit
 
-For each tested length, the factor cover is mathematically exhaustive, not a sampled prefix: each length \(3\cdot2^k\) factor is inside the image under \(k+2\) substitutions of two consecutive letters, and the complete allowable adjacent-letter list is \(00,01,10\). An independently generated 2-adic valuation prefix agrees on every factor signature through \(k=10\).
+## correctness
 
-The analytic proof uses the complete even/odd factor decomposition and an induction on \(k\); it is the basis for the all-exponent claim. The numerical tests do not extend the range by extrapolation. No independent external examination of the proof has been performed.
+PASS
+
+At fixed length the scattered 01 count is J-binomial(t,2) and t determines the other pair counts given that count, so the signature is exact. Every even-length factor comes from exactly the even- or odd-start construction by the fixed-point equations (the two sets may intersect). Both maps send t to m-t, and their J maps are injective in each weight, differing by the new weight. Thus at m=3x the odd outer new weights force opposite parities of the two entire image sets and double both outer counts. At the central weight the two reversed progressions of step 2x translate by a single step; the new minimum is 3x(3x-1)-2(A_k+(k+2)x)=x(6x-k-4). Together with the five length-three signatures this proves all scales, with no inference from finite data. An independently written bounded enumeration checked k=0..5 using all length-3·2^k windows in the images of 00, 01 and 10 under sigma^(k+2), directly summing each window's signature; the group counts and central progressions matched, including at length 96 (32,8,32 and 1408..1632 in steps of 32).
+
+## originality
+
+PASS
+
+The numerical expression is known under other interpretations; the specific period-doubling identification and refined signature counts are distinct on the literature and catalog evidence checked. The older same-word thesis does not give exact values across this infinite non-dyadic family.
+
+## value
+
+PASS
+
+Three is the first non-dyadic odd base, so its doubling orbit is a natural test of the gap left by dyadic rigidity. The result resolves both the exact count and the contrasting collision behavior of even central and odd outer weights. The central progression in particular gives more than a computed sequence and is exact data for comparisons with other dyadic orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

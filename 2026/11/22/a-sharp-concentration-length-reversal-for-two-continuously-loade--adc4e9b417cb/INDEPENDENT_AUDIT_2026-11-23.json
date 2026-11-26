@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:29:30.606344Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Step 3 is false where it claims strict speed inequality at c=0: both rates are s there. In repairs/3/RESULT.md the endpoint argument instead integrates f_K/f_L along the K-trajectory. For every positive time the trajectory is strictly positive and f_K/f_L>1 there, so δ(0)>a rigorously, without a strict inequality at the initial point. No hypothesis or conclusion has been dropped. Re-audited the repaired proof: differentiating the primitive gives 1/f_H and its monotone inverse conjugates the L-flow to translation. The ratio is 1+k(K−L)c/[(K+c)(sL+wc)], where w=s−k; its divided difference has sign sKL−wcy. Taking y=F_K^a(c) and using the strict increase of cF_K^a(c) gives precisely one maximum z₀ of the displacement. The ratio tends uniformly to 1 along a fixed-time trajectory as its inlet tends to infinity, so δ tends to a, establishing the unique positive b_c through δ(b_c)=δ(0). For the outlet-coordinate difference δ(z+b)−δ(z), the same-side signs are immediate and the sign changes at most once across the maximum since the derivative there is negative. The sign at z=0 separates all three regimes and gives the sole boundary tie. At the interior root the implicit derivative is negative; the straddling inequalities and continuity give the two endpoint limits. Independently bisected the repaired equations at 50-digit working precision for (s,k,K,L,a)=(2,1,4,1,1), obtaining z₀≈1.4180063940276094, b_c≈8.1850904349017187 and x_*(1)≈1.5621163376635477. The accompanying numerical evidence was read without executing the uploaded script. The displayed b is residence time, not physical length without a specified velocity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible commutativity abstract concerns when a Lie bracket vanishes and the flows commute, not finite signs that vary with initial state and time.",
+          "15d05df5ff61 explicitly excludes continuous loading and exact continuous plug flow; 056749ef0302 concerns linear wash-off and integrated exposure.",
+          "The Prazeres primary full text was unavailable; no exclusion is based on its title or on inaccessible text."
+        ],
+        "reasoning": "The proof uses a standard change of scalar flow coordinate, but the strict critical-time classification needs the finite-displacement maximum and the strict endpoint gap. The inspected more general commutativity/background statements and discrete comparison do not deliver those conditions.",
+        "searches": [
+          "Positive scalar flow composition and Lie-bracket commutativity literature; ScienceDirect S0021782421001926",
+          "Prazeres, Optimal design of n membrane reactors in series using Michaelis–Menten kinetics, DOI 10.1002/cjce.5450730617",
+          "Local Resultary 15d05df5ff61 and 056749ef0302"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corrected repairs/3/RESULT.md",
+        "Resultary adc4e9b417cb, b38dab808a65, 15d05df5ff61 and 056749ef0302",
+        "10.1007/s10533-007-9073-7",
+        "10.1029/2009JG001263 (OA retrieval unavailable)",
+        "10.1002/cjce.5450730617 (OA retrieval unavailable)",
+        "ScienceDirect S0021782421001926 (indexed abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "15d05df5ff61 orders maps c↦c−uc/(H+c), explicitly without intermediate additions; b38dab808a65 adds a fixed concentration impulse between maps.",
+          "056749ef0302 compares integrated exposure under a linear stock model rather than the endpoint of a nonlinear flow.",
+          "O’Brien et al. present saturation uptake as an empirical model and report that their nitrate data did not show the stated saturation pattern."
+        ],
+        "reasoning": "None of the inspected scope and theorem passages gives the same map and objective, or a stronger result with hypotheses covering them. In particular continuous supply alone is not enough to reduce a Monod outlet to the linear exposure model.",
+        "searches": [
+          "Local Resultary 15d05df5ff61, b38dab808a65, 056749ef0302, exact Finding/assumptions comparisons",
+          "O’Brien et al. 10.1007/s10533-007-9073-7, empirical uptake model pp. 1 and 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target record adc4e9b417cb is the identical catalogue match, not an independent prior result.",
+          "The translated displacement comparison δ(z+b)−δ(z) is equivalent to the terminal concentration comparison because the flow coordinate is strictly increasing.",
+          "Local b38dab808a65 has a single addition between discrete removal stages; it includes a region with two inlet crossings."
+        ],
+        "reasoning": "The same uptake expression in an isolated stage is not equality of flow maps. Distributed inflow acts inside each time integral, so inserting a single intermediate nutrient jump does not diagonalize or reproduce these exact outlet maps.",
+        "searches": [
+          "Local Resultary: two continuously loaded Monod plug-flow reaches s>k, critical residence time, single inlet reversal, product c F_K^a(c)=s K L/(s−k)",
+          "Public literature: ordering positive scalar flow compositions, ratio of vector fields, residence-time sequencing of loaded Monod plug-flow reactors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula/value search returned the assigned record and matches including b38dab808a65, whose written phase diagram has critical source increments 2/5, 12/25 and 2 for a different model.",
+          "The decisive objects are implicit functions of arbitrary real parameters; the numerical values are examples, not the claimed exact invariant."
+        ],
+        "reasoning": "An exact table for discrete additions would not tabulate the universal residence-time boundary for continuous additions. No separate exact listing was identified in the search.",
+        "searches": [
+          "Local Resultary exact crossover formulation and illustrative values 1.5621163377 and 8.1850904349"
+        ]
+      },
+      "rationale": "Reassessed the corrected manuscript. The identifiable contribution remains the joint inlet and second-residence-time classification for exact continuously loaded Monod flow with a common source above both removal maxima. The closest located exact comparisons use finite-step maps, a discrete source jump, or a different continuous objective. The literature assessment is bounded.",
+      "residual_risks": [
+        "The full texts at 10.1002/cjce.5450730617 and 10.1029/2009JG001263 were unavailable and were not used as negative evidence.",
+        "An older scalar-flow ordering lemma or reactor result under different terminology may cover part of the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different finite-step maps; explicit exclusions rule out the current continuous flow.",
+          "evidence": [
+            "T_i(x)=x−u_ix/(K_i+x); no intermediate additions; not the continuous plug-flow solution."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61",
+          "material_read": "Mirrored RESULT.md offsets 0–4077 and 8551–9659, theorem, scope and limitations",
+          "method": "Bounded local mirror passages",
+          "title": "A two-index ordering law for serial saturating nutrient-removal reaches",
+          "trigger": "Strongest discrete same-uptake ordering candidate"
+        },
+        {
+          "assessment": "Solves a distinct impulse-source phase diagram; not equivalent, irrespective of date.",
+          "evidence": [
+            "A fixed concentration addition lies between discrete stages; zero, one or two reversals are possible."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-source-driven-double-reversal-in-two-serial-saturating-stream--b38dab808a65",
+          "material_read": "Mirrored RESULT.md offsets 0–4581 and 7874–8974, theorem, scope and limitations",
+          "method": "Bounded local mirror passages",
+          "title": "A source-driven double reversal in two serial saturating stream reaches",
+          "trigger": "Closest same-day source-and-ordering match"
+        },
+        {
+          "assessment": "Different linear state equation and integrated receiving-pool objective.",
+          "evidence": [
+            "Its two-stage assertion is about integrated exposure under linear wash-off."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-three-stage-stormwater-exposure-ordering-with-continued-po--056749ef0302",
+          "material_read": "Mirrored RESULT.md offsets 0–4460 and 9389–10839",
+          "method": "Bounded local mirror passages",
+          "title": "Sharp three-stage stormwater exposure ordering with continued pollutant supply",
+          "trigger": "Continuous-supply comparator including a two-stage observation"
+        },
+        {
+          "assessment": "Empirical model comparison, not an examined ordering theorem.",
+          "evidence": [
+            "The model discussion gives uptake N U_max/(K_s+N); the reported nitrate data did not show signs of Michaelis–Menten saturation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10533-007-9073-7",
+          "material_read": "PDF p. 1 abstract, offset 2012; p. 3 model discussion, offset 9830",
+          "method": "Bounded primary OA PDF passages",
+          "title": "The saturation of N cycling in Central Plains streams",
+          "trigger": "Nutrient-saturation mechanism in streams"
+        },
+        {
+          "assessment": "Not counted as negative evidence; precise ordering claims unassessed.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1002/cjce.5450730617",
+          "material_read": "No primary full text; identifying citation/title only in the reviewed evidence",
+          "method": "OA retrieval attempted, access unavailable",
+          "title": "Optimal design of n membrane reactors in series using Michaelis–Menten kinetics",
+          "trigger": "Potential reactor-optimization precursor involving serial Michaelis–Menten stages"
+        },
+        {
+          "assessment": "The indexed topic is equality of two flows, not a strict order switch; no whole-paper exclusion.",
+          "evidence": [
+            "The abstract relates commutativity to the Lie bracket and flow regularity."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0021782421001926",
+          "material_read": "Search-indexed abstract; primary OA full text unavailable at the identified page",
+          "method": "Public search and OA retrieval attempt",
+          "title": "On the commutativity of flows of rough vector fields",
+          "trigger": "Broader finite-flow composition literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even though the low-affinity stage has the higher local net rate at every positive concentration, this pointwise inequality does not settle order. For fixed first-stage residence time, the theorem gives precisely when a finite inlet crossover exists, in which direction the recommended order changes, and when the crossover reaches zero. This resolves an exact design question within a stylized monotone model rather than extrapolating empirical water-quality effects. The endpoint correction preserves those conclusions and their value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

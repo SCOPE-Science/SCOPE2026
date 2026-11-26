@@ -1,19 +1,21 @@
-# Scientific review of planar rank-one stabilization thresholds
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every \(a>0\), \(b\geq0\), and \(\delta\geq0\), the proof shifts by \(\delta I\) and uses the necessary-and-sufficient two-by-two trace/determinant conditions. The rank-one parametrization \(\Delta=uv^{\mathsf T}\) gives exact invariants \(p=v^{\mathsf T}u\), \(q=v^{\mathsf T}Ju\), and \(p^2+q^2=\|\Delta\|_F^2\). Maximal determinant at fixed norm is proved analytically, yielding the exact minimal norm, its complete minimizer geometry, and the exceptional zero-rotation impossibility. The symmetric damping amplitude interval follows directly from determinant and trace. Explicit rank-one families approaching the boundary establish the nonattained strict-margin infima. Independent rational arithmetic checks on 39,823 assertions reproduce critical algebra, but finite checks do not replace the universal proof.
+PASS
 
-## Originality
+In the shifted problem write Δ=uvᵀ with u unit and v=pu+qJu. The trace/determinant conditions are independently recovered as p≤−2α and α²+b²+αp−bq≥0; every pair (p,q) is realizable and its norm is √(p²+q²). Thus the problem is projection of zero onto two half-planes. At b=0 the determinant is at most −α² in the trace-feasible region. For 0<b<α the feasible coordinates obey p≤−2α and q≤(b²−α²)/b<0, both closest-to-zero bounds attained together, giving (α²+b²)/b and forcing nonsymmetry. Both invariants then vanish and C is nonzero (entry b in the (u,Ju) basis), so C²=0 and C is defective. For b≥α the closest trace-feasible point is (−2α,0), with determinant b²−α², giving exactly the symmetric minimizers and nilpotent/imaginary boundary cases. Unrestricted trace–Frobenius equality forces −α I. For passive Δ the invariants give precisely the stated interval and its strict interior; above the upper endpoint the margin fails (actual zero-margin instability at the shifted threshold only when δ=0). Arbitrary rank-one strict feasibility for b>0 follows by lowering p by ε and q by more than αε/b; strict unrestricted feasibility follows by increasing the scalar correction. Trace equality is necessary at each finite closed optimum, proving nonattainment and giving the strict infima; b=0 remains infeasible. The frozen exact-arithmetic checker and recorded assertions were inspected, not executed. Separate reproduction `python3 /workspace/checks/frozen_math_checks.py 1` passed for sampled trace/determinant coordinates, nilpotent endpoints and overdamping. The analytic half-plane argument, not sampling, establishes the complete profile.
 
-PASS under the available evidence, not an assertion of absolute priority. The primary paper by He and Liu (2024, DOI 10.3934/math.2024931, MSC 65F18) establishes robust regional assignment of poles of undamped *second-order* gyroscopic pencils under constrained rank-one feedback, not this full first-order free-direction Frobenius distance and optimal geometry. The 2024 Guglielmi–Sicilia arXiv manuscript 2402.14657 provides a broad rank-adaptive numerical approach for matrix-nearness stabilization but no matching exact rotating two-by-two profile in its accessible full text. The earlier Guglielmi–Lubich SIAM paper (DOI 10.1137/16M1105840) explicitly studies general norm-nearest stabilization under optional maximal-rank constraints, and therefore presents the most substantive conceptual overlap; only its published abstract was accessible. Nothing actually inspected establishes the precise piecewise cost, the nilpotent/oscillatory extremizer transition, and the finite passive overdamping window jointly. The older paper and potential other structured stabilization literature remain material originality risks; a search miss is not proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. Low-rank regional eigenvalue correction is an established numerical matrix-nearness and feedback task. The result supplies a natural sharp two-dimensional benchmark with freely chosen rank-one directions: an exact penalty relative to unrestricted correction, impossibility at zero rotation, a nonnormal defective optimum for weak rotation, and a sharp finite range of effective passive damping. It shows why algorithms optimizing small perturbations can approach a highly sensitive defective boundary and why indiscriminate extra damping can lose stability. The characterization is motivated by the actual achievable spectral margin and Frobenius cost, not by an arbitrary auxiliary invariant; it does not purport to solve high-dimensional, fixed-actuator, nonlinear or gyroscopic-pencil problems.
+The general minimum-Frobenius stabilization objective and standard 2×2 eigenvalue and determinant tools are established. The supported distinct result is the exact fixed-rank cost and full optimizer/passive/strict classification for the real rotation–dilation model. No inspected prior statement covers that profile mechanically; the most plausible inaccessible source is explicitly noted.
 
-## Closest literature and limitations
+## value
 
-The closest prior sources are He–Liu (2024), Guglielmi–Sicilia (2024), and Guglielmi–Lubich (2017). Standard trace/determinant Hurwitz criteria and rank-one determinant identities are deliberately treated as known. The closed-margin extremizers are not strictly stable. The strict-margin results are infimum statements, and no claim is made about robustness of the defective optimum. The 2017 full text could not be examined; the degree of equivalent coverage in inaccessible literature remains uncertain. The numerical checker covers a finite rational grid, whereas the theorem covers continuous parameter ranges by analytic inequalities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp distance and minimizer classification for the basic rotating unstable mode is a useful low-rank nearness benchmark. It quantifies the rank penalty, which diverges as rotation vanishes despite a fixed unrestricted cost, and distinguishes a fragile defective optimum from passive feasibility and its upper amplitude cutoff. This is not a higher-dimensional or fixed-actuator stabilization theorem, nor a robustness guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

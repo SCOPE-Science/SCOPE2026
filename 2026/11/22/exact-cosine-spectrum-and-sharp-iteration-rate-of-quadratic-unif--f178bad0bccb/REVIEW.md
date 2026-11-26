@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional collocation block is a symmetric tridiagonal matrix, with first/last diagonal entries \(5/8\), middle entries \(3/4\) and first off-diagonals \(1/8\). This is obtained directly from normalized clamped quadratic B-splines. The half-grid sine basis satisfies the two anti-reflecting ghost conditions, gives distinct eigenvalues and a complete orthogonal interior eigenbasis. The affine fixed space and infinite-dimensional nullspace complete the operator spectrum. An explicit finite coefficient expansion proves both the sharp iteration-norm root limit and the precise \(\pi^2/8\) mesh-gap constant. The standalone program checks exact rational collocation in 47 dimensions, 1,175 eigenmodes and 1,316 iteration expansion cases. The proof, not the numerical cases, establishes all dimensions.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2014 Nagler–Cerejeiras–Forster paper explicitly poses Conjecture 1 and says the Schoenberg eigenvalues/eigenfunctions are unknown, while proving general spectral containment and convergence. The earlier 2013 Nagler–Kähler work gives qualitative iteration bounds. The later Moldovan articles inspect different knot-location, approximation and multidimensional shape questions. Targeted published-record searches of `Schoenberg spline operator Greville eigenvalues spectral gap quadratic`, `tridiagonal collocation matrix B-spline Greville quadratic sine eigenvalues`, and `quadratic Schoenberg variation diminishing spline iterates spectral eigenbasis and sharp convergence` returned no identical exact full-spectrum or \(n^{-2}\) statement. The elementary discrete sine diagonalization is acknowledged as standard, and no claim is made about general degrees or all possible historical priority. Full-text comparisons to the principal older papers are decisive for the explicit claims made there, but obscure or unindexed historical equivalents remain possible.
+PASS
 
-## Value — PASS
-An explicit spectral formula for a standard positive quadratic spline approximation operator supplies the quantitative convergence rate of every iterate and an exact sharp asymptotic spectral-gap constant. It directly resolves the fixed-quadratic-degree fine-mesh half of a publicly posed spectral conjecture, without pretending to resolve the full conjecture. The exact formula is useful in choosing iteration counts for a fixed grid and in studying approximation as the knot mesh is refined; it is not an arbitrary isolated finite calculation.
+The clamped endpoint rows of the Greville collocation matrix are the endpoint coordinate rows. At the first cell midpoint, writing u=nx, the outer spline is (1−u)^2 and the spline two indices to its right is u²/2; the middle value follows from partition of unity. Thus the first interior row is (1/4,5/8,1/8), with its reflection at the other end. A regular interior cell midpoint has (1/8,3/4,1/8) by the uniform quadratic recurrence. The first and last formulas both apply at n=2. The restricted matrix T on the zero-endpoint coefficients is symmetric with off-diagonal entries 1/8 and diagonal entries 5/8 at both ends, 3/4 elsewhere. Set v_0=−v_1 and v_{n+1}=−v_n, making every row the same three-term stencil. The sin((i−1/2)jπ/n) vectors satisfy both boundary conditions and the recurrence, with distinct eigenvalues (3+cos(jπ/n))/4 for j=1,…,n. They form a basis; their squared norms are n/2 for j<n and n for j=n. Evaluation at the distinct Greville nodes is onto via continuous interpolation, and the coefficient-to-spline map is injective. The n nontrivial eigenfunctions plus the two affine eigenfunctions span the image. Since the restriction on that image is invertible, the ambient space splits into the image and the infinite-dimensional kernel, so this also determines the full complex spectrum. Subtracting Lf leaves zero endpoint samples; the first iterate gives the interior sample coefficients, then m−1 steps apply T. The stated power expansion follows and normalizing by γ_n^(m−1) leaves a nonzero bounded rank-one limit; the lower bound on the sharp rate also follows by testing the leading sine spline. Taylor expansion gives the claimed π²/8 constant. The independent replay python3 /workspace/checks/frozen_math_checks.py 5 uses de Boor evaluation of each proposed coefficient spline, testing 170 modes for n=2,…,18 without calling the supplied basis-code checker.
 
-## Scope and limitations
-Uniform clamped quadratic knots and classical Greville sampling only. The statement does not imply any result for nonuniform knots, higher degrees, or simultaneous grid/iteration error estimates beyond the given finite expansion. Priority risk remains for an older exact formula not indexed by the searched sources. Numerical verification is finite and no independent mathematical validation is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite collocation reduction and abstract geometric convergence are known, and the sine diagonalization of a constant-coefficient stencil is standard. What survives the inspected comparisons is the specific clamped quadratic operator identification, including its boundary entries, exact eigenvalues and eigenfunctions, and the sharp degree-two gap coefficient. The related exact cubic findings do not give these quadratic statements.
+
+## value
+
+PASS
+
+A fixed-degree fine-mesh spectral question for this natural positive spline operator was explicitly posed independently of the computation. The exact quadratic spectrum explains both iterates on fixed meshes and the sharp shrinking-gap constant, and supplies actual spline modes rather than a numerical range. This is useful in choosing and interpreting iteration scales and goes beyond the qualitative limit or a generic stencil calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:20:43.585221Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–52",
+        "VERIFICATION.md lines 19–27; verify.py lines 1–85 inspected but not executed",
+        "Independent polynomial convolution, full tangent-matrix enumeration, and minimal valuation-vector enumeration: /workspace/branches/7b1cf68d-9b04-41d2-9205-f2bce48a15a2/independent_check.py; INDEPENDENT_CHECK_OK. For (r,d,q)=(2,2,2),(2,2,3),(2,3,2),(3,2,2), verified End/Aut pairs 144/32, 2025/648, 1024/128, 32768/3072."
+      ],
+      "rationale": "The positive-degree output branches multiply independently, and no further truncation equations arise. In a branch, multiplication modulo t^N is zero exactly when the two orders sum to at least N. If the minimum order a is below N/2 it is unique and imposes order ≥N−a elsewhere. Otherwise the central component suffices for even N; for odd N the all-high tuple lies in each space associated to a=(N−1)/2. The lower-bound vectors of the listed spaces are incomparable. The reduction/product step is valid here even over imperfect k: modulo any prime containing the coefficient equations, apply the valuation test in the fraction field of the domain quotient, so that the prime contains one of the listed coordinate primes in each branch. The radical is the intersection of the resulting coordinate primes; flat field extension preserves that finite intersection. This justifies geometric components without invoking a general rule about products of reduced schemes. Their dimensions follow by counting free coordinates. For even N the gap between the central space and a=1 when r,d≥3 is (r−2)(N/2−1); for odd N compare a=1 and a=2. Invertible tangent matrices are monomial, selecting exactly the permutation products of a=1 spaces. For counting, the all-high stratum contributes q^(r floor(N/2)), and fixing the unique low index and exact valuation a contributes (q−1)q^(d+(r−2)a). These counts are disjoint; independence gives the r-th power. All field-valued algebra maps preserve augmentation because each generator image is nilpotent.",
+      "residual_risks": [
+        "The proof determines the reduced geometry only; the unreduced endomorphism scheme may have additional structure. Finite enumeration is diagnostic only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two monomial-algebra automorphism sources treat characteristic-zero group structure, while Theorem 1.1 of arXiv:2409.15081v2 is a reconstruction result from automorphism-group data within its hypotheses."
+        ],
+        "reasoning": "These are broader algebra families, but neither a structural theorem about units nor isomorphism-type reconstruction supplies the distribution of noninvertible maps, components and their dimensions over arbitrary fields.",
+        "searches": [
+          "arXiv:2408.02197v3",
+          "arXiv:2409.15081v2",
+          "arXiv:2609.13741v1"
+        ]
+      },
+      "checked_sources": [
+        "October 4 exact-family automorphism record",
+        "November 2 threshold record",
+        "arXiv:2408.02197v3, 2409.15081v2, 2609.13741v1 and 0704.3631"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Invertible maps see only a=1 branches with the distinguished indices forming a permutation; the automorphism theorem matches their count but not the other branch types. The later threshold record computes low lengths, not arbitrary a and d."
+        ],
+        "reasoning": "The valuation-minimal components not meeting that open set and the disjoint count of low-order strata require additional information not present in the antecedent automorphism statements.",
+        "searches": [
+          "October 4 exact-family automorphism normal form, RESULT.md",
+          "November 2 threshold record, RESULT.md",
+          "arXiv:2408.02197v3 structural automorphism theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At truncation length ℓ=d+1 the October 4 automorphism theorem counts the units of this exact endomorphism monoid, with order r!(q−1)^r q^(r(r+ℓ−3)). Moore's fiber-product formulation treats cohomology, resolutions and Ext."
+        ],
+        "reasoning": "A branch fiber-product presentation does not provide the annihilating-tuple component classification, and the equality of the automorphism formulas is explicitly credited as antecedent, not as equivalence to the full End finding.",
+        "searches": [
+          "Resultary: reduced endomorphism components and valuation counts for truncated coordinate-cross / fiber-product algebras",
+          "2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+          "arXiv:0704.3631"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later record gives matching row counts and component numbers r^r and (r+1)^r for ℓ=3,4 (d=2,3), respectively; it treats only ℓ=2,3,4.",
+          "No distinct same-day full-range record was identified in the bounded lookup."
+        ],
+        "reasoning": "There is real overlapping coverage on two slices, but no implication for d≥4 and no evidence of prior priority from this later index entry. A missed hit is not evidence of absence.",
+        "searches": [
+          "Resultary: full End component classification/count for truncated coordinate-cross algebras; distinct same-day record check",
+          "2026/11/2/SCOPE-a-first-non-equidimensional-threshold-for-endomorphism-monoids-o--5d24f60fd731"
+        ]
+      },
+      "rationale": "Credit the complete valuation-component description and endomorphism count for arbitrary d, not the same-family automorphism theorem. The inspected prior work does not cover the noninvertible endomorphism geometry and count. There is an exact overlap on small truncation lengths in a later indexed record, not evidence of earlier coverage.",
+      "residual_risks": [
+        "Resultary and literature lookup bounded; differently named annihilating-tuple results or an unlocated earlier source could overlap. Irrelevant public search returns were not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and exact automorphism coverage; full End not covered",
+          "evidence": "Substitute ℓ=d+1 into n!(q−1)^n q^(n(n+ℓ−3)), then set n=r.",
+          "identifier_or_url": "2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+          "material_read": "RESULT.md offsets 0–3346, 3300–5400, 5393–7654",
+          "method": "Local Resultary source mirror",
+          "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+          "trigger": "Exact-family prior count and normal form"
+        },
+        {
+          "assessment": "Exact d=2,3 overlap in a later-dated record; no arbitrary d coverage",
+          "evidence": "Matching reduced component counts and finite-field counts for ℓ=3,4; that finding stops at ℓ=4.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-first-non-equidimensional-threshold-for-endomorphism-monoids-o--5d24f60fd731",
+          "material_read": "RESULT.md offsets 0–3580 and 5600–7681",
+          "method": "Local Resultary source mirror",
+          "title": "A first non-equidimensional threshold for endomorphism monoids",
+          "trigger": "Closest indexed full End overlap"
+        },
+        {
+          "assessment": "Characteristic-zero automorphism structure, not End component theorem",
+          "evidence": "Structural statements about the torus, identity component and component group.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.02197v3",
+          "material_read": "Abstract p. 1 and structural theorem pp. 2–3",
+          "method": "OA primary PDF text",
+          "title": "The Automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "General monomial algebra theorem"
+        },
+        {
+          "assessment": "Reconstruction within specified conditions, not an enumeration",
+          "evidence": "The theorem uses the neutral automorphism group in characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.15081v2",
+          "material_read": "Theorem 1.1 p. 1, offset 3551",
+          "method": "OA primary PDF text",
+          "title": "Finite-dimensional monomial algebras are determined by their automorphism group",
+          "trigger": "Possible reconstruction of full data"
+        },
+        {
+          "assessment": "Subject identified; no End comparison claimed beyond the inspected passage",
+          "evidence": "Computes homological invariants in fiber products, including resolutions and Ext.",
+          "identifier_or_url": "https://arxiv.org/abs/0704.3631",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF text",
+          "title": "Cohomology over Fiber Products of Local Rings",
+          "trigger": "Equivalent presentation of the branch algebra as a fiber product"
+        },
+        {
+          "assessment": "The statement inspected concerns automorphisms, not End",
+          "evidence": "Homogeneous nilpotent derivations and root subgroups over an algebraically closed field of characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13741v1",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF text",
+          "title": "Díaz–Lucchini Arteche–Manzano-Flores on automorphism groups of monomial algebras",
+          "trigger": "Further general automorphism result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–23 and 38–52",
+        "Exact-family automorphism and low-truncation threshold comparisons"
+      ],
+      "rationale": "End rather than Aut records which degenerations and noninvertible maps occur in this natural family of finite-dimensional singular algebras. A complete list of its geometric components, the exact equidimensionality boundary, and the fact that automorphism-bearing components can be smaller than components without automorphisms are useful geometric information distinct from the group. The uniform point count gives a comparable exact invariant over all finite fields.",
+      "residual_risks": [
+        "The theorem does not determine the nonreduced structure or the composition-semigroup relations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

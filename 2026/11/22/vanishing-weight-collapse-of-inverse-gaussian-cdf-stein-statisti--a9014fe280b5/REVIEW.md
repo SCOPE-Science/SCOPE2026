@@ -1,15 +1,21 @@
-# Mathematical review — vanishing-weight IG CDF–Stein boundary
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The source's exact CDF–Stein expression has a deterministic plateau at every threshold beyond the sample maximum. ML cancels that plateau identically, while MO leaves the explicit normalized moment mismatch. An exact four-function tail decomposition in unweighted Hilbert space, whose four squared basis norms are \(x\), \(x^3/3\), \(x/3\), and \(1/(3x)\), controls the residual uniformly over all deterministic vanishing tuning rates. The IG influence-function calculation gives precisely \(6\phi^{-3}\), hence the null limiting coefficient \(3/(2\phi)\). A checker independently reconstructs the identities and passes 50 finite exact, symbolic and numerical assertions; numerical checks are not treated as proof of the limit.
+## correctness
 
-## Originality (O): PASS, qualified
-The 2019 preprint and 2022 open-access journal text were read at the definitions, estimators, fixed-weight null theory, computational forms, experiments and conclusions. They cover fixed positive tuning, not the arbitrary simultaneous \(a_n\downarrow0\) regime. The 2024 generalized Stein-moment estimation study concerns estimators rather than this goodness-of-fit functional. Prior accessible mathematical claims include a separate large-tuning ML result and a Rayleigh analogue, but neither implies the small-tuning moment-likelihood separation. The finite-sample tail identity itself is an elementary consequence of a known statistic; it is not asserted to be independently new. Searches cannot certify historical uniqueness; a dispersed prior theorem remains a genuine risk.
+PASS
 
-## Value (V): PASS
-For a source that recommends MO implementation and finds relative tuning insensitivity on \(\(a=0.1,1,10\)\), identifying an entire unweighted boundary and exact nonstandard null calibration explains where that empirical picture ceases to describe the statistic's scale. The MO family becomes effectively one-dimensional in the vanishing-weight regime while ML loses that component, and the sharp coefficient is needed for normalization. The result concerns statistics, not the size or power of the separately bootstrap-calibrated procedure.
+Above the normalized sample maximum, the average of Y is 1 and the indicator average is 1, so G_n=C_n=(1−φ̂(u−1))/2 exactly. It is zero for ML and equals (v−u)/(2(v−1)) for MO. The real-analytic numerator on the positive normalized simplex is not identically zero: using coordinates 1±δ and the rest 1 gives v−u=−2δ⁴/[n(1−δ²)]. The fixed-sample conclusions follow by splitting at the maximum. For the joint limit normalize μ=1 and use s=bar(X)t. Subtracting the plateau leaves the four functions 1{x>s}, (x−s)_+, (x−s)_+/x and (x−s)_+/x², with squared unweighted norms x, x³/3, x/3 and 1/(3x). For the IG density f, −f'/f=(φ+3/x−φ/x²)/2; integration by parts against (x−s)_+ proves population cancellation of their specified linear combination. Each empirical mean is root-n tight in unweighted L² by its finite second moment; the fitted coefficients are root-n tight around their population values, so n∫(G_n−C_n)²=O_P(1) after changing variables. Thus multiplying by a_n or √a_n makes the weighted remainder negligible at any rate, with the mixed term controlled by Cauchy–Schwarz. Differentiating v−u as bar(X²)/bar(X)²−bar(X)·bar(X⁻¹) gives the stated influence function H. The density reciprocity f(1/x)/x²=x f(x) and integration by parts give M_j=M_{j−2}+(2j−3)M_{j−1}/φ and the displayed moments. Substitution in E[H²] gives 6/φ³; dividing by 4(v−1)² asymptotically gives 3/(2φ), and the Gaussian weight contributes its mass √π/2 after scaling. Checked both estimators and both weights against the original definitions. Inspected check.py and recorded 50-check report without running the uploaded script; its seeded simulation checks the plateau fluctuation, not triangular-array convergence.
 
-## Closest literature and limits
-Allison et al., arXiv:1910.14119 (2019) and Mathematics 10 (2022), 350; Nik and Weiß, Journal of Statistical Theory and Applications 23 (2024), 240–274. The proof assumes i.i.d. fixed-parameter IG observations and deterministic \(a_n>0\) tending to zero. No claim is made for data-driven tuning, drifting parameters, alternatives or bootstrap rejection probabilities. Historical priority is qualified and not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original estimator and statistic formulas directly imply the samplewise plateau and exact ML cancellation; these algebraic observations are not credited as independent novel theorems. The supported distinct contribution is the joint, unrestricted-rate null limit for the original four statistics, with exact constants, obtained by an unweighted remainder bound. The same-statistic preprint and journal version have fixed-weight Gaussian-element theory, not this diagonal limit in the inspected sections.
+
+## value
+
+PASS
+
+The boundary of the positive tuning range matters for interpreting these established goodness-of-fit statistics. It exposes a qualitative estimator dependence that is not described by fixed-positive-weight theory: a root-n moment mismatch controls the scaled MO statistic over the whole vanishing-rate regime, while ML removes the effect exactly. The joint limit with explicit constants resolves a specific stability question about the original statistics, without inferring failure of a separately recalibrated test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

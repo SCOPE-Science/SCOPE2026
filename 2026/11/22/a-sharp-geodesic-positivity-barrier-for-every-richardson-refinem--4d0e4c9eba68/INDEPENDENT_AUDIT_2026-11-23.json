@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:25:54.893851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and VERIFY.py (inspected, not executed)",
+        "Independent integer test for every r=2..705 compares binom(r+k-1,k) with r^(k-1), confirming the displayed ranges. Independent P5 calculation uses the endpoint of (I+tL)^(-1), f(t)=t^4/(1+8t+21t^2+20t^3+5t^4), from a cofactor and tridiagonal determinant; the squared resolvent endpoint equals f(t)+t f'(t). Exact rational evaluation gives -3579497503436509/1090661149177367377845455 at h=1/100 and 2759/218405 at h=1."
+      ],
+      "rationale": "Negative-binomial expansion of the completed step gives coefficients (-1)^k a_{r,k}, with a_{r,k}=(r b_{r,k}-1)/(r-1), and the first three a-values are 1, 1, 1/2. The ratio of consecutive b-values is (r+k)/(r(k+1))<1 for k>=1 and tends to 1/r; hence the first strictly negative coefficient exists. For an entry at distance d, degree k<d cannot reach its endpoint even allowing diagonal factors. At k=d all factors are off-diagonal and give exactly the positively weighted geodesic sum times (-1)^d. Multiplying by the series coefficient proves the stated expansion, and a length-d_r subsegment of a diameter geodesic has exactly this distance. Eventual positivity follows from convergence to the constant-mode projector on each finite connected graph. For k near (1±eta)log r/log log r, the log of the product correcting 1/k! is bounded by k(k-1)/(2r)=o(1). Stirling gives log(k!)=(1±eta+o(1))log r, so these two k-values bracket the crossing. The quoted integer ranges and both P5 fractions were independently checked using exact arithmetic. The phrase 'exact small-step sign criterion' in the scope is only true when the displayed coefficient is nonzero; the proof expressly leaves equality open, and the actual theorem concerns the first strictly negative leading geodesic coefficient, not a necessary diameter condition.",
+      "residual_risks": [
+        "At r=2, d=3 the coefficient vanishes. The next sign cannot be inferred from distance alone: in a seven-cycle with a 3-edge route of weights eps and a 4-edge complementary unit route, (L^4)_uv=1-eps^3(2+6eps), which changes sign between small eps and eps=1. This does not qualify or refute the nonzero-coefficient theorem.",
+        "No all-h phase diagram, necessity of the diameter condition, or uniformity in graph or r of the step-size window is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faragó–Havasi–Zlatev derive the r=2 stability function and L-stability for the scalar test equation. The graph self-transition work covers all weighted graphs but only r=2 diagonals. Pure-birth and directed-cycle studies use r=2 on specific nonsymmetric generators.",
+          "Distinct same-day indexed work 0ebb646c4076 treats r=2 two-state chains, imbalance and parity of powers; bcd2ed2fdb92 concerns exp(-t L^(1+eps)), a different operator family."
+        ],
+        "reasoning": "Generality in graph class or stability analysis alone does not imply the all-r boundary on off-diagonal entries, or its refinement growth. None of the same-date comparisons is discounted on dating grounds.",
+        "searches": [
+          "Resultary: Richardson graph Laplacian diagonal self-transition positivity cutoff arbitrary graph",
+          "Resultary: Richardson extrapolated backward Euler directed Markov chain small-step negative transition distance",
+          "Faragó–Havasi–Zlatev, Efficient Implementation of Stable Richardson Extrapolation Algorithms, §§3, 6",
+          "absolute monotonicity radius extrapolation backward Euler Richardson method"
+        ]
+      },
+      "checked_sources": [
+        "Faragó–Havasi–Zlatev primary OA PDF",
+        "Resultary c9c2b9f6d7e1, 56edd79ad0f3, 328da4f7b295, c08f9b38b493, cbdb39e5b48d, 0ebb646c4076 and bcd2ed2fdb92",
+        "doi:10.2478/s11533-011-0099-7 and doi:10.1155/2015/350362 (OA retrieval failed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Padé proof uses the same minimal-walk Taylor mechanism, and the earlier directed cycles already give the exact fourth coefficient and recovery for r=2. Eventual positivity for this type of decaying scalar multiplier is also a standard spectral projection argument.",
+          "The all-refinement scalar map determines the scalar coefficients by expansion, but no checked earlier calculation follows their first-negative index through the Stirling regime or gives its weighted-graph theorem."
+        ],
+        "reasoning": "The Taylor walk observation and eventual recovery alone are routine once the multiplier is fixed; novelty is credited to the refinement-dependent exact crossing applied to all weighted graphs and the nonconstant asymptotic distance scale. Neither a special case, a different integrator, nor a scalar root implies that full result in the inspected text.",
+        "searches": [
+          "Resultary 328da4f7b295, directed-cycle RESULT.md offset 4638",
+          "Resultary cbdb39e5b48d, Padé shortest-walk proof",
+          "Resultary c9c2b9f6d7e1, scalar RESULT.md Finding",
+          "Faragó–Havasi–Zlatev, Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first negative geodesic coefficient equals the first negative derivative order at zero of S_r(x)=R_r(-x), since S_r^(k)(0)=k! a_{r,k}. This gives zero classical radius of absolute monotonicity, but that scalar radius does not encode the order of the first negative derivative.",
+          "The all-r scalar positivity record c9c2b9f6d7e1 studies the sign of R_r(z) for positive z and a scale log r+log log r, not a Taylor coefficient order."
+        ],
+        "reasoning": "The derivative-order alias was considered explicitly. Same rational function, scalar sign and positivity-radius question are not equivalent to the quantitative coefficient-order result.",
+        "searches": [
+          "Richardson extrapolation backward Euler graph diffusion off-diagonal positivity graph distance coefficient binomial refinement r",
+          "Richardson extrapolation absolute monotonicity backward Euler positivity preserving graph diffusion off-diagonal",
+          "Resultary: Richardson graph diffusion exact off-diagonal geodesic coefficient first negative distance all weighted undirected graphs refinement asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue match is the assigned record. The directed-cycle analogue already has the r=2 negative coefficient -3/8 at order four; the Padé results have distance four for a different method with coefficient -1/4. The all-r scalar comparison tabulates or characterizes another cutoff.",
+          "The finite transition values computed here come from integer binomial comparisons; no separate exact table for the same d_r was verified."
+        ],
+        "reasoning": "A known r=2 coefficient or distance-four witness is not a new contribution by itself. The refinement-wide quantity and growth law, not the sample table, are the claim under review.",
+        "searches": [
+          "Resultary: Richardson graph diffusion exact off-diagonal geodesic coefficient first negative distance all weighted undirected graphs refinement asymptotic",
+          "Resultary c9c2b9f6d7e1, 328da4f7b295 and cbdb39e5b48d"
+        ]
+      },
+      "rationale": "Earlier works supply the completed rational function, scalar stability/positivity analysis, several r=2 sign results and the same shortest-walk mechanism for a different rational integrator. These contributions are prior ingredients. The refinement-dependent distance crossing, its exact weighted all-graph formulation and its log r/log log r scale are the substantive combination. No inspected source provides equivalent coverage of that whole quantitative statement.",
+      "residual_risks": [
+        "Related extrapolation or absolute-monotonicity literature not located could compare the same negative derivative index. Empty queries and OA access failures are not exclusionary evidence.",
+        "No priority ordering is inferred from same-day comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar stability analysis, not the graph coefficient and d_r theorem in inspected passages",
+          "evidence": [
+            "The r=2 Richardson backward-Euler function is derived and L-stability proved."
+          ],
+          "identifier_or_url": "https://faragois.web.elte.hu/papers/stability_richardson_backward_euler_journal_version.pdf",
+          "material_read": "§3, PDF pp. 5–7 (offsets 10672–15658), and §6 Theorem 4, pp. 9–10 (offset 20548)",
+          "method": "Bounded primary OA PDF text",
+          "title": "Efficient Implementation of Stable Richardson Extrapolation Algorithms",
+          "trigger": "Classical backward-Euler Richardson stability analysis and possible derivative sign coverage"
+        },
+        {
+          "assessment": "Same map, different sign question",
+          "evidence": [
+            "Scalar positive-z cutoff z_r~log r+log log r, not the distance coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+          "material_read": "Mirrored RESULT.md, Finding and scope, offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Identical scalar rational map for all refinements"
+        },
+        {
+          "assessment": "r=2 diagonal comparison, not off-diagonal geodesics",
+          "evidence": [
+            "Diagonal positivity through order 28; a negative star hub diagonal at order 29."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-sharp-28-29-self-transition-barrier-for-richardson-accelerat--56edd79ad0f3",
+          "material_read": "Mirrored RESULT.md, Finding and scope, offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "The sharp 28–29 self-transition barrier for Richardson-accelerated graph diffusion",
+          "trigger": "Same undirected graph model and base extrapolation"
+        },
+        {
+          "assessment": "Genuine r=2 coefficient overlap, not an all-r graph theorem",
+          "evidence": [
+            "The directed-cycle distance-four term has coefficient -3/8 at r=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-five-state-positivity-barrier-and-sharp-recovery-for-richard--328da4f7b295",
+          "material_read": "Mirrored RESULT.md, proof offset 4638",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "The five-state positivity barrier and sharp recovery for Richardson-extrapolated backward Euler on directed cycles",
+          "trigger": "Possible earlier distance-four obstruction for the same map"
+        },
+        {
+          "assessment": "Special directed absorbing chain for r=2",
+          "evidence": [
+            "Homogeneous pure-birth model with five-state small-step sign hole."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-re-entrant-positivity-of-richardson-extrapolated-backward-euler--c08f9b38b493",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Re-entrant positivity of Richardson-extrapolated backward Euler on five-state pure-birth chains",
+          "trigger": "Small-step negative entry in the same extrapolation"
+        },
+        {
+          "assessment": "Proof-method overlap; different rational function and no refinement parameter",
+          "evidence": [
+            "Distance-four term -s^4(L^4)_ij/4 for an unweighted graph, all large-diameter graphs fail for small s."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d",
+          "material_read": "Mirrored RESULT.md Finding and shortest-walk proof near offsets 810–2976",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Five-vertex and distance-four positivity barriers for Padé [0/2] graph diffusion",
+          "trigger": "Same all-graph distance obstruction and recovery mechanism"
+        },
+        {
+          "assessment": "Two-state rate imbalance and powers, no geodesic coefficient regime",
+          "evidence": [
+            "Classifies parameter regions for two-state chains; these have no distinct pair at distance greater than one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-probability-loss-and-exact-parity-recovery-for-richard--0ebb646c4076",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Reentrant probability loss and exact parity recovery for Richardson extrapolation",
+          "trigger": "Distinct same-day result about the same r=2 stability map"
+        },
+        {
+          "assessment": "Different operator and different asymptotic parameter",
+          "evidence": [
+            "Studies exp(-t L^(1+eps)) and the eps->0 positivity-recovery timescale, not a refinement-dependent Taylor order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-diameter-dependent-fractional-heat-positivity-onset-on-finite-we--bcd2ed2fdb92",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Diameter-dependent fractional heat positivity onset on finite weighted graphs",
+          "trigger": "Distinct same-day diameter-dependent positivity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Scalar, directed-cycle and related Padé comparisons listed above"
+      ],
+      "rationale": "A composition and extrapolation of positive resolvents need not retain positivity even for arbitrarily small macrosteps. The first negative geodesic coefficient gives a uniform structural witness across all sufficiently large-diameter networks, and the growth law quantifies how slowly increasing the refinement factor delays the obstruction. This supplies an interpretable limitation of the method, rather than another isolated matrix example. The large-step recovery distinguishes the small-step failure from permanent failure.",
+      "residual_risks": [
+        "Does not determine the timestep interval of negativity, smaller-diameter entry signs, or practical finite-precision performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

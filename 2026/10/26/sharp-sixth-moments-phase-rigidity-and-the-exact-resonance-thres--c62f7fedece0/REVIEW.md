@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The irreducible dihedral character formulas and normalization follow from the standard explicit two-dimensional representations for \(n\ge5\). For \(n\ge13\), root-of-unity orthogonality is applied only after bounding every Fourier frequency of the sixth-power Laurent polynomial by \(12\). Direct constant-term extraction gives exactly \((10,0,7,0,6,0,10)\) for mixed moments indexed by the number of second harmonics. Expanding the squared modulus yields the displayed polynomial in \(|a|^2,|b|^2,\operatorname{Re}(a\overline b)\). Differentiating and factoring the one-variable cubic proves the exact global nonnegative deficit and all equality cases. Strict low-order aliasing is proved by a positive six-step witness at each order. The independent coefficient-path checks in `artifacts/verify.py` and its recorded output corroborate the algebra, but only the proof covers all orders and coefficients.
+PASS
 
-## Originality — PASS, best knowledge
+Both degree-two characters are distinct for n≥5, are real on rotations and vanish on reflections. The normalized group moment is half a cyclic average. The Laurent support [−12,12] means only frequency zero survives for n≥13. Independent six-step sign counts give the seven half constant terms (10,0,7,0,6,0,10). Cubing |aX+bY|² then gives exactly the stated polynomial in p=|a|², q=|b|² and Re(a conjugate(b)), and replacing the square of the latter by pq−Im(a conjugate(b))² gives the stated phase defect. The aligned polynomial is 10+60x−45x²−15x³, with its unique maximum at x=√21/3−1. Its exact factored gap gives the stated identity and all nonzero equality cases. For 6≤n≤12, n is reached by six positive steps with n−6 twos; for n=5 use (2,1,1,1,1,−1). At the positive aligned maximizing pair all Laurent coefficients are nonnegative, so these aliased coefficients prove strict increase for every smaller asserted order.
 
-Searches compared nonabelian character packet sixth moments, the cyclic model \(\{-2,-1,1,2\}\), exact two-character inequalities, four-consecutive Fourier bands, and older Nikol'skii-type literature. Doktorski's general frequency-support estimates concern bounds that are sharp in order but do not state this exact constant. Full statements of related public four-consecutive-frequency, finite-order two-one-dimensional-character, and generalized-dihedral isotype results were compared: their assumptions do not yield this mixed nonlinear-character sixth-moment constant or full deficit. The closest four-frequency result applies to \(\{0,1,2,3\}\), which is not an affine translation and dilation of \(\{-2,-1,1,2\}\); the finite-order two-character formula concerns two **one-dimensional** frequencies, whereas the present trace-character space has four cyclic frequencies tied into two antipodal pairs. No inspected stronger result was found to imply the classification. Residual risk: an exact value may exist in unindexed classical low-degree trigonometric extremal tables or under alternate noncommutative-norm terminology. This review does not establish independent priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural first adjacent pair of genuinely nonlinear irreducibles of each dihedral group defines a basic noncommutative Fourier packet. The exact sharp norm is substantially larger than either single-character sixth moment and has an algebraic, nonbalanced optimizer. The theorem gives a dimension-independent nontrivial value for all large orders, proves precisely when aliasing ceases, and gives a globally exact, nonnegative two-component stability identity with complete complex equality cases. This is a full solution to a motivated infinite-family sharp norm problem, rather than a selected numerical example or a routine small gain.
+The root filter and mixed-moment method are standard. The nearest sharp results examined act on different frequency sets or coefficient models, and the primary paper on the same harmonics optimizes a different functional. The supported distinction is the exact amplitude–phase classification on this packet and its sharp finite-order threshold.
 
-## Relationship and limitations
+## value
 
-The proof does not classify sharp constants at the eight exceptional orders \(5\le n\le12\), nor packets of other characters. Numerical tests supplement but do not replace exact Laurent identities. Unindexed literature may cover the formula. See the proof, source comparison and explicit residual risks in the result and audit documents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first two degree-two characters give a natural dependent spectrum, not a generic independent set of harmonics. The result identifies precisely when the cyclic sharp constant becomes the circle one and quantifies both phase and amplitude defects. The fact that all smaller admissible orders strictly enhance the optimum is stronger and more informative than the routine support bound for stabilization alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

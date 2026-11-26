@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 
-# Executed mathematical checks
+# Mathematical checks
 
-From the complete local package, run `python3 verify_kernel_spectra.py`. The program executes two exhaustive enumerations, checks their equality, verifies all 42 stored rows in `kernel_spectra.csv`, confirms the two natural symmetric-group orbit sizes and the pair of explicit characteristic-five examples. It prints `GENUS_FOUR_2295_LAGRANGIANS_42_TYPES_29_SPECTRA_VERIFIED` on success.
+From the complete package, run `python3 verify_kernel_spectra.py` beside `kernel_spectra.csv` to recompute all rows and both components of the kernel action. The two finite enumerations agree. Run `python3 verify_split_profiles.py` in the same directory to check the matching component by fixed counts of powers, both zeta spectra for the witness, the 38 ordered component profiles, and the irreducibility of the factors realizing the witness over \(\mathbb F_5\). The latter prints `42 branch types; 29 aggregate and 38 ordered component profiles; collision checked`.
 
-The all-characteristic statement follows from the standard torsion correspondence plus the exhaustive ten-point permutation calculation. There is no reliance on random finite-field sampling. The program proves neither that every branch partition occurs over every small field nor that all quotient principally polarized abelian varieties are Jacobians. No independent audit has been performed.
+The symplectic correspondence and finite group action establish the result uniformly in odd characteristic for each realized branch type. The calculation gives neither universal small-field realization nor a classification of the principally polarized quotient targets.

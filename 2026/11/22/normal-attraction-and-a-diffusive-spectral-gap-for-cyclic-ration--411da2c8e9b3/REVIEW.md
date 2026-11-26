@@ -1,11 +1,21 @@
-# Scientific assessment: cyclic rational-delay two-cycle spectral law
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The proof classifies all positive period-dividing-two states by direct cross-ratio identities, factors the exact \(2k\)-dimensional return Jacobian using spatial Fourier modes, and establishes strict stability of every nontrivial mode using a fully expanded Schur–Cohn inequality. The simple tangent multiplier and a local adapted-norm argument yield attraction to a neighboring family member. Twice-differentiating the quadratic eigenvalue equation supplies the positive \(k^{-2}\) coefficient and the \(O(k^{-4})\) remainder. The bundled checker compared the direct matrices and Fourier factors, verified the large-ring coefficient, and checked trajectories in 103 groups. The checker is corroboration, not the basis for the infinite-ring proof.
+## correctness
 
-**Originality — PASS within available evidence.** The originating article studies a three-site recurrence and identifies its positive period-two family, but the inspected sections do not present the complete transverse Floquet spectrum, a local stable-foliation argument, arbitrary ring sizes, or a sharp diffusive spectral-gap coefficient. The closest indexed result on a four-periodic manifold concerns a different fifth-order recurrence with a twelve-dimensional neutral manifold and parameter-dependent transverse instability. Another own indexed result treats the distinct update law with a current-state numerator and squared lag denominator, not the ratio feedback analyzed here. This contribution does not claim Fourier analysis, Schur–Cohn theory, or the existence of the originating three-site two-cycles to be new. Unindexed equivalent papers and incomplete access to a closest repository full text remain priority risks.
+PASS
 
-**Value — PASS.** The original period-two family is nonisolated, so its existence does not resolve whether perturbations select nearby cycles or depart from them. An all-ring, exactly factored spectral classification answers that natural stability question and reveals that stable finite systems develop a quantitatively sharp \(k^2\) relaxation-time scale. This is a structural statement about the source recurrence, not a small parameter tweak, an arbitrary cutoff, or a numerical observation.
+The two positive phase equations give (a_i−1)(b_i−1)=1 and then a_i=a_{i+1}; conversely r>1 and s=r/(r−1) give all such states, including the fixed state at r=2. Fourier reduction of the product of the two step derivatives gives trace q+q²d and determinant q²d. The Schur–Cohn margin is 2d(1−cos θ)[1−2d−(1+2cos θ)d²], with the bracket at least 5/16. The only neutral root is the simple tangent root at q=1. In coordinates along and across the fixed curve, choose an adapted norm for the transverse derivative at the selected point and shrink the neighborhood to get uniform contraction there. The summed tangential increments are bounded by a geometric series, so sufficiently close points stay in the neighborhood and converge exponentially to a member; no global basin is implied. Implicit differentiation gives λ′(1)=1/(1−d) and λ″(1)=2d(1−2d)/(1−d)³. The even analytic modulus has quadratic decrement d(1−3d)/(2(1−d)³)>0 and fourth-order remainder. Compactness away from q=1 and strict local monotonicity select q=exp(±2πi/k) for large k. At fixed k the root through q is q+(q²−q)d+O(d²) and the other root tends to zero; the stated small-d maximum follows. Independent replay: `python /workspace/branches/independent_math.py spectrum` verifies the Schur and expansion algebra exactly and compares finite-difference return Jacobians with the factors for four finite rings; the numerical checks are diagnostic only.
 
-**Closest literature and limits.** Quan et al., *Discrete Dynamics in Nature and Society* 2024, article 6565273, https://doi.org/10.1155/2024/6565273, is the originating full-text source. The indexed result “Exact normal Floquet spectrum of a four-periodic manifold in a fifth-order rational recurrence” is close methodologically but does not use these ratio equations or assert a variable-ring-size spectral gap. A distinct 2016 study of three rational recursive systems gives explicit solutions for different equations. The theorem is local and makes no claim of global convergence, exact phase selection from arbitrary initial states, or uniform contraction in ring size. Independent mathematical validation has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact all-ring transverse spectrum and sharp spatial-size gap for the positive two-cycle family. The existence of period two for the motivating three-variable system and classical Fourier and disk tests are not claimed as new. Separate possible overlap on k=3 does not establish the all-k theorem or either claimed gap law.
+
+## value
+
+PASS
+
+For a nonisolated family, a unit multiplier cannot decide whether perturbations select a nearby cycle or destabilize it. The transverse classification determines this for every finite ring, and the positive explicit gap coefficient quantifies the increasing relaxation time with system size. These are natural dynamical invariants tied to the originating recurrence, not finite numerical observations or a uniform-in-size claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

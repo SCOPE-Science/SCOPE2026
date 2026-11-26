@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:16.275112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–104; VERIFICATION.md lines 19–21; check_sampling.py (inspected only).",
+        "Independent replay: python3 /workspace/checks/review_1.py."
+      ],
+      "rationale": "The permutation-sign, coordinate-even component of a degree-eight polynomial is divisible by the degree-six squared-coordinate Vandermonde, with symmetric linear quotient in the squares. It must therefore be a multiple of |x|²Δ, whose Laplacian is 30Δ. Character averaging over the signed-permutation orbit (seed stabilizer flips only its zero coordinate) now gives the universal signed relation. The addition theorem identifies evaluation rank with the Legendre Gram rank; the probability-surface normalization is 2ℓ+1 and changing antipodal representatives only changes some signs. An independent Rodrigues-coefficient calculation gives the nine claimed exact ranks and nonsingularity of all 520 matrices from degree 9 to 528 modulo 65537, distinct from either packaged prime. Integer scaling by 10^ℓ preserves rational rank. Beyond that range the Laplace integral gives |Pℓ(z)| ≤ sqrt(π/[2ℓ(1−z²)]); the observed maximum absolute off-diagonal contact is 4/5, and 11 times the resulting bound is strictly below 1 at ℓ=529. Finally nonzero rational determinants or a rank-11 minor at t=2 yield only finitely many algebraic exceptions per degree, with the universal degree-eight relation providing the upper bound. The minimum-norm interpolant follows from the Gram pseudoinverse with the same kernel normalization.",
+      "residual_risks": [
+        "The finite computation does not establish the analytic tail or classify exceptional algebraic t. The normalized vertex coordinates need not be rational; the pairwise dot products and Gram entries at t=2 are rational as required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zu Castell–Laín Fernández–Xu construct unisolvent sets for Π_n(S²), the cumulative band, on chosen latitudes.",
+          "Bannai–Okuda–Tagami define harmonic-index designs using the sum over all vertices with equal weights.",
+          "Ganesh–Mhaskar accessible abstract concerns trigonometric interpolation and quadrature; no usable full text was found."
+        ],
+        "reasoning": "Cumulative unisolvence does not decide whether prescribed parity data can be sampled from one harmonic degree on this set. The orbit sign vector is not the uniform design vector. The inaccessible source remains a risk, not negative evidence.",
+        "searches": [
+          "arXiv:math/0407448 Theorem 3.1",
+          "arXiv:1308.5101 Definition 1.1",
+          "DOI 10.1137/050624005"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0407448; arXiv:1308.5101; DOI 10.1137/050624005 (abstract only)",
+        "Resultary 79f74ff8557a and cedb76c38e7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former two sources use cumulative interpolation and unweighted design identities respectively; the later indexed results determine t=2 ranks.",
+          "The orbit representation explains the forced absence of the degree-eight sign character, but the existence of the other constituents alone does not certify full evaluated rank at the given seed."
+        ],
+        "reasoning": "Neither the standard projection and addition kernel nor a general tail estimate supplies the isolated degree-eight defect and the sharp recovery threshold without the orbit-specific rank information. Rational specialization is a standard consequence once the required ranks and universal obstruction are known; it is not credited as a new technique.",
+        "searches": [
+          "arXiv:math/0407448 Theorem 3.1 and arXiv:1308.5101 basic definition",
+          "Resultary 79f74ff8557a and cedb76c38e7f, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26 79f74ff8557a, Finding: same ranks and Δ-sample missing direction at t=2.",
+          "2026/11/2 cedb76c38e7f, Finding and next passage: same sequence, sharp threshold, and signed left kernel (up to overall sign)."
+        ],
+        "reasoning": "Scaling Δ samples on the fixed orbit gives the same one-dimensional left kernel. These are actual equivalent t=2 conclusions, not merely matching degrees, but neither checked finding asserts the variable-t theorem or shows earlier circulation.",
+        "searches": [
+          "Resultary: exact single-degree interpolation / truncated octahedron / degree eight sampling blind spot",
+          "Primary literature: truncated octahedron spherical harmonics exact-degree interpolation ranks octahedral symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both compared indexed findings state (1,3,5,6,9,9,10,12,11) followed by full rank at all later degrees for the regular orbit."
+        ],
+        "reasoning": "An exact sequence match was verified at the claim level. These matches are dated after the frozen finding and do not settle priority outside the indexed evidence. No earlier exact rank table was identified in the bounded search.",
+        "searches": [
+          "Resultary: truncated octahedral harmonic exact rank sequence and isolated degree-eight gap",
+          "Indexed findings 79f74ff8557a and cedb76c38e7f"
+        ]
+      },
+      "rationale": "The general tools and the orbit geometry are classical. No inspected earlier source implies the finite orbit-specific rank sequence and exact recovery threshold. The distinct October 26 and November 2 indexed findings do cover the t=2 classification, including the signed degree-eight obstruction; they are later indexed records, not evidence of earlier priority, and the compared statements do not cover the universal and generic orbit-parameter conclusions. The judgment credits the exact overlap without treating it as absent.",
+      "residual_risks": [
+        "Bounded search, not a priority proof. The two later indexed matches have an unresolved relationship to the frozen record. An uninspected article or classical computation for this exact orbit could predate it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different function space and configured points.",
+          "evidence": "The theorem explicitly solves interpolation in Π_n(S²).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+          "material_read": "Theorem 3.1 and context, PDF p. 10, offsets 34301–37497",
+          "method": "OA PDF passage inspection",
+          "title": "Polynomial Interpolation on the Unit Sphere II",
+          "trigger": "Prior unisolvence framework on S²"
+        },
+        {
+          "assessment": "Unweighted design criterion is not the signed obstruction or rank classification.",
+          "evidence": "The defining functional is Σ_x f(x), with no alternating weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5101",
+          "material_read": "Definition 1.1, pp. 1–2, offsets 4352–6098",
+          "method": "OA PDF passage inspection",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Vanishing in one exact harmonic degree"
+        },
+        {
+          "assessment": "Substantial equivalent coverage of the regular orbit in a later record.",
+          "evidence": "Full stated rank sequence and missing direction proportional to samples of Δ.",
+          "identifier_or_url": "2026/10/26/SCOPE-persistent-single-degree-spherical-harmonic-interpolation-on-the--79f74ff8557a",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary plus mirrored record inspection",
+          "title": "Persistent single-degree spherical-harmonic interpolation on the truncated octahedron",
+          "trigger": "Exact indexed threshold match"
+        },
+        {
+          "assessment": "Exact regular-orbit coverage; later indexed date; variable-orbit conclusions not in compared passages.",
+          "evidence": "The left kernel at degree 8 is spanned by the alternant sign vector, which is not the all-ones vector.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-isolated-degree-eight-harmonic-sampling-gap-of-the-regular-t--cedb76c38e7f",
+          "material_read": "Finding and signed-nullspace passage, offsets 0 and 845",
+          "method": "Resultary plus mirrored record inspection",
+          "title": "The isolated degree-eight harmonic sampling gap of the regular truncated octahedron",
+          "trigger": "Strongest indexed exact match"
+        },
+        {
+          "assessment": "Unresolved access risk, not a whole-paper comparison.",
+          "evidence": "Abstract concerns algorithms for trigonometric interpolation and quadrature.",
+          "identifier_or_url": "https://doi.org/10.1137/050624005",
+          "material_read": "Accessible abstract only",
+          "method": "Abstract comparison; attempted lawful OA retrieval did not yield full text",
+          "title": "Matrix-free Interpolation on the Sphere",
+          "trigger": "Plausible spherical interpolation overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and interpolation formula; rank and kernel checks above; cumulative-space and design comparison sources."
+      ],
+      "rationale": "For single-degree reconstruction on the standard truncated-octahedral directions, dimension alone would not indicate loss of a sample after surjectivity has already occurred. The exact forbidden data combination, sharp permanent cutoff, and distinction between a symmetry-forced obstruction and a parameter-specific accident are useful interpolation information. The fixed target is a canonical geometric orbit rather than a hand-picked finite instance.",
+      "residual_risks": [
+        "Ranks do not guarantee good numerical conditioning or robustness under removing vertices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

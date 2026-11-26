@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated update is exactly the rank-one positive-semidefinite Schur correction. The mean trace gains, Rayleigh quotient upper bound, rank-constrained spectral optimization, and both block-family sharpness calculations were independently reconstructed. The two-by-two identity and explicit three-by-three example are algebraically exact. Exact-rational tests in `verify.py` passed, but are only supplementary to the infinite-parameter proof. The result is limited to one step and permits rank-deficient Gram matrices.
+## correctness
 
-## Originality — PASS
-The primary randomly pivoted Cholesky work proves the canonical expected-residual formula and full-run best-rank bounds. Steinerberger studies diagonal-power rules with a Frobenius objective and empirical uniform comparisons. Accelerated RPCholesky preserves the same distribution. No inspected primary full text states the sharp uniform-to-standard trace-gain envelope, the minimal reversal dimension, or divergence for every superlinear power at rank two. These are additional consequences requiring a spectral optimization and explicit extremizers; their absence from searches is not itself a proof of novelty. A later closely related preprint could only be inspected at abstract level; that and unindexed equivalent results remain risks.
+PASS
 
-## Value — PASS
-The comparisons quantify an actual choice in pivot-selection design, distinguish improved average one-step trace progress from rank-approximation bounds, and identify a finite-rank stability boundary when diagonal weighting is made more aggressive. The exact factor and the diverging construction motivate caution with power rules rather than claiming they are universally poor.
+Tracing the downdate gives g_i=||Ae_i||²/d_i, the Rayleigh quotient of A at A^{1/2}e_i. Thus Δ₀≤λ_max and Δ₁=tr(A²)/tr(A). Scaling λ_max to one and writing s for the other positive eigenvalues' sum yields (1+s)/(1+s²/(r−1)), maximized at s=√r−1. Rank one ties identically. The block family J_N/N ⊕ I_{r−1}/(√r+1) has gains 1 on the N-block and 1/(√r+1) on singletons, yielding the asserted limit. In size two the difference is (a−b)(g₁−g₂)/(2(a+b))=(a−b)²(1−|c|²/(ab))/(2(a+b))≥0; in size three J₂/2 ⊕ [2/3] gives 8/9 versus 13/15. For fixed real β>1, B_T has gains T on the m_T-block and one on the singleton; total block weight h_T=T^β m_T^{1−β} satisfies Th_T→0 under the stated q, so the ratio is asymptotic to T. These checks establish one-pivot expectations, not multistep performance. The supplied finite-test script was inspected, not run.
 
-## Sources and limitations
-Primary sources: arXiv:2207.06503 (Sections 2.3, 5 and Appendix C); arXiv:2404.11487 (Sections 1–3); arXiv:2410.03969 (Sections 2 and 4). The later arXiv:2608.20633 is an unresolved full-text coverage risk. These results concern one initial pivot; finite simulations alone do not establish the theorem, and neither long-run convergence nor the interval of powers between zero and one is classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by the comparison is the sharp all-rank one-pivot trace-gain envelope and the trace-specific rank-two failure throughout β>1, including the regime 1<β≤4 not covered by the prior Frobenius failure. Neither the power family, the β=1 expected residual identity, nor the two-cluster example shape is new. This is a bounded statement-level assessment, not a priority claim.
+
+## value
+
+PASS
+
+A sharp rank-only bound answers how much uniform sampling can outperform the standard Cholesky pivot rule on the actual expected trace progress, and the rank-two construction shows why that guarantee cannot be transferred to any heavier exponent. The first possible reversal in size three provides a compact diagnostic. The result does not depend on calling the family new or extrapolating to multiple pivots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

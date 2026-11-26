@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:58:53.414696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–110",
+        "Frozen VERIFICATION.md and CHECK.py",
+        "Independent reproduce.py and reproduction.log"
+      ],
+      "rationale": "For the Apéry sum, ordinary binomial Lucas implies the stated Apéry digit factorization: a surviving summand needs every j_i≤n_i from binomial(n,j); if adding n+j has a first carry, its digit n_i+j_i−11<j_i makes binomial(n+j,j) vanish modulo 11. The surviving terms factor over digits, with overflowing digit terms zero in the individual sums as well. Direct computation leaves exactly digit 5 forbidden. In the ordered-pair problem the initial carry is zero and the final carry is free. By inclusion-exclusion, each target-digit row has 9 choices except for the collision of the two excluded summands, which yields 10 (digit 10 for carry 0 and digit 0 for carry 1). Every ordinary digit sum 0 through 20 occurs; for 0 through 10 take 0+s except for 5, use 1+4 for 5, and reflect for sums above 10. Thus every initial digit below 10 populates both carries, as do subsequent digits 1–9; equality at the lower bound requires exactly those subsequent digits. At the upper bound the unique maximizing transition from carry 0 takes digit 10 and stays at carry 0, giving the all-tens target. In counting equality of sums the signed carry lies in {−1,0,1}, with entry H(11q′−q) and unrestricted terminal state. The reflected sector has matrix rows (333,576) and (320,590), trace 923 and determinant 12150, giving the energy recurrence. The cylinder probabilities R_r/100^r lie between positive bounds and at most 10^(−r), proving full support and no atoms. For singularity, apply the ergodic theorem to the carry together with the current two input digits: both next-carry outcomes can be forced with extreme input pairs, so this finite lifted chain is irreducible, and the all-zero state has a self-loop. Its stationary law is the uniform carry (the two switch probabilities are 45/100) times the uniform digit pair. The output digit frequencies are 19/200 at 0 and 10 and 9/100 elsewhere, separating the measure from Haar. Finally the square-cylinder sum is E_r/10000^r; the positive matrix gives growth at its Perron root, which exceeds 10000/11 because the characteristic polynomial there is −59850/121. Independent direct enumeration through r=3 recovered the extrema (r=3: minimum 729 at 810 targets, unique maximum 1000 at 1330); independent carry and spectrum computations gave energies 1, 910, 827780, 752984440, 684947111120 through r=4 and dimension approximately 0.999746761157. These checks support the constants but do not replace the all-depth derivation. The frozen CHECK.py was read, not executed.",
+      "residual_risks": [
+        "All sums and energies are modular and ordered. The dimension is defined from 11-adic cylinder-square masses, not a Euclidean correlation integral."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arithmetic literature leads identified by the literature lookup concern Lucas congruences for Apéry and sporadic sequences. The frozen source states the Gessel digit congruence and describes the stronger congruence of Apéry values mod p². Resultary 0a6383f8b10e concerns the real base-four digit set {0,1,3}, with equal ordinary-integer sums rather than congruence mod 11^r."
+        ],
+        "reasoning": "Lucas congruences specify index support but are not additive-energy formulas. The general carry technique is shared; a different base, digit mask, and terminal-equality condition require a separate transfer derivation and yield a different quadratic. No available general odd-base coverage was established.",
+        "searches": [
+          "Gessel DOI 10.1016/0022-314X(82)90071-3; Malik–Straub arXiv:1508.00297 and author page",
+          "Rowland–Yassawi–Krattenthaler, Lucas congruences for the Apéry numbers modulo p²",
+          "Resultary: deleted-digit convolution and modular energy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 682a0f21ef72, 3d01efd560fb and 0a6383f8b10e (indexed statements)",
+        "Gessel, Malik–Straub and Rowland–Yassawi–Krattenthaler (cited arithmetic inputs and search leads; primary passages unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Catalan summary already combines a modular two-sum basis, target data, energy, and a full-support singular p-adic convolution with exact dimension, at base three. The Franel base-five summary and the arithmetic residue computation above make it the closest candidate for a general deleted-center-digit result. Both comparisons are based on available indexed claims; their bodies and any possible general theorem in them were not independently retrieved."
+        ],
+        "reasoning": "The abstract phenomena and transfer method are not new in isolation. Neither indexed statement fixes the base-eleven carry weights, the equality digit patterns, or the squared-cylinder Perron root; no parameterized prior statement that yields them by substitution was established. Shared publication date supplies no priority evidence.",
+        "searches": [
+          "Resultary: exact two-sum representation and additive energy of ternary-unit indices (3d01efd560fb)",
+          "Resultary: exact Franel support additive energy and near-critical five-adic convolution (682a0f21ef72)",
+          "General missing-central-digit p-adic convolution literature lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same quantity is the modular self-convolution of the indicator of base-eleven words excluding the central digit. Resultary 682a0f21ef72 studies the Franel nonzero-index set mod 5; indeed the first five Franel sums of cubes of binomial coefficients have residues 1,2,0,1,1, so the central deletion is the same pattern at a different base. The available statement gives a Franel energy generating function and exact dimension, not the 11-adic extremal-target or transfer law."
+        ],
+        "reasoning": "The Franel analogy is structural rather than terminological. A general deleted-center-digit theorem would be a direct coverage threat, but the available base-five statement is not such a theorem. The carry counts and spectra depend on the base and on whether a terminal carry is free.",
+        "searches": [
+          "Resultary: Apéry nondivisibility modular representation counts and p-adic convolution",
+          "Literature: p-adic self convolution deleted middle digit, additive energy, Apéry/Franel and Gessel Lucas congruence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact expressions concern Franel mod five, Catalan nondivisibility mod three, and a real base-four digit convolution. The 11-digit Lucas input is separate from the modular target table and recurrence with trace 923 and determinant 12150."
+        ],
+        "reasoning": "No inspected indexed exact statement gives the missing-5 ordered residue histogram or this energy recurrence. Existing digit residue data do not tabulate those additive quantities.",
+        "searches": [
+          "Resultary: exact modular two-sum representation fibers, energy and correlation dimension for Apéry indices",
+          "Resultary 682a0f21ef72, 3d01efd560fb, 0a6383f8b10e"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete ordered modular fiber law and extremal target classification for the Apéry nondivisibility support at 11, together with its specific all-depth energy and 11-adic distribution. The digit criterion follows from classical Lucas input and direct digit residues and is not independently credited as novel. The closest indexed analogues have significant method overlap, especially the center-deleted Franel example at base five, but their available statements do not establish a theorem implying the reviewed base-eleven claims. Priority remains provisional at the source access bounds below.",
+      "residual_risks": [
+        "A prior parameterized theorem for odd bases with middle digit omitted could specialize to these quantities; the indexed Franel and Catalan record bodies and key arithmetic primary passages were unavailable. The bounded search does not rule out an equivalent prior transfer calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical arithmetic input, not claimed as novel; additive coverage not inferred from the citation",
+          "evidence": "The cited product congruence reduces each Apéry value mod 11 to digit values.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(82)90071-3",
+          "material_read": "Cited theorem in frozen RESULT.md lines 47–56 and bibliographic description; original primary passage not retrieved",
+          "method": "Bounded lawful OA attempt and independent reduction to ordinary Lucas",
+          "title": "Some congruences for Apéry numbers",
+          "trigger": "Origin of the digit factorization on which the support relies"
+        },
+        {
+          "assessment": "Available descriptions pertain to value congruences, without an established implication to additive-index fibers",
+          "evidence": "The frozen scope distinguishes Lucas congruences, including mod p², from additive structure of the index group mod 11^r.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297 ; https://ericrowland.github.io/papers/Lucas_congruences_for_the_Apery_numbers_modulo_p%5E2.pdf",
+          "material_read": "Search bibliographic leads and frozen related-work descriptions; independent primary passages unavailable",
+          "method": "Literature search, lawful primary PDF attempts and Malik–Straub author-page alternate",
+          "title": "Divisibility properties of sporadic Apéry-like numbers; Lucas congruences for the Apéry numbers modulo p²",
+          "trigger": "Plausible broader coverage of congruences and nonvanishing of Apéry-type values"
+        },
+        {
+          "assessment": "Same central deletion pattern at base five; no available theorem implying base eleven",
+          "evidence": "The summary concerns the nonzero-index set mod five, exact energy and dimension; central digit 2 is excluded in the computed digit residues.",
+          "identifier_or_url": "Resultary 682a0f21ef72",
+          "material_read": "Indexed claim summary only; decisive body passage not accessible",
+          "method": "Resultary statement search, independent first-five Franel digit calculation and lawful mirror attempt",
+          "title": "Exact Franel support additive energy and a near-critical five-adic convolution",
+          "trigger": "Strongest deleted-central-digit comparator at a different odd base"
+        },
+        {
+          "assessment": "Substantial analogical overlap, not a matching group or support in the available statement",
+          "evidence": "Nondivisible Catalan indices modulo 3^k have an exact representation and energy law, with a full-support singular 3-adic self-convolution.",
+          "identifier_or_url": "Resultary 3d01efd560fb",
+          "material_read": "Indexed claim summary only",
+          "method": "Resultary statement comparison and lawful mirror attempt",
+          "title": "Exact two-sum representation and additive energy of ternary-unit indices",
+          "trigger": "Closest full package of modular basis, fibers, and singular measure"
+        },
+        {
+          "assessment": "Distinct base, digit set, ambient space and equality boundary",
+          "evidence": "Real-line base-four convolution with digits {0,1,3} and ordinary equality imposes terminal carry zero, rather than all terminal carries admitted mod 11^r.",
+          "identifier_or_url": "Resultary 0a6383f8b10e",
+          "material_read": "Indexed claim and frozen RESULT.md line 120 comparison; original body not independently retrieved",
+          "method": "Resultary statement comparison and lawful mirror attempt",
+          "title": "Exact correlation dimension and an L² obstruction for a three-digit four-adic convolution",
+          "trigger": "Earlier exact energy via signed carries for a missing digit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, extremal fibers, signed carries and limiting measure",
+        "Independent modular histogram and energy reproduction"
+      ],
+      "rationale": "For a classical arithmetic sequence’s natural nondivisibility support, this resolves all ordered sum multiplicities, not just coverage or an early finite table. The sharp rare and frequent target classifications and modular energy quantify the local additive law. The limiting distribution shows why full coverage can coexist with singularity, and its exact near-one dimension distinguishes a qualitative bias from its precise square-mass growth. The value is these additive and measure invariants, not a recomputed Apéry residue table.",
+      "residual_risks": [
+        "The evaluation is for this prime and sequence; no result about other Apéry primes, real convolutions, or a full multifractal spectrum is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

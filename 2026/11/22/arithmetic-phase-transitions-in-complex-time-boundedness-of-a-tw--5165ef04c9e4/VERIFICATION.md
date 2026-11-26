@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,8 @@
 }
 ---
 
-## Analytic verification
-The Hermite polynomial core is dense in the stated \(L^p\) space. Necessity and sufficiency of the operator-domain condition follow separately from one-dimensional Epperson boundedness and product factorization. The uniform-distribution argument requires irrationality of the ratio, not merely distinct rates. The small-time rational formula requires the explicit zero-separation inequality stated in the proof. The exact cross-section transition holds only for irrational ratios in the form asserted. The proof does not claim a uniform discrepancy bound over finite imaginary-time windows.
+# Verification of the slice-period classification
 
-## Finite diagnostics
-`check_geometry.py` independently sampled the two simultaneous sine constraints at three positive horizontal coordinates with rates \(1,\sqrt2\), using \(1{,}200{,}000\) midpoint samples on \([0,10000]\). It compared observed fractions with the stated product-Haar formula. For commensurate pairs \((m,n)=(2,3),(1,1),(3,5)\), it sampled one period at two small horizontal coordinates using \(500{,}000\) midpoint samples and checked the exact common-zero formula. Executed output ended in `GEOMETRY_DIAGNOSTICS_OK`. These are numerical finite tests of the formulas; neither they nor their tolerances prove equidistribution or exhaustive correctness.
+The analytic proof in `RESULT.md` checks boundedness via coordinate restriction and Fubini. Below the first threshold, the boundary of the two-window indicator is Haar-null; density of the irrational line transfers a hypothetical slice translation to an almost-everywhere window symmetry. The first Fourier coefficient of each proper arc rules out any other circle translation. At both thresholds equality is allowed by the closed boundedness test.
 
-## Scope of certification
-Self-review: passed. Independent audit: not yet performed. The work has no externally supplied proof certificate.
+The legacy `check_geometry.py` samples densities from the known two-rate region. It does not verify the slice translation groups, and the present proof does not use it. There is no computational or formal proof certificate for the slice-period statement.

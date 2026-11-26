@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:15:11.120102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the transitions using d→d−u or d+v modulo n and deleting d=0 targets, and checked both reflection and particle exchange preserve the labels of counted events. A counted transition inside the first triangle orbit is a null state change but contributes exactly z=e^k−1 to the tilted diagonal; reversals remain unweighted. The irreducible generator at a>0 has a simple zero eigenvalue. Analytic dominant-eigenvalue differentiation gives Qg=μ1−J1, ν=μ+2πJg−2μπg. An independent symbolic reproduction used the 8- and 12-state unquotiented tilted matrices, not the supplied quotient or its Poisson equation. For p(y,z)=det(yI−Q−zJ) at (0,0), row multilinearity gives μ=−p_z/p_y and F=1−(p_yy μ²+2p_yz μ+p_zz)/(μ p_y). It reproduced both rational functions exactly. Replay: python /workspace/branches/check_full_activity.py (SymPy). The sign factorization gives the unique triangle crossing at a=1 and strict positivity of F4−1, and each derivative numerator has one sign change and changes sign between zero and infinity. The reproduced roots and minimum values round to the printed values. The leading and constant terms give the fast limits and slow-rate divergence. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general persistent two-walker ring generator and stationary measure include both n=3 and n=4. The general SSEP cumulant formula yields F=1 and 10/9 at those sizes for two particles."
+        ],
+        "reasoning": "The model and rapid-reversal boundary are covered; an un-tilted spectrum or a theorem for SSEP is not the activity-tilted persistent spectrum or its curvature at finite a.",
+        "searches": [
+          "Mallmin–Blythe–Evans arXiv:1810.00813 §4.1",
+          "Slowman–Evans–Blythe arXiv:1601.00954 stationary solution",
+          "Appert-Rolland et al. arXiv:0804.2590 Eq. (12)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1601.00954",
+        "arXiv:1810.00813",
+        "arXiv:2309.02896",
+        "arXiv:0804.2590",
+        "arXiv:1705.04812 (abstract and solution introduction; stationary state in a different finite-tumble model)",
+        "Resultary 9e35afb2f386 and ef4ea58edfd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary rates and general eigenvalue perturbation machinery can be reused; the tilt has to distinguish hops from reversals. The finite-a variance involves the jump matrix and the solution of a marked Poisson equation, not just stationary occupation probabilities or un-tilted eigenvalues."
+        ],
+        "reasoning": "The limiting Fano values are corollaries of known exclusion activity under the fast-rate convention. The all-finite-rate noise signs and unique optimizers do not follow by specializing those exclusion formulas or signed-current results.",
+        "searches": [
+          "arXiv:1810.00813 master equation (23) and un-tilted eigenproblem",
+          "arXiv:1601.00954 stationary probabilities",
+          "arXiv:0804.2590 activity tilt and exact cumulants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed Q_tot is cumulative displacement; it can decrease on a successful hop. Activity K increases on each such hop and never on a reversal. SSEP activity has the same mark on hops but no direction memory."
+        ],
+        "reasoning": "Opposite tilts on left/right jumps do not give common activity tilting; agreement of exclusion activity in the fast limit is an actual boundary equivalence, not finite-rate equivalence.",
+        "searches": [
+          "Resultary: run-and-tumble total jump activity; two-particle exclusion successful hops",
+          "Chakraborty–Pradhan arXiv:2309.02896 cumulative displacement and integrated current",
+          "Appert-Rolland et al. arXiv:0804.2590 Sec. II.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9e35afb2f386 gives F=10/9 for H(2,2)=C4 and Poisson counting for K_q, including C3. Resultary ef4ea58edfd5 gives F=1+(n−3)/(3(n−1)) on C_n, n≥4, with C3 Poisson; it credits the published SSEP cumulants."
+        ],
+        "reasoning": "Both are exact activity records but do not include an orientation reversal parameter. They overlap the boundary only; their displayed dates are not used to assign priority.",
+        "searches": [
+          "Resultary: exact two-particle jump-activity noise and ring exclusion activity"
+        ]
+      },
+      "rationale": "The same dynamics and their stationary and un-tilted spectral solutions are established. Published SSEP activity cumulants and indexed exclusion activity records give both fast-reversal boundary Fano values, so those values are not credited as distinct. The inspected persistent-walker current work counts signed displacement, and the SSEP activity solutions eliminate orientation. Neither gives the finite-positive-a sign contrast or optimal reversal rates of the successful-hop activity.",
+      "residual_risks": [
+        "Equivalent finite-rate activity calculations may be indexed under other Markov-additive or counting-statistics terminology.",
+        "The checked sources establish marked SSEP cumulants and unmarked persistent spectra, not an exhaustive historical priority comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and steady state; establishes input to mean activity, not the marked noise result in compared passages",
+          "evidence": [
+            "Hard-core unit-rate hops and independent reversals; exact P_(σ₁σ₂)(d)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.00954",
+          "material_read": "OA PDF pp. 2–3, offsets 13600–17880",
+          "method": "Primary-source passage comparison",
+          "title": "Jamming and Attraction of Interacting Run-and-Tumble Random Walkers",
+          "trigger": "Same two-particle ring and stationary formulas"
+        },
+        {
+          "assessment": "Un-tilted spectral result, not a marked activity tilt",
+          "evidence": [
+            "Eigenvectors and eigenvalues are for the ordinary Markov matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.00813",
+          "material_read": "§4.1 Eq. (23) and spectral problem, PDF pp. 11–12",
+          "method": "Primary-source passage comparison",
+          "title": "Exact spectral solution of two interacting run-and-tumble particles on a ring lattice",
+          "trigger": "Strongest same-model spectral antecedent"
+        },
+        {
+          "assessment": "Signed transport rather than unsigned hop activity",
+          "evidence": [
+            "Q_tot is cumulative displacement of all particles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.02896",
+          "material_read": "PDF pp. 2, 4 and 10; definition of Q_tot and integrated bond current",
+          "method": "Primary-source passage comparison",
+          "title": "Time-dependent properties of run-and-tumble particles II: Current fluctuations",
+          "trigger": "Potential equivalent fluctuation observable"
+        },
+        {
+          "assessment": "Exact SSEP activity cumulants imply both limits, not finite-a RTP",
+          "evidence": [
+            "Eq. (4) marks configuration changes; Eq. (12) at N=2 gives F=1 or 10/9 for L=3 or 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0804.2590",
+          "material_read": "§II.A, Eqs. (1)–(8), (12), PDF pp. 2–3",
+          "method": "Primary-source passage comparison",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Exact activity tilt and fast-reversal coverage"
+        },
+        {
+          "assessment": "Exact overlap at the nonpersistent boundary only",
+          "evidence": [
+            "C3 activity is Poisson; C4 has F=10/9 with no orientation dynamics."
+          ],
+          "identifier_or_url": "Resultary 9e35afb2f386 and ef4ea58edfd5",
+          "material_read": "RESULT.md offsets 0–2926 and 1220–3394, 9150–11779, respectively",
+          "method": "Indexed matches and local-mirror passages",
+          "title": "Exact jump-activity noise for two-particle exclusion on Hamming graphs; A diffusive-time theta crossover for two-particle exclusion activity on a ring",
+          "trigger": "Exact activity records for triangle and square"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triangle and square are the first ring geometries without and with a nonadjacent pair, respectively. Their exact contrast distinguishes a regime with sub-Poisson successful-hop noise from one with strictly super-Poisson noise for all finite rates, and the two genuine finite optima are quantitative benchmarks. This is a motivated finite comparison, not a classification of larger rings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

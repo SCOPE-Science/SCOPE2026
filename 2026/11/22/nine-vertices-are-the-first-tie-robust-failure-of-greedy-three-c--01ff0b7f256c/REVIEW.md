@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The single exact finite claim is reconstructed from the matrix-tree cofactor and an independently evaluated rank-three resistance determinant. Every possible chord triple is counted at every cycle size from five through nine; all greedy tie trajectories are enumerated prefixwise, not only one deterministic tie rule. There are 5,281 configurations, each crosschecked by two integer determinant algorithms; final maxima and equality sets are asserted in executable code. The scope is finite and no enumeration is misrepresented as an infinite theorem.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2016 primary edge-augmentation paper proves general log-submodularity and performance bounds for greedy selection, not this smallest cycle and sharp full tie-failure. The closest 2020 primary reliability paper analyzes small three-chord Hamiltonian optimal designs, so its general optimum can cover the 240-tree figure; however the distinctive greedy 235-tree obstruction, all 18 tie outcomes, and proof of first occurrence were not found in its inspected Sections 2.2–2.3 or the indexed results. Named source overlap, implication limits, and uninspected portions are itemized in AUDIT.json; absence of an indexed hit is not claimed as mathematical proof of priority.
+PASS
 
-**Value — PASS.** This is a natural first exact obstruction to exact greedy D-optimality on a canonical ring base, rather than an arbitrary finite slice. Small-case exact classifications are relevant as constructive test instances for approximation algorithms, and the failure survives every tie resolution. The practical gap is only five spanning trees (2.0833 percent), so practical superiority of exhaustive design is not claimed.
+For the simple unit cycle, the permitted additions are all nonedges. There are 5,9,14,20,27 at n=5,6,7,8,9, so the stated 5281 configurations of size zero through three is exact. The Laplacian cofactor counts trees by Kirchhoff, and the second formula follows from the rank-update determinant lemma and polarization of cycle resistance R_uv=|u-v|(n-|u-v|)/n. I independently enumerated every (n−1)-edge subset of each augmented graph, counting it exactly when cycle-free, which at this cardinality is equivalent to being a tree. I propagated all local maxima separately for each reachable prefix, and separately enumerated all globally maximizing triples. The global maxima at n=5,…,9 were 45,81,117,168,240; every greedy triple for the first four orders attained the corresponding maximum. For n=9, all 18 distinct greedies had 235 trees, the three listed labeled triples were precisely the global optima, and there was no overlap. The gap is 5/240=1/48. The only smaller simple cycles, C3 and C4, do not admit the budget. The verifier's docstring briefly uses an obsolete filename; the source file and the Verification instructions correctly name verify.py.
 
-**Limitations.** The result proves only the first obstruction through nine vertices and three chords. It neither improves a universal approximation factor nor proves behavior for longer cycles. Specialized reliability articles could contain an overlooked equivalent comparison. The review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit existing coverage of the greedy algorithm and the global maxima at n=6–9, including the 240-tree nine-cycle optimum. Pass the distinct claim that nine is the first order with tie-robust three-chord greedy failure, with the complete 18-triple greedy census and exact gap, not the global value alone. No inspected prior result implies this finite boundary and equality profile. The frozen bibliography's location for the three-chord comparison should be §3, Table 3, not §§2.2–2.3. Also, it is log tree count, not raw tree count, that is submodular; maximizing either gives the same greedy choices. These literature corrections do not change the mathematical finding.
+
+## value
+
+PASS
+
+A natural base graph and small fixed budget give a first exact test of whether an established greedy design algorithm can always be rescued by choosing favorable ties. Exhaustively ruling that out at the first possible order, while confirming every tie branch earlier, supplies a useful counterexample and a sharp finite benchmark. The mathematical distinction is the failure of exactness for all ties, not the small relative loss or a claim of practical design improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

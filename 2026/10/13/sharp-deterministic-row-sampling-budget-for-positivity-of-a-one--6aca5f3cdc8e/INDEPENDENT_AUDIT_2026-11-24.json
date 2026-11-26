@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:30:43.266986Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, endpoint and minimax proof and four-dimensional witness; frozen VERIFICATION.md and verify.py inspected for verification scope."
+      ],
+      "rationale": "Let w=P_Jv/a and write A=cI+δT with T symmetric and ||T||≤1. The scalar is c+(δ/a)wᵀTv, so the radius is at most δ/a. For a<1 a Householder reflection with normal v−w sends v to w; using it or its negative attains both endpoints and gives both eigenvalues μ and L in the corresponding A. If a=1, w=v and a reflection fixing v while negating an orthogonal unit vector gives the same conclusion for n≥2. Convexity gives all intermediate values. The top-s squared mass is at least s/n by averaging the ordered squares and is pointwise optimal; the flat unit vector makes every s-subset attain s/n and the adversary can then choose the required endpoint matrix for the selected subset. Hence the minimax radius is δ√(n/s), and strict uniform positivity is exactly c−δ√(n/s)>0. Equality gives a zero witness; beyond it a negative endpoint persists under small perturbations making the top subset unique. At s=n the interval is [μ,L]. In the printed four-dimensional witness zᵀv=−1/2 and (Av)₁=−1/4, so the quotient is −1/2.",
+      "residual_risks": [
+        "The uploaded verifier was not run; the endpoint and minimax arguments apply analytically to all admissible inputs. The uniform result allows the adversarial matrix to depend on the row selector's output and does not cover matrix-aware selectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary comparisons give numerical-range inclusion or embedding-based spectral localization but not the exact attainable radius under sampled mass alone. The exact row-budget result in 79393b04b650 selects full-rank sketches of a two-vector Krylov basis and optimizes over a prescribed SPD family."
+        ],
+        "reasoning": "Positivity of a one-column unwhitened scalar has the same sign as its whitened counterpart, but a nonsharp enclosure does not give the fixed-v,J endpoints or strict minimax boundary. A restricted family with a two-vector information model does not dominate the universal v-only guarantee.",
+        "searches": [
+          "Numerical-range/field-of-values bounds for sketched FOM and Rayleigh–Ritz, angle distortion and sketch whitening",
+          "Güttel–Schweitzer arXiv:2208.11447 §2.3; Simoncini–Wang DOI 10.1002/nla.70022 Lemma 5.2 and Proposition 7.2; mirrored 79393b04b650"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification support; Resultary targeted searches and mirrored records 64c030573be9, 79393b04b650, 82e6f28b1c80; targeted primary sections listed in source_inspections."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited row-selection methods optimize conditioning of a sketched basis or report effects of oversampling. For one column and one row, Q-DEIM is the largest-magnitude coordinate choice. Known angle/enclosure arguments and the standard centered norm bound account for an upper estimate, not by themselves the simultaneous lower and upper attainment and v-only minimax characterization."
+        ],
+        "reasoning": "Once the fixed-subset endpoint theorem is available, the top-s law follows immediately by ordered averaging and the flat witness. The existing selection criteria do not establish that all exact worst-case radii are determined only by that sampled mass, nor address a flat v followed by a matrix adversary acting after the v-only choice. The examined stronger-looking embedding result needs an additional hypothesis absent in these witnesses.",
+        "searches": [
+          "Bergermann §4.1 and §6.3, Algorithm 6; Drmač–Gugercin arXiv:1505.00370v2 §2; mirrored one-vector embedding and square-root budget proofs/scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited algorithms reduce to the frozen quotient for one column. The mirrored one-vector embedding result obtains the same shaped radius δ/√(1−ε²) for a squared-norm embedding on span{v,Av}."
+        ],
+        "reasoning": "For a row projector the effective inverse overlap is 1/||P_Jv||, with no control of the sketch on the rest of span{v,Av}. Setting a=√(1−ε²) matches the formulas symbolically but does not furnish an embedding or an implication: a rank-one row sketch cannot embed a two-dimensional span at ε<1 even with arbitrary common rescaling.",
+        "searches": [
+          "Resultary: one-vector sketched Ritz interval, deterministic coordinate row-subset positivity, cosine or generalized numerical range, top-s v-only minimax",
+          "Nakatsukasa–Tropp arXiv:2111.00113v2 §1.3.1 and §6.8; Bergermann arXiv:2604.07158v1 Alg. 6; mirrored 64c030573be9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest explicit deterministic budget is a different square-root-in-n budget at fixed condition number for a structured SPD family with rank(SV₂)=2. The same-day record studies a Gaussian harmonic Ritz statistic, not the stated deterministic interval."
+        ],
+        "reasoning": "This is a continuous worst-case extremum expressed for every integer budget, not a numerical table problem. The exact catalog formulas were checked for matching parameters, assumption sets, and quantifiers; neither exact match in shape extends to this budget.",
+        "searches": [
+          "Resultary: δ√(n/s), sharp top-s row budget for positive sketched Ritz values, flat-vector extremizer; mirrored 64c030573be9, 79393b04b650 and same-day 82e6f28b1c80"
+        ]
+      },
+      "rationale": "Sketched Ritz extraction, the possibility of out-of-range or negative values, and the top-one Q-DEIM convention are prior. The strongest analogous catalog intervals control either an embedding on the two-vector image space or a full-rank sketch of a restricted rank-one SPD family with access to both Krylov vectors. Neither provides the exact minimax sampled-mass law or uniform strict positivity budget for the frozen v-only model, whose extremum includes rank-deficient sketches on the two-vector space. The supported distinction is the fully sharp uniform row-budget result, not the underlying quotient or generic bilinear norm inequality.",
+      "residual_risks": [
+        "An equivalent result could be stated in older oblique numerical-range or metric-angle literature. The external search did not yield usable hits, and bounded comparisons do not establish exhaustive absence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scalar and same-shaped radius, distinct quantified embedding hypothesis",
+          "evidence": "Requires a two-sided squared-norm embedding on span{b,Ab}; bounds the metric-angle distortion by 1/√(1−ε²) and makes its endpoints sharp over such embeddings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-sharp-one-vector-sketching-envelope-and-positive-stability-thres--64c030573be9/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–4 opening, mirror offsets 0–3892",
+          "method": "Configured mirror bounded read and assumption comparison",
+          "title": "Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems",
+          "trigger": "Closest exact interval and positivity cutoff"
+        },
+        {
+          "assessment": "Restricted family and different information/rank requirement",
+          "evidence": "Uses the permutation-symmetric rank-one SPD family, rank(SV₂)=2, and a selector with two-vector information; the sharp radius and budget formulas differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/22/SCOPE-a-sharp-square-root-sampling-budget-for-positive-one-step-determ--79393b04b650/RESULT.md",
+          "material_read": "Finding and scope opening, mirror offsets 0–2796",
+          "method": "Configured mirror bounded read and assumption comparison",
+          "title": "A sharp square-root sampling budget for positive one-step deterministically sketched Ritz values",
+          "trigger": "Closest deterministic row-subset sharp positivity budget"
+        },
+        {
+          "assessment": "Different sketch law, quotient and quantifier",
+          "evidence": "Probability for Gaussian-sketch harmonic Ritz positivity on a two-mode plane, not exact adversarial positivity of the deterministic row-subset Ritz scalar.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-an-exact-gaussian-positivity-threshold-for-two-mode-sketched-har--82e6f28b1c80",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions",
+          "method": "Configured mirror bounded statement inspection",
+          "title": "An exact Gaussian positivity threshold for two-mode sketched harmonic Ritz values",
+          "trigger": "Same-day positivity-threshold match by title and mathematical setting"
+        },
+        {
+          "assessment": "Same scalar construction, qualitative structural observation",
+          "evidence": "Defines (SB)†(SAB), giving the target quotient for one column; discusses that the sketched eigenproblem need not be similar to a symmetric one.",
+          "identifier_or_url": "https://arxiv.org/html/2111.00113v2",
+          "material_read": "§1.3.1, Eqs. (11)–(12), HTML offset 15003; §6.8, offset 77000",
+          "method": "Open primary HTML targeted passages",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Prior sketched Ritz definition and self-adjoint structure issue"
+        },
+        {
+          "assessment": "Prior method, row-selection goal and spurious Ritz behavior; not the sharp budget in inspected sections",
+          "evidence": "Defines deterministic DEIM/Q-DEIM and whitening, and reports out-of-field-of-values Ritz values and improved empirical behavior with more rows.",
+          "identifier_or_url": "https://arxiv.org/html/2604.07158v1",
+          "material_read": "§4.1 near HTML offset 45353, Algorithm 6 near 67179, §6.3 near 82400",
+          "method": "Open primary HTML targeted passages",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Closest primary deterministic row-subset and Ritz method"
+        },
+        {
+          "assessment": "Related nonsharp inclusion for an unwhitened compression",
+          "evidence": "Field of values plus a norm-controlled error disk, with possible negative sketched eigenvalues even for Hermitian inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+          "material_read": "OA HTML §2.3, Eq. (9), offset 29245",
+          "method": "Open full-text bounded passage",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "Possible broader field-of-values positivity implication"
+        },
+        {
+          "assessment": "Nonsharp localization and angle distortion, not fixed-mass attainment",
+          "evidence": "The results bound a sketch-induced cosine distortion and give spectral localization for a sketched-and-whitened Krylov decomposition.",
+          "identifier_or_url": "https://doi.org/10.1002/nla.70022",
+          "material_read": "OA repository PDF Lemma 5.2 p. 10, offset 36500 and Proposition 7.2 p. 15, offset 57000",
+          "method": "Lawful repository full-text bounded passages",
+          "title": "Simoncini–Wang, sketched and whitened Krylov decomposition",
+          "trigger": "Angle distortion and spectral bounds for sketched trial spaces"
+        },
+        {
+          "assessment": "Prior Q-DEIM conditioning method rather than adversarial Ritz budget law",
+          "evidence": "Column-pivoted QR index selection coincides with largest magnitude for one vector and one selected row; the conditioning result is not a universal spectral interval for fixed sampled mass.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.00370v2",
+          "material_read": "§2, pivoted QR selection and bounds",
+          "method": "Open primary bounded passage",
+          "title": "A New Selection Operator for the Discrete Empirical Interpolation Method—Improved A Priori Error Bound and Extensions",
+          "trigger": "Is the claimed deterministic selector already a known minimax positivity rule?"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, strict positivity boundary and flat-vector minimax witness; Bergermann arXiv:2604.07158v1 §6.3 for the prior qualitative motivation."
+      ],
+      "rationale": "A positive very small projected problem can fail solely because of row truncation even when the chosen rows maximize trial-vector energy. The result turns this known qualitative symptom into an exact design boundary: it distinguishes strictly guaranteed positivity, attainable zero, and actual negative values, and shows that no other v-only deterministic selector can buy uniform positivity with fewer rows. At fixed condition number the bound specifies the requisite fraction of coordinates, information not provided by a demonstration of one spurious value or by empirical oversampling.",
+      "residual_risks": [
+        "This benchmark concerns one retained vector and ideal unweighted top-s selection. It is not a guarantee for a practical two-vector-aware oversampling implementation, eigenvalue accuracy, or floating-point stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

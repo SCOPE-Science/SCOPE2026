@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:11.551900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–47; VERIFICATION.md lines 19–23; verify.py; verification_output.txt"
+      ],
+      "rationale": "The original transitive faces are exactly the subsets of cyclic blocks of length m+1, by the source-vertex test. Endpoints of a reversed short arc are consecutive in the order of any original face containing them; disjoint adjacent swaps preserve that order's transitivity. A changed triple contains at most one reversed edge. For i→i+1 there is exactly one original cycle containing it, with third vertex i+m+1. A new face must therefore contain one of these two triangles. For τ_0, any fourth vertex v in 2,…,m creates the old directed cycle on {0,v,m+1}, and any in m+2,…,2m creates the old directed cycle on {1,v,m+1}. Neither can be removed by the second disjoint reversal unless that edge is {v,m+1}; only d=m and v=m allow it. Reflection v↦d+1−v reverses all arrows and swaps the roles of the reversed edges, proving the symmetric test. For d=m, the order 1,m+1,0,m verifies the sole new tetrahedron, and no larger face is possible. For the integral attachment argument, the explicit K_s collapses are valid: each length-s endpoint edge has a unique supporting block and the proposed pairs, processed in decreasing size, remove its whole star. In K_m each edge of ∂τ_i is homotopic relative endpoints to its forward segment of lengths 1,m,m in the cyclic polygon, within the corresponding block simplex. The concatenation winds once in K_1. Thus each attaching boundary is a homotopy equivalence to the base circle, the first disk contracts it, and the second disk adds S². In the extremal case the free τ_0–tetrahedron collapse instead leaves a single disk attached to the circle by that equivalence. This also covers m=2 and requires no extrapolation from finite instances.",
+      "residual_risks": [
+        "The frozen finite transcript was inspected, not rerun. The proof establishes a homotopy equivalence, not a collapse to a triangulated sphere; overlapping or long reversed arcs are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f8aa83887e0d covers arbitrarily many nested flips of a transitive tournament",
+          "972bb2689a63 permits all lengths of one chord of a cyclic tournament",
+          "arXiv:2312.04039 studies modular indecomposability rather than flag homotopy"
+        ],
+        "reasoning": "Allowing more reversals from a transitive base, or allowing one longer reversed arc from the cyclic base, does not include this cyclic two-short-arc family. A single long flip yielding S² is a different edited tournament, not evidence for when two short flips yield the sphere.",
+        "searches": [
+          "Resultary multiple/nested reversals and one-chord reversal homotopy",
+          "arXiv:2312.04039",
+          "arXiv:2003.00324"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 568c2473dfd5, 8f4d1ced82e2, 005198358c91, f8aa83887e0d, 972bb2689a63",
+        "arXiv:2006.05333, arXiv:2003.00324, arXiv:2312.04039"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8f4d1ced82e2 attaches a single triangle along a homotopy-equivalent loop",
+          "005198358c91 has types including S¹∨S² but only with a transitive starting point"
+        ],
+        "reasoning": "Applying the one-flip theorem twice is not valid because its second input would no longer be the original cyclic tournament. In particular it misses the new tetrahedron, which exists only when the second reversal removes the obstruction to a common coface.",
+        "searches": [
+          "Resultary adjacent single flip 8f4d1ced82e2; 972bb2689a63",
+          "Resultary 005198358c91 two disjoint reversals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue hit 568c2473dfd5 is this frozen record",
+          "Resultary 005198358c91 really treats two disjoint reversals but starts from a transitive orientation",
+          "Resultary 8f4d1ced82e2 treats one adjacent flip in the same cyclic orientation"
+        ],
+        "reasoning": "Descriptions via transitive vertex sets and directed flag agree. The base tournament and number of reversals, not the terminology, distinguish the closest other statements.",
+        "searches": [
+          "Resultary cyclic tournament two adjacent/short arc reversals and directed flag homotopy",
+          "Published literature query for cyclic tournament arc reversal and transitive-subtournament homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Regular census through order 13 excludes these edited nonregular tournaments",
+          "All-tournament aggregate census through order 10 includes orders 5, 7, 9 but not the family beyond those orders"
+        ],
+        "reasoning": "Four distinct vertices change outdegree after the two flips. Aggregate small-order counts do not identify the separation dichotomy even where their population includes these instances, and do not give the unbounded theorem.",
+        "searches": [
+          "Govc arXiv:2006.05333 §§3.1, 3.3, regular and general tournament homotopy censuses",
+          "Exact title/claim in Resultary"
+        ]
+      },
+      "rationale": "The inspected one-arc results cover a genuine ingredient. Neither they nor the two-reversal classifications starting from a transitive tournament imply the interaction and extremal exception in the cyclic-tournament family.",
+      "residual_risks": [
+        "Bounded literature and catalogue discovery do not exclude an unindexed theorem. No relative priority is inferred from a shared publication date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material ingredient, not full coverage",
+          "evidence": [
+            "Single new triangle attaches to the circle by a homotopy-equivalent boundary"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-single-adjacent-reversal-contracts-the-cyclic-tournament-flag--8f4d1ced82e2",
+          "material_read": "RESULT.md from offset 0, finding and attachment argument",
+          "method": "Local Resultary mirror",
+          "title": "A single adjacent reversal contracts the cyclic tournament flag complex",
+          "trigger": "Same base and one of the edits"
+        },
+        {
+          "assessment": "Different starting orientation",
+          "evidence": [
+            "Starts from a transitive tournament and classifies endpoint pairings and gaps"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-disjoint-arc-reversals-a-complete-directed-flag-homotopy-cla--005198358c91",
+          "material_read": "RESULT.md offsets 100 and 7200, statement and cases",
+          "method": "Local Resultary mirror",
+          "title": "Two disjoint arc reversals: a complete directed flag homotopy classification",
+          "trigger": "Same number and disjointness of flips"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "Nested flips of a transitive tournament give a wedge of spheres in degrees 1 through r"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reflection-parity-and-quotient-homology-of-nested-reversal-tourn--f8aa83887e0d",
+          "material_read": "RESULT.md from offset 0, finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Reflection parity and quotient homology of nested reversal tournaments",
+          "trigger": "Multiple-reversal covering result"
+        },
+        {
+          "assessment": "One flip only",
+          "evidence": [
+            "Classifies a single edge by cyclic length, with S² at length m−1 when m≥3"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-phase-homotopy-response-to-one-chord-reversal-in-odd-cycli--972bb2689a63",
+          "material_read": "RESULT.md from offset 0, finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Three-phase homotopy response to one chord reversal in odd cyclic tournaments",
+          "trigger": "Same cyclic starting graph and sphere response"
+        },
+        {
+          "assessment": "Bounded aggregate data, not the parameterized dichotomy",
+          "evidence": [
+            "Regular through order 13 and all tournaments through order 10"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.05333",
+          "material_read": "Original PDF §§3.1, 3.3 pp. 13–16",
+          "method": "Lawful OA original PDF",
+          "title": "Computing Homotopy Types of Directed Flag Complexes",
+          "trigger": "Tournament homotopy censuses might cover finite cases"
+        },
+        {
+          "assessment": "No evidence of this edit-family theorem in the inspected description",
+          "evidence": [
+            "Studies tournaplexes and directionality filtrations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.00324",
+          "material_read": "Abstract at OA offset 0",
+          "method": "Lawful OA original text",
+          "title": "Complexes of Tournaments, Directionality Filtrations and Persistent Homology",
+          "trigger": "Nearby tournament topology framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–44",
+        "Single adjacent reversal record 8f4d1ced82e2"
+      ],
+      "rationale": "This is a natural next interaction question after the single-flip contraction. It gives an exact all-orders threshold: two disk attachments normally create a sphere, but at extremal separation a new common coface cancels it. This distinguishes genuine integral homotopy behavior, not just Euler characteristic or small-instance counts.",
+      "residual_risks": [
+        "No claim about arbitrary edge edits or more than two reversals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:57:50.631268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–65",
+        "Frozen VERIFICATION.md:18–24",
+        "Frozen verify.py:9–60"
+      ],
+      "rationale": "The independent Brownian drivers give conditional iid positions, not independent stationary particles after averaging over the common clock. The stationary age T has exponential rate r and V=exp(−2μT) has CDF v^β. The OU variance (D/μ)(1−v) gives the stated increasing binomial parameter p(v), with derivative c at zero. For v=w/√N the count threshold, centered at Np(v) and divided by √N, tends to s−cw; conditional variance divided by N tends to σ²>0. The triangular binomial CLT then gives the stated integrand; the floor shifts the centered threshold by O(N^−1/2). The continuous positive secant slope (p(v)−p*)/v has a positive minimum δ on the closed interval when extended at zero. Beyond a fixed w the centered left tail is bounded by exp(−δ²w²/2) uniformly in N on w≤√N; extend the integrand by zero outside that range. Multiplying by w^(β−1) gives integrability at zero and infinity for every fixed β>0. The limit is c^(−β) E[(s−σZ)_+^β] by integrating over the Gaussian, giving the claimed positive finite profile and gamma constant at s=0. Conditional variances of K_N/N are bounded by 1/(4N), giving the macroscopic limit p(V); the change-of-variables density β[p^−1(z)]^(β−1)/p'(p^−1(z)) gives the three edge regimes. The supplied script was inspected, not run: its limit ratios are numerical illustrations, and its assertion compares two quadratures of the same mixture with different variables and tail cutoffs.",
+      "residual_risks": [
+        "The result is for fixed positive parameters, fixed window and fixed s; it is not uniform in a joint r→0 or other parameter limit.",
+        "The finite quadrature examples are neither certified tail enclosures nor a proof of convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2509.06658 states the count mixture and macroscopic mean reduction for unconfined walks with a general reset-age law, where the limiting conditional fraction tends to zero with age.",
+          "2503.14733 gives an exponent 1/(2γ)−1=r/(2μ)−1 for its macroscopic lower density edge, with log interactions and a different window scaling."
+        ],
+        "reasoning": "An interior positive lower endpoint here leaves binomial fluctuations of order √N; free Brownian counting and interacting Dyson counting do not transfer to this profile by substitution. Ordinary beta-binomial laws with endpoint zero likewise have degenerating conditional variance; an interior endpoint could give a generic analogue but no covering theorem for it was established in the comparison.",
+        "searches": [
+          "arXiv:2509.06658, Eqs. (52)–(55)",
+          "arXiv:2503.14733, §III.D and Eq. (102)",
+          "Focused literature lookup for exchangeable binomial-mixture interior-endpoint smoothing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31634",
+        "arXiv:2509.06658",
+        "arXiv:2503.14733",
+        "Resultary e3f475057006 and 75de5df4737b",
+        "Frozen RESULT.md:27–79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact conditional binomial and the reset-age distribution follow from the established mixture representation. The macroscopic point-mass replacement in 2509.06658 does not retain conditional count fluctuations.",
+          "The reset energy comparison exhibits the same age mechanism at the same exponent for another observable."
+        ],
+        "reasoning": "The new part is not the mixture identity or the generic mechanism: it is identifying the nondegenerate interior count endpoint and integrating its conditional CLT on the moving boundary scale with uniform tail control. A macroscopic law alone gives neither that profile nor its exact prefactor.",
+        "searches": [
+          "arXiv:2606.31634, Eqs. (13), (17)–(19)",
+          "arXiv:2509.06658, Eqs. (52)–(55)",
+          "Resultary e3f475057006, offsets 0 and 1037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same stationary OU kernel and exponential mixing law appear in 2606.31634; the concluding perspectives list full counting statistics as a next observable.",
+          "Resultary e3f475057006 gives a collective-energy edge and 75de5df4737b an age-discrimination error, not the stationary interval count."
+        ],
+        "reasoning": "Conditioning-equivalent formulations give the same joint mixture; equality of powers for other observables does not identify the distribution or scaling function of this count.",
+        "searches": [
+          "Configured Resultary search on common-reset OU fixed-window counting edge and Gaussian profile",
+          "de Mauro, Majumdar and Schehr arXiv:2606.31634, Eqs. (13), (17)–(19) and concluding perspectives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed closed asymptotics are for energy and a testing error; the closest published counting formula concerns a repulsive gas. They do not give the fixed-window count formula or this gamma prefactor."
+        ],
+        "reasoning": "A numerical count table is not decisive for this fixed-parameter continuum of limiting profiles; actual overlapping closed asymptotics were compared rather than just checking matching exponents.",
+        "searches": [
+          "Resultary e3f475057006 and 75de5df4737b, Findings",
+          "arXiv:2503.14733, §III.D Eqs. (42)–(46)"
+        ]
+      },
+      "rationale": "The supported distinction is the fixed-window count's finite-N lower-edge boundary layer with explicit coefficients in the noninteracting, common-Poisson-reset OU model. The same model's stationary age mixture was established previously; the generic binomial mixture mechanism and the macroscopic exponent in a different trapped reset gas are not new. None of the inspected formulas for free diffusion counts, interacting trapped counts, or other observables in the same model gives this count-specific finite-size law. The bounded comparison does not certify historical priority or a resetting-specific universality claim.",
+      "residual_risks": [
+        "There could be earlier general exchangeable-binomial mixture endpoint theorems implying the limit with the same constants. The focused web lookup added only the same-model citation, not evidence of absence.",
+        "Catalogue dates alone do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same-model precursor for the stationary mixture and OU kernel, not the finite-count layer",
+          "evidence": [
+            "Gives the product-kernel stationary mixture with exponential age and conditional OU variance.",
+            "Lists full counting statistics as a next observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "PDF pp. 5–6, Eqs. (13), (17)–(19); p. 43, concluding perspectives",
+          "method": "Located passages in the OA PDF",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "Same Poisson reset clock and independent OU drivers"
+        },
+        {
+          "assessment": "Covers mixture structure and a macroscopic limit for free diffusion, not the harmonically confined finite edge",
+          "evidence": [
+            "Conditional probability erf(L/√(4Dτ)) tends to zero; binomial is replaced by its conditional mean in the macroscopic limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "PDF p. 11, Eqs. (52)–(55)",
+          "method": "Located passages in the OA PDF",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Earlier exact binomial mixture for fixed-window counts"
+        },
+        {
+          "assessment": "Material exponent analogy, not equivalent population, window or fluctuations",
+          "evidence": [
+            "Logarithmic pair repulsion; scaled window; lower macroscopic density exponent 1/(2γ)−1 with γ=μ/r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.14733",
+          "material_read": "PDF p. 6 Eqs. (15)–(18), pp. 10–11 §III.D Eqs. (42)–(46), p. 20 Eq. (102)",
+          "method": "Located passages in the OA PDF",
+          "title": "Resetting Dyson Brownian motion",
+          "trigger": "Trapped reset counting and lower-edge density"
+        },
+        {
+          "assessment": "Different observable; close mechanism and rate overlap",
+          "evidence": [
+            "Threshold energy crossover and N^(−r/(4μ)) tail."
+          ],
+          "identifier_or_url": "Resultary e3f475057006",
+          "material_read": "RESULT.md offsets 0 and 1037",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Sharp resetting fingerprints in collective energy tails of a confined gas",
+          "trigger": "Same OU model, late-age mechanism and finite-size power"
+        },
+        {
+          "assessment": "Different statistical experiment",
+          "evidence": [
+            "Age-averaged testing error, not the fixed-window count CDF."
+          ],
+          "identifier_or_url": "Resultary 75de5df4737b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "A logarithmic reset-age discrimination horizon in a confined Brownian gas",
+          "trigger": "Same rare reset age and threshold power"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–17 and 37–65",
+        "arXiv:2606.31634, concluding perspectives",
+        "arXiv:2503.14733, §III.D"
+      ],
+      "rationale": "The boundary layer answers a fixed-window counting question in an established model and distinguishes finite-sample events below the equilibrium fraction from the hard endpoint of the macroscopic law. It gives a quantitative relationship between the reset rate, equilibrium sampling fluctuations, and the probability and shape of that rare event, including the normalization an analyst would need. A macroscopic edge-density exponent alone would not supply this information.",
+      "residual_risks": [
+        "No quantitative rate of convergence, inference error bound, or extension to other observables is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

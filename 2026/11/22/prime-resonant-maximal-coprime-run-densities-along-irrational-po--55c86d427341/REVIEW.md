@@ -1,19 +1,21 @@
-# Scientific review: prime-resonant maximal coprime-run densities
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed block length, Weyl's polynomial equidistribution provides uniform pairs of residues of \(n\) and \(\lfloor f(n)\rfloor\) modulo every fixed squarefree modulus. A prime excludes precisely \(\min\{p,r\}\) residue pairs with \(p\mid n\), giving the local factor \(1-\min\{p,r\}/p^2\). Holdridge's Theorem 1.3 removes the large-prime obstruction for each of finitely many integer translates of \(f\), so the global density exists. Inclusion-exclusion across the two endpoint failures gives the exact second difference, and two distinct primes larger than \(r+1\) provide a strictly positive density witness. The identity for \(C_{r+1}/C_r\), Mertens' theorem, and a prime-tail estimate prove both distinct asymptotics, including the factor removal exactly when \(r+1\) is prime. The independent finite arithmetic verifier passed 166 checks. Its finite tests are not treated as infinite proofs. The original analytic theorem is cited as an input rather than represented as a newly proved lemma.
+PASS
 
-## Originality — PASS, with residual priority risk
+If j is the highest index of an irrational nonconstant coefficient, the coefficient of degree j in f(Dm+u)/D is that coefficient times D^{j−1} plus a rational. Weyl therefore applies separately in every n-residue class. The half-open floor-residue intervals are correct also for negative floors. Exactly min(p,k) pairs fail at p, out of p². Theorem 1.3 of Holdridge has the required degree and irrationality hypotheses and bounds the large-common-prime exceptional set separately for every f+j; the finite union bound justifies taking the prime cutoff to infinity for each fixed k. Inclusion-exclusion at offsets −1 and r then gives the stated second difference, with shifted blocks covered by replacing f by f−1. Positivity follows by specifying two distinct primes greater than r+1, one per endpoint and neither conflicting with the interior, and sieving the interior at the other primes using the same tail bound. For the asymptotics, the tail in C_r has log O(r∑_{p>r}p^{−2})=o(1); Mertens gives its main term. In Q_r=C_{r+1}/C_r, the sum of (p²−r)^{−1} differs from ∑_{p>r}p^{−2} by O(r∑p^{−4})=O(r^{−2}), so PNT gives 1−Q_r∼1/(r log r). In δ_r/C_r=(1−Q_r)²+Q_r(Q_{r+1}−Q_r), changes of the common factors are O(∑p^{−4})=O(r^{−3}). With composite r+1 this is negligible against the square; with prime r+1=p the disappearing factor gives a positive ∼p^{−2} term that dominates the square. Both constants and the stated order of the limits follow. Finite CRT reproduction at moduli 30 and 210 confirms only the finite counting step.
 
-The source Holdridge paper proves an individual coprimality density and a large-prime elimination theorem. A published shifted-integer-polynomial result has the same Euler factors for a different deterministic arithmetic event, and therefore the block Euler product is not represented as a new numerical invariant. The new final claim is the existence and positivity of exact **maximal runs in the floor-shifted event**, with the sharp, two-scale prime/composite large-run asymptotics. The inspected complete theorems of the nearest published run-spectrum results concern finite fixed moduli and distinct predicates, not this varying-modulus floor-polynomial family. The second-difference technique, CRT, and prime number theorem are standard ingredients. The residual risk is an equivalent asymptotic derived in older generalized Schemmel or Jacobsthal literature under different terminology; it was not located in actual searches. This is not a claim of proven worldwide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact positive density for *each* maximal length, followed by the unexpected factor-\((\log r)^2\) enhancement whenever \(r+1\) is prime, reveals fine arithmetic structure that a one-point density or a simple Euler-product statement does not display. The distinction persists across every qualifying irrational real polynomial of degree at least two and has a sharp leading constant. It is a motivated classification of the natural local-run statistic, not an arbitrary finite slice or minor numerical improvement.
+The closest published comparator supplies the same numerical Euler-product sequence but for the transposed residue event, and finite run-sieve results supply the second-difference technique. Neither is credited to this record as new. The checked distinction is the exact maximal-run law on consecutive shifts of an irrational floor at the varying modulus n, and especially the leading-order prime/composite dichotomy for its density. This is a best-of-knowledge statement-level assessment, not a historical priority guarantee.
 
-## Closest literature and limits
+## value
 
-Holdridge (2026), arXiv:2611.02223v1, Theorems 1.2–1.3, and the published *Coprimality densities for split integer polynomials and equidistributed integer parts* are the most relevant precursors. The published regular-residue and square-gcd maximal-run classifications also supply conceptual analogues. The source large-prime theorem is used as a cited premise; no joint-growth-in-\(n,r\) estimate or priority certification is claimed. The accompanying script provides finite consistency checks only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete positive distribution of exact run lengths for a natural coprimality predicate; the effect is not just an Euler-product rewrite. It identifies the boundary coincidence when the endpoint separation is prime and quantifies the resulting two-log enhancement against other large lengths. An undifferentiated coprimality density or finite-sieve run count does not answer that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

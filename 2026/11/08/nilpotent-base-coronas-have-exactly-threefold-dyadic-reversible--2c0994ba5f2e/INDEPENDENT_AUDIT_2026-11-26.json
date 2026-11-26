@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:00:54.333861Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76; VERIFICATION.md; checks/check_matrix.py, checks/check_orbits.py and their recorded .out files inspected (not run).",
+        "Independent GF(2) replay at /workspace/branches/8875c690-6384-4175-8718-0071827f730f/replay_corona.py. K_1 gives order 6; P_3 gives order 24 with state populations 1,3,12,240,3840 at periods 1,3,6,12,24; nonnilpotent K_2 gives order 10."
+      ],
+      "rationale": "The corona block over one size-s nilpotent base block has characteristic polynomial (z+1)^(2s) and one-dimensional 1-eigenspace, giving one size-2s block. Lifting that block to the wave gives characteristic polynomial (z²+z+1)^(2s) and a one-dimensional eigenspace for each primitive cube root, hence two size-2s blocks over the splitting field. Their unipotent orders are the least powers of two at least 2s. Raising to a power divisible by three gives each block nullity min(2s,2^v2(k)): after extracting the 2-part the odd exponent gives an invertible cofactor of the linear term. Otherwise neither eigenvalue can give a fixed vector. Rank is invariant under field extension. The kernel dimensions strictly increase at the dyadic thresholds up to saturation, and subtraction gives the claimed POPULATIONS of states, not numbers of cycles. For the converse, T+T^−1=diag(A,A) excludes wave eigenvalue 1 since A is invertible, so if the odd part is three then all A eigenvalues equal 1. A+A^−1=diag(B,B) then forces nilpotence. The tree determinant is the parity matching polynomial; Lucas parity and the endpoint recurrence give the single path block, and the odd-coordinate cube layer squares to I, giving exactly n/2 size-two base blocks. The displayed family counts follow from the same nullities, including saturation at the last path threshold.",
+      "residual_risks": [
+        "Replay covers only three small binary examples; arbitrary graphs, finite extension fields and the infinite families are justified algebraically, not by finite replay. The checker stdout label 'cycles' denotes state populations in the code, consistent with the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-order record already treats arbitrary bases for the nilpotence criterion of A and gives J_s(0)→J_(2s)(1). The same-day prism wave treats H □ K_2, assumes base nilpotence and changes the adjacency of the second layer. The ladder result is a specific open-ladder family.",
+          "The primary real-spectrum corona and binary second-order formalism references are strong ingredients; their exact cited full texts were unavailable in this independent comparison."
+        ],
+        "reasoning": "The available broader first-order theorem supplies the first lift, but not the second lift, its converse, or the doubled fixed-space contributions at powers divisible by three. An inaccessible general wave theorem remains a specific risk, not evidence of noncoverage.",
+        "searches": [
+          "Resultary ...--5df49df7b984, ...--871c5fe8b90c and ...--cfa3b8bd2a58",
+          "Macfarlane DOI 10.1088/0305-4470/37/45/006; Barik–Pati–Sarma DOI 10.1137/050624029; Steeb–Hardy DOI 10.1515/zna-2007-10-1103"
+        ]
+      },
+      "checked_sources": [
+        "Earlier pendant-doubling and distinct prism and ladder Resultary FINDING and indicated proof passages; arXiv:2402.05404v2; lawful access attempts for Macfarlane 2004, Barik–Pati–Sarma 2007 and Steeb–Hardy 2007."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior counts for A at dyadic powers have exponent Σ min(2s_i,2^j). The new T census has twice that exponent when 3 divides k and zero otherwise. Determining the multiplicity of the lift at each primitive cube root and excluding eigenvalue 1 in the converse are necessary for this replacement."
+        ],
+        "reasoning": "The result is not a mere reparameterization of the earlier first-order count: it proves the split-root Jordan transfer and a converse for a distinct reversible system, then uses the full transfer for all powers.",
+        "searches": [
+          "Prior pendant RESULT.md offsets 237–1100 and 3053–4851 compared to frozen Proof §§2–6; prism and ladder RESULT.md Finding passages at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier pendant-doubling record has the same A, but iterates A rather than T; on K_1 their orders are 2 and 6 respectively.",
+          "arXiv:2402.05404v2 §§2–3 treats reversibility of local rules as the one-dimensional cell count varies; this is not a fixed finite invertible map's temporal order or complete period law."
+        ],
+        "reasoning": "Two-time-level reversibility alone neither enforces odd part three nor identifies the two primitive-root Jordan partitions; the latter are explicit here.",
+        "searches": [
+          "Resultary: pendant doubling, nilpotent cores, threefold reversible wave clocks and cyclotomic Jordan blocks",
+          "Primary finite cellular automata reversibility search; arXiv:2402.05404v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact entry ...--2c0994ba5f2e is the identical record being reviewed; ...--5df49df7b984 gives earlier first-order counts and includes a cycle-corona example. No distinct inspected table gives the arbitrary-base wave census."
+        ],
+        "reasoning": "The matching adjacency census is a different observable; isolated examples or a sunlet specialization would not recover the required general partition-dependent counts.",
+        "searches": [
+          "Resultary exact-title and semantic searches for corona-wave period census, dyadic sunlet and nilpotent base"
+        ]
+      },
+      "rationale": "Credit the already known corona-adjacency doubling and first-order period theorem, as well as standard second-order matrix formalism. The supported distinct result is the general second-order corona-wave odd-part criterion, exact fixed spaces and state-period census, with contrasting connected families. The closest exact wave records treat prisms and open ladders; their assumptions and Jordan/spectral data do not give the leaf-corona result. Priority is best-of-knowledge, not exhaustive.",
+      "residual_risks": [
+        "Macfarlane is the strongest unresolved primary source for a general second-order Jordan/order transfer. A previously mentioned dyadic-sunlet wave instance was not identified independently. A broader linear CA theorem in uninspected literature could yield further coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of first-order claim only",
+          "evidence": [
+            "Doubled unipotent blocks and dyadic counts for A."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-pendant-doubling-of-nilpotent-jordan-chains-and-dyadic-path-cycl--5df49df7b984",
+          "material_read": "RESULT.md Finding offsets 237–1100, path/cycle near 650, proof 3053–4851",
+          "method": "Local mirror statement comparison",
+          "title": "Pendant doubling of nilpotent Jordan chains and dyadic path–cycle clocks",
+          "trigger": "Same leaf-corona and base nilpotence"
+        },
+        {
+          "assessment": "Different graph and hypotheses",
+          "evidence": [
+            "Wave on a matched prism, not a corona with independent leaf layer."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-halves-clock-law-for-reversible-waves-on-nilpotent-base--871c5fe8b90c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "A three-halves clock law for reversible waves on nilpotent-base graph prisms",
+          "trigger": "Same reversible dynamics and nilpotence parameter"
+        },
+        {
+          "assessment": "Specific ladder family rather than arbitrary leaf-corona bases",
+          "evidence": [
+            "Exact census on open ladders."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-cyclotomic-jordan-blocks-and-exact-orbit-populations-for-dyadic--cfa3b8bd2a58",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Cyclotomic Jordan blocks and exact orbit populations for dyadic ladder waves",
+          "trigger": "Cyclotomic wave order and orbit census"
+        },
+        {
+          "assessment": "Adjacent problem, not an identified covering theorem",
+          "evidence": [
+            "Reversibility as cells and boundary conditions vary, not wave permutation-order census."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.05404v2",
+          "material_read": "Abstract offsets 559–1354 and excerpts from §§2–3 near 8200 and 12600",
+          "method": "Lawful OA bounded primary passages",
+          "title": "Two Graphs: Resolving the Periodic Reversibility of One-dimensional Finite Cellular Automata",
+          "trigger": "Periodicity and finite reversible automata"
+        },
+        {
+          "assessment": "Precise Jordan-order coverage unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/37/45/006",
+          "material_read": "Bibliographic identification and retrieval response; full text not read",
+          "method": "DOI and publisher OA attempts; no lawful repository copy located",
+          "title": "Linear reversible second-order cellular automata and their first-order matrix equivalents",
+          "trigger": "Possible broad coverage of the needed wave companion transfer"
+        },
+        {
+          "assessment": "Credit cited corona spectral antecedent; exact scope not independently verified",
+          "evidence": [
+            "Frozen citation identifies real-spectrum transfer."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/050624029",
+          "material_read": "Bibliographic identification and frozen record's description of Lemma 2.1 and Theorem 3.1; primary passages unavailable",
+          "method": "DOI and SIAM PDF retrieval attempts, HTTP 403; no repository copy located",
+          "title": "The Spectrum of the Corona of Two Graphs",
+          "trigger": "Same corona adjacency and spectral transfer"
+        },
+        {
+          "assessment": "Precise relevance of wave example unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1515/zna-2007-10-1103",
+          "material_read": "Bibliographic identification; full text unavailable",
+          "method": "Lawful OA retrieval returned 202/403; no repository copy located",
+          "title": "One-Dimensional Cellular Automata, Conservation Laws and Partial Differential Equations",
+          "trigger": "Related second-order reversible rule and wave construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–6, compared to earlier first-order result ...--5df49df7b984."
+      ],
+      "rationale": "The exact order criterion decides when a natural reversible graph dynamics has only the stated nontrivial odd part; the full kernel and primitive population refinements are useful beyond deciding the order. Unbounded connected path and cube families separate growth of clock length from growth in graph size. These are substantive outputs for the wave rather than new branding for first-order Jordan doubling.",
+      "residual_risks": [
+        "The criterion and family comparison do not classify general nonnilpotent-base wave orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

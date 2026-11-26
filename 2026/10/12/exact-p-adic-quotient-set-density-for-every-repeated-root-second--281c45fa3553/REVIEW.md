@@ -1,15 +1,21 @@
-# Scientific review: exact repeated-root quotient-set density
+# Independent mathematical audit
 
-## Correctness — PASS
-The recurrence identity is verified by induction for the full integer domain. The zero-root and geometric degeneracies are handled independently. When the shift is not \(p\)-integral, the ultrametric valuation identity yields either a uniform valuation shell or a single valuation-zero quotient. When it is integral, Euler exponents (for unit roots) or increasing exponents (for nonunit roots) make both \(a^d\) and \(da^d\) converge as stated; the ratio identity and the density of positive integers in \(\mathbb Z_p\) approximate each target, including the limiting point separately. All prime cases, zero initial data, and potential zero denominators are covered. The exact finite checker corroborates, but does not prove, the quantified theorem.
+## correctness
 
-## Originality — PASS relative to checked literature
-Antony–Barman (2022), Theorem 1.7, gives only \(p\nmid a(x_1-a x_0)\) as a sufficient condition for these exact recurrences, not an if-and-only-if classification. Antony–Barman (2024), Theorem 1.4, assumes special initial data and \(p\nmid a\), so does not cover the new exceptional-prime analysis. Garcia et al. (2016), Theorem 5.2, classifies canonical initial data only in different coefficient regimes; its exceptional coefficient-divisibility case is explicitly nonuniform. Searches using the repeated-root formula, the equivalent exponential-affine quotient set, and initial-data valuation inequalities revealed no stronger implication-equivalent theorem. The residual risk is an unindexed or differently framed elementary treatment.
+PASS
 
-## Mathematical value — PASS
-The result completes a natural family explicitly singled out in a published sufficient-condition theorem, resolving all excluded primes and determining precisely which initial data yield density. It exhibits both density and failure at a prime dividing both the characteristic root and the initial slope; the criterion uses an intrinsic \(p\)-adic integrality boundary rather than arbitrary finite parameter choices. The infinite two-direction classification is substantially more informative than isolated congruence examples.
+The repeated-root formula follows by substitution and includes index zero in the form x_n=a^n(x_0+nD/a) when a is nonzero. If a=0 the quotient set is finite; if D=0 the sequence is zero or geometric, which misses an open valuation class (unit root) or an open subset of units excluding 1 (nonunit root). For aD nonzero and c=ax_0/D of negative valuation, every n+c has precisely that valuation, so v_p(x_n)=v_p(x_0)+n v_p(a); the same open-set obstructions apply. For integral c, the fixed positive lag d gives a^d+da^d/(n+c). Since positive integers shifted by c are dense in Z_p, for each target z with (da^d)/(z-a^d) a nonzero p-adic integer the ratio can approach z along positive n. If a is a unit, d=(p-1)p^j gives a^d→1 and da^d→0 by Euler's theorem, including at p=2, so every target except 1 eventually meets this condition; 1 is itself a ratio. For p|a, take d→infinity, so both terms tend to zero and every nonzero target meets the condition; zero is the limit of x_n divided by a fixed nonzero term. Denominators along the approximating subsequence can be kept nonzero since their shifted-index limit for that fixed lag is nonzero. The cited dyadic examples have c=1 and c=1/2, respectively. The replay script and recorded numeric log were inspected, not executed; those cases do not prove the all-primes statement.
 
-## Limitations and closest sources
-The full classification applies only to \((X-a)^2\), not to arbitrary quadratic characteristic polynomials. Classical ratio-set density tools underlie the argument; the novelty claimed is the exact sharp classification for this repeated-root recurrence, not a new general topology of \(\mathbb Q_p\). For provenance, see arXiv:2207.07084 (Theorem 1.7 and proof), arXiv:2408.06949 (Theorem 1.4 and its scope), and arXiv:1607.07951 (Theorem 5.2 and Lemma 2.2).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established good-prime theorem and the broader simple-zero analytic theorem, which already implies density for unit a and integral shift. The supported contribution is the complete necessity-and-sufficiency decision for arbitrary data at every prime, in particular the nonunit-root branch and the nonintegral-shift obstruction. The strongest same-family indexed record classifies a different property, not ratio density.
+
+## value
+
+PASS
+
+The rule completes a density question already posed for the identical recurrence, not a newly chosen test family. It decides exactly which excluded primes yield density, and the obstruction distinguishes two behaviors even when both recurrence coefficients vanish modulo the prime. The nonunit proof is not supplied by the usual analytic interpolation; the fixed-lag ratio argument explains why arbitrarily high valuations of the common exponential factor do not prevent density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — exact two-boundary absorption-time kernel
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every finite open path \(N\ge2\), positive hopping magnitude \(J\), equal positive Lindblad end-loss rate \(\kappa\), and every matrix entry of the integrated survival-time operator. A non-Hermitian generator with two endpoint sinks is proved spectrally stable: a putative undamped eigenvector must vanish at an end and hence everywhere by the tridiagonal recursion. The closed matrix is verified algebraically from four exact matrix identities and uniqueness of the Lyapunov solution. The diagonal gives the mean time, and strict convexity of the positive-coefficient expression \(a/\kappa+b\kappa\) gives a unique finite optimum for every interior site. At the two endpoints \(b=0\), correctly excluding a finite optimum. The \(N=2\) boundary is included.
+## correctness
 
-A standalone integer recurrence checker confirms 338,349 coefficientwise matrix positions across lengths 2–100. A separate numerical Sylvester solver confirms full complex kernels in 21 parameter cases. These calculations corroborate but do not replace the infinite-length proof.
+PASS
 
-## Originality — PASS on examined evidence; historical priority provisional
-Kassal and Aspuru-Guzik (arXiv:1201.5202v1) study a finite chain with one localized trapping mechanism and additional noise or recombination. Razzoli, Paris and Bordone (arXiv:2011.13794v1) study transport efficiency with one trap, not the two-terminal mean-time Gramian. Riberi (arXiv:2605.08056v1) solves a semi-infinite, one-boundary absorber, where the second endpoint and the finite-length integrated operator are absent. The previously published finite-path Gramian covers one end loss, and the published two-loss lattice result is stationary infinite-line scattering with a different optimization observable. Neither directly implies the claimed two-end, all-site, all-length formula; the proof also gives a new finite-size dependence on both source-to-boundary distances.
+An eigenvector with purely imaginary eigenvalue must vanish at the endpoints by the dissipative quadratic form, then vanish everywhere by the nearest-neighbor recurrence with J≠0. Thus e^(−Kt) decays, the integrated Gramian is positive definite, and its Lyapunov solution is unique. The same-parity part G of the Dirichlet inverse commutes with A, since the parity sign conjugates A to −A. The inner-path analogue B commutes on interior rows/columns and is zero on endpoints; hence [A,B] is supported on the boundary, with first-row entries B(2,j) and last-row entries B(N−1,j), matching the skew C anticommutator PC+CP (both vanish between opposite endpoints). For same-parity i<j the four affine neighbor terms in [C,A] cancel before truncation, with missing neighbors at i=1 and j=N contributing N+1−j and i respectively, exactly the corresponding copies of G. Opposite-parity entries there are zero. The commutator diagonal is twice the sum of adjacent C entries, giving −4 in the interior and 2(N−2) at either end. These identities, including N=2 where P=I and Q=I/κ, yield K†Q+QK=I with the stated sign of the imaginary term. The survival expectation is Tr(Qρ); the localized diagonal has the form a/κ+bκ, with a,b>0 in the interior and b=0 at an endpoint. Differentiation and strict convexity give the unique interior optimizer and stated minimum; both limiting optimal rates follow directly. An independent diagonal-phase transformation to a real rational Lyapunov equation followed by exact linear solves checked every complex entry for seven paths N=2 through 8 at varied rational couplings and rates.
 
-Relevant abstract, full-text and indexed-result comparisons were completed. An equivalent older derivation in the broad Lyapunov/linear-systems or quantum-transport literature remains possible, and no exhaustive historical-priority claim is made.
+## originality
 
-## Mathematical value — PASS
-The result resolves the entire integrated lifetime *operator*, not merely one chosen site's expected time, for an arbitrarily long network of coherent coupled sites with two competing irreversible traps. Its closed affine-parity kernel exposes coherent off-diagonal effects, a concrete boundary-geometry dependence of the uniquely optimal equal trap strength, and distinct bulk and boundary large-system limits. Two-end competition is a natural physical transport design, not an arbitrary parameter slice, and is not a routine substitution in the one-end result.
+PASS
 
-## Limits and source comparisons
-The proof does not cover unequal sink strengths, alternative boundary conditions, detection channel allocation, many-particle systems or other graphs. The source comparisons establish provisional originality only. The theorem is a closed finite-size statement, not a thermodynamic transition or a claim of a universal optimal quantum-control strategy.
+Full survival Gramians and site-dependent localized-source optimization already appear for a single terminal sink, and two-loss scattering is also prior. The distinct contribution supported here is the explicit finite equal-two-end Gramian and the resulting finite-size dependence on distance to both boundaries, not the Lyapunov method or the idea of optimizing a loss rate. The conclusion is bounded by inspected statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finite coherent path with two terminal absorbers is a natural transport model, and absorption time cannot be recovered from eventual efficiency (which is one). An all-entry formula handles initial relative phases without a matrix solve. The finite-size site dependence of the optimum distinguishes fixed distance from one end from a bulk-scaled start; the exact endpoint case also shows why imposing a universal finite optimal rate would be wrong. This goes beyond solving the routine Lyapunov equation for isolated lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

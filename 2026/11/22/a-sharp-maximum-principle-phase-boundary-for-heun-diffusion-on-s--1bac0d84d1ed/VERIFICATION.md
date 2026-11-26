@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the sharp Heun positivity threshold
+# Independent mathematical audit
 
-Execute `python VERIFY.py` with Python 3. NumPy is optional for the fractional spectral reconstruction; exact rational tests use the standard library only. Verified local output with NumPy installed:
+## correctness
 
-```
-EXACT_RATIONAL_CASES 2162
-FRACTIONAL_SPECTRAL_CASES 24
-VERIFY_OK
-```
+PASS
 
-The exact-rational section constructs the full matrix directly for every integer multipartition of orders two through eight and internal weights chosen from the listed rational menu; it checks every matrix entry, all row sums, positivity at and before the predicted critical step and a step beyond it, as well as positive diagonals. The independent NumPy section forms the *original* graph Laplacian, raises it spectrally to fractional powers, then compares the derived missing-edge weights and the resulting regularized spectrum. Floating zero modes are thresholded only in this optional section to suppress harmless eigensolver roundoff near zero. Theorem-level universal quantifiers rely on the projector and exact sign arguments in `RESULT.md`, not on finite tests.
+Split into constant, mean-zero part-constant, and within-part mean-zero subspaces (dimension zero for a singleton). The original Laplacian is N on the second subspace and N−n_r on the r-th within-part subspace, so its spectral power gives the stated negative of the missing-edge entry and hence w_r. Homogeneous internal conductances change only the within-part eigenvalues, to Ne_r. The Heun polynomial R(z)=1−z+z²/2 is positive for all real z, so the propagator is positive definite with positive diagonal and, by the constant mode and symmetry, preserves row and column sums. With t=Nh, cross-part entries t(1−t/2)/N force t≤2. A within-part sign on 0<t≤2 equals the sign of (e_r−a_r)−t(e_r²−a_r)/2, positive at t=0 and equal to e_r(1−e_r) at t=2. This gives exactly the stated zero for w_r>1 and none below 2 otherwise. Every entry that becomes negative on its blocking interval stays negative beyond its zero until the cross-part entries alone forbid positivity. Nonnegative row-stochasticity is the maximum principle, and a negative entry gives a basis-vector witness. The derivative numerator for c_α is αa^(α−1)+(1−α)a^α−1>0 by strict weighted AM–GM (the weighted geometric mean is one); 0<c_α<1. Thus the smallest nonsingleton part first crosses w=1 at the stated β_*>1. With all e_r≤1, λ_max=N. With e_max>1, the blocking time for a part attaining e_max is strictly below 2/e_max in scaled time, by a_r(e_max−1)>0, giving a genuine spectral/positivity gap. Spectral stability means nonexpansiveness and includes the limiting eigenmode multiplier one at the ceiling. The complete graph has no internal-edge condition. The numerical K₂,₂ example was independently checked (~0.41018862 versus ~0.44590291). Inspected VERIFY.py and VERIFICATION.md; uploaded tests were not executed, and their scope is finite. No internal-stage positivity claim.
 
-The sharp amplification threshold is checked algebraically from the strictly increasing divided-difference function; the particular numerical instance with two equal parts is an illustration, not an exhaustive proof of the general phase law. Independent external validation is not represented.
+## originality
+
+PASS
+
+The key inputs are known: the scaled regularization, unweighted Heun plateau and weighted block spectral projectors. The closest prior does not give the exact amplified Heun threshold or the strict departure from spectral stability at the first conductance crossing. The weighted Gauss work is especially close in proof method, but its theorem concerns a different rational propagator. The additive positive-conductance change is not equivalent to scaling the original Laplacian or exponentiating its unregularized fractional power.
+
+## value
+
+PASS
+
+This gives a complete, practical step criterion for a published nonlocal graph construction and explains exactly why a spectral timestep rule ceases to preserve the maximum principle. It identifies the first amplification at which an explicit pair of vertices witnesses the mismatch for every graph in the family, not just a conservative positivity bound or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

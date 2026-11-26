@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Checks actually performed
+# Independent mathematical audit
 
-The included `verify.py` reconstructs each information Gramian independently from exact integer observation trajectories of two positive-spectrum affine cycle evolutions. Its Bareiss determinant calculations check all distance choices on cycle sizes 3 through 14 for two shifts, 96 cases, including 40 equal-odd-order comparisons and 12 even-order strict-parity comparisons. It produces `verification_exact_output.txt`.
+## correctness
 
-The included `verify_heat.py` uses `mpmath` with 80 decimal digits, constructs discrete heat trajectories at heat parameter \(\tau=0.3\), and checks the full determinant identities for cycles of order 3 through 12: 35 distances, including ten singular configurations. It produces `verification_heat_output.txt`.
+PASS
 
-Both scripts were executed successfully from their package directory. The universal identities and all-parameter optimizer classification follow from the analytic Fourier, Gram-complement, sine-product and Lagrange-sign proof; the finite tests are supplementary.
+Pass for repairs/3/RESULT.md. The frozen odd-cycle sentence could be read as saying that the common determinant is independent of tau; that assertion is false. On C3 the determinant is 2(1-x)^2(1+x^2)/9 with x=exp(-3 tau). The replacement states the fixed-tau equality for all positive tau and retains the exact formula. It also specifies the Gram weighting versus Fisher information and clarifies which two-dimensional directions are being compared. Independently, the invertible temporal Vandermonde reduces rank to the Fourier sensor blocks: paired sines vanish exactly at the stated gcd obstructions, and the one-dimensional endpoints never lose rank. The real Fourier columns are orthonormal. Writing the sensor block matrix as an orthonormal range basis times an invertible square factor and using the Schur complement gives its Gram volume times det(H)^2 times the restriction of H^-1 tensor I_2 to the missing directions. Root-of-unity products give the volumes 2/n^(n-1) and 1/n^(n-2). For n even the two missing sensor directions have same-plane dot product zero for d odd and one for d even; the restricted matrix has off-diagonal entry zero or h_0m accordingly. Products of coefficients of the two endpoint Lagrange polynomials have one common nonzero sign since the nodes are positive. The principal minor is positive, so even observable placements strictly lose, and d=1 is always admissible. Independent exact rational kernel constructions at tau=log(2) and twice that on C3 and C6 corroborated both formulas, the C3 parameter dependence, and 0=det(W_3)<det(W_2)<det(W_1) on C6. The frozen integer and mpmath scripts and outputs were inspected, not executed; their reported finite tests do not prove the formulas or tau independence.
 
-## Limits
+## originality
 
-No exact symbolic equality for transcendental heat parameters in arbitrary cycle order is inferred from the numeric tests. Full bibliographic uniqueness and independent audit remain unperformed. The scripts do not claim to certify arbitrary dynamical systems or observation horizons.
+PASS
+
+Pass only for the repaired scope of contribution: the full even-cycle untreated trajectory determinant at m+1 samples and the strict parity gap. The odd branch is explicitly a benchmark in the replacement because there is an exact indexed specialization, regardless of how relative priority is interpreted. The known qualitative rank comparison is also not claimed as the new determinant result.
+
+## value
+
+PASS
+
+The extra sample can restore observability without restoring D-optimality. An exact finite-horizon determinant and strict ratio distinguish designs that the rank criterion cannot distinguish and isolate the constant/Nyquist coupling as the cause. This remains useful without claiming novelty for the odd benchmark or guaranteeing performance for other horizons or other conditioning criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

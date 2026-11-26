@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Run `python3 check_h4.py` with a standard Python 3 installation. It requires no third-party packages. Output saved in `check_h4_output.txt` is a completed numerical cross-check of the explicit objective and its derivative.
+# Independent mathematical audit
 
-For nine lengths \(m\), the checker independently forms the full \(m+2\)-coefficient residual and computes the fourth norm by literal autocorrelation, comparing it with the simplified closed-form quartic. Selected small and moderate lengths are independently checked by direct equally spaced boundary quadrature with adequate Fourier bandwidth. Finally, root bisection and the numerical constants are compared across multiple lengths through \(m=10000\).
+## correctness
 
-These are finite numerical tests, not certificates of the all-length asymptotics. Universality rests on the exact algebraic autocorrelation, the strictly convex integral objective, the derivative signs, and the analytic uniform expansion in RESULT.md. The checker does not perform independent scientific auditing or establish external originality.
+PASS
+
+Coercivity on the finite-dimensional candidate space gives existence; strict convexity and injectivity give uniqueness for each 1<p<infinity over complex coefficients. Conjugating coefficients and taking the (m+1)-reciprocal conjugate of the residual both preserve its norm. The second transformation sends (a,b) to (1+conj(b),conj(a)-1), using (1-z)f_m=1-z^(m+1); their fixed-point restrictions give real b=a-1. Then the residual has endpoints e=(1+t)/2 and m interior coefficients t. Parseval plus the finite correlation sums gives exactly the claimed quartic, and F_m'(-1)<0<F_m'(0) locates its unique minimum in (-1,0), proving the zero is real and >1. With u=-mt the rescaled objective m(F_m(-u/m)-3/8) and its first derivative equal Q(u) and Q'(u) up to O(1/m) on compact u intervals. Since Q''(u)=8u^2-12u+6>0 and Q'(0)<0<Q'(1), derivative signs at fixed bracketing points trap the global minimizers and give u_m=c+O(1/m) by the mean value theorem. Substitution proves the two sharp expansions, with positive kappa=-Q(c).
+
+## originality
+
+PASS
+
+The supported distinct content is the fixed-degree H^4 all-length calculation with its sharp zero and minimum-error asymptotics for geometric-sum generators. General metric-projection and reciprocity methods and single small-length precedents are not by themselves new.
+
+## value
+
+PASS
+
+The geometric sums give a natural degree-one approximation test as the boundary zeros of the generator change with length. The result explicitly measures the difference from Hilbert-space optimization in the first nonlinear even norm: the optimized zero displacement is about 0.715/m rather than 1/m, and the sharp first error correction is also determined. The scalar symmetry exposes why complex minimization does not require an extra complex search; the exact correction is more than a norm-comparison bound or numerical trend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

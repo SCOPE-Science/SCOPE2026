@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For stationary independent forcing and relative-coordinate processes, the two-point covariance identity proves equal MSDs. The fourth-cumulant comparison follows from explicitly reconstructed ordered four-time formulas: Gaussian Wick pairings have two additional positive cross-contractions compared with symmetric Poisson telegraph forcing. The exact four-point cumulants, their time-ordered integration and their finite-time positivity were checked symbolically; integrable positive kernels justify the long-time limits. Independently constructed generator moment equations and quadratures passed 84 deterministic numerical checks. Limits: no extension to correlated driving, non-Poisson switching, or repulsive dimers is established.
+## correctness
 
-**Originality — PASS with residual priority risk.** The closest source, Cocconi–Alston–Bertrand (arXiv:2304.07738), evaluates MSD and mean entropy production for these two protocols; its full main text and supplementary calculations do not present the compared fourth cumulants or their universal ratio. Allegrini et al. (arXiv:cond-mat/0402494) derive underlying dichotomous four-time factorization, which is credited as prior mathematics, but do not analyze the composite OU-driven dimer or the strict all-time cumulant ordering. Related searches for integrated OU products, telegraph-versus-Gaussian cumulants and nonreciprocal dimer kurtosis did not identify the evaluated comparison. Those searches cannot exclude unindexed or generalized prior results; publication priority has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** The originating physics exhibits an observational degeneracy: matched Gaussian and telegraph interaction protocols share their entire MSD curves and mean entropy-production rate. A strict every-time fourth-cumulant inequality provides a natural discriminator, and the evaluated limiting ratio is dimensionless and independent of amplitude and thermal observation noise. This is a structural statement about a concrete physical model, rather than an isolated fourth-moment calculation.
+Independence gives velocity covariance g²σ² exp(−(a+b)|τ|)/4, so the covariance double integral and the independent Brownian variance give the same MSD. For the three consecutive gaps x,u,z, set M_c=exp(−c(x+z)) and N_c=M_c exp(−2cu). Wick gives M_c+2N_c after variance normalization for an OU variable, while independent flip increments give M_a for the telegraph force. Subtracting the three common covariance products gives the T cumulant kernel proportional to M_a N_b−N_a N_b, and G−T proportional to N_a M_b+2N_a N_b, with common prefactor g⁴σ⁴/8. Both are strictly positive on the interior of the ordered time simplex. The independent Brownian term contributes no fourth cumulant. Integrating the first time and the outer-gap split gives weight w(t−u−w) for w=x+z, and summing 24 orderings gives the prefactor 3g⁴σ⁴. Dividing by t, dominated convergence gives the common factor 3g⁴σ⁴/(2(a+b)²) times 1/b−1/(a+b) for T and 1/a+1/b+1/(a+b) for G. Their quotient is the claimed a²/(a²+3ab+b²). The original dimer's no-repulsion MSD and entropy calibration agrees with arXiv:2304.07738v1, Eqs. (2a), (11), (13), (17), (19), (S32)–(S37), including the factor two between flip and covariance-decay rates. Inspected verify_cumulants.py and its recorded checks as finite corroboration; the proof establishes the quantified claim without them.
 
-**Closest literature and limitations.** The originating dimer study is arXiv:2304.07738; the prior stochastic four-time identity is arXiv:cond-mat/0402494. The result is proved only for the stationary, maximally nonreciprocal, no-repulsion, independent-noise calibration. Numerical checks cannot establish publication priority or replace analytical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier identified sources cover the dimer, the MSD and entropy input formulas, four-time factorization rules and the Gaussian product-OU branch, not the two-protocol fourth-cumulant comparison. There is demonstrable equivalent coverage of the mathematical core in another Resultary record dated November 8, later than this frozen November 2 entry. This is a duplicate scientific statement across the records, not evidence that the later entry anticipates the frozen one. The pass is relative to the identified earlier literature and does not resolve provenance or endorse novelty of the result in the later entry.
+
+## value
+
+PASS
+
+In a motivated exactly solvable nonequilibrium model, the entire MSD curve and stationary mean entropy production cannot distinguish the two calibrated protocols. The fourth cumulant separates them at every positive lag and gives a closed asymptotic ratio without nuisance amplitudes or readout diffusion. This is a usable ensemble discriminator, not a finite-sample detection guarantee, and is stronger than exhibiting a numerical or long-time-only difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

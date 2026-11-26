@@ -1,15 +1,21 @@
-# Assessment of critical exclusion for the planar Ricker map
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All parameter inequalities are explicitly checked against the global-attraction theorem of Baigent et al. (2023), Theorem 3.6 R3. In the exact transformed recurrence, the transverse multiplier \(1-r\) has modulus strictly below one and the neutral population satisfies \(y_{n+1}/y_n\to1\). The proved stable-filter lemma then supplies \(q_n=-\alpha(1-\alpha\beta)y_n^2/r+O(y_n^3)\) without assuming an unproved rate. Reciprocal expansion yields a summably accurate logarithmic law, so the finite orbit-dependent constant exists. A standalone standard-library checker independently tests exact rational coefficients and four trajectories, including both signs and zero of the logarithmic coefficient. Simulations are confirmatory, not an infinite proof.
+## correctness
 
-## Originality
-**PASS subject to explicit priority risk.** The 2023 primary source proves convergence and describes invariant manifolds; it does not specify the asymptotic logarithmic coefficient, finite affine correction, or its cancellation locus. Luís–Elaydi–Oliveira (2011) treat the very same map and center manifolds, but their full PDF was not accessible, so a possibly implicit earlier calculation cannot be excluded. Kulakov–Neverova–Frisman (2022) analyze bifurcation modes, not a reciprocal critical-rate law in the consulted sections. Related logarithmic-relaxation records concern different dynamical systems and do not entail this Ricker law. Published-result searches are useful overlap checks but cannot prove uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** At the invasion-neutral boundary, the missing quantitative invariant is not whether the second species disappears, but *how fast* it does so. The leading \(1/n\) law, signed logarithmic correction, and exact cancellation hypersurface supply a parameter-sensitive sharp physical-time extinction profile for all positive initial conditions in a nontrivial global regime, improving mere asymptotic convergence without requiring a new general center-manifold theorem. The cancellation is a natural dynamical transition because it separates opposite directions of unbounded reciprocal drift.
+The cited global theorem applies inclusively at s=beta*r: alpha*s<r, both growth parameters lie strictly between 0 and 2, and the isoclines cannot coincide. Thus x tends to r and y tends to zero for strictly positive starts. In q=x-r+alpha*y the exact second update has exponent -gamma*y-beta*q, so y'/y tends to one. Taylor's formula gives q'=(1-r)q-alpha*gamma*y^2+O(q^2+y|q|+y^3). Dividing by the slowly varying y^2 yields an affine contraction asymptotically with multiplier 1-r, so q/y^2 tends to -alpha*gamma/r. Subtracting this quadratic and applying the same estimate with forcing O(y^3) gives the claimed cubic remainder without assuming initialization on a center manifold. With w=1/y the recurrence then reads w'=w+gamma+A/w+O(w^-2), where A=gamma^2/2-alpha*beta*gamma/r. It implies w/n tends to gamma, then w=gamma*n+O(log n). Subtracting (A/gamma) log n leaves summable increments of order log(n)/n^2 and hence a finite offset. This confirms the cancellation location and the signs whenever parameters remain admissible. Independent finite trajectories with two initial states per parameter set exhibit both signs and cancellation, and corroborate the stable-coordinate coefficient; they do not prove convergence.
 
-## Nearest literature and limits
-Baigent et al., *Journal of Difference Equations and Applications* 29 (2023), 575–591, Theorem 3.6 R3, https://doi.org/10.1080/10236198.2023.2222855; Luís et al., *Journal of Biological Dynamics* 5 (2011), 636–660, https://doi.org/10.1080/17513758.2011.581764; Kulakov et al., *Mathematics* 10 (2022), 1076, https://doi.org/10.3390/math10071076. No uniform-in-parameter or off-threshold assertion is made; the finite offset has no claimed elementary form. The 2011 full-text access gap is unresolved, and no independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the universal explicit logarithmic coefficient, the finite corrected constant for every interior orbit, the quantitative slaving term, and the resulting cancellation surface. Global convergence and the local transcritical mechanism are prior inputs, not new results.
+
+## value
+
+PASS
+
+At invasion neutrality the excluded population dies algebraically and linearization alone predicts no timescale. The next-order log coefficient distinguishes two opposite drifts and an exact cancellation, where subtracting the leading linear reciprocal term suffices for a finite offset. The assertion is for the whole basin and provides a quantitative distinction beyond the existing global convergence and generic normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

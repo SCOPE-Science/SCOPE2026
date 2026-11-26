@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:09:48.798506Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=4 the two exterior bonds are distinct and the internal bond is unchanged; subtracting the two energies gives exactly the displayed non-descent criterion. A trace term specifies the triple at the labelled origin and each subsequent overlap, hence counts each labelled cyclic word once, even for nonprimitive words. The AAA and ABB rows give (1,q-1,0,0,0); AAB allows every appended colour, ABA only its last colour, and ABC forbids the middle colour. This gives the stated quotient and the binary deletion. Setting a=q-1, b=q-2, elimination in tI-M gives t times [t^2(t-1)(t-b)-a((1+t)(t-b)+tb)], the stated quartic, and binary block determinant t(t^3-t^2-t-1). Appending b,b from (u,a,b), then a new constant colour three times and the desired two other symbols, proves strong connectivity; all-equal self-loops give primitivity. The uniquely normalized Perron vector is constant on colour orbits; the trace sums eigenvalue powers with algebraic multiplicity, so the Perron coefficient is one. The proof covers fixed q and all populations, not a single sector or neutral-move dynamics. RESULT.md lines 42–52 checked analytically; artifacts/verify.py lines 7–127 inspected, not executed. Its finite checks are diagnostic, not the basis for the all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhar p. 299 §2 treats ferromagnetic Potts Kawasaki dynamics and describes stability of configurations with all parallel-spin domains longer than two. The longer-range Ising classification assumes both couplings positive and a different dynamical protection criterion."
+        ],
+        "reasoning": "Dhar's stable family is not exhaustive: all domains can have size one, as in 012012. Neither source supplies an all-colour exhaustive classification or spectrum.",
+        "searches": [
+          "Dhar, J. Indian Inst. Sci. 75 (1995) 297–304, official OA PDF",
+          "arXiv:1601.04375 §III and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Dhar 1995 official PDF, arXiv:cond-mat/0210477v1, arXiv:1601.04375",
+        "Resultary 34d442d501a3 and 0f8914252c1b, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 4x4 matrix in the Ising paper's §3 is for W_0>0 diffusion, not the W_0=0 criterion. The range-two record excludes a priority claim at J_2=0."
+        ],
+        "reasoning": "General transfer matrices for local constraints yield a construction but do not already supply the five orbit types with these transition weights and their quartic. The reviewed stability families and binary calculations do not imply the all-colour identity.",
+        "searches": [
+          "Dhar p. 299 §2; arXiv:cond-mat/0210477v1 §3; SCOPE 34d442d501a3 Finding/proof and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For W_0=0 the Ising paper excludes alternating +-+- and -+-+; this is the binary specialization. The nearest/next-nearest exchange SCOPE result 34d442d501a3 is a binary analogue with different interactions."
+        ],
+        "reasoning": "A no-downhill-swap criterion is the same notion of immediate stability even if neutral swaps are locally possible. Changing to multicolour nearest-neighbour exchange is not an alias for the two-colour range-two Hamiltonian; the stable word 012012 has no binary analogue under the alternating-word criterion.",
+        "searches": [
+          "Resultary all-q strict-descent adjacent Potts exchange blocked words; ferromagnetic Potts ring transfer-matrix quartic; binary Kawasaki blocked rings",
+          "arXiv:cond-mat/0210477v1 pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected range-two Ising calculation has a 32-state matrix and distinct entropy roots. Table II gives a growth rate about 1.4655^L for the J_1=J_2>0 kinetic metastable family. The ANNNI entry treats single-spin flips."
+        ],
+        "reasoning": "These exact or numerical invariants count different objects. The binary tribonacci root by itself gives no all-q counting sequence or quartic.",
+        "searches": [
+          "Resultary quartic blocking entropy and all-q exchange counts; compare 34d442d501a3 and 0f8914252c1b",
+          "arXiv:1601.04375 Table II"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete all-colour uniform nearest-neighbour ferromagnetic labelled-ring count and its quartic growth law for q>=3. The binary forbidden-word baseline and standard transfer-matrix method are not independent novelty claims. There is a materially close Potts precedent in Dhar that should be cited specifically, but the retrieved passage does not furnish the claimed classification or entropy law.",
+      "residual_risks": [
+        "An indexed-under-different-terminology or unindexed multicolour forbidden-word classification might overlap. The consulted Dhar passage is a relevant precursor that the source literature note underreports.",
+        "No same-day ordering or priority inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material ferromagnetic precedent, not the stated count",
+          "evidence": "Every parallel domain longer than two is stable under one pair exchange; the passage describes activated relaxation, with no exhaustive count or quartic.",
+          "identifier_or_url": "https://journal.iisc.ac.in/index.php/iisc/article/download/2614/2675",
+          "material_read": "Journal p. 299 §2, and transition to antiferromagnetic case p. 300",
+          "method": "Official OA PDF",
+          "title": "The relaxation to equilibrium in one-dimensional Potts models",
+          "trigger": "Likely direct Potts precedent reportedly inaccessible in frozen record"
+        },
+        {
+          "assessment": "Binary strict-descent criterion already known; §3 matrix concerns another regime",
+          "evidence": "W_0=0 excludes alternating four-letter words; W_0>0 allows neutral diffusion and its blocked family has no isolated spins.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0210477",
+          "material_read": "pp. 2–3 and p. 6 §3",
+          "method": "OA PDF passages",
+          "title": "Metastable states of the Ising chain with Kawasaki dynamics",
+          "trigger": "Binary baseline and potential transfer/count identity"
+        },
+        {
+          "assessment": "Different Hamiltonian and protected states",
+          "evidence": "Nearest- and next-nearest-neighbour Ising example J_1=J_2>0 has about 1.4655^L proliferation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04375",
+          "material_read": "§III Table II PDF p. 6 and Appendix A PDF p. 17",
+          "method": "OA PDF passages",
+          "title": "Metastable and scaling regimes of a one-dimensional Kawasaki dynamics",
+          "trigger": "Potential exact growth law for exchange-blocked rings"
+        },
+        {
+          "assessment": "Strong analogue, not this nearest-neighbour all-q result",
+          "evidence": "Binary Ising with positive nearest and next-nearest couplings and a 32-state transfer matrix.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-isolated-weak-exchange-blocking-entropy-spike-in-ferromagneti--34d442d501a3",
+          "material_read": "RESULT.md Finding, proof and comparison (offsets 0–about 9800)",
+          "method": "Resultary local mirror",
+          "title": "An isolated weak-exchange blocking entropy spike in ferromagnetic spin chains",
+          "trigger": "Same-day local exchange counts and explicit entropy roots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model and the total metastable-state entropy are natural before calculation. A uniform five-pattern structural reduction and a closed quartic for arbitrary q replace a q^3-state computation; a researcher can compare colour effects or use the exact labelled finite count without running the dynamics. This is more than re-counting the known binary blocked words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

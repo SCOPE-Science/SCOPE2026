@@ -1,15 +1,21 @@
-# Scientific review: sharp covariance-sign transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is stated for an explicit model with independent Bernoulli trial streams, independent orientation, and strict interior parameters. For every two ordered times, direct event enumeration gives the diagonal and off-diagonal joint masses. They factor into an independent geometric first-failure time and an independent zero-inflated inter-failure delay. The covariance reduction follows exactly from the orientation indicator, and strict monotonicity of the tie-mass quadratic yields all signs, endpoint cases, and uniqueness of the transition. These arguments prove the infinite-support claim without numerical extrapolation. An independent finite-sum checker passed six covariance parameter tests and multiple transition checks; the finite sums are not offered as a proof of completeness.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2026 Lee–Cha article, inspected in its open full HTML (Sections 3–5, especially the defining Bernoulli experiment and Theorem 3), proves conditional positive quadrant dependence but not unconditional covariance or a sharp tie-mass sign boundary. Huber–Marić's full 2014 geometric-coupling comparison concerns different objects and all couplings with geometric margins. Closely related 2017 and 2024 papers use different classes of bivariate laws, according to accessible abstracts; their inaccessible complete text is an explicitly retained priority risk. Searches for this formula, equivalent random-orientation representations, shock-model covariance signs, and published mathematical findings revealed no dominating theorem. Absence from search results alone is not regarded as a proof of priority.
+PASS
 
-## Value — PASS
-A reliability model can have opposite dependence conclusions depending on whether the identity of the first sequentially failed component is conditioned on or averaged away. The exact transition \(r>1-\theta(1-\theta)\) and a single explicit critical tied-failure probability provide a calibrated structural answer across the entire natural homogeneous parameter domain. The result is distinct from a demonstration at a few numerical parameters, while making no unsupported general assertion about quadrant dependence. This is a motivated boundary of a recently studied shock model, not a generic covariance identity presented without an application.
+At the first trial with either shock, the time A has the zero-based geometric law with parameter d. The type of that trial, independent of A, is common-fatal (including both streams succeeding together) with probability v/d, or sequential-only with probability rb/d. In the latter case the gap L to the next fatal event is an independent geometric wait on {1,2,…} with parameter d; otherwise L=0. Thus Var(A)=ab/d² and E L=rb/d². Since A,L and the Bernoulli orientation I are independent, the covariance of A+(1−I)L and A+IL is Var(A)−θ(1−θ)(E L)², using I(1−I)=0; conditioning on I leaves Var(A)>0. For an independent sign check, multiply by d⁴/b>0: the sign equals that of F(b)=a(1−ab)²−cr²b, which decreases strictly in b. At b=0 it is a>0 and at b=1 it is r²(a−c), proving the all-v and unique-transition cases including strict interior positivity at a=c. The substitution π=v/d is strictly increasing and yields (1−π)(1−aπ)=a/c at a zero; the smaller quadratic root is exactly the displayed π*, followed by inverse v*=rπ*/(1−aπ*). Numerical live-state propagation with trials 0–159, separately accumulating deaths and paired death products, gives covariances −0.130508276920493 at (r,v,θ)=(.9,.1,.5), +0.0112979568872811 at (.9,.7,.5), approximately zero at v=.5496502702061786, and +0.00724118921310 at the equality regime (.75,.01,.5); these checks do not replace the full-support proof. RESULT.md, VERIFICATION.md and checker.py read, frozen checker not executed. Scope is independent iid Bernoulli streams and independent orientation with parameters strictly in (0,1); no unconditional quadrant-order result follows.
 
-## Scope and limitations
-All parameters are strictly between zero and one. The exact result concerns covariance of component lifetimes in the homogeneous, independent-shock model, not rank correlations, all dependence orders, time-varying intensities, or reliability fit quality. A related 2017 model permits both signs of dependence but could be accessed only at abstract/reference level. A source index suggests there may be earlier preprint circulation without a verified day; the exact day-level public date is 25 April 2026. Scientific priority remains open to independent confirmation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Lee–Cha experiment and its joint probabilities are prior. The supported distinct contribution is the exact unconditional covariance and necessary-and-sufficient sign diagram, in particular the transition in tie probability despite positive orientation-conditioned covariance. The closest inspected prior conditional-dependence result is not an unconditional sign result.
+
+## value
+
+PASS
+
+The all-parameter sign diagram answers when a common-fatal shock overcomes the opposing effects of randomly assigning an earlier and later failure. It provides a usable diagnostic based on observable tie mass and demonstrates a reversal despite positive covariance in both strata, with an exact boundary rather than a selected instance. This is specific to the motivated reliability experiment and does not confuse covariance with quadrant dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

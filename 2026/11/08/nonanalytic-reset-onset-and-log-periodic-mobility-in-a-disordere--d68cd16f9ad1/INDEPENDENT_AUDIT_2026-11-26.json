@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:55.432222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(8), VERIFICATION.md and check_comb.py",
+        "Sarkar–Gupta arXiv:2205.15232, same-model finite-ring normalization, Eq. (12)"
+      ],
+      "rationale": "The reflecting branch imposes the ghost condition p_(L+1)=f p_L. The two stationary roots u,w give B/A=T(w/u)^(−L); summing the branch balance gives rΔ_L=α−βp_1 and hence (1), with the empty-tooth case checked separately by Δ_0=0. Branch-plus-junction balances force a constant junction mass on the ring, giving (3); Δ_L≤b supplies the strong law at each positive r, while the truncated strong law applies to the infinite unreset occupation mean when ρf≥1. For weak r, implicit root differentiation gives q=f+O(r), T∼c/r and b∼(α−β)/r. In the lattice shift about floor(log_q T), both tails are uniformly geometric (ρ for the positive tail, ρq>1 for the negative tail). The phase error is O(r log(1/r)); the limit sum is positive and bounded away from zero and its first harmonic is a nonzero Euler beta integral, so v/r^(1−s) has no phase-independent limit. At ρ=1/f one may omit 1−q^(−L) with error at most b/T=O(1); this is the bound needed in place of the extraneous factor (1−ρ) on frozen line 126. Replacing q by f costs O(1) since the kernel derivative is bounded by L/4 and geometric L has finite mean. The sum of (f^L+T)^(−1) equals T^(−1)(log_f T+O(1)), and (1−f^(−1))b/T=1+O(r), yielding the full claimed relative O(1/log(c/r)) correction. No numerical phase sample is used to establish nonconstancy.",
+      "residual_risks": [
+        "The frozen diagnostics were inspected, not executed. No simultaneous size/rate limit, parameter-uniform error or experimental detectability is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arithmetic implicit renewal can produce periodic amplitudes for random fixed-point tails",
+          "Kotak–Barma's comb does not reset",
+          "Available abstract for the Entropy paper describes diffusion/CTRW-like fingers and reset variants"
+        ],
+        "reasoning": "General lattice periodicity neither evaluates this deterministic lattice kernel nor implies its first Fourier coefficient is nonzero or gives the boundary coefficient. The two other comb models are not shown to dominate the stated common-bias geometric model.",
+        "searches": [
+          "arXiv:1609.07339 Theorem 1, arithmetic renewal",
+          "arXiv:2204.05357",
+          "DOI 10.3390/e25111529"
+        ]
+      },
+      "checked_sources": [
+        "Sarkar–Gupta arXiv:2205.15232",
+        "Kevei arXiv:1609.07339",
+        "Kotak–Barma arXiv:2204.05357 (abstract)",
+        "Resultary 48ae89892e37",
+        "Masó-Puigdellosas–Sandev–Méndez DOI 10.3390/e25111529 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Terms in the prior linear coefficient contain f^L and f^(2L), with divergent geometric expectations at ρf≥1",
+          "The evaluated positive periodic function comes from retaining the entire logistic kernel around L≈log_f(c/r); the critical prefactor comes from a soft logarithmic cutoff",
+          "Kevei's theorem has different fixed-point hypotheses and gives no comb amplitude"
+        ],
+        "reasoning": "Neither termwise averaging nor specialization of an available exact asymptotic supplies these two formulas. Deriving the lattice limit and proving its nonconstancy, rather than positing a generic power law or integrating away the lattice, is the distinct mathematical step.",
+        "searches": [
+          "Sarkar–Gupta Eq. (15), pp. 8–9; exact Eq. (12)",
+          "Kevei Theorem 1, PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sarkar–Gupta's exponential law on integer lengths tends to geometric ρ=e^(−1/ξ) on removal of the cutoff",
+          "Their finite stationary drift is the exact reduction (3) under this identification"
+        ],
+        "reasoning": "The shift from resetting to return terminology or from exponential probabilities on the integer lattice to geometric probabilities is not a model novelty. The order-of-limits asymptotic, not the common stationary equations, is the claim being tested.",
+        "searches": [
+          "Resultary and primary literature: weak resetting of biased disordered combs, geometric/exponential tooth lengths, log-periodic mobility",
+          "arXiv:2205.15232 pp. 3, 6–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical d68cd16f9ad1 entry is this frozen record and not independent coverage",
+          "The distinct 48ae89892e37 entry has power-law tooth lengths, unbiased teeth, a different entry rule and a different inverse-log threshold"
+        ],
+        "reasoning": "The catalogue gives no same-model tabulation or exact onset matching the compared claims; a logarithm under different dynamics and tail exponents is not equivalent coverage.",
+        "searches": [
+          "Resultary: biased geometric comb weak local reset transport exponents and amplitudes",
+          "Resultary 48ae89892e37"
+        ]
+      },
+      "rationale": "The exact stationary formula, reset-restored drift, and zero-reset threshold are prior results and are not credited as original. The distinct supported result is the singular small-r law for unbounded geometric teeth, including its evaluated, strictly nonconstant amplitude and the exact borderline logarithmic coefficient. The closest prior perturbation formula takes fixed lengths or finite cutoffs and has divergent coefficient moments here.",
+      "residual_risks": [
+        "Detailed contents of DOI 10.3390/e25111529 could not be adjudicated. This is not proof of universal priority or of absence of older equivalent asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact starting representation, not singular onset in inspected passages",
+          "evidence": [
+            "Exponential integer tooth law and local resets; velocity denominator contains mean branch excess; weak expansion coefficient involves growing moments of f^L"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.15232",
+          "material_read": "PDF p. 3 near offset 6600; pp. 6–7 near offsets 17900 and 25700; pp. 7–9 Eqs. (12)–(15)",
+          "method": "Read original model, disorder averaging and near-zero expansion, then test moment finiteness",
+          "title": "Biased random walk on random networks in presence of stochastic resetting: Exact results",
+          "trigger": "Same biased comb, reset jumps and exact stationary drift"
+        },
+        {
+          "assessment": "Related renewal phenomenon, not the claimed comb law",
+          "evidence": [
+            "Multiplicatively periodic limit in arithmetic random fixed-point renewal, not the specific soft cutoff sum"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.07339",
+          "material_read": "Theorem 1, PDF p. 3 near offset 9800",
+          "method": "Compare mathematical hypotheses and conclusion",
+          "title": "Implicit renewal theory in the arithmetic case",
+          "trigger": "Log-periodic factors from arithmetic tails"
+        },
+        {
+          "assessment": "Unreset context; body not relied on for a global negative claim",
+          "evidence": [
+            "Bias, trapping and transit-time fluctuations without Poisson local return in the stated model"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.05357",
+          "material_read": "PDF p. 1 abstract near offset 1150",
+          "method": "Check model scope only",
+          "title": "Bias induced drift and trapping on random combs and the Bethe lattice",
+          "trigger": "Same trapping setting before adding reset"
+        },
+        {
+          "assessment": "Different exact model; no dominating coverage",
+          "evidence": [
+            "Power-law tooth lengths and unbiased teeth; α=1 logarithm and α=3 derivative threshold"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-sharp-tail-thresholds-for-transport-restored-by-local-resett--48ae89892e37",
+          "material_read": "Local mirrored RESULT Finding, offset 0",
+          "method": "Compare tooth tail, drift rates and entry/reset mechanisms",
+          "title": "Two sharp tail thresholds for transport restored by local resetting",
+          "trigger": "Distinct close catalogue record including inverse-log reset onset"
+        },
+        {
+          "assessment": "Detailed coverage not adjudicated from the abstract",
+          "evidence": [
+            "Abstract describes diffusive backbone and resting-time/CTRW-like fingers with reset variants"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e25111529",
+          "material_read": "Available abstract only; publisher HTML/PDF and identified PMC routes did not provide readable paper body",
+          "method": "Lawful OA attempts and limited abstract scope comparison",
+          "title": "Random Walks on Comb-like Structures under Stochastic Resetting",
+          "trigger": "Potential additional exact resetting comb laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and phase/nonconstancy proof",
+        "Sarkar–Gupta Eq. (15) and its finite-moment scope"
+      ],
+      "rationale": "This fills a natural singular regime precisely where perturbative reset mobility based on finite moments breaks down. It distinguishes an actually oscillating amplitude from an ordinary regularly varying onset and identifies the sharp logarithmic boundary coefficient. Those sharpen the established statement of positive drift and are meaningful even when the harmonics are too small to resolve numerically.",
+      "residual_risks": [
+        "No applicability to other disorder or reset mechanisms or claimed universal coefficient beyond the specified rates and geometric law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review — orientation entropy landscape
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain is explicitly the canonical affine Markov construction of Oliveira, one map per sign word and branch count. The published Markov matrix and entropy equality are credited premises. The new argument derives a positive Perron eigenvector and the monotone scalar eigenvalue equation, then proves all three word-multiplicity classes, unique minimizing/maximum orientations, asymptotic expansions, a uniform entropy-loss estimate, and the central limit law. The independent finite checker rederives 1,512 exact characteristic-determinant evaluations and enumerates all 32,764 words through fourteen branches. Finite checks corroborate rather than replace the all-size proof. Boundary case two branches is handled separately. The claimed distribution is over orientation words, not orbits or measures.
+PASS
 
-## Originality
+Reconstructed the result on the precise affine family. The one-sided images yield all-ones rows except for deletion of the first column after a -,+ turn or of the last column after a +,- turn. Nonempty open-cell paths are realizable by backward affine pullback; the cylinder entropy is the logarithm of the Perron root. With A,B the two turn counts and with z_0 normalized to one, the first row gives sum(z)=lambda and the last row gives r=z_last=1, 1-1/lambda or lambda/(lambda+1). The remaining rows reconstruct a positive eigenvector for the unique root of lambda(n-lambda)=A+B r on [n-1,n] for n>=3: the left-minus-right side has opposite weak endpoint signs and is strictly decreasing. Specializing the turn counts yields the three equations, and choosing the preterminal flip positions gives the binomial counts. For n=2 the constant words give radius 2; the two nonconstant radii are 1 and the golden ratio in the stated order. For n>=3 the alternating scores are at least n-1-floor(n/2)/(n-1)>n-2, whereas every nonalternator scores at most n-2. The negative-start advantage at fixed lambda is (lambda-m+1)/(lambda(lambda+1)) for n=2m and m/(lambda(lambda+1)) for n=2m+1; a larger score gives a strictly smaller root. Only zero flips achieve radius n. Writing its worst root as n-1+a gives (n-2)a+a^2=1/2+O(1/n), so a=1/(2n)+O(n^-2) and the n^-2 term in log(n/lambda) cancels. For all words, Delta=n-lambda satisfies n Delta-kappa=Delta^2-B(1-r), a difference of quantities in [0,1]; the log remainder gives the claimed uniform bound. The word-to-first-sign-and-flips bijection gives independent fair bits and fixes both the variance 1/4 and negligible centering correction in the CLT. Read the frozen checker but did not execute it: its one-winner update does not itself rule out ties, and its determinant checks are finite evaluations only. The analytic strict comparison and root proof supply what that diagnostic cannot. Replay: RESULT.md, Steps 1–5, with Oliveira Theorems 7.1–7.2 for the canonical premises.
 
-**PASS on the evidence inspected, with residual historical-priority risk.** Oliveira's arXiv:2611.03287v1, especially Theorems 7.1 and 7.2, supplies the minimal-rank affine family and cubic spectral formula. Its Section 7 gives a coarse \(\log(n/(n-1))\) gap bound but does not classify the unique entropy optimizer, enumerate all orientation-word entropies with multiplicity, or derive the Gaussian law. Related previous calculations on the same family establish the invariant physical measure under an equal-ending constraint, or a uniform Parry mixing bound. They are neither equal to nor stronger than the three-part orientation-entropy theorem. Rugh and Tan's earlier kneading framework supplies the general determinant setting, not an explicit all-orientation optimization in this prescribed canonical family. A previously unindexed equivalent derivation remains possible; originality is not externally certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Entropy dependence on an orientation word is the immediate natural question after the construction of a minimal-jump-rank realization for every orientation word. The theorem gives an exact solution over *all* words at each branch count, not a chosen special example: a unique worst-case orientation, a full multiset with precise multiplicities (including possible algebraic collisions), and a quantitative Gaussian distinction between worst-case and typical orientation choices. It sharpens the source's uniform estimate while explaining why the worst-case leading loss is twice the typical leading loss. The result is intentionally confined to this canonical family; it does not assert minimal entropy among arbitrary maps with the same branch signs.
+Pass for the strict global optimizer and sharp worst-versus-typical entropy comparison, including the random-word deficit law, not for the known representation, the direct cubic specializations or elementary multiplicities as standalone discoveries. The relevant primary and strongest distinct indexed statements use either the same reduction without the extremal comparison, or different statistics/probability spaces.
 
-## Relationship to earlier literature and limitations
+## value
 
-Primary source: H. M. Oliveira, *Homological reduction and entropy of discontinuous interval maps*, arXiv:2611.03287v1 (2026-11-02), Theorems 7.1–7.2 and Corollary 7.3. Broader source: H. H. Rugh and L. Tan, *Kneading with weights*, J. Fractal Geom. 2 (2015), DOI:10.4171/JFG/24; only its abstract was available for the broad comparison. Further priority search may uncover a preexisting optimization or a stronger general spectral ordering result. No independent mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least-entropy orientation among a canonical rank-minimal family is specified and unique, despite superficially similar opposite-start alternators. The uniform error and fluctuation law also quantify the factor-two separation between typical and extremal leading loss. These address a concrete all-word structural question, rather than just evaluating the already known cubic at a few words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

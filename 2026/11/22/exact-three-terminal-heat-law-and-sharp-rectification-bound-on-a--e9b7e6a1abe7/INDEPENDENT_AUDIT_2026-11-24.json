@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:51:26.401086Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–81",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent four-orbit stationary calculation and symbolic rational identity checks"
+      ],
+      "rationale": "Independently quotient the eight microstates by global spin reversal: let p₀ be the stationary mass of the aligned class and p_i the mass of the class with odd spin i. Transitions 0→i, i→0 have rates (1−t_i)/2 and (1+t_i)/2; transitions between distinct odd-spin classes have rate 1/2. Stationarity and normalization give p_i=(1−t_i p₀)/(4+t_i) and p₀=[1−Σ_i 1/(4+t_i)]/[1−Σ_i t_i/(4+t_i)]. The nonzero energy changes at bath i are +4J out of the aligned class and −4J out of its own odd-spin class. Thus Q_i=2J[(1−t_i)p₀−(1+t_i)p_i]. Symbolic rational simplification reproduces every current and correlation in the record, with C_ij=1−2(p_i+p_j); all allowed rates are positive and Δ>25. Pair coefficients are positive and antisymmetric in the contribution to the two currents. A strict hot or cold extreme has the indicated sign; at equilibrium all currents vanish. For two distinct fixed other parameters the numerator is an affine decreasing function of t_i and changes sign exactly once between them. In the two placements, cancellation in the total hot currents gives the stated R. For D=8−xy−2y, 4/3−R=[8(1−y)+x(6−y)]/(3D); D stays positive and bounded on the closed parameter triangle. This proves the strict upper bound and that approaching equality requires x→0 and y→1; R>1 follows from y>x.",
+      "residual_risks": [
+        "Current signs are strict for distinct extrema; tied equal temperatures have no pair flux between themselves. The sharp limit concerns the given bath placements at fixed positive J, not finite temperatures or other geometries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact alternating Glauber chain solves all stationary correlations but expressly uses even N and two baths. The earlier two-temperature work is perturbative. The multibath extension of Lecomte et al. concerns a mean-field Hamiltonian and thermodynamic-limit solution, not a general finite triangle formula. Borchers et al. use conserved Kawasaki exchanges."
+        ],
+        "reasoning": "These are real prior stationary/heat-flow results; none was found to give a stronger solution specializing to arbitrary site temperatures in this finite odd ring. The N=3 mean-field Hamiltonian could be rescaled to match an equal triangle at the level of energies, but the inspected thermodynamic-limit formulas do not yield its exact finite state currents or sharp bound.",
+        "searches": [
+          "Schmittmann–Schmüser, arXiv:cond-mat/0212616, model and conclusion",
+          "Schmüser–Schmittmann, arXiv:cond-mat/0206345, model",
+          "Lecomte–Rácz–van Wijland, arXiv:cond-mat/0412547, abstract, model and appendix scope",
+          "Borchers–Pleimling–Zia, arXiv:1411.6180, model and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE catalogue, with distinct results compared above",
+        "arXiv:cond-mat/0206345, cond-mat/0212616, cond-mat/0412547, 1411.6180"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path already poses the same general comparison of exchanging one-site and two-site bath placements; it has a different middle-site geometry, optimum and bound. Standard generator closure gives a linear system rather than the actual positive conductance factors for this triangle.",
+          "The unique maximizing boundary point and 4/3 bound use the explicit reduced ratio after summing both hot currents in placement B."
+        ],
+        "reasoning": "Credit the shared comparison and usual stationarity tools. Their application requires the actual solution for this graph, and the signed pair decomposition and global sharp ratio are not substitutions into the inspected prior results.",
+        "searches": [
+          "Resultary 34ff9d28ece8, Finding and Assumptions",
+          "arXiv:cond-mat/0212616 and 0412547, exact model and solution scopes",
+          "RESULT.md, current law and two-bath specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triangle is a periodic nearest-neighbor Glauber chain at N=3, or equivalently the four-state spin-reversal quotient; alternate a pair of bath temperatures around an odd cycle and the end bond necessarily violates alternation.",
+          "The open three-spin path has two edges, whereas the quotient for the triangle has three equal-energy odd-spin classes and rate 1/2 on each transition between them."
+        ],
+        "reasoning": "Neither bath relabeling nor global spin reversal removes the extra bond or enforces even alternating temperatures. Local-bath current likewise uses the actual energy change for the stated graph.",
+        "searches": [
+          "Resultary: three-spin Glauber heat current, three-terminal conductance and sharp rectification",
+          "Primary search for exact inhomogeneous kinetic Ising rings and site-dependent bath temperatures",
+          "arXiv:cond-mat/0212616, model and exact stationary results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue result 34ff9d28ece8 gives R=(2+2b²−ab)/(2+2a²−ab) and sharp 1+4/√15 on a homogeneous open three-spin path. 40ac4bb02a8c treats a four-spin factorization obstruction for period-three baths on N≥6. 2bd73b7fe9bf has N≥4 and at least two infinitely hot sites. 9e699494b23d has a fair independently refreshed hub on a star."
+        ],
+        "reasoning": "The same-date records are compared directly, not excluded by date. None of the listed distinct records tabulates the finite arbitrary-three-temperature triangle current or its sharp two-placement comparison.",
+        "searches": [
+          "Resultary: sharp all-temperature three-spin rectification; multibath stationary exact currents; periodic three-temperature Glauber results"
+        ]
+      },
+      "rationale": "The distinct supported result is the explicit three-terminal current and sharp hot-placement ratio for the equal-bond triangle. Existing Glauber moment methods, positivity of total entropy production, and the general idea of one-versus-two-spin rectification are not credited as new. The strongest distinct catalogue comparison is the same-date three-spin path; its quantified law is for a missing edge and does not determine the triangle's law. Closest inspected exact chain work assumes bipartite alternating sites on an even ring.",
+      "residual_risks": [
+        "A focused primary query for arbitrary-temperature exact rings did not yield usable additional evidence. A previously unindexed finite cluster calculation or appropriately specialized general exact ring solution remains possible; no priority certification is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same physical comparison but distinct graph and sharp law",
+          "evidence": "Center versus endpoints on an open path; ratio (2+2b²−ab)/(2+2a²−ab) and sharp 1+4/√15, not the triangle formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-all-temperature-heat-rectification-bound-for-a-homogeneo--34ff9d28ece8",
+          "material_read": "RESULT.md, Finding and Assumptions, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp all-temperature heat rectification bound for a homogeneous three-spin path",
+          "trigger": "Closest distinct exact catalogue rectification law"
+        },
+        {
+          "assessment": "Different observable and allowed ring sizes",
+          "evidence": "N≥6 divisible by three; four-spin factorization defect, not the heat-current law.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-four-spin-obstruction-to-two-point-factorization-in-a-periodic--40ac4bb02a8c",
+          "material_read": "RESULT.md, Finding and Assumptions, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "A four-spin obstruction to two-point factorization in a periodic Glauber ring",
+          "trigger": "Nearest catalogue period-three temperature setting"
+        },
+        {
+          "assessment": "Not a dominating parameter regime",
+          "evidence": "N≥4 with at least two infinitely hot sites and a common cold temperature; transport is expressed over cold runs.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bath-domain-fragmentation-law-for-steady-heat-transport-in--2bd73b7fe9bf",
+          "material_read": "RESULT.md, Finding and Assumptions, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact bath-domain fragmentation law for steady heat transport",
+          "trigger": "Exact ring heat currents in published catalogue"
+        },
+        {
+          "assessment": "Different graph and rate constraints",
+          "evidence": "A star with a fair independently refreshed hub and individually tempered leaves, not a finite-temperature cycle.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-multibath-stationary-law-and-decoupled-heat-currents-on-an--9e699494b23d",
+          "material_read": "RESULT.md, Finding, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact multibath stationary law and decoupled heat currents",
+          "trigger": "Exact multibath Ising current laws"
+        },
+        {
+          "assessment": "Perturbative and restricted even alternating setting",
+          "evidence": "Computes first two corrections to equilibrium in an even periodic chain with temperatures assigned by parity.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0206345",
+          "material_read": "Abstract, p. 1; model, p. 2 (offsets 0 and 9300)",
+          "method": "Lawful OA full-text passages",
+          "title": "Non-equilibrium stationary state of a two-temperature spin chain",
+          "trigger": "Early two-temperature Glauber stationary treatment"
+        },
+        {
+          "assessment": "Exact correlations for even alternating chain, not arbitrary site temperatures",
+          "evidence": "The chain has even N and temperatures on odd and even sites respectively; solution of all stationary correlations is in that system.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0212616",
+          "material_read": "Model, PDF p. 2, offset 11750; conclusion p. 6, offset 30350",
+          "method": "Lawful OA full-text passages",
+          "title": "Stationary correlations for a far-from-equilibrium spin chain",
+          "trigger": "Closest inspected exact stationary kinetic Ising ring solution"
+        },
+        {
+          "assessment": "Infinite-range thermodynamic-limit calculation",
+          "evidence": "Mean-field H=−M²/(2N) and group bath rates; appendices extend to more baths, but not this finite local current formula.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0412547",
+          "material_read": "Abstract, p. 1 at offset 1200; appendix scope and model, pp. 3–4 at offset 7600",
+          "method": "Lawful OA full-text passages",
+          "title": "Energy flux distribution in a two-temperature Ising model",
+          "trigger": "Plausibly broader multibath heat-flux result"
+        },
+        {
+          "assessment": "Conserved dynamics do not specialize to Glauber flips",
+          "evidence": "Kawasaki exchange on a ring with an infinitely hot window and temperature T elsewhere; numerical results in that system.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.6180",
+          "material_read": "Model and dynamics, pp. 3–5, offsets 6000–12959; conclusion p. 24, offset 52260",
+          "method": "Lawful OA full-text passages",
+          "title": "Nonequilibrium statistical mechanics of a two-temperature Ising ring with conserved dynamics",
+          "trigger": "Related heat transport in nonuniform ring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, three-terminal current, intermediate zero, and two-placement comparison",
+        "Published three-spin path record 34ff9d28ece8, contrast in topology and bound"
+      ],
+      "rationale": "A symmetric closed triangle is a minimal three-terminal spin network, and its extra bond is precisely what separates it from the open three-spin rectifier. The positive pair law and unique balance setting quantify which reservoirs supply, absorb, or exchange zero net heat, beyond stationarity alone. The sharp bath-placement ratio supplies a fully normalized finite-model benchmark for rectification and its attainable limit, with no thermodynamic-limit claim.",
+      "residual_risks": [
+        "The result does not extend the bound to larger rings, unequal couplings, other update clocks, or generic thermal devices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

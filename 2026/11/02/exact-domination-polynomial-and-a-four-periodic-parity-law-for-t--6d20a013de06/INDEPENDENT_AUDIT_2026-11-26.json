@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:26.360146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66, 74 and 80; supporting VERIFICATION.md and verify.py inspected, not executed",
+        "Independent /workspace/review_checks/check4.py: exact symbolic characteristic polynomial with two independent weights, signed factorization, and direct enumeration of the entire coefficient histogram at n=3,4,5,6 (signed values 1,9,1,1)",
+        "Corrected /workspace/repairs/4/RESULT.md, theorem, proof, prior-work comparison and limitations"
+      ],
+      "rationale": "The mathematical finding is unchanged. A middle singleton or any nonsingleton covers both extreme rows; sole extreme-row vertices cover just their own extreme. Hence a triple suffices exactly when its two extreme-coverage bits have union 3. The pair-state trace counts the labeled cyclic configurations with their multiplicative weights (including n=3 with three distinct columns). Recomputing the characteristic polynomial over Z[u,v,X] using destination-symbol weights gives X^7 A B. At z=-1 its nonzero factor is (X−1)^3(X+1)^2(X²+1)^2, which gives 9 on multiples of four and 1 otherwise. The repair removes the erroneous orientation argument in the frozen prior-work comparison. By commutativity of the strong product, the relevant Table 2 row is n=3 (path length), whose signed values conflict with independent direct enumeration under the specified graph definition; the revision states the discrepancy and includes an elementary circumference-three check.",
+      "residual_risks": [
+        "The reason for the published Table 2 discrepancy is not established. The explicit closed-neighborhood definition and transfer proof, not that table, certify the claimed family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Mertens cylinder uses a Cartesian product and the strong-product king graph there is noncyclic rectangular. Klobučar uses independent domination. Moore–Mertens’s general rectangular signed theorem requires free boundary."
+        ],
+        "reasoning": "Neither switching graph products nor imposing independence preserves the target invariant. A general transfer technique does not supply the reduced characteristic factors or their signed root multiplicities on this family.",
+        "searches": [
+          "Mertens arXiv:2408.08053v1, pp. 2 and 12–13; general transfer algorithms; Klobučar 2005 strong products"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md",
+        "Moore–Mertens arXiv:2407.19344v1",
+        "Mertens arXiv:2408.08053v1",
+        "Klobučar 2005",
+        "Resultary 0141424562f2 and 2d91eca7659c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moore–Mertens explicitly explains why the free-boundary matching fails for cyclic boundaries. The checked exact characteristic factorization uses a three-column cyclic trace, with a new signed specialization for this family."
+        ],
+        "reasoning": "There is no substitution into the inspected results that yields the nine-root polynomial or the signed four-periodic law. The finite matrix reduction and exact factors are essential computations beyond the known method.",
+        "searches": [
+          "Moore–Mertens §3 free-to-cyclic boundary discussion; Mertens king transfer section; Resultary related findings cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Transposing factors gives the same strong-product graph. The Table 2 cylinder caption says m is cyclic; the n=3 (path width) row is the comparison. Its entries at m=3,4,5,6 are 5,−3,−1,−1, whereas direct subset enumeration for the defined graph gives 1,9,1,1."
+        ],
+        "reasoning": "The repaired claim acknowledges overlapping intended graph and observable. Neither the orientation nor the notation removes the discrepancy; the direct n=3 argument and exhaustive small checks settle the signed counts for the specified definition.",
+        "searches": [
+          "King cylinder C_m strong P_3, P_3 strong C_n, signed ordinary domination counts; Moore–Mertens arXiv:2407.19344v1 §3, Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table is finite and signed only. Resultary 0141424562f2 concerns an independence complex on P_n strong C_4; 2d91eca7659c counts two-fair dominating sets on a noncyclic two-row strip."
+        ],
+        "reasoning": "Independence-complex homology and fair-domination counts do not count all dominating subsets. The prior signed table neither contains the claimed values nor specifies the polynomial or an all-size law.",
+        "searches": [
+          "Moore–Mertens Table 2, both caption and relevant cylinder row; Resultary cylindrical king graph signed domination polynomial, exact factorization and parity"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact all-circumference ordinary domination polynomial and consequent infinite signed law under the stated closed-neighborhood convention. The strongest same-object source provides a small signed table, not an all-circumference law, and its entries conflict with exact independent computations. The revised comparison no longer uses coordinate orientation to exclude that source.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison, not exhaustive priority. The published finite discrepancy is unresolved as a provenance question, not evidence against the proved graph invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite conflicting signed values on the stated orientation, not a prior full polynomial or infinite law.",
+          "evidence": [
+            "Caption makes x in [m] cyclic; n=3 row reads 5,−3,−1,−1 for m=3–6.",
+            "The text restricts its matching to free boundary and describes cylinder entries as exact enumerations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.19344v1",
+          "material_read": "PDF pp. 5–6, §3 and Table 2 including column/row labels and caption, OA text around offsets 11400–14500; current arXiv text located at Table 2",
+          "method": "Bounded OA primary text and comparison with direct exact enumeration",
+          "title": "Domination by kings is oddly even",
+          "trigger": "Same apparent king-cylinder graph and signed domination observable"
+        },
+        {
+          "assessment": "General methodological precedent but graph regimes are distinct.",
+          "evidence": [
+            "Cylinder C_m Cartesian P_n; king graph P_m strong P_n with free boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.08053v1",
+          "material_read": "pp. 2 and 12–13: graph definitions and adapted king graph transfer",
+          "method": "Bounded OA primary text",
+          "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+          "trigger": "Plausible broader domination-polynomial transfer coverage"
+        },
+        {
+          "assessment": "Different invariant even where the graph family overlaps.",
+          "evidence": [
+            "Independent dominating sets must also be independent."
+          ],
+          "identifier_or_url": "https://hrcak.srce.hr/en/657",
+          "material_read": "Opening page, graph and independent-domination definitions",
+          "method": "Bounded lawful primary text inspection",
+          "title": "Independent sets and independent dominating sets in the strong product of paths and cycles",
+          "trigger": "Strong products of the same factors"
+        },
+        {
+          "assessment": "Does not count ordinary dominating sets.",
+          "evidence": [
+            "P_n strong C_4 independence complex, not an ordinary domination generating function."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-cylindrical-four-column-king-complexes-a-sphere-wedge-recurrence--0141424562f2",
+          "material_read": "Finding, independence-complex homotopy and homology statement",
+          "method": "Resultary local search and mirror passage",
+          "title": "Cylindrical four-column king complexes",
+          "trigger": "Related strong-product cylinder and signed topological quantities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, finding, proof and corrected prior-work comparison",
+        "Moore–Mertens §3, problem context for cyclic boundaries",
+        "Independent symbolic and direct checks"
+      ],
+      "rationale": "The claim answers a natural exact question about ordinary domination when one replaces a free boundary by periodicity, giving all cardinality coefficients and a four-periodic signed count that is not valid on rectangular free boundaries. The low-degree factors work at every circumference, not only as interpolation or recomputation of a finite table. The literature correction makes the precise intended comparison and small-case conflict checkable.",
+      "residual_risks": [
+        "No general-width cylinder classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

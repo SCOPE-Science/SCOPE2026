@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:46.522330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated invariance and nonzero generator-image hypotheses the integrable, zero-mean L psi has a positive level set {L psi >= epsilon} of measure p>0 for some epsilon>0. The all-in-set IID event has probability p^m and the fitted generator on it is at least a epsilon/(b^2+gamma)>0 for any finite nonnegative ridge. Reusing the fitted Richardson step makes the prediction grow geometrically on that event; L^2 contractivity and the reverse triangle inequality give the same type of lower bound for the true forecast error. In the circle case the pointwise ratio is at least 1/3 on a set of mass 1/3, and Gram weights average this ratio when the ridge is zero. Direct integration gives G=9/2 and H=-1/2, so the population step 1-h/9+h^2/162 contracts for exactly 0<h<18. These calculations give the stated circle lower bound for all h>0 and k>=0, not an exact risk or a statement about almost every fit. General fixed-k risks need not be finite under the stated hypotheses; they are finite in the smooth circle example. Inspected frozen VERIFICATION.md and verify.py without executing the latter; its finite rational checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu takes a fixed horizon and supplies high-probability empirical closeness given a Gram-smallness condition",
+          "Original SDMD §4.1 takes the large-data limit for fixed dictionary and interval",
+          "Schurig et al. study lifted multi-step residual moments, not the law over repeated reuse of a random generator fit"
+        ],
+        "reasoning": "Taking the horizon arbitrarily large at fixed sample size and averaging over rare training events is not a special case of the inspected fixed-horizon or lifted-residual conclusions.",
+        "searches": [
+          "arXiv:2611.00793v2, Theorem 3.3 and Proposition 3.7",
+          "arXiv:2501.13301v4, §4.1",
+          "arXiv:2602.04720v1, §§III–IV"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3, VERIFICATION.md and verify.py",
+        "Resultary 74b8267a061a, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2611.00793v2, 2501.13301v4, 2602.04720v1, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit counterexample keeps the empirical Gram bounded below and each fixed-k risk finite",
+          "Even on a step interval where the population multiplier is contractive, the all-in-positive-generator sample event has positive probability for every m"
+        ],
+        "reasoning": "The standard polynomial and semigroup contraction do not assert that such an event exists universally. The invariant zero-mean generator identity combined with sample positivity creates the sign event, which reusing the fit amplifies. Neither the inverse-Gram barrier nor a fixed-time error bound yields this implication.",
+        "searches": [
+          "Xu Richardson Theorem 3.3 and Proposition 3.7",
+          "Resultary 74b8267a061a Finding/Limitations",
+          "Schurig et al. arXiv:2602.04720v1 Sections III–IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu §2.4 Eq. (2.8) gives the same Richardson polynomial",
+          "Resultary 74b8267a061a Finding and Limitations give an inverse-Gram heavy-tail mechanism for unbounded x^2 under Gaussian sampling, not a positive scalar growth event with bounded Gram"
+        ],
+        "reasoning": "The estimator is known, but the claim is about the sign of its fitted scalar and reuse of that same scalar. One-step infinite risk caused by a Gram singularity cannot be rephrased as this finite-per-step smooth-circle effect.",
+        "searches": [
+          "Resultary semantic lookup for scalar SDMD-R finite-sample growth, repeated fitted prediction, and risk divergence",
+          "arXiv:2611.00793v2, empirical generator and Richardson formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct record is 74b8267a061a: a sharp one-step infinite-risk cutoff with 5<=m<=8; it excludes repeated-time propagation"
+        ],
+        "reasoning": "The circle formula is a continuous-parameter probability bound, not a sequence/table lookup. The relevant indexed exact-risk result uses different data and a different mechanism. No priority inferred from the same-day date.",
+        "searches": [
+          "Resultary lookup for a sharp finite-sample Richardson SDMD risk barrier and scalar growth"
+        ]
+      },
+      "rationale": "The supported distinct claim is the unavoidable positive-probability samplewise growth for bounded strictly positive scalar observables under the stated assumptions, with fixed-fit long-horizon risk divergence at every finite sample size and concrete circle constants. Existing model definitions and fixed-horizon convergence theorems are credited; the closest separate finite-sample-risk result is a different moment singularity and horizon regime.",
+      "residual_risks": [
+        "Within-day priority of the two Nov. 22 records is not established, and neither is literature-wide priority",
+        "Targeted comparisons do not exclude an unindexed equivalent scalar-estimator observation or all other EDMD failure modes"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine adjacent finite-sample pathology, not repeated positive-growth risk in a bounded dictionary",
+          "evidence": [
+            "Gaussian OU samples with unbounded x^2; one-step infinite mean-square error for 5<=m<=8; repeated-time propagation explicitly excluded"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-eight-sample-mean-square-barrier-for-richardson-stochast--74b8267a061a",
+          "material_read": "Finding and assumptions at offset 0, limitations at offset 8500",
+          "method": "Resultary local mirror",
+          "title": "A sharp eight-sample mean-square barrier for Richardson stochastic dynamic mode decomposition",
+          "trigger": "Closest exact local SDMD-R finite-sample risk result"
+        },
+        {
+          "assessment": "Same method, fixed-horizon/high-probability claims do not control expectation for all horizons",
+          "evidence": [
+            "Q^R(M)=I+dt M+(dt^2/2)M^2",
+            "Theorem 3.3 fixes T and n=T/dt; Proposition 3.7 gives a high-probability closeness bound under a Gram-smallness condition"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00793",
+          "material_read": "v2 §2.4 Eq. (2.8), Theorem 3.3 pp. 7–8, Proposition 3.7 p. 10",
+          "method": "Primary OA PDF",
+          "title": "A Second-Order Stochastic Dynamic Mode Decomposition by Richardson Extrapolation",
+          "trigger": "Same Richardson generator estimator and prediction algorithm"
+        },
+        {
+          "assessment": "Large-sample and step-size limits for a different forecast step",
+          "evidence": [
+            "For fixed dictionary and step the large-data matrix has first-order term dt G^-1 H; empirical concentration is as m increases"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.13301",
+          "material_read": "v4 §4.1, pp. 7–8, Theorem 4.3",
+          "method": "Primary OA PDF",
+          "title": "A Data-Driven Framework for Koopman Semigroup Estimation in Stochastic Dynamical Systems",
+          "trigger": "Original SDMD generator and empirical semigroup analysis"
+        },
+        {
+          "assessment": "Evaluates lifted predictor residuals, not this fitted-generator instability",
+          "evidence": [
+            "Section III introduces the residual Psi composed with f minus A Psi and its empirical-measure expectation; §IV extends residual calculations over multiple steps"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04720",
+          "material_read": "v1 abstract, §III p. 3 and §IV p. 4",
+          "method": "Primary OA PDF",
+          "title": "On Data-Driven Unbiased Predictors using the Koopman Operator",
+          "trigger": "Multi-step prediction-error moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The negative result identifies a distinct instability mechanism with a bounded, well-conditioned scalar Gram: invariance forces a positive generator-value region that an entire finite sample can hit. It separates high-probability fixed-horizon convergence from fixed-sample long-horizon expected prediction risk, including where the population step is contractive and the unstable sample event may be very rare.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

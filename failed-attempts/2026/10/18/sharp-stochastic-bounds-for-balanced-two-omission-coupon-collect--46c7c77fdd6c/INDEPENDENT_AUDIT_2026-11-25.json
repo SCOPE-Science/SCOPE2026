@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:19.074009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After any positive number of draws at most two coupons can remain unseen. For any k≥1, the probability of one specified missing coupon is q^k and the probability of two specified missing coupons is p_ij^k, giving exactly nq^k−Σp_ij^k. Strict Jensen minimizes the pair power sum uniquely at uniform for k≥2. After scaling by q, independent positive-support incidence columns characterize vertices of the row-sum-one polytope. A support leaf forces a unit isolated edge; otherwise, the number of edges is both at least the vertex count by minimum degree and at most that count by column independence. Hence the remaining components are cycles, necessarily odd and half-weighted. Strict convexity forces every maximum of the power sum to be a vertex. If r vertices lie in odd cycles its value is n/2−r(1/2−2^(−k)), strictly decreasing in r. The smallest r is zero for even n and three for odd n, with exactly the stated supports. k=1 gives tail 1 regardless of p; the means include the k=0 tail 1 and follow by geometric summation, with strictness inherited from k=2. Exact-rational independent checks of n=4 through 8, including direct omission-sequence enumeration for horizons at most 3, agree. Replay: /workspace/branches/ee948815-2b18-48fe-aa70-c19773757914/check_independent.py. The uploaded checker was inspected but not executed; the finite tests do not establish the arbitrary-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In 8b8a4777f51a the rank-2 factorial moment is minimized uniquely by equal pair-avoidance probabilities; with complement size two those probabilities are the entire law. Balance holds the first moment fixed, yielding the upper stochastic envelope.",
+          "hexagon:2611.00814v1 optimizes more broadly over package laws of size at most s for n−s dividing n, and at s=n−2, even n, gives the exact lower law. It does not classify the nondivisible odd case.",
+          "Berend–Sher give mean improvements over uniform and compute the complementary decomposition mean; neither that comparison nor the uniform local Hessian classifies both extremes."
+        ],
+        "reasoning": "Verified broader coverage is different for the two directions. The general moment theorem transfers to upper tails because the support collapses to {0,1,2}, not because factorial moments ordinarily order completion times. The divisibility theorem directly covers the even lower side, and the exact polytope comparison handles the odd lower side.",
+        "searches": [
+          "Resultary 8b8a4777f51a rank-r design theorem and 0accb934007e uniform law local Hessian",
+          "hexagon:2611.00814v1 Theorem 3.1 and Corollary 3.2",
+          "arXiv:2509.17201 Theorem 2.1 and complementary decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 71ae72613d53, 8b8a4777f51a and 0accb934007e",
+        "hexagon:2611.00814v1; arXiv:2509.17201; Fang–Chang 2014 author PDF; Schilling bibliographic/secondary evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By the factorial moment formula, E W_k=nq^k and E(W_k)_2=2Σp_ij^k. The rank-2 equality condition reduces to p_ij constant. This gives the exact upper tail and equality directly.",
+          "Every vertex of the same F_n has coordinates in {0,1/2,1} and Σ w_e=n/2. For k≥2 let a_k=2−2^(2−k)>0. On those three possible weights, x^k=a_k x²+(1−a_k)x. Thus on vertices Σw_e^k=a_kΣw_e²+(1−a_k)n/2. For every k≥2, strict convexity of Σw_e^k rules out a nonvertex maximizer, so the exact 71ae72613d53 optimizer classification transfers unchanged, including matching plus triangle for every odd n. Substitution gives both lower-tail formulas; summing gives the exact means."
+        ],
+        "reasoning": "The two statements are together sufficient for all horizons, constants and equality cases by direct reduction. The odd case is covered by that reduction, not attributed to the divisible-case manuscript. The dated records establish verified coverage as inspected, not historical priority for the combined coupon formulation.",
+        "searches": [
+          "Resultary 71ae72613d53 proof offsets 3900–8081, especially exact vertex list and parity extremum",
+          "Resultary 8b8a4777f51a Finding and formula at offsets 0–2322 and 2750–5121"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under w=p/q the coupon feasible set is exactly F_n={w≥0:Bw=1} used in Resultary 71ae72613d53, with B the unsigned incidence matrix of K_n.",
+          "When two labels are omitted, the number W_k still missing has support {0,1,2}, so 1_{T>k}=W_k−(W_k)_2/2. Resultary 8b8a4777f51a gives both factorial moments exactly for arbitrary package laws.",
+          "At n=4 the Fang–Chang two-package complementary partition coincides with the frozen even matching law; Berend–Sher's n−2 arcs construction is balanced but uses uniform cycle edges, not the general sharp optimizer."
+        ],
+        "reasoning": "Equivalence uses the complement-pair distribution, not the uniformity of original packages. Balance is the scaled incidence constraint, and the first two factorial moments determine the completion tail because higher counts cannot occur.",
+        "searches": [
+          "Resultary: balanced omission sampling, uncovered-coupon factorial moments, parity extremizers on the fractional perfect-matching polytope",
+          "Berend–Sher arXiv:2509.17201; Fang–Chang 2014; Schilling DOI 10.1016/j.ipl.2021.106112"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact squared norm maximization in 71ae72613d53 is equivalent to maximizing n/2−r/4 on vertices. The maximum uses r=0 or 3 according to parity, determining the frozen k=2 lower-tail values and optimizers.",
+          "The complementary-partition manuscript gives (1−s/n)^(k−1), exactly the even lower tail at s=n−2. Fang–Chang reports the n=4 mean comparison 3 vs 3.8 for matching vs uniform."
+        ],
+        "reasoning": "There is no standalone catalogue-number claim to check; these exact optima and values are the analogues of a table. The parity calculation extends to all horizons by the explicit affine relation, so the overlap is not confined to examples.",
+        "searches": [
+          "Resultary 71ae72613d53 Step 3 exact parity values; hexagon:2611.00814v1 exact complementary tail; Fang–Chang n=4 comparison"
+        ]
+      },
+      "rationale": "The full sandwich with equality is recoverable from verified existing exact results, including the odd case. An indexed coupon-moment theorem gives the very survival reduction and its unique uniform upper extremum in the two-omission model. An earlier indexed geometric result treats the identical fractional matching polytope, classifies all its vertices, and gives precisely the parity extremizers of the square objective. On those vertices, every k-power sum is a strictly increasing affine function of the square sum (shown below), so strict convexity transfers exactly that classification to all horizons. This is an implication assessment, not a claim of copied work or publication priority.",
+      "residual_risks": [
+        "Schilling's full text was not retrieved. No whole-document coverage or absence conclusion is made for that source.",
+        "The direct even-n manuscript and rank-2 record are later-dated. The verified implications and earlier polytope overlap settle coverage at review time, not attribution or historical priority for the complete coupon theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural carrier and same k=2 extremum; powers inherit it on vertices",
+          "evidence": "Affine map to F_n, positive-support edges and odd cycles of weights 1 and 1/2, and Σw²=n/2−r/4 maximized at r=0 or 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53/RESULT.md",
+          "material_read": "Finding at offset 0, proof offsets 3900–8081",
+          "method": "Local mirror comparison of feasible sets, support vertices and objective",
+          "title": "Parity-controlled John and Löwner ellipsoids of Kneser pair-eigenpolytopes",
+          "trigger": "Same parity optimizer and fractional perfect-matching polytope"
+        },
+        {
+          "assessment": "Supplies the exact survival reduction and sharp upper side by moment inversion on {0,1,2}",
+          "evidence": "E(U_t)_r=r!Σ a_S^t; equal a_S characterize the rank-r equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-design-strength-hierarchy-for-uncovered-coupon-moments--8b8a4777f51a/RESULT.md",
+          "material_read": "Finding and Steps 1–2 at offsets 0–2322 and 2750–5121",
+          "method": "Local mirror specialization to complement size two",
+          "title": "A design-strength hierarchy for uncovered-coupon moments",
+          "trigger": "Exact rank-2 overlap for uncovered coupons"
+        },
+        {
+          "assessment": "Direct even-n lower coverage; no odd classification in passages read",
+          "evidence": "Complementary partition under n−s dividing n, with tail (1−s/n)^(k−1), stochastic optimality among arbitrary iid package laws of size at most s, and sharp mean.",
+          "identifier_or_url": "https://hexagonmath.org/pdf/2611.00814v1",
+          "material_read": "Theorem 3.1 and Corollary 3.2 pp. 6–7, offsets about 19380 and 22840–24547; nondivisible remark around p. 16 offset 54930",
+          "method": "Lawful OA PDF passage; set s=n−2",
+          "title": "Optimal coupon packages and stochastic improvement of uniform group drawings",
+          "trigger": "Potential broader stochastic collection-time optimum"
+        },
+        {
+          "assessment": "Prior mean comparison; arcs witness is balanced at s=n−2, and complementary law is known",
+          "evidence": "Equal cycle omitted pairs or disjoint-block complements, with complementary law mean given in equation (2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.17201",
+          "material_read": "Abstract p. 1, definitions p. 3, Theorem 2.1 and complementary-decomposition calculation p. 5, offsets 1891–4480, 9090, 12800 and 14800–17755",
+          "method": "Lawful OA PDF and package complement comparison",
+          "title": "On a conjecture on uniform group drawings in the coupon collector's problem",
+          "trigger": "Known mean improvement in same package size"
+        },
+        {
+          "assessment": "Matches the disjoint optimizer at n=4 only",
+          "evidence": "Two disjoint equiprobable packages and larger completion probability than intersecting strategies for each fixed horizon t≥2.",
+          "identifier_or_url": "https://www.comp.nus.edu.sg/~changec/publications/2014_IPL.pdf",
+          "material_read": "Author PDF pp. 1–2 offsets 1465 and 3388–3842, p. 4 offsets 6114–6585, Theorem 2 p. 6 offset 10720",
+          "method": "Author-hosted OA PDF, compare s=n/2 with s=n−2",
+          "title": "Optimal strategy of coupon subset collection when each package contains half of the coupons",
+          "trigger": "Potential direct known n=4 case"
+        },
+        {
+          "assessment": "Full coverage unresolved; not a reason for the verdict",
+          "evidence": "Secondary account gives the endpoint s=n−1 mean theorem and a smaller-s conjecture, not an inspected full-text result at s=n−2.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2021.106112",
+          "material_read": "Bibliographic evidence and Berend–Sher abstract discussion; article text not retrieved",
+          "method": "Lawful DOI/publisher attempt; no identified author copy",
+          "title": "Results and conjectures on the role of the uniform distribution in the coupon collector's problem with group drawings",
+          "trigger": "Plausible earlier package-law optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The balanced package constraint is natural and the horizon-by-horizon optimizer classification is stronger than one mean comparison. In particular the odd obstruction identifies a concrete parity difference in feasible optimal sampling, not an isolated table value. The useful probabilistic formulation does not override the coverage assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

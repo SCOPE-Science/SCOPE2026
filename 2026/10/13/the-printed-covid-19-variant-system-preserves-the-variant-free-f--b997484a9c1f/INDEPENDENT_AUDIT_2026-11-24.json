@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:26:10.042740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the printed Eq. (12) and state-space definitions, not just the checker. The entire active f5 block has a homogeneous right-hand side along any trajectory of the other compartments: every incoming, neighboring or loss term contains an active f5 factor. The terminal j=1 and j=m levels are classified into separate endpoint compartments on pp. 296–297 and are not additional f5 coordinates feeding into Z; the endpoint transfers appear in the aggregate equations. For arbitrary finite m, setting the entire block to zero therefore solves its equation, and local polynomial uniqueness on each transmission interval and continuity at switches imply invariance. Nonnegative data stay nonnegative (gains are nonnegative on the boundary of the orthant), and summing (12) telescopes the adjacent transfers and cancels transfers between compartments by Eq. (1), so the normalized solution is globally bounded and extends. The finite-grid checker is only corroborative and does not independently settle the terminal-state convention. The finding concerns the simultaneous zero block and does not say that individually zero coordinates in a nonzero block cannot become nonzero. The source confirms nonzero initial variant state in §4 and its stated value in Figures 6–8, not an inference from numerical curves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Local indexed comparisons address an avoidance-model endpoint, a final-size distinction between zero and positive initialization, or a trait-diffusion model starting with positive infected mass. None treats the variant equations of Eq. (12). The closely related Royal Society paper could not be read in full."
+        ],
+        "reasoning": "General ODE uniqueness already supplies the mathematical principle. The new analysis is checking that this specific published block has the required homogeneous structure, including the state boundaries, and identifying the consequent limitation on interpreting its results.",
+        "searches": [
+          "Resultary closest matched statements 8433e91ee2cb, 7c0d07b542bc, 4d87f0bc3ae7",
+          "Related modeling article DOI:10.1098/rsta.2021.0161"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/nhm.2022008",
+        "Resultary 8433e91ee2cb",
+        "Resultary 7c0d07b542bc",
+        "Resultary 4d87f0bc3ae7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published article describes its model as accounting for mutations and variants and separately prescribes a nonzero initial variant state. The inspected statements do not make the model's zero-block limitation explicit."
+        ],
+        "reasoning": "The limitation is inferred from the actual equation and uniqueness; it is not a claim about how viruses mutate, about unpublished simulation code, or about behavior after a nonzero component is already present.",
+        "searches": [
+          "DOI:10.3934/nhm.2022008 Eq. (12), state definitions and §4",
+          "Resultary 8433e91ee2cb and 7c0d07b542bc, opening statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A zero solution for the whole variant block, absence of incoming flow there, and impossibility of endogenous creation from an exactly zero block are equivalent descriptions here. The learned-avoidance result 8433e91ee2cb tests a different zero-inflow face and a different persistence claim."
+        ],
+        "reasoning": "Shared invariance vocabulary and methods are not prior coverage of this printed system's specific restriction.",
+        "searches": [
+          "Resultary: variant-free invariant face, zero variant inflow, absence of endogenous onset in DOI:10.3934/nhm.2022008 Eq. (12)",
+          "Bellomo–Burini–Outada §2.3 Eq. (12) and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper already reports the positive initialization and its figures; the reported numerical value is not a new finding. The claim is symbolic for arbitrary admissible m, not a table of parameter-specific cases."
+        ],
+        "reasoning": "The reported simulation conditions confirm that those runs do not test the zero-face claim. A positive initialized trajectory cannot establish appearance from exactly zero.",
+        "searches": [
+          "Primary PDF, p. 300 Eq. (12); pp. 304–305, §4 and captions of Figs. 6–8",
+          "Resultary: Eq. (12), variant-free, and initial variant state"
+        ]
+      },
+      "rationale": "The general zero-solution argument is standard and the nonzero initialization is already explicit in the article. Neither is claimed as new. The supported distinct finding is that the printed equation cannot represent endogenous appearance from exactly variant-free data, despite the surrounding mutation-onset framing. The closest indexed records use related zero-face reasoning, but apply it to different equations and conclusions.",
+      "residual_risks": [
+        "The full related paper DOI:10.1098/rsta.2021.0161 was not available in the bounded lawful attempts; not assessed as non-covering.",
+        "Bounded catalogue comparisons do not exclude an unindexed discussion or correction. The result is restricted to the fixed printed equations, not simulation implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Homogeneous variant block and stated nonzero initial state confirmed; source does not state the zero-face limitation in those passages.",
+          "evidence": [
+            "Active indices are 2 through m−1; endpoints belong to other compartments. Eq. (12) has no independent forcing term in the f5 block. Eq. (1) states the normalization."
+          ],
+          "identifier_or_url": "https://www.sciopen.com/local/article_pdf/10.3934/nhm.2022008.pdf",
+          "material_read": "State definitions and Remark 2.1 pp. 296–297 (offset 13020); Eqs. (11)–(12) p. 300 (offsets 24650, 26335); §4 and captions pp. 304–305 (offsets 35437–37430, 37402)",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Multiscale models of Covid-19 with mutations and variants",
+          "trigger": "Verify actual Eq. (12), boundaries, conservation and initial data"
+        },
+        {
+          "assessment": "Different model, invariant face and conclusion.",
+          "evidence": [
+            "Uses a zero avoidance coordinate at p=v=0 to refute a full-state persistence claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-the-zero-inflow-avoidance-face-invalidates-full-uniform-persiste--8433e91ee2cb",
+          "material_read": "RESULT.md, opening Finding at offset 0",
+          "method": "Resultary lookup and bounded local-mirror read",
+          "title": "The zero-inflow avoidance face invalidates full uniform persistence",
+          "trigger": "Closest structural analogue"
+        },
+        {
+          "assessment": "Different ODE and final-size question.",
+          "evidence": [
+            "Distinguishes an exactly unseeded trajectory from the nontrivial branch selected by positive initial infection."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-the-asymptomatic-seiawr-final-susceptible-branch-never-reverses--7c0d07b542bc",
+          "material_read": "RESULT.md, opening Finding at offset 0",
+          "method": "Resultary lookup and bounded local-mirror read",
+          "title": "The asymptomatic SEIAWR final-susceptible branch never reverses",
+          "trigger": "Closest zero-versus-positive initialization comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between generation of a state from zero and evolution of a state already present changes what a reader can infer from the article's simulations. The proof diagnoses a precise limitation of the printed model under a natural initial condition, rather than presenting coordinate invariance as a new mathematical technique.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

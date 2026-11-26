@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:13.036088Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated open chamber, a>5/12 and u=1−2a<a<b<v=2−2b<w=4a−1<1. The branch-image cutoffs 4−8a and 4b−2 both lie strictly inside (a,b): the lower bound on a is stronger than (4−b)/8, a<4/9 gives 4−8a>a, and b>11/18 gives 4b−2>4/9>a. Applying the decreasing branches on the five successive source intervals verifies the full retained destinations 5; 2,3,4; 3; none; 1,2. The inverse images of each admissible destination cylinder are disjoint except at null boundaries and have one-half its length. Starting with an all-ones counting row gives (1,2,2,1,1) at n=1. Multiplication by the adjacency matrix sends a row (A,B,C,D,E) to (E,B+E,B+C,B,A), proving the claimed row for all n>=1. Against the interval lengths its initial constant is 2+4a−4b, its first difference at n=1 is 7a−4b and its second difference is 2−3b; at n=0 use the full retained length 1+a−b. This fixes exactly the observations 0 through n. The positive quadratic coefficient gives rate log 2 and P(n+1)/P(n)=1+2/n+O(n^-2) for the normalized polynomial, yielding the stated one-step escape hazard for fixed interior parameters. Endpoints/precritical orbits are null. The exact-rational verifier was inspected, not executed; its 15 pairs and 17 horizons are finite regression only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general decreasing Lorenz map results treat symbolic plateau and Hausdorff dimension as endpoint parameters vary. Dettmann treats ordinary doubling and small-hole escape asymptotics. The positive-doubling theorem concerns asymmetric-hole attractors and their topological representation."
+        ],
+        "reasoning": "Coverage of the parameter regime for an invariant or a topological statement is not coverage of its finite-time Lebesgue cylinder masses, which include transient paths ending at states with no further continuation. Rate asymptotics for a different map do not specialize to the exact finite-time polynomial here.",
+        "searches": [
+          "Ding–Steiner–Sun arXiv:2610.03327v1 Theorems 1.4–1.5",
+          "Dettmann arXiv:1112.5390v2 sections 2–3",
+          "Alcaraz Barrera arXiv:1506.00067v1 Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03327v1 pp. 5–7; arXiv:1506.00067v1 Theorem 3.2; arXiv:1112.5390v2 sections 2–3",
+        "Resultary ca3ad35b54de, 5abcf83ab1ef, 443384202c5c, 4bb4293ceb82, 20b1e7951921, c3e891785474",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof identifies a distinct five-state graph, finite end-state weights and an exact row evaluation. The inspected exact prior formulas either do not apply to asymmetric holes here, or have a different set of retained branches and polynomial degree."
+        ],
+        "reasoning": "The general Markov-matrix method and similarities in graph mechanism are prior ingredients. Neither those ingredients nor the quoted symbolic dimensions determine these transitions and terminal weights by direct specialization.",
+        "searches": [
+          "Ding–Steiner–Sun Theorems 1.4–1.5; Resultary ca3ad35b54de and 5abcf83ab1ef",
+          "Exact escape polynomial on another open cell: Resultary 443384202c5c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The negative-doubling chapter studies the same map, but uses symbolic infinite survivor spaces. For finite-time laws, first-entry masses are successive differences of survival masses, and a convention with n observations shifts the horizon by one. Reflection x -> 1−x is a conjugacy with (a,b) -> (1−b,1−a)."
+        ],
+        "reasoning": "Neither the horizon shift nor reflection puts a non-symmetric chamber into a symmetric family. The comparison asymmetric rectangle is reflection invariant and disjoint. Positive doubling is not the same map; even replacing T by its square requires excluding the hole at intermediate times and does not identify the positive-doubling results with this survival formula.",
+        "searches": [
+          "Negative-doubling hole, transient Lebesgue survival, first escape and quadratic prefactor (Resultary)",
+          "Ding–Steiner–Sun arXiv:2610.03327v1, map and survivor coding",
+          "Alcaraz Barrera arXiv:1506.00067v1, map and main theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ca3ad35b54de gives 2^-n[2a+2n(3a−1)_+] at symmetric holes up to a=2/5. 5abcf83ab1ef gives a quadratic with an alternating term at (7/17,10/17) under the 0,...,n−1 horizon. 443384202c5c gives a linear polynomial times 2^-n on 1/3<a<2/5 and 3/5<b<2/3. The other surfaced exact first-entry and recurrence records concern specific dyadic holes or symmetric families."
+        ],
+        "reasoning": "The fixed quadratic example has a=7/17<5/12, whereas the entire chamber being reviewed has a>5/12. The other open cell remains disjoint even under reflection. No table furnishing the full transient polynomial on or dominating this chamber was found in the bounded comparisons.",
+        "searches": [
+          "Resultary exact negative-doubling escape and quadratic, asymmetric, symmetric and dyadic holes",
+          "Resultary records ca3ad35b54de, 5abcf83ab1ef and 443384202c5c, Finding passages"
+        ]
+      },
+      "rationale": "The closest catalog escape laws are for symmetric holes, isolated or restricted parameter families, or a disjoint asymmetric rectangle with a linear prefactor. The primary literature inspected gives symbolic or small-hole asymptotic results, not this exact two-parameter transient law. Credit the specific exact polynomial and open chamber, not transfer matrices, the existence of zero-entropy plateaus, or a general discovery of quadratic escape behavior.",
+      "residual_risks": [
+        "Bounded statement-level coverage, not a priority certification. Other parameter cells or finite-time laws recoverable from explicit symbolic data outside the inspected passages may exist. No claim of maximality of this chamber is audited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family, different invariants",
+          "evidence": "Survivor-space and plateau classification and dimension staircase, not finite-time Lebesgue mass.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03327v1",
+          "material_read": "Theorems 1.4–1.5 and symbolic setup, pp. 5–7",
+          "method": "OA PDF, offsets 15850–22308",
+          "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
+          "trigger": "Same map and broad asymmetric-hole parameter range"
+        },
+        {
+          "assessment": "Different map and result type",
+          "evidence": "Positive doubling, attractors, entropy and subshifts of finite type.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.00067v1",
+          "material_read": "Introduction pp. 1–2; Theorem 3.2 pp. 7–8",
+          "method": "OA PDF offsets 0–5108 and 23700–28641",
+          "title": "Topological dynamics of the doubling map with asymmetrical holes",
+          "trigger": "Asymmetric holes and finite-type symbolic models"
+        },
+        {
+          "assessment": "Not the same map, hole scale, or finite-time claim",
+          "evidence": "Ordinary doubling small-hole rate asymptotics, including a hole beginning at zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.5390v2",
+          "material_read": "Abstract and sections 2–3, pp. 1–4",
+          "method": "OA PDF offset 0 and 7596–16485",
+          "title": "Open circle maps: Small hole asymptotics",
+          "trigger": "Escape statistics in an expanding doubling system"
+        },
+        {
+          "assessment": "Exact overlap in type, not in parameters or prefactor",
+          "evidence": "Symmetric a<=2/5 gives at most linear n prefactor.",
+          "identifier_or_url": "Resultary 2026/10/26/ca3ad35b54de",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact escape-time phase transition for symmetric negative-doubling holes",
+          "trigger": "Closest earlier exact negative-doubling mass law"
+        },
+        {
+          "assessment": "Outside chamber and a single symmetric hole",
+          "evidence": "At (7/17,10/17), law (6n^2+12n+39+(−1)^n)/(34·2^n) through time n−1.",
+          "identifier_or_url": "Resultary 2026/11/8/5abcf83ab1ef",
+          "material_read": "Finding and horizon convention",
+          "method": "Resultary local mirror",
+          "title": "Quadratic escape-time resonance at the first eight-cycle boundary",
+          "trigger": "Exact quadratic prefactor for negative doubling"
+        },
+        {
+          "assessment": "Distinct cell with linear prefactor",
+          "evidence": "a<2/5 and formula 2^-n[1−h+n(1−3h)] with h=b−a.",
+          "identifier_or_url": "Resultary 2026/11/22/443384202c5c",
+          "material_read": "Finding and parameter restrictions",
+          "method": "Resultary local mirror",
+          "title": "A two-parameter isoescape cell with tunable conditional laws",
+          "trigger": "Exact finite-time law on a two-parameter asymmetric region"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact transient measure on an open chamber separates exponential rate from polynomial survival and identifies which endpoint controls the leading coefficient. The quadratic contribution reflects linked surviving recurrent states and changes the conditional escape hazard even with fixed asymptotic rate. This is useful finite-time information not captured by survivor entropy or a single symmetric example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

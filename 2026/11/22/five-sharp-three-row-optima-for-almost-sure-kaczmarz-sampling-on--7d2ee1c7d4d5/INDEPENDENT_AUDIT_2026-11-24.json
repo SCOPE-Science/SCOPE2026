@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:47.744022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orthogonal error projectors have rank one. The norm squared of their product equals the product of the squared cosines of successive direction differences, none zero here. Each parity of successive pairs uses disjoint iid index blocks; two strong laws yield the expectation of the pair cost, including when some masses are zero. Ordered pairs account for the factor of two in R=pᵀWp. For c=cos(π/5), d=cos(2π/5), c³−d=(4−√5)/8>0, hence b>3a>0. On four consecutive occupied indices the zero-sum direction (1,−1,1,−1) has zᵀWz=2(b−3a), so the average of the two feasible small perturbations improves the value. This excludes supports of both sizes four and five. Every triple has either two b-pairs with common center or two a-pairs with common center. Holding the center mass x fixed, the two leaf masses must be equal at the maximum with that x. The first case gives 2bx(1−x)+(a/2)(1−x)² with unique interior maximum at x=(2b−a)/(4b−a), value 2b²/(4b−a). The second case is at most (b/2)(1−x²) since 2a<b, and b/2 also bounds supports of size at most two. Thus precisely the five rotations attain the sharp value; the gap to b/2 and the smaller uniform value follow by subtraction. The one-step factor is the top eigenvalue of the trace-one mean projector, namely (1+|Σ p_j exp(2πij/5)|)/2. Uniform makes the modulus zero; for each rate maximizer it is x−2y cos(π/5)>0 because x/y>5/3>2 cos(π/5). This verifies the claimed strict comparison, not a claim about the asymptotic annealed optimizer set. Independent algebra and numeric substitution reproduce the reported values, including factor 0.5263771970. The frozen checker was inspected, not executed; it supplies finite corroboration only. The directions are equally spaced projectively, not pairwise equiangular (an informal descriptor in the frozen self-review, not a hypothesis of the theorem).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altschuler–Parrilo solve the exponent evaluation for every rank-one law and study general optimization hardness; the inspected theorem does not solve the pentagonal quadratic program.",
+          "Strohmer–Vershynin theorem 2 bounds expected squared error with row-norm sampling; it is not an almost-sure design theorem.",
+          "The original Agaskar–Wang–Lu 2014 full text was not retrieved; the abstract of their later preprint describes earlier exact MSE analysis in the consistent case, but is not a substitute for the 2014 paper."
+        ],
+        "reasoning": "Evaluation formulas, hardness conclusions and expected-error bounds are not domination of the exact simplex maximum and equality set for this quenched problem. Lack of access to one article was not used as evidence of noncoverage.",
+        "searches": [
+          "arXiv:1905.07531v1, introduction and theorem 2.1",
+          "arXiv:math/0702226, theorem 2",
+          "Agaskar–Wang–Lu exact MSE, DOI 10.1109/GlobalSIP.2014.7032145, and arXiv:1502.00190v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:1905.07531v1",
+        "arXiv:math/0702226",
+        "Resultary 54597ea58934",
+        "DOI 10.1109/GlobalSIP.2014.7032145 (access limited)",
+        "arXiv:1502.00190v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "54597ea58934 proves coincidence of the annealed asymptotic mean-square and one-step worst-case optimizers for planar frames; it explicitly excludes quenched rates.",
+          "The rank-one theorem gives the objective but not the positive four-support variation nor the two types of triple maximization."
+        ],
+        "reasoning": "The pentagon is within the prior frame class but the variable being optimized here is a typical log operator-norm decay, not a mean-square decay. The earlier coincidence does not imply the strict loss demonstrated by these five quenched-optimal laws.",
+        "searches": [
+          "Resultary 54597ea58934, RESULT.md Finding offset 0 and scope offset 11479",
+          "arXiv:1905.07531v1 theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Altschuler–Parrilo theorem 2.1 gives λ=Σ p_i p_j log|u_iᵀv_j| for iid rank-one matrices; for these projectors R=−2λ exactly.",
+          "The weighted five-cycle with a on cycle pairs and b on complementary pairs is an equivalent simplex optimization, not a second independent claim. The returned quadratic-design literature supplied the reduction, not the equality classification."
+        ],
+        "reasoning": "Negating twice the general Lyapunov exponent converts its minimization to R maximization. Both nonzero pair weights matter: the all-five equality classification does not follow from the unweighted adjacency case.",
+        "searches": [
+          "Resultary: weighted five-cycle quadratic p^T W p cyclic optimization exact maximizers rank-one Lyapunov exponent",
+          "Primary literature: Lyapunov Exponent of Rank One Matrices pentagon weighted five-cycle quadratic optimization sampling distribution",
+          "arXiv:1905.07531v1, theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct pentagon query returned the identical assigned record as a self-hit, not evidence of competing coverage.",
+          "The strongest distinct entry was 54597ea58934, planar coincidence of annealed and one-step sampling optimizers, with quenched exponents excluded in its scope. The ranked returns did not identify a distinct exact optimizer table for this weighted problem."
+        ],
+        "reasoning": "The compared entries are distinguished by actual stochastic objective and scope, not their date or title. This is bounded catalogue coverage, not a claim that an equivalent result cannot exist.",
+        "searches": [
+          "Resultary: pentagonal five Kaczmarz quenched almost sure exponent three row optimum five maximizing distributions one-step mean-square",
+          "Resultary: planar Kaczmarz annealed asymptotic mean-square factor optimizer coincidence theorem one-step bound quenched exponent excluded",
+          "Resultary: weighted five-cycle quadratic p^T W p cyclic optimization exact maximizers rank-one Lyapunov exponent"
+        ]
+      },
+      "rationale": "The rank-one exponent formula and the reduction to a generally nonconvex quadratic design objective are known and excluded from the originality credit. The distinct supported result is the exact pentagonal weighted quadratic maximum, all five maximizers, and their strict separation from one-step worst-direction optimality. The strongest inspected planar comparison has an expressly different stochastic objective.",
+      "residual_risks": [
+        "A solution of the particular two-weight five-cycle quadratic under different optimization terminology could remain unindexed or missed.",
+        "The original 2014 Agaskar–Wang–Lu text was unavailable on the tried routes; its detailed results are not treated as passage-checked.",
+        "No claim of first historical priority or generalization to other frames or adaptive sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known evaluation and design reduction; not an exact pentagonal optimization",
+          "evidence": "Quadratic expected pair-log formula for rank-one matrices, with general distribution-design problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07531v1",
+          "material_read": "Introduction around offset 7360; §2 theorem 2.1 and proof at offset 16800",
+          "method": "Lawful OA HTML passages",
+          "title": "Lyapunov Exponent of Rank-One Matrices: Ergodic Formula and Inapproximability of the Optimal Distribution",
+          "trigger": "Direct general equivalent of the rate formula"
+        },
+        {
+          "assessment": "Different stochastic objective",
+          "evidence": "Annealed coincidence with one-step optimum; explicit exclusion of quenched exponents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+          "material_read": "Finding and scope, offsets 0 and 11479",
+          "method": "Local mirror passage comparison",
+          "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+          "trigger": "Closest catalogue match to the comparison of optimizers"
+        },
+        {
+          "assessment": "Expected bound for row-energy sampling; not the quenched optimization",
+          "evidence": "Expectation of squared error under probabilities proportional to squared row norms.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+          "material_read": "§2 theorem 2, HTML offsets 6745–10670",
+          "method": "Lawful OA HTML passages",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "Foundational row-sampling theorem"
+        },
+        {
+          "assessment": "Original detailed claims not adjudicated",
+          "evidence": "The later abstract characterizes earlier consistent-system work as exact mean-square-error analysis; no inference of absence from the unavailable full text.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Bibliographic identification only for the 2014 article; later arXiv:1502.00190v1 abstract inspected",
+          "method": "Lawful alternate Harvard manuscript and IEEE attempts did not return original full text; later OA abstract read",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Prior optimization of row-sampling probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five equally spaced projective lines give a natural symmetric tight planar frame, not an arbitrary chosen matrix slice. On this frame the usual uniform tight-frame design is strictly suboptimal for typical trajectories, while every sharp typical design drops two rows and is worse on the one-step worst-direction criterion. The exact support/equality classification and rate gaps explain the distinction of practical sampling objectives; they are not supplied by the known rank-one representation alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

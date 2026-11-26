@@ -1,19 +1,21 @@
-# Scientific assessment: Gaussian-mixture ambiguity-zero geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is quantified for real \(0<p<q\), \(c>0\), and angular Fourier frequency. Direct Gaussian integration yields the exact normalized factorization in the proof. Its two real exponential rates have simultaneous decay precisely inside \(p<|\omega/T|<q\), and at least one grows outside any fixed enlargement of that cone. Standard elementary cosine-root perturbation gives unique simple high-index ray intersections, exponential phase error and exact quadratic zero density. On the two boundary rays, one constant positive term controls all-large-time oscillatory sign changes and the weak-threshold zero-free cases. Along the balanced ray, an exact first-zero bracket yields the unequal-amplitude scaling; a separate compact-phase argument handles the equal-amplitude tangency, giving the different exponent. The finite numerical checker independently confirms normalization and sample roots, but is not used as proof of the quantified assertions.
+PASS
 
-## Originality — PASS, with publication-priority limits
+Completing the square in the two mixed products shifts the Gaussian centers by ±(q-p)T/[2(p+q)]. The Fourier phases therefore combine into cos(κTω) with positive prefactor 2c sqrt(2π/(p+q)) exp[-(pqT²+ω²)/(2(p+q))]. The diagonal products give the two stated positive exponential ratios. The axes are strictly positive. Outside either separated sector one ratio grows exponentially in T²+ω² uniformly, ruling out distant zeros. On an interior ray the ratios and their derivatives decay exponentially in t=T². Disjoint fixed neighborhoods of the cosine nodes have a derivative bounded away from zero and opposite signs at the ends for late nodes; the complement has no late roots. The first-order Taylor equation gives the stated (-1)^k sign and quadratic remainder, and real analyticity and positivity at t=0 rule out infinitely many early roots. Counting nodes gives the stated O(1) error. Choosing progressively more distant roots on interior slopes tending to either boundary gives sharpness even when that boundary ray has no zeros. On a boundary ray one ratio is a positive constant, so its being below one is necessary and sufficient for sign changes at late oscillations; equality leaves a strictly positive decaying term. On the balanced ray the ratios add to B exp(-δt), with B>1 by AM–GM. There can be no root before log(B)/δ, and the next cosine minimum supplies the other bracket endpoint, including equality. At q=p+ε, δ~ε²/(8p), β~ε/4; for c≠1 their time scales are separated and B tends to (c+c⁻¹)/2. At c=1, log B=3ε²/(32p²)+O(ε³), whereas πδ/β is of order ε. In phase coordinates the function is uniformly positive away from π on the first half-cycle and strictly negative at π for small ε, giving the asserted 4π limit. The degenerate Gaussian is zero-free. No extension to general mixtures, shifted centers, or all finite zero components is proved.
 
-Nicacio–Maia–Toscano–Vallejos (arXiv:1002.2248v1) explicitly treat unequal Gaussian squeezing and hyperbolic *Wigner* interference. Gröchenig–Jaming–Malinnikova (arXiv:1811.03937v1), their Gaussian cross-transform formula, and the general Wigner/ambiguity relation provide antecedents. The checked primary passages do not state the sharp self-ambiguity cone, exact density, boundary amplitude conditions, or two distinct first-zero coalescence exponents. Closest accessible historical records concern phase-space interference but not the specific quantitative zero statements. The general formulas are applicable starting points and therefore remain a genuine risk of equivalent coverage in another presentation; a complete priority claim is not made. The Alonso (2011) full review was inaccessible for complete-text comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural positive Schwartz pulse with strictly positive Fourier transform, yet it develops infinitely many ambiguity zeros whenever two centered Gaussian widths differ. The exact zero cone is determined by widths and not weights, while its boundary inclusion depends sharply on weights. The zero count has an exact leading constant; coalescing widths yield two different power laws for the first zero depending only on amplitude balance. These geometric and stability transitions are not consequences of positivity/zero-freeness of the individual Gaussian components, and supply quantitative structure useful in time-frequency interference and window design.
+The distinct supported content is the centered unequal-width escaped cone with exact boundary tests, interior root asymptotics, and the two first-root escape laws. Gaussian cross-ambiguity, hyperbolic Gaussian interference and positive-window zero examples are prior, not credited as original.
 
-## Limitations and closest literature
+## value
 
-The conclusion concerns two real positive centered components and the self-ambiguity function, not the zero set of a Gaussian-window STFT. Generic Gaussian polarization formulas do not alone identify the zero-sector geometry; nonetheless the algebraic proximity creates historical originality risk. See arXiv:1002.2248v1 (2010), DOI 10.1364/AOP.3.000272 (2011), and arXiv:1811.03937v1 (2018). No claim is made about arbitrary multicomponent Gaussian mixtures or every finite zero component.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural positive-window model separates pointwise positivity of the window and its Fourier transform from positivity of the ambiguity function. The exact allowed escape directions, endpoint-amplitude cuts and sharp ray census tell where nulls persist, while the two asymptotic scales explain quantitatively how nulls disappear in the approach to a single zero-free Gaussian. These are useful geometric and singular-perturbation conclusions beyond plotting the known interference pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

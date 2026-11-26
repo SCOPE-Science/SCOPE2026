@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:01.194432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected",
+        "/workspace/review_checks.py 4 (fort enumeration)"
+      ],
+      "rationale": "A path vertex is blocked by two or more white core vertices. With no blue core vertex the process cannot start; with only one, an edge endpoint succeeds precisely from the full blue path, while the isolate can at best fill the path without unlocking the core. With two blue core vertices and at least two white path vertices, no core vertex can start; a path vertex can force the remaining core vertex iff all its path neighbours are blue. This is exactly an endpoint pair or an interior triple, and the same condition is automatic with at most one white path vertex because the endpoint pairs are disjoint. The resulting all-blue core and an adjacent path pair finish the path. With three blue core vertices the criterion is a blue endpoint or adjacent blue pair: if neither exists, every blue path vertex and every core vertex has at least two white neighbours. The listed minimal path patterns follow, and deleting a core vertex from any such pattern fails the next lower-core criterion. Counting gives 8, 4m−15 and 2, with the last two contributions combined at m=4. An independent fort-based exhaustive check gave the same polynomials for m=4–12; the case proof supplies the unbounded result.",
+      "residual_risks": [
+        "The finite fort test checks coefficients; exact labelled membership and the infinite range rest on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 15 of Brimkov–Carlson treats (2K₂) join P_{n−4}, with endpoint results. The same-family McKay–Ray–Valliere result optimizes the extremal discrepancy, not all labelled minimal sets."
+        ],
+        "reasoning": "Different core adjacency changes initial forcing. Neither general extreme-size bounds nor the other join's extreme witnesses contain the requested exact classification.",
+        "searches": [
+          "arXiv:2609.35522 §3.1 and arXiv:2204.01810v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "McKay–Ray–Valliere, Proposition 3.3",
+        "Brimkov–Carlson, fort discussion and Proposition 15",
+        "Resultary/local-mirror match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "G_n=(P₂∪K₁) join P_{n−3} agrees with this graph at n=m+3, and its two endpoint sizes are 4 and n−2. The proof exhibits endpoint witnesses and bounds, without enumerating all labelled seeds or ruling out size 6 through m."
+        ],
+        "reasoning": "Knowing the endpoints determines neither the gap in intermediate support nor the coefficients. The exhaustive forcing criterion by core count and subsequent minimality tests add the missing information.",
+        "searches": [
+          "Compare arXiv:2609.35522 Proposition 3.3 and its proof with the five target families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general fort characterization treats forcing sets as fort transversals; it does not evaluate the labelled minimal transversals for this graph."
+        ],
+        "reasoning": "An exact minimal-fort-transversal enumeration would be equivalent to the five patterns; the characterization alone does not perform that enumeration.",
+        "searches": [
+          "Web: (K2 disjoint K1) join P_m inclusion-minimal zero forcing sets classification",
+          "Resultary: labelled minimal zero-forcing spectrum of edge-isolate/path join",
+          "arXiv:2204.01810v1, fort discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-the-complete-inclusion-minimal-zero-forcing-spectrum-of-an-extre--73b951b0a0d2 has the same graph, range and five patterns and is the frozen item itself."
+        ],
+        "reasoning": "The exact same-item match is not independent prior coverage. No distinct indexed exact enumeration was identified in this lookup.",
+        "searches": [
+          "Resultary exact spectrum and five-family classification; corresponding local-mirror record"
+        ]
+      },
+      "rationale": "The family, extremal gap and both endpoint sizes are known. The distinct claim is the complete labelled classification, multiplicities and absence of other sizes. The inspected same-family proposition does not give that classification and no independent equivalent or broader covering enumeration was found.",
+      "residual_risks": [
+        "The uncited clique/path reconfiguration comparator was not independently identified; exhaustive historical priority is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object; known endpoints, not the full classification",
+          "evidence": "P₂∪K₁ joined to P_{n−3}; endpoint witnesses and bounds give Z=4 and upper Z=n−2.",
+          "identifier_or_url": "https://arxiv.org/html/2609.35522",
+          "material_read": "§3.1 Proposition 3.3 and proof, HTML offsets 19751–27736",
+          "method": "OA full-text passages",
+          "title": "Maximizing the discrepancy between zero forcing parameters relative to graph order",
+          "trigger": "Exact graph family and extremal sizes"
+        },
+        {
+          "assessment": "General characterization and different extremal example",
+          "evidence": "The fort criterion is nonenumerative; Proposition 15 joins a two-edge matching to the path.",
+          "identifier_or_url": "https://arxiv.org/html/2204.01810v1",
+          "material_read": "Fort discussion near HTML offset 7420; §3 Proposition 15 from 41422",
+          "method": "OA full-text passages",
+          "title": "Minimal Zero Forcing Sets",
+          "trigger": "General fort reduction and related path join"
+        },
+        {
+          "assessment": "Identical item",
+          "evidence": "Same record suffix and exact labelled spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-inclusion-minimal-zero-forcing-spectrum-of-an-extre--73b951b0a0d2",
+          "material_read": "Finding and five-family statement",
+          "method": "Resultary and local mirror",
+          "title": "The complete inclusion-minimal zero-forcing spectrum of an extremal edge–isolate/path join",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen classification and independent proof check",
+        "McKay–Ray–Valliere Proposition 3.3"
+      ],
+      "rationale": "The family is motivated by a known extremal discrepancy, not an arbitrary graph slice. The exact cardinality distribution exposes a linearly growing gap: for m≥6 almost all labelled minimal sets have only four or five vertices, two have m+1, and there are none in between. That stronger fact can be used in comparing minimal-set distributions on extremal families and does not follow from the extreme parameters alone.",
+      "residual_risks": [
+        "Only the stated family and the ordinary color-change rule are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

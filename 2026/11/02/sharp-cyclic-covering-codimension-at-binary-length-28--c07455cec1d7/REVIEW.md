@@ -1,11 +1,21 @@
-# Scientific review: sharp binary cyclic-covering codimension at length \(28\)
+# Independent mathematical audit
 
-**Correctness — PASS.** The polynomial quotient is valid because \((t^3+t+1)^3\) divides \(t^{28}+1\). The four indicated functionals have rank four; therefore their preimage is a codimension-four linear space. Every one of the \(512\) quotient states lies in exactly one of the listed twenty-two cyclic orbits, and each orbit contains a state in the common four-functional kernel. Intertwining of polynomial multiplication and cyclic shifts proves coverage of the original \(2^{28}\) words. A shift-counting bound excludes codimension five. The independently executable exact-integer verifier reproduces the orbit partition, direct state coverage, ranks, and row masks. No probabilistic evidence is used for the infinite or finite claim.
+## correctness
 
-**Originality — PASS, with residual priority uncertainty.** The directly relevant 2019 Aaronson–Groenland–Johnston paper lists bounds \(3\le h_2(28)\le4\) in Appendix A; its product results do not imply equality at four. The general 2018 Cameron–Ellis–Raynaud upper bound establishes at most four, not attainability. The 2026 Wang–Shi theorem treats lengths \(2p\) with a primitive-root hypothesis, not the fourfold length \(28\). The 2026 Li–Yuan DFT study discusses mainly coprime lengths and geometric constructions, while the 2026 Li–Yuan–Li–Zeng paper centers on zero codimension. Searches for the precise equality, equivalent polynomial quotient, and cyclic code formulations found no covering public result. The 2025 Sun–Ma–Zeng journal article was not available in full; its accessible descriptions emphasize another length. Consequently definitive publication priority remains uncertain.
+PASS
 
-**Value — PASS.** This is a natural exact extremal invariant specifically left open in a published table of binary cyclic-covering subspaces. The result closes a one-unit gap at the maximum possible codimension and supplies a compact, readily replayable complete certificate on a quotient with just \(512\) states. Its point is the exact extremal threshold, not an arbitrary example or merely a new witness for an already known value.
+Independently verified the certificate with degree-set arithmetic and direct polynomial remainders of t^j r, not the supplied shift recurrence. P=f^3 divides t^28+1, so reduction is a surjective intertwiner, and the four independent quotient rows pull back to the four stated length-28 rows and preserve codimension four. All 22 least representatives, orbit lengths and first kernel witnesses matched; the size histogram is {1:1,7:1,14:4,28:16} and exhausts 512 states. Each quotient orbit hits K, so a shift of each original vector lies in the preimage U. The union bound for 28 shifts gives 2^c<=28<32, establishing sharpness.
 
-**Limits.** The claim addresses the single binary length \(28\), not all lengths or the classification of all optimum witnesses. No independent external mathematical validation has been performed. Publication priority requires further comparison with the inaccessible 2025 source and any unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact length-28 value and certificate. The direct binary table leaves a gap, and the strongest inspected nearby literature/indexed results do not give the missing lower bound. This is not a priority certification.
+
+## value
+
+PASS
+
+Length 28 is an explicitly unresolved table entry of a standard covering invariant, not an arbitrary code slice. The equality resolves whether the counting upper bound is attainable at this length. A nine-dimensional orbit quotient gives a compact independently checkable witness for the full 28-dimensional covering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

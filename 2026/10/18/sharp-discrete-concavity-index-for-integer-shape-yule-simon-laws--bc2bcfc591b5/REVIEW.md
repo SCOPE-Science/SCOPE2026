@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation checks the full positive-integer support, the negative-power direction of generalized-mean concavity, existence and uniqueness of the nonzero first-triple threshold, and every later triple by a continuous one-turn lemma. The crucial derivative is \(f'=2(S_2^2-S_1S_3)/S_1^3<0\), and the moving-window weighted-mean derivative shows \(R'<0\) without assuming monotonicity of finite numerical differences. The source's sufficient parameter and the strict improvement follow from second-derivative signs on the actual interval. The companion numeric checks pass; they are corroboration, not proof.
+## correctness
 
-## Originality — PASS, with bounded priority risk
-The closest primary paper arXiv:2610.05439v1 defines discrete \(\alpha\)-concavity and supplies \(-b_\rho\) as a sufficient Yule–Simon parameter in Example 1.2; its inspected statements do not provide the exact maximal lattice threshold. The new criterion is equivalent to an all-indices convexity classification for positive powers of the rising factorial. Targeted literature and mathematical-record searches did not identify this exact first-triple sufficiency theorem. A more general special-function convexity result could imply it; the search does not establish absolute novelty, and independent priority validation remains pending. No part of the prior paper's established general concentration results is claimed as new.
+PASS
 
-## Mathematical value — PASS
-A recent general concentration-inequality paper uses discrete negative-power concavity to determine which heavy-tailed laws enter its theorems. For the canonical preferential-attachment/Yule–Simon example, the supplied exponent is only sufficient; establishing the *largest admissible exponent for every integer shape* resolves a natural sharp parameter-identification question. The strict lattice improvement is structural: a single initial triple controls infinitely many inequalities, with strict curvature thereafter. This is not a selected finite index, a reparameterization, or a numerical table. The result supplies the exact admissibility input for any downstream theorem parameterized by the concavity index, without claiming a new downstream optimum.
+For α=−a<0, the power-mean inequality reverses when raised to the negative power and becomes discrete convexity of h_a(k)=[∏_{j=0}^ρ(k+j)]^a. The support starts at 1, and the zero-value convention imposes no extra boundary restriction. Telescoping adjacent ratios gives the stated F_ρ(a) at center 2. It vanishes at 0, has negative derivative there, is strictly convex, and diverges to +∞, so a≥a_ρ is necessary. Writing w=g′ and f=S₂/S₁² gives f′<0 by strict Cauchy–Schwarz S₂²<S₁S₃ for ρ≥1. The sliding w-weighted mean R(x) lies strictly between f(x+1) and f(x); its derivative is strictly negative because both endpoint terms have the required signs. The continuous unit slope B_a has derivative of the sign of a−R(x), so B_a(2)≥B_a(1) forces a>R(2) and strictly increasing B_a on [2,∞). This proves all later lattice inequalities strictly, including when a=a_ρ, with equality only at center 2. For the strict bounds, h_a″ has sign a−f: f(x)>1/(ρ+1) everywhere, whereas f(x)<f(1)=b_ρ for x>1, giving strictly opposite first-triple signs at the two bounds. Increasing probability ratios give strict log-convexity and rule out all α≥0 by power-mean monotonicity. An independent high-precision check of the ρ=1 defining equation confirms the printed decimal; the all-index proof is analytic.
 
-## Closest literature and limitations
-Alqasem–Aravinda–Marsiglietti (2026), Definition 1.1 and Example 1.2(3), arXiv:2610.05439v1, is the closest work. Related gamma-ratio and rising-factorial convexity theory is a residual implication risk. General real shapes and other mass families are unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked prior Yule–Simon result gives −b_ρ by a continuous curvature sufficient condition, not the exact larger lattice-optimal −a_ρ. The supported distinct claim is exact first-triple control across the unbounded lattice for every positive integer shape, with the equality location and strict gap. The closest broader statement-level and local catalogue comparisons do not cover it.
+
+## value
+
+PASS
+
+The sharp index determines the exact admissible parameter range of a canonical heavy-tailed law in a framework where concavity is a substantive hypothesis. A single first-triple equality governs infinitely many lattice inequalities for every integer shape, and the strict improvement over the continuous bound is conceptual, not a numerical adjustment. No downstream sharp concentration result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

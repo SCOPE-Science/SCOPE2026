@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete if-and-only-if condition, not a finite-test conjecture. The coherent vector expansion gives the exact polynomial kernel as a quadratic Fock form. Its span is a quadratic-form core by analytic differentiation in number-operator graph norm, closing the gap between point-kernel positivity and an unbounded oscillator form. Weyl displacements force each coefficient matrix to be positive semidefinite. Canonical symplectic scaling and diagonalization give the sharp oscillator ground-energy \(2\operatorname{tr}(A^{1/2}DA^{1/2})^{1/2}\), and monotone quadratic-form approximation handles singular matrices. These steps reconstruct the claimed boundary and treat the normalization of the Gaussian cross term. The standalone finite checker passed 7,855 supplementary assertions; it is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with historical uncertainty
+The undamped kernel is the real coherent matrix element of I+(H−tr(A+D)I)/b with H=QᵀAQ+PᵀDP and [Q_j,P_k]=2iδ_jk. Normal ordering gives the trace terms with positive signs and the relative-coordinate quadratic with a negative sign. Point-mass approximation and graph-norm finite differences at x=0 transfer positivity in both directions between the continuous kernel and the finite-particle form; the latter is continuous in the (N+I)^{1/2} norm. More explicitly, the damped coherent integral map B and (N+I)B are Hilbert–Schmidt by the Poisson second moment times exp(−(2s−b)|x|²); S is bounded relative to N+I, so T=B*SB is trace class. Position and momentum translations of a fixed Gaussian isolate negative directions of A or D, with number-basis cutoffs converging in the weighted norm. Positive definite A is removed from the position term by a canonical change of variables with inverse transpose on momentum; orthogonal diagonalization gives 2Σ√λ for the exact lower energy. Squeezed Gaussian trial states attain that bound in the form domain. For singular matrices the variational infima of the ε-regularizations decrease to the limiting infimum by testing each fixed finite vector, and the square-root trace is continuous. This proves the boundary including equality, noncommutation and singularity. Scalar expansion gives b=D=1 and (√γ−1)²≤1 after γ≥0. For the matrix example the middle matrix has trace 25/2 and determinant 16, giving the stated threshold. Independent bounded replay: `python /workspace/review_replay.py 1` (36 symbolic coefficients and exact 2×2 example); these are diagnostics, not the proof. The supplied NumPy checker was inspected, not executed.
 
-The most relevant primary full texts are arXiv:2207.06119 (quadratic examples and Newton positivity criteria) and arXiv:2405.04438 (general polynomial-Gaussian positivity preconditions and the scalar gamma family). In the latter, Section 2.3.1 and Table 1 give numerical upper exclusions close to 4, whereas the present result proves the exact interval and a sharp noncommuting matrix classification. The metric expression is classical and credited to arXiv:1712.01504, which has no operator-positivity claim for these kernels. Matched aliases and implication tests against available published mathematical records yielded no identified dominating result. An unindexed equivalent proof remains possible, and this review is not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Polynomial-Gaussian kernels appear as quantum density-operator models and their positivity is an explicit motivating difficulty in the two inspected primary papers. The theorem replaces an infinite series of positivity tests by one finite semidefinite/geometric inequality, sharply resolves the scalar parameter family treated there, and establishes noncommuting and singular coefficient cases. The exact critical boundary is meaningful mathematically and is not a normalization or finite-census restatement.
+The matching scalar problem and metric are prior; the distinct contribution supported by the comparisons is the sharp finite coefficient criterion for this entire kernel family, including the exact scalar endpoint. No examined statement covers the result by substitution or specialization. This is not a priority certificate.
 
-## Scientific limitations
+## value
 
-Only isotropic real Gaussian cross-coupling and the specified quadratic multiplier are classified. Extensions to arbitrary phase matrices, anisotropic cross interactions or higher-degree multipliers are not claimed. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positivity for the identical scalar benchmark was an explicit problem in the prior operator literature. Replacing infinite moment tests with a sharp matrix criterion, valid for noncommuting and singular matrices, resolves that benchmark and provides a practical exact test for a naturally occurring operator family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

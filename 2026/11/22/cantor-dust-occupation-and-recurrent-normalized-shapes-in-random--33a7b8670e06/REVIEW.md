@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact coordinate identity F_{dm+r} yields a nonautonomous affine recursion with coefficient a_{r,m}→λ_d∈(0,1/2). A deterministic geometric-convolution estimate couples it uniformly to a two-sided stationary Bernoulli affine chain. Birkhoff gives all-phase occupation, finite-window and covariance limits; positive mass in each support cylinder plus uniform coupling gives full almost-sure orbit cluster set. Disjoint 2^d similarities give rigorous upper/lower Hausdorff dimension via cylinders and mass bound. Standard-library check.py produced 15083 exact/arithmetic and bounded numeric consistency checks; these are supportive, not an infinite proof.
+## correctness
 
-## Originality — PASS
-Full primary model text, full closest same-model published-finding corpus published result and full closest Bernoulli-convolution analogue were compared by objects, hypotheses and implication. Original source establishes lengths and covering times but raises asymptotic shape as open direction; previously published same-model result classifies centered target covering times, not the actual evolving shape occupation law or its full almost-sure limit set. Classical IFS/ergodic results are credited as tools. Residual risk: unindexed historical equivalent or differently normalized shape treatment.
+PASS
 
-Closest inspected literature: Amit et al., *Random Fibonacci Tilings* (arXiv:2611.08317v1), Sections 2, 4–5 and 6.5; *Complete subsequential covering-time laws for random Fibonacci tilings* (https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-subsequential-covering-time-laws-for-random-fibonacci-t--e2af1a5dfd9a); *Random reshuffling has a Cantor-to-interval stationary-support transition* (https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-random-reshuffling-has-a-cantor-to-interval-stationary-support-t--ec57811b8333); general iterated random functions and self-similar geometry are credited. The Coates metallic-mean article was compared from its abstract only. A differently worded historical equivalent is not fully excluded.
+The exact coordinate update at move r+1+jd uses thickness F_(d-1+r+jd) and sends length F_(jd+r) to F_((j+1)d+r). The generating function 1/(1-t-t^d) has a unique simple pole of least modulus, at 1/rho_d: equality in the triangle inequality at that modulus forces t to be positive. Thus the length ratio tends to lambda=rho_d^(-d)=1-1/rho_d in (0,1/2). Coupling to the stationary sum of the same innovations plus an independent past gives error e_(m+1) <= q e_m + |a_m-lambda| eventually for one q<1, hence uniformly vanishing error for all coordinates and phases. Each phase and each fixed complete-cycle window of the comparison is a factor of the ergodic iid shift; the coordinates at a fixed phase still use independent streams. A countable test family and finitely many phases give the stated almost-sure time occupation. Positive mass for neighborhoods of the support gives infinitely many completed cycles near each support point, and the uniform error excludes exterior cluster points at all phases. Cylinder separation and cylinder mass 2^(-dj) give the exact local dimension and support dimension. The geometric sum of squared weights gives variance (1-lambda)/(4(1+lambda)); independent later innovations yield the lag factor lambda^h and independent coordinates give zero cross-covariance. The planar case and failure of total-variation convergence follow from the same formulas and nonatomicity.
 
-## Value — PASS
-The source paper explicitly identifies asymptotic shape as a natural further question. The result classifies the complete normalized geometric orbit rather than an arbitrary statistic: singular stationary Cantor-dust law, almost-sure recurrence to every feasible normalized shape, full fractal dimension, and exact temporal covariance. This improves what is known about how stochastic Fibonacci rectangles actually wander spatially; it is not the known covering-time theorem or a mere generic IFS identity.
+## originality
 
-## Limitations
-No total-variation or almost-sure pointwise limit is claimed; dimensions are fixed and fair directions independent. All three axes refer to this single normalized geometric-shape theorem, not to a general fractal theorem. Finite checker results are not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Supported for the model-specific pathwise occupation law and full recurrent cluster set of normalized rectangle positions, together with the complete-cycle window description. The one-time marginal and the fractal calculations are not credited as stand-alone advances: exact covering laws already encode finite-time marginals and the limiting dimension and covariance use standard methods. No compared result covers the time-occupation and all-cluster-points theorem for this nonhomogeneous cyclic model.
+
+## value
+
+PASS
+
+Coordinatewise normalization is intrinsic to comparing the random displacement with the deterministic growth in each direction. The occupation and cluster theorems answer whether the actual growth keeps visiting every supported configuration and quantify that behavior, which neither a static marginal nor a fixed-target covering law decides. Exact dimension and fixed-lag dependence give useful scale and memory information for this path description, without claiming to solve the rescaled-curve problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

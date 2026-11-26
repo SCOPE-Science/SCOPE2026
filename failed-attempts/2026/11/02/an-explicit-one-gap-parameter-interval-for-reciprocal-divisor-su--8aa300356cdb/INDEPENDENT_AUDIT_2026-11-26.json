@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:31:24.411909Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5; VERIFICATION.md and verify_divisor_gap.py inspected",
+        "Defant arXiv:1506.05432v1, pp. 7–8, Lemma 2.1 and proof of Theorem 2.2",
+        "Replay: python3 /workspace/review-evidence/divisor_bounds.py"
+      ],
+      "rationale": "The prime-tail interval argument is correct: if each prime p_j in a tail satisfies 1+p_j^(-r)<=T_j, consecutive prime-power-scaled intervals overlap, including the infinite-exponent limit in the closure. A greedy selection leaves multiplicative error at most T_j tending to one. Defant's Lemma 2.1 excludes prime indices 1, 2, 4 from the consecutive-prime ratio bound; its Theorem 2.2 proof gives F_3<F_4 and F_j increasing strictly to zeta(r) for j>=5. Thus the checked p=7 inequality completes the tail for p>=5. The eight inequalities were independently certified at the real interval's worst-case endpoints: direct sum over n coprime to 6 through 3000 plus rigorous integral bounds per residue class, and exact floor-root arithmetic. The eight strict lower slacks in the order isolated gap, seven tail, eleven tail, higher three powers, lower and upper two-power bands, and the two joins, exceed respectively 595733,16694645,20302235,105503478,62563922,79659460,7713055,99783208 times 10^(-9), allowing equality with these rounded-down lower bounds. The replay also checks 33,605 prime gaps in Defant's finite range. Monotonicity of the Euler tails and the power step 1+z^2/(1+z) justifies combining the appropriate endpoints throughout the closed real parameter interval. Adding exponent-zero and positive-exponent bands for 3 and then for 2 gives the stated union, with endpoints at infinite exponents interpreted in the closure. Membership in the lower interval is exactly gcd(n,6)=1 because any integer with a factor 2 or 3 has sum at least 1+3^(-r), strictly above W. The complementary density, like the lower one, follows from counting residue classes.",
+      "residual_risks": [
+        "This review certifies the closed interval as stated, not the exact transition thresholds or maximal one-gap interval. The finite-prime replay complements rather than replaces the published prime-gap bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant gives the density threshold near 1.8877909 and poses the one-gap question there; Sanna proves the general finite-interval/density theorem and supplies a fixed-parameter algorithm",
+          "Zubrilina goes beyond the algorithm by displaying the exact three-band union for the L_r=2 regime",
+          "Achenjang–Berger p. 6 says three for L_r=2, but Zubrilina's primary statement says at most three and its displayed bands may overlap"
+        ],
+        "reasoning": "The general algorithm alone would not establish coverage of a uniform theorem. The stronger prior exact decomposition does: by the threshold ordering, whenever r_3<r<=r_2, 3 alone is mighty, so the proof yields the two intervals after merging. The submitted interval is certified inside this regime. The later secondary wording does not supersede the exact displayed union in the primary paper.",
+        "searches": [
+          "Zubrilina arXiv:1711.02871v2 Section 4, ordering (7) and Lemma 4.7 proof steps 6–7",
+          "Sanna arXiv:1507.08091v1 Theorem 1.1 and Lemma 2.3",
+          "Defant arXiv:1506.05432v1 Theorems 2.2–2.3 and Section 3",
+          "Achenjang–Berger arXiv:1808.07550v1 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.02871v2",
+        "arXiv:1506.05432v1",
+        "arXiv:1507.08091v1",
+        "arXiv:1808.07550v1",
+        "Local Resultary 889897d44867",
+        "Frozen RESULT.md and exact interval replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.7 displays [1,W] union [1+v,U_2] union [1+u,zeta(r)] for this regime, where U_2=W/(1-v)",
+          "The exact replay verifies W<1+v and 1+u<U_2, as well as non-mightiness of p>=5 by the cited Defant reduction"
+        ],
+        "reasoning": "The inequality 1+u<=U_2 is exactly the statement that 2 is not mighty, so the last two intervals merge, with 1+v<1+u. The strict gap at 1+v is exactly the mightiness of 3. Integers containing 2 or 3 then have value at least 1+v, while all others have value at most W; the density is a residue-class count. This is mechanical implication from the stronger decomposition and the elementary parameter certification, not a mere resemblance of statements.",
+        "searches": [
+          "Zubrilina arXiv:1711.02871v2, pp. 17–19, especially the last display in the proof of Lemma 4.7",
+          "Frozen RESULT.md uniform inequalities and independent endpoint arithmetic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For an r-mighty prime p, 1+p^(-r) exceeds the Euler product over primes strictly larger than p. The submitted certificate shows 3 is mighty, 2 is not, and no p>=5 is mighty",
+          "In Lemma 4.7, U_3 is the submitted W, and U_2=W/(1-3^(-r))"
+        ],
+        "reasoning": "In the submitted notation this is exactly the largest-mighty-index L_r=2 case with prime 2 non-mighty. It is not a different range or convention: the prime-support partial ranges of Lemma 4.7 are the same ordinary divisor sums.",
+        "searches": [
+          "arXiv:1711.02871v2 Section 4, Lemmas 4.3 and 4.7",
+          "Local Resultary: one gap, reciprocal divisor sums, component densities and exact endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest local Resultary item, 889897d44867, treats r=3 and states fourteen exact components and their densities",
+          "Sanna's r=2 example gives three components with densities 1/3,1/6,1/2",
+          "The matching endpoint formula is the parametric three-band display in Zubrilina, not an exact matching database row for 1.90 or 1.91"
+        ],
+        "reasoning": "Neither fixed example supplies the interval. The broader exact formula covers it without row-by-row values, so not finding its decimal endpoints in a table does not support novelty.",
+        "searches": [
+          "Local Resultary searches for reciprocal-divisor range components, one gap, and component densities",
+          "Sanna arXiv:1507.08091v1 worked example r=2",
+          "Zubrilina arXiv:1711.02871v2 Lemma 4.7, step 7 displayed exact endpoint formula"
+        ]
+      },
+      "rationale": "Zubrilina's Lemma 4.7 proof already gives the exact three-band union before the last possible overlap is resolved. On the whole subregime where 3 alone is mighty, the two upper bands automatically merge. This gives the submitted endpoints throughout a stronger regime, and the integer membership and densities follow immediately from the endpoints. The submitted short decimal interval checks that it lies in this subregime; it does not add a distinct range classification.",
+      "residual_risks": [
+        "The source uses computer calculations in its general L_r=2 proof. The present interval checks give exact support on the stated subinterval and the review does not purport to rerun the whole general proof. The bounded literature search does not establish who first identified every numerical subinterval; the primary displayed implication suffices for the coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger decomposition implies the claim on the interval",
+          "evidence": "For L_r=2 the proof merges the two positive-2-exponent bands into [1+2^(-r),zeta(r)] and leaves [1+3^(-r),U_2] and [1,U_3]. Non-mightiness of 2 joins the two upper bands; mightiness of 3 separates the lower band.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.02871v2",
+          "material_read": "Section 4, Lemma 4.3 and threshold ordering (7); Lemma 4.7 and its proof, printed pp. 17–19, including the last display in step 7 (OA offset 54650 onward)",
+          "method": "Open primary PDF and exact union/inequality comparison",
+          "title": "On the Number of Connected Components of Ranges of Divisor Functions",
+          "trigger": "Prior result for the same prime-mightiness regime"
+        },
+        {
+          "assessment": "Prior density and prime-comparison facts, not by itself the one-gap formula",
+          "evidence": "Consecutive-prime comparison except j=1,2,4, and monotonic F_j for j>=5; density threshold approximately 1.8877909.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.05432v1",
+          "material_read": "Lemma 2.1 and Theorems 2.2–2.3, printed pp. 7–8; one-gap question in §3",
+          "method": "Open primary PDF and proof comparison",
+          "title": "On the Density of Ranges of Generalized Divisor Functions",
+          "trigger": "Same function and prime-tail conditions for r<=2"
+        },
+        {
+          "assessment": "Prior general framework; fixed example is outside the claimed interval",
+          "evidence": "Finite union with rational densities, recursive prime-power intervals, and three components at r=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08091v1",
+          "material_read": "Abstract, Theorem 1.1, Lemma 2.3 and worked r=2 result",
+          "method": "Open primary PDF",
+          "title": "On the Closure of the Image of the Generalized Divisor Function",
+          "trigger": "General algorithm and exact component/density examples"
+        },
+        {
+          "assessment": "Different main result; use Zubrilina's exact formula instead of the stronger secondary wording on p. 6",
+          "evidence": "Rules out six components and studies component bounds; p. 6 says three in the L_r=2 case without resolving the overlap from the primary display.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.07550v1",
+          "material_read": "Abstract and §4, pp. 5–6",
+          "method": "Open primary PDF and compare to cited source",
+          "title": "On Gaps in the Closures of Images of Divisor Functions",
+          "trigger": "Later related component classification and a reference to L_r=2"
+        },
+        {
+          "assessment": "Different parameter and component counts; not the source of overlap",
+          "evidence": "Fixed exponent r=3, fourteen components and their densities.",
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-exact-fourteen-component-range-and-component-densities-for-the-i--889897d44867",
+          "material_read": "Local mirror RESULT.md finding",
+          "method": "Local document statement comparison",
+          "title": "Exact fourteen-component range and component densities for the inverse-cubic divisor sum",
+          "trigger": "Closest matching indexed exact range and density calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "Zubrilina arXiv:1711.02871v2, Lemma 4.7 proof",
+        "Independent exact endpoint arithmetic"
+      ],
+      "rationale": "One-gap regimes and exact component densities are worthwhile objectives, and the integer arithmetic makes the explicit example reproducible. But this particular narrow decimal bracket has no shown transition, extremal significance, or independent application, and its topology, endpoints, and densities follow from the stronger published decomposition and the routine checks placing the bracket in its regime. The certificate is not a new boundary, structural invariant, or demonstrated correction of the primary theorem. No independently valuable remainder requiring a repair was established.",
+      "residual_risks": [
+        "This value judgment is about the submitted limited claim, not a judgment against determining sharp transitions, or against exact certification of a mathematically consequential range."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

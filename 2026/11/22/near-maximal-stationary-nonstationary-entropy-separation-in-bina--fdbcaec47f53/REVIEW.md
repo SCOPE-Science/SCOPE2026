@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact entropy identity follows by disintegrating the dual Ruelle output over its tail. Opposing marker starts are separated by at least \(q\), so stationary occurrence frequency is at most \(1/q\); equality in all length-\(q\) windows, via the natural two-sided stationary extension, forces the alternating run orbit and proves uniqueness. The nonstationary balanced two-atom input and strict lower bound for positive continuous Jacobians establish the universal sharp nonattained gap. The packaged `checker.py` independently passes 131,064 finite circular-word cases and twelve entropy comparisons. Finite tests are not used as an infinite theorem.
+## correctness
 
-## Originality — PASS within inspected evidence
-The exact conditional-entropy identity and distinctions among output-entropy optimization domains are credited to Lopes and Oliveira (arXiv:2611.13904v1, Theorem B and Section 6). Wolf–Yang (arXiv:1804.07822) and Jenkinson (arXiv:1712.02307v1) supply general maximizing-measure structures but no exact opposing-marker formula or sharp fair-input channel gap. The public 2026-09-17 non-overlapping-code stationary occupancy theorem assumes cross-bifix-free words; the two present markers have a valid one-letter overlap and violate that hypothesis. The contribution is the exact family, unique stationary optimizer and nonattained universal separation, not the general reduction or standard local packing method. Historical priority cannot be guaranteed by semantic searches; an unlocated equivalent channel example remains the main risk.
+PASS
 
-## Mathematical value — PASS
-The theorem quantifies, exactly and sharply, how a stationary input restriction can suppress nearly the entire output non-invariant entropy even after matching the first-symbol marginal at one half. It settles a natural extremal comparison raised by the motivating channel theory, identifies the optimal stationary process, and provides a sharp nonattainment boundary rather than an arbitrary single-parameter numerical example. It does not claim mutual-information capacity or a classification of general Ruelle channels.
+Disintegrating the one-step output over its tail gives conditional first-symbol probabilities J(0x), J(1x), with the input as the tail law. Thus its entropy equals H(p)+(log 2−H(p))μ(W_q). The equal mixture of 01^∞ and 10^∞ is fair and supported on W_q. A second marker at a positive distance less than q would have its initial symbol and first tail symbol inside the constant tail of the first, impossible. At distance q its initial symbol is the final symbol of the first marker, forcing opposite type. Every length-q starting window therefore contains at most one marker, yielding mass at most 1/q by invariance. Equality makes all translated windows contain exactly one start in the two-sided stationary extension, almost surely (countably many windows); hence starts are one residue class mod q and marker types alternate. The windows determined by these markers cover the line, so the only allowed orbit is the alternating runs of length q. Uniform measure there is fair and uniquely invariant on that orbit. Since 0<p<1/2 the objective is strictly increasing in marker mass, proving uniqueness as stated. For every positive continuous normalized J, compactness bounds both branch probabilities below by a common positive δ, so the stationary fair supremum is at least H(δ)>0 (fair invariant inputs exist) and no gap can equal log 2. For p=e^{−(q+1)}, H(p)=O(qe^{−q}), proving the stated asymptotic and sharpness. The bounded independent replay `python3 -B /workspace/review-evidence/marker_overlap.py` checks every two-marker overlap length for 2≤q≤100, finding only the opposite-type one-symbol overlap; this is corroborative, not the proof over all stationary inputs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The conditional entropy identity and broad optimization distinction are prior. The inspected statements do not establish this exact fair-input family or the unique alternating-run optimizer and sharp nonattained output-entropy gap. The closest overlapping occupancy theorem excludes the one-symbol overlaps essential to the equality case.
+
+## value
+
+PASS
+
+The exact example separates two natural optimization domains while imposing the same fair input marginal. The stationary optimum can vanish asymptotically although the unrestricted optimum is the full bit, and strictly positive continuous channels cannot attain the limiting gap. Identifying a unique stationary process at every finite q gives an exact witness rather than just a numerical separation or a restatement of the entropy identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

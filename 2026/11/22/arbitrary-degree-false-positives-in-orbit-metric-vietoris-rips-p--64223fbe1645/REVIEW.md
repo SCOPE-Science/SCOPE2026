@@ -1,19 +1,21 @@
-# Scientific review — higher-degree phantom orbit-metric homology
+# Independent mathematical audit
 
-## Correctness (PASS)
-The metric is valid since all nonzero distances are 1 or 2. The cyclic group acts isometrically. A three-color triangle in the cover would force the inconsistent sheet increments \(s,s+1,s+2\) and \(s,s+1\) on its first and last vertices, so the scale-one source complex is exactly a graph and the action is free on its realization. Edge and vertex orbit counts identify the genuine quotient as connected \(K_{2,\ldots,2}\), with \(2q(q-2)+1\) circles; the quotient-distance flag complex is the join of \(q\) zero-spheres and is a \((q-1)\)-sphere. At the final scale the Borel space is \(BC_m\), not a point. An explicit lifted triangle loop has monodromy one, proving the surjectivity needed for the degree-one persistence map. The standard cyclic-group resolution establishes all coefficient-field cases. The included executable enumerator passed seven finite pairs and is a check, not a substitute for proof.
+## correctness
 
-## Originality (PASS, residual risk)
-The motivating September 2026 FGP paper explicitly provides only a degree-one one-sided guarantee and leaves the higher-degree case unsettled. Its stated distinction between orbit-distance flag complexes and genuine geometric quotients does not imply this all-degree false-positive family, nor the exact all-field barcodes. Adams–Heim–Peterson's small-scale quotient-Rips comparison assumes a diameter-action lifting property violated by the construction; its projective examples do not classify this family. Adams and coauthors' 2024 persistent Borel-equivariant cohomology treats continuous circle actions instead. Relevant semantic searches across research records, primary-source text, aliases (cyclic voltage covers, flag completions, quotient metric, Borel and equivariant Rips) and local claim history identified no equivalent theorem. The generic idea of lifting obstructions is classical; priority of an identical counterexample in unindexed work cannot be excluded.
+PASS
 
-## Value (PASS)
-A sharp mathematical gap is whether the published practical orbit-distance algorithm can fabricate positive-dimensional features under free symmetry in degrees at least two. For every such degree, the construction gives a field-independent spurious persistent sphere, even though the corresponding categorical space has no homology in that dimension at the same scale. The fully computed barcodes explain both the misclassification and the effect of group cohomological torsion at the final stage. This is a family-wide, motivated obstruction, not a single arbitrary small-instance computation.
+The 1/2 distances satisfy the triangle inequality on distinct triples. Translations preserve the graph. In any proposed triangle with ordered part labels a<b<c, two ascending edges give net sheet increment 2 whereas the long edge gives increment 1, impossible modulo m≥2. Thus the middle-stage Rips complex is a graph, and no translation fixes a point of an edge because it preserves the distinct part labels and fixes no vertex. The quotient has exactly one edge over each pair of vertices from distinct parts, 2q vertices and 4·binom(q,2) edges; its cycle rank is b_q. The Borel projection to this graph is a homotopy equivalence by freeness. The orbit metric instead makes its entire flag complex, the join of q two-point spaces, the boundary of the q-dimensional cross-polytope. Below 1 the Borel space has 2q contractible components; at and above 2 the invariant simplex barycenter gives an equivariant contraction to a fixed point, hence Borel type BC_m. The Borel projection to BC_m at the middle stage classifies the cyclic covering. Lifting an oriented triangle of the base graph on three increasing parts and then returning along the long edge changes sheets by 1, so the cover is connected and the classifying map surjects on π₁ and on H₁ over any field. The cyclic resolution alternates 0 and multiplication by m with trivial coefficients, giving one target class in every positive degree exactly in characteristic dividing m. Together with the surjective H₀ merger and constant maps within scale ranges these facts give all stated bars, inclusive at 1 and 2. Read VERIFICATION.md and verify_voltage_graph.py as text; the enumeration tests finite graph properties, not the Borel persistence maps.
 
-## Closest sources and limitations
-- S. Alsulami, *Filtered groupoid persistence*, DOI https://doi.org/10.3934/math.20261180, especially the practical-algorithm comparison and explicit higher-degree caveat.
-- H. Adams, M. Heim and C. Peterson, *Metric Thickenings and Group Actions*, DOI https://doi.org/10.1142/S1793525320500569, and M. Heim's 2020 thesis, especially Chapter 3, the diameter-action lifting criterion and Chapter 4's sharpness example.
-- H. Adams, E. Lagoda, M. Moy, N. Sadovek and A. De Saha, *Persistent equivariant cohomology*, https://arxiv.org/abs/2408.17331.
+## originality
 
-The theorem concerns an intentionally constructed two-distance metric and establishes failure of a universal higher-degree bound, not failure for every geometric point-cloud model. It does not certify priority against inaccessible or unindexed work. Group homology and joins of zero-spheres are classical ingredients. Independent mathematical validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The possible failure of coherent lifts and the standard cyclic-group homology are already known. The inspected results do not supply the explicit all-degree persistent homology counterexample with free middle-stage action and full barcode comparison. The frozen binary metric demonstrates the comparison under actual freeness; its nontrivial scale is outside Alsulami's particular sufficient half-orbit-distance cutoff, so it should not be described as directly violating a claim restricted to that numerical cutoff.
+
+## value
+
+PASS
+
+This explicit family separates the geometric and Borel notions from the flag complex computed by an orbit-distance algorithm in every prescribed degree ≥2, even when the action really is free on the relevant realization. Computing the transition maps and modular tails additionally clarifies why a later contractible Rips complex need not terminate all Borel persistence. The elementary construction answers a structural algorithmic comparison question rather than just enumerating a small complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

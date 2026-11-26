@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:59:26.499683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 13–33",
+        "VERIFICATION.md and verify.py inspected as frozen evidence",
+        "Independent replay: python3 /workspace/reviews/replay_math.py conic",
+        "Dimca–Sticlaru arXiv:1901.05915 Theorem 1.1(2)"
+      ],
+      "rationale": "The smooth conic XZ−Y² and the three triangle secants intersect transversely at the three distinct triangle vertices. For the four parameters t=±1±√2 the distinct extra lines are t²X−2tY+Z=0; restricting one to [1:s:s²] gives (s−t)². Pairing roots of t²−2a t−1 with a=±1 gives the quartic in the finding. Two tangents with distinct parameters s,t meet at [1:(s+t)/2:st], off the conic; this point lies on a secant precisely when s+t=0, s+t=2, or 2st=s+t respectively. These tests give the four listed off-conic triples and no other tangent pair plus secant incidences. No three tangents concur because the corresponding equation in t would be a nonzero quadratic with three roots. No tangent contains a triangle vertex. All 21 line pairs and all 14 conic–line multiplicity units are accounted for, yielding six transverse double points, four simple tangencies, and seven ordinary triples. Their local forms A1, A3 and D4 contribute 1, 3, and 4 respectively, hence τ=46. Independent arithmetic in integer pairs representing Q(√2) confirmed the incidence signatures; sparse Jacobian coefficient columns yielded rank 45/45 modulo 101 in degree four and rank 59/63 over Q in degree five, without relying on the frozen selected minor. These ranks give mdr=5 over C, since ranks over Q and C agree and any lower-degree syzygy could be multiplied to degree four. The sharp du Plessis–Wall expression at (9,5) is 64−15−3=46.",
+      "residual_risks": [
+        "The ranks certify characteristic zero; no uniform claim in positive characteristic",
+        "Sharpness is at fixed mdr=5, not a global Tjurina maximum for every degree-nine curve"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dimca–Sticlaru give the upper bound and previously realized maximal-Tjurina type (9,5), including an all-lines arrangement A9 and an irreducible rational nearly cuspidal example",
+          "The free-arrangement classification assumes freedom. The indexed nearly-free obstruction applies to τ=47 necessary for nearly-free in this class, not the audited τ=46 case"
+        ],
+        "reasoning": "Neither the general numerical bound nor examples with other component degrees/analytic types supply a conic–line realization of this incidence structure. Freeness and nearly-free classifications do not classify the general degree-nine realization space.",
+        "searches": [
+          "arXiv:1901.05915 §§1, 4.2 and arXiv:1810.11766 Example 3.12",
+          "Dimca–Pokora DOI 10.1007/s10801-022-01116-3 and Cuntz–Pokora arXiv:2403.13377 §3.2",
+          "Resultary 5751a696de1a on degree-nine nearly-free nonexistence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.15228, 1901.05915, 1810.11766 and 2403.13377",
+        "DOI 10.1007/s10801-022-01116-3",
+        "Resultary 1069ed6c98b5, 20d0ed6a92c8 and 5751a696de1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharpness follows numerically once τ and mdr are known, and maximal-Tjurina existence for (9,5) is already known",
+          "The other basket realization is built by adding a node-tangent to a specified six-line arrangement; it necessarily has a line through three line-only triple points, which the frozen one does not"
+        ],
+        "reasoning": "Credit the known bound, known existence of the numerical pair and known same-basket examples. The frozen line/conic incidences and degree-four injectivity for this projectively distinct equation are not obtained by substitution into those results.",
+        "searches": [
+          "arXiv:1901.05915 Theorem 1.1(2) and §4.2",
+          "arXiv:1810.11766 Example 3.12",
+          "Resultary 1069ed6c98b5 §§1 and 4–5; 5751a696de1a Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three node-tangent extensions of 1069ed6c98b5 have the same weak basket and τ. In each, an added tangent passes through A, B or D, a line-only double on a coordinate line. That coordinate line already contains two line-only triples and now contains three. No line in the frozen arrangement contains three line-only triples: the incidence multiset is (2,2,2,2,2,1,1)",
+          "The same-day non-Fano record 20d0ed6a92c8 starts with six line-only triples and has equality basket (5,3,8), unlike this example"
+        ],
+        "reasoning": "The degree-two component is unique, so any projectivity between arrangements preserves the seven-line subarrangement and line-only incidence degrees. This rules out equivalence to all three same-basket indexed node-tangent extensions; it is stronger than comparing the displayed coordinate forms.",
+        "searches": [
+          "Resultary for degree-nine conic and seven lines with basket (6,4,7), τ=46 and mdr=5; inspected 1069ed6c98b5 and 20d0ed6a92c8",
+          "Primary literature query for maximal-Tjurina conic/seven-line degree-nine arrangements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Măcinic–Pokora explicitly list (1,7;6,4,7) as an unresolved realizability profile in their discussion; their exclusion is for (1,7;7,5,6)",
+          "The exact weak basket is independently listed and realized in 1069ed6c98b5, but its node-tangent realizations are projectively distinct by the incidence test"
+        ],
+        "reasoning": "A known numerical candidate is not a realization; an independently verified exact-basket match does cover the bare existence statement without regard to date, but not this explicit realization and syzygy computation. The open-case context is not a plus-one generated existence result.",
+        "searches": [
+          "arXiv:2309.15228 p. 12 weak-combinatorics list and Corollary 3.9 p. 13",
+          "Resultary 1069ed6c98b5 Finding and proof; 20d0ed6a92c8 Finding"
+        ]
+      },
+      "rationale": "The numerical maximal-Tjurina type (9,5) is known and a distinct Resultary record realizes the same weak basket. The supported distinct finding is this explicit, projectively inequivalent conic–seven-line realization with its verified Jacobian degree. Neither the invariants alone nor first realization of the basket across the catalogue is credited as new.",
+      "residual_risks": [
+        "No exhaustive search of projective orbit catalogues; an unindexed equivalent arrangement may exist",
+        "Some relevant external text was only partially retrieved; no negative claim relies on unavailable passages",
+        "No priority ordering was inferred from catalogue dates"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lists exact weak candidate but no construction there; excludes a different basket",
+          "evidence": "The list includes (1,7;6,4,7); exclusion is (1,7;7,5,6).",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.15228",
+          "material_read": "p. 12 concluding discussion, extracted offsets 32800–35438; Corollary 3.9 p. 13 near 36129",
+          "method": "OA primary PDF text",
+          "title": "On plus-one generated conic-line arrangements with simple singularities",
+          "trigger": "Exact weak-combinatorics list"
+        },
+        {
+          "assessment": "Covers upper bound and prior maximal-Tjurina type (9,5), not exact arrangement",
+          "evidence": "Proposition 4.3 includes d=9, r=5, with a rational nearly cuspidal curve having a unique singular point; §4.2 also cites earlier examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.05915",
+          "material_read": "Theorem 1.1(2) at 5530–7094 and §4.2 at 23350–24845",
+          "method": "OA primary PDF text",
+          "title": "Curves with maximal global Tjurina numbers",
+          "trigger": "Possible previously solved exact maximal-Tjurina type"
+        },
+        {
+          "assessment": "Same numerical type but different component strata",
+          "evidence": "A9 is nine lines; C9''' is an irreducible nearly cuspidal curve; neither is a union of one conic and seven lines.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.11766",
+          "material_read": "Example 3.12, pp. 14–15, extracted offsets 39720–42079",
+          "method": "OA primary PDF text",
+          "title": "Plane curves with three syzygies, minimal Tjurina curves, and nearly cuspidal curves",
+          "trigger": "Earlier explicit (9,5) cases cited by the maximal-Tjurina paper"
+        },
+        {
+          "assessment": "Free classification, not a classification of nonfree arrangements",
+          "evidence": "The inspected statements restrict the classification to free arrangements.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-022-01116-3",
+          "material_read": "Abstract and introduction, pp. 1–2 near offset 500; full p. 21 passage not successfully retrieved. Corroborating statement in Cuntz–Pokora arXiv:2403.13377, §3.2, offsets 26610–29004",
+          "method": "OA targeted primary text and later restatement",
+          "title": "On conic-line arrangements with nodes, tacnodes, and ordinary triple points",
+          "trigger": "Classification in same singularity class"
+        },
+        {
+          "assessment": "Substantive same-basket overlap; three inequivalent realizations",
+          "evidence": "Each added node-tangent passes through A=[0:1:1], B=[1:0:1] or D=[r:1:0], respectively on a coordinate line containing two old line-only triples, and creates its third.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-six-optimal-seventh-lines-for-a-nearly-free-conic-line-arrangeme--1069ed6c98b5/RESULT.md",
+          "material_read": "Finding and proof §§1–5, mirrored offsets 0–7214",
+          "method": "Resultary search, OA local mirror and incidence comparison",
+          "title": "Six optimal seventh lines for a nearly free conic–line arrangement",
+          "trigger": "Strongest exact-basket overlap"
+        },
+        {
+          "assessment": "Different line stratum and equality basket",
+          "evidence": "Six line-only triples, compared with four here; example basket (5,3,8).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-tjurina-bound-for-conics-adjoining-the-non-fano-seven-line--20d0ed6a92c8/RESULT.md",
+          "material_read": "Finding at mirrored offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Sharp Tjurina bound for conics adjoining the non-Fano seven-line arrangement",
+          "trigger": "Same-day sharp τ=46 result for one conic and seven lines"
+        },
+        {
+          "assessment": "Does not cover or contradict this non-nearly-free case",
+          "evidence": "The impossibility argument concerns nearly-free τ=47, not τ=46.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-nonexistence-of-nearly-free-nine-degree-conic-seven-line-arrange--5751a696de1a/RESULT.md",
+          "material_read": "Finding and proof start at mirrored offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Nonexistence of nearly free degree-nine conic–seven-line arrangements",
+          "trigger": "Potential exclusion in same component/singularity class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen geometry and exact rank certificate",
+        "Măcinic–Pokora p. 12",
+        "Dimca–Sticlaru §4.2",
+        "Resultary 1069ed6c98b5"
+      ],
+      "rationale": "This is a concrete sharp example in a specified restricted singularity and component class, not a recomputation of the already known numerical bound. Its three secants and four tangents give a different incidence configuration from known same-basket extensions and a reproducible sharpness witness with verified mdr. The realizability question was motivated in the primary literature before this computation.",
+      "residual_risks": [
+        "One explicit projective class, not a moduli or weak-combinatorics classification",
+        "No plus-one-generated, free, or nearly-free example is claimed"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

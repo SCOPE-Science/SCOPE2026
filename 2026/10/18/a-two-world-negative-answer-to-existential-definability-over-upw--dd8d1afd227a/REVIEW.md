@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The singleton-generator lemma is an exact consequence of the inhabited-neighborhood semantics and downward persistence of support, not a finite-depth approximation. Structural induction handles atoms, empty state, conjunction, inquisitive disjunction, implication, and arbitrarily nested existential modalities. Both witnessing models use the same upward-monotone neighborhood structure. The formula \(\top\Rrightarrow?p\) distinguishes them exactly because the two-world neighborhood fails to settle \(p\) in one valuation. The one-world bound follows from exhaustion of the only two possible inhabited neighborhood families on a singleton and a uniform recursive elimination translation. A direct semantic checker passed 22,584 assertions; no infinite conclusion is inferred from enumeration.
+PASS
 
-## Originality
+In the stated semantics all connectives preserve persistence under taking substates, including the modal clauses by their pointwise support. If every neighborhood of a contains a and {a} itself is a neighborhood, persistence gives E(theta) iff theta at a. At {a} the propositional clauses depend only on their subformulas there (implication checks also the empty state, which supports both formulas). Induction therefore gives locality at a for all atoms and all nesting depths. Both neighborhood families in the witness are upward; fixed p(a)=1 makes ?p true on {a} in both models, but {a,b} supports ?p exactly in the valuation with p(b)=1. Thus top implies ?p in the strict neighborhood sense differs while the existential fragments agree. On one world the empty neighborhood family makes the conditional vacuously true, and the only nonempty family makes it ordinary implication at the singleton. The displayed elimination formula expresses this split, is supported at the empty state as well, and can be substituted recursively. Independent semantic replay `python3 /workspace/audit_recompute.py 4` computed the closed set of 13 joint support denotations with local atomic agreement for the fixed two-world frame, checked the separating states, and checked the elimination table on both singleton frames. The structural proof covers the full language and proves minimality; the finite closure is corroboration.
 
-**PASS with residual literature risk.** Ciardelli's 2025 full-text article explicitly leaves existential definability over upward-monotone models open in Open Problem 4.6. Its earlier nondefinability statement (Corollary 4.4) is over unrestricted neighborhood models; it does not logically establish nondefinability on the upward-monotone subclass. The new two-world construction lives wholly inside that subclass and so closes this quantifier gap. Searches in mathematical research records, public literature, and accessible prior work found no stronger equivalent claim. This is best-knowledge originality rather than an assertion that no unindexed version exists.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result resolves the first half of an explicit recent open problem in the semantics of inquisitive modal logic with a sharp minimal countermodel. It identifies why the existential operator cannot express global question settlement on a singleton-generated upward filter, clarifying the expressive boundary between unary and binary neighborhood operators. The convex-model/two-unary question remains open under this argument.
+The first of the published Open Problem 4.6 questions is exactly this existential-only/upward-monotone question. The distinct two-unary/convex result was compared at the level of its actual frames, not excluded by date or its headline. Its witnesses do not provide an upward-monotone separation. No inspected result supplies the same-frame two-world obstruction or one-world elimination.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This resolves an explicit published expressivity question and identifies the obstruction: persistence turns existential neighborhood inspection into evaluation at the generating singleton, whereas the binary modality can test whether a larger neighborhood settles an atom. The one-world translation makes the countermodel size optimal. The separate question over convex frames with both modalities is not a contribution of this record.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

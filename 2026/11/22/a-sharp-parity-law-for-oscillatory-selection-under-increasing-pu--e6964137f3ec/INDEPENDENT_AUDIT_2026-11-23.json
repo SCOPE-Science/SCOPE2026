@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:04:39.740817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Couple opposite focal types by including each other's focal player together, with probability (n-1)/(N-1), and otherwise sampling the same n-1 common candidates. In the inclusion case the public benefits cancel, leaving the unit cost; otherwise the benefit difference is the hypergeometric average of a_{J+1}-a_J. This yields Eq. (1) and degree at most n-1. The two endpoint cases J=0 and J=n-1, with positive strictly increasing returns reaching r(n)=n(N-1)/(N-n), give Δ_1<0<Δ_{N-1}. Sign changes between consecutive nonzero entries force roots in disjoint open intervals and their total is odd. At N=n+1 the conditional sample is deterministic and the given rational schedule gives Δ_i=d_i. Its partial sums S_k for k<n stay between -ε and -ε/2, so all multipliers are positive. The strict increase follows from d_k>S_{k-1}/(k-1) for k≥2: positive d_k are immediate and each negative middle entry is controlled by 2^k>2(k-1). The n=2 empty middle range works; for odd n the final positive entry repeats the preceding sign, giving n-2, and for even n it completes alternation. In the symmetric Fermi chain the fixation ratio is exp(βΣΔ_i), so the zero sum implies exact equality for all β and half occupation in the stated rare-symmetric-mutation limit. In fact summing (1) via Σ_i binom(i-1,j)binom(N-i-1,n-1-j)=binom(N-1,n) gives ΣΔ_i=(N-n)r(n)/n-(N-1), so neutrality is true for all admissible schedules. Independently tabulated the direct focal payoffs for the construction at n=2–20 with exact fractions, including terminal-sum and degree spot checks; inspected the supplied checker without executing it. All integer validity is analytic; sharpness is not asserted for every fixed larger N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. give an exact terminal-only sum and a weak-selection abundance calculation. The generic hypergeometric polynomial degree bound, also proved in the frozen work, does not constrain a monotone terminal-neutral schedule's attainable coefficients beyond the unconstrained degree cap.",
+          "Hauert–McAvoy focus on a multiplication factor linear in contributors; the prior convexity record uses geometric synergy and permits mixed group sizes."
+        ],
+        "reasoning": "Degree at most n-1 plus the two endpoint signs already implies the parity upper bound. No inspected general result shows its sharpness under the cumulative strict inequalities on r(k) here. The specific payoff model under geometric or linear multipliers is narrower, not a dominating bound for arbitrary strictly increasing multipliers.",
+        "searches": [
+          "Wang et al. Proposition 1 and Theorem 1; Wu–Traulsen–Gokhale DOI 10.3390/g4020182; Hauert–McAvoy arXiv:2404.13728v3",
+          "Resultary 782b8b55b870 finite-population convexity with geometric synergy factors"
+        ]
+      },
+      "checked_sources": [
+        "Wang et al. arXiv:2607.16809v1, §2",
+        "Hauert–McAvoy arXiv:2404.13728v3",
+        "Wu–Traulsen–Gokhale landing material",
+        "Resultary 782b8b55b870, 083a8abb28cc and 9f16e3760416",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known terminal sum vanishes for every schedule at the specified threshold; the exact Fermi product trivially implies equal fixation under that threshold. Generic degree and forced opposite end signs imply the upper census. The inverse-profile result is about identifiability rather than existence with strictly increasing returns."
+        ],
+        "reasoning": "Credit the aggregate comparison and its fixation consequence in full. Passing the original claim rests on the explicit sequence inside the strict order constraints, with balanced terminal sum and maximal signs, not on rederiving the background threshold or noting only a general bound.",
+        "searches": [
+          "Wang et al. p. 3 Proposition 1/Eq. (10) with the Fermi recurrence in frozen Step 4",
+          "Resultary 9f16e3760416 return recovery versus the inequalities in frozen Step 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. use the same focal expected payoff comparison after setting cost to one; their cumulative difference sums the same Δ_i over the mixed states.",
+          "The payoff gain sequence uses differences of the shared public benefit; strict increase concerns r(k), not monotonicity of these benefit increments, which can vary around one effective cost."
+        ],
+        "reasoning": "Aggregate selection and the pointwise gain sequence are not equivalent quantities. Omitting zero entries, the reviewed parity count concerns the latter, not lineages, mutation-dependent abundance or deterministic cycling.",
+        "searches": [
+          "Local Resultary: public-goods payoff gain sign variation, monotone multipliers, neutral fixation, and finite focal hypergeometric sampling",
+          "Wang et al. arXiv:2607.16809v1 §2.1 Eq. (2), §2.2 Eqs. (5)–(6), (10)–(11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed older four-person reversal record has a different model and at most two changes. Its finite witness is not the every-n optimum in the frozen theorem. The other matches concern positive-mutation stationary frequencies and reconstructing returns from fixation profiles, respectively."
+        ],
+        "reasoning": "No equivalent all-n table or separately stated parity census was verified. In particular the inverse map's applicability for arbitrary fixed parameters does not furnish a feasible target profile with strict increase.",
+        "searches": [
+          "Local Resultary: exact selection-reversal examples and sign censuses in finite public-goods populations",
+          "Relevant records 782b8b55b870, 083a8abb28cc and 9f16e3760416"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact parity-sharp maximum and its simultaneous attainment by strictly increasing positive rational multipliers at the prescribed terminal value, already at N=n+1. Neither the degree observation nor the terminal sum is new. The all-intensity Fermi consequence follows immediately from the already known exact sum and standard birth–death ratio, not from a property peculiar to these witnesses. The inspected comparable sources do not give the constrained sharp sign-pattern construction.",
+      "residual_risks": [
+        "Full text of Wu–Traulsen–Gokhale was unavailable through attempted lawful routes; no claim of noncoverage from that failure.",
+        "The checked literature is not exhaustive; unindexed constrained sign-pattern constructions may exist.",
+        "The cited proposition numbering differs from the accessible arXiv version; the substantive identity is verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the aggregate identity exactly even though the abundance expansion is under weak selection. Does not give the sharp sign census in the inspected statements. The frozen citation's Proposition 2.1 is labeled Proposition 1 in this version.",
+          "evidence": "Eq. (10) depends only on r(n), not r(1),…,r(n-1); Eq. (11) uses that sum in the weak-selection comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.16809v1",
+          "material_read": "§2.1 p. 2 Eq. (2); §2.2 p. 3 Proposition 1 and Eqs. (10)–(11), offsets 23850–30382; Theorem 1 threshold comparison",
+          "method": "Lawful OA PDF, read definitions and decisive passages",
+          "title": "Evolutionary dynamics in public goods games with general frequency-dependent returns",
+          "trigger": "Same payoff model and terminal neutrality criterion"
+        },
+        {
+          "assessment": "The inspected linear-multiplier model is a different class and does not establish the arbitrary monotone-schedule extremum",
+          "evidence": "Abstract specifies multipliers linear in the number of contributors even though resulting public benefits are nonlinear.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.13728v3",
+          "material_read": "Abstract p. 1, offset 1550–3483, and finite-population discussion locator p. 5",
+          "method": "Lawful alternate OA preprint after original routes were unhelpful",
+          "title": "Frequency-dependent returns in nonlinear public goods games",
+          "trigger": "Close earlier economies-of-scale model in finite populations"
+        },
+        {
+          "assessment": "Unresolved for the details of the full text; the degree piece is not being accepted as original",
+          "evidence": "Full-text routes did not yield readable passages; degree is verified directly from Eq. (1) independently of attribution.",
+          "identifier_or_url": "https://doi.org/10.3390/g4020182",
+          "material_read": "Publisher landing material only; full text not retrieved, including identified Max Planck copy https://pure.mpg.de/rest/items/item_1747237_3/component/file_1747238/content",
+          "method": "Bounded lawful OA retrieval of publisher and alternate institutional copy",
+          "title": "Dynamic Properties of Evolutionary Multi-player Games in Finite Populations",
+          "trigger": "Cited earlier general polynomial-degree observation"
+        },
+        {
+          "assessment": "No equivalent constrained sharpness result in the inspected claims",
+          "evidence": "Geometric synergy convexity, positive-mutation abundance, and inverse fixation-profile identifiability address different objects or hypotheses.",
+          "identifier_or_url": "Resultary 782b8b55b870; 083a8abb28cc; 9f16e3760416",
+          "material_read": "Statements and regime comparisons in the matching records",
+          "method": "Local Resultary search and matching material comparison",
+          "title": "Resultary comparisons on finite-game convexity, mutation sensitivity, and recovery of nonlinear returns",
+          "trigger": "Related exact finite-population claims involving interior or increasing returns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies the exact largest local sign complexity compatible with a natural global neutrality criterion and strictly increasing returns. The witnesses show that strict economies of scale permit the maximum number of reversals rather than merely one threshold, even though the absorbing-state comparison is unchanged. This is a complete all-group-size extremum with a feasible witness, not a claim of empirically common schedules or of oscillatory individual trajectories.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

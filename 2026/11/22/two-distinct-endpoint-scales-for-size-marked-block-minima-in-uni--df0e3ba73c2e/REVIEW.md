@@ -1,15 +1,21 @@
-# Review: Two distinct endpoint scales for size-marked block minima in uniform set partitions
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each specified disjoint family of blocks has probability given by a Bell-number ratio. The fixed-size saddlepoint ratio, left and right exact candidate-set sums, and mixed factorial-moment overlap estimates prove the joint Poisson processes and their extreme-gap laws. Exact checks of all set partitions up to eight labels passed 520 assertions, but finite enumeration is not a substitute for the asymptotic argument.
+## correctness
 
-## Originality
-**PASS (qualified by documented access risk).** Sun and Wu (2010, arXiv:1007.1341) prove identities about the largest singleton, not the full size-marked endpoint process. Arratia and Tavaré (1994, accessible arXiv:1308.3279) give independent approximations to component size counts, rather than minimum-label point-process limits. A separate published singleton endpoint theorem addresses only size one. The present r>=2 intensity exponents, independence across sizes, and two distinct scales are not implied merely by matching global block-count probabilities. The linked singleton paper was available as a title and summary but not in full, and older literature could contain stronger spatial theorems.
+PASS
 
-## Value
-**PASS.** This identifies the first and last appearance of each fixed block size along the ordered labels of a uniform random partition and resolves their joint extreme order statistics. The different left and right scales and intensity shapes quantify a nontrivial dependence/localization phenomenon that total block-size counts alone do not describe.
+Deleting prescribed pairwise disjoint blocks of total size s gives B_(n−s)/B_n; intersecting distinct blocks have probability zero. For M=n/W(n), Dobiński weights j^n/j! concentrate at M: f(x)=n log x−x log x+x peaks at M and f''(x)=−n/x^2−1/x. On a fixed relative neighborhood this gives a gap c n from the mode at its two boundaries. The left tail has O(M) terms, the far-right tail is bounded geometrically by the decreasing tangent slope at the right boundary, and the nearest integer to M supplies a lower weight exp(f(M)) times an inverse polynomial by Stirling. Thus even after weighting relative to M^(−s) by (M/j)^s for fixed s, the omitted mass tends to zero. Squeezing in the neighborhood yields the Bell ratio M^(−s)(1+o(1)). Counting candidates by their minimum i gives binomial(n−i,r−1): at the left, intervals have length (b−a)n/W(n)^r and each summand is asymptotically n^(r−1)/(r−1)!; at the right, d=n−i runs over scaled intervals of length O(M) and the Riemann sum gives (b^r−a^r) M^r/r!. For a uniform candidate at the left the largest one-label inclusion probability is O(W(n)^r/n) for the minimum plus O(1/n) for other labels; at the right the fixed-label count is O(M^(r−1)) out of order M^r candidates. Thus a union bound over any fixed tuple gives a vanishing fraction of collisions, including repetitions. In the mixed falling factorials the disjoint candidates carry the same fixed-order ratio M^(−s)(1+o(1)); cancellation leaves the product of limiting Poisson moments. Multivariate moment determinacy and bounded compact first moments give joint interval counts and joint vague convergence (or approximate compactly supported continuous Laplace tests by steps). Endpoint zero counts give the two gap survivals and sending t to infinity makes empty-size conventions immaterial. A separate recursive partition enumeration at n=7 checked four exact statistics, 572/877, 15/877, 10/877 and 200/877 for the two means, mixed product and size-2 factorial second moment, respectively.
 
-## Limits and sources
-The claims concern fixed block sizes, vague convergence and extreme-gap weak limits, not finite-sample independence or convergence rates. Primary references: Sun–Wu, arXiv:1007.1341; Arratia–Tavaré, *Advances in Mathematics* 104 (1994), 90–154 (arXiv:1308.3279); Goh–Schmutz, *Random Set Partitions*, SIAM Journal on Discrete Mathematics 7 (1994), 419–436. See AUDIT.json for four comparison classes, source-inspection depth and unresolved historical risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The r=1 two-endpoint Poisson result already exists; unmarked assembly size laws and Bell-ratio inputs are classical. The supported distinction is the joint spatial limit for non-singleton block minima on two size-dependent types of endpoint windows and simultaneous independence across any fixed finite family of sizes. No inspected distinct record or primary theorem gave the same marked process or a dominating version.
+
+## value
+
+PASS
+
+The largest and smallest labels among minima carry spatial information that component-size counts miss. One label entering an early window and every label entering a late window produce different scales and distinct exponential/Weibull shapes. The joint process resolves dependence across both endpoints and several sizes instead of merely giving a one-point marginal or extending the singleton scale by relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

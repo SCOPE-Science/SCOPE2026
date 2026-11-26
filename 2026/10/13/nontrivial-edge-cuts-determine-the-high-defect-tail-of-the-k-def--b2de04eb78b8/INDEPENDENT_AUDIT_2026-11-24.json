@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:32:18.341805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any union of color classes its cut consists entirely of bichromatic edges. With b<eta, every nonempty proper union must have singleton shore or singleton complement. A nonmonochromatic partition then has classes of sizes 1 or N−1; with at least three classes they would all be singletons and two of them would give a forbidden size-two shore, since N≥4. Hence exactly two classes are possible, splitting off a vertex v and giving b=d(v). Conversely that split realizes the claimed value, and one color gives exactly k=m. On a crown, replace a cut shore by its smaller complement as needed and put s=|S|, 2≤s≤n. The cut is (n−1)s−2e(S)≥(n−1)s−s²/2 since e(S)≤|S∩A||S∩B|. The concave lower bound is ≥2n−4 at both endpoints for n≥4. An adjacent pair attains equality and realizes the stated lower defect endpoint with two colors; n−1<eta verifies the interior singleton exception. RESULT.md supplies the full proof. VERIFICATION.md records finite corroboration and verify.py was inspected without execution; its partition-count total uses preset Bell numbers, not a separately incremented count, and no independent numerical replay is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of Yin–Tian quotes the Ma–Wang–Zhang product formula for restricted edge connectivity λ′, whose no-singleton-component constraint is not identical to the all-shores condition defining eta; Lemma 2.1 directly uses the latter on crowns.",
+          "The complete-bipartite polynomial sums over shore color multiplicities. The removed matching changes the monochromatic-edge count depending on matched color pairs, not reflected by those multiplicities alone."
+        ],
+        "reasoning": "The product and polynomial results do not dominate the arbitrary-graph classification. Full knowledge of a specified graph's bad-coloring polynomial could encode its profile, but the available complete-bipartite formula is evaluated on a different graph.",
+        "searches": [
+          "arXiv:2301.12784 Theorem 1.1, Lemma 2.1 and Corollary 2.2; restricted edge connectivity of Kronecker products",
+          "arXiv:1203.0090 Eqs. (29)–(30), complete bipartite bad-coloring polynomial",
+          "DOI 10.1007/s00373-010-0966-1, balanced bipartite restricted connectivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2301.12784",
+        "arXiv:2510.00712v1/v2",
+        "arXiv:1203.0090",
+        "Resultary 964bdcf6d755 and daa6e18e57b1",
+        "DOI 10.1007/s00373-010-0966-1 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary edge-connectivity gap rules out 0<b<λ but does not constrain the color partition once b≥λ; the general result uses all unions of color classes to isolate the singleton-degree exceptions up to eta.",
+          "Yin–Tian also provide the cut attaining the boundary on crowns; coloring its shores yields that endpoint, a direct consequence rather than a new separate invariant. The prior result does not rule out additional multicolor partitions in the strict tail without the union-of-classes argument."
+        ],
+        "reasoning": "Credit the crown cut bound and its two-shore use, including the straightforward n=4 minimum. The part not supplied by the prior cut theorem or k-defect antecedents is a structural implication for every partition of every connected input graph, which also eliminates all other defect values in the crown strict tail.",
+        "searches": [
+          "Implication comparison of arXiv:2301.12784 Lemma 2.1 with the color-class union argument",
+          "arXiv:2510.00712v1/v2 definition, exact cases and bipartite Theorem 5.5",
+          "Complete-bipartite bad-coloring formula in arXiv:1203.0090"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the direct product K_2 × K_n, the two copies of the K_n vertex set are joined across exactly for unequal K_n coordinates. This is the crown graph. Lemma 2.1 bounds every nontrivial shore, with equality attained by an adjacent pair for n≥5, exactly matching the cut value.",
+          "The k-defect source uses the same minimum-colors observable but its bipartite Theorem 5.5 addresses when two colors realize every defect using independent-set degree sums, not the strict eta interval."
+        ],
+        "reasoning": "The graph alias yields true equivalence of the cut subclaim. Cut size and optimal exact-defect color count are not equivalent observables for general color partitions; the prior cut statement is not a restatement of the general k-defect result.",
+        "searches": [
+          "Resultary high-defect k-defect, bad coloring and crown aliases",
+          "Yin and Tian arXiv:2301.12784 Lemma 2.1: K_2 × K_n",
+          "Mphako-Banda, Kriel and Alochukwu arXiv:2510.00712v1/v2 for the k-defect definition and related results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact crown parameter 2n−4 is already recoverable from the 2023 all-shores result; the same inequality proves the bound for n=4, although the older lemma's equality characterization does not hold there.",
+          "The two nearest catalogue results are edge general position for crowns and sequence b-coloring for non-crown matching-deleted bicliques. Neither tabulates the crown k-defect profile. No exact table of the target profile was found in the checked material."
+        ],
+        "reasoning": "Explicit cut values must be credited independently of the catalogue negative; graph name overlap or a coloring term alone cannot establish coverage of phi_k.",
+        "searches": [
+          "Resultary crown graph, edge cut and defect coloring queries; records 964bdcf6d755 and daa6e18e57b1",
+          "arXiv:2301.12784 exact crown cut bound, and arXiv:2510.00712v2 exact k-defect cases"
+        ]
+      },
+      "rationale": "The distinct finding is the graph-wide coloring classification from nontrivial cuts and its crown k-defect application. The crown cut parameter itself is a prior result under the K_2 × K_n alias, and the submitted bound even uses the same quadratic inequality; do not credit that parameter or proof as new. The prior all-shores cut theorem does not cover the color-partition conclusion or a theorem for general graphs.",
+      "residual_risks": [
+        "Unlocated literature might describe the same general color-partition reduction or tabulate the crown's defect tail. The verified cut overlap is already credited; the unread balanced-bipartite paper might extend earlier connectivity coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of the crown cut ingredient, not of the k-defect classification",
+          "evidence": "Lemma 2.1 states |δ(A)|≥2(n−2) for every 2≤|A|≤2n−2 on K_2 × K_n, n≥5, with edge-shore equality. Its proof uses (n−1)|A|−|A|²/2, whose lower bound also holds at n=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.12784",
+          "material_read": "§1 Theorem 1.1; §2 Lemma 2.1 with proof, OA offsets 8630–9617, and Corollary 2.2",
+          "method": "Primary PDF matched-graph, cut definition and proof comparison",
+          "title": "The super restricted edge-connectedness of direct product graphs",
+          "trigger": "Exact prior coverage under the direct-product crown alias"
+        },
+        {
+          "assessment": "Same observable; the inspected theorem is not the eta-threshold classification",
+          "evidence": "Theorem 5.5 gives an independent-set degree-sum approach to all defects in bipartite graphs. The simple λ gap follows from definitions; an explicit edge-connectivity attribution was not verified, and the v1 literal miss does not prove absence.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.00712",
+          "material_read": "v2 abstract and §3 definition; §5 Theorem 5.5; v1 literal connectivity locator",
+          "method": "Primary OA definition and theorem comparison; targeted v1 locator",
+          "title": "A note on the k-defect number: Vertex Coloring with a Fixed Number of Monochromatic Edges",
+          "trigger": "Direct predecessor for the observable and potential tail classification"
+        },
+        {
+          "assessment": "Complete bipartite formula, not a crown evaluation",
+          "evidence": "Color multiplicities on two full shores suffice for K_m,n but do not determine which deleted matching edges are monochromatic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.0090",
+          "material_read": "Complete bipartite graphs, p. 19, Eqs. (29)–(30)",
+          "method": "Primary OA polynomial expression against crown edge deletion",
+          "title": "The Tutte Polynomial of Some Matroids",
+          "trigger": "Possible exact profile from bad-coloring polynomial"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Edge general position, not cut or coloring defect values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-edge-general-position-number-of-crown-graphs--964bdcf6d755",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Edge general position number of crown graphs",
+          "trigger": "Closest same-graph catalogue hit"
+        },
+        {
+          "assessment": "Different observable and graph domain",
+          "evidence": "Sequence b-coloring spectrum of non-crowns, not minimal colors for an exact number of monochromatic edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-constant-sequence-b-spectra-of-non-crown-matching-deleted-bicliques--daa6e18e57b1",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Constant sequence b-spectra of non-crown matching-deleted bicliques",
+          "trigger": "Closest coloring catalogue entry on a related graph family"
+        },
+        {
+          "assessment": "Additional connectivity antecedence unresolved; not negative evidence",
+          "evidence": "Excerpt mentions degree-sum criteria, insufficient to establish their hypotheses or a k-defect implication.",
+          "identifier_or_url": "doi:10.1007/s00373-010-0966-1",
+          "material_read": "Search excerpt only; no readable OA primary text retrieved",
+          "method": "Lawful OA retrieval attempt and locator",
+          "title": "The k-Restricted Edge Connectivity of Balanced Bipartite Graphs",
+          "trigger": "Possible earlier coverage of the crown connectivity ingredient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The color-partition lemma turns a natural graph invariant into an exact threshold classification: below the nontrivial cut budget the only nonzero bichromatic counts are eligible vertex degrees, regardless of how many colors are allowed. This refines the ordinary connectivity exclusion and gives a sharp instance on an infinite family, with no need to enumerate its colorings. The standalone exact cut value is known and is not the source of the value judgment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

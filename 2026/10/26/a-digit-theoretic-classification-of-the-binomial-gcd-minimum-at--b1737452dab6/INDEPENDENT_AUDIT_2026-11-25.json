@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:38:55.826230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each ℓ in {2,3,p}, Lucas's units digit forces ℓ|k if the binomial is nonzero mod ℓ. The witness k=p gives gcd 6 for p≥7 and gcd 1 is impossible because it would require 6p|k. Gcd 2 forces k=3p and gcd 3 forces k=2p. The former coefficient is even and is 20 mod p, with nonzero ternary test equivalent to no carry in p+p; the latter is divisible by 3 and is 15 mod p, with the parity test equivalent to no carry in p+2p. This proves the ordered branches, including precedence of the ternary test if both hold. At p=5, the same necessary indices for gcds 2 and 3 are k=15 and 10; both binomials vanish mod 5 (the base-5 fives digit of 30 is 1). At k=5 the coefficient is nonzero mod 5 and divisible by 6, proving the exception. Leading-zero padded digit counts are 2^L and O(φ^L), respectively; log₂φ exceeds log₃2, and dividing the resulting exceptional bound by π(X) gives zero relative density. A separate bounded check computed the minimum by exact binomials and integer gcd at every k=2,…,3p for p=5 and the ten primes 7≤p≤41, with agreement. To replay, loop over these primes and compare min(gcd(6*p,comb(6*p,k)) for k in range(2,3*p+1)) with the claimed digit predicates. This finite check is corroboration only. The frozen verification material was inspected; the uploaded verifier was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergman considers common divisors of two binomial coefficients and related multinomial questions; this is not an upper-and-lower test for gcd(n,C(n,k)) with n=6p.",
+          "The broader problem formulation is a question, not a theorem specializing to the three cases."
+        ],
+        "reasoning": "No dominating classification of the same minimum was established in the comparison.",
+        "searches": [
+          "Bergman arXiv:0806.0607v1, abstract and §1/Theorem 1",
+          "Erdős Problem 700 broad composite-n formulation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and companion verifier material",
+        "Erdős–Szekeres 1978 p. 98",
+        "Erdős Problem 700",
+        "Bergman arXiv:0806.0607v1",
+        "Resultary 61a093402a39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lucas/Kummer decide divisibility at a given k. The proof reduces every possible improvement of the universal value-6 witness to only two indices and translates the resulting tests to properties of p, after which digit counting bounds the union of exceptional sets."
+        ],
+        "reasoning": "The contribution is this exact reduction and resulting classification/density estimate for the given minimization, not a new divisibility rule or a restatement of the value at 30.",
+        "searches": [
+          "Erdős–Szekeres 1978 p. 98 and Bergman §1",
+          "Classical Lucas digit criterion and Kummer carry criterion as used in frozen RESULT.md lines 25–38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only possible witnesses for the two smaller values are k=3p and k=2p; the equivalent carry conditions are p+p in base three and p+2p in base two.",
+          "Erdős–Szekeres and the problem index give f(30)=6 and broader questions for composite n; their relevant passages do not supply those tests for p≥7."
+        ],
+        "reasoning": "The comparison concerns the same minimum and equivalent digit/carry versions, not just the occurrence of a binomial gcd in a title.",
+        "searches": [
+          "Resultary: minimum gcd of n and an interior binomial coefficient at 6p, Lucas/Kummer and binary/ternary digits",
+          "Erdős–Szekeres 1978, p. 98; Erdős Problem 700"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The problem entry already gives f(30)=6.",
+          "Resultary 61a093402a39 defines R(n) from sum_k C(n/g,k/g), with g=gcd(n,k), and proves a row-wide mean and totient profile. It is not a table or formula for min_k gcd(n,C(n,k))."
+        ],
+        "reasoning": "A tabulation or exact statement of the isolated value at 30 does not determine the infinite prime family; the other indexed invariant uses a different gcd and a sum, not the minimum under review.",
+        "searches": [
+          "Erdős Problem 700",
+          "Local Resultary index for the n=6p minimum; record 61a093402a39 opening finding and proof setup"
+        ]
+      },
+      "rationale": "The distinct claim credited is the complete p≥7 digit trichotomy for f(6p) and its exceptional-count bound; the original f(30)=6 example and classical carry tests are prior. No prior determination of the trichotomy was found in the compared sources.",
+      "residual_risks": [
+        "An elementary equivalent description in older notes, a stronger result or a table not located here could anticipate part of the classification. Neither infinitude of either exceptional prime class nor an asymptotic count of those classes is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of f(30)=6, not of the checked classification",
+          "evidence": "Defines and discusses f and gives the example at 30",
+          "identifier_or_url": "https://www.renyi.hu/~p_erdos/1978-46.pdf",
+          "material_read": "Printed p. 98, text offsets 3200–6160, especially 4700–6160",
+          "method": "Targeted open PDF reading",
+          "title": "Some Number Theoretic Problems on Binomial Coefficients",
+          "trigger": "Original statement of the same minimum problem"
+        },
+        {
+          "assessment": "Same minimum and known example, no digit-family answer located",
+          "evidence": "Broad questions for composite n and the value at 30",
+          "identifier_or_url": "https://www.erdosproblems.com/700",
+          "material_read": "Opening problem and commentary (offset 0, 2334 characters)",
+          "method": "Open website reading",
+          "title": "Erdős Problem 700",
+          "trigger": "Exact problem index and potential known cases"
+        },
+        {
+          "assessment": "Different operands and theorem",
+          "evidence": "Results about common divisors of two interior binomial coefficients and multinomial generalizations",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.0607v1",
+          "material_read": "Abstract and §1/Theorem 1, offsets 0–3482 and 2500–5465",
+          "method": "Targeted open PDF reading",
+          "title": "On common divisors of multinomial coefficients",
+          "trigger": "Comparable work on common divisors and related minimization questions"
+        },
+        {
+          "assessment": "Different statistic and claim",
+          "evidence": "Reduced-binomial sum indexed by gcd(n,k); main results bound its row deficit and determine its average over n",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-mean-and-totient-profile-of-the-reduced-binomial-pascal-ro--61a093402a39",
+          "material_read": "RESULT.md offset 0–2475, including finding, scope and proof setup",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact mean and totient profile of the reduced-binomial Pascal-row deficit",
+          "trigger": "Closest indexed binomial-row gcd result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This directly treats a natural squarefree subfamily of the Erdős–Szekeres minimum problem, with two fixed small prime factors and a variable large one, rather than extending a numerical table. It shows why only two indices can improve the uniform value 6 and explains both the digit-driven variation and density-one behavior for this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

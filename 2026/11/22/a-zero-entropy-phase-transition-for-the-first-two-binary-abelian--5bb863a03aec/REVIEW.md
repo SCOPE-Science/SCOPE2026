@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formal condition is exactly the avoidance of `000`, `111`, and the eight period-two mixed-pair cubes. The complete sixteen-state five-symbol shift graph is given and checkable row by row; the only recurrent pieces are two three-cycles and the two available entry/exit pairs. This proves the all-length counts, generating function and two-sided rigidity. Both graph-derived and direct word-level checkers passed independently. Full proof of the all-length conclusion does not rely on finite numerical extrapolation.
+## correctness
 
-## Originality — PASS (qualified)
-The 2014 Rao–Rosenfeld preprint (Section 3) already gives the full-Abelian-cube avoidance length-nine ceiling; that fact is not claimed here. Its exclusion of **all** periods, and its separate study of avoiding periods at least two, do not imply the exact enumeration of words excluding **only periods one and two**. The 2011 Huova–Karhumäki paper, 2014 Rao paper and 2014 Mercaş–Saarela paper concern Abelian or k-Abelian avoidability, not the complete first-two-period finite-type presentation. The closest indexed extremizer finding concerns a different stronger avoidance class, only up to a finite maximum. A relevant full published version of that indexed finding was inaccessible; priority remains qualified.
+PASS
 
-## Value — PASS
-The first two root periods give a canonical small-period truncation of Abelian-cube avoidance. Unlike the period-one-only language, which has exponential growth, this language has bounded, nonconstant length complexity and only two periodic bi-infinite orbits. The complete classification explains the sharp qualitative change, its precise mod-three boundary effect, and its zero entropy. This is a motivated complete classification of a natural repetition-avoidance shift, not an arbitrary isolated numerical value.
+After excluding 000 and 111, an ordinary period-two Abelian cube consists exactly of three consecutive blocks in {01,10}. This gives a memory-five graph. Independent direct-window reconstruction (independent_check.py) obtained the displayed 16 vertices and 18 edges, with a direct word check through n=16 and path counts through n=200; the frozen checker scripts and VERIFICATION.md were read, not executed. The graph itself proves the all-length formula: at path length >=3 one has six cycle-only paths, two entry-only and two exit-only paths, with two further paths of lengths 4 mod 3 using both an entry and an exit. The remaining transient paths have at most two edges. These phases give 10+2*1_{3 divides n} from n=8; the short counts and generating function follow. With no intercycle connection, no transient edge can occur on a path extending in both directions; the two three-cycles give precisely six bi-infinite points. The full linear-word census includes transient words, so it is not identical to the set of factors of the two-sided shift, although both have entropy zero.
 
-## Scientific limitations
-The results do not classify general alphabets or unrestricted Abelian-cube-free words. The periodicity claim is for the two-sided subshift, not every finite word. Historic equivalence in unindexed literature remains possible, and no independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard finite-type enumeration method is not new. The exact ordinary binary short-period language and the six-point classification are distinct from the closest inspected results for other restrictions and alphabets.
+
+## value
+
+PASS
+
+Tests the earliest natural cutoffs of ordinary Abelian-cube periods, not a selected isolated word length. At cutoff one, concatenations of 01 and 10 already give exponentially many extendible words; adding period two reduces the entire two-sided shift to six points. The index-sensitive finite census also records the remaining boundary transients, which entropy alone misses. The result gives a useful complete local baseline for comparison across periods and alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

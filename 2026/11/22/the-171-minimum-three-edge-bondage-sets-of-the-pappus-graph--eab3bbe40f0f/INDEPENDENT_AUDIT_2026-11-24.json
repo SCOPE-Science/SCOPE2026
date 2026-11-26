@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:12:15.125571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–52, including the precise incidence rules and four representatives",
+        "Frozen VERIFICATION.md, verify_structural.py and verify_direct.cpp",
+        "Independent replay: python3 /workspace/branches/review_reproduction.py 3",
+        "AEB graph database, Pappus entry"
+      ],
+      "rationale": "The incidence graph is cubic and its independent LCF reconstruction is isomorphic to it. Four closed neighborhoods cover at most 16 of 18 vertices. For a minimum five-set, both color shores require the split (3,2) or (2,3). In the first case the two selected lines must be parallel and the three selected points exactly the omitted line. In the other case the two points must be on no common allowed line; their six distinct incident lines leave exactly three lines to select, those through the third point on the omitted-direction line through the pair. Each case gives nine dominating sets. An edge-deleted graph cannot acquire a new five-set dominator, so direct coverage tests of these 18 candidates suffice for every deletion. I reconstructed the deleted closed neighborhoods and checked every one-, two- and three-edge subset, obtaining respectively 0,0,171 failures. The 171 include every complete star and otherwise have six distinct endpoints. Each failed triple contains a two-edge proper subset with a surviving five-set. When the third edge is removed, if coverage is lost the formerly dominated outside endpoint can be added, giving a six-set and proving equality. Complete adjacency-preserving bijection enumeration returned 216 automorphisms and disjoint orbits of sizes 9,18,36,108 for the exact listed representatives. The endpoint signatures give 3K2, C6 and P6 for the non-star cases: bipartiteness and girth six rule out shorter-cycle alternatives. The induced-matching and path signatures also occur among nonfailures, so they are not standalone criteria. All ranges were exhausted on this labelled graph.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu §11.1 treats efficient domination and gives b=2 under cubic vertex-transitivity, order 4 gamma and girth at most five; Pappus instead has order 18, gamma=5 and girth six. It has no efficient domination since closed neighborhoods of selected vertices would have to partition 18 into blocks of four.",
+          "Xu Theorem 2.1.2 concerns degree n-3, and Theorem 11.2.1 gives b=3 on specified double-loop circulants of order divisible by five. Neither hypothesis fits.",
+          "The cubic girth-six classification full text was not accessible in the bounded retrieval; the title and metadata are not scientific evidence of its complete coverage."
+        ],
+        "reasoning": "Cubic symmetry or a numerical b=3 in a different family does not imply the result. Even an applicable upper bound of three alone would not eliminate all two-edge failures or determine the 171-set classification.",
+        "searches": [
+          "Xu, On Bondage Numbers of Graphs, arXiv:1204.4010, Theorems 2.1.2, 11.1.6–11.1.7 and 11.2.1",
+          "Kutnar and Marušič, DOI 10.1016/j.jctb.2008.06.001, cubic symmetric girth-six classification"
+        ]
+      },
+      "checked_sources": [
+        "Xu survey, the four specified theorems",
+        "AEB, MathWorld and Sage Pappus entries",
+        "Resultary same record eab3bbe40f0f and distinct IDs 2312bedeb2f5, 229c8647b6e8, b2c8ce57e775, 4feb73c83bce",
+        "Kutnar–Marušič bibliographic record and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2312bedeb2f5 explicitly gives gamma=5 and 18 ordinary minimizers, then studies concurrence and shattering; it does not classify their simultaneous destruction by edge deletion.",
+          "b2c8ce57e775 concerns minimum odd-dominating five-sets and moves replacing vertices, not ordinary minimizers losing coverage when edges are deleted."
+        ],
+        "reasoning": "Credit the 18 minimizers as already covered. Their list is enough input to ask the new enumeration question, but one must check the edge incidence to each set, establish no simultaneous destruction with two edges, enumerate all triples that simultaneously destroy the sets, and quotient by the full automorphisms. These conclusions are not a threshold corollary or table lookup in the compared sources.",
+        "searches": [
+          "Resultary minimum-domination reconstruction Finding, ID 2312bedeb2f5; odd-domination Finding, ID b2c8ce57e775",
+          "Xu Theorems 11.1.6–11.1.7 and 11.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the 18-vertex cubic Pappus Levi graph, also called the Bouwer graph and honeycomb toroidal graph. The AEB describes the incidence graph of AG(2,3) with one parallel class removed.",
+          "The exact Resultary census match has the same ID as the assigned record and is not independent coverage.",
+          "Sage PappusGraph example gives ordinary domination number five, not bondage."
+        ],
+        "reasoning": "The withheld fourth parallel class is equivalent to the frozen incidence construction; comparisons of the nine-point graph must use its 18-vertex Levi graph. Edge deletion retains vertices, including isolates, so parameters that forbid isolation or change the domination rule are not equivalent.",
+        "searches": [
+          "Focused primary lookup: ordinary bondage and edge deletion of the Pappus graph",
+          "MathWorld Pappus Graph, opening definition and graph aliases; AEB Pappus graph entry",
+          "Resultary ID SCOPE-the-171-minimum-three-edge-bondage-sets-of-the-pappus-graph--eab3bbe40f0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The AEB entry gives the graph and an order-216 distance-transitive group, not its edge-failure table.",
+          "The same-graph minimum-domination reconstruction record 2312bedeb2f5 gives the complete ordinary minimizer list; semitotal record 229c8647b6e8 has 297 optimal vertex sets in orbits of sizes 9,18,54,108,108.",
+          "The truncated-octahedral bondage record 4feb73c83bce reports 276 five-edge sets in eight orbits on a different 24-vertex graph, all isolating at least one vertex."
+        ],
+        "reasoning": "The tables differ either in the graph, the feasible objects, or the success predicate. In particular a group order, even if known to be full, does not imply which edge triples fail or their stabilizers. Same-day records were compared by content, not assumed prior or ignored.",
+        "searches": [
+          "AEB distance-regular graphs database: Pappus entry",
+          "Resultary: exact ordinary Pappus bondage census and closest same-graph minima, IDs 2312bedeb2f5 and 229c8647b6e8; exact bondage analogue 4feb73c83bce"
+        ]
+      },
+      "rationale": "The distinct claim is the exact ordinary edge-deletion threshold and exhaustive classification with symmetry and non-isolating failures, not the known domination number or the already-described 18 minimizers. Neither the strongest same-object results nor the checked general bondage theorems establish the minimum failure census.",
+      "residual_risks": [
+        "An unindexed Pappus-specific calculation or a relevant inaccessible table could overlap; no whole-document claim is made for Kutnar–Marušič. The identical frozen result's appearance in the catalogue is not independent evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected hypotheses do not give the exact Pappus threshold or constellation census",
+          "evidence": [
+            "Order-four-times-domination and girth-at-most-five theorem does not apply; the exact b=3 double-loop case has an order-divisibility assumption that fails."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1204.4010",
+          "material_read": "Definition p. 1; §2.1 Theorem 2.1.2 p. 6 offset 17295; §11.1 Theorems 11.1.6–11.1.7 PDF p. 71 offset 194800; §11.2 Theorem 11.2.1 offset 198789",
+          "method": "Open primary PDF, bounded passage inspection; literal Pappus locate as secondary aid",
+          "title": "On Bondage Numbers of Graphs: A Survey with Some Comments",
+          "trigger": "Strongest plausible general bounds and exact graph-family cases"
+        },
+        {
+          "assessment": "Covers the optimizer family, not the deletion result",
+          "evidence": [
+            "Gives gamma=5 and all 18 minimizers; concurrence and shattering are different questions."
+          ],
+          "identifier_or_url": "SCOPE-minimum-domination-reconstructs-the-pappus-graph-and-separates-s--2312bedeb2f5",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local Resultary search and statement inspection",
+          "title": "Minimum domination reconstructs the Pappus graph and separates related structures",
+          "trigger": "Strongest distinct Resultary record about the same ordinary optimum family"
+        },
+        {
+          "assessment": "Graph identity, symmetry and known domination invariant, not deletion enumeration",
+          "evidence": [
+            "AEB AG(2,3) incidence identity, girth six and order-216 group; Sage ordinary domination number five."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Pappus.html; Sage PappusGraph reference",
+          "material_read": "AEB entry offset 0 and Sage graph example offset 269132",
+          "method": "Public web reference and database inspections",
+          "title": "Pappus graph (distance-regular graphs database); Sage PappusGraph documentation",
+          "trigger": "Identity and exact small-graph table coverage"
+        },
+        {
+          "assessment": "Different base graph or different domination and reconfiguration model",
+          "evidence": [
+            "The truncation graph has 276 five-edge failures and eight orbits; the other two records enumerate semitotal or odd-dominating vertex sets."
+          ],
+          "identifier_or_url": "Resultary 4feb73c83bce; 229c8647b6e8; b2c8ce57e775",
+          "material_read": "Findings of the distinct mirrored records",
+          "method": "Local Resultary search and statement comparison",
+          "title": "All minimum bondage sets of the truncated-octahedral graph; Nine frozen total codes and a mobile semitotal domination sector; Three-wise independent odd domination and frozen five-sets",
+          "trigger": "Exact bondage analogue or same-graph alternate domination parameters"
+        },
+        {
+          "assessment": "Whole-document coverage unresolved; no negative inference from access failure",
+          "evidence": [
+            "The bibliographic scope is classification of cubic symmetric girth-six graphs; underlying graph classification by itself would not classify deletion configurations."
+          ],
+          "identifier_or_url": "10.1016/j.jctb.2008.06.001",
+          "material_read": "Bibliographic identification only, no full text",
+          "method": "Bounded lawful full-text attempt unsuccessful",
+          "title": "A complete classification of cubic symmetric graphs of girth 6",
+          "trigger": "Possible relevant structural graph table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and deletion criterion",
+        "Independent replay of all failures and representative orbits",
+        "Same-object ordinary minimizer record 2312bedeb2f5 and different-graph failure record 4feb73c83bce"
+      ],
+      "rationale": "The Pappus graph is a canonical cubic incidence graph, and ordinary bondage tests the resistance of its minimum domination budget to link removal. The classification answers the distinct structural question whether isolation is the principal minimum failure mechanism: 153 of the 171 failures are matchings and isolate no vertex. The full orbit list and the fact that several endpoint shapes are not sufficient tests are useful exact benchmark data. This is a motivated all-minimum-deletions classification, not a recomputation of gamma or an arbitrary slice.",
+      "residual_risks": [
+        "This is one graph's ordinary bondage classification, not a general girth-six or affine-incidence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

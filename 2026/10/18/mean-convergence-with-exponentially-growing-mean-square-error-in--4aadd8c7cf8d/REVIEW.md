@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The state matrices are reconstructed exactly from the one-worker algorithm with independent Bernoulli compressor. A rational positive-definite subeigenmatrix gives a \(13/10\) lower energy factor for full feedback, a separate rational Lyapunov equation proves decay of the first moment, and another positive-definite Lyapunov equation proves mean-square decay when feedback is halved. A deterministic inequality transfers augmented-state energy growth to the maximum iterate second moment. All matrix claims have executable exact-rational certificates; no finite simulation is extrapolated as proof.
+## correctness
 
-**Originality — PASS, conditional on the explicitly recorded residual bibliographic risk.** The EControl source already observes instability at full feedback for a different initialization and a deterministic Top-1 compressor, so neither generic feedback instability nor the need to tune feedback is claimed new. The examined source does not give the present standard-initialization scalar half-dropout first-versus-second-moment separation or the exact same-step feedback recovery. Closest EControl-adjacent records treat classic error feedback or other estimator recursions. Searches are not a uniqueness proof; equivalent uncatalogued derivations remain possible.
+PASS
 
-**Value — PASS.** The exact counterexample exposes a nontrivial stability diagnostic: an apparently converging expected optimization iterate can conceal explosive second moments even with a noiseless, strongly convex one-dimensional objective and conventional stored-gradient initialization. The feedback comparison quantifies a stabilizing design decision with an explicit rational certificate. This is not an extension of the source's small-step guarantees and is not a universal instability assertion.
+In the stated (x,h,e) coordinates the two updates are exactly A and B_eta, with independent equiprobable branches. A fresh rational calculation found positive leading minors for W and H=E[BᵀWB]−1.3W and reproduced both unit Lyapunov differences and positive minors for R and Q. Thus the full-feedback quadratic energy grows at least as (61/5000)1.3^t, the full-feedback mean contracts in R-energy, and the moderated mean-square Q-energy contracts by at least the factor 1−1/λ_max(Q). To get the stated iterate bound, write M_t=max_{j≤t} E x_j². The iterate update gives E h_t²≤4M_t/s² also at t=0; at η=1 only dropout contributes to E e_{t+1}². Applying (e+d)²≤(3/2)e²+3d² to d=x−h gives E e_{t+1}²≤(3/4)E e_t²+3(1+4/s²)M_t. Since e_0=0, this bounds E||v_t||² by (13+52/s²)M_t=5213M_t. Using tr(W)=4771/5000 now gives 61/(4771·5213) times 1.3^t. No claim of pointwise second-moment divergence is inferred.
 
-**Limitations and closest literature.** Gao–Islamov–Stich, arXiv:2311.05645v1, Algorithm 2 and Appendix C; classical Bernoulli error-feedback stability and scalar EF21 published-finding corpus results use different state updates. No independent audit is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the quantitative separation of first- and second-moment behavior together with exact same-step recovery in the same EControl recursion. Do not credit qualitative maximal-feedback nonconvergence on its own: the later indexed erasure frontier covers that component, and an earlier different error-feedback model exhibited the general moment-gap phenomenon. The inspected sources do not give the combined fixed-initialization 1.3^t iterate bound, geometric mean convergence, and η=1/2 recovery at the identical compressor and step.
+
+## value
+
+PASS
+
+The example isolates the effect of the feedback coefficient while holding the standard initialization, compressor, objective and step fixed. It shows why stability of the expected model is an unreliable diagnostic of mean-square behavior even in a scalar quadratic and supplies exact reproducible certificates for the unstable and stable regimes, without claiming to contradict a sufficient small-step theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

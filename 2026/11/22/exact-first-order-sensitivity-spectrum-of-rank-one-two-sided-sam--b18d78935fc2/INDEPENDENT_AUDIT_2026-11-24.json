@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:12:29.487770Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof lines 4–72",
+        "Frozen VERIFICATION.md and verify_bug.py, inspected only",
+        "/workspace/independent_replays.py, galerkin()"
+      ],
+      "rationale": "The nonzero overlaps keep both projection denominators away from zero locally. At the target the two projectors are onto a and b and fix the rank-one target. Differentiate the projector onto a sampled vector: at c*a, a unit and c nonzero, only the orthogonal part of the vector variation contributes, with factor 1/c, in each off-diagonal block of the projector. Applying the product rule to the sampled Galerkin map cancels sigma and gives the tangent output (e11,e12+p^T Z,e21+Zq), with normal output zero, where p=u_perp/(a^T u), q=v_perp/(b^T v). Rotate the two complement bases so p and q lie along their first axes, using arbitrary such axes for zero p or q. The row and column tangent coordinates away from those axes each receive a distinct normal coordinate with coefficients alpha or beta, respectively, giving singular values sqrt(1+alpha^2) n-2 times and sqrt(1+beta^2) m-2 times. The two axial tangent coordinates receive one shared normal coordinate with coefficients alpha and beta, giving the two eigenvalues 1 and 1+alpha^2+beta^2 of their squared singular-value matrix. The scalar coordinate gives another 1, and the identity on tangent inputs fixes the rank at m+n-1, leaving (m-1)(n-1) zero singular values. This argument includes zero misalignments, both dimensions equal to two, and coincident bands. If s=sqrt(alpha^2+beta^2)>0, take a unit normal Z along the outer product of the two first axes, and T=[p^T Z,Zq]/s in the tangent off-diagonal pair. Input (T,sZ) attains amplification sqrt(1+s^2) for the derivative, and the Fréchet remainder transfers this to the claimed local supremum limit. With s=0 any unit tangent direction attains one. Independently checked 150 full central-difference spectra of the nonlinear map in rotated coordinates with signed overlaps, zero and nonzero alignment losses, and multiple scales. Replay: python3 /workspace/independent_replays.py 1.",
+      "residual_risks": [
+        "The proof is for fixed sampling vectors, a nonzero real rank-one target, and a local Frobenius limit. It supplies neither a finite-error estimate with the same coefficient nor a time-stepping or higher-rank stability theorem.",
+        "The numerical reproduction supplements the exact derivative proof and is not used for arbitrarily small overlaps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang's same-increment BUG step is the map under review for rank one. Theorem 2.2 bounds the finite error by a coefficient sqrt(max(1,||Q_L||_2^2+||Q_R||_2^2)), here sqrt(2+alpha^2+beta^2).",
+          "Lam et al. bound a generalized Nyström approximation error in L^q for Gaussian sketches and oversampling parameters p,ell>=4."
+        ],
+        "reasoning": "The broader finite-error estimate yields at most an upper bound on the local scalar operator norm, not its exact constant or singular values. The randomized moment theorem has a different sketch model and operator, not arbitrary fixed target-overlapping rank-one sketches.",
+        "searches": [
+          "Zhang arXiv:2611.15175, equations (2.1)–(2.2) and Theorem 2.2",
+          "Lam–Ceruti–Kressner arXiv:2409.06384v1, §2.3 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b18d78935fc2 and 359d8df14ce8",
+        "Zhang arXiv:2611.15175",
+        "Epperly thesis §10.1",
+        "Stewart DOI 10.1007/s002110050451 (attribution and retrieval only)",
+        "Carrel–Grigori arXiv:2607.03402v1",
+        "Lam–Ceruti–Kressner arXiv:2409.06384v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-space optimality of the projection does not describe variation of both spaces with B. Zhang's finite-error coefficient is strictly larger than the exact local coefficient.",
+          "Both the oblique force catalogue result and the Carrel–Grigori projector use a two-sided oblique cross term absent from this scalar tangent variation."
+        ],
+        "reasoning": "General projection geometry is a tool and gives a route to computing norms after identifying the exact tangent coupling, but the examined prior statements do not yield this operator's local constant and complete singular spectrum by mere specialization.",
+        "searches": [
+          "Zhang arXiv:2611.15175, Theorem 2.2",
+          "Epperly §10.1, Proposition 10.1 and Definition 10.2",
+          "Carrel–Grigori arXiv:2607.03402v1, Lemma 4.2; Resultary 359d8df14ce8, Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Epperly uses Pi_Y B Pi_Z with Y=B Omega and Z=B* Psi, the identical sampled map for one column per sketch. The proposition asserts Frobenius optimality for fixed sampled spaces.",
+          "Carrel–Grigori give P_L E+E P_R^T-P_L E P_R^T. In the rank-one blocks for these graph directions its scalar tangent output is e11-p^T Zq; the Galerkin derivative has e11."
+        ],
+        "reasoning": "The exact map is known. The closest oblique formula is not an alias for its derivative when both alignments are nonzero: the squared top norm for that projector is (1+alpha^2)(1+beta^2), differing by alpha^2 beta^2. It agrees in the one-sided degenerate alignment cases but does not identify the two-sided claim.",
+        "searches": [
+          "Resultary: rank-one two-sided sampled Galerkin derivative sensitivity and oblique tangent projector condition number",
+          "Epperly §10.1, Proposition 10.1 and Definition 10.2",
+          "Carrel–Grigori arXiv:2607.03402v1, Lemma 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-result hit b18d78935fc2 is the assigned record, not prior confirmation.",
+          "The closest distinct exact hit 359d8df14ce8 gives rank-one oblique tangent-force moment cutoffs p<ell under imperfect sketch coupling and p<ell/2 under perfect coupling, with coupling-dependent tails."
+        ],
+        "reasoning": "Those cutoffs are statistics over random sketches of an oblique tangent force, not the deterministic differential-spectrum table for the moving Galerkin map. The related same-day result was compared by its operator and observable, not its date.",
+        "searches": [
+          "Resultary: exact Frobenius spectrum of rank-one sampled/sketched tangent projections and sharp coupling constants"
+        ]
+      },
+      "rationale": "Zhang and the Epperly/Stewart projection sources establish antecedents for the map itself, not the exact derivative spectrum. Zhang's bound concerns finite errors and is not sharp for the infinitesimal question. A close oblique tangent projector has different linear action, with a scalar normal-to-tangent coupling absent from this map. The inspected primary and Resultary statements do not cover the claimed fixed-sketch Frobenius spectrum; absolute priority is not established.",
+      "residual_risks": [
+        "Stewart's primary text was not accessible by the attempted OA route; the cited fixed-space statement is checked through Epperly.",
+        "A related generalized Nyström subspace-iteration lead (ScienceDirect S0893965925000813) returned HTTP 403 in authorized retrieval; only its indexed subject was seen, insufficient for a claim-level assessment.",
+        "Unindexed perturbation theory may contain an equivalent local statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and a different finite-error bound, not the exact local spectrum",
+          "evidence": [
+            "K=B V0 and L=B^T U0 determine the projections onto updated bases; the finite-error coefficient specializes to sqrt(2+alpha^2+beta^2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15175",
+          "material_read": "PDF pp. 3–4, equations (2.1)–(2.2) and Theorem 2.2; OA offsets 12452, 12993, 13529",
+          "method": "Lawful OA paper text",
+          "title": "Robust High-Order BUG Integrators without Basis Augmentation",
+          "trigger": "Same algebraic BUG update and error question"
+        },
+        {
+          "assessment": "Identifies the map via fixed-space optimality, not the differential",
+          "evidence": [
+            "Pi_Y B Pi_Z is uniquely Frobenius-optimal in the given row and column spaces; Y=B Omega and Z=B* Psi give the matching choice of spaces."
+          ],
+          "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+          "material_read": "§10.1, PDF pp. 183–184, Proposition 10.1 and Definition 10.2, OA offsets 433636 and 436097",
+          "method": "Lawful OA thesis text",
+          "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+          "trigger": "Known sampled two-sided projection approximation"
+        },
+        {
+          "assessment": "Original text unavailable; not a whole-document noncoverage claim",
+          "evidence": [
+            "Direct retrieval failed with redirects; Epperly attributes Proposition 10.1 to Stewart [Ste99, §4]."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s002110050451",
+          "material_read": "Epperly's attribution to Stewart §4; original PDF not retrieved",
+          "method": "Lawful Springer PDF retrieval attempt and secondary primary-source attribution through thesis",
+          "title": "Four Algorithms for the Efficient Computation of Truncated Pivoted QR Approximations to a Sparse Matrix",
+          "trigger": "Original fixed-space characterization credited by Epperly"
+        },
+        {
+          "assessment": "Materially related but a different projector with both sketches misaligned",
+          "evidence": [
+            "The oblique normal input feeds the scalar tangent block by -p^T Zq in addition to the off-diagonal outputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03402v1",
+          "material_read": "Lemma 4.2, p. 9, OA offset 37620",
+          "method": "Lawful OA paper text and rank-one block comparison",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Closest published two-sided sketched tangent-projector formula"
+        },
+        {
+          "assessment": "Randomized approximation-error bound, not the fixed-sketch differential",
+          "evidence": [
+            "Independent Gaussian sketches with oversampling; L^q for q=min(p,ell)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.06384v1",
+          "material_read": "§2.3 Theorem 2, p. 5, OA offset 18205",
+          "method": "Lawful OA paper text",
+          "title": "Randomized low-rank Runge–Kutta methods",
+          "trigger": "Plausible broader generalized Nyström sensitivity bound"
+        },
+        {
+          "assessment": "Different oblique tangent projector and Gaussian moment/tail observable",
+          "evidence": [
+            "Uses the two-sided oblique cross term and distinguishes perfect and imperfect coupling by different moment cutoffs."
+          ],
+          "identifier_or_url": "Resultary 359d8df14ce8",
+          "material_read": "Mirrored RESULT.md, Finding/Proof offsets 0–4876",
+          "method": "Local Resultary mirror",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank dynamics",
+          "trigger": "Closest distinct exact catalogue result using rank-one oblique tangent geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and tangent/normal analysis",
+        "Zhang, Theorem 2.2 for the finite-error comparison",
+        "Carrel–Grigori, Lemma 4.2 for the two-sided oblique comparison"
+      ],
+      "rationale": "The exact local amplification is a meaningful benchmark for fixed-increment sampled low-rank updates, distinct from a sufficient finite-error bound. The spectrum identifies which perturbation directions amplify, shows that the two alignment losses enter through a coupled band rather than a product, and recovers local norm one exactly when both bases are aligned. The natural rank-one case exposes the mechanism without claiming nonlinear or higher-rank stability.",
+      "residual_risks": [
+        "Utility is a local sensitivity benchmark, not a certified bound for finite errors, time stepping, or finite precision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

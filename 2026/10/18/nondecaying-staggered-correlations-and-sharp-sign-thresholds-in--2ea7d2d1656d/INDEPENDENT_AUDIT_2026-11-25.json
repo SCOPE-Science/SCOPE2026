@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:55.243384Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The most recent global reset couples any two copies and gives the unique invariant renewal law with common age exponential of rate r. Between resets the staggered mean mode decays at rate two, giving the stated stationary means. Distinct endpoints contribute total rate one each to the local two-spin equation, and adjacent copies are handled by the coincident product C₀=1. A simultaneous reset contributes r[(-1)^d−C_d]. The bounded solution is the alternating particular solution r(-1)^d/(r+4) plus 4q^d/(r+4), since q+q⁻¹=r+2. On the even ring the two equal boundary values at 0 and N give the normalized sum q^d+q^(N−d) divided by 1+q^N; this tends to q^d at fixed d. Subtracting the product of means produces the alternating residual 4r(-1)^d/[(r+4)(r+2)²], also the signed variance of the common-age mean factor. This proves nondecay and positive even covariances. At d=1 the odd-distance sign expression is 1+q²+q−1>0; for d=2k+1 with k≥1 it is the sign of F_k(q)=q^k(1+q²)+q−1, a strictly increasing function with opposite endpoint signs. F_{k+1}<F_k on (0,1) and r=(1−q)²/q decreases with q, giving both the sign orientation and the strict ordering of the thresholds. If ε=1−q_k, then kε≤W(2k), so kε²=o(1). Taking logs gives kε+log(kε)=log(2k)+o(1); the inverse is 1-Lipschitz since the derivative of x+log x exceeds one. This gives kε=W(2k)+o(1) and the stated rate asymptotic. An independent full-generator solve at N=4,6 and r=0.4,1 reproduced the moments and covariances at every tested separation, with maximum errors below 2×10⁻¹². Replay: /workspace/branches/428fb69c-471c-4523-977a-fc32fc402a49/independent_ring_check.py. These four finite tests do not prove the infinite-volume formula or the exact sign results. The uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nagar–Gupta Eq. (3) supplies the generic exponential renewal relation. Mayer–Sollich pp. 1–2 describes an explicit general finite Glauber hierarchy with generic initial conditions; this supplies ingredients for a specialization from the deterministic alternating initial state.",
+          "Magoni et al. studies global reset to the initial configuration with emphasis on magnetization; its conclusion identifies distribution of two-point correlations as an extension."
+        ],
+        "reasoning": "General unreset dynamics plus renewal determines the reset moments, so no originality attaches to that general route. A reset-age integral or a correlation hierarchy does not itself evaluate the connected sign changes, which depend on cancellation with the product of means and a nontrivial comparison at every odd separation.",
+        "searches": [
+          "arXiv:2305.16955 §2 renewal and global versus local resets",
+          "Mayer–Sollich cond-mat/0307214 generic initial conditions and unreset hierarchy",
+          "Magoni–Majumdar–Schehr arXiv:2002.04867 abstract and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_voter_reset.py",
+        "Resultary b35b94fc9b82",
+        "arXiv:2002.04867",
+        "arXiv:2207.08590v6",
+        "arXiv:2305.16955v2",
+        "arXiv:cond-mat/0307214"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking a Laplace transform in age of the bare alternating-state pair equation gives (-1)^d/(s+4)+4q(s)^d/[s(s+4)], so the general renewal formula at s=r immediately gives the stationary raw moment once this transform has been evaluated.",
+          "The later Resultary raw formula and the fixed-phase one-point mean mechanically recover the frozen covariance. The later catalogued random-phase root, written in the frozen index d=2k+1, solves 2q^(k+1)=1−q, not q^k(1+q²)=1−q."
+        ],
+        "reasoning": "The raw profile and its conversion to covariance are substantially shared mathematics, not independent new mechanisms. The fixed-phase nearest-neighbor positivity and the actual hierarchy of connected roots require the different equation and are not implied by the random-phase sign theorem. The matching raw source is catalogued after the frozen record; the evidence does not establish that its result preceded this one.",
+        "searches": [
+          "Resultary b35b94fc9b82 fixed-phase remark and random-phase threshold in the Finding",
+          "Nagar–Gupta Eq. (3) and Mayer–Sollich generic-initial-condition setting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At zero temperature the Glauber spin-flip rate is exactly the voter rate of copies that change the spin, so the Glauber terminology is an equivalent formulation at matched rates.",
+          "Resultary b35b94fc9b82 uses that rate, gives the same raw two-point formula on the ring and line, and explicitly extends the raw formula to a fixed Néel phase.",
+          "Grange Eq. (80) and its abstract describe independent sitewise resets, not a common reset age."
+        ],
+        "reasoning": "Spin flip symmetry makes the raw pair product independent of which Néel phase is chosen, but changing the phase protocol changes the means. In the frozen model the mean product is nonzero, so the later random-phase connected quantity is not equivalent to the fixed-phase connected quantity.",
+        "searches": [
+          "Resultary global checkerboard or Néel reset voter and Glauber chains, stationary correlations and signs",
+          "arXiv:2002.04867 global Glauber resetting",
+          "arXiv:2207.08590 local voter resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact later-catalogued line and ring raw formulas have the same q and alternating forcing as the frozen record. Its listed random-phase r₁=4/3 and r₃=1/2 refer to separations one and three, respectively. The frozen fixed-phase model has no nearest-neighbor zero and its separation-three zero is about 0.65896708.",
+          "No matching earlier fixed-phase connected threshold table or exact formula was identified in the located comparisons."
+        ],
+        "reasoning": "The exact raw match is real, but the threshold figures demonstrably describe different centered statistics. The same leading Lambert asymptotic under the two protocols does not identify their individual roots.",
+        "searches": [
+          "Resultary b35b94fc9b82 Finding/Assumptions and exact odd-separation thresholds",
+          "Exact checkerboard/Néel correlation-profile source comparison with arXiv:2002.04867 and arXiv:2207.08590"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit connected-covariance profile and sharp sign hierarchy for fixed-phase synchronous checkerboard resetting. General renewal, unreset Glauber correlations and the stationary moment method are established tools. A later-catalogued exact raw-correlation result materially overlaps, including for a fixed reset phase; its sign theorem is for random-phase resets, where the raw correlation equals the covariance. That theorem does not give the fixed-phase connected thresholds. No earlier matching fixed-phase connected sign theorem was established in the inspected statements; this is not independent certification of priority.",
+      "residual_risks": [
+        "An earlier equivalent exact transform or fixed-phase connected threshold analysis may exist under Glauber, Néel-quench, or renewal terminology. Only the cited material was inspected for this comparison.",
+        "Catalogue path dates distinguish the two archived records, not historical priority or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact raw-profile match; different centered sign theorem and later catalogue date",
+          "evidence": "Same zero-temperature rate and raw formula, explicitly also for fixed phase. Fair random phase gives vanishing means and changes the covariance, sign equation and threshold at separation one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-nested-correlation-sign-thresholds-in-a-neel-reset-kinetic-ising--b35b94fc9b82",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–5046, and the moment/sign arguments from bounded passages",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Nested correlation-sign thresholds in a Neel-reset kinetic Ising chain",
+          "trigger": "Exact same raw correlation and closely related sign thresholds"
+        },
+        {
+          "assessment": "Same reset mechanism, but located results focus on magnetization",
+          "evidence": "The conclusion identifies the distribution of two-point correlations as a further question; that is not a claim of whole-document noncoverage of every pair-moment statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+          "material_read": "OA HTML abstract and conclusion, offsets 0 and 26500–28899",
+          "method": "OA paper text",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Global fixed-state resets of Glauber dynamics"
+        },
+        {
+          "assessment": "Different reset mechanism and moment equation",
+          "evidence": "Independent voters reset to their own initial opinions; Eq. (80) uses a sitewise term rather than simultaneous forcing of the product.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08590v6",
+          "material_read": "Abstract and Eq. (80), OA offsets 0 and 68600–71800",
+          "method": "OA paper text",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Voter exact stationary correlations under resetting"
+        },
+        {
+          "assessment": "Covers the generic renewal representation",
+          "evidence": "Exponential-time renewal averages bare-process observables; local and global mechanisms are distinct.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.16955v2",
+          "material_read": "§2, Eq. (3), global/local distinction at OA offsets 6000 and 14800",
+          "method": "OA paper text",
+          "title": "Stochastic resetting in interacting particle systems: a review",
+          "trigger": "General renewal identity and reset mechanisms"
+        },
+        {
+          "assessment": "Established base dynamics; no fixed-phase reset sign specialization in passages inspected",
+          "evidence": "Describes solutions to the finite Glauber hierarchy with generic initial conditions, providing an alternate input to renewal.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0307214",
+          "material_read": "PDF pp. 1–2, OA offsets 0–8445, generic-initial-condition description near offset 7960",
+          "method": "OA PDF text",
+          "title": "General Solutions for Multispin Two-Time Correlation and Response Functions in the Glauber-Ising Chain",
+          "trigger": "Stronger no-reset solution for arbitrary initial data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common reset clock generates an explicit long-range covariance even after the site means are subtracted, despite nearest-neighbor copying between resets. The parity and exact distance-dependent sign thresholds distinguish that effect from short-range coalescence and from random-phase raw correlations. The finite-cycle profile and rate asymptotic quantify the phenomenon without implying a finite-cycle threshold theorem or thermodynamic phase transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

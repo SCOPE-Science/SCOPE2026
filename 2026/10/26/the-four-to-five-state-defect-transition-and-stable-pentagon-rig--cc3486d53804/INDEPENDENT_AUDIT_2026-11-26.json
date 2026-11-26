@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:26:18.486196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen exact claims are mathematically sound: 1, ξ₁, ξ₂ are orthonormal and the centered quadratics are perpendicular to them. At m=3 those quadratics would vanish at all atoms, contradicting rank; at m=4 their one-dimensional span forces xxᵀ=I+hB, with two distinct roots of det(I+hB)=0. Neither associated rank-one matrix is zero and their lines span the plane by isotropy, so each line carries precisely ±x with equal masses. Normalizing the two directions gives the orthogonal pair family and defect 1/[8p(1−p)]; regular polygons attain the universal 1/4 from five atoms on. In the narrowed final RESULT, the square-matrix argument gives both rigidity at zero and quantitative stability: tr K=(1/2)E s² for s=|ξ|²/2, so E(s−1)²≤4ε and both eigenvalues of K are within ε of 1/4. Moment cancellation and the complex fourth-moment identity give angular moments bounded by 7√ε; the row and column Gram deviations of the square weighted Vandermonde are at most 28√ε. The diagonal gives w_j≥0.19 and weight error ≤5.6√ε; the off-diagonal bounds the five-term geometric sums by 150√ε and fifth-power residuals by 300√ε. Nearest-root assignments cannot collide (a collision would force geometric-sum modulus ≥4.4, instead of ≤0.015), so all five roots occur. Adding the ≤5√ε radial error in s yields position error ≤305√2√ε<440√ε for ε>0, with the non-strict estimate also valid at zero. The exact five-atom assumption is necessary for the square Gram transfer. The final proof is analytic. The frozen checker was inspected, not executed; the 200 perturbed matrices do not in general satisfy the theorem's moment constraints. The repaired result makes no assertion about attaining the same stability at higher support or about optimal constants or exponent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tanaka Theorem 6.3 and Corollary 6.4 give the general lower bound and exact equality; §10 raises the support/defect question.",
+          "Xu gives Möller's centrally symmetric lower bound N≥binomial(n+1,2)+floor(n/2) for degree 2n−1, which is four at degree three. The frozen record itself credits classical symmetry of minimal degree-three rules via Cools/Möller.",
+          "Gorbachev concerns regularity and deformations of exact rules with ten or eighteen nodes on S²⊂R³."
+        ],
+        "reasoning": "The frozen hypotheses are exactness through degree three for a centered standard Gaussian in two variables, so classical cubature bounds apply. Neither the defect equality theorem nor local manifolds of exact cubature formulas supplies an inverse error bound from the planar defect for arbitrary five-atom competitors.",
+        "searches": [
+          "Tanaka arXiv:2610.20880v1 §§6 and 10",
+          "Möller minimal cubature rule degree 3 centrally symmetric weight minimal rule centrally symmetric nodes theorem PDF Cools Xu",
+          "Xu arXiv:2407.09903v1 opening bound (1.2)",
+          "Gorbachev arXiv:2610.14287 opening statement"
+        ]
+      },
+      "checked_sources": [
+        "Tanaka arXiv:2610.20880v1",
+        "Peherstorfer arXiv:1001.2451",
+        "Xu arXiv:2407.09903v1",
+        "Gorbachev arXiv:2610.14287",
+        "Cools DOI 10.1017/S0962492900002701 (bibliographic only)",
+        "Resultary entries d1e17fb2a7f8, 02df184d2d31, and 94f6926d5deb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-defect pentagon is mechanically implied by the published general characterization plus the unit-circle quadrature theorem.",
+          "No quantitative planar radial/weight/node bound is present in the inspected exact equality passages, the S² deformation statement or the catalogue grid-jitter findings."
+        ],
+        "reasoning": "A uniqueness theorem can at most give qualitative proximity after suitable compactness, not the stated √ε control and explicit constants. The repaired proof supplies the quantitative missing implication by combining radial variance, harmonic errors, and an approximate square Gram identity which derives a lower weight bound before extracting atomwise errors.",
+        "searches": [
+          "Specialize Tanaka's equality criterion and Peherstorfer's rule to the Haar circle; compare quantitative node and weight bounds to Gorbachev and the two five-node positivity records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peherstorfer PDF pp. 2–3, equations (4) and (9), characterizes exact nodes and weights. For Haar measure the degree-four monic orthogonal polynomial is z^4, yielding z^5+η for n=5.",
+          "Both November 22 catalogue entries on five-node positivity solve the node-jitter-to-positive-weights implication for degree two, not a small-defect-to-node-and-weight implication in the plane."
+        ],
+        "reasoning": "At exact equality the angular model is precisely a minimal positive quadrature rule for the Haar measure. At positive ε the atoms may have unequal radii, and the low moments are exact in R² but only approximate on the unit circle. The fixed-node positivity theorem has a different input, output and precision degree.",
+        "searches": [
+          "Peherstorfer arXiv:1001.2451, positive unit circle quadrature exact through degree n−1",
+          "Resultary comparison of pentagon perturbation and five-node trigonometric quadrature",
+          "stability minimal positive trigonometric quadrature near equality weighted spherical 4-design regular pentagon approximate moments Vandermonde nodes weights planar moment defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entries d1e17fb2a7f8 and 02df184d2d31 each give a sharp threshold about 0.2014594 for degree-two positivity under grid jitter.",
+          "The same-date entry 94f6926d5deb classifies exact-degree interpolation ranks on a 12-node truncated tetrahedron.",
+          "The exact pentagon design follows from the explicit circle quadrature formulas and is credited rather than treated as a new data point."
+        ],
+        "reasoning": "The retained invariant is a uniform inequality over continuous measures with five atoms and exact lower moments; there is no discrete census that would establish it. None of the inspected exact numerical thresholds or rank tables is equivalent to that inequality.",
+        "searches": [
+          "Resultary comparison of five-node trigonometric cubature and exact defect entries",
+          "Peherstorfer unit-circle node and weight formulas"
+        ]
+      },
+      "rationale": "PASS is for the narrower theorem in repairs/3/RESULT.md, not a novelty pass for the original dual headline. The repair removes the exact support frontier and classifications as independent findings and credits the universal bound and exact five-node angular characterization as background. The older degree-three cubature bounds apply to these low moments, and the five-node equality classification follows directly from Tanaka and classical positive trigonometric quadrature. The distinct remaining result controls both masses and the full planar positions from energy excess, with no initial circle, separation, or lower mass hypotheses. No inspected result implies those bounds for this class.",
+      "residual_risks": [
+        "Cools/Möller's cited exact symmetry passage was inaccessible; the lower bound is corroborated separately, and the final theorem does not rely on four-state symmetry.",
+        "An apparent spherical-design neighborhood paper (S0096300319307611) was not accessible in full text; its indexed description concerns conditions for positive weights given nearby nodes, not a verified inverse stability theorem. A broader stability result under other terminology remains possible; the bounded search does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the baseline and equality criterion, not planar five-atom inverse estimates",
+          "evidence": [
+            "d/[2(d+2)] lower bound with weighted spherical 4-design equality; explicit support-versus-defect question."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.20880v1",
+          "material_read": "§6 Theorem 6.3 and Corollary 6.4 (offsets about 42268–47000); §10 support question (near offset 81000)",
+          "method": "Lawful OA bounded HTML passages",
+          "title": "Third-moment cancellation and predictable representation in finite-state BSDE approximation",
+          "trigger": "Identical defect quantity and equality theorem"
+        },
+        {
+          "assessment": "Prior exact characterization",
+          "evidence": [
+            "Para-orthogonal polynomial roots as nodes and an exact weight formula for the trigonometric rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.2451",
+          "material_read": "PDF pp. 2–3, equations (4) and (9)",
+          "method": "Lawful OA statement and formula inspection",
+          "title": "Positive trigonometric Quadrature Formulas and Quadrature on the Unit Circle",
+          "trigger": "Exact five-node Haar circle moment equivalence"
+        },
+        {
+          "assessment": "Independently corroborates the classical support lower bound",
+          "evidence": [
+            "For centrally symmetric W, Ω in two variables, N≥binomial(n+1,2)+floor(n/2) at degree 2n−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.09903v1",
+          "material_read": "Introduction, offsets 3980–5430, inequality (1.2)",
+          "method": "Lawful OA, query then bounded passage",
+          "title": "Minimal cubature rules and Koornwinder polynomials",
+          "trigger": "Check classical centrally symmetric degree-three lower bound in open text"
+        },
+        {
+          "assessment": "Exact Cools passage not independently verified; no negative inference",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1017/S0962492900002701",
+          "material_read": "Bibliographic record only; §8.3 not read",
+          "method": "Bibliographic resolution and attempted lawful OA, including identified author-posted alternate PDF",
+          "title": "Constructing cubature formulae: the science behind the art",
+          "trigger": "Frozen citation for Möller minimal-degree-three symmetry"
+        },
+        {
+          "assessment": "Different support, dimension and question",
+          "evidence": [
+            "S² in R³, ten-/eighteen-node exact designs and local regularity of Popov formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14287",
+          "material_read": "p. 1 abstract and §1.1",
+          "method": "Lawful OA statement passage",
+          "title": "Parametric families of minimal positive cubature formulas of degrees 4 and 6 on the 2-sphere",
+          "trigger": "Minimal positive cubature deformation as plausible broader precedent"
+        },
+        {
+          "assessment": "Different degree and direction of implication",
+          "evidence": [
+            "Degree-two interpolatory quadrature; prescribed near-grid nodes; sharp positive-weight tolerance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-five-node-positivity-radius-for-perturbed-trigonometric-qu--d1e17fb2a7f8",
+          "material_read": "Mirrored RESULT.md beginning at offset 0",
+          "method": "Configured catalogue lookup and bounded local-mirror reading",
+          "title": "Sharp five-node positivity radius for perturbed trigonometric quadrature",
+          "trigger": "Five nodes, perturbations and angular moments"
+        },
+        {
+          "assessment": "Overlaps the other November 22 positivity record but not the repaired defect theorem",
+          "evidence": [
+            "Equivalent jitter threshold for degree-two positive interpolatory quadrature, not near equality at degree four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-five-node-tolerance-for-positive-trigonometric-quadrature--02df184d2d31",
+          "material_read": "Mirrored RESULT.md beginning at offset 0",
+          "method": "Configured catalogue lookup and bounded local-mirror reading",
+          "title": "Sharp five-node tolerance for positive trigonometric quadrature",
+          "trigger": "Distinct catalogue entry with similar five-node perturbation wording"
+        },
+        {
+          "assessment": "Not the same objects or defect",
+          "evidence": [
+            "12 nodes on S² and rank of exact-degree harmonics, not a five-atom planar moment law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-reentrant-degree-six-interpolation-defect-on-the-regular-trunc--94f6926d5deb",
+          "material_read": "Mirrored RESULT.md beginning at offset 0",
+          "method": "Configured catalogue lookup and bounded local-mirror reading",
+          "title": "A reentrant degree-six interpolation defect on the regular truncated tetrahedron",
+          "trigger": "Same-date distinct catalogue result with interpolation defect"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem answers a robustness question not settled by knowing the exact minimizer: whether an actual nearly optimal five-state increment rule must use almost equal probabilities and place each atom near a different pentagon vertex, despite no imposed radial or separation condition. The defect-to-geometry estimate gives explicit atomwise control of both quantities and a usable small-error range. It is a quantitative result for genuinely planar laws, not a certificate or relabeling of the classical exact cubature rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

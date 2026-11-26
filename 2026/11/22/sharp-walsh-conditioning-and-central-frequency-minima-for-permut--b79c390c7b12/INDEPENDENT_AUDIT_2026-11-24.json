@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:50:26.267216Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A two-cycle contributes a minus sign exactly when it crosses the frequency/complement cut; changing its cross-color weight from +uv to -uv multiplies the labelled cycle series by exp(-2uv). Thus the indicated coefficient gives the counting multiplier and division by n! gives the probability multiplier. For n>=4, the first crossing-cycle moment and P(X odd)<=E X give the lower bound (n-2)/(2(n-1)). For the location of the minimum, q(n,k)=[u^k v^(n-k)]F satisfies the Pascal recurrence with central forcing (-2)^j/j! at n=2j. Its first differences in the lower half are at least 2/3 in rows 4–6; elsewhere Pascal addition preserves this, and at the even center two preceding-even differences contribute at least 4/3 against forcing of modulus at most 2/3 for j>=4. Deleting the two-cycle of the newly added character vertex gives Lambda(n,k)-Lambda(n,k+1)=2 k!(n-k-1)! (q(n-2,k)-q(n-2,k-1)). This gives strict descent for n>=6. Direct permutation/Walsh replay through n=8 confirms every frequency against the formula, including the rows (6,2,2,6), (24,12,16,12,24) and (120,72,72,72,72,120); order five has a tie at all intermediate weights. Replay with Python 3 on branches/65fc8914-7d1e-411d-8ebb-566debbe5748/independent_repro.py; the frozen checker was read, not run. Each normalized falling-factorial moment ratio counts an ordered sample event and is bounded by one. Dominated convergence then gives the pointwise exponential limit, compactness upgrades it to uniformity in k/n, and binomial weight concentration gives the empirical limit. The constant multiplier is one; the minimum determines the exact condition number, with the uniform maximum verified at n=3 (n=4 has condition number 2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical labelled cycle construction gives F(u,v) by changing the cross-two-cycle sign; RESULT.md explicitly credits it as background.",
+          "Local catalogue statements concern fixed points, all even-cycle vertices, and two-coloring whole cycles respectively. No statement of a general extremum for arbitrary cycle marking was verified."
+        ],
+        "reasoning": "A general enumeration formula or cycle-count limit covers the starting transform or its asymptotic method, not automatically the uniform finite-n strict shell comparison or its exceptional shells. A sufficiently strong marked-cycle coefficient inequality could cover them.",
+        "searches": [
+          "Flajolet and Sedgewick, Analytic Combinatorics, Chapters II–III",
+          "Ford, arXiv:2104.12019, sections 1–3",
+          "Resultary suffixes fd9ec6453677, 85dc8e10a9ea and 28dd5cf1473e"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and read-only checker.py",
+        "Local Resultary entries fd9ec6453677, 85dc8e10a9ea, 28dd5cf1473e",
+        "Attempted OA retrieval for Analytic Combinatorics and arXiv:2104.12019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite central forcing in the coefficient recurrence and the deletion identity together prove the exact strict comparison for every n>=6.",
+          "Even-cycle-union positivity pertains to a sum over more cycle lengths; an extremum for that combined sign cannot be specialized by simply suppressing the other lengths in its answer."
+        ],
+        "reasoning": "The spectral limit and the uniform positive bound are simpler consequences of general cycle-count tools. Neither establishes which finite shells minimize, which is the nontrivial distinct part credited.",
+        "searches": [
+          "Classical cycle-index construction and factorial moments versus RESULT.md lines 36–59",
+          "Local Resultary fixed-point support and even-cycle-union exact statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited multipliers are exactly the crossing-two-cycle generating function evaluated at -1; the finite-order extremum is equivalent to a strict inequality for its factorial-normalized bivariate coefficients (RESULT.md lines 23–28, 36–59).",
+          "The distinct fixed-point, even-cycle-union, and two-colored-cycle catalogue results encode different supports."
+        ],
+        "reasoning": "Marking transpositions in the final cycle decomposition gives a legitimate equivalent representation. Neither marking length one alone, pooling all even lengths, nor choosing a coloring constant on every cycle is the same operation.",
+        "searches": [
+          "Local Resultary: Walsh convolution of uniform permutation two-cycle endpoint supports, central-shell minimum",
+          "Primary literature: weighted cycle index, signed two-cycles, two-color permutation cuts and Walsh minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby indexed exact invariants have different kernels. Independently replayed rows agree with the assigned counts but are reproduction, not evidence of priority."
+        ],
+        "reasoning": "Small exact rows would cover only those instances. An indexed all-order extremum or an exact formula with a directly implied strict shell extremum would be material; no such distinct entry was verified.",
+        "searches": [
+          "Local Resultary: exact Walsh minimum/condition numbers of permutation two-cycle vertex profiles",
+          "Exact central-shell signed multiplier rows and low-order exceptions in assigned RESULT.md"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the all-order strict central-shell extremum, including its low-order exceptions and sharp finite-order recovery conditioning. The signed generating function is a standard marked cycle-index specialization, and the factorial-moment limit uses classical methods; those ingredients are not credited as new alone. No verified prior statement or stronger implication gives the same finite-order extremum for exactly two-cycle endpoints. Closest related index results and primary-text access limitations are recorded below.",
+      "residual_risks": [
+        "Full texts for the related catalogue entries and cited references were not obtained. An equivalent weighted cycle-index or coefficient-unimodality theorem could alter this assessment.",
+        "Same-day catalogue dates do not establish precedence; the comparison is of available scientific statements only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified statement-level distinction; full-text overlap not ruled out",
+          "evidence": "The support is the length-one cycle set.",
+          "identifier_or_url": "Resultary suffix fd9ec6453677",
+          "material_read": "Local catalogue statement; full text not retrieved",
+          "method": "Local semantic index and attempted source retrieval",
+          "title": "Sharp dimension-free Walsh recovery of permutation fixed-point supports",
+          "trigger": "Closest same-type recovery invariant"
+        },
+        {
+          "assessment": "Different kernel and spectrum in available statement",
+          "evidence": "The support uses all even lengths and the stated spectrum has a squared-binomial form.",
+          "identifier_or_url": "Resultary suffix 85dc8e10a9ea",
+          "material_read": "Local catalogue statement; full text not retrieved",
+          "method": "Local semantic index and attempted source retrieval",
+          "title": "Even-cycle vertex supports: exact Walsh positivity and parity sharpness",
+          "trigger": "Same cycle-support encoding with a larger length selection"
+        },
+        {
+          "assessment": "Different statistic in available statement",
+          "evidence": "The record colors every whole permutation cycle and studies a fixed-position-set convolution.",
+          "identifier_or_url": "Resultary suffix 28dd5cf1473e",
+          "material_read": "Local catalogue statement; full text not retrieved",
+          "method": "Local semantic index and attempted source retrieval",
+          "title": "Re-entrant positive definiteness and sharp Walsh recovery for two-colored permutation cycles",
+          "trigger": "Two-color permutation-cycle recovery"
+        },
+        {
+          "assessment": "Credit for standard construction and methods; precise full-text coverage unresolved",
+          "evidence": "The signed series uses the labelled cycle exponential formula and the limit uses factorial moments of disjoint crossing pairs.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/AnaCombi/anacombi.html ; https://arxiv.org/abs/2104.12019",
+          "material_read": "No external primary passages retrieved; locators and relationship in frozen RESULT.md lines 75–84",
+          "method": "Lawful OA retrieval attempts and direct reconstruction of the classical specialization",
+          "title": "Analytic Combinatorics; Cycle type of random permutations: A toolkit",
+          "trigger": "Marked labelled cycles and factorial-moment background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint-support observation discards the pairing, so whether and where it erases Fourier information is a natural exact recovery question. The strict finite-order central-shell theorem identifies the least stable channels rather than just furnishing a positivity or asymptotic bound. It gives sharp uniform conditioning, an exceptional order-four shell and a limiting condition number while distinguishing bulk concentration from operator-norm convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

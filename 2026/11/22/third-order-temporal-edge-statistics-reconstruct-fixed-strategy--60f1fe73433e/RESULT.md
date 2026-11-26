@@ -1,84 +1,59 @@
-# Third-order temporal edge statistics reconstruct fixed-strategy interaction networks
+# Third-order temporal edge statistics reconstruct labelled fixed-strategy interaction networks
 
 ## Finding
-For every finite simple undirected graph without isolated vertices, the stationary temporal statistics of products of at most three **distinct, individually labelled edge-environment variables** determine the complete edge-to-vertex incidence structure, up to renaming the unobserved vertices, in the unanimous-strategy restriction of the stochastic edge-feedback evolutionary game of Betz, Fu and Masuda [1]. Every conclusion holds at every nondegenerate update rate, not just in a weak-selection or large-population limit. Order two suffices for connected graphs except for the triangle/claw ambiguity; a three-edge temporal statistic resolves that exception with an explicit strictly positive gap. Order three is the smallest universal observation order for **edge-label-preserving** reconstruction: two seven-vertex graphs with the same six labelled edges have identical one-edge and two-edge trajectory distributions but distinct edge incidence structures.
 
-## Assumptions and scope
-Fix a simple undirected graph \(G=(V,E)\) with \(N=|V|\ge 2\), with no isolated vertices and at least one edge. The number \(N\), an individual identity for each observed edge, the step clock and the parameters below are known; the vertex names and edge endpoints are not observed. Consider the finite agent-based update rule of [1] after the players have reached unanimous cooperation or unanimous defection. The unanimity is absorbing for Fermi imitation, so strategies remain fixed. Each attempted update is a strategy-update (then an environmental holding step) with probability \(1-\omega\), or an environmental update with probability \(\omega\), where \(0<\omega<1\). On an environmental update, select one vertex uniformly and independently update all its incident edge states, conditional on the chosen vertex. Each selected edge switches \(0\to1\) with probability \(p\in(0,1)\), and \(1\to0\) with probability \(q\in(0,1)\). The choices of flips on different edges are conditionally independent. In the source's parameterization take \((p,q)=(p_0,q_0)\) for all cooperators or \((p_2,q_2)\) for all defectors; the remaining source parameters do not influence the restricted dynamics.
+In the unanimous-strategy restriction of the vertex-update environmental game of Betz, Fu and Masuda [1], the stationary lag-one statistics of products involving at most three distinct, labelled edges determine the full incidence structure of every finite simple graph without isolated vertices, up to a vertex permutation preserving every edge label. The formulas hold everywhere in the nondegenerate parameter regime below. Three is the smallest universal observation order even on **connected** graphs with known vertex count: two assignments of the same six edge labels to the edges of the complete graph on four vertices have identical stationary trajectories on every set of one or two observed edges, but differ on a labelled triple.
 
-Let \(M_e(t)\in\{0,1\}\) be the state of edge \(e\) at integer attempted-update time \(t\). Put \(\pi=p/(p+q)\), \(r=1-p-q\in(-1,1)\), and \(Z_e(t)=M_e(t)-\pi\). For a nonempty subset \(S\subseteq E\), write \(H_S(t)=\prod_{e\in S} Z_e(t)\) and \(d_S(v)=|\{e\in S:v\in e\}|\). The lag-one normalized temporal statistic is
+## Model and scope
+
+Let \(G=(V,E)\) be simple and undirected, with \(N\ge2\) known and no isolated vertices. Edge IDs and the step clock are observed; vertex names and incidences are not. Strategies are fixed at unanimous cooperation or defection, so an attempted strategy update leaves the environment unchanged. With probability \(0<\omega<1\), choose a vertex uniformly and independently apply the two-state kernel
 \[
-C_S(1)=\frac{\mathbb E_{\mathrm{stat}}[H_S(0)H_S(1)]}{[\pi(1-\pi)]^{|S|}}.
+K=\begin{pmatrix}1-p&p\\q&1-q\end{pmatrix},\qquad 0<p,q<1,
 \]
-Here expectations are under the unique stationary environmental law, which is not assumed known in advance. The **order** of an observation is the number of distinct edge IDs in \(S\), not the number of individual time-indexed factors.
+to each incident edge, holding the other edges fixed. The appropriate source rates are \((p_0,q_0)\) under all cooperation and \((p_2,q_2)\) under all defection. Put \(\pi=p/(p+q)\), \(r=1-p-q\), and \(H_S(t)=\prod_{e\in S}(M_e(t)-\pi)\) for a set \(S\) of distinct observed edge IDs. The statistic of order \(|S|\) is
+\[
+C_S=\frac{\mathbb E_{\mathrm{stat}}[H_S(0)H_S(1)]}{[\pi(1-\pi)]^{|S|}},\qquad C_\varnothing=1.
+\]
+Order counts edge IDs, not time-indexed factors. The rates and \(N\) are taken as known.
 
 ## Proof
-**1. Stationarity and diagonalization.** The single-edge flip kernel
-\[
-K=\begin{pmatrix}1-p&p\\q&1-q\end{pmatrix}
-\]
-has invariant Bernoulli law with success probability \(\pi\), and maps \(m-\pi\) to \(r(m-\pi)\) in conditional expectation. The full environmental chain chooses a vertex and applies independent copies of \(K\) on its incident edges, with a holding step of probability \(1-\omega\). Thus its invariant distribution is the product Bernoulli law \(\bigotimes_{e\in E}\mathrm{Bernoulli}(\pi)\). Because every selected edge can flip while all other edges incident to the selected vertex stay unchanged with positive probability, each single-edge flip has positive probability. Consequently the finite environmental chain is irreducible; the positive holding probability makes it aperiodic, so this invariant distribution is unique. Each product \(H_S\) is an eigenfunction for the one-step Markov operator with eigenvalue
-\[
-\lambda_S=1-\omega+\frac{\omega}{N}\sum_{v\in V}r^{d_S(v)}.
-\tag{1}
-\]
-All products indexed by subsets \(S\subseteq E\), including the constant empty product, form an orthogonal eigenbasis for the product stationary distribution. Consequently, for every integer \(t\ge0\),
-\[
-\frac{\mathbb E_{\mathrm{stat}}[H_S(0)H_S(t)]}{[\pi(1-\pi)]^{|S|}}=\lambda_S^t.
-\tag{2}
-\]
-No independence between distinct edges at consecutive times is assumed: their dependence arises from the common selected vertex.
 
-**2. Pairwise adjacency is observable.** For two distinct edges \(e,f\), exactly two cases occur. If they share one endpoint, the three affected vertices have selected-edge degrees \((2,1,1)\); otherwise four endpoints have degree one. Equation (1) gives
+**Stationary law and lag-one formula.** The kernel \(K\) preserves Bernoulli\((\pi)\) and multiplies the centered coordinate by \(r\) in conditional expectation. Every update at a specified vertex preserves the product Bernoulli law, and their mixture with holding steps does too. Any one edge can flip with positive probability while every other edge holds, by selecting one of its endpoints and using the positive single-edge hold probabilities. Hence the finite chain is irreducible and its product stationary law is unique. Let \(d_S(v)\) be the number of edges of \(S\) incident at \(v\). The independence of updates conditional on the selected vertex gives the eigenfunction identity
 \[
-\lambda_{\mathrm{incident}}=1-\frac{\omega}{N}(1-r)(3+r),\qquad
-\lambda_{\mathrm{disjoint}}=1-\frac{4\omega}{N}(1-r).
+\mathbb E[H_S(t+1)\mid M(t)]
+= \lambda_S H_S(t),\qquad
+\lambda_S=1-\omega+\frac\omega N\sum_{v\in V}r^{d_S(v)}.
 \]
-Therefore
-\[
-\lambda_{\mathrm{incident}}-\lambda_{\mathrm{disjoint}}
-=\frac{\omega}{N}(1-r)^2>0.
-\tag{3}
-\]
-Every edge pair's measured statistic \(C_{\{e,f\}}(1)\) determines whether the two edges are incident. Thus the entire **edge-labelled line graph** \(L(G)\) is recovered. The classical line-graph theorem of Whitney [2] reconstructs the connected components of a simple graph from their line graphs, with the only ambiguity that a three-edge triangle and a three-edge claw have the same three-vertex line graph. This classical theorem is used, not claimed as new.
+The stationary second moment of \(H_S\) is \([\pi(1-\pi)]^{|S|}\), so \(C_S=\lambda_S\).
 
-**3. Third-order resolution of the only ambiguity.** Let \(S\) consist of the three mutually incident edges of an ambiguous line-graph component. For a triangle, \(d_S(v)=2\) at its three vertices; for a claw the central degree is three and three leaves have degree one. Equation (1) becomes
+**Recovering common endpoints.** For a nonempty edge set \(T\), define \(a_T=|\bigcap_{e\in T}\partial e|\), where \(\partial e\) is the two-element endpoint set of \(e\). Expanding \(r^{d_S(v)}=\prod_{e\in S}(1+(r-1)\mathbf1_{v\in\partial e})\) gives
 \[
-\lambda_{\triangle}=1-\frac{3\omega}{N}(1-r^2),\qquad
-\lambda_{\mathrm{claw}}=1-\frac{\omega}{N}[(1-r^3)+3(1-r)].
+C_S-1=\frac\omega N\sum_{\varnothing\ne T\subseteq S}(r-1)^{|T|}a_T.
 \]
-Hence
+For \(|S|\le3\) every term needed for inversion is observed:
 \[
-\lambda_{\triangle}-\lambda_{\mathrm{claw}}
-=\frac{\omega}{N}(1-r)^3>0.
-\tag{4}
+a_S=\frac{N}{\omega(r-1)^{|S|}}
+\sum_{T\subseteq S}(-1)^{|S|-|T|}(C_T-1).
 \]
-One lag-one statistic involving these three labelled edges selects the correct component. Applying this to every ambiguous component reconstructs all graph edges' endpoints up to a vertex permutation; the no-isolates condition excludes unobservable isolated vertices. In fact if the graph is connected and its number of vertices is known, triangle and claw also differ by order, but the third-order rule works uniformly for disconnected graphs.
+The denominator is nonzero. For two distinct edges \(a_S=1\) if they meet and \(0\) otherwise. The incident-minus-disjoint lag gap is \(\omega(1-r)^2/N\). For three mutually incident edges the triangle has \(a_S=0\) and the three-edge star has \(a_S=1\). Their lower-order terms are identical, so the triangle-minus-star lag gap is \(\omega(1-r)^3/N>0\). This distinction applies to a triple anywhere in the graph, not just to triples forming components.
 
-**4. Order-three sharpness without changing the number of vertices.** Take \(N=7\) and six observed edges labelled \(0,1,2,3,4,5\). In graph \(A\), edges \(0,1,2\) form a claw and edges \(3,4,5\) form a disjoint triangle. In graph \(B\), the first three form a triangle and the last three a claw. Every vertex has positive degree. The edge-labelled line graphs agree: each of the two disjoint three-edge sets forms a complete three-clique. For any subset of at most two labelled edges, the **projected environmental transition kernel** depends only on whether those two edges have a common endpoint. It is therefore identical in the two networks, as is the projected stationary distribution; all their finite-dimensional trajectory distributions on one or two observed edge IDs coincide. Nevertheless a vertex permutation preserving each edge label cannot map \(A\) to \(B\): the first three edges form a triangle in one and a claw in the other. Equation (4) distinguishes them with three-edge observations. This proves that observation order two does not universally identify the edge-labelled incidence structure even when \(N\), \(p\), \(q\) and \(\omega\) are given. The two graphs are isomorphic if edge labels are forgotten; the claim is explicitly about reconstruction with persistent observed edge identities.
-
-## Verification
-The standalone standard-library script `check.py` constructs the complete stochastic transition matrices over the \(2^6=64\) binary environmental states for both seven-vertex graphs, with
+**Recovering all labelled incidences.** For each pair \(e,f\) with \(a_{\{e,f\}}=1\), form
 \[
-p=\frac12,\qquad q=\frac14,\qquad\omega=\frac23,\qquad r=\frac14.
+U(e,f)=\{e,f\}\cup\{g\in E\setminus\{e,f\}:a_{\{e,f,g\}}=1\}.
 \]
-It verifies exact row sums and product-law stationarity, and the eigenfunction identities for all \(2^6-1=63\) nonempty subsets for **each** graph, using rational arithmetic. It checks equality of every one- and two-edge stationary-lag signature across the graphs, and finds
-\[
-\lambda_{\mathrm{claw}}=\frac{155}{224},\quad
-\lambda_{\triangle}=\frac{41}{56},\quad
-\lambda_{\triangle}-\lambda_{\mathrm{claw}}=\frac9{224}.
-\]
-The finite exact computation illustrates and independently cross-checks the formulas; the proof for arbitrary \(N\) and every admissible parameter is the analytic argument above. Execute `python check.py` with Python 3; no packages are required.
+By simplicity, \(e,f\) have a unique common endpoint \(v\), and \(U(e,f)\) is exactly the full set of edges incident at \(v\). Every vertex of degree at least two occurs this way. Two different such vertices cannot give the same set, because then two distinct edges would have the same two endpoints. Deduplicate these sets and create one reconstructed vertex for each. An edge occurring in \(d\) of the sets is assigned \(2-d\) new private degree-one endpoints. In particular a component consisting of a single edge gives two private endpoints. Every original vertex is represented, since there are no isolates. This constructs the unique edge-label-preserving incidence structure.
 
-## Relationship to prior work
-Betz, Fu and Masuda [1, Secs. 2–6] introduce and analyze the binary edge-feedback evolutionary game, including agent-based trajectories and mean-field/pair approximations. The present finding concerns an exact **post-consensus stochastic inverse problem**, not the coexistence dynamics, mean-field fixed points, or general payoff-dependent evolutionary process. Whitney [2] established the fundamental uniqueness/exception theorem for line graphs, which the present proof applies to observed lag eigenvalues. Shandilya and Timme [3] reconstruct connections from continuous-state ordinary-differential-equation trajectories; their derivation presupposes differential equations and is not a result about stationary stochastic binary edge observations or the order-two/three separation here. The diagonalization of independent two-state kernels and the line-graph theorem themselves are classical; the asserted contribution is their synthesis into an exact observation-order classification for the specified vertex-clock environmental process, including a matched-parameter indistinguishability witness. Existing related general methods may subsume this specialization; originality has not been independently established.
+**Why two edge IDs do not suffice, even on connected graphs.** Put labels \(0,1,2,3,4,5\) on the edges \(01,02,03,23,13,12\) of \(K_4\), respectively. In the second assignment move each label to the complementary edge (the unique disjoint edge). The pair relation is unchanged: two distinct edges are disjoint exactly when they are complementary, and complementing both preserves this relation. But labels \(0,1,2\) are incident at a common vertex in the first assignment and form a triangle in the second. No vertex permutation preserving the observed IDs can match the two. For a fixed set of at most two observed edges, which of them receive \(K\) at the next step depends only on \(N\) and on whether the two have a common endpoint. The projected transition matrix therefore agrees in the two assignments on each such fixed set; its transition law does not depend on hidden edges. The projected stationary laws are also identical. This proves equality of all trajectory distributions on each fixed set of at most two edge IDs, not just equality of lag-one moments. The third-order gap on labels \(0,1,2\) distinguishes the assignments.
 
-## Limitations
-This is an exact population-law identification result, not a finite-sample stability bound or an estimator with an explicit confidence interval. It requires labelled access to individual edge states across time, knowledge of the total number of vertices and positive transition rates, uniform vertex selection, and fixed unanimous strategies. It does not recover vertex names, edge directions, missing isolated vertices, or unknown switching parameters without additional assumptions. The lower bound concerns preserving edge IDs; the explicit witness graphs are unlabelled-isomorphic. No result is asserted about general mixed-strategy evolutionary trajectories or observational noise, and no independent scientific review has been performed.
+## Reproducibility
+
+Run `python3 check.py` with the Python standard library. The checker builds projected transition matrices in exact fractions, verifies the stationary probabilities, computes the normalized lag numerically in exact rational arithmetic, checks it against the eigenvalue formula, and reconstructs labelled incidence sets and leaf multiplicities. At \(p=1/2,q=1/4,\omega=2/3\), the connected four-vertex witness has gap \(9/128\). A second witness on seven vertices exchanges which of two disjoint triples of edge IDs forms a claw and which forms a triangle, with gap \(9/224\). For both witnesses the test checks equality of all one- and two-edge projected transition matrices. It also checks the incidence reconstruction from the lag formula on all simple graphs without isolated vertices on fixed labelled vertex sets of orders two through five (814 graphs total), using a negative \(r\). The universal claims follow from the algebraic proof, not these finite checks.
+
+## Relationship to prior work and limitations
+
+The vertex-clock rule is from [1]. The tensor-product eigenfunctions of the update kernels and the line-graph viewpoint on pairwise incidence are standard. Whitney's graph-isomorphism uniqueness theorem [2] for connected roots does not identify a particular edge-labelled line-graph isomorphism with a vertex permutation; complementing the six edges of \(K_4\) illustrates the difference. The specific contribution is an exact observation-order criterion for this stochastic model, including how its third-order statistic supplies common-endpoint information and why even the full order-two projected trajectories do not suffice. The sharpness witness is about labelled incidence and does not constitute an unlabelled nonidentifiability result. The theorem is population-law identifiability, not a noisy finite-sample guarantee, and does not treat unobserved edges, isolated vertices, unknown rates or mixed-strategy dynamics.
 
 ## References
-[1] K. Betz, F. Fu and N. Masuda, *Evolutionary games on networks with negative edge-based environmental feedback*, arXiv:2611.11029v1, first posted 8 November 2026, https://arxiv.org/html/2611.11029v1 .
 
-[2] H. Whitney, *Congruent graphs and the connectivity of graphs*, American Journal of Mathematics 54 (1932), 150–168, https://doi.org/10.2307/2371086 .
-
-[3] S. G. Shandilya and M. Timme, *Inferring network topology from complex dynamics*, New Journal of Physics 13 (2011), 013004, https://doi.org/10.1088/1367-2630/13/1/013004 .
+1. K. Betz, F. Fu, and N. Masuda, *Evolutionary games on networks with negative edge-based environmental feedback*, arXiv:2611.11029v1 (2026), https://arxiv.org/html/2611.11029v1.
+2. H. Whitney, *Congruent graphs and the connectivity of graphs*, American Journal of Mathematics 54 (1932), 150–168, https://doi.org/10.2307/2371086.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Arithmetic verification of the radical Jordan spectra
+# Independent mathematical audit
 
-The standalone implementation `artifacts/verify.py` constructs multiplication in the full 16-dimensional exterior algebra by enumerating disjoint bitmask monomials, with the correct inversion sign. It independently computes the ranks of the matrices of multiplication by \(a\) and \(a^2\) by modular Gaussian elimination. Its classification comparator uses only degree filtration and Pfaffian data, and it separately checks the predicted symbolic multiplicities sum to \(q^{15}\).
+## correctness
 
-Executed successfully over prime fields of orders 2, 3, 5 and 7. Tests included 8,000 uniformly sampled radical vectors in characteristic two, 1,500 samples in each of characteristics three, five and seven; all 32,768 binary radical vectors were enumerated with the direct structural classifier; all 64, 729, and 15,625 pure two-forms over the fields of orders 2, 3 and 5 were individually checked via actual 16-by-16 matrix ranks, as well as their complete predicted rank histograms. The program terminates with `VERIFY_OK_EXTERIOR_JORDAN`.
+PASS
 
-The exhaustive binary classification step uses the structural classifier, not an independent full-matrix computation of all 32,768 elements. Rank-matrix checks for arbitrary radical vectors are randomized and reproducibly seeded. All-field and arbitrary prime-power validity is a theorem-level proof claim, not a computational certification. No independent mathematical audit was performed.
+I recovered the two rank invariants on the 16-dimensional regular module. For nonzero linear part write a=e₁v+c with v a unit in B=Λ⟨e₂,e₃,e₄⟩. Multiplying a on the right by v⁻¹ does not change aE. For a′=e₁+u+w, projection to e₁B gives eight independent images from B, and a′e₁b=a′(u−w)b because (u+w)(u−w)=0 in B. Thus r₁=8, also in characteristic two. The correct sign explanation of the displayed square is that odd–odd cross terms cancel, whereas odd–even terms commute and contribute 2ℓ∧ω in degree three; the remaining square term is ω². The frozen explanatory sentence reversing this sign rule is a slip, not an error in the square identity or tables. The degree-three image of a² on 1 and its degree-four image on V give r₂=2 when ℓ∧ω≠0 in odd characteristic; if ℓ≠0 and ℓ∧ω=0, ω=ℓ∧z and r₂=0. When ℓ=0 and ω≠0, filtration gives r₁=2+rank(ω∧−|V), namely 4 or 6 by the alternating normal forms, with r₂=1 only for rank four in odd characteristic. Higher leading degrees give r₁=2,1,0; all cubes are zero. The formula (b₃,b₂,b₁)=(r₂,r₁−2r₂,16−2r₁+r₂) then gives the partitions. A fixed nonzero ℓ leaves q³ two-forms in its wedge kernel, and (q−1) times the number of two-planes counts the nonzero decomposable forms, giving all the multiplicities after allowing the q⁵ higher-degree terms. These arguments apply over extension fields. I inspected artifacts/verify.py and VERIFICATION.md without executing the uploaded code: selected ranks are checked by elimination, whereas the exhaustive binary histogram uses the structural predictor rather than independent ranks on all 32,768 elements.
+
+## originality
+
+PASS
+
+The distinct claim is the all-radical finite-field distribution including inhomogeneous multipliers in both characteristics. Homogeneous form counts and some rank strata are prior ingredients. A later indexed full-algebra theorem does reproduce the radical tables exactly; it is not evidence of prior coverage based on the available chronology.
+
+## value
+
+PASS
+
+Four generators are the first exterior dimension with nondegenerate bivectors and enough higher grades to distinguish the mixed-degree contribution to the square from the Pfaffian contribution. The entire regular-module histogram distinguishes two ways of producing size-three blocks in odd characteristic and their collapse in characteristic two. It is a useful exact finite-field benchmark beyond homogeneous orbit counts or a generic Jordan type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

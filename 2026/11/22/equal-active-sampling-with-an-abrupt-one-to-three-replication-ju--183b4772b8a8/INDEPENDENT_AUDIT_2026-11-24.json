@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:42:16.982807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the viability flags, the two total counts are independent Poisson variables with identical mean λS, S=ΣG_i x_i. Their conditional distribution depends only on S, so conditioning on S preserves the stated product detection probability (1−e^(−λS))². The Laplace transforms of S give the two products in the objective, which attains its maximum by compactness. For a pair of efforts x,y with positive fixed sum, the both-viable and both-failed cases are constant. In the exactly-one-viable cases, put u=e^(−λx), v=e^(−λy), r=uv, s=u+v; the varying conditional expectation, up to the positive multiplier p(1−p), is 2−2As+C(s²−2r), with C=E[e^(−2λR)]>0. Its strict convexity in s excludes every interior s, which corresponds precisely to unequal positive pair efforts. Endpoints are equal split or one zero. Thus every optimizer has all its positive entries equal; the finite maximum includes all such possibilities, including n=1. Independently recomputed the exact F3−F1 factorization −(12/125)(z²−1)²(3z⁴−1)(z⁴+2z²+2) at p=4/5, z=e^(−λB/6). At the sole interior crossing z=3^(−1/4), the F3−F2 gap is (8/675)(54z³−18z²−13). The bracket is strictly increasing for z>2/9 and is 120898933/500000000 at z=759/1000, below the crossing z. The sign reversal and strict gap, by continuity, prove the claimed local 1-to-3 jump and exactly the stated support sizes at the tie (up to permuting labels). Scope is two known-present targets with the same λ, shared within-sample viability, independent samples, and no opening charge; it neither assumes laboratory pooling nor claims absence of k=2 optima at all budgets. RESULT.md lines 15–47, VERIFICATION.md and check.py were inspected. The exact crossing calculation did not execute the frozen checker; the finite code tests cannot prove the global optimization statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Srivastava–Bullo Corollary 5, p. 6: additive identical sigmoid utilities, one equal-active optimizer with m* maximizing m f(B/m).",
+          "Yu, arXiv:0910.0544, p. 2, Theorems 1–2: stochastic comparisons assume densities on R+ under transformed log-concavity, and use majorization of log weights or powers of weights."
+        ],
+        "reasoning": "The joint objective couples efforts through products, not an additive objective; moreover the current theorem excludes all unequal positive optimizers, rather than merely exhibiting one equal-active optimum. Yu's sufficient assumptions and weight constraints do not cover this discrete law with mass at zero and a fixed sum of effort.",
+        "searches": [
+          "Srivastava Bullo Knapsack Problems with Sigmoid Utilities Corollary 5 identical sigmoid functions equal positive allocations",
+          "Primary literature: Bernoulli Schur-convex weighted sum expectation allocation equal weights",
+          "arXiv:0910.0544, OA literal query: Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Srivastava–Bullo Corollary 5",
+        "10.3150/10-BEJ302 / arXiv:0910.0544",
+        "9051b3e3ae8c",
+        "ed600339602a",
+        "a81be9bbd6bd",
+        "7dcb70a6a9bc",
+        "b5700e6d7b92",
+        "6c42718054c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9051b3e3ae8c Finding provides equal-stake threshold optimizers at up to four stakes; ed600339602a Finding considers crossings at the Bernoulli mean with at most five weights in a restricted range. a81be9bbd6bd Finding has consecutive staircase support in a separable log-Hill model."
+        ],
+        "reasoning": "The sigmoid expectation can be integrated over threshold-event probabilities, but optimizers that may vary with the threshold cannot be selected independently when optimizing the integral. None of the compared threshold formulas gives simultaneous stochastic dominance for these allocations. The separable Hill and sigmoid results do not fix the current coupled objective, and do not supply the strict algebraic gap at B*.",
+        "searches": [
+          "Resultary: i.i.d. Bernoulli weighted-sum optimization maximize expected utility fixed total weights equal support Schur convex",
+          "Srivastava–Bullo Corollary 5",
+          "Resultary: Srivastava Bullo Knapsack Problems with Sigmoid Utilities Corollary 5 identical sigmoid functions equal positive allocations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact self-hit 183b4772b8a8, Finding. 7dcb70a6a9bc Finding concerns one effective season with opposing Poisson hazards and no shared Bernoulli gates. 9051b3e3ae8c Finding optimizes an indicator of crossing one fixed threshold in a Bernoulli weighted sum."
+        ],
+        "reasoning": "Writing the present objective as a sigmoid utility of Bernoulli-weighted effort does not equate it to an indicator threshold. The season model's separate Poisson hazards also lack the within-sample dependence that produces the present two-product objective.",
+        "searches": [
+          "Resultary: two-target joint detection independent Bernoulli viable samples Poisson equal positive efforts support jump n=3 p=4/5",
+          "Resultary: fixed budget sample allocation maximize probability both species detected Bernoulli sample failure shared viability Poisson counts",
+          "Resultary: i.i.d. Bernoulli weighted-sum optimization maximize expected utility fixed total weights equal support Schur convex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "183b4772b8a8 is the assigned record itself. b5700e6d7b92 gives a 1-to-2 allocation switch for two dates; 6c42718054c6 gives consecutive Poisson founder-quorum support thresholds and explicitly rules out skipped sizes in that model."
+        ],
+        "reasoning": "There is no indication that this analytic model has a canonical value table. The indexed check addressed the exact p=4/5 crossing example and optimizer structures rather than taking lack of a table hit as proof of novelty.",
+        "searches": [
+          "Resultary: two-target joint detection independent Bernoulli viable samples Poisson equal positive efforts support jump n=3 p=4/5",
+          "Resultary: fixed budget sample allocation maximize probability both species detected Bernoulli sample failure shared viability Poisson counts"
+        ]
+      },
+      "rationale": "The supported distinct result is strict equal-active reduction for the nonseparable Bernoulli-viability joint detection objective together with the skipped-support transition. Equal active allocations are known for additive sigmoid models and equal stakes also appear in Bernoulli weighted-sum threshold problems. The strongest examined precedents optimize different functions or assume laws that exclude Bernoulli variables; neither the strict reduction nor the crossing is mechanically implied. Same-day neighbor records were compared by their findings, without inferring priority from date.",
+      "residual_risks": [
+        "An earlier weighted Bernoulli allocation theorem for the same smooth utility or an equivalent two-rate Laplace-transform objective may exist; the inspected statements do not establish it.",
+        "The comparisons do not certify historical priority or novelty of equal-support methods in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers an additive analogue, not this objective",
+          "evidence": [
+            "m* entries equal T/m*, all remaining entries zero, with m* maximizing m f(T/m) for identical utilities."
+          ],
+          "identifier_or_url": "https://www.egr.msu.edu/~vaibhav/papers/2012d-sb.pdf",
+          "material_read": "Corollary 5, p. 6",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Knapsack Problems with Sigmoid Utilities: Approximation Algorithms via Hybrid Optimization",
+          "trigger": "Known identical-sigmoid equal-support form"
+        },
+        {
+          "assessment": "Stated main hypotheses do not subsume the Bernoulli viability model",
+          "evidence": [
+            "The theorems assume densities on R+ and log-concavity conditions, with majorization of log a or a^q."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0910.0544 (DOI 10.3150/10-BEJ302)",
+          "material_read": "p. 2, Theorems 1 and 2 and remark, extracted offsets 5410–7641",
+          "method": "Inspected lawful alternate preprint of the identified paper after publisher route did not yield full text",
+          "title": "Some stochastic inequalities for weighted sums",
+          "trigger": "Potential dominant stochastic comparison for iid weighted sums"
+        },
+        {
+          "assessment": "Different objective and finite stake regime",
+          "evidence": [
+            "Optimizes Pr(Σw_i B_i≥t) for four stakes with a designated threshold."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-four-stake-phase-diagram-for-the-bernoulli-averaging-probl--9051b3e3ae8c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "Exact four-stake phase diagram for the Bernoulli averaging problem",
+          "trigger": "Same iid Bernoulli weighted sum and equal stakes"
+        },
+        {
+          "assessment": "Mean-crossing event, not a smooth expectation",
+          "evidence": [
+            "Treats at most five stakes in a restricted regime and compares the threshold event at p."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-five-weight-gap-for-bernoulli-mean-crossings--ed600339602a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "A sharp five-weight gap for Bernoulli mean crossings",
+          "trigger": "Close Bernoulli weighted sum extremum"
+        },
+        {
+          "assessment": "Related separable model with different support behavior",
+          "evidence": [
+            "Equal supported doses, with consecutive active sizes 1,2,…,n for h>1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "A complete active-target staircase for independent Hill inhibition",
+          "trigger": "Equal positive support and budget transitions"
+        },
+        {
+          "assessment": "Same-day related objective, distinct stochastic model",
+          "evidence": [
+            "Opposing seasonal Poisson hazards and an optimal effective season; not independent Bernoulli-viable replications."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-seasonal-concentration-threshold-for-joint-detection-of--7dcb70a6a9bc",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "A sharp seasonal concentration threshold for joint detection",
+          "trigger": "Joint detection of two taxa under an effort constraint"
+        },
+        {
+          "assessment": "Different model and no skipped intermediate support",
+          "evidence": [
+            "Concentrated below threshold and equal across two dates above, for a founder quorum."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "A single budget switch from concentrated to equal two-date introductions",
+          "trigger": "Exact abrupt support switch in a two-hit model"
+        },
+        {
+          "assessment": "Contrasting result for a different objective",
+          "evidence": [
+            "Expected viable habitats, with consecutive support activation and no skipped sizes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and primary record passage inspection",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Equal allocations and exact support activation thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof turns a coupled continuous allocation problem into an exact finite choice, while the minimal three-sample case shows that equal active efforts do not imply consecutive activation. This matters for the design decision of how many replications to use when targeting joint detection under shared failures. The strict gap and signs certify a robust local transition rather than a numerically selected tie. The value is mathematical and conditional on the model, not empirical guidance for particular taxa or assays.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

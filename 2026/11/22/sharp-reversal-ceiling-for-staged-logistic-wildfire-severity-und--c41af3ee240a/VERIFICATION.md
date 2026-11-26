@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundary checks
+# Independent mathematical audit
 
-Run `python3 checker.py` in the same directory. The script requires only the Python standard library and performs exact Fraction arithmetic: it expands both cubic denominators, checks all six rational sign brackets for three distinct negative roots, checks two exact crossover locations, checks three exact risk differences, and runs 30,000 further exact rational comparisons over one to eight stages and two-stage crossing criteria. The canonical proof of the universal theorem is in `RESULT.md`.
+## correctness
 
-The negative-root interval certificate consists of \((-16/5,-3)\), \((-2,-7/4)\), and \((-6/5,-1)\), with alternating signs at their endpoints, so the cubic has all three required real negative roots. The difference of monic denominator polynomials is \((t-1)(t-2)/50\), yielding exactly two positive crossings. The proof of arbitrary-crossing sharpness relies on existence of a sufficiently small perturbation maintaining real negative simple roots, not on floating-point root-finding.
+PASS
 
-No stochastic field fit, independent scientific validation, completeness of literature priority, or finite-sample error bound is established. A finite checker output is corroborative evidence, not an infinite-case proof.
+The chain rule gives the product without independence; finite thresholds ensure all factors are positive. For t=e^(βw)>0 the gap has the sign of Q_B−Q_A where Q_A and Q_B are monic degree-n denominators, so the degree is ≤n−1 unless they are identical, in which case the odds multisets agree. At n=1 a nonidentical pair has no finite tie. To prescribe roots r_j>0, choose distinct positive base odds and disjoint negative intervals about their negatives. With sufficiently small nonzero ε, adding ε∏(t−r_j) preserves the opposite signs at the endpoints of every interval, giving all n negative simple roots of the perturbed monic denominator. Thus the new odds are positive finite and the gap has precisely the prescribed simple zeros, also in w. For n=3, positive product z/u, positive sum −v/u and positive discriminant are exactly the two-distinct-positive-roots condition, excluding loss of degree and tangency. The cubic witness's six signs, two crossing points and risk ordering all check. Each treatment has strictly increasing risk because each positive factor strictly increases.
+
+## originality
+
+PASS
+
+The supported distinct claim is the sharp crossing-calendar theorem with unrestricted positive odds in the equal-length common-slope model. A monic polynomial difference already implies the ceiling once product form is available, and the three-stage inequalities are ordinary quadratic algebra. No verified comparison supplies arbitrary maximal simple-crossing placement for the same admissible family. Priority remains qualified.
+
+## value
+
+PASS
+
+The result isolates a falsifiable structural ceiling and gives its exact attainable complexity, separating monotone individual risks from monotone comparative rankings. Prescribing crossing locations is stronger and more useful than one example, and the cubic/quadratic test identifies the first double-reversal regime exactly. The value is as a common-slope model benchmark, not a fitted or operational claim about fire management.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

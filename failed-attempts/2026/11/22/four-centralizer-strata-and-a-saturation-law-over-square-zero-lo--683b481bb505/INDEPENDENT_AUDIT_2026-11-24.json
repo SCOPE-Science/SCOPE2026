@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:55:25.801329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtract the lower-right scalar entry to identify M₂(R)/RI with triples in R³. Two matrices commute iff the three alternating minors of their triples vanish. A nonscalar reduction supplies a unit in the triple, forcing every commuting triple to be its unique multiple, with an unrestricted scalar partner; there are q^(2d+2) such partners. For scalar reduction the triple lies in m³. Its d residue coefficient triples span a subspace of k³. The residue of a commuting triple is unrestricted when the span has rank 0, belongs to a fixed line at rank 1, and must vanish at rank at least 2. The respective tuple counts are q^d, (q²+q+1)(q^(2d)−q^d), and the complement, including the scalar coordinates of all coefficient matrices. All residue partners lift freely in this case. This gives all four distinct, occupied sizes for d≥2, without a coefficient-field assumption. Scalar–scalar residue pairs give q² q^(8d) pairs. Each other commuting residue pair has a nonscalar member; its partner is a linear combination of it and I. Choose commuting lifts and linearize: the commutator in the radical coordinates has rank 2d, so each gives q^(6d) lifts. There are q⁶+q⁵−q³−q² such residue pairs. Division by q^(8d+8) and comparison with the scalar–scalar contribution give the claimed probability and conditional rate. The frozen C++ checker and recorded output were inspected rather than executed. Its mixed-characteristic example is d=1. A separate direct-product enumeration at /workspace/branches/340f9e15-cb89-4981-91d3-5419a61b0ce0/independent_squarezero_ring_check.py (arguments 8 2) checked all 16,777,216 ordered pairs in the actual mixed-characteristic d=2 case Z/4[e]/(2e,e²), finding 606,208 commuting pairs and size multiplicities 64:3584, 512:336, 1024:168, 4096:8. That check corroborates, but is not the all-q,d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10.3, Corollary 10.4 and example (10.5) give the general similarity and diagonal tuple-conjugacy framework, not these commutant counts.",
+          "The chain-ring census covers d=1; the affine monoid and X²=0 census use the same class of coefficient rings in different problems."
+        ],
+        "reasoning": "The latter three records and the general similarity framework do not by themselves establish the nonprincipal full-ring spectrum. The decisive overlap is the specifically matched 2×2 calculation in b47fa25cabce.",
+        "searches": [
+          "Prasad–Singla–Spallone arXiv:1212.6157 §10",
+          "Resultary 2870166b051c, 5531b23a5b4d, 84eca5cc5573"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.cpp and check_output.txt",
+        "Prasad–Singla–Spallone arXiv:1212.6157",
+        "Resultary b47fa25cabce, 2870166b051c, 5531b23a5b4d, 84eca5cc5573, 1ea7432e6983"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The group proof first gives k[I,A₀] for a nonscalar A₀ and the 2d-dimensional radical kernel; the commutation condition on singular residue partners is identical and the same lifted linear combination supplies a commuting lift.",
+          "For scalar reduction the proof counts every tuple according to its full commutant algebra, using the two-dimensional nonscalar centralizers and their intersection kI. In the exceptional case any nonscalar element in the common commutant would force all coefficients into its quadratic algebra, whether or not that element is a unit."
+        ],
+        "reasoning": "Dropping the unit filters and summing the already counted classes gives the submitted table for every q,d. Its weighted sum and the automatic commutation of scalar–scalar lifts then give both probability statements. No chronological ordering of the same-day records is required for this statement-level overlap.",
+        "searches": [
+          "Resultary b47fa25cabce, Proof §§1–3, compare frozen Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GL₂ counts unit centralizers of invertible elements, not the same objects as the frozen Finding. Its proof nevertheless classifies the underlying common commutant algebras for the identical d-tuples, and scalar addition shifts any scalar-reduction class to a nonzero scalar-reduction class with identical full centralizers."
+        ],
+        "reasoning": "The full-ring and group census are not equal as numerical statements. The equivalence relevant here is the shared underlying additive centralizer calculation, with scalar shifts and the coarsening of quadratic types.",
+        "searches": [
+          "Resultary meaning search for centralizer-size and commuting-pair spectra of 2×2 matrices over square-zero local rings",
+          "Resultary b47fa25cabce, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2870166b051c contains the exact principal boundary, e.g. 6,400 pairs over Z/4.",
+          "The eight-row GL₂ table separates the three quadratic-algebra types with N_s+N_i+N_j=q²+q+1; its all-scalar tuple count is q^d and its noncommuting count is exactly q^(4d)−q^d−(q²+q+1)(q^(2d)−q^d)."
+        ],
+        "reasoning": "The overlapping tuple counts are exact formulas, not coincidental values of q or d. The full-ring table is not printed verbatim as the group table.",
+        "searches": [
+          "Exact Finding passages of Resultary b47fa25cabce and 2870166b051c"
+        ]
+      },
+      "rationale": "Distinct indexed record b47fa25cabce is stated for GL₂(R), but its Proof §§1–3 already establishes the full-matrix facts that mechanically imply this census. In its scalar-reduction rows the exact coefficient-tuple counts and the full simultaneous commutant algebras are identified before units are counted: M₂(k), a two-dimensional quadratic algebra, or kI. Replace q−1 choices of nonzero residue scalar by q, merge the three quadratic types, and replace the unit counts by q⁴, q², q, respectively; every commuting residue partner still has all q^(4d) lifts, by the same square-zero equation in §2. For every nonscalar residue (including singular ones) the cyclic argument in §1 gives the full two-dimensional commutant, and the lift αI+βA works without invertibility; retaining all residues gives exactly (q⁴−q)q^(4d) elements for the first row. The totals and concentration are direct arithmetic on the resulting census, since the scalar–scalar residue contribution is q² q^(8d). This is coverage by the indexed proof, not an assertion that the GL₂ statement alone gives ring centralizer orders, nor a priority inference from the same-day dates.",
+      "residual_risks": [
+        "Same-day timestamps do not determine priority; the decision is about documented mathematical coverage.",
+        "No implication about arbitrary higher radical powers or matrix size is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the full-ring spectrum; priority not assigned",
+          "evidence": [
+            "§1 uses the two-dimensional full commutant and an exact rank-2d radical-kernel calculation.",
+            "§3 counts all d-tuples in the same embedded quadratic algebras and gives the same exceptional count D."
+          ],
+          "identifier_or_url": "Resultary b47fa25cabce",
+          "material_read": "Local mirror RESULT.md offsets 0–6884, Finding, Assumptions and Proof §§1–4",
+          "method": "Read the table and algebra-level proof; remove the unit filters and compare the exact rows",
+          "title": "Conjugacy-class spectra over finite square-zero local rings",
+          "trigger": "Same object size, rings and centralizer stratification, but in the unit group"
+        },
+        {
+          "assessment": "Structural precursor, not explicit full-ring centralizer sizes or probability",
+          "evidence": [
+            "The zero-residue fiber is d-tuples modulo diagonal conjugation; the theorem establishes universality in k and radical dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.6157",
+          "material_read": "OA PDF §10, p. 44, offset 114700; Theorem 10.3, Corollary 10.4, example (10.5)",
+          "method": "Compare theorem and scalar-residue example",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "General nonprincipal square-zero similarity framework"
+        },
+        {
+          "assessment": "Exact overlap for d=1, outside the new nonprincipal regime",
+          "evidence": [
+            "At q=2 and length two, sizes 16,64,256 and 6400 pairs."
+          ],
+          "identifier_or_url": "Resultary 2870166b051c",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Specialize length to two",
+          "title": "Commuting-graph universality across finite chain-ring matrix algebras",
+          "trigger": "Same full-ring invariant in the principal family"
+        },
+        {
+          "assessment": "Different monoid, no such implication",
+          "evidence": [
+            "Centralizers in the affine composition monoid use the ideal generated by a−1 and b."
+          ],
+          "identifier_or_url": "Resultary 5531b23a5b4d",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Compare object and centralizer equation",
+          "title": "Centralizer spectra of finite affine monoids distinguish local-ring geometry",
+          "trigger": "Same coefficient rings and four centralizer strata"
+        },
+        {
+          "assessment": "Counts X²=0, not commuting pairs",
+          "evidence": [
+            "Counts by residue rank, including mixed characteristic."
+          ],
+          "identifier_or_url": "Resultary 84eca5cc5573",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Compare counted equations",
+          "title": "Rank-one escape and exact square-zero census over nonprincipal radical-square-zero local rings",
+          "trigger": "Same full matrix rings and radical regime"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-matrix vs. unit-group distinction is meaningful, and the full-ring conditional probability is well defined. But computing the ring census here changes only which already classified algebra elements are counted, and its asymptotic interpretation follows by summing rows and separating the automatic scalar–scalar lifts. The frozen result does not supply a substantive exact-invariant advance beyond that implication. The extra small mixed-characteristic computation corroborates the proof, but does not change that assessment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

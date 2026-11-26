@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed theorem's domain (all full-dimensional planar convex polygons, every edge-normal, fixed \(1<p<2\)) and Fourier normalization are explicit. Divergence theorem yields a uniform \(r^{-1}\) Fourier bound, hence a positive continuous radial function for \(p<2\). At an edge-normal, only one or two parallel edges contribute at order \(r^{-1}\); transversal terms and their angular changes contribute \(O(|\theta|)\), and parallel-edge cross terms are \(o(|\theta|^{2-p})\) by oscillation at distinct support heights. The self-contribution has a computable Mellin integral, with the positive coefficient shown in RESULT.md. The non-Lipschitz reciprocal cusp contradicts support-function Lipschitz regularity for any hypothetical convex star. At \(p\ge2\), nonzero diagonal facet contributions force divergence. The stand-alone checker passes four independent triangle-transform comparisons, seven asymptotic triangle tests, five asymmetric trapezoid cusp tests for two unequal parallel sides, the published square coefficient identity, and the sinc Mellin constant. The general conclusion uses the proof, not sampling.
+PASS
 
-## Originality — PASS (provisional historical priority)
+With the stated no-2pi Fourier convention, the divergence theorem gives i/r times the edge sum. Its uniform O(min(1,1/r)) transform bound gives a positive continuous finite radius for 0<p<2. In the cusp calculation, the nonparallel-edge sum is O(1/r) after factoring out i/r; its angular derivative is O(1), while the parallel-edge sum and derivative are O(1) and O(r). Thus the nonparallel terms change by O(|theta|) against r^(p-3). Opposite parallel edges have distinct support heights. Their unattenuated oscillatory integral is locally C^1 in the nonzero phase frequency by integration by parts; after subtracting its value the attenuation rescales to an L^1 kernel at frequency tending to infinity. Extending that kernel from its moving lower bound to zero introduces a lower-order term, so Riemann–Lebesgue eliminates the cross-edge cusp. The self-edge calculation with beta=2-p uses the triangular sinc-squared kernel and integrates to pi*2^beta/[Gamma(3+beta)sin(pi beta/2)]; rescaling by ell/2 and multiplying by p/A gives the stated additive coefficient. Taylor expansion gives the reciprocal radius, whose exponent below one is incompatible with a Lipschitz polar support function. At p>=2 the nonoscillatory positive sum of squared facet lengths produces a divergent diagonal radial integral at each facet normal; the oscillatory cross and the O(r^-2) Fourier remainder have lower growth order. The conclusion there is unboundedness, not a blanket nonconvexity claim. LMZ Theorem 9 supplies the p<=1 result in the same convention. Frozen VERIFICATION.md and check.py were inspected, not executed; their triangle/square/trapezoid checks are corroborative, not the proof.
 
-The nearest inspected article (Langharst–Manui–Zvavitch, arXiv:2601.20117v3) proves convexity for \(0<p\le1\), establishes nonconvexity of cubes for \(1<p<2\), and proves noncompactness of those cubes at \(p\ge2\). Its main theorem and Section 7.2 do **not** state the arbitrary-polygon cusp coefficient or nonconvexity of triangles and polygons without parallel sides. Published indexed related results address cube-coordinate divergence or Fourier-mean phases for smooth quartic disks; neither implies the all-polygon theorem. Searches of relevant aliases found no stronger matching assertion. This is a best-knowledge comparison, not proof of historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The original paper asks when Fourier mean bodies are convex and proves sharpness through a single square family. The result replaces one counterexample by a structural **no-polygon** result across an entire natural shape class, with a universal fractional exponent and a local coefficient recovering the lengths of edges parallel to a given normal. It makes a clean geometric distinction between cornered and smooth input shapes and provides a quantitative obstruction (failure of Lipschitz gauge regularity) stronger than exhibiting a negative-curvature point. This is neither a name change nor a numerical refinement of a known square constant.
+The supported distinct claim is the finite-radius facet-normal defect for all planar convex polygons for fixed 1<p<2, with exact additive length coefficient, implying nonconvexity for all such polygons. The square formula, the p<=1 convexity theorem, and known square/cube directional divergence are not credited as new. The neighboring same-day Resultary entry has materially overlapping methods and boundary geometry but its stated horn laws cover different exponents; its unattributed remark about earlier cusp work does not establish a separate equivalent source or priority.
 
-## Closest literature and limitations
+## value
 
-The strongest directly relevant prior result is Section 7.2 of arXiv:2601.20117v3, whose square coefficient is an exact consistency check. Theoretical Fourier decay estimates and more recent cube/rounded-body examples do not furnish the universal polygonal cusp. Possible unseen historical equivalents and general higher-dimensional variants remain open priority risks. The result does not claim classification of smooth bodies or an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem turns the earlier square counterexample into a universal obstruction for polygons and supplies a reusable local invariant: the leading reciprocal-radius defect at any given facet normal is determined by a precise sum of the facet lengths to a specific power. The computation handles unequal opposite edges without assuming symmetry and gives a regularity-based reason for failure of convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

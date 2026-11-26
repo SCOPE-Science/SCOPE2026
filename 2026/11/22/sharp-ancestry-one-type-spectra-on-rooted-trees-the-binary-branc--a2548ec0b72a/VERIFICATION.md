@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the attached Python 3 standard-library checker from the extracted artifact directory:
+## correctness
 
-```sh
-python3 checks/verify_tree_types.py
-```
+PASS
 
-It checks the exact four-way equality/ancestor/descendant/incomparable signature of each vertex against every choice of distinct parameters in every labelled rooted tree of orders two through six (enumerated via Prüfer words), including the external bound \(3m\) and global bound \(4m\). It also generates binary and path witnesses for each \(m=1,\ldots,12\), testing their counts and the binary outdegree restriction. The expected terminal line starts with `VERIFY_OK`.
+Equality and the two directed strict-ancestry comparisons with each mark determine a type. The nonempty descendant-mark supports are laminar, giving at most 2m−1; equal nonempty supports put their vertices on one path to a shared mark, and no mark between the vertices can change their ancestor profile without changing the support. With empty support the deepest marked ancestor, or its absence, selects at most m+1 further signatures. The equality case saturates both counts: the support family contains all singletons and the whole set and its inclusion tree is full binary. Singleton supports force pairwise incomparable marks, so the remaining types require exactly an unmarked strict descendant for each mark and an unmarked vertex incomparable with all marks. Attaching mark-terminal pairs at the hierarchy leaves and one extra offshoot realizes all profiles in 4m vertices of outdegree at most two, including m=1; fewer vertices cannot realize 4m types. On a path the m+1 gaps and m marks are attained by alternation. Conjunctions isolate individual type classes, and arbitrary unions give exactly 2^t definable sets.
 
-The proof for arbitrary sizes is in `RESULT.md`; the finite checks neither verify all infinite parameter values nor establish novelty. No independent audit has been performed.
+## originality
+
+PASS
+
+The classical laminar bound and familiar tree representations are not claimed as new. The precise strict-ancestry signature count, simultaneous extremizers and equality criterion are distinct from the closest inspected results, including distinct same-day catalogue records.
+
+## value
+
+PASS
+
+The quantitative drop from binary trees to paths and the exact equality conditions identify which parts of a rooted tree are distinguishable by unary formulas over named vertices. The spectrum is useful for exact type and definability bounds, and least-order attainment and joint saturation add structural information beyond applying a laminar-family inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

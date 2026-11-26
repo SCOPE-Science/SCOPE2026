@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:19.486714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–29",
+        "Frozen VERIFICATION.md, verify.py, verify_independent.cpp and representatives.csv",
+        "/workspace/review_evidence/4.py (independent replay)"
+      ],
+      "rationale": "Independently reconstructed the 15 duads and all triples of duads covering the six symbols, making the 30-vertex cubic incidence graph. In the independent census, every matching corresponds to one injective sequence of adjacent synthemes in fixed duad order. Every complementary component is a cycle because all degrees are 2. Enumerating every pair of disjoint matchings and taking the edge-set remainder gives all unordered factorizations: the remainder has degree 1 at every vertex, and unordered triples are deduplicated. Reproduced 288 matchings with 144 of each profile (30) and (10,20), 144 distinct factorizations each with one (30) and two (10,20) complements, and incidences one and two respectively. Each factorization has exactly 3! distinct color-name assignments. Also enumerated the entire automorphism group independently of the packaged duality: the search tries every unassigned image at the correct distances to prior images; any automorphism satisfies this condition, and at a complete map it forces injectivity and preserves adjacency (distance one). The graph is connected. Obtained 1440 automorphisms (720 preserving the shores), which give two matching orbits with the stated profiles and one factorization orbit of size 144, so its stabilizer has order 10. Inspected both packaged verifiers and the representative CSV without executing any packaged code. Independent exact replay: python3 /workspace/review_evidence/4.py.",
+      "residual_risks": [
+        "The exhaustive finite proof is for the fixed incidence graph only; it does not certify a family of graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dejter's Example 4 concerns an obstruction in a prism of the Tutte 8-cage, not all ordinary edge-colorings of the base cage.",
+          "The November 8 record gives transitivity already for the natural S_6 subgroup and an order-5 stabilizer there."
+        ],
+        "reasoning": "S_6-transitivity implies full-group transitivity and (with group order 1440 and orbit size 144) the full stabilizer order 10. This is stronger later indexed coverage on the factorization action, not an identified antecedent. The prism result does not imply the census on the cage.",
+        "searches": [
+          "Dejter, Tight factorizations of girth-g-regular graphs, Example 4",
+          "Resultary: 2026/11/8/SCOPE-sylow-five-stabilizers-classify-the-tait-colouring-kempe-sectors--c9f8955e6478"
+        ]
+      },
+      "checked_sources": [
+        "Balasubramanian, Table 1",
+        "Garcia, §4",
+        "Dejter, Example 4",
+        "October 25 and November 8 Resultary records",
+        "Frozen RESULT.md, lines 31–44"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting 144 Hamilton cycles from 288 matchings gives 144 non-Hamiltonian complements, with no cycle profile for them.",
+          "With the full cycle-type census, alternation around each complement cycle gives 144·2+144·4 named colorings, and 2^(c−1) factorizations incident with a matching with c complement cycles.",
+          "The November 8 subgroup transitivity and unique Hamiltonian pair also imply transitivity on the distinguished Hamiltonian-complement matchings. The inspected Finding does not give the two matching orbits as such."
+        ],
+        "reasoning": "The older scalar results neither determine how many cycles each remaining complement has nor ensure one Hamiltonian pair in each coloring. Even the new total counts would only force the average of one such pair per factorization; the universal property requires a factorization-level argument. The later indexed evidence is credited separately from priority.",
+        "searches": [
+          "Balasubramanian Table 1",
+          "Garcia arXiv:2609.04686v1 §4",
+          "October 25 and November 8 Resultary Findings above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garcia counts Hamilton cycles; in a cubic graph their complements are precisely the matchings of profile (30).",
+          "Named Tait colorings are ordered factorizations, and dividing by 3! identifies the unordered objects. The November 8 catalogue Finding gives the same counts and Hamiltonian-pair profile."
+        ],
+        "reasoning": "The scalar Hamiltonian count is equivalent to one of the matching-type counts but not to a statement about the coloring orbits or all three complements within each coloring. The later Tait-coloring record is a statement-level overlap.",
+        "searches": [
+          "Tutte–Coxeter / Tutte 8-cage / duad–syntheme one-factorizations and Tait colorings",
+          "Garcia arXiv:2609.04686v1, §4",
+          "Resultary: 2026/11/8/SCOPE-sylow-five-stabilizers-classify-the-tait-colouring-kempe-sectors--c9f8955e6478"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1's signed constant coefficient −288 gives 288 perfect matchings, also stated explicitly on p. 12.",
+          "The October 25 Finding gives 144 matchings of each of profiles (30) and (10,20) in a study of the octagon-flip graph, not the orbit classification under graph automorphisms.",
+          "The November 8 Finding gives 144 unordered factorizations and 864 named colorings with the same one-versus-two profile."
+        ],
+        "reasoning": "The matching-polynomial table counts by matching size, not by cycles of the complement. The later two index hits are significant exact coverage of parts of the frozen result, but not evidence for an earlier census.",
+        "searches": [
+          "Balasubramanian, DOI 10.3390/sym17010133, Table 1 and p. 12",
+          "Resultary: 2026/10/25/SCOPE-hamiltonian-union-antipodes-in-the-tutte-coxeter-octagon-flip-gr--2d0e450ce331",
+          "Resultary: November 8 Tait-coloring record"
+        ]
+      },
+      "rationale": "Earlier inspected literature reports the scalar perfect-matching and Hamilton-cycle counts, so neither those counts nor the residual count 144 non-Hamiltonian complements is distinct. The supported contribution at the frozen record is the actual non-Hamiltonian cycle profile and the matching and factorization orbit classification, including the universal one-Hamiltonian-pair property. Later catalogue findings overlap on the cycle profile and much of the factorization classification; this equivalence is real, not a claim of independent derivation or earlier priority.",
+      "residual_risks": [
+        "An older classification under an alternate incidence-geometry name may exist. The unavailable Baez text was not treated as a negative result.",
+        "The relationship between the overlapping later records and the frozen classification is not established by the passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of total perfect matchings, not complement structure",
+          "evidence": [
+            "Matching polynomial signed constant coefficient −288; text reports 288 perfect matchings."
+          ],
+          "identifier_or_url": "DOI 10.3390/sym17010133",
+          "material_read": "Table 1, PDF p. 10 (offset 38600); explicit statement p. 12 (offset 47200)",
+          "method": "OA publisher PDF passage",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Exact scalar matching table"
+        },
+        {
+          "assessment": "Direct coverage of (30)-complement count via cubic complementation",
+          "evidence": [
+            "Reports 144 Hamilton cycles and uses them for a question about 8-cycles, not one-factorization profiles."
+          ],
+          "identifier_or_url": "arXiv:2609.04686v1",
+          "material_read": "§4, Proposition 4.1 discussion, HTML offset 13880",
+          "method": "OA arXiv full-text passage",
+          "title": "Small graphs without power-of-two cycles: a lower bound of 24, a correction to a construction of Exoo, and explicit bounds for f(k)",
+          "trigger": "Exact Hamilton-cycle count and potential structural classification"
+        },
+        {
+          "assessment": "Different graph and an obstruction, not this counting theorem",
+          "evidence": [
+            "The example involves a prism of the cage."
+          ],
+          "identifier_or_url": "https://pisrt.org/psrpress/j/odam/2025/3/tight-factorizations-of-girth-g-regular-graphs-aut.pdf",
+          "material_read": "Example 4, PDF p. 13, offset 44000",
+          "method": "OA journal PDF passage",
+          "title": "Tight factorizations of girth-g-regular graphs",
+          "trigger": "Same cage in related edge-coloring work"
+        },
+        {
+          "assessment": "Later exact coverage of complementary cycle spectrum, different main classification",
+          "evidence": [
+            "144 matchings of each complementary profile; flip-distance six iff symmetric difference is a Hamilton cycle."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-hamiltonian-union-antipodes-in-the-tutte-coxeter-octagon-flip-gr--2d0e450ce331",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local-mirror full-text passage",
+          "title": "Hamiltonian-union antipodes in the Tutte–Coxeter octagon-flip graph",
+          "trigger": "Same perfect matchings and complementary cycles"
+        },
+        {
+          "assessment": "Later substantial overlap and subgroup strengthening",
+          "evidence": [
+            "144 factorizations, S_6-transitive, with one Hamiltonian and two (10,20) color pairs in each."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sylow-five-stabilizers-classify-the-tait-colouring-kempe-sectors--c9f8955e6478",
+          "material_read": "RESULT.md Finding and comparison, offsets 0 and 3482",
+          "method": "Resultary and local-mirror passages",
+          "title": "Sylow-five stabilizers classify the Tait-colouring Kempe sectors",
+          "trigger": "Same Tait colorings, profiles and orbit questions"
+        },
+        {
+          "assessment": "Not used to rule out coverage",
+          "evidence": [
+            "The frozen record credits the article for the construction and symmetry; this was not independently substantiated from the page."
+          ],
+          "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/08/15/tutte-coxeter-graph/",
+          "material_read": "No primary page text recovered",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Tutte–Coxeter Graph",
+          "trigger": "Graph construction and symmetry antecedent cited in frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Independent exhaustive replay",
+        "Prior scalar tables and later Tait-coloring comparison"
+      ],
+      "rationale": "A natural complete classification of color-pair cycle profiles and equivalence classes for a canonical cubic cage. It determines exactly what complement structures a matching or coloring can exhibit, and shows a Hamiltonian pair is forced and unique in every coloring; the old scalar counts do not give this constraint. This supports precise comparisons of decompositions and symmetry actions without requiring a large-family extrapolation.",
+      "residual_risks": [
+        "The finite classification does not assert a principle for other cages or determine all reconfiguration structures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The four normal vectors can be reoriented to obey a positive linear dependence. They span a Euclidean tetrahedron containing the origin, whose four radial spherical triangular facets total \(4\pi\). Four opposite-sign spherical cells are the spherical polars of these facets, with area exactly \(2\pi\) minus the facet perimeter. The critical area/perimeter inequality is derived, not assumed: L'Huilier's formula and the strict tangent-product pair-averaging identity prove equilateral optimality at fixed perimeter. At area \(\pi\), the sharp perimeter is \(3\arccos(-1/3)\). Equality in every step forces a regular tetrahedron. The equal-angle construction has eight minimal triangles and six larger quadrilaterals. The packaged standard-library checker confirms 541 generic arrangements and 3,000 averaging instances; it is corroboration, not an infinite proof.
+## correctness
 
-**Originality: PASS, with historical-priority risk.** The motivating 2026 paper defines \(H(n)\) but establishes an asymptotic bound, without exact \(H(4)\) or a four-circle equality class. Bezdek–Lángi discuss the identical 14-cell configurations, but their sharp objective is smallest *inradius*, which does not fix the smallest cell *area*. Existing tetrahedral-cap multiplicity and covering papers give related values for a fixed tetrahedral configuration or its covering radius, but not a universal min-cell area bound. published-finding corpus queries including aliases and implication comparisons, published-text searches found no stronger coverage. Older unindexed work remains a real uncertainty.
+PASS
 
-**Mathematical value: PASS.** The first nontrivial finite order of a motivated great-circle min-cell extremal problem receives a complete sharp answer, including all equality configurations and the full cell-area pattern at equality. It does not rely on a contrived parameter or merely re-evaluate a known table; the polar tetrahedron converts a global optimization into a sharp four-triangle inequality.
+General position gives a unique dependence with no zero coefficients. Reorienting makes all its coefficients positive and puts the origin in the interior of the normal tetrahedron. The map to dot products identifies sign regions with the intersections of the dependence hyperplane and mixed orthants. A section of each such cone by setting the weighted sum of its positive coordinates to 1 is a product of two simplices (the negative sum is then -1). This gives exactly eight triangles and six quadrilaterals. The four projected tetrahedron facets F_i tile the sphere; in each one-versus-three cell the single opposite sign inequality is redundant, giving the polar triangle of F_i with angles pi minus the corresponding side lengths. Its area is 2pi minus the facet's spherical perimeter. Each facet is a nondegenerate triangle in an open hemisphere; its perimeter is strictly below 2pi by applying the triangle inequality through an antipode of its third vertex. In L'Huilier's formula at fixed semiperimeter, pair smoothing strictly increases the tangent product when the two coordinates differ: (X-C)/(X+C) increases with X=cos((x-y)/2) because C=cos((x+y)/2)>0. Thus only the equilateral triangle maximizes area at fixed perimeter. Its area is increasing in side length and is pi at alpha=arccos(-1/3). At least one projected facet has area >=pi, hence perimeter >=3alpha and polar area <=2pi-3alpha. Equality forces every facet perimeter <=3alpha and area <=pi, so all four areas equal pi and all facets are equilateral. The resulting Gram matrix determines the tetrahedral normals up to isometry. Conversely, tetrahedral symmetry makes the six quadrilaterals congruent, of area 4alpha-2pi, larger than the triangle area since alpha>4pi/7. This checks the bound, attainment, cell counts and all equality cases. RESULT.md lines 15–72 are decisive; the reconstruction checker was inspected, not run, and its tolerance-based sampling is not needed for any universal claim.
 
-**Closest sources and limitations.** Bhowmick, arXiv:2611.15244v1 (2026); Bezdek and Lángi, arXiv:2201.11234 (2022); the published tetrahedral-cap multiplicity result (2026-10-25); MathWorld's L'Huilier identity. The finding covers exactly four distinct circles with no triple concurrence and has no extension to \(n\ge5\). Historical priority is provisional; no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected evidence, credit only the unrestricted general-position maximin area value and tetrahedral rigidity. Previous or related calculations of the same tetrahedral cell areas do not optimize the smallest area over arbitrary arrangements. The inspected literature and catalogue claims do not give that optimization by a change of variable or immediate consequence.
+
+## value
+
+PASS
+
+This is an exact low-order case of an existing natural extremal area function, not a chosen parameter slice to fit the example. The strict polar-facet obstruction proves both the sharp number and the unique optimizer; knowing just the tetrahedral example or a different extremal statistic would not answer either global question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

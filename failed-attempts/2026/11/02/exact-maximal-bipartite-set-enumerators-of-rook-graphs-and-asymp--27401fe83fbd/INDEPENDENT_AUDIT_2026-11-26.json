@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:53:06.393688Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49; VERIFICATION.md; verify.py",
+        "/workspace/audit-evidence/replay.py, rec3; run with argument 3"
+      ],
+      "rationale": "Selected cells are edges in a complete bipartite incidence graph. Occupancy >=3 gives a rook triangle; if every incidence degree is at most two the components are paths/even cycles, whose line graphs are bipartite. For maximality, any row and column both of degree <=1 must already meet in a selected cell. If both deficient classes are nonempty this forces exactly one of each, both of degree one at the common cell, and 2m-1=2n-1. Otherwise a whole shore is of degree two, necessarily the smaller shore on a rectangle. The independent labeled-column monomials thus count exactly the rectangular class. On a square the two classes consist of a spanning simple bipartite two-factor, or an isolated selected incidence at one of r^2 pairs plus a two-factor on the remaining board. Alternating cycles on j specified labels on each shore number (j!)^2/(2j) for j>=2, giving the claimed exponential function, the r=2 exception (A_1=0) and both sizes for r>=3. For a_r=A_r/(r!)^2, the singular expansion gives a_r=e^(-1/2)(pi r)^(-1/2)(1-3/(8r)+O(r^-2)); the next coefficient transfer is valid for the analytic remainder multiplying (1-t)^(3/2). Dividing consecutive terms and using a_{r-1}/(a_r+a_{r-1}) yields 1/2+1/(8r)+O(r^-2) for uniform sampling of labeled sets. An independent six-board replay of graph maximality, two-colorability and the coefficient counts matched both boundary and nontrivial cases, including B_3,4=114z^6 and B_4,4=96z^7+90z^8.",
+      "residual_risks": [
+        "Finite board checks do not prove the all-order claim or the asymptotic.",
+        "The probability concerns uniform labeled sets, not greedy generation or unlabeled orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md explicitly credits Bachstein–Goddard with the 2-matching reduction and size support; their actual full text was not available on the tested routes",
+          "The other inspected primary passages address general listing/count bounds or equal-size maximal sets and Cartesian products"
+        ],
+        "reasoning": "The qualitative structural overlaps and the general listing framework are not themselves evidence of an exact coefficient formula. The separate exact Resultary comparison is decisive independently of the inaccessible observations.",
+        "searches": [
+          "Bachstein–Goddard DOI 10.1556/314.2023.00003 Observations 13–14",
+          "Goddard–Kuenzel–Melville arXiv:1909.07503",
+          "Madsen–Nielsen–Skjernaa DOI 10.7146/brics.v9i17.21735"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5aee7013f56e, 8ffed337f09d, 4f59f40e97e0, 45da9f177f4a",
+        "arXiv:1909.07503, BRICS RS-02-17",
+        "Frozen RESULT.md attribution to Bachstein–Goddard"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalizing the two square terms by (r!)^2 gives a_r and a_{r-1}",
+          "The common EGF has leading singularity e^(-1/2)(1-t)^(-1/2) and a full expansion in powers of 1-t"
+        ],
+        "reasoning": "Standard coefficient expansion through r^-3/2 gives a_{r-1}/a_r=1+1/(2r)+O(r^-2). Substitution into the two-class probability gives the frozen correction directly. No additional classification or probabilistic input is needed, even though an explicit statement of that probability in the comparison record was not identified.",
+        "searches": [
+          "5aee7013f56e square coefficients",
+          "8ffed337f09d exact two-factor EGF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5aee7013f56e gives B_n z^(2n)+n^2 B_{n-1} z^(2n-1) on squares and F_{m,n} z^(2m) on rectangles using paths and even cycles"
+        ],
+        "reasoning": "The edge/cell bijection preserves labels, size and one-addition maximality. The paths and cycles of its rectangular encoding and the column subsets here each describe the same saturated smaller-shore edge sets, so F_{m,n} equals the stated monomial coefficient.",
+        "searches": [
+          "Resultary: maximal induced bipartite rook enumerators; maximal row/column-cap-two binary matrices",
+          "5aee7013f56e Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ffed337f09d gives (q!)^2[t^q]e^(-t/2)/sqrt(1-t) for the same simple two-factors, exactly A_q",
+          "4f59f40e97e0 permits matrix entries equal to 2 and has e^(t/2) rather than e^(-t/2)",
+          "45da9f177f4a displays a 1/(8m) correction for a last-visited-part random-walk event, not uniform maximal sets"
+        ],
+        "reasoning": "The first source exactly covers one coefficient and the EGF; the multigraph and random-walk objects are not equivalent despite a related formula or a coincident numerical correction.",
+        "searches": [
+          "Resultary: labeled bipartite two-factors, square rook maximum three-independent sets",
+          "Resultary 8ffed337f09d, 4f59f40e97e0 and 45da9f177f4a"
+        ]
+      },
+      "rationale": "The complete labeled rectangular and square enumerators are already covered as exact claims by distinct Resultary record 5aee7013f56e. Its equivalent path-and-cycle enumeration changes the form, not the coefficients. The first probability correction was not located verbatim there, but follows mechanically from the exact square coefficients and their classical generating function. The index establishes overlap and implication, not historical priority.",
+      "residual_risks": [
+        "Bachstein–Goddard full text was not accessible on the tested lawful routes; search limitations are not evidence of absence.",
+        "Same-day and later indexed paths do not establish discovery priority or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete enumerator",
+          "evidence": "Same two polynomial coefficients on squares, same saturated smaller-shore class on rectangles, explicit alternate encoding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-induced-bipartite-subgraphs-of-rook-graphs-an-exact-face--5aee7013f56e/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–3035 and 3035–5741",
+          "method": "Local Resultary mirror",
+          "title": "Maximal induced bipartite subgraphs of rook graphs: an exact face enumerator",
+          "trigger": "Exact same labeled invariant on rectangles and squares"
+        },
+        {
+          "assessment": "Same A_q only",
+          "evidence": "Same labeled simple two-factor generating function; studies maximum three-independent sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-independent-rook-graph-polynomials-and-bipartite-two-facto--8ffed337f09d/RESULT.md",
+          "material_read": "Finding offsets 840–1060",
+          "method": "Local Resultary mirror",
+          "title": "Three-independent rook graph polynomials and bipartite two-factors",
+          "trigger": "Exact degree-two matrix coefficient"
+        },
+        {
+          "assessment": "Does not cover the simple-matrix coefficient",
+          "evidence": "Counts nonbinary integer entries up to 2, permitting doubled incidence edges.",
+          "identifier_or_url": "Resultary 4f59f40e97e0",
+          "material_read": "Proof offsets 2907–5451",
+          "method": "Local Resultary mirror",
+          "title": "Perfect double Italian domination of square rook graphs",
+          "trigger": "Row and column sums equal two"
+        },
+        {
+          "assessment": "Different probability law",
+          "evidence": "Last visited part under a random walk and coupon-collector dynamics, not uniform sampling of maximal bipartite sets.",
+          "identifier_or_url": "Resultary 45da9f177f4a",
+          "material_read": "Finding offsets 0–3000",
+          "method": "Local Resultary mirror",
+          "title": "Last-vertex laws on complete bipartite random walks",
+          "trigger": "Same first numerical bias"
+        },
+        {
+          "assessment": "Unresolved source-level limit; not relied on for exact-coverage finding",
+          "evidence": "Frozen RESULT.md lines 27 and 31 credit the incidence equivalence and size support.",
+          "identifier_or_url": "https://doi.org/10.1556/314.2023.00003",
+          "material_read": "Frozen attribution only; Observations 13–14 not accessible in primary full text",
+          "method": "DOI full text attempted via available routes; no accessible lawful repository copy identified",
+          "title": "The Lower Bipartite Number of a Graph",
+          "trigger": "Attributed matching reduction and rook size support"
+        },
+        {
+          "assessment": "Related qualitative invariant in inspected passages",
+          "evidence": "Equal cardinality of maximal induced bipartite sets, not their counting polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.07503",
+          "material_read": "Opening definition and product discussion, extracted offsets 878–1169 and 4003",
+          "method": "OA primary PDF passages",
+          "title": "Graphs in which all maximal bipartite subgraphs have the same order",
+          "trigger": "Well-bicovered graphs and Cartesian products"
+        },
+        {
+          "assessment": "General bounds/listing rather than an exact rook coefficient in inspected material",
+          "evidence": "General algorithms and bounds for sets of maximal bipartite subgraphs.",
+          "identifier_or_url": "https://doi.org/10.7146/brics.v9i17.21735",
+          "material_read": "Introduction, PDF p. 4, extracted offset 4636 onward",
+          "method": "OA primary PDF passage",
+          "title": "On the Number of Maximal Bipartite Subgraphs of a Graph",
+          "trigger": "General counting and listing of maximal induced bipartite subgraphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§3–5",
+        "Resultary 5aee7013f56e and 8ffed337f09d"
+      ],
+      "rationale": "Maximal-set multiplicities are a natural refinement of the lower bipartite number, but the exact multiplicities here have equivalent coverage. The ostensible residual new item is only the first term of an immediate adjacent-coefficient ratio of the same classical series. The correction is not an independent asymptotic phenomenon or a substantive repair to the covered claim.",
+      "residual_risks": [
+        "This does not rule out worthwhile distribution results for other samplers or graph families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

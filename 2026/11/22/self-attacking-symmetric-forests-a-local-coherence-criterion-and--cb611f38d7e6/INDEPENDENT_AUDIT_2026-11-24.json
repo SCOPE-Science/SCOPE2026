@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:26.206909Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–51; independently reconstructed component argument and two-type run enumerator",
+        "Frozen verify.py and VERIFICATION.md, inspected transfer and finite-case scope; recorded checks were not rerun",
+        "Independent exact rational inversion of the 2×2 kernel and series expansion, plus numerical roots/residue"
+      ],
+      "rationale": "Conflict-free sets are independent sets on U; every distinct attacker is attacked back, so they are all admissible. A stable set is necessarily maximal conflict-free, so it suffices to determine when every maximal independent set hits each marked neighborhood. A vertex of G[U] belongs to every maximal independent set iff isolated (otherwise extend a neighbor to a maximal independent set). For any fixed marked s, its unmarked neighbors are in different components of G[U], by acyclicity. If none is isolated one can choose independent-set extensions omitting the corresponding neighbor separately in each component and combine them to miss s. Conversely any isolated unmarked neighbor is included in all preferred sets. This handles empty neighborhoods and the empty forest. Independently recovered the all-length path series by runs: each 1 needs a neighboring singleton zero-run, so a 1-run of length one requires at least one adjacent singleton, a 1-run of length two requires both, and longer 1-runs are impossible. With zero-run types singleton/other, the 1-run weight matrix W has rows (t+t²,t) and (t,0); internal zero-run weights are Z=diag(t,t²/(1−t)) and end weights e=(t,1+t²/(1−t)). Then 1/(1−t)+e^T W(I−ZW)^{-1}e (including all-zero words) cancels exactly to the claimed numerator and denominator; exact series expansion recovered all thirteen displayed terms and yields the stated recurrence. The transfer has a unique cyclic strongly connected component with a self-loop, hence a spectrally unique simple positive PF root; its row sums are at most two and some inside the core are strictly less, giving λ<2. The polynomial changes sign between 1 and 2, so ρ=1/λ<1 and the numerator is positive there. The simple-pole coefficient and root were independently evaluated as 0.98314236892756006 and 1.54990607259428293 respectively (numerical approximations), confirming the exponential fraction and the constants.",
+      "residual_risks": [
+        "The local equivalence is proved for the symmetric forest class only; isolated-neighbor necessity does not extend automatically to cyclic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Liu's inspected agreement theorems assume no self-defeating arguments and give sufficient conditions",
+          "The Andrews–San Mauro journal paper was inaccessible via DOI and publisher routes"
+        ],
+        "reasoning": "A sufficiently general theorem valid with self-attacks needs a specialization check; the inspected Zhang–Liu statements instead exclude the relevant marked instances and are not an iff path enumeration. No broader covering claim was verified in the inaccessible paper.",
+        "searches": [
+          "Zhang–Liu arXiv:2610.30176v1, Fundamental Theorem 16 and Theorem 18",
+          "Andrews–San Mauro DOI 10.1093/logcom/exag036"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and same-day path diversity comparison",
+        "Zhang–Liu v1, Theorems 16 and 18",
+        "Survey Proposition 5.15",
+        "OEIS A253412",
+        "Andrews–San Mauro DOI access attempts and frozen attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survey and inspected agreement theorems impose loopless hypotheses",
+          "The loopless ordered-pair census contains no variables for marked self-loops or their universal hitting constraints"
+        ],
+        "reasoning": "Neither the stated sufficient conditions nor the known path enumerator implies the component-wise iff for arbitrary marks or its generating function. The claimed novelty is the forest specialization's local condition and the resulting path census, not the familiar loopless equality.",
+        "searches": [
+          "Survey Proposition 5.15; Zhang–Liu Theorems 16 and 18; Resultary b542a4289c17, Finding/Assumptions/Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric loopless agreement is Proposition 5.15 in Abstract Argumentation Frameworks and Their Semantics",
+          "Frozen record attributes the symmetric preferred=naive reduction with loops to Andrews–San Mauro, Lemma 20; independent OA retrieval did not verify the full text"
+        ],
+        "reasoning": "After the preferred=naive reduction, the mathematical formulation is that every maximal independent set of the unmarked forest hits each marked vertex's unmarked neighborhood. The reduction alone only identifies the family and does not state which markings satisfy the universal hitting property or count them.",
+        "searches": [
+          "symmetric argumentation frameworks with self-attacks, preferred=naive, stable/preferred agreement",
+          "Resultary symmetric forest self-loops, coherence and path markings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b542a4289c17 gives a rational bivariate enumerator of ordered pairs of stable extensions by symmetric-difference distance on loopless bidirected paths",
+          "OEIS A253412 begins 1,1,2,2,4,4,7; the submitted marking census begins 1,1,3,3,6,9,13"
+        ],
+        "reasoning": "The same-day Resultary record is distinct and was compared regardless of its date. It enumerates extensions in a fixed loopless framework, not frameworks with marks. The OEIS sequence concerns minimal dominating sets; both its counted predicate and its coefficients differ.",
+        "searches": [
+          "Resultary: bidirected paths stable extensions / preferred–stable agreement / self-loop marking census",
+          "OEIS A253412 as a binary-word path comparator"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-markings forest iff and the exact path marking census. The reduction of preferred extensions to maximal conflict-free sets under symmetry is not credited as new, and loopless coherence is known. The closest retrieved path record concerns a distinct counting object. Lack of journal full text leaves a genuine priority caveat, not evidence of noncoverage.",
+      "residual_risks": [
+        "Andrews–San Mauro inaccessible in full; broader overlapping statements cannot be ruled out.",
+        "An equivalent binary-word or independent-domination formulation may be indexed elsewhere; the searches are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known loopless case",
+          "evidence": "The asserted coincidence with maximal conflict-free sets assumes symmetry and no self-defeating arguments.",
+          "identifier_or_url": "https://www.martincaminada.net/publications/HOFA_semantics.pdf",
+          "material_read": "Proposition 5.15, PDF pp. 229–230 (text near offset 193700)",
+          "method": "OA PDF statement inspection",
+          "title": "Abstract Argumentation Frameworks and Their Semantics",
+          "trigger": "Known symmetric framework agreement"
+        },
+        {
+          "assessment": "Does not supply the claimed marked-forest iff in these statements",
+          "evidence": "The inspected theorems exclude self-defeating arguments.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30176v1",
+          "material_read": "Abstract and Fundamental Theorem 16/Theorem 18, PDF pp. 9–11, near text offset 28600",
+          "method": "OA PDF statement/hypothesis inspection",
+          "title": "When Stable and Preferred Semantics Agree: A Path-Based Approach",
+          "trigger": "Broader agreement criteria"
+        },
+        {
+          "assessment": "Priority limitation; reduction credited conservatively",
+          "evidence": "No independent negative conclusion about the full paper; the submitted result itself credits the reduction.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exag036",
+          "material_read": "Frozen record's attribution to Lemma 20; independent full text unavailable",
+          "method": "Lawful OA DOI and journal retrieval attempts; attribution distinguished from direct inspection",
+          "title": "Complexity in infinite argumentation with structural constraints",
+          "trigger": "Symmetry reduction with self-attacks"
+        },
+        {
+          "assessment": "Different sample space and statistic",
+          "evidence": "Ordered pairs of stable extensions in loopless paths are counted by distance, not coherent self-loop markings.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-the-ordered-stable-extension-diversity-polynomial-of-bidirected--b542a4289c17",
+          "material_read": "Local-mirror Finding/Assumptions/Proof §§1–3; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror inspection",
+          "title": "The ordered stable-extension diversity polynomial of bidirected paths",
+          "trigger": "Closest distinct catalogue statement"
+        },
+        {
+          "assessment": "Different count",
+          "evidence": "Minimal dominating sets have third term 2 rather than 3; the marked-framework count is not this sequence.",
+          "identifier_or_url": "https://oeis.org/A253412",
+          "material_read": "Definition, initial coefficients and generating function",
+          "method": "OA webpage inspection",
+          "title": "Number of n-bit legal binary words with maximal set of 1s",
+          "trigger": "Potential exact path sequence alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; independently recovered condition and path series; compared with known loopless-semantic reduction and path extension enumeration"
+      ],
+      "rationale": "The condition gives a linear-time test of agreement of the entire extension families on a standard sparse class without enumerating extensions. The path census is a natural all-length measure of robustness to self-attacks, with a non-obvious exact exponential rate and leading constant. It is not merely a different notation for counting extensions of a fixed path.",
+      "residual_risks": [
+        "Value is in this scoped local criterion and exact census, not in a classification of general argumentation frameworks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

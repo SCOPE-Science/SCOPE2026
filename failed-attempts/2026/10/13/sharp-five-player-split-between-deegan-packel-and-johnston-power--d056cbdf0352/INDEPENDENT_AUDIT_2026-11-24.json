@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:23:26.993160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof",
+        "Frozen VERIFICATION.md and verify_dp_johnston_proper_first_layer.py (read, not executed)",
+        "Independent truth-table replay dp_johnston_pair_trit_replay.py and replay_n5_classes.out"
+      ],
+      "rationale": "Properness is equivalent to prohibiting both elements of every complementary coalition pair from winning. The independent exact replay assigns neither/one/the other winner to each such pair, fixes the grand coalition as winning and filters for monotonicity. This exhausts proper winning truth tables without the frozen antichain generator. For each game the DP score divides a minimal winner's unit equally, while Johnston divides a winning coalition's unit among the intersection of the minimal winners contained in it, if that intersection is nonempty: a player is critical exactly when removing it destroys every minimal win inside that coalition. Normalizing either vector by a positive common factor preserves the signs of all pair differences. The replay confirms labeled counts 1,3,11,80,2645 and class counts 1,2,5,14,86, with zero divergences up to four. At five, the counts of labeled games/classes are 420/7 refining two ties, 60/2 refining four ties, and 300/4, 120/3, 40/2 respectively reversing one, two, three strict comparisons; there are no other divergent signatures. It verifies the witness vectors and dummy counts 940 divergent and 2330 total dummy-free games (no null players). Thus 940/2645=188/529 and 940/2330=94/233. Replay: python3 /workspace/branches/66580048-48cd-4cd7-866b-bc8b4d0755e5/dp_johnston_pair_trit_replay.py 5; saved output replay_n5_classes.out in the same directory.",
+      "residual_risks": [
+        "The enumeration is through five players on the proper domain and uses only ordinal comparisons. It is not a statement at six players or a formal verification claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed DP–Shapley–Shubik census establishes agreement through four and lists all nine strict-reversal classes at five; the indexed Banzhaf–Johnston census establishes agreement through four and lists all nine pure-refinement classes at five. Both cover the same proper-simple-game domain and impose the same three-valued ordinal comparison."
+        ],
+        "reasoning": "Using the shared baseline established above, agreement below five follows by transitivity. An exact table for each of the two comparisons gives a stronger starting point than a qualitative joint-index comparison or a single numerical example.",
+        "searches": [
+          "Freixas–Marciniak doi:10.1007/s00355-011-0593-7, abstract and index formulas",
+          "Indexed DP–Shapley–Shubik RESULT.md Finding and scope; indexed Johnston–Banzhaf RESULT.md Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Indexed SCOPE records ending 1acdbecf1e75 and c13a677ec003",
+        "doi:10.1016/j.ejor.2005.08.025 (abstract)",
+        "doi:10.1007/s00355-011-0593-7 (PDF passages)",
+        "doi:10.1068/a100907 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Outside the union, DP=SS=B=J in weak order. On the first list only the DP–SS discrepancy occurs since J=B there; on the second only the B–J discrepancy occurs since DP=SS there. Thus the full layer is the disjoint union: 460+480=940 and 9+9=18. The 420/60 refinement signature split is already stated in the second source, and first-list strict-pair counts and witness values are direct formula evaluations on its nine listed families. Both lists are visibly dummy-free. The total dummy-free denominator 2330 follows from existing proper counts 2645-5·80+10·11-10·3+5·1, by inclusion–exclusion on specified null players."
+        ],
+        "reasoning": "The exact classification and its reported refinements are mechanically implied by the two exact known tables and a short identity for the ordinal baseline. Neither record alone names DP–Johnston, and the same-day appearance of one record does not establish a temporal order or negate its distinct indexed evidence.",
+        "searches": [
+          "Compare the two indexed Finding class lists under relabeling with the independent canonical truth tables and the pair-swing identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct joint-index paper's accessible abstract addresses characterizations and a numerical illustration; full text was not available. Freixas–Marciniak's formulas and egalitarian property are structural context, not an exact census in the checked passages.",
+          "For players i,j let m=n-2 and delta(T)=v(T+i)-v(T+j) for T among the other players. The raw Banzhaf difference is sum_T delta(T). The Shapley–Shubik difference is the same sum with positive weights |T|!(m-|T|)!/(n-1)!, obtained by adding the pivot terms with and without the other player."
+        ],
+        "reasoning": "If delta at the empty set is nonzero, one player wins by singleton, so every delta has that sign or is zero. If delta at the full set of other players is nonzero, one side without the opposing player loses, which forces the same sign alignment by monotonicity. Otherwise the only terms are interior sizes. For m<=3 the factorial weights are constant on those sizes (or there are none). Thus the two baseline rankings agree, including ties, for n=2,...,5; n=1 is trivial. This relates the exact published comparisons without identifying distinct index values.",
+        "searches": [
+          "Local Resultary/published SCOPE lookup for Deegan–Packel versus Johnston ranking, first proper five-player reversals and tie refinements; nearby comparisons with Shapley–Shubik and Penrose–Banzhaf–Coleman",
+          "Lorenzo-Freire et al., doi:10.1016/j.ejor.2005.08.025; Freixas–Marciniak doi:10.1007/s00355-011-0593-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact minimal-winning families and orbit sizes in the first table match all nine frozen strict-reversal classes, totaling 460 labels. The second table's nine families and orbit sizes match all nine frozen tie-refinement classes, totaling 480 labels. These classes are disjoint after player relabeling, as checked against the canonical families in the independent replay. The second table already prints the exact Johnston tie witness on {ABC,ABD,ACD,BCE}."
+        ],
+        "reasoning": "The tables carry the critical information at the class level, not just matching sample counts. With the shared baseline they account for every divergent class; checking details on those listed representatives is finite table evaluation, not a new first-layer exhaustion.",
+        "searches": [
+          "2026/10/4/SCOPE-sharp-five-player-proper-game-boundary-for-deegan-packel-versus--1acdbecf1e75, RESULT.md Finding and class table",
+          "2026/10/13/SCOPE-sharp-five-player-tie-refinement-boundary-for-johnston-and-banzh--c13a677ec003, RESULT.md Finding, nine-family list and index table"
+        ]
+      },
+      "rationale": "Two distinct indexed exact class censuses account for both strata. This is not just an empirical coincidence of totals or orbit sizes: Shapley–Shubik and Penrose–Banzhaf give the same weak order on this entire domain by the elementary pair-swing formula. With that bridge, the two published class tables and their types determine the full DP–Johnston first layer. This is a statement-level coverage judgment, not a claim about scheduling or priority.",
+      "residual_risks": [
+        "The direct 2007 joint-index full text and older foundational full texts were not accessible; their possible further coverage is unresolved. The literature query did not surface useful additional comparisons. Neither limitation is the reason for failure; the two exact indexed class tables and ordinal reduction suffice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the strict-reversal stratum once the baseline identity is applied",
+          "evidence": [
+            "Lists nine minimal-winning families and their orbit sizes; gives agreement through four, no pure-tie divergent game at five, and exact reversal witness."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-five-player-proper-game-boundary-for-deegan-packel-versus--1acdbecf1e75",
+          "material_read": "RESULT.md from offset 0; table near 1319 and following witness and scope",
+          "method": "Local Resultary lookup and mirror passage inspection; class comparison under relabeling",
+          "title": "Sharp five-player proper-game boundary for Deegan-Packel versus Shapley-Shubik ranking",
+          "trigger": "Matching 460 labeled reversals and nine classes"
+        },
+        {
+          "assessment": "Covers the tie-refinement stratum once the baseline identity is applied",
+          "evidence": [
+            "States pure refinement, 420 cases of two refinements and 60 of four, and prints the common tie witness."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-five-player-tie-refinement-boundary-for-johnston-and-banzh--c13a677ec003",
+          "material_read": "RESULT.md offsets 0–3997, including nine-family list, orbit and vector table",
+          "method": "Local Resultary lookup and mirror passage inspection; class comparison under relabeling",
+          "title": "Sharp five-player tie-refinement boundary for Johnston and Banzhaf power rankings",
+          "trigger": "Matching 480 labeled tie refinements and nine classes"
+        },
+        {
+          "assessment": "Strongly relevant subject; full-text overlap unresolved",
+          "evidence": [
+            "Abstract addresses axiomatic characterizations and a political numerical illustration; no exact small-game classification visible in that material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejor.2005.08.025",
+          "material_read": "Publisher abstract and bibliographic record only",
+          "method": "Lawful publisher and OA-copy retrieval attempts; abstract inspection",
+          "title": "Characterizations of the Deegan-Packel and Johnston power indices",
+          "trigger": "Closest external same-index comparison"
+        },
+        {
+          "assessment": "Structural context; no census in checked passages",
+          "evidence": [
+            "Explicit index definitions; different behavior for the egalitarian property. Date 2011 refers to online publication rather than the 2013 journal volume."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00355-011-0593-7",
+          "material_read": "PDF p. 1 and pp. 5–6; offsets 0 and 12242–15329",
+          "method": "OA Springer PDF passage inspection",
+          "title": "Egalitarian property for power indices",
+          "trigger": "Joint formulas and structural comparison of the indices"
+        },
+        {
+          "assessment": "No joint census visible in abstract; not a whole-document finding",
+          "evidence": [
+            "Discusses Laver's comparison with Shapley–Shubik in coalition formation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1068/a100907",
+          "material_read": "Publisher abstract at offset 0",
+          "method": "Public abstract inspection",
+          "title": "On the measurement of power: some reactions to Laver",
+          "trigger": "Foundational Johnston reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Exact class tables in indexed records ending 1acdbecf1e75 and c13a677ec003"
+      ],
+      "rationale": "The ordinal distinction between these power measures is well-motivated, and the computations are correct. However, the two known class censuses determine exactly the two advertised strata via the same simple baseline, leaving the combined census and witnesses a mechanical recombination rather than a distinct useful unknown classification. The dummy denominator is a direct inclusion–exclusion count from known sizes. No independently valuable new remainder of this record was established.",
+      "residual_risks": [
+        "This rejection does not extend to other game sizes or to independent structural claims about the power indices."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

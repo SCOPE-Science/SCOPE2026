@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:49:41.179345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A jump at s in ((j-1)/n,j/n] samples exactly the binomial upper tail from j. The beta CDF and monotone inverse King map identify the error as E|X_j-s| including the endpoint jump s=1. The canonical right-continuous Stieltjes measure has total mass in absolute variation equal to Var(f); Minkowski gives the matching upper bound and concentrating unit mass at jumps gives the lower bound. On each cell the error derivative is 2F_X(s)-1, strictly increasing; only one-sided endpoints enter, and each uniquely winning R endpoint is excluded in its own cell, so no norm attainment by a step or by any nonzero variation measure. Independently reproduced all 81 comparisons using exact integers on M=25200 and Q=25200·2^15. At i/M find the lower parameter as k/Q with k=floor(Q i²/M²) at n=1 and k=(isqrt(Q²+4n(n-1)i²(Q/M)²)-Q)//(2(n-1)) otherwise. Bound each increasing binomial CDF between tail numerators at k and min(k+1,Q); for a candidate p/M sum lower left nodes for F on [0,p/M], and 1 minus upper right nodes on [p/M,1]; reverse bounds for the upper sum. All comparisons have denominator MQ^n; minimum gap across the nine winning lower bounds versus strongest rival upper is >0.00023129 (n=9, rival R_{9,3}). Confirmed all three printed strict decimal enclosures; independent n=8 and n=9 intervals have endpoints approximately (0.1511675291,0.1512072132) and (0.1369558401,0.1369955238). Frozen CHECKER.py inspected, not executed; the replay algorithm above uses a different grid and exact square root. Finally inverse shift ≤1/n by rationalization, so beta CLT in the interior plus bounded scaled second moments gives convergence of mean absolute deviations. Mean shift is O(1/n) and scaled variance vanishes at endpoint subsequences. Subsequence compactness gives both the sharp asymptotic and all near-maximizing single-jump positions converging to 1/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gonska–Piţul §§2 and 5 concern moduli and second moments, not the exact integrated BV norm. Hoeffding's available opening explicitly uses canonical BV representation, a close method predecessor. Wiley full-text request for 10.1002/mma.70341 returned access error."
+        ],
+        "reasoning": "A general BV kernel-reduction theorem would give the step-error supremum once specialized; that reduction itself is not the novel point. It does not select the maximizer of the nonlinear mapped finite integrals. Classical Bernstein estimates transfer the leading asymptotic under the 1/n perturbation; they do not give a finite sign certificate whose smallest comparison is much smaller than 1/9.",
+        "searches": [
+          "King Bernstein best constants bounded variation integrated error quadratic preserving Bernstein operator L1 BV extremal King modification jump approximation",
+          "Approximation of Discontinuous Functions by Positive Linear Operators Adell Garrancho Martinez-Sanchez Bernstein arxiv full text",
+          "Hoeffding Bernstein-type collected works doi:10.1007/978-1-4612-0865-5_34"
+        ]
+      },
+      "checked_sources": [
+        "Gonska–Piţul DML-CZ 119556 (relevant PDF passages)",
+        "Hoeffding 1971 and Collected Works reprint (accessible extract)",
+        "King 2003 doi:10.1023/A:1024571126455 (bibliography and quoted definition)",
+        "Adell et al. doi:10.1002/mma.70341 (full-text attempt only)",
+        "Resultary 8e003f620576 (indexed summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gonska–Piţul Theorem 1.5 is a smooth modulus bound on the same operator and §3 studies its iterates; Hoeffding's opening concerns Bernstein BV integrated error."
+        ],
+        "reasoning": "The exact result inherits the operator and uses known BV/positive-kernel tools. A pointwise continuous-input modulus bound does not imply strict winner among all the half-open discontinuity cells. Even the established classical leading constant, where available, can only give the common leading asymptotic via the inverse-map coupling—not the first transition.",
+        "searches": [
+          "Gonska and Piţul Theorem 1.3 and §§2–5",
+          "The L1 norm of the approximation error for Bernstein-type polynomials Hoeffding 1971"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gonska–Piţul Theorem 1.3 defines the identical parameter map; Hoeffding (1971) specifically studies L1 approximation of BV by Bernstein polynomials; nearby Resultary jump-localization record 8e003f620576 is a least-squares projection, not positive King sampling."
+        ],
+        "reasoning": "This is an operator norm for the BV seminorm modulo constants, equivalently the maximum discrepancy over thresholds between a point mass and the time-changed beta CDF. Neither classical Bernstein with identity time change nor the least-squares jump norm has these finite candidate integrals.",
+        "searches": [
+          "King Bernstein best constants bounded variation integrated error quadratic preserving Bernstein operator L1 BV extremal King modification jump approximation",
+          "sharp exact Bernstein approximation bounded variation L1 maximum jump error classical operator beta distribution norm cell extremizer",
+          "Resultary: sharp Lebesgue constant quadratic moving least squares discrete window degree nine cell transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record with the exact n=9 claim is the reviewed record itself. Same-operator results in Gonska–Piţul have pointwise moments and approximation bounds, not a table of the two step limits per cell."
+        ],
+        "reasoning": "No independent table of King integrated jump-side candidates was identified. A table for Bernstein or Bernstein–Kantorovich changes sample values or integration kernel and cannot be substituted.",
+        "searches": [
+          "Resultary: sharp Lebesgue constant quadratic moving least squares discrete window degree nine cell transition",
+          "sharp exact Bernstein approximation bounded variation L1 maximum jump error classical operator beta distribution norm cell extremizer",
+          "Gonska–Piţul DML-CZ 119556"
+        ]
+      },
+      "rationale": "The new mathematical target is the finite sharp norm profile for this prescribed nonlinear King time change, particularly the first switch from a boundary cell to a strictly interior cell and its directional nonattainment. The operator, basic distributional reductions, and leading Bernstein asymptotic transfer are not separately strong priority claims. Best-of-knowledge PASS for the complete King-specific comparison.",
+      "residual_risks": [
+        "Original King and full Hoeffding not inspected; broader kernel/BV reduction may be prior, so do not rely on reduction alone for priority.",
+        "The 2010 King-type derivative-BV paper and 2025 probabilistic discontinuity paper were not independently inspected in full. No exhaustive historical absence is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definition and approximation background, not the claimed ranking in the material inspected.",
+          "evidence": [
+            "(1) and (3) identical kernel and sampling parameter; (4) and §2 deal with moduli; Theorem 3.2 concerns iterates on C[0,1]."
+          ],
+          "identifier_or_url": "https://dml.cz/dmlcz/119556",
+          "material_read": "Accessible article PDF pp.645–649, Theorems 1.3, 1.5, 2.1, 3.2 and opening of §5",
+          "method": "DML-CZ PDF, compared defining equation and norms",
+          "title": "Remarks on an article of J.P. King",
+          "trigger": "Identical quadratic-reproducing Bernstein point-sampling operator"
+        },
+        {
+          "assessment": "Direct prior for BV integrated Bernstein approximation and canonical-measure method; exact scope of general-weight results not determined from accessible material.",
+          "evidence": [
+            "Extract explicitly identifies BV integrated Bernstein errors and a canonical representation lemma. Publication precedes King's operator; a general reduction could nevertheless be applicable."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0021904571900013 ; https://doi.org/10.1007/978-1-4612-0865-5_34",
+          "material_read": "Springer reprint opening extract and bibliography, original publisher indexed identification",
+          "method": "Compared accessible opening; original full text access error and reprint subscription barrier",
+          "title": "The L1 norm of the approximation error for Bernstein-type polynomials",
+          "trigger": "Earlier L1 BV norm using Bernstein or generalized Bernstein kernel"
+        },
+        {
+          "assessment": "Direct credit for operator; unread original passages not adjudicated.",
+          "evidence": [
+            "Acta Math. Hung. 99 (2003), 203–208; reproduced map in Gonska–Piţul (3)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1024571126455",
+          "material_read": "Bibliographic record and exact definition quoted in Gonska–Piţul Theorem 1.3",
+          "method": "DOI record and lawful accessible follow-up",
+          "title": "Positive linear operators which preserve x²",
+          "trigger": "Original same-operator paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first strict change of the worst jump from a boundary to the right side of an interior lattice point is a natural cutoff for a standard operator, not an arbitrary degree sample. It answers which discontinuity its sharp norm measures, and rigorous nonattainment and eventual midpoint localization clarify how representative conventions and approximation degree affect that benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

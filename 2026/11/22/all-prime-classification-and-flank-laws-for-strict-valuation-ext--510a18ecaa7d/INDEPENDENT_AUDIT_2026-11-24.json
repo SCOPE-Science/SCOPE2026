@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:59:51.233038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing F_n=(3n)!/(n!(2n+1)!) gives the claimed quotient and hence the signed valuation jump J_p(n). A peak needs J_p(n-1)>0>J_p(n), and a valley the opposite. For p>=5 a peak requires one of 3n-2,3n-1 to vanish modulo p together with one of n+1,2n+3. Their four eliminants have absolute values 5,13,4,11. Direct substitution at (p,n mod p)=(5,4),(11,4),(13,5) shows every other factor in the respective jumps is a unit, giving exactly the reported drops. For a valley, n or 2n+1 would have to vanish alongside one of 3n+1,3n+2; at n=0 the latter have values 1,2, and the two eliminants involving 2n+1 are +/-1. At p=3 the jump is 1-v_3(n+1)-v_3(2n+3): it is positive in class 1 modulo 3 and negative precisely in classes 3,8 modulo 9. At p=2 the successive classes modulo 4 have sign zero, nonnegative, positive, negative, with exact jumps as given; thus only 3 modulo 4 is a peak, and the following zero jump rules out valleys. The case n=1 uses F_0=1 and requires no exception. For p=5,11,13, after writing n=c+pt and dividing each active factor by p, the root pairs for t modulo p are (1,4),(7,5),(4,6), respectively. Since they are distinct, at most one flank exceeds one, and one unit-slope root class at each higher power gives (p-1)/p^j for a flank of size j. For p=3 the varying factors after removing the fixed powers are t+1 or 1+2t on the respective progressions, and at p=2 the factors are 2+3t and t+1 with opposite parities. These exact residue counts verify every joint mass and its normalization. The frozen checker was inspected, not executed; the all-prime exclusions and density limits follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-power arity theorem includes arity three only at p=3. The prime-relative nondivisibility result includes the binary zero valuation for ternary Fuss–Catalan numbers."
+        ],
+        "reasoning": "The former is strong pointwise information at 3 but does not treat the fixed arity three at every other prime. The latter concerns zeros, not positive flank differences. Neither implies the eliminated prime support or the stated joint flank spectrum by specializing its parameters.",
+        "searches": [
+          "Konvalinka arity q=p^k valuation theorem",
+          "Resultary prime-relative nondivisibility fca5ba9f3d60"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Konvalinka, Proposition 2",
+        "Resultary 02997d82d076, 38f9bdc99cfd, fca5ba9f3d60, a6bbb4c7d618",
+        "Resultary cd846ea6dee4 catalogue summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest pointwise formulas can be used to derive p=2 or p=3 neighbors, but cover neither the eliminants 5,13,4,11 nor the two distinct normalized roots for each of 5,11,13.",
+          "The source under review evaluates both directions of the jump sign test and the joint tail at all admissible peaks, not just the jump identity itself."
+        ],
+        "reasoning": "The arithmetic exclusion of every other prime and the dependence of both drops on the same residue variable are essential, evaluated steps. The inspected local or marginal comparators do not supply them, even allowing equivalent formulations.",
+        "searches": [
+          "Compare Konvalinka Proposition 2 and the Resultary dyadic and ternary spectrum statements to the signed-jump and common-root conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Konvalinka's prime-relative formula specializes exactly to v_3(F_n)=(s_3(2n+1)-1)/2. It gives a route to neighboring differences at 3.",
+          "Resultary a6bbb4c7d618 computes a consecutive pair law for central binomial coefficients, not F_n. The catalogue summary cd846ea6dee4 concerns ordinary Catalan numbers; its full matching file was not available."
+        ],
+        "reasoning": "I compared local extrema as pairs of consecutive increments, not block extremizers or merely two-point marginals of another sequence. The p=3 digit formula is a genuine antecedent, and a theorem on a different sequence cannot be transferred just by reusing the word Catalan.",
+        "searches": [
+          "Primary literature lookup for ternary Fuss–Catalan valuation local extrema and neighboring digit-sum laws",
+          "Konvalinka, Divisibility of generalized Catalan numbers, Proposition 2",
+          "Resultary: adjacent valuation laws for Catalan and binomial counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact dyadic and ternary records give block histograms and corresponding p=2,3 pointwise inputs, not tables of adjacent strict peaks, valleys, or conditional flank pairs.",
+          "The exact adjacent central-binomial record is a genuine same-day comparison but computes a different sequence."
+        ],
+        "reasoning": "Marginal histograms discard ordering of valuations and do not determine which successive jumps have opposite signs. The catalogue matches are credited for their true scope; a shared date establishes no ordering or priority.",
+        "searches": [
+          "Resultary exact dyadic and ternary Fuss–Catalan spectra: 02997d82d076 and 38f9bdc99cfd",
+          "Resultary adjacent central-binomial law a6bbb4c7d618 and nearby Catalan regression summary cd846ea6dee4"
+        ]
+      },
+      "rationale": "The factorial quotient and prior pointwise digit or carry formulas are not new. The supported distinct claim is the evaluated all-prime adjacency classification, including the three odd primes beyond 3, the absence of other peaks and valleys, and exact conditional paired-flank densities. Prior block spectra and pointwise expressions provide real overlap but not that classification; related adjacent laws use different counting sequences.",
+      "residual_risks": [
+        "The source-cited dyadic census 7f423ce9ed57 and the nearby regression result cd846ea6dee4 could not be inspected in full in the local mirror.",
+        "The frozen prior audit identifies the 2015 UNLV thesis Generalized Catalan Numbers and Some Divisibility Properties (https://oasis.library.unlv.edu/thesesdissertations/2518/) as a plausible source for which it read only repository metadata and abstract. Its contents were not independently established here.",
+        "Pointwise formulas can imply other derived local facts, and a bounded search cannot exclude an unindexed equivalent classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact p=3 pointwise antecedent, not all-prime adjacency classification",
+          "evidence": "For q=p^k the valuation is (s_p((q-1)n+1)-1)/(p-1).",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/konvalinka/wcatalan.pdf",
+          "material_read": "Proposition 2, p. 2, eq. (2), text offset 3978",
+          "method": "Open author-manuscript passage",
+          "title": "Divisibility of generalized Catalan numbers",
+          "trigger": "Known pointwise formula for the same sequence at 3"
+        },
+        {
+          "assessment": "Binary pointwise and initial-block statistical overlap",
+          "evidence": "Binary carry identity and block histograms with block maxima; no conditional pair of immediate flank drops in the matched statement.",
+          "identifier_or_url": "Resultary:02997d82d076",
+          "material_read": "RESULT.md offsets 0 and 5882",
+          "method": "Published local mirror",
+          "title": "Exact dyadic two-adic valuation spectra of ternary Fuss-Catalan numbers",
+          "trigger": "Same sequence and binary valuation/order statistics"
+        },
+        {
+          "assessment": "Exact p=3 pointwise and histogram overlap",
+          "evidence": "Ternary digit formula and histograms over initial ternary blocks.",
+          "identifier_or_url": "Resultary:38f9bdc99cfd",
+          "material_read": "RESULT.md offsets 0 and 5947",
+          "method": "Published local mirror",
+          "title": "Exact ternary valuation spectra of ternary Fuss–Catalan numbers",
+          "trigger": "Same sequence and ternary valuation spectra"
+        },
+        {
+          "assessment": "Covers zero valuations in the binary subcase",
+          "evidence": "Nondivisibility is characterized by adjacent binary digits of the input, not by comparing its valuation with those of adjacent indices.",
+          "identifier_or_url": "Resultary:fca5ba9f3d60",
+          "material_read": "RESULT.md statement, offset 0",
+          "method": "Published local mirror",
+          "title": "Prime-relative Fuss–Catalan nondivisibility",
+          "trigger": "General relative-prime classification including the binary ternary-tree case"
+        },
+        {
+          "assessment": "Different binomial sequence",
+          "evidence": "The neighboring variables come from binom(2n,n), without the ternary Fuss–Catalan quotient.",
+          "identifier_or_url": "Resultary:a6bbb4c7d618",
+          "material_read": "RESULT.md statement, offset 0",
+          "method": "Published local mirror",
+          "title": "Exact adjacent central-binomial valuation law and its covariance sign transition",
+          "trigger": "Distinct same-day exact adjacency law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact exceptional-prime set is a structural result for the natural ternary-tree count, and strict valleys are notably scarcer than strict peaks. The joint laws add information absent even from separate flank marginals: at 5,11,13 one flank must equal one, whereas the other has unbounded support. The classification and dependence are useful local structure, not just a different presentation of a factorial quotient or a list of examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

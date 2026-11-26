@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The visit-epoch Markov renewal contraction gives a unique stationary expected previsit stock and exact nectar-volume reward rate. Jensen establishes deterministic renewal superiority at fixed mean return time. The Poisson-versus-periodic ratio has a strict positive gain for every positive normalization and harvest fraction; monotonicity in the harvested fraction reduces its global maximum to complete harvest. The derivative sign is controlled by a function with exactly one positive zero, producing a unique sharp ceiling and equality conditions. The reproducible checker passed 90,810 diagnostics, including independent stochastic simulations. Finite checks do not prove infinite-domain statements; those are proved algebraically.
+## correctness
 
-## Originality: PASS relative to inspected sources, with priority risk
-Prior qualitative superiority of systematic foraging with decelerating renewal is **not** claimed as new (Possingham, 1989). Ohashi and Thomson (2005) simulate different regeneration functions and foraging routes, while Korman et al. (2020) use a discrete linear renewal model and optimize stochastic resource-allocation strategies. Neither inspected account states the global 29.84256% relative ceiling for continuous exponential recovery with fractional harvest and Poisson competitors, nor its equality conditions. The 1988/1989 Possingham full texts could not be checked, so a general equivalent result in earlier renewal-resource theory remains a residual historical-priority risk.
+PASS
 
-## Value: PASS
-A dimensionless universal benchmark answers the natural quantitative question of how large a harvest-rate gain regular timing alone can produce relative to a memoryless schedule, across all positive recovery rates, competitor hazards, and partial-harvest fractions. It supplies a nontrivial sharp upper bound and an attainable condition, rather than an arbitrary numerical slice. Its practical interpretation is limited by one-patch, fixed-frequency, instantaneous-visit and exponential-recovery assumptions.
+The competitors' reset term in the first-moment equation is −λu, so with α=r+λ the mean at the next visit conditional on gap t and initial stock z is (rC/α)(1−exp(−αt))+z exp(−αt). To justify a chronological long-run rate despite dependent rewards, view each gap and its independent Poisson event segment as an iid block. With common blocks, the postvisit recursion contracts by at most 1−q per visit; a two-sided block construction gives a bounded stationary ergodic reward sequence, with summably small initial-state effects. The gap strong law divides the stationary reward mean by m. The resulting expression is strictly decreasing in E exp(−αT), so strict Jensen gives unique fixed-mean periodic optimality. For exponential gaps the transform is 1/(1+x), x=αm. The resulting ratio has strictly positive q derivative for x>0, so equality in the ceiling requires q=1. Then the derivative has the sign of 1+x+x²−exp(x); the single sign change of the second derivative of exp(x)−1−x−x² implies exactly one positive crossing, with the ratio tending to 1 at both endpoints. Thus the bound and 'if and only if' are exact and feasible, including λ=0. Independent bisection of exp(x)−1−x−x² on [1,3] reproduced x=1.793282132900761 and ratio 1.298425607525639. Frozen check code and reported output were inspected, not executed; their simulations and samples are not the proof.
 
-## Closest literature and scope
-Possingham (1988, 1989), Ohashi and Thomson (2005), and Korman et al. (2020) are the closest motivating and comparison works. Neither ecological fitness, pollination success nor spatial path planning is analyzed. Original publication priority needs expert literature confirmation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established qualitative advantage of regular visits to a decelerating renewing resource. The supported distinct contribution is the sharp fixed-mean percentage over the full partial-harvest/independent-clearing model and its complete attainment criterion. No accessible independent result compared here gives or implies that full claim. Priority remains provisional, especially for the full depletion/no competitor case.
+
+## value
+
+PASS
+
+The exact cap gives a calibrated timing-only benchmark at fixed visitation effort in a standard replenishment model. It identifies when the upper limit is attainable and proves that partial collection cannot amplify that maximum despite memory across visits. The dimensionless ceiling survives independent competition without purporting to quantify travel, population or spatial effects. This goes beyond the routine qualitative Jensen comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:01:50.716864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54 and VERIFICATION.md; verify.py inspected",
+        "Feng–Hu, Proposition 1 p. 1192",
+        "Neininger, author PDF Theorem 1.2, p. 3",
+        "/workspace/branches/f99d1b24-25fa-4e62-b32e-8954515b9374/z_w_small_independent.py",
+        "/workspace/branches/f99d1b24-25fa-4e62-b32e-8954515b9374/z_w_small_run.txt"
+      ],
+      "rationale": "For a fixed tree, the contribution of an edge to the degree-weighted transmission about a root is 2k−1 where k is the size of the component away from the root. Summing gives Σ_v deg(v)s(v)=4W−n(n−1), with unordered W and undirected degrees. The uniform leaf increment pair is (2deg(V)+2,n+s(V)); taking its conditional covariance gives 8W/n²−2(n−1). The path maximizes W by leaf deletion and the bound that ordered distances from one vertex increase by at most one. Thus the conditional covariance is at most −2(n−1)(n−2)/(3n). The conditional means have respective drifts 6−4/n and n+2W/n. Total covariance then gives c_(n+1)=(n+2)c_n/n+8E[W_n]/n²−2(n−1). The mean E[W_n]=n(n+1)H_n−2n² follows from its recurrence at n=1. Dividing the mixed recurrence by (n+1)(n+2) gives the exact increment 8H_n/[n(n+2)]−(2n+14)/[(n+1)(n+2)], the difference of the frozen harmonic bracket at n+1 and n. That bracket vanishes at n=2. Order three is deterministic for both indices; strict negativity follows inductively from the conditional term for every n≥4. The bracket has leading term −2 log n; the two verified primary variance constants give correlation coefficient −3/√(31−3π²) multiplying log(n)/√n. Independent exact-rational enumeration of all 5913 recursive trees across orders 2–8 confirmed the mixed and conditional identities and signs (e.g. c_4=−4/9, c_8=−19953/1225). It did not execute the frozen verifier or substitute for the proof.",
+      "residual_risks": [
+        "The correlation assertion is asymptotic, not a claim that correlation exists at the constant-index orders 2 and 3. Fixed-tree conditional negativity does not imply unconditional negativity for general random initial-tree laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Hu Proposition 1 is marginal for Z_n. Neininger Theorem 1.2 gives E[W_n], Var(W_n) and joint asymptotics of W_n with internal path length P_n, not Z_n. The inspected same-model Resultary profile fixes one parent (root), not the evolving degree of the chosen parent."
+        ],
+        "reasoning": "The W_n–P_n joint theorem and separate marginal Z_n theorem do not determine W_n–Z_n dependence. The root variable is not a sufficient proxy for all degree squares.",
+        "searches": [
+          "random recursive tree mixed covariance Zagreb index Wiener index covariance",
+          "Ralph Neininger The Wiener Index of Random Trees 2002 recursive trees author pdf Theorem 3.1 31 3 pi variance",
+          "Feng–Hu DOI 10.1239/jap/1324046027; Neininger DOI 10.1017/S0963548302005321"
+        ]
+      },
+      "checked_sources": [
+        "Feng–Hu 10.1239/jap/1324046027; Neininger 10.1017/S0963548302005321; Eu–Yang–Yeh author PDF",
+        "Resultary b2ba740e4081 and 65fd64ce2be3",
+        "Hollas 10.1007/s10910-005-6474-5 (full-text attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical transmission relation supplies the deterministic expectation needed at one attachment. The Cayley exact formula uses a distance-conditioned Zagreb regression and exchangeability of a marked pair. The same-law root record shares the one-step mean Wiener drift and conditions on attachment to vertex 1 only."
+        ],
+        "reasoning": "The conditional formula is obtained directly from the classical identity after computing the two increments; credit both prerequisites. The mixed harmonic formula needs the coupled innovation under total covariance and its recursive accumulation, not a specialization of either related joint theorem. Root arrival covariances cannot be substituted for covariances with the random previous degree at the new parent.",
+        "searches": [
+          "Eu–Yang–Yeh §1.2 theorem 1",
+          "Neininger Theorem 1.2",
+          "Resultary b2ba740e4081 proof §§2–4; 65fd64ce2be3 Finding and one-step Wiener recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W^+(T)=Σ_{u<v}(deg u+deg v)d(u,v)=Σ_v deg(v)s(v), hence the classical Schultz statement is exactly the deterministic transmission identity. Resultary b2ba740e4081 studies the identical quadratic degree and distance pair under uniform unrooted labeled Cayley trees, not uniformly independent older parents."
+        ],
+        "reasoning": "A statistic renaming leaves the deterministic lemma unchanged; changing the sampling law changes the mixed expectation. Cayley label symmetry and Prüfer probabilities used in that derivation do not hold for increasing labels.",
+        "searches": [
+          "random recursive trees exact covariance first Zagreb index Wiener index negative conditional increment covariance",
+          "exact Zagreb Wiener covariance uniform random recursive tree undirected degrees mixed index conditional covariance",
+          "Eu–Yang–Yeh §1.2, degree-distance/Schultz index on trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed laws give Cov(Z,W) of order −n^(5/2) for Cayley trees and exact Cov(root child count,W) of order −n² for recursive trees. Neither gives the −2n² log n Zagreb–Wiener result under the increasing-parent sample space."
+        ],
+        "reasoning": "Sign agreement and the zero cases are not exact matches. Both the statistic and the sampling law must match. No covered exact entry in these bounded hits is not proof of priority.",
+        "searches": [
+          "Resultary two ranked mixed-covariance queries listed under equivalent_formulations (50 and 30 hits)",
+          "Resultary b2ba740e4081 and 65fd64ce2be3 original records"
+        ]
+      },
+      "rationale": "The supported new increment is the exact mixed covariance of first Zagreb and Wiener indices under the uniform increasing-parent law. The deterministic degree-distance identity and the published marginal constants are credited, as is the exact same pair under the distinct Cayley law. The one-step calculation makes the mixed recurrence possible but is a short consequence of the classical deterministic identity, not an independently broad novelty claim. Neither the same-model root-count profile nor the Cayley calculation gives the recursive-tree degree-square formula.",
+      "residual_risks": [
+        "No historical priority claim is established. The Hollas primary text was not read, and an older unindexed recursive-tree mixed identity could exist. Same-day dating does not establish order for the root profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Wiener mean and leading variance confirmed; bivariate result uses internal path length, not Zagreb",
+          "evidence": [
+            "States E[W_n]=(n²+n)H_n−2n², Var(W_n)∼(31−3π²)n⁴/18, and Cov(W_n,P_n)∼(21−2π²)n³/12 for recursive trees."
+          ],
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf; doi:10.1017/S0963548302005321",
+          "material_read": "Author copy p. 3 Theorem 1.2, reader offsets 8670–11092, after journal route was unproductive",
+          "method": "Lawful direct author PDF, localized theorem read",
+          "title": "The Wiener Index of Random Trees",
+          "trigger": "Central known Wiener variance and plausibly overlapping mixed-index theorem"
+        },
+        {
+          "assessment": "Confirms the leading Zagreb variance without a mixed Wiener theorem in the inspected result",
+          "evidence": [
+            "Proposition 1 gives Var(Z_n)=8n+O(log² n)."
+          ],
+          "identifier_or_url": "doi:10.1239/jap/1324046027",
+          "material_read": "Official Cambridge PDF, Proposition 1 p. 1192, reader offset near 10386",
+          "method": "Localized original primary PDF read",
+          "title": "On the Zagreb Index of Random Recursive Trees",
+          "trigger": "Same model and Zagreb functional; leading variance needed"
+        },
+        {
+          "assessment": "Exact deterministic overlap, credited as such",
+          "evidence": [
+            "Defines W^+(G) over unordered pairs and states W^+(T)=4W(T)−n(n−1) for trees, extending no mixed expectation in this statement."
+          ],
+          "identifier_or_url": "https://www.iis.sinica.edu.tw/papers/byyang/2380-F.pdf",
+          "material_read": "§1.2 pp. 2–3, reader offsets near 3500 and 5900",
+          "method": "Localized original PDF read",
+          "title": "Generalized Wiener Indices in Hexagonal Chains",
+          "trigger": "Prior deterministic identity for degree-weighted distance"
+        },
+        {
+          "assessment": "Related exact theorem under a distinct law; core regression does not imply this one",
+          "evidence": [
+            "Uses n^(n−2) equiprobable trees, ordinary and contracted Prüfer codes, and symmetry over vertex pairs. Its leading order is −√(π/8)n^(5/2)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-exact-negative-zagreb-wiener-covariance-in-uniform-cayley-trees--b2ba740e4081",
+          "material_read": "RESULT.md Finding/scope and conditional regression/mixed sign calculation, offsets 0–1448 and 2860–5315",
+          "method": "Local index and original mirror passages",
+          "title": "Exact negative Zagreb–Wiener covariance in uniform Cayley trees",
+          "trigger": "Closest exact pair of invariants"
+        },
+        {
+          "assessment": "Overlap on Wiener drift; distinct root-specific contrast",
+          "evidence": [
+            "Its indicators are for direct attachments to vertex 1 and their sum is root outdegree; the displayed covariance with W_n grows in magnitude as n²."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-root-attachment-covariance-profile-for-the-wiener-index-of--65fd64ce2be3",
+          "material_read": "RESULT.md Finding, scope and proof §1, local reader offsets 0–2603",
+          "method": "Local index and original mirror passages",
+          "title": "Exact root-attachment covariance profile for the Wiener index of random recursive trees",
+          "trigger": "Same model and attachment-Wiener mechanism"
+        },
+        {
+          "assessment": "Frozen summary reports independent random vertex marks, unlike the present structural pair; not relied on to exclude coverage",
+          "evidence": [
+            "The frozen report attributes marked-index asymptotic independence, not an exact recursion for two unmarked structural indices."
+          ],
+          "identifier_or_url": "doi:10.1007/s10910-005-6474-5",
+          "material_read": "Frozen characterization only; original full text not retrieved",
+          "method": "Lawful full-text retrieval attempt and scope disclosure",
+          "title": "Asymptotically Independent Topological Indices on Random Trees",
+          "trigger": "Frozen bibliography cites possibly related mixed-index results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and recurrence",
+        "Published marginal constants and exact analogous mixed-index records"
+      ],
+      "rationale": "Joint size and sign of dependence matter when contrasting a local structural statistic with a global distance statistic on a standard growth model. The exact finite-size covariance shows strict negative dependence in the covariance sense despite a vanishing asymptotic correlation, identifies the log(n)/√n rate and constant, and relates the sign across all sizes to a uniform tree-by-tree growth mechanism. This adds an informative mixed invariant beyond independent marginal variance results.",
+      "residual_risks": [
+        "This does not establish joint limit-law independence or stronger notions of negative dependence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

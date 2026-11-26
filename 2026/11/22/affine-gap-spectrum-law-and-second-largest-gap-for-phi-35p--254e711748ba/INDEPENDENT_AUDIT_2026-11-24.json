@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:22:54.233679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh check of repairs/4/RESULT.md: the claim concerns the second-largest distinct difference between adjacent supported exponents for primes p=35q+r>35. The residue is necessarily a unit. The rational factorization gives the recorded 25 coefficients and the period-35 reciprocal; multiplying by the substituted numerator gives the displayed word on each of the 24 blocks. The last block has length u-23 because the quotient degree is 24(u-1); the leading term guarantees support even if the truncated prefix has fewer than 35 entries. For fixed residue the first supported offset stays fixed and the last moves by 35, so exactly a full cyclic multiset is added internally and cross-block gaps are unchanged. The independent integer reproduction under branches/5935181d-8585-4392-9d90-3a76d6dff600/independent_check.py (invoke full() to reproduce the exhaustive run) derived the coefficient list, generated all 576 base/slope pairs, and verified full quotient and gap agreement for 72 indices. The generated table and summary establish A_24=B_24=2, no intermediate gap in either histogram, and every displayed A_s=a_r and B_s=a_r+b_r. Every B_s is positive, covering even q=1. The known maximum-gap theorem for prime p validates the upper cutoff, independent of whether the composite base quotients are counted as examples. All 24 units are exhausted and the periodic proof, not the 72 spot checks, extends the result to every q. The frozen checker and CSV were inspected rather than executing the uploaded program; the independent table is a numerical reconstruction, not a claim of a bytewise CSV comparison. The repair keeps that checker and CSV as unchanged support. The mathematical conclusion of the original also checks; its failure was not a correctness failure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "351556961373 covers every odd squarefree m with prime p>m (and its analogous coprime quotient). 0500051e2451 covers every m>=2 and every coprime u>m, including composite u; their formula includes all gap frequencies and applies here directly.",
+          "The general maximum-gap theorem gives phi(35)=24 for the prime regime. Al-Kateeb–Dagher's formula explicitly repeats the first length-m block for j<q, truncates the last block, and writes the word from inverse cyclotomic coefficients. Their title and explicit term-count families concern smallest prime factor three, but the stated block formula itself is generic."
+        ],
+        "reasoning": "These are substantive positive overlaps, not near-title similarities: the full affine dependence and its computation are already covered. The broader claims supply no identification of the highest occupied index below 24 of the form 24-min(r,35-r) at m=35, or its precise multiplicity classes.",
+        "searches": [
+          "Resultary 351556961373 and 0500051e2451, Findings and scope",
+          "Al-Kateeb–Ambrosino–Hong–Lee, arXiv:1911.11667, Theorem 1",
+          "Al-Kateeb–Dagher, arXiv:2207.07393v1, Theorem 4, Lemma 1, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, word_gaps_verify.py and sampled gap_spectrum_35.csv",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "Independent coefficient and histogram reconstruction with generated table",
+        "Resultary 351556961373 and 0500051e2451",
+        "arXiv:1911.11667, 2207.07393v1 and 2507.19381"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting m=35 and using the generic inverse-word method recovers A_g and B_g for the entire original law by substitution. This coverage is explicit, not a conjecture based on available coefficient software.",
+          "The surviving statement compares occupied versus missing gap lengths, finds the highest occupied one below 24 as an elementary symmetric function of the residue, and gives the associated counts for all q. The corresponding 24-case identities and exclusions require a separate argument or exact verification; the generic affine formula and maximum bound do not assert them. The base-15 residue-7 example disproves a naive uniform distance-to-zero rule."
+        ],
+        "reasoning": "The narrower assertion is not merely a numerical recomputation of an existing explicit 35-table or a claimed new affine profile. It identifies a motivated extremal statistic below the known maximum, including a compact closed relation across all residue classes and its exact multiplicities. None of the inspected earlier or concurrent results gives that identification. The repair retains the computation as proof of the specific pattern, not as proof of originality.",
+        "searches": [
+          "Resultary 0500051e2451 exact generating-polynomial formula and base-15 application",
+          "Resultary 351556961373 exact affine-spectrum formula",
+          "Al-Kateeb–Dagher, arXiv:2207.07393v1, text at offsets 7600–11898",
+          "Repaired RESULT.md, Proof and Relationship to known results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting coefficients of z^g in the generic gap generating polynomial at m=35,t=p gives H_g of the original exactly. The inverse-word coefficients b_s in that formula equal h(s) at m=35 because (1-X^35)/Phi_35=(1+X+...+X^4)(1-X^7).",
+          "The repaired invariant is the largest occupied index strictly below the maximum in this histogram and its multiplicity, not a count of largest coefficients or a second frequency rank. The binary analogue treats this same invariant with a different base and residue relation."
+        ],
+        "reasoning": "The use of substitution quotients or histograms rather than generating polynomials is an equivalent expression of the original general method, and is covered. With that method credited, the object of the comparison is the particular second-gap identity and its multiplicities for the 5·7 base.",
+        "searches": [
+          "Resultary exact affine gap spectra for cyclotomic prime extensions, 351556961373",
+          "Resultary universal affine gap profiles for substitution quotients, 0500051e2451",
+          "arXiv:2507.19381, Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two Resultary comparators give exact histogram tables at base 15. In particular they give second-gap length 3 at r=7, not 8-7. Cafure–Cesaratto give the binary second gap and a lower bound on its multiplicity, and all-length frequencies for extreme residues; these are not for base 35.",
+          "The frozen record's own table and the independent reconstruction cover 24 units modulo 35; the referenced Phi_3pq manuscript did not yield a readable decisive passage."
+        ],
+        "reasoning": "No independent exact table with the repaired values at m=35 surfaced. The prior tables for m=15 and for the binary case are actual nearby classifications, not interchangeable numerical recipes for the repaired exact invariant. The lack of access to the institutional manuscript does not establish its scope or lack of coverage.",
+        "searches": [
+          "Resultary 351556961373 and 0500051e2451 explicit residue tables",
+          "Cafure–Cesaratto arXiv:2507.19381, Theorems 1.1–1.2",
+          "The ternary cyclotomic polynomials Phi_3pq, institutional manuscript"
+        ]
+      },
+      "rationale": "This verdict is for the repaired claim only. The original's claimed new all-gap affine law fails the originality comparison: two distinct Resultary results cover exactly that law and its cyclic-word coefficients in stronger regimes, and a primary coefficient-block theorem gives the same repetition behind it. The corrected publication files withdraw that originality claim. They state instead the explicit second-largest-gap residue relation and exact multiplicities at base 35, with the maximum and general affine law credited. The strongest located exact classifications, at base 15 or for binary polynomials, do not imply the special distance-to-zero identity at base 35. No dated priority between the two same-day catalogue results and the original is inferred.",
+      "residual_risks": [
+        "Same-day catalogue timestamps do not determine priority. The documented result is mathematical coverage of the original affine law.",
+        "The inaccessible institutional Phi_3pq paper may contain relevant wider results; other exact ternary second-gap classifications could be unindexed. The repaired verdict makes no absolute-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the general claim; detailed example at 15, not 35",
+          "evidence": "Already gives B+(Q−1)A for all lengths and all odd squarefree m, with cyclic words and a base quotient.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-affine-gap-spectra-for-cyclotomic-prime-extensions-includi--351556961373",
+          "material_read": "RESULT.md Finding, assumptions and start of coefficient proof, offsets 0–3238",
+          "method": "Local Resultary mirror",
+          "title": "Exact affine gap spectra for cyclotomic prime extensions, including every Phi_15p",
+          "trigger": "Exact overlap with original histogram theorem, stronger base parameter range"
+        },
+        {
+          "assessment": "Covers all-gap affine law even for composite multipliers; second-gap example is for m=15",
+          "evidence": "Defines the exact polynomial of support-gap counts at all m and coprime u>m. The displayed second gap at base 15 and residue 7 is 3, not phi(15)-7.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-affine-gap-profiles-of-cyclotomic-substitution-quotien--0500051e2451",
+          "material_read": "RESULT.md Finding and word formula, offsets 0–3276",
+          "method": "Local Resultary mirror",
+          "title": "Universal affine gap profiles of cyclotomic substitution quotients",
+          "trigger": "Stronger generating-polynomial formulation, same invariant"
+        },
+        {
+          "assessment": "Covers the maximum length only among the extremal assertions here",
+          "evidence": "For odd squarefree m and prime p>m, the maximum equals phi(m). This allows but does not classify lower lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.11667",
+          "material_read": "Theorem 1 and nearby block discussion, p. 2",
+          "method": "Lawful OA paper passages",
+          "title": "Maximum gap in cyclotomic polynomials",
+          "trigger": "Known general maximum-gap theorem"
+        },
+        {
+          "assessment": "Known block formula, not the 35-specific extremal classification",
+          "evidence": "The start word coefficients are weighted shifted inverse cyclotomic coefficients, repeated for subblocks j<q, with truncation at j=q. No chronology is inferred from the inconsistent API and title-page dates.",
+          "identifier_or_url": "https://arxiv.org/html/2207.07393v1",
+          "material_read": "Title and abstract, Theorem 4, Lemma 1 and Theorem 5, HTML offsets 0–647 and 7600–11898",
+          "method": "Lawful OA version-pinned HTML passages",
+          "title": "On the number of terms of some families of the ternary cyclotomic polynomials",
+          "trigger": "Generic coefficient-block formula behind the repeated-period law"
+        },
+        {
+          "assessment": "Different family; does not imply the repaired ternary relation",
+          "evidence": "Binary second gap max(r-1,p-r-1), lower bound on occurrences, and all-length frequency formulas for r=1,p-1.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.19381",
+          "material_read": "Theorems 1.1–1.2, p. 2, extraction offset around 4500",
+          "method": "Lawful OA paper passages",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "Closest primary analogue of a residue-dependent second gap"
+        },
+        {
+          "assessment": "Unresolved access; not relied on to exclude overlap",
+          "evidence": "PDF and handle page timed out; alternate route could not validate the certificate. The frozen description of its coverage was not independently confirmed.",
+          "identifier_or_url": "https://orbilu.uni.lu/bitstream/10993/55534/1/Article_cyclotomic-preprint.pdf",
+          "material_read": "No substantive passage retrieved",
+          "method": "Lawful institutional PDF, alternate route and handle-page attempts",
+          "title": "The ternary cyclotomic polynomials Phi_3pq",
+          "trigger": "Plausible larger coverage from a ternary gap result cited in the frozen finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The substantive remainder identifies a natural gap observable immediately below the classical maximum in the first ternary base outside the smallest-prime-three case. This is not merely a fresh table of all frequencies from a known routine: the exact distance-to-zero rule, forbidden interval above it and asymmetric multiplicity data give a sharp next-gap law for an infinite prime series. They provide a concise case against which proposed general ternary second-gap laws can be tested. The correction retains those exact facts and attributes the known affine machinery rather than presenting that substitution as a separate contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

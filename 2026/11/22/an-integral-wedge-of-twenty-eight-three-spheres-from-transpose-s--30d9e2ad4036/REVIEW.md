@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. All nonattacking-rook faces, all barycentric flags and their transpose orbits are exhaustively reconstructed. A regular quotient chain complex is checked with \(\partial^2=0\), then 19,508 genuine elementary collapses produce a three-dimensional model. Subsequently 10,704 integer unit-pivot algebraic cancellations yield a single zero-cell and 28 three-dimensional generators with zero differential. The distinction between homology-preserving chain operations and actual topological deformation retractions is explicit. The published chessboard connectivity theorem and Armstrong's theorem imply simple connectivity of the quotient; Hurewicz and homological Whitehead then yield \(\bigvee^{28}S^3\). No numeric-rank extrapolation or finite-to-infinite generalization is used.
+## correctness
 
-## Originality
-PASS relative to inspected evidence. Shareshian–Wachs and Jonsson provide the cover's 3-primary torsion and connectivity. The closest published same-object theorem establishes only the quotient's three-local homotopy equivalence to a wedge of 28 three-local spheres and expressly leaves two-primary effects and integral homotopy unresolved. The present statement rules out integral torsion and gives the actual integral homotopy type. Indexed searches for transpose orbit spaces, equivalent formulations, integral wedges and dominating group actions found no stronger claim; this does not prove global uniqueness. Possible unindexed equivalent treatments remain a publication-priority risk.
+PASS
 
-## Value
-PASS. Five-by-five is the first square chessboard complex with intrinsic three-torsion, and transposition is its canonical row–column interchange. A three-local wedge does not rule out two-primary obstructions, so an actual integral wedge classification resolves a mathematically substantive gap in a natural symmetry quotient. This is not a trivial restatement of a Betti-number calculation and does not assert a new general family theorem.
+The object is the ordinary transpose quotient of the complete 5×5 chessboard complex. On barycentric flags, ranks ensure that if two points in one closed simplex are identified then the action fixes their supporting vertices pointwise. Different deletions have different rank sets, hence no repeated facet in one cell. The independent bounded replay gives the full and fixed flag counts, quotient cell vector (843,8340,22110,21900,7260) and integral d²=0. In descending upper dimensions it reproduces (7260,9156,2919,173) genuine free-face pairs. In Step 2 the intended condition is absence of a higher surviving coface of the proposed free face, not absence of every higher-dimensional cell globally. Indeed, any surviving higher coface would contain at least two distinct d-faces through the proposed (d−1)-face, distinguished by their ranks. The unique surviving d-coface suffices. Integral Schur complements at unit entries split off contractible generator pairs; d²=0 justifies the corresponding deletion in adjacent degrees. The replay leaves chain ranks (1,0,0,28,0) and differential zero. The quoted connectivity bound gives simple connectivity upstairs. One can see the required special case of the orbit-space fundamental-group argument directly: based edge loops in the quotient flag complex lift successively edge by edge, choosing a translate at each lift vertex; the base diagonal vertex has a singleton orbit, so each lift is a closed loop based there. Such a loop contracts upstairs, and projecting the contraction shows simple connectivity downstairs. Hurewicz and homological Whitehead now prove the integral wedge conclusion, not just the homology calculation.
 
-## Scope and limitations
-The exact computation is confined to the complete five-by-five ordinary geometric quotient; it relies on a reproducible Python 3 checker and classical topology to obtain full homotopy. Publication-priority uncertainty remains for inaccessible or unindexed equivalents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October Resultary record classifies exactly this orbit space after localization at 3 and explicitly does not settle its integral homotopy type. The supported distinct result is the integral classification, including the exclusion of two-primary torsion; the three-local result and the unquotiented 3-torsion computation are credited as known. Other strong indexed matches concern a different size or a restricted complex, not this integral claim.
+
+## value
+
+PASS
+
+The complete 5×5 chessboard is a canonical small chessboard complex with known integral 3-torsion, and transposition is a natural symmetry interchanging its shores. Earlier work isolated the same orbit space and the 3-local classification but left the possible 2-primary effect of quotienting by an involution open. The exact integral answer resolves this identified gap and establishes the full homotopy type rather than reproducing a known local count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is proved for every nonnegative \(n\ge d\) and all residuals. Even prefixes have zero discrepancy, forcing balanced two-letter blocks; the odd trailing letter is forced by the net discrepancy. At even residual boundaries, the source and target-deletion phases coincide, so no deleted letter can occur inside a retained pair or after the final odd letter. Every deletion embedding corresponds bijectively to \(\ell+1\) gap lengths with prescribed parities; stars-and-bars proves the exact multiplicity. Transition-subset counting gives the complete histogram, distinct-output formula and sharp saturation boundary. Two independent algorithms separately enumerate literal deletion subsets and dynamic shuffle interleavings; their checked domains and outputs are recorded in `VERIFICATION.md`. No finite test is used in place of the unbounded proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-Adamson–Fleischmann–Huch (arXiv:2603.20790, first posted 2026-03-21) introduce complement scattered factors and algorithms; their accessible full text was inspected through its methods and structural section. The closest published alternating-word result gives the **support** for \(C((01)^{m+k},(01)^k)\), not the individual positional deletion multiplicities or the odd-endpoint cases; the known even-even support is explicitly excluded from novelty. The published cyclic-permutation embedding multiplicity theorem gives the number of embeddings of a *single target* into a host, summed over all complementary residuals, and does not determine how that total splits with a specified deleted word. The published fixed-composition alternating-host result counts distinct outputs after unconstrained deletion, not fibers conditioned on deleting a specified pattern. General shuffle multiplicities are part of classical combinatorics, so an unindexed equivalent specialization is a residual priority risk.
+PASS
 
-## Value — PASS
-Conditional deletion multiplicity is the missing information needed to turn a complement **set** into an exact positional deletion-channel output distribution. The theorem resolves all source/deleted-length parities, yields the full histogram and sharp saturation boundary, and shows that multiplicity depends only on a transition statistic rather than the location of each reversed block. This is a natural exact classification and not a restatement of the previously known support count or general embedding total.
+After k deletions and j retentions, the next host letter has parity k+j, while the next required deleted letter has parity k. Thus a deletion is legal only at even j, and at odd j the next host letter, if any, must be retained. This gives consecutive opposite-letter pairs, with any odd tail last and equal to d mod 2. At an even retention count a full pair does not change phase; a deletion gap flips phase exactly when its length is odd. Boundary phases 0 and d mod 2 prescribe the parities of all ell+1 gaps, including the virtual phase at the end when r is even. Conversely each gap vector of those parities summing to d gives one positional embedding and the stipulated residual. Removing the T compulsory gap increments leaves (d−T)/2 freely allocated pairs of deletions, giving the stated binomial and the zero cases. Choosing transition positions is a bijection from size-t subsets of the ell+1 gaps when t has the endpoint parity. Summing and applying Pascal yields the finite binomial tail through min(d,ell); in particular all types are possible iff ell≤d, and at ell=d+1 the only omitted type switches at every gap. The empty word, no deletions, no retentions, and either tail parity obey the same argument. As an additional check, writing deleted positions with zero-based indices j+2z_j gives weakly increasing z_j between 0 and ell, so the aggregate number of embeddings is binomial(d+ell,d), also as stated.
 
-## Limits and closest sources
-The source and deleted pattern must be alternating prefixes with the same starting symbol. No general arbitrary-text formula, biased deletion channel or independent priority certification is claimed. Most pertinent full texts inspected: arXiv:2603.20790; the published `Binomial-tail law for complements of alternating words`; `Exact embedding-multiplicity spectrum of cyclic permutation powers`; and `Fixed-composition deletion spectra and parity bias for alternating binary words`. Their precise links and implications are in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported addition is the exact conditional positional fibre and histogram for arbitrary d and both host parities. Credit the known even-even support theorem and an exact same-day fixed-pattern multiplicity overlap; neither supplies the arbitrary-length result. General shuffle formulations and unconditioned embedding spectra also do not give these conditional fibre counts.
+
+## value
+
+PASS
+
+The exact conditional weights determine the law induced on residual words by uniformly chosen positional embeddings, which neither a support census nor an aggregate embedding count determines. The transition statistic gives all weights and frequencies in one uniform law including parity and the first missing-word threshold, not just a finite or short-pattern extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

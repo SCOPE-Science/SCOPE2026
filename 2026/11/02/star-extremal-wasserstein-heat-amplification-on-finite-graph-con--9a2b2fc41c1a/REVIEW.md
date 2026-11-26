@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is an arbitrary finite simple peripheral graph with a unit-rate apex join and its geodesic \(W_1\) metric. The proof first identifies the operator norm with a maximum over adjacent Dirac masses, then uses the exact commuting decomposition of the star and peripheral generators. Every hub-edge response is bounded by a convex star-flow formula; its strict equality condition is equivalent to the peripheral walk being supported on a single vertex. All internal edges are strictly dominated by a uniformized one-step row-overlap bound, with an explicit positive comparison margin. Calculus proves the peak and its asymptotics. The packaged checker independently reconstructs the graph generators and finite dual optimizations over all peripheral graphs on at most five vertices. Its finite checks are supplementary, not a proof for all graphs.
+PASS
 
-## Originality — PASS, qualified
+Finite Kantorovich duality and the edge formula for the Lipschitz seminorm reduce the operator norm to evolved edge pairs. The hub mode has eigenvalue −(d+1), while the mean-zero peripheral subspace evolves by e^(−t)R_t with R_t=exp(tQ_H), since Q_H annihilates constants and is symmetric. Fixing the hub potential at zero, the signed hub-edge mass has peripheral coordinates α−a q_v, where a=e^(−t), b=e^(−(d+1)t), α=(a−b)/d and q=R_t(y,·). Optimizing over the larger star potential cube gives dα+a−2 sum min(α, a q_v)≤a+(d−2)α, with equality only if q is supported on one point: either all a q_v<α and the sum is a, or one already contributes α and all others must vanish for equality. A nonisolated y has positive probability of zero jumps and of exactly one jump to a neighbor at any t>0. For an isolate the star-optimal potential with opposite values at y and the other peripheral vertices remains feasible on the cone. For an internal edge, rate-d uniformization gives at least 2/d row overlap at the first jump (at its two endpoints), retained under subsequent steps in total variation. The zero-Poisson term has transport one, and all subsequent terms have transport at most 2−4/d by the peripheral diameter bound. This gives B_d as in the record: for d=2,3 its scaled bracket is strictly below one at t>0, and for d≥4 direct subtraction gives e^t(F_d−B_d)≥(2/d)(1−e^(−dt)). Thus no internal edge can attain the envelope at positive time. At t=0 all edge costs equal one. Differentiation yields F'_d(0)=d−3 and the given unique interior maximum precisely for d≥4. Using the critical-point relation gives the stated peak formula, and expanding its logarithm gives both asymptotics. Inspected the supplied finite numerical checker without running it; it is not the all-graph proof.
 
-The nearest primary literature is Münch–Wojciechowski's 2017 heat/Wasserstein curvature equivalence and Münch's 2019 reverse-Poincaré/transport treatment. Their inspected full text gives general curvature-based and total-variation estimates, not the pointwise sharp two-exponential universal cone bound or the equality criterion. Special-family transport formulas for stars, windmills or multipartite graphs cannot by themselves establish a *uniform comparison for every internal graph* together with necessity of an isolated peripheral vertex. Searches for cone, apex join, universal vertex, star domination, graph heat flow, and transport amplification located no stronger covering theorem. Residual risk: an equivalent extremal comparison may have been previously proved under a different diffusion or coupling vocabulary. Absence from searches alone is not asserted as proof of historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives an all-time, best-possible quantitative norm bound across the entire nonparametric class of finite graph cones, not a single low-dimensional numerical example. The equality criterion is structural and exact, independent of the internal graph's connectivity, density, or symmetry. It also identifies the four-peripheral-vertex onset of possible transient amplification and a dimension-dependent peak approaching the diameter-two upper obstruction. This is useful when the fine structure of the peripheral graph is unknown but an apex is present, and distinguishes reversible diffusion from naive monotonicity under edge addition.
+The star formula and the singleton-blade equality case on clique bouquets are already covered by the matching indexed family statements, without an identifiable priority order on the shared date. Best of current knowledge, the bound on every unit-rate cone, and the timewise isolated-vertex iff classification for an arbitrary peripheral graph, are distinct. The general known transport/curvature equivalences do not yield this profile.
 
-## Scope and residual risks
+## value
 
-Only finite simple graphs, the shortest-path metric, symmetric unit jump rates, and \(W_1\) are covered. The exact norm for isolate-free cones is not determined. Full priority against differently phrased older work would require additional independent investigation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp benchmark holds at all times on a large natural class, including disconnected peripheral graphs, and equality at any single positive time recovers the presence of a pendant vertex. The result captures transient amplification missed by a pure large-time rate. It does not assert a general diameter-two bound for graphs without a hub or give the individual profiles for nonextremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

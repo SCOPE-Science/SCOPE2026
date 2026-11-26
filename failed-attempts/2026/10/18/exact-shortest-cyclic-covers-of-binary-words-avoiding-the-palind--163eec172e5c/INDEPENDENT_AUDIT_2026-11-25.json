@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:39.362740Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/1537c249-70f1-447e-9de2-54b7002abbb2/independent_finite_check.py --max-k 10; paired output independent_finite_check_k3_10.txt in the same directory"
+      ],
+      "rationale": "A host is a closed walk in the full binary overlap graph. Subtracting one of each required edge leaves a nonnegative integral flow with unit supplies at the allowed suffix-01 vertices not starting 10 and demands at their reversals. Paths from a supply have length at least j, the first internal 10 position, or n−1 for 0^(n−1)1 (n=k−1). The routing 0^a1^b s → s1^b0^a is admissible at its endpoint: the appended ones extend the terminal 1 of s before any zeros arrive. Its image is uniquely invertible by the trailing zero run and one run; the exceptional route to 10^(n−1) cannot collide because the ordinary images have more than one 1. This realizes all lower bounds; the base graph is strongly connected by routing via 1^n, so the balanced augmentation admits an Euler circuit. In any equality case the special supply path has n−1 shifts, which require appended first bit 0 to get destination prefix 10. Since the initial vertex ends 01, every minimum host contains 010. The four-state walks from 10 to 01 give z³(1−z)/D(z), D=(1−z)²−z³. Weighting the prefixes by a+b and adding the exceptional costs yields the claimed E series. The three-state prefix automaton gives (1+z²)/D, with primitive adjacency and a simple dominant pole alpha; the ratio follows by evaluating the numerators there. The bounded independent BFS/min-cost-flow computation matched E_k for k=3..10 and found constrained overheads E_k+1 on that range. The general conclusions use the proof, not that finite check.",
+      "residual_risks": [
+        "The independent optimization check covers k=3..10 only and is not the proof for all k. No general forbidden-set classification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cazaux–Rivals permits a set of cycles; Moreno–Matamala impose periodic repetition admissibility and exact-once coverage; Chen–Kitaev–Sun impose exact-once coverage; Burstein–Kitaev's inspected existence theorem is for word patterns."
+        ],
+        "reasoning": "None of these inspected definitions or results transfers the optimum to one cyclic host for all linearly admissible concrete windows. In contrast, the distinct exact c88f5aa31843 match uses that very objective.",
+        "searches": [
+          "Cazaux–Rivals shortest cyclic cover of strings; Moreno–Matamala restricted de Bruijn cycles; Burstein–Kitaev and Chen–Kitaev–Sun universal cycles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c88f5aa31843",
+        "arXiv:0711.1695",
+        "DOI:10.1016/j.jda.2016.05.001",
+        "arXiv:math/0311399",
+        "DOI:10.3390/math8050778"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof decomposes the residual flow, lower-bounds each directed path and attains the sum; it specifies the special supply 0^(m−1)1 of minimum length m−1 and destinations starting 10."
+        ],
+        "reasoning": "Any optimum must attain the special path's individual bound. After m−1 shifts only the initial final 1 remains, and the next destination bit must be 0, forcing the first appended bit to be 0. This traverses 010 immediately after the supply's suffix 01. The frozen forced-violation statement thus follows directly, even though the matching Finding does not advertise it.",
+        "searches": [
+          "Resultary c88f5aa31843, proof sections 1–4, in particular the equality lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c88f5aa31843 Finding and scope use all linearly admissible length-n words, one circular host, all required windows at least once; repeats and forbidden windows allowed."
+        ],
+        "reasoning": "Set n there to k here. The problems coincide, including admissibility at the linear boundary. Reflecting the binary alphabet sends 010 to 101 by bit complementation, with no new case to optimize.",
+        "searches": [
+          "Resultary: exact cyclic-cover lengths for binary words avoiding 010; forbidden windows allowed",
+          "Scholarly cyclic-cover and restricted de Bruijn language lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact lengths for orders 3–16 include every length tabulated in the frozen claim; c88f5aa31843 also gives the identical rational overhead and language-count generating functions."
+        ],
+        "reasoning": "The table agrees but is not the basis for infinite coverage: the explicit rational-function identity is exact at every order. The asymptotic ratio is the ratio of their numerators at the common simple dominant pole.",
+        "searches": [
+          "Resultary c88f5aa31843, Finding and proof section 4"
+        ]
+      },
+      "rationale": "Distinct Resultary entry c88f5aa31843 covers precisely the same linear-avoidance language, single cyclic host with repeated and forbidden windows, and all-order minimum and overhead series. Its per-deficit lower bound and equality construction also imply the forced forbidden factor. Complementation and the overhead ratio are mechanical. This is indexed mathematical coverage, not an attribution or conclusion about which result was obtained first; the matched catalogue entry has a later displayed date.",
+      "residual_risks": [
+        "Date order alone does not establish priority or the relationship between the two records. There may also be earlier equivalent coverage outside these bounded literature comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-order coverage; forced violation is a direct equality consequence",
+          "evidence": [
+            "The same E(z) is stated in proof section 4. Sections 2–3 identify the special supply and attain the sum of path bounds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cyclic-cover-lengths-for-binary-words-avoiding-010--c88f5aa31843/RESULT.md",
+          "material_read": "Finding and scope offsets 0–1550, proof of matching and lower bound 1320–5426, enumeration 5426–6929",
+          "method": "Resultary local mirror bounded passages",
+          "title": "Exact cyclic-cover lengths for binary words avoiding 010",
+          "trigger": "Same language, cyclic optimization, and matching lengths"
+        },
+        {
+          "assessment": "Different admissibility and objective",
+          "evidence": [
+            "The allowed word must have infinite periodic repetition in the subshift. The cyclic host includes each such word exactly once. For example, 100 avoids linearly yet its periodic repetition creates 010."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+          "material_read": "OA pp. 1–3, extracted offsets around 2056 and 6876",
+          "method": "Primary PDF passage comparison",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Forbidden-pattern de Bruijn optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Minimizes total length of a set of cyclic strings, not length of one cycle."
+          ],
+          "identifier_or_url": "10.1016/j.jda.2016.05.001; https://hal-lirmm.ccsd.cnrs.fr/lirmm-01240278/document",
+          "material_read": "OA manuscript p. 2, problem definition near offset 1800",
+          "method": "Lawful primary manuscript, bounded passage",
+          "title": "Cazaux–Rivals shortest cyclic cover of strings",
+          "trigger": "Identical cyclic-cover terminology"
+        },
+        {
+          "assessment": "Inspected existence result does not give this minimum",
+          "evidence": [
+            "Universal cycles for word patterns are the object of the stated existence theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0311399v1",
+          "material_read": "OA pp. 1–2 around offsets 0 and 5300",
+          "method": "Primary PDF, bounded passage",
+          "title": "On Unavoidable Sets of Word Patterns",
+          "trigger": "Universal cycles and word-pattern avoidance"
+        },
+        {
+          "assessment": "Different exact-once model",
+          "evidence": [
+            "Requires each member once and no other word; does not optimize the number of permitted supplementary windows."
+          ],
+          "identifier_or_url": "10.3390/math8050778",
+          "material_read": "OA PDF p. 1, definition and objective",
+          "method": "Primary PDF, bounded passage",
+          "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Exact enumerations and universality of word sets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof 2–5",
+        "Resultary c88f5aa31843, proof 2–4"
+      ],
+      "rationale": "As a theorem this is an informative exact solution to a natural route-balancing problem: a single structured matching simultaneously attains all individual path lower bounds for an infinite family, and equality distinguishes host avoidance from required-window avoidance. This usefulness does not supply a distinct contribution once the equivalent exact indexed theorem is accounted for.",
+      "residual_risks": [
+        "No transfer to arbitrary patterns or alphabets is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

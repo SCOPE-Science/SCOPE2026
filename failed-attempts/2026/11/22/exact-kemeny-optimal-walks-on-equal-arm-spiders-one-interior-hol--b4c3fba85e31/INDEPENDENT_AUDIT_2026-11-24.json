@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:18.082441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and assumptions",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The resistance sum over unordered vertex pairs is N times the trace, and a depth-j edge separates L-j+1 vertices from the remaining N-(L-j+1), giving exactly c_j. Positive edge weights are necessary on a tree. The individual terms c_j/w are strictly convex and diverge at zero, giving existence and uniqueness in the full feasible set; arm symmetry follows. For feasibility, c_j-c_{j+1}=(k-2)L+2j and the second difference is -2. For odd L, each even term is less than twice its successor since (L-j+1)/(L-j)≤2 and the other factor in c_j/c_{j+1} is less than one. For even L use c_2+c_4<2c_3 and bound each remaining even term by its preceding odd term. Hence E<2O and 1/k+u<1. The even prefix multipliers are positive by pairing larger early even terms and smaller late even terms against their odd neighbors. The odd prefix multipliers are positive because both factors of c_{2i}/c_{2i+1} strictly increase with i; a final unpaired even term only raises E/O. Since E/u²=O/(1-u)², the successive differences give stationarity with zero endpoint multiplier; the hub multiplier is kc_1 and the depth-one multiplier is zero. Substitution gives the exact minimum and (k,L)=(3,3) check (33.6). Summing s(N-s) for s=1,…,L and using E-O=O_k(L²) gives the stated leading coefficients and the k/2 limit at fixed k, not a finite-L ratio.",
+      "residual_risks": [
+        "Analytic verification is for equal arms and fixed k in the stated limit; the recorded finite spectral comparisons were not rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prescribed-stationary-law SDP is a general formulation, not an explicit spider optimizer.",
+          "Weighted-tree rearrangement with a fixed multiset of weights optimizes a different family.",
+          "The broom certificate covers the tail coefficient family for all m≥2, in particular m=(k-1)L."
+        ],
+        "reasoning": "The relevant dominance is exact coverage of the coefficient/constraint family in the tail, not breadth of the generic optimization problem.",
+        "searches": [
+          "Web: \"Kemeny's constant\" optimization transition probabilities symmetric stochastic tree conductances optimal Markov chain",
+          "Patel–Agharkar–Bullo 2015, Problem 1, Theorem 4, Problem 2",
+          "arXiv:2109.09249v4, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references and mathematical comparison",
+        "Resultary broom, path, two-level tree and fastest-mixing spider statements",
+        "Patel–Agharkar–Bullo 2015; Durastante–Gnazzo–Meini v4; Kirkland–Zeng 2016; Zeng v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broom §3: all tail multipliers strictly positive except the free endpoint and first junction; the tail equations depend only on m,L.",
+          "After substitution, the separated spider lower bound is kc_1+(√E+√O)² before scaling; equality follows from the elementary E<2O bound."
+        ],
+        "reasoning": "Exact arm probabilities and the single free junction are recovered without solving another active-set problem. The only new feasibility comparison is 1/k+u<1, obtained by adjacent comparison of explicit coefficients; the fixed-k uniform penalty follows algebraically. This establishes mechanical implication, not publication order.",
+        "searches": [
+          "SCOPE-a-single-free-junction-in-kemeny-optimal-walks-on-broom-trees--abc2f4b96dab/RESULT.md, offsets 0–7171",
+          "SCOPE-parity-optimal-kemeny-design-on-finite-symmetric-stochastic-path--b937fa7e415e/RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Broom record Proof §§1–3 has the identical weighted path tail and a zero multiplier at the preceding junction.",
+          "Depth-three fastest-mixing spider record uses SLEM, not the inverse trace."
+        ],
+        "reasoning": "The resistance reduction exposes a genuine equivalent subproblem via m=(k-1)L; apparent equivalence by simply matching depth-three graph support is false for SLEM.",
+        "searches": [
+          "Resultary: Kemeny optimal symmetric stochastic transition matrix tree spider equal arm vertex constraints exact edge probabilities",
+          "Resultary: Kemeny's constant weighted tree optimization edge conductances stochastic row constraints spider"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed path, broom and two-level tree claims were compared by feasible sets and depth regime; the broom gives an exact formula plus certified inequalities on matching tail coefficients."
+        ],
+        "reasoning": "The useful indexed exact match is a formula and certificate for the tail rather than a numerical table or a literally identical family name. The path and depth-two cases alone would not cover this theorem.",
+        "searches": [
+          "Resultary: Kemeny optimal symmetric stochastic transition matrix tree spider equal arm vertex constraints exact edge probabilities",
+          "Resultary: Kemeny's constant weighted tree optimization edge conductances stochastic row constraints spider"
+        ]
+      },
+      "rationale": "The distinct indexed broom record already solves exactly the tail subproblem determining the alternating probabilities and active junctions. Its proof gives the boundary-free tail KKT certificate for c_j=(L-j+1)(m+j), j≥2, with zero first-junction and endpoint multipliers. Put m=(k-1)L. The spider program then has the identical tail and simply replaces the separate root allocation by 0<w_1≤1/k. Dropping the depth-one coupling gives a lower bound attained by combining w_1=1/k with that exact tail: E<2O follows from the published coefficients by adjacent pairing and concavity, so this point has strict depth-one slack. The full optimizer, holding pattern and minimum now follow by feasibility and scaling, and the asymptotic comparison is direct coefficient summation. This is demonstrable coverage by transfer of an explicitly solved subproblem, not an assertion that broom and spider graphs are isomorphic or that the broom record appeared first.",
+      "residual_risks": [
+        "The shared indexed day does not establish which record came first. The judgment concerns demonstrable overlap and implication, not historical priority.",
+        "Search was bounded; equivalent unindexed results were not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly transferable exact tail solution; full graph and hub allocation differ",
+          "evidence": [
+            "c_j=(L-j+1)(m+j)",
+            "§3 sets λ_1=λ_L=0 and supplies strict tail multipliers"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-single-free-junction-in-kemeny-optimal-walks-on-broom-trees--abc2f4b96dab/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–4, offsets 0–7171",
+          "method": "Local mirror bounded source reading",
+          "title": "A single free junction in Kemeny-optimal walks on broom trees",
+          "trigger": "Same free-junction and alternating-allocation pattern"
+        },
+        {
+          "assessment": "Related exact result, not the matching tail coefficients",
+          "evidence": [
+            "Path coefficients i(n-i), no spider hub capacity"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-optimal-kemeny-design-on-finite-symmetric-stochastic-path--b937fa7e415e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity-optimal Kemeny design on finite symmetric stochastic paths",
+          "trigger": "Alternation for the same objective"
+        },
+        {
+          "assessment": "Different depth regime",
+          "evidence": [
+            "Depth two, with a root-holding threshold"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-branching-threshold-for-kemeny-optimal-walks-on-two--6867cf99200d",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A quadratic branching threshold for Kemeny-optimal walks on two-level trees",
+          "trigger": "Same objective and related branching"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Optimizes SLEM, not Kemeny's constant"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-nonnegative-fastest-mixing-on-depth-three-spider-trees--4d7800ee60ec",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact nonnegative fastest mixing on depth-three spider trees",
+          "trigger": "Same graph at L=3"
+        },
+        {
+          "assessment": "Underlying convex model, not an exact spider formula in the inspected passages",
+          "evidence": [
+            "Prescribed stationary law and support; SDP formulation"
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF pp. 3–4, Problems 1–2 and Theorem 4",
+          "method": "Open primary PDF",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "General graph-constrained Kemeny minimization"
+        },
+        {
+          "assessment": "Perturbation problem, distinct from unpenalized global design",
+          "evidence": [
+            "Preserves stationary distribution; penalizes perturbation of given chain"
+          ],
+          "identifier_or_url": "arXiv:2510.24679v4",
+          "material_read": "PDF pp. 5–6 and Algorithm 1 p. 22",
+          "method": "Open primary PDF",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Potentially stronger reversible result"
+        },
+        {
+          "assessment": "Ordinary random walk and edge insertion, not the feasible design problem",
+          "evidence": [
+            "Tree Kemeny formula under ordinary-random-walk normalization"
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1681/1681",
+          "material_read": "Abstract and Theorem 3.1, journal p. 450",
+          "method": "Open primary PDF",
+          "title": "Kemeny’s Constant and an Analogue of Braess’ Paradox for Trees",
+          "trigger": "Exact tree Kemeny formula"
+        },
+        {
+          "assessment": "Different optimization domain and transition normalization",
+          "evidence": [
+            "Fixed weight multiset; weighted star minimizes over tree shapes"
+          ],
+          "identifier_or_url": "arXiv:2109.09249v4",
+          "material_read": "Abstract and Theorem 1.3, PDF pp. 1–2",
+          "method": "Open primary PDF",
+          "title": "On average hitting time and Kemeny's constant for weighted trees",
+          "trigger": "Tree extremum with edge weights"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and coefficient asymptotics",
+        "Indexed broom Proof §§1–3"
+      ],
+      "rationale": "The equal-arm design question and the comparison with a standard equal-edge walk are natural, and the holding description is useful. As the narrow exact contribution claimed, however, the active structure and exact probabilities are a transfer of the already certified tail with a scalar cap calculation; the k/2 limit is a direct evaluation of the transferred optimum. The frozen claim does not establish a separate non-mechanical exact invariant beyond that application.",
+      "residual_risks": [
+        "This does not assess extensions to unequal arms or a broader theorem on transfer of optimizers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

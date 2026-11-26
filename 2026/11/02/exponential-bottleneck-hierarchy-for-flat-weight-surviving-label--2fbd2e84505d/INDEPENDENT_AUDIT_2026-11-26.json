@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:14:35.025676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proofs 1–4",
+        "Frozen VERIFICATION.md and checker.py, especially lines 25–53",
+        "repairs/3/RESULT.md, checker.py and VERIFICATION.md"
+      ],
+      "rationale": "The occupancy formula counts the choice of occupied labels and the onto assignments. Missing one specified label gives the uniform one-step escape lower bound, so each visited level is left almost surely, and fixed-k inclusion–exclusion gives q_{n,k}∼k((k−1)/k)^n. A skip below j at departure from k>j requires all n choices in a set of j−1 labels. Dividing the corresponding union bound by q_{n,k} is valid at first departure, not just at the first round, by summing the geometric self-loop probabilities. Summing over at most n candidate departures proves the uniform skip bound (j=n is visited initially). The exact factorization (1−q)^(m−1)P_n(k,j) of the duration/destination probabilities justifies the independent clocks of the repair: the embedded path is chosen independently of the full array of holding times. Products of the fixed-k rescaled geometric tails yield the claimed joint exponential limit; the error of using the uncensored clocks is confined to the event of a skip, which tends to zero. The omitted original total-time claims are mathematically sound: the time spent above 2 is bounded in mean by n(3/2)^n, the levels k≥4 contribute at most n(4/3)^n in mean, and skip errors for 2 and 3 are polynomial after multiplying by their exact inverse escape probabilities. The frozen checker was read, not executed: the mean-remainder check at lines 40–41 is floating-point, despite the description. The repair drops that check and uses only rational validation of finite transitions and visitation; its recurrence is conditioned on a departure and has the correct boundary values.",
+      "residual_risks": [
+        "The finite checker was inspected, not replayed; it is corroborative only. The convergence is for fixed r, not r increasing with n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.5 gives an exponential lower bound at fixed 0<α<1; the 538e5bf91609 indexed result is for α_n=c/√n. Cancrini–Posta remove one ball per nonempty bin and uniformly reassign them, permitting empty bins to refill."
+        ],
+        "reasoning": "Neither a positive-power result nor conservative mixing includes the endpoint as a theorem on low-state residence times. The classical occupancy kernel is used as known one-step input.",
+        "searches": [
+          "The Conclave Process, Theorem 1.5",
+          "Resultary 538e5bf91609, weak-reinforcement consensus",
+          "arXiv:2001.11246, repeated balls into bins"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22324 and arXiv:2001.11246",
+        "Resultary 1759e90a3004 and 538e5bf91609"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric approximation implies the exponential limit of the total time; the first exponential correction agrees explicitly. Neither statement specifies dependence, candidate-level visits, or the rate of each individually rescaled holding time."
+        ],
+        "reasoning": "A scalar law at the largest time scale loses all smaller clocks, and even an expansion of the expected scalar only controls sums of means. The repair proves a different quantitative statement via skip probabilities and exact duration/destination factorization, not from the scalar conclusions.",
+        "searches": [
+          "Resultary 1759e90a3004 total-time law and full hierarchy summary",
+          "arXiv:2607.22324, Theorem 1.5 and model hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1759e90a3004 summary identifies exactly the survivor-only zero-reinforcement multinomial process. The motivating power law has positive exponent and only offers the modeling framework at this boundary."
+        ],
+        "reasoning": "Uniform voting among surviving labels equals throwing n independent balls into the currently active bins and permanently deleting empty bins. This identifies the indexed endpoint but not an ergodic repeated occupancy process. Total time is the sum of durations, which is not equivalent to their independently rescaled joint law.",
+        "searches": [
+          "Resultary: survivor-only endpoint, zero reinforcement and flat-weight conclave; 1759e90a3004 metastable geometric fixation zero reinforcement two-thirds support bottlenecks holding times independent exponentials",
+          "Benjamini et al., arXiv:2607.22324, model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed statement claims TV closeness of the total time to a geometric law of mean 2^(n−1), and a complete hierarchy of expectation corrections starting with (3/2)^n/3. It does not specify the joint limiting distribution or a bound for a particular skipped level. The full matching file could not be read."
+        ],
+        "reasoning": "The correction and total-law overlap are explicit positive evidence and are credited. No finite-state table can establish the surviving fixed-r asymptotic joint law. Absence from the summary alone is not evidence of noncoverage in the whole record.",
+        "searches": [
+          "Resultary local index, exact record 1759e90a3004",
+          "Local Resultary mirror RESULT.md for the same ID"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired theorem: the unconditional joint law of separately scaled fixed-level residence times, with explicit skip control. The frozen package is not passed as stated: a distinct indexed statement for the identical endpoint gives a stronger total-time law and expressly includes the highlighted secondary exponential correction to the mean. Those headline contributions are removed, not relabeled. The exact joint law with the rates k and explicit fixed-level skip control are not stated in the available matching statement and do not follow from the overlapping total-time facts. The exact remainder of the indexed expansion was not available for comparison; no historical priority is inferred.",
+      "residual_risks": [
+        "The full text of 1759e90a3004 was inaccessible in the configured mirror, so the assessment does not exclude a joint residence-time statement elsewhere in that record. This does not weaken the demonstrated total-time overlap. Dates do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive reinforcement assumptions, not exact weights at zero.",
+          "evidence": "Choices are independent with probabilities proportional to power weights; the stated lower bound applies for fixed 0<α<1.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22324",
+          "material_read": "PDF pp. 1–3, model and Theorem 1.5",
+          "method": "Bounded OA PDF passages",
+          "title": "The Conclave Process",
+          "trigger": "Motivating repeated voting process"
+        },
+        {
+          "assessment": "Verified overlap on the marginal law and the two largest mean scales; unresolved full-text scope for the joint law.",
+          "evidence": "The summary states geometric TV approximation with mean 2^(n−1) and expectation corrections beginning with (3/2)^n/3.",
+          "identifier_or_url": "2026/11/8/SCOPE-metastable-geometric-fixation-and-an-exponential-hierarchy-at-ze--1759e90a3004",
+          "material_read": "Local index summary; the decisive full-text passage was sought but not retrieved",
+          "method": "Local Resultary search and attempted mirror read",
+          "title": "Metastable geometric fixation and an exponential hierarchy at zero reinforcement",
+          "trigger": "Identical model and overlapping absorption claims"
+        },
+        {
+          "assessment": "The identified claim is for a different reinforcement regime.",
+          "evidence": "The reinforcement parameter scales as c/√n.",
+          "identifier_or_url": "2026/10/18/SCOPE-square-root-weak-reinforcement-shifts-the-metastable-consensus-c--538e5bf91609",
+          "material_read": "Local index summary",
+          "method": "Local Resultary search",
+          "title": "Square-root weak reinforcement shifts the metastable consensus clock",
+          "trigger": "Same motivating family and boundary scale"
+        },
+        {
+          "assessment": "Different refillable process and different question.",
+          "evidence": "The process removes one ball from each nonempty bin and uniformly reassigns the removed balls; the chain is conservative and ergodic.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.11246",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Bounded OA PDF passage",
+          "title": "Mixing time for the Repeated Balls into Bins dynamics",
+          "trigger": "Repeated occupancy model under related terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/3/RESULT.md",
+        "Resultary 1759e90a3004 summary"
+      ],
+      "rationale": "The total absorption clock conceals all but the last bottleneck. The repaired theorem resolves actual fluctuations at all fixed low levels simultaneously and establishes that those levels are typically visited rather than simply conditioning on visits. This is a structural statement about the extinction trajectory and can be used for observables that distinguish different remaining support sizes.",
+      "residual_risks": [
+        "No uniform result for growing r or positive reinforcement is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

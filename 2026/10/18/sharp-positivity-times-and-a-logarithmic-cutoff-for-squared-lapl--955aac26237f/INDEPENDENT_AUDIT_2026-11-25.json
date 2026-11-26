@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:58.504551Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, steps 1–6 and d=4 limitation",
+        "VERIFICATION.md",
+        "hypercube_biharmonic_checker.py"
+      ],
+      "rationale": "The unnormalized cube Laplacian has Walsh eigenvalues 2j. Thus the squared kernel uses z^(j²), z=e^(−4t). Splitting off one coordinate gives the sum identity (the previous-dimension kernel) and the difference identity. The latter uses (2j+2)²=(2j)²+4(2j)+4, so the difference is z times the previous squared-heat kernel composed with ordinary heat e^(−4tL). Ordinary heat is strictly positive for t>0 on the connected cube. Whenever the lower-dimensional squared heat is nonnegative its rows sum to one, making every such difference strict. The sum identity excludes any recovery before τ_(d−1); at τ_(d−1) the two identities show the d-dimensional antipodal entry is negative. From then on every radial list strictly decreases in distance. If the m-dimensional kernel is nonnegative at t>0, its origin row is a probability measure with Walsh means z and pair moments z⁴. The variance of the sum of the m spins is m(1−z²)(1−(m−1)z²), giving t≥log(m−1)/8. The successive derivative magnitudes for the antipodal polynomial have ratio at most 2(d−1)z³, which is <1 at and after τ_(d−1): use τ_2>1/8 for d=3, τ_3>1/4 for d=4–7, and 2(d−1)/(d−2)^(3/2)<1 for d≥8. The small bounds follow from the indicated explicit polynomials and exponential brackets; p_2=(z−1)(z³+z²+z−1) proves the initial unique crossing and the other d=2 entries are positive at t>0. The strictly positive alternating derivative then yields one last crossing and strict increase of the thresholds. At t_0=(log d)/4 the first two terms cancel and the strictly decreasing alternating tail begins positive. At t_0−d^(−2), above τ_(d−1) for large d, the leading contributions are −4d^(−2) and +1/(2d²). For z≤2/d the tail starting at j=3 is O(d^(−6)), by the lower linear bound on j² and binomial magnitude bound. Hence at the root dz=1+1/(2d²)−1/(2d³)+O(d^(−4)); taking −log(z)/4 gives the coefficients claimed. Row sums equal one, so the maximum absolute row sum is one iff entrywise nonnegative. At the recovery time strict radial ordering leaves just the antipodal zeros, while at t=0 the identity is a separate allowed case. Earlier zeros of the antipodal entry are not excluded. Separate replay `python /workspace/review_checks/frozen_probes.py` uses high-precision Newton iterations in dimensions 2,3,4,8,40,100 and checks opposite antipodal signs before the final crossing in d=4; the uniform proof, not the numerical root solver, establishes the last-zero assertion.",
+      "residual_risks": [
+        "The fixed Laplacian normalization is essential. No general guarantee for other graphs or for all positive roots of a given antipodal polynomial is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General semigroup positivity results treat spectral conditions and fourth-order examples. Continuum biharmonic heat in R^n is eventually positive on each compact set for the stipulated initial data, but stays negative somewhere at late times. Complete multipartite squared heat has exact positive cutoff and includes Q_2=K_(2,2). The rook theorem has an exact cutoff and a thin-board logarithm for K_a square K_b, another overlap at Q_2."
+        ],
+        "reasoning": "Work on local positivity or qualitative eventual positivity does not give an exact no-gap start time. The graph-family results neither apply to Q_d for d≥3 nor make a cube-dimensional expansion a specialization of those formulas.",
+        "searches": [
+          "arXiv:1511.05294; arXiv:1511.09020",
+          "Gazzola–Grunau ggpoitiers.pdf, Theorem 1",
+          "Resultary e4f9c89a420f (complete multipartite), 621e2ef18776 (rook graphs)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.05294",
+        "arXiv:1511.09020",
+        "Gazzola–Grunau (2008) Theorem 1",
+        "arXiv:1008.3568 Theorem 5.3",
+        "arXiv:2412.02462 §1",
+        "Resultary e4f9c89a420f, 621e2ef18776, da21753d4271, f03089a5a92e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite matrix theorem implies preservation of double nonnegativity for all real powers s≥1 once a doubly nonnegative matrix has at most three distinct eigenvalues. The three-spectrum catalogue record itself treats infinite-dimensional failure; it points to that finite theorem in its relationship section. In a d-cube T_d(t) has d+1 distinct spectral values for t>0. The later cube result bounds individual-entry zero counts, and the entire-function paper concerns an infinite series."
+        ],
+        "reasoning": "The finite three-eigenvalue result can rule out later gaps starting at positivity for d=2 but its hypothesis fails for d≥3. Neither an individual-entry zero count nor a deformed-exponential zero theorem determines which distance governs positivity, dimension monotonicity, or the stated asymptotic.",
+        "searches": [
+          "Resultary 2026/10/11/da21753d4271, Finding and Relationship",
+          "Johnson–Lins–Walch arXiv:1008.3568, Theorem 5.3",
+          "Resultary f03089a5a92e; arXiv:2412.02462, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On (Z/2Z)^d, nonnegative convolution kernel with unit mass is equivalent to positive definiteness of the Fourier multiplier z^(|A|²). The antipodal polynomial is the Jensen polynomial Σ binom(d,j)q^(j(j−1)/2)x^j evaluated at q=z² and x=−z. The prior paper studies zeros and q-series of the infinite deformed exponential Σ q^(j(j−1)/2)x^j/j!, with analytic dependence near q=0."
+        ],
+        "reasoning": "The finite polynomial is related to but differs from its rescaled entire-function limit. The coupled evaluation q=z² depends on the unknown root, and the finite binomial corrections matter at the order stated. Analyticity/spacing of zeros of the infinite series does not identify the positivity region of every Fourier kernel distance.",
+        "searches": [
+          "Resultary: radial positive-definite Walsh multipliers, exp(−4tj²), antipodal Krawtchouk zeros",
+          "deformed exponential Jensen polynomials binomial q^{k(k-1)/2} smallest zero q interlacing degree asymptotic Zhang deformed binomial hypercube",
+          "arXiv:2412.02462 §1, equation (1) and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day complete-multipartite record supplies the exact base-case cutoff. The later reentrant-cube record gives a general distance-based bound on the number of positive-time zeros and specifically the exact Q_4 two-crossing antipodal polynomial and final entrywise horizon."
+        ],
+        "reasoning": "These are real exact overlaps at low dimensions and are not discarded by date. Neither supplies the all-dimension sequence, its monotonicity, or its asymptotic; no equivalent indexed sequence theorem was verified.",
+        "searches": [
+          "Resultary: Boolean-cube squared-Laplacian positivity, antipodal recovery and reentrant crossing",
+          "Resultary 2026/11/22/f03089a5a92e, Finding and relationship section",
+          "Resultary 2026/10/18/e4f9c89a420f, Finding"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the uniform higher-cube phase diagram, strict dimension monotonicity, and quantitative last-antipodal cutoff expansion. The d=2 special case has demonstrable same-day coverage from complete multipartite graphs and is not claimed as independently new. The exact d=4 overlap with a later zero-crossing record is credited. The three-spectral-value discussion in the frozen literature prose needs a finite-dimensional qualification: the cited catalogue Finding itself is an infinite-dimensional counterexample to that extension, not the finite-dimensional theorem. This does not affect the mathematical statement or induction.",
+      "residual_risks": [
+        "An earlier treatment under Walsh positive-definiteness or a diagonal specialization of finite Jensen-polynomial zeros could encode equivalent conclusions. The verified overlaps and comparison do not settle universal historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "For each complete multipartite graph gives cutoff u((n−m)/n)/n² and the positivity set {0}∪[τ,∞); matches Q_2, not the higher cubes.",
+          "identifier_or_url": "Resultary 2026/10/18/e4f9c89a420f",
+          "material_read": "Published Finding, mirror offset 0",
+          "method": "Read local mirror statement",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Same-day exact squared-heat cutoff for a graph family containing Q_2"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Distance-r entries have at most floor(r/2) positive-time zeros and Q_4 exact antipodal reentrance/final horizon is given. No general dimension-monotone recovery time and expansion in the stated result.",
+          "identifier_or_url": "Resultary 2026/11/22/f03089a5a92e",
+          "material_read": "Finding at offset 0; relationship section near 9000",
+          "method": "Read local mirror passages",
+          "title": "Distance-controlled zero crossings and the first reentrant biharmonic entry on Boolean cubes",
+          "trigger": "Closest same-operator, same-graph-family theorem"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The Finding gives an infinite-dimensional operator with positivity time set {0}; the relationship identifies a finite three-spectrum power theorem, not applicable to the higher cubes.",
+          "identifier_or_url": "Resultary 2026/10/11/da21753d4271",
+          "material_read": "Finding offset 0 and relationship offset 3796",
+          "method": "Read published mirror passages",
+          "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+          "trigger": "Potential no-gap theorem for positive semigroup powers"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "At most three eigenvalues suffices for all continuous powers s≥1 to stay doubly nonnegative; only d=2 of the assigned cube range meets the eigenvalue count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3568",
+          "material_read": "Theorem 5.3, PDF p. 8, extracted offset 27284",
+          "method": "Read primary OA PDF passage",
+          "title": "The critical exponent for continuous conventional powers of doubly nonnegative matrices",
+          "trigger": "Finite-dimensional source for three-spectral-value no-gap implication"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Banach lattice conditions and (bi-)Laplacian examples; gives no cube-specific threshold in the stated result.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.05294",
+          "material_read": "PDF p. 1 abstract, offset 2017 onward",
+          "method": "Read primary PDF stated scope and examples",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General eventual positivity including higher-order generators"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Eventually positive on compact sets but negative somewhere at every sufficiently late time; this concerns the continuum and local eventual positivity, not cube matrix entries.",
+          "identifier_or_url": "https://gazzola.faculty.polimi.it/ggpoitiers.pdf",
+          "material_read": "Theorem 1, p. 2, offset 2839",
+          "method": "Read OA PDF primary theorem",
+          "title": "Eventual local positivity for a biharmonic heat equation in R^n",
+          "trigger": "Exact sign statement for biharmonic heat"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Analytic root branches and separation bounds for the entire function's factorial-coefficient series in the q plane; the frozen polynomial has finite binomial coefficients with simultaneous x and q specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.02462",
+          "material_read": "§1 definition (1), offsets 2015–4077, and Theorem 1 (Sokal) and root-series setup, offsets 6280–8062",
+          "method": "Locate in primary PDF and read bounded offset passages",
+          "title": "On series expansions of zeros of the deformed exponential function",
+          "trigger": "Closest inspected q-deformed binomial/Jensen-polynomial alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical product graph and a non-Markovian fourth-order flow, the question concerns the exact return of bounded-data contraction and the geometry at that time. Strictly ordered dimension thresholds despite possible earlier antipodal zeros, antipodal-only vanishing at recovery, and the logarithmic law with signed corrections address this natural stability problem rather than just rechecking eventual positivity or a base graph. The scope is valuable without asserting comparable results for weighted or other graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

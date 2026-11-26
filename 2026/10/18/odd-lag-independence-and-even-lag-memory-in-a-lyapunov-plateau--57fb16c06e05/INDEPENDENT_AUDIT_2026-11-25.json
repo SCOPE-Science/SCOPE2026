@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:09.359353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prior Appendix A densities are for the specified acip, not an arbitrary invariant probability. An independent stationarity check is to split density intervals at 0, send each constant-density interval through the appropriate affine branch, and divide its height by the absolute slope. For 3<beta<4 the resulting signed jumps, scaled by 18 and listed at the frozen breakpoints, are (1,1,2,2,−4,−2); the extra candidate jump at 4−beta is −1+2+2−3=0. For 4<beta<9/2 the jumps scaled by 54 are (2,1,2,1,2,4,2,−8,−2,−4); the extra jump at 3beta−12 is −5+6+6−7=0. These are precisely the input jumps, so the density is invariant; the same check allows collapsed intervals at beta=3,4. Direct integration gives mass 1 and positive mass 2/3 in both chambers and at these endpoints. The event J0=J1=1 is 0<X<beta/2, with masses (beta+4)/18 and (beta+20)/54, yielding the stated slopes on subtracting 4/9. The plateau Lyapunov value is prior; the stationary average of log |T'| reproduces it. At 4 the four cell images are B, C, C∪D, A∪B; conditional uniformity survives each cell transition, establishing the Markov property rather than just a one-step matrix. With cell weights (1,2,4,2)/9 and u=3v=(−2,−2,1,1), Pu=(−2,1,1,−2), P²u=−u/2, and the weighted product of u and Pu is (4−4+4−4)/9=0. The norm of v squared is 2/9; parity iteration gives all lags. For Bernoulli pairs zero covariance is pairwise independence, and the only possible initial point for three zeros is −4, which has zero measure. Replay: the branch pushforward jump check and RESULT.md lines 54–127 with Appendix A. CHECKER.py and VERIFICATION.md were inspected, not executed; finite-lag comparisons do not establish the infinite-lag claim. The retrieved primary PDF labels the matching density passages (A.11)–(A.15), rather than the frozen numbering.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The previous density formulas cover a larger family and directly supply one-lag joint masses by integration. Prior matching and entropy results concern the family and the density structure, not a theorem on this observable's full covariance sequence."
+        ],
+        "reasoning": "The density supplies the first lag, and a sufficiently general theorem giving joint cylinder masses would cover the whole claim. The inspected results do not determine the special all-lag geometric law merely from the constant branch mass or weighted average of log slope. The four-state dynamics and centered vector identities yield the additional conclusion.",
+        "searches": [
+          "arXiv:1205.5360 Appendix A (A.9)–(A.15)",
+          "arXiv:1707.07488 pp. 1–4",
+          "Resultary branch-count/asymptotic variance and matched plateau queries"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py",
+        "arXiv:1205.5360, arXiv:1707.07488, arXiv:0812.4551",
+        "Configured Resultary searches covering the map, lag and four-state aliases, and reference to prior branch-count work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the older (A.9) also gives (beta−4)/18 for 2<beta<3; the frozen result refers without a record ID to an earlier branch-count analysis on that different range.",
+          "The known 2/3 branch mass leaves Pf inner products undetermined, and the entropy statements do not fix P² acting on the centered indicator."
+        ],
+        "reasoning": "The lower-side slope formula is an elementary integration of prior data, not independent new data. A lag-one expression on the earlier side does not establish the changed slope beyond 4 or independence at every odd separation, which is the decisive distinct implication.",
+        "searches": [
+          "arXiv:1205.5360 (A.9)–(A.15), lag-one integration and source scope",
+          "arXiv:1707.07488, matching vs correlation comparison",
+          "Resultary prior 2<beta<3 branch-count/asymptotic variance query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical map occurs in Botella-Soler et al., and Bruin et al. analyze the affine family in conjugate coordinates. Their inspected statements concern density, matching, Lyapunov or entropy, not the centered positive-branch indicator's P² eigen-relation and odd-lag product identity."
+        ],
+        "reasoning": "Conjugating the dynamics can re-express the threshold indicator and give equivalent statistics, so a changed parameter or coordinate would not establish originality. No matching covariance or exact pair-independence statement for that conjugated sensor was identified.",
+        "searches": [
+          "Resultary map plus branch-indicator covariance, parity-law and four-state block queries",
+          "arXiv:1205.5360 Appendix A.1",
+          "arXiv:1707.07488 pp. 1–4, conjugate family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact tables of invariant density heights/endpoints and the beta=4 marginal are already in Appendix A. The targeted catalog searches did not identify a relevant tabulation of the beta=4 indicator autocovariance sequence."
+        ],
+        "reasoning": "The marginal table must not be represented as new. It does not by itself give a joint time law; both the full recurrence and zero odd lags require following iterates of the map.",
+        "searches": [
+          "Resultary beta=4 parity, four-state block, and prior 2<beta<3 exact branch-count results",
+          "arXiv:1205.5360 (A.11)–(A.15), exact invariant densities"
+        ]
+      },
+      "rationale": "The same map, piecewise densities, positive branch mass and Lyapunov plateau are prior. The same lower-parameter lag-one expression is also obtained directly from the prior density for 2<beta<3. The supported distinct result is the sign transition across 4 together with its complete all-lag parity law. The cited primary statements and bounded catalog searches do not cover that combined claim.",
+      "residual_risks": [
+        "The branch-count/asymptotic-variance work mentioned for 2<beta<3 has no supplied identifier and was not located. Its stated range overlaps a formula but not the critical parameter; exact prior scope is unresolved.",
+        "A bounded discovery search with no useful lead is not evidence that the covariance had never been derived. The inspected PDF matches the frozen density formulas but uses different equation labels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of invariant densities and plateau; source data for first-lag integration, not the all-lag theorem.",
+          "evidence": "(A.11) covers beta=3, (A.12) 3<beta<4, (A.13) beta=4 and (A.14)–(A.15) 4<beta<9/2. The earlier (A.9) gives the same lower-side one-lag expression below 3 by integration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.5360",
+          "material_read": "Appendix A.1, PDF pp. 20–22 around offsets 57456 and 63431, equations (A.9)–(A.15)",
+          "method": "OA primary PDF passage reads",
+          "title": "Families of piecewise linear maps with constant Lyapunov exponent",
+          "trigger": "Exact same map, density, endpoints and Lyapunov plateau"
+        },
+        {
+          "assessment": "Matching/density and entropy results in the inspected passages, not the branch-observation statistics.",
+          "evidence": "The conjugacy identifies the model, while the statements use matching for piecewise-constant density and entropy behavior rather than the centered indicator's lag recurrence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07488",
+          "material_read": "PDF pp. 1–4, OA offsets 0–13781",
+          "method": "OA primary PDF passage reads",
+          "title": "Matching in a family of piecewise affine maps",
+          "trigger": "Same family up to affine conjugacy and potential broader matching or entropy theorem"
+        },
+        {
+          "assessment": "Different model.",
+          "evidence": "The ecological power-law branch is not the affine family of the frozen result.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.4551",
+          "material_read": "Primary abstract and model description",
+          "method": "OA primary-source reading",
+          "title": "Dynamics of a map with a power-law tail",
+          "trigger": "Frozen cited comparison from the same research group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The branch threshold is intrinsic to this plateau example. The calculation exposes sign-changing memory hidden by a fixed Lyapunov exponent and constant marginal. The distinguished parameter is selected by the lag-one sign law, not an arbitrary sample, and the exact all-lag result separates infinitely many independent odd-separated pairs from persistent even-lag dependence and failure of joint independence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:34:51.997132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every odd q, let T be the union of the x-lines through (0,t²,t³), and V the surface 2z=3xy−x³. For two curve summands, their sum x and second power sum y give product (x²−y)/2 and discriminant Δ=2y−x²; the third power sum is forced by V. The ordered fiber is therefore 1+χ(Δ) on V, including characteristic 3. A curve-plus-line decomposition has one choice of curve parameter on T since t is recovered by t³/t² away from zero. Subtract the common origin before squaring the convolution: on L the only curve-curve point is zero, and the net count is q everywhere. On T away from L the two oriented mixed representations remain. The curve-curve candidate equation is (x−t)²(x+2t)=0. At x=t the two curve-curve pairs both involve the origin and are already among the mixed pairs. At x=−2t they are genuinely new exactly when this is a distinct root and Δ=−2t² is a square. Thus char 3 eliminates the separate root, not its square character. In tallying, subtract the supported intersections from the curve-curve histogram: its q discriminant-zero points lose only the origin; its q(q−1)/2 two-pair points lose (q−1)(1+ε_q). Add the counts on T and L to obtain the displayed histogram; summing counts and their squares gives the claimed sumset and energy. Additive-character orthogonality with the unnormalized transform yields exactly the factor q⁻³ in the fourth moment. The proof's line 79 literally says V∩T contains the distinct −2t point only in the square phase; that is true for T intersected with the supported curve-curve convolution, not for V∩T as a bare algebraic set (e.g. (3,1,1) over F₅). Steps (2)–(3) and the actual subtraction correctly use support, so this wording slip does not change the proof's count or frozen finding. Independently enumerated all ordered pairs for q=3,5,11,27, recovering the histograms including zeros; q=11 gives ten four-pair targets, q=27 none. Replay: python3 -I /tmp/opencode/review_frozen_repro.py 2; the calculation forms S as a set and tallies every coordinatewise sum, using F₃[X]/(X³−X−1) for q=27. The frozen checker was read, not executed; finite corroboration does not prove the general case. No claim about weighted extension norms or arbitrary lines is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both finite-field extension papers concern the pure moment curve, with characteristic greater than d in the inspected setup; the newer paper develops a weighted 2d-moment result rather than an exact fourth-moment mixed-support computation.",
+          "The real space-curve restriction paper studies smooth curves and square-function estimates, not this finite-field union."
+        ],
+        "reasoning": "No inspected broader result supplies the interactions between the line and the curve, the resulting level counts, or the char-3 merger.",
+        "searches": [
+          "arXiv:2609.29882",
+          "arXiv:2508.08377",
+          "arXiv:2610.27968"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/local mirror: 13e9a7104876, 5f05227f9c9b, 1bbc7ea862f6",
+        "arXiv:2103.16904",
+        "arXiv:2609.29882",
+        "arXiv:2508.08377",
+        "arXiv:2610.27968"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the projected planar problem, knowing the pair-sum count at (x,z) only gives the sum of the finer counts over y; it loses the distinction at fixed y=t² between x=t, x=−2t, and other x. Projective chord classification has no stated weighted mixed affine enumeration in the inspected passages."
+        ],
+        "reasoning": "The unprojected Newton constraint and the discriminant decide the nontrivial remaining piece. The prior ingredients do not already state, or establish by a change of notation, the size of that intersection of supported fibers.",
+        "searches": [
+          "Resultary 5f05227f9c9b and 1bbc7ea862f6 actual Finding passages",
+          "arXiv:2103.16904 abstract and introduction",
+          "focused primary-literature search for finite-field twisted cubic tangent sum convolution (no usable additional passage)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The extended twisted-cubic coset-leader enumerator in arXiv:2103.16904 uses projective chord and line incidences; the mixed result counts ordered sums in a fixed affine chart with one distinguished flat component and no multiplicity for the origin.",
+          "The weight-free fourth moment in this record is exactly the second moment of its representation counts; this equivalence does not identify it with the sharp weighted extension inequality for the pure moment curve."
+        ],
+        "reasoning": "Incidence information for two curve points concerns one summand in the convolution, and an energy is only a moment of the representation histogram. Neither reformulation erases the tangent union and its origin correction.",
+        "searches": [
+          "Resultary/local mirror: affine cubic moment curve plus origin tangent, ordered pair-sum histogram and additive energy",
+          "arXiv:2103.16904",
+          "arXiv:2609.29882"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror's identical 13e9a7104876 record is the frozen finding itself. The distinct same-day 5f05227f9c9b states a full mixed convolution and energy for (t,t³) in dimension two, including char 3, with cube-root and elliptic-trace regimes in other cases. The earlier 1bbc7ea862f6 treats the planar cubic graph alone over odd residue rings."
+        ],
+        "reasoning": "The two-coordinate statements are material neighbors, not tables for the three-coordinate union. Same-day indexing is not grounds for either priority or dismissal.",
+        "searches": [
+          "Resultary/local mirror: complete two-sum fibers of cubic moment curve and its tangent; quartic energy and characteristic three"
+        ]
+      },
+      "rationale": "The strongest distinct indexed match is a same-day planar cubic-with-tangent result. It computes a genuinely analogous invariant, but projection dropping the second moment merges target fibers and does not determine the three-coordinate convolution, in particular the −2t discriminant phase. The two records' dates do not establish priority. The older twisted-cubic incidence work and the pure-curve extension results give related geometric and algebraic ingredients, not a known implication of the corrected mixed-support histogram and its arithmetic split. The pass is specific to that mixed three-dimensional statement, not to Newton identities, curve-only energy, the Fourier identity, or the broader cubic-plus-tangent problem.",
+      "residual_risks": [
+        "A projective incidence table could contain more relevant information than the passages inspected; no such implication was identified.",
+        "The same-day planar record leaves priority for the broad theme unresolved; it does not establish the specific spatial theorem.",
+        "The bounded primary search did not yield an additional usable passage and is not evidence of exhaustive novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related projective incidence; no equivalent mixed statement identified in the material read",
+          "evidence": "Classifies points, lines and planes in projective three-space under twisted-cubic symmetries, for a code's coset-leader enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.16904",
+          "material_read": "OA pp. 1–2, abstract and introduction, offsets 715 and 3660",
+          "method": "Bounded primary-text inspection",
+          "title": "The extended coset leader weight enumerator of a twisted cubic code",
+          "trigger": "Closest twisted-cubic geometry and likely equivalent incidence tables"
+        },
+        {
+          "assessment": "Pure-curve framework; not the mixed-support histogram",
+          "evidence": "Uses Γ=(t,t²,…,t^d) with p>d; concerns weighted sharp extension and uniform-distribution extremality.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29882",
+          "material_read": "OA p. 1, abstract and setup, offset 0",
+          "method": "Bounded primary-text inspection",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields II: an extremal property of the uniform distribution",
+          "trigger": "Potential general finite-field moment/energy theorem"
+        },
+        {
+          "assessment": "Relevant method, different support and quantity",
+          "evidence": "Discusses extension-operator norms in characteristic above d, not mixed curve and tangent sum fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.08377",
+          "material_read": "OA p. 1 introduction, offset 3658",
+          "method": "Bounded primary-text inspection",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields",
+          "trigger": "Earlier pure-curve result"
+        },
+        {
+          "assessment": "Different ambient setting",
+          "evidence": "Smooth real space curves and square-function estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27968",
+          "material_read": "OA p. 1, abstract, offset 0",
+          "method": "Bounded primary-text inspection",
+          "title": "Remarks on space curve L² Fourier restriction",
+          "trigger": "Cited space-curve analog"
+        },
+        {
+          "assessment": "Substantially parallel but planar; no same-day priority inference",
+          "evidence": "Curve (t,t³) with L in F_q²; complete multiplicity function and energy with arithmetic distinctions different from the −2t discriminant phase of the spatial curve.",
+          "identifier_or_url": "Resultary 5f05227f9c9b",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Statement comparison in the configured mirror",
+          "title": "Elliptic fourth-moment resonance for a finite-field cubic and its tangent",
+          "trigger": "Strongest distinct indexed match"
+        },
+        {
+          "assessment": "Different two-dimensional support without the tangent union",
+          "evidence": "Ordered pair-sum counts, sumset, and energy of the graph of x³ over odd moduli.",
+          "identifier_or_url": "Resultary 1bbc7ea862f6",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Statement comparison in the configured mirror",
+          "title": "Complete pair-sum fibers of the cubic graph over odd residue rings",
+          "trigger": "Earlier exact cubic-graph histogram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The line is the intrinsic tangent at the distinguished origin, not a parameter chosen to simplify a table. Its union with the curve is a natural mixed curved/flat test for additive-energy and indicator Fourier calculations. A researcher can use the exact collision law, including the multiplicities themselves rather than just a bound, to distinguish when sums coalesce into four-representation targets; this regime changes both the support size and exact fourth moment by order q and disappears in characteristic three despite −2 being a square. This is a useful complete invariant of the canonical object and not a claim of a new general extension theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

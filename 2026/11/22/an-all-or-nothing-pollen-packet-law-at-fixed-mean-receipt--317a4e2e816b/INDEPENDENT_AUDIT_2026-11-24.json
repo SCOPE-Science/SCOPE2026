@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:49.831866Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deterministic integer packet size k, m=ceil(r/k) and a=λ/r give λ/k≤ma. The Poisson upper tail is strictly increasing in the positive mean (the derivative at mean μ is Pr(Pois(μ)=m−1)), so S_k≤Q_m(a), with equality to the relevant Q at k=1,r. For 1<k<r, 1<m<r; when k>r, the one-packet score strictly decreases. Coupling Pois(na) plus Pois(a), the loss in Q_{n+1}−Q_n is exactly X=n,Y=0; gains are X=n+1−j,Y≥j for 2≤j≤n+1. Dividing by Pr(X=n), each shared positive factor is a^(−(j−1)) times the product of 1−ℓ/n for 0≤ℓ≤j−2 and is nondecreasing in n; each increase of n adds a strictly positive new term. This gives strictly increasing normalized differences. An interior integer index with incoming difference nonpositive lies strictly below the left endpoint unless it is immediately after a flat minimum, in which case it is strictly below the right endpoint; if its incoming difference is positive all subsequent differences are positive. Equivalently a valley with at most one flat step cannot contain an interior endpoint-maximizing tie. For the two surviving sizes, the sign of S_r−S_1 is the sign of 1−exp((r−1)λ/r)/P(λ). The log derivative of that ratio increases strictly from −1/r to 1−1/r by the reciprocal positive-power-ratio argument, the ratio starts at one and diverges, and there is exactly one positive return to one. At λ=r+x√r the monad tail tends to Φ(x), while the packet probability tends to 1−e^(−1); strict signs on both sides of that quantile bracket the unique root. The proof covers r=2, integer sizes beyond r, and the sole two-way tie. The shipped checker was inspected, not executed; its tolerance-based finite grid is not a proof of strictness. No heterogeneous-packet or empirical botanical validation is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general centered-gamma theorem covers a=1 as a special slice, not a threshold n(a−1) varying with n.",
+          "Schreiber et al. optimize resources for attracting pollen, supplying ovules and maturing seeds under multiscale receipt variation.",
+          "The identified copy of Harder–Johnson did not yield full text through lawful retrieval."
+        ],
+        "reasoning": "Covering a fixed-offset or at-mean slice is not a stronger theorem for the moving-threshold index comparison. The ecology objective is not a Poisson packet-size optimization at fixed expected grains. No whole-paper exclusion is made for the inaccessible review.",
+        "searches": [
+          "arXiv:2012.13578v1, p. 1",
+          "DOI 10.1109/TIT.2013.2240762, Princeton institutional abstract",
+          "Schreiber et al. (2015), pp. E14,E16",
+          "DOI 10.1086/523364, publisher and identified JSTOR PDF route"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_packet.py",
+        "arXiv:2012.13578v1",
+        "arXiv:2303.17487",
+        "DOI 10.1109/TIT.2013.2240762 (institutional abstract)",
+        "Resultary:6f68f47bfa0b",
+        "Resultary:6c42718054c6",
+        "Resultary:7e357d032a8b",
+        "DOI 10.1086/678982 PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-offset monotonicity gives no adjacent inequality where the two offsets are different. A lower bound on Q_n(1) is not a shape result in n for every a.",
+          "The normalized adjacent Poisson difference has a strict increasing sign witness at each a; this implication controls all interior k through the ceiling reduction.",
+          "A normal approximation locates the crossover after its uniqueness and orientation are proved; it does not exclude nonendpoint optimizers."
+        ],
+        "reasoning": "The proof adds the discrete valley in the direction needed by maximization. The Gamma–Poisson identity, known fixed-offset comparisons, opposite-direction weighted-tail extremum and CLT do not alone give that decisive fixed-a index property.",
+        "searches": [
+          "arXiv:2012.13578v1, Theorem 1",
+          "arXiv:2303.17487, Theorem 1.1",
+          "Resultary:6c42718054c6, Finding and scaling comparison",
+          "DOI 10.1109/TIT.2013.2240762, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Poisson–gamma duality Q_n(a) is the CDF at a of the average of n iid unit exponentials. The analogous centered gamma threshold is c=n(a−1).",
+          "Pinelis compares fixed c; Sun–Hu–Sun bound the CDF at its mean.",
+          "The Abbe–Huang–Telatar abstract proves optimization in the direction of minimizing outage probability, equivalently maximizing the upper tail over general weights."
+        ],
+        "reasoning": "A diagonal gamma CDF at scale-normalized threshold a differs from a fixed additive-offset comparison. Minimizing a CDF over general exponential weights is not the requested maximization over equal-active counts. These exact inspected statements do not identify an equivalent global endpoint dominance result.",
+        "searches": [
+          "Resultary packet-size/Poisson threshold and centered gamma monotonicity searches",
+          "arXiv:2012.13578v1, Theorem 1",
+          "arXiv:2303.17487, Theorem 1.1",
+          "Primary literature: sample mean exponentials gamma CDF equal weights valley nonmonotone sample size n outage probability Telatar n gamma maximum n=1 n=N upper bound Abbe Huang"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the identical assigned record.",
+          "6f68f47bfa0b concerns the fixed-shift integer gamma cutoff c≥e−3. Same-day 6c42718054c6 optimizes expected quorum-successful habitats under equal allocation, V_m(B)=m times a fixed-quorum Poisson tail at B/m.",
+          "7e357d032a8b orders numbers of missing coupons for fixed-total coupon exposures."
+        ],
+        "reasoning": "The fixed-shift gamma record does not establish the diagonal valley, and the same-day habitat result varies the allocation count and multiplier while keeping its threshold fixed. Neither it nor coupon coverage is an exact alternative presentation of the packet theorem. Same-day dating is not used to infer priority.",
+        "searches": [
+          "Resultary fixed-mean packet and Poisson quorum searches",
+          "Resultary:6f68f47bfa0b, 6c42718054c6, 7e357d032a8b, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct claim is strict global endpoint optimality for this integer fixed-mean threshold problem and the diagonal Poisson valley supporting it, together with the exact switching budget and asymptotic. Accessible centered-gamma results address fixed additive offsets, and the closest allocation/optimization analogues change the observable or the optimization direction. Unavailable botanical full texts remain residual risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "Full texts of Harder–Johnson (10.1086/523364), Timerman et al. (10.1086/676301), and Heiling et al. (10.1002/ajb2.16158) were not available through the identified routes; no whole-paper absence judgment is made.",
+        "An uninspected diagonal incomplete-gamma inequality or an equal-weight exponential CDF extremum may yield the same optimization. The MISO full article was not accessible, and its inspected abstract supports only the distinct direction described here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed c in Pr(X_n−n>c), not diagonal variable c=n(a−1) except a=1",
+          "evidence": [
+            "The theorem compares n across a fixed shift c≥0 or c≤−1/3 and describes nonmonotonicity for intermediate fixed shifts."
+          ],
+          "identifier_or_url": "arXiv:2012.13578v1",
+          "material_read": "PDF p. 1, Theorem 1, offset 0",
+          "method": "Original OA PDF passage",
+          "title": "Monotonicity properties of the gamma family of distributions",
+          "trigger": "Close general incomplete-gamma monotonicity"
+        },
+        {
+          "assessment": "At-mean extremum, not the arbitrary-a endpoint theorem",
+          "evidence": [
+            "Pr(X≤E X)>1/2 with infimum 1/2 across the gamma parameters."
+          ],
+          "identifier_or_url": "arXiv:2303.17487",
+          "material_read": "PDF p. 3, Theorem 1.1, offset 6582",
+          "method": "Original OA PDF passage",
+          "title": "The extreme values of two probability functions for the Gamma distribution",
+          "trigger": "Gamma tail optimization near its mean"
+        },
+        {
+          "assessment": "The inspected statement optimizes the opposite tail/direction, not this CDF maximization; no whole-paper judgment",
+          "evidence": [
+            "A covariance minimizing outage in the MISO setting has equal nonzero diagonal entries; the abstract expresses this as largest upper-tail probability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2013.2240762",
+          "material_read": "Princeton publication record abstract, OA HTML offset 440 onward; full article not read",
+          "method": "Institutional abstract and DOI retrieval attempt",
+          "title": "Proof of the outage probability conjecture for MISO channels",
+          "trigger": "Extremal distributions of weighted exponential sums with fixed total weight"
+        },
+        {
+          "assessment": "A fixed additive cutoff, not the moving threshold",
+          "evidence": [
+            "Nondecreasing Pr(G_n−n>c) cutoff c≥e−3."
+          ],
+          "identifier_or_url": "Resultary:6f68f47bfa0b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp integer-shape monotonicity cutoff for centered gamma upper tails",
+          "trigger": "Integer-shape gamma comparisons"
+        },
+        {
+          "assessment": "Material analogue with different objective and parameter roles",
+          "evidence": [
+            "Expected number of quorum-successful habitats with a fixed threshold and equal allocation among active habitats."
+          ],
+          "identifier_or_url": "Resultary:6c42718054c6",
+          "material_read": "RESULT.md offsets 468 and 6299, objective and asymptotic",
+          "method": "Local published-record mirror",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Same-day Poisson quorum and crossover record"
+        },
+        {
+          "assessment": "Fixed-total coupon exposures and missing coupon counts, not this Poisson threshold event",
+          "evidence": [
+            "Stochastic order concerns uncovered coupons."
+          ],
+          "identifier_or_url": "Resultary:7e357d032a8b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A stochastic majorization law for variable-size coupon packets",
+          "trigger": "Packet stochastic-order comparison"
+        },
+        {
+          "assessment": "Different objective and decision variables",
+          "evidence": [
+            "Optimizes allocations for producing ovules, attracting pollen and maturing seeds under multiscale variation in receipt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/678982",
+          "material_read": "OA PDF pp. E14 and E16, offsets 0 and 11300",
+          "method": "Author-hosted original PDF passages",
+          "title": "Evolutionary and Ecological Consequences of Multiscale Variation in Pollen Receipt for Seed Production",
+          "trigger": "Closest accessible pollen optimization context"
+        },
+        {
+          "assessment": "Overlap remains unresolved; no inspected proof of coverage or noncoverage",
+          "evidence": [
+            "The title and source identification establish its relevance to pollen aggregation, not its mathematical receipt model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/523364",
+          "material_read": "Citation and identified publisher/JSTOR location; full text not read",
+          "method": "Lawful publisher and identified JSTOR alternate retrieval attempts",
+          "title": "Function and Evolution of Aggregated Pollen in Angiosperms",
+          "trigger": "Highly relevant botanical review of pollen aggregation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof explains why intermediate deterministic aggregation cannot improve a fixed-budget Poisson quorum probability, even in the divisibility cases where Poisson mean comparison alone is equality. The discrete valley is a useful quantitative shape constraint on a basic family of gamma CDFs; the unique switch and its √r displacement resolve the decision across all thresholds and budgets. This is a stylized model classification, not a prescription for changing real pollen delivery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

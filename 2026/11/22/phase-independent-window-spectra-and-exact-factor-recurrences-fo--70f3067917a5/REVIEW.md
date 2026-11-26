@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The morphism \(a\mapsto0^{p-1}(a+1)\) has a common prefix of length \(p^k-1\) in its \(k\)-fold iterate, and each source letter survives in the final coordinate. Prime-adic local periodicity plus coprime CRT recurrence makes every source factor occur in every source residue class modulo the \(p\)-free part. The phase-slice injection is therefore a bijection, with no missed edge phases. The exact factor recurrence is proved by an exhaustive partition of source-block offsets, with the all-zero overlap handled separately for lengths below \(2p\). Independent complete-template and CRT-phase checkers replayed on 525 full-factor and 13,542 phase inputs.
+## correctness
 
-**Originality: PASS against accessible comparisons.** Cassaigne–Kaboré (2026) give the length-valuation window-complexity formula for Thue–Morse but not the prime-base valuation sequences nor the all-phase bijections and radix factor recurrence. Bognini–Ammar (2025) address base-two generalized period-doubling kernel/gap factorizations, not these window spectra. Indexed base-two factor counts and phase-related boundary invariants do not imply the prime-base all-phase theorem. Searches for alternative terminology, substitution/Toeplitz aliases, stronger coverage, and exact tables did not identify the complete claim. Residual risk: earlier unindexed equivalent theorems or a broader result in an unexamined source.
+PASS
 
-**Value: PASS.** The result provides an all-length, all-phase exact invariant and effective linear-recursive computation for a canonical family of aperiodic prime-base automatic words, showing sharp oscillation between the alphabet-size floor on prime-power lengths and unbounded counts along coprime lengths. The prime arithmetic, all-offset bijection and explicit factor recurrence are structurally motivated by the new window-complexity framework, rather than an isolated small census.
+For a given finite occurrence, adding a sufficiently large prime power to its start preserves every valuation, hence preserves the factor along that progression. In the prime-to-p modulus m this progression reaches every source phase, arbitrarily late. Writing n=p^k m, the k-fold morphism has a fixed prefix and one final variable position per source block. A length-n slice at any fixed offset retains exactly m such positions; an overhanging next-block prefix is fixed. They recover the m source letters, and coprime recurrence realizes all of them at the required source starts. For ordinary factors at length at least 2p, exposure of two consecutive source letters prevents the all-zero output, and a nonzero position gives the unique residue of the starting offset. Counting the exposures gives the recurrence; below 2p only the all-zero factor overlaps between offsets. The aperiodicity argument and Morse–Hedlund bound then certify the claimed contrasting regimes. The repaired attribution to Sell was independently verified by specializing his complexity formula and checking both the affine intervals and radix scaling. The proofs and parameters of the phase theorem remain unchanged.
 
-**Limitations.** Prime bases only; no composite-base universality. Finite checks do not replace proof and originality is limited by search coverage. Prior work's base-two formulas remain credited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired novelty claim is the all-phase bijection for higher prime bases, not the ordinary factor-count formula, and not the dyadic aligned-window law. The original presentation did not acknowledge the covering simple Toeplitz factor theorem; the repaired result credits that theorem and retains the self-contained derivation only for computation. The strongest catalogue comparison does give the dyadic aligned identity, but not the higher-prime phase-constrained statement. The repaired claim passes on the evidence inspected, not as a universal priority guarantee.
+
+## value
+
+PASS
+
+For nonoverlapping observations, an unknown grid origin is a natural nuisance parameter. The repaired theorem gives an exact factor-level correspondence uniformly in every start phase and certifies a sharp contrast between prime-power and coprime lengths. Neither an unrestricted complexity count nor a result at one origin establishes this stability. The proof identifies when a shifted block carries exactly the m free letters, so the result is useful beyond a numerical recurrence for P.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

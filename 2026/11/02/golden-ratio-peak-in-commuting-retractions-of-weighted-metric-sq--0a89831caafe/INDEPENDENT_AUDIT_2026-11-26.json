@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:43:24.397361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 21–38 and 40–42",
+        "Frozen VERIFICATION.md and check_weighted_square.py, inspected, not executed"
+      ],
+      "rationale": "The penultimate map collapses exactly one vertex. Translate that vertex to (0,0) by flipping coordinates. Collapsing it to its diagonal opposite gives worst ratio b/a (the two incident edges give b/a and a/b); collapsing it across the short edge gives 1+a/b (the incident long edge maps to a diagonal); collapsing across the long edge gives 1+b/a. The other pairs are fixed or give smaller ratios. Thus no ordering can beat min{b/a,1+a/b}. Order O,X,Y,Z as in the record: the second map fixes O and X and sends Y,Z to O. It is nonexpansive on all four cycle edges and hence on their shortest-path metric. The penultimate map can send Z to O or Y at the two desired costs, and both images are in the same second-map fiber as Z, proving commutativity. Constant and identity maps cause no restrictions. The branch switch at b/a=phi and the nonexpansive condition b=a follow exactly. This symbolic argument, not sampled weights, proves the real-parameter result.",
+      "residual_risks": [
+        "Only point maps on the four vertices with opposite edges of equal weight; not continuous rectangles or arbitrary linear coordinate projections. The recorded finite checker is not an independent execution or a formal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hájek–Medina define commuting retractional bases, linearize the prefix maps, and bound constants on nets. Novotný constructs a centered-circle obstruction and gives a linearization corollary."
+        ],
+        "reasoning": "Framework and existence bounds do not give simultaneous optimal upper and lower bounds with the stated dependence on b/a.",
+        "searches": [
+          "arXiv:2112.03095, Definition 1.2 and Theorems 1.5, 2.6",
+          "arXiv:1905.13188, Corollary 2 and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-invariant and weighted-rectangle matches listed above",
+        "Novotný arXiv:1905.13188",
+        "Hájek–Medina arXiv:2112.03095",
+        "Primary-literature web lookup on weighted-square commuting point retractions did not yield a material match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interaction projections are optimized as linear maps onto a specified subspace, not as successive point retractions. Linearization of a commuting point system goes from the point problem to a basis construction, not in reverse.",
+          "An overall metric rescaling preserves the ratio b/a and cannot turn unequal weights into the unit-edge setting."
+        ],
+        "reasoning": "Those results supply neither the three collapse ratios nor a lower bound for this class of point maps. The weighted optimum does not follow by reinterpreting the unweighted number or the linear projection norm.",
+        "searches": [
+          "Resultary: SCOPE-optimal-interaction-projections-on-weighted-hamming-rectangles--6d849c3a6bbb",
+          "arXiv:2112.03095 Theorem 1.5",
+          "Resultary unit-cycle and finite-Hamming-box findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two indexed records optimize the same rooted commuting prefix invariant, on Hamming boxes with unit coordinate weights and on unit-edge cycles, respectively. The binary square and C4 have value 1.",
+          "Novotný's centered circle has an extra center and a different metric; Theorem 5 treats n≥10."
+        ],
+        "reasoning": "The identification of C4 with the unweighted binary square is exact but yields only b=a, not an alternating-weight cycle. Neither same-day record is the assigned record, and no order between them is inferred.",
+        "searches": [
+          "Resultary: SCOPE-sharp-retractional-basis-constants-of-finite-hamming-boxes--06ec0aa9b80f; SCOPE-the-quarter-circumference-law-for-commuting-retractions-of-finit--5a387625e7ef",
+          "arXiv:1905.13188 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact entries at a=b occur in the Hamming-box and unit-cycle findings. The indexed weighted rectangle finding instead concerns norms of linear interaction projections."
+        ],
+        "reasoning": "No unequal-weight entry for this point-map optimum was identified. Matching the four-point domain alone does not match the tabulated invariant.",
+        "searches": [
+          "Resultary matches for rooted commuting prefix retractions on finite Hamming boxes, unit cycles, and weighted Hamming rectangles"
+        ]
+      },
+      "rationale": "Credit the common definition, linearization and exact unweighted value to the matched material. The distinct mathematical content is the optimal constant at unequal weights, including the switch between two minimizing collapses. Neither the unweighted exact results nor the available broader existence bounds determine it. This is a best-of-knowledge judgment, not priority certification.",
+      "residual_risks": [
+        "No priority ordering established for the two same-day matches.",
+        "The comparisons do not exclude an unindexed treatment under another description of weighted four-point metrics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unweighted special case",
+          "evidence": [
+            "Unit-weight binary square has optimum 1 for the same rooted prefix-map problem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-retractional-basis-constants-of-finite-hamming-boxes--06ec0aa9b80f",
+          "material_read": "RESULT.md finding and proof material at offsets 0 and 4500",
+          "method": "Resultary and local mirror",
+          "title": "Sharp retractional basis constants of finite Hamming boxes",
+          "trigger": "Exact invariant on the same binary domain"
+        },
+        {
+          "assessment": "Exact unweighted special case",
+          "evidence": [
+            "For unit edges κ(C_n)=ceil(n/4), hence κ(C4)=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-quarter-circumference-law-for-commuting-retractions-of-finit--5a387625e7ef",
+          "material_read": "RESULT.md finding and proof material at offsets 0 and 5700",
+          "method": "Resultary and local mirror",
+          "title": "The quarter-circumference law for commuting retractions of finite cycles",
+          "trigger": "Cycle metric formulation"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Optimization is over linear projections onto an interaction subspace, not commuting point maps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-optimal-interaction-projections-on-weighted-hamming-rectangles--6d849c3a6bbb",
+          "material_read": "Finding on the linear interaction projection problem",
+          "method": "Resultary and local mirror",
+          "title": "Optimal interaction projections on weighted Hamming rectangles",
+          "trigger": "Exact weighted four-point domain"
+        },
+        {
+          "assessment": "Framework and a different finite metric",
+          "evidence": [
+            "Centered circles have n rim points plus a center at distance n from every rim point; the lower bound concerns n≥10."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.13188",
+          "material_read": "Corollary 2 p. 3; Definition 3 and Theorem 5 pp. 6–7",
+          "method": "OA full-text passage inspection",
+          "title": "Some Remarks on Schauder Bases in Lipschitz Free Spaces",
+          "trigger": "Prior retraction bounds on circles"
+        },
+        {
+          "assessment": "Broader framework without the sharp four-point invariant",
+          "evidence": [
+            "Linearization and existence bounds for nets do not identify the optimum over four-vertex filtrations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.03095",
+          "material_read": "Definition 1.2 p. 3, Theorem 1.5 p. 4, Theorem 2.6 p. 10",
+          "method": "OA full-text passage inspection",
+          "title": "Schauder bases in Lipschitz free spaces over nets in Banach spaces",
+          "trigger": "General retractional-basis theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md construction and weighted-square claim",
+        "Primary framework and unweighted comparisons recorded under originality"
+      ],
+      "rationale": "This is the basic two-coordinate test for sharp constants of commuting point retractions on weighted products. Unlike the unit-weight binary case, every positive unequal weighting forbids a nonexpansive filtration, even though the optimum tends back to 1 as the anisotropy grows. The exact bottleneck and the change of optimal collapse give a usable sharp obstruction for this class of metrics, not a claim about arbitrary Schauder bases. The golden-ratio value is a consequence of the invariant, not the reason for its value.",
+      "residual_risks": [
+        "No extension to larger weighted products or to arbitrary linear bases is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

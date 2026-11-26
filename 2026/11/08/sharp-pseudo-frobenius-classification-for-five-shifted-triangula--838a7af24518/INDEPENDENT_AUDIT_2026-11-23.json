@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:31:50.198650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–6 and all supporting files, including verify_five.py and recorded JSON (inspected as text only)",
+        "Independent bounded reproduction: python /workspace/checks/frozen-check-1.py"
+      ],
+      "rationale": "The first 50 coin values agree with independent multiplicity enumeration. For n >= 40 an optimal representation of n+10 must contain a ten since the no-ten lower bound exceeds floor(n/10)+4. Thus the ten-shift induction is justified. In residue r, a representation with offset sum r+ja costs at least r+a(j+c(r+ja)); the lower bound j+ceil((r+18j)/10) excludes j >= 1 by the coin block formula, with r=5,8 checked with the stronger lower bound 4. Testing f+a shows that any PF f must be W_r-a; the r=0 option -a fails after adding a+1. The other generators give the two inequalities in (*), with the +1 exactly when there is a wrap. An interior r >= 10 fails at offset 10, and of the low exceptional r=2,5,8 only 5 and 8 pass (r=2 fails at offset 3). For a >= 30 the wrap inequalities at r=a-k are automatic and the other tests depend only on a mod 10. Independently enumerating coin multiplicities for a=30..39 recovers all ten K_s. Direct integer reachability, without using Apéry or coin lengths to determine membership, verifies the full PF sets over 18..99, including all twelve transitional a and disjoint residue contributions. At a=17 it gives {33,39,42,48,49}, with 24 the unique spurious prediction (24+18=42 remains a gap). Period 10 is least since the type 10 occurs in just one residue class. This proves sharpness for the full formula rather than inferring it from fitting data.",
+      "residual_risks": [
+        "The independent membership replay is bounded at a=99. The infinite step is analytical. The shipped checker constructs c through 2400 but its range(2390) tests starting indices through 2389; the prose saying through 2399 overstates that particular loop by ten indices, with no effect on any proof or needed finite verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 is for arbitrary fixed offsets with n>N0; here the nonshifted semigroup is all nonnegative integers, d=1, r_k=10 and N0=max(100,90)=100.",
+          "For the collection described in the frozen comparison to Liu et al., the transition 3→6 is not 3s+1 with integral s. The AAG architecture cited in the record requires an arithmetic triple among the nonmultiplicity generators; no triple of 1,3,6,10 is an arithmetic progression."
+        ],
+        "reasoning": "General eventual transport does cover the fixed/interior-versus-shifted-boundary mechanism for sufficiently large a; it does not cover early parameters, supply the initial residue sets, or certify their least period. The narrower structured families do not contain this generator pattern.",
+        "searches": [
+          "Stamate–Strazzanti arXiv:2601.19629v2, §2 Theorem 2.1 and Corollary 2.8",
+          "Liu–Xin–Ye–Yin arXiv:2306.03459v4 Collections 1.1–1.2, Theorem 2.12 and §6; Morales–Dung arXiv:2601.07467 Theorem 3.14",
+          "Web: Robles-Pérez Rosales The Frobenius number for sequences of triangular and tetrahedral numbers arXiv generators consecutive; arXiv:1706.04378v2 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Primary arXiv:2601.19629v2, arXiv:2306.03459v4 and arXiv:1706.04378v2",
+        "Published Resultary search results for the exact offsets",
+        "Triangular Numerical Semigroups (published description, not a full-text exclusion)",
+        "Morales–Dung arXiv:2601.07467 Theorem 3.14 opening read independently; generating hypothesis checked against the frozen source comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier map fixes residues below n−10 and translates higher ones by 10 once n>100 in this instance. It can propagate a ten-case computation performed there, but says nothing about the required interval beginning at 18 or the failure at 17."
+        ],
+        "reasoning": "The exact threshold is not a mechanical corollary. The family-specific coin length analysis is what proves the early domain (and the exact classes), so priority is credited only for those details and the complete formula on that domain.",
+        "searches": [
+          "arXiv:2601.19629v2, Theorem 2.1, §2 proof and PF transport discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent targets are maximal Apéry residues under the semigroup order, or the corresponding maximal gaps. The semantic lookup found the assigned record and a five shifted-square variant with offsets (0,1,4,9,16), not an equivalent presentation. Triangular Numerical Semigroups, DOI 10.1007/s13226-022-00339-1, describes semigroups generated by the triangular numbers from a given triangular index onward."
+        ],
+        "reasoning": "Triangular prefixes translated by arbitrary a are not tails of the triangular sequence. The square-offset theorem changes the offset metric and shift period and cannot be specialized to the five offsets under review.",
+        "searches": [
+          "Resultary: numerical semigroup five shifted triangular generators a a+1 a+3 a+6 a+10 pseudo-Frobenius exact threshold",
+          "Web: numerical semigroups shifted triangular numbers five generators 0 1 3 6 10 pseudo-Frobenius type Apéry triangular sequence family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned entry itself plus other parameter families (including shifted squares and Jacobsthal offsets); the inspected general transport source does not give the ten-class table for (0,1,3,6,10)."
+        ],
+        "reasoning": "A table for a different offset sequence or an algorithm producing isolated PF values does not establish this classification. Search coverage is limited and the self-hit is not independent prior evidence.",
+        "searches": [
+          "Exact-offset Resultary query above; web exact offsets with type, Apéry and pseudo-Frobenius aliases"
+        ]
+      },
+      "rationale": "The priority assessment is for the exact closed classification and sharp starting bound, not the known shifted-family pseudo-Frobenius transport or the standard Apéry method. Best-of-knowledge only.",
+      "residual_risks": [
+        "An unindexed earlier evaluation at these exact offsets could exist. The published general mechanism is prior art; its ability to replicate large-a cases after finite base computation reduces the scope of the novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers eventual transport but not the sharp onset or exact residue classification at early parameters.",
+          "evidence": [
+            "Theorem 2.1 uses n>N0 and has the two residue-map branches; N0=100 on these offsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.19629",
+          "material_read": "v2 introduction, hypotheses and threshold definition, Theorem 2.1 and its residue-map proof setup, subsequent PF transport discussion.",
+          "method": "Primary arXiv HTML, extracting and comparing the exact statements and thresholds.",
+          "title": "Nearly Gorenstein and almost symmetric properties in shifted numerical semigroups",
+          "trigger": "General theorem directly covers the family eventually."
+        },
+        {
+          "assessment": "Covers known methods but not the required GCNS generator pattern.",
+          "evidence": [
+            "Collection 1.2 has h_i=u b_i+1 and offsets (u a+d)b_i; for the stated base multiplicity and offsets their common factor must be 1, but no integral multiplier maps 3 to 6 by 3s+1. Theorem 2.12 covers Frobenius number and genus under additional hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.03459",
+          "material_read": "v4 Collections 1.1–1.2, introduction's explicit characterization of Theorem 2.12, the orderly-coin statement Lemma 2.6 and §6 overview.",
+          "method": "Primary arXiv HTML compared against the generator offsets and proof.",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Broad coin/minimization method and possible GCNS special case."
+        },
+        {
+          "assessment": "Three consecutive triangular numbers, not arbitrary translations of a fixed prefix of five offsets.",
+          "evidence": [
+            "Introduction explicitly limits its triangular analysis to triples of consecutive triangular numbers; the resulting differences vary with the index and the family does not contain these five-minimal-generator semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.04378v2",
+          "material_read": "Abstract, introduction's scope restriction, §2 opening and description of the downstream free semigroup results.",
+          "method": "Primary arXiv HTML definition and hypothesis comparison.",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "Possible competing explicit invariant of a family labelled triangular."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and existing general threshold in Stamate–Strazzanti Theorem 2.1"
+      ],
+      "rationale": "An initial triangular prefix is a natural small non-arithmetic offset family. The complete PF set determines more than type or Frobenius number alone, and the exact boundary 18 answers how early the mechanism stabilizes in a case whose general sufficient condition only starts above 100. The least-period computation and persistent low residues describe real structure, not a list of arbitrary examples.",
+      "residual_risks": [
+        "No value is claimed here for arbitrary shifted families or arbitrary triangular offsets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

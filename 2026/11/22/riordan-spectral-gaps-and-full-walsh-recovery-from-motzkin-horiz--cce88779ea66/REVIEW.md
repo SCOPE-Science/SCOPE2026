@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has a complete all-length proof for the ordinary one-bit horizontal-position profile of Motzkin excursions. It follows from the exact Catalan profile count, the signed half-line transfer identity, the entrywise nonnegative operator \(B=A^2-I\), and the conjugation symmetry of \(A\). The difference identity proves radial weak monotonicity; the central coefficient is exactly the positive Riordan count for each \(n\ge4\). Direct treatment of lengths zero through three supplies the only zero modes. Walsh diagonalization establishes the ranks and exact \(\ell^2\) condition numbers. The standalone program passed 18,430 independent exact assertions but does not replace the infinite proof.
+PASS
 
-## Originality — PASS, bounded by inspected records
+Deleting horizontal steps gives Catalan multiplicities depending only on profile weight, so weights index the entire spectrum. The half-line adjacency A counts the signed walks via factors A+I and A-I, which commute. Pairing opposite signs gives B=A^2-I, entrywise nonnegative including at height zero, and W_n(r) is the (0,0) entry of (A+I)^(n-2r)B^r. The difference W_n(r)-W_n(r+1)=2W_(n-1)(r) in the lower-half range is nonnegative by the same representation. B on even heights, with heights divided by two, forbids only the ground-level loop, so the central moment is R_floor(n/2); the extra factor A in odd length contributes zero by height parity. Every allowed profile has weight congruent to n modulo 2, proving complement sign reflection. R_0=1, R_1=0, and an up step, internal level steps and down step give R_m>0 for m>=2. The weight lists at n=0,1,2,3 are (1), (1,-1), (2,0,2), (4,0,0,-4), which give the claimed ranks and nullities by binomial multiplicity. At n=10 the Catalan count is 2188 and at m=5 the Riordan count is 6 (one internal three-level-step path and five paths with two up steps). Walsh orthogonality and comparison with the total mass give the signs, inverse norm and condition number in counting normalization. Inspected but did not run verify.py; python3 verify.py replays the reported finite checks, not the all-size proof.
 
-The closest classical sources are Chen–Deng–Yang (2006, arXiv:math/0602298), which supplies Riordan-path enumeration and a recurrence, and Sun–Ma (2013, arXiv:1305.2015), which uses global height-dependent Motzkin weights and Riordan-array minors. Their inspected texts do not establish a Boolean position-character sign classification, all-order zero-free recovery, or the sharp Riordan spectral gap. A separately recorded finite Motzkin Fourier census studies the full two-bit up/down encoding at length ten; its diagonal restriction is mathematically related, but its finite two-bit rank result neither states nor logically entails the all-length theorem. Targeted searches using flat/horizontal positions, signed Motzkin walks, Riordan numbers, Catalan moments and Fourier/Walsh terminology found no direct matching theorem.
+## originality
 
-Risks: generalized multivariate Motzkin-weight enumerations or earlier unpublished character calculations might subsume the position-dependent Fourier claim. Search nonappearance is not a proof of priority. The finite two-bit census was compared by its recoverable claim, not revalidated; no claim is made that its entire supplementary source was inspected.
+PASS
 
-## Value — PASS
+The supported distinct content is the monotone lower-half Walsh spectrum with a sharp central Riordan gap, the exact singular-length classification and counting recovery on ordinary Motzkin horizontal profiles for all lengths. Classical counts and a diagonal restriction at one length are credited. The strongest compared local findings either treat only length ten on a larger group, change the underlying path class, or change the statistic and the spectrum. This is a best-of-knowledge assessment.
 
-Horizontal-step masks are a canonical compressed observable of Motzkin excursions; their counting distribution has Catalan multiplicities and thus nontrivial information about the underlying paths. Unlike a bare parity observation, the theorem gives a full all-size spectral sign pattern, a precise two-length singularity classification, the exact optimal Fourier deconvolution gap in classical Riordan numbers, and positive definiteness at even lengths. This settles a natural recoverability question for infinitely many even-cardinality path ensembles as well as odd-cardinality ones. The factorization of the signed transfer through a nonnegative Riordan-walk operator is the structural reason behind the sharp result.
+## value
 
-## Scientific scope and limitations
+PASS
 
-The result uses the unnormalized Boolean convolution of the **horizontal-step profile with multiplicity**, not a zero-one indicator of the set of admissible masks and not the full two-bit up/down embedding. It does not extend automatically to local-height weights or arbitrary Motzkin restrictions. Independent validation has not been performed.
+Recoverability from natural count profiles is not settled by parity of the total count. The theorem identifies every exceptional length and gives the sharp noise amplification in the invertible cases, not merely a finite list of computed spectra. The link between a central Walsh mode and a different classical excursion class explains the entire spectral minimum.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

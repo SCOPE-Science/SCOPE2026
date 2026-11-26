@@ -1,19 +1,21 @@
-# Review of strict dimensional convexity and high-intensity curvature
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The definition specifies a bounded, symmetric coordinate generator, a single rank-one branching source and the exact supercritical domain. Semigroup tensorization yields the root Green function, and differentiation of the normalized tilted integral yields a strictly positive second derivative because the one-coordinate return log has nonzero second derivative at zero. This establishes the all-dimension statement. Four-step path counting and a bounded-operator Neumann expansion independently give the strong-intensity coefficients; the stated error terms follow by analytic reversion and bipartite parity for nearest neighbors. The attached finite checker (84 assertions) supports calculations but is not the infinite proof.
+PASS
 
-## Originality
+For λ>0 the unperturbed generator has resolvent and the rank-one eigenvalue equation is βG_d(λ)=1. Product semigroups give G_d(λ)=∫e^(−λt)q(t)^d dt; q is strictly between zero and one for t>0 by the zero-jump and one-jump probabilities. The positive root is unique, with an open initial real-x interval of existence (the zero-energy integral is lower semicontinuous by Fatou). For the tilted probability βe^(−λ(x)t)q(t)^x dt, a=−log q lies in [0,ct], so all local differentiations at a positive root are dominated by polynomial times exponential tails. The implicit derivatives are λ′=−E[a]/E[t] and λ″=Var(a+λ′t)/E[t]. Normalization makes the mean in the variance zero. Strictness follows because a″(0)=−v<0 and the tilted density is positive throughout; comparison applies to each supercritical triple. For s=λ+cd and z=1/s the resolvent is z+M₂z³+M₃z⁴+M₄z⁵+O(z⁶), with M₂=dv, M₃=dw and M₄=du+6 binom(d,2)v² by interleavings of two returns per coordinate. The inverse near z=0 exists analytically with derivative 1, gives a positive large-β root, and reversion to s gives β+M₂/β+M₃/β²+(M₄−2M₂²)/β³+O(β^−4). The second difference is 2v²/β³. Bipartite parity makes the resolvent in z odd for nearest neighbors; inversion preserves oddness, giving the improved remainder. Independent lattice-state propagation for steps ±1,±2 of rate one returned (M₁,M₂,M₃,M₄)=(0,4,6,36),(0,8,12,168),(0,12,18,396) in dimensions 1–3, testing the genuine three-loop case. The exact d=1 nearest-neighbor root sqrt(β²+4r²)−2r also reproduces the d=1 coefficient. The frozen checker and stored output were inspected, not rerun.
 
-PASS under examined evidence, with residual historical-priority risk. The closest published 2026 paper proves dimension monotonicity and a leading source-intensity term, not strict convexity or the universal third-order curvature coefficient. The 2015 paper gives the underlying rank-one eigenvalue criterion. A 2026 nearest-neighbor successive-approximation paper addresses the same model, but its complete argument was inaccessible for substantive comparison; no inference of whole-document noncoverage is made. Published research-record queries found no direct equivalent or stronger curvature statement. A stronger theorem could still be unindexed or buried in the uninspected paper.
+## originality
 
-## Value
+PASS
 
-PASS. Dimension monotonicity does not determine whether the marginal cost of one extra independent spatial direction grows or shrinks. Strict convexity resolves this natural structural question at all supercritical dimensions. The first nonzero high-intensity second difference occurs at cubic reciprocal intensity and has a universal coefficient determined by the two-step return rate, even when higher return-walk moments differ; it therefore provides a quantitative refinement not supplied by the leading intensity approximation.
+Prior literature covers both the rank-one eigenvalue framework and dimensional monotonicity, and already gives a leading strong-source expansion by an implicit Fourier-resolvent method. Credit here is for strict supercritical convexity of the product family, the explicit first nonzero cross-dimensional coefficient for general finite-range product kernels, and the parity refinement relative to the inspected expansion, not for monotonicity or for introducing series methods. One directly relevant nearest-neighbor paper remains an access risk, not evidence of noncoverage.
 
-## Limits
+## value
 
-The theorem is not stated for arbitrary nested-lattice walks, nor for extinction probabilities, and the expansion has fixed dimension. Relevant uninspected nearest-neighbor priority literature remains a material risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A strictly diminishing marginal dimensional growth loss resolves a structural question left open by monotonicity and valid throughout the positive-root regime, not just at large β. The first nonzero curvature term exhibits cancellation of the leading drift and individual three- and four-step contributions, isolating a universal square of the two-step return rate; this gives a useful comparison even across kernels with different loop structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: quadratic dyadic moments of A383066
+# Independent mathematical audit
 
-## Correctness — PASS
-The arithmetic tree and its indexing by A383066 are defined in the cited source, and the proof restates the child maps and establishes the invariant \(de=m^2+1\). Recomputing the sum of each of the three quadratic observables over the two children gives a closed integer four-state transfer with the asserted initial column. Its characteristic polynomial is \((t-2)(t+1)(t^2-11t+2)\), and its third resolvent coordinate gives the claimed rational generating function. The fourth-order recurrence and explicit eigenvalue formula agree with the initial four values. The known exact first moment then yields the squared coefficient of variation; the spectral ratio is provably greater than one. The standalone exact-integer checker independently reproduces the sequence values, tree values, quadratic state transfers, and moment recurrence through depth 12. No unproved infinite inference is drawn from those finite checks.
+## correctness
 
-## Originality — PASS, subject to external priority review
-The closest primary paper, Shakov (2025), proves a divisor-counting interpretation, the first row-moment recurrence, and Fibonacci extrema; its full nine-page text was compared with the exact quadratic generating function and spectral dispersion statement. The earlier Shakov (2024) source, which already constructs the same sequence, gives the first-component and second-component row sums and a ratio sum in Section 5. It must be credited rather than treated as new. The OEIS A383066 entry supplies defining recurrences and references but no quadratic moment formula. Searches combining the sequence ID, the author, dyadic second moments, the algebraic spectral constants, and the quadratic-divisor tree did not identify a matching theorem. General results about moments of regular sequences could conceivably imply the statement with additional computation; this is the principal residual novelty risk. Independent bibliographic verification has not been performed.
+PASS
 
-## Mathematical value — PASS
-The first dyadic moment and the rowwise maximum are already known, making the second moment a natural statistic of arithmetic spread rather than an arbitrary parameter slice. The exact rational function proves a qualitative phenomenon inaccessible from the known mean alone: the squared coefficient of variation does not settle to a constant but grows exponentially at the explicit base \(4(11+\sqrt{113})/(5+\sqrt{17})^2>1\). The four-state quadratic closure also supplies a reusable structural mechanism for evaluating fluctuations in the divisor-pair tree. This does not claim a limiting distribution, atypical-value density, or a family of higher-moment formulas.
+The defining recurrences give child triples from (a,b,c)=(s(k),s(2k),s(2k+1)): (b,2b-a,2b+c) and (c,2c+b,2c-a). Under (m,d,e)=(a,b-a,c-a) they yield the frozen pair of child maps, preserve de=m^2+1, and start at (0,1,1). This proves the needed indexing without assuming the external tree interpretation. Summing the three quadratic observables over children and reducing de=m^2+1 independently recovers the exact four-state matrix and root state. A Cramer determinant for the third formal resolvent coordinate gives the stated numerator and denominator; the roots of the recurrence and the first four moments determine the claimed explicit formula. For the first moment, the child-pair aggregate of (d+e,m) is (3(d+e)+4m,(d+e)+2m), with trace 5, determinant 2 and m-sums 0,2 at n=0,1, giving the stated R_n. For n>=1 the squared CV is 2^n P_n/R_n^2-1. The positive leading coefficients yield the asymptotic constant 17K/4, and 2 lambda_+-alpha_+^2=1/2+sqrt(113)-(5/2)sqrt(17)>0, so subtracting 1 is asymptotically negligible. Independently evaluated all sequence values through level 12 by bottom-up scalar recurrence and matched each square sum against the symbolic transfer. The numeric bases 1.03952283129313 and 1.01956992467 agree; finiteness of this replay is not used to extend the theorem.
 
-## Closest sources and limitations
-Primary comparisons: A. Shakov, *A 2-Regular Sequence That Counts The Divisors of \(n^2+1\)*, arXiv:2510.22805v1, especially Theorem 4 and Proposition 7; A. Shakov, *Polynomials in \(\mathbb Z[x]\) whose divisors are enumerated by \(\mathrm{SL}_2(\mathbb N_0)\)*, arXiv:2405.03552v1, Section 5, Definition 5.2 and Theorem 5.3; and OEIS A383066 (formula and links). The tree and first moment predate this contribution. A broader not-yet-compared general transfer formalism remains possible. The proposed formula concerns only uniform dyadic rows of the specific A383066 sequence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sequence/tree identification, first moments and general regular-sequence spectral methods are antecedents, not credited as new. The inspected results leave a distinct explicit quadratic-row formula and strict dispersion exponent for this sequence.
+
+## value
+
+PASS
+
+Dyadic levels are inherent in this published divisor-pair tree, and its mean and maximum already motivated studying fluctuations within a level. The exact second moment gives a quantitative distinction from the mean: variability relative to the mean grows exponentially, with an explicit small but strictly positive exponent. The result is useful for tests or comparisons of concentration claims for the tree and is stronger than first-order growth or recomputing a short row table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

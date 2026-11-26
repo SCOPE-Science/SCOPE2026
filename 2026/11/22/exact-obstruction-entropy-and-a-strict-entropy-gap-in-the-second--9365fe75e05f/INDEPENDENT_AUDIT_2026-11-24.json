@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:12.677516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete Finding and Proof",
+        "Frozen VERIFICATION.md, certificate.json, forbidden_certificate.json, verify.py, verify_forbidden.py, crosscheck.py (inspected, not executed)",
+        "Independent difference-bit machine with exact integer traces, series coefficients, and rational root sign calculations",
+        "Wu–Zhang arXiv:2611.03758v1 Theorem A and Corollary 1"
+      ],
+      "rationale": "The bilateral XOR differences d_i=x_i⊕x_(i+1) are unrestricted, and the first-step output is d_(i−1)∨d_i. This output has no isolated one; conversely any word on the bilateral shift avoiding 010 is recovered by taking differences d_i=y_i∧y_(i+1). For the second image, the independent reconstruction used an eight-vertex de Bruijn graph on three difference bits instead of the supplied 16-vertex graph on original bits. Label the edge for four bits a,b,c,d by whether a∨b,b∨c,c∨d are not all equal. All difference blocks integrate and extend to bilateral inputs. Determinizing from all vertices and refining right languages gave 17 live subsets and 13 accepting minimized states. For the forbidden computation, accept precisely a dead final prefix-state transition with a live suffix-state transition; all proper contiguous factors are contained in the prefix or suffix missing one letter. Both individual letters occur. The count is of distinct words because the machines are deterministic and each productive path specifies its letters. The independent pair graph had 29 reachable and 16 productive states. Exact transfer arithmetic reproduced the characteristic polynomials, coefficients through degree 17 of det(I−zA)M(z), and the displayed list through length 25. The degree bound 2+15 proves the all-length identity. There is one 14-state primitive component with self-loops on productive paths; the other two states are transient, giving m_2(n)∼Cλ^n with C>0 and hence a strictly sofic image. The image automaton's Perron growth governs all admitted words since all accepting states are accessible. Independent exact shifted-power coefficient signs isolate both largest real roots in the stated disjoint rational intervals. Wu–Zhang Theorem A applies since the minimal forbidden words generate the shift, so h_G≤h_M<h_top; this gives the stated finite ergodic, Bernoulli-up-to-period and characteristic maximal-entropy-measure conclusions without asserting how many such ergodic measures there are.",
+      "replay": "Shift and append 0 or 1 on the eight three-bit states, using the four-difference-bit edge label in the rationale; perform subset closure and right-language refinement, then form the prefix/suffix pairs and trim backward from terminal letters. In one numbering the image states (start 0, −1 dead) have (0,1)-rows (1,0),(1,2),(−1,3),(1,4),(5,0),(5,6),(−1,7),(8,9),(8,10),(5,11),(−1,5),(5,12),(8,3). For the productive adjacency A, after omission of dead and terminal transitions the destination lists are [1],[2],[3],[4],[4,5],[6],[7,8],[7,9],[10],[11],[4,12],[4,13],[7,2],[14],[7,15],[4,10]. The productive initial state is 0, with terminal counts one at states 1 and 13 and zero elsewhere. Newton identities for the two adjacency matrices and multiplication of z²u(I−zA)^−1e by det(I−zA) reproduce the polynomials. At the lower rational endpoint of each bracket, expand its corresponding degree-8 or degree-13 polynomial as P(L+x): the constant coefficient is negative and all other coefficients positive. At each upper endpoint, all coefficients of P(U+x) are positive. Integer arithmetic after clearing 10^6 powers proves the signs, hence a root between and no root above the upper endpoint.",
+      "residual_risks": [
+        "Bilateral spatial image under two synchronous updates, not ring image, temporal entropy or the limiting image. No numerical fitting is used for the asymptotic or gap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both all-rule catalog classifications concern one-step images. The gap criterion covers broad classes of subshifts when the entropy inequality holds; it supplies the measure conclusion but not exact entropy values or gap for Rule 126 at t=2."
+        ],
+        "reasoning": "A general theorem given the gap neither supplies nor implies the inequality for this particular object without calculating or bounding its hypothesis. The two all-rule papers do not dominate the time-two regime.",
+        "searches": [
+          "Resultary first-offender growth gap for all elementary cellular-automaton images, Finding",
+          "Resultary exact nineteen-value spatial image entropy spectrum, Finding",
+          "Wu–Zhang arXiv:2611.03758v1 Theorem A and Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "Wu–Zhang arXiv:2611.03758v1, decisive theorem passages",
+        "Resultary prior threshold, first-offender/spectrum records, Rule 126 cyclic counts, and two distinct second-image findings",
+        "de Oliveira et al. DOI 10.1002/cplx.21686, limited material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known process graphs, if taken as an exact language description, make both invariants computable in principle. The obstruction series requires a new productive prefix/suffix automaton and weighted transfer evaluation, not just the prior graph or one witness. The measure conclusions are existing theorem applications, not a new measure classification."
+        ],
+        "reasoning": "Existence of one time-two discrepancy or a computable presentation does not by itself evaluate the asymptotic count of all minimal obstructions or determine the strict rate comparison. Coverage of a hidden exact calculation in the inaccessible 2016 text is not ruled out.",
+        "searches": [
+          "de Oliveira et al. DOI 10.1002/cplx.21686, reported Rule 126 process graphs Figs. 6–7",
+          "10/26 Resultary threshold RESULT.md, shortest witness and process-graph comparison",
+          "Wu–Zhang arXiv:2611.03758v1 definitions, Theorem A and Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/26 sharp threshold entry uses the same bilateral first-versus-second image comparison and gives the length-12 Rule 126 witness 011101101110. Prior reported Rule 126 process graphs describe this same language, but word-language growth and counts of minimally excluded factors are different invariants.",
+          "The 11/2 Rule 126 periodic predecessor record explicitly concerns cyclic image counts and same-period lifting, not bilateral second-image obstruction words."
+        ],
+        "reasoning": "Identical languages under process-graph and de Bruijn presentations are acknowledged. The target series counts words outside the image language with both nearest shorter factors inside; it is not itself a presentation, preimage series, or cyclic-word count.",
+        "searches": [
+          "Resultary on Rule 126 second-update language loss, second spatial image entropy, minimal forbidden words / first offenders / antidictionary",
+          "de Oliveira et al., DOI 10.1002/cplx.21686, Rule 126 process graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct entries with IDs ending 66161a322c8d and 576dabe6a72b concern exact second-image spatial entropies for Rules 22 and 110. The older twelve-symbol record 5742d176c6e4 has the shortest obstruction discrepancy, not a series or either rate. The older spectral census d4f1725c3486 is restricted to one step."
+        ],
+        "reasoning": "Compare exact rule, time, and invariant rather than comparing catalog dates or class names. None of these actual findings tabulates the Rule 126 second-image minimal forbidden series.",
+        "searches": [
+          "Resultary exact second-image entropy, Rule 126, two iterations, and prior sharp twelve-symbol result"
+        ]
+      },
+      "rationale": "Credit the exact second-image minimal-forbidden series, its Perron growth, and the evaluated strict gap. The one-step benchmark, first missing word at length twelve, finite-state methods and general measure theorem are prior work. Known presentations of the second-image language make related invariants computable; available evidence does not show an earlier evaluated all-length minimal-forbidden series or this comparison of the two entropy rates. Direct full-text access to the closest older Rule 126 paper was unavailable after lawful attempts, so priority there remains an explicit bounded risk rather than evidence of noncoverage.",
+      "residual_risks": [
+        "An exact series already derived in inaccessible portions of de Oliveira et al. or elsewhere remains possible; the verified differences apply only to the actual passages and results inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the conclusions conditional on the gap; does not provide a Rule 126 calculation in these passages",
+          "evidence": [
+            "h_G<h_top gives finitely many ergodic maximizing measures, Bernoulli up to a finite period, and a characteristic maximizing measure. Corollary 1 uses h_M<h_top for the finite-ergodic and Bernoulli conclusions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03758v1",
+          "material_read": "Theorem A (extraction offset 2520) and Corollary 1 (offset 232300)",
+          "method": "OA primary source, decisive passages",
+          "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+          "trigger": "Exact prior theorem giving the maximal-entropy-measure implications"
+        },
+        {
+          "assessment": "No whole-paper noncoverage finding; material residual priority risk, notably for the second-image process graph and any exact growth already derived from it",
+          "evidence": [
+            "The earlier threshold entry and frozen record report first- and second-step Rule 126 process graphs. No primary exact-series passage was accessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+          "material_read": "Landing-page/abstract information only; reported Figs. 6–7 identified via frozen bibliography and linked threshold record, not opened as primary pages",
+          "method": "Lawful primary and alternate retrieval attempted; DOI and Academia routes returned access errors and the DSpace route exposed landing/abstract only",
+          "title": "Advances in the Study of Elementary Cellular Automata Regular Language Complexity",
+          "trigger": "Closest older primary source reportedly drawing the Rule 126 process graph at time two"
+        },
+        {
+          "assessment": "Covers the shortest discrepancy, not the target transfer series",
+          "evidence": [
+            "First and second images agree through length 11 for Rule 126; 011101101110 is in Y_1 but not Y_2."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "material_read": "RESULT.md Finding, offset 0, and Rule 126 process-graph reference",
+          "method": "Resultary local mirror",
+          "title": "A sharp twelve-symbol threshold for second-update image loss in elementary cellular automata",
+          "trigger": "Same rule, second image, and shortest nontrivial discrepancy"
+        },
+        {
+          "assessment": "One step only",
+          "evidence": [
+            "Obstruction growth classified for one-step images, not second images."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-first-offender-growth-gap-for-all-elementary-cellular-automato--23171f1f1979",
+          "material_read": "RESULT.md Finding and scope, offsets 0 and 3500",
+          "method": "Resultary local mirror",
+          "title": "A first-offender growth gap for all elementary cellular-automaton images",
+          "trigger": "All-rule obstruction-growth theorem"
+        },
+        {
+          "assessment": "One step only",
+          "evidence": [
+            "The nineteen-value spectrum is for first images of the 256 rules."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "Potential tabulation of the image growth root"
+        },
+        {
+          "assessment": "Different cyclic geometry and invariant",
+          "evidence": [
+            "Same-period predecessor counts and cyclic one-step images, rather than a bilateral second-image factor language."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-periodic-predecessor-lifting-and-exact-cyclic-image-counts-for-e--43a663d15708",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Periodic predecessor lifting and exact cyclic image counts for elementary cellular automaton Rule 126",
+          "trigger": "Rule 126 exact counts"
+        },
+        {
+          "assessment": "Different rules, not coverage of this exact invariant",
+          "evidence": [
+            "The first result is about Rule 22, the second is about Rule 110."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-second-image-spatial-entropy-and-first-image-language-loss--66161a322c8d; 2026/11/22/SCOPE-exact-second-image-entropy-of-synchronous-rule-110--576dabe6a72b",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact second-image spatial entropy and first-image language loss; Exact second-image entropy of synchronous Rule 110",
+          "trigger": "Distinct same-day second-image computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact finite-state invariants and strict gap",
+        "Earlier twelve-symbol Resultary result",
+        "Wu–Zhang arXiv:2611.03758v1 entropy-gap criterion"
+      ],
+      "rationale": "Rule 126 is a natural benchmark with an unusually simple first image and a known sharp finite discrepancy. The all-length second-image obstruction series demonstrates a change to strictly sofic behavior with exponentially many minimal forbidden words after just one further update. Its rate is provably separated from the language entropy; this is an evaluated nontrivial test case for the entropy-gap theorem, beyond an arbitrary finite enumeration or the previously known shortest witness.",
+      "residual_risks": [
+        "Specific to one rule and one time; no claim of a taxonomy of later images or explicit classification of the maximizing measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

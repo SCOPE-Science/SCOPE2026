@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:05.803851Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final RESULT.md in /workspace/repairs/4 centers on the pointwise rEJR comparison and gives a complete proof. No affordability demand can have size above two. An affordable size-two set requires the whole electorate and two unanimously approved unit-quality candidates, since each reciprocal term is at least one. In their absence the feasible sets coincide. In their presence rEJR adds exactly the requirement that the two selected candidates have a joint supporter, beyond rJR, and the unanimous pair attains quality two. In any rJR-optimal pair both members therefore have unit quality; keep either supported candidate and choose a distinct unanimous unit candidate, representing all voters while giving the retained candidate's supporter two approved members. The same works from any unrestricted optimum in this regime. Otherwise, a witnessing unrepresented bloc S for a top-pair rJR violation has n/2<=|S|<=n-1 and common affordable candidate of quality at least tau=n/[2(n-1)]. Retaining the higher-quality original candidate and selecting that candidate represents S and an additional voter, ruling out any further rJR violation and hence rEJR violation. The sharp guarantee follows from the exact nonnegative slack identity with 0<tau<=1. The witness with one voter approving the two unit candidates and n-1 voters approving the tau candidate meets the quota at equality; the two axioms coincide on it, including at n=2. The original verify.py and VERIFICATION.md were inspected, not executed. The independent /workspace/branches/two_seat_replay.py checked the original bound, equality and one-replacement claims on 96,875 exhaustive, 400 sampled and 9 sharp profiles. The new bounded repair verifier was run as python3 /workspace/repairs/4/verify.py; it returned EXACT_OK exhaustive=16551 sampled=240 sharp=9 separation=1, also testing the committee-level criterion and the optimum-preserving replacement. These exact finite runs only corroborate the arbitrary-size, real-quality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BD&KU give a 3/4 guarantee for quality-greedy completion of a reciprocally affordable set and the unrestricted rEJR price 4/3; the rEJR argument uses reciprocal MES, not the pointwise two-seat transfer.",
+          "44146502d80d compares sharp worst-case fractions under a quality floor. 5ea6dcb6a811 gives a two-seat rJR-only theorem for d>=2 supporters, summarizes a known d=1 price, and makes no rEJR claim."
+        ],
+        "reasoning": "Optimization over all electorate or committee sizes, or all inputs with a quality floor, can produce the same extremal numbers without equal optima at every input. The scoped support frontier is for a weaker axiom and does not supply the repaired transfer.",
+        "searches": [
+          "arXiv:2609.08830v1 Theorem 5.5, Proposition 5.6 and Appendix G Corollary G.4",
+          "Resultary 44146502d80d quality floor",
+          "Resultary 5ea6dcb6a811 minimum support, Finding and relationship section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 4 RESULT.md, VERIFICATION.md and verify.py",
+        "Frozen fda9761638b2 RESULT.md",
+        "arXiv:2609.08830v1",
+        "Resultary 5ea6dcb6a811 and 44146502d80d",
+        "Corrected RESULT.md, SLOGAN.txt, VERIFICATION.md and verify.py at /workspace/repairs/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The axioms give candidate-dependent group affordability and a max-over-voters representation condition, not an optimization equality. At exactly two seats the only extra demand requires two unanimous unit candidates. Identifying that exception and showing how to preserve a selected member at no extra cost yields the instancewise lift.",
+          "The sibling's necessary geometry is about equality in the rJR price and does not classify two-seat entitlements or supply rEJR optimal committees."
+        ],
+        "reasoning": "No inspected stronger result supplies the rEJR lift by simple parameter restriction or price inversion. The repair does not pretend the definitions or asymptotic price are new; it proves a precise two-seat structural consequence with different quantifiers and a constructive optimum transfer.",
+        "searches": [
+          "arXiv:2609.08830v1 Definition 5.1, Definition 5.2, Table 9 and Appendix G.1",
+          "Frozen fda9761638b2 RESULT.md, proof and limitations",
+          "5ea6dcb6a811 and 44146502d80d Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-n rJR price 4(n-1)/(3n-2) in fda9761638b2 is the exact inverse of the original record's retention fraction; it says explicitly that rEJR is outside its claim.",
+          "The repaired result instead states a pointwise rJR-to-rEJR optimization reduction and at most one replacement to lift an optimum; equality of worst cases alone does not imply that reduction."
+        ],
+        "reasoning": "The inverse ratio is genuinely the same rJR result and is no longer credited. Nor is equality of optimum values mistaken for equivalence of the axioms: the repair gives a separating feasible-set example and an exact extra condition for rEJR.",
+        "searches": [
+          "Resultary: two seat reciprocal EJR JR instance-wise equal maximum quality exact fixed n frontier 3n-2 / 4(n-1) universal quality-one candidates one replacement",
+          "Frozen fda9761638b2 RESULT.md, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record prints the d=1 rJR benchmark and cites a same-titled finite-electorate price result, but the main theorem specifies only rJR at d>=2.",
+          "The primary example supplies the very same sharpness profile on substituting epsilon=1/[2(n-1)] at n>=3. None of these numbers or profiles is claimed as a new lookup."
+        ],
+        "reasoning": "The exact lookup check has a positive match for the rJR benchmark. The repaired outcome concerns the structure of optimal committees on every election, which is not contained in a tabulation of prices or an example attaining one.",
+        "searches": [
+          "Resultary: exact fixed-n rJR/rEJR frontier and one replacement",
+          "5ea6dcb6a811 mirror offsets 0–1796 and 4750–6974",
+          "BD&KU Appendix G Example G.1"
+        ]
+      },
+      "rationale": "This pass is only for the repaired rEJR result, not the original joint novelty claim. The original fixed-n rJR fraction is identical after inversion to record fda9761638b2 and its attaining construction specializes BD&KU Example G.1. The rJR-only bound and single-substitution argument are benchmark material, not separately credited. The surviving claim characterizes exactly how the stricter axiom changes feasible committees at two seats and shows that every rJR optimum can be changed to an equally good rEJR optimum while retaining either selected member. It yields a sharp finite-n guarantee with one replacement for rEJR. The sibling and indexed minimum-support theorem concern rJR, not this comparison. The known equal unrestricted worst-case prices and the quality-floor result do not establish equality instance by instance. The bounded inspected literature and index yielded no covering statement for the repaired claim; this is not a priority certification.",
+      "residual_risks": [
+        "Bounded coverage of publication history: an unindexed account of the two-seat pointwise transfer may exist.",
+        "No same-day priority attributed. A cited same-titled internal baseline does not establish a separate proof or chronological order.",
+        "PDF extraction flattens fractions in some passages; the stated price is consistent with the quality-price definition and the unrestricted retention statement, and the repaired proof is independent of extraction formatting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions, broad 3/4 bound and the sharpness profile already covered; no pointwise rJR/rEJR conversion in these passages",
+          "evidence": [
+            "Theorem 5.5 concerns greedy completion of an affordable set. Proposition G.3 proves reciprocal MES satisfies rEJR and Corollary G.4 obtains its 4/3 unrestricted price. Example G.1 specializes to the witness here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08830v1",
+          "material_read": "Definitions 5.1–5.3 pp. 13–14, Theorem 5.5 p. 15, Proposition 5.6 p. 16, Table 9 p. 34, Appendix G Example G.1 p. 41 and Corollary G.4 p. 43; key offsets 55889, 56872, 59479, 62179, 65149, 125734, 156376 and 163240–165117",
+          "method": "Located substantive passages in lawful OA primary PDF",
+          "title": "Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Primary source of both axioms, quality guarantee and sharp example"
+        },
+        {
+          "assessment": "Same rJR price; no rEJR result and no basis to infer same-day priority",
+          "evidence": [
+            "Lines 4–9 give the exact reciprocal of the original record's rJR fraction, and lines 41–45 treat only rJR feasibility and geometry."
+          ],
+          "identifier_or_url": "fda9761638b2 (frozen record 5)",
+          "material_read": "RESULT.md Finding, scope, bound, attainment and limitations, lines 4–54",
+          "method": "Direct frozen-source comparison",
+          "title": "Exact finite-electorate quality price for two-seat reciprocal justified representation",
+          "trigger": "Equivalent finite-n rJR result under ratio inversion"
+        },
+        {
+          "assessment": "Explicitly rJR only and d>=2 in its theorem, noting the d=1 rJR benchmark separately",
+          "evidence": [
+            "The optimum in the statement is Q_rJR and the result gives a sharp support-dependent ratio. Its relationship section cites the earlier d=1 price result by title, not as an rEJR theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-minimum-support-quality-frontier-for-two-seat-reciprocal-r--5ea6dcb6a811/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1796; relationship and references, 4750–6974",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact minimum-support quality frontier for two-seat reciprocal representation",
+          "trigger": "Strong nearby exact two-seat classification and one substitution"
+        },
+        {
+          "assessment": "Worst-case frontier for another parameter, not the pointwise two-seat comparison",
+          "evidence": [
+            "Its Phi(q) has a 3/4 plateau through q=1/2 and a quadratic branch thereafter; the quantifier ranges over finite instances, not a fixed instance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-quality-floor-frontier-for-reciprocal-proportional-committ--44146502d80d/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1927",
+          "method": "Matching local-mirror record",
+          "title": "Sharp quality-floor frontier for reciprocal proportional committee elections",
+          "trigger": "Equal prices for rJR and rEJR under a different quality constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim reduces exact optimal-quality selection for a stricter proportionality axiom to the weaker one on every two-seat election. It pinpoints the sole exceptional demand, explains why feasible sets may differ even though the optima do not, and constructs an equally good strong-axiom optimum preserving a chosen member of a weak-axiom optimum. It therefore transfers a sharp finite-electorate guarantee to rEJR with a single-change certificate. This is a structural consequence for a natural small committee size, not credit for repeating the rJR price or the previously supplied family of witnesses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

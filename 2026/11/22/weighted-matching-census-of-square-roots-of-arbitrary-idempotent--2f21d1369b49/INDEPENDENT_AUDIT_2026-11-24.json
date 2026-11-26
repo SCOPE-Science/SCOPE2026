@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:19.968944Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42 and repaired RESULT.md Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md, verification_output.txt and verify_roots.py inspected as evidence without executing the supplied code",
+        "`python3 branches/independent_replay.py 3` from the workspace root, exhaustive through n=7; exact n=7 ranks (7399,58884,88620,60200,19110,3192,232)"
+      ],
+      "rationale": "The actual frozen RESULT.md lines 13–17, and the repaired result, have no prefactor n. A prefactor in an abbreviated rendering is not in the source: the two-point identity already has exactly two square roots, whereas adding n would predict four. Since g²=f implies gf=fg, g preserves S=im f=Fix f, acts there by an involution π, and sends a whole fiber to the fiber indexed by π. Within a fixed fiber, choosing the j nondistinguished points already sent to its root leaves a free map of the other points to those j; in a transposed pair, choosing the two directly-to-root sets leaves a free map of each remaining set to the chosen set in the opposite fiber. The choices are recoverable from g and suffice to give g²=f. This gives exactly F and V, including empty sets by 0⁰=1, and independent cycle choices multiply. If g⁴=g², every vertex reaches Fix(g²) in at most two steps, so the cycle lengths divide two and all attached trees have height at most two; the converse follows on every vertex. The image of g² is exactly the set of cyclic vertices. The tree series is z exp(z exp z); a component of cycle length d=1,2 contributes (uR)^d/d, giving the companion series. Neither formula or its parameters changed in the repair. Exhaustive independent enumeration agrees on all idempotents through n=7, including 9 roots for the unequal profile (2,3). The rank coefficients can also be checked by choosing r cyclic labels, an involution on them, j first-level vertices, their root choices, and the attachment of the remaining vertices. This gives binom(n,r) I_r ∑_j binom(n−r,j) r^j j^(n−r−j) and reproduces the formal n=8 total 3280524.",
+      "residual_risks": [
+        "The n=8 result is from the coefficient formula, not exhaustive enumeration. The argument addresses finite total transformations and idempotent targets, not arbitrary non-idempotent targets or extremal root counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhat–Gopalakrishna's Theorem 2.4 uses inverse-fiber sizes for nonexistence criteria. The accessible 2021 bibliographic record for Kozyra identifies work on graph structure and existence of half-iterates; full relevant proof text was not reached. The cycle/tree enumeration e.g.f. exp(∑_(d|m) T_k^d/d) in A060908 is stronger than the specific unmarked global count."
+        ],
+        "reasoning": "General existential criteria are not a fixed-target exact count. In contrast, the OEIS component construction genuinely covers the global enumeration, with the rank marking immediate from the cycle lengths. A statement about the aggregate count after summing over all target maps cannot by itself resolve the individual square-root fiber, where the distinct enumeration here lies.",
+        "searches": [
+          "DOI:10.1017/etds.2022.35, Theorem 2.4",
+          "DOI:10.20429/tag.2021.080108 (full-text attempt; ResearchGate alternate unavailable)",
+          "OEIS A060908, COMMENTS and FORMULA"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A060908 COMMENTS and FORMULA",
+        "DOI:10.12921/cmst.2018.0000027, Propositions 14 and 17",
+        "DOI:10.1017/etds.2022.35, Theorem 2.4",
+        "DOI:10.20429/tag.2021.080108 (bibliographic, full text unavailable)",
+        "Resultary 2f7d6f02cc55, dadd0ab54d91; 12bb479c61e2 summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For bounded-height functional components the factor T_k^d/d has d cyclic labels; replacing it by u^d T_k^d/d gives the global rank EGF because all cyclic labels and only those labels are in im g². This is already implicit as a direct specialization and marking of the published construction, not evidence for a second distinct finding.",
+          "For a fixed idempotent, the prescribed g² requires parity-dependent attachments to specific labeled fibers of prescribed sizes. The total cycle/tree formula forgets those targets, and endpoint cases or order-constrained formulas do not give the independent matching weights for arbitrary fiber profiles."
+        ],
+        "reasoning": "The original novelty scope was too broad because its companion EGF is mechanically obtained from known component enumeration. The repair separates that known construction from the useful fixed-target weighted matching claim. No direct earlier fixed-target formula was identified in the inspected material; that limit is not proof of priority.",
+        "searches": [
+          "OEIS A060908, COMMENTS and FORMULA",
+          "DOI:10.12921/cmst.2018.0000027, Propositions 14 and 17",
+          "Resultary 2f7d6f02cc55 and dadd0ab54d91, opening Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozyra's identity-map enumeration is recovered when F(1)=V(1,1)=1 and the matching sum counts involutions. His constant-map formula gives F(n) for the one-fiber input. Neither tested extreme gives the two-fiber coupling when nondistinguished points can alternate between fibers."
+        ],
+        "reasoning": "A closed count of half-iterates with a specified idempotent square, stratified by kernel-class sizes, is an equivalent formulation. A structural or algorithmic root finder could be used to compute an instance but the inspected special-case enumerations do not supply the all-fiber formula. The companion identity is explicitly outside the repaired novelty assertion.",
+        "searches": [
+          "Resultary: enumeration number of square roots of idempotent maps, arbitrary kernel fiber sizes, involution two-cycle weighted count",
+          "Web literature: prior literature on enumerating the number of square roots of idempotent self-maps of finite sets, arbitrary fiber-size profiles or weighted matching formulas, aliases half iterates and f^m=f^n",
+          "Kozyra 2018, DOI:10.12921/cmst.2018.0000027, Propositions 14 and 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060908 explicitly describes cycles of lengths at most two and distance at most two to a cycle, lists identical unmarked coefficients, and gives exp(∑_(d|m)T_k^d/d) for k=m=2 with T_0=z and T_k=z exp(T_(k−1)). The entry cites Goulden–Jackson (1983), has author date 2001 and a 2012 comment explaining the functional digraphs.",
+          "2f7d6f02cc55 counts roots of a specified constant map in a partition-preserving monoid; with one partition block this is F(n). dadd0ab54d91 gives rank polynomials for constrained order-reversing chain maps over order-preserving chain idempotents. The indexed earlier nondecreasing quasi-idempotent entry 12bb479c61e2 concerns g³=g² and rank pairs on a chain, not full transformations."
+        ],
+        "reasoning": "The exact database match is affirmative prior coverage for the global unmarked EGF, and its combinatorial terms explain the routine marking. The restricted catalogue counts are meaningful overlaps without implying the arbitrary full-monoid fixed-target formula. The same-day dates of the two catalogue results are not evidence of order or priority.",
+        "searches": [
+          "Exact sequence lookup 1,4,25,194,1791,19312,237637",
+          "https://oeis.org/A060908, text offsets 350–1676",
+          "Resultary: square roots of idempotent transformations weighted matching fiber sizes rank-refined generating function g^4=g^2"
+        ]
+      },
+      "rationale": "This PASS is for the repaired distinct claim only. The frozen original's novelty discussion bundled the global rank EGF into the novel statement. That part is not accepted as a distinct novelty: OEIS A060908 explicitly gives the same unmarked class and the general bounded-height cycle-factor enumeration; inserting u per cyclic vertex recovers this rank series by direct marking. The repaired RESULT.md credits that exact prior coverage and retains the marked EGF as a standard companion, not a novelty claim. The all-idempotent, fixed-target matching sum, particularly the explicit paired-fiber interaction V(a,b), is the surviving distinct contribution. Known identity and constant cases remain credited.",
+      "residual_risks": [
+        "Kozyra 2021 could have further relevant specialization; no full text was checked. Goulden–Jackson is credited via A060908; no claim is made about the unseen book's fixed-target enumeration.",
+        "The earlier chain entry 12bb479c61e2 was available in the index summary only, not the exact mirror path. Priority of the full arbitrary-target profile sum is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the unmarked EGF; the generic cycle construction supplies the rank marking directly. No specified-idempotent fiber profile there.",
+          "evidence": [
+            "k=m=2 in exp(∑_(d|m) T_k^d/d); all cycles have length at most two and attachments have height at most two."
+          ],
+          "identifier_or_url": "https://oeis.org/A060908",
+          "material_read": "COMMENTS, REFERENCES, FORMULA and author attribution in text offsets 350–1676",
+          "method": "Bounded public entry read and formal comparison of cycle component terms",
+          "title": "OEIS A060908",
+          "trigger": "Exact unmarked sequence match and potential covering generating function"
+        },
+        {
+          "assessment": "Establishes two genuine endpoint cases, not the intermediate fixed-target formula in these passages",
+          "evidence": [
+            "Proposition 14 counts half-iterates of the identity; Proposition 17 treats a constant map."
+          ],
+          "identifier_or_url": "DOI:10.12921/cmst.2018.0000027",
+          "material_read": "Open PDF p. 6 near offset 28700 (Proposition 14); pp. 8–9 near offset 43800 (Proposition 17)",
+          "method": "Bounded OA PDF passage reads",
+          "title": "On Half Iterates of Functions Defined on Finite Sets",
+          "trigger": "Exact classical square-root enumerations on the same finite full transformation monoid"
+        },
+        {
+          "assessment": "The inspected statements offer nonexistence and existence context, not the fixed-idempotent profile enumerator",
+          "evidence": [
+            "Theorem 2.4 gives inverse-fiber-size obstructions."
+          ],
+          "identifier_or_url": "DOI:10.1017/etds.2022.35",
+          "material_read": "Open Cambridge PDF abstract p. 2201 and Theorem 2.4 p. 2207 near offset 24547",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Iterative square roots of functions",
+          "trigger": "General iterative square-root theorem using fiber hypotheses"
+        },
+        {
+          "assessment": "Unresolved risk; no negative coverage inference from unavailable proof text",
+          "evidence": [
+            "The title and available record identify finite graph structure/existence, not a verified closed counting formula."
+          ],
+          "identifier_or_url": "DOI:10.20429/tag.2021.080108",
+          "material_read": "Bibliographic identification; no full primary proof passage obtained",
+          "method": "Attempted DOI/OA retrieval and an identified lawful alternate",
+          "title": "The Structure of Functional Graphs for Functions from a Finite Domain to Itself for Which a Half Iterate Exists",
+          "trigger": "General finite half-iterate structure might admit a useful specialization to idempotent targets"
+        },
+        {
+          "assessment": "Overlap at the one-block constant special case, under otherwise different restrictions; no arbitrary idempotent count",
+          "evidence": [
+            "The target is a specified constant map and refinements are by induced block map."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-constant-square-root-fibers-in-partition-preserving-transformati--2f7d6f02cc55",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Constant square-root fibers in partition-preserving transformation monoids",
+          "trigger": "Exact nearby square-root fiber count for a stated target with possibly unequal partition blocks"
+        },
+        {
+          "assessment": "Substantial related enumeration, but restricted to order-reversing roots on a chain of order-preserving idempotents",
+          "evidence": [
+            "Gives paired-fiber rank polynomials and restricted joint-rank distribution."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-order-reversing-square-roots-of-chain-idempotents-paired-rail-fa--dadd0ab54d91",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Order-reversing square roots of chain idempotents",
+          "trigger": "Profile-sensitive enumeration for idempotent targets and rank polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof §§1–4",
+        "Kozyra 2018, Propositions 14 and 17, and OEIS A060908 for the aggregate comparison"
+      ],
+      "rationale": "The repaired main claim is a natural complete preimage count for the squaring map over every idempotent of the full finite transformation monoid. The two-cycle interaction between unequal kernel classes adds exact information not obtainable from the classical constant and identity counts or from the unmarked aggregate. The formula reduces the calculation to weighted matchings on the rank-many fibers, with explicitly computable local factors. This provides a reusable exact count across every idempotent profile. The globally marked EGF is useful context, not evidence of original value for the repair.",
+      "residual_risks": [
+        "The output does not address roots of non-idempotents, arbitrary semigroup restrictions or maximizer problems; no algorithmic complexity or asymptotic theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

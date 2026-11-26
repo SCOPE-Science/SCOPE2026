@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:55.422320Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104; VERIFICATION.md and artifacts/check_double_star.py (read only)",
+        "Independent replay: python3 -B /workspace/reviews/reproduce_1_5.py (symbolic orbit numerators, rational evaluations and illustrative thresholds)"
+      ],
+      "rationale": "The Laplacian splits into two hub/leaf-mean blocks, symmetric and antisymmetric under hub exchange, and the within-leaf deviations at eigenvalue 1. Independent Cayley–Hamilton reduction of the antisymmetric rational function reproduces all five off-diagonal orbit numerators and positive denominators. The opposite-hub leaf and opposite-leaf entries are positive at positive h. The within-hub leaf numerator has a single positive root beyond 12, since it has one sign variation and is positive at 12. The own-leaf quartic has exactly one positive root in (2√3,12) by Descartes and opposite endpoint signs. For h below 2√3 the hub–hub quartic is bounded below by H_4 when m≤4, with its negative quadratic term dominated by the two positive AM–GM pairs; above 2√3 it is positive for every m. For m≥5 the signs at 0,2,2√3 certify exactly two simple crossings, exhausting the Descartes bound. These entry checks and the strictly positive eigenvalues give the claimed closed intervals, including h=0. Substituting h=c/m, h=2√3−d/m² and h=2√3+c/m and bracketing the sign changes on either side of each limiting simple zero yields all three constants. The m=5 examples agree. Row sums stay one; the frozen parenthetical uses 'row-stochastic' only in this row-sum sense when entries can be negative.",
+      "residual_risks": [
+        "No asserted cutoff beyond balanced unit-weight double stars, nor stagewise or floating-point positivity. Even if the family is extended to m=1, the same formulas give H_1>0 and an everywhere-positive within-hub-leaf polynomial (that entry orbit is actually absent); there is no additional loss-and-recovery case. The single-edge m=0 case is nonnegative by its two eigenmodes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Absolute-monotonicity and SSP results concern method-wide positivity restrictions. Product-of-cliques records classify all-step positivity on unweighted products or directionally weighted rectangular rook graphs."
+        ],
+        "reasoning": "A method-wide obstruction gives no exact allowable steps for a specified symmetric generator. Nontrivial rook products have cycles and do not include these trees; an all-step criterion alone would not identify finite disjoint windows anyway.",
+        "searches": [
+          "Ketcheson–Macdonald–Gottlieb (2009) §2.5",
+          "DOI 10.1112/S1461157013000326 p. 1",
+          "Resultary e93fc3196dc7 and 77ae586e3cd0"
+        ]
+      },
+      "checked_sources": [
+        "10.1016/j.laa.2011.12.021; 10.1112/S1461157013000326; Ketcheson–Macdonald–Gottlieb (2009) §2.5",
+        "Resultary 98f4ce42b84c, 43aa996b6450, 5b0558f2856d, eb788de3c836, e93fc3196dc7, 77ae586e3cd0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Gauss limitations and sharp cycle/rook results use different entry structure; the same-family Padé-related analogue uses a negative leaf diagonal as the obstruction, whereas all Gauss diagonals here remain positive."
+        ],
+        "reasoning": "None of the checked statements implies the signs of the hub–hub and own-leaf entries as functions of both m and h, the fact that all other orbits stay positive in the eligible range, or the two different rates of approach to 2√3. Those are necessary to the claim, not a change of names or parameters.",
+        "searches": [
+          "DOI 10.1016/j.laa.2011.12.021 pp. 14 passage",
+          "Resultary 98f4ce42b84c, 43aa996b6450, 77ae586e3cd0 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gauss endpoint is diagonal Padé [2/2] applied to −hL. The older Padé witness has an upper-shift integrator chain, not a symmetric double-star Laplacian. Resultary 43aa996b6450 addresses the same graph but the Radau IIA rational map and a different cutoff and obstructing entry."
+        ],
+        "reasoning": "The Padé alias does not make the nonsymmetric nilpotent shift or different rational function equivalent to this family. Replacing the map changes eigenvalue factors and which entry orbits control positivity.",
+        "searches": [
+          "Resultary local searches for exact title, H_m/P_m, balanced double-star Gauss positivity, and rook-graph Gauss positivity",
+          "DOI 10.1016/j.laa.2011.12.021, p. 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest graph-specific entries cover Gauss on cycles, [0/2] Padé on C8, Radau IIA on double stars, or a three-step Chebyshev inverse on a 12-vertex double star. No checked entry tabulates the frozen thresholds for Gauss on this family."
+        ],
+        "reasoning": "Matching topology, number of vertices, or the existence of a recovered interval does not identify an entry for the same rational map, timestep variable and family; nor does such a match supply the all-m classification.",
+        "searches": [
+          "Resultary exact-title and quartic-parameter searches; inspected 98f4ce42b84c, 5b0558f2856d, 43aa996b6450, eb788de3c836 and rook graph hits"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete finite-step positivity law on all balanced double stars, with a sharp family cutoff at 12 vertices and separate asymptotic boundary scales. Failure of uniform positivity for the integrator is known; neither that failure nor the inspected graph analogues supplies these windows.",
+      "residual_risks": [
+        "The frozen remark about earlier regular two-row rook classifications is not accompanied by a traceable citation. Related indexed rook findings were compared, but that specific antecedent was not resolved. Bounded searches do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known positivity obstruction, not this family",
+          "evidence": "The 8×8 nilpotent upper shift gives a negative (1,8) entry in C2(hN) at every h>0.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "p. 14, offset 38967",
+          "method": "OA repository PDF passage",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Direct diagonal Padé positivity counterexample"
+        },
+        {
+          "assessment": "Method-wide rather than graph-specific",
+          "evidence": "The discussed low-stage Gauss SSP sign test allows nonzero R(K) only for the one-stage method.",
+          "identifier_or_url": "https://www.davidketcheson.info/assets/papers/2009_implicit_ssp.pdf",
+          "material_read": "§2.5, PDF p. 8, offset 28880",
+          "method": "OA full-text passage",
+          "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+          "trigger": "Known Gauss SSP restrictions"
+        },
+        {
+          "assessment": "General method constraint",
+          "evidence": "Relates absolute monotonicity radius to positivity and contractivity step restrictions, not orbit-specific signs.",
+          "identifier_or_url": "10.1112/S1461157013000326",
+          "material_read": "p. 1, offset 620",
+          "method": "OA full-text passage",
+          "title": "Rational Functions with Maximal Radius of Absolute Monotonicity",
+          "trigger": "Potential general step-size implication"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Sharp finite positivity horizon on C6 and a classification on cycles, not balanced double stars.",
+          "identifier_or_url": "Resultary 98f4ce42b84c",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion",
+          "trigger": "Same fourth-order Gauss method on a graph family"
+        },
+        {
+          "assessment": "Same family; different rational map and result",
+          "evidence": "Radau IIA all-step positivity through m=5; for m≥6 a negative leaf diagonal at h=10, with small- and large-step positivity.",
+          "identifier_or_url": "Resultary 43aa996b6450",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp branching cutoff and reentrant positivity for Radau IIA on double stars",
+          "trigger": "Closest shared graph and reentrant behavior"
+        },
+        {
+          "assessment": "Different family and map",
+          "evidence": "[0/2] approximation and C8, nonnegative at h=0 or above a recovery threshold.",
+          "identifier_or_url": "Resultary 5b0558f2856d",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery",
+          "trigger": "Unusual Padé loss and recovery"
+        },
+        {
+          "assessment": "Different operator and parameter",
+          "evidence": "Negative bridge entry for a Chebyshev approximate inverse over a shift interval.",
+          "identifier_or_url": "Resultary eb788de3c836",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Twelve vertices are sharp for loss of positivity in a three-step Chebyshev approximate inverse",
+          "trigger": "Same 12-vertex witness topology"
+        },
+        {
+          "assessment": "Different graph classes",
+          "evidence": "All-step criterion for products of cliques, not a double-star timestep set.",
+          "identifier_or_url": "Resultary e93fc3196dc7",
+          "material_read": "Finding at offset 0 and relationship section at 7418",
+          "method": "Local Resultary mirror",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Nearby graph-specific Gauss criterion"
+        },
+        {
+          "assessment": "Different graph classes and criterion",
+          "evidence": "Directionally weighted products, all-step criterion; no finite windows outside that regime.",
+          "identifier_or_url": "Resultary 77ae586e3cd0",
+          "material_read": "Finding at offset 0 and relationship/limitations at 5895",
+          "method": "Local Resultary mirror",
+          "title": "Sharp anisotropic fourth-order Gauss positivity on rectangular rook graphs",
+          "trigger": "Potential rook-graph generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–31 and 88–104",
+        "General Padé and graph-specific comparators listed under originality"
+      ],
+      "rationale": "The family gives a sharp, natural reversible graph-heat example where positivity vanishes and returns in a fourth-order completed step even while the operator stays positive definite. The full orbit classification establishes both the first family size and the usable recovered window, whose width is asymptotically distinct from the small inner displacement near 2√3. This is more than a witness against uniform positivity.",
+      "residual_risks": [
+        "The result does not identify a minimum among arbitrary graphs or weighted reversible chains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

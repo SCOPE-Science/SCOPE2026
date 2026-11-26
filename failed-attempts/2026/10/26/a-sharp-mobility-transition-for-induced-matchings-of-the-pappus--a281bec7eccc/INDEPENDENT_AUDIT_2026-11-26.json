@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:50.909058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37; check_lcf.py, check_incidence.py, lcf_results.json, incidence_results.json; fresh replay /workspace/branches/pappus_independent_replay.py"
+      ],
+      "rationale": "Under the explicit replacement rule in Assumptions (one deletion and one insertion, not symmetric difference of size one), induced matchings are cliques in the complement of the squared line graph. The fresh standard-library replay at /workspace/branches/pappus_independent_replay.py enumerated its maximal cliques by pivoted Bron–Kerbosch and their faces, then built exchange neighbors in shared-face buckets. It reproduced maximum size 5, orders 135 and 27, zero top exchanges, unique parents and K5 fibers, 486 size-four exchanges, degrees 4:27 and 8:108, 54 quotient edges of multiplicity four, and the stated isomorphism on all 351 quotient pairs. All 135 BFS runs reached 135 states; eccentricities 8:108 and 9:27 and distances (486,648,918,1296,1836,2160,1242,432,27) reproduced exactly. With unique parents, cross-fiber adjacency requires parent overlap at least three and equality follows because overlap four is excluded; a common triple gives precisely the Cartesian product of two possible fourth edges on each side. Neither frozen program was executed.",
+      "residual_risks": [
+        "Exhaustive verification is specific to the stated labeled LCF graph; no general reconfiguration theorem is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 relates token-jumping and token-addition/removal reachability for independent sets; it does not state the exact fixed-cardinality Pappus path distances.",
+          "Dabrowski–Demange–Lozin p. 1 discusses induced matchings and complexity, not the Pappus-specific metric in the inspected passage."
+        ],
+        "reasoning": "Framework and complexity results do not determine exact radii and vertex eccentricities for this graph. The targeted external search did not provide a decisive additional source.",
+        "searches": [
+          "arXiv:1008.4563, Theorem 3",
+          "https://www.konraddabrowski.co.uk/nrim-v7.pdf",
+          "Pappus induced matching exchange reconfiguration (targeted literature lookup)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1c32026064e0, a28326a5f491, db6c6c11f317, 24443690ce08",
+        "arXiv:1008.4563",
+        "Dabrowski–Demange–Lozin author manuscript, p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record proves every four-matching has a unique five-parent and the overlap-three graph is L(P). It computes optimum distances in the add/delete graph restricted to sizes ≥3, rather than distances between all four-edge states in the fixed-size exchange graph."
+        ],
+        "reasoning": "The prior star fibers turn into K5s under fixed-size exchange; an overlap triple gives 2×2 cross exchanges. This gives the quotient, connectedness and 27·10+54·4=486 edges by direct deduction. The stated prior distances do not determine radius 8, diameter 9 or the full histogram for the different size-four graph.",
+        "searches": [
+          "Resultary 1c32026064e0, exact passages ‘Reserve-four graph’, ‘Compressed optimum geometry’, ‘Exact distances’"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kamiński–Medvedev–Milanič define token jumping preserving independence without requiring adjacent old and new vertices; the exact host for the frozen matchings is L(P)^2.",
+          "Resultary 1c32026064e0, ‘Compressed optimum geometry’: maxima share three edges exactly when joined in a graph isomorphic to L(P)."
+        ],
+        "reasoning": "The overlap-three formulation is precisely the simple quotient adjacency, not a merely similar graph with 27 vertices. The general token-jumping theory fixes the interpretation but does not supply the Pappus metrics.",
+        "searches": [
+          "Resultary: Pappus J4/J5 induced-matching exchange, reserve, and line-graph quotient",
+          "arXiv:1008.4563, §3, pp. 10–11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1c32026064e0, ‘Exhaustive bounded search’ lists counts 135,27,0 in sizes 4,5,6 and explicitly excludes pairs of maxima sharing four edges.",
+          "a28326a5f491 and db6c6c11f317 concern ordinary matchings. 24443690ce08 concerns two-edge exchanges of five-edge optima, not one-edge exchanges of four-edge states."
+        ],
+        "reasoning": "The optimum census and freezing are already reported for the right feasible objects. Ordinary matching counts and distances on a different move graph do not cover the size-four metric.",
+        "searches": [
+          "Resultary Pappus induced matchings and matching complexes: 1c32026064e0, a28326a5f491, db6c6c11f317, 24443690ce08"
+        ]
+      },
+      "rationale": "The frozen record as presented claims graph-specific structural novelty already materially covered by the 2026-10-18 Resultary record 1c32026064e0. That record explicitly establishes the frozen 27 optima, 135 size-four matchings and unique parents, and identifies the overlap-three graph on maxima with L(P). Those facts immediately imply the K5 fibers, quotient with multiplicity four, connectivity and total edge count for fixed-cardinality exchanges. The earlier result does not establish the exact size-four degree and distance statistics; these remain a potentially distinct narrower result, not an acceptance of the frozen claim.",
+      "residual_risks": [
+        "The bounded external literature lookup did not establish priority for the metric remainder. The MathWorld retrieval did not give readable primary content.",
+        "The distinct exact size-four metrics may occur in an unindexed table or computation. The original FAIL rests on verified material prior overlap, not retrieval limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of counts, freezing, unique parent and overlap-three geometry; immediate implication of several further fixed-size structural claims",
+          "evidence": [
+            "Tables at sizes 4–6; 27K1,5 incidence graph; 54-edge overlap-three graph isomorphic to L(P); exact distances for a different graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-two-edge-reserve-for-induced-matching-reconfiguration-in--1c32026064e0/RESULT.md",
+          "material_read": "Proof, offsets 2510–6094: exhaustive bounded search, reserve-four graph, compressed optimum geometry, exact distances",
+          "method": "Read matched record through the local mirror; compare move rules, cardinalities and graph isomorphism",
+          "title": "A sharp two-edge reserve for induced-matching reconfiguration in the Pappus graph",
+          "trigger": "Same host, compatible-edge subsets and parent compression"
+        },
+        {
+          "assessment": "General equivalence, not a Pappus-specific metric calculation",
+          "evidence": [
+            "A token jump replaces a vertex by any unoccupied vertex preserving independence; Theorem 3 treats reachability for fixed-cardinality independent sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.4563",
+          "material_read": "Section 3, pp. 10–11, move definition and Theorem 3",
+          "method": "Primary text passage comparison",
+          "title": "Shortest paths between shortest paths and independent sets",
+          "trigger": "Equivalent token-jumping formulation"
+        },
+        {
+          "assessment": "Provides context; no whole-document noncoverage assertion",
+          "evidence": [
+            "Definition and computational complexity of induced matchings."
+          ],
+          "identifier_or_url": "https://www.konraddabrowski.co.uk/nrim-v7.pdf",
+          "material_read": "Author manuscript p. 1, abstract and introduction excerpt",
+          "method": "Primary OA excerpt",
+          "title": "New results on maximum induced matchings in bipartite graphs and beyond",
+          "trigger": "Possible earlier result for the same matching notion in cubic bipartite graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33; Resultary 1c32026064e0, ‘Exact distances’"
+      ],
+      "rationale": "The exact diameter, radius and eccentricities answer a natural worst-case transformation-cost and centrality question for the full deficiency-one token-jumping graph of a canonical incidence graph. They are not consequences of connectivity or the diameter of the compressed optimum graph. This useful metric remainder does not make the already covered structural assertions new.",
+      "residual_risks": [
+        "No wider cutoff or metric formula for other cubic graphs follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

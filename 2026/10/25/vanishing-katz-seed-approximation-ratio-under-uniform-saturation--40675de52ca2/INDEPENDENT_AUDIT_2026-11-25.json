@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:52.910721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–85",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "Tian–Lambiotte arXiv:2112.01465v3, equations (2)–(4), (7), (16) and Theorem 6"
+      ],
+      "rationale": "All vertices communicate along the two-cycle, broadcast and return arcs. Write alpha=w/2 and e=epsilon/2. The positive right Perron vector of W/2 has equal leaf coordinates; eliminating three coordinates gives lambda(lambda^2-alpha^2)=k e^2/2, so lambda>alpha. The left side is strictly increasing above alpha, and its value at 1 exceeds k e^2/2 because 1-alpha^2-k e^2/2=1/(4k)-1/(64k^2)-1/(80000k^5)>1/(8k) for k>=4. Thus the outgoing Katz series converges. Solving c=(W/2)(1+c) gives the displayed c_a0 with numerator alpha+alpha^2+e(1+k/2)+k e^2/2<3, hence c_a0<24k. Thus c_leaf=e(1+c_a0)<1 and c_b=k(1+c_leaf)/2<k. Each cycle vertex has score at least the alternating-walk sum alpha/(1-alpha)=8k-1. Every maximizer is therefore a cycle vertex. From either such seed, nonpersistent clipping bounds the cycle mass by 2 at each positive time, b by epsilon and each leaf by epsilon (also at the first step, when the leaves are zero). The discount weights at positive times sum to one. Seed b contributes k/2 at step one alone. Dividing the uniform cycle-seed bound 2+(k+1)epsilon by k/2 gives exactly the claimed upper bound, independent of ties, which tends to zero.",
+      "residual_risks": [
+        "Only the general GIP update is specialized, not the source paper's later restricted threshold schedule. Orientation is outgoing and time zero is excluded throughout.",
+        "The bound need not be tight and is vacuous at k=4; the vanishing limit is unaffected. The supplied finite trajectory test is not the infinite-time proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilmes–Bai treat concave functions of nonnegative modular scores, including the form min(1,alpha).",
+          "Zhu et al.'s abstract describes limited-distance propagation and approximation guarantees for semidefinite algorithms, not outgoing Katz under recurrent clipping.",
+          "The competitive threshold-model hit returned HTTP 403; the full text was not read."
+        ],
+        "reasoning": "General saturation and submodularity do not quantify this specific heuristic's approximation performance. An approximation theorem for another algorithm/propagation objective does not imply this negative guarantee. The inaccessible hit is an access limit, not exclusion evidence.",
+        "searches": [
+          "arXiv:1701.08939v1, §3",
+          "doi:10.1007/s10878-013-9635-7, publisher abstract via RePEc",
+          "Threshold Models for Competitive Influence in Social Networks, search hit and attempted access"
+        ]
+      },
+      "checked_sources": [
+        "Tian–Lambiotte arXiv:2112.01465v3",
+        "Bilmes–Bai arXiv:1701.08939v1",
+        "Zhu et al. doi:10.1007/s10878-013-9635-7 (abstract)",
+        "Resultary findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Katz is exact only for the cited linear objective; nonlinear experiments assess Katz initialization and compare methods on particular network instances.",
+          "Concavity and monotonicity give structural information about clipped influence, not a bound comparing max discounted linear walks to attainable nonlinear influence."
+        ],
+        "reasoning": "Neither the exact linear theorem nor the nonlinear experiments supplies a family of strongly connected graphs with spectral convergence, score separation for all maximizing seeds, and a provably vanishing relative clipped influence. Those are actual additional requirements of this counterexample.",
+        "searches": [
+          "arXiv:2112.01465v3, Theorem 6 and §§V.2.1–V.2.2",
+          "arXiv:1701.08939v1, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited paper's EIC dynamics use W transpose in the state update and the outgoing resolvent row sum for a seed. Equal seed amplitudes make its selection rule max outgoing Katz.",
+          "The clipped process is a specialization of general bounded-linear GIP (zero lower bound, unit upper bound); linear EIC is the auxiliary score, not the objective being approximated."
+        ],
+        "reasoning": "A no-guarantee example for outgoing Katz/EIC scoring against general GIP restricted to these caps would match. A claim about Katz maximizing the linear EIC objective itself would not.",
+        "searches": [
+          "Tian–Lambiotte arXiv:2112.01465v3, equations (2)–(4), (7), (16), Theorem 6",
+          "Websearch: Katz centrality approximation ratio nonlinear influence maximization saturation GIP counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Katz-ranking result concerns reversals as attenuation varies on fixed unweighted undirected trees.",
+          "The re-entrant result concerns influences defined through expected percolation component sizes; the same-day leader result concerns optimal grounded-Laplacian two-leader coherence."
+        ],
+        "reasoning": "None gives a single-seed outgoing Katz-to-clipped-influence comparison at fixed discount, nor a vanishing approximation sequence; the same-day comparison is mathematical rather than chronological.",
+        "searches": [
+          "Resultary: Katz clipping, saturation feedback, one-seed influence ratio",
+          "2026/11/8/SCOPE-eight-vertices-are-sharp-for-adjacent-katz-centrality-reversals--f518cfbd8800",
+          "2026/11/8/SCOPE-re-entrant-single-seed-influence-on-a-clique-star-bridge--3410a6689b6b",
+          "2026/10/25/SCOPE-a-cubic-two-leader-coherence-transition-on-matching-weighted-bic--06bc40f827e8"
+        ]
+      },
+      "rationale": "The primary source establishes exact Katz optimization at the linear endpoint and explores nonlinear initialization numerically; these results do not establish a worst-case vanishing ratio in the unit-clipped feedback process. The indexed comparators and wider approximation references concern different targets, heuristics or dynamics. No equivalent earlier family was established in the bounded comparison.",
+      "residual_risks": [
+        "The bounded search does not rule out equivalent feedback counterexamples under another influence model's terminology or in literature about Katz as an initialization heuristic. The competitive threshold-model hit could not be read at the returned location."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact at linear endpoint; no implication of the claimed nonlinear ratio in the inspected sections.",
+          "evidence": "The discount is (1-gamma)^t, dynamics use W transpose, the GIP equation allows the clipping and initial seed inputs, and Theorem 6 maximizes the linear Katz score. The nonlinear passages make numerical comparisons.",
+          "identifier_or_url": "https://arxiv.org/html/2112.01465v3",
+          "material_read": "Equations (2)–(4) OA offsets 13650–18635; equation (7) at 19600–27018 plus restriction at 27878; equation (16) and Theorem 6 at 44200–50637; nonlinear experiments at 60950–70117",
+          "method": "OA HTML passage inspection",
+          "title": "Unifying information propagation models on networks and influence maximization",
+          "trigger": "Same GIP objective and outgoing Katz criterion"
+        },
+        {
+          "assessment": "Related saturation structure, not the Katz approximation question.",
+          "evidence": "Concave transforms of nonnegative modular scores include the clipped-coverage form min(1,alpha).",
+          "identifier_or_url": "https://arxiv.org/html/1701.08939v1",
+          "material_read": "§3 around OA offset 15800, equation (1) and following passage",
+          "method": "OA HTML passage inspection",
+          "title": "Deep Submodular Functions",
+          "trigger": "Plausible general saturation background"
+        },
+        {
+          "assessment": "The abstracts describe different propagation assumptions and algorithm.",
+          "evidence": "Limits propagation distance and analyzes semidefinite algorithms, not the Katz seed heuristic.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9635-7",
+          "material_read": "Abstract at RePEc offset 875; not article full text",
+          "method": "OA reader in website mode",
+          "title": "Better approximation algorithms for influence maximization in online social networks",
+          "trigger": "Search hit about propagation and explicit approximation ratios"
+        },
+        {
+          "assessment": "No verified substantive comparison from this hit.",
+          "evidence": "Both attempts returned HTTP 403; no passage read.",
+          "identifier_or_url": "https://www.academia.edu/47379254/Threshold_Models_for_Competitive_Influence_in_Social_Networks",
+          "material_read": "Title only; full text not retrieved",
+          "method": "OA direct and VPN attempt",
+          "title": "Threshold Models for Competitive Influence in Social Networks",
+          "trigger": "Search hit on nonlinear threshold influence"
+        },
+        {
+          "assessment": "Different invariant and later date.",
+          "evidence": "Ranking reversals with varying attenuation in fixed unweighted undirected trees, not Katz versus clipped influence.",
+          "identifier_or_url": "2026/11/8/SCOPE-eight-vertices-are-sharp-for-adjacent-katz-centrality-reversals--f518cfbd8800",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Resultary and mirror passage",
+          "title": "Eight vertices are sharp for adjacent Katz centrality reversals",
+          "trigger": "Indexed Katz-ranking limitation"
+        },
+        {
+          "assessment": "Different objective and no Katz comparison.",
+          "evidence": "Studies switches in seed rankings by expected component size in independent-edge percolation.",
+          "identifier_or_url": "2026/11/8/SCOPE-re-entrant-single-seed-influence-on-a-clique-star-bridge--3410a6689b6b",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and mirror passage",
+          "title": "Re-entrant single-seed influence on a clique–star bridge",
+          "trigger": "Indexed single-seed influence separation"
+        },
+        {
+          "assessment": "Different objective and seed count.",
+          "evidence": "Concerns two-leader optimization of grounded-Laplacian coherence, not a nonlinear influence heuristic.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-cubic-two-leader-coherence-transition-on-matching-weighted-bic--06bc40f827e8",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and mirror passage",
+          "title": "A cubic two-leader coherence transition on matching-weighted bicliques",
+          "trigger": "Same-day network selection entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact ratio and score-separation proof",
+        "Tian–Lambiotte's EIC criterion and nonlinear initializations"
+      ],
+      "rationale": "This is a worst-case impossibility for a named linear seed heuristic on a natural nonlinear specialization. Strong connectivity and zero lower threshold remove common degeneracies; convergence rules out failure just from using an undefined resolvent. The construction isolates recurrent reinforcement versus one-step broadcast and proves the effect for every score maximizer, not just a bad tie break or one finite example.",
+      "residual_risks": [
+        "Does not address algorithms that refine the Katz seed, the authors' narrower parametric threshold choice, row-stochastic networks, or empirical prevalence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

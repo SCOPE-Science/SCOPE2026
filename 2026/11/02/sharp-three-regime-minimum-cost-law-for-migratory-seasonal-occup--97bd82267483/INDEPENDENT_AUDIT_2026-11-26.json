@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:24:06.450601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 48–95",
+        "Frozen VERIFICATION.md and VERIFY.py, inspected but not executed"
+      ],
+      "rationale": "The two equilibrium balance equations give a unique inverse at every interior occupancy and ab=ef/[(1−p)(1−q)]>ef. The positive equilibrium for such rates is unique by direct substitution. In log odds X=log(p/(1−p)), Y=log(q/(1−q)), the budget is E exp(X)+F exp(Y)+E exp(X−Y)+F exp(Y−X). It is strictly convex and has bounded sublevels above the two finite log-odds target floors. Its two partial derivatives sum to E exp(X)+F exp(Y)>0, so at least one target binds. Setting the Y derivative to zero at p=u gives exp(Y)=r; setting the X derivative to zero at q=v gives exp(X)=t. The latter edge minimum reaches p=u when v/sqrt(1−v)=s, with the stated radical solution. At (u,v₋) the Y derivative vanishes so the X derivative is strictly positive, making the X edge minimum strictly below u there; monotonicity of t in v gives v₋<v₊. Strict convexity and the edge derivative conditions yield exactly the three reported branches, with equality at their shared endpoints. Substitution gives the stated costs (the edge terms in inverse odds and odds are equal at their optimum). The claimed attracting equilibrium follows from the invariant square and cooperative flow: at h times the equilibrium, 0<h<1, each derivative is strictly positive by the balance equations, and at (1,1) both are negative. Monotone solutions from those bounds converge to the same unique positive equilibrium and sandwich every strictly positive initial state. The proof's word 'beats' at an inclusive phase boundary should be read as equality there; the Finding explicitly has the correct coincident branches.",
+      "residual_risks": [
+        "The result uses continuously variable positive rates with no rate caps and does not give a discrete-time or empirical conservation guarantee. The frozen sampled perturbations are not needed for the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general network formulations minimize a resource budget with a bound on the leading eigenvalue at the zero equilibrium.",
+          "Frozen RESULT.md attributes the underlying seasonal balance and steady states to the Taylor–Hall discrete-year model, with probabilities bounded per year; that paper's full text could not be obtained in this review."
+        ],
+        "reasoning": "General geometric programming can express log-odds objectives, but the inspected network theorems solve a different constraint and do not imply these optimizer branches. Prior equilibrium formulas alone do not determine which target has slack at the optimum.",
+        "searches": [
+          "Zhang–Lu–Pei §3.2 and opening of §4",
+          "Preciado et al. §II-C, equations (6)–(9)",
+          "Taylor–Hall doi:10.1098/rsbl.2011.0916 (lawful full-text attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 09eda1510856, e0480495a6f4, 76d30637704b",
+        "Zhang–Lu–Pei doi:10.28919/cmbn/3388 primary OA PDF",
+        "Preciado et al. arXiv:1309.6270",
+        "Frozen RESULT.md, lines 40–44 and 97–112"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stochastic rescue laws fix total effort and optimize expected lifetime, rather than optimizing total weighted effort over prescribed steady-state floors.",
+          "The general network papers' feasibility relations use a linearized spectral bound for decay, rather than the nonlinear inverse equilibrium equations."
+        ],
+        "reasoning": "Neither the catalogue optimizers nor the inspected network resource-allocation results can be specialized to recover the strict ordering of the two active-set boundaries or the three closed-form budgets; separate equilibrium and active-set calculations are required.",
+        "searches": [
+          "Resultary 09eda1510856, e0480495a6f4 and 76d30637704b Findings",
+          "scik.org/cmbn/article/2018-1/cmbn-2018-1.pdf §3.2",
+          "arXiv:1309.6270, eqs. (6)–(9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The occupancy ODE is algebraically the two-node directed mean-field SIS equation with zero self-coupling.",
+          "Preciado et al. constrain a spectral decay rate at the disease-free equilibrium; Zhang–Lu–Pei use a three-compartment SEIS model and also constrain eradication rate."
+        ],
+        "reasoning": "The alias for the state dynamics is real, but standard decay to zero with separately bounded infection/recovery rates is not the same optimization as ensuring a positive equilibrium lies above both floors while minimizing the two colonization rates.",
+        "searches": [
+          "Resultary: migratory seasonal occupancy, equilibrium floor and colonization cost, two-type SIS equilibrium allocation",
+          "Zhang–Lu–Pei doi:10.28919/cmbn/3388; Preciado et al. arXiv:1309.6270"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby catalogue entries give clipped or directional allocations for stochastic two-patch models under a fixed total colonization budget; the objective is mean time to extinction."
+        ],
+        "reasoning": "The relevant exact lookup is the continuous parameter phase diagram, not an integer table or sequence. The compared catalogue diagrams do not have this deterministic equilibrium feasibility constraint; no priority judgment is inferred from the same-day hit.",
+        "searches": [
+          "Resultary queries for the equilibrium-floor/cost law and two-habitat allocation; strongest records 09eda1510856, e0480495a6f4 and 76d30637704b"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact unique minimum and full three-regime phase diagram for two simultaneous positive equilibrium occupancy floors and fixed extinction rates. The balance equations, elementary log-convex programming tools and positive-equilibrium threshold are not credited as new. Nearby catalogue allocations address different objectives, and the closest inspected network allocation problems constrain decay to the zero state instead of two positive equilibrium coordinates.",
+      "residual_risks": [
+        "Taylor–Hall (10.1098/rsbl.2011.0916), Ross–Pollett (MODSIM09, Rules of thumb for metapopulation management) and Santika et al. (10.1111/1365-2664.12441) were unavailable in primary full text after lawful attempts. Earlier exact positive-equilibrium allocations under other terminology remain possible; the assessments of the retrieved network papers do not settle the entire SIS literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different model and constraint; no implication of frozen phase diagram",
+          "evidence": [
+            "The allocation problems are for SEIS and use Re[λ₁(L)]≤−ς to constrain exponential eradication rate (eqs. 3.2 and 3.8)."
+          ],
+          "identifier_or_url": "https://scik.org/cmbn/article/2018-1/cmbn-2018-1.pdf",
+          "material_read": "§3.2, Problems 1 and 2, pp. 8–9, offset 17460 onward; opening of §4",
+          "method": "Primary OA journal article PDF",
+          "title": "A geometric programming approach for optimal resource allocation to control epidemic outbreaks in arbitrary networks",
+          "trigger": "Closest cited possibility of stronger network resource-allocation coverage"
+        },
+        {
+          "assessment": "Same mean-field dynamical setting in two-node specialization, different feasibility and objective direction",
+          "evidence": [
+            "Minimum-cost protection achieves prescribed exponential decay via Re[λ₁(diag(β_i)A−diag(δ_i))]≤−ε."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.6270",
+          "material_read": "§II-C, Proposition 1 context and (6)–(9), p. 3, offset 22850 onward",
+          "method": "Primary OA PDF passage",
+          "title": "Optimal Resource Allocation for Network Protection Against Spreading Processes",
+          "trigger": "SIS alias and stronger network-wide optimization candidate"
+        },
+        {
+          "assessment": "Different stochastic objective and budget constraint",
+          "evidence": [
+            "A four-state two-patch process maximizes mean time to extinction under a fixed budget; the optimizer depends on the initial-state weights."
+          ],
+          "identifier_or_url": "09eda1510856",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "A sharp initial-state allocation law for rescuing two-habitat patches",
+          "trigger": "Same-day, close ecological decision and exact allocation law"
+        },
+        {
+          "assessment": "Lifetime optimization instead of equilibrium occupancy floors",
+          "evidence": [
+            "A fixed-sum budget is used for optimizing stochastic mean time to extinction."
+          ],
+          "identifier_or_url": "e0480495a6f4",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "Sharp directional rescue allocation in the two-patch extinction model",
+          "trigger": "Earlier directional colonization-cost analogue"
+        },
+        {
+          "assessment": "Different model and constraints",
+          "evidence": [
+            "The criterion is mean extinction time under a fixed directional colonization-rate budget."
+          ],
+          "identifier_or_url": "76d30637704b",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "A sharp directed rescue allocation law for two-habitat patches",
+          "trigger": "Earlier directed two-habitat allocation candidate"
+        },
+        {
+          "assessment": "Credit the equilibria and persistence setup as prior; no whole-document exclusion inferred",
+          "evidence": [
+            "The frozen record attributes the balance terms and occupancies to a discrete-year probability model, and limits the new optimum to unrestricted continuous-time rates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rsbl.2011.0916",
+          "material_read": "Frozen record's attribution at lines 42–44 and 97–101; primary full text unavailable",
+          "method": "Lawful attempts via PMC3367723, publisher, NCBI BioC and Europe PMC; no usable full-text passage obtained",
+          "title": "Metapopulation models for seasonally migratory animals",
+          "trigger": "Foundational ecological model, possible direct equilibrium-design overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, three-phase theorem and scope",
+        "Resultary stochastic rescue allocation comparison",
+        "Inspected network decay-rate resource-allocation formulations"
+      ],
+      "rationale": "The two separate occupancy targets are natural constraints in the seasonal model. The phase diagram determines when the cheapest policy deliberately exceeds one target and precisely where both targets start or stop binding. It yields cost and the two separately implementable rates at all targets, a usable quantitative answer distinct from simply checking persistence or solving for equilibrium.",
+      "residual_risks": [
+        "The benefit is for a deterministic equilibrium decision problem with linear rate costs; it does not imply an empirically optimal policy with delays, uncertainty or upper bounds on rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

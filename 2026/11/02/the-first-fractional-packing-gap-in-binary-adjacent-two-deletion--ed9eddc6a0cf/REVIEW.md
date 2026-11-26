@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a finite exact statement on precisely specified deletion shadows. Every code witness, LP primal/dual feasibility inequality, and weighted-clique inequality is checked using exact rational arithmetic by the included dependency-free verifier. The 77 conflict cliques have explicit word lists and each is checked pairwise, while their total fractional cover weight is exactly \(482/23<21\). Thus the resulting integral upper bound is \(20\), matching the included length-eight twenty-word construction. The exact fractional optima and shorter integral optima are certified with matching rational primal/dual data. This checks the complete finite domain and invokes no unverifiable optimization-software output.
+PASS
 
-## Originality — PASS (historical-priority qualification)
+The stated integral program is exactly disjointness of the distinct output sets after deleting one adjacent pair, with no wraparound. An independent exact replay rebuilt those sets from binary strings and checked the listed codes and all rational primal and dual inequalities for n=2,...,8. Their respective objectives certify (1,2,4,4,8,13,21) for the LP, and the exhibited codes match the LP through n=7. At n=8 every one of the 77 weighted families was checked pairwise for conflict; the minimum coverage of a word is 1 and the total weight is 482/23. Each code meets a family at most once, so its integral size is at most floor(482/23)=20, achieved by the displayed code. This proves the first gap, not optimality of the clique-augmented relaxation or any assertion for n>8.
 
-Relevant primary literature on exact consecutive deletion bursts was compared by *implication*, not titles. Schoeny et al. (arXiv:1602.06820, Sections II–IV) supply the same channel and a general length-eight upper bound of \(24\) after integer rounding, but not the proposed twenty-word exact optimum, nor the first fractional-packing gap. Ye and Ge (arXiv:2610.05696) address stronger substring edits and asymptotic redundancy, not the particular exact finite maximum. Search results for closely related published coding claims cover other channels (two total deletions, substring edits, deletion covering, or one insertion plus deletions) and do not imply the stated result. The 1967 adjacent-deletion paper of Levenshtein could not be checked in full; this remains a real historical-priority limitation. Searches alone do not prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-The number \(A_2(n)\) is the fundamental zero-error code capacity for a fixed finite binary burst-deletion channel. The small-length cutoff is not arbitrary: length eight is exactly the first strict failure of the natural deletion-shadow fractional packing relaxation, and the gap is resolved by a different, stronger family of conflict-clique inequalities. The exact integrality obstruction explains why the conventional fractional-transversal technique cannot settle the cardinality there, and gives a reproducible finite benchmark for improved channel bounds.
+The specifically supported distinct claim is the first integral/fractional separation for the exact adjacent-pair shadow LP, with A_2(8)=20, F_2(8)=21 and the explicit clique bound. The length-six integral optimum 8 is already covered, and neither the model nor the LP framework is new. No inspected comparable statement gives or implies the claimed separation.
 
-## Limits and comparison
+## value
 
-No classification of every optimum, general-length theorem, or asymptotic implication is asserted. Source comparison is focused on accessible primary sections and has residual historical-priority uncertainty. All computational work is part of a finite, explicit exact rational proof, independently checkable from the package but not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The length cutoff is dictated by the first failure of a standard relaxation, not an arbitrary range of computations. The exact equality through seven followed by failure at eight is a usable benchmark for burst-deletion bounds; the clique certificate shows that pairwise conflicts can tighten the output-star constraints enough to certify the true optimum by rounding. This value does not depend on re-establishing the known n=6 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

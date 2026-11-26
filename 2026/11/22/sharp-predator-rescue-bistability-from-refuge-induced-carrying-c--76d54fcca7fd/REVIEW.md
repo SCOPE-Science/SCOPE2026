@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under explicit strictly positive parameters, the full nullcline substitution gives the quadratic \(F(q)\) without dropping denominators or boundary conditions. Its discriminant and vertex yield an exhaustive positive-equilibrium census. The Jacobian determinant is an exact negative multiple of \(F'(q)\); a universal lower bound on the refuge-dependent crowding factor forces negative trace in the two-state wedge. The predator-free Jacobian has both eigenvalues negative precisely for \(\rho>1\) when the positive predator nullcline exists. The repeated root satisfies the nondegenerate-fold conditions. Independently recomputed original-ODE Jacobians and exact algebraic values at a positive rational witness satisfy the analytic classifications; the standalone checker replays these computations. No global, cross-diffusion, or stochastic result is claimed.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+At a positive equilibrium the predator equation gives (h-mu*delta)X=mu(1+q), q=beta*Y. Thus h<=mu*delta precludes positive equilibria; otherwise X=T(1+q) and the prey equation on this nullcline reduces to alpha F(q)/(1+q), with F=1-rho+(1-eta)q-rho*q^2. The constant term, vertex and discriminant yield the stated counts for rho<1, rho=1 and rho>1, including exclusion of zero roots and the positive fold only at positive eta. At a positive root, the Jacobian determinant has the sign of -F'(q): H_X>0 for the predator per-capita term and H_q=-T H_X. For the trace, set phi=rho(1+q^2)/(1+q). At a positive equilibrium, 1-phi>0 and the prey diagonal term is alpha[-phi+(1-phi)delta*X/(1+delta*X+q)]. In the wedge and on its positive fold phi>=rho*2(sqrt(2)-1)>1/2, so this diagonal is strictly negative uniformly over delta*X/(1+delta*X+q) in (0,1); the predator diagonal is also negative. The lower root is a saddle, the upper a sink. The predator-free invasion eigenvalue is negative iff rho>1 when T exists, and its other eigenvalue is -alpha. At the positive repeated root the nullcline elimination is regular because H_X>0; restricted to its tangent, the quadratic and a-parameter derivatives are nonzero (F''=-2rho and dF/da=-q*deta/da), and the other eigenvalue is strictly negative. This gives a nondegenerate saddle-node, on the wedge boundary rather than inside it. The origin is an additional boundary equilibrium, not one of the three specified states; the census classifies positive equilibria.
 
-The November 10, 2026 originating preprint derives the kinetics and reaction terms but explicitly defers equilibria and stability to future study. The closest accessible primary literature and research-record searches establish that bistability and saddle-nodes are well known for *other* predator–prey models, including an older state-dependent-carrying-capacity model and a fear/harvesting cooperative-hunting model. Their equations and mechanisms do not supply this source's exact \(F(q)\), sharp \(\rho,\eta\) wedge or simultaneous three-state stability proof. No exact published implication covering the claim was identified. The full texts of some older candidate sources remain access-limited, so independent historical priority is still unverified; lack of a match alone is not asserted as proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The exact classification resolves the natural equilibria-and-stability question expressly left open after kinetic derivation of a predator-dependent carrying capacity. It proves the ecological possibility of two robust stable outcomes without predation cooperation and specifies the necessary and sufficient parameter window, not merely a numerical instance. The finite wedge is structurally meaningful: outside it, a subcritical predator-invasion regime cannot have two positive equilibria in the stated model. PDE pattern formation remains separate and may alter spatial stability.
+There is substantial demonstrable same-model coverage: a distinct same-day record proves the identical census and local types on the normalized subfamily delta*K=1. No historical order is inferred. Credit is limited to the full positive-parameter result, notably that the sharp stability wedge and positive saddle-node classification persist for arbitrarily varying the independent saturation group delta*K. Pure rescaling to unit prey capacity and unit refuge scale leaves this group in the off-nullcline vector field and trace. The positive-root geometry alone is shared and is not credited as a new mechanism.
 
-## Closest literature and limits
+## value
 
-Bisi et al. (2026), arXiv:2611.14132v1, equations (41), (43), Remark 6, and section 5 were read in HTML. Liu et al. (2019), DOI:10.3934/dcdsb.2019028, has a documented saddle-node/bistability result in a different ecological model; only its accessible abstract and bibliographic context were available. Desvillettes–Soresina's earlier cross-diffusion reference was identified from the originating paper but not read in full. Luo et al. (2025), DOI:10.1063/5.0266107, reports Beddington–DeAngelis bifurcations with habitat complexity and additional food, a different prey-growth mechanism; accessible abstract only. These limits are material for independent priority work, not substitutes for the new derivation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The homogeneous classification for the originating model is useful beyond a fixed normalization: it determines that changing saturation relative to physical prey capacity cannot switch the positive attractor to an unstable branch anywhere in the sharp wedge at fixed rho and eta. This stability robustness across an independent model group, together with the fold and the negative invasion rate, is the useful extension, not another instance of the already known normalized bistability phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:40:06.551061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83; VERIFICATION.md lines 19–23; verify_subset_defects.py lines 1–97 (read, not executed)"
+      ],
+      "rationale": "D and Phi count two separate classes of nonempty subsets of [n], as made explicit by the proof and verifier; Phi is not conditioned on membership in D. Each deficit includes the empty subset. All multiples-of-r subsets fail the D condition because r does not divide n, and every failing gcd is at least r. For Phi the corresponding assertions follow from p being the least prime divisor of n. Counting subsets supported on multiples and taking a union bound traps each deficit between 2^floor(n/d) and (n+1) times that lower bound, with d=r or p. This also works at n=2 with r=3 and an empty upper-bound sum. Taking logarithms and accounting for both floors gives the asserted (looser) uniform error; r≥3,p=2 on even n and r=2,p≥3 on odd n give both inequalities for the unscaled ratio. The fibers r=k are the difference of the multiples of L_(k−1) and L_k; a new LCM valuation occurs exactly at a prime power. The least-prime fibers follow from finite inclusion–exclusion. The even tail is bounded by 1/L_K and the tail avoiding all primes through Q by the finite Euler product, which tends to zero by comparison of its reciprocal with the harmonic sum. This justifies taking the infinite limit for bounded continuous h, using uniform continuity on the eventual compact range. Each parity contributes total mass 1/2.",
+      "residual_risks": [
+        "The exact arithmetic checks through n=1500, direct subset enumeration through n=16 and finite arithmetic fiber checks through 200000 are corroboration; the proof, not these checks, establishes the limiting law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attribution of Pongsriiam Theorem 9 to the parity sign of D−Phi is in the frozen and later Resultary prior-work comparisons; direct primary passage was unavailable.",
+          "Łydka's inspected text concerns log-concavity of f(n) and inequalities for a different subset-counting function g(n)."
+        ],
+        "reasoning": "An alternating inequality between D and Phi would only put R on one side of 1. The inspected related subset-count statements do not replace the separate identification of the dominating forbidden divisor and prime, or the density/tail argument. No broader theorem implying the law was verified.",
+        "searches": [
+          "Pongsriiam, Local behaviors of the number of relatively prime sets, DOI 10.1142/S1793042116500962, attempted publisher/ResearchGate and lawful-copy recovery",
+          "Łydka, arXiv:1910.02418v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Pongsriiam arXiv:1306.4891",
+        "Łydka arXiv:1910.02418v1",
+        "OEIS A224840",
+        "Later Resultary growth-law finding and cited account of Pongsriiam Theorem 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 question asks both unscaled extrema and separate summatory questions, not the distribution; its individual counting identities do not yield the uniform exponent without additional reasoning.",
+          "The later growth bracket would supply the exponent approximation, but turning it into the specified law still requires the LCM and sieve fibers, prime-power support and vanishing tails. That finding is later than the frozen October record."
+        ],
+        "reasoning": "The distinct law arises from localization of both deficits and classification/densities of the two arithmetic obstructions, not from renaming counts, computing samples or reading off the sign.",
+        "searches": [
+          "Pongsriiam Question 3.3 and count formulas",
+          "Compared later Resultary growth finding with frozen RESULT.md proof parts 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pongsriiam p. 1 defines D(n)=sum over d|n of f(d), which groups subsets by exact gcd, and defines Phi(n) on the same nonempty-subset universe by relative primality to n. Question 3.3 p. 12 asks for limsup and liminf of the very same ratio.",
+          "The later uniform-growth Resultary finding uses a(n) for the same least nondivisor r and its exponent h(n) is the same difference of floors."
+        ],
+        "reasoning": "These are equivalent formulations for the ratio and exponent, not new definitions. A question about extrema is not a solved limit law; the later growth statement overlaps the localization up to constants, not the stated discrete measure.",
+        "searches": [
+          "Local Resultary exact deficit ratio, least-nondivisor exponent and prime-power spectrum",
+          "Pongsriiam, arXiv:1306.4891, D(n), Phi(n) and Question 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A224840 identifies D(n) with counts of subsets with gcd dividing n; it is a one-sequence table, not a comparison of the two deficits.",
+          "The November 8 Resultary statement gives the ratio bracket 2^h/[2(n+1)] ≤ R ≤ 2(n+1)2^h and parity limits, but not atom weights or a limiting law."
+        ],
+        "reasoning": "Exact input counts or the later bracket are relevant and credited. A sequence listing does not identify the distribution of the scaled logarithmic quotient, and the later result should not be mistaken for pre-existing priority or for a full spectrum table.",
+        "searches": [
+          "OEIS A224840 Comments",
+          "Local Resultary ratio-law and density lookup; strongest later record on complementary relatively prime subsets"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full prime-power/least-prime atomic law for the logarithmic ratio, with quantified localization yielding parity escape. The strongest Resultary comparison substantially overlaps the growth and parity statements but is dated later and gives no limiting distribution. The original question and the checked neighboring results do not provide this classification. In particular a parity sign alone has no control over logarithmic size or empirical atom frequencies.",
+      "residual_risks": [
+        "The primary text of Pongsriiam 2015/2016 was not lawfully retrievable through the routes tried; stronger uninspected overlap remains possible. The result is a best-of-current-evidence comparison, not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original definitions and question; no solution in inspected passages",
+          "evidence": "Explicitly asks for limsup and liminf of (2^n−D(n))/(2^n−Phi(n)) and two partial sums.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4891",
+          "material_read": "Definitions, PDF p. 1; Question 3.3 and neighboring questions, p. 12",
+          "method": "OA PDF exact statement comparison",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "Exact same ratio and motivating question"
+        },
+        {
+          "assessment": "Access limitation; no negative inference about uninspected content",
+          "evidence": "The inspected secondary description attributes an alternating sign theorem for D−Phi, not an exponential rate.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793042116500962",
+          "material_read": "No primary Theorem 9 text obtained; theorem description in related Resultary prior-work section and frozen relationship section only",
+          "method": "Attempted lawful publisher and ResearchGate retrieval and DOI copy recovery",
+          "title": "Local behaviors of the number of relatively prime sets",
+          "trigger": "Plausible stronger answer to earlier ratio question by same author"
+        },
+        {
+          "assessment": "Related but different stated results",
+          "evidence": "Log-concavity for f(n) and inequalities for g(n), not the deficit-ratio distribution.",
+          "identifier_or_url": "https://arxiv.org/html/1910.02418v1",
+          "material_read": "Abstract and introduction, OA offsets 0 and 2300",
+          "method": "OA HTML bounded read",
+          "title": "On some properties of the function of the number of relatively prime subsets",
+          "trigger": "Related inequalities for the same class of counting functions"
+        },
+        {
+          "assessment": "D(n) input sequence only",
+          "evidence": "Counts subsets with gcd dividing n.",
+          "identifier_or_url": "https://oeis.org/A224840",
+          "material_read": "Comments",
+          "method": "Public entry comparison",
+          "title": "OEIS A224840",
+          "trigger": "Exact-count database overlap"
+        },
+        {
+          "assessment": "Substantial overlap on growth and parity; later record, no atomic spectrum stated",
+          "evidence": "Least-missing-divisor minus least-prime floor exponent, multiplicative bracket 2(n+1), and the same parity limits.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-arithmetic-growth-law-for-complementary-relatively-prime--e3e2e0e56cb2",
+          "material_read": "Finding and Relationship to prior work, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search plus mirrored statement comparison",
+          "title": "Uniform arithmetic growth law for complementary relatively prime subset counts",
+          "trigger": "Strongest Resultary same-ratio result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pongsriiam, Question 3.3; frozen Finding and scope"
+      ],
+      "rationale": "The ratio was explicitly posed in the original subset-counting literature, and the result goes beyond sign and unscaled extrema. The logarithmic scale retains the relative exponential rates even when the raw ratio escapes by parity. The full atomic law explains which arithmetic obstructions dominate and assigns their exact frequencies, useful information not supplied by counts or parity alone. The result does not claim the separate summatory questions.",
+      "residual_risks": [
+        "Value is assessed for the logarithmic spectrum and its relation to the posed limits, not for an unscaled weak law or separate partial-sum asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

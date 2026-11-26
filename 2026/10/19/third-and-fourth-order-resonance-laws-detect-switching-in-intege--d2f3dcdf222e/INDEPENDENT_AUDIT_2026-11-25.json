@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:12:21.943083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lebesgue integration selects signed frequency sums equal to zero, with weight 2^(-k) for k cosine factors. Growth by integer factors at least two implies that a unique largest term in a cancellation with at most four factors must be the sum of all the smaller terms with the same sign: even the two largest smaller frequencies together are at most the largest, and any subtraction makes the inequality strict. With three factors this gives two equal half-frequencies, necessarily an adjacent doubling. With four factors, three equal smaller frequencies give an adjacent tripling, with four permutations and weight 1/8 per product. Exactly two equal smaller ones require the repeated smaller frequency to be half the larger smaller frequency, and that one half the largest: for u<v<w one needs w=2u+v, since w=u+2v would contradict integer divisibility. With four distinct frequencies the three smaller sum to at most 7/4 times the second largest, never the largest. If the largest repeats, only pair cancellations survive except the all-equal case already counted. The single-frequency and two-pair baselines give 3n²/4−3n/8, and consecutive doublings contribute twelve permutations at weight 1/8. Third and fourth cumulants then give the switch counts as stated. At fixed m>0 and L=n−1, A=m−r for r nonempty runs, and every r from 1 to min(m,L−m+1) is realized by separating runs with tripling switches and placing surplus symbols arbitrarily. The case m=0, including n=1, is the singleton range. The annealed cumulant averages the conditional one here because both the conditional mean and variance are constant. No full word reconstruction or noisy estimability follows.",
+      "replay_paths": [
+        "/workspace/reproductions/5.js (ordered signed triple and quadruple counts, not the supplied pair-convolution code)",
+        "Frozen checks/verify_moments.py and VERIFICATION.md (inspected, not executed)"
+      ],
+      "reproduction_result": "1,036 schedule comparisons counting overlaps between the two enumerations, and 36 observed binary (L,m) spectrum checks. Frequencies and all sums in this small enumeration are exactly represented as integers. The general result, including unbounded slopes and schedule length, relies on the signed-frequency exhaustion and run construction, not the finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest exact appendix has all-order recursions for q^k at one fixed integer base; §3.4 interleaves pure power blocks to construct a large-deviation failure, but does not require arbitrary integer-product schedules or give a finite switch census.",
+          "Correlation-graph moment estimates and a quenched CLT concern bounds or asymptotic law, and Suzuki's invariant-density result concerns a different statistic.",
+          "The targeted literature query returned no usable results; this is not negative evidence against possible coverage elsewhere."
+        ],
+        "reasoning": "A stronger *fixed-base* or asymptotic result does not dominate an arbitrary prescribed switching theorem. A general Fourier coefficient algorithm does compute any individual finite moment but does not identify the only admissible mixed index patterns and reduce them to the switch statistics.",
+        "searches": [
+          "Primary search: lacunary sums exact third fourth cumulants mixed integer ratios consecutive doubling tripling Fourier moment correlation 2 3",
+          "arXiv:2012.05281 Appendix A and §§3.3.3–3.4; arXiv:2312.09137 §2; arXiv:1310.4359 Example 7.3; arXiv:2303.17521 §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.05281v1 §3.3.3 and Appendix A",
+        "arXiv:2301.05561 §3",
+        "arXiv:2312.09137 §2",
+        "arXiv:1310.4359 Example 7.3",
+        "arXiv:2303.17521 Introduction and §3",
+        "Resultary 2b706c80a337 and c097279b5a2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Fourier expansion immediately reduces moments to ordered sign counts; constant-base recursion computes them for fixed q, and a variant could be constructed for changing local bases.",
+          "For varying products the separate divisibility and size exclusions are needed: e.g. a doubled middle frequency would force the noninteger quotient 2+u/v, and a doubled smallest forces both successive quotients to be 2. No fixed-base coefficient determines the count of that pattern in mixed words.",
+          "Once the mixed moment law is available, the inverse and sharp range are elementary binary-run deductions, not separate new Fourier mechanisms."
+        ],
+        "reasoning": "The standard route and constant-base numbers are known; the reviewed contribution is the explicit mixed-schedule arithmetic reduction and sharp observable classification it supplies, not re-computation of the dyadic table or a claim of general statistical recovery.",
+        "searches": [
+          "arXiv:2012.05281 Lemmas 3.5–3.7, §3.3.3 and Appendix A (A.2)–(A.4)",
+          "arXiv:2301.05561 §3 pp. 7–8",
+          "Resultary 2b706c80a337 Proof (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix A, p. 42, gives κ3/3!=(n−1)/8 and κ4/4!=(3n−8)/64 for n≥2 in the dyadic case. Uniform x makes starting with 1 or 2 equivalent in law. These are exactly the frozen formulas when every switch doubles.",
+          "For q=3, the finite correction in the proof of Theorem B(iv) is 4(n−1)/2³=(n−1)/2, exactly the frozen all-tripling correction.",
+          "The mixed product law is equivalent to the count of low-order signed zero sums plus a binary run count; the survey's general signed-sum formula is not such a classification."
+        ],
+        "reasoning": "This checks the underlying cosine and Fourier formulations, not just expanding-map terminology. The exact constant schedules are covered, but they cannot distinguish whether two doubling transitions in a mixed word are consecutive.",
+        "searches": [
+          "Resultary: lacunary cosine sum exact third fourth cumulant dyadic triadic resonances switching consecutive doubling integer beta expanding maps fourth moment Fourier run spectrum",
+          "arXiv:2012.05281 Appendix A and §3.3.3; arXiv:2301.05561 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior dyadic constant-base table matches exact finite moments and cumulants in that specialization.",
+          "Resultary 2b706c80a337, Proof (1), has the repeated pair-sum relation 0+2^(j−1)=2·2^(j−2) for an analytic one-sided support including zero; its extremum varies coefficients and phases, not a signed cosine spectrum of mixed products.",
+          "Resultary c097279b5a2a, Finding, gives positive annealed asymptotic variance and a small-noise coefficient for integer maps, not conditional finite third or fourth moments."
+        ],
+        "reasoning": "The precise constant-base match is acknowledged. Neither catalogue result gives the varying-switch coefficients or an attainable cumulant support at fixed doubling count.",
+        "searches": [
+          "Resultary: third and fourth order resonance laws detect switching; number of adjacent doubling runs and sharp attainable conditional Fourier moments",
+          "Resultary 2b706c80a337 and c097279b5a2a RESULT.md",
+          "arXiv:2012.05281 Appendix A p. 42"
+        ]
+      },
+      "rationale": "Exact constant-base cases are prior: Aistleitner–Gantert–Kabluchko–Prochno–Ramanan give the same finite dyadic third and fourth cumulants outright, the tripling fourth-cumulant correction in the proof of Theorem B(iv), and independent-arcsine moments through order q at fixed base q. Do not credit those coefficients or the Fourier zero-sum method as new. The surviving distinct claim is the full finite classification under arbitrary integer-product switching, including isolation of which adjacent doubling pairs contribute and exact inference and attainability for nonconstant binary schedules. The inspected literature or catalogue entries do not resolve that classification for arbitrary prescribed mixed products.",
+      "residual_risks": [
+        "An unexamined variation of the fixed-base recurrence or an explicit variable-radix cumulant table may cover part or all of the local census. The distinct claim is limited to the inspected evidence.",
+        "The separately named Frühwirth–Juhos–Prochno paper on large deviations was not inspected; there is no negative comparison asserted for it.",
+        "The standard arithmetic method and exact fixed-base formulas are established prior work; the frozen reference list missed the latter primary precursor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite coverage of constant-base dyadic and triadic specializations; does not state the arbitrary switched inverse law in the inspected passages",
+          "evidence": [
+            "For q=2, Appendix A tabulates A3=6n−6 and A4=12n²+18n−48 for n≥2, where E S_n^k=2^(−k)A_k.",
+            "Proof of Theorem B(iv) gives finite correction (q+1)(n−1)/2^q at order q+1, and independent-cosine moments agree through order q.",
+            "§3.4 extends a power sequence by long pure blocks to separate large-deviation subsequences, not to tabulate low-order local transition counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.05281v1",
+          "material_read": "Lemmas 3.5–3.7 pp. 23–24; §3.3.3 p. 28 around 108473–112000; §3.4 pp. 29–30; Appendix A pp. 40–42 around 162500–171450",
+          "method": "Identified lawful arXiv copy after publisher route did not furnish the paper; located terms and read bounded passages including the actual finite formulas",
+          "title": "Large deviation principles for lacunary sums",
+          "trigger": "Same cosine sum at constant integer gap, with possible exact finite cumulant table"
+        },
+        {
+          "assessment": "Established method and dyadic resonance, not a mixed-case census",
+          "evidence": [
+            "Displays the 2^(−k) signed count and identifies n_{j+1}−n_j−n_j=0 for n_j=2^j."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05561",
+          "material_read": "§3 pp. 7–8, offsets 20900–25700",
+          "method": "Lawful OA locates and bounded page read",
+          "title": "Lacunary sequences in analysis, probability and number theory",
+          "trigger": "General Fourier–Diophantine equivalence and dyadic examples"
+        },
+        {
+          "assessment": "General signed expansions and exact second moment; the inspected claims do not give the mixed third/fourth cumulant and inverse spectrum",
+          "evidence": [
+            "Example 4 derives n/2 and uses it for moderate deviations; Eq. (2.3) is a general moment representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.09137",
+          "material_read": "§2 near offsets 26100–30100, Eq. (2.3), Proposition 3 and Example 4",
+          "method": "Lawful OA bounded passage read",
+          "title": "Moderate deviation principles and mod-Gaussian convergence for lacunary trigonometric sums",
+          "trigger": "Same lacunary cosine sum and cumulant analysis"
+        },
+        {
+          "assessment": "Quenched CLT for random integer expanders, not a finite inverse theorem",
+          "evidence": [
+            "Applies a spectral-gap argument to integer beta maps for a quenched CLT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4359",
+          "material_read": "Example 7.3 p. 28 around offset 95500",
+          "method": "Lawful OA bounded passage read",
+          "title": "Annealed and quenched limit theorems for random expanding dynamical systems",
+          "trigger": "Same expanding integer maps under random switching"
+        },
+        {
+          "assessment": "Related dynamics and invariant densities, not finite-schedule moments in the inspected claims",
+          "evidence": [
+            "Theorem 3.1 is described as a unique stationary density formula for random beta maps expanding in mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.17521",
+          "material_read": "Introduction near offset 7696 and §3 opening near 19047",
+          "method": "Lawful OA bounded abstracted passage review",
+          "title": "Absolutely continuous invariant measures for random dynamical systems of beta-transformations",
+          "trigger": "Motivating model class"
+        },
+        {
+          "assessment": "Conceptually close convolution method, different support and invariant",
+          "evidence": [
+            "Its extra terms involve the frequency zero and analytic coefficients. It maximizes over coefficients rather than counting mixed prescribed switch patterns on symmetric spectra."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-resonance-chain-phase-rigidity-in-lacunary-fourth-moment-extremi--2b706c80a337",
+          "material_read": "RESULT.md Proof (1)–(4), offsets 2136–6236",
+          "method": "Resultary search and local-mirror source read",
+          "title": "Resonance-chain phase rigidity in lacunary fourth-moment extremizers",
+          "trigger": "Closest indexed analytic fourth-moment resonance formula"
+        },
+        {
+          "assessment": "Earlier variance finding does not determine either higher-order conditional moment",
+          "evidence": [
+            "The invariant is the annealed asymptotic variance for BV observables and its first-order onset for a deterministic coboundary."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a",
+          "material_read": "RESULT.md Finding, assumptions and proof opening, offsets 0–3300",
+          "method": "Local-mirror source read",
+          "title": "Distinct integer beta maps eliminate zero variance and give an exact noise-onset coefficient",
+          "trigger": "Same integer map family and an arithmetic variance signature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural first Fourier observable has a variance blind to all schedules; this calculation quantifies exactly which first non-Gaussian statistics detect local switch order, and which values are attainable at a fixed slope count. For example the schedules (2,2,3) and (2,3,2) have equal mean, variance and third moment, but their fourth cumulants differ by 3/2. A fixed-base table cannot answer that comparison. The inference is explicitly limited to two exact aggregate statistics, not full reconstruction or sample-efficient detection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

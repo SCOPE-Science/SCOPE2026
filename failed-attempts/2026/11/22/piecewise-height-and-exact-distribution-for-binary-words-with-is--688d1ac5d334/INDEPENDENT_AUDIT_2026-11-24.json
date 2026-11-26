@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:24.146602Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62, VERIFICATION.md and verify.py inspected",
+        "Praveen–Schnoebelen–Veron–Vialard arXiv:2311.15431v1 Prop. 3.1 and Lemma 4.1",
+        "/workspace/replay_frozen.py 5"
+      ],
+      "rationale": "At depth t+max(a_i)+1 the present and absent all-marker subwords force the comparison word to contain exactly t ones and fix every zero gap, regardless of its presumed length or endpoint type. For the lower bound, a prefix ending with the i-th one is i-universal because it contains (01)^i, and appending zero first introduces 1^i0 at length i+1. The reverse suffix gives the corresponding t−i bound. The published repeated-letter and insertion identities therefore give sum of side distances t+a_i at a split of the i-th gap, including i=0 and t. The count follows by coefficient extraction from the positive bounded-composition polynomial; division by binom(n−t−1,t) and a fixed-t limit gives the simplex maximum law. Integrating the limiting tail yields the stated harmonic moments. An independent bounded replay checks 566 exact longest-gap insertion witnesses and 63 composition coefficients.",
+      "residual_risks": [
+        "The replay checks small words and counts; the all-length and fixed-t limit claims use the proof rather than extrapolating."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 5.4 removes two neighboring isolated unlike letters and adds one to rho relative to the shortened word. Lemma 5.5 replaces a singleton separating two runs of length ≥2 by lengthening each run by one and interchanging the alphabet in the right tail, preserving rho. Lemma 5.3 gives rho = k + max(endpoint lengths + 1, interior lengths) − 3 for k≥2 and no interior singleton."
+        ],
+        "reasoning": "These exact identities cover all boundary cases of the stated family, not just the subfamily with gaps at least two. The next check gives the direct specialization.",
+        "searches": [
+          "Schnoebelen–Vialard arXiv:2412.16560v1, Sec. 5, Lemmas 5.3–5.5, Theorems 5.1 and 5.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2412.16560v1 and arXiv:2311.15431v1",
+        "Resultary 0c8fb5869095 and 951e6db8c395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If a zero gap has length one, remove that zero and an immediately adjacent marker using Lemma 5.4; all other gaps survive unchanged and rho drops by one. Retain one gap if all have size one. Once only gaps of size ≥2 remain, process each remaining marker by Lemma 5.5, left to right. Each zero-descended run lengthens once for each original adjacent remaining marker, so the transformed endpoints have lengths a+1 and the interiors a+2; alphabet flips change no length. Lemma 5.3 gives rho=t_remaining+max(a_i), and pair-removal charges exactly restore t. When one gap remains, rho equals its unary length directly.",
+          "The budget h≤H now coincides with bounding every positive part by H−t−1, whose polynomial and fixed-k simplex limit require only ordinary inclusion–exclusion."
+        ],
+        "reasoning": "Applying the published example's same two reductions and the published numerical run formula in this particular family removes all freedom in the outcome. This is direct coverage by specialization even though no inspected earlier passage uses the exact t+1+max(a_i) wording. The enumeration and limiting moments add no nonstandard implication.",
+        "searches": [
+          "Worked example after arXiv:2412.16560v1 Theorem 5.6, and exact identities in Lemmas 5.3–5.5, PDF OCR offset 43800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.1 of Schnoebelen–Vialard identifies binary height as rho+1; their binary runs are exactly the alternating runs used here.",
+          "The top catalogue hit was this frozen record, not independent evidence. The exact positive-composition maximum is the catalogued broken-stick type of invariant."
+        ],
+        "reasoning": "The older paper uses the binary minimality index rho, not the phrase 'isolated-marker height'; after the established rho-to-h conversion it applies to precisely this statistic.",
+        "searches": [
+          "Resultary: Simon singleton height, isolated ones, positive zero gaps, and bounded-height compositions",
+          "Focused primary search for equivalent binary run-height formulas; arXiv:2311.15431v1 and arXiv:2412.16560v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day entry 0c8fb5869095 treats exactly two ones and three nonnegative gaps, including a bounded generating polynomial and a three-coordinate broken-stick law.",
+          "Entry 951e6db8c395 gives a bounded-height enumerator for four positive alternating runs; that family is not the present at-least-seven-run family."
+        ],
+        "reasoning": "Neither catalogue neighbour alone covers t≥3; no date-based priority is asserted. The covering evidence is instead the exact older general binary run calculation, not a finite table.",
+        "searches": [
+          "Resultary: exact bounded-height enumerators, two-marker gap formulas and simplex longest-spacing limits; entries 0c8fb5869095 and 951e6db8c395"
+        ]
+      },
+      "rationale": "The exact height expression is a direct specialization of the earlier explicit binary run reduction, not merely a quantity computable by a generic algorithm. Removing unit gaps by Lemma 5.4, then applying Lemma 5.5 to the remaining isolated markers and Lemma 5.3 to the resulting runs gives the stated maximum formula. The other two results amount to standard bounded composition enumeration and the longest-spacing distribution for that same maximum. No separate noncovered mathematical claim remains.",
+      "residual_risks": [
+        "No exact earlier isolated-one wording located; the result rests on demonstrable specialization, not on a failed keyword lookup. No within-day chronology for catalogue neighbours is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the claimed height formula as a routine special case",
+          "evidence": [
+            "h=rho+1; isolated-pair removal, isolated-marker replacement and no-interior-singleton formula (25)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.16560v1",
+          "material_read": "Theorem 5.1 and Sec. 5 Lemmas 5.3–5.5, Theorem 5.6 and its worked example; p. 16, offset 43800 for the reduction identities and example",
+          "method": "OA primary PDF and explicit specialization",
+          "title": "On the piecewise complexity of words",
+          "trigger": "Primary exact binary run-height reduction with isolated letters"
+        },
+        {
+          "assessment": "Correct proof inputs; these alone do not present the exact maximum formula",
+          "evidence": [
+            "Insertion characterization and repeated-letter side-distance recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.15431v1",
+          "material_read": "§3.1 Proposition 3.1, p. 5; §4 Lemma 4.1, p. 11",
+          "method": "Primary OA PDF passages",
+          "title": "On the piecewise complexity of words and periodic words",
+          "trigger": "Exact height machinery cited by the frozen proof"
+        },
+        {
+          "assessment": "Related census and limit in disjoint marker-count scope; same-day priority unresolved",
+          "evidence": [
+            "Exactly two markers with three nonnegative gaps; three-coordinate simplex maximum law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-bounded-height-enumerator-and-broken-stick-law-for-two-mar--0c8fb5869095/RESULT.md",
+          "material_read": "Mirrored finding and gap hypotheses",
+          "method": "Exact local-mirror text",
+          "title": "Exact bounded-height enumerator and broken-stick law for two-marker words",
+          "trigger": "Closest exact-census catalogue neighbour"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact height, count, and limit",
+        "arXiv:2412.16560v1 Lemmas 5.3–5.5 and Theorem 5.6"
+      ],
+      "rationale": "The positive-gap question is natural and the formula convenient, but the maximum-gap height is mechanically implied by the published exact run rules. The remaining fixed-length and asymptotic laws are routine maximum-part and longest-spacing identities without a further distinct height phenomenon. The result does not support a separate scientific contribution under this comparison.",
+      "residual_risks": [
+        "No claim is made about novelty of other families with unrestricted missing gaps or growing marker counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:01:19.484257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine three-step update is a contraction with multiplier ρ³, so its periodic solution is unique. Iterating P_t backwards three steps gives the stated three weights on the predecessor, second predecessor and current crops. On reversal the two predecessor cross-sums exchange, while the constant-input and same-crop sums cancel. The remaining factor is η(1−ρ)/(1−ρ³)=η/(1+ρ+ρ²), including at ρ=0. For D=(A−B)(A−C)(B−C)>0 the alternating cross-sum equals −D g[A,B,C]. Independently, the pair secants for type II and III are K/[(K+x)(K+y)] and K²(x+y)/[(K²+x²)(K²+y²)], respectively. Subtracting the AB and BC secants and dividing by A−C gives, for type III, numerator K²(K²−AB−AC−BC) over the product of the three positive factors; type II gives −K over its product. This checks the signs, the unique positive tie and the absence of any other reversal, uniformly in the allowed ρ, b and η. At period two reversal is a phase shift, and period one is trivial. Direct orbit substitution in the example reproduces Δ₃(2)=1/325 and Δ₃(4)=−8/14875; the largest predator stock is 17/70<1, which bounds each year's modeled loss by less than the smallest crop. The supplied check.py was inspected, not executed; it iterates the recurrence with rational arithmetic and compares finite cases to the closed form. The argument concerns the periodic loss proxy, not an unconstrained physical seed budget or finite-time transients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source reports nonlinear spatial Nicholson–Bailey dynamics in Satake–Bjørnstad and empirical intake-shape comparisons in Fletcher et al.; the independent primary retrieval was unsuccessful and does not certify either whole document.",
+          "The inspected f3fd50e75a7e statement gives a persistence criterion in a saturated juvenile–adult projection model."
+        ],
+        "reasoning": "A persistence result for stage projection matrices does not imply an ordering of current-crop-weighted loss sums for a driven scalar stock. The identified ecological subjects motivate the model but give no verified broader theorem applicable to this statistic.",
+        "searches": [
+          "DOI 10.1086/382661 and identified author-uploaded version",
+          "DOI 10.1890/09-1816.1",
+          "Resultary record f3fd50e75a7e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 22d77e67c415",
+        "Resultary 38e01062130d",
+        "Resultary f3fd50e75a7e",
+        "Frozen RESULT.md and AUDIT.json for the ecological comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The competing exact laws concern a fixed-sign state average, a stage-structured persistence criterion or continuous prey treatment ordering, respectively.",
+          "The frozen result predicts both orientations as strict winners for different K with fixed crops, fixed recruitment parameters and fixed model."
+        ],
+        "reasoning": "A sign fixed over saturation in a different state observable, an invasion/persistence criterion and a density-dependent treatment ordering law do not restrict to this cumulative-loss comparison. No inspected statement entails the K crossing and retention-independent ranking together.",
+        "searches": [
+          "Resultary 22d77e67c415, Finding and Relationship to prior work",
+          "Resultary f3fd50e75a7e and 38e01062130d, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact reduction is to the three-point divided difference of the current-crop intake after cancellation of same-crop and background terms.",
+          "22d77e67c415 shows an orientation sign for the phase average of x/(1+qx) in a periodically forced Beverton–Holt population."
+        ],
+        "reasoning": "Taking reciprocal biomass can produce an affine recurrence in the earlier result, but it does not turn the earlier unweighted state observable into the present product of lagged stock and current-crop response. The divided-difference identity is known; it does not itself give the preceding lag cancellation or the model-specific crossing.",
+        "searches": [
+          "Resultary: three-season calendar orientation and time reversal; record 22d77e67c415",
+          "Frozen RESULT.md, Proof §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "38e01062130d uses the threshold bK²=27 for ordering treatments in a continuous logistic-prey model.",
+          "22d77e67c415 gives a fixed Vandermonde sign for every finite q≥0, not a sign table split at K²=AB+AC+BC."
+        ],
+        "reasoning": "Neither exact indexed law supplies the crop-dependent reversal threshold under the assigned dynamics. The comparison is of statements, not a claim that the search has exhausted all exact results.",
+        "searches": [
+          "Resultary: Holling-III ordering threshold, record 38e01062130d",
+          "Resultary: exact three-season orientation law, record 22d77e67c415"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact type-II/type-III ordering law and unique half-saturation switch for a periodically forced, lagged affine predator stock weighted by current-crop intake. Classical divided differences and earlier three-season orientation results are not claimed as new. The strongest inspected orientation theorem is for a different observable and gives a sign that cannot reverse with saturation, whereas the observed reversal here comes from the curvature of a function of the input crop. This is an evidence-bounded decision, not a priority certificate.",
+      "residual_risks": [
+        "Satake–Bjørnstad and Fletcher et al. could not be inspected independently in full; related lagged-predator work could contain more direct coverage.",
+        "The accessible exact-record comparisons do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap, not equivalent coverage",
+          "evidence": [
+            "Beverton–Holt x/(1+qx) phase-average sign is sgn((b−c)(b−d)(c−d)) for every finite q≥0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-three-season-arrow-of-time-invisible-to-reciprocal-abund--22d77e67c415/RESULT.md",
+          "material_read": "Finding/model and formula (offsets 0–1737); prior-work passage (7900–8952)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp three-season arrow of time invisible to reciprocal-abundance autocorrelation",
+          "trigger": "Closest exact three-season reversal with affine dynamics after a reciprocal transformation"
+        },
+        {
+          "assessment": "Different model, ordering operation and threshold",
+          "evidence": [
+            "Continuous logistic prey, density-dependent treatment ordering and boundary bK²=27."
+          ],
+          "identifier_or_url": "Resultary 38e01062130d",
+          "material_read": "Finding, offsets 0–1752",
+          "method": "Local Resultary mirror",
+          "title": "A sharp carrying-capacity threshold for ordering Holling-III prey treatments",
+          "trigger": "Explicit earlier Holling-III order switch"
+        },
+        {
+          "assessment": "Different state evolution and endpoint",
+          "evidence": [
+            "Saturated juvenile–adult projection and determinant-based persistence criterion."
+          ],
+          "identifier_or_url": "Resultary f3fd50e75a7e",
+          "material_read": "Finding, offsets 0–1781",
+          "method": "Local Resultary mirror",
+          "title": "A three-season orientation criterion for global persistence of staged populations",
+          "trigger": "Exact three-season orientation in a population model"
+        },
+        {
+          "assessment": "The reported model differs; cannot make a full-text noncoverage judgment",
+          "evidence": [
+            "The frozen comparison identifies a spatial Nicholson–Bailey model based on temporal seed correlations, not an affine periodic stock."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/382661",
+          "material_read": "No independently readable primary text; comparison in frozen RESULT.md:101–105 and AUDIT.json",
+          "method": "Lawful OA requests to publisher and identified author upload; access denied",
+          "title": "Spatial Dynamics of Specialist Seed Predators on Synchronized and Intermittent Seed Production of Host Plants",
+          "trigger": "Plausible ecological primary antecedent for lagged seed–predator dynamics"
+        },
+        {
+          "assessment": "Relevant empirical motivation; no independently verified statement about exact calendar reversal",
+          "evidence": [
+            "The frozen discussion reports estimated functional-response classes for hoarding red squirrels."
+          ],
+          "identifier_or_url": "https://doi.org/10.1890/09-1816.1",
+          "material_read": "Frozen RESULT.md:105 and AUDIT.json describe the methods; independent primary text unavailable",
+          "method": "Lawful OA publisher request; access denied",
+          "title": "The functional response of a hoarding seed predator to mast seeding",
+          "trigger": "Primary study on type-II and type-III intake in a masting setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reversing a cycle controls for the crop totals and leaves only the ordering effect. The result identifies a sharp case where changing the intake shape can change which chronology loses fewer seeds, and proves that carryover changes the magnitude but not the preference. This separates a finite three-crop curvature effect from the pointwise inflection of a response curve and supplies a benchmark in the first period where reversal can matter. It is not a field prediction or an evolutionary-fitness result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

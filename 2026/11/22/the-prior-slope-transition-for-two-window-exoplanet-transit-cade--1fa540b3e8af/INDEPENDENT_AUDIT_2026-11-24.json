@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:45:15.758086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constraints imply 4w<a and 0<L−w≤L+w<2P for every admissible P. Each window can contain at most one center; only one-period transit pairs can contribute. The possible first-center times are [0,w]∩[L−P,L−P+w], of length (w−|L−P|)_+; divide by P and integrate against π. Dominated differentiation gives the clipped right mass minus the clipped left mass. For decreasing h, on the full-support interval the right mass is smaller by pointwise translated comparison. For b−w≤L≤b it is still strictly smaller: the right interval is shorter than or equal to the left, and compared to the same-length initial part of the left interval its integrand is smaller (at L=b the right mass is zero). This fills a sign step omitted from the frozen proof. At the left edge the derivative decreases strictly, with slope h(L+w)−2h(L)<0 and opposite signs at a and a+w; beyond [a,b] the signs point inward. Reflection proves the increasing case. Constant h gives equality precisely on [a+w,b−w], possibly a singleton. Integrating 1/P and P in the edge equations gives the two stated quadratics; substituting (3,4,0.2) independently gives 3.188194301613414 and 3.809987531152684. The theorem is exact in the model, not an empirical calibration. The supporting SLOGAN overstates discontinuity: that description of the power-law optimal lag requires b>a+2w; the actual Finding does not assert a jump when the plateau is a singleton.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang et al., arXiv:1906.06795 pp. 8 and 18, combines period priors with detection and compares one- and two-transit criteria at fixed TESS baselines.",
+          "Burke–McCullough, arXiv:1406.6381 pp. 1–2, approximates a specified survey's at-least-k transit window function."
+        ],
+        "reasoning": "Neither statement solves an exact two-block continuous optimization; the two-block phase geometry and prior-weighted edge derivative are additional inputs.",
+        "searches": [
+          "transit detection probability averaged over orbital period distribution observing cadence schedule Bayesian",
+          "exoplanet transit survey window function ‘two transits’ optimal observation cadence period",
+          "arXiv:1406.6381"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.06795",
+        "arXiv:0907.1614",
+        "arXiv:0711.4256",
+        "arXiv:1406.6381",
+        "Hertfordshire EPrint 15784",
+        "Resultary f04d4e348ca4",
+        "Resultary 36d5a1b845a9",
+        "Resultary 4e69c33bc1b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Survey window functions simulate or approximate detection under a specified schedule; Jiang et al. estimate detected-period distributions. The daily-alias result has a different optimized variable. Robson §1.2 addresses vetting, transit-timing variations and photometric precision."
+        ],
+        "reasoning": "Taking two transits as a detection criterion in those results does not imply the theorem: one still needs continuous lag optimization after marginalizing the period and a sharp support-truncation argument.",
+        "searches": [
+          "arXiv:0907.1614; arXiv:0711.4256; arXiv:1906.06795",
+          "optimal follow-up observing time transit period uncertainty ‘two transits’ exoplanet",
+          "Resultary f04d4e348ca4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is the translation correlation of a triangle with the zero extension of π(P)/P. Resultary f04d4e348ca4 derives phase-averaged sparse-window alias lobes for daily observation centers."
+        ],
+        "reasoning": "The overlap kernel is elementary and not new. Daily alias lobes vary P with a fixed schedule, whereas the target integrates P against a prior and varies L. Qualitative convolution unimodality would not identify the edge-specific mass balance or the singleton/plateau boundary.",
+        "searches": [
+          "‘triangular kernel’ orbital period prior transit probability two observation windows",
+          "Resultary: two-window prior slope triangular overlap; phase-averaged transit probability plateau beta=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was returned; it is a self-match. The related records solve daily aliases, discrete alias probing and fixed-period weather reliability, respectively."
+        ],
+        "reasoning": "No inspected different entry gives the exact two-window lag regimes or their edge equations. A fixed-period reliability threshold or discrete ephemeris complexity is not a substitute.",
+        "searches": [
+          "Resultary: optimal revisit lag period distribution; phase averaged transit probability plateau beta=1",
+          "Resultary f04d4e348ca4, 36d5a1b845a9 and 4e69c33bc1b2"
+        ]
+      },
+      "rationale": "What survives comparison is the sharp lag design law for a period prior and ideal separated, equal windows, not the familiar phase-window function or the triangular overlap identity. The strongest inspected source for period-prior weighting uses fixed baselines; the strongest indexed transit-center alias comparison varies orbital period at a fixed daily schedule. Neither yields the edge placement, exact neutral plateau or the critical exponent for the lag optimization.",
+      "residual_risks": [
+        "Bounded searches do not establish historical priority; uninspected scheduling and convolution work may contain an equivalent design law.",
+        "The prior weighting and optimal lags are for an alias-free noiseless mathematical model, not an empirical survey rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give the optimized two-window lag",
+          "evidence": "Combines period-prior, transit-count and signal-to-noise terms at specified baselines to predict the detected period distribution.",
+          "identifier_or_url": "arXiv:1906.06795",
+          "material_read": "Detected-period formula and one-/two-transit baseline comparison, pp. 8 and 18",
+          "method": "Open-access PDF, offsets 18400 and 47500",
+          "title": "Empirical Predictions for the Period Distribution of Planets to be Discovered by TESS",
+          "trigger": "Prior-weighted transit detectability"
+        },
+        {
+          "assessment": "Background, not the prior-slope classification",
+          "evidence": "Varies the minimum number of sampled transits in a specified survey schedule.",
+          "identifier_or_url": "arXiv:0907.1614",
+          "material_read": "Simulation and minimum transit-count discussion, p. 9",
+          "method": "Open-access PDF, offset 45000",
+          "title": "Observational Window Functions in Planet Transit Surveys",
+          "trigger": "Two-transit window functions"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "The criterion in that passage does not require two or more sampled transits.",
+          "identifier_or_url": "arXiv:0711.4256",
+          "material_read": "Detection criterion, p. 3",
+          "method": "Open-access PDF, offset 8200",
+          "title": "Observational Window Functions in Planet Transit Searches",
+          "trigger": "Early transit window function"
+        },
+        {
+          "assessment": "Different design question",
+          "evidence": "Uses p_(≥k)(P) at specified sampling and estimates time required for detection.",
+          "identifier_or_url": "arXiv:1406.6381",
+          "material_read": "Window-function discussion, pp. 1–2",
+          "method": "Open-access PDF, offsets 4600 and 15000",
+          "title": "Transit and Radial Velocity Survey Efficiency Comparison for a Habitable Zone Earth",
+          "trigger": "Analytic observation-window theory"
+        },
+        {
+          "assessment": "Inspected aims and precision method address a different problem; not a whole-thesis noncoverage claim",
+          "evidence": "Vets targets, investigates timing variations and calibrates predicted photometric precision.",
+          "identifier_or_url": "https://uhra.herts.ac.uk/id/eprint/15784/",
+          "material_read": "§1.2 Study Aims and start of §2.1, printed pp. 15–16",
+          "method": "Institutional open-access PDF, offset 50660",
+          "title": "Exoplanet Transit Follow-Up Tool",
+          "trigger": "Plausibly related thesis on transit follow-up scheduling"
+        },
+        {
+          "assessment": "Related but different optimized variable",
+          "evidence": "Fixed daily windows, orbital periods near one day; no prior-averaged optimization over a free second-window lag.",
+          "identifier_or_url": "Resultary:f04d4e348ca4",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, offset 0",
+          "title": "A sharp two-sided daily-alias lobe law for sparse transit-center observations",
+          "trigger": "Same-day exact sparse transit-center optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Predetermined probes identify discrete period aliases.",
+          "identifier_or_url": "Resultary:36d5a1b845a9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Prime-power observation complexity and a cadence barrier for duotransits",
+          "trigger": "Same-day uncertain-period cadence"
+        },
+        {
+          "assessment": "Different hypotheses and design",
+          "evidence": "Chooses the phases of three sessions with imperfect reliability at a known period.",
+          "identifier_or_url": "Resultary:4e69c33bc1b2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, offset 0",
+          "title": "A sharp weather-reliability threshold for three transit observation windows",
+          "trigger": "Optimized transit-window design threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physically motivated design question asks whether a sparse follow-up should target the middle of the uncertain-period range or one edge. The theorem gives a sharp answer, including an exact flat regime, and supplies boundary equations and closed-form test cases for survey-cadence calculations. The useful invariant is the optimizer of the physically reweighted prior, not another statement of cumulative transit probability. Its benchmark value does not depend on realism outside the stated idealization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

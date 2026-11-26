@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:52:46.393783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact-subflow composition and fixed-step minus correction specified in RESULT.md, direct differentiation gives [f1,f2]=(-gamma omega V',-gamma omega x) and [f1,[f1,f2]]=gamma² f2. The sign is also consistent with the linear cubic-order term: to first order in omega for the quadratic oscillator the uncorrected (2,1) entry has factor omega h times the average of exp(-gamma h/6) and exp(-5 gamma h/6), whose quadratic coefficient in h is 13 gamma²/72 instead of the exact integral coefficient 12 gamma²/72. The negative correction removes that discrepancy. At h*=6 sqrt(2)/gamma the two corrected conservative stages are identities, and damping stages add to h*, yielding the entire fixed line and the claimed iterates. Continuous energy sublevels are compact; the only invariant part of x=0 has V'=0 and hence y=0, so LaSalle gives global attraction. For positive h the damping stages decrease energy and both conservative stages preserve it for either time sign (compact Hamiltonian levels give completeness). Near h*, each conservative stage has signed duration s=omega h(1-gamma² h²/72)/2 with s'(h*)=-omega. Starting at (0,y0), the first stage contributes -s²V'(y0)/2 to y; the second contributes another -s²V'(y0)/2 and the drift from momentum -exp(-2 gamma h/3)sV'(y0). This gives the stated two-sided O(|h-h*|³) expansion for each fixed y0. For u=exp(-gamma h/6), phi=s sqrt(kappa), multiplying the linear stages gives determinant u^6 and characteristic polynomial at 1 equal to (1+u²)(1+u⁴)sin²(phi), with derivative at 1 tending to 1-u_*^6>0. Moving the simple root near 1 therefore gives the coefficient in the Finding; the other root stays near exp(-6 sqrt(2)) and is strictly smaller in modulus, so the slow root determines the spectral radius. This does not give a global nonlinear rate away from h*. VERIFICATION.md, verify.py, and requirements.txt were inspected, not executed; the quoted symbolic/numerical tests do not authenticate the published scheme or prove its all-potential conclusions. Analytic replay is RESULT.md §§1–4 and the polynomial-at-1 calculation above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 decomposition preprint compares energy consistency order q with integrator consistency order p, with q<=p for the commutator discussion; its Example 5 studies port-based PBS4/PBS6 for a damped driven quadratic oscillator and small-step energy/state errors.",
+          "The cited journal papers' full text was not recovered: DOI/publisher article and PDF routes returned 403 or only a citation; no OA alternate was identified. No decisive printed bracket or numerical example is claimed as independently read."
+        ],
+        "reasoning": "Energy-consistency/monotonicity results do not imply strict decay or its failure at a particular nonzero step and cannot supply a slow-root constant. The exact scope of the blocked primary papers remains a material but bounded priority/attribution risk.",
+        "searches": [
+          "Mönch–Marheineke arXiv:2609.04884v1, energy-error discussion and Example 5",
+          "DOI 10.1002/pamm.70116 and 10.1002/pamm.202400132, lawful full-text access and alternate-copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1002/pamm.70116 and 10.1002/pamm.202400132 (access attempts)",
+        "arXiv:2609.04884v1",
+        "Resultary 178c00968abe; catalogue comparisons 56e0d8f06f8b, 6b820ebadcca, d63b1c87f1ba (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the supplied 5C construction, inserting the scalar bracket into the correction plainly implies the zero and fixed line; novelty is not attributed to treating this as a new method or an unrelated result.",
+          "The restart coefficient needs the two subflow Taylor terms and the damped cross term, and the multiplier needs the simple-root perturbation of the composed Jacobian; neither follows as a special case of the statements retrieved about energy consistency or RK4 polynomial isometries."
+        ],
+        "reasoning": "The strongest near implications at hand give the mechanism or an analogous linear numerical pathology, not the combined exact nonlinear and spectral detuning law. If the inaccessible primary papers state a stronger law including these coefficients, that would change the assessment; their inaccessibility is not evidence either way.",
+        "searches": [
+          "Bound RESULT.md prior-work description of nonlinear 5C and linear ancestor versus arXiv:2609.04884v1 Example 5",
+          "Resultary 178c00968abe Finding and assumptions, exact mirror passage at offset 0",
+          "DOI 10.1002/pamm.70116, cited Lemma 3.1/Example 3.3 and 5C (access attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the method in the record, the vanishing corrected field, two identity conservative stages and the damped fixed line are mathematically equivalent descriptions of this cancellation; the nonlinear restart and the spectral coefficient contain additional information.",
+          "178c00968abe reports R4(hL)=±I at two dimensionless parameter pairs of the rank-one damped linear oscillator. It studies singular values under frequency perturbation at fixed dimensionless damping, not the spectral radius of a corrected splitting near its damping-only zero."
+        ],
+        "reasoning": "Shared failure of strict numerical relaxation is real precedent but not equivalent when the numerical maps, tuned parameters and asymptotic observables differ.",
+        "searches": [
+          "DOI 10.1002/pamm.70116 and 10.1002/pamm.202400132: 5C, conservative correction, Example 3.3",
+          "Resultary: force-gradient 5C fixed line, spurious equilibria, quadratic slow multiplier and dissipation; exact RK4 comparator 178c00968abe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact d63b1c87f1ba hit is the bound record itself. The verified RK4 Finding gives two tuneable isometries but not this fixed h* or a fixed line for exact 5C.",
+          "Catalogue summaries for 56e0d8f06f8b and 6b820ebadcca refer respectively to scalar SAV backward-Euler frozen states and a fixed-step regularized port-Hamiltonian DAE singular limit. The focused literature query recovered the cited DOI, not the requested source passage."
+        ],
+        "reasoning": "The distinct indexed comparisons use different recurrences/maps. The search and unavailable journal examples cannot rule out a paper containing a matching special case or coefficient.",
+        "searches": [
+          "Resultary 5C five-stage exact resonance, h*=6 sqrt(2)/gamma, nonlinear quartic examples, quadratic restart; 178c00968abe, 56e0d8f06f8b and 6b820ebadcca",
+          "Focused literature query by exact nonlinear article title, 5C and e70116"
+        ]
+      },
+      "rationale": "The distinct assessed contribution is the sharp quantitative finite-step phenomenon for the specified 5C method: an all-potential fixed line at the cancellation, the nonlinear restart with an explicit coefficient and the sharp two-sided local slow multiplier, despite nonincrease of energy. The five-stage construction, conservative correction and energy monotonicity are antecedent. Exact cancellation alone is an immediate consequence once the double-bracket scalar is given, not an independent priority claim. The earlier RK4 resonance is closely analogous for the same linear oscillator at kappa=1, but concerns a different method and a different detuning statement. Verification of the published original 5C passages was impeded by access, so the scientific assessment is bounded by the exact method supplied and the retrieved comparisons, not a certification of the bibliographic attribution's details.",
+      "residual_risks": [
+        "The printed 2026 nonlinear article's exact convention and Example 3.3, and the earlier linear papers' exact finite-step calculations, were not independently available. The correctness assessment concerns the explicit composition and bracket in the assigned record.",
+        "Earlier observations of fixed-step degeneracy in this method may be implicit in the original construction or elsewhere; the paired quantitative detuning claim, not the bare cancellation by itself, is what passes on the retrieved evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary printed sign, example and possible stronger implication not independently inspected",
+          "evidence": [
+            "Publisher routes returned 403 and no lawful copy was recovered; examined the exact formula and bracket convention of the bound claim rather than inferring them from the citation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/pamm.70116",
+          "material_read": "Citation/landing only on independent retrieval; bound RESULT.md cites the formula and describes the article separately",
+          "method": "DOI/publisher article/PDF access and lawful OA recovery attempt; focused title/5C query",
+          "title": "Energy-Associated Splitting Schemes for Closed Nonlinear Port-Hamiltonian Systems",
+          "trigger": "Original nonlinear 5C definition and most likely direct cover of the class or cancellation"
+        },
+        {
+          "assessment": "Predecessor credited per the record; detailed scope remains unresolved",
+          "evidence": [
+            "Access was blocked (403); no primary-text exclusion is based on that outcome."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/pamm.202400132",
+          "material_read": "Identified citation only; no full-text formula available independently",
+          "method": "DOI/publisher article/PDF and lawful OA alternate access attempt",
+          "title": "Fourth-order force-gradient splitting for linear port-Hamiltonian systems",
+          "trigger": "Possible linear predecessor covering the slow coefficient or finite-step zero"
+        },
+        {
+          "assessment": "Verified order/energy discussion and port-based comparison, not a finite-step 5C detuning theorem in those passages",
+          "evidence": [
+            "q<=p discussion, state/energy convergence plots for port-based PBS4/PBS6 on a damped driven quadratic oscillator, and reference to e70116 for the earlier nonlinear construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.04884v1",
+          "material_read": "Introductory commutator passages (offsets 6475 and 10550), §2.1 Example 5 and adjoining discussion (35850–41830), §3.1 opening and reference [37]",
+          "method": "OA HTML locate and bounded passage inspection",
+          "title": "Energy-Consistent Splitting and Decomposition Approaches for Coupled port-Hamiltonian ODEs",
+          "trigger": "Broader energy-stability and commutator-based splitting statements by the same authors"
+        },
+        {
+          "assessment": "Genuine precedent for a finite-step stability pathology, not coverage of 5C",
+          "evidence": [
+            "RK4 polynomial gives ±I at two isolated pairs, and its singular values are perturbed by changing the squared frequency parameter. Neither the corrected 5C composition nor the nonlinear detuning coefficient occurs in that theorem."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-two-exact-isometries-of-classical-rk4-on-rank-one-damped-pla--178c00968abe",
+          "material_read": "RESULT.md Finding, assumptions and proof opening, offset 0",
+          "method": "Resultary mirror passage inspection",
+          "title": "The two exact isometries of classical RK4 on rank-one damped planar oscillators",
+          "trigger": "Strongest analogous finite-step false trajectory for the same linear oscillator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Energy nonincrease is weaker than attractivity for a rank-one damped integrator. The exact potential-independent fixed line, contrasted with global continuous attraction, identifies a concrete large-step failure. The nonlinear drift and slow multiplier quantify deterioration arbitrarily close to it on either side and distinguish this from a one-off finite test or a mere substitution in a correction formula. The statement does not recommend this step for accurate integration or assert a global rate off resonance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

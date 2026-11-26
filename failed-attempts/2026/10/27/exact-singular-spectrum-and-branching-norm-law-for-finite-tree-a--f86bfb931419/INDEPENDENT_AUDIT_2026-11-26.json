@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:45:33.012775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the root-inclusive ancestor inverse B, the edge-difference energy has the extra term |g(root)|^2, so B*B is positive definite and is the ordinary Laplacian plus unit root grounding. On normalized levels and on each child contrast the edge coefficient is -sqrt(b); the sum-zero condition cancels parent coupling. At each level these spaces have the full dimension, giving the stated multiplicities, including the terminal 1x1 block. The determinant recurrence has final diagonal 1-lambda, giving exactly the stated Chebyshev subtraction. II* counts common ancestors and is strictly positive; its simple positive top mode is radial. Its leaf equation and backward difference recurrence give strictly increasing integrated values and hence a positive input. Independently, the lower-triangular radial integration matrix is the lower part of the rank-one array b^((i-j)/2): the omitted upper part has squared Frobenius norm at most (h+1)/(b-1), while the full rank-one norm is sqrt((sum b^i)(sum b^-j)). This gives the stated asymptotic. The path equation has g(-1)=0 and g(h+1)=g(h), giving the stated sine norm. Fresh replay at /workspace/review_replay.py (python3 /workspace/review_replay.py tree) used direct SVD of ancestor-incidence matrices, not the frozen inverse-check code: tested (b,h)=(1,5),(2,2),(2,4),(3,3),(5,2), with absolute full-spectrum discrepancies below 9e-14; also computed independent exact-sum enclosures of the scaled sharp norm. The numerical checks do not certify arbitrary depth. The depth asymptotic is for fixed b.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arcozzi–Rochberg–Sawyer and Arcozzi–Mozolyako–Perfekt use the ancestor primitive for weighted inequalities/trace problems; Evans–Harris–Lang uses metric trees and a large-index approximation-number regime. Ordinary rooted-tree Laplacian contrasts are unaffected by unit root grounding; only the radial root diagonal changes."
+        ],
+        "reasoning": "The accessible Hardy statements do not give this spectrum. An ordinary-Laplacian eigenvalue list cannot be copied without treating root grounding. The exact Cesàro block proof provides the stronger operator-level information needed for the reduction.",
+        "searches": [
+          "doi:10.4171/RMI/326 Theorem 3",
+          "arXiv:math/0003215",
+          "doi:10.1016/j.laa.2006.07.011",
+          "arXiv:1811.01036"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_tree.py (read, not executed)",
+        "Resultary exact finite-tree Cesàro staircase and normalized ancestor records",
+        "doi:10.4171/RMI/326",
+        "arXiv:math/0003215",
+        "doi:10.1016/j.laa.2006.07.011",
+        "arXiv:1811.01036"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiply each output row at depth i by i+1. The previous trailing block starting at depth k becomes L_ij=b^((i-j)/2) for i>=j, on indices k,...,h, with multiplicity (b-1)b^(k-1); the full block has k=0. L^-1 is the unit lower bidiagonal with subdiagonal -sqrt(b); (L^-1)*L^-1 equals the frozen T. After reversing output depth, the earlier normalized radial Cesàro kernel converges in Hilbert–Schmidt norm to u⊗u with u_j=b^(-j/2), and norm b/(b-1). The deaveraged kernel is the earlier kernel times the row factor (h-r+1)/(h+1) at reversed row r. Extend that multiplier by zero beyond h; its norm is at most one and it converges strongly to identity. The Hilbert–Schmidt convergence is preserved by the triangle inequality and convergence on the rank-one limit."
+        ],
+        "reasoning": "This directly implies both the full multiset and the sharp fixed-b factor, without using the frozen variational proof or knowing any numerical entries. Simplicity, positivity, strict increase and the path formula add routine consequences or elementary comparisons, not a distinct major remainder.",
+        "searches": [
+          "Geometric fixed-rank singular staircase for finite-tree Cesàro averaging, proof steps 2–4, offsets 2400–5990"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Cesàro operator divides the root-inclusive integral by depth+1 in the output. Its normalized level and contrast basis is the same, and its trailing triangular matrices have the corresponding depth divisor in each row."
+        ],
+        "reasoning": "The two operators are not unitarily equivalent. However, the identified relation is explicit diagonal multiplication preserving every block, so the earlier operator-level result transfers rather than requiring a new block discovery.",
+        "searches": [
+          "Resultary: finite homogeneous tree ancestor integration singular spectrum rooted tree tridiagonal grounded Laplacian norm",
+          "Geometric fixed-rank singular staircase for finite-tree Cesàro averaging, proof steps 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An indexed dense-atomic normalized ancestor result advertises an exact finite spectrum but the matched file could not be read. The readable fixed-rank staircase result gives the exact finite matrix blocks with their multiplicities."
+        ],
+        "reasoning": "The all-b, all-depth parameter family is not a single tabulated sequence. The verified exact operator-block record is stronger comparison evidence than numerical value matches; the unread hit is not counted as verified coverage.",
+        "searches": [
+          "Resultary: normalized ancestor sums homogeneous tree exact full spectrum",
+          "Resultary: finite-tree Cesàro averaging singular staircase"
+        ]
+      },
+      "rationale": "The earlier finite-tree Cesàro result is on the very same rooted tree and counting space. Its proof gives the orthogonal block decomposition and the actual block matrices, not just an asymptotic list of singular values. Removing the specified depth divisor yields the frozen blocks by a bidiagonal inverse. Its proved Hilbert–Schmidt convergence also yields the frozen sharp norm constant by bounded row multipliers converging strongly to identity. Thus the principal joint claim is mathematically covered by a routine reduction, despite different operators and different stated norm scalings. The standard boundary recurrences do not leave a distinct material claim. This decision does not require a conclusion about inaccessible Rojo–Robbiano full text or the unresolved normalized-ancestor hit.",
+      "residual_risks": [
+        "The Rojo–Robbiano primary theorem and the indexed dense-atomic normalized-ancestor record were not accessible as usable full text. Neither uncertainty underlies the failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the substantive frozen claim by a direct reduction",
+          "evidence": "Step 2 gives the orthogonal trailing matrix blocks and multiplicities; step 4 gives reversed-kernel Hilbert–Schmidt convergence and limit norm b/(b-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-geometric-fixed-rank-singular-staircase-for-finite-tree-ces-ro-a--b2c8f4434d6b/RESULT.md",
+          "material_read": "Finding; proof steps 2–5 at offsets 2400–5990",
+          "method": "Indexed local mirror, bounded passages",
+          "title": "Geometric fixed-rank singular staircase for finite-tree Cesàro averaging",
+          "trigger": "Same tree, integration with a depth divisor, exact block decomposition and sharp norm"
+        },
+        {
+          "assessment": "Unresolved; not used to infer noncoverage or equivalence",
+          "evidence": "Summary mentions normalized ancestor sums and dense atomic empirical limit; exact normalization could not be checked.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-dense-atomic-singular-laws-for-normalized-ancestor-sums-on-homog--42c8f4434d6b",
+          "material_read": "Index summary only; matching path missing in local mirror",
+          "method": "Indexed lookup and local-mirror read attempt",
+          "title": "Dense atomic singular laws for normalized ancestor sums on homogeneous trees",
+          "trigger": "Advertised exact family spectrum"
+        },
+        {
+          "assessment": "Prior operator and weighted embedding theorem, not exact finite singular data in inspected passage",
+          "evidence": "Defines I phi(x) as sum along [o,x], then characterizes weighted Hardy inequalities.",
+          "identifier_or_url": "https://doi.org/10.4171/RMI/326",
+          "material_read": "PDF pp. 5–6, offsets 9800–13778, Theorem 3",
+          "method": "OA primary text",
+          "title": "Carleson measures for analytic Besov spaces",
+          "trigger": "Same ancestor primitive"
+        },
+        {
+          "assessment": "Different operator and asymptotic regime",
+          "evidence": "Continuous metric-tree path integral, large approximation-number index rather than vertex-counting depth.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0003215",
+          "material_read": "PDF pp. 1–2, offsets near 500 and 4400",
+          "method": "OA primary text",
+          "title": "The approximation numbers of Hardy-type operators on trees",
+          "trigger": "Hardy operator singular or approximation values on trees"
+        },
+        {
+          "assessment": "Grounded variant unresolved; not used as decisive evidence",
+          "evidence": "Frozen comparison identifies tridiagonal decompositions for weighted graph Laplacians; original grounding hypotheses were not retrievable.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2006.07.011",
+          "material_read": "Bibliographic/landing material only; no usable primary theorem text",
+          "method": "DOI, publisher and alternate-copy/repository access attempts",
+          "title": "On the spectra of some weighted rooted trees and applications",
+          "trigger": "Regular-level weighted tree spectral decompositions potentially covering root-grounded blocks"
+        },
+        {
+          "assessment": "Related definition and trace theory, not the frozen spectrum in inspected passage",
+          "evidence": "Two-weight and Dirichlet-space trace setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.01036",
+          "material_read": "PDF p. 1, introduction, offset near 1400",
+          "method": "OA primary text",
+          "title": "Some properties related to trace inequalities for the multi-parameter Hardy operators on poly-trees",
+          "trigger": "Ancestor Hardy sum and weighted operator comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact finite spectrum and norm constant would be useful for tree Hardy inequalities, but the frozen result adds only explicit deaveraging, an elementary tridiagonal determinant, and an alternative proof in this regime to previously available block and convergence information. No new regime, stability phenomenon or nonroutine bound is established beyond that implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

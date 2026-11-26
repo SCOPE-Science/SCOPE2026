@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:48.967479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (recorded evidence, not executed)",
+        "/workspace/branches/frozen_replay.py, selector 1"
+      ],
+      "rationale": "A level is shattered by taking all earlier levels and the requested subset; a comparable pair cannot realize 0 below 1. For adaptive queries, a 0 deletes the principal filter and a 1 contracts the forced principal ideal, with the remaining version space freely parametrized by ideals of the induced remainder in each case. Thus the two child ranks combine as 1+min, maximized over roots. In the endpoint lemma a query in an incomplete end has one child confined to that end with at most r−2 remaining vertices. A query in full level i leaves i−1 and t−i full levels respectively, with partial endpoints; for k=floor(log₂(t+1)) the arguments i and t−i+1 cannot both be at least 2^k. The empty case has rank 0; for r=1 only complete levels occur. Conversely the distinguished points give h+1 ordered threshold patterns, permitting a balanced depth floor(log₂(h+1)) search. In each surviving threshold pattern the last distinguished 1's level (or the first level for the all-zero pattern) leaves r−1 completely free nondistinguished coordinates, none touched by the search. This proves the formula and the h=3 first gap, including r=1 and h=1. `python3 /workspace/branches/frozen_replay.py 1` independently enumerated all bitmasks using the underlying comparability constraints and checked both dimensions in 13 finite profiles.",
+      "residual_risks": [
+        "Finite tests are not the proof; no claim for nonuniform levels. The gap threshold is for an integer target gap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "68248a42b6fd supplies a polynomial-state algorithm for each finite poset of bounded width.",
+          "Proposition 4.2 gives Ldim(H₁∪H₂)≤d₁+d₂+1.",
+          "592889550999 also compares the dimension with the counting bound, a different gap from VC versus Ldim."
+        ],
+        "reasoning": "The algorithm computes individual cases and the union inequality is general but neither states or directly yields the closed form; the exact indexed finding does. The h=5 counting-gap threshold is not a conflicting value for the h=3 VC-gap threshold.",
+        "searches": [
+          "Resultary 68248a42b6fd, bounded-width online ranks",
+          "Closure Properties for Private Classification and Online Prediction, §4.1 Proposition 4.2",
+          "Resultary 592889550999, exact formula and entropy gap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 592889550999, 68248a42b6fd, 6262182a47f2",
+        "arXiv:1806.00949 Theorem 3",
+        "Closure Properties §4.1 Proposition 4.2",
+        "arXiv:2611.26721 Fact 2.4",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exactly the same parameters and all lower ideals the indexed result gives VCdim=w and Ldim=w−1+floor(log₂(h+1)).",
+          "VCdim equals width for all finite posets by extending any antichain pattern and excluding comparable pairs."
+        ],
+        "reasoning": "The formulas yield all frozen gap corollaries algebraically. The closed form is documented in a distinct indexed record, without a historical-priority inference from the comparison.",
+        "searches": [
+          "Resultary 592889550999, Finding and model",
+          "Frozen Finding lines 4–12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "592889550999 states both formulas for h uniformly sized antichains of size w with all lower ideals viewed as membership hypotheses.",
+          "The general threshold result gives floor(log₂ k) for threshold-sequence length k, a lower bound rather than this exact adaptive rank."
+        ],
+        "reasoning": "Lower ideals and order ideals are the same class; w is r. Threshold patterns alone do not capture the r−1 free queries or the matching upper bound.",
+        "searches": [
+          "Resultary: uniform layered antichain ordinal sums, online shattering of lower ideals",
+          "arXiv:1806.00949, Theorem 3",
+          "arXiv:2611.26721, Fact 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matched formula is w−1+floor(log₂(h+1)) for every w,h≥1.",
+          "The earlier two-row grid table 1,2,3,5,8,12,17,25,36,52 concerns [2]×[n], not an ordinal sum of antichains."
+        ],
+        "reasoning": "The grid table is not a match, even at common width. The uniform-layer record is an all-parameter catalogue match, not a matching numerical prefix.",
+        "searches": [
+          "Resultary 592889550999, mirrored RESULT.md formula",
+          "Resultary 6262182a47f2, two-row grid threshold table"
+        ]
+      },
+      "rationale": "The exact two-parameter adaptive formula and the VC value are directly covered by a distinct indexed Resultary finding, 592889550999, for exactly the same ordinal sums and ideal classes. The stated gap, its first strict instance, and the threshold for a given gap follow by subtraction from those same formulas. No distinct finding survives that comparison. The matching catalogue entry bears a later visible date than the frozen source: this is a verdict about demonstrable equivalent coverage in the reviewed corpus, not a claim of earlier discovery, derivation, or attribution.",
+      "residual_risks": [
+        "No determination of historical priority or attribution; the apparent catalogue dates are not a verified chronology of discovery or dissemination.",
+        "Campo–Erné 2019 was not retrieved for primary inspection; no whole-document noncoverage conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage, visible catalogue date later than the frozen source",
+          "evidence": "All h uniform levels of size w and all lower ideals: VCdim=w, Ldim=w−1+floor(log₂(h+1)); also gives 1+h(2^w−1) and a counting-bound comparison.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-online-shattering-of-uniformly-layered-order-ideals-and-a--592889550999",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0 and formula at 596",
+          "method": "Resultary and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact online shattering of uniformly layered order ideals and applications",
+          "trigger": "Exact uniform-layer learning problem"
+        },
+        {
+          "assessment": "General algorithm and distinct special-family formula",
+          "evidence": "Polynomial-state bounded-width computation and dyadic statement for [2]×[2^{k+1}−2].",
+          "identifier_or_url": "2026/11/8/SCOPE-online-ranks-of-finite-order-ideal-classes-bounded-width-exact-c--68248a42b6fd",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Online ranks of finite order-ideal classes: bounded-width exact computation",
+          "trigger": "Broader finite-poset rank methods"
+        },
+        {
+          "assessment": "Different poset family",
+          "evidence": "Exact recurrence and ten thresholds for [2]×[n].",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact polynomial-state Littlestone recurrence for two-row order ideals",
+          "trigger": "Possible table overlap at width two"
+        },
+        {
+          "assessment": "General threshold result, not the ideal rank formula in inspected passage",
+          "evidence": "Relates threshold sequences and Littlestone dimension for general classes.",
+          "identifier_or_url": "arXiv:1806.00949",
+          "material_read": "Theorem 3, PDF p. 5, offset 16055",
+          "method": "Primary OA PDF text",
+          "title": "Private PAC learning implies finite Littlestone dimension",
+          "trigger": "Prior threshold/Littlestone comparisons"
+        },
+        {
+          "assessment": "Does not give the desired exact rank",
+          "evidence": "General sharp union upper bound d₁+d₂+1, not an identity for this class.",
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/Closure2.pdf",
+          "material_read": "§4.1 Proposition 4.2, PDF p. 12, offset 40338",
+          "method": "Primary OA PDF text",
+          "title": "Closure Properties for Private Classification and Online Prediction",
+          "trigger": "Could layered classes reduce to union closure?"
+        },
+        {
+          "assessment": "General lower bound only for this comparison",
+          "evidence": "Threshold-sequence length k implies Ldim≥floor(log₂ k).",
+          "identifier_or_url": "arXiv:2611.26721",
+          "material_read": "Fact 2.4, PDF p. 5, offset 18493",
+          "method": "Primary OA PDF text",
+          "title": "Littlestone Dimension and Its Dual",
+          "trigger": "Exact threshold bound in a broader context"
+        },
+        {
+          "assessment": "Unresolved access, not used as negative evidence",
+          "evidence": "A publisher retrieval hit a size limit and a fallback timed out.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-110/exponential-functions-of-finite-posets-and-the-number-of-extensions-with-a-fixed-set-of-minimal-points/",
+          "material_read": "No primary passage retrieved",
+          "method": "Publisher OA retrieval and fallback attempts",
+          "title": "Exponential functions of finite posets and the number of extensions with a fixed set of minimal points",
+          "trigger": "Cited finite-poset comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–12",
+        "Resultary 592889550999, Finding"
+      ],
+      "rationale": "The exact dependence of adaptive shattering on height at fixed width is mathematically motivated. In this review the precise formula, and therefore all claimed separation thresholds, are already explicitly available for the same family. The frozen Finding supplies no further independently useful unknown invariant beyond this overlap.",
+      "residual_risks": [
+        "This is a comparison of the mathematical findings, not of the value of the covered theorem in itself or a priority decision."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

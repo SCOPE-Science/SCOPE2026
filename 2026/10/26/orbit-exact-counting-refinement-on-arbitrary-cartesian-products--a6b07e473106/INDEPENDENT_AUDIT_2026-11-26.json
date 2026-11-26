@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:08.540789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–64",
+        "Frozen VERIFICATION.md, check_star_products.py and verification_output.txt",
+        "/workspace/evidence/correctness-notes.md section 4: independent proof, formal coefficient check and exact-depth condition"
+      ],
+      "rationale": "The unique maximum-degree tuple identifies the all-center root; common-neighbor patterns on its neighbors identify the factor blocks. The orbit classification and formulas follow from leaf permutations and permutations of equal-size factors. In the frozen proof, root walk counts propagate one step per refinement; the tensor-product exponential and the nonzero log(tanh(sqrt(u))/sqrt(u)) coefficients give the required power sums after factoring out the lowest order. Newton identities complete the argument. An independent local proof gives an even stronger two-round bound: for each p, the number of neighbors whose degree exceeds the vertex's degree by p-1 equals its number j_p of leaf coordinates with p leaves. Degree and neighbor degree multiset are exactly the round-2 information. Profiles for sizes {2,3} and {4} in the (2,3,4) product tie in round 1, so the bound of two is attained.",
+      "residual_risks": [
+        "The frozen 3k+1 bound is not interpreted as sharp. The recorded 75 checks include four duplicate factor multisets (71 distinct); this does not affect the proof. No claim about general products of trees or factors with p=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Compact graphs are refinable and forests are compact. Products with k>=2 contain 4-cycles, so are not forests; compactness of these products is not established by the inspected passages.",
+          "Kiefer–McKay's n-1 upper bound concerns stabilization in terms of number of vertices, not orbit recovery or the number of factors."
+        ],
+        "reasoning": "Neither invoking refinability without establishing the corresponding hypothesis nor using the general stabilization bound implies the quantitative orbit-recovery result. Even a qualitative compactness closure would still need a separate round analysis.",
+        "searches": [
+          "Arvind et al. compactness, refinability and forest theorems",
+          "Kiefer–McKay, general worst-case iteration bound",
+          "Cartesian powers and mixed products in local Resultary"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.01255",
+        "Klavžar–Zhu DOI 10.1016/j.ejc.2005.07.001",
+        "Kiefer–McKay DOI 10.4230/LIPIcs.ICALP.2020.73",
+        "Resultary 4ecb820297ab and 625c3d483d15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cartesian factor permutations give candidate orbit profiles, not proof that 1-WL sees them. Path-power and marked Hamming analyses have different neighbor transitions or a distinguished root at round zero."
+        ],
+        "reasoning": "For this class, coincidence of vertex degrees can merge inequivalent profiles, and a substantive step is that their higher-degree neighbors reveal every leaf-size multiplicity. This direct inference verifies the frozen orbit claim without a generic theorem covering the hypotheses.",
+        "searches": [
+          "Arvind et al. pp. 3 and 13–14; Klavžar–Zhu pp. 303–304; statement passages of 4ecb820297ab and 625c3d483d15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al., arXiv:1502.01255, p. 3 defines refinability as orbit-exactness of stable color refinement.",
+          "Klavžar–Zhu, European J. Combin. 28 (2007), pp. 303–304, proves a distinguishing-number result for Cartesian powers."
+        ],
+        "reasoning": "Refinability is equivalent to the qualitative part but omits the quantitative depth. Existence of a chosen symmetry-breaking two-labeling is not equivalent to unmarked counting refinement, which must preserve all automorphisms.",
+        "searches": [
+          "Refinable or compact graphs; equitable partition equals automorphism orbits; 1-WL Cartesian products of stars and tree products; Resultary product refinement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4ecb820297ab gives exact depth floor((n-1)/2) for P_n^d with identical path factors; this covers the all-p_i=2 case.",
+          "Resultary 625c3d483d15 treats mixed complete-graph factors with one root marked and computes root-stabilizer rather than full orbits."
+        ],
+        "reasoning": "The overlap with P_3 powers is credited, without inferring priority from the UTC date. No exact indexed statement or table for the arbitrary mixed-star theorem was identified.",
+        "searches": [
+          "Resultary exact unmarked Cartesian-product refinement, exact orbit class sizes, mixed-factor wavefronts"
+        ]
+      },
+      "rationale": "Known orbit theory and general refinement supply background, and the all-P_3 subfamily overlaps the same-day path-power result. Neither the inspected published theorems nor the closest indexed records cover unmarked refinement recovering exact orbit profiles on arbitrary mixed star products with a size-independent round bound.",
+      "residual_risks": [
+        "Bounded comparison does not establish historical priority or exclude an unindexed general product result. No originality asserted for Cartesian automorphisms, the all-P_3 case, or general walk/refinement relations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative result for compact graphs, including forests; no product-star quantitative theorem in scope",
+          "evidence": [
+            "Refinability equates stable colors with orbits; forests are compact."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "p. 3 at offset 10406; compactness definition p. 13 at 43859; Theorem 13 and Corollary 14 p. 14 at 45130",
+          "method": "OA PDF passage inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "General connection between compactness and orbit-exact refinement"
+        },
+        {
+          "assessment": "Different labeling invariant and identical factors",
+          "evidence": [
+            "D(G^r)=2 for connected G of order at least three and r>=3."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2005.07.001",
+          "material_read": "pp. 303–304 of the author-hosted copy",
+          "method": "Lawful author PDF passage inspection",
+          "title": "Cartesian powers of graphs can be distinguished by two labels",
+          "trigger": "Products of trees/stars and automorphism separation"
+        },
+        {
+          "assessment": "General vertex-count stabilization bound; not an orbit recovery theorem",
+          "evidence": [
+            "The general n-1 upper bound is attained infinitely often."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2020.73",
+          "material_read": "p. 1 at offset 476",
+          "method": "OA full-text passage inspection",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "General bounds possibly dominating the claimed number of rounds"
+        },
+        {
+          "assessment": "Exact coverage of P_3 powers, not general stars or mixed factors",
+          "evidence": [
+            "P_n^d orbit profile is recovered in floor((n-1)/2) rounds."
+          ],
+          "identifier_or_url": "Resultary 4ecb820297ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact unmarked colour-refinement depth on Cartesian powers of paths",
+          "trigger": "Same-day unmarked tree-product orbit recovery"
+        },
+        {
+          "assessment": "Different factors, initial coloring and orbit action",
+          "evidence": [
+            "One-root stabilizer recovery on complete-graph products takes d-1 or d depending on factor sizes."
+          ],
+          "identifier_or_url": "Resultary 625c3d483d15",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact one-root colour refinement wavefronts for mixed Hamming graphs",
+          "trigger": "Mixed Cartesian-factor refinement and dimension-based bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen statement and orbit exemplars",
+        "/workspace/evidence/correctness-notes.md section 4",
+        "Distinct initializations and factor assumptions in related results"
+      ],
+      "rationale": "Unmarked orbit recovery is not automatic for Cartesian products or for 1-WL. Exact classes, their sizes, and bounded recovery for arbitrary unequal stars give a usable structural result: degree coincidences do not prevent precise recovery of the multiplicity profile. The factor-count bound in the frozen result should not be valued as sharp; the independent degree-signature proof clarifies that the genuine content is very local orbit recovery across all mixed factors.",
+      "residual_risks": [
+        "This resolves only the star-product family and does not establish the same behavior for arbitrary tree products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

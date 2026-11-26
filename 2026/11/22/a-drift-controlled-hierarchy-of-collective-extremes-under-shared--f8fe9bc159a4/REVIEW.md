@@ -1,19 +1,21 @@
-# Scientific review of a drift-controlled hierarchy of collective extremes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary law follows from coupling at the first common reset and the exact exponential backward-age representation. Conditional Gaussian independence yields the renewal integral for any fixed particle count. Its unique interior saddle is strictly separated from all boundaries, including the large-age Gaussian-nonrare region when logarithmic drift is positive. Uniform Mills estimates and Laplace's method reconstruct the exact polynomial prefactor and exponential rate. Inverting the one-dimensional variance-mean Gaussian mixture yields an independently checkable exact marginal survival function. Algebra establishes the strict rate order and all three iterated size regimes. The supplied numerical checker passed 128 assertions; finite calculations are diagnostics only, and every infinite claim is supported by explicit proof. Risks: the claim is not uniform in particle number or in extreme positive drift, and does not provide finite-threshold error bounds.
+PASS
 
-## Originality — PASS, qualified
+The common Poisson clock supplies a stationary Exp(r) age and couples at the first future reset; conditional on the age the log values are independent normals of mean at and variance σ²t. The one-coordinate rational transform gives the stated asymmetric exponential survival, including c_1. Independently scaling time by y gives the phase rz+n(1−az)²/(2σ²z), with unique strict minimum at z=1/s_n and curvature ns_n³/σ². The Mills integral displayed with 0 to infinity should be read as the compact saddle-neighborhood contribution specified in its surrounding sentence, with both sides restricted accordingly; it is not a global integrable Mills replacement for a>0. On the rest of the Mills region the Gaussian Chernoff bound and strict phase gap apply (small and large cutoffs use phase divergence or the reset weight). The a>0 non-Mills region costs at least r/a>2r/(s_n+a)=k_n. Multiplying the local amplitude s_n^(n/2)/(s_n−a)^n by the Gaussian saddle factor, age density and Mills prefactors gives the printed C_n, including C_1=c_1. The quantile substitution, 1<α_n<n, derivative 1/Δ−1/s_n<0, monotonicity in n, slowly varying log factor and three limiting regimes follow from the two equivalent expressions for α_n. Independent normalization checks at r=.7, σ=1.1, n=2,4, multiple y and all drift signs were diagnostic only; the n=4 ratio at a=1.25 is still about .467 at y=80, consistent with slow convergence. See branches/6166fad2-2c5b-4f00-9d2a-b485c740f2d6/ordinal-4-drift-extremes-check.md. Uploaded code was inspected, not executed. No error bound or simultaneous growing-n limit follows.
 
-The 2021 reset-geometric-Brownian paper states the univariate stationary Pareto exponent, not correlated simultaneous extremes from a *shared* reset clock. The Opitz elliptical Laplace field and the broader random-scale paper address centered exponential Gaussian scales or independent radial multipliers, rather than an age-dependent Gaussian **mean and variance**. The two closest published shared-reset Brownian records explicitly assume zero drift and cover the neutral-log-drift benchmark, which is excluded from the novelty claim. A literature and semantic-database search found no equivalent nonzero-drift, arbitrary-finite-population sharp prefactor plus drift-sign hierarchy. Novelty is not guaranteed by search absence: broader multivariate asymmetric Laplace theory could imply parts of the result without the same physical language, and independent publication-priority assessment remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precisely motivated invariant is the probability of collective large positive displacements at equal individual quantile levels, an extreme-risk observable not fixed by one-particle Pareto laws. The result gives the sharp full equivalent, not just the marginal rate; the exact drift-sign trichotomy separates saturation, square-root growth and linear growth as particle count increases. Independent versus shared catastrophes have identical marginals yet strictly different joint upper-tail exponents for every fixed number of particles. This provides a structural and physically interpretable collective-fluctuation classification. Limitations include the iterated nature of the size limit, the identical-parameter assumption and lack of correlated-noise or partial-reset coverage.
+Qualified PASS for the nonzero-log-drift, arbitrary-fixed-n sharp orthant equivalent and the resulting explicitly normalized exponent hierarchy. The marginal law, centered residual exponent and law of the log vector as a distribution family are not new. The closest broader density formulas can be used as a starting point for another proof, but the inspected results do not state a sharp noncentered orthant theorem that evaluates this equivalent by substitution alone.
 
-## Closest literature and remaining risk
+## value
 
-Stojkoski et al. (arXiv:2104.01571) provide the marginal reset-geometric-Brownian formulas. Opitz (arXiv:1507.02537) and Engelke et al. (arXiv:1803.04221) develop adjacent general extreme-value frameworks. The closest publicly available Brownian-resetting results treat zero-drift Gaussian positions under partial and shared reset shocks; their stated rate formulas do not incorporate the multiplicative growth drift or the derived polynomial equivalent. An implicit special-case derivation from general multivariate asymmetric Laplace asymptotics remains the leading originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-n coefficient and rate predict collective risk that cannot be read from identical marginal Pareto laws. Saturation versus square-root versus linear growth separates drift signs at the level of iterated exponents, while the logarithmic correction quantifies how slowly one enters that regime. This is meaningful for a shared-shock model without claiming uniform control, field prediction or a new class of distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

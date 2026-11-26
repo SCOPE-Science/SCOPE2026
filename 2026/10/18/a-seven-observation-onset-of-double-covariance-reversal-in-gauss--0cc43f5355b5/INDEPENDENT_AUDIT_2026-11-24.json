@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:08:15.521167Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired short-window claim, Gaussian regression gives the conditional quadratic residual (b^T M^-1 W)^2-b^T M^-1 b. This times the pair density is twice its first covariance derivative along M+tbb^T. Differentiating the arccos crossing probability gives the stated covariance with sign, factor of two, and denominator; dominated differentiation is valid for 0<=rho<1. Summing over coordinates of HX centers at the sample mean, and rewriting the numerator using the difference of adjacent centered columns gives the polynomial expression. I independently built nHa_i coefficientwise by distance counts and verified the five full polynomial factorizations and exact Bernstein minima (1, 1, 5/2, 23/20, 11/56) using integer convolution and rational arithmetic. The new standard-library /workspace/repairs/5/verify_gaussian.py was inspected and successfully run; it proves the coefficient certificates only, not anything about infinitely many n. Positivity of each Bernstein polynomial on [0,1], and of the remaining factors and denominator on [0,1), establishes the repaired claim including rho=0 and excluding the degenerate endpoint. The already documented n>=7 signs are explicitly cited rather than presented as new. The original proof is mathematically sound: expanding the centered correction at 1/2 gives the stated half-parameter numerator; the endpoint coefficient is the sum of 4i(n-i)/n, and the large-window limit follows from the geometric raw-energy sum and the bounded column sums. The delivered repair is a narrowed claim, not a correctness reversal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kratz–León treat continuous-process level-crossing count variance. Nyberg et al. treat marginal crossing-count cumulants via an approximation, including an AR(1) example.",
+          "The earlier centered-energy record gives two large-window boundary layers, which do not give uniform positivity in fixed small windows. The raw-energy record 96b52b268e48 has strictly negative covariance for positive rho, but uses energy about zero, not the sample mean."
+        ],
+        "reasoning": "Neither marginal crossing moments nor individual mixed moments for a different energy statistic imply the exact centered sign at all correlations in five short windows. Sinn–Keller's full text was unavailable; this is an explicit priority risk.",
+        "searches": [
+          "Sinn–Keller DOI:10.1137/S0040585X97984991",
+          "Kratz–León arXiv:math/0609682",
+          "Nyberg–Lizana–Ambjörnsson arXiv:1711.02926",
+          "Resultary e0f4a1d0a49b and related raw-energy/squared-sum records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_gaussian.py",
+        "Repaired RESULT.md, VERIFICATION.md and verify_gaussian.py",
+        "Resultary e0f4a1d0a49b, 96b52b268e48, 28b62fec043d",
+        "arXiv:math/0609682",
+        "arXiv:1711.02926",
+        "DOI:10.1137/S0040585X97984991 (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the squared-sum correction from the raw-energy moment yields the centered identity and was already recognized in e0f4a1d0a49b. The earlier identity applies to small windows but does not give their signs by comparing the signs of the two component terms.",
+          "For n=4,5,6 the resulting factored polynomials have mixed power coefficients, so the interval sign requires a separate argument; exact positive Bernstein minima certify it. The repaired theorem uses prior larger-window signs solely to conclude sharpness."
+        ],
+        "reasoning": "The old general identity gives a computable expression but does not state or expose this nontrivial positivity property. The exact short-window exclusion is not another evaluation of F_n(1/2), nor a corollary of the known large-n estimates.",
+        "searches": [
+          "Resultary e0f4a1d0a49b, covariance formula and §2",
+          "Resultary 96b52b268e48 and 28b62fec043d, raw energy and squared sample sum",
+          "short-window demeaned crossing-covariance targeted primary-literature query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored e0f4a1d0a49b finding defines the same unnormalized sum of squares about the sample mean and same adjacent sign-change count. It states the same exact covariance, positivity at zero and near one and negativity at 1/2 for every n>=7, and the same fixed-correlation limit.",
+          "Dividing V_n by n or n-1 would not change the covariance signs, so sample-variance normalization supplies no distinction.",
+          "The inspected e0f4a1d0a49b proof of the finite-window signs does not rule out negative covariance for n=2..6."
+        ],
+        "reasoning": "The previous larger-window pattern and identity are recognized as equivalent, not cosmetic restatements. The remaining interval-wide positivity in small dimensions asks a different, complementary question.",
+        "searches": [
+          "Resultary: exact zero crossing count and centered-energy covariance for Gaussian AR(1)",
+          "Resultary: sample-mean-centered Gaussian sample variance and crossing covariance",
+          "Gaussian AR(1) sample variance demeaned quadratic energy covariance number of sign changes zero crossings short windows n=6 exact positivity Sinn Keller"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected prior calculation proves F_n(1/2)<0 for n>=10 by an inequality and explicitly supplies F_7(1/2), F_8(1/2), F_9(1/2). It does not tabulate or certify the continuum sign in dimensions 2 through 6.",
+          "The searched literature and Resultary hits did not supply an exact small-window polynomial positivity certificate; the result is bounded to the inspected material."
+        ],
+        "reasoning": "The prior negative examples and lower bound on sample sizes for its theorem are not a classification of the smallest size at which a negative value can occur. Exact positivity on an interval is stronger than pointwise finite evaluations at selected correlations.",
+        "searches": [
+          "Resultary: Gaussian AR(1) threshold n=7 with strict positivity at n=2 through 6",
+          "Resultary 2026/10/12/SCOPE-two-boundary-layers-for-zero-crossing-and-centered-energy-covari--e0f4a1d0a49b, Finding and Proof §2"
+        ]
+      },
+      "rationale": "This PASS concerns the repaired claim only. The frozen finding in its bundled form fails originality: the exact same centered-energy covariance identity, n>=7 sign pattern, and fixed-correlation limit are already given by the earlier-path Resultary record e0f4a1d0a49b. The precise surviving result is strict positivity throughout the parameter interval for 2<=n<=6, which makes the previously established onset sharp. The revised finding attributes all larger-window results and uses only the genuinely distinct small-window exclusion to infer sharpness.",
+      "residual_risks": [
+        "Sinn–Keller full text was unavailable, so a hidden equivalent or related short-window result is not ruled out. Unsuccessful search is not proof of priority.",
+        "Catalogue-path dates are not proof of historical lineage; the literal statement overlap with the centered-energy record is directly established. The repaired result does not claim uniqueness of zeros beyond six observations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of frozen identity, n>=7 reversals, and bulk limit; no small-window exclusion in the decisive passages",
+          "evidence": [
+            "Proof §2 gives F_7(1/2)=-4311/14336 and exact n=8,9 checks, followed by continuity for all n>=7. The large-n layer results are additional, not claims of the repair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-two-boundary-layers-for-zero-crossing-and-centered-energy-covari--e0f4a1d0a49b/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0; finite sign proof, surrounding expansions and bulk limit at offsets 4700–8082; related-work passage",
+          "method": "Local Resultary mirror, bounded reads",
+          "title": "Two boundary layers for zero-crossing and centered-energy covariance",
+          "trigger": "Same mixed statistic and first known window size in the sign theorem"
+        },
+        {
+          "assessment": "Both are narrower component statistics; combined they give the already credited mixed identity",
+          "evidence": [
+            "Raw energy is sum X_j², whereas the other moment concerns (sum X_j)². Neither is sample-mean-centered energy individually."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-zero-crossing-count-has-exact-opposite-sign-covariance-with-gaus--96b52b268e48 ; 2026/10/12/SCOPE-two-boundary-layers-for-zero-crossing-and-squared-sum-covariance--28b62fec043d",
+          "material_read": "Resultary statement summaries, corroborated by related-work passage in e0f4a1d0a49b",
+          "method": "Local Resultary search and mirrored centered-energy passage",
+          "title": "Zero-crossing count has exact opposite-sign covariance with Gaussian energy; Two boundary layers for zero-crossing and squared-sum covariance",
+          "trigger": "Constituent mixed moments and alternate energy conventions"
+        },
+        {
+          "assessment": "Residual priority risk, not evidence of absence",
+          "evidence": [
+            "The abstract scope concerns covariances among crossing indicators; attempted full-text retrieval failed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0040585X97984991",
+          "material_read": "Bibliographic and abstract scope as reported in frozen RESULT.md; no full text independently read",
+          "method": "Lawful DOI/OA and alternate-route retrieval attempts",
+          "title": "Covariances of zero crossings in Gaussian processes",
+          "trigger": "Discrete Gaussian crossing covariance, with autoregressive examples"
+        },
+        {
+          "assessment": "Different functional in inspected passage",
+          "evidence": [
+            "The Geman condition concerns finiteness of variance of continuous-process level crossings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0609682",
+          "material_read": "OA PDF p. 1, offset 1300",
+          "method": "Lawful OA bounded passage",
+          "title": "On the second moment of the number of crossings by a stationary Gaussian process",
+          "trigger": "Gaussian level-crossing second moments"
+        },
+        {
+          "assessment": "Marginal crossing-count cumulants rather than the joint centered-energy sign problem",
+          "evidence": [
+            "The inspected discussion uses an independent-interval approximation for crossing moments and gives an AR(1) example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.02926",
+          "material_read": "OA PDF pp. 1 and 3, offsets 1300 and 23000",
+          "method": "Lawful OA bounded passages",
+          "title": "Zero-Crossing Statistics for Non-Markovian Time Series",
+          "trigger": "Crossing counts for Gaussian AR(1) examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff is not an arbitrary collection of dimensions: the known sign theorem starts at seven, and its sharpness requires ruling out every smaller n over a continuous range of correlations. In particular the six-observation case has mixed power coefficients and a much smaller positive minimum Bernstein coefficient, so selected evaluations would not settle it. The repaired exact exclusion answers the natural minimum-window question for a joint statistic that differs in sign from the corresponding raw-energy statistic. No additional significance is assigned to recomputing the covered large-window identity or signs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

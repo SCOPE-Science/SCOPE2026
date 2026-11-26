@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:37.616814Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The universal proof checks analytically. Multiplying the intensity difference restricted to the unit circle by z² produces an ordinary degree-at-most-four polynomial; the five distinct roots force it to be identically zero. The Hermitian lift on (1,z,z²) then has diagonal (a,t−a,−t), H02=0 and H12=−H01=−u. Expanding gives (1−|z|²)(a+t|z|²+2 Re(uz)). Noncollinear anchors give rank three already in the constant and two linear columns; for collinear anchors, restriction to the line has three distinct zeros and hence is the zero quadratic, forcing t=0 and a unique linear equation up to real scaling. Since all anchors are off the unit circle their equations are genuinely imposed. Direct determinant expansion gives (t−a)(|u|²−at); the second factor is t² times the squared radius if t is nonzero, or |u|² for a line, so it is positive. Completing the square converts a=t precisely to orthogonality, with the line case passing through the origin. The Vandermonde spanning property rules out a nonzero semidefinite measurement-kernel matrix; therefore a singular nonzero Hermitian kernel generator has inertia (1,1,0) and yields two different rank-one intensities for non-phase-equivalent polynomials. An invertible generator precludes every such difference, including degree-deficient and zero cases. For at most seven measurements a two-dimensional real kernel exists, the cubic determinant is antipodally odd on a circle in it, and a nonzero singular matrix results; a nonspanning frame fails directly. For 0,2,2i, the verified parameters (0,1,−1+i) give determinant 2. For 0,2,3, the displayed witnesses are conjugate on the real line; on the unit circle they are conjugate after division by z, since z+z⁻¹ is real. Their common coefficient of z and different constants preclude phase equivalence. The frozen symbolic checker supports algebra only (one auxiliary example includes an anchor at 1); these analytic arguments cover the actual quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodmann–Hammen give a sufficient two-circle sample design of size 4d−4 for coefficient dimension d, hence eight at d=3.",
+          "Conca–Edidin–Hering–Vinzant give noninjectivity for M odd and N<=4M−5, hence the lower bound of eight even for arbitrary complex frame vectors in dimension three.",
+          "The multi-window STFT result is in a different measurement model; the indexed concentric-circle sufficiency lead concerns a special case and its primary text could not be read."
+        ],
+        "reasoning": "These give the prior optimal budget and restricted constructions or qualitatively different measurements, not the complete anchor-position boundary.",
+        "searches": [
+          "arXiv:1302.5487 Theorem 2.3",
+          "arXiv:1312.0158 Proposition 5.4",
+          "arXiv:2207.10620 abstract and scope",
+          "DOI:10.1109/SAMPTA.2017.8024411 via concentric-circle sampling lead"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.5487",
+        "arXiv:2403.16255",
+        "arXiv:1312.0158",
+        "arXiv:2207.10620",
+        "Resultary 0026bf390afd, 018be4882975, 4bb1fbfc99a6, 52ff35f3bc92, 6e3d3bdcbbea",
+        "DOI:10.1109/SAMPTA.2017.8024411 (primary text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-trace theorem and examples support qualitative angle dependence, but do not determine that every non-right rational angle allows quadratic recovery. The sufficient finite designs give no necessary criterion on an unconstrained off-unit triple.",
+          "General Hermitian rank tests need an additional exact determination of this measurement kernel and of its determinant."
+        ],
+        "reasoning": "The former results do not imply the uniform iff by specialization of their stated hypotheses. The new kernel computation classifies all nondegenerate and collinear anchor triples, rather than sampling a further design at the previously known minimum count.",
+        "searches": [
+          "arXiv:1302.5487 Theorem 2.3 vs unrestricted anchors",
+          "arXiv:2403.16255 Theorem 2.16 proof and right-angle example",
+          "Resultary 018be4882975 and 0026bf390afd Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Analytic two-circle Theorem 2.16 gives uniqueness in disjoint/tangent cases and at irrational angles for full traces, with a right-angle example in its proof; for rational angles it only says uniqueness may fail.",
+          "For quadratics the finite measurements extend to both full traces because vanishing on the first circle factors out 1−|z|² and the remaining generalized-circle equation through three distinct anchors is unique."
+        ],
+        "reasoning": "There is a genuine reduction from the finite setting to two full traces, so the full-trace results overlap for cases where they give uniqueness. The inspected theorem does not distinguish the orthogonal case from every other rational-angle case for quadratics, or supply the finite three-anchor classification on its own.",
+        "searches": [
+          "arXiv:2403.16255 Theorems 2.6 and 2.16, complete magnitude traces and right-angle obstruction",
+          "Resultary: degree-two/complex quadratic eight-point phaseless interpolation, two circles/lines, five unit-circle sites and three anchors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0026bf390afd gives concentric regular polygon orbits, here two squares; 018be4882975 gives the exact four-plus-four parallel-line centroid criterion. The same-day 4bb1fbfc99a6 concerns local singular values on two nested circles, not global uniqueness. 52ff35f3bc92 likewise treats two rotated square orbits."
+        ],
+        "reasoning": "In particular a 4+4 parallel-line design cannot encode five distinct unit-circle samples (each line contains at most two). Nor do two distinct concentric squares give the general 5+3 data. Identical sample budgets and degree do not establish equivalent geometry or coverage.",
+        "searches": [
+          "Resultary two-polygon polynomial phase retrieval / centroid criterion for optimal eight-point quadratic phaseless sampling / two-circle stability"
+        ]
+      },
+      "rationale": "Pass for the exact classification of all distinct off-unit anchor triples after the five reference measurements. Neither the eight-measurement lower bound nor the existence of some eight-point two-circle design is new. The full-trace theory includes a right-angle example and many uniqueness configurations; the distinct content here is the three-anchor completion in degree two and the uniform failure locus, including all other rational angles, disjoint/tangent configurations and lines.",
+      "residual_risks": [
+        "The unavailable Pohl–Li–Boche paper and unindexed exact finite polynomial sampling results limit bibliographic priority conclusions. The verified novelty is scoped to the all-anchor criterion, not the lower bound, two-circle approach, or known continuous right-angle examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient design rather than all triples",
+          "evidence": "Uses 2d−1 samples on one circle and 2d−3 on the unit circle for degree at most d−1 in a specified geometry.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5487",
+          "material_read": "Theorem 2.3, PDF p. 3 near OA offset 9500",
+          "method": "OA primary PDF passage",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "Direct finite polynomial two-circle sampling and optimal count"
+        },
+        {
+          "assessment": "Material overlap for full traces; no exact finite degree-two rational-angle dichotomy",
+          "evidence": "For intersecting circles irrational angles give uniqueness; the displayed rational-angle failure uses right angles, rather than asserting that every rational angle fails for quadratics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.16255",
+          "material_read": "Theorem 2.6 p. 5 near offset 8800; §2.4 Theorem 2.16 and proof, pp. 11–13, offsets 20650–26343",
+          "method": "OA primary PDF passes",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Direct complete-trace result and perpendicular-circle obstruction"
+        },
+        {
+          "assessment": "Exact prior general lower bound at dimension three",
+          "evidence": "N<=4M−5 fails for odd M, including M=3,N<=7.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0158",
+          "material_read": "Proposition 5.4, near OA offset 30700",
+          "method": "OA primary PDF passage",
+          "title": "An algebraic characterization of injectivity in phase retrieval",
+          "trigger": "Global eight-measurement lower bound"
+        },
+        {
+          "assessment": "Different measurement model in inspected material",
+          "evidence": "Treats multi-window STFT lattice sampling and Fock-space links rather than fixed quadratic evaluation vectors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10620",
+          "material_read": "Abstract and scope, p. 1 at offset 0",
+          "method": "OA primary PDF opening",
+          "title": "Multi-window STFT phase retrieval: lattice uniqueness",
+          "trigger": "Broad sampling/injectivity comparison"
+        },
+        {
+          "assessment": "Distinct sample families (parallel lines, concentric squares)",
+          "evidence": "Four plus four samples on parallel lines require unequal coordinate sums; regular concentric polygons require a radius and phase condition.",
+          "identifier_or_url": "Resultary 2026/10/25 018be4882975 and 2026/10/18 0026bf390afd",
+          "material_read": "Both Findings; relationship to prior work in the centroid record",
+          "method": "Local mirror primary text",
+          "title": "Centroid criterion for optimal eight-point quadratic phaseless sampling; Complete two-polygon phase retrieval criterion",
+          "trigger": "Strongest indexed exact finite-site criteria in adjacent geometries"
+        },
+        {
+          "assessment": "Reported concentric subcase does not settle arbitrary anchors; primary scope residual",
+          "evidence": "Secondary report describes complete boundary magnitudes plus 2d−1 interior concentric samples for degree d.",
+          "identifier_or_url": "https://doi.org/10.1109/SAMPTA.2017.8024411",
+          "material_read": "Citation and reported Lemmas 5–6/Theorem 7 in distinct Resultary 6e3d3bdcbbea; no original full text",
+          "method": "Local mirror comparison and OA DOI attempt",
+          "title": "Pohl–Li–Boche, polynomial phase retrieval on concentric circles",
+          "trigger": "Potential three-anchor sufficiency on a concentric circle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a testable exact boundary for designing a minimal phaseless quadratic measurement family after a standard circular aperture. It makes degeneracy geometric, uniformly handles collinear and ordinary-circle anchors, and certifies when a design fails rather than giving only a successful arrangement. No stability or noise guarantees are inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

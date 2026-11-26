@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:46.313321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69, including the exact quadrature normalization",
+        "Frozen VERIFICATION.md, verify.py and its SymPy requirement"
+      ],
+      "rationale": "Affinely map the hull to [0,1] with middle knot t. Independently solve for the middle cardinal spline as Bx+Cx^3+D(x-t)_+^3. The natural condition at one gives D=-C/(1-t), the zero value at one gives B=-Ct(2-t), and the value one at t gives C=-1/(2t^2(1-t)). Its integral is W1=(1+t-t^2)/(8t(1-t)); exactness on constants and x gives W2=1/2-tW1 and W0=1/2-(1-t)W1, matching all the frozen weights. The ordered sample has density 6; endpoint position and hull length give Jacobian L, so t is uniform by integrating 6L over 0<L<1 and 0<X0<1-L. W1 is strictly positive and reflection swaps the endpoint weights. W0<0 exactly for t<c=(sqrt(13)-3)/2, and c<1/2, so the negative regions are disjoint and the nonnegative mass is 1-2c. The norm is the sharp absolute weight sum, attained by the weight signs, and is (1-t+1/t)/4 in the left negative region. The function is strictly decreasing there; solving its quadratic inverse and doubling gives the exact survival function for z>=1, including the atom at one and the 1/(2z) tail. The moment criterion follows by integrating the tail. Conditionally the Gaussian error has standard deviation sigma||W||2 and absolute mean sqrt(2/pi) times that standard deviation. Since ||W||1/sqrt(3) <= ||W||2 <= ||W||1, the established tail forces both claimed divergences after averaging; the endpoint coefficient 1/32 for t^2||W||2^2 also agrees. The supplied symbolic and finite tests were inspected, not executed.",
+      "residual_risks": [
+        "This is the average over the random sample hull using the ordinary natural cubic. It is not the full-interval integral, a pointwise interpolation positivity result, or a statement about noiseless smooth-data quadrature error."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kershaw treats an optimized Peano-kernel quadrature and an appendix deterministic rule for uniform cubic splines with at least four knots and different conditions. Karvonen–Kanagawa–Särkkä give the absolute-weight norm and the conditional independent-noise term. The other cited papers concern node addition in interpolatory quadrature, monotone Hermite interpolation, or Gaussian exactness for C1 spline spaces."
+        ],
+        "reasoning": "The standard stability and noise identities apply, and the deterministic literature is relevant to weight calculations. Neither a quadrature with optimized nodes or end conditions nor the conditional noise term determines the distribution of the specific natural interpolant's weights for a random interior relative position. No inspected broader result supplies those random moments.",
+        "searches": [
+          "Kershaw, Optimum Quadrature Formulae and Natural Splines, Chapter 6 pp. 62–63 and Appendix A09 pp. 80–81",
+          "arXiv:1812.08509, Section 4",
+          "arXiv:1902.07477; arXiv:2102.11564; arXiv:1410.7196, stated scopes"
+        ]
+      },
+      "checked_sources": [
+        "OA primary passages and distinct indexed original findings in source_inspections",
+        "Scope passages at arXiv:1902.07477, arXiv:2102.11564 and arXiv:1410.7196"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two indexed random affine least-squares/minimum-norm quadrature results concern a three-node tail exponent of two and include infinite noise second moments. The Bayesian quadrature paper supplies the conditional weighted noise variance identity."
+        ],
+        "reasoning": "The affine constraints alone leave freedom in three weights; selecting them by minimum norm is not spline integration. Infinite second moment in a different rule neither gives exponent one nor implies infinite first absolute moment here. The latter follows once the new norm law is known, not from the generic conditional identity alone.",
+        "searches": [
+          "2026/10/26/SCOPE-heavy-tail-and-positivity-laws-for-random-affine-least-squares-q--6eba4b8f5a9c",
+          "2026/11/8/SCOPE-sharp-heavy-tails-and-a-four-node-mean-square-threshold-for-unco--0bd09ba633ae",
+          "arXiv:1812.08509 Section 4 on stability and noise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October record gives a sharp pointwise undershoot for a deterministic natural spline with three knots, bounded nonnegative data, and varying adjacent mesh ratio. In the frozen integrated problem the same mesh ratio r=(X2-X1)/(X1-X0) gives nonnegative weights exactly on [(sqrt(13)-1)/6,(sqrt(13)+1)/2]."
+        ],
+        "reasoning": "The deterministic objects share a spline but have different linear functionals. Optimizing an undershoot over x cannot be substituted for integrating the cardinal functions; in particular a negative cardinal lobe does not force a negative integrated weight. The inspected pointwise result does not give the stated mesh interval for nonnegative areas or its probability.",
+        "searches": [
+          "Local Resultary: three-knot natural cubic positivity, integration weights, norm and spacing ratio",
+          "2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day Gaussian rule is positive and unique for exactness in a six-dimensional, two-piece C1 cubic spline space, with quadrature nodes solved for. The web result Spline quadrature formulas exposed a snippet about an even alternating spline; the primary text was unavailable and a focused alternate-copy lookup did not return one."
+        ],
+        "reasoning": "The indexed Gaussian rule concerns different continuity, exactness and the choice of nodes, and does not cover the weights of the given random C2 natural interpolant. No priority is inferred from the date. The unavailable article remains a named possible deterministic overlap; its snippet does not establish whole-paper noncoverage.",
+        "searches": [
+          "Local Resultary: exact random natural cubic hull weights, positivity and Pareto stability",
+          "2026/11/22/SCOPE-an-explicit-three-node-gaussian-rule-and-a-sharp-knot-crossing-l--d9e8713e9f1a",
+          "Websearch: \"Spline quadrature formulas\" \"0021904584900406\" journal approximation theory author PDF open natural spline"
+        ]
+      },
+      "rationale": "Natural-spline weight calculation, uniform spacings, and conditional noise propagation are standard ingredients. The inspected antecedents do not supply the random-hull positivity mass or the exact norm law for these weights. The comparison credits exact pointwise three-knot instability and related random quadrature heavy tails, but distinguishes the integral functional and the exponent-one law that makes even the unconditional absolute noise moment diverge.",
+      "residual_risks": [
+        "An earlier weight theorem or random-spacing quadrature analysis could give equivalent formulas. Spline quadrature formulas is an inaccessible plausible deterministic comparison. The bounded evidence does not prove exclusive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material deterministic pointwise overlap but not integrated nodal signs",
+          "evidence": [
+            "Sharp undershoot as a function of the mesh ratio, unbounded for skew spacing."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+          "trigger": "Same natural spline and knot count with positivity failure"
+        },
+        {
+          "assessment": "Covers general norm and conditional noise ingredients, not this distribution",
+          "evidence": [
+            "Sum of absolute weights as stability measure and sigma^2 times sum of squared weights for independent noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "Section 4, PDF pp. 11–12, offsets 80800 and 89500",
+          "method": "OA primary-text passages",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Potential general positivity and random-noise stability result"
+        },
+        {
+          "assessment": "Deterministic optimized and uniform spline quadrature under differing assumptions",
+          "evidence": [
+            "Peano-kernel optimum positivity and an appendix rule with at least four uniform knots and different end conditions."
+          ],
+          "identifier_or_url": "https://era.ed.ac.uk/bitstreams/96f8b385-b60a-48e8-94a4-a7b345c60cd6/download",
+          "material_read": "Chapter 6 pp. 62–63; Appendix Theorem A09 pp. 80–81, offset approximately 150800",
+          "method": "OA primary-text passages",
+          "title": "Optimum Quadrature Formulae and Natural Splines",
+          "trigger": "Earlier thesis possibly covering this very spline integration rule"
+        },
+        {
+          "assessment": "Different weight choice and different exponent",
+          "evidence": [
+            "Three-node exponent two for the other weight construction; infinite second moment does not imply the sharper frozen noise claim."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-heavy-tail-and-positivity-laws-for-random-affine-least-squares-q--6eba4b8f5a9c ; 2026/11/8/SCOPE-sharp-heavy-tails-and-a-four-node-mean-square-threshold-for-unco--0bd09ba633ae",
+          "material_read": "RESULT.md Findings for both records",
+          "method": "Local mirror original passages",
+          "title": "Heavy-tail and positivity laws for random affine least-squares quadrature; Sharp heavy tails and a four-node mean-square threshold",
+          "trigger": "Similar random-node positivity, norm law and Gaussian divergence"
+        },
+        {
+          "assessment": "Positive Gaussian rule on a different C1 spline space",
+          "evidence": [
+            "Uniqueness and positivity of optimized three nodes and weights for six-dimensional exactness, not nodal integration on random knots."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-explicit-three-node-gaussian-rule-and-a-sharp-knot-crossing-l--d9e8713e9f1a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "An explicit three-node Gaussian rule and a sharp knot-crossing law",
+          "trigger": "Potential same-day exact three-node spline quadrature duplicate"
+        },
+        {
+          "assessment": "Unresolved; no inference of noncoverage",
+          "evidence": [
+            "Snippet mentions an even alternating spline; primary text could not be inspected and no alternate copy was located in the focused lookup."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0021904584900406",
+          "material_read": "Search snippet only; no primary-text passage retrieved",
+          "method": "OA retrieval attempt and one focused alternate-copy search",
+          "title": "Spline quadrature formulas",
+          "trigger": "Plausible earlier deterministic formula from literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, sign and tail derivation",
+        "Compared pointwise natural spline and random affine quadrature findings"
+      ],
+      "rationale": "Three knots are the smallest nontrivial natural cubic rule, with the two-knot case linear and positive. The exact sign probability and norm distribution document that an otherwise canonical nonparametric integration rule is not merely sometimes sensitive: random near collisions give an infinite average absolute response to independent Gaussian measurement noise. The exponent and tail constant quantify this minimal boundary case and distinguish it from other three-node random quadrature schemes, rather than merely repeating the formula for a spline area.",
+      "residual_risks": [
+        "No implications claimed for many knots, regularized splines, nonuniform node distributions or integration beyond the observed hull."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

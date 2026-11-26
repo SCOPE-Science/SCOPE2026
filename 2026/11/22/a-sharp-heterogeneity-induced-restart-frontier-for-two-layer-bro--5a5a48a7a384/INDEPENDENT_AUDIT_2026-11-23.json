@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:50.090599Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–78, independently checked via the transform series",
+        "Frozen VERIFICATION.md and checker.py, inspected as text"
+      ],
+      "rationale": "Solving the killed backward Laplace equation with value 1 at each endpoint, the inward-coordinate flux at the interface from layer i is proportional to √(D_i r)[csch(x_i)−φ coth(x_i)], with x_i equal to the layer length times √(r/D_i). Matching the two fluxes with opposite signs gives the stated transform. Independent reset renewal yields M_r=(1/φ−1)/r. For a direct coefficient check let A=a²P and C=b²Q, and μ_j denote the j-th power moment of A,C under weights bQ/H,aP/H respectively. After canceling the 1/√r factors the reset mean is [weighted x_i tanh(x_i/2)]/[r weighted x_i csch(x_i)]. Its coefficients through r² are μ₁/2, (2μ₁²−μ₂)/24, and (10μ₁³−12μ₁μ₂+3μ₃)/720, by convergent Taylor expansions. Here μ₁=abPQ(a+b)/H and μ₂/μ₁²=(a²+b²+ab(z+1/z))/(a+b)². This verifies the stated c₁ and its reciprocal-root frontier, with vanishing first derivative at the endpoints of the delaying interval. For equal widths μ₁=2t₀, μ₂=(8+w)t₀², and at w=0, A+C=8t₀, AC=8t₀², μ₃=48t₀³. Hence the normalized linear coefficient in s=rt₀ is −w/24 and the critical quadratic coefficient is 2/45. Near both contrast roots w is an analytic local coordinate; critical curvature 4/45 in s gives a locally unique stationary minimum for w>0. Substitution gives s=15w/32+O(w²) and normalized improvement 5w²/512+O(w³).",
+      "residual_risks": [
+        "The interface condition is Fickian continuity of value and flux. Other transmission conventions are different models.",
+        "At unequal-width equality only the first derivative is classified. Local uniqueness is in a sufficiently small neighborhood in scaled rate s (or in unscaled rate for parameters near a fixed critical setup); it is not global optimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff's multilayer Eq. 3.14 gives a renewal representation over layer-entry excursions of snapping-out Brownian motion through semipermeable interfaces. The related resetting/interface paper studies a target screened by a semipermeable interface. The inspected heterogeneous resetting abstracts use power-law or space-dependent diffusivity and a different target geometry. Carr's abstract concerns layered mean-action time."
+        ],
+        "reasoning": "The multilayer renewal machinery is a broad route to layered absorption, potentially including a perfect transmission limit, but the inspected representation is not a parameter sign or local-minimizer theorem and does not settle the higher-order contrast coefficients. The screened target and smooth or power-law coefficients do not realize the same restarted two-ended exit problem. No full-article exclusion is claimed from the abstract-only comparisons.",
+        "searches": [
+          "arXiv:2301.02895, §3.3 and Eq. 3.14",
+          "arXiv:2211.12468",
+          "arXiv:2201.05598",
+          "arXiv:2010.14237",
+          "arXiv:1801.08213"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index and local primary results listed above, with exact self-match separated",
+        "Primary OA paper passages and scoped abstract checks listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restart renewal immediately gives the moment combination m₁²−m₂/2 in any model with the requisite finite exit moments. It gives no sign at equality. A generic layer matching or semipermeable renewal formula does not calculate the perfect-interface third moment on that equality locus."
+        ],
+        "reasoning": "The new mathematical content tested here is not rewriting the CV formula: it solves the layered exit problem and reduces its coefficient combination to two reciprocal thresholds, then determines curvature and the local optimizer onset where the first derivative test is inconclusive. This is not a specialization of the inspected homogeneous threshold or a lookup of its constants.",
+        "searches": [
+          "Pal–Prasad arXiv:1812.03009, Eqs. 14 and 17",
+          "Ray–Mondal–Reuveni arXiv:1811.08239, PDF p. 4",
+          "Bressloff arXiv:2301.02895, Eq. 3.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first-order inequality is the classical CV>1 criterion evaluated on the unreset killed transmission process. In material/geometric coordinates it reduces to z+1/z>4+a/b+b/a, with z=(a/b)²D_+/D_-.",
+          "Pal–Prasad obtain the homogeneous bounded-interval criterion and Ray–Mondal–Reuveni the drift-diffusion criterion. Neither inspected specialization varies both diffusion coefficients in the claimed interface model."
+        ],
+        "reasoning": "Equivalent CV or moment formulations are genuine overlap for the criterion itself, not for its explicit material boundary unless the same Fickian exit problem is evaluated. A homogeneous or uniform-drift model cannot realize the independent diffusivity and layer-width ratios. At CV=1 the sign needs new third-order exit-time information.",
+        "searches": [
+          "Resultary and focused literature searches for the two-layer Fickian interface, weak resetting, CV transition and equal-width contrast roots",
+          "arXiv:1812.03009 and 1811.08239"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frontier match is the current frozen record. The distinct two-layer record optimizes decay for a partially absorbing point trap with reflecting outer ends. The distinct two-reset-rate record reconstructs smooth drift/diffusivity on a reflecting–absorbing interval."
+        ],
+        "reasoning": "Neither distinct hit is an exact table or theorem for the same boundary or its curvature: one lacks resetting and outer killing, the other concerns inverse identification under a different setup. Date coincidence is not evidence of either priority or equivalence.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-heterogeneity-induced-restart-frontier-for-two-layer-bro--5a5a48a7a384",
+          "2026/11/2/SCOPE-a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2",
+          "2026/11/22/SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb"
+        ]
+      },
+      "rationale": "Best of checked evidence for the explicit geometry/contrast criterion at a perfectly transmitting interface, the equal-width curvature and the sharp local onset. General reset renewal, CV>1 and transmission techniques are covered background. The homogeneous-interval calculation and the closest layered and resetting records do not cover the explicit heterogeneous frontier and its higher-order boundary behavior.",
+      "residual_risks": [
+        "A stronger exit-time moment/optimization theorem under less obvious transmission terminology could imply part of the claim. The bounded checks do not certify publication priority.",
+        "Several peripheral articles were checked only in their abstracts; no claim about their uninspected passages is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers renewal and a homogeneous interval threshold, not the two-layer result",
+          "evidence": [
+            "Eq. 14 gives the reset mean from an unreset survival transform; Eq. 17 evaluates the small-rate condition for a homogeneous interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+          "material_read": "PDF pp. 3–4, Eqs. 14, 17, extraction offsets around 23000 and 25500–32436",
+          "method": "Bounded primary OA PDF reading",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Exact resetting in a bounded interval with two absorbing ends"
+        },
+        {
+          "assessment": "Off-frontier sign criterion credited; model-specific drift threshold differs",
+          "evidence": [
+            "Uses CV threshold for drift-diffusion, not mismatched diffusivities across a flux-continuous interface."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.08239",
+          "material_read": "PDF p. 4, extraction offset around 28000",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+          "trigger": "Established restart criterion and acceleration transition"
+        },
+        {
+          "assessment": "Layered transmission methods, not a Poisson reset-benefit frontier",
+          "evidence": [
+            "Eq. 3.14a sums trajectories sewn together after interface stops with newly selected neighboring layer. This renewal is not external Poisson restarts to the initial point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02895",
+          "material_read": "Abstract and Eq. 3.14 with surrounding passages, PDF pp. 7–8/offset 29700–35056",
+          "method": "Bounded primary OA reading, including decisive equation and scope",
+          "title": "Renewal equations for single-particle diffusion in multi-layered media",
+          "trigger": "Strongest layered diffusion and renewal-method overlap"
+        },
+        {
+          "assessment": "Inspected stated problem uses different interface and target geometry; not a full-paper exclusion",
+          "evidence": [
+            "Semipermeable screening of a target; resets outside the interface."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12468",
+          "material_read": "Primary abstract p. 1, offset 0",
+          "method": "Bounded OA abstract screening only",
+          "title": "Diffusion with stochastic resetting screened by a semipermeable interface",
+          "trigger": "Direct overlap of resetting and a diffusion interface"
+        },
+        {
+          "assessment": "Power-law heterogeneous or biased target models, or layered mean-action-time methods; full-document coverage not determined from abstracts",
+          "evidence": [
+            "The abstracted models do not assert an explicit small-rate sign and onset classification in the stated two-ended Fickian scenario."
+          ],
+          "identifier_or_url": "arXiv:2201.05598; arXiv:2010.14237; arXiv:1801.08213",
+          "material_read": "Primary abstracts p. 1, offset 0 for each",
+          "method": "Bounded OA abstract screening only",
+          "title": "Heterogeneous reset diffusion and layered time scales",
+          "trigger": "Possible space-dependent diffusion and layered exit-time comparison"
+        },
+        {
+          "assessment": "Not equivalent in boundary, observable or physical operation",
+          "evidence": [
+            "The trap result concerns principal decay in a reflecting interval. The two-profile result reconstructs smooth coefficients from spatial observations with reflecting–absorbing boundaries."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2; 2026/11/22/SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb",
+          "material_read": "Local-mirror RESULT.md Finding for each",
+          "method": "Resolved Resultary hits against primary statements",
+          "title": "A universal placement bound for a partially absorbing trap in two layers; Two reset-rate first-passage profiles uniquely reconstruct drift and diffusivity",
+          "trigger": "Nearest indexed overlap in layered interval geometry and reset first-passage, respectively"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, contrast classification and boundary expansion",
+        "Classical first-order reset criterion compared under originality"
+      ],
+      "rationale": "A restart decision at a material interface is not determined by interval symmetry or the mean alone. The exact frontier gives a design boundary across all width and material ratios. Even at the midpoint where homogeneous weak restart delays escape, sufficient contrast reverses the effect; on the threshold, where the general CV rule cannot decide the sign, the result quantifies both the positive curvature and emergence of a locally beneficial reset rate.",
+      "residual_risks": [
+        "This conclusion is model-level, weak-rate and local, not a global design optimum, experimental performance result or prediction for partial transmission."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

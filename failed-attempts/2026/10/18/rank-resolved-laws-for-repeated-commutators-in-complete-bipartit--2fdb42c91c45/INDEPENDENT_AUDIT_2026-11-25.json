@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:55.100625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct inversion of the displayed class-two law gives uv'^T-u'v^T for x^(-1)y^(-1)xy, also in characteristic two. No nonzero vector-coordinate pair is central, and every scalar multiple of a matrix unit occurs as a commutator, so the center equals the derived subgroup. All central inputs are free, giving q^(2kab). With d=2k, concatenate columns u_i,u'_i and rows v_i'^T,-v_i^T to get a bijection between reduced inputs and matrices X,Y through dimension d with XY=C. For C of rank r, choosing a t-dimensional image of X containing im C, then a surjection onto it, then one lift of each column of C gives the reduced count ∑_{t=r}^{min(a,d)} [a-r choose t-r]_q ∏_{i<t}(q^d-q^i) q^{b(d-t)}. For d=2 this expands to all the stated rank-0, rank-1 and rank-2 entries and zero for r>2. Rank subadditivity and pairing a rank-one decomposition verify the least length ceil(r/2), with identity length zero and width at maximal possible rank. Counting rank-r maps by image, kernel and the induced isomorphism from quotient to image gives R_r. For the displayed Fourier version each independent outer product has normalized transform q^(-s) on rank-s dual matrices by orthogonality of a nontrivial additive character. Inversion of d such terms gives the exponent d(a+b-s)-ab. Summing the pairing over maps with image in a subspace S gives q^(a dim S) exactly when C annihilates S, and zero otherwise; Möbius inversion gives the stated Gaussian K_s(r), unchanged by negation. Inspected commutator_checker.py without executing the uploaded file. Independently compared the positive factorization formula with the Fourier sum after clearing q^ab for all admissible ranks at (q,a,b,k)=(2,4,6,1),(3,3,2,3),(5,4,3,2),(7,1,4,4),(8,3,5,2),(9,3,3,1); all matched and the reduced counts were positive exactly at r≤2k. The finite comparison concerns the formulas, not independent field-arithmetic enumeration; the general proof is in RESULT.md steps 1–4 and the lifting count above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.2.1 gives all entries of the rectangular matrix rank transform as affine q-Krawtchouk polynomials; Proposition 4.2.3 explicitly evaluates ∑_s Φ(r,s)t^s for the entire range 0≤r≤min(a,b) and free t.",
+          "Rossmann's biclique example belongs to the same graphical-group framework, but Theorem A counts conjugacy classes by size, not word-map fibers."
+        ],
+        "reasoning": "Taking t=q^(-d) covers arbitrary inner dimension d and hence the even dimensions for commutators. The actual covering result is the rank generating polynomial plus the simple encoding, not the mere existence of a general group-character formula or Rossmann's class counts.",
+        "searches": [
+          "Web: q-Hypergeometric polynomials and group-invariant Fourier transformations over a finite field Kawamura arXiv bilinear forms Proposition",
+          "arXiv:2008.13408 §4.2, Propositions 4.2.1 and 4.2.3",
+          "arXiv:2107.05564 §1.4 and Example 5.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.13408 §4.2",
+        "arXiv:2107.05564 §1.4 and Example 5.3",
+        "SCOPE-20261122-53bd39d4f4d2",
+        "SCOPE-20261018-152f534a63f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A uniform independent rank-one outer product of two uniform vectors (allowing zero) has dual coefficient q^(-s), since summing the row vector forces D times the column vector to vanish. Thus XY through inner dimension d=2k has dual coefficient q^(-ds). Fourier inversion gives F_k(C)=q^(2k(a+b+ab)-ab)·∑_s Φ(r,s)(q^(-2k))^s, precisely a stated arbitrary-t generating function evaluation.",
+          "The pair-product support is rank≤2k, since a map factors through dimension 2k exactly in that rank range. This immediately yields width and every minimal-length stratum by the known rank counts."
+        ],
+        "reasoning": "Both the Fourier invariant and the support classification reduce mechanically to known rectangular matrix facts. The displayed Gaussian coefficients are another formula for the same transform, not mathematically independent additional content. No earlier statement of the group phrasing is needed for this implication.",
+        "searches": [
+          "arXiv:2008.13408 §4.2 pairing and canonical matrix, OA offset 60790; eqs. (72)–(73) and Prop. 4.2.3, offset 67340",
+          "arXiv:2107.05564 Theorem A and Example 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete commutator product in vector coordinates is exactly XY for rectangular matrices through dimension 2k, without loss of any target, including in characteristic two.",
+          "Kawamura's Φ(target rank, summed rank) is the Fourier transform of the corresponding rank indicator in the trace pairing; identifying D with D^T there gives Φ(r,s)=K_s(r), up to the harmless character sign.",
+          "SCOPE-20261122-53bd39d4f4d2 directly uses the same alternating bracket (and free central factor) and gives the k=1 fibers and same rank width, but is later dated and its finding is for ordered pairs."
+        ],
+        "reasoning": "The group coordinates are a bijective relabeling of two independent rectangular matrices, and the rank Fourier notation is an equivalent convention for the same coefficients. Bracket terminology alone does not create a distinct one-step count.",
+        "searches": [
+          "Resultary semantic comparison: complete-bipartite prescribed commutator or Lie bracket fibers, Fourier rank census and sharp width",
+          "Web: finite field rank distribution product independent uniform rectangular matrices exact Gaussian binomial formula rank random matrix product prescribed target Kawamura group invariant Fourier bilinear forms",
+          "arXiv:2008.13408 §4.2, pp. 14–16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later graph Lie algebra record gives the same k=1 rank table for a,b≥2 with q^(2ab), and the same width (its later date does not establish priority). The distinct friendship-graph record gives single-step counts for a different graph.",
+          "Kawamura's eq. (72) supplies the same exact rank orbit counts, and Proposition 4.2.3 already supplies an explicit generating formula for the weighted rank sum. The alternative nonnegative lift expression yields the one-step table merely by setting d=2."
+        ],
+        "reasoning": "Even without a stand-alone earlier group-fiber table, the exact count is already computable by one substitution into the earlier rectangular rank polynomial. The indexed one-step overlap illustrates equivalence but is not used as earlier priority.",
+        "searches": [
+          "Resultary semantic comparison: prescribed bracket fibers and width for bipartite graphical groups and graph Lie algebras",
+          "SCOPE-20261122-53bd39d4f4d2 RESULT.md offset 0",
+          "SCOPE-20261018-152f534a63f7 RESULT.md offset 0",
+          "arXiv:2008.13408 eq. (72) and Proposition 4.2.3"
+        ]
+      },
+      "rationale": "Kawamura's primary 2020 text gives not just a related rank transform but its full rank generating polynomial for arbitrary t (Proposition 4.2.3). The advertised all-k sum is exactly its evaluation at t=q^(-2k), multiplied by the elementary input and inversion normalization. The proof of this identification is the direct commutator-to-matrix-product encoding and one-character average; it supplies no new rank-transform or word-distribution phenomenon. The support has the immediate rank-factorization criterion r≤2k and the single-commutator table is the t=q^(-2) evaluation. This is mechanical prior implication, not an assertion that Kawamura wrote the group theorem in that terminology or that later indexed overlaps have priority.",
+      "residual_risks": [
+        "Naik's relevant full ResearchGate text returned 403; Sinha's 1966 coverage also remains unresolved. The failed Delsarte/ScienceDirect access did not decide the comparison.",
+        "The review establishes mechanical prior coverage, not who first stated the group-formulated special case. No priority inferred from same-day or later catalogue comparators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit transform and arbitrary-t rank generating polynomial cover the frozen all-k expression under the reduction",
+          "evidence": [
+            "The rectangular rank-indicator Fourier matrix has entries Φ(s,r). Proposition 4.2.3 sums these entries over the second index with weights t^r for arbitrary t.",
+            "Freeze the character rank at the target rank and set t=q^(-2k). The only factors outside the polynomial are group input multiplicity and ordinary Fourier normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.13408",
+          "material_read": "§4.2 pp. 14–16, trace form (63), dual orbits (64), Proposition 4.2.1, equations (72)–(73), Proposition 4.2.3, OA offsets 60790–64568 and 67340–71571",
+          "method": "Lawful OA primary PDF, targeted layout-preserving extraction",
+          "title": "q-Hypergeometric polynomials and group-invariant Fourier transformations over a finite field",
+          "trigger": "Exact rectangular matrix-rank Fourier transform and possible covering all-parameter generating formula"
+        },
+        {
+          "assessment": "Same group framework; inspected statements concern different class counts",
+          "evidence": [
+            "Theorem A counts conjugacy classes by size and Example 5.3 specializes to bicliques."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.05564",
+          "material_read": "Abstract, §1.4 Theorem A (offset 11600) and Example 5.3 (offset 46000)",
+          "method": "Lawful OA primary HTML",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Same graphical group family and biclique example"
+        },
+        {
+          "assessment": "Exact one-step and width overlap on common parameters, later date; finding not the all-k law",
+          "evidence": [
+            "Its ordered bracket formula is uv'^T-u'v^T with the same free central-input normalization."
+          ],
+          "identifier_or_url": "SCOPE-20261122-53bd39d4f4d2",
+          "material_read": "RESULT.md finding offset 0",
+          "method": "Read-only local mirror",
+          "title": "Prescribed bracket fibers and sharp commutator width in complete-bipartite graph Lie algebras",
+          "trigger": "Same rectangular central bracket and target ranks"
+        },
+        {
+          "assessment": "Different graph and central coordinates",
+          "evidence": [
+            "Friendship graphs are triangles with a common hub; the finding treats single-step fibers and width on that family."
+          ],
+          "identifier_or_url": "SCOPE-20261018-152f534a63f7",
+          "material_read": "RESULT.md finding offset 0",
+          "method": "Read-only local mirror",
+          "title": "Exact commutator fibers and commutator width for friendship graphical groups",
+          "trigger": "Same-day graphical-group word fibers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Prescribed commutator laws are natural invariants, and the formulas are useful as an exposition. Here concatenating the vector coordinates reduces every k to ordinary finite-field matrix multiplication, with the full Fourier weighted expression supplied by a pre-existing generating polynomial. Rank factorization and the same one-parameter evaluation give the remaining length and one-step claims. The frozen result provides no scientifically distinct exact invariant or surviving nonmechanical claim that warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

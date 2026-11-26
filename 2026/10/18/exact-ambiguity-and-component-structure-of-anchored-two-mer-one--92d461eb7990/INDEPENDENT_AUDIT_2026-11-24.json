@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:52.660317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the ordered pair list, the only possible inconsistency lies between the retained neighbors of the deletion. A mismatch forces that position and the unique missing pair, including the boundary cases because both anchor pairs are retained. If there is no mismatch, a constant pair was removed and the shortened padded word y has fixed endpoints a,b. Expanding each distinct run of y once gives a distinct parent, including for a single run containing both endpoints. Two distinct parents of a common output therefore have the same reduced itinerary and positive run lengths differing by a unit transfer. Conversely a transfer gives the common coordinatewise minimum, and transferring surplus to the first part proves connectivity. Stars-and-bars counts vertices and donor choices; each oriented edge has one donor and target, yielding the claimed undirected edge count. The off-diagonal-ones adjacency matrix counts reduced itineraries, with eigenvalues q−1 and −1, proving W_k and the histogram. As a separate check on total edges, two distinct confusable parents share a unique output, specified by their minimum run vector; the total is thus the sum over shorter y of binomial(number of runs of y,2). The run count is one plus the number of transitions among the n edges of y. For n>=3, any one or two selected edges form a forest not connecting both fixed endpoints. Under a uniformly chosen interior word, each selected edge changes with probability (q−1)/q, independently for the selected pair: sequentially choose symbols along each forest component rooted at its fixed endpoint, if any. The resulting sum is q^(n−1)[n(q−1)/q+binomial(n,2)((q−1)/q)^2], exactly the parameter formula. For n=1 the single y gives 0 or 1 edge; for n=2 equal endpoints give q−1 shorter words with two transitions and unequal endpoints give two words with one transition and q−2 with two, yielding both exceptions. The count of inconsistent outputs follows by summing nonconstant interior read incidences, with uniqueness as above. The recorded 270 finite checks in CHECK.out and the supplied checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie and Chen use the same protected anchors in a more general edit channel, and Proposition 1 finds a shortest consistency completion by local gaps.",
+          "Resultary d834481dd89c, Finding and Proof Steps 1-3: an unpadded consistent output permits free boundary insertions and eligible constant-run expansions; an attainable inconsistent output is uniquely repaired."
+        ],
+        "reasoning": "Restricting the unpadded local parent construction to no boundary insertion and read length two retains precisely runs containing a symbol of the shortened word between the two outer anchor symbols. This covers the local parent rule, including an end run that extends into the fixed outer symbols; a singleton outer symbol by itself is ineligible. The unpadded global histogram counts different lists, since it includes the free boundary candidates and no specified anchor pair. It does not directly give graph components or an anchored edge enumerator.",
+        "searches": [
+          "Xie and Chen, arXiv:2601.21236 Section II and Proposition 1",
+          "Resultary d834481dd89c, exact inverse-list distribution for one deleted overlapping read"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and CHECK.out",
+        "arXiv:2511.01280",
+        "arXiv:2606.26434",
+        "arXiv:2601.21236",
+        "Resultary 737fed325e91 and d834481dd89c",
+        "Chee and Vu DOI 10.1109/ISIT44484.2020.9174064 (access attempt and later citation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior coding/reconstruction statements describe which deletions are correctable or how to list local repairs. For the census, a further graph argument shows each compatible pair shares exactly one shortened run vector and each itinerary supports all positive compositions; global enumeration then yields the endpoint cancellation at n>=3 and the n=1,2 exceptions.",
+          "Ye and Ge's related-work passage describes Chee and Vu's binary cyclic code redundancy bounds, not a full anchored graph enumeration; the Chee and Vu full text was not accessible in the bounded attempt."
+        ],
+        "reasoning": "The explicit residual contribution is not a new zero-deletion model but an exact classification and global graph count exploiting uniqueness of the common output and fixed endpoints. The retrieved broader results do not give this global count without that separate argument.",
+        "searches": [
+          "Ye and Ge, Lemma II.1 and Theorem III.1",
+          "Hanania and Yaakobi, Section III-A and Lemma 1",
+          "Resultary d834481dd89c, Proof Steps 1-5",
+          "Chee and Vu, DOI 10.1109/ISIT44484.2020.9174064"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hanania and Yaakobi identify one-deletion correction for two-symbol labeling with correcting the deletion of a zero in the derivative word modulo q. The nonzero increments with fixed starting symbol determine the same run itinerary.",
+          "Ye and Ge's padded model protects the first and last reads and their single-read period-shortening analysis specializes at read length two to constant runs."
+        ],
+        "reasoning": "These statements supply the local reduction in different coordinates, not the enumerator over all connected components and inverse lists. No novelty is claimed for the reduction itself.",
+        "searches": [
+          "Hanania and Yaakobi, arXiv:2511.01280 Section III-A Lemma 1",
+          "Ye and Ge, arXiv:2606.26434 Section II and Lemma II.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "737fed325e91 counts edges where two source words have exactly two common ordinary one-symbol-deletion descendants; it is a different graph.",
+          "The histogram of d834481dd89c counts unpadded consistent receivers with list size 2q+J_(ell−1), or 2q−1 for constant receivers. The frozen lists for protected anchors have size equal to the number of runs of the shorter anchored word."
+        ],
+        "reasoning": "The catalogue contains exact neighbouring enumerations, but neither inspected global count specializes by just setting the read length to two. Anchoring conditions both endpoints and removes boundary insertion, changing the relevant inverse lists and confusability components.",
+        "searches": [
+          "Resultary: exact graph edge counts and inverse ambiguity for one deleted overlapping pair read"
+        ]
+      },
+      "rationale": "The anchored model, constant-run shortening, zero-deletion equivalence and local consistency reconstruction are prior or covered by other exact treatments. The distinct supported contribution is the exhaustive anchored graph and output census: connected run-composition components with exact vertex and edge counts, the global boundary-independent edge law from n=3 with its exact exceptions, and the boundary-conditioned histogram accompanying the graph. The closest unpadded inverse-list result gives the per-output reconstruction mechanism under the anchoring restriction, but not the anchored graph classification and global edge law. No priority is inferred from catalogue dates.",
+      "residual_risks": [
+        "The full Chee and Vu conference article remained inaccessible; equivalent binary graph or enumeration details cannot be ruled out there.",
+        "Equivalent enumerations under derivative zero-deletion terminology may exist beyond this scoped comparison. No publication-priority inference is drawn from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equivalent local correction framework, no full enumeration in the inspected statements",
+          "evidence": "Lemma 1 maps correction of one deletion in the two-symbol labeling to correction of deletion of a zero in the derivative-domain code.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.01280",
+          "material_read": "Section III-A and Lemma 1, p.3",
+          "method": "Primary OA PDF offsets about 20900-28200",
+          "title": "Error-Correcting Codes for Labeled DNA Sequences",
+          "trigger": "Potentially equivalent zero-deletion coding formulation"
+        },
+        {
+          "assessment": "Same local reconstruction mechanism and coding antecedent, not the enumerated graph in those passages",
+          "evidence": "Protected endpoint reads are assumed; period shortening is used and the coding theorem handles a single deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.26434",
+          "material_read": "Section II-A pp.4-5, Lemma II.1 pp.5-6, Theorem III.1 p.9, and related work p.2",
+          "method": "Primary OA PDF bounded passages near offsets 24450, 28331, 52745 and 10220",
+          "title": "Deletion-Correcting Codes for the ℓ-Symbol Read Channel",
+          "trigger": "Same protected adapter convention and single-read deletion"
+        },
+        {
+          "assessment": "Broader model and consistency-completion antecedent",
+          "evidence": "The two adapter reads are never edited, and the proposition states shortest completion by inserting the minimum number of intermediate reads.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.21236",
+          "material_read": "Section II, anchor convention, gap definition and Proposition 1",
+          "method": "OA PDF literal locate followed by bounded passage at offset 15480",
+          "title": "First-order optimal codes for an adversarial nanopore channel",
+          "trigger": "Primary source for anchoring and consistency completion"
+        },
+        {
+          "assessment": "Covers local repair mechanics; inverse enumeration is unpadded and does not give the full anchored graph theorem",
+          "evidence": "It distinguishes the 2q boundary parents from additional interior run-expansion parents and records the histogram without protected endpoint reads.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-exact-inverse-list-distribution-for-one-deleted-overlapping-read--d834481dd89c",
+          "material_read": "RESULT.md Finding, assumptions and Proof Steps 1-5",
+          "method": "Local mirror bounded passage from offset 440, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact inverse-list distribution for one deleted overlapping read",
+          "trigger": "Direct inverse-list overlap and potential stronger coverage"
+        },
+        {
+          "assessment": "Exact count for a different adjacency rule",
+          "evidence": "Adjacency refers to two common ordinary one-symbol-deletion descendants, not one surviving ordered pair vector under protected reads.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion graph",
+          "trigger": "Indexed exact edge count with closely related deletion terminology"
+        },
+        {
+          "assessment": "Relevant precedent, unresolved full-text coverage",
+          "evidence": "The accessible secondary description cites cyclic binary one- and two-read deletion-correcting codes and their redundancy bounds; no whole-paper conclusion is drawn.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT44484.2020.9174064",
+          "material_read": "Bibliographic record and Ye-Ge's related-work description; full article not inspected",
+          "method": "Lawful DOI and IEEE retrieval attempt returned HTTP 202; no OA deposit surfaced via recovery",
+          "title": "Codes Correcting Synchronization Errors for Symbol-Pair Read Channels",
+          "trigger": "Earlier symbol-pair synchronization and one-read deletion results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact finite-alphabet classification for a standard local-read deletion model, not a code-bound recomputation. It identifies what can be confusable and how such classes connect, and quantifies both overlap between distinct inputs and ambiguity of received vectors. The threshold for edge-count independence from boundary symbols, while the list histogram can still depend on them, is useful information not supplied by the zero-deletion equivalence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: five-character Nyquist-resonant Fourier moment
+# Independent mathematical audit
 
-## Correctness
-PASS. Fourier orthogonality merges exactly the two fourth-lag terms on the cyclic group of order eight, giving equation (1). The nonnegative majorant and reflection root-mean-square reduction reduce the global problem to three magnitudes without loss, and strictness forces reflected equality. The three-variable homogeneous ratio has exactly one positive critical point: exact elimination factors into a quartic with one positive root and a strictly positive quartic factor. The boundary is strictly below the explicit interior competitor; the first-lag equality and fourth-lag real-part equality force precisely the eight listed phases. The packaged standard-library checker validates the critical polynomial identity exactly and finite independent convolution and Fourier evaluations. Its finite tests are corroboration, not the argument establishing global optimality.
+## correctness
 
-## Originality
-PASS with residual bibliographic risks. Actual search comparisons included the exact order-eight Fourier frequency block, five consecutive modes, Nyquist alias, cyclic fourth moments, equivalent nonnegative-trigonometric-polynomial formulation, and finite filter autocorrelation. Published four-consecutive-character theorems concern a smaller support; the known reflection root-mean-square theorem supplies only an intermediate symmetrization. A five-point two-dimensional Ferrers result has different additive collisions. Green--Ruzsa and Schmidt cover classical majorant and autocorrelation contexts, not this finite cyclic optimum. Brown--Goldstein--McDonald (1988) treats the same extremal functional on the **continuous circle**, a serious comparator; its circle answer does not determine the order-eight alias contribution or discrete phase quantization. The full 1984 and 1988 papers were inaccessible, and an older table of this exact cyclic norm remains a bibliographic risk. A search does not certify historical uniqueness.
+PASS
 
-## Value
-PASS. The eight-cycle is the **first** cyclic sampling order where five consecutive modes incur one Nyquist collision, so it marks a mathematically canonical boundary rather than an arbitrary numerical slice. The theorem proves the exact finite sampled sharp constant, a rigorous magnitude classification, and a genuine phase-symmetry transition from a continuous extremizer orbit to eight projective classes. The difference from the circle's fourth-moment functional persists even though all input frequencies remain distinct. This resolves a natural smallest-boundary case and provides a fully characterized test example for finite Fourier synthesis norms and cyclic filter-energy estimates.
+Parseval gives precisely the alias of coefficients 0 and 8 of F², equivalently the merge of autocorrelations ±4. The reflected RMS step improves each nonnegative correlation, strictly improving some nonzero lag for unequal reflected magnitudes. The independent envelope calculation optimizes first in t=u² and then factors the derivative of the resulting rational function in v into a negative positive factor times v⁴+4v³−7v−2; the unique positive root is the global maximum, including the boundary checks. Positive magnitudes force affine phases by equality in the lag-one triangle inequality; the merged lag-four term forces phase increment in (π/4)Z, giving exactly eight classes. The exact formula is correct; the printed K approximation is off in the last displayed digit (K=3.527901483813719443…); the quoted floating-point quadrature is diagnostic, not an exact check.
 
-## Limitations and closest sources
-The result is confined to one support and one group order. Both Goldstein--McDonald (1984) and Brown--Goldstein--McDonald (1988) were bibliographically and abstract inspected, not read in full because access was unavailable. The continuous counterpart and the reflection reduction are not presented as new. Independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known majorization and reflection methods provide reductions, and an indexed exact three-character result already covers the x=0 boundary. The closest phase-locking result found is for four characters on the six-cycle, not five on the eight-cycle. Continuous-circle trigonometric-polynomial maximization has a different functional because it does not identify degrees 0 and 8. The supported distinct result is the exceptional finite norm and its eight equality classes, not those general methods or boundary cases.
+
+## value
+
+PASS
+
+Eight samples with five consecutive Fourier modes are the critical size where the two endpoint degrees of the squared polynomial first alias. This is a natural finite threshold, not an arbitrary numerical slice. The sharp sampled norm and complete equality set determine how the alias changes the actual optimizing magnitude profile and replaces continuous modulation by a finite family; they provide an exact test case for cyclic restriction and sampling estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

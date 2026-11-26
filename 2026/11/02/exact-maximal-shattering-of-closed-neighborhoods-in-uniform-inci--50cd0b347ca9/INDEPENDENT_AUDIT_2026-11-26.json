@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:38.924918Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all-point closed supports a point center supplies any singleton and (outside the support) the empty trace. The full trace bounds size by k and the required two-point traces force size at most n-k+2. These bounds suffice since a block can fill with points outside the support. A mixed support cannot contain >=2 vertices of each type, and if one side has size >=3 the unique center for a trace including the singleton-side vertex and >=2 opposite vertices precludes shattering. A block-only support of size s>=3 requires distinct point witnesses for all nonsingleton incidence signatures, giving k>=2^(s-1)-1 and n-k>=2^(s-1)-s. Both are strict relative to the size-d thresholds for s>=4. At k=2 the pair types give C(n,2), 2C(n,2), and n C(n-1,2); there is an empty witness even at n=3. At d=3 the mixed types are an included point pair in a block, or a common selected point in two blocks with intersection size >=2. A block triple requires precisely the three pair-only regions and the triple region to be nonempty. At k=3 those four regions exhaust the capacity of all blocks and give four triples per four ground points; at k=n-1 all block triples qualify. This recovers the exceptional coefficients, including agreement at (4,3). For rank two, a block root has only three positive hypotheses, and the positive branch of a point root has no split with both children of size >=4. This rules out depth four. At a point root the positive branch splits at an incident block into two distinguishable sides when n>=4, and the negative branch restricted to the remaining incidence graph contains its VC-two class; at n=3 only six hypotheses exist. For the repaired open comparison, the two bounds for point supports are s<=k and k-1<=n-s (the smallest nonempty trace is a singleton); block supports require 2^(s-1) points inside and 2^(s-1)-1 points outside each selected block. These are sufficient for the claimed upper bound, which the point supports attain. Independent literal-set trace checks in branches/independent-replays/incidence.py verified the corrected open dimensions and closed extremal counts at all 15 ranks/orders through n=7, and nonexistence of larger closed supports through n=6; the symbolic proof gives all orders. The frozen script checks only closed neighborhoods, so its recorded output did not validate the original open comparison.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson/Hamming neighborhood dimension bounds concern different ambient graph families. The induced-Turán theorem treats generalized W(k,d,r) and an auxiliary incidence VC framework."
+        ],
+        "reasoning": "None gives the uniform-incidence exact closed law or its census by specialization. In particular neighborhoods of an induced subgraph are restrictions of neighborhoods centered inside it, not all ambient neighborhoods, and the ambient dimension bounds do not count its extremizers.",
+        "searches": [
+          "arXiv:2007.16042 p. 1 and Corollary 4.4",
+          "arXiv:2401.11296 pp. 2–3 theorem statements and neighborhood definition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.16042",
+        "arXiv:2401.11296",
+        "Resultary:09da1f15171b",
+        "Resultary:c881a68b611c",
+        "Resultary:08634914be96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-sided neighborhoods have no self-center singleton contribution, while closed point centers supply singleton traces and closed block centers supply their own block traces. The online gap on H(2,3) does not analyze point or block roots of I(n,2)."
+        ],
+        "reasoning": "One-sided incidence and the ambient Hamming or Johnson comparisons do not imply the repaired closed two-sided results. The rank-two graph identification is credited, and the elementary open comparison is supporting context rather than a distinct originality claim.",
+        "searches": [
+          "arXiv:2401.11296 pp. 2–3 definition and statements",
+          "arXiv:2007.16042 Corollary 4.4",
+          "Resultary 09da1f15171b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H(n,k,1) is exactly the same graph. The one-subdivision of K_n is exactly I(n,2)."
+        ],
+        "reasoning": "The aliases are equivalent as graphs; the hedgehog paper uses a one-sided open incidence concept, and the subdivision corollary identifies an induced graph but does not analyze its closed-neighborhood extremizers or online trees.",
+        "searches": [
+          "Uniform incidence graph / complete uniform hypergraph / hedgehog H(n,k,1)",
+          "arXiv:2401.11296 pp. 2–3",
+          "arXiv:2007.16042 Corollary 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09da1f15171b gives closed Hamming dimensions with a (2,3) gap at H(2,3); c881a68b611c counts maximum shattered geodesically convex supports in Johnson graphs; 08634914be96 gives the full closed-neighborhood shattering polynomial of J(n,2)."
+        ],
+        "reasoning": "The last two count different concepts or different graphs, and the Hamming gap is on a different graph family. No exact matching table was identified in the inspected material; query misses prove no absence.",
+        "searches": [
+          "Local Resultary uniform-incidence/hedgehog shattering search, results 09da1f15171b, c881a68b611c, 08634914be96",
+          "Primary literature query: closed neighborhood VC dimension uniform incidence hedgehog"
+        ]
+      },
+      "rationale": "The distinct supported claim is the two-sided inclusive closed-neighborhood dimension and exact extremal support structure and census, together with the rank-two online law. The repaired open-neighborhood calculation is elementary and not claimed new. No verified inspected statement covers the central result; priority remains bounded by the evidence.",
+      "residual_risks": [
+        "A prior equivalent theorem may appear under incidence, subdivision or trace terminology not recovered by the bounded search.",
+        "Same-day catalogue dates do not settle ordering or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ambient Johnson/Hamming bounds and exactly the rank-two graph as an induced subgraph, not its claimed dimensions and support counts",
+          "evidence": [
+            "The open 2-neighbourhood in H(d,2) induces the 1-subdivision of K_d"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "p. 1 offset 1250; Corollary 4.4, p. 21 offset 55380",
+          "method": "OA primary PDF passages",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Neighborhood VC and the rank-two graph alias"
+        },
+        {
+          "assessment": "Same graph identified, different VC concept and objectives",
+          "evidence": [
+            "H(k,d,1) corresponds to incidence of the complete d-uniform hypergraph on k vertices; the VC definition uses neighborhoods from one bipartition side"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11296",
+          "material_read": "pp. 2–3 offsets 5140, 7900, 11950",
+          "method": "OA primary PDF passages",
+          "title": "Induced Turán problem in bipartite graphs",
+          "trigger": "Same uniform-incidence object under hedgehog aliases"
+        },
+        {
+          "assessment": "Different graph family; same-day date does not order priority",
+          "evidence": [
+            "Includes the (2,3) gap at H(2,3) for closed radius-one Hamming neighborhoods"
+          ],
+          "identifier_or_url": "Resultary:09da1f15171b",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact static and adaptive shattering of closed Hamming neighborhoods",
+          "trigger": "Same adaptive/static gap and closed concept"
+        },
+        {
+          "assessment": "Different graph and concept",
+          "evidence": [
+            "Uses geodesically convex subsets of J(n,k)"
+          ],
+          "identifier_or_url": "Resultary:c881a68b611c",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact maximal shattering counts and a rank plateau for Johnson graphs",
+          "trigger": "Maximum shattered supports and parameterized graph family"
+        },
+        {
+          "assessment": "Johnson J(n,2) is not the incidence subdivision",
+          "evidence": [
+            "Gives the full closed-neighborhood shattering polynomial for J(n,2)"
+          ],
+          "identifier_or_url": "Resultary:08634914be96",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular graphs",
+          "trigger": "Closed-neighborhood census and rank-two subset labels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph is canonical, but including both point and block centers changes the extremal trace problem. The exact exceptional censuses and the fact that block vertices disappear from all maximum supports at dimensions at least four identify a structural threshold, not merely one small graph computation. The rank-two online gap holds uniformly on a natural infinite subdivision family. These features survive the repair of the open-neighborhood comparison and are useful as exact examples for neighborhood learning and incidence-trace enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:27:32.324241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For left regular convolution, the two scalar blocks are U+V and U-V, and the two-dimensional block occurs twice. Directly multiplying its entries from diag(w,w^2) and the swap matrix gives determinant Q(u)-Q(v); all entries vanish exactly for two constant triples, including a zero triple. Left/right rotation translates move the two coset subsets independently since (p,q)->(p+q,q-p) is invertible modulo 3, and a reflection switches cosets. On one coset the scalar contributions coincide, giving even ranks, and the standard block vanishes only at full constant triple support. For (1,1) determinant degeneracy forces precisely one scalar zero. For (2,1) the two scalars cannot both vanish and a single scalar zero implies determinant -3*u_0*u_1, so neither rank 2 nor 3 can occur. For (3,1) at least one scalar and a nonzero standard block remain. Two-tap partial triples exclude a zero standard block for (2,2) and (3,2); the full support case only needs faithfulness of the regular representation. Single-tap and same-coset cases give the stated remaining exclusions. I read the frozen witness table and output without executing its checker. /workspace/branches/reproduce_1.py generated exact integer witnesses for all 31 allowed pairs and verified their ranks independently by rational elimination on affine-permutation convolution matrices, including the real (4,1,1;3,3,0) witness for (3,2) at rank 3. These supply attainment, not the all-complex-coefficient exclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alagic–Russell and Meshulam give |supp|*mu>=6 in S3. Sharp Uncertainty Principle for Transitive G-sets supplies the stronger support-stabilizer-sensitive lower bound.",
+          "The abelian theorem treats ordinary Fourier support."
+        ],
+        "reasoning": "The stabilizer refinement even excludes rank 2 for the unbalanced four-tap case (its stabilizer is trivial since its size can only divide both 4 and 6 and an order-two swap would balance the cosets). None of these bounds specifies all attainable ranks or attains the regime at every fixed support.",
+        "searches": [
+          "arXiv:math/0608702 Thm. 2",
+          "Meshulam 1992 Thm. 1(a)",
+          "arXiv:math/0312407 Thm. 1.2",
+          "arXiv:2211.11204 Cor. 3.22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0608702",
+        "Meshulam 1992 DOI:10.1016/S0195-6698(05)80019-8",
+        "arXiv:math/0312407",
+        "arXiv:2211.11204",
+        "Local Resultary 29d4924b2b7c, eb09d9b17153, d4787ab578c7, 0f28cf825a80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the two-tap theorem the exceptional rank is 6-6/m for the separation order m, giving m=3 or 2 in the respective S3 shapes.",
+          "The odd-prime three-tap result does include p=3, and its two nullity sets recover both frozen rows. The balanced four-tap singular-value theorem assumes a support indicator."
+        ],
+        "reasoning": "Credit these exact implications (the two-tap source is absent from the frozen bibliography), and credit the lower bound where it applies. None supplies arbitrary-complex four-tap spectra for S3 or the five- and six-tap classifications. A same-day D10 catalog date is not used to infer priority.",
+        "searches": [
+          "Resultary 29d4924b2b7c, eb09d9b17153, d4787ab578c7, 0f28cf825a80 theorem statements",
+          "arXiv:2211.11204 Cor. 3.22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meshulam (1992) identifies the same rank as the dimension of the regular convolution image; the rank-support and nullity formulations are equivalent.",
+          "Resultary eb09d9b17153 classifies nullities for three taps, specializing at p=3 to exactly the two three-tap rows."
+        ],
+        "reasoning": "Translate between nullity 6-mu, rank-weighted Fourier support, and regular rank before comparing. Unweighted Fourier-support size and conditioning are not equivalent. The fixed exact support hypothesis is stronger than minimizing over arbitrary supports of size at most k.",
+        "searches": [
+          "Resultary: S3 rank-weighted Fourier support complete support-shape attainable rank diagram",
+          "S3 six-element support-shape complex convolution rank spectrum all supports",
+          "Rivin uncertainty principle finite nonabelian groups Fourier support rank weighted uncertainty inequality S3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "29d4924b2b7c exactly covers both two-tap rows and eb09d9b17153 exactly covers both three-tap rows.",
+          "d4787ab578c7 covers the unit-weight (2,2) case; 0f28cf825a80 is an arbitrary-complex four-tap table on D10 rather than S3."
+        ],
+        "reasoning": "The unit-weight slice has rank 3 and does not cover the balanced complex-weight range 2–6. The order-ten table is a different fixed group, including a parallel/skew split, not a table containing the order-six group. No separate complete order-six table was established by these bounded searches.",
+        "searches": [
+          "Resultary: S3 six-element support-shape complex convolution rank spectrum all supports",
+          "Resultary: balanced four-tap generalized-dihedral convolution arbitrary weights exact ranks"
+        ]
+      },
+      "rationale": "The exact arbitrary-complex rank diagram for every fixed support is distinct in the inspected evidence. The two nontrivial two-tap rows and both three-tap rows are known, and the unit-weight balanced four-tap case and certain lower bounds are covered; these are not independent contributions. The justified scope is the complete spectra at higher sparsities and their assembly into the full diagram.",
+      "residual_risks": [
+        "A bounded targeted query did not identify a relevant Rivin primary source; this does not establish its absence.",
+        "An unlocated group-algebra small-order classification could contain the full diagram in a different representation.",
+        "Same-day analogues were compared scientifically without inferring chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies both two-tap rows",
+          "evidence": [
+            "N-N/m iff -a/b is an m-th root; rank N otherwise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-two-spike-rank-support-law-on-arbitrary-finite-groups--29d4924b2b7c/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-spike rank-support law on arbitrary finite groups",
+          "trigger": "Exact two-tap match"
+        },
+        {
+          "assessment": "Both rows are prior coverage",
+          "evidence": [
+            "One-coset nullities 0,2,4 at p=3; mixed nullities 0,1,2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/16 SCOPE-complete-three-tap-fourier-rank-spectrum-on-odd-prime-dihedral-g--eb09d9b17153",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete three-tap Fourier-rank spectrum on odd-prime dihedral groups",
+          "trigger": "Exact three-tap match"
+        },
+        {
+          "assessment": "Exact unit-weight slice only",
+          "evidence": [
+            "Support indicator theorem yields rank 3 for A=C3."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Balanced four-tap generalized-dihedral convolution: three nullity strata and a sharp quadratic spectral gap",
+          "trigger": "Balanced four-tap overlap"
+        },
+        {
+          "assessment": "Arbitrary-complex weights, but a different fixed group",
+          "evidence": [
+            "D10 balanced rows distinguish parallel and skew differences."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 SCOPE-exact-four-tap-fourier-rank-geometry-on-the-ten-element-dihedral--0f28cf825a80",
+          "material_read": "Finding and table at offset 500",
+          "method": "Local Resultary mirror",
+          "title": "Exact four-tap Fourier-rank geometry on the ten-element dihedral group",
+          "trigger": "Closest complex-weight four-point match"
+        },
+        {
+          "assessment": "Lower bound only for this comparison",
+          "evidence": [
+            "The product of support measure with rank-weighted Fourier support is at least one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0608702",
+          "material_read": "Abstract and Thm. 2 (PDF pp. 1–2)",
+          "method": "OA primary PDF passages",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "General rank-weighted framework"
+        },
+        {
+          "assessment": "Same invariant, lower bound; additional structured results do not classify the nine shapes",
+          "evidence": [
+            "dimensional Fourier weighted sum equals regular rank and obeys product bound."
+          ],
+          "identifier_or_url": "https://meshulam.net.technion.ac.il/files/2021/05/uncer_pq.pdf",
+          "material_read": "Rank identity and Thm. 1(a), printed pp. 401–402",
+          "method": "OA primary PDF passages",
+          "title": "An Uncertainty Inequality for Groups of Order pq",
+          "trigger": "Nonabelian order-pq coverage"
+        },
+        {
+          "assessment": "Abelian group, ordinary Fourier-support size",
+          "evidence": [
+            "Divisor-sensitive bound in the finite abelian case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312407",
+          "material_read": "Thm. 1.2, PDF pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "An Uncertainty Inequality for Finite Abelian Groups",
+          "trigger": "Named Meshulam comparison"
+        },
+        {
+          "assessment": "Relevant shape-sensitive lower bounds, not full spectra",
+          "evidence": [
+            "Product of support size and Fourier rank support is at least |G|+|supp|-|stabilizer|."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.11204",
+          "material_read": "Abstract and Cor. 3.22 (PDF p. 35, offset 83296)",
+          "method": "OA primary PDF passages",
+          "title": "Sharp Uncertainty Principle for Transitive G-sets",
+          "trigger": "Stronger support-stabilizer form of nonabelian rank bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "S3 is the first nonabelian benchmark, and rank is intrinsic to recovery by convolution. Same-cardinality supports really do have different attainable sets. Beyond reproducing an uncertainty bound, the diagram identifies all higher-sparsity rank gaps and constructive attainability on each individual support, including the balanced four-point rank-two realization, which the previously known unit-weight case and lower bounds cannot give.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

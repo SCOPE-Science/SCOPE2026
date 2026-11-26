@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:10:08.988378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51",
+        "Frozen VERIFICATION.md, lines 19–21; verify.py, lines 5–50 (read only)",
+        "Independent replay: python3 /tmp/opencode/independent_frozen_checks.py (rotation_periods section)"
+      ],
+      "rationale": "Writing A=S^s on a row, the companion matrix gives M^3-I=(A+I)C, with commuting polynomial entries and det C=A. Thus the kernel at time 3·2^j is exactly the joint kernel of A^(2^j)-I; no smaller kernel is hidden in C. In the cyclic group algebra z^n-1=(z-1)^n, reduction at z=1 gives the order-three two-dimensional matrix with no fixed nonzero vector for exponents not divisible by three. Invertibility lifts modulo the nilpotent ideal. Since A has order L, M^(3L)=I. These facts prove the pointwise first returns and all-time fixed counts. Taking consecutive differences of the paired coordinate-cycle counts gives the census, including the zero state, n=1, and s≡0; for L>1 the two largest fixed-space dimensions are 2n and n. I independently enumerated six F4 cases with n=1,2,4 including negative strides and nonzero multiples of n; at n=4,s=-3 the counts at 1,3,6,12 were 1,15,240,65280. This was an additive two-bit reproduction, not an execution of the frozen checker or an all-length certificate.",
+      "residual_risks": [
+        "Exact classification is for dyadic n and characteristic two only; finite reproduction covers F4 at n≤4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4, p. 17, computes topological entropy from the characteristic polynomial",
+          "The incidence-graph record 914535ff5fe5 gives wave clocks for finite partial geometries"
+        ],
+        "reasoning": "The entropy theorem does not recover finite cyclic least periods or the labelled period distribution. The incidence-graph result is for specific adjacency matrices, not the family of directed permutations here.",
+        "searches": [
+          "Castronuovo–Dennunzio–Kari–Margara arXiv:2611.16746v1",
+          "Resultary: all-iterate fixed-state and primitive-period censuses for reversible finite-field waves"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16746v1 Theorem 4",
+        "DOI 10.1088/0305-4470/37/45/006 abstract",
+        "Resultary findings 6f3d55fba7da, a400d5cad467, 71f33c45dd42, 914535ff5fe5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both inspected cycle censuses are for a shift-plus-inverse-shift coefficient",
+          "The frozen record describes the related threefold sunlet clock as a four-component system; its cited exact file was not available in the local mirror for independent comparison"
+        ],
+        "reasoning": "Even a global clock 3L for another wave would not by itself identify any individual state's first return. The supported distinct statement is the equality of the temporal and spatial fixed subspaces at each scale and the pointwise classification it yields.",
+        "searches": [
+          "Earlier finite-field wave census 6f3d55fba7da; parity-split nearest-neighbor census a400d5cad467; cited sunlet-clock record 0c20c45a4756"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier simple-cycle and parity-split wave findings use S+S^-1, not S^s",
+          "Macfarlane (2004), publisher abstract: three mod-two examples; particular rules and full finite-ring theorems could not be verified"
+        ],
+        "reasoning": "Recasting the memory update as a first-order two-row matrix is standard. A centered-neighbor example, even in the same matrix form, does not give the kernel of the directed update; conjugating stride cycles only reduces this finding to disjoint directed dyadic rings, not centered-neighbor rings.",
+        "searches": [
+          "Resultary: directed Fibonacci cellular automata, additive reversible waves, dyadic threefold clocks",
+          "Primary lookup: second-order reversible CA and first-order matrix equivalents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71f33c45dd42 counts a constructed invariant family in a nonlinear sequential sunlet automaton, not all periodic states",
+          "914535ff5fe5 computes different incidence-graph wave populations"
+        ],
+        "reasoning": "None of the inspected indexed populations is for the same family and pointwise invariant. Same-day records were compared on their statements, not assigned an order by date.",
+        "searches": [
+          "Resultary: T(u,v)=(S^s u+v,u), directed/Fibonacci CA, threefold period and exact orbit census",
+          "Compared distinct same-day records 71f33c45dd42 and 914535ff5fe5"
+        ]
+      },
+      "rationale": "The checked results cover entropy, matrix representations, or complete orbit statistics for materially different update operators. None of the inspected statements gives or implies the directed monomial rule's pointwise joint spatial-to-temporal period law. This is a judgment on the specified claim, not priority certification.",
+      "residual_risks": [
+        "Macfarlane full text and the specific cited sunlet record 0c20c45a4756 were unavailable; the accessible evidence does not settle historical priority.",
+        "Unindexed equivalent formulations are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers entropy, not this finite-ring law",
+          "evidence": "Theorem 4 outputs entropy, not a fixed-space equivalence or orbit census.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16746",
+          "material_read": "Abstract, overview p. 4, Theorem 4 p. 17 (PDF text offset 53350)",
+          "method": "Bounded primary text retrieval",
+          "title": "Topological Entropy of Group Cellular Automata is Effectively Computable",
+          "trigger": "Characteristic-polynomial theorem includes the class of linear automata"
+        },
+        {
+          "assessment": "Possible close prior coverage unresolved",
+          "evidence": "Abstract identifies RCA1–3 without establishing their complete finite-ring period classifications.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/37/45/006",
+          "material_read": "Publisher record and abstract; full text not lawfully retrieved",
+          "method": "Publisher/DOI and bounded primary lookup",
+          "title": "Linear reversible second-order cellular automata and their first-order matrix equivalents",
+          "trigger": "Plausibly same companion representation and mod-two rule"
+        },
+        {
+          "assessment": "Mathematically adjacent; different update",
+          "evidence": "Centered coefficient S+S^-1 and fixed count q^(2 gcd(n,k)) minus a correction.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-periodic-orbit-census-for-reversible-finite-field-waves--6f3d55fba7da",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary lookup and mirror",
+          "title": "An exact periodic-orbit census for reversible finite-field waves on cycles",
+          "trigger": "Complete orbit census on cycles"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Update uses Su+S^-1u+v and parity of the circumference.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-split-orbit-census-for-reversible-nearest-neighbor-waves--a400d5cad467",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary lookup and mirror",
+          "title": "Parity-split orbit census for reversible nearest-neighbor waves on binary rings",
+          "trigger": "Binary ring waves and exact period statistics"
+        },
+        {
+          "assessment": "Neither equivalent nor dominating",
+          "evidence": "Restricted invariant family for a nonlinear sequential (1,3) rule on a sunlet.",
+          "identifier_or_url": "2026/11/22/SCOPE-fibonacci-necklace-rotation-and-leaf-flipping-coexistence-in-seq--71f33c45dd42",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary lookup and mirror",
+          "title": "Fibonacci necklace rotation and leaf flipping coexistence",
+          "trigger": "Distinct same-day Fibonacci periodic-orbit claim"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Finite partial-geometry incidence graphs, not cyclic shifts.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-exact-reversible-wave-clocks-on-incidence-graphs-of-finite--914535ff5fe5",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary lookup and mirror",
+          "title": "Four exact reversible wave clocks on incidence graphs",
+          "trigger": "Distinct same-day characteristic-two complete census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 4–51",
+        "Earlier centered-neighbor and incidence-graph findings as compared above"
+      ],
+      "rationale": "For the natural directed single-neighbor reversible update, knowing a global order alone does not identify which initial configurations run on each clock. The fixed-space identity gives a statewise criterion with a spatial interpretation, then determines the full finite ring census without simulating long orbits. This also explains the exact stride-independent maximal-period proportion for every nonidentity spatial stride. The value is this structural identification and resulting complete census, not the standard matrix encoding or merely dividing counts by period.",
+      "residual_risks": [
+        "No extension to odd factors of n or other characteristic follows from this audit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

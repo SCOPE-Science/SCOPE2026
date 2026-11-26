@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:04:28.471707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final assessment of /workspace/repairs/1/RESULT.md. Frozen line 45 wrongly allowed a double inverse-map root at q=−1/4. The complete corrected RESULT.md replaces that assertion by the factorization: q−r contributes t−r(1+t)² with discriminant 1−4r, product of roots 1, and sum 1/r−2. These signs give two distinct negative roots for r<0, and a nonreal r cannot correspond to real t (t=−1 is not a root of this quadratic). The extra (1+t) factor power from a degree drop handles m=1; the double gamma root at m=2 yields real roots with multiplicity. Checked the corrected identities algebraically and with rational arithmetic including r=−1/4; the actual inverse-map double-root parameter is +1/4. No theorem statement, coefficient, or certificate changed. By Zhong's endpoint-pair formula and Hall, each j≥2 source-target choice matches: individual neighborhoods have size at least j−1, and two distinct sources have union of neighborhoods equal to all j targets. Only m singleton choices are lost. Independent exact rational Sturm replay gives (V(−∞),V(0))=(m,0) for m=3,…,11 and (11,1) for m=12, whose chain ends in a nonzero constant. The positive coefficients rule out nonnegative roots; the remaining two roots at m=12 are nonreal conjugates. Replay files: /workspace/review-evidence/1/independent_sturm.py and independent_sturm.txt in that directory. Frozen verification files were inspected, not executed. The conclusion does not classify m≥13 or minimal failure among all posets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhong counts disjoint matchable endpoint pairs once each; Hall then gives the frozen coefficients directly.",
+          "The complete two-level formula has binomial-square coefficients without the −mq perturbation and is real-rooted.",
+          "Zhong's Example 4 is a different eight-element nonreal-rooted example."
+        ],
+        "reasoning": "The broader theorem provides the entire coefficient formula mechanically, but coefficient nonnegativity is weaker than real-rootedness and the complete-graph theorem does not transfer real-rootedness after diagonal deletion. Existence of a general failure is already known.",
+        "searches": [
+          "Zhong arXiv:2611.16858v1 Theorem 1 and matching proof",
+          "Athanasiadis–Chapoton arXiv:2605.26916v1 §9.2 Proposition 9.2",
+          "Focused primary search on standard examples, support enumerators, and real-rootedness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16858v1 Theorem 1, §2, Example 4",
+        "arXiv:2605.26916v1 §9.2 Prop. 9.2",
+        "Resultary 0e03524115c2 and 84ba1197a0d2, original mirrored passages in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior matching theorem plus Hall implies Γ(S_m)=∑ binom(m,j)²q^j−mq.",
+          "At m=12 the −mq term produces failure proved by the separate rational Sturm computation; the prior complete-order real-rootedness result treats the unperturbed polynomial."
+        ],
+        "reasoning": "The formula implies the root problem can be decided by a separate computation, but not the cutoff by any inspected stronger root theorem. The independently checked ten-negative-root result is the precise family-specific contribution.",
+        "searches": [
+          "arXiv:2611.16858v1 §2 matching proof and Example 4",
+          "arXiv:2605.26916v1 Proposition 9.2",
+          "Resultary 0e03524115c2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The S_m comparability graph is K_(m,m) with one perfect matching removed, not generally the cycle C_(2m). They coincide at m=3, but the degree is m−1 in the former and two in the latter.",
+          "The prior convex-set invariant is on the same poset family but weights convex subsets with five statistics, not all lattice points of the ideal-defined preorder polytope.",
+          "The gamma-to-support root equivalence follows by the corrected quadratic substitution."
+        ],
+        "reasoning": "The likely crown alias must be resolved by comparabilities, not by name. The cycle result covers the overlapping order m=3, not the root cutoff for the diagonal-deleted complete incidence graphs. Same-poset convex-subset counts are not an equivalent enumerator here.",
+        "searches": [
+          "arXiv:2611.16858v1 §1–2 and Example 4",
+          "Resultary 0e03524115c2 (crown support enumerators) and 84ba1197a0d2 (standard-example convex-set statistics)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown-cycle record gives Γ=M_(C_(2m))−q^m and negative roots in its own family.",
+          "Patel's example as reported by Zhong has Γ=1+9q+24q²+16q³+q⁴ versus Γ(S_4)=1+12q+36q²+16q³+q⁴.",
+          "The exact two-level comparator has no diagonal deletion."
+        ],
+        "reasoning": "None of the inspected exact formulae or cases is a table covering the S_m roots through m=12. The same-day crown record's date does not establish priority, and its actual graph gives only the small overlap noted above.",
+        "searches": [
+          "Resultary 0e03524115c2 and 84ba1197a0d2 mirrored Findings",
+          "arXiv:2611.16858v1 Example 4, around offset 11352",
+          "arXiv:2605.26916v1 Proposition 9.2, around offset 80334"
+        ]
+      },
+      "rationale": "Reassessed after the proof correction with the same scope. The gamma formula is a direct application of the broader prior matching theorem and Hall's criterion, not an independent novelty claim. The exact first loss of real-rootedness in the standard examples is the supported increment. Neither the known complete two-level case, the smaller general counterexample, nor the nearby crown-cycle family covers that cutoff. The accessible comparisons do not settle universal priority.",
+      "residual_risks": [
+        "Focused literature search did not supply another cutoff theorem; it cannot exclude an unindexed earlier standard-example calculation or an equivalent perturbed-polynomial result.",
+        "The crown-cycle comparison supplies overlap and distinction, not precedence within a date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the gamma coefficients via matching, and general existence of nonreal roots through a different example, not the S_m-specific cutoff.",
+          "evidence": [
+            "A gamma coefficient counts pairs of disjoint equal-size endpoint sets that admit a matching, not the matchings themselves.",
+            "Example 4 gives a different eight-element comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16858v1",
+          "material_read": "Theorem 1 around offset 2800, §2 matching proof offsets 4300–8785, Example 4 in offsets 10700–15158.",
+          "method": "Open-access original passage inspection.",
+          "title": "Gamma-positivity of support enumerators of preorders",
+          "trigger": "Universal matching theorem for the exact invariant and an earlier counterexample."
+        },
+        {
+          "assessment": "Complete incidence, not the missing-diagonal standard examples.",
+          "evidence": [
+            "For equal level sizes, coefficients are the unperturbed binomial squares and the support polynomial is real-rooted."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.26916v1",
+          "material_read": "§9.2 Proposition 9.2, around offset 80334 within the passage starting at 79800.",
+          "method": "Open-access original passage inspection.",
+          "title": "Polytopes and posets associated to preorders",
+          "trigger": "Exact real-rooted complete two-level comparison."
+        },
+        {
+          "assessment": "Cycle comparability graph, genuinely overlapping at S_3 only among the cycle orders with m≥3. No priority inferred from a shared date.",
+          "evidence": [
+            "Γ=M_(C_(2m))−q^m and negative roots for that cycle family."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-crown-preorder-support-enumerators-have-simple-negative-roots-in--0e03524115c2",
+          "material_read": "Mirrored RESULT.md Finding and its family definition.",
+          "method": "Local Resultary search and mirror passage inspection.",
+          "title": "Crown preorder support enumerators have simple negative roots",
+          "trigger": "Possible alias and apparently opposite root conclusion for a near-identical object."
+        },
+        {
+          "assessment": "Different enumerated objects and no matching support-polynomial root theorem.",
+          "evidence": [
+            "Counts convex subsets with a defect localized by whether restoring the diagonal changes their statistics."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-five-statistic-convex-set-polynomial-and-defect-localization-for--84ba1197a0d2",
+          "material_read": "Mirrored RESULT.md original statement of the five-variable statistic and defect.",
+          "method": "Local Resultary search and mirror passage inspection.",
+          "title": "Five-statistic convex-set polynomial and defect localization for standard examples",
+          "trigger": "Same S_m incidence and deleted-diagonal mechanism in a prior enumerative result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reassessed after correction: the standard examples are a canonical height-two sequence and a uniform diagonal deletion of a known real-rooted family. Knowing the precise first failure at order 12 and the ten-real/two-nonreal split isolates a natural stability boundary for that deformation. The value rests on the sharp nontrivial boundary, not the routine application of Hall to the coefficient formula. Neither all larger orders nor the smallest failure among general posets is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

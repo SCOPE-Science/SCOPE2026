@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:34.859200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–53; frozen VERIFICATION.md and verify.py, read-only",
+        "Independent exact C4 check (c=1/4): sharp reductions 41/128 for edges and 19/64 for distinct pairs; replay with /workspace/branches/9552e87e-32c8-40a9-81eb-45d18a7b81de/independent_check.py"
+      ],
+      "rationale": "For a=Hx the sequential energy drop is a_i^2+(a_j-H_ji*a_i)^2, including repeats (second term zero). At x=1, Hx=(1-dc)1 and x^T Hx=n(1-dc), so the three ordered-pair types give normalized decreases proportional to 1, 2, and 2+2c+c^2. This bounds all fixed joint laws and forces edge support at equality. Uniform orientations have both margins 1/n, yielding the bracket (2+c^2)I+(2c/d)A in the expected loss as a quadratic form in Hx, with factor 1/n. For eigenvalue lambda, the difference of the unscaled decrease from the lambda=d mode is c(d-lambda)[dc^2+2c(d+lambda)+2(d-1)]/d, strictly positive if lambda<d, also for d=1. Connectedness gives the unique worst direction for this law. The distinct-pair comparator scales the c^2 and 2c/d terms by theta=d/(n-1); its mode function is concave and the difference of its -d versus d endpoint values is 2c[d(2+theta*c^2)-2theta]>0. The formula is strict versus edges exactly for noncomplete graphs; the cycle limit is (2+1+1/4)/2=13/8. The analysis is for one pair; it neither proves uniqueness of the law nor a multistep speedup.",
+      "residual_risks": [
+        "C4 is a diagnostic only. General proof is spectral, and no formal certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu et al. p. 1 studies convergence with randomly sampled blocks; Rodomanov–Kropotov §3.3 studies determinant-weighted subsets; Wright–Lee p. 3 and p. 8 study random-permutation epochs. The local ordered-pair minimax theorem concerns a fixed nonregular graph."
+        ],
+        "reasoning": "Convergence bounds for these operators or particular subset/epoch laws do not give the exact optimum over all joint probabilities on ordered pairs or prove necessity of edge support. The earlier settings do not subsume the assigned class and criterion.",
+        "searches": [
+          "arXiv:1701.03863; arXiv:1904.04587; arXiv:1706.00908; local Resultary 5c3ce0875aab"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5c3ce0875aab and 179ddfb2cdd5",
+        "Tu et al. arXiv:1701.03863",
+        "Rodomanov–Kropotov arXiv:1904.04587",
+        "Wright–Lee arXiv:1706.00908"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a cycle and two coordinates, the simultaneous-block decrease is 2(1-2c)/[n(1-c)]; the sequential edge decrease is (1-2c)(2+2c+c^2)/n. The nonregular path has a regime with optimizers using a nonedge."
+        ],
+        "reasoning": "One cannot reduce the claimed comparison to the simultaneous block case at the same parameters. The loss identity gives an upper bound at the constant test vector, but a sharp minimax statement also needs the strict spectral comparison for every other mode and the separate exact distinct-pair law.",
+        "searches": [
+          "Resultary 179ddfb2cdd5 Finding and 5c3ce0875aab Finding; Rodomanov–Kropotov §3.3; Wright–Lee permutation-epoch analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5c3ce0875aab Finding states an exact two-singleton minimax law on the three-node path with a support transition at c=1/sqrt(3). 179ddfb2cdd5 Finding is for exact simultaneous block minimization."
+        ],
+        "reasoning": "Retention versus loss is just one minus the other and does not separate the claims; nonregularity versus regularity does. Simultaneous minimization would solve a two-by-two system, not compose two singleton projections.",
+        "searches": [
+          "Local Resultary, two successive singleton updates / ordered two-coordinate minimax: 5c3ce0875aab; cyclic-block Gauss–Seidel: 179ddfb2cdd5",
+          "Bounded primary-literature search on two ordered coordinate updates, Gauss–Seidel and minimax sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact comparators are a path with a support threshold and a cyclic simultaneous block theorem. Frozen numerical checks cover finitely many graphs and parameters."
+        ],
+        "reasoning": "An exact finite table is inapplicable to an optimum for every connected regular graph and continuum of couplings; exact analytic catalogue statements were the applicable comparison.",
+        "searches": [
+          "Local Resultary exact minimax records 5c3ce0875aab and 179ddfb2cdd5; frozen exact-rational verification scope"
+        ]
+      },
+      "rationale": "The strongest same-object comparison optimizes ordered pairs on a nonregular path and has a different support transition; the cyclic-block result uses a simultaneous, not sequential, operator. Inspected rate theorems do not determine this sharp worst-direction optimum over all fixed ordered laws on regular graphs. On the inspected evidence, the sharp regular-graph statement and comparator are distinct, not a priority guarantee.",
+      "residual_risks": [
+        "Bounded literature search; an older general two-projection optimal-design theorem could imply the result. No such implication was established by the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material methodological overlap, no regular-graph coverage",
+          "evidence": [
+            "Three-node nonregular path; support threshold c=1/sqrt(3). Same-day record date does not determine priority."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-edge-to-nonedge-threshold-for-ordered-two-coordinate-des--5c3ce0875aab/RESULT.md",
+          "material_read": "Finding and comparison, offsets 0 and 6481",
+          "method": "Local mirror statement inspection",
+          "title": "A sharp edge-to-nonedge threshold for ordered two-coordinate descent",
+          "trigger": "Same ordered-singleton minimax objective"
+        },
+        {
+          "assessment": "Different update operator",
+          "evidence": [
+            "Two-coordinate simultaneous decrease 2(1-2c)/[n(1-c)]."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-optimal-cyclic-block-gauss-seidel-contraction-and-a-screen--179ddfb2cdd5",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp optimal cyclic-block Gauss–Seidel contraction and a screened-Poisson crossover",
+          "trigger": "Same sharp energy criterion, cyclic graph overlap"
+        },
+        {
+          "assessment": "Block convergence comparison, not this ordered-pair claim",
+          "evidence": [
+            "Random block selection versus fixed partitions, with convergence and acceleration results."
+          ],
+          "identifier_or_url": "arXiv:1701.03863",
+          "material_read": "Abstract/introduction, p. 1",
+          "method": "OA PDF inspection",
+          "title": "Breaking Locality Accelerates Block Gauss-Seidel",
+          "trigger": "Random coupled coordinate selection"
+        },
+        {
+          "assessment": "Different sampling and quantity",
+          "evidence": [
+            "Determinant-weighted subset selection and convergence rates."
+          ],
+          "identifier_or_url": "arXiv:1904.04587",
+          "material_read": "p. 1 and §3.3, p. 10 (offset 35819)",
+          "method": "OA PDF inspection",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Joint coordinate selection and rates"
+        },
+        {
+          "assessment": "Permutation epochs and asymptotic rates",
+          "evidence": [
+            "Comparison of permutation-epoch asymptotics with random coordinate descent, not single-pair energy minimax."
+          ],
+          "identifier_or_url": "arXiv:1706.00908",
+          "material_read": "p. 1, p. 3 (offset 6570), p. 8 (offset 24896)",
+          "method": "OA PDF inspection",
+          "title": "Analyzing Random Permutations for Cyclic Coordinate Descent",
+          "trigger": "Sequential singleton updates with dependent order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact spectral argument; local path and cyclic-block comparators"
+      ],
+      "rationale": "Repeated and correlated coordinate choices are natural competitors for a budget of two exact updates. The theorem certifies that spending both updates along an edge is necessary for minimaxity among all fixed laws, and that regularity alone, without vertex transitivity, suffices for uniform edges to attain the bound. The sharp distinct-pair benchmark quantifies why adjacency rather than merely avoiding a repeat matters. These are one-pair design facts, not a claimed runtime improvement.",
+      "residual_risks": [
+        "No corresponding result asserted for nonregular graphs, adaptive policies or long horizons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

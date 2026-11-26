@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a fully specified finite domain: the 27-vertex Doyle–Holt graph with explicit modular coordinates, the synchronous observation closure, and two exactly defined three-token replacement moves. All 27 singletons, 351 pairs and 2,925 triples were enumerated. Complete adjacency lists of the 567 successful triples were built using each of the possible one-vertex replacements; full breadth-first searches from every state establish both distances and the exact six-bin relocation-penalty spectrum for every unordered pair. The 54-element graph automorphism group was enumerated, and orbit partitions were checked for completeness. Two differently implemented full-census programs, one using the modular coordinate representation and one using a group Cayley representation, agree. The separately checked isomorphism ties the presentations to the same graph. No infinite-graph conclusion is asserted.
+PASS
 
-## Originality — PASS (qualified)
+A new standard-library set-based enumeration independently reproduced the full finite finding. It checks the reciprocal degree-four coordinate graph, exhausts the 27 singleton, 351 pair and 2925 triple seeds and updates from the start-of-round observed set; the empty seed plainly cannot observe any vertex. It finds minimum size 3 and 567 triples, with rounds 5:351 and 6:216 and distance types (2,3,3):513 and (3,3,3):54. Enumerating every one-element exchange on that exact state set, with the exchanged vertices adjacent for a slide, yields 5400 and 1242 edges. Full BFS verifies both graphs connected, jump radius/diameter 4/4, slide 7/8 and slide eccentricities 7:432 and 8:135. Its 160461 unordered pairs give the reported 0–5 excess histogram (12501,34830,54189,47250,11340,351) and 54 pairs with distances (1,6); the stated length-six witness is legal and BFS confirms its minimality. Backtracking preserves every mapped adjacency and nonadjacency and considers all unused vertex images, so it enumerates all 54 automorphisms, not only selected generators. Complete group images give the 1 size-27 and 10 size-54 triple orbits, and 3 size-27 and 5 size-54 maximal-penalty pair orbits. The frozen reproduction programs were inspected, not executed.
 
-The closest directly relevant research is Bjorkman et al., *Power domination reconfiguration* (arXiv:2201.01798v1), which introduces the model and analyzes certain graph families; inspected Sections 1, 3, 4 and 5 do not give the Doyle–Holt optimum census or the slide-distance theorem. Doyle's full paper arXiv:math/0703861 describes the graph and its automorphism properties, not power domination. The MathWorld graph entry supplies an equivalent coordinate construction. Brimkov et al. (2018) gives general power domination polynomial context; only its abstract was accessible and is not used to conclude noncoverage of its complete text. Queries for Doyle/Holt and the exact sensor and distance invariants returned no covering indexed mathematical result. A closed-world novelty proof is not claimed. The JavaScript-only House of Graphs table was inaccessible, so a previously stored exact invariant cannot be fully excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The unique smallest half-arc-transitive graph is a canonical benchmark in which vertices and edges are symmetric but directed edge orientations are not. An exact optimal-sensor classification and metric description for this graph is a natural complete invariant, not an arbitrary induced subproblem. The five-slide penalty is sharp and affects 351 pairs. Particularly informative are the 54 cases where a single unrestricted sensor jump requires six local slides while all intermediate configurations must remain optimal. The distinction between radius seven and diameter eight, eleven optimal-state symmetry types, and two propagation-completion times provides a reproducible test case for sensor reconfiguration algorithms. The result does not imply broader half-arc-transitive graph bounds.
+The reconfiguration setup and the graph presentation are existing work. No matched comparison supplies or forces the Doyle–Holt graph's combined optimum census, minimum-state metric obstructions and symmetry structure. The same-day Pappus exact comparison is materially related, but only for a different named graph. The graph-invariant index access limitations leave a bounded priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Doyle–Holt is a natural small symmetric benchmark, rather than an ad hoc graph picked by numerical outputs. Its sharp example shows that base-graph symmetry and connected minimum-state reconfiguration do not prevent a single unrestricted relocation from requiring six legal local moves. The exact histogram and extremal-pair orbits distinguish coverage delays, connectedness and the number of essentially different geometric bottlenecks; they are useful benchmarks for theory and algorithms for constrained power-domination moves, not merely a recomputation of the graph's order or automorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

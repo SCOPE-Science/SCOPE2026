@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the characteristic-three plane-sextic classification
+# Independent mathematical audit
 
-The included `verify.py` is standalone Python 3 code using only the standard library. Execute `python3 verify.py` in the directory containing this file and the program. It checks polynomial identities exactly in a sparse coefficient ring modulo three; it also checks the ten incidence points of the conic and four lines and all 24 rational projective symmetries preserving the defining sextic.
+## correctness
 
-A complete enumeration of the finite projective planes over the finite fields of orders 3, 9, and 27 produces respective sextic rational-point counts 10, 40, and 130, agreeing with the formula \(5q-5\). The finite-field implementations use the irreducible polynomials `t`, `t^2+1` and `t^3-t+1` over \(\mathbf F_3\), and each projective point is enumerated with a unique normalized representative.
+PASS
 
-All computations are exact. The symbolic factorization, incidence proof, and projective group argument in `RESULT.md` establish the geometric and infinite-extension statements; the finite enumeration is corroboration, not proof of infinitely many cases. The program does not verify stable reduction, alternative integral models, or possible unindexed prior literature. Independent audit and validation were not performed.
+In characteristic three, with C=X^2+Y^2+Z^2, the sextic is C(C^2+X^4+Y^4+Z^4). Multiplying the four sign lines gives -sum X^4+2 sum X^2Y^2, which is the residual quartic. The smooth conic has exactly the four points whose coordinates are all nonzero over F_3; the indicated sign lines are their polar tangents. Their six distinct pair intersections have two nonzero coordinates, lie off the conic, and are transverse. At a tangent contact there are two smooth branches with intersection multiplicity two; completing the square in a transverse coordinate and changing a unit gives the formal form y^2-x^4. Its Tjurina quotient has basis 1,x,x^2 since 2 and 4 are units, and its delta is the branch intersection multiplicity two. This gives the full singular basket, sums 14 and 18, and genus 0+14-5+1=10. The conic and each line are rational over the base field. There are exactly ten double-counted rational points and no triple intersections over any extension, hence 5(q+1)-10 and the asserted zeta function. Any geometric projective automorphism permutes the four lines, with trivial kernel since they form a dual frame. Conversely the plane representation of PGL_2(F_3) on the split smooth conic gives 24 such automorphisms. No computation over F_3 alone is used to bound the stabilizer over the algebraic closure.
+
+## originality
+
+PASS
+
+The scoped increment is the full description of the literal characteristic-three fiber, especially recognition as the complete rational tangent arrangement and the resulting geometric incidence and full projective group. The 2018 paper publishes the equation and explicitly notes reducibility in characteristic three, but its characteristic-three statement is not this classification. A distinct later Resultary entry gives equivalent coverage of all the salient claims, and some consequences there are verbatim mathematical matches; its documented record date is later than the frozen record, not evidence of earlier publication or priority. No independent novelty is credited to the genus, local-invariant sums, or zeta conversion once the arrangement is known.
+
+## value
+
+PASS
+
+A complete structural description of an explicitly excluded bad-characteristic fiber of the standard Wiman plane model is a natural boundary problem, not an arbitrary point count. Identifying the entire reduced fiber as the four rational tangents to the conic explains exactly how it degenerates and gives its embedded projective symmetries and arithmetic. Those are useful for comparing this model with good-characteristic models; the numerical corollaries are bookkeeping, not independent contributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:07:02.100473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the ordinal sum of two antichains the only distinct comparable source pairs run from bottom to top. A bottom-source top target is maximal and must be repeated verbatim in every top row; a bottom target can be witnessed by any top target, or else only itself. This proves necessity and sufficiency of the U,T conditions. At fixed supports each hit bottom-source column has 2^p-1 nonzero choices. When T is empty each top row independently either has a top target or is forced on U; when T is nonempty only the columns in T are forced in top rows. These give exactly the two labelled terms. Under a pair of level permutations, an incidence block for cycles (d,e) has gcd(d,e) orbits. Hit target sets consist of whole cycles. With T nonempty there is one forced top-source pattern on each active top target cycle, with independently free top-to-bottom incidence, and subtracting the empty T term gives H1. With T empty, the top-row alternative is constant along each source cycle and forcing U removes exactly the incidence blocks to its active cycles, giving H0. Burnside class weights are 1/(z_lambda z_mu), since automorphisms cannot exchange levels. Direct exhaustive 2-by-2 validation over all 65536 relations tested the original quantified axiom and the normal form relation by relation. Fixed counts for identity, bottom swap, top swap and simultaneous swap are 11401, 355, 409, 103, averaging to 3067; formula arithmetic also reproduced every larger table row without claiming exhaustive enumeration there. Replay: /workspace/branches/814cdce7-110d-4a08-9590-ee0896a2ffc8/record2_oracle.py. The supplied verify.py was inspected, not run. The general counting argument, not the finite checks, establishes the formula for all positive level sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain record uses ordered maxima; the labelled fork census counts FC and separately FC+BC on one root with k leaves.",
+          "The primary FIK work uses the FC condition on general posets, but the inspected semantic clauses do not count admissible relations on a fixed carrier."
+        ],
+        "reasoning": "Neither a total order nor a rooted fork includes a complete pair of nonsingleton antichains. General frame semantics specifies the predicate but gives no fixed-point counts for the group action.",
+        "searches": [
+          "Resultary Gaussian-binomial census of FIK relations on finite chains (75c9508e987d)",
+          "Resultary exact fork-frame confluence counts (65daaa8ffd55)",
+          "Balbiani–Gao–Gencer–Olivetti, CSL 2024"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–121, VERIFICATION.md and verify.py",
+        "arXiv:2309.06309, arXiv:2606.31877",
+        "Resultary 75c9508e987d, 65daaa8ffd55, 6bd1e200ca4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain action is trivial and the fork result is labelled only. The stricter two-sided count omits relations admitted by the present axiom."
+        ],
+        "reasoning": "Neither deleting an axiom from a census nor extrapolating singleton or labelled counts yields fixed relation counts by the two independent level permutations. H0 and H1 require weighting active target cycles and distinguishing the two top-source patterns on the larger carrier.",
+        "searches": [
+          "Resultary 75c9508e987d, 65daaa8ffd55, 6bd1e200ca4a Findings",
+          "Gao–Olivetti arXiv:2606.31877, FC and BC comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact FC clause on ordered frames is stated in the two FIK papers. It is not FC plus backward confluence.",
+          "The four-parameter two-level record counts correspondences with two conditions, not self-relations satisfying only FC; at (2,2;2,2) its count is 1867 rather than 11401."
+        ],
+        "reasoning": "The same frame condition is not an enumeration, and imposing a second confluence condition changes the enumerated set, as the equal-size control illustrates.",
+        "searches": [
+          "Primary FIK forward-confluence enumeration search; arXiv:2309.06309 and arXiv:2606.31877",
+          "Resultary 75c9508e987d, 65daaa8ffd55, 6bd1e200ca4a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact boundary agreements: the length-two chain count is L(1,1)=11, and the labelled two-leaf fork gives L(1,2)=185. Neither has the p,q>=2 formula or its level-pair isomorphism census.",
+          "The same 2-by-2 two-level dimensions lead to 1867 under the two-sided correspondence predicate, with no matching isomorphism count."
+        ],
+        "reasoning": "Agreements at singleton-layer boundaries are genuine overlap, not an exact match for both nontrivial layers. No matching exact table was found in the inspected comparisons; this does not exclude unindexed numerical tables.",
+        "searches": [
+          "Resultary 75c9508e987d, 65daaa8ffd55, 6bd1e200ca4a; comparison of Findings and numerical controls"
+        ]
+      },
+      "rationale": "The supported claim is the exact labelled and isomorphism census for arbitrary forward-confluent relations with both layers nontrivial, especially the full fixed-count formula. Prior coverage on chains and labelled rooted forks concerns boundary carriers; the two-sided two-level comparison imposes an additional axiom.",
+      "residual_risks": [
+        "The search is bounded, not proof that a differently named finite-frame or relation census is absent.",
+        "No within-day order was inferred for the fork record. The comparison rests on the distinct carriers and statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Semantics ingredient",
+          "evidence": "Defines models under the forward-confluence frame condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.06309",
+          "material_read": "PDF p. 4, offset 10850, frame condition",
+          "method": "OA PDF passage",
+          "title": "A Natural Intuitionistic Modal Logic: Axiomatization and Bi-nested Calculus",
+          "trigger": "Original FIK definition"
+        },
+        {
+          "assessment": "Confirms the axiom and boundary to stronger semantics",
+          "evidence": "Forward witness y' is above the original target; backward confluence is an additional condition in IK.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31877",
+          "material_read": "PDF p. 3, offset 9952",
+          "method": "OA PDF passage",
+          "title": "Taming Complexity in Intuitionistic Modal Logic: The Case of FIK and Its Shallow Calculus",
+          "trigger": "Later FIK semantics and related frame conditions"
+        },
+        {
+          "assessment": "Chain boundary only",
+          "evidence": "Counts via suffixes and weakly increasing row maxima on chains.",
+          "identifier_or_url": "Resultary 75c9508e987d",
+          "material_read": "RESULT.md Finding and carrier description",
+          "method": "Local mirror",
+          "title": "Gaussian-binomial census of FIK relations on finite chains",
+          "trigger": "Same axiom, exact counts"
+        },
+        {
+          "assessment": "Exact singleton-bottom overlap only; date does not establish priority",
+          "evidence": "One root with k leaves, FC and FC+BC counts, not an isomorphism census; FC agrees with L(1,k).",
+          "identifier_or_url": "Resultary 65daaa8ffd55",
+          "material_read": "RESULT.md Finding and labelled formulas",
+          "method": "Local mirror",
+          "title": "Exact fork-frame confluence counts and exponential separation",
+          "trigger": "Same-day same-axiom count on a two-level poset"
+        },
+        {
+          "assessment": "Different predicate and census",
+          "evidence": "Two-sided confluence between specified carriers; count 1867 for the two 2-by-2 carriers.",
+          "identifier_or_url": "Resultary 6bd1e200ca4a",
+          "material_read": "RESULT.md Finding and control (2,2;2,2)",
+          "method": "Local mirror",
+          "title": "Exact four-parameter census of two-sided confluent relations between two-level carriers",
+          "trigger": "Closest census with both levels nontrivial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete two-level orders are a natural homogeneous family with incomparable worlds on both levels and a nontrivial automorphism group. The formula gives exact benchmarks for admissible relations and their isomorphism classes without enumerating every incidence matrix; the zero-versus-positive top-target distinction explains the constraint structurally and translates it into actual fixed counts, not just an invocation of Burnside. The orbit counts are useful for producing nonredundant finite-frame test collections.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

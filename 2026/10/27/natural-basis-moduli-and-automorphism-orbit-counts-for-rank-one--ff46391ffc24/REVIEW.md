@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces natural bases to the free orthogonality involution on nonisotropic projective lines, derives automorphisms from the intrinsic form and distinguished derived line, and counts orbits with an explicit fixed-point analysis. The fifteen independently enumerated finite-field configurations agree, with all small group actions actually constructed. The general field result is a symbolic proof rather than an extrapolation.
+## correctness
 
-## Originality
-PASS within the explicitly delimited statement. The 2026 survey, Question 14, asks for basis-moduli structure, finiteness and the finite-automorphism exception. The 2020 natural-family paper already supplies the orthogonal-bilinear-form technique, and the 2024 two-dimensional automorphism-scheme paper explicitly supplies the \(\mu_2\) computation for the displayed example. These are acknowledged as pre-existing results; neither by itself gives the full projective basis count and its quotient by algebra automorphisms. The comparative contribution is the complete, explicit quadratic-character census, including exact fixed-point and orbit-size distribution. The principal residual risk is implicit earlier coverage under binary quadratic forms, natural families, or orthogonal decompositions.
+PASS
 
-## Value
-PASS. This is a natural and comprehensive two-dimensional slice of a specific published basis-moduli problem. It distinguishes raw natural-basis classes from classes modulo intrinsic algebra automorphisms, gives exact formulas over every odd finite field, and establishes the smallest-dimensional infinite-field realization of finite symmetry with infinite basis moduli. The significance is confined to this natural family; no higher-dimensional universality is claimed.
+In a natural basis the form B is diagonal with both entries nonzero by nondegeneracy. A basis up to separately rescaling and reordering is an unordered pair of transverse orthogonal lines; orthogonal complementation on nonisotropic lines is a fixed-point-free involution. Rescaling u rescales B, changing its determinant by a square and leaving B(u,u)=0 invariant. An automorphism has Tu=cu and B(Tx,Ty)=cB(x,y). If B(u,u)≠0 then c=1 and T is ±1 on the orthogonal line while fixing u. If B(u,u)=0, choose an isotropic v with B(u,v)=1 by subtracting B(v,v)u/2 from a suitably normalized mate. The same equations force Tv=v, and all nonzero c are allowed. There are at most two exceptional isotropic lines over an infinite field, giving infinitude; dimension one has only one basis class under scaling. Over an odd finite field the isotropic line count is 1+χ(-Δ), giving N. In the hyperbolic coordinates L_t=K(u+tv), complementation sends t to -t and the automorphism sends t to t/c, proving transitivity. For nonisotropic u, the reflection fixes the coordinate pair. Any other fixed pair must be swapped; orthogonality of u+tv and u-tv requires t²=B(u,u)/B(v,v), and such lines are nonisotropic because their norm is 2B(u,u)≠0. Two roots give one pair exactly when χ(Δ)=1. Burnside gives the claimed O and the fixed-point count, including the small fields.
 
-## Closest literature and limitations
-The core techniques are closely related to Boudi–Cabrera Casado–Siles Molina (arXiv:2006.14460, Proposition 2.16) and the automorphism classification in Cabrera Casado et al. (arXiv:2407.15769, Section 2.8). The motivating open question is Kaygorodov–Martín González–Viruel (arXiv:2610.22248v1, Question 14). Independent review has not been conducted. Possible implicit prior arithmetic coverage cannot be excluded by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Aut(E)-orbit census and its fixed-pair refinement are the supported distinct content of the joint theorem. The automorphism types are already known, the form and orthogonal-pair description use established machinery, and a distinct indexed record explicitly contains the same moduli description and N(E). Do not award separate novelty for those components. No inspected statement supplies the extra involution fixed-pair count and O(E) across both generator types. The available survey comparison supports the relevance of the finite-group example, not novelty of its algebra or automorphisms.
+
+## value
+
+PASS
+
+The equivalence by scaling and reordering is the one singled out by the survey. Computing how many of those bases remain inequivalent after intrinsic symmetry answers a further natural classification question, which knowing the group and the total number of bases does not settle. For example, a hyperbolic form over F7 gives three basis classes for either generator type, while an isotropic generator leaves one automorphism orbit and a nonisotropic one leaves two. The count distinguishes a concrete effect of the distinguished derived line, rather than tabulating illustrative prime-field examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

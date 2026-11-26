@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The boundary-itinerary construction is a move-preserving reduction for every nonzero balance, while a zero-balanced nonempty word can move directly to the empty word. An explicit induction proves the Dyck criterion; a finite-path resolvent yields the two boundary-passage kernels, and Narayana peak enumeration gives the complete coefficient series. The regular-slice argument proves nonregularity. Exact-series and independent game-enumeration checks corroborate the formulas through length 16 (with coefficients through 18). Risks: finite checks alone would not justify the all-length result; their role is only corroboration. The proof is insensitive to the signs of the original letters because of alphabet exchange.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2013 Timber paper establishes the interior Dyck-game characterization, which is explicitly **not** claimed as new. Inoue and Inazu (2026) describe a broad family of word subtraction games and two-sided instances but not the present balanced-prefix/suffix law. The contribution assessed for originality is the complete enumeration of original binary words across every final height, via Narayana peak statistics and the finite-path continuants, together with the exact nonregularity boundary. Searches of relevant published result abstracts and available published claim descriptions did not identify the same enumeration; searches cannot exclude an unindexed extraction from classical lattice-path enumerations. The detailed source comparisons are in AUDIT.json.
+PASS
 
-## Value — PASS
-The all-length generating-function scheme counts a natural input class in a nonregular, two-ended impartial game, not merely a fixed small-parameter example. It recovers the first losing-word coefficients and identifies precisely which boundary walk structures contribute to each value, exposing a link between stopping-time passages, Narayana statistics and impartial word games. Exact global enumeration and nonregularity provide substantive invariants even though no general Grundy formula or asymptotic is claimed.
+A balanced nonempty word can delete itself, and the empty word loses. For nonzero balance each endpoint deletion preserves the total balance and cuts the itinerary exactly at an interior A (prefix) or B (suffix), leaving that symbol as an endpoint. In the interior game, a Dyck word leaves only nonzero-sum interiors when cut at a legal symbol. In a non-Dyck word, cutting the suffix from the first negative step leaves a Dyck prefix; if there is no negative step, cutting through the last unmatched A leaves a Dyck suffix. Induction applies to the strictly length-decreasing game. Excursions between consecutive visits to {0,h} concatenate uniquely: an exterior return has the primitive Catalan series P, while the interior return and crossing entries follow by cofactors of I-zA on the length-(h-1) path, whose determinant is D_(h-1). For h=1 these reduce to no interior return and a single-step crossing. An interior with j pairs and k peaks contributes k A-to-B changes and k-1 reverse changes; the outer endpoints add two equal-boundary pairs when j>0. This gives the stated Narayana weights and the lone v_h term when j=0. Letter exchange handles negative balance; finite valuation makes all sums coefficientwise valid. On b^i a^j b, j=i+1 is balanced, j<=i produces a first interior B, and j>=i+2 gives itinerary AABB. The slice has infinitely many distinct left residuals, establishing nonregularity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the Dyck criterion for the reduced interior game to the known Timber analysis. The distinct result is the reduction from balanced end deletions of the original word, together with the exact original-length census across all endpoint heights. The general framework, the known reduced P-language, and the related same-day records do not supply that weighted census in the passages examined.
+
+## value
+
+PASS
+
+Counting every losing binary starting word by actual length is a natural complement to the known reduced-game criterion. The itinerary eradicates most original letter positions, so its known Dyck classification does not say how often positions occur. The exact height-resolved factors recover this lost length information and allow computation at every length without solving the complete game tree. Nonregularity also distinguishes this rule from games governed by a finite-state losing language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

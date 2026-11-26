@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified for every alphabet size, factor size and word length in its domain. Khrystik's published finite Morse–Hedlund equivalence supplies existence, and the nonstandard uniqueness lemma is reconstructed explicitly: normalized periodic centers overlap in at least the sum of their primitive periods, so Fine–Wilf forces the same primitive period and phase, after which maximality forces the same boundary lengths. Boundary letter counts and a cumulative generating-function convolution yield the exact census. The large-factor asymptotic follows with an explicit nonprimitive-word error estimate. Literal exhaustive enumeration and independent normal-form generation passed. The proof does not mistake finite tests for an infinite argument.
+PASS
 
-## Originality — PASS, with residual priority risk
+The needed existence theorem is Khrystik arXiv:2605.00141 Theorem 3.3 (also Theorem 4.2 with m=n=k), not the theorem numbers quoted in the frozen text. Its bounded-fringe form uses a periodic prefix of the prescribed central length. Taking the primitive root and extending its phased repetition until the first mismatch or endpoint keeps the fringe-plus-period budget. Any two permitted cores overlap in at least L−2k+p+p′≥p+p′ letters; Fine–Wilf gives period gcd(p,p′) on that overlap. A full cycle in each core would be a proper power if its period exceeded the gcd. Equal primitive periods and at least one cycle of overlap force equal continuation and phase, and the mismatch at each endpoint forbids unequal corresponding cuts. The frozen line 69 repeats the same left-cut inequality in reverse notation; the opposite inequality is excluded by interchanging the two representations. At most a+b factors meet fringes, and at most p distinct factors lie within the core. Counting phased primitive words and the two independently mismatching fringe letters gives the stated convolution; the cumulative fringe series is (1−t)/(1−qt)². Replacing M_q(p) by q^p incurs O_q(kq^k), since p q^(−p/2) is summable, and the explicit main sum has the stated coefficient. The unary case gives exactly one word, and for k≥2 the plateau polynomial has degree k in q, less than 2k−1 at the preceding vacuous length. The incorrect citation numerals and the duplicated inequality are locational/expository slips, not changes to the theorem or its proof mechanism.
 
-The exact census and its all-length stabilization were compared with the finite Morse–Hedlund existence characterization (Khrystik, 2026), the full accessible finite-word complexity analysis (Anisiu–Cassaigne, 2004), classic finite-word structural literature (de Luca, 1999), and indexed mathematical records. The existence criterion is prior work and is acknowledged; neither the cited characterizations nor the inspected 2004 full text state the unique normalized primitive-core enumeration. The new nontrivial step is the overlap/normalization lemma needed to turn an overlapping family of decomposition witnesses into disjoint counted classes. The complete de Luca text and possible unindexed derivations remain priority risks. A failed search is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The finite Morse–Hedlund threshold is a natural structural dividing line for finite words. The result gives a complete canonical classification and an exact all-alphabet, all-factor-length enumeration, with a surprising plateau for all longer words, a primitive-necklace generating function, and a quadratic-times-exponential factor-length law. It resolves a global enumerative question rather than computing a small arbitrary instance or merely substituting parameters into a known bound.
+Distinct supported content is the canonical boundary-normal primitive representation and its exact all-alphabet, all-length census in the specified range. The existential structural decomposition and primitive-word counts are known inputs; the overlap argument is needed to make the count disjoint.
 
-## Scope and verification limits
+## value
 
-The proof relies on published Theorem 3.5 of Khrystik and classical Fine–Wilf. Computations certify only their listed finite parameter ranges, not a replacement for either theorem. No external independent mathematical audit has been conducted. Publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural finite Morse–Hedlund threshold, the canonical decomposition supplies a uniform bijective description and an exact plateau across all word lengths in the domain, explained by a fixed amount of fringe and primitive-period information. It gives an exact census for all alphabets and the leading growth with k, rather than only a new proof of existential periodicity or a small instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

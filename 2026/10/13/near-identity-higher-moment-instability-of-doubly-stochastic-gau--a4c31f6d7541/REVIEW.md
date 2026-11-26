@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is about one fully specified entry-weighted four-transition linear solver. Direct expansion of one coordinate update and summation with the exact weights gives the conditional squared-norm identity; the smallest singular value of the coefficient matrix then gives the uniform second-moment contraction. Markov and Borel–Cantelli imply almost-sure convergence. For the higher orders, retaining the two off-diagonal transitions, applying the two-coordinate power-mean inequality, and computing the smaller singular value of their shared updated-coordinate map gives the displayed lower factor. These inequalities iterate by conditional expectation for every initial vector. The factor diverges as the off-diagonal coefficient decreases for each fixed order above two. Exact rational matrix and path checks replay successfully, but finite tests are not used as infinite proofs. The derivation requires nonzero entries, independent index selection, and fixed relaxation strictly between zero and one.
+PASS
 
-## Originality — PASS, subject to priority risk
+Write S=2(1+rho^2). In the conditional squared norm, multiplying the cross term by the entry-square sampling weight and summing over j yields −2 alpha ||Ax||^2/S; the squared update yields 2 alpha^2 ||Ax||^2/S because both entries in each row are nonzero. The least singular value 1−rho gives the stated theta in (0,1), and iteration, Jensen for orders at most two, and summable Markov bounds followed by Borel–Cantelli establish all the decay assertions. For the two rare choices of weight rho^2/S each, the updated coordinates jointly form W x with W having diagonal 1−alpha and off-diagonal −alpha/rho. The conditional pth moment is at least (rho^2/S) 2^(1−p/2) ||W x||^p. For rho<alpha/(1−alpha) the least singular value is alpha/rho−(1−alpha), giving exactly L_p and a uniform-in-state lower bound at each step. For fixed p>2, L_p tends to infinity as rho tends to zero, while rho<epsilon/(2+epsilon) enforces the strict condition-number bound. This verifies the quantifier order and finite-time finiteness (four finite update matrices). Independent exact arithmetic gave 11/9, 323/404, and 6561/6464 and checked the quadratic-form identity at the rational example on the two basis vectors and their sum.
 
-The closest source [1] establishes mean-square geometric convergence for this entry-weighted algorithm, not the failure of higher-moment control. Its Algorithm 1 and Theorem 1 were inspected directly. The block generalization [2] gives the same entry-level specialization with second-moment rather than order-above-two guarantees. Published broader expected-norm solver frameworks [3] do not provide this near-identity, every-initial-state higher-moment obstruction. General multiplicative-noise tail theory [4,5] provides thematic motivation, not this specific homogeneous-matrix assertion. Searches for aliases, exact matrix parameters, moment-order separation, and stronger implication did not identify coverage. Unindexed or differently worded equivalent work could exist; finite source inspection cannot establish absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This theorem isolates an important limitation of a standard, published mean-square convergence guarantee: even a nearly perfectly conditioned positive-definite system, at a recommended nonaggressive relaxation, can have unboundedly growing rare-event error moments. The arbitrary rate, any selected order above two, and uniformity over every nonzero starting state are structural aspects of the obstruction, not a numerical anomaly. It informs interpretation of high-confidence error bounds and of safeguards for division by small selected matrix entries. It does not claim practical divergence, finite-time moment infinity, or a new faster solver.
+The entry-weighted rule and mean-square convergence are prior results. The inspected fourth-moment Resultary theorem is a close companion, but neither it nor the other sources establishes or entails the joint all-orders, arbitrary-relaxation, near-identity positive-definite result with a uniform-in-initial-state arbitrarily large lower factor.
 
-## Closest literature and limitations
+## value
 
-Sources [1] and [2] are closest because they define precisely the studied selection and update. The extension from second-moment to higher-moment behavior is not a consequence of their second-moment theorems. Source [3] concerns broad expected-error convergence; [4,5] concern heavy tails, often with persistent additive noise or stationary laws. Priority beyond examined literature remains uncertain. All finite-time moments are finite. The higher-moment result requires selecting a sufficiently small off-diagonal parameter for the requested order, and no claim is made about fixed-parameter instability for every order above two.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example identifies the threshold order across solver instances: mean-square convergence and almost-sure convergence coexist with arbitrarily fast pth-moment growth for any requested order above two, even when the SPD matrix is arbitrarily close to the identity. This rules out a condition-number-based inference of tail or moment control for this sampling scheme and isolates the concrete cause, rare division by tiny entries, uniformly over initial directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

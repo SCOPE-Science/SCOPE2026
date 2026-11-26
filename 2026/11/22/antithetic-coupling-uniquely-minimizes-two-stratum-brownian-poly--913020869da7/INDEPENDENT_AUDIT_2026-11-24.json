@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:45:43.539848Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49; check.py and VERIFICATION.md inspected as evidence, not executed.",
+        "Independent symbolic replay: python3 /tmp/opencode/frozen_brownian_replay.py (SymPy 1.14.0; Brownian projection and exact integrations)."
+      ],
+      "rationale": "For the disclosed exogenous sites, stochastic Fubini gives J as the Brownian stochastic integral of q(s)=s(1-s)/2. Conditional Gaussian projection removes the averages of q on [0,X] and [X,Y], leaving the full squared integral of q on the tail. With a=1-U and b=V, the middle-interval contribution minus (a^5+b^5)/1440 is exactly ab(a+b)(a-b)^2/1152. This verifies a global pointwise inequality, not just on a grid or for a family of copulas. Atomless uniform marginals eliminate the zero factors at the boundary, so equality forces b=a almost surely, and this coupling is admissible. The expected endpoint contribution is 107/69120, the optimum is 41/23040, both independent and common offsets give 25/13824, and the difference is 1/34560. I reconstructed the projection and Mathemathematical identities by polynomial integration, independently of the supplied checker.",
+      "residual_risks": [
+        "This proof is for noiseless, disclosed sites independent of the path, with exactly the prescribed half-stratum marginals and the signed moment in the record; it does not optimize the marginals or noises."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foster–Lyons–Oberhauser describe approximants respecting integration against low-degree polynomials; this supplies the motivating information channel.",
+          "Karvonen–Kanagawa–Särkkä study positivity and sizes of quadrature weights, providing framework overlap."
+        ],
+        "reasoning": "Neither of the inspected statements optimizes the coupling of random locations for this functional. The general posterior-variance representation does not provide a sign or unique support condition for the excess risk.",
+        "searches": [
+          "arXiv:1904.06998, polynomial Brownian path approximation.",
+          "arXiv:1812.08509, Bayesian quadrature.",
+          "Public and Resultary queries for transport/coupling of Brownian posterior-variance node designs."
+        ]
+      },
+      "checked_sources": [
+        "Resultary 13f14d6dc85f, f119d713d36c and 2306aa685e20",
+        "arXiv:1904.06998 and arXiv:1812.08509",
+        "Targeted public search on posterior variance, antithetic nodes and optimal transport."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day bridge comparator proves a global separable dual inequality tight at fixed gap 1/2. The deterministic power-integrand antithetic work optimizes a different panelwise variance under independent panels.",
+          "For the present middle interval the mixed derivative changes sign in the admissible rectangle; the actual polynomial deficit is tight on a different graph."
+        ],
+        "reasoning": "Existence of transport dual potentials does not specify their values or their tight set. A global fixed-sign rearrangement criterion does not apply; no inspected stronger theorem or specialization determines the stated gap and optimizer for this cost.",
+        "searches": [
+          "arXiv:1812.08509 and 1904.06998; Resultary 13f14d6dc85f, 2306aa685e20 and f119d713d36c; public antithetic/transport search above."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Brownian-bridge record 13f14d6dc85f optimizes the unweighted pinned-bridge integral with both sites uniform on the full unit interval; its unique law has |x-y|=1/2.",
+          "Here the path is Brownian motion, the functional is centered linear-weighted, and the two sites are confined to opposite halves with optimal y=1-x."
+        ],
+        "reasoning": "A half-period shift is not the reflection law under the half-stratum marginals. Regression for the bridge integrate-and-observe problem yields a different cost. This is a substantive overlap in method, not equivalent formulation; identical target-record hits are not independent evidence. Same-day dates establish neither order nor priority.",
+        "searches": [
+          "Local Resultary: signed two-stratum Brownian quadrature, uniform-marginal Brownian coupling, antithetic stratification and transport.",
+          "Public search: Brownian polynomial moment quadrature two equal strata dependent uniform offsets antithetic coupling posterior variance optimal transport swap certificate."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record f119d713d36c gives the exact unweighted integral risk (6n-1)/(48n^3) with independent uniform points, not the signed-moment constants.",
+          "Records 2306aa685e20 and 13f14d6dc85f give exact antithetic or two-point coupling results for different costs."
+        ],
+        "reasoning": "No matching risk or exact deficit appeared in the examined records; an exact constant for a different functional or observing design is not coverage. There is no common parameter in the cited exact risk table that sets the sign-changing time weight.",
+        "searches": [
+          "Local Resultary: exact Brownian stratification and two-site posterior-variance designs; signed two-stratum risk and antithetic optimality."
+        ]
+      },
+      "rationale": "The covered ingredients are Brownian polynomial-time information, Bayesian quadrature, antithetic sampling, and fixed-marginal dual certificates. The strongest distinct indexed comparison also solves an exact two-observation Brownian posterior-risk coupling problem, but for a different target and covariance with different marginals and a different optimizer. The signed Brownian-motion half-stratum deficit, uniqueness and exact risks are not established by the matched statements. This is a bounded best-of-knowledge finding, not priority certification.",
+      "residual_risks": [
+        "Untested stochastic-design or optimal-transport literature might give an equivalent sharp inequality. The bounded searches and inspected passages do not settle historical order, including between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material methodological overlap, different cost and optimizer.",
+          "evidence": "Unweighted pinned bridge; two full-interval uniform sites; equality in c(x,y) ≥ φ(x)+φ(y) exactly for |x-y|=1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unique-uniform-marginal-coupling-for-two-point-brownian-bridge-k--13f14d6dc85f",
+          "material_read": "RESULT.md Finding and Proof (explicit global dual certificate and integration over couplings; offsets about 100 and 4200).",
+          "method": "Local Resultary index and local mirror passage inspection.",
+          "title": "Unique uniform-marginal coupling for two-point Brownian-bridge kernel quadrature",
+          "trigger": "Closest same-day posterior-risk, all-coupling and dual-certificate match."
+        },
+        {
+          "assessment": "Unweighted independent design, not a coupling optimization.",
+          "evidence": "Uses one independent uniform point per interval for the Brownian time integral; gives EV_n=(6n-1)/(48n^3).",
+          "identifier_or_url": "Resultary 2026/11/8, f119d713d36c",
+          "material_read": "RESULT.md Finding and assumptions (local mirror offset 200).",
+          "method": "Local Resultary mirror.",
+          "title": "Exact design loss and Gaussian fluctuations for stratified Brownian kernel quadrature",
+          "trigger": "Same Brownian prior and random stratification."
+        },
+        {
+          "assessment": "Antithetic principle is prior, but not this posterior-risk result.",
+          "evidence": "Deterministic power integrands; antithetic offsets uniquely minimize within the independent-panels design.",
+          "identifier_or_url": "Resultary 2026/11/8, 2306aa685e20",
+          "material_read": "RESULT.md Finding (local mirror offset 0).",
+          "method": "Local Resultary mirror.",
+          "title": "Sharp singularity thresholds and constants for antithetic stratification",
+          "trigger": "Closest antithetic panelwise precedent."
+        },
+        {
+          "assessment": "Motivation, not coverage of random-node copulas by the inspected statement.",
+          "evidence": "Path approximation respects integration of polynomials below a specified degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+          "material_read": "Abstract, PDF p. 1 (passage on integration of polynomials).",
+          "method": "Open-access paper passage.",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Polynomial Brownian information channel."
+        },
+        {
+          "assessment": "General framework; the stated results do not select a coupling of random sites.",
+          "evidence": "Studies positivity and magnitude of Bayesian quadrature weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "PDF p. 1, Bayesian quadrature and scope of weight results.",
+          "method": "Open-access paper passage.",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Posterior-variance framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–20 and 34–49; polynomial information motivation in arXiv:1904.06998; distinct unweighted risk in Resultary f119d713d36c."
+      ],
+      "rationale": "A signed first moment is natural in polynomial Brownian path approximation. Under the given observation budget the result distinguishes node dependence from marginal design: independent and perfectly synchronized offsets tie, yet neither minimizes risk. The exact deficit gives both a unique implementable pairing and a quantitative penalty for departing from it even without a uniform mixed-derivative sign. This structural classification, not the modest 2/125 relative saving by itself, is the useful result.",
+      "residual_risks": [
+        "No transfer to higher moments, other processes, or general sampling designs is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

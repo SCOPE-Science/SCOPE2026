@@ -1,12 +1,21 @@
-# Review: all dihedral-subgroup homotopy types of the five-point noncrossing partition complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions are explicit, and the result covers all eight subgroups of the pentagon dihedral group. The forty-vertex noncrossing proper-part complex is shellable, simply connected and two-dimensional. The self-contained verifier enumerates every chain, reproduces four orbit-cell vectors, verifies the cyclic quotient cellular boundary compositions, and executes seven spanning-tree plus twenty-two valid geometric one/two-cell cancellations. The surviving attaching words are a degree-five word and two empty words; these yield the Moore-plus-two-spheres decomposition. The fixed-vertex argument and Armstrong's theorem give the remaining simply connected sphere-wedge cases. A lift of the cyclic quotient equivalence identifies the integral deck module. Limitation: general mathematical theorems used as inputs are referenced, not re-proved by the checker.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Athanasiadis–Brady–Watt establish shellability, Callan–Smiley enumerate rotational/reflection symmetries, and Ding studies fixed subposets and characters. Armstrong's general theorem determines fundamental groups from fixed elements. These are acknowledged. The available published-record index and comparisons against earlier mathematical claims did not find the full eight-quotient homotopy classification, cyclic attaching-map reduction or integral lattice description. In particular Euler characteristics, rational characters and a cyclic fundamental group do not imply the degree-five Moore wedge decomposition. A publication-priority risk persists for unindexed or incompletely inspected work; the dissertation's relevant text sections rather than every page were examined.
+PASS
 
-## Value — PASS
-This is a complete natural finite subgroup classification, rather than a numerical isolated cell count: cyclic rotations create an integral five-torsion Moore factor while adjoining a reflection eliminates fundamental-group torsion and yields an integral sphere. The explicit deck-group augmentation module is a further stable equivariant-topological description. The exact case is motivated as the first simply connected noncrossing-partition proper-part complex and is not extrapolated to other sizes.
+For the proper part of the noncrossing lattice, the shellability theorem gives a wedge in dimension two. Rank-preserving relabeling stabilizes each setwise fixed chain pointwise, so quotient open cells and signs are correctly obtained from chain orbits. Nonidentity rotations cannot fix a proper partition: an invariant equivalence for the transitive prime cyclic action is a coset partition. Each reflection fixes a two-element block consisting of an adjacent swapped pair. Armstrong's theorem thus gives fundamental group C5 for rotations and trivial groups for the reflection and full dihedral quotients. Independently regenerated the four orbit cell vectors (40,150,125), (24,81,65), (8,30,25), (8,21,15) from binary equivalence relations (replay: python3 /workspace/branches/independent_topology.py). Euler characteristic and simply connected Whitehead give the identity, reflection and full-dihedral wedge counts. The cyclic quotient needs attaching words, not just homology. Contracting a tree is valid for a contractible CW subcomplex. Each of 22 eliminations retracts the edge plus its once-traversing 2-cell onto the other edges, then substitutes this retraction into the remaining attaching maps. The frozen verifier's signed triangle ordering is a cyclic permutation of ab·bc·(ac)^−1. In a different ordering my exact reduction leaves the same inverse fifth power twice and one empty word; after the first degree-five cell, the second identical attachment is nullhomotopic, so this is the claimed Moore space plus two spheres. Another fresh enumeration yielded one fifth power and two empty words directly. In the lift, the Moore 2-cell boundary is the norm, with kernel the augmentation ideal; the spheres lift to two free integral deck summands. This is the module of the universal cover, not quotient H2. The supplied verifier was inspected and not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the ordinary quotient classification for geometric relabeling of proper NC5, especially the exact cyclic 2-cell homotopy and integral deck lattice. The unquotiented wedge and general topology tools are prior input. Nearby exact results vary the action or change the lattice; their date or abstract resemblance is not evidence of implication.
+
+## value
+
+PASS
+
+The first pentagonal dihedral noncrossing example gives a natural complete subgroup comparison: free rotations produce torsion and nontrivial fundamental group, while reflection-containing quotients are simply connected. Distinguishing the exact Moore-space splitting and integral module from mere cell-orbit counts or rational characters makes the finite example a reusable test case for stronger quotient claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

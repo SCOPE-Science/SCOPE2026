@@ -1,15 +1,21 @@
-# Mathematical review: weighted-triangle Fourier-zero folds
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(mn(m-n)\ne0\), direct differentiation of the triangle's unnormalized Fourier transform gives \(\partial_\xi F_0=i/(kd)\), \(\partial_\eta F_0=-i/(\ell d)\), where \(k=2\pi m\), \(\ell=2\pi n\), \(d=k-\ell\). The radial second derivative is exactly one. An analytic implicit-function reduction of the imaginary equation leaves a strictly convex real equation \(t^2/2+\varepsilon u_{m,n}+O(|t|^3+|\varepsilon t|+\varepsilon^2)=0\). Its minimum has the sign of \(\varepsilon u_{m,n}\), establishing both exhaustive local zero counts and Jacobian simplicity. For affine perturbations the coefficient is checked by differentiation under the integral. The \(3/4\) nodal fraction follows from a wedge of total angle \(3\pi/2\) and an elementary lattice area error of order \(R\). The bundled high-precision checker successfully compared analytic derivatives, found predicted pairs for both linear and quadratic weights, and enumerated finite wedge incidences. Numerical checks corroborate rather than replace the proof.
+## correctness
 
-## Originality — PASS (same-model, with identified residual risk)
-Fuglede (1974) and Kolountzakis (2025, Section 4) cover the complete **unweighted** Fourier-zero lattice, while Kolountzakis (1999) establishes a broad nonspectrality theorem for nonsymmetric convex domains. Neither inspected later source states the signed **positive-density perturbation** fold law, universal square-root displacement, or \(3/4\) asymptotic local splitting incidence. Additional source-record searches compared analogous Fourier-zero results on finite cyclic measures, dodecagonal shape perturbations, and higher-dimensional bipyramids; those are different underlying measures and do not imply the claimed statement. The 1974 original complete text could not be retrieved; a detailed 2025 reconstruction was read, but direct comparison against the inaccessible complete original remains a residual priority risk. Broad universal analytic fold theory is another possible prior source, although it does not supply the triangle-specific arithmetic and angular coefficients without further work. Failed searches are not novelty certificates.
+PASS
 
-## Mathematical value — PASS
-The null-frequency lattice is the exact orthogonality locus for exponentials on a canonical nonspectral convex domain. Determining whether a small *positive* weight retains, destroys, or splits those orthogonality constraints is a motivated structural question. The theorem supplies the all-node local fold mechanism for bounded real perturbations, an arithmetic sign formula for every affine perturbation, a protected-node boundary, and an asymptotic \(3:1\) incidence law for the natural coordinate weight. These are concrete structural classifications, not arbitrary finite enumeration or renormalizations of the known zero lattice.
+Independently expanding the simplex vertex-exponential expression, F0 = −(exp(−iξ)−1)/(ξ(ξ−η)) + (exp(−iη)−1)/(η(ξ−η)), gives at (k,l) the imaginary gradient (i/(k(k−l)),−i/(l(k−l))) and the radial quadratic t²/2 with the stated unnormalized convention. The imaginary equation therefore yields a unique transverse graph s=O(t²+|ε|), and the real equation on it has Rtt(0,0)=1 and Rε(0,0)=u. Strict convexity on a fixed small interval and the critical-value expansion εu+O(ε²) give precisely the two or zero simple roots, with the claimed radial displacements and O(|ε|) error. For affine g, i(a∂ξ+b∂η)F0 is real at the node and gives the stated coefficient; when it vanishes the full complex perturbation vanishes there exactly. For g=x the excluded sign sectors have total angle π/2; the disk boundary and removed lines contribute O(R). Independent bounded enumeration yielded (1148,868), (30876,23192), (194968,146314) at R=20,100,250. This corroborates, not proves, the asymptotic.
 
-## Scope and risk
-All conclusions are local in frequency and pointwise in the original reciprocal-lattice node; no uniform-in-frequency perturbation threshold or global weighted zero-set census is claimed. Degenerate perturbations with vanishing real Fourier coefficient are excluded from the two/no-zero dichotomy. The original 1974 full text and an independent publication-priority audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unweighted zero lattice and qualitative fold normal form are known. The checked evidence does not supply the weighted triangle's exact nodewise unfolding for bounded weights or its affine sign and split-density classification. Credit is restricted to those quantitative results, not the unweighted geometry or the square-root mechanism in isolation.
+
+## value
+
+PASS
+
+The exact response of an isolated, rank-deficient real Fourier zero matters when positive densities perturb the orthogonality geometry of a domain. The result distinguishes robust annihilation from pairs of simple real zeros, gives their direction and scale, and computes the sign prevalence across the natural nodal lattice rather than at an arbitrary sample point. The 3/4 statement is an index-cutoff limit, not a fixed-ε global statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

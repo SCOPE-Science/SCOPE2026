@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The prior smooth-Palm height formula is reconstructed as a Rayleigh–Gaussian convolution. Writing its density as a Gaussian factor times \(g(z)=\phi(z)+z\Phi(z)\) yields a positive likelihood-ratio derivative, since the key factor equals a strictly positive truncated Gaussian second moment. At the Rayleigh endpoint, the ratio vanishes on nonpositive arguments and increases strictly on positive arguments. The CDF derivative is obtained by justified differentiation and one integration by parts; its strictly negative sign handles all finite thresholds and the endpoint by continuity. The mean and stochastic order give an exact first-Wasserstein distance. The 347 deterministic numerical assertions corroborate, but cannot certify, these infinite statements.
+## correctness
 
-## Originality
-PASS (qualified). Cheng and Ginos, equation (3.9), supply the smooth peak-height density and the limiting Gaussian/Rayleigh endpoints; those are prior facts. The newly assessed statement consists of the global likelihood-ratio ordering, pointwise strictly signed CDF parameter derivative, and exact pairwise transport distance. Their full-text relevant sections and the earlier Gaussian-peak-height studies were compared for these statements and implications, with no equivalent complete result found. A general total-positivity principle or an overlooked paper could subsume the finding; no exhaustive historical-priority guarantee is made.
+PASS
 
-## Mathematical value
-PASS. Peak-height thresholds are used for significance decisions after maxima selection. Ordering the entire reference family in the strongest classical likelihood-ratio sense determines direction for every single-threshold test and every increasing score, not just first moments. The exact first-Wasserstein modulus provides a sharp, parameter-uniform distributional sensitivity constant. Both properties have a direct interpretation when different Gaussian covariance structures induce different conditional height–curvature correlations; these are motivated quantities, not arbitrary parameter slices.
+Squaring the exponential in the Rayleigh–normal convolution gives exp(−x²/2) times the integral of r times a normal kernel with center ηx and scale s; this yields the stated density, including the normalization and the η=0 case. With t=η/s and g(z)=φ(z)+zΦ(z), the derivative in t of the noncommon part tΦ(tx)/g(tx) of the x-score is φ(z)[(1+z²)Φ(z)+zφ(z)]/g(z)². Integrating (u+z)² against φ(u) on u>−z gives exactly the bracket, strictly positive even for negative z. At η=1 the ratio vanishes for x≤0 and its positive-half-line log derivative is φ(t_a x)/(x g(t_a x)). Independently, one integration by parts in the mixture CDF gives F_η(x)=Φ(x/s)−η exp(−x²/2)Φ(ηx/s) for η<1. On differentiating, the terms containing derivatives of the Φ factors cancel since φ(x/s)=exp(−x²/2)φ(ηx/s); the remaining derivative is strictly negative at each finite x. The mixture converges almost surely to R in this representation, whose CDF is continuous (including at zero); an interior strict gap persists to the endpoint by monotonicity. The ordered quantiles couple the variables so that the transport cost equals the mean difference, which is also a lower bound for every coupling. The Rayleigh mean sqrt(π/2) gives the exact W1 metric and hence the constant-speed path. I inspected but did not run the included finite quadratures; none is needed for the assertion on the continuum.
 
-## Limits and closest literature
-The theorem applies to the limiting one-dimensional smooth-Palm family only. Neither finite-grid stochastic ordering nor arbitrary covariance perturbation comparison is claimed. Closest: Cheng and Ginos, arXiv:2610.27687v1; Cheng and Schwartzman, arXiv:1307.5863v3; Zhao et al., arXiv:2502.12452v1. Independent mathematical and priority assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The density, its interpolation between endpoint laws, and those endpoint laws are established prior content. The supported distinct content is global parameter likelihood-ratio ordering with the stated endpoint qualification, the signed CDF derivative and strict order, and the resulting exact W1 geometry for the fixed family. This is a bounded comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The family is fixed by Palm peak-height calibration, not an arbitrary Gaussian mixture. The result orders all finite height thresholds as curvature correlation changes, with the stronger likelihood-ratio comparison on the full interior support. The exact W1 formula supplies a uniform sharp sensitivity measure for these fixed marginals. None of this asserts a comparison for finite meshes or a coupling of the underlying Gaussian processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

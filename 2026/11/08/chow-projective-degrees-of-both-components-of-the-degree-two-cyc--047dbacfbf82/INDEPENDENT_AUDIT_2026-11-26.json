@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:47:47.516278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An irreducible degree-two p-fold has span dimension at most p+1 by the degree–codimension bound and is a quadric hypersurface there; every other degree-two cycle is a pair of p-planes, counted with multiplicity. Smooth quadrics exist since p≥1; two general p-planes span more than a (p+1)-plane since n≥p+2. Thus the projective-bundle and symmetric-product images are distinct components and have dimensions D and 2d. The essential polarization: the wedge of the k linear forms defining a complementary probe restricts to a vector in ∧^(K−1)S* = S⊗det S*. Evaluating the universal quadratic gives a section linear in the tautological quadric and in (det S*)². It has no base point: choose a restriction of full rank with kernel any chosen line on which the quadratic is nonzero. Consequently the hyperplane pullback is ξ+2h, and the map has generic degree one by uniqueness of the span. Pushforward in the lines convention gives s_j(Sym²S*) and the base tangent weights b−a give the stated denominators. On the pair component multiplication of Chow forms gives h₁+h₂ on the ordered product; generic degree two and the rectangular tableau count yield the displayed factor and degrees. The dimensions have difference p(2n−3p−3)/2; at equality precisely the two top-dimensional multiplicity-one components contribute, with the tie in the range for odd p at n=3(p+1)/2. Ran python3 /workspace/reproductions/3.py: direct localization on the full quadric bundle (individual monomial-line fixed points, weights 3^i) and independent Young-lattice recursion agree in six parameter cases, including (3,6) with degrees 6522193496 and 288592936632 and sum 295115130128. This checks arithmetic and signs in addition to the geometric proof; no uploaded checker was executed, and the frozen verification statuses are not independent certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Hu–Ma Theorem 2.2 is a Poincaré-polynomial result; Hu §4.2 describes component structure and dimensions. The indexed smallness-wall record concerns intersection-cohomology polynomials of the quadric locus within the same problem family."
+        ],
+        "reasoning": "These results supply geometric, dimensional and topological input but not the top self-intersection for the standard Chow embedding. Knowing an ordinary or intersection-cohomology polynomial does not identify a polarization or component degree.",
+        "searches": [
+          "arXiv:2610.39498v1 Theorem 2.2 and §3",
+          "arXiv:1911.04707 §4.2",
+          "Resultary intersection-cohomology smallness wall f00447c79675"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39498v1",
+        "arXiv:1508.07219",
+        "arXiv:1911.04707",
+        "Resultary fd514ab21641 and f00447c79675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence cover pulls back the Chow class to x+y−2c₁(S); under multiplication of two linear forms the quadric tautological class pulls back to x+y. This is consistent with, and can help determine, the twist on the full quadric space using its projective-bundle Picard group. The incidence integral uses two separate S* projective-bundle factors, rather than the full Sym²S* with its unordered-pair roots. The known benchmark evaluates only (1,3)."
+        ],
+        "reasoning": "Ordinary Chow-form multiplicativity and the known pair cover already give the pair calculation, and known dimensions give the wall. The prior incidence polarization shares part of the geometry (no priority inferred from same-day dating), but its degree formula does not specialize to integration on the full quadric bundle. Evaluating the ambient polarization on that different space, including the determinant twist and unordered-pair Chern roots, gives the actual distinct component formula.",
+        "searches": [
+          "Chen–Hu–Ma §3, parameterization and bundle convention Eq. (3.3)",
+          "fd514ab21641 RESULT.md §2, actual Chow polarization on the ordered common-incidence cover",
+          "Bürgisser–Kohn–Lairez–Sturmfels §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Hu–Ma §3 pp. 4–5 identifies the same projective bundle and symmetric product with their maps, but its projective-bundle description and the cohomology data do not state the ambient Chow hyperplane class or its top powers. SCOPE common-incidence record fd514ab21641 explicitly computes Z=(Q∩R)_red, of positive codimension in both components in this domain."
+        ],
+        "reasoning": "Isomorphic source parameter spaces need not identify the polarization. Recasting the locus as symmetric products or coordinates of split forms changes neither which space is integrated over nor the degree asked for. The common incidence class is not the class of either component.",
+        "searches": [
+          "Resultary: standard Chow projective degree of degree-two cycle components, quadric in its span, unordered pairs of p-planes",
+          "arXiv:2610.39498v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bürgisser–Kohn–Lairez–Sturmfels §2 explicitly gives the (1,3) component degrees 92,140 and total 232. The same-day incidence record fd514ab21641 has degree 140 at (1,3) for Z, not proof of equality of objects: at (1,4) it gives 6300 instead of 6620 or 11550. Other retrieved neighboring tables concern different strata or p=0."
+        ],
+        "reasoning": "Credit the exact prior (1,3) pair of degrees in full. The number 140 in a different stratum is not further coverage. No inspected matching higher-dimensional full-component table displaces the evaluated cases.",
+        "searches": [
+          "arXiv:1508.07219 §2: Chow variety of quadratic space curves",
+          "Resultary exact degree lookup for quadric and pair loci, and adjacent numerical tables"
+        ]
+      },
+      "rationale": "The supported distinction is a uniform evaluation of the standard Chow-form degree of the full quadric component and its integration into the all-parameter degree calculation, not the component decomposition, projective-bundle descriptions, known conic/line-pair benchmark, or a new localization technique. The pair degree and the dimension comparison are largely direct from known parameterizations and multiplication of Chow forms; their inclusion completes the formula rather than constituting separate novelty. The closest related degree result concerns the strict common incidence locus, not a full component. No inspected statement or immediate specialization gives the full quadric integration and numerical evaluations throughout this range.",
+      "residual_risks": [
+        "The inspected sources are not an exhaustive priority survey of older formulas for Chow-embedded quadrics or intersection-theoretic tables; same-day related methodological overlaps do not establish order. The ordinary geometric inputs and the known benchmark remain credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering decomposition/cohomological framework, not the exact degree formula in these passages",
+          "evidence": "R=SP²(G) and Y=P(Sym² S*) with maps and the bundle convention at (3.3); Theorem 2.2 gives a Poincaré polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39498v1",
+          "material_read": "Theorem 2.2, pp. 2–3 offsets 8000–12920; §3 pp. 4–5 offsets 15400–20816",
+          "method": "OA paper bounded passages",
+          "title": "Poincaré series of degree-two Chow varieties",
+          "trigger": "Same parameter spaces and broadest recent description"
+        },
+        {
+          "assessment": "Exact known smallest case",
+          "evidence": "Conics and pairs of lines in P³ have degrees 92 and 140 respectively, total 232.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.07219",
+          "material_read": "§2 pp. 4–5 offsets 15100–18632",
+          "method": "OA paper passage",
+          "title": "Computing the Chow variety of quadratic space curves",
+          "trigger": "Exact degree precedent"
+        },
+        {
+          "assessment": "Component and dimension precedent",
+          "evidence": "At most two components and dimension formula for degree-two cycles; no component-degree evaluation in the inspected section.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.04707; doi:10.1016/j.jpaa.2021.106667",
+          "material_read": "§4.2 pp. 13–14 offsets 46250–50534 of OA arXiv copy",
+          "method": "OA same-paper passage",
+          "title": "The multiplicative group action on singular varieties and Chow varieties",
+          "trigger": "Earlier component theory and dimensions"
+        },
+        {
+          "assessment": "Shared incidence geometry and polarization, different degree invariant",
+          "evidence": "Z=(Q∩R)_red and its class on the ordered cover; at (1,4) degree(Z)=6300.",
+          "identifier_or_url": "2026/11/8/SCOPE-projective-degrees-of-the-common-incidence-strata-of-degree-two--fd514ab21641",
+          "material_read": "RESULT.md offsets 0–4272, including Finding, scope, proof §§1–2 opening; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Projective degrees of the common incidence strata of degree-two Chow varieties",
+          "trigger": "Strong exact-object and method match in catalog search"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Computes intersection cohomology, not a top Chow hyperplane power.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-smallness-wall-and-intersection-cohomology-polynomials-of-de--f00447c79675",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The smallness wall and intersection-cohomology polynomials of degree-two Chow varieties",
+          "trigger": "Same quadric-cycle locus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard Chow degree is a canonical enumerative invariant, and the top-dimensional degree can miss a whole irreducible component in this family. The uniform quadric calculation makes that component's degree available even at parameter values where it would be invisible to the degree of the whole variety; the distinct dimensions and the equal-dimension ties give precise rules for using the component calculations. This is more than recomputing the known conic benchmark or evaluating a single unmotivated case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

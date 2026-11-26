@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized Gaussian/circle Fourier identity is obtained from the defining transforms. The Bessel equation gives the exact stationary-log-curvature \(u_a''=4a-1-4a^2r^2<0\) on every negative lobe, so every lobe has exactly one nondegenerate fold. The strict Bessel energy decrease proves the ordering as \(a\downarrow0\); the envelope derivative \(\partial_a\log\Lambda_k=\rho_k^2\) and exponential comparison prove unique crossover for every pair. The high-lobe asymptotic follows by expansion at its right Bessel zero; radial density and first-zero escape follow from standard Bessel oscillations. The computer script checks finite instances only; the text supplies analytic proofs for every parameter and index.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The inspected original spherical-Fourier uniqueness paper determines a *restriction uniqueness* criterion from Bessel zero sets, not the zeros of a Gaussian–circle convex mixture. The inspected Yin–Dong full text derives characteristic-function representations for elliptical laws and related mixtures, but not the mixed Gaussian–surface-circle fold counts, pairwise crossover theorem or exponential threshold law. The standard Bessel facts are explicitly attributed to DLMF. Nearby indexed results concern Bessel zeros of convex bipyramids, rather than this singular+smooth radial probability mixture. The related area-annulus Fourier-zero result studies variation in an annular inner-radius parameter, not this Gaussian mixing family. Complete publication priority is not independently certified; unindexed diffraction/stochastic-process literature could contain an equivalent.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete classification of zero rings in a canonical positive radial measure mixture. The countably infinite nondegenerate fold diagram, unique inversion of every pair of fold levels as Gaussian variance varies, and sharp vanishing circle-mass asymptotics distinguish the theorem from an elementary closed-form characteristic-function identity. The result identifies a meaningful nonperturbative boundary: every arbitrarily small positive circle mass generates infinitely many nodal circles, though their first radius diverges.
+The covariance 2a I and angular radius 2 pi |xi| give the stated transform. On a negative lobe, u=ar^2+log(-J_0) tends to minus infinity at both ends. The Bessel ODE gives u''=4a-1-4a^2 r^2 at every stationary point, strictly negative by completing the square and r>1. Two maxima would force an intervening minimum, so there is exactly one stationary point, and its curvature gives the exact zero orders. The energy J_0^2+(J_0')^2 has derivative -2(J_0')^2/r, so at a=0 the negative-lobe heights strictly decrease. The envelope derivative of the log-height ratio is rho_l^2-rho_k^2>0, and comparison with a fixed interior point of I_l and the right endpoint of I_k makes the ratio diverge as a grows. In the endpoint proof, first bracket the critical point at s-x/s with fixed x on opposite sides of 1/(2a): the Bessel ODE and Taylor expansion normalized by J_0'(s) give J_0(s-h)/J_0'(s)=-h+O(h^2/s+h^3), J_0'(s-h)/J_0'(s)=1+O(h/s+h^2), hence u'=s(2a-1/x)+O_a(1/s). Within this bracket the critical equation gives h=1/(2as)+O_a(s^-3). The exponent loses exactly 1 in the limit and J_0'(s)~sqrt(2/(pi s)), giving the stated prefactor. Two roots per sufficiently late negative lobe yield the count by the Bessel zero locations. For the first root, |J_0|<=1 gives the lower bound sqrt(log(lambda)/a) and a negative antinode within bounded distance to the right of sqrt((1+epsilon)log(lambda)/a) gives the upper asymptotic. Independent bounded SciPy replay (independent_checks.py circle) reproduced all three stated crossover values and tested the endpoint scaling in log form. The frozen prose reports 45 sampled lobes, but its displayed loop/output has 15 distinct fold-sampling parameter pairs, plus further solver calls and six root-pair cases. No universal claim relies on the numerical count.
 
-## Limits
-The first_public_date is a verified date for an appropriate foundational published primary source, not a new publication date. No complex-frequency zero classification, higher-dimensional analogue, triple-threshold prohibition or external certification is claimed. Unindexed priority risks remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact transform and asymptotic Bessel ingredients are classical. The distinct contribution is the complete real fold census, strict ordering reversal for each pair of lobes, and sharp fold-height/mass asymptotic for this mixture. The strongest inspected archive radial-zero results concern a different transform and do not imply this fold law.
+
+## value
+
+PASS
+
+This canonical planar radial probability mixture adds a smooth strictly positive Fourier term to an oscillatory one. The natural question is how zero circles are born and ordered as the two independent mixture parameters change. The theorem gives the entire real zero set and exactly which pairs of folds exchange order, with explicit asymptotic size of the arbitrarily small masses needed in distant lobes. The fold comparison provides more information than the leading density alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

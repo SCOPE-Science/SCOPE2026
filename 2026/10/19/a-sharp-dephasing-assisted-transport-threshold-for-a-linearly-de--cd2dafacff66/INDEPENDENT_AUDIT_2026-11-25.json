@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:38.052540Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–111",
+        "Frozen VERIFICATION.md and check_three_site.py, inspected but not executed",
+        "/workspace/branches/04eb0692-2097-4e25-8b46-254f289bffc2/independent_three_site_check.py (independent exact reconstruction)",
+        "/workspace/branches/04eb0692-2097-4e25-8b46-254f289bffc2/INDEPENDENT_CHECK.txt"
+      ],
+      "rationale": "The indicated off-diagonal decay convention and one-end loss give the survival-time resolvent for P_1. Hilbert–Schmidt dissipation implies every imaginary-axis eigenoperator must have row and column 3 zero; the nearest-neighbor commutator in the eigenoperator equation then forces row and column 2, and then 1, zero. Thus the integral exists even at g=0. Independent exact elimination of the populations and a four-real-coherence solve reproduced the integrated density matrix with zero residual in the full equation and the trace N/D, including 87/14 at k=g=delta=1. The denominator is strictly positive. Exact expansion reproduced the first three derivative coefficients, both sign identities and coefficient positivity for degrees 3–8. Q_k grows strictly from a negative value to infinity. When Q_k<=0 all positive-degree derivative-numerator coefficients are positive, so equality at the threshold yields a zero endpoint slope but a strictly increasing curve thereafter. When Q_k>0 the signs change exactly once in coefficient order; by Descartes' rule and continuity there is one simple positive root and the slope changes from negative to positive. For x=|delta| the scaled leading polynomial at g=tx has its simple root at t=1, so the unique optimum approaches this branch. Exact next-order expansion then yields g_*=x-k/3+O(1/x), at fixed k. The independent threshold at k=1 is 0.189848784891488681 in detuning magnitude.",
+      "residual_risks": [
+        "The large-detuning expansion is for each fixed k>0, not uniform as a trap rate varies with detuning. No numerical check was used to infer a global root count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The twin-peaks result concerns steady-state transport efficiency for selected disordered networks; it does not force multiple optima in this model.",
+          "The compared trimer records specify different local dephasing, middle initialization/central detuning and fixed k, or budget allocation over endpoints."
+        ],
+        "reasoning": "A shift of the diagonal energies cannot make the endpoints equal for a nonzero linear gradient. Neither permuting sites in the path nor changing the rate convention converts middle-only dephasing or fixed endpoint-budget optimization to the stated all-site varying strength.",
+        "searches": [
+          "Coates et al. arXiv:2106.12567 and arXiv:2210.11875",
+          "Kassal–Aspuru-Guzik arXiv:1201.5202",
+          "Resultary 20fefd81b481, aa0054715e49 and 6a95340a7690"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.12567",
+        "arXiv:2210.11875",
+        "arXiv:1201.5202",
+        "DOI 10.1063/1.1786922 (primary access attempted)",
+        "Local Resultary 20fefd81b481, aa0054715e49, 6a95340a7690"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The near match aa0054715e49 has the leading optimal-rate scale |Delta|, but not the linear gradient, the preparation or the variable-trap statement.",
+          "The general resolvent technique supplies a formal calculation, not the evaluated coefficient signs, the sharp cubic or the subleading correction."
+        ],
+        "reasoning": "None of the inspected stronger-looking statements specializes to the same generator, initial state and optimization. In particular leading detuning scaling in a nearby model does not imply the threshold or the fixed-k shift.",
+        "searches": [
+          "Coates et al. 2021 current formula p. 7; Kassal–Aspuru-Guzik 2012 trimer p. 3",
+          "Resultary stated hypotheses in 20fefd81b481, aa0054715e49 and 6a95340a7690"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coates et al. optimize pumped steady-state extraction current with equal reinjection over sites. Kassal–Aspuru-Guzik use trapping efficiency in a model with competing loss and a different trimer preparation.",
+          "Gaab–Bardeen's effective trapping rate is identified in Kassal–Aspuru-Guzik's discussion; its precise relationship to reciprocal mean first-capture time in the same gradient model was not established."
+        ],
+        "reasoning": "For a compatible reset to P_1 a unit-cycle flux can be related to inverse mean capture time, so the observable name alone is not decisive. The checked pumped protocol has different injection, and competing-loss efficiency is a different functional.",
+        "searches": [
+          "Lindblad/Haken–Strobl three-site mean trapping or capture time, effective trapping rate, and linear-gradient optimal uniform dephasing",
+          "arXiv:2106.12567 pp. 3, 7; arXiv:1201.5202 pp. 2–3; DOI 10.1063/1.1786922"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "20fefd81b481 reports even a two-minimizer threshold for a locally dephased central-detuning model.",
+          "aa0054715e49 has a strictly positive optimal rate even at zero detuning, with P_2 preparation and k=J.",
+          "6a95340a7690 reports a sharp three-regime allocation result at fixed total endpoint noise."
+        ],
+        "reasoning": "The hits are exact analytic comparisons, not a lookup yielding this threshold for any k. Opposite behaviors at similar labels are consequences of different hypotheses, not equivalent outputs.",
+        "searches": [
+          "Configured local Resultary three-site dephasing optimum and mean trapping time search; exact records 20fefd81b481, aa0054715e49, 6a95340a7690"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp all-k cubic threshold and sign-complete uniqueness classification for site-1 mean absorption in an exactly linear-gradient trimer with uniform site dephasing, including the -k/3 term. The compared papers supply related models/objectives and the compared catalogue statements supply exact neighboring trimer thresholds or optima, but none of the inspected statements implies this one. The closely relevant Haken–Strobl paper by Gaab and Bardeen remains a named access and equivalence risk, not a documented absence of coverage.",
+      "residual_risks": [
+        "The Gaab–Bardeen full text was inaccessible. Neither a reciprocal mean-time equivalence there nor an unindexed identical theorem is excluded; no priority is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close Hamiltonian family; different observable and source",
+          "evidence": "Uses pumped steady-state transport efficiency and equal reinjection across sites; extracted current I_ss=rho_NN gamma_trap.",
+          "identifier_or_url": "arXiv:2106.12567",
+          "material_read": "OA PDF pp. 3 and 7, offsets 6338 and 19083",
+          "method": "Lawful OA full-text passages",
+          "title": "Localisation determines the optimal noise rate for quantum transport",
+          "trigger": "Very close linearly detuned nearest-neighbor model"
+        },
+        {
+          "assessment": "The inspected result is not for the stated initial-value three-site problem",
+          "evidence": "At least two ENAQT peaks in steady-state transport efficiency for a subset of disordered networks.",
+          "identifier_or_url": "arXiv:2210.11875",
+          "material_read": "OA PDF abstract p. 1, offset 0",
+          "method": "Lawful OA abstract passage",
+          "title": "From Goldilocks to twin peaks: multiple optimal regimes for quantum transport in disordered networks",
+          "trigger": "Prior multiple-noise-optimum statement"
+        },
+        {
+          "assessment": "Different trimer preparation and objective; useful Gaab–Bardeen cross-reference",
+          "evidence": "Three-site example starts on site 2 with trap at site 1 and additional loss. Authors distinguish their efficiency from the reported effective trapping rate.",
+          "identifier_or_url": "arXiv:1201.5202",
+          "material_read": "OA PDF pp. 2 and 3, offsets 4800 and 6853",
+          "method": "Lawful OA full-text passages",
+          "title": "Environment-assisted quantum transport in ordered systems",
+          "trigger": "Three-site transport and discussion of effective trapping"
+        },
+        {
+          "assessment": "Exact coverage unresolved; the secondary passage cannot decide it",
+          "evidence": "Kassal–Aspuru-Guzik report possible environmental enhancement of effective trapping rate and note no competing loss in the model.",
+          "identifier_or_url": "https://doi.org/10.1063/1.1786922",
+          "material_read": "Bibliographic record and secondary discussion in arXiv:1201.5202 p. 2; no primary proof passage",
+          "method": "Lawful direct and webpage OA attempts (HTTP 403); no lawful repository copy recovered",
+          "title": "The effects of connectivity, coherence, and trapping on energy transfer in simple light-harvesting systems studied using the Haken–Strobl model with diagonal disorder",
+          "trigger": "Possible exact model and effective-rate overlap"
+        },
+        {
+          "assessment": "Different detuning pattern and dephasing",
+          "evidence": "Middle-only detuning and dephasing, including a two-minimizer equality case in one parameter range.",
+          "identifier_or_url": "2026/11/2/SCOPE-discontinuous-and-continuous-optimal-dephasing-onsets-in-a-lossy--20fefd81b481",
+          "material_read": "RESULT.md Finding, offset 0–1776, and model assumptions",
+          "method": "Local Resultary mirror and exact statement comparison",
+          "title": "Discontinuous and continuous optimal-dephasing onsets in a lossy quantum trimer",
+          "trigger": "Closest exact threshold for the same mean-time type"
+        },
+        {
+          "assessment": "Different initial state, detuning and trap-rate hypotheses",
+          "evidence": "P_2, a central detuning with equal endpoint energies, and k=J; positive optimum at zero detuning.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-convexity-and-a-detuning-monotone-noise-optimum-for-a-mid--aa0054715e49",
+          "material_read": "RESULT.md offset 0–1850, Finding and definition of generator",
+          "method": "Local Resultary mirror",
+          "title": "Strict convexity and a detuning-monotone noise optimum for a middle-initialized quantum trimer",
+          "trigger": "Homogeneous-dephasing trimer optimum and large-detuning scale"
+        },
+        {
+          "assessment": "Distinct parameter and noise control problem",
+          "evidence": "Optimizes an endpoint allocation u in [0,G] at fixed G, no uniform variable-strength noise or linear energy ramp.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-three-regime-allocation-of-endpoint-dephasing-in-a-detuned--6a95340a7690",
+          "material_read": "RESULT.md offset 0–1707, Finding and optimization domain",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-regime allocation of endpoint dephasing in a detuned quantum trimer",
+          "trigger": "Sharp optimization of trimer mean capture from site 1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40 and 94–127",
+        "Coates et al., arXiv:2106.12567 and arXiv:2210.11875"
+      ],
+      "rationale": "The result gives a global, all-parameter exclusion of multiple noise optima in a natural transport benchmark while identifying precisely when dephasing helps. It distinguishes endpoint preparation and mean survival from pumped throughput, and quantifies how trapping changes the large-gradient optimal noise scale. The exact threshold and uniqueness are useful beyond isolated parameter samples.",
+      "residual_risks": [
+        "No claim of global uniqueness in other geometries or for other transport objectives follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

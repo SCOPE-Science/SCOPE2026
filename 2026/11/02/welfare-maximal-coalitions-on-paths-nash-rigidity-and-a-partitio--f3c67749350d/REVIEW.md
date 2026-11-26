@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact theorem is for integer positive \(p,q\), every finite ordered path \(P_n\) with \(n\ge2\), and induced-coalition distances with disconnected coalitions forbidden by utility \(-\infty\). Connected coalitions are intervals. Each interval length \(\ell\) contributes exactly \(2p(\ell-1)-q(\ell-1)(\ell-2)\) to welfare; strict quadratic concavity balances the lengths for a fixed number of blocks, giving the exact all-order maximum and count. Every optimal block has nonnegative agent utility (endpoint splitting), and a profitable connected boundary transfer would strictly increase total welfare by twice the mover's gain; nonboundary departures cannot produce a beneficial move. The adjacent density difference has a unique zero and proves the precise critical ratios. A bounded welfare deficit bounds exceptional block vertices off criticality, whereas coprime critical block sizes give a two-length composition recurrence and a unique dominant positive pole. Replaying the packaged `verify.py` checks finite all-set-partition welfare and Nash comparisons. No infinite statement rests solely on computation.
+PASS
 
-## Originality — PASS, with limitations
+The singleton partition has finite welfare, so only compositions of contiguous intervals can maximize. Counting ordered adjacent and nonadjacent pairs gives w_l. Its strictly concave quadratic term gives a strict gain 2q(a-b-1) by balancing lengths a,b at fixed k, proving the complete census including ties between k. A negative endpoint could detach without disconnecting the source, doubling its personal gain in welfare; interior members have strictly larger utility than endpoints. An interior member cannot connect to another coalition, and a feasible boundary join leaves old within-block distances unchanged, so its welfare increment is exactly twice the deviator's utility gain. The decreasing sequence of density differences gives precisely the claimed consecutive ties, with L>=2 because d_2>d_1. Off criticality the residual-block construction bounds the total deficit uniformly, and the positive density gap then bounds the number of exceptional vertices, yielding polynomially many placements. At criticality n=Lh+r with h>=L-1>=r is representable by L and L+1; both lengths alone attain the optimal density. The composition generating function has a simple positive dominant pole and no other pole on its modulus because L,L+1 are coprime. The recurrence with a_0=1 is for those coefficient counts; they coincide with N_n on the stated representable range, not necessarily for every small n. An independent cut-mask replay checked 72 parameter profiles and every unilateral destination for 145 exact optimum partitions, without running uploaded code.
 
-The closest source is Ganian–Hamm–Knop–Roy–Schierreich–Suchý (arXiv:2307.05061, expanded account arXiv:2312.07632): it introduces the score-based setting, discusses open negative scoring tails, and proves algorithmic and structural properties, without the displayed exact path partition census, all-maxima Nash property, or count-growth transition. The general tree result by Kaklamanis–Kanellopoulos–Papaioannou–Patouchas (2020, Theorem 12) concerns the normalized positive inverse-distance game and merely asserts existence of an optimal Nash equilibrium. It is not an implication of the new negative-tail exact census. No matching statement was identified through the inspected literature and topic-record comparisons. Unindexed equivalent constructions and broader combinatorial-optimization theorems remain residual priority risks; failed keyword searches are not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact all-optima characterization and number of solutions illuminate how a simple social-distance penalty reshapes coalition stability on a natural unlimited network family. The discontinuity between a polynomial number of welfare optimizers at generic penalty ratios and exponentially many at precisely specified critical ratios distinguishes robust optimal block sizes from entropically degenerate welfare optima. This is a mathematically motivated structural phase diagram rather than an arbitrary finite table, and it complements general algorithmic tractability results without asserting downstream applications not established.
+The credited claim is the all-parameter census and its score-induced critical change in optimizer counts, with every such optimizer stable on a path. Standard pairwise welfare, concavity, and composition generating functions are tools, not claimed original. Strongest path analogues checked use different payoff normalizations and yield different optimal lengths; the open-score framework does not give the census or density phase transition.
 
-## Scientific and verification limits
+## value
 
-The theorem does not imply unique equilibria, a price-of-anarchy bound, or an extension to branching trees. The integer-parameter restriction and induced-connectivity convention are essential to the stated scope. Finite verification through order eight is corroboration only. The primary literature is materially inspected, but comprehensive priority is not certified. There is no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives more than an optimal welfare algorithm: it determines the full optimizer multiplicity, proves that no maximizer needs to be discarded for Nash instability, and shows that an exact tie in per-vertex welfare creates an exponential optimizer family whereas noncritical parameters allow only polynomial degeneracy. This is a structural distinction relevant to counting and selecting optimal coalitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

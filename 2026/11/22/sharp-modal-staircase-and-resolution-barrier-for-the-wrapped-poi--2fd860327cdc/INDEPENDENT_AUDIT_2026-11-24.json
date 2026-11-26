@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:03:05.419507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–118, VERIFICATION.md and verify_wpl_modes.py (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/recheck_frozen_five.py, section 2; expand (1-2t-t^2)((1+t)^6-1)-6t exactly and evaluate using Fraction at 0.13478761972309 and 0.13478761972311. Signs +,- verified."
+      ],
+      "rationale": "The geometric and first-moment series independently give w(r)=theta^2 q^(m-3)q^(-r)(r+b)/(q^m-1), q=1+theta, b=theta+2+m/(q^m-1). Neighbor ratios strictly decrease, and their difference from 1 has the sign of H_m-r. With A=theta sum(q^k), strict AM–GM gives m^2 q^(m-1)/A^2 < theta^(-2), so H'_m<-1. Expanding the finite sum gives H_m(0+)=(m-5)/2, not attained, while H_m(infinity)=-infinity. Therefore the only nonnegative integer thresholds are j<(m-5)/2. This handles m=2 (vacuous interior concavity), m=5 (endpoint limit 0 but no tie), and m=6 (first positive threshold). In all cases H_m<m-1, so there is no missing overflow sector; every claimed unique mode occurs on an interval and any tie is exactly adjacent. For m=6 clearing theta A and removing theta^2 yields the stated sextic. For the large-m transition, A/m increases strictly in m at fixed theta; t_m increases toward t_*=sqrt(2)-1 by pointwise convergence of H_m. Its positive lower bound t_6 and the mean-value theorem give t_*-t_m=O(m(1+t_6)^(-m)), so ((1+t_m)/sqrt(2))^m tends to one. The derivative of 1/t-t-2 then gives the stated limiting coefficient 1/(4+2sqrt(2)).",
+      "residual_risks": [
+        "Log-concavity is on interior labeled residues, not a claim about wraparound triples. The analytic proof supplies all resolutions and all real positive parameters; fraction checks certify only the enclosure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "WDLE's indexed result attains all sectors through floor((m-1)/2), unlike WPL's max(0,floor((m-4)/2)). General strict log-concavity of these positive affine-geometric masses follows from a decreasing ratio at fixed parameter."
+        ],
+        "reasoning": "Even a general fixed-parameter two-adjacent-mode statement would not imply a unique parameter crossing of each feasible label, much less the WPL-specific asymptotic; the parameter-dependent inequality and limit are essential.",
+        "searches": [
+          "SCOPE-the-exact-wdle-modal-staircase-and-fixed-origin-half-circle-barr--3bdb074628bd",
+          "doi:10.4208/jms.v55n2.22.03; doi:10.3390/math12162440 (distribution and review references)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target 2fd860327cdc and WDLE 3bdb074628bd summaries",
+        "Frozen RESULT.md, AUDIT.json and references",
+        "Chesneau–Bakouch–Hussain 2022 identified, primary body retrieval attempted; Bell–Nadarajah 2024 review identified in frozen references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the known mass and recurrence, the conditional integer-mode test follows immediately. The full classification additionally uses H'_m<-1 and the unattained endpoint (m-5)/2; the sharp rate uses the mean-value estimate after proving convergence."
+        ],
+        "reasoning": "Credit the direct consequences of the PMF. The available neighboring model result neither asserts these WPL inequalities nor implies them by substitution. The supported distinct claim is the sharp all-parameter/all-resolution phase diagram and convergence rate.",
+        "searches": [
+          "Global-Sci WPL article 13417 and publisher PDF (attempted text)",
+          "2026/10/12 SCOPE WDLE record 3bdb074628bd (indexed summary)",
+          "Frozen RESULT.md lines 75–118, 126–134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 55–73 rewrite the problem as an affine-geometric mass and scalar crossings H_m(theta)=j. The indexed WPL match is the target itself; the distinct WDLE summary gives a staircase for a different parent."
+        ],
+        "reasoning": "The alias as a wrapped affine-geometric law gives the neighbor-ratio test, not the trajectory of its slope/intercept combination as theta varies. The different WDLE barrier precludes identifying the one-parameter laws with their sector labels preserved across resolutions.",
+        "searches": [
+          "Resultary: wrapped Poisson–Lindley fixed-origin modal staircase and resolution barrier",
+          "Primary-literature lookup: Chesneau–Bakouch–Hussain, DOI 10.4208/jms.v55n2.22.03"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct catalog match is the same assigned record and summarizes the same cutoff and rate. The frozen paper credits prior illustrative shape plots, not exact transition values; the primary body could not be inspected independently."
+        ],
+        "reasoning": "Illustrative fitted shapes under a few parameter choices do not establish the rational sextic enclosure or exact thresholds for every resolution. The catalog evidence is limited and does not exclude a separate equivalent table.",
+        "searches": [
+          "Resultary: wrapped Poisson–Lindley modes, six-sector cutoff and large-resolution first transition",
+          "Chesneau–Bakouch–Hussain 2022 identified via title and DOI"
+        ]
+      },
+      "rationale": "Pass for the WPL-specific all-resolution threshold classification, six-sector cutoff and sharp first-threshold asymptotic, not for the underlying PMF, recurrence or the general method of comparing ratios. The strongest available analogous result concerns WDLE, with materially different cutoff and upper sector. The identical catalog entry is not evidence of earlier coverage.",
+      "residual_risks": [
+        "Primary WPL full text and WDLE record body were unavailable. The assessment does not infer absence from access failure.",
+        "An equivalent WPL classification under a mixture or shape terminology may exist outside checked evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Law source credited; full extent of modal coverage unresolved",
+          "evidence": [
+            "Frozen source attributes the closed mass and neighbor recurrence to this 2022 paper; attempted primary text retrieval unavailable."
+          ],
+          "identifier_or_url": "https://doi.org/10.4208/jms.v55n2.22.03",
+          "material_read": "Publisher/article identification and frozen comparison at RESULT.md lines 126–128; no independent full-text passage obtained",
+          "method": "Primary search; attempted publisher article page and publisher PDF via OA, with PDF retrieval fallback",
+          "title": "Modeling and Applications to Circular Data with a Wrapped Poisson-Lindley Model",
+          "trigger": "Primary same-law source"
+        },
+        {
+          "assessment": "Different parent, comparable technique; available conclusion has a different bound",
+          "evidence": [
+            "WDLE summary gives attainable sectors through floor((m-1)/2); the WPL cutoff result has J_m and no nonzero mode for m<=5."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-exact-wdle-modal-staircase-and-fixed-origin-half-circle-barr--3bdb074628bd",
+          "material_read": "Indexed statement-level summary; body unavailable",
+          "method": "Resultary and frozen §Prior work",
+          "title": "The exact WDLE modal staircase and fixed-origin half-circle barrier",
+          "trigger": "Strongest analogous indexed modal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and lines 75–118, 126–134; established WPL model reference"
+      ],
+      "rationale": "The result explains exactly what angular discretization is required for a moving modal sector in an existing circular distribution, and how the first transition approaches its unwrapped threshold. The unique global phase transitions, including the low-resolution obstruction, are not just plots or a numerical rerun of the PMF.",
+      "residual_risks": [
+        "Population modes for a fixed angular origin only; no inference about fitted parameters, sample behavior or free rotation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

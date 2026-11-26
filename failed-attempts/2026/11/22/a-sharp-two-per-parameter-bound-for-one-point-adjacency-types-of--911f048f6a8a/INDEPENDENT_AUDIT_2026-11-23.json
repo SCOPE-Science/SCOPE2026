@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:14:58.916837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–54",
+        "Frozen VERIFICATION.md and verify.py, read only"
+      ],
+      "rationale": "With nonempty A, the quantity t+(1−e)+(1−f) counts T augmented by ∅ and A. It is 2 on the singleton; an empty-parameter factor changes neither the augmented family nor m. For both factors nonempty in parameters, a union can duplicate only ∅ and necessarily misses A; the augmented count is t_1+t_2+2−e_1−e_2, at most the sum of the two child augmented counts. For a join the roles are swapped: only A can be duplicated, ∅ is absent, and the count is t_1+t_2+2−f_1−f_2. The resulting induction proves the bound for all finite cographs. Each leaf twin realizes its singleton; each internal apex realizes its descendant leaf set, all distinct by full binary branching; an isolate realizes ∅. There are exactly 2m external witnesses and m parameters, including the edge-plus-isolate case m=1. No host with fewer than 3m vertices can provide the 2m separate external witnesses. All-vertex adjacency traces are not all complete equality-sensitive quantifier-free types, a distinction correctly made in the stated scope. The uploaded finite checks were read, not run; the proof does not depend on them.",
+      "residual_risks": [
+        "No all-vertex equality-sensitive type bound or bound for formulas of positive quantifier rank is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cographs are exactly the zero-twin-width graphs. The published general twin-width neighborhood bound is (d+2)2^(d+1)m, giving 4m at d=0, not 2m.",
+          "The fixed length and quantifier rank type result is polynomial rather than this exact coefficient. The sharp forest closed-neighborhood result cited in the comparison is ⌊7m/3⌋ for a different host class."
+        ],
+        "reasoning": "These broader literature results do not dominate the exact claim. The exact stronger coverage comes instead from the all-vertex open and closed spectra theorem and the standard cograph operations.",
+        "searches": [
+          "Bonnet et al., Twin-width I, §1.1 and p. 3",
+          "Bonnet–Foucaud–Lehtilä–Parreau, arXiv:2301.04217v2 §3 Theorem 1",
+          "Dreier–Mählmann–Toruńczyk arXiv:2611.08143v1",
+          "Berthe et al. arXiv:2607.16889 Theorem 2",
+          "Targeted cograph/cotree neighborhood-trace literature check"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Distinct cograph spectra and forest rigidity records",
+        "Twin-width I and bounded-twin-width neighborhood theorem",
+        "Fixed-rank and treewidth/pathwidth comparison passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Start from its open 2m-vertex extremizer with m parameters. In a union/join construction replace the singleton leaf of each parameter a by an independent pair a,a′ with a′ kept external. This replaces only the leaf expression and so preserves the cograph property. It creates one external false twin per parameter and does not change A.",
+          "Every old external trace remains; every trace formerly witnessed by a∈A is witnessed by a′. Thus there are at least 2m distinct external traces; the all-vertex bound gives equality. The new host has 3m vertices, which is also the trivial witness-count lower bound. This argument works even at m=1."
+        ],
+        "reasoning": "Although the spectra record does not explicitly state an external-witness minimum, its exact optimum lifts to that minimum in one standard closure operation. The frozen all-vertex theorem and stronger penalty lemma are already literal statements there. Neither a different pictured extremizer nor same-day dating separates the claims mathematically.",
+        "searches": [
+          "Same-day cograph spectra, Finding, Augmented-trace lemma, and 2m-vertex open construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectra record defines the same all-vertex open T and proves |T∪{∅,A}|≤2m. For m≥1 the added sets are distinct, so this is literally the frozen strengthened inequality.",
+          "Open and closed trace families on a fixed A are interchanged, up to trace complementation, under graph complementation: N_G[v]∩A=A∖(N_{complement G}(v)∩A). The correspondence also holds with witnesses limited to V∖A."
+        ],
+        "reasoning": "Cographs are complement-closed, so the closed/open phrasing does not create a new extremal problem. The stronger augmented invariant is itself explicitly common to the two exact records. Equality literals outside A are uniformly false and do not obstruct the comparison.",
+        "searches": [
+          "Resultary: cograph one-point open or closed adjacency trace complexity, sharp 2m, and first-order types",
+          "Sharp adjacency-trace spectra of finite cographs, mirrored Augmented-trace lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct cograph entry 61aa84aa3a1a states the complete 1 through 2m spectrum and the sharp 2m order at the all-vertex maximum. The forest entry e0393b89ea9b classifies an all-vertex extremum with a different attaining order and host restriction; its witness for m≥2 has an induced P4."
+        ],
+        "reasoning": "For this all-size sharp theorem an explicit indexed spectrum is more informative than a finite enumeration table. This is an exact cograph hit even though it counts all witnesses, not an inference of coverage from the coincident coefficient in the forest result.",
+        "searches": [
+          "Resultary exact finite cograph open/closed trace spectrum and forest trace extremizers"
+        ]
+      },
+      "rationale": "The distinct same-day exact cograph spectra record proves the identical augmented bound and the stronger all-vertex spectrum, including an attaining host of order 2m. Its result also mechanically gives the external extremum and the 3m minimum via cograph false-twin extension. This is demonstrated coverage of the full frozen theorem, not a historical priority decision based on the date.",
+      "residual_risks": [
+        "No priority or dependency ordering inferred among same-day records. Older cotree/Welzl-order literature remains incompletely read, but the exact indexed cograph theorem and its implication already suffice for the coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the all-vertex and augmented bounds, and mechanically implies the sharp external theorem",
+          "evidence": "States the exact all-vertex spectrum {1,…,2m}, attainment on 2m vertices, and |T∪{∅,A}|≤2m. Its own construction mixes internal and external witnesses, all of which can be realized externally by the false-twin substitution.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-adjacency-trace-spectra-of-finite-cographs--61aa84aa3a1a",
+          "material_read": "Mirrored RESULT.md Finding, Augmented-trace lemma, open extremizer and closed extension, offsets 0–3925 and 4200–8245",
+          "method": "Local Resultary index and bounded mirror reads, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp adjacency-trace spectra of finite cographs",
+          "trigger": "Identical cograph open-trace bound and stronger same-day exact spectrum"
+        },
+        {
+          "assessment": "Different host class and count convention; not the deciding overlap",
+          "evidence": "Uses 2m−t(F,A), a spanning-tree pair family, and minimum order 3m−1 with an internal trace witness.",
+          "identifier_or_url": "2026/11/22/SCOPE-cayley-rigidity-of-maximal-open-adjacency-types-in-finite-forest--e0393b89ea9b",
+          "material_read": "Mirrored RESULT.md offsets 0–4914 and 4914–7800",
+          "method": "Local Resultary index and bounded mirror reads",
+          "title": "Cayley rigidity of maximal open-adjacency types in finite forests",
+          "trigger": "Closest exact non-cograph trace extremum from same day"
+        },
+        {
+          "assessment": "Supplies the recursive class and exact zero-twin-width identification, not the coefficient",
+          "evidence": "Union/complete sum creates the cographs, precisely the graphs of twin-width zero.",
+          "identifier_or_url": "arXiv:2004.14789",
+          "material_read": "§1.1 printed p. 2 and p. 3, offsets around 5892 and 9350",
+          "method": "Lawful OA original passages",
+          "title": "Twin-width I: tractable FO model checking",
+          "trigger": "Why zero-twin-width neighborhood bounds apply to cographs"
+        },
+        {
+          "assessment": "Weaker specialization at zero twin-width",
+          "evidence": "The all-vertex X-neighborhood bound is (d+2)2^(d+1)|X|.",
+          "identifier_or_url": "arXiv:2301.04217v2",
+          "material_read": "§3 Theorem 1 printed p. 3, offset around 9900",
+          "method": "Lawful OA original passage",
+          "title": "Neighbourhood complexity of graphs of bounded twin-width",
+          "trigger": "Broader result on the same open trace convention"
+        },
+        {
+          "assessment": "Does not state the exact cograph coefficient in the inspected material",
+          "evidence": "Reports polynomial bounds for fixed length and quantifier rank.",
+          "identifier_or_url": "arXiv:2611.08143v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Lawful OA original opening passage",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "Cited broader fixed-rank types result"
+        },
+        {
+          "assessment": "Different host class and convention",
+          "evidence": "Reports the sharp ⌊7k/3⌋ closed-neighborhood bound in forests.",
+          "identifier_or_url": "arXiv:2607.16889",
+          "material_read": "Theorem 2, printed p. 3, HTML offset around 12717",
+          "method": "Lawful OA original statement",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Sharp coefficients for a neighboring sparse graph class"
+        },
+        {
+          "assessment": "Unresolved additional comparison and not used as grounds for failure",
+          "evidence": "No exact attributable trace coefficient from this material.",
+          "identifier_or_url": "https://laxarchive.org/lax-214022/index.html",
+          "material_read": "Landing page/abstract only; not primary paper body",
+          "method": "Bounded lawful OA attempt",
+          "title": "Welzl Orders of Cographs",
+          "trigger": "Older cotree literature plausible from directed search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen strengthened induction and external witness construction",
+        "Exact same-day cograph spectra and augmented lemma",
+        "False-twin substitution implication"
+      ],
+      "rationale": "The exact trace spectrum is a useful structural invariant, but the frozen cap and augmented lemma recapitulate the stronger existing statement. The frozen external optimization adds no new extremal obstacle: duplicating the parameter leaves in a smallest all-vertex extremizer attains the unavoidable witness-count lower bound. The alternative laminar construction is a valid example, not a distinct classified trace structure or a new exact invariant beyond the mechanically implied result.",
+      "residual_risks": [
+        "No judgment on the value of an unclaimed stronger classification of external extremizers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

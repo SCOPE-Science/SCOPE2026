@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter; no third-party packages are required. Expected exhaustive complete rank vectors, ordered by rank zero through four, are `q=2: [1,21,154,336,0]`, `q=3: [1,26,234,1116,810]`, and `q=5: [1,124,3100,27400,47500]`. The script derives the linear constraints for all endomorphisms from the multiplication table, rather than assuming the proposed derivation dimension, and checks the Leibniz identity for each enumerated derivation. It also uses binary and extension-field elimination to enumerate all symmetric matrices over \(\mathbb F_2\) in dimension four and \(\mathbb F_4\) in dimension three. Expected outputs for these last two cases respectively include rank vectors `[1,45,770,5040,10528]` and `[1,315,19908,241920]`.
+## correctness
 
-Tests enumerate small finite fields and do not establish the infinite theorem; the proof in `RESULT.md` supplies the all-field normal form and the all-even-field counting argument. Rank conventions distinguish the full derivation from its top-left matrix. No independent external validation or publication-priority certification has been performed.
+PASS
+
+Preservation of E_m²=kz forces the center column (0,c); applying Leibniz to the bilinear product (v·w)z gives A^T+A=cI, with free central row ℓ. Conversely these conditions give Leibniz on all products. If 2 is invertible, A=tI+S with S skew and c=2t; A=I,c=2 is invertible. In characteristic two c=0 and A is symmetric; the two parameter counts give the stated dimension jump. For the even-field count, a nonzero first diagonal entry gives the ordinary Schur complement. If that entry is zero and the first row is nonzero, congruence on the remaining coordinates gives a leading block [[0,1],[1,b]]. This block is invertible for every b, and its inverse has bottom-right entry zero. The lower block therefore keeps its determinant condition and there are r−1 free entries (b and the remaining entries of row two); this proves the stated recurrence without requiring the leading block to be alternating. Radical/quotient counting gives the Gaussian factor, and the appended row leaves rank r on exactly q^r choices, otherwise increasing it by one. In odd characteristic at m=3 a nonzero skew matrix has rank two; for t≠0, det(tI+S)=t(t²+a²+b²+c²). Summing the quadratic character gives q²+qχ(−s) representations of a nonzero s by a²+b²+c², so exactly q²+q shifts are singular at s=−t². Since A+A^T=2tI has rank three, these singular matrices have rank two; the nonzero center column adds one to their rank independently of ℓ. This yields the frozen vector, including its rank-zero and full-rank terms. Independent bounded checks reproduce the q=2,3,5 rank vectors and the m=4 binary vector.
+
+## originality
+
+PASS
+
+The algebra, characteristic-two normal form and symmetric-form counts overlap known material, and the even-field row-extension formula is a direct deduction once those ingredients are assembled. The supported distinct part is the complete odd-characteristic four-dimensional derivation spectrum and its comparison with the even one; the inspected strongest sources do not count the scalar-shift stratum or give a stronger result implying that exact spectrum. This is not a claim that the form counts or evolution-algebra construction are new.
+
+## value
+
+PASS
+
+Full derivation rank measures image and kernel dimensions intrinsically. The four-dimensional algebra is a natural classified nilpotent member, and this is the complete rank distribution over every odd finite field, not a single chosen finite field or one sample operator. In particular it quantifies how many derivations are actually invertible rather than merely exhibiting one, and comparing it with the even-field distribution shows exactly how the rank strata change. This value assessment rests on the distinct odd-field classification, not on the already known counts of symmetric forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

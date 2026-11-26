@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:38:27.619004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "/workspace/reproductions/frozen_checks.py, renewal()"
+      ],
+      "rationale": "The equilibrium age is P(L>a)/μ at each a≥0. Summation and expectation can be exchanged because the absolute sum is μ. The cycle geometric series gives z=(1−E iᴸ)/(μ(1−i)); the diagonal entries are each 1/2, so the purity correction is |1−E iᴸ|²/(4μ²). Write w=1−E iᴸ. For u=2−μ in [1/2,1], the per-length linear support inequality gives Re w−u Im w≥1+u², tight at lengths 1 and 3, with length 4 also tight at u=1/2 but excluded by the required Re w=1. At μ between 3/2 and 4 the other linear support inequality gives 2 Re w−Im w≥4−μ, tight at 1,3,4; projecting to that line and applying the moment constraint gives precisely the stated weights. Zero norm forces residue 0 mod 4; at mean 4 this forces a point mass. For μ≤2, δ=E(i−iᴸ) has nonpositive real inner product with 1−i and norm at most √2(μ−1); the pointwise norm inequality is strict for every length over 2, so the unique optimizer has support in {1,2}. Above mean 2 the farthest point in the residue polygon is w=2, forcing residue 2 mod 4. Every real mean in a stated unbounded-support regime is attainable by mixing adjacent eligible lengths, and mixing extremizers yields all intermediate purity values at fixed mean. This reasoning does not assume synchronized convergence. An independent exact check computed the closest and farthest squared norms of the feasible residue polygon at 217 rational means, including all three thresholds. Replay: python3 /workspace/reproductions/frozen_checks.py 3. Finite polygon samples corroborate but do not certify the universal formulas or optimizer uniqueness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald et al. give an age-dependent reset model and a steady state for geometric resets; their nongeometric discussion concerns convergence.",
+          "Sevilla–Valdés-Hernández give a continuous-time renewal formula and purity relation.",
+          "The distinct catalogue result has a below-half-turn deterministic maximizer and a below-full-turn unattained infimum."
+        ],
+        "reasoning": "The continuum extremal bounds hold for a broader domain of phase distributions, but do not solve the restricted optimization: at generic fractional means below 2, the continuum maximizing deterministic law is unavailable on the lattice, and the discrete lower endpoint below 4 is strictly positive above 1/2 and attained.",
+        "searches": [
+          "Wald et al. §§2.1–2.2 and 4 on geometric and non-Poissonian clocks",
+          "Sevilla–Valdés-Hernández §3.3 Eq. 37 and renewal formulation",
+          "Resultary d0c1369493e2, Finding and extremal proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d0c1369493e2",
+        "arXiv:2410.11497v2 §§2.1–2.2, 4",
+        "arXiv:2209.05643 renewal formulation and §3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous result correctly predicts the analogue of the fixed-phase upper regime and full-turn dephasing regime, but does not supply the {1,3}/{1,3,4} transition or the below-half-turn {1,2} upper law."
+        ],
+        "reasoning": "The missing classification requires a new extremization on a budget-truncated residue simplex; restricting the known continuum optimizer families leaves the subthreshold ranges unsolved.",
+        "searches": [
+          "Resultary d0c1369493e2, extremal proof",
+          "arXiv:2410.11497v2 §4",
+          "arXiv:2209.05643 §3.3 Eq. 37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary optimization is equivalently a norm problem for the mean of the four residue phases, with a positive-integer mean-length constraint.",
+          "The distinct Resultary entry d0c1369493e2 uses arbitrary continuous positive intervals and optimizes a related phase-average norm."
+        ],
+        "reasoning": "Phase scaling aligns the fourth roots of unity with quarter turns, but replacing a continuum time law by a law supported on positive integers changes the feasible phase averages and the renewal-age normalization. This is not an equivalence of optimization domains.",
+        "searches": [
+          "Resultary: sharp fixed-mean stationary purity and renewal reset qubit",
+          "Wald et al., arXiv:2410.11497v2 §2",
+          "Sevilla–Valdés-Hernández, arXiv:2209.05643"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed record is d0c1369493e2, sharing the fixed-mean range question but using continuous renewal lengths.",
+          "Equation 10 gives a geometric-reset state, not a table of endpoints over all laws."
+        ],
+        "reasoning": "Neither supplies the tick-by-tick endpoint functions and exact all-law equality cases. The two catalogue entries are dated the same day; no ordering is inferred from the date.",
+        "searches": [
+          "Resultary: fixed-mean stationary-purity range, reset-budget thresholds and quarter-turn clock",
+          "Wald et al. §2.2 Eq. 10"
+        ]
+      },
+      "rationale": "The strongest distinct match treats the same fixed-mean extremal problem in continuous time. The half-turn and full-turn thresholds correspond to 2 and 4 ticks respectively, but its continuum envelope and equality cases do not give the discrete envelope or the additional optimizer transition at 3/2. The equilibrium age and renewal coherence reductions themselves are known. The pass is for the complete tick-constrained classification, not the general resetting model or the half-turn/full-turn mechanism.",
+      "residual_risks": [
+        "Relative chronology of the two same-day catalogue records is not established.",
+        "Specialized or unindexed exact lattice-moment optimization results may contain comparable formulas; bounded source inspection is not a historical priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material structural overlap but different optimization domains and endpoint laws",
+          "evidence": "Positive real intervals, deterministic sub-half-turn optimizer, and unattained lower endpoint below a full turn.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-fixed-mean-stationary-purity-range-for-a-renewal-reset-qub--d0c1369493e2",
+          "material_read": "RESULT.md Finding and assumptions at offset 0; extremal proof around offset 3423",
+          "method": "Local Resultary index and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp fixed-mean stationary purity range for a renewal-reset qubit",
+          "trigger": "Closest distinct record on fixed-mean purity endpoints and all optimizers"
+        },
+        {
+          "assessment": "Known discrete renewal/reset framework and special clock, not the fixed-mean extrema",
+          "evidence": "Age-dependent resets; geometric steady state; convergence conditions for non-Poissonian protocols.",
+          "identifier_or_url": "https://arxiv.org/html/2410.11497v2",
+          "material_read": "§2.1 offset 9170; §2.2 Eq. 10 offset 16026; §4 offset 37084",
+          "method": "Lawful OA full-text passages",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "General nongeometric discrete-time model"
+        },
+        {
+          "assessment": "Provides reduction in continuous time, not the integer-budget optimization",
+          "evidence": "Renewal equation and purity relation for general continuous-time interval distributions.",
+          "identifier_or_url": "https://arxiv.org/html/2209.05643",
+          "material_read": "Renewal formulation offset 2606 and purity §3.3 Eq. 37 offset 32999",
+          "method": "Lawful OA full-text passages",
+          "title": "Dynamics of closed quantum systems under stochastic resetting",
+          "trigger": "General reset waiting distributions and purity formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all endpoint laws and conventions",
+        "Resultary d0c1369493e2, continuum comparison"
+      ],
+      "rationale": "The quarter-turn phase is a canonical small finite-order gate, and fixed reset budget is the natural constraint. The exact cost of dephasing, the additional integrality-induced support transition below it, and the classification of every attaining law distinguish this from simply evaluating a steady state for a chosen clock. Equilibrium observation allows periodic optimizers without a false convergence interpretation.",
+      "residual_risks": [
+        "No robustness to gate error, startup phase or clock noise is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:42.857689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5",
+        "Frozen VERIFICATION.md and proof_checks.py (inspected)",
+        "audit-checks/poisson.py (written and run)"
+      ],
+      "rationale": "Independent presences and encounter streams give the stated failure product. With y=B/2, t=|x-y| and a=(1-p)e^y/p, the scaled product has difference from t=0 of t^2(2aF_y(t)-1). The even power series for F_y has coefficients (y-2k+1)/(2k)!; for y<=3 it is strictly decreasing, and for y>3 division of its derivative by the last positive monomial gives a strictly decreasing function on t>0. Thus every interior F_y(t) strictly exceeds the smaller endpoint value. For G(y)=F_y(y)-F_y(0), y<=3 gives strict negativity (including y=3); differentiating under the closed formula gives the stated y^4G'' and the lower bound ((y-2)^2+2)cosh(y)-2y-6>0 on y>=3. Strict convexity from a negative initial value and divergence to positive infinity force a unique root there. When G<=0, either the equal split is at least as good as concentration and all intermediate t are strictly worse, or the negative difference from t=0 at concentration is multiplied by a strictly smaller t^2/y^2 in the interior lower bound, again excluding an interior optimum. For y<=1, F_y(y)<F_y(0)<=0 so concentration alone wins. When G>0, take a small positive t with 0<F_y(t)<F_y(y) and choose a strictly between their reciprocal doubled values in the specified order; neither candidate endpoint can minimize and some unequal interior optimum exists by compactness. This uses a potentially different p at each B. For each fixed p, eventually strict concavity of -log q_p and its finite increasing limit exclude every bounded small coordinate, then force equal division. Independent rational arithmetic in audit-checks/poisson.py (alternating small-argument exponential bounds raised to the 16th power) certified both root signs, also bracketing B_* between 8.4020630239297547240 and 8.4020630239297547250, and certified the asymmetric failure probability strictly below both controls.",
+      "residual_risks": [
+        "Equal and concentrated optima may tie in the claimed regime; strictness is for excluding other splits. The result concerns global optima under the stated static two-site model, not local critical points or adaptive surveys."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vicentini's abstract covers generic S-shaped utilities; theorem-level full text could not be read (403 at identified PDF endpoint). Ginsberg's original full text was not recovered after DOI and alternate-source checks; the explicit same-utility characterization is from Srivastava–Bullo p. 1.",
+          "Srivastava–Bullo's stated Theorem 4(i) gives a (2+epsilon) approximation factor, and Algorithm 1 gives a hybrid allocation algorithm."
+        ],
+        "reasoning": "This class overlap and algorithmic guarantee do not establish an exact universal budget. Unread theorems remain a possible stronger coverage source, not an exclusion.",
+        "searches": [
+          "Vicentini, CWRU item 370 and identified PDF link",
+          "Ginsberg DOI 10.1016/0022-0531(74)90053-2",
+          "Srivastava–Bullo, Theorem 4 and Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ae3e6f6f2f0f",
+        "Vicentini CWRU item 370",
+        "Ginsberg DOI and indirect Srivastava–Bullo comparison",
+        "Srivastava–Bullo OA PDF and Theorem 4(i)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strict improvement over concentration and balance at one budget cannot yield the interval exclusion of unequal global optima or a witness at each B above a sharply defined endpoint.",
+          "The frozen argument derives the necessary-and-sufficient model-specific endpoint comparison F_y(y)-F_y(0), proves a unique zero and turns its positive sign into a nonempty interval of allowed odds a."
+        ],
+        "reasoning": "General S-shaped optimization and the previously exhibited asymmetry do not give this exact consequence in the inspected material. Any genuinely stronger theorem that does would count as coverage; no such actual passage was established here.",
+        "searches": [
+          "ae3e6f6f2f0f exact fixed-parameter Finding and frozen RESULT.md §§2–5",
+          "Vicentini item 370 abstract; Srivastava–Bullo Theorem 4(i); Ginsberg access check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing success is exactly maximizing g_p(x)+g_p(B-x), where g_p=-log q_p is convex then concave. CWRU item 370's abstract describes precisely the additive fixed-budget resource-allocation framework with S-shaped terms.",
+          "Srivastava–Bullo p. 1 actually identifies Ginsberg's knapsack with identical sigmoid utilities, not merely superficially similar economics.",
+          "Resultary ae3e6f6f2f0f has the same model after identifying the independent suitability with p and Poisson founder mean with dimensionless exposure."
+        ],
+        "reasoning": "All three formulations are material comparisons; the equivalent resource-allocation formulation is not itself new. The universal threshold requires its own theorem-level comparison.",
+        "searches": [
+          "Resultary: asymmetric two-site Poisson quorum founder effort/occupancy confirmation",
+          "Primary literature: two identical S-shaped utilities and multiplant allocation",
+          "Vicentini technical memorandum 201, CWRU item 370; Srivastava–Bullo p. 1; Ginsberg DOI 10.1016/0022-0531(74)90053-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-date record ae3e6f6f2f0f, Finding in RESULT.md at offset 0, establishes exactly two reflected unequal global optima for B=10, p=799/800, with x about 2.93748094; it also supports a nearby open regime.",
+          "The retrieved same-model comparison does not quantify over all universally subcritical budgets or all supercritical budgets."
+        ],
+        "reasoning": "The fixed example is coverage of the qualitative phenomenon and one point of the existence side, not of the exact onset. Same-date indexing gives no ordering by itself.",
+        "searches": [
+          "Resultary: Poisson two-confirmation sharp budget and asymmetric optimum fixed-budget examples"
+        ]
+      },
+      "rationale": "Credit the earlier-indexed or same-date evidence of asymmetric globally optimal splits in this exact model. The supported distinction is only the sharp universal boundary, including existence of some p at each supercritical B, not the model, S-shaped reformulation, or occurrence of asymmetry itself. Relevant general theory could facilitate a proof, but the inspected exact-model theorem and accessible comparisons do not establish the model-dependent sign test, its unique crossing, or the two sides of this universal boundary. Access risks remain for the closest historical general theory.",
+      "residual_risks": [
+        "An exact applicable theorem in the inaccessible Vicentini or Ginsberg full text, or further unindexed S-shaped allocation literature, is not ruled out.",
+        "No claim of priority for the existence of asymmetric solutions or the general mathematical formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap on asymmetry only",
+          "evidence": [
+            "Exact witness at B=10, p=799/800, with two reflected globally optimal allocations; not the universal boundary theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f/RESULT.md",
+          "material_read": "Opening Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror read",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited sites",
+          "trigger": "Exact same Poisson quorum model"
+        },
+        {
+          "assessment": "Exact framework match; theorem coverage unresolved",
+          "evidence": [
+            "Maximize sum of S-shaped utilities subject to fixed resource and nonnegative allocations."
+          ],
+          "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+          "material_read": "Repository abstract near offset 250; identified PDF access attempted",
+          "method": "Read public repository item; PDF returned 403",
+          "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+          "trigger": "Equivalent additive S-shaped formulation"
+        },
+        {
+          "assessment": "Highly relevant; full theorem not accessible",
+          "evidence": [
+            "The citing paper explicitly describes Ginsberg's identical-sigmoid-utility knapsack; the DOI landing was not used as full-paper evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-0531(74)90053-2",
+          "material_read": "DOI landing and secondary identification in Srivastava–Bullo p. 1 near offset 3370 and reference 20 p. 11",
+          "method": "Public DOI lookup, alternate-copy check, and bounded OA passage of citing paper",
+          "title": "The Multiplant Firm with Increasing Returns to Scale",
+          "trigger": "Identical sigmoid utilities as reported by Srivastava–Bullo"
+        },
+        {
+          "assessment": "General approximation result, not exact sharp classification",
+          "evidence": [
+            "Theorem 4(i) proves approximation factor 2+epsilon, not a universal optimum-shape cutoff for this parametric family."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2012n-sb.pdf",
+          "material_read": "Abstract p. 1; related work p. 1 near offset 3370; Theorem 4(i) and Algorithm 1 pp. 5–6 near offset 39060",
+          "method": "Locate and read bounded OA PDF passages",
+          "title": "Knapsack Problems with Sigmoid Utilities: Approximation Algorithms via Hybrid Optimization",
+          "trigger": "General exact problem class and closest accessible primary comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§4–5",
+        "ae3e6f6f2f0f, Finding"
+      ],
+      "rationale": "The same model can favor concentration, equal allocation or strictly unequal allocation. An exact sharp boundary universal in the unknown occupancy probability is a natural design invariant: it certifies that testing concentration and balance suffices below it, and that this restricted policy can fail at every larger budget. The fixed-p return to balance also distinguishes the universal statement from a monotone phase claim. This is materially more informative than the already established isolated counterexample.",
+      "residual_risks": [
+        "No empirical calibration or transport to unequal rates, adaptive policies or other count thresholds is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

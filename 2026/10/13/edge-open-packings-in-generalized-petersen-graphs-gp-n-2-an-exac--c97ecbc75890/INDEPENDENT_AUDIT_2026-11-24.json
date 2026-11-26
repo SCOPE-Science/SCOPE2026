@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:53:54.411475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥9, writing each endpoint index as its column plus an increment in {0,1,2} shows that any third-edge conflict gives a signed column difference in [−4,4]. These residues are distinct for n≥9. Listing the possible endpoint types and excluding the two selected edges gives exactly the forbidden-pair table, with both orientations at offset zero. A four-column state therefore records all the history needed to test a new mask; a cyclic packing gives a closed walk, and conversely such a walk of length n≥9 supplies a packing. The sum around a closed walk of h(s)−h(t)≥9w−7 gives 9|F|≤7n. The nine base walks of lengths 9–17 all return to (2,4,0,6); concatenation with the length-nine walk adds seven edges and preserves all junction constraints, giving attainment in every residue class. For 5≤n≤8, fresh exact independent-set recursion on conflicts built from the actual graph returned 3,4,5,6 (the recursion exhausts whether a chosen vertex belongs to the set). The independent script fresh_gp_repro.py in /workspace/branches/75436585-d2d9-4cd5-8ec6-a86ea2d2087b/ also reconstructed the 120 states and verified all 291 exact potential inequalities, checked table agreement on eight orders and validated the thirteen base words. The finite certificate and proof, not the recorded pumped examples in verification_output.txt, establish the infinite formula. The uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general upper bound |E|/δ gives n for GP(n,2); the later equality characterization is for that bound, not the smaller bound floor(7n/9).",
+          "The inspected product graph bounds concern the product construction, and the threshold characterization does not evaluate its predicates on GP(n,2)."
+        ],
+        "reasoning": "No inspected covering theorem gives both the density and attainability mechanically. In particular, characterizing equality at n cannot determine a deficit growing like 2n/9.",
+        "searches": [
+          "Resultary: edge-open packing generalized Petersen graph cyclic mask transfer theorem",
+          "10.1051/ro/2022171, Proposition 3.7",
+          "arXiv:2403.00750, Theorem 4.1",
+          "arXiv:2406.04020, Corollary 5.3",
+          "arXiv:2508.01935, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked results and the four matched SCOPE findings above",
+        "Chelladurai–Kalimuthu–Soundararajan, DOI 10.1051/ro/2022171",
+        "Brešar–Samadi, arXiv:2403.00750",
+        "Brešar–Dravec–Hedžet–Samadi, arXiv:2406.04020",
+        "Pandey–Santra, arXiv:2508.01935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general characterization of ρ≤t still requires proving the relevant thresholds for this family. The nine-based walks and the exact potential derive that missing family-specific information.",
+          "The prism is GP(n,1), whereas the inner edges here step by two. Its six-periodic theorem is not a substitution yielding the nine-periodic density."
+        ],
+        "reasoning": "The known Petersen value and neighboring theorems do not imply the sharp full-range result.",
+        "searches": [
+          "arXiv:2508.01935, Theorem 3",
+          "arXiv:2403.00750, Theorem 4.1",
+          "Resultary family and transfer-theorem searches listed above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The third-edge/P4-or-triangle condition in Chelladurai–Kalimuthu–Soundararajan is the relevant one. Selected components are stars with no extra edges among their combined support; they need not be a matching.",
+          "SCOPE records ending 61f837fd501d and 28850ff52d3f give for GP(n,2) the existence of dominating induced matchings exactly when 5 divides n, with five such matchings of size 3n/5 then."
+        ],
+        "reasoning": "A dominating induced matching is a different, more constrained object. Neither its count nor its existence condition determines the larger maximum over induced star packings. The inspected alias search did not surface the formula.",
+        "searches": [
+          "Resultary: generalized Petersen induced star forest maximum edges",
+          "Resultary: exact edge-open-packing number generalized Petersen GP(n,2)",
+          "10.1051/ro/2022171, definition",
+          "arXiv:2406.04020, comparison of the invariants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 2.5 explicitly gives 3 for the Petersen graph, i.e. GP(5,2).",
+          "The inspected same-date SCOPE prism record 67cac7c1bf32 gives n if 6 divides n and n−1 otherwise for C_n □ K₂, not the GP(n,2) sequence. The rook record c00dbc4c5ae6 is for K_m □ K_n."
+        ],
+        "reasoning": "The boundary value is known and is not claimed as new. The closest indexed exact sequences are for different families; the bounded search does not establish the absence of every possible table.",
+        "searches": [
+          "Resultary: GP(n,2) edge open packing floor formula",
+          "Resultary: exact edge-open-packing number generalized Petersen GP(n,2)",
+          "10.1051/ro/2022171, Proposition 2.5"
+        ]
+      },
+      "rationale": "Credit the known Petersen value at n=5. The supported distinct contribution is the sharp family-wide formula with attainable residue classes and integer upper certificate. The closest same-family indexed records measure a different invariant; the closest same-invariant periodic record concerns a different family. Inspected general bounds and tests do not yield the claimed formula without new family-specific work.",
+      "residual_risks": [
+        "General web query for GP(n,2) and edge-open packing was deferred, not a negative search. Unlocated equivalent results on induced star forests or sizes of injective edge-color classes remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n=5, not the family-wide formula by the stated bound.",
+          "evidence": [
+            "Third-edge conflict definition; ρ_e^o(Petersen)=3; ρ_e^o(G)≤|E(G)|/δ(G)."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "Definition p. 1 (offset 555), Proposition 2.5 p. 3 (10998), Proposition 3.7 p. 7 (22188).",
+          "method": "Open primary PDF, read the relevant definition, exact instance and general bound.",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original invariant definition and exact Petersen case"
+        },
+        {
+          "assessment": "Equality criteria for a weaker bound, not the claimed density.",
+          "evidence": [
+            "The theorem characterizes equality in the |E|/δ bound, which is n for this cubic family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+          "material_read": "Theorem 4.1 p. 10, offset 43626.",
+          "method": "Read the primary theorem passage.",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Potentially sharper universal bounds or equality criteria"
+        },
+        {
+          "assessment": "The inspected product bounds do not cover this generalized Petersen family formula.",
+          "evidence": [
+            "An edge-open packing need not be a matching; Corollary 5.3 concerns graph products."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+          "material_read": "Invariant comparison p. 2, offset 5760; Corollary 5.3 p. 20, offset 84352.",
+          "method": "Read the primary comparison and product-bound passages.",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Alias and product-family overlap check"
+        },
+        {
+          "assessment": "General characterization rather than evaluation on GP(n,2).",
+          "evidence": [
+            "The equivalences characterize when ρ_e^o(G)≤t using other packing tests, without deriving the claimed family-specific thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.01935",
+          "material_read": "Theorem 3 p. 2, offset 10234.",
+          "method": "Read the primary theorem and scope passage.",
+          "title": "Edge open packing: further characterizations",
+          "trigger": "Broader exact threshold theorem"
+        },
+        {
+          "assessment": "Mathematically separate from the frozen claim, irrespective of record dates.",
+          "evidence": [
+            "Prisms have a six-periodic exact maximum; rook results concern a different product; the efficient domination results classify dominating induced matchings, not maximum edge-open packings."
+          ],
+          "identifier_or_url": "Resultary/SCOPE records 67cac7c1bf32, c00dbc4c5ae6, 61f837fd501d, 28850ff52d3f",
+          "material_read": "Actual findings in the local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary semantic query followed by local mirror statement inspection.",
+          "title": "Edge-open packings in prism graphs; Edge-open packing polynomial of rook graphs; Rigidity of efficient edge domination in GP(n,2)",
+          "trigger": "Strongest same-invariant and same-family indexed hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "GP(n,2) is a standard cubic family, and allowing mutually incident edges gives a packing problem not answered by induced matching or the cubic upper bound. The precise floor law quantifies the linear deficit from that bound, and the matching finite certificate and constructions explain the nine-column structure across all orders. It gives a usable exact benchmark for packing bounds and algorithms on this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

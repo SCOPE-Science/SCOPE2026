@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:40:03.720046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A two-sided rate-r Poisson construction yields independent exponential backward intervals, independently marked; their Brownian displacements are independent Laplace variables with rate lambda=sqrt(2r)/sigma. The backward affine series converges absolutely and gives the stationary process; coupling with the same future noise decreases differences by at most c_* at each reset, giving uniqueness. Its additive remainder R (independent of the final Laplace innovation) is bounded by K/(1-c_*)+sum_{j>=1} c_*^j |xi_j|. For eta>lambda with eta*c_*<lambda its exponential moment is finite by the convergent Laplace-product bound, including c_*=0. Thus the positive stationary tail is asymptotic to exp(-lambda u) E[exp(lambda R)]/2; dividing tails proves exponential excess and tightness. Future noise is unchanged by conditioning. At the first future reset S, on no earlier Brownian crossing the pre-reset position is u plus the tight random variable V_u+sigma W_S. The chance it is not sent below u tends to zero since |C|<=c_*<1 and |B|<=K (also for negative C). Hence the actual exit agrees with the first of S and the Brownian hit with probability tending to one. Joint weak convergence follows, for instance by Brownian scaling H_z in law as (z/sigma)^2 times a standard Brownian hitting time from 1, independent of the excess and S. Independent replay of the mixture: if p=r+s, the Laplace integral of the limiting survival at s is (1-E[exp(-U sqrt(2p)/sigma)])/p=1/[sqrt(p)(sqrt(p)+sqrt(r))]; its clock Laplace transform is therefore 1-s/[sqrt(p)(sqrt(p)+sqrt(r))]=sqrt(r/(r+s)). This gives the Gamma shape/rate, erfc survival and the limiting mean, not convergence of conditional means. For C=B=0 the excess is exactly exponential for all u>=0 and every reset exits, proving exactness. VERIFICATION.md and verify.py were inspected, not executed; the finite contraction examples and quadrature do not prove the infinite-law limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Palmowski–Vlasiou give the general stationary fixed-point law and affine transforms, covering Step 1's representation. Those passages do not estimate the first post-observation reset's chance of crossing a moving level.",
+          "Kolb–Wübker could not be retrieved (403; no identified OA copy); no claim about its precise theorem is made from that failure."
+        ],
+        "reasoning": "A general stationary law supplies a key input but does not specify the rare conditioned path or its exit. Broader rare-cluster coverage remains a residual risk, not an excluded possibility.",
+        "searches": [
+          "Palmowski–Vlasiou arXiv:2611.14692v1 §2.3 Thm. 2.1/Cor. 2.2 and §2.5 (10)–(11)",
+          "Kolb–Wübker DOI 10.1112/blms.70314, identified manuscript access attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14692v1, 2305.13722v1, 2202.02715v1",
+        "DOI 10.1112/blms.70314 (access attempt)",
+        "Resultary 18d72c0291bd, 3e4e01201dc0, 5c356dfeaeaf, c03a80e1262c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Singh–Pal use Brownian first passage to a fixed zero boundary from fixed input, with a fixed positive reset point and possible repeated resets. Their ingredients recover the elementary complete-reset benchmark by killing at the first reset, taking its new position at/below the boundary and mixing with the known stationary excess.",
+          "In the random affine case a reset is not guaranteed to exit at finite threshold, so a separate tightness and contraction argument is needed to justify replacing it by killing; the conditional excess must also be established."
+        ],
+        "reasoning": "Neither fixed-boundary first-passage formulas nor the residual-clock theorem yields these two rare-level steps or the resulting joint limit.",
+        "searches": [
+          "Singh–Pal arXiv:2202.02715v1 §5.1 (41)–(45)",
+          "Palmowski–Vlasiou arXiv:2611.14692v1 affine examples; Resultary 18d72c0291bd Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "erfc survival, the Gamma(1/2,r) marginal, and transform sqrt(r/(r+s)) are equivalent, but none alone specifies the joint initial overshoot law.",
+          "Di Bello et al. obtain Brownian partial-reset densities, not the law of the remaining time above a level given a stationary exceedance."
+        ],
+        "reasoning": "Changing from shape/rate to a clock transform does not create a distinct contribution; changing the random time from residual reset to first downward exit does.",
+        "searches": [
+          "arXiv:2305.13722v1 §2 and (27)–(30), stationary densities under partial resetting",
+          "Resultary: conditional stationary excess, residual reset clock, first downward exit, Gamma-half and erfc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 18d72c0291bd characterizes residual reset time conditional on spatial position (independent for Poisson), which gives the S component only.",
+          "3e4e01201dc0 concerns weak contraction and stationary tails; 5c356dfeaeaf concerns hidden phase/age/residual alarm for non-Poisson alarm and finite-speed returns; c03a80e1262c concerns backward reset age under first-hit resetting of a particle system."
+        ],
+        "reasoning": "Exact resetting overlap is credited at the component level. No inspected distinct catalogue entry gives the overshoot and forward downward-exit clock of this stationary affine model; a date alone is not a priority order.",
+        "searches": [
+          "Resultary rare level exit, phase/age, residual reset and stationary tails; read 18d72c0291bd, 3e4e01201dc0, 5c356dfeaeaf, c03a80e1262c"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint stationary rare-excess/downward-exit law for the stated fixed class of bounded affine Poisson resets, including signed contractions. Neither the stationary perpetuity/tail alone nor residual reset times or first passage from fixed points give the joint law. The stationary representation, Brownian first-passage transform and complete-reset calculation are antecedent tools or elementary boundary consequences, not standalone novelty.",
+      "residual_risks": [
+        "Kolb–Wübker primary text not accessed.",
+        "An unlocated general rare-excursion or cluster-lifetime theorem may include the specialization; coverage is limited to inspected passages and statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stationary representation, not the conditional exit argument",
+          "evidence": [
+            "Gives stationary fixed point and affine transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14692v1",
+          "material_read": "§2.3 Theorem 2.1, Corollary 2.2; §2.5 (10)–(11), offsets 7708–12706",
+          "method": "OA HTML locating and bounded passage inspection",
+          "title": "Steady-state of Lévy process with general resetting: unreflected and reflected cases",
+          "trigger": "General stationary affine-reset law"
+        },
+        {
+          "assessment": "Covers densities rather than the selected path clock",
+          "evidence": [
+            "Explicit time-dependent and stationary densities for constant proportional resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.13722v1",
+          "material_read": "§2 and (27)–(30), offsets 8432–12170 and 26041–29540",
+          "method": "OA HTML passage inspection",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Brownian strict proportional-reset stationary behavior"
+        },
+        {
+          "assessment": "Related hitting kernel, with different starting/reset conditioning",
+          "evidence": [
+            "Fixed positive reset point and absorption at zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.02715v1",
+          "material_read": "§5.1 (41)–(45), offset 39577",
+          "method": "OA HTML passage inspection",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Brownian first passage with resets"
+        },
+        {
+          "assessment": "Scope beyond citation unresolved",
+          "evidence": [
+            "No full-text statement obtained; no overall noncoverage inference."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.70314",
+          "material_read": "Identified citation; primary theorem not obtained",
+          "method": "Lawful OA retrieval attempt; HTTP 403, no identified repository copy",
+          "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+          "trigger": "Plausibly overlapping conditioned Brownian paths"
+        },
+        {
+          "assessment": "Covers Poisson reset-clock independence, not first exit",
+          "evidence": [
+            "Residual Poisson reset time is independent of the stationary position, but a Brownian downcrossing can precede it."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-spatial-forecasting-rigidity-and-gamma-clock-reversal-for-browni--18d72c0291bd",
+          "material_read": "RESULT.md Finding on residual reset time",
+          "method": "Resultary local-mirror statement comparison",
+          "title": "Spatial forecasting rigidity and Gamma-clock reversal for Brownian resetting",
+          "trigger": "Strongest distinct same-date residual-clock comparison"
+        },
+        {
+          "assessment": "Different scaling and target variable",
+          "evidence": [
+            "Stationary tail probability under coupled weak contraction and large position rather than the forward exit under fixed contraction."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-weak-partial-reset-stationary-tails-with-a-dilogarithmic-r--3e4e01201dc0",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp weak-partial-reset stationary tails with a dilogarithmic rate and boundary prefactor",
+          "trigger": "Stationary extreme tail overlap"
+        },
+        {
+          "assessment": "Different clocks/model; no first-passage claim in inspected assumptions",
+          "evidence": [
+            "Concerns phase, age, residual alarm and overshoot under Gamma alarms and finite-speed returns."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-universal-hidden-phase-and-gaussian-age-laws-for-extreme-gamma-r--5c356dfeaeaf",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Universal hidden-phase and Gaussian age laws for extreme Gamma-reset diffusion with finite-speed returns",
+          "trigger": "Stationary extreme conditioning and clock laws"
+        },
+        {
+          "assessment": "Different direction in time and reset mechanism",
+          "evidence": [
+            "Backward age and negative excursions in multiple particles with a first-hit reset mechanism."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage-resetting Brownian gas",
+          "trigger": "Extreme excursion Gamma-clock comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a trajectory-level statistic not specified by the invariant distribution. It identifies two competing mechanisms and an exact scale-free Gamma shape throughout a natural class with different reset laws and signs; the joint result also retains dependence of the Brownian hit on the observed excess. Neither convergence of means nor a changing-parameter regime is needed to give the stated limit independent mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated theorem has two independently verifiable parts. For each unordered pair of positions the randomized product has one of three second moments according to whether two graph edges are equal, incident, or disjoint. Counting these overlaps, exploiting the deterministic sum of all lag classes, and diagonalizing the resulting two-block matrix yields every displayed covariance and both parity spectra. The nonnegative scale \(\Lambda\) is one-quarter of a squared four-position difference expectation times \(n\); it vanishes exactly when all but at most one fixed sample value agree. The generic support theorem follows from algebraic independence, graph-edge polynomial coefficients, the disjoint-cycle structure of each lag graph, and exact automorphism-group orders. The executed verifier passed 737 exact arithmetic assertions; infinite cases rest on the proofs rather than enumeration.
+PASS
 
-## Originality — PASS on inspected evidence, with risks
+Centering changes each score only by a deterministic term: shifting all values by c adds c times the regular lag degree times the sample sum, plus |E_d|c². The score itself is not shift-invariant, but its covariance is. For the centered sample the same-edge, incident-edge and disjoint-edge moments are respectively (Q²−R)/(n(n−1)), (2R−Q²)/(n(n−1)(n−2)), and (3Q²−6R)/(n(n−1)(n−2)(n−3)). A degree-two class has n identical and 2n distinct incident ordered comparisons with itself; two ordinary classes are disjoint and have 4n incident pairs, so diagonal minus ordinary off-diagonal is Λ. The perfect matching has half the ordinary cross-pair counts. At n=4 there is no actual ordinary off-diagonal, but its displayed algebraic expression B still satisfies V−B=Λ and D=B/2 by counting the matching. The deterministic sum gives zero rows; contrasts within ordinary lags have eigenvalue Λ, and the even contrast against the matching gives nΛ/[2(n−1)]. Four distinct positions give Λ=n/4 times the product-of-squared-differences mean. This vanishes exactly when two disjoint unequal pairs are impossible, i.e. at least n−1 observations coincide. Correlation is defined only for Λ>0 and where two ordinary lags exist. For algebraically independent data, equal values imply equal formal edge coefficients. Each marginal score fiber is a coset of the position graph automorphism group, a wreath product of g copies of the cycle dihedral group with S_g, or of g copies of the two-element group with S_g for a matching. The joint fiber is exactly a coset of the distance-one dihedral group, since it preserves all distances. These give the stated support and uniform atom masses, including 20,160 versus 280 at n=9.
 
-The qualifying Romano–Tirlea 2020 preprint concerns exchangeability-based time-series permutation tests and ordinary endpoint-truncated lag correlations. Zhou et al. (2013) already derive general quadratic-form permutation moments, so the raw existence and computation of the covariance entries are **not** claimed novel. The mathematical distinction here is the simultaneous explicit parity-dependent all-lag spectrum and, particularly, a generic exact gcd-sensitive support census showing that equal variance need not mean equal permutation tail resolution. The cited general moment results do not establish the atom support, and no inspected record supplies the combined theorem. Older Daniels and Hallin–Puri material was only partly accessible, and related stabilizer orbit formulae may be known elsewhere. Independent historical priority is unverified.
+## originality
 
-## Value — PASS
+PASS
 
-Circular lag-product scores are natural randomization statistics. The exact finite-sample covariance modes determine multivariate second-order calibration, while the generic orbit counts determine the size of the exact p-value grid for every lag, irrespective of any normal approximation. The length-nine factor-72 difference between supports of lags one and three, despite identical variance, is a substantive statistical boundary that motivates retaining the support theorem rather than presenting another generic moment computation.
+Exact individual moments and cross-covariances are already accessible from general quadratic-form permutation moments by polarization. The contribution supported as distinct is the circular all-lag structural simplification combined with the exact arithmetic law of equiprobable marginal and joint score values. The latter needs identification of quadratic coefficients and the component geometry, not just moment information. The closest inspected cyclic or permutation covariance records use different statistics.
 
-## Scope and evidence
+## value
 
-The covariance applies to any fixed real observations for \(n\ge4\). The orbit law applies only under algebraic independence, almost surely for absolutely continuous observations. The verifier checks finite examples through eight positions; exact general proofs are explicit in `RESULT.md`. Source inspections and unresolved coverage risks appear in `AUDIT.json`. No independent mathematical audit or global historical-priority certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies a finite-sample inferential distinction that covariance cannot reveal: with equal ordinary lag variances, the arithmetic of the lag controls exact attainable permutation significance. The n=9 example changes the attainable upper-tail resolution by a factor of 72. The joint count and uniform masses quantify the analogous simultaneous randomization support rather than only giving a collision bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

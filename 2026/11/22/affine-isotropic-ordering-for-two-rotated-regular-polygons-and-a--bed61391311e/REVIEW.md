@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The polar radial sector derivation gives an exact identity for area and the complete second polar moment. The \(n\)-fold rotational symmetry for \(n\ge3\) forces zero centroid and scalar covariance. Tangent addition reduces the two-copy invariant to a positive monotone expression. At three copies, the analytic Taylor calculation identifies an explicit strictly negative cubic coefficient, and the descending partial sums verify strict majorization. The fully reproducible separate polygon-clipping and shoelace-moment checker passed 1140 deterministic comparisons. These finite comparisons are support, not proof of the universal result. Boundary phases, repeated copies, positive gaps, and fixed-\(n\) remainder conditions were addressed.
+## correctness
 
-## Originality
-**PASS, qualified.** The already-published full radial-distance law for tangential polygons mathematically subsumes the moment data used to derive the general formula, so novelty is explicitly **not** assigned to that identity. The published all-gap Mahler-product result concerns the same polygon intersections but a different affine invariant, with a global strict Schur-concavity theorem. The two-copy isotropic order and the negative three-copy balancing direction do not follow from its product formula, nor from the known radial distribution without a separate quantitative comparison and cubic cancellation. Full relevant source statements and proof sections were inspected. Searches of indexed mathematical records and historical claims found no stronger or equivalent stated comparison. Unindexed older inertia inequalities and independently unverified priority remain risks.
+PASS
 
-## Mathematical value
-**PASS.** Angular-gap majorization is a natural invariant ordering for intersections of congruent regular polygons. The result settles the complete two-rotation isotropic ordering, then identifies the first possible failure at three rotations for every polygon order with a universal cubic sign. This is a structural boundary between two standard affine quantities on exactly the same family, not an arbitrary numerical slice. It warns against transferring a known Mahler ordering to covariance normalization. It does not solve the global multidimensional shape optimization problem.
+Each gap between successive distinct tangent normals contributes two polar sectors with radius sec(t), 0 <= t <= g_i/2, giving A=n S_1 and J=n(S_1+S_3/3)/2. Repeated normals add zero to these sums. Since n>=3 the centroid is zero and the covariance is J/(2A) times the identity, giving the determinant divided by A^2 exactly as stated. For two gaps use ab=1-(a+b)/T, where T=tan(pi/n), to obtain the positive bracket in (2); the sum of tangents has negative derivative until the midpoint. Coincidence and half-step yield the specified regular n- and 2n-gon classes, respectively. For three gaps, varying q in (alpha-2epsilon,(1+q)epsilon,(1-q)epsilon) changes S_1 by q^2 epsilon^3/4+O(epsilon^4) and S_3 by 3q^2 epsilon^3/4+O(epsilon^4) relative to q=0. Differentiation of F=(3S_1+S_3)/(3S_1^2) at (T,T^3) gives delta F=-q^2 epsilon^3/6+O(epsilon^4), verifying the cancellation and, with q=1/2, the precise coefficient in (3). The largest coordinate agrees and the second partial sum increases by epsilon/2. For fixed k>3 append equal delta entries and subtract (k-3)delta from the common largest coordinate; for sufficiently small delta<epsilon/2 this preserves the partial-sum inequalities and the sign by continuity. No uniform smallness or global Schur-concavity is inferred. The analytical checks are replayable from RESULT.md Steps 1–4. VERIFICATION.md and check_geometry.py were inspected, not executed; the 1140 reported finite checks are secondary (the sampling loop repeats some inputs since its weights depend on the sample index modulo seven). Usual terminology would call the displayed normalization L_K^4; the formula defines the precise quantity unambiguously.
 
-## Limitations and nearest sources
-The general moment identity is prior-implied. The three-copy conclusion is a local violation of Schur-convexity, not a global reversed order. Closest are the published angular-gap Mahler majorization theorem, the full radial-distance law for tangential polygons, and the random-rotation area formula. Kweon–Zhu (arXiv:2307.00409v1) is the middle-cohort lead for polygon intersection research but concerns optimized translations. Independent priority and mathematical validation are pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known normal-gap moment geometry is not new. The distinct content supported here is the strict normalized covariance ordering on the entire two-copy phase interval and the explicit opposite-sign majorization witness for three copies at every n. The closest statements on rotational overlap, Mahler comparison and isotropic constants of other intersections do not cover those signs. This is a bounded priority comparison.
+
+## value
+
+PASS
+
+A sharp ordering of a standard affine invariant for the basic two-copy rotation family supplies precise extremizers, and the positive three-gap construction establishes an actual limit to extrapolating that ordering by majorization. The sign cancellation and its persistence for every n are substantive, rather than a numerical example or a new name for a known moment formula. The classification is complete only for the two-copy case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from exact finite symbolic itinerary enumeration, affine contraction uniqueness for each word, complete positive-gap admissibility tests, and elementary polynomial sign arguments for all positive shape parameters. The self-contained checker independently rebuilds the six projection maps and confirms the nine cyclic word classes, exact six-point candidate, gap factorizations and multiplier. Its finite parameter tests are supplementary, not the infinite proof. Non-fixed tie boundaries and all positive parameter ranges are explicitly excluded or covered.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating full author manuscript defines and studies the map but gives no complete-line period-six census; its numerical bifurcation discussion restricts to the triangle perimeter. Previously published full results on the same map cover primitive three, four, five and selected eight periods, not this unique exterior six-cycle or its sharp cubic boundary. published-finding corpus searches for six-cycles, outside-apex cycles, equivalent line formulations, and complete period tables found the closest distinct records: 2026/10/11/SCOPE-exact-two-orientation-classification-of-primitive-three-cycles-f--2944d54e59d8, 2026/11/8/SCOPE-a-golden-ratio-coexistence-window-for-attracting-triangle-projec--4638711ed4bb, 2026/11/8/SCOPE-sharp-fifth-period-window-for-the-isosceles-farthest-projection--1442a77c6de3, 2026/11/2/SCOPE-sharp-multistability-windows-for-an-isosceles-farthest-projectio--82fd9a413389. Some relevant indexed material and unindexed prior literature could still contain an equivalent statement; search failure is not a proof of absolute originality.
+PASS
 
-## Value — PASS
-A complete, nontrivial and natural least-period-six classification complements existing third, fourth and fifth period censuses in a geometric piecewise-contracting system. The striking feature is that the unique attracting six-cycle has two points outside the bounded perimeter, so the full-line dynamics has a sharp attracting oscillation invisible in the boundary-only formulation. The exact algebraic height window and its tie endpoint collisions resolve a motivated shape-dependent dynamical question rather than arbitrary parameters.
+Frozen proof line 38 incorrectly asserts strict contraction for each displayed affine-coordinate slope: b_01=2/(1+q)>1 for q<1. The full corrected RESULT.md under /workspace/repairs/1/ fixes this justification using unit tangents and cancellation of coordinate scales on each return. All lines are pairwise nonparallel for h>0, so every nonconstant cyclic branch itinerary has a strict affine return; repeated shorter words cannot encode primitive multiples. At a vertex labeling by the incoming branch works because the other incident line is at distance zero. Ties are fixed and cannot occur on a six-cycle. Independently reconstructed the projections from line normals in x,y/h coordinates and solved all strict squared-distance inequalities by exact univariate polynomial sign sets for all nine primitive cyclic words without quotienting by reflection: python /workspace/branches/audit1.py. Eight are empty, and precisely 012021 has Interval.open(CRootOf(q^3+q^2-1,0),1). The cubic is strictly increasing on q>0, with opposite signs at 3/4 and 4/5. On this interval the listed affine coordinates give distinct base points, one interior and one beyond-apex point on each inclined line, and no vertices. Reflection gives the three-step shift. Exact differentiation reproduces the stated multiplier; strict branch inequalities and modulus <1 give a locally attracting return. Both endpoints are excluded by an equality in a switching gap, not by a numerical test. No theorem, phase-space scope, or evidence checker was changed.
 
-## Scope and limitations
-The result is only for positive-height isosceles triangles, complete supporting lines, exact farthest orthogonal projection, and least period six; the cycle is locally, not globally, attracting. No other period or basin is classified. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired proof supports the same distinct claim: the complete primitive period-six census on unbounded supporting lines and the two exterior points. Credit Everett for the defining map and convergence, and the earlier exact other-period records for their counts and coexistence inputs. No demonstrated prior coverage of the distinct six-cycle result was identified in the bounded comparison.
+
+## value
+
+PASS
+
+A sharp all-height census for a natural missing primitive period on a published map exposes what the commonly plotted bounded boundary version omits. Existence at just one sample would not determine the exact cubic onset and tie endpoints or the region where this additional attracting period coexists with the already known four-cycle. The proof repair preserves this result, rather than trying to rescue an intrinsically narrow or already covered computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

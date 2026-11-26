@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-vertex isolation moments give a diagonally scaled, positive-definite deformed signless Laplacian. The positive-definiteness argument covers every connected graph with at least three vertices at each interior edge-retention probability. Bipartite sign rigidity follows from a strictly positive inverse of an irreducible positive-definite Stieltjes matrix. A two-hub Schur complement supplies an explicit partial-correlation formula with a single root. For orders three and four, complete labeled-graph enumeration with exact symbolic cofactor polynomial coefficients proves absence of any interior zero, not just absence on sampled parameter grids. The independent edge-state enumeration checks the five-vertex example at three rational probabilities. Main limitation: the symbolically checked finite classification is restricted to orders three and four; the unlimited book family and bipartite sign law are proved analytically.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The relevant primary literature covers higher-order Bernoulli interactions [1], signless Laplacian eigenvectors and Schur complements [2], and asymptotic isolated-vertex counts [3]. The inspected theorems and sections do not provide this percolation isolation precision identity, the universal alternating sign law, or the sharp five-vertex threshold. Closest available published mathematical-record comparisons concern occupancy-indicator precision matrices and inversion-indicator precision matrices, which use different probability spaces and do not imply the claimed change of sign for edge-isolation indicators. General Schur complement machinery is standard, and an unlocated earlier specialization is a residual historical-priority risk. No independent literature certification is claimed.
+PASS
 
-**Mathematical value — PASS.** Raw isolation covariances of adjacent vertices are always positive, yet full linear adjustment can change the sign, and the first possible base-graph order is sharply determined. The general bipartite theorem isolates a precise obstruction (odd cycles), and the book family shows exact tunable thresholds approaching one. This is a structural warning for interpreting inverse covariance in a non-Gaussian percolation network, rather than a parameter renaming or isolated numerical example. The result does not transfer zero partial correlation into conditional independence.
+The distinct isolation events share one incident edge exactly for adjacent vertices, giving the stated positive diagonal congruence to B(t). Its signless-Laplacian quadratic form vanishes only for zero: a vertex of degree at least two has strictly positive diagonal excess for t>1, and the edge sums propagate zero from it. In a bipartition, switching signs gives an irreducible positive-definite matrix with nonpositive off-diagonal entries. The convergent nonnegative Neumann series for its inverse has strictly positive entries by the existence of paths, yielding the stated opposite precision sign. The hub Schur complement has equal diagonal h-r/(t+1) and off-diagonal 1-r/(t+1); positive diagonal scalings cancel in the partial correlation. Its denominator is positive and its numerator changes sign exactly at t=r−1 when r≥3. The hub marginal covariance is pq^(2r+1)>0. A fresh exact replay (not the frozen checker) exhausted 4 and 38 connected labelled graphs at n=3 and 4 and tested their 12 and 228 unordered pair cofactors in z=t−1. Each polynomial is nonzero with coefficients of one weak sign; hence no interior zero. A separate sum over 128 retained-edge configurations per parameter gave hub partial correlations −27/491, 0, 1/211 at p=1/4, 1/2, 3/4, with strictly positive marginal covariances. Replay: python3 /workspace/branches/19f50411-cd78-4d11-8632-08cf4764744b/replay_check.py; full_replay.log records the results. The finite checks are not the proof for arbitrary bipartite graphs or all books. Connected graphs of fewer than three vertices have singular isolation covariance. No inference to conditional independence is made.
 
-References: [1] Dai–Ding–Wahba, arXiv:1206.1874; [2] Goldberg–Kirkland, arXiv:1307.7749; [3] Penrose, arXiv:1507.07132.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Within the checked literature and catalogue, neither the sharp graph-order boundary for isolation indicators nor the book-family law is covered. The covariance-congruence reduction and inverse-positivity argument use standard methods; the similar five-vertex threshold in a matching model does not establish this one.
+
+## value
+
+PASS
+
+This establishes a sharp obstruction to inferring the adjusted sign from the fixed positive marginal sign of adjacent isolation indicators. The bipartite parity theorem identifies a broad rigidity regime; the book computation provides a structural mechanism, a full family and the first possible order, not only a numerical crossing in a hand-picked graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

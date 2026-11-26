@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the three-phase migratory-occupancy allocation theorem
+# Independent mathematical audit
 
-The proof is contained in `RESULT.md`, and `VERIFY.py` is a standalone Python 3 checker without external package dependencies. Run `python3 VERIFY.py` from the directory containing those two files. A successful run reports `VERIFY_OK assertions=94057 phases={1: 228, 2: 81, 3: 241}`.
+## correctness
 
-The checker tests the positive-equilibrium inverse, cost value, budget target feasibility, strict threshold ordering, all three optimal branches, and random feasible perturbations for 550 seeded parameter sets. A fully exact rational construction checks the symmetric case, and the radical transition thresholds are also tested numerically. All domain parameters are positive; the two occupancy targets lie strictly between zero and one. The tests are finite observations, so universal correctness relies on the analytical radial edge-reduction and odds-coordinate AM–GM proof in `RESULT.md`.
+PASS
 
-The conservation objective is mathematical: constant positive colonization rates at linear rate-unit expense, fixed extinction rates, continuous-time two-season dynamics, and attracting equilibrium occupancy targets. It excludes finite-year discrete probability rate caps, stochastic extinction risk and empirical habitat management costs. The best-knowledge literature comparison recognizes the original seasonal occupancy equilibrium as previously published. A possible equivalent optimization statement in broader two-type SIS/positive-systems literature remains a historical-priority risk. No independent audit has been performed.
+The two equilibrium balance equations give a unique inverse at every interior occupancy and ab=ef/[(1−p)(1−q)]>ef. The positive equilibrium for such rates is unique by direct substitution. In log odds X=log(p/(1−p)), Y=log(q/(1−q)), the budget is E exp(X)+F exp(Y)+E exp(X−Y)+F exp(Y−X). It is strictly convex and has bounded sublevels above the two finite log-odds target floors. Its two partial derivatives sum to E exp(X)+F exp(Y)>0, so at least one target binds. Setting the Y derivative to zero at p=u gives exp(Y)=r; setting the X derivative to zero at q=v gives exp(X)=t. The latter edge minimum reaches p=u when v/sqrt(1−v)=s, with the stated radical solution. At (u,v₋) the Y derivative vanishes so the X derivative is strictly positive, making the X edge minimum strictly below u there; monotonicity of t in v gives v₋<v₊. Strict convexity and the edge derivative conditions yield exactly the three reported branches, with equality at their shared endpoints. Substitution gives the stated costs (the edge terms in inverse odds and odds are equal at their optimum). The claimed attracting equilibrium follows from the invariant square and cooperative flow: at h times the equilibrium, 0<h<1, each derivative is strictly positive by the balance equations, and at (1,1) both are negative. Monotone solutions from those bounds converge to the same unique positive equilibrium and sandwich every strictly positive initial state. The proof's word 'beats' at an inclusive phase boundary should be read as equality there; the Finding explicitly has the correct coincident branches.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact unique minimum and full three-regime phase diagram for two simultaneous positive equilibrium occupancy floors and fixed extinction rates. The balance equations, elementary log-convex programming tools and positive-equilibrium threshold are not credited as new. Nearby catalogue allocations address different objectives, and the closest inspected network allocation problems constrain decay to the zero state instead of two positive equilibrium coordinates.
+
+## value
+
+PASS
+
+The two separate occupancy targets are natural constraints in the seasonal model. The phase diagram determines when the cheapest policy deliberately exceeds one target and precisely where both targets start or stop binding. It yields cost and the two separately implementable rates at all targets, a usable quantitative answer distinct from simply checking persistence or solving for equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

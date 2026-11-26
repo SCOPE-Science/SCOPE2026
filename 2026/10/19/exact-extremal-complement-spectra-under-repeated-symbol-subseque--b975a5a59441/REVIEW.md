@@ -1,19 +1,21 @@
-# Scientific assessment of repeated-symbol complement spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a bijection between distinct complements and bounded deletion-count vectors indexed by maximal runs of the distinguished symbol. A coefficientwise polynomial identity shows that balancing those run lengths never reduces the number of outcomes for any deletion order. Optimizing the number of runs therefore gives an exact, attained all-parameter formula, not just a lower bound. The closed three-deletion specialization is derived by counting the three possible run-occupancy partitions and proving that its maximizer has the asserted location. Reproducible exhaustive checks were executed, but do not replace the infinite proof.
+PASS
 
-## Originality — PASS, subject to residual prior-art risk
+Read each output by scanning the unchanged ordered skeleton of non-a letters; the lengths in its successive slots, including the end slots, uniquely recover the deletions in every original positive a-run. This remains true even when several neighboring skeleton letters are identical or a whole run disappears. The exact polynomial is therefore the bounded-composition product. At fixed r≥1 the separator budget bounds the sum of run lengths by n-r+1; padding any run is coefficientwise monotone, and the constraints m≥r and m≥k are necessary and sufficient for the binary witness. A unit exchange x,y→x-1,y+1 for x≥y+2 increases the product of those two geometric sums by z^(y+1)+…+z^(x-1), and strictly decreases the sum of squared lengths, proving simultaneous dominance. For k=3 the types 1+1+1, 2+1 and 3 give B=C(r,3)+(r-1)min(r,d)+min(r,max(0,d-r)), d=n-2r+1. Writing r=R-h, R=floor((n+1)/2), d=2h or 2h+1, when d≤r the comparison with r=R follows from sum_{j=r}^{R-1} C(j,2)≥h C(r,2), for odd r≥4 and even r≥3 (the adjectives refer to the parity of n). For d>r and r≥5 this difference reaches at least r², the extra terms' upper bound; for r≤4 the small checks are decisive: r=4 with d>r forces R≥7 (odd n) or R≥6 (even n) and B≤20; r≤3 has B≤10, with even r=3 and d>r requiring R≥5, even r=2 giving B=1,3 at R=2,3 and B≤4 thereafter, and r=1 giving at most one. At odd n=3,5,7 direct evaluation gives 1,2,5. This verifies the global formula, achievable witnesses, coefficientwise comparison and all boundaries of the triple-deletion formula without relying on finite testing.
 
-The closest primary source is Adamson–Fleischmann–Huch, arXiv:2603.20790v1 (March 21, 2026), Sections 3–5. Its algorithms and singleton-complement criteria are acknowledged; it explicitly leaves bounds and special closed formulas open. The theorem here concerns the exact extremum for the fixed deleted subsequence \(a^k\), not that open problem for arbitrary deleted words. The older multiplicity-counting paper of Torres-Jimenez et al. (DOI:10.1142/S1793830917500422) concerns an inequivalent statistic; Vatter's arXiv:2608.22147 abstract concerns unrestricted subsequence counts by length. Searches for repeated-letter complements, deletion-output spectra, and balanced run polynomials did not locate an equivalent theorem. This is not a proof against older unindexed research, and the two secondary sources were only scope-checked from abstracts.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies exact upper bounds for all lengths and every repeated-symbol deletion order, with explicit witnesses and a simultaneous coefficientwise optimality principle. That is a natural, motivated family of a newly studied complement-spectrum invariant; it resolves a genuine special case of the cited open cardinality problem rather than recomputing a known table. The unusual length-seven triple-deletion exception and the eventual closed binomial law illustrate why the optimized run structure matters.
+The supported distinct claim is the fixed-letter distinct-output extremum and triple-deletion evaluation, not the geometric-sum smoothing method in isolation. Closely related deletion-sphere extremal results concern deletions of arbitrary symbols and ordinary runs; they do not identify the collision-free fixed-letter statistic or optimize it under the budget for positive a-runs. The closest monochromatic fixed-composition catalogue comparison is later and does not state the global or k=3 optimization.
 
-## Limits and supporting literature
+## value
 
-The result does not classify every maximizing word, handle nonconstant deleted patterns, or replace a future independent assessment. Relevant sources: arXiv:2603.20790v1 (full relevant text inspected); DOI:10.1142/S1793830917500422 and arXiv:2608.22147 (abstract/scope only). Some earlier equivalent theorem may have escaped the literature searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural and complete special-pattern answer to a stated complement-factor question. The reduction from arbitrary words over any alphabet to balanced binary witnesses yields an exact computable maximum for every n,k, and simultaneous fixed-run domination is stronger than a bound at a selected deletion order. The explicit k=3 transition and parity laws also give sharp benchmarks for broader deletion-pattern bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

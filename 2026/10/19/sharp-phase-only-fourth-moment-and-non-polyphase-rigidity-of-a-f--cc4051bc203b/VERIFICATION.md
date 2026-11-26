@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The standalone `checker.py` is a standard-library Python script that recomputes the 13 cross-difference autocorrelations, compares with the closed fourth-moment identity for 300 deterministic pseudorandom phase choices, verifies 60 independent Fourier averages on six nonaliased product groups, checks the algebraic two-component minimum in three ways and exhaustively verifies the q-phase minima for q = 1, 2, 3, 4, 6. The test program reported `PASS: 368 independent autocorrelation, discrete Fourier, optimizer, and phase-alphabet checks`.
+# Independent mathematical audit
 
-The global inequalities and exact projective phase classifications follow from the displayed analytic deficit identity, not from numerical tests. No higher phase alphabets are claimed to have an exact optimal value; the proof only rules out attaining the continuous optimum. No independent mathematical audit has been performed.
+## correctness
+
+PASS
+
+Haar orthogonality and the distinctness of all thirteen difference characters give the sum of squared autocorrelations. The zero shift contributes 25, the four singleton shifts contribute 4, and counting the axial and diagonal two-pair shifts gives E=45+4 Re(U+V)+8 Re(U conjugate(V)). Equivalently E=36+4|1/2+U+V|^2. Every pair (U,V) lifts to the five coefficients with exactly three independent free phases. The lower equality U+V=-1/2 forces conjugacy and real part -1/4; the upper equality in the triangle inequality forces U=V=1. The connected phase torus fills the interval. The nonintegral rational trace U+U^{-1}=-1/2 rules out roots of unity at equality; the stated small alphabets give integer E and attain 37 by (1,-1) or by the two nontrivial cube roots (q=1 gives 61). The product grid with m,n>=5 and the integer lacunary support with k>=4 preserve the differences. The reviewed checker corroborates finitely by pair enumeration, Fourier sampling and small-alphabet enumeration; the exact range, rigidity and no-alphabet equality use the analytic argument, not its reported count.
+
+## originality
+
+PASS
+
+The supported distinct claim is the sharp phase-only classification on a five-site cross, including the root-of-unity obstruction, not the autocorrelation identity or a general array design result. The centered-cross record is an exact broader match, but its catalogue date is later, not same-day or earlier. The inspected earlier results do not give the target classification. This is a best-of-knowledge decision, not a priority guarantee against unseen literature.
+
+## value
+
+PASS
+
+The nearest-neighbor cross is a natural symmetric sparse support with colliding difference representations. The exact result identifies incompatible phase cancellations and an unavoidable gap between continuous control and several common finite alphabets. It gives a reusable five-site benchmark (11 versus 12 total squared sidelobe energy) with all equality cases, not merely an application of a known normalization identity or a numerical minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

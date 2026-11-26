@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the precise integrated full-time Frobenius discrepancy of graph heat semigroups after one unrenormalized edge deletion. The finite-dimensional Sylvester formula in `RESULT.md` is a consequence of exact heat integration on the mean-zero space. On triangles, exact polynomial factorization proves strict sign preservation for all positive real conductances; all polynomial coefficients and identities were checked by `CHECK.py`. For the four-cycle, four exact rational values establish a strict non-weakest-edge optimum. The argument establishes an infinite family of triangular weights; finite numerical searches are not the proof.
+PASS
 
-## Originality — PASS within searched evidence
+The constant mode cancels for both connected graphs. On the common mean-zero space the spectra are positive, and differentiation gives MZ+ZN=I for the convergent cross integral; traces are basis invariant. Independently derived the triangle cross trace using centered 2×2 operators X=M−αI and Y=N−βI, with α=tr(M)/2, β=tr(N)/2, X²=x²I, Y²=y²I and d=tr(XY)/2. For H=α+β and R=H²−x²−y², integration of the hyperbolic-function expansions gives tr(Z)=2H(R+2d)/(R²−4x²y²), with the repeated-eigenvalue cases by continuity. Substitution and exact cross multiplication matched the actual expanded P/D, both with 30 positive monomials, so the difference has sign b−a for every positive weight triple, including equality at a=b. Vertex relabeling covers all pairs. Independent rational solves for (100,10,11,11) matched the four printed fractions and E₂<E₁<E₃<E₀; exact E₁−E₂ is 18976950041406901787484663/11750543650483124820155055200. The deleted edge is (2,3) of weight 11. Triangles are the only smaller simple cycles, so four is sharp.
 
-The motivating 2025 graph diffusion paper studies surrogate ODE solutions; the 2019 pseudoinverse sparsification work and 2026 polynomial-graph-filter stability source use different fidelity objectives. A 2026-11-17 preprint describes diffusion spectral error and is treated as the closest prior objective, but the inspected sections provide a general evaluation technique rather than a universal triangle edge-ordering theorem or the sharp four-cycle threshold. published-finding corpus searches for equivalent and stronger rankings returned spectral-gap, heat-gradient and positivity findings, all with different predicates. Remaining risks include historical special cases and partially inaccessible full texts. A search absence is not a proof of global originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Single-edge pruning under fixed conductances is an elementary but mathematically motivated graph diffusion simplification. The triangle-to-four-cycle threshold supplies the first exact obstruction to using edge conductance alone to select the least-damaging deletion for trajectories over all time. This contrasts with optimizing spectral gaps or preserving Laplacian forms, and the positive triangle law paired with the explicit counterexample is structurally more informative than a floating-point example alone.
+The full-time trajectory metric and generic evaluation or optimization are not original here. Fitz-Gibbon et al. use the exact same objective, not merely an analogous spectral distance. What remains distinct from the strongest inspected statements is the pairwise order law for every positively weighted triangle under one unrenormalized deletion, together with the exact four-cycle reversal and hence the sharp cutoff. The paper dated 2026-11-17 was compared on the merits, not excluded by the undefined window invoked in the frozen discussion.
 
-## Limitations
+## value
 
-The claim does not address arbitrary graph topologies, simultaneous deletion, normalized Laplacians, rescaling, or fixed-time error. All computations use exact algebra; historical priority is provisional where full primary material was unavailable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem tests a natural pruning rule for a standard dynamic fidelity objective while holding conductance units fixed. A global triangle guarantee and an exact minimal-cycle counterexample clarify precisely where edge weight ceases to predict the best one-edge deletion; this is more informative than an arbitrary numerical counterexample or rederiving the standard integral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

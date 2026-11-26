@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:45.982674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is a correct fixed-m asymptotic for full idempotents. For a rooted fiber of s blocks, the r image points are fixed, so the r-point fiber rank weight is binom(n,r) r^(sn−r), independent of choices at other roots given the block map. Writing t=r log n/n, the normalized log weight has t-dependent term s log t−t plus the two corrections of (6). The latter are bounded globally by 1/e+log 2 and uniformly vanish on compact positive t-intervals (the binomial term is bounded by binary entropy). Because s log t−t tends to minus infinity at both endpoints and has a nondegenerate unique maximum at s, an integer nearest sn/log n yields the matching lower bound; outside any fixed neighborhood the weights have a strict n-scale gap. At most n summands do not affect this scale. Subtracting the logarithmic normalizer yields (1). For fixed k, strict discrete convexity moves one unit from the smaller of any two nonsingleton parts to the larger and uniquely leaves profile (m−k+1,1,…,1); the finite number of possible maps gives (2) and then (3). Rank concentration holds for each fixed block map and hence for the finite unconditional mixture. Label symmetry gives exact conditional uniformity of the unique root. Formula (1) follows by subtraction of logarithms, not literal division of equations (9) and (10). The supplied checker was inspected, not executed; the finite checks do not justify the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2dc6ac2af32e handles perturbations of block sizes, states the same exponent for K_n≥2 and proves the sharper logarithmic-scale softmax for root selection. Its step 2 includes the entire equal-size diagonal, not just genuinely unequal blocks.",
+          "The primary finite counts cover the exact monoid. The primary wreath-product asymptotics concern fixed finite group H and growing top set in H wreath T_n, rather than fixed m with an expanding transformation base."
+        ],
+        "reasoning": "The asymptotic subsumption follows from the actual stronger near-equal-block result. The finite enumeration supplies the weights but is not by itself an asymptotic theorem; the group-base wreath result is a different asymptotic framework.",
+        "searches": [
+          "2dc6ac2af32e, Finding and saddle for s=n+o(n), M=tn+o(n)",
+          "Dolinka–East arXiv:1407.3312, Propositions 3.1–3.2",
+          "Krattenthaler–Müller arXiv:math/0303028, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2dc6ac2af32e",
+        "Resultary 70fcbccf178c",
+        "arXiv:1407.3312",
+        "arXiv:1210.4775",
+        "arXiv:math/0303028"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute N=mn and t_a=s_a in step 3. Subtract the logarithm of the finite normalizer, whose leading profile entropy is m log m, to get exactly (1).",
+          "At each fixed k, a unit transfer from a smaller nonsingleton fiber to a larger fiber increases the entropy; hence (m−k+1,1,…,1) uniquely maximizes it. Finite summation gives (2), its k=2 maximum gives (3), and the same single-fiber concentration applies conditionally and sums to (4)."
+        ],
+        "reasoning": "These steps are mechanical specializations and a discrete convexity optimization of already proved exponents. The catalogue match goes beyond saying an exact finite formula theoretically determines its own asymptotics.",
+        "searches": [
+          "Direct comparison of 2dc6ac2af32e Steps 2–3 (offsets 2760–6257) and Relationship (offset 6879) with frozen equations (1)–(8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general weight H_s(M)=∑_r binom(s,r) r^(M−r) becomes J_t(n) on s=n and M=tn. Its saddle in step 2 is r log n/n→t and its normalized exponent is tn(log t−1) in addition to the common M(log n−log log n) term.",
+          "The Resultary 70fcbccf178c partial-idempotent trivariate spectrum recovers finite full-domain counts as one coefficient, rather than supplying the asymptotic comparison."
+        ],
+        "reasoning": "Root count versus induced block-map image size and projection to equal block sizes are exact identifications of the probability space in 2dc6ac2af32e. In contrast, sampling arbitrary partial idempotents without conditioning on full domain is not an equivalent measure.",
+        "searches": [
+          "Resultary: fixed number of blocks growing uniform block size, random idempotent retraction entropy, rank saddle and symmetry breaking",
+          "Resultary 2dc6ac2af32e original proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite uniform enumerator covers all n and m and gives the example totals, e.g. 21 and 256 for the two smallest two-block examples.",
+          "2dc6ac2af32e proof step 3 gives log W(φ)=N(log n−log log n)−mn+n∑ t_a log t_a+o(n) and the one-root specialization; its Finding states the exact probability exponent for multiple roots."
+        ],
+        "reasoning": "Exact finite counting and the pertinent limiting exponent both have located coverage, of different strengths. An explicit printed array of all k is not needed when the exact log weights for every profile have been established.",
+        "searches": [
+          "Dolinka–East arXiv:1407.3312 Proposition 3.1 and Table 3",
+          "Resultary 70fcbccf178c and 2dc6ac2af32e, exact finite spectrum and limiting weight formulas"
+        ]
+      },
+      "rationale": "Distinct published catalogue record 2dc6ac2af32e covers the mathematical content, not just the same monoid or a similar big-O estimate. Its equation (1) and proof steps 2–3 give the more general near-equal-block saddle, conditional concentration, log weight for every block map, and normalization by the one-root weights. Setting every block size to n gives the frozen theorem's starting asymptotic estimates verbatim; normalization and fixed-k convexity give all of the displayed rates. The other record explicitly describes equal-block entropy suppression as earlier work without giving an identifying citation in its relevant passage. The records share a catalogue date, which determines neither priority nor provenance; the FAIL is for demonstrated coverage and lack of a distinct mathematical claim, not a finding about first proof or authorship. No repair is submitted: the other advertised conclusions are mechanical consequences too, and a new fluctuation or rate theorem would require new mathematics.",
+      "residual_risks": [
+        "Neither the common catalogue date nor the generic earlier-work reference in 2dc6ac2af32e determines which text was first or whether one used the other.",
+        "A deferred primary literature lookup is not negative evidence; the decision rests on independently inspected, concrete mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equal-block asymptotics in finding and proof; more general root-selection law; relative priority is not established",
+          "evidence": [
+            "Equation (1) and accompanying concentration for s=n+o(n), M=tn+o(n); step 3 log weight and same multiple-root exponent. Relationship credits earlier fixed-equal-block suppression without identifying a particular record there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-logarithmic-symmetry-breaking-window-for-partition-preserving--2dc6ac2af32e/RESULT.md",
+          "material_read": "Finding at offset 0; rooted-fiber, uniform saddle and suppression steps, decisive offsets 2760–6257; Relationship and Limitations from offset 6879",
+          "method": "Resultary lookup and bounded original passages via mirror",
+          "title": "A logarithmic symmetry-breaking window for partition-preserving retractions",
+          "trigger": "Same fixed-m probability problem with perturbations around the frozen equality case"
+        },
+        {
+          "assessment": "Explicitly covers the underlying finite counts, not the conditional asymptotic statement in the passages read",
+          "evidence": [
+            "Proposition 3.1 has root-block and internal-rank choices, which group into the product of fiber weights. Proposition 2.1 gives binom(N,r) r^(N−r) for ordinary full T_N."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3312",
+          "material_read": "OA abstract and Propositions 2.1, 3.1–3.2, pp. 3, 7–8; offsets 8774 and 22800",
+          "method": "Bounded original OA PDF text",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Exact original enumeration for the same uniform full monoid"
+        },
+        {
+          "assessment": "Different domain convention; does not supply the same probability measure",
+          "evidence": [
+            "Partial maps including the empty domain are elements of the studied monoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.4775",
+          "material_read": "OA abstract and definition and wreath-quotient passage, pp. 1–2, offsets 0 and 6459",
+          "method": "Bounded original OA PDF text",
+          "title": "Partial transformation monoids preserving a uniform partition",
+          "trigger": "Possible equivalent monoid under partial-map terminology"
+        },
+        {
+          "assessment": "Finite full-domain specialization, not the decisive asymptotic overlap",
+          "evidence": [
+            "Full-domain coefficient recovers the full enumeration; the stated spectrum is finite."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-joint-rank-domain-and-image-block-spectrum-of-uniform-partition--70fcbccf178c",
+          "material_read": "Original trivariate spectrum statement and full-domain specialization passage",
+          "method": "Resultary lookup and bounded mirror passages",
+          "title": "Joint rank, domain, and image-block spectrum of uniform-partition partial idempotents",
+          "trigger": "Possible exact finite refinements implying the full law"
+        },
+        {
+          "assessment": "Different group-base growth regime; helps place ordinary rank scaling but does not imply this block profile law",
+          "evidence": [
+            "X^α=X^β in H wreath T_n with fixed finite group H gives ordinary total idempotent asymptotics when H is trivial and α=1, β=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0303028",
+          "material_read": "OA abstract, p. 1, and Section 3, p. 10, offset 36050",
+          "method": "Bounded original OA PDF text",
+          "title": "Equations in finite semigroups: Explicit enumeration and asymptotics of solution numbers",
+          "trigger": "Plausible stronger wreath-product asymptotic theorem including idempotent equations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The collapse and rooted-rank phenomena are natural and informative as mathematics. The narrower remaining presentation after crediting the near-equal-block saddle, entropy exponent and one-root selection does not yield a distinct useful invariant: the k-profile hierarchy and total rank are direct summation and convexity consequences of that covered analysis. A clearer synthesis of the equal-size special case is not a distinct scientific finding under this review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

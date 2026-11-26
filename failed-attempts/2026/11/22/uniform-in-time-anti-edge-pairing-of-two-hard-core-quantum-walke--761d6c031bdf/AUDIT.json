@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Starting from exact unordered hard-core hopping, the sign-even configurations form an invariant subspace with block matrix [[0,2R],[2R^T,2(R^TR-2I)]]. The unsigned complete-graph incidence matrix has RR^T=(m-2)I+J and squared singular values 2m-2 (one) and m-2 (m-1). Each 2x2 block has Rabi leakage F_q(t)=4q/(q^2+4)sin^2(t sqrt(q^2+4)), yielding the displayed exact weighted formula. The sine bound and t=pi/(2sqrt((m-2)^2+4)) sandwich the scaled all-time leakage at 4. Classical lumpability has exact outgoing rates 4(m-1) and 2 and solves C(t)=1/(2m-1)+(2m-2)/(2m-1)exp(-(4m-2)t). The standalone verify.py directly constructs full independent Hamiltonian and classical generator and passes 36 paired comparisons with maximum errors 9.44e-15 and 3.11e-15, respectively. Limit verified by explicit algebra; finite tests only corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2005 symmetric-square paper proves strongly-regular two-token cospectrality, not explicit normalized dynamics for initially complementary vertices",
+        "The 2010 SRG two-particle work constructs a compatible Hamiltonian, proves generic graph isomorphism invariants, and gives small-time analysis, but no all-time matched-pair probability",
+        "The 2014 1D interacting-particle co-walking analysis uses an explicit nearest-neighbor interaction; weighted-path transfer treats a different graph topology"
+      ],
+      "reasoning": "General spectral definitions and matrix elements do not imply the explicit claimed coefficients, time-uniform suppression and classical inverse-size contrast without the additional configuration-space incidence decomposition and sharp asymptotic calculation. The strongest similar result on the same graph is the separate token-Laplacian theorem; the model here uses adjacency hopping, which is not a scalar shift of Laplacian on the biregular configuration graph.",
+      "searches": [
+        "arxiv:math/0507251v1",
+        "arxiv:1002.3003v1",
+        "arxiv:1402.3349v1",
+        "arxiv:1412.1022v1",
+        "two hard core bosons quantum hopping spectrum cocktail party graph hyperoctahedral graph complete multipartite K_{2,...,2} two token configurations",
+        "Coherent continuous-time two hard-core bosons in cocktail-party graph initially occupying a deleted-matching nonedge: probability particles remain in any deleted matching pair uniformly all times as number of pairs increases, quantum versus classical",
+        "Hardcore boson coherent dimer formation with no attraction and long-time binding on complete graph minus perfect matching, all time quantum leakage O(1/n)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0507251v1",
+      "arxiv:1002.3003v1",
+      "arxiv:1402.3349v1",
+      "arxiv:1412.1022v1",
+      "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a/RESULT.md",
+      "2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978/RESULT.md",
+      "Previously published mathematical-physics claims compared for statement and parameter overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2005 gives generic construction and two-class quotient but not the specific full time-dependent projection from a nonedge",
+        "2026 same-graph Laplacian theorem proves exact degree-minus-adjacency eigenvalues with two degree classes and a sign-flip decomposition, without the adjacency dynamical probability or classical comparator",
+        "Other multipartite boson work uses double occupancy and loss so its protected-space claims are not a hard-core unitary pairing theorem"
+      ],
+      "reasoning": "The old Laplacian invariant-space machinery can be adapted here, but the theorem is not a direct numerical specialization of the old claimed Laplacian spectrum: adjacency and Laplacian do not share all eigenspaces because the configuration graph is nonregular. The exact mixed-frequency leakage and matching all-time asymptotic require resolving the two singular channels; classical comparison uses an additional lumping. Generic token-walk definitions are antecedents rather than direct coverage. No directly stronger published dynamical statement was found.",
+      "searches": [
+        "arxiv:math/0507251v1",
+        "arxiv:1002.3003v1",
+        "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a",
+        "2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978",
+        "Coherent continuous-time two hard-core bosons in cocktail-party graph initially occupying a deleted-matching nonedge: probability particles remain in any deleted matching pair uniformly all times as number of pairs increases, quantum versus classical",
+        "Two-token adjacency walk complete multipartite K_{2,2,...,2}: exact two-state pairing survival probability and destructive interference localization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:math/0507251v1 §§3–4 describes symmetric squares and general equitable quotients; no cocktail-party time-dependent survival formula in relevant sections or exact-string checks",
+        "arxiv:1002.3003v1 §§II,V,VI studies generic two-particle walks on strongly regular graphs and short-time graph-distinction observables, not this paired/unpaired event",
+        "Web search for exact cocktail-party and two-particle quantum walk phrases returned no direct model-specific survival theorem"
+      ],
+      "reasoning": "Equivalent mathematical formulations searched include the symmetric square or two-token adjacency quantum walk, two-hard-core-boson XY hopping, anti-edge same-part occupancy and complete multipartite network. Defining a token graph is known; the time-resolved projection probability with its sharp all-time limit is the candidate new content.",
+      "searches": [
+        "\"cocktail party\" \"quantum walk\" \"two\" bosons",
+        "\"symmetric square\" \"cocktail party\" \"adjacency spectrum\"",
+        "two particle quantum walk cocktail party graph quantum self trapping paired vertices",
+        "Two-token adjacency walk complete multipartite K_{2,2,...,2}: exact two-state pairing survival probability and destructive interference localization",
+        "\"cocktail-party\" \"two-token\" \"adjacency\" spectral quantum",
+        "arxiv:math/0507251v1",
+        "arxiv:1002.3003v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published search hit 2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a explicitly gives Laplacian characteristic polynomial and tree counts for the same graph, not matched-pair time response",
+        "published-finding corpus published search hit 2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978 concerns noninteracting bosons with on-site dissipative collision loss and their protected projectors",
+        "Accessible own latest mathematical-physics ledger checked for cocktail-party, nonedge, hard-core two-particle pairing and related quantum claims; no statement-equivalent own finding found"
+      ],
+      "reasoning": "No located exact table or published claimed theorem supplies the normalized time-dependent matched-pair probability or the uniform O(1/m) quantum-versus-classical coefficient. Prior token-Laplacian spectral tables are important adjacent but different invariants.",
+      "searches": [
+        "two hard core bosons quantum hopping spectrum cocktail party graph hyperoctahedral graph complete multipartite K_{2,...,2} two token configurations",
+        "Coherent continuous-time two hard-core bosons in cocktail-party graph initially occupying a deleted-matching nonedge: probability particles remain in any deleted matching pair uniformly all times as number of pairs increases, quantum versus classical",
+        "Two-token adjacency walk complete multipartite K_{2,2,...,2}: exact two-state pairing survival probability and destructive interference localization",
+        "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a",
+        "2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978",
+        "two particle quantum walk paired versus unpaired configurations on complete multipartite graph with omitted perfect matching, pairing revival"
+      ]
+    },
+    "rationale": "The focal archived 2005 paper gives the symmetric-square Hamiltonian framework for strongly regular graphs, but not the exact pairing survival observable or its classical comparison. The closest published same-graph result computes the combinatorial Laplacian spectrum and spanning-tree complexity: its sign-symmetric reduction is significant shared methodology, yet its statement and Laplacian eigenvalues alone do not supply the adjacency-generated time-resolved probability on a biregular configuration graph. The closest bosonic multipartite study permits double occupancy and studies collision loss rather than hard-core pairing. An independently inspected 2010 strongly regular quantum-walk study and two 2014 path/1D two-particle papers do not state this paired-sector law. Source/alias searches did not locate direct coverage. Priority is provisional because unindexed equivalent formulas may exist.",
+    "residual_risks": [
+      "General earlier symmetric-square theory is structurally close, so an overlooked pre-existing explicit pairing amplitude might cover the asserted formula",
+      "The same-graph Laplacian result supplies a reusable decomposition; the scientific value lies in the genuinely different dynamical probability and classical contrast, not in redefining token-graph methods",
+      "Keyword search and sparse databases cannot prove historical priority or uniqueness"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS underlying Hamiltonian and general spectral symmetry tools; NOT known to state same-pair time formula or classical contrast",
+        "evidence": [
+          "arxiv:math/0507251v1, pp1,5,19; §§3–4; arxiv first public 2005-07-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0507251",
+        "material_read": "Abstract, §§1–4 including equitable-partition quotient and exchange-Hamiltonian interpretation in appendix p19; searches for cocktail and complete multipartite",
+        "method": "Accessible arXiv full-text text and page screenshots p5 and p19",
+        "title": "Symmetric Squares of Graphs",
+        "trigger": "First-public archived foundational symmetric-square and strongly-regular two-token framework"
+      },
+      {
+        "assessment": "COVERS generic two-particle hard-core hopping model, but examined sections do not provide this observable or all-time asymptotics",
+        "evidence": [
+          "arxiv:1002.3003v1, first public 2010-02-16, pp1–3, sections V–VI described in introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1002.3003",
+        "material_read": "Abstract, §§I–II, model Eq. (2)–(9), roadmap to interacting-boson and short-time results; searched cocktail/complete multipartite",
+        "method": "Accessible arXiv full text with page screenshot p3 and phrase searches",
+        "title": "Two-particle quantum walks applied to the graph isomorphism problem",
+        "trigger": "Hard-core boson evolution over strongly regular graphs"
+      },
+      {
+        "assessment": "VERY CLOSE methodology and graph, but claims Laplacian spectrum / tree complexity rather than unitary paired-state dynamics or classical separation",
+        "evidence": [
+          "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a / RESULT.md, §§Finding–Proof–Relationship"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a",
+        "material_read": "Entire available RESULT.md, including proof using sign characters, incidence decomposition and listed Laplacian factors",
+        "method": "Public repository research record RESULT.md read through read-only GitHub file access",
+        "title": "The integral Laplacian spectrum of two-token cocktail-party graphs",
+        "trigger": "Same exact base graph and two-token configuration space"
+      },
+      {
+        "assessment": "Different two-body Hilbert space (allows double occupancy) and dissipative loss, does not cover hard-core pair-retention dynamics",
+        "evidence": [
+          "2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978 / RESULT.md, §§Finding–Proof"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-three-spectral-protection-channels-and-exact-collision-capture-o--b8133a80f978",
+        "material_read": "Entire available RESULT.md including assumptions, dark-sector proof, loss observables and limitations",
+        "method": "Public repository research record RESULT.md read through read-only GitHub file access",
+        "title": "Three spectral protection channels and exact collision capture on balanced multipartite quantum networks",
+        "trigger": "Identical multipartite one-particle base with two quantum particles"
+      },
+      {
+        "assessment": "1D lattice and nearest-neighbor potential V; does not imply same-part nonedge trapping on dense nonlocal graph",
+        "evidence": [
+          "arxiv:1402.3349v1 p1–2 first public 2014-02-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.3349",
+        "material_read": "Abstract, model and correlation discussion pp1–2, explicit 1D interaction term",
+        "method": "Accessible arXiv text, page screenshot p2",
+        "title": "Quantum Walks of Two Interacting Particles in One Dimension",
+        "trigger": "Physics of pairing / co-walking of hard-core bosons"
+      },
+      {
+        "assessment": "Weighted paths with state-transfer goal, not nearly complete deleted-matching network or time-uniform paired-sector confinement",
+        "evidence": [
+          "arxiv:1412.1022v1 pp1–2 first public 2014-12-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.1022",
+        "material_read": "Abstract, introduction and continuous-time quantum-walk Hamiltonian / 1D reduction pp1–2",
+        "method": "Accessible arXiv text and page screenshot p2",
+        "title": "Perfect quantum state transfer of hard-core bosons on weighted path graphs",
+        "trigger": "Potential stronger all-time theorem for hard-core boson walks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "761d6c03-1bdf-4ca6-9ed5-c5514e9db598",
+  "value": {
+    "rationale": "The exact and sharp all-time quantum leakage O(1/m) from the nonedge-paired sector is an unusual confinement effect in a high-degree hopping network with no attractive potential, while rate-one classical exclusion almost surely unpairs on the inverse-degree time scale. The inverse-size observation window and asymptotic coefficient 4 are motivated by the natural combinatorial number of available single hops, not an arbitrary parameter slice. This provides a benchmark for coherent two-particle dynamics and illustrates a precise configuration-space interference mechanism. It is not merely another finite numerical spectrum or a restatement of generic strongly-regular graph methods.",
+    "status": "PASS"
+  }
+}

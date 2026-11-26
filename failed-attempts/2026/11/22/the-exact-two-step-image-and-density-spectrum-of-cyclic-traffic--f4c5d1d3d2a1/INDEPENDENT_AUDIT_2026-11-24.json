@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:38:41.933479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Replay: python3 /workspace/branches/reproduce_frozen.py 5"
+      ],
+      "rationale": "The obstruction and section hold on periodic lifts to the bilateral lattice, including when sites repeat within a local window. Independently checked all 2^8 and 2^10 open contexts for the two forbidden F² outputs, and all 512 nine-bit contexts containing neither forbidden word for the center identity F²G²=id. Simultaneous 10→01 swaps independently gave the same full image, predecessor and density recurrence on every ring of lengths 1–13. In the suffix graph a path of at least five labels forces its state to the longest prefix suffix of those labels, independent of the start. A periodic allowed word therefore has one and only one closed walk based at the indexed cut. That proves trace normalization even on short rings and does not quotient by rotation. The nonloop simple cycles have lengths 2, 3 and 5 and weights u, u² and u³, with singleton loops of weights 1 and u. Including the disjoint-cycle terms in det(I−zT) cancels the contributions of degrees 2, 3 and 5, leaving 1−(1+u)z+u²z⁴+u³z⁶. Taking the logarithmic derivative and expanding the multinomial gives the rational and factorial formulas as stated. The unweighted graph is strongly connected with a loop, so the Perron root is simple and strictly dominant; the given factorization identifies it and trace gives leading constant one. The length-six word has no period below six and avoids 1100 in all six rotations, giving the exact first loss.",
+      "residual_risks": [
+        "Full-ring enumeration stops at n=13; the local and transfer arguments establish arbitrary n. No other update depth is being audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-time record proves G(X_{t+1})⊆X_t and FG(y)=y on X_1, where X_t forbids 11(01)^j00 for j<t, with G the stated Rule 226. The cited 2015/2016 process-graph figure could not be accessed; there is no inspection-based claim about its exact contents."
+        ],
+        "reasoning": "Apply the inverse branch twice for t=2. G commutes with the shift, so starting with a periodic lift of an indexed length-n ring preserves period dividing n at both steps; it therefore descends to G_n² on that very ring. Both necessity and sufficiency of the cyclic forbidden pair follow. This is stronger than inferring same-period lift from an arbitrary bilateral language theorem.",
+        "searches": [
+          "Resultary f83324e0ac34, proof Steps 2–4",
+          "de Oliveira et al., DOI 10.1002/cplx.21686, reported Figure 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f4c5d1d3d2a1 (identical), f83324e0ac34, be3c887106f0, 5a87e3038c99 and 5742d176c6e4",
+        "de Oliveira et al. DOI 10.1002/cplx.21686 (attempted, article not accessed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 3 of f83324e0ac34 specifies the period-preserving inverse, rather than just a bilateral existence assertion. The labeled suffix automaton of be3c887106f0 already distinguishes the two particle weights edge by edge. The separate 256-rule analysis concerns bilateral first-loss length, not the density census."
+        ],
+        "reasoning": "Write the published transition table as A_0 and A_1. The periodic image polynomial is tr((A_0+uA_1)^n); suffix memory ensures uniqueness of the closed walk with a specified start index. The formal determinant trace identity and a six-state determinant give the displayed rational expression directly; multinomial expansion of its log gives the displayed binomial sum. Specialization u=1 yields the same rates, and the two known forbidden words give the first length and its rotations immediately. No nonmechanical remaining invariant was found to repair the frozen claim.",
+        "searches": [
+          "Resultary f83324e0ac34, inverse Step 3",
+          "Resultary be3c887106f0, label table and rational counts",
+          "Resultary 5742d176c6e4, first/second image comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed formula hit f4c5d1d3d2a1 is the frozen record itself. The distinct be3c887106f0 gives exactly the forbidden pair and the identical bit-labeled six-state suffix graph and entropy, though its displayed block count is for linear words, not indexed rings."
+        ],
+        "reasoning": "An indexed ring is a periodic point with a specified cut, not an orbit class and not a linear block. In this particular known suffix presentation its periodic points are exactly the closed walks, uniquely determined by their cyclic labels. Lifting to a same-period predecessor requires a separate step, supplied by the all-time proof below.",
+        "searches": [
+          "Resultary: Rule 184 second two-step image cyclic indexed ring density spectrum distinct outputs 2 4 8 12 22 34 58 100 170 294 particle-number generating function",
+          "Resultary be3c887106f0, Finding and transition table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Apart from the identical frozen hit, the inspected records do not display the same bivariate series. The second-spatial-image table gives all deterministic 0/1 transitions used in the series, and gives det(I−zT(1))=1−2z+z⁴+z⁶ and the same dominant root. The one-step record counts a different image."
+        ],
+        "reasoning": "The published linear values (e.g. 15 at length 4) are not the cyclic values (12). However the exact matching automaton data suffice: with column destinations fixed, weight each already-labeled edge by 1 or u, giving exactly the frozen T(u) without another CA calculation.",
+        "searches": [
+          "Resultary exact count-prefix and density query above",
+          "Resultary be3c887106f0, six-state table, determinant and entropy",
+          "Resultary 5a87e3038c99, exact cyclic one-step finding"
+        ]
+      },
+      "rationale": "Two distinct existing indexed statements and their proofs supply the decisive coverage. The all-time law supplies the very same local Rule 226 inverse at each stage on the bilateral avoidance subshifts, hence precisely the same-ring G_n² section by restricting shift-commuting maps to periodic points. The exact second-spatial-image record supplies not only the same two forbidden words and entropy but the identical six-state graph with every edge labeled by its appended bit. Thus the remaining particle count is a routine weighted periodic-point series of an already specified suffix automaton, not a new counting model, structural reduction, or nonmechanical evaluation. This is a comparison of actual mathematical coverage, not a historical priority claim based on index dates. Failure does not depend on the inaccessible Figure 8.",
+      "residual_risks": [
+        "Figure 8's exact coverage is unverified. Same-day indexing neither establishes temporal ordering nor implies copying; the negative assessment rests on demonstrable mathematical coverage across distinct indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies both ring classification and the precise same-ring inverse at t=2",
+          "evidence": "Step 3 explicitly defines the local G of Rule 226, proves FG=id on X_1 and G(X_{t+1})⊆X_t. Locality and shift commutation preserve indexed periodicity.",
+          "identifier_or_url": "Resultary f83324e0ac34",
+          "material_read": "Finding and proof Steps 2–4, offsets 0–6037",
+          "method": "Local mirror",
+          "title": "An all-time forbidden-basis law for synchronous traffic Rule 184",
+          "trigger": "Stronger all-time law potentially supplying exact same-ring predecessor"
+        },
+        {
+          "assessment": "Same forbidden basis and graph; directly gives all weighted automaton transitions",
+          "evidence": "Table labels 0/1 for the identical six proper prefixes; its unweighted determinant and Perron root match. The linear count itself is not the indexed-ring count.",
+          "identifier_or_url": "Resultary be3c887106f0",
+          "material_read": "Finding, exact label table, and rational counts and entropy, offsets 0–5694",
+          "method": "Local mirror",
+          "title": "The exact second spatial image of synchronous traffic Rule 184",
+          "trigger": "Same image and entropy; potential exact counting presentation"
+        },
+        {
+          "assessment": "Known one-step ingredients, not the two-step density census on its own",
+          "evidence": "Avoidance of 1100, one-step Rule 226 section, and a density-refined series for every indexed ring.",
+          "identifier_or_url": "Resultary 5a87e3038c99",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact one-step reachability, inversion, and density spectrum of the cyclic traffic automaton",
+          "trigger": "Exact cyclic model and inverse at depth one"
+        },
+        {
+          "assessment": "Bilateral loss analysis, different invariant",
+          "evidence": "Finite-state detection of first/second-image language differences across 256 rules; no corresponding indexed-ring density formula in the inspected passage.",
+          "identifier_or_url": "Resultary 5742d176c6e4",
+          "material_read": "Finding and argument, offsets 0–6379",
+          "method": "Local mirror",
+          "title": "A sharp twelve-symbol threshold for second-update image loss in elementary cellular automata",
+          "trigger": "General first/second image language comparison"
+        },
+        {
+          "assessment": "Unresolved primary-source access; not relied on for the verdict",
+          "evidence": "Publisher/DOI denied access. The descriptions of Figure 8 in the frozen and indexed records are secondary accounts, not direct inspection.",
+          "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+          "material_read": "Figure 8 and article body not accessible",
+          "method": "OA DOI and publisher attempts; alternate recovery found no repository copy",
+          "title": "Advances in the study of elementary cellular automata regular language complexity",
+          "trigger": "Cited exact second-image Rule 184 process graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 54–85",
+        "Resultary f83324e0ac34 Step 3 and be3c887106f0 transition table"
+      ],
+      "rationale": "Same-ring reachability and output mass are natural quantities, but the only literal increment over the inspected all-time inverse and exact labeled second-image graph is an off-the-shelf weighted closed-walk translation, a small determinant, and ordinary coefficient extraction. The exact refinement is mechanically implied by the available data; no new periodic obstruction, inversion, asymptotic phenomenon, or density structure survives the comparison. The computed formulas can be useful for reference without constituting a distinct valuable finding under this standard.",
+      "residual_risks": [
+        "This is a judgment on the incremental content of the frozen claim; it does not rule out substantive refinements such as new preimage multiplicity results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

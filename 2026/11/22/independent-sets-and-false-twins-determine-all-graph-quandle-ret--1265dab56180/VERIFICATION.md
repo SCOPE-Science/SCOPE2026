@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the graph-quandle retraction rank formula
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the mathematical basis of the unbounded theorem. The accompanying `verify_graph_quandle.py` independently reconstructs the operation table and tests `f(f(x)) == f(x)` and `f(s_x(y)) == s_{f(x)}(f(y))` on every pair of elements.
+## correctness
 
-The program checks \(K_2\), \(P_3\), \(K_3\) by unrestricted exhaustive enumeration of *all* functions on their respective four- and six-point sets. It checks \(P_4\), \(C_4\), \(K_4\), the paw graph and \(K_{1,3}\) by exhaustive enumeration of every map preserving the natural two-point component partition, without imposing the derived common-slope or false-twin normal forms. The predicted polynomial is computed separately by enumerating independent subsets and equal-neighborhood classes. The output must end with `GRAPH_QUANDLE_RETRACTION_RANK_VERIFIED`.
+PASS
 
-The eight tested output polynomials in ascending order of their displayed degree are: \(K_2:4T+T^4\); \(P_3:6T+8T^2+4T^4+T^6\); \(K_3:6T+T^6\); \(P_4:8T+48T^2+T^8\); \(C_4:8T+32T^2+16T^4+8T^6+T^8\); \(K_4:8T+T^8\); paw: \(8T+32T^2+T^8\); \(K_{1,3}:8T+48T^2+24T^3+12T^4+12T^6+T^8\).
+Every two-point fiber is an inner orbit since each vertex has a neighbor. Equivariance of a homomorphism with point symmetries forces both points of a fiber into one target fiber. Every binary map there has the form epsilon_v*a+b_v, and direct substitution yields epsilon_w*adj(v,w)=adj(h(v),h(w)). Symmetry on each edge and connectivity make the slope global. With slope zero, the vertex image is independent and idempotence makes h fix its image and b constant on each preimage, giving 2^j*j^(n-j) per independent j-set and rank j. With slope one, h preserves the adjacency indicator and is idempotent, and b vanishes on its image. Applying the adjacency identity to (h(v),w) gives N(h(v))=N(v); conversely open-neighborhood equality on each argument gives exactly the preservation required. Thus each twin class chooses its retained r vertices, their fixed points and independent choices of one of those r vertices and a bit per omitted vertex, giving rank 2r in that class and the stated product. The branches are disjoint; only the identity occurs in the second branch for singleton classes. P_n with n>=4 has distinct open neighborhoods and the no-consecutive-positions shift gives binom(n-j+1,j). In a separate operation-table test all 46656 maps on Q_{P3} yielded 19 retractions with polynomial 6T+8T^2+4T^4+T^6. That finite test is not the argument for arbitrary graphs.
 
-The tests do not exhaust all graphs, all vertex counts, all endomorphisms outside the tested sizes, or disconnected graphs. In particular, no runtime failure is interpreted as nonexistence or mathematical impossibility. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The graph quandle, orbit/extension framework, automorphism lifts, and the exact K_2 census shared with a distinct same-day Alexander result are not counted as separate distinct contributions. The supported difference is the complete idempotent image-rank census for arbitrary connected G with its independent-set and false-twin factors. The inspected general mesh statements classify objects and isomorphisms rather than arbitrary nonbijective idempotents.
+
+## value
+
+PASS
+
+Retraction ranks of a natural graph-associated quandle encode two different structural features of the graph, separated by an exact idempotent classification. In particular, for false-twin-free connected graphs the rank counts recover every nonempty independence coefficient. The general formula is stronger than any single small instance or an automorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

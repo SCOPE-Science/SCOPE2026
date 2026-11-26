@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:42.868146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–5; VERIFICATION.md; verification/commuting_tagged_verify.py (inspected, not executed)",
+        "/workspace/audit-replay/05-small-pointed.py (independent exhaustive point probabilities at n=4, θ=3/2; all 15 triples verified)"
+      ],
+      "rationale": "A transitive Z²-action is uniquely specified by its stabilizer ⟨(a,0),(−b,d)⟩; its centralizer is the regular translation group of size ad. In the weighted labeled count for the tag, choosing the other ad−1 labels and multiplying by (ad−1)! transitive actions and (n−ad)!Z_{n−ad} for the complement cancels to (n−1)!Z_{n−ad}. Multiplying by θ and dividing by n!Z_n gives the per-triple formula. The Euler product follows from Σ_{j≥1}σ₁(j)z^j/j=−Σ_{r≥1}log(1−z^r). For h(t)=log Fθ(e^{−t}), the Riemann sum for x/(e^x−1) gives h′(t)=−β²/t²+Oθ(t⁻¹); the analogous integrable function x²e^x/(e^x−1)² gives h″(t)∼2β²/t³, and the third derivative is Oθ(t⁻⁴) on the contour by the nonnegative log coefficients. At t=β/√n the linear error and cubic remainder on |φ|≤t^{3/2}log(1/t) tend uniformly to zero. The first-harmonic geometric sum is comparable to φ²/[t(t²+φ²)] for |φ|≤π, so the complementary arc is negligible on the Gaussian scale. With the real eta estimate this yields the stated prefactor and uniform coefficient ratio on j≤M√n. For each d the a-grid has mesh d/√n and the twist count is a; the limiting mass density is θx e^{−βx}/d². The sum of its integrals is θζ(2)/β²=1, establishing tightness including at 0. On every fixed-d compact x-interval away from 0, a→∞ and the twist grid converges uniformly against continuous tests. This proves the three-way product limit on the stated space.",
+      "residual_risks": [
+        "The coefficient ratio and convergence are for fixed positive θ. No moving-θ uniformity or error rate is established. The finite check is corroboration, not the asymptotic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ercolani–Ueltschi derive a tagged Gamma limit for specified algebraically growing weights; the exponent-one case has shape two and the square-root scale but does not cover the divisor-sum weights as stated.",
+          "Abdesselam–Starr cover the same fixed-θ commuting-pair model and higher tuples for the total orbit-count CLT. The nilpotent-covering generalization concerns total component counts too."
+        ],
+        "reasoning": "Broader object coverage for a different observable and a tagged limit with different weight hypotheses do not dominate the frozen claim.",
+        "searches": [
+          "arXiv:1102.4796v2, Theorem 5.1",
+          "arXiv:2505.11469v3, Theorem 1.1",
+          "arXiv:2603.24499v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1102.4796v2",
+        "arXiv:2309.09407v3",
+        "arXiv:2505.11469v3",
+        "arXiv:2603.24499v1",
+        "Resultary 199a3ed5775e and 5f92540f206a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The per-mark finite formula follows from the known connected weights and the labeled pointed-component rule. It is not a separate priority claim.",
+          "Deriving the limit requires a local square-root-scale coefficient ratio for this Euler product, retaining each fixed height in the arithmetic size sum, and proving tightness and twist equidistribution; neither a global orbit-count CLT nor the Gamma size limit for smooth weights gives those marked conclusions."
+        ],
+        "reasoning": "The inspected results directly cover key finite identities. They do not give the asymptotic joint independence or the normalized inverse-square height law in this model.",
+        "searches": [
+          "arXiv:2309.09407v3 and arXiv:1102.4796v2, statement-level reduction",
+          "arXiv:2505.11469v3, torus description and total-count theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In weighted-permutation notation with cycle weights θ_j=θσ₁(j), the normalizer h_n is Z_n(θ) and Proposition 2.1(a) gives exactly the size marginal of the tag.",
+          "The transitive components can equivalently be described as marked finite-index sublattices of Z² or as twisted tori. There are a choices of twist for each ad=j in the known census."
+        ],
+        "reasoning": "The weighted-cycle projection loses the Hermite height and twist; the sublattice translation is exact but supplies component counts, not the joint probability limit. Neither equivalent formulation inspected duplicates the marked theorem.",
+        "searches": [
+          "arXiv:1102.4796v2, Proposition 2.1(a)",
+          "arXiv:2309.09407v3, Theorem 1.1 and Hermite enumeration",
+          "arXiv:2505.11469v3, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared catalogue records 199a3ed5775e (two primitive-word fixed-point exclusions in commuting pairs) and 5f92540f206a (commuting-tuple enumeration and a Poisson window in Brandt inverse semigroups, same calendar day)."
+        ],
+        "reasoning": "The stronger-looking same-model lattice comparator treats a different event, and the same-day tuple record treats a different algebraic object and statistic. The search is not an exhaustive certificate of absence.",
+        "searches": [
+          "Local Resultary lookup: tagged Hermite orbit, commuting permutations, weighted pointed size and twist"
+        ]
+      },
+      "rationale": "Credit is for the joint tagged Gamma–Zipf–uniform limit at every fixed θ>0. The orbit census and Euler product are prior, the exact tagged-size marginal is a direct instance of a prior general tagged-cycle identity, and the full finite marked law is an elementary extraction of the known census, as acknowledged in the record. Neither the related Gamma theorem nor the commuting-cover component-count results inspected establish the full marked limit.",
+      "residual_risks": [
+        "An unindexed or more general weighted-assembly local limit could imply the Gamma marginal. The available comparison does not certify historical priority for the full marked law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact size marginal by substitution; Gamma analogue outside the divisor-sum hypotheses and no marks",
+          "evidence": [
+            "The exact tagged law has mass θ_j h_{n−j}/(nh_n). The algebraic-growth theorem yields Gamma shape γ+1 on scale n^{1/(1+γ)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.4796v2",
+          "material_read": "§2, Proposition 2.1(a), p. 5; §5, Theorem 5.1, pp. 11–12",
+          "method": "Bounded open full-text passages",
+          "title": "Cycle structure of random permutations with cycle weights",
+          "trigger": "Equivalent tagged-size identity and possible stronger Gamma limit"
+        },
+        {
+          "assessment": "Supplies underlying counts, not tagged marked limit",
+          "evidence": [
+            "B(2,n)=σ₁(n); finite-index subgroup enumeration by Hermite forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.09407v3",
+          "material_read": "§1, Theorem 1.1; passages identifying B(2,n) and Hermite normal forms, OA offsets about 6368 and 9000–11700",
+          "method": "Bounded open full-text passages",
+          "title": "A bijection for tuples of commuting permutations and a log-concavity conjecture",
+          "trigger": "Prior subgroup and orbit enumeration"
+        },
+        {
+          "assessment": "Same weighting, different random variable",
+          "evidence": [
+            "The theorem normalizes the total number of joint orbits; it does not track the marked orbit of a label."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.11469v3",
+          "material_read": "§1.1, twisted-torus description and Theorem 1.1, OA offsets about 0–9400",
+          "method": "Bounded open full-text passages",
+          "title": "A central limit theorem for a generalization of the Ewens measure to random tuples of commuting permutations",
+          "trigger": "Same weighted probability model and geometric marks"
+        },
+        {
+          "assessment": "Generalizes the total-count CLT, not tagged-component observables",
+          "evidence": [
+            "The stated CLT concerns the total number of connected components in a random covering."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.24499v1",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "Bounded open full-text passages",
+          "title": "A Central Limit Theorem for Connected Components of Random Coverings of Manifolds with Nilpotent Fundamental Groups",
+          "trigger": "Potential general covering theorem"
+        },
+        {
+          "assessment": "Later catalogue comparator, different statistic",
+          "evidence": [
+            "The statement treats joint fixed-point exclusion for two primitive words as a function of their determinant."
+          ],
+          "identifier_or_url": "Resultary 199a3ed5775e",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local catalogue and mirrored result passage",
+          "title": "Determinant-controlled joint derangements of primitive words in commuting permutations",
+          "trigger": "Same group action and finite-index sublattice census"
+        },
+        {
+          "assessment": "Different algebraic setting and observable",
+          "evidence": [
+            "The Poisson law is for noncommuting sample positions in Brandt inverse semigroups, not tagged orbits in S_n."
+          ],
+          "identifier_or_url": "Resultary 5f92540f206a",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local catalogue and mirrored result passage",
+          "title": "Complete commuting-tuple series and universal Poisson window",
+          "trigger": "Same-day commuting-tuple match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof Steps 4–5; comparison to the tagged-cycle marginal and commuting orbit-count CLT"
+      ],
+      "rationale": "The tagged orbit is the typical component seen from a point of the random action, complementary to a count of all components. The theorem resolves both its diverging size and the simultaneously tight, arithmetic number of σ-cycles; it also establishes independence of the continuum twist. In particular it identifies exactly which distributions change with θ, a feature neither a Gamma size marginal nor the total-count CLT can show.",
+      "residual_risks": [
+        "Only two ordered generators and a single tag are covered. The generality of the prior census is not part of the value claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

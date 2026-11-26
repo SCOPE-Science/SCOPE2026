@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification instructions and limits
 
-Run `python3 verify.py` in the directory containing that file. It requires only Python 3 standard-library modules. A successful run prints `PASS: 89 pairs (s,t), 26904 endpoint pairs, explicit routes and independent shortest-path BFS.`
+# Independent mathematical audit
 
-The check covers \(3\le s\le10\) and \(6s\le t\le6s+9\), plus \(s\in\{12,16,20\}\) at \(t=6s,6s+1,6s+2\). For each pair of selected vertices it constructs the advertised gap-crossing or within-window route, verifies shortest path length using the Cartesian distance formula, checks every step is adjacent and every internal vertex unselected, and separately runs BFS on the graph with all other selected vertices removed. This is not a substitute for the stated infinite proof.
+## correctness
 
-The exact hypotheses are \(s\ge3\), \(t\ge6s\). The proof of the lower bound uses \(h=\lfloor t/3\rfloor\ge2s\) and \(0\le r=t-3h\le2\) to make every chosen gap-crossing arc geodesic. Neither the proof nor the script certifies a sharp threshold or solves the remaining dimensions. Independent scientific audit was not performed.
+PASS
+
+A shortest path in a fixed cycle layer cannot move in the path coordinate. Four marks in such a layer obstruct both arcs between an alternating pair, proving the upper bound 3s. For the stated M, h=floor(t/3)>=2s separates the three width-s windows and makes all marked columns distinct. In one window a move in the starting column followed by a move in the destination row has length 2|a-b| and no marked interior. Across windows orient from one to its cyclic successor. The forward column distance is h+b-a, or h+r+b-a across the wrap with r=t-3h. Thus t-2D is at least h+r-2(s-1) before the wrap and h-r-2(s-1)>=0 at the wrap. Equality is harmless: the selected arc is still shortest. Switch rows in the empty column immediately after the first window; each row segment encounters only its own marked endpoint. This also works when the endpoints have identical first coordinates. The resulting length is D+|a-b|. Independently, reachable-set expansion on the graph with other marks removed checked 699 endpoint pairs including all three residues at s=3 and s=5; replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, visibility(). These finite checks corroborate the path argument; frozen scripts were inspected, not run.
+
+## originality
+
+PASS
+
+The prior literature supplies the upper bound and predicts the numerical answer, but does not prove this long-cylinder case. The closest distinct catalogue record is a later mathematical strengthening of the numerical result and overlaps even in its construction for two residues. It is not evidence that the frozen October record was covered as of its date. The priority conclusion is qualified to the inspected, dated evidence and to ordinary mutual visibility.
+
+## value
+
+PASS
+
+This explicitly realizes the conjectured optimum in a natural unbounded regime, including arbitrary path height and all cycle residue classes. The empty-column switch explains why both the cycle geodesic constraint and the avoidance constraint can be met simultaneously. It is a partial solution with a sufficient, not asserted sharp, threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:50.276996Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent coefficient and generalized-eigenvector derivation"
+      ],
+      "rationale": "Uniqueness under the weighted Hilbert norm and swap symmetry reduce the affine approximant to A+B M, M=z₁+z₂. The Mf equation forces B=0 if A=0, contradicting the other equation since u≠0. Expanding Mf gives 2v|u|²+(2w+4v²)|a|²+2vw|b|² for its squared norm and cross-term magnitude 2v|uȧ+vab̄|, where ȧ denotes conjugation of a. Thus 2|B/A| is bounded by the generalized Rayleigh quotient with Q off-diagonals 1,v and D=diag(1,w/v+2v,w). The top eigenvalue of D^{-1/2}QD^{-1/2} is simple and equals ηα. Clarifying the shorthand in line 49, the displayed (1,ηα,v/w) is the generalized eigenvector in the original variables, satisfying QX=ηαDX; the ordinary eigenvector of the conjugated matrix is D^{1/2}X. Phase alignment gives exactly the stated equality family. The diagonal attains the triangle-inequality lower bound |A/(2B)| on zero radius (no zeros if B=0). For α>0, h=v/w<1 and 2ηα<1+h make the boundary squared-modulus difference (1−h)(1+h+2ηα Re z) strictly positive; the maximum-modulus argument rules out all closed-bidisk zeros of the generator. At α=0 the extremal generator can have boundary zeros, which is outside that sharpness subclaim. The identity ηα²=h(1+t)/(1+2t), t=(4/3)^α, proves all monotonicity and limit assertions. The exact algebra, not the finite tests, proves the theorem.",
+      "residual_risks": [
+        "Only the bidegree-at-most-(1,1) symmetric generator and total-degree-at-most-one approximant are covered. The closed-bidisk zero-free equality-family claim requires α>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary density result and Navío–Seco use high-degree shifted generators. At α=0 the Hardy near-origin constructions use other generator families, including degree (2m,2m)."
+        ],
+        "reasoning": "Dense admissible zeros over a union of all degrees do not entail anything about exact exclusion radii at a single restricted degree, nor do constructions in controlled high degree produce multiaffine counterexamples.",
+        "searches": [
+          "Resultary 9a2efd39d9d3 Finding and construction",
+          "Navío–Seco arXiv:2609.37180v1 Theorem 1.1",
+          "arXiv:2405.16943v1 and arXiv:2611.26723v1 Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9a2efd39d9d3",
+        "arXiv:2609.37180v1",
+        "arXiv:2508.15938v1",
+        "arXiv:2405.16943v1 (abstract)",
+        "arXiv:2611.26723v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier diagonal and Gram formulations yield the zero test once coefficients are known; the high-degree shifted constructions have degree growing with the construction parameter.",
+          "The frozen sharp bound depends on the specific Q,D obtained from the multiaffine generator and a separate maximum-modulus inequality for its equality family."
+        ],
+        "reasoning": "The prior zero test alone does not force the specialized extremal Rayleigh quotient, and taking the high-degree result at smaller degrees is not licensed by its hypotheses or proof. The sharp value, rigidity and zero-free restricted sharpness do not follow by parameter specialization of an inspected theorem.",
+        "searches": [
+          "Geronimo–Woerdeman pp. 5–6; Navío–Seco proof pp. 6–7; Resultary 9a2efd39d9d3 Assumptions and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geronimo–Woerdeman use p₀+p₁(z₁+z₂) and the equivalent root criterion 2|p₁|>|p₀| in a Hardy family (1−(z₁+z₂)/r) to a negative power.",
+          "The exact frozen optimization is 2|B/A| over all u+a(z₁+z₂)+bz₁z₂ with u≠0 and product Dirichlet weights."
+        ],
+        "reasoning": "The common diagonal reduction is an equivalent formulation of the zero test, but the earlier Hardy family optimization is not equivalent to a maximum over the three independent generator coefficients and all exponents.",
+        "searches": [
+          "Resultary weighted bidisk affine optimal approximant zeros and sharp symmetric multiaffine exclusion radius",
+          "Geronimo–Woerdeman arXiv:2508.15938v1 Corollary 3 and preceding Gram equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue Finding gives density inside the disk without a generator-degree bound; the Hardy family gives a hypergeometric zero criterion. Neither states a sharp constant or equality case for the multiaffine class."
+        ],
+        "reasoning": "There is no table or numerical census in the mathematical finding. The corresponding exact-coverage check is of the explicit ηα and optimizer family, not of the verification script's samples.",
+        "searches": [
+          "Resultary exact weighted bidisk diagonal zero locations; primary Hardy and positive Dirichlet counterexample comparisons"
+        ]
+      },
+      "rationale": "The diagonal criterion and projection method are established techniques, and earlier counterexamples use the same notion of an affine approximant. The strongest matched sources concern other generator families or larger degrees. Neither their extremizers nor their conclusions give the all-α sharp radius and phase-rigid family for all symmetric multiaffine generators, including closed-bidisk zero-free sharpness for α>0.",
+      "residual_risks": [
+        "A bounded comparison cannot rule out an unindexed bidegree-specific optimization. No whole-paper absence is inferred from the one abstract-only comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in the setup, different generator-degree regime and conclusion",
+          "evidence": [
+            "Every open-disk diagonal target is approximable for α>0 by using high-degree shifts of symmetric closed-bidisk zero-free polynomials."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-dense-diagonal-zero-locations-for-weighted-bidisk-optimal-approx--9a2efd39d9d3",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, mirror offsets 0–4992 and 4990–8081",
+          "method": "Resultary search and local mirror passages",
+          "title": "Dense diagonal zero locations for weighted bidisk optimal approximants",
+          "trigger": "Closest matching norm, symmetry, approximant degree and stability restriction"
+        },
+        {
+          "assessment": "Higher-degree counterexamples, not a multiaffine bound",
+          "evidence": [
+            "Closed-bidisk zero-free generator of the form 1+λ(z₁z₂)^N h with λ∥h∥∞<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.37180v1",
+          "material_read": "Theorem 1.1, PDF p. 3, offset about 7400; construction pp. 6–7, offset about 14950",
+          "method": "Primary full-text passages",
+          "title": "Polynomial Counterexamples to Shanks' Conjecture in Dirichlet-Type Spaces over the Bidisc",
+          "trigger": "Same weights and positive exponents, interior affine zeros"
+        },
+        {
+          "assessment": "Known diagonal reduction but not the stated optimization class",
+          "evidence": [
+            "Hypergeometric coefficient expressions for (1−(z₁+z₂)/r) raised to a negative power; the affine zero test is 2|p₁|>|p₀|."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.15938v1",
+          "material_read": "PDF pp. 1 and 5–6, offsets 0 and 17950",
+          "method": "Primary full-text passages",
+          "title": "A Fourier Analysis Approach to Disprove the Weak Shanks Conjecture",
+          "trigger": "Closest explicit Hardy bidisk symmetric affine zero criterion"
+        },
+        {
+          "assessment": "Confirms an interior-zero counterexample in the larger Hardy setting",
+          "evidence": [
+            "An affine OPA of a closed-bidisk zero-free function has an interior zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.16943v1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary abstract passage, not a full-paper exclusion",
+          "title": "Bénéteau–Khavinson–Seco weak Shanks counterexample",
+          "trigger": "Potential α=0 overlap"
+        },
+        {
+          "assessment": "Higher-degree family, with an open-vs-closed stability distinction",
+          "evidence": [
+            "The symmetric family has bidegree (2m,2m); the displayed factors have boundary zeros. The near-origin result does not cover multiaffine stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.26723v1",
+          "material_read": "PDF pp. 3–4 stability definitions and Theorem 6.1, offsets about 8311 and 10700",
+          "method": "Primary full-text passages",
+          "title": "Beslikas–Felder–Pfeffer Hardy bidisk optimal approximants",
+          "trigger": "Near-origin affine zero varieties at α=0"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen quantitative Finding and equality proof",
+        "Higher-degree density and counterexample passages compared above"
+      ],
+      "rationale": "This gives the exact positive safety margin in a natural low-degree symmetric bidisk class within a problem where higher-degree generators allow interior approximant zeros. It also explains equality, shows why restricting to zero-free generators for positive weights does not improve the sharp margin, and quantifies how the margin depends on the Dirichlet exponent. This is more than verifying zero exclusion or a particular example.",
+      "residual_risks": [
+        "No improvement for nonsymmetric generators or higher-degree approximants is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

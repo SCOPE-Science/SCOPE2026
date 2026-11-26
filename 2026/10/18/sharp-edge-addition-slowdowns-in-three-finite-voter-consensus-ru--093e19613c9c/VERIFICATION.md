@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The included `verify_exact.py` reproduces every reported number using only Python 3 standard-library exact rational arithmetic. Run `python3 verify_exact.py` and confirm the final PASS line, its six four-vertex comparison lines, and the five-vertex link-update witness. Each Markov-chain transition is constructed from oriented edges, including equal-opinion nontransitions in the diagonal. The routine solves all \(2^n-2\) transient first-step equations with fractions rather than floating-point approximations.
+## correctness
 
-The program enumerates every labelled graph on two, three and four vertices by edge masks; discards disconnected source graphs; marks each missing edge; and canonicalizes the marked graph under every vertex permutation. It checks that all six manually named four-vertex cases exhaust the canonical orbit set. The script computes the five-vertex example but does not enumerate every five-vertex source graph. No infinite-graph implication is asserted.
+PASS
 
-Checks also included separate exact symbolic matrix elimination against the tabulated rational values. These are computational cross-checks, not external or independent audit. The value and originality assessment is restricted to the stated fair i.i.d. initial law and attempted-update normalization, and the named primary literature; an unlocated equivalent finite census remains a residual literature risk.
+The first-step linear system uses weights 1/(n d_receiver), 1/(n d_sender) and 1/(2|E|) for VM, IP and LD respectively. The diagonal retains all no-op attempts and the fair-i.i.d. average divides by 2^n, including the absorbing initial states with zero time. A connected graph admits a positive-probability sequence of copies down a spanning tree that makes any configuration monochromatic, so the transient resolvent exists. At n<=2 there is no eligible nonedge; at n=3 only the path-to-triangle case occurs. At n=4 the trees give one star and two path orbits, the unicyclic paw and C4 give one orbit each, and the diamond gives the sole five-edge orbit. A separately written exact-rational solver reproduced the entire table: n=3 differences in VM/LD/IP order are (0,-1/2,-3/2); the four-vertex positive counts are 2/0/1, with all six LD differences negative. It recovered the VM star-to-paw 155/208, LD star-to-paw -1/17 and IP square-to-diamond 35/88, as well as five-vertex LD star means 613/48 before and 693195/52592 after, yielding 32327/78888. These establish sharp boundaries 4,5,4 in VM/LD/IP order. The frozen program was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct claim is the joint sharp cross-rule boundary, specifically the IP cutoff and complete IP contrasts at the same six edge orbits, the LD mean-only exclusion through four paired with the star witness, and the comparison of all three rules on the same changes. This is not a pass for the VM subresult in isolation: a distinct November indexed record covers it exactly after clock and initial-law conversion. The same-day LD mean–variance record already covers the LD star-to-paw delta and that a five-agent mean slowdown is possible; it does not state the mean-only exclusion or the same star witness. Neither the indexed overlaps nor the primary passages supply the full three-rule classification. Record dates do not determine priority.
+
+## value
+
+PASS
+
+The same elementary network intervention can help one rule and harm another, and the sharp first orders expose a real distinction between node- and link-sampling, not just a change of units. The six-orbit layer locates where signs diverge, and the LD witness shows the absence of four-agent slowdowns does not extend a single step further. This is useful under the specified normalization independently of a full five-vertex census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

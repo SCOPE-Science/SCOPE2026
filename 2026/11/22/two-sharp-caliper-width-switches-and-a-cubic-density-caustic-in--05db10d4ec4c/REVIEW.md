@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The support maximum is derived independently on each boundary part and covers all directions and all positive shape parameters. The cubic sign analysis, strictly monotone envelope ratios and resultant reductions give exhaustive global extrema. The third-order angular Taylor expansion gives the sharp two-sided singular density, and the stationary-root unfolding proves the \(3/2\)-power splitting. The reproduced standalone checker passed 50,331 numeric tests and all symbolic assertions; finite sampling is not substituted for the proof.
+## correctness
 
-## Originality
-**PASS, with historical-priority limitations.** Finch's 2011 width paper treats triangles, squares, tetrahedra and cubes, not parabolic segments. The MathWorld page on parabolic segments gives area, arc length, centroid and inscribed-triangle formulae, not directional width phase switches. A more recent general width-density paper advertises results for three-dimensional polytopes, not this planar curved segment. Related parabolic tangent-triangle findings involve a different random observable. These comparisons are by statements and their consequences, rather than by title. Two plausible texts were only accessible by abstract; an unpublished or unindexed equivalent remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The entire one-parameter similarity class of ordinary perpendicular-chord parabolic segments is classified by two separate global optimizer switches, an interior cubic density caustic and a sharp unfolding constant. The body and invariant are classical and natural; the singularity has precise quantitative consequences for random-direction strip measurements.
+Reconstructed the two supports, including the horizontal limit and chord; folding uniform unoriented angles gives exactly 2/pi. The derivative factors as (t+2a)(t²−2at+2)/[4(1+t²)^(3/2)], with stationary slopes a±sqrt(a²−2) for a>sqrt(2), both in the first branch. Only the vertical endpoint and the larger stationary slope can minimize. At a stationary root with x=t², a=(x+2)/(2 sqrt(x)); comparison with a² reduces to the sign of −x³+8x²+24x+16, unique positive root above x=2. Reducing that cubic modulo x²−4(a²−1)x+4 and multiplying the two residues reproduces the claimed polynomial in a². At a=sqrt(2), integrating the quadratic zero of the derivative and converting dt/dtheta=3 gives angular coefficient 3 sqrt(6)/4; a unique local inverse fixes both density and band mass. Scaling t−sqrt(2) by sqrt(delta) and integrating the limiting parabola gives 4·2^(3/4)/(3 sqrt(3)). The repaired RESULT.md gives a replayable analytic derivation. The frozen VERIFICATION.md, code and CHECKS.txt are supplementary recorded diagnostics; the uploaded code was inspected, not executed.
 
-## Limits
-The CDF is a finite algebraic-root/arctangent prescription rather than a uniform closed elementary expression, and the bifurcation asymptotics are local. This is not a claim of historical uniqueness or independently certified priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the narrowed finding only: the diameter switch is explicitly credited and no longer claimed. The exact minimum-width switch, angular CDF and cubic singularity with its amplitudes are distinct from the strongest same-object comparison and the relevant available angular-width sources, to best current knowledge.
+
+## value
+
+PASS
+
+The minimum is the narrowest Euclidean strip containing a classical curved segment and the repaired theorem identifies all attaining directions at an exact shape threshold. The separately retained angular law and the non-endpoint density blow-up quantify what uniformly sampled calipers observe, with exact exponents and amplitudes. These are substantive distinctions from a diameter restatement or mean-width calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

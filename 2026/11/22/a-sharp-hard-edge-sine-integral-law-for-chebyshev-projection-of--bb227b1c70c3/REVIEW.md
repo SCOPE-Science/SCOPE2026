@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is a sharp norm statement with the exact measure and polynomial normalization specified. A BV function is represented (modulo constants) as a signed integral of one-jump functions; the triangle inequality and an attaining step reduce the operator norm exactly to those steps. Orthogonality provides the Fourier coefficient and finite residual identity. A dominated Riemann-sum calculation gives the hard-edge profile; its unique global maximizer is proved using the sine integral, convexity on the next half-period, and a uniform large-parameter tail bound. Abel summation excludes all maximizing angles with unbounded scaled distance. A standard-library checker passed 2,916 corroborative finite checks. Risks: the proof relies on the standard Fourier sine-integral identity and finite signed-measure representation; neither numerical enumeration nor root evaluation alone is treated as proof.
+## correctness
 
-**Originality — PASS, qualified.** The inspected 2014 Zhou–Narayan–Xu preprint treats discrete least-squares polynomial approximation, the inspected 2021/2023 Wang paper treats pointwise singularity localization, and the inspected 2024 Akansha paper treats coefficient-decay and \(L^1\) bounds for approximated coefficients under derivative-variation hypotheses. None of those inspected statements supplies the sharp continuous Chebyshev \(BV\)-to-\(L^2\) norm and universal endpoint-jump scaling constant. Relevant mathematical-record searches for angular/Fourier, sine-integral, and Chebyshev aliases yielded TV-output and Lipschitz-pointwise questions rather than this energy residual. The prior unweighted Legendre BV-energy result is not stronger: the weight, Fourier-cosine reduction, sharp constant and maximizer migration differ. Risk: a historically unindexed Fourier-cosine extremal calculation or older Chebyshev textbook may be equivalent; database search alone does not prove priority.
+PASS
 
-**Value — PASS.** Worst-case weighted energy error for discontinuous BV input is a natural benchmark for continuous Chebyshev spectral truncation. The result does more than recover a known rate: it identifies the exact operator norm at every degree and a universal sharp limiting constant, and shows an unexpected change of the worst jump's location to an \(n^{-2}\) physical endpoint boundary layer. This distinction matters when approximating shocks and in comparing spectral weight choices. The exact finite formula is computationally evaluable without an infinite Fourier tail. Limitation: it does not address interpolants, coefficient noise, or other Jacobi weights.
+Modulo constants, real BV functions are integrals of interior unit steps against their finite signed distributional derivatives. The triangle inequality gives the norm upper bound by a maximal step, and a step attains it. The change x=cos θ takes normalized arcsine measure to dθ/π; the step's coefficients at k≥1 are √2 sin(kθ)/(πk). Parseval gives the nonnegative cosine tail, reflection symmetry, and the degree-zero optimum 1/2. At 2nδ=c, the scaled tail is a Riemann sum for G(c)=∫₁^∞(1−cos(ct))/t² dt, locally uniform by truncation at large t. Integration by parts gives G′=π/2−Si(c). Alternating Taylor bounds give Si(2)>π/2 and G(2)>1.34559>4/3. Si is strictly increasing before π, G is convex on [π,2π], and G(c)≤1+2/c for c≥2π by integrating the cosine tail by parts. These certify that its first stationary point is the unique global maximum. For 2nδ→∞, Abel summation bounds the scaled oscillatory part by O(1/(n sin δ)) and the nonoscillatory part tends to 1. Comparing to c*/(2n) excludes this escape for every maximizing sequence; all remaining subsequential limits equal c*. The Taylor expansion of 1−cos δ then gives the n⁻² endpoint distance.
 
-## Closest literature and limits
-The directly related sources are arXiv:1401.0894, arXiv:2106.03456, and arXiv:2404.18723. Standard BV coefficient bounds and classical cosine series identities are acknowledged without novelty claims. A lack of an indexed identical result remains only bounded evidence for originality, not a guarantee. No all-finite-degree optimizer classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence for the sharp normalized BV-to-L² residual and its moving maximizer law. The exact indexed match is the frozen record itself. The nearby periodic and Chebyshev projection results do not give the same norm, and pointwise localization of a prescribed singularity does not give the maximizing step location or constant.
+
+## value
+
+PASS
+
+This is a natural sharp approximation norm for a canonical weight and a class that allows discontinuities. The result shows why plugging fixed jumps into a pointwise or global rate misses the worst case: their limiting constant is smaller and the optimizers cluster on an n⁻² spatial endpoint scale. It provides both an all-degree exact expression and a sharp asymptotic mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

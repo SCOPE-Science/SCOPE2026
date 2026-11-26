@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,12 +21,8 @@
 
 ## Analytic checks
 
-The moment expansion is obtained by substituting the explicitly defined step into the quadratic form; all terms are determined by the first three spectral moments. The convex-chord inequality is equality for the two endpoint eigenvalues. The maximizing endpoint weight comes from a one-variable derivative; the polynomial factorization proves the phase threshold. The sharp ratio bound is global, while the random-sphere chi-square representation proves the probabilistic limit without simulation.
+Expanding the quadratic at the stated local-oracle step yields the three-moment quotient in the proof. On scaling the minimum eigenvalue to one, the bounds \(m_1\ge1\) and \(m_3\le\kappa m_2\) give a strict upper bound below five for each finite condition number. The limit uses the exact normalized-Gaussian representation of a uniform-sphere coordinate, the tightness of \(dp\), and the absence of mass at zero in its limiting law. Substitution of the three resulting moment limits gives sharpness.
 
-## Independent spot checks within this review
+## Exact finite example
 
-Exact substitution at condition number 8 with diagonal Q and x=(6,1) gives f(x)=22 and f(T(x))=125654/2025-40*sqrt(74)/9, an increase. Symbolic expansion checks that the squared Euclidean distance nevertheless decreases. Scalar minimax numerical probes for condition numbers 8, 10, 20, 100, 1000 reproduce objective amplification below 5, and high-dimensional chi-square simulations illustrate the convergence-in-probability statement. The spot checks are not proofs of global extrema or limit laws.
-
-## Boundaries of verification
-
-No external independent audit was performed. The updated 121-page primary paper and the complete text of one closely related published comparison were not examined, as disclosed in the scientific review. These omissions do not substitute for a novelty proof; the originality assessment is based on explicitly documented comparisons.
+For \(Q=\operatorname{diag}(1,8)\), \(x=(6,1)^{\mathsf T}\), write \(T(x)=x-sQx\) with \(s=2\sqrt{74}/45\). Then \(f(T(x))=22-100s+274s^2=125654/2025-40\sqrt{74}/9\). This check illustrates amplification but is not a test of the supremum or of convergence in probability.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:10.219474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–56; independently checked the extension degree argument, local infinity computation, degree-four count and Weil extraction",
+        "Borges–Fukasawa arXiv:2009.04716v3 Theorem 1(a),(c), Theorem 2(a), Remark 2",
+        "Fukasawa arXiv:1308.1490v2 Theorem 1",
+        "Frozen VERIFICATION.md:19, verify.py:55–81 and samples.csv:1–10, inspected without execution"
+      ],
+      "rationale": "The cited geometric model is irreducible; over the affine Hermitian curve, L(t)=t+t^(q²) is finite étale in each coordinate, giving a smooth affine cover of degree q⁴. If L(t)=0 then t^(q²)=−t and t belongs to F_(q⁴), while its only root in F_(q²) is zero in odd characteristic. Thus L permutes F_(q^m) whenever 4∤m, giving equality of the affine counts. At infinity the q+1 points have slopes α with α^(q+1)=−1 and α in F_(q²); the ordinary branches have distinct tangent labels β in ker L. One can see the labels directly by taking t=1/y, x=α/t+w: after canceling the leading terms and multiplying the equation by t^(q³), its reduction at t=0 is α^q L(w)=0 with nonzero derivative in w. Frobenius therefore acts on the labels by (α,β)↦(α^q,β^q). When 4∤m only β=0 contributes, so the counts agree after adding the normalized points at infinity. In degree 4, L maps onto F_(q²) with q² preimages per value; the q³−q affine Hermitian points each lift to q⁴ points and the boundary adds q²(q+1), reproducing the cited count q⁷−q⁵+q³+q². The Hermitian curve has q+1 points over F_q (a smooth conic on those points) and is maximal over F_(q²); its eigenvalues square to −q and occur with opposite signs in equal multiplicities. The projective map yields the Hermitian Jacobian up to isogeny as a factor over F_q: norm after pullback is multiplication by q⁴, still an isogeny in characteristic p. Thus the complementary Weil numerator is integral. Its formal logarithm is the difference-count series divided by the extension degrees, so it and its exponential lie in the T⁴ subring. Degree comparison and (N_X(4)−N_H(4))/4 give the asserted degree and coefficient. For β=0, the fixed α satisfy α²=−1, yielding e_q, and the rest have period two. For β≠0 the second power of Frobenius negates β, so all those pairs have exact period four. This yields the stated finite-étale zeta factors.",
+      "residual_risks": [
+        "The frozen checker uses q equal to p in its samples, not non-prime q; the proof uses F_(q²), F_(q⁴), and the intersection formula for arbitrary odd prime powers. Boundary enumeration in the checker presupposes the tangent label formula. No full Q_q, characteristic-two analogue or formal verification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader X_n family result gives genus, automorphisms, Weierstrass-locus characterization, ordinary singularities and one exact extension-degree count for each n; at n=1 that degree is 4.",
+          "The general separated additive-polynomial genus theorem directly specializes to g_X, which is an input rather than a novel conclusion."
+        ],
+        "reasoning": "The broader-family geometric theorems do cover the geometric premises, but the cited arithmetic theorem specifies one degree rather than counts across all degrees in three residue classes or a Frobenius character decomposition of the Jacobian.",
+        "searches": [
+          "Borges–Fukasawa arXiv:2009.04716v3 Theorems 1–2, Remark 2 and arithmetic count proof",
+          "Fukasawa arXiv:1308.1490v2 Theorem 1 and genus equality criterion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.04716v3 and arXiv:1308.1490v2",
+        "Local Resultary exact work 3b94edfed976",
+        "Focused primary-literature search for Hermitian additive-cover zeta functions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 2 supplies the geometric branch labeling, from which the arithmetic boundary spectrum follows after checking the fields of definition and action on the labels.",
+          "The prior count over F_(q⁴) and the geometric automorphism theorem alone do not give all the other power sums. The additional observation is that L is invertible in all extension degrees with 4∤m and that the boundary contributes exactly the Hermitian boundary there."
+        ],
+        "reasoning": "Treat the boundary and first coefficient as explicit consequences of known labels/counts combined with the new arithmetic comparison, not as unrelated novel facts. The substantive distinction is obtaining the simultaneous all-extension equality and the resulting complementary Frobenius restriction, not merely substituting n=1 into a stated count.",
+        "searches": [
+          "arXiv:2009.04716v3, Remark 2 and Theorem 2(a), with their proof passages; arXiv:1308.1490v2 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borges–Fukasawa use X_n with n=1 precisely the curve in question; it is not a new family.",
+          "The out-of-multiples-of-four count equality is equivalent to vanishing complementary power sums in those degrees and hence to T⁴ support of the complementary numerator, by the logarithm of the zeta quotient."
+        ],
+        "reasoning": "The natural equivalent formulations were compared on the exact curve. Frobenius nonclassicality, the primary paper's geometric condition, does not mean this arithmetic trace vanishing.",
+        "searches": [
+          "Resultary search for the specific Hermitian additive cover and T⁴-supported Weil factor; 3b94edfed976",
+          "Primary search: elementary abelian Hermitian cover, Borges–Fukasawa, zeta/L-polynomial and Frobenius orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit and frozen item are the same work. The exact primary degree-four count is q⁷−q⁵+q³+q²; the table reference on p. 3 is for outer Galois-point counts rather than a zeta spectrum."
+        ],
+        "reasoning": "The known N_X(4) must not be credited as new, and fixes the first coefficient once the restriction is proved. It is not a table of the complementary Weil traces or of boundary Frobenius cycle type.",
+        "searches": [
+          "Resultary exact curve and zeta restriction, 3b94edfed976",
+          "Borges–Fukasawa Theorem 2(a), proof p. 12, and p. 3 table reference"
+        ]
+      },
+      "rationale": "The supported distinction is the extension-wide residue-class count equality and consequent structural quartic restriction on the complementary numerator, with the accompanying arithmetic boundary orbits. The curve, geometric branch labels, genus and exact degree-four point count are prior results. The coefficient calculation by itself is a direct extraction once quartic support is known. The closest primary statements do not give this extension-wide arithmetic restriction, and the exact indexed hit is the same assigned work, not independent coverage.",
+      "residual_risks": [
+        "No priority claim beyond the compared material; another additive-cover zeta or Artin–Schreier character decomposition may imply the result. The Borges–Homma reference for the known degree-four count was not separately read; the count can also be reproduced directly as above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the geometry and N_X(4), not the claimed quartic restriction in the relevant passages",
+          "evidence": "Ordinary singularities with L(β)=0 indexing the tangent lines; Theorem 2(a) gives q^(4n+3)−q^(4n+1)+q^(2n+1)+q^(2n) at degree 2(n+1). The proof invokes Borges–Homma Cor. 3.1. No all-m trace identity is given in these passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.04716v3",
+          "material_read": "Theorem 1(a),(c),(d),(e),(f) and Theorem 2(a), p. 2; Remark 2 pp. 3–4; Weierstrass and automorphism proof passages pp. 4–7; degree-count proof p. 12",
+          "method": "Primary OA PDF",
+          "title": "An elementary abelian p-cover of the Hermitian curve with many automorphisms",
+          "trigger": "Actual same n=1 curve, proof premises and possible prior arithmetic coverage"
+        },
+        {
+          "assessment": "General geometric premise",
+          "evidence": "Specializing both additive polynomials to X^(q²)+X, additive degree q² and exponent q+1 gives the asserted genus.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.1490v2",
+          "material_read": "Theorem 1, p. 2, including the genus equality criterion",
+          "method": "Primary OA PDF",
+          "title": "A family of plane curves with two or more Galois points in positive characteristic",
+          "trigger": "Broader separated additive-polynomial family and the genus premise"
+        },
+        {
+          "assessment": "Identical work, not independent prior coverage",
+          "evidence": "The same assigned identifier and count equality, quartic factor and cycle claim.",
+          "identifier_or_url": "SCOPE-quartic-frobenius-symmetry-in-an-elementary-abelian-cover-of-the--3b94edfed976",
+          "material_read": "Indexed Finding summary compared with the frozen Finding",
+          "method": "Local Resultary catalog",
+          "title": "Quartic Frobenius symmetry in an elementary abelian cover of the Hermitian curve",
+          "trigger": "Exact match to all three frozen arithmetic conclusions"
+        },
+        {
+          "assessment": "Unresolved contextual source, not credited as covering or not covering",
+          "evidence": "The title identifies a different named curve family; no inference about general theorems in the paper is made from the title alone.",
+          "identifier_or_url": "https://www.academia.edu/81751820/On_the_Zeta_function_and_the_automorphism_group_of_the_generalized_Suzuki_curve",
+          "material_read": "Search identification only; no full-text passage retrieved",
+          "method": "Identified OA retrieval attempted; HTTP 403",
+          "title": "On the Zeta function and the automorphism group of the generalized Suzuki curve",
+          "trigger": "Secondary hit for zeta functions and automorphisms of related finite-field curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–32,38–56",
+        "Borges–Fukasawa arXiv:2009.04716v3, Theorems 1–2, Remark 2"
+      ],
+      "rationale": "The known input count in one maximally split extension and the geometric list of branches alone are not the value claim. The extension-wide result identifies exactly which degrees can contribute to the complementary trace and constrains the allowed coefficient support of a very large Weil numerator for a studied cover. The first coefficient and the arithmetic splitting of the distinguished boundary give usable exact data for further zeta calculations, even without an expression for all the remaining coefficients.",
+      "residual_risks": [
+        "Possible nonzero traces are restricted to multiples of four, not asserted nonzero in every such degree; no higher coefficients of Q_q are computed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

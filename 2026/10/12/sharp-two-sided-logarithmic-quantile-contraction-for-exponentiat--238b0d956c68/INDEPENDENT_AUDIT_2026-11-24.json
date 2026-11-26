@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:56.513459Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–71",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 10–66 (read, not executed)"
+      ],
+      "rationale": "CDF inversion and the chain rule give Q_a'(u)=1/[a u B((-log u)/a)]. For z=e^(-w), z<−log(1−z)<z/(1−z) gives B'>0 and B''<0. With B(0+)=0, strict concavity and monotonicity give ρB(w)<B(ρw)<B(w) for ρ=r/s. Integration against Q_r' gives both strict interval bounds. B(w) tends to 1 at infinity and is asymptotic to w log(1/w) at zero, so the derivative ratio tends to ρ and 1 at the two ends, respectively. Its positive weighted averages over shrinking near-endpoint intervals approach the same limits. Both transport constants follow since both quantiles span R. The centered successive quantile differences are strictly increasing and integrable with mean zero, so their proper initial integrals are negative; the equal-mean integrated-quantile criterion gives both convex comparisons. The two logarithmic tails justify integrability. The representative ratio at (1,2,0.2,0.8) was independently evaluated as 0.674717885639053; only the analytic check supports the continuum claim.",
+      "residual_risks": [
+        "Numerics corroborate one example and are not required for sharpness or any universal quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Datta–Gupta Theorem 4 is a reversed-hazard comparison of parallel systems; its separate star-order result concerns a PHR series model",
+          "The frozen source credits the Arab et al. criterion with the unscaled upper comparison; the full text was not retrievable"
+        ],
+        "reasoning": "Hazard ordering is not a sharp bound on logarithmic quantile-gap ratios. An unscaled star order does not as a general order implication give the positive lower factor.",
+        "searches": [
+          "Resultary: PRHR families and scaled dispersive orders",
+          "Datta–Gupta arXiv:2002.12436 §§3–4",
+          "Arab et al. DOI 10.1017/S0269964821000449, cited Proposition 12 and Remark 14"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd0f86bbfed8, 2ed07927c433, a7fe4307f778",
+        "Datta–Gupta arXiv:2002.12436",
+        "Doumas arXiv:2603.11129",
+        "Arab et al. and Giam retrieval attempts and frozen citations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day record expresses Q_a' using decreasing Φ(t), only proving the upper bound; the later integer proof uses h(w)=w/B(w) and monotonicity of h and h/w, which do not depend on integrality",
+          "Doumas treats a scalar variance coefficient; Giam's reported variance monotonicity is likewise a scalar comparison"
+        ],
+        "reasoning": "The same-day proof shares the derivative formula but a separate monotonicity of aQ_a' and endpoint analysis are needed for the two exact factors; strict variance decrease cannot imply all gap comparisons. The later proof algebraically extends to real shapes, so scope wording alone is not a method distinction; its later catalogue appearance does not establish a priority objection.",
+        "searches": [
+          "Proof passages in Resultary records fd0f86bbfed8 and 2ed07927c433",
+          "Doumas arXiv:2603.11129 closing discussion; Giam DOI 10.1016/j.spl.2026.110790 and SSRN 6447308 retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12 record fd0f86bbfed8 gives strict one-sided real-shape dispersive contraction",
+          "2026/11/8 record 2ed07927c433 gives both strict optimal factors for integer sample sizes"
+        ],
+        "reasoning": "Taking logarithms converts the relevant star-order comparison to the upper quantile-gap comparison; transport-slope bounds are equivalent to spacing bounds. The same-day upper comparison is a true overlap, not a renamed new assertion.",
+        "searches": [
+          "Resultary: exact exponentiated-exponential quantile bound; log PRHR/dispersive order with scaled lower factor; sharp quantile-transport Lipschitz bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 2ed07927c433 gives the exact integer-shape constants n/m and 1 and their endpoint limits; fd0f86bbfed8 and a7fe4307f778 state the real-shape qualitative comparison"
+        ],
+        "reasoning": "The integer catalogue overlap is exact, but dated later and not stated for arbitrary positive shapes. A table of scalar variances or finitely many spacing ratios could not certify the stated all-level real-shape constants.",
+        "searches": [
+          "Resultary: exact quantile constants and exponential maxima/order-statistic, convex-order and variance formulations"
+        ]
+      },
+      "rationale": "Credit the qualitative upper order, not as a new finding. The inspected same-day real-shape record states and proves it, but its decreasing shape derivative does not itself order the scaled derivative aQ_a' or show both sharp bounds. The later integer record states both exact factors and has an analytic proof that also works for real shapes; this is substantial overlap in content and method, not evidence of earlier publication. The supported contribution at the frozen record is the quantitative, sharp real-shape sandwich, including the scaled lower convex order, not rediscovery of the qualitative order or a standalone novelty claim for the integer slice. No inspected earlier or same-day statement covered that quantitative result.",
+      "residual_risks": [
+        "Arab et al. and Giam full texts were unavailable in the inspected routes; equivalent formulations there or elsewhere have not been excluded.",
+        "Catalogue dates and overlap alone do not certify origin or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact qualitative real-shape overlap; no quantitative lower comparison or endpoint sharpness established there",
+          "evidence": "Formula for Q_a' via Φ(u^(1/a)), decrease of Φ, and integration giving the strict upper gap bound.",
+          "identifier_or_url": "2026/10/12/SCOPE-strict-dispersive-contraction-of-logarithmic-exponential-maxima--fd0f86bbfed8",
+          "material_read": "Finding; Proof, mirror offsets 1600–3475",
+          "method": "Read indexed record and bounded local-mirror proof passage",
+          "title": "Strict dispersive contraction of logarithmic exponential maxima",
+          "trigger": "Same family and date"
+        },
+        {
+          "assessment": "Exact later integer statement and a proof that extends verbatim in its analytic part to real shapes",
+          "evidence": "h=w/B, h increasing, h/w decreasing, and sharp derivative limits at both endpoints.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-quantile-transport-constants-for-logarithmic-exponential-m--2ed07927c433",
+          "material_read": "Finding; Proof at mirror offsets 1915–4704; relationship/limitations",
+          "method": "Read bounded local-mirror passages",
+          "title": "Sharp quantile transport constants for logarithmic exponential maxima",
+          "trigger": "Same exact constants"
+        },
+        {
+          "assessment": "Later real-shape upper overlap",
+          "evidence": "Strict one-sided ordering for all real 0<a<b, without a stated positive lower multiplier.",
+          "identifier_or_url": "2026/10/18/SCOPE-strict-dispersive-ordering-of-logarithmic-exponential-maxima--a7fe4307f778",
+          "material_read": "Finding, mirror opening passage",
+          "method": "Resultary local mirror",
+          "title": "Strict dispersive ordering of logarithmic exponential maxima",
+          "trigger": "Same-family alternate formulation"
+        },
+        {
+          "assessment": "Inspected theorems do not give a two-sided sharp gap ratio",
+          "evidence": "Reversed-hazard parallel comparison in §3; separate PHR star comparison in §4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.12436",
+          "material_read": "§3 Theorem 4 pp. 10–11; §4 Theorem 5",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Stochastic comparison study of the general family of PHR and PRHR distributions",
+          "trigger": "General PRHR family could subsume the fixed-baseline result"
+        },
+        {
+          "assessment": "Qualitative overlap credited; stronger coverage unresolved",
+          "evidence": "The frozen comparison identifies the exponential-baseline unscaled logarithmic dispersive implication.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964821000449",
+          "material_read": "Frozen attribution to Proposition 12 and Remark 14; no independently retrieved full text",
+          "method": "Lawful OA, repository and public-page retrieval attempts",
+          "title": "Star-shaped order for distributions characterized by several parameters and some applications",
+          "trigger": "Known qualitative PRHR result; possible stronger theorem elsewhere"
+        },
+        {
+          "assessment": "Scalar variance representation and open monotonicity there, not a quantitative gap order",
+          "evidence": "Discussion of monotonicity of the variance coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.11129",
+          "material_read": "Closing discussion, p. 5, offset about 13850",
+          "method": "Primary OA PDF passage",
+          "title": "An inequality involving alternating binomial sums",
+          "trigger": "Same log-maximum object via coupon-collector variance"
+        },
+        {
+          "assessment": "Reported scalar comparison credited; uninspected stronger statements remain possible",
+          "evidence": "Decrease of the variance sequence does not quantitatively compare quantile increments.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110790",
+          "material_read": "Frozen summary of the abstract; not full text",
+          "method": "Journal and SSRN OA retrieval attempts",
+          "title": "Decreasing nature of a sequence related to the Coupon Collector’s problem",
+          "trigger": "Known monotonicity on the integer slice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Same-family comparisons documented under originality"
+      ],
+      "rationale": "For a standard fractional-shape model the result controls every interval, rules out arbitrarily strong compression for fixed shapes, and identifies the optimal constants of a two-direction transport. The new lower factor and sharpness are not supplied by a qualitative dispersive or variance ordering; the scaled convex comparison makes the improvement usable beyond variances.",
+      "residual_risks": [
+        "Not a general PRHR theorem and not an optimality claim for the induced scalar variance bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

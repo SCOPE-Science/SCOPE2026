@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The observation-to-Haar implication is exact: transpose orbits shift logarithmic eigenslope by twice the Lyapunov exponent, and a closed interval of that length intersects each orbit. The converse constructs a singular invariant measure using a chosen initial Fourier phase in the non-observed residue arc and an even lacunarity step. Signed-digit uniqueness, the slope-error bound, the exact Fourier transform, and Borel–Cantelli are proved in RESULT.md. The finite checker tests only sample cases, not an infinite certificate.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest inspected work is Han (2026), Appendix A; it constructs a single uniform-coordinate marginal and proves a spectral slope-localization lemma. It does not state the full sharp if-and-only-if width classification for continuum-sized families of primitive integer projective directions, nor the closed endpoint rigidity. The result is obtained by a new synthesis of orbit-transversal rigidity and selectable Riesz-frequency localization, not a new method of making Riesz products. Because this synthesis is close to Han's supplied lemmas, an unstated historical corollary is the principal residual priority risk; no absence-of-search-match is treated as novelty proof.
+PASS
 
-**Value — PASS.** It answers a natural reconstruction/identifiability question completely: how large must an entire band of exact one-dimensional circle-projection laws be to determine an invariant probability? The universal sharp width depends only on the unstable Lyapunov exponent, and narrower bands admit measures maximally singular to Haar while perfectly matching all observed projections. The closed-boundary distinction is mathematically essential. This is not merely a chosen finite-frequency numerical example.
+The two eigenlines contain no nonzero lattice vector: a rational eigenline would give a rational integral eigenvalue dividing the determinant, contrary to hyperbolicity. The reciprocal absolute eigenvalues make L((M^T)^j k)=L(k)+2jχ, and primitive reduction preserves L. At width ≥2χ the closed window hits every progression, including any endpoint residue at equality, so invariance and the circle marginal Fourier tests kill all nonzero coefficients. At smaller width, a lattice direction lies strictly inside the complement of the closed residue arc by density. For even p, the two geometric sums bound each leading-coordinate factor between (β−2)/(β−1) and β/(β−1); the log-ratio error is at most log(β/(β−2)), and pχ(J₊+J₋) is zero modulo 2χ. The expansion differences with digits of magnitude ≤2 have a strictly dominant expanding-coordinate term for β>3, giving dissociation. Each coefficient of the finite probability products stabilizes; density of trigonometric polynomials and compactness give the claimed weak limit. Shifting indices gives M^p invariance, and cyclic averaging preserves the excluded residues. Under the limit product the cosine means are q and the mixed products for distinct indices have expectation q²; under Haar the means and mixed products vanish. Both variance bounds are summable along powers of two, yielding disjoint full-measure sets. Automorphic pushforwards preserve Haar null sets, so the finite cyclic average is singular. The bounded cat-map replay corroborates but does not replace the proof.
 
-**Closest literature and limits.** Han, arXiv:2611.18817v1, Sections A.1–A.3, is the substantial source of the constructive machinery; Fan–Schmidt–Verbitskiy, arXiv:2103.04767, addresses Riesz products for a different dynamical property. The counterexamples are not proved ergodic; the classification is only for closed windows in the specified logarithmic eigen-coordinate. Full historical priority and independent audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Han already gives the same lacunary estimates, Riesz-product construction, averaging and singularity argument for a fixed coordinate marginal. The supported distinction is the entire infinite family of primitive directions in the slope window and its sharp closed-window threshold. Han's displayed slope estimate readily adapts, but his one-marginal theorem does not imply simultaneous vanishing on this family, nor assert the rigidity threshold. No inspected broader result gives this observation-set classification.
+
+## value
+
+PASS
+
+This is a reconstruction boundary for a natural partial observation of invariant measures. It gives a usable exact observation width, and below it shows that even agreement of the entire infinite family of specified laws does not rule out a mutually singular measure. The endpoint and singularity make the classification stronger than counting or missing frequency orbits alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

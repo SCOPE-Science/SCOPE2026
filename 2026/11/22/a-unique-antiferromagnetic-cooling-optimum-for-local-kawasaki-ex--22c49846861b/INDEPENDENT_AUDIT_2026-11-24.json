@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:20:09.921604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–4",
+        "Frozen VERIFICATION.md and verify_star_kawasaki.py (inspected, not executed)",
+        "Independent analytic replay: use BBᵀ=kI+Johnson adjacency or the up/down commutator, apply reversible block diagonalization, then differentiate the lower-root identity",
+        "arXiv:2607.00069, Theorem 3.1, cross-check of the Boolean incidence singular spectrum"
+      ],
+      "rationale": "With k positive spins on the star and d=2k-n-1, the energy change from a negative to positive hub is -2Jd. Thus the two directed rates are a and b=1-a, with proposal clocks of rate one per hub–leaf edge; detailed balance gives the positive-hub to negative-hub per-state weight ratio a/b. The two configuration levels are the k- and (k-1)-subsets, not a two-state chain. For their inclusion matrix B, BBᵀ=kI plus Johnson adjacency on k-subsets, or equivalently U_{k-1}D_k in the Boolean up/down notation. The commutator gives eigenvalue (k-j)(n-k+1-j) on the (k-j)-fold raise of level-j harmonics. Norm recursion shows the raised vectors are nonzero for j≤min(k,n-k) and the harmonic dimensions telescope to the full level size. Reversible symmetrization gives a 2-by-2 block on each positive singular pair, with diagonals ka,cb for c=n-k+1 and off-diagonal magnitude sqrt(ab) times the singular value. The trivial pair contributes 0,S. In interacting sectors j=1 is the largest nontrivial singular value, so its lower eigenvalue is the gap; it is strictly below both unpaired diagonals and has determinant nab. In the endpoint sectors the nonconstant eigenvalues on unpaired vectors give a or b instead. At a=1/2 the lower root is 1/2. Its derivative has the sign of F=n(1-2a)-dg; for d>0 it is negative on a≥1/2, and on (0,1/2) it has exactly one positive-to-negative crossing because F(0)=n, F(1/2)=-d/2, and at every zero F'=-2n. The reflection (k,c,a)↔(c,k,1-a) covers d<0. The logistic map gives the claimed antiferromagnetic, ferromagnetic and balanced classifications and the antiferromagnetic endpoint limit/growth rates. Substituting n=4,k=2 gives the stated exact example with g=2n(a-1/2) at stationarity.",
+      "residual_risks": [
+        "The 165 finite comparisons are source-reported, not an independently rerun computation; the proof handles the unbounded n and continuous rates.",
+        "The conclusion concerns the local heat-bath relaxation gap with the stated normalization, not global proposals, total-variation mixing or general trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldous-gap equality applies to weighted interchange with fixed conductances, giving the symmetric exclusion baseline g(0)=1/2 under half-unit hub–leaf rates.",
+          "Kuchukova et al. address worst-case mixing for global ferromagnetic Kawasaki on bounded-degree graphs; Grynberg addresses interacting relaxation in one-dimensional chains."
+        ],
+        "reasoning": "Arbitrary graph conductances in symmetric interchange are not the Gibbs configuration-dependent acceptance in this problem. Neither global-update bounded-degree mixing results nor one-dimensional relaxation results supply the full local star-sector optimum.",
+        "searches": [
+          "arXiv:0906.1238, §§1.2.2–1.3",
+          "arXiv:2405.06209v2, abstract",
+          "arXiv:1009.4511, abstract and setup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.00069",
+        "arXiv:0906.1238",
+        "arXiv:2405.06209v2",
+        "arXiv:1009.4511",
+        "Resultary 8bf5aa069228 and 06bcaf11b321"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known adjacency list combined with constant directional rates gives the block roots directly, so the formula in isolation is closely implied once rates and boundary sectors are identified.",
+          "The exact thermal behavior depends on the logistic direction, which branch gives the gap, and the one-crossing derivative argument across fillings; the sources checked do not establish that classification."
+        ],
+        "reasoning": "Credit the full combinatorial input and routine spectral conversion. The distinct conclusion is the all-sector maximum/flat/monotone classification and its mechanism, not new singular-value theory or a first example in every local exchange model.",
+        "searches": [
+          "arXiv:2607.00069, Theorem 3.1, adjacency eigenvalues and degrees",
+          "arXiv:0906.1238, Theorem 1.1",
+          "Resultary 8bf5aa069228, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star state graph is BL_n(k-1,k), including its two valencies k and n-k+1. Complementation sends the other half of the filling range to the same theorem and corresponds to swapping a and b.",
+          "The biclique record uses the same antiferromagnetic optimization concept, but a different two-particle configuration graph with different singular modes and an r=2 cusp."
+        ],
+        "reasoning": "The combinatorial spectrum is substantially matched by exact graph identification, not merely a similar title. Complementation does not change the gap, but the full heat-bath dynamics depend on the rates and the branch selection, and the balanced biclique is not a reparameterization of the star family.",
+        "searches": [
+          "Resultary: local fixed-magnetization Ising star Kawasaki gap and antiferromagnetic optimum; 8bf5aa069228 and 06bcaf11b321",
+          "arXiv:2607.00069, §3 Theorem 3.1, BL_n(k-1,k)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The listed eigenvalues ±sqrt((k-j)(n-k+1-j)) and zero multiplicities reproduce the needed incidence spectral data.",
+          "The same-day exact biclique result treats a different graph; the friendship-graph exact gap is for ground-state Metropolis single-spin flips, not a varying-temperature fixed-filling exchange process."
+        ],
+        "reasoning": "Exact data for the star configuration graph must be credited; these data can be used to compute the gap using the rate blocks, but are not a temperature-classification table. The distinct indexed exact optima do not have the matching graph and exchange rates.",
+        "searches": [
+          "arXiv:2607.00069, Theorem 3.1 adjacency eigenvalue list",
+          "Resultary 8bf5aa069228 and 06bcaf11b321, exact gaps and temperature regimes"
+        ]
+      },
+      "rationale": "The configuration graph is exactly an established adjacent-level Boolean graph, and its singular values are known in the precise parameter range needed. The spectral conversion with two constant directional rates is a direct application of those singular values, not a new combinatorial spectrum. The supported distinct result is the sharp temperature classification of local Ising exchange across all star fillings: one strict interior optimum precisely in the interacting unbalanced antiferromagnetic sectors, a flat balanced sector, and different dilute-sector behavior.",
+      "residual_risks": [
+        "This bounded comparison does not establish historical priority or exclude prior equivalent rate-dependent calculations.",
+        "Same-day results were compared by statement, not assumed priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact incidence spectral ingredient; not a thermal classification",
+          "evidence": "For n≥2k-1 the printed spectrum of BL_n(k-1,k) is ±sqrt((k-j)(n-k+1-j)) for 0≤j≤k-1 with binomial-difference multiplicities, plus zeros. The level valencies are n-k+1 and k; complementing subsets covers the other parameter range.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.00069",
+          "material_read": "§3 Theorem 3.1, starts at PDF p. 5, text offsets 13990–16390",
+          "method": "OA PDF passage inspection",
+          "title": "On the Spectrum of the Line Graph of a Family of Bipartite Graphs Arising from the Boolean Lattice",
+          "trigger": "Exact spectrum of the star configuration graph under its Boolean-lattice alias"
+        },
+        {
+          "assessment": "Covers uniform-temperature-rate baseline, not configuration-dependent transitions",
+          "evidence": "Fixed graph-edge conductances determine the swap rates; Theorem 1.1 equates interchange and random-walk gaps in that model.",
+          "identifier_or_url": "https://arxiv.org/pdf/0906.1238",
+          "material_read": "§§1.2.2–1.3, PDF pp. 3–4 (offsets 7762, 9955)",
+          "method": "OA PDF passage inspection",
+          "title": "Proof of Aldous' spectral gap conjecture",
+          "trigger": "General weighted-graph swap spectral-gap theorem"
+        },
+        {
+          "assessment": "Different update, coupling and conclusion",
+          "evidence": "Studies global fixed-magnetization ferromagnetic Kawasaki mixing, not the exact local star relaxation gap.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06209v2",
+          "material_read": "Abstract and introductory setup, PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Fast and Slow Mixing of the Kawasaki Dynamics on Bounded-Degree Graphs",
+          "trigger": "Potential broader graph Kawasaki mixing result"
+        },
+        {
+          "assessment": "Related physical phenomenon on a different graph",
+          "evidence": "The gap analysis is for one-dimensional Ising chains, including distinguishing coupling regimes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.4511",
+          "material_read": "Abstract and introduction, PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Revisiting Kawasaki dynamics in one dimension",
+          "trigger": "Interacting Kawasaki spectral-gap behavior at different temperatures"
+        },
+        {
+          "assessment": "Close phenomenon and method; distinct configuration graph and theorem",
+          "evidence": "On K_{r,r}, exactly two positive spins give an interaction-dependent gap with determinant r(3r-2)ab and a cusp at r=2. This does not give the fixed-filling star classification.",
+          "identifier_or_url": "Resultary 8bf5aa069228",
+          "material_read": "Mirror Finding and assumptions, offset 0, and frozen proof",
+          "method": "Resultary and full-text comparison",
+          "title": "A unique antiferromagnetic mixing optimum for two-particle Kawasaki dynamics on balanced bicliques",
+          "trigger": "Same-day close exact antiferromagnetic optimization result"
+        },
+        {
+          "assessment": "Different graph, dynamics and temperature question",
+          "evidence": "Ground-state zero-temperature Metropolis spin flips on triangles sharing a hub, not local conservative exchanges among fixed magnetization states.",
+          "identifier_or_url": "Resultary 06bcaf11b321",
+          "material_read": "Mirror Finding and assumptions, offset 0",
+          "method": "Resultary and mirror statement",
+          "title": "Exact entropic spectral gap for zero-temperature Ising friendship graph dynamics",
+          "trigger": "Related exact spectral-gap calculation for a hub graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete star-sector classification",
+        "arXiv:2607.00069, Boolean-lattice spectrum baseline",
+        "Resultary 8bf5aa069228, contrasting biclique mechanism and exception"
+      ],
+      "rationale": "The star is a simple heterogeneous graph in which one hub induces two Gibbs energy levels but relaxation still depends on the nontrivial leaf modes. The complete result distinguishes when cooling improves, optimizes, leaves unchanged, or suppresses the gap, including the difference between genuinely interacting fillings and a single particle or vacancy. This is a useful exact benchmark for local conservative dynamics: the aggregate two-state hub relaxation would miss the leaf-mode bottleneck and its low-temperature slowdown. The mathematical value is the uniform and sharp classification, not the small numerical gain in the example or rediscovery of Boolean spectra.",
+      "residual_risks": [
+        "No extrapolation to macroscopic phase transitions, general graphs, or finite-time mixing guarantees is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

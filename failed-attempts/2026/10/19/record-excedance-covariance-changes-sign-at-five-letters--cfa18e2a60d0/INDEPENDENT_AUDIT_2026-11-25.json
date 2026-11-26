@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:26.976263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on a record at i fixes the maximum of a uniform i-subset at i but leaves the subset uniform. The expected indicator at i differs from its unconditional mean by delta=t/n-binomial(t,i)/binomial(n,i); for earlier positions the expected number of threshold exceeders is unchanged over the entire subset, so each of the i-1 other positions has the opposite difference divided by i-1. The relative order giving R_i remains uniform even when later entries are fixed. Multiply by 1/i, with R_1 deterministic, to get the kernel. At t=0,n the threshold is constant; for 1<=t<n and i>=2 the binomial ratio is strictly less than t/n. Substituting t=j and telescoping sum_{i>j} 1/[i(i-1)] gives the column formula including j=1; at j=n the indicator is constantly zero. For interior columns j binomial(n,j)=n binomial(n-1,j-1)>=n(n-1) and j(n-1)>n, establishing their positive signs. Summation gives C_n=1/2+(1/2-B_{n-1})/n. Symmetrizing the factorial ratio for successive B_m gives the stated recurrence; it gives B_1=2, B_2=5/2, B_3=B_4=8/3 and preserves the upper bound 8/3 for m>=3. This proves all signs and the four displayed small values. Substitution gives C_{n+1}-C_n=[(n+1)B_{n-1}-2n-1]/[2n(n+1)]>0. The index pairs at 1,m-1 contribute 2/m to B_m; those at 2,m-2 contribute O(m^-2), and all deeper indices together are bounded by m/binomial(m,3). Thus C_n tends to 1/2, and the stated correlation follows from the rank-record and Eulerian marginal variances. Fresh exact enumeration of S_5 corroborated all 150 kernel entries and totals sum R=274, sum E=240, sum RE=556, giving 1/15. This is finite corroboration; the uploaded checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gnedin studies record-conditioned permutation laws; Ehrenborg and Steingrimsson study enumerations by specified excedance sets.",
+          "Branden and Claesson treat both statistics in a mesh-pattern expansion framework."
+        ],
+        "reasoning": "Marginal laws and enumerations do not give their mixed covariance. A general mesh-pattern framework can encode both statistics, but the passages inspected do not evaluate their mixed kernel. The explicit indexed comparison, not this broader literature, establishes the overlap.",
+        "searches": [
+          "arXiv:math/0611538v1",
+          "Ehrenborg and Steingrimsson, The Excedance Set of a Permutation",
+          "arXiv:1102.4226"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 8032d5fd55d9",
+        "Baril; Ehrenborg and Steingrimsson; Branden and Claesson; Gnedin, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof explicitly conditions on the uniform i-subset; given a record, the current entry is its maximum and earlier entries sample uniformly from its nonmaxima. For later entries the relative order is independent even after fixing the later value."
+        ],
+        "reasoning": "For arbitrary t the same conditional law gives P(max<=t)=binomial(t,i)/binomial(n,i), and the earlier case subtracts the expected maximum indicator rather than a sure 1. No new law is required. The column profile and first differences are immediate operations on the indexed exact matrix and aggregate.",
+        "searches": [
+          "Resultary 8032d5fd55d9, Proof following equation (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed equations (1) and (3) are the ordinary-excedance matrix and aggregate under exactly the same uniform permutation law and strict record/excedance definitions.",
+          "Baril's inspected correspondence preserves weak excedance sets, not the strict ordinary statistic asked for here."
+        ],
+        "reasoning": "At t=j the frozen kernel gives indexed equation (1). By binomial symmetry the indexed sum over k=1,...,n-1 is B_{n-1}-1. A weak-excedance or descent correspondence is not an identification of these joint statistics on the same uniform permutation.",
+        "searches": [
+          "Resultary: positional record-excedance dependence and sharp covariance sign reversal",
+          "2026/11/2/SCOPE-positional-record-excedance-dependence-and-its-sharp-sign-revers--8032d5fd55d9",
+          "Baril, Statistics-preserving bijections between classical and cyclic permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed formulas cover all n and ordinary positions, including the negative small-n cases and positive n>=5. They cover exact covariance beyond the small-n enumerations."
+        ],
+        "reasoning": "An exact parametric entry, not a coincidental finite table match, covers the sign-reversal claim. It also fixes n=5 at 1/15.",
+        "searches": [
+          "Resultary 8032d5fd55d9, mirrored RESULT.md offset 0, equations (1)–(4)"
+        ]
+      },
+      "rationale": "Distinct indexed record 8032d5fd55d9 states the same full ordinary-excedance matrix, the identical aggregate formula and sign reversal, and the same correlation asymptotic. The arbitrary-threshold version is not separately stated there, but the inspected proof supplies the conditional law of the subset and of each selected position, and the generalization only changes the count of all-below-threshold subsets from 1 to binomial(t,i). The column sums and monotonicity are direct summation and reciprocal-binomial algebra on the same exact covariance. The comparison shows material equivalent coverage, not historical priority or derivation between archive entries.",
+      "residual_risks": [
+        "The two archive dates do not decide who first derived the shared result.",
+        "Other joint refinements could encode an earlier equivalent result; the primary literature comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary coverage; conditional proof gives the threshold extension by the same count",
+          "evidence": [
+            "Equations (1), (3), (4) and the conditional i-subset argument."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-positional-record-excedance-dependence-and-its-sharp-sign-revers--8032d5fd55d9/RESULT.md",
+          "material_read": "Finding and proof, mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and scoped mirrored text",
+          "title": "Positional record–excedance dependence and its sharp sign reversal",
+          "trigger": "Same ordinary matrix and sharp sign reversal"
+        },
+        {
+          "assessment": "Different weak-excedance statistic; no direct implication in the inspected passages",
+          "evidence": [
+            "The definitions distinguish > from >=; the abstract describes preservation of the weak set."
+          ],
+          "identifier_or_url": "https://jl.baril.u-bourgogne.fr/statistics.pdf",
+          "material_read": "PDF pp. 1–2, offsets 756 and 5898",
+          "method": "Scoped OA primary passages",
+          "title": "Statistics-preserving bijections between classical and cyclic permutations",
+          "trigger": "Joint left-to-right maxima/excedance-type statistics"
+        },
+        {
+          "assessment": "Different enumeration, without the record constraint in the inspected material",
+          "evidence": [
+            "The text defines ordinary excedances and distinguishes descents."
+          ],
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/papers/Excedance.pdf",
+          "material_read": "PDF pp. 1–2, offset 678",
+          "method": "Scoped OA primary passages",
+          "title": "The Excedance Set of a Permutation",
+          "trigger": "Exact ordinary-excedance set enumeration"
+        },
+        {
+          "assessment": "General encoding, not the evaluated covariance in the inspected passage",
+          "evidence": [
+            "The introduction lists left-to-right maxima and excedances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1102.4226",
+          "material_read": "Introduction, PDF p. 1, offset 1630",
+          "method": "Scoped OA primary passage",
+          "title": "Mesh patterns and the expansion of permutation statistics as sums of permutation patterns",
+          "trigger": "Framework treating both statistics"
+        },
+        {
+          "assessment": "Record antecedent; no mixed-kernel claim in the inspected passage",
+          "evidence": [
+            "The abstract concerns coherence of distributions based on records."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611538v1",
+          "material_read": "Abstract, PDF p. 1, offset 323",
+          "method": "Scoped OA primary passage",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Record-conditioned permutation laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sign reversal is a substantive structural fact about two natural statistics on the same permutation. The matrix explains why replacing the aggregate with an assumption of uniformly positive or negative dependence would fail. That scientific interest is separate from the indexed overlap, and the mechanically implied threshold extension does not support a stand-alone repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

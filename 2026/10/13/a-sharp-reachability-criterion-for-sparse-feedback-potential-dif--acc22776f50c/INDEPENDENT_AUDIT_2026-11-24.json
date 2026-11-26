@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:04:01.473398Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 21–69. Compare trajectories from the same initial state. No observation edge leaves R_i for its complement. All players outside R_i are opponents whose unchanged feedback rules thus see identical inputs at time t; their uncoupled updates preserve equality at t+1. Induction gives exact state-action invariance outside R_i, so under the support separation each nuisance stage cancels and the unilateral payoff difference equals the potential difference. Any maximizer therefore passes the Nash comparison in the admissible class. Sharpness uses a simple path to k in the intersection, scalar dynamics x_next=a and a distinct scheduled copy at each edge. The zero initial state and baseline give zero potential, which is a global upper bound; the unilateral impulse gives exactly −δ²∑_{r=0}^m α^r+α^m Cδ, positive for the displayed interval. For m=2, α=1/2, C=1 and δ=1/20 the gain is 13/1600. Extra edges are allowed, not forced to be active. Supports are permitted dependency sets, so no necessity is claimed for every individual nuisance function. The theorem compares feedback policies from the initial state for which the potential is maximized; it does not assert off-path optimality from other states or existence. Read VERIFICATION.md and verify.py without running the uploaded verifier; the universal result rests on the induction and smooth finite-stage counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source treats uncoupled difference dynamics with own-state feedback and identifies why unrestricted feedback obstructs nuisance invariance.",
+          "The distributed example of Guo–Zhang uses own-state dependence in a finite-horizon continuous-time stochastic setting.",
+          "Prasad et al. give optimal-control sufficiency for finite-horizon feedback games, but their public abstract does not state the graph hypotheses or a matching necessity theorem."
+        ],
+        "reasoning": "These are genuine broader reduction frameworks; the comparison is whether they already derive the directed separation guarantee and universal counterexample from just the allowed observation edges and support sets. The inspected primary material establishes no such domination.",
+        "searches": [
+          "DOI 10.1007/s13235-026-00708-z §6",
+          "arXiv:2310.02259v2 §3 Definition 3.1 and Theorem 3.1",
+          "DOI 10.1109/TAC.2023.3270367 and GERAD public abstract"
+        ]
+      },
+      "checked_sources": [
+        "Márquez-Prado–Hernández-Lerma–Jasso-Fuentes DOI 10.1007/s13235-026-00708-z",
+        "Guo–Zhang arXiv:2310.02259v2",
+        "Prasad–Mohapatra–Reddy DOI 10.1109/TAC.2023.3270367 (abstract only)",
+        "Resultary local catalogue including SCOPE 73b2ad8a902e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known policy-potential-to-Nash step is an immediate consequence once the payoff-difference identity holds.",
+          "The frozen proof establishes invariance even with actual cross-observation in the allowed class; when a path intersects the nuisance support, its finite-time copy construction produces a strict improvement."
+        ],
+        "reasoning": "The identified prior conclusions do not show that arbitrary permitted cross-observation is harmless exactly under graph separation, nor construct the matching path witness. Credit belongs to these implications, not the standard potential-maximizer argument.",
+        "searches": [
+          "DOI 10.1007/s13235-026-00708-z §6",
+          "arXiv:2310.02259v2 abstract and §3",
+          "DOI 10.1109/TAC.2023.3270367 public GERAD abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The own-state restriction restores invariance in Márquez-Prado et al.",
+          "Guo–Zhang describe an exact potential plus a unilateral-policy-independent residual at the value-function level."
+        ],
+        "reasoning": "Equivalently the nuisance support is outside the directed influence closure of the deviator. The value-function condition matches the resulting policy-difference identity, but does not establish which sparse observation structures force it at the primitive-data level. The own-state restriction is one special case of the graph criterion, not an equivalent formulation.",
+        "searches": [
+          "Resultary meaning searches: sparse feedback, observation graph reachability, stage nuisance invariance and potential maximizers",
+          "DOI 10.1007/s13235-026-00708-z §6",
+          "arXiv:2310.02259v2 abstract and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related catalogue Finding gives InEff(φ^p)≤max_k B_k under exact detailed balance, with an optimal component normalization for its interaction-restricted certificate."
+        ],
+        "reasoning": "No enumerated table applies to this universal graph criterion. The actual closest graph/potential catalogue statement is a social-efficiency result on undirected interaction components, not a directed observation or unilateral influence criterion.",
+        "searches": [
+          "Resultary targeted meaning searches on sparse-feedback difference games and reachability obstructions",
+          "Resultary SCOPE 73b2ad8a902e RESULT.md Finding and assumptions"
+        ]
+      },
+      "rationale": "The own-state-only conclusion and the abstract policy-potential decomposition are established prior results. The distinct result supported here is their concrete sharp support criterion for directed sparse feedback with uncoupled dynamics, including the converse counterexample for every supplied observation graph with a reachable nuisance vertex. An inaccessible adjacent finite-horizon paper leaves the specific risk documented below.",
+      "residual_risks": [
+        "Prasad et al. full text was not obtained through the lawful DOI and repository lookup; a more specific finite-horizon graph condition there cannot be excluded by the abstract.",
+        "Equivalent observations may appear under decentralized control, influence, or information constraints outside the material inspected; this is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior overlap with own-state special case; different graph hypothesis.",
+          "evidence": "Unrestricted feedback can change c^i(x^{-i},ψ^{-i}(x)); restricting policies to own-state feedback restores invariance for uncoupled dynamics.",
+          "identifier_or_url": "https://doi.org/10.1007/s13235-026-00708-z",
+          "material_read": "§6, PDF pp. 29–30, text offsets about 106500–111459",
+          "method": "OA PDF text passage",
+          "title": "Infinite Horizon Potential Difference Games",
+          "trigger": "Same infinite-horizon decomposition and physical uncoupling"
+        },
+        {
+          "assessment": "Same value-level principle, not the sparse-observation sharpness claim.",
+          "evidence": "Potential-plus-residual decomposition; distributed policies in the inspected construction depend on own state.",
+          "identifier_or_url": "https://arxiv.org/html/2310.02259v2",
+          "material_read": "Abstract; §3 Definition 3.1 and Theorem 3.1, text offsets about 23000–30000",
+          "method": "OA arXiv text passages",
+          "title": "Towards an Analytical Framework for Dynamic Potential Games",
+          "trigger": "General policy-potential decomposition and distributed specialization"
+        },
+        {
+          "assessment": "Adjacent theorem class; abstract-only comparison cannot rule out overlap deeper in the paper.",
+          "evidence": "Finite-horizon nonzero-sum difference games and sufficient conditions for a feedback Nash equilibrium via an optimal-control problem.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2023.3270367",
+          "material_read": "Public GERAD abstract, text context offset 296, match offset 516; full text not obtained",
+          "method": "Public abstract and lawful OA DOI/repository lookup",
+          "title": "On the Structure of Feedback Potential Difference Games",
+          "trigger": "Plausible overlap in feedback difference games and optimization characterization"
+        },
+        {
+          "assessment": "Interaction-coefficient efficiency statement, not informational invariance; no priority inference from date.",
+          "evidence": "In the exact detailed-balance regime the componentwise efficiency bound is max_k B_k, invariant under independent positive rescalings of the component weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-scale-invariant-componentwise-efficiency-bound-for-disconnecte--73b2ad8a902e/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A scale-invariant componentwise efficiency bound for disconnected exact α-potential games",
+          "trigger": "Closest local graph-and-potential catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The criterion allows feedback to use some other players' states while retaining a single maximization formulation, which own-state-only sufficiency cannot explain. Transitive rather than direct influence is essential, as the smooth witness gives a deviation that reaches a payoff-relevant player only after several stages. The matching necessity for a guarantee based only on support makes the distinction actionable without claiming optimizer existence or equilibrium at off-path states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof classifies closed factors by their one, two, three or four runs, proves that all possibilities have been exhausted, and counts distinct words without duplicate identifications. The maximum and its equality cases follow by a sharp integer-product inequality; the generating function follows by enumerating all same-letter run pairs with a fixed minimum. The extracted standalone checker independently compares two definitions of closedness and the explicit class decomposition for all four-run words of lengths \(4\) through \(16\), checks additional longer samples and the generating-function coefficients. These computations support, but do not replace, the all-length proof. No unstated generic-position or parity assumption is used.
+PASS
 
-## Originality — PASS (with priority qualification)
+This passes for the corrected RESULT.md under repairs/5, not the frozen proof as written. The frozen line 43 asserted that different endpoint letters preclude a border, which is false (0101 has border 01); the frozen four-run argument also omitted why the suffix of a proper border cannot start inside the first run. The replacement proves the needed transition lemma: such a suffix includes the first transition but shortens the initial run, whereas a matching prefix with a transition includes the whole initial run. The suffix must start in a later run of the initial letter. For two runs there is none; for three runs the border is unary and is closing exactly when the outer run lengths coincide; for four runs the only possible border of 0^i1^b0^c1^j is 0^i1^j, occurring exactly at the two 01 transitions if i<=c and j<=b. Including the unary powers and empty word gives n+1+xy. Maximizing xy over positive integers with sum at most floor(n/2) forces the largest allowed sum and balanced pairs (strict increase of floor(s^2/4) for s>=2); the residual is zero or one and all placements are accounted for, including n=4. The ordered length-pair weight for a fixed minimum is z^(2x)(1+z)/(1-z), giving the bivariate series and, by differentiation in u at one, z^4/((1-z)^6(1+z)^2). This analytic argument covers all lengths. The supplied verifier was inspected but not executed; its finite comparisons are diagnostic and neither needed for the general theorem nor a substitute for the repaired proof.
 
-The full text of Badkobeh–Fici–Lipták, arXiv:1305.6395, explicitly gives the CR-poor characterization and a four-block construction with a quadratic **lower bound**, rather than the exact four-run factor formula or complete extremizer counts. The relevant sections and statements of Parshina–Puzynina, arXiv:2111.00863, establish an **unrestricted asymptotic maximum** and cite the four-block construction without giving this restricted exact theorem. The closest indexed research claim about exact maxima at lengths \(25\)–\(27\) concerns unrestricted binary words and likewise does not entail an all-length four-run enumeration. Multiple actual literature and mathematical-record searches found no equivalent formula. This is a best-knowledge assessment, not proof that no unindexed prior presentation exists.
+## originality
 
-## Value — PASS
+PASS
 
-Four runs are the first binary run class permitting any closed-factor excess above the baseline \(n+1\): every at-most-three-run word is a factor of a bitonic word. The 2013 foundational paper already uses this precise four-block shape to demonstrate quadratic growth, which makes the exact all-length count, the sharp quadratic coefficient \(1/16\), complete equality classification and generating function natural targets rather than arbitrary narrow parameters. They distinguish the four-run class from the unrestricted \(1/6\) leading coefficient, without claiming an unrestricted solution.
+The corrected theorem retains the all-positive four-run case, with exact counts, maximizers and multiplicities, and both formal series. The closest exact Resultary comparison covers only the boundary with exactly two occurrences of one letter, and is now credited explicitly. The classical four-block construction gives a lower bound, and the known unrestricted asymptotic and short tables do not imply the exact restricted formula or equality cases. Pass is for the all-positive classification and its consequences, not historical priority for the boundary or the balancing and series algebra in isolation.
 
-## Closest literature and limitations
+## value
 
-- Badkobeh, Fici, Lipták, *On the Number of Closed Factors in a Word*, arXiv:1305.6395, full text examined; its stated lower bound and bitonic characterization do not determine the formula proved here.
-- Parshina, Puzynina, *Finite and Infinite Closed-Rich Words*, arXiv:2111.00863, relevant primary text and bounds examined; its global asymptotic result is not a four-run exact classification.
-- Restricted scope: exactly four runs, positive exponents, binary alphabet, distinct contiguous linear factors, empty factor included. Unindexed results remain a priority risk, and no independent audit was undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly four linear runs is the first binary run class beyond the bitonic CR-poor regime, not an arbitrary slice. The theorem measures how the positive excess begins, classifies the closed factors responsible for it at every run profile, and determines exact maximizers and their frequencies. The contrast between the four-run leading coefficient 1/16 and the unrestricted 1/6 makes the restricted result useful even though it does not solve the unrestricted problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

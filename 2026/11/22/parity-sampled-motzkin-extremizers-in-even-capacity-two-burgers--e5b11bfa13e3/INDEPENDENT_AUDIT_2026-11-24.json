@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:42:21.670902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 27, 31–83; frozen VERIFICATION.md and three scripts/logs (inspected, not executed)",
+        "/workspace/repairs/2/RESULT.md, corrected scope and complete proof",
+        "/workspace/branches/88fb1d6e-cc53-441e-ab0e-cec0948afbf2/orbit_replay.py and replay.log: independently followed direct orbits at both target masses for n=10,12,14; counts per mass 2,540, 20,040, 162,344, and latest times 4,5,6"
+      ],
+      "rationale": "The frozen pointwise assertion that complement alone preserves entry time is false: at n=6, x=(0,0,2,0,2,1) is still outside the free language after one update, at (1,0,0,2,1,1), and has tau=2; its complement starts outside the congested language but enters it in one update, at (2,0,2,0,2,1). The replacement RESULT.md uses the correct involution A(x)_i=2-x_(-i); J_i(Ax)=J_(-i-1)(x) makes it commute with the update. Thus equal sector counts and the central theorem survive. Independently, the height recurrence takes sliding parity maxima. At n/2-1 these windows have one full parity class, and the drift gives the monotone inequalities for invariant rigid-shift recurrence; conversely any periodic state must belong to the invariant union eventually reached. At the penultimate time an increasing window at mass n-1 is exactly the height-gap-two exception. A marked exception strictly exceeds all of its next n-1 heights; integer heights and drift -1 preclude a second such exception. The first and last pair restrictions give the rooted count 2(K^L)_00+(K^L)_01, including L=0. The single between-pair boundary correction gives K=T²+e_0 e_0^T; the resolvent and the odd Motzkin recurrence reduce its count series to 2O. This proves the two populations and sharpness; the excursion asymptotic and span-one local limit of variance 2/3 give the stated probabilities.",
+      "residual_risks": [
+        "Replay is finite; the universal and asymptotic claims rest on the analytic proof. No census at exactly critical mass is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full binary entry-time census is capacity one; the winding-selected basin census has a different local rule. The classical same-model traffic-phase precedent is credited; the cited 1998 section was not accessible by two OA attempts."
+        ],
+        "reasoning": "Broader orbit scope does not dominate a different map. Asymptotic traffic phases do not give counts of states whose first entry occurs at a sharp finite time. The access gap creates a bounded comparison risk rather than proof of novelty.",
+        "searches": [
+          "Resultary complete relaxation-layer census 60e2f7c2a588 and Catalan extremizers 59fbc93a8b51",
+          "Resultary directed-colour winding-selected basin census b672f4087fac",
+          "Nishinari–Takahashi DOI 10.1088/0305-4470/31/24/006 §IV"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b672f4087fac, 60e2f7c2a588, 59fbc93a8b51",
+        "arXiv:adap-org/9905004, arXiv:nlin/0002007",
+        "DOIs 10.1088/0305-4470/31/24/006 and 10.46298/dmtcs.2976 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary formula has count n Cat_(m−1) and a different near-critical limit; the colour rule has different clock and winding-selected basins. The Burgers rule is itself known."
+        ],
+        "reasoning": "Height iteration explains phases and a time bound, but getting the exact population here requires counting a unique parity-sampled exception and its boundary correction. The inspected prior formulas neither impose those constraints nor transfer by a proven conjugacy.",
+        "searches": [
+          "arXiv:nlin/0002007 §1 Eq. (1)",
+          "Resultary 59fbc93a8b51 mass-resolved Rule-184 extremizers",
+          "Resultary b672f4087fac Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The numbered three-state conservation rule and the L=2 Burgers rule give the same flux update. The other Motzkin last-entry law uses a directed one-neighbour colour rule and has clock n−1 and count 3n M_(n−2)."
+        ],
+        "reasoning": "A shared three-symbol alphabet and Motzkin path motif do not identify the dynamics or the population. The repaired reflection-complement symmetry is internal to the Burgers rule and only exchanges its two target masses.",
+        "searches": [
+          "Resultary directed three-colour Motzkin last-entry law, b672f4087fac",
+          "Boccara–Fukś arXiv:adap-org/9905004, rule 6171534259461",
+          "Nishinari–Takahashi arXiv:nlin/0002007, capacity L=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numbered-rule table identifies the map but does not tabulate its fixed-mass orbit counts; the matched catalogued exact counts are for the directed colour and binary rules. The familiar Motzkin numbers themselves are not claimed as new."
+        ],
+        "reasoning": "The database target is the fixed-mass maximum-entry population of this rule, not the lookup of a local transition table or merely a Motzkin sequence term.",
+        "searches": [
+          "Boccara–Fukś Table 2, three-state rule 6171534259461",
+          "Resultary exact last-entry counts b672f4087fac and 59fbc93a8b51"
+        ]
+      },
+      "rationale": "The corrected statement credits the existing map and traffic phases; the distinct part is the exact even-ring, capacity-two, near-critical last-entry census and limit. The accessible same-map and closest census statements do not give it. The symmetry correction concerns correctness and does not expand the novelty claim.",
+      "residual_risks": [
+        "The two inaccessible passages prevent an exhaustive priority claim. The general web query yielded unrelated traffic results and is not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule, different conclusion",
+          "evidence": "Rule 6171534259461 is the capacity-two flux rule in the finding.",
+          "identifier_or_url": "https://arxiv.org/abs/adap-org/9905004",
+          "material_read": "Table 2 p. 8 and rule discussion p. 11",
+          "method": "OA primary full-text passages",
+          "title": "Number-conserving cellular automaton rules",
+          "trigger": "Equivalent flux rule and exact rule table"
+        },
+        {
+          "assessment": "Same map when L=2, no target census in inspected passage",
+          "evidence": "The min-flux model allows capacity L.",
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0002007",
+          "material_read": "§1, p. 2, Eq. (1)",
+          "method": "OA primary full-text passage",
+          "title": "A family of multi-value cellular automaton model for traffic flow",
+          "trigger": "Broader traffic rule family"
+        },
+        {
+          "assessment": "Frozen credit retained; detailed overlap unresolved",
+          "evidence": "Other inspected primary sources establish the underlying rule. Failure to retrieve this section is not negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/31/24/006",
+          "material_read": "No available cited §IV passage",
+          "method": "Two OA attempts returned HTTP 403",
+          "title": "Analytical properties of ultradiscrete Burgers equation and rule-184 cellular automaton",
+          "trigger": "Plausible classical same-model phase precursor"
+        },
+        {
+          "assessment": "Different model and count",
+          "evidence": "One-neighbour colour rule; clock n−1, count 3n M_(n−2), winding-selected basin census.",
+          "identifier_or_url": "Resultary b672f4087fac",
+          "material_read": "Finding and Relationship to prior work in local mirror",
+          "method": "Resultary discovery and matching full statements",
+          "title": "Motzkin last-entry law and winding-selected basins in a directed three-colour cyclic automaton",
+          "trigger": "Closest Motzkin extremizer and stronger basin claim"
+        },
+        {
+          "assessment": "Capacity-one results, no implication established",
+          "evidence": "One is a full entry-time distribution; the other gives maximum m−1 and count n Cat_(m−1) at the relevant binary masses.",
+          "identifier_or_url": "Resultary 60e2f7c2a588 and 59fbc93a8b51",
+          "material_read": "Both findings, including per-mass formulas",
+          "method": "Resultary discovery and statement inspection",
+          "title": "Rule-184 complete relaxation-layer census and Catalan extremizers",
+          "trigger": "Same traffic context and broader exact counts"
+        },
+        {
+          "assessment": "Unresolved indirect comparison, not evidence of identical census",
+          "evidence": "The accessible comparator applies the representation to the other local rule.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2976",
+          "material_read": "Comparator's bibliographic discussion; no primary passage",
+          "method": "OA retrieval attempted, timed out",
+          "title": "Related annihilating-particle work cited by the three-colour comparator",
+          "trigger": "Potential stronger orbit result through a particle representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and proof; directed colour and Rule-184 comparison statements"
+      ],
+      "rationale": "The two closest noncritical conserved masses are dynamically natural, not an arbitrary sample. Their sharp entry-time populations and positive limiting fraction distinguish how often slow relaxation persists, and the parity-sampled walk with a rank-one correction explains why those populations are Motzkin numbers rather than just tabulating them.",
+      "residual_risks": [
+        "No inference about arbitrary capacities, odd rings, or the total mass-unrestricted extremizer population follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

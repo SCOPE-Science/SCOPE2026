@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:24:09.200591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–4 of Proof, and accompanying verification package (uploaded code inspected, not run)",
+        "Independent replay: python3 /workspace/branches/f09eb025-54c1-46eb-8f30-795cf2038446/independent_record2_check.py; matching .log reports INDEPENDENT_OK. It directly intersects columns for 66 cases through n=11 (40,962 attribute subsets), checks both lattice identities through n=8, and scans the formula-based optimizer through n=500."
+      ],
+      "rationale": "For nonempty attribute sets, the extreme columns determine the clipped intersection, and admissible intervals are recovered by columns b−k and a+k or a single column at a clipped endpoint. The end columns give bottom exactly when n≥2k+2; their intersection, when n≥k+2, has fewer than k+1 objects and cannot be a single column or top. In the sparse endpoint rectangle, each invalid triangular corner has binom(n−2k,2) pairs. The left endpoints of length-t intervals run from max(1,k+2−t) to min(n−k,n−t+1), giving the stated spectrum. At n=2k+2, the two missing extreme pairs can be replaced by bottom and top, preserving the product order. Beyond this boundary at positive k, the extents {k+1}, {k+3}, and [k+1,k+2] witness failure of modularity: joining the singletons produces [k+1,k+3], while {k+3} meets [k+1,k+2] in bottom. The height-two k=0 case is separate. The sparse census is a concave quadratic centered at (n−1)/3, and comparison with the first dense value and then the residues modulo 3 yields the unique optimizer and exact maximum, with n=2,3 separately checked.",
+      "residual_risks": [
+        "The finite replay does not certify the unbounded theorem; the endpoint and lattice arguments establish it for the stated path contexts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rawson et al. give the general concept-lattice/intersection-closure correspondence; Koyda and Stumme study Boolean substructures in general contexts.",
+          "Resultary a98d17302977 is a random-context transition, not the deterministic band-incidence threshold.",
+          "Resultary b1b4dc7b9990 studies rough-set pairs for complete-multipartite tolerances."
+        ],
+        "reasoning": "The general correspondence does not give the extent spectrum, the replacement of the two corners at the critical width, or the optimizer. The related structural results apply to different contexts or different invariants.",
+        "searches": [
+          "Resultary: interval matrices consecutive-ones bipartite graph formal concept lattice maximal bicliques path power endpoint intervals",
+          "Resultary: closed neighborhoods of path powers concept lattice modular distributive threshold",
+          "arXiv:2307.11681v1 Theorem 3.1; arXiv:2104.07159 Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 5a8dba88ef8f, e0bbe5363d74, b1b4dc7b9990 and a98d17302977",
+        "arXiv:2307.11681v1, arXiv:1203.2543v2, arXiv:2104.07159",
+        "OEIS exact terms as recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intersection-closure theorem reduces finding concepts to a new intersection problem for these clipped windows; the cited biclique lemma uses a different maximality test.",
+          "The same-day complete-graph overlap record and the path rough-pair record have different closure constructions."
+        ],
+        "reasoning": "No inspected result yields the stated two-parameter census and modularity cutoff by specializing its hypotheses. The known representation is properly treated as background.",
+        "searches": [
+          "arXiv:2307.11681v1 Theorem 3.1",
+          "arXiv:1203.2543v2 §3 Lemma 3",
+          "Resultary 5a8dba88ef8f and e0bbe5363d74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1203.2543v2, §3 Lemma 3 classifies maximal induced bicliques of P_n^k; the audited concept problem instead concerns maximal complete rectangles in a bipartite incidence graph with a reflexive diagonal.",
+          "Resultary e0bbe5363d74 counts rough lower/upper approximation pairs for radius one, not intersections of the closed neighborhoods as a family.",
+          "Resultary 5a8dba88ef8f concerns edge-overlap incidence on edges of K_n; neither the ground set nor the relation identifies it with the path case."
+        ],
+        "reasoning": "The natural alternate formulation is a closed-neighborhood intersection family or maximal incidence rectangles. Neither induced graph bicliques nor rough approximation pairs count that family under these hypotheses.",
+        "searches": [
+          "Resultary: formal concept lattice of P_n^k reflexive adjacency matrix path power neighborhood extent interval count",
+          "Resultary: intersections of closed neighborhoods of path powers exact concept census",
+          "Resultary: path graph power maximal induced bicliques coloring compared to two-sorted formal concepts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS query reported no matching entry; inspected catalogue matches have different counted objects."
+        ],
+        "reasoning": "The query tests tabulation of the maximizing counts, not proof coverage or priority. No exact table for the full parameterized lattice and spectrum was identified.",
+        "searches": [
+          "OEIS exact-term query: 4,5,9,12,16,21,26,32,39",
+          "Resultary path-power concept census queries above"
+        ]
+      },
+      "rationale": "The distinct contribution supported by this comparison is the explicit path-power spectrum, cutoff and radius optimization, not the general formal-concept representation by intersections. The closest overlap in neighborhood incidence counts rough pairs rather than concept extents; closely titled path-power biclique results use induced bicliques in a different graph.",
+      "residual_risks": [
+        "Equivalent results for band matrices or maximal incidence bicliques under other terminology may exist. A bounded catalogue and primary-text comparison, or a missing sequence entry, does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not the endpoint classification or enumerative and lattice conclusions",
+          "evidence": "The theorem identifies the concept lattice with the intersection closure of a topped hypergraph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.11681v1",
+          "material_read": "p. 4, Theorem 3.1 (offset 12493)",
+          "method": "Primary OA PDF, located and paged",
+          "title": "Formal Concept Lattice Representations and Algorithms for Hypergraphs",
+          "trigger": "Broad representation theorem for intersection-closed neighborhood families"
+        },
+        {
+          "assessment": "Different biclique notion",
+          "evidence": "The bicliques are induced in the ordinary power graph, not maximal complete rectangles of two copies with reflexive incidence.",
+          "identifier_or_url": "https://arxiv.org/html/1203.2543v2",
+          "material_read": "§3, Lemma 3 (offset 18658)",
+          "method": "Primary OA text, located and paged",
+          "title": "Biclique-colouring verification complexity and biclique-colouring power graphs",
+          "trigger": "Same path powers and a potentially equivalent biclique formulation"
+        },
+        {
+          "assessment": "Background on general contexts",
+          "evidence": "The inspected material concerns Boolean substructures and subcontexts, not a path-power spectrum.",
+          "identifier_or_url": "https://arxiv.org/html/2104.07159",
+          "material_read": "Introduction (offset 1538)",
+          "method": "Primary OA text, located passage",
+          "title": "Boolean Substructures in Formal Concept Analysis",
+          "trigger": "Potential stronger theorem on distributivity and counts"
+        },
+        {
+          "assessment": "Different context; shared date does not determine priority",
+          "evidence": "The ground set is the edges of K_n, related by reflexive overlap, with a quartic census and modularity/distributivity only at n=4.",
+          "identifier_or_url": "2026/10/18/SCOPE-eleven-closed-set-shapes-and-the-symmetry-jump-in-complete-graph--5a8dba88ef8f",
+          "material_read": "Finding on incidence, extent types, count and threshold",
+          "method": "Resultary query and paged local mirror",
+          "title": "Eleven closed-set shapes and the symmetry jump in complete-graph edge-overlap contexts",
+          "trigger": "Close matching catalogue record, including lattice threshold"
+        },
+        {
+          "assessment": "Counts a different output even at radius one",
+          "evidence": "Counts pairs of lower and upper rough approximations, with generating function (1+t+t^3+t^4)/(1−t−t^2−t^3).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-tribonacci-rough-pair-census-for-closed-neighborhood-tolerance--e0bbe5363d74",
+          "material_read": "Finding, counted objects and generating function",
+          "method": "Resultary query and paged local mirror",
+          "title": "A tribonacci rough-pair census for closed-neighborhood tolerance",
+          "trigger": "Closely related path-neighborhood incidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact spectrum, lattice transition and radius optimization; comparison with arXiv:2307.11681v1 and arXiv:1203.2543v2"
+      ],
+      "rationale": "The band context is a natural reflexive neighborhood relation. The count by extent size and the precise change from a product of chains to a nonmodular lattice distinguish its enumeration from its order structure. The critical extra width retains distributivity by replacing the missing corners, and the independent optimization identifies the exact radius of highest concept count rather than just its growth rate.",
+      "residual_risks": [
+        "The contribution is specific to the stated deterministic path-band contexts, not a structural result for arbitrary interval contexts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

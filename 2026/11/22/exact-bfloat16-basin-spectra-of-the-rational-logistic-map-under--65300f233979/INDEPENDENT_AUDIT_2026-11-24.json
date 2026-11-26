@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:51.038164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently decoded every code 0000–3f80 as a dyadic rational, including zero and all 127 positive subnormals, and evaluated both exact expression trees with one rounding at each specified node (only the root for A). A neighbor-midpoint comparator and an independently specified integer-quantum rounder agreed at every node and every adjacent midpoint of the relevant table. The denominator of B is always positive and every successor is in-domain. Indegree peeling followed by residual cycle walks and reverse BFS accounted for all 16,257 states of each map. The (period, basin size, maximum transient) triples were A: (1,2,1), (19,16255,74); B: (1,2,1), (2,409,53), (6,5958,64), (21,9888,63). Both fixed cycles were zero. Exactly 1,371 successors differ. The little-endian SHA-256 values were 61a5e82b755d2663346b81fce98adced48bacb0933638361e4e29635e8a25d71 and eb02e69879f027f218499d3e54f21b936d0619cf219b386b5ab312721c106d4b, respectively. Replay: python3 /workspace/independent_bfloat16.py. The frozen checker was inspected, not run. It compares final successor arrays rather than each actual intermediate node directly; the independent replay checks these nodes too. This exhausts only the defined finite systems, not the real map or optimizations used by a particular processor.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klöwer distinguishes exhaustion from Monte Carlo sampling and includes BFloat16 simulations but not these rational expression trees.",
+          "The real-family period-three and second-flip results are about exact-real periodic points and local bifurcation."
+        ],
+        "reasoning": "Neither multi-format sampling nor coverage of a broader real parameter interval yields a complete result for the specified rounded graphs.",
+        "searches": [
+          "Klöwer et al., Periodic orbits and number formats",
+          "Resultary rational-logistic bifurcation searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify.py",
+        "Kumar et al. (2022)",
+        "Klöwer et al. (2023)",
+        "Three distinct indexed findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kumar motivates the parameter but does not prescribe either rounding tree; the exact-real results neither specify tie handling nor trace rounded preimages.",
+          "The ordinary-bfloat16 work transfers the enumeration method, not the successor values or graph decomposition."
+        ],
+        "reasoning": "An algorithm applicable to both maps is not a result giving the periods, basin sizes or edge agreement for this pair; these require a new exact computation.",
+        "searches": [
+          "Kumar Eq. (3.1) and Fig. 7; Klöwer Eq. (4) and periodic-orbit methods; both real-family Resultary records and the ordinary-bfloat16 census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar Eq. (3.1) and Figure 7 give exactly the real map at mu=5.5, with x0=0.6; no corresponding finite graph there.",
+          "Klöwer Eq. (4) uses the ordinary polynomial logistic map.",
+          "The closest indexed rounding-order result uses the ordinary polynomial at 4."
+        ],
+        "reasoning": "The denominator and additional rounded nodes change the transition rule. Period spectra differ, ruling out a graph relabeling of the respective censuses.",
+        "searches": [
+          "Resultary semantic search for the rational logistic map, bfloat16, all-state basins and rounding order",
+          "Kumar et al. DOI 10.3934/mbe.2022115",
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed ordinary-map record also exhausts all 16,257 codes, but finds periods 11 and 4 plus fixed points for its own rounding trees.",
+          "Kumar gives a trajectory, not a census; the Klöwer figures are not a table for the requested rational maps."
+        ],
+        "reasoning": "Same format and domain do not identify the successor arrays; the nearest table computes a different experiment. The distinct indexed record's same-day date does not establish order.",
+        "searches": [
+          "Resultary census and rounding-order comparison; SCOPE-exact-bfloat16-logistic-basin-inversion-under-a-single-intermedi--305f9651a5de",
+          "Kumar Figure 7 and Klöwer BFloat16 figures"
+        ]
+      },
+      "rationale": "The supported distinction is the complete census for this rational map and the two exact evaluation trees, not the discovery that rounding changes low-precision dynamics. No inspected source covers that conjunction.",
+      "residual_risks": [
+        "Bounded comparison of cited primary sources and the index, not an exhaustive search of numerical experiments or unpublished code; exact prior computation outside inspected sources cannot be excluded.",
+        "No priority order inferred between distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers real example, not finite census in passages inspected",
+          "evidence": "Fig. 7: x0=0.6, mu=5.5.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2022/3/PDF/mbe-19-03-115.pdf",
+          "material_read": "Eq. (3.1) on journal p. 2492 and Fig. 7 caption on p. 2495",
+          "method": "Targeted OA PDF extraction",
+          "title": "Dynamical properties of a novel one dimensional chaotic map",
+          "trigger": "Originating rational map and exact parameter"
+        },
+        {
+          "assessment": "Related, not covering the expressed maps",
+          "evidence": "Ordinary logistic polynomial; describes sampling a subset of orbits rather than exhausting all initial conditions.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "PDF pp. 2–4, Periodic orbits and number formats, Eq. (4), and bifurcation discussion",
+          "method": "Targeted OA full-text extraction",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Low-precision logistic dynamics including BFloat16"
+        },
+        {
+          "assessment": "Material method and format overlap; different map and rounding trees",
+          "evidence": "R(4x(1−x)) versus R(4xR(1−x)); periods 11 and 4 plus fixed points, with subnormals included.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bfloat16-logistic-basin-inversion-under-a-single-intermedi--305f9651a5de",
+          "material_read": "Definitions, domain and cycle spectra in RESULT.md",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Exact bfloat16 logistic basin inversion under a single intermediate rounding",
+          "trigger": "Closest indexed complete basin table and rounding comparison"
+        },
+        {
+          "assessment": "Different state-space semantics",
+          "evidence": "Real prime-three count and real local period-four bifurcation, not rounded global basins.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-prime-three-cycle-onset-in-a-rational-logistic-map--22dc6c287fa6; 2026/11/2/SCOPE-exact-second-flip-boundary-and-local-attracting-four-cycle-in-a--c832b5af1161",
+          "material_read": "Findings and scopes",
+          "method": "Local Resultary mirror comparison",
+          "title": "Sharp prime-three cycle onset in a rational logistic map; Exact second flip boundary and local attracting four-cycle",
+          "trigger": "Same rational family and periodic-orbit results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated parameter taken from a published chaotic real trajectory and two plausible evaluation trees give a reusable all-state benchmark, rather than a selected orbit. The substantial change from one to three nonzero attractors, with exact basin sizes and transient maxima, is information a researcher comparing precise low-precision evaluation semantics can use. It does not license claims about real chaos, unspecified hardware or cryptographic security.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

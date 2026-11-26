@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:21:38.020598Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b,c>0, the square first coordinate rules out X<0; at X=0 it forces y=0 and precisely an affine line if Y=0, otherwise nothing. At X>0 the two signs of y are disjoint. Setting x=1-Z/c and w=W-y leaves exactly Y=b y(1-w^2/2)(1-z). The nonzero coefficient gives one point; a zero coefficient gives a line for Y=0 and no point otherwise. At r=sqrt(X/a)>0 simultaneous vanishing means (W-r)^2=(W+r)^2=2; subtraction forces W=0 and then X=2a. Thus only the specified stratum is missing inside X>0, and X>0 off the stratum is dense in X>=0. Expanding the determinant using the first and third rows gives abc y^2(2-w^2); its critical locus is y=0 or w=+/-sqrt(2), with the listed images, all in Y=0. Along X=2a, fixed nonzero Y and fixed Z, the two denominators are b W(2-sigma W/sqrt(2)), giving regular inverse points and lim W z_sigma=-Y/(2b) on both branches. The conclusion about a common pole is restricted to that specified approach, not claimed along arbitrary paths. The frozen symbolic checker was inspected, not executed; exhaustive scalar elimination, not numerical tests, establishes the classification.",
+      "replay": "Substitute x,y,w first; test the remaining linear equation including its zero coefficient, and expand the determinant at the two sparse rows. For the pole substitute y=sigma sqrt(2), w=W-sigma sqrt(2) before taking the two limits. These steps use arbitrary positive a,b,c.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary paper studies the fixed line and bifurcation/attractor phenomena; broader finite/infinite valence results returned for cosine-flux Chialvo and memristive Lozi maps address different equations."
+        ],
+        "reasoning": "Standard critical-point and properness criteria give a framework but cannot identify the exact real image or prove by themselves that a target simultaneously kills both square-root branches and what their residues are. The compared results for other maps do not include this polynomial as a parameter case.",
+        "searches": [
+          "Wang et al. 2023, Sections 2.2–2.3, Eqs. (13)–(20)",
+          "Resultary: Wang Tong four dimensional parabolic discrete memristor map inverse image codimension hole inverse valence"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/sym15101879",
+        "2026/11/22/SCOPE-a-memristance-zero-acceleration-of-superexponential-attraction-i--bcc963f6ac82",
+        "2026/11/8/SCOPE-singular-zero-to-infinite-inverse-valence-transition-in-a-cosine--8b96b0ec53ba (index summary only)",
+        "2026/11/22/SCOPE-a-sharp-finite-to-infinite-inverse-valence-boundary-in-a-memrist--17fdec55463e (index summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper gives the coordinate equations and a displayed Jacobian for the stability analysis. The attraction record sets c=1 and takes w_n increasing to sqrt(2) along specially chosen forward trajectories."
+        ],
+        "reasoning": "A determinant calculation alone is a direct derivative consequence and not a novelty claim. Neither fixed-point stability nor the forward endpoint theorem implies the real image table across both signs of y or the paired backward escape at W=0 and nonzero Y. This requires a global inverse comparison of the two signs.",
+        "searches": [
+          "Wang et al. 2023, Eqs. (13),(14),(17)",
+          "A memristance-zero acceleration of superexponential attraction in a four-dimensional map, complete RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. Eqs. (13)–(14) define exactly the map. The same-map superexponential-attraction record addresses vanishing memristance as a limit of positive forward trajectories at c=1."
+        ],
+        "reasoning": "In inverse terminology the hole is a set of omitted asymptotic targets, not a bifurcation of forward attractors at a vanishing memristance endpoint. The same coefficient vanishes in the two studies but their quantified statements are different.",
+        "searches": [
+          "Web: 10.3390/sym15101879 Wang Tong parabolic discrete memristor pdf four dimensional map inverse preimages critical noninvertibility",
+          "Web: sym15101879 inverse inverse image preimage memristive global inverse asymptotic critical outputs Wang Tong 2023",
+          "Resultary: Wang Tong four dimensional parabolic discrete memristor map inverse image codimension hole inverse valence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target's own indexed entry is not evidence of precedence. The nearest distinct exact same-map entry analyzes forward attraction (full RESULT.md read). The source's fixed-point coordinate and eigenvalue formulas do not tabulate inverse valences."
+        ],
+        "reasoning": "Count formulas for periodic points, Lyapunov plots and inverse valences for other recurrences do not enumerate the fibers of this one-step map. No prior exact enumeration of this image was located in the inspected material.",
+        "searches": [
+          "Resultary: Wang Tong four dimensional parabolic discrete memristor map inverse image codimension hole inverse valence",
+          "Wang et al. 2023, abstract, fixed-point section and discussion of forward dynamics"
+        ]
+      },
+      "rationale": "The 2023 paper supplies the exact map and computes fixed-point linearization, rather than answering the global target-space inverse problem. The structural result is the simultaneous loss of both finite sheets on a noncritical interior stratum, with a common signed inverse residue on a specified slice; neither the map definition, a local Jacobian nor a positive forward-rate theorem classifies this geometry.",
+      "residual_risks": [
+        "An unindexed inverse study of the same map or a theorem explicitly covering the intersection of simultaneous branch zeros may predate the claim; the search is not exhaustive. The derivative identity by itself is elementary and not credited as a new invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map; the inspected results address its definition and forward dynamics, not a coverage theorem for global inverse fibers",
+          "evidence": [
+            "Eq. (13) fixes epsilon=1 and eta=-0.5; Eq. (14) has the square first coordinate and w+y memory update; the following formulas analyze the fixed line and its eigenvalues."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15101879",
+          "material_read": "Open publisher PDF: abstract and relevant portions of Sections 2.2–2.3, including memristance choice, map, and fixed-point and linearization analysis",
+          "method": "Read publisher PDF at the exact OA article-deploy URL and compared Eqs. (13),(14),(16)–(20)",
+          "title": "A Novel Four-Dimensional Memristive Hyperchaotic Map Based on a Three-Dimensional Parabolic Chaotic Map with a Discrete Memristor",
+          "trigger": "Original defining source with exactly the same state map and memristance parameters"
+        },
+        {
+          "assessment": "Forward attraction on restricted positive states, not classification on the target half-space",
+          "evidence": [
+            "Its main conclusion is y_n=(ab sqrt(2))^(-1/3) exp(-L_* beta^n)(1+o(1)) for an endpoint trajectory and an interior clock on an open set. It does not fix a target and find its antecedents."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-memristance-zero-acceleration-of-superexponential-attraction-i--bcc963f6ac82/RESULT.md",
+          "material_read": "Complete RESULT.md with both orbit-existence theorems, scope and Proof steps 1–4",
+          "method": "Read local published-record mirror; compared hypotheses, output constraints and direction of iterations",
+          "title": "A memristance-zero acceleration of superexponential attraction in a four-dimensional map",
+          "trigger": "Exact same recurrence with c=1 and the same zero-memristance boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural inverse question for this recurrent map is where a real target has no, finite, or positive-dimensional antecedents. The classification includes all targets and parameters in scope, locates an interior hole not due to finite criticality, and gives quantitative loss of both regular antecedents at infinity on a natural fixed-X slice. This distinguishes nonproper backward state loss from finite merging and supplies an exact domain and branching description for backward reconstruction. Elementary proof length does not remove that structural distinction; the result makes no claims about practical inversion, bounded physical domains or forward chaos.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

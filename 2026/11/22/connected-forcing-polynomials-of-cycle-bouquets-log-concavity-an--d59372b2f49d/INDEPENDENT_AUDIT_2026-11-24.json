@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:22:27.545875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If a peripheral path starts wholly white, the hub has two permanently white neighbors in that petal and no first force can enter. This also forces hub inclusion because a connected set omitting it lies in a single petal. With the hub selected, connectedness is precisely the prefix/suffix restriction; any nonempty pattern spreads through its one possible white gap independently. Thus petal coefficients are s+1 for proper selections of size s>0 and 1 for the full selection, giving the stated product, interval of degrees and extremal coefficients. Each petal has positive log-concave coefficients and the classical no-internal-zero convolution theorem applies. The c>=5 real-zero exclusion follows by normalizing the first three coefficients to 1,3/2,2: for all-negative roots the square of the first nonconstant coefficient would exceed twice the next coefficient, but 9/4<4. Small factors split. Independent replay: python3 /workspace/review_checks.py 2; 47 bouquets with 2–4 petals of lengths 3–7 and order at most 13, 149681 nonempty masks per pass, counting connected sets that hit all minimal forts and comparing exact polynomials. The two-direction fort-hitting equivalence follows from first entry and the stalled white set; finite checks do not prove the general results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov's cactus theory constructs minimum seeds containing one neighbor of the articulation point in every outer cycle, and gives necessary articulation and cycle-block bounds",
+          "Mukherjee–Ray determines the tree polynomial; Brimkov–Davila–Schuerger discusses tree all-size and general extremal counts",
+          "Newton–Brimkov proves nonunimodality in general"
+        ],
+        "reasoning": "The stronger cactus structure covers the bouquet combinatorial input. The other sources either do not include bouquets or address general counterexamples rather than bouquet shape, leaving a distinct family-wide log-concavity statement.",
+        "searches": [
+          "arXiv:1607.00658v1 Propositions 3 and 6, Lemma 2 and Lemma 3",
+          "arXiv:2611.10985 p. 1",
+          "arXiv:2507.11194v1 abstract and §7",
+          "arXiv:2611.11352 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1607.00658v1",
+        "arXiv:2611.10985",
+        "arXiv:2507.11194v1",
+        "arXiv:2611.11352",
+        "Resultary eb162260c6ac, 47aae2192937, 11747db5a4bd, a54ae5ebc761, b392706736de and b21a724a6666"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 6 allows a hub neighbor chosen independently on each outer cycle; every connected admissible set contains such a minimum, so forcing monotonicity and interval counting give the product",
+          "The companion's single-cycle factor proof makes the real-zero classification of this product immediate"
+        ],
+        "reasoning": "The replacement does not claim either mechanical implication as independent. Its shape result applies the convolution theorem to every size distribution of any bouquet and identifies the exact subfamily where log-concavity persists despite nonreal zeros.",
+        "searches": [
+          "arXiv:1607.00658v1 §5.2 Proposition 6, proof on pp. 20–21",
+          "Resultary eb162260c6ac proof §4 and 47aae2192937 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle-spider eb162260c6ac uses exactly P_c=F_c and the same small roots and c>=5 Newton obstruction",
+          "47aae2192937 counts all and minimal forts on the same bouquets",
+          "11747db5a4bd counts ordinary zero forcing across cut-vertices"
+        ],
+        "reasoning": "A connected initial set is stricter than an ordinary fort transversal; the fort cardinality polynomials do not count connected transversals. The companion cycle-factor root calculation is equivalent and expressly credited, but the companion product has arm factors rather than independent cycle petals and gives no bouquet log-concavity theorem.",
+        "searches": [
+          "Resultary: connected forcing cycle bouquets, cycle spiders, ordinary cut-vertex zero forcing, bouquet forts",
+          "arXiv:1607.00658v1 §5.2 and Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d59372b2f49d is the original bound record",
+          "eb162260c6ac gives the petal polynomial and the cycle real-root threshold",
+          "47aae2192937 gives exact fort distributions",
+          "a54ae5ebc761, b392706736de, and b21a724a6666 put connected forcing on sunlets, wheels, and partially whiskered cycles"
+        ],
+        "reasoning": "The identical record is not independent priority evidence. A sunlet, wheel, or partially whiskered single cycle is not an arbitrary bouquet. The closest exact earlier same-graph distribution enumerates forts, not the connected-forcing coefficients and their adjacent inequalities.",
+        "searches": [
+          "Resultary: connected-forcing coefficients in cycle bouquets, cycle spiders, sunlets, wheels and partially whiskered cycles; bouquet fort cardinality polynomials"
+        ]
+      },
+      "rationale": "For the repaired bouquet log-concavity result and its shape contrast. The old cactus theory structurally supplies the product and minima, and the same-day spider record contains the identical local real-zero proof. Neither was claimed as distinct in the replacement. No inspected theorem establishes the bouquet log-concavity result itself; the use of classical convolution is credited.",
+      "residual_risks": [
+        "Same-day catalogue provenance cannot establish priority for the shared factor proof; both use it explicitly.",
+        "Inspection was bounded to the strongest accessible sources and local exact matches, not a guarantee against an unindexed shape theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers structural input and hence product enumeration; no coefficient shape claim in these passages",
+          "evidence": "Each outer cycle is seeded by its articulation vertex and an arbitrary adjacent vertex; missing cycle arcs are constrained by connectivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00658v1",
+          "material_read": "pp. 8–9, 11–12 and 20–21; Lemma 2 and Propositions 3 and 6",
+          "method": "OA PDF exact passages",
+          "title": "Complexity and Computation of Connected Zero Forcing",
+          "trigger": "Stronger cactus theory"
+        },
+        {
+          "assessment": "Identical local cycle-factor root obstruction; does not give bouquet log-concavity",
+          "evidence": "F_c=P_c; first coefficients 2,3,4 obstruct binomial-normalized Newton inequality.",
+          "identifier_or_url": "Resultary eb162260c6ac",
+          "material_read": "Finding and proof §4, offsets about 88 and 4323",
+          "method": "Local Resultary mirror and frozen sister text",
+          "title": "Connected zero-forcing polynomials of cycle spiders",
+          "trigger": "Matching cycle factor and roots"
+        },
+        {
+          "assessment": "Counts obstructions, not connected successful initial subsets",
+          "evidence": "All-fort and minimal-fort cardinality polynomials are stated.",
+          "identifier_or_url": "Resultary 47aae2192937",
+          "material_read": "Finding, offset about 94",
+          "method": "Local Resultary mirror",
+          "title": "All forts and inclusion-minimal forts of bouquets of cycles",
+          "trigger": "Same graph with exact cardinality distributions"
+        },
+        {
+          "assessment": "Tree enumeration and general extremal or negative results, not an inspected bouquet shape theorem",
+          "evidence": "Tree domain; general extremal size counts; nonunimodality examples.",
+          "identifier_or_url": "arXiv:2611.10985, arXiv:2507.11194v1, arXiv:2611.11352",
+          "material_read": "First page of tree paper; density abstract and §7; nonunimodality p. 1",
+          "method": "OA PDF/HTML bounded passages",
+          "title": "On the connected zero forcing polynomial of finite trees; Connected forcing density and related problems; Zero forcing is not unimodal",
+          "trigger": "Same coefficient invariant or shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bouquets are a natural multicycle cactus family with independent petal choices. The result gives uniform shape in a setting where connected-forcing sequences are not unimodal in general, and pinpoints the precise coexistence of log-concavity with nonreal roots rather than inferring one from the other. This is valuable as a coefficient-shape theorem, not as an assertion of new cactus minimum-set structure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

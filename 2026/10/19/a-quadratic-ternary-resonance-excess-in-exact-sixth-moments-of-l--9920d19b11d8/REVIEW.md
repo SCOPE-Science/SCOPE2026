@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** Both equalities defining the quantity follow from Laurent-series orthogonality and the reality of the trigonometric polynomial. The exact binomial expansion of the new top frequency gives the fourth- and sixth-moment recurrences; the necessary support inequalities hold for every integer base at least three. All nonbalanced top-frequency terms are controlled explicitly. The five-term target coefficient is exhaustively classified by the number of copies of the preceding largest positive frequency, with the first-scale exception kept separate. The resulting polynomial summations are exact. The embedded checker independently computes finite Laurent convolutions. Finite checks support but do not replace the all-length argument.
+PASS
 
-## Originality
+The frozen RESULT.md line 28 and SLOGAN.txt are false: at n=2 the actual moments are 1301 and 1001, giving 300, not 540. The complete replacement files in /workspace/repairs/5/ retain the correct moments and give E_3(n)-E_6(n)=60(4n^2-5n-1) for n>=2, with zero excess at n=1. Independently, six-term zero sums have net digits m_j=q k_j-k_{j-1} with initial and terminal carry zero. Their l1 cost is at least (q-1) times the sum of absolute carries plus twice the sum of absolute closing carries of nonzero blocks. Thus q>=6 permits only zero carries; q=4,5 permit one signed unit carry, of cost 5,6, giving 60 and 12 ordered tuples per adjacent pair, respectively. At q=3 the only possibilities are one signed unit carry of cost 4 or two consecutive same-sign unit carries of cost 6. For a singleton, the remaining slots comprise two zeros or an opposite-sign pair: for each sign the weights are 60 (zeros), 30 and 60 (pair at the carry's two positions), and 120 per other position. The two-carry block gives 60 tuples per sign. For n>=2 this totals 2(n-1)(120n-90)+120(n-2), exactly the repaired excess. Zero carries give 120n^3+20n+1 by multinomial counting of up to three cancelling pairs and zeros. The frozen top-frequency expansion and initial conditions agree with these identities. Ordered triple-sum multiplicities were also directly squared and summed for q=3 through 8 and n=1 through 6 (python3 /tmp/opencode/frozen_math_reproduction.py); that finite check is corroboration only. The supplied verifier was inspected, not executed, and its separate moment checks do not test the erroneous frozen subtraction.
 
-**PASS (bounded search and implication comparison).** Gonçalves--Ferreira (arXiv:2510.20934, first public 2025-10-23) addresses a different Bessel-weighted planar extension inequality and explicitly excludes the ratio-three boundary from its theorem. Ciccone--Gonçalves (arXiv:2208.09441) provides the higher-ratio \(\mathrm P(3)\) framework and already identifies ratio four and five resonance types. The stable \(q\ge6\) branch and the two linear comparison branches are consistent with earlier structural knowledge; the asserted non-covered component is the exact all-length ratio-three sixth-moment law and its quadratic comparison with the other bases. Searches for alias expressions, third additive energy, balanced geometric spectra, and the closed-form coefficients found no exact covering formula. Historical priority remains uncertain: the identity might have appeared in older lacunary-moment folklore or an unindexed combinatorial calculation. This is a claim of best-knowledge originality, not uniqueness certification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The spectrum with integer ratio three is explicitly singled out as an unresolved arithmetic boundary in recent sharp circular Fourier-extension research. The exact ordered threefold additive energy is the natural unweighted combinatorial quantity underlying the sixfold frequency decomposition. The result isolates a qualitative jump: the number of excess sixth-moment coincidences grows quadratically with the truncation length at ratio three but only linearly at four and five, and vanishes for six and larger. This gives a complete, reusable benchmark for any subsequent weighted analysis at the difficult boundary, without claiming that the present identity itself settles the extension problem.
+Pass is for the repaired exact ternary ordered-energy law and its quadratic excess, not priority for the known exceptional carries, the stable collision pattern, or the related Fourier-extension problem. The inspected prior results do not give the weighted-by-permutations count with all cancellations and finite endpoints included.
 
-## Closest prior work and limitations
+## value
 
-- F. Gonçalves and J. P. Ferreira, *On a Sharp Fourier Extension Inequality on the Circle with Lacunary Spectrum*, arXiv:2510.20934 (2025-10-23), especially the introduction and arithmetic exception analysis. Distinct weighted sixfold expression and strict-ratio theorem.
-- V. Ciccone and F. Gonçalves, *Sharp Fourier Extension on the Circle Under Arithmetic Constraints*, arXiv:2208.09441 (2022-08-19), especially Section 2 on \(\mathrm P(3)\) sets. Higher-ratio coverage and anticipated exceptions; no exact ratio-three moment law in the inspected text.
+PASS
 
-The theorem fixes all Fourier amplitudes at one, assumes integral ratios at least three, and does not address planar restriction constants. No independent validation has been performed.
+The finite ordered count measures precisely the unweighted collisions in the critical integer-ratio ternary spectrum already identified in sharp Fourier-extension work. The repaired excess remains positive and quadratic for n>=2, unlike the linear excess for four and five, and its exact constant and boundary correction give a useful comparison for truncations. This is not a claim about the weighted extension conjecture.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

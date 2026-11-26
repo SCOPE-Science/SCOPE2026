@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:23.508439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py",
+        "Monthus arXiv:2409.19999v2, Eq. (48)"
+      ],
+      "rationale": "Flat density conditional on the current dyadic shell is preserved by every shell transition, including a mixture of the contraction and reset into shell one, so the stationary joint shell process has the stated kernel. At shell zero it regenerates. The downward first-hit transform is the root with t(0)=0 of t=z(p+qt²), and hitting zero from k has transform t^k. First-step conditioning at zero therefore gives R=z(qt+p/(2-t)). Here R(1)=1 and R'(1)=2p/(2p-1); the stationary mass at zero is its reciprocal. Each positive gap length is possible by a reset and downward steps; any finite word embeds in a concatenation of such gaps starting from a stationary visit to zero. The quadratic has distinct simple discriminant zeros; conjugating t to p/(qt) sends the limit of the rational-in-t expression for R at t=0 from 0 to 1, proving degree two rather than rationality. Finite hidden states give a finite matrix resolvent for the word probabilities 10^(n-1)1, so they cannot give this R; finite Hankel rank would also force rationality. For p<4/5 the only first-circle singularities are ±(2sqrt(pq))^(-1) and the square-root coefficients give the two stated constants. Their strict inequality C_+>C_->0, not positivity of all f_n by itself, rules out leading odd-term cancellation. For p>4/5 the physical root hits 2 at z_0=2/(4-3p) with derivative (4-3p)^2/(5p-4), giving pole amplitude p/t'(z_0); at p=4/5 the positive branch expansion of 2-t and z_*p=1 give amplitude 1/(2sqrt(2)) of the inverse square root, with the negative branch of smaller order. These prove the fixed-parameter prefactors and rates. The 318 reported finite diagnostics were inspected, not rerun.",
+      "residual_risks": [
+        "Annealed stationary absolutely continuous law only; no uniform asymptotics as p tends to 4/5 or assertion at p=1/2 or p=1. The finite checker is not evidence of infinite rank."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eqs. (47)–(53) give the full shell propagator and reset kernel. Eqs. (68)–(71) give first-passage transforms; for a hit from the same shell they concern a time-zero hit rather than positive return. The diagonal Eq. (A37) plus renewal avoids conflating the two.",
+          "Resultary 00cc475a51a1 treats maximum excursion depth and transitions at 1/2 and 2/3, not the gap-duration tail."
+        ],
+        "reasoning": "The general propagator directly specializes to the two-point function that separates this binary process from all finite hidden chains. A maximum-depth excursion result instead shares the mechanism without supplying the duration law.",
+        "searches": [
+          "arXiv:2409.19999v2, §§IV.A–B and Appendix A",
+          "Resultary exact shell excursion and return-duration records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "Monthus arXiv:2409.19999v2",
+        "Resultary 089eef514dd6",
+        "Resultary 00cc475a51a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Monthus's U formula, a~1/(pz) and b~qz as z tends to 0; swapping the quadratic roots sends the physical U with limit 1 to a pole asymptotic to 1/(2pq z²). A rational function of z cannot change under the swap.",
+          "For any finite-state HMM the probabilities of a 1 at both ends with an unrestricted intervening word are finite matrix-power entries, hence give a rational two-point series; division by the positive one-frequency keeps it rational. This is enough without determining the entire output law."
+        ],
+        "reasoning": "This is a direct deduction from an exact prior transform of the digit's own two-point function plus finite-matrix rationality. The full-support argument also follows directly from the positive reset law. The return-tail constants then come from standard expansion and transfer from R; the explicit comparison record shows their exact equivalence but is not used to infer earlier priority.",
+        "searches": [
+          "Monthus Eqs. (52)–(53) and (A37) specialized at zero",
+          "Finite-matrix two-point rationality criterion from the frozen proof applied to the prior diagonal expression"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing U(z)=sum_n Pr(J_n=0|J_0=0) z^n, the first digit being exactly 1 on shell zero gives the conditional two-point transform. Eq. (A37) at n=0 is U=(a+b)/a times (2a-1)/(2(a-1)), for a=r_+ and b=r_- of Eq. (53) with z=e^(-s).",
+          "With a+b=1/(pz) and t=1/a, U=t(2-t)/(2pz(1-t)); renewal gives R=1-1/U=z(qt+p/(2-t))."
+        ],
+        "reasoning": "The equivalent form is a standard diagonal occupation/return conversion, not an analogy between the digit and position observables. Eq. (A37) resolves the factor placement in the general Eq. (52).",
+        "searches": [
+          "Resultary searches for Pelikan first digit, first returns, renewal and finite-state hidden Markov representations",
+          "Monthus arXiv:2409.19999v2 §IV.A and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding and Proof of 089eef514dd6 give the identical first-return PGF and all three leading return-mass formulas, with uniform initial point in shell zero exactly matching the stationary conditional initialization. The notations agree using rho*a=1/(2q), p-4q=5p-4 and p+4q=4-3p. It does not claim the HMM obstruction."
+        ],
+        "reasoning": "This is an exact match for analytic formulas, not merely agreement of a threshold or finite table. Its displayed November 1 date is later than the frozen record's October 18 date; this supplies overlap, not evidence of earlier priority. The same-day maximum-depth record is distinct in observable.",
+        "searches": [
+          "Resultary Pelikan first-return pole branchpoint trichotomy; checked 089eef514dd6",
+          "Resultary same-date Pelikan exact maximum excursion; checked 00cc475a51a1"
+        ]
+      },
+      "rationale": "The premise for the focal originality distinction is not established: a pre-existing exact resolvent covers the first digit itself at the level already sufficient to rule out every finite-state HMM, not just a different position-correlation observable or the same numerical threshold. The diagonal formula, rationality of binary two-point probabilities for finite matrices, and quadratic conjugation give a direct obstruction; the renewal transform gives precisely the frozen algebraic return law. The explicit three-regime return asymptotics also have a statement-level catalogue match. This is a finding of direct prior implication for the focal result, not a claim that the prior paper literally stated the HMM theorem or that a later-dated catalogue record establishes earlier priority for the asymptotics.",
+      "residual_risks": [
+        "No determination of first explicit publication of the HMM interpretation or of the sharp return-mass prefactors. The decision does not infer publication order from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shell-zero occupancy resolvent directly implies the first-digit finite-state obstruction and the return PGF",
+          "evidence": [
+            "Eq. (48) matches the reset kernel; Eq. (A37) at n=0 yields U; quadratic root swap yields a pole rather than U(0)=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.19999v2",
+          "material_read": "Printed p. 8, §IV.A Eqs. (47)–(53), offset 43198; pp. 10–11, §IV.B Eqs. (68)–(71), offset 57000; p. 35, Appendix A Eqs. (A35)–(A37), offset 205100",
+          "method": "OA PDF passage inspection and explicit specialization/conjugation",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+          "trigger": "Possible same-observable exact prior implication"
+        },
+        {
+          "assessment": "Exact formula and sharp tails match; later dated; no finite-state statement in the compared material",
+          "evidence": [
+            "Uniform shell-zero start; identical degree-two return PGF; matching parity prefactors, critical prefactor, and geometric pole prefactor"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-pole-branchpoint-trichotomy-for-first-returns-in-the-pelikan-r--089eef514dd6",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "A pole–branchpoint trichotomy for first returns in the Pelikan random map",
+          "trigger": "Same return transform and phase transition"
+        },
+        {
+          "assessment": "Same excursions; different observable and crossover claims",
+          "evidence": [
+            "H_m(p) is the excursion maximum-depth tail; thresholds at p=1/2 and p=2/3"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-maximum-depth-excursions-and-two-critical-crossovers-in-th--00cc475a51a1",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Exact maximum-depth excursions and two critical crossovers in the Pelikan random map",
+          "trigger": "Same-day excursion record on identical shell chain"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–4",
+        "Monthus arXiv:2409.19999v2, Eq. (A37)"
+      ],
+      "rationale": "The contrast between full symbolic support and infinite hidden-state complexity is informative for this dynamical example, and the explicit return asymptotics distinguish an alternating square-root contribution, a critical inverse-square-root contribution, and a geometric pole. This is useful as an interpretation of exact dynamics; that utility does not confer originality on the direct consequence of the known resolvent.",
+      "residual_risks": [
+        "The result does not give a rate for approximating the observation with finite-state models, or a uniform crossover limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

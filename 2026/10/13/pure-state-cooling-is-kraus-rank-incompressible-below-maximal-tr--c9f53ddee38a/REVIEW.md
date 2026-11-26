@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A minimal Stinespring dilation with environment dimension \(r\) gives \(A=V^\dagger(P\otimes I_r)V\) of rank at most \(r\). If \(r<d\), a kernel input has zero target overlap, hence output support orthogonal to the pure target and trace-norm error exactly \(2\). The exact pure replacer has Kraus rank \(d\), so the threshold is sharp. The fermionic mode consequence follows from \(2^m\) bath dimension versus \(2^N\) system dimension.
+## correctness
 
-## Originality
-**PASS.** The recent cooling paper supplies the motivating single-contact, pure-bath construction but no minimum bath-mode statement. The closest general compression paper, Lancien--Winter, treats uniform output-norm approximation with reduced Kraus rank and leaves channel-dependent optimal approximating rank open; its inspected text does not give the pure-replacer threshold. Standard Stinespring references identify Kraus rank with minimal environment dimension but do not state that every rank reduction below \(d\) incurs maximal statewise error \(2\).
+PASS
 
-## Value
-**PASS.** The result determines a natural exact resource invariant for the new cooling architecture: approximation does not buy even one environment dimension below the exact pure-replacer threshold until the error reaches the trivial maximum. For \(N\) fermionic modes this gives a sharp linear lower bound of \(N\) coherent bath modes and places the source's \(2N\)-mode construction within a factor two of the unconstrained information-theoretic minimum. This comparison is meaningful while remaining explicit about the absence of a locality-constrained converse.
+For a minimal Kraus family K_j, the linear map psi -> (⟨G|K_j|psi⟩)_j has rank at most r. If r<d, a unit vector in its kernel is sent to a state supported on G-perp, attaining norm difference 2; the triangle inequality gives the matching upper bound. The exact replacer has Choi matrix I_d tensor |G⟩⟨G|, with rank d. A pure m-mode environment gives at most 2^m Kraus operators after a single coherent unitary evolution and final trace, so uniform error below 2 implies m>=N. In the unconstrained model the exact replacer dilation at m=N can be extended to a joint unitary. Yu–Chen–Lin's model and Theorem 1 provide the stated 2N-mode comparison under their physical hypotheses. No numerical experiment is required.
 
-Closest literature and limitations are detailed in `RESULT.md`. The principal residual risk is an older channel-approximation note stating the same pure-replacer special case under different terminology; targeted searches and inspection of the closest general compression literature did not locate one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established environment-rank equivalence, exact pure-output rank bound and the existing cooling protocol. The distinct assertion supported by the bounded review is the maximal worst-case statewise trace-norm error for every rank-deficient approximant to a pure replacer and its sharp no-reset resource consequence, not the exact rank or the cooling construction alone.
+
+## value
+
+PASS
+
+The result isolates a sharp discontinuity for worst-case cooling: even tolerance arbitrarily close to the maximum yields no environment compression relative to exact replacement. This turns the bath resource comparison into a quantitative statement against the unconstrained information-theoretic minimum, rather than simply restating the exact replacer's rank or counting the modes used by an existing protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

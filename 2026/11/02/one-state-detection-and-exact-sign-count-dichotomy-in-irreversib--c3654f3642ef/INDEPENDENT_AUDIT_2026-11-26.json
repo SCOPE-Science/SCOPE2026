@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:33.143310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–99",
+        "VERIFICATION.md:19–31",
+        "check_threecycle.py:10–98 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/independent_replay.py, three_cycle; 27 normalized-covariance comparisons against a matrix exponential series across the three spectral regimes"
+      ],
+      "rationale": "Stationarity gives C_i(t)=π_i(P_ii(t)−π_i), with π_i positive and proportional to inverse exit rate. Subtracting the stationary projector leaves the quadratic characteristic factor λ²+σλ+q; Cayley–Hamilton applies without diagonalizability. Normalizing by π_i(1−π_i) gives initial slope −r_i with r_i=a_i+yz/(y+z). In the complex regime the normalized covariance is a decaying nonzero sinusoid, so each state has infinitely many simple alternating zeros. For real spectrum choose a maximal a; Δ=(a−b−c)²−4bc and max(b,c)>(√b−√c)² rule out the low branch, giving a≥b+c+2√(bc) and uniqueness. The two decay rates satisfy b+c<γ_−≤γ_+<a. Consequently the fastest r_i exceeds γ_+ and the other two are below γ_−. At distinct roots the slow exponential coefficient is negative only for the fastest indicator, whose bracket divided by the slow exponential decreases from 1 to a negative constant and gives the stated log crossing. The other two are positive in their hyperbolic forms. At the repeated root the affine bracket has negative slope only for the same indicator, with the stated reciprocal crossing time. The stationary two-state covariance is a positive exponential, and the one-state covariance vanishes.",
+      "residual_risks": [
+        "The matrix-series replay is finite and uses floating point; the exact sign and root counts follow from the proof. The classification is for this unidirectional stationary chain only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuang–Chen give distinct-root and repeated-root autocorrelation expressions for arbitrary observables; the subsequent classification theorems concern nonmonotone frequency spectra.",
+          "Prager et al. give the rational spectrum for a binary output in the three-rate Poisson cycle; relabelling yields any sensor.",
+          "Jia et al.'s public abstract distinguishes simple and oscillating overshoot, but the decisive assumptions and results were not accessible in full text."
+        ],
+        "reasoning": "Broader formulas determine the covariance curves, and some qualitative consequences are immediate. They do not supply a verified theorem deciding, for every real-root rate triple, which diagonal indicator overshoots or how often it crosses its stationary level.",
+        "searches": [
+          "Kuang–Chen (2010), Theorems 1–4 and Lemma 2",
+          "Prager–Naundorf–Schimansky-Geier arXiv:cond-mat/0211285, §2 Poisson subcase",
+          "Jia–Qian–Jiang DOI:10.1049/iet-syb.2013.0050 and Chen (2009) PKU journal entry"
+        ]
+      },
+      "checked_sources": [
+        "Kuang–Chen publisher PDF (2010)",
+        "Prager et al. arXiv:cond-mat/0211285",
+        "Jia et al. site/abstract excerpts only",
+        "Chen (2009) journal entry only",
+        "Resultary 5d3cde922b9b and e5d1f1e388c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior expressions imply the two-exponential or repeated-root form, and immediately explain the sinusoidal zeros at complex roots.",
+          "In the real-root case, obtaining the claimed partition requires the uniform ordering r_slowest and r_middle < γ_− ≤ γ_+ < r_fastest. This follows by isolating the correct branch of Δ≥0 for the largest exit rate and comparing the three normalized initial slopes; it is not a coefficient or sign condition already asserted by the inspected theorems."
+        ],
+        "reasoning": "Fourier inversion or specializing the general covariance formula yields the curve but does not make the concrete fastest-exit decision without a further rate-ordering argument. The mathematical addition is that uniform ordering and the resulting exact state selection and zero counts, rather than a restatement of a closed formula.",
+        "searches": [
+          "Kuang–Chen (2010) pp. 136–138 especially Theorem 1 and Lemma 2",
+          "Prager et al. §2 Poisson spectrum",
+          "Resultary 5d3cde922b9b and e5d1f1e388c4 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuang–Chen Theorem 1 covers the exact autocorrelation after specializing their observable to a real indicator and their generator to the one-way cycle.",
+          "One-state population rise from an initial unit mass can be studied by P_ii(t)−π_i, the same scalar quantity up to normalization; overshoot terminology was therefore checked.",
+          "Resultary 5d3cde922b9b studies positive-frequency peaks and e5d1f1e388c4 studies the optimal spectral abscissa under a price constraint."
+        ],
+        "reasoning": "Autocovariance itself is prior as a formula, but frequency-peak classification, population extrema in general, and time-domain level-crossing counts are not interchangeable. The real-regime rate selection requires analyzing the observable-specific coefficient for all states, not merely recognizing the spectrum. A same-day record date does not settle priority.",
+        "searches": [
+          "Resultary semantic queries on the three-cycle title, natural state-indicator time-domain covariance, and exact counts of zeros/sign changes",
+          "Web query: (\"three-state Markov\" OR \"three-state cycle\") autocorrelation autocovariance indicator oscillatory eigenvalues exact zeros fastest exit state Kuang Chen Jia Qian Jiang",
+          "Jia–Qian–Jiang title/DOI targeted full-text lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5d3cde922b9b gives the spectra and sets of state sensors with positive-frequency maxima, not the time-domain sign-count partition. e5d1f1e388c4 gives optimal decay parameters, not statewise coefficients."
+        ],
+        "reasoning": "The claim is an exact classification on a continuous three-rate domain. A catalogue of which spectra peak, or of selected rates or decay exponents, does not enumerate the covariance-zero regimes. No finite lookup can replace the proof of the all-rate statement.",
+        "searches": [
+          "Resultary semantic catalogue searches on exact state-indicator spectra, zero counts and the directed three-cycle"
+        ]
+      },
+      "rationale": "Exact autocovariance formulas for three-state chains, the binary-output spectrum of this very cycle, and the concept of simple versus oscillatory overshoot all have precedent. The supported distinct result is the simultaneous all-positive-rate zero-count theorem, specifically the explicit fastest-state selection throughout the real-spectrum regime, including its repeated-root boundary. No independent originality is assigned to the correlation formulas, the complex-mode sinusoid inference, or the general possibility of overshoot.",
+      "residual_risks": [
+        "The exact implications of Jia et al.'s overshoot theorems and the cited Chen (2007, Fluctuation and Noise Letters 7(3), 181–192) and Chen (2009) papers are unresolved by accessible theorem passages. Further priority risk remains because general three-state covariance formulas already cover this model algebraically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact covariance formulas and immediate spectral consequences; inspected statements do not give the uniform fastest-state selection theorem",
+          "evidence": [
+            "Theorem 1 gives a sum of two exponentials at distinct roots and a linear-times-exponential at repeated irreversible roots; Lemma 2 gives P_11(t) explicitly. Theorems 3–4 concern nonmonotonic fluctuation spectra."
+          ],
+          "identifier_or_url": "https://xblk.ecnu.edu.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=24473",
+          "material_read": "Publisher PDF, model and observable definitions on PDF p. 2 (OA offsets 2954–6236); Theorems 1–4 and diagonal transition formula in Lemma 2 (offsets 6484–11431)",
+          "method": "Targeted primary full-text PDF reading",
+          "title": "On the fluctuation spectra with respect to complex functions of the three-state Markov processes",
+          "trigger": "Exact general formulas include each directed-cycle state indicator"
+        },
+        {
+          "assessment": "Exact model and sensor overlap; spectrum determines the covariance, but time-domain classification not found in the inspected passages",
+          "evidence": [
+            "The output equals one in state 3 and zero otherwise. The Poisson-cycle example gives an explicit power spectrum and discusses a nonzero-frequency maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0211285",
+          "material_read": "§2 Single three state units, binary output definition (offsets 5229–7625) and Poisson specialization (offsets about 10000–13135)",
+          "method": "Targeted primary PDF reading",
+          "title": "Coupled three-state oscillators",
+          "trigger": "Exact same one-way stochastic cycle and single-state sensor"
+        },
+        {
+          "assessment": "Unresolved material comparison; access failure is not evidence of noncoverage",
+          "evidence": [
+            "The public abstract distinguishes simple and oscillating overshoot and mentions three-state systems; it does not identify the exact hypotheses of its results."
+          ],
+          "identifier_or_url": "10.1049/iet-syb.2013.0050; PMC8687296",
+          "material_read": "Bibliographic record and public abstract excerpts only; no theorem passage retrieved",
+          "method": "Publisher and DOI recovery attempts followed by identified PMC/Europe PMC and author-posted routes; full text not available through these reads",
+          "title": "Overshoot in biological systems modelled by Markov chains: a non-equilibrium dynamic phenomenon",
+          "trigger": "An exact overshoot theorem for unit-mass initial data could imply a covariance result"
+        },
+        {
+          "assessment": "Not independently resolved at theorem level",
+          "evidence": [
+            "The available entry identifies the 2009 article; it does not verify a fastest-exit or exact zero-count result."
+          ],
+          "identifier_or_url": "https://xbna.pku.edu.cn/EN/Y2009/V45/I1/11",
+          "material_read": "Bibliographic entry only; no readable full text retrieved",
+          "method": "Targeted journal/OA lookup",
+          "title": "On the Monotonicity of Autocorrelation Function for Finite State Markov Processes",
+          "trigger": "Finite-state irreversibility and autocorrelation precedent"
+        },
+        {
+          "assessment": "Later path date; distinct frequency-domain classification on the same sensors",
+          "evidence": [
+            "Classifies positive-frequency maxima for the individual-state spectra, not signs of stationary covariance at positive lag."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/5d3cde922b9b, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding, near offset 0",
+          "method": "Targeted local mirror reading",
+          "title": "At most two resonant state sensors in a directed three-state stochastic cycle",
+          "trigger": "Same directed cycle and all three sensors"
+        },
+        {
+          "assessment": "Same spectrum but different optimization question",
+          "evidence": [
+            "Optimizes decay exponents under rate prices and discusses repeated eigenvalues, without state-specific covariance coefficients."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/e5d1f1e388c4, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding, near offset 0",
+          "method": "Targeted local mirror reading",
+          "title": "Exact priced spectral abscissa design on a one-way three-state cycle",
+          "trigger": "Same-day same generator and real/repeated spectral regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:13–29, 69–99, 105–114",
+        "Kuang–Chen (2010), Theorem 1 versus Theorems 3–4"
+      ],
+      "rationale": "A sign test using only a binary sensor is different from detecting an oscillatory spectrum or building a tailored linear combination of states. This classification tells which sensor can detect negative lag covariance from the rate ordering alone, including the boundary and the nonoscillatory regime where spectrum type by itself does not identify a sensor. The examples and the two-state obstruction delimit the phenomenon.",
+      "residual_risks": [
+        "The single-indicator guarantee is not claimed for arbitrary irreversible chains, backward transitions, or nonstationary observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:53:03.226851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–58 (Finding, scope and complete argument)",
+        "VERIFICATION.md and checks/verify.py (static inspection)",
+        "Mijatović–Vysotsky arXiv:1508.00944 Theorem 1 and §2 for the single-length normalization"
+      ],
+      "rationale": "The n+1 normalized independent exponentials give the complete endpoint-inclusive spacing vector. For fixed K the perturbation of all heights is bounded by K max(E_j)|n/T−1|=O_P(log(n)/sqrt(n)), and the Erlang survival polynomial gives n times each single-window tail converging to exp(−x) with the specified centering. I checked the critical overlap estimate also for a nested pair: split off h common exponentials, average the two exceedance inequalities and let R be half the sum of the exclusive exponentials, with shape zero meaning no term. Conditioning on R≤z, the Erlang tail is at most C exp(−z)exp(R)(1+z)^(h−1); R>z is bounded by exp(−z)E exp(R). Thus averaging the centered thresholds produces n^−1(log n)^[h−(k+l)/2], with exponent at most −1/2 for distinct windows. In a fixed factorial-moment tuple each support-connected component has only O(n) starts and bounded relative offsets; disjoint components are independent, and any nontrivial component gains the logarithmic loss. Repeated labeled windows cannot arise from factorial moments within one cell or across disjoint cells of that label. For independent placements the first-order probabilities and spatial Riemann sums factor; deleting the O(n^(r−1)) overlapping placements from the order-r independent sum has no effect. Moment determinacy of the limiting Poisson counts, bounded expected masses of compact strips and rectangle approximation give joint vague convergence. The uniform perturbation then transfers convergence using continuous test functions and tight counts on enlarged strips. For top marks, union-bound the unnormalized tails above R and use the uniform perturbation; a count void on [−R,R] vanishes in the iterated limit. Diffuse Poisson heights give unique top points, and the product intensity yields uniform locations independent of heights. The maximal spacing tends to zero and uniform order-statistic deviations give the same spatial limit in physical coordinates. The finite checker provides ingredient diagnostics only and was not executed.",
+      "residual_risks": [
+        "Fixed finite family and uniform sampling only. Arbitrary finite sets of distinct lengths follow by projecting a sufficiently large fixed prefix, not by letting K grow.",
+        "No finite-sample independence or quantitative approximation asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible snippet for Roos describes compound-Poisson approximations to counts of large and small m-spacings on a circle.",
+          "Watson's quoted theorem and Eq. (7) concern maxima of one stationary m-dependent sequence, with a joint-exceedance hypothesis.",
+          "Project Euclid blocked the Dembo–Karlin text; the Roos alternate Cambridge retrieval did not yield a readable open copy."
+        ],
+        "reasoning": "The single-sequence maximum result is not a marked joint-limit assertion. The Roos snippet establishes genuine proximity but cannot resolve extensions within the article; precise coverage by Dembo–Karlin or a general or marked scan theorem remains unverified, not ruled out.",
+        "searches": [
+          "Dembo–Karlin r-scan Poisson approximation, DOI:10.1214/aoap/1177005707",
+          "Roos extreme spacings, DOI:10.2307/1427795; JSTOR and Cambridge alternate routes",
+          "Watson theorem as quoted and applied in Mijatović–Vysotsky §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1508.00944; Watson theorem as quoted there",
+        "DOI:10.2307/1427795 (snippet and bibliographic comparison); DOI:10.1214/aoap/1177005707 (attempt only)",
+        "Resultary 11efb3c3fbdc, b4fb3931b856, f3a425560b6e and identical record a7482687ed1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published single-length tail estimate does not quantify distinct windows with different k and l and their two different centerings.",
+          "The reviewed result proves a common/exclusive Gamma overlap estimate with a strict log-power loss even in the nested case; it tests simultaneous exceedances before concluding independent fields."
+        ],
+        "reasoning": "Poisson approximation for locally dependent indicators is standard, but without a joint rarity bound that applies to differently centered overlapping windows one does not obtain the required asymptotic independence. No actual inspected comparator mechanically supplies that bound and colored continuum limit together; single k and single marked circle specializations are credited.",
+        "searches": [
+          "Mijatović–Vysotsky §2, Eq. (7) and parity split",
+          "Resultary 11efb3c3fbdc and b4fb3931b856, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mijatović–Vysotsky use the same endpoint-inclusive maximum and center it to Gumbel for one fixed k; their k=2 parity comparison is within a single length.",
+          "Resultary 11efb3c3fbdc states 2L_i=G_i^-+G_i^+ and a marked PPP for the circular score 2nL_i−log n−log log n."
+        ],
+        "reasoning": "The circle theorem materially overlaps the spatial k=2 field after forgetting its extra mark. Cutting at the endpoints changes only a bounded number of gap sums involving the ends; these are bounded sums of at most three normalized exponentials and are individually nonextreme with probability tending to one. The center and left-endpoint positions differ by at most the maximal gap, and rank/n approaches the physical coordinate. Credit the k=2 spatial specialization notwithstanding the circular presentation. Neither comparator is an equivalent joint theorem for several lengths.",
+        "searches": [
+          "Resultary: joint marked spatial Poisson extremes, uniform k-spacings and circular Voronoi adjacent gaps",
+          "Mijatović–Vysotsky arXiv:1508.00944, Theorem 1 and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record a7482687ed1b is this same finding, not a distinct source.",
+          "Same-date distinct record b4fb3931b856 concerns largest ordinary gap, largest directed nearest-neighbor edge and largest mutual-neighbor edge with a joint Gumbel limit.",
+          "Distinct record f3a425560b6e gives independent spatial Poisson processes of increasing/decreasing permutation runs and a separate Gaussian descent fluctuation."
+        ],
+        "reasoning": "This is a theorem rather than a finite table, so the exact check was for indexed equivalent statements. Compared each strongest distinct hit by its actual statistics and domain, not by date; neither edge statistics nor permutation runs supply the joint uniform-spacing field theorem.",
+        "searches": [
+          "Resultary: finitely many uniform spacings multiscale, sliding Gamma windows, spatial Poisson processes and independent maximal k-spacings",
+          "Resultary a7482687ed1b, 11efb3c3fbdc, b4fb3931b856 and f3a425560b6e"
+        ]
+      },
+      "rationale": "Credit the one-length Gumbel limit and the substantial k=2 spatial overlap. The supported distinct claim is the independent marked fields for all lengths jointly in any fixed finite prefix and the resulting joint argmax law. The compared marginal theorems, circular k=2 marked result, and different-statistic joint limits do not establish this independence across all distinct lengths.",
+      "residual_risks": [
+        "Dembo–Karlin full text and Roos full text were not available through the routes tried; a general marked or multiscan implication may have been missed.",
+        "No priority order is inferred from same-date Resultary records; the judgment is about verified coverage to the best of current knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers single-length Gumbel and same-length parity comparison",
+          "evidence": "Uses a fixed k moving sum and Watson's one-sequence theorem, not jointly labeled processes for distinct lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "Theorem 1, HTML offset about 3132; parity discussion and §2 including Eq. (7), offsets within 2900–10963",
+          "method": "OA primary passage inspection",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "Same normalized maximal uniform k-spacing"
+        },
+        {
+          "assessment": "Unresolved exact coverage; publisher route blocked",
+          "evidence": "The title is related; it is not evidence for or against a marked multiscale corollary.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005707",
+          "material_read": "Bibliographic identification only; no paper passage obtained",
+          "method": "Project Euclid OA attempted; focused literature lookup",
+          "title": "Poisson Approximations for r-Scan Processes",
+          "trigger": "Potential general scan/spacing Poisson approximation"
+        },
+        {
+          "assessment": "Snippet covers circle m-spacing counts; fuller implications unresolved",
+          "evidence": "Suitable compound-Poisson approximations to counts of large and small m-spacings on a circle. Publisher identifies Advances in Applied Probability, not Journal of Applied Probability as in the frozen reference.",
+          "identifier_or_url": "https://doi.org/10.2307/1427795",
+          "material_read": "Search index abstract snippet and journal identification; not full text",
+          "method": "Index snippet; JSTOR landing/abstract route and lawful Cambridge OA alternate attempted",
+          "title": "Compound Poisson Approximations for the Numbers of Extreme Spacings",
+          "trigger": "Same spacing extreme count and Poisson methodology"
+        },
+        {
+          "assessment": "Material single-k=2 spatial overlap with an extra mark",
+          "evidence": "2L_i is the adjacent-gap sum and the normalized score has PPP intensity du exp(−x) dx dr. No independent fields of different spacing lengths stated therein.",
+          "identifier_or_url": "Resultary 2026/11/22/11efb3c3fbdc",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2000 and 1450–2650 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror passage",
+          "title": "Marked extremes of circular one-dimensional Voronoi cells",
+          "trigger": "Strongest adjacent-gap and spatial marked field overlap"
+        },
+        {
+          "assessment": "Uses distinct nearest-neighbor statistics, not consecutive spacing lengths",
+          "evidence": "Joint independent Gumbels for ordinary gaps, directed neighbor edges and mutual-neighbor edges.",
+          "identifier_or_url": "Resultary 2026/11/22/b4fb3931b856",
+          "material_read": "RESULT.md Finding, offsets 0–2091",
+          "method": "Resultary search and local mirror passage",
+          "title": "Three independent extreme scales in one-dimensional nearest-neighbor geometry",
+          "trigger": "Same-date joint independent extreme limits"
+        },
+        {
+          "assessment": "Different underlying permutation and growing-run regime",
+          "evidence": "Spatial Poisson fields for ascending and descending runs and independent Gaussian descents.",
+          "identifier_or_url": "Resultary 2026/10/18/f3a425560b6e",
+          "material_read": "RESULT.md Finding, offsets 0–1800",
+          "method": "Resultary search and local mirror passage",
+          "title": "Joint spatial Poisson and Gaussian limits for long monotone runs",
+          "trigger": "Possible related multitype spatial Poisson theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof 3–5",
+        "Mijatović–Vysotsky Theorem 1; Resultary 11efb3c3fbdc and b4fb3931b856"
+      ],
+      "rationale": "The statistics share almost all the same underlying sample and often overlapping windows. The theorem identifies when their extremal dependence disappears even for spatial fields and maximizing locations, not just one set of Gumbel marginals. This supplies joint calibration for arbitrary fixed groups of spacing lengths and an explanation in terms of overlap decay. No claim of added value is made for isolated k=1 or k=2 marginals.",
+      "residual_risks": [
+        "Asymptotic description only; not a guarantee for growing lengths, nonuniform samples or finite-n multiple testing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

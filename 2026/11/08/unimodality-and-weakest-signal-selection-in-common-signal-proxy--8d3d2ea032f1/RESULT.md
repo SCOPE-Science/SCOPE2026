@@ -2,101 +2,73 @@
 
 ## Finding
 
-In a finite common-signal voting environment with one expert and an even number of conditionally identical nonexperts, the ex-ante probability of a correct strict-majority decision is **unimodal in the number of nonexperts delegating to the expert**, as long as every nonexpert's competence in every signal state exceeds one half. This holds even when an expert's advantage reverses between signal states. Consequently, the optimal number of delegated votes can be found by a single scan of an exact pivotality formula; a local maximum is global.
+With one expert and an even number of conditionally identical nonexperts, the ex-ante probability of a correct strict-majority decision is unimodal in the number of nonexperts who delegate to the expert, provided the nonexpert competence exceeds one half in every signal state. The expert may be better than the nonexperts in some states and worse in others. The exact increments up to the point where the expert acquires a strict majority suffice to find a global maximizer.
 
-More unexpectedly, if the signal states are finite and have distinct nonexpert competencies, then as the electorate grows the maximizing delegation count eventually depends **only on the least competent signal state with positive prior**, regardless of how rare that state is. In the nondegenerate case this number is the single-state log-odds delegation count of that state, even when other states dominate the ex-ante probability.
-
-The competence condition is substantive: a rational five-voter, two-state example violating it has a strict local *minimum* at one delegation, so unimodality can fail.
+If there is a unique state minimizing nonexpert competence, its prior is fixed and positive, and its expert-to-nonexpert log-odds ratio is not an integer, then the maximizing delegation count is eventually unique as the electorate grows. It equals the single-state log-odds count for that least-competent state, however small its fixed prior. Without the above-half competence condition, unimodality can fail even in a five-voter committee.
 
 ## Assumptions and scope
 
-Fix an integer \(h\ge1\) and a finite nonempty state set \(\mathcal S\). A committee has \(2h+1\) odd-numbered votes: one expert and \(2h\) statistically identical nonexperts. Signal state \(s\in\mathcal S\) occurs before voting with fixed prior \(\pi_s>0\), \(\sum_s\pi_s=1\). Delegation decisions are made before seeing the signal. Conditional on state \(s\), the expert casts the correct binary vote with probability \(r_s\in(0,1)\), and every nonexpert does so with probability \(q_s\in(1/2,1)\). The original (nondelegated) votes are independent conditional on \(s\). Votes are aggregated by strict simple majority and the expert casts all delegated voting weights as one block.
+There are \(2h+1\) unit votes, with integer \(h\ge1\), one expert and \(2h\) nonexperts. A finite nonempty state set \(\mathcal S\) has fixed priors \(\pi_s>0\), \(\sum_s\pi_s=1\). Delegation is decided before the signal is seen. Conditional on state \(s\), the original votes are independent, and the expert and each nonexpert are correct with probabilities \(r_s\in(0,1)\) and \(q_s\in(1/2,1)\), respectively. The expert casts the expert's own vote and all delegated votes as one block. The voting rule is strict simple majority.
 
-For each integer \(t\in\{0,\ldots,2h\}\), let \(P_h(t)\) denote ex-ante majority correctness when exactly \(t\) nonexperts delegate to the expert, the other nonexperts vote directly, and each person has unit weight before delegation. Identity of the \(t\) nonexperts does not matter because their conditional law is homogeneous. Let \(T_{m,q}(k)=\Pr\{\operatorname{Bin}(m,q)\ge k\}\) with probability \(1\) for \(k\le0\) and \(0\) for \(k>m\).
-
-For \(0\le t\le h\):
+Let \(P_h(t)\) be the ex-ante correctness for \(t\in\{0,\dots,2h\}\) delegators. Their identities do not matter by conditional homogeneity. Write \(T_{m,q}(k)=\Pr\{\operatorname{Bin}(m,q)\ge k\}\), with the conventions \(T_{m,q}(k)=1\) for \(k\le0\) and \(T_{m,q}(k)=0\) for \(k>m\). For \(0\le t\le h\),
 \[
- P_h(t)=\sum_{s\in\mathcal S}\pi_s\bigl[r_sT_{2h-t,q_s}(h-t)+(1-r_s)T_{2h-t,q_s}(h+1)\bigr].
+P_h(t)=\sum_s\pi_s\big[r_s T_{2h-t,q_s}(h-t)+(1-r_s)T_{2h-t,q_s}(h+1)\big].
 \]
-For \(h\le t\le2h\), the expert has a strict majority of the original voting weights, so \(P_h(t)=\sum_s\pi_sr_s\) is constant.
-
-Define \(\Delta_h(t)=P_h(t+1)-P_h(t)\). Then for \(0\le t<h\) the exact increment is
+For \(h\le t\le2h\), the expert has at least \(h+1\) votes and \(P_h(t)=\sum_s\pi_s r_s\) is constant. The nontrivial increments \(\Delta_h(t)=P_h(t+1)-P_h(t)\), for \(0\le t<h\), are
 \[
-\boxed{\Delta_h(t)=\binom{2h-t-1}{h}\sum_s\pi_s[q_s(1-q_s)]^{h-t-1}\bigl[r_s(1-q_s)^{t+2}-(1-r_s)q_s^{t+2}\bigr].}
+\boxed{\Delta_h(t)=\binom{2h-t-1}{h}\sum_s\pi_s[q_s(1-q_s)]^{h-t-1}
+\big[r_s(1-q_s)^{t+2}-(1-r_s)q_s^{t+2}\big].}
 \]
 
-**Finite-state unimodality.** For every \(h\ge1\), the sequence \(P_h(0),\ldots,P_h(2h)\) is nondecreasing up to a maximum and nonincreasing thereafter. Among \(0,\ldots,h\), there can be at most one zero increment, followed by strictly negative increments. The constant suffix after \(h\) is forced by majority dictatorship; if this suffix begins after a positive increment it is also optimal. No monotonicity assumption on expert competence across signal states is needed.
+**Finite-state unimodality.** The sequence is nondecreasing up to a maximum and nonincreasing thereafter. In the prefix of increments indexed by \(0\le t<h\), there is an initial block of positive increments, then at most one zero, then only negative increments; any of these blocks may be empty. One can choose a global maximizer by taking the first \(t<h\) with \(\Delta_h(t)\le0\), or \(h\) if there is no such \(t\). If the sequence reaches \(h\) without a negative increment, the constant suffix is optimal as well. A point of the constant suffix can otherwise be a nonglobal weak local maximum, so equality with adjacent values is not a sufficient optimality test.
 
-**Rare-state selection.** Assume further that some unique \(s_\star\) minimizes \(q_s\), and set
+**Least-state selection.** If a unique state \(s_*\) minimizes \(q_s\), set
 \[
-\alpha_\star=\frac{\log(r_{s_\star}/(1-r_{s_\star}))}{\log(q_{s_\star}/(1-q_{s_\star}))}.
+\alpha_* = \frac{\log(r_{s_*}/(1-r_{s_*}))}{\log(q_{s_*}/(1-q_{s_*}))}.
 \]
-If \(\alpha_\star\notin\mathbb Z\), then for all sufficiently large \(h\) the unique maximizing delegation count is
+If \(\alpha_*\notin\mathbb Z\), for all sufficiently large \(h\) the unique maximizing count is
 \[
-\boxed{t_\star=\max\{0,\lfloor\alpha_\star-1\rfloor\}.}
+\boxed{t_* = \max\{0,\lfloor\alpha_*-1\rfloor\}.}
 \]
-This conclusion is insensitive to \(\pi_{s_\star}\), provided it is fixed and positive as \(h\) grows. The threshold population size may depend strongly on this prior. Integer log-odds ratios can produce an adjacent pair of optimal counts; their eventual tie-breaking may depend on the other states and is not asserted here.
+The threshold for \(h\) may depend strongly on the prior \(\pi_{s_*}\). At integer ratios the leading least-state increment can vanish; a tie or its resolution by other states is not covered by the unique-count theorem.
 
-For example, take \(\pi_0=1/1000\), \(q_0=11/20\), \(r_0=9/10\), and \(\pi_1=999/1000\), \(q_1=4/5\), \(r_1=9/10\). For all sufficiently large \(h\), the unique optimum is \(t=9\), although the rarer state occurs only one time in a thousand. Exact computations verify \(t=9\) at \(h=100,150,200\).
+For example, set \(\pi_0=1/1000\), \(q_0=11/20\), \(r_0=9/10\), \(\pi_1=999/1000\), \(q_1=4/5\), and \(r_1=9/10\). Since \((11/9)^{10}<9<(11/9)^{11}\), the eventual optimum is \(t=9\). Exact increment signs give this same optimum at \(h=100,150,200\).
 
-If the condition \(q_s>1/2\) is dropped, unimodality can fail even when the expert is individually more competent than the nonexperts in both states. At \(h=2\), let
+**Failure below one half.** At \(h=2\) take
 \[
-(\pi_0,q_0,r_0)=(1/5,1/20,1/4),\qquad
-(\pi_1,q_1,r_1)=(4/5,9/10,19/20).
+(\pi_0,q_0,r_0)=(1/5,1/20,1/4),\qquad (\pi_1,q_1,r_1)=(4/5,9/10,19/20).
 \]
-Then \(P_2(0)=6366953/8000000\), \(P_2(1)=15911/20000\), and \(P_2(2)=81/100\), so \(P_2(0)>P_2(1)<P_2(2)\).
+Here the expert is individually more competent in both states, but the tail formula gives \(P_2(0)=6366953/8000000\), \(P_2(1)=15911/20000\), and \(P_2(2)=81/100\). Thus \(P_2(0)>P_2(1)<P_2(2)\), contradicting unimodality.
 
 ## Proof
 
-**Increment identity.** Consider a fixed state \(s\) and a transition from \(t\) to \(t+1\) delegated nonexperts. Write \(B\sim\operatorname{Bin}(2h-t-1,q_s)\) for the votes from the remaining direct voters, and let \(X\sim\operatorname{Ber}(q_s)\) be the vote of the additional potential delegator, independent of \(B\) and the expert. If the expert is correct, the change in success probability is
+**Increment formula.** Fix a signal state and abbreviate \(q=q_s\), \(r=r_s\). When one more person delegates, let \(B\sim\operatorname{Bin}(2h-t-1,q)\) count the correct votes of the remaining direct nonexperts, and \(X\sim\operatorname{Ber}(q)\) be the additional delegator's withdrawn vote, independent of \(B\) and the expert. When the expert is correct, the change in correctness probability is
 \[
- \Pr(B\ge h-t-1)-\Pr(B+X\ge h-t)=(1-q_s)\Pr(B=h-t-1).
+\Pr(B\ge h-t-1)-\Pr(B+X\ge h-t)=(1-q)\Pr(B=h-t-1).
 \]
-If the expert is wrong, the change is
-\[
- \Pr(B\ge h+1)-\Pr(B+X\ge h+1)=-q_s\Pr(B=h).
-\]
-Since \(\binom{2h-t-1}{h-t-1}=\binom{2h-t-1}{h}\), substitution of the binomial point masses, averaging by \(r_s\) and \(\pi_s\), and factoring out the binomial coefficient yields the boxed expression. This is an identity for all declared indices, not an approximation.
+When the expert is wrong, the change is \(\Pr(B\ge h+1)-\Pr(B+X\ge h+1)=-q\Pr(B=h)\). The two point-mass binomial coefficients are equal because their lower indices sum to \(2h-t-1\). Weighting the gain and loss by \(r,1-r\) and then averaging over states gives the boxed formula, including \(t=h-1\).
 
-**Single crossing.** For \(0\le t<h\) define the nonnegative quantities
+**Single crossing.** Removing the positive binomial coefficient leaves \(A_t-B_t\), where
 \[
- A_t=\sum_s\pi_sr_sq_s^{h-t-1}(1-q_s)^{h+1},\qquad
- B_t=\sum_s\pi_s(1-r_s)q_s^{h+1}(1-q_s)^{h-t-1}.
+A_t=\sum_s\pi_sr_s q_s^{h-t-1}(1-q_s)^{h+1},\qquad
+B_t=\sum_s\pi_s(1-r_s)q_s^{h+1}(1-q_s)^{h-t-1}.
 \]
-The increment has the sign of \(A_t-B_t\). For \(t+1<h\), the assumption \(q_s>1/2\) gives \(A_{t+1}<2A_t\) because each summand is multiplied by \(1/q_s<2\), and \(B_{t+1}>2B_t\) because each summand is multiplied by \(1/(1-q_s)>2\). All terms are strictly positive. Thus \(A_t\le B_t\) implies \(A_{t+1}<B_{t+1}\). There cannot be a change from a negative increment to a later positive increment, or two zero increments. This proves the asserted unimodality for the nonconstant prefix. For \(t\ge h\), the expert already holds at least \(h+1\) votes, which proves the final constant suffix.
+For \(t+1<h\), each positive term in \(A_t\) increases by a factor \(1/q_s<2\) and each in \(B_t\) increases by a factor \(1/(1-q_s)>2\). Thus \(A_t\le B_t\) gives \(A_{t+1}<B_{t+1}\). This proves the sign pattern and, with the constant suffix, the unimodality and scan rule. For example, with one state, \(h=2\), \(r=1/2\), and \(q=3/4\), one has \(P_2(1)=45/64\) and \(P_2(2)=P_2(3)=P_2(4)=1/2\). Here \(t=3\) is a weak local maximum but is not globally optimal.
 
-**Selection by the weakest state.** Write the state summand of the boxed increment, omitting its common positive binomial coefficient, as
-\[
- [q_s(1-q_s)]^{h-t-1}G_s(t),\quad
- G_s(t)=r_s(1-q_s)^{t+2}-(1-r_s)q_s^{t+2}.
-\]
-For each fixed integer \(t\), \(q_s(1-q_s)\) is strictly decreasing over \(q_s\in(1/2,1)\). Unique minimality of \(q_{s_\star}\) therefore implies that, as \(h\to\infty\), the sign of \(\Delta_h(t)\) eventually equals the sign of \(G_{s_\star}(t)\), provided the latter is nonzero. The noninteger condition on \(\alpha_\star\) ensures this nonvanishing for all integers \(t\ge0\).
-
-The use of fixed \(t\) is justified uniformly as follows. As \(q_s/(1-q_s)>1\) and \(r_s<1\), there exists a finite integer \(T\) such that \(G_s(T)<0\) for **every** state. For every \(h>T\), the increment at \(T\) is negative, and the single-crossing theorem forces all later increments (up to \(h-1\)) to be negative. Hence all maximizing counts are in the finite set \(\{0,\ldots,T\}\). On this finite set, eventual signs coincide with the least-competent state's signs. Its sign is positive exactly when
-\[
- t+2<\alpha_\star.
-\]
-Because these signs cross once and no tie occurs, the optimum is \(\max\{0,\lfloor\alpha_\star-1\rfloor\}\) for all sufficiently large \(h\). Notice that the factor \(\pi_{s_\star}>0\) only modifies the finite crossover population, not the limiting optimizer.
-
-**Sharpness example.** Substitution of the displayed rational parameters into the binomial-tail formula gives the three exact fractions above; their inequalities are strict, so the claimed failure of unimodality follows without numerical approximation.
+**Selection for large electorates.** The state summand in the increment, without the common coefficient, is \(\pi_s[q_s(1-q_s)]^{h-t-1}G_s(t)\), with \(G_s(t)=r_s(1-q_s)^{t+2}-(1-r_s)q_s^{t+2}\). On \((1/2,1)\), the function \(q\mapsto q(1-q)\) is strictly decreasing. For fixed \(t\), dividing the sum by the least state's positive exponential factor leaves a limit \(\pi_{s_*}G_{s_*}(t)\), whose sign is nonzero when \(\alpha_*\notin\mathbb Z\). Because the number of states is finite, all their \(G_s(T)\) are strictly negative at some fixed integer \(T\): each ratio \(q_s/(1-q_s)\) exceeds one and each expert competence is less than one. For \(h>T\), the negative increment at \(T\) and single crossing exclude all maximizing counts greater than \(T\), including the constant suffix. Thus only finitely many fixed-\(t\) signs are needed. For the least state the sign is positive exactly when \(t+2<\alpha_*\). Counting the strictly positive increments before the first negative one yields \(\max\{0,\lfloor\alpha_*-1\rfloor\}\). The rare-state result follows because its positive fixed prior does not affect that eventual sign.
 
 ## Verification
 
-Run `python3 verify.py` with Python 3 and only the standard library. The script checks the exact incremental identity against independently summed binomial tails in 5,760 state/parameter/increment cases; checks unimodality in 1,280 randomly seeded but exactly rational finite-state instances; checks the rational non-unimodal boundary example; tests the eventual rare-state optimizer at three electorate sizes with exact rational signs; and compares the single-state cutoff against direct exact signs. This finite verification supports, but does not replace, the infinite proofs above. Inputs and outputs are deterministic.
+The companion `verify.py` uses Python 3 and the standard library. It compares the pivotal formula with exact binomial tails in 5,760 cases and checks 1,280 rational finite-state environments for unimodality. It also tests the five-voter example and checks the rare-state example by exact rational increment signs at the three declared sizes. In its scalar log-odds grid, the integer case is skipped; it uses floating logarithms to choose the noninteger cutoff to test against exact signs. These are finite diagnostics; the theorem follows from the proof.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Gilbert et al. (2026, arXiv:2608.16738; short peer-reviewed proceedings version DOI:10.4230/LIPIcs.DISC.2026.64) introduce the signal-conditioned liquid-democracy model and study safe delegation mechanisms, failures of average-competence reductions, and conditional concentration. The six-page proceedings text was examined in full. It does not state an optimizer for the number of proxies in a symmetric single-expert star, a finite-signal unimodality theorem, or rare-state asymptotic selection. The longer arXiv preprint could not be read and remains an explicit overlap risk.
+Gilbert et al. develop common-signal liquid democracy and study state-conditioned concentration, safe graph delegation mechanisms, and failures of averaging competence. In the accessible full preprint, the model and mechanism contributions (pp. 1–3), statewise intersection mechanism (Theorem 1, p. 10), accuracy conditions (p. 13), and discussion (p. 17) concern different claims from optimizing the number of delegators in this one-expert star. Dhillon et al., arXiv:2306.03960v1, Proposition 3, already give the scalar log-odds proxy count for a single expert in their neutral-equilibrium setting, with a cap from finite electorate size. The one-state formula is not a novelty claim. The distinction here is the preservation of unimodality under finite common-signal mixtures and selection by their least nonexpert competence state under the stated nondegeneracy condition. The literature comparison is not an exhaustive priority claim.
 
-Dhillon et al. (arXiv:2306.03960; 2026 open-access article DOI:10.1111/iere.70126, Section 5.3.1) already characterize optimal proxy counts for a *single independent competence environment* using the ratio of log odds. The one-state specialization here is **not** claimed as new. The additional result is the nontrivial ex-ante mixture theorem: optimizing a mixture of majority probabilities is not in general the same as averaging or selecting their component-wise optimizers, and the common-signal model supplies a specific structure preserving unimodality while inducing least-state asymptotic selection. The earlier 2025 work by Chatterjee et al. concerns performance guarantees for network-based mechanisms in the scalar competence setting.
-
-## Limitations
-
-The theorem is limited to one expert, equally competent nonexperts within each signal state, conditionally independent votes, odd total voter counts, pre-signal delegation and simple majority. It does not analyze equilibria, endogenous choices by individual voters, heterogeneous nonexpert competencies, or arbitrary delegation graphs. Positive competence above one half in every state is essential to the general unimodality guarantee; if the probability distribution over signals changes with electorate size, the rare-state asymptotic law need not hold. The long version of the closest 2026 common-signal paper was not accessible for full-text overlap comparison, so independent originality verification remains necessary.
+The result does not cover arbitrary delegation graphs, heterogeneous nonexperts within a signal state, endogenous delegation, voting rules other than the stated strict majority, or priors varying with electorate size. The finite-state model with one expert and an odd total number of votes is essential to the argument as presented.
 
 ## References
 
-1. S. Gilbert, S. Schmid, S. Schnell, J. Svoboda, and M. X. Yeo, *Liquid democracy under vote correlation: On the fallacies of averaging and the excluded middle*, arXiv:2608.16738, initially public 2026-08-17. https://arxiv.org/abs/2608.16738
-2. The same authors, *Brief Announcement: Liquid Democracy Under Vote Correlation*, LIPIcs DISC 2026, Article 64, published 2026-11-02. https://doi.org/10.4230/LIPIcs.DISC.2026.64
-3. A. Dhillon, G. Kotsialou, D. Ravindran, and D. Xefteris, *Information aggregation with delegation of votes*, arXiv:2306.03960, initially public 2023-06-06; journal version 2026. https://arxiv.org/abs/2306.03960 and https://onlinelibrary.wiley.com/doi/10.1111/iere.70126
-4. K. Chatterjee, S. Gilbert, S. Schmid, J. Svoboda, and M. X. Yeo, *When is liquid democracy possible? On the manipulation of variance*, PODC 2025. https://doi.org/10.1145/3732772.3733544
+1. S. Gilbert, S. Schmid, S. Schnell, J. Svoboda, and M. X. Yeo, *Liquid democracy under vote correlation: On the fallacies of averaging and the excluded middle*, https://arxiv.org/abs/2608.16738. Brief announcement: https://doi.org/10.4230/LIPIcs.DISC.2026.64.
+2. A. Dhillon, G. Kotsialou, D. Ravindran, and D. Xefteris, *Information aggregation with delegation of votes*, https://arxiv.org/abs/2306.03960v1; journal DOI 10.1111/iere.70126.
+3. K. Chatterjee, S. Gilbert, S. Schmid, J. Svoboda, and M. X. Yeo, *When is liquid democracy possible? On the manipulation of variance*, PODC 2025, https://doi.org/10.1145/3732772.3733544.

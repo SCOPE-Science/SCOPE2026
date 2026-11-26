@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:37.370321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 29–67",
+        "Frozen VERIFICATION.md and verify_rb.py (read without executing); independent small prime-field enumerations by truncated convolution and bilinearity"
+      ],
+      "rationale": "For b_j=P^j(1), the weight-zero identity inductively gives b₁b_j=(j+1)b_(j+1), so P(1)^p=p!b_p=0. If a≠0 has valuation r, its p-th power is zero exactly when pr≥N (its leading coefficient remains nonzero over any field). For sufficiency the t^i a^j with 0≤i<r and i+rj<N are a triangular basis with unit leading coefficients. The group for each i is invariant under a, since the last basis vector maps to zero by truncation; hence the projection π onto i=0 is k[a]-linear. The target subalgebra has length L=ceil(N/r)≤p. Truncated integration a^j↦a^(j+1)/(j+1), zero at the top, uses only 1 through L−1. On a pair a^i,a^j the two sides have common degree i+j+2 and vanish if that degree is truncated, including if an input is top degree. Otherwise the integration denominators are units and the usual reciprocal identity applies. The subalgebra-linearity of π pulls the identity for integration back to the whole algebra, giving P(1)=a. This argument works over the coordinate ring k[a_r,a_r^(-1),a_(r+1),…,a_(N−1)] itself: the triangular diagonal is invertible there and exactly the same basis, projection and multiplication identities apply. This proves the section as a morphism, not just by agreement at field points. The zero section and the finite-field count follow. An independent enumeration of all linear maps in the five listed prime-field/truncation configurations reproduced valid-operator counts 2, 4, 24, 3, 15 and distinct unit-value counts 2, 2, 4, 3, 9, with the exact predicted sets.",
+      "residual_risks": [
+        "No scheme-theoretic image or global section is implied by the reduced stratum sections.",
+        "The frozen construction checks in nonprime finite fields were inspected, not independently rerun; universality over arbitrary fields follows from the algebraic proof, not finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Semigroup algebras of orders two and three address different bases and bounded dimension; polynomial integration results do not give a construction on all modular truncations. Farooq's square-zero theorem is in characteristic zero. Indexed square-zero and cubic classifications in arbitrary fields cover N=2 and N=3 respectively; the rank-one classification covers all square-zero target values at arbitrary depth in its range."
+        ],
+        "reasoning": "The low-depth specializations are not novel. The rank-one coverage gives the entire unit locus in characteristic two but not the a²≠0 part in odd characteristic. Neither changes of basis in small dimension nor characteristic-zero integration imply the general claim.",
+        "searches": [
+          "arXiv:1402.3702v1 §§2–3; arXiv:1407.5306v1 pp. 1–2; arXiv:2605.15670v1 Theorem 3.4",
+          "Resultary d54cb64d85dc, 97221b8c357d and cc88314accfe"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.00936v1, 1402.3702v1, 1407.5306v1, 2605.15670v1",
+        "Resultary d54cb64d85dc, 97221b8c357d, cc88314accfe, 81569fea514e and bounded subject lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In cc88314accfe take the rank-one functional to be constant term to attain every a∈(t^ceil(N/2)); its linear formula also provides the section there. In cubic degree put c=0 in characteristic two and c=a/2 otherwise to attain the entire stated special-case ideal. The unrestricted theorem also realizes targets with square nonzero, requiring higher rank."
+        ],
+        "reasoning": "The exact reductions credit specific overlap rather than just similar titles. The k[a]-linear direct-summand and truncated integration are the steps establishing the remaining converse and its regularity, not a specialization of the inspected coverage.",
+        "searches": [
+          "Guo–Yu arXiv:1511.00936v1, Theorem 2.1",
+          "Resultary cc88314accfe and 97221b8c357d, Findings",
+          "Frozen RESULT.md, triangular splitting and sections proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The initial weight-zero algebra has divided-power product and sends its j-th basis element to P^j(1); it gives the necessary Frobenius obstruction. The paper's term 'Rota–Baxter characteristic' refers to the kernel of this map, not the characteristic of the ground field."
+        ],
+        "reasoning": "The free/initial algebra calculation determines a universal necessary relation and is credited. It gives no extension operator on the ambient truncated algebra for every chosen nilpotent unit value.",
+        "searches": [
+          "arXiv:1511.00936v1 §2, Eq. (2) and Theorem 2.1",
+          "Resultary searches on modular truncated algebras, unit values, Frobenius-nilpotent images and valuation sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d54cb64d85dc gives P(c+v)=cu+L(v), L²=0 and 2L(u)=0; for one-dimensional V this gives every u∈kt and the associated section at N=2. 97221b8c357d gives P(1)=at+bt², P(t)=ct², P(t²)=0 with a(a−2c)=0, recovering exactly the expected N=3 unit sets and sections. The two rank-one entries concern the rank-at-most-one sector; a census of such operators is not a census of unrestricted unit values."
+        ],
+        "reasoning": "The square-zero match is a pre-date special case; the cubic and rank-one catalogue entries have later dates and are credited for equivalent sector coverage, not earlier priority. No exact unrestricted valuation-stratum table or theorem surfaced. The finite-field count is merely the cardinality of the proven image, not an independent new census.",
+        "searches": [
+          "Resultary d54cb64d85dc (square-zero local algebras), 97221b8c357d (cubic truncation), cc88314accfe (rank-one loci), 81569fea514e (rank-one census)"
+        ]
+      },
+      "rationale": "The divided-power obstruction, the square-zero case, and additional low-depth/rank-one sectors are covered and are not counted as new. The inspected results do not imply the arbitrary-depth converse for elements with a^p=0 but a²≠0, nor the general regular valuation-stratum sections. For example, p=3, N=6, a=t² is on the claimed locus but a²=t⁴≠0; a rank-one operator with this unit value cannot satisfy a²=2P(a), since its image would be ka and a² is not proportional to a. No dominating arbitrary-depth, all-positive-characteristic locus theorem was found in the bounded comparison.",
+      "residual_risks": [
+        "Unindexed or differently formulated general algebraic extension theorems are not ruled out by these bounded checks.",
+        "No global priority determination is made; small-depth and rank-one overlaps are expressly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers necessity but not sufficiency or sections",
+          "evidence": [
+            "At weight zero the map from the divided-power algebra sends basis a_j to P^j(1), so P(1)^p=0 in characteristic p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.00936v1",
+          "material_read": "PDF pp. 3–4, Eq. (2), Theorem 2.1 and Definition 2.2",
+          "method": "Open primary PDF passages",
+          "title": "Characteristics of Rota-Baxter Algebras",
+          "trigger": "Universal unit-value obstruction in the initial algebra"
+        },
+        {
+          "assessment": "Finite semigroup-algebra setting, not arbitrary truncation depth",
+          "evidence": [
+            "Works with two- or three-element semigroup bases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.3702v1",
+          "material_read": "PDF §§2–3, pp. 2–6",
+          "method": "Open primary PDF passages",
+          "title": "Classification of Rota-Baxter operators on semigroup algebras of order two and three",
+          "trigger": "Small-dimensional classification that might contain low-depth cases"
+        },
+        {
+          "assessment": "Related integration mechanism, not the modular truncated evaluation locus",
+          "evidence": [
+            "Studies classes on k[x]; its monomial analysis uses characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.5306v1",
+          "material_read": "PDF pp. 1–2, scope and monomial discussion",
+          "method": "Open primary PDF passages",
+          "title": "Rota-Baxter operators on the polynomial algebras, integration and averaging operators",
+          "trigger": "Integration and monomial Rota–Baxter constructions"
+        },
+        {
+          "assessment": "Square-zero characteristic-zero classification; hypotheses do not dominate",
+          "evidence": [
+            "On K[x_1,…,x_n]/m² in characteristic zero the weight-zero maps have image in m/m² and square zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.15670v1",
+          "material_read": "PDF p. 1 and Theorem 3.4, p. 3",
+          "method": "Open primary PDF passages",
+          "title": "Rota–Baxter Operators on Truncated Polynomial Algebras",
+          "trigger": "Closest primary title and plausible wider classification"
+        },
+        {
+          "assessment": "Despite title, all-field result gives the exact N=2 locus and section",
+          "evidence": [
+            "L²=0 on the one-dimensional ideal forces L=0; any u∈kt is attained."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-characteristic-two-rota-baxter-resonance-on-square-zero-local-al--d54cb64d85dc",
+          "material_read": "RESULT.md Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "Characteristic-two Rota–Baxter resonance on square-zero local algebras",
+          "trigger": "Earlier square-zero indexed match"
+        },
+        {
+          "assessment": "Later indexed equivalent for N=3, not arbitrary N",
+          "evidence": [
+            "The constraint a(a−2c)=0 separates p=2 from odd p, yielding exactly the predicted two possible ideals."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-weight-zero-rota-baxter-operators-on-the-cubic-truncated-polynom--97221b8c357d",
+          "material_read": "RESULT.md Finding, local mirror snapshot as above",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "Weight-zero operators on the cubic truncated polynomial algebra",
+          "trigger": "Classification on the identical algebra at N=3"
+        },
+        {
+          "assessment": "Later coverage of square-zero target sector and p=2 locus only",
+          "evidence": [
+            "Choosing the constant-term functional in the rank-one family gives all elements in the high-valuation square-zero ideal."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-rank-one-rota-baxter-loci-of-truncated-polynomial-algebras--cc88314accfe",
+          "material_read": "RESULT.md Finding, local mirror snapshot as above",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "Rank-one Rota–Baxter loci of truncated polynomial algebras",
+          "trigger": "Rank-one family at all higher truncation depths"
+        },
+        {
+          "assessment": "Rank-one component geometry/census, not the unrestricted evaluation image",
+          "evidence": [
+            "Counts operators in the rank-one locus, rather than distinct unit values of arbitrary operators."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-segre-component-geometry-and-exact-rank-one-rota-baxter-census-f--81569fea514e",
+          "material_read": "RESULT.md Finding, local mirror snapshot as above",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "Segre-component geometry and exact rank-one census",
+          "trigger": "Indexed finite-field count in the same algebra family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, realization, sections and limitations",
+        "Guo–Yu universal obstruction and indexed low-depth/rank-one comparisons"
+      ],
+      "rationale": "Evaluation at the unit is a natural invariant of a unital Rota–Baxter algebra. The universal necessary obstruction alone leaves it unclear whether a prescribed generator can be realized on the fixed ambient algebra. Solving that realization problem for all depths and giving regular families of witnesses makes the result useful for constructions and moduli comparisons. The predictable finite-field count is a consequence, not the sole value.",
+      "residual_risks": [
+        "Does not classify all operators or determine the global scheme image, and does not enumerate all finite-field operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

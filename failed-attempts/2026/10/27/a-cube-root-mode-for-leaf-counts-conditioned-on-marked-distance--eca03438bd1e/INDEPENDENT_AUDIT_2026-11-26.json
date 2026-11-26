@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:44:03.021935Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With r=k+1 fixed path vertices, the forest-completion count is r n^(n−r−1), since the relevant complete-graph minor is nI−J with a single eigenvalue r; the empty minor at r=n gives 1. For a specified off-path leaf, deletion preserves the root set and gives n−1 attachments; for a marked leaf, deletion removes an isolated root. The resulting probabilities are q^(n−r−1) and (r−1)q^(n−r−1)/r (q=(n−1)/n), respectively, and the internal vertices are excluded. At r=n the formula evaluates to 2, as required for a spanning path. The fixed-path mean depends only on its length. Subtracting consecutive expressions gives the stated increment with sign of 2(n−1)−k(k+1)². This cubic is strictly increasing; the first transition is positive and the last difference is (3−n)/(n−1) when n≥4, with just a two-point tie at n=3. The integer equality gives exactly the claimed two-point plateaus; the index crossing of a monic cubic at 2(n−1) gives the cube-root asymptotic for either maximizing distance. An individual endpoint's probability strictly increases because both k/(k+1) and q^(n−k−2) increase. The uploaded finite Prüfer check was inspected, not executed, and is not required for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/26 Finding gives the conditional joint law of endpoint and off-path leaves and explicitly labels the identical mean already known. Bousquet-Mélou–Chapuy count by height and in-degree in the rooted Cayley specialization; Berzunza Ojeda–Janson use distance profiles and a leaf-biased law."
+        ],
+        "reasoning": "Adding the two populations in the joint law recovers the global count and its mean. The profile census jointly determines total leaves (with a root correction) and the number H_k at depth k of a fixed root, so exchangeability recovers the conditional mean via E[L H_k]/E[H_k]; the inspected profile text does not explicitly simplify this ratio to the cubic rule. The leaf-biased/asymptotic paper is not in itself direct statement-level evidence of the exact formula.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71",
+          "Berzunza Ojeda and Janson arXiv:2009.00572, marked-edge and leaf-marking passages",
+          "Bousquet-Mélou and Chapuy, The vertical profile of embedded trees, pp. 7, 11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cayley_leaves.py",
+        "Resultary records dated 10/4, 10/13, 10/18, 10/26 and 11/2 identified above",
+        "Bousquet-Mélou–Chapuy, The vertical profile of embedded trees",
+        "Berzunza Ojeda–Janson arXiv:2009.00572",
+        "Remmel–Williamson arXiv:1009.2060 p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint-degree prior gives Bin(n−k−2,1/n)+Bernoulli(1/(k+1)) for degree minus one for k≤n−2. The direct mode records split marked versus unmarked leaves, one using the same rooted-forest derivation and the other marked-leaf deletion."
+        ],
+        "reasoning": "The zero probability mass of the endpoint degree-minus-one law is the identical endpoint-leaf probability, increasing with k (the spanning path is deterministic). Standing alone it does not imply the entire total mean, but both direct mode records additionally compute the off-path contribution and the same increment. Thus neither the contrast, proof mechanism, boundary case nor asymptotic leaves a distinct scientific claim worth repair.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "10/13 cubic-root modal distance proof, local mirror offset 0",
+          "10/18 cubic-optimal marked distance proof, local mirror offsets 3200–4400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/18 Finding gives the same all-k mean and increment, and the one- or two-mode rule with k(k+1)²=2(n−1). The 10/13 Finding states the same mean plus the spanning-path boundary, the cubic increment and mode."
+        ],
+        "reasoning": "The mean coefficients agree since n−k−1+2k/(k+1)=n−k+1−2/(k+1). The 10/13 numerator 2n−(k²+1)(k+2) is 2(n−1)−k(k+1)², and its last-transition calculation agrees. The 10/18 tie formula is written in k rather than r=k+1. All claims concern total leaves, not distance between vertices conditioned to be leaves.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-a-cubic-optimal-marked-distance-for-expected-leaves-in-uniform-l--840398b1b878",
+          "Resultary 2026/10/13/SCOPE-a-cubic-root-modal-distance-for-the-expected-leaf-count-in-cayle--51666dfb40bf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/13 and 10/18 matches provide exact all-size formulas in the catalog, stronger than a finite table. Remmel–Williamson count/rank trees with a specified leaf number or leaf set, not the marked-distance condition in the inspected passage. The later-dated indexed 11/2 record has the same mean and increment and a conditional PGF."
+        ],
+        "reasoning": "The catalog formulas cover every case of the requested mean and mode; a finite computed table would not distinguish the record. The unconditioned leaf enumeration alone does not determine the joint mean. The later comparison is not relied on for earlier availability.",
+        "searches": [
+          "Resultary: cubic-optimal marked distance and cube-root modal distance for expected Cayley-tree leaves",
+          "Remmel and Williamson arXiv:1009.2060 p. 2",
+          "Resultary 2026/11/2/SCOPE-leaf-distance-regression-in-uniform-labeled-trees-has-a-cubic-tu--5b514317d3e6"
+        ]
+      },
+      "rationale": "Two distinct records already in the Resultary corpus state this exact global mean, increment/sign criterion, complete tie rule and cube-root mode in the same uniform unrooted labeled-tree model with two fixed marked vertices. The 10/13 record also uses the same path-conditioned matrix-tree/deletion proof, and the 10/18 record gives the increment in exactly the claimed range and normalization. The marked-endpoint contrast uses the prior endpoint law. This is demonstrable equivalent coverage, not an inference of immutable posting priority from catalog dates or a failure based on searches unavailable.",
+      "residual_risks": [
+        "The cited Resultary files are distinct matching statements in the inspected mirror; immutable first-publication times and ultimate historical priority were not adjudicated.",
+        "Some broader web searches were deferred and a Janson 2003 DOI lookup did not yield full text. Neither limitation is material to the direct coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the entire principal finding.",
+          "evidence": [
+            "Exact increment numerator 2(n−1)−k(k+1)² for 1≤k≤n−2 and complete maximizing-distance criterion; additionally covers n=2 and a limiting height difference."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-optimal-marked-distance-for-expected-leaves-in-uniform-l--840398b1b878/RESULT.md",
+          "material_read": "Finding, scope (offset 0) and deletion proof passages (offsets 3200–4400)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A cubic-optimal marked distance for expected leaves in uniform labeled trees",
+          "trigger": "Same object, exact regression and cubic mode under an alternative coefficient convention"
+        },
+        {
+          "assessment": "Direct coverage with the same conditioned rooted-forest argument and algebraically equivalent increment.",
+          "evidence": [
+            "Uses det(nI−J), deletion of a nonroot leaf or isolated path root, the formula for the same conditional mean and a threshold at (k²+1)(k+2)≥2n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cubic-root-modal-distance-for-the-expected-leaf-count-in-cayle--51666dfb40bf/RESULT.md",
+          "material_read": "Finding, scope and proof at offset 0 through 5172",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A cubic-root modal distance for the expected leaf count in Cayley trees",
+          "trigger": "Identical mode and plausible same proof"
+        },
+        {
+          "assessment": "Joint law covers the mean; explicitly acknowledges it as known.",
+          "evidence": [
+            "The expression (m+2d/(d+1))q^(n−d−2), with m=n−d−1 off-path vertices, is the same total mean."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Configured local mirror passage inspection",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Stronger conditional-law result"
+        },
+        {
+          "assessment": "Covers the endpoint portion, not alone the total.",
+          "evidence": [
+            "The two independent terms in the marked endpoint's conditional degree law give the marked-leaf event as the joint event that both terms vanish."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Configured local mirror passage inspection",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "One-endpoint contribution and monotonicity"
+        },
+        {
+          "assessment": "Broader exact census implicitly determines this joint statistic, without the specific simplified mode calculation in inspected passages.",
+          "evidence": [
+            "Height equals depth in the Cayley specialization; joint counts by height and in-degree supply the depth population and leaf count."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i3p46/pdf/",
+          "material_read": "PDF p. 7, S={1} rooted Cayley specialization, and p. 11 degree-type counts near OA offset 31525",
+          "method": "OA PDF passage inspection",
+          "title": "The vertical profile of embedded trees",
+          "trigger": "Potential exact database of simultaneous height and degree counts"
+        },
+        {
+          "assessment": "Related weighted/asymptotic route, not a direct formula match in the inspected passages.",
+          "evidence": [
+            "Pairwise distance profile and a leaf-biased law with a uniformly marked leaf."
+          ],
+          "identifier_or_url": "arXiv:2009.00572",
+          "material_read": "PDF p. 1, marked-edge pp. 17–18, leaf marking p. 19 at extracted offset 62600",
+          "method": "OA PDF passage inspection",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "Distance profile with leaf marking under size bias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between typical distance and the conditional-mean maximizer is mathematically meaningful, but this submission adds no new useful boundary, explanation or theorem to the existing exact calculations. The same proof and all claimed effects are already present; merely recasting the coefficient or recomputing finite checks contributes no surviving result of independent scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

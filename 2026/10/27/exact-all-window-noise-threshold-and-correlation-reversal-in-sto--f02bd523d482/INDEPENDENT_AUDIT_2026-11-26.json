@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:36.465038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56, VERIFICATION.md and CHECK.py (read only)",
+        "Independent operator/eigenvalue check and its output in /workspace/branches/15545b9a-1f06-4ca2-8b0f-0b2f36c5a800/; script independent_moment_check.py"
+      ],
+      "rationale": "Independence of time slices gives the positive second-moment map K(P)=E[B P Bᵀ]. Jensen makes Schur stability of the mean companion necessary. The root equation bounds |z|<1 for 0≤a<1; for −m<a<0, multiply the polynomial by z−1 to get z^(m+1)=(1−q)z^m+q with q=−a/m∈(0,1). The triangle inequality rules out |z|>1, and equality would force z=1, not a root of the original polynomial. At a≥1 a real root is at least one, and a≤−m makes the product of root moduli at least one. In the open interval, let d=m−(m−1)a, r=a/d, D=d+(m−1)aρ, Q=e₁e₁ᵀ. The unit-diagonal, common-off-diagonal-r matrix P₀ is positive definite (eigenvalues m/d and m(1−a)/d); D is positive at both allowed correlation endpoints and is affine in ρ. Direct computation gives K(P₀)−P₀=(F−1)Q with F=a²/d+vD/(md). If F≥1, no decay for every deterministic state is possible since their rank-one moment matrices generate P₀. If F<1, the m-step telescoping decrement is positive definite: for each realization the companion impulse columns have unit pivots and vanish below them, so their outer products span all directions. This gives geometric mean-square contraction and uP₀ with u=τ²/(1−F). The infinite-past innovation terms are orthogonal in L² by conditioning on the coefficient sequence (not necessarily independent after weighting); contraction proves causal uniqueness. Thus the thresholds, lag correlations and stationary variance follow. D increases with ρ for a>0, decreases for a<0; the claimed endpoints follow, with ties at a=0 or, for variance only, v=0. Independent 81-case moment-spectrum tests included the threshold itself and agreed with the strict stability inequality; a direct Lyapunov solve also agreed in nine stable cases.",
+      "residual_risks": [
+        "Assumes iid coefficient vectors over time, independent iid innovations, and finite second moments. Entries within each vector may be dependent and the covariance may be singular. Nothing establishes pathwise one-step or higher-moment contraction.",
+        "Variance minimization is within the stable regime at fixed v; there is no stationary variance to minimize if every correlation is unstable. The optimum threshold is a supremum, not an admissible v on its excluded boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen paper identifies an implicit general Kronecker stability criterion and AR-like autocorrelation identities in the RCA literature; the referenced original RCA text was not independently accessible. Independently, the model here has K(P)=A P Aᵀ+Q⟨C,P⟩ with A the mean companion and C the scaled coefficient covariance. Generic stability requires decay of K on symmetric moments.",
+          "The inspected deterministic theorem covers fixed maps, which gives a valid v=0 comparison but has no C term."
+        ],
+        "reasoning": "A spectral radius criterion leaves a dimension-dependent eigenvalue problem. It does not itself supply the same all-window scalar boundary or the optimizing sign of ρ; those use the positive definite equicorrelation moment matrix and strict m-step contraction in this setting.",
+        "searches": [
+          "Benmoumen–Allal–Salhi DOI 10.1155/2019/8479086, identified general RCA Theorems 1–2; focused equal-coefficient/equicorrelation RCA threshold and Yule–Walker literature query",
+          "Epperlein–Wirth deterministic moving-average stability Theorem 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and matched two-lag record, exact Finding and scope",
+        "Epperlein–Wirth arXiv:2609.21442v1 passages",
+        "Bounded Benmoumen–Allal–Salhi DOI access attempts and frozen literature comparison",
+        "Frozen statement and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic off-diagonal stationarity equations depend on the mean companion, so independence of the normalized lag equations from v and ρ is not credited on its own. Equal coefficients give the common evaluated correlation r=a/[m−(m−1)a]. In this structured covariance family the exact scalar F=a²/d+vD/(md) yields the sharp if-and-only-if boundary, including failure at equality. Its ρ coefficient is proportional to va, hence correlation reverses the optimal endpoint when a changes sign."
+        ],
+        "reasoning": "The fixed-map and two-lag claims mechanically imply only noiseless/deterministic-coefficient slices. The generic RCA method is a starting point for computing moments, but none of the compared statements supplies the closed threshold and covariance evaluation uniformly in m for this family.",
+        "searches": [
+          "Epperlein–Wirth Theorem 6.2 and matched indexed two-lag Finding; frozen RESULT.md mean and second-moment proof lines 31–56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is an RCA(m) with mean coefficients a/m, innovation variance τ² and equicorrelated coefficient covariance divided by m². With v=0 it is the deterministic equal-window iteration driven by additive noise. Epperlein–Wirth's p. 2 update and p. 14 Theorem 6.2 concern fixed linear maps, without within-step coefficient covariance."
+        ],
+        "reasoning": "Changing from delayed feedback to RCA terminology gives the same model, not an independent class. The random covariance term disappears in the fixed-map specialization, which cannot produce the threshold as a function of ρ or determine its optimum.",
+        "searches": [
+          "Resultary: stochastic window/equal-lag companion, random coefficient autoregression, correlation-noise stability",
+          "Epperlein–Wirth, arXiv:2609.21442v1 p. 2 and Thm. 6.2; general RCA literature, Nicholls–Quinn and Benmoumen–Allal–Salhi 2019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest index result has fixed weights and iid additive noise for two lags. At its p=1/2, the interval (−2,1) and variance τ²(2−a)/[(1−a)(2+a)] agree with m=2,v=0 here. Bounded index checks surfaced no exact formula for arbitrary m and equicorrelated multiplicative noise."
+        ],
+        "reasoning": "The two-lag value is covered precisely on that slice. A record optimizing deterministic weights p at fixed additive noise is not the present optimization over the covariance parameter ρ with fixed equal weights.",
+        "searches": [
+          "Resultary searches for equal-window stochastic methods, RCA exact moment boundaries and equicorrelation reversal",
+          "Indexed exact-noise-optimal-weighting and negative-feedback-frontier record, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The v=0 stability interval belongs to deterministic moving-average iteration, and the nearest indexed result also covers the two-lag additive-noise specialization. Generic random-coefficient autoregression supplies the model, second-moment criterion and AR-like autocorrelation equations. The supported distinct contribution is their explicit uniform-in-m evaluation for temporally iid equicorrelated coefficient noise: a sharp scalar threshold with endpoints, exact variance, and the sign-dependent optimal within-step correlation. The indexed specialization and inspected deterministic paper do not evaluate the multiplicative-noise model. The generic autocorrelation mechanism is not claimed as new.",
+      "residual_risks": [
+        "An explicit equivalent RCA specialization may exist in unavailable or uninspected literature. The full Benmoumen–Allal–Salhi text was not retrieved; a search hit is not its substantive inspection. No priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-map framework, not noisy coefficient covariance",
+          "evidence": "Defines the equal-window update and gives deterministic stability conditions for fixed maps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21442",
+          "material_read": "PDF p. 2, text offset 5200, and p. 14, offset 43200, Theorem 6.2",
+          "method": "OA primary-preprint passage inspection",
+          "title": "Moving-Average Iteration of Linear Maps",
+          "trigger": "Cited deterministic specialization and natural possible broader result"
+        },
+        {
+          "assessment": "Direct coverage of the m=2,v=0 specificity, not the stochastic all-window threshold",
+          "evidence": "A deterministic two-lag recurrence with fresh additive noise recovers the same variance and stability interval at equal weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/13/SCOPE-exact-noise-optimal-weighting-and-the-negative-feedback-frontier--7dc18efbbac0/RESULT.md",
+          "material_read": "RESULT.md Finding and scope at mirror offset 0",
+          "method": "Local-mirror statement inspection and p=1/2 substitution",
+          "title": "Exact noise-optimal weighting and the negative-feedback frontier",
+          "trigger": "Nearest indexed exact variance/feedback result"
+        },
+        {
+          "assessment": "Generic criterion reported by frozen source is an important comparison; explicit specialization remains unverified in the original paper",
+          "evidence": "The frozen record identifies an implicit Kronecker criterion and AR-like autocorrelation equations. This is not a claim of noncoverage by the unavailable full paper.",
+          "identifier_or_url": "doi:10.1155/2019/8479086",
+          "material_read": "Bibliographic lead and frozen description of Section 2 Theorems 1–2; original theorem passages not retrieved",
+          "method": "Direct/VPN OA attempts returned 403; repository and focused literature lookup did not yield an alternate copy",
+          "title": "Parameter Estimation for p-Order Random Coefficient Autoregressive (RCA) Models Based on Kalman Filter",
+          "trigger": "Cited general RCA model and possible explicit second-order specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof, particularly lines 39–56; inspected deterministic and two-lag comparisons"
+      ],
+      "rationale": "Equal weighting is natural for window feedback, and the choice between common shocks and zero-sum within-window noise changes the stability budget in opposite directions for positive and negative feedback. The exact threshold and variance expose this reversal at any window length, including admissible singular covariance endpoints, without recomputing the companion moment spectrum when the length or correlation changes. The flat finite-lag profile identifies what changes and what does not when optimizing the noise covariance.",
+      "residual_risks": [
+        "No claim for unequal weights, temporal coefficient dependence, or optimizing higher moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

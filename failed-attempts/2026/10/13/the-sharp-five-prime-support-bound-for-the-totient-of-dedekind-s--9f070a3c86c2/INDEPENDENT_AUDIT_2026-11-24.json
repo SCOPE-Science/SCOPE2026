@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:08:19.245527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–78; VERIFICATION.md; verify_sandor_support.py (inspected, not executed); independent_5.py (executed)."
+      ],
+      "rationale": "The four cases cover all n>=3 of support size at most five. Even mixed supports force 6|psi(n), so phi(psi(n))/psi(n)<=1/3, and strict monotonicity of 1+1/p bounds psi(n)/n by 1152/385. Equality requires both the first five primes and no prime outside {2,3} in psi(n); the prime-power formula forces exponents 1 at 5,7,11 and allows any positive exponents at 2,3. Remaining cases give 1/2, 512/715 and 20480/22971, each strictly smaller. Direct computation gives psi(39270)=124416 and its totient 41472; it shows failure is possible at six factors, not that every six-factor input fails. At n=2 the composition equals 2. The independently written /workspace/reproduction/independent_5.py uses exact trial division and reproduced 299731 eligible inputs, 22 equality cases and 23 violations (first 39270) up to 300000; the unbounded result rests on the proof, not the finite run.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 13 six-support classification proof, offset 1680, splits by the same support-product and totient factors; its even support<=5 step displays 1152/385 and 1/3, and it classifies exceptions through six support.",
+          "Sándor's Remark 3.10 reaches larger support only under exclusions of small primes; Theorem 3.9 assumes psi(n)<=2n."
+        ],
+        "reasoning": "The conditional historical bounds alone do not settle the five-support optimization. The same-date record is distinct and substantially overlaps, but the earlier October 12 proof is enough to decide this review.",
+        "searches": [
+          "Resultary: six-prime-support Dedekind–totient exception classification",
+          "Sándor (2005) Remark 3.10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary five-support barrier 2b4580441456 and six-support classification a49306000cd7",
+        "Sándor (2005), JIPAM 6(3), Art. 73; related 2016 NNTDM 22(1), 5–7",
+        "OEIS A196200, A364932",
+        "Guo–Liu–Yang, arXiv:2506.14633v1 (related compositions)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all even n≠2 it gives the factor bounds 1/3 and 1152/385. Its two odd bounds multiply to 2304/2431 and 512/715. The proof uses psi(p^a)=p^(a−1)(p+1) and gives the explicit witness 39270."
+        ],
+        "reasoning": "Even branch multiplication immediately gives 384/385, with odd branches strictly below it. Equality in the exact even bounds forces first-five-prime support and a {2,3}-smooth psi value, equivalent there to having exponent 1 at 5,7,11. This is an immediate extraction of the earlier sharp estimates, not merely a similarity of the conclusions.",
+        "searches": [
+          "October 12 five-support barrier RESULT.md, proof, local mirror, offset 1300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 12 five-support barrier RESULT.md evaluates R(n)=phi(psi(n))/n with precisely the frozen normalization, and records the six-prime witness 39270.",
+          "Sándor uses the same Euler totient and Dedekind arithmetic function; Theorem 3.23 bounds the ratio by its squarefree-support version."
+        ],
+        "reasoning": "The normalized statement is a sharpening of the identical earlier support question, not a distinct composition; comparing the proof constants is essential.",
+        "searches": [
+          "Resultary: sharp five distinct prime support for Euler phi of Dedekind psi; least support violation; maximum of phi(psi(n))/n",
+          "Sándor, JIPAM 6(3), Art. 73, eq. (1.8), Theorems 3.9 and 3.23, Remarks 3.10 and 3.26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A364932 lists 41472 at n=39270 as the first value above its index; A196200 lists 39270 first among violations.",
+          "The October 12 proof displays all numerical factors needed for the sharp bound; the string 384 is not required to appear."
+        ],
+        "reasoning": "The sequence evidence precludes counting the explicit reversal as new but alone cannot prove an unbounded maximum. The prior proof, not a search-string hit or a table, supplies that coverage.",
+        "searches": [
+          "OEIS A196200 (violations), A364932 (composition values)",
+          "Resultary October 12 five-support barrier, proof passage at offset 1300"
+        ]
+      },
+      "rationale": "Demonstrably covered by a mechanical sharpening of the already published October 12 five-support barrier proof. Its actual proof, not just its stated theorem, gives the exact bounds 1/3 and 1152/385 for the two factors of the even ratio. It also already bounds the odd branches by (1/2)(4608/2431) and (1/3)(1536/715), both strictly below 384/385. Multiply the displayed bounds and inspect equality in those same two even products: the five smallest primes are necessary, and no other primes than 2 and 3 may divide psi(n); the prior prime-power formula gives exactly the stated equality family. The prior record already gives the very same six-prime counterexample. No new inequality or case estimate is needed for the assigned sharp global result. The same-date six-support record supplies parallel overlap but is not needed to infer priority.",
+      "residual_risks": [
+        "Das (2023), On Sandor's conjecture; Alzer–Kwong (2020), Inequalities for the arithmetical functions of Euler and Dedekind; and Sándor's unpublished 1988 notes were not verified in full. No negative conclusion is drawn about them. The prior-coverage decision rests on available direct proof evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen sharp refinement.",
+          "evidence": "Even factors 1/3 and 1152/385; odd factors (1/2,4608/2431) and (1/3,1536/715); explicit psi(39270)=124416 and phi=41472.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-five-prime-support-barrier-for-varphi-psi-n-le-n--2b4580441456/RESULT.md",
+          "material_read": "Finding and proof; decisive bound and reversal passage at offset 1300.",
+          "method": "Published-record search and local mirror reading.",
+          "title": "A sharp five-prime support barrier for φ(ψ(n))≤n",
+          "trigger": "Same composition, same support limit, same reversal."
+        },
+        {
+          "assessment": "Related exact classification of violations, with overlapping estimates; no priority assigned on a shared date.",
+          "evidence": "All violations of support at most six have support six; the proof explicitly estimates the even support<=5 product by 1152/385 and the totient factor by 1/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-six-prime-support-classification-of-the-dedekind-totien--a49306000cd7/RESULT.md",
+          "material_read": "Finding and odd/even estimates, including offset 1680.",
+          "method": "Published-record search and local mirror reading.",
+          "title": "Complete six-prime-support classification of the Dedekind–totient inequality",
+          "trigger": "Dominating support range, distinct same-date record."
+        },
+        {
+          "assessment": "Conditional bounds, squarefree reduction, and earlier counterexample; not the decisive sharp five-support comparison.",
+          "evidence": "Theorem 3.9 uses psi(n)<=2n; Remark 3.26 lists 39270 among counterexamples.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+          "material_read": "Eq. (1.8); Theorems 3.9, 3.23; Remarks 3.10, 3.26; corresponding reference to 1988 notes.",
+          "method": "Lawful OA journal text; located and read relevant passages.",
+          "title": "On the Composition of Some Arithmetic Functions, II",
+          "trigger": "Original conjecture, support bounds and historical counterexample."
+        },
+        {
+          "assessment": "Covers the numerical example, not the uniform bound.",
+          "evidence": "A196200 starts with 39270; A364932 says a(39270)=41472 is the first term exceeding n.",
+          "identifier_or_url": "https://oeis.org/A196200 ; https://oeis.org/A364932",
+          "material_read": "Sequence definitions and first violation data.",
+          "method": "Read public sequence records.",
+          "title": "OEIS A196200 and A364932",
+          "trigger": "Exact tabulation of violations and composition values."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "October 12 five-support barrier proof; OEIS A196200/A364932; frozen Finding and proof."
+      ],
+      "rationale": "An exact maximum with equality cases on the five-support layer is a natural question, but this answer simply reports the sharp product of the earlier quantified bounds and their elementary equality conditions. The changed odd split is unnecessary for the frozen maximum, and the reversal is known. No independently valuable unresolved remainder is shown.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

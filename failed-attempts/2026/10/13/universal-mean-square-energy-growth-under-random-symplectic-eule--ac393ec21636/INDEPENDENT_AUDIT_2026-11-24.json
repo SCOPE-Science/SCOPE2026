@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:52:03.784156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-step matrix A(h) sends (q,p) to ((1-h^2)q+hp,-hq+p). At constant h, the form q^2-hqp+p^2 is invariant and positive definite for 0<h<2. For the random case, expand the quadratic action on (q^2,qp,p^2), then average independently of the incoming state. Direct expansion of the three-by-three determinant at 1 gives -2(m1^2 m4-2 m1 m2 m3+m2^3); the latter bracket is E[(m1 H^2-m2 H)^2]. It is strictly positive for a non-point distribution because H>0 almost surely. The monic real characteristic polynomial is negative at 1 and positive at large positive arguments, so the covariance spectral radius rho exceeds 1. The positive-map cone theorem supplies a nonzero PSD adjoint eigenmatrix P at rho. If P is rank one, write P=vv^T and test on a real w perpendicular to v, giving E[(v^T A(H)w)^2]=0, hence a real invariant line for A(H)^T almost surely. This is impossible because the discriminant is h^2(h^2-4)<0. P is thus positive definite; iteration of its eigenform gives both upper and lower rho^k comparisons for every starting direction. Neither the computation nor the definiteness argument requires the law to stay away from 0 or 2. Including 0 would invalidate the nondegeneracy argument for a mixture of 0 and one fixed positive step. Replay: RESULT.md lines 23–78; verify.py lines 8–60 was inspected without execution. Its symbolic and rational tests are not the proof of the all-law spectral implication.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d766129a463b permits the same iid laws in the open stability interval and proves both exponential upper and lower bounds, uniformly in the initial state and step index.",
+          "Skeel's deterministic schedules and the finite-window variable-step theorem of Abdulle–Garegnani do not themselves give this infinite-iteration iid classification."
+        ],
+        "reasoning": "The catalogue counterpart strictly dominates the claimed quantitative growth bounds; the scope of the older field papers does not need to be enlarged to establish coverage.",
+        "searches": [
+          "Resultary d766129a463b, opening statement offset 85",
+          "Skeel 1993, BIT 33 pp. 172–175",
+          "Abdulle–Garegnani arXiv:1801.01340 Assumption 1 and Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary d766129a463b, 09e077ff14c3, e2103dec6457",
+        "Skeel 1993 pp. 172–175",
+        "Abdulle–Garegnani arXiv:1801.01340",
+        "Sturman–Thiffeault DOI:10.1007/s00332-018-9497-3",
+        "Skeel–Gear DOI:10.1016/0167-2789(92)90247-K, abstract-level only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d766129a463b proves growth via invariant-form rigidity, and explicitly gives M_h in symmetric-coordinate basis. T=E[M_H] has polynomial entries. Expansion of det(I-T) gives the displayed cubic in moments; rewriting it as a negative square expectation is a completion of the square.",
+          "General Lyapunov results use log growth and hypotheses on the generated group; by themselves they supply neither the exact covariance polynomial nor the uniform law-only two-sided constants."
+        ],
+        "reasoning": "The uniform instability is stated directly in the catalogue counterpart. The algebraic certificate is not merely inferred from the known sign: it is mechanically recoverable from the earlier exact operator, with no extra dynamical result.",
+        "searches": [
+          "Resultary d766129a463b proof §§1–4",
+          "Sturman–Thiffeault DOI:10.1007/s00332-018-9497-3 p. 594 and prior random-product terminology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d766129a463b uses exactly A(h), with squared amplitude equal to twice the oscillator energy.",
+          "The position-first map in 09e077ff14c3 is conjugate by the orthogonal quarter-turn, so energy conventions do not separate it; that record restricts supports to compact subsets of (0,2)."
+        ],
+        "reasoning": "The first comparator is equivalent in update order and observable, and the second is equivalent after conjugation on its narrower parameter range.",
+        "searches": [
+          "Resultary random/iid steps, kick–drift symplectic Euler, mean-square energy inflation and covariance",
+          "Resultary d766129a463b and 09e077ff14c3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier kick–drift record gives the same equiprobable {1/2,1} transfer matrix, characteristic polynomial and numerical growth rate.",
+          "The other determinant-at-one example is for a conditional six-dimensional operator with two-state Markov correlation, not an iid fourth-moment formula."
+        ],
+        "reasoning": "The exact fixed witness is already catalogued. The all-law polynomial is not a finite lookup; compare it against the published exact single-step transfer as an implication.",
+        "searches": [
+          "Resultary d766129a463b proof §4, offset 4790 onward",
+          "Resultary e2103dec6457, det(I-L_s) passage at offset 5730",
+          "Frozen RESULT.md lines 80–86 and verify.py lines 55–60"
+        ]
+      },
+      "rationale": "Demonstrated prior coverage, not a search miss or inaccessible-source judgment. The Resultary kick–drift record d766129a463b gives the same hypotheses, all nonzero deterministic initial vectors, same covariance spectral radius and stronger two-sided bounds, with the identical deterministic alternative and rational witness. Its proof also publishes the exact single-step three-by-three transfer from which the only distinct scalar certificate follows by averaging, evaluating det(I-T), and completing a square. The alternate proof neither extends the classification nor leaves an independently supported substantial new claim.",
+      "residual_risks": [
+        "Exact priority for the displayed determinant factorization is not established; no verbatim occurrence was necessary for the routine implication finding.",
+        "Skeel–Gear 1992 full text was not available in the bounded lawful comparison. Direct Resultary coverage independently settles the main claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage and exact operator underlying residual formula",
+          "evidence": "Same kick–drift matrix, open interval, uniform two-sided rho^k bounds; same rational witness and exact symbolic single-step transfer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b/RESULT.md",
+          "material_read": "Finding offset 85; proof §§1–4, especially offset 4790–6040 for eigenform bounds and M_h, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search followed by bounded mirror statement and matrix comparison",
+          "title": "Universal mean-square energy inflation under randomized symplectic Euler",
+          "trigger": "Apparently identical iid dichotomy with exact rate"
+        },
+        {
+          "assessment": "Material overlap on the compact-support subclass",
+          "evidence": "Position-first map and covariance-radius bounds for compact supports in (0,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3",
+          "material_read": "Mirrored RESULT.md Finding offset 81 onward",
+          "method": "Local Resultary comparison and update-order conjugation",
+          "title": "Random-step symplectic Euler has a sharp mean-square instability",
+          "trigger": "Parallel mean-square criterion"
+        },
+        {
+          "assessment": "Analogous invariant of a different operator",
+          "evidence": "Six-dimensional conditional covariance operator, determinant -9s(1-s)^2/4; Markov-correlated steps.",
+          "identifier_or_url": "2026/11/8/SCOPE-markov-correlation-endpoints-are-the-only-stable-schedules-for-t--e2103dec6457",
+          "material_read": "Mirrored RESULT.md near offset 5730",
+          "method": "Local Resultary passage comparison",
+          "title": "Markov correlation endpoints are the only stable schedules for two-step switching",
+          "trigger": "Exact determinant-at-one analogue"
+        },
+        {
+          "assessment": "Deterministic constructed schedules, not iid all-law theorem",
+          "evidence": "Hyperbolic product after prescribed blocks of two chosen step sizes.",
+          "identifier_or_url": "https://tlakoba.w3.uvm.edu/math6737/paper_Verlet_VariableStepSize.pdf",
+          "material_read": "P. 172, offset 517, and pp. 174–175, offset 5800",
+          "method": "OA PDF passage comparison",
+          "title": "Variable Step Size Destabilizes the Störmer/Leapfrog/Verlet Method",
+          "trigger": "Classical variable step instability"
+        },
+        {
+          "assessment": "Different time scope and conditions",
+          "evidence": "Scaled step variance and finite h-dependent energy-error horizon with localization, not a fixed-law infinite-iteration assertion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+          "material_read": "Assumption 1, p. 5, offset 17400; Theorem 6, p. 17, offset 61761",
+          "method": "OA PDF passage comparison",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Random-step energy control in geometric integrators"
+        },
+        {
+          "assessment": "Logarithmic growth and shear model, not the exact covariance question",
+          "evidence": "Defines the asymptotic log-norm exponent and discusses positivity under suitable hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1007/s00332-018-9497-3",
+          "material_read": "P. 594, offset 2200",
+          "method": "Primary passage comparison",
+          "title": "Lyapunov Exponents for the Random Product of Two Shears",
+          "trigger": "Possible general random matrix explanation of instability"
+        },
+        {
+          "assessment": "Full-text coverage unresolved, not a ground for the fail",
+          "evidence": "Variable-step symplecticity question named; no exact theorem attributed from the unavailable text.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(92)90247-K",
+          "material_read": "Institutional bibliographic/abstract material; primary full text not obtained",
+          "method": "Bounded OA attempts at institutional and publisher copies",
+          "title": "Does variable step size ruin a symplectic integrator?",
+          "trigger": "Plausible older step-variability overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The universal instability question is scientifically meaningful, but its useful classification and exact rate characterization are already available. The residual determinant-at-one identity is a short alternate sign proof by expanding the available three-dimensional transfer, not a new growth estimate, stability boundary or independently needed exact invariant. The scalar identity and identical two-point witness do not justify a standalone repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

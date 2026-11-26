@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:23.975148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every fiber of a regressive nondecreasing idempotent is an interval rooted at its left endpoint. An element of the double centralizer belongs to C(e), because e is among its tests. For each adjacent collapse t_j taking only j to j−1, commuting forces h(j−1)=t_j(h(j)) and prohibits h(x)=j at x≠j. With all t_j this forces the global center to be {0,1}, splitting on h(2); with t_j only at nonroots it forces constant behavior on any block whose root is lowered, and identity or collapse on each block whose root is fixed. Every regressive monotone map of the roots lifts to a block-constant element of C(e), so the induced action of h is central on the root chain. When that action is constant and there are at least two roots, every later block collapses to 1 and monotonicity collapses the first as well. A single root is covered by the global center. For identity root action, the cross-block witness in Step 4 commutes with e: successive whole blocks up to B_j map to B_i, with image of each root s_i and with a nonroot image s_i+1 only on B_j; order and regressivity hold at the boundaries as well. Evaluating at s_j+1 distinguishes any unequal choices on the two nonsingleton blocks. The reverse containment follows because 0 and 1 commute globally and e commutes with all its centralizer. Thus the singleton chain and both endpoint idempotents have the claimed exceptions. The source checker implements direct composition over n≤8; it was inspected, not executed, and the all-size result rests on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 directly characterizes all the first-centralizer maps by root action and the admissible block restrictions. Theorems 3.8, 3.12 and 3.14 count the centralizer, its idempotents, and its nilpotents respectively.",
+          "Stein identifies the Catalan quotient of the stylic monoid and retrieves Catalan transformations from tableaux."
+        ],
+        "reasoning": "The full centralizer description is significant prior structural input and can generate admissible test maps. Its size and idempotent/nilpotent enumerations do not supply the center. The tableau quotient maps to the underlying monoid and does not analyze simultaneous commutation within the quotient.",
+        "searches": [
+          "Konieczny–Korkmaz arXiv:2611.21071v1, Theorems 3.4, 3.8, 3.12 and 3.14",
+          "Stein arXiv:2610.07983v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_bicommutant.cpp",
+        "arXiv:2611.21071v1 and arXiv:2610.07983v1",
+        "Resultary --1bd10f020d19, --06ff39bf0d33, --494cdd8f9928, --22387dfffecf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 allows each run of equal root targets to have nonconstant images only on the last source block of the run. This admits precisely the type of cross-block witness the frozen proof exploits, but does not say which maps commute with all such witnesses.",
+          "For example, in one-line notation e=(1,1,3,3), the mixed map h=(1,2,3,3) commutes with every idempotent of C(e), but not with g=(1,1,1,2) in C(e). Indeed an idempotent commuting with e which lowers a root cannot hit a nonroot in that earlier block: monotonicity would force that hit point to be lowered as well, contrary to being a fixed point of the idempotent. Thus idempotent tests preserve the mixed choices in this example, whereas g separates them."
+        ],
+        "reasoning": "The earlier fiber description supports a new derivation, but does not mechanically return the answer: one must force the root action to be trivial or constant and separate the independent candidate block choices. Pair/triple idempotent results cannot substitute for the latter test.",
+        "searches": [
+          "arXiv:2611.21071v1 Theorem 3.4, HTML offset 30300",
+          "Resultary --1bd10f020d19 and --494cdd8f9928, claims and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C(C(e)) and Z(C(e)) agree because e is itself in C(e), not by a convention about right versus left composition.",
+          "The full-centralizer paper uses the same regressive monoid and its right-action convention leaves commutation invariant. Its Theorem 3.4 tests membership in the first centralizer, not its center.",
+          "The exact indexed topic matches the frozen record; nearby results compare commuting idempotents or different transformation monoids."
+        ],
+        "reasoning": "Changing composition notation does not remove the universal second commutation test. The Catalan centralizer, its size, its set of idempotents, and its center are distinct invariants.",
+        "searches": [
+          "Resultary: Catalan transformation monoid idempotent center of centralizer double centralizer bicommutant",
+          "arXiv:2611.21071v1 §3, original text searched for center and double centralizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nearby enumerations are of commuting idempotent pairs and product fibers, commuting idempotent triples, first-centralizer sizes, or clamp centralizers in a different monoid.",
+          "The frozen enumeration computes exact center membership only through n=8; it is corroboration, not prior all-size coverage."
+        ],
+        "reasoning": "Counts of pairs/triples of commuting idempotents do not quantify over every non-idempotent of C(e), and no inspected distinct catalogue record gives the exact all-size bicommutant classification.",
+        "searches": [
+          "Resultary --1bd10f020d19, --06ff39bf0d33, --494cdd8f9928 and --22387dfffecf",
+          "arXiv:2611.21071v1 Theorems 3.8, 3.12, 3.14"
+        ]
+      },
+      "rationale": "Pass for the center of the full idempotent centralizer, not for the block model, the description of first centralizers, or their size. The closest full-centralizer theorem gives a membership criterion for the test transformations. It does not classify simultaneous commuting with them, and the mixed-block exclusion genuinely uses non-idempotent tests that commuting-idempotent results do not account for.",
+      "residual_risks": [
+        "An earlier specialist computation of centers of Catalan transformation centralizers could overlap. The full first-centralizer characterization already provides much of the structural input. No claim is made about bicommutants of non-idempotents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strong structural overlap; no bicommutant conclusion in these passages",
+          "evidence": [
+            "Images of roots must be roots; each final block in a run may map into the target block; earlier blocks in the run collapse. Other inspected theorems give first-centralizer subgroup-free enumeration data, not its center."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21071v1",
+          "material_read": "abstract; §3, Thm. 3.4 at offset 30300, Thms. 3.8, 3.12, 3.14 at offsets 36600, 48350, 52900",
+          "method": "original OA HTML passages, including the full characterization and proof of Thm. 3.4",
+          "title": "Centralizers in Catalan Monoids",
+          "trigger": "same monoid and full idempotent centralizer, strongest prior implication"
+        },
+        {
+          "assessment": "object/representation overlap",
+          "evidence": [
+            "The map to the order-preserving decreasing transformations is described through N-tableau positionings, not a centralizer statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07983v1",
+          "material_read": "abstract and opening page (PDF offset 0)",
+          "method": "original OA PDF bounded passage",
+          "title": "From stylic monoid to Catalan monoid",
+          "trigger": "same Catalan transformations and idempotent block background"
+        },
+        {
+          "assessment": "restricted to commuting idempotents",
+          "evidence": [
+            "Gap criterion and exact counts for idempotent pairs and commuting-idempotent centralizer sizes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-commuting-idempotents-of-catalan-monoids-a-gap-criterion-central--1bd10f020d19",
+          "material_read": "Finding and scope, RESULT.md",
+          "method": "indexed file, local mirror",
+          "title": "Commuting idempotents of Catalan monoids: a gap criterion and centralizer counts",
+          "trigger": "exact close Catalan centralizer enumeration"
+        },
+        {
+          "assessment": "pairwise compatibility/counts, not the full center",
+          "evidence": [
+            "Its factorization counts product fibers for pairs of commuting idempotents."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-common-fixed-point-compatibility-and-product-fiber-factorization--06ff39bf0d33",
+          "material_read": "Finding and scope, RESULT.md",
+          "method": "indexed file, local mirror",
+          "title": "Common-fixed-point compatibility and product-fiber factorization",
+          "trigger": "fixed-point and fiber invariants for Catalan commutation"
+        },
+        {
+          "assessment": "different commutation quantifier and different invariant",
+          "evidence": [
+            "Counts pairwise-commuting idempotent triples with rank information; its tests stay within idempotents."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-quartic-triple-commutation-law-and-joint-rank-transfer-for-catal--494cdd8f9928",
+          "material_read": "Finding and scope, RESULT.md",
+          "method": "indexed file, local mirror",
+          "title": "Quartic triple-commutation law and joint-rank transfer for Catalan idempotents",
+          "trigger": "same-day broader counting of commutation tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a uniform structural invariant for all idempotents in a natural family of noncommutative finite monoids. Regardless of the size and block structure of the centralizer, it reconstructs any nontrivial e as the only central element other than 0 and 1. The non-idempotent witness explains why smaller commuting-idempotent censuses cannot give that reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

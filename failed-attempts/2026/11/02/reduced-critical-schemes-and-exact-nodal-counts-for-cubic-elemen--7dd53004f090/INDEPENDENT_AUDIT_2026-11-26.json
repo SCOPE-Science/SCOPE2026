@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:08:54.917311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70; VERIFICATION.md lines 19–21; verify_e3.py lines 8–54",
+        "Independent projective scheme and Hessian reconstruction"
+      ],
+      "rationale": "Each derivative is x_i²−e₁x_i+e₂, so the coordinates of a critical point have at most two values. For distinct t,u with multiplicities m,ℓ, put a=m−1 and b=ℓ−1. Subtracting the two derivative equations gives at+bu=0; the derivative at a t entry then equals −(at²+bu²)/2, as the extra u entry contributes zero against the remaining sum. The two equations imply at=bu=0. If both values were nonzero, a+b=n−2 would vanish, contrary to hypothesis. The surviving nonzero support has size 1 mod p, including the all-equal case from (n−1)(n−2)t²/2=0. Conversely both types of derivative vanish for those supports. At an indicator vector the Hessian blocks are I−J on the support and J−I off it, with mixed block zero. The first has kernel the radial line; the second is invertible because ℓ−1=n−2 in k when the block is present. In an active affine chart the radial kernel meets the chart tangent complement trivially, giving full derivative rank and a reduced simple critical point. The restriction of the Hessian to that complement is nondegenerate since the radial line is the radical; thus points on the hypersurface are ordinary double points. Euler's identity puts all critical points on X for p≠3. In characteristic 3, at m=1+3a the coefficient of T³ in (1+T)(1+T³)^a is a mod 3, so the singular subset is precisely m=1 mod 9, reduced since it is defined inside a finite reduced scheme. Any factorization e₃=GH would make the intersection of the two factor hypersurfaces singular of dimension at least n−3≥1, including factorizations with a repeated factor. Hence X is integral; hypersurface S₂ and regularity in codimension one give normality. The examples give 36 nodes for (p,n)=(5,8), and five critical points but four nodes for (3,4).",
+      "residual_risks": [
+        "The frozen finite checker was inspected, not executed. Its prime-field checks, including the auxiliary n=3 case, cannot establish the universal projective theorem or statements at the affine cone vertex."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 theorem treats both p∤(n−2) support lines and the exceptional congruence. Xie's dimension theorem gives affine dimension one in the nonexceptional cubic case; the generic local-ring statement supplies generic reducedness on the specified coordinate components. The other cited papers give a dimension criterion or partition-space bounds, not the full support table."
+        ],
+        "reasoning": "The broad dimension literature is not enough by itself. The earlier catalog's stronger exact radical classification and accompanying rank evidence are decisive.",
+        "searches": [
+          "Local Resultary October 13 all-components classification",
+          "Xie, arXiv:2610.00259v1, Theorems 1.1 and 1.4",
+          "arXiv:2509.05009v3, Conjecture 2.11",
+          "arXiv:1109.2265v1, Theorem 3.1 and Remark 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Both Resultary records listed above",
+        "Xie arXiv:2610.00259v1",
+        "Orzel arXiv:2509.05009v3",
+        "Cafure–Matera–Privitelli arXiv:1109.2265v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old Hessian on a nonzero line point a·1_S has zero mixed block and diagonal blocks (m−2)a(J_m−I_m), ma(J_ℓ−I_ℓ), with total rank n−1. These formulas hold for every a≠0, not just at the generic point."
+        ],
+        "reasoning": "Nonzero cone smoothness gives projective reducedness; the same Hessian modulo its radial kernel gives the quadratic tangent cone at every support point on X. The only extra count selects m by evaluating binom(m,3), whose characteristic-three vanishing for m≡1 mod 3 is just its next base-3 digit. Finite singular locus gives the routine global geometry. The earlier caveat about affine embedded structure at the cone vertex does not prevent these projective consequences.",
+        "searches": [
+          "October 13 RESULT.md §5, offsets 4800–6448 including explicit blocks",
+          "Frozen RESULT.md lines 50–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 13 catalog record gives the reduced affine gradient locus as lines L_S=k·1_S with |S|≡1 mod p for the identical hypothesis p∤(n−2)."
+        ],
+        "reasoning": "Taking projective points identifies one point per line, not per nonzero vector. Gradient-zero and singular-on-X are not interchangeable in characteristic 3, so the mod-9 filter is assessed separately.",
+        "searches": [
+          "Local Resultary comparison for symmetric cubic e₃ gradient/critical-support lines, Jacobian locus and projective singular points",
+          "arXiv:2610.00259v1, Theorem 1.1 and Theorem 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 result already prints the critical support binomial count. The November 8 result prints the characteristic-three 1 mod 9 singular-support formula and extra signed bipartitions only for n≡5 or 8 mod 9, excluded here."
+        ],
+        "reasoning": "The earlier exact count is a match for the gradient support, not by itself the characteristic-three singular count. The later count is material overlap, not evidence of earlier precedence.",
+        "searches": [
+          "Local Resultary 2026/10/13/SCOPE-all-reduced-components-of-the-odd-characteristic-symmetric-cubic--930c9f283d01",
+          "Local Resultary 2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd"
+        ]
+      },
+      "rationale": "The earlier October 13 Resultary theorem supplies the exact critical support and count and already computes the Hessian at nonzero points of those support lines. Although it states generic smoothness rather than global projective reducedness, the displayed block ranks hold for every nonzero scalar. Projective reducedness and the node property are direct consequences. The hypersurface selection and global geometry then follow by routine Euler/binomial and codimension arguments. The specific mod-9 statement was also explicitly found in a later catalog record; its later date is not used as earlier priority evidence.",
+      "residual_risks": [
+        "No claim of historical first publication of the explicit mod-9 count. The originality failure rests on demonstrable prior implication, not a missing paper or the date of the later catalog record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier support and counts; projective consequences follow from displayed Hessian",
+          "evidence": [
+            "Nonzero support sizes are 1 mod p, with the same binomial sum. In §5 each line block scales with the nonzero line parameter and has total rank n−1."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-all-reduced-components-of-the-odd-characteristic-symmetric-cubic--930c9f283d01",
+          "material_read": "RESULT.md Finding offsets 0–4946, §5 offsets 4800–6448, scope/Limitations offsets 6500–8886",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All reduced components of the odd-characteristic symmetric-cubic critical locus",
+          "trigger": "Exact support and Hessian of the same cubic"
+        },
+        {
+          "assessment": "Dimension and generic coordinate local rings do not alone give the full classification",
+          "evidence": [
+            "For d=3, n−2 prime to p, the affine gradient and zero-plus-gradient loci have dimension one. Specified coordinate components for q=1 have generic local field; embedded and smaller-dimensional components are not settled generally."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00259v1",
+          "material_read": "Theorem 1.1 around offsets 5600–9789; Theorem 1.4 around 9000–11476; discussion around 33100",
+          "method": "Open-access primary HTML",
+          "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+          "trigger": "General derivative-locus and reducedness results"
+        },
+        {
+          "assessment": "Dimension comparison, not exact nodal classification",
+          "evidence": [
+            "The locus V₂(e_d^n) occurs in a dimension criterion, not in the asserted exact binomial node census."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.05009v3",
+          "material_read": "Conjecture 2.11, offsets 50000–53583",
+          "method": "Open-access primary HTML",
+          "title": "Computing the Elementary Symmetric Polynomials in Positive Characteristics",
+          "trigger": "Zero-plus-gradient locus in positive characteristic"
+        },
+        {
+          "assessment": "Bounds and partition-space containment are not a complete critical-support or local-scheme classification",
+          "evidence": [
+            "The general arguments constrain values among coordinates and dimensions of their partition spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1109.2265v1",
+          "material_read": "Theorem 3.1 offsets 39200–42000; Remark 3.2 offsets 43500–46300",
+          "method": "Open-access primary text",
+          "title": "Singularities of symmetric hypersurfaces and an application to Reed-Solomon codes",
+          "trigger": "General symmetric-hypersurface support methods"
+        },
+        {
+          "assessment": "Same support-point term in this regime, later catalog date; no local-length claim in the inspected statement",
+          "evidence": [
+            "Additional signed bipartitions are possible only in congruences excluded by p∤(n−2) at p=3."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd",
+          "material_read": "RESULT.md offsets 0–4173 and 4000–7694",
+          "method": "Local Resultary mirror",
+          "title": "All isolated singular points of elementary symmetric cubic hypersurfaces in characteristic three",
+          "trigger": "Exact mod-9 node-support overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "October 13 Resultary theorem, especially §5",
+        "Frozen RESULT.md lines 50–66 and 72–80"
+      ],
+      "rationale": "Projective scheme structure and counts in characteristic three are natural invariants, and distinguishing Euler-critical points from singular points is important. In this range, however, the exact support and rank calculation are known, and the residual distinction is a single evaluation of the cubic on that known support followed by standard local- and global-geometry consequences. It adds no surviving classification or structure not mechanically accessible from the prior result. No new theorem about the harder exceptional congruence or cone vertex has been established.",
+      "residual_risks": [
+        "This is not a rejection of the corresponding questions in exceptional congruence or higher degree, which are outside the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

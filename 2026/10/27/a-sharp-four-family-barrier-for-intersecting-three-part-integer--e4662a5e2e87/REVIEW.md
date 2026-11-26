@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-sum linearity lemma rules out two shared distinct values between different three-part partitions, including repeated-part cases. A nontrivial intersecting family admits a triangle of three distinct intersection values. When all three triangle members have distinct parts, a fourth member must touch a base intersection value; pair-sum uniqueness leaves at most one extension. When a triangle member repeats a part, the two potential opposite-side extensions have incompatible leftover values, since equality would force the repeated and unrepeated parts to coincide. The proof handles arbitrary positive integers, and counts both multiplicity and nonidentical partitions correctly. Full stars have size the number of unordered pairs of positive summands, and the boundary cases follow by direct listing. The supplied finite verification independently enumerates maximal intersection cliques through order twenty, but is not used to infer the infinite bound.
+PASS
 
-## Originality — PASS with residual priority risk
+Any two distinct shared part values determine the third part by the total, including repeats, so distinct supports intersect at most once. A nontrivial family cannot contain a singleton support and must contain a triangle with three distinct pairwise intersections a,b,c. With three full supports the only candidate avoiding a,b,c uses the three private values; its fixed sum would force a+b+c=n and make a private value coincide with a base value. Each candidate meeting exactly one base vertex is determined by that vertex and the opposite private value. For candidates at a and b only their remaining parts could coincide, but those parts b+c-a and a+c-b coincide only for a=b. With a repeated base member (a,a,b), all additions must meet at a or b; the opposite private value is required, so a missing private value rules out the corresponding addition and each orientation supplies at most one. When both private values exist, the two candidates again can only meet via the remaining parts b-a+c and a-b+c, impossible as a!=b. This proves the cap including repetitions. The displayed witnesses at 8 and for n>=9 are distinct and pairwise intersecting without a common part. A star has floor((n-j)/2) members by deleting j, so at n>=11 a largest family is a largest full star with the stated centers. Independently ran python3 /workspace/checks/3_small_orders.py, enumerating all subfamilies at n=3,...,10: maxima 1,1,2,2,3,4,4,4, with exactly the stated largest family at 8. The frozen script and stored output were inspected, not executed; the infinite cap follows from the proof, not the stored table.
 
-Borg (2016), Problem 1.3 and Conjecture 1.6, poses the problem; Remark 1.5 already explicitly exhibits the order-eight exceptional four-member family and recognizes its maximum. Borg proves the canonical-star assertion for small sums and at sums at least the broad large-order cutoff, not the fixed-length three-part exact global determination or the sharp four-member nontrivial upper bound. Person and Schweser (arXiv:2610.01747v1, first posted 2026-10-01) analyze a cubic bound under sufficiently large partition length and provide counterexamples at large length; neither their quantifiers nor their constructions cover the exact three-part theorem. The additional source on strongly intersecting integer partitions concerns coordinatewise, rather than position-free, matching. Published mathematical-record searches using statement variants yielded no equivalent theorem. Unseen sources or independent priority analysis remain a residual risk, so this is not an independent novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem finishes a natural fixed-length, one-intersection case of a published exact extremal problem, separates the known exceptional sum eight from the stable regime, identifies every large-order extremal family, and supplies a sharp absolute nontrivial bound. The fixed-sum restriction gives a structural obstruction invisible in ordinary linear triple systems. This is a concrete exact classification problem, not a relabeling, routine known-table recomputation, or arbitrarily selected finite instance.
+The distinct contribution is the sharp four-member nontrivial bound uniform in the total, and the resulting exact star regime/maximizer description beyond the previously known range. Do not credit as new the n=8 exception, whose four-family and full ground list appear in Borg (and whose uniqueness can be read off), or the eventual existence of an optimal star. The inspected large-k asymptotic result does not entail any fixed k=3 claim.
 
-## Limits
+## value
 
-Only \(k=3,t=1\) is determined. The order-eight counterexample is prior literature and is not itself novel. The evidence is a direct mathematical argument with bounded computational cross-checks; external independent audit has not occurred.
+PASS
 
-## References
+Solves the natural small-length gap between a known exception and the eventual star theorem. The proof gives an additive obstruction on extending an intersection triangle, explaining a sharp, total-independent cap that generic triple-system bounds or a few enumerated totals do not provide. It determines exactly when larger stars are forced and which stars can maximize.
 
-- P. Borg, *Intersecting integer partitions*, Australas. J. Combin. 66(2) (2016), 265–275, https://ajc.maths.uq.edu.au/pdf/66/ajc_v66_p265.pdf (Introduction, Remark 1.5, Conjecture 1.6, Theorem 1.8).
-- Y. Person and T. Schweser, *Intersecting integer partitions: star bounds and counterexamples at every scale*, arXiv:2610.01747v1, https://arxiv.org/html/2610.01747v1 (Introduction, Theorems 1.1–1.2, proof and counterexample sections).
-- P. Borg, *Strongly intersecting integer partitions*, Discrete Math. 336 (2014), 80–84, https://www.um.edu.mt/library/oar/handle/123456789/54963 (different positional intersection property).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:43:37.298415Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–94, VERIFICATION.md and verify_nash_egalitarian_boundary.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_calculations/stable_matchings.py",
+        "Repaired RESULT.md proof, witness table and reproducibility notes; repaired SLOGAN.txt"
+      ],
+      "rationale": "I wrote and executed a separate exact enumeration covering every one of the 1, 16 and 46,656 labelled profiles at n=1,2,3. For each bijection I used the intersection of two preference-prefix edge bitmasks as the blocking test; each unavailable blocking pair is excluded precisely when one side does not strictly prefer it. The same prefixes give zero-based ranks; the product uses n-r, not n+1-r. Every strict pair is oriented by actual E, with ties retained and counted separately. The enumeration reproduced the stable multiplicities 34,080/11,484/1,092 at three pairs; of 14,760 total pairs 8,304 have strictly ordered E and all corresponding product differences are positive. The eight cells (lower,upper;count;minimum) are (2,3;288;162), (2,4;144;243), (3,4;1656;54), (3,5;504;108), (3,6;24;189), (4,5;3096;9), (4,6;648;45), (5,6;1944;6). The remaining pair counts are 3,696 E-only ties and 2,760 ties in both. At two pairs both stable pairs tie on both scores; there is no comparison at one pair. All 24 bijections on the four-pair example give exactly the two displayed outcomes and rank vectors, with (7,4096) and (8,4608); the forcing argument in the repaired proof also checks. Any strict reversal by definition needs at least two stable outcomes. The known optimizer-set census is reproduced but no longer a claimed novelty.",
+      "residual_risks": [
+        "The proof covers only n<=3 and the specific four-pair witness, not all profiles at four or any other utility normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desai et al. define u=n-r, optimize the Nash objective over stable matchings, and benchmark using an egalitarian baseline among others."
+        ],
+        "reasoning": "An algorithm computing objective optima for general n does not assert comparative ordering of all stable alternatives, and the inspected benchmark comparisons do not supply the finite universal implication.",
+        "searches": [
+          "Primary literature search for Nash-product versus egalitarian rank-sum order in strict stable marriage",
+          "arXiv:2609.02354v1 pp. 1–4 and p. 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6a4f1b95ac69 RESULT.md and verifier",
+        "arXiv:2609.02354v1",
+        "Resultary c67e0358daf3, 57631882a89b, cde2cfb2bf42 and 8b303d43ac65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "6a4f1b95ac69 shows reversal with four stable outcomes at scores (9,1536) and (11,1728); the repaired witness has exactly two with the opposite strict ordering.",
+          "The cited same-day Nash-versus-regret result orders pairs by different regret scores; the Nash-versus-rank-maximal result uses another rank-profile objective."
+        ],
+        "reasoning": "The earlier result is decisive against priority for the broad boundary and optimizer census. It neither implies the pairwise assertion nor supplies the two-outcome witness. The repaired paper claims no priority for the earlier findings and makes no chronological inference from same-day catalogue dates.",
+        "searches": [
+          "6a4f1b95ac69 RESULT.md, Finding and Proof; accompanying checker, census predicate at offset 1525",
+          "Same-day Resultary cde2cfb2bf42 and 8b303d43ac65, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing total n-r is equivalent to minimizing the zero-based rank sum; maximizing geometric mean is equivalent to maximizing the rank product. Resultary 6a4f1b95ac69 uses exactly these conventions.",
+          "The regret and rank-maximal comparisons use respectively a worst-rank or lexicographic rank-count objective, not the rank sum."
+        ],
+        "reasoning": "The optimizer-set overlap is real under the same normalization. The order for *every* stable pair has a different quantifier from the optimizer inclusion. Changing the other objective to regret or rank-maximality does not resolve it.",
+        "searches": [
+          "Local Resultary search for rank-sum versus rank-induced Nash stable-market boundaries",
+          "arXiv:2609.02354v1 §2.1 and NSW definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a4f1b95ac69 has the exact 43,728/2,928 optimizer split and matching-count marginals, but its checker tests n_set <= e_set and tabulates that relation by stable-set size, not all pairs or positive gap strata.",
+          "c67e0358daf3 reports 42,756 equal, 2,928 strict rank-maximal containment and 972 disjoint cases; its coinciding 2,928 figure concerns another objective."
+        ],
+        "reasoning": "The known profile summaries are credited. The published optimizer table contains neither the stable pairs' exact score strata nor enough information to infer their strict ordering. The stronger check on the same finite universe is not recomputation of the published output.",
+        "searches": [
+          "Resultary 6a4f1b95ac69 RESULT.md and stable_welfare_boundary_check.py; c67e0358daf3 RESULT.md; 57631882a89b RESULT.md"
+        ]
+      },
+      "rationale": "Only the narrowed claim passes. The exact earlier matching boundary record has the same objectives, optimizer inclusion, optimizer counts and a four-pair reversal, but neither its statement nor its verifier establishes all strict pairwise comparisons. Global argmax inclusion imposes no order on the products of arbitrary nonmaximal alternatives, even leaving comparisons between equal-cost global minimizers and higher-cost outcomes open if several minimizers have different products. The additional quantified order is separately verified, and the new witness illustrates it at the known threshold with the minimum possible number of stable outcomes.",
+      "residual_risks": [
+        "Unindexed earlier pairwise tables or uninspected prior passages may exist. The bounded comparison establishes concrete coverage of the optimizer census, not absolute priority for the surviving pairwise theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the frozen inclusion, optimizer counts and four-pair boundary. Does not supply the repaired all-pairs result or the two-outcome witness.",
+          "evidence": [
+            "The proof tabulates equal and proper inclusion; witness has four stable matchings. The checker asserts only n_set <= e_set on the census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-pairs-are-the-sharp-separation-threshold-for-nash-welfare-a--6a4f1b95ac69/RESULT.md",
+          "material_read": "RESULT.md Finding, assumptions and proof (offset 0–4433); accompanying stable_welfare_boundary_check.py census and optimum-set predicate at offset 1525",
+          "method": "Local Resultary mirror; inspected source, not executed",
+          "title": "Four pairs are the sharp separation threshold for Nash-welfare and egalitarian stable matching",
+          "trigger": "Same welfare objectives, sizes and apparent boundary"
+        },
+        {
+          "assessment": "Same Nash objective and general optimization, not the strict finite pairwise rule in the checked passages.",
+          "evidence": [
+            "Utility n-r and geometric mean objective; comparisons against egalitarian, minimum-regret and sex-equal baselines."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+          "material_read": "v1 PDF pp. 1–2 introduction and §2.1 (offsets 2500, 7900–9720), p. 4 NSW definition (offset 18000), p. 8 benchmarks (offset 35000)",
+          "method": "OA full-text passage inspection",
+          "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+          "trigger": "Same rank-induced utility and both fairness objectives"
+        },
+        {
+          "assessment": "Different order criterion; neither equivalent nor implying the repaired theorem.",
+          "evidence": [
+            "Lexicographic rank-profile objective admits disjoint optima at n=3; the count 2,928 is not the repaired strict score-pair census."
+          ],
+          "identifier_or_url": "c67e0358daf3",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-by-three conflict layer for rank-maximal and egalitarian stable marriage",
+          "trigger": "Same finite domain and superficially matching refinement count"
+        },
+        {
+          "assessment": "Uses worst rank rather than product; not coverage of the repaired witness or order.",
+          "evidence": [
+            "Nested optimizer sets through three pairs; two-outcome opposition at four concerns a different objective."
+          ],
+          "identifier_or_url": "57631882a89b",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage",
+          "trigger": "Same rank sums and two-outcome four-pair conflict for a neighboring criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and exact comparison table",
+        "Earlier Resultary 6a4f1b95ac69 optimizer and four-outcome proof"
+      ],
+      "rationale": "When ranking a menu of stable outcomes or applying an additional restriction that removes the unrestricted optimum, optimizer-set inclusion for that unrestricted set does not guarantee the relative ordering of the remaining outcomes. The all-pairs assertion still gives that comparison, with exact minimum differences and tie counts in the initial complete domain. The two-outcome example isolates the first obstruction without reliance on competing third outcomes. The utility of the repaired claim does not depend on repeating the older optimizer census.",
+      "residual_risks": [
+        "The finite result does not establish empirical prevalence at larger sizes or effects of changing the positive cardinal utility model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

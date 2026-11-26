@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:55:07.212654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and verification_output.txt, inspected without executing the supplied script",
+        "Corrected /workspace/repairs/5/RESULT.md and /workspace/repairs/5/VERIFICATION.md",
+        "Independent replay: python /workspace/branches/eac6c9df-3510-48a4-867c-d75ba01acf6e/record5_independent_check.py"
+      ],
+      "rationale": "For the repaired files: 2(x+y+1) is the norm difference, so for odd prime powers one first eliminates y and then solves (2x+1)^2=-1; the two split roots are simple, and the inert primes have no roots. Equal parity gives the two mod-2 roots but forces one norm to be 2 mod 4. CRT gives the all-modulus counts. Joint finite valuation laws follow from divisibility and subtraction of tails. For a fixed integer d, one can test exact equality of its local valuations at primes up to Y once Y contains the prime factors of d; the error in this test is at most the probability of any common prime >Y. The union bound of the record is valid because any such prime is <=2N+1; the terms from 1/(Np) and 1/N² vanish. This proves full convergence, with almost-sure finiteness of the limiting product by summable prime activity. Each split-prime mean factor is exactly 1+2/p, whose product diverges; below t=1 the positive-moment factors differ from one by a summable O_t(p^(t-2)), with monotone convergence, and nonpositive powers are bounded. Independent congruence tests through modulus 129 agree. The frozen decimals 0.44742064 and 0.4474206426 lie above even the partial Euler-product upper bound through 10^8. The split-prime truncated product and the all-integer residue tail bound instead bracket the value between about 0.447420610275 and 0.447420612512, so the repaired eight-place value is 0.44742061. The correction does not alter the exact law or moment threshold. The repaired local mass display also explicitly restricts the last two cases to split primes.",
+      "residual_risks": [
+        "The infinite-mean assertion is for G_infinity, not an asymptotic formula for finite-box means."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 applies, not merely by analogy: any common nonconstant polynomial factor must divide x+y+1 but A(x,-x-1)=2x²+2x+1 is not identically zero. The theorem gives convergence and the independent local valuation minimum; Remark 4.4 gives the coprime-value density as a product of local root densities."
+        ],
+        "reasoning": "These are prior results for the tested pair. They leave the exact local factors unevaluated and their convergence-in-law assertion does not establish any unbounded positive moment.",
+        "searches": [
+          "arXiv:2311.05369v1 Theorem 3.1 and Remark 4.4",
+          "moment divergence limiting gcd polynomial values Kabluchko Marynych first moment Chebotarev primes polynomial gcd moment threshold translated sum of two squares"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.05369v1",
+        "arXiv:2001.05018v1",
+        "Resultary 395dc3659689 and c7a54eb31e4e",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad GCD theorem reduces the computation to local densities but does not give their explicit lift counts or the t=1 split-prime factor. To apply the fixed-line spectrum across the box would still require averaging over the varying line parameter, handling ramification and proving control of large primes (or invoking the broader GCD theorem)."
+        ],
+        "reasoning": "The repair claims only the explicit arithmetic laws and consequent sharp moment boundary; the classical Hensel and CRT methods and the implicit distributional framework are not asserted new.",
+        "searches": [
+          "arXiv:2311.05369v1 Theorem 3.1 and §§4.2,5",
+          "arXiv:2001.05018v1 Theorems 3–5",
+          "Resultary 395dc3659689"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Gaussian integers the step is 1+i; a common Gaussian prime must divide that step. By contrast a split rational prime may divide one norm via a prime over p and the other via its conjugate. Magness et al. §4 treat divisibility of Gaussian elements on a fixed primitive line. The same step along a fixed line x-y=d has a fixed odd support dividing d²+1, whereas the box spans varying d, including nonprimitive lines."
+        ],
+        "reasoning": "Neither Gaussian gcd of the elements nor a fixed-line divisor spectrum is the two-coordinate rational norm gcd law.",
+        "searches": [
+          "Resultary: Gaussian diagonal translated norms x^2+y^2 (x+1)^2+(y+1)^2 rational gcd distribution moments complete norm-gcd spectrum primitive Gaussian lines",
+          "\"Walking to Infinity Along Gaussian Lines\" gcd consecutive norms rational (1+i) coprimality Gaussian lines translated norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed norm-GCD spectrum (395dc3659689) has frequencies along one fixed line; the translated cusp result (c7a54eb31e4e) is an exact prime-power computation for different polynomials and different singular-prime behavior. The matching audited entry is not prior evidence."
+        ],
+        "reasoning": "Neither is a database of the root counts or the moment law for this norm pair. The finite-box enumerations do not constitute the new invariant.",
+        "searches": [
+          "Resultary: Gaussian shifted coprime values diagonal norm GCD independent valuations sharp moment threshold",
+          "Resultary: Gaussian diagonal translated norms x^2+y^2 (x+1)^2+(y+1)^2 rational gcd distribution moments complete norm-gcd spectrum primitive Gaussian lines"
+        ]
+      },
+      "rationale": "The repaired record expressly credits the already applicable general convergence theorem, its independent-prime representation and the general coprimality product. The distinct contribution being assessed is the evaluated simultaneous-root law and its moment frontier for the diagonal norm pair, not convergence or the product form per se. Priority is provisional for these evaluations.",
+      "residual_risks": [
+        "The exact local calculation is elementary once the linear norm difference is recognized; an unindexed tabulation or a general evaluated moment theorem could weaken priority. An isolated claim of polynomial GCD convergence would not pass originality here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers convergence, independent local form and coprimality formula; no exact local evaluations for this specific pair in those results",
+          "evidence": [
+            "Theorem 3.1 assumes no nonconstant common polynomial factor; log GCD limit is sum of log p times min of valuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.05369v1",
+          "material_read": "Corollary 2.4, Theorem 3.1, §§4.1–4.2 including the large-prime truncation setup, Remark 4.4",
+          "method": "public arXiv HTML",
+          "title": "Divisibility properties of polynomial expressions of random integers",
+          "trigger": "broader theorem directly implies convergence"
+        },
+        {
+          "assessment": "different kind of divisibility and sampling",
+          "evidence": [
+            "Theorem 3 gives Gaussian divisibility periodic in the index of one line; §4 notes consecutive Gaussian integers on a primitive line are relatively prime as Gaussian integers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.05018v1",
+          "material_read": "§2 Gaussian prime and primitive line definitions; §§4–5 periodicity, prime divisors and CRT statements",
+          "method": "public arXiv HTML",
+          "title": "Walking to Infinity Along Gaussian Lines",
+          "trigger": "divisibility along Gaussian lines"
+        },
+        {
+          "assessment": "fixed-line rather than box law",
+          "evidence": [
+            "The indexed spectrum depends on a fixed determinant and the line step, so it has finite supported odd divisibility per fixed line."
+          ],
+          "identifier_or_url": "Resultary 395dc3659689",
+          "material_read": "indexed result statement and cited comparison in the frozen record",
+          "method": "Resultary search",
+          "title": "Complete norm-gcd spectrum on primitive Gaussian lines",
+          "trigger": "rational norm GCD of adjacent Gaussian integers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired exact law and moment calculation; general limit theorem for comparison"
+      ],
+      "rationale": "The nearest diagonal step gives a natural adjacent norm pair rather than arbitrary polynomial parameters. The exact split/inert/ramified spectrum and all its prime-power masses are sufficient to calculate individual gcd probabilities and identify a global infinite first moment even though each local first moment is finite. It is that full arithmetic structure, not the Euler-product decimal or infinite mean in isolation, that is useful beyond the general existence theorem.",
+      "residual_risks": [
+        "Specific to this shift; no universal moment theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:25.410605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the rank and support argument in RESULT.md, lines 25–68. The SRG adjacency relation on the constant-orthogonal space gives the two roots r and s there. Primitivity implies 0<mu<k (mu=k would make equal open neighborhoods of nonadjacent vertices give complete multipartite classes), so r>0>s; s<-1 since A+I positive semidefinite would give unit Gram vectors equal along every edge, implying completeness by connectedness. With d=e_u-e_v and delta=c-1, the Laplacian update is delta dd^T and acts only on the two directions E_r d,E_s d, both nonzero by the projector formulas and adjacency of u,v. The restricted 2-by-2 matrix has nonzero off-diagonal for delta!=0, and the secular polynomial is nonzero at either old eigenvalue. The two new roots are therefore distinct from each other and the old nonzero eigenvalues; positivity of the connected weighted Laplacian rules out zero. Their resolvent eigenvectors have nonzero entry at an outsider exactly when A_wu!=A_wv, since the two denominators differ. At u and v the entries are ±1/(2 delta) for the chosen eigenvector scaling by the secular equation. For the two residual eigenspaces, choose an outsider x having equal adjacencies to the endpoints: common neighbors suffice if lambda>0, and otherwise (N-k-1)mu=k(k-1) with mu<k gives N>2k. Both projected d vectors vanish at x. For a vertex w of this outsider type, E_r e_w and E_s e_w have a strictly positive diagonal entry at w and hence cannot be parallel to the respective projected d. Otherwise pick such an x distinct from w; each off-diagonal projector entry at x,w is nonzero because its adjacency offset (k-s)/N or (k-r)/N lies strictly between 0 and 1, using the connected complement for k-s<N. This proves both residual modes exist and are visible from all vertices, without inferring visibility merely from multiplicity. The constant mode is always visible. A Vandermonde argument on the active orthogonal spectral projections gives the Krylov rank; at unit weight the three positive projector diagonals give rank three, and at nonunit positive weight only endpoints and exclusive neighbors add two modes. The exclusive-neighbor census gives 2+2(k-1-lambda), so the C5 and N>5 conclusions follow. The recorded 14846 exact finite checks and their script were inspected, not rerun or used in place of the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 12, equations (15)–(16): for adjacent endpoints, beta+gamma=0 leaves the old eigenvalues and beta-gamma gives the quadratic splitting",
+          "Notarstefano–Parlangeli state a grid Laplacian controllability problem, not this SRG classification",
+          "No OA full text was obtained for Aguilar–Gharesifard by the attempted retrieval"
+        ],
+        "reasoning": "The more general edge-plus-loops spectrum covers the spectral component outright. A list of eigenvalues, distinct or repeated, is not a table of their projectors' visibility at every actuator. Endpoint state-transfer support arguments do not decide the outsider visibilities or prove that each old eigenspace remains visible from every vertex.",
+        "searches": [
+          "Primary one-edge strongly regular graph perturbation and Laplacian controllability search",
+          "arXiv:1710.02181 Section 4, Corollary 12",
+          "arXiv:1203.0129",
+          "DOI 10.1109/TAC.2014.2381435"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.02181",
+        "arXiv:1102.4898",
+        "arXiv:1203.0129",
+        "DOI 10.1109/TAC.2014.2381435 (retrieval only)",
+        "Resultary local mirror: single-edge cycle determinant, all-vertex ring sensing, Petersen multi-input census and complete bipartite actuator-set polynomials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-day SCOPE-exact-actuator-set-polynomials-for-a-single-link-defect-in-compl--30587e524e61, Finding: full controllability iff specified conditions on a set of independent inputs on K_(p,q)",
+          "arXiv:1710.02181, Section 5: endpoint spectral projectors for state transfer; Section 4: perturbed spectrum"
+        ],
+        "reasoning": "For p!=q the complete bipartite graph is not regular, and for p=q it has disconnected complement. The same-day polynomial has disjoint graph hypotheses and probes full controllability for sets, so its date is not used to exclude it or infer ordering. Combining the known spectrum and walk-rank lemma still needs the exact coordinate vanishing of the split modes and nonvanishing of all inherited spectral projections. The distinguishing/non-distinguishing partition and equal-adjacency witness establish those facts rather than being a restatement of the secular equation.",
+        "searches": [
+          "arXiv:1710.02181 Corollary 12 and endpoint support discussion",
+          "Resultary: same-day complete bipartite single-link defect and earlier cycle reachability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1710.02181 defines A+beta(e_u e_v^T+e_v e_u^T)+gamma(e_u e_u^T+e_v e_v^T); with beta=c-1 and gamma=1-c this equals kI-L_c",
+          "arXiv:1102.4898 identifies the walk-matrix rank with the size of eigenvalue support"
+        ],
+        "reasoning": "A scalar shift (and sign) preserves spectral support and the corresponding Krylov span. The adjacency-plus-loops parametrization is exactly the same matrix problem for this slice, not a different perturbation. Standard twin obstructions do not constitute the classifier: the adjacent and nonadjacent twin conditions would force lambda=k-1 or mu=k, incompatible with these primitive graph hypotheses.",
+        "searches": [
+          "Resultary: one-edge SRG controllability, walk-matrix rank, twin criteria and 2(k-lambda)",
+          "arXiv:1710.02181 edge-plus-loops perturbation",
+          "arXiv:1102.4898 Section 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct. 12 SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4 gives a factored endpoint Kalman determinant on cycles",
+          "Nov. 22 SCOPE-exact-all-vertex-sensing-resonances-and-a-totient-placement-law--2c7e24dd6265 gives a one-defect ring classification",
+          "Nov. 22 SCOPE-single-edge-detuning-and-the-exact-104-set-petersen-controllabil--a7a6781d41c6 gives a four-input full-controllability census on the Petersen graph"
+        ],
+        "reasoning": "The earlier cycle determinant directly implies rank five for each perturbed edge endpoint of C5 at every positive nonunit weight. The later all-site ring result also overlaps the C5 case (four controllable sites; the opposite site's rank three at c=1/2). Neither handles primitive SRGs beyond cycles. The exact Petersen count concerns four independent actuators, not the rank of a single actuator, and no tabulation of examples proves the all-SRG classification.",
+        "searches": [
+          "Resultary exact rank and location/count searches: one weighted edge, all actuator sites, primitive strongly regular graphs, exact 2(k-lambda)"
+        ]
+      },
+      "rationale": "The rank-one spectral splitting is genuinely covered by Godsil–Guo–Kempton–Lippner under a shift and parameter substitution; the eigenvalue-support rank criterion is also known. The distinct content is the every-vertex joint visibility and inherited-mode argument and thus the exact all-positive-weights rank and location census on primitive SRGs. Earlier indexed coverage includes an endpoint on C5, not that classification. This assessment is bounded to checked statements, not a global priority finding.",
+      "residual_risks": [
+        "Aguilar–Gharesifard was not available as full text by the attempted route. Implicit or unindexed coverage of the arbitrary-vertex support claim remains possible; the bounded index search is not evidence of absence.",
+        "The strongest inspected primary result covers the shifted perturbation spectrum and nearly related endpoint support, so originality does not extend to those ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the splitting; inspected state-transfer conclusions concern endpoints, not the claimed full visibility table",
+          "evidence": [
+            "In the adjacent case eqs. (15)–(16) have separate beta+gamma and beta-gamma factors. The specialization beta=-gamma fixes the former branch and splits the two active directions.",
+            "Section 5 sets out support and cospectrality for the two transfer endpoints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.02181",
+          "material_read": "Perturbation definition p. 3, offset about 8000; Corollary 12 and proof pp. 11–12, offset about 33000; beginning of Section 5",
+          "method": "OA full-text passages; algebraic substitution into the stated equations",
+          "title": "State transfer in strongly regular graphs with an edge perturbation",
+          "trigger": "Same underlying graph and a perturbation exactly equivalent after shift and parameter choice"
+        },
+        {
+          "assessment": "General rank/support tool, not the location-specific support classification",
+          "evidence": [
+            "The rank of the vertex walk matrix equals the size of the vertex eigenvalue support."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.4898",
+          "material_read": "Section 11, PDF p. 18 at text offset about 39000",
+          "method": "OA full-text passage",
+          "title": "State transfer on graphs",
+          "trigger": "Prior walk-matrix formulation of single-vertex controllable rank"
+        },
+        {
+          "assessment": "Different graph family in the inspected statement",
+          "evidence": [
+            "Addresses grid-graph Laplacians using their eigenvector structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.0129",
+          "material_read": "Abstract and introduction, page 1, offset 0",
+          "method": "OA full-text passage",
+          "title": "Controllability and observability of grid graphs via reduction and symmetries",
+          "trigger": "Cited single-input graph spectral control analogue"
+        },
+        {
+          "assessment": "Unresolved, not classified as noncovering",
+          "evidence": [
+            "The attempted retrieval did not yield a repository full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2381435",
+          "material_read": "No assessable result passage",
+          "method": "OA full-text retrieval attempt",
+          "title": "Graph Controllability Classes for the Laplacian Leader-Follower Dynamics",
+          "trigger": "Plausible Laplacian leader-follower comparison with strongly regular graphs"
+        },
+        {
+          "assessment": "Exact partial coverage of endpoint controllability on C5, not the universal SRG theorem",
+          "evidence": [
+            "Input is e_0 at a defect endpoint. The determinant is nonzero for w>0, w!=1; setting n=5 and using the endpoint exchange yields the two endpoint ranks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Earlier exact same-defect Kalman rank for one overlapping graph family and actuator position"
+        },
+        {
+          "assessment": "No overlap in graph domain under primitivity; different control invariant",
+          "evidence": [
+            "The complete bipartite base has disconnected complement and the result counts full-control sets with separate coordinate inputs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-actuator-set-polynomials-for-a-single-link-defect-in-compl--30587e524e61/RESULT.md",
+          "material_read": "Finding at offset 0, including all three full-controllability regimes",
+          "method": "Local mirror full-text passage",
+          "title": "Exact actuator-set polynomials for a single-link defect in complete bipartite networks",
+          "trigger": "Same-day, same kind of perturbation, possibly overlapping graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an actuator-placement criterion depending only on how the vertex sees the defective edge, not on solving a weighted eigenproblem for each candidate weight or examining one graph realization. It resolves whether splitting the uniform spectrum actually produces additional reachable modes, quantifies how many actuator locations gain them, and proves that the gain never suffices for full single-input control beyond order five. The all-weights support result is useful separately from the established splitting and from endpoint examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

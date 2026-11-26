@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Commutativity and idempotence make the composite a retraction onto the intersection of the two images. Every composite fiber is stable under both maps. Partitioning its non-root points into points fixed by the first map, points fixed by the second, and all remaining points yields a bijective count, with independently selectable images in the two image sets. A labeled set decomposition gives the formal exponential generating function, and the same decomposition gives both sides of the exact rank-support characterization. Explicit exhaustive rank-cell comparisons for sizes one through five agree with the exact recurrence; computations are corroborative, not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** Araújo–Konieczny (arXiv:1007.4845v1) gives a commuting-with-a-fixed-idempotent criterion and bounds the sizes of commuting families, not this complete trivariate joint-rank enumerator. Dolinka–East (arXiv:1407.3312) gives individual-idempotent and partition-endomorphism counts, not joint commuting-pair ranks. André–Araújo–Konieczny (DOI:10.1007/s00233-010-9274-6) concerns semigroups generated within regular centralizers. Earlier Konieczny (2002) is particularly relevant but unavailable in full text here; an implicit alternative counting derivation is a remaining risk. No search, by itself, certifies global novelty.
+PASS
 
-**Value — PASS.** The triple of image sizes of two commuting retractions and their composite is intrinsic to the representation of the two-generator semilattice on a finite set. The result gives its complete distribution for every size, an explicit recurrence for arbitrary rank cells, and a sharp necessary-and-sufficient description of feasible ranks. It also determines rank-conditioned commuting probabilities for independently sampled idempotents when combined with classical one-idempotent counts. This is more informative than an isolated total census or special-size example, although no asymptotic or conjugacy classification is claimed.
+For commuting idempotents the composite h is a retraction onto the simultaneous fixed set; each h-fiber is preserved. In one fiber, the root contributes one to both image ranks and to the composite rank. The p other e-fixed points are sent to the root by f and the q other f-fixed points are sent to it by e. Each remaining point chooses any of p+1 and q+1 respective targets, independently, and both composites are consequently the root. This is a bijection. Multiplying the labeled root and subset EGFs and then taking an unordered set of rooted fibers gives exactly the stated expression, including the empty map pair and ordered roles for e and f. The intersection size and union size give the necessary inequalities; one fiber with p=a-k, q=b-k, r=n-a-b+k and k-1 singleton fibers gives sufficiency. Independent replay (python3 /workspace/checks/check124.py, record 4) brute-forced all functions up to n=5, tested all ordered idempotent pairs and matched the full rank cells to a separately implemented labeled-set partition expansion. That expansion also confirmed support through n=8 and totals 1, 7, 58, 601, 7616, 113989, 1963060, 38178193 at n=1 through 8; the analytic bijection proves the unbounded theorem.
 
-**Limitations.** The labeled enumeration is not an orbit classification. Two highly related foundational treatments supply partial structural prerequisites, and older centralizer literature might contain an equivalent enumerator implicitly. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Support inequalities already occur in a related larger census, and the core fixed-idempotent structure is classical. The distinct supported claim is the full joint-rank enumerator with simultaneous commutation and idempotence on the unrestricted labeled set. Neither a checked larger but unrefined census nor a narrower monoid supplies that enumerator.
+
+## value
+
+PASS
+
+The natural simultaneous generator and meet ranks of a semilattice action give a full distribution, not just a support law or a few total counts. This supplies all rank-conditioned commuting counts, a useful invariant for labeled finite retractions. The rank-cell enumerator, rather than the already related support inequalities, carries the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

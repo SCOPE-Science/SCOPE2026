@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:38.268423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The lambda maps are exactly the left multiplications by I+A, so the orbit at B is B+R_n(q)B. Row i of AB ranges independently over the span of rows i+1 through n of B. Thus the orbit exponent is the sum of the tail ranks. Adding row j gives q^d choices preserving dimension and q^(n-j)-q^d increasing it, with the updated dimension added to the exponent. Row 1 contributes a free factor q^(n-1); division of each point count by its orbit size is valid. Rank zero forces all other rows to vanish. The maximal profile increases at every stage; its point fraction is (1-1/q)^(n-2), giving the stated maximal count and bounding the normalized collision probability between that fraction and 1. The n=2 empty recurrence and the four row cases agree. An independent BFS on actual matrix-unit lambda maps for (n,q)=(4,2), cross-checked against B+R_n(q)B, produced 8,12,4,2 orbits of sizes 1,2,4,8, respectively, and collision probability 31/512. No uploaded script was executed.",
+      "residual_risks": [
+        "The finite replay checks one action instance; the arbitrary-field and arbitrary-dimension result follows from the symbolic decomposition, not from the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives one and only one labelled rook template in each adjoint cluster for arbitrary field. Lemma 5.1 gives the cardinality of the double orbit as the product of left and right sizes divided by their intersection size, applicable here since the actions commute.",
+          "Van Peski's random rank/corank statistic and de Melo–Kato's automorphism action are distinct; neither is the basis for this rejection."
+        ],
+        "reasoning": "The earlier theorem parametrizes a partition coarser than the desired orbits, but one with an exact support-weight formula and uniform one-sided orbit size in each part. Its combination with the stated general counting lemma is covering.",
+        "searches": [
+          "arXiv:1004.2674, Theorem 3.1 and Lemma 5.1",
+          "arXiv:2407.19578, abstract and Theorem 1.2",
+          "arXiv:2510.09353, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1004.2674",
+        "arXiv:2608.20620",
+        "arXiv:2608.04874",
+        "arXiv:2407.19578",
+        "arXiv:2510.09353",
+        "Resultary records 10a296ae216c and 8a8009d68c81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a rook support D and a corresponding template X, RX is the coordinate subspace with positions (k,j) from each (i,j) in D and k<i; XR has positions (i,l) from each (i,j) in D and l>j. Set L=sum_D(i-1), H=sum_D(n-j), and I=number of pairs (k,l),(i,j) in D with k<i and l<j. Unique rows and columns give dimensions L,H, and intersection dimension I. The two orbits through X are X+RX and X+XR, so by Yan's lemma the cluster has q^(L+H-I) points and exactly q^(H-I) left orbits of size q^L.",
+          "Every support has (q-1)^|D| differently labelled templates. Hence the exact coefficient at q^s is sum over D with L=s of (q-1)^|D| q^(H-I). Ferrara–Trombetti–Tsang already give the general component collision identity in Theorem 5.5."
+        ],
+        "reasoning": "This finite substitution into the pre-existing template partition and size lemma covers all n and q, not just extremal orbits or a small table. The collision statistic follows by weighting the exact histogram. Grouping the enumeration instead by tail ranks is convenient but does not create a new exact invariant.",
+        "searches": [
+          "arXiv:1004.2674, PDF offsets 18520–20867 and 32980–34913",
+          "arXiv:2608.20620 §5, Theorem 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yan §3.1 explicitly identifies (I+aE_ij)X with adding a multiple of row j to row i; this is the frozen lambda action on the same algebra.",
+          "Right multiplication by a unitriangular matrix commutes with the left action and bijectively transports its orbits, so the left-orbit size is constant across any adjoint cluster."
+        ],
+        "reasoning": "A double-action classification need not in general directly classify one-sided orbit counts, but here each cluster can be divided by its common left-orbit size, and both quantities follow by local support counts on the published templates.",
+        "searches": [
+          "arXiv:1004.2674 §1 and §3.1: left action, adjoint cluster, Theorem 3.1",
+          "Resultary: unitriangular lambda orbits and strictly upper triangular row ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22 record suffix 10a296ae216c gives all sizes and counts, including singleton and maximum counts, via a rank-defect transfer. The same-date record suffix 8a8009d68c81 refines the same census by matrix rank and orbit exponent.",
+          "Records 362c67a2cd8c and 15ccbc502699 concern left-ideal dimension flags or full upper-triangular annihilator counts, not this action."
+        ],
+        "reasoning": "The two November entries provide material, independent catalogue matches in content; refinements project to the frozen orbit-size marginal. They are later catalogue dates than the October entry and do not support a priority ruling against it.",
+        "searches": [
+          "Resultary: logarithmic defect of lambda orbit sizes, uniform distinct lambda orbits, triangular rank/annihilator flag spectra"
+        ]
+      },
+      "rationale": "Yan's earlier adjoint-template theorem and double-orbit size lemma mechanically imply the complete numerical census for the same one-sided action. This is stronger evidence than a thematic resemblance to coadjoint orbit theory. The weighted deduction is given below. The specific row-state implementation need not have appeared there; it is an alternate evaluation of that invariant. Two later catalogue records also contain exact same-action censuses, but their dates are not used to infer historical priority.",
+      "residual_risks": [
+        "Historical priority for the particular rank-state algorithm was not established.",
+        "The frozen Fuchs–Kirillov DOI resolved to an unrelated work in retrieval; that citation was not used to decide coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the census by a direct labelled-template sum",
+          "evidence": "Adjoint clusters are exactly the double orbits indexed by unique labelled rook templates, and the general size lemma applies to the commuting left and right actions. The published coadjoint application is not required for the implication.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2674",
+          "material_read": "§1 p. 3; §3.1 pp. 8–9, Theorem 3.1; §5 p. 14, Lemma 5.1",
+          "method": "Literal query and bounded PDF passage inspection",
+          "title": "Representations of Finite Unipotent Linear Groups by the Method of Clusters",
+          "trigger": "Same matrix space and left action; possible rook-template implication"
+        },
+        {
+          "assessment": "General collision identity and bounds; no family census in inspected passage",
+          "evidence": "The probability is the sum of squared component proportions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20620",
+          "material_read": "§5 pp. 21–24, Theorem 5.5 p. 23",
+          "method": "Bounded PDF inspection",
+          "title": "A probabilistic approach to the Yang–Baxter equation and skew braces",
+          "trigger": "Direct motivating probability"
+        },
+        {
+          "assessment": "Classical construction background",
+          "evidence": "Radical rings give two-sided braces; the inspected construction is not a spectrum for this family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04874",
+          "material_read": "§1 p. 1 and §3 p. 3",
+          "method": "Bounded PDF inspection",
+          "title": "Near-Rings and Skew Braces",
+          "trigger": "Underlying brace construction"
+        },
+        {
+          "assessment": "Later exact census plus different main asymptotic question",
+          "evidence": "The defect-indexed transfer enumerates the same every-size counts and agrees at both extremes.",
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmic-defect-of-typical-lambda-orbit-sizes-in-unitriangula--10a296ae216c",
+          "material_read": "RESULT.md offsets 0–2497 and 7737–9937",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Logarithmic defect of typical lambda-orbit sizes in unitriangular braces",
+          "trigger": "Exact same-action catalogue hit"
+        },
+        {
+          "assessment": "Later joint census containing the same histogram as a marginal",
+          "evidence": "Subset-indexed formula counts by matrix rank as well as orbit exponent; its asymptotic samples distinct orbits, not uniform points.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-one-quarter-exponent-law-for-uniformly-sampled-lambda-orbits--8a8009d68c81",
+          "material_read": "RESULT.md offsets 0–3317",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "The one-quarter exponent law for uniformly sampled lambda-orbits",
+          "trigger": "Same-action census with an extra rank parameter"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–43 and 69–89",
+        "arXiv:1004.2674, Theorem 3.1 and Lemma 5.1",
+        "arXiv:2608.20620, Theorem 5.5"
+      ],
+      "rationale": "The canonical component spectrum and collision probability are naturally motivated, and the state recurrence is a convenient way to compute them. But the submitted exact-invariant advance is mechanically available from the earlier template theory and the collision identity; the extremes and fixed-n large-field estimate result from the same maximum profile. The frozen claim does not establish a distinct complexity, structural or asymptotic result that would turn this alternate enumeration into a separate advance.",
+      "residual_risks": [
+        "This is a judgment on the claimed advance, not a denial of the pedagogical or computational convenience of the recurrence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -2,107 +2,79 @@
 
 ## Finding
 
-Let \(G_{k,m}\) be two copies of \(K_{k+m}\) connected by \(k\) disjoint corresponding gateway-to-gateway links, where \(k\ge2\) and \(m\ge1\). Let \(\Lambda_{k,m}(B)\) be the greatest possible second Laplacian eigenvalue when all allowed edge conductances are nonnegative and have sum \(B>0\). Set
-\[
- r=\frac{k}{m},\qquad s_k=1+\sqrt{\frac{k}{2(k+1)}},\qquad
- t_*=\begin{cases}
- 3/2,&r\le 3/2,\\
- r,&3/2<r<s_k,\\
- s_k,&r\ge s_k.
- \end{cases}
-\]
-Then the exact answer is
-\[
- \boxed{\Lambda_{k,m}(B)=\frac{B}{C_{k,m}}},\qquad
- C_{k,m}=\frac{k+m}{2}+2mt_*+\frac{m}{2(t_*-1)}
- +(k-1)\max\left\{0,1-\frac{mt_*}{k}\right\}.
-\]
-Equivalently, the three cost regimes are
-\[
- C_{k,m}=\begin{cases}
- (k+9m)/2,&r\le3/2,\\
- (k+m)/2+2k+m^2/[2(k-m)],&3/2<r<s_k,\\
- 3k/2-1+m\bigl(3/2+1/k+\sqrt{2(k+1)/k}\bigr),&r\ge s_k.
- \end{cases}
-\]
-All formulas agree on common boundaries. Thus the optimal mixing rate is an exact rational/radical function of the two community sizes and the budget.
+Let \(G_{k,m}\) consist of two copies of \(K_{k+m}\), with \(k\ge2\) designated gateways and \(m\ge1\) nongateways per clique. Join the gateways of opposing cliques by the \(k\) edges of a matching. Nonnegative conductances on all allowed edges have a single total budget \(B>0\). We compute the maximum of the second eigenvalue of the unnormalized weighted Laplacian. The low-ratio regime also follows from the earlier complete-biclique gateway optimum and a feasibility check, as explained below. The transitions and the allocation in the higher-ratio regimes require the matching-specific spectral constraint.
 
-There is a unique optimizer invariant under exchanging the two cliques, simultaneously permuting their \(k\) matched gateways, and independently permuting each set of \(m\) nongateways. Its rates are given in the table below, multiplied by \(B/C_{k,m}\):
+Write \(r=k/m\) and \(s_k=1+\sqrt{k/[2(k+1)]}\), and set
+\[
+t_* = \begin{cases}
+3/2,&r\le3/2,\\
+r,&3/2<r<s_k,\\
+s_k,&r\ge s_k.
+\end{cases}
+\]
+The maximum is \(\Lambda_{k,m}(B)=B/C_{k,m}\), where
+\[
+\begin{aligned}
+C_{k,m}&=\frac{k+m}{2}+2mt_*+\frac{m}{2(t_*-1)}+(k-1)\max\{0,1-mt_*/k\}\\
+&=\begin{cases}
+(k+9m)/2,&r\le3/2,\\
+(k+m)/2+2k+m^2/[2(k-m)],&3/2<r<s_k,\\
+3k/2-1+m\bigl(3/2+1/k+\sqrt{2(k+1)/k}\bigr),&r\ge s_k.
+\end{cases}
+\end{aligned}
+\]
+The formulas agree at the boundaries. The optimizer invariant under exchange of cliques, simultaneous permutation of matched gateway pairs and independent permutations of nongateways in each clique is unique as an assignment to the actual edges. With \(\lambda_*=B/C_{k,m}\), its rates are \(\lambda_*\) times the following unit-gap rates:
 
-| Edge class | Rate when the spectral gap is normalized to one |
+| Edge class | Unit-gap rate |
 | --- | --- |
-| Gateway–gateway edges within either clique | \(a_*=\max\{0,1-mt_*/k\}/k\) |
-| Gateway–nongateway edges within either clique | \(c_*=t_*/k\) |
+| Gateway–gateway within either clique | \(a_* = \max\{0,1-mt_*/k\}/k\) |
+| Gateway–nongateway within either clique | \(c_*=t_*/k\) |
 | Matched interclique gateway links | \(b_*=((k+m)t_*-k)/[2k(t_*-1)]\) |
-| Nongateway–nongateway edges within either clique | \(d_*=0\) |
+| Nongateway–nongateway within either clique | \(d_*=0\) |
 
-**Support classification for all (not necessarily symmetric) optimizers:** every optimum has zero rates on *every* nongateway–nongateway edge. If \(r\le s_k\), every optimum also has zero rates on *every* gateway–gateway intracluster edge. If \(r>s_k\), the total intracluster gateway–gateway conductance is positive in every optimum. These assertions remain true for \(m=1\), where the first edge class is empty.
+Every optimum, symmetric or not, assigns zero to each nongateway–nongateway edge. Every optimum also assigns zero to each intracluster gateway–gateway edge if \(r\le s_k\), and assigns positive *total* conductance to that class if \(r>s_k\). For \(m=1\) the nongateway–nongateway class is empty. For example, \((k,m)=(8,5)\) is in the intermediate regime and \((2,1)\) in the last.
 
 ## Assumptions and scope
 
-The undirected weighted Laplacian is \(L=\sum_{\{i,j\}\in E}w_{ij}(e_i-e_j)(e_i-e_j)^\top\), with edge weights \(w_{ij}\ge0\). Its eigenvalues are in ascending order; the objective is \(\lambda_2(L)\) without stochastic row-normalization or a discrete-time holding-probability constraint. Every allowed clique edge and every one of the \(k\) bridge edges may independently be set to zero. The objective is homogeneous in \(B\); normalization to \(\lambda_2(L)=1\) reduces the problem to minimal total conductance. This is a *partial* matching, so \(m\ge1\), and \(k\ge2\) is essential to the transverse gateway constraint used below. No claim is made for \(m=0\), \(k=1\), unequal clique sizes, or fixed intracluster rates.
+For an undirected edge \(ij\), the Laplacian contribution of weight \(w_{ij}\) is \(w_{ij}(e_i-e_j)(e_i-e_j)^\top\); the budget counts that edge once. We maximize \(\lambda_2\) on the full nonnegative edge-weight simplex, not only among invariant allocations. This is a continuous-time spectral-gap objective without degree normalization or stochastic row constraints. There is no general uniqueness claim outside the symmetry-invariant class. We make no claim for unequal clique orders, full matching \(m=0\), or \(k=1\).
 
 ## Proof
 
-**1. Symmetry reduction without loss of global optimality.** For \(z\perp\mathbf1\),
+**Symmetry and spectrum.** On \(\mathbf1^\perp\), the smallest Rayleigh quotient of the Laplacian is the minimum of linear functions of its weights, so it is concave in the weights. Averaging an arbitrary optimum over the indicated automorphisms produces an invariant optimum with the same budget. Use rates \(a,b,c,d\) for the intracluster gateway, bridge, gateway–nongateway and intracluster nongateway classes, respectively. Their total weight is
 \[
- \lambda_2(L)=\min_{\|z\|=1,\ z\perp\mathbf1}\sum_{\{i,j\}\in E}w_{ij}(z_i-z_j)^2
+W=k(k-1)a+kb+2kmc+m(m-1)d.
 \]
-is a concave function of the conductances. Average any feasible allocation under the indicated graph automorphisms. The cost remains \(B\), while concavity and unitary invariance show that the spectral gap cannot decrease. Consequently, a symmetric maximizer exists and the unrestricted global optimum equals the symmetric optimum.
+The zero-sum gateway coordinates have eigenvalues \(ka+mc\) and \(ka+mc+2b\), each of multiplicity \(k-1\), according as their patterns in the two cliques agree or are negatives under the matching. On zero-sum nongateway coordinates the eigenvalue is \(kc+md\), with multiplicity \(2(m-1)\). Among vectors constant on the vertex classes, the even sector has eigenvalues \(0,(k+m)c\); the odd sector is represented in gateway and nongateway coordinates by
+\[
+Q=\begin{pmatrix}mc+2b&-mc\\-kc&kc\end{pmatrix}.
+\]
+The odd block is symmetric after conjugation by \(\operatorname{diag}(\sqrt{k},\sqrt m)\), and the dimensions of the sectors sum to \(2(k+m)\).
 
-Assign common rates \(a\), \(b\), \(c\), and \(d\) to the four edge classes in the finding. The total weight is
+**Minimum unit-gap budget.** Homogeneity reduces the problem to minimizing \(W\) with \(\lambda_2\ge1\). Necessarily \(c>0\) for connectivity; since the odd block has a nonzero off-diagonal entry in its symmetric coordinates, its smaller eigenvalue is strictly less than \(kc\). Thus \(t=kc>1\). The lower-right entry of \(Q-I\) in symmetric coordinates is then positive, so positive semidefiniteness is equivalent to
 \[
- W=k(k-1)a+kb+2kmc+m(m-1)d.
+\det(Q-I)=1-(k+m)c+2b(kc-1)\ge0,
+\qquad b\ge \frac{(k+m)t-k}{2k(t-1)}.
 \]
-Gateway transversals within each clique have eigenvalue \(ka+mc\) in the symmetric-across-layers sector and \(ka+mc+2b\) in the antisymmetric sector, each with multiplicity \(k-1\). Nongateway transversals have eigenvalue \(kc+md\), multiplicity \(2(m-1)\), absent when \(m=1\). In the two constant-on-each-orbit sectors, the symmetric-across-layers nonzero eigenvalue is \((k+m)c\); the antisymmetric-across-layers restriction acts on gateway and nongateway constants by
-\[
- Q=\begin{pmatrix}mc+2b&-mc\\-kc&kc\end{pmatrix}.
-\]
-Although written in a nonorthonormal orbit-constant basis, this matrix is similar to a symmetric positive-semidefinite matrix using multiplicities \(k,m\). Its eigenvalues \(q_-\le q_+\) are therefore real. These blocks exhaust all \(2(k+m)\) eigenvalues, together with the zero mode.
+The other effective constraint is \(ka+mc\ge1\), or \(a\ge k^{-1}\max\{0,1-mt/k\}\); all remaining nonconstant eigenvalues are at least one under these two bounds and nonnegativity. At fixed \(t\), the least cost comes from equality in the bounds on \(a,b\) and setting \(d=0\) for any nongateway–nongateway edges. Substitution yields the first displayed formula for \(C_{k,m}\) with \(t_*\) replaced by \(t\). This function of \(t>1\) is strictly convex, since \(m/[2(t-1)]\) is strictly convex and the positive part is convex. For \(t\ge r\) its smooth-branch derivative is \(2m-m/[2(t-1)^2]\), vanishing at \(3/2\); for \(1<t\le r\) it is \(m(1+1/k)-m/[2(t-1)^2]\), vanishing at \(s_k\). Comparing these points with the kink at \(r\) proves the regimes and uniqueness of \(t_*\). Equality in the cost bounds then fixes every invariant rate. Scaling the unit-gap optimum gives the claimed result at budget \(B\).
 
-**2. Exact normalized gap constraints.** The condition \(\lambda_2(L)\ge1\) forces \(kc>1\), because the smaller eigenvalue of \(Q\) is strictly below its \(kc\) diagonal value when \(c>0\); if \(c=0\), the graph is disconnected. For \(t=kc>1\), positivity of \(Q-I\) in its symmetric representation is equivalent to
-\[
- \det(Q-I)=1-(k+m)c+2b(kc-1)\ge0,
-\]
-or
-\[
- b\ge\frac{(k+m)t-k}{2k(t-1)}.
-\]
-Indeed, the lower diagonal entry of \(Q-I\) is \(t-1>0\), so its determinant condition also ensures the other principal minor is nonnegative. The remaining potentially restrictive transverse block requires
-\[
- ka+mc\ge1,
- \qquad\text{equivalently}\qquad
- a\ge\frac1k\max\left\{0,1-\frac{mt}{k}\right\}.
-\]
-All other eigenvalues are automatically at least one: \((k+m)c>1\), \(kc+md\ge t>1\), and the extra gateway transverse eigenvalue exceeds \(ka+mc\). Thus the displayed inequalities are both necessary and sufficient for normalized gap at least one.
-
-**3. One-dimensional exact minimization.** At fixed \(t>1\) the cheapest feasible \(b\) and \(a\) attain those lower bounds; \(d=0\) is optimal whenever its edge class exists. Substitution in \(W\) yields
-\[
- F_{k,m}(t)=\frac{k+m}{2}+2mt+\frac{m}{2(t-1)}
- +(k-1)\max\left\{0,1-\frac{mt}{k}\right\}.
-\]
-It is strictly convex: away from its kink its second derivative is \(m/(t-1)^3>0\), and the maximum of the two affine terms is convex. On \(t\ge r=k/m\), the derivative vanishes only at \(t=3/2\). On \(1<t\le r\), the derivative vanishes only at \(t=s_k\). Comparing these stationary points with the boundary \(t=r\) gives exactly the displayed three regimes for \(t_*\) and hence \(C_{k,m}=\min_{t>1}F_{k,m}(t)\). Uniqueness of \(t_*\), and the strict positivity of each feasible rate's contribution to \(W\), give uniqueness of the symmetry-invariant minimizing allocation. Homogeneity then yields \(\Lambda_{k,m}(B)=B/C_{k,m}\).
-
-**4. Support statements for arbitrary optimizers.** Average any unrestricted optimizer across the graph automorphisms. Its average is the unique invariant optimum just constructed. Every conductance is nonnegative. An orbit-average rate of zero is possible only if every edge of that orbit had zero rate before averaging. Hence nongateway–nongateway edges always vanish, and gateway–gateway edges always vanish if \(r\le s_k\). If \(r>s_k\), the unique invariant optimizer has strictly positive gateway–gateway rate; therefore the original optimizer must have positive conductance on at least one edge of that orbit. This does **not** assert uniqueness of arbitrary nonsymmetric optimizers.
+**Support without symmetry.** Averaging any optimizer must give the unique invariant optimum. A class whose average rate is zero has every original rate zero by nonnegativity; a class whose average is positive has positive original total. This proves the support assertions.
 
 ## Verification
 
-A companion script, `verify_spectral.py`, assembles each full weighted Laplacian, checks the two equivalent cost formulas and the complete eigenspectrum, and checks finite perturbations around the analytic minimizing scalar. For integers \(2\le k\le13\) and \(1\le m\le13\), the symmetric normalized optimum has spectral gap numerically equal to one and total weight equal to \(C_{k,m}\) within the specified numerical tolerance. Reproducibility: run `python verify_spectral.py` in an environment with Python and NumPy. This finite numerical check is supplementary; the proof above covers every admissible integer pair and positive budget.
+The companion `verify_spectral.py` can be run with Python and NumPy. It assembles the full Laplacian for 156 pairs \(2\le k\le13,1\le m\le13\) and checks the unit gap, equivalent cost expressions in the code, trace-to-budget identity, and nearby scalar perturbations. These numerical tests are supplementary; the block decomposition and strict-convexity argument prove the complete parameter range.
 
-For example, \(k=8\), \(m=5\) gives \(r=8/5\) and lies in the intermediate regime; \(k=2\), \(m=1\) lies in the final regime with strictly positive gateway–gateway conductance.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
+The continuous-time optimization framework is established by Sun, Boyd, Xiao and Diaconis [1] and Göring, Helmberg and Wappler [2]; symmetry reduction is also standard in fastest-mixing problems. The closely related complete-biclique gateway theorem [3] replaces the matching by all \(k^2\) interclique gateway edges. Its odd orbit-constant block is the same after matching each gateway's total cross conductance, but a zero-sum gateway fluctuation in each clique gets a positive cross-degree contribution there. For the matching, that contribution is zero in the equal-across-layers sector. This changes the feasible design precisely where the missing contribution matters.
 
-The continuous-time fastest-mixing process with a linear transition-rate budget is the convex optimization framework of Sun, Boyd, Xiao, and Diaconis (2006). Göring, Helmberg, and Wappler (2005) independently study maximizing weighted algebraic connectivity and its geometric SDP dual. Symmetry reductions for discrete-time fastest-mixing chains are developed by Boyd, Diaconis, Parrilo, and Xiao (2009). The interconnected-layer literature, including Shakeri and coauthors (2015), optimizes interlayer connectivity for prescribed intralayer networks; that restriction does not encompass reallocating an entire combined budget from clique edges into matching bridges. The new claim here is the explicit all-parameter partial-matching classification, including its three cost regimes and its universal zero-rate edge classes, not the general convex formulation or symmetry technique.
+In particular, for \(r\le3/2\), the complete-biclique budget optimum is \(2B/(k+9m)\) by [3] (its low-ratio case is \(m/k\ge1/6\)). It is an upper bound for any subgraph allocation. Moving the biclique optimal cross weight onto the matching, preserving each gateway's cross degree, leaves the orbit-constant eigenvalues unchanged. The other potentially binding matching eigenvalue, in unit-gap scaling, is \(mc_*=3m/(2k)\ge1\), so this upper bound is attainable. Thus the low-ratio branch is also a corollary of [3] with this feasibility check. In contrast, already at \((k,m)=(2,1)\) the matching cost is \(4+\sqrt3\), strictly greater than the biclique cost \(11/2\). The two higher-ratio regimes and the matching-specific gateway activation threshold are not the biclique thresholds.
 
-## Limitations
-
-The characterization assumes equal clique orders and a disjoint matching of gateways. It permits zero conductances, so the weighted optimum may discard existing graph edges. Uniqueness is asserted only in the automorphism-invariant class; the support restrictions stated above apply to every optimum. Literature comparison can miss specialized treatments of this precise family, especially inaccessible full texts on unions of cliques. No separate independent review is claimed.
+The later indexed partial-matching result [4] has the same graph on its domain but optimizes the second-largest eigenvalue modulus over symmetric row-stochastic matrices. Its local row constraints and treatment of the negative spectrum differ from the single conductance budget here. The available publisher description of Allison–Shader [5] identifies a fastest-mixing Markov chain for a union of two cliques; its full text was not inspected, so a finer comparison of its graph and constraints is unresolved. No claim of exhaustive priority is made.
 
 ## References
 
-1. J. Sun, S. Boyd, L. Xiao, P. Diaconis, “The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem,” *SIAM Review* 48 (2006), 681–699. DOI: 10.1137/S0036144504443821. Public article date: 2006-11-02.
-2. F. Göring, C. Helmberg, M. Wappler, “Embedded in the Shadow of the Separator,” public preprint (2005). https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf.
-3. S. Boyd, P. Diaconis, P. Parrilo, L. Xiao, “Fastest Mixing Markov Chain on Graphs with Symmetries,” *SIAM Journal on Optimization* 20 (2009), 792–819. DOI: 10.1137/070689413.
-4. H. Shakeri, N. Albin, F. Darabi Sahneh, P. Poggi-Corradini, C. Scoglio, “Maximizing Algebraic Connectivity in Interconnected Networks,” 2015 preprint, arXiv:1510.06792.
-5. M. Allison, B. Shader, “Fastest Mixing Markov Chain Problem for the Union of Two Cliques,” *Linear and Multilinear Algebra* 59 (2011), 801–823. DOI: 10.1080/03081087.2010.538690; distinct discrete-time problem and graph union, full text not examined.
+1. J. Sun, S. Boyd, L. Xiao and P. Diaconis, *The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem*, SIAM Review 48 (2006), 681–699, [DOI 10.1137/S0036144504443821](https://doi.org/10.1137/S0036144504443821).
+2. F. Göring, C. Helmberg and M. Wappler, *Embedded in the Shadow of the Separator*, [public preprint](https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf).
+3. *Sharp three-regime spectral-gap allocation for two cliques with a biclique gateway*, [Resultary record 901311831846](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846/RESULT.md), Finding and Proof §§2–3.
+4. *Exact fastest symmetric mixing through a partial matching between two cliques*, [Resultary record 18bf18376a63](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fastest-symmetric-mixing-through-a-partial-matching-betwee--18bf18376a63/RESULT.md), Finding and Assumptions.
+5. M. Allison and B. Shader, *Fastest Mixing Markov Chain Problem for the Union of Two Cliques*, Linear and Multilinear Algebra 59 (2011), 801–823, [DOI 10.1080/03081087.2010.538690](https://doi.org/10.1080/03081087.2010.538690), publisher description only.

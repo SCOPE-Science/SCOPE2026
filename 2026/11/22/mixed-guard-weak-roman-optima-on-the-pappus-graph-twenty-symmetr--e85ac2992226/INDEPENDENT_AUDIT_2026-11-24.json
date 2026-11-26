@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:35.874246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Independent replay: /workspace/branches/47a5c9b9-76f4-436c-9dac-0f1e5ab91ea1/independent_replay.py and independent_replay.json"
+      ],
+      "rationale": "For the connected 18-vertex Pappus incidence graph, a function with positive support S and doubled set T is valid exactly when S dominates and each zero can either borrow from a neighbor in T or replace a singly occupied neighbor in S and still dominate. The independent replay exhausted 985,663 assignments of weight at most eight. Nothing below eight worked, and the 2,691 minima split as 1,755/882/54 by number of doubled vertices. Enumeration of point permutations preserving line triples and of point-to-line bijections preserving incidence gave all 216 automorphisms: connected bipartiteness makes these the only two possibilities. The orbit distributions by class are 27×1, 108×8, 216×4; 18×1, 108×2, 216×3; and 54×1, giving 20 orbits. Every unit transfer to a distinct vertex with occupancy at most one was tested against the minimum set, with graph adjacency imposed for slides. All-source BFS reproduced connectedness, 18,846 jump and 6,372 slide edges, radii and diameters (8,9) and (9,12), and the respective eccentricity counts (1,323,1,368) and (567,1,422,486,216).",
+      "residual_risks": [
+        "This is an exhaustive finite calculation, not a certificate for other graphs or for successive attack-response play."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2407.03812v1 p. 1 defines the parameter and frames algorithmic results for graph classes; the original weak Roman and 2014 bounds papers could not be read in full in the lawful attempts."
+        ],
+        "reasoning": "A decision/optimization algorithm or a bound on weak Roman weight is not a theorem about all minimizers and the distances between them. No inspected broader statement supplies the latter data.",
+        "searches": [
+          "Literature lookup on the Pappus weak Roman optimum and reconfiguration census",
+          "arXiv:2407.03812v1, p. 1",
+          "DOIs 10.1016/S0012-365X(02)00811-7 and 10.1016/j.dam.2014.06.016"
+        ]
+      },
+      "checked_sources": [
+        "Resultary secure-guard spectra record f2f294ec85cf",
+        "arXiv:2407.03812v1",
+        "Cited 2003 and 2014 papers (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The secure set of size eight supplies a weight-eight upper bound but does not exclude feasible functions of weight seven with doubles. The full slide graph has diameter 12, whereas the reported singleton slide graph has diameter 10."
+        ],
+        "reasoning": "The singleton theorem gives a proper induced subgraph and an upper bound. It does not enumerate the doubled labels, their new transfers, or the changed full distances. No priority order is inferred from the dates of the two records.",
+        "searches": [
+          "Secure-guard spectra record, Finding",
+          "arXiv:2407.03812v1, abstract and definition",
+          "Frozen RESULT.md, Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Finding counts 1,755 minimum secure sets in 13 orbits on the same 18-vertex graph."
+        ],
+        "reasoning": "At occupancies 0/1 each weak Roman response is exactly the secure swap condition. This is equivalent coverage of the restriction, not of assignments in which a vertex can donate and stay occupied.",
+        "searches": [
+          "Resultary: secure/weak Roman guard spectra and relocation distances on the Pappus graph",
+          "SCOPE-secure-guard-spectra-and-exact-relocation-distances-on-the-pappu--f2f294ec85cf, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The secure-guard record gives 12,798 jump edges and 4,320 slide edges; slide diameter is 10. These are for secure sets, not the weighted optimum set."
+        ],
+        "reasoning": "The public table is an exact match on the induced all-singleton subgraphs only, not a second table for the full weighted object.",
+        "searches": [
+          "Resultary search on Pappus secure and weak Roman optima and transfer metrics",
+          "Secure-guard spectra record, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Credit the exact all-singleton subcase to the secure-domination work. The supported distinct claim is the complete weighted optimum classification, including the 936 doubled-label optima in seven orbits and the full unit-transfer graphs. The strongest inspected same-graph source does not cover those claims; broader weak Roman results are background, not the weighted census.",
+      "residual_risks": [
+        "Limited historical coverage, especially papers without retrieved full text.",
+        "It is not resolved whether the similarly described secure-domination report cited in the frozen record is the same work as the matching catalogue entry; the demonstrated overlap is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "1,755 minimum secure sets in 13 orbits; 12,798 jump and 4,320 slide edges; slide diameter 10. Secure sets are precisely the feasible zero/one assignments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-secure-guard-spectra-and-exact-relocation-distances-on-the-pappu--f2f294ec85cf",
+          "material_read": "RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror inspection after Resultary lookup",
+          "title": "Secure-guard spectra and exact relocation distances on the Pappus graph",
+          "trigger": "Same graph, exact optimizer and transfer data"
+        },
+        {
+          "assessment": "Background at the inspected passages",
+          "evidence": "Focus is computational complexity on graph classes; no same-graph weighted census in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.03812v1",
+          "material_read": "p. 1 abstract and definition",
+          "method": "OA PDF passage inspection",
+          "title": "Weak Roman domination algorithmic study",
+          "trigger": "Relevant general weak Roman results from literature lookup"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; no inference from access",
+          "evidence": "The frozen record credits the definition and bounds to this work; the independent comparison does not establish whether either gives any specific Pappus weight bound.",
+          "identifier_or_url": "10.1016/S0012-365X(02)00811-7; 10.1016/j.dam.2014.06.016",
+          "material_read": "Bibliographic identification only; no decisive full-text passage retrieved",
+          "method": "Bounded lawful OA attempts",
+          "title": "Defending the Roman Empire—A new strategy; Bounds on weak roman and 2-rainbow domination numbers",
+          "trigger": "Foundational definition and possible bounds on weight"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and transfer definitions",
+        "Secure-guard spectra record, Finding"
+      ],
+      "rationale": "The Pappus graph is a standard cubic symmetric test object. The weighted optimum and transfer invariant answers a concrete question left by the secure-set census: do the doubled optima occur, and how do they change the move geometry? They constitute over a third of the optima and introduce distinct symmetry types; the exact slide diameter increases from 10 to 12 even though additional optimizers and moves are allowed. This gives a substantive finite benchmark for distinguishing jump and slide reconfiguration, not a new name for the singleton enumeration.",
+      "residual_risks": [
+        "Significance is local to this graph and these reconfiguration rules; no family theorem follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

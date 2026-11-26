@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:44:31.237034Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–124",
+        "Frozen VERIFICATION.md and CHECK.py",
+        "Replay: python /workspace/audit_replay.py 3; /workspace/review-evidence/3.txt"
+      ],
+      "rationale": "The scalar recurrence retains all periodic states because the first coordinate of the three-dimensional state is forced by the preceding pair. Equal coordinates give only the fixed point or the cyclic form (nu,s,s) with a(s−nu)(s+nu)^2=1; its level-set count changes at k=27/32. For distinct A,B,C, subtracting the recurrence equations and dividing by the actual nonzero differences forces (S−t)(Q−3t^2)=−1/a at each of the three roots. Coefficient comparison gives P=−S^2, Q=3S^2 and R=−S^3−1/(3a). Newton sums give the squared-difference sum −4S/a and hence S=3nu/5. Conversely these relations make all three recurrence residuals equal with zero sum, for each ordering. The cubic discriminant is −3(96a nu^3+125)/(125a^2); strict positivity gives precisely two cyclic classes, with no distinct branch at equality. On the repeated-coordinate branch the planar trace is 16s^2/(s+nu)^2 and determinant zero, giving the claimed strict stability interval for the middle root only. Direct rational perturbation propagation at a=6331625/4572288, nu=−1 reproduces both orientation-specific trace/determinant pairs and the strict Schur tests. The three-dimensional derivative has a zero extra multiplier; simple roots and strict Schur inequalities persist on an open parameter neighborhood.",
+      "residual_risks": [
+        "The replay checks the discriminant, boundary return multipliers and rational witness; the global census follows from the equality-pattern argument, not parameter sampling.",
+        "There is no claim of nonlinear stability at the unit-multiplier boundaries or of attraction throughout the five-cycle region. Pointwise nilpotence refers to the original family, not the displayed conjugate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary theorem constructs one three-cycle that is not a repeller for a larger nilpotent-Jacobian family and discusses when the exhibited cycle attracts. Its concluding questions ask about uniqueness and attraction.",
+          "The later square-root triangle result supplies opposite-order pairing in the larger family; a separate later result constructs N sinks with a polynomial of degree at most 2N. Neither gives two all-distinct sinks for this quadratic map.",
+          "The October 11 earlier normal-form record concerns primitive four-cycles."
+        ],
+        "reasoning": "Larger family scope does not strengthen one-orbit existence into a full quadratic census. Arbitrary multiplicity obtained by raising the polynomial degree gives no two-sink conclusion at degree two. The separate period-four result does not control period three.",
+        "searches": [
+          "arXiv:2209.06986v1 Theorem 1.1 and concluding questions",
+          "Chamberland DOI 10.1080/10236190500267970",
+          "Resultary 6a3b524ac2ac, 3399f84fc329 and 7541997decfd"
+        ]
+      },
+      "checked_sources": [
+        "Castañeda–Rebollo-Perdomo arXiv:2209.06986v1",
+        "Chamberland DOI and secondary theorem description",
+        "Resultary 62c0aabc548c, 11602ddaeea4, 6a3b524ac2ac, 3399f84fc329 and 7541997decfd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The repeated-height cubic and multiplier are the readily deducible part of the construction. Distinct heights require new divided cyclic differences, Viète relations, a discriminant threshold and a converse proving both orientations occur.",
+          "Even an exact existence/census statement for the two cycles does not control their Jacobian products. The frozen rational witness tests both oriented returns separately, with opposite signs of determinant but both sets of strict Schur inequalities."
+        ],
+        "reasoning": "The earlier theorem does not mechanically imply the distinct-height classification or stable coexistence. The later normalized census does imply the corresponding frozen count, but not the simultaneous strict spectral bounds.",
+        "searches": [
+          "arXiv:2209.06986v1 §3 orbit construction and return derivative, §5 open questions",
+          "Resultary 62c0aabc548c Finding",
+          "Frozen RESULT.md Steps 2 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_1(t)=t^2 and a_12=a in Eq. (10) give exactly the frozen polynomial conjugate. Their exhibited orbit has scalar heights (nu,s,s).",
+          "For r=−nu>0 let K=8ar^3, kappa^2=K, g(t)=t(t−1). Sending (x,y,z) to (kappa x/(4r^2), y/(2r)+1/2, z/(2r)+1/2) gives (kappa[g(Y)−g(Z)], Z, K[g(Y)−g(Z)]^2), exactly the later quadratic normal form."
+        ],
+        "reasoning": "The primary overlap is not merely the same period: it is the same map and a repeated-height branch. The later equivalence is also exact, taking the thresholds 27/32 and 125/96 to 27/4 and 125/12. The corresponding two cyclic orientations are the same up to that affine conjugacy.",
+        "searches": [
+          "arXiv:2209.06986v1 Sections 2–3, Eqs. (10)–(12)",
+          "Resultary 62c0aabc548c and 11602ddaeea4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later indexed 62c0aabc548c gives total counts 1,2,3,5 across K and the two cyclic orientations of three distinct roots beyond K=125/12; it does not assert attraction.",
+          "Distinct 2026-11-08 UTC entry 11602ddaeea4 gives matching repeated-height multiplicities and the middle branch's attracting range in the K parameter. The same-date 6a3b524ac2ac is a separate structural pairing claim."
+        ],
+        "reasoning": "These are exact numerical/structural overlaps where the conjugacy matches, not just matching denominators. Their index dates are later than the frozen path date and do not establish prior precedence or independence. No inspected entry supplies the simultaneous all-distinct sink witness.",
+        "searches": [
+          "Local Resultary searches for three-cycle counts, quadratic nilpotent map, repeated/distinct heights and simultaneous sinks; compared 62c0aabc548c, 11602ddaeea4 and 6a3b524ac2ac"
+        ]
+      },
+      "rationale": "The normal form, one constructed three-cycle and analysis of its multiplier have direct primary precedent. Two distinct hyperbolic period-three sinks with all-distinct heights at one quadratic parameter, together with the all-distinct-branch exhaustion and exact onset, are supported as the distinct contribution relative to verified earlier material. Later indexed findings exactly overlap the count after rescaling; the strongest retrieved one does not assert attraction. No claim of historical uniqueness is made.",
+      "residual_risks": [
+        "The final journal version of the main preprint and Chamberland's original full text were not separately accessible; possible additions or direct earlier overlap cannot be excluded.",
+        "Equivalent later index entries give no definitive provenance or chronology of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior map and one constructed repeated-height orbit; does not settle the distinct-height census or coexistence in the inspected version",
+          "evidence": [
+            "Theorem 1.1 guarantees a three-cycle 'which is not a repeller'; §5 asks about uniqueness and attraction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.06986v1; journal DOI 10.1007/s00013-024-02085-8",
+          "material_read": "Lawful submitted version, §2 Eq. (10), §3 Theorem 1.1 and Eqs. (11)–(12), pp. 4–6, offsets 12982–20563; §5 p. 14, offset 38976. No separate final-journal full text was accessible.",
+          "method": "Lawful OA preprint PDF and publisher/alternate-version check",
+          "title": "Discrete and continuous dynamics of real 3-dimensional nilpotent polynomial vector fields",
+          "trigger": "Original encompassing family and same normal form"
+        },
+        {
+          "assessment": "Unresolved direct comparison, not a finding of noncoverage",
+          "evidence": [
+            "Castañeda–Rebollo-Perdomo describe their Theorem 1.1 as essentially a generalization of Chamberland's Theorem 3.1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236190500267970; https://chamberland.math.grinnell.edu/papers/nilpotent.pdf",
+          "material_read": "Bibliographic information and the description of Theorem 3.1 in the later authors' preprint; not Chamberland's full text",
+          "method": "Lawful author copy attempted but timed out; DOI and OA copy lookup did not yield readable text",
+          "title": "Dynamics of Maps with Nilpotent Jacobians",
+          "trigger": "Earlier existence result expressly generalized by Castañeda–Rebollo-Perdomo"
+        },
+        {
+          "assessment": "Later indexed equivalent census in the negative-nu region; not a sink claim",
+          "evidence": [
+            "K>125/12 is necessary and sufficient for two distinct-height orientation classes; the total count changes from three to five there."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-symmetry-breaking-three-cycles-at-a-sharp-quadratic-nilpoten--62c0aabc548c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror and affine-conjugacy comparison",
+          "title": "Two symmetry-breaking three-cycles at a sharp quadratic nilpotent-map threshold",
+          "trigger": "Closest exact apparent census overlap"
+        },
+        {
+          "assessment": "Later equivalent repeated-height component",
+          "evidence": [
+            "Repeated-height multiplicity changes at K=27/4; the sink interval concerns that branch only."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-multiplicity-and-stability-transitions-for-repeated-height--11602ddaeea4",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, parameter conversion K=8k",
+          "title": "Sharp multiplicity and stability transitions for repeated-height three-cycles",
+          "trigger": "Exact repeated-height branch and stability interval"
+        },
+        {
+          "assessment": "Later structural overlap, not the fixed quadratic census or attraction",
+          "evidence": [
+            "Pairs the distinct-height cyclic orders in the broader family."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-square-root-triangle-rigidity-and-paired-three-cycles-in-a-nilpo--6a3b524ac2ac",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, comparison of claimed family and conclusion",
+          "title": "Square-root triangle rigidity and paired three-cycles in a nilpotent family",
+          "trigger": "Broader opposite-orientation result"
+        },
+        {
+          "assessment": "Different parameterized family construction",
+          "evidence": [
+            "Constructs N sinks with degree bounded by 2N; it does not give the two quadratic orientation sinks."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-arbitrarily-many-superattracting-three-cycles-despite-an-everywh--3399f84fc329",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, compare polynomial degree restrictions",
+          "title": "Arbitrarily many superattracting three-cycles despite an everywhere nilpotent Jacobian",
+          "trigger": "Possible stronger simultaneous sink construction"
+        },
+        {
+          "assessment": "Normal-form precedent; different dynamical period",
+          "evidence": [
+            "The threshold concerns primitive four-cycles."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-sharp-degree-threshold-for-four-cycles-in-a-three-dimensional--7541997decfd",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, compare least periods",
+          "title": "A sharp degree threshold for four-cycles in a three-dimensional nilpotent-Jacobian family",
+          "trigger": "Earlier same normal form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5",
+        "Castañeda–Rebollo-Perdomo §5"
+      ],
+      "rationale": "The census answers a natural uniqueness question for the simplest quadratic defining polynomial in a studied family. The second threshold reveals two previously unaccounted cyclic orientations, and the exact witness proves stable coexistence, persisting under perturbation despite the strong nilpotence restriction in the original coordinates. Counting only the repeated-coordinate branch would miss both phenomena.",
+      "residual_risks": [
+        "The result does not quantify the whole coexistence region or determine basins and higher periods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

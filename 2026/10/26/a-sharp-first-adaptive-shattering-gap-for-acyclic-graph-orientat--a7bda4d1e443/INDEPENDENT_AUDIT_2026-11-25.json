@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:43.535911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Verification; VERIFICATION.md; certificate.json; verify.py; independent.cpp; recorded Python and C++ outputs",
+        "Replacement RESULT.md §§Proof and Verification; independent topological-order generation, branch-feasibility replay, and finite 2+3 subgraph check"
+      ],
+      "rationale": "The revised statement keeps the valid Littlestone results. The forest criterion follows by extension along a topological order; any shattered tree has distinct witnesses at distinct leaves. For a cycle the count 2^r−2 rules out depth r. Product additivity follows by concatenating trees and, for the reverse inequality, running separate optimal mistake-bound predictors. I generated orientations from all 120 vertex orders, independently obtained 46 distinct concepts, then replayed the frozen certificate by filtering the feasible concepts at each branch and confirmed all 32 witnesses. Exact tree-feasibility and VC-trace checks found the gap only for the full edge mask among all 64 subgraphs of the 2+3 template; the remaining 1+4 and smaller cases are covered by the pseudoforest proof. The bridge endpoints in each interior block are distinct degree-two vertices; bridges preserve planarity, can be made bipartite by alternating sides, and make an independent product. This gives exactly 6s−1 versus 5s−1.",
+      "residual_risks": [
+        "Finite certificate replay establishes the six-edge base, not an arbitrary-graph Littlestone formula. No machine-formal proof is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cactus record claims equality exactly for cacti and derives the K_{2,3} gap via a diamond subdivision.",
+          "The complete-bipartite record gives 2·3^n−2^n, n+1, and ceil(3n/2).",
+          "The primary general sources inspect tree-dimension bounds, information complexity, and dimension-computation hardness, respectively."
+        ],
+        "reasoning": "The indexed generalizations cover the pseudoforest statement and/or the base gap, and the cactus criterion implies bipartite minimality. Dates alone do not prove independent priority. The inspected statements do not give the exact connected bridge-chain family.",
+        "searches": [
+          "Resultary cactus boundary record 8e8760549ada and complete bipartite record 266cc45dc40e, indexed 2026-11-02 UTC",
+          "arXiv:2203.12211; arXiv:2206.13257; DOI:10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.1319, 0904.1229, 2203.12211, 2206.13257",
+        "DOI:10.4230/LIPIcs.ITCS.2023.85",
+        "Resultary 8e8760549ada, 266cc45dc40e, 3d0efd785163"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The VC formula supplies the benchmark but not a lower bound of five on Littlestone dimension. Given the base gap, the amplifier uses an explicit connected planar degree-three construction and a product calculation."
+        ],
+        "reasoning": "Neither earlier VC shattering nor identification lower bounds imply the decisive depth-five certificate. Later base dimension formulas make the product calculation straightforward once the graph is exhibited; the replacement does not claim a new product law.",
+        "searches": [
+          "Kozma–Moran §3.1; Pikhurko opening definition; Resultary stronger cactus and complete-bipartite statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozma–Moran §3.1 Lemma 12(ii) gives exactly the shattered forests and Proposition 15(i) gives exactly the graphic-rank formula.",
+          "Pikhurko's invariant is the worst-case number of edge queries to identify a hidden orientation."
+        ],
+        "reasoning": "Graphic rank is an equivalent, already stated formulation of the old VC claim. Decision-tree identification cost is not equivalent to the existence of a complete mistake tree with all answer paths realized.",
+        "searches": [
+          "Resultary: acyclic graph orientations / VC and Littlestone dimension / K_{2,3}",
+          "Primary search: acyclic-orientation shattering and online mistake complexity",
+          "arXiv:1211.1319 §3.1 and arXiv:0904.1229 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=3 the indexed formulas give exactly 46, 4, and 5. The related K_{3,n} record 3d0efd785163 counts non-separating out-branchings, not mistakes or shattered queries."
+        ],
+        "reasoning": "There is genuine indexed coverage of the exact base numbers, not merely a similarly named graph. This coverage is credited; no exact indexed bridge-chain formula was identified.",
+        "searches": [
+          "Resultary exact K_{2,3} / complete-bipartite acyclic-orientation comparison; matching file 266cc45dc40e"
+        ]
+      },
+      "rationale": "The original broad novelty framing did not credit equivalent prior coverage of its forest shattering criterion and uniform VC formula. It does not pass for that component: Kozma–Moran expressly prove both. The replacement makes those results prior background and confines the contribution to the Littlestone gap, its finite certificate/minimality and its exact connected planar subcubic amplification. It explicitly credits overlapping generalizations indexed later; neither establishes earlier provenance nor states the connected bridge-chain result. Best-of-knowledge pass for the revised contribution, not a priority claim for the VC result or for generic additivity.",
+      "residual_risks": [
+        "Search and statement comparison are bounded; earlier graph-specific online-prediction work may exist. Later index dates do not establish historical priority, and the later claims were compared for overlap rather than independently proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent prior coverage for the VC component",
+          "evidence": "Shattered edge sets for acyclic orientations are exactly forests; VC dimension equals |V|−c(G).",
+          "identifier_or_url": "https://arxiv.org/abs/1211.1319",
+          "material_read": "§3.1, printed p. 4, Lemma 12(ii) and Proposition 15(i)",
+          "method": "Bounded primary full-text passage inspection",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Exact forest/VC characterization"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The objective is identification of the hidden orientation, not a realizable mistake bound.",
+          "identifier_or_url": "https://pikhurko.github.io/E/Pikhurko10cpc.pdf",
+          "material_read": "PDF p. 1, definition of c(G)",
+          "method": "Primary PDF passage inspection",
+          "title": "Finding an Unknown Acyclic Orientation of a Given Graph",
+          "trigger": "Same orientations and adaptive edge queries"
+        },
+        {
+          "assessment": "Broader, overlapping result indexed after the frozen version",
+          "evidence": "Equality exactly on cacti and a K_{2,3} example with dimensions 4 and 5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-cactus-boundary-for-adaptive-shattering-of-acyclic-orientati--8e8760549ada",
+          "material_read": "Finding and diamond-subdivision comparison",
+          "method": "Bounded local archived text inspection",
+          "title": "The cactus boundary for adaptive shattering of acyclic orientations",
+          "trigger": "Stronger equality and gap classification"
+        },
+        {
+          "assessment": "Direct overlap at n=3; indexed after the frozen version",
+          "evidence": "2·3^n−2^n orientations, VC n+1, Littlestone ceil(3n/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+          "material_read": "Finding giving the K_{2,n} formulas",
+          "method": "Bounded local archived text inspection",
+          "title": "Exact online shattering for acyclic orientations of complete bipartite graphs",
+          "trigger": "Exact family subsuming the finite base"
+        },
+        {
+          "assessment": "Framework, not exact graph values in passages read",
+          "evidence": "General tree and Littlestone dimension bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "Abstract and §1 pp. 1, 3",
+          "method": "Primary full-text passage inspection",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "General shattering machinery"
+        },
+        {
+          "assessment": "Different consequence in passages inspected",
+          "evidence": "Finite Littlestone dimension bounds information complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13257",
+          "material_read": "Opening pages",
+          "method": "Primary full-text passage inspection",
+          "title": "Finite Littlestone Dimension Implies Finite Information Complexity",
+          "trigger": "Possible general Littlestone implications"
+        },
+        {
+          "assessment": "Generic hardness, not acyclic orientations in passages read",
+          "evidence": "Biclique appears as a hardness reduction, not as the graph whose orientation class is measured.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+          "material_read": "Abstract and opening introduction",
+          "method": "Primary full-text passage inspection",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone's Dimension via (Unbalanced) Biclique",
+          "trigger": "Biclique and Littlestone alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md theorem, minimality proof and bridge-chain construction",
+        "Frozen certificate.json; Kozma–Moran Proposition 15(i); Pikhurko definition of the different query objective"
+      ],
+      "rationale": "The five-vertex obstruction gives a genuine sharp boundary within bipartite graphs: the first two-cycle bipartite structure already admits adaptive shattering beyond forest rank. The graph family shows the gap is unbounded despite connectedness, planarity, bipartiteness and degree three, rather than merely under disjoint repetition. These are informative constraints on a natural orientation class; the revised work does not rely on the known VC formula for its contribution.",
+      "residual_risks": [
+        "The amplifier proves no optimum over all subcubic graphs and leaves the two-edge-connected case open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

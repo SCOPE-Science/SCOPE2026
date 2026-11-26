@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:03.243946Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–41; VERIFICATION.md; inspected bs_universality_verify.py",
+        "Independent replay: python /tmp/opencode/review4_exact.py (uses b(2k+1)=b(k), b(4k)=b(k), b(4k+2)=0, a streaming arch scan, and exhaustive binary target words for N<=20). Every prefix through 1048576 passed; dyadic endpoint (S,U)=(17711,17709)."
+      ],
+      "rationale": "For n>0 with b(n)=1, incrementing n either shortens a terminal even zero run by one or, at the carry through terminal ones, shortens the preceding even zero run by one. The sole surviving case is an all-ones expansion of even length, plus the pair at zero. Greedy arches characterize the universality index: one symbol can be taken from each arch; the sequence of arch-ending symbols followed by a symbol missing from the tail fails even under earliest-position matching. After 110|110|01 the count is three arches for five ones. The initial next bit b(8) is zero. For j>=2 the adjacent pair ends at 4^j and the two following bits are zero: 4^j+1 has a zero run of length 2j-1, and 4^j+2 has a final zero run of length one. The second zero is the elementary detail needed after the arch that consumes the first zero after a pair, so later isolated ones resume closing arches with a zero already seen. Thus the one extra unfinished contribution occurs exactly at the specified cutoffs. The dyadic count follows by tiling the suffix after the leading 1 by tokens 1 and 00, including the separate zero index; the Fibonacci summation and initial list agree.",
+      "residual_risks": [
+        "The exact finite check corroborates, but does not prove, the infinite statement. The reviewed formula does not address shifted words or contiguous factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched record treats N>=4 uniformly, S(2^m) for m>=0 and U(2^m) for m>=2, and states a complexity and asymptotic result. Schnoebelen–Veron state the general universality-index/arch-count identity."
+        ],
+        "reasoning": "The matched theorem strictly extends the frozen ranges. The generic arch theorem is relevant background, not itself the evidence of identical sequence-specific coverage.",
+        "searches": [
+          "Resultary 0653545412cc, matched RESULT.md",
+          "arXiv:2304.11932, Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary matches 0653545412cc and 66657d398469; Schnoebelen–Veron arXiv:2304.11932; Hofman–Martens DOI 10.4230/LIPIcs.ICDT.2015.230"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict N>=4 to N>=8, and m>=2 to m>=3; smallest missing length is one more than U by the definition. The separability paper's abstract is about a different language-level problem."
+        ],
+        "reasoning": "No separate new mathematical assertion remains in the frozen scope. The first three prefix values follow immediately from the literal prefix 110, while the next four are already within the matched theorem.",
+        "searches": [
+          "Resultary 0653545412cc, exact all-prefix theorem",
+          "DOI 10.4230/LIPIcs.ICDT.2015.230; arXiv:2304.11932"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched statement sets U(N)=B(N)-2-1_{N=4^t+1,t>=1} for N>=4. Its B(N) is the frozen S(N)."
+        ],
+        "reasoning": "For N>=8 the t=1 exception is out of range, so both indicators coincide; the earlier formula also yields the frozen U(5)=1.",
+        "searches": [
+          "Resultary: Baum–Sweet scattered-subsequence universality and Fibonacci growth; 2026/10/12/SCOPE-exact-scattered-subsequence-universality-and-fibonacci-growth-of--0653545412cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed October 12 entry gives explicit indicator and Fibonacci formulas. The November 2 entry independently overlaps the all-prefix range and dyadic specialization."
+        ],
+        "reasoning": "This is an exact catalogue match of complete formulas, not merely a table that agrees on finitely many initial terms.",
+        "searches": [
+          "Local Resultary match 0653545412cc; second match 66657d398469"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record dated 2026/10/12 states the same all-prefix formula under the same indexing, actually extending the uniform range to N>=4. It also gives the claimed dyadic counts over wider ranges. This is demonstrated equivalent/stronger coverage, not a negative inference from general arch theory or a search failure. The catalogue dates are not used to infer publication provenance.",
+      "residual_risks": [
+        "Search did not establish an earliest scholarly publication or the completeness of literature coverage. The exact indexed overlap is sufficient for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified dominating coverage",
+          "evidence": "Same indexing; N>=4 formula, including the 5 exception; larger dyadic ranges.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-scattered-subsequence-universality-and-fibonacci-growth-of--0653545412cc",
+          "material_read": "RESULT.md, theorem at opening offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact scattered-subsequence universality and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "Closest exact catalogue match"
+        },
+        {
+          "assessment": "Material overlap; later catalogue date",
+          "evidence": "N>=6 indicator form with exponents >=2 and dyadic result for exponent >=3.",
+          "identifier_or_url": "2026/11/2/SCOPE-sparse-carry-boundary-exceptions-in-subsequence-universality-of--66657d398469",
+          "material_read": "RESULT.md, theorem at offset 500",
+          "method": "Local Resultary mirror",
+          "title": "Sparse carry-boundary exceptions in subsequence universality",
+          "trigger": "Second exact catalogue match"
+        },
+        {
+          "assessment": "Verified general method antecedent",
+          "evidence": "The subword universality index equals the number of greedy arches.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+          "material_read": "Section 2, PDF p. 4 around offset 10400",
+          "method": "OA primary PDF",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Foundational arch characterization"
+        },
+        {
+          "assessment": "Different question in inspected passage",
+          "evidence": "Studies complexity of regular-language separability by combinations of bounded-length subsequences or subwords.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICDT.2015.230",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF",
+          "title": "Separability by Short Subsequences and Subwords",
+          "trigger": "Frozen related-work citation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; dominating matched RESULT.md 0653545412cc"
+      ],
+      "rationale": "The exact all-prefix invariant and its sparse exceptional set are mathematically meaningful in themselves, but this record repeats a stronger indexed result. The alternate digit-carry verification is elementary and does not supply a separately established structural or computational contribution beyond that coverage.",
+      "residual_risks": [
+        "No judgment is made about value of possible refinements such as classifying the shortest absent words; none is proved here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

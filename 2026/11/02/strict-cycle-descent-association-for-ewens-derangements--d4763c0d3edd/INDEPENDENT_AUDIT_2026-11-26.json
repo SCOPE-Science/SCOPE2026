@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:04.612970Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjacent-label conjugation flips the descent at those positions except when the two images are the same adjacent pair. That exceptional pair is either two fixed points (no descent) or a two-cycle (one descent); class symmetry gives the stated Fulman formula and, on derangements, Cov(f(K),D)=Cov(f(K),C₂)/n. Marking a specified two-cycle factors out one factor θ and an independent size-(n−2) Ewens derangement, proving the exact transformed identity. Deletion of label n from a longer cycle is invertible by inserting it after one of n−1 labels; deletion of a two-cycle containing n leaves n−2 labels and one of n−1 possible partners. These produce the positive mixture of K_(n−1) and 1+K_(n−2), with common θ. From K₂=K₃=1, inductively K_(n−2)≤st K_(n−1)≤st 1+K_(n−2) orders the mixture endpoints; placing K_n between them and using the first inequality closes the induction at the next size. The lower endpoint has positive mass at one (a long cycle), while the upper endpoint does not. Thus every strictly increasing transform separates their finite laws, and positive mixture weights give a strict size-biased expectation gap. At n=2,3 the cycle count is constant. For unrestricted uniform permutations the marked fixed-point pair and the marked two-cycle each have expected count 1/2 and shift the residual cycle count by two and one respectively, yielding −1/(2n), including n=2. The repaired attribution has no effect on these hypotheses, identities or signs.",
+      "replay": "python3 /workspace/branches/frozen_review_replay.py 5; independent exact weighted permutation enumeration for n=2…7, θ=1/5,1,7/2 and f(k)=k⁴+2k, checking the sandwich and strict covariance identity. Also independently checked the companion mean recurrence and r=2 covariance specialization for n=4…25 at three positive rational θ. Frozen verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Silva et al. give the Ewens-derangement marginal and a chain representation whose boundary depends on n; Bóna gives real-rooted cycle-count polynomials. Eriksen et al. compare the derangement event against prescribed descents in the full uniform group. Gessel–Reutenauer provides exact joint enumeration by conjugacy class."
+        ],
+        "reasoning": "Separate fixed-size laws and real-rootedness do not order different sizes without further comparisons. Derangement/descent-event dependence does not compare the number of cycles within weighted derangements. Broad joint enumeration covers the potential input counts, but no inspected theorem gives the stochastic sandwich.",
+        "searches": [
+          "da Silva–Jamshidpey–Tavaré arXiv:2006.04840 §2.3 and Theorem 1",
+          "Bóna arXiv:math/0606277, Theorem 1.1",
+          "Eriksen–Freij–Wästlund arXiv:0811.1925",
+          "Gessel–Reutenauer theorems as identified by Campion Loth et al., p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary …393ea8c68636, …38e40b444e08 and …d3509533e6f6",
+        "arXiv:2006.04840, 2301.00898, math/0606277 and 0811.1925",
+        "Fulman and Gessel–Reutenauer DOI records and checked secondary attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion deletes a marked cycle, so replacing K by f(K) in that calculation immediately gives the transformed identity. Its sign proof uses a scalar recursion for μ_m and bounds μ_n−μ_(n−2) between 0 and 1. It does not order the underlying laws. The present proof lifts the deletion to a positive two-law mixture, then propagates the entire stochastic-order sandwich with a strict threshold witness."
+        ],
+        "reasoning": "The companion's mean argument is a close method overlap, but the sign for every strictly increasing transform requires the new distributional induction; neither the scalar sign nor a fixed-size Markov representation supplies its conclusion alone. The repaired claim credits the shared deletion and limits originality accordingly.",
+        "searches": [
+          "Resultary …393ea8c68636, Cycle marking and Monotonicity of the residual mean",
+          "arXiv:2006.04840 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campion Loth et al. give E[D|type]=(n−1)/2+(a₂−binom(a₁,2))/n; the companion gives exact Cov(C₂,K)>0 at precisely the same n≥4, θ>0. Their product relation gives the exact formula and sign for f(k)=k."
+        ],
+        "reasoning": "The equivalence is mathematical, despite the different observable named in the title. A single positive covariance with K does not imply positivity against every strictly increasing function of K.",
+        "searches": [
+          "Resultary Ewens-derangement cycle-count and two-cycle covariance",
+          "Campion Loth et al. arXiv:2301.00898, Corollary 4.10 and Eq. (4.6)",
+          "Resultary …393ea8c68636, r=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion gives exact cycle covariance values and sign for K and C₂. The other same-day cycle record compares distinct length counts, and the matching record treats fixed-point-free involutions, for which K is constant. The exact marginal formula specifies probabilities, not a table/assertion of their tail order across all sizes and θ."
+        ],
+        "reasoning": "The actual identity-transform formula is covered and must not be credited separately. These exact records do not tabulate or establish the retained distributional inequality.",
+        "searches": [
+          "Resultary same-model records …393ea8c68636 and …38e40b444e08; matching-descent …d3509533e6f6",
+          "Ewens-derangement exact cycle law, arXiv:2006.04840 Eq. (9)"
+        ]
+      },
+      "rationale": "After repair the distinct claim is the cross-size stochastic sandwich and the strict covariance sign for every strictly increasing transform. The same-day result on Cov(C_r,K) at r=2 together with the prior mean-descent identity already yields the full identity-transform comparison; its marking argument yields the general transformed identity without its sign. Those overlaps are expressly credited, without inferring priority from the catalogue date.",
+      "residual_risks": [
+        "Chronological priority of the two same-day records is unresolved; overlap is established without ordering their priority. Full historical Fulman and Gessel–Reutenauer texts were inaccessible in the bounded lawful checks. A more general enumeration or cross-size coupling may contain an implicit related comparison; no absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the identity-transform comparison; close antecedent to general identity, but sign proof concerns means",
+          "evidence": "For r=2 gives Cov(C₂,K)=E[C₂](1+μ_(n−2)−μ_n)>0 and proves the gap via a recursion for scalar increments μ_m−μ_(m−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-universal-size-dependent-cycle-covariance-switch-in-ewens-dera--393ea8c68636/RESULT.md",
+          "material_read": "Finding, assumptions, Cycle marking and Monotonicity of the residual mean in offset 0–6258",
+          "method": "Mirrored text inspection and r=2 specialization with prior descent formula",
+          "title": "A universal size-dependent cycle covariance switch in Ewens derangements",
+          "trigger": "Exact same measure, marking identity and strict Cov(C₂,K) sign"
+        },
+        {
+          "assessment": "Marginal and fixed-size chain covered, no covering cross-size comparison identified",
+          "evidence": "Equation (9) normalizes the θ^k-weighted cycle-count numbers; Theorem 1 uses size-specific chain boundary η_(n+1)=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "§2.3 p. 3 Eq. (9), offset about 13000; Theorem 1 p. 7, offset about 26850",
+          "method": "OA full-text statement comparison",
+          "title": "Random Derangements and the Ewens Sampling Formula",
+          "trigger": "Same cycle law, possible cross-size coupling"
+        },
+        {
+          "assessment": "Explicit conditional mean, with no cross-size order in the inspected results",
+          "evidence": "Descent expectation depends only on the two-cycle count and number of pairs of fixed points, and is attributed to Fulman.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.00898",
+          "material_read": "Corollary 4.10 p. 10 and Eq. (4.6) p. 12; p. 2 discussion of Gessel–Reutenauer",
+          "method": "OA formula and attribution comparison",
+          "title": "Permutation Statistics in Conjugacy Classes",
+          "trigger": "Descent mean antecedent and broader joint enumeration"
+        },
+        {
+          "assessment": "Real-rootedness and residue-class asymptotics, not an ordering across sizes in the located result",
+          "evidence": "The polynomial enumerates derangements by cycle count, has real nonpositive roots, and gives residue-class balance asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0606277",
+          "material_read": "§1 p. 1 and Theorem 1.1 p. 2, around offset 3300",
+          "method": "OA theorem inspection",
+          "title": "On a Balanced Property of Derangements",
+          "trigger": "Possible stochastic comparison via cycle-count polynomial roots"
+        },
+        {
+          "assessment": "Different conditioning and event",
+          "evidence": "Studies dependence of being a derangement and having prescribed descents under uniform permutations, not total cycle count within Ewens derangements.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1925",
+          "material_read": "p. 1, offset about 1500",
+          "method": "OA statement comparison",
+          "title": "Enumeration of Derangements with Descents in Prescribed Positions",
+          "trigger": "Potential prior positive association involving derangements and descents"
+        },
+        {
+          "assessment": "Established enumeration/mean antecedents; full-text limits leave priority risk",
+          "evidence": "The accessible paper cites Fulman for the class-conditional descent mean and Gessel–Reutenauer Theorems 5.3, 5.5 and 6.1 for generating-function results.",
+          "identifier_or_url": "https://doi.org/10.1006/jcta.1998.2893 ; https://doi.org/10.1016/0097-3165(93)90095-P",
+          "material_read": "Lawfully available records and attributions in Campion Loth et al., p. 2 and Corollary 4.10; originals not accessible",
+          "method": "Bounded lawful DOI attempts and OA cross-check against the cited later passage",
+          "title": "The Distribution of Descents in Fixed Conjugacy Classes of the Symmetric Groups; Counting Permutations with Given Cycle Structure and Descent Set",
+          "trigger": "Historical exact descent moments and joint enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stochastic sandwich is a finite-size structural order, not a new computation of one scalar covariance. It shows why marking a two-cycle increases every increasing cycle-count score in expectation and explains positive covariance with ordinary descents uniformly in θ. The result is useful even without counting the identity-transform case or prior descent/marking formulas as new; it does not claim full joint association.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

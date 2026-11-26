@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:19.464836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rank-r square-zero map is exactly a flag I⊆K of dimensions r,n−r and an isomorphism V/K→I. Its count has q-exponent 2r(n−r), so after division by q^(2m(m+epsilon)) the residual exponent is −2k(k+epsilon), with the product ratio p_n/p_(m−k) bounded by one and tending to one. The two flag factors count respectively U=W∩K with prescribed intersection with I and extensions from U to W: in each, after choosing intersection and projected subspace, lifts are graphs of linear maps into a quotient, giving the stated q-power. The finite intersection probability has net q-exponent −b(r−(m−b))=−j(j+k). The Gaussian product factors give beta_k and a uniform summable bound by a q-dependent multiple of q^(−j(j+k)); the defect weights similarly dominate the finite defect law. Uniformity of U means conditional on its DIMENSION b (not on its identity, as the opening wording of Proof's homology paragraph could suggest); it follows from the constant extension count. Generating U with b independent uniform vectors conditioned to be linearly independent incurs error tending to zero. Their unconditioned quotient images are uniform independent entries of an h-by-b matrix; the rank census and tightness normalize the joint law. The FO sentence is equivalent to T_m>0; the zero matrix contributes q^(−hb), including the h=0 or b=0 cases. Independent rational replay `python3 /workspace/audit_replay/parity_bounds.py` bounds both limits to width below 4.34e−19: approximately 0.337415921239570 and 0.436153157721005, inside the advertised disjoint intervals. The verified nonconvergence example uses q=2; convergence of all sentences even within a single parity is not asserted. Inspected the original checker and verification notes; the mathematical limit does not rely on their finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catanzaro–Zabka use a different sequential chain-complex model; Ababneh–Kahle use real vector spaces and prove almost-sure minimal homology; Koponen's framework does not specify the differential-plus-Grassmannian model.",
+          "Resultary 8846a7e64ecd gives parity limits for FO sentences of random alternating forms, in a different vocabulary and ensemble."
+        ],
+        "reasoning": "Neither greater breadth in a distinct ensemble nor generic theorems about expansions establish the claimed marked flag law or the detection-witness probabilities in this ensemble.",
+        "searches": [
+          "arXiv:1901.00964, Theorem A and Related Work",
+          "arXiv:2602.10783, Theorem 3.2",
+          "arXiv:2610.16163v1, random-expansion discussion",
+          "Resultary: parity-paired first-order random structures"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1602.08538, 1901.00964, 2602.10783 and 2610.16163v1",
+        "Resultary records 8846a7e64ecd and 7d219233bfbd",
+        "audit_replay/parity_bounds.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known rank law implies unmarked parity nonconvergence. The new probabilities integrate a dimension-dependent rank-zero kernel against BOTH the induced nullity law and the homology-defect marginal.",
+          "The same-day alternating-form witness is zero radical and the same-day anticommutant law concerns induced maps on homology, not images of probe cycles."
+        ],
+        "reasoning": "The general phenomenon is not the surviving claim. The specific probe experiment needs the nested Grassmannian lift, joint tightness and parity separation of the resulting mixture; none of the inspected broader results gives that conclusion by specialization.",
+        "searches": [
+          "Ginzburg–Pasechnik, arXiv:1602.08538, uniform model and Theorems 2.1–2.2",
+          "Resultary 8846a7e64ecd and 7d219233bfbd, original Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "dim H=epsilon+2K_m makes their exact homology count and limit the same marginal law.",
+          "Rephrasing the probe statistics by the dimensions of W∩I and W∩K is lossless; the closest square-zero joint-rank record instead samples an anticommuting endomorphism with a fixed maximal differential."
+        ],
+        "reasoning": "The known marginal, rectangular-matrix nullity/rank laws, and an equivalent nested-intersection formulation must not be confused with a joint law for this particular random flag and probe.",
+        "searches": [
+          "Resultary: square-zero homology detection by random subspaces; probe/intersection and parity-sensitive FO probabilities",
+          "Ginzburg–Pasechnik, arXiv:1602.08538, Theorems 2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Resultary matches include the alternating-form parity result and the square-zero anticommutant rank result. Neither uses an independent uniformly random m-plane W.",
+          "The primary homology count is exact, but indexed by differential homology dimension alone."
+        ],
+        "reasoning": "A table of differential ranks alone is insufficient to supply entries for the joint (K,J,T) law or the binary W-detection constants; no matching table or theorem was found in these sources.",
+        "searches": [
+          "Resultary: exact square-zero probe homology/intersection law and parity-spectrum records",
+          "arXiv:1602.08538, main results"
+        ]
+      },
+      "rationale": "Credit the known homology-defect marginal and standard counting identities. The supported distinct claim is the joint law with an independent half-dimensional subspace, and specifically its nontrivial parity-paired probabilities for a sentence requiring that subspace to detect homology. Generic parity nonconvergence by itself is not an originality claim: a sentence in D alone can already detect nonzero homology, always present in odd dimensions but absent with positive limiting probability in even dimensions by the known marginal.",
+      "residual_risks": [
+        "The Resultary and primary-source comparison is bounded and does not certify historical priority or rule out scattered earlier finite-field flag calculations. Same-day dates of the two indexed parallels do not establish their relative publication order; their different claims make an order determination unnecessary here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the homology-dimension law, no random probe in the checked results.",
+          "evidence": "Uniform D with D²=0; exact count by homology dimension and fixed-q parity limits.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08538",
+          "material_read": "Introduction, PDF pp. 1–2; Theorems 2.1–2.2, pp. 3–4 (OA offsets 1500 and 10350).",
+          "method": "OA PDF passage inspection.",
+          "title": "Random Chain Complexes",
+          "trigger": "Identical uniform square-zero marginal ensemble."
+        },
+        {
+          "assessment": "Distinct chain model.",
+          "evidence": "The related-work section distinguishes reuse of the same uniform D in the Ginzburg–Pasechnik model.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.00964",
+          "material_read": "Theorem A and Related Work, PDF p. 3, OA offset 6200.",
+          "method": "OA PDF passage inspection.",
+          "title": "A Model for Random Chain Complexes",
+          "trigger": "Potential broader random-complex theorem."
+        },
+        {
+          "assessment": "Different field regime and law.",
+          "evidence": "Real chain complexes with almost-sure minimal total homology.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.10783",
+          "material_read": "Theorem 3.2, PDF pp. 2–3, OA offset 5016.",
+          "method": "OA PDF passage inspection.",
+          "title": "Random Chain Complexes of Real Vector Spaces",
+          "trigger": "Potential broader homology distribution result."
+        },
+        {
+          "assessment": "Context rather than a competing law on these objects.",
+          "evidence": "The inspected conditions and examples do not introduce this random pair (D,W).",
+          "identifier_or_url": "https://arxiv.org/html/2610.16163v1",
+          "material_read": "Abstract and discussion of random expansions (OA offsets 248, 855, 38850).",
+          "method": "OA HTML passage inspection.",
+          "title": "A characterization of the finite model property for omega-categorical theories",
+          "trigger": "FO random expansion framework, as cited in frozen record."
+        },
+        {
+          "assessment": "Conceptual overlap, not equivalent coverage.",
+          "evidence": "Uniform alternating forms, zero-radical witness, no square-zero differential with Grassmannian probe.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-paired-first-order-probability-spectra-of-random-alternat--8846a7e64ecd",
+          "material_read": "RESULT.md, Finding around offset 300.",
+          "method": "Original Resultary local-mirror passage.",
+          "title": "Parity-paired first-order probability spectra of random alternating forms",
+          "trigger": "Nearest Resultary parity/FO hit."
+        },
+        {
+          "assessment": "Different fixed and sampled objects and different observable.",
+          "evidence": "A is fixed maximal rank; the second square-zero map anticommutes with A, with rank on a homology space, not a Grassmannian probe.",
+          "identifier_or_url": "2026/10/26/SCOPE-joint-rank-strata-of-square-zero-anticommutants-of-a-maximal-squ--7d219233bfbd",
+          "material_read": "RESULT.md, Finding at start of record.",
+          "method": "Original Resultary local-mirror passage.",
+          "title": "Joint rank strata of square-zero anticommutants of a maximal square-zero map",
+          "trigger": "Nearest Resultary square-zero joint rank/homology hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-dimensional cut is the natural scale where the kernel intersection has finite random excess and can see a finite random homology space without certain detection. The joint law resolves that critical sampling regime and gives quantitative first-order probabilities strictly between zero and one for a genuinely probe-dependent sentence, not just a restatement of unavoidable parity of the defect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:25:32.534384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–87",
+        "Frozen VERIFICATION.md and verify_hankel.py (inspected, not executed)",
+        "García-Armas–Ghorpade–Ram arXiv:1011.1760v1, Proposition 3.4 and Theorem 3.5"
+      ],
+      "rationale": "The determinant transfer can be proved without a separability restriction. In R=F_q[X]/(u) let λ(h) be the top coefficient of the canonical representative, equivalently the X⁻¹ coefficient of h/u. The Hankel matrix from v/u is the matrix of λ(v X^(i+j)), the product of the Gram matrix of λ(X^(i+j)) and the matrix of multiplication by v. The Gram matrix is anti-triangular with unit anti-diagonal, giving ε_n. Multiplication by v has determinant Res(u,v), by triangularizing the companion matrix over an algebraic closure and applying v to it, with repeated roots counted. Thus the Hankel determinant is ε_n times the resultant, including inseparable u. An invertible Hankel matrix determines exactly q pairs: choose the next Laurent coefficient freely, solve for the monic denominator using the nonsingular Hankel system, and recover the numerator as the polynomial part; expanding back produces the original coefficients and the chosen next coefficient. Every such pair is coprime by the determinant identity. For a character of order r, Chinese remaindering over factors P^e gives one local unit sum that vanishes unless r divides e, by surjectivity of the residue-field norm; if r divides e it gives all q^(ed)−q^((e−1)d) units. Consequently the formal series is (1−q^r z^r)/(1−q^(r+1)z^r). Dividing the positive-degree coefficients by q and multiplying by χ(ε_n) gives the claimed transform. The trivial character gives the zero fiber by subtraction, and finite-group character inversion gives the Ramanujan sums and the iff uniformity criterion. This includes n=1, q=2 and the cases where the characteristic divides n.",
+      "residual_risks": [
+        "The recorded enumeration was not independently replayed; the all-parameter result is verified by proof. The conclusion is for square Hankel matrices over fields, not general rings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix Lemma A.1, over any field, writes each pointed rational function uniquely in terms of monic P_i with positive degrees n_i summing to n, and constants a_i≠0, giving resultant σ(n_i)∏a_i^n_i.",
+          "Remark A.2 gives σ=1 when all n_i are even. Theorem A.5 gives the resultant-1 point count for all n and q, whereas Corollary 1.4 has p∤n.",
+          "The Hankel rank theorems give the total invertible or determinant-zero count; they do not supply the multiplicative spectrum by themselves."
+        ],
+        "reasoning": "It is the stronger structural lemma in the appendix, not just the special resultant-1 theorem, that covers all nonzero values with no tame-characteristic restriction.",
+        "searches": [
+          "Farb–Wolfson, arXiv:1507.01283 / Algebraic Geometry 4 (2017), Corollary 1.4 and Cazanave Appendix Lemma A.1, Remark A.2, Theorem A.5",
+          "arXiv:2109.05415v1 Theorem 1.5",
+          "García-Armas–Ghorpade–Ram Theorems 3.5, 4.1 and 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Cazanave appendix to Farb–Wolfson (2017)",
+        "arXiv:1011.1760v1 and 2109.05415v1",
+        "Resultary ef46cabffa4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a composition (n_1,...,n_k), apply χ to the monomial and sum independently over each a_i. Orthogonality kills the composition unless r divides all n_i. On survivors χ(σ)=1: for r odd χ(−1)=1, and for r even all n_i are even, so σ=1 by Remark A.2.",
+          "There are q^n choices of P_i for each composition. For r|n the surviving compositions of length k are counted by binomial(n/r−1,k−1), so their moments sum to q^n∑_k binomial(n/r−1,k−1)(q−1)^k=(q−1)q^(n+n/r−1); if r does not divide n there are none."
+        ],
+        "reasoning": "The prior monomial description and the binomial theorem already produce exactly the frozen all-size resultant spectrum. The signed q-to-one transfer gives the claimed Hankel transform, and standard inversion then gives every fiber and the uniformity criterion. There is no uncovered range when p divides n.",
+        "searches": [
+          "Cazanave Appendix Lemma A.1 and Remark A.2, published PDF pp. 348–350",
+          "García-Armas–Ghorpade–Ram Proposition 3.4 and Theorem 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed q-to-one transfer identifies Hankel determinant t with coprime pointed rational functions A/B of resultant ε_n t, counted with multiplicity q. Replacing the lower-degree member B by B+A also relates this space to pairs of monic degree-n polynomials with the same resultant (in the ordering with A first).",
+          "Cazanave directly decomposes the coprime pointed rational functions by ordered compositions and a signed monomial resultant.",
+          "Row reversal identifies Hankel and Toeplitz fibers with determinant sign ε_n."
+        ],
+        "reasoning": "Exact resultant character moments are equivalent to the Hankel transform up to the single factor q⁻¹χ(ε_n); the transfer preserves arbitrary nonzero determinant levels, not just nonsingularity.",
+        "searches": [
+          "Finite-field Hankel determinant prescribed values, multiplicative characters and resultant fibers",
+          "Farb Wolfson Topology and Arithmetic of Resultants II resultant 1 finite field point count arbitrary resultant fiber",
+          "arXiv:1011.1760v1 Proposition 3.4 and Theorem 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ef46cabffa4c states the exact n=4 fibers over every finite field; its q=2,3,5 data agree, including (15625,16500,15000,15000,16000) over F_5.",
+          "For n=4 the record's q^6+q^3[ρ₄(t)−1+(q−1)(ρ₂(t)−1)] equals the frozen formula because ρ₂−1 is the order-two sum, ρ₄−ρ₂ the order-four sum and ε₄=1.",
+          "The published resultant-1 formula gives N(ε_n) after division by q."
+        ],
+        "reasoning": "The Resultary formula is exact prior coverage at n=4, not an all-n theorem. The all-n failure follows independently from the structural result and character calculation.",
+        "searches": [
+          "Resultary for exact prescribed Hankel determinants and fiber counts",
+          "Resultary ef46cabffa4c, RESULT.md and VERIFICATION.md",
+          "Farb–Wolfson Corollary 1.4 and Cazanave Theorem A.5"
+        ]
+      },
+      "rationale": "The complete all-q, all-n nonzero spectrum is mechanically implied by the primary 2017 Farb–Wolfson paper's Cazanave appendix (Lemma A.1 and Remark A.2) and the earlier q-to-one Hankel correspondence. This is established by an exact character evaluation on the prior decomposition, not by a matching title or by the fixed-size table alone. The zero fiber was already a standard rank count. The norm/Euler-product argument is a different derivation, not a distinct determinant-fiber theorem.",
+      "residual_risks": [
+        "Daykin's 1960 full text was not retrieved. The disposition does not depend on that access gap; the positive prior implication is explicit.",
+        "Priority of this particular irreducible-factor Euler-product proof was not determined. The failure concerns the theorem as claimed, not proof-level priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies all nonzero fibers for all prime powers and orders with the signed Hankel transfer",
+          "evidence": [
+            "Lemma A.1 provides the unique ordered decomposition and signed monomial for the resultant over any field.",
+            "Remark A.2 supplies the sign in the only nontrivial even-order case.",
+            "Theorem A.5 already counts the resultant-1 fiber in arbitrary characteristic."
+          ],
+          "identifier_or_url": "https://content.algebraicgeometry.nl/2017-3/2017-3-019.pdf",
+          "material_read": "Corollary 1.4, printed pp. 339–340 (offset 11103); Appendix pp. 348–350, Lemma A.1, Remark A.2, Lemma A.3, Theorem A.5 (offset 47936 onward)",
+          "method": "Primary PDF passage inspection and exact specialization by multiplicative-character orthogonality",
+          "title": "Topology and arithmetic of resultants, II: The resultant 1 hypersurface, with appendix by Christophe Cazanave",
+          "trigger": "Prescribed resultant count on the equivalent polynomial parameter space"
+        },
+        {
+          "assessment": "Provides the q-to-one map and determinant-zero count; with the resultant lemma covers the entire classification",
+          "evidence": [
+            "Bezoutian–Hankel factorization and field-sized fibers of the rational-function map.",
+            "Rank counts give q^(2n−2)(q−1) invertible Hankel matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1011.1760v1",
+          "material_read": "Proposition 3.4 offset 11850; Theorem 3.5 offset 13490; Theorems 4.1 and 5.1 offsets 18081 and 23511",
+          "method": "Primary HTML passage inspection and determinant check",
+          "title": "Relatively Prime Polynomials and Nonsingular Hankel Matrices over Finite Fields",
+          "trigger": "Exact transfer and existing nonsingularity counts"
+        },
+        {
+          "assessment": "Exact n=4 overlap, not a replacement for the all-order prior implication",
+          "evidence": [
+            "Fourth-power and square-root multiplicities in the fiber formula agree with the exact-order character sums."
+          ],
+          "identifier_or_url": "Resultary ef46cabffa4c",
+          "material_read": "Mirrored RESULT.md finding and VERIFICATION.md, offset 0 in each",
+          "method": "Local mirror statement/table inspection and exact formula comparison",
+          "title": "Arithmetic determinant fibers of four-by-four Hankel matrices over finite fields",
+          "trigger": "Matching exact determinant table on an entire size slice"
+        },
+        {
+          "assessment": "Rank after fixing initial entries; no nonzero determinant fibers in the inspected theorem",
+          "evidence": [
+            "The rank bound with prescribed initial entries gives determinant-zero information."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.05415v1",
+          "material_read": "Theorem 1.5, offset 9212",
+          "method": "Primary HTML passage inspection",
+          "title": "On the rank of Hankel matrices over finite fields",
+          "trigger": "Possibly finer rank and determinant-zero enumerations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings, Proof and Relationship to prior work",
+        "Cazanave Appendix Lemma A.1 and Remark A.2",
+        "García-Armas–Ghorpade–Ram Theorem 3.5"
+      ],
+      "rationale": "The nonzero determinant distribution is a natural question, but as a proposed new exact classification the frozen result re-expresses data already determined by the prior resultant parametrization. The character-order cutoff and uniformity criterion are direct consequences of that same data, and no additional distributional consequence beyond it is established. The alternate norm/Euler-product proof may be useful exposition, but the submitted record does not establish an independent improvement or application that would support a different valuable claim.",
+      "residual_risks": [
+        "No assessment is made of a new application of the Euler-product method outside this already determined family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

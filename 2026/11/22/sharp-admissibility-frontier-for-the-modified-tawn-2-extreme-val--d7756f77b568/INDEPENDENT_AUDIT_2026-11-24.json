@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:25:11.656379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent general symbolic differentiation and exact coefficient checks: python /tmp/opencode/frozen-review-math.py, tawn()"
+      ],
+      "rationale": "The radical is continuous and positive on [0,1]; its single-term lower bounds imply both Pickands obstacles, and the two endpoints equal 1. The Pickands condition consequently reduces to convexity. With z=w/(1−w), the nonlinear term is the perspective (1−w) H(z)^(1/a), so its second derivative equals (1−w)^(-3) times the second derivative of H^(1/a). Independently differentiated H=b^a z^a+d z^(a/2)+c^a symbolically and reproduced the stated signed curvature numerator. For d=0 it is nonnegative for all a≥1; for d>0 and 1≤a<2 the bracket is negative near w=0 because it tends to (a−2)d c^a. For a≥2 the curvature bracket after division by the positive mixed power is (a−2)d[b^a r+c^a/r]+4(a−1)(bc)^a−d² with r=z^(a/2). Its exact infimum is attained at r=(c/b)^(a/2), by AM–GM (constant bracket when a=2). The minimum factors as [2(a−1)(bc)^(a/2)−d][d+2(bc)^(a/2)], and the second factor is strictly positive. This gives both directions and a negative-curvature witness above the bound. With a>2 the minimizer is unique, giving w=c/(b+c) as the sole critical interior zero; with a=2 and d=2bc the radical is bw+c(1−w) so A=1. Interior convexity extends to the closed interval by continuity. The stated (3,1,1,7/2) comparison is exact, since 8<(7/2)²<16.",
+      "residual_risks": [
+        "No extension to vanishing b,c, negative d, a<1 or dimension greater than two was audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Pickands criteria reduce validity to shape inequalities and convexity without a family-specific parameter criterion. The inspected general planar ℓ_p result evaluates a different invariant even though it applies Hanner's inequality."
+        ],
+        "reasoning": "Neither result gives a stronger parameter characterization of this nonlinear mixed-power gauge. In the family itself the negative and positive curvature contributions must be optimized jointly.",
+        "searches": [
+          "DOI 10.3233/MAS-231451 §2.1 (Pickands criteria) and §3.1",
+          "Resultary Hanner/Pickands convexity search; indexed full text e4d6a80e3355"
+        ]
+      },
+      "checked_sources": [
+        "Resultary results including exact target and indexed ID e4d6a80e3355",
+        "Targeted literature search",
+        "Chesneau (2024) publisher full text at decisive passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior curvature proof imposes Q=(a−2)d≥0 and R=4(a−1)(bc)^a−d²≥0 separately. The sharp proof permits R<0 by bounding its contribution against Q times the normalized sum of the two positive monomials."
+        ],
+        "reasoning": "Reusing the prior curvature identity is not using a prior covering theorem: the joint ratio minimization and necessity near the endpoints and at the minimizer are additional arguments. For a=2, where Q=0, the bounds do coincide.",
+        "searches": [
+          "DOI 10.3233/MAS-231451 §3.1 Proposition 2(ii), including curvature proof",
+          "Indexed Hanner-type comparison e4d6a80e3355, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (6) is the same four-parameter model; Proposition 2(ii) requires d²≤4(a−1)(bc)^a, not the sharp bound. The nearest Hanner-type Resultary record e4d6a80e3355 treats a planar Minkowski-sum convexification deficit."
+        ],
+        "reasoning": "Homogeneous perspective reduction normalizes marginal coefficients but does not convert a Minkowski-sum deficit statement into convexity of this mixed-power family. For the identical copula family the prior frontier is a strict subset when a>2.",
+        "searches": [
+          "Resultary MT2/modified Tawn and Hanner/Pickands convexity searches",
+          "DOI 10.3233/MAS-231451 §3.1 Eq. (6), Proposition 2 and proof",
+          "Targeted literature lookup for MT2 admissibility, curvature, Pickands and Hanner"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local match d7756f77b568 is the frozen target. The published explicit region at a>2 instead has the √(a−1) coefficient where the exact frontier has a−1."
+        ],
+        "reasoning": "No distinct indexed formula for the exact mixed-coefficient classification was located; the published sufficient-region formula gives different membership on explicit parameter points. Bounded index searches do not rule out unindexed equivalents.",
+        "searches": [
+          "Resultary exact MT2 admissibility and sharp-versus-sufficient frontier comparisons",
+          "Proposition 2 parameter conditions in DOI 10.3233/MAS-231451"
+        ]
+      },
+      "rationale": "The model, d=0 branch and an explicit narrower positive-d sufficient range are already in the originating paper. That paper's coefficientwise sufficient convexity test omits a whole admissible region at every a>2 and is not a necessary-and-sufficient theorem. The checked distinct contribution is the sharp converse, sharp upper improvement with its boundary, and excluded positive-d cases, not invention of the model or curvature computation.",
+      "residual_risks": [
+        "Chesneau (2023) full text was inaccessible, so symmetric-subcase overlap there is not independently resolved. Unindexed equivalent general-gauge results remain possible; this is not publication-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model, earlier sufficient range and shared curvature formula, but no covering sharp characterization in the decisive passages",
+          "evidence": "The proof requires separate nonnegativity of Q and R, yielding 4(a−1)b^ac^a≥d² rather than the optimized threshold.",
+          "identifier_or_url": "https://doi.org/10.3233/MAS-231451",
+          "material_read": "§2.1 Pickands criteria, extraction offsets 7800–15799; §3.1 Eq. (6), Proposition 2 and proof, offsets 25500–33478",
+          "method": "OA publisher full-text HTML reached from DOI",
+          "title": "On two new modified Tawn copulas",
+          "trigger": "Identical MT2 model and prior admissibility proposition"
+        },
+        {
+          "assessment": "Different convexification problem",
+          "evidence": "It concerns convex-hull deficiency under Minkowski sums in planar ℓ_p with p>2, not a Pickands parameter region.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-off-diagonal-ell-p-hausdorff-convexification-for-planar-mi--e4d6a80e3355",
+          "material_read": "RESULT.md",
+          "method": "Resultary and local full-text mirror",
+          "title": "Sharp off-diagonal ℓ_p Hausdorff convexification for planar Minkowski sums",
+          "trigger": "Strongest indexed potential Hanner/gauge reduction"
+        },
+        {
+          "assessment": "No theorem-level conclusion from this source",
+          "evidence": "The frozen citation points to Table 1 and §2; neither passage was independently accessible.",
+          "identifier_or_url": "https://doi.org/10.59790/2790-3257.1036",
+          "material_read": "Bibliographic citation only; primary text unavailable",
+          "method": "Lawful direct and VPN OA retrieval attempted; resolution failed",
+          "title": "Current Developments on Extreme Value Copulas: Extended Pickands Dependence Functions",
+          "trigger": "Potential earlier related symmetric mixed-power Pickands family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and witness",
+        "Chesneau (2024) Proposition 2(ii)"
+      ],
+      "rationale": "This resolves the natural full admissible domain of a specified published copula construction. The larger range is not a small fixed-case improvement: its multiplicative gain √(a−1) grows without bound, and exact failure above the new frontier rules out invalid parameters. The threshold and its critical geometry give usable model constraints, not merely another sufficient estimate.",
+      "residual_risks": [
+        "No statistical fitting advantage or general convexity theorem is needed or asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

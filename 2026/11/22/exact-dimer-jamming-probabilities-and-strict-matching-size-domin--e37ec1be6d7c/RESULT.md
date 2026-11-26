@@ -1,70 +1,66 @@
-# Exact dimer-jamming probabilities and strict matching-size dominance on the dodecahedral graph
+# Strict stochastic dominance of greedy over uniform maximal matching size on the dodecahedral graph
 
 ## Finding
-Let \(D\) be the twenty-vertex dodecahedral graph \(\operatorname{GP}(10,2)\). Assign independent identically distributed continuous random priorities to its thirty edges, and, in increasing-priority order, accept an edge exactly when neither endpoint belongs to an earlier accepted edge. Write \(J\) for the terminal number of accepted edges. Its exact law is
-\[
-\begin{array}{c|ccccc}
- k&6&7&8&9&10\\ \hline
- \Pr(J=k)&\frac{1}{3125}&\frac{91294494167}{2756754000000}&\frac{1796566904214749}{4862914056000000}&\frac{2544405065946811}{4862914056000000}&\frac{123231298227}{1667666000000}
-\end{array}
-\]
-with all other values impossible. In particular,
-\[
-\mathbb E J=\frac{42002246692500247}{4862914056000000},\qquad
-\Pr(J=10)=\frac{123231298227}{1667666000000}.
-\]
 
-There are exactly \(3781\) maximal matchings of \(D\); their size multiplicities for \(k=6,7,8,9,10\) are respectively \(5,420,2280,1040,36\). Let \(U\) be the size of a uniformly sampled maximal matching (not a matching weighted by random priorities). Then the greedy law **strictly first-order stochastically dominates** this uniform-maximal law:
-\[
-\Pr(J\le k)<\Pr(U\le k),\qquad k\in\{6,7,8,9\}.
-\]
-In particular, a perfect matching is \(\frac{155312512865429}{20011992000000}\) times as likely under greedy adsorption as under the uniform-maximal model, approximately \(7.761\) times.
+On the dodecahedral graph \(D=\operatorname{GP}(10,2)\), let \(J\) be the terminal size of a random greedy matching, and let \(U\) be the size of a uniformly sampled maximal matching. There are exactly \(3781\) labeled maximal matchings of \(D\), with these size counts:
+
+| Size \(k\) | 6 | 7 | 8 | 9 | 10 |
+|---|---:|---:|---:|---:|---:|
+| Number of maximal matchings | 5 | 420 | 2280 | 1040 | 36 |
+
+The greedy size strictly first-order stochastically dominates \(U\): \(\Pr(J\le k)<\Pr(U\le k)\) at every nontrivial integer threshold \(k=6,7,8,9\). The exact gaps are
+
+| \(k\) | \(\Pr(U\le k)-\Pr(J\le k)\) |
+|---:|---:|
+| 6 | \(11844/11815625\) |
+| 7 | \(823100515754893/10423286874000000\) |
+| 8 | \(5746573892635665283/18386678045736000000\) |
+| 9 | \(405901562596287/6305445146000000\) |
+
+A perfect matching is \(155312512865429/20011992000000\), approximately \(7.761\), times as likely under the greedy process as under uniform sampling of maximal matchings.
 
 ## Assumptions and scope
-The dodecahedral graph is the generalized Petersen graph \(\operatorname{GP}(10,2)\) with vertices \(u_i,v_i\), \(i\in\mathbb Z/10\mathbb Z\), and thirty edges \(u_iu_{i+1}\), \(u_iv_i\), \(v_iv_{i+2}\), taking indices modulo ten. It is the graph of the smallest fullerene, with twenty vertices and twelve pentagonal faces. An edge's priority is almost surely distinct from every other priority, so only its relative order matters. The output is a maximal matching, because every rejected edge has an endpoint already occupied. The comparison variable \(U\) samples every *labeled edge set* that is a maximal matching with equal probability. No averaging over graph isomorphisms, automorphism classes, or graph substrates is involved.
+
+Use vertices \(u_i,v_i\) with \(i\in\mathbb Z/10\mathbb Z\) and edges \(u_iu_{i+1},u_iv_i,v_iv_{i+2}\). Each edge receives an independent priority from the same continuous distribution. Processing these edges in increasing priority, accept an edge if and only if both endpoints are still unmatched. The order is a uniform permutation of the thirty edges. The terminal matching is maximal: any rejected edge already had an occupied endpoint and cannot become available. The comparison samples each individual maximal edge set with equal weight, not each automorphism class, and not each ordering of a maximal edge set.
 
 ## Proof
-Write \(A\) for any currently unoccupied vertex set, \(E(A)\) for the original edges with both endpoints in \(A\), and \(m(A)=|E(A)|\). Let \(F_A(z)=\mathbb E[z^{J_A}]\) be the generating polynomial of the number of additional accepted edges from that state. By exchangeability of unprocessed independent priorities, the next accepted edge, when one exists, is uniform on \(E(A)\). Hence
-\[
-F_A(z)=\begin{cases}1,&m(A)=0,\\
-\frac{z}{m(A)}\displaystyle\sum_{\{u,v\}\in E(A)}F_{A\setminus\{u,v\}}(z),&m(A)>0.
-\end{cases}
-\]
-Each transition removes two vertices; thus this is an exact finite backward induction, with no approximation. At the initial state \(A=V(D)\), the recurrence has \(94940\) reachable states and yields the five rational probabilities displayed above.
 
-For an independent exhaustive route, enumerate each matching by taking the smallest unassigned vertex, either leaving it unmatched or pairing it to a still-unassigned neighbor. At the terminal branch retain a matching if and only if its remaining unmatched vertices form an independent set. This is equivalent to maximality: a new disjoint edge exists precisely when two unmatched vertices are adjacent. Each maximal matching is generated exactly once, giving the size multiplicities \((5,420,2280,1040,36)\).
+**Counting maximal edge sets.** Take the first unassigned vertex in a fixed vertex order. Either declare it unmatched or pair it with one of its unassigned neighbors. Mark that vertex, and also its partner if present, as assigned, then recurse. A prescribed matching determines exactly one branch at each step, and every completed branch specifies a matching. Retain the branch precisely when the vertices declared unmatched form an independent set; this is necessary and sufficient for the matching to be maximal. Exhaustive enumeration of this recursion gives the size counts in the Finding. Dividing the counts by \(3781\) gives the distribution of \(U\).
 
-To calculate the chance of each such output by a distinct recurrence, for any partial matching \(S\) define \(q(S)\) as the probability that the *first* \(|S|\) accepted edges, unordered, are exactly \(S\). Set \(q(\varnothing)=1\). Decomposing by which member of \(S\) is the last accepted edge gives
-\[
-q(S)=\sum_{e\in S}\frac{q(S\setminus\{e\})}{m(V(D)\setminus V(S\setminus\{e\}))}.
-\]
-The denominators are positive because the edge \(e\) is still available. For a maximal matching \(M\), the event counted by \(q(M)\) is exactly that the final accepted matching is \(M\). Summing \(q(M)\) over all maximal matchings of each size produces precisely the same rational law as the vertex-state recurrence. This second method uses \(111376\) matching prefixes and distinguishes individual outputs, rather than only occupied vertex sets.
+**Kinetic input and cross-check.** The separate record *Exact random dimer-jamming law on the dodecahedral graph* [1] reports the equivalent random-priority model on \(\operatorname{GP}(10,2)\) and the following law. It is used as an input to the comparison, not claimed as a distinct contribution here.
 
-For strict stochastic dominance, compute exactly the differences \(\Pr(U\le k)-\Pr(J\le k)\) at the four nontrivial thresholds:
+| \(k\) | \(\Pr(J=k)\) |
+|---:|---:|
+| 6 | \(1/3125\) |
+| 7 | \(91294494167/2756754000000\) |
+| 8 | \(1796566904214749/4862914056000000\) |
+| 9 | \(2544405065946811/4862914056000000\) |
+| 10 | \(123231298227/1667666000000\) |
+
+For a check using the enumeration of individual maximal matchings, write \(m(A)\) for the number of edges induced by a set \(A\) of free vertices. Conditional on an ordered accepted prefix, the still-available edges have a uniform relative order: exchanging any two of them does not affect that prefix, since they were available throughout it. Thus the next accepted edge, when one exists, is uniform on the \(m(A)\) edges. If \(q(S)\) is the probability that the first \(|S|\) accepted edges form exactly the unordered matching \(S\), partition by the last edge of the prefix to obtain
 \[
-\begin{array}{c|c}
-k&\Pr(U\le k)-\Pr(J\le k)\\ \hline
-6&\frac{11844}{11815625}\\
-7&\frac{823100515754893}{10423286874000000}\\
-8&\frac{5746573892635665283}{18386678045736000000}\\
-9&\frac{405901562596287}{6305445146000000}
-\end{array}
+q(\varnothing)=1,\qquad q(S)=\sum_{e\in S}\frac{q(S\setminus\{e\})}{m(V(D)\setminus V(S\setminus\{e\}))}.
 \]
-All four are strictly positive. At all other thresholds the cumulative laws are jointly zero or jointly one, proving the stated dominance. The perfect-matching bias factor is the exact ratio \(\Pr(J=10)/(36/3781)\).
+The denominator is positive because \(e\) is available. For a maximal matching \(M\), its probability of being the terminal output is \(q(M)\). Summing over the enumerated maximal matchings at each size reproduces the five kinetic fractions. Recursing directly on the remaining vertex set gives the same law: if no edge is available, the number of additional accepts is zero; otherwise choose one of the \(m(A)\) edges uniformly and remove its two vertices. This is the transfer recurrence also used in [1].
+
+**Exact comparison.** The cumulative counts for \(U\) at \(6,7,8,9\) are respectively \(5,425,2705,3745\), each divided by \(3781\). Subtracting the corresponding cumulative probabilities of \(J\) gives the four strictly positive fractions in the Finding. The distributions coincide at the trivial thresholds below 6 and at or above 10. The perfect-matching multiplier is \(\Pr(J=10)/(36/3781)\).
 
 ## Verification
-Run `python3 verify_dodeca.py` using Python 3.10 or later and only its standard library. The program constructs \(\operatorname{GP}(10,2)\) directly by modular arithmetic, checks cubic degree and the thirty edges, evaluates both exact-rational recurrences, checks every one of the \(3781\) maximal matchings, confirms their individual probabilities sum to one, and proves all four strict cumulative inequalities using exact fractions. The verified counts are \(94940\) vertex-mask states and \(111376\) matching prefixes. This exhaustive computation is a valid finite proof because the recurrences and unique enumeration exhaust every possible state and matching, not a Monte Carlo sample.
+
+The accompanying standard-library program `verify_dodeca.py` (Python 3.10 or later) exhausts the matching recursion and checks the five size counts and all four strict inequalities by exact rational arithmetic. It also reproduces the credited greedy law both by a remaining-vertex-set recurrence and by the matching-prefix recurrence. The graph is constructed directly from the modular edge rules above. No sampling or extrapolation is used.
 
 ## Relationship to prior work
-Penrose and Sudbury (2005) formulate dimer random sequential adsorption on graphs and establish general probabilistic results, without giving this exact twenty-site law. Gamarnik and Goldberg (2008) investigate random greedy matchings on regular graphs, including girth-dependent bounds, but do not specialize their theorems to a complete dodecahedral distribution. Andova, Kardoš and Škrekovski (2014) show the dodecahedral graph has saturation number six; the minimum size itself is prior work, not part of the novelty claim. Other established dodecahedral matching-complex computations enumerate the thirty-edge graph's matchings, including its thirty-six perfect matchings, and compute topological invariants; these unweighted counts do not imply the probabilities of this random edge-priority process. A published exact Petersen-graph dimer-adsorption law is closely related methodologically, but concerns the nonisomorphic ten-vertex graph and does not determine the present distribution or four stochastic-order inequalities. The contribution is the exact evaluated dodecahedral kinetic law and its strict comparison with the uniform distribution on maximal matchings.
+
+The record [1], indexed on the same date, has the same five kinetic probabilities, the associated expectation and the perfect-coverage probability, as well as a geometric proof of the rare size-six probability. The date alone gives no ordering of the two records. The contribution stated here is the census of labeled maximal matchings by size and the exact comparison of the size laws under two different measures. The minimum maximal size of six was known [2]; ordinary matching counts, including the 36 perfect matchings, do not determine all the maximal-matching multiplicities. Graph dimer adsorption and random greedy matching are established models [3,4]. The analogous comparison for the Heawood graph [5] concerns a different graph.
 
 ## Limitations
-The statement concerns one distinguished finite fullerene graph; no analogous result for other fullerenes or universal dominance principle is claimed. In fact, dominance of random greedy matching over uniform maximal matchings can fail even for a connected six-vertex graph: for edges \(\{01,12,14,15,23,24,25\}\) there are eight maximal matchings (one of size one, seven of size two), while the greedy probability of size one is \(1/7>1/8\). The dodecahedral inequality therefore does not follow merely from the definition of greedy matching. The exact fractions are finite mathematical predictions, not measured physical adsorption rates. No independent validation has yet been performed. An unindexed equivalent dodecahedron table remains a residual priority risk.
+
+The comparison is specific to the twenty-vertex dodecahedral graph. It is not a general dominance theorem, a finite-time deposition law or a physical prediction. Dominance can fail even on a connected graph: for the edge set \(\{01,12,14,15,23,24,25\}\), exactly one of the eight maximal matchings has size one, while the greedy size-one probability is \(1/7>1/8\), because it occurs exactly when \(12\) is the first edge.
 
 ## References
-1. M. D. Penrose and A. Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs*, arXiv:math/0503519, first public 2005-03-24, https://arxiv.org/abs/math/0503519.
-2. D. Gamarnik and D. A. Goldberg, *Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections*, arXiv:0807.1277, first public 2008-07-08, https://arxiv.org/abs/0807.1277.
-3. V. Andova, F. Kardoš and R. Škrekovski, *Sandwiching saturation number of fullerene graphs*, arXiv:1405.2197, first public 2014-05-09, https://arxiv.org/abs/1405.2197.
-4. N. Pippenger, *Random Sequential Adsorption on Graphs*, SIAM J. Discrete Math. 2 (1989), 393–401, https://doi.org/10.1137/0402034 (abstract and bibliographic information consulted; full text not inspected).
-5. *Mod-\(2\) homology of the dodecahedral matching complex* (published exact matching-count calculation, 2026), and *The dodecahedral matching complex is a wedge of five 5-spheres and 117 6-spheres* (published matching-count and topology calculation, 2026); these results already give ordinary matching multiplicities, but not random-order kinetic probabilities.
-6. *Exact dimer-jamming kinetics on the Petersen graph* (published exact ten-site adsorption law, 2026).
+
+1. [*Exact random dimer-jamming law on the dodecahedral graph*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-random-dimer-jamming-law-on-the-dodecahedral-graph--8e1393873ad2), Resultary, 22 November 2026.
+2. V. Andova, F. Kardoš and R. Škrekovski, *Sandwiching saturation number of fullerene graphs*, [arXiv:1405.2197](https://arxiv.org/abs/1405.2197).
+3. M. D. Penrose and A. Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs*, [arXiv:math/0503519](https://arxiv.org/abs/math/0503519).
+4. D. Gamarnik and D. A. Goldberg, *Randomized greedy algorithms for independent sets and matchings on regular graphs: Exact results and finite girth corrections*, [arXiv:0807.1277](https://arxiv.org/abs/0807.1277).
+5. [*Exact random-priority dimer jamming and matching-output weights on the Heawood graph*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-random-priority-dimer-jamming-and-matching-output-weights--538d2c590718), Resultary, 22 November 2026.

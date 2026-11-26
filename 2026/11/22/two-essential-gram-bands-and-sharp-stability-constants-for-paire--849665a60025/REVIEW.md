@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Poisson pushforward identity gives the exact scalar Gram matrix with entries \((-a)^{|m-n|}\). The parity grouping is an exact, not asymptotic, block Toeplitz representation. Its inverse matrix symbol and the monotonic eigenvalue branches are computed algebraically, including both rank-deficient endpoints. Continuous Hermitian matrix-Toeplitz Calkin symbol theory determines both essential bands. Compression and polarized weakly-null Hardy kernels prove norm and inverse-norm sharpness, without relying on finite matrices to certify infinite-dimensional identities.
+PASS
 
-## Originality — PASS, with residual bibliography risk
+The frozen text falsely calls b_a involutive and uses that in its proof (already b_a(b_a(0))=−2a/(1+a²)≠0). The repair replaces it with the actual inverse (z+a)/(1+az), proves bounded composition for both signs of the Poisson weight, and corrects the frozen verification note that overstated what finite-section checks test. The final finding retains the same operator and band/norm formulas. Independently, pushing normalized circle measure forward under b_a gives P_(−a); its moments give H_mn=(−a)^|m−n|. Grouping coefficients into even/odd pairs gives the stated continuous Hermitian symbol: the even-row odd-column coefficient at block offset k is (−a)^|2k−1|. Its geometric series yields exactly the displayed off-diagonal, and multiplying the proposed inverse gives I using (1+a²)²−a²|1+e^(iθ)|²=1−2a²cosθ+a⁴. With both weights positive, the larger inverse-symbol eigenvalue grows and the smaller decreases with |cos(θ/2)|; reciprocating gives both claimed bands with their endpoint order. At a zero weight there is a zero band plus one diagonal range. Essential inclusion in both directions follows from the Toeplitz product modulo compacts and weakly null polarized Hardy kernels, as reconstructed in the repair. Compression bounds and inclusion of both essential endpoints give the true norm and lower Gram edge; the Calkin identities give the same essential and inverse norms. The actual inverse automorphism completes the t≠±1 invertibility argument; for t=±1 its composition with twice a parity projection has closed range and infinite kernel. The repair concerns essential bands, not the full spectrum inside a gap.
 
-The full text of Charpentier–Zarouf, arXiv:2611.17392v1, was read for its boundedness classifications and does not state the two-composition interference Gram bands. Choe–Koo–Wang–Yang's accessible paper investigates compactness of linear combinations of linear-fractional composition operators and does not provide these spectral intervals or norms. Classical matrix Toeplitz theory covers the generic spectral-symbol step but leaves the concrete nontrivial reduction and endpoint/phase classification to be derived here. This is a specific natural family rather than an unsupported universal claim. Potential earlier formulations in operator-valued/periodic Toeplitz form remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural paired-automorphism sum, the result gives a complete essential Gram spectral classification and sharp condition numbers, including a geometric criterion for whether a genuine essential singular-value gap exists. The result also distinguishes essential bands from possible discrete boundary states. These are meaningful stability data for sums of noncompact composition operators, not only a boundedness or algebraic substitution exercise.
+The surviving claim is the model-specific exact parity-Gram essential spectrum, explicit gap criterion and sharp stability edges for this particular pair. The inspected same- or nearby-area results do not give those formulas or a direct prior specialization. Using the standard continuous-symbol spectrum principle after deriving the exact operator symbol is not itself an originality claim.
 
-## Independent validation and limits
+## value
 
-The numerical program is supplementary and finite-dimensional, not an infinite proof. Possible isolated eigenvalues in the gap, and generalization to other automorphisms or spaces, remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural two-symbol family, the exact ends give both conditioning and its essential counterpart, while the internal edges determine when distinct spectral bands exist for complex t. These are operationally different data from boundedness, compactness or a single-symbol norm, and the closed-form gap law provides parameter information beyond the abstract existence of a Toeplitz symbol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

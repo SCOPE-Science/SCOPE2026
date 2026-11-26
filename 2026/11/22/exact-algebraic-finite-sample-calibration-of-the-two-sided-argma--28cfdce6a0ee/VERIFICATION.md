@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact checks and reproduction
+# Independent mathematical audit
 
-Run `python3 verification_checks.py` from the directory holding `exact_ks_argmax.py` and `verification_checks.py` with Python 3, SymPy and NumPy installed. The script completed **120 assertions** with the output `PASS: 120 exact/sign/monotonicity/simulation assertions`.
+## correctness
 
-The exact tests independently compare the algorithm with the hand-derived one-observation formula at six thresholds, compare closed radical expressions at sample sizes one to four, and use algebraic sign evaluations to certify that the exact three-observation \(95\%\) quantile belongs to \((2.2981,2.2982)\). The remaining exact checks establish positivity, boundedness by one, and monotonicity on a fixed rational grid for sample sizes one through six. Finally, a seeded direct-order-statistic simulation on 200,000 independent samples per size compares the original statistic against the exact CDF at three thresholds. These simulations are only diagnostics; they cannot prove general correctness.
+PASS
 
-The code uses rational arithmetic, symbolic polynomials and exact real-algebraic sign comparisons in the CDF calculation. It does not substitute numerical quadrature for proof. The finite terminating chamber decomposition and ordered-simplex bin recurrence are proved in RESULT.md. The program has no external file dependencies beyond its sibling script and Python's installed scientific packages and makes no network calls. The runtime and expression size can grow substantially as sample size increases.
+The probability integral transform and the density n! on the ordering simplex give the correct normalization for a fully specified continuous simple null. Pairwise ties between the signed affine deviations have measure zero. The winning sign fixes a half-interval on which its deviation is positive; at a fixed winning coordinate u, the other rank constraints are exactly the two-sided affine bands in the record. The split volumes multiply, with no conditional-density factor beyond n!. Squaring the threshold inequality on that sign domain yields the stated quadratic interval. A chamber cut at every line crossing keeps bin eligibility fixed. Ordered bin counts partition the admissible region up to null sets and contribute products of width powers divided by factorials, so integrating polynomial pieces at rational or quadratic endpoints proves finite piecewise algebraicity. Each point-level event fixes the winning coordinate to finitely many roots, so the CDF is continuous; t=0 and the n=1 support edge are consistent. An independent direct slice calculation using d_i=1/(2n)+|U_(i)−(2i−1)/(2n)| recovered both radical values. The exact differences H_3(t)−19/20 lie between −3854/10^9 and −3853/10^9 at t=2.2981, and between 2265/10^9 and 2266/10^9 at t=2.2982, giving the strict enclosure.
 
-Only the self-review described in REVIEW.md and AUDIT.json have been performed. No external or independent mathematical audit is represented by these results.
+## originality
+
+PASS
+
+The strongest matching primary and indexed statements address the identical statistic only asymptotically or in its far tail, or give an exact one-sided finite-sample law. They do not establish the exact full finite-sample two-sided calibration. This is a bounded assessment, not a historical priority certification.
+
+## value
+
+PASS
+
+The statistic and its finite-sample calibration problem were independently posed in primary literature. The formula certifies critical-value bounds under the simple null without relying on simulation or the limiting distribution. The all-n construction, exact small-sample examples and rigorous finite threshold bracket address the specific missing law, not merely its tail or a numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

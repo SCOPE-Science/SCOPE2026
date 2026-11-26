@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:00:21.549471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normal form is correct as stated. At a lax disjunction the two sets of rows satisfying the child flattenings cover the parent and realize each of the respective guarded obligations; the forward direction uses any witnessing split. Intersecting the ambient team with the root flattening preserves witnesses from any feasible subteam and gives the greatest one. Each guard is a conjunction of at most the formula depth many flattenings and there is at most one per NE occurrence. Input offsets, nested-parenthesis counts, row/column indices and recomputed Boolean formula value suffice for deterministic logspace; a singleton classical team gives the usual Boolean formula-value hardness. The empty team and infeasibility are handled correctly; a singleton satisfies NE ∨ NE only under lax, not strict, splitting. Independent check: `python3 /workspace/branches/independent_examples.py 4` compared possible-row propagation to unrestricted lax splits on 45,584 formula/team pairs and checked greatest subteams; finite evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Convex Team Logics proves expressive completeness for convex union-closed team properties and gives characteristic formulas, not an effective per-NE budget for an input syntax tree.",
+          "Anttila–Kontinen–Yang give a polynomial fixed-point algorithm and a small-subteam result, not the logarithmic-space theorem in the inspected passages.",
+          "The indexed SCOPE theorem directly gives the support/obligation recursion, alongside its separate sharp four-update theorem."
+        ],
+        "reasoning": "Neither expressive completeness nor membership in P implies L. The indexed characterization, unlike those broad background results, contains explicit constructive data sufficient for L.",
+        "searches": [
+          "arXiv:2503.21850 §§3.1, 4.1",
+          "arXiv:2510.08122 §3 Proposition 4, §4 Lemma 3 and §6",
+          "Resultary SCOPE-2253425a894a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-2253425a894a proof §1",
+        "arXiv:2510.08122",
+        "arXiv:2503.21850",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From (1), S⊆U can only satisfy inside M=U∩F_root. Any witnesses in S persist in M, so M is the greatest satisfying subteam if any one exists.",
+          "In the comparison's representation, the obligation for an NE occurrence at the root is the intersection of the sibling supports at its conjunction ancestors. On any row, check those support formulas sequentially by walking the ancestor chain and evaluating each sibling with NE replaced by top. A scan for a passing row for each obligation, and a scan for root-support membership, use O(log N) space exactly as for the frozen guard encoding."
+        ],
+        "reasoning": "The stronger implication is from the exact per-occurrence recursion, not from the stated running time or fixed-point cutoff alone. The two resulting logarithmic-space procedures differ just in how the already proved support restrictions are presented. The classical singleton lower bound is standard; no distinct claim survives this comparison.",
+        "searches": [
+          "SCOPE-2253425a894a Eq. (1), obligation recursion",
+          "Buss (1987), Boolean formula value in ALOGTIME"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (1) of the comparison record is S⊆F_u and S∩W≠∅ for each W, with F_u exactly the truth set of the NE→top flattening. It has one obligation per NE occurrence before removing duplicates and uses the same canonical overlapping split.",
+          "The comparison propagates obligations by intersecting with the sibling support at a conjunction and leaving them alone at disjunction. If obligations are tagged by their generating occurrence, at each node its obligation is exactly the frozen guard intersected with that node's F_u: at conjunction this introduces the sibling support, and at disjunction it is redundant since the child obligation is already in the child support."
+        ],
+        "reasoning": "The recursive rules are two representations of the same witness predicates on root-flat rows. Finite-variable restriction is no difference: projection to the finitely many formula variables preserves satisfaction, since split witnesses project and projected splits pull back.",
+        "searches": [
+          "Resultary: flat-support/existential obligations, nonemptiness team model checking",
+          "SCOPE-a-sharp-four-round-cutoff-for-nonemptiness-team-model-checking--2253425a894a, RESULT.md, offsets 1930–3393"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper classifies the fragment in P; no literal L entry was identified in the inspected comparison. The indexed result gives a direct O(|φ||T|) evaluation and an exact semantic criterion."
+        ],
+        "reasoning": "The absence of a literal L table entry is not decisive: the competing published recursion provides the obligation languages explicitly, which is stronger evidence than a table entry for this comparison.",
+        "searches": [
+          "arXiv:2510.08122 Table 1 and Proposition 4",
+          "Resultary SCOPE-2253425a894a, Finding and equation (1)"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives equivalent flat-support and per-NE obligations for the very same syntax, including constants and lax splitting. Its representation mechanically yields the greatest-subteam conclusion and the deterministic logspace upper bound, not merely a polynomial-time conclusion. This is a finding of mathematical coverage in the available corpus, not a priority or dependence assertion; the compared record's displayed catalogue date is later.",
+      "residual_risks": [
+        "The catalogue relationship and historical priority are not determined by these mathematical comparisons. No assertion about dependence or order of derivation is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable equivalent coverage and direct implication of the frozen conclusions; no priority judgment",
+          "evidence": "Proof §1 defines F_u and W_u, derives equation (1) and gives the same canonical overlapping split. The four-round claim is independent of this coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-four-round-cutoff-for-nonemptiness-team-model-checking--2253425a894a/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1292; Proof §1, offsets 1930–3393; relationship to prior work, offsets 6300–7979",
+          "method": "Local Resultary mirror, statement and original proof comparison",
+          "title": "A sharp four-round cutoff for nonemptiness-team model checking",
+          "trigger": "Same logic and a direct flat-support/witness model-checking characterization"
+        },
+        {
+          "assessment": "Related but insufficient on its own",
+          "evidence": "Prop. 4 uses iterated labels to get P and reports but does not prove observed four-update convergence in the inspected version.",
+          "identifier_or_url": "https://arxiv.org/html/2510.08122",
+          "material_read": "Proposition 4 and discussion, Lemma 3, offsets 21500–27469 and 30800–33780",
+          "method": "Open-access primary HTML passage comparison",
+          "title": "Complexity Results in Team Semantics: Nonemptiness Is Not So Complex",
+          "trigger": "Exact calculus and previously stated model-checking algorithm"
+        },
+        {
+          "assessment": "Broader semantic expressivity, not by itself the claimed resource bound",
+          "evidence": "Characteristic formulas over fixed finite variable sets do not supply one guard per input NE or logspace evaluation. Uniform definability refers to substitution into a fixed context.",
+          "identifier_or_url": "https://arxiv.org/html/2503.21850",
+          "material_read": "§3.1 flat support and upward closure, and §4.1 uniform definability, offsets 97900–104810 and 121250–124005",
+          "method": "Open-access primary HTML passage comparison",
+          "title": "Convex Team Logics",
+          "trigger": "Potentially encompassing expressive normal form"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit structural witness invariant and a deterministic space bound for a natural model-checking problem address a substantive complexity gap over the original polynomial-time analysis. The mathematical question and invariant are useful; the rejection is because this record does not supply a distinct result from the exact comparison, not because the subject is insignificant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

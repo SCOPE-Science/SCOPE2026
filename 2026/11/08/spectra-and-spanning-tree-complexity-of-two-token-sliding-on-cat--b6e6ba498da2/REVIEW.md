@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct-product adjacency forces every independent set of size at least two into one row or column; the fixed-size token rule makes all sizes at least three immobile. The two-token edge relation is exactly row/column incidence, giving the explicit \(B_m\otimes B_n^{\mathsf T}\) block; complete-graph incidence singular values prove the full spectrum. A full-rank incidence argument proves connectedness; Kirchhoff's theorem applied to all Laplacian factors proves the exact spanning-tree formula, including multiplicities and small boundaries. Independent enumerations and exact cofactor checks in `verify.py` corroborate the proof.
+## correctness
 
-**Originality — PASS, provisional priority.** Avis–Hoang (arXiv:2203.16861) defines and analyzes the exact token-sliding reconfiguration model, but its full-text structural/realizability results do not determine this categorical-product-host spectrum or tree complexity. Reyes–Dalfó–Fiol (arXiv:2310.16929) treats larger unrestricted token graphs, so its spectra cannot be identified with these induced independent-only token-sliding state graphs. Hoang (arXiv:2606.03765) addresses realizable targets and Cartesian products of targets, not categorical-product hosts. Focused searches of related spectral, graph-product and reconfiguration results did not reveal a dominating theorem or tabulated exact formula. Residual risk: the incidence-tensor identity may have appeared elsewhere under an alternative name, in which case its spectral and tree consequences could be prior corollaries.
+PASS
 
-**Value — PASS.** Token mobility changes qualitatively from connected at two tokens to entirely frozen at three, on a natural infinite graph family. Beyond that elementary cutoff, the full spectrum and spanning-tree complexity provide a structural and enumerative characterization of the nontrivial two-token transition graph; this is more informative than a scalar connectivity statement or an arbitrary finite computation.
+Any independent cell pair shares a row or column; a third independent cell must lie in that same line. For k >= 3 the unmoved pair forces any replacement into the same line, forbidding an edge of the host. This gives the state count also when one or both binomial terms vanish. For k=2 the horizontal and vertical states are adjacent exactly at a shared incidence, with degrees d_H=2(m-1), d_V=2(n-1) and biadjacency M=B_m tensor B_n^T. The unsigned clique incidences satisfy B_t B_t^T=(t-2)I+J, so their ranks and singular values give all four signed classes and the stated zero multiplicity, including coincident eigenvalues and no zeros at (3,3). The unique top singular value implies one component: each biregular component would otherwise supply an independent top singular vector. In the Laplacian each singular pair contributes d_H d_V-s^2 except for the top pair, which contributes 0 and d_H+d_V. The three nonzero pair products are 2n(m-1), 2m(n-1), and 3mn-2m-2n; the unmatched multiplicities are the two part sizes minus mn. Dividing the nonzero product by the order yields the stated formula and prefactor 4/(mn).
 
-The results are parameter-uniform, but no independent mathematical validation has been carried out. The finite verification cases supplement, not establish, the infinite proof. Publication priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the identification and exact spectral/tree classification of the independent-pair token-sliding graph for categorical clique hosts. Neither the general incidence algebra nor the elementary freeze alone is a novelty claim. No inspected exact prior statement or stronger result giving this host-to-state-graph identification was established.
+
+## value
+
+PASS
+
+The number of tokens marks a natural mobility boundary: two tokens give a connected state graph, while three or more cannot move at all. The incidence factorization then gives the exact spectral and spanning-tree invariants of the last mobile regime for all m,n, rather than a finite table or a generic eigenvalue bound. These identify both the structure and quantitative complexity of a natural reconfiguration family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

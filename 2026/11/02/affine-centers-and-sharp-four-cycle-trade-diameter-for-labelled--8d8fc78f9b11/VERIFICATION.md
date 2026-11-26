@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The result is finite. Run the two included programs with standard Python 3; no third-party modules, external files or network services are required.
+## correctness
 
-```sh
-python verify_matching.py
-python verify_coloring.py
-```
+PASS
 
-`verify_matching.py` enumerates the 105 matchings of eight vertices, constructs every exact-cover decomposition into seven factors, constructs the entire four-cycle switching graph, checks 960 isolated and 5,280 mobile states, and executes breadth-first search from **every** mobile state. It then verifies that the 30 minimum-eccentricity states are precisely all relabelings of the affine translation factorization.
+I independently enumerated the factors in order of their distinct partner of vertex 0, assigning a disjoint matching on the remaining six vertices at each step. This visits every unordered factorization exactly once. I generated neighbors by enumerating all three four-cycles on every four-element vertex subset, looking up the owners of opposite edge pairs, exchanging alternating edge ownership, and reanchoring; duplicate outcomes were collapsed. The resulting simple graph has 6240 vertices, 17640 edges and degree/count pairs (0,960), (3,1680), (7,2520), (9,420), (13,630), (21,30). Orbit traversal using adjacent transpositions reached the whole respective degree class from each of six representatives. The five positive-degree representative BFSs each reached 5280 states, with eccentricities 11,10,10,10,9 in that order. The affine representative was used for degree 21. Analytically, two factors have union 4+4 exactly when the matching involutions commute (their product has order 2 rather than 4); commuting factors generate a faithful transitive elementary abelian group and thus a regular group of order 8. The converse and normalizer count give the 30-state affine orbit. An isolated factorization has no 4+4 union and hence every pair is Hamiltonian. This verifies the original componentwise census, not a graph with persistent factor colors or longer switches.
 
-`verify_coloring.py` independently enumerates normalized proper seven-edge-colourings, performs alternating four-cycle swaps on their symmetric colour tables and renormalizes the colours. It confirms all 6,240 states, 17,640 undirected transitions and all components. It checks that the six degree classes are the full relabeling orbits of the vertex symmetric group, so a BFS from each nontrivial orbit representative proves the complete eccentricity table.
+## originality
 
-Expected successful checks from the two actual executed packages:
+PASS
 
-```
-MATCHING_EXACT_COVER_6240_AND_17640_EDGES_PASS
-ALL_5280_SOURCE_DISTANCES_RADIUS9_DIAMETER11_PASS
-AFFINE_30_CENTERS_AND_960_ISOLATES_PASS
-LATIN_EDGE_COLORING_6240_INDEPENDENT_CENSUS_PASS
-INTERCALATE_17640_EDGES_SIX_ORBITS_PASS
-ONE_5280_COMPONENT_AND_RADIUS9_DIAMETER11_PASS
-```
+The supported distinct contribution is the metric and connectivity census for fixed labels, including the complete affine center, not the classical number of states, the definition of the move, or the isomorphism-class switch graph. Focused indexed and literature lookups did not identify a competing fixed-label metric result.
 
-The two programs give separate finite exhaustive calculations, not independent scholarly review. No claim is made for general complete graphs, higher-order one-factorizations, or different move sets. Scientific priority remains conditional on the accessible literature.
+## value
+
+PASS
+
+K8 is a natural finite case of the established intercalate switch problem. The fixed-label metric supplies a sharp move bound for any two mobile factorizations and identifies a canonical isomorphism orbit of best starting states. This answers a genuinely different reconfiguration question than orbit-quotient connectivity or a count of labelled designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

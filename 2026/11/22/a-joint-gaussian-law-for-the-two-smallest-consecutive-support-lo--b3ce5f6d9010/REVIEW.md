@@ -1,11 +1,21 @@
-# Scientific review of two local meandric component counts
+# Independent mathematical audit
 
-**Correctness — PASS.** Counting ordered disjoint blocks of respective lengths two and four gives \((2n-r-3s)_{r+s}\); the two four-site upper/lower orientations give \(2^s\); deleting internal arcs of both Catalan matchings gives the square of the remaining Catalan ratio. Exact derivatives yield the covariance and its sign, with the numerator polynomial strictly positive after substituting \(n=m+3\). Uniform Stirling and falling-factorial expansions, with \(r+s=O(\sqrt n)\), satisfy every condition in the published multidimensional high-moment criterion and give a positive-definite Gaussian covariance matrix. Independent exhaustive exact-rational enumerations of the relevant small systems agree with the formulas. The asserted limits are analytic, not extrapolations from enumeration.
+## correctness
 
-**Originality — PASS, with priority risk.** Di Francesco–Golinelli–Guitter introduce meandric systems via paired noncrossing matchings. Féray–Thévenin prove global component laws of large numbers; Janson–Thévenin (2024) prove single-fixed-shape marginal central limit theorems and explicitly identify a multi-shape CLT extension as unchecked in their Section 5. The present exact two-statistic mixed moments, negative cross-covariance and bivariate Gaussian law are not consequences of those marginal results without the new joint calculation. The abstract multidimensional criterion is fully attributed to Berzunza Ojeda–Holmgren–Janson. Remaining risk: independent unpublished or unindexed equivalent multivariate meandric results.
+PASS
 
-**Value — PASS.** Two- and four-consecutive-site loops are the first natural local component types in the meandric system. The finding gives their complete exact joint moments and resolves a specific nontrivial two-shape case of an expressly identified multivariate fluctuation problem. Strict negative cross-correlation quantifies competition between local loop structures and is not visible from either one-dimensional limit.
+On four consecutive sites the two distinct noncrossing local pairings must occur in opposite upper and lower positions to produce one component, giving exactly two choices; the two-site component has one choice. Distinct marked components have disjoint supports. For k=r+s labeled windows, ordering the blocks and putting 2n−2r−4s unused sites in k+1 gaps gives k! times binomial(2n−r−3s,k), the stated falling factorial. Removing all marked vertices in both halves is bijective: arcs of the remaining matching can enclose an inserted block but cannot interlace an arc wholly within that block. This gives the squared Catalan ratio, includes empty gaps and the case of zero remaining sites, and confirms the inadmissible moments vanish. At (1,0), (0,1), (1,1), the identity and C_{n−1}/C_n=(n+1)/(2(2n−1)) give the displayed means and covariance. For n≥3 the cubic shifted by n=m+3 is 10m³+49m²+56m+8. For k≤K sqrt(n), the log Catalan ratio differs from −(r+2s)log 4 by O((r+2s+1)/n), and expanding each log in the falling factorial has remainder O((k+1)^3/n²). Substituting k=r+s leaves quadratic coefficients −3/4, −5/2, −7/4 after the common 1/n. These are the two diagonal corrections to the factorial moments and the mixed coefficient in Theorem A.1 of Berzunza Ojeda–Holmgren–Janson: 64(13/128−1/8)/2=−3/4, 512(−5/1024)=−5/2, and 4096(121/8192−1/64)/2=−7/4. Mean scales are n/8 and n/64, standard scales sqrt(n), and the uniform range proved contains the theorem's required rectangle. The determinant is 387/262144 and the stated correlation follows. The frozen checker was inspected but not executed.
 
-**Scope and limits.** Four-site support must be consecutive; the theorem does not cover all loops meeting four sites, general shape vectors, or the total number of components. Priority remains conditional on the inspected published primary literature, and no external independent verification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known shape-by-shape theory already gives the X marginal, including its factorial moments, and applies separately to each orientation contributing to Y. The full mixed transform and its explicit nonzero negative dependence, rather than those marginal results or the general high-moment theorem, are the distinct contribution.
+
+## value
+
+PASS
+
+These are the smallest two possible sizes with full consecutive support, a canonical test of the multitype fluctuation problem. The explicit covariance detects persistent geometric exclusion missed by the known marginals; the exact finite array also fixes the whole joint law rather than an isolated moment or one enumeration cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

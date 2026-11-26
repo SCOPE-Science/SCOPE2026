@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof separates cross-parity, even–even and odd–odd representations; its digit-carry model uses the exact bound \(2(g-1)\) and accounts for the final forbidden carry beyond \(g^{2k}\). The intersection count \(2^{2k-1}-2^{k-1}-2^k+1\) requires \(g\ge3\), while the pure-digit multiplicity threshold \(\lfloor g/2\rfloor\ge2\) requires \(g\ge4\). All pure unique and unrepresented cases are classified before combining the counts. The symbolic identity was independently checked by direct unordered summand-pair enumeration for every \(4\le g\le10\), \(1\le k\le3\). No step infers an infinite theorem from these finite tests.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic risk
-Ling–Tang (2015), Theorem 1.1 and pp. 375–378, treats exactly this parity-partition basis in every base, but proves density-one uniqueness and strong minimality, not the finite cutoff count. Tang (2026), Theorem 1.1 and Corollary 1.3, extends qualitative uniqueness and minimality to arbitrary infinite partitions for \(g>h\) without the exact count. Tang–Ling (2018) addresses minimality hypotheses, not the exceptional-set spectrum. A previously known base-three count does not imply the stated base-\(g\ge4\) classification: isolated power representations change multiplicity at four. Targeted semantic-result and ordinary literature searches did not locate a stronger equivalent statement. This is not a uniqueness proof; an older derivation may remain undiscovered.
+PASS
 
-## Mathematical value — PASS
-The exceptional-set size in a classical thin, strongly minimal additive basis is a natural invariant: density-one uniqueness leaves its growth undetermined. The formula supplies an exact count at every complete digit-block cutoff for all \(g\ge4\), an explicit leading constant, and the sharp exponent \(\log_{g^2}(2g-1)\). The shift from the small-base behavior is structural (the number of carry splittings changes), not merely notation. There is no claim of a general theorem for arbitrary partitions.
+Digit splitting gives exactly one mixed-parity summand pair for a mixed integer. A same-parity representation of a mixed integer must carry and thus has two positive summands. Each even-start block has 2g−1 carry-or-no-carry values; the odd-start family loses the units digit and has only g choices for the last digit because overflow is forbidden. The intersection has units zero and 2k−1 free binary digits. Removing pure outputs before inclusion–exclusion gives (3g−1)(2g−1)^(k−1)−2g^k−2^(2k−1)+1. For a positive pure integer, the number of same-parity unordered positive pairs is (∏(d_j+1)−2+I)/2, where I is 1 exactly when every active digit is even. This is one only for a lone 2 or 3 or two 1s. An opposite-parity carry gives at least two unordered pairs whenever all present digits are 1 and units is zero, because each used preceding digit has to split g, with floor(g/2)≥2 choices even at one site. A lone unit 1 has neither type. The surviving unique pure count is 5k−1 and the only missing integers are 0 and 1. Adding the two ambiguity counts gives the formula; 2g−1>4 gives the stated leading asymptotic. Independent summand enumeration reproduced all 21 recorded configurations (3,550,513 admitted pairs).
 
-## Closest literature and limitations
-The most direct comparison is Ling–Tang (2015), because it uses the identical object and weaker conclusion. Tang (2026) is the recent motivating source. Tang–Ling (2018) supplies earlier digit-basis context. See `RESULT.md` for precise statement, proof, and scientific limits. Independent literature verification and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct finding is an exact uniform exceptional-set size and exponent on natural cutoffs for g≥4. The closest published theorem gives density-one uniqueness for the very same basis; a distinct same-date ternary record gives a materially related exact formula via the same parity decomposition, but at a disjoint base with a different pure-digit correction. Neither supplies this quantified count.
+
+## value
+
+PASS
+
+Density leaves the rate of exceptional representations undetermined in a classical thin additive basis. Complete two-digit blocks are natural for its parity decomposition; counting all such blocks in all higher bases gives an exact rate, coefficient and finite correction with a genuine low-base carry distinction. This is useful beyond any one verified grid and need not extend to arbitrary partitions or cutoffs to be worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

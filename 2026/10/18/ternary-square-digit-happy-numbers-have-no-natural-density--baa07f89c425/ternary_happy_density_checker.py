@@ -81,11 +81,12 @@ def verify_bounds():
     assert 1000000*Hl < 110033*Dl # d_224<0.110033
     # Direct exact upper certificates for Gilmer's hypotheses (B1)-(B3).
     # Here mu=5/3<2, sigma=sqrt(26)/3<2, sqrt(2)*sigma<3,
-    # 2*sigma/sqrt(mu)<3, sqrt(3*mu*3*sigma)<6.
+    # and 2*sigma/sqrt(mu)<3. For B2, (sqrt(3*mu*b)*sigma)^2=130/3.
+    assert 130 < 3*7**2
     for n in (hi_n, lo_n):
         assert n % 8 == 0
         assert 28+12*3**(5*n//8) < 3**(n-1)  # B1
-        assert 6 < 3**(3*n//8)  # B2
+        assert 7 < 3**(3*n//8)  # B2
         assert 8*(7+3**(3*n//4)+3*3**(5*n//8)) < 3**(n-1)  # B3
         assert (2*3**(n-1)) % 3**(3*n//4) == 0  # n-strict shell partition
     # Theorem 4.1 error: sigma/sqrt(mu)=sqrt(26/15)<3/2.
@@ -99,8 +100,8 @@ def verify_bounds():
     # dunder < 1 - (1-110033/1e6)*(1-1/1e6)<11004/1e5.
     assert 100000*(1000000**2 - (1000000-110033)*999999) < 11004*(1000000**2)
     print('cycle_basins_1_to_26=', verify_cycle_reduction())
-    print('n=136 happy_count=',Hh,'denominator=',Dh,'ratio=',round(Hh/Dh,12))
-    print('n=224 happy_count=',Hl,'denominator=',Dl,'ratio=',round(Hl/Dl,12))
+    print('n=136 happy_count=',Hh,'denominator=',Dh)
+    print('n=224 happy_count=',Hl,'denominator=',Dl)
     print('CERTIFIED: limsup > 0.3718; liminf < 0.11004')
 
 if __name__=='__main__': verify_bounds()

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:22:09.042315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–16 and 18–76",
+        "Frozen VERIFICATION.md, artifacts/verify_witness.py and artifacts/verify_upper.cpp (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/reproduce_03.py"
+      ],
+      "rationale": "I independently rebuilt all incidences by inserting two binary symbols in each length-six output, deduplicating each (word,output) pair. The 23 distinct witness words give an output-load distribution of 1 zero, 2 ones, 20 twos and 41 threes. I checked the nonnegative integer dual on all 256 words, and the 48-support rational primal on all 64 rows and every source unit cap. Their objectives coincide at 1082/45, so 24 is the rounded upper bound. Equality with 24 would leave an exact budget of 6 for selected slacks, omissions of the two 36-weighted constant words and unused weighted row capacity. This forces both constants and only slack-at-most-six words. Instead of replaying the supplied 113-case search, I branched directly on individual word inclusions and exclusions over all such candidates. Every discard uses the three-list capacity, remaining size, insufficient remaining defect budget, or forced saturation of a row whose weight exceeds that budget. For a row needing d occurrences to saturate, if fewer than d candidates remain its unavoidable deficit bounds the budget from below, and if exactly d remain in a mandatory row they must all be selected. No fractional or floating test enters this search. It exhausted 18,941 nodes without a 24-word completion. The construction and the exclusion together establish 23, not just a bound.",
+      "residual_risks": [
+        "The upper bound is a finite exact computational proof, not formal proof-assistant verification. The claims apply only at binary length eight, exactly two ordered deletions and source cap three. The fractional optimum includes 0≤u_x≤1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin gives an asymptotic existence lower bound and general bounds on common subsequences/supersequences.",
+          "The finite run-counting upper bound with binary length eight, two deletions and list size three is best at r=3, giving 48+58=106."
+        ],
+        "reasoning": "These broad statements address the same packing constraint or its underlying subsequence intersections, but at this input do not force size 23 or the fractional value. In particular the finite converse is too weak even to exclude 24.",
+        "searches": [
+          "arXiv:2609.26650v1 Theorems 1.1, 1.4 and Corollary 1.2",
+          "arXiv:2609.21395v1 Theorem 23 (v2 renumbered to Theorem 28)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26650v1",
+        "arXiv:2609.21395v1/v2",
+        "Resultary d1017049c488, a5d1a3724fdb, 0e3d59e8581e and 0e0b8121c25e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The neighboring table entries only constrain the capacity from below by natural inclusions, not from above: a cap-2 code is cap-3 feasible, and prefixing a fixed bit lifts a seven-bit code to length eight without increasing the list cap.",
+          "The same-model run-counting upper bound 106 leaves both 23 and 24 possible. The cap-2 LP result is for a different right-hand side with unchanged per-word unit caps."
+        ],
+        "reasoning": "Neither monotonicity nor the broader inequalities recover the exact integer midpoint or the fractional–integer separation here; with unit caps, rescaling a cap-2 primal packing by 3/2 need not even remain feasible.",
+        "searches": [
+          "Resultary d1017049c488, a5d1a3724fdb and 0e3d59e8581e, Finding statements",
+          "arXiv:2609.21395v1 Theorem 23, direct evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin formulates the same deletion constraint in terms of distinct parents.",
+          "Kiah–Wei–Zeng give a budget-changing one-way insertion/deletion implication, not equality of these list capacities; the indexed finite separation compares insertion 6 and deletion 4 at length five and list cap two."
+        ],
+        "reasoning": "The common-subsequence cap is precisely the incidence constraint; it counts codewords rather than position embeddings. For fixed-length sources, an offending output after fewer deletions could itself be shortened to length six and would still offend, so at-most-two and exactly-two caps coincide here. The list insertion analogue does not have an exact-capacity equivalence.",
+        "searches": [
+          "arXiv:2609.26650v1 Definition 2.1",
+          "arXiv:2609.21395v1 §1.2 and Proposition 3",
+          "Resultary 0e0b8121c25e (finite insertion/deletion separation)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d1017049c488 gives integral 15 and fractional 2188/135 at n=8 with cap 2. a5d1a3724fdb confirms 15 in the cap-2 threshold problem.",
+          "Resultary 0e3d59e8581e gives (5,11,16,21,26,32) at n=7 for caps 1 through 6. The external lookup returned no useful comparable table."
+        ],
+        "reasoning": "None of these inspected entries uses both length eight and cap three; the difference is mathematical, not a conclusion based on publication dates or title wording. A missed or unindexed table remains possible.",
+        "searches": [
+          "Resultary: binary length-eight two-deletion capacity list three; neighboring lengths, list capacities and fractional gap",
+          "Bounded literature lookup for the exact short-block parameter"
+        ]
+      },
+      "rationale": "The closest exact table at length eight is for list cap two; the closest list-cap-three entry is at length seven. Neither implies 23 or the cap-three fractional optimum. The closest published inequalities apply to the model but do not determine its integral or fractional value at this parameter.",
+      "residual_risks": [
+        "Bounded retrieval does not exclude unindexed short-block code tables. For the published run-counting bound use v1 when citing Theorem 23."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lower bound and common-subsequence bounds; no matching finite converse",
+          "evidence": [
+            "Thm. 1.1 is an asymptotic existence lower bound under t≤n/k, not an exact capacity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26650",
+          "material_read": "Printed pp. 2–3, Def. 2.1, Thms. 1.1 and 1.4, Cor. 1.2",
+          "method": "Lawful OA PDF inspection",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Same distinct-codeword deletion-list model"
+        },
+        {
+          "assessment": "Relevant implication but no equivalence or sharp evaluation",
+          "evidence": [
+            "Theorem 23 bounds this tuple by 106; Proposition 3 changes the error budget in one direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21395v1",
+          "material_read": "§1.2 p. 3, Prop. 3 p. 7 and Thm. 23 p. 25 of v1; Thm. 28 p. 29 of v2",
+          "method": "Lawful OA PDF inspection",
+          "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein's Lower Bound",
+          "trigger": "Same model and possible finite upper bound or insertion equivalence"
+        },
+        {
+          "assessment": "Different list cap",
+          "evidence": [
+            "At n=8 its cap-2 capacity is 15 and LP optimum 2188/135."
+          ],
+          "identifier_or_url": "d1017049c488",
+          "material_read": "Finding in local RESULT.md",
+          "method": "Local Resultary mirror read",
+          "title": "First integer-rounding failure in binary two-list two-deletion packing",
+          "trigger": "Same length, same deletion count and exact LP comparison"
+        },
+        {
+          "assessment": "Different list cap",
+          "evidence": [
+            "Cap two at n=8 yields 15 words; a size-16 code first appears at length nine for that cap."
+          ],
+          "identifier_or_url": "a5d1a3724fdb",
+          "material_read": "Finding in local RESULT.md",
+          "method": "Local Resultary mirror read",
+          "title": "The four-bit threshold for binary two-deletion two-list codes",
+          "trigger": "Exact n=8 result"
+        },
+        {
+          "assessment": "Different length",
+          "evidence": [
+            "The cap-3 entry is 16 at length seven, not at eight."
+          ],
+          "identifier_or_url": "0e3d59e8581e",
+          "material_read": "Finding in local RESULT.md",
+          "method": "Local Resultary mirror read",
+          "title": "Exact small-list two-deletion capacities at binary length seven",
+          "trigger": "Exact small-list table containing cap three"
+        },
+        {
+          "assessment": "Illustrates non-equivalence in list decoding, but no theorem at the frozen parameters",
+          "evidence": [
+            "At length five and list cap two the insertion and deletion optima differ."
+          ],
+          "identifier_or_url": "0e0b8121c25e",
+          "material_read": "Finding in local RESULT.md",
+          "method": "Local Resultary mirror read",
+          "title": "First finite two-list insertion–deletion separation",
+          "trigger": "Possible insertion/deletion equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–65",
+        "arXiv:2609.21395v1, finite converse"
+      ],
+      "rationale": "The cap-three regime is a natural list-decoding problem, and the result exhibits an explicit failure of the rounded incidence LP bound at a reproducible short-block instance. Even with optimal fractional weights, rounding gives a number unattainable by any actual code. The exact witness and integral exclusion give a benchmark for stronger packing converses and exhaustively checked code designs, beyond an isolated numerical best candidate.",
+      "residual_risks": [
+        "No assertion of asymptotic benefit or of the first failure across lengths or list sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

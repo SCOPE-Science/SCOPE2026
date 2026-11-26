@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_k234.py` using Python 3 and its standard library. The script reconstructs the disjoint-product cubical chain complex for two unordered points on the graph with vertex shores \(\{0,1\}\), \(\{2,3,4\}\), and \(\{5,6,7,8\}\). It builds and checks all 198 columns of the signed second boundary, checks every composition with the first boundary, generates 4,395 simple cycles and 1,206 unordered vertex-disjoint cycle pairs, and tests the zero integral boundary of every product torus.
+## correctness
 
-The exact proof certificate consists of a rank-129 lower bound modulo 101 (independently modulo 103), an integral 69-by-69 minor of determinant \(+1\) from 69 shortest triangle-pair tori, and the elementary rational-kernel and integral-coordinate argument documented in `RESULT.md`. The script produces and verifies all three explicit integral relations among the 72 triangle-pair tori; each relation has 36 nonzero coefficients. All 1,206 product tori reduce integrally to the same basis. The six natural adjacent-transposition actions preserve the relation lattice and give the rational character described in `RESULT.md`. The supplementary JSON certificate records the actual basis, minor, relations and generator matrices and can be inspected independently.
+PASS
 
-Observed successful command output:
+For two particles the simple graph meets the deleted-product subdivision conditions (paths between distinct essential vertices have at least one edge and essential cycles at least three). The discrete-model inclusion respects the particle swap, so passing to its free quotient gives the unordered model; within-part permutations also respect the inclusion. The product rule gives the stated oriented second boundary. There are 36 vertices, 182 one-cells and 198 squares, and no three-cells. Independently reconstructed matrices satisfy ∂1∂2=0 and have rank ∂2=129 over Q by exact row reduction. Enumeration by vertex subsets and cyclic permutations with least vertex first and reversed copies removed gives 4,395 cycles and 1,206 unordered disjoint pairs with the six stated counts. The 72 triangle pairs are also counted directly as 3·2·4·3 by first distinguishing the triangle through vertex 0. Independently oriented torus chains all have zero integral boundary. The exact determinant of the minor at the frozen JSON indices is +1, so the rational kernel of rank 69 projects injectively to its selected square coordinates and the selected 69 chains map onto their entire integral coordinate lattice. Hence they generate the whole integral H2; reconstruction with that minor also gives integral coefficients for all 1,206 pair tori. The three stored 36-term vectors are in the exact kernel, and project to the identity on the complementary triangle indices 64,70,71 (zero-based), so generate all integral relations. Recomputing the six signed triangle actions from triangle orientation and the sign of swapping circle factors reproduces all stored action matrices. The S2 and S3 generators are −I; S4 traces on 1, (12), (12)(34), (123), (1234) are 3,−1,−1,0,1, exactly those of the sign twist of its standard representation over Q.
 
-```
-K234_TWO_POINT_TRIANGLE_TORUS_INTEGRAL_PRESENTATION_OK
-cells 36 182 198; rank_d2 129; rank_H2 69; tori 1206
-shortest tori 72; independent integral basis 69; three full relations
-relation character: S2 and S3 sign, S4 parity-twisted standard
-```
+## originality
 
-This verification exhausts the finite combinatorial model for this one graph. The standard deleted-product deformation equivalence is supplied by the mathematical literature. No claim is made about arbitrary tripartite parameters, cup products, higher homotopy or independent certification.
+PASS
+
+The distinct contribution is the specific shortest-torus integral presentation at the unequal tripartite boundary and its actual relation action, not the cubical model, the general intersection framework, or merely the rank. Closely matching integral presentations apply to other graphs; the strongest general tripartite symmetry statement inspected excludes a shore of size two and concerns rational homology rather than this integral presentation.
+
+## value
+
+PASS
+
+The part-size-two boundary is missing from the inspected three-factor theorem, and the other two shores allow a natural family of disjoint shortest cycles. Integral generation by those shortest cycles settles whether longer cycles or non-toric cycles are necessary for H2; the full signed kernel and symmetry then say how the geometric generating tori are redundant. This is a meaningful integral boundary case, not just a Betti number for an arbitrary nine-vertex graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

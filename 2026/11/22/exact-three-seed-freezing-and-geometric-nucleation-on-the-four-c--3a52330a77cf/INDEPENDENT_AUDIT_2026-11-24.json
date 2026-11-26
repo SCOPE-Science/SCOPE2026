@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:25:46.478871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Flipping a vertex with d disagreeing neighbors changes the disagreement count by 4−2d; the doubled accepted-flip rates are 2 for d>2, 1 for d=2 and 0 otherwise. The generator is invariant under vertex symmetries and spin reversal. A separate full-state implementation used bit-mask neighbor intersections and different coordinate-permutation generators to validate the 222 orbit values on all 65,536 labeled states. It found 720,896 directed positive-rate moves and exactly the two monochromatic and eight coordinate half-cube absorbing masks. Reverse reachability from those masks covers every state, ruling out any other closed class; this also proves uniqueness of the finite harmonic solution. The replay checked each harmonic identity with integers scaled by a common denominator, and checked the boundary values against independently constructed absorbing masks. Independent enumeration reproduced all six distance classes, the exact weighted mean and the four reachability witnesses; all states with at most two minority spins have hitting probability zero. This is exhaustive on Q₄, not a claim for other dimensions or other tie rules.",
+      "replay_paths": [
+        "/workspace/branches/independent-review/replay3.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. use the same zero-temperature dynamics, prove that blinkers require dimension at least eight, and give general frozen-state constructions. The square-lattice recurrence review concerns infinite volume. Jovanovski studies low-temperature global crossover with a field."
+        ],
+        "reasoning": "The no-blinker theorem genuinely covers one component of the Q₄ absorption analysis, but none of the inspected results implies the finite three-seed basin probabilities.",
+        "searches": [
+          "Chen–Machta–Newman–Stein arXiv:2506.19949v1, introduction and §IV",
+          "Camia–De Santis–Newman arXiv:math/0103050",
+          "Jovanovski arXiv:1508.07769"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.19949v1, cond-mat/0105037, math/0103050, 1508.07769",
+        "Resultary c8cd34678da7, 5034f6ad5fe4 and 669d916961fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known static stripe configurations and the absence of persistent blinkers constrain the possible terminal states. Published numerical ground-state frequencies use different initial ensembles. The Heawood result gives an analogous finite threshold, but under different geometry and ties."
+        ],
+        "reasoning": "These statements do not decide which three-site paths reach a frozen state, nor how competing lowering and neutral flips weight the six geometry-conditioned basins. The exact finite transition analysis is needed here.",
+        "searches": [
+          "Chen et al. §IV, frozen and blinker geometry",
+          "Spirin et al. periodic-square stripe probabilities",
+          "Resultary Heawood three-seed law 5034f6ad5fe4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The simple periodic 4×4 nearest-neighbor square graph is isomorphic to Q₄ by a two-pair cyclic Gray code. Square-lattice stripe states are therefore material comparisons. The same-cube majority census instead uses synchronous moves and deterministic tie retention, while the odd complete bipartite result has no ties."
+        ],
+        "reasoning": "Equivalent graphs with the same rates must be compared as the same chain. Merely sharing Q₄ while changing the update/tie rule does not preserve reachability or basin probabilities.",
+        "searches": [
+          "Resultary Q4 recurrent classes c8cd34678da7 and opposed-part consensus 669d916961fc",
+          "Spirin–Krapivsky–Redner arXiv:cond-mat/0105037, §§II.A, III.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue Q₄ entry gives 702 synchronous tie-retaining fixed states and 885 synchronous primitive two-cycles. The same-day Heawood graph table finds 56 of 364 successful triples with probability 1/15 each for its tie-free rule. Chen et al. use balanced random seeds, not precisely three positives."
+        ],
+        "reasoning": "These are different statistics or chains. No checked entry tabulates the six Hamming-distance groups with the same finite Q₄ generator and seed conditioning.",
+        "searches": [
+          "Resultary Q4 seed freezing: c8cd34678da7, 5034f6ad5fe4",
+          "Chen et al. arXiv:2506.19949v1, numerical regime and frozen-state results"
+        ]
+      },
+      "rationale": "The same-dynamics hypercube publication supplies the general no-blinker result and balanced-initial-state statistics, and known periodic-square stripe dynamics supplies close context. The distinct supported claim is the geometry-conditioned six-class exact three-spin law and sharp minority-seed boundary, not the general absence of blinkers, the stripe mechanism, or absorbing-chain algebra.",
+      "residual_risks": [
+        "Unindexed finite torus or hypercube enumerations and unpublished data behind balanced-state simulations were not ruled out.",
+        "The adjacent same-day catalogue result is distinguished by graph and rule, not by assumed time order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the no-blinker context, not the six-seed-geometry table in the relevant passages",
+          "evidence": "Dimension-eight minimal blinker statement, balanced initial data, lower-dimensional subcube renormalization of frozen states.",
+          "identifier_or_url": "https://arxiv.org/html/2506.19949v1",
+          "material_read": "Abstract/Introduction, zero-magnetization numerical scope, and §IV.1 frozen-state construction (offset 27700 onward)",
+          "method": "Open-access full-text passage inspection",
+          "title": "Zero Temperature Dynamics of Ising Systems on Hypercubes",
+          "trigger": "Same dynamics and graph family"
+        },
+        {
+          "assessment": "Known periodic-square stripe context; no exact 4×4-specific three-seed classification in the examined passages",
+          "evidence": "Stable horizontal/vertical stripes and stripe-state frequencies; the blinker discussion concerns the three-dimensional simple cubic lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037",
+          "material_read": "Abstract p. 1; §II.A, p. 2; stripe and blinker discussions, pp. 4–5 and 7",
+          "method": "Open-access full-text passage inspection",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Periodic square lattices include the graph in question"
+        },
+        {
+          "assessment": "Infinite-grid recurrence and absorbing structure, not the finite conditioned census",
+          "evidence": "Rate-one site clocks, fair ties and absorbing strips or flat interfaces on infinite Z².",
+          "identifier_or_url": "https://arxiv.org/abs/math/0103050",
+          "material_read": "§1 Synopsis, pp. 1–2",
+          "method": "Open-access PDF passages",
+          "title": "Clusters and Recurrence in the Two-Dimensional Zero-Temperature Stochastic Ising Model",
+          "trigger": "Same local fair-tie dynamics"
+        },
+        {
+          "assessment": "Different temperature, field, and initial/target event",
+          "evidence": "Low-positive-temperature all-minus to all-plus crossover with positive external field.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.07769",
+          "material_read": "Abstract and §1, pp. 1–2",
+          "method": "Open-access PDF passages",
+          "title": "Metastability for the Ising Model on the Hypercube",
+          "trigger": "Same graph family and spin dynamics"
+        },
+        {
+          "assessment": "Different chain",
+          "evidence": "Synchronous deterministic majority, ties retain spin, with 702 fixed configurations and 885 primitive two-cycles.",
+          "identifier_or_url": "Resultary c8cd34678da7",
+          "material_read": "Finding and update assumptions",
+          "method": "Resultary discovery and local-mirror read",
+          "title": "Thirty geometric recurrent classes and a sharp four-step clock for majority dynamics on the four-cube",
+          "trigger": "Same Q₄ state space and recurrent-class census"
+        },
+        {
+          "assessment": "Genuine analogue, not equivalent",
+          "evidence": "14-vertex Heawood graph, degree three with no ties; 56 successful triples all with probability 1/15.",
+          "identifier_or_url": "Resultary 5034f6ad5fe4",
+          "material_read": "Finding and graph/rule assumptions",
+          "method": "Resultary discovery and local-mirror read",
+          "title": "Exact freezing and rare three-seed nucleation on the Fano incidence graph",
+          "trigger": "Closest exact three-seed nucleation law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Q₄ is a natural degree-four cube where a minority configuration must grow to an eight-site half-cube to freeze. The smallest successful seeds include dispersed triples but not a length-two path; four geometric classes have distinct exact positive basin probabilities. This supplies a finite benchmark for geometry-sensitive nucleation that neither static frozen-state counts nor balanced-initial simulations provide. The standard Markov-chain method is not itself the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,46 +1,47 @@
 # Exact finite-radius descendant spheres for binary length-one reverse-complement duplication
 
 ## Finding
-For a nonempty binary word \(x\) of length \(n\), let \(r\) be the number of equal letters at its beginning. At one step, choose any letter \(a\) in the current word and insert its binary complement \(\bar a\) immediately after it. Let \(D_t(x)\) be the **set of distinct words**, rather than insertion histories, obtainable in exactly \(t\) steps. For all integers \(n\ge1\) and \(t\ge0\),
-\[
-|D_t(x)|=\sum_{j=0}^{t}\binom{n+t-1}{j}-\sum_{j=0}^{t-1}\binom{n+t-r-1}{j}.
-\]
-The second sum is empty when \(t=0\). In particular this exact sphere size depends on the seed only through its length and initial constant-run length, regardless of all subsequent letters. A length-\(m\) binary word \(y\) is a descendant of \(x\) if and only if \(m\ge n\), \(y\) begins with the initial bit of \(x\), \(x\) is a scattered subsequence of \(y\), and the initial constant run of \(y\) is no longer than that of \(x\). The latter is an intermediate membership characterization; the principal enumerative contribution is the explicit distinct sphere-volume formula.
 
-For \(t=1\), \(|D_1(x)|=n\), while \(|D_2(x)|=n(n+1)/2+r\). For \(t\ge2\) the sphere size is strictly increasing with \(r\) at fixed \(n,t\), so a constant seed maximizes it and a seed beginning with unequal letters minimizes it when \(n\ge2\). For any fixed nonempty \(x\),
+Let \(x\) be a nonempty binary word of length \(n\) with initial constant-run length \(r\). One operation inserts the binary complement of a chosen letter immediately after that letter. The set \(D_t(x)\) of distinct outputs after exactly \(t\) operations satisfies
 \[
-\lim_{t\to\infty}\frac{|D_t(x)|}{2^{n+t}}=\frac{1-2^{-r}}2.
+|D_t(x)|=\sum_{j=0}^t\binom{n+t-1}{j}-\sum_{j=0}^{t-1}\binom{n+t-r-1}{j}\qquad(n\ge1,\ t\ge0),
+\]
+where the second sum is empty when \(t=0\). A word \(y\) is reachable exactly when it begins with the same bit as \(x\), contains \(x\) as a scattered subsequence, and its initial constant run is no longer than that of \(x\). The subsequence condition entails \(|y|\ge n\); the number of operations is then \(|y|-n\).
+
+In particular, \(|D_1(x)|=n\) and \(|D_2(x)|=n(n+1)/2+r\). For \(t\ge2\) the size increases strictly with \(r\) at fixed \(n,t\). Thus constant seeds maximize it, and seeds beginning with unequal bits minimize it for \(n\ge2\). For each fixed \(x\),
+\[
+\lim_{t\to\infty}\frac{|D_t(x)|}{2^{n+t}}=\frac{1-2^{-r}}{2}.
 \]
 
 ## Assumptions and scope
-The alphabet is exactly \(\{0,1\}\), complementation interchanges the letters, and a duplication inserts the complement immediately to the right of a chosen original letter. The seed is nonempty, distinct output words are counted once regardless of generation paths, and the number of steps \(t\) is exact. No claim concerns duplication lengths exceeding one, larger alphabets, inverse parent multiplicities, or error-correcting code optima.
+
+The alphabet is exactly \(\{0,1\}\), complementation interchanges the symbols, the seed is nonempty, and different histories with the same output count only once. The result does not address longer duplication blocks, larger alphabets, inverse parent multiplicities, or optimal codes.
 
 ## Proof
-**Reachability necessity.** Every insertion preserves the old word as a scattered subsequence and never changes its first letter. It cannot increase the initial homogeneous-run length: insertion in that run interrupts it, while insertion afterward leaves it unchanged.
 
-**Reachability sufficiency.** Assume \(x\) is embedded in a longer word \(y\), their first letters agree, and \(r(y)\le r(x)\). Choose an embedding that uses *every* position of the first run of \(y\): its first \(r(y)\) target letters equal the first \(r(y)\) letters of \(x\), so moving those matches left is possible without harming subsequent matches. Within each later constant run of \(y\), move any matches to its rightmost positions, without changing their relative order or the matches in other runs.
+**Reachability.** An insertion cannot change the first bit, destroy the old word as a subsequence, or lengthen its initial constant run. Conversely, assume the three claimed conditions, and use induction on \(|y|-n\), with equality of lengths forcing \(y=x\). Choose a subsequence embedding that uses every letter of the first run of \(y\). This can be done by moving the first \(r(y)\) matches to the first \(r(y)\) positions: these have the right value because \(r(y)\le r\) and the first bits agree. Within every later run, right-justify the matches in that run, preserving their order and all matches in other runs.
 
-At least one position in a run after the first is unmatched, since the first run is entirely matched and \(y\) is longer. Consider the rightmost run containing unmatched positions. By the right-justified convention its first letter is unmatched; this letter is different from its predecessor and can be deleted as the second member of a complementary adjacent pair. The preserved embedding remains an embedding in the shorter word. The only way deleting this first letter could increase the initial-run length is when it is the sole letter of the second run; its deletion then merges the first and third runs. As all later runs are completely matched (the chosen run was rightmost with unmatched letters), the first and third runs are both entirely matched into an initial constant run of \(x\). Their combined length is therefore at most \(r(x)\). Thus the shorter word still satisfies the first-run bound. Repeating removes all inserted letters and reaches \(x\). Inverting these deletions gives a sequence of permitted complement insertions, proving the criterion for every length.
+If \(|y|>n\), let the rightmost run with an unmatched letter be the chosen run. It is not the first run. By right justification its first letter is unmatched, so it may be deleted: it immediately follows its complement. The original embedding survives. The only deletion that could increase the initial run length is deletion of the singleton second run when a third run exists. In this case all positions in the first and third runs are matched, and their matches form an initial constant block in \(x\); their combined length is at most \(r\). The shorter word therefore still meets all the conditions. Applying the induction and reversing the deletion gives the desired insertion sequence.
 
-**Exact enumeration.** For a fixed target word of length \(h\), the number of binary words of length \(m\) having it as a scattered subsequence is
+**Counting.** Let \(S(M,H)\) be the number of binary words of length \(M\) containing any fixed target of length \(H\) as a subsequence. Then \(S(M,H)=\sum_{j=H}^M\binom Mj\), with \(S(M,0)=2^M\). Extend the target by an arbitrary infinite binary tail and greedily match its symbols while scanning independent fair bits. Each new greedy match indicator is a fair coin conditionally on all preceding bits, so the indicators are independent; the first \(H\) symbols are matched exactly when there are at least \(H\) successes.
+
+Write \(m=n+t\). Fixing and using the first letter of \(y\) leaves \(S(m-1,n-1)\) candidates. For \(t\ge1\), a forbidden candidate has at least \(r+1\) copies of the first bit at the start. With those \(r+1\) letters fixed, greedy embedding matches the initial \(r\) seed bits there; if \(r<n\), the extra letter cannot match the next seed bit. The suffix therefore contributes \(S(m-r-1,n-r)\), including the empty-target case \(r=n\). For \(t=0\) the only candidate is \(x\), which is allowed. Subtracting and using binomial symmetry gives the two sums in the finding.
+
+**Consequences.** Evaluating at \(t=1,2\) gives the stated expressions. When both \(r\) and \(r+1\) are admissible and \(t\ge2\), Pascal's identity shows that the forbidden sum decreases by \(\sum_{j=0}^{t-2}\binom{n+t-r-2}{j}>0\). For the limit use the complementary tails, valid for \(t\ge1\):
 \[
-S(m,h)=\sum_{j=h}^{m}\binom mj,
+|D_t(x)|=2^{m-1}-2^{m-r-1}-\sum_{j=0}^{n-2}\binom{m-1}{j}+\sum_{j=0}^{n-r-1}\binom{m-r-1}{j}.
 \]
-with \(S(m,0)=2^m\), \(S(m,h)=0\) for \(m<h\). Indeed, when scanning independent uniformly chosen bits, the greedy matching indicator for the next needed target bit is at every position an independent fair Bernoulli variable; greedy embedding succeeds precisely after at least \(h\) matches.
-
-Write \(m=n+t\). Requiring a leading copy of the first letter of \(x\) and embedding the remaining \(n-1\) letters gives \(S(m-1,n-1)\) candidates. The forbidden candidates with initial run at least \(r+1\) all have their first \(r+1\) letters fixed to \(x_1\), and the first \(r\) of these embed the initial run of \(x\). If \(r<n\), the extra identical letter cannot match the next (opposite) seed letter, so the remaining \(n-r\) seed letters must occur in the suffix of length \(m-r-1\); if \(r=n\), that suffix is arbitrary and the same expression with empty target applies. There are exactly \(S(m-r-1,n-r)\) forbidden candidates when \(t\ge1\), and none when \(t=0\). Subtracting and using binomial symmetry gives the formula in the finding.
-
-For \(t\ge2\), increasing \(r\) decreases the nonzero forbidden prefix-tail sum strictly, proving the sharp extremal claim. For fixed \(n\) and \(r\), each first sum equals \(2^{n+t-2}\) up to a polynomial in \(t\) of fixed degree, and each second sum equals \(2^{n+t-r-2}\) up to another fixed-degree polynomial. Division by \(2^{n+t}\) gives the asserted density.
+Empty tails are zero. The tails are polynomials of bounded degree in \(m\) for fixed \(n,r\) and vanish after division by \(2^m\) in the limit. The powers of two give \((1-2^{-r})/2\).
 
 ## Verification
-Run `python verify.py` with Python 3.9 or later and no external dependencies. The script independently generates each distinct exact-step descendant by direct insertion, and separately tests the subsequence/run criterion and the binomial formula for all binary seeds of lengths \(1\) through \(8\) and steps \(0\) through \(4\). A second exhaustive calculation checks the one-step inverse-deletion lemma for all admissible pairs with target length at most \(10\). Results: `RC1_DESCENDANTS_PASS seed_radius_cases=2550 candidate_targets=2708780`; `RC1_INVERSE_LEMMA_PASS admissible_pairs=84490`. These finite checks supplement, but do not replace, the all-length proof above.
 
-## Relationship to prior work
-Ben-Tolila and Schwartz (2021, arXiv:2112.11811v1) already characterize the **unbounded descendant language** by a concatenation of per-letter regular languages, and prove its full expressiveness for this binary channel. That structural language theorem is acknowledged, not claimed here as a new descendant-language description. The present theorem counts *distinct* descendants at **every exact finite radius**, eliminates the multiple-generation ambiguity of the language product, and proves the unexpected dependence on the initial run alone, sharp extrema, and limiting density. Yohananov and Schwartz (2023, arXiv:2312.00394v1) analyze coding capacity and common descendant cones; their common-descendant criterion and rate result do not give the stated exact per-seed finite-step counts. The binomial count of supersequences is standard and not claimed as original.
+Run `python verify.py` with Python 3.9 or later and the standard library. It directly enumerates distinct descendants for all binary seeds of lengths 1 through 8 and exact radii 0 through 4, and tests the inverse-deletion property for all admissible pairs of target length at most 10. The documented markers are `RC1_DESCENDANTS_PASS seed_radius_cases=2550 candidate_targets=2708780` and `RC1_INVERSE_LEMMA_PASS admissible_pairs=84490`. These finite checks supplement the proof.
 
-## Limitations
-Originality is assessed against the inspected cited papers and searches, not guaranteed across all literature. An equivalent explicit sphere-volume identity might exist under a different insertion/channel terminology, and the earlier regular-language factorization logically determines the reachable set, although extracting an exact distinct finite-radius cardinality from its ambiguous concatenation is nontrivial. The code checks finite cases only. No independent mathematical audit has occurred.
+## Relationship to prior work and limitations
+
+Ben-Tolila and Schwartz [1, Theorem 4 and proof] give a per-letter language factorization of the unbounded descendant cone and show full expressiveness for the binary channel. The factorization already characterizes reachable words and is not claimed as new here. The contribution is the explicit distinct per-seed cardinality for every exact radius, not a count of factorizations or insertion histories. Yohananov and Schwartz [2, Lemma 2 and Corollary 3] give an unbounded common-descendant criterion rather than this per-seed fixed-length count. Neither the standard binary supersequence count nor separate low-radius evaluations are claimed as new. An equivalent all-radius enumeration elsewhere remains possible.
 
 ## References
-1. E. Ben-Tolila and M. Schwartz, *On the Reverse-Complement String-Duplication System*, arXiv:2112.11811v1 (first public version 2021-12-22), https://arxiv.org/abs/2112.11811.
-2. L. Yohananov and M. Schwartz, *On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes*, arXiv:2312.00394v1 (2023-12-01), https://arxiv.org/abs/2312.00394.
+
+1. E. Ben-Tolila and M. Schwartz, *On the Reverse-Complement String-Duplication System*, arXiv:2112.11811v1.
+2. L. Yohananov and M. Schwartz, *Optimal Reverse-Complement-Duplication Error-Correcting Codes*, arXiv:2312.00394v1 (later title: *On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes*).

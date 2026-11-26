@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:08:45.107455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–50",
+        "Frozen VERIFICATION.md, lines 18–24, and verify.py, lines 4–97 (static reading)",
+        "Foundational PSD component rule, arXiv:1003.2028, §3, Definition 3.1"
+      ],
+      "rationale": "Removing any single vertex leaves the book connected, and the sole blue vertex has at least two neighbors in that component; no first PSD force is possible. From both spine vertices blue, each white page is a separate edge and can be forced from an endpoint. From a same-page pair, the two blue page vertices can force the spine. From {a,x_i} use x_i→y_i→b, and from {a,y_i} first force the isolated white x_i from a, then force b from y_i. Exchanging sides covers the other spine–page pairs. From two different pages, the white spine edge remains and every residual white page fragment attaches to it; each blue page vertex has both neighbors in that one white component. Thus neither can start a force. The categories are exhaustive and disjoint, giving 1+n+4n minima after excluding both the empty set and singletons. The argument also covers n=1: the four-cycle has all six pairs as minima, and there are no different-page pairs.",
+      "residual_risks": [
+        "The accompanying checker recomputes white components after every force and compares all singletons and pairs for 1≤n≤12. It was not run; correctness here is established by the symbolic proof, not an assertion of an independent finite replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The partial-2-tree theorem equates Z_+, PSD maximum nullity and induced-tree cover number. The book embeds in a 2-tree by adding x_i onto edge ab and y_i onto x_i b, then deleting all added x_i b edges. Its two layers are induced stars and a page gives a cycle, so the tree-cover number is exactly two.",
+          "Propositions 3.1–3.2 compare forcing under degree-two suppression; they supply transferable forcing sets or cardinality equalities, not a parametric census of every initial pair in this graph. The 2013 author abstract asserts any vertex can be included in some minimum set, not that all pairs can be prescribed. The catalogue wheels result is for another graph family."
+        ],
+        "reasoning": "Prior general theorems recover the scalar and provide operations for analyzing particular starts. None of the inspected statements supplies both the positive same-page/spine cases and the obstruction for every pair on different pages.",
+        "searches": [
+          "Partial 2-tree and series-parallel structural search for PSD forcing",
+          "Ekstrand et al. (2012), Theorem 3.3, Corollary 3.4 and Propositions 3.1–3.2",
+          "Ekstrand et al. (2013), DOI 10.1016/j.laa.2013.05.020",
+          "2026/10/13/SCOPE-positive-semidefinite-zero-forcing-sets-of-wheel-graphs--9632d882f161"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.2028; ELA partial-2-tree paper; 2013 author abstract and identified inaccessible copies; AMS Example 9.53 referral; mirrored records listed above",
+        "Frozen RESULT.md, lines 52–64"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The componentwise rule permits multiple fires from one spine vertex into distinct white pages. A different-page pair leaves one connected white component with two neighbors of each blue vertex, an obstruction not expressed by the scalar or an existence theorem for containing individual vertices.",
+          "The degree-two reduction treats membership and shifts a selected degree-two vertex when necessary to establish a minimum size; it does not identify which of the original pairs result in success. Reversing its comparisons would still require analyzing the candidate configurations."
+        ],
+        "reasoning": "The new part is exhaustiveness with respect to fixed locations of both initial vertices. Deriving that from the general framework requires a book-specific analysis, not substituting a graph size into a prior coverage theorem.",
+        "searches": [
+          "arXiv:1003.2028, §3, Definition 3.1",
+          "Ekstrand et al. (2012), Propositions 3.1–3.2 and Theorem 3.3 (text offsets 16010–22630)",
+          "Frozen RESULT.md, lines 32–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadrilateral book is the same graph: a spine edge in parallel with n internally disjoint paths of length three. The skew-forcing record uses exactly this graph, but it requires meeting both bipartition classes, with (n+1)^2 minimum sets. The paired-domination record also uses this graph, but studies a different invariant.",
+          "For n≥2, the PSD minima cannot be transferred from matroid bases: replacing an element of one same-page pair by either element of another same-page pair gives an excluded cross-page pair, violating basis exchange."
+        ],
+        "reasoning": "The book aliases identify the graph but do not identify the forcing rule. In particular, PSD forcing admits even the same-bipartition spine–page pairs; its minimum family is not the pair family of the skew rule or a matroid-basis enumeration.",
+        "searches": [
+          "Resultary: K_{1,n} square P_2; square book; quadrilateral book; PSD zero forcing bases and minimum pairs",
+          "2026/10/12/SCOPE-all-skew-zero-forcing-sets-of-book-graphs--e6dc68677f09",
+          "2026/10/26/SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen source attributes the scalar two to the book example; the example itself could not be opened, but the scalar follows independently from the accessible 2012 theorem. No exact PSD book table or polynomial containing its coefficient of z² was identified. The same-graph mirrored polynomial governs skew forcing; the same-rule wheel polynomial governs a different graph."
+        ],
+        "reasoning": "A PSD forcing polynomial for this graph would give the exact count as its first nonzero coefficient; counts from a different rule, or the index of that coefficient alone, cannot give its value or classify the sets.",
+        "searches": [
+          "Resultary lookups for book-graph PSD forcing polynomial and leading coefficient 5n+1",
+          "Same-day PSD wheel forcing polynomial and same-graph skew forcing polynomial",
+          "Inverse Problems and Zero Forcing for Graphs, Example 9.53, DOI 10.1090/surv/270"
+        ]
+      },
+      "rationale": "Pass for the classification and 5n+1 count of all minimum PSD forcing sets, not for Z_+(B_n)=2, which follows from a prior theorem about partial 2-trees. The inspected reductions and other graph-family formulas do not give the all-pairs classification. Full-text limitations on two relevant further sources are noted separately.",
+      "residual_risks": [
+        "Example 9.53 and the 2013 article's full text were not available for an independent all-minima check. The bounded catalogue and literature searches cannot rule out unindexed classifications. The originality credit excludes the known scalar."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the rule; no family-level implication established from the inspected passage",
+          "evidence": [
+            "A blue vertex has a unique neighbor in the chosen white component for a PSD force. The literal book-graph miss is not a whole-paper absence finding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.2028",
+          "material_read": "§3, Definition 3.1, PDF p. 7, offset near 20500",
+          "method": "Bounded primary PDF reading",
+          "title": "Zero forcing parameters and minimum rank problems",
+          "trigger": "Foundational source for the precise PSD forcing rule"
+        },
+        {
+          "assessment": "Covers the minimum size; not an exhaustive book-graph minimum-pair result",
+          "evidence": [
+            "Z_+=T on partial 2-trees; Proposition 3.2 concerns the change under suppression, not a minimum-set count."
+          ],
+          "identifier_or_url": "https://emis.de/ft/34120",
+          "material_read": "Propositions 3.1–3.2 with their proofs, pp. 84–85; Theorem 3.3 and Corollary 3.4, pp. 85–86 (offsets near 16010 and 20530)",
+          "method": "Bounded primary PDF reading from the ELA copy",
+          "title": "Note on positive semidefinite maximum nullity and positive semidefinite zero forcing number of partial 2-trees",
+          "trigger": "A graph-general result on the exact parameter for a family containing the books"
+        },
+        {
+          "assessment": "Scalar not credited as new; exact contents of the book example unverified here",
+          "evidence": [
+            "Frozen text reports that Example 9.53 gives Z_+(B_n)=2. The independently read partial-2-tree theorem suffices to confirm that this scalar was already covered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/surv/270, Example 9.53",
+          "material_read": "Frozen RESULT.md lines 52–57 describing the example; book passage not independently read",
+          "method": "Lawful AMS chapter access attempts returned HTTP 403",
+          "title": "Inverse Problems and Zero Forcing for Graphs",
+          "trigger": "Frozen citation to the same book graph and PSD scalar"
+        },
+        {
+          "assessment": "Abstract theorem does not imply an all-pairs census; no whole-paper exclusion asserted",
+          "evidence": [
+            "The author abstract says any specified vertex can occur in a minimum set. It does not describe which second vertex can be chosen with it."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2013.05.020",
+          "material_read": "Craig Erickson's publication-page abstract; publisher full text and identified Iowa State repository alternate unavailable",
+          "method": "Public author-page reading plus lawful primary/alternate retrieval attempts",
+          "title": "Positive semidefinite zero forcing",
+          "trigger": "General results on which vertices can occur in a minimum PSD forcing set"
+        },
+        {
+          "assessment": "Different forcing/domination rules on the book or a different graph under the PSD rule",
+          "evidence": [
+            "The skew count is (n+1)^2, the paired-domination record uses an independent parameter, and the wheels cannot stand in for arbitrary book graphs."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-all-skew-zero-forcing-sets-of-book-graphs--e6dc68677f09; 2026/10/26/SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a; 2026/10/13/SCOPE-positive-semidefinite-zero-forcing-sets-of-wheel-graphs--9632d882f161",
+          "material_read": "Findings and hypotheses in the mirrored results, notably the offset-zero book and quadrilateral-book passages",
+          "method": "Ranked catalogue search and bounded local-mirror reading",
+          "title": "Resultary book-graph skew forcing, quadrilateral book paired domination, and wheel PSD forcing records",
+          "trigger": "Close graph-name, counting, or exact forcing-rule matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–21 and 32–45",
+        "Ekstrand et al. (2012), Theorem 3.3; related skew and PSD catalogue findings"
+      ],
+      "rationale": "The classification resolves a location-sensitive question that the known minimum size cannot answer on a standard graph product: putting both vertices on different pages fails completely, whereas a spine vertex can be partnered with any other vertex. Together the cases give the leading PSD forcing-polynomial coefficient and a labeled census useful for testing structural guesses about minimum sets. This is a natural complete classification with a cone-of-pairs obstruction, not a finite recomputation of the scalar.",
+      "residual_risks": [
+        "The result classifies only minimum starts; it does not determine the rest of the PSD forcing polynomial or propagation times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: nonconstant linear shifts of irreducible cubics
+# Independent mathematical audit
 
-## Correctness — PASS
-A unique depressed-cubic coordinate system is valid because the characteristic is neither two nor three. A nonzero slope produces a bijection from the translation parameter and constant coefficient to two independently varying constants. For the depressed cubic with nonzero linear coefficient, a classical elementary quadratic-character sum gives the exact irreducible-constant frequency \((q-\chi_q(-3))/3\); the zero-linear-coefficient case follows from the cube-map image. The proof accounts separately for discriminant zero and counts all rational roots with multiplicity pattern correctly. It has no passage from experiments to infinite fields. Independent direct root enumeration passed 84 parameter-shift cases over eight prime-power fields, including two extensions.
+## correctness
 
-## Originality — PASS (qualified)
-The 2012 Bary-Soroker source gives a uniform large-field asymptotic, not the present exact formula. Bary-Soroker--Stix 2017 gives exact formulas for **constant** polynomial differences only; affine variable changes cannot erase a nonzero linear difference. The closest previously accessible finite-field cubic-pair result treats squarefreeness, not irreducibility, and does not determine the new count. Targeted source and published-result searches located no exact nonconstant-linear-shift formula. The 2002 Effinger--Hicks--Mullen chapter was only available through bibliographic abstracts; possible covered statements within its inaccessible full text remain a residual risk. The absence of a database hit is not a proof of universal novelty.
+PASS
 
-## Mathematical value — PASS
-Cubic twin irreducibility is an explicit case of a well-studied function-field prime-tuple problem. The result replaces a large-field asymptotic with an exact count valid for every allowed odd prime power and all nonconstant degree-one shifts. The unexpected complete independence from both linear-shift coefficients, together with the mod-three character split, contrasts with the elliptic-curve dependence documented for scalar shifts. It gives an exact count and nonvanishing without size thresholds. No wider-degree claim is made.
+Depressing the cubic is unique since 3 is invertible. For each depressed slope A the constants B and B+v−us run as an independent pair because u≠0, giving the exact autocorrelation sum over A. For A≠0 the discriminant factors as −27 times a translate of B² by a nonzero constant; the two-factor quadratic character count gives sum −χ_q(−3). A zero discriminant then gives two distinct rational roots: the double root is unique, hence rational, the simple root is rational, and a triple root would force A=0. For nonzero discriminants the parity of Frobenius on the three roots gives one rational root exactly for nonsquare discriminants. Counting all pairs (B,x) gives q and eliminates the repeated-root count, yielding m(A)=(q−χ_q(−3))/3. For A=0 the cube-map calculation gives m(0)=0 or 2(q−1)/3 as claimed. Exactly A=0 and A=−u differ from the generic product, and −3 is a square exactly when there is a nontrivial cube root of unity. The resulting expressions agree, and are positive at the smallest permitted q=5 and above. Independently evaluated root-avoiding constants by Horner evaluation in eight fields, including genuine quadratic extensions, and verified 526 shift cases; the counts at q=5,7,25,49 were 12,36,1728,13056. Replay: `python3 /workspace/branches/frozen_replay.py 5`.
 
-## Limitations and residual risks
-Characteristics two and three and shifts of degree other than one are excluded. An inaccessible 2002 chapter and other unlocated historical formulas could subsume the claim. Finite checks are corroborative. The review does not constitute external or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact count for a nonconstant linear difference over the full specified odd prime-power domain, not the twin-polynomial formulation, the main term, or arithmetic of a single cubic. The strongest accessible exact cubic literature counts constant differences and the literature covering the target differences gives only asymptotics. The exact local analogues inspected have different shifts, invariants, coefficient objects, or characteristic. The 2002 chapter remains an explicit priority risk, not a verified match.
+
+## value
+
+PASS
+
+This is the exact first nonconstant shift family in the intensively studied cubic twin-prime count. It quantifies an arithmetic contrast: the exact answer is uniform in the two shift coefficients, with only a quadratic-character correction to the constant-coefficient-independent main terms, whereas the exact scalar shift can fluctuate with the scalar cube class and elliptic traces. The exact finite-field law, including extension fields, is useful as a benchmark for conjectures and computations on short polynomial correlations and is not supplied by asymptotics or a generic positivity statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

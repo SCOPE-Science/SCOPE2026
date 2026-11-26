@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:38.519792Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the section integration: the reflected-simplex coefficients are binomial(n,k)^2 and the beta integral reduces their weighted sum to (n+1)^(n-1). For the shifted polar the fiber above u has positive length (2−(1−z)max t_i+(1+z)n min t_i)/(1−z²), t_i=<u,v_i>. The Gram determinant of the difference matrix on the zero-sum hyperplane is n+1, and the regular-simplex length scale is sqrt((n+1)/n); the ordered gap integral therefore gives the Euclidean prefactor and the stated a_{n,k}. The log-product derivative is strictly increasing, negative at zero and divergent at one. With δ=1−z, write a_{n,k}=2nk(1−δ b_{n,k}), b_{n,k}=(n+1)(k−1)/(2nk). Their sum is (n+1)(n−H_n)/(2n); the stationary equation gives δ=2/n+O(log n/n²), and the inverse correction product tends to e. The remaining prefactor gives e² n^n/(n!)², while the simplex benchmark is asymptotic to e² n^n/(n!)² before multiplying by the correction e. The n=2 radical and product agree by substitution and separate high-precision arithmetic. At z=0 the polar constraints are (s−1)/n≤t_i≤1+s, with ∑t_i=0. They force −1≤s≤1 and the bounds are always distinct; each choice of one bound per i gives a unique feasible vertex. Subsets of these compatible choices are exactly the face incidences, giving the cube. Changing to any interior polarity center preserves this lattice. The optimized product in the claim is for the Cayley body, not a separate minimization over centers of its polar. Inspected VERIFICATION.md and verify_cayley.py; the 35 reported numerical comparisons are supporting finite checks, not an all-dimensional proof or a fresh run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík realizes the bipolar face poset by polarity after any interior translation and verifies the regular simplex case; these are combinatorial statements.",
+          "The available comparison of the regular-simplex and cube–cross-polytope Cayley records gives distinct base layers, benchmarks, and constants."
+        ],
+        "reasoning": "A combinatorial cube class leaves the metric volume profile undetermined. A dimension-dependent center law and optimized factor do not follow from allowing any polarity center in the construction.",
+        "searches": [
+          "arXiv:2611.13896v1, Theorem 5.2 and Proposition 5.6",
+          "regular-simplex Cayley polar Santaló profile and volume-product literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cayley.py",
+        "Pavlík arXiv:2611.13896v1",
+        "Resultary f5dfbcc12b1e, 6d008e32c62a, 516fa817d276, d79d6553a85b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product-of-linear-factors integral can be credited in lower dimension; the prior optimum at a symmetric difference body is in the shape parameter of a Minkowski sum, not the Cayley axial translation. The axial optimization additionally has the (1−z²) factor from the fiber length."
+        ],
+        "reasoning": "The section result cannot be substituted for the Cayley optimum. Establishing the new drift scale and normalized optimized limit requires the distinct derivative and dimension-uniform calculation.",
+        "searches": [
+          "Pavlík Theorem 5.2, Proposition 5.6 and Remark 5.7",
+          "Reflected-simplex profile, Finding and proof §3",
+          "Ratio-bounded simplex volumes, Finding (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former's Finding and proof §§1–3 give the mixed section volumes and the exact polar volumes of reflected-simplex sums about their fixed centroid.",
+          "The latter's Finding (2) gives a beta-product formula for the primal ratio-bounded region. In t coordinates the axial polar projection has A max t−B min t≤2, with A=1−z, B=(1+z)n. For B>A, setting x_i=(t_i+2/(B−A))/(2(n+1)/(B−A)) puts that projection in sum-one coordinates with x_i≤(B/A)x_j. For A>B reflect t, and at equality take the continuous limit."
+        ],
+        "reasoning": "There is real equivalence at the level of the projected volume. In particular the previous reflected-simplex profile, plus the Cayley fiber integral and the section integral, is another way to obtain the axial profile; the previous center and monotonicity concern different variables and do not supply the Cayley-body minimizer or optimized limit.",
+        "searches": [
+          "2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+          "2026/11/8/SCOPE-exact-polar-volumes-of-ratio-bounded-simplex-central-polytopes--d79d6553a85b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit f5dfbcc12b1e is the frozen record itself.",
+          "Same-day 6d008e32c62a has B∞ and B1 layers and cube benchmark e²/4, not the simplex-layer body and simplex benchmark e."
+        ],
+        "reasoning": "Neither self-indexing nor a same-day result for another geometric family is independent exact coverage; date alone does not determine priority.",
+        "searches": [
+          "Resultary, regular-simplex Cayley axial Santaló product and factor e",
+          "Resultary, Exact polar volumes of ratio-bounded simplex central polytopes pairwise ratio constraints volume product"
+        ]
+      },
+      "rationale": "Credit the known combinatorial cube realization and known lower-dimensional volume laws. The supported distinct claim is the axial Santaló displacement and optimized simplex-normalized factor for this regular-simplex Cayley body. No inspected independent exact record gives that optimized law.",
+      "residual_risks": [
+        "Bounded literature search is not proof of historical priority; older work on convex hulls of reflected homothetic simplices or their polarity could use different terminology.",
+        "Exact lower-dimensional ingredients should not be presented as original standalone results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the combinatorial realization, not the metric optimization in the claim",
+          "evidence": "Any interior translation yields the stated bipolar face poset; centered regular simplices meet condition (I).",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13896",
+          "material_read": "Theorem 5.2 p.14, Proposition 5.6 p.15, Remark 5.7 p.16; offsets 50771, 54351, 56901",
+          "method": "OA primary text, bounded passages",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Exact construction and regular simplex"
+        },
+        {
+          "assessment": "Provides lower-dimensional ingredient formulas, not the optimized Cayley law",
+          "evidence": "The volume product denominator is ∏[j+(d+1−j)t], for the reflected-simplex body centered at its centroid.",
+          "identifier_or_url": "2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+          "material_read": "Finding and proof §§1–3, mirror offset 0 through 3395",
+          "method": "Original text in local mirror",
+          "title": "Strict Mahler-product monotonicity along simplex asymmetric difference bodies",
+          "trigger": "Potential exact section-volume equivalence"
+        },
+        {
+          "assessment": "Known exact volume for the affinely equivalent projection; no Cayley-center equation or limit there",
+          "evidence": "(2) evaluates vol(P_{m,c}) for all real c>1; the center statement is about P_{m,c} in its own sum-one hyperplane.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-polar-volumes-of-ratio-bounded-simplex-central-polytopes--d79d6553a85b",
+          "material_read": "Finding (1)–(2), assumptions and first proof steps, mirror offset 0 through 5003",
+          "method": "Original text in local mirror",
+          "title": "Exact polar volumes of ratio-bounded simplex central polytopes",
+          "trigger": "Ratio formulation of the polar projection"
+        },
+        {
+          "assessment": "Parallel method, different geometry and result",
+          "evidence": "Cross-polytope and cube layers; comparison to a cube, with constant e²/4.",
+          "identifier_or_url": "2026/11/22/SCOPE-santal-drift-and-a-limiting-cube-benchmark-volume-product-for-cu--6d008e32c62a",
+          "material_read": "Frozen Finding and proof sections 2–6",
+          "method": "Frozen source text",
+          "title": "Santaló drift and a limiting cube-benchmark volume product for cubical Cayley polytopes",
+          "trigger": "Same-day closest axial Cayley result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies, for a canonical geometric realization with cube combinatorics on the polar side, how far the optimal center lies toward one base and how the optimized affine invariant compares to a simplex as the dimension grows. The reference, shape and geometric normalization are natural, and the distinct optimized constant is not a combinatorial consequence or a small-instance recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

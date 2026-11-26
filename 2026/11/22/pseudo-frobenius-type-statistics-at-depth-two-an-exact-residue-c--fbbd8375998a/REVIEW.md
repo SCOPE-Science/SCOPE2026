@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The depth-two parameterization requires only \(m<F<2m\), so all additions of two positive elements exceed the Frobenius bound. The complete pseudo-Frobenius set follows by splitting gaps into three disjoint ranges and testing addition by every possible positive element below the conductor. Each fixed small-gap event factors along directed residue chains, with contradictory forced bits exactly when the step divides the terminal gap. The high-index events have independent edge constraints; the low-index events admit a disjoint-edge matching and an exponentially small total expectation. The correction has bounded expectation, proving the normal law through Markov, the binomial central limit theorem and Slutsky. Exhaustive checks on 12,285 finite semigroups independently confirm the exact formulas; the infinite proof does not depend on the finite tests.
+PASS
 
-## Originality
+For m<F<2m all positive sums exceed F, so the r−1 optional positions are iid fair bits under the stated uniform law. For a gap in [m+1,F] or (r,m), addition of any positive member crosses F. For 1≤j≤r, addition of m first forces j∈B; the remaining below-conductor additions give exactly b∈B and j+b≤r ⇒ j+b∈B. This yields t=m−1−|B|+H, including r=1 and m=r+1. For a fixed j, the implications are monotonicity along step-j chains in [1,r−1]. The multiples chain is all ones, and the chain terminating at r−j is all zeros. They coincide exactly when j divides r; otherwise independent unforced paths of L vertices each allow L+1 words, giving the product with no extra bit count. For j>r/2 the fixed two bits and r−j−1 implications use disjoint coordinates, giving the exact geometric tail that sums to 1−(3/4)^(r−1−floor(r/2)). For the smaller j the path graph admits a disjoint matching of size at least (r−1−j)/3, so the sum of the probabilities is O(r(3/4)^(r/6)). Thus E H=1+O(r(3/4)^(r/6)), and Markov makes H/√r negligible; the centered reflected binomial CLT and Slutsky prove the Gaussian law. All dependence on admissible m is a deterministic translation. Separately, review_checks/semigroup.py enumerated 12,285 semigroups using maximal Apéry representatives under the semigroup-difference order. The maximum test is exact since w+s is in Apéry precisely when w−m+s fails membership. It reproduced the PF sets, residue counts and rational means for r=1,…,12 at three admissible m values per r. It also recovered irreducibles {6,7,8,9} and {6,7,9,10}, and PF sets {10,11} and {3,8,11}, with genus seven in both examples. Finite enumeration does not prove the uniform asymptotics.
 
-PASS under best-knowledge published-source and record comparisons; historical priority is not certified. The 2026 Bras-Amorós–Torra preprint treats genus/Frobenius/multiplicity counts and recurrences, whereas the new quantity is pseudo-Frobenius type and its exact residue-chain product. Singhal's 2022 genus paper establishes binomial genus behavior; neither its genus distribution nor the previous embedding-dimension formula gives the correction \(H(B)\). The explicitly exhibited equal-genus, equal-embedding-dimension semigroups of differing type show strict additional information. Work on extremal type and on fixed pseudo-Frobenius sets remains relevant and is credited. A plausible earlier formula in unindexed texts is a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Pseudo-Frobenius type is a natural invariant of numerical semigroups and of their associated semigroup rings. The result gives an exact mean for all parameters in a natural infinite depth-two family, identifies an unexpectedly bounded and nontrivial discrepancy from genus, and establishes uniform normal fluctuations. Its same-genus/same-embedding-dimension example demonstrates that it is not simply a renamed previously counted invariant.
+The exact cardinality and binomial genus component are already known in the same window and are not distinct. The residue-chain product and quantitative control of the type-specific discrepancy, enabling the uniform type CLT, remain distinct in the inspected comparisons. Neither same-day embedding-dimension result supplies a type law.
 
-## Boundary and remaining risks
+## value
 
-The formulas are not asserted outside \(m<F<2m\), and the limit requires \(F-m\to\infty\). The complete type histogram and the limiting unscaled correction law are not claimed. Literature indexing and access can leave undetected earlier equivalents. No external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cohen–Macaulay type is a natural invariant not recoverable from the enumerated genus and embedding dimension. The formula explicitly resolves the average defect from the binomial component at all admissible parameters and controls it sharply enough for uniform fluctuations. The separation example makes that additional information concrete and the limiting correction is not a renaming of genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

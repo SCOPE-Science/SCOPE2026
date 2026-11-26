@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:26:22.607495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the final repaired RESULT, the centered reward is the time derivative of TH(age/T) within each flight, and H vanishes at both endpoints. Stationary length bias and the key renewal theorem give the endpoint limit: for reset-started flight observations, the renewal forcing function is continuous by absolute continuity and dominated by an integrable decreasing survival function, hence directly Riemann integrable. Conditioning on the first residual time and bounded convergence give independent stationary endpoints; H is continuous. The q-moment formula for Phi follows by length bias; for non-a.e.-constant f its phase factor is strictly positive. An independent bounded-copy event prevents cancellation of an infinite endpoint moment in the difference. For q=2 the bounded continuous tests x^2 wedge M and the exact zero mean show divergence of finite-window variance, not merely infinite variance of the limit. The finite-third-moment coefficient follows by stationary L^2 truncation; the independent exact beta integrals for position give L/12 and L^2/120 and recover the exponential coefficient 2L^2/(45 lambda^2). I inspected but did not execute checker.py. The original theorem's qualifiers in Assumptions are sound, but its slogan unconditionally called the law non-Gaussian: choosing H piecewise linear with vertices (0,0),(1/4,1),(3/4,-1),(1,0) makes H(U) uniform on [-1,1] and is realized by bounded f. An ordinary Rayleigh duration has length-biased chi_3 duration, so the product with an independent uniform [-1,1] factor is a standard normal coordinate of an isotropic normal vector. The endpoint difference in this example is N(0,2). The corrected files avoid that overstatement and reserve strict conclusions for non-a.e.-constant f.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model paper derives the uniform stationary density and spatial relaxation.",
+          "The related sluggish-diffusion record proves a positive Gaussian coefficient for a distinct nonzero excursion reward; standard renewal machinery supplies equilibrium length bias and mixing."
+        ],
+        "reasoning": "Neither one-point stationarity nor a theorem for nonzero noisy excursion rewards gives the all-exponent integrated occupation boundary. The mixing argument in the overlapping ballistic proof already works at finite mean, and is credited as such.",
+        "searches": [
+          "arXiv:2611.16733v1 Eq. (17)",
+          "Renewal processes, Encyclopedia of Mathematics",
+          "Thorisson, The coupling of regenerative processes",
+          "Resultary sluggish-diffusion centered-cycle variance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16733v1",
+        "Local Resultary 3fafd0c137ae, b33291d37acb and 5f67338ca3a7",
+        "Encyclopedia of Mathematics and Thorisson (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest theorem assumes E T^3 finite, but its proof of joint weak convergence does not require that assumption. Its limitations acknowledge that variance coefficients may be infinite.",
+          "The repair computes the exact positive phase factor in each q-moment, proves the independent difference cannot cancel a divergent absolute moment, and applies bounded moment tests to the actual finite-window variance."
+        ],
+        "reasoning": "The shared endpoint conclusions and finite-moment formula are covered. A possibility of infinite coefficients is not the exact moment threshold, nor proof that the finite-window variance tends to infinity for all nondegenerate observables whenever E T^3 is infinite. The repair supplies those steps rather than claiming novelty for the overlap.",
+        "searches": [
+          "Resultary 3fafd0c137ae RESULT.md Finding, proof step 3 and Limitations",
+          "Resultary b33291d37acb RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact coboundary F_g(h)-F_g(0) and h-scaled centered time average in 3fafd0c137ae are the same integrated reward and independent-copy limit.",
+          "b33291d37acb gives an endpoint law for Gamma durations."
+        ],
+        "reasoning": "Expressing the same law as a scaled time average gives no separate originality. The repair focuses on finiteness of moments of that law, including durations outside the overlapping theorem's L^3 assumption.",
+        "searches": [
+          "Resultary: universal boundary fluctuations and negative memory in ballistic threshold resetting; endpoint laws and quadratic variance suppression",
+          "arXiv:2611.16733v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3fafd0c137ae states the same exact variance coefficient and position example, and notes possible infinite coefficients beyond L^3.",
+          "The Gamma-duration record covers an exact subfamily."
+        ],
+        "reasoning": "This is a law and threshold over a continuum of duration distributions, not a tabulated finite invariant. The actual catalog formulas cover the finite-third-moment coefficient and examples, not a necessary-and-sufficient all-q boundary and universal infinite-variance conclusion under their complement.",
+        "searches": [
+          "Resultary: exact ballistic endpoint and occupation moments / variance",
+          "Resultary 3fafd0c137ae and b33291d37acb findings"
+        ]
+      },
+      "rationale": "PASS for the narrowed files only, not for the original broad novelty framing. Actual same-day statements substantially cover cancellation, endpoint convergence and finite-third-moment variance. The repaired distinct contribution is the sharp all-q moment test and the demonstrated variance divergence for every non-a.e.-constant observable in the infinite-third-moment regime, not the endpoint limit itself or the finite-variance coefficient. Same-day priority is not inferred.",
+      "residual_risks": [
+        "The same-day records' order is unresolved.",
+        "An unlocated regenerative moment or heavy-tail result might imply the sharp criterion; renewal background retrieval was incomplete. The proof uses standard machinery and no broad exclusive claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cancellation, weak endpoint limit and finite-third-moment variance; explicitly notes possibility of infinite coefficients; no exact all-q classification in inspected theorem",
+          "evidence": [
+            "Identical coboundary and size-biased variable in the theorem; E T^3<infinity for theorem as stated; its mixing proof only uses finite mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-boundary-fluctuations-and-negative-memory-in-ballistic--3fafd0c137ae/RESULT.md",
+          "material_read": "Finding and theorem offset 0; proof of mixing and variance offset 3550; Limitations offset 6400",
+          "method": "Local Resultary mirror",
+          "title": "Universal boundary fluctuations and negative memory in ballistic threshold resetting",
+          "trigger": "Strongest same-model indexed match"
+        },
+        {
+          "assessment": "Exact overlap on a narrower duration family",
+          "evidence": [
+            "Stationary and fresh-start comparisons for Gamma durations."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-endpoint-laws-and-quadratic-variance-suppression-for-ballistic-t--b33291d37acb",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Endpoint laws and quadratic variance suppression for ballistic threshold-reset averages",
+          "trigger": "Second same-model indexed match"
+        },
+        {
+          "assessment": "Same model, residence and stationary one-point laws; those passages do not treat endpoint moments",
+          "evidence": [
+            "Finite mean condition through the inverse-speed expectation, uniform density Eq. (17)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16733",
+          "material_read": "Abstract, finite-mean discussion, stationary density Eq. (17) on pp. 4–5",
+          "method": "OA primary PDF passages",
+          "title": "Freezing transition and shock-like transients in ballistic random walks under threshold resetting",
+          "trigger": "Exact model paper"
+        },
+        {
+          "assessment": "Different stochastic within-cycle reward",
+          "evidence": [
+            "Nonzero excursion-reward second moment yields a positive diffusive Gaussian coefficient."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-universal-centered-cycle-variance-for-threshold-reset-sluggish-d--5f67338ca3a7",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal centered-cycle variance for threshold-reset sluggish diffusion",
+          "trigger": "Occupation results for threshold resetting"
+        },
+        {
+          "assessment": "Access limit; correctness uses standard nonarithmetic key renewal theorem with its hypotheses checked directly",
+          "evidence": [],
+          "identifier_or_url": "https://encyclopediaofmath.org/wiki/Renewal_processes",
+          "material_read": "Text not obtained (502)",
+          "method": "Direct and VPN retrieval attempts",
+          "title": "Renewal processes",
+          "trigger": "Renewal theory background citation"
+        },
+        {
+          "assessment": "Access limit; not used as negative priority evidence",
+          "evidence": [],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/coupling-of-regenerative-processes/A92498C27136488BADF78B087CCA027B",
+          "material_read": "Text not obtained (500)",
+          "method": "Direct and VPN retrieval attempts",
+          "title": "The coupling of regenerative processes",
+          "trigger": "General regenerative coupling background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The final claim explains a concrete difference between weak-limit behavior and variance in the natural small-speed regime. It changes the conclusion for a full range of admissible flight laws, with finite mean but infinite third moment, and quantifies which absolute moments survive directly from the duration tail. The previously covered structural identity is not counted as an independent contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

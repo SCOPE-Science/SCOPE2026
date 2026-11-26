@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The crossed-product character decomposition follows from odd-order semisimplicity for \(k[H]\), inversion-pair matrix blocks, and finite-field descent. Each nonzero square-zero \(2\times2\) matrix is rank one with equal image and kernel; the sum-of-two argument traps every linear nilpotent family in one matrix line. This proves completeness, uniqueness and intersection counts of the maximal spaces. The trace-zero quadratic-cone description gives the reduced geometry; regular multiplication ranks are additive. The independently executed convolution checker validates all stated small-field cases and the incidence enumerations. Main boundary: the assertions are only for characteristic two and odd-order abelian kernels.
+## correctness
 
-**Originality: PASS, subject to historical priority.** The unit-group classification of Kaur–Khan supplies the familiar matrix factors and makes square-zero total counts a corollary in its cyclic prime-power domain; none of that is claimed as a stand-alone novelty. Closest published records about inner-derivation ranks on the same group, rank spectra for dicyclic odd-index algebras, and order-sixteen groups differ in operators or parameter families. None of the fully inspected statements classifies all inclusion-maximal square-zero linear spaces or their complete pair-incidence spectrum for arbitrary odd abelian kernels. The possibility of an older general nilpotent-linear-space theorem is an explicit residual risk.
+PASS
 
-**Value: PASS.** The exact rational-point count conceals the arithmetic Frobenius orbit data, while the count and incidence spectrum of maximal square-zero linear subspaces recover that data as a natural geometry of the same operator locus. The theorem also reconciles geometric irreducibility with a finite rational-space cover and determines a complete arithmetic regular-rank polynomial. The result is a full natural classification, not a selected small example or a renamed textbook identity.
+Over the algebraic closure the nontrivial characters of the odd abelian kernel form distinct inversion pairs. On each pair the two idempotents and the swapping involution give matrix units, and Frobenius transits the factors in orbits of length d_i. The center of each descended simple block is F_(q^d_i), and its Brauer group is trivial; the fixed trivial-character block is k[epsilon]/(epsilon^2). In M_2(K), a nonzero square-zero matrix has equal image and kernel, a line. Two such matrices with distinct lines have nonzero cross-products with distinct images; hence they cannot commute. In characteristic two the square of a sum forces commutation, so each projection of a square-zero k-space lies in one K-line even when k=F_2. Taking the full product proves maximality, and each agreeing coordinate contributes d_i to the intersection in addition to the common dual-number line. The trace-zero matrix equation reduces to a^2+bc=0, an irreducible cone (primitive and linear in b over the fraction field of K[a,c]); its derivatives vanish on the cone only at the vertex. Products over the algebraic closure give the stated reduced dimension and codimension-two singular components, not a reducedness claim about the original equations. A rank-one matrix acts separately on the two columns, and a nonzero dual number multiple of epsilon has regular rank one, so ranks add and yield the polynomial and the q^m count. Empty products give the claimed m=1 case. An independently written direct group-basis check (python3 /workspace/check_dihedral_incidence.py) exhausts F_2[(C_3 x C_3) rtimes C_2]; maximal cliques under square-zero pair sums recover 81 spaces of dimension 5, with unordered distinct intersection-dimension counts 1:648, 2:1296, 3:972, 4:324 and the predicted rank coefficients. This tests genuine multi-block incidence beyond the recorded single-orbit checks, not arbitrary groups or the geometry. Frozen code was inspected, not run.
 
-The reproducibility checker is a finite consistency check and does not certify universal correctness or publication priority. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the joint arithmetic arrangement, labeled incidence, reduced geometry and regular-rank refinement, not the single-block line lemma, character decomposition as such or known special-case point counts. An earlier rank-one nilpotent clique statement supplies the local constraint if the indexed statement holds as summarized; it does not give the same-object grouped incidence and rank calculation. Evidence is bounded by access to the identified sources.
+
+## value
+
+PASS
+
+The invariant is motivated by a scalar count that is identical for all kernels of the same order. The exact maximal rational spaces and their intersection multiplicities retain splitting-field information that this count loses, with a useful independent regular-rank invariant and a separation between rational incidence and geometric irreducibility. The usefulness is in the explicit complete group-algebra package, not the isolated known matrix lemma or a new interpretation of the unit count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

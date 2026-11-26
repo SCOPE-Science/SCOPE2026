@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:21:10.321157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For occupation-density normalization, the standard local-time law gives Var(L)=1−2/π. Gaussian projection gives conditional mean q_s y/(t+η) and conditional variance s−q_s²/(t+η), where q_s=min(s,t). The latter is at least ηs/(1+η), justifying integration of the conditional density via local-time mollification and L² conditional-expectation contraction. Two copies conditionally independent given the observation have off-diagonal covariance q_s q_u/(t+η), giving the stated second moment after integration. The binomial expansion and explicit s-integral give exactly A_k and the 1/(2π) factor; the series extends to t=0. Near t=1, all required derivatives are dominated by a polynomial in k times a geometric factor at every fixed η>0, using q_s²/s≤t and the explicit A_k derivatives. Since A_k'(1)=0, the denominator derivative alone gives I_η'(1)<0; I_η(0)=0<I_η(t) for t>0. The termwise lower bound makes I_η increasing for t≤1/2 at high noise; η² I_η converges in C² on [1/2,1] to A_1²/(4π). Its derivative is strictly positive through 3/5, and its second derivative is strictly negative on [3/5,1] (16−35√t+18t has no zero there). This gives exactly one high-noise maximum. The proof's short bootstrap in Step 5 can be made explicit without assuming the desired order: the endpoint formula gives I_η'(1)=O(η^−3), while −I_η''≥cη^−2 on [3/5,1] for large η. The mean-value theorem between the maximizer and 1 gives δ=1−t_η=O(η^−1). Now A_k'(1)=0 makes the k≥2 derivative tail O(η^−5). Near 1 the derivative of the leading information term has slope bounded away from zero on the η^−2 scale, so removing that tail moves the root by O(η^−3). Setting u=√t in the leading equation gives 2η(1−u)=u²(u−2/3); matching powers yields u=1−1/(6η)+5/(36η²)+O(η^−3) and the stated t_η. The leading squared term has A_1=2/3+O(η^−2) there, so its denominator supplies −2/(9πη³) and the other terms are O(η^−4). This closes the expositional bootstrap without changing the claim. An independent analytic check is recorded in /workspace/branches/cc46b511-15b3-4a7d-ba4e-6a7b7a9b5a9b/ordinal-2-verification.md. The frozen checker and numerical output were inspected, not rerun; its low-noise stationary-point bisection cannot prove uniqueness there.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 in arXiv:2001.02517 is a stable limit for error under dense noiseless grid sampling as n increases. Altmeyer–Le Guével also use increasingly dense observations X_(kΔ_n). The Wiener design theorem optimizes integrated posterior variance for iterated linear Wiener trajectories."
+        ],
+        "reasoning": "Adding stable-process generality or a range of iterated Gaussian integrals does not simultaneously preserve the one noisy point, fixed local-time target, and high-noise variance asymptotic. The inspected convergence and optimality statements do not dominate this design problem.",
+        "searches": [
+          "Ivanovs–Podolskij arXiv:2001.02517 §3, Lemma 2 and Theorem 3",
+          "Altmeyer–Le Guével arXiv:2108.11632 introduction and observation grid",
+          "Resultary integrated Wiener boundary layer 2fe7f897a316, full record"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.02517",
+        "arXiv:2108.11632",
+        "Resultary 2fe7f897a316"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier local-time paper supplies the noiseless conditioning ingredient; the linear-sensor record gives a risk with one factor (t+η)^−1 rather than the leading (t+η)^−2 from the even local-time target."
+        ],
+        "reasoning": "The Gaussian-channel or Hermite alternative would explain why the leading nonzero rank is at least two. Its actual projection coefficient, strict interior finite-noise conclusion, high-noise uniqueness and second location coefficient still require the local-time-specific computation and uniform derivative control.",
+        "searches": [
+          "arXiv:2001.02517 §3.1–3.2",
+          "arXiv:2108.11632 abstract and introduction",
+          "Resultary 2fe7f897a316, exact risk reduction and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 2 of Ivanovs–Podolskij gives a noiseless endpoint bridge predictor for local time accumulated up to the endpoint. The one-noisy-sensor Wiener quadrature comparator estimates an iterated integral of the path, not local time."
+        ],
+        "reasoning": "Local time is occupation density (a singular occupation functional), and the equivalent Bayes risk is prior variance minus squared conditional-mean projection. A noiseless endpoint formula can help construct the point-plus-noise predictor by the Markov and tower properties; it does not optimize a freely placed noisy measurement of L_1. A linear path integral cannot be substituted for a local time: the former has a first-order Gaussian projection, whereas local time is even under path sign reversal and has no first-order term.",
+        "searches": [
+          "Resultary: Brownian local time one noisy point Gaussian observation optimal measurement time high noise boundary layer risk",
+          "Web: Brownian local time optimal single noisy observation time Gaussian conditional mean high noise experiment design local time process estimator",
+          "Ivanovs–Podolskij arXiv:2001.02517 §3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lemma 2 tabulates bridge conditional means, not the finite-η explained-variance series or its maximizer. The integrated-Wiener coefficients concern a different objective. The exact matching catalogue hit is the target itself."
+        ],
+        "reasoning": "None of these formula collections contains the coefficients 1/3 and 11/36 for a noisy Brownian local-time sensor, or an exact optimal-risk expression reducible to the frozen one by changing normalization.",
+        "searches": [
+          "Resultary noisy Brownian local-time design search above",
+          "arXiv:2001.02517 Lemma 2 and Theorem 3 exact formulas",
+          "Resultary 2fe7f897a316, Finding and high-noise proof"
+        ]
+      },
+      "rationale": "Conditional expectation and Gaussian conditioning are existing tools. The exact noisy single-time risk and its endpoint optimizer address a different design question from dense noiseless sampling of local time or noisy sampling for a linear Gaussian path target. No checked source gives the same risk or implies the optimizer expansion.",
+      "residual_risks": [
+        "A prior one-measurement multi-chaos design theorem or an exact noisy local-time formula under occupation-density terminology could be missed by indexing.",
+        "The literature comparison is confined to the inspected primary passages and records, not a world-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Noiseless bridge predictor and dense-grid limit, not single noisy time design",
+          "evidence": [
+            "Lemma 2 conditions L_t(x) on X_t=z; (15) conditions on (X_(i/n)) and Theorem 3 describes its stable error limit with n^(1/4) normalization for local time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.02517",
+          "material_read": "Primary §3.1–3.2 including Lemma 2, estimator (15) and Theorem 3, plus introductory question",
+          "method": "Lawful OA PDF text, targeted pages",
+          "title": "Optimal estimation of some random quantities of a Lévy process",
+          "trigger": "Same realized Brownian local time and optimal conditional mean"
+        },
+        {
+          "assessment": "Different information and asymptotic regime",
+          "evidence": [
+            "The observation times are t_k=kΔ_n for k=1,…,n; their analysis concerns grid approximation and increasing frequency rather than tuning one noisy site."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.11632",
+          "material_read": "Primary abstract, introduction, observation scheme and local-time definition",
+          "method": "Lawful OA PDF text, targeted opening pages",
+          "title": "Optimal L²-approximation of occupation and local times for symmetric stable processes",
+          "trigger": "Broader process and local-time risk family"
+        },
+        {
+          "assessment": "Different target and risk; no implication for nonlinear local time",
+          "evidence": [
+            "Target is a Wiener trajectory integrated an integer number of times; risk integrates posterior path variance over time and its decrease is I_p(t)/(t+η)."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-a-universal-observation-noise-boundary-layer-for-integrated-wien--2fe7f897a316/RESULT.md",
+          "material_read": "Finding, assumptions, exact risk reduction, uniqueness and asymptotic proof",
+          "method": "Local mirror full record",
+          "title": "A universal observation-noise boundary layer for integrated Wiener trajectories",
+          "trigger": "Identical noisy Brownian sensor channel and endpoint-layer terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Estimating a realized nonlinear path functional from a sparse noisy observation is a natural design problem distinct from estimating a mean or reconstructing a linear Gaussian path. The exact finite-noise risk and strict endpoint exclusion show that the practical terminal-reading heuristic is never exactly optimal, even though it becomes asymptotically close. The high-noise uniqueness and explicit placement gap give a quantitative prescription in this regime, not merely a numerical optimum. The theorem deliberately stops short of all-noise uniqueness or optimal adaptive sensing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:41:00.029732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof 1–5; VERIFICATION.md; verify_unicyclic.py",
+        "Independent direct palette enumeration on four small graphs"
+      ],
+      "rationale": "With a vertex and parent fixed in three named colours, the permitted assignments to children are either all in the third colour or exactly one in that colour; merge these when there is one child, and handle no children separately. This gives b(d). With the cycle fixed, equal cycle-neighbour colours require exactly one child in the third colour (t_i choices), and distinct colours require monochromatic attachments (two choices if nonempty, one if empty). The tree recursion is a bijection and the sign sum counts exactly the proper cycle assignments with these weights. Unattached vertices force the edge increment to remain constant. Each nonzero gap contributes freely +1 or −1 modulo three and these can sum to zero via opposite pairs or an equal triple unless there is exactly one. Two colours cannot provide a witness at a cycle vertex. The length-3 and length-4 core blocks have distinct consecutive triples even across joins; on a decorated C5 rotate (1,2,3,4,2) so its only equal-neighbour vertex has a child available as a witness. Outward extension with children different from the vertex and parent preserves a singleton parent colour. Independent direct checks matched N₃=6 and 0 for adjacent and distance-two C5 leaves, and 12 and 36 for two C6 examples including a branched tree; the obstructed C5 example had 288 valid four-colour assignments.",
+      "residual_risks": [
+        "The finite direct checks are corroboration only. Neither bare C5 four-colourability nor an all-palette enumeration for appended trees is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The PCF tree, bare-cycle and uniform corona results cover specific classes, not arbitrary attachment positions and counts.",
+          "Strong-odd four-colourability covers the same unicyclic graph class but a different constraint: even the proper two-colouring of K₁,₃ is strong-odd and not PCF. Its C5 proof can use an all-one-colour odd neighbourhood at the exceptional root, which is not a PCF witness."
+        ],
+        "reasoning": "A wider palette count on uniform coronas and a wider comparison in a different colouring notion neither dominate the arbitrary-decoration PCF claim.",
+        "searches": [
+          "arXiv:2203.01088v1 §2.1 and Observation 3",
+          "arXiv:2410.02336v1 Proposition 2.2, pp. 5–6",
+          "arXiv:2611.03906v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.01088",
+        "arXiv:2410.02336",
+        "arXiv:2611.03906v1",
+        "Local Resultary hairy-cycle, square-cycle and unicyclic catalogue comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the uniform hairy case all cycle edges are separate unit gaps and r=m≥3, so the previously studied setting cannot detect the r=1 phenomenon.",
+          "Having the same count of attached vertices need not give the same chromatic number: C5 gaps (1,4) versus (2,3). The extra product over off-cycle degrees and allowance for zero weights at unattached vertices are outside the uniform census."
+        ],
+        "reasoning": "The full statement requires the nonuniform gap closure and independent rooted-tree extension, not merely a parameter substitution in the old result.",
+        "searches": [
+          "Hairy-cycle catalogue RESULT.md at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, local weights",
+          "arXiv:2203.01088v1, bare cycles and coronas",
+          "arXiv:2410.02336v1, Proposition 2.2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a bare cycle the PCF condition is exactly proper coloring of C_m². For a decorated cycle, the auxiliary graph consists of the core edges plus distance-two pairs across just the unattached vertices; the full square is too restrictive.",
+          "C5 with adjacent leaves is three-colourable here but the full square C5² is K5. The indexed fall-colouring spectrum for C_n² (2026/10/13, suffix 6fa05fffdf4b) has a different neighbourhood constraint."
+        ],
+        "reasoning": "The partial-square equivalence explains the sign obstruction but does not identify the theorem with the known full-square or fall-colouring cases.",
+        "searches": [
+          "arXiv:2611.03906v1, introduction p. 1, square graph versus PCF",
+          "Local Resultary, square-of-cycle colorings and unicyclic PCF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier hairy-cycle record counts all q≥3 for a fixed positive leaf multiplicity a at every cycle vertex. At q=3 the weights are exactly a and 2, and B=1.",
+          "The catalogue's unicyclic Fourier-nullspace record, suffix ec6a74264cf8, counts ordinary proper colourings via Fourier structure; it does not impose PCF. The exact assigned self-hit is not independent evidence."
+        ],
+        "reasoning": "There is exact overlap on the uniform subfamily, not on the full census, arbitrary rooted degrees or the r=1 obstruction.",
+        "searches": [
+          "Local Resultary, proper conflict-free colour counting unicyclic, hairy cycles, attachment gaps",
+          "2026/10/18/SCOPE-a-four-mode-counting-law-for-proper-conflict-free-colorings-of-h--702cabb1d27c/RESULT.md"
+        ]
+      },
+      "rationale": "The verified overlap is the old tree/bare-cycle and corona chromatic information, and the exact census on uniformly hairy cycles. The part supporting the pass is the exact modular obstruction for arbitrary nonuniform attachment positions together with the three-colour census for arbitrary attached rooted trees. The strong-odd citation in RESULT.md should not be described as a stronger condition implying PCF: it permits odd multiplicities greater than one. This attribution issue does not affect the explicit four-colour PCF construction or the distinctive three-colour results.",
+      "residual_risks": [
+        "The bounded general search did not add relevant evidence. Absolute priority, especially for the partial-square equivalent, is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bare-cycle and related corona coverage",
+          "evidence": "The cycle values include the exceptional 5 for C5; corona conditions give a chromatic-number conclusion, not the general N₃ formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.01088",
+          "material_read": "§2.1, p. 3 and Observation 3, pp. 3–4, OA offset about 9000",
+          "method": "OA PDF statement comparison",
+          "title": "Remarks on proper conflict-free colorings of graphs",
+          "trigger": "Foundational PCF results on trees, cycles and coronas"
+        },
+        {
+          "assessment": "Related, not an implication of the PCF upper bound as stated",
+          "evidence": "Odd multiplicities need not be singletons. In its odd-attachment C5 case all off-cycle neighbours at the distinguished root match both core neighbours.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Definition p. 1 and Proposition 2.2 and proof pp. 5–6, OA offsets 10100 and 12490",
+          "method": "OA PDF definition and construction comparison",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Same graph class and palette bound"
+        },
+        {
+          "assessment": "General sufficient square-colouring condition, not the decorated-cycle equivalence",
+          "evidence": "Square colouring makes all neighbour colours distinct rather than merely requiring a singleton.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03906v1",
+          "material_read": "Introduction p. 1, OA offset about 3300",
+          "method": "OA PDF definition and reduction comparison",
+          "title": "Proper Conflict-Free Coloring on Structured Graph Classes: Bounds, Exact Algorithms, and Hardness",
+          "trigger": "Square graph reduction and structured classes"
+        },
+        {
+          "assessment": "Exact subfamily overlap",
+          "evidence": "The previous result has equal positive leaf multiplicity at every cycle vertex, and the q=3 weights reduce to a and 2.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-four-mode-counting-law-for-proper-conflict-free-colorings-of-h--702cabb1d27c",
+          "material_read": "RESULT.md, model H_{n,a} and local weights, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror and specialization q=3",
+          "title": "A four-mode counting law for proper conflict-free colorings of hairy cycles",
+          "trigger": "Exact PCF colour counts on decorated cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof 3–5",
+        "Earlier hairy-cycle RESULT.md, uniform model"
+      ],
+      "rationale": "The attachment-position obstruction is a natural exact colouring invariant and distinguishes equal-size and equal-degree-multiset examples. It applies across arbitrary rooted trees, and the local factorization gives exact polynomial-time three-palette counting rather than only an existence bound. Neither the four-colour construction alone nor the uniform leaf subfamily is the value claim.",
+      "residual_risks": [
+        "No hardness classification, all-palette counting, or extension to multiple cycles is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

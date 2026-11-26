@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:08:28.384294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired claim is exact strong chromatic index 7. A conflict between distinct duad–syntheme flags is exactly either cross-membership, including when they share an endpoint. The complete 45-entry coloring in repairs/1/RESULT.md passed its self-contained check of all equal-color edge pairs after reconstructing the canonical list; the proof uses the published six-color obstruction. Independently, the fresh standard-library replay /workspace/branches/24c45266-cb6b-47b6-8e5c-b64957ac6274/reproduce_tutte_coxeter.py and its .out.json regenerated the full 30-vertex, 45-edge instance and all induced matchings: (45,720,5160,16920,22680,8520,720,90,10), with maximum size nine. Every size-eight class has a unique parent, two maxima meet in one edge, and no edge lies in three maxima, so with no nine-class at most two eight-classes fit into six, covering at most 44 edges. With a nine-class at most one eight-class fits: two disjoint eights would have to omit their intersections with the nine-class, yet still share their parents' mutual intersection. The sole six-color profile is then (9,8,7,7,7,7). Each of the 90 ordered parent pairs leaves 32 candidate sevens, and fresh exhaustive tests found no cover by four. The frozen mathematical assertions therefore also check out; the repair addresses coverage, not a false enumeration. Frozen scripts and recorded outputs were inspected, not run. No conclusion for a larger family or list-coloring follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 5.2 states the broader χ′_s≤7 for subcubic graphs of girth at least five as a conjecture. Horák–Qing–Trotter give an upper bound of ten induced matchings for cubic-graph edge partitions.",
+          "Hudák et al. arXiv:1303.4580 concerns planar graphs; the cubic girth-eight cage cannot be planar by the planar girth bound."
+        ],
+        "reasoning": "A proof of the conjecture would imply the upper bound; the conjectural statement and the weaker valid general bound do not. Planar bounds do not apply. The ranked primary query did not produce a covering result and is not evidence of absence.",
+        "searches": [
+          "arXiv:2101.04768 §5/Conj. 5.2",
+          "Horák–Qing–Trotter Induced Matchings in Cubic Graphs (author PDF)",
+          "Primary search: Tutte strong chromatic index 7 Tutte–Coxeter 8-cage strong edge-coloring cubic girth 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATE.json, verifier sources and recorded outputs (read only)",
+        "arXiv:2101.04768 §5; Horák–Qing–Trotter author PDF abstract",
+        "Resultary c4c0fb33bc3e, 77e518bdee45 and ranked exact-strong-index comparison",
+        "Repaired RESULT.md and SLOGAN.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the balanced partition {A,B}, its maximum matching uses each crossing duad with the syntheme containing it and the remaining internal pair of each side. For a fixed flag (D,S), place the endpoints of D on opposite sides and attach the other two pairs of S, one to each side. There are exactly two partitions. Conversely, two distinct balanced partitions have intersections of sizes 1,2,2,1 after a choice of order. The two singleton intersections together specify D, and the two size-two intersections specify the other pairs in S. This specifies their unique common flag.",
+          "The known lower bound does not provide a 7-color witness. The matching-census comparison by itself does not exhibit a partition of all 45 edges into seven induced matchings."
+        ],
+        "reasoning": "The earlier geometric classification mechanically implies the frozen incidence assertion, without using the date of the later explicit K_10 entry as priority evidence. The exact strong index still needs the upper bound, supplied by the repaired record.",
+        "searches": [
+          "c4c0fb33bc3e classification by unordered 3+3 partitions",
+          "77e518bdee45 K_10 incidence",
+          "arXiv:2101.04768 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic Tutte eight-cage is the same duad–syntheme graph. Coloring its squared line graph is coloring its edge-conflict graph, or partitioning its compatibility graph into cliques.",
+          "The paper names the same cage and says it has no strong six-edge-coloring, not that the chromatic number of its squared line graph is 7."
+        ],
+        "reasoning": "The same graph under its cage, Levi graph and flag representations has the same invariant. The known non-six result applies exactly, while the required positive seven-color existence statement is different.",
+        "searches": [
+          "Resultary: Tutte Coxeter graph Tutte eight cage generalized quadrangle W(2) strong chromatic index exactly 7 seven strong edge coloring chromatic number of square line graph 45 flags girth 8",
+          "Lužar et al. arXiv:2101.04768 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4c0fb33bc3e gives the full matching polynomial, the ten maximum matchings via balanced partitions and unique extension of all 90 eight-sets. 77e518bdee45 explicitly gives the K_10 incidence with overlap one and edge multiplicity two and disclaims an exact strong-index result.",
+          "The ranked exact-index comparison did not surface a separate exact-7 assertion; Coxeter graph strong odd colorings and strong chromatic indices of prism graphs are different objects or invariants."
+        ],
+        "reasoning": "These indexed records cover the matching portion, not the exact upper bound. Reproducing their matching census is not counted as new. No claim of exhaustive table coverage is made.",
+        "searches": [
+          "Resultary c4c0fb33bc3e and 77e518bdee45, full relevant Finding and proof passages",
+          "Resultary: Tutte eight-cage exact strong chromatic index and square-line-graph coloring"
+        ]
+      },
+      "rationale": "For the frozen combined contribution originality fails in part: the matching census and incidence classification are covered by the earlier partition classification or direct consequences of it, and the six-color obstruction is published. The repaired claim retains only the independently checkable seven-color upper bound yielding the exact index, with both overlaps credited. The strongest inspected primary passage offers only non-six-colorability and a conjectural general seven-color upper bound. Neither the distinct Resultary matching records nor the inspected published comparisons establish the seven-color upper bound. This PASS is for the repaired claim only.",
+      "residual_risks": [
+        "An unindexed coloring computation or an uninspected later primary theorem could contain or imply the upper bound; the comparison is bounded and is not certification of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower bound; general upper bound conjectural there",
+          "evidence": [
+            "The Tutte 8-cage does not admit any strong 6-edge-coloring; Conjecture 5.2 states χ′_s≤7 for subcubic graphs of girth at least five."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.04768",
+          "material_read": "§5, PDF pp. 10–11, near OA offset 30400",
+          "method": "OA PDF passage inspection",
+          "title": "Strong edge colorings of graphs and the covers of Kneser graphs",
+          "trigger": "Explicit report for the identical cage and possible seven-color bound"
+        },
+        {
+          "assessment": "Inspected general bound is weaker than seven; not a whole-paper noncoverage claim",
+          "evidence": [
+            "Every cubic graph's edge set can be partitioned into ten induced matchings."
+          ],
+          "identifier_or_url": "https://trotter.math.gatech.edu/papers/85.pdf",
+          "material_read": "Abstract, first PDF page",
+          "method": "OA author copy",
+          "title": "Induced Matchings in Cubic Graphs",
+          "trigger": "General cubic strong coloring and induced matching bounds"
+        },
+        {
+          "assessment": "Directly covers counts and maximum-matching description and implies the incidence structure",
+          "evidence": [
+            "Ten unordered balanced partitions classify the maxima; induced matching polynomial and unique eight-class extension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-matchings-of-the-tutte-coxeter-graph-ten-balanced-partit--c4c0fb33bc3e/RESULT.md",
+          "material_read": "RESULT.md passages at offsets 0 and 3756",
+          "method": "Local Resultary mirror",
+          "title": "Induced matchings of the Tutte–Coxeter graph: ten balanced partitions",
+          "trigger": "Same graph and extremal induced matching problem"
+        },
+        {
+          "assessment": "Exact incidence overlap, not a strong-index assertion or historical priority evidence by date alone",
+          "evidence": [
+            "Every graph edge is in two maxima; every pair meets in one; K_10 vertex-edge incidence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-ten-maximum-induced-matchings-of-the-tutte-coxeter-graph-for--77e518bdee45/RESULT.md",
+          "material_read": "RESULT.md passages at offsets 0 and 3653",
+          "method": "Local Resultary mirror",
+          "title": "The ten maximum induced matchings of the Tutte–Coxeter graph form a complete-graph incidence design",
+          "trigger": "Exact matching incidence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result computes a natural invariant of the canonical cubic girth-eight cage, singled out as a six-color obstruction in the literature. An explicit seven-coloring resolves the exact value needed to compare that obstruction with the broader seven-color conjecture. This is useful without claiming a general upper bound or counting the already-covered matching design as new value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

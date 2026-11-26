@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:25:37.703006Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A block of K5 edges is valid iff its union uses at most three ground elements: this is exactly the existence of a disjoint two-element witness, and edges on at most three elements are pairwise incident. Thus triple blocks are triangles, and admissible pairs give edges of T5. With two disjoint triangles the remaining edges give a C4 with two perfect matchings; three disjoint triangles are impossible because the corresponding complementary two-sets would be pairwise disjoint. Conditioning on 0,1,2 triangles gives the matching formula with factors 1,10,15 and exponent 10-2r-j for r triples and j doubletons. Independently /tmp/opencode/check_petersen_independent.py generated the allowed block masks directly by union size and exhausted disjoint covers by branching on the least uncovered edge; it reproduced coefficients (30,604,1575,1130,295,30,1) from degrees 4 through 10, the sole optimum shape (3,3,2,2), and a single 30-partition S5 orbit. Unlabelled blocks are counted once. Exact Horner evaluation at the six disjoint negative brackets reproduced every sign and endpoint value, giving six distinct negative roots of the degree-six quotient, with zero of multiplicity four in the full polynomial. Newton's normalized coefficient inequalities then imply strict log-concavity of the positive unnormalized coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equal CD and total-domination numbers on triangle-free graphs and gamma_t(KG(5,2))=4 imply the scalar minimum. The broader Kneser CD theorem covers chi_cd n-1 for n=5..7, using the same star/triangle witness-capacity lemma. Its optimum tournament counts and supporting count_optimum.cpp are for n>=8 (checked n=8,9), not the Petersen enumerator."
+        ],
+        "reasoning": "A known scalar minimum and a general optimization method do not determine labelled-vertex, unlabelled-class rank counts. The record does not claim the block-shape lemma or the scalar minimum as new.",
+        "searches": [
+          "Resultary: sharp class-domination chromatic threshold and optimal tournament colourings of two-subset Kneser graphs, ending 6e3fdaf40ae2",
+          "arXiv:2307.12073 p. 3; Ivančo–Zelinka, Domination in Kneser graphs, journal p.151"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, matching and partition scripts read only, recorded outputs",
+        "Distinct Resultary Kneser CD, Petersen two-rainbow and total-domination tables, strong-odd Kneser statement",
+        "arXiv:2307.12073; arXiv:2203.09106; Ivančo–Zelinka 1993; DOI 10.3390/math10060998"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each ordered pair of edge-disjoint triangles meeting in one ground point in the rainbow minimum determines a CD optimum: add the residual two pairs by grouping the four cross edges at the exclusive ground vertices of the first triangle. Switching the order switches the matching. This is an S5-equivariant bijection, so the other census gives equivalent optimum count and orbit information.",
+          "The higher-degree terms of C_P depend on all residual matchings with zero or one triangle, which the rainbow minimum and full 2-color weight census do not determine. The broader CD theorem supplies no all-rank counts at n=5."
+        ],
+        "reasoning": "The exact overlap for the optimum is credited even though the same-day date does not determine priority. It does not make the full CD partition polynomial or the root statement a special case or reindexing of those published tables.",
+        "searches": [
+          "2026/11/22/SCOPE-complete-two-rainbow-independent-domination-census-of-the-peters--dde53fd50c0f RESULT.md Finding",
+          "2026/11/22/SCOPE-sharp-class-domination-chromatic-threshold-and-optimal-tournamen--6e3fdaf40ae2 RESULT.md and VERIFICATION.md",
+          "Resultary: strong odd colorings of two-subset Kneser graphs through triangle packings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Valid blocks have K5 ground support at most three. Residual doubletons are a matching in T5; valid triples are full triangle blocks.",
+          "Zhou et al. distinguish the class-wise dominated and the combined notions; their Petersen value 5 requires each vertex also to dominate a class. Total-domination polynomials count witness subsets, not partitions."
+        ],
+        "reasoning": "Equivalent edge-cover language exposes relevant triangle-packing overlaps, but neither combined domination coloring nor witness-subset counting identifies the same class-wise open-neighborhood partition enumerator.",
+        "searches": [
+          "Resultary: Petersen / KG(5,2) open-neighborhood CD or dominated coloring, K5 triangle blocks and T5 residual matchings",
+          "arXiv:2203.09106; Zhou et al. DOI 10.3390/math10060998"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same title/result is the bound record itself. The other Petersen exact table counts total dominating vertex subsets: 10z^4+72z^5+140z^6+110z^7+45z^8+10z^9+z^10. The rainbow census gives 30z^6+80z^7 for nonzero-label weights of named functions, not numbers of blocks in full covers. The general CD theorem's verification notes give exact counts 1344 and 435456 only at n=8 and 9."
+        ],
+        "reasoning": "The tables tabulate different objects or parameter ranges. No checked exact partition spectrum external to the bound record supplied the seven coefficients or the roots.",
+        "searches": [
+          "Resultary: full Petersen CD partition polynomial and matching rows; two-rainbow independent domination census",
+          "Resultary total domination polynomial of Kneser graphs, ending 25e19d001ea1"
+        ]
+      },
+      "rationale": "The surviving originality is the full CD partition polynomial and consequently its rigorously determined simple negative spectrum. Credit the known scalar minimum 4 and the strong structural coverage of the optimum via the named two-rainbow configuration; do not claim independent novelty for the number 30 and single orbit by themselves. The closest broader CD theorem uses the same block-shape reduction and covers the minimum at n=5, but its exact counting claims and supporting census exclude that case. Its proofs and the other related tables do not supply the full polynomial.",
+      "residual_risks": [
+        "No priority order inferred among same-day indexed reports.",
+        "The cited Sanal–Vatsalya PDF did not yield text by bounded retrieval; its attribution was not independently verified and is not needed for distinguishing the objects.",
+        "Deferred shared discovery lookups and keyword misses are not negative evidence; a missed CD partition table remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact common minimum and block reduction; no n=5 count table or all-rank spectral law",
+          "evidence": [
+            "Minimum n-1 at 5..7; exact optimum bijection at n>=8; verification separately counts n=8 and n=9."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-class-domination-chromatic-threshold-and-optimal-tournamen--6e3fdaf40ae2/RESULT.md",
+          "material_read": "Finding, scope, proof §§1–2 and explicit small-order construction; VERIFICATION.md count scope",
+          "method": "Local mirror, compared block admissibility and enumeration range",
+          "title": "Sharp class-domination chromatic threshold and optimal tournament colourings of two-subset Kneser graphs",
+          "trigger": "Same parameter and Kneser family, possible stronger case census"
+        },
+        {
+          "assessment": "Covers optimum count/structure up to natural bijection; not the full CD polynomial",
+          "evidence": [
+            "30 named weight-six functions forming one orbit are the ordered pairs of edge-disjoint triangles meeting in one ground vertex."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-two-rainbow-independent-domination-census-of-the-peters--dde53fd50c0f",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Compared models via explicit equivariant map of minimum objects",
+          "title": "Complete two-rainbow independent domination census of the Petersen graph",
+          "trigger": "Same graph and exact 30-member single orbit"
+        },
+        {
+          "assessment": "Related edge-block method, different defining requirement",
+          "evidence": [
+            "Strong odd coloring counts neighbor-color incidences, not existence of a common open-neighborhood witness for each class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-strong-odd-colorings-of-two-subset-kneser-graphs-through-triangl--c7089565d41d",
+          "material_read": "Indexed statement on triangle packings and the strong-odd condition",
+          "method": "Compared constraints of the two partition problems",
+          "title": "Strong odd colorings of two-subset Kneser graphs through triangle packings",
+          "trigger": "Equivalent notation for K_n edge partitions and triangles"
+        },
+        {
+          "assessment": "Implies the known scalar CD number when combined with the triangle-free equality",
+          "evidence": [
+            "gamma_t(KG(5,2))=4."
+          ],
+          "identifier_or_url": "Ivančo–Zelinka (1993), journal p. 151",
+          "material_read": "PDF p. 6 / journal p. 151 Petersen statement",
+          "method": "Primary OA mathematical statement comparison",
+          "title": "Domination in Kneser graphs",
+          "trigger": "Prior exact scalar total-domination value"
+        },
+        {
+          "assessment": "Gives scalar equality, not a bijection of full enumerated objects",
+          "evidence": [
+            "gamma_t=chi_cd for triangle-free graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.12073",
+          "material_read": "p. 3, text offset 10383",
+          "method": "Primary OA comparison",
+          "title": "Total Domination, Separated-Cluster, CD-Coloring: Algorithms and Hardness",
+          "trigger": "Known relation of CD to domination numbers"
+        },
+        {
+          "assessment": "Optimizes order/deletion variants; a literal term miss is not a whole-document noncoverage assertion",
+          "evidence": [
+            "Classes in a common neighborhood; chi_cd optimization rather than rank enumerator in the inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.09106",
+          "material_read": "Abstract/definition, and literal Petersen search in extracted text",
+          "method": "OA primary scope comparison",
+          "title": "Parameterized and Exact Algorithms for Class Domination Coloring",
+          "trigger": "Same admissible coloring definition and general algorithms"
+        },
+        {
+          "assessment": "The stricter combined parameter does not conflict with CD=4",
+          "evidence": [
+            "Every vertex must dominate some class in addition to every class being dominated."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10060998",
+          "material_read": "pp. 2 and 6, definitions and Petersen calculation",
+          "method": "Primary-text comparison of quantifiers",
+          "title": "Domination Coloring of Graphs",
+          "trigger": "Published Petersen coloring value 5 under similar terminology"
+        },
+        {
+          "assessment": "Different polynomial, over total dominating vertex subsets",
+          "evidence": [
+            "Coefficient of z^4 is 10, not a count of the 30 optimum CD partitions; cites Sanal–Vatsalya (2016)."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-total-domination-polynomial-and-unique-cover-band-of-kneser-grap--25e19d001ea1",
+          "material_read": "Indexed/mirrored statement of Petersen polynomial and attribution",
+          "method": "Compared objects and coefficients",
+          "title": "Total domination polynomial and unique cover band of Kneser graphs",
+          "trigger": "Closest different Petersen domination enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is the canonical triangle-free small Kneser graph for comparing class-wise domination with proper and total-domination parameters. Its full unlabelled partition rank enumerator fills a meaningful gap beyond the scalar minimum and the optimum orbit analogue. The mixture of triangle-block choices and matchings gives an interpretable benchmark for root behavior of these constrained rank polynomials; matching polynomial real-rootedness alone does not imply real-rootedness of the combined enumerator. All six nonzero roots are simple negative, a definite distributional property beyond a short count table. No general real-rootedness or stronger originality for the optimum alone is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

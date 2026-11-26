@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:59.217496Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each adjacent two-column face must be hit, so the occupied columns cover the odd base cycle and number at least k+1. At equality the k empty columns have gaps of size two except for one of size three, so the occupied support has just one consecutive pair. A deletion of k+1 vertices leaves 3k+1 vertices and 3k plus the number of edges within the deleted set, forcing the deleted set to be independent for a forest. Conversely opposite levels on the consecutive pair give a connected complement: the unoccupied columns give a chain of retained rungs connected through intervening single retained vertices, with one end vertex attaching at each end. The complement is then a tree. For a changed support, removing one empty column merges two consecutive gaps: length four admits only the original placement and length five admits exactly one alternative. Thus only the two stated neighboring supports are possible. The unchanged bits and the new opposite level give the stated transfer and its inverse. Full base travel acts by T^(2k+1)=T, since T^k complements all bits; then one can change the first bit as well as freely flipping all other bits in a fiber. All moves change parity. Four crossings in a length-four walk in the base cycle must include consecutive reversal, which retraces the same lifted edge; with two crossings a simple square must have one internal flip on each side. Exactly k-2 flips carry to flips allowed on the other side in each direction. Together with the stationary-fiber squares this gives the stated incidences divided by four, including zero at k=2. Independent replay python3 -B /workspace/reproduce_frozen.py 3: exhaustive leaf stripping and direct symmetric differences agree with every labeled configuration and exchange for n=5,7,9,11; direct closed-walk counts give 0,42,252,1056 squares. The infinite conclusion is from the proof, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chiang–Huang–Yeh's indexed abstract states the exact decycling result for generalized Petersen graphs, which include GP(n,1). The Bousquet et al. indexed Theorem 2 treats equal-size FVS reachability on K_(3,3)-minor-free subcubic graphs. Wei–Li's exact theorem was not retrieved."
+        ],
+        "reasoning": "These hypotheses include a prism (planar and cubic), and the findings credit the covered minimum size k+1 and connectivity. The stated broader conclusions determine neither which labeled sets are adjacent nor how many simple four-cycles they make.",
+        "searches": [
+          "doi:10.1007/s10878-014-9790-5 (generalized Petersen graphs)",
+          "doi:10.1016/j.tcs.2023.114188 Theorem 2 (fixed-size FVS reconfiguration)",
+          "doi:10.12386/A2013sxxb0022 (Wei–Li)"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-3a90df7af775",
+        "doi:10.1007/s10878-014-9790-5",
+        "doi:10.1016/j.tcs.2023.114188",
+        "doi:10.12386/A2013sxxb0022 (retrieval attempted, theorem not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two statements respectively concern reachability and a minimum size. The catalogue statement concerns the even and odd optimum census and local mobility under continuous adjacency of the exchanged endpoints (token slides)."
+        ],
+        "reasoning": "The known census makes structural analysis possible but is not a theorem on the jump graph. In the unrestricted graph each of two cross-fiber matchings is always available; its bit permutation with a complement, its monodromy and its interaction with internal flips yield an exact square count absent from the located statements.",
+        "searches": [
+          "Bousquet et al., doi:10.1016/j.tcs.2023.114188, Theorem 2 indexed passage",
+          "Chiang–Huang–Yeh, doi:10.1007/s10878-014-9790-5 abstract",
+          "SCOPE-20261122-3a90df7af775, finding and move rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored RESULT.md gives k nonconsecutive empty columns, one pair of consecutive single columns with opposite selected rails and arbitrary choices elsewhere; this gives (2k+1)2^k. Complementation gives the same family of maximum induced trees at order 3k+1."
+        ],
+        "reasoning": "The indexed classification is equivalent, not a numerical coincidence. The difference is at the edge level: the slide rule requires endpoints adjacent in the prism. A forward jump moves the selected vertex from column i+1 to i+2, and is a slide only when its rail equals the new rail, i.e. v_1=v_2 in the frozen coordinates; jumps do not have that restriction.",
+        "searches": [
+          "Resultary: odd prisms, circular ladders, minimum decycling sets, maximum induced trees, optimum FVS census and exchanges",
+          "SCOPE-20261122-3a90df7af775"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue overlap on the sequence of odd-prism optimum counts; the matching record gives a slide-degree enumerator, not an unrestricted-exchange square census."
+        ],
+        "reasoning": "The two records' dates (November 2 versus November 22, 2026 UTC) are distinct catalogue dates, not proof of intellectual priority. The configuration and vertex-count overlap is exact, but coverage of the whole token-jump graph does not follow from an enumerator for slides.",
+        "searches": [
+          "Resultary: exact odd circular ladder/gen. Petersen GP(n,1) optimum-set count, token-jump graph and four-cycle count",
+          "SCOPE-20261122-3a90df7af775, mirrored RESULT.md offsets 0,1017,1549"
+        ]
+      },
+      "rationale": "Minimum cardinality and generic reachability are prior results. A distinct later-dated Resultary record exactly matches the complete odd-prism optimum classification and count, not just the optimum value. The supported distinction is the complete unrestricted exchange graph with explicit transfer and simple four-cycle formula; the catalogue record studies the narrower slide rule, and the located primary results do not give the unrestricted graph data.",
+      "residual_risks": [
+        "Chiang–Huang–Yeh and Bousquet et al. full texts and the Wei–Li theorem text were unavailable in bounded retrieval. Incidental minimizer classification or stronger structure elsewhere in those works is not excluded.",
+        "Alternative treatments via induced trees, decycling sets, or parity methods may give comparable data; bounded comparison is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact odd-case configuration and count overlap, different reconfiguration rule",
+          "evidence": [
+            "Same empty/single-column pattern, (2k+1)2^k and optimality-preserving token slides."
+          ],
+          "identifier_or_url": "SCOPE-20261122-3a90df7af775",
+          "material_read": "Mirrored RESULT.md finding and configuration/move passages, offsets 0,1017,1549; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and bounded local mirror reading",
+          "title": "A parity-split census and local mobility law for optimal feedback vertex sets on prisms",
+          "trigger": "Exact same prism optimum configurations/count with a reconfiguration result"
+        },
+        {
+          "assessment": "Minimum-size prior result; no whole-paper noncoverage determination",
+          "evidence": [
+            "States exact minimum FVS sizes for generalized Petersen graphs."
+          ],
+          "identifier_or_url": "doi:10.1007/s10878-014-9790-5",
+          "material_read": "Publisher-indexed abstract only; no lawful full text located in bounded retrieval",
+          "method": "Publisher indexed statement and availability check",
+          "title": "Dynamic monopolies and feedback vertex sets in cycle permutation graphs, generalized Petersen graphs and torus cordalis",
+          "trigger": "Generalized Petersen decycling result could include a configuration analysis"
+        },
+        {
+          "assessment": "Reachability credit; nothing in the read statement lists exact jump adjacencies or squares",
+          "evidence": [
+            "Theorem 2 treats K_(3,3)-minor-free subcubic graphs."
+          ],
+          "identifier_or_url": "doi:10.1016/j.tcs.2023.114188",
+          "material_read": "Publisher-indexed Theorem 2 and HAL bibliographic page; neither publisher nor HAL document URL provided full text during retrieval",
+          "method": "Publisher indexed statement and attempt at lawful alternate repository",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Same general reconfiguration problem including prisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit unrestricted exchange graph determines much more than optimum size, number or reachability. Its transfer identifies every allowable move and exposes a cyclic bit action; the square census counts alternate two-step routes generated by those moves. This makes the natural odd-prism family a reusable exact model for minimum-FVS reconfiguration, including the boundary case with no squares.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

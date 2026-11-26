@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:39.258168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; CHECK.py (inspected only); VERIFICATION.md",
+        "Independent symbolic and high-precision replay: python3 /workspace/branches/replay-3.py"
+      ],
+      "rationale": "Unit-mass positivity allows the normalization 0≤f≤1, and optimizing a difference of two evaluations gives half the L1 difference of their kernel densities with respect to normalized Haar measure. Continuous functions approximate the density sign test in this pairing; the location-pair maximum exists by continuity. For n=2 the coefficient at separation 2 arccos c is 2√(1−c²)/π. For n=3, after factoring the kernel difference and integrating in cos z, it is 4√(1−c²)/(3π) times 2 for c≤1/2 and times 2c+1/(2c) for c>1/2. The squared comparison on the second interval reduces to the positive product (1+c(2c−1)²)(4c³+4c²+c−1), so both orders have unique antipodal separation. At n=4 the two linear factors of the polynomial in cos z give a first interior root for 0<c<2/3, then two roots with order reversed at 1/√2. I independently integrated the three signed pieces and differentiated (1−c²)I(c)². On the first piece the derivative has the sign of the stated quintic for c>0, because the quartic factor is strictly negative there. An exact root count confirmed one quintic zero in (0,2/3); exact polynomial root exclusion and a negative sign test on rational supersets certify that both later pieces strictly decrease. The continuous pieces join at their endpoints. The maximum is therefore unique, at c=0.338107185334655885947…; separation 2.451782841069227906928… and sharp coefficient 0.883882377829196849049…. At c=0 the coefficient is 8/(3π), strictly smaller.",
+      "residual_risks": [
+        "First means first nonconstant Fejér order with a non-antipodal worst separation, as in the explicit scope n=2,3,4. F_1 is constant and every separation trivially maximizes its zero coefficient.",
+        "Uniqueness concerns the separation up to reversal and rotation; this is not a continuous-input extremizer or an iterate result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Fejér summability supplies the convolution kernel and positivity; abstract Markov contraction gives a supremum formula, not the optimized shift.",
+          "For circular convolution the BV contraction also reduces to optimizing the TV separation (positive and negative masses of a derivative measure have equal mass). The two-harmonic result covers the lower-order Fejér kernels but not the third harmonic of F_4."
+        ],
+        "reasoning": "Even treating the BV shift maximum as an equivalent route to the oscillation coefficient, its inspected evaluated theorem has too few harmonics to imply the critical new case.",
+        "searches": [
+          "Weisz arXiv:1206.1789v1 §3; Gaubert–Qu arXiv:1307.4649v1, Theorem 3.6",
+          "Resultary 24124cd6a492, sharp BV contraction of two-harmonic kernels"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.4649v1",
+        "arXiv:1206.1789v1",
+        "Resultary 8aa63d6abf65, 24124cd6a492, c827300bde01"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the Fejér kernel into the known TV formula leaves a varying absolute-value integral, with two root thresholds at n=4.",
+          "The two-harmonic result may imply the two lower-order comparisons but does not resolve the extra sign branches or the interior quintic optimum at n=4."
+        ],
+        "reasoning": "The main claim is not a restatement of the general principle or a direct numerical specialization of an evaluated formula; the global branch optimization is essential.",
+        "searches": [
+          "Gaubert–Qu arXiv:1307.4649v1 Theorem 3.6 and Weisz arXiv:1206.1789v1 §3",
+          "Resultary 8aa63d6abf65 Finding/proof and 24124cd6a492 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hopf oscillation is a quotient norm modulo constants; the dual expression is the TV difference of translated kernels.",
+          "The same-day Lipschitz comparison uses zero-mean first derivatives bounded in L∞ and a median-deviation formula; that is not the same oscillation optimization."
+        ],
+        "reasoning": "Names of seminorms alone do not settle equivalence; the constraints in the two dual problems differ. Equal n=2,3 values therefore do not establish coverage of the n=4 optimizer.",
+        "searches": [
+          "Resultary: Fejér convolution sharp oscillation coefficient non-antipodal; two-harmonic kernels and antipodal maximizers",
+          "Gaubert–Qu arXiv:1307.4649v1, pp. 2,5; Resultary 8aa63d6abf65, dual formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary records 8aa63d6abf65 and 24124cd6a492 match the smaller-order values within their respective settings; no matched evaluated n=4, ≈0.883882377829197, shift was identified.",
+          "Record c827300bde01 optimizes integrated BV approximation error, not one-step contraction."
+        ],
+        "reasoning": "The matched smaller cases and related indexed computations were compared rather than treated as independent novelty; the exact three-harmonic optimizer remains distinct in the inspected evidence. The focused external lookup produced no useful result, not evidence of absence.",
+        "searches": [
+          "Resultary focused searches for Fejér sharp oscillation/non-antipodal contraction and two-harmonic coefficients",
+          "Focused external literature lookup for sharp Fejér oscillation contraction"
+        ]
+      },
+      "rationale": "The abstract contraction formula and the Fourier kernel representation are established. The distinct result is the evaluated n=4 coefficient, with global proof and a uniquely non-antipodal separation after checking the two smaller nonconstant orders. The closest actual statements inspected concern Lipschitz contraction, two-harmonic BV contraction, or the abstract TV variational reduction; none gives this three-harmonic maximum.",
+      "residual_risks": [
+        "An unindexed computation of the same translation distances remains possible; no priority is inferred from the shared date with the Lipschitz result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reduction, not evaluation",
+          "evidence": [
+            "Theorem 3.6 gives half the supremum of dual differences over disjoint extreme states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649v1",
+          "material_read": "pp. 1–2 and Thm. 3.6, p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Markov operators on cones and non-commutative consensus (v1; later retitled)",
+          "trigger": "General Dobrushin–Hopf and quotient duality"
+        },
+        {
+          "assessment": "Convolution representation and summability, not the claimed kernel-shift calculation",
+          "evidence": [
+            "Defines means as averages of Fourier partial sums and as convolution by the Fejér kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.1789v1",
+          "material_read": "§3 pp. 9–10",
+          "method": "OA PDF passage inspection",
+          "title": "Summability of Multi-Dimensional Trigonometric Fourier Series",
+          "trigger": "Classical Fejér means and candidate broader bounds"
+        },
+        {
+          "assessment": "Different seminorm; smaller-order values match, without the claimed n=4 oscillation result",
+          "evidence": [
+            "Optimizes the Lipschitz quotient using zero-mean derivatives and median deviation."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-sharp-lipschitz-contraction-deficit-of-fej-r-means--8aa63d6abf65",
+          "material_read": "Finding near offsets 22–450 and proof around 2024",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "The sharp Lipschitz-contraction deficit of Fejér means",
+          "trigger": "Same-day same-kernel sharp-contraction match"
+        },
+        {
+          "assessment": "Later evaluated two-harmonic theorem; n=4 outside its kernel family",
+          "evidence": [
+            "Sharp BV bound for nonnegative two-harmonic kernels, attained by arc indicators."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-circular-bv-contraction-and-a-golden-ratio-jump-transition--24124cd6a492",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp circular BV contraction and a golden-ratio jump transition",
+          "trigger": "Sharp shift geometry including antipodal-to-shorter-arc transition"
+        },
+        {
+          "assessment": "Adjacent approximation error quantity",
+          "evidence": [
+            "Evaluates integrated error of T_nf−f, not the contraction factor for T_n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-integrated-bv-error-of-fej-r-means-and-a-parity-change-in--c827300bde01",
+          "material_read": "Indexed finding comparison",
+          "method": "Local Resultary search",
+          "title": "Sharp integrated BV error of Fejér means and a parity change",
+          "trigger": "Same kernels and half-circle extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Gaubert–Qu Theorem 3.6 and the contrasted exact lower-order values"
+      ],
+      "rationale": "The exact operator contraction quotient measures worst-case oscillation loss for a canonical positive Fourier summation method. Antipodal pairs suffice in the first two nonconstant cases, then provably fail at the third, so the choice of n=4 captures a structural change rather than an arbitrary order. The exact coefficient and unique separation quantify this failure with a global bound that the abstract contraction formula and sample numerics do not supply.",
+      "residual_risks": [
+        "This is a one-step theorem for the first three nonconstant orders, not a general large-order classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

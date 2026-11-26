@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:43.426558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Detailed balance parametrizes the whole feasible set by unnormalized flows a,b,c and the two interior row caps. A disconnected chain has SLEM 1 and is immediately excluded from equality; in the Rayleigh step one may uniformly use the smallest generalized eigenvalue on the M-orthogonal complement of constants, including zero. For 0<t≤1, q=(r,1,−1,−r), r=1+√2, has Rayleigh quotient (a+c+2b)/(r²+t)≤2t/(r²+t)=γ*. Equality forces both interior caps tight and q to be an eigenvector, hence a=c=γ*r/(r−1) and b=t−a. At that feasible candidate, the even nonzero Laplacian eigenvalue e=a(1+1/t) exceeds γ*, and the odd characteristic polynomial at e is −2ab/t². Thus γ* is the smallest nonzero Laplacian eigenvalue, and the odd trace 2+a(1−1/t)≤2 controls the negative end of the transition spectrum. For t≥1, the endpoint antisymmetric unit vector gives a square-norm lower bound 1/(1+t) plus two squared deviations from a=c=t/(1+t). At those outer flows, saturation of the norm requires the odd block squared to have zero off-diagonal entry; the odd block's positive off-diagonal therefore forces its trace zero and b=t/2. Those weights give odd block square I/(1+t) and even nonstationary eigenvalue zero. The two branches agree at one, with derivatives −1/4 and −1/(4√2), and both interior holding rates change from zero to (t−1)/(2(t+1)). Independent sample t=1/2 (replay /tmp/opencode/frozen_math_samples_a91d.py): flows 0.2697521433898179 and 0.2302478566101821, SLEM 0.8419828528814565. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reported Jafarizadeh harmonic flows are (t/(1+t),t/2,t/(1+t)); they violate the interior row cap for every 0<t<1, with violation t(1−t)/(2(1+t)). Log-concavity of (1,t,t,1) requires t²≥t. The exact cited rule therefore supplies the high branch, not the low branch; the full article could not be independently inspected.",
+          "Resultary 03df0802fe13 treats arbitrary positive masses but a continuous-time generator, a conductance-cost budget and a spectral-gap objective. The reported degree-proportional four-path of Cihan–Akar has the single ratio t=2."
+        ],
+        "reasoning": "A continuous-time gap theorem does not impose the two discrete nonnegative-holding constraints or balance the negative transition eigenvalue. Neither its hypotheses nor its budget automatically yield this discrete-time SLEM optimum.",
+        "searches": [
+          "Jafarizadeh DOI 10.1109/TSIPN.2020.2964211, §VI.B and Appendix B as identified in frozen AUDIT.json; IEEE and identified lawful ResearchGate copy",
+          "Resultary 03df0802fe13: continuous-time weighted birth-death path with arbitrary masses",
+          "Cihan–Akar DOI 10.1080/00207721.2018.1543470"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao 2004 §6",
+        "Boyd–Diaconis–Sun–Xiao 2006",
+        "Jafarizadeh 2020 and Cihan–Akar 2019 (reported scope; original retrieval unsuccessful)",
+        "Resultary 5e4cc1ece151, 03df0802fe13 and assigned self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Harmonic outer flows and t/2 middle flow match the claimed t≥1 solution exactly, but are infeasible below t=1. The uniform path follows from the earlier cosine theorem. The new branch instead requires two saturated probabilities and an optimizing eigenvector that forces equality in both constraints."
+        ],
+        "reasoning": "These are verified or explicitly reported partial overlaps, not evidence that the unrestricted capacity-bound solution is mechanically implied by an inspected stronger theorem. Jafarizadeh's uninspected extensions are not declared noncovering.",
+        "searches": [
+          "2004 general reversible FMMC §6; 2006 exact uniform path; reported Jafarizadeh Eqs. (47)–(48); Resultary 03df0802fe13 and 5e4cc1ece151"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao §6 gives the convex symmetrized transition-norm formulation under reversibility and support, so it includes the present optimization instance.",
+          "The flow parametrization is exact under detailed balance; neither a change of coordinates nor restricting to symmetric candidates alone proves that both caps must bind or that an asymmetric candidate cannot tie."
+        ],
+        "reasoning": "Running a general SDP or invoking symmetry to average optimizers gives neither this formula nor unrestricted uniqueness. The low-mass Rayleigh equality and spectral attainment supply the additional statement.",
+        "searches": [
+          "Boyd–Diaconis–Xiao (2004), §6: prescribed stationary distribution and reversible fastest mixing",
+          "Resultary: nonuniform reflected four-state birth-death chain, row-capacity edge flows and optimal SLEM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself is the exact Resultary match. The distinct same-day rigidity record 5e4cc1ece151 has symmetric stochastic tridiagonal transitions and uniform invariant law. The canonical uniform-path value cos(π/4) is identical at t=1."
+        ],
+        "reasoning": "The uniform law and its rigidity cover the seam, not the nonuniform branch. A same-day self-match is not independent coverage and no relevant catalogue result examined supplies the t<1 formula.",
+        "searches": [
+          "Resultary exact mass-valley four-state SLEM branch and unrestricted uniqueness",
+          "Resultary 5e4cc1ece151, sharp squared SLEM rigidity on a path",
+          "Boyd–Diaconis–Sun–Xiao (2006), uniform fastest-mixing path result"
+        ]
+      },
+      "rationale": "Pass the exact capacity-saturated branch 0<t<1, its proof of uniqueness without reflection restrictions, and the sharp interface with the harmonic regime. The convex SLEM formulation, uniform point and the reported t≥1 harmonic weights are not new. The strongest accessible general and exact indexed comparisons do not supply an exact low-mass branch; unavailable parts of the highly relevant path literature remain an explicit risk.",
+      "residual_risks": [
+        "The 2020 path paper and the Cihan–Akar full text were not obtained, and the 2015 dissertation or another unindexed treatment could include the low-mass boundary.",
+        "No priority is inferred from the same-day catalogue date or from negative retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers problem formulation, not inspected closed-form low-mass case",
+          "evidence": [
+            "Fixed-π symmetrized operator norm under stochasticity, support and reversibility is a convex optimization problem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "§6, pp. 683–684; OA text offsets 55000–59122",
+          "method": "Bounded primary PDF passages",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General prescribed-mass reversible SLEM optimization"
+        },
+        {
+          "assessment": "Covers t=1",
+          "evidence": [
+            "Symmetric stochastic model; 1/2 on each edge and optimal SLEM cos(π/n)."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+          "material_read": "Opening model and exact optimizer passage on PDF pp. 1–2",
+          "method": "Bounded primary author-hosted PDF passages",
+          "title": "Fastest Mixing Markov Chain on a Path",
+          "trigger": "Exact discrete path optimum"
+        },
+        {
+          "assessment": "Reported harmonic theorem covers t≥1; whole-document coverage beyond it unverified",
+          "evidence": [
+            "Reported q_i=π_iπ_{i+1}/(π_i+π_{i+1}) and π_i²≥π_{i−1}π_{i+1}; the resulting flows are infeasible below t=1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TSIPN.2020.2964211",
+          "material_read": "No primary full text obtained; frozen AUDIT.json reports §VI.B, Eqs. (47)–(48) and Appendix B",
+          "method": "Attempted DOI/IEEE direct and VPN and identified ResearchGate copy 338414306; compared secondary report in frozen package",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Closest prescribed-stationary path rule"
+        },
+        {
+          "assessment": "Reported degree-proportional case corresponds to t=2; the full text remains unverified",
+          "evidence": [
+            "Four-path degree profile is (1,2,2,1), not an interior mass valley."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207721.2018.1543470",
+          "material_read": "No primary full text obtained; scope from abstract description in frozen audit",
+          "method": "Attempted ordinary lawful access; checked reported stationary-law constraint",
+          "title": "Fastest Random Walk on a Path",
+          "trigger": "Possibly broader exact path optimum"
+        },
+        {
+          "assessment": "Exact uniform overlap, not the prescribed nonuniform theorem",
+          "evidence": [
+            "Symmetric stochastic tridiagonal matrices with uniform law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-squared-slem-rigidity-and-equality-cases-for-fastest-mixin--5e4cc1ece151",
+          "material_read": "RESULT.md opening theorem and model",
+          "method": "Resultary and local mirror",
+          "title": "Sharp squared SLEM rigidity and equality cases for fastest mixing",
+          "trigger": "Distinct same-day exact path inequality and uniqueness"
+        },
+        {
+          "assessment": "Different feasible set and objective",
+          "evidence": [
+            "Continuous-time generator, conductance-cost budget, spectral-gap maximization."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-price-metric-variance-law-for-fastest-mixing-on-weighted-bir--03df0802fe13",
+          "material_read": "RESULT.md finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "The price-metric variance law for fastest mixing on weighted birth-death chains",
+          "trigger": "General weighted-path optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interior-mass valley makes the standard harmonic walk infeasible and creates a natural active-constraint problem. The complete explicit design, certificate excluding asymmetric ties, and the first-derivative break at the switch provide an exact benchmark for discrete-time prescribed-mass path design beyond uniform stationarity. This is not a claim about arbitrary non-log-concave mass profiles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

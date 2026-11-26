@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:58.651311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45",
+        "Frozen VERIFICATION.md and checker.py",
+        "Independent grid/assignment reproduction grid_path_check.py"
+      ],
+      "rationale": "Discarding the null endpoint 1, write x=t+kd uniquely with 0≤t<d. Residues t<r have m+1 positions and the remaining residues have m, each position carrying measure dt. On odd chains let S contain even positions and B odd positions. A successful distance-d edge from S must enter B, so for any coupling the success mass is at most 1−λ(S)+λ(B). The difference λ(S)−λ(B) is the residue measure of odd chains, r for even m and d−r for odd m. This uses no disintegration or graph assumption about a competing copula. The adjacent-pair swap is a measurable, measure-preserving involution (piecewise translations, with odd tails fixed), inducing an exchangeable coupling with exactly this failure mass. Positive distances have perfect success only at even reciprocals; at an odd reciprocal 1/k with k≥3 the one-sided slopes −(k+1) and k−1 give a strict local minimum with mass 1−1/k. The boundary cases follow from identical variables at d=0 and zero endpoint mass at d=1. Separate finite assignment reproduction checked all 28 grid size/step cases through size 8 by exhaustive permutations and verified the formula and construction for 8,128 cases through size 128, with exact reciprocal checks. This is not the proof for all real d. The uploaded checker was read, not executed.",
+      "residual_risks": [
+        "The event is an exact ordinary interval distance; the theorem neither imposes absolute continuity of the joint law nor asserts uniqueness of optima."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6 applies to any closed A and characterizes its capacity as the infimum of λ(S)+λ(T) over two-projection covers. The superellipse record 335f5e8ba268 evaluates a different contour geometry in its indexed statement."
+        ],
+        "reasoning": "The general variational identity applies because the two-segment set is closed, but still leaves a set minimization. The geometry of residue chains and the matching involution solve this minimization and its primal problem explicitly; the inspected proposition does not give them by direct substitution.",
+        "searches": [
+          "arXiv:2611.25237v1, Proposition 6, Section 4.2",
+          "Iacò–Thonhauser–Tichy, arXiv:1502.06839",
+          "Resultary: exact upper copula capacity of superellipse contours"
+        ]
+      },
+      "checked_sources": [
+        "Côté–Wang arXiv:2611.25237v1, Proposition 6",
+        "Resultary 3c501b829a9e and 335f5e8ba268 (indexed statements)",
+        "Frozen RESULT.md statements of closest single-mapping and transport leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day 3c501b829a9e summary optimizes the probability of 2d under the constraint that all distances are d or 2d, for exchangeable uniform pairs. Symmetrization shows exchangeability alone costs nothing here; the distinction is the support constraint. For d≤1/2 an odd residue chain has at least three vertices, so a three-cycle with jump lengths d,d,2d (symmetrized with its inverse), paired with adjacent swaps elsewhere, can achieve our success mass while using only d or 2d. Thus an overlap in endpoint values on the common domain is plausible and not dismissed by date or wording. For d>1/2 the restricted-support problem cannot use 2d at all. The available indexed summary does not establish an upper bound on success for unrestricted failures or the attaining involution here."
+        ],
+        "reasoning": "A sharp maximum within the two-distance family is only a lower bound for the unrestricted problem by feasible-set inclusion; to establish exact prior coverage one would need the available prior statement or proof to imply the unrestricted upper bound as well. Its full proof could use an equivalent chain obstruction and was not retrievable. The inspected general closed-set duality leaves the explicit evaluation open.",
+        "searches": [
+          "Resultary 3c501b829a9e, decisive minimum-long-jump passage sought",
+          "Resultary 335f5e8ba268",
+          "Côté–Wang Proposition 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target set is the union of the two clipped translation graphs y=x±d, and its optimal mass is its upper copula capacity. Côté–Wang give the capacity via a two-projection covering infimum. The single-graph/endograph results described by the frozen comparison concern different support sets."
+        ],
+        "reasoning": "On odd chains an explicit cover of the success set is given by first projection in Sᶜ or second projection in B; attaining that cost requires both computing the odd-chain measure and supplying a primal coupling. A formula for one of the translations is not a formula for their union.",
+        "searches": [
+          "Resultary: two-distance composition law for exchangeable uniform couplings",
+          "Côté–Wang, The upper copula capacity, Proposition 6",
+          "Mroz et al., arXiv:1602.05807 (single graph and endograph lead)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected capacity passage gives a general infimum, not a distance-indexed table. Resultary returned parity and mod-four endpoints for the restricted-support two-distance problem and exact contour capacity for another geometry, not an indexed table of the unrestricted one-distance optimum."
+        ],
+        "reasoning": "The available exact quantities concern different events or feasible coupling classes. The alternating slopes and reciprocal extremizers are not established by matching the word parity alone.",
+        "searches": [
+          "Resultary: exact-distance capacity, two-distance composition and superellipse contours",
+          "Published exact-capacity leads in arXiv:2611.25237v1 and arXiv:1602.05807"
+        ]
+      },
+      "rationale": "The distinct supported claim is the evaluated all-distance envelope and an exchangeable deterministic involution that attains it, with the parity classification. General capacity duality covers the variational problem, not an evaluated envelope. The closest indexed two-distance result raises substantial partial-overlap risk, but its available statement under restricted support does not establish the optimum over all couplings. Priority is provisional at the access limits stated below.",
+      "residual_risks": [
+        "The full proof of the restricted two-distance theorem and material beyond the retrieved Proposition 6 passage were not accessible. An exact specialization or an equivalent odd-chain obstruction could be present there or in older transportation literature. The broader literature lookup did not yield usable additional evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified variational coverage; no evaluated specialization in the inspected passage",
+          "evidence": "Kellerer's identity is the infimum over Borel pairs S,T whose inverse projections cover A, with cost λ(S)+λ(T).",
+          "identifier_or_url": "https://arxiv.org/html/2611.25237v1",
+          "material_read": "Section 4.2, Proposition 6, text at offset 21157 with context starting at 20937; further context unavailable",
+          "method": "Lawful OA passage retrieval and comparison to the target geometry",
+          "title": "The upper copula capacity",
+          "trigger": "General capacity for the same closed-set optimization"
+        },
+        {
+          "assessment": "Serious partial-overlap candidate; exact unrestricted implication or priority not established by the available evidence",
+          "evidence": "The indexed theorem imposes support on distances d or 2d and optimizes the longer-jump share, with parity/mod-four endpoints.",
+          "identifier_or_url": "Resultary 3c501b829a9e",
+          "material_read": "Indexed claim summary; body and minimum-long-jump proof unavailable",
+          "method": "Resultary statement comparison and bounded lawful mirror attempts",
+          "title": "Sharp two-distance composition law for exchangeable uniform couplings",
+          "trigger": "Strongest indexed overlap in distances, same marginals and parity endpoints"
+        },
+        {
+          "assessment": "Different event geometry in available statement",
+          "evidence": "Capacity of axis-aligned L^p contours, not the union of two parallel translation segments.",
+          "identifier_or_url": "Resultary 335f5e8ba268",
+          "material_read": "Indexed claim summary only",
+          "method": "Resultary statement comparison and lawful mirror attempt",
+          "title": "Exact upper copula capacity of superellipse contours",
+          "trigger": "Closest indexed explicit capacity for singular contour events"
+        },
+        {
+          "assessment": "Stated single-mapping result does not optimize the union",
+          "evidence": "The frozen comparison distinguishes a graph or endograph of one measurable mapping from the two shifted graphs considered here.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.05807",
+          "material_read": "Scope as described in frozen RESULT.md lines 57–61 and its cited related-work notes; corresponding primary passage not independently retrieved",
+          "method": "Compare the stated single-mapping hypotheses with the two-branch event",
+          "title": "On distributions with fixed marginals maximizing the joint or the prior default probability, estimation, and related results",
+          "trigger": "Possible exact formula for mass on graphs under fixed marginals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, chain obstruction, involution, and reciprocal cases",
+        "Côté–Wang Proposition 6 (general capacity context)"
+      ],
+      "rationale": "The maximized atom is a natural sharp dependence bound for two fixed marginals even though every independent continuous coupling has zero mass there. The result supplies an exact capacity, a coupling that attains it for every real d, and a complete account of perfect feasibility and alternating cusps. This is an explicit geometric evaluation, not just an invocation of capacity duality.",
+      "residual_risks": [
+        "This does not evaluate arbitrary two-branch relations, other marginals, or approximate distances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive tuple, a zero residue or zero-sum residue subcollection provides a direct subtraction of the multiplicity. An extremal zero-sum-free sequence of length \(m-1\) in the cyclic group is necessarily a repeated primitive residue; the prefix-swap argument proves this without invoking an unverified general lemma. The Apéry-minimal representative defines a two-generated subsemigroup whose explicit Frobenius reflection forces the deficient sum into every proper supersemigroup. Finally, the Frobenius number is the unique witness in each remaining two-generated semigroup. The proof handles all multiplicities and every ordered tuple, with no asymptotic or finite-enumeration extrapolation. The independent finite checker corroborated 2,344 Kunz-coordinate semigroups across multiplicities three through seven.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Independently establish the unrestricted theorem using the Apéry set at m. If a tuple fails, its total belongs to the Apéry set, and each partial sum does too: subtracting m from a partial sum in S would give the same possibility at the total. From zero through the total these are m strictly increasing elements, exhausting the m residue representatives. All but the first positive partial sum are decomposable, so there is only one generator other than m (at least one by cofiniteness). Write S=<m,a>, a>m and gcd(m,a)=1. If any tuple member uses a copy of m, subtraction succeeds directly. Otherwise all entries are positive multiples of a; a total containing m or more copies of a admits replacing m of them by a copies of m. The only remaining tuple is the all-a tuple, whose defective sum is the greatest of the residue-class gaps ja−m, 0≤j<m, and hence is Frobenius. This independently gives the same exact witness as the frozen zero-sum and gap-reflection route. Inspection also confirms that the supplied Kunz checker is bounded (multiplicities 3–7, coordinates 1–4, recorded 2344 cases); it was not executed and was not needed for the universal proof.
 
-Robles-Pérez–Rosales, Remark 3.13, already introduced the full hierarchy and established that the next level contains every numerical semigroup; Example 3.14 gives the representative multiplicity-five boundary. Llena–Rosales 2025 establishes a substantial theory of second-level semigroups, not the all-multiplicity penultimate characterization or one-witness law. Comparisons included direct searches for equivalent formulations in terms of embedding dimension, subtraction patterns, cyclic zero-sum sequences, and the Frobenius-number obstruction. Neither inspected primary full text nor the accessible research-record searches yielded a theorem implying both claims. Absence from searches is not a uniqueness proof; an equivalent older pattern result remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The criterion completely identifies a mathematically distinguished infinite tier of an existing strict hierarchy: the sole obstruction is exactly two-generated structure, and each excluded semigroup has a unique witness. It sharpens the published all-semigroup stabilization threshold by one level and converts a universal \((m-1)\)-tuple condition into a generator-count test for every multiplicity. The statement is uniform and useful for studying the remaining lower levels; it is not a table of arbitrary small parameters.
+Restrict credit to the uniform penultimate-level classification paired with the exact unique ordered obstruction and its Frobenius value. Prior work defines the hierarchy, gives the endpoint and explicit m=5 examples, and supplies the zero-sum, two-generator and Apéry ingredients. The inspected sources did not give the resulting uniform equivalence with ordinary embedding dimension and unique witness. An Apéry exhaustion argument is short and natural, but the cited prior results are ingredients rather than a classification or a direct lookup of this last proper tier.
 
-## Scope and risks
+## value
 
-The result does not classify lower tiers, nor establish historical priority beyond the inspected sources. Finite checker outcomes are supporting evidence only. The 2021 hierarchy definition and classical gap reflection receive explicit credit. No independent review or validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The last proper level of an existing hierarchy is a natural uniform boundary, not an arbitrary finite slice. A simple invariant decides it for every multiplicity, and the theorem describes precisely which tuple fails and what gap it produces. This links hierarchy membership to an elementary generator test while explaining the entire extremal obstruction, beyond the previously exhibited examples or the all-semigroup endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

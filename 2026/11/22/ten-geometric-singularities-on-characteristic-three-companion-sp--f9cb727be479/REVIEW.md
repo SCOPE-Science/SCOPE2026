@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The given homogeneous quintic is exactly the companion-matrix family at \(q=3\). Its partial-derivative ideal has no projective zeros on the hyperplane \(X_0=0\), and its affine lexicographic Gröbner basis is linear in two variables with elimination polynomial \((u^2+1)(u^2-u-1)(u^6-u^5+u^4+u^3-u+1)^3\). Irreducibility over \(\mathbb F_3\), the factor multiplicities and exact coordinate substitutions establish ten geometric singular points, residue degrees \(2,2,6\), and length \(22\) of the Jacobian scheme. Hessian and cubic-null-direction calculations justify the precise geometric distinctions. These are exact computations replicated by the embedded checker, not statistical inferences.
+PASS
 
-## Originality — PASS, with residual priority risk
+Independent exact recreation from the expanded b=1 equation found no infinity-chart or F3-rational Jacobian zeros and verified b=-1 by u↦−u. Using Euler (5 is invertible modulo 3) and F5B elimination on f and its three affine partials gave the stated two linear relations and univariate factors of degrees/multiplicities (2,1),(2,1),(6,3), hence exactly ten geometric points and length 22. Hessian determinants in both quadratic residue fields were u−1, and at the sextic factor the first and third Hessian rows had nonzero cross product spanning the kernel. The cubic Taylor coefficient computed using that alternate null vector was −u^5+u^4+u^3−u−1, nonzero modulo the irreducible sextic; no ordinary third-derivative assumption in characteristic three was used. The local algebras follow by scalar extension and factorization; a multiple component or the intersection of two distinct hypersurface components would force a positive-dimensional singular set. The Frobenius point count follows by divisibility of orbit lengths.
 
-The November 2026 source states that its characteristic-three companion examples fail to be smooth, but does not determine the geometric singular support, the degree-six orbit, or the length-three local Jacobian structure. A related exact rational-singularity calculation for this companion family only concerns \(\mathbb F_q\)-rational points, and in this case predicts none; it does not cover the new claims. Targeted semantic-record and web searches found no equivalent claim. The original authors' supporting-code page provides a link to an individual run log that could not be read in the accessible view; it could in principle contain more than the published smoothness flag. That remaining risk does not provide affirmative prior coverage and is explicitly retained.
+## originality
 
-## Value — PASS
+PASS
 
-The source identifies characteristic three as a problematic exception for its natural low-degree space-filling construction. The complete scheme and Frobenius census explains the failure: every rational point is smooth, yet a pair of degree-two singular orbits and one wild degree-six orbit remain. This is a natural exact geometric refinement of the source's smoothness question, not an arbitrary coefficient slice or merely a restatement of the nonsmoothness already recorded.
+Best of current evidence: the new claim is the exact geometric Jacobian algebra and local behavior for the specified pair, not the companion construction, absence of rational singularities, or computational nonsmoothness. No inspected source gives the orbit degrees and local multiplicities or determines the Taylor behavior. The original run output was not read, so historical priority is not certified.
 
-## Scope and limits
+## value
 
-The result holds for precisely both nonzero parameters of the specified companion family over \(\mathbb F_3\); no broader conjecture is asserted. Analytic equivalence classes and resolutions of the wild singularities are not proved. Unread supporting logs and unindexed mathematics remain originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the local geometry behind a natural minimal-degree space-filling construction's characteristic-three nonsmoothness. The support split and Jacobian lengths distinguish the four ordinary nodes from the six corank-one points and give exact obstruction data over every extension; they are not merely another smoothness flag. The information is useful when analyzing modifications of the construction or comparing characteristic-three singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

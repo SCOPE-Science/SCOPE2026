@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:11.168193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5, especially line 35; checker.py lines 38–86; frozen VERIFICATION.md; repaired RESULT.md and VERIFICATION.md; independent direct full-profile and normalized deletion enumerations"
+      ],
+      "rationale": "Fresh assessment of repairs/3/RESULT.md. Frozen Proof §3 incorrectly said that the shortened and original unnormalized walks had identical retained increments, and that translating their heights sufficed; the increments actually change by (d−1)/d. For example, deleting the balanced initial 01 in 0101 changes the unnormalized increments from ±2 to ±1. The repair uses h_i/d with increments p/d and −q/d; these agree exactly on both walks because the new gcd is d−1 and both contents lost one primitive block. With the deleted window as cyclic origin its two endpoints have the same normalized height, so the retained starts give exactly the shortened profile count and at most L−1 deleted starts add distinct heights. The existence of the deleted window follows from integer mean q/d and consecutive changes of at most one. The proof now yields the upper bound by induction from the coprime case without a false equal-height comparison. Independently, the leading-letter updates −q and +p establish the height formula and the iff arc criterion in either cyclic direction. Modulo N, equality requires start positions congruent modulo L; attaining exactly L forces periodic heights and hence letters of period L, and the converse follows by counting one primitive block. The clustered witness has d−1 intersections between its two injective height progressions, from 1≤k≤d−1 in (p−a,b)=k(p/d,q/d). Each adjacent unequal swap changes only one prefix height and hence changes the number of classes by at most one; a path from a power to the clustered word visits the whole interval. An independent direct enumeration checked full scattered profiles and every ordered arc on 2,026 mixed words through length 10; a targeted independent replay confirmed normalized height matching and the deletion bound for 21,130 balanced arcs through length 12.",
+      "residual_risks": [
+        "Finite checks supplement the general height-walk induction and swap proof. The attached checker compares direct profile cardinalities with the heights but itself uses heights for pairwise collisions; the repaired verification description distinguishes these. Upper equality is only witnessed, not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multiletter result requires positive content on at least three letters and gives [L,N], explicitly distinguishing binary (2,2). Richomme's bounded partitions and lattice classify words within a fixed profile class, rather than the distinct values on a chosen conjugacy class."
+        ],
+        "reasoning": "Deleting a letter of positive content is not a specialization preserving the multiletter theorem's hypotheses or extremum. The fixed-class enumeration solves the inverse fixed-statistic problem, not the cyclic range.",
+        "searches": [
+          "Resultary 0d4f8c02fe70 multiletter spectra",
+          "Richomme arXiv:2510.07159 Lemmas 4.12–4.13, Theorem 4.19",
+          "Lejeune–Rigo–Rosenfeld on finite-word binomial classes"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Relationship to prior work; Resultary 0d4f8c02fe70 and 4ff94afd6c61; Rigo–Salimov Theorem 16; Chuan DOI 10.1016/S0304-3975(03)00398-0; arXiv:2510.07159 and arXiv:2110.14858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old ± increment identity already directly implies the pairwise balanced-arc test. Same-day 0d4f8c02fe70 supplies an analogous swap continuity argument, but its endpoint theorem does not apply in the binary regime. Later 4ff94afd6c61 has the binary balanced-window upper bound, making an intermediate-value argument short if combined with swap continuity."
+        ],
+        "reasoning": "Do not credit the arc identity or swap technique as standalone new findings. The full spectrum uses the binary sharp upper bound and both witnesses; the earlier known update, same-day multiletter proof and accessible primary statements do not supply that endpoint result. The later partial overlap is substantive but gives no earlier priority conclusion.",
+        "searches": [
+          "Rigo–Salimov Theorem 16 proof; Resultary 0d4f8c02fe70 balanced-arc criterion and swap, 4ff94afd6c61 binary bounds; Chuan abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If the positions of the q ones are j_k, F=Σ j_k−q(q+1)/2 and M=q(N+1)−Σ j_k, so the profile-value set is exactly the conjugate-moment set after an affine change. Rigo–Salimov use precisely the same −q/+p rotation update in a different theorem."
+        ],
+        "reasoning": "The equivalent formulation is real and the invariant/update are not novelty claims. Whether Chuan proved the same cardinality theorem cannot be decided from the available abstract.",
+        "searches": [
+          "Resultary: cyclic binary rotation fixed content binomial profile spectrum and fingerprint bounds",
+          "Chuan DOI 10.1016/S0304-3975(03)00398-0, conjugate moment sets",
+          "Rigo–Salimov extended paper Theorem 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later 4ff94afd6c61 gives the same exact endpoints, power-word criterion and clustered witness; its Limitations says intermediate values are not enumerated. Circular subword work inspected aggregates counts across conjugates rather than enumerating the cardinalities. Chuan abstract describes spread and consecutiveness of moments, not a fixed-content spectrum of cardinalities."
+        ],
+        "reasoning": "Credit the matching endpoint entries; they are neither an exact table of intermediate values nor evidence of earlier coverage by their later indexed date. Spread and cardinality are different unless the moments are consecutive, a property not true for all content and words.",
+        "searches": [
+          "Resultary 4ff94afd6c61 binary-weight sharp bounds; Resultary 0d4f8c02fe70; Chuan abstract on M([w]); arXiv:2110.14858 circular subword counts"
+        ]
+      },
+      "rationale": "Fresh comparison for the repaired text: the supported distinctive result is the complete fixed-content binary spectrum with sharp endpoints, not the conjugate statistic or the one-letter shift identity. The reset using normalized heights changes the proof, not the statement or priority analysis. The distinct same-day multiletter record excludes the binary case, and the later exact binary endpoint record does not state complete intermediate attainment. The accessible primary comparisons show meaningful overlap: the cyclic update is old, and Chuan studied exactly the affine-equivalent conjugate-moment set. The available evidence does not show the spectrum theorem already covered; the inaccessible Chuan full text leaves a material, explicitly unresolved priority risk, not a negative finding about what the paper contains.",
+      "residual_risks": [
+        "The closest known paper, Chuan (2004), could contain covering cardinality statements; the full text was not obtained by reasonable lawful attempts, and this comparison cannot certify historical priority. An abstract is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic; fixed-content cardinality coverage unresolved",
+          "evidence": [
+            "Abstract defines M([w]) and discusses spread/consecutiveness. Direct algebra from the definition gives M=q(2N+1−q)/2−F at fixed content."
+          ],
+          "identifier_or_url": "doi:10.1016/S0304-3975(03)00398-0",
+          "material_read": "Accessible publisher abstract, not theorem text",
+          "method": "Publisher abstract and bounded lawful retrieval attempts via publisher, DOI and repository alternatives",
+          "title": "Moments of conjugacy classes of binary words",
+          "trigger": "Exactly equivalent conjugate-word moment invariant"
+        },
+        {
+          "assessment": "Structural overlap, distinct hypotheses; no date-based priority inference",
+          "evidence": [
+            "At least three positive letter counts; every count L through N; notes binary (2,2) reaches at most three profiles."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 0d4f8c02fe70",
+          "material_read": "Finding and Proof, offset 0 onward; binary distinction around offset 8800",
+          "method": "Indexed search and local-mirror statement/proof inspection",
+          "title": "Sharp 2-binomial rotation spectra for fixed multiletter content",
+          "trigger": "Same-day spectrum theorem with arc and swap arguments"
+        },
+        {
+          "assessment": "Later substantive equivalent endpoint coverage, not full-spectrum claim",
+          "evidence": [
+            "Same lower and upper bounds, periodicity characterization, clustered witness and balanced-window method; intermediate values expressly not addressed."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 4ff94afd6c61",
+          "material_read": "Finding and Proof §§1–4; Limitations around offset 5600",
+          "method": "Indexed search and local-mirror statement/proof inspection",
+          "title": "Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight",
+          "trigger": "Same binary statistic and exact extrema"
+        },
+        {
+          "assessment": "Direct precursor to the height identity, but an infinite-word frequency theorem",
+          "evidence": [
+            "Cyclic shift changes scattered 01 by minus the number of ones when moving 0 and plus the number of zeros when moving 1."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "material_read": "Extended version p. 12, Theorem 16 and proof around offsets 32690 and 33917",
+          "method": "OA primary full-text passage inspection",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Cyclic shifting and same scattered-pair invariant"
+        },
+        {
+          "assessment": "Fixed-statistic word classes rather than the image of a single cyclic orbit",
+          "evidence": [
+            "Bounded partitions and lattice on a fixed class of two-binomial-equivalent words."
+          ],
+          "identifier_or_url": "arXiv:2510.07159",
+          "material_read": "Lemmas 4.12–4.13 and Theorem 4.19, pp. 20–23, offsets around 74000 and 82800",
+          "method": "OA primary full-text passage inspection",
+          "title": "On some 2-binomial coefficients of binary words",
+          "trigger": "Fixed-content pair-count geometric and partition encodings"
+        },
+        {
+          "assessment": "Aggregated circular statistic rather than cardinality of the value set",
+          "evidence": [
+            "Sums and averages across conjugates, not distinct rotation-profile counts."
+          ],
+          "identifier_or_url": "arXiv:2110.14858",
+          "material_read": "Abstract p. 1 and §3.2 p. 7",
+          "method": "OA primary passage inspection",
+          "title": "Counting Subwords in Circular Words",
+          "trigger": "Subword-count invariants under conjugacy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof, especially normalized deletion and No gaps; Rigo–Salimov Theorem 16; Resultary binary endpoint and multiletter comparisons"
+      ],
+      "rationale": "For the natural conjugacy orbit and fixed-content two-binomial invariant, the exact spectrum answers both extremal and realization questions for every content. The binary upper deficit d−1 is a genuine obstruction due to forced balanced windows; the lower equality test provides a structural characterization. Establishing that there are no skipped cardinalities is useful beyond reporting extremizers alone. The normalized deletion supplies a self-contained mechanism for the obstruction, rather than presenting a bounded experiment.",
+      "residual_risks": [
+        "No broader result for higher binomial order, no complete classification of upper-extremal words, and no claim to resolve the historical moment-literature risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

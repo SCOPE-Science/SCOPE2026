@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later and no third-party packages. The executable directly enumerates all nonnegative contingency tables for the listed small sizes, calculates row, column, and joint modal deletion counts, and compares the entire attained set with the proposed integer interval. It separately solves integer feasible-circulation instances for random alphabet/size/error parameters and checks random independent determinant fibres.
+## correctness
 
-Observed output from the supplied script:
+PASS
 
-```
-VERIFY_OK exhaustive_tables=339613 constructed_instances=3373 multi_fiber_tests=9984
-```
+Within each determinant fibre, the retained counts are the largest row total, column total and cell, and the global counts are sums. The intersection of a modal row and column gives the additive bound; row, column and table capacities give the remaining lower bounds on the retained joint count. Projection gives its upper bound. For an admissible integer target M, the marked row/column/cell real table has nonnegative blocks because M≥A+B−n and M≤min(A,B). The two off-diagonal blocks fit the cell cap by A≤cM and B≤bM. For the last block use n−A−B≤(bc−b−c)n/(bc)≤(bc−b−c)M, valid when b,c≥2; unmarked row and column totals fit by A≥n/b and B≥n/c. Integer lower/upper bounds in the directed circulation polytope then give an integral realization with those three marked maxima. A singleton alphabet collapses the problem to distributing n units with a specified maximum in the other coordinate; n=1 is included. An unconstrained identifier makes repeated patterns distinct. The bc bound is redundant given the admissible marginal bounds and is harmless. The upper-bound entailment is sharp because the endpoint is monotone in the admissible marginal errors and the specified maxima can be attained. Independent enumeration with dynamic programming over arbitrary fibre decompositions agreed with both the formula and the single-fibre spectra for five small alphabet/range pairs.
 
-The checked exhaustive families were \((b,c,n_{\max})=(1,1,12),(1,3,10),(3,1,10),(2,2,18),(2,3,14),(3,3,10),(3,4,8),(4,4,6)\). Construction tests used alphabet sizes from two through seven and selected total sizes through forty, with seeded random choices of admissible errors and cell maxima. The multi-fibre check used a fixed random seed and at most seven determinant fibres. These are finite cross-checks, not an unbounded computational proof. The proof is the modal-fibre reduction and integral-circulation argument in RESULT.md.
+## originality
 
-No independent mathematical or historical-priority audit has been performed.
+PASS
+
+The evaluated no-gap integer spectrum is distinct in the inspected evidence from approximate-dependence inference results, from prescribed-full-margin counting, and from catalogue results about split disjunction. The interval and its feasible marked-maxima construction add content beyond classical flow integrality and ordinary joint-probability inequalities.
+
+## value
+
+PASS
+
+Combining individually approximate dependencies into a joint one is a natural inference problem. The alphabet-sensitive improvement can be strict, and the no-gap statement supplies exact extremal and intermediate test teams rather than only an inequality. Arbitrary determinant fibres are covered in necessity and a single fibre suffices for sharpness. This makes the result usable as an exact calibration of deletion-error entailment with an explicit scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

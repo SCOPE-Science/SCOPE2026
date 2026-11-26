@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:11:32.128040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–124 and verify_prism_restrained.py, inspected without executing",
+        "Replay: python3 /workspace/branches/independent_repro.py 2. Compare the two reciprocal characteristic polynomials at 33 distinct integer weights, enough for their z-degrees (at most 32); check all formal low-weight coefficient identities with the length-two correction; check directed reachability and the loop, and evaluate both dominant roots numerically."
+      ],
+      "rationale": "For an unselected vertex the three neighbor bits must include both 0 and 1. Legal length-n closed walks of the pair-state transfer are in bijection with labelled configurations, so the trace is the size polynomial, with no division by n. Independent exact determinant checks and the formal trace–determinant identity recover both polynomials. With x=u/t and z=t² the determinants have no negative t powers; the t⁰, t¹ and t² coefficients of their log derivatives give the stated minima and multiplicities, including 39 restrained minima at n=6. The equality at lines 110–111 has a formal length-two error: the rational expression equals the indicated sum minus 2u², so all claimed coefficients for n≥4 are unaffected. With two omitted vertices, validity is exactly adjacency of the omitted pair, giving 3n; with one omitted vertex the complement condition fails. Both unweighted directed transfers are strongly connected with a loop and the restrained matrix is strictly smaller entrywise somewhere. Primitivity and the trace identify simple leading eigenvalues, strict spectral comparison gives r>d, and the ratio has prefactor one. Thus the scoped findings are correct despite the noted out-of-scope algebra error.",
+      "residual_risks": [
+        "The transfer algebra includes formal small lengths that need not correspond to the stipulated simple graphs. In particular the infinite sum at lines 110–111 must not be extrapolated at length two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hemalatha et al. report only the scalar 2⌈n/4⌉, discrepant in the residue class n≡1 mod 4 (five rungs is a counterexample). Allagan gives the same ordinary minimum sizes and corrected labelled multiplicities 4, 2n, 51 at n=6, and n(n+2) in the remaining n≡2 mod 4 class. Mertens treats ordinary domination of general cylinders C_m □ P_n, including width two. The one-limited result concerns another predicate."
+        ],
+        "reasoning": "Neither the scalar ladder theorem nor the ordinary minimum theorem alone determines a restrained all-size census; the precise overlap comes instead from the transferable Möbius blocks and the ordinary prism count data. The width-two cylinder is the same graph, not a different topology.",
+        "searches": [
+          "DOI 10.26713/cma.v14i4.2569, Theorem 5.2(i)",
+          "arXiv:2601.03488, Theorems 1.1 and 3.1",
+          "arXiv:2408.08053, pp. 1–2",
+          "Resultary 4d83cdec888e, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 29bb15894334, 4d83cdec888e; OEIS A284702 and A378413",
+        "arXiv:2601.03488 and arXiv:2408.08053; DOI 10.26713/cma.v14i4.2569"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "tr(T^n)=tr(T_+^n)+tr(T_−^n) uses the same resolved blocks as tr(JT^n); the product AB consequently enumerates the circular ladder. OEIS gives denominator p_d up to the factor 1+x² and unit asymptotic coefficient by the logarithmic derivative. The restrained numerator has denominator AB at z=1 with the displayed p_r factor."
+        ],
+        "reasoning": "The low-weight formulas are coefficient extractions in an already specified exact polynomial, and the 2n ordinary exceptions at minimum size follow by subtraction. The exact rate is the ratio of the reciprocals of the two simple dominant poles, with the logarithmic-derivative prefactor one on both sides. Proving primitivity or comparing the nested local transitions on this fixed sixteen-state graph is an elementary application, not a new independent census or theorem here.",
+        "searches": [
+          "29bb15894334, offsets 440–809, 2350–4040 and 7331–7967",
+          "A284702 generating function and arXiv:2601.03488 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "29bb15894334 uses the same middle-column test, the same pair-state transfer T and the row-swap J. It supplies det(I−xT_+)=B and det(I−xT_−)=A and notes that the untwisted count uses tr(T^n).",
+          "A284702 gives the very same ordinary prism count generating function written in rational form; A378413 gives the ordinary size polynomial recurrence on the same graph."
+        ],
+        "reasoning": "The two graph families are not isomorphic in general, but the row-swap trace has already resolved the very two blocks required for the ordinary trace. Change the sign of the minus-block contribution and take the product of determinants. The ordinary-polynomial recurrence written at z rather than as a determinant is likewise equivalent: its characteristic denominator is the factorized ordinary determinant in the frozen record.",
+        "searches": [
+          "Resultary 29bb15894334, Finding, transfer proof and relationship passage",
+          "OEIS A378413 and A284702, explicit recurrences and generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A284702 lists the number of all ordinary dominating sets, with a generating function whose denominator is (x²+1)(x⁵+x⁴−2x³−2x²−3x+1) and numerator x(−7x⁶−6x⁵+5x⁴+4x³+15x²+2x+3)=−xQ′.",
+          "A378413 supplies the exact ordinary polynomial recurrence and sample polynomials, with initial rows including the n=6 ordinary minimum coefficient 51. Resultary's direct untwisted restrained hit is the assigned record itself; the distinct Möbius record has the necessary factors."
+        ],
+        "reasoning": "The ordinary side is not just a list of numerical approximations to match: the exact polynomial recurrence and exact unweighted series predate the frozen claim. Combined with the two inspected restrained transfer factors they supply both total-set series.",
+        "searches": [
+          "Web: prism graph dominating sets domination polynomial enumeration all circular ladder recurrence OEIS",
+          "OEIS A284702 FORMULA, A378413 MATHEMATICA",
+          "Resultary search for ordinary domination polynomial and Perron growth on the prism"
+        ]
+      },
+      "rationale": "The matched same-day Möbius record gives the exact plus and minus factors B and A of the identical transfer matrix, and expressly identifies the trace without its row-swap operator as the untwisted circular-ladder count. Replacing the signed trace by its sum therefore gives the entire restrained polynomial without recalculation. Both the minimum data and special boundary coefficients are consequences of this covered polynomial. The ordinary domination polynomial and in particular the exact unweighted denominator are already tabulated in OEIS; the 2017 formula there for total prism counts equals −x Q′(x)/Q(x) with Q=(1+x²)p_d exactly. Thus the comparator counts (also covered at minimum weight by Allagan) and the ratio rate are extracted from two already available exact series by routine coefficient and dominant-root arguments. No ordering is inferred from the common date of the two restrained findings.",
+      "residual_risks": [
+        "The two restrained census records share a date; the verified implication does not establish priority. The database overlap is specifically on the ordinary side, not a claimed direct listing there of restrained coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen restrained polynomial via the displayed sector determinants",
+          "evidence": "The local rule is the same; the proof gives the factors on the two eigenspaces, and the relationship paragraph explicitly names tr(T^n) for the untwisted circular ladder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-restrained-domination-census-of-m-bius-ladders--29bb15894334/RESULT.md",
+          "material_read": "Finding with both polynomials, proof on local equivalence and exact transfer and twist, relationship paragraph on the untwisted closure",
+          "method": "Matched Resultary source via local mirror, including direct decisive passage reads",
+          "title": "Complete restrained-domination census of Möbius ladders",
+          "trigger": "Same-day near match with identical two transfer factors"
+        },
+        {
+          "assessment": "Exact match on the unweighted ordinary side",
+          "evidence": "Howroyd's 2017 generating function is −x times the logarithmic derivative of (1+x²)p_d(x).",
+          "identifier_or_url": "https://oeis.org/A284702",
+          "material_read": "Description, comments and FORMULA, offsets 0–1243",
+          "method": "OA public page",
+          "title": "Number of dominating sets in the n-prism graph",
+          "trigger": "Exact ordinary total series or characteristic denominator needed for the ratio"
+        },
+        {
+          "assessment": "Covers the ordinary size polynomial",
+          "evidence": "2024 entry with recurrence coefficients (2z+z²,z²,3z²+2z³,z²,z⁴,−z⁴,−z⁴) and seven initial polynomials.",
+          "identifier_or_url": "https://oeis.org/A378413",
+          "material_read": "Description, links and MATHEMATICA recurrence with initial rows, offsets about 446–2447",
+          "method": "OA public page",
+          "title": "Coefficients of the domination polynomial of the n-prism graph",
+          "trigger": "Exact ordinary all-cardinality prism census"
+        },
+        {
+          "assessment": "Covers the ordinary minimum data, not restraint on its own",
+          "evidence": "Labelled sets; 51 ordinary minimizers at n=6 and n(n+2) when n≥10 and n≡2 mod 4.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.03488",
+          "material_read": "§1 Theorem 1.1 p. 2; §3 Theorem 3.1 p. 3",
+          "method": "OA PDF passages",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same host and exact ordinary minimum census"
+        },
+        {
+          "assessment": "Scalar claim only; partly discrepant",
+          "evidence": "States γ=γ_r=2⌈n/4⌉ for n≥3, not the corrected residue n≡1 mod 4. No multiplicities in that theorem.",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v14i4.2569",
+          "material_read": "Theorem 5.2(i), PDF p. 11 (OA offset 32600)",
+          "method": "OA primary PDF passage",
+          "title": "Restrained and Total Restrained Domination of Ladder Graphs",
+          "trigger": "Same host and restrained scalar theorem"
+        },
+        {
+          "assessment": "Broader ordinary-domination algorithm; the exact width-two identities are supported separately by the database",
+          "evidence": "Cylinders are C_m □ P_n and the algorithm computes their ordinary domination polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.08053",
+          "material_read": "Abstract and p. 2 definition of the cylinder graph",
+          "method": "OA PDF passages",
+          "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+          "trigger": "Primary reference linked by the ordinary coefficient table"
+        },
+        {
+          "assessment": "Distinct predicate",
+          "evidence": "Census is for one-limited sets, not for outside vertices with both neighbor types.",
+          "identifier_or_url": "Resultary 4d83cdec888e",
+          "material_read": "Finding",
+          "method": "Matched local mirror",
+          "title": "Complete one-limited domination polynomial of circular ladders",
+          "trigger": "Exact indexed polynomial on the same host"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–47",
+        "29bb15894334 transfer proof; A284702 exact series and Allagan minimum census"
+      ],
+      "rationale": "The labelled census and the comparison of two natural guarding conditions are well motivated. But the circular polynomial is a direct consequence of the already resolved transfer sectors and ordinary counts are already available exactly. The near-full counts are immediate for any cubic graph and the 2n minimum exceptions and the exponential rate are direct evaluations from the covered series; these do not leave a separate nonroutine exact claim to repair within this record.",
+      "residual_risks": [
+        "The failure concerns the scientific increment relative to inspected coverage, not the correctness or usefulness of these counts as reference data."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The edge-cut formulas follow from uniqueness of tree paths; the exact finite classification enumerates the complete nonisomorphic-tree classes through 15 vertices and checks their independent known class counts. A separate direct shortest-path computation verifies the three explicit witnesses, and the rational minima for each order are recorded. The finite census is reproducible with the embedded checker; it proves no infinite-order statement.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The November 12, 2026 Lundblad–Wagner article, read in full, explicitly observes the failure of the deterministic leaf/vertex comparison but does not give the least order or the exhaustive list of earliest reversing shapes. The July 13 conference work covers root-depth rather than this complete terminal-Wiener question. Mathematical-record queries for smallest order, normalized terminal Wiener inequalities, and leaf-pair mean reversals returned no implication-equivalent result. Related prior findings concern other tree distance laws, not this sharp threshold. An unindexed earlier small-tree census could preempt novelty; no exhaustive bibliographic priority is claimed.
+PASS
 
-**Value — PASS.** The exact 15-vertex threshold resolves the natural smallest-example question implicit in the failure of a tempting inequality, and the complete three-type classification and sharp negative deviation distinguish the result from producing one convenient counterexample. It clarifies where deterministic intuition first breaks despite random-tree asymptotic comparisons.
+The two means use unordered distinct pairs and their separate denominators. The edge-cut contributions count precisely the pairs whose unique paths cross that edge, so the stated integer sign test is valid. I independently generated unlabelled trees by attaching a leaf at every vertex of every previous-order representative and deduplicating by the minimum rooted parenthesis code over all roots. The rooted code is complete by induction on the multiset of child codes, and deleting any leaf from a tree shows generation is exhaustive. Direct pair distances (not edge-cut sums) gave nonnegative minima for every order 2–14; at 14 the minimum was 1/52. At 15 there were 7,741 classes, exactly three negative, and exactly one attaining -1/10. The negative classes match canonical codes of B_7,7, B_8,6 and B_9,5 with (leaf count, ordinary sum, terminal sum) = (8,378,98), (9,336,112), (10,296,126), giving -1/10, -4/45, -2/105. This includes order 2, where the samples coincide. Replay: python3 /workspace/repro/record4.py; output /workspace/repro/record4.out. This independently covers the bounded claim without NetworkX and provides no classification at later orders.
 
-**Verification limits.** The exhaustive proof depends on a standard, publicly documented unlabelled-tree generator and exact integers; independent mathematical audit and exhaustive historical-priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant earlier paper explicitly notes deterministic reversal and uses a broom-like shape for an adjacent root-depth comparison. Neither the existence of a reversal nor the shape by itself should be claimed as new. The distinct result supported here is the sharp least order together with the complete first-order classification and unique minimum.
+
+## value
+
+PASS
+
+The normalization makes comparison of terminal and ordinary mean distances a natural deterministic question raised by random-tree work. The least possible reversal order and exhaustive obstruction types are more informative than a family that happens to reverse the inequality. They give precise benchmarks for proposed inequalities sensitive to leaf count or branching structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

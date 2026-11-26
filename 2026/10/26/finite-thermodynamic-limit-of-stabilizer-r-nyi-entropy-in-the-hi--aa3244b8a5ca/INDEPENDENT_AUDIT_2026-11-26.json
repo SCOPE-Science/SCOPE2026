@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:58.406218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The down-before-up inversions give area n²−2d and are exactly the size of a partition in the n-staircase. Every partition of size less than n fits, giving the claimed q^(n/2) bound on the normalization tail. Centered padding preserves the partition and adds only pure stabilizer ancillas, so squared overlap is Z_n/Z_m and the density-matrix Hilbert–Schmidt error is at most √(2P(√q))q^(n/4). For real α>1, the mean-value bound on |a|^(2α), normalized Pauli Parseval and Cauchy–Schwarz give the dimension-independent moment error 4α times that distance. The diagonal Pauli family alone gives F_α≥(sum_x p_x²)^α≥P(q)^(−2α) by Jensen; F_α≤F_1=1. Taking logarithms thus gives both stated constants, including the exponential Cauchy bound. Independently, at n=2 the paths 0011 and 0101 have amplitudes 1 and √q up to normalization. The Pauli fourth powers sum to (1+[(1−q)/(1+q)]^4+[2√q/(1+q)]^4)/2, agreeing with the stated finite identity. The frozen enumeration was inspected, not executed; the analytic argument verifies the limit. No positivity of the limit or endpoint uniformity is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salberger et al. prove the entanglement area law using the partition sum ∑p(k)t^(−2k). Haug–Piroli's inspected fidelity discussion is an empirical M₂ relation for MPS approximations; the inspected Leone–Oliviero–Hamma continuity passage is continuity in the Rényi order."
+        ],
+        "reasoning": "Neither an entanglement bound nor those continuity statements dominate the all-real Pauli-moment limit. Keyword misses alone were not taken as proof that other continuity theorems do not exist.",
+        "searches": [
+          "arXiv:1611.04983, §3, pp. 6–7 and Theorem 1",
+          "arXiv:2207.13076, p. 4; trace distance, Lipschitz, Hilbert-Schmidt",
+          "arXiv:2106.12587, p. 7; trace distance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof, Verification; frozen VERIFICATION.md and verify.py",
+        "Resultary (bounded semantic search)",
+        "arXiv:2609.09545",
+        "arXiv:1611.04983",
+        "arXiv:2207.13076",
+        "arXiv:2106.12587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The partition generating function bounds the defect normalization. The inspected numerical/entanglement conclusions do not supply a uniform Pauli-moment estimate between centered padded states, or justify passing to the logarithm."
+        ],
+        "reasoning": "Known partition counting supplies one ingredient. The conclusion needs the Pauli-specific continuity and positivity steps; it does not follow just by identifying the entanglement area law or bounded numerical SRE scaling.",
+        "searches": [
+          "arXiv:1611.04983, §3 and Theorem 1",
+          "arXiv:2609.09545, §3",
+          "arXiv:2207.13076, p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee uses the same area and t^(A/2) convention; Fig. 3 treats constant scaling for t>1 from finite-size M₂ results. No material counterpart was identified in the bounded local index results."
+        ],
+        "reasoning": "The equivalence of weight conventions makes Lee a direct comparison, but a numerical saturation observation for M₂ is not an existence theorem with a quantitative rate for all real orders.",
+        "searches": [
+          "Resultary semantic search for the Dyck–Fredkin stabilizer Rényi limit and exponential convergence (top 30)",
+          "arXiv:2609.09545, Eq. (2.14), Eqs. (3.1)–(3.2), Fig. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed comparison did not identify a materially overlapping claim. Lee's finite-size values concern specific orders and sizes."
+        ],
+        "reasoning": "The contribution is a uniform-in-size theorem with a bound, not a new row in a table; the finite witness identity is corroboration, not the originality basis.",
+        "searches": [
+          "Resultary semantic search for the Dyck–Fredkin stabilizer Rényi limit and exponential convergence (top 30)",
+          "arXiv:2609.09545, Fig. 3 and finite-size Pauli calculations"
+        ]
+      },
+      "rationale": "The supported claim is a rigorous finite limit, with explicit size error for all real α>1, for the same colorless weighted state previously studied numerically. The inspected partition bound is old; the new conclusion uses control of centered state overlap together with a dimension-independent Pauli-moment bound and uniform control of the logarithm. No equivalent theorem or dominating result was identified in the bounded comparison.",
+      "residual_risks": [
+        "Bounded local and literature comparison cannot establish priority or exclude an equivalent general dimension-free estimate elsewhere.",
+        "No rate optimality, strict positivity, or convergence at or uniformly toward t=1 or α=1 is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct numerical precursor, not the claimed theorem",
+          "evidence": [
+            "Introduction explicitly describes numerically exact finite-size scaling; the replica simplification is for even orders; Fig. 3 shows M₂ saturation in the t>1 regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09545",
+          "material_read": "Introduction; Eq. (2.14); Eqs. (3.1)–(3.2); discussion around Fig. 3",
+          "method": "OA primary text, bounded passages",
+          "title": "Sub-extensive non-stabilizerness in the Dyck-Fredkin spin chain",
+          "trigger": "Same state and high-area SRE observable"
+        },
+        {
+          "assessment": "Covers partition ingredient and a different entropy",
+          "evidence": [
+            "Uses the convergent partition sum for t>1 and bounds half-chain entanglement entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.04983",
+          "material_read": "Abstract and §3, pp. 6–7, Theorem 1",
+          "method": "OA PDF text, bounded pages",
+          "title": "Deformed Fredkin Spin Chain with Extensive Entanglement",
+          "trigger": "Prior partition-weight bounds and area law"
+        },
+        {
+          "assessment": "Inspected fidelity relation is empirical, not a dimension-independent all-order bound",
+          "evidence": [
+            "Approximation comparison for M₂ against exact diagonalization up to N=12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.13076",
+          "material_read": "p. 4 fidelity discussion and targeted terminology checks",
+          "method": "OA primary PDF text",
+          "title": "Quantifying nonstabilizerness of matrix product states",
+          "trigger": "Potential general SRE approximation or state-distance bound"
+        },
+        {
+          "assessment": "Inspected passage does not give the needed state-distance theorem",
+          "evidence": [
+            "The passage extends an order-dependent argument at α=1 by continuity, not a bound in density-matrix distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.12587",
+          "material_read": "p. 7 continuity passage and targeted terminology check",
+          "method": "OA primary PDF text",
+          "title": "Stabilizer Rényi Entropy",
+          "trigger": "Potential general SRE continuity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a natural thermodynamic-limit question raised by measured saturation in the high-area Fredkin phase. Boundedness alone would allow oscillation; exponential convergence and coverage of real orders beyond the replica calculations add concrete information. The size-independent Pauli-moment step is useful precisely where moment estimates that grow with the padded Hilbert-space dimension would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

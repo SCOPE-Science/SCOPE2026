@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:16:45.155076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent rank argument verifies the joint law. In decreasing score order consider only the cells incident with the selected k rows or selected k columns of a specified matching M. There are k(r+c−k) such cells, with uniform relative rank. The first must be in M: otherwise it blocks one of the desired cells. Conditional on which selected cell is first, that cell is already a mutual maximum and the relative order of all other entries in the union stays uniform. The new constrained union for the remaining matching is contained in that remainder; it excludes the first cell but retains relevant cross-cells. Induction gives probability 1/(r+c−k) times the (k−1)-cell inclusion probability, yielding 1/(r+c−1) falling k. Multiplying by (r falling k)(c falling k) gives the factorial moments of Hypergeom(r+c−1,r,c); finite support determines the PMF. The global maximum guarantees K≥1. Permuting rows and columns acts transitively on matchings of fixed size; dividing the PMF by their number gives exactly 1/[c(k−1)! binom(r+c−1,c)] per labelled full set. The hypergeometric variance is as stated, with the separate singleton case; one-row or one-column boards have K=1. This checks frozen RESULT.md lines 5–30 and 38–83. VERIFICATION.md and verify_rook_maxima.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de6d9e209f34 gives a finite joint inclusion formula for k selected common reciprocal minima in a refresh-coupled pair of n×n arrays, where the competitor kernel is h_ε(x,y)=(1−max(x,y))(1−ε min(x,y)). Proof §1 explicitly treats ε=0 as identical copies; Proof §2 Eq. (1) has all k.",
+          "463d6459f20a generalizes the mean and pair covariance to arbitrary weighted host graphs, not arbitrary-order joint laws. ff1e1dc0be18 concerns peaks at labelled vertices rather than at doubly extreme edge cells.",
+          "Baldi–Rinott–Stein give the square mean and variance exactly. Bhamidi–Dey–Nobel give asymptotic local-optimality results for Gaussian submatrices; the one-cell square count is the overlapping case."
+        ],
+        "reasoning": "The two-copy result is broader in coupling on its square domain. Its exact finite section, not merely its near-total-refresh limit, supplies the crucial square single-copy law. The arbitrary-graph variance theorem and classical one- and two-moment results do not themselves imply a finite PMF.",
+        "searches": [
+          "Resultary de6d9e209f34 RESULT.md Proof §§1–2, Eq. (1)",
+          "Resultary 463d6459f20a Finding; ff1e1dc0be18 Finding",
+          "Baldi–Rinott–Stein (1989) §3 Example (2) Eqs. (6)–(7); arXiv:1211.2284 §2.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 355cf7f112df, de6d9e209f34, 463d6459f20a and ff1e1dc0be18",
+        "Baldi–Rinott–Stein 1989 §3",
+        "arXiv:1211.2284, arXiv:2209.12967 and arXiv:2407.05460v2",
+        "Dzhafarov et al. 2011, Trendtel et al. 2010 and Pittel–Weishaar 1999 retrieval attempts",
+        "Frozen RESULT.md, VERIFICATION.md and verify_rook_maxima.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ε=0 take y_i=x_i and reflect uniform scores to move from minima to maxima. Eq. (1) then gives the audited cube integral with individual powers 2(n−k) and the identical product of squared cross-cell minima. Thus it already covers every square matching inclusion event, not just the variance.",
+          "For r×c, each selected cell has (r−k)+(c−k) external competitors instead of 2(n−k); the two shared competitors per pair are unchanged. No other term in the exact formula sees the dimensions. Sorting the selected scores and integrating powers yields k!/∏_{j=1}^k j(r+c−j), so the displayed joint probabilities follow directly. This is a parameter-count extension of the existing integral argument, not a literal rectangular specialization of the square theorem for every parity.",
+          "Ordered matching counts give the hypergeometric factorial moments, and symmetry alone yields the conditional labelled law for any count distribution."
+        ],
+        "reasoning": "The endpoint is demonstrable equivalent coverage on the square subfamily. Unequal sides change only the multiplicity of independent one-cell factors already present in the exact formula, with no new dependence relation or constraint. The remaining integral evaluation, finite moment identification and relabelling are direct deductions. Thus the mathematical distinction required for the submitted complete law is not established, regardless of what an unavailable historical paper might say.",
+        "searches": [
+          "de6d9e209f34 Proof §1, ε=0 and diagonal mark measure (local mirror offset 2300); §2 Eq. (1) (offset 4400)",
+          "Frozen RESULT.md lines 38–83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Negating scores turns mutual maxima into reciprocal minima. This is also the pure equilibrium set in the common-payoff case (p=1) of Mimun–Quattropani–Scarsini; their Prop. 3.1 gives the same rectangular mean.",
+          "In the bipartite nearest-neighbor graph with shared iid edge weights, orient a choice at each vertex toward its unique minimum-weight edge. Every directed cycle must have length two, since successive distinct edge weights along a longer cycle would have to strictly decrease. Each weak component contains a unique directed cycle, making its component count exactly the reciprocal-minimum count.",
+          "The exact hypergeometric search's strongest hit was this assigned record. The distinct reciprocal-minima record de6d9e209f34 was identified in the targeted catalogue comparison."
+        ],
+        "reasoning": "Identical-payoff equilibria, rook-local extrema, and reciprocal choices on the same iid weighted complete bipartite graph describe the same random set up to score reversal. General independent-player equilibria and vertex-labelled peaks on K_{n,n} do not. The nearest-neighbor component alias makes the 1999 source material even though no claim from that article's full text could be recovered.",
+        "searches": [
+          "Resultary: hypergeometric r+c-1 r c exact joint factorial moments mutual row column maxima minima reciprocal matching rectangular matrix Euler permutation component count",
+          "Resultary: regular minimality Dzhafarov Unlu Trendtel 2011 Pittel Weishaar random bipartite nearest neighbor graph exact distribution component count reciprocal minima iid rectangular",
+          "arXiv:2209.12967 §3 Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected ranked results did not supply a separate explicit rectangular PMF table. However the all-k endpoint integral in de6d9e209f34 determines the square table exactly, including the law of the full labelled unmarked set by inclusion-exclusion.",
+          "Dzhafarov et al. (2011), DOI 10.1016/j.jmp.2010.12.002, is cited by de6d9e209f34 as providing a single-matrix count distribution. The DOI, alternate publisher, and identified author-site retrievals did not yield its formula; exact-work OpenAlex metadata supplied no abstract or usable open copy."
+        ],
+        "reasoning": "A complete family of inclusion probabilities is an exact description even without tabulating individual probabilities. The evidence for square coverage comes from an inspected formula, not from the unavailable Regular Minimality or nearest-neighbor papers.",
+        "searches": [
+          "Exact Resultary rectangular hypergeometric and reciprocity query; self record 355cf7f112df",
+          "Websearch: \"Matrices with a given number of violations of Regular Minimality\" Dzhafarov exact rectangular random matrices reciprocal minima hypergeometric full text Purdue",
+          "Pittel–Weishaar nearest-neighbor graph full text/DOI lookup"
+        ]
+      },
+      "rationale": "The distinct indexed two-copy reciprocal-minimum finding already gives the exact all-order inclusion integral on square boards at its identical-copy endpoint. That integral completely determines the square unmarked law. The advertised rectangular and labelled-set refinements do not leave a supported distinct mathematical result at the standard of more than routine implication: the same exact integral changes only by replacing its external-competitor count, and the labelled distribution follows from exchangeability. This is a coverage judgment, not a claim of publication priority between same-day records or a claim that the older primary literature has been shown to state the rectangular PMF.",
+      "residual_risks": [
+        "No chronological ordering is inferred for distinct records with a common date; the conclusion is mathematical overlap and routine residual deductions.",
+        "The exact scope and formulas of the three unavailable historical papers remain unresolved. None is the basis for the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square single-copy endpoint coverage via a stronger coupled square inclusion statement; obvious external-count replacement for rectangles; no inferred chronology",
+          "evidence": [
+            "§1 specifies diagonal marks at ε=0; §2 Eq. (1) supplies all disjoint-row/column cell events, not only first and second moments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-type-marked-poisson-law-for-reciprocal-minima-surviving-ne--de6d9e209f34",
+          "material_read": "Assumptions, Proof §§1–2 and Relationship to prior work",
+          "method": "Local mirror RESULT.md offsets 2300, 4400 and 8192–10417",
+          "title": "A two-type marked Poisson law for reciprocal minima surviving near-total matrix refresh",
+          "trigger": "Strongest exact finite joint inclusion overlap"
+        },
+        {
+          "assessment": "Published square exact mean and variance; not all-order statistics in the inspected statements",
+          "evidence": [
+            "The square rook comparator gives the same first and second moments and is treated via normal approximation."
+          ],
+          "identifier_or_url": "https://papers.nips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+          "material_read": "§3 Example (2), printed p. 729, Eqs. (6)–(7)",
+          "method": "OA PDF passage near offset 3500",
+          "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+          "trigger": "Direct square-board model"
+        },
+        {
+          "assessment": "Exact rectangular mean in common-payoff case, not the finite PMF",
+          "evidence": [
+            "For p=1, expected equilibria K_AK_B/(K_A+K_B−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.12967",
+          "material_read": "§3 Proposition 3.1, Eq. (3.1), PDF p. 8",
+          "method": "OA PDF passage near offset 23500",
+          "title": "Best-Response Dynamics in Two-Person Random Games with Correlated Payoffs",
+          "trigger": "Identical-interest equilibrium interpretation and rectangular case"
+        },
+        {
+          "assessment": "Square Gaussian asymptotics; larger submatrices use average-based local optimality",
+          "evidence": [
+            "The stated mean/variance asymptotics and CLT do not identify the finite labelled set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.2284",
+          "material_read": "§2.5 Theorems 2.7–2.10, PDF pp. 9–10",
+          "method": "OA PDF passages at offsets 28000–35493",
+          "title": "Energy Landscape for Large Average Submatrix Detection Problems in Gaussian Random Matrices",
+          "trigger": "Local optimality of a 1×1 submatrix"
+        },
+        {
+          "assessment": "Asymptotic basin sizes and equilibrium rankings, not the finite count and matching law in inspected statements",
+          "evidence": [
+            "The results inspect where dynamics converge rather than giving an exact finite unmarked count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.05460",
+          "material_read": "§1, PDF pp. 1–3, v2",
+          "method": "OA abstract/introduction passages",
+          "title": "Basins of Attraction in Two-Player Random Ordinal Potential Games",
+          "trigger": "Same random-potential equilibrium object"
+        },
+        {
+          "assessment": "Broader graph family, lower-order laws",
+          "evidence": [
+            "All graphs have the pairwise covariance formula; on K_{d,d} the square variance agrees with the audit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-four-cycle-variance-law-for-reciprocal-nearest-neighbor-edges--463d6459f20a",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror RESULT.md offset 0",
+          "title": "A four-cycle variance law for reciprocal nearest-neighbor edges in randomly weighted graphs",
+          "trigger": "General graph formulation with iid undirected edge scores"
+        },
+        {
+          "assessment": "Different random object; it does not supply a reciprocal-edge law",
+          "evidence": [
+            "The 2n vertices, not n² cells/edges, get random labels. Peaks compare vertex labels with those of neighboring vertices."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-affine-peak-laws-and-the-one-sixth-transition-under-bipartite-ma--ff1e1dc0be18",
+          "material_read": "Finding, Assumptions and start of Proof",
+          "method": "Local mirror RESULT.md offset 0",
+          "title": "Affine peak laws and the one-sixth transition under bipartite matching deletion",
+          "trigger": "Close search hit with exact count on a complete bipartite graph"
+        },
+        {
+          "assessment": "No primary count formula recovered; not used as established overlap",
+          "evidence": [
+            "de6d9e209f34 describes a single-matrix count distribution. OpenAlex metadata lists the journal copy and no open text or abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmp.2010.12.002",
+          "material_read": "Bibliographic metadata and the secondary description in de6d9e209f34 only",
+          "method": "DOI, publisher and identified Purdue publication-site attempts; exact-work metadata lookup",
+          "title": "Matrices with a given number of violations of Regular Minimality",
+          "trigger": "Potential earlier exact count of complementary failures of reciprocity"
+        },
+        {
+          "assessment": "Potential full-cardinality special case, not independently verified",
+          "evidence": [
+            "de6d9e209f34 describes a consistent matching involving all rows and columns; retrieved alternate contained no usable passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fpsyg.2010.00211",
+          "material_read": "Citation and secondary account; no primary formula recovered",
+          "method": "OA publisher and identified PMC3125534 alternate",
+          "title": "Matrices Satisfying Regular Minimality",
+          "trigger": "Perfect reciprocal matching special case"
+        },
+        {
+          "assessment": "Potential stronger historical theorem; full text unavailable and no coverage inferred from title",
+          "evidence": [
+            "de6d9e209f34 reports single-copy bipartite nearest-neighbor matching/connectivity results. The statement under audit equals a component count under the shared atomless edge-weight assumptions described above."
+          ],
+          "identifier_or_url": "Random Structures & Algorithms 15 (1999), 279–310; Pittel and Weishaar",
+          "material_read": "Bibliographic citation and secondary characterization only",
+          "method": "Publisher DOI attempts and websearch for an identified open text",
+          "title": "The random bipartite nearest neighbor graphs",
+          "trigger": "Component-count alias for exactly the same reciprocal choice construction if weights are shared"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The count and full location law answer a natural question and are convenient to use. However the stated contribution, compared with the inspected exact all-matching integral, reduces to a routine change in the competitor count, elementary integration and hypergeometric identification; conditional uniformity is forced by symmetry. No independently useful nonmechanical remainder is established as submitted. This is not a rejection on grounds of small size or mathematical incorrectness.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

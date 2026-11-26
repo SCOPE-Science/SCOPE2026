@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:23:11.021487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each common eigenmode write d=ell+beta, t=(ell+a)/d, z=hd, s=1-e^(-z), and mu=1-t. The predictor has gain 1-ts; substitution into the published phi_2 corrector yields R=1-ts[1+(1-t)(1-s/z)]. Equivalently R=e^(-z)+(s^2/z)mu+s(1-s/z)mu^2. For -1<=mu<1 this convex quadratic is strictly less than 1: at the endpoints -1 and 1 its values are 1-2s^2/z and 1, and the quadratic coefficient is positive. It is greater than -1 since its linear term is at least -s^2/z and 0<s^2/z<s<1. For mu<-1 the stiff limit mu^2>1 yields finite-step energy growth. The modal weights in the original energy are ell+a>0, giving the exact stabilizer frontier and strict finite-step decrease for nonzero states at equality. For (ell,a)=(1,2), beta=2 gives the exact positive exponential; beta=19/11 at h=11/5 gives 600R=-5+616e^(-6)-11e^(-12)<0, since the terms through order 13 give an exact rational lower bound e^6>400. At beta=1, expanding 4z e^(2z) R(z,3/2) gives coefficient numerators 2^(n-1)(n-6)+3n+6 for n>=1, positive by the first five terms and n>=6; hence there is positivity at every finite positive step. These check a three-parameter reentry witness only, not a phase diagram. For scalar L_0, the worst stiff state gain is the square of max(|beta-a_-|,|beta-a_+|)/(ell+beta), which strictly decreases then strictly increases about their midpoint by differentiating the two branches. The midpoint is feasible, gives the stated value and gives zero for a coincident endpoint. The supplied 3958-check output is frozen finite evidence; verify.py was inspected and not executed. The Jiang reference has a title discrepancy relative to the cited PDF, but the update and proof use Fu–Shen–Yang's exact equations and not the Jiang source.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fu–Shen–Yang's sufficient hypothesis becomes beta>=max_j a_j, not the exact half-difference threshold. Li et al. treat the spatially discretized nonlinear phase-field-crystal problem. Resultary bc907224a5c8 treats the scalar quartic Allen–Cahn energy on [-1,1]."
+        ],
+        "reasoning": "The sufficient nonlinear theorem only provides part of the stable region and no necessity. Neither of the distinct nonlinear models gives the claimed full classification for arbitrary commuting positive pairs; an invariant-set or model-specific estimate would not determine the all-step sign of every positive scalar state here.",
+        "searches": [
+          "Fu–Shen–Yang Theorem 2.1 and Corollary 3.2",
+          "arXiv:2406.06272, abstract and Theorem 3.1",
+          "Resultary: sharp one-step original-energy frontier for stabilized ETDRK2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.15142v2 and arXiv:2406.06272",
+        "Jiang institutional PDF opening",
+        "Resultary 2026/11/8/bc907224a5c8",
+        "DOI:10.1006/jcph.2002.6995 (unsuccessful primary access)",
+        "Kassam–Trefethen Oxford PDF, publication/PDF/2005_111.pdf, §2 opening",
+        "Frozen RESULT.md and verification package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fu–Shen–Yang discuss stabilization and time delay but the inspected passages do not optimize the stiff multiplier. The Allen–Cahn Resultary theorem is about one-step energy for specific nonlinear data, not positivity of this quadratic map. Jiang et al. concern maximum-bound preservation for different mass-conserving models."
+        ],
+        "reasoning": "The midpoint once the scalar stiff limit is known is the familiar balancing of the extreme spectral deviations (equivalently the scalar Richardson damping minimax), so credit is for its concrete use here, not the minimax principle by itself. The nonmonotone three-stabilizer sign result requires a negative finite-step witness and a proof of recovered positivity for every finite positive step; neither follows from energy decrease or a discussion of delay.",
+        "searches": [
+          "arXiv:2402.15142v2 §4.3 stabilization and time delay",
+          "Resultary 2026/11/8/bc907224a5c8 versus stated hypotheses",
+          "Jiang institutional PDF, opening page and scheme scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the displayed ETDRK2 update, this is the real split test equation with implicit coefficient -d<0 and explicit coefficient mu*d; the boundary is |R(z,1-mu)|<1 for all z>0 in the range mu<1, exactly mu>=-1. Fu–Shen–Yang explicitly give the predictor/corrector. The older Cox–Matthews article was identified, but its primary passage on the stability function was not recovered."
+        ],
+        "reasoning": "The scalar absolute-stability formulation could contain the frontier without energy terminology. A full table or theorem for the real split test equation showing this all-z criterion would cover the modal energy claim. The routine gain formula itself is not the claimed novelty; recovering a named scheme does not verify a stability region or this positivity witness.",
+        "searches": [
+          "Fu–Shen–Yang arXiv:2402.15142v2 §3.2, equations (3.4)–(3.5)",
+          "Primary search: Cox Matthews Exponential time differencing for stiff systems 2002 ETD2 equation stability region linear test exponential Runge Kutta pdf |R| -2",
+          "DOI:10.1006/jcph.2002.6995 and publisher PII S0021999102969950"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact indexed frontier is alpha>=1 for the scalar quartic Allen–Cahn problem, not a diagonal quadratic flow or a tabulation of its gain. Related frozen catalogue references treat CN/AB and Richardson extrapolation, not this update."
+        ],
+        "reasoning": "No inspected catalogue statement or primary table gives the full quadratic frontier together with the sign witness. A historical stability chart or exact test-equation table is not excluded by the access limits.",
+        "searches": [
+          "Resultary: commuting quadratic stabilized ETDRK2 threshold / reentrant positivity / large-step minimax",
+          "2026/11/8/bc907224a5c8, RESULT.md finding",
+          "Cox–Matthews JCP 176 (2002) primary access attempts"
+        ]
+      },
+      "rationale": "The claimed advance is the exact necessary-and-sufficient commuting quadratic original-energy frontier and the stable sign-loss/recovery witness for the established ETDRK2 scheme. Neither the integrator, the modal reduction, nor the midpoint minimax principle is credited as a new general technique. The known sufficient Lipschitz bound and inspected nonlinear Allen–Cahn/phase-field-crystal results do not imply this result on the stated class. The older scalar ETD2 stability literature remains a real coverage risk, qualified below.",
+      "residual_risks": [
+        "An older split ETD2 scalar stability result or chart could encode the all-step real-ray criterion. The Cox–Matthews primary stability passage was not verified, and the unsuccessful access is not evidence of absence.",
+        "The neighbouring nonlinear frontier and update are known; no exhaustive priority claim is made for the quadratic threshold or the sign witness. The minimax balancing principle is classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scheme, broader sufficient framework but no exact necessity or three-stabilizer result in inspected passages",
+          "evidence": [
+            "The predictor/corrector agree for G=-I. Beta>=C_L is sufficient; with the linear positive F, C_L=max_j a_j."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.15142v2",
+          "material_read": "§3.2 Eqs. (3.4)–(3.5), offset 27083; Theorem 2.1, offset 17589; Corollary 3.2, offset 27672; §4.3 offsets 46658–47513",
+          "method": "Open primary full-text passages",
+          "title": "Higher-Order Energy-Decreasing Exponential Time Differencing Runge–Kutta methods for Gradient Flows",
+          "trigger": "Exact ETDRK2 scheme and potential dominating energy theorem"
+        },
+        {
+          "assessment": "Different equation and energy estimate",
+          "evidence": [
+            "Data-dependent spatially discrete nonlinear phase-field-crystal argument, not an evaluated exact quadratic split region."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.06272",
+          "material_read": "Abstract, offset 0, and Theorem 3.1, offset 76483",
+          "method": "Open primary full-text passages",
+          "title": "Global-in-time energy stability analysis for the exponential time differencing Runge–Kutta scheme for the phase field crystal equation",
+          "trigger": "Related ETDRK2 energy theorem"
+        },
+        {
+          "assessment": "Different invariant and model; frozen bibliography uses a different title",
+          "evidence": [
+            "Mass-conserving Allen–Cahn schemes with maximum-bound results, not the linear amplification witness."
+          ],
+          "identifier_or_url": "https://ira.lib.polyu.edu.hk/bitstream/10397/93294/1/Jiang_Unconditionally_Stable_Exponential.pdf",
+          "material_read": "Opening PDF page",
+          "method": "Institutional primary PDF",
+          "title": "Unconditionally stable exponential time differencing schemes for the mass-conserving Allen-Cahn equation with nonlocal and local effects",
+          "trigger": "ETD maximum-bound preservation versus scalar step positivity"
+        },
+        {
+          "assessment": "Substantive related frontier for a different flow, not quadratic class coverage",
+          "evidence": [
+            "One-step original-energy nonincrease for every h>0 and u in [-1,1] iff alpha>=1 for the quartic problem; not an invariant-interval or all-future-step theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-one-step-energy-frontier-for-stabilized-etdrk2-on-the-sc--bc907224a5c8",
+          "material_read": "RESULT.md original finding and scope",
+          "method": "Published local mirror",
+          "title": "A sharp one-step energy frontier for stabilized ETDRK2 on the scalar quartic Allen–Cahn equation",
+          "trigger": "Same numerical method and exact all-step energy frontier"
+        },
+        {
+          "assessment": "Material residual historical risk, not an exclusion",
+          "evidence": [
+            "Kassam–Trefethen, Fourth-Order Time-Stepping for Stiff PDEs, §2 opening (Oxford PDF offset about 13409), identifies Cox–Matthews as a foundational ETD/RK reference, but gives no second-order real-ray boundary in that passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jcph.2002.6995",
+          "material_read": "Bibliographic identity, no full-text stability passage recovered",
+          "method": "Focused literature search and lawful DOI/publisher retrieval attempts; publisher returned 403",
+          "title": "Exponential Time Differencing for Stiff Systems",
+          "trigger": "Classical ETD split stability analysis potentially giving the necessary-and-sufficient modal condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a stabilized integrator actually used to enforce energy decrease, the quadratic bound specifies how far one can lower stabilization while preserving unconditional dissipation. The explicit scalar example is a meaningful warning that energy stability and positivity are different: lowering the stabilizer within the stable class can break and then restore all-step positivity. The stiff-step optimum further distinguishes the stable admissible range from good large-step attenuation without implying finite-step or nonlinear optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

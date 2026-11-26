@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:21.955680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After m shifts, every constraint with j≤m is established by the update and inherited by shifts; at m=d−k the last k coordinates are precisely the original first k. For 0≤m<d−k the constraint at j=m+1 still compares the independent initial coordinates x1 and x(k+1) for uniform input and holds with probability zero, so the stationary pushforward is not reached earlier. On the graph the first new trailing coordinate is T of the old last trailing coordinate, giving G and hence G^k=T×…×T. The graph is bi-Lipschitz to the k-cube via its projection, and hence has ambient measure zero. T^m has 2^m equal-length full branches; the transfer iterates take cylinder-constant functions to their mean and approximate arbitrary L¹ densities by contraction. The same holds in product cylinders, and the bounded residue of iteration of G modulo k preserves this limit. The first k marginal of an ambient density is absolutely continuous, and the graph parametrization preserves the TV comparison. Ergodicity also gives Birkhoff convergence for these initial densities; a delta at the all-(1/3) fixed point is a concrete singular exception. On the stationary graph each time residue modulo k depends on a different independent uniform seed, with each strand undergoing T. Direct inverse-branch averaging gives Pt=0 and Pb=b/4−t/2 for b=t²−1/3, so ∫b²=4/45 and ∫tb=0 give the exact covariance including lag zero. The Fourier series is absolutely convergent and gives the stated Poisson kernel in kω, not point masses. For the CLT, v=b/3−2t/3 satisfies Pv=v−Pb, and m=b+v−v∘T has Pm=0. Thus m∘T^j is a bounded stationary reverse martingale difference for T^{-j} of the Borel σ-field; conditional variance averages converge by ergodicity. The telescoping difference is bounded, so the martingale variance is the covariance sum 4/27. Independence of the k strands and their sizes N/k+O(1) gives the claimed fixed-k limit.",
+      "replay": "The frozen CHECK.py was read, not executed; its spectral check is at zero frequency, not a proof of the spectrum or the CLT. Independently ran python3 /workspace/reproductions/1_branch_integrals.py (output 1_branch_integrals.log), using exact degree-four quadrature on the affine cylinders of T^m rather than the transfer recurrence. It returned 4/45, 1/45, 1/180, …, 1/737280 through m=8, and zero positive-lag linear covariances. The all-lag proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Góra–Boyarsky–Li gives a singular SRB law for a different coupled memory map G_alpha and almost-everywhere time-average convergence.",
+          "e2d6dd183a33 gives a rank-one coordinate-vector CLT for a planar triangular tent map."
+        ],
+        "reasoning": "The weighted coupling is not the endpoint's pure fixed lag, and Birkhoff attraction alone does not imply convergence of pushed-forward probabilities in TV. The planar-vector theorem neither identifies the stationary delay law nor computes the squared-coordinate variance. Generic product exactness and martingale CLT are ingredients, not this specialized statistical calculation.",
+        "searches": [
+          "arXiv:1607.01658v1 abstract, introduction and memory model",
+          "Resultary: tent covariance and Gaussian fluctuations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.01849v1",
+        "arXiv:1607.01658v1",
+        "Resultary 61b734b81bc7",
+        "Resultary 898171b8464a",
+        "Resultary e2d6dd183a33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former classifies least-period-two solutions by delay parity; the latter discusses reduction, bifurcations and the degenerate Lyapunov spectrum."
+        ],
+        "reasoning": "A dimension count or periodic-orbit classification alone fixes neither the propagated ambient ensemble nor the centered-square transfer polynomial and lag covariance. The deductions here are specific to full height, and are not asserted as new general dynamical theorems.",
+        "searches": [
+          "2026/11/1/SCOPE-delay-parity-bifurcations-of-prime-two-cycles-in-the-generalized--61b734b81bc7",
+          "arXiv:2005.01849v1 §§II–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2005.01849v1 §II Eqs. (3),(5) give the same recurrence; §III.2 identifies the k-dimensional endomorphism at nu=1.",
+          "898171b8464a treats linear autocovariance in a one-dimensional Markov skew-tent family."
+        ],
+        "reasoning": "The endomorphism reduction is prior art, not a novelty claim. The single-map linear covariance result is not the lag-filtered squared-coordinate covariance; the difference survives rewriting the delayed endpoint as a cyclic product.",
+        "searches": [
+          "Bilal Ramaswamy higher-dimensional Lozi delayed map exact tent endpoint a=2 nu=1 collapse invariant measure correlations CLT",
+          "Resultary: delayed Lozi singular-graph collapse and squared-coordinate covariance/CLT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching ranked result is the assigned record itself. Related indexed spectra inspected were for Markov skew-tent linear coordinates and triangular tent systems."
+        ],
+        "reasoning": "Neither distinct result supplies the all-lag 4^(-n/k) covariance on multiples of k or the displayed stationary spectrum. A bounded indexed search is not global noncoverage evidence.",
+        "searches": [
+          "Resultary: full-height delayed Lozi quadratic covariance and CLT variance 4/27",
+          "2026/11/22/SCOPE-finite-time-singular-collapse-and-lag-filtered-fluctuations-in-d--f48248c7d010"
+        ]
+      },
+      "rationale": "The recurrence, its dimension reduction and standard tent-map tools are established. No distinct inspected source specifies the endpoint's exact uniform-in-trailing-coordinates stationary graph law with the fixed-lag squared-coordinate fluctuation statistics. The assessment is limited to the stated endpoint and the named observable.",
+      "residual_risks": [
+        "Classical tent-map results may contain the individual single-strand identities or allow a short derivation. An unindexed treatment of the full a=2, nu=1 endpoint is not excluded. No global priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes prior k-dimensional reduction, not the stated stationary fluctuation package in inspected passages",
+          "evidence": [
+            "Generalized delay recurrence, state vector and Lyapunov degeneracy at nu=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2005.01849v1",
+          "material_read": "§II Eqs. (3),(5) and §III.2, OA offsets 0–5995, 5900–12637, 11700–15948",
+          "method": "Primary OA text comparison",
+          "title": "A higher-dimensional generalization of the Lozi map: Bifurcations and dynamics",
+          "trigger": "Same delay recurrence and endpoint"
+        },
+        {
+          "assessment": "Different map with weighted memory and a Birkhoff statement",
+          "evidence": [
+            "Coupling parameter alpha in (3/4,1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.01658v1",
+          "material_read": "Abstract/introduction and p.2 at offsets 0,1295,4986",
+          "method": "Primary OA PDF text inspection",
+          "title": "Singular SRB measures for a non 1–1 map of the unit square",
+          "trigger": "Tent memory and singular physical laws"
+        },
+        {
+          "assessment": "Period-two solutions, not stationary ensemble statistics",
+          "evidence": [
+            "Delay parity and least-period-two parameter classification"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-delay-parity-bifurcations-of-prime-two-cycles-in-the-generalized--61b734b81bc7",
+          "material_read": "RESULT.md opening Finding at offset 0",
+          "method": "Published record comparison",
+          "title": "Delay-parity bifurcations of prime-two cycles in the generalized Lozi recurrence",
+          "trigger": "Distinct same-family record"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": [
+            "Linear observable and generating function for one-dimensional Markov skew tent"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-covariance-resonance-and-fluctuation-optimal-tuning-in-a-m--898171b8464a",
+          "material_read": "RESULT.md opening Finding at offset 0",
+          "method": "Published record comparison",
+          "title": "Exact covariance resonance and fluctuation-optimal tuning in a Markov skew-tent family",
+          "trigger": "Exact tent covariance and CLT"
+        },
+        {
+          "assessment": "Planar coordinate-vector claim, not the squared-coordinate delay law",
+          "evidence": [
+            "Rank-one Gaussian covariance on a planar triangular tent map"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-rank-one-gaussian-fluctuations-and-a-sharp-bounded-coboundary-in--e2d6dd183a33",
+          "material_read": "RESULT.md opening Finding at offset 0",
+          "method": "Published record comparison",
+          "title": "Rank-one Gaussian fluctuations and a sharp bounded coboundary in a triangular tent system",
+          "trigger": "Tent-map CLT with bounded coboundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a natural rank-degenerate boundary, the exact collapse clock and TV law explain why ambient densities reach a singular stationary regime. The observable contrast is substantive: every nonzero linear lag is silent, while centered squares reveal the delay through the spectrum and inflate the variance of the time average by 5/3. The finding covers all fixed d>k≥1; it does not imply a nearby-parameter or growing-delay theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

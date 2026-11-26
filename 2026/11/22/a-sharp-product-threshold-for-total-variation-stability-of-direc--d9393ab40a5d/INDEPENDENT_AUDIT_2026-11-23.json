@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:41:25.285789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting adjacent clamped outputs gives exactly the three coefficients in RESULT.md (1): ell_i, 1-r_i-ell_(i+1), r_(i+1), on increments d_(i-1), d_i, d_(i+1) respectively. With q=rho(|d_i|), the sum r_i+ell_(i+1) is bounded by bq/(1+bq)+aq/(1+aq), and it is this upper bound that is at most 1 iff ab q^2<=1. Thus on the sufficient side the edge matrix is nonnegative, with column sum 1 except for the lost boundary terms r_0 and ell_(n-1); for n=2 both losses are in the same column. Splitting each row into positive and negative contributions before taking its absolute value gives exactly the two losses plus twice the rowwise minimum, proving (3). The step (0,0,1,...,1) has unchanged endpoints and nonnegative output increments for n>=4, so the gain of 1 is attained. For ab>1 select delta>0 with ab rho(delta)^2>1 by continuity at 0. For the proposed monotone six-entry input, the endpoints are fixed and the central output increment tends to delta[1-bq/(1+bq)-aq/(1+aq)]<0 as T grows, because T rho(T) vanishes. Thus at some finite T the fixed endpoints and a strict negative output edge give TV increase, and endpoint repetition preserves the witness for n>6. This proves the one-input iff for n>=6 and sufficiency for n>=2, not two-input Lipschitz contraction. Inspected the source proof and VERIFICATION.md/verify.py without executing the upload; the reported finite rational tests apply to one affinity and are not used for generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harten supplies sufficient incremental conditions for TVNI, using nonnegative difference coefficients; it contains no converse for this filter.",
+          "Record 6b2805917be0 gives a sharp one-input norm over fixed symmetric banded stochastic matrices that may amplify TV. The class is not this normalized data-dependent directed family.",
+          "Record 69c5a09787d4 concerns truncated midrange and weighted two-input variation, not range-affinity normalized averaging."
+        ],
+        "reasoning": "Neither a sufficient lemma for general schemes nor an extremal statement over a broader but differently specified class of matrices determines which directed bilateral weights admit a matching bad input.",
+        "searches": [
+          "Harten, High Resolution Schemes for Hyperbolic Conservation Laws, Lemma 2.2",
+          "Resultary: symmetric banded stochastic variation laws, three-point variation rigidity"
+        ]
+      },
+      "checked_sources": [
+        "Harten DOI:10.1016/0021-9991(83)90136-5",
+        "Resultary d9393ab40a5d (identical), d32ecd04e964, 69c5a09787d4, 6b2805917be0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sufficient side is the known incremental-form argument specialized using r_i+ell_(i+1)<=bq/(1+bq)+aq/(1+aq).",
+          "The two-input two-site instability result neither yields a monotone n>=6 witness for one-input gain nor contradicts nonincrease when ab<=1. A fixed symmetric matrix extremum gives neither inequality at the product boundary nor a witness realized by the nonlinear affinities."
+        ],
+        "reasoning": "The separation of a tiny central jump from two large flanking jumps while preserving path endpoints is what converts coefficient failure into a strict TV counterexample for each fast-tail affinity. It is not supplied by the general sufficient criterion.",
+        "searches": [
+          "Harten Lemma 2.2 and proof, PDF passage at OA offset 17600",
+          "Resultary d32ecd04e964, 69c5a09787d4 and 6b2805917be0 opening statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit d9393ab40a5d is the assigned record itself. Distinct d32ecd04e964 studies a symmetric two-site filter and the two-input perturbation bound, which can fail even though each individual input's variation does not increase.",
+          "The sufficient coefficient condition is nonnegativity of the center coefficient 1-r_i-ell_(i+1); it is not an equivalent characterization via Harten alone."
+        ],
+        "reasoning": "One-input TV gain, nonnegative edge transport and two-input TV Lipschitz stability are different statements. Necessity in the frozen model is a statement about actual outputs, not just failure of a sufficient inequality.",
+        "searches": [
+          "Resultary: symmetric or directed three-point bilateral TV-diminishing filter, exact product threshold",
+          "Primary literature: nearest-neighbor bilateral filter one-input total variation and monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same package is indexed with all parts of this law. No distinct matched symmetric or directed bilateral threshold entry was located; the closest exact gain/stability entries use different maps or different norm questions."
+        ],
+        "reasoning": "An exact norm or threshold is prior coverage only when the filter, boundary convention and one-input property match, or a valid reduction exists. A missing index hit is not evidence of priority.",
+        "searches": [
+          "Resultary: bilateral variation sharp stability transition, product boundary, three-point path",
+          "Distinct indexed comparisons d32ecd04e964, 69c5a09787d4, 6b2805917be0"
+        ]
+      },
+      "rationale": "The novelty judgment concerns the sharp directed product boundary and matching converse for the same clamped, range-weighted map and one-input seminorm, together with the exact dissipation. Harten's general sufficient incremental-form criterion already covers the mechanism of sufficiency after the coefficient bound. The inspected literature and distinct indexed comparators do not supply the matching necessity criterion or an equivalent directed classification. This is a bounded coverage judgment, not a priority claim.",
+      "residual_risks": [
+        "Bounded mathematical literature and catalogue comparisons cannot rule out an unindexed bilateral result. The Harten text extraction has subscript OCR noise; the sufficiency statement is clear regardless.",
+        "Same-day comparisons establish scope differences, not ordering or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficiency mechanism is established prior work; no necessity for the bilateral family in the lemma",
+          "evidence": [
+            "Incremental conditions are explicitly sufficient for TVNI and the proof sums nonnegative edge coefficients."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9991(83)90136-5",
+          "material_read": "Lemma 2.2 and proof in OA NASA copy, printed pp. 10–11; PDF p. 16 and following, OA offset 17600",
+          "method": "Primary open PDF passage",
+          "title": "High Resolution Schemes for Hyperbolic Conservation Laws",
+          "trigger": "General incremental-form TV-diminishing mechanism"
+        },
+        {
+          "assessment": "Different site count and two-input property",
+          "evidence": [
+            "A symmetric two-site filter can fail two-input stability under fast tails while its one-input variation does not increase."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-perturbation-stability-transition-for-two-site-bilateral-s--d32ecd04e964/RESULT.md",
+          "material_read": "Finding, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp perturbation stability transition for two-site bilateral smoothing",
+          "trigger": "Closest distinct exact bilateral stability comparator"
+        },
+        {
+          "assessment": "Different operator and different two-input metric",
+          "evidence": [
+            "Truncated midrange and weighted-TV Lipschitz coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-weighted-variation-stability-and-boundary-weight-rigidity--69c5a09787d4/RESULT.md",
+          "material_read": "Finding, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp weighted variation stability and boundary weight rigidity",
+          "trigger": "Exact nearest-neighbor path stability with boundaries"
+        },
+        {
+          "assessment": "Fixed banded symmetric stochastic matrices, not this bilateral family",
+          "evidence": [
+            "An operator-class norm can allow TV amplification; such an extremum need not be realized by the range-weighted map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-plateau-law-for-path-variation-under-local-symmetric-ma--6b2805917be0/RESULT.md",
+          "material_read": "Finding, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A parity plateau law for path variation under local symmetric maps",
+          "trigger": "Sharp one-input TV gain on a path"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directed weights may be very asymmetric, so a sharp bound on their product is more informative than separately restricting both spatial weights. The theorem settles precisely when every signal loses no stability in the one-input TV sense, and the adverse example above the boundary is monotone and needs only six sites. The dissipation separates boundary leakage from interior cancellation and identifies attainable equality. The meaningful advance is the sharp classification and witness, not re-proving the generic sufficient incremental lemma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

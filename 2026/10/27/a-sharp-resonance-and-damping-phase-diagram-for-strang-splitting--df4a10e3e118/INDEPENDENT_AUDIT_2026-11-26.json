@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:39:39.492152Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact flow is Hurwitz since its characteristic polynomial is λ²+γλ+ω² with γ,ω>0. Multiplying the three exact substeps gives S_h=[[r²c,−rs],[rs,c]] with r=e^(−γh/2), c=cos(ωh), s=sin(ωh). The determinant is r² and the trace (1+r²)c, so the determinant-normalized quadratic gives the stated radius in both discriminant regimes. Equality in the norm contraction requires a vector in the undamped axis before the first damping factor and after rotation; this happens precisely when s=0, with undamped eigenvalue ±1. The determinant bound is attained on |c|≤sech(γh/2). At fixed damping per step α the angular width is 2arcsin(sech α)=4e^(−α)+O(e^(−3α)); this is not a fixed-width claim in h when α follows h. At a fixed positive resonance let δ=ω(h−h_m) and r_m=e^(−γh_m/2). For the absolute dominant eigenvalue the simple unit root gives deficit ((1+r_m²)/(2(1−r_m²)))δ²+O(δ³). For squared singular values the trace is 2r²+(1−r²)²cos²δ and the determinant r⁴. Expanding its larger simple root at one gives deficit ((1−r_m²)/(1+r_m²))δ²+O(δ³); taking the square root halves it. Changes of r by O(δ) first affect cubic terms. Both leading coefficients are positive, and discriminant-zero spectral rates do not imply bounds without a possible Jordan prefactor. Independent NumPy eigenvalue and SVD checks on both sides of three positive resonances corroborated the two distinct limits (python3 /workspace/reproductions/frozen_checks.py 3).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frommer et al. establish the exact discrete dissipation inequality for the dissipative-half, conservative-full, dissipative-half scheme. Mönch and Marheineke develop related passivity theory and test a linear damped oscillator.",
+          "The Blanes–Casas–Murua survey gives a determinant-one oscillator discriminant classification and a Hamiltonian processing resonance condition. Achleitner–Arnold–Jüngel study strong stability for explicit Runge–Kutta methods."
+        ],
+        "reasoning": "Dissipativity gives only a non-strict contraction for the map. The general trace test covers the normalized spectral quadratic once the matrix is known, not the separate singular-value coefficient or the paired decay profile. The Hamiltonian small-denominator resonance is a different assertion.",
+        "searches": [
+          "arXiv:2401.01722, printed pp. 62, 81, 84",
+          "arXiv:2304.01766, printed pp. 3–4",
+          "arXiv:2405.17106v2, printed pp. 5, 7, 11–12",
+          "arXiv:2310.19758, printed pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.01722",
+        "arXiv:2304.01766",
+        "arXiv:2405.17106v2",
+        "arXiv:2310.19758",
+        "Resultary 178c00968abe and b467b674b3e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the frozen generator the standard Strang identity implies passivity. For the normalized matrix the trace test recovers e^(−α) optimal radius on the complex-root band.",
+          "The ±I steps of classical RK4 cannot give the simple unit-modulus eigenvalue paired with a strictly smaller damped eigenvalue here. Neither one-step passivity nor the normalized trace test establishes a tanh coefficient for the top singular value; it comes from the distinct Gram-matrix expansion."
+        ],
+        "reasoning": "The individual known tools and their immediate consequences are credited. The shared oscillator model is not a theorem for all integrators, and no inspected source already covers the joint sharp spectral and one-step profile for the exact split.",
+        "searches": [
+          "Frommer et al., exact dissipation identity",
+          "Blanes–Casas–Murua, oscillator quadratic p. 62 and Eq. (5.44) p. 81",
+          "178c00968abe, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update is D R_θ D with D=diag(e^(−α),1). Reversing the order to rotation-half/damping/rotation-half yields a similar matrix for eigenvalues by cyclic permutation of invertible factors, not necessarily the same Euclidean norm.",
+          "178c00968abe is the same oscillator but the update is R_4(h(J−R)); it finds exactly two isometric steps, where the whole matrix is ±I. The frozen resonance has one mode strictly damped and infinitely many positive resonant steps.",
+          "b467b674b3e7 compares random damped shears and mean-square stability, not this deterministic composition."
+        ],
+        "reasoning": "Matching the generator, a step-size parameter, or the word resonance does not identify the propagator or the claimed decay diagnostic. Similarity may identify spectral quantities but not singular values in a fixed norm.",
+        "searches": [
+          "Resultary: rank-one damped planar oscillator Strang, exact rotation/damping resonance and isometry",
+          "Resultary 178c00968abe and b467b674b3e7",
+          "arXiv:2304.01766, exact Strang composition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact-isometry and phase-diagram records use RK4 or random shear updates. The other frozen-package oscillator leads concern factor-order stability constants and a different discrete oscillator; they are not relied on as exact coverage.",
+          "The primary benchmark material gives damped-oscillator tests, not a table or general formula for the two dispersion coefficients. A finite test grid cannot certify an exact continuous-parameter formula."
+        ],
+        "reasoning": "No matching exact evaluated invariant was located in the bounded comparisons. This is not a complete search for equivalent formulas.",
+        "searches": [
+          "Resultary: exact spectral phase band, rank-one damping Strang steps, spectral and operator-norm resonance laws",
+          "Resultary 178c00968abe, b467b674b3e7, e73e88d13cc0, 2e5d3c4aa08c",
+          "arXiv:2405.17106v2, oscillator benchmarks at pp. 11–12"
+        ]
+      },
+      "rationale": "Passivity and the Strang update are known; the normalized 2×2 trace/discriminant calculation likewise uses a standard test, and qualitative resonance is not novel. The distinct claim is the sharp quantitative classification for this particular rank-one-damped exact map, pairing its optimally decaying phase band with two different near-resonant laws for asymptotic spectral versus single-step Euclidean decay. The strongest inspected exact-oscillator result is about the RK4 stability polynomial, not this map. The primary statements on port-Hamiltonian passivity and conservative splitting resonance do not supply the joint quantitative result. This is a modest model-specific contribution, not a new general stability criterion.",
+      "residual_risks": [
+        "The full fourth-order force-gradient paper was not available during review; its precise scope is unresolved. Equivalent two-dimensional matrix formulas could exist under other terminology. The verdict is comparative, not a historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quadratic test and different conservative resonance",
+          "evidence": "The determinant-one quadratic classifies complex unit-modulus roots versus a real pair; the resonant condition in Eq. (5.44) is for Hamiltonian processing.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.01722",
+          "material_read": "Printed p. 62 oscillator discriminant; p. 81 Eq. (5.44); p. 84 energy-error discussion",
+          "method": "Bounded open primary PDF reading",
+          "title": "Splitting Methods for Differential Equations",
+          "trigger": "Oscillator matrix stability and resonances"
+        },
+        {
+          "assessment": "Directly covers passivity, not the two sharp decay coefficients",
+          "evidence": "Exact dissipative half-steps and conservative full step give the dissipation inequality, which does not imply strict decay.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.01766",
+          "material_read": "Printed pp. 3–4, composition and discrete dissipation inequality",
+          "method": "Bounded open primary PDF reading",
+          "title": "Operator splitting for port-Hamiltonian systems",
+          "trigger": "The exact same Strang step in broader form"
+        },
+        {
+          "assessment": "Method and benchmark, not a stated spectrum or sharp paired laws",
+          "evidence": "The passages show dissipative substeps and run oscillator experiments rather than classify all exact Strang steps.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.17106v2",
+          "material_read": "Printed pp. 5, 7, 11–12; energy inequality and oscillator benchmark",
+          "method": "Bounded open primary PDF reading",
+          "title": "Commutator-based operator splitting for linear port-Hamiltonian systems",
+          "trigger": "Dissipative splitting and a damped linear harmonic oscillator"
+        },
+        {
+          "assessment": "Different update and isometry mechanism",
+          "evidence": "The stability polynomial evaluates to I or −I at its two isometry steps; it is not the exact Strang product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-two-exact-isometries-of-classical-rk4-on-rank-one-damped-pla--178c00968abe/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding and local singular-value claim",
+          "method": "Indexed discovery and bounded local mirror reading",
+          "title": "The two exact isometries of classical RK4 on rank-one damped planar oscillators",
+          "trigger": "Same oscillator and exact resonance-like steps"
+        },
+        {
+          "assessment": "Inaccessible in this review; possible specialized overlap not evaluated",
+          "evidence": "Neither spelling yielded a readable primary passage. No scientific inference from this failure.",
+          "identifier_or_url": "https://doi.org/10.1002/pamm.202400132",
+          "material_read": "Citation, no primary full-text passage retrieved",
+          "method": "Open-access and publisher retrieval; checked the alternate DOI spelling from the related bibliography",
+          "title": "Fourth-order force-gradient splitting for linear port-Hamiltonian systems",
+          "trigger": "Specialized related oscillator splitting paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A passive integrator that does not decay at specific steps is a useful counterexample to inferring asymptotic stability from an energy inequality. The optimally decaying band and its narrowing quantify where this simple split performs best, while the unequal sharp coefficients distinguish relative long-run decay from one-step Euclidean energy control. This gives a parameter-uniform benchmark beyond the textbook quadratic formula alone, without claiming multi-mode or finite-precision guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

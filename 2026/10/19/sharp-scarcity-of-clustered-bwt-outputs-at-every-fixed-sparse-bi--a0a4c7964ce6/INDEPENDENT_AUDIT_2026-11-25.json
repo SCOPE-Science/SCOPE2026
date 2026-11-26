@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:52:02.200454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–43 (lexicographic and counting proof reconstructed)",
+        "VERIFICATION.md lines 1–23",
+        "verify.py lines 10–57 (inspected, not executed)"
+      ],
+      "rationale": "The convention is indexed words, duplicate rotations retained, no marker, and linear runs. For nonconstant input the first sorted row starts with a longest cyclic zero block, hence has predecessor 1. Likewise the last sorted row starts with a longest one block, with predecessor 0. Ties of equal rotations cannot change those letters. There are exactly k predecessor ones, so maximal run count is equivalent to isolation of all output ones. When all gaps are positive, output ones correspond to starting at the first zero of a gap. If the gap sizes are separated by at least two, a rotation starting one position later in the longer gap has an intermediate zero-prefix length and predecessor 0, so lexicographically separates the two output ones. When the largest gap is repeated (with n>k, so it is positive), the first rows are those gap starts and the output begins 11. For the upper count, a specified zero coordinate leaves k−1 nonnegative variables of fixed total, with O_k(n^(k−2)) solutions. A specified difference in {−1,0,1} leaves O(n) choices for one of the two coordinates and O_k(n^(k−3)) for the remaining k−2 at fixed sum; finitely many such relations suffice. For the lower count, prescribe g1=g2=m in [0.36n,0.38n]. At fixed k and all sufficiently large n the remaining n−k−2m is positive, comparable to n and less than m, so the first two coordinates are exactly the largest. There are Θ(n) values of m and Θ_k(n^(k−3)) ordered compositions for each. A marked tuple plus an absolute marked position fixes the indexed word, with each word admitting at most k of the allowed markings even for periodic words. Thus the lower family gives Ω_k(n^(k−1)) words; using the same marking relation for the upper count gives O_k(n^(k−1)). Division by binomial(n,k) gives the probability. The positive even deficit among exceptions is between 2 and 2k−2, so the expected-deficit comparison also holds.",
+      "residual_risks": [
+        "Separation of gap lengths is only sufficient, not necessary. An arbitrary repeated nonlargest gap need not force failure.",
+        "The reported 190,890 direct checks are finite corroboration and say nothing about uniformity in k or sentinel-based BWT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. bound BWT runs relative to input runs, describe special extremal families, and do not restrict to uniform indexed fixed-weight distributions in the inspected passage.",
+          "31ca9d66545f gives a broader upper-bound analysis with exact count of the clean-gap class but not sharp failure from below. 18f8236bc355 computes the full transform of a specified increasing-gap family with an adjacent cyclic one pair."
+        ],
+        "reasoning": "A broad deterministic upper bound, an exact count of a sufficient class, or a special family of highly unclustered inputs does not supply a sufficiently large family of exceptional inputs. An exact general result in the other direction was not found in the inspected sources.",
+        "searches": [
+          "Mantaci–Restivo–Rosone–Sciortino–Versari DOI:10.1016/j.tcs.2017.07.015",
+          "Resultary 31ca9d66545f and 18f8236bc355",
+          "Literature: Burrows Wheeler inverse number preimages fixed content output runs binary strings LF mapping cycle counts sparse fixed weight"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 31ca9d66545f, 888cea75eaa4, 1b2e4b268091, 17765181f4c4, 18f8236bc355, 195f68bb7ba1",
+        "Burrows–Wheeler SRC 124 pp. 7–9",
+        "Mantaci et al. DOI:10.1016/j.tcs.2017.07.015",
+        "arXiv:2404.10426, inspected attribution passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From inversion given (L,I), there are at most n indexed preimages per L. Using the endpoint property, the number of candidate last columns with j<k one-runs is binomial(k−1,j−1) binomial(n−k−1,j−1). Summing over 1≤j<k and multiplying by n already gives O_k(n^(k−1)). This is an implication of the classical transform with an elementary composition count.",
+          "Most arbitrary candidate last columns are not automatically valid; this argument provides no lower bound on their preimages. Exact weight-four enumeration does not supply the general count. The repeated-largest-gap construction gives Ω_k(n^(k−2)) marked tuples for every fixed k, hence the missing indexed lower bound."
+        ],
+        "reasoning": "The one-sided rarity upper estimate is not credited as a distinct contribution on its own. The certified lower family shows that the leading decay order cannot be improved and does not follow from the inspected upper-bound, inversion or fixed-small-weight results.",
+        "searches": [
+          "Burrows–Wheeler Digital SRC Research Report 124 pp. 7–9",
+          "Resultary 31ca9d66545f Finding and upper-bound proof",
+          "Resultary 888cea75eaa4 weight-four generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent probability and indexed count laws use all binomial(n,k) words. Resultary 31ca9d66545f covers the same convention and O_k(1/n) failure bound but not the repeated-largest-gap construction or matching lower bound.",
+          "17765181f4c4 counts weight-three necklaces rather than indexed strings. Converting necklace counts to exact indexed counts would require weighting by the number of distinct rotations, not just multiplying uniformly by n. 195f68bb7ba1 counts periodic runs in the input, not runs of the BWT."
+        ],
+        "reasoning": "Weight normalization and choice of runs are decisive. The upper probability law alone includes the possibility of o(1/n) failure; it does not imply the stated sharp exception order. The transform of one explicit increasing-gap class is not a distribution over indexed words.",
+        "searches": [
+          "Resultary: binary circular Burrows Wheeler transform fixed number of ones run count cyclic gaps maximum runs sparse weight",
+          "Resultary: circular BWT exactly fixed k markers exceptional nonmaximum runs O(n^{k-1}) repeated largest gap",
+          "Literature: circular Burrows-Wheeler fixed weight binary run count cyclic gaps sparse words maximum runs inverse combinatorial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "888cea75eaa4 gives the exact weight-four indexed spectrum; at six runs the coefficient asymptotic is 23n³/48 and the other exceptional classes are smaller order, proving the weight-four instance.",
+          "1b2e4b268091 gives the indexed weight-three exceptions n²−8n/3 if 3 divides n and n²−3n otherwise. The necklace record 17765181f4c4 gives the related exact weight-three spectrum modulo rotation."
+        ],
+        "reasoning": "These are direct partial coverage rather than mere matches in terminology, but a result at weights three or four is not an exact table or formula for all larger fixed weights. This distinction does not rely on the records' catalogue dates.",
+        "searches": [
+          "Resultary: exact run spectrum circular binary Burrows Wheeler transform words with two ones fixed weight",
+          "Resultary 888cea75eaa4, 1b2e4b268091, 17765181f4c4"
+        ]
+      },
+      "rationale": "Credit the sharp lower-order obstruction and the two-sided law uniformly as a statement for every fixed k≥4, not the upper exponent alone, the separated-gap criterion by itself, or the isolated weight-four result. The strongest all-weight comparison already has the same run upper bound and separated-gap sufficiency with an O_k(1/n) failure bound, but not a matching lower failure bound. A separate exact weight-four spectrum proves that instance with a leading constant. The distinct content is a construction and matching order of rarity for the general fixed-weight regime.",
+      "residual_risks": [
+        "The bounded search does not settle historical priority or exclude a uniform fixed-weight asymptotic derived through an uninspected characterization of valid inverse BWT outputs.",
+        "The result does not improve the more exact special-weight tables, and the independent significance of the one-sided estimate is limited by the classical inverse counting argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on deterministic certificate and upper probability bound, not sharp lower failure bound",
+          "evidence": "Same 2k upper bound, separated positive gaps, exact count of the certified class and fixed-weight O(1/n) failure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-sparse-weight-law-for-circular-burrows-wheeler-runs--31ca9d66545f",
+          "material_read": "RESULT.md at offsets 0 and 4000",
+          "method": "Published local mirror",
+          "title": "A sharp sparse-weight law for circular Burrows–Wheeler runs",
+          "trigger": "Closest all-weight matching result"
+        },
+        {
+          "assessment": "Direct and stronger exact k=4 coverage",
+          "evidence": "Six-run count asymptotic to 23n³/48; other nonmaximal counts are lower order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-run-spectrum-of-the-circular-binary-burrows-wheeler-transf--888cea75eaa4",
+          "material_read": "RESULT.md Finding and generating-function statement, offset 0",
+          "method": "Published local mirror",
+          "title": "Exact run spectrum of the circular binary Burrows–Wheeler transform at weight four",
+          "trigger": "Full census on one included weight"
+        },
+        {
+          "assessment": "Indexed and necklace versions; both restrict to k=3",
+          "evidence": "Indexed exception counts of order n²; necklace distribution distinguishes rotations only modulo cyclic shift.",
+          "identifier_or_url": "1b2e4b268091; 17765181f4c4",
+          "material_read": "RESULT.md Findings at offsets 205 and 0, respectively",
+          "method": "Published local mirror",
+          "title": "Exact weight-three circular Burrows–Wheeler spectra",
+          "trigger": "Closest smaller-weight fixed-weight results"
+        },
+        {
+          "assessment": "Special family, not distribution over indexed words",
+          "evidence": "Full transform for an increasing-positive-gap family with an adjacent pair of ones.",
+          "identifier_or_url": "18f8236bc355",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Exact circular Burrows–Wheeler transforms of increasing-gap binary words",
+          "trigger": "Related gap-based structural classification"
+        },
+        {
+          "assessment": "Classical reduction implies an elementary upper bound, not lower rarity",
+          "evidence": "Sorted cyclic rotations, last column L and primary row I; (L,I) recover the input and L preserves its content.",
+          "identifier_or_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+          "material_read": "PDF pp. 7–9 near offsets 6006 and 9580",
+          "method": "Primary OA PDF passages",
+          "title": "A Block-sorting Lossless Data Compression Algorithm",
+          "trigger": "Inversion and composition-count route to the upper bound"
+        },
+        {
+          "assessment": "Different run comparison and extremal regime",
+          "evidence": "Up to a doubling of input run count, rather than sharp fixed-weight exception frequencies.",
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf",
+          "material_read": "PDF p. 2 near offset 2633",
+          "method": "OA postprint passage",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "General BWT-run extremal results"
+        },
+        {
+          "assessment": "Does not establish the cited fixed-weight 2k construction at that locator; possible version or numbering mismatch",
+          "evidence": "The retrieved proposition concerns a family with r(w) of order n^(1/k), not the two-sided fixed-weight exception probability.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.10426",
+          "material_read": "Accessible Proposition 15 passage, PDF p. 14",
+          "method": "OA PDF passage",
+          "title": "Bit catastrophes for the Burrows–Wheeler transform",
+          "trigger": "Related attribution about increasing-gap constructions in the closest all-weight record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof Steps 4–6",
+        "Resultary 31ca9d66545f upper rarity and 888cea75eaa4 exact weight-four baseline"
+      ],
+      "rationale": "In a fixed sparse alphabet ensemble, 2k is the structural maximum for the output. Knowing it is generic does not tell how rare clustering can be. A stable family of tied longest gaps gives precisely the missing lower order throughout the fixed-weight regime, and thereby fixes both the failure scale and the expected run deficit. This goes beyond the isolated known cases or counting unrestricted candidate output strings.",
+      "residual_risks": [
+        "The result is order-sharp for fixed k, not a leading constant, a weight-uniform estimate, or a bit-compression guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:01.208073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connectivity follows because each K_(m+1) is m-edge-connected. At the common cut vertex, resistances add in series across blades, so each blade has the local resistance sum plus c=(t−1)m times its hub-to-leaf sum, with no cross term between different blades. On the blade's constant-orthogonal space put b=m+1, M=b−2, W=bI+cL(star). For deleted-edge incidence matrix B, inversion of bI−BB^T and tracing against W yields the frozen loss. Write H=B^TWB. The singleton loss is H_ii/(bM); for an adjacent pair orient to make the incidence inner product +1, giving the interaction (H_11+H_22+2M H_12)/(bM(M²−1)). The star diagonal forms are m+3 (spoke) and 2 (rim), and oriented adjacent cross forms are m+2,1,1 for SS,SR,RR. These produce the quoted s,r and all three positive increments. Disjoint incidences give exact additivity within the blade, as does the series decomposition across blades even when the global hub is shared. Exhaustion is by edge type, common blade and common endpoint. In the order comparisons SR_+−SS_0 has the sign of 2−m(m−3)(t−1); SR_0−RR_+ has numerator 3t−11 for m=3 and is positive from the minimum 14 at (4,2) for m≥4. The comparison SS_0−RR_+ needed at m=3,t=2,3 simplifies to 2t−10/3>0. Other adjacent comparisons follow from s−r=m(t−1)/(m−1)>0, the positive increments, and SS_+−SR_+=(m+1)(t−1)/(m−2)>0. Counting same-blade spoke pairs, incident spoke–rim pairs and different-blade spoke pairs gives the stated multiplicities. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 3 tested all 685 edge pairs and all singletons in four parameter cases by exact grounded inverses and direct voltage-drop sums, including all regime boundaries; the unbounded ordering follows from the analytic inequalities. Frozen verification's 57 comparisons are recorded evidence, not the independent run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tamura gives defect-matrix resistance and Kirchhoff-index formulas for K_n−F and discusses stability/extremal behavior.",
+          "Koç et al. use effective graph resistance for structural vulnerability, with an IEEE 118-bus application."
+        ],
+        "reasoning": "Tamura covers each deleted complete blade as an input, and Koç et al. motivate the objective. Neither inspected statement supplies the hub-weighted comparison and the changes of the second and lower ranks in the clique windmill.",
+        "searches": [
+          "arXiv:2608.05924v1 §2.3 edge-defect matrix",
+          "arXiv:1312.6606v1 abstract/introduction and §II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.05924v1",
+        "arXiv:1312.6606v1",
+        "DOI 10.2174/0115701794299562240606054510 (full text unavailable)",
+        "Resultary 5bb3f4f9b118",
+        "Resultary 57a8ce3fc323"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-graph formulas can be combined with cut-vertex series reduction to compute individual windmill damages. The accessible specialized windmill evidence identifies resistance and Kirchhoff-index scope, not an inspected edge-failure theorem."
+        ],
+        "reasoning": "A reduction that computes every case is credited; the extremal comparison across deletion geometries requires the hub weights and nonconstant rational comparisons. Lack of access to the specialized article does not establish what it excludes.",
+        "searches": [
+          "arXiv:2608.05924v1 §2.3, K_n−F resistance and index formulas",
+          "DOI 10.2174/0115701794299562240606054510 lawful DOI/OA retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph 5bb3f4f9b118 optimizes continuous conductances under prices and budget, not two deletions in the unit graph.",
+          "57a8ce3fc323 gives five failure classes on J(n,2), not six classes on a graph of cliques meeting at a cut vertex."
+        ],
+        "reasoning": "The objective may be expressed as an effective-resistance sum or Laplacian trace, but the same-graph budget/allocation model and the same-invariant triangular-graph result do not yield this ordinal deletion ranking.",
+        "searches": [
+          "Resultary: exact frozen title, two-link Kirchhoff-index / effective-graph-resistance failure ranking on clique windmills",
+          "Resultary 5bb3f4f9b118 and 57a8ce3fc323",
+          "DOI 10.2174/0115701794299562240606054510"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearby indexed results were checked at statement level; neither has the full six-value unit-windmill ranking."
+        ],
+        "reasoning": "The exact theorem index is relevant; a finite graph table would not settle the uniform (t,m) formulas and strict inequalities. The inspected exact classifications concern a different graph or objective.",
+        "searches": [
+          "Resultary: exact title and two-link resistance failure ranking",
+          "Local-mirror 5bb3f4f9b118 and 57a8ce3fc323"
+        ]
+      },
+      "rationale": "Credit general complete-graph edge-defect formulas, ordinary windmill resistance, and resistance-based assessment. The distinct supported contribution is the exact all-pair hierarchy with its sharp changes of rank and multiplicities for equal unit-conductance blades. The closest specialized windmill paper remains an access risk, not negative evidence. Comparison does not claim priority for the inverse method or universal priority for the ranking.",
+      "residual_risks": [
+        "The specialized Sardar–Xu windmill article could not be checked in full; its scope beyond the bibliographic evidence is unknown.",
+        "The bounded index and literature comparison does not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complete-blade resistance machinery, not the inspected global windmill hierarchy",
+          "evidence": [
+            "Uses the deletion edge-defect matrix Q=B^T B and gives resistances and Kirchhoff-index formulas for connected K_n−F."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.05924v1",
+          "material_read": "§2.3, offsets 4279–7735",
+          "method": "Lawful OA primary HTML",
+          "title": "Edge-defect matrices and stability of the Kirchhoff index for complete graphs with deleted edges",
+          "trigger": "Strong broader complete-graph defect formulas"
+        },
+        {
+          "assessment": "Background objective and application; no matching classification in the inspected passages",
+          "evidence": [
+            "Uses effective graph resistance and discusses the IEEE 118-bus application."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1312.6606v1",
+          "material_read": "Abstract/introduction and §II, offsets 736 and 4608",
+          "method": "Lawful OA primary HTML",
+          "title": "Structural Vulnerability Assessment of Electric Power Grids",
+          "trigger": "Prior effective-resistance vulnerability objective"
+        },
+        {
+          "assessment": "Unresolved coverage; no conclusion about its failure results",
+          "evidence": [
+            "Article subject explicitly names windmill resistance distance and Kirchhoff index."
+          ],
+          "identifier_or_url": "https://doi.org/10.2174/0115701794299562240606054510",
+          "material_read": "Bibliographic subject only in this independent check; full text not accessed",
+          "method": "Publisher/DOI retrieval returned 403; lawful OA recovery reported no repository copy",
+          "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+          "trigger": "Most directly matching specialized graph family and invariants"
+        },
+        {
+          "assessment": "Continuous conductance problem, not deletion hierarchy",
+          "evidence": [
+            "Optimizes with prices and budget and finds a price-ratio threshold for dropping rim edges."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-edge-support-threshold-in-kirchhoff-index-design-of-cl--5bb3f4f9b118",
+          "material_read": "RESULT.md opening statement",
+          "method": "Resultary local mirror",
+          "title": "Universal edge-support threshold in Kirchhoff-index design of clique windmills",
+          "trigger": "Same graph and invariant"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "Five strict two-edge damage classes on triangular graphs J(n,2), with common-triangle maximizers."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-complete-two-link-resistance-failure-ranking-for-triangular-grap--57a8ce3fc323",
+          "material_read": "RESULT.md opening statement",
+          "method": "Resultary local mirror",
+          "title": "Complete two-link resistance failure ranking for triangular graphs",
+          "trigger": "Same exact failure-ranking question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a motivated two-edge sensitivity question for a canonical cut-vertex graph family with explicit ranks and multiplicities. The runner-up switch by blade size and the distinction between local adjacency and sharing only the global hub are structural information not read off from the isolated-edge ranking. The result is about unweighted finite graphs; it does not model actual power grids or distinguish dynamics under failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

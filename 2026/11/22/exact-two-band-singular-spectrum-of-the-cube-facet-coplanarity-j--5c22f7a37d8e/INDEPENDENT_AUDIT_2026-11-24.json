@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:14:19.445134Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Proof §§1–4",
+        "VERIFICATION.md, verify.py and recorded verification_output.txt inspected as finite corroboration; script not executed"
+      ],
+      "rationale": "On a positive facet only the derivative of the fixed-coordinate column survives, since otherwise it duplicates the homogeneous column. The vector of complete derivative minors is, up to row signs, the exterior product of the affine columns with the restricted radial label. The n affine columns are orthogonal of squared norm N=2^(n-1); removing the affine component of the last column therefore gives squared norm N^n times the squared residual. On the even domain restriction to a positive facet chooses one representative of each antipodal pair, so its Gram normalization is 1/2 on counting measure. Distinct even characters restrict to distinct orthogonal characters; the constant is always removed, a quadratic character survives on n-2 facets, and a higher even character survives on n facets. Thus the Gram levels are (n-2)N^n/2 and nN^n/2 with precisely the stated multiplicities and equality space. For n=3 only the lower band exists, with Gram eigenvalue 32 and character output energy 256. Square roots give the claimed condition numbers.",
+      "residual_risks": [
+        "Changing the choice or weighting of minors or changing the domain norm changes the numerical spectrum. The audit is analytic, not a formal certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Himmelmann, Schulze and Winter impose both edge-length and face-planarity constraints on vertex first-order motions and discuss flexibility of the regular cube in that setting.",
+          "Jiménez Cuevas diagonalizes the Euclidean complete-minor form but leaves its general coefficients unevaluated."
+        ],
+        "reasoning": "A result on rank or flexibility for the joint constraints on unrestricted vertex motions is not a norm-sensitive numerical theorem for the complete minor map on even radial labels. Standard Cauchy–Binet is an ingredient, not a general spectral theorem on those labels.",
+        "searches": [
+          "arXiv:2505.00874v3, p. 1",
+          "arXiv:2606.14709v4, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.14709v4",
+        "arXiv:2505.00874v3",
+        "Resultary:2026/11/22/SCOPE-exact-two-band-singular-spectrum-of-the-cube-facet-coplanarity-j--5c22f7a37d8e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior positivity and Walsh diagonalization alone do not give the values of the two levels, their ratio, or the equality classification for the sharp lower bound.",
+          "The missing quantitative computation is the complete-minor norm via the affine projection and the count of positive facets on which each Walsh mode survives."
+        ],
+        "reasoning": "The n=3 energy and constant kernel are covered; the normalization-sensitive all-dimensional evaluation is not supplied by the previously established structure.",
+        "searches": [
+          "arXiv:2606.14709v4, pp. 10–13, Definition 4.1 and proof of Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 4.1 uses one row for every unordered (n+1)-vertex subset of each positive facet, not both signs or a selected independent family of minors.",
+          "Theorem 4.6 uses squared output energies for Walsh characters, so its lambda_(n,k) is 2^n times the counting-measure Gram eigenvalue."
+        ],
+        "reasoning": "Matching the exact operator and converting between Fourier coefficients and unit input vectors separates actual prior coverage of diagonalization and dimension three from evaluation of all general coefficients.",
+        "searches": [
+          "Resultary semantic comparison for the complete cube facet coplanarity Jacobian on even radial labels",
+          "arXiv:2606.14709v4, Definition 4.1 and Theorem 4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary entry is 2026/11/22/SCOPE-exact-two-band-singular-spectrum-of-the-cube-facet-coplanarity-j--5c22f7a37d8e, the assigned item itself. No distinct exact match was identified in the ranked results.",
+          "Theorem 4.6 gives lambda_(3,2)=256 and expressly does not assert numerical values for n>=4."
+        ],
+        "reasoning": "Neither counting the identical mirror as a prior nor crediting the known three-dimensional value as new is warranted. The search does not exclude unindexed tables or formulas.",
+        "searches": [
+          "Resultary semantic results for exact two-band cube facet-coplanarity spectrum",
+          "arXiv:2606.14709v4, Theorem 4.6"
+        ]
+      },
+      "rationale": "The identical operator and even-Walsh diagonalization were already published, as was the n=3 coefficient. The general all-dimensional squared singular levels, hence the exact band degeneracy and conditioning beyond dimension three, are the supported distinct contribution. The closest primary source explicitly does not evaluate those general coefficients.",
+      "residual_risks": [
+        "Independent source comparison is bounded; an equivalent affine-regression or frame-spectrum calculation under a different name could be unindexed. An empty primary-literature search response was not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the operator, qualitative spectrum and n=3; does not give general values",
+          "evidence": [
+            "The target has n binom(2^(n-1),n+1) components; lambda_(3,2)=256; the theorem disclaims a general closed form."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.14709v4",
+          "material_read": "Section 4, Definition 4.1 (pp. 10–11) and Theorem 4.6 with proof (pp. 12–13)",
+          "method": "Targeted open-access PDF text passages compared against the frozen definitions and norm",
+          "title": "Discrete Coplanarity Rigidity and Local Mahler Volume Growth Near the Cube",
+          "trigger": "Same complete positive-facet minor operator and Fourier sectors"
+        },
+        {
+          "assessment": "Different constraint set and observable; no coverage established",
+          "evidence": [
+            "The paper studies motions preserving both edge lengths and face planarity, in contrast to the even radial determinant-only measurement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.00874v3",
+          "material_read": "p. 1, model and reported regular-cube comparison",
+          "method": "Targeted open-access PDF passage and comparison of hypotheses",
+          "title": "Rigidity of Polytopes with Edge Length and Coplanarity Constraints",
+          "trigger": "Potential broader rigidity result for cubes and planarity"
+        },
+        {
+          "assessment": "Identical assigned record, not independent earlier or equivalent coverage",
+          "evidence": [
+            "Same prescribed two bands, multiplicities and condition number."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-two-band-singular-spectrum-of-the-cube-facet-coplanarity-j--5c22f7a37d8e",
+          "material_read": "Full local frozen RESULT.md, including Finding and scope",
+          "method": "Compared title, identifier, assumptions and statement in the local mirror",
+          "title": "Exact two-band singular spectrum of the cube facet-coplanarity Jacobian",
+          "trigger": "Strongest exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2606.14709v4, Theorem 4.6"
+      ],
+      "rationale": "This evaluates a natural stability constant for a previously defined geometric measurement whose general coefficients were left unspecified. It identifies the least detectable nonconstant radial modes and proves near-equal nonzero singular values in high dimension. This is useful for the specified linearized Euclidean map without claiming a nonlinear Mahler estimate or invariance under different row weights.",
+      "residual_risks": [
+        "Value is for the complete positive-facet linearized map only, not for general polytope flexes or nonlinear stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

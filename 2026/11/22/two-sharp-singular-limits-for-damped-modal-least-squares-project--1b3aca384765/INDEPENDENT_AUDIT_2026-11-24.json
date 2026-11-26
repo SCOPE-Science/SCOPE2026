@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:31:14.340986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scaling t by a gives damping one. Laplace integration in the basis e^(−t)cos(rt), e^(−t)sin(rt)/r yields inverse Gram 4[[1,−1],[−1,2+r²]]. In the unscaled basis the trace is 1/2 and determinant r²/[16(1+r²)], so its two eigenvalues are (1±1/sqrt(1+r²))/4, giving the asserted condition number. The real operator norm is the supremum of absolute row integrals: the sign input attains any chosen row evaluation, and output continuity identifies even the limiting endpoint value with a lower bound for the essential supremum. The endpoint row is 4/r times the derivative of e^(−y)sin(ry); the extrema are at (arctan r+kπ)/r, of absolute heights r exp(−(arctan r+kπ)/r)/sqrt(1+r²). Total variation doubles the geometric sum. For r≤1, Taylor bounds |cos(rz)−1|≤r²z²/2, |sin(rz)/r−z|≤r²z³/6 and |sin(rz)/r|≤z give the kernel error bounded by r²e^(−x−y) times a fixed polynomial, uniformly integrable in y and bounded in x after integration. The limiting row is 4e^(−x)J(x), J the absolute-affine exponential integral. J is convex, with J(0)=2/e and J(1/2)=1/2, so on [0,1/2] it does not exceed 2/e. On [1/2,1], J=x, and for x≥1 J≤3x−2, making the row ≤12e^(−5/3)<8/e there. Thus the exact confluent norm is 8/e and the uniform error is O(r²); at b=0 the rank-one kernel gives 2. At large r the kernel is 4e^(−x−y)cos(r(x−y)) with a row error O(e^(−x)/r). Since |cos|−2/π has a bounded periodic primitive, integration by parts against e^(−y) gives O(1/r) uniformly in the phase. This yields an upper bound for every row and the matching lower bound at zero. These are global limits; no finite-r endpoint rigidity is established or needed. projection_checks.py was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Shen abstract and §3.1, pp. 1 and 7, give mapped weighted-L² projection and approximation estimates.",
+          "The BV Laguerre catalogue finding optimizes the L²(e^(−x)dx) error of polynomial cutoffs. The confluent target space here is indeed spanned by the first two Laguerre functions e^(−t)L_j(2t), j=0,1."
+        ],
+        "reasoning": "Even a sharp norm for the fixed Laguerre pair would only supply the value at the confluent space, not the rate of kernel convergence for the conjugate roots, their endpoint total variation, or the high-frequency limit. The uninspected Muckenhoupt full text is a residual risk, not negative evidence.",
+        "searches": [
+          "10.1137/21M1466840",
+          "Mean convergence of Hermite and Laguerre series. II",
+          "2026/11/22/SCOPE-the-first-global-jump-relocation-in-exponential-laguerre-spectra--24fe1ad8fbe6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary two real rates, BV Laguerre truncations, and switched two-mode carrier findings",
+        "Chen–Shen 2023 §§ abstract and 3.1",
+        "Kolomoitsev–Liflyand §1.1",
+        "Muckenhoupt full-text access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kolomoitsev–Liflyand §1.1 p. 2 discusses classical logarithmic Lebesgue-constant growth of growing Fourier partial sums.",
+          "A single real sine/cosine band on a circle with normalized Haar measure has kernel 2cos(n(θ−φ)) and norm 4/π, by averaging its absolute value."
+        ],
+        "reasoning": "The Fourier absolute mean 2/π is a known ingredient, not new. It does not transfer the result: the half-line kernel carries damping and Gram normalization, its evaluation is not translation invariant, and the projection has rank two throughout. The uniform-in-evaluation half-line remainder and exact endpoint law are not statements of Fourier cutoff theory.",
+        "searches": [
+          "arXiv:2004.12236 §1.1",
+          "Real single-frequency Fourier projection on the circle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Real two-rate Finding: exact global norm 4(R+1)R^(−1/(R−1))/R, one endpoint sign change, 8/e at coalescence, 2 at collapse and 4 at large rate ratio.",
+          "The inspected kernel uses e^(−s)(A+B e^(−(R−1)s)) for real R>1. The frozen conjugate endpoint row instead has infinitely many sign changes with spacing π/r."
+        ],
+        "reasoning": "Both approach the same repeated-real-root space. But a sign-dependent global norm cannot be continued merely by substituting R=(1+ir)/(1−ir). In fact the principal-branch substitution in the real-rate value gives just 8 exp(−arctan(r)/r)/sqrt(1+r²), missing the essential factor (1−exp(−π/r))^−1 from all subsequent extrema. The two large-parameter regimes are also inequivalent. The same catalogue date does not establish priority.",
+        "searches": [
+          "Resultary: damped conjugate half-line projection uniform norm and two-rate exponential projection",
+          "2026/11/22/SCOPE-sharp-uniform-norm-and-endpoint-rigidity-for-a-two-rate-exponent--4ad1686eb11b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact neighbouring norm formula is the real-rate one above. The two-mode carrier record instead maximizes L² captured energy as carrier varies."
+        ],
+        "reasoning": "The target is an exact continuous-parameter formula and limiting global norms, not entries of an independent discrete database. The nearest exact indexed formula was checked and does not yield the oscillatory sign-integral formula.",
+        "searches": [
+          "Resultary: exact half-line least-squares rank-two projector uniform and endpoint norms",
+          "2026/11/22/SCOPE-sharp-uniform-norm-and-endpoint-rigidity-for-a-two-rate-exponent--4ad1686eb11b",
+          "2026/11/8/SCOPE-sharp-carrier-switching-in-two-mode-laguerre-approximation-of-da--c84834b7d1a3"
+        ]
+      },
+      "rationale": "Credit the 8/e and rank-one discontinuity as shared with real two-rate coalescence, not as uniquely oscillatory discoveries. Pass the frequency-dependent oscillatory endpoint law and the sharp large-frequency global norm with uniform error for this half-line projector, together with its rigorously controlled confluent limit. The directly checked real-rate and Fourier comparisons do not imply the changing kernel sign pattern and oscillatory endpoint law, or the required half-line global bounds. This is best-of-knowledge, not exhaustive priority.",
+      "residual_risks": [
+        "Muckenhoupt's Laguerre full text was not obtained, and prior computation of the fixed Laguerre-pair norm cannot be excluded.",
+        "The specialist literature on damped-mode uniform projections was searched on a bounded basis; catalogue date does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "shared confluent limit, distinct real-root finite regime",
+          "evidence": [
+            "One sign change; exact all-real-rate norm, true endpoint rigidity, 8/e coalescence, 4 large real-rate ratio."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-uniform-norm-and-endpoint-rigidity-for-a-two-rate-exponent--4ad1686eb11b",
+          "material_read": "Finding, assumptions, proof kernel reduction, local-mirror offsets 0–2975",
+          "method": "Resultary and local mirror",
+          "title": "Sharp uniform norm and endpoint rigidity for a two-rate exponential orthoprojector",
+          "trigger": "strongest exact norm and coalescence overlap"
+        },
+        {
+          "assessment": "weighted L² approximation, not the claimed unweighted L∞ projector norm",
+          "evidence": [
+            "Mapped Laguerre approximation estimates and weighted orthogonal projections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/21M1466840",
+          "material_read": "abstract p. 1 and §3.1 p. 7",
+          "method": "lawful author paper passage inspection",
+          "title": "Log Orthogonal Functions in Semi-Infinite Intervals: Approximation Results and Applications",
+          "trigger": "possible Laguerre projection norm coverage"
+        },
+        {
+          "assessment": "growing Fourier cutoffs, not half-line fixed-rank damped mode pair",
+          "evidence": [
+            "Classical one-dimensional logarithmic Lebesgue-constant behavior is recalled."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.12236",
+          "material_read": "§1.1 p. 2, OA offsets 3450–7405",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotics of the Lebesgue Constants for a d-Dimensional Simplex",
+          "trigger": "sharp trigonometric projection norm comparison"
+        },
+        {
+          "assessment": "unresolved Laguerre-only risk; no whole-document exclusion",
+          "evidence": [
+            "No theorem is attributed from the unavailable copy."
+          ],
+          "identifier_or_url": "https://www.ams.org/journals/tran/1970-147-02/",
+          "material_read": "no primary full text",
+          "method": "AMS PDF access attempt returned HTTP 403",
+          "title": "Mean convergence of Hermite and Laguerre series. II",
+          "trigger": "could treat sharp partial-sum norms of the confluent Laguerre space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp global operator norms measure worst-case noise amplification in least squares, not merely how badly its particular coordinates are conditioned. The sharp oscillatory endpoint amplification at finite r, bounded confluent projector despite a diverging Gram condition number, and controlled high-frequency norm distinguish three practically and mathematically different statements. The scope is naturally rank two, with no assertion of finite-frequency global optimization or of a general spectral theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

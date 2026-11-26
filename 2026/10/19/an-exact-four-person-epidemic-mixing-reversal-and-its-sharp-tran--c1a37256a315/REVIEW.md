@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Starting from the exact Markov SIR propensities, the finite acyclic first-event recursion gives a rational expression for expected final infections. Two independent endpoint differentiation recursions reproduce the stated quartic sign threshold. Exact symbolic algebra derives the full rational law at transmission ratio four. Descartes' rule after the interval-to-positive-line substitution establishes a *single* critical point, and the derivative's endpoint signs identify the global maximum. An independently implemented labelled-person Markov recursion agrees at four rational mixing points. Boundary and normalization conditions, including the initial case and zero infected absorbing states, were checked.
+## correctness
 
-**Originality: PASS (self-review, with residual risk).** The motivating full-text primary study reports numerical trends with increasing leak and large-subpopulation approximations. It does not give the four-person exact endpoint sign change or unique interior maximizer. The inspected large-network degree-heterogeneity study uses a different asymptotic and graph family. Classical household epidemic frameworks predate this result and supply general tools; accessible abstracts and targeted searches did not identify the exact parameter threshold or optimizer, but not every full archival paper could be inspected. The distinction lies in a *sharp qualitative derivative reversal and complete one-parameter optimization*, not merely recomputing a Markov chain expectation.
+PASS
 
-**Mathematical value: PASS.** The smallest equal-size two-patch population with both local and cross transmission exhibits a mathematically sharp failure of a natural mixing monotonicity heuristic at fixed reproduction spectral radius. The exact transmission threshold and unique mixing optimizer distinguish finite stochastic depletion from large-population approximations. The gain is quantitatively small in the four-person witness, and practical epidemiological extrapolation is not justified; the qualitative boundary, not its empirical magnitude, is the useful result.
+An independent symbolic four-labelled-person absorption calculation, starting from masks (susceptible, infected)=(14,1) and using payoff 4 minus the susceptible count at absorption, reproduces both endpoint values and derivatives for symbolic b, the full rational G_4, the eight-degree derivative numerator, all nine transformed coefficients, and the exact positive difference 295591073/32512225144680. The quartic has one sign change and takes opposite signs at 3 and 4. The denominator of G_b'(1) is positive and the numerator is minus b times this quartic, so adding within-patch contact (decreasing epsilon from 1) has the reported signs. Also G_b'(0)>0; for b>b_* neither endpoint maximizes the continuous mean. At b=4 the substitution t=epsilon/(1-epsilon) gives exactly one coefficient sign change and opposite signs at zero and infinity. With the original positive denominator this gives exactly one strict global maximum, not just one located critical point. In the equal one-person-per-patch case the only potential secondary infection competes directly with the seed recovery, giving the strictly increasing function in the record. The row sums fix the nominal disease-free next-generation spectral radius at b throughout.
 
-**Closest literature and limits.** Ueki–Thompson–Banaji, arXiv:2601.13730v2; Leibenzon–Assaf, arXiv:2306.09024; Ball–Mollison–Scalia-Tomba (1997); Ball–Neal (2002). Broad classical finite-size theory could yield an implicit special case, and the last two primary articles were not read in full. The theorem does not claim monotonicity for every subcritical transmission ratio or uniqueness of an interior maximum for all supercritical ratios.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite endpoint threshold and b=4 global uniqueness remain distinct in the inspected material. The closest source contains the underlying epidemic model; its large-subpopulation weak-coupling approximation neither evaluates the finite endpoint nor supplies a global derivative sign certificate. The closest catalogue reversal has a different stochastic law and a different comparison.
+
+## value
+
+PASS
+
+A fixed-radius reversal is a meaningful counterexample to a mixing monotonicity heuristic. The exact transmission threshold identifies when this reversal is possible at the endpoint; the degree-eight uniqueness certificate and minimal equal-patch population put analytic, not merely numerical, limits on the example. The gain in mean size is tiny, but its mathematical value is the strict sign and provable threshold, not a claimed practical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

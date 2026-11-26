@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The original map's three affine base branches give an exact dyadic-cell image and a reflected walk with upward probability \(2/3\). Conditioning on the depth establishes the mean-width defect \(E_{n+1}-E_n=-a_n/3\). The first-return renewal equation is solved with the square root analytic at zero; the sum of return probabilities equals three, yielding the exact tail identity. Both singularities at the minimum complex modulus contribute, and the alternating singularity is essential for the stated coefficient. A direct calculation excludes nearer renewal poles. The square-root transfer and geometric tail sum give the formula with \(O(n^{-1})\) relative asymptotic correction. Finite exact-rational and large-step checks provide independently reproducible consistency tests, not the infinite proof.
+## correctness
 
-## Originality — PASS, with risks
-Saiki–Takahasi–Yorke (arXiv:1811.01009, Section 3.1 Proposition 3.1) proves almost-everywhere leaf shrinking and records the elementary one-step central-width transitions. Its Section 3.3 computes the typical Lyapunov exponent, **not** the integrated image-width profile. Inspected later primary papers arXiv:2209.04905 (symbolic coding), arXiv:2307.08119 (mixing bounds), arXiv:2401.00836 (dynamics survey), and arXiv:2408.16618 (mostly neutral regime) do not state the parity-resolved mean-width asymptotic. Searches on exact image-width generating functions, reflected-walk aliases, and sharp decay constants found no implication-equivalent result in the checked records. General reflected-walk return formulas are classical; this result does **not** claim novelty for that identity alone. A differently framed published treatment of the identical dynamical observable could still preempt priority.
+PASS
 
-## Value — PASS
-The originating dynamical theorem guarantees almost-everywhere collapse without quantifying the ensemble-average speed. Here the precise observable is natural: it measures how much of an entire center leaf remains distinguishable after an iterate when the expanding base is sampled uniformly. The sharp answer identifies a rare-trajectory-controlled exponent strictly larger than the typical Lyapunov contraction factor, a polynomial prefactor, and a small but genuine two-parity modulation. Neither individual contraction, an isolated parameter computation, nor an arbitrary slice explains this statistical contrast.
+Up to null boundary conventions each initial full vertical fiber maps to one dyadic cell. A contraction sends it to a depth-one-higher cell, and doubling modulo one sends a positive-depth cell to a cell of depth one lower (not necessarily its geometric parent). Independent ternary digits give K_n the reflected walk with up probability p=2/3 and down probability q=1/3. The conditional mean of 2^{−K} is unchanged away from zero since p/2+2q=1, and at zero it is 2/3. Thus E_{n+1}=E_n−a_n/3. The reflected depth dominates the underlying walk S_n, which tends to infinity by the strong law; bounded convergence gives the exact tail formula. Independent ballot reconstruction: K_n=S_n−min_{0≤j≤n}S_j has the law of max_{0≤j≤n}S_j by reversal of the finite increment string. Thus a_n=Pr(τ_1>n), and Pr(τ_1=2k+1)=p(pq)^k C_k for Catalan numbers C_k, by a nonpositive excursion followed by an up step. Consequently A(w)=(1−pw∑_{k≥0}C_k(pqw²)^k)/(1−w), which rationalizes to the stated A(w). The return tail starts at k=m for n=2m and k=m+1 for n=2m+1. Stirling and geometric summation give even return amplitude 12√(2/π) against ρ^n n^{−3/2} and odd amplitude ρ times it, both with relative O(1/n); these equal √(2/π)(d_+^{−2}±d_-^{−2}). Finally summing the exact E_n tail weights the two terms by 1/[3(1−ρ)] and 1/[3(1+ρ)], respectively. The errors are uniformly O(1/n) in the scaled expression and both parity constants are positive, establishing the claimed limit and comparison with 2^{−1/3}.
 
-## Limits and residual uncertainty
-The claim holds only for the original uniformly ternary two-dimensional map and full initial fibers; it does not prove a mixing rate, a nonlinear stability result, or generality in the modified parameters. The underlying reflected-walk mathematics is standard and could appear under a different name. The result has undergone mathematical and reproducibility checks, but independent audit and comprehensive external publication-priority verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the exact annealed mean-width observable and its parity-resolved law. The reflected-walk/ballot mathematics is standard. A distinct, later-dated catalogue record overlaps the auxiliary saturated-width sequence exactly, not just by sharing a rate; that sequence and its asymptotic are not credited as distinct against that comparator. The main result identifies the full-fiber mean by the harmonic defect at zero and gives its two different tail weights, rather than merely relabeling the return probability or the typical contraction rate.
+
+## value
+
+PASS
+
+Averaging the surviving width of a whole leaf asks a different synchronization question from almost-sure shrinking or saturation probability alone. Its exact decay exposes rare near-balanced itineraries and quantifies the exponential gap between the ensemble and typical rates. The exponent, polynomial factor and two parity amplitudes give a sharp answer for a natural observable of the original map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

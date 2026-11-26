@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:52.340052Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–76",
+        "Frozen VERIFICATION.md, lines 19–22 and verify.py, lines 18–143 (inspected only)",
+        "Independent replay: python3 -B /workspace/review_checks/independent_examples.py; Gram matrix and scalar threshold gave T*=3.3766105997703444, Lambda(2)=0.0524444185997488 and Lambda(5)=-0.03670983624705171."
+      ],
+      "rationale": "With E=exp((T/2)A_+), the monodromy is E^T E. Its normalized determinant is one, and half the trace of exp(dT)E^T E is half the squared Frobenius norm of exp((T/2)(A_++dI)), namely 1+2 cosh(h)^2 sinh(rT/2)^2. Its larger eigenvalue gives the stated Floquet exponent. For C=cosh(h)>1, g(z)=asinh(C sinh z) has g(0)=0 and g''(z)=C(1-C^2)sinh(z)/(1+C^2 sinh(z)^2)^(3/2)<0 for z>0. Thus g(z)/z strictly decreases from C to 1, yielding exactly the threshold regime, including persistence at d=r and extinction at d=rC for every finite T. If X=Phi(t)u(0), exact division by H=1+kappa times the integral of the total of X solves the nonlinear equation; positivity guarantees H>=1 globally. The positive monodromy gives X(nT+s)=Phi(s)[a mu^n v+O(nu^n)] with a>0 including for axis initial states and 0<nu<mu. For mu<1 the numerator gives uniform exponential decay. For mu>1 the Poincare map has the unique positive fixed point (mu-1)v/(kappa I) and summing the Perron geometric series in H proves phase-uniform attraction to the stated orbit. For mu=1 the complete periods contribute kappa a n I+O(1) to H and the partial period is uniformly bounded, while the numerator tends uniformly to a Phi(s)v. Multiplication by nT+s cancels a and gives the claimed strictly positive universal coefficient, confirming algebraic rather than exponential decay. The example matches the Gram-matrix eigenvalue and the threshold equation.",
+      "residual_risks": [
+        "The numerical example is only corroboration; criticality and its phase-uniform limit use the exact critical parameter, not a finite precision root or finite-time simulation. Equal half-seasons, strict positivity of the parameters, and the common scalar quadratic brake matter to the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 18 periodic critical-extinction record handles arbitrary continuous periodic growth rates and gives a phase-resolved t^-1 expansion with a quantified remainder. The inspected general planar switched-systems abstract concerns stability under arbitrary switching; two additional pertinent switched-systems texts remained unavailable."
+        ],
+        "reasoning": "The earlier extinction result has one vanishing species and a surviving periodic resident, unlike both components vanishing here. Its waveform generality does not cover a common brake on a cooperative transpose pair. Arbitrary-switching stability alone does not give the monotone period-length law, nor the critical nonlinear coefficient.",
+        "searches": [
+          "2026/10/18/SCOPE-universal-two-component-critical-extinction-profiles-in-periodic--04eddb3a1618",
+          "arXiv:2607.12189 abstract",
+          "DOI 10.1049/cth2.12459",
+          "DOI 10.1137/S0363012900382837"
+        ]
+      },
+      "checked_sources": [
+        "Nag Chowdhury and Lagasquie primary passages",
+        "Local Resultary Oct. 18, Oct. 4 and related profile records",
+        "Shevchenko–Liu abstract and OA retrieval attempts above",
+        "Frozen RESULT.md, lines 81–92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior switches give growth/stability mechanisms; prior critical profiles give inverse-time decay at different resident or demographic thresholds. The frozen threshold instead depends on the half-period norm of a nonnormal positive flow, and the scalar density transform shows how its principal multiplier controls all populations."
+        ],
+        "reasoning": "A general Floquet or logistic argument can account for pieces of the classification, and is not claimed as new. Substitutions in the inspected results do not give the strict dependence on T with endpoint exponents -d+r cosh(h) and -d+r, or the particular critical profile T Phi(s)v/(kappa I).",
+        "searches": [
+          "Nag Chowdhury §§II–III, Lagasquie pp. 2–3, and Resultary Oct. 18 Finding",
+          "Local Resultary: positive two-patch switching and periodic critical extinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first primary paper studies periodically modulated community matrices and local stability, including a commuting regime. The second gives switched growth for stable planar systems but uses random switching and off-diagonal entries of opposite signs in the inspected model."
+        ],
+        "reasoning": "Reformulating the frozen monodromy as the squared singular values of one half-season flow confirms a planar switching phenomenon, but the inspected precedents do not identify the positive equal-duration transpose pair, its exact Floquet root, or its nonlinear consequences.",
+        "searches": [
+          "Local Resultary: transpose switch, equal seasons, exact threshold",
+          "arXiv:2608.14081 §§II–III",
+          "arXiv:1612.01861 pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 record is the strongest indexed overlap in the profile phenomenon. The Oct. 4 record 2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec gives an autonomous four-stage vector t^-1 limit. Related indexed pulse and metapopulation results concern, respectively, competitive impulsive dynamics and discrete nonperiodic dynamics."
+        ],
+        "reasoning": "None of those results tabulates or classifies the same threshold or the same Perron all-extinction limit. The compared statements differ in dynamics and normalized limits, not merely identifiers, dates or parameter labels.",
+        "searches": [
+          "Local Resultary: equal-season transpose switch and Floquet threshold",
+          "Local Resultary: phase-resolved critical extinction and universal t^-1 profile",
+          "2026/10/18/SCOPE-universal-two-component-critical-extinction-profiles-in-periodic--04eddb3a1618"
+        ]
+      },
+      "rationale": "The supported distinction is the exact strictly monotone threshold for a two-patch transpose switch together with the full nonlinear trichotomy and its phase-resolved all-extinction coefficient. Switching-induced growth, the scalar-density transform, and the general phenomenon of universal periodic critical profiles are not independently novel. The inspected prior statements do not provide this combined model-specific conclusion.",
+      "residual_risks": [
+        "The search is not exhaustive. Some planar switching literature was not accessible in full, and general periodic logistic or positive switched-systems results may supply further abstract coverage. No novelty is claimed for the general mechanism alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different community-matrix setting and forcing, not the exact nonlinear problem.",
+          "evidence": [
+            "Periodic stability analysis with approximations and a commutative limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14081",
+          "material_read": "p. 1 and §§II–III PDF passages at offsets 0, 13500 and 27000",
+          "method": "OA PDF passages",
+          "title": "Periodic Environmental Forcing Shapes the Stability of Complex Ecological Networks",
+          "trigger": "Periodic ecological linear stability and seasonal threshold"
+        },
+        {
+          "assessment": "Established related growth mechanism, different switching and noncooperative matrices.",
+          "evidence": [
+            "Inspected matrices have opposite-signed off-diagonals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.01861",
+          "material_read": "Abstract and pp. 2–3, offsets 0, 5850 and 8500",
+          "method": "OA PDF passages",
+          "title": "A note on simple randomly switched linear systems",
+          "trigger": "Individually stable planar modes giving growth under switching"
+        },
+        {
+          "assessment": "Substantive overlap in periodic inverse-time profiles, not this total-extinction state or transpose switch.",
+          "evidence": [
+            "At zero invasion growth one species vanishes with phase-dependent inverse-time coefficient and O(log(t)/t^2) remainder; a separate correction is made to a nonzero resident orbit."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-universal-two-component-critical-extinction-profiles-in-periodic--04eddb3a1618",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Universal two-component critical extinction profiles in periodic competition",
+          "trigger": "Possible theorem-level coverage of the universal phase-resolved extinction coefficient"
+        },
+        {
+          "assessment": "Closest earlier autonomous vector-profile analogue; no seasonal phase or threshold.",
+          "evidence": [
+            "Autonomous four-stage model with global vector t^-1 decay at basic reproduction number one."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Critical date-palm mite extinction is globally stable with a universal inverse-time profile",
+          "trigger": "All-component critical extinction in a population model"
+        },
+        {
+          "assessment": "Relevant general framework; abstract is insufficient to exclude full-text overlap.",
+          "evidence": [
+            "Concerns planar homogeneous stability under arbitrary switching, not an identified statement for this positive periodic population."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.12189",
+          "material_read": "p. 1 abstract only",
+          "method": "OA abstract inspection",
+          "title": "Stability and Bifurcations of Planar Switched Linear and Homogeneous Systems",
+          "trigger": "Potential broad planar stability result"
+        },
+        {
+          "assessment": "Unavailable passages are not evidence against prior coverage.",
+          "evidence": [
+            "The cited problem areas include cyclic positive systems and planar switching stability; closer exact results in the unavailable material were not ruled out."
+          ],
+          "identifier_or_url": "DOI 10.1049/cth2.12459; DOI 10.1137/S0363012900382837",
+          "material_read": "No primary full-text theorem passage retrieved",
+          "method": "Bounded OA retrieval and repository-copy attempts",
+          "title": "A combined cyclic stabilizing switching law for continuous time positive switched systems; Stability of Planar Switched Systems: The Linear Single Input Case",
+          "trigger": "Potential exact or general prior switched-system criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39 and 41–76",
+        "Periodic critical-profile and switched-growth comparisons above"
+      ],
+      "rationale": "The transpose switch is a minimal explicit cooperative model where individually stable seasons can sustain persistence. Exact monotonicity determines when switching speed can reverse extinction and supplies a sharp unique boundary rather than a sufficient condition. At that boundary the positive phase profile gives the actual asymptotic abundance and composition independently of the initial population, distinguishing the critical regime from exponential extinction.",
+      "residual_risks": [
+        "This is a mathematically specified shared-crowding model. The result does not establish thresholds under arbitrary unequal phases, crowding models, or empirical ecological systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

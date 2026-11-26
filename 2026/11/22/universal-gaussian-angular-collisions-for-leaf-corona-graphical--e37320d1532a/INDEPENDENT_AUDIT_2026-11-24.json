@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:39:00.670709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a generic objective each edge has a unique maximizing endpoint. A different sign pattern changes at least one endpoint and strictly lowers the original objective applied to the sum, so distinct patterns cannot give the same vertex. Intrinsic projection preserves signs even for a disconnected graph; the uniform quantiles used for localization are those of the ambient i.i.d. Gaussian representative. Conditioning on the two core coordinates gives each private leaf agreement probability h=uv+(1-u)(1-v). Off the two matched corner squares h is bounded by 1 minus a positive constant, hence the discarded integral times n^(2k) vanishes. Within either corner, n times the distance variables converge under the integrand to independent unit exponentials, dominated by exp(-(1-delta) times the sum of distances). Opposite-color edges always agree; same-color edges give two uniform orderings, independently across the two induced subgraphs. This proves the sector weight, total limit and conditional law by division by the positive total; using any smaller corner size also establishes localization for all 0<delta<1/2. Adjacent swapping of the endpoints of a new edge witnesses a strict loss on each sector with both endpoints on one side, including the all-zero sector. The edgeless and complete bounds and equality cases follow; the path has order-class sizes 1,1,2,2 and kappa=41/9, and the triangle has kappa=10/3. CHECK.py and VERIFICATION.md were inspected, not executed; their recorded bounded rank enumerations do not establish the asymptotic. The analytic replay is RESULT.md §§Proof, steps 1–5, with the endpoint injectivity argument above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives Gaussian normal-cone sampling but no increasing-private-leaf limit.",
+          "The split-graph record gives C_t(r,s) asymptotic to (r+1)r! s^(-rt) for K_r joined to an independent set, with collision-conditioned concentration in r+1 gap corners. The complete-bipartite comparison also has vertices adjacent to all hubs."
+        ],
+        "reasoning": "Shared neighbors impose joint constraints on several core vertices; these restricted results do not yield the separate local factors and 2^k corner sectors for private leaves on an arbitrary core.",
+        "searches": [
+          "Stinson–Gleich–Constantine arXiv:1602.06620 pp. 5–6",
+          "Resultary 75a331846ff7 and d8c7504cb6f5, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.4880",
+        "arXiv:2111.12422",
+        "arXiv:1602.06620",
+        "Resultary 75406421a74c, e1b409771cb8, 75a331846ff7, d8c7504cb6f5 and bcc49a6a89d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-hub formula even allows unequal leaf counts and yields the claimed K_2 specialization at equal counts, but has no internal arbitrary induced-core order comparisons.",
+          "The split-graph edge contrast is a single shared-neighbor example; it does not imply strict decrease under every missing edge of a private-leaf core."
+        ],
+        "reasoning": "Neither the exact special cases nor the general normal-fan principle determine the core dependence, normalized pattern weights or equality cases without a separate all-core argument.",
+        "searches": [
+          "Resultary double-star 75406421a74c proof at mirror offset 6300; star e1b409771cb8 proof at offset 6600; split-graph 75a331846ff7 Finding and edge sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iriarte gives chamber mass L(omega)/|V|!; the squared sum equals q(F), so the chamber and order-agreement formulations are not distinct discoveries.",
+          "The rank polynomial for K_(2,2,n), Resultary bcc49a6a89d7, weights orientations by disagreement rank with a reference, not by squared extension counts."
+        ],
+        "reasoning": "A known interpretation of q does not give the induced-subgraph convolution as the asymptotic coefficient or its law of the corner types.",
+        "searches": [
+          "Iriarte arXiv:1405.4880 §5, Definition 5.1 and Proposition 5.2",
+          "Padrol–Pilaud–Poullot arXiv:2111.12422 §1.3",
+          "Resultary: leaf-corona Gaussian vertex and orientation collisions, linear-extension square weights, core partition polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75406421a74c gives limiting coefficient 3 for equal leaf multiplicities on an edge; e1b409771cb8 gives coefficient 2 on the ordinary star. These are exact lower-core boundary cases.",
+          "The same-date split-graph record 75a331846ff7 gives one-edge coefficients 10 and 6 for its two-hub shared-neighbor setup, not the private-leaf arbitrary-core coefficient. The exact assigned-record search hit is a self-match."
+        ],
+        "reasoning": "Credit the exact lower-core matches; no distinct exact match for the claimed arbitrary-core regime was established. Same calendar date is not a priority ordering.",
+        "searches": [
+          "Resultary: Gaussian collisions on double-star, leaf-corona, arbitrary fixed core, star Rényi windows; recovered 75406421a74c, e1b409771cb8 and 75a331846ff7"
+        ]
+      },
+      "rationale": "The verified distinction is the fixed arbitrary private-leaf core with k>=3, its induced-subgraph partition coefficient, conditional sector weights and strict edge extremality. Graphical chamber probabilities and the one- and two-hub laws are antecedents. The strongest split-graph and bipartite analogues have shared rather than private leaves and do not give this statement.",
+      "residual_risks": [
+        "The general web lookup returned no usable primary passage and supplies no negative evidence.",
+        "An unindexed order-agreement or graph-invariant formulation may encode the same limit. Same-date split-graph overlap does not establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers chamber weighting, not the blowup law",
+          "evidence": [
+            "Chambers correspond to acyclic orientations; volume fraction is the number of linear extensions divided by n!."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.4880",
+          "material_read": "§5 Def. 5.1 and Prop. 5.2, pp. 16–17, offsets 53200–55889",
+          "method": "OA PDF passage inspection",
+          "title": "Graph Orientations and Linear Extensions",
+          "trigger": "Equivalent angular interpretation of q"
+        },
+        {
+          "assessment": "Antecedent arrangement correspondence",
+          "evidence": [
+            "The graphical fan is the normal fan of the graphical zonotope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+          "material_read": "§1.3, p. 4, offset 17700",
+          "method": "OA PDF passage inspection",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Normal-fan framework"
+        },
+        {
+          "assessment": "General cone probabilities, not a high-leaf coefficient",
+          "evidence": [
+            "Gaussian objectives sample according to the normal-cone measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06620",
+          "material_read": "pp. 5–6, offset 11900",
+          "method": "OA PDF passage inspection",
+          "title": "A randomized algorithm for enumerating zonotope vertices",
+          "trigger": "General Gaussian sampling law"
+        },
+        {
+          "assessment": "Covers the k=2 single-edge boundary",
+          "evidence": [
+            "p²q²C_(p,q) tends to 4(1−theta(1−theta)), hence the equal-multiplicity coefficient is 3."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-angular-collisions-on-double-star-graphical-zonotopes--75406421a74c",
+          "material_read": "Finding and collision proof, offsets 0 and 6300",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Gaussian angular collisions on double-star graphical zonotopes",
+          "trigger": "Same private-leaf construction on K_2"
+        },
+        {
+          "assessment": "Covers k=1",
+          "evidence": [
+            "The ordinary star has limiting coefficient 2."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-two-critical-r-nyi-windows-in-the-angular-spectra-of-star-graph--e1b409771cb8",
+          "material_read": "Finding and collision proof, offsets 0 and 6600",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Two critical Rényi windows in the angular spectra of star-graph polytopes",
+          "trigger": "One-hub boundary law"
+        },
+        {
+          "assessment": "Different adjacency architecture and limiting statistic",
+          "evidence": [
+            "The shared neighbors give r+1 gap-occupancy corners, and the two-hub edge example gives coefficients 10 and 6."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-gaussian-vertex-angle-law-and-rare-collision-condensati--75a331846ff7",
+          "material_read": "Finding, including one-edge comparison, offset 0",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Complete Gaussian vertex-angle law and rare collision condensation",
+          "trigger": "Strongest distinct same-date collision, corner and edge-sensitivity match"
+        },
+        {
+          "assessment": "Shared-neighbor bipartite family",
+          "evidence": [
+            "For fixed q the coefficient is (q!)² times the sum of reciprocal binomial coefficients."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-angular-collision-laws-for-complete-bipartite-graphical-zonotope--d8c7504cb6f5",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Angular collision laws for complete bipartite graphical zonotopes",
+          "trigger": "Related fixed-hub asymptotics"
+        },
+        {
+          "assessment": "Different orientation statistic",
+          "evidence": [
+            "Weights are powers of a variable indexed by disagreement rank."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-five-base-acyclic-orientation-rank-polynomial-for-k-2-2-n--bcc49a6a89d7",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Five-base acyclic-orientation rank polynomial for K_(2,2,n)",
+          "trigger": "Possible polynomial equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient distinguishes cores with the same number of hubs and pendant vertices (for example the path and triangle), the extremal law is strict under each edge addition, and the corner weights describe where collisions occur, none of which is supplied by merely counting zonotope vertices or orientations. The fixed core and prescribed metric make this a natural angular invariant rather than a selected finite case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

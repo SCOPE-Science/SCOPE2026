@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete Laplacian eigenspace decomposition proves the resolvent diagonal formula. Its exact ordering by part size identifies the unique obstructing vertex orbit. Inverse positivity makes the diagonal criterion necessary and sufficient for the full stochastic step, and the quadratic crossing proves all endpoint and infinite-horizon cases, including forward Euler. The asymptotic assertion follows from the same resolvent with a scaled step. A standard-library exact-rational checker replayed 29,662 finite assertions; enumeration is corroboration, not proof of all orders.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Horváth (2004) concerns general cone invariance and safe steps, and Schatz–Thomée–Wahlbin (2010) study related \(	heta\)-method positivity in finite-element systems. The published 2026 resolvent-return theorem covers the generic diagonal criterion and abstract spectral crossings, which are explicitly acknowledged. The present claim supplies an exact evaluated horizon for every unweighted multipartite graph with all parts at least two, the reduction to total order and minimum part size, the limiting-part classification, and the exact scaling. Database and accessible-literature comparisons did not identify an implication-equivalent explicit result; unindexed literature is a real residual risk.
+PASS
 
-## Value — PASS
-The result turns a graph-dependent positivity-restricted numerical time step into a closed-form design rule depending on just two natural network statistics. It identifies precisely which community is the positivity bottleneck and when arbitrarily large steps are safe, improving general sufficient graph bounds and covering infinitely many nonisomorphic structures. The particular closed formula is motivated by end-step sign preservation in diffusion, not arbitrary parameter selection.
+The orthogonal splitting into constants, classwise zero-sum vectors, and class-constant global zero-sum vectors gives the diagonal resolvent at a vertex in class p as [1+Nt+(N-p)t²]/[(1+Nt)(1+(N-p)t)], t=θh. Subtraction for p>q gives the positive difference t(p-q)[1+(N-1)t]/[(1+Nt)(1+(N-p)t)(1+(N-q)t)]. The inverse is nonnegative: if (I+tL)x is nonnegative and x has a negative minimum at i, then [(I+tL)x]_i≤x_i<0. T=[R−(1−θ)I]/θ for θ>0, and T preserves constants. For finite h the diagonal resolvent is strictly above 1/N and tends to 1/N as h→∞; hence θ=1−1/N is included in the unbounded regime. Below that threshold, clearing positive denominators gives 1+Bh−Aθh²; the unique positive root for θ>0 is the stated radical. Euler gives the exact linear restriction and the same active classes, with equality allowed. The strict increase with s is in the finite-horizon regime, as in the proof, and the Crank–Nicolson specialization follows by substitution. At h=c/N the diagonal limit is 1/[1+θ(1−α)c], also for bounded s when α=0 since the nonconstant denominators coalesce. Bracketing the level 1−θ at two fixed c proves the scaled limit; Euler is direct. Independent replay: python3 /workspace/review_checks.py 1 checks 78 full rational step matrices, including exact roots and both sides, and a step at the critical θ; finite corroboration only. Frozen verification and checker were inspected, not executed.
 
-## Scientific limits
-Applies only to the unweighted combinatorial Laplacian and classes of size at least two. Finite checks do not certify the all-order theorem. Related specialized graph-theta literature could contain an equivalent algebraic expression.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the sharp fixed-graph all-θ horizon with smallest-part reduction, including its exact failure class and general scaled limit. Prior spectral-projector and diagonal-resolvent frameworks are credited. The overlap with the later Crank–Nicolson record is exact within that specialization; the complete-bipartite record overlaps a subfamily only. The date ordering is not used as proof of priority.
+
+## value
+
+PASS
+
+For a diffusion integrator the precise loss of nonnegativity matters, not just stability or a sufficient step bound. The structural result replaces a full-matrix positivity test on arbitrary multipartite profiles by two graph parameters, identifies exactly which vertices cause failure, and determines the large-N scaling under arbitrary admissible profiles. The general resolvent framework alone does not supply that graph-level reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

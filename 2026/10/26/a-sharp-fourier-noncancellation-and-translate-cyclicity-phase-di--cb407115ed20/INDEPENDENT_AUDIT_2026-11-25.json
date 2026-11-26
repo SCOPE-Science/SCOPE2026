@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:30.855891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the positive-exponent convention the gamma transform is exp[-m log(1-it/c)] on the principal branch. For t>0 the argument gap before multiplying by m has derivative (b-a)(ab-t^2)/[(a^2+t^2)(b^2+t^2)], so its range, together with t=0, is the entire interval from 0 to Theta_r. After normalizing component magnitudes, the squared modulus is 1-4u(1-u)sin^2(m theta/2). Its minimum over u gives the asserted sharp margin and unique balanced weight at each of the two subcritical minimizing frequencies. At a zero the gap must be an odd multiple of pi and the weights balanced. Tangent subtraction gives the stated quadratic; when its discriminant is zero there is only one positive frequency but the Fourier zero is still simple, since the log modulus ratio has a nonzero derivative there. Strict monotonicity of that ratio separates all exceptional weights. Conjugacy, F(0)=1, the derivative of Theta_r with respect to r, and the L1 Wiener theorem give the remaining claims, including the exact threshold and slope. The bound is relative, not uniform in absolute magnitude. Independent finite cross-check: python /workspace/checks/3.py with mpmath (output /workspace/checks/3.txt) brackets frequencies without using the quadratic and tests first and higher mergers, distinct weights, and shapes on either side. It is not the proof of the universal quantifiers. The submitted scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 12d8893d5287, Finding and midpoint-rotation proof: any zero needs m*Theta(z)>=pi, and any point in that region admits cancellation by some measure with at most two atoms anywhere in the interval.",
+          "Gharib pp. 353–357 characterizes gamma-mixture laws by Poisson or bivariate Pareto correspondences."
+        ],
+        "reasoning": "General interval-supported positive measures can choose interior atoms, so above threshold the entire angular region can be attained in that broader problem; two prescribed endpoints cancel only at odd antipodal phase. The broader theorem does not fix the exceptional weights or control simplicity for a given mixture.",
+        "searches": [
+          "Resultary: angular zero region generalized Stieltjes transforms",
+          "10.1017/S0004972700014842"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 12d8893d5287",
+        "Gharib (1995), DOI 10.1017/S0004972700014842",
+        "K. J. John, Chapter III",
+        "Resultary e45ac4ab94e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier midpoint rotation yields a real-part lower bound cos(m*Theta/2) times the sum of weighted magnitudes in the acute regime; endpoint balancing saturates it. Maximizing the gap gives the subcritical formula, and continuity up to the first antipodal angle gives existence above the critical ratio.",
+          "The earlier proof picks the atom locations at fixed z; it does not use monotonicity of the magnitude ratio in frequency to separate all fixed-endpoint weights and prove nonzero Fourier derivatives."
+        ],
+        "reasoning": "Credit the direct subcritical and first-zero implications of the general angular geometry. What survives that comparison is the explicit classification of which fixed mixtures have zeros, their complete locations and multiplicities, including higher odd branches. Density of translates is only a classical corollary.",
+        "searches": [
+          "Resultary 12d8893d5287 Finding and Proof",
+          "Gharib DOI 10.1017/S0004972700014842 pp. 353–357",
+          "John Chapter III §§3.1–3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F(t) is S_{m,mu}(-it) for mu=lambda*a^m delta_a+(1-lambda)*b^m delta_b.",
+          "John §3.2, Eq. (3.8) and Thm. 3.3: integer shapes at a common pole, rather than common real shape at two distinct rates."
+        ],
+        "reasoning": "Imaginary-axis restrictions of Laplace or Stieltjes transforms are the same Fourier problem, not different transforms for originality purposes. John's gamma specialization and multiple-pole scope do not resolve the target real-axis locus.",
+        "searches": [
+          "Resultary: gamma Fourier zeros, common shape distinct rates",
+          "Resultary: generalized Stieltjes angular zero region",
+          "John Chapter III, Laplace transform zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e45ac4ab94e8 Finding fixes the same mixture family but tests log-concavity of the spatial density, not Fourier zeros or the margin.",
+          "Resultary 12d8893d5287 supplies a different quantifier over mixing measures, not a fixed-weight table."
+        ],
+        "reasoning": "No verified matching classification was found among these close indexed records. These checks do not exhaust historical tables or publications.",
+        "searches": [
+          "Resultary: sharp relative Fourier noncancellation and translate cyclicity two gamma rates",
+          "Resultary: equal-shape gamma rate mixtures"
+        ]
+      },
+      "rationale": "Pass is for the full fixed-endpoint, fixed-weight real-zero classification (including uniqueness and simplicity even at mergers), and the optimized phase diagram as a whole, not for angular nonvanishing, midpoint projection, antipodal balancing, or Wiener cyclicity. The earlier generalized Stieltjes result is substantial overlap: its no-zero direction and midpoint-rotation proof already give the subcritical quantitative lower bound; its measure class differs for supercritical zero attainability at a specified frequency. The checked prior statements do not give the fixed-weight exceptional locus and multiplicity classification. Gharib's full text was available for this review. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "An explicit fixed-endpoint theorem may occur under other notation in specialized transform-zero literature. The supplied prior-work discussion should acknowledge the generalized Stieltjes overlap; the original result should not be credited with that angular mechanism or a new Tauberian theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "substantial partial coverage, not fixed-endpoint classification",
+          "evidence": "Midpoint rotation and construction of two freely located atoms at exactly antipodal angles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-angular-zero-region-for-generalized-stieltjes-transforms-o--12d8893d5287/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Proof through the disk example (offset 0–3361)",
+          "method": "published-record catalogue and mirrored original text",
+          "title": "Exact angular zero region for generalized Stieltjes transforms of interval-supported measures",
+          "trigger": "strongest equivalent transform and broader zero-existence search hit"
+        },
+        {
+          "assessment": "the checked characterizations do not give a Fourier-zero classification or margin",
+          "evidence": "The Laplace-transform passage identifies the law of a two-gamma mixture; the other characterization uses Gumbel's bivariate exponential model.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700014842",
+          "material_read": "Abstract and introduction p. 353, Laplace-transform proof p. 355, bivariate correspondence pp. 356–357",
+          "method": "Cambridge-hosted accessible original PDF",
+          "title": "Two characterisations of a gamma mixture distribution",
+          "trigger": "same gamma-mixture family and previously unresolved full-text priority risk"
+        },
+        {
+          "assessment": "different pole/shape constraints",
+          "evidence": "Thm. 3.2 repeated single pole; Eq. (3.8) and Thm. 3.3 shared-rate integer-shape mixtures.",
+          "identifier_or_url": "https://newmancollege.ac.in/wp-content/uploads/2019/12/Minor-Project-of-John.pdf",
+          "material_read": "Chapter III intro and §§3.1–3.2 (PDF pp. 21–30)",
+          "method": "institution-hosted original PDF",
+          "title": "Distributions with zeros and poles in the Laplace transform or generating function",
+          "trigger": "explicit gamma Laplace-zero theory"
+        },
+        {
+          "assessment": "different invariant",
+          "evidence": "Density log-concavity is not a real-frequency cancellation criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8",
+          "material_read": "Finding",
+          "method": "local published-record comparison",
+          "title": "A sharp log-concavity threshold for equal-shape gamma rate mixtures",
+          "trigger": "same mixture family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A union of attainable zeros does not say which particular positive mixtures lose cyclicity. The fixed-endpoint classification isolates finitely many weights, identifies and distinguishes all higher branches, and shows that a merger in the frequency equation still gives a simple transform zero. That exact locus is useful for deciding cyclicity of a specific mixture; the relative margin quantifies conditioning in the regime where none are exceptional.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

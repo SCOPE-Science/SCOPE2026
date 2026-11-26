@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:35:39.111262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With alpha=2/p, log sinh(alpha t) concavity between alpha=1 and alpha=2 gives the claimed derivative sign; the sharp mixed coefficient is reached at equal positive inputs. The simplex inball, tested against the negative radial direction, gives max_i |q-v_i|² at least r²+R²+2rR/(d-1); the coefficients match exactly at p_d. For p>2 one instead uses l_p <= l_2 on the two scalar blocks. For |t|>=a the nearest apex vertical term is at most |t|^p; for |t|<a it is at most R^p. These cover the endpoint and all scales. Below threshold the explicit s satisfies s>lambda_d and s²>q_*, giving r_f<a<R and strict opposite inequalities at a base vertex (base distances <=s<1; both apex distances >1); the mixed/Euclidean Lipschitz bound supplies the claimed positive-volume open ball. All-base ties force q=g where a nearer apex beats the bases. In the horizontal plane on the facet-centroid-to-centroid segment, writing q-g=-u(v_i-g) for 0<u<=1/(d-1), the excluded squared distance minus a retained squared distance is 2uR²d/(d-1)>0. The retained distances cross the common apex distance a before u reaches zero. Downward closure and direct alternating summation on present apex indices give the exact nerve and sign. The frozen 456 checks use floating point and discrete samples; they were inspected, not rerun, and are not used for the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves a five-site counterexample with a triangle and two opposed axial points, and extends it by embedding the five sites into higher dimension."
+        ],
+        "reasoning": "General counterexample existence in all dimensions does not control the norm exponent, universal coverage, or the nerve for d base sites; embedding a 3D base does not yield a sign depending on d.",
+        "searches": [
+          "Shelley–Tartakovsky, arXiv:2610.25841, §5 and its higher-dimensional extension"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_simplex_phase.py",
+        "Shelley–Tartakovsky, arXiv:2610.25841",
+        "Resultary cfb3fbed9be0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In d=3, the primary example already omits precisely all-base faces and has positive volume error, the same combinatorial failure/sign as the frozen d=3 subcase. The one-apex comparator changes the sites and only fails at the nonsmooth endpoint."
+        ],
+        "reasoning": "The known three-dimensional mechanism supplies neither the sharp radial majorization for all d nor the converse range in this fixed gauge family. The alternating sign follows from the d-base nerve calculation, not from the primary embedding construction.",
+        "searches": [
+          "arXiv:2610.25841, §5, pp. 13–14, in particular (16)",
+          "Resultary cfb3fbed9be0, RESULT.md, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold is equivalent to the coefficient match 2^(2/p)-2=2/(d-1) in frozen Steps 1–2. Shelley–Tartakovsky instead choose a particular smoothed bicone, not the family parametrized by that coefficient. The closest checked Resultary transition has just one apex."
+        ],
+        "reasoning": "Neither formulation yields coverage for all p>=p_d and admissible scales, or failure for every p in (1,p_d), for the specified two-apex family. The checked search did not identify attributable prior statement of the scalar inequality; its priority is not asserted.",
+        "searches": [
+          "Resultary meaning searches for regular simplex with axial-pair mixed p norm and Voronoi nerve inclusion–exclusion",
+          "Primary literature query for mixed-norm covering and the regular-simplex axial Voronoi exponent",
+          "arXiv:2610.25841, §5, equations (15)–(16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest checked exact entry is a four-site one-apex transition: the nerve is complete for p>1 and the incomplete-nerve volume defect is at p=1. It does not tabulate or state p_d for the two-apex family."
+        ],
+        "reasoning": "This is a continuous threshold theorem, not a numerical table result; the exact indexed threshold comparison is relevant but not equivalent. A bounded search supplies no general historical exclusion.",
+        "searches": [
+          "Resultary meaning search for simplex mixed-norm phase and Voronoi-nerve defect",
+          "Resultary cfb3fbed9be0, Finding and assumptions"
+        ]
+      },
+      "rationale": "Pass is for the exact dimension-dependent universal mixed-norm threshold and its constructive subthreshold nerve and signed error within this family, not for the general existence of counterexamples or for inventing the bicone mechanism. The strongest checked primary and catalogue comparators overlap substantially in mechanism but neither gives this phase theorem.",
+      "residual_risks": [
+        "One bounded external search returned no further hit; equivalent radial inequalities or mixed-norm configurations under other names may exist. Catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the 3D failure mechanism, not the sharp mixed-norm family phase",
+          "evidence": [
+            "The gauges approximate the double cone; the source's higher-dimensional argument embeds the five-site configuration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.25841",
+          "material_read": "Section 5, printed pp. 13–14, construction, nerve argument, equation (16) and extension",
+          "method": "Compared primary PDF passages at offsets about 36000–43451",
+          "title": "Union of Translates of a Convex Body",
+          "trigger": "Same nerve-restricted volume problem, triangle plus axial pair"
+        },
+        {
+          "assessment": "Different geometry and endpoint; not equivalent",
+          "evidence": [
+            "Three base sites plus one apex; complete p>1 nerve and p=1 defect only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-singular-four-site-voronoi-nerve-transition-for-product-balls--cfb3fbed9be0/RESULT.md",
+          "material_read": "Finding, assumptions and proof material, offsets 0–6497, comparison offsets 6900–9361",
+          "method": "Read local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A singular four-site Voronoi nerve transition for product balls",
+          "trigger": "Closest indexed mixed-block norm transition and omitted base triangle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact dimension-dependent boundary for when this symmetric family can obstruct Voronoi-restricted volume inclusion–exclusion, not just an isolated counterexample. The universal side, positive-measure witnesses arbitrarily near the threshold, and dimension-dependent sign are useful quantitative and combinatorial information for this natural model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

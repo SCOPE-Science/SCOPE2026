@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:35:47.911957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Finding, Assumptions, Proof Steps 1–5",
+        "Frozen VERIFICATION.md and CHECKER.py, inspected but not executed",
+        "Independent replay: python3 /workspace/branches/check_600_dense.py"
+      ],
+      "rationale": "The normalized S³ addition theorem gives the dense sample Gram kernel (1/120)Σ(n+1)U_n(x·y). I inspected the exact class-algebra certificate and independently reconstructed the matrices from the vertices using dense integer-pair arithmetic in Z[φ], without assuming class closure. The annihilators and trace moments give ranks 1,5,14,30,55,91,116,120; at L=7 the eigenvalues 0,1,7/4,7/3 have multiplicities 4,91,16,9, and at L=8 the eigenvalues 1,7/4,7/3,4 have multiplicities 55,16,45,4. These are cumulative cutoffs. The check also gives B1=1 and a constant top-eigenspace projector diagonal 1/30. Thus, if the positive weights have mean 1, the mean Rayleigh quotient in the top eigenspace of B^(1/2)WB^(1/2) is 4 and the quotient on the constant vector is 1. Equality of the condition number with 2 forces the constant vector to be a minimum eigenvector; invertibility of B^(1/2) forces W1=1. This proves rigidity, independently of the stated symmetry-averaging argument. The inverse polynomial agrees with the reciprocal at all four eigenvalues, and R*B^(-1) is the minimum-L²-norm right inverse.",
+      "residual_risks": [
+        "The matrix certificate is finite and proves no statement at higher cutoffs or for other point sets. The full-row-rank condition number uses the smallest nonzero singular value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dowker's factored-sphere mode formulas and Hirao–Nozaki–Tasaka's harmonic-strength theorem concern invariant modes or moments.",
+          "Only bibliographic evidence, not theorem text, was available for the Gram-matrix optimization paper."
+        ],
+        "reasoning": "Moment vanishing does not give the critical sample-Gram spectra, and generic condition-number optimization must be distinguished from the equality characterization for this configuration.",
+        "searches": [
+          "Dowker arXiv:0909.3380",
+          "Hirao–Nozaki–Tasaka arXiv:2507.01358",
+          "Minimizing the Condition Number of a Gram Matrix, DOI 10.1137/100786022"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 13f75a70c530 and de93ffb99594",
+        "arXiv:0909.3380",
+        "arXiv:1307.6768",
+        "arXiv:1308.5101",
+        "arXiv:2507.01358",
+        "DOI 10.1137/100786022 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The McKay rule adds the two first-appearing blocks of dimensions 3 and 4 at degree 6, then adds the new dimension-2 block and repeats the dimension-6 block at degree 7.",
+          "The harmonic-strength statement alone gives no analogous eigenvalue decomposition or optimal-weight rigidity."
+        ],
+        "reasoning": "The classical representation route mechanically determines the spectrum and hence the unweighted condition number. The nonconstant-weight exclusion is the remaining contribution: it uses the constant bottom eigenvector, constant top projection diagonal and the invertible Gram eigenvector equation.",
+        "searches": [
+          "arXiv:1307.6768, group/McKay framework",
+          "Resultary 13f75a70c530 and de93ffb99594",
+          "arXiv:2507.01358, Theorem 1.2(iii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dechant identifies the vertices with the binary icosahedral group. The later exact-degree record 13f75a70c530 uses its central character convolution.",
+          "The cumulative eigenvalue on an isotypic block of dimension d² is Σ(n+1)m(n)/d, with m(n) the restricted SU(2) multiplicity."
+        ],
+        "reasoning": "This is an alternative exact derivation of the unweighted spectral part; summed convolution eigenvalues do not alone prove uniqueness under diagonal rescaling.",
+        "searches": [
+          "Resultary: 600-cell harmonic interpolation and exact-degree sampling",
+          "Dechant arXiv:1307.6768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary records 13f75a70c530 and de93ffb99594 provide exact-degree block formulas, both later-dated.",
+          "No decisive earlier distance-algebra eigenmatrix passage was located; no inference of absence follows."
+        ],
+        "reasoning": "Even a known spectral table would cover the numerical part only; an equality result for all positive vertex weights is not such a table lookup.",
+        "searches": [
+          "Resultary: 600-cell exact-degree and parity-sharp sampling",
+          "Literature lookup for 600-cell association-scheme eigenmatrices and intersection tables"
+        ]
+      },
+      "rationale": "The supported distinct claim is the quantitative 600-cell interpolation theorem with rigidity of its optimal positive weighting at the first surjective cutoff. The spectral component alone is derivable from classical character convolution and the affine E8 tensoring rule; it is not credited as a new decomposition. Later exact-degree records directly imply the cumulative spectra but not the positive-weight equality characterization, and neither establishes earlier priority. The inspected earlier harmonic mode and design literature does not supply the combined theorem. The uniqueness step uses standard eigenvalue bounds but also requires the specific bottom-eigenvector geometry and an equality argument.",
+      "residual_risks": [
+        "An earlier result on diagonal-rescaling rigidity might subsume the weighted result; exact theorem text for the named optimization paper was not available.",
+        "A pre-existing 600-cell association-scheme table could furnish another direct derivation of the numerical spectrum; that portion is not independently credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the spectral component, later-dated; not the weighted claim",
+          "evidence": "Exact-degree blocks with eigenvalues 120m_i(n)/d_i in its character-matrix convention; common blocks can be summed.",
+          "identifier_or_url": "Resultary 13f75a70c530",
+          "material_read": "Finding and character/McKay proof, offsets 0–4861 and 4700–7678",
+          "method": "Local mirror",
+          "title": "The exact-degree harmonic sampling spectrum of the 600-cell",
+          "trigger": "Closest indexed spectral claim"
+        },
+        {
+          "assessment": "Substantial spectral overlap, later-dated; different cutoff and no weight rigidity",
+          "evidence": "Exact-degree McKay recursion, degree translation, parity thresholds.",
+          "identifier_or_url": "Resultary de93ffb99594",
+          "material_read": "Offsets 0–4573 and 6000–9929",
+          "method": "Local mirror",
+          "title": "Parity-sharp exact-degree harmonic sampling on the 600-cell",
+          "trigger": "Possible dominating sampled-cutoff result"
+        },
+        {
+          "assessment": "Relevant mode theory, not the assigned evaluation theorem in the inspected material",
+          "evidence": "Symmetry-adapted modes and left/right degeneracies.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.3380",
+          "material_read": "PDF pp. 7–8",
+          "method": "OA PDF text",
+          "title": "Harmonics on the factored three-sphere and the Hopf map",
+          "trigger": "Binary-icosahedral harmonic formulation"
+        },
+        {
+          "assessment": "Provides classical structural ingredients",
+          "evidence": "Identification of the 120 vertices with the binary icosahedral group.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.6768",
+          "material_read": "p. 20 and relevant McKay passage",
+          "method": "OA PDF text",
+          "title": "The 600-cell and binary icosahedral group (Dechant)",
+          "trigger": "Group and McKay reduction of the vertex problem"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Harmonic-index 58 design for the 600-cell and its antipodal half.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5101",
+          "material_read": "p. 3, 600-cell example",
+          "method": "OA PDF text",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Possible exact harmonic data for the same configuration"
+        },
+        {
+          "assessment": "Moment data and design uniqueness, not sampling weight optimality",
+          "evidence": "Determines the harmonic-strength set of 2I.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.01358",
+          "material_read": "pp. 3–4, Theorem 1.2(iii) and design uniqueness discussion",
+          "method": "OA PDF text",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Exact harmonic-strength and uniqueness results for 2I"
+        },
+        {
+          "assessment": "No theorem-level exclusion possible",
+          "evidence": "Title establishes plausible relevance only.",
+          "identifier_or_url": "https://doi.org/10.1137/100786022",
+          "material_read": "Bibliographic information only; OA text unavailable",
+          "method": "DOI and lawful repository lookup",
+          "title": "Minimizing the Condition Number of a Gram Matrix",
+          "trigger": "Possible general diagonal-rescaling rigidity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this canonical spherical point set the first cutoff at which arbitrary data interpolate is a natural stability threshold. The weighted theorem excludes every positive diagonal reweighting as an improvement, even allowing equality only for constant weights. Together with the explicit right inverse and sharp norm it gives a concrete prescription at that threshold, not merely a recomputation of a character table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

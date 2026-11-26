@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:44:20.590831Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/check_4_5.py"
+      ],
+      "rationale": "The 36 windows are exactly the distinct overlap arcs. A three-letter overlap using all symbols admits three continuations; one missing symbol forces the continuation in either direction. From abc with a,b,c distinct, the three appended symbols a,b,c lead after 1,2,3 arcs to bca,cba,cab. The 18 forced paths exhaust all 36 arcs (six paths of each length, disjoint by their unique predecessors). This gives the bidirected triangular prism. Its product Laplacian has spectrum 0,2,3,3,5,5; hence 75 spanning trees and 75 in-arborescences at the normalized root. BEST with one fixed first edge contributes (2!)^6, giving 4,800. The unique window 0120 fixes the rotation without extra factors. Independently I enumerated all unused-window extensions on the original 24-vertex overlap graph, visiting 102,428 search nodes. I obtained 4,800 distinct length-36 cycles with all the right windows, and applied each group element using the least lexicographic rotation, not the frozen canonicalization. Exactly the identity and the three transpositions had nonzero fixed counts (4800 and 40 each); all six reversing operations and both 3-cycles fixed none. Explicit orbit sets gave 40 of size 3 and 780 of size 6 under S3, and 20 of size 6 and 390 of size 12 with reversal. This independently verifies the group census including the absence of relabeled reversals.",
+      "residual_risks": [
+        "This is an exact enumeration at one alphabet size and order, not a formula at larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The onto-functions and required-characters theorems cover existence, not enumeration or symmetry. The repeated-letter theorem is about a broader language than the ternary surjective one."
+        ],
+        "reasoning": "Existence for the target or a superset does not establish a group-action count. BEST counts normalized rooted Euler tours, not fixed points of the action on those tours.",
+        "searches": [
+          "arXiv:0805.1672, Theorem 4",
+          "arXiv:0808.1309, Theorem 4",
+          "arXiv:1008.2251, Theorem 11",
+          "arXiv:1303.3323, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary companion 000c778d28d0 and nearby ac5120e68159",
+        "arXiv:0805.1672",
+        "arXiv:0808.1309",
+        "arXiv:1008.2251",
+        "arXiv:1303.3323"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion explicitly does not identify symbol relabelings or reversal. Its 4,800 and the existence theorems give no transposition or reversal fixed-point data."
+        ],
+        "reasoning": "Burnside requires fixed-point counts beyond total size; the fact that a set has 4,800 elements does not determine its orbit partition or imply reversal acts freely even up to relabeling. Shared count and priority are separate; the same-day date supplies no order.",
+        "searches": [
+          "Companion RESULT.md, Finding and prism/BEST proof",
+          "arXiv:0805.1672, Theorem 4",
+          "arXiv:1008.2251, Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The companion counting exactly three distinct symbols on the labeled alphabet of size three counts exactly the same words as the onto-function formulation. Its count and prism/BEST argument agree, but it does not quotient by alphabet permutations or reversal.",
+          "LaBounty-Lay, Bechel and Godbole give existence iff k>n, including k=4,n=3."
+        ],
+        "reasoning": "The common rotation count is demonstrably equivalent; the 410-class census and stabilizer information are not stated in either comparison. The directly matching index hit for the whole result is the finding under review, not independent coverage.",
+        "searches": [
+          "Resultary ternary length-four surjective universal-cycle count and symmetry lookup",
+          "Resultary 000c778d28d0",
+          "arXiv:0805.1672, Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion's exact 4,800 and explicit witness are verified shared material. The other indexed enumeration gives 36 cycles for length-three words using exactly two symbols on a ternary alphabet."
+        ],
+        "reasoning": "Fixed counts for the 12 operations are not tabulated in the companion. The length-three count is for another language, not a tabulation of this invariant.",
+        "searches": [
+          "Resultary 000c778d28d0",
+          "Resultary ac5120e68159",
+          "arXiv:0805.1672, Theorem 4"
+        ]
+      },
+      "rationale": "The 4,800 rotation count and its derivation are shared coverage with the distinct indexed companion; do not count them as an incremental contribution here or infer which calculation came first. The full alphabet/reversal action, fixed counts, and orbit sizes are distinct claims not given by the companion or inspected existence theorems.",
+      "residual_risks": [
+        "The literature search was bounded; it does not exclude an unindexed complete symmetry enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent rotation count and argument only; public priority not established",
+          "evidence": "Exactly three distinct symbols, 4,800 modulo rotation, 75(2!)^6; no claim modulo labels or reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exactly-4-800-ternary-universal-cycles-of-four-letter-words-with--000c778d28d0",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof and Limitations",
+          "method": "Resultary local mirror and exact frozen companion text",
+          "title": "Exactly 4,800 ternary universal cycles of four-letter words with three distinct symbols",
+          "trigger": "Same exact enumeration under another language description"
+        },
+        {
+          "assessment": "Different window language",
+          "evidence": "Length-three windows with exactly two symbols; 36 cycles for q=3.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact enumeration of universal cycles with precisely one repeated letter",
+          "trigger": "Nearby exact ternary cycle census"
+        },
+        {
+          "assessment": "Existence overlap",
+          "evidence": "An onto-function U-cycle exists iff k>n.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.1672",
+          "material_read": "Theorem 4, p. 3, text offset 6697",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Discrete Functions",
+          "trigger": "Exact language as onto functions"
+        },
+        {
+          "assessment": "Restates existence",
+          "evidence": "Attributes the surjective-word criterion to Bechel et al.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1309",
+          "material_read": "Theorem 4, p. 3, text offset 5362",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Restricted Classes of Words",
+          "trigger": "Surjective-word existence and possible census"
+        },
+        {
+          "assessment": "Broader existence but no orbit count",
+          "evidence": "Existence for words containing a specified required set.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+          "material_read": "Theorem 11, p. 12, text offset 28029",
+          "method": "OA PDF targeted passage",
+          "title": "On Universal Cycles for New Classes of Combinatorial Structures",
+          "trigger": "Required-characters generalization"
+        },
+        {
+          "assessment": "Different broader language",
+          "evidence": "Existence for words with at least one repeated letter for order at least four.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.3323",
+          "material_read": "Theorem 5, p. 3, text offset 9000",
+          "method": "OA PDF targeted passage",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Language with repeated letters could be confused with the target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, symmetry census",
+        "Independent replay, full orbit histograms"
+      ],
+      "rationale": "The additional contribution is a complete intrinsic classification at the first nontrivial ternary surjective order under the natural ambiguities of label choice and orientation. In particular it decides chirality even after relabeling and localizes all nontrivial stabilizers to transpositions. Those properties are useful for choosing distinct representatives and are not routine numerical consequences of the shared rotation count.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

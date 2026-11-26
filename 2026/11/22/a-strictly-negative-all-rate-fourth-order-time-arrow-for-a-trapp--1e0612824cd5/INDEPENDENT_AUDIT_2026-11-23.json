@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:57:19.034694Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the two moment resolvents for the stationary position with heading flip rate g, not redraw rate 2g. Thermal independence can be checked separately: the arrow is a difference of fourth joint cumulants because the stationary covariance contractions are identical in the two orderings. An additive independent Gaussian process contributes zero fourth cumulant, so the calculation may set D=0. In that case put p=2g and P=z+p, L=z+k, Q=z+p+2k, R=z+3k. Eliminating the stationary moments and forward hierarchy gives the numerator over PLQR as v E[X^3 S] times (2PQ+QR−3PL−2(p+3k)(P+k)) = −4kp v E[X^3 S]; E[X^3 S]=3v^3/[k(p+k)(p+3k)]. This recovers the exact prefactor in RESULT.md lines 10–20. The inverse transform is strictly signed by integration over a simplex of positive volume for each t>0, with leading simplex volume t^3/6. Coincident rates create no exceptions; at t=0 the arrow is zero. Stationarity and global sign symmetry remove all lower-total-degree two-time antisymmetries. Replay the stationary balances and hierarchy at RESULT.md lines 31–66 with the reduction above. An independently reconstructed symbolic resolvent also verified cancellation of D. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The telegraph record gives the ordered fourth input cumulant and its sign under general positive filtering. Sun–Ye–Chen use final-state-conditioned correlations to construct distributions; Sevilla–Meléndez Mora give an exact convolution of position densities."
+        ],
+        "reasoning": "These are stronger in other directions (input cumulants or distribution methods); neither the negative signs of individual filtered cumulants nor a one-time density fixes the difference of two distinct time contractions.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+          "arXiv:2610.24961v1, conditional correlation method",
+          "arXiv:2608.21781v1, equations (16)–(18)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and checker.py",
+        "Resultary IDs ending 0d6063747558 and c69dc0d762a5",
+        "arXiv:2602.08436v1, 2608.21781v1, 2610.24961v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arrow subtracts two negative filtered fourth cumulants. The corresponding unfiltered telegraph cumulants are even equal: both are proportional to −exp(−2gt). The dimension-seven record explicitly limits the all-lag sign classification to its chosen rate ratio."
+        ],
+        "reasoning": "The raw kernel supplies an alternative starting point, but a nontrivial comparison of integrated contractions, or the exact four-pole cancellation, is needed for the stated sign. Neither kernel negativity nor the earlier asymptotic signs implies all-lag ordering.",
+        "searches": [
+          "Resultary mirror, telegraph record Finding and Filtering proof, offsets 0–5208",
+          "Resultary mirror, dimension-seven record Finding and Limitations, offsets 0 and approximately 9900–12500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed dimension-seven theorem uses isotropic redraw at rate γ and trap rate a; in dimension one redraw flips with probability one half. Its γ=2a is g=k here, with the same observable and D≥0."
+        ],
+        "reasoning": "The fixed-ratio slice is direct equivalent coverage, not a separate novelty. A one-time Gaussian convolution is not a two-time moment ordering.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-a-sharp-dimension-seven-threshold-for-the-quartic-time-arrow-of--0d6063747558",
+          "arXiv:2602.08436v1, equations (13)–(15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed sign claim gives the fixed relation γ/a=2; the indexed cumulant supplies an exact input kernel, not an all-rate table for the position arrow."
+        ],
+        "reasoning": "No separate integer-sequence or finite parameter table test applies to this continuous all-rate transform and strict all-lag inequality. The exact fixed-rate match was checked directly rather than treated as a discovery.",
+        "searches": [
+          "Resultary: exact quartic position arrow and four-time telegraph cumulant records, IDs 0d6063747558 and c69dc0d762a5"
+        ]
+      },
+      "rationale": "Credit the existing all-lag g=k case, arbitrary-rate local asymptotics where previously established, and the full ordered telegraph input cumulant. The supported distinction is the all-positive-rate, all-positive-lag one-dimensional ordering, with a manifestly signed convolution valid through rate coincidences. No checked stronger result establishes that ordering; priority beyond the inspected passages is not certified.",
+      "residual_risks": [
+        "The exact ordered telegraph input cumulant permits an independent integration route; a previously published explicit position-ordering calculation could overlap. Inspected primary passages are not an exhaustive literature survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap at g=k only for all lags; asymptotic precursor away from that ratio",
+          "evidence": "All-lag sign for d≤7 at γ=2a, with arbitrary thermal diffusion; g=γ/2 in one dimension.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-dimension-seven-threshold-for-the-quartic-time-arrow-of--0d6063747558",
+          "material_read": "RESULT.md Finding, scope, prior-work and limitations passages, near offsets 0 and 9900–12500",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp dimension-seven threshold for the quartic time arrow of trapped run-and-tumble motion",
+          "trigger": "Exact position observable and run-and-tumble dynamics"
+        },
+        {
+          "assessment": "Exact kernel and individual cumulant signs are covered, but not their ordering",
+          "evidence": "For ordered gaps u,v,w the input cumulant is −8D²r⁻² exp[−r(u+2v+w)]; positive filters preserve strict negativity.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+          "material_read": "RESULT.md offsets 0–5208, Finding, scope, Ordered fourth moment and Filtering",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-time sign fingerprints of covariance-matched resetting, Gaussian, and telegraph baths",
+          "trigger": "Exact same telegraph forcing and positive harmonic filtering"
+        },
+        {
+          "assessment": "Credits the Gaussian convolution for the stationary one-time law",
+          "evidence": "Equation (15) convolves the D=0 stationary position density with a centered normal of variance D/μ using linearity and noise independence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.08436",
+          "material_read": "Equations (13)–(15) and adjoining text, offset 23500",
+          "method": "Open-access PDF passage by offset",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Same trap and independent thermal noise"
+        },
+        {
+          "assessment": "One-time positional convolution, not the four-rate inverse Laplace convolution in lag",
+          "evidence": "Equation (16) expresses P(x,t) as the OU propagator convolved in position with the athermal density.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.21781",
+          "material_read": "Page 4, equations (16)–(18), offset 29000",
+          "method": "Open-access PDF passage by offset",
+          "title": "Nonequilibrium statistics of harmonically trapped run-and-tumble particles: An exact convolution approach",
+          "trigger": "Same one-dimensional model and convolution terminology"
+        },
+        {
+          "assessment": "Methodological precursor; no ordering follows from the described final-state conditional construction",
+          "evidence": "The conditional correlations are integrated to recover moments and reconstruct the conditional position distribution given the final active state.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24961",
+          "material_read": "Page 2, discussion around Fig. 1, offset 12000",
+          "method": "Open-access PDF passage by offset",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker–Planck equation from the equations of motion",
+          "trigger": "Plausibly general conditional-correlation machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary covariance cannot detect the direction of time in this scalar signal. The lowest possible polynomial two-time witness works using position alone, at every positive lag and rate ratio, without observing the heading or knowing the independent thermal diffusivity. Beyond the known resonant case the result eliminates both lag-sign and switching-rate exceptions, and the positive convolution handles resonances without singular partial fractions. It makes no inference about entropy production or finite-data power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

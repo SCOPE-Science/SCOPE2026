@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:44.572934Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The partial derivatives, divided by twice the respective nonzero coordinate, give the principal subsystem on coordinate squares for the symmetric matrix with diagonal 2 and off-diagonal r,s,s. Two-coordinate singularities give r or s = ±2; in the remaining case the determinant is 2(2-r)(r+2-s²) and at s²=r+2 the all-nonzero kernel vector is (1,1,-s). Genus is three. In the standard quartic Hasse–Witt coefficient rule all off-diagonals have an odd exponent and vanish. Independent truncated polynomial multiplication gives exactly the diagonal entries A,A,B and the asserted identities. Diagonality preserves support under every Frobenius twist, so the stable rank is 2[A≠0]+[B≠0], and rank-zero Cartier in genus three is equivalent to superspeciality. Removing r=2 leaves the three reduced A factors (the two linear-in-r factors are primitive, their coefficient and constant having no common root); each of the five distinct B factors is a graph in s. Same-group crossings occur only on the excluded boundary. Restricting each L_i to a B graph in t=s² gives the two roots 4 and the stated retained t_i; the first is excluded and the second is simple and nonzero in each case. Thus the scheme of A=B=0 is reduced by the nonzero derivative after t=s² or the independent gradients at s=0. For c=0,±5 the L2 arguments are 1,5,9 (all squares over F11), and their L1 multiples by 8 are nonsquares there. For c=±ω the two norms are 9,1, hence both arguments are squares over F121. The independent branch census over F11 and F121 via θ²=2 verified smoothness counts, all branch multiplicities of the retained meetings and rank frequencies (9,14,18,32), (25,326,560,13132). Enumeration supports the finite counts, not the algebraic-closure proof. The supplied script was inspected, not executed.",
+      "replay": "python3 /workspace/branches/audit-checks/3.py (SymPy)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi's general Ciani discriminant at (r,s,s) is (r−2)(r+2−s²), in addition to the exclusions r,s≠±2. His Theorem 1.1 says the coefficients of a superspecial standard form lie in F_(p²).",
+          "Bouw et al.'s introduction and main theorem treat Ciani invariants, reconstruction and conductor/reduction."
+        ],
+        "reasoning": "The two prior general theorems recover exactly the smooth-base predicate and F121 inclusion, respectively. Neither gives the explicit Hasse divisors with multiplicities and transverse marked intersections, nor do the compared conductor formulas compute those strata.",
+        "searches": [
+          "Ohashi Lemma 2.1, §3 and Theorem 1.1",
+          "Bouw–Coppola–Lorenzo García–Somoza Theorem 1.1, arXiv:2310.10416"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12996 primary text",
+        "arXiv:2209.02926 primary text",
+        "arXiv:2310.10416 primary text",
+        "Resultary exact self hit and characteristic 7 and 5 summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known reduction to elliptic quotients and marked coefficient field of definition; known arithmetic algorithms and class-based data.",
+          "The frozen final claim is about the Hasse equation, including multiplicities and intersection geometry, and all four marked rank strata over two fields."
+        ],
+        "reasoning": "The inspected sources provide necessary structural and arithmetic ingredients. Additional polynomial factorization, discriminant exclusions, simple-root/transversality analysis and a marked-field computation are required for the stated scheme and rank frequencies.",
+        "searches": [
+          "Ohashi arXiv:2201.12996 Theorem 1.1, Lemma 2.1, §3",
+          "Moriya–Kudo arXiv:2209.02926 §2.3 and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohashi's prime-to-p elliptic-product isogeny makes superspeciality equivalent to supersingularity of all elliptic quotients; this is a known test for the same locus.",
+          "Moriya–Kudo identify the nonhyperelliptic Howe case with Ciani curves; their classification counts isomorphism classes, not equal-coefficient parameter pairs."
+        ],
+        "reasoning": "The quotient formulation explains the rank and superspeciality tests, not by itself a plane scheme of double/simple branches and reduced intersections. The moduli-class formulation loses marked-coordinate multiplicities and does not recover their rationality or rank census.",
+        "searches": [
+          "Resultary: characteristic 11 D8 Ciani quartic (r,s,s) Hasse divisor and marked superspecial locus",
+          "arXiv:2201.12996 §3",
+          "arXiv:2209.02926 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p=11 row reports total eight superspecial nonhyperelliptic Howe isomorphism classes, split by automorphism type, not marked counts.",
+          "The index returned this bound record, and nearby distinct marked Hasse studies at characteristic 7 (five components, seven crossings) and characteristic 5 (full marked family)."
+        ],
+        "reasoning": "An isomorphism census cannot identify marked points or their local intersection schemes without extra reconstruction and arithmetic. The indexed analogues use different characteristics or parameter families; the bound record itself is not independent coverage.",
+        "searches": [
+          "Moriya–Kudo, arXiv:2209.02926 Table 2 p.25",
+          "Resultary: characteristic 11 Ciani Hasse eight components and 25 superspecial parameters"
+        ]
+      },
+      "rationale": "The distinct contribution is the factorized Hasse scheme of the characteristic-eleven marked slice, including multiplicities and reduced crossings, and the marked rank counts. Smoothness and quadratic-extension definability are covered by Ohashi and are not novelty. No inspected source states or mechanically supplies the distinct contribution.",
+      "residual_risks": [
+        "A marked characteristic-11 calculation could occur in an earlier appendix or unpublished computation; the search was bounded.",
+        "The two closest other-characteristic indexed records were usable by summary only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Smoothness and quadratic field already covered, elliptic product framework known",
+          "evidence": [
+            "The main theorem explicitly places r,s,t in F_(p²); the criterion is r,s,t≠±2 and r²+s²+t²−rst−4≠0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12996",
+          "material_read": "Theorem 1.1 p.1, Lemma 2.1 p.2, §3 p.5",
+          "method": "Open primary PDF passages",
+          "title": "On the maximality of genus-3 nonhyperelliptic curves of Ciani type",
+          "trigger": "General Ciani form and superspeciality"
+        },
+        {
+          "assessment": "Overlapping superspecial curve class census, not a marked Hasse scheme or rank table",
+          "evidence": [
+            "p=11 total is 8 in the table of isomorphism classes; no count of marked (r,s) pairs in that row."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.02926",
+          "material_read": "§2.3 and Table 2 p.25 (text offset 98500)",
+          "method": "Open primary PDF passage and exact table row",
+          "title": "Some explicit arithmetic on curves of genus three and their applications",
+          "trigger": "Potential exact characteristic-11 superspecial census"
+        },
+        {
+          "assessment": "Different claimed invariant/purpose",
+          "evidence": [
+            "Ciani invariants, reconstruction and conductor/reduction, not the stated Hasse-stratification invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.10416",
+          "material_read": "Introduction and Theorem 1.1 p.2",
+          "method": "Open primary text passage",
+          "title": "On the conductor of Ciani plane quartics",
+          "trigger": "May encode the same subfamily via invariants"
+        },
+        {
+          "assessment": "The displayed claims concern other characteristics; no broader statement inferred from summaries",
+          "evidence": [
+            "Characteristic 7: five components and seven superspecial parameters. Characteristic 5: full marked Ciani family."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-five-hasse-divisor-components-and-seven-transverse-superspecial--37fdc8ec2df8; 2026/10/26/SCOPE-exact-parity-dependent-p-rank-strata-of-characteristic-five-cian--4f47b96584ec",
+          "material_read": "Search returned summaries only; matching mirror RESULT texts unavailable",
+          "method": "Resultary meaning search and attempted original passage resolution",
+          "title": "Five Hasse-divisor components and seven transverse superspecial parameters; characteristic-five marked rank strata",
+          "trigger": "Closest indexed geometric/marked-census comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equal-coefficient Ciani slice has a symmetry swapping the two repeated elliptic factors, so the doubled Hasse branches and their interaction with the simple ones address a natural structured locus. The scheme and two marked arithmetic censuses describe how the rank strata are organized, including a transverse superspecial zero-dimensional scheme, without purporting to reclassify curve isomorphism classes or Newton polygons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

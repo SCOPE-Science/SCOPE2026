@@ -1,11 +1,21 @@
-# Assessment of the Hermitian generator-line divisor
+# Independent mathematical audit
 
-**Correctness (PASS).** The polynomial identity on each totally isotropic line is exact over the algebraic closure. The geometric-line descent argument uses double orthogonality, and Hermitian polar-space incidence yields precisely the expected line count. Degree equality and Cohen--Macaulay purity prove the entire complete intersection is reduced, not merely set-theoretically supported on the lines. The Jacobian criterion locates all singularities; the standard-library verifier independently checks the cases \(q=2,3\).
+## correctness
 
-**Originality (PASS, with priority qualification).** Homma--Kim (arXiv:1304.0302) establishes the Hermitian surface model and rational point counts; Rams--Schütt (arXiv:1409.7485) establishes the 112-line extremal case for characteristic-three quartics. The inspected relevant passages do not state the two-generator reduced complete-intersection ideal for the entire line union, the precise minimal second degree, or the all-prime-power package. Web and research-record searches for aliases and exact polynomials did not locate that assertion. Classical incidence literature could still contain it; independent historical priority verification remains desirable.
+PASS
 
-**Value (PASS).** The full saturated ideal and its minimal additional degree solve a natural reconstruction question for the extremal Hermitian generator configuration, uniformly over every prime power. The same structure determines Hilbert series, arithmetic genus, and all reduced singular branches, information not supplied by line counts alone.
+Expanding F on a geometric line U gives both cross pairings and both self pairings zero (the monomials are distinct even for q=2). Thus U^[q]=U^perp for the ordinary dot product, and applying Frobenius twice gives U^[q²]=U. On a rational generator the q³- and q-power maps agree on a rational basis, so G restricts to zero. Conversely, for any nonrational common zero [x], x and x^[q²] span a line on S: the self pairings vanish, one cross pairing is G(x), and the other is F(x)^q. For rational points the nondegenerate binary Hermitian space P^perp/P has q+1 isotropic directions, by the norm map after diagonalizing; hence all those points also lie on generators. As an independent check of the counts, the number A_n of affine zero sums of n norms satisfies A_1=1 and A_(n+1)=(q+1)q^(2n)−qA_n by the norm fiber sizes. This gives A_4=q^7+q^4−q³ and (A_4−1)/(q²−1)=(q³+1)(q²+1); double counting the incidences gives (q+1)(q³+1) lines. S is smooth and integral (positive-degree hypersurface components in P³ would meet). The gradients of F and G are dependent precisely at projectively F_(q²)-rational points, by nonzero coordinate ratios. Since they are independent at some points of S, F does not divide G. The resulting complete intersection has degree exactly the number of contained distinct lines, so every generic multiplicity is one and there are no other components. Cohen–Macaulayness rules out embedded primes and gives saturation (the irrelevant ideal is not associated). Thus the singular support follows from the rank test, and actual distinct lines give the q+1 tangent directions at each rational point. The standard complete-intersection formulas give the Hilbert series and genus; the generator modulo F has the claimed relative first degree. This is the all-q proof; the frozen q=2,3 enumerations are only finite checks and the uploaded code was not executed.
 
-The theorem does not compute the scheme structure of the singular subscheme and does not generalize to arbitrary subsets of generators. The mathematical argument is self-contained modulo classical rational-point and Hermitian polar-space counts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact saturated ideal of the full reduced generator union, including the first additional equation modulo F. The Hermitian surface, point and line counts and rational tangent-plane sections are established geometry. The strongest inspected overlap uses the very same Frobenius pairing on degree-three points, but does not supply the geometric zero-divisor identity or its scheme structure. No priority assertion is made.
+
+## value
+
+PASS
+
+The generator union is the intrinsic line arrangement on the smooth Hermitian surface, uniformly in every prime power. Its first equation modulo the surface equation and its scheme-theoretic complete-intersection description answer a natural reconstruction question that a point or line count does not answer. They make the coordinate ring, genus and reduced singular branches accessible without enumerating the generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

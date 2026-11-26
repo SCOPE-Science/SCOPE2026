@@ -1,15 +1,21 @@
-# Scientific review: centroidal sections of capped paraboloids
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact section profile follows by completing the square in the planar cut and integrating a circular segment. An exact rescaled width integral proves that every finite-slope section has projected area satisfying \(sS(s)<4/3\); comparison with the vertical area is *equivalent*, with no omitted cases, to the scalar inequality \(\kappa^2<T(s)\). Endpoint analysis establishes \(T(0)=\pi^2/4\), \(T(\infty)=5/3\), and an interior value strictly larger than both. Hence compactness produces a finite cap-crossing maximizer of \(T\) and proves the global phase diagram without presupposing uniqueness of that slope. A direct circular-cap expansion gives the exact \(3/2\)-power coefficient. The Haar contact formula follows from uniformity of the absolute axial normal component. The separate standard-library diagnostic script completed 91 checks. The variational threshold is exact; its decimal approximation is noncertified.
+## correctness
 
-## Originality
-PASS at the available evidence level, with priority reservations. The complete HTML text of Kim and Kim, arXiv:1208.5361, treats tangent-parallel sections of *uncapped* paraboloids and surface characterizations; it does not imply a centroidal maximum-section phase transition after truncation. The full HTML text of Kim, Yaskin and Zvavitch, arXiv:1512.07289, supplies distributional tomography theory and general counterexamples, not this explicit circular-cap geometry. The full published RESULT.md about capped-paraboloid John–Löwner ellipsoids instead determines contained/enclosing ellipsoids, not planar section maxima. The full published RESULT.md about random capsule sections concerns a different convex body, and its quoted \(5/2\) contact exponent is not the paraboloid's \(3/2\) coefficient. Semantic published-finding corpus searches for centroidal sections, maximum area, and capped paraboloid returned these as closest records, not an equivalent or dominating proof. Classical quadratic-section formulas are background rather than new. The possibility of a prior exact treatment in older descriptive geometry cannot be eliminated by search alone.
+PASS
 
-## Value
-PASS. The natural question of which centroid-through-plane maximizes the area of a simple asymmetric convex solid has a genuine discontinuous answer as the axial aspect varies; the exact threshold is characterized by one explicit scalar functional and no numerical black box. The same geometry produces a sharp one-sided nonanalytic contact law and a direct orientation-statistical recovery of the aspect ratio. The contact threshold is not a renaming of a known generic tangent-section formula: the global comparison depends on nontrivial endpoint behavior and the competition between a finite and an infinite slope.
+Reconstructed the entire centroidal profile and comparison. Horizontal slice area proportional to z gives centroid 2H/3; the plane graph Jacobian is R²√(1+κ²s²), and completing the square in normalized base coordinates gives a disk cut at u=1/(3s), tangent exactly at s=1/3. The vertical integral gives 4RH/3. For s>1/3, writing Fε(w)=√((2/3+w−εw²)₊) on [−2/3,1/3] with ε=s⁻² both proves the strict bound sS<4/3 and justifies the first variation: [F0−Fε]/ε is dominated by w²/√(2/3+w), with pointwise limit half that bound. The integral of the bound is 2/5, yielding T(∞)=5/3. The strict comparison after squaring is κ²<T(s), with equality exactly at κ²=T(s); T increases to contact, T(1/3)>3, and its right derivative at contact is positive. Thus the maximizers of T are contained in a compact subset of (1/3,∞). The finite maximizers near the switch on the oblique side also remain bounded, since having area greater than vertical requires T(s)>κ² and the limiting T is strictly below κ*². Contact depth has derivative 18/5 and disk radius 5/6; direct width integration gives the normalized loss coefficient 24√6/5 (Euclidean area loss also includes the smooth graph factor). Haar probability follows from uniform |N_z| and tan β=κs, with the stated scale inverse. Independently reproduced a numerical stationary candidate at s≈0.36724362585 and √T≈1.98151821145; that is corroboration only. The packaged checker was inspected, not executed; no certified decimal, uniqueness of finite maximizer, or formal verification is inferred.
 
-## Limitations and closest literature
-The maximizing finite slope has not been proved unique, and \(\kappa_*\approx1.98151821\) is an illustrative numerical value only. The result is for full three-dimensional capped paraboloids with centroidal planes and Haar orientation when probability is invoked. Neither noisy-data stability nor off-centroid sections are addressed. The closest full-text sources are arXiv:1208.5361, arXiv:1512.07289, and the published capped-paraboloid ellipsoid and capsule-section studies cited in RESULT.md. Historical priority and correctness await external independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the capped centroidal threshold and combined contact signature, not for classical circular segment geometry or the cap exponent in isolation. No equivalent result emerged from the actual comparisons below.
+
+## value
+
+PASS
+
+This solves the natural orientation extremum over all centroidal planes for a basic nonsymmetric solid, throughout all aspect ratios. The finite-oblique/vertical coexistence and discontinuity are substantive, since they require a global comparison rather than identifying a tangency or performing a standard ellipse integral. The contact cusp and aspect-ratio inference add useful exact geometry but would not alone carry the value case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

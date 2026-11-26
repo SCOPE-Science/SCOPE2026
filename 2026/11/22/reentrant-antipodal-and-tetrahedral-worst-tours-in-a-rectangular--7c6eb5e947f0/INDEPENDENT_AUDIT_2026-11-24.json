@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:24:58.417669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32",
+        "Frozen certificate.json, verify_cube_prism.py and VERIFICATION.md",
+        "Replay: python3 /workspace/review-evidence/prism.py"
+      ],
+      "rationale": "A two-point antipodal cycle costs 2E; a four-cycle on a parity class omits a perfect matching and minimizes cost at min(4D,2C+2D). Verified the nonnegative-cone basis analytically on both parameter regimes. The inequalities D>A+B, E>B+C, E>D+A come from strict superadditivity of the three-halves power with strictly positive arguments. C>2A and all five coordinate generators are strict. In the low regime, 2(E-D)>C since the difference is increasing from C-1>C/2. In the high regime E-B>A+C since it increases from 3sqrt(3)-1>A+C. The only vanishing possibilities in the stated regimes are the two order comparisons at t=1. Independently parsed the frozen certificate with /workspace/review-evidence/prism.py, reconstructing the edge classes from actual bit-coordinate triples and the orbit action by coordinate reflections and swapping the horizontal coordinates. Checked coverage of all 247 subsets in 32 disjoint orbits, feasibility of each cyclic order, and all 64 vector identities in exact rational arithmetic. In particular, checked independently of the frozen code that every one of the 60 noncandidate-phase rows weights a uniformly strict generator, which excludes spurious co-maximizers even at t=1 or a crossing. The decreasing ratio E/D below 1 and increasing unbounded difference E-D above 1 give the two crossings, with the candidate order reversing at both. A decimal cross-check gives 0.8381016548840094 and 1.4357662186405674; the crossings use exact equations, not sampling. The unchanged source checker was inspected, not executed.",
+      "residual_risks": [
+        "The optimization is over corner subsets and Hamiltonian cyclic orders, with the stated two-point convention; it is not a bound for arbitrary points or a shortest closed walk with repeats allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balogh–Clemen–Dumitrescu Theorem 1.4 treats the cube-vertex problem in dimensions k≥29. Teplitskaya's Question 4.1 asks for an unrestricted cubic-power bound in the unit cube, not an established anisotropic result."
+        ],
+        "reasoning": "A high-dimensional all-axis-equal bound is not a sharp three-axis weighted calculation. The unrestricted cube question does not give an upper bound, much less equality for corner subsets of every prism.",
+        "searches": [
+          "doi:10.1007/s00453-024-01257-w, §§2–3 and 5",
+          "arXiv:2611.03403v1 §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and 609c2696e14e mirrored statement",
+        "Balogh–Clemen–Dumitrescu DOI 10.1007/s00453-024-01257-w",
+        "Teplitskaya arXiv:2611.03403v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched Resultary theorem gives a single power-driven transition for unweighted vertices; known literature gives a cubic parity lower witness and high-dimensional upper results. None of those controls other noncandidate subsets uniformly under the broken symmetry or forces the second aspect-ratio crossing."
+        ],
+        "reasoning": "Comparing the lower witnesses alone would not prove that they dominate every other subset as t changes. The strict all-orbit upper certificate is the new ingredient, and the reentry is not an implication of the unit-cube exponent profile. Common publication dates in the catalogue do not establish priority.",
+        "searches": [
+          "Resultary 609c2696e14e Finding and scope",
+          "Balogh–Clemen–Dumitrescu Theorems 1.3 and 1.4, Conjecture 5.5",
+          "Teplitskaya Question 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent anisotropic formulation is the binary three-cube with coordinate disagreement weights 1, 1, t^2, applying the three-halves power to weighted Hamming length. The closest distinct record varies the power of the equal-weight metric only."
+        ],
+        "reasoning": "Permutations or a common change of scale do not convert unequal axis lengths to equal lengths, and changing the exponent in the equal-weight problem keeps all three axial edges equal. The exact overlap is t=1, not a reparametrization of the claim.",
+        "searches": [
+          "Resultary: rectangular-prism corner tours; cube-vertex powered tours; parity tetrahedra and prism aspect ratio; anisotropic two-equal-side prisms at p=3",
+          "Resultary 609c2696e14e, RESULT.md offsets 0 and 725"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "609c2696e14e gives the exact powered tour profile over the unit-cube vertex subsets for p≥2, hence the value and same equality geometry at t=1, p=3. The nearest primary finite comparisons concern equal-side cube vertices."
+        ],
+        "reasoning": "The continuum of aspect ratios requires upper bounds with ordered side-dependent edge classes and strictness in both regimes, not a table at t=1 or a finite sample of aspect ratios. No distinct anisotropic statement was located in the bounded catalogue comparisons.",
+        "searches": [
+          "Resultary searches across aspect-ratio and weighted cube corner-tour formulations",
+          "Resultary 609c2696e14e exact phase-transition theorem"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass restricted to the exact anisotropic profile and its equality classification for cubic cost. The parity-tetrahedron lower example is known, and the exact unit-cube specialization is separately covered.",
+      "residual_risks": [
+        "An unindexed anisotropic finite-metric or powered-tour result may subsume the profile; these are bounded best-of-knowledge comparisons, not historical priority clearance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact symmetric specialization, not variable aspect ratio",
+          "evidence": "Unit-cube corner subsets, p≥2; the parity/antipodal switch is at p=2 log(2)/log(3/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-powered-tour-phase-transition-for-vertex-subsets-of-the--609c2696e14e",
+          "material_read": "Mirrored RESULT.md Finding, equality and scope, offsets 0 and 725",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp powered-tour phase transition for vertex subsets of the unit cube",
+          "trigger": "Strongest distinct catalogue overlap: exact cube optimum and equality classification"
+        },
+        {
+          "assessment": "Known cubic parity lower witness; neither the bound nor the conjecture supplies anisotropic corner optima",
+          "evidence": "§2.1 obtains 2^(7/2) from four parity corners; §3 vertex-subset theorem applies for k≥29; §5 conjectures the unrestricted 3D constant.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-024-01257-w",
+          "material_read": "Theorem 1.3(i), §2.1 parity construction, §3 Theorem 1.4 and §5 Conjecture 5.5; text offsets 12736, 15250, 28708, 40636 and 61727",
+          "method": "Primary OA article passage comparison",
+          "title": "On a Traveling Salesman Problem for Points in the Unit Cube",
+          "trigger": "Known parity extremal candidate and possible stronger cube-vertex inequality"
+        },
+        {
+          "assessment": "A wider open problem, not a covering theorem",
+          "evidence": "Asks whether 2^(7/2) is the universal sharp constant over arbitrary finite point sets in the 3D unit cube, and credits the four-point construction.",
+          "identifier_or_url": "https://arxiv.org/html/2611.03403v1",
+          "material_read": "§4 Question 4.1, offset 17800",
+          "method": "Primary OA HTML passage comparison",
+          "title": "Open problems from the Length Optimization event at MDS 2026",
+          "trigger": "Directly motivating three-dimensional cubic tour question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact certificate",
+        "Symmetric slice in Resultary 609c2696e14e",
+        "Primary parity construction and unrestricted question"
+      ],
+      "rationale": "This is a natural deformation of a known sharp vertex extremum. It gives the entire exact corner invariant, including two sharp transitions and a return to the original extremizer geometry. It answers when the known cube witness stops being extremal, with no exceptional unclassified parameter values. That is more informative than merely computing the same finite optimizer at a few chosen aspect ratios.",
+      "residual_risks": [
+        "Does not solve the arbitrary-point open problem, or classify prisms with three independent sides or varying exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

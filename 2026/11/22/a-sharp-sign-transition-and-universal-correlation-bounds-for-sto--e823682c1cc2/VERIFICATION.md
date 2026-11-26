@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The result is a stationary finite-second-moment theorem for independent random fractional removals and additive input between events. The proof constructs the stationary stock in \(L^2\), computes its first two moments, obtains the event-export covariance by conditioning on the next storm, and extends it to every positive event lag. The correlation envelope follows from two explicit nonnegative factorizations. The threshold is strict whenever the indicated inequality is strict, and equality gives zero covariance, not necessarily stochastic independence.
+# Independent mathematical audit
 
-Reproducibility: run `python3 check.py` with a Python 3 standard-library interpreter. Exact rational checks compare independently derived recurrence moments with the claimed algebra on admissible parameter grids. Three seeded Monte Carlo simulations are supplementary finite diagnostics, not proofs. Pearson correlations are defined only when at least one innovation is nondegenerate.
+## correctness
 
-The analytical model does not cover rainfall-dependent wash-off efficiency, seasonal trends, within-event pollutant transport, or inference from observations. Independent scientific validation was not performed.
+PASS
+
+For q=1−μ and d=1−E(1−F)²≥μ>0, the backwards innovation series has summable L² norms and nonnegative terms, giving stationary existence and independence of X_n from current removal. Backward differences of stationary solutions equal the product of j residual fractions times a uniformly tight past difference. The product tends to zero in L², so the difference tends to zero in probability, proving uniqueness on the common innovations. Independently, write m=a/μ, V_X=Var(X), V_Y=Var(Y), U_2=Var(U). Conditional variance gives dV_X=v m²+U_2 and V_Y=(μ²+v)V_X+v m²=2μV_X−U_2. Conservation X_(n+1)=X_n−Y_n+U_(n+1) and independent terminal removal give Cov(Y_n,Y_(n+1))=μ Cov(Y_n,X_(n+1))=μ²V_X−μV_Y. Substitution yields the claimed a²[cμ²(1−μ)−v(1+cμ)]/d. Conditioning through the future gives factors q^(k−1) for export and q^k for stock. For V_Y>0, ρ_1=−μ+μ²V_X/V_Y. The exact bounds μ²V_X≤V_Y≤2μV_X follow from the two variance identities, with the first equality iff v=0 and the second iff U_2=0; V_X>0 when V_Y>0. This proves the all-lag envelope, strict signs and sharp equality cases. Both deterministic gives V_Y=0 and undefined correlation. At μ=1/2,c=a=1 the beta variances 1/20,1/12,1/8 give 1/14,0,−1/10 as stated. RESULT.md, VERIFICATION.md and check.py were inspected without executing the uploaded code. The 31,192 count is the script's tally of finite exact-rational component checks, not a proof of the envelope or general lags. The law is event-indexed and depends on mutual independence, not on rainfall or runoff data fit.
+
+## originality
+
+PASS
+
+The recurrence motivates standard random-coefficient stock moments; the exported release is a different observable using the complement of the random state coefficient. The strongest inspected primary wash-off model carries residual mass but has dry-period loss and runoff-driven within-event erosion. Neither that comparison nor the closest indexed claims gives the sign classification and both sharp bounds. Access to other relevant historical papers is incomplete, so this is a bounded decision.
+
+## value
+
+PASS
+
+Measured event exports and retained pollutant stocks have different memory, and replacing one by the other can reverse the sign. The result identifies which variances control this distinction using dimensionless moments, proves a sharp usable correlation interval, and shows distribution-insensitivity at both deterministic-input extremes. The exact threshold and extremizers are structural features of a natural wash-off and carryover model, useful as a benchmark without implying a field calibration or management result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

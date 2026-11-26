@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:03.473643Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33 and 35–66 (proof and exact moment replay)",
+        "VERIFICATION.md and checker.py (inspected, not executed; recorded 2101 exact-rational assertions)",
+        "Jacobs–Stein arXiv:2312.12453 Appendix A Example 20 and Appendix C Eq. (13), Example 21"
+      ],
+      "rationale": "Degree-m Bernstein functions form a basis of restrictions to the simplex by homogenizing with (sum p_s)^(m−degree); homogeneous independence follows by scaling from the simplex interior. The Dirichlet reference has full support, so the Gram form is positive definite and the dual exists uniquely, including the one-point simplex. Summing Bernstein functions gives normalization at every k, including k=0. Multiplying the degree-k monomial by (sum p_s)^(m−k) gives the stated degree-elevation coefficients and thus hypergeometric conservativity. Under normalized independent gammas with positive shapes, the within-group proportions are independent of the group totals and have the restricted Dirichlet laws. Conditional moments of p^r are constants times merged-p^r', so the expected dual has degree at most m. The multinomial grouping identity tests it against the entire coarse degree-m basis and gives exactly the coarse dual with summed shapes. Testing at degree k then proves the merge law without a degree restriction on k. For the obstruction let z=p_c; the dual moments through degree three are 1,1/3,0,0 for either reference. Integrating the displayed monic quartics against z^j, j=0,1,2,3, using Beta(1,2) moments 2/[(j+1)(j+2)] and Beta(1,1) moments 1/(j+1) confirms their orthogonality. The degree-four moment L(z^4) is therefore 1/18 or 17/210. If a denotes that moment, the five probabilities are (a,−4a,6a,4/3−4a,a−1/3), giving both stated vectors and half-l1 distance 64/315. With at most two colors every merge is a bijection or collapses to one color; three full-support colors require m≥3, and k≤m already commutes, proving minimality under the stated full-support condition.",
+      "residual_risks": [
+        "Finite checks are corroborative, not the general proof. The intrinsic choice α=β needs strictly positive counts; α must remain positive even when β is allowed to have zeros. The result concerns deterministic color merges, not stochastic relabeling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bayesian-inversion theorem uses Dir(1+−) and uniform multiset priors.",
+          "The finite-exchangeability paper gives signed Bernstein representations without this weighted dual-selection rule.",
+          "The recovered Bernstein mass-matrix paper treats univariate unweighted inversion and duals."
+        ],
+        "reasoning": "A general signed representation does not select these measures functorially. Matrix inversion defines each dual separately, but does not supply its coarse conditional expectation or the shape-summing rule.",
+        "searches": [
+          "Jacobs–Stein §8 Theorem 18 and Definition 17",
+          "Benavoli–Facchini–Zaffalon arXiv:2306.03869 pp. 10–13",
+          "Allen–Kirby arXiv:1907.05773 pp. 2–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting evidence",
+        "Jacobs–Stein 2312.12453",
+        "Benavoli–Facchini–Zaffalon 2306.03869",
+        "Allen–Kirby 1907.05773",
+        "The two Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thm. 13 and the projective draw-delete identities keep the color space fixed; Thm. 18 swaps dual and ordinary Dirichlet via the uniform-prior Bayesian inversion.",
+          "The frozen proof uses Dirichlet neutrality to make the conditional dual a polynomial of the same degree, then proves its coarse Bernstein duality by exact testing."
+        ],
+        "reasoning": "The table data entail the failure of separately uniform references for the displayed merge, but they cannot entail that every positive parameter yields a commuting family with summed shapes. Dirichlet aggregation describes the reference alone; establishing that weighted Bernstein-dual selection follows that aggregation uses an additional polynomial/duality argument.",
+        "searches": [
+          "Jacobs–Stein §§7–8 and Appendices A and C; compared to the frozen conditioning argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacobs–Stein's dual Bernstein polynomials and signed Dirichlet law use the uniform-simplex inner product. Their normalization and hypergeometric agreement through urn size are inherited at that choice.",
+          "Their draw-delete projectivity is in the number of draws, not the color set."
+        ],
+        "reasoning": "Dirichlet weighting followed by summing shapes under a merge differs from resetting the reference measure to uniform on each color set. Conditional pushforward of the weighted dual is the studied equivalence, not the known unweighted representation.",
+        "searches": [
+          "Resultary semantic lookup on signed overdraws, dual Bernstein polynomials and Dirichlet color aggregation",
+          "Jacobs–Stein arXiv:2312.12453 §§6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grouping two columns/colors in the prior (1,1,1) four-draw histogram produces (1/18,−2/9,1/3,10/9,−5/18). The prior two-color (2,1) four-draw table gives (17/210,−34/105,17/35,106/105,−53/210).",
+          "The indexed Dirichlet polynomial records concern operator traces or affine projector norms, not signed draw histograms."
+        ],
+        "reasoning": "Exact table coverage is credited even though the comparison under merging was not made there. The half-l1 value 64/315 is obtained by subtracting the prior data, so does not count as independent numerical novelty.",
+        "searches": [
+          "Jacobs–Stein Appendix A Example 20 (PDF p. 15; extracted offset about 56500 onward)",
+          "Jacobs–Stein Appendix C Eq. (13), Example 21 (PDF p. 18; extracted offset about 69000)",
+          "Resultary comparison of the Dirichlet Bernstein–Durrmeyer and asymmetric Dirichlet affine projector records"
+        ]
+      },
+      "rationale": "Pass is confined to the positive-Dirichlet weighted aggregation identity and its full-support, parameter-preserving urn specialization. Jacobs–Stein already tabulate both configurations underlying the smallest uniform-reference obstruction: (2,1) is exactly the merge of (1,1,1), not an unrelated example. Their values and the resulting arithmetic discrepancy are not new numerical data. Neither their draw-delete projectivity nor the other inspected works provides the weighted color pushforward assertion.",
+      "residual_risks": [
+        "This is not an exhaustive priority search; more general weighted Bernstein or Dirichlet polynomial projection results may give another route or a closer antecedent. The prior numerical examples should be credited explicitly as the two sides of the merge, not merely as unrelated examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unweighted representation, conservativity and both numerical tables already covered; weighted merge theorem not supplied by inspected passages",
+          "evidence": "The construction is uniform-simplex; the two displayed transitions use urns (1,1,1) and (2,1), linked by the exact merge at issue.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.12453",
+          "material_read": "§§6–8, including Theorems 13 and 18; Appendix A Example 20; Appendix C Eq. (13), Example 21",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Overdrawing Urns using Categories of Signed Probabilities",
+          "trigger": "Same signed construction and possible generalized coverage or exact obstruction data"
+        },
+        {
+          "assessment": "Representational antecedent, not same selection/compatibility",
+          "evidence": "Finite exchangeability has a signed measure or quasi-expectation representation; no specified Dirichlet-weighted merge selection in inspected text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03869",
+          "material_read": "pp. 10–13, signed representations and Bernstein-polynomial passages",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Connecting classical finite exchangeability to quantum theory",
+          "trigger": "Potential broader signed polynomial representation"
+        },
+        {
+          "assessment": "Univariate unweighted computational precedent",
+          "evidence": "Inverts the unweighted mass matrix; does not give a weighted merge identity in the consulted material.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.05773 (OA version of DOI 10.1137/19M1284166)",
+          "material_read": "pp. 2–4, mass matrix and dual construction",
+          "method": "Bounded OA PDF inspection after publisher route returned 403",
+          "title": "Structured inversion of the Bernstein mass matrix",
+          "trigger": "Potential stronger dual polynomial construction"
+        },
+        {
+          "assessment": "Different positive operator and invariant",
+          "evidence": "Studies spectral-power traces of a Bernstein–Durrmeyer averaging operator, not signed dual urn laws.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259",
+          "material_read": "RESULT.md Finding, offset 90 onward",
+          "method": "Published-record local mirror",
+          "title": "Spectral power trace cancellation for Dirichlet Bernstein–Durrmeyer operators",
+          "trigger": "Closest indexed Dirichlet Bernstein operator overlap"
+        },
+        {
+          "assessment": "Different projector and no color-merge claim",
+          "evidence": "Studies affine projector norms under Dirichlet weights.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-least-concentrated-vertices-govern-asymmetric-dirichlet-affine-p--5c9fbf13aa23",
+          "material_read": "RESULT.md Finding, offset 90 onward",
+          "method": "Published-record local mirror",
+          "title": "Least concentrated vertices govern asymmetric Dirichlet affine projection",
+          "trigger": "Closest indexed Dirichlet orthogonal projection overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 45–66",
+        "Jacobs–Stein §§7–8 and both worked examples"
+      ],
+      "rationale": "The extension can consistently be used at different color resolutions for all overdraw sizes while retaining ordinary draws through urn size and the original fixed-count duality. This is a mathematical compatibility property lacking in the usual separate uniform reference, and the choice α=β makes it usable without an added parameter for full-support urns. The old numbers are a helpful diagnostic, not the substantive value claim.",
+      "residual_risks": [
+        "No uniqueness among signed extensions, nonnegative overdraw, or natural parameter choice for zero-count colors is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

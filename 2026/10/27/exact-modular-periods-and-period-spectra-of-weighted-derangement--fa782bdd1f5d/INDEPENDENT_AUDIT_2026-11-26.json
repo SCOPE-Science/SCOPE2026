@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:47:12.723942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding the fixed-point weight by subsets gives (n!/j!)u^j for subsets of size j. The resulting recurrence R_n=nR_{n-1}+u^n starts at R_0=1 and yields R_{m+n}=u^m R_n modulo m, by the vanishing term at n=m followed by induction. Thus lcm(m,ord_m(u)) is a full period. For any period P from index zero, the recurrence differences at n=1 and n=2 give P=u(1-u^P) and P(1+u)=u^2(1-u^P) modulo m. Subtracting u times the first from the second gives P=0 modulo m, and then cancellation of the unit forces u^P=1 modulo m. This is necessary for every P, not simply divisors of the candidate. A finite abelian unit group contains an element of order equal to its exponent, whose powers attain all exponent divisors; taking prime valuations of lcm(m,h)/m gives exactly the divisors of lambda(m)/gcd(lambda(m),m). At m=2 the order of -1 is 1 and the stated even-modulus rule is still correct. Inspected VERIFICATION.md and verify.py without executing frozen code. Independent bounded replay: python3 /workspace/independent_checks.py computes residues from the polynomial rather than the recurrence and finds primitive words by prefix comparisons for all 773 unit-parameter pairs with 2<=m<=50. This corroborates the period and spectra on that range; the exact argument has no upper bound on m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lipka–Miska define the more general recurrence a_n=f(n)a_{n-1}+g(n)h(n)^n in Z[X], containing the target through f=X, g=1, h=u; the two conjectures examined there concern prime-divisor sets and magnitude.",
+          "The abstract-level description of Miska's 2020 article mentions periodicity modulo d; its exact periodicity statements were not retrievable."
+        ],
+        "reasoning": "The general recurrence class genuinely contains this instance, but membership alone says nothing about which periods are necessary or attainable. Periodicity or an eventual upper period of a broad class does not prove minimal full periods. Whether the older article proves sharper general results remains open in this review.",
+        "searches": [
+          "On a generalization of the recurrence defining the number of derangements; DOI 10.4064/cm7510-4-2019",
+          "arXiv:2004.10839 Introduction, recurrence (2) and citation [1]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.2929",
+        "OEIS A000166",
+        "Resultary ac06186a59d1",
+        "Resultary 2db8513e1620",
+        "DOI 10.4064/cm7510-4-2019 abstract-level only",
+        "arXiv:2004.10839"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 3.2 gives D_{pn+r}=(-1)^n D_r modulo prime p. The earlier OEIS observation supplies ordinary upper periods for all m, and the earlier dyadic census gives least-period implications for k>=3.",
+          "The target requires identifying both necessary divisibilities m|P and ord_m(u)|P even when u differs from -1, then determining all attainable ratios using the unit group's exponent."
+        ],
+        "reasoning": "For odd primes the shift congruence rules out the candidate p at index zero, and the remaining proper divisors 1 and 2 of the known upper period 2p fail respectively at D_0=1 versus D_1=0 and D_1=0 versus D_3=2. These ordinary-prime and dyadic overlaps do not yield the general weighted composite-modulus law. The spectrum is a standard abelian-group deduction only once the exact least-period law is known.",
+        "searches": [
+          "Sun–Wu–Zhuang arXiv:1009.2929 Corollary 3.2",
+          "OEIS A000166 period comment compared with the exact unit-order law",
+          "Resultary ac06186a59d1 compared with arbitrary m and all units"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Wu–Zhuang give D_n(x)=sum_j binom(n,j)j!(x-1)^(n-j) and D_n(x)=nD_{n-1}(x)+(x-1)^n.",
+          "Closest checked indexed statements give dyadic frequencies of ordinary derangement residues, not a weight-order law."
+        ],
+        "reasoning": "Reindexing and x=1+u identify exactly the same polynomial and recurrence, so neither is new. The inspected primary polynomial definitions do not assert least periods of all unit evaluations.",
+        "searches": [
+          "Local Resultary: modular least periods of weighted derangement, rencontres and Charlier evaluations; lcm modulus with multiplicative order",
+          "arXiv:1009.2929 p. 1 derangement polynomial and recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000166 comment (2017-11-21) says the period divides m for even m or 2m for odd m.",
+          "October 18 Resultary ac06186a59d1 counts one occurrence per even residue in the full 2^k block for k>=3. November 2 Resultary 2db8513e1620 explicitly gives least period 2^k, including k=1,2, and is a later partial overlap."
+        ],
+        "reasoning": "The ordinary sequence and dyadic frequency result are exact but range over u=-1, not full unit parameters. A shorter period dividing 2^k would repeat each residue multiplicity in the block, so the earlier count of one occurrence per even residue already forces sharpness there once the known upper period is used. None of these checked catalogue statements yields the set of m*d over all unit evaluations.",
+        "searches": [
+          "Local Resultary: exact derangement periods and residue fibres, weighted parameter spectrum",
+          "OEIS A000166 modular-period comment"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact least-period law for every unit-weight evaluation and composite or prime modulus, together with the complete unit-parameter spectrum. The recurrence and some modular upper bounds are known. Prior indexed dyadic residue multiplicities already imply the exact ordinary-derangement period on their range; this is a genuine overlap with a specialization, not a second independent novelty claim. Neither the inspected prior congruences nor the indexed dyadic results supply both necessary divisibilities for arbitrary unit weights. A highly relevant older modular periodicity paper remains a named risk, not evidence of either coverage or noncoverage.",
+      "residual_risks": [
+        "Miska (2020), DOI 10.4064/cm7510-4-2019, may contain a modular theorem covering part or all of the weighted least-period law; the available material does not determine the hypotheses or distinguish upper, eventual and least full periods. There may also be an unlocated Charlier or related recurrence formulation. The assessment is limited to the inspected claims, not global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same polynomial and ordinary prime shift, not an exact arbitrary unit-weight result in the cited statements",
+          "evidence": [
+            "x=1+u gives the target polynomial; D_{pn+r}=(-1)^n D_r modulo p"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2929",
+          "material_read": "PDF p. 1 (offset 3300), definition and recurrence; p. 5 (14350), Corollary 3.2",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "Congruences on the Bell polynomials and the derangement polynomials",
+          "trigger": "Same polynomial and modular congruences"
+        },
+        {
+          "assessment": "Ordinary upper period, not explicit general least-period law",
+          "evidence": [
+            "Period divides m for even m and 2m for odd m"
+          ],
+          "identifier_or_url": "https://oeis.org/A000166",
+          "material_read": "Peter Bala comment dated 2017-11-21 (offset 7600)",
+          "method": "Public webpage passage inspection",
+          "title": "A000166: Subfactorial or rencontres numbers, or derangements",
+          "trigger": "Known ordinary-derangement modular periods"
+        },
+        {
+          "assessment": "Actual prior implication of dyadic least-period specialization, not the weighted theorem",
+          "evidence": [
+            "Each even residue occurs exactly once in 0<=n<2^k for k>=3"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-residue-fibres-of-derangement-numbers-modulo-powers-of-two--ac06186a59d1",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Exact residue fibres of derangement numbers modulo powers of two",
+          "trigger": "Earlier exact residue occurrences in the ordinary dyadic sequence"
+        },
+        {
+          "assessment": "Later explicit partial overlap only",
+          "evidence": [
+            "Least index period 2^k for ordinary derangements, including k=1,2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-residue-multiplicities-of-derangement-numbers--2db8513e1620",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Exact dyadic residue multiplicities of derangement numbers",
+          "trigger": "Explicit least index period for powers of two"
+        },
+        {
+          "assessment": "Potential broader overlap not resolved; absence of accessible theorem text is not negative evidence",
+          "evidence": [
+            "Bibliographic description lists periodicity modulo d among topics. Alternate publication: https://www.researchgate.net/publication/339715556_On_a_generalization_of_the_recurrence_defining_the_number_of_derangements; publisher: https://www.impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/all/161/1/113511/on-a-generalization-of-the-recurrence-defining-the-number-of-derangements"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/cm7510-4-2019",
+          "material_read": "Abstract-level description and bibliographic identification only; no recurrence, lemma or periodicity theorem directly read from this article",
+          "method": "Exact-title and DOI bibliographic lookup, OA publisher landing page and DOI recovery, and identified ResearchGate publication page and PDF OA attempts; publisher extraction gave navigation/captcha, both ResearchGate paths HTTP 403",
+          "title": "On a generalization of the recurrence defining the number of derangements",
+          "trigger": "Strongest plausible older primary result: modular periodicity for a generalization of the recurrence"
+        },
+        {
+          "assessment": "Broader class contains the target; claims examined concern different properties",
+          "evidence": [
+            "Recurrence a_n=f(n)a_{n-1}+g(n)h(n)^n, with a_0=g(0); the abstract identifies prime divisors and magnitude as its two topics"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.10839",
+          "material_read": "Abstract, Introduction, recurrence (2) at offsets 0 and 2000; reference [1] p. 4 at 13973",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "On two conjectures regarding generalized sequence of derangements",
+          "trigger": "Lawful related source verifies exact form of the broader recurrence and identifies the older paper, not a substitute for its text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weighted fixed-point enumerator is classical, and its least modular period is a natural exact invariant rather than a handpicked finite slice. The lower obstruction collapses possible smaller periods to simultaneous divisibility by m and the unit order, resolving the ambiguity in an upper bound. The resulting spectrum describes every possible period across unit weights, including when a modulus admits more than one, and can be used directly without computing the sequence. The ordinary example illustrates rather than supplies the distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:22:55.524576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting the forbidden u->v leaves one excess incoming edge at u and one excess outgoing edge at v. Every admissible tour adds an integral u-to-v unit flow; an optimal flow uses a shortest permitted path alone. All original edges lie on directed cycles, so deletion leaves the underlying graph connected and a balanced augmentation really does have an Euler tour. For end-position markers the all-zero vertex cannot be entered or cannot be left, respectively. For an interior marker, d=1 is forbidden. At 2<=d<n the spelled word is covered by its prescribed prefix and suffix; the two forced ones must lie outside the opposing block but inside the first and last forbidden-candidate windows. This forces d=i+1=j+1. In that case every window of the unique spelling contains both ones. Off center d=n leaves one free bit, and zero there makes the first window forbidden. One there prevents the first and last ones from creating a forbidden window and cannot itself be preceded by i and followed by j zeros. A shortest path is simple, so its factors are distinct and the set of extra traversals is unique; this is not uniqueness of the cyclic word. Complementation preserves all conclusions. Independent replay `cd /workspace && python3 review_replay.py 1` checked all 75 deletion cases of orders 3..12, including shortest-path counts and the prescribed spellings, plus literal existence at length 9 versus nonexistence at length 8 for 010. This supports, not replaces, the all-order argument. The frozen verification and code (including its Euler-witness checks) were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernardini et al. Problem 1 allows arbitrary forbidden arcs and minimizes the added multiset. With these vertices, surviving edges and all non-overlap arcs plus the one-hot arc forbidden, it exactly models the frozen optimization problem.",
+          "Moreno–Matamala address lexicographically least periodically admissible de Bruijn sequences using exact-once coverage. Cazaux–Rivals connect their unconstrained cyclic cover of strings to single-circle optimality when the superstring graph is connected."
+        ],
+        "reasoning": "The general forbidden-arc optimization covers the reduction, not the evaluation or equality structure for this family. Cazaux–Rivals' single-circle criterion has no hard prohibition on incidental forbidden factors.",
+        "searches": [
+          "DOI 10.4230/LIPIcs.CPM.2022.12, Problem 1",
+          "arXiv:0711.1695, pp. 1–2",
+          "HAL lirmm-01240278, single cyclic superstring passage, offset 56633"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification notes and code",
+        "DOI 10.4230/LIPIcs.CPM.2022.12",
+        "arXiv:1908.01116 and arXiv:0711.1695",
+        "HAL lirmm-01240278",
+        "Resultary 4c2a5e159cc3 and c88f5aa31843",
+        "Alhakim DOI 10.1007/s10623-022-01077-5 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-unit Eulerization is a known optimization specialization. Chen–Kitaev–Sun prove no exact-once cycle after removing a single non-loop, and Cazaux–Rivals' connectedness criterion gives unconstrained single-superstring optimality."
+        ],
+        "reasoning": "The parity-sensitive permitted distance and uniqueness require analyzing short overlaps after the forbidden edge is removed. In particular the contradictory prefix/suffix window bounds off center and the forced gap bit at d=n are not supplied by generic existence, unconstrained cover, or Eulerization algorithms.",
+        "searches": [
+          "Bernardini et al., Problem 1, p. 12:3",
+          "Chen–Kitaev–Sun single removal p. 3",
+          "Cazaux–Rivals HAL lirmm-01240278 single-circle passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 010-avoiding required-word cover c88f5aa31843 has optimum 8 at order 3 and admits forbidden windows in its host; the present host-avoiding result is 9.",
+          "The four-bit study 4c2a5e159cc3 reports 16 for 0100 at order 4, versus 19 here. Chen–Kitaev–Sun require each selected word exactly once."
+        ],
+        "reasoning": "Omitting a required word is not forbidding it in the host, as the differing exact lengths show; and the exact-once problem cannot determine the least positive repeat cost. The two mirror records were compared even though they share the same path date.",
+        "searches": [
+          "Resultary: shortest cyclic covers deleting one single-marker forbidden binary factor, one-hot de Bruijn edge and repeat profile",
+          "Resultary 4c2a5e159cc3 and c88f5aa31843",
+          "arXiv:1908.01116 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The analogous finite-order tables and exact covers treat supplementary forbidden factors as allowed; their overlapping cases 010 and 0100 have different optima than the frozen theorem."
+        ],
+        "reasoning": "Those exact values are not earlier entries for this optimization. Nor would a finite set of matching lengths itself determine all-order rigidity.",
+        "searches": [
+          "Resultary 4c2a5e159cc3, Findings and Assumptions",
+          "Resultary c88f5aa31843, Findings and Assumptions"
+        ]
+      },
+      "rationale": "The Eulerian extension problem and reduction are established, and exact-once obstruction is already known. The supported distinct result is the explicit host-avoiding all-order one-hot formula, including the central saving, impossible boundary cases and rigid duplication profile. The closest indexed covering results allow the forbidden edge in the covering host and give demonstrably different optima on the same required sets.",
+      "residual_risks": [
+        "A prior precise specialization of forbidden-arc Eulerization is not ruled out. The Alhakim full text was not obtained, and no publication priority follows from equal dates or from no search match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework contains the optimization, but not the one-hot all-order evaluation by the inspected problem statement",
+          "evidence": [
+            "Problem 1 minimizes |A| for A a multiset avoiding F, or reports infeasibility"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+          "material_read": "Abstract/introduction; Problem 1, printed p. 12:3, OA offset 9014 onward",
+          "method": "Lawful Dagstuhl PDF",
+          "title": "Making de Bruijn Graphs Eulerian",
+          "trigger": "Exact optimization with forbidden arcs and duplicate edge balancing"
+        },
+        {
+          "assessment": "Exact-once obstruction only for the deleted non-loop",
+          "evidence": [
+            "For a single removal exact-once universality requires the deleted word to label a loop x^n"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+          "material_read": "pp. 1–3; single deletion discussion, OA offset 6994",
+          "method": "Lawful arXiv PDF",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "Same kind of deletion and cyclic covering"
+        },
+        {
+          "assessment": "Host not required to avoid the forbidden factor",
+          "evidence": [
+            "The model allows supplementary arcs from the full binary graph; optimum 16 at n=4, forbidden 0100"
+          ],
+          "identifier_or_url": "Resultary 4c2a5e159cc3",
+          "material_read": "Finding, Assumptions and Proof §1",
+          "method": "Local GitHub mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact shortest cyclic binary covers for all four-bit forbidden factors",
+          "trigger": "Same day, overlapping one-hot examples and exact cover objective"
+        },
+        {
+          "assessment": "Same required set at n=3 but not the same feasible hosts",
+          "evidence": [
+            "At n=3 optimum 8; extra traversals may spell 010"
+          ],
+          "identifier_or_url": "Resultary c88f5aa31843",
+          "material_read": "Finding, Assumptions and Proof §1",
+          "method": "Local GitHub mirror, same snapshot",
+          "title": "Exact cyclic cover lengths for binary words avoiding 010",
+          "trigger": "Direct overlap with the lowest-order centered case"
+        },
+        {
+          "assessment": "Lexicographic exact-once framework, not factor-repeat optimum",
+          "evidence": [
+            "Periodically repeated words must avoid the forbidden set; the optimization in the introduction is lexicographic"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+          "material_read": "pp. 1–2, including the periodic language definition around offset 4344",
+          "method": "Lawful arXiv PDF",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Forbidden substrings, cyclic admissibility and de Bruijn minimization"
+        },
+        {
+          "assessment": "Contains unconstrained single-circle criterion, not host avoidance",
+          "evidence": [
+            "Connected superstring graph certifies a greedy solution is an optimal cyclic superstring of the input set P"
+          ],
+          "identifier_or_url": "https://hal-lirmm.ccsd.cnrs.fr/lirmm-01240278/document",
+          "material_read": "Abstract; single cyclic word discussion, PDF p. 15, offsets 56633–58709",
+          "method": "Lawful HAL repository PDF",
+          "title": "A linear time algorithm for Shortest Cyclic Cover of Strings",
+          "trigger": "Shortest cyclic covers and potential single-circle special case"
+        },
+        {
+          "assessment": "The described one-occurrence comparison is not independently confirmed from the primary text",
+          "evidence": [
+            "Full-text attempts returned redirects/timeouts; no lawful copy was identified by the attempted routes"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-022-01077-5",
+          "material_read": "Citation and the frozen result's description; primary full text not obtained",
+          "method": "Lawful Springer/DOI retrieval and repository resolution attempts",
+          "title": "Designing preference functions for de Bruijn sequences with forbidden words",
+          "trigger": "Highly relevant forbidden-factor construction title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting the unique sparse marker pattern is a motivated perturbation of universal cyclic coverage. Knowing whether coverage can coexist with avoidance, exactly how much repetition is forced, and exactly which factors must repeat gives a concrete construction and obstruction benchmark. Neither the odd-centered shortcut nor the uniqueness of the duplication pattern follows from being able to compute a shortest path in each example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

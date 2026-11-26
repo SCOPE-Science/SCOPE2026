@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:40:20.027716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5; VERIFICATION.md and verify.py inspected as source evidence.",
+        "Independent replay: python3 /workspace/checks/frozen_mathematics.py 5. Computed closures and root-specific stems over every subset at (4,3), (5,3), (5,4). In the order conflict/force/shortage, counts were (12,72,30), (15,210,75), (30,720,220); closed-set counts 128, 707, 1142."
+      ],
+      "rationale": "For an existing partial function, s≤r is exactly the condition for a surjective completion. If s<r, any color can be placed at a chosen blank and there are still enough positions for the remaining missing colors; if s=r≥2, the missing colors can be permuted. Only r=s=1 forces a new atom in a feasible premise. For an infeasible partial function, deletion of a singleton color preserves s−r, whereas deletion from a repeated color reduces it by one. This gives the stated minimal shortages; conflict pairs give the other inconsistent stems. Here stem means inclusion-minimal for a fixed conclusion atom, as specified in proof §3. In a full minimal shortage, one can take an unasserted value of a different already-used color at some input: there are at least two used colors, and no proper subset forces any color but the initially missing one. This justifies the lower bound even when a proper subset has a different nontrivial conclusion. Any direct basis must fire a rule with the exact stem to produce its witness atom; the displayed rules suffice on the original input in all cases. The three counts follow by choosing blanks, colors and ordinary or restricted partitions. The restricted recurrence distinguishes the block of the last element having size two from having larger size. For q=3 the only infeasible partial assignments are full functions missing a color and one-blank monochromatic assignments; removing those and the feasible one-blank forces and adding top yields the lattice formula.",
+      "residual_risks": [
+        "Finite replay does not establish an unbounded theorem; the deletion and feasibility arguments do. No conclusion about the unrestricted iterative minimum, unit-head count, or q=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-composition models prescribe positive multiplicities and their premises include exceeding a color quota. Perfect-matching models use permutation matrices and row or column conflicts. Wild's theorem is general for closure operators."
+        ],
+        "reasoning": "Wild subsumes the abstract optimality step, which is credited. Neither indexed model class is stronger in a way that covers the onto calculation: taking the union over positive histograms changes the closure and can destroy the stems of each separate context, and column conflicts are generally consistent for n>q.",
+        "searches": [
+          "Resultary 0007de354604 fixed-composition concept lattices; 28b8e1164b5d perfect-matching implication lattices",
+          "Wild arXiv:1411.6432v4 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0007de354604, 28b8e1164b5d, f0761e894052",
+        "arXiv:1411.6432v4, 2404.07037, 2404.12229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wild gives a direct minimum rule per stem once the stems are determined. The D-base is a refinement of the canonical direct base. Neither identifies stems of this context; the fixed-histogram and permutation statements have different feasible partial assignments."
+        ],
+        "reasoning": "The open calculation relative to those statements is to locate every premise with a conclusion-specific witness, including full shortages, and count them; neither the general theorem nor those enumerations mechanically supplies this.",
+        "searches": [
+          "Wild arXiv:1411.6432v4 Theorem 2; Adaricheva–Nourine–Vilmin arXiv:2404.07037; Resultary 0007de354604 and 28b8e1164b5d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wild identifies stems with proper premises and the canonical direct implicational basis with a canonical cover in relational database terminology. Baixeries–Napoli specify one-pass directness."
+        ],
+        "reasoning": "These aliases and definitions cover the general framework, not this concrete model family or its formula. The claim counts positive multi-head rules in a simultaneous round, not clauses in an arbitrary equivalent propositional representation.",
+        "searches": [
+          "Resultary: surjective-assignment closure; onto-function Horn bases; minimal surjectivity shortages",
+          "Wild arXiv:1411.6432v4 §3.3",
+          "Baixeries–Napoli arXiv:2404.12229 Definition 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-composition and permutation records explicitly enumerate different bases. The same-date rooted-star hit f0761e894052 concerns a relation of rooted-star posets in its indexed summary; its complete mirrored file was not retrieved."
+        ],
+        "reasoning": "No consulted index item gave the associated-Stirling optimum or three-color lattice count for the same closure system. Absence in surfaced items is not a priority proof, and no inference of ordering is drawn from the date of a search hit.",
+        "searches": [
+          "Resultary searches for onto assignments, canonical direct bases, and shortage premises; indexed records 0007de354604, 28b8e1164b5d, f0761e894052"
+        ]
+      },
+      "rationale": "The distinct result is the explicit classification and enumeration for all onto assignments with n>q≥3. The general optimality theorem for stems is prior work; the strongest retrieved indexed analogues treat one prescribed histogram or permutations. Neither yields the displayed shortage family or the onto-assignment counts.",
+      "residual_risks": [
+        "Bounded search, not historical priority; an equivalent CSP or Horn-envelope treatment could be unindexed under these terms. Full text unavailable for the rooted-star index hit, whose summary was not a plausible matching claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural analogue, different model class",
+          "evidence": "One prescribed positive histogram, including over-quota premises.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-fixed-composition-concept-lattices-optimal-one-pass-bases-and-al--0007de354604/RESULT.md",
+          "material_read": "Finding at mirrored offset 0",
+          "method": "Local Resultary discovery and mirrored result passage",
+          "title": "Fixed-composition concept lattices",
+          "trigger": "Closest indexed same-ground-set closure and basis enumeration"
+        },
+        {
+          "assessment": "Boundary analogue outside the claim",
+          "evidence": "Conflict at a common row or column; rule for each (n−1)-edge partial permutation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-perfect-matching-implication-lattices-sharp-horn-bases-and-chess--28b8e1164b5d/RESULT.md",
+          "material_read": "Finding at mirrored offset 0",
+          "method": "Local Resultary discovery and mirrored result passage",
+          "title": "Perfect-matching implication lattices",
+          "trigger": "Bijection boundary"
+        },
+        {
+          "assessment": "Summary indicates a different subject; no full-text coverage assertion",
+          "evidence": "Indexed statement is about relations between rooted-star posets.",
+          "identifier_or_url": "Resultary f0761e894052",
+          "material_read": "Index summary only",
+          "method": "Local Resultary; attempted mirrored read did not return",
+          "title": "Functional-cover spectrum and Poisson transition for expansive rooted-star relations",
+          "trigger": "Same-date index hit"
+        },
+        {
+          "assessment": "Covers the credited general optimality principle",
+          "evidence": "The rules X→roots(X), one per stem, form a minimum-cardinality direct basis.",
+          "identifier_or_url": "https://arxiv.org/html/1411.6432v4",
+          "material_read": "§3.3, Theorem 2 and surrounding definitions, HTML offsets about 42600–48031",
+          "method": "Primary OA text",
+          "title": "The joy of implications, aka pure Horn formulas: mainly a survey",
+          "trigger": "General stem and direct-basis theorem"
+        },
+        {
+          "assessment": "Framework comparison",
+          "evidence": "D-base is described as a refinement of the canonical direct base.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.07037",
+          "material_read": "p. 1, at OA offset 1535",
+          "method": "Primary OA passage",
+          "title": "Computing the D-base and D-relation in finite closure systems",
+          "trigger": "Alternative basis terminology"
+        },
+        {
+          "assessment": "Supports the scope distinction",
+          "evidence": "Direct means obtaining closure in one pass.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.12229",
+          "material_read": "p. 7, Definition 2.8 at OA offset 11313",
+          "method": "Primary OA passage",
+          "title": "A minimal base or a direct base? That is the question!",
+          "trigger": "Potential confusion of optimization scopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, parts (a)–(c) and proof §§2–5; Wild §3.3 for the abstract versus concrete distinction."
+      ],
+      "rationale": "A surjective assignment is a natural global constraint. The classification gives an exact one-round representation and its unavoidable rule cost, separating local clashes from genuinely global shortages. The scope distinction makes the count useful for direct evaluation rather than claiming a generic Horn minimization result. The three-color counts provide an explicit boundary and first examples of the general theorem.",
+      "residual_risks": [
+        "No claim about implementation performance, general CSP minimization, or savings among iterative bases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

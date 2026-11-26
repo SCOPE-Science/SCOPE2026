@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:49.811872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted Cayley and rooted-forest polynomials give the prescribed-degree count and the prescribed ordered path count. Removing path edges leaves exactly one path vertex per rooted forest component. After the base monomial, each internal vertex uses one extra exponent; multiplying by the sum of the root variables weights the coefficient by the remaining total exponent on path vertices. This gives the product of selected b_i times A+sum(selected b_i)-k, divided by (N)_(k+1). Summation and the e_k identity give consecutive tail differences; at the full path length the mass is e_N, by direct enumeration or normalization. The balancing transfer changes e_k by (x-y-1)e_(k-2), strictly positive at k=2 whenever a nontrivial transfer is needed. Concentration and all-0/1 profiles attain the extrema, with uniqueness from the squared sum, and the upper mean follows from the binomial hockey-stick identity. The assigned-degree model, n=3, s<=1 and the terminal tail are consistent; the n=2 deterministic case is excluded, and only simplified expressions such as s/N would be singular there, not the k=0 falling factorial. Independent replay `cd /workspace && python3 review_replay.py 5` enumerated all 1,440 labeled trees at n=3..6 by connected simple edge sets and checked all fixed-degree group tails and sharp mean equalities. The verification script and its recorded larger run were inspected, not executed. The finite replay corroborates the proof, not the originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the Foata–Fuchs inverse the root is the first symbol and paths are cut at repeat positions. In the marked extension each marked path includes its endpoint and label multiplicity is child count plus marker count. This is a general code for labeled rooted trees with distinguishable marks, not merely a distribution with random labels.",
+          "The separate height-order and scaling-limit results concern overall rooted height and asymptotic rooted plane profiles, respectively; those conclusions do not subsume the fixed-endpoint finite law."
+        ],
+        "reasoning": "Fixing both names and the individual multiplicities specializes the bijection directly without relabeling a fixed mark as uniform. Conditioning it is enough to supply the exact law; the broader height and scaling claims alone would not suffice.",
+        "searches": [
+          "Addario-Berry–Donderwinkel–Maazoun–Martin arXiv:2107.09726 §1 inverse and §2 marked extension, pp. 3–4",
+          "arXiv:2201.11773 Theorem 9 and Corollary 10",
+          "arXiv:1110.5203 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification notes and checker",
+        "arXiv:2107.09726 §§1–3",
+        "arXiv:2201.11773 and arXiv:1110.5203",
+        "Resultary 5b514317d3e6, 82d99ccfa9c3, 4740ad229d71, 0ba6646f8f6a and fe1e28f728a0",
+        "DOI 10.1016/S0021-9800(70)80012-6 and DOI 10.1002/net.20202 (full texts not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root at u and give v the sole mark. The published code starts with u and has multiplicities equal to child counts plus marks. After the leading u, its uniform unconstrained multiset word of length N+1 has multiplicities d_u-1, d_v and b_w. Retain words whose first run without repeats (counting the leading u) ends at v. The marked inverse gives exactly the trees in the frozen model: the first marked path includes v and any next segment begins at a previously seen vertex. The acceptance probability is d_v/(N+1), the ratio of the fixed-degree Prüfer count to the multiset word count.",
+          "For an ordered list of k<N internal vertices, the residual prefix w_1,...,w_k,v has probability d_v times the product of b_w divided by (N+1)_(k+1). The next symbol must be a repeat, with probability [A+sum_i b_(w_i)-k]/(N-k), where A=d_u+d_v-2. Divide by d_v/(N+1): this is exactly the frozen formula for that ordered path. At k=N one uses exhaustion rather than a repeat. Summing over orders telescopes to the frozen e_k survival law.",
+          "The remaining comparisons use the two-coordinate identity for e_k (strictly increasing e_2), the extremal integer profiles of total s<=N and a binomial sum. They impose no additional combinatorial restriction not already encoded by that exact law."
+        ],
+        "reasoning": "This is a concrete reduction from the stated broad bijection with a direct prefix probability calculation. It does not infer coverage from the mere availability of a generic enumerator, a random-mark first-repeat result, or a title match. The additional stochastic statements are routine consequences and do not leave a genuinely distinct substantive remainder in the frozen submission.",
+        "searches": [
+          "arXiv:2107.09726 inverse construction and §2 Trees with given degrees and Rooted trees with marked vertices, OA offsets 6800–14279; §3 pp. 5–6 for the different unconditional propositions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected Resultary studies 5b514317d3e6, 82d99ccfa9c3, 4740ad229d71 and 0ba6646f8f6a start from an unconditioned Cayley tree and condition on marked distance to obtain leaf/degree statistics, not the frozen conditional distance law. fe1e28f728a0 concerns a diameter-conditioned permutation-graph tree model.",
+          "The one-mark Foata–Fuchs bijection instead preserves fixed vertex labels under conditioning on the word's first symbol, mark and multiplicities, and encodes the exact marked path as a distinct prefix."
+        ],
+        "reasoning": "Conditional laws in opposite directions in an unconditioned tree are not identical; a word code conditioned on fixed root, specified mark and assigned child counts is equivalent to the frozen sample, as quantified below. Same-day records were compared on content, not discarded by date.",
+        "searches": [
+          "Resultary: prescribed-degree labeled-tree distance between fixed marked endpoints; degree majorization, tree path survival and Prüfer/collision laws",
+          "arXiv:2107.09726 §§1–3, one-mark word coding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed formulas do not tabulate the distance tail grouped by complete labeled degree vectors; they concern different conditional laws or models. The older sources yielded no accessible full text in this inspection."
+        ],
+        "reasoning": "No applicable exact table was identified. A finite table would not establish unbounded ordering or equality cases, and its absence is not evidence against the demonstrated analytic coverage.",
+        "searches": [
+          "Resultary 5b514317d3e6, 82d99ccfa9c3, 4740ad229d71, 0ba6646f8f6a, fe1e28f728a0, Findings and scope",
+          "Meir–Moon DOI 10.1016/S0021-9800(70)80012-6",
+          "Dahl DOI 10.1002/net.20202"
+        ]
+      },
+      "rationale": "The exact path probability, hence the main survival law, is a direct coefficient/probability specialization of the published one-mark Foata–Fuchs bijection, not a conclusion that depends on its separate uniform-random-mark distributional proposition. The distinct forest proof is valid but not a distinct result. Once the same elementary symmetric tail law is read off, the transfer comparison, strictness, extremizers and mean bounds are routine algebraic consequences. This verdict rests on the demonstrated implication, not on inaccessible literature or timing of similar indexed records.",
+      "residual_risks": [
+        "The earliest source for an explicit version of the tail law has not been determined. Restricted access to the Meir–Moon and Dahl full texts is noted but plays no role in the decision, which is based on the inspected Foata–Fuchs bijection and explicit specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader marked-word bijection directly specializes to the ordered fixed-degree path probability; the unconditional leaf/vertex propositions alone do not",
+          "evidence": [
+            "v_1 is the root and paths cut at repeats",
+            "One-mark prefix includes the marked vertex",
+            "Multiplicity is number of children plus number of marks"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09726",
+          "material_read": "Inverse construction and §2 pp. 3–4, OA offsets 6800–14279; §3 Propositions 3.1–3.2, OA offsets 16165–18252; relevant fixed-degree construction pp. 6–9",
+          "method": "Lawful arXiv PDF, decisive passages inspected",
+          "title": "The Foata–Fuchs proof of Cayley's formula, and its probabilistic uses",
+          "trigger": "Exact labeled path coding, prescribed child counts and a fixed marked endpoint"
+        },
+        {
+          "assessment": "Relevant stochastic comparison for height, different observable",
+          "evidence": [
+            "Prescribes rooted child counts; compares height distributions under degree transfers"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11773",
+          "material_read": "§1.1 and Theorem 9/Corollary 10, pp. 3 and 5–6",
+          "method": "Lawful arXiv PDF",
+          "title": "Random trees have height O(sqrt n)",
+          "trigger": "Degree-profile transfers and stochastic comparison"
+        },
+        {
+          "assessment": "Scaling limits for plane tree degree profiles, not the exact fixed-label model",
+          "evidence": [
+            "Counts vertices by child-degree type and proves Brownian-CRT convergence under hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.5203",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful arXiv PDF",
+          "title": "Asymptotics of trees with a prescribed degree sequence and applications",
+          "trigger": "Prescribed-degree tree distances"
+        },
+        {
+          "assessment": "Same fixed pair in an unconditioned tree; different direction and level of conditioning",
+          "evidence": [
+            "Total-leaf law conditional on fixed pair distance"
+          ],
+          "identifier_or_url": "Resultary 5b514317d3e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local GitHub mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Leaf–distance regression in uniform labeled trees has a cubic turning point",
+          "trigger": "Same-day marked path and forest counts in Cayley trees"
+        },
+        {
+          "assessment": "Different conditioning and a separate third label",
+          "evidence": [
+            "Third vertex degree law conditional on marked pair distance; degree marker differs from both endpoints"
+          ],
+          "identifier_or_url": "Resultary 82d99ccfa9c3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local GitHub mirror, same snapshot",
+          "title": "A threshold-dependent distance–degree inversion at a third vertex in uniform Cayley trees",
+          "trigger": "Same-day exact distance-degree relation for a fixed pair"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": [
+            "No accessible full-text copy identified by the attempted routes"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9800(70)80012-6",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA DOI and repository resolution attempts",
+          "title": "The distance between points in random trees",
+          "trigger": "Early exact tree-distance literature"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not used to decide coverage",
+          "evidence": [
+            "DOI route returned HTTP 403 and no repository copy was identified"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/net.20202",
+          "material_read": "Bibliographic/abstract-level information only; no full text obtained",
+          "method": "Lawful OA DOI and repository resolution attempts",
+          "title": "Majorization and distances in trees",
+          "trigger": "Early distance-majorization literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observable is natural and the forest proof is sound, but as a standalone new mathematical finding this submission does not supply a new structural comparison beyond the specialized published path law and its routine symmetric-polynomial consequences. Strictness is already read from the second elementary symmetric function, and the extremal laws and means follow by evaluating the two elementary fixed-sum extremizers and summing their tails. These are useful descriptions of the prior implication, not an independently substantive new invariant or comparison as submitted. No genuinely distinct valuable repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

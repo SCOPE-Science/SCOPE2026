@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:09:51.063705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–51; VERIFICATION.md lines 19–23; verify.py inspected, not executed.",
+        "Independent bounded enumeration: all 28 cases with 2<=h<=5 and 1<=m<=7, at most 2^11 binary inputs per case, agreed. Replay by tallying the tuples of window ORs over all binary inputs, comparing all fiber sizes and the image/singleton criteria against the run classification, and extracting the two series coefficients by formal denominator division."
+      ],
+      "rationale": "Each source one covers a clipped interval of output positions. For an interior one-run [a,b], the preceding and following output zeros force the first and last markers at a+h-1 and b, so L=b-a+1>=h is necessary. In between the markers the criterion is gaps at most h, giving the composition count c_h(L-h), including the coincident-marker case. A leading one-run of length a followed by a zero forces the source one at a; the preceding a-1 bits must avoid h zeros, and reversal handles the trailing run. Output-zero windows fix the other bits and separate the choices. An all-one output has exactly the source words with no h zeros and always at least two such words; all-zero has a single source. Therefore singleton outputs have boundary lengths 0 or 1 and interior lengths h or h+1, since compositions of d>=2 include both all ones and a part 2. For outputs with a zero the unambiguous grammar is E Z (I Z)* E, with Z=z/(1-z); use E=1/(1-z), I=z^h/(1-z) for reachability, E=1+z, I=z^h+z^(h+1) for uniqueness. Adding all-one outputs and the empty convention yields the claimed series. The source's shortcut from eventual coefficient positivity to a unique dominant pole is insufficient in isolation. Here the exact denominators suffice: at |z|<=rho_R, |1-z|>=1-|z|, with strict inequality at other points of |z|=rho_R, so (1-z)^2=z^(h+1) cannot vanish elsewhere in that disk. For U, equality in |z+z^(h+1)+z^(h+2)|<=rho_U+rho_U^(h+1)+rho_U^(h+2)=1 at a root forces z positive. Both positive roots are simple and give positive leading coefficients by the local simple-pole formula. The U denominator at rho_R is rho_R^2(1-rho_R)>0 and decreases strictly to its positive zero. Thus the claimed strict exponential ratio holds at every fixed h, with no width uniformity asserted.",
+      "residual_risks": [
+        "The independent computation corroborates finitely many cases; the proof gives the all-width and all-length result. The coefficient asymptotic fixes h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen covers general one-dimensional nearest-neighbor rules and explicitly tabulates Rule 254. Nguyen–Cai–Immink constrain the source's ones counts in its windows. Sporring–Darkner retain full local histogram counts rather than one bit per window."
+        ],
+        "reasoning": "Generic transfer machinery can be extended or adapted but the inspected theorem applies to nearest-neighbor preimage counting. Enumeration of source constraints or of a finer measurement does not count distinct outputs of the coarsened Boolean readout, or determine how many have exactly one source without an additional image/fiber analysis.",
+        "searches": [
+          "Jen (1989) §1 and p. 453; arXiv:2009.09558 Def. 1; doi:10.3390/e24030433 abstract/introduction."
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34b51202a880, 626495165f76 and 2d009d6ce2ea; Jen (1989), pp. 421, 453; arXiv:2009.09558; doi:10.3390/e24030433; indexed lead doi:10.4218/etrij.05.0205.0013."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen gap law requires an independent comparison between two all-width denominator roots. The constrained cyclic formula does not supply the unrestricted boundary markers or singleton run lengths. Individual Rule 254 fiber formulas concern a fixed width; counts of finer histogram fibers would have to be aggregated over all histograms mapping to a given OR word."
+        ],
+        "reasoning": "Finite-width preimage methods and classical ordered histogram reconstruction are prior, but do not give both all-width output populations and their exponential comparison by the stated specialization. The elementary run grammar produces the claimed exact counts only after the distinct zero/one and boundary cases are classified.",
+        "searches": [
+          "Compare Jen's full cited Rule 254 table and §1 with the scope of 626495165f76 and the count-retaining readouts in doi:10.3390/e24030433."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite map is dilation by an interval, with valid output windows and clipped coverage from each source one. Width three is the OR rule of elementary CA Rule 254. DOI 10.4218/etrij.05.0205.0013 describes run-length morphology algorithms but its publisher PDF was not accessible on the attempted routes."
+        ],
+        "reasoning": "These are meaningful aliases of the observation rule. Knowing how to evaluate a dilation does not by itself settle its image and singleton spectra; the Rule 254 connection is exact for width three with the corresponding finite preimage convention, not a proof of arbitrary width. The inaccessible result is a residual risk, not evidence of absence.",
+        "searches": [
+          "Local Resultary searches for binary sliding OR image, singleton inverse lists, Boolean dilation and run-length languages; targeted Boolean dilation / run-length literature search; Jen (1989) Rule 254."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "34b51202a880 is the assigned record. 626495165f76 gives run-factorized fibers and reachable and unique output series for cyclic Rule 254 with a no-adjacent-ones source constraint. 2d009d6ce2ea counts unordered multisets of length-three compositions. Jen has an explicit rule-specific preimage formula."
+        ],
+        "reasoning": "These are substantive width-three overlaps, not an all-width unrestricted finite linear census. For example the finite linear map with one window has exactly one singleton output at each h>=2, whereas imposing a cyclic boundary or a source constraint changes the fiber conditions used in the derivation. Same-day indexing provides no priority ordering.",
+        "searches": [
+          "Local Resultary exact entries 34b51202a880, 626495165f76 and 2d009d6ce2ea; Jen Rule 254 table p. 453."
+        ]
+      },
+      "rationale": "The Boolean dilation interpretation, standard run grammars and exact nearest-neighbor cellular-automaton preimage counting are known ingredients. Credit the all-width finite-linear unrestricted image and singleton spectra together with their strict growth-rate comparison, not the generic idea of preimage enumeration or the width-three count. The strongest distinct indexed match uses a different domain and boundary, and the closest inspected primary preimage formula covers the width-three special case, not the full pair of spectra.",
+      "residual_risks": [
+        "An older run-language or general-radius CA treatment could contain an equivalent pair of spectra. The morphology PDF was not accessible. The bounded comparison is not a historical priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact nearest-neighbor preimage formulas, including width three; not the inspected all-width spectrum",
+          "evidence": "The table lists Rules 128 and 254 and the introduction specifies one-dimensional nearest-neighbor scope.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "p. 421 abstract/§1 at offset 0; p. 453 rule table at offset 73500",
+          "method": "OA primary PDF",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Exact Rule 254 preimages and general CA method"
+        },
+        {
+          "assessment": "Material but not equivalent overlap: cyclic width-three with constrained source",
+          "evidence": "Run-factorized inverse fibers and all-length reachable/unique series for inputs without adjacent ones.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-inverse-fibers-and-output-capacities-of-cyclic-rule-254-on--626495165f76/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact inverse fibers and output capacities of cyclic Rule 254",
+          "trigger": "Same day, OR map and singleton-output spectra"
+        },
+        {
+          "assessment": "Different orderedness and different per-window observable",
+          "evidence": "Counts multisets of window compositions, not ordered hit/no-hit vectors.",
+          "identifier_or_url": "Resultary 2d009d6ce2ea",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Interval support characterization for binary three-window compositions",
+          "trigger": "Length-three binary-window image enumeration"
+        },
+        {
+          "assessment": "Source constraints, not Boolean output/fiber populations",
+          "evidence": "Number of ones in each source window defines the constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.09558",
+          "material_read": "p. 1 abstract, offset 0; p. 2 Definition 1, offset 8350",
+          "method": "OA primary PDF",
+          "title": "Efficient Design of Subblock Energy-Constrained Codes and Sliding Window-Constrained Codes",
+          "trigger": "Sliding-window constrained coding alternative formulation"
+        },
+        {
+          "assessment": "Different, finer observation map",
+          "evidence": "The window [0,0,1] maps to counts (2,1); both positive counts one and two would map to one under OR.",
+          "identifier_or_url": "https://doi.org/10.3390/e24030433",
+          "material_read": "p. 1 abstract/introduction, offset 0",
+          "method": "OA primary publisher PDF",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Overlapping-window reconstruction and possible coarsening"
+        },
+        {
+          "assessment": "Relevant lead; cannot assess full-text coverage",
+          "evidence": "Indexed description concerns algorithms for run-based dilation/erosion.",
+          "identifier_or_url": "https://doi.org/10.4218/etrij.05.0205.0013",
+          "material_read": "Indexed description only; publisher PDF blocked on both attempted routes",
+          "method": "Topical literature search and lawful OA retrieval attempts",
+          "title": "Fast Algorithms for Binary Dilation and Erosion Using Run-Length Encoding",
+          "trigger": "Possible equivalent run-length dilation language"
+        },
+        {
+          "assessment": "Same assigned record, not independent corroboration",
+          "evidence": "Identical finite linear model and spectra.",
+          "identifier_or_url": "Resultary 34b51202a880",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact output and unique-decoding spectra of binary sliding-OR sensors",
+          "trigger": "Exact hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–23 and 30–51; Jen (1989) and cyclic Resultary 626495165f76 as comparison."
+      ],
+      "rationale": "The exact enumerations distinguish two operationally different notions for a natural ordered sensor: a largest noiseless distinguishable codebook can select one representative per reachable output, but a singleton fiber decodes without imposing a codebook. The uniform-in-length formulas and strict fixed-width exponential gap explain why those two populations differ substantially; the full run-dependent list sizes make the result useful even when neither count alone suffices.",
+      "residual_risks": [
+        "No conclusion for noise, circular or unordered data, constrained inputs, or a growing-width asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

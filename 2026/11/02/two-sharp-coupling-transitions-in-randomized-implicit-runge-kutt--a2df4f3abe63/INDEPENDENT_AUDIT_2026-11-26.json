@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:07:45.700131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substitution in either implicit stage equation yields R=1−r/(1+ru). The inverse map u=(1−R)^{-1}−1/r gives multiplier density (1−R)^{-2} on [1−r,1/(1+r)]. Integrating over [−t,t] and clipping at the two endpoints verifies each quantile branch: before clipping the CDF is 2t/(1−t²); afterward it is 1/(1−t)−1/r or 1+1/r−1/(1+t). The endpoint magnitudes tie exactly at r=√2. As stated by continuity, the quantile at p=0 is its support endpoint (the literal infimum over all real x at p=0 would instead be −∞; the continuous convention affects no integrals or couplings). The layer-cake Fréchet lower bound is attained by opposite response ranks. The joint survival probabilities are continuous because the response marginals have no atoms, so equality of integrals forces equality in the bound everywhere; disintegration over g=R² gives uniform-stage lifts. For r≤1 strict monotonicity forces ordinary antithetic stages. For each r>1 both g(u) and g(1−u) strictly decrease on a nontrivial initial interval, which rules out opposite response ranks and permits a strictly improving equal-length partner exchange. An independent adaptive Simpson reproduction gave K2=0.001879920275199488 and checked the ordinary antithetic value 5/3−(3/2)log 3=0.01874823366450218, ratio 9.9728876335. Replay: /workspace/branches/8b1d4df8-f4f0-4276-8cf1-187ace755bdd/r2_independent_reproduction.py. The uniform-in-law conclusion is analytical, not inferred from the frozen discretization or the benchmark.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bivariate theorem minimizes supermodular cost by countermonotone dependence, so it does cover the abstract response objective xy.",
+          "The randomized implicit method paper specifies independent uniform stages; its scalar stability section analyzes one-step mean-square factors. The all-moment sibling studies one-step moments for the same response rather than a joint stage law."
+        ],
+        "reasoning": "The general extremal theorem should be credited for the abstract infimum; the specialized law, both transitions and benchmark require determining the pushforward distribution and how its order differs from stage order.",
+        "searches": [
+          "arXiv:1512.03232 §3.1 Theorem 3.1",
+          "arXiv:2404.19059 §§1.2, 3.2",
+          "Resultary 3342f4e645f9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65, frozen VERIFICATION.md and verify.py (read only)",
+        "arXiv:2404.19059",
+        "arXiv:1512.03232",
+        "Resultary entries 921c6dd43e85, 2c39a18b1c6f, 3342f4e645f9, 119cb032c3ba, 55d8ab7b4ccd and 5cbf318aa8d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known theorem plus the scalar model implies the abstract response-rank optimization once the pushforward and its lifting are identified.",
+          "The frozen work resolves the nonmonotone response order, proving nonoptimality of V=1−U on every r>1 by a positive-measure strict exchange. It gives the two branches and the independent tie r=√2."
+        ],
+        "reasoning": "A creditable consequence of the known theorem is the generic quantile integral, not the sharp parameter classification and exact method-specific comparison. Pathwise contractivity cannot justify carrying ordinary stage antithetics over to this different optimization.",
+        "searches": [
+          "Puccetti–Wang Theorem 3.1 versus frozen RESULT proof §§1–4",
+          "Resultary 2c39a18b1c6f Finding versus frozen strict stage-antithetic comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The explicit-method paired optimum uses the analogous absolute-multiplier quantiles, but its multiplier is 1−z+z²U and its H*(2)=4/5.",
+          "The implicit antithetic result fixes one coupling and demands pathwise contractivity for every negative-real step size."
+        ],
+        "reasoning": "Squaring an absolute multiplier does not change its ranks, so the explicit result genuinely shares the optimization method but not the method-specific distribution. All-step-size pathwise rigidity and minimizing a fixed-step-size mean-square expectation do not give the same theorem.",
+        "searches": [
+          "Resultary: fixed-r optimum over uniform-marginal randomized Runge–Kutta stage pairs and opposite multiplier ranks",
+          "Resultary 921c6dd43e85 and 2c39a18b1c6f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed records 921c6dd43e85, 2c39a18b1c6f and 3342f4e645f9 were compared at statement level.",
+          "Same-day 119cb032c3ba studies a distinct SDIRK sign-loss question with thresholds 2 and 1+√3; same-day 55d8ab7b4ccd mixes step lengths, rather than coupling stages. Earlier 5cbf318aa8d6 evaluates a prescribed antithetic pairing on an explicit method, not a global implicit-method optimum."
+        ],
+        "reasoning": "These comparisons resolve the plausible exact matches in the inspected ranked records by their rules, objective and admissible laws, not publication-date ordering. There is no relevant precomputed table beyond the indexed numerical examples for different methods.",
+        "searches": [
+          "Configured Resultary semantic lookup for implicit pair optimization, stage antithetic rigidity, response ranks and sharp coupling transitions"
+        ]
+      },
+      "rationale": "The countermonotone extremum itself is known. What remains distinct in the checked sources is the method-specific exact optimum with its piecewise quantile and the sharp separation between fixed-r RMS optimality of ordinary antithetics and the sign branch supplying the upper response tail.",
+      "residual_risks": [
+        "The search covered the strongest indexed comparisons, not all possible technical reports. Broader web lookups were deferred; no negative inference follows from their absence. The result is not a claim of priority for rearrangement inequalities, nor a nonlinear method improvement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same methods, original independent simulation and one-step mean-square criterion",
+          "evidence": [
+            "Uniform independent stage parameters are specified; the scalar calculation is for the original randomization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+          "material_read": "§1.2 p. 2 and §3.2 pp. 8–10; extraction offsets about 7900–10000 and 29500–38000",
+          "method": "Bounded primary full-text inspection",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Original S1/S2 numerical method and scalar stability"
+        },
+        {
+          "assessment": "Covers the general countermonotone response optimum",
+          "evidence": [
+            "Countermonotone dependence minimizes supermodular cost with given bivariate marginals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.03232",
+          "material_read": "§3.1 Theorem 3.1, p. 11; extraction offset about 42700",
+          "method": "Bounded primary full-text inspection",
+          "title": "Extremal Dependence Concepts",
+          "trigger": "Scope of the bivariate rearrangement principle"
+        },
+        {
+          "assessment": "Same method, but all-step-size pathwise objective",
+          "evidence": [
+            "Ordinary stage antithetics uniquely give samplewise contractivity across all step sizes; no fixed-r optimal mean-square claim in the inspected finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-antithetic-coupling-rigidity-and-logarithmic-stiff-damping-for-r--2c39a18b1c6f",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary lookup and local-mirror read",
+          "title": "Antithetic coupling rigidity and logarithmic stiff damping for randomized implicit Runge–Kutta",
+          "trigger": "Same implicit multiplier and uniform-marginal pairs"
+        },
+        {
+          "assessment": "Methodological analogue for an explicit multiplier; not the implicit formulas or thresholds",
+          "evidence": [
+            "The response 1−z+z²U is different and the calculation gives H*(2)=4/5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-paired-stage-coupling-extends-randomized-runge-kutta-mea--921c6dd43e85",
+          "material_read": "RESULT.md, Finding at offset 0 and proof about offset 3300",
+          "method": "Resultary lookup and local-mirror read",
+          "title": "Optimal paired-stage coupling extends randomized Runge–Kutta mean-square stability",
+          "trigger": "Closest indexed claim of optimal paired coupling"
+        },
+        {
+          "assessment": "Independent, one-step criterion",
+          "evidence": [
+            "Optimization in moment order or step size does not optimize uniform-marginal pair laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-all-moment-stability-frontiers-for-randomized-implicit-two-stage--3342f4e645f9",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary lookup and local-mirror read",
+          "title": "All-moment stability frontiers for randomized implicit two-stage Runge–Kutta",
+          "trigger": "Same implicit family and asymptotic moment frontiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prescribed-stage antithetic construction is a natural candidate for this stability objective; the result supplies the exact frontier where it ceases to be optimal, the correct rank target thereafter, and an exact design objective for each fixed decay rate. The sharp strict failure for every r>1 and nearly tenfold r=2 difference are meaningful in this scoped scalar question, without implying nonlinear accuracy or a coupling optimal across rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

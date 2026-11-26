@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:39:34.426135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enumerating the 15 pair-sum frequencies reproduces the nonnegative convolution polynomial. In the fixed-mass SOS, expanding the first three squares and the three weighted difference squares gives sum of all six fourth powers −(U+V)²/3+2UV−4T, exactly the required identity. Cauchy–Schwarz on the three vertices and AM–GM on the three midpoints then yield the attainable two-mass bound with simultaneous equality only at internally equal amplitudes when U,V>0. After dividing by 9(x²+y²)², the displayed R has derivative −4t(2t³+3t²−6t−3)/(3(1+t²)³). Descartes and the endpoint signs give a unique positive maximizer, excluding both pure-mass edges. At these nonzero magnitudes the three triangle equalities from the (2,0), (0,2) and (1,1) coefficients determine exactly affine character phases; these also suffice at every other frequency. No alias occurs on the stated grids because each coordinate of a pair sum lies in [0,4]. Independent algebra gives the stated K-cubic via resultant (factor 100), with the three roots respectively in (1.111,1.112), (1.779,1.780), and (2.949,2.950); the maximizing value is the last, and 102/36=17/6 for the equal-modulus witness. The frozen script was inspected, not run; finite checks are corroboration rather than proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv result read concerns one-dimensional spectra of degree at least three with monotone coefficient moduli and a separate restricted square-spectrum problem. bb5fd3f72396 optimizes a different five-mode Ferrers support, giving about 2.646915130955."
+        ],
+        "reasoning": "Neither admissible support class includes the full six-point quadratic simplex with arbitrary complex moduli. A bound on a smaller coefficient subspace cannot give the required upper bound on the containing space.",
+        "searches": [
+          "Primary polynomial fourth-moment search: arXiv:2608.19132v1",
+          "Resultary unrestricted finite Fourier-support comparisons: bb5fd3f72396"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary bea9cf2ed885 and bb5fd3f72396",
+        "arXiv:2608.19132v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-support source already gives the phase structure at equal amplitudes and the no-alias grid threshold. The frozen result needs a sharp fixed-mass inequality for arbitrary data, which yields midpoint to vertex ratio t_*>1 and K≈2.949235612050375."
+        ],
+        "reasoning": "No novelty is assigned to the grid injection or to the restricted value. The phase-only maximum neither gives an upper envelope in the two masses nor detects the unequal-amplitude maximizers.",
+        "searches": [
+          "Resultary bea9cf2ed885, Finding and coefficient conditions, compared to frozen RESULT.md lines 48–105"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map P to Z²P(X/Z,Y/Z) gives exactly all six quadratic monomials in three independent unit phases and preserves both normalized moments. The exact-support record bea9cf2ed885 requires unimodular coefficients."
+        ],
+        "reasoning": "Homogenization is a true equivalence, not an alternative domain that would make the phase-only result unrestricted. It preserves the vertex/midpoint distinction, so that restriction remains material.",
+        "searches": [
+          "Resultary six-point triangular Fourier aperture / quadratic simplex and unrestricted moments",
+          "Primary search on quadratic Steinhaus / homogeneous degree-two monomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-support entry gives the moment range [48,102] at unit modulus on the torus and on grids of sufficient size; the unrestricted Ferrers entry has five modes. No distinct same-date unrestricted match surfaced in the bounded ranked search."
+        ],
+        "reasoning": "The exact known number 102 corresponds to a constrained maximum; its normalized 17/6 falls strictly below the found optimum. The negative search alone does not settle novelty.",
+        "searches": [
+          "Resultary exact simplex, six-point triangular and same-date unrestricted moment queries; bea9cf2ed885 and bb5fd3f72396"
+        ]
+      },
+      "rationale": "The strongest verified exact-support overlap optimizes only phases at equal coefficient modulus. The strictly higher unrestricted optimum and its forced unequal magnitudes are not implied by that result. Other inspected optimizations use different supports or restrictions. This conclusion is bounded to verified comparisons, not a priority certification.",
+      "residual_risks": [
+        "A bounded search may miss equivalent statements in sparse autocorrelation, finite-impulse-response optimization or Steinhaus-chaos terminology; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equal-modulus specialization only",
+          "evidence": "All six coefficients are unimodular; maximum 102 with character phases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-fourth-moment-phase-rigidity-for-the-six-point-triangular--bea9cf2ed885/RESULT.md",
+          "material_read": "Finding and hypotheses, offset 0",
+          "method": "Bounded local-mirror text",
+          "title": "Sharp fourth-moment phase rigidity for the six-point triangular Fourier aperture",
+          "trigger": "Same support and finite grids"
+        },
+        {
+          "assessment": "Different admissible support",
+          "evidence": "Five-mode unrestricted optimum 2.646915130955… is not a six-mode bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-fourth-moments-for-a-five-point-ferrers-fourier-spectrum--bb5fd3f72396/RESULT.md",
+          "material_read": "Sharp theorem and spectrum, offset 500",
+          "method": "Bounded local-mirror text",
+          "title": "Sharp fourth moments for a five-point Ferrers Fourier spectrum",
+          "trigger": "Nearby unrestricted sparse Fourier theorem"
+        },
+        {
+          "assessment": "The inspected statements do not cover this problem",
+          "evidence": "One-dimensional polynomial spectra with a degree restriction and coefficient conditions; the square-spectrum statement also imposes coefficient restrictions.",
+          "identifier_or_url": "https://arxiv.org/html/2608.19132v1",
+          "material_read": "Abstract and relevant theorem conditions, starting at offset 0",
+          "method": "Open-access result excerpt",
+          "title": "Norm bounds on Fourier series with polynomial spectra and constrained coefficients",
+          "trigger": "External polynomial-spectrum optimization hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete degree-two simplex, equivalently the natural full three-variable homogeneous quadratic packet, rather than an arbitrary six-point sample. Its exact unrestricted constant and complete equality law exhibit a concrete two-orbit amplitude imbalance not predicted by the phase-only result. The sharp fixed-mass SOS explains the imbalance and is useful for checking other proposed symmetrizations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-To verify the finite classification, run `python3 CHECK.py` in the same directory as this document. The program requires no third-party packages. It constructs complete topological-order-labelled poset sets, detects the five-element obstruction, builds both polytope graphs using standard published adjacency criteria, and computes exact breadth-first distances and canonical graph-isomorphism relation codes.
+# Independent mathematical audit
 
-The executed output was:
+## correctness
 
-```
-4 40 0 0
-5 357 1 0
-6 4824 66 0
-7 96428 3705 46
-Two isomorphism types, exchanged by duality; Lee P1 representative.
 PASS
-```
 
-This verifies the finite certificate and the source example's diameters, not any claims for eight or more poset elements. Numerical approximate checks are not used. The entire enumeration's correctness relies on the stated, established equivalences between polytope edges and connectivity of symmetric differences, and on every finite poset admitting a linear extension. Historical priority and independent mathematical verification are outside this execution.
+Reconstructed the edge predicates using the minimal common face. Shared active coordinate constraints fix the coordinates outside the symmetric difference. For ideals the remaining shared equations identify comparable coordinates; opposite differences of two ideals are incomparable. For antichains a common tight chain either meets a common vertex or imposes x_i+x_j=1 across the two differences for a comparable pair. Thus the remaining dimension is the number of connected components in each case. Independently generated every naturally labelled order by adding the last element over any ideal of its predecessors, without using the X-free skip, then computed both diameters by exact bit-set breadth-first search. There are no splits at n=0 through 6. For n=4,5,6,7 the totals are 40,357,4824,96428; X counts are 0,1,66,3705. All 46 splits are (2,3), and direct comparison with all relabelings of Lee's witness and its transpose gives disjoint groups of 23 each. Linear extensions ensure all isomorphism types are included; order duality complements ideal coordinates and preserves comparabilities for antichains.
+
+## originality
+
+PASS
+
+Credit Lee with the exact seven-element example and its diameters. The accepted increment is the exhaustive exclusion through six and the classification of every smallest witness up to duality. The inspected bounds, face-number theorems and nearest other catalog entries do not give this rigidity.
+
+## value
+
+PASS
+
+The graph diameter distinguishes two natural polytopes whose vertex and edge counts agree. Determining exactly when this distance invariant first distinguishes them, and showing that the known example is forced up to duality at that size, supplies a sharp structural cutoff rather than another example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

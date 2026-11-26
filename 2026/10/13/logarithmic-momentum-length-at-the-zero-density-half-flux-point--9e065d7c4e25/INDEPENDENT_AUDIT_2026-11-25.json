@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:50:37.690686Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–98",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "arXiv:2201.01502, §3.1, Eq. (33)"
+      ],
+      "rationale": "Equation (33) at half-integer flux, after removing the isolated half-integer momenta, gives |sin(πk)|≤r_ℓ(k)=2kℓ/(k²ℓ²+1). For fixed ℓ the right side is O(1/n) throughout the cell about n, so the band must be within O(1/n) of n. On both sides of n the edge function sin(πδ)−r_ℓ(n±δ) has positive derivative near zero and changes sign, yielding exactly one interval. Substitution gives r_ℓ(n±δ)=2/(ℓn)+O(n^{-3}), and the cubic arcsine remainder gives the claimed two edges. Width errors in momentum are O(n^{-3}), hence summable, leaving 4 log K/(πℓ)+O(1). In energy the width is 2n(δ⁺+δ⁻)+(δ⁺)²−(δ⁻)²=8/(πℓ)+O(n^{-2}); there are √E+O(1) full bands and a bounded partial band. The omitted flat points have measure zero in either coordinate.",
+      "residual_risks": [
+        "The analytic estimates are for fixed ℓ>0, not a joint ℓ and energy limit. The numerical bisection code is only a finite regression."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Band–Berkolaiko's limiting-density framework for periodic Kirchhoff networks does not specify a sublinear cumulative measure. The tuned flat-band ring-chain result assumes positive connecting lengths and studies isolated flat bands. The square-lattice paper uses a different periodic graph."
+        ],
+        "reasoning": "None of these statements specializes to this preferred-orientation tight chain's connected non-flat bands at half flux. In particular there is no measure contribution from even infinitely many isolated flat bands.",
+        "searches": [
+          "arXiv:1304.6028, limiting momentum-band density of periodic networks",
+          "arXiv:2302.04601, §3.1.1, magnetic square-lattice bands",
+          "Resultary 6cd5c5d95a2a, positive flat bands in a ring chain"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01502",
+        "arXiv:1304.6028",
+        "arXiv:2302.04601",
+        "Indexed records 6cd5c5d95a2a, 36568c0df88e, 3251cf79bccc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading high-energy criterion (34) degenerates at half flux, and (37) only gives a limit and localization there. The exact (33) does give the starting band condition after specializing and dividing away the flat points."
+        ],
+        "reasoning": "The submitted estimates are derived from (33), not independent of it. They require resolving the degenerate high-energy condition: control two edges with a summable error, then sum the established intervals in each coordinate. A density limit or prior localization alone does not imply this refined scale or its coefficient.",
+        "searches": [
+          "Baradaran–Exner–Lipovský, arXiv:2201.01502, §3.1, Eqs. (33), (34), (37)",
+          "Band–Berkolaiko, arXiv:1304.6028, Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (37) supplies the limiting probability Pσ=0 at half flux and the nearby discussion localizes surviving bands around integers. The indexed half-flux square lattice gives K/2−2(2−√2)log K/π+O(1), not a zero-density measure."
+        ],
+        "reasoning": "Zero probability here denotes M(K)/K→0, not bounded or logarithmically divergent M(K). The square-lattice logarithm measures a deficit against a positive-density background. Reparametrizing by E=k² does not identify either result with this one; it must weight each ring-chain band by 2k.",
+        "searches": [
+          "Resultary: half-flux tight magnetic ring chain, non-flat widths and logarithmic cumulative momentum measure",
+          "Baradaran–Exner–Lipovský, arXiv:2201.01502, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed log-law matches were 36568c0df88e and 3251cf79bccc, which give positive-density expansions on square and triangular graphs; the same-day 6cd5c5d95a2a gives flat-band classification, not a band-width sequence. No inspected same-object table states the two width constants."
+        ],
+        "reasoning": "Matching the term ‘logarithmic’ or ‘half-flux’ does not supply the exact invariant. The source has an exact dispersion relation rather than a tabulation of asymptotic band widths or cumulative measures.",
+        "searches": [
+          "Resultary: exact half-flux spectral criterion, logarithmic band measure, tuned ring-chain flat bands",
+          "arXiv:2201.01502, Eqs. (33)–(34) and (37)"
+        ]
+      },
+      "rationale": "The cited same-model source establishes integer localization and zero limiting momentum density at half flux, but its inspected statements do not quantify the surviving bands or the total occupied length on the zero-density scale. No same or stronger measure law for the target geometry was identified. No novelty is assigned to the dispersion equation, localization or vanishing density.",
+      "residual_risks": [
+        "An earlier calculation under other magnetic-chain terminology may remain unlocated. The claim of distinction is bounded to the available literature and indexed findings compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and zero-density baseline, not the refined cumulative law in inspected sections",
+          "evidence": [
+            "Equation (33) retains the term that resolves width after the leading criterion degenerates; equation (37) gives Pσ=0 and the discussion localizes the bands near integer k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01502",
+          "material_read": "§3.1, equation (33), PDF p. 18; equation (34); equation (37) and discussion, PDF p. 22",
+          "method": "OA PDF",
+          "title": "Magnetic ring chains with vertex coupling of a preferred orientation",
+          "trigger": "Same graph, coupling and flux; decisive derivation"
+        },
+        {
+          "assessment": "Does not cover the target under its stated assumptions",
+          "evidence": [
+            "Positive-length interpolating chain, γ=0 and 0<t<1; classification of positive flat bands."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-positive-flat-bands-from-a-coupling-tuned-resonance-in-rin--6cd5c5d95a2a",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact positive flat bands from a coupling-tuned resonance in ring chains",
+          "trigger": "Closest same-day ring-chain indexed match"
+        },
+        {
+          "assessment": "Different graph and positive leading density",
+          "evidence": [
+            "Square lattice at Φ=π: K/2−2(2−√2)log K/π+O(1)."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-half-flux-spectral-criterion-and-logarithmic-deficit-in-th--36568c0df88e",
+          "material_read": "Mirrored RESULT.md, Finding; its primary comparison arXiv:2302.04601, §3.1.1",
+          "method": "Resultary and local mirror; OA PDF for primary comparison",
+          "title": "Exact half-flux spectral criterion and logarithmic deficit",
+          "trigger": "Strongest indexed half-flux/logarithmic comparison"
+        },
+        {
+          "assessment": "Different graph and leading density",
+          "evidence": [
+            "Triangular graph with preferred orientation: 2K/3−4log(Kℓ)/(√3πℓ)+O(1)."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-logarithmic-finite-cutoff-correction-to-the-two-thirds-momentum--3251cf79bccc",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "Logarithmic finite-cutoff correction to the two-thirds momentum measure",
+          "trigger": "Similar logarithmic measure observable"
+        },
+        {
+          "assessment": "Does not give sublinear measure growth for the tight half-flux chain",
+          "evidence": [
+            "Normalized limiting momentum density for periodic networks, not the zero-density correction or its coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.6028",
+          "material_read": "Equation (3) and associated limiting-density statement",
+          "method": "OA PDF",
+          "title": "Universality of the momentum band density of periodic networks",
+          "trigger": "General limiting momentum measure framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2201.01502, half-flux discussion by Eq. (37)"
+      ],
+      "rationale": "The half-flux point is selected by the known vanishing momentum density, not by an arbitrary parameter slice. The sharpened result proves that the remaining occupied momentum length is unbounded, fixes its logarithmic rate, and distinguishes shrinking momentum widths from asymptotically nonzero energy widths. Those statements resolve a natural ambiguity left by a zero-density limit.",
+      "residual_risks": [
+        "This is one tight-chain geometry; it does not establish a generic zero-density law or say anything about density of states weighted by multiplicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

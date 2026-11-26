@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The deterministic half-plus/half-minus edge constraint implies exact moment recurrence \(t c_{t-1}+(n-t)c_{t+1}=0\). Its beta expression is valid for each \(n=4h\). The inversion-paired beta integral and finite geometric sum produce a strictly positive Poisson-kernel mixture for every cyclic frequency, which proves the exact extremal modes and positivity for all orders. Coefficient extraction gives \(\lambda_{\min}=n/(n+2)\). Summing the matched-sign Fourier coefficients gives \(\lambda_{\max}\); their ratio is the stated exact squared condition number. The double-factorial coefficient bound proves the indicated \(1+4/n+O(n^{-2})\) asymptotic. The included script rechecks these steps on small and moderately large finite instances, without replacing the infinite argument.
+## correctness
 
-## Originality
-**PASS under bounded source comparison.** Antal–Droz–Rácz (arXiv:cond-mat/0308442), Eq. (3), gives canonical periodic two-point correlations; coefficient extraction can recover the fixed-wall correlation values. Thus neither those moments nor their straightforward finite Fourier transformation are claimed as novel independently. Their examined sections focus on magnetization fluctuations and wall-count distributions, not the strict *ordering of all spatial Fourier eigenvalues*, positive Poisson-mixture representation, or sharp finite-order frame condition number. Denisov–Hänggi (arXiv:cond-mat/0603417, journal 2005) concerns free-boundary wall statistics. Semantic comparison with relevant indexed mathematical findings, including first-band Fourier frames on constrained words and cycle colourings and a half-cycle Fourier concentration theorem, did not produce an equivalent or dominating theorem. A historical Krawtchouk/Ising-structure-factor source may nevertheless contain the same ordering and constitutes a real residual risk.
+PASS
 
-## Mathematical value
-**PASS.** A natural microcanonical energy shell of the periodic Ising chain has strongly dependent observations, and direct covariance positivity does not identify the most and least observable spatial Fourier modes. The positive-integral mechanism gives a complete *strict* frequency ordering, exact sharp reconstruction stability, and a quantitative near-tightness law across an infinite family of nontrivial finite frames. These are the mathematical objects and invariant needed for stable coordinate-frequency acquisition rather than arbitrary numerical slices.
+An even wall count gives exactly two cyclic strings per labeled wall set, and reversal separates the constant eigenvalue 1. For the balanced exchangeable edge signs, odd products average zero; multiplying their deterministic zero sum by a product of t signs gives the stated recurrence. Its even solution is the beta moment with the indicated normalizer, extended to 0≤j≤m by the same product. The covariance matrix is circulant and its Fourier sum is over m=n/2 even separations. Inverting the upper half of the beta integral gives r^j+r^(m−j); the two geometric sums at z^m=1 combine to the stated positive Poisson factor, with z=−exp(−2πiℓ/m) valid because m is even. Positivity and strict angular monotonicity follow pointwise for 0<r<1; the endpoints are integrable, including the top mode where the apparent double zero cancels. Symmetry yields the claimed multiplicities within the coordinate block. For the bottom mode the coefficient at even m in the summed wall generating function is binom(n,m+1); aligning phases gives the top mode. The coordinate trace is n, so 1 is between the extreme eigenvalues and the squared condition number is their ratio. Coefficients beyond a_1 sum to O(n^−2) by a uniform geometric bound through n/8 and a decreasing exponentially small tail; this yields 1+4/n+O(n^−2). Empty sums at n=4 give the correct eigenvalues 2/3 and 4/3.
 
-## Closest literature and limitations
-Sources: T. Antal, M. Droz, Z. Rácz, arXiv:cond-mat/0308442, posted 2003-08-21, especially Secs. II and IV; S. I. Denisov and P. Hänggi, *Phys. Rev. E* 71 (2005) 046137, with arXiv:cond-mat/0603417 full text; relevant indexed cyclic Fourier and Ising results compared by claims. The theorem is restricted to \(4\mid n\), exactly \(n/2\) walls and uniform measure. There is no independent verification, and older specialized structure-factor literature could contain an equivalent spectral ordering.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the positive Poisson representation and resulting strict full ordering and sharp frame conditioning for the balanced cyclic microcanonical family. Wall counts, canonical correlations and the fixed-shell moment extraction are prior or standard. The closest distinct archive record overlaps exactly at n=8, but does not cover the family. No bounded source comparison establishes absolute priority.
+
+## value
+
+PASS
+
+For a natural constrained ensemble the result identifies all least and most observable first-coordinate frequencies, proves full rank, and gives the exact sharp stability ratio. A list of pair correlations does not establish this ordered comparison. The positive-mixture mechanism explains the ordering and quantifies how the balanced-shell frame approaches tightness, rather than only listing checks at a few sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

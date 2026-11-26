@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:14:50.342612Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonconstant Walsh character has squared norm N on the vertex space; each sign-crossing undirected edge contributes 4w to its energy. Parity and the mean singleton quotient give the two unrestricted upper bounds 4W1/N and 4(W1+2W2)/(dN). For t<2 their crossing is the unique maximum of their minimum under W1+tW2=1, giving the asserted totals and value; for t≥2 the mean singleton bound is at most 4/(dN), strictly smaller if t>2 and W2>0. Uniform conductance c=4/[Nd(2+(d−1)t)] on both shells attains the lower-price bound because the Walsh eigenvalue of weight k is 2c k(d−k+1)≥2cd; uniform ordinary cube edges attain the high-price bound. Above t=2 equality forces every singleton to be a minimum eigenvector on the mean-zero space, giving 2 w_{x,x+e_i}=Γ at each vertex and hence edgewise uniqueness. In the invariant subclass, Walsh eigenvalues are twice the cut weights of the coordinate graph with auxiliary vertex 0, edge weights w_0i=b_i and w_ij=a_ij. Equality at singleton cuts yields b_i+Σ_j a_ij=q=Γ/2; eliminating b_i makes λ_S=2q(|S|−Σ_{ij⊂S}z_ij) for z_ij=2a_ij/q. Thus cut lower bounds give exactly the subset forest inequalities, and b_i≥0 gives degree bounds. These induced-subset inequalities also give the graphic-matroid rank inequalities for any edge subset by summing over its connected components. Parity equality fixes total z=d−1 below the threshold, giving budget Nq[2+(d−1)t]/4=1; at t=2 the budget is automatic from singleton equalities and total z need only be ≤d−1. A path on [d] gives a cycle on the augmented graph via its two endpoint edges to 0; all its d+1 classes are positive and attain the gap. Independent python3 /workspace/reproductions/2.py verifies 72 exact cut spectra and budgets, including a fractional slack forest at t=2 and prices on both sides. This tests designs and boundaries, not arbitrary-parameter optimality or a classification of nonsymmetric optimizers at t≤2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The FMMP framework is broader on graph and prices and its standard SDP formulation (3) is directly applicable. Its inspected applications instead give a small explicit graph and path examples. Boyd et al.'s edge-transitive SLEM result gives a uniform optimum for that different objective; the general Turán framework uses positive-definite support and a linear sum objective."
+        ],
+        "reasoning": "The general FMMP formulation and optimality machinery are prior; they pose the exact problem but do not solve the cube equality conditions. Unpriced edge-transitivity and Turán bounds do not give the price transition or the constrained forest face. No whole-paper comparison is claimed for the limited Ghosh–Boyd access.",
+        "searches": [
+          "Sun et al. DOI 10.1137/S0036144504443821 Eq. (1), §3.3 and §5",
+          "Ghosh–Boyd DOI 10.1016/j.laa.2006.03.006",
+          "arXiv:0709.0955 Theorem 3.1",
+          "arXiv:math/0312218 general Turán problem"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/S0036144504443821 (author-hosted full text, decisive sections)",
+        "DOI 10.1016/j.laa.2006.03.006 (limited access)",
+        "arXiv:0709.0955",
+        "arXiv:2101.01615v5",
+        "arXiv:math/0312218v1 abstract and §0.4",
+        "DOI 10.1002/rsa.3240040102 (full text unavailable)",
+        "Resultary bf23d5d98989, 20328f74e74c, e912a3cb52c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mirafzal describes the unweighted adjacency spectrum and multiplicities of the same square graph, accounting for the spectral part of the all-edge-equal attaining design. Karlin–Lindqvist–Yao's title is closely related, but the DOI/full-text routes did not yield inspectable passages."
+        ],
+        "reasoning": "The fixed-weight spectrum does not exclude arbitrary edgewise designs; parity and singleton Rayleigh certificates and their equality conditions are the missing step. The SLEM optimum has stricter negative-eigenvalue control than the CT tree/forest classification; even overlap on a uniform optimizer does not imply the full theorem. Historical coverage by the inaccessible 1993 source was not determined.",
+        "searches": [
+          "arXiv:2101.01615v5 Thm. 4.1",
+          "Resultary 20328f74e74c versus price-dependent sparse optimizers",
+          "Karlin–Lindqvist–Yao 10.1002/rsa.3240040102"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. exactly formulate positive price-weighted maximization of λ2 on a connected graph (and show the budget binds). arXiv:0709.0955 and Resultary 20328f74e74c optimize SLEM instead. For an optimal t<2 invariant design the common exit rate is q(d+1)/2 and the normalized marginals are those used in the two-hop stochastic comparison."
+        ],
+        "reasoning": "Normalizing by the constant exit rate does not turn continuous-time maximization of λ2 into minimizing an eigenvalue modulus. In d=5 the Hamilton-path design colors the augmented coordinate cycle alternately and the Walsh character with S={1,3,5} has normalized transition eigenvalue −1, so this priced CT optimizer is not a SLEM minimizer. The positive-definite shell problem concerns upper, not lower, cut constraints after Fourier transformation.",
+        "searches": [
+          "Resultary: two-hop hypercube fastest mixing optimizer face",
+          "Resultary: weight-two Boolean Hamming shell Fourier extremizers",
+          "arXiv:0709.0955 §2 and §3.2.2",
+          "Sun–Boyd–Xiao–Diaconis Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bf23d5d98989 has a global price law and edgewise rigidity for one-bit plus antipodal jumps with threshold d. 20328f74e74c has the radius-two discrete-time SLEM optimal face and dimension from d≥5. e912a3cb52c4 classifies Turán extrema on the weight-two shell, with constants d or d+1 by parity and even-case entries u_i+u_j."
+        ],
+        "reasoning": "Neither matching the two bit-flip shells nor matching the pricing technique determines the same exact problem. In d=3 the antipodal direction is not a two-bit move; identifying the augmented weight-two shell with even-parity flips also does not change the minimum-cut objective into the Turán maximum. No exact indexed table covering the priced CT face was established.",
+        "searches": [
+          "Resultary: CT Hamming-distance one/two priced hypercube graph",
+          "Resultary: K_d tree and forest polytope, folded-cube price thresholds",
+          "Resultary: positive-definite weight-two shell"
+        ]
+      },
+      "rationale": "The supported distinct claim is the solved price-dependent two-shell continuous-time problem and the tree/forest equality family, not the general FMMP optimization framework or the fixed unweighted square-cube spectrum. Closest indexed statements are distinguished by traceable objective, support, and optimizer comparisons. Historical risk remains for uninspected spectral/majorization work.",
+      "residual_risks": [
+        "The closely titled 1993 Karlin–Lindqvist–Yao article and the full Ghosh–Boyd paper were not independently inspected in full; the former is the main priority risk. Access failure is not evidence of noncoverage.",
+        "Equivalent continuous-time design or extremal-cut statements may be known under another network-design or association-scheme formulation. The finite literature comparison is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formulation and general SDP fully antecedent; inspected passages do not give the two-shell solution",
+          "evidence": "Weighted rate budget with strictly positive costs, maximize λ2, budget binds; equivalent minimum-cost SDP at λ2≥1.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf (DOI 10.1137/S0036144504443821)",
+          "material_read": "p. 683 Eq. (1), extracted offset 6600; §3.3 Eq. (3), offset 17336; §5 examples at offsets 43898 and 48680",
+          "method": "Lawful author-hosted OA copy, located and paged",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact broadly formulated priced CT problem"
+        },
+        {
+          "assessment": "Relevant framework, no independent full-text noncoverage conclusion",
+          "evidence": "Comparison limited to general convex bounds on algebraic connectivity.",
+          "identifier_or_url": "DOI 10.1016/j.laa.2006.03.006",
+          "material_read": "Landing/abstract material only after attempted OA recovery",
+          "method": "DOI and institutional-copy lookup",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Potential upper-bound formula for symmetric graphs"
+        },
+        {
+          "assessment": "Discrete-time SLEM, not linear priced CT rates",
+          "evidence": "Symmetric stochastic P minimizes ||P−11ᵀ/n||; edge-transitive uniform SLEM construction and standard nearest-neighbor cube example.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§2 PDF p. 2 offset 6500; Thm. 3.1 PDF p. 8 offset 27800; §3.2.2 PDF pp. 11–12 offset 36900",
+          "method": "Lawful OA paper located and paged",
+          "title": "Fastest mixing Markov chain on graphs with symmetries",
+          "trigger": "Symmetric cube optimization and possible objective equivalence"
+        },
+        {
+          "assessment": "Direct overlap on the uniform spectral input, not priced allocation",
+          "evidence": "Exact unweighted square-cube adjacency eigenvalues and multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01615v5",
+          "material_read": "Theorem 4.1 PDF p. 12 offset 38350",
+          "method": "Lawful OA paper",
+          "title": "Some remarks on the square graph of the hypercube",
+          "trigger": "Same underlying unweighted adjacency"
+        },
+        {
+          "assessment": "Full-text overlap not decidable from these attempts",
+          "evidence": "Title and bibliographic information support relevance, not any exact result or noncoverage statement.",
+          "identifier_or_url": "DOI 10.1002/rsa.3240040102",
+          "material_read": "Bibliographic identification; publisher OA extraction and open-copy recovery unsuccessful",
+          "method": "Lawful DOI/PDF retrieval attempts",
+          "title": "Markov chains on hypercubes: spectral representations and several majorization relations",
+          "trigger": "Most plausible unresolved historical spectral comparison"
+        },
+        {
+          "assessment": "Related optimizer equalities but different objective; the CT sparse cycle gives a separating example",
+          "evidence": "Discrete-time SLEM optimum, coordinate marginals and nonunique optimal face from d≥5.",
+          "identifier_or_url": "Resultary 2026/11/2 20328f74e74c",
+          "material_read": "Mirrored RESULT.md offsets 0, 7800",
+          "method": "Local Resultary mirror",
+          "title": "A sharp rigidity transition and optimal-face dimension for two-hop hypercube walks",
+          "trigger": "Closest exact two-shell optimizer-face result"
+        },
+        {
+          "assessment": "Same displacement geometry, different inequalities and objective",
+          "evidence": "Positive-definite mass maximizer on zero plus weight-two support; even-case affine entries, not a forest optimizer classification.",
+          "identifier_or_url": "Resultary 2026/10/4 e912a3cb52c4",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Turán constant and all extremizers for the weight-two Boolean Hamming shell",
+          "trigger": "Exact weight-two Fourier extremizers"
+        },
+        {
+          "assessment": "Related pricing method; different second shell and threshold",
+          "evidence": "Antipodal moves and threshold d, not all Hamming-two moves and threshold 2.",
+          "identifier_or_url": "Resultary 2026/10/13 bf23d5d98989",
+          "material_read": "Mirrored statement of support, price law and rigidity",
+          "method": "Local Resultary mirror",
+          "title": "Sharp antipodal price threshold and edgewise rigidity for folded hypercubes",
+          "trigger": "Closest indexed priced CT design of a cube with a second displacement class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single threshold settles when distance-two links help across an arbitrary-dimensional natural design family. The explicit tree/forest face gives more than the optimum value: it explains and certifies very sparse and fully dense exact solutions within the same price-normalized class. Above the threshold edgewise rigidity holds without a symmetry assumption. These distinctions are usable for design and are not just a change of parameters in the general SDP.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

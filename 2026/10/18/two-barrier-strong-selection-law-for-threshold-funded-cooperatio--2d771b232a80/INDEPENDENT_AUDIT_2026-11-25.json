@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:43.004737Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53, 55–98",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent renewal/ruin derivation and limiting-chain calculation in this review"
+      ],
+      "rationale": "I independently checked the asymptotic by renewal at t on the embedded jump chain. Each visit to j costs θj/u_j in expected update expense when funded, with u_j=j(N−j)/N². Write ε=exp(−β(θ−d)), δ=exp(−βd), and m=N−1−t. A cycle from t ends at the next return to t or absorption. One-dimensional gambler's ruin on each side gives its exact escape probability [ε^t/(∑_{k=0}^{t−1}ε^k)+δ^m/(∑_{k=0}^{m}δ^k)]/(1+ε). The factor ε from the first downward jump at t is essential. The cycle's expected cost is θt/u_t times 1+O(ε): the right excursion pays nothing and the left excursion starts with probability O(ε) and has bounded expected length for fixed N, since a fixed block of up-steps has probability bounded below. Renewal therefore gives E_t=(θt/u_t)/(ε^t+δ^m) times 1+O(ε+δ), uniformly on the asserted compact sets. From any other mixed state the chance of absorbing before t is O(ε+δ) by the same ruin calculation; the expected pre-hit cost is bounded, hence also a relative O(ε+δ). This yields the claimed prefactor, minimum barrier exponent, half coefficient at equality, and logistic limit by setting β(A−B)=s. In the finite regimes the limiting embedded transient chain is still absorbing, so its inverse and occupations are continuous. Below d every step goes down; for full funding above d every step goes up. At equality the funded segment is unbiased, absorbing at zero and reflecting at t once the unrewarded t→t+1→t excursion is collapsed. Its visit Green function at funded j is 2min(i,j), by the discrete second-difference equation with reflecting condition at t (initial i>t first reaches t). Multiplying by θj/u_j gives all three finite formulas. The frozen scale-kernel normalization agrees with these independent checks.",
+      "residual_risks": [
+        "Frozen exact-rational and high-precision test counts are reported evidence, not independently rerun here. Fixed N,t,d and the discrete-update expense convention are essential; neither a growing-population limit nor a continuous-time convention was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior paper sets up a fundamental matrix at general cutoff. Its cutoff-two Section 3.5 gives exact finite-beta costs, Eqs. 17 and 18, for specified starts or averaging conventions. General birth–death balance gives the kernel used in the record."
+        ],
+        "reasoning": "The general resolvent is prior machinery, not a theorem with this leading asymptotic. In a general chain the dominant scale weights need not be its two endpoints and may include several competing regions; the cutoff-specific uniform estimate and coefficient do not follow without evaluating those weights and the funded-state cost. The cutoff-two formulas do not cover all cutoffs and initial states.",
+        "searches": [
+          "arXiv:2402.07663 pp. 10, 21, 24–26 (arbitrary threshold setup, analytic cutoff cases)",
+          "General birth–death scale function and renewal/occupation comparison against frozen RESULT.md proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.07663, cited original text and propositions",
+        "Local Resultary record 087f57043d50, inspected mirrored passages",
+        "Frozen RESULT.md prior-work and limitations sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cutoff-one propositions state +infinity at θ>d, 2N²θ/(N−1) at θ=d, and N²θ/(N−1) below d under the specified conventions. The cutoff-two section gives exact finite-beta answers, which can in principle be expanded for its particular initial conditions. Full funding removes the right barrier and the interface altogether."
+        ],
+        "reasoning": "Do not claim special cases are inaccessible from exact formulas; they are mathematically derivable. What is absent from the inspected statements is the compact-uniform two-endpoint asymptotic for all t and i, including the moving incentive window and half-prefactor. Merely knowing divergence or finite full-funding costs gives none of those sharp partial-funding conclusions.",
+        "searches": [
+          "Compare arXiv:2402.07663 Props. 2/4 and Eqs. 17/18 with frozen fixed-size uniform law",
+          "Compare full-funding and partial-funding transition structures in frozen RESULT.md lines 29–33 and 106–114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2402.07663 PDF p. 10, offsets 30823–33379, has the identical funded/unfunded Fermi chain with δ=−d and the jump/holding factor i(N−i)/N². Propositions 2 and 4 on pp. 21 and 24 give cutoff-one finite limits or divergence, not the sharp rate and window."
+        ],
+        "reasoning": "Sign change δ=−d is just relabeling; the older model and qualitative divergence are covered. The new formula resolves how the two endpoint escape probabilities combine and includes update expenditure rather than a jump count. The older cutoff-one limits agree where their domains meet the analogous formulas, not with the stated whole partial-cutoff theorem.",
+        "searches": [
+          "Duong–Durbac–Han arXiv:2402.07663, Fermi transitions and payoff gap δ; cutoff strong selection",
+          "Read the frozen cost convention against the predecessor equations and embedded-chain normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local match 087f57043d50 gives strict incentive monotonicity for the same cutoff-two model from one cooperator. Prior exact cost formulas at cutoff two overlap the setting but are not a table of barrier rates, uniform prefactors or crossover limits."
+        ],
+        "reasoning": "Monotonicity and cost optimization differ from strong-selection asymptotics. Tested numerical cases in the frozen file neither make the theorem a table nor serve as a priority search.",
+        "searches": [
+          "Local Resultary threshold-funded cooperation / two-barrier Fermi reward cost",
+          "arXiv:2402.07663 §3.5 Eqs. 17–18 (closest exact formulas)"
+        ]
+      },
+      "rationale": "The distinctive claim is the all-partial-cutoff, all-transient-start, compact-uniform sharp law including its discrete-update prefactor and logistic competition window. The same model, fundamental matrix, cutoff-one divergence, some finite regimes, and finite-beta cutoff-two cost formulas already exist and are not credited as new. The predecessor comparison should acknowledge its explicit cutoff-two cost formulas, not merely inverse-matrix entries.",
+      "residual_risks": [
+        "This is a bounded, statement-level review, not certification of publication priority. General metastability results may supply alternative tools or special-case derivations. The full-funding comparison is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and finite formulas, including exact formulas at cutoff two; not the claimed uniform classification in checked passages",
+          "evidence": [
+            "At cutoff one states qualitative divergence or exact finite limits; §3.5 computes inverse entries AND explicit expected costs at cutoff two for designated starting conventions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.07663",
+          "material_read": "PDF p. 10, offsets 30823–33379; Proposition 2 p. 21 offset 76988; Proposition 4 p. 24 offset 87786; §3.5 pp. 25–26 offsets 90843 and 95775 with Eqs. 17–18",
+          "method": "Bounded OA full-text passages of the same paper",
+          "title": "Cost Optimisation of Individual-Based Institutional Reward Incentives for Promoting Cooperation in Finite Populations",
+          "trigger": "Identical model and sharpest known analytical overlap at cutoffs one and two"
+        },
+        {
+          "assessment": "Same model but different claim",
+          "evidence": [
+            "Proves strict increase of total cost in θ from a single-cooperator start at t=2, not its sharp fixed-θ or moving-θ asymptotic as β grows."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-strict-reward-cost-monotonicity-at-the-two-cooperator-interventi--087f57043d50",
+          "material_read": "Mirrored RESULT.md Finding offset 0, scope and relationship offset 5542",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Strict reward-cost monotonicity at the two-cooperator intervention threshold",
+          "trigger": "Same model and cutoff in local index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen strong-reward and finite-regime statements, lines 7–33",
+        "Frozen model and objective, lines 35–53",
+        "Independent renewal check in this review"
+      ],
+      "rationale": "The result explains which absorbing exit limits expense and determines the scale and leading coefficient even at equality of the two barriers. A single uniform law captures the width and shape of the changeover; this cannot be read off from the qualitative divergence or from separately taking fixed-incentive limits. Its normalization is useful for the stated discrete institutional cost, and the discontinuous change from finite to exponential cost on omitting the final state is an informative contrast within the model.",
+      "residual_risks": [
+        "No claims about strategy adoption outside this model, state-dependent disadvantages, mutation during absorption, or population-size scaling are supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

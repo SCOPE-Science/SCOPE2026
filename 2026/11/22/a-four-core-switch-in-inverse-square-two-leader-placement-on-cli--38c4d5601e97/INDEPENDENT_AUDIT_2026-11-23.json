@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:56:17.988644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph uses the full follower principal Laplacian, with degrees n and 1. Core–leaf index permutations give exactly four possible placement types. Eliminating the unit leaf diagonal leaves a core matrix A=diag(d_i)-11^T, with d_i=n for a core with a follower leaf and n+1 otherwise; the determinant version at t!=0 gives the four factorizations in the proof. Independently, at zero, H=A^{-1} has entries delta_ij/d_i+(1/d_i)(1/d_j)/(1-sum_i 1/d_i), while block inversion gives follower inverse blocks H, HT^T, TH, I+THT^T for the leaf-to-core incidence T. This directly gives tr(L_FF^{-2}) as the squared Frobenius norm, with exact agreement for the four rational costs and comparisons. The critical difference CC minus CL_d is -(3n^2-4n-16)/(n+2)^2, positive at n=3 and negative for all n>=4. CL_s and LL both exceed CC, the latter by a quartic whose coefficients in n-3 are all positive. Hence there are exactly six minimizers at n=3, cost 124/25, and exactly binom(n,2) at every n>=4. Also independently obtained exact J1 gaps relative to CL_d: 2/(n+2), 4(n+1)/[n(n+2)] and (n^3-4n-2)/[(n+1)(n+2)] for CC, CL_s and LL respectively; all are positive for n>=3. Exact direct inversion of all 245 pairs for n=3,...,7 agreed (at n=4, J2 minimum 27/4, J1 minimum 31/6). Finite checks corroborate, while the symbolic signs prove the infinite claim. Uploaded verifier inspected, not executed. Independent replay: python3 /workspace/evidence/corona_exact.py (SymPy).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Fardad–Jovanović problem LS2 optimizes tr(L_f^{-1}) for noise-free leaders; their algorithms do not give the stated second moment.",
+          "Patterson–Bamieh Eq. (6) has the reciprocal-square sum but projects off the mean of the ungrounded network. Their Eq. (17) uses characteristic coefficients, showing the second-moment computational method itself is established.",
+          "The nearby indexed double-star and split-graph spectral order theorems concern different graph structures, not the clique corona with all n private leaves."
+        ],
+        "reasoning": "Known general computational tools are not an all-n ordering on this grounded family. The ungrounded mean-projected spectrum cannot substitute for spectra of principal submatrices as pin sets vary.",
+        "searches": [
+          "arXiv:1302.0450v2 Sections 2.1 and 4",
+          "arXiv:1310.2592v1 Sections II-B and IV",
+          "Resultary inverse-square leader placement across related graph families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450v2",
+        "arXiv:1310.2592v1",
+        "Resultary 9b274a4d27c1",
+        "Resultary 17423e28b87e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=4, the verified J1 minimizer CL_d strictly loses to CC on J2. The characteristic-polynomial second-derivative calculation needs a second coefficient, not just the first-order cost."
+        ],
+        "reasoning": "The first-order optimizer and corresponding first-moment formulas do not supply the decisive second-order orbit comparison. The new fact is the ordering, not the differential identity or the existence of clique symmetries.",
+        "searches": [
+          "Resultary 9b274a4d27c1 and 17423e28b87e",
+          "arXiv:1310.2592v1 Eq. (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 9b274a4d27c1 gives an all-budget switch in first inverse trace on the identical private-leaf graph. At budget two its polynomial evaluates to -2n^3+8n+4 and the optimum is CL_d for every n>=3.",
+          "Indexed 17423e28b87e switches in the gain of two noisy leaders; its description agrees with the first-order grounded outcome in the infinite-gain limit, not the inverse-square classification."
+        ],
+        "reasoning": "Private leaf and pendant leaf here designate the same construction. Neither changing a finite leader gain nor passing to perfect pins changes the inverse-power index of the first-order objective. The earlier optima need not persist when that index changes.",
+        "searches": [
+          "leader selection grounded Laplacian second order inverse square clique corona complete graph pendant leaf optimum two pinned leaders",
+          "Resultary: A sharp all-budget leader transition on complete-clique coronas first inverse trace 9b274a4d27c1",
+          "Resultary: Exact two-leader gain transition on complete-graph coronas 17423e28b87e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest earlier exact indexed tables are 9b274a4d27c1 and 17423e28b87e; the search also returned the frozen result itself, which is not independent priority evidence."
+        ],
+        "reasoning": "The earlier thresholds are indexed by budget or gain and give different objectives. No matching table for this squared inverse design was identified among inspected results.",
+        "searches": [
+          "Resultary: inverse-square two-leader placement clique bridge unequal clique trace inverse squared Laplacian four core switch",
+          "Resultary: exact complete-clique corona all-budget and finite-gain results by identifier",
+          "leader selection grounded Laplacian second order inverse square clique corona complete graph pendant leaf optimum two pinned leaders"
+        ]
+      },
+      "rationale": "Best of available evidence: the ground graph and leader problem are known for other noise models, and the reciprocal-square functional itself is established. The exact global four-core switch for the squared inverse on these grounded clique coronas was not found in the inspected earlier statements or implied by them.",
+      "residual_risks": [
+        "The indexed corona comparisons are statement-level in this audit; uninspected text could have additional inverse-square results.",
+        "Bounded search cannot establish universal priority or rule out an unindexed exact generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First-order grounded inverse-trace objective, not the inverse-square corona result",
+          "evidence": [
+            "LS2 minimizes tr(L_f^{-1}); LS1 is the finite-gain noisy variant."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1302.0450v2",
+          "material_read": "Full-text Sections 2.1 and relevant objective statements for Section 4",
+          "method": "Primary arXiv HTML",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Foundational perfectly pinned design formulation"
+        },
+        {
+          "assessment": "Same spectral power in an ungrounded network with mean projected out; no stated grounded two-leader corona optimizer",
+          "evidence": [
+            "Eq. (6) excludes the zero eigenvalue; Eq. (17) uses two coefficient ratios to form the squared inverse spectral sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1310.2592v1",
+          "material_read": "Full-text Sections II-B and IV through Eq. (17)",
+          "method": "Primary arXiv HTML",
+          "title": "Consensus and Coherence in Fractal Networks",
+          "trigger": "Reciprocal-square spectral coherence and characteristic-coefficient technique"
+        },
+        {
+          "assessment": "Covers the quoted first-power comparison, not the new square-trace classification at statement level",
+          "evidence": [
+            "Its budget polynomial and CL_d versus leaves-only rule specialize directly at budget two."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 9b274a4d27c1",
+          "material_read": "Detailed indexed theorem summary",
+          "method": "Resultary targeted search",
+          "title": "A sharp all-budget leader transition on complete-clique coronas",
+          "trigger": "Exact prior on the same graph with all budgets"
+        },
+        {
+          "assessment": "Finite-gain noisy leader problem, not a fixed grounded inverse-square trace problem",
+          "evidence": [
+            "Transition in kappa_m from two cores to a core and another core's leaf."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 17423e28b87e",
+          "material_read": "Detailed indexed theorem summary",
+          "method": "Resultary targeted search",
+          "title": "Exact two-leader gain transition on complete-graph coronas",
+          "trigger": "Same two placement types and graph, different control parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A symmetric graph with one private leaf per core is a minimal model in which pinning a leaf and pinning its core are genuinely different. An exact all-size reversal relative to the usual inverse trace, with all optimizers and costs, makes the given moment distinction an actionable design boundary and provides a benchmark for grounded spectral optimization. This does not claim generalization to other graphs, leader counts, weights or inverse powers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:01:04.367159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A length-27 de Bruijn necklace has distinct triples, hence distinct rotations, ordered by their triples. For each two-letter prefix the three predecessors are a permutation of the three letters, since all triples ending in that prefix occur once. Thus the 18 within-block changes are forced; the eight inter-block changes and the wrap comparison give r and c as claimed. Independently enumerated last-column blocks with the predecessor/LF map i -> 9*L[i]+floor(i/3). It is injective already on assigned rows, and an irrevocably closed proper cycle cannot extend to a single cycle. At a leaf all 27 rows return on one cycle, and reversing the predecessor walk spells the cycle with precisely the 27 row triples; that gives one necklace and no extra quotients by reversal or alphabet relabeling. Exact output from `python3 /workspace/review-evidence/02_lf.py` (full log `02_lf.csv` in that directory) matches all 18 cells, total 373248, both marginals and the extrema including the wrap-sensitive minima. Both supplied C++ certificates were inspected as text rather than executed. This establishes only the specified sentinel-free finite case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higgins covers arbitrary alphabet size and word order with a block characterization and count. Fici–Gabory cover generalized de Bruijn words; Date–Zatesko give a general run lower bound for a terminated linearized word."
+        ],
+        "reasoning": "General candidate-family/total-count results leave the conditioned run statistic unresolved, and an endmarked run bound cannot give the exact sentinel-free joint table.",
+        "searches": [
+          "arXiv:1901.08392, Theorem 3.4",
+          "arXiv:2502.12844, Theorems 9 and 12",
+          "arXiv:2512.20598, Lemma 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0908.0239, 1901.08392, 2502.12844, 2512.20598",
+        "Resultary 1eb61f1d72f3, e9f4efa40f3d, 11ed932d1942"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known permutation-block property forces r>=19, c>=18 and c=r-1 or r. The known total is independent of the run parameters."
+        ],
+        "reasoning": "The structural bound does not establish reachability subject to the single-cycle test. The new resolved information is which boundary patterns survive that test and their aggregate frequencies, not the bounds as inequalities or the cycle representation.",
+        "searches": [
+          "arXiv:1901.08392, §3",
+          "arXiv:2502.12844, §3 and Table 1",
+          "arXiv:2512.20598, pp. 14–15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier work characterizes BWT permutation blocks or interprets inverse standard permutations as Hamiltonian cycles. The indexed binary bit-reversal result e9f4efa40f3d compares forward and reversed linear runs, not adding the wrap to a single ternary transform."
+        ],
+        "reasoning": "Changing from necklace wording to Euler tours, Hamiltonian cycles, or LF permutations provides equivalent sets to enumerate; none of the inspected bijections supplies the statistics of equality of neighboring block endpoints.",
+        "searches": [
+          "Resultary: binary de Bruijn BWT run spectra and reverse-BWT transport",
+          "arXiv:1901.08392, §3",
+          "arXiv:2502.12844, §3, Theorem 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 reports 373248 at length 27 over three letters but has no refinement by runs. Indexed 1eb61f1d72f3 gives a linear-only table for 2048 binary order-five necklaces. Distinct same-date 11ed932d1942 concerns ternary necklaces of composition (n-3,1,2), not these length-27 de Bruijn necklaces (each letter occurs nine times)."
+        ],
+        "reasoning": "A total over the target class and run spectra for different classes have no table-level coverage of the 18 cells.",
+        "searches": [
+          "Resultary: exact BWT run spectrum ternary order three, binary order five and sparse ternary necklaces",
+          "arXiv:2502.12844, Table 1"
+        ]
+      },
+      "rationale": "Credit the BWT block theorem, orbit correspondences and total count. The supported distinct claim is the exact joint run distribution and its extremal multiplicities. The closest inspected primary and indexed results neither give that distribution nor resolve its run-refined count by specialization of their statements.",
+      "residual_risks": [
+        "The focused literature and Resultary checks are bounded. An unlocated table indexed by a permutation/necklace statistic instead of BWT runs could change priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "The BWT characterization is of de Bruijn sets and gives permutation blocks; classic de Bruijn word counting supplies the total, not a run-weighted single-necklace count."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1901.08392v1",
+          "material_read": "§3, Definition 3.1 and Theorem 3.4, OA offsets 38400–46793",
+          "method": "Lawful OA full-text passages",
+          "title": "Burrows–Wheeler transformations and de Bruijn words",
+          "trigger": "Exact alphabet-permutation block theorem for the same transforms"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "The ternary length-27 entry is a total count; no joint linear/circular run weighting occurs in the inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.12844",
+          "material_read": "Theorems 9 and 12 and Table 1; OA offsets 20456 and 29200–36189",
+          "method": "Lawful OA full-text passages",
+          "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows-Wheeler Transform",
+          "trigger": "Same 27-letter necklaces, inverse-standard-permutation/Hamiltonian correspondence and exact table"
+        },
+        {
+          "assessment": "DIFFERENT_NORMALIZATION",
+          "evidence": [
+            "Bound sigma^(k-1)(sigma-1)+1 for a linearized terminated input; not sharp multiplicities for sentinel-free necklaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.20598",
+          "material_read": "Lemma 6, pp. 14–15",
+          "method": "Lawful OA primary text",
+          "title": "On the near-tightness of chi <= 2r",
+          "trigger": "Run lower bounds for de Bruijn sequences"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": [
+            "Sorted cyclic conjugates and inversion; not a de Bruijn run counting statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0908.0239",
+          "material_read": "§3 p. 4, OA offset 14573",
+          "method": "Lawful OA primary text",
+          "title": "On Bijective Variants of the Burrows-Wheeler Transform",
+          "trigger": "Cyclic BWT definition/invertibility"
+        },
+        {
+          "assessment": "DIFFERENT_CLASSES_OR_STATISTICS",
+          "evidence": [
+            "Binary order-five linear marginal or forward/reversed linear distribution; sparse ternary necklace linear spectrum. None is the joint distribution in the assigned class."
+          ],
+          "identifier_or_url": "Resultary: 1eb61f1d72f3, e9f4efa40f3d, 11ed932d1942",
+          "material_read": "Actual Finding passages in local-mirror RESULT.md, offset 0 in each",
+          "method": "Local Resultary search and local mirror",
+          "title": "Complete BWT-run spectrum of binary order-five de Bruijn cycles; Bit-reversal transport of reverse Burrows–Wheeler transforms of de Bruijn cycles; Exact sparse-ternary Burrows–Wheeler run spectrum",
+          "trigger": "Exact de Bruijn run arrays and same-alphabet alternative table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural first ternary case with nine independent local permutation blocks before imposing global connectivity. The joint distribution quantifies both attainment/rareness of the compression-extremal cases and the effect of the wrap comparison, which is lost in a linear-only spectrum. It is a reproducible benchmark for run-enumeration and extremal constructions, not just a recomputation of the de Bruijn total or a new general run law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

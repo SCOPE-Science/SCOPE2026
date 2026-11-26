@@ -1,11 +1,21 @@
-# Mathematical review: canonical Weierstrass jump on the Wiman–Edge base locus
+# Independent mathematical audit
 
-**Correctness — PASS.** The canonical linear system is the restriction of the six-dimensional anticanonical system of the quintic del Pezzo surface. The formal implicit-function recursion is valid at the representative point because the displayed partial derivative is a unit. The complete six-by-six determinant factors exactly as \((4\varphi^2-105)(4\varphi^2+3)^3/62208\); the second factor vanishes only on excluded singular fibers. At the special smooth parameters, the exhaustive lower-jet minor tests, together with explicitly nonzero order-three, order-five, and order-seven witnesses, prove the exact sequence \((0,1,2,3,5,7)\). The transitive curve automorphism action transports it to all twenty points. The included exact verifier independently replays the algebraic identities, but this is not independent scholarly validation.
+## correctness
 
-**Originality — PASS (provisional).** Candelas et al. (arXiv:1206.4961) calculate the pencil and its twenty marked points; Dolgachev–Farb–Looijenga (2018) classify their group orbit. Material sections and text searches in these two complete sources did not yield a canonical Wronskian or gap-sequence condition \(4\varphi^2=105\). The exact claim and equivalent formulations were compared against available mathematical records and no covering result was identified. The complete 1981 Edge paper was unavailable, so prior publication of an equivalent special canonical-jet computation is a real residual risk; search absence is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The base locus is an intrinsic, complete twenty-point orbit present on every smooth member, not a chosen ad hoc finite subset. The jump identifies a natural smooth geometric isomorphism class by an exact equation and determines each point's canonical gaps and contribution to the global ramification divisor. It complements global geometric descriptions by a genuinely finer local canonical invariant.
+Adjunction for C∼−2K_S gives K_C=(−K_S)|_C; restriction of sections is an isomorphism by H^0(K_S)=H^1(K_S)=0 on the rational surface. The six displayed bidegree-(2,2) sections vanish at the three blown-up centers (use the corresponding homogeneous coordinates for the two infinite-chart points) and their distinct nonconstant monomials give independence. Thus their local coefficients give the full canonical series. In independent exact polynomial-ring code I checked F(1,u)=0, ∂_y(2F)(1,u)=4−2u with inverse (1+u)/6, constructed the t=x−1 solution through degree seven, and substituted it back into 2F to verify every coefficient through t^7 vanishes. I recomputed the jet determinant by subset DP in Q[p,u]/(u²−u+1); it is (4p²−105)(4p²+3)^3/62208. On 4p²=105, all five-row minors through order 4 and all six-column minors through order 6 vanish. The reported minors for orders 0..3, (0,1,2,3,5), and (0,1,2,3,5,7) were reproduced; the norms of the first two are 3(4p²−6p+219) and 729(4p²+27)/4, nonzero at both parameters, and the last minor is −486p. Thus the truncated ranks through successive orders 0..7 are 1,2,3,4,4,5,5,6, yielding the claimed orders, gaps and weight. The parameter normalization and excluded singular fibers agree with the inspected primary model; neither exceptional parameter is singular. Transitivity of A_5 on the twenty-point orbit transports the calculation. The simultaneous inversion of x,y preserves G and negates H after multiplying by x^4y^4, permutes the blowup centers and identifies the two fibers. Total canonical weight is 210 for g=6, and this orbit contributes 60 at each of the two signs. Replay: python3 /workspace/branches/recheck_3.py (SymPy); the submitted verifier was inspected, not run. Only smooth complex fibers and the marked orbit are classified.
 
-Limitations: the result does not determine Weierstrass points off the base locus, does not extend to singular fibers or positive characteristic, and remains subject to historical and independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive judgment is for the exact canonical orders and jump locus on the distinguished twenty-point orbit, not for the pencil, equations, orbit, singular-fiber list, sign symmetry or general theory of canonical jets. The strongest accessible same-pencil sources establish structural facts but the inspected decisive passages do not imply this exceptional ramification calculation. The most relevant inaccessible historical comparison is Edge 1981, noted explicitly below; its unavailability does not establish historical priority or block a binary verdict.
+
+## value
+
+PASS
+
+The marked points persist intrinsically throughout a natural genus-six family; their being ordinary is not forced by symmetry. Detecting and classifying the precise two smooth parameters where all twenty jump to weight three simultaneously determines a substantial and exact part of the canonical ramification divisor, and distinguishes those parameters in the marked family. The complete local vanishing sequence is more informative than detecting that a Wronskian vanishes. No novelty or value is claimed here for a full ramification-divisor classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:54:43.141140Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the translate-incidence Gram A=T*T for Tf=f_P*1_H. Each diagonal is q−1. For ordered u≠v in F× the collision equations force s−t=u−v and s+t=−1/(uv), with exactly one solution because 2 is invertible. Equal hyperbola parameters force equal parabola parameters. Thus S=1*A1=2(q−1)^2 and Q(1)=S/[q(q−1)]. Since S≡2 (mod q), the integral row sums are unequal, so the constant vector is nonstationary on the normalized sphere and not a local maximum. Balancing integer row sums gives ||A1||²≥S²/q+2(q−2)/q (the balanced floor/ceiling counts are q−2 and 2). Applying A²≤λ_max(A)A to 1 and dividing the resulting eigenvalue bound by q−1 gives the claimed gap. This includes characteristic three for q≥9, and claims neither the sharp value nor a two-variable norm. The frozen checker tests only prime fields; independent replay /workspace/branches/frozen-review-replay.py directly groups pairs by their output and checks exact Gram sums/variance in q=5,7,9,25, with numerical top-eigenvalue corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nondegenerate-quadric theorem covers the inverse hyperbola as a single surface with same-surface representation estimates, not the mixed operator or nonstationarity. The sharp parabola theorem cited there in the separate sharp-extension literature concerns characteristic >3 and a sixth moment."
+        ],
+        "reasoning": "Neither statement yields the mixed total, nondivisibility, or a gap in the stated parameter range.",
+        "searches": [
+          "arXiv:0804.4505, Theorem 2 and Lemma 13",
+          "arXiv:2405.16647, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 0835fe791166 and a84363193055",
+        "arXiv:2405.16647 and arXiv:0804.4505"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary Rayleigh integrality test needs the total of the actual mixed Gram, 2(q−1)^2. A self-energy total or a uniform single-surface norm bound does not supply it."
+        ],
+        "reasoning": "The novelty assessment credits only the application to this pair, including the exact unit collision count; it does not credit the general spectral test or assert exhaustive priority.",
+        "searches": [
+          "arXiv:2405.16647, Theorem 1.3",
+          "arXiv:0804.4505, Lemma 13",
+          "Frozen proof, RESULT.md lines 18–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parseval or additive-energy language does not alter the distinction: the operator studied here weights P and fixes H, while the compared results sum representations using repeated copies of one surface."
+        ],
+        "reasoning": "The mixed collision count involves comparing P-differences with H-differences; the single-surface norm extremizers are not equivalent to its row-sum condition.",
+        "searches": [
+          "Resultary: mixed finite-field parabola–inverse-hyperbola convolution, cross energy and weighted Gram criteria",
+          "arXiv:2405.16647, Theorem 1.3",
+          "arXiv:0804.4505, (1.2) and Lemma 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inverse-hyperbola record gives E(H)=3(q−1)(q−2) and a sharp fourth moment; the prime-field parabola record classifies its single-surface sixth-moment extremizers."
+        ],
+        "reasoning": "Neither indexed result is a tabulation or formula for the mixed Gram row sums or spectral gap. The reviewed statement is uniform across fields, not a finite table extrapolation.",
+        "searches": [
+          "Resultary 0835fe791166, Finding/Proof",
+          "Resultary a84363193055, Finding/Assumptions"
+        ]
+      },
+      "rationale": "The reviewed contribution is the mixed Gram collision count and its uniform quantitative obstruction to flat-input extremality. The closest inspected records and primary theorems apply to self-convolution or single-surface extension, not to this mixed operator. The integer-variance and spectral inequalities used thereafter are standard, not claims of originality.",
+      "residual_risks": [
+        "An unindexed equivalent cross-energy or mixed convolution calculation is not ruled out; no inspected result was shown to imply the target."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, does not cover mixed claim",
+          "evidence": "Sharp single-parabola L²→L⁶ theorem in characteristic >3 with constants attaining equality and all maximizers of constant modulus.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.16647",
+          "material_read": "Introduction and §1.1, Theorem 1.3, p. 3, OA text near offset 11460",
+          "method": "OA primary PDF passage",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Nearest cited flat-extremizer result for the parabola"
+        },
+        {
+          "assessment": "Same-surface bounds only in the inspected results",
+          "evidence": "The L²→L⁴ theorem is for one quadric; Lemma 13 uses its own pair-sum representation counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0804.4505",
+          "material_read": "Definition (1.2), p. 3; Theorem 2, p. 4; Lemma 13, p. 12",
+          "method": "OA primary PDF passages",
+          "title": "Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields",
+          "trigger": "Potential broader single-quadric theorem containing the inverse hyperbola"
+        },
+        {
+          "assessment": "Distinct single-surface problem",
+          "evidence": "Exact H self-energy E(H)=3(q−1)(q−2); sharp fourth-moment extension and extremizers for data on H.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-fourth-moment-extension-on-the-finite-field-multiplicative--0835fe791166",
+          "material_read": "RESULT.md Finding/Proof",
+          "method": "Resultary local mirror",
+          "title": "Sharp fourth-moment extension on the finite-field multiplicative hyperbola",
+          "trigger": "Same hyperbola"
+        },
+        {
+          "assessment": "Distinct single-surface problem",
+          "evidence": "Sharp prime-field parabola extension and equality cases with no fixed hyperbola factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-sixth-moment-extremizers-on-the-prime-field-parabola--a84363193055",
+          "material_read": "RESULT.md Finding/Assumptions",
+          "method": "Resultary local mirror",
+          "title": "Complete sixth-moment extremizers on the prime-field parabola",
+          "trigger": "Same parabola and flat-input question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is not an improvement of a sharp numerical constant by a tiny amount alone. It establishes that constants are not even stationary throughout a natural mixed problem juxtaposed with single-surface flat extremizers, with an exact count and a size-uniform arithmetic certificate valid even in characteristic three. The small explicit lower bound certifies that qualitative separation; the theorem does not claim to optimize the gap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

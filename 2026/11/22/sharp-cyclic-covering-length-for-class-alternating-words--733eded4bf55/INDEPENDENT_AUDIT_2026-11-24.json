@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:28:52.231409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every alternating circle has the same number of starts in each phase. For n=2r the two required counts are (ab)^r; for n=2r+1 they are a(ab)^r and b(ab)^r, giving both lower bounds directly, even with wrap or repeated windows. The overlap digraph is strongly connected: append the destination vertex after zero or one filler symbol to match the phase. When n is even the two degrees at a vertex are equal. When n is odd and a>b, the B-first vertices have incoming excess a-b, and the A-first vertices have the opposite deficit. Appending the first B letter rotates a B-first vertex bijectively onto an A-first vertex; duplicating precisely these edges a-b times balances every vertex without deleting any edge. The reverse roles and a=b follow identically or need no addition. An Euler circuit gives one circular host, not a disconnected cycle cover: successive edges share n-1 symbols, so reading their first symbols gives the edge label at each cyclic start. This also covers n=2 and singleton alphabets. Independent replay `python3 /workspace/reproduce_frozen.py 2` finds shortest closed covering walks by breadth-first search on vertex and covered-edge set for 11 small families. The frozen script was inspected, not executed; finite optima are corroboration, not the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multi-class observation is still about universal cycles; it supplies no optimized multiplicity for an imbalanced overlap graph.",
+          "475811a7997d forbids a run of a distinguished letter, rather than all same-class adjacencies."
+        ],
+        "reasoning": "Generic Eulerian and route-inspection methods yield a formulation, not a numerical optimum without the phase-capacity argument and a one-edge-per-deficit transport. No covering implication was found in the inspected statements.",
+        "searches": [
+          "arXiv:1303.3323, Theorem 4 and its multi-class observation",
+          "Resultary 475811a7997d, run-limited covers",
+          "Leitner–Godbole and Blanca–Godbole references in arXiv:1303.3323"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 733eded4bf55 (self-match)",
+        "Resultary 475811a7997d",
+        "arXiv:1303.3323",
+        "arXiv:2306.01498",
+        "Leitner–Godbole and Blanca–Godbole bibliographic leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Champlin et al. already compute the odd indegree/outdegree obstruction, but do not give a shortest walk with repetition.",
+          "Kreitzer et al.'s actual example can miss a required opposite-phase factor."
+        ],
+        "reasoning": "The obstruction implies a lower bound with the phase count, not simultaneous attainability. The rotation bijection balances all vertices while retaining the original edges and proves that the bound is achievable. Previously known balanced existence is not part of the new credit.",
+        "searches": [
+          "arXiv:1303.3323, overlap-graph proof",
+          "arXiv:2306.01498, Example 6 and existence corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 733eded4bf55 is the identical record, not independent coverage.",
+          "Champlin et al. give exact-once cycles in balanced cases. Kreitzer et al. require only the odd windows starting and ending in the designated alphabet."
+        ],
+        "reasoning": "The shortest all-edge closed walk permits repeats and requires both initial phases. It is neither the exact-once Euler circuit of the original unbalanced graph nor a one-phase universal sequence.",
+        "searches": [
+          "Resultary: shortest alternating cyclic cover and odd unequal alphabet universal factors",
+          "arXiv:1303.3323, Theorem 4",
+          "arXiv:2306.01498, Definitions 4–6 and Example 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact match is the assigned 733eded4bf55 itself.",
+          "The earlier length 2|A|^(r+1)|B|^r matches for designated larger A; Example 6 repeats 0b0 and omits 0b1 in the other phase."
+        ],
+        "reasoning": "The exact numerical expression in the one-phase source is not an entry for this two-phase minimum. An isolated finite table, even if matching, would not cover the all-parameter multiset claim.",
+        "searches": [
+          "Resultary alternating cyclic covering length and odd-case surplus",
+          "Kreitzer–Nica–Pereira, odd-window length formula"
+        ]
+      },
+      "rationale": "Credit the known exact-once balanced cases and their degree obstruction. The distinct supported claim is the imbalanced odd optimum for coverage of both phases and its explicit minimal repeated-factor multiset. The closest one-phase theorem has the same number at an appropriate choice of designated phase, but allows missing opposite-phase targets. No equivalent or dominating coverage for the imbalanced contribution was established in the bounded checks.",
+      "residual_risks": [
+        "The two additional restricted/universal-cycle references lack decisive primary passages in this review.",
+        "An unindexed imbalanced augmentation or a stronger covering theorem could overlap; this is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers balanced cases and gives the obstruction, not the imbalanced optimum in the inspected theorem",
+          "evidence": "Even n, or odd n with equal sizes, admits an exact-once cycle; the odd in/out degrees at a vertex are the two alphabet sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.3323",
+          "material_read": "Primary PDF pp. 2–3, Theorem 4 and proof (offsets 6300–9853); related bibliography p. 6",
+          "method": "OA PDF text",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Same alternating language and overlap digraph"
+        },
+        {
+          "assessment": "Different one-phase coverage",
+          "evidence": "The odd window begins and ends in designated A; Example 6 omits 0b1 in the opposite phase.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.01498",
+          "material_read": "Primary PDF pp. 4–5 (offsets 8900–13174), definitions and Example 6; p. 8, graph and existence (offset 17462)",
+          "method": "OA PDF text",
+          "title": "Using alternating de Bruijn sequences to construct de Bruijn tori",
+          "trigger": "Same numerical length for certain sizes"
+        },
+        {
+          "assessment": "Different permitted language; no mechanical specialization identified",
+          "evidence": "A single distinguished-letter run a^r is forbidden.",
+          "identifier_or_url": "SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d",
+          "material_read": "Mirrored result statement",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "Related shortest cover and overlap augmentation"
+        },
+        {
+          "assessment": "Unresolved, not evidence against coverage",
+          "evidence": "Listed as prior related restricted-word work.",
+          "identifier_or_url": "Leitner–Godbole (2010), reference [4] in arXiv:1303.3323",
+          "material_read": "Bibliographic identification only; no decisive primary passage retrieved",
+          "method": "Primary reference and lawful OA access attempts",
+          "title": "Universal cycles of classes of restricted words",
+          "trigger": "Possible broader restricted-language theorem"
+        },
+        {
+          "assessment": "Unresolved, not evidence against coverage",
+          "evidence": "Listed in the same universal-cycle bibliography.",
+          "identifier_or_url": "Blanca–Godbole (2011), reference [3] in arXiv:1303.3323",
+          "material_read": "Bibliographic identification only",
+          "method": "Primary reference",
+          "title": "On Universal cycles for new classes of combinatorial structures",
+          "trigger": "Possible broader universal-cycle theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The earlier feasibility obstruction leaves a natural optimization question once exact-once coverage fails. The exact surplus and feasible single-cycle multiset solve that question for all sizes and lengths; in particular they allow one to size and construct a schedule that covers both phases. The claim does not address the number of optimal hosts or linear covers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

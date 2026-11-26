@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:07.839220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51; VERIFICATION.md; verify_counts.py, verify_counts.out, verify_lz.py and verify_lz.out (read, not re-executed)",
+        "/workspace/branches/035d3b8a-3b55-4986-8fa5-5014ebc6da5c/record5_independent.py"
+      ],
+      "rationale": "The earlier-start, overlap-permitted longest-factor convention and no sentinel are essential. Each of the first two runs needs a literal and one additional phrase precisely when its length exceeds one; an overlapping source within that run cannot cross its terminal change of symbol at the same time as the target. In the third run the first zero phrase is limited by a if c>a. At its next phrase a same-run source still has strictly more zeros left than the target and cannot copy across the terminal boundary; a first-run source can cross precisely when the remaining zeros are at most a. A copied zero-to-one boundary then matches at most b ones, with one later overlapping phrase needed precisely for d>b, which proves the three stated regimes including equality. Symbol exchange yields the reversed formula. The two separated defect components attain only the stated endpoints, giving the exact extreme conditions and both minimum-length witnesses. Uniform lattice compositions converge to the uniform simplex law; the disjoint-pair ratios of independent exponentials are independent uniforms, giving the stated convolution and expectation 13/9. A separately written parser checked both orientations on all 6,561 run quadruples with parts 1–9; the first extrema also checked against the formulas through total length 24.",
+      "residual_risks": [
+        "The direct replay is finite; the unrestricted positive run lengths and limit rely on the case proof and the composition limit argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai et al. construct general strings with substantial additive or multiplicative reversal changes; the cited ratio construction has alphabet size 2p+1.",
+          "Shibata and Fujie characterize general worst-case multiplicative sensitivity as Θ(log n); Prezza and Policriti bound the cost of computing a parse in terms of BWT runs."
+        ],
+        "reasoning": "Neither general extremal statement specializes to the exact four-source-run classification, and an algorithm computing parses one string at a time does not supply the unbounded run-parameter inequalities or a distribution. The runs in the last bound are those of a transform, not the four runs of the input.",
+        "searches": [
+          "arXiv:2602.14385v1, abstract and §4.1; arXiv:2608.03351, Theorem 14",
+          "arXiv:1510.06257, abstract and run-length search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries 2e7594c56d4b, 7e5197bef568 and 02ced6be8097",
+        "arXiv:2602.14385v1, 2608.03351 and 1510.06257"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary-string examples or upper bounds quantify over different families and do not locate the thresholds c=a, c=2a and d=b of the greedy boundary behavior.",
+          "The exact defect distribution additionally depends on the uniform positive-composition model, not an arbitrary-string worst-case bound."
+        ],
+        "reasoning": "Checking a single known parse construction cannot produce this classification. The greedy source-boundary proof or an equivalent all-parameter result, followed by the composition law, is needed; inspected statements do not give it.",
+        "searches": [
+          "Original construction and stated results in Bannai et al., §4.1; Shibata and Fujie, Theorem 14; closest distinct Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary reversal paper uses the same earlier-start, overlap-permitted z and distinguishes the nonoverlapping convention.",
+          "Reversing and complementing is exactly the same four-run parameter family with order (d,c,b,a)."
+        ],
+        "reasoning": "The parsing convention matches, so this is a substantive comparison, not a difference manufactured by choosing another encoder. Reversal plus relabeling is already accounted for and is not independent novelty.",
+        "searches": [
+          "Local Resultary semantic lookups for overlapping z-factorization reversal and fixed four-run exact counts",
+          "Bannai et al., arXiv:2602.14385v1, Definition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula/law hit 2e7594c56d4b is the assigned record itself.",
+          "The distinct four-run entries concern minimal absent factors and longest Lyndon-subsequence deficiency."
+        ],
+        "reasoning": "Their domain is comparable but those entries tabulate or classify other invariants. No identified distinct catalogue item supplies the exact phrase counts, endpoint classification or limiting defect frequencies.",
+        "searches": [
+          "Local Resultary exact formula, extremizer, and defect-law lookups; nearest distinct four-run entries 7e5197bef568 and 02ced6be8097"
+        ]
+      },
+      "rationale": "Best of inspected evidence, the exact four-run phrase formula and its induced extremal and limiting classification are distinct. Existing overlapping-LZ reversal results concern arbitrary-string worst cases; neighboring exact four-run entries measure different invariants. The exact catalogue hit is the frozen record itself.",
+      "residual_risks": [
+        "The focused public search surfaced no relevant additional source; that is not proof against an unindexed equivalent formula or four-run argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same z definition but different conclusion and construction class",
+          "evidence": "Earlier-start matches allow overlap. The displayed construction with ratio tending to three has alphabet size 2p+1; the general additive sensitivity construction does not classify four binary runs.",
+          "identifier_or_url": "https://arxiv.org/html/2602.14385v1",
+          "material_read": "Abstract, Definition 4 and §4.1, HTML offsets near 1184, 18500, and 43300–47299",
+          "method": "Lawful original full-text HTML passages",
+          "title": "Sensitivity of Repetitiveness Measures to String Reversal",
+          "trigger": "Same parse and reversal operation"
+        },
+        {
+          "assessment": "General worst-case multiplicative result, not a four-run classification",
+          "evidence": "Θ(log n) worst-case reversal sensitivity using a bit-reversal construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.03351",
+          "material_read": "Theorem 14, PDF p. 20, offset 81523",
+          "method": "Lawful original PDF passage",
+          "title": "Sensitivity and Size Relationships of the Lempel–Ziv Factorization",
+          "trigger": "Potential stronger reversal theorem"
+        },
+        {
+          "assessment": "Algorithmic complexity stated in terms of transform runs",
+          "evidence": "R counts runs in the BWT of the reversed text; the result is O(R log n) working bits and O(n log R) time for computing a factorization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06257",
+          "material_read": "Abstract and start of introduction, offsets 750–2992",
+          "method": "Lawful original PDF passage",
+          "title": "Computing LZ77 in Run-Compressed Space",
+          "trigger": "LZ77 plus runs and a reversed text"
+        },
+        {
+          "assessment": "Same word family, other invariant",
+          "evidence": "Classifies minimal absent factors, not greedy overlapping phrases or their reversal defect.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568",
+          "material_read": "Original Finding passage",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-run binary antidictionaries: an exact classification and generating functions",
+          "trigger": "Closest four-run exact factor invariant"
+        },
+        {
+          "assessment": "Different statistic and law",
+          "evidence": "Longest Lyndon-subsequence deletion deficiency, not LZ phrase asymmetry.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-longest-lyndon-subsequence-deficiency-and-its-limiting-law--02ced6be8097",
+          "material_read": "Original Finding passage",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact longest Lyndon subsequence deficiency and its limiting law",
+          "trigger": "Close exact four-run limiting-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 1–3",
+        "Bannai et al. §4.1 and Shibata–Fujie Theorem 14"
+      ],
+      "rationale": "Four alternating runs are the first structure in which both letters have a return run, so both parsing directions can encounter competing old boundary matches and overlapping copies. The formula identifies exactly which length ratios trigger new phrases, gives the first and all sharp witnesses for this regime, and supplies a quantitative average-case benchmark distinct from a global worst-case bound. No claim about compressed bit length or arbitrary input distributions is needed for that use.",
+      "residual_risks": [
+        "The structural thresholds and limit are specific to four positive runs and this exact LZ convention and sampling law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

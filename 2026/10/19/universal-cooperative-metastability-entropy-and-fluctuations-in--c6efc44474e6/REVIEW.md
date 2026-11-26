@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification follows from the exact two-boundary energy-change identity for a flipped contiguous spin interval. Arbitrary flip sets decompose into disjoint intervals, so their energy changes add. Every surviving wall is a strict radius-\(r\) coupling minimum a distance greater than \(r\) from either endpoint, and every subset of such minima is stable. This proves the finite formula without an enumerative assumption. Exchangeability gives the exact mean, a bounded finite-dependence strong law gives the entropy, and explicit overlapping-window integration gives the strictly positive variance in the central-limit theorem. The exact finite-budget Bernoulli regime follows from mutually exclusive candidate minima.
+## correctness
 
-## Originality — PASS with residual risk
-The full-text inspected Waclaw–Burda (2008) paper concerns single-spin-stable states with Gaussian signed exchange couplings; the full-text inspected Lefevre–Dean (2000) paper concerns single-spin stability on random thin graphs. Masui–Southern–Jacobs (1989), verified at abstract level, treats one-flip metastable energy and magnetization statistics. None of the inspected full texts establishes the all-budget positive random-bond radius-minimum theorem or its exact fluctuation coefficient. Targeted public-literature and mathematical-record searches found no directly implying result; this does not prove absolute novelty. The principal risk is older work using different cooperative-spin-flip terminology or a reduction of this specialized result to known random-window-minimum statistics.
+PASS
 
-## Mathematical value — PASS
-The simultaneous-flip budget is the natural measure of cooperative escape from a zero-temperature local-energy minimum. The exact entropy hierarchy proves that unfrustrated disorder retains extensive metastability against every fixed-size cooperative move, quantifies its universal sample-to-sample fluctuations, and identifies a qualitatively different two-point law for macroscopic moves. The invariant is the full number of locally stable spin configurations, rather than an arbitrary decorated graph count. These conclusions provide precise kinetic-landscape benchmarks without confusing static stability with dynamical accessibility.
+Re-audited the repaired theorem. A flip acts on the cut bonds. Maximal contiguous pieces have disjoint cut bonds, so checking allowed intervals is equivalent to checking all allowed subsets. A wall at j must evade both end intervals and be strictly lighter than all bonds at distance at most r; conversely such eligible walls cannot coexist on a block boundary, and a single such wall has lighter coupling than the opposite boundary. Whole-chain flip costs zero. For iid atomless bonds, the stationary indicators have mean 1/m (m=2r+1), are 2r-dependent, and have overlapping joint probability 2/[m(m+d)] for r<d≤2r by conditioning on the location of the union minimum. The variance sum verifies the displayed v_r, with v_r≥2r/[m²(4r+1)]>0; the finite-dependence CLT and ergodic theorem apply at fixed r. For N≥m the +1 in log₂ B exactly cancels the boundary correction in the mean. When N≤3r+2 the eligible interval has diameter at most r or is empty, giving the asserted Bernoulli law from its expectation. New independent script /workspace/reproductions/05_ising.py passed exact all-order, all-state and all-budget small checks (N=3..7, every coupling permutation) and exact rank checks for r=1,2; these corroborate, not replace, the proof. Frozen VERIFICATION.md and verify.py were inspected without running the supplied code.
 
-## Limitations
-The required atomlessness and independence are substantive. The CLT is only for fixed \(r\). No relaxation-time, quench-sampling, or independent scientific confirmation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim expressly limits its advance to the explicit all-fixed-radius variance and the proportional-budget result in the specified open-chain range. The strongest inspected prior coverage is the one-spin weak-bond representation and the periodic r=1,2 marginal variance and Gaussian limits. Those ingredients are credited and not claimed distinct. The fixed-range table neither gives the arbitrary-r joint minimum formula nor covers the growing-r open-chain regime. The conclusion is limited to inspected evidence and does not certify priority.
+
+## value
+
+PASS
+
+The repaired result gives quantitative information in two different regimes of a natural metastability count. The exact variance across all fixed cooperative budgets goes beyond the mere existence of a CLT or the first two previously calculated variances. In a separate proportional-budget range the open count has a fully specified non-Gaussian finite law rather than just a growth exponent. This is a useful boundary classification and does not assert results for all proportional budgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

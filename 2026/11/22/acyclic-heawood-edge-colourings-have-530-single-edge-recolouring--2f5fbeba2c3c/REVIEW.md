@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, colouring predicate and one-edge move are specified exactly. Every orbit of four named colours has a unique representative fixed by the three distinct colours at point zero, so canonical enumeration counts all and only the palette-unlabelled states. Independent incremental edge-DFS and line-incidence point-by-point programs agree on 119784 feasible states, 599760 directed moves, 299880 undirected edges, and all 530 components. Both codes were compiled and executed; they do not infer a global diameter from sampled distances. The explicit witness verifies four colours suffice and the cubic two-factor argument rules out three.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed the cubic lower bound: any proper three-colouring is three perfect matchings, and each pair makes cycles. The three distinct colours at a fixed cubic vertex give a unique representative of each orbit; existence of four-colour states and the full census were independently reproduced. I used nonzero vectors and covectors of F_2^3 with zero pairing to construct the incidence graph, assigned line-stars rather than point-stars, and tested two-colour forests by traversing alternating paths from endpoints (an unvisited vertex belongs to a cycle). For adjacency, I used no proposed-move validity checker: for each deleted flag, two valid states are adjacent via that flag exactly when their remaining patterns agree modulo palette; a full unaffected line-star fixes this palette bijection. Every 20-edge acyclic restriction still uses four colours: with at most three, at least two of the three matchings would have size seven and their union would cycle. Thus a legal named recolouring cannot be hidden as a quotient loop. The calculation asserted that no unordered pair occurred for two different deleted flags. Full independent results: 230336 proper representatives, 119784 acyclic representatives, 2874816 named acyclic states, 299880 undirected edges, and components 1×392, 14×112, 42×24, 40040×1, 76776×1. The degree histogram agrees term by term; all 392 frozen states have sizes (5,5,5,6), as do 42112 mobile states. Replay: /workspace/branches/heawood_independent.py, Python ≥3.10; run `enum 0 24 DIR` then `join DIR` with a fresh directory (actual enumeration run partitioned at 0,3,7,11,15,19,24). No frozen code was executed. In the source, the incremental program prints rather than asserts much of its census; its GCC-style header is not universal C++17. The independent calculation does not rely on those claims or on sampled eccentricities.
 
-The four-colour acyclic index is previously known and is not claimed as new (Andersen, Máčajová and Mazák, DOI 10.1002/jgt.20650; first online 6 December 2011). The full accessible Heawood strong-colouring seven-class trade theorem concerns a different constraint and moves, and cannot imply the present four-colour single-edge mobility counts. Ito, Kamiński and Demaine (2009) cover proper *list* edge recolouring without requiring each two-colour union to be acyclic. Numeric and statement-level searches of public mathematical records yielded no covering table, but priority is not proven by search failure. The 2011 acyclic cubic paper's full text and other unindexed studies remain legitimate historical risks.
+## originality
 
-## Value — PASS
+PASS
 
-The gap between a known four-colour existence theorem and a fragmented recolouring graph is substantial. The exact 530-component breakdown, including 392 frozen optima and two giant sectors, resolves a natural robustness and mobility question for a fundamental cubic symmetric graph; this has a structural meaning beyond computing a small arbitrary invariant.
+The minimum palette is known and is not credited as novel. The closest inspected indexed results change the colouring predicate or the move; none gives the four-colour acyclic single-edge quotient spectrum or implies it. The supported originality is the exact state and move-graph census, not the general existence theorem, Fano representation, enumeration technique, or single-edge move concept.
 
-## Boundaries and sources
+## value
 
-The claim is confined to the fourteen-vertex Fano incidence graph and four colours modulo renaming. It does not establish full component diameters, Kempe connectivity, or analogous results for other cubic graphs. Relevant sources and material read are documented in AUDIT.json; the reproducibility checks are given in VERIFICATION.md. The result requires external mathematical scrutiny before it is treated as independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Heawood is a canonical small cubic incidence graph. At the minimum acyclic palette, local mobility does not follow from existence; the exact spectrum reveals isolated optima and many finite sectors alongside two very large sectors. The precise counts, degree distribution and one-way frozen profile give usable reference invariants for testing local recolouring conjectures and enumeration or sampling on the constrained space. This is a complete classification for a natural move rule, not an arbitrary sample or another computation of the known index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

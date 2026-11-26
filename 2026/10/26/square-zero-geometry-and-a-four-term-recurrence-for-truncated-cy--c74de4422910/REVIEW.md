@@ -1,19 +1,21 @@
-# Review of the square-zero cyclic-Nakayama classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Literal path multiplication gives the adjacent-support constraint and a cyclic bidiagonal system on length-two coefficients. Independence prevents an edge of that system from lying at the intersection of two degree-two vertices, so its nonzero-entry graph has only one- and two-edge components. Every component has rank one for every field. This yields the exact support sum and the constant-rank vector-bundle stratification. The five-state transfer matrix gives the recurrence by its characteristic polynomial. The dimension and top-component count follow from the sharp cyclic-gap criterion. The bundled standalone finite-field verifier checks direct coefficient enumeration and literal concatenation in nine finite configurations, including an extension field.
+PASS
 
-## Originality
+Truncated path concatenation gives the two stated equations and leaves the length-three coefficients free. The adjacent-pair equation forces independent arrow support. The nonzero entries in the middle-layer constraint matrix form disjoint edges and two-edge stars: a row and column of degree two cannot meet, because this would require consecutive occupied indices. Each nonempty matrix block has rank one, uniformly in the nonzero coefficients and the field, so summing the resulting kernel sizes gives the point count. The transfer trace counts labeled cyclic words with the declared weights. Independently, each nonempty support decomposes into gaps of length at least two; after normalizing by q^(2n), it has activity (q−1)/q² per occupied vertex and factor q per gap of length two or three. Writing t=(q−1)/q², the gap generating function is A(z)=t(qz²+qz³+z⁴/(1−z)). The weighted labeled-support series is zA′(z)/(1−A(z)) in positive degrees for nonempty supports, by marking a starting occupied site and dividing by the number of occupied sites. Adding the empty support and undoing the normalization yields the characteristic denominator 1−q²x−q³(q−1)x²+q⁶(q−1)²x⁴, in agreement with the given trace recurrence. For the geometry, each fixed-support stratum is a vector bundle over a torus and is irreducible; its dimension is 2n−|S|+p₂+p₃. The bound p₂+p₃≤|S| is sharp exactly for the empty support or when every circular gap has length two or three. Distinct such stratum closures differ because the identically zero arrow coordinates recover the support. An irreducible closure of maximal dimension is a component, and the finite stratification accounts for every top component. Marked-gap counting gives the stated multiplicity. The characteristic-two group interpretation follows from (1+x)²=1+x² and the nilpotence of the radical.
 
-PASS at the level of accessible evidence, with meaningful residual priority risk. The full published text of Xu–Han–Jiang (arXiv:math/0509202v1) treats Hochschild cohomology, not the square-zero locus. The full HTML text of Wolf (arXiv:0709.4348v1) treats nilpotent quiver representations and Hall-algebra structure, not elementwise square-zero counts in the fixed truncated path algebra. The closest accessible earlier conjugacy-class enumeration for fourth-truncated cyclic quiver radical groups gives ordinary class sizes for a four-cycle and existence of other sizes; it does not classify order-two elements or their algebraic locus. Searches for square-zero radical varieties, cyclic Nakayama algebra involutions, support-rank formulas and transfer recurrences identified no directly dominating statement. This does not establish absolute priority: alternative terminology, inaccessible older papers and implicit algebraic consequences remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. Fourth truncation is the first stage in this cyclic family where square-zero equations constrain both the arrow layer and the next radical layer. The result goes beyond a point count by identifying the coefficient-independent support-rank mechanism, a fixed-size exact recurrence for all cycle lengths, an all-characteristic geometric dimension and a closed top-component census. In characteristic two the same numbers count group elements whose square is the identity. These are motivated finite-algebra invariants, not arbitrary sample cases or a restatement of ordinary conjugacy data.
+An exact Resultary match dated later contains the support formula and recurrence (even with one additional n), and should be recognized as equivalent on the shared range; that date is not evidence of prior coverage. It expressly does not include the component theorem. Earlier inspected claims involve a different truncation or invariant. The supported contribution is the exact point count for J⁴ and especially the relation between kernel-rank strata and top components, not the classical enumeration of two-or-three circular gaps itself.
 
-## Limits
+## value
 
-The zero locus is considered with its reduced structure for geometric component counting; scheme-theoretic multiplicities and smaller-dimensional irreducible components are not classified. Verification is finite, and independent mathematical or historical-priority validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fourth truncation is the first where the arrow support interacts with a free-but-constrained next path layer in the square. The result gives both a compact exact recurrence for the rational-point census and a geometric interpretation of the leading supports as components, rather than just a routine transfer of a known count. The answer applies in all characteristics and gives, in characteristic two, an exact census of the identity and involutions of the associated algebra group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: isoperimetric curvature of rounded triangles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every nondegenerate Euclidean triangle, the displayed proof works in centroid coordinates and uses only the simplex covariance identities, the exact area polynomial for Euclidean parallel bodies, and the partition into edge strips and vertex sectors. Crucially, it includes the new centroid-shift term in the determinant expansion. The universal shape-independent matrix identity for the second edge-strip coefficient is proved by the exact edge-normal relation. The vertex-sector trace uses the exterior-angle sum \(2\pi\), and the squared-side terms cancel exactly. This establishes the coefficient \(-(P^2-4\pi A)/(108A^2)\) for all real nondegenerate triangles, rather than merely the numerically sampled cases. The inner erosion of any triangle is an incenter homothety, which validates the left-hand constant interval. SymPy identities and independently integrated polygonal approximations passed; they are supporting checks rather than the universal proof.
+## correctness
 
-## Originality
-**PASS, provisional.** Richter and Saorín Gómez's publicly available 2020 article treats the **isoperimetric quotient** of parallel bodies, not the affine-invariant covariance determinant. The independently published cube result gives a different family-specific isotropic response, and the published triangle centroid-path result supplies first moments but not the second-moment cancellation. The earlier all-regular-polygon rounding law already covers the **equilateral** triangle, so that instance is expressly excluded from the novel contribution. The new structural relation holds for **every scalene triangle**, with exactly the Euclidean isoperimetric deficit emerging from the determinant. No direct or implication-equivalent result was found in targeted literature and mathematical-record searches. This is a priority assessment, not a proof of absolute novelty; unindexed or older mechanical moment calculations remain a risk.
+PASS
 
-## Mathematical value
-**PASS.** All Euclidean triangles have the same affine-invariant isotropic constant at zero radius, so an order-two response that identifies the isoperimetric deficit is a natural and nontrivial geometric fingerprint: it recovers the perimeter from a local covariance measurement when area is known. The exact all-shape cancellation is stronger than any one-shape coefficient, and the sharp area-normalized curvature lower bound uniquely identifies equilateral triangles. The signed-family transition connects polygonal tangential erosion to genuine smoothing. The result is local; it neither determines all-radius monotonicity of irregular triangles nor extends to arbitrary convex bodies.
+I checked the edge moment identity using centered vertices: the mean of xxᵀ on the opposite side is S/6 for each side, while Q₀=A S/12; the first variation therefore cancels the area normalization. The strip contribution to Q₂ is A I by the divergence theorem, and the sector and moving-centroid terms give the traces in (12)–(13). An independent way to see the coefficient is to compare with the homothetic triangle obtained by translating all three support lines outward by t. Its area is A+Pt+(P²/4A)t², and its J stays 1/108. Relative to circular rounding it adds exactly (P²/(4A)-π)t² in area, confined to O(t) neighborhoods of the original vertices: a point in the excess cannot project to an edge interior because the offset support constraint would force its distance to be at most t. Each vertex has the same leverage vᵀQ₀⁻¹v=8/A, and centering corrections to the difference of second moments enter only at order t³ because the original centroid is zero. Thus removing the excess area D t² changes J/J(0) at order t² by -8D/A+4D/A=-4D/A, giving the claimed coefficient. The outer area and moments are polynomial in t near zero by strip/sector integration, so the one-sided derivatives are justified, not inferred from just a pointwise remainder. The inner support-line shift is exactly an incenter homothety for -r<t≤0. The sharp triangle perimeter inequality gives the equilateral equality case and positivity of the deficit; the right curvature and known area determine the positive perimeter.
 
-## Closest literature and limitations
-C. Richter and E. Saorín Gómez, *On the monotonicity of the isoperimetric quotient for parallel bodies*, arXiv:2003.14182 (first public posting March 31, 2020), is the primary geometric setting. L. Rademacher, arXiv:1404.5662, supplies the standard affine isotropic normalization. Published computations for cube and regular-polygon rounding, and for triangle centroid paths, were compared by their mathematical implications. Neither a finite numerical test nor absence from a database is treated as proof of novelty. Residual risks are an unindexed covariance calculation in applied geometry and undiscovered general shape-derivative formulas that might subsume the cancellation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equilateral specialization is already covered by the exact regular-polygon formulas. The supported distinct claim is the single deficit law for all nondegenerate triangles, including scalene ones, and the sharp consequences in that larger class. Closely related same-day records do not establish the general triangle identity. No historical-priority assertion is made.
+
+## value
+
+PASS
+
+Across all triangle shapes a priori shape-dependent second moments and moving centroids reduce to one classical deficit. This links an affine invariant under a Euclidean perturbation to a recoverable Euclidean perimeter and gives a sharp equilateral extremizer after scale normalization. The distinction between inner homothety and outer corner rounding is structural; the value is not in redoing the regular case or claiming global monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

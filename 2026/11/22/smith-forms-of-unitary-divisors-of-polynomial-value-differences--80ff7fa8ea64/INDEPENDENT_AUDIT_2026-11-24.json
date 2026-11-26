@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:44:20.254031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The maximal prime-power unitary selectors multiply in CRT coordinates, since an integer polynomial respects each residue projection. Subtracting representative rows and then representative columns for each local value fiber is unimodular and leaves (q-1)I_s+J_s and q-s zero positions. For t=q-1 and j<s, the difference of any two rows inside a j-minor has entries in tZ, giving divisibility by t^(j-1); rows 1..j and columns 2..j+1 attain that divisor (subtract the first row, then use its remaining ones). The full determinant is t^(s-1)(t+s), with the singleton block equal to q. Tensoring the integral transformations yields a diagonal over Z with the stated products. The minimum valuation of any product of j diagonal entries is the sum of the j smallest valuations, establishing primewise sorting and the torsion-order formula. At N=q rank recovers s, proving the converse; the empty CRT case is (1). Distinct nonzero square values separate by even valuation, and the unit group has half its elements squares for odd primes and the stated counts for powers of 2. Independent exact Smith reductions of directly constructed full matrices verified all displayed examples, plus mixed-prime nonsquarefree and constant cases: python3 /workspace/reproductions/four_direct_smith.py. Evidence discrepancy: CHECKER.py:144–147 explicitly checks N=15 and N=9, not the claimed N=4 example (VERIFICATION.md:21); the new replay verifies both N=4 matrices. The frozen checker was inspected, not executed, and the finite checks are not the all-modulus proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md:78–94 and available citation metadata identify determinant/divisibility work for unitary gcd/lcm analogues and work on Smith forms of circulant polynomial matrices; decisive primary passages unavailable.",
+          "For an arbitrary finite map f, the local kernel b+a·1[f(x)=f(y)] similarly reduces to aI+bJ plus zeros. This follows directly from the audited proof, not from a newly located prior source."
+        ],
+        "reasoning": "The general partition reduction supplies a broader local framework and explains why fiber sizes disappear. An earlier theorem combining it with the product decomposition of these residue classes could cover the result; no such implication is established by the inspected evidence. A determinant or divisibility theorem for different index sets does not give the integral Smith invariants here.",
+        "searches": [
+          "Local Resultary: Smith form of partition kernels and rank-one block matrices",
+          "Primary literature: unitary/gcd Smith forms and partition kernels",
+          "Haukkanen–Sillanpää doi:10.1080/03081089608818478; Haukkanen–Korkee doi:10.1155/IJMMS.2005.925; Haukkanen et al. doi:10.1080/03081080902816576; Telloni–Williams doi:10.1016/j.laa.2014.06.032"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–94, VERIFICATION.md, CHECKER.py (inspection only)",
+        "Distinct Resultary summaries 2dd8584629f4, 20e0e854a01d, 6bac5dc6cda2",
+        "Primary citations and accessible metadata listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available distinct exact claims concern ordinary gcd circulants or restricted/powered variants; the frozen local calculation produces a block on represented output classes, and arbitrary noninjective polynomials need not give a circulant.",
+          "The arithmetic equivalence criterion uses rank of the full Smith diagonal separately at all prime powers (RESULT.md:66–68)."
+        ],
+        "reasoning": "A circulant result does not directly establish the noncirculant cases, while Fourier eigenvalues are not integer Smith data. The boundary overlap is real but does not imply the bi-implication at all moduli. Same-day indexing does not establish priority.",
+        "searches": [
+          "Local Resultary 2dd8584629f4, 20e0e854a01d, 6bac5dc6cda2",
+          "Telloni–Williams Smith forms of circulant polynomial matrices; van der Kamp, Integers 13 A24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-complete-integral-smith-invariants-of-cyclic-gcd-difference-matr--2dd8584629f4 indexed summary: full integer Smith form of ordinary cyclic gcd-difference matrices for squarefree moduli.",
+          "Indexed records 20e0e854a01d and 6bac5dc6cda2 concern unit indices at p² and powers of ordinary gcd, respectively."
+        ],
+        "reasoning": "For P(T)=T and squarefree N, the selectors agree exactly. At N=p², differences of valuation one have selector 1 rather than p; moreover a noninjective P gives repeated fiber rows even when inputs differ. A relabelling of the full ring or of unit indices does not generally identify these matrices.",
+        "searches": [
+          "Local Resultary: polynomial-value unitary-divisor selectors; gcd-difference Smith forms; square-image torsion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same target is indexed at 2026/11/22/SCOPE-smith-forms-of-unitary-divisors-of-polynomial-value-differences--80ff7fa8ea64; the distinct exact Smith result at 2dd8584629f4 is for the squarefree gcd-difference boundary."
+        ],
+        "reasoning": "The target's own index is not independent evidence. Standard counts of squares are inputs to the formula; a count table alone gives neither Smith factors nor the converse criterion for arbitrary polynomials.",
+        "searches": [
+          "Local Resultary: exact unitary-divisor Smith factors, square-image counts, and torsion"
+        ]
+      },
+      "rationale": "The supported distinction is the full unitary polynomial-value classification, including arbitrary fibers at prime powers, recombination of integral invariants, and the converse in terms of value-image cardinalities. The rank-one local matrix formula, standard Smith and CRT facts, and the squarefree ordinary gcd-difference boundary are not credited as new. No inspected evidence establishes broader coverage of the full classification.",
+      "residual_risks": [
+        "Full texts of close records and decisive primary results could not be inspected. A general already-published partition-kernel/tensor classification that implies the arithmetic result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact boundary overlap for P(T)=T, squarefree N",
+          "evidence": "Summary states squarefree ordinary gcd as kernel on a cyclic residue set.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-integral-smith-invariants-of-cyclic-gcd-difference-matr--2dd8584629f4",
+          "material_read": "Indexed statement only; mirror timed out",
+          "method": "Local Resultary search and OA mirror attempt",
+          "title": "Complete integral Smith invariants of cyclic gcd-difference matrices",
+          "trigger": "Exact gcd-difference Smith forms"
+        },
+        {
+          "assessment": "Different index sets or local kernels",
+          "evidence": "Units-only inputs in the first case and powers of ordinary gcd in the second.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-smith-factors-of-unit-restricted-prime-square-gcd-diffe--20e0e854a01d; 2026/11/22/SCOPE-complete-smith-factors-of-cyclic-power-gcd-matrices-at-odd-prime--6bac5dc6cda2",
+          "material_read": "Indexed scientific summaries",
+          "method": "Local Resultary comparison",
+          "title": "Integral Smith factors of unit-restricted prime-square gcd differences; Complete Smith factors of cyclic power-gcd matrices at odd prime squares",
+          "trigger": "Prime-square Smith formulas"
+        },
+        {
+          "assessment": "Related methods and objects; no whole-document exclusion claimed",
+          "evidence": "Available evidence identifies unitary gcd/lcm determinant/divisibility problems and circulant Smith methods; it does not demonstrate an arbitrary polynomial-value partition classification.",
+          "identifier_or_url": "doi:10.1080/03081089608818478; doi:10.1155/IJMMS.2005.925; doi:10.1080/03081080902816576; doi:10.1016/j.laa.2014.06.032",
+          "material_read": "Citation metadata and frozen discussion at RESULT.md:78–94; decisive primary passages unavailable",
+          "method": "OA and publisher-source attempts plus bibliographic comparison",
+          "title": "Some Analogues of Smith's Determinant; Notes on the Divisibility of GCD and LCM Matrices; On Unitary Analogs of GCD Reciprocal LCM Matrices; Smith Forms of Circulant Polynomial Matrices",
+          "trigger": "Related integral matrix kernels or potentially more general Smith formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete arithmetic classification, not a small matrix exercise: it replaces an integral lattice calculation of size N by prime-power image cardinalities, characterizes when all Smith forms agree, and determines torsion even away from primes dividing N. The noted standard local matrix calculation is not on its own the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

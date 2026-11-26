@@ -1,12 +1,21 @@
-# Scientific review of separated global modes in the exponentiated discrete Lindley law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the exact published CDF-power family at \(q=21/25\), with \(b>0\). The mass sequence is positive and normalized by telescoping. For every positive count, the mass divided by the zero-count mass increases strictly with \(b\). Hence the count-2 versus count-0 tie is uniquely parameterized. Strict rational-power certificates at \(b=779/1000\) and \(b=39/50\) locate the crossing and eliminate count \(1\) and counts \(3\)–\(5\). The analytical inequality \(\log(25/21)>1/6\) gives strict concavity for all real \(x\ge4\) and hence strictly decreasing unit increments from count \(5\) onward. This explicitly checks the infinite support rather than elevating finite computations to a proof. The attached standalone checker was run successfully.
+## correctness
 
-## Originality — PASS (qualified)
-The first public source arXiv:1807.09895v1 was examined for its CDF, PMF, plots, statements and subsequent sections; it defines the model but did not exhibit this isolated nonadjacent global-mode tie. The 2019 journal version corresponds to the earlier public preprint. Similar names in the later Singh–Pandey–Tyagi–Chesneau paper and the Salem–Ismail model refer to different baseline distributions; their modal or hazard statements do not imply the present finding. Public research-record searches involving exponentiated discrete Lindley, exact modes, nonadjacent mode ties and CDF-power transformations returned several modal results in genuinely different models, such as the discrete asymmetric double Lindley law. Additional published mathematical records for this model and its aliases did not disclose the specified claim. This is a best-knowledge scientific comparison, not a proof of exhaustive global novelty. A publisher-original 2019 full-text comparison and comprehensive thesis search remain residual priority risks.
+PASS
 
-## Value — PASS
-A nonadjacent *global* modal tie is more informative than a local fluctuation or a numerically observed shoulder. It certifies that the modal count can skip an intermediate integer under continuous change of the model's shape, and that an elementary log-concavity/unimodality assumption is unsafe without checking parameters. This affects interpretation of a published two-parameter count model and gives a fully reproducible exact example with complete infinite-tail control. The theorem does not pretend to characterize the entire phase diagram.
+The log-containing W is the stated published base CDF; its real extension has W(−1)=0, W'>0 for x>−1 and tends to 1. Thus telescoping gives the positive normalized PMF. Writing R_j=p_j/p_0 as the difference A^b−B^b with A>B≥1, its derivative is positive because x^b log(x) strictly increases on [1,∞). In particular R_2 is continuous, increases from zero to infinity for positive b, and crosses 1 only once. Independently certified the finite signs without executing the uploaded script: used the positive series L=Σ_{r≥1}(4/25)^r/r with 21 terms and remainder bounded by (4/25)^22/[22(1−4/25)]. Since W_j(L) decreases with L for j≥0, lower and upper CDF endpoints are rational. Scaled by 10^10, binary-searched the floor of each endpoint power using exact integer cross-products, then subtracted bounds. In units of 10^−10, p_2−p_0 at 779/1000 is in [−1409815,−1409812], and at 39/50 the intervals for j=1,2,3,4,5 respectively are [−12472908,−12472905], [390760,390763], [−12462093,−12462090], [−42490841,−42490838], [−82844661,−82844658]. This establishes the bracket and all four rival gaps throughout the bracket by ratio monotonicity. For the infinite tail, W'' has the sign of 1−(x+2)L; L>1/6 makes it negative on [4,∞). Composing with the increasing strictly concave bth power for 0<b<1 gives strictly decreasing increments starting at p_5, uniformly for b in the bracket. Therefore the crossing is genuinely global and locally skips count 1. Independent high-precision numerical bisection gave b≈0.7797825617279780577, consistent with the reported approximation, not used as a proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact adjacent-count-skipping transition in the original log-containing CDF-power Lindley family. The defining PMF is prior. The strongest distinct catalogue result gives the same pair of modal counts but for a different distribution, on a different parameter slice, and does not imply the claim. The original preprint and the later same-name model were compared at the level of exact PMFs and modal statements, not their titles.
+
+## value
+
+PASS
+
+A strict separated global tie and a stable local 0→2 jump are stronger than a plotted shoulder or two local maxima. They give a concrete counterexample to unimodality or adjacent modal evolution for the original published count model, with a reproducible certificate that treats every point of infinite support. The chosen rational q is an exact witness to a natural model-shape question, not an arbitrary numerical slice claimed to describe all parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

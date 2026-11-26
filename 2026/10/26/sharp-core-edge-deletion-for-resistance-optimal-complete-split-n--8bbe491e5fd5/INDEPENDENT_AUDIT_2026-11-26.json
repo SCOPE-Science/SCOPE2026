@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:24:29.327569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the budget simplex the trace inverse on 1-perp gives n tr(L+) and diverges when the algebraic connectivity tends to zero. Its second directional derivative is strictly positive for every nonzero symmetric Laplacian direction (trace of a nonzero positive semidefinite square against a positive definite matrix). The simple-edge weights map injectively to Laplacians; the connected domain is convex. Thus the unique optimizer must respect the two edge orbits. Independently diagonalizing on core zero-sum, peripheral zero-sum and part-constant subspaces gives ra+sb (r−1), rb (s−1), nb (1). In x=ra+sb the linear budget is (r−1)x/2+s(r+1)b/2=B. Minimizing A/x+D/b gives x/b=H by Cauchy–Schwarz when feasible; otherwise the unique optimum is x=sb (the other endpoint b=0 has infinite objective). The inequality for H>s is strictly monotone in s with opposite strict signs at s=r,r+1. The resulting substitution yields both value branches, including a=b at s=1. Spot checks at B=1 give 11+6√2 for (r,s)=(2,2), with positive core weight, and 46 for (2,3), with zero core weight. Inspected verify_split.py and the finite recorded output without executing the supplied script; the proof, not the sampled asymmetric comparisons, establishes global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The MTNS paper formulates the general nonnegative conductance problem and proves strict convexity and uniqueness; Sedlák–Slavík compute the complete-split Kirchhoff index for unit resistors."
+        ],
+        "reasoning": "The broad convex theorem covers the framework but not an explicit all-size optimizer from its statement. A unit-weight value does not determine performance or first variations as the two edge classes exchange budget.",
+        "searches": [
+          "Focused primary-literature lookup: conductance-budget resistance optimization for complete split networks and graph joins",
+          "Ghosh–Boyd–Saberi, MTNS 2006 original, pp. 1, 7",
+          "Sedlák–Slavík DOI 10.1088/1751-8121/ae2997, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi, MTNS 2006",
+        "DOI 10.1088/1751-8121/ae2997",
+        "DOI 10.1155/2014/794781 (attempted)",
+        "2026/10/26/SCOPE-zero-spine-optimal-conductance-design-for-clique-books--6b01fb4d937e",
+        "2026/11/22/SCOPE-exact-kemeny-optimal-symmetric-walks-on-complete-split-graphs--4d1b0c2f60fb",
+        "2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the clique-book value, inserting a peripheral block size of one and two blocks gives 20/B with zero spine, whereas the split theorem gives (11+6√2)/B with a positive spine. Kemeny deletes at equality of part sizes, whereas this conductance objective retains core edges there."
+        ],
+        "reasoning": "Even the closest same-objective formula cannot simply be specialized at the missing peripheral block size. The general convex theory needs the additional spectrum with two variable edge classes and sharp constrained minimization; the walk results cannot imply this phase boundary.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, normalized nonnegative conductance problem, p. 7",
+          "Same-day clique-book Finding, local-mirror offset 0",
+          "Complete-split Kemeny and fastest-mixing indexed Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-zero-spine-optimal-conductance-design-for-clique-books--6b01fb4d937e, RESULT.md Finding and Assumptions, offset 0: K_2 join m disjoint K_l with m,l≥2, zero spine and positive hub-to-outer and leaf-clique weights.",
+          "2026/11/22/SCOPE-exact-kemeny-optimal-symmetric-walks-on-complete-split-graphs--4d1b0c2f60fb and 2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d, Findings at offset 0, optimize Kemeny's constant and the second-largest eigenvalue modulus respectively."
+        ],
+        "reasoning": "The clique-book phenomenon counts but with l≥2 there are internal peripheral edges and only two hubs; neither a graph renaming nor the audited family. Its l=1 substitution is outside the theorem and would even wrongly predict zero spine for m=2. The walk problems differ in per-row stochastic normalization and objective, with different core deletion rules. No priority order is inferred from a shared date.",
+        "searches": [
+          "Resultary: fixed-budget minimum Kirchhoff index / sum of effective resistances on complete split graphs and clique joins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concrete graph-index formula located is for unit weights; the exact matched-budget index results retrieved either have peripheral clique edges or optimize a walk quantity."
+        ],
+        "reasoning": "A relevant exact match must have the two-class ratio, optimized value, or complete support law under the same conductance constraint. No retrieved formula with that content was verified.",
+        "searches": [
+          "Resultary: exact complete-split optimized allocation and integer transition s=r+1 for resistance design",
+          "Sedlák–Slavík, §3.3 exact graph formula"
+        ]
+      },
+      "rationale": "General resistance minimization, uniqueness and use of edge orbits are prior; the finding supported here is the particular exact positive-weight solution, integer deletion boundary and minimum for all complete split sizes. The same-day clique-book result is a real conductance-design overlap in mechanism, not equivalent family coverage. Fixed unit weights and walk optimization on the same underlying graph are not this objective or feasible region.",
+      "residual_risks": [
+        "A broader explicit conductance-design theorem for graph joins could contain the allocation; the indexed and source checks were bounded.",
+        "The Yang full text was unavailable and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers framework and uniqueness, not the specialized formula in the inspected material",
+          "evidence": "Nonnegative edge conductances, normalized sum and strictly convex objective.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "MTNS PDF pp. 1, 7, OA offsets 1499 and 47500",
+          "method": "Bounded OA text inspection of formulation and uniqueness passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General fixed-budget resistance design and possible stronger solution"
+        },
+        {
+          "assessment": "Different fixed-weight problem",
+          "evidence": "Resistors have unit resistance; complete-split formula contains no adjustable allocation or budget support criterion.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ae2997",
+          "material_read": "PDF p. 2 and §3.3 pp. 10–11, offsets 2058 and 35395 onward",
+          "method": "Compared unit-resistance assumption and complete-split expressions",
+          "title": "Resistance distances and Kirchhoff indices in graph joins",
+          "trigger": "Full text derives exact complete-split Kirchhoff indices"
+        },
+        {
+          "assessment": "Closely related but not broader coverage",
+          "evidence": "Two hubs and m cliques of size at least two, with positive internal leaf conductance; not an independent periphery or a variable core.",
+          "identifier_or_url": "2026/10/26/SCOPE-zero-spine-optimal-conductance-design-for-clique-books--6b01fb4d937e",
+          "material_read": "RESULT.md Finding and Assumptions, local-mirror offset 0",
+          "method": "Compared exact graph and checked the out-of-domain size-one substitution",
+          "title": "Zero-spine optimal conductance design for clique books",
+          "trigger": "Same objective, unique optimizer, deleted hub edge, same indexed date"
+        },
+        {
+          "assessment": "Unverified primary comparison; not relied on to exclude coverage",
+          "evidence": "No text from the paper was available in these attempts.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/794781",
+          "material_read": "No original full-text passage retrieved",
+          "method": "Bounded attempts at publisher PDF and webpage",
+          "title": "Some Bounds for the Kirchhoff Index of Graphs",
+          "trigger": "Cited complete-split graph extremal precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact solution of a standard electrical-network design objective on a natural graph family is independently useful: it determines when all edges in an existing orbit should be removed, and identifies the unique allocation and its cost without solving a numerical program. The sharp one-vertex change across s=r and s=r+1 is not supplied by generic convexity, by knowing the optimum is orbit-constant, or by the unit-weight index.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The checker requires no network, external files, numerical tolerances or randomized seeds.
+## correctness
 
-Its exact symbolic checks establish \(P1=1\), \(P(x-1/2)=0\), the quadratic identity \(Pg=\lambda g+\beta(x-1/2)\), \(\int_0^1g^2=1/180\), and the sharp rate \(\lambda=3(d-1/4)^2+1/16\). Odd-degree annihilation and even-degree leading coefficients are symbolically checked through degree fourteen. Seven rational parameters, including \(13/100\), \(1/4\), and \(27/100\), are each checked at fourteen time lags via exact integration of successive transfer-operator iterates (98 tests). The conjugating polynomial, invariant density and transformed sixth-degree moment are checked independently.
+PASS
 
-These tests are not a substitute for the displayed all-degree, all-lag proof. No arbitrary-precision simulation, cryptographic analysis, full Banach-space spectral claim or independent review is included. Earlier literature with potentially broader covariance machinery has not all been inspected in full.
+Both the initial spectral theorem and pair identities are correct. Branch lengths give the transfer weights; reflection kills centered odd polynomials, while the highest term of every nonzero even part survives. The triangular diagonal, strict decrease of positive multipliers, and dimension of the zero kernel prove the full multiset and semisimplicity including m=0. In the original, direct expansion gives Pg=λg+2(−d²+d³−a³)u with Pu=0; orthogonality and variance 1/180 give the covariance. The minimizing rate follows by completing the square. Pushforward by q changes the two observables to 2u and 4g and yields the stated factors and stationary density. The corrected RESULT.md retains the independently checked spectral theorem, now with an explicit least-degree interpretation, and drops the covered pair claims as findings. The frozen code was read but not run; no finite symbolic tests are needed for the all-degree proof.
+
+## originality
+
+PASS
+
+For the repaired finding only: the strongest available same-object construction and full-branch pair formulas cover the map and all the original pair-correlation claims (including the conjugacy consequences). They do not establish the full polynomial spectrum, kernel multiplicity or semisimplicity. The repair confines the new claim to that finite-space theorem; the original combined novelty claim does not pass unchanged.
+
+## value
+
+PASS
+
+For this established dynamical family, the finite-space spectrum is a natural exact invariant. The parity kernel and its semisimplicity tell which components of any polynomial density vanish after one iteration rather than merely bounding decay; the explicit nonzero rates determine every surviving degree. This is information one or two pair-correlation sequences cannot give, and requires the independent all-degree operator argument. No value credit rests on the covered pair formulas or on security implications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

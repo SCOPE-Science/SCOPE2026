@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Scope
+## correctness
 
-Exact moments for two independent area-uniform points on the entire surface of a three-dimensional intersection of congruent balls; radius positive and normalized half-separation in \([0,1)\).
+PASS
 
-## Reproduction
+For a>0 each supporting sphere contributes the cap on the opposite side of the midplane, and both have area 2πR²(1−a). Sphere area in axial coordinate and azimuth is constant; the seam has measure zero and at a=0 the construction partitions a sphere into hemispheres. Independently integrated the two-point fourth power by averaging over the azimuth difference, treating same-cap and opposite-cap pairs separately. For b=1−a and R=1 this gives μ=2b and ν=4b²(b²−2b+5)/3; scaling restores the stated R factors. The dimensionless ratio (4+a²)/3 is strictly increasing on [0,1), so a and then R are uniquely recovered; the ball is included and a=1 excluded. The bound follows from |a₁²−a₂²|≥|a₁−a₂|², with equality against a=0 setting the constant and exponent. One positive even moment can be held fixed over varying a by scaling R. The independently integrated one-cap case also gives the claimed shared wedge, with distinct surfaces off the full-sphere endpoint. Replay: python3 /workspace/reproductions/review_04_lens.py (SymPy, exact integrals). The frozen symbolic/simulation checker was inspected, not run. No volume-sampling, unequal-ball, noisy-estimation or uniform radius-stability claim is verified; collapse as a→1 refers to fixed R. The two moments recover absolute scale as well as shape.
 
-Run `python3 verify.py` with `sympy` and `numpy` installed. The checker integrates the polynomial axial-coordinate surface measure symbolically, reproduces all radial and coordinate covariance moments, and reconstructs \(\mathbb E D^2\), \(\mathbb E D^4\), and their ratio. It then simulates both actual boundary patches by independently sampling surface-area coordinates for five radius/separation pairs, checking ten two-sample moment comparisons. Expected output: `PASS: 17 symbolic identities / Monte Carlo comparisons; five independent parameter pairs`.
+## originality
 
-## Logical limits
+PASS
 
-The analytic integral identities, boundary decomposition, and elementary inverse/stability proof in RESULT.md establish the universal theorem. Finite simulations cannot prove universality or source priority. The bound on normalized separation is sharp with comparison to the sphere; no radius stability under statistical noise is asserted. No independent audit has been performed.
+The exact moment law and sharp separation inverse are supported as distinct for the entire equal-ball lens boundary. The single-cap wedge is verified overlap, not an originality claim; the lens realization of the same wedge gives the ambiguity. The generic iid-pair expansion and the geometry of spherical zones are not claimed as new.
+
+## value
+
+PASS
+
+This is a complete inverse law for two natural rigid-motion invariant statistics on a geometrically motivated family. It specifies what can be recovered from two moments, the sharp loss of resolution near a ball, and a concrete ambiguity if the family is unknown. These are not consequences of a general distance expansion alone, and they are exact population statements, not statistical guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

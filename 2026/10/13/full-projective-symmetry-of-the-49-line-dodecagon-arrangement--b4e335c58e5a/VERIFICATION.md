@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` works entirely with exact arithmetic in \(\mathbb Q(\sqrt3)\).
+## correctness
 
-It performs the following checks:
+PASS
 
-1. constructs the twelve side-lines of a regular dodecagon;
-2. verifies that their pairwise intersections are sixty-six distinct double points;
-3. applies \(\Lambda_{\{2\},4}\) by enumerating every line containing at least four of those points and obtains exactly forty-nine lines;
-4. recomputes the complete singularity census \(n_2=204\), \(n_3=96\), \(n_4=6\), \(n_5=24\), \(n_6=6\), \(n_7=12\), \(n_{12}=1\);
-5. uses the unique twelvefold point together with a projective frame of three sevenfold points to exhaust all \(12\cdot11\cdot10=1320\) possible ordered image triples;
-6. finds exactly twenty-four projective transformations preserving all forty-nine lines;
-7. verifies that the displayed rotation and reflection preserve the arrangement and satisfy the dihedral relations;
-8. checks the element-order distribution \(1^1,2^{13},3^2,4^2,6^2,12^4\);
-9. computes line-orbit sizes \(1,6,6,12,12,12\) and identifies the singleton as \(z=0\).
+The incidence operator is projectively equivariant, so the displayed rotation and reflection give the full visible subgroup of order 24. An independent exact reconstruction confirms 66 distinct starting points, 49 rich lines, the stated census, and the six line orbits with singleton z=0. It also gives an alternative upper bound over C: the unique twelvefold point is the origin P, and the twelve sevenfold points lie on the smooth conic x²+y²=(2+√3)z². Any stabilizer preserves this conic (two distinct conics cannot share twelve points on a smooth conic) and fixes P, so it preserves the polar of P, namely z=0. In affine coordinates it is therefore linear and preserves x²+y². A chosen sevenfold point has at most twelve images; fixing its nonisotropic vector leaves only the two possible signs on its one-dimensional orthogonal complement. Thus there are at most 24 projectivities, with no restriction to real or rational projectivities. Replay: python3 /workspace/replay/dodecagon.py (SymPy, exact quadratic field); it derives incidence multiplicities from pair counts and computes the orbits under the two generators, not by executing the submitted checker. No claim about abstract lattice automorphisms.
 
-The finite enumeration is exhaustive because every projective stabilizer must fix the unique twelvefold point, permute the twelve sevenfold points, and is uniquely determined by the image of one projective frame.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The construction, census, rigidity and inherited dihedral action are inputs, not the distinct claim. The inspected comparisons do not establish the upper bound on the complex projective stabilizer or the exact line orbits for this realization.
+
+## value
+
+PASS
+
+For a rigid free arrangement built from a regular polygon it is natural to ask whether the construction has projectivities not inherited from the polygon. The upper bound answers exactly that question over C, and the orbit list gives the precise equivariant decomposition of its components, not simply the order of a visible subgroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review of the 256-node postulation calculation
+# Independent mathematical audit
 
-**Correctness: PASS.** The node set is recovered from eight triple intersections of nine explicit lines, with exactly thirty-two projective sign lifts at each intersection. Monomials are decomposed into disjoint sign-parity evaluation blocks; the supplied standalone verifier computes all of their finite rational matrices in degrees zero through five without floating-point arithmetic and establishes the rank sequence \((1,9,39,109,206,256)\). Surjectivity in all later degrees follows from multiplying by a linear form nowhere vanishing on the points. Six-regularity follows from projective cohomology; the exact two additional cubic classes are deduced by comparing degree-three dimensions and the two absent parity supports. The conclusion is restricted to the reduced complex node scheme.
+## correctness
 
-**Originality: PASS, subject to historical priority risk.** Auel–Singer explicitly study the complete-intersection surface, its 256 nodes and its symmetry group; those results are prior. Michaud-Rodgers's lecture (2019) displays the nodes and discusses the Hilbert polynomial of the surface, not the degree-by-degree evaluation ranks of its reduced singular-point set. Previously published conic-orbit computations on the same surface concern incidence and stabilizers and have no implication yielding the computed interpolation sequence. Exact-term and alias searches did not disclose a prior point-ideal Hilbert-function calculation. A missing or differently indexed historic computation remains a real risk; search absence alone does not establish priority.
+PASS
 
-**Mathematical value: PASS.** The reduced singular support is a canonical, highly structured configuration of 256 points on a classical arithmetic surface. Its postulation determines when sections of hypersurfaces can prescribe independent local data at all nodes, and the two extra cubics exhibit a first low-degree separation between equations of the surface and equations of its singular support. The parity-block decomposition supplies a reusable exact technique for structured sign coverings, rather than an arbitrary subconfiguration calculation.
+Write W for the 3-dimensional image of the nine linear forms. At a lift with zero set J of size r, the six relation equations have Jacobian the projection modulo W on the span of the nonzero coordinate axes. Its rank is 6−r+rank(W→C^J). The fresh line-arrangement calculation gives 12 doubles and 8 triples only, hence precisely the 256 triple lifts are singular. Locally at a triple base two incident forms give base coordinates; the third is their linear combination with both coefficients nonzero. The three square-root coordinates then satisfy a nondegenerate ternary quadratic equation while the six nonzero roots are locally analytic branches. For evaluation, pin one nonzero coordinate's sign at each base; surviving parity supports of fixed degree parity restrict injectively to characters on its five free signs. After character separation, a nonzero root prefactor can be removed from each row, leaving rational evaluation ranks. The fresh exact replay gives 1,9,39,109,206,256 and missing cubic supports exactly BMG and DME. The six-quadric surface has dimensions 39 and 111 in degrees two and three, so the first extra equations are precisely the two independent indicated cubics. Multiplication by a linear form avoiding the nodes propagates surjectivity from degree five. The saturated point ring is one-dimensional Cohen–Macaulay; its Artinian reduction by such a form has highest degree five, so the ring has regularity five and its ideal six.
 
-**Closest literature and limits.** Auel–Singer (arXiv:2609.09351v1, §§1–3 and §5), Michaud-Rodgers (2019 lecture slides), and two published conic-orbit records were compared. None, in the material inspected, gave the precise Hilbert function. The result is over \(\mathbb C\), for reduced points, and has not been independently audited. The public source corpus may be incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six quadrics, singular points and sign geometry are established in the primary antecedents. Their inspected statements and the closest catalogue comparisons do not give postulation of the reduced node locus. The new content is the exact evaluation sequence, interpolation cutoff and initial cubic quotient for that locus, not discovery of the nodes or the surface Hilbert polynomial.
+
+## value
+
+PASS
+
+The singular locus of a natural diagonal complete intersection has a concrete interpolation problem. Knowing the exact first degree of arbitrary values on the nodes, and the two first equations distinguishing the nodes from the surface, supplies usable information about its ideal rather than just a count. The low-degree rank losses and exact quintic cutoff are not determined by node count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Research assessment — five-run palindromic defect
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is proved by a disjoint classification of all nonempty *contiguous* palindromic factors into constant, three-run, and five-run types. The sole double-counting is the duplicate zero/one/zero pattern when the two one-runs have the same length; the five-run patterns exist under the same equality. The exact factor total simplifies to the indicator-times-deficit formula without omitted parameter boundaries. An independent center-expansion enumerator checks all 3,125 five-run tuples with run lengths at most five. A second loop verifies complete fixed-length defect distributions through length 26, including the first moment and maximum. The bivariate generating function is derived symbolically by counting ordered positive unequal one-run pairs, outer zero-run pairs with prescribed minimum, and the central zero run. The singular expansions and explicit witnesses prove the limiting density, expected defect, and sharp maximum for all lengths. Finite tests are not used as a substitute for the proof.
+PASS
 
-## Originality (PASS; residual risk acknowledged)
+For a nonconstant binary palindrome the initial and final symbols agree, so the factor has an odd number of runs. The single-run counts are the two symbol-wise maxima. Each internal run of a three- or five-run factor is traversed in full. The two 0-1-0 families intersect in min(a,c,e) factors if and only if b=d; in that case the five-run family adds min(a,e) factors. With x=min(a,e) and v=max(a,e), the three zero-run terms sum to v+c+min(x,c), while the two one-run terms sum to b+d. This gives the exact defect. For at most four runs the two possible three-run families have distinct end symbols and the corresponding maxima plus minima sum to the length (omitting absent families). At positive defect r, ordered unequal (b,d) have series 2z^3/((1-z)^2(1+z)), and the outer pair with minimum c+r has series z^(2c+2r)(1+z)/(1-z). Summing over c and marking r gives the stated coefficients and joint series after replacing the positive-defect terms of the unmarked composition series. The positive count and first-moment series have dominant terms (1-z)^(-5)/3 and (1-z)^(-6)/6 respectively, with other poles of lower order; division by binomial(n-1,4) gives the claimed asymptotics. The first possible length at defect r>0 is 2r+6; (r+1,1,1,2,r+1) realizes it and lengthening one of its outer runs realizes every larger length. Complementation handles initial symbol 1.
 
-Published research-record semantic queries for the defect law, five-run richness, alternative run-parameter formulations, and the bivariate distribution were compared to ranked published claims. The closest candidates concern closed-rich extrema, palindrome duplication codes, and Sturmian-palindrome bounds, none of which computes the current statistic on the current domain. The accessible accessible prior findings collection contains an exact **closed-factor** count and a distinct **scattered-palindrome** spectrum, but these neither specify the contiguous palindromic defect nor imply the present bivariate defect enumeration. The full arXiv precursor Guo–Shallit–Shur (arXiv:1503.09112, Section 4) was read: it gives richness implications via run lengths and lower bounds for unrestricted rich words, not the exact defect or its five-run distribution. The journal article uses run-length criteria and may overlap the simpler zero-defect iff statement, which is expressly not claimed as independent prior novelty. Currie–Mol–Rampersad (arXiv:1908.03169) treats infinite-word repetition thresholds, and Mahalingam–Maity–Pandoh (arXiv:2302.02109) treats universal richness of **block reversals**, not these enumerative laws. The quantitative positive-defect formula and full generating function survive these implication comparisons on present evidence. An unidentified equivalent derivation in other literature remains possible.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The five-run class is the first binary fixed-run family capable of positive palindromic defect: every word with at most four runs is rich. The theorem does not merely repeat a known richness test: it measures all positive defect sizes exactly, gives a rational joint length/defect generating function, identifies sharp finite-length extremizers, and proves a nondegenerate density and a linear first-moment law. These facts quantify precisely where and how richness fails in the smallest natural run-restricted class, providing a useful distributional benchmark for larger-run enumerations.
+The supported distinction is the full length-by-defect multiplicity law and its consequences, not exclusive novelty for the defect formula, attainable values, or the qualitative richness criterion. Two distinct published catalogue findings contain the identical pointwise five-run formula; one also gives the attainable spectrum and maximum, but neither contains the joint count, density or first moment. Both are listed later than the frozen record; chronology alone is not evidence about their derivations or priority. The older sources inspected do not establish the multiplicity law by a covering result.
 
-## Limits and related literature
+## value
 
-The exact richness criterion may be derivable from previously published general run-length criteria, and the journal text was not completely inspected, although its publicly accessible precursor was read in full for the relevant section. These risks affect priority of the qualitative statement, not the proof. The full quantitative prior-art record is not guaranteed complete. No independent validation, referee evaluation, or publication priority is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Five runs are the first binary run restriction in which positive defect is possible. The distribution distinguishes how often richness fails and by how much, including an exact sparse-length cutoff, a positive limiting fraction and a linear mean. It is a natural baseline for defect statistics with more runs, not just a zero-defect test or list of attainable values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

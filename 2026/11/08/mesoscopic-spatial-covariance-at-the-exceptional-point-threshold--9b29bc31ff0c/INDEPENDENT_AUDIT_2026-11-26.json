@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:27.619194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, exact normalization and proof",
+        "Frozen VERIFY.py (rational Lyapunov recursion plus bounded diagnostics) and VERIFICATION.md"
+      ],
+      "rationale": "The drift is Hurwitz for every finite N with positive damping. Expanding the nilpotent shift in the stationary covariance convolution and integrating t^(2q+d) exp(-2κt) gives the exact binomial sum with D/κ, consistent with the Lyapunov boundary recursion and N=1. For q/N in [ε,1] and d=O(sqrt(N)), the uniform centered-binomial Stirling expansion has prefactor 1/sqrt(πq) and exponent -d²/(4q)+o(1). With d/sqrt(N)→|y-z| and κ_N=1+ζ/N, the remaining factor κ_N^(-2q-d-1) converges uniformly to exp(-2ζq/N) on that range. The finite sum ends at N-max(i,j)=N-o(N); the omitted small q contribution after N^-1/2 scaling is O(sqrt(ε)+N^-1/2) by the maximal binomial-mass bound, also when d=0 and for fixed negative ζ. This yields the improper kernel by Riemann summation; exact Gaussianity then yields the stated finite-dimensional convergence, including coincident observation sites. Integration by parts and division by 2D/sqrt(π) give the erfc correlation at ζ=0. The fixed-microscopic-distance remark is read within the stated upstream observation window, not at fixed distance from the downstream boundary.",
+      "residual_risks": [
+        "No process-space tightness or downstream-boundary limit is asserted. Supplied scripts were inspected but not run; the asymptotic conclusion is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Gupta supplies the finite Jacobi/Jordan setting and the exact covariance at the unidirectional EP; the surrounding passages discuss time dependence and stationary covariance.",
+          "Detering et al. give the bounded infinite-chain variance for subcritical directed coupling and divergence at criticality."
+        ],
+        "reasoning": "A fixed finite formula is established background. Recovering the detuned cutoff kernel requires additional uniform local-mass asymptotics, including the singular lower endpoint. Infinite-chain temporal stationarity cannot retain a finite-size cutoff by itself.",
+        "searches": [
+          "Pal–Gupta arXiv:2609.05391, open-chain EP and covariance section",
+          "Detering–Fouque–Ichiba arXiv:1805.01962, Eq. 4.36 and Remark 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2609.05391 and 1805.01962",
+        "Distinct Resultary record 6b74be8df2c9 and target self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established fixed-N formula contains the raw sum; the staged cutoff and off-diagonal binomial local limit are not the stated conclusions of Eq. 84.",
+          "The earlier infinite-chain variance concerns a diagonal temporal limit and cannot determine covariance for separations of order sqrt(N)."
+        ],
+        "reasoning": "The kernel is derived from a known finite formula rather than a new exact covariance identity. The nonconstant spatial profile, order-N^-1 damping window and simultaneous finite-dimensional limit are the distinct claims supported by the comparison.",
+        "searches": [
+          "Eq. 84 and surrounding covariance discussion in arXiv:2609.05391",
+          "arXiv:1805.01962, Eqs. 4.39–4.40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under i'=N+1-j, j'=N+1-i and q=i'-ℓ, Eq. 84 has the frozen binomial factor and upper summation bound N-j; its 2D/(2κ) equals D/κ.",
+          "The infinite directed model uses the same one-way mechanism but has no finite terminal cutoff."
+        ],
+        "reasoning": "The two finite stationary covariance formulas are equivalent, not just analogous. The order of limits and terminal cutoff distinguish the infinite-chain variance comparison from the new scaling theorem.",
+        "searches": [
+          "Pal–Gupta arXiv:2609.05391, Eqs. 13–14, 30–31 and 84",
+          "Detering–Fouque–Ichiba arXiv:1805.01962, §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result itself was indexed. The distinct 6b74be8df2c9 states a heterogeneous-trap/noise chain with factorized standard Gaussian invariant law and explicit current and entropy production; its Finding is not a nontrivial critical covariance kernel.",
+          "The focused lookup did not yield another usable exact-kernel comparison."
+        ],
+        "reasoning": "Shared exceptional-point terminology and related operator structure are not a match for independent uniform forcing and the stated spatial covariance limit. A self-match or missed keyword result carries no priority weight.",
+        "searches": [
+          "Local Resultary: exceptional-point covariance of a directed chain, including record 6b74be8df2c9",
+          "Focused literature lookup for mesoscopic one-way-chain stationary covariance"
+        ]
+      },
+      "rationale": "Credit is limited to the coupled stationary large-N spatial and detuning limit, not the exact finite covariance, noise normalization, exceptional-point mechanism, or variance dichotomy. Pal–Gupta's Eq. 84 is precisely the same finite covariance after reflecting site labels and reindexing for the open one-way chain. That is stronger prior overlap than a shared integral alone, but the inspected passage does not quantify the mesoscopic separation and damping window or state the resulting continuum covariance. The older infinite-chain result changes the order of limits and does not include this cutoff kernel.",
+      "residual_risks": [
+        "The focused literature lookup did not establish a priority result. An unlocated theorem about joint growth, drift detuning and spatial separation might include the same kernel. No credit is assigned to already-covered finite or diagonal identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite covariance coverage; no matching mesoscopic detuning limit established by the inspected material",
+          "evidence": "The Eq. 84 factorial sum is algebraically identical under reversal; following discussion concerns temporal polynomial relaxation.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.05391",
+          "material_read": "PDF pp. 5, 7–8, 13; Eqs. 13–14, 30–31, 83–84 and context (Eq. 84 OA offset around 99399)",
+          "method": "OA PDF original passages",
+          "title": "Non-reciprocally interacting Ornstein-Uhlenbeck processes: Exceptional points, Anomalous relaxation, Pseudo-equilibrium and Boundary refrigeration",
+          "trigger": "Same open unidirectional EP, noise convention and possible covariance theorem"
+        },
+        {
+          "assessment": "Known variance behavior in a different limit",
+          "evidence": "Infinite chain, subcritical limit 1/(2√(1-u²)), critical variance divergence, with an exact Bessel expression.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.01962",
+          "material_read": "§4.2, PDF pp. 23–25, Eq. 4.36 and Remark 4.3, Eqs. 4.39–4.40",
+          "method": "OA PDF original passages",
+          "title": "Directed Chain Stochastic Differential Equations",
+          "trigger": "Older infinite one-way OU fluctuations and possible critical scaling"
+        },
+        {
+          "assessment": "Different stationary covariance and forcing regime",
+          "evidence": "Heterogeneous trap/noise chain, factorized standard Gaussian invariant law and current/entropy results; credits the uniform unidirectional chain to Pal–Gupta.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-arbitrary-order-exceptional-point-with-a-factorized-nonequili--6b74be8df2c9/RESULT.md",
+          "material_read": "Finding and prior-work comparison",
+          "method": "Bounded local-mirror read",
+          "title": "An arbitrary-order exceptional point with a factorized nonequilibrium steady state",
+          "trigger": "Strongest distinct local indexed EP finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finite-dimensional limit and critical correlation profile",
+        "Pal–Gupta Eq. 84 and Detering et al. Remark 4.3 as comparison"
+      ],
+      "rationale": "The spectrum alone stays uniformly stable in this limit and the familiar critical diagonal growth does not predict which distances decorrelate. The kernel identifies a nontrivial spatial correlation at order sqrt(N), while resolving the effect of damping changes of order 1/N and the terminal-chain cutoff in one expression. It is a useful benchmark for feedforward nonnormal covariance amplification beyond the exact finite sum or a scalar variance law.",
+      "residual_risks": [
+        "No universality beyond this uniformly forced linear open chain is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

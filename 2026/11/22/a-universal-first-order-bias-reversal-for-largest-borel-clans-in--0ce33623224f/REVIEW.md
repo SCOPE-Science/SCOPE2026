@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the maximum of the Borel-family sizes in a pooled Poisson forest, not the maximum or sum of individual observation totals. The exact CDF equals a Poisson no-exceedance probability. Uniform Stirling expansion of the Borel point mass, with a weighted exponential remainder for the entire tail above a positive scaled threshold, gives an \(O(n^{-1})\) CDF remainder and an explicit signed \(n^{-1/2}\) coefficient. The complementary-error-function identity and the monotonicity of its derivative prove existence and uniqueness of the sign change. The standalone standard-library numerical checker reproduces exact finite-size probability sums at three sample sizes and the correct signs. Limits: fixed strictly positive parameters and compact positive thresholds only; the finite checks are not themselves proofs.
+PASS
 
-## Originality — PASS, qualified
+The pooled number of founders is Poisson with mean nμδ and the marks are Borel sizes. Thinning gives the exact no-exceedance probability with k>nx and includes the no-founder case. At y=k/n, the tilted Borel mass is e^(−ay/2)/(sqrt(2π) k^(3/2)) times [1+δ(1−ay/3)+R]. For y≥x0>0, the exact remaining exponential is e^(−by), b=aδ/3+O(δ²)≥0; |e^(−by)−1+by|≤(by)²/2. This and the factorial error O(1/k) bound the bracket remainder by O(δ²(1+y²)) on the whole upper tail. Riemann sums for both coefficient functions have uniform O(1/n) error, including flooring nx, since their derivatives are integrable away from zero. Changing variables and exponentiating gives c=μa/sqrt(2π) and the stated coefficient −cJ(ax) times the limiting CDF. J starts positive divergent, decreases up to 3 where its tail is negative, and increases thereafter to zero from below. This gives one coefficient zero, not one crossing of the exact lattice CDF. The sign claims apply to fixed positive x. Independent numerical cross-check: starting at p1=e^(−θ), use p_(k+1)/p_k=θe^(−θ)(1+1/k)^(k−1), with a=1.6, μ=1.2, n=1000,4000,16000, summing to ceil(110n/a); quadrature/bisection gives z*≈1.88898594352. The scaled errors approach the predicted signs and coefficients away from the root; bounded n-scaled residuals at the root are consistent with lattice effects. The supplied check_borel_max.py was inspected, not executed; its exact-mass tail is numerically truncated.
 
-The original generalized-Poisson model and Borel representation are established by Faroughi–Li–Ren (2024) and older authors. The known inverse-Gaussian **total sum** limit documented by Wolfram Research, and general cluster-mark extreme-value theory of Basrak–Milinčević–Žugec (2022), were compared by object and implication: neither supplies the **first signed correction for largest Borel clan size** or the universal zero of its explicit coefficient. The latter paper's lawful arXiv full text was inspected, including the mark-versus-cluster-size distinction in its Borel/Hawkes sections. General Poisson-point convergence is prior work, not claimed as new. Earlier books or less-accessible articles may contain comparable specialized second-order expansions, so historical priority is provisional rather than independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The largest infection/claim family can govern exposure to a single severe cascading event even when the expected count per sample remains fixed. The limiting maximum law by itself does not tell whether finite-sample tail probabilities are conservative or anticonservative: the first correction gives the sharp \(n^{-1/2}\) magnitude and identifies a unique natural threshold where its direction reverses, without arbitrary parameter slicing. That supplies a concrete finite-sample calibration for near-critical branching risk.
+Pass for the compact-uniform signed first correction and its unique cancellation point, not for the Borel representation, thinning formula or leading inverse-Gaussian largest-jump law. The inspected exact distributions supply the terms to be expanded but do not supply the moving-tail first correction, its uniform remainder, or its sign law.
 
-## Scope and independent assessment
+## value
 
-Uniform error only on compact subsets of positive thresholds; no finite-\(n\) exact single-crossing claim, no certified decimal root interval, and no second-order constant at the cancellation point. Historical priority remains subject to fuller literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The largest founder is the most severe single family in the Poisson–Borel model. The theorem gives a sharp leading error with opposite signs at different thresholds and identifies a parameter-rescaled point where the error drops from order n^(-1/2) to O(n^(-1)). This provides a concrete calibration for when a leading-limit CDF over- or under-estimates fixed-threshold risk, not merely another derivation of the limit. The statistic is latent under the specified founder representation, not an observed total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

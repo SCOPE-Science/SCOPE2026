@@ -1,15 +1,21 @@
-# Scientific review: finite-jet inner Hardy approximation
+# Independent mathematical audit
 
-## Correctness — PASS
-The boundary unimodularity identity \(\overline f=f^{-1}\) turns the binomial expansion of \(\lvert 1-qf\rvert^{2m}\) into exact pairings of analytic Fourier coefficients. The second polynomial in every cross inner product has degree at most \((m-1)n\), proving the claimed jet cutoff with no hidden assumption about finite Blaschke degree or boundary smoothness. Strict convexity and isometric inner multiplication justify uniqueness. The classical Schur recursion with terminal unimodular iterate gives an inner rational replacement of degree at most \((m-1)n+1\); each inverse step matches one additional Taylor coefficient. The exact monomial comparison produces the \(-4m\) objective difference, and vanishing multiplicity certifies optimality of the Blaschke degree bound. The packaged verifier replays the symbolic finite-sum formula against independent circle quadrature and checks those sharpness witnesses. Numerical experiments do not establish the general proof.
+## correctness
 
-## Originality — PASS (best knowledge)
-Relevant records and primary papers were compared by mathematical implication, not title alone. Classical Schur interpolation already yields finite Blaschke interpolation (Bolotnikov, 2009), and the \(H^2\) inner-function optimizer is known to be constant (Bénéteau et al., 2017). Earlier degree-one \(H^4\) first-jet information is a special instance, not the all-even-exponent/all-degree complete-objective theorem with a sharp finite-Blaschke model. Centner (2021), Centner–Cheng–Felder (2023), and Cheng–Felder (2023) address existence, localization, and nonlinear approximation properties but do not state the general jet identity or the two sharp cutoffs. Closest indexed results concern either weighted multivariable Hilbert approximation or Schur interpolation alone. Residual risk: an equivalent lemma may occur in older unindexed Hardy-space or moment-algebra literature.
+PASS
 
-## Mathematical value — PASS
-Non-Hilbert Hardy approximation is genuinely nonlinear, and the minimizer is not generally constant even for inner functions. This theorem converts every finite-degree even-exponent optimization over arbitrary inner functions, including singular infinite inner factors, to a finite polynomial problem with a **sharp** number of generator coefficients and a **sharp** bounded-degree inner representative. The exact sharp cutoff and replacement degree are natural model-complexity invariants, not arbitrary finite test parameters. The result does not solve the residual nonlinear coefficient optimization or extend to non-even exponents.
+Re-audit of repairs/1/RESULT.md. The frozen proof of the optimal universal replacement degree only rules out smaller jet-matching products; it does not in that step rule out smaller objective-equivalent products without that jet. This is a proof gap, not a counterexample. The repaired proof supplies the converse: writing q=Σaᵢzⁱ, only the (m,m−1) binomial term has that bidegree in (a,ā). Its coefficient of a₀^m∏āᵢ^bᵢ is −m (m−1)!/(∏bᵢ!) times the Taylor coefficient f_{Σ i bᵢ}, with Σbᵢ=m−1. Equality on all complex a entails equality of these formal coefficients by invertible change to real and imaginary coordinates, and all degrees 0 through (m−1)n are representable. This includes m=1 via the empty sum and n=0 via the all-zero frequency. Consequently f=z^(L+1) forces any objective-equivalent Blaschke product to vanish to order at least L+1. For sufficiency, boundary inner modulus cancels each paired power and the test polynomial q^k has degree at most kn; Parseval gives the cutoff and binomial objective. Strict convexity and coercivity give a unique minimizer. Inverse Schur steps insert one order of agreement per step and increase finite degree by at most one; a unimodular terminating iterate is already finite. The original sharp-cutoff witnesses differ by −4m for L>0; constants suffice for L=0. Frozen verification scripts and recorded quadrature and difference output were inspected, not executed. They do not test the repaired converse, which is proved by coefficient extraction.
 
-## Scientific limitations
-The sharpness of the jet cutoff applies to the full objective, not to the minimal information needed for the optimizer alone. Classical Schur interpolation is credited rather than treated as new; originality remains a best-knowledge judgment, not proof of historical uniqueness. The analytic theorem is independent of the finite numerical checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reassessed for the repaired proof of the same claim. The distinct statement is the full even-Hardy objective invariant for arbitrary degree, now also shown to determine the required jet, with exact cutoff and the optimal degree among all objective-equivalent Blaschke products. Classical Schur interpolation supplies the jet-fitting ingredient, and the H² and low-degree optimizer subcases are not relied on as new results. No stronger inspected statement establishes the audited family.
+
+## value
+
+PASS
+
+Reassessed for the repaired finding. An infinite or singular inner input can be replaced uniformly for every admissible trial polynomial by a sharply bounded finite Blaschke model, not just by an approximation to the optimizer. The exact cutoff and the converse identify precisely the information visible to the entire objective; the lower bound among all objective-equivalent replacements guarantees that the compression is optimal in the worst case. This is a useful finite reduction of a natural nonlinear approximation problem, without claiming a closed-form solution of the remaining optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is self-contained and does not rely on the numerical experiment. Its critical checks are: (1) the star modes have eigenvalues \(0\), \(n+1\), and \(1\); (2) the added leaf-edge matrix has rank at most \(k\) and trace \(2T\); (3) strict Jensen concavity yields an exact equality only at uniform nonzero added eigenvalues; (4) the incidence Gram off-diagonal terms vanish if and only if the added edges are pairwise disjoint; (5) a second derivative lower curvature magnitude yields the displayed stability inequality.
+## correctness
 
-Execute `python verify_star_aug.py` with NumPy installed. The script directly computes the entire weighted Laplacian and verifies the predicted lower bound, all equality cases, and the quantitative overlap/unequal-weight loss across 14,107 support/weight samples, 13,539 of which are nonoptimal. The printed sample \(n=6\), \(k=3\), \(W=3\) has coherence \(22/7\).
+PASS
 
-Scientific scope is limited to unit fixed spokes, positive newly added leaf-to-leaf conductances, and \(1\le k\le\lfloor n/2\rfloor\). The finite tests do not prove the infinite family; no numerical optimization solver is assumed in the proof. Novelty comparisons are grounded in inspected material and remain subject to undiscovered specialized prior publications. No independent audit was performed.
+The star Laplacian has the constants, the hub-against-leaves vector and the leaf-zero-sum space as mutually orthogonal eigenspaces with eigenvalues 0, n+1 and 1. The added Laplacian vanishes on the first two and has trace 2T and rank at most k on the last. Padding with zeros, the improvement is the sum of f(mu)=mu/(1+mu) at k spectral values. Jensen and strict monotonicity in T give the optimum and require T=W and mu_i=2W/k for every i. Thus exactly k edges are positive and the incidence Gram matrix must be (2W/k)I: its diagonals require equal weights and its off-diagonals force disjointness. Such a matching exists by 2k<=n, including n=2. The curvature lower bound for -f on [0,2W] gives an objective deficit at least the spectral squared deviation divided by (1+2W)^3. The latter squared deviation is the squared Frobenius deviation of the Gram matrix even when rank is deficient; its diagonals give 4 times the weight variance sum, and the two orientations of each off-diagonal give twice the stated overlap sum. Multiplying by n+1 gives the stated Kirchhoff index.
+
+## originality
+
+PASS
+
+The general joint cardinality-and-budget problem and the unweighted one-added-edge case have documented coverage. The supported distinct finding is the complete uniform-star solution for variable W and all admissible k, including every extremizer and the explicit quantitative gap. The strongest general formulation inspected uses optimization and approximation machinery, not a theorem that can be specialized directly to this closed form.
+
+## value
+
+PASS
+
+A hub-and-spoke network with sparse new links and fixed conductance resources is a natural instance of a nonconvex design problem. The solution specifies when the continuous budget and the combinatorial optimum can be realized simultaneously, and turns strict inequality into a directly interpretable penalty for support overlap and unequal weights. This is useful beyond the known one-unit-link calculation or restating the general design objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

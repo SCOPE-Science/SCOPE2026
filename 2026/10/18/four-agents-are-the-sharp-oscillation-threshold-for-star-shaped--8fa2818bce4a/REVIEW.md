@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each averaging step contracts the convex hull. Periodicity makes the hull constant, after which positivity of all self-weights fixes the labels occupying its extreme vertices. Three agents either all lie at vertices or leave one interior agent between two immobile endpoints. Radial star-shapedness then forces the remaining scalar map to be nondecreasing, ruling out nonconstant finite cycles. The four-agent sharpness witness is checked by exact fractions with the specified confidence-set membership, and the proof handles membership-boundary cases algebraically. Risks: the claim is restricted to labeled finite cycles and homogeneous, self-confident equal-weight updates; it does not imply global convergence.
+## correctness
 
-**Originality — PASS (qualified literature assessment).** The motivating 2024 paper explicitly constructs a three-agent oscillation without star-shaped confidence and a four-agent oscillation with it, but does not prove the sharp minimum of four in the star-shaped homogeneous class. Scalar interval-confidence convergence does not itself imply the vector-valued three-agent reduction; the new convex-hull vertex persistence and one-mobile-agent argument supply that link. Indexed searches for the specific sharp lower bound, radial convexity, and the motivating source yielded no covering claim. Risks: an unindexed equivalent convex-hull reduction may exist; bibliographic searches are not mathematical proofs of novelty.
+PASS
 
-**Value — PASS.** Minimal social-group size is an intrinsic structural complexity measure for oscillations in the model introduced to study atypical confidence geometry. The result closes the gap between published three-agent non-star-shaped and four-agent star-shaped witnesses: it determines the exact earliest possible oscillation under radial convexity without imposing confidence symmetry, convexity, boundedness, or neighborhood assumptions. It is a sharp global impossibility theorem about all finite periods in all finite opinion dimensions, not a single-parameter computational slice.
+On a finite labeled cycle the nested convex hulls are equal. A vertex of this hull can be an updated opinion only if all averaged opinions, including the updating label's old opinion, were at that vertex. Each vertex's occupancy set decreases by inclusion and is periodic, so is constant. With at most three labels, either all are fixed or just one can move inside a segment with one label fixed at each end. As its normalized coordinate increases it can only drop left-end trust and gain right-end trust. Its average increases with its own coordinate and weakly increases under both trust changes. Thus a strict displacement cannot return, even at a discontinuity. I independently recomputed the witness using squared distances and the integer ray equation 5|dy|=-dx for dx<0: the moving neighborhoods are {x,c} and {x,a,b,c}, all three anchors trust only themselves in both states, and the nonidentical configurations return in two steps.
 
-The closest work is Zabarianska–Proskurnikov (arXiv:2408.01753; 2024 IEEE version), whose explicit cycle is used only as a sharpness witness. The Bernardo–Altafini–Vasca scalar asymmetric-confidence result is complementary. The proof is analytic; exact finite computations test, rather than replace, its critical steps. Independent examination of specialist unpublished work remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four-agent witness is already Example 3 of Zabarianska–Proskurnikov (2024) and the record credits it. The supported distinct claim is the dimension-independent lower bound for the homogeneous star-shaped model without pinned agents; the inspected earlier convergence and oscillation results do not provide that lower bound under its hypotheses.
+
+## value
+
+PASS
+
+The lower bound resolves whether the published four-agent construction needs four ordinary agents at all. The persistent extreme-label argument is structural and works despite discontinuous radial boundaries and arbitrary ambient dimension; it is not only a check of special parameter examples or two-cycles. The result supplies an exact population threshold in the stated setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

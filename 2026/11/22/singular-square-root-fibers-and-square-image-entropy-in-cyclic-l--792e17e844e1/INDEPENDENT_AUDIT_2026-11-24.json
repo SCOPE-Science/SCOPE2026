@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:14:09.829122Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67",
+        "VERIFICATION.md lines 19–23",
+        "check_roots.py lines 9–79 and check_roots_output.txt lines 1–14 (inspected, not replayed)"
+      ],
+      "rationale": "Reducing modulo the radical forces all vertex-idempotent coefficients of a root to vanish (a field has no nonzero square-zero scalar). In J^3=0 the degree-two part of the root is then free and contributes q^n, leaving the cyclic products u_i u_(i+1). For Y=0, a support is independent on the cycle; conditioning on a chosen vertex gives the two weighted path terms. For a mixed target, the nonzero edges force their incident vertices and form disjoint paths, each with one multiplicative degree of freedom. At a zero gap of length L there are L−1 internal vertices. The two outermost internal vertices are forced zero (the same vertex for L=2); L=1 is impossible and the remaining max(0,L−3) vertices support an independent set. This proves the fiber for all nonzero edge labels, including characteristic two. Full support leaves one cyclic consistency equation: even length requires equal alternating products and leaves q−1 starters; odd length identifies the square of the starter and gives the stated image correction. Legal mixed binary words are exactly those avoiding the cyclic triple 101; the closed walks of the displayed pair-state matrix weight each labelled pattern once and cannot admit 101. Its characteristic polynomial is t(t^3−qt^2+(q−1)t−(q−1)); the positive-weight pair graph is irreducible and aperiodic. With w=q−1, the cubic signs are negative at w and positive at w+1, and its derivative is nonnegative at w and strictly increasing on [w,infinity), identifying the Perron root in that interval. The other eigenvalues and the O(w^n) torus correction are lower order at fixed q. The frozen checker counts arrow-coordinate solutions, not the free factor q^n; the argument supplies that factor exactly.",
+      "residual_risks": [
+        "Scope is targets in J² and truncation length three; the entropy limit fixes q. No formal proof-assistant claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delgado-Eckert gives a general graph/algebraic framework for finite-field monomial dynamics; Dynamics of polynomial maps over finite fields returned a functional-graph summary."
+        ],
+        "reasoning": "Descriptions of how to construct and classify dynamics do not themselves state the singular prescribed-target counts or the analytic size of this one-step image. A general prescribed-fiber counting law on graphs would be material if found.",
+        "searches": [
+          "Resultary: finite-field graph edge monomial map prescribed fibers including zero coordinates",
+          "Primary search for finite-field graph monomial maps, zero coordinates and prescribed cycle fibers; retrieved arXiv:2201.00954",
+          "Cited framework arXiv:0711.1230"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.1230, arXiv:1111.6278 and arXiv:2201.00954 (available descriptions and bounded retrieval evidence)",
+        "Resultary:c462f91098a0, 32d24769d1cd, 3f6b29b03a8b, d37be33201da",
+        "Frozen RESULT.md lines 75–88"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 3f6b29b03a8b computes zero-product tuple counts by induced-edge polynomial support strata in radical-square-zero quiver algebras. Resultary c462f91098a0 describes full-support fibers, not the mixture with zero gaps."
+        ],
+        "reasoning": "Even knowing the zero-target independent-set count and all-nonzero consistency does not imply the mixed gap products, or show why 101 is the only excluded mixed cyclic pattern. Those steps are needed for the aggregate image and growth constant.",
+        "searches": [
+          "Resultary: graph support counts and transfer matrices for finite-field square image",
+          "Resultary: finite-field monomial map graph edge product zeros",
+          "Cited toric comparisons at frozen RESULT.md lines 75–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 52–63 identifies the equivalent graph map (u_i)→(u_i u_(i+1)). Neves–Vaz Pinto–Villarreal arXiv:1111.6278 is a toric-edge comparison; Resultary c462f91098a0 describes parity and square-class fibers on the principal torus in cyclic Loewy length four."
+        ],
+        "reasoning": "Neither a full-support torus calculation at this truncation nor a higher-truncation torus theorem would count zero-gap behavior without treating zero coordinates. The toric parity part is expressly uncredited.",
+        "searches": [
+          "Resultary: finite-field graph edge monomial map prescribed fibers including zero coordinates",
+          "Resultary: finite-field monomial map graph edge product zeros",
+          "Resultary: cyclic Nakayama radical square-root fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d37be33201da uses a four-state cycle transfer for multiplication-rank spectra in graph face algebras; 32d24769d1cd gives prescribed bracket fibers on odd graphical cycles."
+        ],
+        "reasoning": "These are genuine exact laws, but for an operator rank and a Lie bracket, not for the one-step square image or its fiber counts. A matched table at fixed q or n would not by itself cover the quantified formula and Perron growth.",
+        "searches": [
+          "Resultary: graph support counts and transfer matrices for finite-field square image",
+          "Resultary: cyclic Nakayama radical square-root fibers"
+        ]
+      },
+      "rationale": "Credit the prescribed singular fiber law and the complete image count and growth, not the radical reduction alone, full-support torus, independent-set technique or transfer-matrix method. The closest compared results do not give the assigned singular law and complete image asymptotic, subject to stated access limitations.",
+      "residual_risks": [
+        "Primary and strongest adjacent mirror retrievals did not yield full text. A general graph edge-monomial theorem with coordinate zeros could specialize to some or all of the claim; this bounded evidence does not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-support toric precedent; no claim that the whole paper excludes all singular results.",
+          "evidence": "Frozen RESULT.md lines 61, 77 separate the alternating consistency condition from zero-coordinate fibers.",
+          "identifier_or_url": "arXiv:1111.6278",
+          "material_read": "Available bibliographic/prior-work characterization, not primary full text.",
+          "method": "OA retrieval attempted; compared with the frozen exact torus equations.",
+          "title": "Vanishing ideals over graphs and even cycles",
+          "trigger": "The edge-product formulation is a graph toric parameterization on units."
+        },
+        {
+          "assessment": "General framework is relevant; no accessed statement covers these prescribed mixed fibers.",
+          "evidence": "Frozen RESULT.md line 77 describes monomial dynamics and fixed-point algorithms.",
+          "identifier_or_url": "arXiv:0711.1230",
+          "material_read": "Citation and available description, not primary full text.",
+          "method": "OA retrieval attempted; compared its described scope to the exact target map.",
+          "title": "An algebraic and graph theoretical framework to study monomial dynamical systems over a finite field",
+          "trigger": "Plausible broader coverage in finite-field monomial maps."
+        },
+        {
+          "assessment": "Substantially related, but different truncation and restriction to units; same-day listing does not decide priority.",
+          "evidence": "Prescribed torus fibers in Loewy length four, rather than all prescribed J² targets in length three.",
+          "identifier_or_url": "Resultary:c462f91098a0",
+          "material_read": "Indexed mathematical summary; bounded mirror retrieval timed out.",
+          "method": "Resultary statement comparison and mirror attempt.",
+          "title": "Parity and square-class fibers of squaring on the principal torus of a cyclic Nakayama radical",
+          "trigger": "Closest distinct Nakayama square-fiber record."
+        },
+        {
+          "assessment": "Relevant to support-based zero-product enumeration, not a mixed-target formula.",
+          "evidence": "Counts zero-product tuples using induced edges and support strata.",
+          "identifier_or_url": "Resultary:3f6b29b03a8b",
+          "material_read": "Indexed mathematical summary.",
+          "method": "Resultary search and comparison of operations and target strata.",
+          "title": "Pairwise-annihilating tuple varieties of radical-square-zero quiver algebras",
+          "trigger": "Support stratification for exact zero products."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48 and 52–67; independent all-parameter argument"
+      ],
+      "rationale": "In the first nonzero radical-square layer, the full-support data misses the qualitative obstruction caused by an isolated zero and the quantitative dependence of root multiplicities on gap lengths. The closed singular fiber formula and transfer spectrum give exact solvability and a sharp density of attainable targets for a natural algebra family; they apply across unbounded n and all prime powers, not just one arbitrary census.",
+      "residual_risks": [
+        "The value judgment is about the singular and aggregate classification, not about renewing the standard toric count or deriving a new general transfer-matrix technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

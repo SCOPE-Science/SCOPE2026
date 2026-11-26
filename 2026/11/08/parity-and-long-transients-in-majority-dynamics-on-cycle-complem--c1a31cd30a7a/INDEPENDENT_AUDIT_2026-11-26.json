@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:54:37.878784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35 and 37–63; VERIFICATION.md lines 19–27; check_exhaustive.cpp, check_symbolic.py and both frozen stdout files"
+      ],
+      "rationale": "For odd N=2m+1 each vote excludes the center and its two cycle neighbors, and the tie threshold is m−1. With K≤m−1 a 1 sees at most m−2 and a 0 at most m−1, so the next state is all zero, and the complemented statement holds at K≥m+2. At K=m the output ones are exactly the centers of 000 and 010. If there are r zero runs and r one runs, with a long one runs and b long zero runs, the count is (r−a)+(m+1−r−b)=m+1−a−b. A cyclic odd word must have a+b≥1; a+b=1 forces the only long run to be zero of length two (otherwise m+1 zero singletons would force too many one runs). Precisely those N words stay fixed; the remaining layer goes unanimous in two steps, symmetrically for K=m+1. The word 1^m0^(m+1) reaches an intermediate state of positive weight m−1, then unanimity, proving sharpness and excluding any earlier recurrence. For even N at K=m the rule becomes minority of the centered triple. In 1^a(01)^k0^a for a≥2, k≥1 both constant blocks switch, and every site of the alternating segment stays put, including its first 0 and last 1. Those two sites enlarge the new boundary blocks; complementation gives the other transition. Each resulting word is balanced. When k=0 the two blocks switch forever. The count of equal cyclic edges is 2(a−1), strictly increasing in the transient, including in comparison with the steady count at the terminal time; no earlier equality with the second iterate is possible. The complemented cycle has degree N−3, vertex transitivity from shifts, and a common neighbor for each missing edge, so its diameter is two.",
+      "residual_risks": [
+        "Recorded finite diagnostics are corroboration, not a general proof. The even assertion does not determine the maximum over even-order initial configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symmetric-threshold periodicity (as cited) limits eventual periods to one or two, not the exact entrance time. The original inspected Fukś paper identifies Rule 232 with three-site majority and uses it in a density-classification protocol. The other frozen comparisons concern random and unimodular settings, not this worst-case preparation."
+        ],
+        "reasoning": "A general eventual period bound allows both the sharp odd two-step classification and even long transients, without implying either quantitative statement. Random-graph typicality does not constrain every initial configuration of the specified deterministic dense graph family.",
+        "searches": [
+          "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1 (retrieval attempt)",
+          "arXiv:comp-gas/9703001v1 pp. 1, 3",
+          "Frozen RESULT.md lines 65–73 for scopes of cited threshold and random-graph work"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ea6170529cae, d0c0e063c265 and b91425eb9231 (last synopsis only); arXiv:comp-gas/9703001v1; frozen RESULT.md prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target's even time equals floor((2m−3)/2) by the prior local law under the invariant embedding. The exact odd count comes from the global K=m layer identity K'=m+1−a−b and its equality case, absent from the earlier local law."
+        ],
+        "reasoning": "Credit the known local time formula independently of whether it was externally published. The combined theorem is not a new estimate of that formula; the same-host opposite-parity classification and valid realization in the dense graph are distinct.",
+        "searches": [
+          "Resultary ea6170529cae RESULT.md finding and assumptions, offset 0; d0c0e063c265 offsets 198, 1841",
+          "Frozen RESULT.md lines 39–59 and 65–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ea6170529cae gives the local first fixed time floor(q/2) for a non-checkerboard, with q the longest run of domain-wall edges; d0c0e063c265 also supplies a longest-alternating-edge-run entry law. For the even witness q=2m−3. Global bit complementation C commutes with centered majority M. Anti-reflection balance is invariant under M and C, hence the complement graph rule satisfies F^t=C^t M^t on these words and the two-step recurrence condition is identical under this transformation."
+        ],
+        "reasoning": "This gives an actual corollary for the even witness's time, not just a verbal similarity. The equivalence acts on an invariant balanced even sector; there is no analogous exact half-occupation odd sector, and the odd rule depends on global weight. The cyclic law does not supply the odd census.",
+        "searches": [
+          "Resultary cyclic three-site majority/Rule 232 and longest-alternating-run exact laws",
+          "arXiv:comp-gas/9703001v1 pp. 1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier local laws cover the even witness delay via the reduction. The separate same-date b91425eb9231 catalogue synopsis concerns K_2∨C_n, a join with two hubs, not the cycle complement; its record text was not obtained."
+        ],
+        "reasoning": "The inspected original Rule 232 claims apply to local cyclic adjacency, not to the odd almost-complete graph. The join has a different graph structure; the synopsis alone is not whole-document noncoverage evidence. No odd fixed-count table was verified in the bounded comparison.",
+        "searches": [
+          "Resultary exact fixed counts, cyclic-majority entry times, and parity-dichotomy lookups",
+          "Resultary ea6170529cae and d0c0e063c265 original findings",
+          "Resultary b91425eb9231 catalogue synopsis; RESULT.md access attempt"
+        ]
+      },
+      "rationale": "The even witness's local transient time is covered by the earlier exact cyclic-majority time law once the balanced cycle-complement embedding is made; the local shrinking mechanism is not independently new. General two-period behavior is also known. The supported distinct contribution is the odd cycle-complement all-state fixed-point census and sharp two-update result, together with the global-to-local embedding establishing the contrast in one dense deterministic graph family.",
+      "residual_risks": [
+        "External publication history of the exact local time law and unexamined odd complement-cycle work remain open. Goles–Olivos full text was unavailable; no exhaustive priority claim follows from the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact implication for even witness delay after reduction, not the odd graph-complement theorem",
+          "evidence": [
+            "Rule 232 reaches a fixed word in floor(q/2) for a non-checkerboard, where q is the maximal consecutive run of disagreement edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae",
+          "material_read": "RESULT.md finding and assumptions, offset 0",
+          "method": "Local mirror original record bounded reading",
+          "title": "Exact stabilization-time distribution for the cyclic three-site majority rule",
+          "trigger": "Exact possible coverage of the even witness by an equivalent local update"
+        },
+        {
+          "assessment": "Related longest alternating run law for the local system",
+          "evidence": [
+            "First periodic entry is expressed via longest alternating-edge runs under the cyclic local rule."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265",
+          "material_read": "RESULT.md offsets 198 and 1841",
+          "method": "Local mirror original record bounded reading",
+          "title": "Exact first periodic entry law and Poisson extremes for majority",
+          "trigger": "Possible stronger transient law for cyclic ordinary majority"
+        },
+        {
+          "assessment": "Different graph in synopsis; body not adjudicated",
+          "evidence": [
+            "The synopsis specifies K_2∨C_n, not the complement of C_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-two-hub-parity-onset-and-exact-period-two-majority-census-on-joined-cycles--b91425eb9231",
+          "material_read": "Catalogue synopsis only; mirrored RESULT.md unavailable",
+          "method": "Local catalogue and bounded local-mirror retrieval attempt",
+          "title": "A two-hub parity onset and exact period-two majority census on joined cycles",
+          "trigger": "Same-date majority, parity and exact census on a cycle-derived graph"
+        },
+        {
+          "assessment": "Local-majority context, not a matching graph-complement classification in those passages",
+          "evidence": [
+            "Uses Rule 232 as the three-site majority update in a two-rule density-classification protocol."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9703001v1",
+          "material_read": "PDF pp. 1 and 3",
+          "method": "Original OA PDF bounded reading",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Published Rule 232 and finite ring behavior"
+        },
+        {
+          "assessment": "Established period-one-or-two background credited; no whole-document comparison claimed",
+          "evidence": [
+            "The cited eventual period restriction does not by itself give transients or an odd fixed-point count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Original text not obtained; theorem as characterized in frozen RESULT.md line 67",
+          "method": "DOI and publisher retrieval attempts, including a 403",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General period restriction may cover part of the dynamical conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35, 39–59, 65–73; exact earlier local laws scoped above"
+      ],
+      "rationale": "The exact odd all-state census on a natural vertex-transitive graph complements a constructed linear transient on its even counterpart. This is useful for understanding deterministic worst-case stabilization on almost-complete diameter-two graphs: high degree and vertex transitivity do not give an order-independent bound, even though one parity has a sharp constant bound and no nontrivial two-cycle. The value is the parity comparison and realization, not a rediscovery of one-dimensional local erosion.",
+      "residual_risks": [
+        "No even global upper bound or stochastic conclusion is inferred; the graphs are a specific family, not a generic dense-graph model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

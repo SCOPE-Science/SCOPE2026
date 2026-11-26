@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-triangle Fourier integration yields the exact axial coefficient and a genuinely controlled remainder by Riemann--Lebesgue, not a finite-data extrapolation. The explicit Laplace transform at all indices follows from a product-to-sum identity and exact endpoint integrations. The sign threshold is strict and includes zero-coefficient boundaries. A standalone standard-library script checks 24 independent numerical integrals, the stated even/odd and mixed sign behavior, and two finite negative quadratic forms. Negative Fourier coefficients imply finite counterexamples by compact-group Bochner theory.
+## correctness
 
-**Originality — PASS under bounded source review.** The principal same-space comparison is Guella--Menegatto--Peron (2015), which characterizes positive kernels on products of spheres through coefficient nonnegativity; that characterization alone does not calculate or classify the supremum-distance Laplace coefficients. Gneiting (2011) covers individual spheres, while Feragen--Lauze--Hauberg (2014) supplies an all-scales negative-type equivalence rather than every-fixed-scale failure. Their separate 2015 strict-positivity theorem on a product of circles presupposes positivity and likewise does not imply this negative spectrum. A more recent flat-torus negative-type analysis concerns a different Euclidean-quotient metric. Searches and inspected source material did not identify the exact Q(a) cutoff or the antipodal derivative parity limit. An unindexed equivalent formulation remains a concrete risk, and novelty cannot be independently certified by these checks.
+PASS
 
-**Mathematical value — PASS.** The result isolates a mechanism by which a natural two-factor covariance construction becomes invalid despite positive definiteness both on the unwrapped plane and on each factor. The exact threshold describes *all* offending Fourier modes at each damping parameter. The full C² seam theorem provides a reusable analytic obstruction, not merely a particular negative numerical example. The first-bad-frequency asymptotic also has direct value for distinguishing finite-grid diagnostic reliability from genuine positive definiteness.
+Under normalized Haar measure the first-quadrant axial marginal is [t f(t)+∫_t^π f(s)ds]/π. Its derivative is t f′(t)/π and vanishes at zero; two integrations by parts followed by Riemann–Lebesgue give the two signed antipodal limits with the factor 1/π. Independently, write F_f=f(π)−∫ f′(r)1_{[-r,r]²}dr. For n≠0 the normalized box factors are sin(nr)/(πn), and for n=0 the factor is r/π. For the exponential, integrating the product by cosine subtraction gives the mixed formula with B_{n−m}^{−1}−B_{n+m}^{−1}>0 for positive n,m, even when n=m. The constant is a positive integral; direct integration of r e^(−ar)sin(nr) gives the axial formula. Odd terms are positive, and for even n the sign of 2a(1−e^(−πa))−π e^(−πa)(a²+n²) gives the exact threshold including equality. Q(a)>a², so the first strictly negative even frequency is the stated strict rounding, asymptotic to √(2a/π)e^(πa/2). Compact-group Fourier positivity rules out positive definiteness for every a>0. The one-circle transform has the positive coefficients given; the Euclidean sup kernel is the product of two positive 1D Laplace pullbacks. An independent midpoint integration of the layer formula at a=1 gives approximately −0.000138259 at (4,0), and direct real Gram contractions give −7.740924236 and −85.99081613 on the 16 and 32 grids. These computations corroborate the proof, not certify the infinite statements; the frozen checker was inspected, not run.
 
-**Limitations.** The general theorem requires two continuous scalar derivatives and nonzero derivative at the antipodal distance, and the exact spectral calculation covers two wrapped coordinates only. Literature coverage is limited. Finite computations are corroborative; no external scientific validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the supremum-endpoint theorem and especially the exact all-frequency sign cutoff at every damping, not the general Fourier/antipodal method. The strongest earlier record proves the closely related finite-p antipodal-tail obstruction, including the identical one-circle comparison transform. The actual mirror text explicitly assumes finite p. Neither that text nor the primary general-purpose criteria give the complete endpoint sign spectrum.
+
+## value
+
+PASS
+
+The supremum product of intrinsic circle distances is a natural compact covariance input, and its behavior contrasts with both the one-circle and Euclidean-supremum cases. Identifying that every finite damping fails only on even axes above a precise threshold explains why a low-frequency numerical test can misleadingly report positivity, particularly when the first negative mode grows exponentially with damping. The exact cutoff is independently useful beyond a negative-type obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

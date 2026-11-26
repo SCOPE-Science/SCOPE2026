@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:47:11.028000Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent sieve/order computation: replay at /workspace/evidence/2/independent_check.py and scientific output at /workspace/evidence/2/independent_check.txt"
+      ],
+      "rationale": "For odd q the cyclic group of order 2q has primitive roots exactly the quadratic nonresidues other than −1. Writing a=dt, fix sign ε=−χ(d) and exclude up to five normalized starts containing −d⁻¹. The weighted sign count has empty contribution p, zero singleton terms and pair contribution −10: each pair sum becomes the sum of χ over the image of (t+i)/(t+j), omitting 1. The distinct-root higher subsets obey the quadratic Weil bound (r−1)√p, with total coefficient 39. Each of five zero-shift starts has weight at most 1/2, so the actual count is at least (p−90−39√p)/32. At p=2000 the strict margin p−250>39√p follows by squaring; the margin is increasing thereafter. Thus both signs have more than five starts in the analytic range. In the complementary finite range a separate sieve and exact multiplicative-order enumeration checked all 37 safe primes, all nonzero steps and all starts, including p=5. The exact exceptions are 5,7,11,23,47,59,83. At 59 the failing steps are 2,19,24,25,26,33,34,35,40,57; at 83 they are 3,20,40,43,63,80. For p=83 and d=3, the only five nonresidue starts 52,53,54 are all among 51–55, the starts forcing one term equal to −1. The two ranges cover every safe prime with no gap.",
+      "residual_risks": [
+        "The enumeration is an exact finite computation, not a formal proof-assistant certificate. Only the character bound proves the infinite tail.",
+        "No conclusion is asserted for arbitrary prime moduli, step zero, or lengths above five."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carella Thm. 1.1 treats asymptotic consecutive primitive-root counts. Jarso–Trudgian Thm. 1.1 is for four consecutive primitive elements. Lemos–Neumann–Ribas Thm. 1.1 and Prop. 4.7 give progression results under extension degree n≥2, with size conditions in the longer cases.",
+          "The complete five-word universality statement rules on extension fields only, not prime fields, and concerns characters, not deletion of −1 from the primitive set."
+        ],
+        "reasoning": "None of these hypotheses and conclusions supplies the exact five-term assertion uniformly over nonzero d in safe-prime fields.",
+        "searches": [
+          "Carella arXiv:1910.02308",
+          "Jarso–Trudgian arXiv:2109.11691",
+          "Lemos–Neumann–Ribas arXiv:2208.02876",
+          "Resultary complete five-word universality in nonprime fields"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary four-term safe-prime and five-word nonprime-field findings",
+        "arXiv:2607.17418v1; arXiv:1910.02308; arXiv:2109.11691; arXiv:2208.02876",
+        "OEIS A268397",
+        "Wang–Fang DOI 10.1155/2023/5253261 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At 83 the three nonresidue windows start at 52,53,54 and have common points, whereas at 107 the three nonresidue windows start at 70,93,94 and have empty common intersection. Likewise both primes have three residue windows, with a nonempty intersection at 83 but none at 107. Thus identical constant-sign counts have different answers to the primitive-root question.",
+          "The closest all-square/all-nonsquare paper, Wang–Fang, could not be read in full. Its reported sign-pattern subject is relevant but not evidence that it handles the forbidden-point condition."
+        ],
+        "reasoning": "A count larger than five certainly suffices, but the exact threshold sits below that criterion. The missing intersection/deletion condition and its finite certification are material, not a mere substitution of p into a stronger sign-count theorem.",
+        "searches": [
+          "Buchaev–Tsfasman arXiv:2607.17418v1 Theorem 2",
+          "Published four-term safe-prime theorem and table",
+          "Wang–Fang DOI 10.1155/2023/5253261"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing d converts primitive-root membership to a constant quadratic sign with one forbidden value −d⁻¹. Universality for a sign requires that no point lie in every one of its five-element windows, taking no windows as failure.",
+          "The closest indexed four-primitive-root progression uses the same quantifiers but only four terms; the indexed Sun four-element configuration uses a,b,a+b,ab(a+b), not a progression."
+        ],
+        "reasoning": "The sign-window problem without deletion is a weaker formulation, and admitting four primitive terms never guarantees a fifth at the prescribed step.",
+        "searches": [
+          "Resultary: prescribed-step primitive roots in safe-prime fields; four-primitive-root and Sun configuration results",
+          "Buchaev–Tsfasman arXiv:2607.17418v1 length-five sign words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A268397 gives least primes admitting step-one runs; its length-six and length-seven entries both equal 83. The four-term table gives minimum four-term counts 1 at 83 and 4 at 107. The five-sign theorem supplies exact sign-word occurrence counts, not all-step primitive-root counts."
+        ],
+        "reasoning": "Run existence at one step does not contradict the six failing steps at 83. Neither a four-term count table nor a five-sign count table includes the required locations relative to −d⁻¹.",
+        "searches": [
+          "OEIS A268397",
+          "Buchaev–Tsfasman Theorem 2 and Tables 3–4",
+          "Resultary four-term universal-step safe-prime table"
+        ]
+      },
+      "rationale": "Credit exact five-sign counts, the earlier four-term universal-step theorem, and classical character-sum bounds. The supported distinct assertion is the sharp safe-prime threshold for five primitive roots at every nonzero step. The prime-field five-sign counts alone do not decide survival of the exceptional deletion at the sharp boundary.",
+      "residual_risks": [
+        "An older treatment computing sign-run locations or specifically treating five-term all-step safe-prime primitive progressions could overlap. The inaccessible Wang–Fang paper cannot by itself establish or exclude such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct four-term predecessor only",
+          "evidence": [
+            "The stated threshold is p≥47 for four terms. The table minima at 83 and 107 are 1 and 4 for length four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-primitive-root-progressions-at-every-step-in-safe-prime-fie--4b3a1ebd1831",
+          "material_read": "Published Finding, quartic count and safe-prime table",
+          "method": "Local published-file mirror",
+          "title": "Four-primitive-root progressions at every step in safe-prime fields",
+          "trigger": "Same field, all steps, sharp threshold and finite table"
+        },
+        {
+          "assessment": "Material overlap for sign counts but not the primitive-root deletion and threshold",
+          "evidence": [
+            "The formulas count all length-five sign words, including RRRRR and NNNNN, using curve traces and correction terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17418v1",
+          "material_read": "Definitions p. 1, Theorem 2 and Tables 3–4 at pp. 10–12",
+          "method": "Primary OA PDF",
+          "title": "Quadratic residue patterns of length 4 and 5",
+          "trigger": "Exact prime-field five-sign pattern counts"
+        },
+        {
+          "assessment": "Explicitly excludes prime fields",
+          "evidence": [
+            "Works over fields of order p^e with e≥2 and p≥5 and classifies existence of all 32 sign words."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-five-word-quadratic-character-universality-in-nonprime--50a43fac6cf7",
+          "material_read": "Published Finding and field hypotheses",
+          "method": "Local published-file mirror",
+          "title": "Complete five-word quadratic-character universality in nonprime finite fields",
+          "trigger": "Exact classification of all five-sign words"
+        },
+        {
+          "assessment": "Different configuration",
+          "evidence": [
+            "The four elements are a,b,a+b,ab(a+b)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-safe-prime-resolution-of-sun-s-four-primitive-root-configu--66437931a714",
+          "material_read": "Published configuration in Finding",
+          "method": "Local published-file mirror",
+          "title": "Sharp safe-prime resolution of Sun’s four-primitive-root configuration",
+          "trigger": "Same safe-prime and primitive-root vocabulary"
+        },
+        {
+          "assessment": "No sharp safe-prime all-step threshold in that theorem",
+          "evidence": [
+            "Treats asymptotic counts of consecutive primitive roots at sufficiently large primes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02308",
+          "material_read": "§1.1, Theorem 1.1, p. 3, OA offset 10071",
+          "method": "Primary OA PDF",
+          "title": "Configurations Of Consecutive Primitive Roots",
+          "trigger": "Asymptotic prime-field primitive-root configurations"
+        },
+        {
+          "assessment": "Length-four theorem and different length-five conjecture",
+          "evidence": [
+            "Theorem 1.1 gives four consecutive primitive elements; §4 discusses difficulty of obtaining five in general."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.11691",
+          "material_read": "Theorem 1.1 p. 2 and §4 p. 12, OA offsets 3600 and 29600",
+          "method": "Primary OA PDF",
+          "title": "Four consecutive primitive elements in a finite field",
+          "trigger": "Nearest consecutive-element theorem with discussion of length five"
+        },
+        {
+          "assessment": "Nontrivial extension-field hypotheses, not the current prime fields",
+          "evidence": [
+            "Longer progression results, including m≥5 with a normal element, use degree n≥2 and size conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.02876",
+          "material_read": "Theorem 1.1 p. 2, Proposition 4.7 p. 16",
+          "method": "Primary OA PDF",
+          "title": "On arithmetic progressions in finite fields",
+          "trigger": "Prescribed-step primitive progressions"
+        },
+        {
+          "assessment": "Step one only",
+          "evidence": [
+            "Both lengths six and seven first occur at 83, which has no implication that d=3 works there."
+          ],
+          "identifier_or_url": "https://oeis.org/A268397",
+          "material_read": "Definition and listed values, offset 0",
+          "method": "Public database entry",
+          "title": "Smallest prime with at least a specified number of consecutive primitive roots",
+          "trigger": "Exact database of primitive-root runs"
+        },
+        {
+          "assessment": "Residual overlap at sign-pattern level; precise reach unresolved",
+          "evidence": [
+            "The cited description concerns quadratic-residue sequences; it was not possible to verify the exact theorem or table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Bibliographic citation and topical description in the inspected five-word Resultary finding; no original theorem text retrieved",
+          "method": "Lawful OA DOI, Wiley and Hindawi attempts returned HTTP 403",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Reported prime-field all-square/all-nonsquare runs of length five"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp threshold and p=83 obstruction",
+        "Independent finite replay",
+        "Four-term universal-step predecessor and OEIS step-one comparison"
+      ],
+      "rationale": "This is the exact next progression length for a natural universal-step problem. The safe-prime structure supports a complete classification rather than an isolated search success. The obstruction at 83 distinguishes mere existence of longer runs at step one from universality, and shows why the exceptional nonresidue −1 actually changes the answer even when the basic sign runs exist.",
+      "residual_risks": [
+        "No extension to unrestricted primes or to a subsequent progression length follows from the certified cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

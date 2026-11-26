@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines the complete stochastic oracle, exact update, normalized state, and sharp Schur stability interval. An explicit six-entry symmetric Lyapunov covariance provides a substitution certificate for the stationary variance; unit-root excitation and observability establish failure outside the interval. The strict log-convexity inequality and exact endpoint derivative signs prove existence, uniqueness, and the stated penalty bracket. The standalone checker corroborates the covariance on independent rational instances; numerical observations are not substituted for proof.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+The repaired claim retains the scalar stochastic theorem, corrects the source comparison (the source uses run-constant, horizon-dependent parameters, not an iteration-indexed diminishing schedule), and credits the already-known deterministic boundary. Reconstructed the affine scaled matrix and Schur conditions: its quadratic factor has q(1)=t and q(−1)=4−3t with constant term 1−t; the remaining eigenvalue is 1−α. At and above 4/3, exactly one simple real eigenvalue is ≤−1 and the others have modulus less than one. Independent noise contributes a sum of squared first-coordinate impulse coefficients; the stated controllability and observability determinants t and −α make the dominant coefficient nonzero, so the risk actually diverges, including at equality. For the variance, the normalized momentum variance is α/(2−α), and the two cross terms come from a linear system with determinant α²+(1−α²)t. Stationarity of λ/η, whose increment is t times the next primal iterate, gives C₁₂=tC₁₁/2. Combining that with the next primal variance yields the stated risk, with physical scale σ²/η². Independently checked the strict log second derivative by comparing 3/(4−3t) with (1−α)/(2−α−(1−α)t), and the signs at 2/3 and 1. The logarithmic derivative extends continuously in α on the closed bracket; its only zeros at the endpoint parameters are the stated limits. The optimizer holds at fixed η and α while varying β/η. The repaired auxiliary files correct garbled parameter notation, checker filename, and the description of covariance checks; the checker was inspected, not executed.
 
-The 2026 initiating paper develops MALM and finite-horizon stationarity bounds, not a stationary constant-parameter covariance/unique penalty classification. Available research records on STORM, linearized ADMM and deterministic proximal augmented Lagrangian use different recurrences. Exact statements and implications, not title similarity, are compared. An unindexed specialized stochastic primal-dual covariance calculation could still subsume the claim; this residual risk is acknowledged, and novelty is not represented as independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An explicit constraint-feasibility noise floor, a sharp unsafe boundary, and a unique operationally interpretable interior penalty optimum jointly address a motivated design issue: increasing constraint penalty beyond the optimum can worsen long-run stochastic feasibility instead of improving it. The exact scalar benchmark helps test claims about fixed-parameter stochastic primal-dual tuning and is not a merely arbitrary parameter slice.
+Pass for the repaired forced scalar feasibility-risk and penalty-optimum theorem. The sharp deterministic 4/3 block threshold, including the eigenvalue −1 at equality, has exact equivalent prior coverage in scalar bilinear Chambolle–Pock and is no longer treated as an independent contribution. The forced stationary risk and its optimizer are not supplied by the strongest inspected deterministic or stochastic literature. Neither the MALM recurrence nor discrete Lyapunov methodology is claimed new.
 
-## Scope and prior literature
+## value
 
-Qiu–Maithripala–Lin, arXiv:2604.13272v1, sections describing update and convergence theorem (first public 2026-04-14). Closest distinct research records: `fd5004e04a73` (STORM); `9ae77a2e1a30` (linearized ADMM); `b8117b8b15ed` (deterministic proximal ALM). General stochastic primal-dual literature may contain a closely related scalar specialization; broad novelty has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the smallest equality-constrained model in which feasibility, a dual state and filtered gradient noise all interact. The exact stationary calculation answers how to choose the penalty against persistent oracle noise, including a strictly interior optimizer with different limits at slow refresh and near-unfiltered noise. It also separates a noiseless spectral threshold from actual divergence of forced feasibility variance. The value is in that tuning distinction and explicit risk, not in renaming the known 4/3 boundary or in extrapolating a scalar optimizer to general MALM.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

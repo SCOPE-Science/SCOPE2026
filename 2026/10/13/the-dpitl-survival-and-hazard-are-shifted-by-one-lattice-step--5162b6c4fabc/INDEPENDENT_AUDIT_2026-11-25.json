@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:45:26.523417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–197,199–355",
+        "VERIFICATION.md and verify_dpitl_survival_shift.py (not executed)",
+        "Published DOI 10.3934/math.2026049, pp. 1147–1150, Eqs. (2)–(4), (6)–(9) and Figure 2 description; independent zeta evaluation and interior PGF check"
+      ],
+      "rationale": "The official article confirms the adjacent-difference PMF and correct CDF in Eqs. (2)–(3), then labels the explicit S_c(w+1) as inclusive in Eq. (4) and divides the PMF by it. Eq. (4) also prints a spurious 1−F(w+1) equality; correctly the inclusive tail is 1−F(w−1) and the displayed numerical function is 1−F(w). Telescoping gives S_c(w) for the inclusive tail and the hazard odds identity follows by division, with h(0)=37/64 and published odds 37/27 at kappa=3. Summing the adjacent differences with weights t^w gives the inclusive-tail PGF on |t|<1, with G(1)=1 by continuity on [0,1]. The explicit series in Eq. (6) instead uses the strict tail in the inclusive-tail identity; its series corresponds to (W−1)_+, not W. At (3,1), independently summing direct and corrected series at t=.7 gives 0.8163776768708304 versus 0.9184859669583292 for the shifted series (250 terms). From S_c(w)=(2/(w+1)−1/(w+1)^2)^3, the exact mean equals 8*zeta(3)−12*zeta(4)+6*zeta(5)−zeta(6)−1 = 0.8327998896188664…, whereas the verified Eq. (9) omits 27/64. These are checks of the analytic formulas; the paper attributes Figure 2 to Eq. (4), but the plotting implementation was not verified.",
+      "residual_risks": [
+        "The exact mean comparison applies when the mean exists (kappa*eta>1). Formula attribution does not independently certify which implementation generated the plot."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No corrigendum surfaced in the single focused lookup; the official article's §2 and §§3.2–3.3 still contain the shifts just described.",
+          "270283bc6e7c gives tail/PMF asymptotics and the moment threshold r<kappa*eta, with consequences for summary rows and MGF existence."
+        ],
+        "reasoning": "Replacing a tail by an adjacent one preserves its asymptotic power and hence the moment threshold. Proving the threshold does not by itself correct a finite-point hazard or a finite mean.",
+        "searches": [
+          "10.3934/math.2026049 corrigendum/erratum",
+          "Resultary same-model moment and tail work 270283bc6e7c"
+        ]
+      },
+      "checked_sources": [
+        "10.3934/math.2026049 pp. 1147–1150",
+        "Resultary 270283bc6e7c",
+        "10.32604/cmc.2021.014620 p. 1",
+        "10.28924/2291-8639-19-2021-695 (not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The official Eq. (3) distinguishes the strict tail; Eq. (4) relabels the displayed tail and Eq. (6) uses it in the PGF. Eq. (9) prints precisely the shifted mean."
+        ],
+        "reasoning": "The abstract identity is not original, but it was not correctly instantiated by the source. The additional claim is that three source formulas quantify a different event or distribution; mere prior knowledge of a moment threshold does not establish that diagnosis.",
+        "searches": [
+          "Hassan et al. official Eqs. (2)–(4), (6)–(9)",
+          "Comparison with the moment phase diagram RESULT.md 270283bc6e7c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the model level the wrong PGF is equivalent to that of (W−1)_+, and the printed hazard is equivalent to odds.",
+          "The inspected continuous PITL passage treats a continuous survival without a lattice choice; Eldeeb et al. on the earlier discrete analog was not recovered in full text."
+        ],
+        "reasoning": "Odds and survival identities are familiar in general; a source-specific correction must identify that the adjacent printed formulas use the wrong event for this PMF and propagate that mismatch.",
+        "searches": [
+          "DPITL one-step survival shift, hazard odds, Eq. (9) mean (Resultary)",
+          "Early continuous PITL and discrete inverted Topp–Leone literature, DOI 10.32604/cmc.2021.014620 and 10.28924/2291-8639-19-2021-695"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-model record was read at offsets 0–1742 and does not state the odds re-interpretation or the exact shift and finite-mean gap. No direct match was returned by the bounded local search."
+        ],
+        "reasoning": "A correction of divergence in a table is distinct from correcting the analytic expressions, which also affects parameter points where both series converge.",
+        "searches": [
+          "Local Resultary exact frozen title, DPITL lattice indexing and hazard, Eq. (9) shift",
+          "Resultary 270283bc6e7c, local RESULT.md Finding"
+        ]
+      },
+      "rationale": "The original component is the diagnosis of a particular published law's internally inconsistent survival label and consequent hazard, PGF and mean, including a quantifiable mean error and the odds interpretation. The inclusive-tail conventions, summation by parts, and tail-sum identity themselves are standard.",
+      "residual_risks": [
+        "An unindexed or later correction and discussions in the inaccessible analogue cannot be ruled out by the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly confirms model and the source-specific inconsistencies",
+          "evidence": "Eqs. (2)–(4) and (6)–(9), including the shifted argument in the explicit hazard denominator and moment series",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-049.pdf; DOI 10.3934/math.2026049",
+          "material_read": "§2 and Figure 2 surrounding text, §3.2, §3.3 (printed pp. 1147–1150; text offsets 8075–14674 and 16020–18290)",
+          "method": "Official OA PDF, located and read bounded equation passages",
+          "title": "An innovative discrete distribution for modeling genotoxicity data: Applications in pharmacology and environmental health",
+          "trigger": "Exact primary printed equations and figure attribution"
+        },
+        {
+          "assessment": "Different mathematical correction",
+          "evidence": "Power-law tail with moment existence iff r<kappa*eta, not inclusive/strict label, odds or finite-mean formula",
+          "identifier_or_url": "Resultary 270283bc6e7c",
+          "material_read": "Finding offsets 0–1742",
+          "method": "Local Resultary and local mirror",
+          "title": "Sharp moment phase diagram for DPITL invalidates four published summary rows",
+          "trigger": "Strongest same-model indexed overlap"
+        },
+        {
+          "assessment": "Continuous source not a DPITL indexing correction in the inspected passage; discrete analogue full-text overlap unresolved",
+          "evidence": "Abushal abstract describes continuous PITL; no usable Eldeeb full-text evidence",
+          "identifier_or_url": "10.32604/cmc.2021.014620; 10.28924/2291-8639-19-2021-695",
+          "material_read": "Abushal et al. abstract, PDF p. 1; no Eldeeb et al. full-text passages retrieved",
+          "method": "Lawful OA inspection and DOI recovery attempt",
+          "title": "Power Inverted Topp–Leone Distribution in Acceptance Sampling Plans; A discrete analog of inverted Topp–Leone distribution",
+          "trigger": "Possible parent-model and earlier discrete-analog coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:55–197 and 429–434",
+        "10.3934/math.2026049, Eqs. (4), (6), (9) and §4 method-of-moments discussion"
+      ],
+      "rationale": "This is not just a change of survival naming. It changes the probability interpretation and gives a value greater than one if the published odds are used as a probability; it also changes the represented distribution and nearly halves the example mean. The source uses the printed moments in its method-of-moments discussion, so the correction matters even in a regime with finite moments.",
+      "residual_risks": [
+        "PMF-based fitting is not invalidated just by this error; not every figure or simulation has been re-audited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

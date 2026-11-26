@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-positive and all-negative traces prove the necessary two induced-edge inequalities; a three-case extension using an edge wholly outside the support proves sufficiency for every possible labeling under degree at most two. The two four-state weighted automata are explicit and yield the displayed formal generating function. A boundary-count identity proves the all-order VC upper bound, explicit indicators attain it, and a direct binomial gap count proves stable coefficients. The diamond graph disproves a blanket extension to degree three. A standalone exhaustive checker reconstructed the claims on 304 distinct degree-at-most-two graph instances and path lengths through twelve. Remaining uncertainty concerns no unchecked nonstandard lemma in the stated domain, but these finite checks do not certify generalizations.
+## correctness
 
-**Originality — PASS within available evidence.** Full relevant result texts were compared by mathematical implication: the prior no-monochromatic-triple language is neither the exact-one-`11` language nor a general induced-edge quota theorem; fixed switch counts and cyclic edge-query induced concepts have different domains and conclusions. The primary binary-string VC reference studies translates of a fixed sequence, and the automata VC reference treats automata as hypotheses, not words as hypotheses. Searches under one-induced-edge, exact-one-adjacency, induced-edge count, and forbidden-pattern aliases found no result covering the degree-two support theorem and its exact path polynomial. Historical priority is not certified and equivalent unindexed work is a residual risk.
+PASS
 
-**Value — PASS.** A natural one-edge microcanonical vertex-set class on all disjoint unions of paths and cycles admits a universal local complement-edge shattering law, with a sharp first degree obstruction. The precise path counting series and coefficient stabilization identify how existential completions exploit one global local-defect budget; they are not merely a restatement of a trivial static dimension bound. The result supplies a reusable model for exact graph-edge quota concepts and a meaningful boundary for higher-degree attempts.
+The all-positive and all-negative traces force the two edge counts. For any prescribed independent positive trace, take an edge in the nonquery complement: either endpoint with a trace neighbor has exactly one such neighbor (degree at most two), so add only that endpoint; otherwise add both endpoints. A positive trace already inducing an edge needs no completion. This also handles edgeless and empty graphs, and the diamond gives a valid failure above degree two. On paths the conditions are at most one 11 and at least one 00. Independently summing over runs of ones gives A=(1+tz)/(1-t-t²z)+(tz)²/(1-t-t²z)² and B=(1+t)(1+tz)/(1-t²z)+(1+t)²(tz)²/(1-t²z)², exactly the submitted rational series after combining terms. Counting adjacent pair types gives the stated upper VC bound; 1100 followed by alternating 10 pairs, with a final 1 for odd length, attains it from n=4 onwards. The small path cases and the stable coefficient formula follow from the available zero gaps. Independent gap-binomial counts and bit-word enumeration agree through n=12.
 
-**Limitations and closest literature.** Historical priority is qualified, not guaranteed. No assertion about all higher-degree graphs, other induced-edge quotas or adaptive dimension is included. Related inspected sources include Johnson (2021), the no-monochromatic-triple shattering theorem, the exact-switch shattering matroid theorem, and cyclic edge-query induced concepts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest compared path results concern fixed-cardinality independent sets; the closest induced-edge shattering result uses edge rather than vertex queries. None of the inspected statements supplies the exact one-edge trace completion or the resulting full support polynomial.
+
+## value
+
+PASS
+
+The degree hypothesis makes two extremal traces sufficient for all traces, a nontrivial simplification across paths, cycles and disjoint unions. The degree-three witness locates the boundary, and the path calculation determines all support sizes rather than just the VC dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

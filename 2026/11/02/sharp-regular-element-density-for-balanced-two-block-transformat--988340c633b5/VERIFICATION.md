@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproduction and limits
 
-Run `python3 verify_regular_bipartition.py` with a standard Python 3 interpreter. No third-party modules, external data, randomness, or network access are needed. In the direct tests for \(m=1,2,3\), the script enumerates all four characters and all pairs of restrictions, then checks \(fgf=f\) by actual composition over all candidate inner inverses. The results are \(4/4\), \(60/64\), and \(2400/2916\). This direct method is independent of the subsequent Stirling-number calculation. The script also checks exact formulas through \(m=12\), computes the saddle numerically by bisection, and checks the asymptotic ratio at \(m=40,80\), printing `VERIFY_OK` on success.
+Run `python3 verify_regular_bipartition.py` with a standard Python 3 interpreter. It exhausts all candidate maps and allowed inner inverses for sizes \(m=1,2,3\), checking the exact counts \(4/4,60/64,2400/2916\). The separate Stirling recurrence evaluates the known count without floating-point subtraction of one half. Bisection evaluates the saddle numerically and reports the prefactor \(C=1/\sqrt{xy-(y-1)^2}\) for the regular-element proportion itself. Ratios of the finite correction to \(C\rho^m\) are checked at \(m=40,80\). A successful run prints `VERIFY_OK`.
 
-The finite computations do not prove the assertion for all \(m\). The unrestricted proof uses image-set classification, inclusion-exclusion, and a full-lattice two-dimensional local limit argument. The script verifies numerical consistency of the proposed correction, not publication priority or independent scientific validation.
+The computations verify only finite consistency. The sharp limit depends on the analytic occupancy tilt, full-lattice local limit and negligible equal-image contribution proved in `RESULT.md`. The verifier does not establish priority or formal verification.

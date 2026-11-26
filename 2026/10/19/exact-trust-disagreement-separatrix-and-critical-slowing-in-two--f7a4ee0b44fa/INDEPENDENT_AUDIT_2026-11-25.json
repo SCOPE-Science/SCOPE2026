@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:19.202430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–41 and 43–117",
+        "Frozen VERIFICATION.md, lines 19–25; verify.py, lines 9–89, inspected only",
+        "/workspace/review-replays/1.py (independent high-precision scalar time quadrature; at z=0.0001 obtained tz=4.00033100560849 and t²w=4.00039534780729; critical initial trust 0.15223376953165821971663785)"
+      ],
+      "rationale": "For the stated reciprocal two-agent, unit-self-weight and no-rate-multiplier model, the gap obeys d'=-2wφ(d)d/(1+w); the mean is conserved. Dividing the logistic equation by 1−w² gives exactly F'(d)d', so C=artanh(w)−F(d) is constant. Positivity and strict finite-time bounds follow from the multiplicative ODE factors; d=2 is inward-pointing, not an invariant face as the blanket wording in the proof suggests. The decreasing gap has a limit, and the weight has a limit because its derivative changes sign at most once. A positive limiting gap forces w→0; d→0 forces w→1 by logistic comparison. F decreases to its unique minimum 0 at r, increases thereafter, and diverges at zero. For d0>r, C<0 forces stagnation at the unique right-branch root F(d∞)=−C, C=0 forces approach to r from above, and C>0 forces a crossing below r and hence consensus. For d0≤r the tie increases once d<r, so consensus follows. Writing a=−φ'(r)>0 gives F(r+z)=(a/r)z²+O(z³) and z'=−az²+O(z³), so (1/z)'→a; the two critical limits and both logarithmic off-critical rates follow by time averaging. The exponential example also differentiates correctly. The rational-kernel checker comment at line 66 misstates F''(1), which is 1/2, not 1/4; the latter is the quadratic Taylor coefficient and the checked formula and theorem use the correct value.",
+      "residual_risks": [
+        "Finite quadrature corroborates a rational-kernel example only. The proof needs the stated normalization, interior initial tie and transverse crossing for the quoted powers. No larger-network classification or formal certification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2602.03738v1 covers more agents but proves a qualitative gap-or-edge limit; §5 is short time",
+          "2404.09849v1 Eq. (5) is a controlled weight formulation",
+          "2010.00143 uses contact-time impulses and exponential decay"
+        ],
+        "reasoning": "None of the broader statements determines the frozen separatrix or asymptotic coefficients. The control and impulse structures do not transfer this exact autonomous basin theorem.",
+        "searches": [
+          "arXiv:2602.03738v1 Assumption 3, Theorem 3.1, Corollaries 3.2–3.3 and §5",
+          "arXiv:2404.09849v1 Eq. (5)",
+          "arXiv:2010.00143 model description"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.09483v1",
+        "arXiv:2602.03738v1",
+        "arXiv:2404.09849v1",
+        "arXiv:2010.00143 / DOI:10.1103/PhysRevResearch.3.023249",
+        "Resultary entries 45d8b892f869 and 29b665b6a96e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.4 concerns memory weights",
+          "The logistic sign at the initial gap cannot decide whether the trajectory crosses r while w remains positive",
+          "The general clustering result cannot distinguish the three branches for fixed d0>r, or determine r as a critical limiting gap"
+        ],
+        "reasoning": "The two-agent reduction and exact integration of the known vector field prove the result, but neither of the prior conclusion-level statements performs or subsumes that analysis.",
+        "searches": [
+          "arXiv:2305.09483v1 Eqs. (8), (11)–(12), Proposition 3.4",
+          "arXiv:2602.03738v1 Theorem 3.1 and Corollaries 3.2–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 2026/10/26 entry 45d8b892f869 has the same threshold and critical laws for the exponential kernel",
+          "SCOPE 2026/11/02 entry 29b665b6a96e Finding and proof use H=−F, giving the same general-kernel criterion and critical constants",
+          "2305.09483v1 Eq. (12) gives only the edge law and instantaneous sign"
+        ],
+        "reasoning": "The potential-sign convention is immaterial; the later general-kernel statement is mathematically equivalent on the claimed domain. The two later entry dates are reported as such, not treated as proof of lineage or priority. The exact model equation is an antecedent, not the basin theorem.",
+        "searches": [
+          "Resultary: two-agent logistic adaptive opinion separatrix, exact invariant, and critical collapse",
+          "Web: \"2305.09483\" \"2602.03738\" two-agent logistic adaptive opinion dynamics exact invariant separatrix basin critical decay",
+          "arXiv:2305.09483v1 §§3.2, 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest explicit indexed formulas are the later entries 45d8b892f869 and 29b665b6a96e",
+          "The motivating logistic simulations and the follow-up short-time formulas are not exact initial-data tables"
+        ],
+        "reasoning": "No earlier exact phase diagram or threshold table was identified in the inspected material; the targeted empty web result is not negative proof.",
+        "searches": [
+          "Resultary indexed exact threshold, critical coefficients and basin formulas",
+          "2305.09483v1 §§3.2, 3.4",
+          "2602.03738v1 §5"
+        ]
+      },
+      "rationale": "Pass for the exact initial-data basin partition and critical coefficients in the frozen general-kernel model, as of its recorded publication. The closest primary antecedents establish the same model and a qualitative clustering alternative, not the invariant, phase boundary, or rates. There is demonstrably equivalent indexed content in a distinct subsequent general-kernel entry, and substantial special-case coverage in another subsequent entry. Neither supplies evidence of earlier coverage of this frozen record; these comparisons do not establish independent discovery, lineage, or absolute priority.",
+      "residual_risks": [
+        "Equivalent first integrals could be indexed under other planar-ODE terminology. Later entries demonstrate current overlap, not definitive priority or an established relationship between records. The bounded search does not establish absence of earlier publications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent, not the exact phase diagram",
+          "evidence": [
+            "Eqs. (8a–c), (11)–(12)",
+            "Prop. 3.4 is for memory"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.09483",
+          "material_read": "v1 §2 p. 3; §3 p. 6; §3.2 p. 8; logistic discussion and Prop. 3.4 pp. 10–11",
+          "method": "Matched the exact equations, then distinguished the logistic simulation and the memory theorem",
+          "title": "On evolving network models and their influence on opinion formation",
+          "trigger": "The identical normalized opinion and logistic tie laws"
+        },
+        {
+          "assessment": "Qualitative rather than an initial-data classification",
+          "evidence": [
+            "Thm. 3.1 gap-or-tie alternative; §5 Eqs. (7)–(10) concern short time"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.03738",
+          "material_read": "v1 Assumption 3 p. 5, Thm. 3.1 p. 8, Cor. 3.2–3.3 p. 9, §5 pp. 14–18",
+          "method": "Compared theorem conclusions and time horizon of the approximations",
+          "title": "Emergent structures in coupled opinion and network dynamics",
+          "trigger": "Broader full-support convergence theorem"
+        },
+        {
+          "assessment": "The read passage does not give the claimed threshold",
+          "evidence": [
+            "Controlled form u_ij w_ij(1−w_ij)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.09849",
+          "material_read": "v1 p. 3, Eq. (5) and discussion",
+          "method": "Compared the role of the control with autonomous feedback",
+          "title": "Steering opinion dynamics through control of social networks",
+          "trigger": "Nearby controlled logistic weight law"
+        },
+        {
+          "assessment": "Different object, not a ruling on the entire literature",
+          "evidence": [
+            "Instant reinforcement by temporal contacts and decay between contacts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.00143",
+          "material_read": "OA manuscript p. 1 abstract and model description",
+          "method": "Compared tie update mechanisms",
+          "title": "Opinion dynamics on tie-decay networks",
+          "trigger": "Tie-decay alias; compared model definitions"
+        },
+        {
+          "assessment": "Same mathematical result for an exponential subfamily, later entry date",
+          "evidence": [
+            "Exact threshold and t⁻¹, t⁻² laws from equivalent invariant"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-tie-strength-separatrix-and-critical-slowing-in-two-agen--45d8b892f869",
+          "material_read": "Mirrored RESULT.md Finding and proof",
+          "method": "Compared the kernel assumption, invariant and limits",
+          "title": "A sharp tie-strength separatrix and critical slowing in two-agent dynamics",
+          "trigger": "Indexed exact basin and rates"
+        },
+        {
+          "assessment": "Equivalent general-kernel content; later entry date does not demonstrate earlier coverage",
+          "evidence": [
+            "Same basin partition and inverse-time and inverse-square critical coefficients"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-separatrix-and-critical-tie-collapse-law-for-two-agent-ada--29b665b6a96e",
+          "material_read": "Mirrored RESULT.md Finding and proof",
+          "method": "Identified its H with −F and matched the assumptions and limits",
+          "title": "Exact separatrix and critical tie collapse law for two-agent adaptive dynamics",
+          "trigger": "Strongest distinct indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:2305.09483v1 §3.4",
+        "arXiv:2602.03738v1 Thm. 3.1 and §5"
+      ],
+      "rationale": "In the motivating minimal reciprocal network, the instantaneous sign of the tie derivative does not determine whether initially disagreeing agents ever establish consensus. The exact initial-trust criterion, limiting positive gap and anomalous critical rates answer that model question and give a benchmark for simulations and network approximations. This is more than asserting that a separable planar reduction exists; the parameter-uniform limits are the useful result. No value is claimed for a larger-network inference.",
+      "residual_risks": [
+        "Quantitative utility is confined to the exact symmetric normalization and kernel class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

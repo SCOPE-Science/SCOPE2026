@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source equation \(K_f=\xi f(1+f)^{-1}(sI+fL)^{-1}A\) follows from the explicitly given source-model kernels for equal capacities and symmetric star dispersal. A positive inverse-times-adjacency matrix ensures the hub/leaf-constant two-dimensional eigenvalue equals the full Perron root. Symbolic differentiation reduces the derivative sign to \(s(m-r^2)^2-m(m+r^2)(r+1)^2\), and strict monotonicity of the resulting ratio \(S_m(r)\) establishes the claimed global classification. Both boundaries and the \(m=1\) exception are addressed. A Perron-vector Lyapunov inequality closes the capacity equality case, and monotone sub/supersolutions prove positive equilibria above threshold. An exact full-matrix witness and 500 numerical full-matrix comparisons reproduced the formulas. Residual risk: only the stated fast-exploration deterministic model is covered.
+PASS
 
-## Originality — PASS (bounded historical assessment)
+The positive inverse of sI+fL times A is strictly positive. The positive radial eigenvector therefore certifies the full Perron root. In the coordinates (hub, representative leaf), the radial kernel has common diagonal mf and off-diagonals m(s+f), s+mf, times ξf/((1+f)s(s+(m+1)f)), giving the stated formula. The decreasing variable r=sqrt(m(s+f)/(s+mf)) maps positive f onto (1,sqrt(m)); the derivative with respect to r has the sign of s−S_m(r). All three terms of (log S_m)' are positive, so S_m runs from s_c to infinity and equality s=s_c gives strict increase at every finite f. The endpoint limits and m=1 specialization follow directly. Positivity of K makes the derivative of the left-Perron linear functional strictly negative off zero even at equality on the forward-invariant cube. Above threshold, the positive right Perron vector times a small scalar is a strict subsolution; monotone iteration under the all-ones supersolution gives a positive equilibrium. For the witness, r=2 gives f=5 and Λ=1/9. A separate exact bracket check uses the sign of 1/10−Λ(f), equal to the sign of f³−42f²+57f+20: the positive quantity 18f²+74f+40 is compared to 4f sqrt((20+f)(20+16f)), and the difference of squares factors as 4(17f+20) times that cubic. The signs at 1, 7/4, 40, 42 are respectively the signs of 36, −225/64, −900, 2414; bisection matches both stated roots.
 
-The 2026 initiating work supplies the full kernel and general invasion criterion but not an all-star analytic mobility optimization, sharp mortality threshold, or two-root persistence window. The predecessor from 2023 discusses adding mortality but analyzes a baseline with no independent killing; in the latter baseline the new effect cannot occur. An inspected public star-recruitment result instead changes the graph by adding a corridor and measures the damping ratio of an affine adjacency matrix. Published searches and source-level comparisons identified no theorem covering the precise Perron-resolvent specialization; this does not prove uniqueness against unindexed historical literature. A general algebraic statement about resolvent times adjacency could subsume this specialization but was not found; this remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Intermediate mobility can enable a deterministic ecological population even when very slow or very fast exploration cannot, in a controlled model derived from microscopic propagule dynamics. The exact mortality-to-settlement threshold changes as hub degree changes, so it is a structural classification rather than an unmotivated numerical slice. The exact 17-patch construction proves that the abstract turning point can cross the biologically meaningful invasion threshold twice, not merely change a small spectral statistic. The result does not establish finite-population immortality or empirical field applicability.
+The exact kernel and its general Perron criterion are prior. Within the sources checked, the all-star mortality boundary, global uniqueness of the interior optimum above it, and verified two-sided invasion window go beyond those model statements and the related spectral catalogue entries.
 
-## Closest literature and limitations
+## value
 
-Bernardi et al. (2026), arXiv:2602.06640, equations (6)–(15), and Nicoletti et al. (2023), DOI 10.1073/pnas.2311548120, are the model antecedents. *A sharp star-network transition in corridor gains and damping loss* (published 2026-11-08) concerns a different star-matrix observable and a discrete added-edge intervention. Distinct ecological intermediate-dispersal results use other population processes. The proof is exact for an unweighted undirected star in the deterministic fast-exploration approximation; the scope and historical-priority risks are recorded in RESULT.md and AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mortality threshold distinguishes two globally different responses to exploration under a published birth law, not just a sign in one perturbative regime. An exact witness puts the deterministic invasion criterion strictly between the limiting and maximum capacities, showing that low and high mobility can both be subcritical with all other parameters fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

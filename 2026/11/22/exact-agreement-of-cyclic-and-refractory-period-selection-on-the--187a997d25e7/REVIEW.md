@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete 531441-input functional graph has been enumerated for both update rules using exact base-three arithmetic. An independent state-iterate calculation agrees at every input; both validate the 24-edge specification, the six distinct periods, the 0 mismatch count, all primitive-orbit populations and sharp entry-time shells. The proof is a finite exhaustive certificate, not an extrapolation.
+## correctness
 
-**Originality — PASS, qualified.** Gravner–Lyu–Sivakoff (2016) establish general synchronization/activity; the previously indexed Chvátal calculation supplies GHM-only periods. Neither establishes exact pointwise concordance with CCA or the CCA orbit counts in inspected material. A general clock-divisibility comparison is strictly weaker; Petersen, Frucht and Heawood cases demonstrate strict period division can occur. Some relevant full indexed documents were not available to inspect, and equivalent historical results remain possible.
+PASS
 
-**Value — PASS.** The graph is a canonical minimal four-regular, four-chromatic, triangle-free test case. Complete all-state concordance of long temporal periods (including 11), despite strongly differing recurrent-orbit and first-entry distributions, is a substantive graph-specific discrimination between two important excitable automata.
+From the specified open neighborhoods I encoded the synchronous successors using color indicators and a reversed ternary digit convention, then found the first cycle entry and least period by Floyd's algorithm for every one of the 531441 initial states. The collision occurs on the cycle at a step divisible by its least period; resetting one pointer to the start and advancing both identifies the first orbit entry, and one circuit gives the least period. There were zero pointwise mismatches. All six population counts, both primitive-orbit columns (entry-zero counts divided by least period), the sharp depths 8 and 10 with shells 192 and 64, and every one of the 165 joint census cells matched. No initial bounds on periods or entry times were assumed. The frozen peeling and iterate checkers implement valid exhaustive methods; they were inspected, not executed.
 
-**Scientific limits.** The theorem is only about the explicitly provided finite graph and does not characterize all graphs enjoying this equality. Neither checker is an external independent audit, and prior-work coverage is not a proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence supports distinct Chvátal-specific joint concordance, CCA orbit/entry data and the joint census. The GHM-only census and sharp GHM depth are existing results and do not receive originality credit. Same-day equality records on other graphs are technically relevant but not equivalent; their date establishes no priority.
+
+## value
+
+PASS
+
+The canonical small triangle-free four-chromatic graph gives a meaningful exact test of when cyclic and refractory dynamics retain the same least period despite period division occurring on other standard graphs. The paired census separates basin period, time to recurrence and the recurrent-orbit populations, and is useful as a finite benchmark for any proposed comparison theorem. Value does not rest on recomputing the known GHM margin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

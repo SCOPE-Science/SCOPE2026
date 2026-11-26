@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:00:52.737717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any positive homogeneous Bernoulli retention rate, a parent atom above n would put positive thinned mass above n, so the inverse polynomial is forced. Its penultimate coefficient changes sign at the beta moment ratio r=(a+n-1)/(a+b+n-1). Independently, put k=n-j and I_j=integral_0^1 x^(a+j-1)(1-x)^(b-1)(r-x)^(n-j) dx. Integrate the derivative of x^(a+j)(1-x)^b(r-x)^(k-1); all endpoint terms vanish for positive a,b. Using (a+j)(1-r)-br=-(k-1)(1-r) gives (a+j)I_j=(k-1)[(2-r)I_(j+1)+(1-r)I_(j+2)] for k>=2, and I_(n-1)=0. The binomial prefactors of the inverse coefficients give exactly the stated recurrence. Strict positivity starts at indices n and n-2 and descends; normalization is Q(1)=1, and composition gives the admissible interval. For n=1 the unique boundary parent is constant 1. Dividing the top parent atom by the top child atom gives r^(-n), with -n log r tending to b. The supplied verify.py was inspected, not executed; its 162 rational cases are only a replay, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kella–Löpker characterize all finite binomial mixtures via signed moments and take a maximum over positive moment roots."
+        ],
+        "reasoning": "Their theorem contains the penultimate moment ratio as a candidate but does not itself settle dominance of that root across all beta shapes. The all-shape Resultary record evaluates it explicitly.",
+        "searches": [
+          "Primary literature lookup on beta-binomial minimal ordinary thinning",
+          "arXiv:2202.10296, Theorems 17 and 19, pp. 20–21"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 96ff16d9f745, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Kella–Löpker, arXiv:2202.10296 / DOI 10.1016/j.indag.2022.09.003",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the matched proof take A=a+j and m=n-j. For odd m>=3, r> A/(A+b), the even moment multiplying that positive gap is positive, and the other term is nonnegative. Only m=1 vanishes; m=0 and positive even m are strictly positive. The j=n coefficient is E W^n/r^n."
+        ],
+        "reasoning": "This recovers the exact punctured support and the e^b limit without any new threshold theorem. The recurrence is another direct encoding of the same unique coefficient formula.",
+        "searches": [
+          "96ff16d9f745, forced coefficient formula and odd-beta-moment proof, local mirror offset 2600 onward",
+          "arXiv:2202.10296, Theorem 19 + Example 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use fixed independent Bernoulli retention on unrestricted count parents and the same forced inverse pgf; the outputs and parameter regime agree."
+        ],
+        "reasoning": "Different proof techniques (Gauss equation/descending coefficients versus odd beta moments) do not change the threshold or parent. Random or count-dependent beta-binomial thinning kernels are not equivalent.",
+        "searches": [
+          "Local Resultary search for exact beta-binomial ordinary thinning index and boundary parent",
+          "2026/10/18/SCOPE-exact-minimal-binomial-thinning-index-of-every-beta-binomial-law--96ff16d9f745/RESULT.md, Steps 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact published benchmark is uniform Beta(1,1), with n/(n+1), the boundary hole and inflation tending to e. The Resultary match is a symbolic exact formula for the entire domain, not a finite table."
+        ],
+        "reasoning": "An arbitrary real-family classification cannot be established by finitely many rational rows; the exact symbolic index entry, not the numerical replay, covers it.",
+        "searches": [
+          "Local Resultary match 96ff16d9f745",
+          "arXiv:2202.10296, Example 10 and Remark 18, p. 22"
+        ]
+      },
+      "rationale": "The distinct inspected Resultary record proves the same sharp all-positive-real-shape threshold, admissible interval, unique coefficient formula and missing penultimate atom. Its actual proof already implies strict positivity elsewhere: for odd exponent m>=3 its first Stein term is strictly positive because the boundary threshold exceeds the tilted beta mean; even powers give positive integrals. The asymptotics are immediate from its threshold and top coefficient. The alternative coefficient recurrence is a routine beta polynomial identity, not a distinct supported finding. This is mathematical coverage, not a determination of chronology or priority between the packages.",
+      "residual_risks": [
+        "Catalog dates do not establish chronology or priority; equivalent coverage is demonstrated without ordering the records.",
+        "No exhaustive search in older Jacobi or dilation terminology; the direct equivalent record already decides the overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central claim and implies support and asymptotics",
+          "evidence": "Same r and unique coefficient formula; inspect the positive (r-mean) term in Step 2 for strictness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minimal-binomial-thinning-index-of-every-beta-binomial-law--96ff16d9f745/RESULT.md",
+          "material_read": "Finding; forced inverse polynomial, odd beta moment lemma, endpoint admissibility and sharpness (opening and offset 2600)",
+          "method": "Resultary search; exact text via local mirror",
+          "title": "Exact minimal binomial thinning index of every beta-binomial law",
+          "trigger": "Same family, operation and threshold"
+        },
+        {
+          "assessment": "General machinery and exact uniform case; not by itself the arbitrary-shape root ordering",
+          "evidence": "Theorem 19 requires a maximum over roots; Example 10 evaluates it for uniform mixing.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+          "material_read": "Theorems 17 and 19, Example 10, Remark 18 (pp. 20–22)",
+          "method": "Scoped primary full-text reading",
+          "title": "On binomial thinning and mixing",
+          "trigger": "General ordinary-thinning index and exact beta-mixture special case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An arbitrary-shape sharp threshold would be a meaningful refinement of general root machinery, but is already obtained in the matched record. The residual asymptotics are elementary consequences and the descending recurrence is a routine identity for already determined coefficients. No independent, substantive result beyond the coverage remains in this submission.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:45:23.982662Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–53 and 57–152",
+        "VERIFICATION.md, lines 19–29",
+        "tree_leaf_distance_verify.py, lines 12–146 (inspected, not executed)"
+      ],
+      "rationale": "For a prescribed marked path on k+1 vertices, the forest-extension count is (k+1)n^(n-k-2). Deleting a specified non-path leaf and choosing its neighbor gives probability a_n^(n-k-2); deleting a marked endpoint when it is a leaf gives k/(k+1) times this probability. The formula handles the spanning path. Direct subtraction gives the stated cubic numerator and all ties, including n=3. The centered profile starts at zero since mu(n,1)=E L_n, is positive at k=2 for n>=4, and has one crossing to negative values before or at k=n-1. Subtracting a distance at the crossing in the covariance proves strict negativity. The distance probabilities are (k+1)/n times the product for j=2,...,k of 1-j/n, giving a Gaussian envelope and Rayleigh moment convergence. Multiplying the expansion of a_n^(n-k-2) by n-k+1-2/(k+1) yields the displayed 5/2-k^2/(2n) correction, with the stated error and an exponentially small tail. The Rayleigh moment identity Cov(R,R^2)=sqrt(pi/2) gives the covariance constant; Prüfer empty-box indicators give the leaf variance coefficient and the correlation constant follows. No exact finite covariance magnitude is asserted.",
+      "residual_risks": [
+        "Finite tests do not prove the limit. At n=3 the covariance is zero and the correlation is undefined; the correlation claim is asymptotic only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later joint-leaf-law result includes the same mean in a stronger conditional law; its date is not evidence of earlier priority.",
+          "The October 18 random-mapping record gives the entire conditional off-cycle terminal law and the exact same asymptotic constants for a coupled pair of statistics.",
+          "Pitman's enumerative machinery and the simply-generated-tree distance-profile results are background rather than exact mean matches."
+        ],
+        "reasoning": "The mapping result covers the main covariance terms after a reduction, not by confusing global leaves with endpoint degree or replacing the marked distance with a different statistic without proof.",
+        "searches": [
+          "Resultary 4740ad229d71, joint leaf law; 007c2a04bfe9, mapping covariance",
+          "Primary search: marked-pair distance and total leaf count in uniform labeled trees",
+          "Pitman TR 457, §4.1; Berzunza Ojeda–Janson arXiv:2009.00572, §8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 51666dfb40bf, 840398b1b878, 007c2a04bfe9, d9ddfb06a9ae and 4740ad229d71",
+        "Pitman TR 457",
+        "Berzunza Ojeda and Janson arXiv:2009.00572",
+        "Focused Cayley leaf/distance literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the prior profile and the classical marginal mean, k=1 is at the mean and the known strict unimodality makes the centered sign cross once; the elementary covariance sign test supplies the stated strict finite sign.",
+          "In the mapping/tree bijection, order the cycles by their distinguished largest labels, start each at its largest label and splice into an ordered path. The successive cycle starts become record maxima of the path word, so the operation is reversible. A uniform mapping thus yields a uniform Cayley tree with two independent uniform marks (coincident with probability 1/n). Its cycle count becomes path size D+1 and its indegree-zero count becomes the number W of leaves off the marked path. Conditional on distinct marks, exchangeability gives the fixed-pair law here.",
+          "On coincident marks, D+1=1 and W differs from total leaves by at most one; E[W|coincident] and E[W|distinct] differ by O(1) since the tree marginal is uniform in both cases and at most two leaves are removed. Unconditioning therefore changes the covariance by o(sqrt(n)) (E D=O(sqrt(n))). For distinct marks, the conditional endpoint-leaf mean 2D/(D+1) a_n^(n-D-2) tends to 2/e in L^2, while D/sqrt(n) is bounded in L^2. Hence adding the endpoint leaves also changes the covariance by o(sqrt(n)). The variance factors are unchanged at leading order, by the bounded leaf correction and Rayleigh moments."
+        ],
+        "reasoning": "The prior exact profile gives the finite sign without a new structural result, and the prior mapping calculation transfers both leading constants. The remaining statements do not supply an independently substantial new finding once that coverage is credited.",
+        "searches": [
+          "51666dfb40bf, exact shape and leaf probabilities",
+          "007c2a04bfe9, Finding and rooted-forest law",
+          "Frozen RESULT.md equations (1), (2), (11), (12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "n-k-1+2k/(k+1)=n-k+1-2/(k+1); the October 13 theorem states that exact mean, cubic numerator, end transition and tie rule for the same unrooted uniform labeled tree, two fixed distinct marks and global leaf count.",
+          "The October 18 statement uses k(k+1)^2=2(n-1), which is exactly (k+2)(k^2+1)=2n after adding 2; it is not a different threshold."
+        ],
+        "reasoning": "The boundary packaging and finer expansion of the same cubic root do not create a new mean or peak theorem.",
+        "searches": [
+          "Resultary: total leaves conditioned on fixed Cayley distance and cubic-root mode",
+          "RESULT.md of 51666dfb40bf and 840398b1b878"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two exact indexed mean/peak theorems precede the frozen record. The indexed endpoint-degree law instead treats one marked endpoint and does not give the off-path leaf count."
+        ],
+        "reasoning": "This is an all-n identity, not a finite table check. The exact theorem records establish overlap independently of any sampled computations.",
+        "searches": [
+          "Resultary 51666dfb40bf, 840398b1b878 and d9ddfb06a9ae, original Finding passages"
+        ]
+      },
+      "rationale": "The titular and principal exact conditional-mean, cubic-turning-point and tie claims are directly covered by two identifiable earlier Resultary statements. The added dependence formulas are correct, but the finite sign follows by a single-crossing comparison from the established profile and the standard marginal mean. The sharp asymptotic covariance and correlation constants are also consequences of the prior random-mapping law under the doubly marked tree coupling, with the bounded endpoint contributions asymptotically constant after conditioning. This is a coverage verdict, not a claim that the exact finite sign was written verbatim before or that the mathematics is false.",
+      "residual_risks": [
+        "Aldous's 1990 full text was not accessible through the attempted DOI route; older enumerative treatments may offer additional coverage. That access gap does not drive the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean/peak coverage",
+          "evidence": "Same all-distance mean (with separate spanning-path endpoint), first maximizer, sign threshold and tie rule; additionally estimates the height gain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cubic-root-modal-distance-for-the-expected-leaf-count-in-cayle--51666dfb40bf/RESULT.md",
+          "material_read": "Finding and proof of conditional leaf probabilities, exact shape and limiting height, offsets 0–4998",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A cubic-root modal distance for the expected leaf count in Cayley trees",
+          "trigger": "Exact same-statistic candidate"
+        },
+        {
+          "assessment": "Equivalent mean/peak coverage",
+          "evidence": "Identical global leaves and marked distance; threshold written as k(k+1)^2=2(n-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-optimal-marked-distance-for-expected-leaves-in-uniform-l--840398b1b878/RESULT.md",
+          "material_read": "Finding and prior comparison, offsets 0 and 4317",
+          "method": "Local mirror",
+          "title": "A cubic-optimal marked distance for expected leaves in uniform labeled trees",
+          "trigger": "Second exact same-statistic candidate"
+        },
+        {
+          "assessment": "Coupled prior asymptotics, not literal equality of the finite statistics",
+          "evidence": "Cycle-size and indegree-zero covariance constant -sqrt(pi/2)/(2e) and the two variance coefficients agree; the path-splicing comparison explains precisely what transfers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9/RESULT.md",
+          "material_read": "Finding, all-map model, rooted-forest and terminal counting, offsets 0–3636",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Exact matching covariance and correlation coefficients"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "One endpoint degree is stochastically decreasing as the distance increases; this does not measure the total number of leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Cited marked-tree precedent"
+        },
+        {
+          "assessment": "Counting framework",
+          "evidence": "Rooted forest component sizes and branching-process representation, not the claimed global-leaf regression.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+          "material_read": "PDF p. 11, §4.1 at offset 32760",
+          "method": "Lawful OA PDF",
+          "title": "Coalescent Random Forests",
+          "trigger": "Classical counting antecedent"
+        },
+        {
+          "assessment": "Related distance profiles and leaf bias",
+          "evidence": "Profiles over pairs and a leaf-biased construction, not the fixed-pair finite conditional mean.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00572",
+          "material_read": "Abstract and §8, pp. 1 and 19, offsets 722 and 62633",
+          "method": "Lawful OA PDF",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "Primary literature search hit on tree distances and leaves"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier exact mean/peak findings 51666dfb40bf and 840398b1b878",
+        "Mapping covariance finding 007c2a04bfe9",
+        "Frozen RESULT.md, equations (1)–(6)"
+      ],
+      "rationale": "The peak versus typical-distance disparity has mathematical interest, but the principal exact theorem is already known. The incremental dependence statements are a short single-crossing deduction and a transfer of known sharp constants. Neither supplies an independently valuable new result here; no repair is offered.",
+      "residual_risks": [
+        "This does not deny value to the established profile or the usefulness of assembling the deductions as exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

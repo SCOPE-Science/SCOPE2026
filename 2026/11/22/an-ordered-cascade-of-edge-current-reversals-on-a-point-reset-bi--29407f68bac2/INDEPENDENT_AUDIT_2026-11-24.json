@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:30:23.444808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous-time reset generator gives the homogeneous recurrence off 0, with π_n=π_0. The two roots x<1<y have xy=p/q; the positive unnormalized profile x^j/(1−x^n)+y^j/(y^n−1) takes the same value at j=0 and n, satisfies the recurrence, and the last balance equation follows by conservation. Irreducibility makes this the unique stationary law. For the hopping-only current, dividing the negative root contribution by the positive one gives R_j=x^(n−2j−1)F_j with F_j=h^(j+1)(1−x)(1−x^n)/[(h−x)(h^n−x^n)], h=p/q. At fixed x, F_j(1,x)=1 and ∂_h log F_j<(j+1−n)/h−1/(h−x)<0. Thus nonnegative exponent implies a permanently positive current, including exponent zero. For negative exponent, log R_j is strictly decreasing in x with nonzero derivative: both rational factor derivatives after grouping are negative, as is the power term. Since x′(r)<0 and x goes from 1 to 0, R_j increases from zero to infinity with a simple unit crossing. R_(j+1)/R_j=h/x²>1 then gives strict reversed ordering of the rates, exactly floor(n/2) distinct crossings and the contiguous counterflow arc. For the small-bias expansion, analyticity follows by solving the normalized finite system near δ=r=0 after scaling rates by q. The r-derivative of the current at zero bias obeys a_j−a_(j−1)=−1/n and Σa_j=0, while J_j(δ,0)=δ/n. The implicit-function slope is therefore 2/(2j+1−n), positive on each reversing edge; the error is O(δ²/q) for fixed n,j,q, not uniform in n. Independently bisected actual stationary currents for the n=6 example by pivoted Gaussian elimination on the nonreset balance equations and normalization (r bracket [0,5]); edges 5,4,3 gave 0.226733124762156, 0.484739267504340, 3.435620322241912. These floating-point examples are ancillary. The submitted rational checker and verification notes were inspected without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. supply stationary reset spectral machinery and the one-way periodic example. Riascos et al. derive network stationary resetting laws and give a symmetric cosine ring example. The Li–Sun publisher summary reports biased-network stationary distribution and first-passage formulas, but full text was not inspectable."
+        ],
+        "reasoning": "General stationary-state formulas are applicable or analogous at the probability level. They do not in the inspected statements give a parameter-wise sign or simple-zero theorem for every individual hopping edge. Their specialization is not itself the crossing classification.",
+        "searches": [
+          "arXiv:1806.01298, §IV.A and reset spectral machinery",
+          "arXiv:1910.13568, §III",
+          "10.1103/PhysRevE.111.054309"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and verify_cascade.py",
+        "arXiv:1806.01298",
+        "arXiv:1910.13568",
+        "arXiv:2005.05173",
+        "10.1103/PhysRevE.111.054309 (summary only)",
+        "Resultary 29407f68bac2, f8d346c6a6a6, c2705ab73d30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary conservation by itself orders currents in space at a fixed r; spectral density expressions can produce their values. Neither conservation alone nor the inspected one-way, symmetric and membrane examples state rate-wise monotonic crossing of the hopping current ratio."
+        ],
+        "reasoning": "The key new inference concerns variation in r, not merely spatial decrease at each fixed r. The strictly signed grouped derivative on one half, the separate exclusion on the other half and the weak-bias limit are needed to turn the stationary law into the ordered all-edge classification. The inspected results do not mechanically give these conclusions.",
+        "searches": [
+          "arXiv:1806.01298, §IV.A",
+          "arXiv:1910.13568, §III",
+          "arXiv:2005.05173, §IV/Appendix C",
+          "Resultary f8d346c6a6a6, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rose et al. use one-way hopping in their ring example; Riascos et al. use a symmetric ring. Tucci et al. show the reset path changes the total ring current without changing the stationary spatial law.",
+          "Resultary f8d346c6a6a6 studies membrane current on a biased Brownian ring with resetting supported in one semicircle."
+        ],
+        "reasoning": "The physical edge observable is pπ_j−qπ_(j+1), not a current conserved by counting a chosen reset path, nor global velocity or membrane flow. Rescaling by q or reversing the ring orientation leaves the problem equivalent but does not identify it with a one-way, symmetric, or continuum model.",
+        "searches": [
+          "arXiv:1806.01298, finite periodic reset example",
+          "arXiv:1910.13568, finite ring",
+          "arXiv:2005.05173, ring current convention",
+          "Resultary f8d346c6a6a6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "29407f68bac2 is the assigned record itself, not independent prior work. The distinct same-day f8d346c6a6a6 record gives one or no reversals of a Brownian membrane current; c2705ab73d30 concerns reversal of global velocity in a periodic Brownian ratchet.",
+          "The exact finite-ring example in Rose et al. has q=0 and hence positive hopping flow on all edges for finite r."
+        ],
+        "reasoning": "For a continuously parameterized theorem the material exact match would be an all-rate analytic threshold classification, rather than a finite numerical table. These items do not give an exact threshold sequence for the frozen model; the similar same-day theorem was compared by observable and dynamics, not chronologically dismissed.",
+        "searches": [
+          "Resultary point-reset ring current reversal; compared catalogue IDs 29407f68bac2, f8d346c6a6a6, c2705ab73d30",
+          "arXiv:1806.01298, §IV.A"
+        ]
+      },
+      "rationale": "The general reset stationary representation and ideas of current reversal are prior background. The distinct supported result is the global, all-size and all-edge record of simple hopping-only crossings with strict rate ordering and weak-bias thresholds. The closest discrete and continuum statements do not supply that classification. This is a bounded best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "Li–Sun (2025) full text could not be inspected; an implicit or explicit same-ring specialization remains unresolved.",
+        "Other unindexed biased-reset ring work could contain equivalent inequalities. Search misses and inaccessible text were not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Right-only ring example; the known machinery is prior background",
+          "evidence": "The periodic walk hops only to the right and resets to a fixed site, so it lacks the q>0 competing local term.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+          "material_read": "§IV.A, PDF p. 5, OA offsets 35000 and 38973",
+          "method": "OA PDF text passages",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Exact periodic example and broad reset stationary machinery"
+        },
+        {
+          "assessment": "Symmetric finite-ring reset profile, not biased reversal thresholds",
+          "evidence": "The cosine spectrum and profile depend on undirected distances.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+          "material_read": "§III, PDF p. 3, OA offset 19000",
+          "method": "OA PDF text passage",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Network formula and explicit finite cycle"
+        },
+        {
+          "assessment": "Relevant to path convention; different dynamics, support and observable",
+          "evidence": "Current including resetting depends on the chosen reset path even when the ring density does not.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.05173",
+          "material_read": "§IV, PDF pp. 4–5, offsets 26705, 29641 and 32587; Appendix C, p. 14, offset 83099",
+          "method": "OA PDF text passages",
+          "title": "Controlling particle currents with evaporation and resetting from an interval",
+          "trigger": "Similar Brownian ring and current observable"
+        },
+        {
+          "assessment": "Full model-specific implications unresolved; no whole-paper claim based on the summary",
+          "evidence": "Summary describes stationary-distribution and mean-first-passage formulas; exact biased-ring current treatment was not accessible.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.054309",
+          "material_read": "Accessible publisher/search summary only",
+          "method": "Bibliographic summary plus lawful APS DOI/PDF/abstract retrieval attempts",
+          "title": "Biased random walks on networks with stochastic resetting",
+          "trigger": "Plausible later general result implying part of the classification"
+        },
+        {
+          "assessment": "Conceptual overlap, not the discrete multiedge staircase",
+          "evidence": "The current is at a membrane on a biased Brownian ring with one-semicircle resetting support.",
+          "identifier_or_url": "Resultary f8d346c6a6a6",
+          "material_read": "RESULT.md Finding, offset 381",
+          "method": "Local catalogue mirror",
+          "title": "One-sided resetting forces a unique permeability-independent current reversal",
+          "trigger": "Exact same-day reset-rate reversal result"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": "Reversal of global velocity in a periodic Brownian ratchet, not local hopping-edge counts.",
+          "identifier_or_url": "Resultary c2705ab73d30",
+          "material_read": "Catalogue finding description",
+          "method": "Local catalogue lookup",
+          "title": "Reset-rate current reversal in a one-well periodic Brownian ratchet",
+          "trigger": "Related reset-rate reversal of a ring observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model is a canonical nonequilibrium ring with one reset destination. The result explains precisely how local physical hopping can flow against the global clockwise bias even though the total hopping current remains positive. It proves absence of hidden or repeated local crossings and gives a sharp spatial and rate sequence and its near-equilibrium scale, none of which follows from forward stationary probabilities or conservation alone. The observable remains tied to actual hopping transitions and does not depend on assigning paths to teleportation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

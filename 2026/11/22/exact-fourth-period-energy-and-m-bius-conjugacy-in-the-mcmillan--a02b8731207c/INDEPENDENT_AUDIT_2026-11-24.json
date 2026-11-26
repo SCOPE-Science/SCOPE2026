@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:18:33.834654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–76",
+        "VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_review_exact_4.py"
+      ],
+      "rationale": "Set x=q+1, y=p+1 and b=a+1. The shifted map is (y,b+3-x-y-b/y), and H=K+a becomes xy(x+y-b-3)+b(x+y). For b!=0, H=0 forbids either coordinate being zero except at the excluded origin of these shifted coordinates. On H=0 the next scalar is b/x, yielding the involutive opposite-coordinate action and a defined fourth return. Conversely, in any defined four-cycle x,y,z,w, comparing the recurrence at opposite inputs shows x=z or xz=b, and y=w or yw=b. A primitive cycle cannot have both pairs equal, so one product equals b and the recurrence implies H=0. Removing period at most two amounts to checking x^2=y^2=b on H=0; only x=y=1 at b=1 and x=y=3 at b=9 survive, both fixed. The shifted pole has gradient (b,b), so the real curve contains a smooth arc of defined points near it. At b=0 the map on its domain is the restriction of an order-three linear map in original coordinates, with no primitive period four. The derivative of the fourth return on smooth points where the orbit is defined fixes the tangent and has determinant one, giving both unit multipliers. Independent symbolic reconstruction checked the invariant, pole, lower-period factors and representative exact rational trajectories in shifted coordinates.",
+      "residual_risks": [
+        "The multiplier claim is read on the stated dynamical domain, not at the excluded pole even if the algebraic curve is smooth there. It makes no claim about Jordan form or the projective map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McMillan I treats sextupole period-three degeneration and a different exact order-four octupole degeneration. McMillan III's analytical fourth-cycle curves in the inspected section concern quadratic Hénon; its adjacent SX-2 discussion concerns rotation and two-cycles.",
+          "QRT genus-one translations explain why a torsion level can have a continuum of periodic points but do not evaluate this level without a family-specific torsion equation."
+        ],
+        "reasoning": "The inspected material does not deduce the sextupole level or the exhaustive real-domain classification. Detailed early normal-form implications remain uninspected.",
+        "searches": [
+          "arXiv:2405.05652v2",
+          "arXiv:2410.10380v3",
+          "Iatrou–Roberts 2001 and 2002 QRT normal forms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.12691v1",
+        "arXiv:2405.05652v2",
+        "arXiv:2410.10380v3",
+        "Resultary b4de86a6367e and exact same-record hit a02b8731207c",
+        "Iatrou–Roberts DOIs attempted, not read in full"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sextupole's a=-1 order three is explicit prior coverage. The prior symmetric quartic checks the torsion order of a marked point on a smooth projective curve, including affine pole crossings resolved projectively."
+        ],
+        "reasoning": "A linear degeneration, local resonance label, or smooth-projective statement for the related quartic does not imply the exhaustive real assertion here, particularly which original affine pole points and lower periods to exclude. Credit is limited to that distinct classification.",
+        "searches": [
+          "arXiv:2204.12691v1 Section V.2",
+          "arXiv:2405.05652v2 Appendix B.1 and B.2",
+          "Resultary b4de86a6367e, order-four proof at offset 3180"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=0 the published sextupole has a local quarter-turn resonance; that does not specify a level for general a. The prior Resultary QRT quartic at G=1 has a comparable opposite-coordinate involution from the product of the two roots in y, which is -1."
+        ],
+        "reasoning": "The latter is an actual mechanism overlap. It concerns a different recurrence: for nonzero B its rational force has two distinct finite simple poles, while the shifted sextupole has one. A componentwise Möbius change conjugating the full recurrences must preserve the common fixed point at infinity of the fiber reflections y -> f(x)-y with varying f(x), so is affine and cannot identify those pole patterns. A more general birational relation on smooth individual curves is not ruled out.",
+        "searches": [
+          "Resultary: symmetric QRT order-four and McMillan sextupole period-four torsion loci",
+          "arXiv:2204.12691v1 and arXiv:2405.05652v2, SX resonances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed sextupole match is the frozen record itself. The earlier exact table b4de86a6367e gives global order four iff B=0 or G=1 on its smooth complex quartic family."
+        ],
+        "reasoning": "The older table does not identify K=-a or classify defined real affine iterates and lower periods for this force.",
+        "searches": [
+          "Resultary: order-four loci, sextupole period-four energy, and symmetric McMillan/QRT torsion"
+        ]
+      },
+      "rationale": "The distinct result supported is the exact invariant level together with its real-affine converse and finite lower-period/pole exclusions in the sextupole family. The map, invariant and third-order degeneration at a=-1 are prior. Fourth order on other QRT families, and generic genus-one translation, are also prior and not credited here.",
+      "residual_risks": [
+        "Early QRT normal-form full texts were inaccessible through the checked routes. A more general family or birational treatment of the torsion curve might overlap; no such implication of the full real-defined classification was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local resonance parameters and aperture, not the global period-four cubic in the inspected material",
+          "evidence": "The first four orders are associated with a=2,-2,-1,0, respectively.",
+          "identifier_or_url": "https://arxiv.org/html/2204.12691v1",
+          "material_read": "Section V.2, HTML offset about 57000",
+          "method": "OA HTML passage",
+          "title": "McMillan map and nonlinear Twiss parameters",
+          "trigger": "Original sextupole map, invariant and fourth-order resonance"
+        },
+        {
+          "assessment": "The exact sextupole exception is prior; the explicit linear fourth-return is for another family",
+          "evidence": "SX degenerates to period three at a=-1; the octupole degenerates to period four at a=0.",
+          "identifier_or_url": "https://arxiv.org/html/2405.05652v2",
+          "material_read": "Multipole resonance discussion at about 34800 and Appendix B.1–B.2 at about 90200 and 93800",
+          "method": "OA HTML passages",
+          "title": "Dynamics of McMillan mappings I. McMillan multipoles",
+          "trigger": "Explicit exact short-cycle and degeneracy formulas"
+        },
+        {
+          "assessment": "Different exact fourth-cycle calculation",
+          "evidence": "Analytic two-, three- and four-cycle curves described there are for quadratic Hénon, not this sextupole.",
+          "identifier_or_url": "https://arxiv.org/html/2410.10380v3",
+          "material_read": "Section VI.1.2, offset about 65000",
+          "method": "OA HTML passage",
+          "title": "Dynamics of McMillan mappings III. Symmetric map with mixed nonlinearity",
+          "trigger": "Potential exact cycle curves in a broader McMillan study"
+        },
+        {
+          "assessment": "Closely related order-four mechanism, not the same real map or domain classification",
+          "evidence": "For H(x,y)=(-y-Bx/(x^2-1),x) on x^2y^2-x^2-y^2+Bxy+G=0, order four on the stated smooth complex locus occurs at B=0 or G=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-order-three-order-four-and-order-five-loci-for-a-symmetric--b4de86a6367e/RESULT.md",
+          "material_read": "Finding at offset 0 and order-four proof at 3180–5230",
+          "method": "Resultary local mirror",
+          "title": "Exact order-three, order-four and order-five loci for a symmetric QRT family",
+          "trigger": "Strongest distinct order-four invariant curve result"
+        },
+        {
+          "assessment": "Detailed implication unresolved; not negative evidence",
+          "evidence": "The cited works concern general biquadratic-invariant map normal forms.",
+          "identifier_or_url": "DOI:10.1088/0305-4470/34/34/308; DOI:10.1088/0951-7715/15/2/313",
+          "material_read": "No full text obtained; bibliographic context only",
+          "method": "Lawful DOI retrieval returned HTTP 403",
+          "title": "Integrable mappings of the plane preserving biquadratic invariant curves I and II",
+          "trigger": "Plausible general normal-form coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md level, converse and real parameter boundary"
+      ],
+      "rationale": "This locates and classifies a natural four-period resonance in a standard integrable beam-dynamics map for all real parameters, including outside stable bounded regions. The exact level and pole-safe explicit dynamics are useful for locating or ruling out primitive four-cycles without computing elliptic rotation numbers. The global converse and exclusions add substance beyond the known linear resonances.",
+      "residual_risks": [
+        "No stability beyond the two unit multipliers, all-period classification or invariant-domain claim is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

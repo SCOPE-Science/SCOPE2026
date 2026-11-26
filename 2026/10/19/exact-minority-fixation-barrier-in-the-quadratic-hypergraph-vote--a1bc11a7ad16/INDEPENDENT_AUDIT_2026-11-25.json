@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:12:53.472184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated single-focal process, sampling d distinct neighbors gives E[J(J-1)]=d(d-1)i(i-1)/[(N-1)(N-2)] for a negative focal at i positive agents, and the corresponding expression with N-i for a positive focal. Including the focal probabilities gives the stated down/up ratio (N+c-i)/(c+i). Both directions are possible at each interior state, so endpoints absorb almost surely. The harmonic equation gives successive differences proportional to the Gamma product; its denominators are exchanged by j↦N-1-j. As d increases c decreases, and the first-half nontrivial factors have strictly negative derivative in c; symmetry, the c→infinity neutral limit, and c=0 check the strict one-agent ordering and both endpoints. For fixed d, put c=aN-b exactly. Stirling's formula with the two offsets -b and 1-b yields h(x) times e^(NS(x)) uniformly on x=j/N in [0,1], with relative O(1/N) because all Gamma arguments have positive linear slopes. The saddle at 1/2 has curvature -2/(a+1/2); odd terms in the local Gaussian expansion cancel to this order on the centered integer grid and its tails away from the saddle are exponentially negligible. Thus the sum has leading factor h(1/2)*sqrt(pi*N*(a+1/2)); its reciprocal is the claimed C_d times N^(-1/2). Each fixed numerator weight tends to d^j with O(1/N) relative error. The integral of artanh(z/(1+2a)) proves rate monotonicity, the stated endpoint values and the strict inequality versus the Gaussian exponent. Fixed-width k/N integration of the extrapolated Gaussian has the claimed exponential rate, with a nonzero prefactor; no central-window failure follows. Read frozen RESULT.md, VERIFICATION.md and verify.py without executing the uploaded code. Independently accumulated log weight ratios, normalized via log-sum-exp, and tested k=3 at d=2,3,6 and N=501,2001,8001. N times the log error relative to the stated asymptotic stayed near 0.045, -1.03, -4.31 respectively, consistent with, but not proving, the error bound. No growing-degree or growing-minority asymptotic was tested or is affirmed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model treatment addresses reduction, drift and fixation times, not the fixed-minority exit asymptotic in the inspected sections.",
+          "Both voter exit analyses use a Taylor or diffusion approximation; the q-voter paper's explicitly integrated Eq. (28) is for q=4, not an exact discrete q=2 result.",
+          "Standard birth–death products, Stirling expansions and discrete Laplace estimates supply the general methods, none claimed original."
+        ],
+        "reasoning": "General exit-probability techniques or a time-to-fixation analysis are not the sharp fixed-boundary estimate. The Gaussian expression has the wrong boundary exponential rate, and cannot dominate the exact asymptotic there.",
+        "searches": [
+          "arXiv:2601.05169 Eqs. (33), (42) and §V",
+          "Kim et al. PRE 111 L052301 Appendix B and Eq. (S20)",
+          "arXiv:0907.1775v2 §III.1 Eqs. (7), (10), (28)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2601.05169 and 0907.1775v2",
+        "Kim et al. PRE 111 L052301 and supplement",
+        "Resultary fbde1a447895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known update rates determine the discrete fixation law via a ratio product; writing it as Gamma factors is not an independent originality basis.",
+          "The q=2 Gaussian kernel in (S20) with group size s=d+1 has boundary exponent (d-1)/(2(d+1)), strictly smaller than the discrete artanh integral. The source obtains its formula by truncating the backward recursion.",
+          "The indexed replacement result establishes the same limiting rate for a different kernel, but neither its one-agent constant nor a substitution of sample size gives the audited finite offset or fixed-k prefactor."
+        ],
+        "reasoning": "Credit direct prior implications. A distinctive result remains because exact finite odds, not just local drift or the limiting rate profile, determine the sharp boundary probability; the diagnosed exponential failure is specific to extrapolating the prior Gaussian approximation.",
+        "searches": [
+          "Llabrés et al., arXiv:2601.05169 exact hypergeometric update + standard birth–death harmonic equation",
+          "Castellano et al., arXiv:0907.1775v2 q=2 and exit-probability analysis",
+          "Kim et al. exact passage Eq. (S20) and Appendix B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llabrés et al. use one focal node and the exact hypergeometric law over the other agents in the group. Impact phi^2 gives exactly the audited transition kernel.",
+          "For opposite-neighbor fraction x=i/(N-1), the audited one-focal flip law is x^2+[ (N-d-1)/(d(N-2)) ]x(1-x), identical to the q=2 voter kernel with replacement and epsilon=(N-d-1)/[2d(N-2)]. Under the i/N convention one instead matches the embedded jump ratios with epsilon=c/[2(N+c)]."
+        ],
+        "reasoning": "These are exact state-kernel or embedded-chain equivalences, not just qualitative similarities. They give prior coverage of the dynamics and a direct path to the Gamma product, not evidence that the cited exit analyses prove the sharp rare-event asymptotic.",
+        "searches": [
+          "arXiv:2601.05169 §§II.2, IV.3, Eqs. (24)–(25)",
+          "arXiv:0907.1775v2 Eq. (1), complete-graph §III.1",
+          "Resultary: sample-size suppression in finite neutral complex contagion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 indexed finding has symmetric Gamma weights and the same one-mutant rate function after matching encounter sizes, but c is replaced by N/(d-1), not N/(d-1)-(1+2/(d-1)). Its assumptions include replacement from the full population, possibly including the focal; the prefactor changes.",
+          "The finite exact-rate formulas in the same-model paper are not an indexed result for this asymptotic with its prefactor. No exact same-model prefactor entry was identified in the compared sources."
+        ],
+        "reasoning": "This is material overlap in the method, monotone trend, and leading exponent, not a matching table of the fixed-k without-replacement law. The O(1) shift of the Gamma parameter changes the leading constant even though it leaves the rate function intact.",
+        "searches": [
+          "Resultary: exact sample-size suppression; quadratic complete-hypergraph finite fixation",
+          "arXiv:2601.05169 hypergeometric finite rates",
+          "arXiv:0907.1775v2 q=2 finite and diffusion exit laws"
+        ]
+      },
+      "rationale": "The model and exact rates are prior; the finite Gamma law is a straightforward standard hitting-probability implication and the one-step kernel has an exact q-voter alias. Do not give credit for a new model, a new birth–death method, or the rate function in isolation across related sampling models. The supported contribution is the sharp fixed-d, fixed-k asymptotic with its particular without-replacement prefactor, and the quantified exponential mismatch with the Gaussian boundary extrapolation; the strict finite ordering supplements this. The materially overlapping later indexed result uses different finite sampling and a different prefactor; none of the inspected sources already implies the audited comparison and prefactor in this exact regime without a model-specific calculation.",
+      "residual_risks": [
+        "A focused supplementary public-web search was deferred; absence of search results is not negative evidence. Exact older birth–death or WKB treatments at this q-voter alias might exist.",
+        "The present comparison makes no claim to a new generic asymptotic technique, nor to a different exponential rate from the related with-replacement model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and rates; finite hitting probability is directly implied by a standard equation. Inspected statements do not supply the sharp rare-minority asymptotic.",
+          "evidence": [
+            "The flip law uses the hypergeometric distribution over other agents, and Eq. (33) contains the known quadratic drift factor 1-1/d."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.05169",
+          "material_read": "§II.2 (offset about 17800), §IV.3 Eqs. (24a–b),(25) and §§IV–V including (33),(42) (offsets about 32800–59300).",
+          "method": "Matched group choice and quadratic response to the exact rates and compared the later drift/time statements with the exit-probability claim.",
+          "title": "Reducibility of higher-order to pairwise interactions: Social impact models on hypergraphs",
+          "trigger": "Same without-replacement complete hypergraph process."
+        },
+        {
+          "assessment": "Exact equivalent finite state dynamics at a mapped noise parameter; no matching sharp constant in the inspected exit analysis.",
+          "evidence": [
+            "q=2 gives x^2+2*epsilon*x*(1-x); the complete-graph density i/N is introduced as a large-N simplification.",
+            "The exit equation is second-order backward Fokker–Planck; the explicit Eq. (28) is a q=4 diffusion integral."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0907.1775v2",
+          "material_read": "Eq. (1), complete graph §III.1 (offsets about 11200–17700), Eqs. (7),(10),(12),(28) and conclusion.",
+          "method": "Matched both focal fractions in the finite kernel, then checked the paper's replacement/large-N convention and actual stated exit results.",
+          "title": "The non-linear q-voter model",
+          "trigger": "Exact q=2 kernel alias with suitable noise."
+        },
+        {
+          "assessment": "Diffusion-level exit approximation; does not supply the exact fixed-k rate or prove that its own boundary extrapolation is accurate.",
+          "evidence": [
+            "The error function argument is sqrt(2N(s-2)/s)*(rho-1/2), with truncation normalization. The resulting boundary exponential rate is (s-2)/(2s)."
+          ],
+          "identifier_or_url": "https://www.math.ucla.edu/~mason/papers/Kim-etal-PRE2025.pdf",
+          "material_read": "PDF Appendix B Eqs. (B1)–(B3) p. 5; Supplemental Eq. (S20) p. 11, checked directly around offset 70600.",
+          "method": "Matched group size s=d+1 and evaluated the Gaussian kernel around the boundary interval [0,k/N].",
+          "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+          "trigger": "Closest earlier Gaussian exit law for comparison at the rare boundary."
+        },
+        {
+          "assessment": "Later indexed material overlap, but different finite model and sharp prefactor. Its date by itself does not adjudicate priority.",
+          "evidence": [
+            "With-replacement sample from all agents and flip probability half the squared fraction; its Gamma offset is N/(m-1). It gives a one-mutant asymptotic with the same rate function and a different leading constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-sample-size-suppression-in-finite-neutral-complex-contagio--fbde1a447895/RESULT.md",
+          "material_read": "Mirrored RESULT.md (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4), finding, assumptions and asymptotic (offsets 0–2600 and 5700–6500).",
+          "method": "Compared sampling conventions, Gamma offsets, rare-minority counts and resulting constants.",
+          "title": "Exact sample-size suppression in finite neutral complex contagion",
+          "trigger": "Strong exact catalogue overlap in Gamma weights, monotonicity and minority asymptotics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original model has a natural, practically distinct extreme initial condition (a few minority agents); the standard Gaussian extrapolation is exponentially wrong there for every finite d>=2. The sharp asymptotic quantifies that failure and shows why sampling conventions that agree on the macroscopic barrier can disagree even at leading prefactor. This is a motivated boundary result, not just the textbook harmonic equation or a special-function rewrite.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

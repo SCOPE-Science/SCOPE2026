@@ -1,24 +1,21 @@
-# Scientific review: exact survivor staircases in a shared/local nutrient community
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed directly from the positive stationary equations of the one-nutrient model. A present consumer forces its niche concentration to \([q_i-(1-\theta)R]/\theta\), and its positive density then has a unique expression in \(R\). Mass conservation reduces all candidate attracting equilibria to a scalar equation \(R_0=H(R)\) with positive derivative on every support interval. The resource ceiling, exact entry supplies, and full support selection follow. The missing-species invasion eigenvalues are \(\alpha_i(R-q_i)\). The displayed quadratic form cancels active consumer/resource cross terms; all nutrient transfer blocks are positive semidefinite and active blocks have strictly positive determinant. The zero-dissipation invariant set is trivial, establishing a Hurwitz active subsystem and strict stability for omitted invaders with \(q_i>R\). Exact rational stationarity and transfer-matrix checks passed in `checker.py`, including 800 additional parameter samples. Those samples are not substituted for the analytic proof. The excluded threshold supplies are stated, with no nonlinear boundary claim.
+PASS
 
-## Originality — PASS, subject to historical-priority limits
+The frozen statement that every finite C_j varies strictly with beta and theta is false for C_1=q_1. The repair explicitly restricts strict sensitivity to finite thresholds with j>=2, treats below-threshold washout, and scopes the stability classification off the entry supplies. Positive stationarity forces q_i<R and q_i>(1-theta)R; an omitted species with q_i<R precludes attraction even relative to nonnegative states, since its per-capita rate would eventually be strictly positive along a supposedly converging trajectory started with positive abundance. So the only candidate support consists of q_i<R; if nonempty, it includes species 1 and requires R<B. The summed mass balance yields the continuous strictly increasing closure H on (q_1,B), diverging at B, and H(q_j) gives each finite entry. For the active subsystem the stated diagonal quadratic form cancels consumer–resource couplings; the exchange blocks are positive semidefinite by their determinant and the only invariant zero-dissipation trajectory is zero (the local balances force x_i=0 once y=z=0). The decoupled absent eigenvalues are strictly negative away from entry. The all-supply ceiling only uses the necessary support condition, not stability at a boundary. A separate exact-rational replay verified both threshold examples, including C_2=46/5 at theta=1/4, and all seven stationarity equations at R_0=979/130, theta=1/2.
 
-ElGamel–Mugler, arXiv:2611.00222v1, main section III.1 and supplemental section VI, analyze the same model but derive two-species coexistence conditions only at \(\theta=0\) and \(\theta=1\). Supplemental section VII treats a *multi-resource* lower bound for complete separation, not the exact arbitrary-species, single-resource, intermediate-\(\theta\) support staircase or its local stability. Source S4–S24 and S35–S41 were inspected rather than inferred from title or abstract. Other chemostat work demonstrates coexistence through crowding, consumer dispersal, or resource patches, not the same global/local fixed-niche reaction equations. Semantic searches of published mathematical findings for local/global nutrient equilibria, resource-supply thresholds, chemostat coexistence and patch-allocation staircases did not return an equivalent or stronger statement. The nearest patch-allocation staircase concerned *optimal investment under a budget*, not endogenous equilibrium species survival. The inaccessible full text of one 2022 source-sink article is a residual comparison risk, not affirmative novelty evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The originating paper explicitly leaves intermediate isolation and multiple-species analytical coexistence difficult, while using numerical diversity curves. This result gives exact finite supply levels at which each additional break-even class can be supported, proves that each selected equilibrium is locally exponentially stable, and establishes a supply-independent impossibility of recruiting sufficiently demanding species when isolation is incomplete. This distinguishes structural failure of coexistence from merely insufficient nutrient provisioning. The statement concerns the new model's natural parameters and arbitrary species counts rather than an arbitrary numerical slice. The local nature and biological-detection limitations are disclosed.
+Bounded evidence supports a distinct explicit supply classification for arbitrary finite S, including intermediate common isolation and a strict resource-domain ceiling. This is not a claim to originate the ODE or equilibrium coexistence methods. Related same-day records are not dismissed by date; their available statements cover different questions or overlap only on part of the present stability question. Relevant full-text access limitations prevent a priority claim.
 
-## Closest literature and limitations
+## value
 
-- M. ElGamel and A. Mugler, *Spatial structure promotes coexistence, resilience, and synergy in microbial communities*, arXiv:2611.00222v1 (2026-10-30); full relevant mathematical sections examined, especially supplement VI–VII.
-- P. De Leenheer, D. Angeli and E. D. Sontag, *Crowding effects promote coexistence in the chemostat*, JMAA 319 (2006); different density-dependent self-limitation, not species-specific local nutrient pools.
-- F. Yu, W. Song and Y. Wang, *Effect of diffusion on a consumer-resource system with source-sink patches* (2022 early access); journal abstract and example/method available, full article access restricted. The paper concerns movement among source-sink patches, not the specified common-pool plus private-pool consumption mechanism in the new model.
-- Published published-finding corpus record *Sharp resource-allocation staircases under uniform patch dispersal*, 2026-11-02; optimization of investment allocation, not ecological survivor support.
+PASS
 
-No global attractor theorem, finite-noise claim, adaptive-geometry extension, complete historical novelty guarantee, or independent validation is asserted.
+This determines exactly how survival changes with supply and whether increasing supply can ever admit a species, rather than only showing that coexistence sometimes occurs. The strict finite exclusion bound, explicit entry locations, and local stability tie that classification to a specified scientific model with finite exchange. The first threshold is correctly constant, so its comparative statics are not overclaimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

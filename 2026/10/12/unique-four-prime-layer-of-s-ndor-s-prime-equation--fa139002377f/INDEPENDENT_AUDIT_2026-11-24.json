@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:40.378300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Passes the corrected statement in repairs/4, not the original identification with the totient–divisor equation. For P−2F=5 the normalized Euler product 2F/P is less than one. If p≥5 the product is at least 5760/5005>1; with p=3, q≥11 would give at least 4000/3993>1. Thus q=5 or 7. For q=7 the whole left side P−2F is divisible by 3. For q=5 the reduction is (r−16)(s−16)=235. Negative factors give product at most 45 and the two positive pairs give (17,251) and (21,63), only the first prime. Substituting gives P=64005, F=32000. An independent solved-for-s check over r≤31 (from the positive ordered factors of 235) found the same survivor; the exact algebra, not this finite check alone, exhausts the original unbounded domain. With m=16P, phi(4m)=32F and d(4m)=(6+1)·16, so the actual condition is P−2F=7 and at the stated tuple the sum is 1024112, not m=1024080. The final repair retains only uniqueness for the displayed equation as its contribution; it documents the normalization error and cites the existing obstruction for the actual equation. The replacement verifier was independently written and run; its output matches repairs/4/verification_output.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 13b58b41e74c proves a stronger obstruction in the true totient–divisor equation, including the four-odd-prime case and the candidate's discrepancy of 32.",
+          "Record 34f5a735c626 classifies the ω(m)=4 layer of the actual equation, not this tuple, for which ω(m)=5.",
+          "Sándor's Theorem 7 governs the different restricted shape m=2^a3^b5^cp, and the variable-support prime question is conjectural."
+        ],
+        "reasoning": "Neither a nonexistence theorem at the correctly normalized right side nor classification of a different support implies the unique solution of P−2F=5. The known obstruction is credited without judging within-day priority.",
+        "searches": [
+          "Resultary: phi(4m)+tau(4m)=m family",
+          "Resultary exact title: Squarefree odd-part obstruction for the totient–divisor quarter equation",
+          "Resultary exact title: Exact first prime-support layer of the totient–divisor equation",
+          "Sándor 2023, Theorem 7 and Conjecture 2"
+        ]
+      },
+      "checked_sources": [
+        "Sándor 2023 DOI 10.7546/nntdm.2023.29.1.130-136",
+        "Resultary 13b58b41e74c",
+        "Resultary 34f5a735c626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary proof reduces (given p_1=3,p_2=5) to two factor-pair possibilities. The other catalogue records concern phi(n)+tau(n)=n/4, for which k=r=4 gives 233 instead of 235 after the same factor translation."
+        ],
+        "reasoning": "The repaired theorem adds the uniform prime-order bounds and exclusion of the (3,7) branch prior to the known terminal calculation. These exclusions at right side five do not follow simply from the source's existence example or the corrected equation's nonexistence. No novelty is credited for the normalization or the verification of the numerical witness.",
+        "searches": [
+          "Sándor 2023, DOI 10.7546/nntdm.2023.29.1.130-136, p. 136",
+          "Resultary 13b58b41e74c and 34f5a735c626, Findings and reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sándor sets n=4m, gives the totient–divisor equation, then prints a different prime equation with right side r+1. Its conditional factorization 235 concerns only the choice p_1=3, p_2=5.",
+          "The recomputed divisor count makes the two equations non-equivalent: the normalized right sides at k=r=4 are five and seven, respectively."
+        ],
+        "reasoning": "The unique-tuple result must be compared in the stand-alone equation, not among genuine totient–divisor solutions. The source's conditional factorization is applicable only after proving the missing global restriction.",
+        "searches": [
+          "Resultary: Sándor 2023 and tuple (3,5,17,251)",
+          "Sándor 2023, pp. 134–136, eq. (23) and the displayed r=4 example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sándor explicitly gives 1024080 and its factorization, but only as an example after fixing the first two primes. The support-four list 1980,3900,4680 has a different domain and target equation."
+        ],
+        "reasoning": "The numerical witness and its prime factors are already known. They are not an exhaustive table of solutions for the repaired equation, and the matched support-four list does not enumerate its solutions.",
+        "searches": [
+          "Resultary: Sándor 2023 and tuple (3,5,17,251)",
+          "Sándor 2023, Theorem 7 and p. 136 four-prime numerical example",
+          "Resultary 34f5a735c626, Finding"
+        ]
+      },
+      "rationale": "Pass only the complete classification of the stand-alone four-prime equation with right-hand side five. The source already gives the tuple and the factorization conditioned on the first two primes; neither proves those primes are forced. A distinct same-date published record explicitly covers the normalization problem and exclusion for the actual arithmetic-function equation; that contribution is not claimed by the repaired record.",
+      "residual_risks": [
+        "The elementary stand-alone uniqueness argument may be recorded elsewhere under a different notation; the bounded search did not identify it.",
+        "The publication dates of the two neighboring records do not establish within-day priority. Their demonstrated coverage of the actual equation is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXAMPLE_NOT_UNIQUENESS; ERRONEOUS_NORMALIZATION",
+          "evidence": "p. 136 uses k+1 after n=4m while the divisors of 2^{k+2} give k+3. Its r=4 computation explicitly chooses p_1=3,p_2=5 and gives the tuple, without excluding all other initial pairs.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-29/NNTDM-29-1-130-136.pdf",
+          "material_read": "Eq. (23), p. 134 (OA offset 12622); Theorem 7 and prior divisor factors, p. 135 (offset 14428); displayed general reduction and r=4 example, p. 136 (offset 15163)",
+          "method": "OA primary PDF",
+          "title": "On certain equations and inequalities involving the arithmetical functions φ(n) and d(n) – II",
+          "trigger": "Original equations, normalization and possible uniqueness claim"
+        },
+        {
+          "assessment": "COVERS_ACTUAL_EQUATION_NOT_STANDALONE_CLASSIFICATION",
+          "evidence": "Gives ω(n)≥7 for squarefree odd part, derives (p_3−16)(p_4−16)=233 in its four-odd-prime case, and computes the incorrect candidate's discrepancy as 32.",
+          "identifier_or_url": "2026/10/12/SCOPE-squarefree-odd-part-obstruction-for-the-totient-divisor-quarter--13b58b41e74c",
+          "material_read": "RESULT.md Finding and four-odd-prime case, local text offsets 0 and 3748",
+          "method": "Local mirror of published finding",
+          "title": "Squarefree odd-part obstruction for the totient–divisor quarter equation",
+          "trigger": "Direct correction and broader exclusion in the actual equation"
+        },
+        {
+          "assessment": "DIFFERENT_SUPPORT_AND_EQUATION",
+          "evidence": "ω(m)=4 in its complete list; the tuple in the repaired equation uses four odd primes in addition to two.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-first-prime-support-layer-of-the-totient-divisor-equation--34f5a735c626",
+          "material_read": "RESULT.md Finding and comparison, local text offsets 0 and 3786",
+          "method": "Local mirror of published finding",
+          "title": "Exact first prime-support layer of the totient–divisor equation",
+          "trigger": "Potential broader complete solution list at support four"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected claim closes a whole natural fixed-support case of the explicit published prime equation, rather than reproducing its one example or taking a prime cutoff. It proves that the candidate's conjecture-motivated choices 3 and 5 are not arbitrary. Its usefulness and novelty attach to that Diophantine classification, not to falsely solving a totient–divisor problem or to claiming the prior squarefree-odd-part obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

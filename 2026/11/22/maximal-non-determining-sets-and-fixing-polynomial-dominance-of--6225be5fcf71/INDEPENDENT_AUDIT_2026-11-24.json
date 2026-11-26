@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:32:47.071957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–43",
+        "VERIFICATION.md and verification/check_affine.py, verification/check_graph.py (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/3.py; exact output at /workspace/reproductions/3.txt"
+      ],
+      "rationale": "Nonbases are precisely subsets of a nonidentity automorphism's fixed set. The Shrikhande neighborhood six-cycle and the distinct signatures of the nine other vertices bound a root stabilizer by 12; the twelve connection-preserving matrices attain the bound. The seven order-four kernels are the six cyclic subgroups and the subgroup of all elements of order dividing two. Translating their kernels yields exactly 28 maximal fixed sets; a triple in one of them generates its order-four subgroup by differences, so no triple is double counted. Rook automorphisms preserve or swap the two row/column clique families. Nonidentity preservers leave at most two fixed rows or at most two fixed columns, while swappers have fixed sets contained in permutation transversals. Each slab and each full transversal is attained, and they are incomparable. The independent adjacency-bijection check, without assuming either group formula, obtained 192 and 1152 automorphisms and recovered both maximal families and their full down-closures. The coefficient difference from degrees 3 to 8 is (448,784,672,336,96,12). It gives determining numbers 3 and 4, guarantees at 5 and 9, respectively, and a strict difference under i.i.d. Bernoulli selection, since every positive coefficient has positive weight p^k(1−p)^(16−k) in the open interval.",
+      "residual_risks": [
+        "The probability comparison does not establish ordering for heterogeneous, dependent, or nonuniform vertex selection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Each factor-coordinate column must contain a determining set and no two columns may be isomorphic images. In K_4, a determining set requires at least three different coordinates."
+        ],
+        "reasoning": "In the product, a failure to reach three distinct coordinates in one column gives a slab. Equivalent columns correspond to one being a relabeling of the other and hence cells contained in a transversal. This general lemma covers the rook test and the rook coefficients are derivable from it. The non-product Shrikhande classification is not covered by that lemma.",
+        "searches": [
+          "Boutin, The Determining Number of a Cartesian Product, BoxProd.pdf, Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "The cited product lemma and primary definitions",
+        "Compared Resultary mirror passages",
+        "RESULT.md, lines 51–64"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Centroidal locating separates vertices by relative ranks of distances to the sensor set. An automorphism fixing each sensor leaves their distances unchanged, so a centroidal-locating set is determining.",
+          "The rook nine-set guarantee already follows. The reverse implication at lower cardinalities is not supplied by this reasoning; the centroidal probability ordering is for a distinct event."
+        ],
+        "reasoning": "The prior implication and product theorem cover the rook guarantees identified above, but do not yield the Shrikhande four-cosets or the six-term coefficientwise advantage. The Bernoulli dominance is itself a direct consequence of that new comparison, not a separate general method.",
+        "searches": [
+          "Foucaud–Klasing–Slater arXiv:1406.7490",
+          "Centroidal sensing record c7a0bb27cc7b",
+          "Boutin product criterion BoxProd.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact synonym is a permutation-group base for the vertex action, equivalently a set not contained in any nonidentity pointwise fixed set. Boutin's foundational text gives determining-set methods and Kneser graph applications.",
+          "Shrikhande and the rook graph also occur in comparative sensing and locating-domination counts, but neither distance-rank distinguishability nor identifying by neighborhood traces is equivalent to trivial pointwise stabilizer."
+        ],
+        "reasoning": "The prior base framework is known. No independent matching census of maximal pointwise fixed sets for Shrikhande was found in the inspected statements.",
+        "searches": [
+          "Resultary: Shrikhande and rook fixing polynomial, pointwise bases/nonbases, subgroup cosets and permutation transversals",
+          "Boutin 2006, Determining.pdf",
+          "Javaid et al. 2018, On Some Parameters Related to Fixing Sets in Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fixing match is the assigned record itself. The centroidal record on the same graph pair reports exactly the twelve rook eight-slabs as failures and every rook nine-set as successful. The locating-dominating entry gives minimum-code counts 1488 and 1872 under another predicate."
+        ],
+        "reasoning": "The eight-slabs are a concrete overlap. Neither the non-equivalent all-size centroidal census nor the minimum neighborhood-code census is a fixing-polynomial table. Same-day dating is not evidence of ordering.",
+        "searches": [
+          "Resultary: Shrikhande rook fixing-polynomial difference and the 28 order-four cosets",
+          "2026/11/22/SCOPE-centroidal-sensing-polynomials-and-exact-optimal-exchanges-disti--c7a0bb27cc7b",
+          "2026/11/8/SCOPE-minimum-global-locating-dominating-codes-distinguish-the-shrikha--b1d04ec503f1"
+        ]
+      },
+      "rationale": "The rook obstruction criterion is covered as a specialization of the known Cartesian-product determining-set criterion, and the high-cardinality centroidal comparison also overlaps. The Shrikhande coset classification and precise coefficientwise pointwise-fixing comparison are the distinct supported contribution; neither a general fixing-set method nor a count of sensor sets under a different predicate yields them in the inspected evidence.",
+      "residual_risks": [
+        "The frozen text does not identify its allusion to an earlier centroidal census by citation; the located catalogue record establishes the stated overlap but does not settle that allusion's identity or priority.",
+        "Unproductive general search and unverified full text of Javaid et al. do not exclude earlier exact enumerations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader theorem covers the rook test",
+          "evidence": "The columns each contain a determining set and must be pairwise inequivalent under isomorphism.",
+          "identifier_or_url": "https://academics.hamilton.edu/mathematics/dboutin/BoxProd.pdf",
+          "material_read": "Lemma 1, manuscript pp. 4–5",
+          "method": "Lawful author copy",
+          "title": "The Determining Number of a Cartesian Product",
+          "trigger": "same fixing predicate on products"
+        },
+        {
+          "assessment": "Foundational terminology and prior methods",
+          "evidence": "Determining sets detect automorphisms by their action on chosen vertices; the inspected application is to Kneser graphs.",
+          "identifier_or_url": "https://academics.hamilton.edu/mathematics/dboutin/Determining.pdf",
+          "material_read": "Abstract and definition passage",
+          "method": "Lawful author copy",
+          "title": "Identifying Graph Automorphisms Using Determining Sets",
+          "trigger": "potential earlier determining-set results"
+        },
+        {
+          "assessment": "Partial coverage and implication; different main predicate",
+          "evidence": "Twelve rook eight-sets fail centroidal location, the slabs; all nine-sets succeed.",
+          "identifier_or_url": "2026/11/22/SCOPE-centroidal-sensing-polynomials-and-exact-optimal-exchanges-disti--c7a0bb27cc7b",
+          "material_read": "RESULT.md offsets 0 and 5266",
+          "method": "Resultary and local mirror",
+          "title": "Centroidal sensing polynomials and exact optimal exchanges",
+          "trigger": "same graph pair, eight-slabs and nine-set guarantee"
+        },
+        {
+          "assessment": "Centroidal location implies determination, not an equivalent definition",
+          "evidence": "Vertices are distinguished by their relative distance rankings to the selected sensors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.7490",
+          "material_read": "Definition, PDF p. 3",
+          "method": "Lawful OA preprint",
+          "title": "Centroidal bases in graphs",
+          "trigger": "verify what the compared sensor predicate implies"
+        },
+        {
+          "assessment": "Different predicate and census",
+          "evidence": "The numbers 1488 and 1872 count minimum locating-dominating codes, not group bases.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimum-global-locating-dominating-codes-distinguish-the-shrikha--b1d04ec503f1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Minimum global locating-dominating codes distinguish the Shrikhande and rook graphs",
+          "trigger": "same graphs with exact distinguishing-set numbers"
+        },
+        {
+          "assessment": "Unresolved relevance in full text",
+          "evidence": "The topic is fixing-set parameters; no exact applicable statement was verified.",
+          "identifier_or_url": "https://psa.pastic.gov.pk/article/186105/on-some-parameters-related-to-fixing-sets-in-graphs",
+          "material_read": "Bibliographic reference and accessible abstract information; full text not established",
+          "method": "Public catalogue; lawful full-text request unavailable",
+          "title": "On Some Parameters Related to Fixing Sets in Graphs",
+          "trigger": "possibly relevant fixing-set enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Product criterion and centroidal comparison"
+      ],
+      "rationale": "The graphs share (16,6,2,2), so the difference is a concrete invariant invisible to their strongly regular parameters. The Shrikhande coset description yields the exact shape of failures, not merely their count or a minimum base size. The combined all-cardinality census proves uniform Bernoulli advantage rather than just a threshold difference; the alternative sensor predicates show why specifying the fixing event matters.",
+      "residual_risks": [
+        "The result compares these two graphs only and is not a general theorem on strongly regular graphs or on sensor performance under other predicates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

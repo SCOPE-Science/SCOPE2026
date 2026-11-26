@@ -1,25 +1,21 @@
-# Scientific review: transverse tetrahedral Fourier-zero crossings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact exponential-simplex identity [1, Corollary 12] fixes the Fourier convention and normalization. At pairwise-distinct integral phase nodes, the four exponential factors coincide, giving a zero by Lagrange interpolation. The real first jet has rank one. The imaginary second jet on its two-dimensional kernel has explicitly negative determinant, since the product of four interpolation denominators is a positive squared Vandermonde product. Real-analytic Morse reduction then proves **exactly two transverse, embedded nodal branches** near each node. The affine extension follows from a nonvanishing multiplier and a linear change of frequency. The result is local, not a global zero-locus classification. Independent exact-algebra and high-precision checks are documented in VERIFICATION.md.
+PASS
 
-## Originality — PASS, with qualification
+For the stated Fourier sign, the divided-difference multiplier is (-i)^(-3)=-i; the constant-weight sum vanishes identically wherever the four phases are distinct. At the given reciprocal node, subtracting the constant exponential term leaves first real jet -sum w_j delta_j and quadratic imaginary jet (1/2)sum w_j delta_j^2. Denominator variation cannot contribute an imaginary quadratic term because the first exponential term becomes real. The real zero equation has nonzero gradient. On its tangent plane, elimination of v_3 gives determinant -w_0 w_1 w_2 w_3/w_3^2 for the quadratic matrix before the factor 1/2. The product of the four weights is positive because the six unordered pairs give six signs in the Vandermonde product. The restricted Hessian is therefore a saddle. The analytic Morse coordinates make its zero set precisely two axes on the real-zero surface: distinct tangent lines, and rank two off the crossing. At (1,2,3) the restricted quadratic factors as (v_2-v_1)(v_2-2v_1) after the common scale, giving the stated directions. The affine transport is invertible and multiplication by the nonzero translation factor preserves both zeros and the equation rank there.
 
-Baldoni–Berline–De Loera–Köppe–Vergne [1, Section 3.2] prove the general exponential simplex integral; the present finding claims no originality for that formula. Gallatin [2, Sections 2 and 4] gives a polyhedral Fourier-transform method. Both were read in relevant complete-text sections. The tetrahedral form-factor documentation [3] also states the transform and handles removable singularities of its rational representation. Their statements do not identify the local real zero set at complete reciprocal nodes, the two explicit tangent directions, or the universal negative saddle determinant. Comparisons with discrete finite-field simplex Fourier supports and planar triangle fold bifurcations are inapplicable to the specified real three-dimensional local topology. Exact publication priority is not independently certified; older optical form-factor literature may contain equivalent nodal observations, and only abstract-level material could be checked for the 2023 polyhedral form-factor paper [4].
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The zero set of a three-dimensional Fourier transform is generally a real curve; identifying its singularities requires information not supplied merely by the transform's pointwise value. The theorem classifies every completely phase-aligned reciprocal node of any tetrahedron, proves that each is an ordinary transverse double point, and gives computable directions of its two incident Fourier-zero curves. The invariant sign from a four-point Vandermonde product is a structural statement across an infinite lattice and all invertible affine tetrahedra, not a selected numerical example.
+The transform formula and the lattice-zero cancellation are covered. The strongest retrieved polytopal zero-set theorems constrain specific hypersurfaces or globally parameterized curves rather than determining the local real analytic germ at these lattice nodes. The nearby lattice catalogues classify discrete zeros only. No inspected source establishes the universal crossing or its two tangent lines.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
 
-## References
+PASS
 
-[1] V. Baldoni et al., *How to Integrate a Polynomial over a Simplex*, arXiv:0809.2083 (2008), Section 3.2.
+Complete reciprocal lattice nodes are naturally selected by exact phase cancellation, and their first Jacobian has insufficient rank to classify the zero set. The result distinguishes two crossing real branches from an isolated or higher-order singularity, gives their directions at every such node, and transfers to any affine tetrahedron. This is useful local geometry that a lattice census or transform evaluation does not recover.
 
-[2] G. M. Gallatin, *Fourier, Gauss, Fraunhofer, Porod and the Shape from Moments Problem*, arXiv:1109.5262 (2011), Sections 2 and 4.
-
-[3] SasView, *truncated_tetrahedron* documentation, tetrahedral form factor and removable expression singularities: https://www.sasview.org/docs/user/models/truncated_tetrahedron.html
-
-[4] T. Yang et al., *Form factor of any polyhedron and its singularities derived from a projection method*, *J. Appl. Crystallogr.* 56 (2023), 167–177, DOI 10.1107/S160057672201130X (abstract inspected; complete text not inspected).
+The dated certificate retains the supplied scientific assessment, sources and limitations.

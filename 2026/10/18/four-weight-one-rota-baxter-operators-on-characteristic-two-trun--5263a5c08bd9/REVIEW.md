@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The conclusion is for each characteristic-two field \(K\) and integer \(n\ge2\), not only for finite fields. The proof uses the operator identity first at \((1,1)\) and then at \((1,a)\) to force \(P(1)\in\{0,1\}\) and \(P^2=P\). It establishes the equivalence to complementary subalgebras, proves that a nonunital subalgebra avoiding \(1\) lies in the radical, and proves that any radical element with nonzero linear coefficient generates a basis of the radical through its powers. These facts exclude all splittings except the zero/whole and constant/radical pairs. The four operators are checked in the converse direction. All seven independent exhaustive cases reproduced precisely these operators. The finite tests alone do not certify the general theorem; the proof does.
+PASS
 
-## Originality (O): PASS, with stated risks
+With u=P(1), the (1,1) equation in characteristic two gives u^2=u. The only idempotents of the local ring are 0 and 1. The (1,b) equation then gives P^2=P in both cases. Such a projection satisfies the identity exactly when both summands are subalgebras: equal-summand inputs force closure, while mixed products cancel in the identity and there is one copy of each of the two pure products in its argument. A subalgebra with an element v of nonzero residue c contains 1 by expanding (v-c)^n=0, whose constant term (-c)^n is invertible. A single element of (t) with nonzero t coefficient generates (t) linearly by its positive powers, by triangularity. In any complementary pair one summand contains 1 and the other lies inside (t). If the former has an element with nonzero t coefficient it is the whole algebra (subtract the residue); otherwise the latter must supply the t coefficient and hence is all of (t). Thus the only decompositions up to swapping are A_n plus zero and K plus (t). Their projections give precisely four distinct maps and the stated ranks for n>=2, and automorphisms fix constants and preserve the maximal ideal. For n=1 only zero and identity remain. The reviewed finite-field checker covers all maps in its listed cases by bilinearity, not the universal quantifiers; it was not executed.
 
-The closely related recent primary source is Farooq, arXiv:2605.15670v1 (15 May 2026). Its full accessible HTML text, including the hypotheses, statements, proofs, and references in Sections 1–4, was examined: it assumes characteristic zero and a square-zero maximal ideal, whereas the current theorem covers arbitrary characteristic-two fields and all one-variable truncation lengths. Its idempotent-matrix parameterization does not imply the exclusion of extra maps on higher truncations. Zheng–Guo–Rosenkranz (2019) concerns weight zero and semigroup algebras of orders two and three; the accessible introduction, setup, and conclusion do not address this weight-one chain family. Direct searches using truncated-polynomial, chain-algebra, characteristic-two, splitting, and complete-classification aliases and an indexed mathematical-results comparison found no stronger coverage. The main risk is an earlier or unindexed general theorem on weight-one maps of local monogenic algebras, which would dominate the statement. Search absence is not a proof of priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The problem is to classify operator structures on finite local nilpotent thickenings beyond the first-order truncation studied in recent literature. The theorem shows a uniform rigidity at **every** nilpotency length, not merely an isolated small count: the entire operator set stays four, all operators are splitting, and no extension with longer radical filtration creates extra weight-one structures in characteristic two. The proof identifies the decisive invariant, the one-dimensional cotangent space \(\mathfrak m/\mathfrak m^2\), and yields exact field-independent rank and automorphism-orbit distributions. The contrast with multi-generator square-zero algebras (where arbitrary idempotent matrices occur) motivates why the one-generator classification is structural rather than a numerical exercise. No paper-sized downstream theorem is asserted.
+The supported distinct result is completeness of the four maps at arbitrary chain length over any characteristic-two field. Neither constructing the two complementary projections nor the splitting criterion in isolation is a novelty claim. The inspected closest square-zero classification and neighboring indexed results do not give the stated exhaustiveness.
 
-## Closest literature and limitations
+## value
 
-The scope is weight one, characteristic two, one generator, finite nilpotency length. Characteristic-zero, weight-zero, and multivariate claims are excluded. Classification priority remains subject to checking any unindexed generalized chain-ring literature. Computational checks are exhaustive only in seven stated finite configurations; mathematical proof covers all stated fields and lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete classification for an entire family of one-generator local algebras, including arbitrarily long nilpotent filtrations and infinite fields. It shows why counting solutions to growing matrix systems gives a field- and length-independent answer by reducing the problem to the presence of one first-order generator in a subalgebra. The exact list, ranks, and trivial conjugation action are useful to work on classifications in positive characteristic; the finite checks alone would not have this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

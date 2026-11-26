@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the stated six-particle continuous-time Markov chain, every permitted interchange removes exactly one inversion. First-step conditioning gives a terminating triangular system over exactly 89 nonterminal arrangements. The complete `check.py` computation uses exact rational functions to evaluate that system, compare the final probability against the displayed formula, and prove that its derivative has only positive coefficients. The model is precisely specified, and neither simulation nor an incomplete enumeration is used as a proof.
+## correctness
 
-**Originality — PASS, qualified.** Direct examination of the full 2026 motivating paper and the relevant 2022 oriented-swap study found no finite six-particle, gap-dependent *last interchange type* probability. The motivating results give separate cut-completion marginals and asymptotic sorting speeds, not the joint event determining which cut completes last. The older study uses different interchange rates. Searches for three-species last swaps and exact finite competition revealed no covering formula. The possibility of a general theorem that implies the present small case remains a priority risk.
+PASS
 
-**Value — PASS.** This is the first nontrivial balanced three-species population (the one-per-species case is a two-clock race), and the identity of the final overpass is exactly the finite analogue of the bottleneck-cut question studied in the motivating paper. The result determines a previously unprovided natural joint statistic for all positive gap ratios, supplies its full rational law, and proves a sharp bias threshold and monotonicity. It does not pretend to extend the macroscopic theorem or claim a general population-size result.
+Dividing by a leaves rates 1,x,1+x. An adjacent inversion swap removes exactly one inversion, so the finite embedded chain is acyclic with only one absorbing state. The two penultimate arrangements are obtained by swapping either of the two unlike neighbors in 001122; consequently only (1,0) and (2,1) can be last. First-step exponential races establish the recurrence with the appropriate terminal payoff. I independently implemented the recurrence with integer polynomials: at each inversion level multiply the previous common denominator by one copy of each distinct total-rate polynomial at that level, and for each state sum move-weighted child numerators times all level factors other than its own rate. This establishes the rational representation by induction without cancellation or numerical interpolation. Exact cross-multiplication matched the frozen Q on the full 90-state/89-nonterminal/180-transition graph. Exact polynomial differentiation matched the reported numerator B with strictly positive coefficients; reciprocal numerator reversal, leading and constant coefficients and substitution x=2 verified symmetry, limits and the example. Reflection of sites plus reversal of labels supplies the probabilistic explanation of the reciprocal identity. Fresh replay passed: python3 /workspace/review-checks/last_swap.py (standard library only).
 
-**Limitations.** The small exact case is not evidence of a universal formula or monotonicity at higher particle counts. Priority is qualified pending independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the exact finite rational last-type probability and its all-rate strict increase; the Markov recurrence, reflection idea, and large-population last-type selection are not claimed as new. No compared exact source or applicable stronger theorem supplies this finite joint event.
+
+## value
+
+PASS
+
+The invariant tests which of two dependent species boundaries actually completes last, a finite counterpart to established cut-selection results whose marginal cut laws cannot answer it. Two particles per species give the first balanced repetition of all three species, with many different accessible orders of same-type crossings, in contrast to a single copy per species. The exact gap-ratio dependence, steep small-gap tail and strict ordering for every rate ratio give a usable benchmark for finite joint-cut theory, rather than a single enumerated instance or an absorption-time proxy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

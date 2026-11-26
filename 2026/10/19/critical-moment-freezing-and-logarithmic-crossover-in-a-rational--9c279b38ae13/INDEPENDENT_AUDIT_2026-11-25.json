@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:31:10.534508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized stationary law follows from U=√[β(1−X)/X] being standard positive half-Cauchy. For its symmetric signed version of scale τ=β^(−1/2), the Cayley coordinate has Poisson pole p=(1−τ)/(1+τ); the Nth power has pole p^N by its Fourier coefficients. The Chebyshev map acts by absolute tangent multiplication followed by division by α. The resulting scale ratio is precisely the binomial quotient for α, including either sign of p. Expanding that quotient gives β(N−α)→K_N. For the low moments, domination by U^(2q) gives the secant constant; for the high moments, in g=1−x the rescaled density is bounded by g^(−3/2)(1−g)^(−1/2)/π, and the limit is the asserted beta integral. Independently, for q=1/2+s/log β, π√β M_q is the integral of g^(s/log β)(1−g)^(−1/2)/[g+(1−g)/β] on (0,1). The part below β^(−1) is O(1) uniformly for bounded s by integrating βg^(s/log β). Above β^(−1), replacing the denominator by g costs O(1) by the bound β^(−1)/g² away from the integrable endpoint g=1; dropping the (1−g)^(−1/2) factor also costs O(1) since its difference from 1 is O(g) at 0. The integral left is (log β)∫₀¹ exp(−st)dt, proving uniformity including s=0. The exact M₁=1/(1+√β) also follows by partial fractions in the Cauchy integral (at β=1 by continuity). This is a fixed-N stationary result, not a statement about temporal correlations or uniqueness. Frozen check.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DLMF connection formula contains the two terms whose exponent difference is 1/2−q, with the prefactor sin(π(1/2−q)); integral case limits are a separate formula.",
+          "The Oct. 18 comparison is a 1/log N moving-shape critical window for matrix energy, not the stationary gap law. The sigmoid-map comparison has the same H profile with an argument rescaling, but concerns a finite-horizon weighted sum."
+        ],
+        "reasoning": "No inspected broader theorem states a compact-uniform coalescing-parameter moment result subsuming this one. In particular, fixed-order endpoint asymptotics are not uniform as the exponents coalesce.",
+        "searches": [
+          "NIST DLMF §15.8(i) Eq. 15.8.4 and §15.8(ii)",
+          "Resultary 2026/10/18/SCOPE-critical-window-and-fixed-parameter-hilbert-schmidt-laws-for-bet--0ff5be86a3d5",
+          "Resultary 2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Jafarizadeh et al., arXiv:nlin/0003036v1",
+        "NIST DLMF §15.8",
+        "The indexed records compared above; also Resultary 2026/11/22/SCOPE-uniform-marginal-crossover-for-a-one-dimensional-power-law-ising--88f4229e82ef and 2026/11/17/SCOPE-critical-window-crossover-and-exponential-velocity-moments-in-a--014a35b217b5 (Findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The moment trichotomy at fixed order follows from standard endpoint hypergeometric cases or direct integration of the old density.",
+          "In the joint window the two hypergeometric terms must be retained together; their apparent singular coefficients cancel at q=1/2. The connection identity can be used if one additionally controls that cancellation uniformly, or one can instead use the uniform integral estimate."
+        ],
+        "reasoning": "The distinct result is the joint asymptotic and its normalization; it does not follow by substituting the moving order into any of the known separate fixed-order equivalents.",
+        "searches": [
+          "arXiv:nlin/0003036v1 §§2–3",
+          "NIST DLMF Eq. 15.8.4 and the limiting case in 15.8.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The already published X density gives G=U²/(β+U²) with U² beta-prime(1/2,1/2). The square-Cauchy limit is a direct distributional equivalence in β units, plus the degree-specific calibration.",
+          "The exact gap moment is β^(−q) B(q+1/2,1/2) ₂F₁(q,q+1/2;q+1;1−1/β)/π by Euler integration and transformation."
+        ],
+        "reasoning": "Different notation for the law does not create novelty, and different systems realizing H(s) do not give an equivalent gap-moment statement.",
+        "searches": [
+          "Local Resultary: half-Cauchy squared stationary scaling moment transition q=1/2 logarithmic crossover",
+          "Local Resultary: H(s)=(1-e^-s)/s uniform compact-s logarithmic critical-order crossover beta-prime moments",
+          "arXiv:nlin/0003036v1 Eq. (2-1), (3-3) and (3-4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed matrix-energy, oscillator, sigmoid-map and droplet results concern different observables; the Chebyshev primary paper supplies the exact density and parameter relation.",
+          "No inspected matching source tabulates these same gap moments in the joint critical window."
+        ],
+        "reasoning": "These are search limits, not proof that no table or equivalent record exists. The exact source for the density is positively identified.",
+        "searches": [
+          "Local Resultary: critical moment q=1/2 uniform crossover (1-e^-s)/s beta stationary gap observable",
+          "Local Resultary: Chebyshev rational map invariant density beta moment asymptotics stationary concentration fixed point",
+          "Jafarizadeh et al., arXiv:nlin/0003036v1, equations for the invariant law"
+        ]
+      },
+      "rationale": "Credit the known map, density and parameter branch, the standard half-Cauchy transform, and the fixed-order hypergeometric endpoint regimes. The supported distinct part is the calibrated compact-uniform moving-order gap-moment asymptotic for this stationary family. The exact connection formula provides an alternative route but is not itself a uniform moving-order asymptotic. No inspected statement establishes that joint asymptotic for this law.",
+      "residual_risks": [
+        "A published uniform coalescence expansion for the same transformed beta-prime moments under different notation may overlap; broader searches were bounded.",
+        "The fixed-order laws, the central law in β units and the elementary H function in isolation are not independent novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive prior coverage of map, invariant density and first-kind parameterization, not the moving-order result in the inspected passages",
+          "evidence": [
+            "The first-kind branch uses Eq. (3-4); the other branch in Eq. (3-5) does not change the comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0003036",
+          "material_read": "OA PDF Eq. (2-1), printed p. 4, offset 6869; Eqs. (3-3)–(3-5), pp. 8–9, offset 20234",
+          "method": "Bounded equation inspection and moment transformation",
+          "title": "Hierarchy of Chaotic Maps with an Invariant Measure",
+          "trigger": "Exact first-kind rational map and stationary branch"
+        },
+        {
+          "assessment": "Covers standard connection terms used to derive the fixed-order regimes; gives a route to the joint analysis, not a statement of the uniform asymptotic",
+          "evidence": [
+            "One of the connection terms is multiplied by (1−z)^(c−a−b); the coefficients in the two-term difference coalesce when c−a−b is zero."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/15.8",
+          "material_read": "Eq. 15.8.4, offset 3597, and comparison with the integer-excess limit Eq. 15.8.10",
+          "method": "Read public formula and compare a=q, b=q+1/2, c=q+1, z=1−1/β",
+          "title": "NIST DLMF, Hypergeometric Function: Transformations of Variable",
+          "trigger": "Strong general endpoint identity for exact transformed moments"
+        },
+        {
+          "assessment": "Distinct earlier threshold/crossover analogue",
+          "evidence": [
+            "Its observable is finite matrix energy in a two-shape moving window, and its profile differs."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-critical-window-and-fixed-parameter-hilbert-schmidt-laws-for-bet--0ff5be86a3d5",
+          "material_read": "Finding and window formulas at offsets 0 and 4467",
+          "method": "Local mirror comparison of observables and scaling",
+          "title": "Critical window and fixed-parameter Hilbert–Schmidt laws for beta-Hausdorff matrices",
+          "trigger": "Earlier critical order 1/2 with inverse-log window"
+        },
+        {
+          "assessment": "Not the same law",
+          "evidence": [
+            "It gives H(θ/2) for a finite-horizon weighted sigmoid-map quantity with an additional logarithmic correction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "An exponentially weighted logarithmic crossover at the neutral fixed point",
+          "trigger": "Same elementary H function and a neutral endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural stationary concentration endpoint, the typical gap is order β^(−1), but the mean gap is order β^(−1/2). The normalized critical window quantitatively joins the typical-scale and rare-excursion observables, including the logarithmic enhancement, rather than merely renaming the known invariant density. The moving-order uniform estimate and calibrated comparison of observables are the contribution; this is not a claim of a general response theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:12:23.060214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed nonzero rectangle U×V the two products with an arbitrary X are U×W and Z×V, with W the column support of rows V of X and Z the row support of columns U of X. The equality is either W=Z=∅ or W=V and Z=U. The first case leaves exactly X[Vᶜ,Uᶜ] unconstrained. In the second, entries in V×Vᶜ and Uᶜ×U are forbidden; rows U must hit columns U and columns V must be hit by rows V. Put A=U∩V, B=U\\V and C=V\\U. The constraints act on disjoint blocks A×A (both covers), B×U (row cover) and V×C (column cover), leaving the same free rectangle. Inclusion–exclusion, including H_0=1, gives the overlap factor. Choosing the intersection and then both disjoint differences gives the parameter multiplicities; equal numerical sizes are combined. The singleton count follows in either overlap case. At the complete relation, the first-order zero-line probability is 2n 2^(-n), with Bonferroni error bounded by the sum over pairs, each probability ≤2^(1−2n). Independent entrywise Boolean multiplication exhausts all partners and rectangles for n≤3, and all partners for the three a=b=2 overlap representatives at n=4, recovering 1312,160,128. Replay: python3 /workspace/checks/3.py; /workspace/checks/3.out. The frozen checker and its recorded output were inspected but not executed; its claimed Python 3.8 minimum is a minor documentation error (int.bit_count needs 3.10), not a mathematical defect. The fresh reproduction does not claim all 26 n=4 strata were replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1981 introductory statement names ideal structure, congruences and endomorphisms, and p. 59 supplies the rank-one description. The arXiv theorem is about the Boolean commuting-graph diameter; its proof uses the all-ones matrix for distance bounds.",
+          "The highly relevant 2010 semigroup-algebra paper could not be independently read in full; its claimed field-algebra theorem is not treated as an inspected negative result."
+        ],
+        "reasoning": "The available full-monoid structure and graph results do not give an exact degree at each nonzero rectangle. Counting centralizers of a linearized field algebra is not in general counting centralizers of elements in the original Boolean monoid.",
+        "searches": [
+          "doi:10.1017/S0017089500004468",
+          "doi:10.1080/00927870902939418 (publisher PDF/full-text and focused lawful-copy search)",
+          "arXiv:1012.5505v1, §2 Lemma 2.1 and Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1017/S0017089500004468",
+        "doi:10.1080/00927870902939418 (access attempted)",
+        "arXiv:1012.5505v1",
+        "Resultary: a2f16599b2ee, a62e32d5a371, 1fb1872b2f5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula requires counting the disjoint A×A no-zero-lines block and two one-sided covering blocks for unrestricted X, as well as the all-zero product regime. None of the inspected statements supplies these simultaneous arbitrary-partner constraints with their cardinalities.",
+          "The well-known complete-matrix condition is recovered when a=b=c=n, at which point the free dimensions and both one-sided covering blocks disappear."
+        ],
+        "reasoning": "The full formula is neither a relabeling nor a direct specialization of the inspected clique and special-centralizer results. The structural product rule is used as background; the additional enumeration is the distinct claim.",
+        "searches": [
+          "doi:10.1017/S0017089500004468, p. 59",
+          "arXiv:1012.5505v1, §2–3",
+          "Resultary local mirror: a2f16599b2ee and a62e32d5a371, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim–Roush gives the rank-one Boolean outer-product representation and structure. The full-monoid formula depends on interactions between support rows and columns of an arbitrary matrix X, not only on multiplication among two rectangles.",
+          "The semiring commuting-graph paper considers a nilpotent shift in the Boolean setting and an all-ones row/column-maximum criterion in the tropical setting."
+        ],
+        "reasoning": "Boolean matrices and relations are the same object under the stated multiplication; neither the shifted-matrix case nor the all-ones support criterion specifies the mixed free-bit/overlap count at arbitrary U,V. Transposing the problem merely swaps a,b.",
+        "searches": [
+          "Resultary: full Boolean relation monoid centralizer cardinality, nonzero rank-one rectangles, support overlap",
+          "doi:10.1017/S0017089500004468, pp. 57 and 59",
+          "arXiv:1012.5505v1, §2 and §3 Lemma 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed finding counts cliques among rank-one idempotents. The same-day Boolean clique extension includes square-zero rectangles but remains inside rank at most one. The same-day simultaneous commutant finding instead concerns commuting idempotent tuples in finite-field sandwich algebras. The assigned record's own index entry was excluded as identical evidence."
+        ],
+        "reasoning": "Even a full clique or centralizer census within the minimal rank stratum does not enumerate higher-rank partners. Likewise the finite-field sandwich spectrum has a different multiplication/domain. The searches do not prove an exact table cannot exist elsewhere.",
+        "searches": [
+          "Resultary: overlap-refined centralizer sizes for rank-one Boolean rectangles with arbitrary partners",
+          "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+          "2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371",
+          "2026/11/22/SCOPE-simultaneous-commutant-rank-spectra-for-rectangular-sandwich-alg--1fb1872b2f5e"
+        ]
+      },
+      "rationale": "The supported distinct part is the exact overlap-dependent centralizer cardinality and full rank-one multiplicity census with arbitrary-rank partners. The rectangle representation, rectangle products and special all-ones support criterion are antecedents. The strongest inspected matches restrict the partner family, address graph distance, or change the ambient algebra. The comparison is bounded and no priority is inferred from same-day dates.",
+      "residual_risks": [
+        "The 2010 semigroup-algebra paper's decisive passages were inaccessible.",
+        "An earlier full-monoid enumeration, possibly under multifunction or relation-algebra terminology, may remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior outer-product and ideal structure, no covering centralizer formula in the inspected passages",
+          "evidence": [
+            "p. 57 identifies ideals, congruences and endomorphisms; p. 59 characterizes rank-one matrices by Boolean outer products."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500004468",
+          "material_read": "Cambridge PDF introduction p. 57 and rank-one statement p. 59",
+          "method": "Primary PDF passages",
+          "title": "The algebraic structure of the semigroup of binary relations on a finite set",
+          "trigger": "Structural theorem for the same full relation monoid"
+        },
+        {
+          "assessment": "Unresolved access limitation, not an independently established exclusion",
+          "evidence": [
+            "The cited topic is the rank-one ideal of the semigroup algebra, according to the frozen record; no original theorem passage was obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927870902939418",
+          "material_read": "Bibliographic identification only; Lemmas 5–15 and Theorem 21 identified by frozen citations, not read independently",
+          "method": "Publisher article/PDF access returned HTTP 403; focused lawful alternate search did not produce a copy",
+          "title": "On the semigroup algebra of binary relations",
+          "trigger": "Plausible encompassing rank-one algebra theorem"
+        },
+        {
+          "assessment": "Different fixed-matrix centralizer and global graph invariant",
+          "evidence": [
+            "The Boolean section treats a nilpotent shift and graph diameters, using the all-ones matrix for distance bounds. The all-ones row/column-maximum lemma is tropical."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5505",
+          "material_read": "§2 Lemma 2.1 and Theorem 2.2, PDF pp. 2–3 (OA offset 7043); §3 Lemma 3.1, PDF p. 6 (offset 17552)",
+          "method": "Primary OA PDF reading",
+          "title": "Diameters of commuting graphs of matrices over semirings",
+          "trigger": "Closest Boolean commuting-graph and centralizer results"
+        },
+        {
+          "assessment": "Rank-one idempotent clique families, not arbitrary-rank partners",
+          "evidence": [
+            "The vertex set requires a nonempty overlap and counts cliques only there."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Resultary plus local primary mirror",
+          "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+          "trigger": "Closest earlier indexed Boolean-rectangle census"
+        },
+        {
+          "assessment": "Still restricted to rank at most one",
+          "evidence": [
+            "Including square-zero as well as idempotent rectangles changes the clique ground set without adding arbitrary-rank partners."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary plus local primary mirror",
+          "title": "Full clique and maximal-clique spectra of rank-one Boolean relations",
+          "trigger": "Same-day close match including square-zero rectangles"
+        },
+        {
+          "assessment": "Other ambient algebra and fixed objects",
+          "evidence": [
+            "The exact spectrum is for commuting idempotent tuples in finite-field rectangular sandwich algebras."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-simultaneous-commutant-rank-spectra-for-rectangular-sandwich-alg--1fb1872b2f5e",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary plus local primary mirror",
+          "title": "Simultaneous commutant rank spectra for rectangular sandwich algebras",
+          "trigger": "Indexed exact commutant size and rank spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Centralizer size is the degree count (with the relevant trivial vertices and self counted as commuting partners) in a natural commuting problem. A count across the entire nonzero rank-one stratum is useful even without a higher-rank classification. The formula resolves why overlap changes sizes at the same two support cardinalities, and quantifies nearly universal versus exponentially rare commutation within one rank stratum. It is neither a finite-table extrapolation nor a count only of rectangle-to-rectangle products.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

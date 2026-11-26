@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:58.590336Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the radius-sqrt(3) representatives, restrictions through degree three are spanned by homogeneous cubics on the odd side and homogeneous quadratics on the even side. I recovered ranks 10 and 6 and independently checked the reported determinants 1024 and 32 in the original bases. Exact dot products give the disjoint-edge Petersen graph on the ten axes; a freshly found labeling identifies the five centered edge-coordinate columns as spanning the antipodal-even left kernel (rank four and exact orthogonality to the even evaluations). Deleting rows subtracts the number erased and adds the rank of the kernel projected to those rows. For the unsigned incidence matrix, the left kernel gives one alternating vector per bipartite component, including an isolated vertex; centering loses a dimension exactly when every such vector has sum zero. This proves the formula for all T, including the empty and full sets. Independent exact computation over Q(phi) checked all 1024 touched-pair patterns by direct even-block ranks (each represented retained pair gives one independent odd row) and verified ranks 14/15/16 with counts 45/1840/2960. Replay: python3 /workspace/branches/independent_dodecahedron.py (SymPy). The corresponding rank-four failures on four distinct axes are the 15 four-cycles and 10 triangle-plus-disjoint-edge sets; repeating an axis cannot give four independent kernel rows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dell’Accio et al. Thm. 4, eqs. (32)–(35), split the singular-value problem for an antipodal sampling set into even/odd blocks.",
+          "Zu Castell et al. Thm. 3.1 gives poised nodes under specified symmetric latitude and angle-grid hypotheses.",
+          "The later Resultary dodecahedral sampling records inspected give exact-degree spectra/ranks on a full geometry, not arbitrary-deletion ranks."
+        ],
+        "reasoning": "Neither a general parity split, a sufficient node construction, nor exact-degree full-grid spectra determine ranks for arbitrary retained rows after summing the degree spaces.",
+        "searches": [
+          "arXiv:2605.13124v1 Theorem 4",
+          "arXiv:math/0407448v1 Theorem 3.1",
+          "Resultary: degree-wise harmonic sampling and signed Petersen dodecahedron"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5142078e64c3",
+        "Resultary 22932f55648e",
+        "Resultary 38363f24449f",
+        "Resultary fec69d22daff",
+        "arXiv:2605.13124v1",
+        "arXiv:math/0407448v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-degree axes record explicitly excludes bandlimit sums.",
+          "The cuboctahedral proof uses oriented edge differences of rank 4 minus number of components; here unsigned incidence introduces bipartite null vectors and projection removes an extra dimension on the balance condition.",
+          "Antipodal parity orthogonality in Dell’Accio et al. assumes the sampled set itself is antipodally symmetric."
+        ],
+        "reasoning": "One still has to identify the specific bandlimited kernel and how its rows restrict, especially when erasures break antipodal symmetry. Substituting these parameters into the inspected general results cannot produce the stated balance criterion.",
+        "searches": [
+          "Resultary 5142078e64c3 and 22932f55648e, Findings and proof passages",
+          "arXiv:2605.13124v1 Thm. 4 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/18 degree-wise dodecahedral axes record gives a Petersen decomposition for fixed degrees but no row restriction criterion.",
+          "The 2026/10/18 cuboctahedron erasure record has a replicated K4 edge-difference Gale representation, not a centered K5 unsigned incidence representation."
+        ],
+        "reasoning": "An equivalent result could be phrased as the row matroid of the bandlimited evaluation matrix or as its dual. The compared Petersen statements concern another evaluation domain, and the closest explicit dual is on other nodes with different column dependencies.",
+        "searches": [
+          "Resultary: dodecahedron, cubic harmonics, erasures, Petersen, Gale duality",
+          "Web: \"dodecahedron\" \"spherical harmonics\" \"erasure\" interpolation rank Petersen K5 matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-node tables give exact-degree ranks such as 1,3,5,7,9,6,10,... on ten axes, not counts of arbitrary erasures among twenty vertices.",
+          "The cuboctahedron table gives 128 recoverable and 92 failing three-node erasures, not the 45/1840/2960 four-erasure rank census here."
+        ],
+        "reasoning": "No inspected catalogue or primary text gives a table for this bandlimit, node set and erasure statistic. Search coverage is limited.",
+        "searches": [
+          "Resultary ranked query (up to 300 matches): dodecahedron cubic harmonic erasures, Petersen and Gale duality",
+          "Web: \"dodecahedron\" \"spherical harmonics\" \"erasure\" interpolation rank Petersen K5 matroid"
+        ]
+      },
+      "rationale": "The inspected literature and published records contain parity and Gale-dual erasure methods, and substantial prior spectral information on the very same dodecahedral axes. The supported distinct result is the bandlimited all-deletion rule for individual vertices, in particular the centered unsigned K5 incidence criterion and its four-erasure census. None of the closest inspected statements supplies that criterion or determines the census without further work. This is a best-of-knowledge judgment, not global priority.",
+      "residual_risks": [
+        "An unindexed fixed-grid interpolation or Petersen eigenspace matroid calculation might give equivalent coverage.",
+        "Ranked catalogue results and one targeted external search were not exhaustive; full texts were inspected only in specified relevant passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact-degree ranks on ten axes, not the bandlimited row-deletion theorem.",
+          "evidence": [
+            "Scope excludes bandlimit sums; full rank ten at every degree at least fifteen."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-degree-wise-harmonic-interpolation-on-the-ten-dodecahed--5142078e64c3",
+          "material_read": "RESULT.md Finding, scope and Petersen passage, character offsets 0–2894 and 3419–5457",
+          "method": "Local publication mirror, actual statement and proof passages",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "Same nodes and harmonic/Petersen analysis"
+        },
+        {
+          "assessment": "Same style of classification but a different evaluation matrix and matroid.",
+          "evidence": [
+            "Rank 13-|T|-c(G_T), with a doubled K4 graphic matroid and three-erasure counts 128/92."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-tetrahedral-graphic-matroid-controls-quadratic-harmonic-samp--22932f55648e",
+          "material_read": "RESULT.md rank statement and incidence proof, character offsets 744–3044 and 3665–4955",
+          "method": "Local publication mirror, actual statement and proof passages",
+          "title": "The tetrahedral graphic matroid controls quadratic-harmonic sampling on the cuboctahedron",
+          "trigger": "Closest virtually identical Gale-dual question for a different regular geometry"
+        },
+        {
+          "assessment": "Exact-degree spectral statements, not a classification of bandlimited deletion ranks; later records are useful overlap comparisons, not evidence of earlier priority.",
+          "evidence": [
+            "The stated problems concern exact-degree sampling on the full node set."
+          ],
+          "identifier_or_url": "Resultary 38363f24449f; fec69d22daff",
+          "material_read": "RESULT.md stated spectra and scope, offsets 0–2248 and 0–1997 respectively",
+          "method": "Local publication mirror",
+          "title": "Exact dodecahedral harmonic sampling: signed-Petersen spectra and sharp stability; Exact harmonic-sampling spectra and the last interpolation gap of the regular dodecahedron",
+          "trigger": "Possibly covering full harmonic analysis of the same graph"
+        },
+        {
+          "assessment": "Contains the parity reduction, not the Case-specific centered-incidence or deletion-rank result.",
+          "evidence": [
+            "Eqs. (32)–(35) describe extreme singular values from the two parity blocks when X is antipodally symmetric."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.13124v1",
+          "material_read": "Theorem 4 and normal-matrix proof, PDF p. 10",
+          "method": "Open arXiv PDF, located and read exact passage",
+          "title": "Polynomial interpolation–regression on the sphere",
+          "trigger": "Strong general theorem for antipodal interpolation matrices"
+        },
+        {
+          "assessment": "A sufficient construction for special node arrangements, not a fixed-grid erasure classification.",
+          "evidence": [
+            "The theorem prescribes reflected latitudes and corresponding longitude grids, with exactly (n+1)^2 chosen points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407448v1",
+          "material_read": "Theorem 3.1 and its proof, PDF pp. 10–11",
+          "method": "Open arXiv PDF, located and read exact passage",
+          "title": "Polynomial Interpolation on the Unit Sphere II",
+          "trigger": "General exact degree-three spherical unisolvency might specialize"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For reconstruction of degree-at-most-three data on a canonical oversampled spherical grid, the issue is not one invertible sixteen-node choice but which missing-node patterns preserve information. The result turns every exact rank decision into a five-vertex balance criterion and explains the two forbidden four-axis configurations; it is more than redoing a determinant table. It makes no numerical conditioning or perturbation claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

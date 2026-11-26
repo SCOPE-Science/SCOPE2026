@@ -14,6 +14,6 @@ The precise bounds and their uniqueness identify a natural obstruction and optim
 
 ## Scope and independence
 
-Only identical independent endpoints on a Euclidean line are treated. The upper bound requires only symmetry/unimodality; the lower bound requires survival log-concavity, ensured here by a log-concave density. No multivariate or different-law extension is claimed. All checks described here are internal checks of the presented mathematics; independent validation has not been performed.
+Only identical independent endpoints on a Euclidean line are treated. The upper bound and its defect identity hold for even unimodal densities of finite first absolute moment. The lower bound uses survival log-concavity, ensured here by a log-concave density. No multivariate or different-law extension is claimed. The checks cited in this self-review are checks of the presented mathematics, not independent validation.
 
 Self-review: passed. Independent audit: not yet performed.

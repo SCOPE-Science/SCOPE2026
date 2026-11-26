@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:04.257601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60, VERIFICATION.md, verify.py and verification_output.txt (inspection only)",
+        "/workspace/branches/6403e0af-8e60-4036-a7ac-050e51465c81/independent_check.py and full_run.txt (independent replay: python3 on that script through n=15)"
+      ],
+      "rationale": "Each nonempty face corresponds to the product of its commuting primary factors; this is equivariant under conjugation. The prime labels are pairwise distinct and invariant under conjugation, so a setwise stabilizer fixes a simplex pointwise. More strongly, equality of two quotient points from one closed simplex forces equality of the barycentric coordinate at each prime and hence equality of points. Orbit-simplex closures thus give cells, with alternating boundary signs in increasing prime order and no stabilizer multiplicities. Deleting the p-factor acts on a length-L cycle by a power whose exponent has gcd p^v_p(L) with L; this gives the stated split into p^v_p(L) equal cycles. Four distinct primes require at least 17 letters: assign each prime to a cycle it divides, whose length is at least the product of its assigned primes, at least their sum. The same bound with three primes excludes triangles before 10. Independent exact enumeration and boundary reconstruction checked ∂₁∂₂=0 and gave C₂ counts (1,2,5,9,15,24) at n=10,…,15, with peeling rounds [1], [2], [5], [8,1], [12,3], [15,4,1]. A uniquely incident triangle on a remaining edge must have coefficient zero in any integral cycle, so peeling preserves the two-cycle group. The last four simplices at n=15 are exactly the specified disjoint-prime cycles; their edge and vertex labels and orbit identifications are precisely those of a tetrahedral boundary. Its six edge equations force all integral triangle coefficients to be a common integer times (1,−1,1,−1); this agrees with the independent residual rank 3 and verifies primitivity and exhaustion. Since there are no three-cells, the cycle generates H₂, and injectivity below 15 gives the sharp first occurrence (also covering empty Y₁).",
+      "residual_risks": [
+        "No computation of H₂ beyond 15 or of other homology degrees is implied. The subspace is an embedded sphere, not a claimed wedge summand of the geometric quotient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives symmetric-group structure and uses order-sheaf homology; the related quotient records use another group family or another simplicial construction. The earlier Donkin citation yielded only abstract/landing material."
+        ],
+        "reasoning": "The different chain functor in a sheaf homology theorem cannot be assumed to compute unweighted integral orbit-space homology. Neither alternating nor symmetric proper-subgroup order complexes supply the intended geometric quotient.",
+        "searches": [
+          "arXiv:2607.22369v2 §2.1 and §4.1",
+          "DOI:10.1016/j.jalgebra.2006.03.041",
+          "Resultary 31319dfd4952 and 5700bda30292"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22369v2",
+        "Donkin DOI landing page only",
+        "Resultary 31319dfd4952, c4450043103e and 5700bda30292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The schematic provides the model; neither inspected source gives the n=10–15 boundary elimination or global vanishing and uniqueness through the first nonzero dimension-two group."
+        ],
+        "reasoning": "A simplicial complex keeping only prime supports admits a section into this quotient by choosing one cycle of each of those primes and the rest fixed; this readily supplies the tetrahedral boundary at 15. It does not prove that the quotient has no earlier classes or no further classes at 15, since many other cells share those same supports. The full integral boundary calculation is the substantive conclusion.",
+        "searches": [
+          "arXiv:2607.22369v2 schematic and symmetric-group cycle decompositions",
+          "Resultary 31319dfd4952, quotient with cells labelled by conjugacy type"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary schematic uses the same conjugacy classes of prime-primary parts and their incidences.",
+          "The closest quotient-topology record uses specified cyclic Frobenius groups; the same-day partition-graph record concerns the fixed space of transpose, not group conjugation orbits."
+        ],
+        "reasoning": "Translate between orbit cells, conjugacy classes and cycle partitions of n. Quotienting a graph or taking fixed simplices is not the same operation; nor does the ordinary simplicial complex of prime sets retain all orbit cells with the same prime labels.",
+        "searches": [
+          "arXiv:2607.22369v2 pp. 6–7, conjugacy-class schematic",
+          "Resultary 31319dfd4952, geometric conjugation quotient of a group clique complex",
+          "Resultary c4450043103e, fixed partitions versus quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected primary examples include an M₁₁ order-sheaf computation, not an S_n orbit-space boundary-rank table. The indexed finite thresholds and quotient computations inspected have different groups, complexes or degrees."
+        ],
+        "reasoning": "A table of partitions, conjugacy classes, or possible prime sets lists potential cells, but not the integral kernel across distinct lifts of a prime support. The requisite table would give the geometric quotient ranks or a certificate of its orbit boundary incidences.",
+        "searches": [
+          "arXiv:2607.22369v2 §2.1 symmetric-group formulae and §4.1 sample computations",
+          "Resultary 31319dfd4952, c4450043103e and 5700bda30292 exact quotient invariants"
+        ]
+      },
+      "rationale": "The original group clique complex and conjugacy-class schematic are antecedents; the latter already supplies much of the combinatorial model and should not itself be credited as new. The inspected results do not supply the vanishing and generation computation for integral H₂ of these symmetric-group geometric quotients. The classification includes ruling out cycles carried by nonminimal orbit cells, not just locating the four primed faces.",
+      "residual_risks": [
+        "The scholarly web lookup was deferred, and Donkin full text was not accessible in the inspected routes. No priority inference is made from unavailability or unseen results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct conceptual and combinatorial antecedent; no exact threshold or generator in the compared results",
+          "evidence": "The schematic groups faces by conjugacy class; symmetric-group cycle types are developed, and the §4.1 computations use H_*(X_G; F), including M₁₁.",
+          "identifier_or_url": "arXiv:2607.22369v2",
+          "material_read": "PDF pp. 6–7, offsets 23106–27568; §2.1 pp. 10–11, from offset 37701; §4.1 pp. 23–25, offsets 87900–94190",
+          "method": "Lawful OA primary PDF, selected passages",
+          "title": "Clique complexes of groups and order sheaves",
+          "trigger": "Primary definition, conjugacy-class schematic and symmetric-group results"
+        },
+        {
+          "assessment": "Full-text implication not determined",
+          "evidence": "The citation is acknowledged as a construction antecedent; no absence of coverage is inferred from the retrieval limit.",
+          "identifier_or_url": "DOI:10.1016/j.jalgebra.2006.03.041",
+          "material_read": "Landing page/abstract only; full text unavailable in inspected lawful routes",
+          "method": "OA retrieval and repository-copy lookup",
+          "title": "K-0 of Hall's universal group",
+          "trigger": "Cited early antecedent for the group clique construction"
+        },
+        {
+          "assessment": "Relevant structural parallel, different family",
+          "evidence": "Treats specified cyclic Frobenius groups P⋊C_m rather than the symmetric-group family and gives no such n threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-integral-conjugation-homology-and-quotient-topology-of-cyclic-fr--31319dfd4952",
+          "material_read": "Local-mirror RESULT.md Finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Integral conjugation homology and quotient topology of cyclic Frobenius groups",
+          "trigger": "Same geometric orbit construction and integral topology"
+        },
+        {
+          "assessment": "Not the same construction or invariant",
+          "evidence": "Ferrers transpose fixed space and H₁ at n=18, not a conjugation quotient of X_(S_n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-first-circles-in-conjugation-fixed-partition-graph-clique-co--c4450043103e",
+          "material_read": "Local-mirror RESULT.md Finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "The first circles in conjugation-fixed partition graph clique complexes",
+          "trigger": "Distinct same-day combination of conjugation, partitions and clique-complex threshold"
+        },
+        {
+          "assessment": "Different simplicial object",
+          "evidence": "Uses proper-subgroup order complexes with subgroup vertices, rather than commuting elements of distinct prime-power orders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-conjugation-quotients-of-the-proper-subgroup-complexes-of-a-5-an--5700bda30292",
+          "material_read": "Local-mirror RESULT.md Finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Conjugation quotients of the proper subgroup complexes of A5 and S5",
+          "trigger": "Conjugation quotients including a symmetric group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20 and 38–60",
+        "arXiv:2607.22369v2 pp. 6–7 and §2.1"
+      ],
+      "rationale": "The group clique complex and its conjugacy-class schematic motivate asking which integral cycles actually survive in the associated geometric orbit space. The exact first occurrence, exhaustion of H₂, and embedded primitive representative identify a specific qualitative transition, which would not follow from prime supports alone. It is a reproducible benchmark for studies of group-complex quotients even without an all-n homology theorem.",
+      "residual_risks": [
+        "The verified result is a sharp finite cutoff only; it cannot substitute for topology of the unquotiented complex, for order-sheaf homology, or for a full homotopy classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

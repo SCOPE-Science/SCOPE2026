@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-Exact symbolic checks, using Python 3 and SymPy, were run with the standalone `verify_volterra.py` file in this package. All 205 assertions passed: both triangular expressions of the integral kernel coincide; ranks and high-degree antidiagonals agree for all 25 pairs of integers from one to five; self-commutator determinant, characteristic parity and reflection identities hold at the first five orders.
-
-The analytical derivation, not the finite symbolic range, establishes the arbitrary-order theorem. In particular, the finite checks do not imply that all integer orders have been exhaustively computed. Exact arithmetic and the stated formula for the Hilbert matrix determinant suffice to reproduce the symbolic certificates. No independent mathematical audit has been performed.
+Run `python3 verify_unequal.py` from the package directory. The expected output is `PASS: 20 ordered unequal pairs`. This exact rational calculation compares both triangular Fubini expressions and their coefficient ranks for all unequal pairs from one to five. The degree and moment argument in `RESULT.md` proves the result for all distinct positive integer orders; the script tests only the stated finite range.

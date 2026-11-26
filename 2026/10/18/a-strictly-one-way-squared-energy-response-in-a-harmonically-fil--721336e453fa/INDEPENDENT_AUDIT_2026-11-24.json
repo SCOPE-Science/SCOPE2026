@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:55:04.903600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary driving Brownian motion is evaluated at a reset age of exponential law and has finite moments of every fixed order; the stable convolution gives the same moment finiteness for X. Coupling at the first common reset and exponential contraction of X give uniqueness. For the generator with diffusion term ∂yy and reset term β[f(x,0)-f(x,y)], I independently solved the stationary moment recursion in descending Y-power at each degree and used the exact resolvent (pI-Q)^-1, with Q upper triangular with diagonal (-2,-β-1,-β) and adjacent entries (2β,β). Centering removes the constant diffusion term. The reverse ordered covariance equals Aβ exp(-βt) by conditioning on Y0. Subtracting its resolvent gives the two positive products of resolvents stated in the finding; their causal convolutions are strictly positive for every t>0 and never require taking differences of coincident decay rates. Setting p=0 and dividing by Aβ, symbolic reduction gave the stated rational area, derivative and value at the unique positive root of 31β²+14β-8. The derivative is positive before and negative after that root. The area uses dimensionless lag, so the physical-time area ratio is divided by the trap relaxation rate. The frozen checker was inspected, not executed; the independent exact calculation uses only the displayed moment recursion and three-dimensional linear algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9942883e9395 gives the same polynomial generator and general moment recurrence, with a quadratic covariance system initialized against Z0².",
+          "Gu's finite-state jump-process results bound normalized correlation asymmetry by activity or entropy production; they do not evaluate a sign or optimum for this continuous diffusion with jumps."
+        ],
+        "reasoning": "The general recurrence and evolution supply a method and one ordering; the newly evaluated difference requires the other ordering's distinct centered mixed moments and a separate sign and optimum argument.",
+        "searches": [
+          "9942883e9395 RESULT.md stationary moments and lag proof, offsets 3558–7045",
+          "arXiv:2312.00354v2 Setup and main bounds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2306.09453v2 and 2312.00354v2",
+        "Resultary 9942883e9395, 2d5b968bafd9 and 4f8ef07add78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gueneau–Majumdar–Schehr give stationary even position moments and ordinary two-time position correlations.",
+          "For 9942883e9395 the initial centered covariances include Cov(Z0²,W0²); for the additional forward ordering one also needs Cov(Z0W0,W0²) and Var(W0²).",
+          "Positivity of the position-only squared autocovariance is not positivity after subtracting the reverse drive-position covariance."
+        ],
+        "reasoning": "Neither ordinary position correlation nor the energy autocorrelation theorem entails this new sign comparison or selects the normalized integrated-area optimum; sharing the ODE matrix is not equivalent to sharing the theorem.",
+        "searches": [
+          "arXiv:2306.09453v2 §4.2 Eq. (59) and Appendix G Eqs. (199)–(208)",
+          "9942883e9395 RESULT.md §§1–3 of Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed W,Z model coincides with Y,X after renaming and scaling to unit trap relaxation rate.",
+          "9942883e9395's F(s)=Cov(Z0²,W_s²) is exactly Vβ(s); its H(s)=Cov(Z0²,Z_s²) is not Uβ(s).",
+          "2d5b968bafd9 compares X0³X_t against X0X_t³, not X² versus Y²."
+        ],
+        "reasoning": "Stationarity relates the two ordered cross-covariances by reflecting lag, not by equating them at positive lag. Autocovariance is even; it cannot be substituted for this antisymmetric cross-observable difference.",
+        "searches": [
+          "Local Resultary: harmonic resetting-Brownian drive, temporal fourth-order asymmetry and energy correlations",
+          "arXiv:2306.09453v2 Appendix G",
+          "9942883e9395 RESULT.md, exact lag law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact autocovariance law has a decay-rate crossover at β=2, not the stated area optimum at (-7+3√33)/31.",
+          "The fourth-order records use position-only cross powers, one for harmonic filtering and one for multiplicative position resets."
+        ],
+        "reasoning": "No separate numerical table is relevant to this continuous-parameter law and exact optimizer. The indexed exact formulas separate on process or observable, except for the credited reverse ordering.",
+        "searches": [
+          "Local Resultary strongest similar claims: 9942883e9395, 2d5b968bafd9, 4f8ef07add78"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-parameter positive ordered difference between squared *position and drive*, its positive convolution factorization and optimized integrated area. The exact model, moment recursion, quadratic evolution matrix and even the reverse ordered covariance are not distinct: indexed result 9942883e9395 explicitly gives the reverse ordering in its proof. However that result's forward system is initialized against X0², not Y0²; the forward ordering under review has a different initial covariance vector, and the sign of its difference with the reverse ordering and sharp area optimum do not follow from the autocovariance positivity or crossover theorem. The same-model fourth-order time arrow 2d5b968bafd9 has different observables and different sign behavior. Comparable primary papers give the model or unlike general bounds, not an implication of the supported distinct conclusions.",
+      "residual_risks": [
+        "A relevant broader moment-closure specialization could remain unlocated; a targeted external search supplied no additional scientific match and is not negative proof.",
+        "The assessment credits mathematical overlap without inferring chronological priority from index dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes model and lower-order/time-correlation background, not ordered squared cross-covariances in read passages",
+          "evidence": [
+            "Position-only even-moment recursion; ordinary two-time position correlations"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.09453v2",
+          "material_read": "§4.2 Eq. (59), offsets 50400–55000; Appendix G Eqs. (199)–(208), offsets 142700–148100",
+          "method": "Open primary full-text passage comparison",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Original same-model primary paper"
+        },
+        {
+          "assessment": "Exact reverse ordering and method already present; different target, no forward-minus-reverse theorem or area optimum",
+          "evidence": [
+            "F(s)=Cov(Z0²,W_s²)=Cβe^(-βs)",
+            "H(s) concerns squared position at both times"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-r-2-mu-energy-correlation-crossover-for-a-harmonically-tra--9942883e9395/RESULT.md",
+          "material_read": "Finding and Proof §§1–3 including stationary moments and exact lag system, offsets 3558–7045",
+          "method": "Local mirror inspection",
+          "title": "Sharp r=2μ energy-correlation crossover for a harmonically trapped particle",
+          "trigger": "Strongest same-model and same-degree overlap; possible implication via full covariance system"
+        },
+        {
+          "assessment": "Different two-time contrast with a lag-sign reversal, rather than strict positivity of the stated particle-drive contrast",
+          "evidence": [
+            "E[X0³X_t]-E[X0X_t³]"
+          ],
+          "identifier_or_url": "Resultary 2d5b968bafd9 RESULT.md",
+          "material_read": "Finding and observable definition",
+          "method": "Local mirror comparison",
+          "title": "A fourth-order arrow of time and lag sign reversal in a harmonic resetting model",
+          "trigger": "Same model and fourth-order antisymmetry"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": [
+            "Unconfined Brownian particle with multiplicative position resets"
+          ],
+          "identifier_or_url": "Resultary 4f8ef07add78 RESULT.md",
+          "material_read": "Finding and model assumptions",
+          "method": "Local mirror comparison",
+          "title": "A universal temporal fourth-order arrow and its cancellation under resetting",
+          "trigger": "Same-day fourth-order temporal result"
+        },
+        {
+          "assessment": "Bounds rather than evaluated sign law; finite-state jump setting differs",
+          "evidence": [
+            "Dynamical activity and entropy-production controls"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.00354v2",
+          "material_read": "Setup, offsets 2700–6590, and main bounds, offsets 9100–13217",
+          "method": "Open primary full-text passage comparison",
+          "title": "Thermodynamic bounds on the asymmetry of cross-correlations with dynamical activity and entropy production",
+          "trigger": "Plausible general theory for cross-correlation asymmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two squared observables probe a concrete physical distinction: whether forcing fluctuations lead trap energy or the reverse, which cannot be tested with position-only stationary variances or energy autocorrelation. Strict directionality for every positive lag and rate, robust to coincident decay rates, yields an exact benchmark. The unique maximum compares the integrated effect to its equal-time scale and sets a meaningful dimensionless rate ratio. This is not a general thermodynamic or causal-inference theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

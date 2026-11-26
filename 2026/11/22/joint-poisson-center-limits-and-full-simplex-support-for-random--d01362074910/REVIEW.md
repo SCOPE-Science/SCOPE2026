@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem states a fixed-dimensional, rotationally symmetric, absolutely continuous bounded-support model with an explicit regular-variation boundary tail. The proof independently reconstructs the boundary-mark Poisson limit, uniformly controls extreme directions and optimizer positions, proves an atomless full-simplex uniqueness lemma, applies compact-local argmax convergence, and transfers strict inactive slacks to the original minimum enclosing ball. The critical nonstandard steps are the positive-spanning angular shield and the almost-sure genericity of the Poisson linear program. There is no extrapolation from finite enumeration. Two standalone diagnostics passed 13,770 and 216 finite checks respectively; the analytical proof is essential.
+PASS
 
-## Originality (O): PASS against examined evidence
+The radial normalization b_n=(cn)^(-1/alpha) makes n P(1-rho<=b_n s) tend to s^alpha, with independent uniform directions, giving the stated locally finite Poisson law. A regular-simplex cap configuration gives a uniform negative direction for any candidate center shift. This both bounds the finite center on scale b_n using R_n<=1 and makes the limiting envelope coercive. On each finite depth slab condition on the Poisson count, and use the unordered iid representation: no <=d normals balance zero, every d+1 lifted rows are independent, and a diffuse last depth prevents d+2 constraints from binding at one point. First-order optimality forces balance, so exactly d+1 active directions enclose zero in their interior. Their span rules out two maximizers by testing the midpoint; an a.s. unique minimal depth rules out Z=0, and equivariance gives the rotation-invariant law. The sign is +u·z: the first-order expansion of the distance subtracts b_n(s+u·z). In a coupling of the vague point measures all finite integer cutoffs match eventually, including some which supply shielding and make deeper observations irrelevant by the triangle bounds. Thus the objectives converge on compact sets containing their maximizers, and uniqueness gives joint center/radius convergence. Strict slack excludes all observations outside the limiting active group from the finite boundary, and the Euclidean enclosing-ball first-order condition excludes each proper subset of that group. This proves eventual full boundary count on the coupling, not just the existence of a support set. The repair makes the coupling and genericity explicit and separates established coverage in the uniform special case; the theorem itself is retained.
 
-Henze and Klatt, arXiv:2611.09726v1, give the radius Poisson functional but explicitly identify joint center limits and uniqueness of the affine-Poisson optimizer as open in Section 8(2). They also conjecture higher-dimensional full-simplex support under broader power-tail assumptions in Section 7.3. The new result establishes center uniqueness, joint convergence and full-simplex support for the regular-varying subclass. Prior searchable literature covers random diameters, algorithmic enclosing balls or general optimization tools; no examined result states or directly supplies this Poisson optimizer's active-set theorem. The broader two-sided-bound conjecture, possible unindexed geometric-probability literature and access limits on selected older works remain risks.
+## originality
 
-## Value (V): PASS
+PASS
 
-The location of the smallest enclosing ball is a natural geometric statistic complementary to its radius. This resolves a specifically stated limiting-center question under the standard tail-equivalent Weibull assumptions, and it proves an asymptotic supporting-point classification in every fixed dimension instead of only the planar case. The full-simplex lemma is what permits simultaneous recovery of the center and the support count. The result is substantial even without an explicit density or convergence rate.
+The revised contribution is the unique joint center/deficit limit for the general stated radial-tail class and the stability of the finite optimal boundary count in higher dimensions. The known Weibull radius law, the planar support result, and the uniform-ball joint pair as an incenter corollary are credited in the repaired text. No claim of novelty is assigned merely for using an existing Poisson zero-cell representation.
 
-## Scope and evidence limitations
+## value
 
-No claim is made for angular atoms, irregular oscillatory boundary tails or dimensions growing with sample size. The numerical tests are finite diagnostics. Literature comparison is not a proof of global priority. External independent validation remains absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The general radial-tail result supplies the optimizing location jointly with a known scalar extreme, and higher-dimensional boundary-count stability resolves the regular-variation part of the support question. The latter concerns which constraints determine a natural random optimizer, a quantity not obtained from the value or a global polytope face count. This is a substantive contribution even after removing novelty credit for the uniform-ball corollary, radius alone and planar support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

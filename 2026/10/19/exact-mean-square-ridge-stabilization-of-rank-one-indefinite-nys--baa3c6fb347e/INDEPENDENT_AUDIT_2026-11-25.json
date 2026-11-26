@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:10.685020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the eigenbasis the normalized Gaussian direction has uniform angle and z=d/λ=cos(2θ), with arcsine law. A²=λ²I gives normalized squared loss 2−z²+(w−z)² for w=λψ, including the oracle unique almost surely with mean 3/2. With w=z/(z²+x²), tangent substitution gives J=E[(z²+x²)⁻¹]=1/(x√(1+x²)); the linear term uses 1−x²J, and the quadratic term J+xJ′/2 (differentiate locally for x>0). The resulting derivative has numerator 4x⁴−1 and strictly positive denominator 2x²(1+x²)^(5/2); x=1/√2 is the unique global minimum, giving 8√3/9. For cutoff the retained loss is z⁻² versus rejection loss 2. Pointwise choice gives the threshold 1/√2 and the continuous positive density on |z|∈(0,1) makes it unique even when allowing thresholds ≥1. Arcsine integration gives 1+2/π, strictly above the ridge optimum. Without regularization the error is λ/|z|, giving the stated survival law even at t=λ and exactly the finite positive moments p<1. All risk values scale by λ². The frozen verifier was inspected, not executed; quadrature is confirmatory and its five tail checks test only the formula's range, not the law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives a relative nuclear-norm guarantee for a rank-truncated oversampled core.",
+          "Theorem 4.1 gives residual bounds for the sketched least-squares method, including Frobenius bounds.",
+          "The Resultary residual-law record has a positive semidefinite hypothesis."
+        ],
+        "reasoning": "Different algorithms or bounds in place of exact risk equalities, and the exclusion of the indefinite signature, prevent these broader-looking results from establishing the claimed scalar tradeoff as a specialization.",
+        "searches": [
+          "arXiv:2212.01127, Theorem 3.1",
+          "arXiv:2608.20531, Theorem 4.1",
+          "Resultary 6a0180b3e23e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its scope; VERIFICATION.md; verify.py",
+        "arXiv:2212.01127",
+        "arXiv:2608.20531 v1",
+        "Resultary 6a0180b3e23e, b0a00278ba10 and 9b107129ef7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known unregularized instability says nothing about which positive ridge parameter minimizes the finite mean-square loss.",
+          "Neither truncated-core nor sketched least-squares bounds compare the two exact distributions under the same scalar-core sketch."
+        ],
+        "reasoning": "The strict gap requires evaluating the two different loss integrals on that common random direction. The unregularized tail and the oracle help interpret it, but do not by themselves establish the regularization comparison.",
+        "searches": [
+          "arXiv:2212.01127, introduction, §2.2, Theorem 3.1",
+          "arXiv:2608.20531, §1.2 and Theorem 4.1",
+          "Resultary b0a00278ba10, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Park–Nakatsukasa's indefinite blow-up includes the same mechanism in a different orthogonal basis, and is credited as prior.",
+          "In the full Chen et al. primary PDF the middle matrix is fitted by two-sided sketched least squares, not by the scalar filter d/(d²+τ²) on a normalized probe."
+        ],
+        "reasoning": "An equivalent blow-up witness does not determine expected squared-loss tuning for the regularized families. The two-sided optimization is not just an alternative notation for this scalar rule. The targeted web query returned no hits; the comparisons are grounded in the cited passages, not that absence.",
+        "searches": [
+          "Park Nakatsukasa Randomized low-rank approximation for symmetric indefinite matrices scalar core truncation error guarantee; Chen Nakatsukasa Narendran Park Nyström method for symmetric indefinite matrices Tikhonov ridge shrinkage expected Frobenius risk hard cutoff",
+          "arXiv:2212.01127, introduction and §2.2",
+          "arXiv:2608.20531, §§1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a0180b3e23e gives an exact PSD residual law and a two-mode expectation √(λε).",
+          "b0a00278ba10 analyzes failure of positive definiteness and divergent expected spectral norm even with fixed ridge in a signed correction to an SPD Schur complement.",
+          "9b107129ef7d computes exact one-column positive-definite trace/nuclear error for covariance design, not scalar threshold tuning."
+        ],
+        "reasoning": "These are exact near matches on dimension, risk, or regularization, but none gives the same indefinite input and paired squared risks. Exact-looking constants on these different objects do not provide a table lookup or specialization of this finding.",
+        "searches": [
+          "Resultary 6a0180b3e23e (Gaussian Nyström moment law)",
+          "Resultary b0a00278ba10 (signed one-column Schur-complement correction)",
+          "Resultary 9b107129ef7d (planar Gaussian Nyström angular threshold)"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact normalized, balanced indefinite scalar-core squared-loss tradeoff and the resulting optimal ridge versus optimal hard cutoff comparison. The deterministic indefinite blow-up mechanism is prior, and the angular law and quadratic completion are classical ingredients.",
+      "residual_risks": [
+        "The cited exact special case could occur under different shrinkage or quadratic-form terminology outside the bounded search.",
+        "The primary comparisons inspect decisive methods and results, not every source in the literature; no absolute priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers indefinite blow-up; different truncation and risk result",
+          "evidence": "Rank-restricted truncation after oversampling and relative nuclear-norm control, not a scalar normalized Tikhonov risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.01127",
+          "material_read": "Abstract and introduction; §2.2 p. 6; Theorem 3.1 pp. 10–11",
+          "method": "Primary OA PDF passages",
+          "title": "Randomized low-rank approximation for symmetric indefinite matrices",
+          "trigger": "Primary prior counterexample and stabilization"
+        },
+        {
+          "assessment": "Different core estimator and comparison benchmark",
+          "evidence": "Fits a two-sided sketched least-squares middle matrix and bounds residual relative to the best two-sided approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20531",
+          "material_read": "v1 §§1.1–1.2 pp. 1–2; Theorem 4.1 pp. 5–6",
+          "method": "Primary OA full-text PDF passages, not abstract-only",
+          "title": "Nyström method for symmetric indefinite matrices",
+          "trigger": "Potential exact same-model coverage in recently available primary text"
+        },
+        {
+          "assessment": "PSD domain, different loss and no ridge optimizer",
+          "evidence": "Two-mode expected residual √(λε) for positive semidefinite input.",
+          "identifier_or_url": "Resultary 6a0180b3e23e",
+          "material_read": "Finding, offset 0",
+          "method": "Configured semantic index and local-mirror finding",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström",
+          "trigger": "Exact random-sketch residual distribution"
+        },
+        {
+          "assessment": "Different target and objective",
+          "evidence": "Failure of positive definiteness and infinite expected spectral norm for a signed correction to an SPD Schur complement, not a mean-square risk frontier.",
+          "identifier_or_url": "Resultary b0a00278ba10",
+          "material_read": "Finding, offsets 802–3772",
+          "method": "Configured semantic index and local-mirror passage",
+          "title": "Exact failure probability and infinite-mean tails for Gaussian indefinite updates",
+          "trigger": "Planar signed one-column correction with ridge"
+        },
+        {
+          "assessment": "Positive definite and covariance design, not the same estimator or loss",
+          "evidence": "Expected trace/nuclear error for a one-column sketch, with neither the ridge nor the cutoff under review.",
+          "identifier_or_url": "Resultary 9b107129ef7d",
+          "material_read": "Finding and risk comparison, offsets 0–2170 and 1628–5350",
+          "method": "Configured semantic index and local-mirror passages",
+          "title": "A sharp angular information threshold for planar Gaussian Nyström",
+          "trigger": "Exact planar angular risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural minimal indefinite example with a singular scalar core, rather than an arbitrary tuning slice. Under the same one-column information, it locates the best finite-risk choices and separates ridge, hard cutoff, the scalar oracle, and the infinite-risk plain inverse. The quantitative gap is useful as a benchmark for handling this singularity, not a stability, confidence, or dominance guarantee for general sketches or matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

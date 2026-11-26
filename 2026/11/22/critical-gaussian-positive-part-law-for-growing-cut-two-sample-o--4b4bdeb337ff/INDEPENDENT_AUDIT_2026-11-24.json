@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:02.822196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83; VERIFICATION.md and check.py inspected, not executed.",
+        "Independent bounded computation using math.comb and Fraction for n=3,6,10,25,50; reproduced 0.700000000, 0.608225108, 0.585929550, 0.557846884 and 0.539596165 by summing parity-specific counts for 2≤r≤n+1 and dividing by binom(2n,n).",
+        "Komaba–Johno–Nakamoto arXiv:2206.03166v2, Definition 2.2; randtests runs documentation, Details."
+      ],
+      "rationale": "Continuity and the common iid null make all balanced pooled-label words equiprobable. Since each empirical mass is a count divided by n, nρ is exactly the minimum Hamming distance to a fitted binary word with at most q label changes: choose a majority label per cell, or conversely use the runs of a fitted word as cells. This independently proves the universal lower bound because changing one label can erase at most two transitions, and proves the exact zero event R≤q+1. Each isolated 1001001 block contains a central singleton flanked by zeros; flipping it removes exactly two transitions at cost one. Disjoint blocks permit independent edits of ceil((R−1−q)_+/2) such singletons when the stated block-count condition holds. A possible one-transition overshoot is permitted because empty cells are allowed. Under fixed composition a prescribed block has probability (n)_3(n)_4/(2n)_7=2^(−7)+O(1/n), and two disjoint blocks have probability 2^(−14)+O(1/n). Thus Var L_n=O(n) and L_n/n→1/448 in probability. The parity-specific run counts follow from positive compositions; Stirling's formula gives local mass asymptotic (πn)^(−1/2) exp(−(r−n−1)^2/n), uniformly on bounded standardized windows for both parities. The stated run variance n(n−1)/(2n−1) follows by summing transition indicator covariances (adjacent mean product n/[2(2n−1)], disjoint n(n−1)/[(2n−1)(2n−3)]), giving tight tails and the Gaussian limit on scale sqrt(n/2). The deficit is O_P(sqrt(n)), so the exact edit formula applies with probability tending to one. After division by sqrt(n), rounding the number of edits is negligible and yields (Z−t)_+/(2sqrt(2)). The exact zero probability is proved separately by the runs event, not by weak convergence at its atom. Independent evaluation of the binomial runs sum in Python reproduced all five displayed rounded probabilities.",
+      "residual_risks": [
+        "The exact near-boundary Hamming formula is conditional on enough isolated blocks, not an identity for arbitrary words or q. The null law needs equal sizes and common continuous sampling; no ties or unequal-sample extension is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked OVL asymptotic is one-sample with q=2. The runs PMF gives the exact probability of R≤q+1. The two Resultary neighbors address fixed-composition runs cumulants or dependence with a bridge statistic."
+        ],
+        "reasoning": "A fixed-q one-sample result does not apply in the balanced two-sample growing-cut window; a result about R calculates the zero event but does not automatically determine the minimum positive fitting cost.",
+        "searches": [
+          "arXiv:2408.10612, Sections 1–2",
+          "randtests runs documentation, Details",
+          "Resultary fixed-composition runs 5d2c884f1d20 and 009dec183101"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03166v2 and 2408.10612",
+        "randtests runs documentation",
+        "DOI 10.3390/a19090754",
+        "Resultary own mirror 4b4bdeb337ff and distinct comparisons 5d2c884f1d20 and 009dec183101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known runs statistics plus ρ=0 iff the word's transitions fit in the cut budget determine the atom. A generic finite minimization algorithm does not state an asymptotic equality between positive cost and half the transition deficit."
+        ],
+        "reasoning": "The positive-part limit requires constructing enough low-cost deletions of transitions, not just evaluating a known runs probability. The exact pattern mechanism and its fixed-composition concentration supply this missing quantitative step.",
+        "searches": [
+          "arXiv:2206.03166v2 §2 and §5",
+          "Classical runs PMF and inspected Resultary runs statements",
+          "Hocking Algorithms 19 (2026) 754, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OVL definition is equivalent to minimum Hamming distance to a binary word with at most q label changes. The original OVL source defines the objective and identifies asymptotic distribution of the statistic as future work in its conclusion. The inspected segmentation Theorem 1 concerns candidate-split computations, not this Hamming cost."
+        ],
+        "reasoning": "Changing from cutpoints to fitted binary words preserves the cost; the checked algorithmic theorem is about a different observable, and the original statistic itself is not new.",
+        "searches": [
+          "Resultary for growing-cut OVL near saturation / exact isolated binary pattern cost",
+          "Komaba–Johno–Nakamoto arXiv:2206.03166v2 §2 Definition 2.2 and §5",
+          "Hocking DOI 10.3390/a19090754, abstract and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 4b4bdeb337ff is this assignment's own mirror, not independent coverage. The cited finite-null study could not be read at the identified public URL. Classical runs tables cover the counts used for the zero event."
+        ],
+        "reasoning": "Finite tables are relevant to exact null enumeration but not, by themselves, a theorem on the positive near-saturation cost or its growing-q scaling. Unread material is not treated as negative evidence.",
+        "searches": [
+          "Resultary for balanced OVL-q critical law and seven-block equality",
+          "Exact OA URL https://ideosphere.ai/papers/ovl2-pvalues",
+          "randtests runs documentation"
+        ]
+      },
+      "rationale": "The underlying empirical statistic, runs law, and finite combinatorial framework are prior work. The supported distinct contribution is the exact local attainment for the positive overlap cost and its critical growing-q limit. No inspected distinct statement supplies these, including when phrased as binary fitting with a bound on changes. The zero-event transition alone is a direct runs consequence and is not the ground for a pass.",
+      "residual_risks": [
+        "The cited exact-null OVL-q study was unavailable in the bounded retrieval and its full claims remain unverified. Earlier high-complexity binary fitting work outside the inspected comparisons could bear on the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objective, no growing-cut law in the inspected results",
+          "evidence": "Defines empirical OVL-q and lists asymptotic distribution as a future problem in the inspected conclusion.",
+          "identifier_or_url": "https://arxiv.org/html/2206.03166v2",
+          "material_read": "§2 Definition 2.2 near offset 3500; §5 conclusion near offset 31500",
+          "method": "Targeted OA original HTML passages",
+          "title": "A novel statistical approach for two-sample testing based on the overlap coefficient",
+          "trigger": "Original statistic and asymptotic scope"
+        },
+        {
+          "assessment": "Different sampling and cut regime",
+          "evidence": "Studies the one-sample OVL extension and fixed-q=2 asymptotics.",
+          "identifier_or_url": "https://arxiv.org/html/2408.10612",
+          "material_read": "§1 and §2 near offsets 1300 and 6500",
+          "method": "Targeted OA original HTML passages",
+          "title": "Extension of the one-sample Kolmogorov-Smirnov test",
+          "trigger": "Related OVL asymptotic"
+        },
+        {
+          "assessment": "Unresolved extent of overlap",
+          "evidence": "The frozen description refers to an exact finite algorithm and selected finite tables; that description is not an independent check of the paper's full results.",
+          "identifier_or_url": "https://ideosphere.ai/papers/ovl2-pvalues",
+          "material_read": "Only frozen RESULT.md's description; original not retrieved",
+          "method": "Targeted lawful OA attempt at cited URL returned HTTP 403",
+          "title": "Exact null distributions of the OVL-q goodness-of-fit tests: a linear-time algorithm for D_q, and the cells with q ≥ 3",
+          "trigger": "Potential same-statistic finite and high-q coverage"
+        },
+        {
+          "assessment": "Prior combinatorial input",
+          "evidence": "Gives the exact fixed-composition runs law; the cost of a budget-constrained fit is not its observable.",
+          "identifier_or_url": "https://search.r-project.org/CRAN/refmans/randtests/html/runs.html",
+          "material_read": "Details section; reproduces distribution and cites Swed–Eisenhart (1943)",
+          "method": "Public documentation as a formula reproduction; 1943 full text not read",
+          "title": "Wald–Wolfowitz runs formula",
+          "trigger": "Known exact run count PMF"
+        },
+        {
+          "assessment": "Different optimization target",
+          "evidence": "Theorem 1 is a dynamic recurrence for the best-case number of candidate splits in greedy segmentation, not positive Hamming fitting cost.",
+          "identifier_or_url": "https://doi.org/10.3390/a19090754",
+          "material_read": "Original PDF abstract p. 1; Section 3 Theorem 1, printed p. 8, around offset 40000",
+          "method": "Targeted OA PDF passages",
+          "title": "Finite Sample Complexity Analysis of Binary Segmentation",
+          "trigger": "Candidate broader segmentation theorem"
+        },
+        {
+          "assessment": "Different observables",
+          "evidence": "Concern fourth cumulants and a dependence result for runs/bridge statistics, not OVL saturation costs.",
+          "identifier_or_url": "Resultary 5d2c884f1d20; Resultary 009dec183101",
+          "material_read": "Finding statements",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-composition runs comparison records",
+          "trigger": "Exact run-count statistics in nearest distinct indexed work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Komaba–Johno–Nakamoto arXiv:2206.03166v2, Definition 2.2"
+      ],
+      "rationale": "The cut count is the actual complexity parameter of a published statistic. The result locates the fit-saturation transition, quantifies the extent of exact zero overlap under the common null, and describes the nonzero costs in the same window. The edit construction explains the scale and coefficient rather than merely tabulating zero atoms or reusing the classical run count test.",
+      "residual_risks": [
+        "No result on testing power, tuning under alternatives, or unequal-sample asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

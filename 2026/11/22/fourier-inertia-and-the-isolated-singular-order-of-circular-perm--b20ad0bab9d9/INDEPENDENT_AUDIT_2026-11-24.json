@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:14:49.701216Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–34",
+        "Frozen VERIFICATION.md and cyclic_verify.py (inspected, not executed)",
+        "/workspace/review_replay.py, record 2 (executed)"
+      ],
+      "rationale": "The signature uses cyclic positions and cyclic values, and counts all permutations with counting-measure normalization. A proper set of j designated edges fixes consecutive-value runs; a circular order of the n-j distinct runs and any of the n value choices at a fixed position reconstruct a unique permutation, also when there is one run. All n edges instead force a rotation. Expanding the sign product gives the stated two formulas and binomial weight multiplicities. For proper weights the difference F(r,k)-F(r,k+1)=2F(r-1,k), the positive r=4 row and F(r,r)=r! S_r prove the monotonicity and positivity claims: alternating terms from j=2 onward yield 1/15<=S_r<=1/3 at r>=5. For full weight the generating function e^(-2z)[-log(1-z)] yields n b_n=S_(n-1)-2b_(n-1). The exact base b_9=11/756 and these bounds give 0<b_n<1/30 at n>=9. For odd n>=13, the previous recurrence yields b_(n-1)<1/[3(n-1)] and hence b_n>1/(90n)>2^n/n!; the latter is exact at n=13 and n*2^n/n! decreases thereafter. The even tail is automatically positive. Independent replay `python3 /workspace/review_replay.py 2` reconstructed all frequencies from permutations at n=2..9, recovered the five listed small-order inertia triples, and verified b_9 and the full weights at n=7..12 by rational arithmetic. At n>=7 the trivial multiplier n! is maximal by the triangle inequality and proper weights decrease strictly, so only the penultimate and full weight compete for the minimum. No finite check is used to extrapolate inertia.",
+      "residual_risks": [
+        "The all-order exact condition number formula is asserted only for n>=7, not for the small indefinite or singular orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.1 counts any j specified cyclic constraints via n(n-j-1)! for j<n and n for j=n; inclusion–exclusion determines the entire profile distribution."
+        ],
+        "reasoning": "The prior general event count is stronger than mass totals and establishes all raw Walsh formulas by expansion. The additional uniform sign and minimum statements are not covered by the enumeration statement.",
+        "searches": [
+          "Diaconis–Evans–Graham, arXiv:1308.5459, Section 5, pp. 8–9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.5459",
+        "Resultary 4dccf1ce75d5",
+        "arXiv:2404.00607",
+        "PII S0012365X15004379 (limited metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier distribution takes no position on the sign of an alternating incidence transform. The analogous descent theorem uses ordinary greater-than, not modular equality to the successor."
+        ],
+        "reasoning": "The eigenvalue formula is a direct corollary; the all-order claims additionally need separate proper-weight monotonicity and an all-order signed tail bound, not a parameter substitution or a restatement of exchangeability.",
+        "searches": [
+          "arXiv:1308.5459, Section 5, Proposition 5.1 and following distribution",
+          "Resultary 4dccf1ce75d5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diaconis–Evans–Graham Proposition 5.1 uses the identical modular condition on both coordinates. Resultary 4dccf1ce75d5 is a distinct circular comparison statistic: 1{pi(i)>pi(i+1)}. Du–Ji treats linear successions."
+        ],
+        "reasoning": "Only the first result concerns the same random signature; the descent and linear-succession formulations cannot be used by identifying their statistics with this one.",
+        "searches": [
+          "Resultary: circular permutation-succession incidence Walsh inertia and invertibility",
+          "Literature: circular modular succession counting and alternating evaluations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 5 pp. 8–9 is an exact formula for computing the entire distribution at any n; it supplies any finite multiplier table on applying the Walsh transform. The inspected material does not tabulate spectral inertia or extremal weights."
+        ],
+        "reasoning": "Small exceptional rows and their indexed values are mechanically computable from prior enumeration, so their tabulation is not separate novelty. The assessed fact is the exhaustive all-order exclusion of further exceptions and the sharp minimum reduction.",
+        "searches": [
+          "Diaconis–Evans–Graham, arXiv:1308.5459, Section 5, exact exchangeable distribution and its total-succession specialization",
+          "Literature search for circular-succession enumeration and alternating evaluations"
+        ]
+      },
+      "rationale": "Credit the full incidence distribution and its direct Walsh transform to existing enumeration. The surviving distinct claim is the joint all-order classification of spectral signs and singularity and the sharp two-weight reduction of the positive minimum.",
+      "residual_risks": [
+        "An unseen circular signed generating-function treatment could contain equivalent bounds. The comparison does not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact input distribution and hence explicit Fourier formula, not the all-order inequalities",
+          "evidence": "Counts n(n-j-1)! and n for the proper and full specified events, then obtains exact succession-set counts by inclusion–exclusion and exchangeability.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5459",
+          "material_read": "Section 5, Proposition 5.1, PDF pp. 8–9 (text offsets 28668–33910)",
+          "method": "OA PDF text",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Identical circular successions and complete known distribution"
+        },
+        {
+          "assessment": "Different statistic despite very similar operator and inertia question",
+          "evidence": "Coordinates record circular descents by ordinary greater-than, rather than circular successions.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-lucas-law-walsh-inertia-of-circular-descent-profiles--4dccf1ce75d5",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local published-record mirror",
+          "title": "Lucas-law Walsh inertia of circular descent profiles",
+          "trigger": "Close indexed circular permutation Walsh result"
+        },
+        {
+          "assessment": "The inspected result applies to the linear statistic",
+          "evidence": "Its definition considers 1<=i<=n-1, and the theorem concerns a succession–fixed-point bijection.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.00607",
+          "material_read": "PDF p. 1, text offsets 1318–3805, definition and bijection",
+          "method": "OA PDF text",
+          "title": "A Refinement of a Theorem of Diaconis–Evans–Graham",
+          "trigger": "Recent refinement for successions"
+        },
+        {
+          "assessment": "Coverage unresolved; OA retrieval returned 403. Not used as negative evidence.",
+          "evidence": "Description concerns counts by number of cycles and cycle successions; it does not establish a signed incidence result.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0012365X15004379",
+          "material_read": "Search description only, no paper text",
+          "method": "Primary-literature search and attempted OA retrieval",
+          "title": "Counting permutations by the number of successions within cycles",
+          "trigger": "Search surfaced a possible relative using cycle successions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 2–4",
+        "arXiv:1308.5459, Section 5"
+      ],
+      "rationale": "For the standard cyclic succession incidence law, the distinguishable questions of losing modes, preserving signs, and exact stability are answered for infinitely many orders. A unique singular order and several isolated indefinite orders emerge from a nontrivial all-order sign argument on the same enumerator, not a small table or a Poisson-limit restatement.",
+      "residual_risks": [
+        "The result is for uniform counting with the specific modular succession relation, not other permutation laws or statistics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

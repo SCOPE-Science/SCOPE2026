@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:08:39.857455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–103 and 114–119; VERIFICATION.md and artifacts/verify_mnmpsvrg_filter.py and verification_output.txt inspected, uploaded script not executed",
+        "Cui et al., DOI:10.3934/math.2026194, Algorithm 1 and Theorem 4.1",
+        "/workspace/review_checks.py, record1 (run via python3 /workspace/review_checks.py)"
+      ],
+      "rationale": "The publisher PDF, Algorithm 1 lines 2, 4, 6–8 and 10, confirms x_0 is the snapshot, the single-component estimator equals H y_t, the proximal map is the identity for h=0, and the new snapshot is x_m. With the snapshot fixed, y_0=x_0 and y_{t+1}=y_t+theta(x_{t+1}-x_t)=(I-theta*eta*H)y_t. Recovering x_t from y_t gives exactly the stated epoch polynomial. On the admitted modes 1-theta*q>0 and P_m is strictly decreasing in q. Its only possible zero there is q_star=(1-u)/(1-u^m), u=(1-theta)^(1/m). For m>=2 this increases strictly from 1/m to 1 as theta increases; for m=1 it is identically 1 (the strict-increase sentence at RESULT.md line 88 should be read for m>=2; the conclusion and separately treated constant m=1 filter are correct). Thus an admissible theta exists uniquely iff mq>1. When mq<=1, strict convexity for m>=2 makes the secant slope of (1-theta*q)^m increase from -mq, so the filter is positive and has the claimed sharp infimum; at mq=1 with q<1/2 this is a boundary limit, not attainment. For m=1 the filter and its infimum are both 1-q. Independently replayed 63 exact rational recurrence cases and verified the admissible example theta=(15-5*sqrt(7))/4 exactly in Q(sqrt(7)). Crucial scope: termination at the epoch snapshot, not necessarily at Algorithm 1's reported iterate x_a, which it samples from the pre-update inner iterates and which can include the initial point. The frozen Finding states the snapshot conclusion, not a guarantee for x_a. Its step-size range is Algorithm 1's, not a claim that Theorem 4.1's general sufficient bound is met.",
+      "residual_risks": [
+        "Exact arithmetic, deterministic one-component SPD quadratic, h=0 and epoch snapshots only; no random-output or finite-precision annihilation guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 bounds expected squared stationarity of the randomly selected x_a under an additional sufficient step-size bound.",
+          "The accessible book/catalog abstract for He–Ye–E describes the negative-momentum variance-reduction mechanism; a lawful full-text alternate was not found. Resultary 32b6a9fbcf89 treats mean-square stochastic two-component SVRG stability."
+        ],
+        "reasoning": "A general convergence result in a different output metric and a mean-square stability comparison do not assert exact snapshot annihilation or characterize it. The inaccessible direct convex predecessor might contain an equivalent scalar analysis; no whole-paper assessment is made.",
+        "searches": [
+          "Cui et al., DOI:10.3934/math.2026194, Theorem 4.1",
+          "Web: \"10.1007/s10957-022-02157-1\" \"Accelerated Stochastic Variance Reduction\" He Ye E author manuscript PDF algorithm negative momentum",
+          "Resultary two-component SVRG epoch stability"
+        ]
+      },
+      "checked_sources": [
+        "Cui et al. DOI:10.3934/math.2026194 Algorithm 1/Theorem 4.1",
+        "He–Ye–E DOI:10.1007/s10957-022-02157-1 (abstract excerpt only)",
+        "Resultary 7471471bf537, 32b6a9fbcf89, 4ea71c6455aa, 41be5e1891bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 establishes the exact recurrence, including use of x_m as the new snapshot, but gives no corresponding spectral-filter or zero classification in the inspected algorithm passage.",
+          "The related stationarity bound is an inequality for x_a, not a parameter calibration equation for x_m. The admissible cancellation classification uses the exact filter, its strictly varying root for m>=2 and its open-parameter limit."
+        ],
+        "reasoning": "The epoch polynomial is an elementary consequence of the iteration, not novel as an update rule. The sharp condition and boundary tuning law are supported as an exact characterization beyond the reviewed prior statements, not as a formal priority result.",
+        "searches": [
+          "Cui et al. Algorithm 1 and Theorem 4.1",
+          "He–Ye–E DOI:10.1007/s10957-022-02157-1, accessible listing and alternate-copy lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing variables from x to the interpolation point y turns the deterministic specialization into m basic gradient iterations in y, but converts back to an affine combination with the starting snapshot.",
+          "Resultary 7471471bf537 solves a quadratic-heavy-ball scalar deadbeat condition by nilpotence of a two-state per-step matrix (M^2=0)."
+        ],
+        "reasoning": "A deadbeat slice for quadratic heavy ball or monotone contraction of y does not give the x-snapshot zero. The x-snapshot cancels when the positive y-mode gain equals 1-theta, which is a different test and yields the tunable notch.",
+        "searches": [
+          "Web: \"MNMPSVRG\" quadratic \"one-epoch\" spectral filter exact termination",
+          "Resultary: exact title, MNMPSVRG, scalar deadbeat and epoch stability",
+          "Cui et al. Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical indexed hit surfaced. The closest prior local hits read were 2026/10/4 7471471bf537 (quadratic heavy ball) and 2026/10/12 32b6a9fbcf89 (stochastic SVRG). Same-day 4ea71c6455aa reaches a centered 2×2 optimum via ERSO–FW exact line search; same-day 41be5e1891bf concerns a nonminimizing Fisher-momentum two-cycle."
+        ],
+        "reasoning": "None of these matched formulations reproduces the deterministic negative-momentum epoch map and the zero threshold. Same-day records have different algorithms; their dates establish no priority.",
+        "searches": [
+          "Resultary: exact frozen title, MNMPSVRG, scalar finite termination and SVRG epoch length"
+        ]
+      },
+      "rationale": "The interpolation and recurrence are prior algorithm inputs. The distinct contribution is the exact epoch-snapshot filter and the complete notch/tuning and no-zero boundary classification in the stated range; it is not a new optimizer or a generalized stationarity theorem. The closest accessible exact-termination analogues have different state updates. The convex NMSVRG full text could not be inspected and remains a material residual risk, not proof of novelty or of overlap.",
+      "residual_risks": [
+        "The direct convex NMSVRG predecessor was inaccessible in full and could contain an equivalent specialized result.",
+        "A filtering or deadbeat-control formulation could have escaped the bounded search; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline recurrence, separate snapshot and x_a, and general sufficient stationarity bound; the inspected passages do not give the scalar tuning classification",
+          "evidence": [
+            "The inner loop is t=0 to m-1 and line 10 updates the snapshot with x_m; Ensure samples x_a from inner iterates t=0 to m-1."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/2/PDF/math-11-02-194.pdf (DOI:10.3934/math.2026194)",
+          "material_read": "Publisher PDF Algorithm 1, p. 4765, at text offset 23190; Theorem 4.1 at offset 30160",
+          "method": "OA primary PDF: located Algorithm 1 and read relevant passages",
+          "title": "A new mini-batch negative momentum proximal stochastic variance reduction method for nonconvex optimization",
+          "trigger": "The exact epoch map and admissible step-size and output indexing depend on the operative algorithm"
+        },
+        {
+          "assessment": "Exact theorem coverage is unresolved",
+          "evidence": [
+            "Abstract excerpt describes integrating Katyusha-like negative momentum into classical SVRG; it does not settle the scalar epoch law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10957-022-02157-1",
+          "material_read": "Search-visible ACM abstract excerpt; neither Springer/PDF nor ACM alternate yielded full text, and no OA repository copy was returned",
+          "method": "Lawful OA DOI, PDF and alternate attempt plus focused search by DOI and title",
+          "title": "Accelerated Stochastic Variance Reduction for a Class of Convex Optimization Problems",
+          "trigger": "Direct convex predecessor, plausible equivalent negative-momentum scalar calculation"
+        },
+        {
+          "assessment": "Different state operators or objectives",
+          "evidence": [
+            "Heavy-ball nilpotence, stochastic epoch-length reversal, FW exact line search, and a Fisher-momentum two-cycle, respectively."
+          ],
+          "identifier_or_url": "Resultary 7471471bf537, 32b6a9fbcf89, 4ea71c6455aa, 41be5e1891bf",
+          "material_read": "Mirrored RESULT.md passages at offset 0 except 4ea71c6455aa at offset 4700",
+          "method": "Local Resultary search and source passages",
+          "title": "Resultary scalar deadbeat, stochastic-SVRG epoch stability, and same-day optimizer records",
+          "trigger": "Closest formulations of finite termination, epoch filtering, and momentum dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–48 and 105–117; publisher Algorithm 1 and Theorem 4.1"
+      ],
+      "rationale": "The published method has a free coefficient and distinct deterministic dynamics for the interpolation point and snapshot. The useful fact is the complete limit of that coefficient as a design parameter: an admissible exact notch can target only one curvature, with an explicit threshold for when exact annihilation is possible and an optimal residual factor below threshold. This answers a natural calibration question on the canonical quadratic model that a stationarity rate does not answer. The affine recurrence itself is routine; the value rests on the sharp classification and its limits, not on the elementary derivation or on applications outside the model.",
+      "residual_risks": [
+        "The ideal tuning result does not justify changing parameter practice for stochastic/nonquadratic runs or claiming termination at a sampled output."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

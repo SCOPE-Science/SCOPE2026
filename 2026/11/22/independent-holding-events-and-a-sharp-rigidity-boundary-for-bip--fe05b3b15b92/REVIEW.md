@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every spanning-tree update has return probability equal to the reciprocal number of host edges across the cut, averaged uniformly over tree edges. Detailed balance is checked by the shared two-component forest. The exact degree sequence on the side of size \(b\) of a spanning tree of \(K_{2,b}\) has one degree-two vertex and \(b-1\) degree-one vertices; this yields a state-independent four-cell marked transition law. Conditional constancy and fresh random choices prove the entire marked sequence i.i.d., for any starting tree. Two explicit spanning trees establish unequal holding probabilities whenever both part sizes exceed two; the elementary stationary covariance identity converts that difference into positive lag-one correlation. The increment identity establishes the two sharp integer minima. The fully extracted standalone checker passed 2345 exact assertions, including full small-graph enumeration; the proof, not the finite checks, covers arbitrary sizes and time indices.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The most relevant full-text source on edge swapping, Dias et al. (2018), uses insert-first/cycle deletion, not the specified delete-first uniform cross-cut replacement. Pitman's (1999) exact random-forest deletion law and Bertoin–Miermont's (2012) cut-tree analysis do not state or directly imply the exact marked-i.i.d. law and if-and-only-if family classification without the new comparison of two tree shapes. The closest published published-finding corpus findings concern independent spanning-tree overlap and covariance spectra, not successive holding indicators in a specified chain. An unidentified general theorem on state-independent holding probabilities remains possible; no definitive uniqueness claim is made.
+PASS
 
-**Value — PASS.** This is a sharp natural classification of which complete-bipartite hosts yield a renewal-like, independently thinned update clock, rather than a numerical gain for an arbitrary example. The complementary family has provable positive serial dependence, so naively binomial modelling unchanged updates fails already at width three. The exact minimum at \(K_{2,4}\) and \(K_{2,5}\) and the full four-cell marked law offer finite-size predictions for rejection rates and successful-update waiting times. No mixing-time claim is needed for this operational interpretation.
+For the specified delete-first kernel, every off-diagonal exchange has a unique common deleted forest, giving equal forward and reverse rates, and each cut contributes the reciprocal of its host crossing count to the per-edge average Q(T). At stationarity two holds in succession have conditional probability Q(T)^2, giving covariance Var_pi Q. For a singleton side the only tree holds surely; for K_{2,b} the degree sum forces one two-edge hub path through the size-b side and b-1 peripheral edges. The crossing counts are b and 2, respectively, so the full four-cell law is constant conditional on the past, including b=1. This proves marked i.i.d., the binomial and geometric consequences, and, by the stated difference, the two minima b=4,5. For a,b>=3, a cut with x,y vertices from the two sides has x(b-y)+y(a-x) crossings. Applying this to the two displayed trees leaves the strictly positive difference [1/a+1/b-1/(a+d)-1/(b+d)]/(a+b-1), d=(a-2)(b-2). Both trees have positive uniform mass. A fresh exact connected-subset enumeration of K_{3,3} gave multiplicities 36,36,9 for 41/150,3/10,23/75 and variance 2/10125; only this finite constant depends on enumeration.
 
-**Closest literature and limitations.** Bertoin–Miermont (arXiv:1201.4081), Pitman (1999), Aldous (1990), Dias et al. (2018), Dong–Ge (2022, accessible abstract), and the independent-tree bipartite-overlap literature were compared. The theorem applies only to complete bipartite graphs and the exactly stated delete-first chain. Broader unexamined exchange-chain theorems could affect historical priority; independent validation has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The down-up kernel, its uniform stationary measure, and elementary covariance conditioning are not independent originality claims. The supported distinction is the sharp complete-bipartite boundary plus the marked law and exact probabilities. The closest distinct indexed record uses the very same kernel on cactus graphs and studies mixing, not this boundary or its probabilities.
+
+## value
+
+PASS
+
+The full all-biclique classification shows exactly when a natural tree sampler can be treated as independently marked attempts for the observable of no change, and identifies explicit witnesses for failure despite uniform stationarity. That structural distinction is useful separately from the small covariance example or finding the minimum of a rational sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:15:19.402064Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–44 and recorded verification and script, inspected without executing the frozen code",
+        "Independent exhaustive replay: /workspace/branches/9bec6afb-b82a-4e1d-9b92-ece6d8e6e3bc/record4_check.py and record4_reproduction.txt; 120 cycles, 90 signatures and maximum 4 at n=6; 362880 cycles, 309336 signatures and maximum 16 at n=10"
+      ],
+      "rationale": "For a fixed labeled order and a single cycle, anchoring the least point at phase zero makes a cycle equivalent to its phase assignment. At stage i the nonzero-time entries for the next point are the indicator of A_i translated by its phase; replacing the time-zero entry by zero makes this exact. All extensions yielding the prescribed row form one coset of the translation stabilizer, whose order divides gcd(2p,i). If its order is p at i=p, A_p is the even residues. Invariance by addition of p would send any earlier nonempty subset out of the evens or force any later superset to contain every odd residue. Hence such a path has no size-two branch; other paths have at most p-1 size-two branches. With uniform choice at each node every completed leaf has probability at least 2^{-(p-1)}, proving the upper bound even with dead ends. The adjacent-pair construction has free bits on p-1 links and total flip parity odd. Its p-step iterate flips within each block, while nonmultiples of p give comparisons determined by blocks, proving attainment.",
+      "residual_risks": [
+        "Exhaustions are finite corroboration; the all-prime conclusion uses the proof. It does not classify the size of every signature fiber or the global dynamics of an interval map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 record classifies a particular fiber at n=mr and explicitly does not maximize over signatures. Its r=2, m=p specialization exactly matches the adjacent-pair shift construction and its attained size."
+        ],
+        "reasoning": "The general witness theorem covers the attainment, not the upper bound over arbitrary fibers. Calendar dates are not needed to distinguish these quantified statements.",
+        "searches": [
+          "Resultary: maximum multiplicity M(n) complete left-right orbit signature gcd product equality only for prime powers sharp bounds cycle ambiguity phase prefix translation stabilizer twice odd prime M(2p)",
+          "Resultary 2026/10/26/SCOPE-exact-exponential-ambiguity-fibers-for-composite-ordered-periodi--5f39ed9e3fea"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07435v1 Lemma 2.1",
+        "Resultary prime reconstruction record f270190d0cd7",
+        "Resultary exact composite fiber record 5f39ed9e3fea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gcd-product bound reported by the frozen text can be reconstructed immediately by multiplying stage-wise bounds; at n=2p it is p·2^{p-1}. Even strictness of this bound does not give 2^{p-1}. The proof here excludes concurrent order-p and order-two symmetry on any path."
+        ],
+        "reasoning": "The path incompatibility and global leaf bound, rather than a direct substitution in a known generic bound, prove the sharp result. The frozen text does not provide a primary locator for the exact attribution of the gcd-product comparison; the mathematical comparison does not rely on that attribution.",
+        "searches": [
+          "Frozen RESULT.md line 47, cited general gcd-product comparison",
+          "arXiv:2610.07435v1 Lemma 2.1 and indexed prime and composite results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's left/right direction data and prime uniqueness concern the same self-comparison rows (the time-zero entry carries no information). The indexed prime reconstruction uses successive cyclic translations but has a prime-length hypothesis."
+        ],
+        "reasoning": "Changing indexing, encoding direction by a bit, or using phase coordinates changes no information. Neither prime reconstruction nor composite nonuniqueness gives the maximum class size at 2p.",
+        "searches": [
+          "Fuhrmann–Gröger–Passeggi arXiv:2610.07435v1 §2",
+          "Resultary 2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed statements inspected give an exact family size for one signature and a prime reconstruction bound, not an exact list of maxima at twice odd primes. The frozen and independent counts for 6 and 10 are not prior all-prime coverage."
+        ],
+        "reasoning": "Checking matching fixed fibers and small cases does not subsume the entire infinite maximum profile. The unavailable literature query contributes no negative evidence.",
+        "searches": [
+          "Local Resultary query above and its two material cycle-signature matches",
+          "Literature query: \"left-right signature\" cycle multiplicity ordered set periodic orbit (unavailable)"
+        ]
+      },
+      "rationale": "The signature, phase reconstruction and a witness family have substantial overlap with adjacent work. The supported distinct claim is the sharp maximum over all signatures for 2p, not composite nonuniqueness or a large explicitly constructed fiber by itself.",
+      "residual_risks": [
+        "The focused primary literature lookup was unavailable; unindexed equivalent sharp upper bounds cannot be excluded.",
+        "Attribution of the earlier general upper bound is not resolved by the frozen reference list."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same data, prime uniqueness and qualitative composite failure; no quantitative maximum in the inspected passage",
+          "evidence": "Lemma 2.1 distinguishes same-table prime cycles; paragraph observes composite nonuniqueness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07435",
+          "material_read": "§2, p. 4, Lemma 2.1 and surrounding text, PDF text offset 13149",
+          "method": "OA primary PDF passage",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Same direction data and prime/composite comparison"
+        },
+        {
+          "assessment": "Shared phase method, not mixed-prime maximum",
+          "evidence": "Each successive row is a uniquely rotated phase-prefix indicator under prime length; O(p²) reconstruction.",
+          "identifier_or_url": "2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7",
+          "material_read": "Finding and phase-prefix reconstruction comparison",
+          "method": "Local Resultary mirror",
+          "title": "Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+          "trigger": "Possible general implication of reconstruction algorithm"
+        },
+        {
+          "assessment": "Exact overlap for the attained fiber by specializing r=2; no all-signature upper bound",
+          "evidence": "For n=mr the cyclic block shifts with prescribed total shift produce exactly r^{m-1} members of the constructed signature fiber.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-exponential-ambiguity-fibers-for-composite-ordered-periodi--5f39ed9e3fea",
+          "material_read": "Finding and proof through text offset 7430 and ensuing Limitations",
+          "method": "Local Resultary mirror",
+          "title": "Exact exponential ambiguity fibers for composite ordered periodic cycles",
+          "trigger": "Strongest match: exact exponential ambiguity at even length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–41, 46–50",
+        "Fuhrmann–Gröger–Passeggi §2"
+      ],
+      "rationale": "The theorem measures exactly how much a complete ordered observation can fail to identify a cycle in the natural mixed-prime family following the known prime case. It shows that two distinct arithmetic branching mechanisms cannot compound, closing an actual factor-p gap between a natural general bound and attainability. This is useful without a broader classification of interval maps.",
+      "residual_risks": [
+        "Do not interpret permutation ambiguity as a theorem on rigidity or common period spectra of a global interval map."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: mesoscopic common diagonals in two random triangulations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability of including a diagonal of small-side index \(r\) is \(C_rC_{n-r-2}/C_{n-2}\). All ordered pairs partition into disjoint short arcs, properly nested short arcs, and crossing pairs; only the first two are feasible. Their exact counts and joint probabilities yield the displayed finite factorial-moment identity. Uniform Catalan ratios and a summable difference kernel show that the disjoint pairs contribute the square of the mean and that nesting contributes \(2(4/\pi-1)\) times the mean. The Euler beta integral gives the explicit constant. The weighted extension follows by the same Riemann sum and domination, with no unproved independence step. The `check.py` file passed 94 exact finite assertions and reported consistent numerical limits. Risk: finite tests do not by themselves establish the asymptotics; the written analytic proof bears that burden.
+PASS
 
-## Originality — PASS, with residual priority risk
+Let r count strictly intermediate vertices on the shorter arc, as in the Finding. The one-diagonal cut gives p=C_r C_{n-r-2}/C_{n-2}, with n choices of the short arc for the band under review. For fixed arcs of indices r,s, a disjoint pair may meet at an endpoint: the second start runs from r+1 to n−s−1 inclusive, giving n−r−s−1 placements per first arc. A nested pair with d=r−s has d+1 placements and the three cell factors are C_s,C_d,C_{n-r-2}; crossing pairs have joint probability zero. Squaring the single-triangulation probabilities and doubling the ordered nested contribution gives the exact first and factorial second moment. Uniform Stirling asymptotics show n p² is the Riemann-sum weight for dx/(π x³) and disjoint pairs converge to the product of first moments. For nested pairs, C_{r−d}/C_r→4^{-d} at fixed d, uniformly in a fixed positive rescaled band, and is bounded by a constant times 4^{-d} whenever both indices are in the band. Thus (d+1)C_d²/16^d=O(d^{-2}) gives summable domination. The beta integral gives 1+K=4/π for this sum including d=0, so after subtracting the product of means, the diagonal and nested terms give 1+2K=8/π−1. The same argument applies to the two orderings of f and g: for fixed d the index difference vanishes on the rescaled axis and the weights tend to f(x)g(x); fixed-width endpoint regions of an interval have vanishing total weight. Independent enumeration of noncrossing diagonal sets and of ordered pairs of triangulations confirmed the cut counts and exact rational moments for n=5 through 9, including all 14 admissible bands.
 
-Noy (December 16, 1999) treats diagonal lengths and longest diagonals of a **single** uniform triangulation. Ralaivaosaona, Ravelomanana and Wagner (2018) enumerate pairs of triangulations by the **total** number of common diagonals, without a length-resolved square-root variance. The 2026 published conditional-correlation study covers pairs of compatible diagonals in **one** triangulation, not independent-pair coincidences and a universal rescaled covariance functional. Searches of prior local research records and the mathematical literature found no matching statement or stronger result implying the universal factor. All these classical Catalan and relevant newer ingredients remain credited. Risk: an unindexed length-marked generating function or an earlier probability treatment of paired Catalan trees could imply the present theorem; full historical priority requires independent review.
+## originality
 
-## Value — PASS
+PASS
 
-The square-root band is a natural rarity window: a particular diagonal at that scale has joint occurrence probability of order \(n^{-3/2}\), while there are order \(n^{3/2}\) eligible candidates. A Poisson heuristic would predict equal limiting mean and variance, but nested shared diagonals retain a nonzero clustering covariance and produce the exact, band-independent Fano factor \(8/\pi-1>1\). The general test-function covariance gives a reusable second-order description of overlap geometry relevant to matching Catalan trees/triangulations. This is a motivated structural scale and dependence mechanism, not an arbitrary small finite computation.
+The Catalan cut identities and generating functions for the unmarked total are established antecedents. The reviewed contribution is the mesoscopic length-resolved covariance for two independent triangulations, with the specific universal factor from near-nested compatible pairs. None of the strongest inspected statements identifies that moment or its scale.
 
-## Closest literature and scope
+## value
 
-The comparison concerns the complete statements and their implications, not keyword similarity. Neither a single-triangulation longest diagonal result nor an unmarked total-common-diagonal generating function supplies the length-window covariance without an additional marked asymptotic analysis. The resulting theorem does not establish a complete limiting distribution, independence of disjoint bands, or historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural length scale where shared diagonals have order-one expected count, rare occurrence alone does not predict the variance. The result pinpoints the extra near-nested contribution, gives a band-independent variance-to-mean ratio greater than one, and gives a covariance functional that applies to separated or overlapping length windows. That is useful quantitative information for the natural common-diagonal statistic, not a finite enumeration or routine feasibility check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

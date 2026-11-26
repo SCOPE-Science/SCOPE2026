@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:43:10.300210Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 28–119",
+        "Roberts–Pruessner arXiv:2206.06105, Eqs. (16)–(17), (33)–(38)",
+        "Frozen VERIFICATION.md and CHECKER.py, lines 19–123 (inspected, not executed)"
+      ],
+      "rationale": "With conserved opposite currents J and −J, the two stationary densities are uniquely fixed up to J by the wall values J/κ, and reflection exchanges them. For example ρ_+(x)=J/v+(J/κ−J/v)e^(p(x/L−1)), nonnegative for J>0 as a convex combination of the two endpoint coefficients. Normalization fixes J and yields c=p/(p+β−1+e^−p); the denominator is positive. The centered cosh density has second moment 1/4+2/p²−coth(p/2)/p. Its strict positive excess over 1/12 follows by strict positive covariance of y² with the cosh weight under the uniform law. Thus the sign is that of β−1+e^−p. The objective tends to 1/12 at p→0 and p→∞; when 0<β<1 the positive gain after H guarantees an interior global optimum. For δ→0, the test p=H+log H gives gain ∼δ/(6H), while p≥(1+ε)H has gain bounded by δ/[6((1+ε)H−δ)]; hence every optimum has p/H→1. Writing u=e^−p, log differentiation of the gain gives u/(δ−u)=(1−u)/(p−δ+u)−B′/B, with B′/B=6/p²+O(p^−3). Converting the resulting 1/p−6/p² to u/δ contributes one more unit, giving 1/p−7/p²+O(p^−3). Taking logarithms and expanding about H gives the stated optimizer; the gain at that point is δ/(6p)(1−7/p+O(p^−2)), yielding the stated depth. No uniqueness of the optimizer is used.",
+      "residual_risks": [
+        "The checker is bounded and supplementary. The signed coefficient 1−c can be negative (the formula is not always a probabilistic convex mixture), but the current representation ensures nonnegative densities. The normalization of the wall reaction and of the variance is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pietrangeli et al. optimize parallel long-time diffusion in a slit. Dolai–Das treats reservoirs, bulk tumbling and boundary fluxes, and distinguishes wall-only tumbling. Fu et al. treats population-level aggregation and a kinetic-to-Fokker–Planck limit in two dimensions."
+        ],
+        "reasoning": "None of these stated regimes supplies the fixed-β single-particle normalized stationary variance optimum or its expansion. The alternate models do not contain this problem as a demonstrated special case in the checked passages.",
+        "searches": [
+          "Pietrangeli et al. arXiv:2404.07680",
+          "Dolai–Das arXiv:2412.20287",
+          "Fu et al. arXiv:2401.03161",
+          "Focused web search on boundary-tumbling stationary variance optimization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.06105",
+        "arXiv:2404.07680",
+        "arXiv:2412.20287",
+        "arXiv:2401.03161",
+        "SCOPE-4cc6a1bceac3",
+        "SCOPE-7d25833423fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their coefficient makes the sign of V−1/12 equal to the sign of β−1+e^−p; the threshold is an elementary consequence of the known formula. The inspected discussion does not give the optimum as β↑1.",
+          "The surviving calculation uses a separate comparison controlling all global optima, then a critical equation balancing e^−p/δ with 1/p, with subleading contributions from B′/B and the conversion to u/δ."
+        ],
+        "reasoning": "The sign alone provides only p>H for sub-uniform variance. The new optimization proof determines where and how much it improves, uniformly for every global optimizer; that is not a substitution into the prior optimum.",
+        "searches": [
+          "Roberts–Pruessner arXiv:2206.06105, uniform-shape crossover, Eqs. (33), (35)–(38) and discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set p=Pe and β=v²/(Dα); α times the wall length in the paper equals κ in the frozen model, and their stationary coefficient equals p/(p+β−1+e^−p). Their reported Pe≈5.54 is for α→∞ (β→0), not α↓v²/D from above (β↑1).",
+          "SCOPE-4cc6a1bceac3 optimizes first passage with sticky/absorbing boundaries and bulk switching. SCOPE-7d25833423fb analyzes a thermal modality-transition curve in a harmonic trap, with a different log-log correction."
+        ],
+        "reasoning": "Match after nondimensionalizing and distinguish optimizing a stationary variance from changing a density modality boundary or optimizing an exit time. A log-log scale in a different problem is not equivalent.",
+        "searches": [
+          "Resultary: fixed-β Péclet optimization, log–log critical endpoint of stationary confinement",
+          "Roberts–Pruessner arXiv:2206.06105, Eqs. (16)–(17), (33)–(38) and p. 10 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (38) gives the underlying exact variance, and the prior numerical Pe≈5.54 concerns a different limiting value of β. No matching indexed expression for the near-threshold minimizer and gain was read."
+        ],
+        "reasoning": "There is no exact finite table claimed. An isolated numerical optimum, even for the same response function, cannot establish an all-global-minimizer asymptotic or the coefficient in the optimized depth.",
+        "searches": [
+          "Roberts–Pruessner arXiv:2206.06105, Eq. (38) and numerical optimum discussion",
+          "Resultary: variance optima and log-log confinement endpoints"
+        ]
+      },
+      "rationale": "Pass is limited to the fixed-β singular optimization near β=1: location of every global minimizer through the term with constant 7, and depth through the displayed next order. The stationary solution and variance are already in Roberts–Pruessner and credited as inputs. The sign threshold is already encoded by their density-shape crossover and variance, and is not separately credited as novel. The inspected passages and nearest indexed results do not give the singular optimum law.",
+      "residual_risks": [
+        "An equivalent endpoint optimization may exist outside the bounded searches; no absolute priority is claimed. The elementary sign threshold and stationary-law algebra should not be promoted as independent novelties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for model, stationary results and crossover input; different optimum regime",
+          "evidence": "The reaction length and stationary coefficient match; the reported Pe≈5.54 is for α→∞, not the β↑1 expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.06105",
+          "material_read": "PDF pp. 5–8, Eqs. (16)–(17) and (33)–(38); p. 10 numerical optimum discussion",
+          "method": "Lawful open-access primary PDF",
+          "title": "Exact solution of a boundary tumbling particle system in one dimension",
+          "trigger": "Same model and exact stationary variance"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Optimizes diffusion parallel to slit walls, not the normalized position variance on a segment.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.07680",
+          "material_read": "PDF p. 1, abstract",
+          "method": "Lawful open-access primary PDF",
+          "title": "Optimal run-and-tumble in slit-like confinement",
+          "trigger": "Possible broader active-confinement optimum"
+        },
+        {
+          "assessment": "Different boundary and bulk dynamics",
+          "evidence": "The model has reservoir drive and bulk tumbling, distinct from wall-only switching in a reflecting interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.20287",
+          "material_read": "PDF p. 1, abstract; p. 25, discussion distinguishing boundary models",
+          "method": "Lawful open-access primary PDF",
+          "title": "Boundary layers, transport and universal distribution in boundary driven active systems",
+          "trigger": "Related boundary active-particle stationary model"
+        },
+        {
+          "assessment": "Different dimension, objective and limit",
+          "evidence": "Population-level kinetic model between plates and confined Fokker–Planck limit, not the normalized stationary variance optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.03161",
+          "material_read": "PDF p. 1, abstract",
+          "method": "Lawful open-access primary PDF",
+          "title": "Confined run-and-tumble model with boundary aggregation",
+          "trigger": "Related wall aggregation mechanism"
+        },
+        {
+          "assessment": "Different observable and boundaries",
+          "evidence": "First-passage moments with an absorbing endpoint, sticky wall and bulk switching.",
+          "identifier_or_url": "SCOPE-4cc6a1bceac3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp mean–variance Pareto frontier and relative-risk optimum",
+          "trigger": "Plausible indexed variance-optimization match"
+        },
+        {
+          "assessment": "Different threshold problem",
+          "evidence": "Thermal modality change of a harmonically trapped particle, not stationary variance optimization at fixed β in an interval.",
+          "identifier_or_url": "SCOPE-7d25833423fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, same snapshot",
+          "title": "Sharp endpoint corrections to the thermal mode-transition curve",
+          "trigger": "Plausible indexed log-log critical correction match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–26 and 71–119",
+        "Roberts–Pruessner arXiv:2206.06105, Eq. (38) and p. 10 discussion"
+      ],
+      "rationale": "Even with an exact stationary variance, the weak-confinement design problem near threshold has a diverging optimizer and a shrinking depth. The log-log scale separates the optimum from the sign-change point, and the paired location and depth coefficients quantify the singular balance under a natural fixed-rates length variation. This adds more than rewriting the known variance.",
+      "residual_risks": [
+        "Specific wall normalization and normalized variance; the result does not optimize Var(X) itself or establish uniqueness at finite β."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review of three-pulse ghost-pulse feasibility
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite constraint includes all ordered triples, including repetitions. The pair-reflection lemma reduces every possible admissible signing of three occupied slots to one of three explicit tests. Two nonouter tests either imply the outer test or give a disjoint reflected pair of three-term arithmetic-progression exceptions. Counting the outer choices and the exceptions proves the exact formula without finite extrapolation. The six cubic residues and the floor expression for the exceptional count follow from elementary finite sums. Their dominant term proves the \(11/18\) asymptotic fraction. Direct independent sign-enumeration confirms all supports through length \(41\), and separate arithmetic checks cover the closed formulas through length \(1000\). Residual mathematical risk is confined to a possible unrecognized case in the written symbolic simplification; the unsimplified exact sum does not depend on that simplification.
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+Any admissible signing can be replaced by one with exactly one same-sign pair: splitting a monochromatic support only drops constraints. For u<v that pair contributes only u,v,2u−v,2v−u; the last two must be supported or outside the finite interval. This gives each of the three stated pair tests with the correct strict left and weak right endpoint inequalities. If an adjacent pair works by an outward reflection, the extreme pair also works. Otherwise the third position must complete an arithmetic progression. For the left exception the necessary and sufficient conditions are a<d and a+4d<n; the reflected exception instead has a≥2d and is disjoint. The outer count sums c−a−1 over c≥max(2a+1,ceil((n+a)/2)); the AP count sums min(d,n−4d). Splitting the AP count at 5d≤n gives the floor formula. For the residue table, split at 3a+2<n and separate parities in the ceiling branch. For each n modulo 6 the parity-specific cutoffs are affine in the quotient and the summands quadratic, so the result has degree at most three in each residue; the independently checked table contains at least four exact values in each residue. The limit is independently obtained by integrating y−x for 0≤x≤1/2 and max(2x,(1+x)/2)≤y≤1, splitting at x=1/3: the integral is 11/108, and the AP terms have order n² only. Thus the limit after division by binomial(n,3) is 11/18.
 
-The most relevant source is Kashyap–Siegel–Vardy, *Coding for the Optical Channel* (arXiv:cs/0510033), particularly the finite BGP theorem and TGP Table II. Its total TGP counts through length \(32\) do not imply the weight-three sequence, all-length formula, structural exceptions, or limiting \(11/18\) proportion. The companion Ramsey paper (DOI: 10.1137/S089548010444585X) treats bi-infinite ghost-pulse admissibility; finite boundary feasibility is strictly a different condition. The published research index and the available prior claim records yielded no matching finite three-pulse enumeration. As with any literature comparison, an unindexed prior derivation remains possible; independent priority verification is not represented as performed.
+## originality
 
-## Value — PASS
+PASS
 
-Three occupied positions are the smallest layer where choosing two pulse phases cannot automatically avoid all ghosts: at most two pulses can always be assigned distinct signs. The exact classification therefore identifies the first genuine phase-assignment obstruction of the original constrained coding model. Its limiting support fraction \(11/18\), contrasted with only \(O(n^2)\) phase-free admissible three-pulse supports, quantifies a structural advantage of phase modulation at low pulse occupancy. This natural exact invariant can be used to count feasible sparse optical codebooks. It does not resolve arbitrary-density capacity or physical transmission performance.
+The supported distinct result is the finite, unbounded-interaction, existential-sign weight-three classification and enumerator, not the definition of the constraint, a general TGP count, or a claim of universal priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Weight three is the first pulse-count layer not made automatically admissible by using different signs for at most two pulses. This makes the slice natural: the exact boundary classification separates the bulk count from the two reflected exceptional classes and quantifies the first phase-feasibility loss by a nontrivial limiting fraction. It is more than a numerical slice of the published total table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

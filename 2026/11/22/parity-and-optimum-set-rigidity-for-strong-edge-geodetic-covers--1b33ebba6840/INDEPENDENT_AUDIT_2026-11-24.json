@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:31:41.241002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39; frozen VERIFICATION.md and the support scripts crown_exact_check.py and verify_milp.py (not executed)",
+        "Independent boundary replay: python3 /workspace/branches/32bd5e28-d83f-4e73-aace-e304e4249eed/replay_n34.py 3 and the same with argument 4"
+      ],
+      "rationale": "For a selected set with shore sizes a,b and c selected matched pairs, the total shortest-path length budget is k(k-1)-ab+2c, k=a+b. It is less than n(n-1) for k<n, and also for mixed k=n when n≥5 since ab>2c. A full shore at even n would need n/2 endpoint pairs at each omitted vertex, more than the total number of shore pairs. At odd n, on indices modulo n, assigning {i,j} to omitted index (i+j)/2 constructs the near-one-factorization and covers everything. For k=n+1, a mixed set with a,b≥2 omits c-1 matching pairs and leaves (a-1)(b-1)-(c-1) edges with both endpoints omitted. Each can only be the middle edge on a geodesic of a selected matched pair. Thus (a-1)(b-1)+1≤2c≤2min(a,b), impossible for a+b≥7 and a,b≥2. Finally for even n the chosen full shore plus b_0 works: the near-one-factorization on the odd index set excluding 0 covers the remaining neighbors of each b_t except a_0; one deranged assignment of pairs {a_0,a_j} supplies those omitted edges without duplicating a pair or using a forbidden edge. Edges at b_0 use direct paths. This proves both minima and the claimed complete optimizer families in scope; choosing additional unused pairs if required cannot spoil coverage.",
+      "residual_risks": [
+        "The independent exhaustive shortest-path/cover replay at n=3,4 gives (minimum, count)=(3,14),(5,32), including 24 mixed-shore minima at n=4. The deposited n=5–7 checks and MILP were not independently replayed; the universal proof, not finite feasibility, establishes the claimed n≥5 families. No formal or expert verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete multipartite result characterizes all qualifying sets by omissions confined to one part with cardinality at most R_i. For K_{n,n} this gives n+1 for even n and n+2 for odd n, consistent with Klavžar–Zmazek."
+        ],
+        "reasoning": "A crown for n≥5 is not complete multipartite: the nonadjacency of a_i and b_i and of a_i and another a_j does not make b_i and a_j nonadjacent. In particular the diameter-two argument prohibiting omitted endpoints in different parts no longer applies. This is not specialization to another list of part sizes.",
+        "searches": [
+          "Klavžar–Zmazek arXiv:2312.11199, Theorem 2.1",
+          "Resultary 2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and matched exact findings",
+        "Klavžar–Zmazek and Gledel–Iršič primary passages; cited 2019 source attempted, not verified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The supergraph K_{n,n} has the same even optimum and optimizer shapes, but has a different odd optimum. The proof of the complete multipartite criterion relies on all shortest paths having length at most two. Matched selected crown pairs admit length-three geodesics that can cover omitted-to-omitted edges."
+        ],
+        "reasoning": "Deleting edges affects the paths available as shortest paths, not just the number of edges to cover. The prior prohibition on omitted endpoints in two different parts cannot simply be carried across the deletion; crown rigidity needs the middle-edge capacity bound. Likewise, in an all-geodesics edge cover a single matched pair in a crown with n≥3 can use a whole family of length-three routes, unavailable to the strong convention. That comparison is mathematical, not an assertion about an inaccessible paper's text.",
+        "searches": [
+          "Compare the complete multipartite omission criterion, the vertex crown theorems and the ordinary edge-geodetic convention against the frozen length-three and rigidity arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact strong-edge crown result in the retrieved index is the assigned finding itself. Gledel–Iršič Theorem 3.2 studies the same graph with one path per pair but vertex coverage. The indexed ordinary geodetic crown polynomials instead allow coverage of vertices by all shortest paths."
+        ],
+        "reasoning": "Covering vertices is not equivalent to covering edges. A length-three path between selected matched crown vertices can cover two omitted vertices and still leave all their other incident edges uncovered. Nor can many geodesics for a single pair be substituted for one chosen geodesic.",
+        "searches": [
+          "Resultary exact topic, strong-edge crown number, full optimizer-family and ordinary crown edge-geodetic queries",
+          "Primary literature lookup on strong edge geodetic crown graphs; Gledel–Iršič arXiv:1810.04004, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-geodetic-and-minimal-geodetic-cardinality-polynomials-of-crown-g--ac79cded1cfa counts ordinary vertex geodetic sets, and 2026/11/8/SCOPE-exact-geodesic-transversal-spectra-and-packing-in-crown-graphs--bc3fc492b96b counts geodesic-hitting sets. The indexed complete multipartite classification counts strong-edge sets on a different graph family."
+        ],
+        "reasoning": "These exact records give useful near matches, but none classifies subsets with a shared assignment of one shortest path per pair covering every crown edge. The matching invariant is not a coefficient of the inspected ordinary or transversal polynomials.",
+        "searches": [
+          "Resultary searches for crown optimizer families, edge-geodetic counts, and exact graph invariants"
+        ]
+      },
+      "rationale": "The complete bipartite baseline and its optimum-set structure are known. The distinct theorem covers the graph after deleting a perfect matching, with new length-three paths and an odd-order drop of two in the minimum. The checked crown literature studies different coverage conventions. Bounded literature and index comparisons support the distinct crown strong-edge theorem without establishing historical priority.",
+      "residual_risks": [
+        "Historical priority is provisional. In particular the 2019 crown edge-geodetic primary comparison is not closed by a full-text inspection; no noncoverage inference rests on its unavailability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the baseline, not its transfer to crowns",
+          "evidence": "At most one shortest path per pair; balanced complete bipartite minima n+1 for even n and n+2 for odd n.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.11199",
+          "material_read": "Abstract and §2, Theorem 2.1, p. 3, OA offset 7736",
+          "method": "OA primary-text inspection",
+          "title": "Strong Edge Geodetic Problem on Complete Multipartite Graphs and Some Extremal Graphs for the Problem",
+          "trigger": "Same invariant and undeleted complete bipartite baseline"
+        },
+        {
+          "assessment": "Covers the full K_{n,n} optimizer family, not the deletion",
+          "evidence": "Omitted vertices lie in one part by a diameter-two argument; near-perfect matching constructions are used for the edge-cover packing on an odd shore.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445",
+          "material_read": "RESULT.md Finding, Assumptions and opening Proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "All strong edge geodetic sets of complete multipartite graphs",
+          "trigger": "Exact all-set classification for the undeleted supergraph under the same convention"
+        },
+        {
+          "assessment": "Vertex not edge invariant",
+          "evidence": "The prescribed paths must cover every vertex; the crown theorem is about that vertex coverage problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.04004",
+          "material_read": "Definition on p. 2, offset 3357, and §3 Theorem 3.2, p. 6, offset 17688",
+          "method": "OA primary-text inspection",
+          "title": "Strong geodetic number: the crown graph and recent developments",
+          "trigger": "Same crown graph, strong geodetic assignment convention"
+        },
+        {
+          "assessment": "Different coverage and counting problem",
+          "evidence": "Counts ordinary and minimal vertex-geodetic sets using all-shortest-path coverage.",
+          "identifier_or_url": "2026/11/2/SCOPE-geodetic-and-minimal-geodetic-cardinality-polynomials-of-crown-g--ac79cded1cfa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Geodetic and minimal geodetic cardinality polynomials of crown graphs",
+          "trigger": "Exact optimizer counts on the same family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Its sets hit every maximal geodesic rather than being endpoint sets for a chosen edge cover.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-geodesic-transversal-spectra-and-packing-in-crown-graphs--bc3fc492b96b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact geodesic transversal spectra and packing in crown graphs",
+          "trigger": "Exact geodesic-related counting on crowns"
+        },
+        {
+          "assessment": "Access limitation; convention not independently confirmed",
+          "evidence": "The frozen record describes it as ordinary edge geodetic. The cited primary copy was inaccessible, so no conclusion about full coverage follows from that attempt.",
+          "identifier_or_url": "https://www.ripublication.com/ijaer19/ijaerv14n7_47.pdf",
+          "material_read": "No primary full-text passage obtained",
+          "method": "Bounded OA retrieval attempt at cited PDF",
+          "title": "The Edge Geodetic Number of Crown Graphs and Related Graphs",
+          "trigger": "Closest cited same-graph edge-geodetic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen minimum, equality and boundary statements; length budget and middle-edge proof",
+        "Complete bipartite baseline and total membership criterion above"
+      ],
+      "rationale": "Crown graphs are the standard one-perfect-matching deletion from the balanced complete bipartite family. The exact minimum detects a parity-sensitive effect of that deletion, while complete rigidity answers the more restrictive question of which endpoints an optimal cover can use. The number of eligible matching pairs controls the new length-three capacity; this explains why extra shortest paths do not produce mixed-shore minimizers once n≥5. This is a structural result rather than a recomputation of the complete bipartite minimum.",
+      "residual_risks": [
+        "No classification for arbitrary matching deletions or all feasible sets of larger size is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

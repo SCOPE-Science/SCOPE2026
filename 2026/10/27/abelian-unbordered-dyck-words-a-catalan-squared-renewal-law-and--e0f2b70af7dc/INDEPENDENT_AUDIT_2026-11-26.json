@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:34:18.541278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The difference in zero counts between the prefix and suffix of length k is (H_k+H_(2n−k))/2, and each height is nonnegative. Thus both heights must vanish, making k even. Complementary border lengths are equivalent, so the shortest has k=2j≤n. A first synchronized return of two Dyck words read respectively from the front and back decomposes the pair at a unique positive size j; arbitrary independent Dyck remainders give the convolution S−1=ES. Cutting the target word at its first symmetric return pair gives the E_j end block pair and an arbitrary middle Dyck word of size n−2j, including the empty middle. This proves both generating functions. Independently, setting a_m=C_m/4^m, the bordered fraction is the sum of (E_j/16^j) a_(n−2j)/a_n. For j≤n/4 the ratio is bounded and tends to one at each fixed j. For j>n/4, E_j/16^j≤C_j²/16^j=O(n^−3), so summability of a_m=Θ((m+1)^−3/2) bounds the remaining total by O(n^−3/2). Therefore the limiting unbordered fraction is 1−E(1/16)=1/S(1/16) without needing complex continuation. The stated partial-sum expression telescopes by the central-binomial recurrence and tends by Stirling to 16/π−4; the numerical value agrees. Direct ballot generation and literal zero counts for all proper lengths reproduced every shortest-border frequency through n=12, and exact fractions checked the partial sums through N=100. Replay: python /workspace/review_checks/dyck.py; output /workspace/review_checks/dyck.txt. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary fixed-composition law counts arbitrary balanced words without the Dyck prefix constraint, with a vanishing balanced-family density.",
+          "The border-array paper counts attainable arrays of binary words, not the multiplicity of each shortest length inside the Dyck class."
+        ],
+        "reasoning": "Counting within a larger class or at fixed total composition is not a refinement by every prefix height. Neither result determines the Catalan subfamily distribution by specialization.",
+        "searches": [
+          "abelian-unbordered Dyck words shortest abelian border Catalan",
+          "Resultary 0c0ce0d4d33d fixed-composition law",
+          "arXiv:2111.00259"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c7bf52c42f88 and 0c0ce0d4d33d, plus four targeted query formulations",
+        "arXiv:1708.06461 encoding and Theorem 1",
+        "arXiv:2207.09937 §6.3",
+        "arXiv:2111.00259 abstract",
+        "doi:10.1016/j.dam.2014.02.012 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The simultaneous-return theorem concerns common return sets of two independent Dyck paths of a fixed size and association of those sets; it does not characterize abelian borders of a single path.",
+          "The unconstrained word theorem gives 2^(n−2k+1) C_(k−1) for shortest length k when n≥2k, not E_j C_(n−2j) at Dyck semilength n."
+        ],
+        "reasoning": "Neither prior statement specializes to the single-word law. The new step is to use the two nonnegative heights of the same Dyck word to recognize borders, then impose minimality on its paired ends and account for all possible middle words. The Catalan-square evaluation is an input to the limit, not independent novelty.",
+        "searches": [
+          "Resultary c7bf52c42f88 simultaneous-return proof",
+          "arXiv:1708.06461, Theorem 1",
+          "unbordered Dyck words enumeration formula literal borders"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanchet-Sadri–Chen–Hawes apply an auxiliary path encoding to arbitrary binary words; they do not constrain the input word's prefix heights. Theorem 1 counts unconstrained shortest borders with a distinct factor.",
+          "Fici–Puzynina §6.3 defines abelian borders by Parikh equality and gives a word distinguishing that notion from literal borders."
+        ],
+        "reasoning": "An auxiliary Dyck path and a source word in the Dyck language are inequivalent restrictions. Literal equality is stronger than abelian equivalence, so an ordinary border count cannot be substituted for this one.",
+        "searches": [
+          "abelian borders actual Dyck words Catalan-squared renewal first paired returns",
+          "abelian borders inside Dyck words literal Dyck word borders",
+          "arXiv:1708.06461",
+          "arXiv:2207.09937 §6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed simultaneous-return theorem gives A=Σ C_j²t^j and B=1−1/A, counting pairs of equal-size Dyck paths without a smaller common return.",
+          "Reverse and interchange the symbols of the second Dyck word to match suffix returns to prefix returns. This identifies its B coefficients exactly with the frozen E_j."
+        ],
+        "reasoning": "This is real exact coverage of the renewal sequence, not a coincidental numerical match. The inspected record does not tabulate or state the abelian-unbordered count U_n or its density. No priority is inferred from the different record dates.",
+        "searches": [
+          "Catalan squared simultaneous return renewal first return Dyck paths",
+          "Resultary c7bf52c42f88 §Proof 1–2"
+        ]
+      },
+      "rationale": "Credit exact overlap for the Catalan-square synchronized-renewal kernel, but not for the shortest abelian-border law on the Catalan language or its density. The closest paper with abelian borders counts the statistic over unrestricted input words, and the closest catalogue renewal theorem applies to a pair of equal-length Dyck paths, not the symmetric ends and variable middle of one word. The supported distinct contribution is the bridge to the intrinsic Dyck-word statistic and the resulting whole distribution and limit, not the Catalan-square sum or the first-return block numbers alone.",
+      "residual_risks": [
+        "The earlier exact literal-border enumeration mentioned in RESULT.md was not identified; ordinary-border work is a separate statistic.",
+        "The potential companion literature on paired returns, including doi:10.1155/2013/107454, was not fully readable. Prior formulations of the renewal block sequence are plausible and would not by themselves supply the Dyck-language border law.",
+        "The search does not certify historical priority or exclude an unindexed equivalent of the Dyck-family distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted word counts, not the Dyck-language restriction",
+          "evidence": "Starts with a binary word and strips flat steps from auxiliary lattice paths; the theorem has unconstrained middle factor 2^(n−2k+1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06461",
+          "material_read": "Encoding at PDF p. 2, OA offset 4329; Theorem 1 at p. 7, offset 22600",
+          "method": "Bounded OA PDF passages",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Closest apparent abelian-border count and same shortest-border statistic"
+        },
+        {
+          "assessment": "Explains why an ordinary-border theorem would not be equivalent",
+          "evidence": "Parikh equality definition and explicit separation from ordinary borders.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09937",
+          "material_read": "§6.3, PDF p. 19, OA offset 71950",
+          "method": "Bounded OA PDF passage",
+          "title": "Abelian Combinatorics on Words: a Survey",
+          "trigger": "Definitions and ordinary/abelian equivalence question"
+        },
+        {
+          "assessment": "Exact overlap of the renewal kernel, not the intrinsic word-border application",
+          "evidence": "B=1−1/A counts irreducible pairs under simultaneous interior returns; the central result concerns association of return sets.",
+          "identifier_or_url": "Resultary 2026/11/22/c7bf52c42f88",
+          "material_read": "Finding and Proof §§1–2, mirror offset 0 onward (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Bounded local-mirror comparison",
+          "title": "The FKG lattice property of simultaneous returns in two uniform Dyck paths",
+          "trigger": "Exactly the Catalan-square and first synchronized-return sequences"
+        },
+        {
+          "assessment": "No Dyck-prefix restriction",
+          "evidence": "Balanced-composition probability is on the order of m^−1/2 over all balanced words.",
+          "identifier_or_url": "Resultary 2026/11/22/0c0ce0d4d33d",
+          "material_read": "Fixed-composition result and balanced asymptotics",
+          "method": "Local Resultary source comparison",
+          "title": "Fixed-composition law and parity-rigid weight spectra of binary abelian-unbordered words",
+          "trigger": "Potential coverage by counts on balanced binary words"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": "Studies attainable arrays on binary words, rather than shortest borders within Dyck words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00259",
+          "material_read": "Abstract and scope, PDF p. 1, OA offset 620",
+          "method": "Bounded OA PDF passage",
+          "title": "Counting and Verifying Abelian Border Arrays of Binary Words",
+          "trigger": "Alternative encoding of abelian-border counting"
+        },
+        {
+          "assessment": "Accessible descriptions concern unrestricted counts; full-text coverage remains unverified",
+          "evidence": "The earlier problem is the enumeration of abelian-unbordered binary words, with no stated Dyck restriction in the accessible material.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.02.012",
+          "material_read": "Accessible abstract and discussion in the 2017 follow-up; full text not retrieved",
+          "method": "Lawful OA full-text attempt; compared accessible descriptions",
+          "title": "Abelian borders in binary words",
+          "trigger": "Earlier abelian-border enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shortest-border distribution on a natural constrained word family answers more than an isolated coefficient query. The first symmetric return decomposition explains the Catalan-square kernel, and the explicit positive limiting density distinguishes this setting from the vanishing densities in the unrestricted and balanced families. The value rests on the complete restricted-language statistic and limit, not a recomputation of the kernel by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

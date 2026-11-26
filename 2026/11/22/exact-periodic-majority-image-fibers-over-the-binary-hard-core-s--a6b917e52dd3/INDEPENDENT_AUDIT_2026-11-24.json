@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:02.202394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70; VERIFICATION.md lines 19–31; verify.py lines 11–104",
+        "Independent finite replay: /workspace/branches/e38b791c-9d39-4246-89ad-5051d4660e34/check_restricted.py (n=1 through 10)"
+      ],
+      "rationale": "Under cyclic hard core, a received 1 is exactly the midpoint of the input pattern 101. On the integer periodic extension, split between successive received ones a distance g apart: the two forced inner input ones occur at offsets 1 and g−1. They coincide for g=2; g=1 or 3 is incompatible with hard core and g=4 forces an extra received 1. For g≥5 the intervening input gaps must all be at least 3, and any ordered decomposition of g−2 into such gaps works. The intervening segments and the compulsory gap-2 pairs at the received ones exhaust the source, also for a lone received 1. At n=1 the only legal source is zero; at n=2 the two one-sites give distinct nonzero outputs by the repeated-neighbor convention. The number of decompositions is one only for residual lengths 0, 3, 4 and 5. With no received ones, the unique closed distance-state walk of each admissible word gives tr(T^n); the all-zero path stays in the saturated state and the characteristic polynomial t³−t²−1 gives the listed recurrence. Marking a received one yields n/k times the k-gap composition coefficient with no primitivity assumption. Each gap series is positive with gcd of exponents one, so the only dominant pole is its simple positive root of G=1; the logarithmic derivative has leading coefficient one. Independent bounded enumeration through n=10 checked every fiber and both count series, including n=1,2; the all-n claims rest on the bijection and formal series, not enumeration. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Indexed rings and hard-core sources only. Neither unrestricted fibers nor orbits modulo rotation satisfy the asserted counting formulas by this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-10-26 full-source first-image result gives six minimal forbidden words and spatial block entropy; the 2026-11-08 full-source cyclic-image result gives −zD′/D with D=(1+z³−z⁵)(1−2z+z³−z⁵)."
+        ],
+        "reasoning": "The full-source image language and exact image counts do not count the subset admitting a predecessor with no cyclic 11. Restricting source paths is new work, not substitution in those evaluated formulas.",
+        "searches": [
+          "Resultary: exact first-image subshift entropy binary majority cellular automaton Rule 232 unrestricted source",
+          "Jen §4 Case e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44 and 76–90",
+        "Jen (1989), §4 Case e, pp. 441–442",
+        "Indexed results of 2026-10-26, 2026-11-08 and distinct singleton result of 2026-11-22; passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day singleton rational function counts outputs with one unrestricted predecessor, not one hard-core predecessor. In particular the former is not obtained by filtering uniquely decodable received words by an output-only constraint; the frozen product filters input paths before testing multiplicity."
+        ],
+        "reasoning": "General automaton machinery supplies a method, not the evaluated independent gap compositions, zero-output exception, or singleton spectrum. None of the inspected stronger-looking results entails that package.",
+        "searches": [
+          "Jen §4 Case e",
+          "2026-11-08 cyclic-image RESULT.md Finding and Limitations",
+          "Same-day singleton RESULT.md Finding, Assumptions and Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen §4 Case e counts unrestricted predecessors via de Bruijn path recurrences, pp. 441–442. The frozen restricted map is the Boolean AND of the two neighboring bits, but only on the cyclic shift forbidding 11."
+        ],
+        "reasoning": "Rephrasing as a constrained block code or as closed de Bruijn walks does not identify the evaluated gap product with Jen's unrestricted recurrence. The web query did not produce a material comparator; that alone is not negative evidence.",
+        "searches": [
+          "Web: ‘hard-core’ source majority cellular automaton Rule 232 restricted preimage cyclic output counts",
+          "Resultary: cyclic hard-core source Rule 232 majority inverse fibers gap product c_(g-2) image counts singleton rational generating function",
+          "Jen §4 Case e (Rule 232)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned frozen result is the identical item, not a distinct match. The distinct 2026-11-08 image counts begin 2,4,2 versus the restricted 1,3,1. The distinct same-day singleton counts begin 2,4,0,6,20 versus the restricted 1,3,0,2,5."
+        ],
+        "reasoning": "These are exact indexed-cycle comparisons, not merely approximate matching of growth factors. Reading the assumptions explains the differing sequences; shared publication date gives no priority inference.",
+        "searches": [
+          "Resultary: cyclic hard-core source Rule 232 majority inverse fibers gap product c_(g-2) image counts singleton rational generating function",
+          "Resultary: exact first-image subshift entropy binary majority cellular automaton Rule 232 unrestricted source"
+        ]
+      },
+      "rationale": "The supported distinction is the product for each hard-core-source fiber and the evaluated restricted image and singleton spectra. The closest singleton and cyclic image papers solve different counting problems over the full binary shift. This is a best-of-knowledge conclusion, not a priority determination.",
+      "residual_risks": [
+        "Specialized symbolic-dynamics literature may index the constrained map as a factor of the golden-mean shift rather than as Rule 232. The search does not rule out such an unlocated equivalent.",
+        "The same-day singleton comparison is material context, not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted recurrence, not the restricted cycle product",
+          "evidence": [
+            "De Bruijn preimage counts for Rule 232 over general binary inputs"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "§4 Case e, pp. 441–442, beginning at extracted offset 44001",
+          "method": "Lawful open PDF; locate Case e then read bounded passage",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Original Rule 232 inverse-count paper"
+        },
+        {
+          "assessment": "Unrestricted bilateral spatial image",
+          "evidence": [
+            "Six forbidden words and spatial-block entropy, not hard-core periodic inverse fibers"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md",
+          "material_read": "Finding/Assumptions at offset 0; Relationship/Limitations at 7173",
+          "method": "Indexed record read from local mirror",
+          "title": "The exact first-image subshift and entropy of binary majority cellular automaton",
+          "trigger": "Same rule and image-language claim"
+        },
+        {
+          "assessment": "Distinct unrestricted count",
+          "evidence": [
+            "Full-source cyclic rational function and express exclusion of inverse-fiber distributions"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md",
+          "material_read": "Finding/Assumptions at offset 0; Limitations/References at 8000",
+          "method": "Indexed record read from local mirror",
+          "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+          "trigger": "Identical indexing and image-count statistic"
+        },
+        {
+          "assessment": "Material overlap in statistic, not equivalent source space or sequence",
+          "evidence": [
+            "Rational P/D and first counts 2,4,0,6,20 over the unrestricted binary shift"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-singleton-predecessor-spectrum-of-cyclic-binary-majority-r--b9fa18b7332d/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–3, offset 0",
+          "method": "Indexed record read from local mirror",
+          "title": "Exact singleton predecessor spectrum of cyclic binary majority",
+          "trigger": "Strongest distinct indexed singleton match, same date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–40 and 48–70; independent finite counts through n=10"
+      ],
+      "rationale": "This is a natural local decoder with a standard exclusion constraint. The result answers both whether a received cycle is possible and exactly how ambiguous it is, including a nontrivial zero-word exception. It distinguishes exponential growth of singleton outputs from exponential decay of their fraction among attainable outputs, with explicit rates. The constructive factorization is more useful than an unevaluated transfer-matrix method or a table of small cycles.",
+      "residual_risks": [
+        "No claim is made about multistep dynamics or decoding from arbitrary binary sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

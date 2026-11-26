@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:21:21.180969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55",
+        "Frozen VERIFICATION.md, lines 19–21; verify.py, lines 8–75",
+        "Independent bounded cyclic-ring calculation at n=3,5; 1≤s≤8"
+      ],
+      "rationale": "The two factors are integral symplectic shears with symmetric couplings. Modulo 2 the shift diagonalizes over a splitting field since n is odd, and the nonconstant mode with shift eigenvalue λ has distinct map eigenvalues λ and λ^(-1). A primitive n-th root forces odd part n, and the constant-mode unipotent block has order 2. The circulant Laurent representation is faithful: the matrices S^j have distinct shifts of one basis vector for 0≤j<n. In that ring, the Laurent sum for U_m hits each residue twice for m=2n and omits one exponent congruent to zero for m=2n−1. The even polynomial U_{2n−1} has zero derivative modulo 2, while differentiating U_{2n}=w U_n² modulo 2 gives U_n². Since Σ²=nΣ, shifting b to b+2 leaves U_{2n}(b+2)=0 modulo 4, and T^(2n)=I+2ΣI modulo 4. Nonzero Σ modulo 2 gives exact order 4n modulo 4. Squaring gives identity modulo 8: the unknown multiple of 4 contributes only a multiple of 8 because T^(2n)=I modulo 2, and Σ+Σ² is even. On the constant mode H has trace 4 and determinant 1, so H²=4H−I gives H⁴−I=8(2H²−H), not zero modulo 16. Raising this to odd n preserves the mod-16 obstruction, proving exact valuation three of T^(4n)−I. Squaring raises that valuation exactly by one, and raising to any odd power leaves it unchanged. Every identity exponent for higher moduli must already be a multiple of 4n, giving the claimed least exponent. This is the global order since a linear map fixes all vectors exactly when it fixes the coordinate basis.",
+      "residual_risks": [
+        "The frozen 416-check output is a recorded result, not a replay during this review. The bounded independent test checks minimality only for its indicated sizes; it is not the basis of the all-odd-n result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nance constructs higher-dimensional examples by composing basis maps. Manolas–Floratos treat circulant equal-shear maps with a different trace and report no analytical odd-size base-order expression in the relevant comparison. Dyson–Falk theorem text was not available for inspection."
+        ],
+        "reasoning": "A broad class of circulant couplings does not dominate the claim when the shear rule is restricted to a different matrix family. No inspected general statement yields the two low-modulus orders needed here.",
+        "searches": [
+          "arXiv:1111.2984v1, p. 1 and §§3–3.2",
+          "arXiv:2605.00965v2, §4.1 and pp. 18–19",
+          "DOI 10.1080/00029890.1992.11995900"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1111.2984v1",
+        "arXiv:2605.00965v2",
+        "DOI 10.1080/00029890.1992.11995900 (access-limited)",
+        "Resultary 6ce73c0ff68d, ee18bef9b1de, 2dcbd8ca3b34, 7d947ded0ba2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known recurrences and general squaring arguments do not give T^(2n)=I+2ΣI modulo 4 for this map. The frozen proof derives that congruence using the odd cyclic Laurent identity; the sharp constant-mode valuation separates mod 8 and mod 16. The equal-shear equation T(N;n)=(N/2)T(2;n) for dyadic N≥4 does not produce the plateau here."
+        ],
+        "reasoning": "Generic lifting determines subsequent doubling only after establishing the first exact valuation. The map-specific starting orders and plateau are the distinct content; a common nearest-neighbor coupling does not imply the claimed law.",
+        "searches": [
+          "arXiv:2605.00965v2, eqs. 22–26, 47–54 and 57",
+          "Resultary 6ce73c0ff68d and ee18bef9b1de, Findings",
+          "Frozen RESULT.md, lines 24–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier equal-shear matrices have trace 2+c² on a Fourier mode; the unequal-shear map has trace 2+b. Every odd cycle has b=−2 cos(π/n) in (−2,0), so the unequal-shear map has nonreal eigenvalues, while real symmetric-coupling equal-shear maps have only real eigenvalues."
+        ],
+        "reasoning": "This rules out equality or real linear similarity to that equal-shear family. It is not a blanket exclusion of all modular or nonlinear conjugacies; the explicit known order laws also do not match the case at issue.",
+        "searches": [
+          "arXiv:2605.00965v2, §§3–4.1, eqs. 22–26 and 47–54",
+          "Resultary semantic search for odd-cycle dyadic orders, nearest-neighbor maps and equal/unequal shears"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier all-to-all cases use J or J−I in both shears, with different order laws. Later nearest-neighbor peers use equal shears and sizes 2^k; the all-dyadic one has order 2^(k+s−2), and the binary one has order n/2 on its size family. The complete bipartite peer treats another graph and shear family."
+        ],
+        "reasoning": "The indexed exact numbers are for different maps or disjoint size classes; the displayed equal-shear spectra and dyadic scaling are not tables of this invariant. No inspected indexed match gives the order of the specified map at all odd sizes.",
+        "searches": [
+          "Resultary dyadic torus order, nearest-neighbor and complete/bipartite coupling searches: 6ce73c0ff68d, ee18bef9b1de, 2dcbd8ca3b34, 7d947ded0ba2",
+          "arXiv:2605.00965v2, §4.1 and Eq. 57"
+        ]
+      },
+      "rationale": "The supported novelty is the exact all-odd-size dyadic matrix order for the unequal-shear nearest-neighbor map, especially its common mod-4 and mod-8 order and the exact onset of lifting. Equal-shear cat maps and generic matrix-order lifting are prior tools, not this order law. The closest inspected works differ in the update map or the underlying graph and size class.",
+      "residual_risks": [
+        "Bounded search does not exclude an earlier exact unequal-shear or equivalent linear recurrence result. Dyson–Falk could not be checked in full; related modular conjugacies outside the tested family were not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides background, not the specified cyclic shear law in inspected passages",
+          "evidence": "Studies a 2D map and composes basis maps for higher dimensions.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.2984v1",
+          "material_read": "p. 1 and §§3–3.2, pp. 6–9",
+          "method": "Primary open-text passage inspection",
+          "title": "Periods of the discretized Arnold’s Cat Mapping and its extension to n-dimensions",
+          "trigger": "Classical discretized and higher-dimensional cat-map periods"
+        },
+        {
+          "assessment": "Unresolved coverage of uninspected statements",
+          "evidence": "No theorem passage obtained; access failure is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1992.11995900",
+          "material_read": "Bibliographic identity only; full text unavailable",
+          "method": "Lawful primary access attempt",
+          "title": "Period of a Discrete Cat Mapping",
+          "trigger": "Classical exact period cited in both records"
+        },
+        {
+          "assessment": "Equal-shear recurrence and scaling do not imply the unequal-shear law",
+          "evidence": "Both off-diagonal coupling blocks use C and the trace is 2+C², and the given dyadic scaling has no comparable plateau.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00965",
+          "material_read": "v2, §3, eqs. 22–26 (pp. 6–7); §4.1, eqs. 47–54 (pp. 14–15); eq. 57 and odd-size discussion (pp. 18–19)",
+          "method": "Localized primary PDF inspection",
+          "title": "Coupled Arnol’d cat maps on circulant graphs",
+          "trigger": "Closest primary work on circulant cat-map orders and dyadic scaling"
+        },
+        {
+          "assessment": "Related earlier law for another map",
+          "evidence": "Equal shears with C=J or J−I; the odd looped case has order 3·2^max(0,s−2).",
+          "identifier_or_url": "6ce73c0ff68d",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact powers-of-two torus orders for all-to-all coupled cat maps",
+          "trigger": "Closest earlier indexed exact dyadic orders"
+        },
+        {
+          "assessment": "Later comparison; power-of-two cycle sizes and equal shears",
+          "evidence": "Uses C=S+S^(-1) but both shears use C, and its order is 2^(k+s−2) on the different size class.",
+          "identifier_or_url": "ee18bef9b1de",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Dyadic torus orders and the complete binary orbit census for nearest-neighbor coupled cat maps",
+          "trigger": "Closest indexed dyadic match on a cycle"
+        },
+        {
+          "assessment": "Later result, distinct size class and update rule",
+          "evidence": "Gives order n/2 for the equal-shear map on power-of-two cycles over the binary field.",
+          "identifier_or_url": "2dcbd8ca3b34",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact space-time period halving and complete cycle census for binary coupled cat maps",
+          "trigger": "Nearest-neighbor comparison at modulus two"
+        },
+        {
+          "assessment": "Related later case with distinct graph and update",
+          "evidence": "Uses K_(a,b) and equal shears, not an odd cycle with identity lower coupling.",
+          "identifier_or_url": "7d947ded0ba2",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Five arithmetic regimes for coupled cat-map orders on complete bipartite graphs",
+          "trigger": "Indexed arithmetic order law for another graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–15 and 24–55",
+        "arXiv:2605.00965v2, §4.1 and pp. 18–19"
+      ],
+      "rationale": "The recurrence order gives an exact return-to-identity time for all states of a natural spatially local symplectic torus update, uniformly in odd composite as well as prime circumference. The mod-4/mod-8 plateau distinguishes this arithmetic from automatic dyadic doubling; the uniform projector congruence explains it and the constant mode proves where it ends. This is more than an isolated numerical instance or a general lifting recipe.",
+      "residual_risks": [
+        "The exact invariant does not give individual orbit-length counts, even-size or non-dyadic laws, or continuous dynamical behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

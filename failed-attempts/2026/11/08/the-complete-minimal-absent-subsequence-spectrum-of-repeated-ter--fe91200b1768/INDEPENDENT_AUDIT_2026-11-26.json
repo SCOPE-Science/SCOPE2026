@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:02:44.378260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final greedy match is at 1+v_last+3D(v), so absence is exactly D≥k. Removing an endpoint discards its edge; removing a middle letter replaces two forward cyclic gaps by one and shortens their sum by zero or three. With the endpoint deletions this forces D=k and decrease one in every case. Single-letter words are present; length two uses just the single shared endpoint edge. Strict ascents are isolated between weak descents, proving the support bound. Independently built the nine-state matrix from the cyclic-gap test and expanded det(I−T) and the bordered determinant with last column B and last row (−A,0), by recursive row expansion with exact small integer coefficients. These give every displayed denominator and numerator monomial respectively; specializing y=1 and formal division reproduces all ten totals. The frozen certificate and verifier were used as evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary proof states the q²-state transfer and local characterization for all q≥3; set q=3. Kosche et al. give broader greedy-position characterization and an exponential growth result in the even alphabet regime σ≥4. Manea et al. give a path representation in a DAG for general hosts."
+        ],
+        "reasoning": "The general scholarly algorithms do not themselves supply this rational spectrum. The distinct Resultary statement supplies it and subsumes the structural part at larger alphabets. The growth proposition is 3.6 in the inspected arXiv v6, not 3.8; numbering in other versions was not established.",
+        "searches": [
+          "Resultary --f7b066958a2d, General transfer",
+          "arXiv:2108.13968v6, Theorem 3.1 and Proposition 3.6",
+          "arXiv:2504.21471, §5 Theorem 13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py",
+        "Distinct Resultary source --f7b066958a2d",
+        "arXiv:2108.13968v6",
+        "arXiv:2504.21471",
+        "arXiv:2407.18599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier Resultary finding the total series and ternary length series are explicit, not merely computable from the transfer construction. Adamson et al. bound all absent subsequences, not the count of minimal absent subsequences of these fixed hosts."
+        ],
+        "reasoning": "The frozen claims and their sample consequences carry no additional mathematical restriction, extension or distinct observable. A different exact certificate is verification of the same finding.",
+        "searches": [
+          "Resultary --f7b066958a2d, Finding and Proof, local mirror offset 0–4554",
+          "arXiv:2407.18599, abstract and opening scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier text uses d(u)=sum of indicators u_i≥u_(i+1), same first and last edge tests and identical triple indicator equation, and explicitly sets W_(3,m)=(012)^m."
+        ],
+        "reasoning": "The ordering, host, deletion definition, distinct-word convention and all repeat and length quantifiers agree after renaming m to k.",
+        "searches": [
+          "Resultary: exact ternary minimal-absent-subsequence length spectrum for repeated increasing permutations",
+          "2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched record supplies the exact two rational functions and the first eight totals. For example its denominator ends +t^6z^9 and the numerator begins tz²(6−8tz+6tz²+3t²z²…), and all remaining terms agree under the same variable swap."
+        ],
+        "reasoning": "This is exact all-length data, stronger than a finite table; totals nine and ten are mechanically fixed by the same denominator recurrence.",
+        "searches": [
+          "Resultary --f7b066958a2d, displayed bivariate and total rational formulas and sample terms"
+        ]
+      },
+      "rationale": "The distinct 2026/11/2 Resultary record --f7b066958a2d explicitly states the identical three tests, support bound, ternary numerator and denominator and total series (its t is the frozen z, its z is the frozen y). It gives the structural and transfer claims for every alphabet size at least three as well. This is a statement-level match, not merely a search hit.",
+      "residual_risks": [
+        "Troníček, On Problems Related to Absent Subsequences, DOI 10.1007/978-3-031-49614-1_26, was not available for full-text comparison. The rejection rests on the inspected exact-match record, not this access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent formulas and strictly broader structural and transfer scope",
+          "evidence": "The bivariate and total rational formulas agree coefficient by coefficient under t=z_frozen and z=y_frozen.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d/RESULT.md",
+          "material_read": "Finding, scope, greedy and deletion arguments, and general transfer, local-mirror offset 0–4554",
+          "method": "Read local-mirror primary record",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation words",
+          "trigger": "Exact same ternary hosts and claimed bivariate generating function"
+        },
+        {
+          "assessment": "Broad greedy result and separate growth bound, not the displayed ternary spectrum",
+          "evidence": "Theorem 3.1 characterizes arbitrary-host minimality via greedy positions; Proposition 3.6 constructs exponentially many MAS in a specified even-alphabet regime.",
+          "identifier_or_url": "arXiv:2108.13968v6",
+          "material_read": "Theorem 3.1, p. 5, and Proposition 3.6, p. 7",
+          "method": "Open PDF passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Same repeated increasing-permutation family"
+        },
+        {
+          "assessment": "General algorithm, not fixed-host symbolic length enumeration",
+          "evidence": "Represents minimal absent subsequences for an input word by paths in a DAG.",
+          "identifier_or_url": "arXiv:2504.21471",
+          "material_read": "§5 Theorem 13, p. 14",
+          "method": "Open PDF passage",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General exact MAS enumeration methods"
+        },
+        {
+          "assessment": "Counts a different family",
+          "evidence": "The bounds concern all absent subsequences among words of given universality index.",
+          "identifier_or_url": "arXiv:2407.18599",
+          "material_read": "Opening on p. 1",
+          "method": "Open PDF passage",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Fixed-length absent-subsequence enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete length spectrum for this standard word family is intrinsically useful, but the frozen formulas and classification duplicate exact results already present in the comparator. The extra sample totals require only the existing recurrence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

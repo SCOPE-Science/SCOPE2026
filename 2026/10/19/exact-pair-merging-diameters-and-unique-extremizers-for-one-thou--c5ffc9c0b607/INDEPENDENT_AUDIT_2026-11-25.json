@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:37.382077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completed transitions in the frozen statement agree with the later survey display, including the even/odd last-state conventions; in the v1 display the opposite-letter branch at the last state is indeed omitted for each parity. A shortest merge equals the shortest directed path to a diagonal in the unordered pair graph. Reversing arcs and starting at all diagonals gives exact unit distances. I inspected the frozen transition builder, triangular indexing, queue and inverse-image products, uniqueness scan, TSV, and supporting checks. For distinct successors a predecessor can be oriented to match x,y without losing the unordered pair; at x=y one orientation suffices. All packed indices and distances fit the integer types. Independently reconstructed the transitions by adjacent transpositions and two overwrites, generated every forward arc explicitly in sparse form, collapsed all diagonals to one terminal, transposed, and solved the unit-weight single-source shortest-path problem (/workspace/review_work/pairs.py). All additions/labels are integers exactly representable by the solver's numeric type. The run exhausted all k=1..1000 in ten 100-parameter chunks and checked reachability, the diameter and exactly one maximizer per k. The 1001-line /workspace/review_work/pair-census-independent.tsv matches the frozen output byte-for-byte, SHA-256 f88e9f5eb6626e581f2ffb6d19660280904394a77ad6bd590d8c8db8b81c2128. Verified counts: 1510524000 off-diagonal pairs (1512031500 states with all diagonals counted separately). Last case: 3006 states, distance 1258511, only {501,502}. This proves the finite interval, not arbitrary k. The cited extension relative to the other paper's proved endpoint is conditional on the frozen record's account of that paper; it is not independently confirmed by the census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 41–47 attribute proved diameters for k<=16, additional reported computations through k=30 and an all-k conjecture to the separate paper. The same-paper PDF/page were forbidden on OA routes, and no readable thesis copy was found from the survey bibliography and exact title search."
+        ],
+        "reasoning": "Credit the cited proved prefix and reported overlap as such, not as verified new cases. A conjecture is not an all-k proof. The inaccessible publications are unresolved coverage risks, not negative evidence or scientific blockers.",
+        "searches": [
+          "The compress-with-another threshold of the series A_k, §8 Theorem 8.1 / Conjecture 8.2",
+          "M. Dżyga, Synchronizing automata with extremal properties, Wrocław master's thesis (2018)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.24245 current and v1 §2.3, and bibliography p.14",
+        "Separate cwa-series-v1 PDF/page attempted but not read",
+        "Dżyga 2018 thesis exact-title search; bibliography only",
+        "Resultary …--9baa94baa019 and …--261334d3d0c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible matching automaton result concerns a distinguished state. The cited competing formula would already give the values on its proved prefix but the actual evidence for these thousand parameters includes exact new reachability distances and a count of maximizers. Other read records use different letter maps."
+        ],
+        "reasoning": "Neither a formula conjectured beyond a finite prefix, generic shortest-path decidability, nor a theorem for a different automaton certifies every needed pair. An actual all-k theorem or dominating exact census of the same completed family would overlap; none was established in this bounded review.",
+        "searches": [
+          "arXiv:2608.24245 §2.3; cited cwa-series-v1 §8; Resultary …--9baa94baa019 and …--261334d3d0c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey's Conjecture 8 asks for the shortest word merging q_0 with some other state; the current text gives (ba)^(k+2)(ab)^(k+2), length 4k+8. The accessible current transition display agrees with the completed family; the v1 conjecture differs in its proposed word but concerns the same distinguished-state statistic."
+        ],
+        "reasoning": "min over q≠q_0 of d(q_0,q) does not determine max over all pairs or its uniqueness. The survey's Conjecture 8 is not Conjecture 8.2 of the separately cited paper.",
+        "searches": [
+          "arXiv:2608.24245 §2.3 and explicit v1 comparison, Figure 3 and Conjecture 8",
+          "Resultary: Dżyga–Szykuła A_k merge distance diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/13 …--9baa94baa019 gives exact pair distances for a two-contraction cyclic automaton; 2026/10/18 …--261334d3d0c0 includes a unique farthest pair for standard Černý automata. No direct separate 2026/10/19 A_k hit surfaced; the separate paper's exact table could not be opened."
+        ],
+        "reasoning": "The catalogue hits have substantive exact distance results on different transition structures. The inaccessible phrase 'exact values to n=186' is not evidence of an all-pair table at that range, let alone a dominating k<=1000 census.",
+        "searches": [
+          "Resultary: A_k all-pairs diameter and exact unique farthest pairs, including same-date ranked hits",
+          "Cited §8 finite computations and tables"
+        ]
+      },
+      "rationale": "The assessed contribution is the exact exhaustive all-pair diameter extension through 1000 and the uniqueness census, not proposing the quadratic formula or solving the all-k conjecture. The accessible source establishes a different distinguished-state problem. The frozen attribution to the separate paper is credited as an attribution, without independently certifying its ranges or claiming priority over uninspected cases. No inspected statement dominates the bounded new census.",
+      "residual_risks": [
+        "The uninspected cwa-series-v1 Theorem 8.1, Conjecture 8.2 and tables could change the exact previously established ranges or reveal earlier uniqueness computations.",
+        "The originating thesis and unindexed computational results remain potential earlier coverage. No priority is asserted for the formula itself or every individual tested k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same completed family, different distinguished-state invariant",
+          "evidence": "Current terminal cases include both missing v1 opposite-letter transitions. Conjecture 8 concerns the shortest merge with q_0, not the pair diameter. Bibliography gives the originating thesis title and institution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24245",
+          "material_read": "§2.3 Figure 3, offsets 13600–17080; v1 offsets 13900–16218 and Conjecture 8 context around 16126; references p.14 [9]",
+          "method": "OA PDF passages, latest and explicitly v1",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Same family and conjecture; verify boundary conventions"
+        },
+        {
+          "assessment": "Plausibly overlapping and uninspected, HTTP 403; exact range, transitions and any uniqueness claims not confirmed",
+          "evidence": "The frozen record credits k<=16 proof and k=17..30 reported computation; the title's n=186 does not identify the invariant/table.",
+          "identifier_or_url": "https://ideosphere.ai/papers/cwa-series-v1.pdf",
+          "material_read": "No primary full text; title and frozen attribution in RESULT.md lines 41–52 only",
+          "method": "OA direct and VPN PDF and ordinary page attempts; targeted literature search",
+          "title": "The compress-with-another threshold of the series A_k: an upper bound 4n/3 for every k, exact values to n=186, and a one-letter correction",
+          "trigger": "Same objects and formula; §§2,8, Theorem 8.1 and Conjecture 8.2"
+        },
+        {
+          "assessment": "Unlocated primary text; residual risk",
+          "evidence": "The bibliography identifies a master's thesis. The returned same-title paper listing is not a verified copy of the 2018 thesis.",
+          "identifier_or_url": "M. Dżyga, University of Wrocław, 2018; arXiv:2608.24245 reference [9]",
+          "material_read": "Bibliography entry only; no thesis passage",
+          "method": "OA survey PDF and exact title/author/institution search",
+          "title": "Synchronizing automata with extremal properties (2018 master's thesis)",
+          "trigger": "Originating source may contain a stronger result for A_k"
+        },
+        {
+          "assessment": "Different automaton",
+          "evidence": "A cycle with a letter effecting two adjacent contractions, not the completed alternating-transposition A_k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-pair-merging-distances-and-sharp-diameter-in-a-two-contrac--9baa94baa019",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact pair-merging distances and sharp diameter in a two-contraction cyclic automaton",
+          "trigger": "Exact all-pair diameter hit"
+        },
+        {
+          "assessment": "Different automaton",
+          "evidence": "Classifies the standard Černý family, not A_k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-cost-invariant-unique-optimal-merging-words-for-every-pair-of-er--261334d3d0c0",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cost-invariant unique optimal merging words for every pair of Černý states",
+          "trigger": "Exact unique farthest pair result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is not a small table of a generic algorithm: it exhaustively tests the conjectured sharp law across a thousand members of a named open-problem family and identifies the unique witnesses, using all pairs rather than just lower-bound examples. The significant range beyond the attributed prior computations and the uniform location of the hardest pair are usable evidence for an arbitrary-k approach, without claiming such a proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

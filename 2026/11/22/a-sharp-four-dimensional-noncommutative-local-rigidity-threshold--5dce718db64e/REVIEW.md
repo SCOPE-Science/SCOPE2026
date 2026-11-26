@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has one exact domain: characteristic-two noncommutative two-step Zinbiel algebras. For dimension three, noncommutativity forces a two-dimensional quotient and one-dimensional square, and a universal derivation with nonzero action on the square is furnished by the explicit matrix \(P\) in `RESULT.md`. Its square projection is pointwise implementable by ordinary derivations but violates the Leibniz rule. For the four-dimensional example, a direct nine-entry bilinear-form calculation gives the complete five-dimensional derivation space; five simple input vectors force every linear local map to have that same form. The nondegenerate multiplication matrix proves indecomposability. All quantifiers are over arbitrary characteristic-two fields, not just the tested finite fields. Executable arithmetic tests reproduce the result over three finite fields and the dimension-three obstruction over every noncommutative form in each.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+Reconstructed over an arbitrary field of characteristic two. A^3=0 puts A^2 in the two-sided annihilator; noncommutativity needs at least two independent directions modulo A^2. Thus below dimension four only the three-dimensional, one-dimensional-square case can occur. For B=[[a,b],[c,d]], e=b+c≠0, multiplying by P=[[0,d/e],[a/e,1]] gives P^tB+BP=B, with no additional restriction on K or on det B. The projection onto the square is local: use that scaling derivation on the square and a central shear killing the square at each vector outside it. It violates Leibniz on a nonzero product of complement vectors. In the exhibited four-dimensional algebra det B=1; A²=Ann(A)=Kc and a hypothetical square-zero direct summand would sit inside the other summand's square. In the equation P^tB+BP=sB, entries (11),(21) kill p21,p32; (22),(23),(32) give p12=p23=s and p13=0; comparison of (13),(31) kills p23 and s. The remaining restrictions give a scalar diagonal and unrestricted p31. This gives exactly two quotient parameters and three independent central shears. The tests at y,z,y+z,x,x+y force precisely that quotient form even over F₂; locality also kills c. The two-local map is validated by extending prescribed values on two quotient vectors to a functional (homogeneity handles dependent inputs). Read verify.py and its saved transcript: the latter corroborates the 5/5 ranks over F₂,F₄,F₈ and 8,192,3584 lower-dimensional forms, but the replay of the displayed symbolic identities and pointwise argument above, not the finite script, is the proof for arbitrary fields. Uploaded code was inspected, not run. Its docstring's invocation name is stale; VERIFICATION.md gives the actual file name.
 
-The closest primary paper, Abdireymov–Sattarov–Yusupov, arXiv:2611.07863v1, was inspected in its full mathematical statements and relevant proofs. Its dimension-five minimum is explicitly restricted to characteristic zero; its two-step derivation/reflexive-hull machinery supplies background but no all-characteristic-two noncommutative four-versus-three cutoff. Its nonlinear two-local existence statement already covers our corresponding illustration, which is expressly excluded from the novelty contribution. Accessible earlier records include the two-dimensional characteristic-two locally rigid *commutative* algebra and five/six-dimensional Zinbiel examples; neither implies the noncommutative threshold or this four-dimensional five-parameter derivation formula. Mathematical-record searches found no matching claim, but the absence of matches cannot establish global priority. Broad general operator-reflexivity results and unindexed positive-characteristic classification tables remain possible coverage risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp dimension cutoff distinguishes noncommutative from commutative two-step algebras and characteristic two from the known characteristic-zero barrier. It explains both sides through a structural obstruction (small noncommutative multiplication tensors always admit a square-scaling derivation) and a nondegenerate indecomposable witness whose square-scaling direction disappears. The explicit derivation space and coexistence of linear local rigidity with nonlinear two-local failure show that the phenomenon is not an arbitrary finite census or a relabeling of the earlier two-dimensional example.
+The bounded comparison supports the noncommutative characteristic-two two-step cutoff and the explicit witness, not novelty of the general derivation machinery or of the nonlinear two-local illustration.
 
-## Limitations
+## value
 
-No theorem is asserted for third power nonzero, for other characteristic, or for arbitrary four-dimensional Zinbiel algebras. Finite experiments are supplemental. Independent mathematical assessment has not been performed; historical priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives the first possible noncommutative dimension within the stipulated characteristic-two two-step class, not just an isolated new multiplication table. The uniform smaller-dimension obstruction and the indecomposable witness identify why the familiar square-projection obstruction can stop working. The explicit small derivation space also gives a useful example separating rigidity for linear local maps from nonadditive 2-local maps. The conclusion is not a classification at dimension four or a claim outside A³=0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

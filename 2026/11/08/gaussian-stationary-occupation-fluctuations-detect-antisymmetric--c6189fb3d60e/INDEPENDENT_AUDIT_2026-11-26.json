@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:04:21.460207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the column generator the imbalance is s=B1 with s_i=Σ_{j≠i}(X_{ij}−X_{ji}), giving δ=s/(μn²)+Bδ/(μn). Each independent centered edge matrix is supported on a two-coordinate subspace; both Bernstein variance operators are bounded by a constant times Σ_{i<j}(E_ii+E_jj)=(n−1)I times that constant. Thus ||B||=O_P(√(n log n)), ||s||=O_P(n), and the remainder has ℓ² norm O_P(n^(−3/2)√log n). Exchangeability and a permutation-invariant truncation of this norm give o_P(n^(−3/2)) per fixed vertex; the norm bound alone would not do that. Removing the finitely many internal pairs separates the sums at finitely many vertices for the joint CLT; two-coordinate asymptotic independence then gives the empirical law. For the squared sum, conditioning on the single shared pair gives Cov(s_i²,s_j²)=Var((X_ij−X_ji)²), while each Var(s_i²)=O(n²). This gives L² concentration of n^(−2)Σs_i², and the remainder is negligible after n² scaling of ||δ||². At v=0 symmetrization is exact because X=X' almost surely. For the two-point example μ=2 and v is respectively 0, 2, 4, as claimed. The uploaded verifier was inspected, not executed; numerical finite instances are not needed to establish the bounds or limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calvert–den Hollander–Randall treat iid directed rates and give total variation asymptotic uniformity and an exit-rate proxy; Bordenave–Caputo–Chafaï give a total variation estimate for an iid generator.",
+          "Calvert under an r>2 moment gives uniform relative error O(N^−c) for c<min(1/2,1−2/r)."
+        ],
+        "reasoning": "These hypotheses and first-order rates do not yield joint quenched Gaussian errors or the empirical and quadratic limits on the stated scale. An exit-rate proxy alone does not isolate joint incoming-minus-outgoing imbalance with reciprocal dependence.",
+        "searches": [
+          "arXiv:2505.01608v1 Theorem 1.1",
+          "arXiv:1202.0644 Theorem 1.7",
+          "arXiv:2606.14542v2 §§II–III"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/8/…c6189fb3d60e (identical record)",
+        "arXiv:2606.14542v2",
+        "arXiv:2505.01608v1 and v2",
+        "arXiv:1202.0644"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main related results control convergence to uniform or equilibrium-type occupation; Calvert also exhibits exact equilibrium in the symmetric case."
+        ],
+        "reasoning": "The exact equilibrium boundary is prior context, not novelty. The second-order statements require a remainder negligible at the fixed-site and quadratic scales and a centered imbalance CLT and concentration calculation. The cited norm/total-variation bounds do not give that implication.",
+        "searches": [
+          "arXiv:2606.14542v2 §§II–III",
+          "arXiv:1202.0644 Theorem 1.7",
+          "arXiv:2505.01608v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Highest local match 2026/11/8/…c6189fb3d60e is the assigned record itself.",
+          "Calvert treats Boltzmann-like occupation under exchangeable unordered edge pairs; specializing to equal vertex energies gives uniform first-order occupation, not the rescaled error distribution."
+        ],
+        "reasoning": "The column-vs-row convention or choice of equal energies does not turn the first-order estimate into the n^(3/2) Gaussian law or identify its variance.",
+        "searches": [
+          "Resultary: fixed-site stationary distribution CLT, dense random generators, antisymmetric rate pairs and global susceptibility",
+          "arXiv:2606.14542v2 §§II–III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked local searches returned the same frozen record as strongest; its mirror offsets 0 and 3484 coincide on all three laws. No second equivalent entry was identified in the inspected top-50/top-30 results."
+        ],
+        "reasoning": "This is an asymptotic symbolic coefficient, not a lookup of finitely many computed instances. A rank-limited catalogue search is not exhaustive; the same record is not independent coverage.",
+        "searches": [
+          "Resultary: coordinate CLT, empirical Gaussian law, occupation susceptibility and pair-difference variance"
+        ]
+      },
+      "rationale": "The checked prior work gives closely related models and first-order estimates, but does not give or dominate this joint pair-correlation-sensitive second-order law. This is a bounded comparison, not certification of priority.",
+      "residual_risks": [
+        "Unlocated general random stationary-vector fluctuation or perturbation theorems may cover some ingredients or regimes.",
+        "Rank-limited catalogue comparison and unrelated live search returns do not prove absence of an equivalent source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest first-order antecedent; the inspected statements do not cover the joint second-order laws",
+          "evidence": "Uniform relative Boltzmann approximation and rate under moment assumptions, with symmetric/asymmetric comparisons.",
+          "identifier_or_url": "https://arxiv.org/html/2606.14542v2",
+          "material_read": "Sections II–III, offsets 4979–17457",
+          "method": "OA HTML passages",
+          "title": "Boltzmann-like occupation of nonequilibrium steady states on dense disordered networks",
+          "trigger": "Same exchangeable edge-pair model and occupations"
+        },
+        {
+          "assessment": "First-order iid-rate theorem",
+          "evidence": "L¹/total-variation uniformity and inverse-exit-rate proxy under iid directed rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.01608v1",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 12500, theorem p. 3; v2 reorganized theorem passages at 10303 and 16950",
+          "method": "OA PDF passages",
+          "title": "A note on the asymptotic uniformity of Markov chains with random rates",
+          "trigger": "Stationary law asymptotics for random rates"
+        },
+        {
+          "assessment": "Uniformity result not the asserted fluctuation law",
+          "evidence": "Total-variation bound in an iid-entry random-generator model.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.0644",
+          "material_read": "Introduction offset 9350 and Theorem 1.7 p. 6 offset 28650",
+          "method": "OA PDF passages",
+          "title": "Spectrum of Markov generators on sparse random graphs",
+          "trigger": "Potential stronger stationary-vector perturbation result"
+        },
+        {
+          "assessment": "Identical assigned record, not distinct prior evidence",
+          "evidence": "Same coordinate CLT, empirical law and global susceptibility controlled by the antisymmetric-pair variance.",
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-stationary-occupation-fluctuations-detect-antisymmetric--c6189fb3d60e",
+          "material_read": "Mirror RESULT.md offsets 0 and 3484",
+          "method": "Local Resultary search and mirror",
+          "title": "Gaussian stationary-occupation fluctuations detect antisymmetric disorder on dense networks",
+          "trigger": "Strongest rank and exact-looking match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal marginals and an identical uniform first-order limit can hide three different disorder responses. Identifying a pair-antisymmetry invariant that controls both local fluctuations and global susceptibility distinguishes these ensembles, rather than just refining an error bound by a constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

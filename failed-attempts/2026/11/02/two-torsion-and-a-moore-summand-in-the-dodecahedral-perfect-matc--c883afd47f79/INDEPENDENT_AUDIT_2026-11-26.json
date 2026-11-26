@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:07.944249Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify_dodecahedral_pm.py, inspected but not executed",
+        "Independent replay: /workspace/branches/7f3e3e59-3267-43e1-a798-177d59803a79/independent_dodeca_check.py and independent_reproduction.json"
+      ],
+      "rationale": "The complex has the graph's edges as vertices; its faces are precisely the edge sets extendible to perfect matchings. A separate tuple-based enumeration (without running the supplied code) reproduced 36 perfect matchings, 30,503 nonempty faces, the full face vector, 15,231 matched pairs, critical-cell counts 1,10,30 in dimensions 0,2,3, and acyclicity across all 163,650 Hasse incidences. Signed projection cancels unit incidences: for a matched lower face a of b, imposing that the projected boundary of b vanish gives the displayed recursion, along directed gradient paths. The reproduced 10 by 30 boundary has 69 nonzero entries, mod-two rank 9 and the specified exact minors -1 and 2. The minors give integer rank ten and nine Smith units; mod-two rank forces every maximal minor even, and the minor 2 forces the last factor to be 2. The original mod-two boundary ranks also agree. For the homotopy claim, Forman's theorem gives a CW model with no one-cells, two-skeleton a wedge of ten 2-spheres, and thirty 3-cells. The attaching maps are classified by their degree columns via Hurewicz. Row and column basis changes are realized by homotopy equivalences on target and source wedges of 2-spheres, respectively; taking their homotopy cofibers justifies the Smith-form splitting, not merely the homology. The nine unit cofibers are contractible, the degree-two cofiber is the Moore space, and the twenty zero columns give 3-spheres.",
+      "residual_risks": [
+        "The topological passage is a mathematical argument, not a machine proof. No equivariant statement is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The honeycomb paper uses the same extendability complex, but its inspected family theorem concerns H_(1 by 2 by n); the polygonal-line paper treats thin rectangular grids and polygonal line tilings.",
+          "The Heawood, icosahedral and Petersen records treat different graphs; the last two were checked despite sharing the frozen record's calendar date."
+        ],
+        "reasoning": "These family and comparator results do not reach this closed pentagonal graph. The originality failure comes from the expressly dodecahedral statements, not assumed generality of family results.",
+        "searches": [
+          "Bayer–Jelić Milutinović–Vega arXiv:2209.02803v1, §1.1 and §3.3 Theorem 14",
+          "Chandrakar–Singh arXiv:2407.05809v1, Theorem 1.1",
+          "Resultary 0994476b8c0d, 5f703b9f7d72 and 54d5f05073e4 Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c09902bba79, efd05431d7b5, 07d4993d8316, 0994476b8c0d, 5f703b9f7d72, 54d5f05073e4",
+        "arXiv:2209.02803v1",
+        "arXiv:2407.05809v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both matches state the integral homotopy equivalence directly, not only homology over a field or the number of matchings."
+        ],
+        "reasoning": "The frozen conclusion is identical to earlier explicit conclusions, stronger than merely being a mechanical consequence. No separate new invariant is asserted beyond the covered conclusion.",
+        "searches": [
+          "Resultary 2c09902bba79 and efd05431d7b5, bound against frozen RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2c09902bba79 and efd05431d7b5 statements both define faces as subsets of the edges of a perfect matching and state the same Moore summand and twenty spheres.",
+          "The ordinary dodecahedral matching complex in 07d4993d8316 instead uses all matchings and gives a different sphere wedge."
+        ],
+        "reasoning": "The first two records agree after identifying the dodecahedral graph with GP(10,2) and aligning the identical face definition. The ordinary matching complex comparison cannot substitute for those direct matches.",
+        "searches": [
+          "Resultary semantic search for dodecahedral perfect-matching complex, GP(10,2), and Moore-space torsion",
+          "Resultary 2c09902bba79, efd05431d7b5, and 07d4993d8316, RESULT.md Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed Findings record the precise homotopy type, integral torsion degree and free rank; they are distinct earlier records rather than rediscovery of the assigned record itself."
+        ],
+        "reasoning": "Exact repository coverage supplies the entire proposed invariant. This resolves the coverage question regardless of whether an earlier journal article is found.",
+        "searches": [
+          "Resultary exact-object search by dodecahedron, perfect-matching complex and integral Moore summand",
+          "Local mirror Resultary 2026/10/25 ID 2c09902bba79 and 2026/11/1 ID efd05431d7b5"
+        ]
+      },
+      "rationale": "Two distinct earlier indexed Resultary records (2c09902bba79 and efd05431d7b5) already state the same full integral homotopy equivalence M(Z/2,2) wedge twenty S^3 for precisely the same perfect-matching complex of GP(10,2), with the same integral homology. This is exact result-level coverage, not an inference from similar titles, different matching complexes, or matching dimensions. The independent reproduction supports correctness but does not supply a distinct frozen finding.",
+      "residual_risks": [
+        "External publication priority was not determined; that limitation does not remove the two direct catalogue overlaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage.",
+          "evidence": "The extendability complex on GP(10,2) has integral homotopy type M(Z/2,2) wedge twenty S^3.",
+          "identifier_or_url": "Resultary 2026/10/25, 2c09902bba79",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "Order-two torsion and a Moore-space decomposition for the dodecahedral perfect-matching complex",
+          "trigger": "Same graph, complex and torsion/Moore conclusion"
+        },
+        {
+          "assessment": "Second direct exact coverage.",
+          "evidence": "Same face definition, equivalence and integral homology.",
+          "identifier_or_url": "Resultary 2026/11/1, efd05431d7b5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "A Moore-space summand in the dodecahedral perfect-matching complex",
+          "trigger": "Same complex and homotopy type"
+        },
+        {
+          "assessment": "Different complex.",
+          "evidence": "All matchings are included; homotopy type is a wedge of five S^5 and 117 S^6.",
+          "identifier_or_url": "Resultary 07d4993d8316",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "The dodecahedral matching complex is a wedge of five 5-spheres and 117 6-spheres",
+          "trigger": "Same graph with possible matching-complex ambiguity"
+        },
+        {
+          "assessment": "Different graph; not verified as a journal publication.",
+          "evidence": "Heawood graph gives a torsion-free wedge of sixteen 2-spheres.",
+          "identifier_or_url": "Resultary 0994476b8c0d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "Perfect Morse reduction of the Heawood perfect-matching complex",
+          "trigger": "Nearby perfect-matching Morse result"
+        },
+        {
+          "assessment": "Different graph, not excluded by date.",
+          "evidence": "Icosahedral graph result is a wedge of 43 S^2 and 19 S^3.",
+          "identifier_or_url": "Resultary 5f703b9f7d72",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "The icosahedral perfect-matching complex is a mixed-dimensional sphere wedge",
+          "trigger": "Same-date polyhedral perfect-matching complex"
+        },
+        {
+          "assessment": "Different graph and topology.",
+          "evidence": "The Petersen graph result uses a K_6 spine and H_1 of rank 10, not GP(10,2) and degree-two torsion.",
+          "identifier_or_url": "Resultary 54d5f05073e4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror finding text",
+          "title": "An equivariant graph spine for the Petersen perfect-matching complex",
+          "trigger": "Same-date Petersen-family comparison"
+        },
+        {
+          "assessment": "Same invariant, different graph family.",
+          "evidence": "Definition restricts to extendible matchings; Theorem 14 concerns H_(1 by 2 by n).",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "§1.1, p. 2, offset 3937; §3.3 Theorem 14, p. 10, offset 20767",
+          "method": "Primary OA PDF passages",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Same extendability-complex definition and possible family theorem"
+        },
+        {
+          "assessment": "Not a closed dodecahedral classification.",
+          "evidence": "The theorem treats thin rectangular grids and polygonal line tilings.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "Theorem 1.1, p. 2, offset 7046",
+          "method": "Primary OA PDF passage",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potential coverage of planar perfect-matching complexes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and limitations",
+        "Resultary 2c09902bba79 and efd05431d7b5"
+      ],
+      "rationale": "The invariant is intrinsically meaningful: torsion in a canonical cubic graph's extendability complex distinguishes this topology from examples that are wedges of spheres. However, the frozen scientific contribution is only an already catalogued exact invariant, with no distinct consequence or method claim identified as a new contribution. Its recomputation is useful validation, not a substantive new finding under this standard.",
+      "residual_risks": [
+        "The assessment does not rule out value in a different theorem about the family or an equivariant refinement, neither of which is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

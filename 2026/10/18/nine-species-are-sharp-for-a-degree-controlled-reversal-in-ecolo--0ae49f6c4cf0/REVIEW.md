@@ -1,15 +1,21 @@
-# Scientific review: degree-controlled ecological matching-capacity reversal
+# Independent mathematical audit
 
-## Correctness
-PASS. The Bernoulli survivor-subset formula for expected maximum matching size is exact. For the sharp lower bound, every labeled binary interaction matrix with both guilds nonempty and total species at most eight is enumerated; only connected graphs are compared. Each survivor subset's matching size is optimized through exact recursive enumeration of injective allocations, rather than heuristic matching. All 70,492 eligible connected matrices and all 21 distinct coefficient-vector comparisons support coefficientwise dominance within degree-matched groups. The four-by-five witness was separately checked with an exhaustive assignment implementation and an exact integer polynomial identity. The finite enumeration supports exactly the stated finite bound.
+## correctness
 
-## Originality
-PASS under the searched literature, with unresolved bibliographic risk. Li–Zhang (2017) show that fixed degree sequences need not control static matching size, but do not address node-loss probability ordering or the nine-vertex threshold. Olesen et al. (2008) and Kaiser-Bunbury et al. (2010) address temporal network structure and species loss without this capacity functional. The accessible full Simmons et al. (2019) study explains motif-level ecological information not captured by degrees without deriving matching-capacity crossover bounds. Searches for matching reliability, expected maximum matching under vertex failures and exact small-size rank reversal did not reveal the same result; publication-level novelty is not independently certified.
+PASS
 
-## Mathematical value
-PASS. A capacity-constrained one-to-one assignment is a natural benchmark when each surviving partner can serve only one target at a time. The result proves a tight structural boundary: below nine species degree-controlled allocation robustness rankings cannot reverse under independent species loss, but at nine they reverse exactly at a simple algebraic probability. It separates the implications of degree statistics, initial maximum capacity, and failure-robust capacity. It is not a claim about unrestricted real-world pollination, where partners can service many species.
+For exactly k surviving pollinators, each survivor set has weight (1-q)^k q^(b-k); the corresponding coefficient sum is A_k, or A_k divided by the positive binomial(b,k) in the normalized Bernstein basis. Exhausted all ordered guild sizes through eight by enumerating row multisets and recovering the labeled counts by multinomial weights. Tested connectivity by closure on intersecting neighborhoods. For each survivor mask, independently propagated the sets of plants that can be injectively assigned to surviving pollinators, processing pollinators rather than using the source's plant-first recurrence. The 70492 labeled matrices yield 21 same-signature comparisons between distinct coefficient vectors, all componentwise comparable. The connected degree-matched witnesses have vectors (0,5,19,27,17,4) and (0,5,20,26,14,3). Their difference factors as (1-q)^2(1-2q^2), with the claimed interior sign reversal and endpoint orientation. Replay: python3 /workspace/branches/audit_pollinators.py capacity.
 
-## Closest sources and scientific limits
-Li and Zhang (arXiv:1703.09041) is closest on degree-matched maximum matching; its static scale-free construction does not compare failure polynomials. Simmons et al. (DOI 10.1111/2041-210X.13149) is closest on degree-controlled ecological motif differences. The model is finite, unweighted, binary, connected, one-to-one, and uses independent exchangeable pollinator failures. Inaccessible supplementary materials and alternative graph-reliability terminology remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Expected rank is established terminology, and same-day Resultary work gives closely analogous coefficient dominance for expected component size on trees. Neither that result nor the inspected matching or expected-rank texts provides the specified degree-matched transversal-rank order and sharp reversal under one-side vertex failure.
+
+## value
+
+PASS
+
+The finding locates the first network size at which two margins do not control even the ordering of expected optimal service across failure rates. Below that size it provides the stronger discrete survivor-layer order. The witness distinguishes robustness under independent losses from the established observation that equal degrees need not fix static maximum matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

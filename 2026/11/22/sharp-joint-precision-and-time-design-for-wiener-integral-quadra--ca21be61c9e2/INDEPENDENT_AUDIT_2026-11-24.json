@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:15.210596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 34–80; VERIFICATION.md, requirements.txt and verify.py as supporting evidence"
+      ],
+      "rationale": "Itô isometry and independent Gaussian errors give the frozen quadratic risk; Gaussian conditional expectation makes the joint minimization over linear weights exact. The optimized precision penalty is at least (total jump variation)^2/P by Cauchy–Schwarz, with equality by allocating in proportion to absolute weights. Merging coincident jumps and ignoring the measure-zero endpoint at reversed time x=1 can only lower that variation. Clipping into [0,1] and sorting step levels in increasing order reduce risk, strictly for a genuine inversion, and do not increase the jump budget counting an initial positive jump. For distinct sorted levels from 0 up to a top level q, the best boundaries are their pairwise midpoints. If the positive increments are δ_j, direct integration across those midpoints gives squared error Σδ_j³/12 + (1-q)³/3. For fixed q>0 and k increments, strict Jensen uniquely minimizes the first term at δ_j=q/k, and using n increments strictly improves over k<n. Equivalently the global reduced objective is q³/(12n²)+(1-q)³/3+q²/P on [0,1]; the endpoint derivatives have opposite strict signs and the objective is strictly convex there. Its critical equation is (1-q)²-q²/(4n²)=2q/P. This gives q=nd_{n,P}, the interior distinct sites, weights d_{n,P}, and equality in the noise inequality only at equal precisions. All n distinct jumps are essential, ruling out repetitions, inactive sensors and endpoint observations. At fixed P the cubic term strictly decreases with n at the previous optimum q>0. The displayed limits follow from the scalar root and uniform-grid Riemann sums; the limit equation gives the alternate form of the limiting risk. In particular the no-sensor step q=0 is excluded even though the frozen refinement argument describes a first positive jump only for k>0.",
+      "residual_risks": [
+        "The argument is for the specified nonadaptive point observations and the exact Gaussian model, not arbitrary linear measurements or filtering objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bridge and OU records optimize precision globally under different covariance/target models and produce center-symmetric designs.",
+          "The primary noisy quadrature paper gives bounds in an RKHS setting; the Brownian example in the sensor placement paper minimizes an integrated filtering-covariance trace."
+        ],
+        "reasoning": "Conditioning Wiener motion to obtain the bridge changes both covariance and the information available about the integral; replacing it by an OU kernel also changes the step regression. Neither those exact models nor the general bounds imply this allocation result.",
+        "searches": [
+          "Resultary 374266bc7b99 and a7be6c7ddb05",
+          "arXiv:2202.10615; Pathiraja–Schillings–Wacker §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 82–92; Resultary ad44ca256f44, 374266bc7b99, a7be6c7ddb05, f119d713d36c; primary works above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equal-noise proof optimizes a regression objective with noise term (n/P)Σa_i². After optimizing variable precisions the penalty is instead (Σ|a_i|)^2/P.",
+          "The latter is smaller for unequal absolute coefficients, so the equal-noise optimum supplies an achievable upper bound, not the necessary lower bound for the enlarged problem. Taking eta=n/P and n to infinity in its all-n formula already gives the terminal-window limit for that slice."
+        ],
+        "reasoning": "It takes the independent fixed-top-level minimization of the reduced objective, or an equivalent global argument, to rule out improved unequal allocations. No inspected broader result supplies that implication.",
+        "searches": [
+          "ad44ca256f44 mirrored PDF/file text, Finding and deterministic regression step",
+          "Brownian bridge precision-budget Finding in 374266bc7b99",
+          "Benhenni–Cambanis (1992) and Mukherjee (2003) bibliographic/abstract material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-noise Wiener record has the same covariance, integral, conditional expectation loss and unrestricted node locations. With eta=n/P its w is literally d_{n,P}, and matching designs give the same risk.",
+          "Karvonen–Kanagawa–Särkkä discuss Brownian-kernel quadrature weight positivity, not optimization of heteroscedastic sensing."
+        ],
+        "reasoning": "An equal observation variance is a restriction on feasible allocations, not a normalization of arbitrary Gaussian precision vectors. The identical slice does not establish the unequal-precision global comparison.",
+        "searches": [
+          "Resultary searches for noisy Wiener integral optimal sites and fixed total precision",
+          "Resultary ad44ca256f44 mirrored Finding and Assumptions; 1812.08509v2 Brownian-kernel passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved catalogue has the exact all-n equal-noise formula and the exact noiseless rule t_i=2i/(2n+1), risk 1/[3(2n+1)^2]."
+        ],
+        "reasoning": "This is a continuous-design theorem; a finite table of optimal site values would not prove an all-budget comparison. The strongest exact symbolic catalogue coverage is the equal-noise slice and the known noiseless limit.",
+        "searches": [
+          "Resultary exact Wiener quadrature designs ad44ca256f44 and f119d713d36c"
+        ]
+      },
+      "rationale": "The exact finite-n array, risk and equal weights on the homoscedastic slice are materially covered by Resultary ad44ca256f44. The supported distinct claim is that no other precision allocation under the same budget can tie or improve the design. The fixed-budget terminal-window limit follows from the equal-noise formula on that slice, so it is not counted as an independently original formula; the new global allocation result makes that limit optimal over the full allowed design class.",
+      "residual_risks": [
+        "The older Benhenni–Cambanis and Mukherjee full texts were not inspected; their exact assumption coverage remains unresolved.",
+        "Shared date of the most closely related indexed noisy records does not establish priority. No general historical-priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equal-noise coverage, but unequal precisions not feasible there.",
+          "evidence": "Setting common variance eta=n/P gives identical spacing and weights; its deterministic loss contains eta Σa_i².",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-equal-weight-design-for-any-number-of-noisy-wiener-integra--ad44ca256f44/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2, mirror offset 0",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Exact equal-weight design for any number of noisy Wiener integral samples",
+          "trigger": "Same integral, noise model with fixed common variance, and exact mesh"
+        },
+        {
+          "assessment": "Different covariance and symmetric design.",
+          "evidence": "Brownian bridge, with covariance min(s,t)-st, has an exact central mesh rather than a one-sided terminal window.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-optimal-sensing-meshes-under-a-brownian-bridge-precisi--374266bc7b99",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Universal optimal sensing meshes under a Brownian bridge precision budget",
+          "trigger": "Same class of allocation problem for a related Gaussian covariance"
+        },
+        {
+          "assessment": "Parallel result, not Wiener implication.",
+          "evidence": "Symmetric mesh with exponential covariance.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck quadrature",
+          "trigger": "Joint allocation with a different Gaussian kernel"
+        },
+        {
+          "assessment": "Covers the expressly unclaimed noiseless limit.",
+          "evidence": "Noiseless nodes 2i/(2n+1) and the corresponding exact minimum variance.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Exact design loss and Gaussian fluctuations for stratified Brownian kernel quadrature",
+          "trigger": "Exact Brownian design with no observation noise"
+        },
+        {
+          "assessment": "Weight positivity, not joint precision and site allocation.",
+          "evidence": "The Brownian-kernel passage discusses positivity of the quadrature weights.",
+          "identifier_or_url": "arXiv:1812.08509v2",
+          "material_read": "Brownian-kernel HTML passage before §3.8, offset 55961",
+          "method": "OA passage inspection",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Brownian-kernel quadrature weights"
+        },
+        {
+          "assessment": "Different error claims and scope.",
+          "evidence": "RKHS bounds with particular focus on Matérn and squared-exponential kernels.",
+          "identifier_or_url": "arXiv:2202.10615",
+          "material_read": "PDF pp. 1–2, abstract and introduction",
+          "method": "OA PDF passage inspection",
+          "title": "Order-Optimal Error Bounds for Noisy Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy Bayesian quadrature"
+        },
+        {
+          "assessment": "Not the same target or criterion.",
+          "evidence": "Two-dimensional Brownian filtering example with integrated covariance trace criterion.",
+          "identifier_or_url": "10.1007/s11222-026-10855-3",
+          "material_read": "§4.2, pp. 14–15",
+          "method": "OA passage inspection",
+          "title": "An optimal experimental design approach to sensor placement in continuous stochastic filtering",
+          "trigger": "Brownian sensor placement with budget"
+        },
+        {
+          "assessment": "Full scientific scope remains unverified.",
+          "evidence": "The paper concerns sampling designs for integrals of stochastic processes; no full text was available by the tried routes.",
+          "identifier_or_url": "10.1214/aos/1176348517",
+          "material_read": "Bibliographic and landing/abstract material only",
+          "method": "Project Euclid retrieval attempts",
+          "title": "Sampling Designs for Estimating Integrals of Stochastic Processes",
+          "trigger": "Plausibly close older sampling-design paper"
+        },
+        {
+          "assessment": "Independent observation noise and joint allocation not established from available material.",
+          "evidence": "The accessible description concerns sampling designs for process integrals; article full text was not retrieved.",
+          "identifier_or_url": "10.1081/STA-120022249",
+          "material_read": "Bibliographic/accessible abstract description only",
+          "method": "Taylor & Francis retrieval attempts and comparison with the indexed record's cited abstract description",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Plausibly close historical source identified by the equal-noise record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 34–77; equal-noise comparison ad44ca256f44"
+      ],
+      "rationale": "When accuracy is a freely allocable cost, knowing the best sites for equally noisy sensors does not justify buying equal precision. The result resolves that resource decision globally, with strict exclusion of replicated, inactive, unequal-precision and endpoint competitors. The exact loss and terminal exclusion region are interpretable consequences for a concrete Gaussian model even as sensor count increases.",
+      "residual_risks": [
+        "The conclusion is not a generic sensor scheduling principle for other covariance models, targets or cost laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

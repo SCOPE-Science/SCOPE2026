@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:15:10.202143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and checker.py (source inspected)",
+        "/workspace/branches/replay/cyclotomic.py",
+        "/workspace/branches/replay/cyclotomic.out",
+        "/workspace/repairs/4/RESULT.md",
+        "/workspace/repairs/4/VERIFICATION.md",
+        "/workspace/repairs/4/checker.py",
+        "/workspace/branches/replay/cyclotomic_repaired.out"
+      ],
+      "rationale": "The frozen proof and checker give nonsquarefreeness at the witness, but divisibility by 59² alone does not show the whole gcd is squarefull. Also 1 must be excluded from the squarefull least-index claim (it satisfies the vacuous exponent condition, and occurs already at index 1). The corrected files state and verify G_29(298)=3481=59², hence both least-index conclusions, with squarefull gcd required to be nontrivial. The lower-index proof is valid: the only unit-circle pairs z,z+1 have orders three and six, so the integer resultant is nonzero; its Bézout identity bounds every gcd including if one value vanishes. Every possible square divisor has a prime in the exact factorization and lies over a common residue; the two first-order lift constraints remain valid at zero derivatives and cover all integers. Independent monic division and Bareiss Sylvester determinants verify the factorizations and 178 common roots at 97 index–prime entries, then the candidate lift (or singular-case incompatibility) at each; none lifts simultaneously. Exact integer Horner evaluation and Euclidean gcd give 3481. The repaired checker separately passed using the unchanged certificate; the original evidence was kept unchanged.",
+      "residual_risks": [
+        "Exact finite proof over the stated index range using symbolic resultants; the set of witnesses at index 29 is not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanna–Szikszai obtain infinitely many long blocks for a quadratic/cubic polynomial in which no term is coprime to all others. Cohen–Sonn's integer theorem concerns large gcds infinitely often under GRH for fixed a,b,N with varying exponent. The formula attributed to the 1995 resultant paper relates polynomial indices in an argument-composition identity."
+        ],
+        "reasoning": "An existence theorem for long blocks gives no all-integer adjacent-pair squarefreeness conclusion. Neither the fixed-base theorem nor the cited composition formula gives simultaneous prime-square lifts or a threshold across cyclotomic indices.",
+        "searches": [
+          "Sanna–Szikszai arXiv:1704.01738 Theorem 1.1",
+          "Cohen–Sonn DOI 10.5802/jtnb.893 Theorems 2.1 and 3.1",
+          "De Nápoli arXiv:2010.02668v2 Theorem 1.1 and attribution to Cheng–McKay–Wang"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact/similar queries and mirrored findings above",
+        "De Nápoli arXiv:2010.02668v2",
+        "Sanna–Szikszai arXiv:1704.01738",
+        "Cohen–Sonn DOI 10.5802/jtnb.893",
+        "Corrected RESULT.md exact witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact low-degree gcd tables omit index 29 and many smaller indices. A general resultant bound only restricts which primes and exponents can occur; for instance at index 3 the shifted resultant already has 2² as a divisor whereas the adjacent gcd is always 1."
+        ],
+        "reasoning": "Even exact knowledge of polynomial resultants does not substitute for the simultaneous-root/lift analysis: a square divisor of a resultant need not occur in any particular gcd. No inspected stronger statement gives the complete lower-index exclusion plus an exact index-29 witness.",
+        "searches": [
+          "Mirrored degree-six, quadratic and shifted third-cyclotomic RESULTS",
+          "De Nápoli §1, theorem and 1995 attribution",
+          "Sanna–Szikszai Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Failure of squarefreeness is equivalent to existence of a simultaneous root of Φ_m(X) and Φ_m(X+1) in ℤ/p²ℤ for some prime p; nontrivial squarefullness is a stronger property of the whole gcd. Exact evaluation shows both properties for the repaired witness. De Nápoli's identity relates Φ_n(X^m) to a product over cyclotomic indices. Cohen–Sonn study gcds after evaluating at fixed bases to varying powers."
+        ],
+        "reasoning": "Composition at X^m and changing input exponents do not match a unit translation X↦X+1, and a size estimate for such a gcd controls neither all prime-square roots nor whether all prime exponents in a given gcd are at least two.",
+        "searches": [
+          "Resultary: cyclotomic consecutive-value or shifted adjacent GCD, prime-square lifts",
+          "De Nápoli arXiv:2010.02668v2 Theorem 1.1",
+          "Cohen–Sonn, DOI 10.5802/jtnb.893 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact resultary hit is the assigned record ending 4a51b51b3c2d, not another source. Distinct records ending 09bce3505fd1, 469e9a38c454 and 5a00ad14fbc8 give degree-six, quadratic and third-cyclotomic shifted tables respectively. No equivalent independent threshold table was located."
+        ],
+        "reasoning": "The degree-six exact profiles prove the corresponding squarefreeness cases for indices 7,9,14,18; the quadratic results cover 3,4,6, and the shifted-third table includes m=3 at shift one. These are substantive partial overlaps, not coverage of all lower indices or index 29. The same-day degree-six record is not ignored and its date gives no relative ordering.",
+        "searches": [
+          "Resultary: exact target, cutoff 29, squarefull gcd and n=298 witness",
+          "Resultary: consecutive-value cyclotomic GCD tables by degree and shifted third-cyclotomic gcds"
+        ]
+      },
+      "rationale": "The repaired claim isolates the same first nonsquarefree index as the frozen proof, now with a verified exact nontrivial squarefull witness. Known identities, coprimality theorems and indexed exact profiles cover its ingredients or a proper subset of the indices. None of the compared statements establishes the sharp index boundary with its witness.",
+      "residual_risks": [
+        "The 1995 primary paper was unavailable; its Corollary 2 attribution is indirect and other material was not checked. The external lookup that was deferred is not negative evidence.",
+        "An unindexed table or unlocated general theorem that controls simultaneous lifts at neighboring arguments could predate the cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Index-composition identity, not adjacent integer gcds.",
+          "evidence": "For coprime m,n, Φ_n(X^m)=∏_{d|m}Φ_{dn}(X).",
+          "identifier_or_url": "https://arxiv.org/html/2010.02668v2",
+          "material_read": "Theorem 1.1 and surrounding attribution, offset about 6259",
+          "method": "OA primary full text",
+          "title": "An Identity involving the Cyclotomic Polynomials",
+          "trigger": "Cyclotomic identities and citation to earlier resultant formulas"
+        },
+        {
+          "assessment": "No whole-paper comparison asserted. Attributed corollary is a composition formula, not a lift threshold.",
+          "evidence": "De Nápoli identifies Cheng–McKay–Wang Corollary 2 as a source for the coprime composition identity; other uninspected material remains a risk.",
+          "identifier_or_url": "Proc. Amer. Math. Soc. 123 (1995), 1053–1059, Cheng–McKay–Wang",
+          "material_read": "Primary text not retrieved; Corollary 2 attribution and identity inspected in De Nápoli",
+          "method": "AMS paper page and PDF attempts returned 403; DOI lookup failed; indirect attribution only",
+          "title": "Resultants of cyclotomic polynomials",
+          "trigger": "Closest plausible historical resultant source"
+        },
+        {
+          "assessment": "Long-block coprimality, not a universal adjacent-pair squarefreeness statement.",
+          "evidence": "For fixed degree two or three and all sufficiently large block lengths there are infinitely many suitable blocks.",
+          "identifier_or_url": "https://arxiv.org/html/1704.01738",
+          "material_read": "Theorem 1.1, offset about 4287",
+          "method": "OA primary full text",
+          "title": "A coprimality condition on consecutive values of polynomials",
+          "trigger": "Adjacent/consecutive polynomial values"
+        },
+        {
+          "assessment": "Different arguments and quantifiers.",
+          "evidence": "Under GRH, proves large gcds of Φ_N(a^n) and Φ_N(b^n) infinitely often for fixed parameters.",
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/jtnb.893.pdf",
+          "material_read": "Theorem 3.1, p. 9, offset about 19189; function-field Theorem 2.1",
+          "method": "OA primary PDF passages",
+          "title": "A cyclotomic generalization of the sequence gcd(a^n−1,b^n−1)",
+          "trigger": "Closest general gcd growth lead taking cyclotomic values"
+        },
+        {
+          "assessment": "Genuine coverage of four lower cases; not the full cutoff.",
+          "evidence": "Squarefree profiles for indices 7,9,14,18 and a complete eight-value aggregate frequency table over period 20,387.",
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-value-gcds-of-every-degree-six-cyclotomic-polynomial--09bce3505fd1",
+          "material_read": "RESULT.md exact profiles and aggregate frequency table",
+          "method": "Local mirror primary result",
+          "title": "Consecutive-value GCDs of every degree-six cyclotomic polynomial",
+          "trigger": "Strongest distinct indexed exact overlap"
+        },
+        {
+          "assessment": "Overlaps exactly the quadratic cases.",
+          "evidence": "G_3=G_6=1; G_4 is 5 at arguments 2 modulo 5 and 1 otherwise.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-coprime-run-laws-for-the-three-quadratic-cyclotomic-sequen--469e9a38c454",
+          "material_read": "RESULT.md adjacent-value cases and run results",
+          "method": "Local mirror primary result",
+          "title": "Exact coprime-run laws for the three quadratic cyclotomic sequences",
+          "trigger": "Distinct exact lower-index profiles"
+        },
+        {
+          "assessment": "Covers index 3 only for present purposes.",
+          "evidence": "At shift one the gcd is 1 for every argument.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-spectra-and-three-point-stabilization-for-shifted-third-cy--5a00ad14fbc8",
+          "material_read": "RESULT.md shifted GCD classification",
+          "method": "Local mirror primary result",
+          "title": "Sharp spectra and three-point stabilization for shifted third-cyclotomic gcds",
+          "trigger": "Equivalent at shift one and index three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen lower-index proof and certificate",
+        "Corrected RESULT.md",
+        "/workspace/branches/replay/cyclotomic.out",
+        "Published low-degree profiles compared above"
+      ],
+      "rationale": "The sharp parameter is the index, not an arbitrarily bounded list of input pairs. The correction identifies the first possible repeated prime in these otherwise highly restricted adjacent gcds, uniformly for every integer input across all smaller indices, and shows that the whole first witness is a pure prime square. Distinguishing a repeated prime of the resultant from an actual simultaneous lift is substantive; the verified cutoff and witness give concrete tests for any general prime-power theory of shifted cyclotomic values.",
+      "residual_risks": [
+        "The first index is determined; no asymptotic or global classification of prime powers is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:47:46.590410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5",
+        "Frozen VERIFICATION.md, verify.py and check_output.txt, inspected without executing the supplied script",
+        "Separate replay: python3 /workspace/branches/24f41181-cacd-4977-9f7e-3fbce669f285/independent_rank_one_check.py"
+      ],
+      "rationale": "The generator equations force rectangular domains and ranges; the induced maps on image and quotient factors are isomorphisms, so intersections and pullbacks preserve rectangularity under composition. A rectangle with q matrices is exactly a rank-one line. The source proof's assertion about uniqueness of a semigroup isomorphism of idempotent lines needs the qualifier F_q-linear (abstract multiplicative automorphisms can occur); linearity has already been proved for every element of this monoid, and suffices. For an idempotent or square-zero line, respectively use a projection or I plus one nilpotent Jordan block with the prescribed kernel and image to obtain its identity. Conjugation then gives the unique linear idempotent-line arrow and every nonzero scalar arrow for square-zero lines. Products match middle lines or restrict to {0}, so these are orthogonal Brandt ideals. Every nonzero map can be restricted to a line in its rectangular domain, proving exhaustiveness of the minimal ideals. Full-domain factors are conjugations, with scalar kernel, and a rank-two projection gives a q⁴ domain strictly between the line and full cases. The hyperplane counts give E_n and Z_n and the order formula. Separate enumeration verified 28 and 21 lines and 1225 line arrows for (q,n)=(2,3), hence order 1394; the (3,3) formula gives 24714.",
+      "residual_risks": [
+        "The separate enumeration covers the generator layer at one prime-field case; the composition lemma and the conjugation argument, not finite tests, justify all dimensions and prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "--c72f4e192073 gives the complete semilattice for the same monoid over every field in every finite dimension n≥2: all nonzero proper rectangles with both subspaces proper nonzero, multiplication by intersection, and square-zero criterion U⊆W.",
+          "--d492f868ddce describes all elements by restrictions of conjugations and gives the full order, but is a later record and is not used as antecedent evidence."
+        ],
+        "reasoning": "The antecedent treats idempotents, not all arrows; nevertheless, its domain information is exactly what is needed for the minimal line sector. The general problem in the originating paper does not make every lower-layer count distinct from later antecedent results.",
+        "searches": [
+          "Resultary: minimal ideals partial inner automorphism monoid endomorphism monoid vector space Problem 7.9",
+          "Resultary --c72f4e192073, Finding and proof §§1–2",
+          "Araújo et al., arXiv:2605.00041v1 and arXiv:2301.04252v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --c72f4e192073, --240d56a8fe9d, --0a4447340ca9 and --d492f868ddce",
+        "Araújo et al., arXiv:2605.00041v1 and arXiv:2301.04252v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source and range identities of any partial inner map are idempotents of the monoid. The prior semilattice theorem therefore forces both to be rectangles; its atoms are precisely all the rank-one line identities.",
+          "Each map is F_q-linear and multiplicative by the defining generators. On a rank-one line this allows precisely the unique idempotent-vector map or the nonzero scalar maps within the square-zero type. All permitted maps are restrictions of conjugations to the already available line identities by ordinary rank-one Jordan form.",
+          "Composing on either side of a line arrow either gives zero or another arrow of that type. Each of the two matrix-unit systems is 0-simple, and every nonzero domain contains an atomic line identity by the known rectangle description. A rank-two projection supplies a proper q⁴ domain directly."
+        ],
+        "reasoning": "This recovers the entire claim from the earlier semilattice theorem and elementary inverse-monoid and rank-one facts without a new structural lemma; the proof's main rectangle closure and line realization work is already supplied by the antecedent. Counting arrows and adding the obvious scalar-quotient unit group gives the advertised order.",
+        "searches": [
+          "--c72f4e192073, Finding and proof §§1–2; arXiv:2605.00041v1, Definition 3.8 and generator section",
+          "--240d56a8fe9d, Finding and the line sectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary --240d56a8fe9d gives the same two rank-one line sectors and local groups over an arbitrary field in dimension two.",
+          "Resultary --0a4447340ca9 gives two explicit Brandt semigroups at n=2 over finite fields; no same-day ordering is assumed.",
+          "Araújo et al., Definition 3.8 and Problem 7.9, define the same partial inner monoid and pose the general vector-space problem."
+        ],
+        "reasoning": "The dimension-two results are genuine overlap of mechanism but their ranges do not include n≥3. The exact-monoid comparison that matters for n≥3 is the antecedent semilattice theorem, not a parameter substitution from n=2.",
+        "searches": [
+          "Resultary: partial inner automorphism monoid finite matrix semigroup rank-one ideals Brandt semigroup",
+          "Resultary: The Inverse Monoid of Partial Inner Automorphisms of a Semigroup rank-one domains minimal ideals",
+          "Literature: \"partial inner automorphism monoid\" \"endomorphism monoid\" vector space Brandt rank-one ideals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--0a4447340ca9 gives B_(q(q+1))(1) and B_(q+1)(F_q^×) for n=2 only.",
+          "--c72f4e192073 enumerates rectangle idempotents by dimensions and counts the square-zero ones; at dimension pair (1,n−1) this already yields the total number of lines and the Z_n square-zero lines."
+        ],
+        "reasoning": "The exact all-n skeleton-order expression was not located verbatim. The line index counts are already encoded by the stronger dimension-resolved rectangle counts and square-zero criterion.",
+        "searches": [
+          "Resultary: finite matrix partial inner maps idempotent lines square-zero lines counts E_n Z_n",
+          "Resultary --0a4447340ca9 and --c72f4e192073, displayed formulas"
+        ]
+      },
+      "rationale": "I did not find the exact n≥3 Brandt statement in the originating paper. But the earlier exact semilattice classification --c72f4e192073 for this same monoid gives every proper nonzero rectangle and its identity, and the two line types. The entire line sector is a direct consequence: apply domain and range idempotents, linearity, and ordinary rank-one conjugation. The two minimal ideals, scalar labels and polynomial counts then follow from line intersection and elementary hyperplane counts. This is prior implication, not a claim that the same formula is printed in the reference, nor an inference from the date of a same-day record.",
+      "residual_risks": [
+        "The searches do not settle historical priority or same-day ordering. Neither uncertainty is needed for the implication from the earlier semilattice theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by implication, not a printed Brandt theorem",
+          "evidence": [
+            "All proper nonzero rectangle identities occur; multiplication is rectangle intersection, dimensions determine cardinality, and U⊆W detects square-zero multiplication.",
+            "The proof explicitly identifies the conjugating linear factors and the preimage/intersection mechanism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-idempotent-semilattice-of-partial-inner-automorphisms-of-ful--c72f4e192073/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–2 (offsets 0–4558)",
+          "method": "Bounded local-mirror text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The idempotent semilattice of partial inner automorphisms of full linear monoids",
+          "trigger": "Exact same monoid and dimensions; prior determination of possible domains"
+        },
+        {
+          "assessment": "Identical construction and a motivating open general problem, not an explicit rank-one solution",
+          "evidence": [
+            "Problem 7.9 asks for the partial inner automorphism monoid of the endomorphism monoid of a finite-dimensional vector space."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00041v1",
+          "material_read": "Definition 3.8, p. 5 (near offset 16422); Problem 7.9, p. 25 (near 93992)",
+          "method": "Bounded OA PDF passages",
+          "title": "The Inverse Monoid of Partial Inner Automorphisms of a Semigroup",
+          "trigger": "Original definitions and possible solution of the vector-space case"
+        },
+        {
+          "assessment": "Precursor, not an explicit Brandt theorem here",
+          "evidence": [
+            "§5 defines the same domains and verifies the partial isomorphisms; the cited problem concerns vector-space conjugacy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04252v2",
+          "material_read": "§5, p. 31 (near 125000); Problem 8.13, p. 73 (near 295604)",
+          "method": "Bounded OA PDF passages",
+          "title": "Conjugacy in abstract semigroups, transformation and diagram monoids, and conjugacy growth",
+          "trigger": "Earlier version of the construction"
+        },
+        {
+          "assessment": "Complete n=2 analogue only",
+          "evidence": [
+            "Idempotent and square-zero line sectors have local groups 1 and K^×."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-partial-inner-automorphisms-of-two-dimensional-linear-endomorphi--240d56a8fe9d/RESULT.md",
+          "material_read": "Finding, offset-0 excerpt",
+          "method": "Local-mirror passage inspection",
+          "title": "Partial inner automorphisms of two-dimensional linear endomorphisms",
+          "trigger": "Same local groups and ring of matrices"
+        },
+        {
+          "assessment": "Dimension two; same folder day alone does not establish order",
+          "evidence": [
+            "Brandt sizes q(q+1) and q+1; the nontrivial group is F_q^×."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-partial-inner-automorphisms-of-two-by-two-matrix-semigroups-over--0a4447340ca9/RESULT.md",
+          "material_read": "Finding and proof, offset-0 excerpt",
+          "method": "Local-mirror passage inspection",
+          "title": "Partial inner automorphisms of two-by-two matrix semigroups over finite fields",
+          "trigger": "Exact same Brandt description in a neighboring dimension"
+        },
+        {
+          "assessment": "Later breadth, not used for antecedent coverage",
+          "evidence": [
+            "Claims every element is a restriction of conjugation and gives a full order formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-factorizability-and-exact-order-of-partial-inner-automorphisms-o--d492f868ddce/RESULT.md",
+          "material_read": "Finding and proof, offset-0 excerpt",
+          "method": "Local-mirror passage inspection",
+          "title": "Factorizability and exact order of partial inner automorphisms",
+          "trigger": "Potential broader full-monoid classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Araújo et al., Problem 7.9",
+        "Earlier semilattice theorem --c72f4e192073",
+        "Frozen RESULT.md, Proof and Limitations"
+      ],
+      "rationale": "The minimal ideals are naturally motivated by the vector-space problem, and the formula usefully spells out their size. But after the prior complete semilattice result, the remaining specialization is a routine application of linearity, rank-one conjugacy and hyperplane counts. The assembled submonoid excludes higher rectangular domains and does not resolve a further structural or enumerative gap beyond that direct consequence.",
+      "residual_risks": [
+        "This is not a judgment against the value of classifying or enumerating the full inverse monoid."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

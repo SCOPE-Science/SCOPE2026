@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:32:53.367177Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a stationary observation under a Poisson process, the backward age is Exp(r), independent of the standardized Brownian increments. With S=sqrt(2DT), E[S^2]=2D/r and (E[S])^2=(2D/r)pi/4. Since the signed min has the opposite conditional mean to the max, the normalized covariance is g_N-(1-pi/4)a_N^2 where a_N is the standard-normal max mean and g_N is the standard-normal max/min covariance. Distinct coordinates have conditional cross moment zero and hence zero covariance, not independence. Gaussian integration by parts for the max mean gives the displayed integral; normalizing phi^2 gives a variance-1/2 Gaussian and the N=4 orthant probability with correlation 1/3. In the joint moment over x<y, writing y phi(y)=-phi'(y) first gives (N-2) times the integral with phi(y)^2 and the CDF difference to power N-3 for N>=3. The x integration then gives -phi(y) for N=3 and minus the integral of phi(x)^2 below y for N=4. Thus the products are respectively 0, -sqrt(3)/pi, -3/pi. N=3 is positive by 9pi>16sqrt(3); N=4 is negative using arcsin(1/3)<pi/8 and 225/256<3/pi. For all N the Gaussian interpolation derivative is the inner product of max and min gradients, an indicator sum for coincidence of their arg-indices; differentiation and smoothing are justified by bounded gradients and Gaussian integrability. Conditional on a proposed coincident pair, the other N-1 pairs are independent, and positive Gaussian correlation bounds each mixed-tail probability by its marginal product. Applying the same opposite-monotonicity inequality to the proposed pair leaves a bound of 1/N^2 (each CDF power has mean 1/N). Summing and integrating proves 0<=g_N<=1/N. With a_N nondecreasing, a_4>1, and 1-pi/4>1/5, every N>=5 is strictly negative. Standard Gaussian tail estimates give a_N~sqrt(2 log N); the centered Gaussian max has variance at most 1 by Gaussian Poincare. Consequently the reset variances have leading term (4D/r)(1-pi/4)log N, the covariance the negative of that, and the correlation tends to -1. Independent replay: python3 /workspace/reproductions/brownian_edges.py uses nested adaptive quadrature on cutoffs 8 and 10, not the frozen grid; it found normalized covariances 0.250000000000, 0.011171104578, -0.122711037218, -0.216030789774, -0.398084893281 at N=2,3,4,5,8. This checks the formulas/signs at those points only; the covariance bound is needed analytically for all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model c.i.i.d. work computes the center of mass and kth maximum and explicitly describes that scope in its conclusion. The renewal paper gives the shared-age joint law and Eq. (43), the single-order-statistic mixture, and Eq. (63), the conditional large-N edge scaling.",
+          "These formulas cover broader classes of laws or scales, but none of those inspected passages gives a uniform opposite-extreme covariance sign or the all-N Gaussian bound."
+        ],
+        "reasoning": "Knowing the underlying joint density makes the product integral available; it does not give its sign after subtraction for all N. Neither a one-edge marginal nor eventual large-N sign can certify the exact cutoff.",
+        "searches": [
+          "arXiv:2211.00563, kth rightmost particle and spacing",
+          "arXiv:2307.15351 p. 21, extreme value statistics",
+          "arXiv:2509.06658 order statistics around Eqs. (43) and (63)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2211.00563",
+        "arXiv:2307.15351 p. 21",
+        "arXiv:2509.06658 Eqs. (43),(63)",
+        "Resultary 5d83eb0df715 Finding, derivation and limitation",
+        "arXiv:2205.10273v4 introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-age model and prior conditional leading scale give the two normalized fronts with the same random amplitude and opposite signs; upgrading to second moments via elementary Gaussian moment bounds yields the signed leading covariance and correlation.",
+          "The Resultary overlap gives correlation deficit (log N)^2(1-rho_N) -> pi^2/[6(4-pi)] for outward edges, stronger than convergence alone. It yields eventual sign but not negativity throughout the whole N>=4 range after changing conventions."
+        ],
+        "reasoning": "Credit asymptotic implications independently of whether the old text gives the exact covariance constant. The distinction needing proof is the uniform finite-population threshold: the existing small-N checks plus asymptotic scaling leave an unbounded set of intermediate possibilities unless one supplies an explicit uniform bound or equivalent comparison.",
+        "searches": [
+          "arXiv:2509.06658 Eq. (63) conditional edge with fixed age",
+          "arXiv:2307.15351 conclusion",
+          "Resultary 5d83eb0df715 offsets 4821 and 8753"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5d83eb0df715 defines the left edge as the outward extent minus the minimum; multiplying by -1 converts both covariance and correlation to the frozen signed convention. The small-N formulas use the same Gaussian edge moments.",
+          "Vilk–Assaf–Meerson's model definitions distinguish independent resets in model A and only the farthest particle resetting in model B. Neither uses a synchronous common reset clock."
+        ],
+        "reasoning": "Outward fronts and signed edges are mathematically equivalent for the sign question after sign reversal. Radius fluctuations in the older model are not a covering calculation because the resetting law already differs, whether or not a radius can be expressed in terms of edges.",
+        "searches": [
+          "Resultary: synchronous Poisson resetting Brownian gas opposite extremes maximum minimum covariance sign threshold four particles",
+          "Simultaneous Poisson resetting Brownian particles covariance of maximum and minimum opposite extremes stationary",
+          "Vilk–Assaf–Meerson 10.1103/PhysRevE.106.024117 and arXiv:2205.10273v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest matching Resultary Finding yields outward-edge correlation -1/3 at N=2, negative at N=3 and positive at N=4, equivalent to the frozen signed covariance signs. Its offsets 4821 and 8753 explicitly disclaim an all-N>=4 claim.",
+          "The same record derives an asymptotic outward correlation deficit and the matching small-N Gaussian moments, not the 1/N nonasymptotic uniform estimate."
+        ],
+        "reasoning": "This is material exact overlap at small N and in asymptotics. Its Nov. 22 catalogue date is later than the frozen Nov. 2 entry, not independent proof of historical order. The actual statements, rather than their dates, distinguish the uniform claim.",
+        "searches": [
+          "Resultary: synchronous Poisson resetting Brownian gas opposite extremes maximum minimum covariance sign threshold four particles",
+          "Resultary: Gaussian max-min covariance g_N 0<=g_N<=1/N bound standard normal maxima minima",
+          "5d83eb0df715/RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct finding is the strict all-population sign classification, especially negativity for every N>=4, with a uniform Gaussian order-covariance estimate. Credit the prior stationary Gaussian age mixture, leading conditional extreme scaling and marginal order laws. The leading signed-edge covariance and correlation are natural consequences of that scaling plus moment control, not a separate novelty justification. The close Nov. 22 Resultary finding has equivalent small-N signs and a stronger asymptotic for the opposite convention, but expressly leaves the uniform finite-N sign assertion open. The result is not a restatement of an independently reset gas's extrema.",
+      "residual_risks": [
+        "A further bounded PDF lookup for arXiv:2211.00563 timed out; the scope assessment there is limited to the accessible statements, not a proof of no overlap.",
+        "An older result in Gaussian order-statistic covariance or a stronger nonasymptotic common-reset theorem could precede the uniform bound or the exact sign theorem; the comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the stationary model and order/spacing context; inspection bounded, not a whole-document absence assertion.",
+          "evidence": [
+            "Reports the distribution of the kth rightmost particle and spacing distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Primary PDF abstract offset 0, rightmost-particle passage offset 1907; a further PDF lookup timed out",
+          "method": "Bounded primary OA passage inspection",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Same stationary synchronous Poisson reset gas"
+        },
+        {
+          "assessment": "A shared underlying construction and marginal observables, not the finite opposite-edge covariance classification.",
+          "evidence": [
+            "The conclusion says it studies the center of mass and kth maximum; simultaneously resetting Brownian motions give its Gumbel example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.15351",
+          "material_read": "Abstract offset 2191 and p. 21 conclusion offset 111194",
+          "method": "Primary OA PDF text, bounded offset passages",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+          "trigger": "Conditional-i.i.d. extreme law for the same Brownian gas"
+        },
+        {
+          "assessment": "Stationary joint law and one-edge scaling, enabling leading moment consequences but not deciding the frozen finite threshold.",
+          "evidence": [
+            "Eq. (43) averages the single kth order statistic over the common age. Eq. (63) gives leading conditional fixed-edge scale with a subdominant Gumbel fluctuation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "Abstract offsets 2237, 2732; pp. 9–10 offset 50525, Eqs. (43)–(44); p. 12 offset 65839, Eqs. (63)–(65)",
+          "method": "Primary OA PDF text, bounded offset passages",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "General common-reset joint model includes Poisson special case"
+        },
+        {
+          "assessment": "Small-population moments and asymptotic overlap; no all-N threshold.",
+          "evidence": [
+            "Exact N=2,3,4 correlation signs in outward convention; the logarithmic correlation-deficit limit; explicit limitation against an assertion for every N>=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-bilateral-front-synchronization-and-a-four-particle-sign-r--5d83eb0df715",
+          "material_read": "RESULT.md offsets 0, 4821, 8753 at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search followed by mirror primary passages",
+          "title": "Sharp bilateral front synchronization and a four-particle sign reversal",
+          "trigger": "Near-exact same-model result with an outward-left convention"
+        },
+        {
+          "assessment": "Different reset protocols in both models.",
+          "evidence": [
+            "Model A particles reset to the origin independently; in model B only the farthest particle from the origin can reset to the origin."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2205.10273v4 (doi:10.1103/PhysRevE.106.024117)",
+          "material_read": "Introduction, model A and B definitions, offset 4900 onward",
+          "method": "APS route did not yield text; identified lawful arXiv copy via exact-title query and read bounded primary HTML passage",
+          "title": "Fluctuations and first-passage properties of systems of Brownian particles with reset",
+          "trigger": "Earlier exact radius moments could overlap if the resetting model matched"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff answers a motivated joint fluctuation question in the established solvable reset gas. It pinpoints when common-age variability overtakes the positive conditional Gaussian extreme dependence, though single labelled coordinates are uncorrelated. The uniform bound converts competing effects into a finite cutoff valid at all larger populations and independent of D,r, rather than merely a handful of checked signs or a rephrasing of a marginal extreme law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

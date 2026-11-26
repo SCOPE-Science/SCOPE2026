@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A valid inverse is a palindrome window of length eight. Two such windows separated by one position force nine identical letters, while a separation of two forces the ten-letter pattern \(abbaabbaab\). Either case gives the same parent after deleting the copied half. Therefore one start per distinct parent must have separation at least three among \(n-3\) available starts. The period-three word \((aab)^\omega\) has legal windows at all starts divisible by three and gives pairwise different parents, so the bound is attained for every source length and every alphabet with two distinct symbols. All hypotheses and the short-length boundary \(n=4\) are addressed. The standalone checker confirms the overlapping-window equalities independently and exhaustively checks 5,037,919 received words over several alphabets.
+## correctness
 
-**Originality — PASS, subject to the stated residual risk.** Zabokritskiy (arXiv:2609.00779), the closest 2026 channel treatment, bounds one-step inverse lists by \(n-3\) for this length but does not derive the one-third sharp constant. Lenz–Wachter-Zeh–Yaakobi (arXiv:1712.09345) give a general zero-column-run upper bound and exact length-one/two cases; their result does not account for duplicate inverse parents from two palindrome windows with a gap of two. Sun–Ge (arXiv:2602.01151) address related code construction bounds, not this exact inverse extremum. Related indexed results concern noisy tandem duplication, two-step length-two palindromic duplication, or other error models. Previously recorded exact one-step formulas for block lengths not divisible by four explicitly exclude this block length. Web and mathematical-index searches found no equivalent or stronger same-channel theorem. A separate unindexed calculation remains possible; the search is not an absolute novelty proof.
+PASS
 
-**Value — PASS.** The worst-case inverse list governs ambiguity in decoding and occurs as a local multiplicity factor in coding graph bounds. The exact formula replaces a general worst-case factor \(n-3\) by the sharp \(\lfloor(n-1)/3\rfloor\), providing an asymptotic threefold refinement at the first block length divisible by four. The distance-two inverse collision is a genuine structural mechanism not captured by the number of palindrome windows, and the elementary periodic construction proves the invariant at every blocklength, not just within a finite census.
+An inverse start is precisely an eight-letter palindrome, and deleting its final four letters is the inverse for the stated reversal channel. Two such starts separated by h=1 or 2 imply y_j=y_(j+2h) on the common reflection range by composition. For h=1 and h=2 the required remaining substrings after deleting four are equal since the period divides four (the compared positions are j=4,…,3+h and j+4 in local coordinates). One representative per distinct parent has spacing at least three in the n−3 start positions. For the period-three witness with a≠b, each start i divisible by three sees the palindrome aabaabaa; for i<j the deletion at i gives b at output index i+4 while the deletion at j leaves a there. The later legal start ensures that coordinate and y_(i+8) exist. This also covers n=4, when there is just one start, and uses only equality of letters, so q≥2 suffices. Frozen notes, code and stored output were inspected without executing the upload. Independent forward-image enumeration (deduplicate each parent's children) checked q=2,3,4 for n=4 through 11,8,6 respectively; replay with python3 /workspace/branches/independent_bounded_checks.py. Neither census replaces the all-length proof.
 
-**Limitations.** Only one length-four duplication is analyzed; the theorem does not find the exact two-error inverse degree or all extremizing words. The literature overlap check is limited by indexing and the possibility of differently named equivalent results. No independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the exact sharp result and period-three attainment for every n and q≥2. The adjacent-start collision is known, and the October 26 boundary proof already gives the distance-two collision locally, so the one-third upper bound follows immediately from prior arguments; those mechanisms are not original here. The decisive extra step is the all-length matching construction with distinct parents. A distinct November 2 general theorem covers this exact specialization, but its later catalogue date does not establish that this result was pre-empted. No earlier exact all-length sharpness or equivalent witness was established in the inspected sources.
+
+## value
+
+PASS
+
+The exact worst-case number of distinct parents is a natural local decoding ambiguity, not a count of syntactic edit positions. Length four is the first case outside the earlier uniform formula for blocks not divisible by four. Even though the sharp upper bound follows from known local collisions, proving that one receives that many distinct parents in every length gives a substantive exact invariant and identifies a simple witness. This is not a claim about codebook optimality or about multiple errors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

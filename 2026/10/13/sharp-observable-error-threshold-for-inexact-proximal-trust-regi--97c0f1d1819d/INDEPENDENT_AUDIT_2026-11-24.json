@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:08:04.409122Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–93",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "arXiv:2609.26747v1, Lemmas 2 and 6, Assumption 3.1, Theorems 10 and 12"
+      ],
+      "rationale": "Let s=u−x and let p minimize H. Comparing the Type-1 upper bound on H(u)−H(p) with strong convexity at x gives 2rQ≤ε²−‖p−x‖²−‖s‖². Strong convexity at u gives ‖u−p‖≤ε, so the computed-step test implies ‖p−x‖≥(1−κ)‖s‖ for κ<1. Substitution gives exactly −(1−κ)‖s‖²/r. The zero-step case is harmless. For φ=0, r=1, x=0, u=1 and p=1−κ the gap is κ²/2 and the bound is attained. At κ=1, taking p positive arbitrarily close to zero defeats any uniform positive coefficient even on nonstationary instances. Negative p=1−κ for κ>1 gives ascent. For the algorithmic claim, ε≤κ‖p−x‖/(1+κ) suffices for termination of geometric refinement at a nonstationary step. With c=1−κ and Ψ=‖s‖/r, choose a feasible segment fraction α=min{1,Δ/‖s‖,c/[r(1+‖B‖)]}; convexity of φ and the directional curvature bound give a decrease at least (c/2)Ψ min{rΨ,Δ,cΨ/(1+‖B‖)}, proving the claimed FCD constant. Theorem 10's first assertion applies under the stated outer hypotheses. On its vanishing-Ψ subsequence, the exact model residual is at most (1+κ)Ψ; proximal-length comparison and the vanishing reference-oracle error transfer this to the reference approximate residual. Nonexpansivity and the gradient-error assumption then give the exact true-gradient residual tending to zero; proximal-length comparison covers every fixed positive length on that subsequence.",
+      "residual_risks": [
+        "Outer conclusion is conditional liminf stationarity, not full-sequence convergence. Exact model-stationary steps need separate handling; positive-error refinement there is not guaranteed to terminate.",
+        "The witness checker samples scalar cases and does not certify Hilbert-space generality or outer convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BKM's abstract framework takes an FCD premise, while Proposition 11 supplies (1−κ²)/2 with the printed restriction κ<1/2. Convex proximal-gradient explicit-linesearch convergence and the weighted proximal trust-region δ-Fréchet type condition have different premises."
+        ],
+        "reasoning": "Positive nonsharp descent for κ<1 already follows from BKM's direct inequality if one dispenses with its printed restriction. This is not new on its own. The old framework needs an actual FCD certificate and a link to true stationarity; it does not state the optimal universal coefficient for the observable rule or the modified convergence result.",
+        "searches": [
+          "arXiv:2609.26747v1, Lemma 9, Proposition 11 and Theorems 10/12",
+          "arXiv:2404.10987v2, Proposition 5.1 Eq. (43)",
+          "arXiv:2601.09024, inexactness model"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26747v1",
+        "Salzo–Villa §2.2",
+        "arXiv:2006.06041v3",
+        "arXiv:2404.10987v2",
+        "arXiv:2601.09024",
+        "Resultary d7f69b5d9c40 and a44cebf0485b (latter synopsis only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BKM's direct bound discards the squared exact-step term when comparing H(x) to H(p); its second stationarity clause uses ε_k≤barκ r_k barΨ_k. The relative proximal-gradient paper constrains a different first-order residual and proves iterate decrease for its own algorithm."
+        ],
+        "reasoning": "The prior direct bound and FCD theorem alone do not give the sharp coefficient, universal equality/ascent examples or the full observable-range transfer. Retaining the exact-step square and then bounding it using the computed step changes the coefficient; the inequality in the opposite direction transfers the vanishing subsequence without imposing an exact-step stopping rule.",
+        "searches": [
+          "arXiv:2609.26747v1, Lemma 9, Algorithm 2, Theorem 10 and Theorem 12",
+          "arXiv:2404.10987v2, relative-inexactness and linesearch descent passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type-1 precision ε is a length-scale; its gap tolerance is ε²/(2r). Thus the observable test is equivalently a gap tolerance κ²‖s‖²/(2r). BKM already uses ε≤κ‖s‖ for smaller κ. The v=0 rule of Bello-Cruz et al. uses an ε-subgradient of the penalty with a computed-step squared error budget at unit step."
+        ],
+        "reasoning": "A penalty ε-subgradient rule at v=0 implies a gap budget of this form but is not equivalent to the full Type-1 class: it includes a stronger first-order condition on the penalty. No novelty is assigned to the observable criterion or the objective-gap definition by themselves.",
+        "searches": [
+          "arXiv:2609.26747v1, Definition 4 and Algorithm 2",
+          "Salzo–Villa, arXiv:1103.4033, §2.2",
+          "arXiv:2006.06041v3, §§2.1–2.2",
+          "arXiv:2404.10987v2, Definition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary example concerns premature raw-step stopping in scalar zeroth-order proximal Newton, with returned residual 3ε/2. A separate same-day synopsis concerns an exact soft-threshold step overshoot; its mirrored full text was unavailable."
+        ],
+        "reasoning": "Neither the verified stopping counterexample nor the tentative same-day synopsis supplies this gap-relative-to-step sharp estimate. Same-day indexing is not taken as evidence of order, and the synopsis does not decide whole-source coverage.",
+        "searches": [
+          "Resultary semantic searches for Type-1 proximal gap, computed-step relative criterion, sharp coefficient and BKM transfer",
+          "Resultary d7f69b5d9c40",
+          "Resultary a44cebf0485b"
+        ]
+      },
+      "rationale": "Supported for the sharp computed-step coefficient, its sharp boundary, and the stated conditional transfer for the modified trust-region tolerance. The Type-1 gap definition, observable computed-step test itself, and outer convergence framework are prior. In particular BKM already uses the computed step in Algorithm 2, but restricts κ<1/2, proves a weaker descent constant, and states its separate true stationarity implication with an exact-step-relative test. Other relative-error work has genuine criterion-level overlap without the sharp universal affine decrease or the specific transfer.",
+      "residual_risks": [
+        "The distinct same-day mirror source could not be inspected beyond its synopsis.",
+        "The criterion and existence of weaker positive decrease are prior ingredients; another sharp realization of the same gap-to-affine-descent inequality under alternate terminology was not ruled out exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and weaker bound are prior; sharp universal coefficient and modified proof not in inspected passages",
+          "evidence": [
+            "κ∈(0,1/2), coefficient (1−κ²)/2, and exact-step-relative requirement for the second Theorem 10 assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.26747v1",
+          "material_read": "Definition 4, Lemma 6, §3.2, Algorithm 2, Proposition 11 and Theorems 10/12; OA offsets around 15600, 19400, 24000, 37200 and 46450–47550",
+          "method": "OA primary full-text passages",
+          "title": "Convergence Analysis of an Inexact Proximal Trust-Region Method",
+          "trigger": "Identical Type-1 trust-region algorithm and computed-step criterion"
+        },
+        {
+          "assessment": "Covers error notion, not assigned sharp descent/transfer",
+          "evidence": [
+            "0 belongs to the ε²/(2λ)-subdifferential of the proximal objective at the approximate minimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.4033",
+          "material_read": "§2.2, pp. 3–4, offsets 8200–16588",
+          "method": "OA original text passages",
+          "title": "Inexact and Accelerated Proximal Point Algorithms",
+          "trigger": "Earlier Type-1 definition and equivalent gap convention"
+        },
+        {
+          "assessment": "Related gap and primal-dual models, no matching sharp threshold found in passages inspected",
+          "evidence": [
+            "Objective-gap notion is included among the error models."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.06041v3",
+          "material_read": "§§2.1–2.2, pp. 5–6, offsets 19800 and 24500",
+          "method": "OA original PDF passages",
+          "title": "Principled Analyses and Design of First-Order Methods with Inexact Proximal Operators",
+          "trigger": "General inexact proximal error frameworks"
+        },
+        {
+          "assessment": "Genuine restricted criterion overlap, different subproblem requirement and outer method",
+          "evidence": [
+            "At v=0 the allowance is (1−τ−α)‖x−u‖²/[2(1+γ₂)] on a penalty subgradient error."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.10987v2",
+          "material_read": "Definition 3.1 and Proposition 5.1 Eq. (43), pp. 4 and 12–13",
+          "method": "OA original PDF passages",
+          "title": "A Relative Inexact Proximal Gradient Method with an Explicit Linesearch",
+          "trigger": "Observable relative computed-step error and decrease"
+        },
+        {
+          "assessment": "Different error notion",
+          "evidence": [
+            "δ-Fréchet-style linear error term δ‖z−p‖."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.09024",
+          "material_read": "Inexactness definition, p. 2, offset 6047",
+          "method": "OA original PDF passage",
+          "title": "An Inexact Weighted Proximal Trust-Region Method",
+          "trigger": "Closely related inexact trust-region method"
+        },
+        {
+          "assessment": "Different approximation and claim",
+          "evidence": [
+            "Raw step at most ε may stop with residual 3ε/2."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-raw-step-stopping-mismatch-in-zeroth-order-proximal-newton--d7f69b5d9c40",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "A raw-step stopping mismatch in zeroth-order proximal Newton",
+          "trigger": "Nearest Resultary proximal stopping example"
+        },
+        {
+          "assessment": "Synopsis indicates overshooting an exact prox; whole-source coverage unresolved",
+          "evidence": [
+            "Synopsis describes a geometric tail following bypass of an exact soft-threshold point."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-soft-threshold-bypass-and-geometric-non-identification-in-proximal-nonlinear-conjugate-gradient--a44cebf0485b",
+          "material_read": "Indexed synopsis only; exact mirrored RESULT unavailable",
+          "method": "Resultary lookup and attempted local mirror retrieval",
+          "title": "Exact soft-threshold bypass and geometric non-identification in proximal nonlinear conjugate gradient",
+          "trigger": "Distinct same-day proximal-step result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 30–93",
+        "arXiv:2609.26747v1, Algorithm 2 and Theorems 10/12"
+      ],
+      "rationale": "The exact constant is operationally meaningful: a practitioner can stop using an observable step, with a certified descent coefficient and convergence transfer even when the allowable relative error exceeds the printed half threshold. Endpoint and ascent examples identify a real boundary for universal certification rather than an arbitrary parameter change. The proof retains the required outer stability guarantees and separates model stationarity from the true residual.",
+      "residual_risks": [
+        "No rate or claim that using a larger tolerance always improves practical performance. Above the boundary, permitted ascent does not prove universal algorithmic divergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

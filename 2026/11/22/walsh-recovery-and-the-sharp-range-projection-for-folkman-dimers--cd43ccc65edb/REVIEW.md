@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Folkman graph is defined by the subdivided double of the complete five-vertex graph, without relying on a picture. Perfect matchings correspond bijectively to 24 regular five-vertex tournaments each with 32 independent clone assignments. A proof of vertex-star gauge reduction covers all \(2^{40}\) characters from \(2^{21}\) exact signed sums. Two distinct match-enumeration methods and two independent integer Walsh implementations agree on every spectrum level, including 1,262,164 reduced zeros, sharp gap 32, and projection norm \(56,520,123/262,144\). The minimum-over-projections argument uses averaging over translations. Finite exhaustion is the actual complete proof of the numerical constants after the exact reduction, not extrapolation.
+## correctness
 
-**Originality — PASS (bounded comparison).** The 2025 primary matching-polynomial paper explicitly publishes 768 perfect matchings, so that count is excluded from novelty. Its full online results and Table 1 do not give signed edge-character spectra. Detailed search-indexed excerpts of the 2025 adjacency spectral-polynomial paper concern eigenvalues of a 20-by-20 adjacency matrix, which do not determine the \(2^{40}\)-dimensional matching convolution. Pippenger's 2001 incidence-graph counting theorem concerns undoubled incidence graphs and unsigned generating functions; the current signed clone-resolved histogram and sharp projection numerator do not follow from that statement. Comparable perfect-matching Fourier results on the 4-cube and complete eight-vertex graph have different edge sets and transforms. Remaining risks: the adjacency-spectrum full text was not accessible directly, and an unindexed Folkman-graph signed permanent calculation could reproduce the results.
+PASS
 
-**Value — PASS.** The Folkman graph is the smallest semisymmetric regular graph and a canonical 20-vertex matching benchmark, not an arbitrary selected board. The precise Fourier zero count determines which edge-parity measurements can be recovered; the smallest surviving singular value and optimal endpoint projection constant quantify recovery and its worst-case noise amplification. The first number alone, 768 matchings, was already known; the new exact 21-dimensional signed spectrum and recovery constants are the useful contribution.
+Each matching sends a base edge to the endpoint whose clone is matched, giving two incoming edges per vertex; within that orientation the two clone assignments at each of five vertices contribute a signed sum in {−2,0,2}, proving 32-divisibility. A vertex star flip gives a common minus sign, and the connected graph's star group has rank 19; fixing a spanning tree to positive signs covers every coset. Independent exact int64 replay python3 /workspace/review_checks/4.py (NumPy) uses clone-choice recursion instead of tournament assignments and a bit-tensor transform on both a different spanning tree and the specified BFS tree. It finds 768 matchings, reproduces the full reduced signed histogram in the BFS gauge and finds 1262164 zeros, 834988 nonzeros, least nonzero modulus 32 and maximum 768. The two gauges give common support-transform absolute sum 452160984. The full rank/nullity are these reduced counts times 2^19; there is no normalization factor in the convolution eigenvalues. The inverse transform of the support indicator vanishes off the orthogonal complement of the star group and its kernel ℓ¹ norm is 452160984/2^21. A convolution matrix's column and row absolute sums both equal this norm. Translation averaging of any projection onto the invariant range is again a projection onto that range (each conjugate is the identity there), cannot increase either norm, and gives the unique translation-invariant projection. The same argument holds over the reals since these characters are real. This establishes endpoint optimality, not just the norm of a selected projector.
 
-**Limits.** The projection constant is for arbitrary real/complex linear projections onto the full recoverable range. No extension to other semisymmetric graphs is proved; no external independent audit has been performed. The 1967 graph-construction article was inspected at abstract/bibliographic level only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the Folkman-specific signed edge-incidence spectrum, divisibility/gap and exact optimal endpoint constant. The unsigned count 768 is positively identified in prior work and already credited by the original; the graph construction, Fourier diagonalization and averaging method are not novel. Other signed-matching computations show substantive methodological overlap, not the same spectral or projection result.
+
+## value
+
+PASS
+
+The Folkman graph is a natural small semisymmetric test case and its doubled construction gives a local reason for strong Fourier divisibility. The rank and spectral floor quantify recoverable modes and ℓ² stability in the exact signed matching model, whereas the much larger sharp endpoint projection norm distinguishes a different functional-analytic cost. Even in a finite example that exact constant answers a natural optimization over all projections and cannot be recovered from matching-polynomial data or generic orbit averaging. This is a graph-specific result rather than novelty for the general Fourier method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

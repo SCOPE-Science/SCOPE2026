@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:07:57.062030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for the revised five-vertex joint census and Eulerian frequency spectrum in repairs/2. The frozen non-Eulerian classification is also mathematically correct. The independent replay at python3 /workspace/audit_evidence/road.py covered the full target-pair code space by marking already visited isomorphism orbits, tested strong connectivity by transitive closure and period by enumerating simple directed cycles, generated partitions by merging blocks, and checked reset capability by forward pair searches. Pair mergeability for all pairs suffices because one can repeatedly shrink the current image. All 32 masks per representative include choices at parallel arc slots. This recovers the final four joint cells 448,22,442,308, and 18 Eulerian simple types split 4,8,6 by counts 24,28,30. The Eulerian observation in the repaired text follows from alternating two matchings in the 2-regular bipartite multigraph with source and target copies, giving a nonsynchronizing permutation coloring for n>1. Independent checks at orders 2–4 also recovered the frozen counts and no non-Eulerian obstruction; the one-state graph cannot be non-Eulerian. Exact rational stationary solves and full orbit enumeration at five checked all four originally displayed vectors, masks and orbit sizes. The repaired claim does not depend on interpreting that computation as formal verification or as a result at higher orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 theorem excludes primitive nonsynchronizing nonpermutation automata below five and exhausts that automaton domain at five. It does not enumerate permutation/permutation pairs or synchronizing automata.",
+          "D’Angeli–Rodaro Figure 5 gives separation examples, Open Problem 4.11 asks for characterization, and Proposition 2.7 with Lemma 5.8 relates prime-order Eulerian nonsynchronizing colorings to bipartite 1-factorizations."
+        ],
+        "reasoning": "The broader automaton threshold entails the original lower bound, since a non-Eulerian graph cannot have both letters be permutations. The factorization theorem gives a per-graph way to count the bad colorings for Eulerian order five, but does not count totally simple Eulerian graph types or give their histogram.",
+        "searches": [
+          "Resultary totally simple Eulerian totally synchronizing directed binary graph primitive 5 vertices 18 Eulerian 470 simple 448 lumpable exact enumeration",
+          "totally simple totally synchronizing graph 5 vertices binary Eulerian enumeration lumpability 470 448 18 Eulerian road coloring D'Angeli Rodaro",
+          "arXiv:2607.17335 §4.1 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7f7c2dad36ac",
+        "arXiv:2607.17335",
+        "arXiv:1508.02133",
+        "arXiv:1511.09079",
+        "Targeted Resultary and primary literature searches for the Eulerian and joint counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four projected graph types have trivial graph automorphism groups, so each retained prior automaton class gives two letter orientations on its representative. The types from rows 1 and 2 have one pair of parallel outgoing arcs, doubling their slot-mask count again. This recovers 4,4,2,2 nonsynchronizing masks. Orbit sizes and stationary vectors follow directly from the four graphs.",
+          "The known graph marginals do not identify their total-simplicity subcounts, and the prior factorization correspondence presupposes that the pertinent graph representatives have already been selected."
+        ],
+        "reasoning": "The original graph theorem is a finite extraction of the earlier complete representative table, including the stated color frequencies. The revised exact totals require new classification across the primitive graph universe, not a change in terminology or the use of existing marginals alone.",
+        "searches": [
+          "October 13 Resultary full finding and proof at RESULT.md offset 0",
+          "arXiv:2607.17335 Figure 5 p. 22, Proposition 2.7 and Lemma 5.8",
+          "arXiv:1508.02133 Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 13 RESULT.md defines automaton primitivity as absence of a common preserved proper partition, not graph primitivity; D’Angeli–Rodaro identify total simplicity with non-lumpability.",
+          "If a partition is preserved by both letter maps of even one coloring, its outgoing target-block multiplicities coincide. Conversely a lumpable partition permits a block-consistent ordering of the outgoing targets and hence a coloring preserving it."
+        ],
+        "reasoning": "Total graph simplicity is congruence-primitivity of every coloring. This translates the original non-Eulerian obstruction into the earlier automaton domain, while the final census also includes all totally synchronizing graphs and all primitive graph types regardless of their colorings' congruences.",
+        "searches": [
+          "Resultary 7f7c2dad36ac binary primitive nonsynchronizing nonpermutation boundary",
+          "arXiv:2607.17335 §4.1, Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gusev–Szykuła have the 1,220 and 890 marginals. The inspected table does not split by lumpability or give the Eulerian spectrum within the simple graphs.",
+          "In the October 13 table, forgetting letter order and filtering for graph primitivity, total simplicity and non-Eulerian status leaves rows 1,2,3,11, canonical graph codes 3928,11226,58879,58372 respectively. Replayed in /workspace/audit_evidence/road_prior_projection.py."
+        ],
+        "reasoning": "The earlier transition table covers the original four graph types exactly. It does not provide the joint counts 470 and 448 or determine the Eulerian distribution; graphs whose bad colorings are permutation pairs are outside that table.",
+        "searches": [
+          "arXiv:1508.02133 Table 2 p. 8",
+          "Resultary 2026/10/13/...--7f7c2dad36ac RESULT.md transition table"
+        ]
+      },
+      "rationale": "PASS only after the repair. The original minimum and complete non-Eulerian four-type spectrum FAIL originality, not merely on an indexed title: the October 13 automaton census supplies all the requisite representatives under a different definition of primitive. Filtering its actual transition table gives precisely the frozen graph types and restores their slot frequencies. The repair removes that claim of contribution and retains only the joint total-simplicity/synchronization partition and the exact Eulerian simple-type frequency census. Neither the prior synchronization marginals, the nonsynchronizing automaton table, nor the Eulerian counting identities supplies this partition or the distribution across all simple Eulerian representatives. The revised files make the distinction explicitly.",
+      "residual_risks": [
+        "Related unpublished representative data might be sufficient for a new classification, but no earlier table giving the repaired joint counts or Eulerian simple-type frequency distribution was verified.",
+        "The assessment does not claim novelty of either marginal or of the Eulerian permutation-coloring mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior implication of original four-class result; not coverage of the repaired joint census",
+          "evidence": "The 12 classes are modulo vertex relabeling and letter swap, with 240 transitions pairs per class; filtering the actual rows recovers all four graph classes and exact slot-mask frequencies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-the-smallest-binary-primitive-nonsynchronizing-nonpermutation-bo--7f7c2dad36ac",
+          "material_read": "RESULT.md finding, assumptions, table of 12 representatives and proof, offset 0 in local mirror",
+          "method": "Exact Resultary ID recovery, local mirror and independently written projection of the printed transitions",
+          "title": "The smallest binary primitive nonsynchronizing nonpermutation boundary",
+          "trigger": "Earlier five-state threshold and complete table of nonsynchronizing automata"
+        },
+        {
+          "assessment": "Earlier structural equivalences and related examples, and prime-order Eulerian factorization correspondence; no joint count in these passages",
+          "evidence": "Non-lumpable examples include a non-Eulerian one with weights (3,1,1,2,2). Lemma 5.8 identifies permutation colorings with labeled 1-factorizations and the proof of Proposition 5.9 applies Proposition 2.7 to the prime-order Eulerian case.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.17335",
+          "material_read": "§4.1 Theorem 4.4; Figure 5 and Open Problem 4.11 p. 22 near offsets 104000–108500; §5 pp. 25–26 near offsets 120792–125413",
+          "method": "Lawful OA PDF with bounded passage reads",
+          "title": "On totally synchronizing graphs",
+          "trigger": "Same hypotheses, obstruction examples, Eulerian counting mechanism"
+        },
+        {
+          "assessment": "Prior marginal counts; not the repaired cross-tabulation",
+          "evidence": "Primitive binary two-out multigraphs at order five: 1,220 classes, 890 totally synchronizing.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.02133",
+          "material_read": "Table 2 p. 8 near offset 21075 and graph conventions",
+          "method": "Lawful OA PDF",
+          "title": "On the Number of Synchronizing Colorings of Digraphs",
+          "trigger": "Exact matching primitive and totally synchronizing marginals"
+        },
+        {
+          "assessment": "Related weight-partition criterion, not an exact small-order class census",
+          "evidence": "Uses left eigenvectors and equal-sum partitions in synchronization criteria.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.09079",
+          "material_read": "Theorem 1 p. 3 near offset 9750",
+          "method": "Lawful OA PDF",
+          "title": "On synchronizing colorings and the eigenvectors of digraphs",
+          "trigger": "Possible alternate classification via stationary weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the revised claim, total simplicity is a structural constraint studied specifically in connection with total synchronization, including D’Angeli–Rodaro's characterization problem. The first size at issue for distinguishing non-Eulerian obstructions is a meaningful finite test bed. The joint counts measure the relation in the full primitive census rather than recounting the known marginals. The Eulerian subcensus distinguishes how severe the obstruction is within a natural structural subclass: failure of total synchronization is guaranteed in that subclass, but its exact frequency varies across three values. These results are useful beyond restating the four known non-Eulerian types. They provide no general characterization, and the prior non-Eulerian extraction alone would not justify this PASS.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

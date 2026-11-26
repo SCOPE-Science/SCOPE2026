@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:40:25.112213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–69; frozen VERIFICATION.md and verify.py inspected, not run",
+        "Independent replay: /workspace/branches/5f220729-5e70-4c0a-8361-10d9278f4d13/p4_level2_direct.py with captured p4_level2_direct.out"
+      ],
+      "rationale": "At fixed vertex coordinate x, the conjugacy classes are exactly the cosets of the image of the displayed commutator map in R^E. For any lift x_v=c_vπ^a_v (including the zero coordinate represented by π^ℓ), the units c_v are removed by edge-row and vertex-column rescaling. Over the fraction field the remaining matrix is D_E B D_V^(-1), with scales π^(a_u+a_v) on edge rows and π^a_v on vertex columns. Cycle rows are dependent; forest rows give a nonzero square minor precisely on deleting one root column per edge-containing tree, with no extraneous columns. Leaf elimination gives determinant ±1 in the incidence matrix. The scaled determinant has valuation sum_v (d_F(v)-1)a_v over incident vertices plus the sum of omitted root valuations, minimized by a least-valuation root in each component. Thus the forest minima are precisely the Smith determinantal-divisor valuations. Reducing the Smith diagonal gives each nonzero image order q^max(ℓ-d_j,0) and is valid even if the lift of a zero coordinate is nonzero upstairs. Each x then contributes q^(ℓm-s) classes; the number of x with a given truncated valuation vector is (q-1)^b q^e. Expanding the resulting terms gives the asserted positivity, including with no edges, isolated vertices, or residue characteristic two. Independent commutator-image enumeration for P4 at level two gives class counts (64,64,208,192,352,128,64) at sizes 1 through 64 in powers of two both over Z/4 and over F2[t]/(t²); direct evaluation of the forest expression on its 81 valuation vectors gives the same vector and total 1072.",
+      "residual_risks": [
+        "Replay covers one graph and two rings; the arbitrary-graph and arbitrary-level claim rests on the determinantal proof.",
+        "The frozen verification prose mentions C5, but the accompanying script's graph dictionary does not contain it. No C5 test is credited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem E proves (q−1)-positive total counts for cographs at every level; Corollary C proves positive class-size counts for arbitrary graphs at level one.",
+          "The general class-number zeta functions encode totals; the prior questions explicitly single out positivity beyond cographs and higher-level combinatorial formulas."
+        ],
+        "reasoning": "Neither positive specialization covers arbitrary graphs at ℓ≥2. Existing all-graph polynomiality/rationality for totals is weaker in statistic and does not impose coefficientwise signs.",
+        "searches": [
+          "Rossmann–Voll arXiv:1908.09589v2, Theorem E and Question 1.7",
+          "Rossmann arXiv:2107.05564, Corollary C and Section 8.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.09589v2 and arXiv:2107.05564",
+        "Resultary records 9bf726674b49, f79766dd4bb5, fb80c871ed65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 1.7 asks about total class-number positivity; Section 8.4 distinguishes finite-field combinatorics from higher congruence levels.",
+          "The frozen proof needs exact valuations of each determinantal divisor, not just ranks of induced matrices over the residue field."
+        ],
+        "reasoning": "The minimum over forest roots and the resulting Smith truncation control image order profile by profile. Summing this gives the total positivity asked for, while keeping each stratum is stronger. The field and total-count results do not provide the determinantal profile or the sign proof.",
+        "searches": [
+          "arXiv:1908.09589v2, Question 1.7",
+          "arXiv:2107.05564, Section 8.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9bf726674b49 and f79766dd4bb5 concern radical-square-zero quiver algebra unit groups over fields. Resultary fb80c871ed65 concerns tree graphical group character degrees.",
+          "Rossmann Corollary C concerns this same class-size statistic over a field."
+        ],
+        "reasoning": "The class-size spectrum is the refined invariant even when described through commutator-image orders or kernel sizes; averaging kernels alone erases the strata. The quiver unit-group spectra and tree character-degree counts do not have the required commutator map or higher-level DVR quantifier.",
+        "searches": [
+          "Resultary: graphical group class-size strata, forest valuations and congruence levels",
+          "arXiv:1908.09589v2 and arXiv:2107.05564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Substitute X³T in the Table 1 entry W⁻ for P4 and read the T² coefficient: X⁴(6X⁴−X³−6X²+X+1), exactly the frozen example."
+        ],
+        "reasoning": "That table-derived count is a known specialization, not novelty evidence. The table does not encode a general formula for the individual class sizes at higher levels.",
+        "searches": [
+          "Rossmann–Voll arXiv:1908.09589v2, Table 1 and Section 1 Non-negativity",
+          "Resultary class-spectrum records 9bf726674b49 and f79766dd4bb5"
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite valuation-forest construction of positive class-size strata at every level for arbitrary graphical groups over finite-residue DVR quotients. The level-one strata, all-level cograph total positivity, and the P4 level-two total example are prior and are not credited as new. The nearest catalogue spectrum findings inspected use different groups or different statistics.",
+      "residual_risks": [
+        "The bounded literature and catalogue comparison cannot rule out a later answer to Question 1.7 or an equivalent valuation rule under support-constrained matrix terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes higher-level cograph positivity for totals; exact P4 example is covered",
+          "evidence": "W⁻(X,X^mT) generates total polynomials; P4 table entry gives the stated level-two count.",
+          "identifier_or_url": "https://arxiv.org/html/1908.09589v2",
+          "material_read": "Section 1 Non-negativity, Theorem E and Question 1.7 (offsets 59100–64073); Table 1 (offsets 395749–402248)",
+          "method": "Targeted primary HTML read and coefficient extraction",
+          "title": "Groups, graphs, and hypergraphs: average sizes of kernels of generic matrices with support constraints",
+          "trigger": "Closest uniform higher-level graphical group counting theorem and possible exact example"
+        },
+        {
+          "assessment": "Level-one positivity is prior; higher levels discussed as a separate gap",
+          "evidence": "Corollary C states the nonnegative polynomial for each class size over F_q.",
+          "identifier_or_url": "arXiv:2107.05564",
+          "material_read": "Corollary C (offsets 13230–13450) and Section 8.4 (offset 76727)",
+          "method": "Targeted primary-text read",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Same groups and refined statistic over fields"
+        },
+        {
+          "assessment": "Different group and base-ring scope",
+          "evidence": "Forest formula for unit groups of radical-square-zero quiver algebras over finite fields.",
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-tutte-controlled-conjugacy-class-spectra-of-radical-square-zero--9bf726674b49",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Tutte-controlled conjugacy class spectra of radical-square-zero quiver algebras",
+          "trigger": "Closest catalogue forest formula and class-size spectrum"
+        },
+        {
+          "assessment": "Different group and finite-field scope",
+          "evidence": "Full spectra and Tutte class counts for the quiver algebra setting.",
+          "identifier_or_url": "Resultary 2026/10/12 SCOPE-tutte-evaluations-and-full-inner-conjugacy-spectra-of-radical-sq--f79766dd4bb5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement read",
+          "title": "Tutte evaluations and full inner conjugacy spectra of radical-square-zero quiver algebras",
+          "trigger": "Alternative Tutte/conjugacy spectrum formulation"
+        },
+        {
+          "assessment": "Different invariant and restricted graphs",
+          "evidence": "Tree character-degree counts in odd q, not conjugacy strata.",
+          "identifier_or_url": "Resultary 2026/10/4 SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement read",
+          "title": "Tree graphical groups have matching support character polynomials",
+          "trigger": "Catalogue polynomial invariant for the same type of group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, formulas and proof",
+        "Rossmann–Voll Question 1.7; Rossmann Section 8.4"
+      ],
+      "rationale": "The exact class-size strata are natural invariants beyond the total count. The forest formula links them to computable graph data uniformly across residue fields and ramification, and its nonnegative summands settle the total positivity question across graphs and levels. The already known P4 total by itself would not supply value.",
+      "residual_risks": [
+        "The enumeration need not be efficient and makes no claim about a compact rational zeta function or its poles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -2,65 +2,57 @@
 
 ## Finding
 
-For an integer \(n\ge4\) and a permutation \(\pi\in S_n\), let \(G_\pi\) denote the inversion graph on the \(n\) positions, where \(i<j\) are adjacent exactly when \(\pi(i)>\pi(j)\). Write \(\kappa(G)\) for ordinary vertex connectivity, with value zero for disconnected graphs, and let
-\[
-K_n(x)=\sum_{\pi\in S_n}x^{\kappa(G_\pi)}.
-\]
-The following conditions are equivalent:
+For a permutation \(\pi\in S_n\), let \(G_\pi\) be its inversion graph on positions, with \(i<j\) adjacent when \(\pi(i)>\pi(j)\), and set \(K_n(x)=\sum_{\pi\in S_n}x^{\kappa(G_\pi)}\), where \(\kappa\) denotes ordinary vertex connectivity. For \(n\ge4\), the following conditions are equivalent:
 
 1. \(\kappa(G_\pi)\ge n-3\).
-2. The complementary graph \(\overline{G_\pi}\) is a disjoint union of paths (isolated vertices permitted) and triangles.
-3. The value-complement permutation \(\widehat\pi(i)=n+1-\pi(i)\) decomposes as a direct sum whose indecomposable components are either path permutations (increasing oscillations, including components of sizes one and two) or the size-three decreasing permutation \(321\).
+2. \(\overline{G_\pi}\) is a disjoint union of paths (allowing isolated vertices) and triangles.
+3. The value complement \(\widehat\pi(i)=n+1-\pi(i)\) is a direct sum of increasing oscillations (including path blocks of sizes one and two) and copies of the triangle permutation \(321\).
+4. \(\widehat\pi\) satisfies \(|\widehat\pi(i)-i|\le2\) for all \(i\) and avoids \(3412\).
 
-Let \(N(\pi)=\binom n2-\operatorname{inv}(\pi)\), the number of noninversions. For \(n\le3\), put every permutation into the initial class, and for all \(n\ge4\) use the equivalent conditions above. The complete noninversion-refined enumerator of these permutations is
+Condition 4 is the permutation class already described in the comments of OEIS A180965 (with its index shifted by one). The unweighted sequence and that permutation interpretation are not claimed as new. The result connects that class to high vertex connectivity and gives a noninversion refinement in the original permutation. Write \(N(\pi)=\binom{n}{2}-\operatorname{inv}(\pi)\). Including every permutation for orders \(0\) through \(3\), the refined series is
 \[
-\boxed{\sum_{n\ge0}z^n\!\sum_{\pi:\,\kappa(G_\pi)\ge n-3}q^{N(\pi)}
-=\frac{1}{1-z-qz^2-(2q^2+q^3)z^3-\dfrac{2q^3z^4}{1-qz}}.}
+\sum_{n\ge0}z^n\sum_{\pi:\,\kappa(G_\pi)\ge n-3}q^{N(\pi)}
+=\frac{1}{1-z-qz^2-(2q^2+q^3)z^3-2q^3z^4/(1-qz)}.
 \]
-The condition for \(n\le3\) in this display means precisely the declared all-permutation initial class, not a negative-connectivity convention.
-
-Writing \(a_n=[z^n](1-z)/(1-2z-2z^3+z^4)\), and \(F_0=0,F_1=1\) for Fibonacci numbers, we obtain for all \(n\ge4\):
+The condition in this series for orders \(0\) through \(3\) is the declared initial class. For \(n\ge4\), putting \(a_n=[z^n](1-z)/(1-2z-2z^3+z^4)\), the top three coefficients are
 \[
-\boxed{[x^{n-1}]K_n(x)=1,\qquad
-[x^{n-2}]K_n(x)=F_{n+1}-1,\qquad
-[x^{n-3}]K_n(x)=a_n-F_{n+1}.}
+[x^{n-1}]K_n(x)=1,\qquad [x^{n-2}]K_n(x)=F_{n+1}-1,\qquad [x^{n-3}]K_n(x)=a_n-F_{n+1},
 \]
-For \(n=4,5,6,7,8\), the last coefficient equals \(8,21,55,135,323\), respectively. The all-order scalar counts \(a_n\) coincide with the shifted OEIS A180965 sequence and are **not claimed as a previously unknown numerical sequence**.
+where \(F_0=0,F_1=1\). For \(n=4,5,6,7,8\) the last coefficient is \(8,21,55,135,323\), respectively; the values through order seven occur in Verkama's table.
 
 ## Assumptions and scope
 
-All graphs are finite and simple. An induced graph on a vertex set is used when deleting vertices; \(\kappa(K_n)=n-1\). A path of order one is an isolated vertex; the term triangle means the complete graph on three vertices. The variable \(q\) counts noninversions of the *original* permutation, equivalently edges of its complementary inversion graph. The theorem counts permutations, not graph isomorphism types, and makes no claim for connectivity layers below \(n-3\).
+Graphs are finite and simple, with \(\kappa(K_n)=n-1\) and \(\kappa=0\) for disconnected graphs. This counts permutations, not isomorphism types of graphs. The variable \(q\) counts edges of the complementary inversion graph, and no classification for lower connectivity layers is claimed.
 
 ## Proof
 
-**1. Four-vertex connectivity test.** For every graph \(G\) on \(n\ge4\) vertices, \(\kappa(G)\ge n-3\) if and only if every induced four-vertex subgraph is connected. Indeed, a disconnected induced subgraph on four vertices gives a vertex cut of size \(n-4\). Conversely, if a deletion of at most \(n-4\) vertices disconnects the remaining graph, which has at least four vertices, selecting four vertices from at least two of its connected components yields a disconnected induced four-vertex subgraph.
+**Four-vertex test.** For \(n\ge4\), a disconnected induced subgraph on four vertices exhibits a cut of size \(n-4\). Conversely a deletion of at most \(n-4\) vertices leaving a disconnected graph leaves at least four vertices; choose four of them meeting at least two components. Hence \(\kappa(G)\ge n-3\) holds exactly when every four-vertex induced subgraph is connected.
 
-**2. Complement obstructions.** Put \(H=\overline G\). A four-vertex induced subgraph of \(G\) is disconnected if and only if, across some partition into two nonempty blocks, all cross-edges lie in \(H\). Such a partition has type \(1+3\) or \(2+2\). Consequently, the four-vertex condition is equivalent to \(H\) containing neither \(K_{1,3}\) nor \(K_{2,2}\) as a (not necessarily induced) subgraph. The first prohibition says \(\Delta(H)\le2\). Thus every connected component of \(H\) is a path or cycle. The second prohibition excludes a four-cycle. Inversion graphs have no induced cycles of length at least five (the standard permutation-graph fact explicitly used in Albert–Brignall–Ruškuc–Vatter, §9, page 27). As a graph with maximum degree two cannot contain a cycle with a chord, the only possible cyclic component is a triangle. This proves equivalence of (1) and (2) for a permutation inversion graph.
+**Complement obstructions.** A disconnected induced subgraph on four vertices gives a partition of type \(1+3\) or \(2+2\) with all cross-edges in the complement. Thus the test excludes \(K_{1,3}\) and \(K_{2,2}\) as not necessarily induced subgraphs of \(\overline G\). The first exclusion implies maximum degree two, so all components are paths or cycles; the second excludes four-cycles. Now \(\overline{G_\pi}=G_{\widehat\pi}\). An inversion graph has no induced cycles of length at least five by [2]. Every cycle in a graph of maximum degree two is induced, so only triangles remain. The converse is immediate from the same obstructions. This proves 1–2.
 
-**3. Sum-indecomposable blocks.** Value-complementation sends inversions to noninversions, so \(H=G_{\widehat\pi}\). Connected components of the inversion graph correspond, in left-to-right order, to the unique direct-sum decomposition of its permutation. For a size-one component there is one permutation; for a size-two path there is one; for every size \(j\ge3\) path there are exactly two increasing oscillations (see the explicit constructions in the cited Albert papers). The only additional allowed connected component is the size-three triangle, represented uniquely by \(321\). Every path component on \(j\) vertices contributes \(j-1\) inversions of \(\widehat\pi\), and a triangle contributes three. The indecomposable-component series is therefore
+**Direct sums and weights.** The components of an inversion graph are the blocks of its permutation's unique direct-sum decomposition; if an index between endpoints of an inversion belonged to another component, its value would have to be larger than the left value and smaller than the right value, which is impossible. Hence connected components occupy consecutive positions, with no cross inversions. By [2, 3], path components have one representative at each size one and two, and two increasing oscillations at every size at least three. A triangle has representative \(321\). A path of order \(j\) has \(j-1\) edges, and a triangle has three, so the series for the allowed components of \(\widehat\pi\) is
 \[
-B(z,q)=z+qz^2+(2q^2+q^3)z^3+\sum_{j\ge4}2q^{j-1}z^j
-=z+qz^2+(2q^2+q^3)z^3+\frac{2q^3z^4}{1-qz}.
+B(z,q)=z+qz^2+(2q^2+q^3)z^3+\sum_{j\ge4}2q^{j-1}z^j.
 \]
-Unique ordered concatenation implies the enumerator is \(\sum_{r\ge0}B(z,q)^r=1/(1-B(z,q))\), with no quotient by graph automorphisms. This proves the bivariate formula.
+Ordered sequences of these blocks have series \(1/(1-B(z,q))\), including the empty sequence. This proves 2–3 and the weighted formula since \(\operatorname{inv}(\widehat\pi)=N(\pi)\). At orders at most three all permutations satisfy condition 2.
 
-**4. The top three connectivity coefficients.** At \(q=1\) we obtain \(1/(1-B(z,1))=(1-z)/(1-2z-2z^3+z^4)\). Next, \(\kappa(G)\ge n-2\) is equivalent to every three-vertex induced subgraph of \(G\) being connected. In its complement this is equivalent to maximum degree at most one, namely a matching plus isolated vertices. The corresponding direct-sum blocks have lengths one and two, each with one permutation, so their count is \([z^n](1-z-z^2)^{-1}=F_{n+1}\). Finally, \(\kappa(G)=n-1\) occurs only for \(G=K_n\), hence only for the decreasing permutation. Subtracting cumulative counts yields the three coefficient formulas.
+**Exact class overlap with A180965.** For a permutation \(\sigma\), let \(l_i\) count larger values strictly to the left of \(i\), and \(r_i\) smaller values strictly to the right. The degree is \(l_i+r_i\), and counting smaller values gives \(\sigma(i)-i=r_i-l_i\). Thus maximum degree at most two implies displacement at most two. Conversely, under the displacement bound, if \(l_i,r_i\) are both positive, a larger value to the left is at most \(i+1\) and a smaller value to the right is at least \(i-1\); consequently \(\sigma(i)=i\). The only possible left and right locations of these inversions are then \(i-1\) and \(i+1\), respectively. If just one side contributes, the degree is the absolute displacement. In all cases the degree is at most two.
+
+The only four-point permutation whose inversion graph is a four-cycle is \(3412\): its first value must be 3 by degree two, the value 4 must be second to have two later smaller values, and the last two entries must be increasing. Thus under the degree bound avoidance of \(3412\) is exactly the absence of a four-cycle. This proves 2–4, using again the absence of longer induced cycles. Moreover, if \(a<b<c<d\) occur in the order \(c,d,a,b\) at positions \(i_1<i_2<i_3<i_4\), the displacement bound implies \(c\le i_1+2\) and \(b\ge i_4-2\). Since \(c>b\), one has \(i_4-i_1\le3\), forcing contiguous positions and the four consecutive values from \(i_1\) to \(i_1+3\) by the same bound. This also explains the description in [4] as swapping two consecutive pairs. Accordingly the unweighted A180965 overlap is class-level, not inferred from numerical equality.
+
+**Connectivity coefficients.** At \(q=1\) the formula reduces to \((1-z)/(1-2z-2z^3+z^4)\). The same deletion argument with three vertices instead of four shows that \(\kappa(G)\ge n-2\) is equivalent to the complement having maximum degree one, since a disconnected triple yields a vertex with two complement neighbors and conversely. The complementary permutation is then a direct sum of singleton and size-two path blocks, with count \([z^n](1-z-z^2)^{-1}=F_{n+1}\). Only the decreasing permutation has the complete graph. Taking differences of the cumulative counts proves the three formulas.
 
 ## Verification
 
-Run `python3 verify_inversion_connectivity.py` with the Python standard library. The checker independently builds every inversion graph for all permutations of orders \(4\) through \(8\); for orders at most seven it obtains exact vertex connectivity by exhaustive deletion of vertex subsets. At order eight it directly checks every four-vertex induced subgraph. It compares both sides of the path–triangle characterization, the scalar counts, the first three connectivity coefficients when exact connectivity is computed, and every coefficient of the independently constructed noninversion-refined polynomial. All checks returned `VERIFY_OK`. The infinite-range theorem follows from the four-vertex obstruction and sum-decomposition proof, not from finite testing.
+The supplied standard-library script `verify_inversion_connectivity.py` compares the path–triangle condition with connectivity by exhaustive vertex deletion through order seven and with the four-vertex test at order eight. It also checks the noninversion-refined coefficient counts. These finite tests supplement, not replace, the all-order proofs, including the displacement-pattern identification above.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Verkama, *Permutation patterns and higher connectivity in inversion graphs* (arXiv:2611.17237v1, §6), defines \(K_n(x)\) and tabulates its coefficients through order seven, without the all-order high-connectivity classification or noninversion-refined generating function. Albert–Brignall–Ruškuc–Vatter (§9 of arXiv:1602.00672) and Albert–Jelínek–Opler (arXiv:1912.07713, p. 8) establish the path-permutation and oscillation facts used as inputs, not the vertex-connectivity statement. OEIS A180965 gives, with an index shift, the same **unweighted sequence** \(a_n\), originally under tatami tilings and another permutation interpretation. The known scalar recurrence is acknowledged; no numerical-sequence novelty is asserted on that basis. Searches under complement graphs, path–triangle components, pattern avoidance, and the upper connectivity coefficients yielded no prior complete covering statement. This does not prove historical uniqueness.
-
-## Limitations
-
-The structural classification and generating-function formula apply at the threshold \(n-3\) for \(n\ge4\). They do not determine intermediate or low vertex-connectivity coefficients, nor do they give a direct bijection to tatami tilings. A matching numerical sequence is not automatically an equivalence of the underlying combinatorial objects. Possible unindexed equivalent enumerations or pattern-class identities remain a priority risk. No independent mathematical audit has been performed.
+Verkama [1, §6 and Table 1] defines \(K_n(x)\) and tabulates it through order seven. The path-oscillation classification and prohibition of longer induced cycles are known [2, 3]. Morales's 2013 interpretation in [4] gives the exact same unweighted complementary permutation class in displacement-pattern language, and [4] gives the shifted scalar generating function. The contribution here is the relation of this class to the high-connectivity tail and its noninversion-refined enumeration. There is no claim of a new unweighted permutation class, a new sequence, or a direct bijection to tatami tilings. Bounded prior-source comparisons do not establish publication priority.
 
 ## References
 
-- E. Verkama, *Permutation patterns and higher connectivity in inversion graphs*, arXiv:2611.17237v1 (first public 2026-11-12), §6 and Table 1. https://arxiv.org/html/2611.17237v1
-- M. Albert, R. Brignall, N. Ruškuc and V. Vatter, *Rationality For Subclasses of 321-Avoiding Permutations*, arXiv:1602.00672, §9, p. 27. https://arxiv.org/pdf/1602.00672
-- M. Albert, V. Jelínek and M. Opler, *Two examples of Wilf-collapse*, arXiv:1912.07713, p. 8, discussion of increasing oscillations. https://arxiv.org/pdf/1912.07713
-- OEIS Foundation, A180965, *Number of tatami tilings of a 2 X n grid (with monomers allowed)*; sequence, formula, and 2013 permutation interpretation. https://oeis.org/A180965
+1. E. Verkama, *Permutation patterns and higher connectivity in inversion graphs*, arXiv:2611.17237v1, §6 and Table 1. https://arxiv.org/html/2611.17237v1
+2. M. Albert, R. Brignall, N. Ruškuc and V. Vatter, *Rationality for subclasses of 321-avoiding permutations*, arXiv:1602.00672, §9. https://arxiv.org/pdf/1602.00672
+3. M. Albert, V. Jelínek and M. Opler, *Two examples of Wilf-collapse*, arXiv:1912.07713, discussion of increasing oscillations. https://arxiv.org/pdf/1912.07713
+4. OEIS Foundation, A180965, *Number of tatami tilings of a 2 X n grid (with monomers allowed)*, COMMENTS (Jean M. Morales, June 2, 2013) and FORMULA. https://oeis.org/A180965

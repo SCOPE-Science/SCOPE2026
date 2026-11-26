@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-cycle description of permissible run changes and the rational run generating function are exact. The leading one-dimensional variance follows from the tilted pole; the three-dimensional covariance and eight lattice saddle points yield the equal-content constant. A primitive transfer-matrix exponential bound establishes that any fixed sub-quarter minimum share is asymptotically inactive. The symmetric seam imposes a terminal run of length one; its exact generating function gives the second prefactor. The packaged, independently formulated position-state checker verifies all small words by brute force, the exact source table at length 48, and the analytic constants. Finite computations are not presented as a proof of the infinite assertions.
+## correctness
 
-## Originality — PASS within examined evidence
-The closest full primary text, Langiu--Rubino--Canale, arXiv:2610.23146v1 (October 16, 2026), treats these exact manufacturing rules with finite-length enumeration/sampling but does not state the present sharp one-quarter asymptotic phase transition or constants. Searches against mathematical records, synonymous terminology, the explicit sequences, and broader generating-function claims located no covering statement. Classic analytic combinatorics supplies proof methods, not this enumeration. Priority could be affected by unindexed engineering/combinatorial literature.
+PASS
 
-## Mathematical value — PASS
-The new result identifies when the prescribed per-orientation manufacturing constraint is asymptotically free, when it forces an additional inverse-power loss, and when it is impossible. It quantifies the tremendous asymptotic design-space reduction from symmetry and gives numerical normalization constants for reproducible model calibration. These are natural infinite-family consequences of the exact 2026 stacking-language model, not arbitrary extra digits of a published table.
+The allowable changes form K_{2,2}, and summing alternating runs, including empty and odd-length run lists, gives (1+A)(1+B)/(1-AB). The positive pole is simple with amplitude 1/(rho H'(rho)). At |z|=rho a pole requires equality in both triangle inequalities. Comparing each length-one term with its length-two and length-three powers forces each basic phase to be 1. The balance-only slice therefore has just one phase. In the full torus the x and y angles are binary, and for each combination there are two z angles with the v angle determined: eight saddle points in all. Their factors z^(-n) coincide positively for 4|n. Differentiating log(AB)=0 with respect to the Fourier angles gives zero first derivative and curvature equal to pair-run covariance divided by 2 mu: diag(s,s,t). Here the independence of lengths and signs gives covariance diag(nu,nu,2(nu-mu^2)) for one pair. Simplicity and compactness allow uniform pole extraction on small neighborhoods and a strictly larger radius off them. This gives the stated n^(-1/2) and n^(-3/2) Gaussian prefactors. The letter/run-length automaton is strongly connected with 2- and 3-cycles; its letter symmetries give tilted Perron slope 1/4, yielding exponential suppression for a fixed sub-quarter quota, even after balance or terminal restriction. For the mirror, the last run must be a singleton before doubling at the seam; the integer minimum-content inequalities reduce exactly to the half-word and the unmarked terminal numerator changes the amplitude by 2 rho. Exactly a quarter forces equal counts and 4|n; above a quarter no positive lengths qualify. There is no asserted reflected asymptotic at the boundary. Independent finite corroboration: enumerate by complete runs, starting one state (length j, final letter a, count vector j e_a) for each a and j=1,2,3. Append either adjacent cycle letter in runs j=1,2,3 and add multiplicities to the resulting full count-vector state; for the length-24 mirror count require the last append to have j=1. Exact counts at linear length 48 are 31056472857623585226752, 1928147653129777177600, 1899989961206244002236, 98266297652879155168 for local, balanced, 10 percent and equal-content, respectively; mirror 10 percent gives 11236189644. The archived position-state checker was inspected, not executed. Finite evidence does not establish the asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The four-angle manufacturing language, finite counting, 10 percent quota instance and mirror-seam reduction are established prior work. The supported distinct claim is the explicit fixed-share asymptotic laws, constants, lattice-supported quarter boundary and mirror amplitude. Neither closest source supplies these results as a stated theorem or a mechanical specialization of its quantitative conclusions.
+
+## value
+
+PASS
+
+The finite enumeration problem has a natural application and a specific unresolved infinite-length question. The result explains when composition costs only an exponentially small exclusion versus a change of polynomial exponent, and quantifies the exponential penalty for reflection symmetry. These are informative limiting comparisons rather than recomputations of the finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

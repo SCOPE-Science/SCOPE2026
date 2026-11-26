@@ -1,19 +1,21 @@
-# Scientific review of the ternary connected-noncrossing-graph index sum theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nondivisibility index description is the exact Deutsch–Sagan congruence, proved in the primary literature and independently by Gessel. The digit-sum support inclusion follows by carry monotonicity, and reverse inclusion has explicit constructions for targets of weights zero and one and a unit partition for weights two to four. For the full fiber histogram, each digit transition is derived from integer digit addition, with two carry states and two independent digit weights truncated at two. The provided `fiber_certificate.py` constructs the reachable 18-dimensional integer coefficient vectors and verifies the 18-state transition table and the 18-by-18 identity \(T^2(T-3I)(T-I)^5=0\) using exact integer arithmetic. The histogram polynomials satisfy this same recurrence, including the two exceptional initial depths, and the first eight exact depth comparisons force equality for every depth. The energy formula is the squared-fiber sum. An independent four-input carry computation and direct set enumeration provide cross-checks. No finite sample is passed off as an infinite argument.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Gessel's congruence identifies the positive input residues exactly as ternary digit sums 1 and 2. Carrying and discarding a top carry cannot raise digit sum. Targets of weights 2 through 4 are obtained by partitioning their digit units into two nonempty groups of size at most two. The top-position sums in the proof supply weight 0 and every weight 1, including r=1. The ordered-pair transitions on the two input digit weights and incoming carry follow from a_i+b_i+c_i=t_i+3c_{i+1}; both outgoing carries count, but either zero input weight is rejected. My separate exact check /workspace/branches/reproduce_5.py folds partial weights by exchange symmetry, reconstructs 18 reachable states, verifies the annihilator T^2(T-3I)(T-I)^5 on every basis row and checks the full initial histograms plus direct sums for r=1..9. The eight initial values and recurrence prove the histograms for all depths since the formulas at r>=2 are degree-at-most-four polynomials plus the 3^r term, and the two early exceptions are killed by the squared shift. Summing j^2H_j gives the displayed energy, with r=1 checked separately. I inspected the supplied certificate and four-input check without executing them.
 
-The original Deutsch–Sagan and Eu–Liu–Yeh graph-count congruences, Gessel's complete short proof, and Krattenthaler–Müller's later stronger graph-number congruences address values of graph counts and **individual** index membership, not the cyclic pair-sum representation function of their nondivisibility indices. Green's broader digital additive-energy result is an inequality for arbitrary low-support digital sets and does not determine these exact fibers. Published exact energies for binary digit sets involve different representations and carry systems. Search of the available research-record corpus and accessible prior claims found no statement whose implication directly yields this complete ternary low-weight histogram. Residual risk: a specialized or generalized digital-convolution paper not retrieved could imply this exact formula; originality is a best-knowledge judgment, not a certification of priority. The Eu–Liu–Yeh paper's full text was not accessible; Gessel supplies the needed premise and a fully inspected original proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph-nondivisibility indices are a classical, arithmetically motivated sparse set with \(|S_r|\) quadratic in the digit length. The result gives a complete all-depth representation function distribution, exact support, a universal sharp fiber bound, and an exact quartic cyclic additive-energy formula. These are genuine additive invariants of the number-theoretic index set that cannot be read directly from the published congruence criterion. The finite-state reduction explains why the distribution has a bounded fiber spectrum and is reusable for related automatic-index convolution problems; the exact prime-power information has mathematical content beyond a finite census.
+The exact cyclic ordered histogram and energy for this specific ternary weight-one-or-two index set are distinct in the inspected evidence. The closest catalog analogue changes the set and carry language, not just the names; graph congruences supply membership, and general energy estimates do not give the exact distribution.
 
-## Evidence and limits
+## value
 
-Primary sources: Deutsch–Sagan, arXiv:math/0407326v1 (2004); Gessel, arXiv:1403.7656v1 (2014). Closest broader comparisons: Krattenthaler–Müller, DOI:10.1007/s00010-025-01195-0 (2025), §5; Green, DOI:10.1112/S0010437X24007723 (2025), Proposition 2.4 and §7. Code checks: `fiber_certificate.py` and `independent_energy_check.py`. All proofs concern modular sums of indices, not sums of graph counts. No external mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This arithmetic index set is natural before enumeration, and ordered cyclic collisions are a genuine invariant of it. The precise uniform cap, full distribution and energy distinguish ordinary partition counts from carry-induced collisions and provide an exact benchmark for higher digit-weight carry problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

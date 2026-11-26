@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from the exact hypotheses of Campbell's published Lemmas 3, 4, 6, classical two-linear-form sieve bounds and the prime number theorem. For every fixed pair of positive integers \(r,J\), Lemma 3 supplies \(J\) distinct sufficiently large odd deletion sums with minimal-product prime sets of size \(r+3\); Lemma 4 supplies distinct-prime triples for each sum. Lemma 6 determines the product-maximal complementary prime set when the following prime gap exceeds the fixed threshold. A finite union of fixed-shift two-prime sieve estimates makes such gaps occur at a prime-relative density-one set. The proof separately verifies that different offsets and different primes cannot produce collisions after finitely many initial exceptions, and checks the constant \(2J\) in the prime-prefix asymptotic. The limit \(+\infty\) is obtained only after taking the asymptotic for each fixed \(J\). Dependence on prior classical theorems is explicit.
+PASS
 
-## Originality — PASS with residual risks
+Campbell Lemmas 3, 4 and 6 have the needed hypotheses: arbitrarily large odd d with a size-(r+3) product-minimizer, existence of three distinct primes for all sufficiently large odd d, and complement optimality for prime p>d with strict next gap >11M. Both deletion sets lie in the prefix, and unique factorization makes the product optimizer unique. Fixed H excludes only O_H(y/log^2 y) primes by summing the unconditional two-linear-form upper-bound sieve (the two roots are distinct modulo every prime not dividing h for each fixed even shift h; odd shifts give only finite exceptions). A cross-prefix collision would force p''<=max|d_i-d_j|, already excluded by p''>max d_i; same-prefix collisions are impossible. Partial summation gives Sigma(y)~y^2/(2 log y), so with at most one boundary prime per translate the count is (2J+o(1))sqrt(X/log X). For every arbitrarily large fixed J this bounds the normalized liminf below by 2J, proving divergence without any growing-J uniformity. The frozen verification notes are analytic, not a computational certificate; its no-rate qualification is not a theorem about how slowly the actual count grows.
 
-The inspected October 2026 paper proves infinitude for each fixed discrepancy, but has no quantitative counting statement. Its source lemmas are directly used, not misrepresented as novel. Deléglise–Nicolas address a bounded-sum product optimization, not the exact-sum cardinal discrepancy; the OEIS table provides finite terms. A separately inspected public prime-gap construction concerns equal products of consecutive integers, not sums of distinct primes. Targeted mathematical-result searches for prime-prefix shifts, multiplicity and counting laws did not identify the same conclusion. The principal residual risk is an implicit, unindexed consequence in earlier work on prime partitions or sieve-theoretic counting.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A newly settled existence question for the difference between two natural extremal prime-partition invariants motivates asking how frequently large discrepancies occur. An infinitude construction can in principle yield extremely sparse witnesses; here every fixed template works for almost every prime, and infinitely many distinct templates combine to show that **no fixed coefficient** at the natural \(\sqrt{X/\log X}\) prime-prefix scale can bound the number of witnesses. The exact \(2J\) subfamily asymptotic and the unbounded-multiplier conclusion quantify the distribution in a way not contained in bare infinitude. This is a specialized but nontrivial quantitative strengthening, not an asymptotic for the full exceptional set.
+Credit Campbell's one-offset construction and discrepancy infinitude completely. The supported contribution is the explicit density-one prime-prefix count for arbitrarily many fixed distinct translates and the resulting divergent normalized lower bound. The strongest distinct indexed comparison proves residue-class infinitude and contains a material but unattributed reference to a multiplicity theorem; its verified statements neither identify a separate exact antecedent nor give the stated 2J asymptotic. No equivalent earlier or otherwise distinct proved statement of this scope was located. This is a bounded judgment, not a priority certification.
 
-## Sources and limitations
+## value
 
-Primary detailed comparison: Campbell, arXiv:2610.19534v1, Sections 1–3, Lemmas 3, 4, 6 and Theorem 1. Other comparisons: Deléglise–Nicolas (2015), especially the definition of its bounded-sum \(h(n)\), Theorems 2–3 and Section 4; OEIS A053020; the standard Brun–Selberg fixed-prime-shift sieve reference. The construction is non-effective in the number of templates and offers no positive-density or uniform-in-parameter estimate. Independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a natural quantitative strengthening of an exact-sum partition problem: not just one infinite subsequence, but arbitrarily many asymptotically full translates of the benchmark prime-prefix sequence, with an explicit factor 2J and divergent normalized exceptional count. The proof is economical and the claim does not pretend to determine the complete exceptional set or a natural density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

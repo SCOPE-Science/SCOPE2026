@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The edge-support observation is equivalent to a covering directed walk. For three letters, the component analysis gives an Euler trail for every feasible support, including loops. The formula partitions directed edge supports by active-vertex count and by strong-component structure, without double-counting. The direct enumerator gives 328 labeled supports, including the empty set. The directed-cycle argument proves exact-length persistence for the remaining 315 profiles. The four-symbol example has imbalances \((2,-2,0,0)\), excluding a six-transition realization; its seven-transition word is explicit. A separate state-space closure and exhaustive enumeration of all words through length ten agree with the closed formulas.
+## correctness
 
-## Originality
-**PASS, with uncertainty.** The closest full text is Bernardini et al., whose central algorithm for shortest strings with specified length-\(k\) substring sets covers individual instances but neither states the complete ternary length-two census nor the sharp alphabet bound for edge-simple realizations and the 13/315 persistence classification. The older conference version is credited. Celikkanat et al. concern k-mer genomic representations; Gabrys and Milenkovic and related binary multispectrum work retain digram multiplicities and so do not determine the presence-only ternary answer. Exact aliases, broader methods and existing finite tables were searched, without finding a statement implying the complete claim. This does not establish universal novelty; an unindexed combinatorial enumeration or a hidden special-case theorem could supersede the result.
+PASS
 
-## Value
-**PASS.** The ternary alphabet is mathematically distinguished as the largest alphabet for which every feasible length-two support can be realized without repeating an edge. At that boundary the exact set-valued reconstruction capacity becomes a finite 328-class census with a sharp uniform length cutoff and a structural 13-versus-315 persistence dichotomy. This supplements rather than merely relabels general shortest-Eulerian-walk algorithms, furnishing precise benchmarks for support-only sequence representations.
+A covering walk cannot revisit a strong component, so all intercomponent arcs must form a single directed path of components with exactly one actual arc per step. Conversely one can cover the edges within each strong component between its entry and exit. On at most three vertices a single strong component has imbalances of magnitude at most one; if there are multiple components, each is internally balanced and only the end components contribute uncancelled transition imbalances. In particular any intermediate component must be a singleton. The resulting Euler trail attains |E|+1. The independent weak-connectivity/imbalance census over all 512 masks and exact-length walk-state calculation agree with the polynomial and the 13 acyclic supports. The all-length result follows symbolically: repeat an available loop, extend the trail arbitrarily at a strongly connected terminal vertex, or pad at the cyclic end of the only remaining case, a reciprocal pair attached to a singleton by a single arc. Complete support forces the sharp threshold of ten. In the four-letter example imbalance (+2,-2,0,0) rules out length seven and the displayed eight-letter word realizes exactly the six arcs.
 
-## Limitations and nearest literature
-The result does not classify higher-order k-mers, four-symbol support counts, or multiset-valued observations. General directed graph covering-walk reduction is known from Bernardini et al.; the contribution is a small-alphabet rigidity and complete finite support classification. The NeurIPS-2024 genome paper motivates the representation problem but makes no claim of mathematical priority for this theorem. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exact presence-only ternary classification, sharp lossless alphabet boundary and length stabilization. Edge-cover walks in de Bruijn graphs and the general shortest-string optimization problem are already known. The closest records have different observations: cyclic or linear multiplicity matrices, sometimes with endpoints forgotten or a run restriction.
+
+## value
+
+PASS
+
+Presence-only adjacent factors are a natural information loss relative to multiplicity profiles and define an exact shortest-representative problem. The result identifies where repetitions can first be forced, classifies all ternary observations and all attainable lengths, and provides a sharp finite threshold. The structural boundary and complete attainable-length invariant make the small-alphabet census useful beyond a standalone count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

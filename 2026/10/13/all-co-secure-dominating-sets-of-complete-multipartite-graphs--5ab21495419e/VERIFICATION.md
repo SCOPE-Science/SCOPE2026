@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -26,3 +29,5 @@ Replay output:
 `ALL CHECKS PASSED; profiles=128; subsets_checked=64916; orders=2..10`
 
 The finite search tests small boundaries including \(K_{1,1}\), stars, balanced and unbalanced bicliques, multiple singleton parts, complete graphs represented as all-singleton multipartite graphs, and the transition between two and three partite classes. It is corroborative only and does not replace the arbitrary-order proof.
+
+The preceding replay checks the classification and the coefficient formula, not the separately stated scalar minimum. For a direct check of the biclique minimum run `python3 artifacts/check_biclique_minimum.py`. It tests all 28 profiles with \(1\le a\le b\le7\), directly enumerating sets by size until it finds a co-secure dominating set for each profile. It verifies the size-four threshold explicitly at \(K_{5,5}\).

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:45:53.613233Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 12–41",
+        "VERIFICATION.md",
+        "verify_run_reflection.py",
+        "Independent factor and reversal count at n=10"
+      ],
+      "rationale": "A factor with at least two changes contains a specified complete run and so has only one occurrence, ruling out right-speciality. Both constant factors are right-special; the one-change factors 0^a1^b and 1^a0^b are right-special exactly for a≤b and a<b respectively. This gives p(n+1)−p(n)=n+1 from p(1)=2. A factor with at least three changes cannot have its reversal: the internal run lengths are nondecreasing and the only equal adjacent complete runs occur in the order 0^k1^k. There are n−1 reversal pairs with one change. For two changes the flank bounds for both orientations are a,b≤k around 1^k and a,b≤k−1 around 0^k. Choosing the nonpalindromic representative a<b yields T(n) and T(n−1), where T(m) counts a+2b≤m. The generating function for all nontrivial pairs is z²/((1−z)²(1−z³)); its forward coefficient difference at n is floor((n+2)/3), giving floor(n(n+1)/6) pairs. Subtracting from p(n) proves the stated r(n), hence the 2/3 limit. Unbounded runs of both symbols rule out eventual periodicity. The frozen script was inspected, not run; an independent finite-prefix check at n=10 gave p=56 and r=38. Exact all-length validity rests on the proof.",
+      "residual_risks": [
+        "The independent count is a spot check, not a replay of the full bundled range or a formal certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 29 is stated without aperiodicity, and the later article has a periodic 2/3 example as well as positive results under additional hypotheses including reversal closure."
+        ],
+        "reasoning": "Neither the conjecture nor a theorem requiring reversal closure evaluates W, which is not reversal-closed and is not recurrent.",
+        "searches": [
+          "Allouche et al., arXiv:2406.09302 Conjecture 29",
+          "Dvořáková–Pelantová, DOI 10.1007/s00224-026-10278-7 §6"
+        ]
+      },
+      "checked_sources": [
+        "Allouche et al., Conjecture 29",
+        "Dvořáková–Pelantová §6",
+        "Resultary fe330b1e5833",
+        "Resultary 06b665794dd0",
+        "Resultary 11bf50127cec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perfect-square word already has p(n)∼n²/8 and r(n)∼n²/12, so proves the same aperiodic binary 2/3 existence result. The periodic disproof (233)^ω in §6 also has limit 2/3. Neither yields p(n)=n(n+1)/2+1 and r(n)=ceil(n(n+1)/3)+1 for W."
+        ],
+        "reasoning": "Credit the existing counterexamples and retain only the distinct exact evaluation and its application to this particular word.",
+        "searches": [
+          "Resultary fe330b1e5833 Finding and Asymptotic comparison",
+          "Reflection on the Reflection Complexity §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The square- and triangular-marker words place ones at isolated increasingly spaced positions, unlike alternating increasingly long runs of both symbols. A finite shift, letter exchange, or reversal does not identify these factor languages: W contains 00 and 11 in arbitrarily long constant blocks of each letter."
+        ],
+        "reasoning": "The same ratio is not an equivalent specification of the word or its language. The exact complexities in these examples are different.",
+        "searches": [
+          "Focused literature lookup for increasing-run binary words and reflection complexity",
+          "Resultary fe330b1e5833 and 06b665794dd0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact entries give formulas for square and triangular markers or a limit for a distinct 13-letter construction, not an all-length entry for W."
+        ],
+        "reasoning": "An exact evaluation for another language is not a table entry for W; equal limiting ratios do not recover the finite values or their rounding correction.",
+        "searches": [
+          "Local Resultary mirror: fe330b1e5833, 06b665794dd0 and 11bf50127cec"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact pair of formulas for the specified increasing-run word, with its 2/3 limit as a consequence. The record does not claim to be the first disproof or the first aperiodic example. The 2/3 limit among binary aperiodic words is itself already covered by another construction in the catalogue; it is not separately credited as new. No inspected statement supplies the all-length formulas for this word.",
+      "residual_risks": [
+        "An unindexed exact evaluation of the same increasing-run word could exist under another description.",
+        "No historical priority is asserted; catalogue dates do not settle it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unqualified limit dichotomy",
+          "evidence": "Conjecture 29 says any existing reflection-to-factor limit is 1/2 or 1; it does not require aperiodicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "PDF page 15, text near offset 32400",
+          "method": "Lawful OA primary text",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Statement being contradicted"
+        },
+        {
+          "assessment": "Literal disproof already present; does not give W's exact formulas",
+          "evidence": "The periodic (233)^ω example has factor-to-reflection ratio 3/2; positive aperiodic cases cited there use reversal closure and growth conditions.",
+          "identifier_or_url": "https://doi.org/10.1007/s00224-026-10278-7",
+          "material_read": "§6, PDF page 11, text near offset 29700",
+          "method": "Lawful OA primary text",
+          "title": "Reflection on the Reflection Complexity",
+          "trigger": "Published counterexample and positive cases"
+        },
+        {
+          "assessment": "Covers existence at the same ratio, not the same word or exact formulas",
+          "evidence": "The marked-square word is aperiodic and has r(n)∼n²/12 and p(n)∼n²/8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833",
+          "material_read": "RESULT.md Finding and Asymptotic comparison, offsets 0 and 3500",
+          "method": "Local Resultary mirror",
+          "title": "Exact reflection complexity of the perfect-square indicator word",
+          "trigger": "Strongest aperiodic binary 2/3 overlap"
+        },
+        {
+          "assessment": "Different language and exact formulas",
+          "evidence": "Markers at triangular positions, rather than paired runs of both symbols.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reflection-complexity-of-the-triangular-marker-binary-word--06b665794dd0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Reflection complexity of the triangular-marker binary word",
+          "trigger": "Related exact formulas for a binary word with ratio 2/3"
+        },
+        {
+          "assessment": "Another existence witness, not coverage of the binary formulas",
+          "evidence": "A nonrecurrent 13-letter construction with limit 3/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-aperiodic-word-with-reflection-to-factor-complexity-limit-thr--11bf50127cec",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An aperiodic word with reflection-to-factor complexity limit three quarters",
+          "trigger": "Related aperiodic dichotomy witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md proof and scope",
+        "Allouche et al., Conjecture 29",
+        "Dvořáková–Pelantová §6",
+        "Resultary fe330b1e5833"
+      ],
+      "rationale": "W is a canonical binary example defined by paired increasing runs. Exact ordinary and reflection complexities quantify how reversals are lost, with contributions isolated by change count. The simultaneous formulas provide a usable test case for the role of reversal closure and recurrence in conjectured limit dichotomies, even though existence of an aperiodic 2/3 example is not new.",
+      "residual_risks": [
+        "This nonrecurrent example does not settle a repair requiring recurrence, uniform recurrence, or reversal closure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

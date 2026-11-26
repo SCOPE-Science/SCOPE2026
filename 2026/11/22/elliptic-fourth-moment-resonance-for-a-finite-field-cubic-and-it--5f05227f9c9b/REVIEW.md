@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The support is the disjoint-indicator sum of the cubic graph and its horizontal tangent minus the origin. Its complete two-sum convolution follows from a quadratic discriminant and the elementary mixed-convolution cube-root count. The fourth moment reduces to five exact quadratic-character sums, including a nonsingular elliptic-curve trace. The characteristic-three case is proved separately by a direct sum of additive subgroups. The standalone checker directly enumerates all target fibers over fourteen prime fields and four quadratic extension fields, and tests the trace recurrence. The proof, not the tests, establishes the unbounded claim.
+## correctness
 
-## Originality
-**PASS relative to the examined scientific record.** The most relevant published cubic-graph fiber theorem determines the self-convolution of the *unaugmented* graph. It does not provide the union's cross terms or the j-invariant-zero Frobenius trace arising after adjoining the tangent line. The sharp cubic-graph Fourier-extension paper concerns different support and weighted extremizers. The finite-field moment-curve source concerns a full moment curve rather than this planar cubic-plus-line arrangement. The present theorem claims neither the classical cubic factorization nor the underlying quadratic-character identities as original. Search coverage and access cannot rule out an older all-arrangements evaluation or a derivation regarded as an immediate application of earlier self-convolution formulas.
+PASS
 
-## Mathematical value
-**PASS.** Combining a nonlinear Fourier support with its uniquely determined third-order tangent is a natural geometric operation. The complete convolution classifies all fourth-moment collisions on that support; despite the individual components having simple structure, the cross-collisions introduce a genuine elliptic Frobenius trace, giving an exact arithmetic distinction among arbitrary odd prime powers. The result supplies a reproducible closed characterization beyond isolated finite examples; it neither requires nor asserts a broader extension inequality.
+The frozen Fourier statement omitted nontriviality of the character: for the trivial character and q=3 its left side is 625/9 and its asserted right side is 77/9. The complete repaired RESULT.md specifies nontriviality and proves the correct orthogonality; it also accurately limits the frozen script to fiber/energy/trace checks. In both versions the energy calculation holds: inclusion–exclusion of the origin, the cubic pair discriminant (4y−x³)/(3x), and the mixed cube-root count give the stated fibers. Summing their squares uses the mixed term Σ_{z≠0}ν(z)χ((4z−1)/3)=T_q−χ(−3). The character vanishes in the bijective-cube case upon summation over all arguments, and T_q=−a_q in the split case from the smooth projective point count; the genus-one characteristic polynomial gives the recurrence. In characteristic three the two disjoint summand subgroups give exactly the three levels 2q−1, q, and 2, whose squares sum to the stated cubic polynomial. This verifies the repaired scope over finite fields, not only prime fields.
 
-## Closest literature and limitations
-The closest checked sources are Biswas et al., arXiv:2508.08377; Hughes–Wooley, arXiv:1911.12262; the published cubic-graph pair-sum census; and the published sharp cubic-graph fourth-moment norm. No claim is made for translated non-tangent lines, characteristic two, or weighted extremizers. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding claims the exact all-odd-field energy and its regime-specific trace correction. It no longer presents the union fiber law as a separate novelty: the prior graph self-convolution plus elementary mixed and line terms yields it by substitution. The standard energy/Fourier correspondence is not novel. The reviewed structurally close union and trace-energy results do not evaluate the mixed collision sum for this planar tangent arrangement.
+
+## value
+
+PASS
+
+The high-contact tangent is geometrically natural, and the energy is a standard exact measure of additive collisions. The formula reveals precisely where the mixed collisions retain a nonconstant elliptic trace, where they become purely polynomial, and where the additive-subgroup regime changes the leading term. The value is in this exact arithmetic invariant for the arrangement, not in the normalization fix or in the already available self-convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

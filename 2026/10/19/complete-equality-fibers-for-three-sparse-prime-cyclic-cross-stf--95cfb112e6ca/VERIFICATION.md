@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and mathematical limits
+# Independent mathematical audit
 
-The analytic proof gives the global result for every prime \(p\ge7\). The crucial external inputs are prime cyclic Fourier uncertainty (Tao/Chebotarev) and Vosper's inverse Cauchy–Davenport theorem for \(5\le p-2\). They identify the necessary five translations and progression support geometry. Exact factorization of two linear sampled Fourier polynomials and one quadratic yields all four required zeros and every coefficient in the claimed family.
+## correctness
 
-A standalone, standard-library-only `verify.py` was run with the file contents present in this package. It directly sums the cyclic STFT over the full group, rather than replaying the analytic row formula, for 962 parameter choices at primes from seven through 61. It verifies two central zeros, one in each adjacent row, no zeros in the two outer active rows, and the exact total support \(\(5p-4\)\). It exhaustively checks support-pair geometry for all three-element subsets at prime orders seven and eleven (752 sharp-five-translation cases).
+PASS
 
-Observed output:
+For a nonzero shift row let r_x=|A∩(x+B)|. The sum of the r_x is 9, so prime Fourier uncertainty gives |supp V_g f|≥|A−B|(p+1)−9. Equality forces |A−B|=5 by Cauchy–Davenport; Vosper applies even at p=7 (5=p−2) and yields common-step progressions. For normalized supports with f(2)=g(2)=1, the central polynomial is z²+f(1)conj(g(1))z+f(0)conj(g(0)); the two adjacent roots are −f(0)conj(g(1))/f(1) and −f(1)conj(g(0))/conj(g(1)). The outer rows are nowhere zero. Exactly four cancellations means two distinct central roots and one root per adjacent row. The product of the two adjacent roots equals the central root product, and Vieta gives exactly the stated triples with nonzero denominators because p is odd. Conversely the formulas give precisely the four desired cancellations. The root-label fibers are closed in the equality locus by continuity of the corresponding Fourier evaluations, and hence open as their finite complements are closed. Each is homeomorphic to C× via f(1), proving the count of connected components, not merely path components.
 
-`VERIFY_OK 962 direct cross-STFT extremizers; 752 equal-sumset supports at p=7,11`
+## originality
 
-These computations are finite consistency checks, and their floating-point zero threshold is not an infinite proof or an impossibility certificate. They do not establish historical originality, independent validation, or near-minimizer stability.
+PASS
+
+Credit the old 5p−4 inequality and its counting/Fourier method, as well as known self-window minimizers. The inspected earlier results do not yield the arbitrary-amplitude independent cross-pair equality locus and its normalized component decomposition. A closely matching later Resultary theorem gives the same root criterion in different variables and extends the support spectrum; it is substantive later overlap, not earlier priority evidence. The independence of the two derivations is not established.
+
+## value
+
+PASS
+
+A natural sharp sparse-transform bound does not say which supports or phases concentrate the measurements maximally. Recovering the complete independent-window equality locus and its exact connected-component decomposition is a substantive structural refinement, not merely a threshold calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

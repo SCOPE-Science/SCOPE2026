@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:44:21.268522Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three finite singular fibres with cubic parameter a cube root of unity split into the linear factors x+omega^j y+omega^(k-j) z, and the fourth is the coordinate triangle. Each of the nine base points lies on one line in each fibre. All 54 pairs of lines from distinct fibres meet at these base points; the twelve within-fibre side intersections remain ordinary nodes. Blowing up a base point produces four distinct line-to-exceptional crossings. This gives 21 rational vertices, with degrees four and five, 48 ordinary edges, and genus 28; connectivity and the valencies prove stability. For point-line incidence B and the block matrix H of four all-ones 3-by-3 blocks, the line block of the Laplacian is 6I-H. Schur complementation of the invertible block 4I over F_3 and F_7 gives 21I-3H-J, with ranks one and three respectively, hence full ranks ten and twelve. These and the matrix-tree order give ten elementary order-three and eight elementary order-seven factors. Working independently from the Hesse factor equations and point ratios I verified the characteristic polynomial, reduced determinant and Smith form with exact arithmetic. Raynaud's multidegree/intersection-matrix description for the stated regular split semistable smoothing gives this same group as the geometric component group, since multiplicities and node thicknesses are one. This is a conditional statement about the generic genus-28 Jacobian, not about the elliptic surface's elliptic-fibre Jacobian or existence of an embedded smoothing.",
+      "replay": "python /workspace/independent/check_hesse.py (SymPy 1.14.0); /workspace/independent/check_hesse.log gives reduced Smith multiplicities 1:10, 3:2, 21:8 and determinant 340405734249. The code verifies the characteristic polynomial by exact equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The eleven-class affine fixed-group classification includes the group at the identity, and the paper separately proves that underlying group by its integral reduced Laplacian. Artebani–Dolgachev supplies the Hesse incidence geometry. The general Raynaud description uses the special fibre of a regular model."
+        ],
+        "reasoning": "The underlying group is directly contained in the affine-equivariant result, not inferred from the graph name. The regular split unit-thickness assumptions make the general Néron description the standard unreweighted graph quotient. This does not identify the component group of the elliptic pencil itself.",
+        "searches": [
+          "Resultary 87b703a9169b Finding and fixed-group table, including the identity class",
+          "Artebani–Dolgachev arXiv:math/0611590",
+          "Raynaud component group description; Papikian arXiv:1505.06860"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 87b703a9169b and 37cfa6b3c510",
+        "Artebani–Dolgachev arXiv:math/0611590",
+        "Innamorati DOI 10.3390/axioms13050321 (cited passage unconfirmed)",
+        "Papikian arXiv:1505.06860 (bounded passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct record already describes the entire incidence matrix and four triangles, proves the same critical group, and does not assert a Néron identification for the elliptic fibration. In the resulting block graph B^T B=3I+J, BB^T=3I+J-H and HB is all ones, since each point is on one line per class."
+        ],
+        "reasoning": "The spectral refinement is not deduced from Smith factors: elementary block multiplication from the affine-plane incidence identities gives L^2-10L+21I=J. On the 20-dimensional zero-sum subspace the roots are 3 and 7, and trace 96 gives multiplicities 11 and 9. Genus is the known cycle rank of the all-rational boundary. The conditional component group is a direct application of the general theorem to the already-covered graph group; no particular smoothing is constructed or additional monodromy determined.",
+        "searches": [
+          "Resultary 87b703a9169b, RESULT.md offsets 0–2724 and 4050–6663",
+          "Raynaud graph component-group description under regular semistable hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "87b703a9169b uses nine exceptional sections and twelve components of four triangular fibres, with 21 vertices and 48 edges, and reports C3^2 plus C21^8. Its graph Jacobian is zero-sum divisors modulo the Laplacian image. 37cfa6b3c510 uses 36 edges and gives a purely three-primary group."
+        ],
+        "reasoning": "The geometric graph in 87b703a9169b specializes to the frozen graph over C, retaining exactly the within-class triangles. Its divisor quotient is the torsion part of the full Laplacian cokernel. The Levi incidence-only graph lacks the twelve same-class intersections and is not equivalent.",
+        "searches": [
+          "Resultary: Hesse boundary critical group, Hesse 21-curve graph, affine plane point-line Laplacian with triangles",
+          "Resultary 87b703a9169b, 37cfa6b3c510"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record reports determinant 3^10 7^8, integrality of 21 times the reduced inverse, and Smith nonunits 3,3,21 eight times. The literature lookup for the spectrum did not identify a relevant exact spectral table; it is not evidence of absence."
+        ],
+        "reasoning": "The explicit primary calculation settles equivalent group coverage without relying on a same-day ordering assumption or a search snippet. The smaller-edge graph's exact group is correctly excluded.",
+        "searches": [
+          "Resultary 87b703a9169b, statement, row 9 (identity) and Integral Jacobian proof at offset 4050 onward",
+          "Resultary 37cfa6b3c510, Finding",
+          "web literature lookup: 21 vertices Laplacian spectrum 3 and 7, affine plane of order 3, Hesse triangles"
+        ]
+      },
+      "rationale": "The principal integral finding is covered by a distinct indexed result, 87b703a9169b. It states the identical 21-vertex 48-edge graph group explicitly as an underlying group not claimed as new, and supplies a direct determinant and exponent computation and the same exact Smith form. The two dates do not determine priority and the source's unspecified previous nonequivariant computation is not assigned to either work here. What is established is equivalent coverage, not who obtained it first. The conditional Néron interpretation is the standard graph theorem applied to exactly this group. The spectrum is not asserted to occur verbatim in the other record: it is an elementary consequence of its explicit point-line incidence and class-triangle description, and does not establish a distinct substantive remainder here.",
+      "residual_risks": [
+        "The relationship and chronology of the two same-day computations are undetermined; this review credits demonstrable exact coverage, not priority. The spectral polynomial was not found verbatim in the bounded literature lookup. The Innamorati citation could not be confirmed at the asserted locator and is not needed for the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent group coverage; no chronological inference",
+          "evidence": "States 21 vertices, 48 edges and C3^2 plus C21^8, calls underlying group not claimed as new, and proves it by determinant and exponent and checks Smith factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eleven-integral-frobenius-fixed-graph-jacobians-of-the-hesse-21--87b703a9169b/RESULT.md",
+          "material_read": "Finding and identity row, offsets 0–2724; geometry and integral Jacobian proof 4050–6663; prior-work passage near 8300",
+          "method": "Resultary local mirror",
+          "title": "Eleven integral Frobenius-fixed graph Jacobians of the Hesse 21-curve boundary",
+          "trigger": "Exact same graph and group in a distinct indexed result"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "The 36-edge incidence-only Levi graph has C3 plus four C9 and three C27 factors; no triangles on line vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-pure-3-primary-graph-jacobian-of-the-hesse-flex-line-configu--37cfa6b3c510",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "The pure 3-primary graph Jacobian of the Hesse flex-line configuration",
+          "trigger": "Near-identical geometry and graph critical-group language"
+        },
+        {
+          "assessment": "Geometrical premises, not integral critical-group computation",
+          "evidence": "Nine inflection points, twelve lines and four lines through each point.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611590",
+          "material_read": "p. 3, offset about 9300",
+          "method": "Lawful OA primary PDF passage",
+          "title": "The Hesse pencil of plane cubic curves",
+          "trigger": "Classical geometry of Hesse lines and base points"
+        },
+        {
+          "assessment": "Unconfirmed support; not used to infer noncoverage",
+          "evidence": "The exact line-factor and point-ratio argument supplies the geometry independently of this citation.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms13050321",
+          "material_read": "Lawful OA MDPI PDF retrieved; cited Hesse/triangle passage not confirmed in bounded text inspection",
+          "method": "Publisher OA PDF and text location attempt",
+          "title": "Quasi-Configurations Derived by Special Arrangements of Lines",
+          "trigger": "Frozen citation for ordinary triangle intersections"
+        },
+        {
+          "assessment": "Background in a different family",
+          "evidence": "Explains dependence of the component group upon the special fibre of a regular model. It is not evidence of an earlier Hesse application.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.06860",
+          "material_read": "Located Raynaud discussion, p. 2 near offset 7414",
+          "method": "Lawful OA PDF text passage",
+          "title": "Graph Laplacians, component groups and Drinfeld modular curves",
+          "trigger": "Graph/component-group background cited by the record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full graph critical group of the resolved boundary is a naturally motivated exact invariant, especially because retaining the ordinary nodes creates a seven-primary part that the Levi graph lacks. But that entire useful integral fact is already covered. The remaining exact spectrum is a short block calculation from the standard affine-plane incidence relations on the explicit indexed graph; it does not distinguish a new geometry or solve a separate motivated problem here. The conditional use of Raynaud's theorem and the alternate proof are useful exposition, not a distinct valuable finding on the submitted scope. No substantive repair is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

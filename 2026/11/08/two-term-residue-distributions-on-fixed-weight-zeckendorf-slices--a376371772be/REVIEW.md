@@ -1,20 +1,21 @@
-# Scientific review: fixed-weight Zeckendorf residue counts
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is a finite-event inclusion–exclusion argument with an exact full-period product law. Equality of two chosen index positions and adjacency of two positions are the only first-order forbidden events; their intersections have codimension at least two. The Fibonacci identity \(F_j+F_{j+1}=F_{j+2}\) gives the adjacent-pair term. Independent exact rational cycle calculations and exact integer counts corroborate the first two coefficients. The infinity statement rests on the proof, not on numerical runs.
+## correctness
 
-## Originality — PASS (historical-priority risk retained)
-The June 2026 Zeckendorf–Niven progression study (Lao et al., arXiv:2606.24006v1, June 22 first posting) proves infinitude in arithmetic progressions and bounds on runs, not the two-term law for fixed-weight subsequences. Wagner's earlier general residue theorem (Ramanujan J., 2007, Theorem 12) provides a discrepancy bound depending on the fixed digit weight and does not imply explicit nonuniform Pisano probabilities or the second-order adjacency term. Full source inspection covered the key published theorems. Exact-equivalence or broader-transfer-matrix priority remains possible; the original Ray–Cooper text was not available in full. Lack of a search hit is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The conditional distribution of Zeckendorf–Niven integers within the mathematically natural fixed-number-of-summands slices quantifies a gap in recent arithmetic-progression results. The full finite-period formula works for every fixed modulus and weight; the second coefficient isolates the first dependency caused by Zeckendorf adjacency, rather than merely repeating a straightforward leading count. The nonuniform \(5/9\), \(85/256\), and \(7/27\) proportions demonstrate that the fixed-weight model is not simply uniform over residue classes.
+Zeckendorf uniqueness identifies the slice with nonadjacent subsets of indices 2 through M (the maximum sum from those indices is F_(M+1)-1 by the largest-index recursion). On a complete Pisano block multiple all ordered coordinates have exactly the cycle law. Per coordinate pair the equal-index event has count L^(k-1) Q_k; each adjacency orientation has count L^(k-1) P_(k-1) plus O(L^(k-2)), since F_j+F_(j+1)=F_(j+2) and precisely one boundary pair is lost. Two distinct compatible forbidden constraints identify at least two differences between coordinates, leaving at most k-2 free indices. Division by k! therefore gives the stated negative correction; k=2 has a bounded boundary error. Unaligned populations have bounded count errors and forbidden pairs are O(L^(k-1)); the standard shifted subset count gives the conditional limit. The 0 and 1 in the period give positivity as asserted. An independent largest-index digit recursion and exact period convolution reproduce all four pairs of constants and check aligned finite differences for five (k,m) pairs, all residues, via `python3 /workspace/reproductions/frozen_checks.py 4`. This is finite corroboration, not the error-bound proof. The frozen verification file and artifacts/verify.py were inspected, not executed.
 
-## Scientific limitations
-The expansion is nonuniform as the weight or modulus grows. For unaligned cutoffs the first-order limit holds, but the second coefficient can have boundary oscillations. Positive conditional density does not imply positive natural density among all integers. The exact constants and their checked values are finite-cycle calculations; independent historical-priority and mathematical audit have not been performed.
+## originality
 
-## Closest literature
-- Lao et al., *On Zeckendorf-Niven numbers and arithmetic progressions*, arXiv:2606.24006v1 (June 22, 2026).
-- S. G. Wagner, *Numbers with fixed sum of digits in linear recurrent number systems*, Ramanujan J. 14 (2007), 43–68, DOI:10.1007/s11139-006-0001-6, especially Theorem 12.
-- M. Drmota and W. Steiner, *The Zeckendorf expansion of polynomial sequences*, J. Théor. Nombres Bordeaux 14 (2002), 439–475.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass for the distinct all-fixed-(k,m) aligned two-term coefficient and accompanying general law, not for every leading special case. The October dyadic two-summand record directly covers even-residue leading asymptotics in its modulus range, including the aggregate 5/9 example, and actually gives a more explicit grouped table in that range. Its O(L) counting error leaves the linear term undetermined. No inspected statement covers the arbitrary fixed-weight aligned collision correction. The primary-source access limitation remains material to the historical priority assessment.
+
+## value
+
+PASS
+
+The fixed-weight conditional law addresses a different question from density or mere infinitude in all integers. The second coefficient measures the first local exclusion effect and separates repeated indices from Fibonacci adjacency. It supplies reusable exact arithmetic asymptotics across arbitrary fixed weights and moduli and makes explicit when the limiting law is nonuniform, without claiming natural density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

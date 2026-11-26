@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:19:03.703680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each unit undirected cycle, L is symmetric positive semidefinite with L1=0. The denominator polynomial of R has positive values on the nonnegative spectrum, so the exact step is a symmetric circulant matrix with row sums one. Rotation and reflection reduce the seven positive orders C3–C9 to 26 distance entries. The independent rational computation reconstructed the Laplacians and Q⁻¹B without running the supplied verifier: it checked all 26 cycle entries and also all 34 path entries of the original. Across those 60 entries there were 390 numerator and 390 denominator coefficients, all nonnegative, with every numerator nonzero and the minimum denominator coefficient 2. Each repaired claim of strict positivity follows for all h>0, not merely checked steps; h=0 is the identity. At distance five, powers below five have zero entry and (L⁵)ᵤᵥ is minus the number of shortest walks, so the Taylor coefficient 1/108 of x⁵ gives a strictly negative leading coefficient. This is independent of any finite cycle enumeration and covers every n≥10; the boundary check on C10 gives (L⁵)₀,₅=−2. Replay: /workspace/branches/83b8351e-6190-4d31-82dd-3f81bf65d746/exact_replay.py and exact_replay.json. The original mathematical claims checked; the repair is a scope and attribution change, with cycle-only RESULT.md and matching scientific verification notes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted obstruction applies to any connected graph with positive conductances and a distance-five pair. The other inspected texts concern absolute monotonicity of rational stability functions and general step-length thresholds on invariant polyhedra."
+        ],
+        "reasoning": "Credit the stronger graph obstruction. A universal obstruction or an absolute-monotonicity bound does not show strict positivity of a specified finite cycle at every step; the converse from a general sufficient bound is not valid.",
+        "searches": [
+          "2026/10/26 Resultary record 79ccecc67e03",
+          "arXiv:1303.6651 and arXiv:1406.6755"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATE.json and VERIFY.py; repaired RESULT.md and VERIFICATION.md",
+        "Exact replay and rational coefficient output",
+        "Resultary cf8fc1888ee6, 79ccecc67e03; summaries e93226b24c15, 004ea9bbb553",
+        "arXiv:1303.6651 and arXiv:1406.6755"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 13 yields positivity near zero and infinity for the seven cycles, but those regimes do not overlap by any stated bound. October 26 proves the path cutoff, not the same sign test on the cycle Laplacian."
+        ],
+        "reasoning": "A rational function can be positive at the two ends and negative in the middle; the known walk obstruction yields a necessary diameter bound, not sufficiency. Applying the cycle symmetries and checking all 26 numerator and denominator signs is an additional determination, which closes the missing interval without asserting priority for known components.",
+        "searches": [
+          "2026/10/13 Resultary record cf8fc1888ee6, finding",
+          "2026/10/26 Resultary record 79ccecc67e03, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 unit-path finding has precisely the P2–P5 cutoff under the same Laplacian scaling; the weighted distance-five witness specializes directly. The October 13 result uses the same undirected cycle and completed-step map as the repair."
+        ],
+        "reasoning": "Changing enumeration, the signs of the generator convention, or a uniform time scale does not distinguish the known path/obstruction results. Undirected and directed cycles have different Laplacians and operators; a directed-cycle result is not an equivalent formulation.",
+        "searches": [
+          "Resultary: Radau IIA distance five positivity paths and cycles",
+          "Resultary: completed-step positivity on directed and undirected cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 finding lists C3–C9 as small-step positive and every finite cycle as eventually positive, but does not provide an all-step table. Same-day directed-cycle and Hamming records have different graph scopes in the available summaries; Hamming graphs can overlap special small cycles, not all C5–C9. The matching frozen item itself is not a separate prior result."
+        ],
+        "reasoning": "No distinct inspected table supplies the positive intermediate-step entries for the whole cycle classification. The certificate measures a previously missing all-step sign condition, not novelty of recomputing the known first negative distance.",
+        "searches": [
+          "Resultary: ten-vertex Radau cycle barrier, sharp Radau cutoffs and Hamming graphs"
+        ]
+      },
+      "rationale": "The original bundle does not pass as a distinct contribution: both the unit-path cutoff and the distance-five lemma are prior, the latter already in a stronger positive-conductance form. The repaired result credits these and claims only the all-step cycle classification as a contribution. Its negative half and small/large-step positivity statements are also prior; the surviving advance is closing the intermediate-step gap for the entire positive side of the cycle classification. This is not a finding of global priority.",
+      "residual_risks": [
+        "The full text of Bolley–Crouzeix and the two same-day graph comparators was not retrieved; their precise content beyond the inspected statements remains unverified. No global search completeness or same-day chronology is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the original path cutoff and stronger obstruction",
+          "evidence": "Unconditional unit-path positivity through P5, exact P6 recovery, and leading term −W₅h⁵/108 on positively weighted graphs.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-diameter-five-positivity-obstruction-and-exact-six-path-recove--79ccecc67e03",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "A diameter-five positivity obstruction and exact six-path recovery",
+          "trigger": "Same Radau filter, paths and leading sign obstruction"
+        },
+        {
+          "assessment": "Covers negative small-step half and the two positive regimes, not the all-step positive half",
+          "evidence": "Small-step positivity for C3–C9, negative distance-five entry for n≥10 at small steps, and eventual positivity for each fixed cycle.",
+          "identifier_or_url": "2026/10/13/SCOPE-ten-vertex-small-step-positivity-barrier-and-oscillatory-lattice--cf8fc1888ee6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Ten-vertex small-step positivity barrier and oscillatory lattice tails",
+          "trigger": "Same undirected cycles, filter and cutoff size"
+        },
+        {
+          "assessment": "Different stated graph scopes; no stronger overlap inferred from snippets",
+          "evidence": "Directed cycles in the first and Hamming graphs in the second, rather than a cutoff for the unweighted undirected ring family.",
+          "identifier_or_url": "2026/11/8 Resultary records e93226b24c15 and 004ea9bbb553",
+          "material_read": "Catalogue summaries only; local mirror full-text attempts timed out",
+          "method": "Resultary search and local mirror attempts",
+          "title": "Sharp six-state positivity barrier and recovery for two-stage Radau IIA; Unconditional Radau IIA positivity on Hamming graphs",
+          "trigger": "Same-day Radau IIA finite graph positivity scopes"
+        },
+        {
+          "assessment": "Different positivity quantifiers in inspected material",
+          "evidence": "Absolute monotonicity radii and general polyhedral invariance thresholds, not cycle-specific unconditional positivity.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651 and https://arxiv.org/abs/1406.6755",
+          "material_read": "Abstracts and introductions, HTML offsets 0–2997 and 0–2999",
+          "method": "Primary full-text passages",
+          "title": "Rational functions with maximal radius of absolute monotonicity; Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+          "trigger": "Broader positivity and rational time discretization results"
+        },
+        {
+          "assessment": "Precise prior scope unverified here; not negative evidence",
+          "evidence": "The independent October comparisons already settle the overlap with the original graph obstruction.",
+          "identifier_or_url": "https://doi.org/10.1051/m2an/1978120302371",
+          "material_read": "Bibliographic identification; Numdam text not retrieved successfully",
+          "method": "Identified lawful Numdam PDF attempts",
+          "title": "Conservation de la positivité lors de la discrétisation des problèmes d'évolution paraboliques",
+          "trigger": "Classical general unconditional positivity obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair settles a natural, motivated gap left by the known small-step cycle barrier. Finite cycle heat flows are standard periodic diffusion tests; unconditional entrywise positivity of a classical high-order step is strictly stronger than positivity in both asymptotic regimes. The exact signs prove that none of the possible short rings has an intermediate failure, so the already-known necessary boundary is also sufficient in this whole graph family. This value does not depend on the removed path claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

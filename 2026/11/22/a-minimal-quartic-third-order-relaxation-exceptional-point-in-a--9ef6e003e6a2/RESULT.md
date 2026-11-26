@@ -2,11 +2,11 @@
 
 ## Finding
 
-The fourth positional polynomial of a harmonically trapped active Brownian particle has a third-order, rather than merely a second-order, defective relaxation mode at the equality of trap and angular relaxation rates. This is **the first possible positional moment degree** with a term quadratic in time multiplying an exponential. At the positive-rate resonance \(D_r=\kappa\), its conditional relaxation contains the exactly determined term
+At equality of the trap and angular relaxation rates, the fourth moment of one Cartesian position coordinate of a harmonically trapped active Brownian particle is the lowest positional moment displaying a quadratic-in-time relaxation term. The finite nine-dimensional polynomial–Fourier sector used for this moment has a single size-three Jordan block at eigenvalue \(-4\kappa\). The conditional expectation of \(X_t^4\) contains the term
 \[
 \frac{v^4}{2\kappa^2}t^2e^{-4\kappa t}\cos(2\Theta_0).
 \]
-Here the word *contains* specifies a coefficient in an exact finite exponential-polynomial expansion, not the entire conditional expectation. This coefficient is independent of translational thermal diffusivity. The relevant invariant nine-dimensional polynomial sector has a **single size-three Jordan block** at eigenvalue \(-4\kappa\).
+Here *contains* identifies the coefficient of one term in an exact finite exponential-polynomial expansion as a function of the initial state; it does not mean the coefficient remains nonzero at every initial angle. The coefficient multiplying \(\cos(2\Theta_0)\) is independent of the translational diffusivity.
 
 ## Assumptions and scope
 
@@ -15,55 +15,55 @@ For \(\kappa,v,D_r>0\) and \(D\ge0\), let independent standard Brownian motions 
 dX_t=(-\kappa X_t+v\cos\Theta_t)dt+\sqrt{2D}\,dW_t,\qquad
 d\Theta_t=\sqrt{2D_r}\,dB_t\pmod{2\pi}.
 \]
-The initial state \((X_0,\Theta_0)\) may be arbitrary and deterministic. Take \(D_r=\kappa\). Define \(s=D/\kappa\) and monic scaled probabilists' Hermite polynomials \(H_j(x)=s^{j/2}\operatorname{He}_j(x/\sqrt s)\) for \(D>0\), extended continuously at \(s=0\) as \(H_j(x)=x^j\). Thus \(H'_j=jH_{j-1}\), \((D\partial_x^2-\kappa x\partial_x)H_j=-j\kappa H_j\), and \(H_4=x^4-6sx^2+3s^2\). A relaxation *mode* here is a term in the finite-dimensional backward-generator evolution of polynomial--angular observables; no claim about completeness of the full spatial/angular function-space spectrum is made.
+The initial state \((X_0,\Theta_0)\) may be arbitrary and deterministic. Take \(D_r=\kappa\). Define \(s=D/\kappa\) and monic scaled probabilists' Hermite polynomials \(H_j(x)=s^{j/2}\operatorname{He}_j(x/\sqrt{s})\) for \(D>0\), extended at \(s=0\) as \(H_j(x)=x^j\). They satisfy \(H'_j=jH_{j-1}\), \((D\partial_x^2-\kappa x\partial_x)H_j=-j\kappa H_j\), and \(H_4=x^4-6sx^2+3s^2\). The Jordan statement concerns the backward generator on a finite polynomial–Fourier space, not a spectral theorem on its full function-space domain.
 
 ## Proof
 
-**1. An invariant finite-dimensional sector.** The backward generator is
+**1. Invariant sectors.** Write \(h_{j,m}=H_j(x)\cos(m\theta)\) for \(j,m\ge0\). The backward generator is
 \[
 \mathcal L=(-\kappa x+v\cos\theta)\partial_x+D\partial_x^2+D_r\partial_\theta^2.
 \]
-For all \(j\ge0\), \(m\ge0\),
+For \(j\ge1\) the derivative identity and the cosine multiplication rule give
 \[
-\mathcal L[H_j\cos(m\theta)]=-(j\kappa+m^2D_r)H_j\cos(m\theta)+
+\mathcal L h_{j,m}=-(j\kappa+m^2D_r)h_{j,m}+
 \begin{cases}
-jvH_{j-1}\cos\theta,&m=0,\
-\frac{jv}{2}H_{j-1}[\cos((m-1)\theta)+\cos((m+1)\theta)],&m\ge1.
+jv h_{j-1,1},&m=0,\\
+\frac{jv}{2}(h_{j-1,m-1}+h_{j-1,m+1}),&m\ge1.
 \end{cases}
 \]
-When \(j=0\) the last term is zero. For a positional polynomial of degree at most \(N\), the reachable invariant space is spanned by \(H_j\cos(m\theta)\) with \(0\le j\le N\), \(0\le m\le N-j\) and \(m\equiv N-j\pmod2\) for a leading \(H_N\). Descending in \(j\) makes the matrix triangular with diagonal entries \(-j\kappa-m^2D_r\).
+There is no off-diagonal term for \(j=0\). For the single initial observable \(H_N=h_{N,0}\) this formula gives the invariant coordinate sector spanned by \(h_{j,m}\) with \(0\le j\le N\), \(0\le m\le N-j\), and \(m\equiv N-j\pmod2\). For a general positional polynomial, evolve each term of its Hermite expansion in its own sector and add. In order of descending \(j\) the generator is triangular with diagonal \(-j\kappa-m^2D_r\). Applying the polynomial moment equations to this closed system gives its exact backward semigroup. The expectations are finite by the explicit stable linear filter with bounded propulsion and Gaussian noise.
 
-**2. Quartic resonance and exact Jordan order.** The reachable basis from \(H_4\), in descending position degree, consists of
+**2. Quartic resonance.** The ordered coordinate list for \(H_4\), with each pair denoting \((j,m)\), is
 \[
-(4,0),(3,1),(2,0),(2,2),(1,1),(1,3),(0,0),(0,2),(0,4),
+(4,0),(3,1),(2,0),(2,2),(1,1),(1,3),(0,0),(0,2),(0,4).
 \]
-where \((j,m)\) means \(H_j\cos(m\theta)\). At \(D_r=\kappa\), exactly \((4,0),(3,1),(0,2)\) share eigenvalue \(-4\kappa\), giving algebraic multiplicity three. The exact generator matrix, built from the formula above, has rank eight after adding \(4\kappa I\), so its geometric multiplicity at that eigenvalue is one. Therefore the entire algebraic eigenspace is one size-three Jordan block. The rank statement is independently checkable by exact elimination in the standalone verifier; the next step gives a direct nonzero cubic-resolvent-pole certificate, which also proves the asserted block size together with algebraic multiplicity three.
+At \(D_r=\kappa\), exactly \((4,0),(3,1),(0,2)\) share eigenvalue \(-4\kappa\), giving algebraic multiplicity three. To prove defectiveness of order three, one needs a nonzero cubic resolvent pole; the three repeated diagonal entries alone are not enough.
 
-**3. Explicit cubic pole and conditional-moment coefficient.** Let \(z\) be a resolvent parameter and write \(R(z)=(zI-\mathcal L)^{-1}\) on that invariant space. The transition \((4,0)\to(3,1)\) has coefficient \(4v\). From \((3,1)\) to \((0,2)\) there are precisely three four-step paths, with intermediate pairs \(((2,0),(1,1))\), \(((2,2),(1,1))\) and \(((2,2),(1,3))\). Their contributions to the coefficient of \((z+4\kappa)^{-3}\), after multiplying the four transition rates and evaluating the two nonresonant denominators at \(z=-4\kappa\), are respectively
+**3. Cubic pole and its leading coefficient.** Write \(R(z)=(zI-\mathcal L)^{-1}\) in this sector. The entry from \((4,0)\) to \((0,2)\) is a sum over four-edge paths, by triangular inversion. All start with the edge \((4,0)\to(3,1)\), of coefficient \(4v\). The remaining three edges have intermediate pairs \(((2,0),(1,1))\), \(((2,2),(1,1))\), or \(((2,2),(1,3))\). For each path the other three vertices are resonant. The products of its four edge coefficients are \(6v^4,3v^4,3v^4\), respectively. The two nonresonant denominators, evaluated at \(z=-4\kappa\), have products \(4\kappa^2,-4\kappa^2,12\kappa^2\), respectively. Thus
 \[
-\frac{3v^4}{2\kappa^2},\qquad -\frac{3v^4}{4\kappa^2},\qquad \frac{v^4}{4\kappa^2}.
+\lim_{z\to-4\kappa}(z+4\kappa)^3R(z)_{(0,2),(4,0)}
+=\frac{3v^4}{2\kappa^2}-\frac{3v^4}{4\kappa^2}+\frac{v^4}{4\kappa^2}
+=\frac{v^4}{\kappa^2}.
 \]
-Thus their sum is nonzero and
-\[
-\lim_{z\to-4\kappa}(z+4\kappa)^3R(z)_{(0,2),(4,0)}=\frac{v^4}{\kappa^2}.
-\]
-Since the inverse Laplace transform of \((z+4\kappa)^{-3}\) is \(\tfrac12t^2e^{-4\kappa t}\), the conditional expectation \(\mathbb E[H_4(X_t)\mid X_0=x,\Theta_0=\theta]\) has the claimed coefficient \(v^4/(2\kappa^2)\) multiplying \(t^2e^{-4\kappa t}\cos(2\theta)\), for all \(t\ge0\). This is an exact spectral-decomposition coefficient and does not require stationary initialization.
+This is nonzero, so a Jordan block of size at least three occurs. The algebraic multiplicity is exactly three, which also rules out additional blocks at this eigenvalue. The inverse Laplace transform of \((z+4\kappa)^{-3}\) is \(\tfrac12t^2e^{-4\kappa t}\). Hence the conditional expectation of \(H_4(X_t)\) has the asserted coefficient. No stationary initialization is needed.
 
-**4. Sharp minimality in positional degree.** In the reachable triangular sectors from \(H_1,H_2,H_3\), every diagonal eigenvalue has algebraic multiplicity at most two at \(D_r=\kappa\): there are no three distinct pairs \((j,m)\) with \(j+m^2\) equal. Consequently no Jordan block larger than two can occur in these sectors. Every lower-degree positional polynomial is a linear combination of those observables, so none can produce a term proportional to \(t^2e^{\lambda t}\). Quartic order is therefore minimal.
+**4. Minimality and the raw quartic.** In the sectors of \(H_1,H_2,H_3\), the diagonal values of \(-\mathcal L/\kappa\) are, respectively, \((1,1)\), \((2,2,0,4)\), and \((3,3,1,5,1,9)\) in descending degree and then increasing angular order. Each eigenvalue has algebraic multiplicity at most two in each sector, and the constant sector is trivial. Thus the conditional relaxation of every positional polynomial of degree at most three, being a sum of these evolutions, has no \(t^2e^{\lambda t}\) term. Since \(x^4-H_4(x)\) has degree two, the term in the conditional expectation of the raw fourth moment is the same as for \(H_4\). This proves sharp minimality at the specified resonance.
 
 ## Verification
 
-Run `python3 verify_ep.py` using Python and SymPy. The executable independently constructs the exact moment generator, tests eigenvalue algebraic and geometric multiplicities, computes the cubic resolvent-pole coefficient, checks the three-path rational identity, compares degrees one through three and verifies two independent rational rescalings of \(\kappa\) and \(v\). The script passes. The exact generator identity, path sum and multiplicity argument above provide the all-positive-parameter proof; finite symbolic cases supplement rather than replace it.
+The supplied `verify_ep.py` builds the exact moment generator and tests the algebraic and geometric multiplicities, the pole coefficient, the path sum, lower degrees and two non-unit rational parameter choices. It requires Python and SymPy. The path identity and finite sector argument above establish the result for all the stated parameters; the rational tests are supplementary.
 
 ## Relationship to prior work
 
-Caraglio and Franosch (arXiv:2210.04205, first posted 2022-10-09) construct the exact evolution of an active Brownian particle in a harmonic well using a triangular polynomial-mode representation and provide the general spectral eigenvalues; these are **not** claimed here as new. Their general propagator can in principle be specialized to coincident relaxation rates. The assessed contribution is the exact minimal-degree, **third-order defective** resonant block and its explicitly nonzero quartic conditional-moment coefficient. Nakul and Gopalakrishnan (arXiv:2209.09184) treat the stationary harmonic active Brownian problem, not the same finite-degree temporal Jordan classification. Related published studies of exceptional polynomial moments for two-state biased run-and-tumble models involve a different, finite orientation sector and size-two blocks. Nontrivial implication by a general formula remains a priority risk; independent literature verification is outstanding.
+Caraglio and Franosch [1] give the triangular forward-mode representation and exact propagator for the planar problem. Projection onto one Cartesian coordinate gives the process considered here. Their time-integral recursion can in principle recover the resonant fourth moment; neither triangularity nor the passive diagonal rates alone establish the Jordan order. The question here is specifically whether the paths with three coincident rates cancel, and whether a positional moment of smaller degree can carry such a term. Shee, Dhar and Chaudhuri [2] give an exact Laplace moment recursion and compute the transient **radial** fourth moment, not this single Cartesian fourth moment with its pure second angular harmonic. Pattanayak and coauthors [3] compute time-dependent displacement moments of a harmonically trapped swimmer with torque; their radial fourth moment concerns a different observable. Nakul and Gopalakrishnan [4] study stationary harmonic active Brownian laws. No novelty is claimed for the generator, moment method, or general triangular evolution; the contribution is the explicit noncancellation and minimal observable degree at this resonance.
 
 ## Limitations
 
-Only the specified ideal active Brownian diffusion in a harmonic trap, at \(D_r=\kappa\), and polynomial--Fourier observables are analyzed. The result is about the exact finite invariant observable sector, not a complete spectral theorem on the full generator domain. It does not claim uniqueness of the resonance over all parameter ratios or universality under nonlinear confinement, non-Markovian angle noise, or noisy finite-window measurements. The published triangular propagator may already imply the block by specialization; explicit originality assessment is qualified pending independent priority review.
+Only this harmonically trapped process, \(D_r=\kappa\), and positional polynomial observables are considered. The finite Jordan block does not classify the full generator domain or all parameter ratios. The coefficient can vanish after averaging over the initial angle, and no finite-window detectability result is proved. The comparison is best-of-knowledge; a prior specialization of an exact moment or propagator formula could affect priority.
 
 ## References
 
-1. M. Caraglio and T. Franosch, *Analytic Solution of an Active Brownian Particle in a Harmonic Well*, arXiv:2210.04205 (first posted 2022-10-09), https://arxiv.org/abs/2210.04205.
-2. J. Nakul and M. Gopalakrishnan, *Stationary states of an active Brownian particle in a harmonic trap*, arXiv:2209.09184 (2022), https://arxiv.org/abs/2209.09184.
+1. M. Caraglio and T. Franosch, *Analytic Solution of an Active Brownian Particle in a Harmonic Well*, arXiv:2210.04205 (2022), https://arxiv.org/abs/2210.04205.
+2. A. Shee, A. Dhar and D. Chaudhuri, *Active Brownian particle in harmonic trap: exact computation of moments, and re-entrant transition*, arXiv:2005.14234 (2020), https://arxiv.org/abs/2005.14234.
+3. A. Pattanayak, A. Shee, A. Chaudhuri and D. Chaudhuri, *Exact dynamics and dimensional effects in torque-driven trapped active Brownian particles*, arXiv:2603.26967v2 (2026), https://arxiv.org/abs/2603.26967v2.
+4. E. Nakul and M. Gopalakrishnan, *Stationary states of an active Brownian particle in a harmonic trap*, arXiv:2209.09184 (2022), https://arxiv.org/abs/2209.09184.

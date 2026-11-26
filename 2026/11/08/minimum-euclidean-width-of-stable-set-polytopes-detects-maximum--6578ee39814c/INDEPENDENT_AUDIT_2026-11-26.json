@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:59:04.756004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, VERIFICATION.md and checks/graph_width_checker.py (inspected, not executed)",
+        "Repaired RESULT.md, SLOGAN.txt and REVIEW.md, with analytic proof of the sharpened result"
+      ],
+      "rationale": "Re-audited the repaired theorem. On each stable color class, the sum L_j of absolute weights is bounded by width w, and the squared mass Q_j is at most L_j². The color-class deficits d_j=w²−Q_j sum to δ. The peak m_j satisfies Q_j≤m_j w, so both its deficit from w and the entire off-peak L1 mass are ≤d_j/w. This gives squared error ≤2d_j²/w² per class when replacing the peak by signed w and zeroing the tail. The alternative off-peak squared bound Q_j−m_j²≤Q_j(1−Q_j/w²)≤d_j independently gives the frozen estimate, justifying the minimum of the two. At the strict threshold δ<w², each pair of peaks has total magnitude >w, ruling out opposite signs by singleton supports and same-sign nonedges by a stable pair. For q=1 the peak is automatically nonzero and no pair condition is needed. The final normalization costs precisely √q(w−1/√q). The exact clique width and minimizers follow at δ=0. The complete-graph perturbation and the two-vertex edgeless perturbation have both distance and deficit asymptotically proportional to the perturbation parameter, so no o(δ) uniform rate is possible at fixed q. The repaired result's polar comparison follows by taking the zero-height section and maximizing projected norm, not by identifying an ordinary inradius with width.",
+      "residual_risks": [
+        "The frozen 810-graph consistency check does not verify the repaired sharper estimate; the latter is analytic. Constants and sufficiency threshold are not claimed optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "79ea53f863b0 gives for every finite graph positive/negative bounds (6)–(8) on the Hansen polar, with the fractional stable-set polytope Q of the complement. 922955df9a90 gives inradius 1/(ω+√ω) of the ordinary perfect stable-set polytope and its inball contacts. The polymatroid result has a submodular rank-function hypothesis."
+        ],
+        "reasoning": "The broader Hansen result yields the static baseline via projection. The other results are not the same metric or all the same polytopes. None provides the repaired quantitative statement measuring distance in the original direction space.",
+        "searches": [
+          "Resultary 79ea53f863b0 fractional antiblockers and Hansen inradius; 922955df9a90 perfect stable-set inradius; 8ee77a677514 scaled polymatroid widths"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79ea53f863b0, db93f92ff100, 922955df9a90, 8ee77a677514, d3d1e53940e4 and 9aba23dfb7e5",
+        "Stanley (1986), arXiv:1706.05496v1, 2309.01626v2 and 2312.13890v3",
+        "Repair: prior-coverage section and sharpened stability theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hansen zero-height slice is (K−K)/2. Projecting its polar gives points x with squared norm ≤2(1+t²)μ≤4μ, where t is the original polar height and μ is the maximum squared norm over Q. Equality forces t=±1 and projected points are signed doubled maximizers of Q. A q-coloring bounds μ≤q and equality requires one unit coordinate per class forming a maximum clique."
+        ],
+        "reasoning": "This recovers width 1/√q and all signed clique normals without the frozen proof. It does not give the repaired stability rate. The new linear control uses the residual absolute mass per class, recovery of a coherent clique under the strict threshold and a sharpness family; it is not a restatement of the exact polar maximizer formula.",
+        "searches": [
+          "79ea53f863b0 RESULT.md Finding and proof (6)–(8); db93f92ff100 Finding; Hu–Laurent arXiv:1706.05496v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_K is the support of the difference body. The ordinary chain polytope is the antichain indicator hull, and the enriched chain support is h_K(|u|)≤W_K(u). Resultary db93f92ff100 classifies the enriched contact normals by longest chains and signs."
+        ],
+        "reasoning": "The enriched contact theorem yields the ordinary chain width and minimizers: mixed signs on a single longest chain give two nonzero opposite supports, so only constant signs attain the same lower bound. This equivalence does not give the near-contact estimate.",
+        "searches": [
+          "Resultary: Euclidean directional width/thickness of stable-set and chain polytopes; perfect graph stable-set inradius, unconditional hull, Hansen/fractional antiblocker",
+          "Stanley (1986) §2; arXiv:1706.05496v1, 2309.01626v2 and 2312.13890v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6578ee39814c is the assigned record itself. The weighted and unweighted order-polytope records give width 1/√height in the unscaled case and alternating-sign longest-chain contacts, not the stable-set direction estimate. Finite frozen computations are consistency checks, not an independent result database."
+        ],
+        "reasoning": "The closest exact statements cover other objects or only the baseline; no distinct exact table or record with the repaired modulus was found. A finite table alone would not establish this uniform continuum estimate.",
+        "searches": [
+          "Resultary exact width, minimizing signed indicators and near-minimizer stability; IDs 6578ee39814c, d3d1e53940e4 and 9aba23dfb7e5"
+        ]
+      },
+      "rationale": "This pass applies to the repaired quantitative result only. The exact baseline is demonstrably covered by the published Hansen-polar description (same date, no inference of priority), and the ordinary chain-polytope case has earlier equivalent coverage via the enriched support. The repaired finding explicitly credits both. No inspected statement gives the explicit linear deficit bound independent of graph order, or its sharp order, in the nonperfect as well as perfect χ=ω class.",
+      "residual_risks": [
+        "Historical priority for the quantitative theorem remains provisional; an earlier deficit inequality under geometric thickness or antiblocking terminology may be unindexed. No priority is inferred between distinct same-day catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives full baseline by projection; no stability modulus in the comparison",
+          "evidence": [
+            "Equation (8) puts x⁺/(1−t) and x⁻/(1+t) in Q of the complementary graph."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-fractional-antiblockers-determine-every-hansen-inradius-with-an--79ea53f863b0",
+          "material_read": "RESULT.md offset 0–4748, Finding and proof equations (6)–(9)",
+          "method": "Published Resultary local mirror",
+          "title": "Fractional antiblockers determine every Hansen inradius, with an unbounded failure of the clique law",
+          "trigger": "Broader norm and contacts for a lift of the same stable-set polytope"
+        },
+        {
+          "assessment": "Implies the exact ordinary-chain corollary, not stability",
+          "evidence": [
+            "Convex hull of signed antichain vectors; centered inradius 1/√height; all tangent facets indexed by longest chains and arbitrary signs."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–2438",
+          "method": "Published Resultary local mirror",
+          "title": "Height and width are the exact Euclidean radii of enriched chain polytopes",
+          "trigger": "Unconditional hull of the ordinary poset chain polytope"
+        },
+        {
+          "assessment": "Incenter/inradius of K itself, not all strip widths",
+          "evidence": [
+            "Inradius 1/(ω+√ω); uniform inball touches coordinate facets and maximum-clique facets."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-clique-number-controls-the-exact-euclidean-inradius-of-every-per--922955df9a90",
+          "material_read": "RESULT.md Finding, offset 0–1349",
+          "method": "Published Resultary local mirror",
+          "title": "Clique number controls the exact Euclidean inradius of every perfect stable-set polytope",
+          "trigger": "Same polytope and clique normals, but possibly different invariant"
+        },
+        {
+          "assessment": "Order polytopes, with alternating rather than constant signs",
+          "evidence": [
+            "The unscaled width is 1/√height; signs alternate along longest chains."
+          ],
+          "identifier_or_url": "Resultary d3d1e53940e4 and 9aba23dfb7e5",
+          "material_read": "Both RESULT.md Findings (offset 0; second through 2307)",
+          "method": "Published Resultary local mirror",
+          "title": "Weighted longest chains determine all minimum-width directions of order polytopes; Alternating-chain rigidity and the contact collapse of order-polytope difference bodies",
+          "trigger": "Same posets, width and longest-chain exact contacts"
+        },
+        {
+          "assessment": "Formula for submodular-rank polytopes; not repaired stability",
+          "evidence": [
+            "Gives exact minimum width and signed scaled-indicator directions for polymatroid independence polytopes."
+          ],
+          "identifier_or_url": "Resultary 8ee77a677514",
+          "material_read": "RESULT.md Finding and initial proof, offsets 0–3459",
+          "method": "Published Resultary local mirror",
+          "title": "Minimum Euclidean width of diagonally scaled polymatroid independence polytopes",
+          "trigger": "Similar independence-polytope extremal geometry"
+        },
+        {
+          "assessment": "Describes relevant clique constraints and extension complexity",
+          "evidence": [
+            "The stated constraints are nonnegativity and clique inequalities in the perfect-graph setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.05496v1",
+          "material_read": "p.2, OA offsets 4800–6522",
+          "method": "Primary OA passage",
+          "title": "On the linear extension complexity of stable set polytopes for perfect graphs",
+          "trigger": "Same stable-set objects and clique inequalities"
+        },
+        {
+          "assessment": "Relevant definitions, chain inequalities and face/volume comparisons; inspected passages do not supply quantitative stability",
+          "evidence": [
+            "Chain inequalities bound each chain sum by one. Later papers discuss Ehrhart equivalence or f-vectors, not the explicit stability statement."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~rstan/pubs/pubfiles/66.pdf; arXiv:2309.01626v2 and arXiv:2312.13890v3",
+          "material_read": "Stanley §2 Definition 2.1 (author-copy p.4 search passage); Ahmad–Fourier–Joswig p.1 offsets 1320–4257; Freij-Hollanti–Lundström p.1 offsets 1400–3959",
+          "method": "Primary OA passages",
+          "title": "Two poset polytopes; Order and chain polytopes of maximal ranked posets; f-vector inequalities for order and chain polytopes",
+          "trigger": "Classical chain polytope and related polytope identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md stability theorem and two sharpness examples; baseline comparisons with Resultary 79ea53f863b0 and db93f92ff100"
+      ],
+      "rationale": "On a natural class wider than perfect graphs, the repaired theorem recovers a specific signed maximum clique from an almost thinnest direction, with a distance bound independent of graph order and optimal linear order in the small deficit at fixed q. Compactness for any fixed polytope gives neither a uniform constant nor this rate. The specialization also controls approximate recovery of longest chains.",
+      "residual_risks": [
+        "No theorem for χ>ω or an optimal coefficient in the stability estimate is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

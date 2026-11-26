@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers concern the explicitly defined 17-vertex Paley graph. Affine square multipliers and translations reduce power-domination feasibility to the two pair orbits; literal neighbor checks show that the adjacent representative stalls, the nonadjacent representative finishes in one forcing round, and singletons all fail. Two different standalone checkers reconstruct the root-distance table and reconfiguration graph metrics. A finite, complete 68-state BFS is conclusive for this finite claim; no infinite-family inference is asserted. Residual risk is implementation error common to both checkers, mitigated by distinct state constructions and independently verified symmetry.
+PASS
 
-## Originality — PASS, qualified
+Read the two packaged checkers and complete root certificate; did not execute the uploaded code. The separate reconstruction audit_p17.py in the private review evidence enumerated the empty set, 17 singletons and 136 pairs under closed-neighborhood observation followed by unique-neighbor propagation. It found exactly the 68 nonedges optimal. Representing each pair as an edge of H=the complement, a jump is incidence and a slide is incidence with no triangle in H. Multiplication by 3 sends H to the original graph. Independent all-source BFS reproduced the diameters 3, edge counts 476 and 272, respective sphere profiles (1,14,50,3) and (1,8,32,27), and excess 0 for 1258 and 1 for 1020 distinct unordered pairs. As a structural check on the only possible excess-2 case given these diameters, two edges xy,xz forming a triangle in H have a common Gallai neighbor xw: at most 3+3 of the 8 neighbors of x are in N_H(y) or N_H(z). Thus line distance 1 always has slide distance at most 2. These are exact finite results for optimal placements in the specified graph and observation rule; no extrapolation.
 
-The closest structural source is Palathingal–Lakshmanan–Markowsky, arXiv:2106.03745, whose Theorem 3.1 already establishes regularity of Gallai graphs of edge-regular graphs. We do not claim that degree or the Gallai operator definition as new. Bjorkman et al., arXiv:2201.01798v1, establish general power-domination reconfiguration results and several specific graph families, but do not cover the Paley-17 monitoring classification, the exact two operator identifications in this setting, or the full slide-versus-jump distance profile. Brouwer's graph reference and the Paley-17 distance-regular entry give graph parameters without power-domination relocation conclusions. Actual indexed-result comparisons include other Paley graph invariants and several different power-domination reconfiguration families, not a statement implying this one. Risk: unindexed or inaccessible historical work on Gallai graph metrics or Paley power domination could be stronger; originality is a best-knowledge, self-review, not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The 17-vertex Paley graph is a canonical small distance-transitive and Ramsey extremal graph, so its constrained monitoring configurations are a natural exact benchmark rather than an arbitrary induced subgraph. The theorem relates propagation feasibility to an edge/nonedge dichotomy, identifies physical relocation with the established Gallai operator, and exactly quantifies the sharp tradeoff: 204 of 476 unrestricted moves disappear, yet global diameter remains three and exactly 1020 placement pairs incur one extra move. This is a complete, motivated finite sensor-mobility classification beyond a mere parameter count.
+The Paley symmetries, Gallai definition/regularity, and broad reconfiguration framework are prior. The supported distinction is the Paley-17 optimal-power-domination pair classification and the joint jump-versus-slide metric on that placement space.
 
-## Limits and closest prior literature
+## value
 
-Theorem 3.1 of arXiv:2106.03745 already explains the degree-eight regularity; section 5 of arXiv:2201.01798v1 is a general framework and treats other graph classes. The exact 68-state shortest-path certificate is specific to this graph. The available checks cannot exclude an unindexed historical equivalent. The independent-audit channel remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The standard power-domination and sliding constraints on a canonical graph naturally ask whether locally permitted relocation materially increases distance, even at equal diameters. The optimal pair classification, operator correspondence, and exact per-pair penalty answer this question, give a benchmark for relocation graphs, and distinguish 1020 affected pairs from 1258 unaffected pairs. It is a useful exact fixed-graph invariant rather than just a degree count or a claim of a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

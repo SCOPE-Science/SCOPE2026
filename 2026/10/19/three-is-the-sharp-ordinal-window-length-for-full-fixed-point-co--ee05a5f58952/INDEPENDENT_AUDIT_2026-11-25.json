@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:09:40.670390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on π(j)=j leaves a uniform injection into the other values. Off-window this leaves every pattern equiprobable. In-window, if j has prescribed rank r, choose r−1 smaller and k−r larger values; each choice has exactly one assignment consistent with the prescribed pattern, so division by (n−1) falling to k−1 and centering gives the displayed kernel. Length one is constant. For length two the scaled descent rows enforce (2i−n−1)a_i=(2(i+1)−n−1)a_{i+1} on a null vector. This gives exactly one free scalar when n is even and exactly one unconstrained middle coordinate when n is odd, including n=2,3. For length three, swapping ranks 1 and 2, and 2 and 3, at the first two positions while holding the third rank fixed yields a 2×2 system in the first two null coordinates. Expanding the two scaled rank contrasts at h gives (n−h)(n−3h+1) and (h−1)(2n−3h+2). The adjacent determinant is 2(n−2)[3(j−n/2)²+n²/4−1]>0. The third column cannot be identically zero: the contrasts cannot both vanish at an interior h, and one is nonzero at each boundary. Each consecutive triple annihilates only zero there, and the triples cover all columns. For longer windows, summing indicators of patterns extending the prescribed triple includes each three-window covariance row in the longer row span. This proves the full rank classification, not merely a finite check. Independent replay: python3 /workspace/independent_checks_oct19.py (permutation_check), enumerating 7658 joint-event cells for every k up to n for n=2,…,6 and testing maximal rank modulo 1009 on the scaled integer matrix (the exact zero and n−1 upper bounds follow analytically). The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eriksen et al. enumerate derangements with specified descent positions using fixed-point coloring, not a covariance-rank theorem for labeled fixed points and ordinal windows.",
+          "Janson et al. study joint occurrence-count asymptotics, not this finite anchored matrix.",
+          "Dong–Xu's abstract identifies an equidistribution involving fixed-point counts on pattern-avoiding classes, not the full-S_n joint position-resolved law.",
+          "The Désarménien–Wachs landing page and abstract were located; refined results beyond the accessible material were not independently excluded."
+        ],
+        "reasoning": "Allowing broader pattern types or descent classes is not dominating if fixed-point locations are lost or the observables remain asymptotic counts. A broader refined enumeration that retained both sets of coordinates would need further comparison if found.",
+        "searches": [
+          "Primary search: permutation pinned patterns fixed points descents position-specific pattern occurrence primary literature",
+          "arXiv:0811.1925 §§1–2; arXiv:1312.3955 §4; arXiv:2606.00646 abstract; doi:10.1016/0097-3165(93)90100-M"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and records 6e228e1e9495, 09ebdb81d232, 1576564ede3a, a65ba414ee78, 5455c3336f55",
+        "arXiv:1308.5459, 0811.1925, 1312.3955, 2606.00646",
+        "doi:10.1016/0097-3165(93)90100-M (landing page and abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bidiagonal descent entries already imply k=2 rank n−1 by a one-dimensional nullspace calculation.",
+          "First-order covariances with individual adjacent comparisons do not specify covariances with the distinct rank assignments of a triple. Nor does summing over fixed-point/window positions retain the unsummed matrix's rank information.",
+          "The local kernel itself follows from elementary pinning; the adjacent contrast determinant and the rank threshold are the distinguishing claims, not priority for the counting method."
+        ],
+        "reasoning": "The prior special case supplies neither the local rank-three certificate nor the row-space conclusion for all longer windows. No separate relevant same-day record was identified in the bounded search; the identical record itself is not an antecedent.",
+        "searches": [
+          "Resultary: position-resolved fixed-point descent covariance predecessor boundary localization",
+          "Resultary 6e228e1e9495 Finding eqs. (1)–(3) and 5455c3336f55 Proof §1",
+          "arXiv:1308.5459 Theorem 1.1 and arXiv:0811.1925 §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary 6e228e1e9495 the descent row and its complementary ascent row give exactly the length-two portion, including off-window zeroes.",
+          "Resultary 1576564ede3a and 5455c3336f55 use the same local conditional probability or centered kernel; a sum over locations is not equivalent to the matrix with all locations retained. Both are later listed records.",
+          "Diaconis–Evans–Graham Theorem 1.1 compares unseparated successive-value pairs with fixed-point sets in distribution; this does not identify joint ordinal-window/fixed-point covariances."
+        ],
+        "reasoning": "Equivalence is genuine for the shared kernel in the overlapping settings, not for the rank or for the aggregate observables. The fixed-position coordinate is mathematically essential.",
+        "searches": [
+          "Resultary: fixed point indicator consecutive patterns position-resolved cross covariance matrix exact formula",
+          "Resultary: fixed-point linear covariance rank consecutive ordinal patterns k=3",
+          "Primary search: permutation pinned patterns fixed points descents position-specific pattern occurrence primary literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 ordinal rank classification 09ebdb81d232 is for asymptotic covariance among overlapping triple patterns in iid categorical sequences, with ranks 0,3,10 by alphabet support, not for the present cross-matrix.",
+          "The October 4 note gives the exact length-two entries. The October 25, November 2 and November 8 matches give exact local or aggregate covariance formulas but not a rank table for the retained labeled matrix."
+        ],
+        "reasoning": "The available exact predecessors and close catalogue tables do not account for the full-column-rank threshold; exact overlap on a kernel or at one window length is credited separately.",
+        "searches": [
+          "Resultary: fixed-point linear covariance rank consecutive ordinal patterns k=3",
+          "Resultary 09ebdb81d232, 6e228e1e9495, 1576564ede3a, a65ba414ee78, 5455c3336f55"
+        ]
+      },
+      "rationale": "The k=2 law is already known, and its rank follows mechanically from those entries. The supported distinct structural contribution is the all-length position-resolved calculation together with the sharp full-rank change at k=3 and its extension to every longer window. Later listed results give the same local kernel or length-four specialization but use it for summed covariances rather than rank. Priority is not claimed from catalogue dates alone.",
+      "residual_risks": [
+        "Unexamined refined permutation enumerations could contain a location-resolved equivalent; Désarménien–Wachs full text was not independently accessed. Later exact-kernel matches establish overlap, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact k=2 coverage; rank follows from the entries",
+          "evidence": [
+            "Two incident columns are the only possible nonzero entries in each descent row."
+          ],
+          "identifier_or_url": "6e228e1e9495",
+          "material_read": "Finding eqs. (1)–(3), mirrored offset 0",
+          "method": "Resultary mirror",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Earlier exact positional descent calculation"
+        },
+        {
+          "assessment": "Different random model, matrix and limit",
+          "evidence": [
+            "Asymptotic covariance between overlapping patterns in an iid categorical sequence, not covariance with fixed-point positions."
+          ],
+          "identifier_or_url": "09ebdb81d232",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact covariance nullspaces of three-point generalized ordinal patterns",
+          "trigger": "Closest catalogue hit on ordinal triples and covariance rank"
+        },
+        {
+          "assessment": "Material kernel overlap, later listed; focuses on aggregate signs",
+          "evidence": [
+            "Uses the same conditional probability, then sums over window and fixed-point locations."
+          ],
+          "identifier_or_url": "1576564ede3a",
+          "material_read": "Finding and Proof §1 eq. (1), mirrored offset 0",
+          "method": "Resultary mirror",
+          "title": "The first covariance sign reversals for fixed points and consecutive patterns",
+          "trigger": "Same local pattern probability and aggregate covariance"
+        },
+        {
+          "assessment": "Later listed length-four overlap, no full rank classification",
+          "evidence": [
+            "Gives all length-four count covariances against total fixed points."
+          ],
+          "identifier_or_url": "a65ba414ee78",
+          "material_read": "Finding and local-conditioning proof, mirrored offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact finite-sample fixed-point dependence for all consecutive four-patterns",
+          "trigger": "Same fixed-point dependence at k=4"
+        },
+        {
+          "assessment": "Later listed kernel overlap but aggregate linear/cyclic questions",
+          "evidence": [
+            "States the same individual fixed-point/window covariance before summing pattern counts."
+          ],
+          "identifier_or_url": "5455c3336f55",
+          "material_read": "Finding and Proof §1 eq. (1), mirrored offset 0",
+          "method": "Resultary mirror",
+          "title": "Boundary covariance and cyclic orthogonality for fixed points and consecutive patterns",
+          "trigger": "Same individual localized formula"
+        },
+        {
+          "assessment": "Distributional equivalence for different observables",
+          "evidence": [
+            "Identifies the law of unseparated successive-value pairs with the fixed-point set restricted to [n−1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5459",
+          "material_read": "PDF p. 2, Theorem 1.1, extracted offset 7518",
+          "method": "Targeted OA PDF passage",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Exact finite relation involving fixed-point sets and local permutation data"
+        },
+        {
+          "assessment": "Adjacent refined enumeration, not an implication of the rank claim in inspected material",
+          "evidence": [
+            "Counts derangements with specified descent positions and uses fixed-point-colored permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0811.1925",
+          "material_read": "Abstract p. 1 and §§1–2, extracted offsets 0 and 8637",
+          "method": "Targeted OA PDF passages",
+          "title": "Enumeration of derangements with descents in prescribed positions",
+          "trigger": "Refined descent enumeration with fixed-point coloring"
+        },
+        {
+          "assessment": "Count asymptotics, not finite covariance with labeled fixed points",
+          "evidence": [
+            "Studies occurrence-count joint asymptotic normality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3955",
+          "material_read": "PDF p. 1 and §4 p. 11, extracted offsets 0 and 36800",
+          "method": "Targeted OA PDF passages",
+          "title": "On the Asymptotic Statistics of the Occurrences of Permutation Patterns",
+          "trigger": "Joint covariance of permutation pattern observations"
+        },
+        {
+          "assessment": "Stated main result concerns a different law and aggregates",
+          "evidence": [
+            "Equidistributes descent/fixed-point-count and inverse-descent/pixed-point statistics on specified avoidance classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.00646",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "OA PDF abstract only",
+          "title": "Dong and Xu, descent/fixed-point equidistribution on pattern-avoiding classes",
+          "trigger": "Pinned-pattern literature search hit"
+        },
+        {
+          "assessment": "Potential overlap not resolved beyond accessible material",
+          "evidence": [
+            "The stated subject is the number of fixed points in descent classes; no location-resolved rank implication is established by the material read."
+          ],
+          "identifier_or_url": "doi:10.1016/0097-3165(93)90100-M",
+          "material_read": "Landing page and abstract; no full text independently retrieved",
+          "method": "Lawful DOI lookup",
+          "title": "Descent Classes of Permutations with a Given Number of Fixed Points",
+          "trigger": "Could contain implicit refined fixed-point enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp minimal observation window for joint rank information about all labeled fixed points. Two-position comparisons leave a specific blind direction, while the full three-position pattern resolves it at every finite size and all longer lengths. The statement is stronger than a total fixed-point covariance and gives a useful benchmark for local ordinal observations, without promising conditioning bounds or samplewise recovery from rank alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

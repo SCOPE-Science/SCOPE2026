@@ -1,21 +1,21 @@
-# Scientific review: sharp 9–10–12 tree reconstruction thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated invariants are complete type counts over individually named finite tree graph-metrics in the homogeneous three-distance metric structure. The Katětov triangle inequalities rule out only distance-label pairs \((1,3)\) or \((3,1)\) along distance-\(1\) graph edges, and the published vacancy-component representation follows. The rooted-tree dynamic program counts every admissible three-state assignment by disjoint root-state classes and valid child-state transitions. Completeness of the finite sample follows because deleting a leaf from every tree of order at least two yields a smaller tree, while centre-rooted sorted AHU codes distinguish isomorphism classes. A full enumeration therefore proves the first scalar, occupied-distance and full-grade collisions at orders nine, ten and twelve, respectively. Direct enumeration of every state assignment in all six witness trees independently matches the dynamic-program coefficient vectors; the first pair is also checked against the full metric triangle inequalities. No infinite-order reconstruction inference is made.
+PASS
 
-## Originality — PASS, provisional
+On a nonedge both triangle bounds hold automatically, and on an edge only 1 opposite 3 is forbidden. Universality realizes each admissible vector and homogeneity identifies it with one orbit over the named parameters. Arbitrarily many distinct points with the same vector can be added at mutual distance 1, so such a type is nonalgebraic. I independently generated rooted trees as multisets of smaller rooted branches, then deduplicated by taking the least all-root parenthesis code. This is complete because every rooted tree has a unique branch multiset and equality of one rooted code is equivalent to a rooted isomorphism. For each tree I enumerated occupied subsets, used bitmask searches for component sizes, and chose either uniform species on each component. The exact coefficients give unlabelled counts 1,1,1,2,3,6,11,23,47,106,235,551 and first collision orders 9,10,12 with exactly one fibre of size two each. Every reported witness edge set, degree multiset, occupancy and full coefficient list matches the independent result, including 3753, 8649, 55491 and the order-ten coefficient distinction 364 versus 363. The attribution repair does not alter the theorem, and the added specialization identities are immediate from the component weights.
 
-The earliest metric-homogeneity source is Delhomme–Laflamme–Pouzet–Sauer (2005). The Katětov/Widom–Rowlinson one-point type polynomial and component formula are **prior**, not contributions here. Cutler–Radcliffe (2011) and Galvin et al. (2025) establish important extremal results for graph homomorphism counts into the looped three-vertex path; such inequalities neither enumerate the equivalence fibres of three different type invariants nor establish their first-collision orders. Published related tree-distance and homomorphism fingerprint classifications concern different metrics or different source/target graph families. Targeted searches for aliases, tree homomorphism polynomials, nonisomorphic-tree coincidences and the exact coefficients did not locate a dominating classification. The claim is a finite sharp classification of the three nested **tree-restricted** invariants. A non-indexed equivalent census is an unresolved historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A graph-metric parameter family consists of all unlabelled trees, a canonical connected test class for type-counting invariants, and the three invariants are the basic scalar, occupancy-graded and full distance-graded levels of the very same natural one-point type statistic. The strict hierarchy of first failures at nine, ten and twelve proves exactly how much reconstruction strength each refinement adds, while the last counterexample shows complete one-point distance grading cannot reconstruct all tree bases. This is a meaningful finite inverse-theory boundary with complete, independently replayable certificates, not an arbitrary parameter slice or a recomputation of the prior component formula.
+The repair explicitly credits what is already implied: Tittmann, Averbouch and Makowsky's order-ten Q-polynomial pair necessarily collides for W. The surviving result is the scalar and complete-profile first-collision thresholds and uniqueness, and the fact that specializing Q to W creates neither a smaller collision nor any extra pair at ten, together giving the precise hierarchy. The prior graph-metric type/WR bridge and the known pair by themselves are not original contributions.
 
-## Closest literature and limitations
+## value
 
-The main comparisons are: Delhomme et al. (arXiv:math/0510254, first posted 2005-10-12) for the metric Fraïssé setting; *Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space* (published 2026) for the exact graph-metric type formula; Cutler–Radcliffe, *Extremal graphs for homomorphisms* (2011), for fixed-size and edge-count extremal homomorphism numbers; Galvin et al., *Hoffman–London graphs* (2025), for extremal tree homomorphism inequalities; and OEIS A000055 for a cross-check of the unlabelled-tree counts. Intrinsic distance laws for geometric metric trees and variable-source homomorphism fingerprints are distinguishable objects, not coverage by implication.
+PASS
 
-The check is exhaustive only through twelve vertices. The evidence is computationally finite but fully reproducible, with a proof of exhaustive generation and an independent direct-state check for each witness. No claim of publication priority or external certification is made.
+Trees are a natural first reconstruction domain for a fixed graph target. The meaningful information loss is quantified at three natural gradings of the same type-counting invariant, and the two strict increases in the reconstruction range are not implied by the formal relation between the gradings or by the older Q-pair. The classified exact witnesses give a reusable baseline, especially the final pair which cannot be separated by retaining the entire one-point distance profile.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

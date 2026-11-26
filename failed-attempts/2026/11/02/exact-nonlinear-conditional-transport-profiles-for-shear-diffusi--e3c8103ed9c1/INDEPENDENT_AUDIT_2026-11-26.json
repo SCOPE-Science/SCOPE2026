@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:16.615062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof; VERIFICATION.md; verify.py; independent quadrature and exact differentiation"
+      ],
+      "rationale": "The stationary exponential age and Gaussian bridge give X conditional on y,a mean gay/2 and variance 2Da+Dg²a³/6 (bridge integral variance a³/12 before the noise prefactor). Bayes gives the age density proportional to a^(-1/2) exp(-ra-y²/(4Da)), a GIG with index 1/2, with its Gamma boundary at y=0. For fixed y, differentiating the normalizer I=√(π/r) exp(-z) gives E[A^n|y]=(-∂r)^n I/I. The corresponding polynomials obey P_(n+1)=(2n+1+z)P_n-zP'_n; in particular Var(A|y)=(z+2)/(4r²). The total conditional variance sums the conditional Gaussian variance with (gy/2)² Var(A|y), yielding P3+3z²(z+2)=4z³+12z²+15z+15 in the shear term. This proves the formulas including y=0, zero shear, and monotonicity in |y| (right derivative at the origin). The age formula and Gaussian moment expansion prove the higher-moment claim. An independent numerical check using a=s² checked 45 nonzero-order age moment evaluations and 15 conditional mean/variance pairs across three parameter sets, with 2e-10 relative tolerance. Integrating over the exponential law of z also recovers the two known unconditional covariances. The frozen script was not run.",
+      "residual_risks": [
+        "The GIG label at y=0 uses the Gamma limit; the claim at the origin is about continuous versions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact renewal solution applies at arbitrary shear and reset location; the explicit kernel in Eqs. (2)–(3) supplies the full age-resolved density."
+        ],
+        "reasoning": "Specializing the reset point to the origin and integrating a Gaussian in x leaves exactly the claimed conditional mixture, without a perturbation approximation.",
+        "searches": [
+          "arXiv:2410.10333v1, §§II–III, Eqs. (2)–(6)"
+        ]
+      },
+      "checked_sources": [
+        "Abdoli, Olsen & Löwen, arXiv:2410.10333v1",
+        "Resultary 24df71ab6294"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Completing the square yields mean gay/2, variance 2Da+Dg²a³/6 and the posterior kernel exactly. Differentiation of I=√(π/r) exp(-z) yields every required posterior moment. The Resultary record explicitly evaluates that normalizing integral in the transverse direction."
+        ],
+        "reasoning": "The profile and higher moment computations are Gaussian integration and elementary differentiation of this one known normalizer; they need no new substantive identity beyond the already available exact kernel.",
+        "searches": [
+          "arXiv:2410.10333v1, Eqs. (2), (3), (5)",
+          "Resultary 24df71ab6294, proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Eqs. (2)–(3) and (5) express equivalently the exponential-age Gaussian mixture. The Resultary projection variance for every (u,v) encodes the same 2×2 conditional covariance matrix."
+        ],
+        "reasoning": "The compared sources describe the same full reset and shear process; the Resultary projection-tail and determinacy claims are not the same observables as the fiberwise moments.",
+        "searches": [
+          "arXiv:2410.10333v1",
+          "Resultary 2026/11/2/SCOPE-a-directional-moment-determinacy-boundary-for-shear-diffusion-un--24df71ab6294"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local indexed match gives an exact transverse Laplace density and projection mixture, not a table of conditional moment profiles. The inspected primary moment formulas are unconditional."
+        ],
+        "reasoning": "No printed equivalent profile was identified in these bounded inspections; the decisive coverage is the exact implication rather than a matching table or title.",
+        "searches": [
+          "Resultary match 24df71ab6294, proof §§1–2",
+          "arXiv:2410.10333v1, III Eqs. (11), (12), (14)"
+        ]
+      },
+      "rationale": "The polynomials were not found printed as conditional profiles in the checked primary article, but are mechanical consequences of its stronger exact renewal solution, not of its perturbation or its unconditional covariances. At origin reset, completing the square in published Eqs. (2)–(3) gives exactly the age-conditioned Gaussian mean and variance above; normalizing Eq. (5) in x gives I and the posterior age density. The only evaluations are differentiating the elementary known I at fixed y, up to order three for the profiles, and taking Gaussian moments. This same rule determines the entire polynomial hierarchy. The distinct Resultary projection record has substantial overlap in the age-conditioned Gaussian covariance and states the exact transverse normalization; it need not have priority over the frozen record for the older primary article to establish the implication.",
+      "residual_risks": [
+        "Bounded search cannot date the first explicit writing of the profiles; the adverse decision is based on demonstrated implication, not priority of the same-day indexed record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers claim by direct implication from exact kernel; unconditional results alone would not suffice",
+          "evidence": [
+            "Eq. (3) at x0=y0=0 is y²/(4Da) plus 3(x-gay/2)²/[Da(12+g²a²)]. Eq. (5) mixes over a with re^(-ra). Eq. (6) is not needed."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.10333v1",
+          "material_read": "§II Eqs. (2)–(3); §III Eqs. (5)–(6), (11), (12), (14), HTML offsets 10350–13350 and relevant passages at 13100 and 16020–21256",
+          "method": "Open-access original HTML by bounded offsets; algebraic comparison of kernel and Gaussian moments",
+          "title": "Shear-Driven Diffusion with Stochastic Resetting",
+          "trigger": "Same exact stationary shear-reset model"
+        },
+        {
+          "assessment": "Distinct stated result about projection tails/determinacy; exact mechanistic overlap, no priority inferred from same date",
+          "evidence": [
+            "The conditional projection variance is 2D[a+guv a²+g²u²a³/3] for unit (u,v); pure transverse projection gives the exact normalization via a Laplace density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-directional-moment-determinacy-boundary-for-shear-diffusion-un--24df71ab6294/RESULT.md",
+          "material_read": "Proof §§1–2, local mirror offset 2108, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local indexed match followed by bounded primary record read",
+          "title": "A directional moment-determinacy boundary for shear diffusion under resetting",
+          "trigger": "Closest distinct indexed full-reset result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen stated contribution; arXiv:2410.10333v1 exact renewal kernel"
+      ],
+      "rationale": "Conditional profiles and their nonlinear growth are meaningful observables for this model. But the asserted increment over existing mathematics is the routine exact moment evaluation of an already supplied kernel, with no additional independent structural result. That does not meet the narrow exact-invariant standard.",
+      "residual_risks": [
+        "This judgment concerns the finding as submitted, not the usefulness of writing the formulas explicitly for applications."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

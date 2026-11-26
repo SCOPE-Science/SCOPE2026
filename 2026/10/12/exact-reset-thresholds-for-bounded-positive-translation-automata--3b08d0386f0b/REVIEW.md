@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The endpoint \(n-1\) is absorbing; every initial distance must be a subset sum of the command lengths. The sorted-coin missing-integer argument bounds consecutive coverage by \(\sum_{j<k}\min(m,2^j)\). Conversely, the largest-first greedy denomination word reduces every residual distance to zero by a rigorous invariant. Boundary values \(n=2\), \(m=1\), and \(m\ge n-1\) are included. A separate exhaustive power-automaton BFS confirms all 105 small pairs, without standing in for the symbolic proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Bradshaw–Clow–Stacho (arXiv:2405.00826, Sections 3–4) defines difference DFAs and gives bidirectional diameter bounds; the positive-only interval class here is *not* bidirectionally connected. General synchronizing-automaton results and the earlier Sidon embedding do not imply the exact bounded-command tradeoff. Published research searches, the relevant primary text, a semantic research index, and prior locally recorded claims identified no statement that covers the two-parameter formula. This is not proof that no unindexed antecedent exists.
+PASS
 
-**Value — PASS.** Limiting jump lengths is a natural resource constraint on location-independent reset commands. The theorem identifies the exact minimum number of commands for every number of states and maximum allowed step, constructs optimal words, and quantifies the transition from linear to logarithmic reset time. Unlike an arbitrary finite census, this establishes a complete infinite-parameter classification tied to the new geometric difference-automata setting.
+State n-1 is fixed by all letters. Each of the n starting distances from it must be the sum of the values of those instructions that actually move that start, so the multiset of letters in a reset word must have all subset sums 0 through n-1. Sort the letters. The first value greater than the previous prefix sum plus one leaves that very integer missing, since taking any of the remaining letters already exceeds it. Every prefix before that gap covers through its total and its next increment is at most min(m,1+prefix total). Thus the best possible coverage after k letters is bounded by S_k with S_0=0 and S_{j+1}=S_j+min(m,1+S_j); doubling before the cap and constant increments after it give the sum in the claim. For the matching word take those extremal increments in decreasing order. If remaining distance t is bounded by the total of the remaining letters, using the largest letter d either subtracts d or leaves t<=d-1, which is no greater than the total after dropping d. Induction ends at distance zero. This proves the exact threshold rather than just feasibility of subset representations; it includes n=2 and the stated m=1, m=2 and uncapped regimes.
 
-Limitations: the result requires the entire positive alphabet through the bound and the stated self-loop rule; it is not a theorem about all difference DFAs. Known coin-denomination covering principles are used rather than claimed as original. Some unindexed literature may contain equivalent results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general stay-put difference-DFA framework and the no-gap subset-sum argument are known ingredients. The exact capped all-state reset threshold and the optimal word for this directed interval family were not established by the plausible nearby indexed or primary results inspected. This is a best-of-knowledge pass for the specialized exact invariant, not for the general DFA model or for the complete-sequence principle.
+
+## value
+
+PASS
+
+The endpoint synchronization cost for a canonical finite directed translation geometry is a natural exact invariant. The stay-put obstruction is materially different from clipping. The formula explains the regime change from capped, effectively linear growth to logarithmic cost with an ample alphabet, and gives a provably shortest uniform control word. Even though the subset-sum ingredient is elementary, the equality closes a meaningful upper/lower gap for all interval sizes and command caps and is useful as a benchmark for nearby difference DFAs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

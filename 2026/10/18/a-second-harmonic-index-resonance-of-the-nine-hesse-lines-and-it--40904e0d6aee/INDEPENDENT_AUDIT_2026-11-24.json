@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:40.598997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal cyclic shifts an unnormalized off-diagonal overlap is 1+omega or 1+omega^2, a negative cube root of unity; for distinct shifts the supports meet at one coordinate and the overlap is a negative cube root of unity directly. Normalization divides the overlap by 2. The charge-three addition kernel then yields constant off-diagonal -a_q/8, unit diagonal, and the two orthogonal eigenspaces as stated. Harmonic dimension follows by subtracting the lower-bidegree trace dimension. I independently checked every q=0..899 by exact evaluation of the Jacobi binomial sum, not the uploaded recurrence, with /workspace/branches/audit_exact.py. For the infinite tail, writing R(e^{it})=e^{it/2} times a square root of (1+2 cos t) gives the two boundary inequalities by orthogonality on the indicated arcs. The algebraic partners give products z and -3z so there are no interior zeros of the two factors; at z=0 they are 2. The minimum modulus principle gives the interior bounds. Separation of the two branch points and Cauchy's inequality give |p_q|<30 sqrt(q+1)<q+1 for q>=900. For q=1, a_q=-5/4, neither eigenvalue vanishes. At q=0,2 the pseudoinverse gives the stated norm on the actual phased mean-zero image; rephasing changes that hyperplane by diagonal unitaries. No dependence on an uploaded executable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roy–Suda provide the zonal addition theorem and a SIC code-bound example. The kernel specializes to the stated normalized Gram, but positive semidefiniteness alone only bounds a_q between -8 and 1 non-strictly.",
+          "The local Resultary record has broader line geometry (any qutrit SIC) but only charge zero, not charge three."
+        ],
+        "reasoning": "A general PSD addition theorem does not determine exactly when equality occurs for an individual harmonic sector. The geometric generality of the charge-zero result does not dominate the charge-three parameters.",
+        "searches": [
+          "Roy–Suda arXiv:1104.4692v1, Theorem 2.1 and Example 5.5",
+          "Resultary: projective harmonic interpolation of qutrit SICs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "arXiv:1104.4692v1",
+        "arXiv:1211.0215v2",
+        "NIST DLMF chapter 18",
+        "Local Resultary record 5bad04191df6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the addition theorem and SIC overlaps already yields the two-eigenvalue formula and the interpolation cost conditionally on the rank.",
+          "The phase-invariant result uses Jacobi parameters (1,0), not (1,3); its relationship paragraph mentions charged (q+3,q) calculations without identifying them."
+        ],
+        "reasoning": "The unresolved equality conditions require an additional proof; the absolute bound and finite equality classification provide it. Unidentified earlier calculations are a named risk, not proof of equivalent coverage or of chronological priority.",
+        "searches": [
+          "arXiv:1104.4692v1 §2",
+          "arXiv:1211.0215v2 §3",
+          "Resultary 2026/10/18/SCOPE-a-universal-sharp-conditioning-law-for-projective-harmonic-inter--5bad04191df6, Finding and Related Work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dang et al., section 3, identify the inflection points of the Hesse pencil with the nine SIC points: cubic geometry is known.",
+          "A same-day phase-invariant interpolation record gives the same rank-eight normalized matrix at q=2 but defines its evaluation space to be Harm(q,q)."
+        ],
+        "reasoning": "The same spectral data in (2,2) and (5,2) are not equivalent statements about polynomial spaces; projective rephasing cannot change bihomogeneous degree or the charge.",
+        "searches": [
+          "Hesse SIC harmonic evaluation rank mixed bidegree Jacobi P_q^(1,3)(-1/2) charge 3",
+          "Resultary: Hesse charged harmonic interpolation and exact Jacobi resonance",
+          "Dang–Blanchfield–Bengtsson–Appleby arXiv:1211.0215v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF supplies the normalization/recurrence and endpoint formulas, not an all-degree classification of P_q^(1,3)(-1/2)=q+1 or -8(q+1).",
+          "The mirrored qutrit SIC record lists charge-zero ranks 1 at 0, 8 at 1 and 2, 9 for q>=3."
+        ],
+        "reasoning": "Finite special values and the distinct charge-zero table neither imply strict spectral positivity in the charged tail nor give the stated exceptional set.",
+        "searches": [
+          "NIST DLMF §§18.3, 18.6 and 18.9",
+          "Resultary record 5bad04191df6"
+        ]
+      },
+      "rationale": "The charge-three all-index equality classification, not the general kernel, the Hesse overlap geometry, or the holomorphic cubic obstruction, is the distinct part. A same-day result reproduces the q=2 matrix but in a different harmonic sector using different Jacobi parameters; this is not coverage of the charged cutoff.",
+      "residual_risks": [
+        "The origin of the charged calculations mentioned by the same-day phase-invariant record is unresolved; the date gives no ordering evidence.",
+        "General kernel identities and the cubic geometry are prior; no broader novelty beyond the charged all-index exception classification is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the kernel input, not the charged equality classification",
+          "evidence": [
+            "General Harm(k,l) addition theorem and SIC Delsarte bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1104.4692v1",
+          "material_read": "§2 Theorem 2.1 and Jacobi expression; §5 Example 5.5; offsets 12200 and 52600",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Complex spherical designs and codes",
+          "trigger": "General complex harmonic evaluation and SIC examples"
+        },
+        {
+          "assessment": "Classical geometric/cubic overlap only in passages read",
+          "evidence": [
+            "The Hesse pencil's nine inflection points coincide with the nine SIC points."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1211.0215v2",
+          "material_read": "§3, offsets 16500 and 23000",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Linear Dependencies in Weyl-Heisenberg Orbits",
+          "trigger": "Exact Hesse configuration and cubic obstruction"
+        },
+        {
+          "assessment": "Algebraic inputs, no matching table in passages checked",
+          "evidence": [
+            "Standard Jacobi normalization and recurrence, including P_q^(1,3)(1)=q+1."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18",
+          "material_read": "§§18.3, 18.6, 18.9 tables and recurrence passages",
+          "method": "Public reference pages",
+          "title": "NIST Digital Library of Mathematical Functions: Orthogonal Polynomials",
+          "trigger": "Potential known Jacobi value or extremal classification"
+        },
+        {
+          "assessment": "Material matrix overlap at degree index two; different sector and statement",
+          "evidence": [
+            "For Harm(q,q), ranks are 1 at q=0, 8 at q=1,2 and 9 for q>=3. The normalized q=2 Gram is 9I/8-J/8."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-sharp-conditioning-law-for-projective-harmonic-inter--5bad04191df6",
+          "material_read": "RESULT.md, offsets 0 and 7467",
+          "method": "Local Resultary mirror",
+          "title": "A universal sharp conditioning law for projective harmonic interpolation",
+          "trigger": "Same qutrit SIC size and q=2 matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same nine Hesse samples are used on a natural sequence of increasing-degree fixed-charge harmonic spaces. The result identifies exactly which spaces can interpolate arbitrary data and isolates a nonholomorphic rank defect, with conditioning and minimum-norm consequences. That exact boundary is not supplied by a positive semidefinite kernel formula or a few low-degree computations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

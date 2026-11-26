@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant four-state reduction, low/high spectral gap estimates, and two applications of Duhamel's formula yield the bounded-time amplitude expansion and its sharp fidelity law. The unequal-order no-pretty-good-transfer assertion follows from differing second diagonal moments. The included numerical program checks the matrix construction and representative finite limits, but the proof does not rely on extrapolating from them.
+## correctness
 
-## Originality — PASS
-The closest antecedents are Ackelsberg et al.'s equal-clique barbell pretty-good-transfer theorem (2016 preprint/2017 journal), Coutinho et al.'s exact-transfer exclusion for bridges (2021), Razzoli et al.'s sink-based equal-clique transport (2020), and Duda–Wong's oracle-based barbell search (2024). None of their inspected statements yields the asymmetric fixed-time expansion with coefficient \(p^{-1}+q^{-1}\). The original symmetric transfer existence and the general no-perfect-transfer theorem are explicitly credited. An equivalent asymptotic formula under another vocabulary remains possible.
+PASS
 
-## Value — PASS
-At fixed bridge hopping, quantum excitation crosses an extreme one-edge bottleneck in a time independent of clique size and with a first-order failure law that is additive across the two unequal cliques. This gives a quantitative fidelity and sizing prediction distinct from unbounded-time existence results. Its surprising coexistence with the absolute no-pretty-good-transfer result for each fixed unequal pair motivates the calculation.
+In each clique only the uniform vector and its normalized endpoint contrast enter; other contrasts have zero endpoint amplitude and are invariant. In the contrast/uniform basis this gives exactly K, B, D as displayed. With m=min(p,q), the two low energies of K have a gap bounded below in terms of fixed w>0, lie order m below D, and ||B||=O_w(m^-1/2). Weyl first isolates each low eigenvalue; eliminating the high component bounds its norm by O_w(m^-3/2) and gives a Schur correction O_w(m^-2), so the low eigenvalues and their low-sector normalized components differ from those of K by O_w(m^-2). Orthogonality gives low-sector weight O_w(m^-3/2) in each high eigenvector at the level of norm. This proves the low-low and mixed propagator bounds with no need for any separation between the two high eigenvalues. In the high-high block the first-order Duhamel correction vanishes and the double integral is bounded by t^2||B||^2/2; the cross-entry of exp(-itD) itself is at most |t|w/sqrt(pq). Endpoint overlap factors give O_{w,T}(m^-2) for both mixed and high-high amplitude contributions. Evaluating exp(-itK) gives the stated sign and phase; at pi/(2w) the sine differs from one by O_w(m^-2), giving the claimed probability. For fixed unequal p,q the conserved H^2 expectations p-1+w^2 and q-1+w^2 differ, precluding endpoint PGST. This proof is uniform for arbitrary ratios, not for variable w or growing time. Independent replay: python3 /workspace/review_replay.py 2 (NumPy/SciPy, 300 independently constructed reduced-matrix expm diagnostics, including q=p^2 and negative times). These diagnostics are finite, not a substitute for the bounds. Uploaded verifier inspected only.
 
-## Limitations
-Fixed positive hopping and bounded time only; no uniform joint hopping/size limit, no optimal long-time fidelity claim, and no independent verification of mathematical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of inspected evidence supports the uniform compact-time endpoint amplitude with second-order remainder for the fixed-weight unequal-clique adjacency family, and its explicit leading fixed-time infidelity. The four-dimensional symmetry reduction and the unequal-endpoint moment obstruction are standard ingredients, not new general mechanisms. The frozen prior-work paragraph miscites the one-bridge theorem number and misidentifies the graph in the cited corona theorem; neither assertion is needed for the Finding. Cite Coutinho et al. Theorem 11 for a single unweighted bridge; do not use Ackelsberg et al. Theorem 5.3 as evidence of equal-clique-barbell PGST.
+
+## value
+
+PASS
+
+The phase-resolved estimate quantitatively distinguishes coherent single-edge transfer from time-optimized transfer on a fixed graph. It explains both the constant-time approach to unit probability and its leading size deficit, uniformly even for arbitrarily unbalanced cliques. A mere effective two-state heuristic would not give the second-order error or justify this leading loss; the conserved-moment contrast clarifies the noncommuting size and time questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

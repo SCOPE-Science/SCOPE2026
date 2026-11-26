@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:34:59.397826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent-set enumeration on the stated 30-edge graph gives (1,12,36,20) by excitation number and parity sizes 37/32. An allowed single flip reverses excitation parity, so the Hermitian Hamiltonian has off-diagonal block B(t) and kernel dimensions 37−rank B and 32−rank B. The separate exact replay /workspace/branches/6b9550e8-81ba-4479-87d4-d4f79216bb25/icosahedron_check.py reconstructs the graph and block, matches every Gram characteristic coefficient at t=1 by integer traces and Newton identities, and symbolically reproduces the ordered maximal minor 2(t²−1)^6. The Gram polynomial has a zero of order six and all the displayed remaining factors have nonzero constant terms, giving rank 26 and nullities 11 plus 6. The identity det(xI−H)=x⁵ det(x²I−BᵀB) yields the entire stated homogeneous polynomial. The minor forces rank 32 at every real t other than ±1, including t=0. Multiplication of each basis state containing vertex 0 by −1 conjugates t to −t, so the homogeneous rank returns at −1. The five-mode lower bound applies to arbitrary real amplitudes by parity dimensions; the full sharp classification holds only for this single-site profile and ideal projected zero-detuning dynamics. Frozen scripts were read, not executed; the uniform rank and all-real-t classification do not depend on modular sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buijsman derives the chiral/parity lower bound and notes possible additional fine-tuned modes. Lesanovsky treats a one-dimensional system and a specially shifted Hamiltonian. The institutional Byun–Kim–Ahn abstract identifies experiments on tetrahedron, cube and octahedron; full text was not obtained."
+        ],
+        "reasoning": "General chiral symmetry guarantees at least 37−32=5 here, not the homogeneous rank or the absence of extra modes at every nonresonant value. The inspected Platonic-graph experiment studies different graphs and maximum-independent-set preparation, not the entire spectrum on the stated graph.",
+        "searches": [
+          "arXiv:2203.09264v3 Section II",
+          "arXiv:1010.2349v2 projected Rydberg blockade",
+          "10.1103/PRXQuantum.3.030305 and KAIST institutional abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_exact.py and verify_independent.py",
+        "arXiv:2203.09264v3 and arXiv:1010.2349v2",
+        "DOI 10.1103/PRXQuantum.3.030305 (institutional abstract only)",
+        "Resultary 59fb9b41d9b5 (self), 4ce34e2d4cf9 and 4f0f682af0b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chiral bound plus the prior face vector gives the universal lower bound of five directly. The homotopy type and the Heawood point/line certificate do not provide the rank of the icosahedral B(t).",
+          "Generic full rank would only exclude a finite exceptional set; exact determination of that set and its rank drop uses the parameter-uniform minor and the independent uniform Gram polynomial."
+        ],
+        "reasoning": "Topological boundary matrices use oriented incidence with squared differential zero, unlike this unsigned flip operator. Prior parity, homology and analogues therefore do not mechanically imply the twelve additional homogeneous modes, the exact spectrum, or the only exceptional magnitudes.",
+        "searches": [
+          "Buijsman arXiv:2203.09264v3 §II",
+          "Resultary 4ce34e2d4cf9 and 4f0f682af0b4 actual findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 59fb9b41d9b5 is the exact frozen record. Same-day 4f0f682af0b4 treats a Heawood graph with point/line weights, not this icosahedron.",
+          "Earlier 4ce34e2d4cf9 treats the ordinary independence complex, not the weighted undirected flip adjacency."
+        ],
+        "reasoning": "The sign gauge equivalence t↔−t is already included. Passing to the parity Gram matrix is equivalent for the nonzero spectrum and rank; neither the simplicial homology nor a different bipartite graph's resonance establishes these Gram data.",
+        "searches": [
+          "Primary literature: \"icosahedral graph\" PXP blockade Hamiltonian zero modes characteristic polynomial spin flip spectrum",
+          "Resultary: icosahedral PXP / projected configuration-flip adjacency, zero-mode resonance, one-site amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier homology record 4ce34e2d4cf9 supplies the exact face vector (12,36,20). The table-like full polynomial and weighted minor in 59fb9b41d9b5 are this record itself; the distinct 4f0f682af0b4 gives other exact spectra/rank certificates on a 14-vertex Heawood graph."
+        ],
+        "reasoning": "The prior face vector fixes block sizes but not the singular values or the weighted maximal-minor zeros. No distinct exact catalogue entry supplying the same flip spectrum or single-defect rank was identified in the inspected results.",
+        "searches": [
+          "Resultary: full characteristic polynomial and one-site weighted PXP rank for the icosahedral independent-set graph",
+          "Resultary independent-set face vector of the icosahedron"
+        ]
+      },
+      "rationale": "The known graph combinatorics and standard chiral parity bound cover the baseline five modes. The distinct supported result is the full homogeneous spectrum and the sharp all-real single-defect rank classification, including the twelve extra modes present only at homogeneous drive magnitude.",
+      "residual_risks": [
+        "No exhaustive priority claim. The Byun–Kim–Ahn full text remained inaccessible through the attempted lawful routes; the institutional abstract establishes its stated experimental scope but cannot exclude subsidiary calculations. Equivalent exact results might also be unindexed under terminology for independent-set reconfiguration graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general lower bound, not the exact icosahedral classification",
+          "evidence": "Parity decomposition guarantees the dimension imbalance and permits additional fine-tuned zeros; it does not compute B(t) for this graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.09264v3",
+          "material_read": "§II, PDF p. 2",
+          "method": "OA PDF passages at offsets 13500–17497",
+          "title": "Number of zero-energy eigenstates in the PXP model",
+          "trigger": "Broader chiral zero-mode result, including fine tuning"
+        },
+        {
+          "assessment": "Related physical motivation, different graph and operator",
+          "evidence": "One-dimensional constrained gas and a specially constructed Hamiltonian, not the unit-flip zero-detuning icosahedral model.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.2349v2",
+          "material_read": "PDF p. 2, definition and discussion of the blockade and special Hamiltonian",
+          "method": "OA PDF passage at offsets 10300–13463",
+          "title": "Many-body spin interactions and the ground state of a dense Rydberg lattice gas",
+          "trigger": "Earlier blockade Hamiltonian and exact states"
+        },
+        {
+          "assessment": "Inspected abstract names other graphs and a different object of study; no whole-document coverage judgment",
+          "evidence": "Names tetrahedron, cube and octahedron, with maximum independent sets encoded in ground-state configurations probed by quasiadiabatic control.",
+          "identifier_or_url": "https://doi.org/10.1103/PRXQuantum.3.030305",
+          "material_read": "KAIST institutional copy of the abstract; full text not obtained",
+          "method": "OA DOI/publisher and identified alternate full-text attempts were blocked; read https://pure.kaist.ac.kr/en/publications/finding-the-maximum-independent-sets-of-platonic-graphs-using-ryd/ at offset 440",
+          "title": "Finding the Maximum Independent Sets of Platonic Graphs Using Rydberg Atoms",
+          "trigger": "Plausible earlier spectrum for a Platonic blockade graph"
+        },
+        {
+          "assessment": "Exact coverage of the earlier graph combinatorics; different invariant",
+          "evidence": "Face vector (12,36,20) and homotopy type S² ∨ ⋁⁶ S¹; this is ordinary independence homology, not a Hamiltonian kernel or singular spectrum.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-icosahedral-independence-homology-as-an-antipodal-verte--4ce34e2d4cf9",
+          "material_read": "Finding and definitions in RESULT.md",
+          "method": "Resultary and local mirror at offsets 0–4289",
+          "title": "Integral icosahedral independence homology as an antipodal vertex lattice",
+          "trigger": "Earlier exact invariant of the same graph's independent sets"
+        },
+        {
+          "assessment": "Distinct indexed result; shared method does not imply equivalence and date does not resolve priority",
+          "evidence": "Heawood graph with 14 vertices and a point/line amplitude profile rather than a single vertex of the icosahedron.",
+          "identifier_or_url": "2026/11/22/SCOPE-fano-symmetric-zero-mode-resonance-in-the-heawood-blockade-hamil--4f0f682af0b4",
+          "material_read": "Finding, graph and amplitude assumptions in RESULT.md",
+          "method": "Resultary and local mirror at offsets 0–3657",
+          "title": "Fano-symmetric zero-mode resonance in the Heawood blockade Hamiltonian",
+          "trigger": "Strong same-day analogue using blockade rank and minor certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosahedron is a canonical Platonic interaction graph and a local drive defect is a meaningful perturbation of the homogeneous constrained Hamiltonian. The exact polynomial and all-real defect classification separate parity-protected multiplicity from twelve fine-tuned zero modes, rather than just reproducing the known independent-set count or a floating-point gap. These data are useful benchmarks for symmetry and sensitivity in constrained finite dynamics and do not assert physical zero modes away from perfect blockade and zero detuning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

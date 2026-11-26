@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive-support identity follows by partitioning positive labels into forced \(2\)'s and free \(1/2\)'s. Every possible sixteen-bit support is processed exactly once. Independently, the direct ternary verifier checks all \(3^{16}\) labelings in each graph with the literal zero-vertex neighbor criterion, reproducing all 33 coefficients and the eight-term difference. The weight-four lower bound follows by double-counting selected-to-unselected neighbor-weight incidence. The sixteen Shrikhande four-cocliques are all translates of four explicitly listed origin-containing sets, and the strongly regular common-neighbor identities imply their two-neighbor property. All finite checks use the embedded source programs; no higher-order or untested range is asserted.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest published work proves and counts the rook minimum but not the all-weight polynomial or Shrikhande results. Published paired-domination work on the same two graphs concerns subsets admitting induced perfect matchings rather than Italian functions; its coefficients do not imply the current claim. A published complete-multipartite Roman \(\{2\}\) weight enumerator concerns a different graph class. Comparisons used exact polynomial, Roman \(\{2\}\), Italian, zero-label and group/graph aliases. The 2022 focal source studies generalized Sierpiński graphs, not the two sixteen-vertex strongly regular graphs. Unindexed earlier computations cannot be ruled out; there has been no independent publication-priority determination.
+PASS
 
-## Mathematical value — PASS
-This exact, natural all-weight census discriminates two canonical cospectral strongly regular graphs even though their total-domination polynomials coincide; it does so via eight low coefficients and proves exact coincidence above weight eleven. The weight-four optimum has an explanatory geometric classification as sixteen subgroup cosets versus twenty-four permutation transversals. The distinction is not a previously known scalar minimum rephrased as a polynomial, and the method supplies a reproducible coefficient-level benchmark.
+For each support A, reject it if any outside vertex lacks a neighbor in A. Otherwise each outside vertex with exactly one neighbor in A forces a double there, and every other outside vertex is defended irrespective of which remaining selected vertices are doubled. The coefficient contribution is thus z^{2|U|}(z+z²)^{|A|−|U|}, where U consists of the distinct forced vertices. A separately written exact implementation exhausted all 65,536 supports per graph, reproduced both full coefficient vectors and returned differences (8,224,1184,1408,1176,832,640,256) at degrees 4 to 11, zero elsewhere through degree 32. Replay: python3 /workspace/branches/d83fa4a7-b104-4079-9700-76c20ad5f04a/reproduce_italian_weights.py; recorded full vectors are in reproduce_full.json in the same directory. The frozen Python and C++ checkers were inspected, not executed. For the optimum structure, 2(16−|A|)≤6w implies w≥4; equality forces four ones, no edges among them, and two neighbors at each outside vertex. In a four-coclique, the outsider neighbor counts have sum 24 and pair-count sum 12 by the common-neighbor parameter 2, giving zero sum of squared deviations from 2. Such a coclique is maximum because it cannot extend (so no larger independent set can contain any four of its vertices). Rook cocliques are permutation transversals. For Shrikhande, the six modular adjacency differences leave exactly the four listed triples extending the origin to a four-coclique, each an order-four subgroup after adjoining the origin. Distinct subgroups have disjoint collections of cosets, and translation brings every four-coclique to one of them. The reproduced independent-set counts, 24 and 16, agree with the weight-four counts.
 
-## Limits
-The result is a finite classification of two labelled graphs. High-weight coefficient cancellation is established by a complete terminating enumeration, not a closed all-graph invariance theorem. Publication priority and independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full labelled Italian weight-polynomial separation and exact high-degree agreement for these benchmark graphs. The rook minimum and all its optimizers are known, and a prior design paper may already classify Shrikhande's maximum independent sets, which would also give its minimum Italian configurations. No independent priority claim for that census is needed for the polynomial finding.
+
+## value
+
+PASS
+
+The rook and Shrikhande graphs are a natural strongly regular benchmark pair with identical basic parameters and the same Italian domination number. Exact labelled enumeration exposes where the refined invariant separates them and where coefficients agree, giving a usable benchmark that is not obtainable from merely comparing minima or distinct subset-domination invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

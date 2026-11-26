@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:54.645186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q=2^p, the distance-power quadratic form on the zero-sum space is the orthogonal sum of clique contrasts (eigenvalue −1; absent for m=1), independent-set contrasts (−q), and the line (1/m on the clique, −1/n on the independent set). On the line the eigenvalue is [q(1−1/n)−1−1/m]/[1/m+1/n]; from q≥1 it is at least −1, so it gives the claimed exact gap with a witness even above the critical exponent. This also verifies the strictness and simple endpoint nullity, including the equidistant p=0 case and the star boundary. At p=1 the inequality reduces to n(m−1)≤2m. Checking n≤6−m for 1≤m≤4 proves the order-six statement, and the five admissible pairs at order seven leave exactly the stated three failures. Schoenberg centering gives the ranks from the same three modes. The proof's phrase ‘nonnegative type’ in the p=1 paragraph means 1-negative type here. The supplied rational checker is corroborative, not the proof for real exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular graph join theorem yields Example 3.4; Sánchez Theorem 3.1 provides the star critical exponent as a complete bipartite specialization",
+          "Clique-core books include all singleton-page split graphs with clique size at least two; the two-clique sum and multipartite records cover the n=2 and m=1 boundaries respectively"
+        ],
+        "reasoning": "The regular join has one zero-sum block-constant direction and the two subspaces of within-block contrasts; the singleton-page book specialization also explicitly supplies endpoint simplicity. The fan-join theorem is corroborative at p=1, not needed for the decisive transform.",
+        "searches": [
+          "Lou–Obata–Huang, arXiv:2001.06752, Theorem 3.1 and examples",
+          "Sánchez, arXiv:1108.0451v1, §§2–3",
+          "Młotkowski–Obata, arXiv:2403.16348, Theorem 3.7",
+          "Resultary 4aa5ccf8ed50, d3240d2c73e8, 97a979077d8c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_split_graph.py",
+        "arXiv:2001.06752, 1108.0451v1, 2403.16348",
+        "Resultary 4aa5ccf8ed50, d3240d2c73e8 and 97a979077d8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=2^p and off-diagonal distances 1 or 2, D_p=(q−1)D_1+(2−q)(J−I), including p=0",
+          "On the zero-sum space this gives QEC_p=(q−1)(QEC_1+1)−1 for q≥1"
+        ],
+        "reasoning": "Insert the prior QEC_1 to get the frozen gap 1−(q−1)m(n−1)/(m+n), the equivalent critical exponent and the exact order-seven sign test. The affine transform also maps the two contrast eigenvalues at p=1 to −1 and −q, leaving the one mixed mode to meet zero; the Gram-rank conclusion then follows. This is demonstrable implication independently of any same-day chronology.",
+        "searches": [
+          "arXiv:2001.06752 Example 3.4 (3.12) and regular join decomposition",
+          "4aa5ccf8ed50 singleton-page specialization; Sánchez Theorem 3.1 for the star"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.4, (3.12): QEC(K_m∨independent_n)=(mn−n−2m)/(m+n) in the frozen notation; Example 3.3 covers m=1",
+          "Resultary 4aa5ccf8ed50, Finding and proof: taking all peripheral clique sizes equal to 1 gives the complete-split critical exponent, strictness and ranks for m≥2"
+        ],
+        "reasoning": "QEC is the maximum of the ordinary distance quadratic on unit zero-sum coefficients; its negative is exactly the frozen gap at p=1, not a different gap normalization. Singleton pages yield exactly the same shortest-path metric as the complete split graph.",
+        "searches": [
+          "Quadratic Embedding Constants of Graph Joins, arXiv:2001.06752, Examples 3.3–3.4",
+          "Resultary: complete split graphs, negative type, clique-core books"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact seven-vertex table located in the inspected passages",
+          "The evaluated QEC sign classifies every pair of positive part sizes at p=1, hence covers all smaller orders and the complete seven-vertex census"
+        ],
+        "reasoning": "The explicit all-pair formula is stronger exact evidence than an order-seven table. Restricting it to the five order-seven pairs is a mechanical filter, not a new finite invariant.",
+        "searches": [
+          "Resultary complete-split seven-vertex obstructions and indexed join thresholds",
+          "Lou–Obata–Huang, Example 3.4 and Eq. (3.12)"
+        ]
+      },
+      "rationale": "Lou, Obata and Huang give the exact complete-split quadratic embedding constant (the negative of this normalized gap at p=1) in Example 3.4 of their 2022 paper. Since the only nonzero distances are 1 and 2, a positive affine transform of the compressed ordinary distance matrix gives every distance-power matrix. The published QEC therefore immediately fixes the entire all-p gap and the critical exponent, as well as the seven-vertex list. The regular-join block modes supply endpoint simplicity and rank. A distinct same-day indexed clique-core-book result also explicitly covers the critical exponent and ranks for m≥2; no within-day priority is assumed or needed for the failure.",
+      "residual_risks": [
+        "The 1990 Deza–Maehara example could not be compared directly.",
+        "No established within-day priority for the wider clique-core-book result. Neither limitation changes the implication from the published 2022 formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive older coverage: the explicit p=1 formula mechanically implies the entire gap curve and obstruction census",
+          "evidence": [
+            "QEC(K_n+complement K_m)=(mn−m−2n)/(m+n) in the paper's reversed letter convention; star from Example 3.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06752",
+          "material_read": "PDF p. 8, Examples 3.3–3.4, Eq. (3.12), offsets 20950–24021",
+          "method": "Bounded original PDF read, relettering and affine matrix transform",
+          "title": "Quadratic Embedding Constants of Graph Joins",
+          "trigger": "Exact complete-split QEC and diameter-two join model"
+        },
+        {
+          "assessment": "Exact exponent, strictness, nullity and Euclidean rank overlap for m≥2, with same-day priority unresolved",
+          "evidence": [
+            "Equal-block threshold log₂(1+(n/m+1)/(n−1)); the full book statement does not claim singleton pages as standalone novelty"
+          ],
+          "identifier_or_url": "Resultary 4aa5ccf8ed50 (2026-11-02)",
+          "material_read": "Mirrored RESULT.md Finding and proof around offsets 0 and 3974",
+          "method": "Bounded mirror read and substitution of all page sizes equal to one",
+          "title": "Sharp negative-type phase transition for clique-core books",
+          "trigger": "Broader join with singleton-page specialization"
+        },
+        {
+          "assessment": "Exact threshold overlap for the star; general strict-negative-type background elsewhere",
+          "evidence": [
+            "Theorem 3.1 with first part size 1 gives log₂(2n/(n−1))"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451v1",
+          "material_read": "Theorem 2.3, Corollary 2.4 and Theorem 3.1, PDF pp. 4–5, 7 (offsets about 14991, 17637, 25279)",
+          "method": "Bounded OA PDF reading",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Complete-bipartite star boundary and finite-metric strictness"
+        },
+        {
+          "assessment": "General ordinary-distance QEC, not stated as a variable-exponent theorem",
+          "evidence": [
+            "Join of an empty graph and a graph G"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.16348",
+          "material_read": "Theorem 3.7, PDF p. 11 around offset 27065",
+          "method": "Bounded OA reading",
+          "title": "Quadratic Embedding Constants of Fan Graphs and Graph Joins",
+          "trigger": "Broader empty-graph join formula"
+        },
+        {
+          "assessment": "No independent finding about the example's full scope; not used for rejection",
+          "evidence": [
+            "Sánchez says his bipartite theorem can be deduced from Example 2"
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1990-0974513-6",
+          "material_read": "Sánchez's reference to Example 2; not the original example",
+          "method": "Lawful OA retrieval attempted; source unavailable for direct comparison",
+          "title": "Metric Transforms and Euclidean Embeddings",
+          "trigger": "Earlier two-distance example cited by Sánchez"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit phase boundary for a natural graph family is useful, but the purported gain here comes from an affine transformation of a published exact constant, a five-pair filter of its sign, and a rank calculation on the same join modes. The seven-vertex list adds no independent cutoff beyond the parameter inequality. There is no nonroutine surviving frozen component to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

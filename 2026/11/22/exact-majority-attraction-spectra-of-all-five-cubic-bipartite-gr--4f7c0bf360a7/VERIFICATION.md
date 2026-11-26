@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact finite checks
+# Independent mathematical audit
 
-The six-by-six biadjacency classification is exhaustive: any connected cubic bipartite twelve-vertex graph has two shores of six, and relabelling forces one row mask to seven. The 147 connected, degree-valid normalized matrices reduce to five under both-shore permutations and transpose. The supplied `check_classification.py` computes this from first principles, without an external graph catalogue. Explicit isomorphism search verifies the names hexagonal prism and Franklin graph.
+## correctness
 
-For each of the five representatives, `check_dynamics.py` checks all 4096 labelled binary configurations and directly verifies equality of the fourth and second synchronous majority iterates. Every first-entry/period count and every individual-attractor basin multiplicity is computed from this exhaustive transition table. A separate adjacency-list implementation follows every configuration to its first repeat and independently reconstructs the histograms. Both implementations completed successfully.
+PASS
 
-The two scripts use the standard Python library, and run with `GRAPH_DATA.json` beside them. Verified commands:
+Equal shore degree sums force a 6-by-6 biadjacency matrix. I independently enumerated matrices by adding one column of weight three at a time, keeping high-bit row prefixes sorted and only pruning when residual row sums are impossible. This represents every graph up to left relabelling. It yields 550 sorted-row matrices, 540 connected, 147 with a row mask 7. The five listed representatives produce disjoint complete orbits of sizes 90,180,60,180,30 under permutations of both shores and transpose, exhausting the 540. Connectedness makes the bipartition unique up to reversal. The minimal tuples and the independent prism and Franklin constructions match. For dynamics I formed all 4096 outputs per graph by expanding winning neighbor pairs to supersets, then traversed the reverse graph from exact fixed and 2-periodic states. Every initial state is reached and the largest depth is two in each case, proving F^4=F^2 and excluding longer periods; in order B1–B5, masks 5,5,6,6,5 give depth two. Independent counts match every first-entry/period cell, all individual-attractor basin size multiplicities in GRAPH_DATA.json, and all stated extrema and square counts. The 3516 states eventually oscillating on the prism give 879/1024; its 231 primitive two-cycles and Franklin's basin maximum 722 are the claimed unique extrema. The held-fixed graph labels and temporal orbit quotient were used exactly as defined. The authored programs were inspected, not executed.
 
-```sh
-python3 check_classification.py
-python3 check_dynamics.py
-```
+## originality
 
-`check_classification.py` ends with `NAMED_GRAPH_ISOMORPHISMS_PASS hexagonal_prism Franklin_LCF_5_minus5`. `check_dynamics.py` ends with `DYNAMICS_PASS two_implementations graph_classes=5 initial_states=20480 every_configuration_F4_equals_F2 true`.
+PASS
 
-# Mathematical limits
+The complete order-twelve graph classification and the prism's own recurrent population were already known; the fully flipping prism subpopulation was also separately known. Pass for the distinct sharp two-update bound on all five, the complete entry and basin spectra, and the resulting dynamical comparisons across the entire class. Those are not obtained from known recurrent populations, graph-class counts or generic voting-time bounds.
 
-Exact exhaustive finite enumeration certifies the stated twelve-vertex theorem; it does not prove general stabilization for larger cubic bipartite graphs. The census is invariant under vertex relabelling because the majority map commutes with graph isomorphisms. The classical period-at-most-two theorem alone does not supply a finite-time bound or basin populations. Historical equivalence in less-searchable primary sources has not been completely excluded. There has been no external independent audit.
+## value
+
+PASS
+
+A complete isomorphism class at a fixed small cubic bipartite order is a natural controlled comparison. All classes share the same sharp entry clock while actual oscillation probabilities and largest basins differ; the graph with the most oscillatory orbits is not the graph with the largest basin. Two graphs even share the square count but not these spectra. The exact tables are useful for checking stronger convergence or attractor predictions and add information beyond the prior classification and B3's recurrent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

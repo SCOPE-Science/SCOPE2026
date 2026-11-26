@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:10:15.623268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed all 32 stored cycle-distance entries over Q(h) using Euclidean inversion in the circulant polynomial ring Q(h)[x]/(x^n-1), not the frozen matrix-inversion script. Replay: set ell=2-x-x^(n-1), invert 6+4h ell+h^2 ell^2 modulo x^n-1, multiply by 6-2h ell, reduce, and take the coefficient of x^d. Exact cross multiplication matched coefficients.json in every case. All reduced denominators have positive coefficients, and every numerator except (10,5) has nonnegative coefficients and is nonzero. At (10,5) the numerator is 2h^5 times the stated quintic over the stated positive product, with witness -3544/384641341535 at h=1/10. The quintic is strictly increasing on h>=0 and changes sign strictly between 1/10 and 1/9; the unique root is 0.10872339507099547297354235092584205 to the shown precision. Thus at the root exactly the ten ordered antipodal entries vanish. At h=0 the step is I. The denominator spectrum is strictly positive and the constant mode has gain one. Scalar Taylor division gives +1/108 at fifth order in R(-x); earlier powers cannot join vertices at distance five and each shortest length-five walk contributes -1 to (L^5)_{uv}. This proves the required small-step negative sign for every fixed larger n, while R(-h lambda) tends to zero on every fixed nonconstant mode, giving eventual strict positivity. The finite certificate does not cover arbitrary larger-order positivity sets, weighted cycles, or internal stages. Inspected VERIFICATION.md, verify.py, requirements.txt and the entire coefficient certificate by structured comparison; the frozen executable was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna et al. p. 17 Thm. 3 concerns diagonal Padé approximants and Hurwitz Metzler matrices, not the non-diagonal approximation here or a generator with a stationary zero eigenvalue.",
+          "The earlier Resultary lattice result gives infinitely many negative coefficients on Z at each fixed positive h, hence failure on some arbitrarily large cycles; it is not a sign classification on C10. The Horváth abstract addresses step restrictions for positivity-preserving IVPs generally; the Oct. 13 record points to its Table 1 p. 351 for a Dirichlet-heat result, but that table could not be read in primary text."
+        ],
+        "reasoning": "An all-problems or infinite-lattice barrier does not determine the step set on one fixed finite periodic graph. Neither the documented broader theorem nor the specific models in accessible material subsume the reentry classification.",
+        "searches": [
+          "Zappavigna et al. Essentially Negative News About Positive Systems Theorem 3",
+          "Horváth On the positivity step size threshold of Runge–Kutta methods DOI 10.1016/j.apnum.2004.08.026",
+          "Resultary infinite lattice kernel and periodic finite-cycle positivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, coefficients.json and requirements.txt",
+        "Resultary cf8fc1888ee6, 01757ab0b97c, 1260be3011dc, 5b0558f2856d",
+        "Zappavigna et al. Theorem 3",
+        "Horváth DOI 10.1016/j.apnum.2004.08.026 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Small-h negativity and eventual large-h positivity imply at least one switch but neither uniqueness nor positivity of all other classes at that switch. Even knowing exactly which smaller cycles are positive at all steps gives no such information on C10.",
+          "The explicit opposite-entry polynomial and signs of the nonopposite classes at every positive timestep require exact finite rational coefficient analysis; this is not a substitution into the earlier local series or projection limit."
+        ],
+        "reasoning": "The earliest failure is known in the local sense. The exact global sign statement at the critical size makes a distinct and independently checkable contribution.",
+        "searches": [
+          "Resultary cf8fc1888ee6 Finding and proof of the small/large-step claims",
+          "Resultary 01757ab0b97c Finding and all-step cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both comparison records use the same Padé [1/2] stability map: with shift S, Q_n=S+S^-1-2I=-L_n and the map R(hQ_n) equals the frozen rational matrix exactly. The November record writes the sign into the scalar argument instead.",
+          "The earlier same-cycle source already proves small-step failure starting at n=10 and eventual positivity, but does not isolate a unique positive crossing or give an exact threshold."
+        ],
+        "reasoning": "Equivalent normalization gives exact overlap on small and large regimes, not the intervening sign pattern or unique reentry value. The directed-cycle variant is not an equivalent generator.",
+        "searches": [
+          "Resultary 2026/10/13 cf8fc1888ee6, same Radau IIA periodic heat generator",
+          "Resultary 2026/11/8 01757ab0b97c, sharp Radau IIA cutoffs on finite paths and cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 directed C6 record has a reentry quintic h^5+15h^4+60h^3+90h^2+36h-12 for a one-way generator. The other Oct. 18 reentry record is for [0/2] Padé on C8. Neither is the frozen exact table.",
+          "The November exact positivity cutoff includes the all-step C3–C9 portion. The inspected Finding and distance-five obstruction do not give a C10 timestep on which positivity returns, or the quintic numerator."
+        ],
+        "reasoning": "No matched exact C10 formula or timestep table was found in the inspected comparisons. Direct scope and parameter overlap where it occurs is recorded independently of the date.",
+        "searches": [
+          "Resultary cf8fc1888ee6, 01757ab0b97c, 1260be3011dc and 5b0558f2856d",
+          "Horváth exact title, DOI and lawful alternate-copy search"
+        ]
+      },
+      "rationale": "The supported contribution is the exact all-step C10 reentry set, critical entry, and explicit quintic, with all-step positivity proved for C3 through C9. The cutoff for arbitrarily small steps, the fifth-distance mechanism, and large-step recovery were already proved for identical dynamics in the Oct. 13 Resultary record and are not credited as discoveries here. A later-dated record also gives all-step positivity through C9 but not the C10 positive threshold or its full timestep set. Display dates alone do not establish priority.",
+      "residual_risks": [
+        "Horváth's primary table and full hypotheses were not accessible through the attempted lawful sources; an uninspected specialized periodic-grid equivalence remains possible.",
+        "The exact threshold applies to the specified spatial and timestep normalization; it is not a universal Runge–Kutta positivity radius."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the smallest small-step failure, distance-five sign, and fixed-n eventual positivity; not exact reentry",
+          "evidence": "Finding items 1–4 distinguish small-step signs, infinite-lattice obstruction, and convergence to the stationary projection.",
+          "identifier_or_url": "Resultary 2026/10/13/cf8fc1888ee6",
+          "material_read": "RESULT.md Finding at offsets 0–1773, bounded small-step proof passages, prior-work note",
+          "method": "Local Resultary mirror",
+          "title": "Ten-vertex small-step positivity barrier and oscillatory lattice kernel for two-stage Radau IIA",
+          "trigger": "Exact same completed method and undirected periodic geometry"
+        },
+        {
+          "assessment": "Direct coverage of positivity for all h for C3–C9 and small-step failure thereafter; no full C10 timestep set in the decisive statement",
+          "evidence": "G=C_n has all-step nonnegativity iff 3<=n<=9; an excluded cycle has negative distance-five entries for sufficiently small h.",
+          "identifier_or_url": "Resultary 2026/11/8/01757ab0b97c",
+          "material_read": "RESULT.md Finding, assumptions and distance-five proof, offsets 0–3138",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Radau IIA positivity cutoffs on finite paths and cycles",
+          "trigger": "Same exact all-step cutoff below C10"
+        },
+        {
+          "assessment": "Different generator and threshold",
+          "evidence": "Exact reentry on the directed one-way C6 has a different quintic.",
+          "identifier_or_url": "Resultary 2026/10/18/1260be3011dc",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Six-state threshold and positivity recovery for Radau IIA on directed cycles",
+          "trigger": "Analogous reentry quintic for the same RK method"
+        },
+        {
+          "assessment": "Uses a different Padé rational map",
+          "evidence": "The result concerns [0/2] Padé and C8, not [1/2] Radau IIA on C10.",
+          "identifier_or_url": "Resultary 2026/10/18/5b0558f2856d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery",
+          "trigger": "Another undirected exact reentry threshold"
+        },
+        {
+          "assessment": "Inspected theorem is for diagonal Padé and Hurwitz Metzler matrices",
+          "evidence": "Its positive-short-step result does not apply to the conservative cycle generator and non-diagonal rational map.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "p. 17, Theorem 3 and its hypotheses, offset 49644",
+          "method": "OA primary full-text passage",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Possible broader theorem on Padé positivity"
+        },
+        {
+          "assessment": "Primary table not retrieved; no whole-document coverage verdict",
+          "evidence": "The abstract discusses largest positivity-preserving steps, and the secondary account identifies its Radau example as Dirichlet heat rather than a periodic ten-cycle.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Indexed abstract only; Table 1 p. 351 known here only from the Oct. 13 record's secondary account",
+          "method": "Lawful DOI, indexed abstract, and identified alternate-copy lookup",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Primary paper plausibly containing a sharp RK positivity table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first small-step failing periodic order is motivated by a known sharp obstruction. Knowing that order alone leaves the practical and mathematical question of whether the first failing matrix ever becomes nonnegative and whether it later loses positivity again. An exact connected positive half-line separated from the zero step, with the unique root and the exact vanishing entries, resolves that gap and provides a benchmark that the earlier asymptotics cannot supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

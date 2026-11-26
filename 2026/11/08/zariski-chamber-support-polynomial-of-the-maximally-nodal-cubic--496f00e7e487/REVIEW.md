@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-point configuration is a complete quadrilateral. The anticanonical class is nef and big, and adjunction plus Cauchy and Bezout show that only six exceptional, three diagonal and four side transforms can have negative self-intersection. Their intersection numbers are given explicitly, and the Schur-complement graph condition is both necessary and sufficient. All 8192 subsets were exhaustively tested with exact rational elimination; the independently derived graph formula gives the same coefficient vector.
+## correctness
 
-**Originality — PASS, provisional.** Bauer--Funke--Neumann (2009) establish the chamber/support correspondence and count smooth del Pezzo surfaces. Derenthal--Hausen--Heim--Keicher--Laface (2014) describe the Cox ring and nine lines of the four-nodal Cayley cubic. Neither inspected full text supplies the 726 count or its support polynomial. The general chamber algorithm could compute it given the intersection matrix, but does not imply the specific coefficients without carrying out the configuration-dependent calculation. Searches of indexed results and accessible prior claims revealed no equivalent count. An unindexed older weak-del-Pezzo table remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The surface is the unique cubic with the maximum possible number of ordinary double points, and the full chamber distribution is a natural invariant of its minimal resolution. The graph formula identifies the complete negative-support combinatorics, including the extra diagonal-line incidence, instead of reporting an arbitrary sample or a table lookup. The value is specific to the maximally nodal degeneration, not a claim about all singular cubics.
+The count is for the smooth complex resolution, not for the singular cubic. The four strict line transforms D_i give -K=H+(sum D_i)/2, which is nef with square three; adjunction forces negative curves to have (self-square, anticanonical degree) (-1,1) or (-2,0). For nonexceptional curves Cauchy forces plane degree at most two. In degree two the equations force five or six simple centers, hence three on one original line, impossible for an irreducible conic. In degree one a line through two incident edge centers is the original line attached to their common vertex. The resulting list is exactly six exceptional curves, three diagonal strict transforms, and four pairwise disjoint -2 curves. Diagonals are disjoint from all D_i and may be selected at most one, with the two matching edges forbidden. Eliminating the exceptional -I block leaves 2I minus the restricted incidence product as the positive matrix to test. This demands degree at most one at each selected vertex and forbids selecting both endpoints of an isolated edge; these conditions make the matrix strictly positive diagonal. This proves the three graph factors. A new exact determinant check of all 8192 principal subsets and a separate sum over all 64 labelled graphs both give (1,13,69,186,260,168,29), total 726, with 393 supports containing a diagonal and 333 not. Independent replay: /workspace/branches/9712fab3-7d95-4f4f-8469-c910499bdeb2/independent_check.py and independent_check_output.txt. The finite enumeration uses the geometrically proved exhaustive list. The frozen scripts were inspected, not executed; no formal verification or expert attestation is asserted.
 
-**Limits.** The result concerns the complex smooth resolution, not the singular surface's Weil divisor chamber geometry. No chamber volumes or adjacencies are computed. Historical priority and scientific correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exact Cayley support-size and diagonal census with a K4 expansion. The geometry, nine-line count, Cox-ring data and general chamber algorithm are known. The exact catalogue entry later used as the identity case of an equivariant result explicitly cites this frozen finding; other relevant inspected sources do not cover the combined claim. Historical priority remains provisional.
+
+## value
+
+PASS
+
+The maximally nodal cubic is a canonical singular case, and the distribution by support size is a natural resolution invariant. The optional-matching factor resolves the contribution of the three distinguished diagonals and the graph expression shows exactly which configurations of exceptional curves obstruct a support. This provides both a benchmark beyond a total and a combinatorial description useful for later symmetry-sensitive enumerations; it is not just a line count or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

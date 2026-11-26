@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact Radau IIA stability polynomial produces the stated rational graph update. Symmetry reduces each finite case to an exact polynomial quotient; all numerator/denominator coefficient signs for cycle orders three through nine and noncritical ten-cycle entries have been checked against the embedded full certificate by an independently replayable symbolic program. The opposite-pair ten-cycle numerator is an explicit positive multiple of one sign-changing quintic, proving its unique root; the value at one tenth is a strict negative rational. For all larger cycles the first nonzero Taylor term at graph distance five is negative, while the large-step spectral limit is positive. Finite calculations are not used to infer arbitrary-order claims.
+## correctness
 
-**Originality (PASS, bibliographic risk remains).** Zappavigna–Colaneri–Kirkland–Shorten's Padé-positivity theory concerns diagonal approximants and general sufficient conditions, not the present exact two-stage Radau cycle threshold. Related cycle calculations for fourth-order Gauss methods involve a different stability function and cannot imply the present ten-vertex or reentry statements. Indexed findings about generic Padé and SSP methods concern other rational maps or graph classes. No covering statement was found in the checked material; a historically unindexed Radau-cycle equivalence is possible.
+PASS
 
-**Value (PASS).** The threshold reveals that making the timestep smaller can *destroy* entrywise positivity for a stable, third-order implicit method on an elementary diffusion network, while increasing it restores positivity. The first failing graph order, unique exact ten-cycle reentry threshold, and infinite family of small-step obstructions give a useful and motivated boundary for structure-preserving numerical integration.
+Independently recomputed all 32 stored cycle-distance entries over Q(h) using Euclidean inversion in the circulant polynomial ring Q(h)[x]/(x^n-1), not the frozen matrix-inversion script. Replay: set ell=2-x-x^(n-1), invert 6+4h ell+h^2 ell^2 modulo x^n-1, multiply by 6-2h ell, reduce, and take the coefficient of x^d. Exact cross multiplication matched coefficients.json in every case. All reduced denominators have positive coefficients, and every numerator except (10,5) has nonnegative coefficients and is nonzero. At (10,5) the numerator is 2h^5 times the stated quintic over the stated positive product, with witness -3544/384641341535 at h=1/10. The quintic is strictly increasing on h>=0 and changes sign strictly between 1/10 and 1/9; the unique root is 0.10872339507099547297354235092584205 to the shown precision. Thus at the root exactly the ten ordered antipodal entries vanish. At h=0 the step is I. The denominator spectrum is strictly positive and the constant mode has gain one. Scalar Taylor division gives +1/108 at fifth order in R(-x); earlier powers cannot join vertices at distance five and each shortest length-five walk contributes -1 to (L^5)_{uv}. This proves the required small-step negative sign for every fixed larger n, while R(-h lambda) tends to zero on every fixed nonconstant mode, giving eventual strict positivity. The finite certificate does not cover arbitrary larger-order positivity sets, weighted cycles, or internal stages. Inspected VERIFICATION.md, verify.py, requirements.txt and the entire coefficient certificate by structured comparison; the frozen executable was not run.
 
-**Limits.** Only completed-step matrices on unweighted cycles are analyzed. The exact complete set of safe steps for cycle orders greater than ten remains open here. The finite certificate uses exact symbolic algebra and its source is supplied. No independent audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact all-step C10 reentry set, critical entry, and explicit quintic, with all-step positivity proved for C3 through C9. The cutoff for arbitrarily small steps, the fifth-distance mechanism, and large-step recovery were already proved for identical dynamics in the Oct. 13 Resultary record and are not credited as discoveries here. A later-dated record also gives all-step positivity through C9 but not the C10 positive threshold or its full timestep set. Display dates alone do not establish priority.
+
+## value
+
+PASS
+
+The first small-step failing periodic order is motivated by a known sharp obstruction. Knowing that order alone leaves the practical and mathematical question of whether the first failing matrix ever becomes nonnegative and whether it later loses positivity again. An exact connected positive half-line separated from the zero step, with the unique root and the exact vanishing entries, resolves that gap and provides a benchmark that the earlier asymptotics cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

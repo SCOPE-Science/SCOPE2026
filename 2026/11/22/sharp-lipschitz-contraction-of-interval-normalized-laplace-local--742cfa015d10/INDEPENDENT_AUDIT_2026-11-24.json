@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:09:12.142570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x<x' the log density ratio is a constant plus lambda(|y-x|-|y-x'|), nondecreasing in y. Equal row mass then gives stochastic order, and the ordered quantile coupling gives W1 equal to the difference of means, which the identity function realizes. Subtracting the normalizer score from the left/right kernel scores (-lambda,+lambda) gives (-2lambda B,+2lambda A), where A,B are the two masses. The conditional means x-H(u), x+H(v) thus give m'=2lambda AB(H(u)+H(v)). The two factors are maximized at the midpoint: AB<=1/4, and H'' has the opposite sign of h(r)=(r-2)e^r+r+2, where h(0)=h'(0)=0,h''(r)=re^r>0. Strict concavity therefore gives H(u)+H(v)<=2H((b-a)/2), with equality only there. The result is 1-z/(exp(z)-1) in (0,1). Integrating the continuous interior derivative shows any distinct-pair quotient is strictly less than the optimum; location pairs coalescing at the midpoint approach it. This distinguishes optimizer among functions (the identity witnesses the seminorm) from non-attainment among distinct pairs. Kernel symmetry gives detailed balance with stationary density proportional to Z; iterating the contraction and integrating against this law gives the displayed supremum bound, including k=0. Integrating against any other stationary law then shows equality on all Lipschitz tests, hence uniqueness on the compact interval. This does not claim a sharp k-step norm for k>=2. Independently ran `python3 /workspace/review_checks.py 4` (SciPy): twelve finite-difference gains from direct quadrature at noncentered endpoints and several rates. The finite checks corroborate the argument and do not certify the unique global maximum on their own; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct Resultary record 58cb00e0c065, local RESULT.md lines 5–34,42–50, has an exact Wasserstein row sensitivity for a weighted finite star with K_q(x,y) proportional to w_y q^d(x,y), and permits expansion.",
+          "Frozen record line 98 describes localization stability with respect to the data law, bias bounds, and general computable Markov bounds as related settings, not as an exact interval sensitivity theorem. OA access did not substantiate a full-text inference for those works."
+        ],
+        "reasoning": "Star edge norms do not specialize to center sensitivity on an interval with Lebesgue base, and changes to the base law differ from changes to center under one fixed base law. A general upper bound need not attain this constant.",
+        "searches": [
+          "Resultary: exact contraction of normalized exponential distance kernels",
+          "PMLR v97 memoli19a; arXiv:2001.10972; arXiv:2308.10341 (open source retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1808.10410 (abstract/search; also attempted journal PDF)",
+        "Resultary:742cfa015d10 (assigned entry)",
+        "Resultary:58cb00e0c065 (local RESULT.md)",
+        "PMLR v97 memoli19a, arXiv:2001.10972, arXiv:2308.10341 (frozen attributions, open primary passage access unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bounded-mechanism abstract studies bounding support and tuning parameters to attain privacy. That criterion compares probability ratios rather than maximizing differences of ordered means over changes of location.",
+          "The weighted-star norm evaluates hub–leaf differences by independent signs. It lacks the truncated-mean concavity optimization that identifies the interval midpoint.",
+          "Wasserstein duality and monotone order give the norm as Lip(m); the exact maximum of m' rather than just its midpoint evaluation is essential."
+        ],
+        "reasoning": "No inspected result supplies the ordered-mean global optimization as a mechanical implication. If a full-text prior source proves the sharp global derivative of the same conditional location family, its corollary would cover the main claim even without the operator language.",
+        "searches": [
+          "arXiv:1808.10410 and journalprivacyconfidentiality.org article 715 (same-paper publisher route)",
+          "Resultary:58cb00e0c065, equations (1)–(4) and graph assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning a Laplace law with location x and scale 1/lambda to lie inside [a,b] gives exactly the assigned row, so bounded-support rather than output-clipped mechanisms are materially plausible comparators.",
+          "The Holohan et al. abstract targets differential privacy and optimal parameters for that criterion rather than W1 or the worst location derivative; its formula-level coverage was not retrieved.",
+          "Ordered rows make the sharp W1 coefficient exactly the supremum of the derivative of the truncated location mean."
+        ],
+        "reasoning": "The location-family and operator formulations are equivalent under this ordering; a privacy likelihood bound on row densities or a mean formula alone is not the exact sharp mean slope. The strong same-kernel risk remains named.",
+        "searches": [
+          "Resultary: normalized/truncated Laplace location family and sharp Wasserstein/Lipschitz coefficient",
+          "Web: Holohan bounded Laplace mechanism truncated conditional Laplace mean bias center derivative Wasserstein Lipschitz interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed coefficient and midpoint result appeared as 742cfa015d10, which is the assignment itself. The nearby indexed weighted-star coefficient has a different algebraic form and domain."
+        ],
+        "reasoning": "The exact indexed formula check compared scope as well as the number. A tabulation at finitely many lambda or lengths would not settle the all-z optimization. No independent exact-formula entry was identified.",
+        "searches": [
+          "Resultary: 1-z/(exp(z)-1) interval-normalized Laplace Lipschitz coefficient, midpoint",
+          "Web: exact coefficient and truncated Laplace location mean slope"
+        ]
+      },
+      "rationale": "Neither normalized localization nor the bounded Laplace kernel is claimed as new. The supported addition is the sharp W1/Lipschitz coefficient and unique maximizing derivative location for the Lebesgue interval model. Reversibility from the symmetric base kernel and mixing from one-step contraction are standard consequences, not independent novelty claims. The closest truncated-mechanism literature was available only in part, so priority is qualified.",
+      "residual_risks": [
+        "Full-text passage access for the adjacent primary papers and Holohan et al. did not succeed; negative whole-document coverage is not claimed.",
+        "A sharp optimization in the bounded Laplace or truncated location-family literature, even stated only for the derivative of the mean, would cover the central claim if its parameters match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the bounded-support mechanism setting. Its privacy-calibration objective is not the stated exact W1 norm; possible further results in the paper remain open.",
+          "evidence": [
+            "Abstract distinguishes bounding/capping outputs from bounding mechanism support; it addresses loss of differential privacy for the unadjusted Laplace scale and recalibration to a privacy budget."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.10410",
+          "material_read": "Accessible abstract/search statement; full-text attempts at the arXiv PDF and the identified journal PDF timed out.",
+          "method": "Compare what conditioning means for the density; compare the available theorem objectives, not keyword absence.",
+          "title": "The Bounded Laplace Mechanism in Differential Privacy",
+          "trigger": "Likely same normalized conditional location family in different terminology."
+        },
+        {
+          "assessment": "Conceptual overlap but neither equivalent nor a stronger theorem on a domain containing this one; chronology was not used to decide the distinction.",
+          "evidence": [
+            "A finite weighted star with unit edges, leafwise norm and some expansive regimes, unlike the continuum Lebesgue interval with strict contraction."
+          ],
+          "identifier_or_url": "Resultary:58cb00e0c065",
+          "material_read": "Local frozen mirror, RESULT.md lines 5–34 and 42–50.",
+          "method": "Exact statement, operator and assumptions comparison.",
+          "title": "Sharp Lipschitz phase diagram for distance-normalized kernels on weighted stars",
+          "trigger": "Exact operator norm for the same exponential-distance localization theme."
+        },
+        {
+          "assessment": "Credit general localization and Wasserstein machinery, with no positive evidence in the available material for the sharp formula.",
+          "evidence": [
+            "A stability bound for a localization under varying input distribution is not the extremal center displacement ratio under one fixed interval law as formulated here."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v97/memoli19a.html",
+          "material_read": "Frozen RESULT.md line 98 describes the relevant stability objective; primary passage retrieval timed out.",
+          "method": "Compare the stated benchmark (base-law perturbation) to the fixed-base center coefficient; no claim of full paper exclusion.",
+          "title": "The Wasserstein Transform",
+          "trigger": "General probability localization and Wasserstein stability may dominate the norm statement."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise norm measures how bounded support changes a translation-invariant family into a strict contraction and gives a rate from the two physical parameters. Identifying the uniquely worst infinitesimal location matters for sharp robustness; the exact coefficient adds information beyond a qualitative contraction or a loose mixing estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

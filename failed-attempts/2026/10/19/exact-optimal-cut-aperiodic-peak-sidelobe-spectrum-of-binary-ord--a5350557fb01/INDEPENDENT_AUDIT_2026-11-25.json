@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:11:26.506545Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58",
+        "Frozen VERIFICATION.md and VERIFY.py",
+        "/workspace/review-evidence/1-replay.py (exact reconstruction with python3)"
+      ],
+      "rationale": "Reconstructed exact exhaustion using a fresh word-prefix implementation: anchor at the unique 00000 factor; append both possible bits unless the new trailing five-window has appeared; at length 32, test the four remaining wrap windows against the mask. Every admissible anchored word has a surviving prefix at every step and is uniquely represented. For each cut, the XOR of the cut word with its right shift h, masked to 32−h aligned positions, counts disagreements, so 32−h minus twice its popcount is the non-wrapping correlation. Exact evaluation at all 32 cuts and 31 lags on each of 2048 words matched all 11 histogram entries, exact moments 3609/512 and 1103247/262144, both cited representatives, the 24/8 optimal-cut split, and 8/2 extremal orbits all of size four. The reversal/complement action was computed after rotation canonicalization. The cyclic identity also holds by start-index partition and reindexing the crossing products; it does not specify the two terms separately. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The computation and its completeness arguments are specific to binary order five. The independent replay establishes the mathematics, not priority or novelty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "--556e9ff1e8aa gives both the all-cycle cut-optimized census and the additional peak histogram of 65,536 cycle-cut pairs.",
+          "Katz–van der Linden study the aperiodic peak of a different word family; Gabrić–Sawada study de Bruijn constructions."
+        ],
+        "reasoning": "The stronger outcome is the indexed census with the optimized table explicitly included; the aggregate all-cut histogram by itself need not determine a per-cycle minimum. Neither the unrelated word-family bounds nor general construction supplies that exact distribution.",
+        "searches": [
+          "Resultary: aperiodic correlation lag vectors for de Bruijn cycles circular cuts",
+          "Resultary: complete periodic autocorrelation sidelobe spectrum binary de Bruijn order five all cycles",
+          "arXiv:2108.07318 and arXiv:1803.09009, introductory statements"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --556e9ff1e8aa, --132a86d69a57 and --6e926677b401",
+        "DOI 10.1186/1687-1499-2011-4",
+        "arXiv:2108.07318",
+        "arXiv:1803.09009",
+        "DOI 10.3934/amc.2007.1.461 (bibliographic only)",
+        "Independent equal-periodic-vector witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlapping record states the sharp extrema, the absence of 13/14, the complete optimized histogram and the same minimum-cut counts. The moments follow by summation over its table. Its inspected Finding does not provide the extremal symmetry-orbit counts."
+        ],
+        "reasoning": "There is direct equivalent existing coverage of the central statement, not merely a candidate primary source or a related distribution. An independent enumerator, ancillary symmetries of the small extremal sets, and time ordering from catalogue paths do not establish that the frozen composite is distinct. A separately motivated new claim would require a fresh assessment.",
+        "searches": [
+          "Resultary --556e9ff1e8aa Finding and Assumptions",
+          "Resultary --132a86d69a57 Finding and Assumptions",
+          "Spinsante–Andrenacci–Gambi Table 3 and F₄ discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In --556e9ff1e8aa, Q(W)=min_j P(W,j) uses non-wrapping terms and all cyclic cuts of each rotation class. This equals the frozen P_* by renaming the cut index and base word.",
+          "The earlier --132a86d69a57 and the joint-index --6e926677b401 instead treat periodic correlations."
+        ],
+        "reasoning": "The November aperiodic finding is an exact equivalent formulation; a periodic maximum, joint periodic table, or fixed cut is not equivalent. Independent replay produced two cycles (00000110100111110010001010111011 and 00000110101110110010001010011111) with identical full periodic vectors but optimized aperiodic peaks 9 and 8, respectively.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles complete aperiodic peak sidelobe spectrum optimized over all cuts",
+          "Resultary: best-cut aperiodic peak sidelobe spectrum de Bruijn order five cycles",
+          "Resultary: de Bruijn sequence autocorrelation sidelobe binary order five periodic 2048"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--556e9ff1e8aa, Finding/Assumptions offsets 0–3535, gives 4:32, 5:344, 6:476, 7:666, 8:236, 9:174, 10:20, 11:8, 12:20, 15:64, 16:8, with 24 cycles having a unique level-4 cut and 8 having two.",
+          "--132a86d69a57 instead reports 526 distinct periodic lag vectors and references per-cycle periodic data in cycles.csv. Spinsante et al. give a 12-cycle peak-4 periodic selection; their aperiodic definition is not such a census."
+        ],
+        "reasoning": "The eleven bins and optimizing-cut split match exactly on the same population. It is unnecessary to infer the overlap indirectly from a complete listing of lag vectors, which neither frozen Finding claims nor was established for the matched record.",
+        "searches": [
+          "Resultary: best-cut aperiodic peak sidelobe spectrum de Bruijn order five cycles",
+          "Resultary: periodic autocorrelation energy distribution of all 2048 binary order-five de Bruijn cycles",
+          "Spinsante–Andrenacci–Gambi original PDF, Eq. (2), Eq. (7) and Table 3"
+        ]
+      },
+      "rationale": "A distinct published catalogue record, --556e9ff1e8aa, explicitly states the same complete optimized spectrum under the same aperiodic, cut-optimized and rotation-quotiented convention, including the extremal cut multiplicities, and additionally gives the cycle-cut peak census. The moments are mechanical from its identical optimized histogram. The inspected Finding does not report the specific reversal/complement orbit counts, but that ancillary observation does not make the central frozen claim distinct. This is direct overlapping coverage as of the audit, not a claim that the November catalogue entry historically preceded the October frozen result, or that the mathematics is false.",
+      "residual_risks": [
+        "Catalogue dates alone do not determine priority, and this audit makes no priority claim. The inspected matching Finding does not settle coverage of the ancillary symmetry-orbit counts. Some primary-paper access was unavailable; that is not the basis of the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match on the central table and minimizing-cut counts, with a richer all-cut peak census",
+          "evidence": "The same Q(W) min-over-cuts statistic is tabulated explicitly at exactly the same levels and multiplicities; level 4 has 40 cuts on 32 cycles, split 24 one-cut and 8 two-cut cycles.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-phase-dependent-aperiodic-sidelobe-spectra-of-binary-order--556e9ff1e8aa",
+          "material_read": "Mirrored RESULT.md Finding/Assumptions offsets 0–3535; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary semantic queries and bounded mirror reading",
+          "title": "Exact phase-dependent aperiodic sidelobe spectra of binary order-five de Bruijn cycles",
+          "trigger": "Possible same optimized histogram or richer census"
+        },
+        {
+          "assessment": "Periodic, not aperiodic; periodic vectors alone do not determine the optimized peak",
+          "evidence": "Defines cyclic R_B and reports 526 distinct vectors, with exact cyclic data said to be in cycles.csv.",
+          "identifier_or_url": "2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "Mirrored RESULT.md offsets 0–3680",
+          "method": "Local Resultary semantic queries and bounded mirror reading",
+          "title": "Almost complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Possible equivalence via the same-population full autocorrelation vector"
+        },
+        {
+          "assessment": "Same population, different invariant",
+          "evidence": "Joint table is for periodic peak sidelobe and periodic linear complexity.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-linear-complexity-and-periodic-sidelobe-spectrum-of--6e926677b401",
+          "material_read": "Mirrored RESULT.md offsets 0–3213",
+          "method": "Local Resultary semantic queries and bounded mirror reading",
+          "title": "Exact joint linear complexity and periodic sidelobe spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Possible exact spectrum for the same 2048 objects"
+        },
+        {
+          "assessment": "Same cycle set; reported exhaustive sidelobe table is periodic",
+          "evidence": "Eq. (2) defines aperiodic correlation for the CDMA model. Eq. (7) explicitly sums all L cyclic terms for the exhaustive profile. The F₄ periodic selection covers 12 cycles.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "Springer PDF p. 3 Eq. (2) near offsets 13761–14116, p. 4 Eq. (7) near offset 19735, p. 8 Table 3 and F₄ discussion near offset 44032",
+          "method": "OA PDF passage lookup by aperiodic and autocorrelation sidelobes, then bounded reading",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Primary source with full binary order-five population and sidelobes"
+        },
+        {
+          "assessment": "Same type of scalar peak on a different word family and without the present optimization over cuts",
+          "evidence": "Aperiodic correlations are used for Golay–Rudin–Shapiro sequence bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07318",
+          "material_read": "PDF p. 1, offsets 0–3927",
+          "method": "OA bounded PDF passage reading",
+          "title": "Peak Sidelobe Level and Peak Crosscorrelation of Golay–Rudin–Shapiro Sequences",
+          "trigger": "Aperiodic peak-sidelobe terminology"
+        },
+        {
+          "assessment": "Constructive context; no matching correlation formula in the inspected passage",
+          "evidence": "The abstract discusses constructing de Bruijn sequences by concatenation rather than correlation classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.09009",
+          "material_read": "PDF p. 1, offsets 0–3469",
+          "method": "OA bounded PDF passage reading",
+          "title": "Constructing de Bruijn sequences by concatenating smaller universal cycles",
+          "trigger": "Construction of the same type of cycles"
+        },
+        {
+          "assessment": "Unresolved and not evidence of no overlap",
+          "evidence": "No scientific statement about coverage was drawn from the access miss.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2007.1.461",
+          "material_read": "Bibliographic reference only; no lawful full text retrieved",
+          "method": "OA and DOI lookup; no alternate repository copy located",
+          "title": "Bounds on the growth rate of the peak sidelobe level of binary sequences",
+          "trigger": "Cited aperiodic binary sidelobe reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, relationship to prior work and limitations",
+        "Resultary --556e9ff1e8aa Finding",
+        "Independent exact replay"
+      ],
+      "rationale": "The invariant itself is natural: binary order five is a standard complete comparison population and an unknown best-cut peak spectrum would benchmark finite non-wrapping sidelobes distinct from periodic ones. But the complete central table and cut split already have verified identical coverage; the moments are routine, and the remaining counts of reversal/complement orbits of the already covered extreme classes are not developed as a distinct, substantively motivated mathematical finding. Recomputing the table accurately is useful corroboration, not a new scientific contribution of the frozen claim.",
+      "residual_risks": [
+        "This does not characterize the value of a genuinely new and independently motivated symmetry or higher-order statistic. No such repaired claim was delivered."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

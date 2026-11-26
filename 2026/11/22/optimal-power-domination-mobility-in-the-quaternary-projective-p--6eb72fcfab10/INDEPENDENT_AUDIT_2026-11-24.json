@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:27.286280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md, power_plane.cpp, power_slides_stats.cpp, verify_affine_full.cpp (inspected)",
+        "/workspace/reviews/evidence/pg24.py (complete run of both stages)"
+      ],
+      "rationale": "Independently built the incidence graph from the 21 cyclic translates of {0,1,4,14,16} modulo 21. Its ordered nonzero differences cover all 20 residues once, hence it is a projective plane of order four and isomorphic to PG(2,4) by uniqueness at that order. The independent vectorized computation takes the closed neighborhood at time 1 and uses only observed sources and the previous observation mask for all later forces. It exhausts 850668 five-sets with zero successes; monotonicity rules out all smaller sets because a force either remains available or its target is already observed in a superset. Exhausting 5245786 six-sets gave 566160 successes, with (point count,time) frequencies (2,3):65520, (3,2):52080, (3,3):383040, (4,3):65520. Each unordered jump pair has a unique common five-core. Summing binomial(f,2) by core frequency f gives 19706400 and replacing each core clique by a spanning path preserves precisely the one connected component. For slides, deleting a point and inserting an incident line counts each edge once; exact sparse connectivity gives 2257920 edges, component sizes 535920 once and 1 exactly 30240 times, with frozen frequencies (3,2):10080 and (3,3):20160. The script /workspace/reviews/evidence/pg24.py replayed with Python 3, NumPy and SciPy: first run 'seeds OUTDIR' (full, no limit) and then 'exchanges OUTDIR' on the same fresh directory. This resolves the finite claim without relying on the author's programs.",
+      "residual_risks": [
+        "Package caveat: power_plane.cpp scans unobserved sources as well as observed ones; only verify_affine_full.cpp has the explicit observed-source guard. The independent exhaustive diagnostic ran both rules on every five- and six-set and found no difference in success or final time for any such seed, not equivalence of the two rules in general. power_slides_stats.cpp builds the slide graph only, despite the accompanying 'both movement rules' wording. Neither caveat affects the independently reproduced claim. No higher order or alternate observation convention is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The propagation-time lower bound n/(ppt⋅Delta+1) would give only rounded-up 4 even taking ppt=2 from this result; the polynomial paper's connected graph upper bound n/3 gives 14.",
+          "Same-day cd43734a0963 shows that at most two sensors work iff q=2; it gives only gamma_P≥3 for q=4."
+        ],
+        "reasoning": "Neither the bounds nor the two-sensor classification give the order-four minimum, its optimum placements or their mobility.",
+        "searches": [
+          "arXiv:1512.06413 Theorem 2.1",
+          "arXiv:1805.10984 Theorem 29",
+          "Resultary same-family power domination boundary cd43734a0963"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6eb72fcfab10, cd43734a0963, 62b86adfe63f",
+        "arXiv:1512.06413, 1805.10984, 2201.01798"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reconfiguration work treats jumping on other families and supplies disconnected examples.",
+          "The Fano-plane record has 28 antiflags, a connected 84-edge jump graph and all slides frozen, versus a q=4 slide giant component coexisting with frozen sets; it expressly leaves higher q without exact values."
+        ],
+        "reasoning": "The two-sensor classification cannot be specialized to q=4, and an abstract model or a different instance does not determine which six-subsets are adjacent or frozen. Same-day date does not establish precedence.",
+        "searches": [
+          "Bjorkman et al. arXiv:2201.01798 §§5.1, 5.3; Resultary cd43734a0963 Finding and Assumptions; comparison with the frozen q=4 optimum predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferrero et al. use S^[1]=N[S] and synchronous later steps; Bjorkman et al. set out jump/slide rules.",
+          "Power domination is closed-neighborhood observation followed by zero forcing; bare zero forcing omits the initial step, and domination stops there. Resultary 62b86adfe63f is weakly connected domination in projective planes."
+        ],
+        "reasoning": "Shared incidence geometry, the monitoring interpretation and reconfiguration language are not an equivalence of the underlying seed predicates. Compare counts only for the one-based time convention and optimum power-dominating seed set.",
+        "searches": [
+          "Resultary PG(2,4) incidence graph optimum power-dominating sets, observation profiles and frozen mobility",
+          "One focused primary-literature web lookup identifying the quaternary plane and power domination",
+          "Ferrero et al. arXiv:1512.06413 §1; Brimkov et al. arXiv:1805.10984 introduction; Bjorkman et al. arXiv:2201.01798 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary result 6eb72fcfab10 is the same frozen record, not separate prior evidence.",
+          "The power-domination polynomial defines the exact coefficient of interest but no coefficient for PG(2,4) was located; cd43734a0963 tabulates Heawood/Fano q=2, not q=4."
+        ],
+        "reasoning": "A coefficient for a different graph or an enumerator definition does not contain these counts, and a bare coefficient would still omit time, shore and mobility information. The focused web search was uninformative, not negative evidence.",
+        "searches": [
+          "Resultary PG(2,4), 566160, minimum power-domination time and transfer census",
+          "arXiv:1805.10984 Definition 1 and graph-family results"
+        ]
+      },
+      "rationale": "The checked exact counts and mobility classification concern a distinct finite plane instance; formulations and prior bounds are not credited as new. The closest related record has the same invariant on the same family, but covers only the two-sensor boundary and the q=2 optimum census.",
+      "residual_risks": [
+        "Bounded search does not certify historical priority or exclude an unindexed exact finite-geometry table. The closest disjoint prior coverage is shared-family, not an established earlier ordering within the same date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial same-family overlap, not q=4 classification",
+          "evidence": [
+            "Two-sensor boundary and complete q=2 mobility, no exact q≥3 conclusion beyond the lower bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-antiflag-mobility-and-the-two-sensor-boundary-in-projective-plan--cd43734a0963/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Antiflag mobility and the two-sensor boundary in projective planes",
+          "trigger": "Same incidence-geometry family and mobility invariant"
+        },
+        {
+          "assessment": "Definitions and general inequality, not exact q=4 minimum or profiles",
+          "evidence": [
+            "S^[1]=N[S]; general propagation-time bound and distinction from a diameter bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.06413",
+          "material_read": "§1 p.1 and §2 Theorem 2.1 p.3 (OA offsets 4300 and 9908)",
+          "method": "Primary OA text inspection",
+          "title": "Note on power propagation time and lower bounds for the power domination number",
+          "trigger": "Matching time convention and general lower bound"
+        },
+        {
+          "assessment": "Enumerative framework and general size bound, not the asserted census",
+          "evidence": [
+            "Counts power-dominating sets by size; connected graph bound n/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "Introduction, Definition 1 p.2 and Theorem 29 p.16 (OA offset 54019)",
+          "method": "Primary OA text inspection",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Potential existing exact coefficient"
+        },
+        {
+          "assessment": "Move definitions and examples for other families, not q=4",
+          "evidence": [
+            "Discusses connectedness and disconnected jumping examples but the inspected claims do not specialize to this incidence plane."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "Introduction pp.1–2 and §§5.1 and 5.3 pp.14,16",
+          "method": "Primary OA text inspection",
+          "title": "Power domination reconfiguration",
+          "trigger": "Could give the exact instance or a theorem implying it"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Assumptions",
+        "Independent exhaustive census",
+        "Resultary cd43734a0963 (comparison at order two)"
+      ],
+      "rationale": "Order four is the first extension-field projective plane and a canonical finite test for the propagation/reconfiguration problem. The time-and-shore census and contrast between jumping connectivity and sliding with a giant component plus immobilized states provide an exact benchmark for both predicates, beyond a minimum-size computation or a count alone.",
+      "residual_risks": [
+        "Finite benchmark only, with no higher-order formula or orbit classification implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:41:49.930673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The decimal block certificate is exact. With a=448999=449000-1, the square is 201600102001 and its double is 403200204002. Their digit sums are 13 and 17, and s_10(a)=43. For B=10^k and k>=12, all of a, a^2 and 2a^2 are smaller than B. Thus aB+a has two noninterfering blocks and a^2 B^2+2a^2 B+a^2 has three, giving 86 and 43. The last digit is 9, and strict increase in k gives infinitely many distinct integers. This verifies the entire ray by exact arithmetic, not by extrapolating the finite frozen checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 small-ratio construction includes m=3, for which the weights of t_3(10^j) and its square are 9j+11 and 58 at large j. Taking j=31 mod 58 answers the plain non-trailing-zero infinitude question by divisibility, but the input weight varies. The other 2010 theorem fixes both weights equal."
+        ],
+        "reasoning": "The broader constructions and identities need an implication check rather than comparison by theorem titles. The small-ratio proof also yields fixed unequal quotient-two examples when one freezes the internal exponent and introduces an outer separated copy.",
+        "searches": [
+          "arXiv:1001.4169v1 Theorem 1.3 and proof",
+          "arXiv:1001.4170v1 Theorem 1.5"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A268135",
+        "arXiv:1001.4169v1",
+        "arXiv:1001.4170v1",
+        "Resultary a0db430d1708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mechanical specialization: take the published t_m(x)=m x^4+m x^3-x^2+m x+m with m=7. The square coefficients from degree 0 to 8 are 49,98,35,84,197,84,35,98,49. Their decimal weights sum to 117, and the doubled coefficient weights sum to 126. Fix c=t_7(10^37). One borrowing block gives s_10(c)=9*37+27=360, while noninterference gives s_10(c^2)=117 and s_10(2c^2)=126. Repeat the seed as c(10^l+1), l>=299. The known separated-block formulas give the fixed unequal pair (720,360), quotient two, and last digit seven for all l. No instance of the specific 448999 ray follows from that specialization."
+        ],
+        "reasoning": "The old construction plus its own block lemma already supply the qualitative fixed-weight, nontrailing-zero, smallest possible strict quotient phenomenon by a parameter choice and digit arithmetic. The smaller displayed pair and particular seed remain distinct as exact data; they are not asserted to be minimal or otherwise distinguished.",
+        "searches": [
+          "arXiv:1001.4169v1, Proposition 2.1 and Theorem 1.3 proof, polynomial t_m",
+          "arXiv:1001.4170v1, Proposition 2.1 and Theorem 1.5",
+          "OEIS A268135 strict-divisibility comment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trailing-zero padding preserves both digit weights, and OEIS explicitly observes this with 149 and 149^2. Removing the padding constraint changes the problem. The no-trailing-zero ray repeats the same nonzero seed using the prior no-carry block convolution identities."
+        ],
+        "reasoning": "A family obtained by multiplying by powers of ten is not equivalent to a last-digit-nine ray; the no-interference calculation itself is known. The claim left for originality is this exact seed and pair.",
+        "searches": [
+          "Resultary: 448999 and fixed unequal decimal square digit sums",
+          "OEIS A268135 and its March 2016 comment",
+          "arXiv:1001.4169v1 and 1001.4170v1, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A268135 lists early individual examples and gives an infinite padding ray with weights (14,7), but the latter has trailing zeros. No inspected entry specifies the exact ray (86,43). Same-day indexed record a0db430d1708 is a digit-sum spectrum of multiples in even bases, not a square-weight fiber."
+        ],
+        "reasoning": "The catalogue evidence covers related digit-set constructions and a weaker fixed-weight ray, not this exact family. A finite table of individual examples would not by itself establish a no-trailing-zero infinite ray.",
+        "searches": [
+          "OEIS A268135, examples and comments",
+          "Resultary: exact seed 448999; fixed unequal square digit-sum pair"
+        ]
+      },
+      "rationale": "Pass only for the explicit seed and ray with weights (86,43), for which no exact or dominating prior statement was located. Do not credit as distinct the existence of some fixed unequal non-trailing-zero pair with quotient two: it is a direct specialization of the earlier Hare–Laishram–Stoll polynomial construction and the published noninterference identities, as shown in the implication check.",
+      "residual_risks": [
+        "An unindexed earlier exact seed or equivalent ray may exist.",
+        "No novelty is credited to either bare infinitude or the generic fixed unequal quotient-two refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed unequal padding ray and finite nontrailing examples, not the exact ray",
+          "evidence": "149 and its square have weights 14 and 7; padding by 10^r keeps the weights but ends in zero. The comment asks about nonmultiples of 10.",
+          "identifier_or_url": "https://oeis.org/A268135",
+          "material_read": "Definition, examples, and March 2016 comment",
+          "method": "OA public page inspection",
+          "title": "Numbers n such that the digit sum of n squared is a divisor of the digit sum of n",
+          "trigger": "Exact named sequence and motivating question"
+        },
+        {
+          "assessment": "Mechanical precursor for the qualitative fixed-pair claim, not the particular seed and pair",
+          "evidence": "Noninterfering block arithmetic and the polynomial t_m with a borrowed block in the input and nonnegative square coefficients; m=7 and an outer repetition yield the fixed quotient-two family above.",
+          "identifier_or_url": "https://arxiv.org/html/1001.4169v1",
+          "material_read": "Proposition 2.1, offset 7996, and Theorem 1.3 proof, offsets 13995 and 19956",
+          "method": "OA full-text passage inspection and exact coefficient specialization",
+          "title": "Stolarsky's conjecture and the sum of digits of polynomial values",
+          "trigger": "Broader small-ratio construction that can imply existence"
+        },
+        {
+          "assessment": "Fixed equal weights and previously available block arithmetic",
+          "evidence": "Infinite fixed equal-weight families for admissible weights, not the unequal pair (86,43).",
+          "identifier_or_url": "https://arxiv.org/html/1001.4170v1",
+          "material_read": "Theorem 1.5 and Section 2 Proposition 2.1, equations (9)–(10)",
+          "method": "OA full-text passage inspection",
+          "title": "The sum of digits of n and n squared",
+          "trigger": "Fixed-weight and block-identity candidate"
+        },
+        {
+          "assessment": "Different invariant and domain",
+          "evidence": "Digit sums of multiples in even bases, not pairs involving the square of an argument.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirrored source",
+          "title": "Exact digit-sum spectra for divisors of b^2-1 in even bases",
+          "trigger": "Same-day indexed digit-sum spectrum candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Holding both weights fixed without padding and keeping quotient two would be a motivated refinement of the OEIS question, but the earlier construction and its block identity already give that refinement directly. What is distinct here is a smaller, convenient seed and the explicit numerical pair (86,43). The original does not connect either of those numbers to a threshold, extremal weight, prescribed fiber, or other mathematical reason a researcher would need that exact pair. No new structural restriction or proof technique survives, so the exact witness alone does not justify acceptance or an ostensible repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

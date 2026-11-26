@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:29:35.467805Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25 and 27–74",
+        "Frozen VERIFICATION.md, lines 1–23, and verify.py, lines 17–94 (inspected, not executed)"
+      ],
+      "rationale": "Independently checked by tilting with X_j²: E[X_j² H] equals α_j(α_j+1)/[A(A+1)] times the mean entropy for Dirichlet(α+2e_j). At that shift, the local numerator contribution α_j ψ(α_j+1) increases by 2ψ(α_j+1)+2+1/(α_j+1). In the sum over j, subtracting E[H]E[Q] and using ψ(A+3)-ψ(A+1)=1/(A+1)+1/(A+2) gives the stated negative rational term and the stated negative weighted digamma covariance term. The pairwise covariance sum is nonnegative, and is zero exactly for equal parameters since all weights are positive and ψ is strictly increasing. A²-S₂=2∑_{i<j}α_iα_j>0 for k≥2, so negating gives strict positivity for G=1-Q. Substitution gives the symmetric formula; positive Dirichlet posterior parameters require no new argument.",
+      "residual_risks": [
+        "The proof is for finite positive Dirichlet vectors and natural logs, not covariance with collision entropy −log Q or pointwise monotonicity. The supplied rational, quadrature and simulation tests are finite corroboration, not proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6373915567bd covers all finite positive shapes and also studies the fixed-total local symmetry transition.",
+          "53a0f2d3a98e gives the symmetric case; 5cd09dd16e1e treats infinite-dimensional Poisson–Dirichlet.",
+          "Cerquetti, Theorems 1–2 and equations (11)–(12), and Archer–Park–Pillow, equations (6)–(7), give separate diversity or Shannon moments, not the needed mixed moment in the inspected material."
+        ],
+        "reasoning": "Only the genuinely arbitrary finite-shape identity covers the full record. A symmetric family or a different infinite-dimensional law does not dominate it.",
+        "searches": [
+          "Resultary 6373915567bd, 53a0f2d3a98e and 5cd09dd16e1e; Cerquetti arXiv:1404.3441; Archer–Park–Pillow JMLR 15 (2014)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d2816799bb7, 6373915567bd, 60c94d3e3ee0, 53a0f2d3a98e and 5cd09dd16e1e",
+        "Cerquetti arXiv:1404.3441",
+        "Archer–Park–Pillow JMLR 15",
+        "Wolpert–Wolf arXiv:comp-gas/9403002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalog identity for arbitrary finite positive α already gives the frozen theorem after negation, with the equality case explicit.",
+          "The ordinary gamma product formula yields the raw mixed moment by differentiation at e_i+2e_j; separate marginal moments alone do not yield it, and the sign requires the cancellation and digamma argument."
+        ],
+        "reasoning": "Direct implication from the matched statements is exact. Classical moment machinery is credited separately and is not presented as evidence of an earlier published sign theorem.",
+        "searches": [
+          "Resultary 5d2816799bb7 RESULT.md and 6373915567bd RESULT.md; arXiv:1404.3441, pp. 4–6; frozen RESULT.md lines 27–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5d2816799bb7 RESULT.md, offsets 0–4342, states the same baseline and weighted digamma correction, with symmetry equality in the lower bound.",
+          "6373915567bd RESULT.md, offsets 0–3455, gives the same collision anticorrelation identity and sign."
+        ],
+        "reasoning": "Negative covariance with Q is the positive covariance with G=1−Q, and the pair-product notation κ=∑_{i<j}α_iα_j gives exactly the same baseline. Neither is a new statistic or regime.",
+        "searches": [
+          "Resultary: finite asymmetric Dirichlet Shannon–Simpson covariance, collision concentration and Gini–Simpson diversity; records 5d2816799bb7, 6373915567bd, 60c94d3e3ee0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "60c94d3e3ee0 RESULT.md, offsets 0–4089, includes the same evaluated formula and a fixed-total asymmetric example.",
+          "Wolpert–Wolf Part II, p. 4 and pp. 19–20, uses a distinct covariance statistic and tabulates entropy moments rather than this cross-covariance."
+        ],
+        "reasoning": "The local catalog contains the exact symbolic law, not just a matching numerical parameter or a title hit. Earlier entropy-moment tables inspected are not exact entries for this pair.",
+        "searches": [
+          "Resultary 5d2816799bb7 and 60c94d3e3ee0; Wolpert–Wolf arXiv:comp-gas/9403002"
+        ]
+      },
+      "rationale": "Distinct indexed results already cover the entire assessed identity, strict sign and equality case at the time of this review. In particular, the finite-asymmetric identity and sharp bound in 5d2816799bb7 coincide term by term using 2κ=A²−S₂ and Cov(H,1−Q)=−Cov(H,Q); 6373915567bd repeats the identity and adds a local fixed-total symmetry transition. The dated paths for these matches are later than the frozen path, so this is a finding of equivalent existing coverage, not a finding that any of them has historical priority or that the frozen proof depends on them. The earlier symmetric and Poisson–Dirichlet works alone would not establish full coverage.",
+      "residual_risks": [
+        "Catalog dates do not determine priority or dependence; exact mathematical overlap is independent of them.",
+        "Literature comparison is bounded and does not rule out earlier equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, not evidence of historical priority",
+          "evidence": "Same rational term via 2κ=A²−S₂, same digamma term, same equality case; bound equality is not a fixed-total global extremum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-universal-negative-shannon-simpson-covariance-for-arbitrary-fini--5d2816799bb7/RESULT.md",
+          "material_read": "RESULT.md offsets 0–4342 and 4342–7184",
+          "method": "Bounded local-mirror text read",
+          "title": "Universal negative Shannon–Simpson covariance for arbitrary finite Dirichlet shapes",
+          "trigger": "Exact finite-asymmetric formula, sign and equality match"
+        },
+        {
+          "assessment": "Covers the claim and adds a distinct local symmetry result",
+          "evidence": "Same exact asymmetric identity and sign; additional fixed-total local stability transition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-entropy-collision-anticorrelation-and-a-dirichlet-symmetry-break--6373915567bd/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3455",
+          "method": "Bounded local-mirror text read",
+          "title": "Entropy–collision anticorrelation and a Dirichlet symmetry break",
+          "trigger": "Potential exact identity plus stronger consequence"
+        },
+        {
+          "assessment": "Equivalent coverage of the identity",
+          "evidence": "Same expression and a fixed-total asymmetric example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-universal-negative-shannon-simpson-covariance-under-asymmetric-d--60c94d3e3ee0/RESULT.md",
+          "material_read": "RESULT.md offsets 0–4089",
+          "method": "Bounded local-mirror text read",
+          "title": "Universal negative Shannon–Simpson covariance under asymmetric Dirichlet",
+          "trigger": "Second exact formula comparison in asymmetric regime"
+        },
+        {
+          "assessment": "Narrower or different distributional scope",
+          "evidence": "Equal finite shapes only in the former; infinite-dimensional Poisson–Dirichlet mixed powers in the latter.",
+          "identifier_or_url": "Resultary 53a0f2d3a98e; 5cd09dd16e1e",
+          "material_read": "Symmetric record opening at offset 0; Poisson–Dirichlet RESULT.md offsets 0–6844",
+          "method": "Bounded local-mirror text reads",
+          "title": "Earlier catalog comparisons: symmetric Dirichlet dependence and Poisson–Dirichlet covariance",
+          "trigger": "Related earlier covariance laws with possible transfer"
+        },
+        {
+          "assessment": "Inspected statements are marginal moment formulas",
+          "evidence": "H₁ moments and fixed-order H_m moments are developed separately; m=2 is Simpson diversity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3441",
+          "material_read": "Printed pp. 4–6, Theorems 1–2 and equations (11)–(12)",
+          "method": "Lawful open PDF bounded text read",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors",
+          "trigger": "Same diversity statistics and gamma-moment methods"
+        },
+        {
+          "assessment": "No mixed H–Q law in these passages",
+          "evidence": "Displays posterior E[H] and E[H²] for Dirichlet pseudocounts.",
+          "identifier_or_url": "https://jmlr.org/papers/volume15/archer14a/archer14a.pdf",
+          "material_read": "Printed p. 2837, equations (6)–(7)",
+          "method": "Lawful open PDF bounded text read",
+          "title": "Bayesian Entropy Estimation for Countable Discrete Distributions",
+          "trigger": "Posterior Dirichlet entropy moments and possible mixed term"
+        },
+        {
+          "assessment": "Relevant background, not equivalent in inspected passages",
+          "evidence": "The covariance statistic is different; Theorem 16 gives Shannon entropy moments under the uniform-prior setup.",
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9403002",
+          "material_read": "Printed p. 4 and pp. 19–20, including Theorem 16",
+          "method": "Lawful open PDF bounded text read",
+          "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part II",
+          "trigger": "Dirichlet entropy/covariance terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22, 68–79"
+      ],
+      "rationale": "As a mathematical result, a distribution-wide sharp sign and explicit heterogeneity term for joint uncertainty in two natural diversity summaries is useful. It is not a deterministic ordering: Shannon entropy and concentration can both increase between two points of the three-simplex. The bound identifies precisely how heterogeneity affects this covariance beyond its rational baseline. This scientific usefulness does not supply originality credit for the frozen record.",
+      "residual_risks": [
+        "No fixed-total global optimization, samplewise ordering, arbitrary-prior, or infinite-alphabet conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

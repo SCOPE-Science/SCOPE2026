@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:02:08.469710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–34",
+        "VERIFICATION.md, verify.py and verify_output.txt"
+      ],
+      "rationale": "At uᵢ the selected-neighbor count is |A|−1_{i∈A}+1_{i∈B}, and the dual count holds at vᵢ. With one layer empty the other must be full, and each of its vertices is essential to the corresponding unmatched-by-others vertex. A singleton in a nonempty layer forces its matching index into the other layer, yielding a smaller dominating pair unless the set is that pair. When both layers contain at least two selected vertices, minimality forces exactly two per layer; an index in common would again give a properly contained matched pair. For disjoint indices every deletion leaves a singleton with no selected neighbor. Thus the only possibilities are the n matched pairs, two full layers, and the 6 binomial(n,4) ordered two-and-two choices on disjoint indices. At n=2 one obtains the four edges of C₄, all of size two, and at n=4 the four-vertex contributions add. For n≥6 the gap is exactly the n−5 integers from 5 through n−1. The degree, diameter and vertex transitivity follow from the two cliques, the cross-matching, and layer swap together with simultaneous index permutations. The exact proof is unrestricted; inspected the frozen subset checker and recorded output, not rerun.",
+      "residual_risks": [
+        "The recorded exhaustion covers only n=2 through n=10; the proof supplies the general claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al. use the same matched cliques and give γ_t=2 and γ_gr^Z=n in the inspected passage; the latter is not upper total domination.",
+          "The indexed direct-product records address categorical products, not this Cartesian product. The 2008 product-paper full text was not retrievable from the DOI recovery route."
+        ],
+        "reasoning": "Product bounds or minimum values alone do not determine the entire family; the decisive coverage is a statement-level equivalence to the earlier crown classification.",
+        "searches": [
+          "arXiv:2310.07432v1, perfect matching",
+          "DOI 10.1007/s10878-007-9099-8, upper total domination",
+          "Local Resultary IDs 9a326ff00272 and c385b080b92b"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 798a85759c22, 9a326ff00272 and c385b080b92b",
+        "arXiv:2310.07432v1",
+        "DOI 10.1007/s10878-007-9099-8 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By neighborhood equality the proof transfers verbatim at the level of hitting sets, and for n≥6 the common support is {2,4,n}. The small added n=2 case is C₄ with its four edge pairs."
+        ],
+        "reasoning": "This is a direct implication of the same family and coefficients; no further structural classification is needed to get the long gaps or graph-parameter corollaries.",
+        "searches": [
+          "Compare crown record 798a85759c22 Finding with prism RESULT.md lines 5–15 and 23–34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown RESULT.md at offset 0 classifies exactly the two full sides, the n deleted-matching pairs and the disjoint-index 2+2 sets for n≥3.",
+          "The crown closed neighborhood of vᵢ equals the prism open neighborhood of uᵢ on the same vertex set, and conversely."
+        ],
+        "reasoning": "The difference in terminology and graphs does not alter the required hitting family; equality holds on all subsets, not only minimal ones.",
+        "searches": [
+          "Local Resultary: cardinality profiles and complete-prism minimal total domination; strongest finding 2026/10/13/…--798a85759c22",
+          "Prism versus crown graph, ordinary domination versus total domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding already gives the exact polynomial and labeled families, not just a numerical upper domination parameter. It mentions an OEIS total-count lead; that separate source was not inspected."
+        ],
+        "reasoning": "The exact earlier formula already gives every coefficient through the equality of feasible families. Earlier external tabulations cannot undo this overlap.",
+        "searches": [
+          "Local Resultary 798a85759c22, exact cardinality profile; prior-work passage from offset 3643",
+          "Polynomial nz²+6 binomial(n,4) z⁴+2zⁿ in the crown finding"
+        ]
+      },
+      "rationale": "The earlier indexed crown-graph result 798a85759c22 covers the full nontrivial family under an exact neighborhood equivalence. Let H be the crown graph on the same U,V with edges uᵢvⱼ exactly when i≠j. Then N_G(uᵢ)=N_H[vᵢ] and N_G(vᵢ)=N_H[uᵢ]. Thus the hypergraphs of open neighborhoods in the prism and closed neighborhoods in the crown are identical, with the vertex-indexed edges simply permuted. Ordinary domination of H and total domination of G therefore have exactly the same feasible sets and exactly the same inclusion-minimal sets. The earlier classification for n≥3 gives all three families and the identical polynomial. Its support yields precisely the asserted gap; the symmetry and diameter facts for G are immediate from its definition. The n=2 boundary is an elementary C₄ case, not a substantive new remainder. The failure is from verified equivalent coverage, not lack of access to a Cartesian-product paper.",
+      "residual_risks": [
+        "The inaccessible 2008 text leaves external journal priority unresolved; exact indexed coverage is already sufficient for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete n≥3 classification and profile via relabeling neighborhood constraints",
+          "evidence": [
+            "Same three labeled families and same polynomial in ordinary crown domination."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-cardinality-profile-of-minimal-dominating-sets-in-crown-graphs--798a85759c22",
+          "material_read": "RESULT.md opening finding, offset 0, and prior work from offset 3643",
+          "method": "Local Resultary search and mirror",
+          "title": "Cardinality profile of minimal dominating sets in crown graphs",
+          "trigger": "Exact possible equivalence by complementary-graph neighborhoods"
+        },
+        {
+          "assessment": "This example gives the minimum and a Grundy parameter, not the minimal-set classification",
+          "evidence": [
+            "Two cliques joined by a perfect matching have γ_t=2 and γ_gr^Z=n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.07432v1",
+          "material_read": "Example following Theorem 2, offset 23581–25201",
+          "method": "OA perfect-matching literal lookup and bounded passage read",
+          "title": "Bounds on zero forcing using (upper) total domination and minimum degree",
+          "trigger": "Exact prism family appears in frozen references"
+        },
+        {
+          "assessment": "Unresolved as an independent external overlap; not the basis of failure",
+          "evidence": [
+            "The frozen verification attributes general upper-total-domination product bounds, not a verified complete classifier."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10878-007-9099-8",
+          "material_read": "Frozen abstract-level attribution only; full paper not retrieved",
+          "method": "Lawful DOI resolution with repository recovery attempt",
+          "title": "On the upper total domination number of Cartesian products of graphs",
+          "trigger": "Exact product family could be covered by product-specific upper results"
+        },
+        {
+          "assessment": "Different product adjacency",
+          "evidence": [
+            "Categorical K_p×K_q, not Cartesian K_n□K₂."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Inclusion-minimal total domination of direct products of complete graphs",
+          "trigger": "Similar product and domination terminology"
+        },
+        {
+          "assessment": "Distinct graph and statistic; later dated",
+          "evidence": [
+            "Ordinary domination of categorical K₃×K_n, spectrum {3,4,n}."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-dominating-set-spectrum-of-two-factor-complete-graph-ten--c385b080b92b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimal dominating-set spectrum of two-factor complete graph tensor products",
+          "trigger": "Nearby gap assertion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, classification, gap and graph properties",
+        "Resultary 798a85759c22, exact crown profile"
+      ],
+      "rationale": "Unbounded gaps within a symmetric regular family are a motivated phenomenon, but the submitted result adds only the immediate same-neighborhood reinterpretation of an already classified complete profile and the trivial order-four boundary. The long gap follows directly from the old polynomial, and the graph-side properties require no additional scientific result. No distinct valuable remainder is established for repair.",
+      "residual_risks": [
+        "This assessment concerns this specific restatement, not the value of further total-domination gap results in other families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:19.356099Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Zak normalization and proof of identity and equality",
+        "Frozen VERIFICATION.md and checker.py, inspected without executing; python3 checker.py is the finite rational-grid replay"
+      ],
+      "rationale": "At the integer critical lattice the Zak images of the atoms in each channel are one Zak window times the Fourier characters of the unit square. Parseval gives a multiplication symbol equal to the sum of squared absolute Zak windows, with duplicates counted separately. For u=(x−s_j) mod 1 the hat has Zak modulus squared 1−4u(1−u)sin²(πν), so all channels simultaneously attain B=r at ν=0 and the pointwise minimum over ν occurs at ν=1/2. Continuity makes these essential extrema; the latter symbol is the stated F and its terms vanish jointly exactly for one residue. On each lifted support gap F has second derivative 8r; integrating at the midpoint gives h_iF(z_i)+(r/3)h_i³. The integral over the circle is r/3, and Σh_i=1 gives Σh_i³−k^(−2)=Σ(h_i−1/k)²(h_i+2/k). Equality in the stated defect requires equal gaps and every midpoint globally minimizing. Then F=A+4r(x−z_i)² on each gap, so the jump at a site is −8r/k, whereas the kinks of the individual summands give −8m_i at multiplicity m_i. Conversely equal gaps and multiplicities give equal site values by rotation, so the equal-curvature arcs have their common minimum at the midpoints. This also checks k=1, A=0, and the sharp distinct-site bound.",
+      "residual_risks": [
+        "Fixed centered hat, critical integer lattices, and repeated identical channels counted with multiplicity. No extension to other windows or lattices is implied by the Zak calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Sobolev result includes an extra derivative-energy term, but its proof has the exact midpoint and cubic terms in isolation.",
+          "HKS cover strictly convex geodesic potentials and equal-spacing uniqueness, not this squared potential's exact defect.",
+          "Hasannasab–Lemvig characterize hat Zak zeros and frame property for single-window integer oversampling, not arbitrary shifted multiwindow defect constants."
+        ],
+        "reasoning": "Neither a general polarization optimum nor single-window Zak zeros alone would force the full formula. The earlier Sobolev proof supplies the precise intermediate identity for the relevant potential, whose conditions immediately extend to normalized weighted support.",
+        "searches": [
+          "Original --ed3ad9071b26, exact quadrature and three-term Sobolev deficit",
+          "arXiv:1208.5261 Thm. 1 and §2",
+          "arXiv:2609.13116, abstract and Thm. 7.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --ed3ad9071b26 and --2b8a9154bdc7 (self)",
+        "ArXiv 1208.5261 and 2609.13116",
+        "Frozen RESULT.md, Assumptions, Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: V''=2ν−2 dt, ∫V=1/6, max V−1/6=Σh_i³/12+Σh_i(max V−V(z_i)).",
+          "Prior §4 prints Σh_i³−1/k²=Σ(h_i−1/k)²(h_i+2/k) with N in place of k.",
+          "Using ν with atom mass m_i/r leaves the constant arc curvature and average unchanged. At coincident maxima at midpoints, the slope jump of V at a site matches 2m_i/r to h_{i−1}+h_i=2/k."
+        ],
+        "reasoning": "Scaling the first formula by 4r and applying the second gives exactly the stated two-term spectral deficit. The proof takes no limit in grid or lattice parameters. Repeats and the endpoint numbers of support points require no new nonstandard lemma, and the derivative jump forces the claimed multiplicities.",
+        "searches": [
+          "--ed3ad9071b26 original RESULT.md offsets 0–5458, especially §2 Exact gap quadrature and §4 Assemble and sharpen",
+          "Frozen RESULT.md, equality conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For d=d_T(x,s), the hat's minimum Zak summand is (1−2d)²=1−4R(x−s).",
+          "The exact prior circle resistance convolution has mean 1/6 and its gap-max slack is B−V(z_i), which corresponds to (F(z_i)−A)/(4r).",
+          "Hardin–Kendall–Saff apply directly with f(θ)=(1−θ/π)² on [0,π], strictly convex and nonincreasing."
+        ],
+        "reasoning": "The HKS change of geodesic origin establishes known optimizer overlap. The resistance substitution gives literal equivalence of both defect terms, not just of the optimizer.",
+        "searches": [
+          "Resultary cubic-gap stability, exact gap quadrature and hat-spline Gabor searches",
+          "Resultary --ed3ad9071b26, §§1–4; arXiv:1208.5261, Thm. 1 and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--2b8a9154bdc7 is the submitted item itself, not independent evidence.",
+          "--ed3ad9071b26 prints the exact quadrature and the factorized cubic deficit with the same midpoint slack; not a frame-bound table."
+        ],
+        "reasoning": "There is no need for a separate table of named Gabor bounds: the distinct indexed source already gives the exact formula for the identical extremal circle potential, with scale and sign accounted for.",
+        "searches": [
+          "Resultary target lookup --2b8a9154bdc7 and distinct --ed3ad9071b26",
+          "Read §§2 and 4 of the distinct indexed RESULT.md"
+        ]
+      },
+      "rationale": "A prior Resultary result gives the exact same gap quadrature and the exact same cubic factorization for the same circle potential after a change of signs and scale. In --ed3ad9071b26, let R(t)={t}(1−{t}) and V=R*ν. For ν=r^(−1)Σ_j δ_{s_j}, the submitted Zak potential is F=r(1−4V), so A=r(1−4 max V). Multiplying the prior §2 identity max V−1/6=(Σh_i³)/12+Σh_i(max V−V(z_i)) by 4r and subtracting r/(3k²) gives the frozen result, using the same factorization printed in prior §4. The prior statement uses distinct equal masses, but its proof uses only total probability mass for the mean and for V''=−2 off support; both facts are unchanged with arbitrary empirical repetitions and with one or two sites. The equality refinement uses the atomic jumps already read off from the prior distributional V''=2ν−2 dt. Thus the full claimed defect is a direct prior implication after standard Zak diagonalization, not merely an analogy between Sobolev and Gabor problems.",
+      "residual_risks": [
+        "No claim that the earlier record states the Gabor formulation verbatim; the failure rests on the exact mathematical implication from its published proof. Further historical antecedents are not needed for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact implication after identifying the normalized resistance convolution; broader application differs but its intermediate quadrature is the same.",
+          "evidence": [
+            "V''=2ν−2 dt and ∫V=1/6.",
+            "max V−1/6=Σg_i³/12+Σg_i(max V−V(m_i)); §4 gives the identical cubic gap factorization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-cubic-gap-stability-for-optimally-placed-sobolev-mean-cons--ed3ad9071b26/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–4, offsets 0–5458, in particular §2 Exact gap quadrature",
+          "method": "Resultary search and original bounded local-mirror file read",
+          "title": "Sharp cubic-gap stability for optimally placed Sobolev mean constraints on a circle",
+          "trigger": "Indexed earlier exact cubic defect and midpoint remainder on a circle"
+        },
+        {
+          "assessment": "Covers equispaced optimizer and uniqueness for r distinct channels, not the quantitative fixed-support-count defect.",
+          "evidence": [
+            "For nonincreasing convex geodesic potentials equispacing is optimal; strict convexity gives uniqueness.",
+            "f(θ)=(1−θ/π)² implements the submitted same minimum potential in the angle from the shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.5261",
+          "material_read": "Thm. 1 PDF p. 2 offset about 4960; proof §2 pp. 4–7, offsets about 10894–23123",
+          "method": "OA original PDF passage reads, with explicit potential substitution",
+          "title": "Polarization optimality of equally spaced points on the circle for discrete potentials",
+          "trigger": "Broader exact optimizer for the relevant circle potential"
+        },
+        {
+          "assessment": "Supplies known Zak-zero and lattice-frame context, not decisive for the defect.",
+          "evidence": [
+            "Thm. 7.2 treats the frame property of G(B_2,1/(qb),b), q≥2, for one hat window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13116",
+          "material_read": "PDF abstract p. 1 and Thm. 7.2 passage p. 15 around offset 53770",
+          "method": "OA original PDF, literal locator and bounded read",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Same hat and Zak-frame object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and claimed contribution",
+        "Resultary --ed3ad9071b26 §§2–4 and Hardin–Kendall–Saff Thm. 1"
+      ],
+      "rationale": "The sharp lower frame bound and sensitivity to clustering are motivated quantities, and the formula can be convenient in that notation. But the gap and midpoint structure is already exactly present in the earlier potential result. The Zak change of variables, retaining multiplicity in a probability measure, and reading its atomic derivative jumps are routine; the submission does not solve an independent weighted placement problem, for example the sharp attainable optimum when k does not divide r. The claimed exact invariant therefore adds no distinct nonmechanical value at the submitted scope.",
+      "residual_risks": [
+        "This decision does not assess a new theorem for other lattices, windows or a constrained unequal-mass optimization problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

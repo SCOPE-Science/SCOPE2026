@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:56.012204Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof, lines 29–40",
+        "VERIFICATION.md",
+        "verify_italian_rook.py",
+        "verification_output.txt",
+        "Independent direct adjacency counts: /workspace/branches/d16e3632-40ba-4efe-8ab5-d705085a1343/record2-independent-check.txt"
+      ],
+      "rationale": "At a zero cell, the open-neighborhood weight is exactly its row sum plus column sum. An empty column forces every row sum at least two; without an empty column the total is at least n. Both candidate weights are attainable: put one 1 per column covering every row, or put one 2 per row. For n<2m equality excludes empty columns and forces every column sum to be 1, with each row occupied. For n>2m equality forces an empty column and then every row sum must be 2. At n=2m the same alternatives are exhaustive and the two feasible families can coexist. Column assignments onto the m named rows count m! S(n,m); independent rows of weight two give (n+binom(n,2))^m. The boundary overlap assigns labeled columns in pairs to the named rows, giving (2m)!/(2!)^m. Independent adjacency enumeration gave no lower-weight examples at 2x4 or 3x6 and respectively counted (U,B,overlap,union)=(14,100,6,108) and (540,9261,90,9711). The frozen checker and recorded 19-profile output were inspected, not executed; the finite checks do not replace the equality proof.",
+      "residual_risks": [
+        "Counts are for labeled boards and ordinary, not perfect, Italian domination. Independent enumeration covered the two named boundary boards only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched ordinary Resultary theorem includes 1<=m<=n; restricting to 2<=m<=n gives the frozen domain.",
+          "Perfect Italian Theorem 2.4 gives n at m=n and 2m for m<n with m<=n; Shao–Zhao's abstract treats paths, trees and cycles."
+        ],
+        "reasoning": "Only the ordinary exact optimizer theorem is the stronger covering claim. A perfect minimum is not a census of ordinary minima, even when scalar optima coincide. The path/tree/cycle work does not cover rectangular rook graphs.",
+        "searches": [
+          "Resultary: minimum Italian domination on rook graphs, exact optimizers",
+          "Varghese–Lakshmanan §2 Theorem 2.4",
+          "Shao–Zhao arXiv:2610.00108v1"
+        ]
+      },
+      "checked_sources": [
+        "Distinct exact Resultary ordinary-optimizer record",
+        "Alizadeh et al. Theorem 3.4",
+        "Klostermeyer–MacGillivray publisher access attempt",
+        "Varghese–Lakshmanan Theorem 2.4",
+        "Resultary perfect-rook classification",
+        "Shao–Zhao arXiv:2610.00108v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2017 scalar theorem alone does not count labeled optima. The distinct Resultary theorem explicitly classifies all minimum functions in the three regimes and counts their boundary overlap; no new derivation or assumption is required to specialize it.",
+          "The 2019 publisher scan has no extractable text in the attempted path; extra coverage by that paper is not relied on."
+        ],
+        "reasoning": "The unconditional scientific match is statement-level, including the full optimizer classification. Its existence undermines a distinct originality pass without settling provenance; the unreadable 2019 text is not used as negative or positive evidence.",
+        "searches": [
+          "Alizadeh et al., §3 Theorem 3.4",
+          "Resultary exact ordinary optimizer Finding and proof",
+          "Klostermeyer–MacGillivray, 2019, publisher text access"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Roman {2} definition imposes the same at-least-two condition at zeros; Theorem 3.4 states gamma_R2(K_n square K_m)=min(m,2n) for n<=m.",
+          "The distinct Resultary Finding uses the same zero-label rule and named rows and columns; m! S(n,m)=U_m(n), n(n+1)/2=n+binom(n,2), and n!/2^m=(2m)!/2^m at n=2m."
+        ],
+        "reasoning": "After aligning orientation and names, the 2017 scalar formula is identical and the catalog optimizer theorem is identical throughout the submitted domain. Perfect Italian has a different equality condition.",
+        "searches": [
+          "Ordinary Italian and Roman {2}-domination on rook graphs",
+          "Alizadeh et al. arXiv:1701.01416, definition and Theorem 3.4",
+          "Resultary ordinary rook exact optimizers and sharp transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror RESULT.md at offset 0 and the proof passage at offset 4372 give both exact families, all three counts and their intersection on the larger domain. The match is an indexed theorem, not just matching small-board values.",
+          "The earlier perfect-Italian catalog Finding yields only n+binom(n,2) perfect minima at the boundary with m>=2; it is not the ordinary union count."
+        ],
+        "reasoning": "The exact indexed ordinary comparison covers the same object, formulas and quantifiers. The different perfect count provides a useful control rather than an originality objection.",
+        "searches": [
+          "Resultary: labeled rook minimum Italian functions; surjection, independent row-weight family, boundary overlap"
+        ]
+      },
+      "rationale": "Two verified overlaps matter. Alizadeh et al., Theorem 3.4, already give the exact ordinary scalar formula for all rectangles, not just squares. More decisively, a distinct indexed Resultary record with the same displayed date states the identical labeled optimization problem and every optimizer family and count, including the boundary intersection, on the superset 1<=m<=n. This is demonstrated equivalent coverage of the entire mathematical contribution, not a title match or a comparison to perfect Italian domination. No distinct remainder within the frozen claim is established. The same displayed date and metadata do not establish who was first; this is a failure to substantiate distinct originality, not a finding of copying or a rejection based on an inaccessible paper. No repair is supported by narrowing the claim within the covered domain.",
+      "residual_risks": [
+        "No priority or derivation relation is inferred from the two displayed catalog dates or their metadata. External discovery was limited and continued coverage in the 2019 scan remains unresolved, but neither is the basis of the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage on a larger domain; priority unresolved",
+          "evidence": "Ordinary labeled cells, one 1 per occupied column with all rows occupied below 2m, independent weight-two rows above 2m, union with overlap n!/2^m at 2m. Includes the submitted m>=2 domain and also m=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-minimum-italian-domination-on-rook-graphs-exact-optimizers-and-a--73393dbef1b4/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0), proof passage (offset 4372), and separate metadata for provenance limits",
+          "method": "Local corpus passage inspection",
+          "title": "Minimum Italian domination on rook graphs: exact optimizers and a sharp transition",
+          "trigger": "Potentially identical ordinary optimizer classification and boundary formula"
+        },
+        {
+          "assessment": "Covers the full rectangular scalar equality, not the counts in the passage",
+          "evidence": "Same zero-neighborhood inequality and exact min(m,2n) formula for n<=m, equivalent by renaming.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.01416",
+          "material_read": "PDF p. 2 definition (offset 4016); §3 Theorem 3.4 at pp. 7–8 (offset 17930)",
+          "method": "Open primary PDF passage inspection",
+          "title": "Roman {2}-Domination in Graphs and Graph Products",
+          "trigger": "Earlier ordinary domination scalar theorem for complete Cartesian factors"
+        },
+        {
+          "assessment": "Additional optimizer coverage unresolved",
+          "evidence": "Publisher information identifies general scalar bounds and graph classes; the scan has no extractable text via attempted access and no whole-document noncoverage is claimed.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20108/roman-italian-and-2-domination.pdf",
+          "material_read": "Publisher article information and accessible indexed material; PDF content not read in full",
+          "method": "Lawful publisher PDF and text extraction attempt",
+          "title": "Roman, Italian, and 2-Domination",
+          "trigger": "2019 work cited for the ordinary square result; could cover optimizers"
+        },
+        {
+          "assessment": "Different invariant; scalar theorem only in cited passage",
+          "evidence": "Exactly two at each zero; on rectangular m<n boards the perfect minimum is 2m even where ordinary minimum is n<2m.",
+          "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_Feb_2023_158_to_168.pdf",
+          "material_read": "Definition (pp. 158–159, offsets 0 and 2934), §2 Theorem 2.4 (pp. 161–162, offset 10369)",
+          "method": "Journal PDF passage inspection",
+          "title": "Perfect Italian Domination Number of Graphs",
+          "trigger": "Same product graph and closely named invariant"
+        },
+        {
+          "assessment": "Perfect optimizer classification, not ordinary",
+          "evidence": "Complete 2-column or two complete 1-columns in the boundary regime, giving n+binom(n,2), not the ordinary union.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-minimum-perfect-italian-functions-of-rook-graphs--f02211d84bb8",
+          "material_read": "Finding and optimizer classification",
+          "method": "Local corpus passage inspection",
+          "title": "Minimum perfect Italian functions of rook graphs",
+          "trigger": "Matching family but potential count confusion at n=2m"
+        },
+        {
+          "assessment": "Different stated graph classes",
+          "evidence": "Paths, trees and cycles are the explicit classes in the abstract, not complete Cartesian factors.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+          "material_read": "Abstract and opening (offsets 0–2372)",
+          "method": "Open primary HTML passage inspection",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Counting by weight for the ordinary invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and equality proof",
+        "Alizadeh et al. known rectangular scalar result",
+        "Distinct Resultary exact ordinary optimizer Finding"
+      ],
+      "rationale": "As mathematics, the complete equality classification and labeled enumeration across the natural n=2m boundary give more useful information than the scalar minimum, including the first nonzero coefficient of the weight polynomial and the exact double-count correction. This evaluates the theorem's content, not its novelty: the separate exact coverage bars credit for an original contribution from this frozen record.",
+      "residual_risks": [
+        "No result on all weight coefficients, unlabeled orbits, or higher Cartesian powers. Independent novelty is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

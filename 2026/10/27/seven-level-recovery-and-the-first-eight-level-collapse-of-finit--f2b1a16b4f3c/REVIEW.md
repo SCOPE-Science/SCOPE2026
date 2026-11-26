@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The precise universe is nonempty finite ordinal sums of antichains, with two height strata. A full three-move Hintikka invariant is defined from equality and order diagrams, and each level is truncated at three by an explicit Duplicator strategy. The complete \(3279\)- and \(6561\)-input enumerations are exhaustive, not sampled. They respectively establish full profile recovery and the exact \(144\) central swaps. A second orbit implementation and direct-game boundary tests agree. The fixed-height representative claims are restricted to their stated families.
+## correctness
 
-**Originality: PASS, qualified by literature limits.** The 2011 and 2019 papers of Mwesigye and Truss concern explicitly coloured linear orders; their quantifier-free unary colours are not interchangeable with unlabelled tie-class sizes in the present pure-order language. Their inspected theorems and examples do not state the exact \(3279\)/\(6417\) weak-order classifications or the \(144\) center-swap rule. Related archived work on finite weak orders concerns homotopy, bounded morphisms, or endomorphisms rather than rank-three logical types. No covering statement was found in the queried index or accessible earlier research claims. Residual risk is unindexed equivalent literature.
+PASS
 
-**Value: PASS.** Finite weak orders model ranked preferences with indifference classes. The result gives a complete, sharp depth-three recovery threshold for ordered tie-size profiles and identifies *every* first collapse at the next height—not just an isolated numerical example. The \(144\)-pair formula characterizes precisely how middle tie sizes become invisible despite preservation of surrounding levels, a nontrivial expressibility boundary relevant to weak-order encodings.
+The three-move game preserves the correspondence within each level under truncation at three: at a move requiring a fresh element, at most two choices have already been used. For an independent type census I encoded a pair of anchors in different levels by its order direction and five availability bits for the third move: before both, fresh at the lower anchor's level, between, fresh at the upper anchor's level, and after both. Both exact anchor equalities are always available. For coincident anchors and distinct anchors in a common level, only the before, after and fresh-in-level bits are needed, with fresh thresholds two and three respectively. This describes exactly all atomic extensions; taking sets once over second moves and once over first moves checks both sides of the EF game. The replay gives 3279 distinct types over all heights 1–7 and 6417 at height eight. Its complete list of nonsingleton eight-level fibers equals the prescribed 144 pairs, with 6273 singletons. The all-three vector is unique in each tested family's relevant class, so the respective upper bounds 21 and 24 from truncation are attained. The two strata are not combined to assert a cross-height theorem.
 
-Independent mathematical checking beyond the packaged self-contained proof and code remains outstanding. The result does not classify weak orders of unbounded height.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact recovery range and the complete exceptional relation at fixed height eight for rank three in the pure order language. The closest same-family catalogue result characterizes unrestricted-depth finite-variable logic and does not bound the rank of distinguishing sentences; in fact at width three it distinguishes each of the swapped pairs that rank three merges. The primary coloured-linear-order character results use named predicates and do not furnish the required recovery or merger rule for unlabelled ties. The bounded searches and statement comparisons support distinctness, not a definitive priority claim.
+
+## value
+
+PASS
+
+The exact boundary is motivated by a natural expressibility question for finite rankings with ties: when does rank-three first-order logic cease to recover the sequence of tie sizes that it can in principle count? The first failure is not just an example; the controlled central swap and the required four surrounding nonsingleton levels explain every failure within height eight. This gives exact classification and sharp in-family compression at the boundary, independently useful without an arbitrary-height theorem. The 3279 and 6417 totals are consequences, not the sole source of value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

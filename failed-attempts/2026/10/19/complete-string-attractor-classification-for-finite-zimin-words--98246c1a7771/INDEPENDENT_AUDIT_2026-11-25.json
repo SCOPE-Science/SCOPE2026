@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:54.811276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For j≤n the recursion partitions Z_n into 2^(n−j) identical literal Z_j blocks separated by single symbols above j. Each block contains exactly one j. Any nonempty factor whose largest letter is j must lie wholly within one such block, and its same relative occurrence in any other such block crosses that block's j. This proves the sufficiency for any selected representative of each letter, including j=1 and j=n; the singleton factors give necessity. Choosing independent nonempty subsets of the symbol classes gives the complete polynomial, evaluation at t=1 gives the total, and the lowest exponent n and its coefficient give the optimal family and count. Inspected the frozen checks of coverage masks and centered neighbourhoods; those finite computations are supplementary and the uploaded code was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ArXiv:1307.1560 treats factor membership at every k and characterizes the whole factor language, a structural result that gives the exact occurrence property used here.",
+          "ArXiv:2602.16152's abstract concerns minimum attractors for Fibonacci, period-doubling and Thue–Morse, not the literal finite Zimin family."
+        ],
+        "reasoning": "The covering structural theorem is the Zimin factor theorem, not a binary coding or a general assertion that alphabet-size lower bounds are tight. Noninjective parity coding changes the symbol and factor constraints: 0100010 has both symbols selected at positions 1 and 2 but misses its sole 000 occurrence.",
+        "searches": [
+          "Głowinski–Rytter Zimin factor characterization and ranked patterns; Banbara et al. finite attractor classifications",
+          "Resultary: binary period doubling and literal Zimin via parity coding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.1560 §2, Lemma 2 and continuation",
+        "arXiv:1709.05314v2 §1 and §3.1",
+        "arXiv:2602.16152 abstract",
+        "Resultary 0a2ae1aed47f and 7c177e5db151"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older factor theorem states that a word on {1,…,k} is a factor of Z_k iff it satisfies the interleaving condition after each threshold deletion.",
+          "For f with maximum j≤n, the same conditions up to j apply without change. Each position j in Z_n belongs to the center of a copy of Z_j. Since f contains j, its occurrence in each copy includes its center."
+        ],
+        "reasoning": "Thus any set hitting each symbol covers every factor; the converse is a singleton test. With 2^(n−j) positions in class j from the recursion, selecting independent nonempty subsets mechanically gives the full cardinality polynomial and all minimum/total counts. There is no additional factor occurrence theorem or independent enumerative step needed.",
+        "searches": [
+          "arXiv:1307.1560 PDF p. 2 Lemma 2 and p. 3 initial paragraph",
+          "arXiv:1709.05314v2 §1 and §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Głowinski–Rytter §2 Lemma 2 characterizes all factors of Z_k by threshold interleaving; their following paragraph identifies the unique highest letter in each factor.",
+          "Prezza's definition asks for one hit among the occurrences of each factor, and includes one-letter factors."
+        ],
+        "reasoning": "An equivalent formulation is that the factor-occurrence hitting constraints reduce to the symbol classes. Lemma 2 ensures that a factor of maximum j belongs to the factor language of Z_j; the recursion gives a Z_j occurrence centered at each j, so every position of symbol j lies in some occurrence of that factor.",
+        "searches": [
+          "Resultary: literal Zimin/ABACABA word factor-occurrence hitting sets, symbol coverage and smallest attractors",
+          "arXiv:1307.1560 §2 and arXiv:1709.05314v2 §1, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected repeated-permutation prefix record 0a2ae1aed47f concerns smallest attractors, and some one-position-per-letter choices fail in its setting.",
+          "The inspected period-doubling record 7c177e5db151 gives six minimum pairs for a binary prefix family, not the literal Zimin polynomial."
+        ],
+        "reasoning": "The bounded catalogue comparison did not establish an exact table for this invariant. A match of numbers without the same word and statistic would not count; here the demonstrated coverage is by mathematical implication instead.",
+        "searches": [
+          "Resultary: Zimin full attractor size generating polynomial and one arbitrary position of every symbol",
+          "SCOPE 0a2ae1aed47f; SCOPE 7c177e5db151"
+        ]
+      },
+      "rationale": "The full literal-Zimin classification and enumerator are immediate consequences of previously stated factor-language structure and the standard attractor definition, although the earlier Zimin paper does not call the resulting sets attractors. No exact earlier attractor table was needed to establish the implication.",
+      "residual_risks": [
+        "An earlier article may also state the attractor conclusion in that language. Failure is based on the verified prior implication, not on the absence of a direct attractor search hit or limited access to another article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural implication of the entire frozen attractor classification, though not formulated as one",
+          "evidence": [
+            "Lemma 2 explicitly tests all Zimin factors by threshold interleaving. Substituting the maximum letter for k preserves the satisfied tests and proves f is a factor of Z_j."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.1560",
+          "material_read": "§2, Definition 2 and Lemma 2 with proof on PDF p. 2 (offsets 5600–7838, lemma at 6616); following paragraph on the unique maximum, p. 3 at offset 7838",
+          "method": "Located the exact lemma, then read the bounded primary-text passage and next-page continuation",
+          "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+          "trigger": "Prior factor-language characterization of the exact literal Zimin family"
+        },
+        {
+          "assessment": "Definition provides necessity; with the earlier factor lemma it also gives the complete conclusion",
+          "evidence": [
+            "Every factor must have an occurrence crossing an attractor position."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1709.05314v2",
+          "material_read": "Abstract and §1 near offset 0; §3.1 near offset 16048",
+          "method": "Read the OA definition and lower-bound discussion",
+          "title": "String Attractors",
+          "trigger": "Definition of the exact property and standard alphabet lower bound"
+        },
+        {
+          "assessment": "Analogue only",
+          "evidence": [
+            "A boundary factor restricts which one-per-letter choices work in that family."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-all-smallest-string-attractors-of-repeated-permutation-prefixes--0a2ae1aed47f",
+          "material_read": "Finding and Assumptions from RESULT.md offset 0",
+          "method": "Read the matching local-mirror result statement",
+          "title": "All smallest string attractors of repeated-permutation prefixes",
+          "trigger": "One representative of each letter in a finite recursive/prefix family"
+        },
+        {
+          "assessment": "Different alphabet, statistic, and word family",
+          "evidence": [
+            "For k≥4 the binary length-(2^k−1) prefix has exactly six smallest pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-six-smallest-string-attractors-immediately-before-dyadic-period--7c177e5db151",
+          "material_read": "Finding and §1 from RESULT.md offset 0",
+          "method": "Read the local-mirror statement",
+          "title": "Six smallest string attractors immediately before dyadic period-doubling lengths (indexed record)",
+          "trigger": "Related dyadic prefix with a binary Zimin recoding"
+        },
+        {
+          "assessment": "Different families in the retrieved statement; no whole-document noncoverage inference",
+          "evidence": [
+            "The abstract names Fibonacci, period-doubling and Thue–Morse words and concerns smallest attractors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.16152",
+          "material_read": "Abstract, offsets 1192–2484; additional body retrieval timed out",
+          "method": "Read accessible primary abstract and compared its stated parameters",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Primary benchmark of related finite minimum-attractor classifications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The attractor interpretation is a useful observation, but the exact family and all its coefficients arise by applying the standard hitting definition to the already characterized factors and making routine independent subset choices. There is no separate useful new invariant or boundary result in the frozen claim. A binary or substituted-word extension would be a different problem, not a supported repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: maximal mutual visibility in the pentagonal and hexagonal prisms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each of the two exact labelled Cartesian prism graphs, `verify_paths.py` forms the exact shortest-path family for every vertex pair by strictly descending graph distance. Its Boolean feasibility predicate is equivalent, in both directions, to the definition of mutual visibility. All 1,024 and 4,096 labelled vertex subsets respectively are enumerated. Heredity proves that testing every one-vertex extension is equivalent to inclusion-maximality. The exhaustive counts yield \(F_5(z)=10z^4+30z^5\), \(F_6(z)=240z^5+2z^6\). Additional executable assertions compare the *entire* minimum template set at circumference five, the two alternating-column maximum sets at circumference six, and the twelve exceptional nonmaximal five-sets. Every optimum exchange/slide is built by a two-bit symmetric difference and slide adjacency, and full BFS from all optima determines the stated diameters, radii and orbit statements. An independently coded second predicate, `verify_bfs.py`, compares original distance to the distance after forbidding all interior selected vertices. Its complete feasibility and optimum-list hashes agree with the first program. Both replayed successfully from the current artifact directory. These are exhaustive finite certificates, not infinite proofs.
+PASS
 
-## Originality — PASS (provisional publication priority)
+Independent coordinate replay: a geodesic follows a shortest cycle arc and switches layers exactly once if the endpoints differ in layer. On each eligible arc a switch index must lie strictly between the last blocker on the destination layer and the first blocker on the source layer; same-layer endpoints require a clear arc. Exhausting all 1024 and 4096 subsets with this predicate reproduces both feasibility and optimal-mask hashes, all four polynomials, the ten stated four-set templates, and the two alternating-column six-sets with precisely their twelve deletions as nonmaximal feasible five-sets. Heredity makes the one-vertex extension test exhaustive for maximality. Orbit enumeration matches one size-ten orbit and, for C6, two size-twelve and nine size-twenty-four orbits. Grouping sets by shared (k−1)-subsets identifies each move edge; bitset neighborhood expansion gives ten slide isolates and a connected 2-regular ten-vertex jump graph for C5; for C6 it gives 816 slide edges with eccentricities 6 and 7 (120 each) and 1842 jump edges with every eccentricity 5, both connected on 240 vertices. The independent scripts did not execute the frozen programs.
 
-Brešar and Yero, *Lower (total) mutual visibility in graphs* (arXiv:2307.02951, initial public posting 2023-07-06), introduce the lower mutual-visibility quantity and explicitly ask for the Cartesian-cylinder case; the full accessible arXiv text was inspected, including the cylinder question. Korže and Vesel, *Mutual-Visibility Sets in Cartesian Products of Paths and Cycles* (Results in Mathematics 79 (2024), article 116), determine *maximum* ordinary visibility sizes for these two prisms, five and six, not the distribution of inclusion-maximal sets, their lower number, or configuration relocation. Kuziak and Rodríguez-Velázquez's *total* visibility is a different quantifier and cannot imply the stated ordinary census. Publicly indexed related work on the three-row torus \(C_3\square C_n\), cycle-clique lexicographic blowups and prism zero-forcing exchanges studies different objects or requirements. Searches by the generalized-Petersen alias, minimum maximal mutual visibility, facet spectrum, and reconfiguration found no covering theorem. Neither absence of search results nor two selected cases proves uniqueness or complete priority. The full Cicerone–Di Stefano–Klavžar primary text was not available for complete reading, creating a residual priority risk; its accessible abstract describes maximum ordinary mutual visibility and products, not this claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source explicitly motivates the lower parameter on Cartesian cylinders. These are two adjacent small, canonical cubic prism graphs, with cycle lengths five and six. Their **complete** labelled maximal-set polynomials are nontrivial finite classifications, not mere scalar recomputations of the previously known maximum sizes. The opposite behavior of token slides—ten frozen optimal placements versus a connected 240-vertex graph with exact diameter seven—quantifies an intrinsic optimization-versus-mobility distinction. Two adjacent canonical boundary cases are not asserted as a general parity theorem. A general result and unindexed equivalent classifications remain open risks.
+Credit the literature for the lower-visibility definition, the cylinder question, and the already known maximum cardinalities. The strongest inspected prior and catalog matches do not supply these labelled maximal-set censuses, the lower numbers for these two cylinders, or the mobility contrast with the stated admissible states.
 
-## Verification and limitations
+## value
 
-Run the two standalone Python 3 checkers included with this result. No third-party dependencies, unproved numerical extrapolation, or external certification channel is used. Assertions cover all masks in each specified graph and construct the complete move graphs. The certificates do not establish other circumferences, and independent scholarly validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These are natural width-two instances of a stated cylinder problem. A complete census supplies reusable extremal configurations, and the exact contrast between all slide-frozen optimum states at length five and a connected optimum slide graph at length six is structural reconfiguration information, not a recomputation of the already known ordinary maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

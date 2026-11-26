@@ -1,15 +1,21 @@
-# Review of the logarithmic-square spectral-edge theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient action of the compact product is exact: \(e_{pk}\mapsto\rho^{(p+q)k}e_{qk}\). The operator decomposes into weighted arithmetic paths. A small-edge truncation and coprime divisibility bound force every surviving path to have at most \(\log(1/\varepsilon)/\log q+O(\log\log(1/\varepsilon))\) edges. Matching almost-unit weighted paths in arbitrarily many distinct coprime components deliver a min-max lower bound for each fixed eigenvalue index. These bounds give the same limit \(\pi^2(\log q)^2\). The trace-class, nonconstant-mode, and logarithmic normalization requirements are explicitly handled. A standard-library diagnostic checks 7,818 finite assertions but does not stand in for the proof.
+## correctness
 
-## Originality — PASS, qualified
-Full relevant mathematical sections of Clifford, Dabkowski and Wiggins (2021) were compared: that work already treats the same operators and establishes the weighted path/numerical-range framework, but not the displayed sharp approach-rate or fixed-eigenvalue-rank statement. Leng and Zhao (2026) give composition-product Schatten criteria, not this spectrum. The closest published undamped finite-degree cutoff theorem supplies the **same** logarithmic-square numerical-radius coefficient for a different cutoff and is expressly credited. The present sharp radial compactification and fixed-rank condensation require a separate edge truncation and min-max comparison, and were not found in the inspected statements. A previously proved more general spectral approximation theorem could subsume this and remains a nonzero priority risk.
+PASS
 
-## Mathematical value — PASS
-As compact monomial cross-products approach a noncompact boundary product, understanding the precise degeneration of the numerical-radius and more than just the first spectral mode is a natural spectral problem. The fixed-rank universality establishes that arbitrarily many eigenvalues crowd against the same edge at the sharp logarithmic-square scale; the effective rate depends on the larger arithmetic degree and not the smaller coprime degree. This separates radial compactification from finite polynomial cutoffs and supplies a quantitative boundary theorem rather than a parameter-renaming exercise.
+On positive Hardy monomials T e_{pk}=ρ^{(p+q)k}e_{qk}; coprimality excludes other nonzero actions. The source and target indices are separately injective, so the singular values are summable and the symmetrization is compact self-adjoint. An oriented path requires progressively higher powers of p in its initial index; backwards indices decrease. The resulting finite path blocks admit a diagonal phase rotation conjugating T to e^{iθ}T. This makes the numerical range a disk (including its extremal point by the positive compact eigenvalue of the Hermitian part) and gives w=λ₁/2. To check the edge, use ℓ=log(1/(−log ρ)). Dropping weights ≤ℓ⁻⁴ costs at most 2ℓ⁻⁴ in norm. A retained length-L run has final source parameter at least q^{L−1} by the successive integrality constraint, and all retained parameters are <4 log ℓ/[(p+q)(−log ρ)]. Hence runs have at most ℓ/log q+O(log ℓ) edges and their top eigenvalues are bounded by those of the corresponding unit paths. Conversely, length floor((ℓ−5 log ℓ)/log q) paths with J distinct cofactors coprime to pq have weights 1−O_{p,q,J}(ℓ⁻⁵); the cofactors separate the components. Their unit-path sine vectors give the lower bound by min–max. The gap of a unit path of m edges is 2−2 cos(π/(m+2)); with these two lengths it has the same scaled constant on both sides. Infinitely many separated one-edge paths give infinitely many positive eigenvalues even away from the limit. Finally ℓ=log(1/(1−ρ))+o(1). The frozen checker was inspected, not executed; finite sections in the checker are not the assertion about the compact operator.
 
-## Remaining limitations
-No rank-uniform limit, second-order asymptotic or general-symbol theorem is claimed. Known weighted-chain descriptions and finite-cutoff cosine estimates are explicitly credited. Independent verification and comprehensive historical priority checking have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the sharp genuine radial limit of the compact symmetrization, including each fixed positive rank. The arithmetic decomposition, sine eigenvalues, hard-cutoff gap constant, and qualitative numerical-range information are prior material. The close hard-cutoff overlap also supplies the hard-cutoff analogue at each fixed rank via its exact block counts; fixed-rank enumeration by itself is not the novelty. Quantitative transfer requires controlling the whole discarded weighted tail and attaining near-unit weights at a slightly shorter scale; the earlier finite-section result does not itself assert such comparison for the radial family.
+
+## value
+
+PASS
+
+The actual compact radial family, rather than degree sections, is the Hardy operator of interest. Controlling its spectral tail in norm at the gap scale yields a sharp quantitative approach to the boundary and shows that every fixed number of top modes shares that scale. This is useful even given the close and comparatively simple hard-to-soft transfer, without claiming a new coefficient for the undamped problem or a full edge distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

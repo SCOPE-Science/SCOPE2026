@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:31.879061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify_schroder.py, lines 11–99 (inspected, not executed)",
+        "Independent decorated-Dyck product proof above"
+      ],
+      "rationale": "The signed transfer K_i(h,h′)=1_{h′≥h−1}+z_i 1_{h′≥h}, z_i=(−1)^ξ_i, counts the unique possible initial north run for each chosen east or diagonal step and pair of allowable heights. In the first column both indicators are one, so the factor is 1+z₀. A separate proof expands every Schröder diagonal into NE, giving a Dyck path with some of its peaks marked. If C(D) is the set of columns in which an NE peak of D starts, the character sum is exactly Σ_D ∏_{i∈C(D)}(1+z_i). The first east step is necessarily a peak from column 0; thus ξ₀=1 kills every term, while ξ₀=0 gives nonnegative even contributions. The one-peak path NⁿEⁿ contributes 2 in every surviving case. For 1≤i<n, NⁱEⁱNⁿ⁻ⁱEⁿ⁻ⁱ has peaks in precisely columns 0 and i, adding 4 if ξ_i=0. Thus only (0,1,…,1) minimizes over the nonzero spectrum. Every term is bounded by its value at ξ=0, and the zigzag (NE)ⁿ loses its strictly positive term if any ξ_i=1, proving uniqueness of the maximum R_n. At n=1 the same single coefficient realizes both extrema. The Walsh characters diagonalize unnormalized convolution; the surviving characters are exactly those independent of the first coordinate. Hence rank, nullity, range, and restricted condition number follow. Fourier inversion gives equal counts μ_n(0,w)=μ_n(1,w), so the first bit is fair and independent of the marginal, whose transform consists of the surviving coefficients and never vanishes. Marking any subset of the zigzag peaks also verifies full incidence-vector support.",
+      "residual_risks": [
+        "The argument uses counting multiplicities, not a support indicator or arbitrary path weights. The finite checks recorded in the package do not certify the all-order claim by themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drake's independently flattenable peaks supply the entire counting-fiber description before substituting any signs. Alekseyev's inspected passage gives aggregate generating functions; Schroeder–Smith give a bijection with ADI words; Verde et al. give generalized weighted-array entries. The cited position-weighted Dziemiańczuk full text was not retrieved."
+        ],
+        "reasoning": "The constructive Dyck description is strictly more informative than a scalar total or a single weight parity; weighting its preserved columns is a direct specialization. The verdict does not use unverified assumptions about the position-weighted Delannoy paper.",
+        "searches": [
+          "Drake, §1.1, pp. 3–4",
+          "Alekseyev, arXiv:1601.06158, Theorem 2",
+          "Schroeder–Smith, arXiv:1511.00189, Theorem 3.7",
+          "Verde et al., A Matrix Approach to Generalized Delannoy and Schröder Arrays, Theorem 1",
+          "Dziemiańczuk, Integers 13 (2013), A54, DOI 10.5281/zenodo.10200471"
+        ]
+      },
+      "checked_sources": [
+        "Drake primary PDF, §1.1, p. 3",
+        "Resultary Schröder, Dyck peak, Dyck return and Riordan matches",
+        "Alekseyev and Verde et al. primary passages",
+        "Dziemiańczuk author/title and position-weighting cross-reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On each Dyck fiber attach weight one to retaining a peak and z_i to flattening its peak in column i. The known bijection gives Σ_D ∏_{i∈C(D)}(1+z_i). Column zero occurs in every C(D); only NⁿEⁿ has a single peak, the displayed two-peak path realizes each possible extra column, and the zigzag has every peak column."
+        ],
+        "reasoning": "At z_i∈{−1,1} these elementary observations establish the asserted zero set, even positivity, unique sharp minimum and maximum. The rank, range, independence, invertibility and condition number then follow by standard Fourier diagonalization and inversion. The old bijection directly implies the whole finding, not just an overlapping case or numerical match.",
+        "searches": [
+          "Drake, Bijections from Weighted Dyck Paths to Schröder Paths, p. 3, §1.1, equation (2)",
+          "Frozen RESULT.md, lines 4–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Drake states that any peak can be flattened and uses 2^{k+1} independent choices for each Dyck path with k+1 peaks. In the square-lattice encoding flattening NE to a diagonal preserves the column of its horizontal increment and those of all other peaks. The Resultary positional-peaks record instead labels positions in the full up/down step word."
+        ],
+        "reasoning": "Schröder diagonal-column incidence is the column incidence of the marked subset of a Dyck path's peaks under the known bijection; the horizontal-increment ordinal is preserved exactly. This yields equivalent counting fibers without identifying full-word positions with column ordinals.",
+        "searches": [
+          "Dan Drake, Bijections from Weighted Dyck Paths to Schröder Paths, §1.1, p. 3, equation (2)",
+          "Resultary: 2026/11/22/SCOPE-dyadic-walsh-rigidity-of-positional-peaks-in-dyck-paths--6b8684277f16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Schröder spectrum is the bound record itself. The distinct return and Riordan matches study interior returns or horizontal-step positions in a finite Riordan excursion. Drake's explicit sum already gives the zero-frequency value R_n."
+        ],
+        "reasoning": "The distinct matches are not identical spectral tables; the scalar Schröder total is known. The absence of a second table with the entire spectrum does not negate the constructive implication.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-exact-half-space-fourier-support-of-schr-der-diagonal-column-cou--4361dc904d1c",
+          "Resultary: 2026/11/22/SCOPE-fine-number-spectral-floor-for-dyck-return-convolution--363520be03a7",
+          "Resultary: 2026/11/22/SCOPE-a-fifth-order-fourier-blind-spot-in-thirteen-step-riordan-paths--9a9307c97d86",
+          "Drake, p. 3, equation (2)"
+        ]
+      },
+      "rationale": "The exact theorem is a direct corollary of a published, position-preserving combinatorial construction. Drake's arbitrary-subset peak flattening in §1.1 provides the fibers and independent choices; assigning the sign of each peak's east-step column and summing independently proves the complete position-refined product. The extrema then follow by the one-peak, two-peak, and zigzag paths, and all operator properties are consequences of Fourier diagonalization. Drake does not state the Walsh theorem verbatim; it is the construction, not the univariate total alone, that implies it. The separate height-transfer proof is valid but does not avoid this prior implication.",
+      "residual_risks": [
+        "Some additional weighted-path literature may state the position refinement explicitly; that is not needed to establish the implication from the inspected Drake construction. No earlier literal Walsh statement is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication via the published construction; not a verbatim Walsh statement",
+          "evidence": "Any peak may be flattened; the factor 2^{k+1} counts all independent subsets of the k+1 peaks.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Drake/drake.pdf",
+          "material_read": "§1.1, p. 3, equation (2), offsets about 7900–10642; related weighting discussion pp. 3–4",
+          "method": "Located and read the primary PDF passage, then reconstructed the column-weight specialization",
+          "title": "Bijections from Weighted Dyck Paths to Schröder Paths",
+          "trigger": "Exact peak-subset encoding that may determine the column factors"
+        },
+        {
+          "assessment": "Related but different position statistic",
+          "evidence": "It labels UD peak starts by full-word position and gives parity and divisibility conclusions, rather than labeling selected peaks by east-step column.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-walsh-rigidity-of-positional-peaks-in-dyck-paths--6b8684277f16",
+          "material_read": "Published mirror RESULT.md finding, offset 0",
+          "method": "Read exact indexed finding in the local mirror",
+          "title": "Dyadic Walsh rigidity of positional peaks in Dyck paths",
+          "trigger": "Closest indexed Walsh/peak comparison"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "The profile records interior return positions, with a Fine-number floor.",
+          "identifier_or_url": "2026/11/22/SCOPE-fine-number-spectral-floor-for-dyck-return-convolution--363520be03a7",
+          "material_read": "Published mirror RESULT.md finding, offset 0",
+          "method": "Read exact indexed finding in the local mirror",
+          "title": "Fine-number spectral floor for Dyck return convolution",
+          "trigger": "Indexed sharp Walsh gap for a related path family"
+        },
+        {
+          "assessment": "Different excursion family and finite parameters",
+          "evidence": "The finding concerns horizontal-step positions in a length-13 Riordan excursion.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-fifth-order-fourier-blind-spot-in-thirteen-step-riordan-paths--9a9307c97d86",
+          "material_read": "Published mirror RESULT.md finding, offset 0",
+          "method": "Read exact indexed finding in the local mirror",
+          "title": "A fifth-order Fourier blind spot in thirteen-step Riordan paths",
+          "trigger": "Indexed Fourier zeros for a horizontal-step statistic"
+        },
+        {
+          "assessment": "Inspected theorem concerns aggregate totals",
+          "evidence": "The theorem gives ordinary generating functions in one size variable for the paper's lattice diagrams.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.06158",
+          "material_read": "Abstract, offset 634, and Theorem 2, p. 2, offset 8600",
+          "method": "Read bounded primary OA passages",
+          "title": "On Enumeration of Paths in Catalan–Schröder Lattices",
+          "trigger": "Potentially broader path enumerator"
+        },
+        {
+          "assessment": "Related path weights, not the decisive column-preserving construction",
+          "evidence": "Theorem 1 gives entries of the generalized arrays via Jacobi polynomials; the introduction points to weights depending on lattice position in earlier work.",
+          "identifier_or_url": "Verde et al., title and Theorem 1",
+          "material_read": "Abstract, §2 and Theorem 1, offsets 560, 2800 and 22000",
+          "method": "Read bounded primary OA passages",
+          "title": "A Matrix Approach to Generalized Delannoy and Schröder Arrays",
+          "trigger": "Potential independent position-weighted enumerator"
+        },
+        {
+          "assessment": "Exact scope unresolved; not used as evidence of coverage or noncoverage",
+          "evidence": "The citing passage describes weights depending on lattice position.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.10200471",
+          "material_read": "Integers volume page, offset 6547, and citation in Verde et al.; no primary theorem obtained",
+          "method": "Identified DOI and tried bounded OA retrieval",
+          "title": "Generalizing Delannoy Numbers via Counting Weighted Lattice Paths",
+          "trigger": "Lattice-position weights may be related"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37",
+        "Drake §1.1, p. 3, equation (2)",
+        "Explicit column-weight implication and witnesses above"
+      ],
+      "rationale": "The counting kernel and the question of its null space are natural, and the formulas are correct. But this exact invariant is mechanically forced by the known independent peak-subset construction: a forced first peak, an elementary two-peak witness in each other column, and the zigzag suffice. The remaining calculations are standard Walsh consequences, with no separately useful new structural result demonstrated in the frozen finding.",
+      "residual_risks": [
+        "A theorem for a different path law or other weights might ask a worthwhile new question; the present rejection neither asserts nor tests such an extension."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

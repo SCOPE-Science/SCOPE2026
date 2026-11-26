@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:58:44.960147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass applies to the complete corrected /workspace/repairs/1/RESULT.md, not the frozen noncommutation statement at RESULT.md line 23. At fixed n, coupling the chord clock as E/λ makes it eventually arrive after all ordinary edges almost surely as λ decreases to zero. Its expected contribution then tends to the probability both endpoints are vacant in the ordinary terminal matching. Distinct fixed truncation neighborhoods are independent for large n by separation along both arcs, and the factorial descending-path bound removes the truncation. Each limiting vacancy probability is h(1)²=e⁻², so the two iterated limits through positive rates both equal e⁻⁴. Setting λ=0 denotes deleting the chord and gives zero, not a different iterated limit. The repaired fixed-positive-rate theorem also checks independently: the half-line message h(x)=e⁻ˣ comes from h′=−h in uniform ordinary-edge time; the bridge message uses its two independent arms and acceptance uses all four. For the successive ordinary messages, the deviations are iterated integrals with alternating sign and a uniform factorial majorant. Summing their recurrence gives S(x)=e⁻ˣ∫₀ˣk(y)dy where k is the bridge challenge probability in the cavity experiment. The four-arm aggregate after reversing the integrals contains −∫φλ(y)e⁻⁴ʸdy, cancelling the bridge acceptance term and leaving the stated defect. Coupling the cycles with and without the chord gives influence only along strictly decreasing earlier-neighbor paths in the line graph; the bound 4^r/r! times at most four edges per distance is summable and also justifies local convergence. The Beta(1,λ) quantile coupling and strictly increasing g(x)=e⁻²ˣ(2x−1) give continuity, strict decrease and the endpoint limits, with λ=1 integration giving −e⁻⁴. Expansion after y=1−x gives the convergent series in the corrected proof; an independent 40-term evaluation with bisection gives λ*≈0.42594602097919343, consistent with the printed precision. The original verify.py was inspected, not run; its floating-point finite recursion and quadrature are supplementary and do not cover the iterated-limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local-limits paper uses the 1/r! path-order estimate; Gamarnik–Goldberg describe correlation decay and regular-graph matching with iid weights. The older graph adsorption and randomized matching full texts were not accessible."
+        ],
+        "reasoning": "Those locality methods control where a perturbation matters, but an order-one signed defect requires summing actual changes and accounting for the new edge. A regular-graph iid setting does not supply the asymptotically isolated degree-three bridge and its heterogeneous clock. No exclusion is inferred for the unavailable papers.",
+        "searches": [
+          "arXiv:1907.07216v6 §3 monotone-priority paths",
+          "arXiv:0807.1277 §1.2 weighted random greedy matching and correlation decay",
+          "doi:10.1137/0402034 and doi:10.1002/rsa.3240020104"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corrected /workspace/repairs/1/RESULT.md",
+        "arXiv:1907.07216v6 and 0807.1277",
+        "Resultary 40a6c4586bde, 62931be7f8b0 and 6bc819eb2b23",
+        "doi:10.1137/0402034 and doi:10.1002/rsa.3240020104 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The anomalous-bond result changes an existing one-dimensional bond; the hub result adds one spoke per cycle vertex. The published path bound and star-bridge example do not solve the defect's signed arm sum."
+        ],
+        "reasoning": "Neither matching perturbation specializes to a chord with two asymptotically separated endpoints. Even after the line-graph reduction, a general locality estimate does not imply the cancellation between the new bridge and the four tails, and hence not the sign or unique crossing. These comparisons credit the known proof methods without claiming priority from dates.",
+        "searches": [
+          "Resultary 62931be7f8b0 and 6bc819eb2b23 original Findings",
+          "arXiv:1907.07216v6 §§3 and 8.1; arXiv:0807.1277 §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The short-chord Resultary record concerns vertex-priority independent sets on cycles with chords of bounded lengths two and three. The primary local-limits paper identifies the matching/line-graph reduction and gives a separate star-bridge nonmonotonicity example."
+        ],
+        "reasoning": "In the line graph of the matching problem the perturbation adds a vertex adjacent to four ordinary-edge vertices, not a chord between two existing vertices. An example of nonmonotonicity under edge changes does not give the defect for this topology and a variable exponential rate.",
+        "searches": [
+          "Resultary: long or short chord, jamming, greedy matching, random sequential dimer adsorption, rate/Braess reversal",
+          "arXiv:1907.07216v6 introduction and §8.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact records give short-chord independent-set signs, factorially screened edge responses to changing one existing bond, and the limiting matching gain (1−e⁻²)/2 for a hub-and-spokes augmentation."
+        ],
+        "reasoning": "None gives this observable for the same augmentation or the β-density integral and its rate zero. Neither a count for a different graph nor a table of finite-cycle signs is equivalent to the exact all-rate limiting response.",
+        "searches": [
+          "Resultary exact statements 40a6c4586bde, 62931be7f8b0 and 6bc819eb2b23"
+        ]
+      },
+      "rationale": "For the corrected finding, the supported distinct result is the exact order-one signed terminal matching defect of one asymptotically long chord with a variable arrival rate, and the unique sign reversal. Line-graph locality and generic nonmonotonicity were known; the corrected weak-rate argument distinguishes a late surviving attempt from removal of an edge, without relying on a spurious noncommutation as a contribution.",
+      "residual_risks": [
+        "The full texts of the two older cited antecedents were unavailable; an equivalent historical result cannot be excluded.",
+        "Catalog comparisons are bounded and path dates were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers methodological tools and general nonmonotonicity, not the specific exact long-chord defect",
+          "evidence": [
+            "Introduction identifies matching with greedy independent set on the line graph.",
+            "§3 uses decreasing priorities with factorial bounds; §8.1 features a star-bridge nonmonotonicity example."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1907.07216v6",
+          "material_read": "Introduction offset ~6967, §3 offsets ~36978–38072, §8.1 offset ~77850",
+          "method": "Original OA HTML, targeted passages",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same greedy process via line graph; potential locality and nonmonotonicity antecedent"
+        },
+        {
+          "assessment": "Correlation-decay antecedent; no one-chord defect in the inspected statement",
+          "evidence": [
+            "The section describes local weak limits for greedy independent sets and matchings, including weighted iid regular-graph settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0807.1277",
+          "material_read": "§1.2, offset ~11800",
+          "method": "Original OA HTML, targeted passage",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+          "trigger": "Weighted and unweighted matching locality on graphs"
+        },
+        {
+          "assessment": "Vertex greedy independent set, fixed short chords, not the matching defect",
+          "evidence": [
+            "A distance-two chord decreases expected independent-set occupancy except at n=5, and distance three increases it except at n=7; includes factorial locality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-opposite-short-chord-effects-on-random-greedy-jamming-of-cycles--40a6c4586bde",
+          "material_read": "Original RESULT.md Finding and Uniform locality estimate",
+          "method": "Local Resultary mirror, statement and proof comparison",
+          "title": "Opposite short-chord effects on random greedy jamming of cycles",
+          "trigger": "Strongest same-language chord-and-cycle sign comparison"
+        },
+        {
+          "assessment": "Alters one existing path bond; does not evaluate the effect of adding a bridge",
+          "evidence": [
+            "Computes per-edge occupation responses with alternating signs and factorial decay for the anomalous bond."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Alternating factorial screening of one anomalous dimer adsorption bond",
+          "trigger": "Closest weighted dimer perturbation found"
+        },
+        {
+          "assessment": "Exact gain for a different augmentation, with no chord-rate reversal",
+          "evidence": [
+            "Adds a hub with a spoke to every cycle vertex and gives the limiting gain (1−e⁻²)/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-bernoulli-hub-gain-for-edge-greedy-dimer-matching-on-growing-w--6bc819eb2b23",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "A Bernoulli hub gain for edge-greedy dimer matching on growing wheels",
+          "trigger": "Same matching process and order-one defect after augmenting cycles"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": [
+            "The citation concerns RSA on graphs; theorem-level coverage could not be assessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic identification only; full text not read",
+          "method": "Bounded lawful OA retrieval attempts; 403, no readable alternate returned",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Foundational graph RSA, plausible earlier formulation"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": [
+            "The citation concerns randomized greedy matching; theorem-level coverage could not be assessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Bibliographic identification only; full text not read",
+          "method": "Bounded lawful OA retrieval attempts; 403, no readable alternate returned",
+          "title": "Randomized greedy matching",
+          "trigger": "Foundational randomized matching with related methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After correcting the weak-rate interpretation, the natural one-defect problem still has a useful exact answer: the macroscopic density masks an order-one change in expected total matching size, and the smallest augmentation studied here can help or harm purely by changing its timing. The explicit sign threshold and unit-rate deficit distinguish the actual response from generic locality or nonmonotonicity. The corrected analysis also explains why a slow chord may increase the terminal count without suggesting that the two positive-rate iterated limits differ.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

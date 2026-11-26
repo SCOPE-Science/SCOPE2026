@@ -1,19 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent uniforms and a fixed maximum \(t\in(0,1)\), the remaining observations are conditionally iid uniform on \((0,t)\), which yields the binomial empirical-count variance and squared bias integrated in the theorem. Strict convexity follows from the positive second derivative of the exact order-statistic log representation; both endpoint divergences are explicit. Beta conditional-mean and beta-log covariance identities prove the harmonic closed-form mixed covariance, its sign and its asymptotic. The separately embedded exact-rational and finite numerical checks passed, but the proof does not rely on their extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+Under the specified continuous simple null, the probability-integral transforms are iid uniform. The maximum's density is n t^(n-1); conditional on its value t, the other unordered observations are iid uniform on (0,t). Below t, the conditional squared empirical error is the binomial variance divided by n² plus the squared bias; above t the empirical CDF is 1. Integration against 1/[u(1-u)] gives exactly the three terms in the frozen formula. For the continuous conditional version, scale all order statistics by t: their normalized law is t-independent and the last normalized value is 1. The ordered-log formula then has a -n log(t) term and a positive weighted sum of expectations of -log(1-tV). The former is strictly convex and diverges at zero; the term for V=1 diverges at one. This proves existence and uniqueness of the interior minimum. For covariance, each log U_(j) contributes Cov(log M,M)=1/(n+1)² by independence after scaling. Given U_(j)=u, E[M|u]=1-(1-u)/(n-j+1), also valid at j=n. Differentiating the beta first moment in its first shape parameter gives Cov(Y,log Y)=b/(a+b)²; with Y=1-U_(j), this gives the negative upper-log contribution -j/[(n-j+1)(n+1)²]. Reindexing in the log statistic and summing gives the exact harmonic formula. It is zero at n=1, -1/36 at n=2, and H_n-2n/(n+1) is increasing. Harmonic asymptotics yield the stated order and constant. The proof covers n=1, including g_1=-1-log[t(1-t)].
 
-The closest inspected direct papers are Stephens (1974, the full-text spectral components and power calculations), Tolikas and Heravi (2008, a ten-page fully inspected paper on fitted-parameter Anderson–Darling quantiles), and Lockhart (2012, an accessible paper on conditional limits given complete sufficient statistics). These results concern spectral components, composite-null critical values, or asymptotic parametric conditioning, not the fully specified null conditional on a sample extreme. Lockhart explicitly identifies Anderson–Darling as outside the proof of his main conditional theorem. Known marginal or cross-goodness-of-fit moments do not imply dependence on the sample maximum. Targeted searches did not locate an exact mixed moment or complete conditional regression. The residual risk is an older or unindexed order-statistic joint moment identity, not a claim that failed searches prove historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The sample maximum is the natural observed upper-tail extremum, while Anderson–Darling is a standard two-tail weighted discrepancy. The result specifies how conditioning on that tail observation changes expected goodness-of-fit loss at every finite sample size, proving a unique interior optimum and divergent penalties at both ends. A simultaneously exact and strictly negative global covariance shows that the aggregate sign masks the curved conditional response; these facts can inform tail-selective calibration analysis without asserting a new test or asymptotic power result.
+Credit the classical ordered-log statistic and uniform-order-statistic tools. The supported distinct contribution is the joint simple-null calculation with the upper order statistic: exact regression, global shape and exact mixed moment. Neither the strongest same-day catalog neighbor nor the relevant conditional or component work inspected establishes or subsumes this combination. This is a bounded comparison, not a priority or literature-exhaustion claim.
 
-## Scientific limits
+## value
 
-All assumptions and quantifiers are confined to a fully specified continuous null and \(n\ge1\). The minimizer has not been evaluated in closed form, and there has been no independent audit. A classical jointly tabulated law cannot be excluded solely by searchable databases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statistic and upper order statistic are natural tail diagnostics under a common null. The exact regression shows that larger maxima do not affect conditional AD severity monotonically, despite a strictly negative mixed moment for n≥2. That distinction, with a finite-sample calibration and quantitative covariance decay, is substantively more informative than a marginal AD calculation or a numerical sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

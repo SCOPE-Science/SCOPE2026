@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:11.807493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and bidegree table",
+        "Frozen VERIFICATION.md; checks/pg4_homogeneous.cpp; checks/pg4_affine_numpy.py; data/bivariate_spectrum.tsv (read as evidence)",
+        "Independent replay: python3 /workspace/independent_checks/check.py 5; output /workspace/independent_checks/5.txt"
+      ],
+      "rationale": "A maximal independent set with point set S must select exactly the lines disjoint from S, and their union must cover the complement of S. I independently generated PG(2,4) lines as the five-point projective spans of pairs of homogeneous points, checking the incidence degrees and intersections. I enumerated distinct line unions by starting at zero and closing under adjoining any line. A union U yields exactly the maximal independent set with point set P minus U and with all lines contained in U; conversely U is recoverable from every maximal independent set. This calculation enumerated 25,237 distinct unions and reproduced every coefficient in the 17-entry TSV. The size histogram was 8:105, 10:16800, 11:5460, 12:2408, 14:420, 17:42, 21:2. The empty and full unions give the two pure-shore sets. This checks the labeled census without executing the supplied programs or relying on untested larger orders.",
+      "residual_risks": [
+        "Exact finite computation, not a formula for general plane order; no formal proof certification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg et al. give 2q for the domination minimum and equality with the independent-domination minimum for projective planes.",
+          "Héger–Nagy's cited small-set theorem starts at q=5 and their counting problem asks for asymptotic order of magnitude.",
+          "Hauschild et al. provide an at-least-v+b+2 construction, giving a lower bound of 44 here."
+        ],
+        "reasoning": "These are minimum, partial structure and lower-bound results, not a more general evaluated enumeration that specializes to the complete q=4 polynomial.",
+        "searches": [
+          "arXiv:1405.3436 Theorem 5.2 and Proposition 6.3",
+          "arXiv:1603.02933 Theorem 1.5, Remark 1.6 and Problem 4.3",
+          "arXiv:1408.2879 Lemma 1 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.3436",
+        "arXiv:1603.02933",
+        "arXiv:1408.2879",
+        "10.1007/s00022-022-00662-2",
+        "Published records 15b46d8f6e4d, 16114e8d0cb0 and dd5ad16e589f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known i(G)=8 determines the minimum degree of F(z,z), but neither the size-eight multiplicity nor the bivariate histogram by itself.",
+          "The relation between domination and maximum contranominal scale size gives a different extremum and does not recover the distribution of maximal disjoint pairs."
+        ],
+        "reasoning": "Credited the exact minimum and separated it from the audited new counts. Applying the general closure correspondence still requires a nontrivial census of the given plane.",
+        "searches": [
+          "arXiv:1405.3436 §6",
+          "arXiv:1603.02933 Problem 4.3",
+          "Complementary edge–vertex context record 16114e8d0cb0, domination link in proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal independent sets and formal concepts of the point-line nonincidence relation are bijective with both shore sizes preserved.",
+          "Record 16114e8d0cb0 studies contranominal scales in a different complementary edge–vertex context, not the concept census of this nonincidence relation."
+        ],
+        "reasoning": "Checked the equivalent incidence-free closed-pair counting problem, not merely the graph-polynomial name. The inspected edge–vertex context cannot substitute for the point–line context.",
+        "searches": [
+          "Published catalog: PG(2,4) maximal independent sets, point-line dominance, closed nonincidence pairs and formal concepts; record 16114e8d0cb0",
+          "arXiv:1408.2879, Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit is the same record under audit, not a second source.",
+          "The distinct dd5ad16e589f table gives six profiles for longest total-dominating sequences of the same graph.",
+          "The published PG(2,4) ghost table counts 4,096 sets using a line-intersection parity condition."
+        ],
+        "reasoning": "A total-dominating sequence is an ordered object with a different domination rule, and a parity condition is not nonincidence closure. The same graph or geometry does not make these tables equivalent.",
+        "searches": [
+          "Published catalog exact bivariate quaternary plane polynomial: 15b46d8f6e4d and dd5ad16e589f",
+          "DOI 10.1007/s00022-022-00662-2, §5.3"
+        ]
+      },
+      "rationale": "The distinct claim on the examined evidence is the complete labeled bidegree distribution, not i(G)=8 or the closure reduction. The best matching catalog record is the frozen result itself; the distinct same-day order-four result counts total-dominating sequences rather than maximal independent sets. None of the inspected prior structural results supplies or mechanically determines all 17 coefficients.",
+      "residual_risks": [
+        "General web lookups did not return usable evidence for this check; the assessment rests on the inspected primary and catalog passages. Unindexed closed-pair enumerations remain possible. No universal priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum, not full census",
+          "evidence": "gamma=2q; projective-plane neatness and gamma=i for neat designs give i=8.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3436",
+          "material_read": "pp. 6–7, Theorem 5.2 and Proposition 6.3 (offsets 17863 and 19135)",
+          "method": "Primary PDF full-text passages",
+          "title": "Domination in Designs",
+          "trigger": "Exact projective-plane domination and independent-domination minima"
+        },
+        {
+          "assessment": "Different range/question",
+          "evidence": "The theorem applies for q>=5; Problem 4.3 asks order of magnitude rather than giving order-four counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02933",
+          "material_read": "p. 3 Theorem 1.5 and Remark 1.6; p. 18 Problem 4.3 (offsets 7968 and 55244)",
+          "method": "Primary PDF full-text passages",
+          "title": "Dominating sets in projective planes",
+          "trigger": "Potential general projective-plane structure or count"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": "At least v+b+2 maximal independent sets; the main theorem concerns well-covered dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2879",
+          "material_read": "p. 3, Lemma 1 (offset 8210), and Theorem 1 context",
+          "method": "Primary PDF full-text passages",
+          "title": "On the Levi Graph of Point-Line Configurations",
+          "trigger": "General maximal independent sets in the correct graph family"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "4,096 parity ghosts, not maximal independent sets.",
+          "identifier_or_url": "https://doi.org/10.1007/s00022-022-00662-2",
+          "material_read": "§5.3, pp. 11–12 (offsets 26779 and 31242)",
+          "method": "Primary OA full-text passages",
+          "title": "Power sum polynomials and the ghosts behind them",
+          "trigger": "Exact point-set database for PG(2,4)"
+        },
+        {
+          "assessment": "Identical record, not a separate antecedent",
+          "evidence": "The same 17-term table and total 25,237.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-bivariate-independent-domination-spectrum-of-the-quater--15b46d8f6e4d",
+          "material_read": "RESULT.md Finding, offset 707",
+          "method": "Local published-record mirror",
+          "title": "Complete bivariate independent-domination spectrum of the quaternary projective-plane incidence graph",
+          "trigger": "Strongest matching catalog hit"
+        },
+        {
+          "assessment": "Different context and invariant",
+          "evidence": "Counts contranominal scales in the complementary edge–vertex context; maximum controlled by n−gamma.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-graph-domination-and-the-complete-contranominal-scale-spectrum-o--16114e8d0cb0/RESULT.md",
+          "material_read": "Finding at offset 0 and domination proof at offset 4111",
+          "method": "Local published-record mirror",
+          "title": "Graph domination and the complete contranominal scale spectrum",
+          "trigger": "Equivalent-formulation search for formal concepts and domination"
+        },
+        {
+          "assessment": "Different objects; no chronological inference from same date",
+          "evidence": "Six profiles and sequence/support counts for longest total-dominating sequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-six-line-intersection-profiles-of-longest-total-dominating-seque--dd5ad16e589f/RESULT.md",
+          "material_read": "Finding at offsets 244–1228",
+          "method": "Local published-record mirror",
+          "title": "Six line-intersection profiles of longest total-dominating sequences",
+          "trigger": "Distinct indexed record on the same PG(2,4) incidence graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md bivariate spectrum",
+        "Independent line-union census",
+        "Héger–Nagy, Problem 4.3"
+      ],
+      "rationale": "The point–line bidegree is a natural refinement on the first square-order projective plane. The exact distribution exposes actual forbidden sizes and balanced versus skew maximal sets, and supplies a reproducible finite benchmark for independent-domination counting in planes. This is stronger than either the known minimum or the existence of a few canonical families.",
+      "residual_risks": [
+        "Finite benchmark only; no quantitative prediction at other orders or asymptotic progress is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

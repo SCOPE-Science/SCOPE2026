@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact recurrence for full blocks is \(F_k(r)=F_{k-1}(r)-F_{k-1}(r-(-1)^{k-1})\) on the cyclic residues. For even blocks it reduces to a nonnegative tridiagonal recurrence after conjugation by residue-distance signs. The proof explicitly treats the exceptional pair \(h,-h\) and proves all-prefix interval containment, which is needed to infer an infinite all-prefix assertion.
+## correctness
 
-Execute `python check_newman.py` with Python 3.8 or later. It independently builds binary alternating-digit sums and signed prefix counts for all odd moduli \(3\) through \(31\), all prefixes below \(2^{12}\), and verifies complete-block vectors through length \(119\) for selected moduli. The documented exact run passed all assertions. These finite computations do not replace the general symbolic proof.
+PASS
 
-Remaining scientific limits: no quantitative lower bound, no zero classification for nonzero residues, and no treatment of even moduli. The originality comparison is best knowledge, not an exhaustive all-literature certificate. Independent audit has not been performed.
+The high-digit split subtracts the shifted residual prefix, with shift +1 or -1 according to the bit index. On complete even blocks the two-step operator is 2I-P-P^(-1); even blocks are symmetric under residue negation. On representatives -h through h conjugating by (-1)^|r| gives a nonnegative recurrence on symmetric coefficients: the folded row at 0 has off-diagonal coefficient 2 and the row at h has diagonal 1, including h=1. For partial prefixes, adjacent opposite signs put both halves in the interval from zero to the full-block value. At the odd transition seam -h the full sum cancels but the prefixes stay between zero and the preceding even-block value. On the next step, at h the anomalous prefix has the same sign as the odd endpoint and no larger magnitude; at -h the next ordinary prefix contributes the correctly signed larger bound. This closes the interval induction. The zero entry of an even endpoint is always positive, and its odd analogue is A_0+A_1>0; subtracting any prefix at the neighboring residue cannot destroy strict positivity at zero. Sparse base-b digit words preserve binary order and digit parity and their value is congruent to the alternating digit sum because b=-1 modulo q. A new direct bit-mask enumeration checked 229383 prefixes across seven moduli (python3 /workspace/branches/recompute_frozen.py); it is only corroboration. The frozen checker uses int.bit_count, so the stated Python 3.8 compatibility in its notes is inaccurate (use Python 3.10+).
+
+## originality
+
+PASS
+
+The distinct result is the uniform all-prefix sign pattern for every residue and every odd modulus, with strict zero-residue positivity. Somu already uses exactly the sparse digit set and the order-preserving change of base, and proves eventual signs at 0 and ±1. Neither the change of base nor the binary modulus-3 case is new. The same-day full-alphabet spectral projector is related but does not yield the sparse prefix sign law.
+
+## value
+
+PASS
+
+The theorem resolves the initial-cutoff question in the sparse Newman setting, including cutoffs too small for asymptotic dominance, and extends the sign classification to every residue. The odd cyclic seam really can cancel a full block while partial sums remain nonzero, so neither eventual positivity nor a full-block recurrence answers the prefix problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

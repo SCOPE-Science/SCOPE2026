@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:22:39.321061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polynomial is even-valued and is an isometry from the even inputs onto the even targets; each even target gets one such input. For the four odd classes 1,7,5,3 modulo eight, the factorizations at -2 and 2 give the square normal forms in RESULT.md lines 73–85. The root of 1+8t/b lying in 1+4Z_2 exists uniquely because ( (1+4a)^2-1 )/8=a+2a^2 is an isometric permutation; root differences gain two valuations. Thus the first two square coordinates are isometric permutations, and the last two, after factoring a dilation from their differences, are bijections onto all odds. The first two contribute eight lifts per square root modulo 2^(k-6); in the last two four odd square roots modulo 2^(k-4) each give four lifts, on 110 and 18 modulo 128. Reducing those same branches at k=3,4,5,6 and inspecting k=1,2 gives the stated table. For the square count S_m, zero has 2^floor(m/2) roots and a nonzero target of valuation 2s is governed by 2^s times the unit-root count at precision d=m-2s. For odd m>=3 the unique maximizing target has d=3 and unit 1 modulo eight; for even m>=4 the maximizers are zero, the one at d=2, and the two at d=4. The constant branches dominate at k=7, tie at k=8, and are strictly below the maximum at k>=9, giving exactly the reported extrema. An independent direct enumerator matched all 8190 target counts and the extrema at k=1 through 12; the uploaded checker was read, not run. Replay: /workspace/branches/3374c2ce-90c9-4a2b-982f-f399c11ba37f/direct_fiber_crosscheck.py and direct-k12.log in that directory. Mathematical proof, not finite replay, supplies the unbounded result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trace record also reports actual Z_2 root counts and sharp index periods. The ternary result concerns the same polynomial over Z/3^k rather than Z/2^k. The 1991 abstract describes value sets and preimage sizes in certain cases, without identifying which cases."
+        ],
+        "reasoning": "Neither changing the prime nor the abstract's generic description shows dyadic coverage. The record with the same dyadic target law supplies the concrete match.",
+        "searches": [
+          "Resultary 7802afd6e155, inverse-limit fibers and periods",
+          "Resultary a4218d5c4f84, cubic Dickson ternary fibers",
+          "Bremser–Gómez-Calderón, JNT 38 (1991) 240–250, DOI 10.1016/0022-314X(91)90087-R"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7802afd6e155, a4218d5c4f84, and 5e7f44cf3ca5 (self-match)",
+        "JNT 38 (1991) 240–250, publisher abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=2h+1>=7, the maximum of the trace shell exponent r+min(2,k-2r-1) occurs only at r=h-1, depth three, with one unit per sign. The center and r=h each contribute at most 2^h. For k=2h>=8 the center and shells r=h-1 and h-2 maximize; at depths two and four, respectively one and two units qualify per sign. Thus each sign contributes four winners including its center. At k=6 the last shell r=2 and the center give two per sign; direct reduction gives the lower rows."
+        ],
+        "reasoning": "The max and its census are immediately computable in closed form by comparing two boundary shells in the already specified fibers. They do not require a different phenomenon or lifting theorem.",
+        "searches": [
+          "Resultary 7802afd6e155, H_(epsilon,k) shell law, Finding lines 11–34",
+          "Compare Resultary 5e7f44cf3ca5, extremal law, lines 38–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k>=7 the trace record's r=2 shells give the constant 16 odd roots over 110 and 18 modulo 128. The r>=3 shell with z=y+2 or y-2 reduces to multiplying the square-root count at m=k-6 by 8, after dividing z by 64 and the corresponding unit 3 or 5. Indeed s=r-3 and d=k-2r give the exponent 3+s+min(2,d-1)=r+min(2,k-2r-1). The center gives 8*2^floor((k-6)/2)=2^floor(k/2). Both add the same unique even root.",
+          "For k=4,5,6 the two shell formulas give the tabulated exceptional fibers. For lower k, sum N_4 over all target lifts and divide by 2^(4-k)."
+        ],
+        "reasoning": "This is an exact change of description of each individual fiber, not just agreement on a finite test or a common polynomial title.",
+        "searches": [
+          "Resultary: cubic Dickson D_3(X,1)=X^3-3X, exact dyadic fibers and maximum multiplicities",
+          "Resultary 7802afd6e155, finite fiber formula and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit 5e7f44cf3ca5 is the bound record. The trace record's verification reports the same distribution at k=4 through 8, including histograms {0:64,1:58,9:4,17:2} at k=7 and {0:128,1:120,17:8} at k=8, and its symbolic formula covers every target beyond those levels. The ternary table is on different rings."
+        ],
+        "reasoning": "The tables corroborate the comparison but the all-depth match is established by the shell-to-square translation. No chronology follows from the catalogue dates.",
+        "searches": [
+          "Resultary 5e7f44cf3ca5, small precision and maximum tables",
+          "Resultary 7802afd6e155, Verification and finite formula",
+          "Resultary a4218d5c4f84, maximizing targets"
+        ]
+      },
+      "rationale": "The indexed trace-polynomial record 7802afd6e155 provides the same complete finite law. The lower precisions descend by reduction and the maximum and maximizer census follow by direct optimization of its shell multiplicity. These are not independently distinct arithmetic content merely because stated explicitly here. The conclusion concerns demonstrable catalogue coverage, not which same-day record came first. The inaccessible 1991 theorem text is a separate historical risk, not the reason for failure.",
+      "residual_risks": [
+        "The exact range of the 1991 full text is unresolved. The shared date of the reviewed and compared dyadic records does not establish relative priority. Neither uncertainty alters the derived equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the complete finite law and implies the reported extrema and low levels",
+          "evidence": "N_k(y)=1+H_(+,k)(y+2)+H_(-,k)(y-2) for even targets, with explicit valuation-shell exponents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-fibers-of-the-cubic-dickson-trace-polynomial--7802afd6e155/RESULT.md",
+          "material_read": "Finding, offset 0 and near 2050; assigned frozen counterpart lines 5–53 and 68–114",
+          "method": "Resultary search, bounded local-mirror extract and frozen source comparison",
+          "title": "Exact dyadic fibers of the cubic Dickson trace polynomial",
+          "trigger": "Exact same map and precision family"
+        },
+        {
+          "assessment": "Different prime, not the compared dyadic law",
+          "evidence": "Target-by-target fibers and maximizing targets for x^3-3x modulo 3^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-ternary-fiber-law-for-the-cubic-dickson-polynomial--a4218d5c4f84/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and bounded local-mirror text",
+          "title": "The exact ternary fiber law for the cubic Dickson polynomial",
+          "trigger": "Same named polynomial and fiber/extremal problem"
+        },
+        {
+          "assessment": "Historical scope unresolved; abstract does not verify the asserted odd-characteristic restriction or the dyadic case",
+          "evidence": "Abstract reports preimage sizes in certain cases. Both publisher and identified alternate copy denied full-text access.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Accessible publisher abstract only; theorem pages unavailable",
+          "method": "Publisher metadata and lawful direct/alternate-copy retrieval attempts",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Closest plausible historical root-count coverage for the same family over prime-power rings"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The whole finite fiber classification for a natural nonpermuting cubic is mathematically useful, but it is already supplied by the matching shell law. The only extra explicit finite invariants are the maximum and its census, obtained by a routine two-shell comparison in that law, and the levels below four, obtained by reduction. There is no separate unknown precise fact or structural gain in the extra assertions.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:06:39.298365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the equilibrium renewal age A, the two independent arrays of Gaussian coordinates give (F_x,F_y)=sqrt(2DA)(M_x,M_y) in law jointly with A. Writing m and v for a standard Gaussian maximum's mean and variance, this gives rho=Delta m²/(Delta m²+EA v), with Delta=Var(sqrt(A))>0 even for deterministic resets observed at random phase. With b=Phi^{-1}(1-1/N), Mills' ratio gives b²~2 log N and b(M-b) converges to Gumbel, with second-moment convergence: the positive tail is at most exp(-z) by the normal hazard bound h(x)>=x, and the negative tail for 0<=z<=b² is at most exp(-exp(z/2)) by integrating the same bound between b-z/b and b. For z>=b² it is bounded by 2^{-N} exp[-N(z-b²)²/(2b²)], whose integrated second-moment tail tends to zero. Thus (log N)²v/m² tends to pi²/24. Integrating the equilibrium age tail gives (E sqrt A)²/EA=(8/9)(ES^{3/2})²/(ES ES²); Cauchy–Schwarz gives equality at the upper K endpoint only for constant S. The positive moment quotient cannot be zero but does approach zero for P(S=L)=L^{-7/4}, otherwise S=1, and varying the weight continuously attains every intermediate value. The Poisson coefficient and N=2 anchor follow by substitution. Canceling the common age factor in the ratio works at finite N; the normalized independent maxima differ by a standard logistic in the limit, with log N/b² tending to 1/2. Neither the age effect nor the finite-N variance is a property of independent reset clocks. Reviewed RESULT.md 5–102, VERIFICATION.md 19–23, and verify.py as text; deterministic quadrature and seeded sampling are corroboration only and were not executed. Replay is the exact tail/moment/renewal argument above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The non-Poisson paper gives the arbitrary-clock one-axis Gaussian order-statistic mixture and marginal extremal asymptotics. The Poisson gas and simultaneous-reset confinement papers likewise address one-dimensional observables in the inspected passages."
+        ],
+        "reasoning": "Even the full conditional law is a premise from which one may calculate observables; a single-coordinate Gaussian maximum law alone gives no unconditional two-coordinate covariance or its sharp optimization, and the inspected results do not supply that optimization as a stronger theorem.",
+        "searches": [
+          "arXiv:2509.06658 Eqs. (43), (63) and conclusion",
+          "arXiv:2211.00563 abstract",
+          "arXiv:2606.31634 §II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 5d83eb0df715, 34ec84bb2b61",
+        "arXiv:2509.06658, 2211.00563, 2606.31634"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed edge gaps have scaled exponential limits of nonvanishing relative variance, hence a limiting correlation below 1. Opposite Poisson fronts have the same Gaussian-max relative variance asymptotic with residual age-conditional covariance o(b_N^{-2})."
+        ],
+        "reasoning": "The prior gap range already classifies the underlying renewal quotient, and, once the orthogonal K functional is derived, its interval can alternatively be recovered by transforming that range. The Poisson front proof likewise explains the shared coefficient. Neither proves the functional for orthogonal maxima from its stated observable or supplies their exact finite-size correlation. Credit the prior clock-range machinery and the standard ratio calculation; the supported new calculation is the max-specific correlation and sharp clock-dependent deficit.",
+        "searches": [
+          "34ec84bb2b61 Finding and assumptions",
+          "5d83eb0df715 Proof §§1,3–4",
+          "arXiv:2509.06658 Eqs. (43),(63)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5d83eb0df715, Finding and Proof §§1,3–4: rightmost and reflected leftmost values of the same univariate sample share the Poisson coefficient, but retain a nonzero conditional covariance at finite N; rho_2=-1/3 versus the frozen orthogonal rho_2=(4-pi)/(3pi)."
+        ],
+        "reasoning": "Changing signs or rotating axes does not change opposite directions into perpendicular directions. One has two dependent Gaussian extrema at each fixed age; the other has two independent ones. Equality of asymptotic Poisson constants is material overlap, not equivalent finite-size or arbitrary-clock coverage.",
+        "searches": [
+          "Resultary: orthogonal extrema common renewal resetting planar Brownian gas correlation logistic ratio sharp clock envelope",
+          "Primary literature: (\"Brownian gas\" OR \"Brownian particles\") common resetting orthogonal coordinate maxima correlation planar extremes renewal clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct record 5d83eb0df715 gives pi²/[6(4-pi)] for opposite Poisson fronts; 34ec84bb2b61 gives [1/10,1/2) for correlations of distinct fixed adjacent edge gaps under arbitrary renewal."
+        ],
+        "reasoning": "Neither numerical overlap with the first comparator nor the shared clock moment quotient with the second gives the frozen orthogonal-max envelope. The distinct same-date record was compared on content, without assuming its chronological priority.",
+        "searches": [
+          "Resultary: orthogonal extrema common renewal resetting planar Brownian gas correlation logistic ratio sharp clock envelope"
+        ]
+      },
+      "rationale": "The supported distinction is the orthogonal-max finite-size correlation together with the sharp arbitrary-renewal envelope for its logarithmic deficit. The scaling mechanism, clock moment quotient and Poisson coefficient in a different front problem already occur in prior or companion work. The clock cancellation and logistic ratio are elementary consequences of the Gaussian/Gumbel representation, not a new extreme-value law or the basis of the originality verdict.",
+      "residual_risks": [
+        "Targeted rather than exhaustive priority search; an unindexed higher-dimensional or common-scale treatment may have computed the same joint statistic.",
+        "No chronological precedence between the same-date records is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, not equivalent",
+          "evidence": "Extents max Z and -min Z, c_N enters Eq. (1), Poisson-specific scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-bilateral-front-synchronization-and-a-four-particle-sign-r--5d83eb0df715/RESULT.md",
+          "material_read": "Finding and exact covariance Eq. (1), offsets 0–3575; Proof §§3–4",
+          "method": "Local mirror result passages",
+          "title": "Sharp bilateral-front synchronization and a four-particle sign reversal in a reset Brownian gas",
+          "trigger": "Same date and exact Poisson logarithmic coefficient"
+        },
+        {
+          "assessment": "Covers clock-range method, not the target statistic",
+          "evidence": "Distinct fixed-rank edge gaps; limiting correlation (9-8 kappa)/(18-8 kappa).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61/RESULT.md",
+          "material_read": "Finding, assumptions and proof opening, offsets 250–3186",
+          "method": "Local mirror result passage",
+          "title": "Sharp stationary edge-gap correlation envelope under common renewal resetting",
+          "trigger": "Same clock family, Pearson envelope and moment quotient"
+        },
+        {
+          "assessment": "Supplies marginal/mixture premises",
+          "evidence": "Order-statistics mixture over elapsed age and one-axis extreme asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Eqs. (43), (63), pp. 10,12; conclusion p. 27",
+          "method": "Primary OA paper passages",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Arbitrary common renewal resets and maxima"
+        },
+        {
+          "assessment": "Poisson mixture premise; no evidence of the target claim in material read",
+          "evidence": "One-dimensional cloud; single ordered positions and spacings.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Abstract and model scope p. 1",
+          "method": "Primary OA text",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Foundational common-reset extreme statistics"
+        },
+        {
+          "assessment": "Different model/observable",
+          "evidence": "One-dimensional Poisson reset model with confinement and rightmost particle.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "Model scope p. 1 and §II p. 3",
+          "method": "Primary OA paper passages",
+          "title": "Simultaneously reset Brownian particles under confinement",
+          "trigger": "Literature hit for common resets and extreme observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Orthogonal fronts can be measured in one configuration. The result separates common-clock size synchronization from clock-free relative shape and quantifies exactly how much clock choice can change the deficit, including which extreme is unattainable. The logarithmic rate alone or the standard logistic ratio alone would be much weaker.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

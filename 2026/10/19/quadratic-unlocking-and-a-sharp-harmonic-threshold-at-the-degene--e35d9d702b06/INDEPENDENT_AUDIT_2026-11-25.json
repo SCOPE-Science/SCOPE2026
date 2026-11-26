@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:04:37.247811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh check of repairs/1/RESULT.md: for b=4a one has f(3/4)=−4a, and the next point in the lift is 5/4−4aμ. Writing c=cos(8πaμ), f there is 2a(1−c²)+4ac, so the normalized two-step displacement is exactly −2a(1−c)² at 3/4. This is negative for all sufficiently small nonzero μ, and the leading displacement is −a(8πa)^4 μ^5/2=−2048π⁴a⁵μ^5. At 0 the normalized displacement tends to 4a>0. Continuity gives a point satisfying F²(x)=x+1 for either sign. Integer equivariance proves F^(2k)(x)=x+k, hence real rotation 1/2. Half-translation conjugacy gives b=−4a; μ=0 is the half-turn itself. The repaired reproducibility note describes the unchanged finite diagnostic, not independent certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glendinning's half-turn with derivative coefficients a,b,c assumes a>|c| for the transversality formula, and his sign-change case requires negative and positive first-order values. Here c=a and the first-order minimum is zero."
+        ],
+        "reasoning": "Neither strict first-order alternative decides the endpoint. The generic pinching theorem does not calculate the signed displacement on this particular perturbation path.",
+        "searches": [
+          "Glendinning arXiv:2506.19508v2, Theorem 1.3 and §6 (6.34)–(6.36)",
+          "Boyland arXiv:2506.02988, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "repairs/1/RESULT.md and VERIFICATION.md",
+        "Glendinning arXiv:2506.19508v2",
+        "Boyland arXiv:2506.02988",
+        "Parkhe arXiv:1109.3214",
+        "Resultary e144d81f7af4, 29dcfa7c1806, 721f62609418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cubic jet's bottleneck minimum is proportional to b²(16a²−b²) and so vanishes at |b|=4a. The repaired proof finds an exact negative normalized return at a degenerate point, of leading order μ⁴ in the normalized displacement."
+        ],
+        "reasoning": "Only knowing locking for each fixed |b|>4a does not give the endpoint for a uniform interval of small μ; the prior estimates are not uniform in b. The sign of the quintic unnormalized term and the fixed point require the additional endpoint calculation.",
+        "searches": [
+          "Resultary e144d81f7af4, Finding and cubic-jet proof",
+          "Glendinning §6 half-turn calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The repaired conclusion is existence of a fixed point of F²−1. Parkhe recalls the classical periodic-orbit test; Boyland's pinch-point condition is instead a map identity for the entire iterate."
+        ],
+        "reasoning": "The classical equivalence reduces the question to a zero, but supplies none here. Pinching is not equivalent to existence of a single fixed point on this path.",
+        "searches": [
+          "Two-harmonic degenerate half-resonance, pinching and locking literature lookup",
+          "Parkhe arXiv:1109.3214, introduction",
+          "Boyland arXiv:2506.02988, introduction and Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e144d81f7af4, Finding, gives exactly the same interior coefficient and exterior locking, then says 'No assertion is made at the critical ratios |c|=4a.' Indexed 29dcfa7c1806 analyzes the canonical one-harmonic half-resonance tongue width, and 721f62609418 assumes rational denominator q≥3."
+        ],
+        "reasoning": "The strongest indexed analogue is the same-family one, not just an exponent match, but it leaves the repaired endpoint precisely open. The adjacent hits have different forcing or exclude q=2.",
+        "searches": [
+          "Local Resultary ranked semantic lookup for the degenerate two-harmonic half-turn, μ|μ| cusp and exact critical locking"
+        ]
+      },
+      "rationale": "The repaired claim only resolves the two critical ratios. Neither Glendinning's strict cases nor the closest indexed same-family proof decide these ratios, where the signed cubic jet has zero minimum. The inspected same-family record explicitly withholds a conclusion, and the trigonometric cancellation and the first nonzero signed endpoint term are separate evidence. This pass does not extend to the covered open regimes.",
+      "residual_risks": [
+        "No priority order established between overlapping records.",
+        "Older perturbative tongue-boundary calculations may contain an equivalent endpoint result outside the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict transversality, not the endpoint",
+          "evidence": "The resonant drift is a+c cos(4πx); c=a forces a zero minimum.",
+          "identifier_or_url": "https://arxiv.org/html/2506.19508v2",
+          "material_read": "Theorem 1.3 (offsets 11600–18061) and §6 (offsets 42900–49359), equations (6.34)–(6.36)",
+          "method": "Lawful primary HTML passage inspection",
+          "title": "Scaling of the rotation number for perturbations of rational rotations",
+          "trigger": "Exact two-harmonic prior example"
+        },
+        {
+          "assessment": "Generic pinching and special models, no endpoint return sign in the inspected material",
+          "evidence": "The iterate being an exact translation is different from existence of a point on a locked orbit.",
+          "identifier_or_url": "https://arxiv.org/html/2506.02988",
+          "material_read": "Introduction and Theorem 1.2, offsets 5200–11647",
+          "method": "Lawful primary HTML passage inspection",
+          "title": "Pinched Arnol'd tongues for families of circle maps",
+          "trigger": "Possible equivalent tongue criterion"
+        },
+        {
+          "assessment": "Standard equivalence, not the endpoint calculation",
+          "evidence": "Rational rotation corresponds to a periodic orbit.",
+          "identifier_or_url": "https://arxiv.org/html/1109.3214",
+          "material_read": "Introduction, offset 0",
+          "method": "Lawful primary HTML passage inspection",
+          "title": "One-parameter families of circle diffeomorphisms with strictly monotone rotation number",
+          "trigger": "Periodic orbit criterion"
+        },
+        {
+          "assessment": "Substantial overlap of the original claim, explicit omission of repaired endpoints",
+          "evidence": "Same formulas under c=b, ε=μ; the quadratic minimum vanishes at |c|=4a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-second-order-rotation-number-cusp-at-a-degenerate-half-resonan--e144d81f7af4/RESULT.md",
+          "material_read": "Finding, assumptions and proof through bottleneck jets (offsets 0–3388; additional relevant passages through 6253)",
+          "method": "Local mirror",
+          "title": "A second-order rotation-number cusp at a degenerate half-resonance tongue edge",
+          "trigger": "Exact same-family indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the supported critical ratios the previously calculated cubic bottleneck minimum vanishes, so the dichotomy between drift and locking is genuinely undecided by the nearby law. The exact fifth-order signed displacement gives a useful boundary witness for this fixed natural family and resolves locking for both signs; it is not a numerical check at an arbitrary parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

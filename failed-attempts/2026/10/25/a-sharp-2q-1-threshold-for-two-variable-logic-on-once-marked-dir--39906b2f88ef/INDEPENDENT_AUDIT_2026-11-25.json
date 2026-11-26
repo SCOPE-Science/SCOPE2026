@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:29:43.846889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two unary recurrences trace a specified number of steps (modulo n) in either direction, so the disjunction marks the cyclic ball. The odd cutoff is exactly its maximal size, and the even cutoff adds a closed one-step neighborhood covering the complementary consecutive arc if and only if that arc has at most three vertices. Symmetry of S handles cutoff two and universal P handles cutoff one. For n,m≥2q+1, with t moves left, maintain labels ±1,…,±t, the mark, and the remaining class, together with the atomic pebble diagram. With a stationary pebble, relations to each designated label at t−1 are fixed by its t label; match an equal or adjacent far placement by identity or the corresponding neighbor. For any other far placement, at most three choices are forbidden and the t−1 far class has n−2t+1≥4 members. When no pebble is stationary, use identical realized labels. Self-loops are absent in the large cycles; rank 1 sees the loop/unique color in C1 and only the common marked and unmarked one-types otherwise, while rank 0 sees no vertices. The submitted checker omits S(x,x) in its initial one-variable types, so those types are not literally complete at C1; this does not falsify the finding. Independent complete-atomic-diagram replay with loops (`python -B /workspace/branches/replay_records_1_3_4_5.py`, section 1) gives 1,2,5,7,9,11,13,15,17 theories through rank 8 on sizes 1–24. The unbounded result follows from the game and formulas, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 papers study satisfiability over exact successors of linear orders, described as spanning directed paths.",
+          "The primitive-necklace/repetition catalogue classification concerns unrestricted-depth FO² for colored cyclic words."
+        ],
+        "reasoning": "Cycle closure is unavailable in those linear-successor theorems. Recoding the one-mark structure as a b^(n−1) gives a primitive colored cyclic word, but the full-depth classification gives eventual separation, not the exact rank cost.",
+        "searches": [
+          "arXiv:2610.09758v1 and 2610.19943, Abstracts and §1",
+          "Resultary 681c1e6f350f, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 27f1565c9f86, 681c1e6f350f, 75a6b05e7112, 9d45823d322e",
+        "arXiv:2610.09758v1, 2610.19943, 0907.0616, 1212.6500v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirrored proof separates far block lengths 2, 3 and ≥4 via a nonadjacent-far test and obtains the same exact stable cutoff as the frozen proof."
+        ],
+        "reasoning": "Adding C1 and C2 to the indexed classification is immediate using ∀x P(x) and symmetry of S; at rank 1, C2 is indistinguishable from the loopless larger cycles by the realized one-types. The change in class count is the addition of two singleton theories for q≥2, with the same sharp largest minimal representative. No materially distinct exact rank result remains.",
+        "searches": [
+          "Resultary 27f1565c9f86, Finding and Proof §§1–4, compared to frozen Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 27f1565c9f86 uses the same relational successor with R instead of P, a unique mark, equality, two reusable variables, and no order; its equivalence is (m=n≤2q) or (m,n≥2q+1).",
+          "Weis–Immerman characterize rank/alternation on words with a linear order in FO²[<,Suc]."
+        ],
+        "reasoning": "The predicate rename in the indexed theorem is exact; ordered-word logic is not equivalent to this successor-only cycle signature.",
+        "searches": [
+          "Local Resultary: FO2 quantifier rank equivalence once-marked directed cycles unary successor predicate 2q+1 threshold",
+          "arXiv:0907.0616, Abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-sharp-two-variable-quantifier-rank-threshold-for-singly-marked-d--27f1565c9f86: for sizes ≥3, same partition, first stable size 2q+1, and least distinguishing rank ceil(m/2) for 3≤m<n.",
+          "75a6b05e7112 instead treats ordinary FO on directed paths; 9d45823d322e treats unmarked successor cycles in ordinary FO through rank five."
+        ],
+        "reasoning": "The November entry is a distinct indexed proof, not the identical frozen file: it restricts sizes to ≥3 and proves sharpness via exact unary-type palettes. The other records are not substitutes. The dates do not establish intellectual priority or derivation.",
+        "searches": [
+          "Local Resultary: FO2 quantifier rank equivalence once-marked directed cycles unary successor predicate 2q+1 threshold",
+          "External: \"singly marked directed cycles\" \"quantifier rank\" FO2 successor threshold"
+        ]
+      },
+      "rationale": "A distinct published catalogue record proves precisely the sharp equivalence and smallest-representative bound on the full n,m≥3 subfamily. The only additional parameter cases are the self-loop singleton and the two-cycle; marks, loops and symmetry separate those by ranks one and two. The frozen cutoff formulas are useful explicit witnesses, but do not leave a distinct nonroutine finding after the overlap. This is a judgment about equivalent existing coverage at review, not an attribution of earlier discovery; the matched record's listed date is later than the assigned source's listed date.",
+      "residual_risks": [
+        "Historical priority and relationship between the separate catalogue proof and the frozen result were not established.",
+        "Etessami–Vardi–Wilke (2002) full text was not reached; adjacent temporal/word logic may contain relevant methods. The demonstrated overlap does not depend on that access. Combined literature and catalogue searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified substantive equivalent coverage on n≥3; not a determination of priority",
+          "evidence": [
+            "The displayed iff condition is the same, the upper representative bound is sharp at 2q+1, and the proof uses exact unary-type palettes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-variable-quantifier-rank-threshold-for-singly-marked-d--27f1565c9f86/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–4, offsets 0–5881",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp two-variable quantifier-rank threshold for singly marked directed cycles",
+          "trigger": "Exact signature, marked-cycle family and rank threshold match"
+        },
+        {
+          "assessment": "Related full-depth classification, no exact rank threshold",
+          "evidence": [
+            "Primitive-necklace and repetition classification, with one-mark cyclic words primitive."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 681c1e6f350f",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Primitive necklace classification and sharp repetition cutoffs",
+          "trigger": "Possible equivalent colored cyclic-word formulation"
+        },
+        {
+          "assessment": "Exact linear-order successors and satisfiability, not this cycle classification",
+          "evidence": [
+            "One directed path spans the domain under each such successor."
+          ],
+          "identifier_or_url": "arXiv:2610.09758v1 and arXiv:2610.19943",
+          "material_read": "Both abstracts and §1",
+          "method": "Lawful OA arXiv passages",
+          "title": "Two-Variable Logic with Arbitrarily Many Successor Relations; Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+          "trigger": "Plausible general successor results"
+        },
+        {
+          "assessment": "Characterizations are for word logic with order",
+          "evidence": [
+            "The vocabulary includes the linear order in FO²[<,Suc]."
+          ],
+          "identifier_or_url": "arXiv:0907.0616",
+          "material_read": "Abstract and §1",
+          "method": "Lawful OA arXiv passages",
+          "title": "Structure Theorem and Strict Alternation Hierarchy for FO2 on Words",
+          "trigger": "Possible precise rank characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp finite-rank invariant is a natural question, but a reader already has the exact nontrivial cutoff for all singly marked simple cycles. Adding the two elementary exceptional structures changes the count mechanically and leaves the same sharp representative bound. The explicit formulas are a pedagogically useful proof choice, not a distinct valuable scientific finding as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

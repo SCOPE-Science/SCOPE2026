@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:19.147582Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonsentinel sum follows by inclusion–exclusion on disjoint left and right edge sets for interior sources. Balancing the residual gaps strictly improves their geometric-sum contribution until they differ by at most one. The increment from d to d+1 is p^d(d+1−dp)−p^q with q=floor((n−d)/2). For d≤floor(n/3) it is positive. For the remaining d, k=d−q satisfies 0<k<d and p^k(d+1−dp) rises from zero to a unique interior maximum and then falls strictly to one, proving the single interior crossing. Successive k increase by at least one, and (d+1−dp)−p(d+2−(d+1)p)=(d+1)(1−p)^2>0, giving strictly ordered crossings and no skipped distances. At n=4 the increment normalizes to p(1−p)(2p−1)/2. The analytical proof is universal for the stated model; the inspected frozen rational and edge-subset checks are auxiliary recorded checks, not a new replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-k gap allocation record includes endpoint inclusion; its k=2 threshold agrees with the final transition. The near-certain two-sentinel record also gives that threshold using a source uniform over all vertices. Holme's inspected analysis is restricted to one sentinel; Colman et al. optimize casualties in simulations."
+        ],
+        "reasoning": "The endpoint result is partial coverage rather than, on the inspected passages, the full ordered two-sentinel staircase. Full equivalent coverage comes from the paired-seed record.",
+        "searches": [
+          "Resultary: outbreak-sentinel endpoint transitions and general sentinel gap allocation; matched d74686ad7c50 and 0bc09296398b",
+          "Holme, arXiv:1803.10637; Colman et al., doi:10.1371/journal.pcbi.1007517"
+        ]
+      },
+      "checked_sources": [
+        "The assigned RESULT.md, VERIFICATION.md, verify.py and verification_certificate.json",
+        "Resultary 3f9c3d65c448, 0bc09296398b, d74686ad7c50",
+        "arXiv:1803.10637",
+        "doi:10.1371/journal.pcbi.1007517"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its starting distance ceil((n+1)/3) equals floor(n/3)+1, and h=ceil((n−1−d)/2)=floor((n−d)/2). Its equation p^(d−h)[1+d(1−p)]=1, strict ordering and neighboring-distance ties are those of the frozen claim."
+        ],
+        "reasoning": "The fixed-p affine relation gives the full frozen classification verbatim after translating notation. The n=4 calculation is a direct instance, not an independent remainder.",
+        "searches": [
+          "Resultary 3f9c3d65c448: Finding and phase diagram"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed paired-seed Finding gives 2+G_L+G_R+2G_(d−1)−(d−1)p^d and balances the margins. The frozen reach expression is identical since G_d=G_(d−1)+p^d."
+        ],
+        "reasoning": "Subtract two automatic detections and divide by n−2 to change expected reach to the frozen objective without changing the ordering or ties of placements.",
+        "searches": [
+          "Resultary: two-seed expected reach and two-sentinel detection on homogeneous paths; matched SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed paired-seed record already tabulates the phase boundaries implicitly for every n by the same equation and starting distance; the near-certain record gives the final boundary."
+        ],
+        "reasoning": "The result is an all-n formula rather than a finite table; the exact values and order are already available through the indexed formula.",
+        "searches": [
+          "Resultary records 3f9c3d65c448 and 0bc09296398b: exact path transition laws"
+        ]
+      },
+      "rationale": "An already indexed distinct record gives exactly this phase diagram for two initially active seeds on the same open path. Undirected component membership makes sentinel detection for a uniform nonsentinel seed an increasing affine transform of pair-seed expected reach, so the optima and ties coincide for every n and p. This is demonstrated equivalent coverage, not a judgment about authorship or priority inferred from the catalogue date.",
+      "residual_risks": [
+        "Search is not a complete priority history and does not assign priority or authorship. The direct statement-level overlap is established independently of any missing source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full finding",
+          "evidence": "The reach formula, gap balance, starting distance, transition polynomial, strict ordering and tie rule transport by (reach−2)/(n−2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448/RESULT.md",
+          "material_read": "Finding and objective; offset 0 through 2258; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "Monotone separation of optimal paired seeds on homogeneous paths",
+          "trigger": "Exact graph, pair objective and phase diagram under search by reach instead of detection"
+        },
+        {
+          "assessment": "Covers the final transition",
+          "evidence": "Its endpoint equation p^(n−3)[1+(n−2)(1−p)]=1 is the d=n−2 case; including sentinel source cases changes only the affine normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0 through 2051",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "A sharp near-certain transmission transition for two epidemic sentinels",
+          "trigger": "Two sentinels and eventual detection on the same iid path"
+        },
+        {
+          "assessment": "Endpoint result overlaps at k=2",
+          "evidence": "Its k=2 endpoint threshold is the last staircase breakpoint; the inspected statement does not present the entire distance staircase.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-endpoint-transition-for-path-network-outbreak-sentinels--d74686ad7c50/RESULT.md",
+          "material_read": "Finding, offset 0 through 2553",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "Sharp endpoint transition for path-network outbreak sentinels",
+          "trigger": "General-k gap rule and endpoint transition"
+        },
+        {
+          "assessment": "Related objective, not exact coverage in inspected passage",
+          "evidence": "Studies detection objectives on static and temporal networks and limits the analysis to one sentinel.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.10637",
+          "material_read": "PDF abstract and Introduction, offset 0 through 2915",
+          "method": "Lawful OA passage inspection",
+          "title": "Objective measures for sentinel surveillance in network epidemiology",
+          "trigger": "Same surveillance objective terminology"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Minimization of casualties via simulations is not exact eventual path detection.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1007517",
+          "material_read": "PDF p. 1 at text offset 1900",
+          "method": "Lawful OA passage inspection",
+          "title": "Efficient sentinel surveillance strategies for preventing epidemics on networks",
+          "trigger": "Web literature match on sentinel optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An ordered staircase on a motivated surveillance model would be useful as a distinct result, but this presentation is only an affine renormalization and reinterpretation of the existing complete staircase. It gives no additional optimization, mechanism, or nontrivial exact invariant beyond that result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

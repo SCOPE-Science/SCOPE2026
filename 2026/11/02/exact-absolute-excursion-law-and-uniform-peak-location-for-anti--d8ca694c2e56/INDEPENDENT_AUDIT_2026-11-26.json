@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:55:07.399737Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3, VERIFICATION.md and verify.py",
+        "/workspace/reproduction/frozen_checks.py (run `python3 /workspace/reproduction/frozen_checks.py 4`): numerical quadrature of the reflected killed kernel at nine heights from 0.2 to 2.5 matched the spectral CDF, maximum observed absolute difference 3.33e−16"
+      ],
+      "rationale": "Conditionally on W₁=z the process is a unit-time bridge from −z/2 to z/2; the free endpoint density exactly cancels in the killed-kernel ratio. The change of variable z=−2x contributes 2, and reflection of the Dirichlet eigenfunction contributes (−1)^(k+1). Independently, in the interval (0,L) with L=2h, the killed kernel from x to L−x is the sum over integers k of φ(L−2x+2kL)−φ((2k+1)L), with φ the standard normal density. Twice its integral over x∈(0,L) is 1−2L times the sum of the reflected densities: the translated intervals in the first term partition the real line. This gives the image law directly. The CDF is continuous on h>0, S>0 a.s., and termwise nonnegative tail integration gives the moments for q>0. Brownian path extrema are individually unique; the strict extrema and endpoint have an interior joint density by differentiating the smooth two-barrier killed kernel, with no boundary mass by local oscillation at both time endpoints. Hence max W+min W=W₁ has probability zero. The signed rotation preserves Gaussian covariance, and therefore the joint law of the height and the unique circular location. For every height event the corresponding finite location measure must be its total mass times Haar measure, proving independence.",
+      "residual_risks": [
+        "The finite quadrature only corroborates the constants and distribution calculation; the continuum law, uniqueness and independence rely on the analytic arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raket's process family includes precisely X=W−W₁/2 at the anti-periodic parameter. The checked classical results supply theta transformation and pinned-bridge extrema, not extrema of Raket's anti-periodic process. The bounded Perman–Wellner OA retrieval did not yield verified full text."
+        ],
+        "reasoning": "Merely specializing the known covariance identifies the process, not the distribution of its nonlinear supremum. The pinned-bridge boundary conditions cannot be changed by adjusting a scale parameter.",
+        "searches": [
+          "Raket arXiv:2610.33747v1 §4.2, Proposition 4.3, (20)–(21); Perman–Wellner 2014 OA retrieval",
+          "Biane–Pitman–Yor arXiv:math/9912170, p. 5 (10) and p. 16 (51)–(54)"
+        ]
+      },
+      "checked_sources": [
+        "Raket §4.2 Proposition 4.3",
+        "Biane–Pitman–Yor (10), (51)–(54)",
+        "Resultary --826a819e0b80 Finding",
+        "Perman–Wellner (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known theta identity gives the alternate representation once the confinement probability is identified. The determining anti-periodic calculation inserts reflection into the killed heat trace, yielding the alternating eigenfunction weights. The peak assertion also needs uniqueness, not just rotational invariance."
+        ],
+        "reasoning": "Known sources give the process, the analytic identity, and a classical counterpart. No checked claim gives the reflected confinement probability for this path; the new identification and joint law are not inherited from the matched prior observables.",
+        "searches": [
+          "Raket Proposition 4.3 and Biane–Pitman–Yor (10), (51)–(54)",
+          "Resultary --826a819e0b80, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical standard pinned bridge M=max|b| has CDF 1−2Σ(k≥1)(−1)^(k+1)e^(−2k²x²). The frozen height law is that of π/(4M) by substituting x=π/(4h) and taking the complement."
+        ],
+        "reasoning": "This equivalence of laws is exact, but the bridge theorem alone does not establish the probabilistic identification for the anti-periodic path, let alone a peak-time claim. Originality is not credited for a new family of univariate distributions.",
+        "searches": [
+          "Targeted anti-periodic Brownian extrema literature lookup; Biane–Pitman–Yor arXiv:math/9912170, p. 16, (51)–(54)",
+          "Local Resultary anti-periodic process overlap --826a819e0b80"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary record for exactly B(t)−B(1)/2 gives a sech transform for the integrated square. Biane–Pitman–Yor's exact extrema formulas identify the pinned Kolmogorov law, which gives the univariate law after the inverse change of variable but does not list it as this anti-periodic functional."
+        ],
+        "reasoning": "Exact laws for the same process with an L² observable, or for a different path with a supremum observable, are not exact indexed coverage of the claimed pair.",
+        "searches": [
+          "Local Resultary anti-periodic Brownian functional search, inspected --826a819e0b80",
+          "Biane–Pitman–Yor (51)–(54), exact classical Brownian path laws"
+        ]
+      },
+      "rationale": "The anti-periodic process is known, and the theta law in isolation is classical. The distinct result identifies that law for the supremum of this path and combines it with the unique uniform independent peak. The closest matched same-process source studies an unrelated quadratic functional, and the closest matched classical supremum is for a differently pinned path.",
+      "residual_risks": [
+        "The same identification could appear under signed-periodic, reflection-bridge, or twisted confinement terminology. The bounded comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Process and covariance covered, not the claimed functional in the checked passage",
+          "evidence": "X_s=W_s−aW₁; at anti-periodic α=−1, a=1/2 and the covariance is 1/4−|s−t|/2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.33747v1",
+          "material_read": "§4.2 Proposition 4.3, equations (20)–(21), passage at offset 60800",
+          "method": "OA arXiv HTML passage",
+          "title": "A Bestiary of Brownian Processes: A Field Guide to Boundary Conditions and Conditioning",
+          "trigger": "Identical process at anti-periodic parameter"
+        },
+        {
+          "assessment": "Classical law, not its anti-periodic path identification",
+          "evidence": "The transformation and the pinned bridge absolute supremum law are classical; using them here requires the reflected-kernel identification.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9912170",
+          "material_read": "p. 5 equation (10), p. 16 equations (51)–(54), OA offsets 10967 and 41000",
+          "method": "OA PDF passages",
+          "title": "Probability laws related to the Jacobi theta and Riemann zeta functions, and Brownian excursions",
+          "trigger": "Exact classical theta extrema laws and possible equivalent formulation"
+        },
+        {
+          "assessment": "Different path observable",
+          "evidence": "The same process appears in an integrated-square functional with a sech Laplace transform.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-antiperiodic-brownian-geometry-of-the-odd-cycle-integrality-cap--826a819e0b80",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary search and mirrored passage",
+          "title": "Antiperiodic Brownian geometry of the odd-cycle integrality cap",
+          "trigger": "Exact process match"
+        },
+        {
+          "assessment": "Access risk, not used to infer noncoverage",
+          "evidence": "No verdict about this paper's whole contents drawn from the unsuccessful retrieval.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4847753/",
+          "material_read": "No verified primary full-text passage in bounded retrieval",
+          "method": "Lawful OA retrieval attempt",
+          "title": "An excursion approach to maxima of the Brownian bridge",
+          "trigger": "Related cited two-sided Brownian-bridge extrema law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, law, moments, sharp tail statements and peak factorization",
+        "Raket Proposition 4.3 for the process context; Resultary --826a819e0b80 for a distinct functional on the same path"
+      ],
+      "rationale": "The supremum is the natural confinement statistic of a standard anti-periodic Gaussian path. The result supplies all thresholds and moments with complementary formulas useful in different tail regimes, and an exact spatial law for the peak even conditional on a rare height. The path-specific identification and peak comparison matter even though the scalar distribution, once identified, is a transform of a classical one.",
+      "residual_risks": [
+        "No inference to the wider Slepian family, to joint distributions at a sampled mesh, or to quantitative discretization error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

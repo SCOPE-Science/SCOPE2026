@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:27.041800Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both closed neighborhoods have size 7. The directed differences have size 3 for adjacent vertices (two shared open neighbors plus the two endpoints in the closed intersection) and 5 for nonadjacent vertices. Failure needs two omissions in each adjacent difference, or four in each nonadjacent difference; the latter is impossible with at most seven omissions. This proves the forbidden-four-set reduction, together with exclusion of six or more omissions from any closed neighborhood. Failure at every seven-omission subset excludes larger omission sets by monotonicity. A separately written checker, /workspace/branches/15cb035d-f66d-4b89-954d-533a58a6310e/independent_check.py with independent_check.json, directly tested two-domination and asymmetric separation on all 65,536 detector subsets of each labelled graph. In sizes 10 through 16 it reproduced rook coefficients (720,1920,1496,560,120,16,1) and Shrikhande coefficients (256,1392,1424,560,120,16,1), with zero smaller admissible sets. In the rook graph the rows and columns are the maximal four-cliques; their intersection graph is K_4,4, so the row/column permutations and transpose exhaust the group of order 1152. In Shrikhande the six neighbors of zero induce C_6. The nine other nonzero vertices are distinguished by their two-neighbor signatures on that cycle (also directly checked), giving an upper bound 16·12 on the group; 12 maps preserving the connection set and 16 translations attain it. Orbit sizes were reproduced as (144,288,288) and (16,48,48,48,96). Independently computed exchanges yielded a connected 3312-edge rook graph of diameter 6 (144 vertices of degree 6 and 576 of degree 10) and a 624-edge Shrikhande graph with 16 isolates, six 16-vertex rook components (exact isomorphisms checked), and one component of size 144, with populations (16,48,96,96) at degrees (0,4,5,6). The domain and graph scope are exactly those stated; the uploaded checkers were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary fb33fb75dc16 Finding classifies ordinary optima of K_(2k) square K_(2k) for k≥3. Resultary a20d4d1c9e45 Finding concerns error-detecting codes only on the 13-vertex Paley graph.",
+          "Gravier et al. §4.3 treats ordinary codes on Cartesian products of cliques."
+        ],
+        "reasoning": "The ordinary orbit formula both changes the code notion and excludes the order-4 clique factor; the Paley result shares the criterion but has different neighborhood geometry. Neither is a broader theorem including both target polynomials or exchange graphs.",
+        "searches": [
+          "Resultary: exact identifying-code orbit classifications on Cartesian products and error-detecting identifying codes on other strongly regular graphs",
+          "Gravier et al. EJC 22(4) P4.6 §4.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.06052",
+        "arXiv:2112.01685",
+        "Gravier–Moncel–Semri EJC 15 (2008) Theorem 1",
+        "DOI 10.37236/5256",
+        "Resultary 7b3432c6fd0d",
+        "Resultary a20d4d1c9e45",
+        "Resultary fb33fb75dc16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The DET:IC theorem is a necessary-and-sufficient test, not an enumerator. The earlier exact optimum-exchange theorem uses the ordinary family, whose optimum configurations have sizes 5 and 6 rather than the DET:IC size 10."
+        ],
+        "reasoning": "The general characterization is a known input. Enumerating the safe omission sets and then finding the automorphism and exchange structure on those optima requires graph-specific information not supplied by the ordinary exchange counts or the general characterization alone.",
+        "searches": [
+          "Jean–Seo arXiv:2208.06052 p. 3 and arXiv:2112.01685 p. 2; ordinary comparison 7b3432c6fd0d; same-model Paley comparison a20d4d1c9e45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jean–Seo DET:IC requires two-domination and at least two chosen vertices in one directed neighborhood difference. RED:IC instead uses two-domination and a symmetric difference of size at least two."
+        ],
+        "reasoning": "A split of one selected vertex in each directed difference satisfies the latter separation threshold but not the former. Thus one-erasure or redundant-code results cannot simply be read as false-negative detection results; ordinary identifying codes also use weaker conditions.",
+        "searches": [
+          "Primary literature: asymmetric error-detecting identifying-code enumeration and minima on the rook or Shrikhande graphs",
+          "arXiv:2208.06052 Theorem 2.1; arXiv:2112.01685 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 same-pair record has ordinary Shrikhande minimum 5, 96 minima and 16 disjoint C_6 exchange components; ordinary rook minimum 6, 2208 minima and a connected 28800-edge exchange graph of diameter 6.",
+          "Gravier–Moncel–Semri give floor(3n/2) for ordinary minimum identification in K_n square K_n, hence 6 at n=4. The same-day DET:IC Paley study gives 9 and 364 minima on its own graph."
+        ],
+        "reasoning": "The closest exact counts are for either a different code family on the identical graph pair or the correct code family on a different graph. In particular the shared rook exchange diameter 6 is not an equivalent census: the optimum sizes, vertex counts, edges and code definitions differ.",
+        "searches": [
+          "Resultary: error-detecting code polynomials, minima, automorphism orbits, and exchange graphs on rook and Shrikhande",
+          "October 26 Resultary 7b3432c6fd0d mirrored RESULT.md",
+          "Gravier–Moncel–Semri EJC 15 (2008) Theorem 1"
+        ]
+      },
+      "rationale": "The same strongly regular pair has previously been compared using ordinary identifying-code optima and exchanges, and the two-domination/asymmetric-separation characterization itself is standard. Those are substantive overlaps, but the checked evidence does not give the two labelled error-detecting-code polynomials, the full optimum orbit census, or the optimum exchange geometry under this exact criterion. Distinct same-day findings were considered on their hypotheses, not ordered by date.",
+      "residual_risks": [
+        "The focused general web lookup did not return relevant scholarly results; it contributes no negative evidence. Unindexed identifying-code tables or other terminology could conceal exact coverage.",
+        "No priority is inferred between studies indexed on the same date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior criterion; not the two-graph polynomial or exchange census",
+          "evidence": [
+            "Two-domination and asymmetric 2#-distinguishability characterize DET:IC."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.06052",
+          "material_read": "Theorem 2.1, p. 3, offset 9643",
+          "method": "Compare the exact domination and directed separation conditions",
+          "title": "Optimal Error-detection System for Identifying Codes",
+          "trigger": "Identical error model and potentially general DET:IC results"
+        },
+        {
+          "assessment": "RED:IC is a different detection problem",
+          "evidence": [
+            "Two-domination and pairwise 2-distinguishability through symmetric difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01685",
+          "material_read": "Theorem 2, p. 2, offset 5035",
+          "method": "Check symmetric versus directed difference condition",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Potentially equivalent fault-tolerant terminology"
+        },
+        {
+          "assessment": "Earlier exact ordinary minimum, not DET:IC minimum",
+          "evidence": [
+            "Ordinary identifying number floor(3n/2), equal to 6 on K_4 square K_4."
+          ],
+          "identifier_or_url": "Gravier–Moncel–Semri, Electronic Journal of Combinatorics 15 (2008)",
+          "material_read": "Theorem 1, p. 2, offset 2000",
+          "method": "Specialize equal clique sizes to n=4 and compare the code notion",
+          "title": "Identifying codes of Cartesian product of two cliques of the same size",
+          "trigger": "Exact same-rook-graph optimum in earlier literature"
+        },
+        {
+          "assessment": "Ordinary code analysis, not the error-detecting census",
+          "evidence": [
+            "Ordinary identifying codes on Cartesian products of cliques."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5256",
+          "material_read": "§4.3 p. 9, offset 28341",
+          "method": "Compare scope and definition with DET:IC",
+          "title": "Identifying Codes in Vertex-Transitive Graphs and Strongly Regular Graphs",
+          "trigger": "Plausible broad result for the same strongly regular setting"
+        },
+        {
+          "assessment": "Material same-pair/exchange overlap, but ordinary-code minima",
+          "evidence": [
+            "Shrikhande: 96 size-five optima with sixteen C_6 components. Rook: 2208 size-six optima, 28800 exchange edges, diameter six."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d",
+          "material_read": "Mirrored RESULT.md, introductory Finding and code definition, offset 0",
+          "method": "Compare optimum notion and edge/component counts",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and rook graphs",
+          "trigger": "Closest earlier exact same-pair relocation result"
+        },
+        {
+          "assessment": "Identical model, distinct graph and enumerator",
+          "evidence": [
+            "The Paley graph on thirteen vertices has DET:IC minimum 9 with 364 optima."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-error-detecting-identifying-codes-of-the-thirteen-vertex-paley-g--a20d4d1c9e45",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Compare graph parameters, code type and optima",
+          "title": "Error-detecting identifying codes of the thirteen-vertex Paley graph",
+          "trigger": "Same-day exact census for the same error model on a strongly regular graph"
+        },
+        {
+          "assessment": "Ordinary result and range excludes the target rook graph",
+          "evidence": [
+            "Ordinary K_(2k) square K_(2k) for k≥3."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-orbit-types-and-exact-enumeration-of-minimum-identifying-co--fb33fb75dc16",
+          "material_read": "Catalogue statement of result and parameter range",
+          "method": "Check both code-model and graph hypotheses; no whole-document negative inference",
+          "title": "Four orbit types and exact enumeration of minimum identifying codes",
+          "trigger": "Possible broader rook-product orbit classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rook and Shrikhande are the canonical nonisomorphic pair sharing the same strongly regular parameters; comparing them controls neighborhood size and pairwise intersection data. Their common minimum 10 conceals substantial multiplicity and reconfiguration differences, from a connected exchange graph to many components including isolates. These exact counts and structures supply a useful discriminating invariant for the false-negative model, beyond recomputing an ordinary minimum or a single number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

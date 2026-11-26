@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:15.641690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61, VERIFICATION.md, and verify_ordinal.py (inspected, not run)",
+        "/workspace/branches/ordinal_replay.py and ordinal_replay.txt (exact, Python 3 with SymPy)"
+      ],
+      "rationale": "Solving affine pairwise equalities on the four quarter-intervals gives exactly the stated six ordered cells (ignoring null ties). Each cell maps linearly to entire cells, so each admissible cylinder maps bijectively onto its last cell with constant Jacobian. Thus even conditional on the previous symbol differing, the current point is uniform in the cell; the resulting Markov chain uses overlap length divided by twice the starting cell length. A first entrance back requires an initial string of self-loops, an exit, an excursion avoiding the target, and a final step back. The frozen five-state formula counts precisely these paths. Independently, if Aᵢ(z)=[(I−zP)⁻¹]ᵢᵢ, the positive-time unrestricted entrance series from state i is Uᵢ=(1−zPᵢᵢ)Aᵢ−1, subtracting the self transitions from all arrivals. By renewal at each actual entrance, Gᵢ=Uᵢ/(1+Uᵢ). A fresh exact symbolic cofactor calculation reconstructs P from interval intersections and matches all six rational functions and the derivative pairs (8,24), (12,188), (6,22). Finite irreducibility and nontrivial exit probability from each cell give exponential tails and justify the boundary |z|=1 and the finite moments. Entrance flux reciprocals give the same means; positive-integer geometric variances are 56, 132 and 30.",
+      "residual_risks": [
+        "Only the stationary fair dyadic map, identity observable, unit lag and triples, with actual entries rather than every occupied time; null endpoints do not affect the probability model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alcaraz Barrera studies survivor-set dynamics and entropy for the doubling map with a centered interval removed. Exact rationality is expected once a finite Markov entrance presentation is available."
+        ],
+        "reasoning": "A survivor subshift/entropy is not an entrance-to-entrance distribution. Even a first-entry statistic from an unconditioned population does not have the stationary entrance-conditioned initial law used here. No checked stronger evaluated result supplies the three claimed functions.",
+        "searches": [
+          "Alcaraz Barrera, Topological and Symbolic Dynamics of the Doubling Map with a Hole, Abstract p. 4",
+          "Haydn §2.3; Sakellariou–Stemler–Small DOI:10.1103/PhysRevE.103.022214 (access limited)"
+        ]
+      },
+      "checked_sources": [
+        "The primary passages and local Resultary findings identified above",
+        "Frozen RESULT.md lines 63–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The actual computations require establishing the exact dyadic ordinal Markov cells and entrance law, and eliminating the resulting killed transition matrices. No prior exact table of these transition-entrance laws was found in the inspected sources."
+        ],
+        "reasoning": "The general theory tells how to obtain a return-law rational function once the correct process and conditioning have been proved. It does not substitute numerical inputs or establish the specific variance comparisons. The result is not a new general renewal theorem.",
+        "searches": [
+          "Compare Shahriari et al. arXiv:2303.00383 Abstract and Haydn §2.3 with frozen RESULT.md proof lines 21–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shahriari et al. describe building a first return map from successive intersections with a selected ordinal sequence. Haydn discusses entry from the ambient system and time to reappearance of an initial cylinder word."
+        ],
+        "reasoning": "An entrance is a directed transition from the complement to the target cell. It can be coded as a return to a set of transition words, but a first return to an occupied cell is different in the two self-loop cells, and the cited definitions do not compute the return to those transition sets.",
+        "searches": [
+          "Ordinal Poincaré sections: arXiv:2303.00383",
+          "Return words and hitting/entry conditioning: Haydn, Entry and Return Times Distribution §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232 concerns overlapping three-point weak orders for an iid finite alphabet, not map returns. 2026/11/1/SCOPE-exact-markov-law-spectral-decay-and-entropy-loss-for-skew-tent-o--2660877e45ea concerns five-state skew tent patterns. 2026/11/22/SCOPE-exact-ascending-run-laws-and-the-sharp-ordinal-memory-transition--8eeed03cd4a8 includes dyadic two-point ascent runs. 2026/11/2/SCOPE-exact-multinacci-escape-statistics-for-symmetric-dyadic-holes-of--c3e891785474 covers first-entry survival for negative doubling, from unconditioned Lebesgue start."
+        ],
+        "reasoning": "None of these inspected matched claims tables the required six entrance laws. Pattern length, map, independent observation versus dynamics, and entry initialization are material distinctions.",
+        "searches": [
+          "Local Resultary: three-point ordinal patterns, exact dyadic entrance or return laws, ordinal Markov and dyadic holes"
+        ]
+      },
+      "rationale": "Best of checked evidence: the distinct output is the complete model-specific table of entrance-conditioned laws and the resulting dispersion split. Prior sections and return-time machinery formulate similar questions but neither supply the six laws nor yield them by a parameter substitution into an evaluated theorem.",
+      "residual_risks": [
+        "An equivalent exact transition-word or Markov-hole calculation might be indexed differently. Sakellariou et al. full text was unavailable, and bounded passage checks do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms conceptual precedent only in checked passage",
+          "evidence": "First return map from successive intersections with particular ordinal sequences, not the exact dyadic return-law calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.00383",
+          "material_read": "Abstract, HTML offset 1300",
+          "method": "OA primary passage",
+          "title": "Ordinal Poincaré Sections: Reconstructing the First Return Map from an Ordinal Segmentation of Time Series",
+          "trigger": "Ordinal sequences defining return sections"
+        },
+        {
+          "assessment": "Different invariant and setup in checked statement",
+          "evidence": "Doubling map with symmetric centered open interval removed; topological/symbolic survivor behavior and entropy.",
+          "identifier_or_url": "Alcaraz Barrera (2014)",
+          "material_read": "Abstract, PDF p. 4, offset 3750",
+          "method": "OA primary PDF passage",
+          "title": "Topological and Symbolic Dynamics of the Doubling Map with a Hole",
+          "trigger": "Same map and interval restrictions"
+        },
+        {
+          "assessment": "General definitions, not evaluated ordinal laws",
+          "evidence": "Cylinder-word entry and first reappearance of an initial word contrasted with entrance-edge conditioning.",
+          "identifier_or_url": "Nicolai Haydn, §2.3",
+          "material_read": "§2.3, PDF p. 3, offset 6219",
+          "method": "OA PDF passage",
+          "title": "Entry and Return Times Distribution",
+          "trigger": "Return-word equivalence"
+        },
+        {
+          "assessment": "Full-text scope unverified",
+          "evidence": "DOI access denied and no lawful repository copy recovered in this check; no negative inference from that failure.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.103.022214",
+          "material_read": "Bibliographic description; full text not obtained",
+          "method": "Publisher DOI and repository lookup",
+          "title": "Estimating topological entropy using ordinal partition networks",
+          "trigger": "Ordinal Markov/network theory"
+        },
+        {
+          "assessment": "Different map and invariant",
+          "evidence": "Exact five-state three-point ordinal Markov law for skew tents, not six entrance-return distributions for doubling.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-markov-law-spectral-decay-and-entropy-loss-for-skew-tent-o--2660877e45ea",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact Markov law, spectral decay and entropy loss for skew tent ordinal patterns",
+          "trigger": "Strong matched ordinal Markov catalogue claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding lines 4–16 and proof",
+        "/workspace/branches/ordinal_replay.txt",
+        "Shahriari et al. arXiv:2303.00383 Abstract"
+      ],
+      "rationale": "The fair doubling map and shortest ordinal window giving six order types are natural calibration choices for exact return statistics. The three rational functions resolve all delays, not just means, and their variance comparison shows markedly different departure from a matched geometric law in different cells. This gives an analytic benchmark for ordinal entry statistics with a verifiable distinction from plain visits.",
+      "residual_risks": [
+        "No extrapolation to other lags, maps or observables, noisy series, or generally Markov ordinal coding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

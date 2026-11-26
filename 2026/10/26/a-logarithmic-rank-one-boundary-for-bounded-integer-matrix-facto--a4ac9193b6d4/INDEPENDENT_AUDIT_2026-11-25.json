@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:19.478441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For w the first column of B, Aw=e_1 forces w primitive. The two families 'second column of B zero' and 'second row of A zero' cover all solutions: any nonzero second column lies in ker A, so rank A=1 and im A=span(e_1). Transposition and factor reversal exchange the families without changing E_11 or the box. The first has size S=Σ_w U_T(w)R_T(w); the overlap has size C=Σ_w U_T(w). In the Bézout fiber, centers of the two parameter intervals are separated by 1/|uv| when uv≠0, so their intersection has length 2T/h+O(1) uniformly, and rounding changes the count by O(1). Axis vectors have h=1 and satisfy the same bound directly. For the zero fiber R_T=2 floor(T/h)+1. Thus S=32T² Σ_{h≤T}φ(h)/h²+O(T²), since the shell is exactly 8φ(h), also at h=1, and the sum of O(T/h+1) shellwise errors over primitive vectors is O(T²). Möbius inversion gives Σφ(h)/h²=log(T)/ζ(2)+O(1) and C=O(T²). Inclusion–exclusion yields 2S−C=(384/π²)T² log T+O(T²) with absolute error constant. Independent exhaustive products give 100, 404, 996 at T=1,2,3; replay: python /workspace/reproductions/2/independent_direct_count.py. This only corroborates finite counts. Frozen VERIFICATION.md and verify.py were inspected, not executed; the asymptotic is established analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 of Browning et al. gives a rank-dependent lower bound T^[floor(r²/2)+n(n−r)]; for n=2,r=1 it is only ≫T². Its rank-one proof takes a fixed scalar factorization in a block construction. Theorem 1.1 treats nonsingular targets, and 1.5 treats zero.",
+          "The nonzero-singular m=2 branch of Afifurrahman Theorem 2.1 has upper bound H^(n²+o(1)), hence H^(4+o(1)). The printed lead-in says nonsingular despite the displayed additional singular cases; the relevant singular branch was read directly."
+        ],
+        "reasoning": "Neither broader theorem gives matching order, let alone the precise main term and O(T²) error. The sharp nonsingular and zero regimes have incompatible target ranks.",
+        "searches": [
+          "Browning et al., arXiv:2608.25078 Theorems 1.1, 1.4, 1.5 and proof of 1.4 in §2.2",
+          "Afifurrahman, arXiv:2306.04885 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2608.25078",
+        "arXiv:2306.04885",
+        "Resultary: 2026/10/26/SCOPE-independent-content-height-and-kernel-direction-limits-for-integ--5b82a46e1b08",
+        "Resultary: 2026/10/26/SCOPE-rank-resolved-idempotent-square-zero-factorizations-of-rank-one--92c3ebf2cea5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general rank-1 lower bound is obtained from selecting a fixed scalar factorization and free lower block entries; it does not sum over internal primitive-vector directions. Here the two-coordinate common denominator forces the uniform fiber weights, and the weighted primitive shell sum produces the logarithm and leading coefficient.",
+          "The zero-target asymptotic counts a different fiber without the inhomogeneous Bézout constraint; its leading power cannot be specialized to E_11."
+        ],
+        "reasoning": "No checked prior statement mechanically yields the result by rank, box, or target specialization. Standard totient and Bézout facts are proof ingredients, not an existing asymptotic for this fiber.",
+        "searches": [
+          "arXiv:2608.25078 proof of Theorem 1.4 (PDF pp. 6–7) and statements of Theorems 1.1 and 1.5",
+          "arXiv:2306.04885 §2.1, Theorem 2.1 (PDF p. 4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both count ordered products with fixed target; their entrywise height conventions match. E_11 is rank one, neither invertible nor zero. Transpose and interchange of factors preserve exactly this target and height, rather than converting it to a nonsingular case.",
+          "Unimodular left and right multiplication to Smith form changes the measurement box, and cannot by itself transfer an exact leading constant for an entrywise cutoff."
+        ],
+        "reasoning": "The literature comparison uses the same count, not a looser determinant count, unordered divisor count, or finite-field analogue. The relevant specialization is the nonzero singular branch.",
+        "searches": [
+          "arXiv:2608.25078 Eq. (1.1), §2.1",
+          "arXiv:2306.04885 Eq. (1.4), §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed result studies the joint law of content, box height and kernel direction of a single nonzero integer square-zero 2×2 matrix. The second counts idempotent–square-zero pairs over finite fields for n≥3, with factor ranks restricted. Neither contains the bounded unrestricted ordered integer count or a table of its asymptotics."
+        ],
+        "reasoning": "The exact target, coefficient ring, restrictions on factors and counted objects differ. The comparison is to the actual indexed statements, not an inference from the scores or dates.",
+        "searches": [
+          "Resultary: bounded integer matrix factorization divisor function rank-one E11 T² log T",
+          "2026/10/26/SCOPE-independent-content-height-and-kernel-direction-limits-for-integ--5b82a46e1b08; 2026/10/26/SCOPE-rank-resolved-idempotent-square-zero-factorizations-of-rank-one--92c3ebf2cea5, mirrored Findings"
+        ]
+      },
+      "rationale": "The exact count is the same ordered height-capped divisor function studied by the closest primary sources, but their nonzero-singular estimates do not determine the logarithm, constant, or remainder for the primitive 2×2 rank-one target. No equivalent asymptotic was identified in the sources compared.",
+      "residual_risks": [
+        "The bounded bibliography and catalogue search do not rule out an equivalent older elementary calculation under another formulation.",
+        "Novelty is assessed for E_11 under this exact cutoff only, not for all rank-one targets or all height conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest primary source, but it does not yield the rank-one leading term.",
+          "evidence": "Theorem 1.4 supplies T² only as a lower bound for E_11; its block construction does not enumerate all directions. Theorems 1.1 and 1.5 are nonsingular and zero cases respectively.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.25078",
+          "material_read": "Eq. (1.1) p. 1; Theorems 1.1, 1.4, 1.5; height definition §2.1 p. 5; proof of Theorem 1.4 §2.2 pp. 6–7, around offsets 20060–22583",
+          "method": "Matched the target, rank, order, and height definitions and substituted n=2,r=1 into the theorem and its proof.",
+          "title": "The divisor function for matrices",
+          "trigger": "Same matrix divisor count and general singular-target lower bound"
+        },
+        {
+          "assessment": "Broad upper bound only for the relevant branch.",
+          "evidence": "Theorem 2.1 displays H^(n²+o(1)) for nonzero singular C and m=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.04885",
+          "material_read": "Eq. (1.4) p. 3 and Theorem 2.1 p. 4 (around offsets 11440–13630)",
+          "method": "Read the displayed case split and matched the m=2,n=2 nonzero-singular case.",
+          "title": "Some counting questions for matrix products",
+          "trigger": "Prior bounds for the identical fixed-product counting problem"
+        },
+        {
+          "assessment": "Adjacent arithmetic, not an equivalent count.",
+          "evidence": "The sample is a single nonzero M with M²=0; the claims are distributional limits for its content, height and direction.",
+          "identifier_or_url": "2026/10/26/SCOPE-independent-content-height-and-kernel-direction-limits-for-integ--5b82a46e1b08",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–1432",
+          "method": "Compared the sample space and counted invariant.",
+          "title": "Independent content, height, and kernel-direction limits for integral square-zero matrices",
+          "trigger": "Related 2×2 integer box and primitive directions"
+        },
+        {
+          "assessment": "No implication for unrestricted integer factor pairs.",
+          "evidence": "Its finding counts ordered (E,N) with EN=A, E²=E, N²=0 and fixed ranks over a finite field for n≥3.",
+          "identifier_or_url": "2026/10/26/SCOPE-rank-resolved-idempotent-square-zero-factorizations-of-rank-one--92c3ebf2cea5",
+          "material_read": "Mirrored RESULT.md Finding and scope, offsets 0–1600",
+          "method": "Checked dimension, coefficient field, and both factor constraints.",
+          "title": "Rank-resolved idempotent–square-zero factorizations of rank-one finite-field matrices",
+          "trigger": "Related ordered factorizations of rank-one targets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "E_11 is the canonical primitive rank-one test target in the first nontrivial matrix size, where the existing divisor-function lower bound and upper bounds leave the scale open. The exact logarithm and leading constant distinguish this singular fiber from both the unimodular and zero fibers and provide a concrete benchmark for future nonzero-singular counts. The gain is an entire scale and leading term, not a minor improvement to an already known constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every canonical even-length palindrome has a unique independent half-digit parametrization. The binomial congruence modulo \(q^2\) gives the exact quotient weights, roots-of-unity orthogonality gives the two cases, and the endpoint and total weight sums have been checked. The proof includes \(m=1\), the vanishing-leading-weight case, and all residue classes. The independent exact-integer checker passed for six odd primes through half-length \(25\), with additional full-integer enumeration for small parameters. These finite runs support but are not the proof.
+## correctness
 
-**Originality: PASS, residual risk disclosed.** Banks–Hart–Sakata (2004), Lemma 3.1 gives an underlying character-product identity, but Corollary 4.5 applies only when the modulus is coprime to the radix squared minus one and therefore excludes this forced-prime-square case. The available prior first-layer palindrome classification determines residues modulo divisors of \(b+1\), not the quotient modulo \(q\) or the full modulo-\(q^2\) spectrum. The mathematical-results search returned no equivalent exact statement. Hansen (1971) and Schmidt (1988) have plausible titles but inaccessible complete texts; their potential indirect overlap is a genuine limitation, not certified absence of coverage.
+PASS
 
-**Value: PASS.** The first nontrivial prime-adic lift of the universal divisor of even palindromes is a natural divisibility invariant. The result determines all counts, identifies an exact two-level phenomenon and all exceptional residue classes, and gives a quantified rate of convergence while proving finite-length uniformity never occurs. It is more specific than general asymptotic equidistribution and cannot be obtained from the first-layer divisibility fact alone.
+Expanding (q−1)^j modulo q² gives the quotient digit weights w_j=(−1)^j(2m−1−2j), since paired exponents have opposite parity. In the group ring of Z/qZ, write e_x for the residue basis and J for its sum. Modulo the ideal of multiples of J, a nonzero internal weight contributes −e_{−w_j} (only digit q−1 is excluded), while a zero weight contributes q−1. A nonzero leading weight contributes −e_0−e_{−w_0} (digits 0 and q−1 are excluded); a zero leading weight contributes q−2. Since the internal weights sum to 1−m and all weights sum to m, multiplying gives the correction supported at m−1 and −m, or at m−1 alone for w_0=0. Restoring the unique constant term with total mass T gives the stated 2/q or 1/q subtractions. The two exceptional residues are distinct exactly when w_0 is nonzero. As q≥3 both levels occur and differ by the nonzero amplitude; the integer coefficients count actual digit choices, including m=1. The zero internal weights select one congruence class modulo q, so z≤ceil((m−1)/q) and division by T gives exponential decay of the discrepancy. Direct enumeration of actual integers matched every count for q=3,5,7,11,13,17, m=1–4, including both leading-weight branches. Replay: python3 /workspace/branches/619446a5-3748-4872-ad57-c3c7b5e4e801/independent_check.py.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the full all-odd-prime, exact fixed-length first quotient-lift spectrum. An indexed binary first-lift law exactly overlaps the q=3 specialization, so that case is not credited as distinct. The analogous first-layer result for all bases just counts palindromes in residue zero and cannot account for their distribution within that fibre modulo q². The examined coprime-modulus distribution theorems exclude this setting; use of familiar character methods is not claimed as new. Archival access limitations leave priority unresolved but do not supply positive coverage of the full claim.
+
+## value
+
+PASS
+
+The first square-modulus lift of the forced divisor is the first place where these canonical even-length palindromes can have a nontrivial distribution. The theorem gives every count without enumerating the exponentially large catalogue, distinguishes the zero-leading-weight resonance, and proves nonuniformity at every length despite decay toward uniformity. This is a natural complete invariant, not just a numerical check for decimal divisibility or the already-covered binary specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

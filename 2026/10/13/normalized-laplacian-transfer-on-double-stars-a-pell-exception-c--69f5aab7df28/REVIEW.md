@@ -1,19 +1,21 @@
-# Scientific review of the double-star transfer classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the actual normalized-Laplacian matrix, not the combinatorial Laplacian. The four-dimensional Jacobi quotient has exact spectrum \(\{0,1-c,1+c,2\}\) with \(c^2=pq/((p+1)(q+1))\); the remaining leaf-difference space has eigenvalue one. The positive stationary eigenvector forces equal degrees and fixes the transfer phase. Projector comparisons exclude all pairs except same-hub twins at a size-two pendant group and balanced hub pairs; the latter fail a two-phase power identity. For size-two twins, nonzero quotient spectral weights reduce PGST to simultaneous odd-phase approximation for \(t\) and \(ct\). Irrational rotations give the positive cases, while rationality of \(c\) is equivalent to a Pell equation whose even/odd parity excludes PGST as well as PST. The all-parameter proof is self-contained modulo the classical Pell solution description and irrational-circle rotation density. The exact-rational and numerical code checks cover representative cases only.
+PASS
 
-## Originality — PASS, with residual risk
+For B=D^{-1/2}AD^{-1/2}, the four-cell quotient has spectrum ±1,±c, where c²=pq/((p+1)(q+1)); the complement comprises the two within-side zero-sum spaces at eigenvalue 0 of B. The positive normalized-Laplacian zero mode pins phase to +1 and forces equal degree; projected transfer forces strong cospectrality. At eigenvalue 1 of H the zero-sum leaf projections exclude cross-side pairs unless p=q=1, and sibling pairs unless their side has size two. Equal-degree hubs have p=q=r. The balanced reflection-odd B block is [[0,√(r/(r+1))],[√(r/(r+1)),−1/(r+1)]], with eigenvalues c and −1; both components of its eigenvectors are nonzero. It requires negative phases at 1/(r+1) and 2 under H, incompatible because the latter phase is an even power of the former. This also excludes the P4 end pair. For the remaining size-two leaf pair, the symmetric eigenmodes all have positive sign; the antisymmetric eigenmode at H=1 has negative sign. This is exactly simultaneous odd-π matching for t and ct. Irrational c gives arbitrarily late approximate matches by circle density and no exact ones. Rational c is equivalent to q(q+1)=6h²; the positive Pell equation (2q+1)²−24h²=1 has fundamental unit 5+√24. Its first coordinate is 1 modulo 4 along all positive powers, making q even and c=2h/(q+1) even-over-odd in lowest terms. Even limiting odd-π matching then contradicts equality of the phases raised to the numerator and denominator powers. The symmetric case follows by swapping hubs. An independent bounded Python/NumPy check used the four-cell random-walk quotient (144 cases), a direct square scan through 100000 (2, 24, 242, 2400, 23762), and the symmetric leaf return via its second spectral moment, giving fidelity above 0.99999999 at sampled odd multiples of π for q=1,3,4,5,6. These are checks only; the spectrum, pair exclusions, density and Pell proof establish the full claim. The original replay path is verify.py, inspected but not executed.
 
-Coutinho–Baptista (arXiv:2209.04668, Sections 3–5) explicitly leave the normalized-Laplacian tree PST question open and give general necessary spectral criteria, not this exhaustive bistar family and arithmetic PGST classification. Kirkland–Monterde–Plosker (arXiv:2201.02720, Sections 5–6) furnish general transfer tests for weighted-graph twins; weighted adjacency could instantiate the present normalized operator but their inspected explicit applications treat double cones rather than double stars. Fan–Godsil (arXiv:1206.0082) classify adjacency, not normalized-Laplacian, double-star transfer. The verified novelty being assessed is the combined family-wide explicit parameter criterion, Pell exclusions and all-pair classification, not the background spectral transfer criterion. Residual risk is an unlocated prior specialized application, or a published broader theorem whose explicit conclusion already includes this Pell classification; absence from a search alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The 2022 normalized-Laplacian study motivates classifying PST on minimally connected quantum networks. A diameter-three tree family is a natural infinite test case: this finding closes its finite-time question and determines which quantum-communication links can achieve arbitrarily high fidelity. The infinite Pell obstruction makes the answer structurally nonroutine: adding leaves can alternate between enabling and prohibiting PGST in a precise arithmetic pattern. Neither programmatic reproducibility nor correctness alone is offered as its mathematical significance.
+The supported distinct claim is the exhaustive normalized-Laplacian double-star classification, including its explicit Pell obstruction. Published twin and tree criteria cover much of the machinery and a prior indexed result covers the even-order PST subcase. The closely matching adjacency classification has different answers. No inspected statement provides the entire normalized double-star spectrum/transfer analysis or the parameter classification as a direct instance without the family-specific calculations and exclusions.
 
-## Limitations and comparison
+## value
 
-No claim concerns general trees or finite-time cost bounds. The similarity with known weighted-twin formalism remains a recognized originality risk. Independent scientific validation is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Completely classifies all vertex pairs in a canonical infinite family (all diameter-three trees), with an infinite arithmetic exceptional set and a distinction between approximate and exact transfer. The normalized classification genuinely differs from the studied ordinary adjacency one; the family-specific Pell exclusion and non-twin checks, rather than a restatement of the general twin criterion, provide the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

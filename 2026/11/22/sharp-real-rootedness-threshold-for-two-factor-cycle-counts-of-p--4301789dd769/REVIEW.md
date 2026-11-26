@@ -1,11 +1,21 @@
-# Review: prism two-factor component enumerators
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic complement bijection identifies undirected spanning two-factors with perfect matchings without multiplicity. The proof classifies all prism perfect matchings into duplicated horizontal base-cycle matchings and exactly two opposite-phase exceptions when the rung count is even. It proves that the complementary two-factor has one cycle per selected base matching edge, except the all-rung case with two cycles, and counts the exceptions as one cycle each. These facts establish the stated polynomial for every integer \(n\ge3\). The closed-form Newton defect is strictly positive for all \(n\ge8\), violating a necessary condition for real-rootedness; the five remaining polynomials are explicitly factored or checked by quadratic discriminant. Direct labelled-graph enumeration for rung counts 3 through 14 corroborates the formula. Finite computations are not substituted for the all-order argument.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** The visible abstract and stated theorem of Lekshmi and West (arXiv:2003.09602, 2020) determine only the number of perfect matchings, the specialization of the proposed polynomial at \(z=1\); their complete article text was not obtainable in the accessible open versions, so refinements in the unseen proof are an explicit priority risk. OEIS A124349 gives the already-known Hamiltonian coefficient, not the remaining coefficient distribution. Cao, Lu and Zhao (arXiv:2607.20157, first posted 2026-07-22) prove existence and packing statements for percolated vertex-transitive graphs and do not count cycle components of individual two-factors in prisms. Baldridge–Lowrance–McCarty (doi:10.37236/9214) investigate a different two-factor polynomial invariant. Targeted searches for cycle count, component distribution, perfect-matching refinements, polynomial equivalents and the specific root threshold identified no directly encompassing accessible claim. Unseen older literature may contain an equivalent transformation; the search is not a proof of priority.
+PASS
 
-**Value — PASS.** The full connected-component spectrum of spanning two-factors in a canonical family of cubic, planar, vertex-transitive graphs is a natural refinement of the classical factor-count theorem. The exact coefficient transform and sharp real-rootedness boundary expose a structural change at eight rungs, contrasting with the real-rootedness of ordinary cycle matching polynomials. The finding is more than a new instance of the known total or Hamiltonian counts; the all-order root classification is its main mathematical contribution.
+The cubic complement bijection counts labelled undirected edge subsets exactly once. If a perfect matching has rungs, each unmatched rim run is an even path and has the same unique matching on both rims. With no rungs the only extra cases are the two opposite phases for even n, whose complements each follow a connected zigzag around the base. For a nonempty base matching of size k, deleting its edges partitions the base into k paths; the complement closes each doubled path into one cycle using its two endpoint rungs. The empty base matching gives two rims. Counting marked cyclic gaps gives k m_{n,k} = n binom(n-k-1,k-1) for k>0. The quotient by z has positive coefficients and, if real-rooted, all its roots would be negative. Newton applied to the coefficient triple at degrees 0,1,2 gives (d-1)b^2 >= 2dac. Both displayed parity factorizations of the opposite defect are positive for m>=4; the explicit factorizations for n=3 through 7 (quadratic discriminant 29 at n=7) give the other direction. There is always a zero at 0; for n>=8 the claim is existence of nonreal zeros, not absence of real ones. An independent bounded check, `python3 /workspace/branches/frozen_review_checks.py` (section 5, passes), exhausts the edge subsets that can be perfect matchings for n=3..7, counts complement components by disjoint sets, and recovers both Newton factors symbolically. The proof supplies all orders; the supplied checker was inspected, not executed.
 
-**Limitations.** The result concerns simple prisms only. Non-real-rootedness need not imply failure of coefficient log-concavity. No claim of independent checking or of uniqueness against all historical literature is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the full complement-cycle refinement together with the uniform real-zero boundary. The same-graph total matching count and the connected-factor coefficient are credited prior coverage; the available statements do not determine the distribution or the threshold. The strongest same-graph older paper remains only partially accessible, not ruled out in full.
+
+## value
+
+PASS
+
+Spanning two-factors are a natural prism invariant beyond the total and Hamiltonian coefficient. The distribution is uniformly exact and supplies a sharp, all-order change in zero geometry, contrasting with the unmodified cycle matching enumerator. The first-three-coefficient obstruction explains the boundary without fitting a finite table and is potentially useful for comparing nearby component polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

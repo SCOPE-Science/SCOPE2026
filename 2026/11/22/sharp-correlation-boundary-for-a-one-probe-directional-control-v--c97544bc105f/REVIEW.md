@@ -1,19 +1,21 @@
-# Review of the coupled-reference Gaussian descent theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation explicitly fixes the objective, reference construction, probe covariance, update, and independence between time steps. Isserlis pairings give the exact mean. Conditioning on one Gaussian probe reduces the squared-norm calculation to an identity for a noncentral Gaussian quadratic form; chi-square moment identities then yield two explicit invariant-block coefficients. Their difference is nonnegative, which identifies the exact least-favorable hinted direction. Elementary scalar optimization determines the entire strict one-step contraction range, while the conditional mean recurrence gives the exact mean-square impossibility at and above the coupling boundary. The dimension-free statements come from the algebra, not from extrapolation of finite checks. A standalone checker independently verifies both first and second moments in 105 rational-parameter cases.
+PASS
 
-## Originality — PASS, qualified
+I reconstructed the moments by conditioning on the reference v, rather than on u as in the frozen proof. Put z=1−q, b=x−m, V=||Pv||², W=||(I−P)v||², U=V+W, and X=v·x. Given v, u is Gaussian with mean ρv and covariance zI, also valid when z=0. Then G=m+u(u·b), E[u(u·b)|v]=qv(v·b)+zb, and E[||u||²(u·b)²|v]=q² U(v·b)²+qz[U||b||²+(d+4)(v·b)²]+z²(d+2)||b||², by expanding the standard centered Gaussian moments. For a unit x in one invariant subspace, put ε=1 on ran(P), 0 on ker(P). One has v·b=(1−V)X, m·v=VX, m·b=(ε−V)X², and ||b||²=1+(V−2ε)X². Average using independent χ²_k and χ²_(d−k) variables V,W, and conditional expectation of a squared coordinate equal to its block radius squared divided by rank (used only when that axis exists). Substituting these identities in an independently written integer-polynomial replay verifies both drifts and both printed second-moment polynomials coefficient by coefficient in d,k,q, rather than in a dimension grid. Orthogonal invariance preserving P forces block-scalar first and second moment forms and no mixed block. Nonnegativity of C_parallel−C_perp and the difference q in mean drifts make the parallel multiplier maximal, also at k=d where no other block is present. Expanding the scalar quadratic gives strict contraction exactly at the displayed subcritical q and positive h interval; a positive C_parallel gives the unique minimizer there. Freshness gives the conditional iteration bound. At the boundary the expected hinted projection is unchanged, and above it grows by (1−h[1−(k+1)q])^t; Jensen gives the stated nonconvergence/divergence for nonzero hinted initialization. The two-point noiseless differences on the specified quadratic are exact at every nonzero radius.
 
-The 2026 directional-hint source gives the control-variate estimator and explicitly requires the exploratory Gaussian direction to be independent of the reference. Its separate practical reference-estimation stage and its oracle estimator do not imply a result for a *jointly Gaussian, same-iteration, one-probe* projected reference. Prior Gaussian projected-control analyses with known reference vectors or independently sampled probes use different dependence assumptions. Earlier general control-variate work establishes why dependence can introduce bias, so no claim is made to invent that principle. Targeted bibliographic and mathematical-record searches did not identify the exact rank-dependent drift reversal and minimax moment formula, but unindexed equivalent estimators and older dependence-bias analyses remain originality risks. These searches are not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The claim answers a concrete cost-versus-reliability question about eliminating separate reference-estimation directions. The safety threshold depends only on hint rank, holds for any ambient dimension, and cannot be repaired merely by decreasing a positive step once mean drift reverses. The positive-side moment formula also supplies an exact stepsize calibration rather than just a negative example. This constitutes a motivated structural boundary for the computational shortcut, with an explicitly limited quadratic scope.
+The control-variate form and the general risk of dependent data reuse have prior coverage. The distinct contribution supported by actual comparisons is the coupled one-probe model's exact rank-dependent drift reversal and optimized worst-case mean-square frontier, not an assertion about the published independent-reference algorithm.
 
-## Closest literature and limits
+## value
 
-Closest primary work: Ryabchenko, Qian and Mou, *Adaptively Incorporating Directional Hints into Zeroth-Order Optimization*, arXiv:2609.08277, Sections 3–4. Relevant control-variate background: Geffner and Domke, *Approximation Based Variance Reduction for Reparameterization Gradients*, arXiv:2007.14634. The theorem deliberately changes the reference/probe dependence in the first paper; it does not dispute its stated results. No extension to noisy or nonlinear settings is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reusing a probe to save reference work is a natural algorithmic shortcut. A rank-only threshold that no choice of small positive step can fix beyond the boundary is a substantive limitation, not just an observation of bias. On the safe side the exact moments give a full minimax stepsize calibration, while the quadratic model isolates the reuse mechanism from curvature or measurement noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

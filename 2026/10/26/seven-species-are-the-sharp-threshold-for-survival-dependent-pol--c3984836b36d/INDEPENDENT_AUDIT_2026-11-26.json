@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:27.211491Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–77",
+        "Frozen VERIFICATION.md, verify.py and certificate.json, including the exact gain-polynomial checks and reported census",
+        "Independent endpoint and component-count arguments above"
+      ],
+      "rationale": "Linearity of expectation and independent failures give protection gain sum(q^d) over neighboring plants. With two pollinators the shared terms cancel, leaving a fixed sign difference. With at most three plants either a target covers them all or each singleton target is dominated by a two-plant target (by connectivity for at least two plants), and any two two-plant neighborhoods differ by at most one substituted term q^d. Their order cannot change on (0,1). I independently checked 4x3 without relying on the frozen enumeration: write s_i for the count of singleton rows at i and t_i for the count of two-pollinator rows opposite i. Removing common terms and dividing the gains by q leaves the scores s_i-t_i q. A universal target exists iff the maximizers at 0 and 1 intersect. With disjoint maximizer sets, any initial maximizer i and final maximizer j satisfy s_i>s_j and t_i-t_j>=s_i-s_j+1, so t_i>=2 and at least one singleton is required. Three singleton rows leave too few pairs. If two singleton rows have the same holder then that holder needs t_i>=3; if they have different holders both need t_i>=2. Both are impossible with four rows. Thus there is one singleton at A and at least two opposite pairs BC. Connectivity forces precisely two BC rows and the last row to be AB, AC, or ABC, giving exactly the two classes up to guild-preserving relabeling. The displayed expectation vectors follow by summing q^degree over unprotected plant neighborhoods; their leading difference q(1-2q) gives the switch and all ties, including a three-way tie at the crossing for the second class. For the denominator, 7^4-3*3^4+3=2161 labeled matrices have no isolated vertices. Exactly 3[4(3^3-2^3)+6(3^2-2^2)+4(3-2)]=330 split as a one-pollinator and a connected two-pollinator component; 3^4-3*2^4+3=36 split into three one-pollinator components. This leaves 1795. The first class has 12 row arrangements and six distinct column permutations of the multiset, the second 12 and three; hence 72+36=108.",
+      "residual_risks": [
+        "The uploaded verifier was inspected, not executed. The classification and counts are established analytically here and require no finite probability grid.",
+        "The result concerns a connected homogeneous, iid, one-step model and expected plant richness, not the probability of avoiding any plant loss or an ecological cascade model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed first-reentry theorem rules out strict reentry with at most three pollinators, compatible with a single switch at three.",
+          "The all-plants-coverage record protects one pollinator but optimizes the probability of the whole-guild event.",
+          "Traveset–Tur–Eguíluz model dependence on interactions and secondary extinction under simulated pollinator losses."
+        ],
+        "reasoning": "A one-switch classification is not implied by a bound on reentry. The expectation sums marginal survival probabilities; probability of retaining all plants depends on their joint survival and need not share a maximizer. Ecological stress-test rankings do not fix the homogeneous iid guaranteed-protection extremal problem.",
+        "searches": [
+          "Resultary 25e1c4f78bca and 0a7703a60456",
+          "Traveset–Tur–Eguíluz DOI 10.1038/s41598-017-07037-7"
+        ]
+      },
+      "checked_sources": [
+        "Closest indexed Resultary Findings above",
+        "Primary literature search, accessed OA passage and named bounded retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reentry sources study revisiting an optimizer at a later q. They do not assert the existence of a target optimal throughout (0,1) for small total order.",
+          "Bernstein coefficient comparison for whole-guild coverage is a different criterion on a different objective."
+        ],
+        "reasoning": "The gain identity facilitates comparison but does not produce the guild-size reduction, disjoint endpoint maximizers and forced singleton/opposite-pair structure. These turn a known framework into an exact obstruction threshold and census, not a parameter substitution in a previously stated extremal theorem.",
+        "searches": [
+          "Resultary 36a54e0c36c2 and 25e1c4f78bca Findings",
+          "Resultary 0a7703a60456 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-plant reentry record uses the exact same sum of powers q^d and the same intervention and objective.",
+          "The focused primary search returned general conservation material rather than a relevant exact classification."
+        ],
+        "reasoning": "The problem can be expressed as expected coverage of a random set of pollinator columns, with one forced present. Names such as rescue and protection do not distinguish this model; the polynomial identity is already covered. Reentry, however, requires a target to lose and regain unique optimality, not just lack of a universal maximizer.",
+        "searches": [
+          "Local Resultary same-model protection and expected-richness polynomial lookup",
+          "Resultary 36a54e0c36c2",
+          "Primary literature query combining iid survival, optimal switch, four plants/three pollinators and expected coverage polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-model entries classify reentry and supply larger-size witnesses, not the two 4x3 classes or 108/1795 count.",
+          "The nearby indexed seven-patch classification uses trees and one surviving edge, with a single spider obstruction."
+        ],
+        "reasoning": "Neither the same-model reentry witnesses nor a matching total order in a different reliability problem gives the labeled or unlabeled obstruction census in this model. No exact lookup of these classes was identified in the sources inspected.",
+        "searches": [
+          "Local Resultary searches for protection switches and seven-species thresholds",
+          "Resultary 36a54e0c36c2, 25e1c4f78bca, 0a7703a60456 and 914906a1f09d"
+        ]
+      },
+      "rationale": "Both the expected-richness gain formula and survival-dependent protection choices are prior in the closest indexed model. The part supported as distinct is the minimum total order for loss of a universal target, with the full two-class first obstruction layer and its multiplicities. Same-model reentry results answer a different extremal question, and the other coverage and ecological comparisons use different objectives or stochastic mechanisms.",
+      "residual_risks": [
+        "The exact-model reentry overlap rules out a broad originality claim about discovering the model, the score polynomial, or dependence of rankings on survival.",
+        "Full versions of two cited ecology articles were not obtained. An unindexed coverage or reliability analysis could give the exact obstruction classification by an equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior overlap with model and identity; different extremal property",
+          "evidence": "At most four plants prevent a unique optimum from leaving and reentering; five plants suffice with seven pollinators. The gain is the sum of q^degree over the target's adjacent plants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-five-plant-threshold-for-reentrant-pollinator-rescue-prior--36a54e0c36c2/RESULT.md",
+          "material_read": "Finding from offset 73",
+          "method": "local indexed mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp five-plant threshold for reentrant pollinator rescue priorities",
+          "trigger": "Exact same stochastic model, intervention and benefit-polynomial identity"
+        },
+        {
+          "assessment": "Different switching question",
+          "evidence": "No strict reentry with at most three pollinators; reentry is exhibited with four pollinators and thirteen plants. This does not exclude a single switch at three.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-first-reentry-of-optimal-pollinator-protection--25e1c4f78bca",
+          "material_read": "Finding from offset 56",
+          "method": "local indexed mirror",
+          "title": "Sharp first reentry of optimal pollinator protection",
+          "trigger": "Same intervention, expectation and optimizer switching"
+        },
+        {
+          "assessment": "Whole-guild coverage objective, not expected richness",
+          "evidence": "Optimizes probability all plants remain covered and states a ten-species threshold using survival-subset coefficients.",
+          "identifier_or_url": "2026/10/25/SCOPE-ten-species-are-the-sharp-threshold-for-survival-dependent-prote--0a7703a60456",
+          "material_read": "Finding from offset 104",
+          "method": "local indexed mirror",
+          "title": "Ten species are the sharp threshold for survival-dependent protection",
+          "trigger": "Close coverage formulation, identical one-certainty intervention"
+        },
+        {
+          "assessment": "Different graph family and invariant",
+          "evidence": "Trees and probability of at least one surviving edge; sole exceptional graph is a three-arm spider.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-seven-patch-threshold-for-protecting-one-surviving-habit--914906a1f09d",
+          "material_read": "Finding from offset 75",
+          "method": "local indexed mirror",
+          "title": "A sharp seven-patch threshold for protecting one surviving habitat edge",
+          "trigger": "Matching order seven and one-certainty intervention"
+        },
+        {
+          "assessment": "Ecological precursor, not evidence of an exact homogeneous threshold",
+          "evidence": "Simulates pollinator losses in a hybrid stochastic/topological model with plant dependence and interaction strengths, identifying targets for conservation; this differs from forcing one fixed survivor and optimizing the iid expected-coverage envelope.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-017-07037-7",
+          "material_read": "OA PDF p. 1 abstract, offset 0",
+          "method": "OA full-text passage inspection",
+          "title": "Plant survival and keystone pollinator species in stochastic coextinction models",
+          "trigger": "Potential earlier stochastic target prioritization under pollinator loss"
+        },
+        {
+          "assessment": "Full-text comparison remains unverified",
+          "evidence": "Frozen citation and prior-work characterization only; access failure is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2004.2909",
+          "material_read": "No readable full text obtained in bounded OA retrieval",
+          "method": "OA retrieval attempt",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "Cited plant-loss simulation precursor"
+        },
+        {
+          "assessment": "Full-text comparison remains unverified",
+          "evidence": "Frozen citation and prior-work characterization only; access failure is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2009.01437.x",
+          "material_read": "No readable full text obtained in bounded OA retrieval",
+          "method": "OA retrieval attempt",
+          "title": "The robustness of pollination networks to the loss of species and interactions",
+          "trigger": "Cited robustness precursor, including pollinator behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–24 and 39–77",
+        "Same-model and whole-guild comparisons listed above"
+      ],
+      "rationale": "The first-layer classification tells exactly when a single best target is guaranteed to work without knowing p, and gives two minimal examples in which it provably cannot. This is a natural sharp boundary for a robust choice problem in an established model. The count is useful because it measures the incidence of the first obstructions under uniform labeled sampling and the two class descriptions explain what drives the switch; a numerical crossing example alone would not do either.",
+      "residual_risks": [
+        "The labeled ratio is not an estimate for actual ecosystems; the structure and threshold are confined to the stated unweighted stylized model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

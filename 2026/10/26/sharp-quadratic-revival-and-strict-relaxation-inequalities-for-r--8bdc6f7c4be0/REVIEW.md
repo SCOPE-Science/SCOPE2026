@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The central Lindblad factorization is verified algebraically from commutation of the transposition class sum with each group translation. Character Plancherel yields the exact squared-distance formula with nonnegative summands. Equality forces every nontrivial Fourier scalar to have unit modulus; Plancherel then implies a point-mass coherent output. Conjugacy invariance and the trivial center of \(S_n\) reduce this to projective recurrence. Jucys--Murphy contents make the spectral phases integral, while three explicit partitions prove the gcd is one for every \(n\ge5\); \(n=3,4\) are computed exactly. The even analytic expansion of transition probabilities establishes the strictly positive second-order deficit. The independent computational cross-check passed 127 finite tests; no finite test is used as an infinite proof.
+PASS
 
-## Originality: PASS (best-knowledge)
+In the stated normalization the central H commutes with every noise conjugation, the dissipative law stays diagonal, and measurement after coherent evolution convolves that law with the central probability Q_s. Central Fourier transforms are scalar with factors exp(-gamma*t*(1-r_lambda)) and kappa_lambda respectively. Counting-measure Plancherel gives the claimed 1/n! prefactor and nonnegative deficit. At finite t the classical factors are positive in every mode. Equality forces unit absolute value of every scalar transform of Q_s, including the trivial one, so Plancherel gives squared mass one. The resulting single atom is central and hence the identity for n>=3. Since the coherent operator is a convolution, its identity column being a phase times the identity basis vector forces scalarity. For the period the content gaps for n=3,4 have gcd 3,2; for n>=5 the three displayed partitions exist and have gaps n, 2(n-1), 3(n-1), of gcd one. Dividing the normalized denominator C by that gcd gives the least period in units of 2*pi. For the curvature, the transposition amplitudes at leading order are -i*delta/C and H^2(e,e)=1/C; real H makes each Q_delta(g) even. Thus Q_delta=delta_e+(delta^2/C)(mu_2-delta_e)+O(delta^4), giving exactly the stated K_n, positive because the standard mode has positive spectral gap. At t=0 the physical phase is zero; the fixed-t deficit function has the stated expansion in its formal phase variable. For bounded corroboration, independently assembled 6- and 24-dimensional matrices at gamma=0.7, t=0.8 (index (g,h) receives 1/C for each tau with g=tau*h) gave revival Frobenius errors below 1e-14 and positive deficits 0.193350989 and 0.263066558 at half the respective periods. At delta=0.004 the divided deficits were 0.168669855 and 0.098016012 versus analytic coefficients 0.168670687 and 0.098016258. Uploaded verify.py and its recorded PASS were inspected, not rerun; proof, not this bounded test, gives the all-n result.
 
-The 2026 He--Hutsalyuk--Mussardo--Stampiggi paper provides the exact model, convolution factorization, nonstrict total-variation bound, and rational recurrence discussion. The 2003 Gerhardt--Watrous paper proves class-walk periodicity and the underlying integrality idea. Neither inspected primary full text supplies the joint sharp minimum-period classification, squared-distance equality lattice and positive curvature asserted here. Published records returned for symmetric-group Fourier sampling concern different observables. General Fourier positivity alone gives nonincrease, not the time-lattice criterion absent a sharp period. Some broader literature could contain an equivalent arithmetic recurrence theorem; a search is not a uniqueness proof.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating work emphasizes recurrence, coherence-assisted relaxation and the potential growth of recurrence times. The complete sharp period is quadratic for all \(n\ge5\), ruling out a much longer *minimal* revival time for normalized transpositions. Exact equality times expose discrete coherent couplings at which the measured relaxation improvement vanishes, and the positive quadratic law quantifies how rapidly it returns off resonance. This is a parameter-wide structural statement with direct implications for selecting observation times and coupling strengths, rather than a numerical isolated case.
+The normalized model, convolution, spectral input, a recurrence upper bound and the quadratic expansion of the coherent law have prior coverage. The verified prior statements do not give the evaluated least-period gcd for all n with its exceptions, or the finite-time L2 equality set and positive local deficit at exactly those phases. The distinction between a common revival and the least scalar revival is substantive; the closest prior recurrence arithmetic overestimates the least period already for n=5. The exact joint classification, not general nonstrict convolution contraction, is the supported contribution.
 
-## Limits and closest literature
+## value
 
-For central random-transposition dynamics only; \(n=2\) is excluded, and no strict total-variation or generic-class result is asserted. See arXiv:2609.13387v1, Section 5 and Appendix B, and arXiv:quant-ph/0305182v1, Proposition 7. No independent review or literature-wide priority certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized least period is a natural invariant with physically different scaling from a recurrence upper estimate. The measured-law equality result identifies exactly when coherent coupling makes no improvement in the specified squared distance, and the positive explicit curvature quantifies how strictness starts near those phases. Neither the equality set nor the rate coefficient is extracted from an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

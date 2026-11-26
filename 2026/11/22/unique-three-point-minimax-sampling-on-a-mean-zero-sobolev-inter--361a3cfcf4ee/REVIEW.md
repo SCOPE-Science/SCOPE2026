@@ -1,15 +1,21 @@
-# Review: unique three-point minimax sampling on a mean-zero Sobolev interval
+# Independent mathematical audit
 
-## Correctness — PASS
-The point-evaluation representer follows from the zero-mean fundamental theorem of calculus, and the exact Green kernel is verified by direct integration. The three-by-three Gram spectral reduction is standard, while the proof supplies a **global** lower certificate independent of symmetry: the antisymmetric outer-site test has squared Rayleigh quotient equal to half the outer-site separation, and the symmetric two-dimensional compression is bounded entrywise below by the centered configuration. For separations below the algebraic balancing value, positive Perron monotonicity gives strict improvement when sites move to the balanced design; above it, the antisymmetric quotient strictly excludes the configuration. The cubic determinant identity and the strict inequality for the third eigenvalue establish a doubly attained sharp eigenvalue. Every equality step is rigid. A standalone SymPy/rational checker passed 1,999 checks; these finite tests are corroborative and not used as a proof of globality.
+## correctness
 
-## Originality — PASS, qualified
-The 2012 Gauthier–Bay finite Gram spectral framework is a precursor, not a classification of three-node placement for the **largest forward evaluation Gram eigenvalue**. Santin's 2022 Brownian-bridge theorem optimizes a Dirichlet interpolation power function and yields equally spaced interpolation sites; that is neither the mean-zero Neumann kernel nor the present objective. The 2014 Gauthier–Pronzato IMSE paper concerns integrated prediction variance; its accessible abstract does not assert this minimax trace classification, but its complete full text was unavailable. Searches for the exact cubic, optimizer and aliases, including comparisons with accessible related two-node Neumann and three-node periodic Sobolev results, produced no directly covering statement. A searchable database failing to return a match does not establish historical uniqueness; an unindexed equivalent remains a risk.
+PASS
 
-## Value — PASS
-A fixed three-site simultaneous observation operator on a mean-zero energy space is a natural sharp multi-trace inequality and kernel sampling-design problem. The objective is not interpolation risk or mere pointwise control: it measures the maximum total squared observation response of a unit-energy input. The full configuration space is classified, with a unique nonuniform centered cluster, an exact cubic threshold, a double active top eigenvalue, and an explicit two-dimensional class of norming inputs. The analytic antisymmetric-versus-Perron balancing argument explains why the optimum is interior and is not obtained by a direct substitution into the periodic or two-site cases. No all-cardinality or arbitrary-weight generalization is claimed.
+The derivative of the mean-zero representer at x is t−1_{t≥x}; direct integration yields the stated Gram kernel. The outer antisymmetric unit vector has Rayleigh value L/2 for every configuration. In the symmetric two-dimensional compression the noncentral corrections are entrywise nonnegative, and some entry is strictly increased unless both midpoint and middle-site offsets vanish. For L≤2a*<1/4 the centered compression is entrywise positive and its upper-left and off-diagonal entries strictly decrease with L. The positive maximizing eigenvector therefore detects every strict correction, proving global sharpness and rigidity. For L>2a* the antisymmetric certificate alone excludes optimality. Direct symbolic computation of the full symmetric-triple Gram characteristic polynomial reproduced the factor λ−a and the cubic condition for the remaining quadratic to vanish at λ=a. At the root in (1/9,1/8) the third eigenvalue is positive and strictly below a; the two stated coefficient vectors span the top eigenspace and their Riesz combinations give all nonzero norming inputs. The ordered-configuration argument includes endpoints and coincident indexed sites. Independent high-precision computation gave squared norm 0.12156132517648428235… and third eigenvalue 0.03643166120435733818… .
 
-## Closest sources and limitations
-Gauthier and Bay (2012), doi:10.5802/afst.1341, Section 5; Gauthier and Pronzato (2014), doi:10.1137/130928534 (abstract-level comparison); Santin (2022), arXiv:2210.15959 (sections 2–5, especially Theorem 5). The theorem is restricted to exactly three unit-weight evaluations, real mean-zero \(H^1\) functions, and interval derivative energy. Full-text priority uncertainty for the 2014 integrated-variance paper and unindexed literature remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact free three-site design for the forward Gram eigenvalue of the nonperiodic mean-zero interval, including its unique absolute location, cubic threshold, top multiplicity and equality class. The inspected circular first-order and general fractional circular records substantially overlap in problem type, but do not give the interval result. The broader inspected spectral interpolation and statistical design results use different objectives or fixed sites.
+
+## value
+
+PASS
+
+The result gives a global sharp constant and complete site classification for a concrete interval sampling norm, not merely another formula for the kernel. The two different active modes explain the clustered geometry and yield a useful exact benchmark distinct from classical interpolation grids; the proof resolves all off-center and boundary competitors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The analytical argument rests on the exact stationary branch recurrence, finite-ring balance, a quenched strong-law limit, two-sided geometric domination of a shifted lattice sum, the nonzero Euler-beta Fourier coefficient, and a logarithmic cutoff estimate. Those are proved in `RESULT.md`.
+## correctness
 
-Run `python3 check_comb.py` using Python 3 with no external packages. On the packaged source it reports **36 passed assertions**: exact-rational finite-branch solutions, exact-rational stationarity on a heterogeneous four-site-backbone comb, high-precision fractional-power comparisons at distinct logarithmic phases, and high-precision critical inverse-log comparisons. Its finite checks do not certify asymptotics for every parameter choice.
+PASS
 
-For the illustrative choice \(\alpha=100\), \(\beta=1\), \(\rho=1/10\), the predicted phase amplitudes are approximately \(\Theta_{1/2}(0)=0.7202400\) and \(\Theta_{1/2}(1/2)=0.6451692\). The theorem that the amplitude is nonconstant follows from an exact nonzero Fourier coefficient, not this sample.
+The reflecting branch imposes the ghost condition p_(L+1)=f p_L. The two stationary roots u,w give B/A=T(w/u)^(−L); summing the branch balance gives rΔ_L=α−βp_1 and hence (1), with the empty-tooth case checked separately by Δ_0=0. Branch-plus-junction balances force a constant junction mass on the ring, giving (3); Δ_L≤b supplies the strong law at each positive r, while the truncated strong law applies to the infinite unreset occupation mean when ρf≥1. For weak r, implicit root differentiation gives q=f+O(r), T∼c/r and b∼(α−β)/r. In the lattice shift about floor(log_q T), both tails are uniformly geometric (ρ for the positive tail, ρq>1 for the negative tail). The phase error is O(r log(1/r)); the limit sum is positive and bounded away from zero and its first harmonic is a nonzero Euler beta integral, so v/r^(1−s) has no phase-independent limit. At ρ=1/f one may omit 1−q^(−L) with error at most b/T=O(1); this is the bound needed in place of the extraneous factor (1−ρ) on frozen line 126. Replacing q by f costs O(1) since the kernel derivative is bounded by L/4 and geometric L has finite mean. The sum of (f^L+T)^(−1) equals T^(−1)(log_f T+O(1)), and (1−f^(−1))b/T=1+O(r), yielding the full claimed relative O(1/log(c/r)) correction. No numerical phase sample is used to establish nonconstancy.
 
-The stationary theorem is not asserted for simultaneous thermodynamic and zero-return limits. The full article associated with DOI 10.3390/e25111529 was not accessible during the primary-literature comparison, so external publication-priority checking remains appropriate. No independent audit or validation has been performed.
+## originality
+
+PASS
+
+The exact stationary formula, reset-restored drift, and zero-reset threshold are prior results and are not credited as original. The distinct supported result is the singular small-r law for unbounded geometric teeth, including its evaluated, strictly nonconstant amplitude and the exact borderline logarithmic coefficient. The closest prior perturbation formula takes fixed lengths or finite cutoffs and has divergent coefficient moments here.
+
+## value
+
+PASS
+
+This fills a natural singular regime precisely where perturbative reset mobility based on finite moments breaks down. It distinguishes an actually oscillating amplitude from an ordinary regularly varying onset and identifies the sharp logarithmic boundary coefficient. Those sharpen the established statement of positive drift and are meaningful even when the harmonics are too small to resolve numerically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

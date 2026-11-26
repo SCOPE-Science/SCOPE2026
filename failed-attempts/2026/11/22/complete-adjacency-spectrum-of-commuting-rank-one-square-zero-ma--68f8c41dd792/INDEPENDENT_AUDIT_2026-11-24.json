@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:18:26.766224Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68; VERIFICATION.md; checker.py, checker_output.txt and requirements (inspected, not run)",
+        "/workspace/independent_checks/one_commuting.py and one_commuting.log"
+      ],
+      "rationale": "Two rank-one square-zero matrices can commute only by mutual annihilation: if the products agree and are nonzero, their image and kernel force proportionality, making the products zero. Their flags have q−1 copies, giving simple adjacency B⊗J_(q−1)−I with B the mutual cross-incidence matrix including loops. Its row count is t+(t−1)s. For the point-plus-hyperplane sector U, incidence Gram counts give (t−s)I+sJ and the two stated nonconstant levels. In B² the middle point lies in H∩K and the middle hyperplane contains the span of that point and the two endpoint points. For distinct endpoints, each middle point contributes [n−3]_q except for points on the line joining the endpoints, which contribute an extra Q. The cross-incidence cases give q+1, one, or zero such points. The coincident-endpoint count instead uses [n−2]_q with an extra q^(n−2) for the common point. Subtracting (q−1)QB+qQ²I leaves exactly the point-only or hyperplane-only terms in (1). Hence on U perpendicular the factors are B−q^(n−2)I and B+QI. Dimension and trace yield the two multiplicities and scalar-copy lifting gives the listed eigenvalues. The two negative sectors cannot give a zero adjacency eigenvalue; the positive sector is bounded below by q^(n−2). For n=4 the two negative levels of B coincide for every q, so the corresponding table multiplicities must be added as directed in the assumptions; the n=3 ancillary list still follows with a=0. Independent products of actual matrices reproduced exact annihilators and multiplicities by trace moments in the binary n=4 and ternary n=3 cases.",
+      "residual_risks": [
+        "The Finding's phrase 'with equal numerical values combined' describes the multiset convention, not literally distinct rows for n=4. The proof, not the two independent exact small cases or the recorded numerical checker, covers all prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithm 2 applies to this partial-flag action up to sign: use Ind_(S_(n−2))^(S_n) 1, with constituents (n), two copies of (n−1,1), (n−2,2), (n−2,1,1), obtained by adding two boxes to (n−2). The transposition class sum acts by sums of box contents; relative to binom(n,2) the deficits are 0, n, 2(n−1), 2n. The parabolic longest length is binom(n−2,2)."
+        ],
+        "reasoning": "Algorithm 1 uses half the sum of binom(n,2) and the content sum as the power of q, and Algorithm 2 subtracts the parabolic length. The magnitudes are D, q^(3(n−2)/2), L=q^(n−2), Q=q^(n−3), respectively. The first two are precisely the magnitudes on U. Each residual constituent has multiplicity one in the permutation module by Remark 2.17, so equivariance gives only one sign on each, even in type A where the general algorithm cautions that the signs need extra attention.",
+        "searches": [
+          "De Beule–Mattheus–Metsch arXiv:2007.01104 §2.6, Algorithms 1 and 2 and Remark 2.17; standard Young branching and class sum of transpositions"
+        ]
+      },
+      "checked_sources": [
+        "De Beule–Mattheus–Metsch arXiv:2007.01104, primary passages and the tested specialization",
+        "Resultary 00e8b0fff4f8, 449d5040be68, 31b2442abb5e and f34390e59c88",
+        "Boroja–Kokol Bukovšek–Stopar arXiv:2602.07467"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put L=q^(n−2). If a,b are the residual multiplicities by magnitude, a+b=F−2v+1 and aL²+bQ²=FD−D²−2(v−1)L³, since O is D-regular with no loops. These solve to the two frozen multiplicities; symbolic substitution verifies both equations and aL−bQ=−D."
+        ],
+        "reasoning": "The signed residual trace is −D because O is loopless and the two incidence levels cancel. Both magnitudes have positive multiplicities for n≥4. Their signs are constant on each multiplicity-one module, so that trace uniquely forces +L and −Q (the opposite choice gives +D and the equal-sign choices have greater absolute trace). On U, ordinary incidence Gram diagonalization gives B's claimed levels; away from U use O without change. Passing to actual matrices and subtracting the diagonal yields the entire frozen spectrum, with nonsingularity an immediate bound on those levels. The n=3 baseline is also elementary: the flag graph becomes the line graph of the point–line incidence graph before copying and removing loops. The prior implication does not rely on inferring priority from a same-day entry.",
+        "searches": [
+          "Apply the prior partial-flag opposition algorithm for type {1,n−1}; compare its outputs to the target on U and on the residual space; Boroja et al. arXiv:2602.07467 §5 for n=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Opposition O on point–hyperplane flags requires both cross-nonincidences. Entrywise O=J−X−Xᵀ+B where X_ij=1_(P⊂K). J, X and Xᵀ have images in U, and O=B on U perpendicular."
+        ],
+        "reasoning": "The two graphs are not simple complements, but their residual operators are identical. On the two zero-sum incidence modules O maps point functions to −q^(n−2) times the incidence transform on hyperplanes, and dually, so O has eigenvalues ±q^(3(n−2)/2) there with multiplicity v−1 each. Its valency D is q^(2n−3), by choosing the point outside H and then the hyperplane through that point but not P. Thus all changes outside the common residual sector are elementary known incidence calculations.",
+        "searches": [
+          "Resultary mutual cross-incidence and flag spectra queries; De Beule–Mattheus–Metsch arXiv:2007.01104 §§2.3–2.6 and Lemma 3.7; Blokhuis–Brouwer–Güven, point–hyperplane flag Kneser graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "00e8b0fff4f8 counts cliques and gives degree/diameter; 449d5040be68 gives maximal cliques and their intersections and excludes graph spectra from scope; 31b2442abb5e gives the two edge-geometry common-neighbor counts. The same-day idempotent record f34390e59c88 has nonincident flags. The 2014 Kneser paper was located as metadata only."
+        ],
+        "reasoning": "The prior same-graph findings supply the graph or some local counts, not an explicit complete eigencensus. The idempotent operator is not the same relation. No inspected exact printed table was required for the demonstrable general-to-specific implication.",
+        "searches": [
+          "Resultary: rank-one nilpotent commuting graph, clique spectra, adjacency spectrum, common neighbors and pair-count record c64b3bef-2714-42c6-aeaa-b9883604b3df; exact Springer issue and author preprint index for point–hyperplane flag Kneser paper"
+        ]
+      },
+      "rationale": "The prior partial-flag opposition algorithms of De Beule–Mattheus–Metsch mechanically yield the main n≥4 spectrum, even though they do not print this matrix-graph table. Opposition differs from B only by an explicit operator with image in the elementary point-plus-hyperplane sector. The general algorithms give precisely the two remaining magnitudes by standard symmetric-group branching; trace and trace of the square supply the signs and multiplicities. The scalar inflation is an elementary affine eigenvalue transformation. This is a verified implication, not a failure based on the unavailable 2014 paper.",
+      "residual_risks": [
+        "Precise contents of the 2014 Blokhuis–Brouwer–Güven article and the opaque pair-count record are unresolved. The FAIL is instead based on the accessible general opposition result and explicit specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically supplies the residual spectrum after the elementary sign and multiplicity computation; not a printed mutual-incidence table",
+          "evidence": "The longest-element formula computes opposition magnitudes; for cotype J the induced character picks the constituents and the length of the parabolic longest element gives the scalar correction. Geometric opposition in type A is disjointness at the paired dimensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.01104",
+          "material_read": "Definitions 2.7–2.10 and partial flag opposition rule, pp.7–8; §2.6 Algorithms 1–2 and Remarks 2.17–2.19, pp.9–10, OA offset 37200 onward; Lemma 3.7 pp.13–14",
+          "method": "Lawful OA PDF passage comparison and mathematical specialization",
+          "title": "An algebraic approach to Erdős–Ko–Rado sets of flags in spherical buildings",
+          "trigger": "General opposition eigenspectrum for the exact partial-flag action"
+        },
+        {
+          "assessment": "Unresolved; not used to establish failure",
+          "evidence": "The exact title matches the opposition object; the index's other Kneser PDF was a different work.",
+          "identifier_or_url": "https://link.springer.com/journal/493/volumes-and-issues/34-1",
+          "material_read": "Springer issue metadata, Combinatorica 34(1) (2014), pp.1–10; no decisive full-text passage",
+          "method": "Lawful publisher listing and identified author preprint index at https://aeb.win.tue.nl/preprints/",
+          "title": "Cocliques in the Kneser graph on the point-hyperplane flags of a projective space",
+          "trigger": "Potential dedicated exact spectrum of the very same opposition O"
+        },
+        {
+          "assessment": "Exact overlap on graph structure and some local intersection counts but not the complete spectrum in inspected passages",
+          "evidence": "Same actual nilpotents, with geometric clique classes; two adjacent-pair counts distinguish shared incidence from the other edge type.",
+          "identifier_or_url": "00e8b0fff4f8; 449d5040be68; 31b2442abb5e",
+          "material_read": "Findings and scope; 31b2442abb5e common-neighbor proof at offsets 4300–7283; 449d5040be68 limitations at 5284–7452",
+          "method": "Public Resultary mirror passage comparison",
+          "title": "Projective geometry and clique spectra; Maximal cliques; Second geometric edge class in dimension four",
+          "trigger": "Strongest same-graph Resultary findings"
+        },
+        {
+          "assessment": "Same compressed flag graph in the prime-field n=3 boundary, not the main dimensional range",
+          "evidence": "The incident point–line subset has adjacency by shared point or shared line.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.07467",
+          "material_read": "§§5.1–5.3 and Theorem 5.1, pp.13–17",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Unital compressed commuting graph of 3×3 matrices over a finite prime field",
+          "trigger": "Same nilpotent flags at the ancillary small dimension"
+        },
+        {
+          "assessment": "Different invariants and, in the latter case, vertices",
+          "evidence": "Distances in matrix commuting graphs and existence of commuting representatives of similarity classes are not the frozen adjacency spectrum.",
+          "identifier_or_url": "arXiv:1009.5543; arXiv:1001.0811",
+          "material_read": "Introductions and statements, pp.1–3 and pp.1–2 respectively",
+          "method": "Lawful OA PDF passages",
+          "title": "On maximal distances in a commuting graph; On types of matrices and centralizers",
+          "trigger": "Alternative commuting-graph or similarity formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; verified specialization of the prior partial-flag opposition algorithms"
+      ],
+      "rationale": "The spectrum is a natural invariant and the direct case count is a useful elementary exposition. The frozen contribution, however, is the same exact data obtained by elementary reductions from an existing general algorithm for the corresponding opposition spectrum. The scalar-copy terms and nonsingularity are immediate after those data. An alternative proof is not itself established here as a distinct scientific result with a further substantive consequence or generality.",
+      "residual_risks": [
+        "No distinct non-routine surviving finding or repaired scope was established in this review."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

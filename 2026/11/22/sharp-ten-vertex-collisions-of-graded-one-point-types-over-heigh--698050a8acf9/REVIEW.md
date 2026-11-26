@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ideal/filter characterization and bipartite-tree no-four-cycle property yield the exact polynomial identity. The sharp finite assertion follows from complete leaf augmentation, rooted-center canonical codes incorporating the lower/upper colouring, exact integer coefficient grouping, and independent ternary relation enumeration through order eight and on every ten-point witness. The executable certificate reproduces all classes and two size-two fibres. It does not claim anything beyond ten vertices.
+## correctness
 
-## Originality — PASS (provisional priority)
-Published prior work proves scalar counting for arbitrary directed Hasse trees, not the graded polynomial or its first reconstruction failures. A published height-two permutation-poset result instead uses directed counting refinement, which does not imply polynomial recovery. The general-poset eight-point collisions do not establish the tree-cover cutoff. The 1980 insertion-position paper could not be inspected in full and remains a specific historical risk; no assertion of exhaustive historical priority is made.
+PASS
 
-## Mathematical value — PASS
-The graded one-point type polynomial is a natural invariant of model-theoretic extension profiles. Its first two failures precisely identify which information is lost, separating reversal ambiguity from nonisomorphic undirected tree shape; the exact all-size formula makes the finite classification interpretable, not a list of arbitrary examples.
+For a distinct new point, transitivity in its three possible positions gives precisely the ideal condition on L, filter condition on U, and strict comparability l<u for every mixed pair. These suffice for the old induced order to stay unchanged. Universality plus homogeneity realizes each diagram over the named base and makes it a complete type. For pure profiles the ideal polynomials count the possibilities directly; an ideal is specified by its selected minimal elements and an arbitrary subset of maximal elements with all predecessors selected. If both profiles are nonempty then L lies in the lower shore, U in the upper shore, and they induce a complete bipartite subgraph. A tree has no four-cycle, so one shore is a singleton. The two degree sums double-count only the n−1 edges, which explains the st correction. The closed form uses the height-two convention of two disjoint shores (n≥2, as in the census). Independently generated rooted trees as multisets of rooted branches, deduplicated unrooted and shore-coloured trees by canonical codes minimized over all choices of root, and counted profiles by allowed strict relations rather than the degree formula. This reproduces every census row through ten, including 106 free trees, 203 oriented classes, 201 polynomials and exactly the two stated size-two fibres. Direct coefficient checks match H0, H1 and the mixed terms, including 332 and 340 totals. Reversing the colours distinguishes the dual pair and fixes each of the other two isomorphism classes; the latter have different uncoloured codes.
 
-## Closest literature and limits
-The strongest direct comparison is the published scalar tree-cover one-type formula; its output is a specialization of this polynomial and hence does not determine its coefficients or collisions. The independently developed ternary checker verifies finite cases, not the all-size uniqueness of posets or future sizes. Full external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard insertion constraints, prior scalar tree-cover counting, and the broader reconstruction through seven; do not claim them as new. The supported distinct claim is the exact height-two tree formula and sharp restricted cutoff, with complete first collision fibres, exhibiting both reversal and tree-shape ambiguity. The closest broader result uses the same polynomial but its eight-point census on all posets does not establish the target's order-nine injectivity or order-ten fibre classification. No priority order is inferred from same-day catalogue dates.
+
+## value
+
+PASS
+
+The object class is natural: its tree incidence both controls mixed extensions and allows nontrivial orientation. The first failure and complete fibres distinguish two genuinely different losses of information: inability to identify orientation and inability even to identify tree shape. The all-order expression links the invariant to reusable ideal counts and degree data rather than providing an arbitrary list of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The distance-two common-neighbor identity is proved for every unordered nonadjacent pair of vertices in \(C_5[K_m]\). The resulting cyclic condition is both necessary and sufficient, with no hidden quantifier over vertices outside the selected set. The three-state enumerator partitions every visible set exactly once. The two elementary augmentation tests classify every facet, and each of the 16 admissible maximal words is accounted for with labelled multiplicities. In particular, the coincident exponents for \(m=2,3\) are intentionally additive, not deduplicated. The proof covers all integers \(m\ge2\); finite direct graph checks of 33,792 subsets and minimal nonfaces at \(m=2,3\) corroborate the boundary and multiplicity formulas. Risk: exhaustive finite checks alone do not prove the unrestricted formula; that assertion depends on the explicit structural argument.
+## correctness
 
-## Originality — PASS, provisional
-The primary 2022 strong-product paper concerns extremal visibility numbers and selected product classes; the 2024 diameter-two paper concerns scalar visibility parameters and other diameter-two families. The 2025 polynomial paper develops the general polynomial language, complete bipartite examples and generic inclusion-exclusion from facets, none of which directly supplies this family's complete facet patterns and coefficients. Prior mathematical records on clique-expanded trees concern an acyclic base and do not cover the five-cycle blowup. Explicit record searches for cycle clique blowups, all-cardinality polynomials and facet distributions produced no direct match. Risk: these negative searches cannot rule out unindexed equivalent treatments or a broader theorem whose special case subsumes the formulas. The exact family-specific facet enumeration, not the basic visibility definition or general inclusion-exclusion method, is the proposed contribution.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial odd cycle \(C_5\) has diameter two and unique intermediate base fiber for each nonadjacent pair, turning shortest-path obstruction into a cyclic constraint. Its complete-clique blowups provide a natural infinite strong-product family not covered by tree blowup formulas. Both all-set and all-inclusion-maximal cardinality distributions, their precise four structural families, the minimal forbidden configurations, a sharp maximal-cardinality transition at \(m=4\), and uniform nonpurity are meaningful complete classifications beyond the scalar visibility number. The exact coefficients can serve as test cases for visibility enumerations of longer cycles or nonuniform fiber blowups. Scope is intentionally restricted to this natural family; no result is asserted for general graph products.
+The only nonadjacent endpoints lie in distance-two base fibers and have precisely the intervening fiber as their common neighborhood. Thus the forbidden configurations are exactly full-middle plus one endpoint on each flank. They are distinct (only the middle is full when m≥2), of equal size, and every nonface contains one, proving the minimal-nonface count. Encode an empty, proper nonempty, or full fiber by E, P or F. Every F needs an E neighbor. With one F the remaining weight is (1+A)^4−A²(1+A)^2; with two F the adjacent case contributes 1+A and the nonadjacent case (1+A)^2+A, each with five placements; with three, the two E must be nonadjacent and the five rotations of FFEFE result. Fewer than two E cannot support three or more F. A facet has m−1 selected vertices in each P, every P must have two nonempty neighbors, and every E must be sole empty neighbor of some F. These are necessary and sufficient by one-vertex augmentation. With one F an essential E next to it has a P on its other side, contradicting the P condition. Adjacent F force two exterior E and leave a remaining site that can grow whether E or P. For two nonadjacent F, the shared neighbor E requires P in both exterior positions, or the shared neighbor P requires E in both. No F leaves only all P; three F leave FFEFE. The four types give exactly the stated counts and sizes, with coincident exponents added. In particular sizes 3m−1 and 3m show nonpurity for every m≥2. The maximum is 6,10 at m=2,3, and 5m−5 for m≥4. An independent graph-based 243-state check reproduces the weighted state coefficients and the four facet orbits; the frozen verifier was inspected, not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the complete ordinary-visibility distributions including those with full fibers, their additional facet types and the exact ordinary obstructions. The same-family total-visibility enumerators already recover the no-full-fiber sector and its P-only facets, so that sector and standard polynomial machinery are not distinct contributions. The additional ordinary configurations are not covered by the compared results.
+
+## value
+
+PASS
+
+C5 supplies a natural nontrivial cyclic quotient with unique intermediate fibers. The complete ordinary obstructions and facet sizes show exactly where the ordinary complex diverges from the pure total complex, including extra maximal sets for all m and changes in the maximum-size type at small m. This supplies explicit building blocks and benchmarks for cyclic clique substitutions rather than a single unmotivated size check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

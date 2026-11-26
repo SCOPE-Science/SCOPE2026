@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:19:36.928679Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–139; AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+        "Yihyis et al., Symmetry 15 (2023), 1574, Eq. (8) and Tables 1–2 on pp. 5, 6 and 9 of the revised publisher PDF"
+      ],
+      "rationale": "The equations in primary Tables 1 and 2 match the eight displayed cases, including the additive exponential term in Model 6 (unlike the general template in Eq. (8)). The second output fixes q=v−x. The distinct phase levels have density κ/π, and each strictly monotone piece contributes that density times its phase range up to O(1), with at most one duplicate at each shared endpoint. The four quadratic-charge phases decrease on both tails because −3ωbx² dominates O(|x|) derivative terms. Likewise the absolute-only and literal mixed Model 6 have derivative −2ωb|x|+O(1); their difference is bounded with bounded derivative. These six maps have O(1) pieces: at the possible kink each analytic branch extends locally to its endpoint and the derivative is not identically zero. Subtracting the two cubic endpoints cancels the v-dependent x² term, and for R>|v| the absolute term contributes exactly 2ωbR² before its linear constant adjustment; the x-scaled bounded exponential contributes only O(R). For the two periodic-only memories, the variation equals ωb∫|x||M′(v−x)|dx+O(R). Subtract the mean of |M′| and integrate with a bounded periodic primitive to obtain the stated R² coefficients. Simple zeros of M′ give at most one stationary point in each distant zero neighborhood because h″ has constant sign there, and none away from those neighborhoods on distant tails, so the counting error is O(R). The zero-coupling formula follows directly from its phase lattice. The phase expressions are nonconstant analytic on each side, with analytic continuation up to a kink, so fibers are finite on compact windows and hence countable. The determinant on smooth branches is a cos(h)h′; this gives infinitely many regular predecessors at interior outputs. At an extremal output even an absolute-value kink poses no boundary exception: H is locally Lipschitz and the sine has zero derivative at that phase, so the first output is differentiable with zero derivative there. The claim that all extremal-output predecessors are critical follows.",
+      "replay": "Separate symbolic endpoint subtraction gave h_1(−R)−h_1(R)=2Rω[bR²+bv²−b−1]. For R>|v|, compute (−R)(v+R)−R(R−v)=−2R² for the absolute part. The period integrals give mean |S′|=2 and mean |E′|=E(1)−E(0)=e−e^−1, using monotonicity on [0,1] and [1,2]. The finite mesh-based verify.py was read, not run; it is not root-exhaustion evidence.",
+      "residual_risks": [
+        "Small wording correction: RESULT.md line 56 says ‘two maps’ contain |q|; Models 2, 5, 6 and 8 do. The proof handles all four and the formulas and conclusions are unchanged.",
+        "Remainders are pointwise in fixed parameters and target, not uniform as b tends to zero. Model 6 is the printed table, not a modified phase with the exponential term multiplied by x."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper supplies the model equations and analyzes attractors, Lyapunov exponents and bifurcation plots. The cosine-memristor comparison already uses variation, O(R) monotonicity pieces and the weighted periodic average for its particular cosine phase. The quadratic-only comparison is strictly sharper for Model 1 and also treats its small-coupling regime."
+        ],
+        "reasoning": "The methods and exact overlapping cases are not new; a broader dominance claim would need to yield the mixed Q+A versus Q+E window asymptotics with the printed phases. The cosine comparator's phase theorem and the sharper one-map cubic theorem do not assert this.",
+        "searches": [
+          "doi:10.3390/sym15081574, Eq. (8), Tables 1–2 and Section 6",
+          "Resultary mirror 9e4c97a48e8c and a19a767134c3",
+          "Resultary related-map search for cosine-flux Chialvo and Gumowski–Mira"
+        ]
+      },
+      "checked_sources": [
+        "Yihyis et al., doi:10.3390/sym15081574, revised PDF",
+        "Resultary 9e4c97a48e8c, a19a767134c3, 8b96b0ec53ba and 370a893f822a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior fixed-coupling formula gives Model 1 directly. The cosine-map theorem directly gives Model 3 on bc=1 and its proof is closely related to the general periodic part here. The source's model equations make the endpoint effect calculable, but its forward diagnostics do not evaluate it."
+        ],
+        "reasoning": "The remaining inference is the simultaneous count with an error smaller than R² in every cubic-growth mixture. It needs the eventual monotonicity and the cancellation of even target-dependent terms at opposite endpoints, plus explicit treatment of bounded oscillations. Neither already-known specialization implies whether an R² term survives in Q+A, Q+E or Q+A+E.",
+        "searches": [
+          "Resultary 9e4c97a48e8c, RESULT.md offsets 0 and 549",
+          "Resultary a19a767134c3, RESULT.md offsets 0–4490 and variation passage beginning near 4427",
+          "Primary Tables 1–2, including the literal Model 6 entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadratic-only mirror is exactly Model 1 with Q=q²−1. The cosine-memristor mirror studies F(X,Y)=(C+A sin(BX cos Y),X+Y). At bc=1 in Model 3, (X,Y)=(πx,πq+π/2) gives that map with A=πa, B=ωb/π and C=0; the window becomes |X|≤πR and its quadratic coefficient transforms to the present one."
+        ],
+        "reasoning": "These two exact overlaps are credited rather than counted as new. Away from bc=1 the sinusoidal phase has an extra linear tilt. Neither of the exact reductions produces the bounded exponential derivative case and the unbounded mixed Q+A phase, which are central to the comparison.",
+        "searches": [
+          "Resultary: Universal inverse-sheet crossover and two-term branch law in a quadratic-memristor sine map Model 1",
+          "Resultary: closest inverse-image counting results for memristor chaotic maps: cosine-flux Chialvo linear preimage count and coupled Gumowski Mira finite inverse valence",
+          "Literature: \"Yihyis\" \"He\" \"Tang\" \"Wang\" sine memristor inverse preimage count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 1 and 2 list model equations, not inverse-sheet counts. The exact Model 1 count in 9e4c97a48e8c already gives the same R³ coefficient and a sharp R term; the Chialvo and Gumowski–Mira exact results give a linear asymptotic and finite cubic fibers respectively for different maps."
+        ],
+        "reasoning": "The eight labels have a preexisting exact equation catalog. Outside the credited overlaps, the retrieved exact counts do not furnish the coefficients for that catalog. This is not an exhaustive database search.",
+        "searches": [
+          "Primary PDF Tables 1 and 2",
+          "Resultary exact Model 1 baseline title and inverse-image related-map search"
+        ]
+      },
+      "rationale": "No novelty is assigned to the Model 1 law, to phase-variation counting, or to the zero-linear-tilt specialization of Model 3. The last is exactly equivalent to an existing cosine-memristor result under an affine coordinate change. The surviving claim is the full fixed-parameter architecture comparison, especially the target-independent R² difference within the cubic-growth class and the quantitative distinctions between the periodic and absolute/exponential choices. The source paper defines these maps but its inspected analysis and conclusions report forward diagnostics, not these inverse asymptotics. The compared statements do not supply the mixed-memory term or full comparison.",
+      "residual_risks": [
+        "Unindexed equivalent mixed-phase formula or a stronger prior asymptotic result may exist. The literature lookup and targeted passages do not prove global priority.",
+        "The general variation technique and the exact overlapping Model 1 and bc=1 Model 3 cases are not credited as new findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the eight table formulas and the observable mismatch; the inspected forward-analysis passages do not give the mixed inverse count",
+          "evidence": [
+            "Table 2 Model 6 has −b(e^(−cos(πq))−1) without x, followed by −b(|q|−1)x. Eq. (8) applies x to the memory terms in its general summation. Section 6 describes attractors, Lyapunov exponents, bifurcation plots and a pseudorandom generator, not real predecessor counts."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-01574/article_deploy/symmetry-15-01574-v2.pdf (DOI:10.3390/sym15081574)",
+          "material_read": "Eq. (8) and start of Section 3 (p. 5); Table 1 and Section 3.1 (p. 6); Table 2 and Section 4.1 (p. 9); Section 6 (p. 12)",
+          "method": "Lawful publisher PDF; relevant open passages at offsets 17840, 19180, 24750 and 37670",
+          "title": "A Class of Discrete Memristor Chaotic Maps Based on the Internal Perturbation",
+          "trigger": "Exact originating equations, especially the disputed factor placement in Model 6, and possible exact prior counts"
+        },
+        {
+          "assessment": "Directly covers Model 1 and is stronger for its lower-order count",
+          "evidence": [
+            "Same phase ωx(1+b−bq²), cubic leading term and no R² term, with the sharp R term and O(1) remainder."
+          ],
+          "identifier_or_url": "9e4c97a48e8c, Resultary RESULT.md",
+          "material_read": "Map and fixed-coupling count at offsets 0 and 549",
+          "method": "Configured local mirror",
+          "title": "Universal inverse-sheet crossover and two-term branch law in a quadratic-memristor sine map",
+          "trigger": "Exact Model 1 baseline"
+        },
+        {
+          "assessment": "Exactly covers Model 3 with bc=1 after the stated coordinate change; close methodological comparator otherwise",
+          "evidence": [
+            "F(X,Y)=(C+A sin(BX cos Y),X+Y); the interior count is (2B/π²)R²+O(R) with half that leading coefficient at either strip edge. Its proof already uses the mean of the absolute trigonometric derivative."
+          ],
+          "identifier_or_url": "a19a767134c3, Resultary RESULT.md",
+          "material_read": "Finding and proof steps 1–4, offset 0 and the phase-variation passage near 4427",
+          "method": "Configured local mirror and independently checked rescaling of the defining map",
+          "title": "Quadratic inverse-sheet growth and a boundary criticality jump in a cosine-memristor map",
+          "trigger": "Plausible exact equivalent to the sinusoidal single-memory case"
+        },
+        {
+          "assessment": "Different map and observation regime",
+          "evidence": [
+            "One large root per flux cell gives linear rather than quadratic or cubic growth on its positive-source domain."
+          ],
+          "identifier_or_url": "8b96b0ec53ba, Resultary RESULT.md",
+          "material_read": "Finding, offset 633",
+          "method": "Configured local mirror",
+          "title": "Singular zero-to-infinite inverse-valence transition in a cosine-flux Chialvo map",
+          "trigger": "Exact asymptotic inverse branch counts in a nearby memristive map"
+        },
+        {
+          "assessment": "Different polynomial inverse problem",
+          "evidence": [
+            "Finite scalar cubic fibers produce a bound of 3^N in that model, not an oscillatory phase-level count."
+          ],
+          "identifier_or_url": "370a893f822a, Resultary RESULT.md",
+          "material_read": "Finding, offset 953",
+          "method": "Configured local mirror",
+          "title": "Exact inverse-sheet and observation-window transitions in coupled Gumowski–Mira rings",
+          "trigger": "Exact observation-window inverse multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, eight asymptotic laws and their mixed-family distinction",
+        "Original Tables 1–2 and Section 6",
+        "Exact single-model comparisons identified in originality"
+      ],
+      "rationale": "The original comparison varies memory type and number; bounded-window inverse multiplicity is a natural reconstruction observable for these real maps. Within the four cubic-growth models the leading count cannot distinguish the mixtures, but the second-order coefficient detects absolute-charge memory regardless of the fixed target and the exponential component. This compares a complete published architecture family at a precision where the distinguishing effect is visible, rather than offering another fixed-parameter computation or claiming value from the already-known special cases.",
+      "residual_risks": [
+        "No implication for bounded physical operating ranges, forward chaos, attractor basins, or cryptographic security is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

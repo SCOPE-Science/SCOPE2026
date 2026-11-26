@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:12:28.934052Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4; VERIFICATION.md, check_hecke.py and checker_output.txt inspected without executing uploaded code",
+        "Independent direct-Demazure reproduction: /workspace/branches/a67580c6-fe8e-4474-a17f-45d739219071/independent_check.py and independent_check_output.txt; all positions and strata at n=4,9 agree"
+      ],
+      "rationale": "For one generator, two descents leave both products unchanged; exactly one descent forces unequal lengths. With no descents, equal products imply symmetric-group commutation, which preserves the adjacent pair as a set. Its swap would be a double descent, leaving only pointwise fixation. In the two-generator double-descent case with B the three consecutive labels and T its complement, fix the partial bijection T→T. If it leaves t rows and t columns unmatched in T, the unmatched T columns must appear among B rows in decreasing order, and their locations there are forced because every external label is less than all of B or greater than all of B. Inverse descents similarly force the unmatched T rows among B columns. Match the remaining B rows to the remaining B columns in reverse order. This is the unique double-descending completion, giving the sum of binomial squares times (m−t)! for t≤min(3,m). In either mixed case the two fixed positions and the two separately chosen outside matrix entries leave (n−4)! completions. The all-fixed case gives m!; in S_3 the mixed cases cannot occur, leaving identity and longest element. With a=i−1 the position term is a²+(m−a)², giving the stated size multiplicities and gap. The t=3 summand divided by n! tends to 1/36 with O(1/n) error, lower t contribute O(1/n), and the uniform mixed contribution is O(1/n²). In S_n the ordinary simultaneous centralizer fixes the triple pointwise and permutes its complement.",
+      "residual_risks": [
+        "The reproduction is finite. The arbitrary-n conclusion follows from the order/completion argument. It is a count of monoid elements, not a dimension in the linear algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest distinct indexed type-A result concerns the full center when all generators are imposed, not all generator subsets. Chen studies a linear centralizer of parabolic subalgebras with invertible parameters. The literature query surfaced a discussion of the 0-Hecke construction rather than a counting theorem."
+        ],
+        "reasoning": "The full center adds constraints and gives no count for a selected adjacent pair. A generic linear centralizer does not specialize directly to a count of individually commuting basis elements of the 0-Hecke monoid.",
+        "searches": [
+          "Resultary: common centralizers for arbitrary subsets of generators, and full center of the type-A 0-Hecke monoid",
+          "Targeted literature query for type-A 0-Hecke simultaneous centralizers",
+          "Chen arXiv:2508.14473v1 abstract and §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records c8fd72e25c4a and 3f22905e338c",
+        "arXiv:0912.2212v1",
+        "arXiv:2508.14473v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary parabolic double-coset theorem gives only the i-independent double-descent term. The fixed and mixed strata require commutation without absorption at one or both generators."
+        ],
+        "reasoning": "The mixed terms arise from two independently placed entries on the same side of the triple. Their squared side lengths produce the positional variation, not recoverable from the standard double-coset term alone.",
+        "searches": [
+          "Frozen RESULT.md §§2–3 and matched Resultary original",
+          "Hivert–Schilling–Thiéry arXiv:0912.2212v1 §1.2",
+          "Chen arXiv:2508.14473v1 §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the permutation model commutation with one generator is a two-sided descent or pointwise fixation, whereas the inspected source supplies the indexing and multiplication law. The exact indexed two-generator result is the assigned record."
+        ],
+        "reasoning": "The description in terms of simultaneous descent/fixation counts the same objects as the monoid centralizer. Counting only parabolic double descents or the ordinary group centralizer misses monoid strata.",
+        "searches": [
+          "Resultary: adjacent-generator common centralizers of the type-A 0-Hecke monoid; simultaneous generator centralizers",
+          "Hivert–Schilling–Thiéry arXiv:0912.2212v1 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record c8fd72e25c4a covers every allowed n and i; the related full-center entry 3f22905e338c addresses a different invariant."
+        ],
+        "reasoning": "The matching item is this frozen work, not independent prior coverage; the positional table in it is only illustrative, not the claim of novelty. No distinct exact formula or table covering the full positional spectrum was located.",
+        "searches": [
+          "Resultary: positional spectrum and exact cardinality of adjacent-generator common centralizers in type-A 0-Hecke monoids"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete position-sensitive count for an adjacent generator pair. Neither the standard longest-parabolic-representative count for the absorbing stratum nor the presentation and permutation indexing is new. The sources inspected do not supply the combined count, in particular the two mixed corrections responsible for its positional dependence.",
+      "residual_risks": [
+        "The distinct full-center record was accessible only at catalogue-summary level. An unlocated general-subset enumeration could subsume the claim; the comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Treats all adjacent positions and all four descent/fixed strata",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-adjacent-generator-common-centralizers-in-type-a-0-hecke-monoids--c8fd72e25c4a",
+          "material_read": "Original RESULT.md, §§1–4, including double-descent proof at mirror offset 3773",
+          "method": "Frozen original and local mirror",
+          "title": "Adjacent-generator common centralizers in type-A 0-Hecke monoids",
+          "trigger": "Exact positional count indexed match"
+        },
+        {
+          "assessment": "Full-center statement in summary does not cover selected pairs; no full-text exclusion",
+          "evidence": "Commutes with all generators and gives center size floor(n/2)+1, with no position index",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-the-full-center-of-the-type-a-0-hecke-monoid-is-a-truncated-mono--3f22905e338c",
+          "material_read": "Catalogue summary; original mirror lookup did not return text",
+          "method": "Resultary catalogue and local mirror lookup",
+          "title": "The full center of the type-A 0-Hecke monoid is a truncated monogenic monoid",
+          "trigger": "Closest distinct monoid commutation result"
+        },
+        {
+          "assessment": "Background for the action, not the stratum count",
+          "evidence": "Idempotent presentation, canonical Coxeter-group indexing, right Demazure action",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.2212v1",
+          "material_read": "§1.2, p. 3, offsets 8639–11789",
+          "method": "Open-access original text",
+          "title": "The biHecke monoid of a finite Coxeter group",
+          "trigger": "Classical 0-Hecke monoid and Demazure setup"
+        },
+        {
+          "assessment": "Different centralizer object and parameter assumptions",
+          "evidence": "Generic Hecke algebras with invertible quadratic parameters; linear centralizers of parabolic subalgebras",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.14473v1",
+          "material_read": "Abstract and §1.1, p. 1, offsets 0–3690",
+          "method": "Open-access original text",
+          "title": "Centralizers in Hecke Algebras of Any Coxeter Group",
+          "trigger": "Potential centralizer formula covering parabolic subobjects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, strata, positional extrema and asymptotics"
+      ],
+      "rationale": "Adjacent generators are the smallest interacting parabolic block, and their monoid centralizer tests the effect of the noninvertible length-increasing action under a natural commutation constraint. The exact four-stratum count isolates the source of genuine position dependence even though all these blocks have the same S_3 type and ordinary group centralizer size. It gives the full positional spectrum and a uniform comparison to the group case, not just one sample number.",
+      "residual_risks": [
+        "No structural classification of the centralizer monoids or arbitrary generator subsets is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

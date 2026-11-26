@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:42:54.261427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, especially coefficient identity and equality arguments",
+        "VERIFICATION.md",
+        "check_radial_inverse.py",
+        "check_output.txt"
+      ],
+      "rationale": "Expanding a finite |P|² gives the lag-ℓ coefficient as the sum of a_(j+ℓ) conjugate(a_j) weighted by M_(2j+ℓ); for the frozen power weight M_n=1/(n+β+1). At the largest support gap M−m there is exactly one contributing pair, and its moment is positive. Thus the support diameter is exactly k for a nonzero single harmonic. Interior terms need not vanish in general. Put X=|a_m|²M_(2m) and Y=|a_(m+k)|²M_(2m+2k). The mean-one energy gives X+Y≤1; AM–GM bounds the amplitude by M_(2m+k)/(2√(M_(2m)M_(2m+2k))). Conversely, using just those two monomials with energies cos²u,sin²u realizes all amplitudes up to that value at any prescribed phase. This proves the moment companion (moments multiply the coefficient products, as obtained directly by integration). In the power case the ratio is 1/2 times √(1−k²/(2m+k+β+1)²), strictly increasing in m; hence m=d−k is forced at equality, along with X=Y=1/2 and absence of interior coefficients. Matching a_(m+k) conjugate(a_m) to the positive-mode phase gives the stated equality family. Solving the amplitude inequality yields the ceiling/max in the minimum degree, with no issues from squaring because 2d−k+β+1>0. The sharp bound stays below 1/2 at every finite d, while at zero a constant suffices; 1−4ε²=4δ(1−δ) gives the stated inverse-square-root asymptotic with a bounded rounding error. Separate replay `python /workspace/review_checks/frozen_probes.py` passes exact rational complex-coefficient examples at three weights and the equality-at-1/2 atomic-measure limit. No frozen script was executed. The frozen 110-instance symbolic subtotal is hard-coded while its displayed triangular-range loops actually run 120 unweighted pairs; this reporting discrepancy has no role in the proof.",
+      "residual_risks": [
+        "The finite checks are not an exhaustion of complex-coefficient polynomials. No classification for multiple output harmonics is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kot–Pierzchała's theorem treats any strictly positive continuous boundary target and all p>0 for the unweighted radial map; the constructed preimage can be an infinite sum of polynomial pieces. The circular-domain paper treats analogous holomorphic existence. The weighted harmonic Bergman circle-trace record concerns an area-norm-to-circle-trace extremum."
+        ],
+        "reasoning": "Broader target and exponent sets are not stronger on the finite-degree question: an unrestricted holomorphic preimage or an area-to-trace norm does not bound or classify one polynomial with an exactly specified radial intensity.",
+        "searches": [
+          "10.1007/s40315-021-00379-4 Theorem 6 and Reproducing construction",
+          "10.1007/s11785-021-01130-6 abstract",
+          "Resultary 2026/10/11/e5356e299a36"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s40315-021-00379-4",
+        "doi:10.1007/s11785-021-01130-6",
+        "arXiv:2005.11920",
+        "Resultary e5356e299a36 and 86aafdd0e759"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted mean-energy formula already appears in the unit-disc paper. Its theorem ensures existence but uses increasing polynomial pieces. The classical factorization stated by Georgiou–Lindquist acts directly on the boundary."
+        ],
+        "reasoning": "The mean controls the total weighted coefficient energy; it does not by itself determine how much energy sits at the only pair contributing to the surviving top lag. The finite-degree cut, strict amplitude gap and equality classification rely on that endpoint contribution and its dependence on m. They are not corollaries of the cited existence or factorization statements.",
+        "searches": [
+          "Kot–Pierzchała paper, p. 2 energy formula, Theorem 6 and final infinite-series construction",
+          "Georgiou–Lindquist arXiv:2005.11920 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A weighted autocorrelation/moment-matrix formulation gives precisely the same finite-dimensional problem; lags are Fourier modes and the weight depends on the sum of the two coefficient indices. In contrast, the usual Fejér–Riesz boundary modulus has no radial moment weights (equivalently, radial mass all at one)."
+        ],
+        "reasoning": "Ordinary boundary factorization realizes the extremal amplitude 1/2 already at k, while the actual power measure has a strict finite-degree deficit. Thus boundary factorization does not give a finite-degree theorem for the weighted autocorrelations.",
+        "searches": [
+          "Resultary: sharp amplitude exact maximal degree one harmonic polynomial radial intensity integral t^beta",
+          "Resultary: radial measure moments M_{2m+k} / sqrt(M_{2m} M_{2m+2k}) two term polynomial extremizer",
+          "Resultary: highest nonzero Fourier mode equals support diameter polynomial radial intensity no cancellation support rigidity",
+          "arXiv:2005.11920, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby inverse-univalence result has Hadamard multipliers and monomial-slice univalence thresholds; the Bergman record's frequency staircase is for a different area-normalized trace quantity. Relevant Finding passages were read in the published mirror."
+        ],
+        "reasoning": "Neither supplies the parameters (degree, output harmonic, radial power weight) and the nonlinear intensity constraint together. No equivalent catalogue formula/table was verified; the closest indexed matches solve different problems.",
+        "searches": [
+          "Resultary: minimum polynomial degree target 1+2 epsilon cos(k theta) radial average holomorphic Radon",
+          "Resultary 2026/10/11/86aafdd0e759; 2026/10/11/e5356e299a36"
+        ]
+      },
+      "rationale": "For the precise one-harmonic finite-degree extremal problem, the sharp formula with equality and converse is distinct from unrestricted holomorphic inversion, weighted trace norms and boundary spectral factorization in the inspected material. The overlap with the unweighted Radon operator and energy normalization is real and is not claimed as novel.",
+      "residual_risks": [
+        "An older weighted-autocorrelation or finite radial-inversion theorem could encode the same extremum. An additional generic index lookup did not execute; it contributes no negative evidence. This is a best-of-knowledge assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Gives holomorphic existence for positive continuous data and the β=0 mean identity; infinite polynomial pieces do not determine finite-degree complexity.",
+          "identifier_or_url": "https://doi.org/10.1007/s40315-021-00379-4",
+          "material_read": "Definition and mean-energy identity pp. 1–2 (offsets 463, 2411, 4526), Theorem 6 p. 9 (28590), final construction p. 21 (77750)",
+          "method": "Read primary OA PDF passages",
+          "title": "The Radon Inversion Problem for Holomorphic Functions in the Unit Disc",
+          "trigger": "Identical unweighted radial operator at p=2"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The claimed existence for positive targets uses homogeneous/lacunary polynomial pieces, not the one-harmonic finite-degree optimum.",
+          "identifier_or_url": "https://doi.org/10.1007/s11785-021-01130-6",
+          "material_read": "Primary PDF p. 1 abstract, extracted offset 670",
+          "method": "Read accessible primary PDF passage; judgment limited to stated result",
+          "title": "Radon Inversion Problem for Holomorphic Functions on Circular, Strictly Convex Domains",
+          "trigger": "Broader holomorphic radial inverse with polynomial constructions"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Classical statement gives same-degree boundary modulus factorization, with no averaging in t.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.11920",
+          "material_read": "Introduction p. 1, extracted offset 650",
+          "method": "Read primary PDF passage",
+          "title": "On a Fejér–Riesz factorization of generalized trigonometric polynomials",
+          "trigger": "Same harmonic input in boundary modulus-factorization language"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Area-to-circle trace norm, not polynomial intensity inversion.",
+          "identifier_or_url": "Resultary 2026/10/11/e5356e299a36",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Read published mirror passage",
+          "title": "Exact frequency staircase for weighted harmonic Bergman circle traces",
+          "trigger": "Weighted radial and sharp frequency match"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Hadamard multiplier with inverse-univalence threshold, not the radial averaging transform.",
+          "identifier_or_url": "Resultary 2026/10/11/86aafdd0e759",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Read published mirror passage",
+          "title": "Every positive disk target admits a high-mode inverse-univalence lift",
+          "trigger": "Positive target exact high-mode inverse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The holomorphic existence theorem leaves polynomial complexity open. Single-harmonic data are the simplest nonconstant family in which to separate that question from boundary factorization. The strict finite-degree margin, unique extremizer, all-amplitude converse and exact coefficient of the degree blow-up yield a complete benchmark near a vanishing target. This is more informative than an isolated test or the known mean identity, without claiming a result for arbitrary data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

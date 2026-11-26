@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:33:06.119388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With probability surface measure, the zonal kernel is a multiple of U_ℓ and its diagonal is dim H_ℓ=(ℓ+1)^2; U_ℓ(1)=ℓ+1 fixes the multiple. Dividing the evaluation rows by √(ℓ+1) yields the claimed Gram. Direct dot products give 0, ±1/2, ±1/√2 off the diagonal. Their trigonometric periods divide 4,6,8; exactly the diagonal increases under a 24-step shift. Independently constructed all signed representatives, computed U_ℓ by exact recurrence in Z[√2], and used integral similarities and exact characteristic polynomials (not the frozen power-sum method). All 24 rows in RESULT.md matched; the first shift checked entrywise in the similar matrices. Positivity and the universal shift imply full rank for ℓ≥24; the table gives the smaller ranks and the two scalar residues. At degree 7 the ratio of squared singular values is 12/6. Replay: python /workspace/review_checks/f4.py (SymPy); output /workspace/review_checks/f4.txt. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kostant branching construction in Stekolshchik §1.5.2 specifies the multiplicities of each binary-polyhedral irrep in every restricted Sym^n and the recursion v_(n+1)=B v_n−v_(n−1). For 2O the McKay matrix is affine E7; initial data are the trivial irrep at n=0 and zero at n=−1.",
+          "The inspected harmonic-index design papers discuss vanishing evaluation sums and particular D4 shells, not a general two-orbit pointwise spectrum."
+        ],
+        "reasoning": "The branching theorem covers the entire sequence of degrees for this exact group. It provides the block weights for both parity classes without needing to infer extra spectral information from design conditions.",
+        "searches": [
+          "Kostant McKay correspondence Coxeter element representation theory Astérisque 1985 binary octahedral Poincare multiplicities E7 numdam pdf",
+          "arXiv:math/0510216 §1.5.2 Eq. (1.19) and Prop. 1.3",
+          "arXiv:1308.5101v1 and arXiv:2303.09000v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c8794d8a3ae7, 2b17ab9c73cb, 2b55835ab263",
+        "Kostant Astérisque S131 (1985) introduction",
+        "Stekolshchik arXiv:math/0510216 §1.5.2",
+        "arXiv:1308.5101v1 Definition 1.1",
+        "arXiv:2303.09000v3 Theorem 1.1 and Proposition 4.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the regular representation of G=2O, convolution by χ_ρ gives the orthogonal isotypic projection scaled by 48/d_ρ (Schur orthogonality). Multiplicity of that block is d_ρ². The full matrix for χ_ℓ is the same linear combination of these projections with the known branching multiplicities m_ρ(ℓ).",
+          "Expansion from line coordinates to the matching central-parity subspace is isometric with weights 1/√2 on both signs. The compressed full matrix is 2H_ℓ; the opposite parity does not contribute."
+        ],
+        "reasoning": "Hence each matching-parity block supplies eigenvalue 24 m_ρ(ℓ)/d_ρ with multiplicity d_ρ², including matching-parity zero blocks. Expanding the established branching recurrence gives the exact 24 base rows by routine arithmetic. The 24-step shift also follows immediately from the group angles, and the rank/tightness/condition number are direct consequences. No new representation multiplicity or structural spectral analysis is needed.",
+        "searches": [
+          "Kostant branching recurrence in arXiv:math/0510216, Eqs. (1.19)–(1.21), Proposition 1.3; central character projection on 2O"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c8794d8a3ae7 gives the identical rank sequence on the full 48 roots, explicitly compressing the antipodal samples.",
+          "The 24 short unit quaternions are the binary tetrahedral group 2T; multiplying them by (1+i)/√2 yields exactly the 24 long unit quaternions, the remaining coset in 2O. The 24 lines are antipodal pairs in 2O."
+        ],
+        "reasoning": "Separate one-cell spectra do not determine cross-cell coupling. On the whole set the quaternion dot product is Re(x⁻¹y); U_ℓ of that real part is precisely the character of Sym^ℓ(C²). Thus the complete pointwise Gram is a central character kernel, not merely a harmonic-design statistic.",
+        "searches": [
+          "Resultary normalized F4 all-degree spherical harmonic sampling spectra and ranks",
+          "binary octahedral and single-24-cell formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed rank sequence is reproduced by the frozen table. The distinct single-cell records give exact eigenvalue branches but for one 12-line block, not the union.",
+          "No identical published numerical eigenvalue table for the union was established. The known finite branching recurrence provides the same exact data algorithmically."
+        ],
+        "reasoning": "A finer table can be new as a presentation while still being mechanically implied by an existing exact computation. Compared at equal normalization, the rank-only and single-cell tables are not by themselves evidence of full spectral coverage.",
+        "searches": [
+          "Resultary c8794d8a3ae7 full F4 ranks; 2b17ab9c73cb and 2b55835ab263 exact single-cell spectra",
+          "arXiv:math/0510216 §1.5.2 branching recurrence"
+        ]
+      },
+      "rationale": "The full spectrum, not just the rank, is mechanically determined by the classical SU(2) branching law for the binary octahedral group and ordinary character projection. With a quaternion coordinate identification the kernel is exactly the restricted Sym^ℓ character. Branching supplies every eigenvalue and multiplicity, including zero sectors, after the elementary antipodal compression. This is verified prior mathematical coverage, not an assertion that the numerical table was previously printed. There is also material indexed rank overlap for the identical sample geometry.",
+      "residual_risks": [
+        "No specific first publication of the numerical spectrum rows was established. The verdict depends on exact mathematical implication, not the status of the Numdam full-proof retrieval or the chronology of the separate indexed rank entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact multiplicity recurrence needed for every Gram block",
+          "evidence": "Defines π_n on Sym^n(C²), m_i(n) in π_n restricted to G, and gives Bv_n=v_(n−1)+v_(n+1). It identifies the binary octahedral group in the treatment of binary polyhedral groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0510216",
+          "material_read": "§1.5.2, p. 22, Eqs. (1.19)–(1.22) and Proposition 1.3, OA offset 43889–48619",
+          "method": "Bounded OA PDF passage",
+          "title": "Notes on Coxeter Transformations and the McKay Correspondence",
+          "trigger": "All-degree exact restriction decomposition for the group underlying the point set"
+        },
+        {
+          "assessment": "Introductory evidence of the branching problem; not relied upon as a full-proof inspection",
+          "evidence": "The passage asks for each node multiplicity in each degree under the McKay bijection with extended Dynkin nodes.",
+          "identifier_or_url": "https://www.numdam.org/article/AST_1985__S131__209_0.pdf",
+          "material_read": "Introduction locate excerpt, p. 2, offset 2399–2619 onward; bounded full proof read attempt timed out",
+          "method": "OA primary PDF locate, bounded read attempted; exact recurrence read in the Stekolshchik text",
+          "title": "The McKay correspondence, the Coxeter element and representation theory",
+          "trigger": "Original source of the branching result"
+        },
+        {
+          "assessment": "Exact partial overlap on ranks; not a reported full spectral table",
+          "evidence": "States ranks 1,4,9,16,13,20,19,24,23,20,22,24,24,24,23,24,23,24,24,24,24,24,23 and rank 24 from ℓ=23.",
+          "identifier_or_url": "Resultary 2026/11/2/c8794d8a3ae7",
+          "material_read": "Finding and antipodal compression, mirror offset 0 onward",
+          "method": "Bounded local-mirror statement and proof comparison",
+          "title": "All-degree spherical harmonic sampling ranks on normalized F4 roots",
+          "trigger": "Same sample set and exact degrees"
+        },
+        {
+          "assessment": "Only the 12-line single-cell sampling operators",
+          "evidence": "Single-cell five-branch spectrum; the second entry reports a 12-step shift of 24 under its normalization.",
+          "identifier_or_url": "Resultary 2026/10/25/2b17ab9c73cb and 2026/11/1/2b55835ab263",
+          "material_read": "Findings and single-orbit scope, mirror offsets 0 onward",
+          "method": "Bounded local-mirror comparison",
+          "title": "Exact and complete exact-degree spectra of a regular 24-cell",
+          "trigger": "Related exact spectra for an individual orbit"
+        },
+        {
+          "assessment": "Different condition, not full pointwise spectrum",
+          "evidence": "A design condition imposes vanishing sums for the indicated exact-degree harmonics.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5101v1",
+          "material_read": "Definition 1.1, p. 1, OA offset 4250",
+          "method": "Bounded OA PDF passage",
+          "title": "Spherical Designs of Harmonic Index t",
+          "trigger": "Possible design-theoretic coverage of the spectra"
+        },
+        {
+          "assessment": "Design properties for D4 shells, not this complete two-orbit spectrum",
+          "evidence": "Classifies a 24-point antipodal harmonic-index design and uses W(F4) symmetry and a harmonic Molien series.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09000v3",
+          "material_read": "Theorem 1.1 and Proposition 4.2, pp. 2 and 8, OA offsets 7020 and 28600",
+          "method": "Bounded OA PDF passages",
+          "title": "Spherical Designs and Modular Forms of the D4 Lattice",
+          "trigger": "D4 and F4 symmetry and exact harmonic strength"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact spectral question is natural, and the table may be useful for reference. But its full content is routine recomputation of a classical branching recurrence after recognizing the standard quaternionic group, with no scientifically distinct spectral invariant or structural result beyond the central character projection and elementary period calculation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

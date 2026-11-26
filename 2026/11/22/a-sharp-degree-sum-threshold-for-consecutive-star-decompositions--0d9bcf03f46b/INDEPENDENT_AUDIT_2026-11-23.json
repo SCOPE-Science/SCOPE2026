@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:53:35.059742Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orient from a star's center to its leaves; the admissible outdegrees are exactly H=<k,k+1>. A number qk+r with 0<=r<k is in H exactly when r<=q. If either shore size is in H, put all centers on the opposite shore. Otherwise a<=b<k(k-1), a+b>=k^2-1 implies a>=k+2, and b=qk+r with 1<=q<r. Set T=b(a-k). Then T>=k(k-1), so L=ceil(T/(k+1)) and J=T-kL have 0<=J<=L. The identity aq(k+1)-T=kb-a(r-q)>0 gives L<=aq. Put the L slots into a rows with capacity q each and upgrade J slots. The resulting allowable row sums d_i are <=b and sum to b(a-k). A direct independent realization concatenates intervals of lengths d_i and reduces their column indices modulo b: no row repeats a column and each column is used exactly a-k times. B-shore outdegrees are then k. This also verifies the manuscript's Gale–Ryser step. For a=k-1, b=k(k-1)-1, the vertices of degree k-1 cannot be centers and the other centers would need the forbidden outdegree b, proving sharpness. The frozen script was inspected, not executed. Its 3,221 loop pairs are the cases tested below the conductor under its additional loop bounds; independent counting gives 385 pairs there with neither shore size representable. This distinction does not affect the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee's general sufficient bound for exactly these lengths is 4k(k-1)-3; Zhao–Wu's smaller 4k-3 applies to lengths at least k, not exactly k or k+1.",
+          "The complete multipartite class has a tripartite obstruction at k^2-1; Lee's sharp multipartite upper bound 9 is for k=3 only.",
+          "The stated Tarsi condition delta(G)>=n/2+max m_i-1 cannot hold in a nonempty biclique for the prescribed sizes in question."
+        ],
+        "reasoning": "The wider graph classes and different size/count restrictions do not yield the all-k sharp biclique upper bound.",
+        "searches": [
+          "Lee 2611.24973v1 Abstract, §§2.1, 4.2 and 4.4; Cameron–Horsley 1807.10738v1 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof and prior-work sections; VERIFICATION.md and verify_stars.py by inspection",
+        "Lee 2611.24973v1",
+        "Resultary 16ff3a7b1d21",
+        "Hajebi–Javadi 2411.13348v1",
+        "Harangi 2506.05194v1",
+        "Cameron–Horsley 1807.10738v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=3 use Lee's theorem above total 8, extension for shores (1,7) and (2,6), the table at (3,5) and (4,4), and obstruction (2,5). Thus Lee's proof does imply c_3=8 even though the headline theorem says 9 for all multipartite graphs.",
+          "No extension from k=4,5 to k>=6 is asserted or supplied by the separate catalogue record."
+        ],
+        "reasoning": "The known small values and obstruction must be credited. The slot-budget construction and equal-column integer realization establish unfixed multiplicities for every k without a reduction from known small cases.",
+        "searches": [
+          "Lee Lemma 4.3, Theorem 4.5 and Table 1 together",
+          "16ff3a7b1d21 RESULT.md conclusion and stated scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee §3.1 Lemma 3.1 gives the identical semigroup outdegree orientation equivalence.",
+          "Hajebi–Javadi Theorem 8 fixes the list of required multiplicities.",
+          "Harangi §2 Lemma 2.1 treats prescribed counts of uniform stars in regular graphs."
+        ],
+        "reasoning": "The orientation encoding is prior; the nontrivial claim is the uniform biclique threshold when only the two allowed lengths are fixed. Neither specified counts nor the uniform-size analog decides it.",
+        "searches": [
+          "Local Resultary: consecutive-star size and degree-sum thresholds in complete bipartite graphs",
+          "Literature: complete bipartite graphs decomposition stars two consecutive sizes degree sum sharp threshold K1 k K1 k+1 Lee multipartite free multiplicities",
+          "Literature: Tarsi star decomposition bipartite graph prescribed nonuniform sizes stars complete bipartite Tarsi arbitrary star forest list oriented criterion sufficient necessary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "16ff3a7b1d21 states exactly c_4=15 and c_5=24 with free multiplicities and the all-k lower bound.",
+          "Lee's order-7 and order-8 table includes K_{5,2} as an obstruction and the relevant balanced order-8 bicliques as decomposable."
+        ],
+        "reasoning": "These are material exact overlaps, not an all-k census or sufficiency theorem. The same-day date does not decide priority or independence.",
+        "searches": [
+          "Local Resultary distinct record 16ff3a7b1d21",
+          "Lee 2611.24973v1 §4.2 Table 1"
+        ]
+      },
+      "rationale": "At k=3 the exact threshold 8 is already implied by Lee's proof, and a distinct same-day Resultary record covers k=4,5 and the shared all-k obstruction. Neither covers uniform sufficiency, in particular the threshold for all k>=6. The pass is for the uniform theorem and its constructive sufficiency argument, not priority for these small cases or the lower bound.",
+      "residual_risks": [
+        "The frozen literature comparison should credit Lee's implicit k=3 corollary, not merely distinguish the stated multipartite bound 9.",
+        "A distinct same-day entry establishes the two further low cases and the lower bound; date is not evidence of order.",
+        "Older Tarsi, Yamamoto et al. and Shyu texts were not independently inspected in full. The evidence does not prove exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLIES THE k=3 BICLIQUE CASE, NOT THE UNIFORM CLAIM",
+          "evidence": [
+            "Multipartite sufficiency 9 at k=3; order-8 biclique cases and order-7 K_{5,2} obstruction; all-k obstruction of tripartite type."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.24973v1",
+          "material_read": "Introduction; §§2.1, 3.1 Lemma 3.1, 4.2 Lemma 4.3 and Theorem 4.5 with Table 1, 4.4 Corollary 4.7 (HTML offsets about 0, 4000, 8000, 12000–20000, 24000–28000)",
+          "method": "Open-access primary HTML, bounded passages",
+          "title": "Star decomposition of complete multipartite graphs",
+          "trigger": "Same two sizes and degree-sum invariant on a class including bicliques"
+        },
+        {
+          "assessment": "EXACT MINOR CASES AND LOWER BOUND, NOT UNIFORM SUFFICIENCY",
+          "evidence": [
+            "c_4=15 and c_5=24; all-k lower bound k^2-1 whenever a finite threshold exists."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-consecutive-star-decomposition-thresholds-for-complete-bip--16ff3a7b1d21",
+          "material_read": "RESULT.md statement, lower bound and proved cases; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp consecutive-star decomposition thresholds for complete bipartite graphs",
+          "trigger": "Distinct indexed same-day claim with the same invariant and graph class"
+        },
+        {
+          "assessment": "DIFFERENT QUANTIFIER",
+          "evidence": [
+            "Complexity for prescribed multiset of lengths/multiplicities, not guaranteed existence with freely chosen counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.13348v1",
+          "material_read": "Introduction and Theorem 8; offsets about 0, 3500 and 19800",
+          "method": "Open-access primary HTML passages",
+          "title": "Parameterized Complexity of Star Decomposition Problem",
+          "trigger": "Heterogeneous star lengths on complete bipartite graphs"
+        },
+        {
+          "assessment": "DIFFERENT FAMILY AND SIZE CONDITION",
+          "evidence": [
+            "Uniform k-stars in regular graphs with given per-vertex counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.05194v1",
+          "material_read": "§2 Lemma 2.1, offset about 7800",
+          "method": "Open-access primary HTML passage",
+          "title": "Star decompositions via orientations",
+          "trigger": "Orientation criteria for star decompositions"
+        },
+        {
+          "assessment": "NOT COVERING",
+          "evidence": [
+            "Complete multigraphs with specified lists; cited biclique comparison is uniform-size."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1807.10738v1",
+          "material_read": "§1, offset about 2000; scope and discussion of Tarsi and Yamamoto et al.",
+          "method": "Open-access paper passage; older results compared through this discussion",
+          "title": "Decompositions of complete multigraphs into stars of varying sizes",
+          "trigger": "Earlier varying-star and Tarsi comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the exact first degree-sum threshold on a natural graph class for Lee's consecutive-size decomposition problem. It is one below the all-k multipartite obstruction. The uniform constructive upper bound handles precisely the cases where neither shore size is representable and cannot be obtained by putting all centers on one side, and the one-below obstruction applies at every k.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of sharp extinction and critical decay
+# Independent mathematical audit
 
-**Correctness — PASS.** The six active equations in the original SVEIR–fomite model reduce to a stable affine two-dimensional demographic subsystem subject only to nonnegative infection losses and a positive three-stage infected subsystem. The demographic comparison yields an exponentially shrinking **upper excess** above the DFE (not a false global pointwise cap). At the sharp critical surface, a left Perron vector produces an exact infected-mass dissipation identity with strictly positive environmental saturation loss, proving global elimination. The center eigenspace has one dimension; its exact quadratic coefficient is strictly negative, and a positive-infection trajectory cannot lie on the exceptional exponentially convergent leaf. Exact-fraction witness checks independently confirm the tangent and curvature calculations. Key limits: classical center-manifold tracking is invoked, not machine certified; the claim excludes Holling type III responses.
+## correctness
 
-**Originality — PASS under accessible-primary-literature comparison.** The 2026 primary paper establishes the more restrictive sufficient global condition \(\mathcal J_c\le1\), explicitly identifies its gap above \(\mathcal R_c\), and proves sharp global elimination only without vaccination. The 2024 parent-model paper gives local forward bifurcation but not all-data critical attraction or universal five-coordinate decay. General global-threshold proofs for other epidemic systems and the Kamgang–Sallet majorant do not imply the sharp vaccinated threshold here. Semantic database searches for the model, aliases, sharp threshold, and inverse-time decay found no stronger same-model result. Residual risk: unindexed work may still contain an equivalent theorem, and the known local bifurcation coefficient anticipates a *local* quadratic rate.
+PASS
 
-**Mathematical value — PASS.** The equality threshold resolves the exact vaccinated extinction-versus-persistence boundary left by the 2026 global study, where the source's conservative bound can exceed one even when the true threshold equals one. The universal vector coefficient quantitatively describes critical slowing in hosts and fomites, and distinguishes the infection-free face's exponential relaxation. These results require structural comparison and nonlinear spectral reduction rather than a parameter substitution.
+The frozen sum for S+V+E+I omitted -gamma I, and analytic center-manifold regularity was not established. The corrected proof preserves the exact theorem. Positivity and the corrected sum give global bounds, and the stable positive demographic semigroup bounds only the upper excess over the DFE. At criticality the exact left-Perron mass identity gives an integrable environmental dissipation and, for small initial displacements, a uniform Lyapunov stability bound. After convergence, z=Z/P_c remains positive on every nonzero-infection orbit; the nonlinear remainder is o(z), so z'/z tends to zero. Dividing the stable spectral convolution by z(t) proves alignment with (T,r). The quadratic mass term gives (1/z)'=K+o(1), proving all five limits without assuming an analytic manifold or excluding exceptional trajectories by assumption. Cone-relative instability follows from the positive left Perron functional. Independently checked the rational example by substitution: P_c=15/2, q^T T-Hh^2=-12 and K=8/5. No frozen script was executed.
 
-**Closest sources.** Penitente–Foryś–Gürbüz (2026), Theorem 1 and Remark 1; Gökçe–Gürbüz–Rendall (2024), local bifurcation analysis; general Kamgang–Sallet comparison method. Residual limitation: independent external verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-model prior work has a strictly stronger sufficient condition for vaccinated global extinction and a local forward bifurcation, but neither supplies the global closed threshold together with the explicit critical five-coordinate amplitude. Related critical-decay models do not specialize to the stated separate fomite dynamics and vaccination equations. This is not priority for global critical extinction or inverse-time decay as general phenomena.
+
+## value
+
+PASS
+
+The exact criterion closes an explicit gap in a published same-model elimination theorem with strictly positive vaccination; the allowed parameters can lie at the actual threshold while failing the older sufficient bound. The universal vector amplitude quantifies critical slowing for both host and environmental states and separates it from exponential decay on the infection-free face. Neither contribution is a mere local linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

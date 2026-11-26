@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:21.768297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The characteristic-not-two geometric incidence rules in RESULT.md agree with Gonzalez-Hernandez §2.2: the origin and branch pairs are the nodes, the branch singletons and complementary triples are the tropes, and each pair–partition incidence marks the unique third element in the half containing the pair. These descriptions are equivariant, so a flag over an extension is exactly a fixed geometric flag, not a rational point on a conic. The three disjoint flag species have sizes 6, 30, 60; the fixed counts for a permutation with f fixed labels and t transposed pairs are respectively f, f(f-1), and binom(f,2)(f-2)+ft. This proves the general extension formula. The seven branch types with a fixed point are already separated by their distinct positive first counts (96,32,12,8,4,2,1); the four fixed-point-free types have second counts 96,8,0,0, and the final collision 3+3 versus 6 is split by the third counts 96 versus 0. For the node scheme the fixed count is 1+binom(f,2)+t. The incidence matrix is rationally invertible (row inner products are 6 on the diagonal and 2 elsewhere), so it intertwines the node and trope actions and explains their equal cycle multisets. Independent enumeration on all 720 six-label permutations confirmed the table, including exactly the two separate-spectrum collisions 1+1+2+2 versus 2+2+2 and 1+1+4 versus 2+4. Each length-d orbit contributes (1-T^d)^(-1) to the zeta function. There are at least two irreducible cubics and at least one irreducible sextic over every odd finite field, so squarefree sextics of both sharpness types exist there; no assumption that all abstract types occur over each field is needed. The frozen code and CSV are supporting evidence; the uploaded code was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Kummer paper gives the geometry and splitting action more generally, including the same six-singleton and ten complementary-triple tropes with their incidences.",
+          "The related classifications on six labels cover 60 Segre-cubic node–plane incidences or 180 Pascal–Kirkman incidences, not the action on this set of 96 edges."
+        ],
+        "reasoning": "A description of individual incidences supplies the input to the fixed-count calculation, not a general reconstruction theorem from extension counts. The other incidence sets have different actions, and their spectra do not specialize to this one just by changing cardinalities.",
+        "searches": [
+          "arXiv:2409.04532 §2.2",
+          "Resultary 2026/11/2 --4c734c76e2d7",
+          "Resultary 2026/11/2 --1e6ef0f36929"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_kummer_flags.py, kummer_flag_spectra.csv",
+        "arXiv:2409.04532 §2.2 and Table 1",
+        "Resultary --f12c4efb1bbc (identity), --adf9b018cfad, --cb0c19041c53, --4c734c76e2d7 and --1e6ef0f36929"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two marginal permutation actions lose distinctions that the edge action retains, for example 1+1+2+2 and 2+2+2 have equal full vertex spectra but different F1.",
+          "The known incidence rules allow a new calculation: represent a pair–partition flag by its pair and one chosen third branch label, then compare fixed counts of powers. The two overlapping zero-count signatures through degree two have to be checked for actual realizability."
+        ],
+        "reasoning": "Neither marginal table nor the general group results imply the inverse claim by direct specialization. The flag decomposition and injectivity/ambiguity analysis are the substantive steps, not a different presentation of the marginal table.",
+        "searches": [
+          "arXiv:2409.04532 §2.2 incidence rules and Table 1",
+          "Resultary 2026/11/22 --adf9b018cfad and --cb0c19041c53 RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A flag here is a single edge of the bipartite node–trope Levi graph, with the two parts preserved by Frobenius. The 96-flag fixed counts are traces of the edge permutation action; orbit multiplicities give the finite étale zeta function.",
+          "The corresponding node and trope permutation traces are treated separately in earlier geometry. Integral incidence-map coinvariants and critical-group fixed points on the same graph are different invariants from its edge permutation trace."
+        ],
+        "reasoning": "The graph-edge, flag and étale-support descriptions of the claimed statistic are equivalent. Neither knowing the individual vertex spectra nor computing the cited groups states or directly supplies the flag-count inverse rule.",
+        "searches": [
+          "arXiv:2409.04532 §2.2 pp. 5–6",
+          "Resultary 2026/11/22 --cb0c19041c53 (Kummer Levi graph)",
+          "Resultary 2026/11/22 --adf9b018cfad (incidence-map coinvariants)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 already gives base-field singular-point and trope counts by factorization, with qualified rows for 2+2+2 and 6 over its general fields. It does not tabulate incident pairs.",
+          "The exact index hit --f12c4efb1bbc is this record; the related same-day entries classify group invariants, not the edge permutation character or sharp three-count inverse."
+        ],
+        "reasoning": "The prior node/trope count table materially overlaps those individual spectra after specializing to finite-field cyclic Frobenius and taking powers. It is not an exact table of the credited data for flags.",
+        "searches": [
+          "Gonzalez-Hernandez Table 1, arXiv:2409.04532 p. 6",
+          "Resultary 2026/11/22 --f12c4efb1bbc, --adf9b018cfad, --cb0c19041c53"
+        ]
+      },
+      "rationale": "The node/trope actions, incidence rules and substantial base-field counts are already explicit in prior work. In particular separate node/trope spectra are obtainable from those known actions by powering, and are not independently credited. The distinct contribution is the equivariant fixed-incidence count and sharp inverse statement for the first three extension counts, including the uniform realization of the two-count ambiguity. No examined prior statement tabulates or dominates that reconstruction for the 96 Kummer flags.",
+      "residual_risks": [
+        "An equivalent character or cycle-index table of this Kummer edge action outside the inspected sources could predate the result. No priority was inferred from the date shared by the distinct related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior geometry and marginal arithmetic; not an incident-flag inverse table",
+          "evidence": "The complementary Tijk=Tlmn trope contains the six within-half pair nodes. Table 1 gives singleton/partition trope and singular-point base-field columns, not the count of fixed pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.04532",
+          "material_read": "§2.2, PDF pp. 5–6, offsets 19300 and 20900–25106, especially Table 1",
+          "method": "Primary PDF, bounded passage retrieval",
+          "title": "Explicit desingularisation of Kummer surfaces in characteristic two via specialisation",
+          "trigger": "Exact Kummer labeling, incidence and arithmetic count overlap"
+        },
+        {
+          "assessment": "Material overlap in action and separation of some marginal collisions, not the edge-trace reconstruction",
+          "evidence": "Tabulates integral coinvariants of the incidence-map cokernel, rather than fixed incident supports over extensions.",
+          "identifier_or_url": "Resultary 2026/11/22 --adf9b018cfad",
+          "material_read": "RESULT.md finding in local mirror",
+          "method": "Statement comparison",
+          "title": "Integral Frobenius coinvariants of the genus-two Kummer node–trope incidence map",
+          "trigger": "Same sixteen-by-sixteen incidence and eleven branch types"
+        },
+        {
+          "assessment": "Different invariant of the same configuration",
+          "evidence": "Computes Frobenius-fixed graph critical groups, not orbit sizes or fixed-edge counts of the permutation action.",
+          "identifier_or_url": "Resultary 2026/11/22 --cb0c19041c53",
+          "material_read": "RESULT.md finding in local mirror",
+          "method": "Statement comparison",
+          "title": "Eleven arithmetic fixed critical groups of the genus-two Kummer Levi graph",
+          "trigger": "Same 96 edges and Frobenius action"
+        },
+        {
+          "assessment": "Similar classification method on different flag sets",
+          "evidence": "The two statistics count 60 Segre-cubic flags and 180 Pascal–Kirkman flags, not the Kummer 96-flag action.",
+          "identifier_or_url": "Resultary 2026/11/2 --4c734c76e2d7 and --1e6ef0f36929",
+          "material_read": "Indexed findings and frozen comparison",
+          "method": "Local catalogue statement comparison",
+          "title": "Frobenius spectra of the sixty node–plane incidence flags of the Segre cubic; Frobenius orbit spectra and rational incidence obstructions for Pascal–Kirkman flags",
+          "trigger": "Potential precedents for six-label flag spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Incident supports are a natural arithmetic observable on the classical Kummer configuration. The sharp inverse result identifies exactly how many extension counts suffice to recover the branch splitting, whereas all counts for either marginal scheme can still lose distinctions. It is an exact identifiability theorem for reduced supports in odd characteristic, not a claim to reconstruct the curve, its moduli, or point counts on the quartic itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

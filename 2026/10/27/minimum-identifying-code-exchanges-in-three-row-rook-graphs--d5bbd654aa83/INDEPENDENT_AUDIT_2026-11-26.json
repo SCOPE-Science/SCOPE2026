@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:03.114638Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For code C the signature of (i,j) is R_i∪B_j. In a row i, two column signatures agree exactly when both column contributions outside R_i are empty. An empty column thus forces at least 2(m−1) selected cells; with no empties, at most three singletons are possible and at size 2m−3 there must be exactly one per row and exactly two entries in every other column. Such words dominate and separate within rows. Equality of two signatures from different rows i,h forces each cell to lie in the other row's singleton column, by membership of the two singleton codewords; it then forces both rows to lack any other codeword. A double column must meet at least one of i,h, which rules this out for m≥4. There are m(m−1)(m−2) singleton placements and three choices per double. Preserving column counts allows only double recoloring (2 choices per double); changing them relocates an S_i into a double containing i, with 2 receiving-row labels and 2 recolorings of the vacated singleton per double. This gives all 6(m−3) distinct moves and the stated edge total. Recoloring lets any singleton move to any double column; an unfixed singleton occupying a desired target can be moved into a double buffer without dislodging a fixed marker. This connects every singleton placement and then independent double recolorings finish the path. Row and column equivalence is exactly equality of the three missing-row multiplicities up to permutation. Independent signature and token-jump enumeration at m=4,5,6 checked 1586,16384,155382 subsets through the respective optimum, found 72,540,3240 optimum words and 216,3240,29160 edges, and reached every optimum word in each exchange graph. Frozen verify.py is the supplied replay (inspected, not run): its m=8 check is on predicted configurations, not an exhaustive subset search. All-m claims use the proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 gives the scalar optimum for arbitrary two-clique products; for m=4 its first branch gives 5, for m≥5 its second gives 2m−3.",
+          "Later catalogue record f0be81b91bd1 classifies local minima on general rectangles and has a nonadjacent-separation criterion. At three rows any double meets two rows, so at most one row is untouched by all doubles; its criterion yields this exact ordinary equality family.",
+          "Teshima uses adjacent replacements."
+        ],
+        "reasoning": "The scalar value is a special case of prior work. The later broader local-code result provides substantive static coverage, not the token-jumping graph. The exchange rule matters to the claimed exact move count and is not covered by a vertex-slide formalism.",
+        "searches": [
+          "Goddard–Wash, Theorem 2.2, Lemmas 2.3–2.4 and §2.2",
+          "Teshima dissertation, Chapter 2 §2.1",
+          "Resultary f0be81b91bd1 §§2,4–5"
+        ]
+      },
+      "checked_sources": [
+        "Goddard–Wash Theorem 2.2 and proof",
+        "Foucaud et al., arXiv:1107.0207",
+        "Teshima dissertation Chapter 2",
+        "Resultary mirror f0be81b91bd1, 7b3432c6fd0d, 5e47d2796f63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Property A forbids two vertices in the m-part having a union of code neighbours of size ≤1. In an optimum it rules out empties, allows at most one singleton in each row, and budget equality forces three singletons and only doubles otherwise. Section 2.2 instead verifies a particular construction, not the sufficiency of arbitrary such words.",
+          "The later local-code criterion supplies arbitrary-pattern sufficiency but not the exchange analysis."
+        ],
+        "reasoning": "The old lower bound already implies the necessary part of the equality constraints. It does not derive the exact two move types, graph invariants or orbit structure. A scalar count or a selected construction cannot substitute for the full characterization and proof of how the minima connect.",
+        "searches": [
+          "Goddard–Wash author PDF, Theorem 2.2, Property A and lower-bound proof at offsets 4650–7968; §2.2 construction at offset 8990",
+          "Resultary f0be81b91bd1, RESULT.md §§4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_3□K_m is L(K_{3,m}); selected rook cells are bipartite edges and the closed rook signature is exactly the set of selected edges incident to one of the two endpoints.",
+          "Ordinary edge-ID codes translate exactly, including a jump between any two edges, while slides allow replacement only at an edge sharing an endpoint."
+        ],
+        "reasoning": "The prior line-graph framework is an equivalent formulation, not a result about all three-row minima and their jump transitions. Slides do not capture singleton relocations in which the exchanged cells share neither row nor column.",
+        "searches": [
+          "Edge-identifying code of K_{3,m}; minimum edge-ID code exchange, K3 Cartesian Km",
+          "arXiv:1107.0207 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The neighbouring 2026-10-26 record 7b3432c6fd0d studies optimum exchanges on the Shrikhande and 4×4 rook graphs. The indexed 2026-11-22 record 5e47d2796f63 studies odd square rook graphs K_n□K_n with n≥5. The static later record f0be81b91bd1 matches the optimum words and count, not their exchange graph."
+        ],
+        "reasoning": "These are mathematical matches on either the static configurations or the move rule, not both on this family. The indexed dates distinguish catalogue paths but do not prove external history.",
+        "searches": [
+          "Resultary: minimum identifying-code exchanges in 3×m rook graphs; edge-identifying codes of K_{3,m}; token-jumping exact exchange and orbits"
+        ]
+      },
+      "rationale": "The scalar optimum is prior and explicitly attributed. The necessary singleton-column pattern also follows from Goddard–Wash's lower-bound argument by equality. The supported distinct content is the sufficiency of the complete equality description and the exact token-jumping structure, including exhaustive moves, degree, connectivity and natural orbits, which are not established by the earlier sources inspected. A later catalogue theorem implies the static classification; its date does not certify publication priority.",
+      "residual_risks": [
+        "The source checks are bounded and do not establish global priority. Related terminology for edge-code reconfiguration may hide prior exchange statements.",
+        "The later catalogue match covers the static theorem regardless of wording; chronology alone is not evidence about publication provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior scalar optimum and necessary pattern; no arbitrary-pattern sufficiency or jump result in these passages",
+          "evidence": [
+            "Proof uses independent representatives from columns, singleton-neighbour restrictions and an explicit constructed code D=A∪B∪C∪X."
+          ],
+          "identifier_or_url": "https://people.computing.clemson.edu/~goddard/papers/idCodeProduct.pdf",
+          "material_read": "§§2.1–2.2, Theorem 2.2 and the Property A argument (pp. 2–5, offsets 3416–10166, including 4650–7968 and 8990 onward)",
+          "method": "Bounded primary PDF passage comparison and examination of equality implications",
+          "title": "ID Codes in Cartesian Products of Cliques",
+          "trigger": "Direct optimum theorem and actual proof for the same family"
+        },
+        {
+          "assessment": "Equivalent framework and related equal-part results, not target exchange coverage",
+          "evidence": [
+            "Edge-identifying codes correspond to identifying codes in the line graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.0207",
+          "material_read": "§§1–2 pp. 2–3, especially offset 7598",
+          "method": "Bounded primary PDF passage comparison",
+          "title": "Identifying codes in line graphs",
+          "trigger": "Equivalent edge-code problem for a complete bipartite graph"
+        },
+        {
+          "assessment": "Related, but token sliding",
+          "evidence": [
+            "The adjacency definition requires that the new vertex be adjacent to the old vertex."
+          ],
+          "identifier_or_url": "https://hdl.handle.net/1828/14602",
+          "material_read": "Abstract and Chapter 2 §2.1, pp. 3,17, offsets 2066 and 30028",
+          "method": "Bounded dissertation PDF passage comparison",
+          "title": "The i-Graph and Other Variations on the γ-Graph",
+          "trigger": "Minimum identifying-code reconfiguration"
+        },
+        {
+          "assessment": "Later indexed static coverage, not token-jumping structure",
+          "evidence": [
+            "s singleton rows, two codewords per remaining column, and a criterion for separation of nonadjacent pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-minimum-local-identifying-codes-of-rectangular-rook-graphs-a--f0be81b91bd1",
+          "material_read": "RESULT.md §§2,4–5, offset 1395 onward, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local index and mirror statement check, specialization to three rows",
+          "title": "All minimum local identifying codes of rectangular rook graphs",
+          "trigger": "General rectangle and exact equality pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recovering every minimizer and how one-token modifications connect them goes beyond the known optimum. The minimal rectangle with three distinct singleton markers has a complete uniform move rule and reconfiguration invariants, not merely a list of small cases. The structural description directly gives all states and local transitions and supports exact reachability; the proof does not claim a diameter or results for all rectangular sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

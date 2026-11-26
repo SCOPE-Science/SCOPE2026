@@ -1,15 +1,21 @@
-# Review of the centrally lossy-chain impurity result
+# Independent mathematical audit
 
-## Correctness
-PASS. The dissipative imaginary-part identity forces each real eigenvector to vanish at the lossy center. The unaffected half-chain fixes its allowed energy, while the rank-one determinant evaluated at that energy gives a necessary and sufficient nodal condition for exact survival, yielding the gcd count for every nonzero real detuning. The parity-resolved bright block is invertible at each unperturbed odd-mode energy; its exact optical resolvent identity and elementary second-order perturbation produce the explicit linewidth. Direct finite-matrix checks and symbolic small-size calculations independently test constants and normalization. These computations supplement, rather than replace, the proof.
+## correctness
 
-## Originality
-PASS on the targeted published-literature and prior-claim comparisons, with residual priority risk. Dutta and Cooper's 2020 central-loss paper recognizes reflection-odd loss-free modes and discusses generic symmetry-breaking and first-order steady-state robustness, but does not establish the all-amplitude gcd survival count or the explicit one-particle quadratic imaginary-eigenvalue coefficient. Their 2020/2021 arbitrary-drive paper analyzes different steady-state observables and geometric resonances rather than this impurity-width classification. Other compared published findings concern different Hamiltonian or spectral objects; none of the inspected result statements implies both new claims. General matrix perturbation theory supplies a method, not this evaluated arithmetic and quartic-position law. Uninspected equivalent formulations remain possible.
+PASS
 
-## Value
-PASS. Exact decoherence-free-mode survival under site-selective fabrication error is a natural design question for centrally dissipative arrays. The \(\gcd\) criterion produces a sharp distinction between defect positions that remove every protected mode and positions that preserve a calculable subspace at arbitrarily large defect amplitudes. For unprotected modes, a fully explicit quadratic linewidth shows the precise dependence on mode index, location, hopping, and loss strength, including unexpectedly quartic suppression at near-nodes and fixed-rate linearity in \(\gamma\). It provides a nontrivial quantitative boundary to the previously qualitative robustness statements.
+For an eigenpair, taking the imaginary part of the Rayleigh quotient gives Im λ=−γ|ψ_c|²/(2‖ψ‖²). Thus a real eigenmode has a node at the center; neither half can vanish because the center equation and the nonzero endpoint coupling would force the other half to vanish by recurrence. Reflect the clean right half to the standard Dirichlet basis. Its energy must be some simple E_k with normalized vector v_k. The rank-one determinant evaluated at E_k on the left equals −ε|v_k(s)|² times the nonzero product of all clean eigenvalue gaps. Thus ε≠0 permits precisely (m+1)|sk and the clean odd vector is unchanged there. The node count is gcd(m+1,s)−1. The nodal real eigenspaces are reducing, since for their vectors the adjoint has the same eigenvalue; no Jordan chain can meet them. In particular the dark E_k are simple at ε=0 (equivalently the even block is invertible at E_k by endpoint projection), so analytic normalized eigenvectors and eigenvalues exist locally. An independent coefficient derivation differentiates the full eigenvector equation. With left/right clean amplitudes v_k/√2 and −v_k/√2, λ'_k(0)=v_k(s)²/2 by the clean left eigenvector. Projection of the derivative equation on the reflected clean right v_k gives 0=J v_k(m)ψ'_c(0)+λ'_k(0)/√2. Substitution in the dissipation identity yields −γ v_k(s)^4/[16J²v_k(m)²] and hence the displayed sine coefficient. The decay rate for a mode's no-jump probability is −2 Im λ. Reflection gives the right-half case without changed normalization.
 
-## Scope and risks
-This is the one-excitation no-jump spectrum, not a full bosonic many-body Lindbladian gap. The perturbation expansion is nonuniform as the dissipation rate tends to zero or infinity. A wider literature inspection or independent mathematical audit may revise the novelty assessment. Numerical tests alone do not establish arbitrary-size assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known clean reflection-odd modes, the exact preexisting common-node gcd subspace, and prior rank-one/arithmetic technique on paths. The distinct result is the necessity of those modes for a centrally lossy path with a single arbitrary nonzero real detuning, together with the explicit fixed-γ detuning coefficient for every other clean dark branch. No inspected same-model result gives that coefficient or mechanically supplies it from a clean node count. Generic first-order density-operator robustness or the weak-loss slope of an SSH spectrum is not that eigenvalue-width calculation.
+
+## value
+
+PASS
+
+The exact combination distinguishes truly protected single-particle modes from branches that only appear dark at first order and supplies measurable leading lifetimes at arbitrary fixed loss. The arithmetic position dependence and a sine-fourth-power width divided by the endpoint weight are not implied by knowing the symmetry or a generic perturbative order. They are useful for tuning or diagnosing a single-site perturbation of a central-loss chain within the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

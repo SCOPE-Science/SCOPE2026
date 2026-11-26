@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:37:52.407271Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76",
+        "Frozen VERIFICATION.md lines 19–25 and checker.py (inspected, not executed)"
+      ],
+      "rationale": "On the all-edges-hit event, convexity gives a retained segment on every original side and a chord between the two nearest samples across each vertex. For a side with one sample the retained segment has length zero. The cosine rule gives the stated expression with the interior angle, and homogeneity gives exactly the N/L scaling. Define an endpoint gap on a missed side to be its full length. At fixed rescaled thresholds the forbidden intervals eventually fit disjointly inside the half-edges, so their joint avoidance probability is (1−sum(s_i)/N)^N, proving joint convergence to 2m independent unit exponentials. Each scaled capped gap has an exponential tail bound. On the exceptional event the deficit is bounded by L by perimeter monotonicity (also for a segment), and the exceptional probability decays exponentially; consequently all fixed moments are uniformly integrable. For two unit exponentials their sum is Gamma(shape 2, rate 1), independent of their uniform fraction. Conditioning gives the displayed Laplace factor. With a=cos(α/2), b=sin(α/2), the square-root integral is the integral of sqrt(b²+a²z²) on [0,1]; the primitive gives 1/2+(b²/2a)log cot(α/4). Expanding the square of c gives integral c²=μ−(1+cos α)/3. These yield the stated mean and variance, and the chord increases strictly with the angle for positive gaps.",
+      "residual_risks": [
+        "The empty-edge cap makes the gap variables well defined off the good event; the convention cannot affect the limit in law or moments.",
+        "The checker is numerical and not a proof. It attempts 70 hull draws per polygon and skips empty-edge draws, and its five-angle loop performs 15 Laplace evaluations rather than the nine stated in VERIFICATION.md. Neither affects the analytic theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prochno et al. study a maximum-type Hausdorff error and local corner limits. Reitzner et al. study missing volume.",
+          "Catalogue items ad84c0dc66b5 and 774d42c68af9 give the same angular mean coefficient with an L/(N+1) prefactor and exponentially small finite-N error."
+        ],
+        "reasoning": "The volume and Hausdorff statements are not perimeter laws. The catalogue mean estimates do strengthen the frozen mean limit, and ad84c0dc66b5 also gives the entire limiting law.",
+        "searches": [
+          "arXiv:2404.02870, Theorem 1 and Remarks 1–2",
+          "arXiv:1911.05917, Theorem 1.2",
+          "Resultary: angular perimeter mean with exponentially small finite-sample remainder"
+        ]
+      },
+      "checked_sources": [
+        "Resultary items ad84c0dc66b5, 774d42c68af9 and bf3dbf28911a",
+        "arXiv:2404.02870",
+        "arXiv:1911.05917",
+        "arXiv:0912.0631",
+        "DOI 10.21638/11701/spbu01.2020.108 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof writes each independent term as Gg_α(U), with G Gamma(2,1), U uniform and independent, and g_α(u)=1−sqrt(1−4cos²(α/2)u(1−u)).",
+          "The inspected broad random-hull perimeter reference discusses mean-perimeter methods but does not state this fixed polygonal-boundary law in those passages."
+        ],
+        "reasoning": "Here g_α is the frozen c_α(u). Conditioning on U gives (1+t g_α(U))^(-2) and independence gives the product. Strict monotonic dependence is already elementary from the identical pointwise corner expression. No separate uncovered theorem is established by expressing the transform.",
+        "searches": [
+          "Catalogue item ad84c0dc66b5, Finding and Proof §4 (offset 5656)",
+          "arXiv:0912.0631, abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both findings give the same additive sum of cosine-rule chord losses in independent mean-one exponential endpoint distances, with convergence of all positive integer moments.",
+          "In the matching theorem artanh(cos(α/2))=log cot(α/4), and 4 cos²(α/2)=2(1+cos α), identifying both moment formulas."
+        ],
+        "reasoning": "Normalization, hull perimeter convention and sampling hypotheses match; neither a change of angle notation nor taking a transform changes the limit law.",
+        "searches": [
+          "Resultary: polygonal-boundary iid sampling and exponential angular perimeter loss",
+          "Catalogue item ad84c0dc66b5, Finding and Proof §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed statement ad84c0dc66b5 supplies the whole symbolic law and moments. Same-day item bf3dbf28911a gives product-exponential terms for missed area instead."
+        ],
+        "reasoning": "The exact match is a theorem, not a table of simulated values. The same endpoint process for missed area does not establish equality of observables.",
+        "searches": [
+          "Resultary: additive angular corner law for boundary-random polygon perimeter deficit",
+          "Catalogue items ad84c0dc66b5, 774d42c68af9, bf3dbf28911a"
+        ]
+      },
+      "rationale": "A distinct catalogue theorem states the same independent exponential perimeter limit under the same fixed-polygon arclength model, every positive integer moment, identical mean and variance, and a stronger finite-N mean estimate. Its proof already has the same Gamma–Uniform representation, so the explicit Laplace product follows just by taking the Gamma transform. This is equivalent coverage of the finding, not a conclusion about chronology or derivation: the matching entry has a later repository date path.",
+      "residual_risks": [
+        "Equivalent coverage is established directly, but priority and the relationship between the two records cannot be inferred from repository path dates.",
+        "The cited unit-circle paper was not available in usable form in the bounded retrieval; the comparison is not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent limiting law and stronger mean estimate; no priority inferred",
+          "evidence": "States all integer moments, the same cosine-rule sum and explicit variance. Its §4 representation yields the product in one conditioning step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exponential-angular-universality-for-perimeter-loss-of-boundary--ad84c0dc66b5/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof §§1–4; decisive offsets 0 and 5656, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Compare theorem assumptions and derive the Laplace transform from its explicit Gamma–Uniform representation",
+          "title": "Exponential angular universality for perimeter loss of boundary-random polygons",
+          "trigger": "Exact indexed match for the sampling model and additive law"
+        },
+        {
+          "assessment": "Stronger mean, not a full-law match alone",
+          "evidence": "Exact angular leading term L/(N+1) and exponential error.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-angular-coefficient-and-exponentially-accurate-perimeter-d--774d42c68af9/RESULT.md",
+          "material_read": "Finding and opening proof, offset 0",
+          "method": "Convert exterior angle β to interior angle π−β and compare sample normalizations",
+          "title": "Exact angular coefficient and exponentially accurate perimeter deficit for boundary-sampled polygons",
+          "trigger": "Possible stronger perimeter-mean theorem"
+        },
+        {
+          "assessment": "Same mechanism, different observable",
+          "evidence": "Missed-area term is (sin θ)EF/2, not E+F minus a chord.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-angular-product-exponential-law-for-missed-area-of-boundary-samp--bf3dbf28911a/RESULT.md",
+          "material_read": "Finding and opening proof, offset 0",
+          "method": "Compare the corner functional after identical endpoint-gap scaling",
+          "title": "Angular product-exponential law for missed area of boundary-sampled polygons",
+          "trigger": "Same sampling and independent exponential corners"
+        },
+        {
+          "assessment": "Related local geometry but not the same functional",
+          "evidence": "Hausdorff approximation is maximum-type rather than the sum of chord losses.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+          "material_read": "Theorem 1 p. 4, offset 11716; Remarks 1–2 p. 6, offset 17277",
+          "method": "Read limit statements and check the definition of the error",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Closest primary corner-limit approach in the boundary model"
+        },
+        {
+          "assessment": "Different intrinsic quantity",
+          "evidence": "Theorem concerns expected volume difference, not planar perimeter loss.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Theorem 1.2 p. 4, offset 11266",
+          "method": "Compare the asymptotic observable",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Possibly broader boundary approximation theorem"
+        },
+        {
+          "assessment": "No same-model law established by inspected material",
+          "evidence": "Mean perimeter and area methods for planar random models.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.0631",
+          "material_read": "Abstract p. 1, offset 0 and introduction p. 3, offset 6200",
+          "method": "Read the quantities and models in those passages",
+          "title": "Random Convex Hulls and Extreme Value Statistics",
+          "trigger": "General random-hull perimeter methods"
+        },
+        {
+          "assessment": "Access limitation, not negative evidence",
+          "evidence": "The frozen bibliography describes smooth unit-circle sampling; any further overlap was not assessed.",
+          "identifier_or_url": "https://doi.org/10.21638/11701/spbu01.2020.108",
+          "material_read": "No usable primary passage obtained",
+          "method": "Bounded lawful DOI access attempt; distinguish the frozen description from inspected primary text",
+          "title": "On the average perimeter of the inscribed random polygon",
+          "trigger": "Cited prior perimeter calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§4–5",
+        "Catalogue item ad84c0dc66b5, Finding and Proof §4"
+      ],
+      "rationale": "An exact angular perimeter law is a worthwhile observable distinct from the Hausdorff maximum or volume loss. The covered law and moment formulas, however, leave only the direct conditional Gamma transform and pointwise angle monotonicity as changes of presentation of that same result. These do not add a substantive limit theorem or a new quantitative consequence.",
+      "residual_risks": [
+        "This assesses mathematical value added over the inspected exact coverage, not historical priority or the usefulness of the law itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:56:28.263127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–113: reconstructed wedge normalization, marked renewal identity, tail, tightness and future law",
+        "Najeeb–Pal–Prasad arXiv:2611.26345v1 Appendix B Eq. (104) and §III.3",
+        "VERIFICATION.md and check.py inspected as finite algebra, half-plane/quadrant and synthetic discrete-renewal diagnostics, without running the supplied code"
+      ],
+      "rationale": "With ν=π/α=2β, the radial kernel and the angular Dirichlet normalization give the prefactor 1/(αDt) in the free-wedge heat kernel. Substituting r=√(4Dt)v and expanding the principal Bessel term gives the stated A_0 from the angular integral 2/ν and the radial integral Γ(1+ν/2)/2. In the flux, the inward normal derivative uses 1/r; the principal angular derivative at each edge has the same magnitude ν. The remaining radial integral is Γ(ν/2)/2, giving βA_0/2 on each edge. Integrating the current gives H_j(t)∼(A_0/2)t^{−β} for both marks; higher modes have larger powers, with summable integrated gamma-ratio bounds from the Bessel series. The marked renewal identity is exact: after k reset-ended durations with sum s≤t, the chance of the specified active mark and no exit by t is H_j(t−s). On s≤t/2 dominated convergence applies; on s>t/2 the fixed-k convolution density has order t^{−β−1} by splitting each convolution in half, so its contribution is o(t^{−β}) even when β≤1. The signed-test wording after Eq. (93) should read 'when the integral is zero' for the zero limit; the signed scaled convergence already follows from (79)–(86). Unconditionally, N is geometric, and a fixed-N sum of independent mark-conditioned durations has tail asymptotic to the sum of the individual regularly varying tails: two durations exceeding t^γ for 1/2<γ<1 have negligible probability, and the remaining shift of the largest is o(t). The union bound at t/(n+1) provides a summable polynomial envelope times the geometric probabilities for all n, yielding the A_0/a normalization. The resulting limiting fixed-(k,j) masses sum to one, so there is no escaped mass; the epoch variable has the k-fold reset-duration law independently of the fair mark, given k. On a reset-marked active excursion its completion adds one reset and a fresh independent geometric count. The resulting PGF, mass and moments agree algebraically; finiteness of the epoch law, not finiteness of its mean, gives S_t/t→0.",
+      "residual_risks": [
+        "No convergence of unbounded finite-time count moments, and no inference of a finite mean for the limiting epoch. Claimed only for pure threshold resetting with a fixed interior restart and fixed admissible wedge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duvall gives geometric survivor-conditioned completed returns for an open intermittent map and an appropriate initial density.",
+          "Vezzani–Barkai–Burioni give the general single-big-jump mechanism; Armendáriz–Loulakis Theorem 2 gives a conditional product law of nonmaximal variables for iid variables and a deterministic number of summands tending to infinity.",
+          "The Springer excerpt concerns defective renewal equilibrium properties; no full-text comparison could be made after lawful retrieval attempts timed out."
+        ],
+        "reasoning": "The iid deterministic-sample conditional theorem does not apply as stated to a length/mark-dependent terminal excursion and random, tight sample size. Neither a geometric marginal nor a general sum-tail estimate alone identifies a physical-time epoch or the future mark and count jointly. The general-principle overlap remains material and is credited.",
+        "searches": [
+          "arXiv:2606.27488 Introduction (1.2)–(1.4)",
+          "arXiv:1804.02932 Eq. (1)",
+          "arXiv:0912.1516 §2 Theorem 2",
+          "On Defective Renewal Equations and Compound Geometric… (Springer lookup)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.26345v1, 2505.04208v1 and 2504.13501v1",
+        "arXiv:2606.27488, 1804.02932 and 0912.1516",
+        "Resultary beb5bee0172a and same-record self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (104) implies equal asymptotic marked free-excursion tails, and the same prior paper already proves the reset-search tail A_0/a and the unconditional geometric pure-threshold total count.",
+          "The inspected exact prior laws concern either free-exit/aggregate statistics or a completed-count marginal in another model. They do not identify the limiting weighted renewal measures for each past count and last-reset epoch, nor the future mark's contribution to N."
+        ],
+        "reasoning": "A new path decomposition is needed here: partition on the active excursion, control the late convolution region separately for the epoch, then restart conditionally on its future edge mark. This gives the four-variable law and the change from the unconditional to the survivor-conditioned eventual count. The pass does not treat the tail, fair free-excursion mark or generic geometric-survivor mechanism as independently novel.",
+        "searches": [
+          "arXiv:2611.26345v1 Eqs. (28), (30), (34)–(36), (57)–(65), (104)",
+          "arXiv:2606.27488 Eqs. (1.2)–(1.4)",
+          "Resultary beb5bee0172a RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Brownian experiment is exactly a defective marked renewal: the reset-edge mass is b and the target-edge mass a; the active mark refers to the excursion that straddles the observation time, not the unconditional terminal edge or the independent Poisson protocol.",
+          "The later wedge paper gives the same experiment, unconditional pure-threshold survival tail and count PGFs, and two equal marked current constants."
+        ],
+        "reasoning": "These facts fix the kernel inputs and normalization, and already imply asymptotic fairness for the long free excursion. They do not describe the entire straddling excursion's epoch, prior count and eventual total under survival of the reset process.",
+        "searches": [
+          "regularly varying defective renewal equation survival conditioning marked cycles equal asymptotic tail probabilities reset count last renewal time marked rare long excursion",
+          "arXiv:2504.13501v1 Eq. (1)",
+          "arXiv:2611.26345v1 §§II, III.3, V and Appendix B (104)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit for this wedge joint law is the assigned record itself.",
+          "Distinct same-date beb5bee0172a treats half-line Brownian search with independent Pareto reset clocks, a geometric completed count independent of a Rayleigh-scaled position, and σ(t)/t→0."
+        ],
+        "reasoning": "The related result controls a scaled last reset and a spatial observation, not a nontrivial unscaled epoch with the retrospective threshold-exit mark and total eventual reset count for this geometry. The common date gives no priority order; no finite table could resolve the continuous-time joint limit.",
+        "searches": [
+          "marked late-survivor law threshold-reset Brownian motion wedge completed reset count future exit mark last reset epoch",
+          "late survivor conditional geometric completed reset count last reset epoch heavy tailed renewal survival"
+        ]
+      },
+      "rationale": "The same model, equal leading free-exit currents, absorption-survival tail and unconditional reset-count laws are explicitly prior. A geometric count under survivor conditioning and the single-large-excursion mechanism also have substantial prior analogues. The distinct claim retained is the joint conditional physical-time law: completed count, nontrivial unscaled last-reset epoch, retrospective active-edge mark and total future-inclusive count. The strongest verified wedge and general-source passages do not supply that joint law or a theorem whose hypotheses directly give it for the mark-dependent geometric stopping rule.",
+      "residual_risks": [
+        "A general marked defective-renewal theorem for a tight stopped sample could independently cover this joint law; no such implication was established in the inspected sources.",
+        "Full text of the related Springer defective-renewal paper (search title beginning On Defective Renewal Equations and Compound Geometric…) was not lawfully retrieved; only its equilibrium-oriented search excerpt was read. No inference of noncoverage is made from this access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of wedge protocol, marked currents, unconditional survival and unconditional count; not the claimed joint conditioned observable in the inspected passages",
+          "evidence": "J_0∼J_α∼βA_0 t^{-β−1}/2, unequal harmonic splitting probabilities, pure-threshold total survival ∼A_0 t^{−β}/a, and count PGFs before absorption.",
+          "identifier_or_url": "https://arxiv.org/html/2611.26345v1",
+          "material_read": "Title/date offset 509; §II offsets 11000–16000; §III.1 Eq. (20) offset 16000; §III.3 Eqs. (28), (30), (34)–(36) offset 29000; §V Eqs. (57)–(65) offsets 47000–54000; Appendix B Eq. (104) offsets 81735–86956",
+          "method": "Open-access primary HTML, bounded passage reads",
+          "title": "First-passage and correlated reset-count statistics under threshold and Poissonian resetting in a two-dimensional wedge geometry",
+          "trigger": "Strongest direct overlap: exactly the pure-threshold wedge among the models treated"
+        },
+        {
+          "assessment": "Free-wedge background and a different resetting protocol",
+          "evidence": "The no-reset decay exponent is π/(2α); the resetting studied in the inspected renewal/current sections is Poissonian, with absorbing edges.",
+          "identifier_or_url": "https://arxiv.org/html/2505.04208v1",
+          "material_read": "Abstract and §II.2 Eq. (8), offsets 0 and 13000; §III.1 (12)–(13) offset 20000; §V offsets 34000–45000",
+          "method": "Open-access primary HTML",
+          "title": "Diffusion in a wedge geometry: First-Passage Statistics under Stochastic Resetting",
+          "trigger": "Same wedge exit kernel and currents"
+        },
+        {
+          "assessment": "Prior setup, not the joint marked limit in this passage",
+          "evidence": "General threshold-reset renewal equation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.13501v1",
+          "material_read": "Main-text Eq. (1), PDF offset 15500",
+          "method": "Open-access primary PDF",
+          "title": "Target search optimization by threshold resetting",
+          "trigger": "General event-triggered renewal model"
+        },
+        {
+          "assessment": "Geometric-survivor analogue, different model and observables",
+          "evidence": "Completed return count given survival is asymptotically geometric for a conditionally invariant density.",
+          "identifier_or_url": "https://arxiv.org/html/2606.27488",
+          "material_read": "Introduction Eqs. (1.2)–(1.4), offset 0",
+          "method": "Open-access primary HTML",
+          "title": "Survivor-conditioned renewal laws and observable bounds for open intermittent maps",
+          "trigger": "Survivor-conditioned completed-count result"
+        },
+        {
+          "assessment": "General single-big-jump principle",
+          "evidence": "Tail of a heavy-tailed sum is governed by one large summand in the relevant regime; the passage does not give the path law of this marked stopped search.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.02932",
+          "material_read": "Eq. (1), PDF offset 7859",
+          "method": "Open-access primary PDF",
+          "title": "The Single Big Jump Principle in Physical Modelling",
+          "trigger": "General heavy-tail mechanism underlying late survival"
+        },
+        {
+          "assessment": "Closely related conditional mechanism under different hypotheses",
+          "evidence": "The deterministic iid sample has one exchangeably positioned long variable and independent unchanged others asymptotically as sample size tends to infinity; it is not the tight stopped, length/mark-dependent wedge sample.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1516",
+          "material_read": "§2 Theorem 2 and discussion, PDF p. 4, offset 13825",
+          "method": "Open-access primary PDF",
+          "title": "Conditional Distribution of Heavy Tailed Random Variables on Large Deviations of their Sum",
+          "trigger": "Stronger conditional product law for one-big-jump sums"
+        },
+        {
+          "assessment": "Material survivor-conditioned count overlap but different model and mark",
+          "evidence": "Half-line Brownian absorption with independent Pareto reset clocks, geometric completed count and Rayleigh-scaled position, and scaled last-reset epoch tending to zero.",
+          "identifier_or_url": "2026/11/22/SCOPE-algebraic-first-passage-tails-and-geometric-rayleigh-survivor-se--beb5bee0172a",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Algebraic first-passage tails and geometric–Rayleigh survivor selection",
+          "trigger": "Distinct indexed same-day survivor-conditioned Brownian record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md joint law and limiting total-count distribution",
+        "Closest wedge unconditional comparison, arXiv:2611.26345v1 §§III.3 and V"
+      ],
+      "rationale": "The joint law distinguishes past interventions from total interventions for the same selected late-surviving trajectory and places the last reset on its actual, unscaled time axis. It identifies a fair retrospective exit edge despite biased unconditional splitting, and explicitly links this mark to a different total-count law. These observables are not interchangeable with the unconditional count or one-dimensional survival tail and form a quantitative benchmark of the threshold-reset model.",
+      "residual_risks": [
+        "Only an asymptotic conditional benchmark, not a finite-time inference method or a general theorem about other resetting protocols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

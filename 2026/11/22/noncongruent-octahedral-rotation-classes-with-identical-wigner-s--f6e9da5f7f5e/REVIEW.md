@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two quaternion lists give the exact same 0, \(\pi\) and \(2\pi/3\) relative-angle matrix, with precisely three opposite pairs and twelve undirected cross-pairs. Unit-quaternion projective span dimensions are four and three, excluding congruence. Schur orthogonality identifies the normalized Wigner sample Gram as \(\chi_\ell/d\). A three-by-two block diagonalization supplies all eigenvalues and multiplicities. Explicit six-residue comparisons prove positivity for every \(\ell\ge1\) and the globally sharp \(2/5\) and \(8/5\) bounds, achieved only at degree two. Conjugation-group averaging proves equal-weight minimax conditioning for every degree. Independent symmetric-power checks through degree six and finite numerical scans corroborate, but do not replace, the proof.
+## correctness
 
-## Originality — PASS under inspected literature, with priority risk
-The 2020 Wigner-coherence paper computes bounds for Euler-angle grids, not the exact six-point octahedral conjugacy-class Gram; the 2015 Wigner sampling theorem treats a bandlimited equiangular grid. A publicly indexed twelve-node icosahedral class calculation provides the closest exact character-kernel method, but has different pairwise rotation angles, cardinality and interpolation onset and does not imply this geometric projective-rank twin. A publicly indexed full-octahedral metric result lists the separate octahedral classes but does not derive internal classwise Gram isospectrality or the Wigner spectrum. Full scientific comparisons were made where accessible, including the 2020 arXiv HTML article and two exact published mathematical records. An unindexed six-point projective counterpart or implicit consequence of older finite-group association schemes remains possible; no claim of definitive historical priority is made.
+PASS
 
-## Value — PASS
-The six quarter-turn and six edge-half-turn classes are canonical finite orientation designs, not arbitrarily selected coordinate slices. The fact that all central two-point measurements agree despite differing projective span dimensions identifies a concrete obstruction to orientation-configuration inference, while the complete all-degree Wigner spectrum and optimal-weight sharp condition bound furnish a nontrivial, reproducible interpolation benchmark on a compact nonabelian group. This benchmark is a classification of six data constraints, not a full-degree function reconstruction theorem.
+The two lists are full six-element conjugacy classes: proper signed coordinate permutations act transitively on the directed coordinate axes and on the unoriented edge axes. For both lists the absolute quaternion inner product is 0 inside each distinct matched pair and 1/2 across blocks, with 1 on the diagonal. This fixes the labeled relative-angle matrix. The signed lift spans differ (four via sums and differences for the quarter-turns, three for the edge half-turns), independent of lift sign. Every isometry of this round real projective space lifts to an orthogonal isometry of its spherical universal cover, so the ranks obstruct ambient congruence. Schur orthogonality for Haar probability yields the sample Gram chi_l/d after dividing evaluation by d. Its three eigenspaces are pair differences, block-constant configurations with zero total, and constants, giving the stated multiplicities and eigenvalues. At degrees 1, 2, 3 the unscaled extrema are (2,4), (2,8), (4,10) for d=3,5,7; at all degrees l>=4 each unscaled row has absolute off-diagonal sum at most 5, so the normalized extrema lie in [1-5/d,1+5/d], strictly inside [2/5,8/5]. This establishes full row rank, interpolation, uniqueness of the extreme degree, and the sharp condition number. With W positive diagonal, the weighted Gram shares the spectrum of G^(1/2) W G^(1/2); transitive group averaging replaces W by a scalar identity of the same trace. Rayleigh quotient convexity/concavity bounds the two extremes in the required directions. My integer reproduction independently generated the proper signed permutations, computed the two conjugacy classes and relative trace patterns, and checked six spectral power sums for each degree 1–6; Newton identities fix the corresponding finite eigenvalue multisets. The all-degree and all-weight decisions are analytic.
 
-## Closest literature and limitations
-Bangun–Behboodi–Mathar (arXiv:2010.02344; initial public date 2020-10-05) provide Wigner sensing-matrix analysis but not these two conjugacy classes. McEwen et al. (arXiv:1508.03101) provide a different, band-limited grid. The twelve-node icosahedral Wigner spectrum (public scientific record `1e4c42991dc6`) and full 24-node octahedral negative-type analysis (public scientific record `99fe4bac94d9`) were compared at the level of mathematical implications. The result assumes one integer degree at a time, a standard bi-invariant rotation metric and central two-point kernels. Historical-priority residual risks and the lack of independent verification remain explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the paired natural octahedral classes with identical central two-point data but different ambient projective ranks, together with their sharp common all-degree sampling behavior. The basic character and symmetry-averaging tools and the cuboctahedral line configuration on its own are not original contributions.
+
+## value
+
+PASS
+
+These are canonical equal-size cube rotation classes, not arbitrary tuned point sets. They show exactly what even complete central pair measurements cannot distinguish in SO(3), while yielding a useful positive single-degree interpolation result with sharp bounds over every degree and a principled equal-weight optimum. The lift-rank obstruction makes the distinction geometric rather than a numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

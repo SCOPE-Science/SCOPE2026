@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:50.198371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–39",
+        "VERIFICATION.md:19–23",
+        "check_round45.py:10–70 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/independent_replay.py, rounded_rotation; exact square-inequality bisection, complete target counts 760/2789/676 in [−32,32]^2 with all possible predecessors included"
+      ],
+      "rationale": "For w=Rz and e=Uz−w in the open half-unit square S, v=Ue lies in the diamond D=US. Its fractional rounding residual r=v−N(v) remains in D: if a coordinate has magnitude above 1/2, it is the only such coordinate and subtracting its signed unit strictly decreases the Manhattan norm. Neither v=Qz−Uw nor any attainable rotation coordinate has half-integer ties. Writing q=N(v) gives Rw=Qz−q and U(Rw)=Qw+Ur with Ur in S, so R²w=Qw. The image is invariant, hence R⁴w=−w and R⁸w=w, ruling out all proper period divisors at nonzero w. Periodic points have predecessors, and (2,0) has none: its inverse-rotated center has Manhattan distance 2(√2−1)>1/√2 from the nearest lattice point. In the preimage diamond, all distinct lattice pairs are unit-coordinate neighbors, so three points would give a triangle, impossible. The four equal overlaps contribute half their summed areas to double coverage; the diamond's area is one, so the uncovered and doubly covered areas agree. Weyl averaging over a rectangular box is a product of two geometric averages, with at least one irrational coefficient per nonzero frequency. Polygonal boundaries are null. This proves the densities, with periodic density equal to image density.",
+      "residual_risks": [
+        "The independent counts are a finite orbit/preimage check, not a density estimate used in the proof. The analytic claim depends on nearest-integer quantization and the exact 45-degree angle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 19(d) already gives the exact pattern β,1−2β,β for nonresonant angles with β=(cos θ+sin θ−1)². Its angle condition excludes π/4.",
+          "Vladimirov Eqs. (4.91)–(4.92) extend first-image frequency to resonant maps; Eq. (5.64) represents multiplicities by cell areas."
+        ],
+        "reasoning": "The frozen density computations use this established geometric structure; their role is to verify the full three-class pattern at an excluded angle. Generic frequency results do not imply that the whole image is periodic.",
+        "searches": [
+          "Vladimirov arXiv:1501.04237, Theorem 19(d), Eq. (5.64), and Eqs. (4.91)–(4.92)",
+          "Hannusch–Pethő arXiv:2109.01828, §6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.01828",
+        "arXiv:1501.04237",
+        "Resultary a728ed86ea69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-image frequency machinery already supports 2√2−2 at this angle, and area methods support the related preimage statistics.",
+          "The prior orbit results inspected pertain to different quantization and a subset of seeds."
+        ],
+        "reasoning": "The deduction of periodic density additionally requires image=periodic points. Establishing it by global two-step quarter-turn action on the image is a distinct argument; neither the first-image theorem nor the restricted floor returns entails it.",
+        "searches": [
+          "Vladimirov arXiv:1501.04237 pp. 45 and 55–57",
+          "Hannusch–Pethő arXiv:2109.01828 pp. 14–15",
+          "Resultary a728ed86ea69 mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirrored same-day record a728ed86ea69 proves exact eight-step floor-rotation phases for positive horizontal-axis seeds.",
+          "Hannusch–Pethő Theorem 5.2 treats selected axis seeds of floor rotation; §6 discusses rounding for injection and surjection, not for the stated global return."
+        ],
+        "reasoning": "At 45 degrees, eight-step floor returns on one axis are neither equivalent to R³=Q∘R nor the least-period law on all nearest-rounded image points. The quantizers disagree on noninteger coordinates, and the same-day date does not give priority.",
+        "searches": [
+          "Resultary semantic searches on nearest 45-degree digital rotation, one-step transients, global return and exact preimage frequencies",
+          "Hannusch–Pethő arXiv:2109.01828, rounding conventions and Theorem 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day phase catalogue is for floor rounding on an axis; Vladimirov's exact multiplicity formula gives the same numbers by formal substitution, but outside the angle domain of that theorem."
+        ],
+        "reasoning": "The constants themselves are not a novel numerical lookup. Neither a phase table of restricted floor trajectories nor the exact one-step frequency expression identifies the global nearest-rounding orbit structure.",
+        "searches": [
+          "Resultary nearest-rotation invariant and eight-step phase leads",
+          "Vladimirov arXiv:1501.04237 Theorem 19(d) exact frequency formulas"
+        ]
+      },
+      "rationale": "The supported distinct result is the global nearest-rounding orbit identity and classification, hence the identification of periodic density with image density. The multiplicity constants are a resonant validation of a known general statistical form, and the first-image density already follows from prior frequency machinery. No separate originality is assigned to the numerical constants or generic cell-area method.",
+      "residual_risks": [
+        "The full 1997 Kozyakin–Kuznetsov–Pokrovskii–Vladimirov survey and the 2021 seminar noted in the frozen record were not inspected. Priority for the exact nearest-rounded orbit identity is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong orbit precedent for a different quantizer and seed domain",
+          "evidence": [
+            "The periodic return theorem uses floor and selected horizontal seeds. The nearest-rounding comparison in §6 concerns injection/surjection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.01828",
+          "material_read": "p. 3 definition, Theorem 5.2 on p. 14 and §6 on pp. 14–15",
+          "method": "Targeted primary PDF reading",
+          "title": "Rotation on the Digital Plane",
+          "trigger": "Nearest and floor digital rotations, including 45-degree periodicity"
+        },
+        {
+          "assessment": "Substantial exact-statistics overlap; prior first-image coverage includes resonance, but no global orbit identity follows",
+          "evidence": [
+            "Theorem 19(d) assumes an angle set with θ/π irrational; β=(cos θ+sin θ−1)² gives the exact stated constants when evaluated at π/4. The resonant first-image relation has no periodicity assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.04237",
+          "material_read": "Eqs. (4.91)–(4.92), p. 45; cell definition and angle condition, Theorem 19(d) and Eq. (5.64), pp. 55–57",
+          "method": "Targeted primary PDF reading",
+          "title": "Quantized Linear Systems on Integer Lattices: A Frequency-Based Approach",
+          "trigger": "Same quantization cell and exact multiplicity/image frequencies"
+        },
+        {
+          "assessment": "Different quantizer, returns restricted to positive horizontal-axis seeds",
+          "evidence": [
+            "Classifies floor-rotation returns in six phases with an axis density, without a global off-axis statement."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/a728ed86ea69, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding and scope of its axis-seed classification",
+          "method": "Targeted local mirror reading",
+          "title": "Six exact eight-step return phases for floor-discretized 45-degree rotation",
+          "trigger": "Same-day same-angle exact orbit result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–36",
+        "Vladimirov arXiv:1501.04237, resonant first-image frequency relation"
+      ],
+      "rationale": "For an established discretized rotation, the global identity resolves all transients and exact least periods, despite noninvertibility on the full lattice. It lets one transfer prior one-step frequency information into a dynamical density of genuinely periodic points, not merely image points. The substantive value is the classification, not evaluating a known statistical expression at a special angle.",
+      "residual_risks": [
+        "No period or transient law for floor rounding, other angles or other lattices follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

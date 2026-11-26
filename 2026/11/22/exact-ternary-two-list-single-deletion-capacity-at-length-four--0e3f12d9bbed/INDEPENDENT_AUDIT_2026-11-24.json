@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:17:36.322819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md, verify.py and verification_output.txt (author evidence inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/exact_reproduction.py 1"
+      ],
+      "rationale": "For each received triple reverse the channel by inserting each symbol in each position and retaining a set of parents. This gives the distinct-source incidence, not a count of positions. My exact check covers all 81 inputs and 27 outputs and confirms the ten symmetry orbits: in units of one eighth, the left sides of (1) are 8 on 51 inputs, 9 on 12, and 10 on 18. The total output and input weights are 75/8 and 21/8. Summing (1) over any valid code counts nonnegative output weights at most twice and nonnegative input corrections at most once, giving size at most floor(171/8)=21. The displayed 21 distinct parents hit each received word exactly twice. Pairwise intersections for the triangle on 0120, 0121, 0210 are {012}, {010,020}, and {021} in pair order (first/second, first/third, second/third). No output hits all three, and the resulting odd cycle cannot lie in a union of two independent sets in the conflict graph. Zero deletions give a unique parent and do not change the maximum.",
+      "residual_risks": [
+        "Exact only for the stated alphabet, block length and deletion/list regime; nondecomposability is established for the displayed optimum, not asserted for every optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Substituting q=3,n=4,t=1,L=2 into Theorem 28 at cutoffs r=0,1,2,3 gives 54,30,39,141/2, respectively.",
+          "A distinct same-day summary eebc56a7fc03 treats length three, including size 9 for q=3."
+        ],
+        "reasoning": "The broader converse applies but cannot imply an upper bound of 21. A length-three theorem broader in alphabet does not preserve this block length or the exact height-four incidence constraints.",
+        "searches": [
+          "Kiah–Wei–Zeng arXiv:2609.21395v2, Theorem 28, pure-deletion case",
+          "Resultary short-block two-list one-deletion with larger alphabet families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.3128 Table I; arXiv:2609.21395v2 Theorem 28",
+        "Resultary 6adacbb5cb97, eebc56a7fc03 and self-hit 0e3f12d9bbed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The list-one result concerns disjoint shadows. Twice its optimum bounds the size of a union of two such codes by 22, but does not upper-bound an arbitrary list-two code by that argument.",
+          "The candidate's exact optimum is 21 and has a conflict triangle with no common received output; Theorem 28 gives no less than 30 here."
+        ],
+        "reasoning": "The triangle is an explicit obstruction to identifying the two parameter regimes by partitioning. The strict upper cap of 21 needs the length-four certificate, as does saturation by this witness.",
+        "searches": [
+          "Resultary 6adacbb5cb97 Finding and proof",
+          "Kiah–Wei–Zeng Theorem 28 proof and parameter range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact q=3,n=4,L=2 catalogue hit 0e3f12d9bbed is this assigned record.",
+          "Kulkarni–Kiyavash treats a hypergraph matching/packing problem with load one. The target allows load two on each distinct received triple."
+        ],
+        "reasoning": "The target is 0–1 column packing in the 27 by 81 incidence matrix with row caps two, equivalently taking distinct words as hyperedges and allowing degree two at each output. A twice-covering minimum alone and a one-fold matching table are not this maximum; saturation is a feature of the attaining witness.",
+        "searches": [
+          "Resultary exact ternary length-four list-two deletion optimum and nondecomposable optimum",
+          "Kulkarni–Kiyavash arXiv:1211.3128, deletion-correcting framework and Table I"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I at q=3,n=4 lists Levenshtein bound 16, their bound 13, fractional-matching bound 12 and Tenengolts-family size 8, all list-one.",
+          "Published record 6adacbb5cb97 supplies the list-one optimum 11.",
+          "No distinct q=3,n=4,L=2 match identified in the bounded searches; the distinct eebc56a7fc03 summary is for n=3."
+        ],
+        "reasoning": "The table's exact fractional bound and the later exact integral list-one maximum are different problems. The length-three summary is not a table for length four, and the self-hit is not independent precedence.",
+        "searches": [
+          "Kulkarni–Kiyavash Table I for q=3,n=4",
+          "Resultary exact q=3,n=4 list-one/list-two entries and same-day short-block two-list results"
+        ]
+      },
+      "rationale": "In the sources checked, the directly applicable run-counting converse gives only 30, and related exact records have different list bounds or block lengths. No examined exact optimization or stronger applicable theorem settles the stated capacity. The supported distinct result is the sharp list-two optimum for q=3,n=4 with an exactly two-fold and non-bipartite witness, not the general deletion-hypergraph method.",
+      "residual_risks": [
+        "The same-day length-three comparison has only catalogue evidence; its full text was unavailable.",
+        "No exhaustive historical priority claim: a less searchable exact small-block list-two table may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "List-one bounds, not a list-two optimum",
+          "evidence": [
+            "At q=3,n=4 the four reported entries are 16,13,12,8, respectively the Levenshtein bound, authors' bound, fractional-matching bound, and Tenengolts-family size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "PDF p. 14, Table I and legend, near offset 109500; title and abstract",
+          "method": "Primary OA PDF table and legend comparison",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Small-block ternary deletion table and fractional matching"
+        },
+        {
+          "assessment": "Directly applicable but not sharp",
+          "evidence": [
+            "Pure-deletion converse Lq^(n-t)/sum_(i=0)^t binom(r+1-t,i)+q sum_(i=0)^(r-1) binom(n-1,i)(q-1)^i; t<=r+1<=n. Minimum upper bound 30 at these parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395v2",
+          "material_read": "Theorem 28 and proof, printed p. 27, OA text near offset 113300",
+          "method": "Primary OA theorem passage and exact specialization",
+          "title": "Exponentially Larger Deletion-Correcting Codes and Constant-List-Decodable Insertion-Deletion Codes",
+          "trigger": "Same list-deletion setup, general finite-length theorem"
+        },
+        {
+          "assessment": "List-one specialization only",
+          "evidence": [
+            "N(4,3,1)=11 in the unique single-deletion decoding setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97",
+          "material_read": "RESULT.md passages at offsets 0 and 4300",
+          "method": "Published catalogue and corresponding local source passage",
+          "title": "Exact ternary length-four single-deletion code size",
+          "trigger": "Same q,n and one deletion; possible exact coverage"
+        },
+        {
+          "assessment": "Identified result at different block length, not a full-text exclusion",
+          "evidence": [
+            "Indexed result gives size 9 at q=3 for block length three."
+          ],
+          "identifier_or_url": "Resultary eebc56a7fc03 (2026-11-22)",
+          "material_read": "Published catalogue summary; corresponding full file was unavailable",
+          "method": "Bounded source access and comparison of indexed statement",
+          "title": "Sharp two-list one-deletion capacity at length three for Steiner-admissible alphabets",
+          "trigger": "Same alphabet at q=3 and same list and deletion bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md upper certificate, witness and conflict triangle; published list-one optimum 6adacbb5cb97"
+      ],
+      "rationale": "A standard fixed-list channel has a meaningful exact finite benchmark here. A checkable rational converse closes the one-codeword gap below twice the unique-list optimum. The attaining code saturates all received words yet cannot be partitioned into two uniquely decodable codes, separating these two ways to use the list allowance at optimum size. The result is not merely a numerical feasible example or an asymptotic-rate claim.",
+      "residual_risks": [
+        "No extrapolation to longer block lengths or larger alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

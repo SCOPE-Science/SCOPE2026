@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:43.919884Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–32 and 36–86; analytic replay via the orthogonal modes and two increment expansions",
+        "Frozen VERIFICATION.md:18–24 and verify.py:20–110, inspected without execution"
+      ],
+      "rationale": "The sum and difference modes are orthogonal and have the same token normalization. At relative variable t=(1-c)/(1+c), the unnormalized sum multiplier is 1-η and the difference multiplier is 1-ητ(t)>0, with τ(t)=tanh(κt/(1+t)). Thus t'=t[(1-ητ)/|1-η|]² and the ordered vector result retains both orientation signs. At η=1 a noncollinear pair becomes antipodal exactly. For 1<η≤2, 2ηtτ'≤κ<1-ητ, so the scalar map is strictly increasing; the ratio t'/t is strictly decreasing. Comparing it with one proves monotone escape to infinity below or at η_a, trapping and convergence to the unique interior fixed t* above η_a and below 2, and monotone decrease to zero at 2. For η<1 the ratio is greater than one throughout. The interior derivative is strictly between zero and one, and the actual orbit is the signed swap (x1,x2)→(-x2,-x1), not an ordinary swap. The monotonic alternatives exclude additional cycles. Consensus is fixed, undefined, or sign-flipping as stated across η=1; the antipodal multiplier stays positive. At η_a, t'/t=1+4κ(1+tanh κ)/t+O(t^-2); at 2, 1/t'-1/t=4κ+O(t). Averaging these increments and using 1+c=2/(1+t) and 1-c=2t/(1+t) yields both constants for every noncollinear initial pair. Numerical diagnostics are supplementary, not the proof.",
+      "residual_risks": [
+        "No formal verification claimed. No inference outside the stated two-token parameter range or to convergence of directions across different initial invariant planes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altafini's encompassing map is full self-attention, but its inspected dynamical theorem hypotheses require a positive simple top eigenvalue.",
+          "The 2026/10/26 two-threshold result assumes diag(λ,-M) with M>λ>0 and gives local cycle thresholds."
+        ],
+        "reasoning": "The definition of the general map includes this model but the cited theorem assumptions do not. For d≥2, -I has no positive eigenvalue and its top eigenvalue is not simple. Local thresholds in a mixed-sign family do not provide a global no-overshoot result.",
+        "searches": [
+          "arXiv:2610.13518v1, Section II Eq. (1) and Section III Assumption 1",
+          "Resultary: two sharp flip thresholds, two-token self-attention"
+        ]
+      },
+      "checked_sources": [
+        "Two OA primary sources and three distinct local indexed Results listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 56f902ee9956, substituting a=-1,b=1 into 2/(b tanh α-a) formally matches η_a, but violates 0<a<b. That threshold is for local stability of an antipodal flip; here antipodal pairs are fixed and the interior cycle is different.",
+          "In 94d39399d4d9, the substitutions λ=-1,M=1 in the two formulas likewise violate λ>0."
+        ],
+        "reasoning": "An invalid parameter substitution cannot imply the theorem. Even valid local stability at corresponding endpoints would not give the global monotone classification, full ordered-vector limits, and parabolic coefficients. The comparison does not rely on ordering same-day records.",
+        "searches": [
+          "Resultary source 2026/10/18/SCOPE-a-sharp-attention-temperature-threshold-for-coexisting-attractin--56f902ee9956, RESULT.md offsets 0–3928 and 3700–7998",
+          "Resultary 94d39399d4d9, RESULT.md offsets 0–3091"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Yang–Chen use V=-I but set A_ii=0; for two tokens the other-token weight is exactly one.",
+          "The indexed 2026/11/1 anisotropy-selective antipodal two-cycle result concerns antipodal eigencycles, not interior signed swaps."
+        ],
+        "reasoning": "Changing radius normalization does not remove the diagonal convention; sharpness drops out of the two-token masked map but not from this scalar relative-angle map. A signed swap in the interior differs from a synchronized or antipodal flip.",
+        "searches": [
+          "Resultary: repulsive two-token normalized attention, self-inclusive signed swap/flip thresholds",
+          "arXiv:2609.28448v1, Eqs. (4)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day result 56f902ee9956 gives mixed-sign local synchronized and antipodal flips, including threshold 2/(b tanh α-a), not the isotropic critical constants.",
+          "The other two indexed records give mixed-sign local thresholds or anisotropy-selective antipodal cycles, not an exact match for the target law."
+        ],
+        "reasoning": "The relevant exact data are the two scoped transition thresholds, the signed-swap relative angle, and the limiting rate coefficients. Matching a formal threshold expression is not exact coverage of those data.",
+        "searches": [
+          "Resultary local semantic search and Findings for 56f902ee9956, 94d39399d4d9, and 105eaf2d4303"
+        ]
+      },
+      "rationale": "The closest indexed statements concern local cycles with a mixed-sign or anisotropic value matrix. A formal threshold match outside their hypotheses is not a theorem for the isotropic negative map. The publicly inspected self-inclusive family has a positive-simple-top-eigenvalue assumption for its principal analysis; the matching repulsive sign in the other paper uses diagonal masking. No checked source supplies the inclusive, isotropic global classification and both critical time constants under valid hypotheses.",
+      "residual_risks": [
+        "Bounded to checked passages and strongest retrieved claims; an indirect equivalent elsewhere has not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant family but disclosed dynamical assumptions exclude -I.",
+          "evidence": [
+            "Full denominator and separate normalization; positive simple largest eigenvalue assumption."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13518v1",
+          "material_read": "Section II Eq. (1), HTML offsets 10900–13080; Section III Assumption 1, 14300–18429",
+          "method": "OA paper full HTML bounded passages",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Same full normalized residual self-attention family"
+        },
+        {
+          "assessment": "Repulsive, but masked diagonal changes the exact two-token map.",
+          "evidence": [
+            "V=-I and A_ii=0; the remaining row weight in a pair is one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.28448v1",
+          "material_read": "Introduction, offsets 8200–11695; Section II Eqs. (4)–(8), 19000–24386",
+          "method": "OA paper bounded passages",
+          "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+          "trigger": "Matching negative value sign and possible repulsive phase overlap"
+        },
+        {
+          "assessment": "Near-match of formulas only, outside hypotheses; local rather than global.",
+          "evidence": [
+            "diag(a,-b), 0<a<b; antipodal threshold 2/(b tanh α-a)."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-attention-temperature-threshold-for-coexisting-attractin--56f902ee9956",
+          "material_read": "RESULT.md offsets 0–3928 and 3700–7998",
+          "method": "Local Resultary mirror",
+          "title": "A sharp attention temperature threshold for coexisting attracting cycles",
+          "trigger": "Strongest same-day local threshold match"
+        },
+        {
+          "assessment": "Mixed-sign hypotheses do not imply the isotropic result.",
+          "evidence": [
+            "λ>0, M>λ; the thresholds concern local flip cycles."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-sharp-flip-thresholds-and-a-resonant-circle-in-two-token-sel--94d39399d4d9",
+          "material_read": "RESULT.md offsets 0–3091",
+          "method": "Local Resultary mirror",
+          "title": "Two sharp flip thresholds and a resonant circle in two-token self-attention",
+          "trigger": "Broad same-model local bifurcation comparison"
+        },
+        {
+          "assessment": "Anisotropic local antipodal cycle criterion is not the isotropic interior orbit statement.",
+          "evidence": [
+            "Distinguishes isotropy; no exponentially attracting antipodal eigencycle under isotropic repulsion."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303",
+          "material_read": "RESULT.md offsets 0–3216 and 8336–9061",
+          "method": "Local Resultary mirror",
+          "title": "Anisotropy-selective antipodal two-cycles in two-token self-attention",
+          "trigger": "Closest negative-definite indexed setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–32, 69–86 and 98–100",
+        "Contrasting local and masked settings in the source inspections"
+      ],
+      "rationale": "The smallest genuinely interacting self-inclusive repulsive model yields a complete global classification in an explicit parameter rectangle. Input-independent parabolic constants and an exact signed-swap window distinguish global dynamics from endpoint linearization and from diagonal-masked repulsion; they give a concrete benchmark for analytic attention dynamics.",
+      "residual_risks": [
+        "No claim of practical training behavior, optimal κ range, or generalization to more tokens."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

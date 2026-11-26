@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:44:46.500970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_profiles.py, requirements.txt, verification_output.txt, and witnesses.json",
+        "Independent replay: python3 /workspace/branches/review4_exact.py 0; python3 /workspace/branches/review4_exact.py 4 with the frozen witnesses.json path as second argument"
+      ],
+      "rationale": "Unrestricted distinct deletion shadows form a set-packing instance on all 64 outputs; binary constraints exactly express disjointness. I independently exhausted it using integer exact cover, not the packaged MIP. Give a triple weight 4 if constant, 2 if nonconstant with an adjacent repeat, 1 otherwise, for total 100. Each of the 256 word shadows has weight at least 4, checked during exact generation. Add a singleton unused-output tile for each output, with cost its weight; a word tile costs its shadow weight minus 4. A code plus its unused outputs is an exact tiling, with total nonnegative cost 100−4|C|. Thus no code has more than 25 words. To test size 25 and exhaust size 24, fix budgets 0 and 4. At each step choose a remaining output and branch over all tiles containing it that fit entirely in the remaining set and within the remaining budget; accept only complete tilings of exact cost. Bit masks are integers and the branches exhaust all codes without trying to infer anything from time limits. Budget 0 has no tiling (21 recursive calls). Budget 4 has exactly the six claimed profiles (108752 calls): (4,8,4,8), (4,9,2,9), (4,10,0,10), (4,10,2,8), (4,11,0,9), (4,12,0,8), with respective coverages 64,64,64,62,62,60. All six frozen witnesses were also verified independently by direct deletion and set disjointness. Defect is 64 minus coverage and only a full cover is perfect.",
+      "residual_risks": [
+        "The exclusion proof is finite computation in ordinary integer Python, not a proof-assistant certificate. The packaged floating-point MIP solver and its recorded transcript were not relied on for exclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim–Lee–Oh give N(4,q,1)=q²(q+2)/4 for even q and construct perfect codes at that optimum.",
+          "Kulkarni–Kiyavash give the general hypergraph-matching and 0–1 integer-program framework."
+        ],
+        "reasoning": "The broad cardinality theorem specializes directly to 24 and perfectness is already attained, but neither theorem identifies all equality cases by shadow size. The set-packing framework still requires solving the particular equality problem.",
+        "searches": [
+          "arXiv:1003.4057, Theorems 4.7 and 5.1",
+          "arXiv:1211.3128, §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bounded searches and closest published record",
+        "Kim–Lee–Oh, arXiv:1003.4057",
+        "Kulkarni–Kiyavash, arXiv:1211.3128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=4 the perfect construction replaces two words of the form aabb by abab. Each replacement retains aab and abb and adds aba and bab, so doing only one replacement is collision-free as well: each intermediate shadow is a subset of the corresponding final shadow. This gives (4,11,0,9) at coverage 62.",
+          "The prior constructions do not give the n_3>0 possibilities or the exclusion of any other size-24 profile; no stronger covering classification was identified in the bounded evidence."
+        ],
+        "reasoning": "All three coverage values occur implicitly in the earlier constructions. What is not implied is that these are the only coverage values or that the listed six profiles exhaust the optimum.",
+        "searches": [
+          "arXiv:1003.4057, §5, p. 19, offset 61074",
+          "arXiv:1211.3128, §2",
+          "Resultary reverse-complement-closed deletion codes original finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two positions yield the same deletion result from one word iff all symbols between them, inclusive, are identical. Thus profile by distinct deletion descendants is profile by run count.",
+          "Disjoint shadows make weighted profile sum equal to coverage; deficit zero means a perfect deletion code."
+        ],
+        "reasoning": "The aliases describe the same invariant, whereas an optimization with reverse-complement closure or a different edit channel changes the feasible set. A coverage spectrum alone would also be weaker than a profile spectrum.",
+        "searches": [
+          "Resultary: quaternary length-four single-deletion optimum, shadow sizes, run-count profile, N(4,4,1)=24 and coverage deficits",
+          "arXiv:1003.4057, Table 2 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit Table 2 code has profile (4,12,0,8), covering 60 outputs. The §5 modification gives (4,10,0,10) when q=4.",
+          "The later Resultary reverse-complement study counts 160 size-24 optima with an extra closure assumption, classifying self-reverse-complementary words rather than unrestricted shadow profiles."
+        ],
+        "reasoning": "The exact table has a witnessed profile, not a table of attainable profiles. The restricted catalogue study cannot yield unrestricted exclusions.",
+        "searches": [
+          "Resultary: size-24 length-four quaternary single-deletion profiles and exact defects",
+          "arXiv:1003.4057, Table 2 and §5"
+        ]
+      },
+      "rationale": "The optimum, both endpoint coverage witnesses, and in fact all three n_3=0 profiles are prior or implied by the published constructions. The distinct supported result is the complete profile spectrum, including the three n_3>0 profiles and exclusion of every other profile. The existence of coverage 62 alone is not a distinct claim.",
+      "residual_risks": [
+        "Bounded searches cannot exclude a prior unindexed exhaustive enumeration; the older preprint retrieval failed, but the later full text was inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cardinality and witnesses for all three coverage levels, but not their exclusivity or the full profile classification.",
+          "evidence": "The word classes C_1, C_2 and C_4 have sizes q, q(q−1) and N−q²; §5 replaces q/2 words of form aabb by abab and proves perfectness. The older arXiv:0810.3729 copy was unavailable through the attempted route; the later full text supplies this evidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4057",
+          "material_read": "Table 2 (pp. 4–5, offset 13864), Theorem 4.7 (p. 18, offset 60076), §5 including Theorem 5.1 (pp. 18–19, offset 61074 onward)",
+          "method": "Open-access primary PDF, inspected exact table and construction passages",
+          "title": "Construction of optimal codes in deletion and insertion metric",
+          "trigger": "Same sharp optimum and explicit examples"
+        },
+        {
+          "assessment": "Supplies framework, not extremizer profiles for these parameters.",
+          "evidence": "Deletion codes are hypergraph matchings formulated as a 0–1 integer program with a fractional relaxation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "§2, printed p. 2, offset 15253",
+          "method": "Open-access primary PDF, targeted passage reading",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General exact optimization formulation"
+        },
+        {
+          "assessment": "Different class and different invariant.",
+          "evidence": "Requires reverse-complement closure and counts 160 maxima with additional self-reverse-complement statistics.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-reverse-complement-closed-four-nucleotide-deletion-codes-a--638d51d63850",
+          "material_read": "Finding and scope of the published record",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp reverse-complement-closed four-nucleotide deletion codes",
+          "trigger": "Same alphabet size and maximum under an extra restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, profile and coverage claims",
+        "Kim–Lee–Oh, Theorems 4.7 and 5.1",
+        "Independent exact replay"
+      ],
+      "rationale": "At the smallest nonbinary even alphabet size, the result determines how every optimal-length-four deletion code uses the received space, not simply whether optimal codes can be perfect. The joint run/shadow profile resolves a natural equality-structure question, giving three new types with 3-shadow words and sharp exclusions not furnished by the known optimum and constructions.",
+      "residual_risks": [
+        "This finding does not classify codes up to equivalence or make an analogous assertion for a larger alphabet or greater length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

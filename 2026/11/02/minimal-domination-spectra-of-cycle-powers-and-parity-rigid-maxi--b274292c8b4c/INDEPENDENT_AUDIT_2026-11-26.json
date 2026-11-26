@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:41:59.600945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify_minimal_cycle_powers.py (read, not run)",
+        "Replay: python3 /workspace/audit-evidence/frozen_checks.py 4"
+      ],
+      "rationale": "In the periodic lift, consecutive centers cover their intervening positions exactly when the gap is at most 2r+1. At a center at 0 with predecessor/successor at −a,b, a private point must lie in [−r,r] intersected with [r−a+1,b−r−1]. The bounds on a,b make this intersection nonempty exactly when a+b≥2r+2; more distant centers cannot reach such a point. In the singleton case the copies of the same center do not overlap its closed interval since n≥2r+1; for k=2 the two neighbors can be distinct lifts of the same other center, as required. Rooting at a selected vertex gives exactly k roots per labeled set even for periodic gap words, yielding the n/k factor. The trace enumerates exactly these rooted words, and the formal logarithm and u derivative give 1/k and n respectively. The support inequalities are necessary by summation and sufficient by taking each gap in [r+1,2r+1]. At the upper endpoint n=k(r+1) every neighboring sum is tight, giving one constant word for odd k and 2r+1 alternating words for even k. The stated parity counts and examples follow. Independently replayed all subset-level gap conditions on 27 cases (r=1,2,3 and 2r+1≤n≤13) using private coverage multiplicities, and expanded the r=2 determinant by signed permutations; all matched.",
+      "residual_risks": [
+        "The replay is bounded; the exact all-parameter result rests on the proof.",
+        "The Finding's awkward wording about nonzero coefficients is read as support equal to the stated interval, as explicitly proved in §4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galvin–Zhang Theorems 1.4–1.5 give ordinary domination recurrences on powers of paths and cycles.",
+          "Kanté et al. abstract and introduction give general enumeration problems/algorithms, not the explicit invariant for this family."
+        ],
+        "reasoning": "Enumerating all dominating sets or listing minimal sets algorithmically does not provide the claimed cardinality-refined formula, gap-free range or parity law.",
+        "searches": [
+          "Galvin–Zhang arXiv:2408.12731v1",
+          "Kanté et al. arXiv:1407.2053"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and both close RESULT.md entries",
+        "Galvin–Zhang arXiv:2408.12731v1",
+        "Kanté et al. arXiv:1407.2053",
+        "OEIS A253413",
+        "Identified interval-graph result (search evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary domination imposes the single-gap upper bound only; the connected enumerator imposes a different restriction; A253413 omits the size variable and r>1."
+        ],
+        "reasoning": "The private-point restriction must still be proved. Once imposed, the trace identity is standard, but the resulting explicit spectrum and alternating extremal configurations do not follow directly from the checked prior statements.",
+        "searches": [
+          "Galvin–Zhang arXiv:2408.12731v1, Theorems 1.4–1.5",
+          "OEIS A253413 FORMULA",
+          "Connected-domination Resultary RESULT.md, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-connected-domination-polynomials-of-cycle-powers-the-one-long-ga--2cbe2b923276 counts connected dominating sets using at most one gap greater than r, not the private-point test.",
+          "The interval/permutation-graph search found Minimal dominating sets in interval graphs and trees; the identified retrieval timed out. No exact equivalence was established there."
+        ],
+        "reasoning": "Minimal domination here is inclusion-irredundant equal-length cyclic interval coverage. Connected domination is not equivalent: in C9² the centers 0,3,6 form a minimal dominating set with no internal graph edges, and a full graph vertex set is connected dominating but not inclusion-minimal. The same-day catalogue entry has been compared on content, not presumed different by date.",
+        "searches": [
+          "Resultary semantic lookup for minimal domination of cycle powers",
+          "Primary-literature lookup for minimal dominating sets in cycle powers and equal-length cyclic interval covers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A253413 records total minimal dominating sets of C_n, with a recurrence and examples.",
+          "The C11 Resultary entry gives 44 minimal dominating sets and finite-family dimension assertions."
+        ],
+        "reasoning": "The r=1 unrefined prior sequence, including the finite C11 total, is credited; total counts do not determine each size multiplicity or the general-r bound and parity formula.",
+        "searches": [
+          "OEIS A253413",
+          "Resultary 2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc"
+        ]
+      },
+      "rationale": "The general-r minimal-set census and its support and parity consequences are distinct on checked evidence from ordinary domination, connected domination, a finite minimal-domination family and the known unrefined ordinary-cycle sequence. This pass excludes any priority claim for the r=1 totals or for general transfer-matrix techniques.",
+      "residual_risks": [
+        "Equivalent general-r statements may exist in cyclic interval-cover literature; one interval-graph retrieval timed out.",
+        "The known r=1 totals and standard formal determinant identity are not credited as new. Same-date catalogue proximity does not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for ordinary domination, not the claimed minimal-only enumeration",
+          "evidence": "The definition of γ_k counts all dominating sets, and the cycle-power result is for that polynomial.",
+          "identifier_or_url": "https://arxiv.org/html/2408.12731v1",
+          "material_read": "Introduction and Theorems 1.4–1.5, offset 0–5921",
+          "method": "OA full-text passage inspection",
+          "title": "The domination polynomial of powers of paths and cycles",
+          "trigger": "Same graph family and size-refined domination enumerator"
+        },
+        {
+          "assessment": "Generic algorithmic coverage, not the claimed family formula in inspected material",
+          "evidence": "Discusses enumeration and output-polynomial algorithms for graph classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2053",
+          "material_read": "Abstract and introduction, PDF pp. 1–2, offset 0–5935",
+          "method": "OA PDF passage inspection",
+          "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+          "trigger": "Possible broader minimal-domination enumeration"
+        },
+        {
+          "assessment": "Direct overlap on unrefined ordinary-cycle counts",
+          "evidence": "One total per cycle length, not coefficients by size.",
+          "identifier_or_url": "https://oeis.org/A253413",
+          "material_read": "Entry COMMENTS, FORMULA and EXAMPLE",
+          "method": "OA public entry inspection",
+          "title": "Number of minimal dominating sets in the cycle graph",
+          "trigger": "Exact totals at r=1"
+        },
+        {
+          "assessment": "Different counted family",
+          "evidence": "Connected domination with at most one gap exceeding r, plus the bound 2r+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-connected-domination-polynomials-of-cycle-powers-the-one-long-ga--2cbe2b923276",
+          "material_read": "RESULT.md Finding and Proof, offset 0–5862",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Connected domination polynomials of cycle powers",
+          "trigger": "Close same-day catalogue match for cycle powers and gap enumeration"
+        },
+        {
+          "assessment": "Finite overlap, not the claimed general census",
+          "evidence": "44 minimal dominating sets on C11 with finite-family VC/Littlestone results.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0–5930",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "The first minimal-domination cycle gap: complete five-query trace",
+          "trigger": "Same minimal-domination family on an ordinary cycle"
+        },
+        {
+          "assessment": "Unresolved; no whole-document exclusion",
+          "evidence": "The identified result concerns interval/permutation-graph enumeration; no exact cyclic-arc statement was read.",
+          "identifier_or_url": "https://www.researchgate.net/publication/297713602_Minimal_dominating_sets_in_interval_graphs_and_trees",
+          "material_read": "Search result only; retrieval timed out",
+          "method": "Targeted literature lookup and attempted OA retrieval",
+          "title": "Minimal dominating sets in interval graphs and trees",
+          "trigger": "Possible overlap using minimal interval covers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–5",
+        "Galvin–Zhang ordinary domination comparison",
+        "OEIS A253413"
+      ],
+      "rationale": "The result fills a natural refinement of cycle-power domination: it identifies every attainable size and gives exact multiplicities of irredundant covers rather than all covers. Extremal tightness yields explicit configurations and a parity distinction invisible in the upper domination number alone. This is useful structure throughout the natural family and not just a finite table.",
+      "residual_risks": [
+        "No conclusion is drawn for nonuniform circular-arc systems or path powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

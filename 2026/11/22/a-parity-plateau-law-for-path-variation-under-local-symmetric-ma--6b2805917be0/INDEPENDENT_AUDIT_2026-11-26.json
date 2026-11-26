@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:30:28.389231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40, SLOGAN.txt, VERIFICATION.md and verify_bandwidth.py (inspected, not run)",
+        "Independent exact replay: python3 /workspace/branches/bandwidth_exact_review.py"
+      ],
+      "rationale": "A row-stochastic matrix preserves constants, so in path-difference coordinates its induced ℓ¹ norm is the maximum variation of a unit cut indicator. At that cut, symmetry identifies the two cross blocks as transposes, and the admissible cross block is exactly the sub-stochastic edge-weight polytope of the cut's bipartite bandwidth graph: all unallocated mass can be put on the diagonal. Integrality and convexity thus give an optimal matching without assuming all symmetric stochastic matrices are mixtures of involutions. For p left hole runs and q right island runs, the two internal transition counts are at most 2p−e_L and 2q−e_R, where e_L,e_R are the adjacent switch indicators. The cut transition is 1 if those indicators agree and 0 otherwise, giving the two bounds used in the proof, even at finite endpoints. At even bandwidth 2k, the only way to exceed 4k−1 is with both adjacent sites unchanged and k runs on each side. That forces every switched depth to be 2,4,…,2k; the depth-2k hole has no permissible partner. At odd bandwidth 2k−1 the run counts alone suffice. Set s=min(n,4k), m=ceil(s/2). The parity target has exactly m ones and the sorted transpositions have constant displacement at most 2ceil(s/4)−1 on every nonempty matching (check s modulo four); if s<n the last alternating entry is zero, so there is no extra endpoint jump. This realizes min(n−1,4k−1), including n=2 or r≥n−1. Symmetry really matters: the bandwidth-two permutation with row images (0,3,1,4,2,5) maps the cut at 3 to (1,0,1,0,1,0), of variation 5 rather than the symmetric maximum 3. An independently written sweep of all banded involutions using an adjacent-edge cut histogram passed for 52 (n,r) pairs, 21,330 involution instances; separate deduplication by cut confirmed the reported 1,373 profiles across the original 30 pairs.",
+      "residual_risks": [
+        "The finite check corroborates the theorem, not a proof covering all dimensions. The norm is for the open, unweighted path, not cyclic variation or for only PSD stochastic filters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen bibliography points to symmetrized smoothing filters, a TV-diminishing interpolation operator and diffusion scale-space stability, respectively. Their decisive external passages were unavailable in this review.",
+          "The explicit nonsymmetric bandwidth-two permutation in the correctness assessment exceeds the symmetric answer. Bipartite matching-polytope integrality is a standard premise."
+        ],
+        "reasoning": "A larger class's sharp maximum would not itself imply the symmetric one; a general theorem that encodes the transposed cross-block constraint might. Neither a TVD bound for a selected averaging operator nor integrality, without an extremal cut analysis, yields the claimed parity profile.",
+        "searches": [
+          "Primary search: variation norms of banded doubly stochastic matrices including nonsymmetric matrices",
+          "Milanfar DOI:10.1137/120875843; Nochetto–Salgado arXiv:1211.1069; Girdziušas (2008), chapter 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 6b2805917be0, 8de2c28b3181 and d9393ab40a5d",
+        "Frozen RESULT.md proof and references; cited external papers/thesis checked only to the extent above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier difference-coordinate formula determines the norm when a matrix is fixed. Integrality reduces the search at any cut to matchings, not to an evaluated maximum."
+        ],
+        "reasoning": "Obtaining the sharp value still needs the infeasibility of the alternating even-depth holes and islands at even bandwidth and an explicit feasible construction for every finite size. The inspected prior statements do not directly provide either.",
+        "searches": [
+          "Resultary 8de2c28b3181 Finding and Proof §1; d9393ab40a5d Proof (1)–(3)",
+          "Bipartite matching reduction, frozen RESULT.md §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8de2c28b3181 Finding and Proof §1: fixed stochastically monotone matrix, difference-coordinate column norm and a comparison with Dobrushin contraction.",
+          "Frozen RESULT.md §§1–2 casts the norm as cut variation over subtotals of a bipartite matching."
+        ],
+        "reasoning": "The induced ℓ¹ norm via successive differences is equivalent to testing a cut. The fixed monotone problem does not bound locally oscillating outputs on the entire symmetric banded class or solve the resulting matching optimization.",
+        "searches": [
+          "Resultary: path variation and sharp stochastic matrix seminorms",
+          "Primary search: symmetric stochastic matrices with sharp banded-path total-variation norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6b2805917be0 is the exact assigned record.",
+          "Same-date d9393ab40a5d Finding, Assumptions and Proof (1)–(3) give a product threshold for a nonlinear directed local filter."
+        ],
+        "reasoning": "The exact entry is not distinct priority evidence. The other entry concerns TV dissipation for a nonlinear directed three-point rule, not a worst-case linear symmetric-bandwidth norm.",
+        "searches": [
+          "Resultary: parity-plateau path variation under local symmetric Markov filtering; sharp TV stability for local filters"
+        ]
+      },
+      "rationale": "The checked distinct claim is the exact uniform symmetric-bandwidth envelope, including even-odd plateaus and finite-size involution attainment. The induced-norm reduction and matching integrality are existing methods; TV nonincrease for a particular filter and fixed-matrix seminorm computations are not this extremal theorem. The decision is best-of-knowledge, not a claim to have ruled out every treatment of banded stochastic matrices.",
+      "residual_risks": [
+        "Priority may be affected by inaccessible literature or an unindexed result on banded matrices, path cut crossings, or variation seminorms. No unavailable primary source was classified as non-covering in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Same symmetric class, bandwidth convention, exact formula and involution attainment.",
+          "identifier_or_url": "Resultary 6b2805917be0",
+          "material_read": "Mirrored Finding and Assumptions; frozen proof",
+          "method": "Local Resultary mirror and frozen source",
+          "title": "A parity-plateau law for path variation under local symmetric Markov filters",
+          "trigger": "Exact title and claim match"
+        },
+        {
+          "assessment": "Partial formulation overlap",
+          "evidence": "Difference-coordinate tail sums for a fixed monotone kernel and a Dobrushin comparison; no symmetric banded extremum in the inspected statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-variation-dobrushin-separation-for-stochastically-monotone--8de2c28b3181/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §1",
+          "method": "Local Resultary mirror",
+          "title": "Sharp variation–Dobrushin separation for stochastically monotone kernels",
+          "trigger": "Closest distinct induced path-variation norm"
+        },
+        {
+          "assessment": "Different operator and question",
+          "evidence": "One-input TV dissipation for a nonlinear directed three-point map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-product-threshold-for-total-variation-stability-of-direc--d9393ab40a5d/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof (1)–(3)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp product threshold for total-variation stability of directed filters",
+          "trigger": "Local TV-filter theorem with exact threshold"
+        },
+        {
+          "assessment": "Potential coverage unresolved",
+          "evidence": "The author's description concerns symmetry in smoothing; that cannot exclude a uniform path-variation theorem in the full text.",
+          "identifier_or_url": "https://doi.org/10.1137/120875843",
+          "material_read": "Bibliographic identification and frozen author's comparison only; no decisive primary section read",
+          "method": "Lawful publisher/OA retrieval attempted; publisher returned 403",
+          "title": "Symmetrizing Smoothing Filters",
+          "trigger": "Closest matrix-class literature cited by frozen record"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "A particular TVD interpolation, as described in the frozen record, would not supply the claimed extremal norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+          "material_read": "Title and frozen author's comparison only",
+          "method": "OA retrieval and identified ar5iv mirror attempted; unavailable",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Closest cited TV-preserving interpolation theorem"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Cyclic variation and diffusion are the topic described by the frozen record, not evidence of absence of an open-path theorem.",
+          "identifier_or_url": "https://aaltodoc.aalto.fi/bitstreams/17a8a51d-faa0-43f1-938c-70b39e16a100/download",
+          "material_read": "Chapter 2 identified from frozen bibliography; no decisive passage retrieved",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Stability and Inference in Discrete Diffusion Scale-Spaces",
+          "trigger": "Double stochasticity and discrete variation in a thesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Independent width-two nonsymmetric comparison"
+      ],
+      "rationale": "For a local conservative filter, the exact worst amplification is a stability bound on arbitrary path data. The tradeoff between locality and oscillation is not captured by stochasticity alone: positivity and symmetry still allow amplification, but symmetry removes two potential transitions at even bandwidth. The parity plateau and the sharp finite-size cutoff tell precisely when enlarging the stencil cannot worsen that bound, and the explicit local swaps show it cannot be made smaller on this class.",
+      "residual_risks": [
+        "No implication is asserted for any particular smoothing operator, strict-contraction subclass, or different graph."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

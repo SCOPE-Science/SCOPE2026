@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:16:29.272530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a vertex pair the two arc totals are A and R-A, giving A(R-A)/R. Each edge pair at distance d contributes its product once for each vertex pair separated by deleting those two edges, giving d(n-d) occurrences. Expanding r_i=1+delta I_i gives the frozen expression with strictly positive placement coefficient delta^2/(n+k delta). In the spacing simplex each directed block length L contributes L(n-L), with an overall factor 1/2; the length-one terms ensure strict concavity, so only the simplex vertices minimize and they are all rotations of the clustered block. For maxima, each fixed block length has fixed sum and smoothing two differing integer lengths by one improves the quadratic unless all lengths differ by at most one. Floor placements attain every block bound simultaneously. The residues ell*n mod k repeat g times across the multiples of g, giving the claimed gcd correction. The contrast is positive since n-k>=2 and g>=1, giving a bracket at least 3(k^2-1)>0. Symmetric jump rates give uniform stationary weights and the Laplacian pseudoinverse gives K/n for stationary-target hitting time (zero for the starting target). Independent replay python3 -B /workspace/reproductions/5.py checks 16028 exact resistance cases with two different contrasts and 12 cases with all-target rational hitting-time systems; universal results follow from the algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior binary-word theorem applies to all positive counts of both letters, including k=1 and k=n-1, and specifies a unique balanced rotation orbit via the Christoffel characterization.",
+          "The weighted-unicycle-chain DOI was available only at landing/abstract level; the unweighted-circulant DOI returned 403. Public lookup turned up a nonmatching spherical optimization paper (arXiv:1909.09909)."
+        ],
+        "reasoning": "The binary-word theorem already dominates the placement parameter range. General weighted-cycle formulas concern evaluation, and no particular classical rearrangement theorem is inferred from the unavailable text or the nonmatching spherical result.",
+        "searches": [
+          "Public search: convex pair potential optimal discrete-circle balanced configurations",
+          "doi:10.1002/qua.21068",
+          "doi:10.1016/j.endm.2014.08.029",
+          "Earlier Parikh-count record, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and cyclic_resistance_verify.py (read only)",
+        "Earlier binary circular Parikh counts RESULT.md, actual statements and proofs",
+        "Weighted-unicycle-chain abstract/landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older theorem explicitly uses the same pair product; maximizers put all ones in one circular interval for V, and minimizers are precisely balanced in all circular factors. Its gcd is gcd(n-k,k)=gcd(n,k)."
+        ],
+        "reasoning": "The balance criteria are equivalent: if the lengths between ell-th successive ones differ by at least two, a bin of length one more than the shorter distance can contain ell+1 ones in the dense region and at most ell-1 starting just after the first endpoint of the longer distance. Conversely if equal-length bins of length L contain at least p+2 and at most p ones, the (p+1)-th-next-one distances are at most L-1 in the first and at least L+1 starting just before the second. Thus the earlier two equality cases transfer exactly. For the remaining K and transport statements, expanding the elementary parallel-arc formula reduces K to a positive affine function of S; subtracting its extrema gives the contrast and no linear placement effect.",
+        "searches": [
+          "2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612/RESULT.md, Finding and Proof 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharp rotation-dispersion bounds for binary circular Parikh counts, Finding and Proof 2, equation (1): V(w)=k^2(n^2-1)/12-P(X), where P(X) is exactly S(x) for the one-positions X."
+        ],
+        "reasoning": "Mark precisely the exceptional edges as ones. This is a bijective parametrization, and the objectives are affine reversals, so the earlier variance theorem fixes both extrema of S. With a=n-k and b=k its lower bound (n^2-g^2)/12 yields the frozen S_max and its upper bound ab(ab+2)/12 yields S_min.",
+        "searches": [
+          "Resultary: cyclic resistance pair potential d(n-d), balanced spacings, binary circular words and rotation variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Parikh-count theorem, Finding and Proof 3–4, gives exact symbolic extrema, both equality classes, and the Christoffel-word description, not just a finite table."
+        ],
+        "reasoning": "No exact finite lookup table is needed to establish overlap in this unbounded parametric problem. The identified catalogue entry is stronger than a numerical table: it gives the two extremal energies for every (n,k).",
+        "searches": [
+          "Resultary: sharp rotation dispersion, circularly balanced words and gcd correction"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary theorem proves the exact same binary placement energy and both equality classes, with the identical gcd term and in a broader count range. The weighted-cycle and continuous-time interpretation is distinct as wording but transfers that theorem using the arc identity, a quadratic expansion and the usual Kemeny identity. This is demonstrable coverage, not an inference from an inaccessible paper or a same-day listing.",
+      "residual_risks": [
+        "Classical weighted-cycle and discrete-circle priority beyond the explicit Resultary overlap is not resolved.",
+        "The known-result verdict rests on the inspected exact prior theorem, not on an unverified external match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior mathematical coverage of the two extrema and equality classes, in a wider count range",
+          "evidence": [
+            "Equation (1) is the affine reversal of S; variance extrema (n^2-g^2)/12 and (n-k)k((n-k)k+2)/12.",
+            "Circular factor balance and unique clustered interval are the two iff conditions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612/RESULT.md",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 4870, including Finding and Proof 2–4",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Equivalent quadratic kernel and circular balance alias"
+        },
+        {
+          "assessment": "Relevant evaluation background; no full-text judgment on placement",
+          "evidence": [
+            "The landing material discusses Kirchhoff indices of weighted unicycle chains."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.endm.2014.08.029",
+          "material_read": "Abstract/landing material only",
+          "method": "Lawful open-access reader",
+          "title": "The Kirchhoff index of unicycle weighted chains",
+          "trigger": "General weighted-cycle evaluation"
+        },
+        {
+          "assessment": "Access limit, not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+          "material_read": "No full text, DOI retrieval returned 403",
+          "method": "Lawful open-access reader",
+          "title": "Resistance distance and Kirchhoff index in circulant graphs",
+          "trigger": "Cited resistance formulas for circulants"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A transport interpretation is useful exposition, but once the exact binary rearrangement and gcd values already exist, the residual is the direct expansion of the parallel-arc law and standard stationary-target identity. The quadratic contrast and both signs of the ordering are forced by that expansion; there is no independent unknown structural or transport invariant here. No surviving nonroutine repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,39 +1,38 @@
-#!/usr/bin/env python3
-import math
+"""Deterministic diagnostics for the exponential--uniform strip."""
 
-def simpson(f, a, b, n):
-    if n % 2:
-        n += 1
-    h = (b-a)/n
-    s = f(a) + f(b)
-    for i in range(1, n):
-        s += (4.0 if i % 2 else 2.0) * f(a+i*h)
-    return s*h/3.0
+from math import atan, exp, expm1, fsum, isclose, log
 
-def A(w):
-    return 1.0 + w*math.expm1(w)
 
-N = 200000
-L = simpson(lambda w: 1.0/A(w), 0.0, 1.0, N)
-target = 0.7323592996919
-assert abs(L-target) < 5e-13, (L,target)
-assert L < math.pi/4.0 < 0.8
+def midpoint(fun, lo, hi, n):
+    h = (hi - lo) / n
+    return h * fsum(fun(lo + (j + 0.5) * h) for j in range(n))
 
-for j in range(1001):
-    w = j/1000.0
-    a = A(w)
-    assert 1.0 - 1e-15 <= a <= math.e + 1e-15
 
-# Check the exact finite-n upper-strip integral against numerical x-integration.
-for w in (0.0, 0.17, 0.51, 0.83, 1.0):
-    a = A(w)
-    for n in (1, 2, 5, 20, 100):
-        exact = (1.0 - (1.0-a/math.e)**n)/a
-        # Integrate after u=e^{-x}: n * int_0^{1/e} (1-a*u)^{n-1} du.
-        numeric = simpson(
-            lambda u: n*((1.0-a*u)**(n-1)),
-            0.0, 1.0/math.e, 20000
+def trapezoid(fun, lo, hi, n):
+    h = (hi - lo) / n
+    return h * ((fun(lo) + fun(hi)) / 2 + fsum(fun(lo + j * h)
+                                               for j in range(1, n)))
+
+
+def main():
+    for x, w in [(0.2, 0.8), (0.4, 0.4), (1.25, 0.5), (1.0, 0.999)]:
+        # For z below x, one's only chance to exceed is in coordinate 2.
+        competing = exp(-x) + midpoint(
+            lambda z: exp(-z) * (w - x + z), max(0.0, x - w), x, 20000
         )
-        assert abs(exact-numeric) < 2e-11, (w,n,exact,numeric)
+        t = exp(-x)
+        formula = ((exp(w) - w) * t if x >= w else
+                   1 + w + log(t) - w * t)
+        assert isclose(competing, formula, rel_tol=1e-9, abs_tol=1e-10)
 
-print(f"VERIFY_OK limit={L:.12f} pi_over_4={math.pi/4:.12f}")
+    integrand = lambda w: 1 / (exp(w) - w)
+    limit = midpoint(integrand, 0, 1, 100000)
+    assert abs(limit - trapezoid(integrand, 0, 1, 100000)) < 1e-10
+    printed_cdf_limit = midpoint(lambda w: 1 / (1 + w * expm1(w)),
+                                 0, 1, 100000)
+    assert printed_cdf_limit < atan(1.0) < 0.8 < limit
+    print(f"VERIFY_OK limit={limit:.10f} printed_cdf_limit={printed_cdf_limit:.10f}")
+
+
+if __name__ == "__main__":
+    main()

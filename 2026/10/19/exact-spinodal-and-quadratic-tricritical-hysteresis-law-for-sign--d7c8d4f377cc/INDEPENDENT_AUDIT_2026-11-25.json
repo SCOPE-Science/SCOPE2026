@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:17:19.779215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the up/down flip rates, the odd binomial terms of [(1−m)(1+bm)^6−(1+m)(1−bm)^6]/64 give the stated drift. The independent update contributes −pm. The endpoints point inward; noncentral equilibria are the intersections of A_b(z) with 32p/(1−p) for 0<z<1. When b≤3/4, A_b decreases there (except the negative constant at b=0); when b>3/4 its derivative decreases strictly from positive at 0 to negative at 1. This proves the full root count, and the sign of zA_b′ fixes simple-root stability. At a nonzero tangency A_b″<0 and the p-derivative of the drift is nonzero, so it is a fold, not a two-sided attractor. At b=3/4+2δ the coefficients of z and z² are (45/2)δ+O(δ²) and −1701/512+O(δ), giving the fold displacement 640δ/189 and height gap (800/21)δ² to leading order. The derivative 128/5041 of the height-to-p map gives the width constant. Exact rational re-expansion of the flip rates gave the tricritical drift coefficients −1701/18176 and −729/145408 for m^5 and m^7; an independent multiplication in Q(√6) also checked the r=0 spinodal. The critical inverse-fourth-power and ordinary inverse-square growth rates follow by differentiating along sign-preserving solutions and taking time averages. The packaged checker was inspected, not executed; the proof is for the deterministic ODE with 0<p<1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-q homogeneous analysis yields the known tricritical coordinates, including q=6, but does not give an analytic all-q upper spinodal.",
+          "The approximate master equation resolves degrees and neighboring spins; its analysis does not establish the exact fold or time constants for the specified scalar homogeneous ODE."
+        ],
+        "reasoning": "The broad frameworks account for the transition and its generic normal form; they do not establish a stronger quantitative result subsuming the claimed sharp coefficients and physical branch diagram.",
+        "searches": [
+          "arXiv:2309.06510, homogeneous approximation for general q",
+          "arXiv:2402.16064, Introduction and model",
+          "Resultary indexed result 4a871ef43b88, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.06510",
+        "arXiv:2402.16064",
+        "Resultary 2026/10/11/…--4a871ef43b88"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model implicit stationary equation fixes the physical fold in principle. Its evaluation here requires the six-neighbor reduction in z=m² and selecting and proving uniqueness of the physical extremum; the signed local drift is additionally required to obtain the time amplitudes."
+        ],
+        "reasoning": "Do not credit the center threshold, location or generic exponents as new. The quantitative package is not just substituting q=6 into a previously established exact fold, width or relaxation theorem.",
+        "searches": [
+          "arXiv:2309.06510, Sec. III.A, Eqs. (5)–(12)",
+          "arXiv:2402.16064, Introduction and model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The substitution ξ=(1+bm)/2 identifies the earlier homogeneous fixed-point curve with this model. The earlier paper treats the off-center maxima for q≥6 numerically.",
+          "The indexed edge-weighted forbidden-transition result 4a871ef43b88 has quadratic spinodal corrections, but is a different transition correspondence with different equations and constants."
+        ],
+        "reasoning": "The fixed-point parametrizations are equivalent; the resulting exact off-center branch classification and time-asymptotic conclusions are not already stated by that equivalence.",
+        "searches": [
+          "arXiv:2309.06510, Sec. III.A, Eqs. (5)–(12)",
+          "Resultary semantic lookup: signed six-neighbor mean-field upper spinodal and tricritical cusp"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed structural analogue read was 4a871ef43b88, not a tabulation of the same model or constants. The original mean-field paper gives the known location and discusses numerical off-center maxima."
+        ],
+        "reasoning": "No verified exact tabulation or indexed match covered the reviewed quantitative finding; this comparison is not a priority certificate.",
+        "searches": [
+          "Resultary semantic lookup: signed q=6 spinodal, quadratic hysteresis width and relaxation amplitudes",
+          "arXiv:2309.06510, Sec. III.A numerical maxima and tricritical formulas"
+        ]
+      },
+      "rationale": "The signed mean-field model, central threshold, tricritical location and qualitative hysteresis are prior work. The supported distinction is the exact six-neighbor off-center fold and its all-physical-equilibria stability count, sharp width and sharp time amplitudes. The earlier implicit stationary equation encodes the fold but does not establish the package of fold uniqueness, quantitative collapse and time-asymptotic limits.",
+      "residual_risks": [
+        "The exact same-model implicit equation is substantial prior overlap; an unlocated analytic treatment could extract some of the constants.",
+        "The normal-form exponents are generic; the literature and catalogue searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for the model, implicit equations and tricritical location; does not give the exact off-center fold or sharp constants examined here",
+          "evidence": [
+            "The paper characterizes off-center maxima for q≥6 as evaluated numerically."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.06510",
+          "material_read": "Sec. III.A, PDF pp. 4–5, Eqs. (5)–(12), extraction offsets 20100–28029",
+          "method": "Read original OA PDF passage and match the fixed-point variable and tricritical conditions",
+          "title": "Q-voter model with independence on signed random graphs: homogeneous approximations",
+          "trigger": "Same signed homogeneous model and transition"
+        },
+        {
+          "assessment": "Related approximation, not an established exact calculation for the homogeneous scalar rate equation",
+          "evidence": [
+            "The closure retains degree, antagonistic-link counts and neighboring-spin counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.16064",
+          "material_read": "Introduction and model, PDF pp. 2–3, extraction offsets 8700–14696",
+          "method": "Inspect the original model and retained state variables",
+          "title": "Q-voter model with independence on signed random graphs: approximate master equations",
+          "trigger": "Possible subsequent quantitative extension"
+        },
+        {
+          "assessment": "Different model, does not reproduce the signed six-neighbor fold or amplitudes",
+          "evidence": [
+            "An edge-weighted forbidden-transition correspondence gives quadratic spinodal/coexistence corrections and a square-root jump."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-tricritical-crossover-and-exact-first-order-coexistence-in-an-ed--4a871ef43b88",
+          "material_read": "RESULT.md, Finding, extraction offsets 0–7956",
+          "method": "Read the indexed record in the local mirror and compare order parameter and transition rule",
+          "title": "Tricritical crossover and exact first-order coexistence in an edge-weighted model",
+          "trigger": "Indexed structural analogue of quadratic spinodal corrections near tricriticality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest discontinuous signed group size is a motivated test case of the earlier homogeneous theory. The result replaces a numerically located off-center fold with an exact bistability interval and identifies its leading collapse and deterministic relaxation on the physical phase line. The width and amplitude are quantitative benchmarks in the stipulated time and probability units, not a proposed prediction for finite stochastic networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

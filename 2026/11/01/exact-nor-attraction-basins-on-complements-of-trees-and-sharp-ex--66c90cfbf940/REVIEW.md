@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scope is a finite simple tree on at least four vertices and synchronous open-neighborhood Boolean NOR on its complement. The antitone-symmetry argument proves \(F^3=F\) on every finite undirected graph; the tree closed-neighborhood intersection lemma then enumerates each possible image and its inverse fiber. The proof separately treats stars, for which the complement contains an isolated center. Counting those fibers yields every basin, and the increasing discrete increments of \(2^{e+2}-2e-4\) yield sharp path/broom/star extremizers. Actual, distinct Python and C++ state-space checkers reproduce the predicted counts, but the proof—not finite enumeration—establishes the theorem for arbitrary order.
+PASS
 
-## Originality — PASS, with residual risk
+For the symmetric closed-neighborhood relation of T, A is contained in F(B) iff B is contained in F(A), giving F^3=F. A leaf singleton maps to its edge and is not periodic, proving sharpness for every n. Two centers' closed neighborhoods intersect in their shared edge if adjacent, their unique middle vertex if distance two, or nothing otherwise. Thus all image states are full, empty, edge pairs, singleton centers, or closed stars. In the nonstar case an edge pair gets precisely itself and its leaf endpoints as predecessors; an internal singleton of degree d gets the subsets of its closed star of size at least three and pairs of neighbors, totaling 2^(d+1)-2d-2, while its closed star gets only the center singleton. The full state has just the empty predecessor, so subtraction supplies the empty fiber and the distinguished basin. A star's isolated complement center is always set; each singleton leaf support yields two fixed predecessors, and all other leaf supports enter the stated center/full cycle. For nonstars the degree excesses sum to n-2 and have at least two positive parts. The strictly increasing increments of 2^(e+2)-2e-4 force the minimizing partition into ones, and by transferring units to the largest part the maximizing partition (n-3,1). These determine the path and the broom, including their coincidence at n=4. The lower bound 2^(n-1)-3 strictly beats 2^(n-1)-2n+3 for the other two-cycles and beats every fixed basin. An independent set-based replay, python3 /workspace/review_work/reproduce_2.py, exhausts all nonisomorphic trees of orders 4–8 (45 trees, 7808 states) and checks the basins, time bound, and each extremal equality condition. The frozen Python checker explicitly asserts only global min/max in its extrema section, not every equality case; the reconstructed proof supplies all-orders claims.
 
-Aracena–Richard–Salinas (arXiv:1507.06141, Proposition 1) establishes the general fixed-point/maximal-independent-set correspondence and therefore implies the tree-complement fixed-state count; this is expressly excluded from the claim of novelty. Aledo–Martínez–Valverde (DOI:10.1155/2015/594294) surveys parallel Boolean dynamics with a self-inclusive homogeneous NOR convention and general period behavior; it does not determine individual open-neighborhood basin sizes or sharp tree extremizers. Aledo et al. (DOI:10.1155/2020/9708347) counts periodic states for their self-inclusive system, not the stated basins. Related mathematical findings on joins, rook graphs, leaf coronas, and matching-deleted bipartite graphs do not imply the whole connected-tree-complement family. A plausible 2012 maxterm/minterm paper (DOI:10.1016/j.mcm.2011.08.040) was inaccessible in full; remaining unindexed historical overlap is possible. The assessed new contribution is solely the combined exact individual-basin classification and sharp extremality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family of complements of trees includes arbitrarily many nonisomorphic graphs and varying complement connectivity. The complete nonasymptotic, degree-sensitive basin classification resolves which oscillation dominates, determines consensus/fixation probability exactly, and establishes three rigid extremal shapes (star, path, broom). Neither the general period bound nor a fixed-point count yields these comparisons. The sharp structural optimization is natural because attraction-basin size, unlike periodic-state count, measures robust response to uniformly random initial configurations.
+Credit is for the complete tree-complement basin census and its largest-basin extremizers, not the known fixed-point correspondence or the general period restriction. The closest inspected equivalent dynamics and indexed exact-basin result do not supply the degree-dependent tree-complement formulas.
 
-## Evidence and limitations
+## value
 
-The supplied computation exhausts 433 nonisomorphic trees through 11 vertices and 18,744 tested labelled trees, including all labelled trees through seven vertices. These are distinct implementations of the finite checker, not an independent audit. The primary inaccessible 2012 paper remains a historical-originality uncertainty; no assertion of universal literature novelty follows from database absence. The four key comparisons are (i) different update conventions, (ii) general period bounds versus exact basins, (iii) fixed states versus complete attraction orbits, and (iv) strict tree complement family versus unrelated graph-family specializations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A short period says little about the fate of a random starting state. This complete classification quantifies that difference: even the other two-cycles and all fixed points can be individually common or rare according to the tree degrees, yet one cycle strictly dominates in every tree. The exact path/broom/star comparison resolves how fixed-order tree shape controls that basin and is not provided by a generic period bound or fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:42:07.717975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:28–85",
+        "Frozen VERIFICATION.md, check.py and check_output.txt (inspected; 1,070 assertion groups are recorded, not independently replayed)"
+      ],
+      "rationale": "Polar separation makes the cap operator scalar on each order and yields the normalized weighted tails in RESULT.md:28–44. Writing D_m=(ell-m)(ell+m+2lambda), the differentiated Gegenbauer equation in weighted divergence form gives N_(m+1)=D_m N_m by integration by parts. Differentiating the stated boundary product then gives the difference of the normalized densities with the required sign after integration; its endpoint term at 1 vanishes. Adjacent derivative polynomials have simple interlacing roots and never share a zero; their parity gives exactly ell-m-1 positive zeros in their union, each a sign change. At c>0 the ODE excludes simultaneous zeros of P_j and P_(j+2) when P_(j+1) is nonzero. This gives precisely the stated triple criterion and rules out four consecutive levels; summing floor((ell-j)/2) gives the indexed triple count. Near 0, the odd polynomials have cubic deficits, with consecutive cubic coefficients in that subsequence decreasing by D_(m+1)/D_m<1. Near 1, P_m(1)>0 and the smallest tail exponent is at m=0. The last gap is always positive because the last two nonzero derivatives have degrees one and zero with positive leading coefficients. For fixed degree and order, rescaled Gegenbauer coefficients converge at O(1/alpha), the rescaled squared densities have a Gaussian-times-polynomial majorant, and L1 convergence gives uniform convergence of the normalized tails, with y=0 interpreted by the continuous extension. The simple, interlacing Hermite roots give O(1/lambda) errors in the ordered positive rescaled crossings, including the vacuous zero-crossing case. Multiplicities here are per polar-order block and add at coincident levels.",
+      "residual_risks": [
+        "No joint large-degree limit or claim about nonconsecutive orders; the independent check is analytic, not a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaming–Speckbacher treat more general spaces and finite expansions but establish concentration estimates, not equality and sign changes for adjacent exact-degree angular-order tails.",
+          "Peterson–Sengupta and Umemura–Kono cover the polynomial or harmonic Gaussian limit, not the audited spectral gaps or convergence of the crossing parameters."
+        ],
+        "reasoning": "Broader ambient spaces or more general polynomial limits do not imply the claimed pairwise eigenvalue equalities. The spectral relation reducing exact cap thresholds to two root families is indispensable.",
+        "searches": [
+          "Resultary: dimension-uniform Gegenbauer factorization; Gegenbauer–Hermite root scaling",
+          "arXiv:2004.02474, abstract and §2.1",
+          "arXiv:1903.07697, Eq. (1.9)",
+          "doi:10.2977/PRIMS/1195196331, pp. 163–164"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and mirrored S^2 predecessor",
+        "arXiv:2004.02474",
+        "arXiv:2005.09603",
+        "arXiv:1903.07697",
+        "arXiv:2103.14650",
+        "doi:10.2977/PRIMS/1195196331"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Legendre proof specializes to lambda=1/2; extending the differential identity with the shifted Gegenbauer weights and matching normalizations yields the uniform formula. The Hermite limit is a known ingredient; normalized cap-tail convergence and the O(1/lambda) positions use respectively integrable bounds and the exact gap/root correspondence with coefficient error."
+        ],
+        "reasoning": "The root perturbation is standard once the higher-dimensional gap is known; neither that step nor the polynomial limit is standalone novelty. The inspected statements do not already supply the gap or its crossing geometry for the varying dimension.",
+        "searches": [
+          "Indexed S^2 predecessor, finding, proof, and limitations",
+          "arXiv:1903.07697, Eq. (1.9)",
+          "arXiv:2004.02474, §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting lambda=1/2 and C_ell^(1/2)=P_ell reduces the boundary identity to the indexed predecessor's formula with N_(m+1)=2(ell+m+1)!/((ell-m-1)!(2ell+1)); crossing counts and consecutive coincidences then agree exactly.",
+          "Campos–Silva's separated hyperspherical modes give the equivalent special-function representation, not the cap-tail comparison. Michel–Plattner–Seibert give a polar-cap Slepian kernel and commuting operator, not the asserted pattern of equal levels."
+        ],
+        "reasoning": "The derivative Gegenbauer and separated associated-function viewpoints describe the same polar blocks; this identifies the exact low-dimensional overlap without equating separation or the general concentration kernel with the spectral-gap theorem.",
+        "searches": [
+          "Resultary: S^2 Legendre identity; spherical-cap angular-order crossings; dimension-uniform Gegenbauer factorization",
+          "arXiv:2005.09603, §3.2",
+          "arXiv:2103.14650, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed S^2 record 2026/10/25/SCOPE-exact-angular-order-crossings-and-triple-resonances-in-single-de--2da0e9736b26 gives the exact S^2 counts and no-four result, but its limitations leave higher-dimensional Gegenbauer systems open in its scope."
+        ],
+        "reasoning": "Standard individual polynomial zero data are not a database of cap spectral coincidences; identifying the combined root set as the actual crossing parameters is the substantive comparison. The located exact indexed match applies in d=2 only.",
+        "searches": [
+          "Resultary queries for S^2 Legendre crossings, adjacent angular-order cap levels, Gegenbauer crossings and Hermite root scaling"
+        ]
+      },
+      "rationale": "Credit exact d=2 coverage to the indexed predecessor and credit the classical Gegenbauer-to-Hermite polynomial limit separately. The supported distinct finding is the exact fixed-degree cap crossing classification for d>2 together with the normalized Hermite cap limit and quantitative crossing-location asymptotics. No inspected source supplies that higher-dimensional result or a stronger spectral theorem covering it.",
+      "residual_risks": [
+        "An equivalent weighted-integral identity or crossing classification may occur under associated ultraspherical terminology in uninspected sources. Comparisons are to the recorded sections, not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact S^2 coverage; no higher-dimensional or Hermite-scale claim in its scope",
+          "evidence": [
+            "Adjacent factorization, indexed crossing and triple totals, no consecutive quadruple; higher-dimensional Gegenbauer systems listed outside scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-order-crossings-and-triple-resonances-in-single-de--2da0e9736b26",
+          "material_read": "RESULT.md finding, proof and limitations (offsets 0, 3800 and 8022)",
+          "method": "Local mirror full-text excerpts",
+          "title": "Exact angular-order crossings and triple resonances in single-degree spherical-cap concentration",
+          "trigger": "Exact indexed S^2 overlap"
+        },
+        {
+          "assessment": "Related concentration bounds and Jacobi framework; inspected result does not classify this spectral flow",
+          "evidence": [
+            "Abstract's large-sieve bounds and §2.1 orthogonality setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.02474",
+          "material_read": "Abstract p. 1 and §2.1 p. 3 (offsets 0 and 9600)",
+          "method": "OA primary PDF excerpts",
+          "title": "Concentration estimates for finite expansions of spherical harmonics on two-point homogeneous spaces via the large sieve principle",
+          "trigger": "General Jacobi cap concentration might subsume the result"
+        },
+        {
+          "assessment": "Separation precedent",
+          "evidence": [
+            "Associated Legendre functions appear as separated modes, not in an adjacent-order cap-gap theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.09603",
+          "material_read": "Introduction p. 1 and §3.2 p. 12 (offsets 0–2200 and 39700)",
+          "method": "OA primary PDF excerpts",
+          "title": "On hyperspherical associated Legendre functions: the extension of spherical harmonics to N dimensions",
+          "trigger": "Equivalent hyperspherical formulation"
+        },
+        {
+          "assessment": "Classical scaled polynomial limit, credited",
+          "evidence": [
+            "Eq. (1.9) is a Gegenbauer-to-Hermite limit; it does not identify cap spectral crossings or their errors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07697",
+          "material_read": "Abstract p. 1 and Eq. (1.9) p. 4 (offset 10000)",
+          "method": "OA primary PDF excerpts",
+          "title": "Polynomials and High-Dimensional Spheres",
+          "trigger": "Possible coverage of the boundary layer"
+        },
+        {
+          "assessment": "Gegenbauer/spherical harmonic to Hermite precedent",
+          "evidence": [
+            "The discussion concerns the Gaussian/Hermite limit, not cap levels or their crossing locations."
+          ],
+          "identifier_or_url": "https://doi.org/10.2977/PRIMS/1195196331",
+          "material_read": "Introduction, pp. 163–164 (offset 432)",
+          "method": "OA primary text excerpt",
+          "title": "Infinite dimensional Laplacian and spherical harmonics",
+          "trigger": "Earlier high-dimensional limit precedent"
+        },
+        {
+          "assessment": "Related kernel and commuting-operator framework",
+          "evidence": [
+            "The section gives a polar-cap Slepian kernel, not the audited fixed-degree root classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14650",
+          "material_read": "§3.2 p. 15 (offset 64195)",
+          "method": "OA primary PDF excerpt",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Polar-cap Slepian constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–26 and 46–85",
+        "Indexed S^2 predecessor scope and limitations"
+      ],
+      "rationale": "Exact comparisons of polar channels in a cap often require separate normalized integrals. A single boundary product gives all adjacent sign changes and consecutive degeneracies and identifies where in cap size they can occur. The extension for every sphere dimension is tied to a quantitative fixed-degree limit for the entire indexed crossing pattern and the eigenvalue tails; it is not just a computation of special-function zeros or repetition of the S^2 result.",
+      "residual_risks": [
+        "The comparison is for exact-degree concentration; no claim of low-pass ordering, increasing-degree uniformity or algorithmic gain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof translates shattering into an alternating-quantifier subset-family automaton based on a four-state suffix recognizer for `0011`. A full twenty-six-state reachability certificate reduces exactly to seven accepting states and one rejecting sink. The generating-function identity is verified by seven exact formal polynomial equations. A seven-by-seven max-plus matrix identity supplies a finite proof of the five-step degree law. All eight thousand one hundred ninety-one support decisions at word lengths zero through twelve were independently checked against direct enumeration. The exact domain, quantifiers, empty case and linear boundary are explicit.
+## correctness
 
-**Originality: PASS, qualified.** Literature and indexed previous-work searches for the factor, its aliases, erasure projection, rational shattering enumerator and sharp rank formula returned no direct coverage. The 2021 binary-string VC study concerns factors of one fixed word; the 2016 partial-word avoidability study concerns different infinite-word satisfiability. The closest publicly indexed constrained-language shattering result covers avoiding both monochromatic triples, not `0011`. Its full statement/proof was inspected. General automata methods and previously known string VC theory are credited. Unindexed and inaccessible equivalents remain a historical-priority risk.
+PASS
 
-**Value: PASS.** The shortest two-run four-bit forbidden factor yields nonlocal minimal obstructions to support shattering and a genuinely nontrivial, sharp five-periodic dimension law, unlike the naive consecutive-block obstruction. The exact all-length polynomial counts every support and is a natural refinement of VC dimension. This is a self-contained structural classification rather than a mere finite calculation or generic algorithm existence statement.
+For each fixed labeling of the queried prefix there is one set of possible suffix states, with the choices at unqueried coordinates unioned separately for that labeling. Taking both successors at a query preserves the universal quantifier over labels; a lost labeling cannot be recovered. All nondead suffix states accept the empty continuation. This proves the automaton invariant for every length, including the empty support. An independent reconstruction found 26 reachable nonsink families and the stated seven accepting classes plus sink, distinguished by future acceptance. Exact transfer-matrix determinants gave the displayed bivariate numerator and denominator. Multiplication checked A^11=A^6+3 on all 49 entries; scalar shifts commute with max-plus multiplication, so the identity propagates to every later length, seeded by the maxima 1,2,3,3,4,4,5,6,6,7. Independent trace enumeration agreed for all 2,047 supports at lengths 0–10, including both displayed polynomials. Replay: /workspace/branches/b1f763dc-46c0-4dc0-a79f-13d5f1a475c0/recompute_0011.py and recompute_0011.log; the direct trace check is bounded, while the finite identities plus induction prove the full claim.
 
-**Limitations.** These assertions are restricted to linear finite binary words with the single forbidden contiguous factor `0011`; they do not establish other four-bit patterns or online ranks. The proofs depend on finite tables that are attached as independently replayable certificates. No historical claim of absolute priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known machinery gives a means of recognition and enumeration, not the specific seven-state reduced description, weighted series, or five-step degree identity for this factor. Bounded comparison found no equivalent classification or broader quantitative theorem supplying it.
+
+## value
+
+PASS
+
+For the entire language defined by one short contiguous forbidden word, the shattering complex is a natural invariant: it tells exactly which labeled coordinate sets admit every labeling. A minimal recognizer exposes nonlocal obstructions, the bivariate series counts every support, and the rate and boundary correction sharpen the naive prohibition on selecting four consecutive positions. These are useful quantitative benchmarks for other constrained languages, not just an instance of the general existence of a DFA.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

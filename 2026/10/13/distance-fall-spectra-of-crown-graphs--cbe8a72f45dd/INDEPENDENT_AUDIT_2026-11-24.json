@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:59:06.936364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a_i,b_i a path a_i–b_j–a_k–b_i with i,j,k distinct establishes distance 3, since they are in opposite shores and not adjacent. Any two same-shore vertices have a common neighbor and nonmatched cross-shore vertices are adjacent. Thus the closed radius-2 ball at any vertex omits only its unique antipode. A set of size at least two meets every such ball, and a singleton misses the ball of its antipode. This proves the iff for proper colorings and the upper limit n. To realize q=2,…,n, use q−2 matched nonedges as classes and two residual shores each of size n−q+2≥2, valid also at n=3. At distance 1 an independent dominating class is either a whole shore (all same-shore vertices must be dominated) or one matched nonedge (the only mixed independent class). A whole-shore class forces the other whole shore; otherwise all classes are matched nonedges. At d≥3 the fall condition is automatic, and splitting shores with disjoint palettes gives all proper color counts 2,…,2n. The packaged artifacts/verify.py was inspected, not executed; its finite enumeration is optional corroboration and does not replace the structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Every connected 3-colorable graph of order at least 3 has a distance-2 fall 3-coloring. Every connected bipartite graph of order at least d+1 has a partition into d+1 independent distance-d dominating classes. The associated minimum-class-size bound is not a partition spectrum."
+        ],
+        "reasoning": "Both theorems specialize to q=3 at radius 2. Diameter 2 would make every proper coloring eligible, but crowns have diameter 3 and singleton classes violate the distance-2 condition.",
+        "searches": [
+          "arXiv:2508.21232v1 Theorem 2.1 and p. 1 diameter observation",
+          "arXiv:2508.12804v1 Theorem 2.1 and Corollary 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.21232v1",
+        "arXiv:2508.12804v1",
+        "Resultary 30764919deff and 5c2e597efa59",
+        "Dunbar et al., JCMCC 33 (2000), 257–273 (primary access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary existence theorems guarantee q=3, and the diameter observation controls d≥3. The sequence-b theorem uses color-dominating vertices in the original graph, unlike radius-2 dominating color classes."
+        ],
+        "reasoning": "The supported gap is the exact radius-2 classification. It uses both the special one-antipode obstruction to singleton classes and a construction extracting matched pairs while leaving two residual shore classes; those are not consequences of just the general existence bounds.",
+        "searches": [
+          "arXiv:2508.21232v1 p. 1 and p. 2 Theorem 2.1",
+          "arXiv:2508.12804v1 Theorem 2.1 and Corollary 2.2",
+          "Resultary 30764919deff, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goddard–Mafunda identify distance-d fall with partitions into independent distance-d dominating sets. Equivalently for crowns, proper classes of G must dominate G²; G² is the complete graph on 2n vertices with just the antipodal matching missing."
+        ],
+        "reasoning": "The independent distance-domination formulation is the same problem, not a different invariant. The complete count range also requires compatible partitions into such classes, not just their minimum size or one feasible count.",
+        "searches": [
+          "arXiv:2508.21232v1 pp. 1–2, distance-fall and independent distance-k domination",
+          "arXiv:2508.12804v1, independent distance domination in bipartite graphs",
+          "Resultary crown graph and distance-fall spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sequence-b record gives {2,n} for sequence (2,2,…), requiring at least two color-dominating vertices per class. The same-day conflict-free record concerns uniquely represented colors in open neighborhoods. No exact radius-2 fall spectrum was obtained from these records. The classical radius-1 attribution was not independently located in Dunbar et al.'s full text."
+        ],
+        "reasoning": "The interval 2,…,n is not an alternative parameterization of either indexed coloring polynomial or sequence-b spectrum. The exact endpoint overlap {2,n} alone neither distinguishes the predicates nor establishes the radius-2 claim.",
+        "searches": [
+          "Resultary 30764919deff and 5c2e597efa59, exact crown-coloring findings",
+          "Dunbar et al., JCMCC 33 (2000), 257–273, attempted journal retrieval"
+        ]
+      },
+      "rationale": "The distinct claim is the complete radius-2 spectrum and the characterization of the colorings that realize it. Existing general theorems give a 3-class partition, not the full spectrum or all allowed classes. The ordinary radius-1 endpoint is explicitly not claimed as new, and the d≥3 endpoint is an elementary diameter consequence. No inspected catalogue result or full-text passage covers the radius-2 claim; historical priority is not certified.",
+      "residual_risks": [
+        "An equivalent crown theorem may appear under older independent distance-domination or graph-power terminology. The exact historical source of the non-novel radius-1 endpoint was not confirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers terminology, diameter implication and q=3, not the crown-specific full radius-2 result",
+          "evidence": "Proper coloring is automatic at radius at least diameter; connected 3-colorable graphs of order ≥3 admit a distance-2 fall 3-coloring.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.21232v1",
+          "material_read": "pp. 1–2, diameter observation, independent distance-domination discussion and Theorem 2.1, offsets near 2628, 3710 and 4482",
+          "method": "Open primary PDF, bounded passages",
+          "title": "A Note on Distance-Fall Colorings",
+          "trigger": "Primary definition and general distance-2 existence theorem"
+        },
+        {
+          "assessment": "Guarantees a partition at one count; minimum-size bound does not give a full spectrum",
+          "evidence": "Partition into d+1 independent distance-d dominating classes for connected bipartite graphs of sufficient order.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.12804v1",
+          "material_read": "p. 3 Theorem 2.1 (offset near 11209) and p. 4 Corollary 2.2 (offset near 14264)",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Revisiting d-distance (independent) domination in trees and in bipartite graphs",
+          "trigger": "General bipartite theorem in the equivalent formulation"
+        },
+        {
+          "assessment": "Different coloring predicate despite numerical overlap with the ordinary fall endpoint",
+          "evidence": "Spectrum {2,n} at S=(2,2,…), with ≥2 color-dominating vertices per class.",
+          "identifier_or_url": "2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published record through local mirror",
+          "title": "Two-point sequence-b spectrum of crown graphs",
+          "trigger": "Same crown family and spectrum terminology"
+        },
+        {
+          "assessment": "Different coloring predicate, irrespective of catalogue order",
+          "evidence": "Uniquely represented colors in open neighborhoods, not distance-2 domination of every color class.",
+          "identifier_or_url": "2026/10/13/SCOPE-proper-conflict-free-coloring-polynomial-of-crown-graphs--5c2e597efa59",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record through local mirror",
+          "title": "Proper conflict-free coloring polynomial of crown graphs",
+          "trigger": "Same-day indexed record on crown-graph colorings"
+        },
+        {
+          "assessment": "Unresolved historical source for the ordinary endpoint; not counted as new or used to decide the radius-2 branch",
+          "evidence": "Goddard–Mafunda credit Dunbar et al. for the term fall coloring; the primary crown endpoint passage was not retrieved.",
+          "identifier_or_url": "Dunbar et al., JCMCC 33 (2000), 257–273",
+          "material_read": "Bibliographic reference and the attribution in Goddard–Mafunda p. 1; exact crown primary passage not verified",
+          "method": "Bounded lawful journal access attempted",
+          "title": "Fall Colorings of Graphs",
+          "trigger": "Classical radius-1 branch and its attribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown is a natural test family just beyond the diameter-2 case in distance-fall theory. The radius-2 result detects and exactly describes the obstruction to automatic feasibility, gives all attainable color counts rather than a single existence statement, and exhibits a full transition between ordinary fall and unrestricted proper coloring. The value is in that structural middle regime, not in recomputing the conventional endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

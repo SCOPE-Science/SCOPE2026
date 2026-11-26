@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Valid one-point types in the generic poset correspond bijectively to downset/upset pairs with every lower point strictly below every upper point. Partitioning these profiles into one-sided and genuinely two-sided profiles produces intrinsic invariants \(a=I-1\) and \(b=B\). The series and parallel recurrences follow from exhaustive, disjoint profile classifications, including the empty case, so the induction proves the formula without relying on finite tests. A standalone program independently counted downsets and direct order extensions through six vertices, on sampled larger expressions, and on a diamond. The result is limited to decomposition-input series–parallel posets.
+## correctness
 
-**Originality — PASS, qualified.** Searches considered one-point extension / insertion-position vocabulary, disjoint and ordinal sums, series–parallel/N-free posets, general finite-parameter type counting, and published index records. The general ideal/filter characterization and hard unrestricted problem are already known. The earlier rooted-forest formula is not a theorem for arbitrary nested series–parallel constructions: a diamond has no ancestor-forest cover orientation. No checked result states this two-integer series–parallel calculus. Pretzel's potentially relevant 1980 insertion-poset paper was available in abstract but not as a readable full paper; the related published counting record was available as an indexed summary. Both limit certainty about priority.
+PASS
 
-**Mathematical value — PASS.** A natural broad decomposable class admits exact counting with only two intrinsically interpretable integers per decomposition node, contrasting with the unrestricted counting-hard problem. The two-sided invariant localizes under parallel composition and gains a precise cross-term under series composition, a structural phenomenon extending beyond predecessor-tree recursions. This is a complete infinite-class evaluation, rather than a sample-specific count or routine change of notation. No asymptotic or new hardness claim is made.
+An admissible new-point comparison profile is a downset L and an upset U with l<u for every l in L and u in U. These conditions are necessary and suffice for transitivity and disjointness. Universality and homogeneity realize this finite extension over the pointwise named base and identify all realizations of a given profile by automorphisms. A profile isolates the corresponding complete type, and the extension can have arbitrarily many pairwise incomparable copies, so the type is nonalgebraic. Equality types are excluded. Counting one-sided profiles gives 2I−1, with I including the empty ideal, and adding b gives 2a+b+1. Ideals multiply in a parallel composition and have count I(P)+I(Q)−1 in an ordinal sum (proper ideals of P, or all P plus an ideal of Q). A two-sided profile in a parallel composition lives in just one component. In an ordinal sum, a two-sided profile internal to P forces all of Q above the new point, one internal to Q forces all of P below, and the remaining profiles are exactly a nonempty ideal of P paired with a nonempty filter of Q. These disjoint cases give the stated b recurrences. Empty and singleton leaves, arbitrary nesting, and the diamond all agree. Linear arithmetic-operation complexity is in the actual number of leaves, counting empty leaves; counts are bounded by 3 to the power of the number of vertices, which is at most the leaf count.
 
-Closest background: Valdes–Tarjan–Lawler (1979/1982) on series–parallel recognition; Pretzel (1980) on insertion positions; Hubička (2010) on the generic poset; published general finite-parameter one-type hardness; earlier rooted-forest exact formula. Residual risk is specialized prior insertion-enumeration literature not fully accessible. Computation is corroborative and not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the two-integer exact computation on the entire series–parallel closure. The comparison-profile characterization, generic-poset realization, and counting on the intersecting tree-cover domain are prior and not credited as new. The strongest catalogue lead mentions series–parallel recurrences without giving or identifying them; neither it nor the other inspected statements establishes equivalent coverage of the full closure. This is a best-of-knowledge finding, not a priority claim.
+
+## value
+
+PASS
+
+The two intrinsic counts give an exact, decomposition-independent algorithm on an unbounded and natural class of parameter posets for a statistic that is hard without structural restrictions. The mixed-profile state is what closes the calculation under arbitrary alternation of the operations, including posets such as diamonds beyond cover-tree methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:28:35.292148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "T_6 has diameter two, so the forbidden geodesic triples are induced P3s; in the source K_6 these are exactly simple three-edge paths on four distinct source points. In the full complete simplicial 1-skeleton, every missing triangle loop bounds the cone built with the edge on the two unused source points: its three pieces are valid triangles because that edge is disjoint from each of the original three. Thus all triangular loops, which generate the fundamental group of the complete skeleton, are nullhomotopic. My independent code tested the source-path predicate, recovered f=(15,105,275,240,66,10), and made legal elementary free-face collapses only in dimensions (4,5) and (3,4), reaching a 3-complex with f=(15,105,275,184). The exact signed third-boundary Smith form (FLINT) has 169 ones and 15 zero column invariants. Hence H_3 has rank 184-169=15, and H_2 is free of rank 275-(105-14)-169=15 using H_1=0. The collapse keeps homotopy type, and guarantees vanishing above degree three. For the upgrade, choose a map from a wedge of fifteen 2-spheres inducing an H_2 isomorphism by Hurewicz. Its mapping-cylinder pair is 2-connected and relative Hurewicz gives all relative H_3 classes by relative homotopy. The absolute-to-relative H_3 map is an isomorphism and the absolute-to-relative pi_3 map is onto since the pi_2 map from the wedge is injective. Thus choose fifteen 3-sphere maps representing the H_3 basis; together the sphere maps are a homology equivalence between simply connected CW complexes, so are a homotopy equivalence. Replay: python3 /workspace/repro/record3.py, output /workspace/repro/record3.out. The frozen certificate was inspected rather than run; the independent collapse and Smith computation are alternative exact verification for T_6 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghorbani et al. give gp(L(K_n))=n when 3 divides n, otherwise n-1; Di Stefano et al. give the minimum size of a maximal set.",
+          "9b9fdc66bc5e applies to the full face-size enumerator for all n."
+        ],
+        "reasoning": "Coverage for all n in cardinality or face enumeration does not give an all-n homotopy theorem. No stronger topological theorem covering this case was found in the inspected statements.",
+        "searches": [
+          "Resultary: general-position polynomial formula triangular graph line graph complete graph cluster complex homotopy",
+          "arXiv:1903.04286 Theorem 4.4; arXiv:2306.09965 Theorem 5.2; doi:10.1007/s00025-024-02133-3"
+        ]
+      },
+      "checked_sources": [
+        "9b9fdc66bc5e",
+        "68bb3fc9b806",
+        "e5fcc431769b",
+        "86b89d24b06d",
+        "arXiv:1812.08460",
+        "arXiv:1903.04286",
+        "arXiv:2306.09965",
+        "10.1007/s00025-024-02133-3",
+        "ba4e23a8c579 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-size star/triangle characterization and maximal-cluster description specify the combinatorial object, and can be used to generate its incidence data. The inspected results do not certify the integer boundary rank, trivial fundamental group, or a dimension-three collapse.",
+          "The Ind_2 wedge is not a homotopy description after adding all larger clique components."
+        ],
+        "reasoning": "Even given the face-generation rule, one still needs a distinct signed boundary and topological argument. The combined prior recognition and counts are not a specialization giving the asserted homotopy equivalence.",
+        "searches": [
+          "9b9fdc66bc5e and 68bb3fc9b806 RESULT.md openings; Anand et al. Theorem 3.1; e5fcc431769b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anand et al., Theorem 3.1 and the diameter-two specialization, identify the general-position and cluster predicates here.",
+          "The exact ba4e23a8c579 hit is the identical assigned record.",
+          "The e5fcc431769b two-independence and 86b89d24b06d dissociation records both exclude a selected triangle, which is valid in GP(T_6)."
+        ],
+        "reasoning": "The general-position, induced-cluster, and source-edge simple-three-edge-path avoidance formulations describe the same complex. The two-independence and dissociation formulations have strictly different face sets.",
+        "searches": [
+          "Resultary: exact integral homotopy GP(T6) L(K6) wedge 15 S2 15 S3",
+          "Resultary and public literature: induced cluster complex / induced P3-free subsets of the triangular graph, homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full face-size polynomial is already recoverable from the all-n EGF in 9b9fdc66bc5e. The earlier 68bb3fc9b806 covers the facet-size polynomial, 15z^3+60z^4+6z^5+10z^6 here.",
+          "The exact homotopy hit was ba4e23a8c579 itself. The related homotopy calculation e5fcc431769b is for Ind_2(T_6), with ranks 24 and 10, not GP."
+        ],
+        "reasoning": "The previously tabulable face vector fixes the Euler characteristic but neither the two multiplicities separately nor torsion or the homotopy type. Exact facet counts are not a homotopy table.",
+        "searches": [
+          "Resultary: maximal cluster subgraphs triangular graphs partition polynomial n=6 facets cluster-inducing sets",
+          "Resultary: GP(T6) L(K6) wedge 15 S2 15 S3"
+        ]
+      },
+      "rationale": "Prior work already covers the allowed-face condition, the complete face-size polynomial for all T_n, and maximal cluster structure. Those parts are not novel. The supported distinct claim is the integral nonequivariant homotopy type of the six-point complex.",
+      "residual_risks": [
+        "The exact topology may have been calculated under unindexed path-avoidance or related terminology. A bounded literature search cannot certify publication priority.",
+        "Credit the earlier full counting polynomial in addition to the facet-count precursor when describing scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers face-size data for all n, not the claimed topology in the examined result",
+          "evidence": [
+            "Sum Psi_n(z)u^n/n! = exp(u exp(uz)-u^2z/2+u^3z^3/6)."
+          ],
+          "identifier_or_url": "9b9fdc66bc5e",
+          "material_read": "Local mirror RESULT.md opening, offset 0",
+          "method": "Read Finding and component description",
+          "title": "Full general-position polynomial of triangular graphs by star–triangle decomposition",
+          "trigger": "Same family and all faces, potential stronger result"
+        },
+        {
+          "assessment": "Classifies maximal structures, counts and purity, not their homotopy type",
+          "evidence": [
+            "Inclusion-maximal induced cluster subgraphs of T_n are enumerated by size."
+          ],
+          "identifier_or_url": "68bb3fc9b806",
+          "material_read": "Local mirror RESULT.md opening, offset 0",
+          "method": "Read Finding",
+          "title": "Maximal cluster subgraphs of triangular graphs: a partition polynomial and the exceptional pure case",
+          "trigger": "Identical complex under the induced-cluster name"
+        },
+        {
+          "assessment": "Covers the recognition criterion and extremal size, not the claimed homotopy in those theorems",
+          "evidence": [
+            "Clique components with the distance conditions of Theorem 3.1; Theorem 4.1 specializes to diameter two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+          "material_read": "Theorem 3.1 p. 4 (offset 10961) and Theorem 4.1 p. 5 (offset 14000)",
+          "method": "OA source PDF passages",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Equivalent face recognition"
+        },
+        {
+          "assessment": "Maximum face size only",
+          "evidence": [
+            "gp(L(K_n)) is n or n-1 according to divisibility by three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.04286",
+          "material_read": "Theorem 4.4 p. 10 (offset 27553)",
+          "method": "OA source PDF passage",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Exact line-graph family"
+        },
+        {
+          "assessment": "Minimum size of a maximal face, not topology",
+          "evidence": [
+            "The minimum over maximal general-position sets in L(K_n) equals 3 at n=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+          "material_read": "Theorem 5.2 p. 12 (offset 35159)",
+          "method": "OA source PDF passage",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Same maximal faces and all n"
+        },
+        {
+          "assessment": "Inspected material defines a counting invariant only",
+          "evidence": [
+            "The polynomial records general-position sets by cardinality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Abstract and Definition 1.1 p. 1 (offset 0)",
+          "method": "OA source page",
+          "title": "General Position Polynomials",
+          "trigger": "Possible face-counting coverage"
+        },
+        {
+          "assessment": "Non-equivalent complex",
+          "evidence": [
+            "Components have at most two selected vertices; wedge has 24 S^2 and 10 S^3 summands."
+          ],
+          "identifier_or_url": "e5fcc431769b",
+          "material_read": "Local mirror RESULT.md opening, offset 0",
+          "method": "Read Finding and face condition",
+          "title": "Mixed-dimensional two-independence homotopy of the triangular graph",
+          "trigger": "Exact same graph and neighboring homotopy claim"
+        },
+        {
+          "assessment": "Non-equivalent complex",
+          "evidence": [
+            "Induced maximum degree at most one excludes a selected triangle."
+          ],
+          "identifier_or_url": "86b89d24b06d",
+          "material_read": "Local mirror RESULT.md opening, offset 0",
+          "method": "Read face definition and Finding",
+          "title": "Dissociation and maximal dissociation polynomials of triangular graphs",
+          "trigger": "Possible alternate formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full complex on a small standard triangular graph is a natural test object for topological general-position theory, not just a list of maximal sets. Integral topology distinguishes this example from related complexes and confirms two nonzero consecutive homology degrees even though the Euler characteristic alone cancels them. The degree-two and degree-three multiplicities together with a simple-connectivity and collapse check give a concrete benchmark for future structural arguments on this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

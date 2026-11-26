@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:44.504718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed residue matrix of rank a, invertible residue row and column operations lift and reduce it to diag(I_a,0) modulo pi. The upper and off-diagonal blocks contribute 2na−a² freely lifted entries. The lower Schur block ranges over the full pi layer; multiplication by pi identifies this layer with F_q, including for nonsplit rings, because Ann(pi)=(pi). Counting its rank b yields the stated one-matrix factor. Each of the n columns of Y is free in a kernel of size q^(b+2c); this weights the law of X under joint uniformity on solution pairs. Substituting the rank counts gives exponent (5n²−h²−b²)/2 and factor Phi_n²/(Phi_a Phi_b Phi_c²). Extend the weights by zero off the finite feasible set; feasibility is h+b≡n mod 2 with nonnegative a=(n+h−b)/2 and c=(n−h−b)/2. Along each parity the factors converge to 1/(Phi_infinity Phi_b) and a summable Gaussian envelope bounds the weights, giving l1 convergence and then TV after normalization. The even/odd projector splits the mass into products of one Euler series and one Jacobi series, producing (P_+³±P_-³)/2. Both limiting masses are positive and differ since P_->0. The unconditional probability divides by q^(4n²); n=0 gives one empty pair. Independent checks (not uploaded code) gave 2464 for q=2,n=2 over both ring types by direct pair multiplication, 123201 for q=3,n=2 via kernels, and 0.6898119280685257 for the claimed even q=2 mass. Replay: /workspace/branches/4f8cb107-fcc5-4bcf-b791-85c8c3b28f55/independent_check.py and independent_check.txt; proof replay in frozen RESULT.md equations (1), (6)–(9).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Byrne et al. count single matrices over general finite chain rings by module type. Shumyatsky–Vannacci bound structural ideals from finite-ring zero-product probability. Record 57656077cb5d gives an intersection law for uniformly chosen free summands, not zero-product pairs. Dolžan's directly relevant paper had no readable full text in the attempted routes."
+        ],
+        "reasoning": "General ring scope alone is not broad coverage of the conditional asymptotic. The type count is sufficient to start the finite count, but it does not give the concentration in (a−c,b), the parity effect, or the Euler evaluation.",
+        "searches": [
+          "arXiv:2106.09403 Proposition 15",
+          "arXiv:2307.12633 Theorem 1.3",
+          "DOI 10.1017/S0004972721001246 and lawful OA alternatives",
+          "Resultary 57656077cb5d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py (inspected, not executed)",
+        "Independent enumeration and product calculations",
+        "arXiv:1901.00964v1, 2106.09403, 2307.12633",
+        "Resultary 55b0cf94c8d7, 57656077cb5d, 150f31c550b3",
+        "DOI 10.1017/S0004972721001246 (retrieval attempt and bibliographic comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighting the known Smith counts by q^(n(b+2c)) gives the finite identity. The proof then needs the completed quadratic, the parity constraint, a uniform summable bound, and an Euler/Jacobi evaluation. The closest field-pair law has no extra b-weight 1/Phi_b or corresponding Euler factor."
+        ],
+        "reasoning": "The finite count and product identities are prior methods, but the two-layer fixed-q consequence is not a parameter substitution into the inspected probability theorems.",
+        "searches": [
+          "arXiv:2106.09403 Proposition 15 and frozen equations (1), (6)–(9)",
+          "Resultary 55b0cf94c8d7 Finding",
+          "arXiv:1901.00964v1 Theorem B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random-complex paper uses a conditional rank kernel over fields and results for Betti numbers, with its asymptotic in q. The finite-ring product-zero theorem concerns structural ideals. The indexed jointly uniform field pair law uses the pair sampling here, but has no nontrivial pi layer."
+        ],
+        "reasoning": "Equivalently treating X,Y as consecutive differentials does not make the conditional-process sampling uniform among all pairs. The jointly uniform field case has the right sampling but a different coefficient ring and state space.",
+        "searches": [
+          "Resultary jointly uniform zero-product matrix pairs, rank and homology distributions",
+          "arXiv:1901.00964v1 Definitions 2.4, 3.1–3.2 and Theorems A–B",
+          "arXiv:2307.12633 Theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected exact-count entries involve field pairs, free-summand intersections, or a single matrix constrained by X²=0. The independent small totals verify the finite specialization but are not used as evidence of priority."
+        ],
+        "reasoning": "An exact table or asymptotic for these other objects cannot supply the limiting two-parameter law. No exact matching entry was verified within the inspected sources.",
+        "searches": [
+          "Resultary discrete Gaussian rank laws for AB=0, free/torsion intersections and square-zero image-shape counts",
+          "Resultary 55b0cf94c8d7, 57656077cb5d, 150f31c550b3"
+        ]
+      },
+      "rationale": "The supported distinct content is the fixed-q parity-dependent Euler-product constants and the total-variation two-parameter Smith law for the first factor of a jointly uniform zero-product pair over a length-two ring. The individual-matrix type count is prior background, and multiplying it by the independent-column kernel factor is elementary; neither is credited as the asymptotic contribution. The closest inspected field-pair and length-two-ring results do not give the target torsion law or its cubed products. Dolžan's potentially relevant full text could not be verified; this is a residual priority risk, not evidence that it does or does not cover the theorem.",
+      "residual_risks": [
+        "Dolžan's full text was inaccessible in the attempted lawful routes; equivalent earlier chain-ring work cannot be excluded.",
+        "The law is not a joint Smith distribution of X and Y, applies at fixed q and length two, and does not imply longer-chain analogues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SAMPLING_RING_AND_LIMIT",
+          "evidence": "Conditional finite-field kernels, Betti laws, and q-growing rather than fixed-q length-two-ring asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.00964v1",
+          "material_read": "Theorems A–B, pp. 2–3; Definition 2.4 and Definitions 3.1–3.2, pp. 5–6; extracted offsets 6100, 7881, 13595, 16550",
+          "method": "Bounded OA PDF passages",
+          "title": "A Model for Random Chain Complexes",
+          "trigger": "Random differentials with zero composition"
+        },
+        {
+          "assessment": "COVERS_FINITE_ONE_MATRIX_INPUT",
+          "evidence": "Matrix module-type counts, not the uniform zero-product pair law.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.09403",
+          "material_read": "Proposition 15, p. 15, extracted offset 61252",
+          "method": "Bounded OA PDF passage",
+          "title": "Density of Free Modules over Finite Chain Rings",
+          "trigger": "General chain-ring Smith enumeration"
+        },
+        {
+          "assessment": "STRUCTURAL_BOUND_NOT_EXACT_LAW",
+          "evidence": "Conclusion about ideals under probability bounds, not about two-layer matrix Smith asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.12633",
+          "material_read": "Theorem 1.3, p. 2, extracted offset 6092",
+          "method": "Bounded OA PDF passage",
+          "title": "Commuting and Product-Zero Probability in Finite Rings",
+          "trigger": "General product-zero probability"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_VERIFIED",
+          "evidence": "The topic is directly relevant. No independent theorem-level exclusion or priority claim is based on the inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972721001246",
+          "material_read": "Bibliographic citation and frozen account of the abstract and scope; independent full-text attempts did not yield readable passages",
+          "method": "DOI and lawful OA-repository retrieval attempts",
+          "title": "The Probability of Zero Multiplication in Finite Rings",
+          "trigger": "Closest named finite-ring probability paper"
+        },
+        {
+          "assessment": "FINITE_FIELD_ANALOGUE",
+          "evidence": "Exact and TV field-rank and homology laws without the length-two torsion parameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-discrete-gaussian-ranks-and-exponentially-rare-homology-among-ze--55b0cf94c8d7/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Discrete Gaussian ranks and exponentially rare homology among zero-product pairs",
+          "trigger": "Closest jointly uniform matrix pair law"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_OBJECT",
+          "evidence": "Intersections of random free summands, not zero products of arbitrary matrices under joint uniformity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-free-and-torsion-intersection-law-for-random-summands-over-l--57656077cb5d/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "The free and torsion intersection law for random summands over length-two chain rings",
+          "trigger": "Fixed-q free and torsion limit over the same rings"
+        },
+        {
+          "assessment": "DIFFERENT_EQUATION",
+          "evidence": "The two factors coincide in X²=0; the square-zero sample space is not the independent-coordinate ordered pair solution set.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-bockstein-equidistribution-and-image-shape-counts-for-square-zer--150f31c550b3/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Bockstein equidistribution and image-shape counts for square-zero matrices",
+          "trigger": "Same rings and nearby matrix equation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact leading constants distinguish even and odd dimensions in a natural zero-product probability, beyond giving its exponential order. The TV law quantifies the nonvanishing torsion stratum and the jointly tight fluctuations around the balanced Smith profile. The constants and limit agree across split and nonsplit rings with the same residue field. These are structural distributional conclusions, not merely verification of the small totals or of standard individual-matrix counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

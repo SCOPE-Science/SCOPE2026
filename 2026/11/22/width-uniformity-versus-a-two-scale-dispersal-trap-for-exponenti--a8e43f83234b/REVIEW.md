@@ -1,21 +1,21 @@
-# Scientific review: two-band exponential dispersal geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to one-seed exponential downstream travel and to the stated two-band geometries. The equal-width calculation gives an explicit logarithmic derivative whose derivative is strictly negative because \(\cosh(\delta x)>\sinh(\delta x)\ge\delta\sinh x\) for \(\delta\ge1\). The scaled-width calculation uses four sign inequalities, followed by the exact upper bound of three zeros of a four-term exponential polynomial. The extra rescaling comparison proves that the longer-range local maximum is the unique global maximum. Universal results are analytic; numerical calculations only supplement them. An extracted standalone checker passes exact bounds, a Sturm count at \(L=9\), root and objective comparisons, and illustrative curvature tests.
+PASS
 
-## Originality — PASS on inspected evidence
+The objective integrates the one-sided exponential density over the habitat union, with endpoints immaterial. At equal widths, rescaling gives F(t)=(1−e^(−t))e^(−αt)(1+e^(−δt)), with α>0 and δ≥1. Its log-curvature is −1/(4 sinh²(t/2))+δ²/(4 cosh²(δt/2)), strictly negative since cosh(δx)>sinh(δx)≥δ sinh(x) for x>0. The log derivative tends to +∞ and −α at the respective ends, proving unique maximization, also at contact. At scaled widths and L>2 the derivative has four distinct exponential terms. Dividing by the slowest exponential and applying Rolle inductively gives at most three distinct real zeros. For L≥9 the derivative signs at 0,1/L,1/2,log 2 are +,−,+,−. In particular g''<−2 on [0,1/9], and (e−2)/e²>3/32 gives the negative sign at 1/L; the upper bound 1−2/L−3L/32 is −19/288 at 9 and decreases thereafter. At 1/2 use 2/e−e^(−1/2)>129/1100 and Le^(−L/2)≤9e^(−9/2)<11/100. The latter comparisons follow from 27/10<e<11/4 (the exponential series suffices) and exact rational squared inequalities. The three critical points are therefore strict extrema in alternating order. For the right maximum t₃, the test point t₃/L increases the objective by g(t₃/L)−g(Lt₃)>0: the first term is greater than 1/(4L) using 1/2<t₃<log 2, and the second is smaller than e^(−L/2)<1/(4L). Since the positive objective vanishes at both ends, this leaves the first maximum uniquely global. At L=2 the two intervals form one and the derivative has its sole zero at log(4)/3.
 
-The closely related de Jager–Soons study (2022 preprint; 2023 published study) already reports simulated dispersal fitness valleys and evolutionary hysteresis in a different nonlinear habitat-cell model. The general *qualitative* phenomenon is not claimed as new. The present claim instead distinguishes arbitrary separations of equal-width habitats (global strict log-concavity, no local traps) from geometrically scaled two-band habitats (exactly three critical rates for every \(L\ge9\) and a strict global choice), with explicit mathematical hypotheses and a self-contained proof. Treep et al. (2021) analyze a two-dimensional Pareto kernel and complex dynamic patch mosaics, while Finand et al. (2023) analyze evolving metapopulations with competition/colonization tradeoffs. Searches for exponential-kernel, two-interval and bimodal-optimizer equivalents, and comparisons with public mathematical research summaries concerning dispersal and recruitment spectra, produced no inspected implication of the exact two-part theorem. Search non-retrieval is not proof of priority; unexamined literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is a meaningful width-versus-spacing distinction in a minimal, physically normalized seed deposition objective. In this model, merely separating two bands of equal width never creates a second dispersal optimum, however widely spaced; sufficiently heterogeneous widths can. This identifies which part of landscape geometry is responsible for a non-quasiconcave optimization landscape without relying on seed-number saturation or competition. The general equal-width theorem, a uniform sufficient regime \(L\ge9\), and the global ranking of both local peaks are reusable analytical benchmarks for subsequent, biologically richer transport and establishment models. The chosen family uses natural logarithmically similar habitat bands, not an arbitrary finite parameter list.
+The supported distinction is an exact two-band theorem for the one-sided exponential rate objective: all-separation strict log-concavity at equal widths versus a uniform L≥9 two-peak guarantee and a strict global ordering at scaled widths. Neither general exponential-polynomial root bounds, related Gaussian scale optimization nor evolutionary landscape studies supply this exact conjunction. No priority is claimed for the zero-counting method or the qualitative possibility of fitness valleys.
 
-## Closest literature and limitations
+## value
 
-The closest overlap is de Jager and Soons, *Ecology and Evolution* 13 (2023), e10147, DOI https://doi.org/10.1002/ece3.10147, originally circulated as https://doi.org/10.1101/2022.10.10.510956. Its numerical fitness-valley observations do not state the present exact two-band theorem. Further comparisons: Treep et al., *Movement Ecology* 9 (2021), 4, https://doi.org/10.1186/s40462-020-00239-1; Finand et al., *Oikos* (2024), https://doi.org/10.1111/oik.10490.
+PASS
 
-Only the sufficient range \(L\ge9\) is proved; the exact bifurcation location in \(2<L<9\) is not. The two geometrically scaled bands have unequal absolute widths, so isolated distance-versus-area causation is not claimed. No evolutionary hysteresis, demographic persistence, empirical calibration or priority certification is established.
+For a fixed minimal habitat geometry the theorem separates two effects: increasing gaps alone between two equal-width windows cannot make local optima compete, while scaled unequal windows can produce a persistent suboptimal peak separated by a valley. The contrast is uniform on all admissible equal separations and on a continuous sufficient regime of scaled separations, and the result says which peak wins rather than just exhibiting a plot or bounding the number of possible extrema. This gives a useful analytic benchmark for richer models.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

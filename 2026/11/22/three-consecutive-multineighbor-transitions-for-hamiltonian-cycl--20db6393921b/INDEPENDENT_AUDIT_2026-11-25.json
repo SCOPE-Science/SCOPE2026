@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:16.726357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 21–50 and 55–56",
+        "Frozen VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "Frozen checks/verification_output.txt (recorded finite F2 tests for 7<=n<=11)",
+        "Corrected /workspace/repairs/2/RESULT.md, including limitations and reference identifiers"
+      ],
+      "rationale": "The frozen Finding and proof pass at all three stated thresholds. The separate frozen Limitations assertion that two shore components persist at every positive threshold is false: m=n-2 has 2n isolated vertices, and m>n-2 has no vertices. The complete replacement in /workspace/repairs/2/RESULT.md corrects this for the final claim. Sharing an open neighbor precludes mixed shores, and the union of excluded indices on one shore has size |S| plus the run count. At t=3 only cyclic edges survive. At t=4 each consecutive triple collapses with its distinct length-two diagonal; the remaining graph contains C_n, and a spanning tree containing all but one of its edges shows the cycle represents a primitive generator. At t=5 the excluded triples have positive cyclic gaps after removing one additional unselected vertex from each gap; the circular count is (n/3) binom(n-4,2). Each consecutive four-block collapses with the face {i,i+1,i+3}: the large gap n-3 is the unique possible exterior gap for a four-block. Before collapsing, triangles with a cyclic edge replace each chord by a cyclic path, and the fan at 0 fills the cycle. The resulting simply connected 2-complex has reduced Euler characteristic q_n and free H_2; Hurewicz and homological Whitehead give the stated integral wedge. The target H_1 is zero and each shore stays connected throughout these three stages, giving the stated maps.",
+      "residual_risks": [
+        "The computational evidence checks only finitely many n and works over F2. The integral homotopy types and persistence statements use the all-n proof.",
+        "Outside these three thresholds no general persistence or homotopy classification is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matysiak–Spaliński introduces m common neighbors and studies random graph asymptotics. The compared Ind_2 and cyclic-band independence statements cover different induced-subgraph predicates."
+        ],
+        "reasoning": "Neither their broader parameter ranges nor the source defining the general multineighbor construction specialize to these integral types and maps.",
+        "searches": [
+          "Matysiak–Spaliński arXiv:2302.09017v1 Sec. 1",
+          "Resultary e829c600cc04 and 6e43077a0a25"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target self-match 20db6393921b",
+        "Resultary 7e09d423324e, e829c600cc04 and 6e43077a0a25",
+        "Matysiak–Spaliński arXiv:2302.09017v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier definitions use either one closed witness or induced maximum degree at most one, versus at least m common open witnesses here. The multineighbor reference defines the complex without classifying the three deterministic stages."
+        ],
+        "reasoning": "Knowing the spaces in the other constructions would not yield primitive survival of a specific cycle in the second stage, nor do the general construction and standard collapse/Whitehead tools imply the specific free faces and simple connectivity without the cyclic calculation.",
+        "searches": [
+          "Matysiak–Spaliński arXiv:2302.09017v1 Sec. 1",
+          "Closed-neighborhood RESULT.md 7e09d423324e",
+          "Ind_2 RESULT.md e829c600cc04"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed-neighborhood result for the same graph gives two-sphere wedges with additional periodic higher spheres. The cyclic-band t=2 graph is the same graph under a specialization, but its independence complex is not Y_t or the open multineighbor complex."
+        ],
+        "reasoning": "The threshold complex can be written using unions of cyclic pairs or their complement witness sets. The inspected alternatives instead put mixed-shore faces into their complexes, so the graph coincidence does not give an equivalence of filtrations.",
+        "searches": [
+          "Resultary multineighbor/deleted Hamiltonian cycle search",
+          "\"multineighbor complex\" bipartite graph Hamiltonian cycle deleted common open neighbors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror's exact match reports all three formulas and the H_1 assertions; the identity and contents match the assigned record."
+        ],
+        "reasoning": "This is the same item, not an independent exact table. Tables of different complexes on the same graph cannot certify these threshold types.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-three-consecutive-multineighbor-transitions-for-hamiltonian-cycl--20db6393921b"
+        ]
+      },
+      "rationale": "The surviving distinct claim is the deterministic three-threshold integral homotopy and stated inclusion behavior for the open multineighbor filtration on this graph. It is unchanged by the limitation repair. The inspected same-graph results classify different complexes, and the foundational paper supplies the construction rather than these types or maps.",
+      "residual_risks": [
+        "The bounded search does not establish priority over unindexed equivalent results or all possible cyclic-complex reformulations.",
+        "The primary search results unrelated to this construction are not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical source, not a second result",
+          "evidence": [
+            "Same three levels and integral H_1 assertions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-consecutive-multineighbor-transitions-for-hamiltonian-cycl--20db6393921b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary catalogue and local mirror passage",
+          "title": "Three consecutive multineighbor transitions for Hamiltonian-cycle-deleted bicliques",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Different definition and conclusion",
+          "evidence": [
+            "Closed neighborhoods, with n^2-4n+1 two-spheres plus periodic higher spheres."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-periodic-sphere-wedges-in-closed-neighborhood-complexes-of-cycle--7e09d423324e",
+          "material_read": "RESULT.md offset 378",
+          "method": "Local mirror passage",
+          "title": "Periodic sphere wedges in closed-neighborhood complexes of cycle-deleted complete bipartite graphs",
+          "trigger": "Identical underlying graph"
+        },
+        {
+          "assessment": "Not the open witness filtration",
+          "evidence": [
+            "Ind_2 uses induced maximum degree at most one and is a wedge of n^2-3n-1 three-spheres for n>=4."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-third-dimensional-sphere-wedge-theorem-for-hamiltonian-cycle-d--e829c600cc04",
+          "material_read": "RESULT.md offsets 0 and 480",
+          "method": "Local mirror passage",
+          "title": "A third-dimensional sphere wedge theorem for Hamiltonian-cycle-deleted bicliques",
+          "trigger": "Same graph with another complex"
+        },
+        {
+          "assessment": "Different complex despite graph overlap",
+          "evidence": [
+            "Ind(G_{n,t}) collapses to K_{n,2}, with homotopy type S^2."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror passage",
+          "title": "Cyclic-band bipartite independence complexes collapse to a two-sphere",
+          "trigger": "Underlying graph specialization and cyclic-complex reduction"
+        },
+        {
+          "assessment": "Same construction, different results",
+          "evidence": [
+            "Definition by at least m common neighbors and scope of the random-graph results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.09017v1",
+          "material_read": "Sec. 1 passages at offsets 125 and 1473",
+          "method": "OA passage inspection",
+          "title": "The asymptotic topology of the multineighbor complex of a random graph",
+          "trigger": "General multineighbor construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding, proof and limitations",
+        "Matysiak–Spaliński arXiv:2302.09017v1 construction"
+      ],
+      "rationale": "This is a natural controlled perturbation of a complete bipartite graph and an exact deterministic test case for a multineighbor filtration. Three consecutive levels exhibit a primitive old class surviving alongside new loops, their joint disappearance at the next level, and a new second-homology contribution. Integral homotopy types and the specified maps supply more than three isolated numerical Betti counts. The correction restricts the component interpretation without reducing this contribution.",
+      "residual_risks": [
+        "No value is premised on a full persistence barcode or arbitrary 2-factor deletions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

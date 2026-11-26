@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:38.403422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For α>-1, split the rational CDF into the product of u/(1+αu) and α times the product of u²/(1+αu), with the common prefactor (1+α)^(n-1); differentiate the factors to get the stated mixed density. Uniform margins and grounding follow by substitution. For -1<α<0, u(2+αu) increases from 0 to 2+α, so the density is nonnegative everywhere iff 1+α(2+α)^n>=0. A strict violation at the corner persists inside the cube; at equality the density merely vanishes at the corner. At α=-1 the interior expression is zero and cannot extend with uniform margins. For α<-1 there is a nonremovable pole with generic other coordinates. On 0<s<1, s(2-s)^n increases up to 2/(n+1) and decreases to 1 at s=1, giving exactly the stated admissible root and dimension cutoff. With t=2^(-n), the root obeys t<s_n<2t for large n; expanding s_n=t(1-s_n/2)^(-n) first gives s_n=t+O(nt²), and substituting this back yields the stated second term with O(n²t³). The two normalized factors are CDFs for α>=0 and the claimed mixing weights give uniform margins. The bivariate difference from independence is α times a product of strictly positive interior functions. Its integral gives strictly negative covariance for admissible α<0, impossible for an infinite exchangeable sequence by the variance of a sum. No claim about maximal dimension of alternative finite extensions follows. Replay: python3 /workspace/branches/independent_checks.py 4, four exact rational near-corner box volumes, including the sign change from n=3 to n=4 at s=1/8. Frozen checker and its 51-check log were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed cited general works treat bivariate separable and multivariate FGM-type perturbations; no exact multiway GRP formula was independently established from those works.",
+          "The strongest comparison is instead the very same-family mixed density in Proposition 6 as identified at frozen RESULT.md line 118."
+        ],
+        "reasoning": "No generic FGM formula need be inferred to cover all margins. The exact GRP mixed density itself is stronger than the claimed sign test and has a product of increasing nonnegative factors on the relevant domain.",
+        "searches": [
+          "Rodríguez-Lallena–Úbeda-Flores DOI 10.1016/j.spl.2003.09.010",
+          "Dolati–Úbeda-Flores DOI 10.13140/RG.2.1.4671.9607",
+          "Chesneau DOI 10.3390/modelling4020008, Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_grpcopula.py and check_output.txt",
+        "Resultary e748e88639ea and d3cec9569f5f",
+        "Bibliographic and available indexed material for DOI 10.3390/modelling4020008 and the related separable-copula papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known density has sign of 1+α∏_i u_i(2+αu_i), and the full rational density identity continues as an identity to all α>-1.",
+          "Each factor attains its maximum 2+α at 1, so the sharp condition for α<0 is precisely the already known density's sign at the corner. The logarithmic dimension limit and root expansion are standard rewritings of that scalar condition."
+        ],
+        "reasoning": "This is stronger same-object formula coverage, not a similarity inferred from wording. Even if a proposition only applies its identity on the old sufficient interval, the rational identity has the same continuation on the nonsingular interval. The exact inequality and binary normalization add no independent theorem once the published formulas are given.",
+        "searches": [
+          "Chesneau Proposition 6, frozen attribution at RESULT.md lines 116–120 and displayed identity lines 45–59",
+          "Frozen RESULT.md lines 74–108"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same rational expression, not the different ratio scheme in Chesneau DOI 10.3390/sym15050977. The frozen prior-work comparison expressly attributes the full mixed density to the 2023 Proposition 6.",
+          "In dimension two the family is literally the separable perturbation uv+αF_α(u)F_α(v), with F_α(u)=u(1-u)/(1+αu)."
+        ],
+        "reasoning": "Termwise split shows why the published formula is already a sum of two products; rescaling at u=1 immediately normalizes the factors and supplies the two latent weights. The bivariate form is a rank-one perturbation, so its covariance sign and infinite-exchangeability obstruction are immediate.",
+        "searches": [
+          "Resultary: generalized ratio-polynomial copula cutoff, finite exchangeability and product mixture",
+          "Chesneau DOI 10.3390/modelling4020008, Propositions 1 and 6",
+          "Rodríguez-Lallena–Úbeda-Flores DOI 10.1016/j.spl.2003.09.010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-dimensional endpoint and mixture hit e748e88639ea is the assigned record, not separate evidence.",
+          "The same-day d3cec9569f5f summary optimizes a lagwise absolute-regularity coefficient for the 2023 ratio-polynomial copula, with a negative boundary parameter at lag one; it does not display the general-dimensional cutoff."
+        ],
+        "reasoning": "No separate exact cutoff table is claimed here. Any use of the sharp bivariate endpoint in the related chain record would overlap n=2 but would not by itself settle the general dimension result.",
+        "searches": [
+          "Resultary e748e88639ea",
+          "Resultary d3cec9569f5f (lagwise absolute regularity of ratio-polynomial chain)"
+        ]
+      },
+      "rationale": "The sharp condition is a direct sign corollary of the full separable density for this exact family, which the frozen record itself attributes to Chesneau's Proposition 6. One bounds every factor by its attained endpoint value 2+α; evaluating that same density at the all-one corner gives immediate necessity. The originally reported sufficient interval need not have stated the sharp condition verbatim. The remaining phase claims are immediate from the two normalized product terms and the sign of the known bivariate difference. This is a verdict about demonstrated mathematical implication, not a claim that a source printed every endpoint, or a failure due to inaccessible papers.",
+      "residual_risks": [
+        "Primary Proposition 6 text was unavailable, so its precise wording and whether it gives the actual sharp cutoff are not certified. The verdict rests on the frozen record's explicit attribution of the matching density and the reconstructed direct implication, not on an unavailable passage.",
+        "Same-day chain-result overlap and coverage of the n=2 endpoint in the external literature are not fully resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct corollary of the admitted same-family formula; no assertion that the sharp inequality is literally printed",
+          "evidence": "The frozen record explicitly gives credit for the full mixed density and says the antecedent used the sufficient bound α>=-2^(-n). Product monotonicity on (-1,0) makes the sign at the all-one corner both necessary and sufficient.",
+          "identifier_or_url": "https://doi.org/10.3390/modelling4020008",
+          "material_read": "Publication metadata and explicit same-density attribution to Proposition 6 in frozen RESULT.md lines 116–118; primary Proposition 6 passage not retrieved",
+          "method": "Targeted article lookup, attempted OA text and lawful publisher PDF; independent reconstruction of the attributed rational identity and its exact implication",
+          "title": "Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form",
+          "trigger": "Same expression and mixed derivative; decisive potential prior coverage"
+        },
+        {
+          "assessment": "Potential n=2 overlap, not verified general-dimensional coverage",
+          "evidence": "The available statement treats a stationary chain and extremizes lagwise absolute regularity.",
+          "identifier_or_url": "Resultary d3cec9569f5f",
+          "material_read": "Indexed summary; full matched result unavailable",
+          "method": "Local Resultary comparison",
+          "title": "Sharp lagwise absolute regularity extrema for a ratio-polynomial copula",
+          "trigger": "Same copula family and negative endpoint"
+        },
+        {
+          "assessment": "General background; not used as the decisive prior-coverage claim",
+          "evidence": "The bivariate GRP margin has the separable form exactly; generic multivariate FGM-type models need not have these consistent proper margins.",
+          "identifier_or_url": "DOIs 10.1016/j.spl.2003.09.010 and 10.13140/RG.2.1.4671.9607",
+          "material_read": "Indexed subject/scope and frozen comparison, not full theorem text",
+          "method": "Targeted source identification and algebraic scope comparison",
+          "title": "A new class of bivariate copulas; Some new parametric families of multivariate copulas",
+          "trigger": "Generic separable and product-perturbation predecessor results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Knowing the admissible domain is a natural goal, but here the proposed invariant reduces mechanically to the endpoint sign of the already available same-family density. Root inversion and expansion do not create a new constrained-extension result; the positive phase just normalizes the two existing product terms, and the negative phase specializes the routine pair-covariance obstruction. An exact finite-extension limit for alternative exchangeable constructions could be substantive, but is explicitly outside the finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

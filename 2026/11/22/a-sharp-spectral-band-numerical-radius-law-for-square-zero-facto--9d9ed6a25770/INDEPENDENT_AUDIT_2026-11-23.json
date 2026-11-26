@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:35:13.954915Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rank-one u⊗v with orthogonal unit vectors the radius is 1/2, and w((Au)⊗v)=(||Au||+|⟨Au,v⟩|)/2 by the standard rank-one numerical radius formula (compress to the span of the two vectors). Optimizing v gives the norm of the perpendicular component. For any square-zero B, the block form relative to ker B and its orthogonal complement gives w(B)=||B||/2, also when the block norm is approached only by a sequence. For each x with Bx≠0 replace B by ||B|| times the rank-one operator from the normalized ker(B)⊥ component of x to Bx/||Bx||. The factors are orthogonal, the radius is preserved, and the new value on x dominates the old in absolute value after multiplication by A. With ||A||=1, functional calculus gives q=⟨A²u,u⟩≤(1+r)s−r for s=⟨Au,u⟩, and q−s²≤(1−s)(s−r). Both terms of the rank-one objective increase in q at fixed s. Put s=r+(1−r)t; disjoint spectral slices approaching both endpoints supply all the required limiting two-point weights, irrespective of eigenvalue attainment. At r=1 the normalized operator is I. For r<1 strict concavity and the one-sided slopes give the unique interior maximizer and the derivative equation. At r=0 the root is t=3/4, with derivative of the optimum in r equal to −√3/4 by differentiating at that nondegenerate maximum. Near r=1 the profile expands uniformly as 1+(1−r)[t−1+√(t(1−t))]+O((1−r)²); the bracket has a unique maximizer at (1+1/√2)/2. A t just below 1 gives C(r)>1 for r<1; convex decomposition of A into rI plus the positive r=0 part gives C(r)≤r+(1−r)C(0) for r>0. For rank-one exact attainment with r<1, equality in the nonnegative functional-calculus defect (A−rI)(I−A) forces spectral support at both endpoints because the maximizing weight is interior; endpoint eigenvectors also suffice. This does not rule out higher-rank attainment without endpoint eigenvectors. The uploaded numerical check was read but not run; it does not certify the Hilbert-space result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benabdi et al.'s official abstract asserts the universal constant 3√3/4 for all bounded B and all positive A, but supplies no fixed spectral minimum parameter.",
+          "Gau–Huang–Wu's square-zero result assumes commutation; their proof uses (AB)²=0. Ando characterizes the w-unit ball generally."
+        ],
+        "reasoning": "Unrestricted B is broader than square-zero B, but taking a global constant over positive A loses the fixed positive spectral minimum and attainment information. The commuting estimate has stronger hypotheses and cannot be used for noncommuting rank-one extremizers.",
+        "searches": [
+          "Benabdi et al., DOI 10.2298/FIL2204337B",
+          "Gau–Huang–Wu, DOI 10.7153/OAM-02-08, Proposition 2",
+          "Ando, Structure of operators with numerical radius one, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d9ed6a25770 (same frozen record)",
+        "Benabdi et al. 10.2298/FIL2204337B (official abstract)",
+        "Ando 1973 Theorem 1",
+        "Gau–Huang–Wu 10.7153/OAM-02-08 Proposition 2",
+        "Abu-Omar–Kittaneh 10.7900/jot.2013jun12.1990 (journal landing page)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interpolating the known universal result with the identity yields an upper bound r+(1−r)3√3/4, not the exact interior profile. Indeed the endpoint-r→1 slope of the frozen law is (√2−1)/2 rather than 3√3/4−1.",
+          "Ando supplies a general w-unit-ball factorization, from which the review derives the mixed-vector upper estimate; converting this to an exact fixed-A profile still uses a sharp spectral variance envelope and a matching endpoint mixture of rank-one factors. It does not by itself give that equality or attainment condition."
+        ],
+        "reasoning": "Credit the known universal endpoint and standard numerical radius ingredients. The sharper all-band equality and exact rank-one attainment classification do not follow by substitution into an inspected prior product bound. No implication is inferred from inaccessible proofs.",
+        "searches": [
+          "Benabdi et al., DOI 10.2298/FIL2204337B; Abu-Omar and Kittaneh, DOI 10.7900/jot.2013jun12.1990",
+          "Ando 1973, Theorem 1; Gau–Huang–Wu Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only exact Resultary match returned is the assigned record 9d9ed6a25770, not independent prior work.",
+          "For positive A the unrestricted induced norm of B↦AB in w is an equivalent sharper-looking formulation at the level of the optimal constant, because a sharp mixed-vector upper envelope agrees with the rank-one square-zero lower envelope."
+        ],
+        "reasoning": "For w(B)≤1, Ando writes B=2(I−Z)^(1/2)D Z^(1/2), 0≤Z≤I and ||D||≤1. Cauchy–Schwarz and the arithmetic–geometric mean bound a unit-vector matrix element by 1+Tr[Z(xx*−yy*)]≤1+√(1−|⟨x,y⟩|²), since the rank-two difference has opposite eigenvalues ±√(1−|⟨x,y⟩|²). Applying it to x and Ax/||Ax|| gives the same envelope as the frozen rank-one lower bound. The resulting unrestricted formulation was derived in the review, not found as a prior fixed-band theorem.",
+        "searches": [
+          "Resultary: spectral-band numerical radius, fixed positive multiplier, square-zero factors and rank-one extrema",
+          "Primary websearch: induced numerical radius multiplier norm of left multiplication and dual numerical radius norm on rank-one matrices",
+          "Ando 1973, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact fixed-band entry was returned; the same-record hit is not separate evidence. The known 3√3/4 is exactly the r=0 endpoint."
+        ],
+        "reasoning": "The primary claim is a continuum sharp supremum for each A and a spectral attainment condition, not a decimal table or a new evaluation of the universal r=0 constant.",
+        "searches": [
+          "Resultary: fixed spectral ratio sharp positive-factor numerical radius constant",
+          "Official Filomat abstract, volume 36(4), DOI 10.2298/FIL2204337B"
+        ]
+      },
+      "rationale": "The universal positive-factor constant and quadratic-operator product bounds with commutation are known. The supported distinction is the sharp fixed-operator profile for every spectral band with rank-one endpoint-attainment criterion. In particular, Ando's factorization gives a broad tool to derive a mixed-vector bound, but does not state a fixed positive multiplier profile or the sharp two-endpoint spectral construction. No available statement of an equivalent or dominating fixed-operator theorem was identified in the bounded comparison; the closest universal-constant paper's detailed proof remains an access risk.",
+      "residual_risks": [
+        "Detailed proofs of the closest global-constant paper and the earlier Journal of Operator Theory paper were not retrieved through the investigated lawful routes. Their contents beyond the verified passages, or a separately indexed exact fixed-multiplier theorem, can change the overlap assessment. Empty or irrelevant search returns are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified universal-constant overlap; proof and any fixed-band implications in it unverified",
+          "evidence": [
+            "The abstract asks for the smallest c for all bounded A,B with positive A and states c=3√3/4."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/FIL2204337B",
+          "material_read": "Official Filomat abstract, OA website https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/16114, offset 0–962; proof not retrieved",
+          "method": "OA website mode; DOI and identified Doiserbia full-text/PDF routes unavailable",
+          "title": "On the inequality w(AB)≤c||A||w(B) where A is a positive operator",
+          "trigger": "Closest sharp unrestricted-product theorem"
+        },
+        {
+          "assessment": "Established factorization underlying a sharp mixed-vector bound; not the fixed-A profile as stated",
+          "evidence": [
+            "w(T)≤1 is equivalent to T=(I+S)^(1/2)D(I−S)^(1/2) for selfadjoint contraction S and contraction D."
+          ],
+          "identifier_or_url": "https://acta.bibl.u-szeged.hu/14381/1/math_034_011-015.pdf",
+          "material_read": "Theorem 1, printed p. 13 and proof around pp. 13–14",
+          "method": "OA primary PDF, offsets 5330–6713 and 6300–10211",
+          "title": "Structure of operators with numerical radius one",
+          "trigger": "General w-ball factorization, possible broader left-multiplier implication"
+        },
+        {
+          "assessment": "Commuting product theorem, not this noncommuting optimum",
+          "evidence": [
+            "If the square-zero factor commutes with the other factor, then the product is square-zero and has radius half its norm."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-02-08.pdf",
+          "material_read": "Proposition 2 and its proof; Theorem 3 statement, p. 138",
+          "method": "OA primary PDF, offsets 2900–5236",
+          "title": "Numerical Radius Inequalities for Square-zero and Idempotent Operators",
+          "trigger": "Same square-zero class in product inequalities"
+        },
+        {
+          "assessment": "Noncommuting product background; no conclusion about the entire document from this access",
+          "evidence": [
+            "The Filomat abstract attributes the global sharp-constant question to this paper."
+          ],
+          "identifier_or_url": "https://www.mathjournals.org/jot/2014-072-002/2014-072-002-012.html",
+          "material_read": "Journal landing page and abstract; primary proof not retrieved",
+          "method": "OA website mode; attempted PDF route did not yield primary text",
+          "title": "Numerical radius inequalities for products of Hilbert space operators",
+          "trigger": "The prior work that posed the positive-factor constant question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed positive operator may have a strictly better optimal coefficient than the universal constant; the exact scalar profile quantifies the improvement without any compactness assumption. The endpoint-eigenvalue criterion explains when this optimum has an actual rank-one witness, versus only an approximating sequence. The sharpness construction and infinite-dimensional attainment distinction add substance beyond a numerical interpolation or the universal endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

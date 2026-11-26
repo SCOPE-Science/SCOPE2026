@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:09:57.457402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 5–60: on sorting a triple, the middle absolute deviation is the smaller successive gap, hence in input-edge coordinates it is min(|s|,|t|,|s+t|). Each section is 1-Lipschitz. Varying one internal edge by epsilon changes at most the two incident output entries, by magnitudes at most |epsilon| each. Their adjacent differences have weights v[j-2], v[j-1], v[j] and bounds |epsilon|, 2|epsilon|, |epsilon|. Edge-coordinate telescoping proves the bound for arbitrary real pairs including ties, and a constant input difference changes no MAD. For (d[j-1],d[j],d[j+1])=(-3/2,1,-3), direct evaluation gives changes -epsilon,+epsilon for 0<epsilon<1/2, attaining all three bounds simultaneously; (1,3) on the first edge and its reflection give the stated boundary columns. These perturbations integrate to actual single-step changes of the signal. A single output at n=3 has zero variation. The largest unit-weight columns are 2, 3 and 4 for n=4, n=5, and n>=6. Exact independent replay: python3 -I /workspace/review-work/replay.py 1 evaluated MAD directly for 92,750 step pairs (n=3–6) and recovered every maximum column variation for the tested weight profiles. This is finite corroboration only. The supplied checker was inspected, not executed; in particular line 76 uses a nonzero float tolerance despite rational witness quotients. The exact analytic witnesses do not depend on that tolerance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed summaries describe respectively sample-rank outputs with clamped odd windows, pairwise ell_p dispersion for 1<p<infinity, and a four-sample central spacing. For the triple (0,0,1), MAD is zero while the pairwise ell_p norm is positive for any such p. On (1,2,5) MAD is 1 and on its translate (2,3,6) MAD is still 1; sample rank outputs instead translate."
+        ],
+        "reasoning": "Neither the operator nor the weights of the sharp result are specializations of the displayed catalog claims. A distinct same-day record is considered on its mathematical scope, not ruled out by date. Comparison of those records is limited to the summaries actually accessed.",
+        "searches": [
+          "Resultary: sharp path variation sensitivity sliding rank order statistic and local dispersion filters",
+          "4ad37e5b5ca9",
+          "ed9e6f4e0ade",
+          "a032bfcaee76"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof, Relationship to prior work; VERIFICATION.md and checks/verify_mad.py",
+        "Resultary 562007a36887, 4ad37e5b5ca9, ed9e6f4e0ade, a032bfcaee76, 5759b99f2a42, 4ef2a38a9807 (catalogue summaries)",
+        "Primary literature/documentation search snippets as specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed finite weighted and all-radius unweighted running-median claims are about location rather than the minimum pairwise gap. The web results include movmad documentation and arXiv:2605.01312, with a multivariate depth construction mentioned in the latter's snippet."
+        ],
+        "reasoning": "A median or MAD definition does not imply the neighboring MAD changes have opposite signs under one input step. That compatibility, exhibited by the strict single-edge witness, is what makes every weight branch sharp. The search snippets do not themselves establish whole-document noncoverage.",
+        "searches": [
+          "Resultary: moving median absolute deviation exact Lipschitz bounded variation unscaled three-point formula",
+          "Web: (\"moving median absolute deviation\" OR \"running MAD\" OR \"sliding MAD\") (\"total variation\" OR \"bounded variation\" OR Lipschitz) filter sharp weighted stability",
+          "5759b99f2a42",
+          "4ef2a38a9807"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The least-gap query returned the target itself. Generalized Hampel Filters is a plausible alternate vocabulary; the frozen relationship section, lines 68–70, describes MAD as the scale inside a replacement filter and observation weights as sample replication, neither of which is the edge weighting in this theorem."
+        ],
+        "reasoning": "The least of the three pairwise distances is genuinely equivalent, since for sorted observations the third distance is the sum of the two gaps. Weighting the edge perturbation seminorm is not equivalent to replicating observations in the triple or bounding the replacement output.",
+        "searches": [
+          "Resultary: three-point moving scale minimum of three pairwise distances sliding smallest gap MAD path variation",
+          "Resultary: moving MAD unscaled exact weighted total variation stability coefficient",
+          "doi:10.1186/s13634-016-0383-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-formula catalogue match was the assigned finding; no distinct matching coefficient or 0,2,3,4 table appeared in the returned results."
+        ],
+        "reasoning": "The meaningful check is for an exact duplicate or precomputed table of coefficients for this map, not a table of moving MAD values for fixed signals. Search coverage is not exhaustive.",
+        "searches": [
+          "Resultary: moving MAD unscaled exact weighted total variation stability coefficient",
+          "Resultary: \"v_{j-2}+2v_{j-1}+v_j\" weighted moving MAD variation"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp two-input seminorm coefficient for the full-window three-sample minimum-gap scale with independently weighted input/output edges, not MAD itself, Hampel filtering, or the general use of step-column bounds. The closest catalogued filters and primary moving-MAD leads do not show equivalent coverage of this claim in the material available. No claim of historical priority is made.",
+      "residual_risks": [
+        "Bounded source retrieval did not produce the cited Hampel full text or the decisive indexed full passages; the specific differences reported above are statement-level comparisons, not whole-document exclusions.",
+        "An unindexed small-window gap-statistic or general compatible derivative theorem might supply equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different map and weighting in available statement",
+          "evidence": [
+            "Centered endpoint-clamped sample ranks; summary gives unweighted factor 2 min(q-1,w-q)+1 in its long-path regime."
+          ],
+          "identifier_or_url": "Resultary 4ad37e5b5ca9",
+          "material_read": "Indexed statement summary; mirror retrieval timed out",
+          "method": "Resultary semantic lookup; bounded mirror attempt",
+          "title": "Exact rank-dependent variation sensitivity of sliding order statistics",
+          "trigger": "Same-day broader rank-filter result"
+        },
+        {
+          "assessment": "Not the same statistic under any normalization of the stated pairwise ell_p family",
+          "evidence": [
+            "Summary restricts 1<p<infinity; repeated-but-not-all-equal data distinguish the maps."
+          ],
+          "identifier_or_url": "Resultary ed9e6f4e0ade",
+          "material_read": "Indexed statement summary; mirror retrieval timed out",
+          "method": "Resultary semantic lookup; bounded mirror attempt",
+          "title": "Sharp path-variation sensitivity of sliding triple pairwise ell_p dispersion",
+          "trigger": "Same triple-scale and path-variation objects"
+        },
+        {
+          "assessment": "Overlap in method, not output",
+          "evidence": [
+            "Endpoint-preserving three-point sample location median, not full-window minimum-gap MAD."
+          ],
+          "identifier_or_url": "Resultary 5759b99f2a42",
+          "material_read": "Indexed statement summary",
+          "method": "Resultary lookup",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+          "trigger": "Similar weighted three-edge maximum"
+        },
+        {
+          "assessment": "The reported replacement and replication questions differ; independent full-text comparison unavailable",
+          "evidence": [
+            "Reported weighting changes window observations rather than the BV seminorm."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13634-016-0383-6",
+          "material_read": "Frozen RESULT.md lines 68–80 and accompanying source characterization; not independently retrieved primary text",
+          "method": "Targeted OA retrieval timed out",
+          "title": "Generalized Hampel Filters",
+          "trigger": "Primary work squarely using moving MAD"
+        },
+        {
+          "assessment": "Useful leads for terminology, not coverage evidence of an exact weighted norm",
+          "evidence": [
+            "Documentation on moving MAD; indexed paper snippet on multivariate depth."
+          ],
+          "identifier_or_url": "https://www.mathworks.com/help/matlab/ref/movmad.html ; arXiv:2605.01312",
+          "material_read": "Web search snippets only",
+          "method": "Primary web search; targeted OA documentation retrieval timed out",
+          "title": "movmad; Exploring Multivariate Data Using Median Absolute Deviation Depth",
+          "trigger": "Nearest primary search results under the moving-MAD alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The worst-case change of a classical local robust scale is a useful error-propagation invariant distinct from the statistical robustness of each window. The formula gives both a sharp decision under arbitrary edge weighting and explicit witnesses that distinguish genuine amplification from an artifact of separate scalar bounds. The onset at four input samples and ceiling at six or more arise from how neighboring output windows share edges. No extension to general MAD windows or to the replacement filter is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

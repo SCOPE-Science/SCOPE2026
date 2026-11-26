@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, clock normalization, starting state, and coverage stopping time are explicit. The one-excursion packet law is obtained by the elementary two-leaf hitting process. Inclusion-exclusion gives the exact finite distribution; independent Poisson splitting gives the product CDF. The second-order Gumbel expansion follows from a fixed-parameter logarithmic expansion, and Poisson concentration transfers its coefficient to discrete excursions at an error smaller than \(n^{-1/3}\). Concentration of geometric excursion lengths transfers the same coefficient to discrete random-walk steps. A dominated-convergence argument, with an exponentially small far-tail bound, proves the integrated correction for the mean. The exact mean identity follows from Wald's identity and the strong Markov property. Independent small-state recurrences, direct finite-state Markov solves, and large-size numerical values passed 137 checks. Numerical checks are not treated as infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+The frozen CDF and mean are both mathematically supported. Each excursion selects a uniform petal and a fair initial leaf; a specified leaf is visited with probability 3/(4n). Marking one or both leaves per petal gives (3) by inclusion–exclusion (a zeroth power is 1 at m=0). The mean excursion count is finite by a leaf union bound; Wald and the expected residual two steps from the last leaf give (4). Poisson splitting gives the product CDF. In the mean integral, on u≤n/3 the paired-term change is bounded by n^(−1/3)u^(4/3)e^(−u/2), and the independent-binomial difference by O(u² e^(−2u)/n); outside that range the tail is exponentially small by Φ_n≤e^(−u). Thus dominated convergence gives Γ(4/3)/2^(4/3) before the final walk-time factor. The repaired RESULT.md focuses on the discrete-step CDF. For correctness of its sharpened error, K=ceil(8n log n) controls M_n by the leaf union bound. Both exponential interarrival sums and excursion length sums, centered separately, have quadratic log-MGF near zero. A union bound through K gives deviation at most A sqrt(n) log n except with O(n^(−3)) probability for A large; this works even though excursion paths and M_n are dependent. The inequalities S_(M_n−1)<T_n≤S_(M_n) then give a two-clock CDF sandwich with compact-uniform x shift O(log n/sqrt n). The Poissonized Taylor error O(n^(−2/3)) is smaller. Thus the corrected walk-time claim includes the stated quantitative remainder without using the recorded checker as a proof; supplied scripts were inspected, not run.
 
-The 2009 graph-general cover-time inclusion-exclusion theorem already encompasses exact finite-graph distributions in principle, so the mere existence of an exact CDF is not claimed as new. Multiple-arrival coupon-collection formulas cover broad finite expectations; one-at-a-time heterogeneous coupon-group Gumbel laws are also known. The 2023 source on sparse-network optimal cover-time scaling addresses first-order \(N\log N\) behavior for other network families. The novel statement assessed here is the sharp **fractional** correction to the distribution and the explicitly integrated \(n^{2/3}\) correction to the expected time for this specific backtracking walk. The closest accessible works do not state or immediately establish that second-order regime. A prior result for non-backtracking walks on petal cycles has a different transition kernel and does not imply this one. Targeted public research-record searches found no covering result; negative search evidence is not a uniqueness certificate. Broader group-coupon asymptotic literature remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Friendship graphs are a natural sparse, highly inhomogeneous family with triangles attached to one hub. Cover-time \(n\log n\) scaling alone does not distinguish the two mechanisms of remaining unvisited vertices. The exact \(n^{-1/3}\) term quantifies the unusually persistent unentered-triangle mode, while the derived mean correction provides a statistically meaningful observable one order below the leading term. The statement is a mathematically motivated second-order law, not an arbitrary fixed-size calculation or mere substitution of constants.
+For the repaired finding only: the actual discrete-time CDF correction with a compact-uniform error that is smaller than n^(−1/3) was not found or established as a direct corollary in the inspected sources. The frozen presentation is narrowed: its Poissonized law, Poissonized expansion and mean correction are covered mathematically by the paired-star record, and the exact inclusion–exclusion framework is established work. The overlap verdict does not infer earlier priority from catalogue dates.
 
-## Boundaries
+## value
 
-The claims apply to non-lazy simple walks started at the common hub and fixed centered \(x\). They do not include other petal lengths, nonuniform graph weights, or uniform large-deviation expansions. Historical priority is not independently settled, and there has been no independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result quantifies the effect of genuinely correlated discoveries on a natural graph walk. It distinguishes, at the first nontrivial order, the actual walk from an independent coupon prediction and shows that the two random clocks cannot account for the anomalous correction. Compact-uniform smaller-order error makes that distinction quantitative; no significance is assigned to merely recomputing the covered expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

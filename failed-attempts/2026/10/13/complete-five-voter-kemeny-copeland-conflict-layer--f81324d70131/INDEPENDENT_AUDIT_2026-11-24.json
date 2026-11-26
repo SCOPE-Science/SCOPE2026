@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:10:59.053309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The census follows directly from the three-candidate tournament. With a Condorcet winner the tournament is transitive; the linear order matching every majority edge is uniquely Kemeny-optimal and its top is also the sole Copeland winner. On a directed triangle, Copeland ties all three and Kemeny orders minimize the margin weight of reversed arcs. Disagreeing with any single arc is possible, so only orders disagreeing with a single minimum-weight arc are optimal; their top candidates are the heads of those arcs. Each voter contributes +1 or -1 to the sum of cyclic margins. Positive odd margins cannot cycle for one voter, are forced to (1,1,1) for three voters, and are (1,1,1) or (3,1,1) for five. Only the latter diverges. Its sum saturates the five-voter bound, so every ballot disagrees with exactly one majority arc. For fixed orientation and margin triple, the number of ballots disagreeing with an arc of margin m is (5-m)/2, and there is exactly one ranking disagreeing with just that arc. This forces multiplicities 2,2,1. There are two orientations and three choices for the margin-3 arc, acted on transitively and freely by candidate relabeling, giving six anonymous profiles, each with 5!/(2!2!)=30 labeled profiles. The representative has margins A>B=1, B>C=3, C>A=1; reversing a light edge yields tops A or B, whereas Copeland returns all three. Consequently the exact fractions are 5/216 and 1/42. This is a direct proof; the supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published three-candidate analysis identifies Kemeny with maximin, gives a refinement diagram with Kemeny below Copeland, and states that Copeland ties all candidates on tie-free three-cycles.",
+          "The educational case proves the parity bound and for five voters the two margin possibilities (1,1,1) or (3,1,1), with saturation requiring all ballots to agree with two arcs; its rule table gives the Kemeny–Copeland split on the tilted example."
+        ],
+        "reasoning": "General ordinal-margin results and the tilted-cycle case determine the form of disagreement; no exact labeled IC count is attributed to those passages. The stronger pointwise Slater–Copeland identification transfers the exact prior count, without restricting to special preference multisets.",
+        "searches": [
+          "Brandt–Dong–Peters arXiv:2411.19857v1, §3, Fig. 2, Theorem 1 and Table 1",
+          "The minimal tilted cycle, public methodology and margin classification",
+          "Resultary first conflict layers for three-candidate correspondences"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, METADATA.json and supplied verifier",
+        "Resultary fa14717d1b6a RESULT.md and METADATA.json; Resultary e8d0cf0a7ffc RESULT.md",
+        "arXiv:2411.19857v1",
+        "Public minimal-tilted-cycle page",
+        "Courtin–Mbih–Moyouwou citation (original full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under S=C every divergent profile and its winning sets transfer unchanged. The earlier 2 ABC + 2 BCA + 1 CAB example is identical, and the earlier result covers n=1,3 as well as n=5.",
+          "The Resultary publication metadata record 2026-10-04 for the Slater result and 2026-10-13 for the frozen Copeland result. The equivalence is proved from the rules, not inferred from release dates or titles."
+        ],
+        "reasoning": "A mechanical winner-correspondence substitution and elementary denominator arithmetic supply every substantive conclusion. An independent recount or alternative direct proof does not leave a novel profile classification to repair.",
+        "searches": [
+          "Resultary fa14717d1b6a, exact stated census, scope, and publication metadata",
+          "Burnside/candidate-relabeling and multinomial conclusions in the same RESULT.md",
+          "Brandt–Dong–Peters §3 Copeland cycle paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fa14717d1b6a defines set-valued Slater as tops of orders minimizing reversed majority edges, using three candidates, strict ballots and odd electorates.",
+          "On a transitive tournament the top of the unique Slater order is the Condorcet winner; on a directed three-cycle all three candidates top a Slater optimum. Copeland has exactly these same outputs on the two tournament types."
+        ],
+        "reasoning": "For every profile in scope, S(P)=C(P), not merely agreement on one representative. Thus disagreement with Kemeny is the identical profile event under the alternate name.",
+        "searches": [
+          "Resultary five-voter three-candidate rule divergence, exact 180/6 census and orbit comparisons",
+          "Resultary fa14717d1b6a, RESULT.md offsets 350–3042 and 3980–5773",
+          "Brandt–Dong–Peters arXiv:2411.19857v1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fa14717d1b6a explicitly gives 180 of 7776 labeled profiles, six anonymous profiles forming one relabeling orbit and 30 labeled lifts each; its record exhausts 252 anonymous profiles. Applying uniform IAC gives 6/252=1/42.",
+          "e8d0cf0a7ffc concerns distinct unique Borda and Copeland winners; its six anonymous profiles, and a separate 180-count row for a Borda–Copeland relation, do not identify this Kemeny event.",
+          "The educational page tables margin shapes and cycle counts but the exact earlier Kemeny–Slater profile census is the decisive match."
+        ],
+        "reasoning": "Correct prior matching requires equivalence of the entire event, not coincidence of small counts. The Slater census satisfies that test; the Borda counts do not.",
+        "searches": [
+          "Resultary fa14717d1b6a and e8d0cf0a7ffc actual Findings and proof/table passages",
+          "Minimal tilted cycle, text offsets 2350–6867"
+        ]
+      },
+      "rationale": "Shown already covered: the earlier Resultary Kemeny–Slater record gives the exact same census and orbit classification on precisely the same profiles. Slater and Copeland are pointwise identical as winner correspondences on three-candidate tie-free tournaments. Substituting this equality yields the exact frozen claim, including the denominators and both incidences, the nested winner sets, the canonical profile, and minimality. There is no distinct remainder in the frozen scope.",
+      "residual_risks": [
+        "The bounded check need not settle historical priority for the earlier result or date the public educational page. Such uncertainties do not weaken the verified equivalent earlier census.",
+        "The equivalence used is specifically for three candidates and no majority ties; it is not asserted beyond this scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "full coverage by equivalent correspondence",
+          "evidence": "180 labeled conflicts; six anonymous conflicts, one candidate orbit; same representative and (2,3) nested winners; identical scope and first odd layer. With no ties and three candidates, Slater equals Copeland pointwise.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-five-voter-divergence-boundary-for-kemeny-and-slater-with--fa14717d1b6a",
+          "material_read": "RESULT.md offsets 350–3042, 3980–5773; METADATA.json publication_date and scope",
+          "method": "local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp five-voter divergence boundary for Kemeny and Slater with three candidates",
+          "trigger": "strongest alternate-rule exact prior match"
+        },
+        {
+          "assessment": "different event",
+          "evidence": "60 labeled distinct-unique-winner conflicts, six anonymous; the separate 180-count row is a Borda–Copeland relation.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-five-voter-unique-winner-conflict-layer-for-borda-and-cope--e8d0cf0a7ffc",
+          "material_read": "RESULT.md offsets 350–1786 and 2800–3885",
+          "method": "local Resultary mirror",
+          "title": "Sharp five-voter unique-winner conflict layer for Borda and Copeland",
+          "trigger": "near match in rule and several counts"
+        },
+        {
+          "assessment": "general rule comparison, not five-voter profile frequencies",
+          "evidence": "Kemeny equals maximin for three candidates; Copeland ties all candidates on a tie-free directed triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.19857v1",
+          "material_read": "§3 pp. 5–7, Fig. 2 offset 17900, Theorem 1 and Table 1 offset 22300, tie-free cycle discussion offset 28650",
+          "method": "lawful open PDF passage inspection",
+          "title": "Condorcet-Consistent Choice Among Three Candidates",
+          "trigger": "three-candidate correspondence equivalences and restrictions"
+        },
+        {
+          "assessment": "minimal tilt and rule-output context; decisive exact prior is the Slater census",
+          "evidence": "Only (3,1,1) tilts at five, with equality in the sum bound only when every voter agrees with two arcs. Copeland ties all three; Kemeny–Young ties the two weakly defeated candidates.",
+          "identifier_or_url": "https://masiarek.github.io/star-voting-library/method_comparisons/minimal_tilted_cycle/",
+          "material_read": "website offsets 2350–6867, parity and saturation proof, machine-checked margin-shape table, and rule comparison",
+          "method": "lawful direct public website passage inspection",
+          "title": "The minimal tilted cycle — five voters, and already the methods disagree",
+          "trigger": "cited minimal example and sharp margins; exact URL identified in frozen METADATA.json"
+        },
+        {
+          "assessment": "original comparison access limited, not relied on for FAIL",
+          "evidence": "Brandt et al. attribute the equivalence to Courtin et al. The decisive equivalent exact census is separately available in fa14717d1b6a.",
+          "identifier_or_url": "THEMA Working Paper 2012-37; published Social Choice and Welfare 42 (2014), 927–940",
+          "material_read": "bibliographic identification and attribution in Brandt–Dong–Peters, not original full text",
+          "method": "bounded lawful retrieval attempts and inspected citing primary paper",
+          "title": "Are Condorcet procedures so bad according to the reinforcement axiom?",
+          "trigger": "cited prior for three-candidate Kemeny–maximin equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact IC/IAC frequencies at the first disagreement are a natural object, but these frequencies, their unique ballot-multiset orbit and their winner-set relation are already available by the pointwise equivalence to the previously counted case. Recounting the identical event gives no additional invariant, boundary hypothesis, or reusable classification beyond that result. The scope has no supported new smaller remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

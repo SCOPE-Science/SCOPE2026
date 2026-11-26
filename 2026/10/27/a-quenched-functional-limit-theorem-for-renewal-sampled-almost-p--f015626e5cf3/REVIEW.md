@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bounded martingale-difference strong law makes each Bohr-almost-periodic covariance function equidistribute along the random renewal times. A second finite-lookahead strong law turns lagged covariances into their renewal-averaged Bohr means. The exponentially integrable collision count makes the variance-profile tail uniform, without a lower cutoff on increments. Conditional finite-range dependence holds with logarithmic index radius almost surely, by Borel–Cantelli. The independent-block FCLT applies with main-block length \(n^{1/3}\), logarithmic gaps, maximal gap \(L^2\)-error \(o(n)\), and fourth-moment Lyapunov ratio \(O(n^{-2/3}\log^2 n)\). These steps prove convergence for the **same** full-measure set of schedules. Uniform-norm lag-continuity was independently included to justify closure of the covariance functions under the renewal integral. The code's finite checks are corroboration only.
+PASS
 
-## Originality — PASS, qualified
+For positive iid increments, P(S_h≤m)≤e^{am}(E e^{-aψ})^h, with E e^{-aψ}<1. This gives absolute variance summability, an integrable covariance-tail envelope, and almost surely a conditional index dependence range O(log n) by a union bound and Borel–Cantelli. At each frequency in the countably many trigonometric approximations needed, the bounded character martingale differences give the pathwise Bohr mean. For fixed h, splitting the h-step covariance innovations into residue classes modulo h+1 gives the martingale strong law for the difference from the conditional mean g_h(Y_k). Lag-continuity ensures g_h is Bohr almost periodic and the norm-continuous integral commutes with its mean. Truncating lags, prefix Cesàro convergence is uniform after division by n; omitting the last h terms of each prefix is O(H²/n) for a fixed truncation H. The ergodic collision envelope controls all longer lags simultaneously for the prefixes. Consequently conditional variances converge uniformly on the Brownian time scale to tσ², including σ²=0. Blocks of size floor(n^(1/3)) separated by O(log n) gaps are jointly independent by the setwise m-dependence assumption. Residue-class maximal inequalities make the deleted prefix sums negligible in L² after normalization. The fourth moment bound summed over normalized full blocks is O(n^(-2/3) log² n). Assign block sums to completion times: the maximal discrepancy within a block is deterministically bounded by 2K floor(n^(1/3))/sqrt(n), so the full-block conditional variance profile follows uniformly by the L² triangle inequality. The independent-array functional CLT therefore applies in J1 and uniform-probability approximation restores the original process. The separate Brownian-sign example has σ²=3−4/π at ε=0 and independent integration gives σ²≈1.8569314 at ε=1/2; these are checks of the variance formula, not the limit. The frozen script was inspected, not executed. The frozen verification metadata does not attest expert, independent, or Lean verification.
 
-Berger–Strobel, arXiv:2610.23669v1, Theorem 4.5 is scalar and annealed, and its covariance estimates do not assert almost-sure conditioned process convergence. Berger–Mohamed arXiv:2208.08240 treats almost-periodic processes without these renewal-sampling quantifiers; Brandes–Curato arXiv:1804.02254 studies sampled autocovariance; Brandes–Curato–Stelzer arXiv:2007.00574 addresses mixing inheritance for stationary renewal-sampled inputs. Relevant mathematical-record searches were performed under aliases for quenched/conditional functional limits and covariance-almost-periodic processes, with no more general result found to imply the statement. Classical independent-array FCLTs and blocking arguments are not claimed as original. Older specialized or implicit coverage is a residual literature risk; search absence is not an absolute novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Conditioning on the realized observation times answers a different inferential question from averaging over possible observation schedules. The result upgrades an emerging scalar theorem to an environment-wise process law, supplies an explicit computable covariance constant, and allows only covariance-level almost periodicity. The sharp proof obstacle is unbounded clusters of short renewal steps; the exponential collision estimate and logarithmic dependence range resolve it without any lower spacing assumption. The normalizer and a concrete nonstationary Gaussian-increment-sign example are mathematically natural.
+The supported distinction is the almost-sure, whole-schedule conditional J1 theorem for bounded m-dependent processes with almost-periodic lag covariances. The same variance and overlapping scalar annealed limit are prior work, not credited as new. No inspected result establishes the stronger conditional functional statement or implies it on these hypotheses.
 
-## Limitations
+## value
 
-Requires bounded \(X\), finite dependence range and sup-norm continuous Bohr-almost-periodic covariance lags. No convergence rate or unconditional extension to L2-only processes follows. A related general conditional FCLT may remain unlocated. Numerical checks cannot establish infinite convergence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Inference or pathwise limit analysis with one realized observation schedule needs a conditional path law, not averaging over new schedules. The result handles arbitrarily close clusters without a minimum gap or a renewal moment and requires regularity only of lag covariances, not all marginal laws. The pathwise variance and clustering arguments together close a meaningful gap between the known annealed scalar result and such usage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

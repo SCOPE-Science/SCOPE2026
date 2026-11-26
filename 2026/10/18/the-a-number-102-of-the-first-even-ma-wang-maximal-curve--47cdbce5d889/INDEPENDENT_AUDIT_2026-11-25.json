@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:36:40.218775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67",
+        "Frozen VERIFICATION.md lines 19–29 and three supplied Python checks (inspected, not executed)",
+        "Independent replay: python3 evidence/1/cartier_rank_replay.py; output basis_dimension=324, cartier_rank=222, a_number=102"
+      ],
+      "rationale": "For the normalization over the algebraic closure, A=u^3-u and B=1+A^2 have simple disjoint roots, since A'=-1 and B' is nonzero at B=0. A simple root of A gives a totally ramified place and geometric connectedness; the orders 1,13,-81 are all coprime to 82. The ten tame totally ramified places give 2g-2=-164+10·81. At the finite branch places the differential valuations allow B^floor(13j/82) du/z^j with no further factors; at infinity v(u,z,du,B)=(-82,-81,-83,-492), giving precisely 0≤s≤j-2-6 floor(13j/82) for the monomial u^s. The forms are independent by the Kummer characters and the sum of their dimensions is 324, so they are a full basis. The inverse Frobenius on the characters is j↦55j mod 82. With 3j'-j=82t, z^(-j)=z^(-3j') c^t A^t B^(13t), and u is a separating parameter. Cartier takes the coefficients of exponent 3l+2 with cube roots. The c factor is a common nonzero block scalar; division of the raw output by the common B power preserves rank. The distinct target characters give a direct sum of images. An independently written, executed exact row-reduction replay counted dimension 324 and total rank 222, hence kernel dimension and geometric a-number 102.",
+      "residual_risks": [
+        "The replay verifies the finite rank reduction given the basis and Cartier identities; the geometric justification is separate. No full torsion-group-scheme or other parameter claim is tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkin's bounds specialize to 151≤rank≤242, as checked using the exact character dimensions.",
+          "Beelen–Montanucci's family in the inspected source has odd n≥5, which does not dominate the even (3,4) parameters."
+        ],
+        "reasoning": "Neither a general bound containing several possible ranks nor the specialization to a different parity supplies this member's exact rank.",
+        "searches": [
+          "arXiv:0708.0431v2, Theorem 1.1",
+          "arXiv:1711.02894, equation (1) and Proposition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.19546v2",
+        "arXiv:0708.0431v2",
+        "arXiv:1711.02894",
+        "Resultary record 2fa86936e6d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior genus fixes the size of the Hodge space, and maximality controls zeta data, but neither gives the first Cartier map's rank. The stated general Kummer bound leaves rank undetermined."
+        ],
+        "reasoning": "An exact calculation requires the Cartier coefficients for this cover and their character-block ranks; the inspected exact semigroup and maximality statements are not substitutes for those ranks. The contribution is the exact calculation, not a new general Cartier theory.",
+        "searches": [
+          "Ma–Wang Theorem A(1); Elkin Theorem 1.1; Weierstrass semigroup record 2fa86936e6d0, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem A(1) and equation (1.4) give exactly the (q,n)=(3,4) curve and its genus 324. The genus, equation and maximality are not credited as new.",
+          "For this fixed genus, a=102 and Cartier rank 222 are equivalent. The inspected results state neither exact invariant."
+        ],
+        "reasoning": "Agreement of curve models or the usual change of nonzero c establishes the same object, not agreement of the computed Cartier kernel.",
+        "searches": [
+          "arXiv:2609.19546v2, equation (1.4) and Theorem A",
+          "Resultary: Ma–Wang Cartier rank and a-number 222/102"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed item gives the one-point Weierstrass semigroup, minimal generators and Apéry set; its Finding does not give an a-number table or Cartier-rank computation.",
+          "No separate exact rank/a-number entry was identified in the targeted catalogue results."
+        ],
+        "reasoning": "The semigroup computes pole orders at one point. It gives genus but does not furnish the coefficient cancellations in Cartier blocks. Same-day dating is not a priority or non-overlap test.",
+        "searches": [
+          "Resultary: exact Ma–Wang a-number/Cartier rank for q=3,n=4",
+          "Resultary item 2fa86936e6d0, same even Ma–Wang family"
+        ]
+      },
+      "rationale": "The curve, its genus and maximality are already Ma–Wang's. The supported distinct result is the exact geometric Cartier rank/a-number of this member. The closest indexed result treats the same curve, and indeed the whole even family, but determines a Weierstrass semigroup rather than Cartier action. The closest general Cartier theorem supplies a nontrivial interval, not this exact rank. This assessment is limited to the checked statements and searches.",
+      "residual_risks": [
+        "No claim of exhaustive priority; an unindexed same-curve calculation or stronger exact torsion result could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same curve and prior genus/maximality; a-number is not supplied by these statements",
+          "evidence": "Equation (1.4) specializes to the degree-82 Kummer model, and Theorem A gives g=(q²−1)q^n/2 for even n; its remaining parts concern coverings and automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19546v2",
+          "material_read": "pp. 2–3, equation (1.4) and Theorem A; OA offset 6500",
+          "method": "Read primary text and specialize q=3,n=4",
+          "title": "A new family of maximal curves not covered by the Hermitian curve",
+          "trigger": "Originating family and exact model match"
+        },
+        {
+          "assessment": "Relevant prior bounds, not exact here",
+          "evidence": "The theorem uses character dimensions and the inverse Frobenius permutation. For this curve the bounds are 151 and 242.",
+          "identifier_or_url": "https://arxiv.org/abs/0708.0431v2",
+          "material_read": "p. 3, Theorem 1.1 at OA offset 8600",
+          "method": "Read theorem and evaluate the lower and upper expressions over the character dimensions",
+          "title": "The Rank of the Cartier Operator on Cyclic Covers of the Projective Line",
+          "trigger": "General theorem for same invariant and cover type"
+        },
+        {
+          "assessment": "Related odd-index family outside the reviewed parameters",
+          "evidence": "The family in scope has odd n≥5.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.02894",
+          "material_read": "Abstract p. 1 and equation (1), Proposition 2.1 p. 3, OA offset 9000",
+          "method": "Compare the stated parameter restrictions and model",
+          "title": "A new family of maximal curves",
+          "trigger": "Predecessor family of maximal curves"
+        },
+        {
+          "assessment": "Same object, different invariant; neither equivalent coverage nor a priority inference",
+          "evidence": "The conclusion is a minimal generating set and Apéry set for the pole-order semigroup at P∞ and its numerical invariants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-complete-weierstrass-semigroup-at-infinity-of-the-even-ma-wa--2fa86936e6d0/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read mirrored result and specialize to the same member",
+          "title": "The complete Weierstrass semigroup at infinity of the even Ma–Wang maximal curves",
+          "trigger": "Closest indexed statement on identical even model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Ma–Wang Theorem A and discussion of the new even-index family",
+        "Elkin Theorem 1.1"
+      ],
+      "rationale": "This is the smallest member in the genuinely new even-index parameter range, not an arbitrary small instance. Its geometric a-number supplies exact information about the p-torsion beyond genus, zeta data and p-rank. A researcher comparing the torsion of maximal curves or determining the Ekedahl–Oort type of this member could use the exact value 102 as an input or as a benchmark for proposed formulas within the family.",
+      "residual_risks": [
+        "The result is a single exact invariant; it gives neither a family-wide trend nor the full Ekedahl–Oort type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

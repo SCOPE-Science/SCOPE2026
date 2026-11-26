@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:19.118726Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Aggregating the core and leaf coefficients at site j into β_j gives the centered form −βᵀCβ/2+Σ t_j z_j², where z_j is the leaf coefficient: on the zero-sum space each pendant cut contributes exactly its length times z_j². Independently, the cyclic second difference of the distance row has spikes +2 at 0 and −1 at (n±1)/2 for odd n. Fourier transforming yields λ_j=−1/[2(1+(−1)^j cos(πj/n))] at nonconstant frequencies, maximized exactly at j=2,n−2 with value −a. For even n the two negative spikes coalesce to −2 at n/2, giving λ_j≤0 with zeros at nonconstant even frequencies, and hence persistent core-only zeros under arbitrary pendant lengthening. For odd n the uniform distance block's upper eigenvalue λ−t+√(λ²+t²) increases strictly with λ and exceeds the constant zero-sum direction's value −t at λ=−a. This gives γ=(a+t−√(a²+t²))/2 with only the two real frequency-two modes at the minimum. Their normalized leaf-coordinate vectors are ρ(cos(4πj/n),sin(4πj/n)), by the core-to-leaf ratio 1:−q. Equality after PSD updates requires a minimizer of the original form annihilated by every positive update. One leaf imposes just one equation; two different leaves give determinant proportional to sin(4πd/n), nonzero for odd n. This covers arbitrary positive increment sizes. The isolated double eigenvalue splits to first order by the compressed 2×2 update, whose trace and determinant are ρ²(u+v) and ρ⁴uv sin²θ; the complementary spectral gap gives the O(ε²) error. At fixed u+v the smaller root is optimized by equal allocation and maximizing sin²θ. Odd n makes the available angles a permutation of 2πr/n for nonzero r; the nearest quadrature is exactly π/(2n) away. Thus the stated gain and placement hold to first order, without asserting finite-budget optimality. Exact proof reconstruction, not the frozen numerical diagnostics, establishes these conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Irawan–Sugeng compute graph distances on unit-edge bearded cycle families; BC(k,m) attaches leaves at two chosen sites, not a leaf at every site with independently tunable lengths.",
+          "The frozen record identifies the unweighted corona spectrum and cycle-distance spectrum as baseline references. Their exact passages were not independently retrieved.",
+          "Resultary 0d925bf73132 and d03b66cec2aa treat unweighted powered metrics and overlap the parity/strictness signs at p=1."
+        ],
+        "reasoning": "Statements about uniform unweighted spectra or powered-distance strictness do not generally cover finite unequal positive pendant updates or optimal first-order allocation. Prior baseline sign and cycle spectrum are not scored as distinct findings.",
+        "searches": [
+          "Irawan–Sugeng §3.1 bearded cycles",
+          "Indulal–Stevanović DOI 10.1016/j.akcej.2015.11.014",
+          "Graovac–Jashari–Strunje DOI 10.21136/AM.1985.104151",
+          "Resultary unweighted sunlet negative-type transition and parity"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1088/1742-6596/1722/1/012046",
+        "arXiv:1008.0964",
+        "Resultary 0089bd05941e",
+        "Resultary 486f277a9ec1",
+        "Resultary 0d925bf73132",
+        "Resultary d03b66cec2aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The actuator result's two terminal inputs obey a gcd constraint for Kalman rank, not the independent-evaluation condition of the frequency-two bottom eigenspace. The leader result changes a different spectral functional.",
+          "Unweighted QEC or strict negative type does not contain the derivative compressed to the weighted form's degenerate eigenspace."
+        ],
+        "reasoning": "Matching the graph and number of sites does not match the operator, varied parameters, or objective. The sharp finite support cutoff and angular optimization require studying leaf evaluation on the actual bottom eigenspace, rather than substituting a graph parameter into a prior formula.",
+        "searches": [
+          "Resultary 0089bd05941e and 486f277a9ec1 Findings",
+          "Irawan–Sugeng §2.1 and §3.1",
+          "Resultary 0d925bf73132 and d03b66cec2aa Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Irawan–Sugeng's maximum fᵀDf over unit Euclidean zero-sum f is exactly −2γ for a common metric.",
+          "Wolf's gap divides by an ℓ₁ norm squared instead, and his cycle formulas concern the undecorated cycle."
+        ],
+        "reasoning": "Comparisons in QEC normalization are direct after changing sign and dividing by two. The ℓ₁ normalization is not a constant rescaling across coefficient directions and does not define this same optimized stiffness or its derivative.",
+        "searches": [
+          "Quadratic embedding constants of hairy cycle graphs, §2.1 Eq. (2), DOI 10.1088/1742-6596/1722/1/012046",
+          "Wolf arXiv:1008.0964, p. 2 and Corollary 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest negative-type records give parity or exponent behavior for unweighted sunlets.",
+          "The exact two-site/placement records concern either Kalman controllability of a weighted Laplacian or a grounded-Laplacian inverse-trace leader objective."
+        ],
+        "reasoning": "A table of exponents, Laplacian ranks or inverse-trace optima is not a table of optimizers of the centered shortest-path metric form. No exact coverage was identified in these bounded lookups.",
+        "searches": [
+          "Resultary weighted cyclic sunlet centered stiffness and two-site reinforcement",
+          "Resultary 0089bd05941e, 486f277a9ec1, 0d925bf73132, d03b66cec2aa"
+        ]
+      },
+      "rationale": "The normalization and related cycle/sunlet parity results are known. The distinct supported claim is the weighted reinforcement threshold and optimal infinitesimal placement, not the uniform base spectrum. Neither the inspected closest Resultary records nor the matching metrics/results in the available primary literature give that perturbation claim.",
+      "residual_risks": [
+        "The relevant primary theorem passages for the 1985 cycle spectrum and 2015 corona spectrum were not accessed. Neither an unavailable paper nor an uninformative primary query is evidence of absence.",
+        "Other weighted QEC or differently formulated perturbation work could contain related coverage. This is not a global novelty or priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normalization analogue but different metrics and result",
+          "evidence": "Unit ℓ₂ zero-sum QEC; BC(k,m) has leaves at just two selected cycle vertices and gives QEC=0 for even k.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-6596/1722/1/012046",
+          "material_read": "§2.1 Eq. (2), p. 3 offset 5206; §3.1 bearded cycle, p. 4 offset 9194",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Quadratic embedding constants of hairy cycle graphs",
+          "trigger": "Same optimization up to scale and related graph family"
+        },
+        {
+          "assessment": "ℓ₁-bound gap and bare cycles, not the weighted stiffness claim",
+          "evidence": "Uses the ℓ₁ norm squared and computes cycle parity/strictness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.0964",
+          "material_read": "Introduction p. 2 offset 2623; Corollary 3.6 p. 9 offset 18088",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the gap of finite metric spaces of p-negative type",
+          "trigger": "Similar strictness gap for cycle metrics"
+        },
+        {
+          "assessment": "Baseline comparison unverified; no negative whole-paper claim",
+          "evidence": "Frozen record identifies an unweighted symmetric corona result, relevant at t=1; unavailable text is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.akcej.2015.11.014",
+          "material_read": "No theorem passage independently available; scope and Theorem 1 attribution from frozen related work",
+          "method": "Lawful DOI and ScienceDirect attempts, no repository copy found",
+          "title": "The distance spectrum of corona and cluster of two graphs",
+          "trigger": "Plausible source for the uniform unit-pendant spectrum"
+        },
+        {
+          "assessment": "Primary comparison unresolved; spectrum independently derived for correctness",
+          "evidence": "The frozen comparison attributes the cycle spectrum to this paper, not a pendant-length update theorem.",
+          "identifier_or_url": "https://doi.org/10.21136/AM.1985.104151",
+          "material_read": "No primary theorem passage retrieved",
+          "method": "Lawful OA and DML landing attempts",
+          "title": "On the distance spectrum of a cycle",
+          "trigger": "Cited Fourier spectrum underlying the baseline"
+        },
+        {
+          "assessment": "Different operator and conclusion; date does not decide equivalence",
+          "evidence": "Kalman rank for a Laplacian system with two terminal leaf inputs and an arithmetic condition.",
+          "identifier_or_url": "Resultary 0089bd05941e",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Exact rank lifting and arithmetic actuator placement on weighted cyclic combs",
+          "trigger": "Same-day two-site weighted pendant placement hit"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Grounded-Laplacian inverse-trace objective and core/leaf leader transition.",
+          "identifier_or_url": "Resultary 486f277a9ec1",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Exact two-leader phase transition on weighted sunlet graphs",
+          "trigger": "Same graph and optimization at two sites"
+        },
+        {
+          "assessment": "Baseline sign overlap only",
+          "evidence": "Unweighted odd sunlets at p=1 and supremal exponent for powered distances; scope excludes weighted pendants.",
+          "identifier_or_url": "Resultary 0d925bf73132",
+          "material_read": "RESULT.md Finding and proof §1",
+          "method": "Configured local mirror",
+          "title": "Sharp inverse-square negative-type transition for odd sunlet metrics",
+          "trigger": "Closest strict negative-type result on the graph family"
+        },
+        {
+          "assessment": "Parity overlap, no reinforcement conclusion",
+          "evidence": "Unweighted even/odd negative-type exponent boundary rather than weighted p=1 stiffness perturbations.",
+          "identifier_or_url": "Resultary d03b66cec2aa",
+          "material_read": "RESULT.md Finding and proof §2",
+          "method": "Configured local mirror",
+          "title": "Parity threshold and stable cosine-integral law for Gaussian kernels",
+          "trigger": "Closely related parity classification for sunlet metrics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a concrete design question for a natural graph metric: what smallest support can change the worst centered embedding direction, and where is it best spent at first order? The odd cycle's double Fourier mode makes all individual reinforcements ineffective but every distinct pair effective, while an even-cycle obstruction survives arbitrary pendant changes. The exact placement and allocation criterion supplies information not contained in the binary support threshold or uniform spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

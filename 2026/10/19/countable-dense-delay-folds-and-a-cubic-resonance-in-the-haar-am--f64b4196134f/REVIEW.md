@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is the real narrowband Haar self-ambiguity transform, with strictly overlapping positive delay \(0<\tau<2\), and multiplicity in the real frequency at fixed delay. Direct signed-interval integration gives the stated sine formula. The double-root equations imply the sharp \(r=2\) multiplicity boundary; the exact factorization handles triple and zero-frequency cases. Nonzero \(F_r\) and \(F_{TT}\) establish nondegenerate folds, prevent joint nodal singularities, and prove countability. The density proof uses an irrational linear flow on the two-torus and stability of a nondegenerate zero of a two-equation system; its Jacobian is explicitly nonzero. Finite high-precision checks from `CHECKER.py` support, but do not replace, the unrestricted proof.
+PASS
 
-## Originality — PASS, with residual risk
+The overlap integrals give the stated piecewise sine form; for delay at least 1 the remaining sinc zeros are simple. In the lower strip set r=(2−τ)/τ and T=πτν. At nonzero Doppler a multiple zero of F=sin(rT)−2sin T must satisfy 4(sin² T+r⁻² cos² T)=1. This excludes 1<r<2. At r=2 the factorization 2sin T(cos T−1) gives simple odd multiples, cubic nonzero even multiples, and a quadratic zero at ν=0 after division by πν. For r>2 the multiple zeros have F_TT=−2(r²−1)sin T≠0 and F_r=T cos(rT)≠0, giving regular nodal points, nondegenerate folds, and an isolated simultaneous-zero set of (F,F_T). At ν=0 the sole nodal point has A_τ=−3. The density step is valid: the rescaled maps near the irrational-flow recurrence converge in C¹ and have an invertible limiting Jacobian. Independently, choose first-quadrant phases θ(r),φ(r) with sin²θ=(r²−4)/(4(r²−1)), sinφ=2sinθ and cosφ=2cosθ/r. Then T=2πn+θ is a double-zero frequency whenever 2πnr+rθ−φ is a multiple of 2π. Its derivative in r is 2πn+θ, so on every fixed open r-interval inside (2,∞) the image contains such a multiple for large n. The frozen CHECKER.py and CHECKER_OUTPUT.txt were inspected but not executed. A separate high-precision solve recovered the three logged delays (approximately 0.51108368717, 0.60125992786, 0.50581267973) with |F|, |F_T| and |A| below 3×10⁻⁶⁰ and nonzero F_r and F_TT. Those spot checks corroborate folds, not density or completeness. Joint analyticity is only asserted for 0<τ<1; density is not a fixed-band statement.
 
-The overlap identity and classical ambiguity framework are not claimed as new. The inspected portions of Bonami–Garrigós–Jaming (arXiv:math/0509031v1, introduction and pulse-type Section 4), Jaming (HAL hal-00080459, statement of principal zero-free and uncertainty theorems), and Flandrin (the definition, general identities and waveform discussion) have different claims and do not imply the countable-dense fold-delay theorem. The first treats phase-retrieval partners and uniqueness of pulse signals; the second gives zero-free neighborhoods and moment estimates; the third surveys ambiguity-function properties. Searches of published mathematical findings under Haar ambiguity, Doppler-fold, two-sine double-root, and alternative pulse terminology found no statement with stronger coverage. An obscure exponential-polynomial or radar waveform null-pattern treatment remains possible; searching does not prove publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The core invariant is the set of delay values where a Doppler-frequency null loses simplicity. For the simplest signed-pulse waveform, it has the structurally surprising property of being simultaneously countable and dense below an exact threshold, with a unique cubic resonance at that threshold, while the full two-dimensional real nodal locus stays regular. The result is not a computation at selected parameters: it is a complete multiplicity and fold-stratification theorem with a global density mechanism. It separates high-frequency ill-conditioning of Doppler-null tracking from genuine singularities of the joint ambiguity map, a distinction relevant to exact delay-Doppler waveform analysis.
+The overlap formula and the classical ambiguity transform are not credited as original. The supported distinct claim is the full Doppler multiplicity threshold together with the dense nondegenerate delay folds, the exceptional cubic resonance lattice, and joint nodal regularity. The closest indexed Fourier-zero result and the inspected pulse-ambiguity theorem do not cover this combination or imply its density step.
 
-## Limitations
+## value
 
-No claim is made about stability under smoothing the discontinuous Haar signal, finite-frequency practical resolution, or exhaustive enumeration of all fold delays. No independent audit or priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the elementary signed two-pulse waveform the result identifies a sharp boundary between simple and multiple directional zeros and explains how dense critical delays coexist with a regular joint nodal curve. This is useful for interpreting sections and projections of a basic time-frequency example; the high-frequency restriction is substantive and prevents a misleading finite-band conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

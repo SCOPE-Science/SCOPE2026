@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:03.109798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and 40–41",
+        "Frozen VERIFICATION.md and verify_cliques.py, inspected as text only",
+        "Fresh bounded replay: python3 /workspace/branches/d8d2af59-0710-4baa-a1d4-05017da1cedf/independent_cliques.py"
+      ],
+      "rationale": "If commuting rank-one operators have a nonzero common product, their images coincide; both operators kill that line by square-zero, contradicting the nonzero product. In a nonempty clique each covector therefore kills the image span U, giving containment in C(U). The images and covectors of the full C(U) span U and U⊥ respectively, so no new vertex can commute with all its members, and U is recovered from the clique. Dividing the nonzero vector/covector factor count by q−1 gives the sizes; minimizing q^r+q^(n−r) gives exactly the stated middle ranks. For the polynomial use the unique image/covector span pair (U,W), with W≤U⊥. The number of pairs is [n choose r]_q[n−r choose s]_q. In fixed smaller spans of dimensions i,j all subsets contribute (1+z)^((q^i−1)(q^j−1)/(q−1)); inversion on the product of the two subspace lattices isolates the exact spans with the displayed coefficients. The empty clique is included separately. The argument uses finite-field algebra in every characteristic. Fresh direct matrix-product enumeration over F₂ gives coefficients (1,21,42,14) at n=3 and (1,105,1260,3780,5460,5040,3150,1290,315,35) at n=4, including the empty clique.",
+      "residual_risks": [
+        "The fresh computation covers only two binary cases. The proof, not this check or the frozen prime-field output, establishes all prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 double-flag formula counts arbitrary ordered rank profiles by image span and common kernel.",
+          "Dolinar–Kuzma–Oblak use rank-one matrices for distance questions on a larger commuting graph."
+        ],
+        "reasoning": "Specializing the double-flag theorem to all ranks one fixes the very same span strata, by W=K⊥. Stirling inversion within each stratum gives all unordered distinct counts; larger graph distances do not give such coverage.",
+        "searches": [
+          "Resultary: pairwise-annihilating square-zero tuples by common image span and common kernel",
+          "arXiv:1009.5543v1 Theorem 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "November 1 clique spectra; November 2 maximal cliques and double flag; October 12 edge classes and joint-rank pairs",
+        "arXiv:1009.5543v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For image-span marked tuple counts, the signed Stirling combination ∑_k s(j,k)d^k equals the falling factorial (d)_j, and after division by j! gives binom(d,j).",
+          "Summing the two-span count over exact W simply recovers the same count with image span exact and arbitrary covectors in U⊥. Within a fixed (U,W) stratum the same Stirling relation applies, since tuple repetitions do not change either span."
+        ],
+        "reasoning": "The alternative explicit polynomial is mechanically related to existing exact formulas; the earlier geometric and pair-census results alone would not provide the full theorem. There is no isolated, supported new claim in the frozen record to repair.",
+        "searches": [
+          "November 1 clique-spectra proof §3",
+          "November 2 double-flag proof §§1–3",
+          "October 12 geometric edge-class and joint-rank/common-kernel records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 1 clique-spectra RESULT.md §§2–3 states X_U={A: im A⊆U⊆ker A} and the full coefficient sequence by signed Stirling inversion.",
+          "The October 12 geometric edge-class record uses projective flags with q−1 scalar copies and cross-incidence adjacency."
+        ],
+        "reasoning": "X_U is exactly C(U), not a projective quotient. Both formulas enumerate unordered sets of distinct vertices in the same graph; different summation methods do not produce distinct clique invariants.",
+        "searches": [
+          "Resultary: exact clique claim, projective point–hyperplane flags, mutual annihilation and Gaussian–Möbius polynomial aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/1/SCOPE-projective-geometry-and-clique-spectra-of-rank-one-nilpotent-com--00e8b0fff4f8 covers every n,q and all coefficients, not merely numerical examples.",
+          "2026/11/2/SCOPE-maximal-cliques-of-the-rank-one-nilpotent-commuting-graph-over-f--449d5040be68 also states the maximal-clique family, sizes, counts and clique number."
+        ],
+        "reasoning": "These are distinct indexed records with exact matching theorem content. The n=4,q=2 line is a specialization of the all-parameter enumerator.",
+        "searches": [
+          "Resultary full clique polynomial and maximal-clique classification searches"
+        ]
+      },
+      "rationale": "The assigned mathematical claims are demonstrably covered in the present catalog by a distinct indexed record, not merely a similar title or a reference to the identical frozen item. The November 1 record proves the same maximal-clique classification and computes every coefficient of the same clique polynomial. Its one-span tuple formula becomes the subset formula by Stirling inversion; the frozen two-span version refines intermediate summands without adding a different final invariant. The November 2 double-flag formula also covers that intermediate refinement by specializing all ranks to one. These findings are about equivalent indexed coverage, not historical priority: the matching records have later catalog dates than the assigned source, and this audit does not claim they anticipated it.",
+      "residual_risks": [
+        "The primary web search was unavailable, and full text of the Mohammadian and Bakhadly–Guterman–Markova papers was not available. This limits priority assessment, but does not undermine the statement-level coverage already verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage, without an inference of earlier priority",
+          "evidence": "The proof recovers the same X_U from images and uses image-span Möbius inversion followed by T_k=∑_j j!S(k,j)c_j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-projective-geometry-and-clique-spectra-of-rank-one-nilpotent-com--00e8b0fff4f8/RESULT.md",
+          "material_read": "Finding and proof §§2–3, including local mirror passage at offset 3500",
+          "method": "Local-mirror full statement and proof passage comparison",
+          "title": "Projective geometry and clique spectra of rank-one nilpotent commuting graphs",
+          "trigger": "Exact catalog match for maximal cliques and full polynomial"
+        },
+        {
+          "assessment": "Stronger tuple count specializes to each rank-one image/covector span stratum",
+          "evidence": "The ordered-pair zero-product condition includes the diagonal, and the two inversions isolate the common kernel and image span.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5/RESULT.md",
+          "material_read": "Finding and proof §§1–3 (local mirror offset 0)",
+          "method": "Local-mirror exact formula and assumption comparison",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Two-span refinement under a broader rank-profile count"
+        },
+        {
+          "assessment": "Covers flags and local structure, not the claimed full clique enumeration in inspected text",
+          "evidence": "Scalar-multiple classes are point–hyperplane flags, with adjacency by cross-incidence.",
+          "identifier_or_url": "2026/10/12/SCOPE-rank-one-nilpotent-commuting-graphs-acquire-a-second-geometric-e--31b2442abb5e",
+          "material_read": "Finding and proof (mirror offsets 529–893 and 2815–3157)",
+          "method": "Local-mirror passage inspection",
+          "title": "Rank-one nilpotent commuting graphs acquire a second geometric edge class in dimension four",
+          "trigger": "Earlier geometric formulation of the same objects"
+        },
+        {
+          "assessment": "Rank-one distance result in the full matrix-algebra graph, different from this classification",
+          "evidence": "Theorem concerns distances over algebraically closed fields, not these finite-field clique counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.5543v1",
+          "material_read": "Abstract and Theorem 2.9, PDF pp. 1, 12–13",
+          "method": "OA primary PDF passage inspection",
+          "title": "On maximal distances in a commuting graph",
+          "trigger": "Primary rank-one commuting-graph precedent"
+        },
+        {
+          "assessment": "Potentially related; unresolved primary-text access",
+          "evidence": "MathNet timed out and the DOI route repeatedly redirected. No negative coverage inference is drawn.",
+          "identifier_or_url": "https://doi.org/10.1007/s10958-015-2393-6",
+          "material_read": "Cited bibliographic information; no full-text passage available",
+          "method": "MathNet and DOI routes attempted",
+          "title": "Graphs Defined by Orthogonality",
+          "trigger": "Mutual annihilation in associative rings"
+        },
+        {
+          "assessment": "Unresolved primary-text access",
+          "evidence": "Publisher returned HTTP 403; no negative coverage inference is drawn.",
+          "identifier_or_url": "https://doi.org/10.1080/00927870902911771",
+          "material_read": "Cited bibliographic information; no full-text passage available",
+          "method": "Lawful publisher route attempted",
+          "title": "On commuting graphs of finite matrix rings",
+          "trigger": "Same finite matrix setting in primary literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24 and 29–38",
+        "October 12 geometric edge-class RESULT.md Finding"
+      ],
+      "rationale": "The theorem answers a natural classification question for an incidence graph and gives a uniform size distribution for all cliques, beyond local graph statistics. Distinguishing true matrix vertices from scalar classes and using exact spans to avoid overcounting makes it useful as a mathematical description of the graph. This assessment of the question and complete answer does not give credit for novelty over the verified catalog coverage.",
+      "residual_risks": [
+        "There is no demonstrated new downstream consequence or algorithmic advantage of the alternative formula over the matching indexed results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:16:05.702008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every legal finite k+2 block extends on both sides by zeros; the support of its k overlapping triples detects precisely when it emits 1^k. Direct finite enumeration reproduced the nine minimal k=4 supports and all 62 and 70 rule sets. The explicit periodic or single-run witnesses retain their support restrictions for every k≥4, so every forbidden mask remains forbidden. Conversely, after deletion of the 111 loop, the simple directed cycles of the pair de Bruijn graph use supports {0}, {1,2,4}, {2,5}, {1,3,4,6}, or {3,5,6}, all excluded. Each remaining path has at most three edges. If 111 is present, a loop-free three-edge path through 11 with fewer than three consecutive ones has word 10011, 00110, 11001, or 01100; the remaining four minimal masks forbidding these paths together with 111 exclude them. Shorter paths through 11 already have at least two ones in one run. Reinstating any 111 repetitions extends that run, so an admissible input never emits 1^k. Independently, `python3 /workspace/review-evidence/independent_finite_checks.py 2` compared direct exact n+2 block images through n=8 with the CSV for k=3,…,8. Every preserving nonshift has an admitted absent word; every remaining code demonstrably is a coordinate projection on legal triples and hence onto. Unused 111 accounts for the duplicate codes only at k=3. For k≥9 all input blocks of length ≤8 and all output words of length ≤6 are legal, so the full-shift enumeration through six applies identically, and its lengths match k=8. The maxima 7,8,5,5,6,6 and the unique two codes reaching eight were confirmed. At k=4 each listed peak word is a shortest witness, not the only witness for its rule: the other ones are 11010111 for rule 26 and 11101011 for rule 82. No higher radius or temporal conclusion is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kopra treats reversible beta-shift CA and direct factorizations; the relevant inspected statements concern nonsofic shifts or topological factorizations, not this SFT rule classification.",
+          "A distinct Resultary record studies radius two on hard-core shifts where ones are separated by a minimum gap; those shifts are not the bounded-maximum-gap S-gap shifts obtained here by complementation."
+        ],
+        "reasoning": "A result at higher radius only dominates if it describes the same domain and quantity. Neither the different hard-core shift nor the beta-shift factorization statements imply the finite table and infinite-tail census here.",
+        "searches": [
+          "arXiv:2001.09699v1, Theorems 4.3 and 5.7",
+          "Resultary: radius-one binary cellular automata on bounded-run shifts X_k forbidding 1^k: Wolfram rule census, surjectivity, and shortest forbidden image words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.09699v1",
+        "arXiv:1411.7167v1",
+        "arXiv:1108.3242v4",
+        "arXiv:1311.2319v3",
+        "Resultary:0234835f8973",
+        "Resultary:824122558fbf",
+        "Resultary:23171f1f1979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shift-only surjectivity on the even shift is an analogous theorem, not a theorem for X_k. The hard-core record has its own different radius and observation thresholds.",
+          "General measure/entropy principles for surjective CA do not pick out precisely the admitted output words lost by each nonshift on this restricted domain."
+        ],
+        "reasoning": "The three coordinate shifts are trivially onto and the rechristening of full-shift obstructions is not itself new. The uniform preservation mask argument, proof that no other preserving code is onto, and the exact k-dependent horizon, including k=4, require additional statement-specific evidence not in the compared results.",
+        "searches": [
+          "arXiv:1311.2319v3, abstract on surjective cellular automata and Gibbs measures",
+          "Complete radius-one factors and entropy spectrum of the binary even shift, RESULT.md",
+          "Radius-two rigidity across binary hard-core shifts, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementing symbols yields the S-gap shift with S={0,…,k−1}; one would also conjugate the Wolfram rule labels under that change.",
+          "The beta-shift with quasi-greedy expansion (1^(k−1)0)^∞ is the same run-bounded SFT. Kopra's inspected nonsofic theorem does not apply; the S-gap background concerns shift structure rather than this label map census."
+        ],
+        "reasoning": "These equivalent encodings preserve the one-step language question under conjugation. Results about even gaps, minimum gaps, or nonsofic beta-shifts do not transform into the same upper-run constraint.",
+        "searches": [
+          "Resultary: radius-one binary cellular automata on bounded-run shifts X_k forbidding 1^k: Wolfram rule census, surjectivity, and shortest forbidden image words",
+          "Web: Kopra cellular automata beta-shifts bounded-gap shift endomorphism finite-radius radius-one rule census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full-shift CSV columns are rule, growth_class, and max_min_forbidden_length. For example, rule 26 is recorded as exponential; its row supplies no shortest obstruction.",
+          "The even-shift record gives a census of only 16 codes and eight maps and describes proper images on its own domain."
+        ],
+        "reasoning": "The full-shift table classifies growth and maximum lengths of minimal forbidden words, not the shortest X_k-admitted obstruction. The full-shift transfer only works once the input-window lengths are all legal; it does not give the k=4 peak or the k-dependent preservation census.",
+        "searches": [
+          "Resultary: Elementary Wolfram rules 26 and 82 on binary shift forbidding 1111, shortest missing first-image words 10100111 and 11100101; 62/70 preserving rule counts and only shifts surjective",
+          "A first-offender growth gap for all elementary cellular-automaton images, RESULT.md and classification.csv"
+        ]
+      },
+      "rationale": "The strongest matches cover analogous rigidity on different shifts, general beta-shift dynamics, and full-shift rule statistics, not the exact preserving-rule census and first-step shortest-word obstructions across the bounded-run family. The value and originality are in the combination of uniform preservation and the sharp nonmonotone restricted observation profile, not in the standard de Bruijn set construction.",
+      "residual_risks": [
+        "A ranked or bounded search is not a historical priority proof. A restricted rule table indexed under a conjugate encoding or absent from the inspected sources could change the comparison.",
+        "The compared full-shift table is not evidence that no other full-shift shortest-obstruction database exists; the finite-k constrained peak is separate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected theorems do not yield this radius-one census.",
+          "evidence": [
+            "Theorem 4.3 is specific to nonsofic beta-shifts; Theorem 5.7 treats direct topological factorization for SFT beta-shifts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.09699v1",
+          "material_read": "Abstract and introduction p. 1 (offsets 844 and 2716); Theorem 4.3 p. 7 at 20700; Theorem 5.7 p. 9 at 24000.",
+          "method": "Bounded OA PDF passages.",
+          "title": "Dynamics of cellular automata on beta-shifts and direct topological factorizations",
+          "trigger": "Same beta-shift formalism; potential general theorem subsuming rigidity."
+        },
+        {
+          "assessment": "Provides structural and dynamical context, not a compared exact CA theorem.",
+          "evidence": [
+            "Discusses invariants such as entropy and specification, and noninteger-base expansions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.7167v1",
+          "material_read": "Abstract, PDF p. 1 from offset 0.",
+          "method": "Bounded OA PDF passage.",
+          "title": "Dynamical properties of S-gap shifts and other shift spaces",
+          "trigger": "Equivalent S-gap encoding."
+        },
+        {
+          "assessment": "Shift structure background only; no disputed theorem invoked.",
+          "evidence": [
+            "The inspected material treats SFT/sofic and conjugacy properties, not labelled one-step image obstructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1108.3242v4",
+          "material_read": "Abstract/introduction from HTML offset 0.",
+          "method": "Bounded OA HTML passage.",
+          "title": "Dynamics and Topology of S-gap Shifts",
+          "trigger": "S-gap conjugacy and shift structure."
+        },
+        {
+          "assessment": "Not a comparable exact classification in the inspected material.",
+          "evidence": [
+            "The subject is invariant Gibbs measures and surjective CA, not a rule census on the given X_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.2319v3",
+          "material_read": "Abstract, PDF p. 1 from offset 0.",
+          "method": "Bounded OA PDF passage.",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "Broader machinery on CA surjectivity."
+        },
+        {
+          "assessment": "Different input and target shift; shares the radius and rigidity phenomenon, not the stated census.",
+          "evidence": [
+            "It finds 16 codes representing eight maps with only shifts onto, plus proper images and entropies for the even shift."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-complete-radius-one-factors-and-entropy-spectrum-of-the-binary-e--0234835f8973",
+          "material_read": "Mirror RESULT.md, Finding and domain.",
+          "method": "Bounded mirror reading.",
+          "title": "Complete radius-one factors and entropy spectrum of the binary even shift",
+          "trigger": "Exact Wolfram-rule classification with coordinate shifts as the only onto maps."
+        },
+        {
+          "assessment": "Radius two and a different family, with no implication for the run-bounded horizon table.",
+          "evidence": [
+            "This compares minimum separation between ones and obtains regimes with 23/9/6 maps, five shifts onto and horizons 9/6/1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf",
+          "material_read": "Mirror RESULT.md, Finding and scope.",
+          "method": "Bounded mirror reading.",
+          "title": "Radius-two rigidity across binary hard-core shifts with sharp forbidden-word horizons",
+          "trigger": "A sharp horizon on an infinite family of nearby constraints."
+        },
+        {
+          "assessment": "One-step full-shift minimal-forbidden-word growth and selected maximum lengths, not the minimum lengths in constrained images.",
+          "evidence": [
+            "The statement distinguishes finite, bounded-infinite, and exponential growth and gives a maximal length ten for finite-type cases; the table's length column is maximum, not minimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-first-offender-growth-gap-for-all-elementary-cellular-automato--23171f1f1979/RESULT.md",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2884; classification.csv header and initial rules, offsets 0–825.",
+          "method": "Bounded mirror text and table reading.",
+          "title": "A first-offender growth gap for all elementary cellular-automaton images",
+          "trigger": "All 256 full-shift image languages, related exactly in the large-k short-word regime."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rather than list a sample of rules, the result gives the exact decision horizon for distinguishing proper images from the full admitted language throughout an infinite family. The horizon can increase and then decrease even while the local rule family stays fixed, and the witnessed eight-letter peak shows why a shorter universal observation rule is impossible. The uniform proof and exact finite boundary complement one another.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

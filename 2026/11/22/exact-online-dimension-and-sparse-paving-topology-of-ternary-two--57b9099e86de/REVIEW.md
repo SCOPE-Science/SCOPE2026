@@ -1,19 +1,21 @@
-# Scientific assessment: ternary two-conic adaptive shattering
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projective-point and smooth-conic correspondence is explicit, with 13 points and 234 conics. Direct four-arc enumeration and independent nonsingular-Hessian enumeration both recover exactly 4,641 distinct two-conic union concepts. Their full 8,192-support enumerations reproduce the 78 two-line obstructions at size seven and no shattered eight-point supports. The \(3^{13}\)-state Littlestone recurrence is a proof by induction on unqueried coordinates; both implementations return eight, and a separately replayed 256-leaf decision tree supplies a constructive lower certificate. The 78 forbidden bases meet pairwise in at most five points, proving sparse-paving basis exchange. Matroid shellability and Euler characteristic 714 prove the integral sphere-wedge statement. A mod-two top-boundary rank 924 independently corroborates top homology, but is not substituted for integral shellability.
+PASS
 
-## Originality — PASS within inspected evidence
+For the specified 13 rational points, normalization gives the projective plane; a four-arc defines a quadrangle whose pencil over F3 has the three line-pair quadrics and one smooth member. Counting unions is by distinct Boolean memberships, not by conic pairs. A separate exact reconstruction reproduced 234 arcs, 4,641 concepts and the whole face vector (1,13,78,286,715,1287,1716,1638) over 8,192 supports, including exactly the 78 two-line forbidden seven-sets. In the online recursion, all feasible first queries are considered; each costs one level and thereafter the shorter child depth is binding. Empty branches cannot support a root query and a repeated query cannot split. Exact backward evaluation of 1,594,323 states (1,520,013 nonempty) gives depth 8, excluding 9. The supplied tree was checked as data: 511 nodes, 256 distinct branches of depth 8 with matching nonzero leaf counts and no repeated path query. Replay and output: /workspace/branches/548ce169-3110-49e6-8a32-35f468de46b1/independent_verify.py and independent_check.json. Neither supplied script was executed. For the structural claim, two forbidden sevens share at most five points; basis exchange follows since at most one replacement can be forbidden and the sole-candidate case is the other base. Each six-set extends to a base. Each forbidden seven is a circuit and its extension by any outside point has rank seven, hence it is a hyperplane. Complements of forbidden sevens meet pairwise in at most four points, so dual bases similarly give paving, proving sparse paving. Shellability of the pure six-dimensional independence complex gives the integral sphere wedge, with multiplicity 714 from reduced Euler characteristic; independent binary boundary rank 924 corroborates but does not prove the integral statement. The decisive static and adaptive conclusions use full support/state enumeration, not the auxiliary orbit table.
 
-A preceding finite incidence classification already provides the complete ordinary two-conic VC polynomial and its seven-point orbits. Those assertions are explicitly treated as prior, not as a new discovery. Neither that result nor the inspected public conic-pair orbit census determines the exact adaptive dimension eight or recognizes the specific sparse-paving matroid and its topological consequence. Coolsaet–Botteldoorn–Fack's 2022 blocking-set work and Asgarli–Ghioca–Yip's 2023 nonblocking-pencil work were searched by equivalent objects and implications. Their available results are on different questions; full text of the blocking-set article was unavailable, so historical priority remains a material risk. General matroid-shellability and online-learning complexity theorems were not misrepresented as new.
+## originality
 
-## Value — PASS
+PASS
 
-Littlestone dimension is the exact worst-case depth of a realizable binary query tree, and a strict gap from the previously known VC dimension is a natural substantive question. The sharp adaptive value eight requires a complete all-state upper proof plus a feasible depth-eight tree, rather than just another face count. The matroid criterion supplies a conceptual interpretation of every forbidden size-seven configuration and an integral wedge of 714 six-spheres. Both new conclusions have mathematical content independent of the older static counting statement.
+Pass for the independently substantive new adaptive invariant, Ldim=8 on the exact two-conic membership class. The distinct same-day static record gives the entire VC classification and the specific missing seven-sets; both are credited, not new. The sparse-paving and integral homotopy conclusion is a correct structural companion, obtained from that full support classification by the two-line intersection observation and standard matroid theory, not an independent novelty basis. The date does not settle relative priority.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to rational membership in unions of two distinct smooth conics over the ternary projective plane. It does not extend the finite certificate to all prime powers or establish bibliographic uniqueness. Closest related literature includes the 2022 minimal-blocking-set classification (DOI: 10.1002/jcd.21842), 2023 nonblocking-hypersurface pencils (arXiv:2301.09215), the public conic-pair blocking-orbit classification, and standard matroid-shellability theory. A formerly established static two-conic shattering classification supplies the exact face structure and is not counted as new. Detailed actual comparisons, source inspections and residual risks appear in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact adaptive depth answers whether adaptation gains anything over the known static dimension on a canonical finite geometric class. The explicit witness and upper certificate make the one-level gain and its limit verifiable; the static face census alone gives neither. The companion matroid interpretation explains the organization of the static obstructions, but the value pass does not rest on recomputing them or reapplying shellability. No larger-field inference is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

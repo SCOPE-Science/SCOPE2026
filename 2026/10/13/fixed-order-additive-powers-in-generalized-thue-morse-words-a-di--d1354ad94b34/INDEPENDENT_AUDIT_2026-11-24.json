@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:58.342631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions, prefix identity, phase lemma and endpoint proof, lines 4–54",
+        "Frozen VERIFICATION.md and verify.py (finite consistency checks, inspected and not executed)"
+      ],
+      "rationale": "The digit recurrence makes each aligned q-block a permutation. Hence multiples of q give arbitrarily long powers starting at zero. For N=qm+r the centered prefix sum D(N) is F_r(t_q(m))−r(q−1)/2, with |D|≤(q−1)²/2, and F_r(1)−F_r(0)=r for 1≤r<q. In the phase lemma, eventual periodicity of q^u mod h holds even when q and h are not coprime. At sufficiently high paired positions, the q separated unit digits of H_i have total residue q·q^u mod h, equal to the one unit digit at u+1 in L_i. The spacing period can be chosen at least 2 and the gadgets and low seed disjoint, so replacing gadgets changes the digit sum by 1 mod q per replacement without carries and leaves the index residue unchanged. With q−1 gadgets all q phases occur for every low-seeded residue in one finite q-adic block. The high-digit shift only permutes phases, giving uniform coverage in every aligned block and thus a finite computable horizon M(q,h) on every h-progression. On a power the endpoints have D increasing by the constant S−ℓ(q−1)/2. Nonzero increments have magnitude at least 1/2, forcing k≤2(q−1)². Otherwise take g=gcd(q,ℓ) and P=q/g≥2, and select a nonzero remainder occurring every P endpoints. The quotient indices of that subsequence advance by h=ℓ/g, so with k≥PM(q,h)−1 it contains M consecutive quotient indices and therefore two phases with unequal F_r. This contradicts constant D. For example max(2(q−1)², PM(q,h)−2) is an effective all-start upper bound at excluded orders. No finite sample is needed for this proof.",
+      "residual_risks": [
+        "The effective bound can greatly exceed the exact maximum. The theorem keeps both radix/modulus q and order ℓ fixed and does not give a uniform bound in ℓ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stoll quotes Gelfond's distribution of s_b(a1 n+a0) mod m for fixed a1>0,a0≥0 and gcd(m,b−1)=1. It applies to every radix here since b=m=q.",
+          "Richomme, Saari and Zamboni give powers of every exponent for bounded Abelian complexity with block lengths not fixed, and a Thue–Morse suffix result at exponent six. Chen and Wen give eventual periodicity of Abelian complexity over the same substitution family. Popoli, Shallit and Stipulanti compute the ternary additive complexity and study power orders in other words."
+        ],
+        "reasoning": "Neither varying-order existence, bounded-exponent occurrence, nor complexity as a function of order decides whether exponents can be unbounded at a prescribed order. Gelfond is broader coverage of the distribution ingredient, not of the equal-sum power invariant.",
+        "searches": [
+          "arXiv:1110.4830, §1, Gelfond distribution statement",
+          "arXiv:0904.2925, Theorems 8.1 and 9.5",
+          "arXiv:1809.06554v2, Theorem 1",
+          "arXiv:2410.02409v1, §3.1.2 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Targeted literature wave on fixed-order Abelian powers and linear digit-sum progressions",
+        "Resultary catalogue and the four stated local-mirror Findings",
+        "Primary OA passages above, with Stoll's explicit statement used in lieu of the unretrieved Gelfond original"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gelfond gives phase witnesses in each residue class modulo h. Taking finitely many witnesses for the h classes and q phases inside [0,q^L), addition of an aligned high-digit prefix changes all phases by a common shift, with a corresponding residue-class translation. This does imply the start-uniform phase horizon; searching for the finite witness set makes that horizon effective even if only qualitative existence is used.",
+          "An additive power supplies a new constraint not stated in that distribution result: its centered prefix sums at endpoints form an arithmetic progression. Using boundedness and a nonzero residue of endpoints modulo q links constant centered sums to two incompatible phases of a nonconstant F_r. The positive divisibility direction comes directly from aligned permutations."
+        ],
+        "reasoning": "The constructive gadget is an elementary proof of a covered auxiliary fact. The all-base power dichotomy requires the additional discrepancy and endpoint reduction, rather than being a parameter instance of a distribution or varying-order power theorem. The binary and even-base odd-order portions are already implied by the indexed cube exclusion plus the aligned construction where applicable.",
+        "searches": [
+          "Gelfond as quoted in Stoll, arXiv:1110.4830, §1",
+          "07143fe7328d, RESULT.md Finding and Assumptions",
+          "arXiv:0904.2925, Theorem 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=2 the integer sum of a length-ℓ block determines its Parikh vector. Indexed odd-order cube exclusion and the aligned-block construction already give the binary dichotomy; the square-density record also gives an odd-order square.",
+          "For q>2 equal integer sums do not identify the Parikh vector. Ordinary equality and 2-binomial equivalence impose stronger restrictions. The indexed 4-divisibility law for binary 2-binomial powers therefore does not replace the additive criterion."
+        ],
+        "reasoning": "Search and credit the Abelian formulation in the binary case. Do not transfer exclusions from stronger equivalences to the scalar condition at other bases.",
+        "searches": [
+          "Targeted literature lookup on fixed-period Abelian powers in classical Thue–Morse and digit-sum progressions",
+          "Resultary: fixed-order additive powers, cube orders, Abelian squares and stronger block equivalences",
+          "07143fe7328d and 05eb3fa03329, RESULT.md Findings",
+          "arXiv:0904.2925, §§8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed q=4 table-like classification is for additive cubes: precisely the even orders, and even bases exclude odd-order cubes. The indexed square record is exponent two, at every binary order. The exact literature profiles inspected describe numbers of factor types or power orders in other words, not suprema of exponents by fixed order in this family."
+        ],
+        "reasoning": "Cube existence at q=4 and order ≡2 mod 4 is compatible with, but does not imply, the frozen finite all-start bound at those orders. Binary and even-base odd-order exclusions do give exact or stronger subcases and receive credit; none is an all-base catalogue of unbounded orders.",
+        "searches": [
+          "Resultary 07143fe7328d, cube-order spectrum",
+          "Resultary 44085a5bdac1, binary square-order densities",
+          "arXiv:1809.06554v2, Theorem 1",
+          "arXiv:2410.02409v1, §3.1.2 and §5"
+        ]
+      },
+      "rationale": "The distinct finding supported by comparison is the complete all-base classification of fixed-order unbounded additive exponents and the effective boundedness of the excluded orders. The binary classification is already implied by indexed odd-order cube exclusion plus aligned blocks, and the phase-coverage lemma follows from older digit-sum distribution theory with the q-adic block identity. Neither is credited separately as original. The actual all-base power classification uses the additional bounded-prefix-drift and nonzero-endpoint-residue argument; no compared work supplies that classification or a stronger power theorem implying it.",
+      "residual_risks": [
+        "The bounded search may miss an older power-spectrum theorem or a cyclic-substitution generalization. The material from Gelfond is credited through its attested distribution statement, not a full-text inspection of the original. The printed proof is not evidence that its distribution lemma is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers binary and even-base odd-order exclusions, not the full unbounded-exponent law",
+          "evidence": "No odd-order additive cube in any even base; base-four additive cubes exactly at even orders.",
+          "identifier_or_url": "2026/10/12/SCOPE-odd-order-exclusion-and-the-complete-additive-cube-order-spectru--07143fe7328d",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary lookup followed by local-mirror passage inspection",
+          "title": "Odd-order exclusion and the complete additive cube order spectrum",
+          "trigger": "Same digit word and additive powers"
+        },
+        {
+          "assessment": "Exponent two only",
+          "evidence": "Exact square occurrence densities and conditions for each length in binary Thue–Morse.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-abelian-square-occurrence-densities-for-every-thue-morse-b--44085a5bdac1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Exact Abelian square occurrence densities for every Thue–Morse block length",
+          "trigger": "Exact same binary block-length parameter"
+        },
+        {
+          "assessment": "Stronger equivalence gives a different invariant",
+          "evidence": "For exponent at least three, 2-binomial powers occur exactly at lengths divisible by four.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-4-divisibility-spectrum-for-higher-2-binomial-powers-in-th--05eb3fa03329",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Exact 4-divisibility spectrum for higher 2-binomial powers in Thue–Morse",
+          "trigger": "Apparent different divisibility spectrum in same classical word"
+        },
+        {
+          "assessment": "Different family and factor-type invariant",
+          "evidence": "Parikh spectra and eventual Abelian complexity periodicity for a binary one-marker substitution family.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-abelian-factor-spectra-for-a-uniform-one-marker-substituti--a684306a38a7",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Exact Abelian factor spectra for a uniform one-marker substitution",
+          "trigger": "Same-day uniform-substitution Abelian invariants"
+        },
+        {
+          "assessment": "Implies the auxiliary phase lemma with digit-block concatenation; not the power theorem",
+          "evidence": "States Gelfond's fixed-linear-progression distribution under gcd(m,b−1)=1, which applies at b=m=q.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.4830",
+          "material_read": "p. 1, §1 opening, PDF offset 0",
+          "method": "Lawful OA PDF reading of the statement citing Gelfond",
+          "title": "The Sum of Digits of Polynomial Values in Arithmetic Progressions",
+          "trigger": "Known digit-sum progression distribution could subsume phase coverage"
+        },
+        {
+          "assessment": "Credit the theorem statement checked via Stoll; no stronger claim about the unread original",
+          "evidence": "Stoll identifies Gelfond's 1967/68 result and states the coprimality hypothesis and linear index family.",
+          "identifier_or_url": "https://doi.org/10.4064/aa-13-3-259-265",
+          "material_read": "No original full text retrieved; theorem wording read in Stoll §1",
+          "method": "Lawful OA DOI/repository retrieval attempted",
+          "title": "Gelfond's digit-sum distribution paper",
+          "trigger": "Original source of the all-radix progression theorem"
+        },
+        {
+          "assessment": "Unfixed block length or fixed finite exponent, not the claimed quantifier order",
+          "evidence": "Bounded Abelian complexity gives an Abelian k-power for each k, and every Thue–Morse suffix starts an Abelian 6-power.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.2925",
+          "material_read": "§8 Theorem 8.1 and §9 Theorem 9.5, PDF offsets around 22000–26969",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Abelian Properties of Words",
+          "trigger": "General Abelian power theorem and explicit Thue–Morse powers"
+        },
+        {
+          "assessment": "Exact Parikh-type counts, not power exponents",
+          "evidence": "The Abelian complexity is ultimately periodic of period q in the factor length.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.06554v2",
+          "material_read": "Introduction and Theorem 1, OA offsets 0 and 2923",
+          "method": "Lawful OA passage inspection",
+          "title": "On the abelian complexity of generalized Thue–Morse sequences",
+          "trigger": "Same cyclic substitution family"
+        },
+        {
+          "assessment": "Same ternary object for complexity; different words for power orders",
+          "evidence": "Ternary generalized Thue–Morse additive/Abelian complexity profiles; the power-order work is on Fibonacci and Tribonacci words.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.02409v1",
+          "material_read": "§3.1.2 offset 38274; §5 Theorems 35–36 and Problem 37 at offset 61792",
+          "method": "Lawful OA passage inspection",
+          "title": "Additive word complexity and Walnut",
+          "trigger": "Additive complexity of the same ternary word and additive-power order results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen additive power and fixed-order definitions and endpoint proof",
+        "Exact cube-order comparison and bounded-Abelian-complexity power theorem"
+      ],
+      "rationale": "Fixing the root length separates a natural periodicity question from existence of high powers with lengths growing with exponent. The radix-divisibility criterion completely answers that question for integer-sum powers of this standard cyclic word; in particular it distinguishes finite-power occurrence from unbounded exponent at nonmultiple orders where cubes do occur. The discrepancy reduction explains why known digit-sum distribution is enough for this new use and gives a computable all-start bound rather than checking only prefixes.",
+      "residual_risks": [
+        "No claim is made about sharp excluded-order exponents, independent choices of radix and modulus, or practical efficiency of the bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

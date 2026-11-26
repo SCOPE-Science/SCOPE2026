@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim.** For every integer polynomial \(P\), the Fibonacci-weighted exponential \(\mathcal E_P\) is algebraic over \(\mathbb Q(x)\) exactly for even \(P\). For \(P(T)=\sum c_jT^{2j}\), its exact degree and minimal rationalizing power are \(5^{h(P)}\), where \(h(P)=\max(0,\max_{j\ge1,c_j\ne0}(j-\nu_5(c_j)))\).
+## correctness
 
-## Correctness: PASS
+PASS
 
-The Binet binomial expansion gives every spectral root of \(P(F_n)\). For a non-even polynomial, its largest odd monomial contributes an uncancelled irrational residue to \(\mathcal E_P'/\mathcal E_P\), impossible for an algebraic function by the local Puiseux valuation rule. For an even polynomial, paired roots yield the given rational linear/quadratic factors and denominators dividing \(5^{h(P)}\). Choosing the largest coefficient attaining \(h(P)\) isolates an irreducible Lucas quadratic with an order coprime to five, which forces exactly that extension degree and minimal rationalizing power. The attached checker passed 111 exact rational consistency cases. Finite computations are auxiliary to the infinite proof. The integral-example step uses the explicitly identified published integrality theorem.
+For arbitrary Z[T], expand Binet's formula into parameters (−1)^i α^(k−2i). At x=α^(−r) for the largest nonzero odd degree r, only the k=r,i=0 term can contribute: smaller odd degrees cannot reach exponent r, even terms have the wrong exponent parity, and sign cannot create an equality since α>1. The residue of E'/E is −a_r/(√5)^r and is irrational. An algebraic series with rational logarithmic derivative has rational residues (equivalently, the norm from a finite extension has logarithmic derivative equal to the extension degree times E'/E). Even weights pair the conjugate parameters into distinct Lucas quadratics and central ±1 factors. Thus 5^h kills all exponent denominators. At the largest j realizing h>0, the exponent of the positive-sign Lucas quadratic has leading term c_j/5^j, and all higher terms have strictly greater 5-adic valuation, even after binomial factors are inserted. That factor is irreducible by its discriminant 5F_(2j)^2. Its order in R=E^(5^h) is coprime to five and forces degree divisible by 5^h (also by taking norms of E^(5^h)=R), and any rationalizing power divisible by 5^h. The polynomial equation supplies the matching upper bound. The h=0 case includes constants and zero, with rational E. The cited integrality criterion applies to T^(2d)−T^(2d−4) for d≥3 and its leading deficit is d. Independently recovered even-weight exponent denominator data by Laurent multiplication and checked 24 exact logarithmic coefficients of the displayed degree-125 powered identity; the general proof is not based on truncation.
 
-## Originality: PASS, with residual risk
+## originality
 
-Li, Zhong and Zhou, arXiv:2611.16283v1, Sections 1, 3, 4 and 8, establish the integrality criterion and degree for the monomial \(5T^{2k}\). They record \(T^6-T^2\) as an integral weight but do not provide its exact degree or a classification for all mixed polynomial weights, especially non-even transcendence. The monomial degree is a special case of the new formula, **not** a separately claimed discovery. Historical accessible claims and semantic research-index searches did not return an implication covering the full classification. Minton's 2014 original was not fully inspected, though its abstract and the detailed 2021 survey were compared. No exhaustive uniqueness claim is made.
+PASS
 
-## Mathematical value: PASS
+The integrality criterion, integrality of the mixed example, and the exact monomial degrees for 5T^(2k) are explicitly prior. General Gauss-congruence results also imply algebraicity in the integral rational-logarithmic-derivative subfamily. The supported distinct claim is the full classification including nonintegral and non-even weights, and the uniform exact denominator/degree formula for arbitrary mixed even coefficients. No inspected stronger statement provides that coefficient-level result without controlling inter-monomial cancellation.
 
-Algebraicity and its exact field degree are natural, complete invariants of the exponential-series family investigated in the primary paper. The new classification distinguishes algebraic even from transcendental non-even weights, gives an exact rationality criterion, resolves the algebraic degree of the primary manuscript's integral mixed example at 125, and exhibits unbounded degrees \(5^d\) with no global factor of five in the integral polynomial weight. These are structural classifications, not finite table entries or cosmetic substitutions.
+## value
 
-## Scope and limitations
+PASS
 
-All statements concern standard Fibonacci numbers, formal series and integer polynomial weights. Nothing is claimed about unrelated recurrence sequences, Galois groups or sampled-index weights. The full text of Minton's paper was unavailable during this comparison and an unindexed equivalent remains possible. No independent verification has been performed.
+The natural family already arises in an independent integrality study. The parity boundary and exact field degree answer algebraic questions not resolved by that criterion; the valuation maximum computes the precise denominator even when spectral factors overlap. The result resolves the published integral mixed example at degree 125 and gives unbounded degrees with primitive leading coefficient. This is a uniform classification, not a monomial substitution or a finite series calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: two-slip positivity frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient-transport proof starts from the exact odd-grid Dirichlet cardinal basis and uses only invertibility of the distinct-node Fourier Vandermonde matrix. Symmetry uniquely identifies the two shifted-node weights. The remaining explicit weights are algebraic consequences of the two old-coordinate replacement identities; their signs follow from strict convexity of cosecant on \((0,\pi)\). Each term in the threshold equation is strictly increasing in the displacement, proving one crossing and excluding second sign changes. Monotonicity with grid size follows from the strictly decreasing function \(t\cot t\) on \((0,\pi)\), and the expansion is derived at its simple limiting root. A second, independent cardinal-vector argument establishes the noise variance identity. The standalone high-precision verifier agrees with independent Fourier-system solves for the tested sizes and displacements. Mathematical validity does not rely on those finite tests.
+PASS
 
-## Originality — PASS, with historical risk
+Distinct nodes give unique interpolation and thus unique normalized weights. Equating old uniform cardinal coefficients at the two reflected shifted nodes forces w_0=w_1=1/S and gives the displayed signed csc expression for all other weights. Its denominator is positive. Odd unchanged indices have positive corrections; among even indices the two endpoints j=2,n−1 maximize the csc sum by strict convexity and reflection. Thus the first sign loss is exactly H_n(α)=1, at those two and no others. The sine ratios increase strictly in α, start at zero, and give H_n(1/2)>1 by the limiting first ratio and the two positive remaining terms. For fixed α each ratio increases strictly with x=π/n by monotonicity of t cot t; hence the odd-size crossing increases to a_*=(√3−1)/2. In the expansion, H_∞−1=(4a²+4a−2)/[(1−a²)(2+a)] and the x² coefficient of H_n at a_* is 2a_*/3. Dividing by H_∞'(a_*) gives √3/24, so the crossing has the stated negative n⁻² correction. For n=3 the moved-node gap equals π at α=1/4, giving just one zero; at n=5 and α=1/3 the three surviving nodes form a uniform three-point degree-two rule. For the noise formula, subtract the two shifted cardinal rows from the original two unit rows. Their sum is orthogonal to uniform weights, their squared norm is 4+2Q−4S/n, and the scalar coefficient is 1/S. It is nonzero for α>0 by the sign correction in an unchanged weight. An independent real sin/cos moment-system solve at (n,α)=(3,1/4),(5,1/3),(7,0.34),(7,0.36),(11,0.21),(11,0.41) matched the sign checks and squared norms to floating precision. Read VERIFICATION.md, verify.py and verify-output.txt without executing the supplied verifier; all-size correctness follows from the analytic identities, not the finite checks.
 
-Austin–Trefethen (2016) establish smooth-function convergence on arbitrary perturbed periodic grids, not an explicit two-node positivity boundary. Yu–Townsend (2022), Section 4, construct negative quadrature weights for alternating disturbance of many grid nodes even at arbitrarily small fixed jitter; that is the opposite support-size regime. The present exact first-failure indices, increasing root \(\alpha_n\), and limiting constant for exactly two outward adjacent slips do not follow from either claim. Van den Bos–Sanderse (2021) describe general polynomial-moment node replacement; their work does not exhibit the Fourier trigonometric identity or this all-odd-grid positivity frontier. A known three-node perturbation case includes the boundary \(\alpha_3=1/4\); the novel quantified theorem is explicitly restricted to odd \(n\ge5\). No exhaustive literature uniqueness claim is made; an older equivalent interpolation formula is a genuine remaining priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Localized timestamp failure differs structurally from simultaneous correlated jitter. The theorem identifies the first loss of nonnegative integration weights under exactly two adjacent, symmetrically outward displaced nodes, for all odd grid sizes, and proves the tolerance increases from beyond \(1/4\) toward \((\sqrt3-1)/2\). This provides a sharp benchmark for fault-tolerant periodic integration, including exact noise amplification, rather than an arbitrary finite table. The claim does not assert actual floating-point speedup, broader arbitrary-two-node tolerance, or nonsmooth-function convergence.
+The supported distinct result is the exact odd-size threshold, first-zero pair, finite-size correction and noise law for the outward adjacent-pair path. The strongest inspected comparisons involve inward motion, other shift/erasure patterns, or worst-case guarantees rather than an exact statement on this path. The exact match cbf046096901 is the same record, not another result. The n=3 degeneracy and broad perturbation framework are not the novelty claim.
 
-## Source and scope limitations
+## value
 
-The relevant primary text inspected comprises Austin–Trefethen (arXiv:1612.04018), Yu–Townsend (arXiv:2202.04722, particularly Section 4), and van den Bos–Sanderse (2021, especially Sections 2 and 4). Comparisons are at the level of mathematical implications, not title similarity. High-precision numerical checks are supplementary and independent scholarly validation is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an ordinary interpolatory circle rule, the result identifies exactly which unchanged samples first require negative quadrature weights when adjacent timing errors push two nodes apart. It quantifies the gap between this local path and general grid perturbation guarantees, gives its odd-size limiting law, and measures independent sample-noise variance even on the positive side. This does not improve worst-case jitter guarantees or certify a deterministic discretization error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

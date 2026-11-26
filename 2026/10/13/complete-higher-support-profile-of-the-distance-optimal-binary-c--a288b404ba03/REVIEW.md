@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact generator polynomial is taken from the primary source. Its six shifts have binary rank \(6\), and the complete \(64\)-word census has minimum weight \(6\), matching the published parameter. Every positive-dimensional message subspace is enumerated exactly once in reduced-row-echelon form, with Gaussian-binomial totals \(63,651,1395,651,63,1\). Exact support unions yield the stated complete histograms and hierarchy.
+PASS
 
-## Originality
+Polynomial long division verified that g divides x^15+1 with quotient 1+x²+x³+x⁴+x⁶. Its six shifts have distinct leading degrees and rank six. Independent hyperplane/coset enumeration generated all 2,824 message spaces and computed support from the sum of all word weights on each divided by 2^(r−1), rather than the frozen script's basis-support union. Every bin, the hierarchy (6,9,11,13,14,15) and all six minimizer counts agree. The ordinary distribution also agrees by independently comparing all 64 words to arrays a_i+b_j with a and b even, in CRT order.
 
-PASS. The primary article contains no generalized-Hamming-weight or complete subcode-support analysis. Exact generator, parameter, hierarchy, and support-distribution searches found no prior same-object profile. A separate published binary cyclic \([15,6,6]\) code was inspected as a strong parameter alias, but its ordinary weight enumerator differs, so it is not equivalent to this code and does not imply the claim.
+## originality
 
-## Value
+PASS
 
-PASS. The source highlights this code as a concrete distance-optimal member of a new cyclic family. The complete higher-support census strictly refines its minimum-distance parameter by determining every support layer and generalized-weight minimizer multiplicity in every subcode dimension.
+The cyclic construction and classical parameters are not claimed as new. The full support counts of its exact parity-cut presentation are not supplied by the inspected cyclic or graph-code comparisons. The pass concerns the verified distribution of this fixed code, not its presentation or all length-15 optimal codes.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The fixed natural cyclic code also describes even cuts of a small complete bipartite graph. Its table counts all simultaneous cut supports, including 40 extremal two-spaces and 11 two-spaces meeting every coordinate. These incidence-sensitive counts distinguish it from alternatives with the same parameters and are useful beyond confirming its already-known minimum distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

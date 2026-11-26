@@ -1,11 +1,21 @@
-# Scientific review: five-landmark distance-equalizer bases of rectangular Hamming graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** For exterior vertices of a two-factor Hamming graph, each landmark distance is either one or two. The incidence-signature criterion is therefore exact: a pair of exterior vertices is un-equalized precisely when the two signatures are complementary. Every five-cell configuration is captured by its row and column partitions of the five landmark labels. The finite checker enumerates all 52-by-52 partition pairs, discards the 1,551 coordinate-colliding pairs, canonically lists the 34 valid shape types, and checks every possible exterior-pair signature after a justified two-unused-coordinates reduction. Nine winning shapes result in the five-by-five board, with four boundary-only types. Direct enumeration from the original distance definition independently corroborates three boards. The lower bound that every basis has at least five cells is attributed to the established 2026 result, not re-proved or claimed new.
+## correctness
 
-**Originality — PASS within documented access and priority limits.** The 2021 public preprint and 2022 original journal article introduce the invariant and address other graph families. The 2024 lexicographic-product study establishes complexity and different product formulas. The full open 2026 Cartesian-product article's Section 2 determines the minimum size five for two-dimensional Hamming graphs, including a single matching construction, without deriving the nine optimum types or their exact census. Scientific-record searches for equivalent formulations, optimizer numbers, matching and three-by-three patterns, and rectangular rook aliases did not identify stronger coverage. Exact searches cannot establish uniqueness, and an inaccessible full rendering of the 2024 article plus unindexed work remain priority risks.
+PASS
 
-**Mathematical value — PASS.** The minimum size five by itself does not measure how many equally efficient privacy-protecting landmark placements exist. The new theorem supplies an exact optimizer census for every rectangular board with both sides at least five and a complete nine-type structural classification. The four patterns that disappear when a board dimension rises from five to six identify a sharp, non-obvious structural boundary. The fact is an exact natural infinite-family invariant with a reproducible exhaustive normal-form proof, not an arbitrary small numerical instance.
+For an exterior vertex the only distances to landmarks are 1 and 2. A violating pair must disagree at every landmark, and uses at most two unused labels per axis. Thus capping each side at 7 is exact, not an extrapolation. Independently generated all 34 five-edge types by multisets of nonzero row neighborhoods and checked the original distance predicate on all nine representative boards. All nine types, conditions and stabilizers agree. Orbit–stabilizer gives 9/4 for the four 3×3 forms, 1/120 for the matching and q+5q(q−1) or its transpose for boundary forms. An independent direct check finds no equalizer with at most four cells on 5×5 and exactly 8430 with five; any smaller candidate on a larger board embeds in a 5×5 subboard whose obstructing pair persists. The nine-board orbit calculation also reproduces 17076 and 36720.
 
-The statement concerns only five-cell bases for two-factor Hamming graphs with both factors at least five. No independence from prior unindexed publications, certification outside the supplied mathematics, or enumeration of larger landmark sets is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete all-rectangles classification and labeled count are distinct on the evidence inspected. The prior minimum and the five-cell matching construction are not new.
+
+## value
+
+PASS
+
+The result resolves the structure and number of all optimal configurations for a natural two-factor graph family. It distinguishes the true boundary families from the stable types and supplies exact labeled orbit sizes; neither a matching construction nor the minimum value can give this information. The finite work is uniform over all board sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

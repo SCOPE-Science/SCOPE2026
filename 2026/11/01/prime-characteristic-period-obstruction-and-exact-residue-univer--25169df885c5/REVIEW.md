@@ -1,19 +1,21 @@
-# Review of the prime-characteristic multipartite dynamics theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes an odd prime field, arbitrary nonempty multipartite shores, and the synchronous loopless neighbour-sum rule. The factorization \(F=E(J-I)S\) and induced matrix \(B=(J-I)D\) are direct identities. Grouping equal part-size residues yields an invariant semisimple subspace with at most \(p\) quotient dimensions; when all \(p\) residues occur, the quotient has a zero column. This proves the degree bound and the maximum nonzero Jordan-chain length \(p\). The zero-primary chain is at most \(p+2\) on the full state space. The finite-field binomial identity proves the global period divisor and absence of \(p^2\)-divisible periods. In the congruent-residue case, the scalar-plus-rank-one matrix gives exact weight lists, with coincident periods correctly merged. The fixed fibre size then determines *both* transient layers and least-period counts. The two standalone checkers exhaustively matched 87,400 vertex configurations and 473,295 residue-core states; they supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, qualified
+Taking part sums S and repeating coordinates E gives F=E(J−I)S with S surjective, E injective and SE=D. The induced map on the part-constant subspace is B=(J−I)D, and the remaining quotient map is zero. For each residue a the group sum-zero subspace is acted on by −a; their direct sum is semisimple. The quotient on residue-group sums has dimension s≤p, with a zero column if s=p. Thus all nonzero irreducible degrees and the total nonzero generalized-eigenspace dimension of that quotient are at most p−1. Each B Jordan chain gains at most one over its primary quotient, and the vertex-space extension adds at most one at eigenvalue zero, none elsewhere. Nonzero blocks of length at most p have unipotent order dividing p, while the semisimple order divides L_p; the nilpotent part vanishes by step p+2. For equal residues, a=0 makes F square-zero of rank r−1_{r=1 mod p}. For a≠0, B=a(J−I) is scalar on the sum-zero space, with either a split constant line, a nilpotent rank-one perturbation when r=0 mod p, or a rank-r−1 image when r=1 mod p. In the rank-one perturbation case, taking the sum of a returning vector first forces (−a)^t=1 for a nonzero sum, then returning the vector forces p|t. The bijection on the image gives one recurrent preimage per fiber and p^(N−b)−1 transient ones. Coincident period labels are added; dividing by period gives the Euler factors for the zeta function.
 
-Moreno–Bollman–Aviño-Diaz (arXiv:math/0604534v1, full text §§2--4), Hernández Toledo (2005, publisher abstract), Aledo–Martínez–Valverde (2015, full survey) and Kantic–Qureshi–Panario–Legl (arXiv:2604.01548v1, full text) establish general finite linear-state methods, not an explicit uniform characteristic-prime period obstruction for all multipartite graphs. The full publicly available result *Sharp period-four census for complete multipartite parity automata* establishes the corresponding **binary** network census, which is excluded from the claimed odd-prime contribution. Searches for odd-prime neighbour-sum, residue grouping, Jordan-resonance and zeta equivalences returned no decisive covering statement. The unpublished/unindexed-equivalent possibility remains, and the complete text of the 2005 linear-FDS article was not accessible for direct comparison. No uniqueness is inferred from database partitioning or a failed search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The general conclusion forbids a whole family of characteristic-square temporal resonances and gives a graph-size-independent finite period bound for **all** complete multipartite part sizes. The exact congruent-residue subclass additionally resolves the complete joint transient-depth/period distribution, a natural invariant stronger than listing a few orbit periods. The transition at the divisibility of the number of shores by the field characteristic explains the appearance of new characteristic-divisible cycles through a nonsemisimple rank-one block. This graph-structural obstruction does not hold for arbitrary finite linear networks; the application goes beyond renaming a standard matrix theorem. The coarse universal numerical bound is not presented as sharp.
+The supported distinct contribution is the graph-size-independent odd-prime obstruction for arbitrary residues, together with the explicit common-residue joint law. The standard finite-linear setting and the analogous binary analysis are prior material, not claimed as new. Bounded comparison against the closest precise statements supports the distinction.
 
-## Closest literature and limitations
+## value
 
-Most directly adjacent is the binary complete-multipartite parity census (full RESULT consulted). General Fitting-decomposition results explain how to obtain finite linear dynamics from a known matrix but do not state the derived odd-prime multipartite period ceiling or complete transient count. The 2005 Hernández Toledo article remains a material historical-equivalence risk because only its publisher abstract and bibliographic details were accessible. The field is required prime; the complete joint census requires common residues; the universal bound does not extend here to arbitrary graphs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The p² obstruction is uniform despite arbitrary growth in the graph and is false for general linear updates over the same field. The residue quotient explains the obstruction structurally. The exact common-residue law then identifies when a p factor can occur and supplies orbit counts and basin-entry counts, not only a period-existence assertion. These are natural invariants of this graph family; the usefulness does not depend on optimality of the coarse universal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

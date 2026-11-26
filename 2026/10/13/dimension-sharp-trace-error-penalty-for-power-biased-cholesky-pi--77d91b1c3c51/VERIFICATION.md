@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing this document and the standalone verifier. Python 3 standard library only; no external packages or downloads are needed. A successful run prints `PASS 2137 exact-rational checks; no proof of continuous parameters by enumeration`.
+## correctness
 
-## Checks executed
+PASS
 
-The verifier constructs exact-rational block Gram matrices and explicitly evaluates each column's one-pivot Schur residual. It checks the two-block expected-risk formula over a finite grid of block sizes, diagonal ratios, and integer exponents. It also evaluates independent seeded integer Gram matrices, checking the comparison bound using exact integer powers rather than floating-point inequalities. It confirms the \(17\)-dimensional witness \(\mathcal E_1=32/5\), \(\mathcal E_2=10\), and ratio \(25/16\), and that a strictly positive-definite perturbation approximates the witness risk.
+For a full-column-rank Gram factor V, the residual is V(I−uuᵀ)Vᵀ for a unit u, so its rank is rank(A)−1 and every pivot trace is positive. The risk ratio is an average of T d_j^(q−1)/Q with weights proportional to d_j tr(R_j), where T=∑d_i and Q=∑d_i^q. Hölder and max d_i^q≤Q give the stated upper bound for all real q>1. The two possible residual traces m and t give the claimed singleton-block risks. Subtracting 1 gives (m−t)(t^(q−1)−1)/(2(t^q+m)), including the coincident equality cases at m=1. Substituting t=((q−1)m)^(1/q) gives the stated positive asymptotic constant, with n=m+1, and continuity at each finite m gives positive-definite examples with the same exponent. For q=2 the two-block ratio is 1/2+(r+s)t/[2(rt²+s)]; AM–GM gives equality precisely at t=√(s/r), and rs reaches its minimum n−1 at a singleton block. The n=17 risks are 32/5 and 10. These symbolic checks establish the continuous and all-dimension claims; the inspected verify.py gives optional finite rational tests and was not executed. The result makes no multistep claim and does not claim an optimal universal constant.
 
-## Limitations
+## originality
 
-No finite checker establishes the real-exponent universal theorem, asymptotic limit, or optimality of the two-block extremum. Those depend on the written Hölder, residual, calculus, and limiting arguments. Independent scientific audit and independent validation have not been performed.
+PASS
+
+The sampler, the baseline expectation and the qualitative possibility of worse trace error are established, and an indexed record already uses the same block family for a different norm. The distinct supported result is the sharp dimension exponent for the one-pivot trace ratio against q=1 at every fixed finite q>1, with a restricted exact q=2 optimum. No inspected source establishes that claim; this is a bounded comparison, not priority certification.
+
+## value
+
+PASS
+
+Diagonal bias is a natural variation of a practical low-rank algorithm. An exact rank-two witness turns an empirical warning into a dimension-sharp obstruction valid at every fixed finite bias q>1, even under positive-definite perturbation. The exact q=2 block extremum sharpens that obstruction without conflating it with the full PSD optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

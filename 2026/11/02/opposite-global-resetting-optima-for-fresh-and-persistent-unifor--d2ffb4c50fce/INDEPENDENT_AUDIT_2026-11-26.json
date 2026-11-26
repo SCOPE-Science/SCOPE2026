@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:53:22.770639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete corrected RESULT.md under repairs/2. The original circle theorem passes, but the original extension to arbitrary reset-free motions listed only transform/support and absorption conditions and omitted excursion renewal, which the asserted general formulas require. For a counterexample to the unrestricted extension, start uniformly at site h∈{0,1}, retain h as a hidden mode, and use hit hazard κ_h>0 when the current site equals h and zero otherwise, with κ_0≠κ_1. In the reset-free model from h this gives nonconstant φ_λ(h)=κ_h/(κ_h+λ). Persistent resets keep the hit hazard κ_h. Fresh uniform positional resets flip between matching and nonmatching sites at rate a=r/2, holding h fixed. Their conditional hit transform is κ_h(s+a)/[(s+κ_h)(s+a)+as], strictly less than the persistent κ_h/(s+κ_h) for s,r>0. Both hit almost surely. The repaired extension requires independent excursions with reset-free law conditional on each restart site, eliminating this counterexample. The discounted first-hit and first-reset terms are respectively u=φ_(s+r) and r(1−u)/(s+r); conditional renewal and independent site renewal put the site average on opposite sides of g(u)=(s+r)u/(s+ru). Strict concavity proves the repaired comparison precisely at nonconstant u. Circle Brownian motion renews, and folding gives the absorbing/reflecting problem with uniform distance and φ=cosh(k(ℓ−x))/cosh(kℓ). Integrating φ and its reciprocal separately yields the stated means. Positive partial fractions show strict decrease from T_0 to an unattained zero infimum in A. For Q the derivative of cosh(z)∫sech−z−z³/3 is strictly positive by Cauchy–Schwarz and the difference vanishes at zero, proving the unique zero-rate optimum without asserting positive-rate monotonicity. Independent replay `python3 /workspace/review-evidence/reproduce.py 2` confirms both low-rate expansions in exact arithmetic, and corroborates the means and transform ordering by Simpson quadrature at eight ring rates and forty (s,r) comparisons. The high-rate terms follow analytically from the limits of coth, arctan(sinh), and cosh. The proof, not the quadrature, covers all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier catalogue orders entire first-passage laws of fresh iid protocols with fixed mean reset distance, on line or exterior sphere. Published distributed-position resetting treatments give renewal averages, comparisons to deterministic sites, or optimization over fresh site laws."
+        ],
+        "reasoning": "Even full-law ordering within the fresh family does not order a correlated sequence of visits to a retained random site against independent fresh sites. Moving from an annnealed renewal formula to the quenched population requires conditioning at the fixed site before averaging.",
+        "searches": [
+          "Resultary 02cf88abbb30 (2026-11-01)",
+          "arXiv:2507.14483 abstract",
+          "arXiv:2401.01125v1 §II",
+          "arXiv:2206.14387 §§II, IV.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.08414v1",
+        "arXiv:2401.01125v1",
+        "arXiv:1812.03009",
+        "arXiv:2206.14387",
+        "arXiv:2507.14483",
+        "arXiv:2604.02950",
+        "Resultary 02cf88abbb30 and 034910ea7534"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known renewal equations can be specialized to the mean formulas, and Jensen can order the two renewal protocols once the transform recursions are identified. Neither gives T_Q>T_0 by that comparison: comparing T_Q with T_A only gives a lower bound by a mean already below T_0. The proof of the global persistent sign differentiates the comparison and uses strict Cauchy–Schwarz."
+        ],
+        "reasoning": "The established renewal toolkit explains substantial parts, including the ingredients of the repaired transform extension. The inspected prior claims do not force the all-rate strict middle comparison with the unreset value or the opposite global optimum classification for this matched circle ensemble.",
+        "searches": [
+          "arXiv:2605.08414v1 Eq. (5), Eq. (14), around Eq. (25)",
+          "arXiv:1812.03009 Eq. (14)",
+          "Resultary 02cf88abbb30 Finding and renewal proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the matched site law the two means average either the excursion success probability before reciprocating or its reciprocal after conditioning. This is the concrete fresh/annealed versus persistent/quenched comparison. The ring paper already has per-anchor and iid renewal formulas; the lattice papers change the reset rule or geometry."
+        ],
+        "reasoning": "A deterministic reset point, a quenched disordered environment, or resetting to a previously visited site is not the same equivalent pair as fresh iid sites versus one randomly assigned persistent site from the same initial law in a homogeneous circle.",
+        "searches": [
+          "arXiv:2605.08414v1 §§II–III, Eqs. (5), (14), (25)",
+          "arXiv:2604.02950 §II",
+          "Resultary 034910ea7534 (quenched lattice resetting)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The line/sphere catalogue item treats fresh resets, and the later quenched lattice item explicitly retains one start and computes associated optima without the matched fresh counterpart. The ring source supplies exact one-site and distributed renewal data, not an inspected table of paired uniform-population classifications."
+        ],
+        "reasoning": "No exact earlier archive entry for the paired ring optimum or transform ordering was established. The different geometries and protocol pairs are substantive, not just different parameter notation.",
+        "searches": [
+          "Resultary 02cf88abbb30 and 034910ea7534",
+          "arXiv:2605.08414v1 §§II–III"
+        ]
+      },
+      "rationale": "Reassessed on the narrower, renewal-only claim. The exact circle renewal ingredients are already available for fresh iid draws and for an individually fixed site; substituting the geometry and integrating does not itself constitute novelty. The supported distinction is the matched uniform ensemble's opposite global optima relative to the same unreset mean, with strict same-geometry all-rate inequalities and a comparison of transforms across those two protocols. The checked earlier statements do not give that combination or directly imply the persistent strict sign against the unreset baseline. The Jensen step and the renewal assumption are elementary, not independent novelty claims.",
+      "residual_risks": [
+        "The unreset-versus-persistent comparison is a consequence of known exact pointwise ring means plus a new-to-this-reviewed-record inequality argument; an earlier ensemble specialization across the full rate range could exist.",
+        "Similar-looking distributional ordering is established for fresh protocols; the conclusion is bounded to the actual matched renewable protocols and does not establish general priority for reset optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometry and relevant mean formulas; no paired global result in inspected passages",
+          "evidence": "Distributed sites are iid, and the fixed single site formula covers reset to the given start as a special case.",
+          "identifier_or_url": "https://arxiv.org/html/2605.08414v1",
+          "material_read": "§II iid sites and Eq. (5), near offsets 10678, 13700; §III Eq. (14) and reset-to-start discussion around Eq. (25), near offsets 20000, 27000",
+          "method": "Bounded OA HTML passages",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Both established circle renewal mechanisms"
+        },
+        {
+          "assessment": "Fresh renewal averages, not a matching random fixed-anchor comparison",
+          "evidence": "Distributed sites are compared with resetting to the origin rather than to one retained random draw.",
+          "identifier_or_url": "https://arxiv.org/html/2401.01125v1",
+          "material_read": "Abstract around offset 369; §II Eqs. (14)–(15) near offset 11500",
+          "method": "Bounded OA HTML passages",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Published fresh site averaging and comparison to fixed sites"
+        },
+        {
+          "assessment": "Different boundary geometry and no fresh-versus-persistent matching ensemble in the passages read",
+          "evidence": "The interval has two absorbing boundaries; reset returns to the fixed initial site.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.03009",
+          "material_read": "pp. 2–4 setup, renewal argument and Eq. (14), offsets about 9950, 14500, 22400",
+          "method": "Bounded OA PDF passages",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Fixed reset-to-initial-site Brownian precedent"
+        },
+        {
+          "assessment": "Distributional optimization within fresh protocols, not the matched pair",
+          "evidence": "Uses fixed mean reset distance and independent sites for a fixed start on a line or outside a sphere.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-distributional-optimization-of-renewal-reset-brownian-sear--02cf88abbb30",
+          "material_read": "Finding/assumptions at offset 0; fresh-reset renewal construction and Poisson comparison near offsets 3500 and 7000",
+          "method": "Bounded local published-mirror text",
+          "title": "Sharp distributional optimization of renewal-reset Brownian search",
+          "trigger": "Closest earlier catalogue result on distributional ordering"
+        },
+        {
+          "assessment": "Later dated, different lattice dynamics and no matching fresh classification",
+          "evidence": "Persistent anchor is a lattice start sampled once, not a uniform circle anchor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-quenched-distance-lattice-resetting-unique-optimal-rates-an-inte--034910ea7534",
+          "material_read": "Finding and distinction from resampling at offsets 0 and 8400",
+          "method": "Bounded local published-mirror text",
+          "title": "Quenched-distance lattice resetting: unique optimal rates",
+          "trigger": "Closest retained-anchor catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim retains the central quantitative contrast. The two protocols have identical marginal target-distance sampling, yet remembering just one latent anchor flips the global role of resets: one policy improves over unreset at every positive rate, while the other worsens at every such rate despite zero first derivative at the baseline. The high-rate ratio grows exponentially, and the renewed transform comparison describes more than a mean. The omitted nonrenewal extension is unnecessary to the mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

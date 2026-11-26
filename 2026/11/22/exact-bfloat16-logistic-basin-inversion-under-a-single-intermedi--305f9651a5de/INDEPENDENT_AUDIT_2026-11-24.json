@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:23:54.831133Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; verify.py inspected without execution",
+        "Independent replay: python3 /workspace/independent_evidence/bfloat_replay.py"
+      ],
+      "rationale": "In units of the least positive subnormal with U=2^133, an input scaled integer v gives the exact scaled arguments 4v(U-v)/U and 4v R_scaled(U-v)/U. My independent replay rounds by exact quotient/remainder on the exponent-local spacing, tests all adjacent bfloat16 midpoints through 256, evaluates both successors for every code 0x0000–0x3f80, asserts closure, and classifies every start by a separate Floyd orbit walk. It reproduces the representatives 0000, 3f40, 3dbc (periods 1,1,11) and 0000, 3f40, 3e8d (periods 1,1,4); all basin counts; depths 81 and 99 and depth sums 623656 and 773744; and both stated SHA-256 digests with unsigned little-endian two-byte successors. Exactly 275 successors differ; the four nonempty cross-basin cells have counts 4374 (zero to zero), 65 (3/4 to 3/4), 10423 (11-cycle to zero), and 1395 (11-cycle to 4-cycle). No negative zero or extra hidden rounding is used.",
+      "residual_risks": [
+        "Counting all codes is not counting under a continuous distribution of inputs. Other operation trees, modes and formats are not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Scientific Reports methods describe orbit sampling when exhaustion is impractical and compare deterministic and stochastic arithmetic. The two other cited papers were accessible only as metadata/scope indications: fixed-point arithmetic and integer-representation rounding, respectively."
+        ],
+        "reasoning": "Simulations and methods for different rounding representations do not give a general closed census specializing to these two graphs. The unread full texts leave possible additional overlap unresolved, not ruled out.",
+        "searches": [
+          "Klöwer et al. pp. 2–4",
+          "Sayed et al., DOI 10.1155/2017/8692046",
+          "Miyazaki et al., DOI 10.1587/transfun.E94.A.1817"
+        ]
+      },
+      "checked_sources": [
+        "Frozen related-work comparison; primary literature and exact mirrored statements as itemized above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The expanded arithmetic record adds a different binary16 graph and describes earlier binary16 nonfixed periods 5 and 40 for once-rounded and factored evaluation. The absorbing-class record works on uniform grids with stochastic rounding at the same logistic parameter."
+        ],
+        "reasoning": "These results establish how unstable orbit structure can be to arithmetic changes, but cannot infer the two bfloat16 period counts or the 275-edge/10423-to-zero transfer. That transfer is a comparison of paired deterministic labels of the same bfloat16 encodings.",
+        "searches": [
+          "2026/11/8 SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "2026/11/2 SCOPE-an-exact-absorbing-class-phase-diagram-for-stochastically-rounde--dec78d4aa53f",
+          "Klöwer et al. bfloat16 logistic discussion and finite-state orbit methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local direct hit was the assigned record. Klöwer et al. give x_{i+1}=r x_i(1-x_i), discuss deterministic round-to-nearest and show bfloat16 behavior; the passages do not identify the two exact rounding trees or give the paired enumeration."
+        ],
+        "reasoning": "Equality of the real polynomial, or using the same rounding mode in a simulation, is insufficient to determine transitions through approximate intermediates. Even if one of the trees was used in a plot, the separate graph and joint basin table do not follow.",
+        "searches": [
+          "Resultary: parameter-four 16,257-state bfloat16 logistic nearest-even census",
+          "Resultary: exact logistic basin inversion for once-rounded and rounded subtraction",
+          "Klöwer et al., DOI 10.1038/s41598-023-37004-4 pp. 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two same-day records enumerate the same bfloat16 state set for (11/2)x(1-x)/(1+x) and (197/50+x/25)x(1-x), respectively, rather than 4x(1-x). The Nov. 8 record covers the latter polynomial in binary16, with periods 1,1,5 versus 1,1,8 for once-rounded and a completed-square tree."
+        ],
+        "reasoning": "The same-day tables are materially different maps, not dismissed based on date. The binary16 table uses different positive values, spacing and underflow, and its alternate tree differs too. None tabulates these bfloat16 edges or cross-basin cells.",
+        "searches": [
+          "Resultary: bfloat16 exact logistic finite graphs and cross-basin counts",
+          "2026/11/22 SCOPE-exact-bfloat16-basin-spectra-of-the-rational-logistic-map-under--65300f233979",
+          "2026/11/22 SCOPE-complete-bfloat16-attractor-collapse-under-intermediate-rounding--942875d984b0",
+          "2026/11/8 SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d"
+        ]
+      },
+      "rationale": "Prior bfloat16 logistic collapse and evaluation-order sensitivity are known. The distinct result supported here is the exact pair of specified finite graphs and their full cross-basin transfer, not discovery of these general phenomena or of the map itself.",
+      "residual_risks": [
+        "Full texts of Sayed et al. and Miyazaki et al. were unavailable on the tried routes. The operation tree of the cited bfloat16 plots remains unconfirmed. An unindexed earlier identical census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior study of low-precision effects; inspected passages do not settle operation-tree equivalence or the exact census",
+          "evidence": [
+            "Default deterministic rounding is nearest; finite trajectories are sampled where full enumeration is impractical; logistic recurrence is r x(1-x), with bfloat16 examples."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41598-023-37004-4.pdf",
+          "material_read": "PDF pp. 2–4, extracted offsets 10050, 14819, 18950, 21430 and 22770",
+          "method": "Primary open PDF passage inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Same logistic family, bfloat16 and nearest rounding"
+        },
+        {
+          "assessment": "No full-text exclusion justified",
+          "evidence": [
+            "Accessible scope indicates finite fixed-point logistic arithmetic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2017/8692046",
+          "material_read": "Bibliographic/abstract scope only",
+          "method": "Identified publisher copies attempted; full text inaccessible",
+          "title": "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications",
+          "trigger": "Potential operation-order or exact-period overlap"
+        },
+        {
+          "assessment": "No full-text exclusion justified",
+          "evidence": [
+            "Accessible scope is integer representations of logistic maps."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transfun.E94.A.1817",
+          "material_read": "Bibliographic/abstract scope only",
+          "method": "DOI and J-STAGE attempts; no full text recovered",
+          "title": "Rounding Logistic Maps over Integers and the Properties of the Generated Sequences",
+          "trigger": "Potential exact-period overlap"
+        },
+        {
+          "assessment": "Different real map",
+          "evidence": [
+            "Recurrence (11/2)x(1-x)/(1+x)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bfloat16-basin-spectra-of-the-rational-logistic-map-under--65300f233979",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Exact bfloat16 basin spectra of the rational logistic map under two arithmetic orders",
+          "trigger": "Same-day census on identical state set"
+        },
+        {
+          "assessment": "Different real map",
+          "evidence": [
+            "Recurrence (197/50+x/25)x(1-x)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-bfloat16-attractor-collapse-under-intermediate-rounding--942875d984b0",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Complete bfloat16 attractor collapse under intermediate rounding",
+          "trigger": "Same-day bfloat16 collapse under staged arithmetic"
+        },
+        {
+          "assessment": "Different format, and a different second tree",
+          "evidence": [
+            "Periods 1,1,5 and 1,1,8 in binary16."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation",
+          "trigger": "Exact same parameter under once rounding in another low-precision format"
+        },
+        {
+          "assessment": "Genuine methodological antecedent, not the claimed format or joint labels",
+          "evidence": [
+            "Expanded binary16 tree and references to prior binary16 period-five and period-forty censuses."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 1342",
+          "method": "Local Resultary and mirror",
+          "title": "Three incompatible complete cycle spectra for half-precision logistic evaluation",
+          "trigger": "Exact binary16 factored and expanded arithmetic antecedents"
+        },
+        {
+          "assessment": "Different grids and stochastic dynamics",
+          "evidence": [
+            "Uniform grids with stochastic transitions at the same logistic parameter."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-absorbing-class-phase-diagram-for-stochastically-rounde--dec78d4aa53f",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "An exact absorbing-class phase diagram for stochastically rounded logistic maps",
+          "trigger": "Exact recurrence and finite absorbing classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; verified cross-basin counts; cited low-precision logistic analysis and exact binary16 antecedents"
+      ],
+      "rationale": "Parameter four is the canonical fully developed logistic example; bfloat16 and rounding a subtraction are independently motivated choices. The information added is not simply an alternative period list. On a shared state set, an exact comparison shows that changing only 275 one-step edges sends 10423 initial encodings from a long nonfixed basin to zero, while preserving the 65-code fixed-point basin. This quantifies the amplification of a specific local arithmetic choice and supplies a reproducible benchmark a numerical-dynamics researcher can use.",
+      "residual_risks": [
+        "Not a general result for logistic parameters, all arithmetic trees, or measure of real initial conditions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

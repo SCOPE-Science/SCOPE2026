@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:50:33.586322Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–60 (independent check of the four rank laws, path bound, mixed-cumulant identity and pair integrals)",
+        "Frozen VERIFICATION.md and verification/check.py (inspected, not executed)",
+        "Independent exact Q2 and Q4 boundary reproduction: /workspace/branches/bfa71a9c-94dc-448f-ad10-c3fff9c0043c/independent_boundary_check.py"
+      ],
+      "rationale": "Atom-free iid ranks give a uniform permutation; fixing extrema inserts them at the ends of an otherwise uniform permutation. Under each of the four rank laws, the relative permutations on disjoint subsets of unconstrained vertices are independent, and any forced vertices in a subset merely add fixed lowest or highest positions. Thus rank comparisons with disjoint supports remain independent. For an ordered k-tuple of local indicators, index edges connect pairs of intersecting closed neighborhoods, including repeated vertices. Disconnected tuples have zero mixed cumulant in all four laws. If a connected tuple includes both forced sites in its neighborhood union, choose the shortest simple index path between neighborhoods containing the two sites; at most k-1 hops of graph length at most two and the two end edges give D<=2k. Hence under D>2r at least one forced site is outside the support for k<=r, yielding termwise equality of the two-extremum mixed cumulant with the sum of the one-extremum cumulants minus the unconditioned one. Summing is valid by multilinearity. Transitivity makes each single forced location's peak-count law equal the unconditioned mixture, and moment–cumulant identities give ordinary moment equality. On Q_d the local peak probability is 1/(d+1), adjacent joint probability zero, distance-two joint probability 1/[d(d+1)] by integrating the two center scores with two common neighbors, and the rest are independent. With Nd/2 and N*binom(d,2)/2 pairs this gives the stated variance. In exact boundary checks Q2 has conditional K=1 versus unconditional mean 4/3; Q4 has the same mean 16/5 under both laws but conditional variance 6/7 versus 24/25. The proof's index path need not visit all k indices.",
+      "residual_risks": [
+        "The finite reproduction does not prove the all-orders statement; it checks the first- and second-order equality-boundary witnesses. The theorem needs strict D>2r and does not identify where higher-order sharpness occurs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The House-of-Cards and Rough Mount Fuji calculations give unconditional peak inputs, including the homogeneous hypercube mean. cc36f3dd3737 gives peak–valley indicator covariance signs for finite simple graphs; be28b20aeff8 gives covariance of total peak/valley counts on complete bipartite graphs, both unconditioned.",
+          "c9111e051f9e exhibits all-order cumulant vanishing across independent cycle blocks for random-cluster bond variables, not conditioning on extremal score ranks."
+        ],
+        "reasoning": "Coverage of more graphs for an unconditioned indicator covariance or more orders for other random variables does not subsume this four-law cancellation. The standard dependency-graph vanishing handles disconnected tuples only; it leaves connected tuples and the change of law to be compared.",
+        "searches": [
+          "Neidhart–Szendro–Krug arXiv:1402.3065v2, p. 9, local-maximum probabilities; Resultary cc36f3dd3737, be28b20aeff8 and c9111e051f9e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; arXiv:1210.4798v4 and 1402.3065v2; Resultary 16ae40d6d821, cc36f3dd3737, be28b20aeff8, 2f0088f4c67f and c9111e051f9e; bibliographic metadata for PMC5553988"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-extremum invariance follows from transitivity and a mixture, but it alone gives no joint-extrema invariance: conditioning on two locations does not range over a single vertex orbit.",
+          "Preservation of independent relative rankings under all four laws, the D<=2k bound for a connected support touching both sites, and termwise inclusion–exclusion of the one-extremum effects are needed. The exact Q2 and Q4 examples rule out extending the conclusion to equality simply by transitivity or standard cumulant vanishing."
+        ],
+        "reasoning": "The inspected earlier statistics and standard vanishing lemma supply context or ingredients, not a stronger theorem whose automatic specialization is the distance threshold. The new content is the finite support cancellation, not the unconditional mean or variance or the general moment–cumulant identity.",
+        "searches": [
+          "Compare Hegarty–Martinsson Models 1–2, Neidhart–Szendro–Krug p. 9, and Resultary cc36f3dd3737 / c9111e051f9e with frozen proof Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constrained House-of-Cards model fixes antipodal endpoint scores 0 and 1 with all interior scores iid uniform, hence gives exactly the conditioned rank experiment on Q_d. Its studied statistic is accessibility along increasing paths.",
+          "The Manukyan–Eppstein–Buzas title identifies a plausible known-extrema fitness-landscape comparison, but no primary result about local-peak moments was recovered."
+        ],
+        "reasoning": "Assigning fixed endpoint scores or conditioning global rank locations are equivalent for comparisons. This credits true prior coverage of the model without identifying the number of increasing paths with the number of local maxima.",
+        "searches": [
+          "Hegarty–Martinsson arXiv:1210.4798v4 Models 1–2; Resultary: simultaneously prescribed global minimum and maximum locations peak count moments vertex-transitive graph",
+          "Manukyan–Eppstein–Buzas doi:10.1109/TEVC.2015.2454857 (PMC5553988)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact search hit 16ae40d6d821 is the assigned record. Distinct same-day cc36f3dd3737 and be28b20aeff8 concern unconditioned local peak/valley dependence; 2f0088f4c67f counts minimal/maximal elements of a random graph order; c9111e051f9e treats independent-block cumulants in the random-cluster model."
+        ],
+        "reasoning": "No distinct inspected catalogue statement gives conditioned peak-count moments at D>2r or the frozen general shielding result. Shared date is not evidence of order. A small-dimension table alone would not entail the arbitrary-order conclusion.",
+        "searches": [
+          "Resultary: simultaneously prescribed global minimum and maximum locations peak count moments vertex-transitive graph; 16ae40d6d821, cc36f3dd3737, be28b20aeff8, 2f0088f4c67f, c9111e051f9e"
+        ]
+      },
+      "rationale": "The model, the peak-count mean and the connected-support property for dependency-graph cumulants are not individually new. The supported claim is an exact finite-distance cancellation for simultaneous fixed extremal rank locations, for arbitrary matching order below D/2 on vertex-transitive graphs. Actual peers in the same rank model, nearby same-day covariance records and broader cumulant methods do not give that two-constraint result; the plausible Manukyan–Eppstein–Buzas source could not be assessed in full and is left as a residual risk.",
+      "residual_risks": [
+        "Manukyan–Eppstein–Buzas full text was not available through the bounded lawful retrievals. Other differently formulated rank-locality or cumulant comparison theorems may exist; the bounded comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap on the hypercube, different observable",
+          "evidence": "Fixed all-ones maximum and all-zeros minimum with iid uniform interior scores; results study accessible paths.",
+          "identifier_or_url": "https://arxiv.org/html/1210.4798v4",
+          "material_read": "Models 1–2, HTML OA offsets 6200–11169, and title/abstract offsets 0–2467",
+          "method": "Located OA primary HTML passages",
+          "title": "On the existence of accessible paths in various models of fitness landscapes",
+          "trigger": "Identical conditioning for antipodal extrema in constrained House-of-Cards rankings"
+        },
+        {
+          "assessment": "Unconditioned baseline, not an extremum-location shielding result",
+          "evidence": "Gives expected number of House-of-Cards local maxima and Rough Mount Fuji local-maximum probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.3065v2",
+          "material_read": "PDF p. 9, OA offsets 19300–24444",
+          "method": "Located OA primary PDF passages",
+          "title": "Adaptation in tunably rugged fitness landscapes: The Rough Mount Fuji Model",
+          "trigger": "Earlier local-peak formulas in the hypercube fitness model"
+        },
+        {
+          "assessment": "Unresolved plausible source; not evidence of noncoverage and not grounds for disposition on its own",
+          "evidence": "Manukyan, Eppstein and Buzas, IEEE Trans. Evol. Comput. 20 (2016), 263–274; no passage about forced-location peak-count moments retrieved.",
+          "identifier_or_url": "https://doi.org/10.1109/TEVC.2015.2454857; PMC5553988; PMID 28804241",
+          "material_read": "Bibliographic metadata and title only, including Europe PMC PMCID metadata",
+          "method": "Bounded lawful direct/VPN PMC reader, identified PDF and Europe PMC retrieval attempts; full text unavailable",
+          "title": "Tunably Rugged Landscapes With Known Maximum and Minimum",
+          "trigger": "Title suggests a close known-extrema model"
+        },
+        {
+          "assessment": "Different law and statistic",
+          "evidence": "Exact covariance signs between unconditioned individual local peak and valley indicators and a graph-recovery bound, without prescribing global extremal locations.",
+          "identifier_or_url": "Resultary cc36f3dd3737",
+          "material_read": "RESULT.md Finding, assumptions and proof",
+          "method": "Local mirror primary record",
+          "title": "Opposite-extremum covariance signs reconstruct every graph",
+          "trigger": "Same-day local-extrema theorem for finite simple graphs"
+        },
+        {
+          "assessment": "Unconditioned cross-covariance in a different theorem",
+          "evidence": "Covariance between total local-maximum and local-minimum counts on K_{a,b}, not cumulants of a peak count under fixed global rank locations.",
+          "identifier_or_url": "Resultary be28b20aeff8",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror primary record",
+          "title": "A one-crossing peak–valley covariance law on complete bipartite graphs",
+          "trigger": "Same-day exact result for total local-extremum counts"
+        },
+        {
+          "assessment": "Different random-order model",
+          "evidence": "Minimal/maximal elements in a random graph order, with exact covariance and joint PGF correction.",
+          "identifier_or_url": "Resultary 2f0088f4c67f",
+          "material_read": "RESULT.md Finding and relevant assumptions/proof",
+          "method": "Local mirror primary record",
+          "title": "A rank-one exponential dependence kernel for minimal and maximal element counts",
+          "trigger": "Same-day joint extrema-count law might be an alternate formulation"
+        },
+        {
+          "assessment": "Related cumulant technique, no forced-rank theorem",
+          "evidence": "Bond cumulants vanish across independent cycle blocks in a random-cluster model.",
+          "identifier_or_url": "Resultary c9111e051f9e",
+          "material_read": "RESULT.md Finding and relevant assumptions/proof",
+          "method": "Local mirror primary record",
+          "title": "All-order bond cumulant sign staircases on finite cactus random-cluster graphs",
+          "trigger": "Same-day all-order cumulant and connected-support result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 1–5; independent Q2 and Q4 boundary check; constrained House-of-Cards model in arXiv:1210.4798v4"
+      ],
+      "rationale": "This is exact robustness of a global nonlinear count to a natural pair of rank constraints, with a quantitative distance range that applies to every finite vertex-transitive graph and grows with dimension for antipodal cubes. It explains why low-order statistics can tolerate forcing both extrema even though full invariance need not follow. The equality-boundary failures at the first two orders confirm that the separation condition has real content, and the argument does not rely on nearby indicators becoming independent.",
+      "residual_risks": [
+        "No claim of a complete peak-count law, sharpness at every order, or robustness under correlated fitnesses or nontransitive graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

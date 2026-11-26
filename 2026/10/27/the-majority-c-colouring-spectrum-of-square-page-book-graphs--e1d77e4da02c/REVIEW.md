@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The page-vertex degree is exactly two, making the page-type classification exhaustive. When the spine colours agree, exactly \(t\ge\lfloor b/2\rfloor\) entire pages must share their colour. When they differ, the four page types \((X,Y),(X,X),(Y,Y),(Z,Z)\) are exhaustive and the two inequalities \(p+x,p+y\ge\lfloor b/2\rfloor+1\) are necessary and sufficient. These cases are disjoint, and Stirling numbers count partitions of the interchangeable non-spine pages without choosing colour names. Each term is therefore necessary, sufficient, and counted once. The maximum and equality classification follow algebraically; both constructions are explicitly valid for all \(b\ge1\). Direct brute-force graph checks for all partitions through \(b=4\) and arithmetic checks through \(b=20\) corroborate the proof, but are not used to extrapolate to infinity.
+## correctness
 
-## Originality: PASS with residual risk
-The equivalent older vocabulary of **sum-satisfactory \(k\)-partition** and **defensive zero-alliance partition** has been accounted for, rather than treating the 2026 terminology as a new mathematical condition. The primary introductory paper [1] covers general bounds, paths, cycles and trees; the Cartesian-product paper [2] covers grids, Hamming graphs, and general product inequalities, which do not give this book-graph spectrum. The older defensive-alliance paper [3] uses \(K_{1,4}\square K_2\) for a different, defensive two-alliance bound, without the defensive zero-alliance spectrum. A related 2026 paper [4] classifies other Cartesian products. Checked indexed research records include an exact result for complete multipartite graphs and book-graph results about matching complexes and dual general position, all with different hypotheses or invariants. None of the inspected statements implies this full Stirling-number spectrum or its complete extremal classification. Older unindexed satisfactory-partition literature is the main remaining priority risk.
+PASS
 
-## Mathematical value: PASS
-The graph family is a natural Cartesian product of two elementary factors and is a standard quadrilateral book. The result gives a complete, closed finite-sum enumeration of all admissible community partitions for every number of pages and every number of classes, not just a numerical maximum; it identifies exactly two competing extremal structures and their binomial multiplicities. This clarifies how a single shared edge constrains independently colourable four-cycle pages and complements the newly studied 2026 Cartesian-product question. These are nontrivial family-wide structural and enumerative data rather than a small finite-table entry.
+Each degree-two page vertex needs one same-coloured neighbour. With equal spine colours every page must be monochromatic; at least L=floor(b/2) complete pages must share the spine colour because the spine edge already counts. Choose those pages and partition the others by Stirling numbers. For distinct spine colours, the only page types are (X,Y), (X,X), (Y,Y), and (Z,Z) with Z a non-spine colour. If these multiplicities are p,x,y,z, the two spine quotas are p+x,p+y≥H=L+1, so the multinomial chooses all page indices and S(z,k−2) allocates the non-spine pages without dividing by two (spine classes are anchored). The two cases are disjoint. The equal-spine maximum forces exactly L spine-coloured pages and separate classes on all other pages. For distinct spines z≤b−H, and equality in the colour bound forces p+x+y=H and then x=y=0, giving the second extremal type. Pascal's identity gives the total count. Merging classes preserves feasibility, so the spectrum has no holes up to the attainable maximum; k=1 and b=1 are included by the Stirling conventions. Named surjections have exactly k! labellings per partition. Independent finite enumeration checked spectra {1:1,2:2}, {1:1,2:3}, {1:1,2:19,3:6}, and {1:1,2:31,3:10} through b=4, agreeing with the frozen outputs. The frozen script and recorded arithmetic checks through b=20 were inspected, not executed; the proof covers all b.
 
-## Boundaries and closest prior results
-No claim is made for other page lengths or for a general formula for all Cartesian products. The relationship to defensive zero-alliance and sum-satisfactory partitions is explicitly acknowledged. This result does not claim independent confirmation or exhaustive priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The majority condition and maximum-colour invariant are established, under equivalent names. The supported distinct result is the complete square-page book spectrum and all extremal partitions, not the general colouring definition or the use of Stirling partition enumeration itself.
+
+## value
+
+PASS
+
+Square-page books form a natural repeated Cartesian-product family with two high-degree vertices and locally constrained degree-two pages. The exact enumeration separates spine agreement from the coupled two-quota case, gives each coefficient rather than just maximum feasibility, and explains the two extremal types. It is reusable for exact counts on the whole family, not an arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

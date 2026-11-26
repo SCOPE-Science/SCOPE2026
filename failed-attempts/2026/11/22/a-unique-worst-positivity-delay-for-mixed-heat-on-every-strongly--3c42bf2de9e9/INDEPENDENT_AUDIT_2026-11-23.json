@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:46.430148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the finite unweighted connected noncomplete strongly regular graph, P_0=J/N and aP_a+bP_b=L determine the off-diagonal projector entries. Diagonals are positive by orthogonal projection; edge entries are positive for t>0 since b<=N. For the nonedge, set A=a+eta a^2 and B=b+eta b^2. The sign is the negative of the sign of F=b exp(-At)-a exp(-Bt)-(b-a). Its derivative at zero is ab eta(b-a)>0; the derivative has a single positive zero because the rates differ and aB>bA. Then F decreases to a negative limit, giving exactly one positive, transverse recovery and separately t=0. The root tends to zero as eta grows by T<log[b/(b-a)]/A; as eta decreases to zero, F tends to the ordinarily negative heat expression at any fixed t>0, bounding T below that test time. At an interior maximum F_eta=0, which along with F=0 gives exp(-AT)=b/(a+b) and exp(-BT)=a/(a+b). B/A grows strictly, so the positive stationary point is unique. Solving AT=U, BT=V verifies both closed formulas and their positive denominators. Read the frozen proof, notes, requirements and check_srg_heat.py without executing the uploaded script. An independent 55-digit check solved F=0 and F_eta=0 directly for the Petersen eigenvalues 2 and 5, obtaining eta*=0.2420535986512469 and T*=0.1133584680516284. Neither the numerical check nor the theorem covers general weighted graphs or higher spectra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct fractional record covers all connected noncomplete unweighted strongly regular graphs and all fractional exponents, with exact sign classification and the same nonedge coefficients b/(b-a), a/(b-a).",
+          "The weak mixed record covers a broader diameter-two graph class but only sufficiently small coupling; the qualitative eventual-positivity and pure-bi-Laplacian references do not give all mixed recovery times."
+        ],
+        "reasoning": "On this two-positive-eigenvalue graph class define gamma=log(B/A)/log(b/a)>1 and c=A/a^gamma. Equality on each eigenspace, including the zero mode, gives L+eta L^2=c L^gamma. The full all-coupling sign classification is an immediate corollary of the fractional result at time ct. This reduction does not claim equality of optimized parameter objectives across the two operator families.",
+        "searches": [
+          "Resultary d37f7dd78e94, strongly regular fractional heat theorem and projector proof",
+          "Resultary 67946e00248d, weak mixed heat on diameter-two graphs",
+          "arXiv:1511.05294 §9 and arXiv:1712.07370v3 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:93b1348c8e6a",
+        "Resultary:d37f7dd78e94",
+        "Resultary:67946e00248d",
+        "Resultary:9cfe1fe8d12f",
+        "arXiv:1511.05294",
+        "arXiv:1712.07370v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first result above has x*=V, so at recovery q(1-kappa p)x*=-log[p+q exp(-V)]=U. Its closed maximum value translates to bT=[b^2U-a^2V]/[a(b-a)].",
+          "The second result provides the sign pattern for every eta through gamma and c. The independent source proof obtains the same stationarity relations AT=U and BT=V."
+        ],
+        "reasoning": "The closed coupling expression follows by solving these two linear equations for T and eta T. The fractional record covers the primitive graph geometry, and the multipartite proof covers the exact normalized optimizer independent of geometry. Coverage is therefore stronger than merely sharing a special graph or exhibiting analogous proof ideas. Neither reference alone is treated as proving the optimizer of the other family's differently parameterized time.",
+        "searches": [
+          "93b1348c8e6a, proof steps 1–4, local mirror offsets 0–4400 and 4400–9200",
+          "d37f7dd78e94, Finding and projector formulas at offsets 0–3485"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the frozen mixed recovery equation set p=1-a/b, q=1-p, x=b(1+b eta)t and kappa=b eta/(1+b eta). Then the nonedge sign expression, apart from a positive prefactor, is p+q exp(-x)-exp[-q(1-kappa p)x]. This is exactly the scalar expression in step 2 of 93b1348c8e6a.",
+          "Its step 4 maximizes bT=x(1-F_p(x)), with F_p the average over [0,x] of (exp(u)-1)/(1+p(exp(u)-1)). The unique maximum is x*=log[(2-p)/(1-p)] for every real p in (0,1)."
+        ],
+        "reasoning": "The graph domain of that record's statement is not a superset. Its proof, however, supplies the exact full scalar maximization on an open real interval, with b in place of its high Laplacian eigenvalue N. The substitution takes all eta>0 bijectively to 0<kappa<1; it preserves the time objective as written and requires neither rationality nor equal-part graph realization.",
+        "searches": [
+          "Resultary: exact worst mixed heat positivity delay on complete multipartite and strongly regular graphs",
+          "Resultary 93b1348c8e6a, mixed multipartite proof steps 2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93b1348c8e6a contains the same closed normalized optimizer, and d37f7dd78e94 contains the exact horizon on the same graph class after rescaling. The same-day star result is a graph-class analogue, not an all-SRG theorem."
+        ],
+        "reasoning": "There is no discrete table asserting this continuous optimization. The relevant exact database comparison is with indexed theorems; normalized formulas and all-parameter implications, not isolated numeric matches, establish coverage.",
+        "searches": [
+          "Resultary exact overlap search for maximum mixed heat recovery and three-eigenvalue graph semigroups: 93b1348c8e6a, d37f7dd78e94 and 9cfe1fe8d12f"
+        ]
+      },
+      "rationale": "Material formula-level coverage, not a priority inference: a distinct same-date result on the identical strongly regular graph class implies the complete mixed positivity classification by exact time rescaling of its fractional heat. A second distinct same-date result already proves the identical dimensionless mixed recovery optimization for arbitrary real 0<p<1 in its proof. Substituting p=1-a/b supplies the optimizer even for primitive graphs; it does not require transferring a statement confined to realizable multipartite graph parameters. The two comparisons jointly leave no distinct horizon or optimizer theorem in the frozen claim. Within-day order is unestablished; this is not a finding of copying or historical precedence.",
+      "residual_risks": [
+        "Public dates do not establish within-day priority among the distinct records. The verdict rests on checkable mathematical coverage, not precedence or a failed search.",
+        "Literature beyond these comparisons was not exhaustive; the known reductions already suffice for the scientific overlap conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_NORMALIZED_SCALAR_OPTIMIZATION_COVERS_FROZEN_OPTIMIZER",
+          "evidence": "The monotone scalar average and x(1-F_p(x)) objective use only real p in (0,1). At x*=log[(2-p)/(1-p)] they yield AT=U and BT=V after p=1-a/b, not just equal-part special cases.",
+          "identifier_or_url": "Resultary:2026/11/22/93b1348c8e6a",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, and Proof steps 1–5, offsets 0–9200",
+          "method": "Local mirror passages and explicit variable substitution",
+          "title": "Unique worst positivity delay for mixed heat on complete multipartite graphs",
+          "trigger": "Matching all-coupling classification and explicit unique optimizer"
+        },
+        {
+          "assessment": "EXACT_COVERAGE_OF_HORIZON_VIA_TIME_RESCALE",
+          "evidence": "For gamma=log(B/A)/log(b/a) the fractional spectrum after positive common scaling is precisely the mixed generator spectrum on all eigenspaces; the positivity-time set and all three entry signs transfer.",
+          "identifier_or_url": "Resultary:2026/11/22/d37f7dd78e94",
+          "material_read": "Mirrored RESULT.md Finding and opening projector proof, offsets 0–3485",
+          "method": "Local mirror passage and two-eigenvalue functional calculus comparison",
+          "title": "Sharp positivity recovery for fractional heat on all connected strongly regular graphs",
+          "trigger": "Identical graph class and exact time-domain recovery for a spectrally equivalent family"
+        },
+        {
+          "assessment": "BROADER_GRAPH_CLASS_SMALL_COUPLING_ONLY",
+          "evidence": "For each fixed diameter-two weighted graph the result gives a small-positive-coupling expansion, not global maximization.",
+          "identifier_or_url": "Resultary:2026/11/22/67946e00248d",
+          "material_read": "Mirrored Finding and Assumptions starting at offset 0",
+          "method": "Local mirror passages",
+          "title": "Universal two-term positivity recovery for weak mixed graph heat on diameter-two networks",
+          "trigger": "Broader graph class and same mixed operator"
+        },
+        {
+          "assessment": "QUALITATIVE_GENERAL_FRAMEWORK",
+          "evidence": "Spectral asymptotic positivity criteria do not state sharp mixed recovery times or a parameter optimizer.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1511.05294",
+          "material_read": "§9, Theorem 9.1, OA offset near 141600",
+          "method": "Open-access primary article passage",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General matrix-semigroup result"
+        },
+        {
+          "assessment": "PURE_OPERATOR_ONLY",
+          "evidence": "The obstruction to positivity of the pure semigroup on noncomplete graphs does not optimize finite mixed couplings.",
+          "identifier_or_url": "https://arxiv.org/html/1712.07370v3",
+          "material_read": "§2, Proposition 2.3, OA offset near 26400",
+          "method": "Open-access primary article passage",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Prior graph bi-Laplacian positivity result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp recovery horizon is a motivated invariant, and the closed dimensional formulas are useful as reference. As a distinct finding, however, the primitive-class horizon is a direct spectral time rescaling of the already stated strongly regular theorem, and the closed optimum is the same normalized scalar maximum already proved in the multipartite comparison, followed by a two-equation change of variables. No additional graph-dependent comparison, behavior or non-mechanical invariant survives. Rewording the closed formula or supplying more computations would not fix this.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

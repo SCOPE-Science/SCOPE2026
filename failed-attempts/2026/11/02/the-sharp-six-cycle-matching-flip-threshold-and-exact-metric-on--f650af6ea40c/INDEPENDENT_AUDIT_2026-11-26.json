@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:39:49.161824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–56; VERIFICATION.md lines 19–27; code/check_primal.py lines 7–91 and code/check_dual.py lines 8–126 (inspected, not executed)",
+        "Independent exact replay: construct the stated pentagonal rings and spokes, enumerate increasing disjoint edge subsets, test bit-mask symmetric differences, BFS and count unordered pairs; for physical cycle counts, root at least vertex and retain the orientation with smaller second than last vertex"
+      ],
+      "rationale": "In a simple graph the symmetric difference of two perfect matchings decomposes into even alternating cycles, each of length at least four. Total sizes four and six therefore identify a single cycle of the prescribed length, not a simultaneous flip. I independently generated all matchings by choosing disjoint graph edges in increasing index order until all vertices were covered, tested the size predicate on every unordered pair, and ran BFS from all 125 vertices. The 300 four-flip edges give components 120,1,1,1,1 and the stated degree distribution; each of the 30 graph edges lies in exactly one of the five isolated matchings. The 580 additional exact-six flips produce 880 union edges. All union eccentricities are three; unordered pair counts are 880,4250,2620, the degree counts are 5,20,30,60,10 at 8,11,14,15,18, and all ten pairs of frozen states are at distance two. Separate traversal of simple cycles, rooted at their least vertex and removing reversal, confirms 30 and 240 cycles of lengths four and six, as distinct from exchanges. Thus all numeric claims and the sharp cutoff of six are verified.",
+      "residual_risks": [
+        "Fixed graph only; no inference to larger graphs. The wording ‘six isolated components’ in the prior-work paragraph is imprecise: the finding and proof give six components of which five are isolated vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al. use the alternating four-cycle flip in general graphs; Ito et al. allow unrestricted alternating cycle flips; Bošković's inspected connectivity results treat decorated graph families. Van Cleemput–Zamfirescu classify Kempe moves on whole icosahedral 1-factorizations."
+        ],
+        "reasoning": "These results concern a broader move set, another graph family, different states or reachability complexity; none of the inspected statements supplies this exact bounded metric. The exact catalogue tables, rather than the general results, are decisive.",
+        "searches": [
+          "arXiv:1904.06184, 1907.01700 and 2607.16101; arXiv:2008.03173 Proposition 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–26 and 58–74",
+        "Resultary 98a001e14839, all three published TSV certificates; 5f703b9f7d72",
+        "arXiv:2008.03173, 1904.06184, 1907.01700, 2607.16101; Wedd; Pisanski–Servatius landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectivity at exactly six implies connectivity at at most six; the earlier four graph is disconnected. For the remaining metric, unweighted BFS on flip4.tsv ∪ flip6.tsv exactly yields the submitted census. Vertex degrees within each length graph and the edge partition require only tabulation of the corresponding rows."
+        ],
+        "reasoning": "The sharp threshold follows directly from older theorems and the rest is a routine readout of already released adjacency data. The earlier radius-three, diameter-four statement is not a contradiction, but it would be insufficient without its corresponding published tables.",
+        "searches": [
+          "Exact comparison of 98a001e14839, Finding, proof and Verification with frozen RESULT.md lines 5–17 and 30–56; direct replay of prior tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "98a001e14839 gives 300 edges at exactly four, components (120,1,1,1,1,1), and a connected 580-edge graph using exactly six. Its exact-six graph has radius 3 and diameter 4; the frozen R_6 is a union and has radius and diameter 3."
+        ],
+        "reasoning": "Do not identify the two R_6 notations. The frozen four-graph is identical to the earlier four-graph; the frozen six-cutoff graph is the union of the earlier exact-length graphs on the same vertices.",
+        "searches": [
+          "Resultary: frozen icosahedral perfect matchings, alternating switches, four-flip and six-flip cutoff/metric (98a001e14839); Bonamy et al., alternating four-cycle model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror supplies all 125 matching rows and 300 plus 580 flip pairs, indexed by the same matching IDs. Reading and combining the two pair tables yields union degree counts 5,20,30,60,10 at degrees 8,11,14,15,18; every eccentricity is three, unordered distances 1,2,3 have counts 880,4250,2620, and every distinct pair from IDs 21,39,61,75,120 is at distance two. Their five rows in matchings.tsv contain 30 distinct edges, equal to the full edge set. 5f703b9f7d72 gives a complex on extendable partial matchings, not the flip tables."
+        ],
+        "reasoning": "These are complete edge tables, not mere checksums or aggregate counts. The output on their union is the asserted exact invariant without generating any new matchings or moves from the icosahedron.",
+        "searches": [
+          "Resultary 98a001e14839, RESULT.md Verification and published matchings.tsv, flip4.tsv, flip6.tsv; Resultary matching-complex record 5f703b9f7d72; Pisanski–Servatius chapter 3 and Wedd edge-5-colourings"
+        ]
+      },
+      "rationale": "Resultary 98a001e14839 is an earlier distinct record that already gives the matching count, four-flip component census, 580 exact-six flips and connectivity, hence the same sharp cutoff. Its prose metric is for EXACTLY six, not AT MOST six; however the published package contains the actual complete, compatibly labelled flip4.tsv and flip6.tsv tables and matchings.tsv. I read those tables and computed their union and BFS, reproducing the full submitted combined metric, including the degree polynomial and frozen-pair distances. The census not explicitly printed in the earlier prose is thus mechanically implied by exact released tables, not new on the basis of different graph notation.",
+      "residual_risks": [
+        "The book chapter remains inaccessible; neither this gap nor the distinction between catalogue and journal dates affects the established table implication. No authorship/provenance or global priority finding is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct cutoff overlap and mechanical coverage of full combined census",
+          "evidence": "300 exact-four and 580 exact-six pairs with matching IDs shared across both tables. Frozen IDs 21,39,61,75,120. No unresolved gap remains for the submitted census after reading the tables.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-five-frozen-icosahedral-matchings-become-the-centers-under-six-c--98a001e14839",
+          "material_read": "RESULT.md offsets 0–9706, especially Verification at offset 5448; certificate files matchings.tsv (5000 chars), flip4.tsv (2400 chars), flip6.tsv (4640 chars), full files",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; parse certificate tables and independently compute union distances, degrees and frozen edge usage",
+          "title": "Five frozen icosahedral matchings become the centers under six-cycle flips",
+          "trigger": "Same graph, matchings and restricted moves; plausible exact-data coverage"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": "Two edge-Kempe classes of full 1-factorizations; flips permute two colors on a bichromatic cycle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.03173",
+          "material_read": "Definition p. 1, offset 2711; Proposition 3 and Figure 6, pp. 15–16, offset 47859",
+          "method": "OA primary PDF, states and moves comparison",
+          "title": "Hamiltonian cycles and 1-factors in 5-regular graphs",
+          "trigger": "Exact icosahedral reconfiguration precedent"
+        },
+        {
+          "assessment": "Models, not a located exact icosahedral census",
+          "evidence": "First uses four-cycles and addresses complexity; second allows unbounded even cycles between perfect matchings.",
+          "identifier_or_url": "arXiv:1904.06184; arXiv:1907.01700",
+          "material_read": "First paper definition p. 1 offset 1973 and abstract; second definition p. 2 offset 6398, reachability p. 3 offset 9188",
+          "method": "OA primary PDFs, verify graphs and length restrictions",
+          "title": "The Perfect Matching Reconfiguration Problem / Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "General bounded and unrestricted matching reconfiguration"
+        },
+        {
+          "assessment": "Wedd supports classical partition, book coverage unresolved",
+          "evidence": "Each of the five edge-color classes is a perfect matching; this is not a move graph on individual matchings.",
+          "identifier_or_url": "DOI 10.1007/978-0-8176-8364-1; https://weddslist.com/miscmaths/icos/",
+          "material_read": "Book landing only; chapter 3 retrieval failed. Wedd page at offset 0, symmetric coloring and whole colorings",
+          "method": "Lawful book lookup and OA webpage",
+          "title": "Configurations from a Graphical Viewpoint / Edge-5-colourings of the Icosahedron",
+          "trigger": "Classical partition and possible historical census"
+        },
+        {
+          "assessment": "Different complex; no timing inference from same-day date",
+          "evidence": "Counts matchings and faces in an extendability-restricted complex, not bounded flips.",
+          "identifier_or_url": "Resultary 5f703b9f7d72",
+          "material_read": "Mirrored finding and definitions",
+          "method": "Local mirror",
+          "title": "The icosahedral perfect-matching complex is mixed-dimensional",
+          "trigger": "Same-day exact matching record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–17 and 28–43; 98a001e14839 certificate tables and independent union replay"
+      ],
+      "rationale": "The graph and exact transition invariants are natural, but the cutoff is already proved and the full union census is a routine combination and traversal of the existing complete exact-length edge tables. There is no new structural theorem or surviving exact invariant beyond that readout. Independent re-enumeration is useful corroboration, not a distinct scientific finding to repair.",
+      "residual_risks": [
+        "Value of the published graph tables is not in question; no generalization or independently useful additional result was evaluated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

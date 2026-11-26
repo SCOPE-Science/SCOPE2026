@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:14:32.838423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each perfect packing picks one vertex per rung, forcing one of two alternating row sequences. For a prescribed sequence the greedy output is that set exactly when every outside priority exceeds the minimum of its neighboring target priorities: otherwise an outside vertex in violation cannot be blocked by a previously accepted target; conversely the first accepted outside vertex is impossible under the condition. Integrating gives two endpoint factors g and L-2 interior factors k, including L=2 where the integral uses g twice on the same pair. T is bounded by Cauchy–Schwarz, and T squared is Hilbert–Schmidt with a strictly positive a.e. kernel. The positive simple Perron eigenvalue and gap for T squared pass to T: T preserves the leading projection, acts positively on its range, and on the complement its spectral radius squares to the smaller one. The positive pairing with g yields the nonzero leading coefficient and spectral-radius control gives the exponential remainder. Association gives the stated product lower bound, and disjoint consecutive triples give the upper bound. A maximal packing cannot have an empty end rung. Every internal empty rung is isolated and flanked by occupied rungs in opposite rows; successive occupied rungs, with or without an intervening empty rung, therefore alternate. Compositions of L-1 into steps one and two, times two initial rows, give 2F_L jammed packings. Binet's formula gives the ratio and strict enrichment. CHECK.py was inspected, not executed; the midpoint value is not used as a proof or certified numerical enclosure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chern–Hwang–Tsai's equations determine the full finite terminal-size distribution. Their central/local limit theorem by itself does not address the global endpoint.",
+          "Došlić et al. distinguish dynamic and static sampling and give the relevant static enumeration. The Resultary dynamic/equilibrium reversal concerns densities, and the variance record excludes blockade b=1. Hit 597cc65b3dcf is the assigned record itself."
+        ],
+        "reasoning": "Broad density or fluctuation claims alone do not control this rare endpoint. The explicit full-distribution functions can be specialized, and the next comparison gives the actual implication rather than assuming every known PGF settles every asymptotic.",
+        "searches": [
+          "Chern–Hwang–Tsai equations (10)–(13), Theorem 3 and §7",
+          "Došlić et al. 2312.02747, pp. 10–12",
+          "Resultary 604e644db49f, 37956dff0b32 and 597cc65b3dcf"
+        ]
+      },
+      "checked_sources": [
+        "Chern–Hwang–Tsai arXiv:1406.0614 eqs. (7), (10)–(13), Theorem 3 and §7",
+        "Došlić et al. 2312.02747",
+        "Georgiou–Kranakis–Krizanc DOI 10.1016/j.disc.2009.03.049",
+        "Resultary 604e644db49f, 37956dff0b32 and the identical record 597cc65b3dcf",
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In eq. (13), substitute z=u/t and take t to infinity coefficientwise to select the top degree in occupancy. With D(u)=1-u+exp(-u), J(u)=integral_0^1 exp(-u(1+v)/2)dv/sqrt(v), and N(u)=1+exp(-u)+u J(u)/2, equations (10)–(12) then give H(u)=sum p_L u^L=1+integral_0^u (N(s)/D(s))^2 ds.",
+          "At the positive zero alpha of D, D'(alpha)=-alpha, N(alpha)=alpha(1+J(alpha)/2), and N'(alpha)/N(alpha)=D''(alpha)/(2D'(alpha)) by integration by parts. Thus N/D has zero constant Laurent coefficient at alpha; its square has no simple-pole term. Integrating leaves the simple pole (1+J(alpha)/2)^2/(alpha-u) with no logarithm.",
+          "If D(x+iy)=0 then y=-exp(-x) sin y, which excludes any nonzero |y|<pi. The only real zero is alpha=1+W(exp(-1)), with 1<alpha<4/3. The pole is strictly isolated in modulus."
+        ],
+        "reasoning": "Subtract the single pole and apply Cauchy coefficient bounds in a larger disk. This gives p_L=C alpha^(-L)+O(eta^L), C=(1+J(alpha)/2)^2/alpha>0 and eta<1/alpha. The residue and root are explicit, not just existence results. Since alpha<4/3, alpha^(-1)>3/4; the exact root also satisfies the proposed upper bound (e.g. D(7/6)>0 implies alpha^(-1)<6/7). Binet then yields precisely the stated enrichment. The spectral-radius characterization gives the same rate by uniqueness of the L-th-root limit. This is a direct upper-endpoint deduction, not an extrapolation of the central limit theorem.",
+        "searches": [
+          "Chern–Hwang–Tsai arXiv:1406.0614, equations (10)–(13), pp. 5–7; §7 p. 21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unfriendly seating process accepts the first seat in a random order that has not been blocked across the table or by a horizontal neighbor; this is greedy nearest-neighbor exclusion on the same open two-row graph.",
+          "The number of diners cannot exceed the number of rungs. Maximum diners and maximum occupied rungs therefore pick out the same probability, P(X_L=L)."
+        ],
+        "reasoning": "The random priority realization is a uniform random permutation. Its first unblocked proposal has the same law as uniform selection of an available seat, also after each update. The models and upper endpoint agree, not just their limiting mean.",
+        "searches": [
+          "Chern–Hwang–Tsai arXiv:1406.0614, model p. 4, equations (7), (10)–(13)",
+          "Došlić et al. arXiv:2312.02747, pp. 2–4",
+          "Georgiou–Kranakis–Krizanc DOI 10.1016/j.disc.2009.03.049"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficient of z^L t^L in G_X(z,t) is exactly p_L. This is a formula for every L, not a finite matching sequence. The static model at b=1 has 2F_L distinct jammed packings and two at full occupancy."
+        ],
+        "reasoning": "The previous exact formulas establish both finite probabilities. A finite replay of CHECK.py would not settle the sharp asymptotic, which is settled here by analyzing the endpoint series itself.",
+        "searches": [
+          "Chern–Hwang–Tsai equations (7), (10)–(13) and §7 static Fibonacci enumeration",
+          "Došlić et al. 2312.02747 static enumerator at b=1"
+        ]
+      },
+      "rationale": "Chern–Hwang–Tsai give an exact generating function in the identical open ladder model. Its top-degree specialization has a simple isolated pole at the positive root of 1-u+exp(-u), yielding the same pure exponential asymptotic with exponential remainder and an explicit rate and leading constant. Their paper need not state this endpoint as a separate theorem for it to be covered by this direct extraction. The Fibonacci denominator is already known. The transfer integral is an alternate representation and the positive-operator argument is a separate proof route, but neither supplies a further endpoint result not covered by the prior formula.",
+      "residual_risks": [
+        "This is demonstrated implication, not a claim that Chern–Hwang–Tsai explicitly wrote the endpoint asymptotic or the particular transfer operator.",
+        "No exhaustive priority conclusion is made about alternative operator representations of the same endpoint sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the endpoint asymptotic, rate and enrichment; Theorem 3 does not itself state the endpoint",
+          "evidence": "G_X(z,t)=1+t integral_0^z G_Y(s,t)^2 ds, with G_Y=Q/P explicitly given; endpoint diagonal has a simple pole at 1+W(exp(-1)).",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0614",
+          "material_read": "PDF p. 4 model and eq. (7); pp. 5–7 eqs. (10)–(13), OA offsets about 16900–19600; p. 17 Theorem 3; p. 21 §7",
+          "method": "Open-access primary PDF and explicit coefficient/pole extraction",
+          "title": "Random unfriendly seating arrangement in a dining table",
+          "trigger": "Exact PGF and static enumeration for identical process"
+        },
+        {
+          "assessment": "Supports static comparison and same-model context, rather than the decisive dynamic endpoint implication",
+          "evidence": "Blockade range one is the nearest-neighbor case. The work compares uniform-static and dynamic occupations and provides a static enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02747",
+          "material_read": "PDF pp. 2–4, about offsets 6500–15341; pp. 10–12, about offsets 36000–43000",
+          "method": "Open-access primary PDF passages",
+          "title": "A model of random sequential adsorption on a ladder graph",
+          "trigger": "Same adsorption ensembles and static full-packing denominator"
+        },
+        {
+          "assessment": "Expectation and jamming results, not the decisive endpoint formula",
+          "evidence": "The reported ladder result concerns average occupancy rather than the event of occupation L.",
+          "identifier_or_url": "https://people.scs.carleton.ca/~kranakis/Papers/2xn-final.pdf",
+          "material_read": "Abstract p. 1 and Theorem 4 p. 12, offsets about 811 and 21800",
+          "method": "Open-access author PDF",
+          "title": "Random maximal independent sets and the unfriendly theater seating arrangement problem",
+          "trigger": "Earlier same seating model and greedy maximal independent sets"
+        },
+        {
+          "assessment": "Different statistic and regime",
+          "evidence": "Infinite-length density reversal including blockade b=10, not finite-ladder maximum probability.",
+          "identifier_or_url": "Resultary 604e644db49f (2026/11/8)",
+          "material_read": "RESULT.md Finding, original statement",
+          "method": "Local Resultary mirror",
+          "title": "The first dynamic-equilibrium reversal and logarithmic saturation on blockade ladders",
+          "trigger": "Closest indexed comparison of dynamic and uniform jammed ensembles"
+        },
+        {
+          "assessment": "Different statistic and excludes b=1",
+          "evidence": "Dynamic variance with blockade b>=2, not the b=1 upper endpoint.",
+          "identifier_or_url": "Resultary 37956dff0b32 (2026/11/22)",
+          "material_read": "RESULT.md Finding, original statement",
+          "method": "Local Resultary mirror",
+          "title": "Exact extensive jamming-count variance for every higher blockade",
+          "trigger": "Exact result on dynamic jamming counts in a related regime"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The kinetic-versus-uniform endpoint contrast is worth understanding, but the earlier exact equations already yield it and even provide the rate in scalar form. What remains is an alternate integral for a prescribed greedy outcome and the usual transfer construction for overlapping triples, followed by a standard positive-kernel argument. The frozen scope does not exploit this representation for an additional invariant, new bound beyond the exact rate, or a second model. No independently useful distinct claim survives narrowing the endpoint theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

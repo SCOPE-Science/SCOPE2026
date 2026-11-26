@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact algebra gives det(M)=1 and irreducibility of the characteristic polynomial X^3+X+1 modulo two. Direct matrix multiplication gives M^7=I+2B with det(B)=87 and M^14=I+4C with C=B+B^2 and det(C)=7569. The induction C_(j+1)=C_j+2^j C_j^2 makes every normalized lifting matrix invertible modulo two. This gives exact v2((M^(7*2^j)-I)v)=v2(v)+j+1 for nonzero state vectors. Counting valuation strata gives 7*8^j states and 4^j cycles of length 7*2^j. The embedded standard-library checker reproduces base identities, 14 matrix valuations and exhaustively verifies 37448 states at exponents 1..5. Finite tests are not used to prove the infinite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277 treats only ordinary two-state Pell; 2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2 treats coefficient-one k-step Fibonacci; 2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b treats a different three-state family.",
+        "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf, Theorems 2.3–2.4, gives a group-generating-set period and cites hP_k(2), not every ordered seed."
+      ],
+      "reasoning": "General companion-matrix lifting could imply the statement if its hypotheses include the two odd-determinant certificates. None of the inspected theorems supplied a general all-seed census or covered this cubic Pell characteristic polynomial. The standard-seed period alone does not determine how many shorter-period cycles occur.",
+      "searches": [
+        "full cycle spectrum period 7*2^(k-1) third order generalized Pell characteristic polynomial X^3-2X^2-X-1 recurrence all seeds",
+        "3 step Pell mod 2^k permutation complete all states primitive periods 7 14 28 orbit counts",
+        "periods of third order Pell recurrence 2x_n+x_n-1+x_n-2 over binary powers",
+        "2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277",
+        "2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2",
+        "2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b"
+      ]
+    },
+    "checked_sources": [
+      "https://dml.cz/bitstream/handle/10338.dmlcz/151971/MathBohem_148-2023-4_6.pdf",
+      "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+      "https://articles.math.cas.cz/10.21136/MB.2022.0033-22",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Şiar–Keskin–Öztaş 2022, Theorem 2 (perfect powers) uses the same k-Pell recurrence but proves no modular orbit census.",
+        "Deveci–Avcı–Karaduman 2018, Theorems 2.3–2.4, report recurrence periods for designated generating tuples in finite groups, not the exact counts of all additive residue-state cycles.",
+        "2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277 is two-dimensional; 2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b has different characteristic polynomial and does not assert a conjugacy."
+      ],
+      "reasoning": "Perfect-power classification is logically independent of state periods. The cited distinguished-seed period can imply a maximal order for this companion map but not the distribution of primitive vectors by valuation; the new exact odd-determinant lift argument establishes the missing stronger information. Other named spectra are not consequences involving this matrix.",
+      "searches": [
+        "3 step Pell mod 2^k permutation complete all states primitive periods 7 14 28 orbit counts",
+        "complete cycle census of the 3-generalized Pell state recurrence modulo 2^k, length 7*2^j multiplicity 4^j",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/151971/MathBohem_148-2023-4_6.pdf",
+        "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+        "2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277",
+        "2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For M=[[2,1,1],[1,0,0],[0,1,0]], characteristic polynomial X^3-2X^2-X-1, reduction X^3+X+1; published-finding corpus closest 2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b concerns the Narayana polynomial X^3-X^2-c and has a different characteristic trace.",
+        "2018 original source https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf, Section 1 defines k-Pell, and Theorems 2.3–2.4 discuss finite-group generating-seed periods."
+      ],
+      "reasoning": "Equivalent inverse-transpose, recurrence-state, and 2-adic companion-matrix presentations were searched. Sharing possible dyadic periods with a different matrix is not a conjugacy: the characteristic polynomials and traces differ. No checked equivalent all-seed statement was found; this does not prove uniqueness.",
+      "searches": [
+        "full cycle spectrum period 7*2^(k-1) third order generalized Pell characteristic polynomial X^3-2X^2-X-1 recurrence all seeds",
+        "cubic matrix companion X^3-2X^2-X-1 congruence mod 2^k Smith normal form M^7-I odd determinant",
+        "complete cycle census of the 3-generalized Pell state recurrence modulo 2^k, length 7*2^j multiplicity 4^j",
+        "2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published database entries 2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277, 2026/10/18/SCOPE-complete-periodic-cycle-spectra-of-the-generalized-narayana-recu--849f5443ff2b, and 2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2 have different recurrence maps.",
+        "Existing own accessible weekly ledger searched via claim text for Pell, orbit, period, and cubic recurrence; no exact matching all-seed order-three Pell cycle-spectrum claim observed."
+      ],
+      "reasoning": "The actual semantic queries and comparison by companion polynomial and state-space dimension found no exact table of 4^j cycle counts for this map. Search incompleteness is explicitly retained as a risk.",
+      "searches": [
+        "full cycle spectrum period 7*2^(k-1) third order generalized Pell characteristic polynomial X^3-2X^2-X-1 recurrence all seeds",
+        "3 step Pell mod 2^k permutation complete all states primitive periods 7 14 28 orbit counts",
+        "cubic matrix companion X^3-2X^2-X-1 congruence mod 2^k Smith normal form M^7-I odd determinant",
+        "complete cycle census of the 3-generalized Pell state recurrence modulo 2^k, length 7*2^j multiplicity 4^j",
+        "periods of third order Pell recurrence 2x_n+x_n-1+x_n-2 over binary powers"
+      ]
+    },
+    "rationale": "Full textual source comparisons and multiple actual semantic database searches did not reveal this exact all-seed spectrum for the characteristic polynomial X^3-2X^2-X-1. The 2022 source defines the sequence but concerns perfect powers; the 2018 finite-group paper discusses selected generating-set periods, not the all-state valuation stratification. Nearby database theorems concern two-step Pell, a different Narayana companion matrix, or k-step Fibonacci rather than this order-three Pell map. The earlier distinguished-seed maximum period is acknowledged as prior; an unnoticed abstract matrix-orbit theorem remains a priority risk.",
+    "residual_risks": [
+      "A general matrix congruence theorem with primitive modulo-two characteristic polynomial and odd normalized lifts may give this result as a specialization.",
+      "The accessible 2018 finite-group period paper has no observed all-seed cycle histogram, but other sequence-period literature could contain it.",
+      "The directly linked published database repository page could not be opened for full-text examination; its actual searchable abstract was compared, not misrepresented as a full-document inspection.",
+      "Absolute novelty cannot be inferred from a finite collection of sources or from searched index partitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same 3-step specialization but result solves a perfect-power Diophantine equation, not modular cycles.",
+        "evidence": "Page 507 explicitly gives recurrence and primary MSC2020 11B39, Theorem 2 (page 508) treats perfect-power solutions; published online 2022-09-29.",
+        "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/151971/MathBohem_148-2023-4_6.pdf",
+        "material_read": "Open-access full PDF text, introduction and main theorem (2022 online date) plus visual screenshot of the original first article page; recurrence and primary MSC verified.",
+        "method": "PDF text extraction and first article-page screenshot",
+        "title": "On perfect powers in k-generalized Pell sequence",
+        "trigger": "Direct same-recurrence middle-cohort primary MSC2020 11B39 source"
+      },
+      {
+        "assessment": "Its k-Pell period formulas refer to selected nonabelian generating sets and distinguished sequence periods, not all triples and cycle multiplicities.",
+        "evidence": "Theorem 2.3 at p. 290 uses PerQ_k and hP_k(2); Theorem 2.4 at p. 291 concerns a semidirect product, both without all-residue-state census.",
+        "identifier_or_url": "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+        "material_read": "Accessible full parsed PDF text: definitions on pp. 284–285; Theorems 2.1–2.4 and stated proofs on pp. 286–291; references pp. 291–292. Rendered screenshot unavailable after one bounded retry.",
+        "method": "Full-document parsed text and specific theorem inspections; PDF screenshot timed out",
+        "title": "The periods of the k-step Fibonacci and k-step Pell sequences in finite-group products",
+        "trigger": "Highly plausible older paper mentioning generalized Pell periods and powers of two"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b14d6eaa-3ba8-4c1e-862f-2065bd2d90e6",
+  "value": {
+    "rationale": "A complete orbit census for every integer-seeded order-three Pell recurrence modulo every power of two is a natural invariant finer than a Pisano period. The uniform valuation rule classifies all 2^(3k) states and yields 4^j primitive cycles of length 7*2^j at every level, distinguishing short and long cycles and giving a closed total count. It is an infinite structural classification, not an arbitrary sample or a renamed two-step Pell result; it does not claim a general all-order Pell theorem.",
+    "status": "PASS"
+  }
+}

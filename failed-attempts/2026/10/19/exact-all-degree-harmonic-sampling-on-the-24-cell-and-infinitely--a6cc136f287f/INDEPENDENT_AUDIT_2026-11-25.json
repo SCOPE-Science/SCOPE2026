@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:56.212572Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–5",
+        "Frozen CHECK.py and VERIFICATION.md, inspection only; no uploaded code executed",
+        "Independent Fourier comparison in the originality rationale below"
+      ],
+      "rationale": "With probability surface measure the kernel on S3 is (l+1)U_l, using dimension (l+1)^2. For all 24 nodes the parity block doubles the representative spectrum and adds 12 zeros. For even l the root-line adjacency A is the line graph of K4 on supports, tensored with the two-by-two all-ones matrix. The incidence product gives A-eigenvalues 8, -4, 0 with sector dimensions 1, 2, 9. The Gram matrix B_l=(l+1-beta)I+(alpha-beta)A+beta J then has the asserted three sectors. In the odd case the signed matrix S=M* M-2I for columns e_i±e_j has eigenvalues 4 and -2 with dimensions 4 and 8, since M M*=6I, and B_l=(l+1)I+alpha S. Substituting the six-periodic alpha and alternating even beta gives ranks (1,4,9,8,11,12,10,12,12,12,11) up to degree 10. For even l>=12 the three eigenvalues have lower bounds l-10,l-6,l, and for odd l>=5 the two have bounds l-3,l-1, giving the sharp cutoff 11. In full-rank odd degrees tightness is exactly alpha=0, i.e. l=5 mod 6. In even degrees equal values would require first alpha=0 and then beta=0, impossible. The representative kernel Gram is (l+1)^2 I at tight degrees, so the minimum squared norm is the representative data norm squared divided by (l+1)^2; the parity-compatible full data norm squared is twice the representative value.",
+      "residual_risks": [
+        "Full rank is on the parity-compatible data space, not on all 24 data coordinates. The recorded finite checker output is not used as an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suter gives the branching generating functions for every irreducible of each finite SU(2) subgroup via the quantum affine Cartan matrix, and supplies complete 2T character/degree/class data. The design papers cover the constant direction in this calculation, not the other sectors by their design-strength theorem alone."
+        ],
+        "reasoning": "The earlier complete branching invariant is strictly broader than the restriction to 2T. Its mapping to the entire Gram spectrum uses a standard finite-group character orthogonality identity; no extra sampling theorem or unknown matrix calculation is needed.",
+        "searches": [
+          "Suter, arXiv:math/0503542, Definition 2.2 and Theorem 2.3; §5 Facts 5.1; §6 tetrahedral case",
+          "Kostant, arXiv:math/0411142, introduction and E6 parameter row",
+          "arXiv:2303.09000 and arXiv:2507.01358"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503542 (decisive §§2,5,6)",
+        "arXiv:math/0411142",
+        "arXiv:2507.01358",
+        "arXiv:2303.09000",
+        "arXiv:math/0607447",
+        "Resultary comparisons listed above",
+        "DOI:10.1007/BF03187604 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact branching-to-spectrum computation is given in the originality rationale. The normalized probability Gram on 24 nodes multiplies that raw convolution spectrum by L; the same parity compression as in the frozen record gives B_l. Equality of these recovered scalars is exactly the tightness test, and in that case the Gram is a scalar multiple of the parity projection."
+        ],
+        "reasoning": "The claimed threshold, exact tight residue class and minimum norm introduce no independent gap beyond the converted prior invariant; they are direct tests against the recovered scalars. The design-strength theorem alone would not have been enough to justify this decision.",
+        "searches": [
+          "Suter, arXiv:math/0503542, Theorem 2.3 and §§5–6",
+          "Hirao–Nozaki–Tasaka, arXiv:2507.01358, Lemma 3.1 and Theorem 1.2(i)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block rotation identifies the precise D4 vertex set with 2T. Hirao–Nozaki–Tasaka's Lemma 3.1 gives the quaternionic identity that the inner products on this group depend on g^(-1)h. The trace of Sym^l at a unit quaternion is U_l of its real part, so the kernel is a central character convolution."
+        ],
+        "reasoning": "This is the same finite Gram spectrum in the regular-module Fourier basis, not an analogy. Schur orthogonality sends branching multiplicities to eigenvalues by the factor 24/dim(rho), and parity compression sends this to 12/dim(rho).",
+        "searches": [
+          "Resultary: all-degree 24-cell spectrum; D4 parity/Chebyshev sampling",
+          "arXiv:2507.01358, Lemma 3.1",
+          "Kostant binary tetrahedral E6 multiplicities restriction SU(2) all irreducible symmetric powers Poincare series character branching formula McKay Table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The old 2T character table yields the exact five parity-sector formulas by weighting the columns by U_l and their class sizes. The predated type-D cubic record explicitly supplies rank 8 at degree 3. The two later catalogue records independently show material overlap in spectra and ranks, but are not prior evidence for the whole claim."
+        ],
+        "reasoning": "A final sampling table in earlier terminology is unnecessary here because the inspected table yields all branches for every degree via a fixed linear transform. Later matches are distinguished from this older implication.",
+        "searches": [
+          "Suter, arXiv:math/0503542, §6 tetrahedral character table and §5 class sizes",
+          "Resultary 2026/10/18/4fdcf93793d3, 2026/10/25/2b17ab9c73cb and 2026/11/1/2b55835ab263"
+        ]
+      },
+      "rationale": "The complete claimed spectrum is a direct finite Fourier consequence of pre-existing binary-tetrahedral character and all-degree SU(2) branching data, not merely a match to the mean-zero design theorem or a postdated catalogue hit. Rotate the D4 nodes by (a,b,c,d) -> (a+b,a-b,c+d,c-d)/sqrt(2); this gives the eight signed coordinate units and sixteen half-coordinate sign vectors, the Hurwitz unit group 2T. For g,h in 2T the unscaled full Gram entry is U_l(Re(g^(-1)h))=chi_{Sym^l}(g^(-1)h). Thus ordinary Schur orthogonality on the regular representation gives the full-block eigenvalue 24 m_rho(l)/dim(rho), of multiplicity dim(rho)^2, where m_rho(l) is the symmetric-power branching multiplicity. Suter's pre-existing character table and class sizes give these by a single character inner product. Set L=l+1. At even l, for irreps 1,1',1'',3 respectively they are (L+3beta+8alpha)/12, (L+3beta-4alpha)/12, (L+3beta-4alpha)/12, (L-beta)/4. At odd l, for 2,2',2'' respectively they are (L+4alpha)/6, (L-2alpha)/6, (L-2alpha)/6. All opposite central-parity multiplicities vanish. For example, the even trivial coefficient has contributions 2L from the two central elements, 6beta from trace zero and 16alpha from the four size-four classes of traces ±1; the twisted character replaces 16alpha by -8alpha since the two nontrivial cube roots sum to -1. Dividing the unscaled full nonzero-parity block by two for representatives gives exactly every frozen eigenvalue and multiplicity. Sharp rank, tight degrees and the normalized interpolant norm then follow by the same scalar substitutions and the standard Gram inverse. No earlier paper is asserted to state the final sampling wording verbatim; the demonstrated mechanical implication, rather than a title match or an access failure, is decisive.",
+      "residual_risks": [
+        "The earliest printed use of these data specifically as a 24-cell sampling theorem was not established.",
+        "No priority inference is made from later entries; association-scheme full-text coverage was not settled and is not needed for the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably covers the spectral data after a standard Fourier normalization",
+          "evidence": "Theorem 2.3 gives P(t)=C_aff(t)^(-1) delta for all branching multiplicities; printed 2T table gives seven irreps of degrees 1,1,1,2,2,2,3, supporting the explicit evaluations above. Facts 5.1 gives class sizes 1,1,6 and four classes of size 4.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503542",
+          "material_read": "Introduction and Definition 2.2; Theorem 2.3 p. 4 (offset 10700–11699); Facts 5.1 p. 8 (offset 27970–29294); tetrahedral character table p. 9 (offsets 29300–31364 and 31190–33080)",
+          "method": "Lawful OA direct original PDF, located and read decisive passages",
+          "title": "Quantum affine Cartan matrices, Poincaré series of binary polyhedral groups, and reflection representations",
+          "trigger": "Plausible exact all-degree equivalent via branching and 2T character theory"
+        },
+        {
+          "assessment": "Confirms the wider branching problem and tetrahedral E6 identification; Suter's character data are the decisive calculation",
+          "evidence": "Introduction treats restriction of arbitrary SU(2) irreps; E6 row is associated with the tetrahedral group.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0411142",
+          "material_read": "Introduction §0.1 and E6 row of the parameter table",
+          "method": "Lawful OA PDF passages",
+          "title": "The Coxeter element and the branching law for the finite subgroups of SU(2)",
+          "trigger": "Older general statement about the relevant branching invariant"
+        },
+        {
+          "assessment": "Identifies the convolution geometry, expressly evaluates the scalar mean in the design theorem",
+          "evidence": "The lemma writes <g,h>=<1,g^(-1)h> and gives the trace-based generating series; the theorem gives the constant-direction vanishing degrees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01358",
+          "material_read": "Equation (1.1), p. 1; Theorem 1.2(i), p. 3; Lemma 3.1 and proof, pp. 9–10 (offset 34300–36647)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Spherical Designs for Finite Quaternionic Unit Groups and Their Applications to Modular Forms",
+          "trigger": "Same group-node set and inner-product kernel; possible stronger group-theoretic coverage"
+        },
+        {
+          "assessment": "Partial overlap, not by itself a spectral determination",
+          "evidence": "Tight antipodal harmonic-index {10,4,2} design implies the even constant-sector zeros.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09000",
+          "material_read": "p. 2, harmonic-index definition and D4 design statement, offsets 5841 and 7753",
+          "method": "Lawful OA PDF passages",
+          "title": "Spherical Designs and Modular Forms of the D4 Lattice",
+          "trigger": "Known D4 harmonic-index obstructions at the same parameters"
+        },
+        {
+          "assessment": "Geometric background, not the decisive comparison",
+          "evidence": "Identifies the standard D4 root system with the 24-cell in a spherical-code optimality problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607447",
+          "material_read": "p. 1 and passages around offsets 404 and 4250",
+          "method": "Lawful OA PDF passages",
+          "title": "The D4 Root System Is Not Universally Optimal",
+          "trigger": "Same normalized nodes and inner-product geometry"
+        },
+        {
+          "assessment": "Direct earlier overlap at degree 3, not an all-degree theorem",
+          "evidence": "States rank 8 and coordinate moment constraints at n=4.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-cubic-harmonic-sampling-spectra-on-type-d-n-roots--4fdcf93793d3",
+          "material_read": "Finding at offset 1285 and relationship passage at offset 7954",
+          "method": "Resultary local mirror",
+          "title": "Complete cubic harmonic sampling spectra on type-D_n roots",
+          "trigger": "Earlier exact rank for type D4 at one degree"
+        },
+        {
+          "assessment": "Direct postdated overlap; does not establish priority",
+          "evidence": "Same full spectrum after accounting for evaluation scaled by 1/sqrt(24), and same sharp cutoff 11.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-spherical-harmonic-sampling-spectrum-of-the-regular-24-cel--2b17ab9c73cb",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact spherical harmonic sampling spectrum of the regular 24-cell",
+          "trigger": "Same fixed sampler and five branches"
+        },
+        {
+          "assessment": "Direct postdated overlap; no priority attribution inferred",
+          "evidence": "Equivalent parity-sector spectra and rank row and an additional period-12 matrix shift.",
+          "identifier_or_url": "2026/11/1/SCOPE-complete-exact-degree-harmonic-sampling-spectrum-of-the-regular--2b55835ab263",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete exact-degree harmonic sampling spectrum of the regular 24-cell",
+          "trigger": "Same rank row and all-degree spectra"
+        },
+        {
+          "assessment": "Not assessable in full text and not used to justify failure",
+          "evidence": "No original body retrieved; the prior-coverage decision instead rests on directly checked 2T character data.",
+          "identifier_or_url": "https://doi.org/10.1007/BF03187604",
+          "material_read": "Citation only; publisher/OA redirect failed",
+          "method": "Lawful publisher/OA attempt",
+          "title": "Spherical Codes and Designs",
+          "trigger": "Possible earlier association-scheme spectral tabulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, all five sectors and tight-degree norm",
+        "Suter §§2, 5 and 6, with the explicit spectral conversion in the originality assessment"
+      ],
+      "rationale": "The object and spectral question are natural, and the real-incidence proof is a useful exposition. But the frozen contribution is this exact invariant and its rank, tightness and norm readouts, all mechanically implied by the older branching data under standard Fourier diagonalization. No separately stated new structural result or nonroutine surviving quantitative gap remains after crediting that coverage.",
+      "residual_risks": [
+        "This does not detract from the pedagogical value of the geometric proof or from the correctness of the numerical classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

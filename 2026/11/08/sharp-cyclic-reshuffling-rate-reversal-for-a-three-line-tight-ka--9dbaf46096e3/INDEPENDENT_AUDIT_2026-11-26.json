@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:00.361052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the sweep in the basis with change-of-coordinates diag(1,sqrt(3)), where 64 times the sweep has entries 64-96w+24w²+8w³, -24w², 8w²-8w³, 64-96w+24w² in row-major order. Integer polynomial multiplication with metric diag(1,3) reproduces the trace, determinant, discriminant and squared Frobenius norm in the proof. Below the positive discriminant zero the squared radius decreases as (1-w)^3; from that zero to 6/5 the trace is negative and strictly decreasing, and above 6/5 the absolute determinant exceeds the proposed minimum. Orthogonal conjugacy of all orders and invariance under rotation by pi/3 make the fresh-permutation second moment scalar, and independence allows iteration. The independent-row factor and strict difference follow by the tight-frame identity and expansion. The reshuffling derivative changes sign once below 1 and is positive above it (the minimum of w^5/(w-1)^2 is at 5/3). Exact integer substitution brackets its zero between l=8388/10000 and h=8389/10000 and gives (1-h)^3+l^6/32>3/200. At the cyclic optimum the repeated negative eigenvalue and nilpotency give S=lambda I+N; the Frobenius identity gives ||N||=w_C^3/4. The one-epoch operator norm squared exceeds the trace average, and ||S^2||<0.0104<r_*. The Jordan norm formula and derivative bound on arsinh(k gamma) bound successive squared-norm ratios by c_*((k+1)/k)^2<r_* for k>=2. This proves the infinite-horizon assertion, not just the first tested powers. Inspected frozen verify.py, verification_output.txt and VERIFICATION.md as evidence, not as an independent replay. The matrix coefficients and rational inequalities above give a reproducible algebraic check without executing uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie and Oswald–Zhou analyze general convergence bounds under different sampling protocols, not the exact optimized finite-horizon comparison. Regular-simplex reshuffling gives r(1)=1/32 in dimension two, at unit relaxation only."
+        ],
+        "reasoning": "General upper bounds and a unit-relaxation contraction do not determine the two optimized relaxations and both strict inequalities at all integer horizons.",
+        "searches": [
+          "Han–Xie arXiv:2410.01140 §§3.1, 3.3",
+          "Oswald–Zhou arXiv:1510.04727 §§1–2",
+          "Resultary 2026/10/13 regular-simplex reshuffling record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 9dbaf46096e3 (self), e78715909e43, 8cad78dc3e3a",
+        "arXiv:2410.01140",
+        "arXiv:1510.04727",
+        "arXiv:math/0702226, introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older shuffle-once proof supplies the complete sweep matrix, conjugacy, IID factor and cyclic spectral-radius branches. It therefore supplies the input to obtain the same first-sweep scalar polynomial and cyclic spectral minimum. Its only explicitly compared finite powers use eta=3/2 and IID as the comparator."
+        ],
+        "reasoning": "Do not credit those inputs as distinct results. The new comparison needs fresh expectation versus a nonnormal worst-case power, two different optimizing values, and a strict all-later-horizon estimate at the defective sweep; it is not a substitution in either prior comparison theorem.",
+        "searches": [
+          "e78715909e43, RESULT.md proof §§1–5",
+          "8cad78dc3e3a, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/12 shuffle-once record is the same geometry up to orthogonal conjugacy and row signs, but studies 1/2 times the Frobenius norm squared of a fixed sweep power versus IID. Its eta=3/2 witness is not the operator norm comparison to independent reshuffles at two rate optima."
+        ],
+        "reasoning": "Reusing a random sweep does not equal averaging fresh independent sweeps. The isotropic initial-error assumption is also not a cyclic worst-case direction.",
+        "searches": [
+          "Resultary searches for three-line relaxed Kaczmarz, equiangular/regular-simplex reshuffling and shuffle-once rate reversal",
+          "arXiv:1510.04727, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9dbaf46096e3 is the identical record. e78715909e43 and 8cad78dc3e3a are separate material matches and were compared at statement level; neither tabulates the stated optimal-relaxation crossing."
+        ],
+        "reasoning": "Exact or special-case rate values alone would not resolve the worst-case finite-power inequalities; the self-hit is not independent prior evidence.",
+        "searches": [
+          "Resultary, three-line tight Kaczmarz rate reversal and exact reshuffling contraction"
+        ]
+      },
+      "rationale": "Pass is for the strictly one-epoch versus every-later-epoch comparison between the fixed-order worst case and fresh reshuffling at separately optimized asymptotic relaxations. The same frame, independent-row law, cyclic spectral curve and characteristic transition are already covered; even the fresh-reshuffling scalar law follows readily from the earlier sweep matrix, conjugacy and independence. The older crossing compares a reused random order with IID at a common nonoptimal relaxation and an isotropic initial covariance. It does not give the separately optimized worst-case comparison or exclude all later crossings in the present setup.",
+      "residual_risks": [
+        "Bounded specialist literature search: an equivalent optimized comparison in projection-product or frame literature outside the inspected passages remains possible. The web query added no useful source and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage, not the optimized fresh-reshuffle comparison",
+          "evidence": "Proof §§1–3 give the independent law, conjugacy and the full same sweep matrix. §5 is at eta=3/2 for shuffle-once against IID; its direction reverses from epoch one to two.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-3-sqrt-3-relaxation-frontier-for-shuffle-once-and-iid-equian--e78715909e43",
+          "material_read": "RESULT.md Finding, Assumptions and proof §§1–5; offsets 0 and 2780",
+          "method": "Resultary local mirror",
+          "title": "The 3−sqrt(3) relaxation frontier for shuffle-once and IID equiangular Kaczmarz",
+          "trigger": "Same geometry, transition and finite-horizon reversal"
+        },
+        {
+          "assessment": "Covers only unit relaxation for this comparison",
+          "evidence": "The isotropic contraction at dimension two is 1/32, agreeing with r(1).",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-reshuffling-contraction-on-the-regular-simplex-kaczmarz-fr--8cad78dc3e3a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact reshuffling contraction on the regular simplex Kaczmarz frame",
+          "trigger": "Exact fresh-permutation law, same frame at dimension two"
+        },
+        {
+          "assessment": "Broader estimates, not an exact rate-optimal crossing",
+          "evidence": "Theorem 3.2 gives convergence bounds; §3.3 compares protocol bounds and uses a different numerical example.",
+          "identifier_or_url": "https://arxiv.org/html/2410.01140",
+          "material_read": "§3.1 Theorem 3.2 and §3.3, offsets 14000 and 24800",
+          "method": "OA full-text passages",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "Primary RRK comparison with fixed and replacement orderings"
+        },
+        {
+          "assessment": "Protocol and bound precedent",
+          "evidence": "Separates shuffled from preshuffled SOR and supplies estimates, not this exact optimized comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04727",
+          "material_read": "§1 and §2 Theorem 2, offsets 0, 12000 and 16000",
+          "method": "OA full-text passages",
+          "title": "Random Reordering in SOR-Type Methods",
+          "trigger": "General relaxed projection/reordering theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact benchmark compares equal work on a natural redundant tight frame while isolating the difference between an asymptotic spectral factor, finite-horizon operator norm and isotropic expected error. The defective cyclic optimum makes the strict crossover at exactly the first-to-second epoch meaningful; it is not a universal algorithm ranking or a new method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

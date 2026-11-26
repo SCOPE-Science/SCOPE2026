@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:53.285359Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–55; VERIFICATION.md lines 19–23; CHECKER.py; WITNESSES.json",
+        "/workspace/branches/907c3222-0dfd-4d9e-a322-50f6443c16f6/independent_quartet_audit.py and independent_quartet_audit.log (independent replay: python3 independent_quartet_audit.py)"
+      ],
+      "rationale": "Rooting at leaf 0 gives a bijection with full binary hierarchies on the other leaves; an internal split separates the two pairs exactly when their paths are disjoint. The trace-cell refinement is necessary and sufficient, and downward closure plus increasing query order makes traversal complete. Query transitivity gives 105 M_k/k and permits using the same restricted list for the orbit census. An independent bounded implementation reproduced 945 trees, 315 displays per query, 206992 visited prefixes, M_1 through M_7 = (1,102,4887,125928,75570,504,0), the reported polynomial, and orbit sizes (1260,2520,5040) with restricted sizes (72,144,288). It checked all 64 stored trace witnesses against generated trees and found the smaller dimensions (1,2,3).",
+      "residual_risks": [
+        "The independent replay uses hierarchy/split incidence and does not repeat the packaged alternative edge-insertion/distance cross-check. This is a finite exact result only for the stated binary query model and leaf counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quartet learner gives order-of-growth for multiclass Natarajan dimension. Partition compatibility treats display by edge deletions. Definitive quartet sets constrain uniqueness from positive displays."
+        ],
+        "reasoning": "None of these statements controls the existence of every binary trace on each support or the relabeling equivalence of such supports.",
+        "searches": [
+          "arXiv:2604.17461, PDF p. 6 and §5",
+          "arXiv:2104.14146, PDF pp. 1–2",
+          "arXiv:1101.5302, PDF pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 19f58059a7c2",
+        "arXiv:2604.17461",
+        "arXiv:2302.04492",
+        "arXiv:1101.5302",
+        "arXiv:2104.14146"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior vc_find(7) exhausts precisely the canonical-query shattered prefixes, but retains only their total; vc_find(6) returns the first witness. It does not classify relabelings of all six-faces."
+        ],
+        "reasoning": "The prior upper bound excludes size seven and higher, and reusing its traversal can cheaply produce the histogram. The published result is not a stronger classification implying the three orbit sizes without an additional census; that census adds information about the maximizers.",
+        "searches": [
+          "Resultary 19f58059a7c2 construct.py offset 2200–5298 and RESULT.md offsets 0–3522"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 19f58059a7c2 uses precisely the same one-versus-rest coordinate class.",
+          "The learning papers' Natarajan definition prescribes two specific labels per example; the present binary no can be either of the other two resolutions."
+        ],
+        "reasoning": "Exact overlap for the binary VC component; multiclass and rooted-triplet formulations do not identify the binary support census.",
+        "searches": [
+          "Local Resultary search for exact binary displayed-quartet shattering on seven labeled leaves",
+          "arXiv:2604.17461 §5; arXiv:2302.04492, PDF p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest prior match gives VC dimension 6, the same six-query witness and 206992 visited prefixes; inspected result and code do not tabulate counts by size, the sizes of the extremal orbits, or the four-to-six-leaf sequence."
+        ],
+        "reasoning": "Credit the exact dimension and shared computational evidence; the aggregate prefix count is not the full histogram or orbit table.",
+        "searches": [
+          "Local Resultary search for the exact seven-leaf binary polynomial, small-leaf dimensions and the size-six orbit counts",
+          "Resultary 19f58059a7c2 RESULT.md, VERIFICATION.md and construct.py"
+        ]
+      },
+      "rationale": "Pass for the joint census as delimited in the original, not for the previously established VC dimension 6, example support, trace witnesses, or exhaustive traversal. The earlier Resultary enumeration reaches the same prefixes; a depth histogram is a small instrumentation change, not a new shattering algorithm. But its published conclusion and aggregate node count do not specify the multigraded counts, and it does not carry out the classification of the size-six supports up to the leaf action.",
+      "residual_risks": [
+        "An unlocated equivalent exact tabulation or orbit computation could predate the census; no historical-priority guarantee. The overlap in traversal is established, but code provenance beyond the inspected texts is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior VC overlap; not the full joint census",
+          "evidence": "The same witness (0,21,42,54,76,82) and 206992-node exclusion of a seven-face; no depth-wise tally or orbit operation in the decisive search.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-binary-quartet-shattering-dimensions-on-seven-phylogenetic--19f58059a7c2",
+          "material_read": "RESULT.md Finding and VC proof (offsets 0–3522); VERIFICATION.md initial computation notes; construct.py offsets 2200–5298",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact binary quartet shattering dimensions on seven phylogenetic leaves",
+          "trigger": "Same exact class, dimension and leaf count"
+        },
+        {
+          "assessment": "Related multiclass asymptotic result",
+          "evidence": "N_quart(n)=Theta(n) uses two distinct resolutions prescribed in advance per four-set.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.17461",
+          "material_read": "PDF p. 6 (offset 19350) and §5 p. 36 (offset 136578)",
+          "method": "Open full-text passage inspection",
+          "title": "Optimal Phylogenetic Reconstruction from Sampled Quartets",
+          "trigger": "Same quartet observations, possible stronger shattering theorem"
+        },
+        {
+          "assessment": "Different queries and labeling rule",
+          "evidence": "Triplet labels are the three odd-one-out outcomes; Natarajan shattering fixes two labels per triplet.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.04492",
+          "material_read": "PDF p. 3, offset 9500",
+          "method": "Open full-text passage inspection",
+          "title": "Tree Learning: Optimal Sample Complexity and Algorithms",
+          "trigger": "Shattering dimension of tree observations"
+        },
+        {
+          "assessment": "Different extremal property",
+          "evidence": "Removing a positive quartet from a minimal definitive set destroys uniqueness, not binary-trace realization.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.5302",
+          "material_read": "PDF pp. 1–2, offsets 500 and 5600",
+          "method": "Open full-text passage inspection",
+          "title": "On the maximum size of minimal definitive quartet sets",
+          "trigger": "Possible positive-constraint variant of quartet combinatorics"
+        },
+        {
+          "assessment": "Related compatibility machinery only",
+          "evidence": "Compatibility concerns whether partition parts are component leaf sets after edge deletions.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.14146",
+          "material_read": "PDF pp. 1–2, offsets 0–3984",
+          "method": "Open full-text passage inspection",
+          "title": "Compatibility of Partitions with Trees, Hierarchies, and Split Systems",
+          "trigger": "Potential split-system reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof sections 3–5",
+        "Resultary 19f58059a7c2"
+      ],
+      "rationale": "The binary quartet trace complex is a natural learning invariant, and seven leaves is the first small order where the maximum substantially exceeds the preceding values. The enumerated distribution and the exact three nonisomorphic kinds of dimension-maximizing support give small benchmarks for structural conjectures and extremal examples; a dimension or one witness cannot supply them. Value rests on that precise classification, not on rederiving a known dimension.",
+      "residual_risks": [
+        "No general-leaf classification and no claim about all inclusion-maximal faces of lower cardinality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

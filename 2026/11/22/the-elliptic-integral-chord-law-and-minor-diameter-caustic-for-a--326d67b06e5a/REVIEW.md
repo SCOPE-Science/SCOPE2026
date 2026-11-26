@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The cosine/sine difference identities give an exact product of two independent torus-Haar factors, not merely a heuristic independence approximation. The conditional chord density and the two changes of variables produce the precise piecewise \(K\)-formula, including correct constants. Both one-sided logarithmic expansions agree; the endpoint limits are finite for strict eccentricity. The two moment identities follow from elementary arcsine moments and invert to the unique ordered pair of positive semiaxes. The standalone checker uses three different eccentricities, independent numerical integrations and Monte Carlo as secondary sanity tests. Analytic integration and algebra, not experiments, support the infinitely many parameter choices.
+## correctness
 
-## Originality: PASS (best-knowledge, with historical-priority risk)
-The relevant prior chord-length literature explicitly distinguishes incompatible probability laws. Gečiauskas 1966 samples two **interior** points; the 1967 chord models use a random ray or random line. Schrempp 2015 studies the maximum distance among many interior points, not the complete law of one endpoint-pair. The related published arclength-uniform ellipse-boundary near-diameter transition is not the present affine-parameter measure and neither implies the interior caustic nor the moment reconstruction. Searches also compared volume-uniform ellipsoid moment tomography, which is not a boundary measure. A bounded literature search cannot rule out an old equivalent endpoint formula hidden under different nomenclature; that is a residual risk, not claimed resolved historical priority.
+PASS
 
-## Value: PASS
-The sampling law is the natural affine image of uniformly independent circle endpoints, widely distinguished from arclength and invariant-line models. The full distribution has a nontrivial interior logarithmic singularity located at a geometric diameter; it is not a relabelled arcsine distribution. The two moments are natural observational statistics and their exact inverse yields a finite geometric reconstruction result. The circle-limit change in the singularity is a geometric phenomenon. These combined statements provide more than a routine isolated numerical constant.
+The torus sum/difference map has determinant of absolute value 2 and is onto, so the two output angles are jointly Haar. The squared sine of either half-angle is arcsine; the original length is 2SR with independent S^2 and (R^2-b^2)/(a^2-b^2) both arcsine. Writing q=R^2 and x=ell/2 gives density pi^(-2) times the integral of [(q-b^2)(a^2-q)(q-x^2)]^(-1/2) from max(b^2,x^2) to a^2. Substitution q=a^2-[a^2-max(b^2,x^2)]sin^2(theta) gives both branches with the stated modulus and normalizes by conditioning. On either side of the caustic the complementary modulus squared is asymptotic to b|ell-2b|/(a^2-b^2), and deviations in the prefactor times the logarithm are o(1), giving precisely the factor 16 in the logarithm. K(0) and the continuous lower endpoint give the outer limits, with no atoms; the circle has constant R and the stated arcsine transform. Independence and the first two arcsine moments 1/2 and 3/8 yield m2 and m4 as stated, and 4m4/3-2m2^2=(a^2-b^2)^2. To see that no continuous scalar can recover both axes locally, restrict it to a small circle in any proposed injectivity neighborhood: its values coincide at some pair of antipodes by continuity. The supplied standard-library code and notes were inspected, not executed; finite quadrature and simulation are not used to justify the all-ellipse result.
 
-## Limits and independent assessment
-The model is uniform in eccentric anomaly only, with \(a>b>0\); it is not an arclength-uniform or an invariant-line chord model. Classical historical-priority risk remains; no independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected comparisons cover the circle law and related elliptic-integral forms or inverse-moment constructions for different measures. They do not give both branches and the minor-diameter constant for the independent eccentric-anomaly law, or its exact inversion formulas. The mathematical comparisons hinge on the measure and on which random variable the density describes, not just an ellipse and a K function appearing in both statements.
+
+## value
+
+PASS
+
+The affine-uniform model is a natural image of circular line picking and should not be confused with arclength or invariant-line models. It yields a calibrated interior singularity while both outer endpoint limits stay finite, tracing a concrete change from the circle. Exact two-moment recovery offers a separate inverse use of the law, including scale. The value is the complete noncircular law and its distinctive transition and inversion, not a new evaluation of the classical circle law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Review: A parity-lift dichotomy for three-run scattered-subsequence Moore counters
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem supplies an exact all-parameter proof. The binary Lucas period has precisely \(2^{1+\lfloor\log_2 a\rfloor}\) phases. A phase-preserving group action generates every middle-run counter vector. Explicit same-base opposite-output witnesses establish the independent final parity coordinate except at the odd-initial-run/single-middle-symbol boundary. At that boundary an exact combinatorial congruence eliminates the coordinate. Finally, specified suffixes distinguish every accessible state. Neither extrapolation from finite testing nor an external certification is used in the proof.
+PASS
 
-Two independent standard-library verification programs reproduce the predicted finite orbits and the two witness regimes. `check_prefix_automata.py` checks 66 orbit sizes, 20 Moore minimizations and 65,520 direct word-count cases. `check_phase_witnesses.py` checks 4,914 symbolic-family witnesses, 40 complete suffix signatures and 877,440 instances of the parity invariant. Every test reports PASS; their range is finite.
+The target is the parity of positional embeddings after every binary prefix, including the empty input. Lucas gives P=2^(1+floor(log₂a)) as a period of f(z)=binom(z,a) mod 2. A smaller period would give a proper period dividing P, hence also period P/2, contradicted by f(a)=1 and f(a−P/2)=0. Updating the prefix counts uses only old coordinates. On phase zero, the action on the middle counters is M=I+N; shifting to phase a for the one-letter update and shifting back adds e₁ to M. The actions are finite permutations, so inverse powers are realizable by words. Composing and conjugating gives translations by M^t e₁, whose first b columns form the invertible triangular Pascal basis. Thus every base state occurs. For a≥2,b≥2, the stem 0^a1^(b−1)0^(P−a) gives B_(b−1)=1 and f(P+1)+f(P)=binom(P,a−1)=0; swapping the last two letters therefore holds the base fixed and flips C. For a=1,b≥2, with r the least power of two at least b, the displayed words have equal B_j because binom(r,j−1) vanishes for 1≤j−1<b≤r, and opposite C because binom(r−1,b) is odd for b<r and zero for b=r, while binom(r+1,b) does the reverse. For b=1,a even, the last-letter swap compares the odd binom(a+1,a) and binom(a,a) and changes C by one. Opposite lifts then propagate together by a common suffix to every base. In the exceptional case b=1,a odd, contributing one-positions see an odd number of preceding zeros by Lucas, so each final-zero factor is congruent to z−1, giving C=(z−1)B₁. Distinguishability is proved, not inferred from reachability: the empty suffix fixes C, the b+1 outputs after 1^t0 extract the middle coordinates and f(z) in triangular order, and the shifts 0^r1^b0 recover the rotation of f and thus z. The same triangular tests for B_b with the final 0 omitted distinguish base states when viewing the two-run counter by itself. No extrapolation is needed.
 
-## Originality (O): PASS, with priority risk
+## originality
 
-The closest fully inspected published result is the exact modulo-\(m\) Moore count for the pattern \(010\), which covers precisely the \(a=b=1\) specialization. An existing full formula for two-run \(0^a1^b\) does not imply whether the new terminal zero is an independent state coordinate. The published \(0011\) result is likewise two-run. The inspected 2026 binary Parikh-class paper studies universality and subsequence-containment probabilities; the 2024 generalized-Parikh-matrix article and 2010 formal-power-series paper give representations and algebra, not this minimal-state index.
+PASS
 
-Searches included full-family parity counters, the aliases *binomial coefficients of words*, *scattered pattern counts*, *Moore state complexity*, phase stabilizers, and relevant small patterns. published-finding corpus claim searches and accessible prior records did not produce a full three-run classification. No absolute priority claim follows from absence of search results. The 2011 trie-automaton paper could be read only through its abstract despite full-text retrieval attempts; its possible stronger content remains a meaningful unresolved risk rather than being declared noncovering.
+The audited contribution is the exact parity lift on the family with two arbitrary initial runs and last run of length one. The entire two-run base count and the alternating-triple specialization are prior or contemporaneous overlapping results; they are not credited as new here. The inspected sources do not determine the exceptional last-bit relation for arbitrary a,b. Inaccessible plausible general works are left unresolved rather than classified as noncovering.
 
-## Value (V): PASS
+## value
 
-This solves an all-length, all-positive-parameter exact deterministic-memory problem for a natural first three-run family. It distinguishes a genuine output-fiber obstruction from the otherwise universal factor-of-two lift and proves the sharp arithmetic condition \(b=1\) with odd \(a\). The family has exponential naive prefix-counter size, whereas the minimal state count grows essentially linearly in \(a\) for fixed \(b\). This classification and its phase-action mechanism have value independent of any conjectured broader theorem.
+PASS
 
-## Limitations
+This supplies exact deterministic memory for a natural returning-letter extension of a two-run pattern. The full family classification identifies when a new output bit is genuinely independent and when a pointwise parity invariant removes it. Its Θ(a·2^b) states compared to a naive prefix bit for every pattern position, and its explicit necessary-and-sufficient boundary, describe a structural effect not captured by a list of examples. The result is limited to parity and a final run of length one.
 
-The theorem is for parity and binary words; no statement is made for other moduli, separate residue acceptors, or arbitrary patterns. The 2011 historical paper remains incompletely inspected and no priority certification or independent mathematical validation is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

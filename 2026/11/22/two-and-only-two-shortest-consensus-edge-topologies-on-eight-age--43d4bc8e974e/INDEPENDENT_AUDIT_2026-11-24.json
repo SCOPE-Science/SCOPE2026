@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:38:04.270038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45; VERIFICATION.md lines 19–21; verify.py",
+        "/workspace/review-evidence/5-consensus.py",
+        "/workspace/review-evidence/5-consensus.txt",
+        "/workspace/repairs/5/RESULT.md",
+        "/workspace/repairs/5/VERIFICATION.md"
+      ],
+      "rationale": "The frozen deterministic classification survives. Entropy must increase by exactly two bits per contact in a 12-contact solution, so every joined pair has disjoint supports. Ratios within each existing support persist in that row and all final rows are uniform; hence each intermediate row is uniform and each contact doubles equal support sizes. Sorting contacts by stage commutes contacts on disjoint endpoints, and no edge repeats because once its endpoints share labels they never lose them. An independent exact replay generates all 105 matchings by four-edge subsets, verifies each successful matrix over the rationals, and tests supports against complete labeled cube and Wagner orbits. The 12 two-four-cycle second stages generate 96 cube and 192 Wagner schedules, and the 48 eight-cycle stages generate 48 cube and 144 Wagner schedules, with no others. The Wagner word is exact and its 5-cycle excludes a spanning cube. The frozen ancillary stochastic claim needed repair if stepwise independent full support is interpreted without stationarity: give all edges positive probability but put total probability 2^(-t-1) on edges other than one fixed edge at step t; with positive probability only that edge occurs forever. The repaired claim uses a fixed full-support independent law, hence also covers the equal-rate conjecture. The repair clarifies third-stage complementary groups and removes an unsubstantiated attribution about the earlier paper's open questions. The repaired statements and unchanged deterministic certificate were reassessed.",
+      "residual_risks": [
+        "Only exact, fixed-half pairwise contacts and the twelve-contact support classification are covered; no classification for longer schedules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General power-of-two optimality and the cube schedule are known",
+          "Connected-graph results with adjustable positive-diagonal matrices permit operations forbidden here"
+        ],
+        "reasoning": "Neither general minimum update counts nor more permissive matrix models force which fixed-half optimal supports actually occur.",
+        "searches": [
+          "arXiv:1206.0992 Theorem 1 and §2.5",
+          "arXiv:1302.6668 abstract and introduction",
+          "arXiv:2509.01024 §VII"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1206.0992",
+        "arXiv:2509.01024",
+        "arXiv:1302.6668",
+        "Resultary 43d4bc8e974e and 866678dfa960",
+        "Targeted published-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 supplies optimal contact count but no eight-agent edge-support necessity",
+          "Section VII asserts the opposite of Wagner feasibility; the independent word verifies that feasibility",
+          "866678dfa960 proves the same disjoint equal-cardinality supports criterion for shortest words"
+        ],
+        "reasoning": "The lower bound, cube witness, and support-union criterion are covered. Enumerating which edge sets actually realize the criterion requires retaining additional data and checking graph types; this is not a consequence of the aggregate word count or its state totals. The restriction to two topologies and explicit cube-free example survive.",
+        "searches": [
+          "arXiv:1206.0992 Theorem 1",
+          "arXiv:2509.01024 §VII",
+          "Resultary 866678dfa960 decision rule and exact recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact hit 43d4bc8e974e is this frozen record; distinct 866678dfa960 counts shortest words using the same half-half model",
+          "Shi et al., Theorem 1, count endpoint updates: 24 is 12 pair contacts",
+          "Krapivsky–Plakhov, §VII, use graph-constrained random neighboring contacts rather than enumerating deterministic words"
+        ],
+        "reasoning": "A successful word extends directly to the fixed equal-rate random model via repeated blocks. With this translation the conjecture itself is not prior coverage of a solution. On the complete graph the same-date word count uses the same success condition for a generic initial vector, but does not sort words by their edge-support isomorphism type. The external targeted search returned no usable additional hit.",
+        "searches": [
+          "Resultary: exact shortest twelve-contact eight-agent consensus pairwise averaging Wagner graph Mobius ladder cube classify",
+          "Targeted literature search for Wagner/Möbius ladder shortest eight-agent consensus",
+          "arXiv:1206.0992",
+          "arXiv:2509.01024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "866678dfa960 gives one complete-graph count, 2,528,870,400 ordered twelve-contact words, with a count profile indexed by time and support-mask state",
+          "The eight-agent example in Shi et al. exhibits a cube, not a full support table; uniqueness there concerns four agents",
+          "Krapivsky–Plakhov leave k≥3 support questions open"
+        ],
+        "reasoning": "The endpoint distribution's support mask is not the graph of contacted pairs. The recurrence merges words arriving at the same ordered mask state and does not preserve their edge supports; its reported count profile is not a schedule-support table.",
+        "searches": [
+          "Targeted Resultary and literature searches for an eight-agent support census, including Wagner and cube",
+          "Resultary 866678dfa960, §Finite exact enumeration",
+          "arXiv:1206.0992 small-n examples and uniqueness discussion",
+          "arXiv:2509.01024 §VII"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the optimal support classification and Wagner counterexample, not for the sharp lower bound, cube construction, or the shared support-union rigidity argument. Same-date Resultary record 866678dfa960 counts all shortest words by a support-mask recurrence but does not classify which distinct graphs support a shortest word. The closest published sources give the bound and cube schedule or state the conjecture; they do not furnish the Wagner counterexample.",
+      "residual_risks": [
+        "No relative priority inferred from same-date records; an unindexed earlier topology classification or constructive Wagner schedule is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sharp count and cube schedule, not the eight-agent support classification",
+          "evidence": [
+            "mn endpoint updates for n=2^m; essential-uniqueness discussion for n=4; §2.5 does not treat graph-structure restrictions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.0992",
+          "material_read": "Original PDF pp. 3–4 and 9–10, Theorem 1 and §2.5",
+          "method": "Lawful OA original text",
+          "title": "Finite-time Convergent Gossiping",
+          "trigger": "Same fixed-half protocol, sharp optimality and possible classification"
+        },
+        {
+          "assessment": "Directly relevant conjecture under equal rates; not a prior counterexample or classification",
+          "evidence": [
+            "Conjectures a.s. consensus exactly for graphs containing the spanning k-cube on 2^k vertices; k=2 established there"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.01024",
+          "material_read": "Original PDF introduction and §VII, p. 8",
+          "method": "Lawful OA original text",
+          "title": "Finite-time consensus in a compromise process",
+          "trigger": "Exact cube necessity conjecture being refuted"
+        },
+        {
+          "assessment": "Different, adjustable matrix class",
+          "evidence": [
+            "Uses graph-consistent matrices with positive diagonals, not exclusively symmetric half-half edge updates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.6668",
+          "material_read": "Original PDF p. 1, abstract and setup",
+          "method": "Lawful OA original text",
+          "title": "Finite-time consensus using stochastic matrices with positive diagonals",
+          "trigger": "Potential general result implying a finite-time graph classification"
+        },
+        {
+          "assessment": "Shares the underlying characterization of admissible contacts; its count is not a classification by support graphs",
+          "evidence": [
+            "Reports 2,528,870,400 successful words on K8; recurrence states consist solely of the eight current probability-support masks"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-twelve-contact-consensus-probability-for-eight-agent-rando--866678dfa960",
+          "material_read": "RESULT.md offsets 0–1947 and 3750–5803, finding, scope, equal-support criterion and path count recurrence",
+          "method": "Local Resultary mirror",
+          "title": "Exact twelve-contact consensus probability for eight-agent random gossip",
+          "trigger": "Exact same time, agent count and optimal protocol model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof; Krapivsky–Plakhov §VII; independent exact replay"
+      ],
+      "rationale": "The natural smallest unsettled power-of-two case yields a complete optimal-support classification and an explicit nonbipartite, cube-free counterexample to a stated graph conjecture, not just a recomputation of the optimal update count.",
+      "residual_risks": [
+        "Does not resolve general reachability or minimum-edge supports when nonoptimal schedules are allowed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

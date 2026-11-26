@@ -1,11 +1,21 @@
-# Review of the Petersen-line-graph minimum forcing-set classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The object is specified by disjointness of two-subsets and line-edge incidence, and the legal force is unique-white-neighbor propagation. The exact \(32768\)-mask closure comparison uses independent bit-mask and set-valued implementations. Sizes through \(6\) are exhausted, all \(6435\) size-seven candidates are examined, the full \(S_5\) orbit computation is exhaustive, and all shortest paths of the \(2280\)-vertex exchange graph are computed. The extracted certificate terminated successfully with `VERIFY_OK`. The statements apply only to the specified graph and rule.
+## correctness
 
-**Originality (PASS, conditional on available literature).** The most relevant full-text works concern line-graph families and inequalities (Eroh–Kang–Yi 2012; Erzurumluoğlu–Meagher–Pike 2016), while Hogben et al. 2014 introduce propagation time and mention the underlying Petersen graph. They do not give this graph's complete minimum-set and exchange classification. Checks against accessible related archival claims, research-record queries, and targeted web searches did not identify an equivalent or dominating enumeration. Previously unindexed small-graph tables could still duplicate part of the result.
+PASS
 
-**Value (PASS).** This is a full classification of optimal edge-indexed initial states of the canonical Petersen graph, not a stand-alone small parameter. It distinguishes \(21\) optimal symmetry types, reveals three distinct forcing-time classes and determines the complete connectivity and geodesic profile of reconfiguration among optimum sets. It supplies an exact benchmark for line-graph propagation and optimal-set exchange processes. No paper-scale or all-graph theorem is claimed.
+In the specified line graph a forcing step is monotone: enlarging a blue set either already colors the forced target or leaves it the only white neighbor of the same source. Iterating all eligible moves gives the maximal closure and dominates every other schedule round by round. I independently enumerated starting sets of sizes 0 through 7 using white Petersen-edge states and counts of white edges at the endpoints of each blue edge (replay: python3 /workspace/branches/replay_5.py). For this simple graph those counts sum to the number of white neighbors in the line graph. The first nonempty success class is size 7 with 2280 sets, and the round histogram is {3:120,4:1440,5:720}. All line-graph triangles come from stars of the triangle-free cubic Petersen graph; their intersections recover the Petersen graph. Independent four-sets of Petersen vertices are four pairwise intersecting two-subsets; without a common symbol there are at most three, so the five four-sets are exactly the symbol stars. Permuting them determines every original vertex, and every such permutation is realized. Thus the full acting group is S5. The independent calculation reproduced all 21 canonical-mask triples from ORBIT_TABLE.csv, with 17 orbits of length 120 and 4 of length 60. I built exchange adjacencies instead from buckets of shared six-element subsets and used exact BFS from each of the 21 representatives. Each BFS reached all vertices; summing distance counts weighted by source-orbit size and dividing by two counts each unordered pair once. This returned 28650,234120,765570,1004640,483480,78540,3060 at distances 1 through 7 respectively. This is an exact exhaustive result on one graph, not extrapolation. The frozen verifier was inspected, not executed.
 
-**Closest literature and limits.** Eroh–Kang–Yi (arXiv:1207.6127) treat line graphs of wheels and bouquets; Erzurumluoğlu–Meagher–Pike (arXiv:1609.05854) provide general comparison bounds; Hogben et al. (arXiv:1410.4191) treat propagation on arbitrary graphs. The present finite census does not follow from those results; possible unindexed tables remain a residual risk. The certificate is reproducible but not externally audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution of the October 26 result is the complete optimum census with its propagation and exchange data, not the scalar size 7 or the general exchange definition. A strong, distinct November 2 catalogue entry duplicates the exchange polynomial and orbit sizes but is dated later by the publication metadata and does not state the parallel-time distribution. Its overlapping data are explicitly credited below; this pass is not a finding that the two entries are disjoint or that either one was first discovered independently. No inspected earlier result gives the combined exact classification.
+
+## value
+
+PASS
+
+The canonical Petersen graph yields a natural edge-coloring instance of zero forcing. The combined census supplies a benchmark with the entire optimizer space, seed orbit types, three distinct parallel-time classes, and exact exchange distances, answering how many minimum seeds yield a given round count and how far apart optimal placements can lie under legal exchanges. Neither the known scalar minimum nor the general reconfiguration framework answers those questions. This is a motivated finite classification, not a claim about a whole graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 14 binary rotation classes partition 64 labeled six-mer vertices and each is a directed cycle, forcing at least 14 deletions. An explicit 14-vertex acyclic witness establishes sharpness. Every size-14 solution chooses exactly one per class, so the exact 181,398,528-choice domain is exhaustive. Pruning a branch only when its already-finalized survivor subgraph has a directed cycle is sound by monotonicity under adding vertices. C++ Kahn topological/longest-path computation and separately authored Python DFS cycle/longest-path computation (with different necklace order) both returned each of the 14 matching frequencies totaling 68,288; the latter explicitly verified the action and orbit counts. Finite full-domain proof, not extrapolation. The optimal mask example and two exceptional symmetry masks are replayable.
+PASS
 
-## Originality — PASS (qualified)
+The 14 right/left rotation orbits are vertex-disjoint directed cycles, including the two loops. Any minimum set must delete at least one vertex per orbit. Independently tested the given 14-vertex witness, so the minimum cardinality is exactly 14. I enumerated all 181,398,528 labeled one-per-orbit transversals with no partial-graph pruning. In each full survivor set A I iterated A <- A intersect N+(A), with N+ the outgoing-neighbor union. A vertex surviving t rounds is the endpoint of a residual walk of t edges; a nonempty fixed point means a directed cycle, and on a DAG the round giving the empty set is the longest path in vertices. The exact count and all 14 histogram bins agreed. Complement is a digraph automorphism and reversal an orientation-reversing isomorphism; both preserve the vertex length. On the 408 minimizers, exhaustive independent action evaluation gives fixed counts 408,0,0,4 for identity/complement/reversal/reverse-complement. Burnside gives 103 orbits, two of size two (both canonical masks match) and 101 of size four. The 48-at-26 endpoint and optimizer percentage also agree.
 
-published-finding corpus queries for exact k=6 MDS longest-path multiplicities, 408 minima and 103 symmetry classes found no identical indexed statement. The directly relevant 2023 arXiv and 2024 journal full-text sections state the old total 68,288, known sharp endpoints 13 and 26 and component extrema, but not the complete per-set 14-bin distribution or sharp-minimizer orbit census. Their source code is algorithmic, not a published bin table. All local prior claims were checked for overlap. An unindexed supplemental census remains a specific priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-At the first binary order with 68,288 minimum-size selectors, optimizing worst-case uncovered k-mer windows is the motivating objective of the primary sketching literature. The exact entire guarantee distribution establishes how rare sharp optimum 13 is (408/68,288), how many very poor designs exist (48 at 26), and a 103-class reversible symmetry enumeration suitable for benchmarking optimizer sampling/coverage. This is a natural complete classification of an exact performance invariant, not an arbitrary slice or an incremental tweak of the known min/max; it claims no clinical or genome-scale performance benefit.
+The supported contribution is the complete frequency distribution and optimizer count/orbit classification for the labeled binary order-six digraph, not its already-published minimum-set total, extremal path lengths, or generic enumeration methods. The frozen record already makes this distinction expressly in its proof and prior-work section.
 
-## Closest literature and boundaries
+## value
 
-Marçais, DeBlasio and Kingsford, arXiv:2311.03592, Tables 1/2 and Sections 4.3, 5.2–5.3, already provide the total \(68,288\) and range \(13\) to \(26\). Their journal version is DOI 10.1089/cmb.2024.0544. The new measured invariant is the entire per-length frequency table and the group-action classification of the \(408\) global optimizers. A public but unindexed supplementary table could affect historical priority. The proof is exhaustive at order six only; no all-orders theorem or independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph and optimization measure are motivated by the earlier study of exact residual-path guarantees over all minimum decycling sets. The known total and extrema hide how rare either endpoint is. The exact frequency and stabilizer census resolve that gap at a size with tens of thousands of admissible sets, giving reference data for exact graph algorithms and optimizer enumeration; the symmetry result also states which involution accounts for the exceptional smaller orbits. This is not a recomputation offered as new of the known endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

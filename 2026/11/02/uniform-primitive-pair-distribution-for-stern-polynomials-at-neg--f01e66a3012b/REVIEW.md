@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The binary matrices follow exactly from the stated recurrence and are invertible for every odd modulus. The displayed conjugation identities were recalculated with exact arithmetic. Their two opposite unipotents generate the elementary special linear group over each prime-power component, hence act transitively on the primitive columns. The fixed point of the zero-digit generator guarantees aperiodicity; standard finite Markov convergence plus binary-cylinder decomposition gives **natural**, not merely dyadic, density. The marginal is counted directly by CRT. The standalone checker verifies independent finite instances and does not substitute for the proof.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** The full text of Ulas–Ulas (2011) was inspected for main theorem statements, sections and special-value results, and Gawron (2014) was inspected through its modular automata/density argument, root classification and subsequent sections. Deshouillers–Schinzel (2019), now inspected in the publicly available full text, proves a general invertible-automaton density theorem (Theorem 2.2), and the \(t=1\) primitive-orbit theorem (Proposition 3.2). The density mechanism is therefore acknowledged as prior; their specialized orbit result does not give the \(t=-2\) orbit whose proof via opposite shears is the new mathematical step. Direct formula, alias, automaton, primitive-vector, and published-record searches found no equivalent statement. The closest unresolved issue is an unlocated stronger orbit-generation theorem that may already subsume the specialization, so novelty is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The distribution of integer specializations of Stern polynomials modulo composite moduli is a natural arithmetic question. The result provides every joint and marginal density simultaneously for all odd moduli, and the hidden shear generators explain a previously unobvious uniformity mechanism. The contrast with the extensively studied \(t=1\) case and the singular even-modulus regime gives conceptual substance beyond isolated computations.
+The two binary transitions on (B_n(−2),B_{n+1}(−2)) have determinant −2, a unit at every odd m, so primitivity is invariant. Multiplying the displayed matrices verifies P^{-1}(AB^{-1})²P=E_{12}(−4) and P^{-1}A(AB^{-1})²A^{-1}P=E_{21}(−2). These yield all shears; local-ring elimination and CRT generate SL₂, including at repeated prime powers. A primitive pair extends to a determinant-one basis, so transitivity is on exactly the primitive pairs. The positive-word orbit equals the group orbit by finiteness. The two transitions are permutations and the accessible (0,1) has an A-self-loop; the walk thus mixes to uniform. The prefix-cylinder argument bounds discrepancies of cylinders of free length ≥L by their total size times the uniform mixing error and treats shorter cylinders by a total size <2^L, proving natural density at arbitrary endpoints. CRT counts the marginal fibers as stated. A fresh direct recurrence and BFS over m=3,9,25,27,45,75,125 through a prefix of 65,536 checked the exact orbit sizes 8,72,600,648,1728,4800,15000 and all marginal fiber sizes. Prefix frequencies were finite corroboration, not an exact density test; replay: branches/9b74cb2e-5a23-415a-abcb-70fa0f5af4a2/independent_check.py.
 
-**Scope and limits.** No even-modulus conclusion, rate, or claim of literature exhaustiveness is asserted. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deshouillers–Schinzel already prove the density mechanism for invertible digit automata, and their Stern result at t=1 has exactly the same form. The supported distinct result is reachability of the full primitive orbit for the t=−2 generators at every odd modulus, via the opposite shears, and hence the law for that specialization. The inspected earlier primitive-orbit proof uses different generators and does not supply this input.
+
+## value
+
+PASS
+
+The orbit calculation gives a complete exact modular law at a natural nonordinary specialization with invertible odd-modulus digits. It resolves all composite odd moduli, including repeated prime factors, and supplies exact scalar densities that are not all equal. The opposite-unit-shear argument explains why full primitive support holds uniformly rather than just displaying frequencies in small moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

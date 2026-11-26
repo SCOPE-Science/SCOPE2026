@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The Apéry representatives \(tb\), \(0\le t<a\), are proved minimal in their residues modulo \(a\). Neighboring nongaps and consecutive gaps impose an exact half-open interval in the block index \(j\); strict monotonicity of \(qt+\lfloor dt/a\rfloor\) on the Apéry indices proves the sign-independent affine decomposition. Every maximal interval has a unique start, so there is no omitted boundary case or double counting. The proof treats \(a=2\), \(d=1\) and all integers \(q\ge1\). A separately constructed coin-addition checker agrees in 3,765 complete finite cases, with further genus and top-run identities. Computation is corroborative, not the infinite proof.
+## correctness
 
-## Originality (PASS within available evidence)
-Komatsu–Ying's full manuscript and published paper address \(p\)-Frobenius and Apéry data for three-term arithmetic progressions. Moree's full paper describes all coefficient positions in binary inclusion-exclusion polynomials, proves the longest-gap and total-block formulas, and thus lets one reconstruct a fixed example; it does not present the uniform all-length affine dependence as the larger generator traverses a residue class modulo the smaller. Singh–Ram's full manuscript treats isolated gaps only. The nearby special-family research record restricts to \(a=dt+1\), \(q=1\); its accessible summary does not claim the universal result. The full text of that special-family record was not available; another implicit equivalent in older cyclotomic literature remains possible. The novelty assessment is therefore bounded rather than a statement of definitive priority.
+PASS
 
-## Mathematical value (PASS)
-The complete desert/gap-run multiset is an established natural numerical-semigroup statistic (also directly computable by NumericalSgps), and previously published results emphasize its extrema, total block count, and isolated gaps. This theorem classifies every length in all coprime two-generator semigroups through finite modular arithmetic, reveals exact parameter-rigidity with no exception threshold, and identifies a sharp multiplicity for the longest length. These are structural statements across an infinite family, not a named restatement of a single known coefficient identity or an arbitrary finite slice.
+For residue r, any representation ua+vb has v congruent to tau_r modulo a, hence v>=tau_r for its least nonnegative lift. Thus tau_r b is the minimum, and the membership threshold at heights j is k_r=f_q(tau_r)=q tau_r+floor(d tau_r/a). Every gap block is between consecutive multiples of a, and its two boundary positions must be nongaps. With k_0=k_a=0 (the right endpoint is the next multiple of a), a window beginning at residue r contributes exactly max(0,min k_inside−max k_boundary) heights, with no overlap among maximal runs. Strict monotonicity of f_q for q>=1 makes eligibility independent of q and yields the two nonnegative coefficients. For length a−1 there is one window with minimum rank 1 and boundary rank 0, giving count q even for a=2. An independent way to check the (8,3) example is to start with occupied residues {0,8} and insert 3,6,1,4,7,2,5 in turn; each row's run polynomial persists for q+floor(3(t+1)/8)−floor(3t/8) heights after t insertions. The added floor increments occur after t=2 and 5, contributing respectively z+2z² and 2z, while summing the seven row polynomials gives 9z+4z²+z⁴+z⁷. The genus and exact frequency identities thus have a uniform proof, not an inference from finite tests.
 
-## Limits
-No claim is made for more than two generators, uniform formula independent of residue permutation, or independent external validation. Moree's fixed-pair coefficient support is informationally complete for each instance, so a derivation of the affine structure from that stronger input is a residual priority risk. Numerical spot checks alone cannot prove universal parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new scope supported by the comparison is the simultaneous all-residue, all-length affine frequency law, explicit coefficients and invariant length support, not fixed-instance computability or the maximal length. Moree gives membership-transition data, the maximum length and an affine total count. Singh–Ram give the isolated-gap count and its underlying gaps. The same-day binary-cyclotomic spacing record is a genuinely equivalent frequency result on two residue families after using semigroup symmetry, but does not cover arbitrary residues. The earlier a=dt+1 record covers a q=1 slice, not the full parameter law. The inspected antecedents do not establish eligibility and coefficientwise affineness uniformly over all unit residue classes; this conclusion requires grouping and comparing threshold ranks, even when started from older semigroup data.
+
+## value
+
+PASS
+
+Deserts encode the distribution of consecutive nonrepresentables, finer than the classical genus, number of deserts, and maximum desert length. For each coprime residue class of b, the result determines all frequencies at every positive quotient from two coefficient lists, with an exact no-exception statement and no need to enumerate gaps as b grows. The length-support rigidity is not contained in the affine total count and is not a small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

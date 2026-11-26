@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The C++17 source `quotient.cpp` constructs the labeled Möbius–Kantor graph, independently exhausts its 96 adjacency-preserving permutations, enumerates 1,090 nonempty independent faces, and canonicalizes every strict face chain under the full group. Its 24,875 regular orbit cells are tested for unique maximal cofaces before each of 12,114 elementary collapses. It writes the actual pair certificate to `quotient_certificate.txt` and the remaining exact signed boundaries to `residual_cells.txt`.
+## correctness
 
-Run in a directory with all provided files:
+PASS
 
-```
-g++ -std=c++17 -O3 quotient.cpp -o quotient
-./quotient quotient_certificate.txt
-python3 fundamental_group.py
-python3 homology.py
-```
+Independent adjacency-constrained enumeration finds all 96 permutations and the stated 1,090 independent sets and 24,875 flag orbits. Face-size sequences distinguish the faces of a flag simplex, so it injects into the geometric quotient and its oriented facets are the signed deletions. The independent reconstruction replayed all 12,114 frozen collapse pairs and checked that the 647 surviving labels and signed boundaries match the frozen residual data exactly. On that residual it got ranks (13,70,144,96), solely a factor 2 in boundary degree four, and a trivial fundamental group by signed triangular relator elimination after a spanning tree. A different collapse order reached a different residual but the same integral homology and pi1. Since H2 vanishes, simple connectivity implies 2-connectivity by Hurewicz. The generator of pi3=H3=Z/2 is annihilated by degree two, so its representing sphere map extends over the fourth cell of M(Z/2,3). The extension is an integral homology equivalence between simply connected CW complexes and hence a homotopy equivalence.
 
-The last command needs SymPy; the other Python command uses the standard library. The expected success signatures are `MK_ORBIT_CELL_COLLAPSE_OK`, `MK_FUNDAMENTAL_GROUP_OK`, and `MK_INTEGRAL_HOMOLOGY_OK`. The remaining cell counts are (14,83,214,240,96) in dimensions zero through four. The exact boundary ranks are (13,70,144,96), with a single nonunit Smith factor two in the fourth boundary. The 70 one-skeleton generators are all killed by the triangular relators.
+## originality
 
-All computations are integer or exact finite enumeration. Neither a finite test of different graphs nor an external expert audit is claimed. The chain and group calculations concern the explicit ordinary orbit complex, not a homotopy quotient. The certificate is independently reproducible by its source; its mere presence is not treated as an argument without the checks and derivation given in `RESULT.md`.
+PASS
+
+Known unquotiented homotopy and rational quotient acyclicity are credited; neither supplies the new integral torsion class or determines simple connectivity and the Moore-space equivalence. One close cited record could not be read; the best accessible exact comparison was the October 25 computation for the same graph and full action.
+
+## value
+
+PASS
+
+For a standard highly symmetric graph, the same full quotient was known to be rationally acyclic. The complete integral homotopy description now distinguishes it from a point, locates its unique torsion precisely and establishes 2-connectivity; these are meaningful facts about this symmetry action that rational representations cannot deliver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

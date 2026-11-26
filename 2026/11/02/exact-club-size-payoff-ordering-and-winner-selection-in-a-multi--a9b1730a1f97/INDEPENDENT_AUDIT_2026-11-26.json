@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:22.134708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the tagged restaurant, each independent club sends one other diner with probability g_j/N (none from the tagged club), and each other free diner arrives independently with probability 1/N. The reciprocal occupancy integral factors. In a club comparison only the two differing club factors remain after common factors are removed, producing g_i−g_j; in the free comparison the differing factors are the one club factor versus an extra free Bernoulli, producing g_i−1. The remaining integrals are strictly positive. With fixed K the binomial factor converges uniformly to exp(−f(1−t)) and unoccupied types have the stated smooth extension. Each limiting gap kernel is at least exp(−1) times the integral of (1−t)t^(K−1), namely exp(−1)/(K(K+1)). Summing the club equations shows total club mass B is nondecreasing, so a maximal initially occupied club remains at least B(0)/K. Its log ratio against a positive free fraction grows uniformly, and its log ratio against a smaller club grows uniformly because the smaller-to-larger ratio never exceeds its strict initial value below one. These give the claimed exponential loss and exact tied limits by conservation; zero coordinates remain zero. Equilibrium requires equal payoffs on support, hence no coexistence with the free type and only uniform positive club supports. At such a state the active contrast subspace has the positive eigenvalue in RESULT.md:95 by differentiating the log ratios; absent-type rows are diagonal with the negative invasion gap in line 101. This block structure counts every eigenvalue on the simplex, including the K=1 sink; at the free vertex the linear part is zero. Independent exact check `python3 -B /workspace/review_checks.py 1` enumerated restaurant allocations in N=2–4 with one to three club labels (including empty labels) and checked 126 rankings. The global claims are analytic, not consequences of the packaged trajectory tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 work treats one club analytically and reports Monte Carlo for two clubs, leaving general multi-club theory open.",
+          "The 2025 paper, p. 18, explicitly reports supplementary Mathematica notebooks with an analysis of multi-dining clubs with a replicator dynamic; no corresponding theorem or its scope is given in the inspected manuscript."
+        ],
+        "reasoning": "The accessible main papers do not dominate the all-K result. The supplement could cover part or all of the dynamical theorem; no assertion is made about the unread notebook contents.",
+        "searches": [
+          "arXiv:2302.14142, Sec. II, multiple-club simulations and conclusions",
+          "arXiv:2502.15377, Data and Code Availability; https://arxiv.org/src/2502.15377; IOP supplement route"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches described above",
+        "arXiv:2302.14142",
+        "arXiv:2502.15377 / J. Phys. Complexity 6, 025002, including its Data and Code Availability statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known one-club advantage and dynamics cover K=1. The 2025 main paper's two-club switching result does not assert ordinary-replicator basins for arbitrary K.",
+          "The frozen proof requires exact all-K payoff differences, a uniform positive kernel, a ratio argument for every initially occupied club, and an all-face linearization."
+        ],
+        "reasoning": "The special cases neither imply the uniform ordering in the presence of arbitrary other clubs nor determine loss rates and saddle indices on higher-dimensional tie faces. The supplement is the strongest plausible exception and remains unverified.",
+        "searches": [
+          "arXiv:2302.14142 §II, pp. 7–9",
+          "arXiv:2502.15377 pp. 3, 17–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Harlalka–Griffin's main paper uses tolerance/stickiness-driven group exchanges and explicitly distinguishes ordinary replicator dynamics.",
+          "The two-club collision formulas are special cases of the same occupancy model; a shared winner pattern under a different flow is not the same theorem."
+        ],
+        "reasoning": "Identifying payoff parameterizations preserves the finite game but not the dynamics. The frozen result fixes ordinary payoff-proportional growth on all faces, including exact ties and extinct strategies.",
+        "searches": [
+          "Kolkata Paise multiple clubs replicator dynamics club size payoff ordering multi-group dining clubs",
+          "arXiv:2502.15377, pp. 3 and 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded ranked searches did not retrieve a materially matching published finding.",
+          "The exact payoff formulas in the 2025 article's main text concern two clubs, not a classification indexed by all K and all positive supports."
+        ],
+        "reasoning": "There is no finite empirical table underlying this theorem. Neither the retrieved evidence nor the two-club formulas supply the exact all-K ordinal law and the all-face equilibrium count and spectra; negative retrieval is not proof of absence.",
+        "searches": [
+          "Resultary: Kolkata Paise dining clubs multi-club payoff ordering replicator dynamics winner selection (top 50)",
+          "Resultary: Kolkata Paise exact multi-club replicator ordinary payoff game (top 100)"
+        ]
+      },
+      "rationale": "The evidence supports a distinct all-finite-K payoff order and complete ordinary-replicator classification, not novelty for the one-club result, the two-club payoff model, or qualitative monoculture. A named 2025 supplement is a substantive unresolved comparison, especially for the replicator part; the accessible evidence does not demonstrate equivalent coverage of the theorem with the stated quantifiers.",
+      "residual_risks": [
+        "The supplementary Mathematica notebooks of Harlalka–Griffin (2025) were not accessible for statement-level inspection and may contain equivalent all-K replicator results or overlap in the basins, tie analysis or rates.",
+        "The bounded search does not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known analytic starting case and two-club numerical comparisons, not all-K theorem",
+          "evidence": "The multiple-club section uses two clubs and Monte Carlo; the conclusion identifies general multi-club theory as a research direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.14142",
+          "material_read": "One-club analytic context; primary PDF p. 2 (offset 7920), p. 7 (30584), pp. 8–9 (35416 and 36853)",
+          "method": "Compared number of clubs and analytical versus simulated outcomes",
+          "title": "Stability of Dining Clubs in the Kolkata Paise Problem with and without Cheating",
+          "trigger": "Origin of the exact stochastic club model and ordinary evolutionary dynamics"
+        },
+        {
+          "assessment": "Same setting in dimension two, but different rule in the main paper; supplemental scope unresolved",
+          "evidence": "The main text distinguishes the switching rule and identifies the multi-club evolutionary comparison as future work. The availability statement explicitly mentions a supplementary multi-club replicator analysis; source-route retrieval did not provide readable notebook material and the journal-route attempt timed out.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.15377",
+          "material_read": "Primary PDF p. 3 (offset 7939), p. 17 (59840 and 61381), p. 18 Data and Code Availability (62720–62803)",
+          "method": "Compared the two-club restriction and update rule; sought the cited notebook via the arXiv source route and the journal supplementary route",
+          "title": "Multi-Group Dynamics with Tolerant Switching in the Kolkata Paise Restaurant Problem with Dining Clubs",
+          "trigger": "Closest extension and explicit reference to potentially overlapping supplemental analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem addresses the natural multi-club extension raised by the model's founders. It separates the exact finite payoff order from the ordinary mean-field selection rule, and gives a complete assignment of limits, tie faces and local stability indices rather than repeating a one-club advantage or simulation. This value is within independent coordination and fixed finite K; it is not a claim about finite stochastic absorption or tolerance switching.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

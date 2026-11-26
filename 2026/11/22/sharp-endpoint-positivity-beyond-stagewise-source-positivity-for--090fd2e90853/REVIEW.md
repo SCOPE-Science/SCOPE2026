@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-polynomial spectral reduction is exact for every real symmetric input with eigenvalues in the closed unit interval. The zero-crossing equations and derivative factorization give the unique least positive crossing at the radical constant. Descartes' rule ensures the fixed critical input is negative for every larger timestep; endpoint and stage source bounds are checked separately. Direct exact arithmetic independently verifies the key identities and a rational negative example. No numerical sample is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with historical priority limits
-The 2026 primary source supplies the integrator and the same spectral matrix-cubic nonlinear source, but its positivity argument uses stagewise positive semidefinite forcing. The new assertion is the exact all-input completed-step threshold beyond that hypothesis, not the integrator formula itself. Literature on maximum-bound-preserving Allen–Cahn schemes typically gives stagewise sufficient restrictions or analyzes different stabilized/integrating-factor schemes. Closely related accessible full text was inspected and did not identify this sharp endpoint-only claim. The 2021 Applied Numerical Mathematics paper is a plausible but partly inaccessible prior source: its abstract was compared, but equivalent material could be present in the full text. Lack of a search match is not proof of novelty.
+PASS
 
-## Value — PASS
-A published nonlinear positive-semidefinite experiment uses precisely this matrix-cubic source. Knowing the exact completed-step threshold instead of only the much smaller stagewise sufficient bound changes which timesteps may be justified for a single output, while pinpointing when positivity genuinely fails. The result is a complete natural scalar-spectrum classification, not an arbitrary computed example, and it exposes a practical distinction between intermediate and endpoint constraints.
+Ordinary matrix powers preserve the eigenbasis of a symmetric input, so this is exactly a scalar question on [0,1]. The scalar endpoints are fixed. For 0<x<1 let u=x² and a=1+h(1-u)>1. Substitution gives 2z_h(x)(1-u)/x=1+a²-u(1+a+a⁴-a³). The denominator minus the numerator in the resulting zero formula for u is a(a-1)²(a+1)>0, so the parametrization is reversible and covers all interior zeros at positive h. The crossing function is G(a)=a-1+(a²+1)/(a(a²-1)). Its derivative has the sign of a⁴-4a²+1 on a>1, so it has one minimum at sqrt(2+sqrt(3)). There a-1/a=sqrt(2) and (a²+1)/(a²-1)=sqrt(3), yielding G(a)=2sqrt(2)-1. Continuity from h=0 gives positivity below the first crossing and nonnegativity at it; uniqueness of the minimizing a yields the sole interior zero at equality. At fixed u the quartic coefficients in descending h have signs -,-,ambiguous,+,+, with any zero coefficient omitted. Descartes' rule and the negative leading coefficient give one positive root, with strict negativity thereafter. Applying it at the critical input proves the same witness for every h above the frontier. Independently y>=0 and y-1=(1-x)(hx(1+x)-1); the supremum of x(1+x) as x approaches 1 from below is 2, giving the universal source threshold 1/2 including equality. These arguments address all matrix dimensions without a numerical search.
 
-## Limitations
-This theorem does not imply repeated-step positivity, an upper spectral invariant, or safety for nonzero linear terms. The historical-priority search cannot exclude inaccessible or unindexed equivalent work. Exact checks cover the one-step polynomial and threshold, not other numerical schemes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp completed-step threshold and fixed failure witness for the stated nonlinear PSD problem are distinct from the inspected positive-source and forward-Euler-based sufficient restrictions. The same Heun formula and cubic reaction have prior uses; the record appropriately makes no novelty claim on the method or reaction. Related SCOPE positivity results have different linear operators, conditions or algorithms. This is a bounded comparison; unavailable articles were not treated as negative evidence.
+
+## value
+
+PASS
+
+The calculation answers a natural sharpness question about sufficient stagewise conditions for standard second-order time stepping. The substantial separation from 1/2, the exact interior extremizer, and the fixed failure witness quantify a practical and structural distinction that a sufficient SSP bound does not capture. It is not presented as an invariant-domain or general SSP theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:41.774418Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–35",
+        "Frozen collapse_certificate.json; verify_collapse.py, lines 16–133 (inspected, not executed); VERIFICATION.md and verification_output.txt (recorded evidence)",
+        "Independent replay: python3 /workspace/reproductions/relative_collapse.py /workspace/source/2026/10/18/a-relative-simplicial-collapse-between-the-pure-morse-complexes--fcb3f0c02c4e/collapse_certificate.json — all 3428 pairs verified and exact target reached"
+      ],
+      "rationale": "Reconstructed each Hasse diagram and enumerated all undirected matchings by recursively taking the first remaining cell as unmatched or pairing it with an available neighbor. For every matching, a three-color directed DFS tested for cycles after orienting matched incidences upward and the rest downward. This includes all sizes, so it independently proves maxima 7 and 6, with 256 optimal acyclic matchings each. Downward closure gives 11080 and 4224 nonempty faces. Translating the boundary's incidence indices gives exactly the apex-free induced subcomplex; the four links each have 1714 faces including the empty face. Independently replayed the submitted bitmasks, checking at each pair that neither face is in the target, that the larger contains the smaller with codimension one, and that the larger is the only proper coface of the smaller in the entire current complex. After all 3428 removals the remaining face set equals the naturally embedded target. Each pair belongs to just one apex since the lower face has an apex and at most one is possible. Removing the apex bit from each such pair except the last in each cone gives a link collapse to a vertex. The natural inclusion is therefore a simple-homotopy equivalence. It commutes with vertex relabelings and hence the induced integral homology isomorphism is equivariant, whether or not the sequence itself is equivariant.",
+      "residual_risks": [
+        "This exact finite check concerns only the pure acyclic complexes of the tetrahedron and its boundary. It entails neither an equivariant sequence nor a higher-dimensional collapse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 9 gives the optimal-facet correspondence for simplex and boundary across dimensions, not free-face eliminations.",
+          "Theorem 17 and its corollaries concern the ordinary cone-base inclusion, not this pure simplex-boundary pair.",
+          "The generalized cone-cover criterion in Corollary 26 is conditional on link collapsibility, and Proposition 27 identifies noncollapsible tetrahedral links for the generalized matching complex."
+        ],
+        "reasoning": "Optimal facet correspondence is not information about free pairs. Dropping acyclicity changes the links, so generalized obstructions neither prove nor refute this certificate. The generalized criterion does not mechanically imply the pure result: the links here have to be proved collapsible separately.",
+        "searches": [
+          "Scoville, arXiv:2604.18172v1, Proposition 9, §4 Theorem 17 and Corollaries 18–19, §6 Propositions 25, 27 and Corollary 26",
+          "Resultary da1e0162e98f, generalized tetrahedral matching complexes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.18172v1",
+        "Resultary ab38cf809efe, 95cb38f967b2 and da1e0162e98f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 22 derives abstract homotopy types by connectivity and separately evaluated homology; it does not construct a deformation relative to the boundary-pure faces.",
+          "The closest Resultary relative-collapse result concerns fixed-point triangulations of the ordinary pair, not the unsplit pure pair."
+        ],
+        "reasoning": "Equal abstract homotopy types cannot determine whether a specified inclusion induces an isomorphism, much less force it to be realized by elementary collapses without expansion. The independently replayed certificate supplies this missing combinatorial implication.",
+        "searches": [
+          "Scoville, Theorem 22, proof and Conjecture 23; Proposition 9",
+          "Resultary ab38cf809efe and 95cb38f967b2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ab38cf809efe studies a ghost involution and rational S_4 homology characters of the same pure pair; it does not assert relative collapse.",
+          "Resultary 95cb38f967b2 uses orbit-barycenter triangulations of fixed-point spaces for the ordinary matching complexes.",
+          "Scoville, Example 2.2(c), gives the analogous collapse in dimension two, where ordinary equals pure."
+        ],
+        "reasoning": "The objects must be identified before comparing results. An abstract homotopy equivalence or equality of group representations is not a collapse of the simplicial inclusion; neither passing to fixed points in a different complex nor using dimension two gives the claimed relative result.",
+        "searches": [
+          "Resultary: relative elementary simplicial collapse of pure tetrahedral acyclic matching complexes",
+          "Primary search: ‘discrete Morse matchings’ pure tetrahedron boundary simplicial collapse natural inclusion Scoville"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 already records the exact two face vectors; Theorem 22 assigns both complexes the homotopy type of an 81-fold wedge of 3-spheres.",
+          "Closest mirror results ab38cf809efe, 95cb38f967b2 and da1e0162e98f do not record the 3428-pair pure relative collapse."
+        ],
+        "reasoning": "The number of elementary pairs is fixed by half the difference of the existing face totals if a collapse exists; that arithmetic is not a new count. The new evidence is a simultaneous valid elimination of those faces preserving the target, not the number of faces or spheres.",
+        "searches": [
+          "Resultary: pure tetrahedral matching collapse, fixed-point collapses, tetrahedral homology characters (three ranked searches)",
+          "Scoville §5 Table 1 and Theorem 22"
+        ]
+      },
+      "rationale": "Scoville already gives the two pure homotopy types and face vectors. The distinct claim is an elementary collapse of the actual embedded boundary-pure subcomplex, with all its faces simultaneously retained. The closest prior relative results apply to different complexes, inclusions or dimensions.",
+      "residual_risks": [
+        "A relative pure-complex theorem under different terminology might exist; exact searches and passage comparisons are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the face vectors and abstract pure homotopy types; other relative theorems do not cover this inclusion",
+          "evidence": "Theorem 22 proves the common wedge type separately; the earlier actual simplex-to-boundary collapse in Example 2.2 is dimension two. The §6 criterion and obstruction concern matchings without the acyclicity requirement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.18172",
+          "material_read": "§2.2 Example 2.2(c), pp. 4–5; Proposition 9, p. 7; §4 Theorem 17 and Corollaries 18–19, pp. 14–16; Table 1 p. 16; Theorem 22 and Conjecture 23 p. 17; §6 Propositions 25, 27 and Corollary 26, pp. 17–20",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "The complex of discrete Morse matchings of the n-simplex: homotopy types and structural results",
+          "trigger": "Same pure pair, smaller-dimensional collapse and plausible generalizations"
+        },
+        {
+          "assessment": "Covers rational character information, not an inclusion collapse",
+          "evidence": "The result concerns rational S_4 modules and a ghost involution, with no equivariant homotopy or integral-lattice statement.",
+          "identifier_or_url": "Resultary ab38cf809efe",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror passage inspection",
+          "title": "The ghost-involution character of tetrahedral pure Morse complexes",
+          "trigger": "Same pair of pure complexes and tetrahedral action"
+        },
+        {
+          "assessment": "Different complexes or operations",
+          "evidence": "The former collapses orbit-barycenter triangulations of fixed-point spaces in ordinary complexes, and the latter treats generalized matchings, allowing cycles.",
+          "identifier_or_url": "Resultary 95cb38f967b2; da1e0162e98f",
+          "material_read": "RESULT.md Findings",
+          "method": "Local mirror passage inspection",
+          "title": "Proper-subgroup fixed-point collapses and four regular modules in a tetrahedral Morse-complex pair; Complete tetrahedral symmetry characters of generalized discrete Morse matching complexes",
+          "trigger": "Closest tetrahedral collapse and matching-complex records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–35 and 46–52",
+        "arXiv:2604.18172v1, Example 2.2, Theorem 22 and Proposition 27",
+        "Independent exact replay"
+      ],
+      "rationale": "This is the first simplex dimension in the cited comparison where the ordinary and pure constructions separate, with a motivated question left by the two independently known wedge types. A certified collapse answers the natural-map and simple-homotopy questions, and identifies the four actual apex links as collapsible even though the corresponding generalized links are not. The precise relative fact is useful independently of any higher-dimensional extension.",
+      "residual_risks": [
+        "The certificate is finite and does not settle the higher-dimensional conjecture or give an equivariant collapse."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

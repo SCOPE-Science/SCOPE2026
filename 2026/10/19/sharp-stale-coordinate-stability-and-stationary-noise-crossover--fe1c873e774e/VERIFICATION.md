@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and checks
 
-Run `python3 artifacts/verify_asynchronous.py` using a standard Python 3 installation, without third-party packages. The program uses `fractions.Fraction` and a fixed seed only to choose rational test parameters. It independently evaluates the exact stochastic covariance map from its four-by-four transition matrices, verifies the supplied stationary covariance and four eigenvalue identities, independently evaluates the fresh-read covariance map, and verifies the stationary-risk difference. Result: **6,908 exact-rational assertions passed**.
+Run `python3 artifacts/verify_asynchronous.py` with standard Python 3. The program uses `fractions.Fraction` and fixed-seed rational test parameters. It checks the stale and fresh covariance balance, stale covariance eigenvalue identities, two-update forcing positivity and the variance difference. The recorded run reported 6,908 exact-rational assertions.
 
-The general stability frontier is proved by a positive-definite two-step Lyapunov certificate and a positive-semidefinite stationary-covariance obstruction; numerical checks are neither exhaustive over real parameters nor a substitute for those arguments. No independent audit or formal proof certification has been performed. The stochastic model assumes centered, mutually independent finite-variance update noise and uniform independent coordinate selection.
+These checks use the covariance map for independent fair selections and centered noises that are mutually independent and independent of the entire selection sequence. They test identities at finitely many parameter values, not independence in data or the general stability frontier. The analytic proof in `RESULT.md` treats the full parameter range and both sides of the frontier.

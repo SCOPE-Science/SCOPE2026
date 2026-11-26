@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The supplied `checker.py` uses only the Python 3 standard library. Running `python3 checker.py` verifies exact Legendre recurrence integrals, exact parity relations, explicit negative neighboring-degree compression eigenvalues for ordinary spherical heat, and numerical stress tests of the fractional spectral-order transition. It reports 249 assertions across exact and numerical checks. The exact rational assertions test stated identities; numerical checks validate examples but do not establish universal quantifiers.
+## correctness
 
-The optional `finite_gram_check.py` requires NumPy and reconstructs finite-site covariance matrices on 64 equally spaced circle points from a converged Fourier series. For \(a=1\), \(v\) of magnitude \(0.3\), \(t=2\), \(\alpha=0.75\), the matrix is indefinite despite all diagonal entries being positive. The same holds for \(a=1\), \(\|v\|=0.2\), \(t=0.5\), \(\alpha=1\). These computations support, but are not the basis of, the theorem.
+PASS
 
-The infinite-dimensional proof is self-contained in `RESULT.md`. It uses uniform absolute convergence of the strictly positive harmonic spectrum; the equivalence of finite-site positivity and smooth integral quadratic forms for continuous kernels; the harmonic degree selection rule for multiplication by a coordinate; a normalized adjacent-degree Jacobi operator; zonal Gegenbauer recurrence coefficients; and concavity/asymptotics of the fractional spectral gaps. The exact norm \(\rho_{d,t,\alpha}\) is specified mathematically and need not be computed numerically for the classification. No independent validation has been performed.
+For each strictly positive summable multiplier, the projector bound |Pi_l(x,y)| <= dim H_l gives continuity and justifies the equivalence of finite Gram positivity and integral positivity (Riemann sums and approximation of point masses). Rotation reduces nonzero v to its length times e_d. Congruence by C^(1/2) on finite harmonic sums gives the displayed degree-neighbor quadratic form. Its weights are sqrt(r)+1/sqrt(r) and its degree-parity unitary flips its sign, giving the exact closed threshold when bounded. Cauchy–Schwarz bounds the form by twice the largest weight; in the other direction the zonal recurrence gives neighboring coupling tending to 1/2 (equal to 1/2 on the circle for l>=1), so unbounded weights already give negative two-degree forms and therefore finite Gram witnesses. The function sqrt(x(x+d-2)) is increasing and concave and a power <=1 preserves this, so the maximal spectral gap for alpha<=1/2 is at l=0; above 1/2 the gap is asymptotic to 2 alpha l^(2 alpha-1). The diagonal condition proves the lower bound 2, the weight bound proves the stated upper bound, and v=0 reduces to positivity of aC. This checks the endpoints, all d>=2 and the stated 0<alpha<=1 without relying on finite numerics.
+
+## originality
+
+PASS
+
+The distinct contribution is the two-way adjacent-ratio equivalence for arbitrary positive summable isotropic coefficients and the resulting fractional-Laplacian cutoff, not the geometric Poisson case or the ordinary-heat obstruction on S^2. Published axial coefficient positivity is a framework: it does not state the across-degree comparability or identify the fractional order, for which both the nonvanishing high-degree coupling and the weighted form estimate are needed. The inspected evidence supports this distinction without certifying global priority.
+
+## value
+
+PASS
+
+The criterion turns the finite-site validity problem for a natural perturbation of isotropic sphere covariances into a uniform, directly testable condition on spectral weights. It explains why arbitrarily small affine perturbations fail for fast smoothing and why a closed admissibility cone survives at and below the critical order. That distinction is useful beyond checking a single kernel or deriving an inequality for its diagonal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

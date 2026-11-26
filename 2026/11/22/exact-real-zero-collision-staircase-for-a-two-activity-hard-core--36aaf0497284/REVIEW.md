@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hub-independent-set split is exact and the cycle polynomial has positive leading coefficient and degree \(d=\lfloor n/2\rfloor\). The transfer trace yields the trigonometric parametrization on the full real-zero half-line. Its derivative has exactly \(d-1\) distinct finite stationary points, with alternating nondegenerate signed values; thus no omitted real collisions can change the root count. Starting at the explicitly real, simple \(t=0\) roots proves the complete strict-threshold count, equality multiplicity, and negative location. Differentiating twice at a critical point gives the positive exact curvature and the square-root unfolding. The binomial enumeration, Sturm probes, critical-value comparisons, and three exact double-root factorizations passed in the packaged Python verifier. Finite computation is supplementary, not a substitute for the all-size proof.
+PASS
 
-## Originality — PASS on examined evidence, with residual priority risk
+The hub split gives the constant shift of the cycle transfer trace. At z >= -1/4 the trace is positive. For z(theta) = -sec(theta)^2/4, 0 < theta < pi/2, differentiating the trace gives -n*2^(1-n)*sec(theta)^(n+1)*sin((n-1)*theta). The d-1 interior sine zeros exhaust the derivative's degree, so even nonreal multiple roots cannot occur at other parameters. The odd critical points are nondegenerate minima of values -tau, ordered by strictly increasing sec(theta); the even maxima cannot be canceled by t >= 0. The d simple t=0 roots are the cosine zeros before pi/2. At each minimum a conjugate pair leaves, with the double root still counting twice at equality, and no degree change or zero crossing can introduce a new real branch. Dividing the second theta derivative by z'(theta)^2 gives the stated positive P''; the implicit function theorem in sqrt(delta) gives A=sqrt(2/P'') and the O(delta) remainder. Expanding log(sec(theta)) to quadratic order with O(theta^4) gives the fixed-j exponent. An independent recurrence/Sturm spot check gave n=8 counts 4,2,0 at t=0,1/8,1000 and n=7 double-root gcd z+1/3 at t=1/27. The frozen checker was inspected, not executed.
 
-The cycle Chebyshev polynomial, ordinary wheel independence formula, and general claw-free root results predate the claim. Comparisons considered the **implications** rather than only matching titles: the claw-free theorem concerns a standard uniform variable on every vertex, not a fixed independent hub activity; the 2003 well-covered graph root identities concern a different expansion; the 2018 left-half-plane stability theorem does not count real roots; the 2025 unperturbed cycle root-gap calculation stops before a constant perturbation. Known tables furnish the baseline polynomial, not its entire fixed-hub root-collision staircase. Targeted published-finding corpus indexed searches and accessible earlier scientific claims found no identical or dominating theorem. A Chebyshev-perturbation equivalent may be present in uncatalogued literature or derivable without a published statement, so global priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complex fugacity zeros of the hard-core gas are a standard diagnostic, and the wheel is the smallest canonical graph family with an extensive cycle and one universal-site defect. The question is natural: how strongly may a fixed occupation activity at a universal hub perturb the **real** negative-axis zero structure of the rim? The theorem gives a sharp, all-size and all-parameter threshold, full count of subsequent conjugate-pair departures, analytic critical points, and a nontrivial exponentially small robustness scale. The controlled local square-root unfolding makes precise how each pair leaves the axis. This is a complete structural classification of a motivated model, not a single arbitrary finite instance or a recomputation of known coefficients.
+The standard cycle transfer/ Chebyshev formula, wheel independent-set split and generic double-root unfolding are not new. The distinct claim supported here is the full explicitly ordered constant-shift collision classification, with critical amplitudes and onset scale.
 
-## Closest literature and limitations
+## value
 
-Levit–Mandrescu (2003) supplies early context on independence roots; Chudnovsky–Seymour establishes claw-free real-rootedness; Brown–Cameron (2018) treats Hurwitz stability; Prakash–Sharma (2025) uses cycle Chebyshev roots for separation; MathWorld tabulates the classical unperturbed polynomials. Distinct indexed wheel and polynomial-zero claims concern different statistical models or Ehrhart polynomials. No physical finite-temperature singularity, independently varied rim fugacities, or independent scientific audit is claimed. Historical priority risk remains if an earlier full Chebyshev-constant-perturbation classification is located.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A wheel is a simple family with a genuinely independent universal-site activity. The exact robustness interval for real zeros, the complete subsequent phase count and local opening resolve a natural perturbation question uniformly in rim size. The exponentially small onset is informative without being a thermodynamic singularity claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

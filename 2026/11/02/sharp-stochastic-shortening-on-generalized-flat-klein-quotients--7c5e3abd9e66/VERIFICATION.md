@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,17 +21,4 @@
 
 # Verification and reproducibility
 
-Run `python3 check.py` with Python 3 and no third-party packages. The source is embedded beside this document. The checks operate on directly evaluated shortest-deck paths and independently derived integral formulas rather than assuming the desired coupling.
-
-Observed output:
-
-```text
-EXACT_CUTOFF_RATIONAL_MOMENTS_PASSED
-INDEPENDENT_QUADRATURE_AND_BRANCH_MATCH_PASSED
-UNIT_SQUARE_EXACT_SECOND_MOMENT_PASSED
-DIRECT_DECK_MINIMUM_AND_STOCHASTIC_COUPLING_PASSED
-SEVEN_HALVES_CUTOFF_ASYMPTOTIC_PASSED
-ALL_CHECKS_PASSED
-```
-
-The checker confirms exact rational cases and numerical agreement for representative periods. The mathematical proof in `RESULT.md` establishes the arbitrary-dimensional quantifiers and the analytic non-smoothness; finite simulations, quadrature and asymptotic numeric ratios are not proofs of those universal claims. Independent audit is not performed.
+The theorem follows from the analytic proof in `RESULT.md`, including the independent horizontal costs, integration over the vertical gap, and the two limiting period families at fixed horizontal dimension. The unchanged `check.py` can be run with Python 3 without third-party packages. It contains sample checks on the direct deck minimum and cutoff in higher dimensions. Its ordinary-bottle integral and regularity checks are contextual comparisons only, not claims of the narrowed result. Finite samples and numerical quadrature cannot establish the universal statements.

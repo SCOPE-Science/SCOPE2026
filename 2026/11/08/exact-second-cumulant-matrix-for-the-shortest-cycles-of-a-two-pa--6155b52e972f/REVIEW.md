@@ -1,11 +1,21 @@
-# Scientific review of the short-cycle second-cumulant identity
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph sampling convention, labeled edge multiplicities, and the boundaries \(n=2,3\) are explicit. Deterministic conditional triangle increment means ensure martingale-difference orthogonality; the conditional second moment uses exactly the double-edge count. Birthwise collision indicators are independent, and cross-covariances vanish off the diagonal by conditional expectation. The zeta limit is obtained by absolutely convergent sums, while the strict negative variance correction has a finite rational sign certificate and a rigorous tail bound. A full independent exhaustive state-space implementation checked all graph histories through six vertices, with 153 passed assertions. It supports but does not replace the infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** The closest primary result is Björklund–Holmgren–Janson–Lo's Poisson approximation and their explicit three-cycle *mean*. Section 7 bounds approximation errors but does not state the finite covariance matrix or order-one covariance/variance residues. Burghart uses the same recursive graph to investigate ancestry and descendants, not these local-cycle cumulants. Searches across actual mathematical records, paper keywords, aliases, and broader Poisson theorems did not reveal coverage of the precise statement. A differently expressed second-moment computation remains a priority risk; search absence alone is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The two shortest cycle counts are the basic non-tree local motifs of the model. A previously proven asymptotically independent Poisson law hides persistent negative absolute covariance: the exact finite second-cumulant matrix reveals that structure and the sharp quantitative underdispersion of triangle counts. This is a natural complete second-order computation relevant to moment-sensitive refinements of Poisson approximation, not a relabeling of the existing mean or a gratuitous numerical example.
+The repaired claim is exactly the triangle variance correction, its all-size sign and its limit. Given the old graph, a distinct unordered target pair has probability 2/t² and contributes the multiplicity of its old edge. The old-edge sums of multiplicities and squared multiplicities are 2(t−1) and 2(t−1)+2D_t respectively, so the first conditional moment is deterministic and centered increments are orthogonal, while the second is 4(t−1)/t²+4D_t/t². E D_t=H_{t−1}; summing variances yields the formula with index cutoff n−1. The log-squared integral gives the Euler sum, with nonnegative terms allowing termwise integration; the other sums converge absolutely. The summand is 4f(t)/t², f(2)=0. Exact arithmetic checks f(3) through f(7) and f(21) negative and f(22) positive; the displayed first difference of f is positive from t=7 on. The correction first decreases strictly and then increases towards a strictly negative limit, with its rational upper bound below −1/5. This proves both zero cases n=2,3 and all negative cases n≥4. No inference about moments is made from total variation.
 
-**Limits.** Fixed outdegree two, with-replacement labeled arcs; no higher cumulant theorem, no full mod-Poisson expansion, and no assertion of independent validation. The primary comparison may not exhaust all historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired final finding claims neither the mean, the parallel-pair variance, nor the cross-covariance. The checked same-model published statements give the known mean, distributional approximations, variance orders and overlap bounds, and a prior catalogue record gives the other matrix entries. None of those states or implies the exact triangle diagonal correction from their stated conclusions. The deterministic new-triangle mean and dependence of its conditional second moment on old double pairs supply the additional calculation.
+
+## value
+
+PASS
+
+The model's simplest nontrivial triangle statistic has a growing Poisson approximation, yet a fixed negative discrepancy in variance that is already strict at every size with a nonzero discrepancy. The exact all-size diagonal correction and limit are the missing information after the known cross-covariance. They constrain any moment-sensitive refinement of the same model and constitute more than an isolated size or a recasting of earlier bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:40.449546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–46; VERIFICATION.md, verify.py and verification_output.txt",
+        "Replay: python /workspace/replay/review124.py"
+      ],
+      "rationale": "The numerical claim, separated from its assertion of priority, is correct. Parsing the triples from RESULT.md gives 34 distinct triples on the displayed point set, using 102 distinct unordered pairs. An exhaustive maximum-clique search in the disjointness graph has optimum four. The displayed four blocks are one optimal clique. Each vertex of any 16-point system belongs to at most seven triples because their other-point pairs must be disjoint. Thus 3B <= 112, so B <= 37. The resulting interval is true but weaker than what already follows from Stinson.",
+      "residual_risks": [
+        "Neither verification of this witness nor the pair bound determines the optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stinson gives general lower and upper bounds as well as the specific STS(15) instance. Bryant–Horsley provide systems without parallel classes in orders congruent to 27 modulo 30, not the needed 15-point conclusion."
+        ],
+        "reasoning": "The specific 15-point result is prior coverage via monotone padding to 16, even though the broader families alone are not the decisive comparison.",
+        "searches": [
+          "arXiv:2007.11033v1, Theorems 2.4 and 3.2",
+          "Bryant–Horsley arXiv:1407.5766v1, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.11033v1, 1407.5766v1, 1708.07646v1",
+        "Resultary 2026/9/9/SCOPE045"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 35-block STS on 15 points with a maximum PPC of four is explicit in the source. Padding needs no extra blocks and deleting a block outside a chosen PPC of size four leaves a matching of size exactly four."
+        ],
+        "reasoning": "The claim at the stated extremal parameter is mechanically implied by, and weaker than, prior coverage. The literal block list has full support and is not the padded witness, but no additional extremal claim under a full-support condition is advanced in the frozen finding.",
+        "searches": [
+          "Stinson arXiv:2007.11033v1, p. 3, exact beta(4,15) passage, compared with frozen RESULT.md lines 5–11 and 24–26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stinson states 'there is an STS(15) having a maximum PPC of size 4' and gives beta(4,15)=35."
+        ],
+        "reasoning": "The paper and the frozen record use the same maximum matching parameter. Adding an unused point preserves all disjointness relations among blocks.",
+        "searches": [
+          "Stinson, arXiv:2007.11033v1, Section 1, PDF p. 3, offset 7155; beta(4,15) and maximum partial parallel class"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE045 gives two 33-block witnesses and the interval [33,37], overlooking padding from 15. Demirkale–Donovan–Grannell enumerate 47,744,568 nonisomorphic maximum 16-point systems, but their inspected tables report Pasch, mitre, sub-STS and automorphism statistics, not this parameter. Stinson's Table 1 is for v=27."
+        ],
+        "reasoning": "The narrower catalogue entry is not the best available lower bound; lack of a matching table entry at v=16 does not defeat a direct implication from a primary source.",
+        "searches": [
+          "Resultary 2026/9/9/SCOPE045",
+          "arXiv:1708.07646v1, Section 5 and Tables 14–17",
+          "arXiv:2007.11033v1, Table 1"
+        ]
+      },
+      "rationale": "Stinson explicitly states that there is an STS(15) with largest partial parallel class of size four, hence beta(4,15)=35. Adjoin an unused point to obtain a 16-point packing with exactly the same maximum partial parallel class and 35 triples. Unused points are allowed by the frozen definition. This already gives beta(4,16)>=35. Deleting a block outside a fixed four-block matching then gives the unrestricted 34-block existence claim as well. The presentation as a one-block improvement on the prior mathematical lower bound does not survive.",
+      "residual_risks": [
+        "No isomorphism novelty assessment of the particular 34-block list is claimed; it does not affect the dominating prior bound for the stated problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive dominating instance",
+          "evidence": "The paper gives beta(4,15)=35 from an STS(15) whose largest PPC has size four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.11033v1",
+          "material_read": "Section 1, PDF p. 3, OA offset 7155; comparator Theorems 2.4 and 3.2, Table 1",
+          "method": "OA full-text passage inspection",
+          "title": "On partial parallel classes in partial Steiner triple systems",
+          "trigger": "Exact defining parameter and potentially dominating STS(15)"
+        },
+        {
+          "assessment": "Adjacent infinite family; not needed to cover this case",
+          "evidence": "The theorem gives orders congruent to 27 modulo 30.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5766",
+          "material_read": "Theorem 1, p. 2",
+          "method": "OA full-text passage inspection",
+          "title": "Steiner triple systems without parallel classes",
+          "trigger": "Established constructions of systems without a parallel class"
+        },
+        {
+          "assessment": "Inspected statistics do not settle matching numbers",
+          "evidence": "The 16-point encodings contain 37 blocks; the tables give different statistics.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.07646",
+          "material_read": "Abstract, Section 5, Tables 14–17",
+          "method": "OA full-text passage inspection",
+          "title": "Enumerations of maximum partial triple systems on 16 and 17 points",
+          "trigger": "Same number of points, exact classification of maximum systems"
+        },
+        {
+          "assessment": "Prior lower edge 33 is dominated by Stinson plus padding",
+          "evidence": "Two nonisomorphic 33-block witnesses and the upper bound 37.",
+          "identifier_or_url": "2026/9/9/SCOPE045",
+          "material_read": "RESULT.md, statement and two witnesses",
+          "method": "Resultary and local mirror",
+          "title": "Full-parallel-class-free packings on 16 points",
+          "trigger": "Closest cited indexed finding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Stinson, arXiv:2007.11033v1, PDF p. 3; frozen Finding and assumptions"
+      ],
+      "rationale": "The purported advance for beta(4,16) decreases, rather than increases, an available lower bound of 35. The standalone full-support 34-block witness neither resolves the gap 35–37 nor settles any motivated extremal statistic or classification beyond the previously known unrestricted existence. Substituting 35 would only restate the prior implication.",
+      "residual_risks": [
+        "An independently motivated full-support extremal problem might be worth studying, but that is not the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The explicit certificate is self-contained. The checker verifies:
+## correctness
 
-- \(2,3,11,23,31\) are prime and multiply to \(47058\);
-- \(1+\sum_{p\mid47058}47058/p=47058\);
-- every listed member of \(S\) is a divisor of \(47058\);
-- \(S\) has 16 distinct elements and is closed under \(d\mapsto47058/d\);
-- \(\sum_{d\in S}d=94116=2\cdot47058\).
+PASS
 
-No randomization, search cutoff, floating-point arithmetic, or external certificate is used. The computation only replays the finite witness; the mathematical conclusion follows directly from the definitions.
+The current McCormack–Zelinsky arXiv version (v4) uses Conjectures 46 and 47; v1 uses 47 and 48 for the same assertions. I independently read the finite certificate and checked the arithmetic in /workspace/replay_3.py using exact integers and rationals. The only primes dividing 47058 are 2,3,11,23,31; their product is 47058 and 1+23529+15686+4278+2046+1518=47058. Thus the reciprocal sum equals 1, satisfying both the primary and weak-primary definitions. The eight pairs with smaller members 1,2,3,22,23,31,33,93 have products 47058 and 16 distinct entries; their pair totals are 47059,23531,15689,2161,2069,1549,1459,599, summing to 94116. The divisor set is complement-closed and sums to twice 47058. This witness is different from 6 and disproves both conjectures. No exhaustive classification or minimum claim is required.
+
+## originality
+
+PASS
+
+The primary-pseudoperfect status of 47058 is old. The novel supported ingredient is the exact strongly pseudoperfect witness for that same number and consequent counterexample to both uniqueness conjectures. The directly relevant pre-record literature and strongest distinct indexed results inspected do not supply that conjunction or imply it in their stated regimes.
+
+## value
+
+PASS
+
+An exact, short witness for a known natural integer decisively settles two named conjectures in the negative. Its value is the refutation, not recomputing a listed primary pseudoperfect number or enumerating a slice of divisor sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

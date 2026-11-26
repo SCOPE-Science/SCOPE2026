@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:11.863467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ratios are affine invariants; near the centroid the body has positive volume exactly for t>1/4. Independently, inclusion-exclusion in the barycentric affine hyperplane gives the normalized volume of the slice a≤lambda_i≤b as F(a,b)=sum_j (-1)^j binom(4,j)[1-4a-j(b-a)]_+^3. Its derivatives are the sums of the supporting facet area times altitude, with the lower sign negative. Center at barycentric (1/4,...,1/4); reflection moves the lower and upper support planes of K_t at rates 1/4-max(lambda_i) and 1/4-min(lambda_i), respectively. Differentiating F in that direction at (0,t) therefore gives 3M_t/V_T by first variation; inactive planes contribute zero. In the first simplex chamber min(lambda_i)=1-3t, max=t; in the two middle chambers min=0, max=t; in the final simplex chamber min=0, max=1. The resulting V and M polynomials match the frozen formulas in all open chambers, and extend to the common endpoints by continuity. In particular t=1/2 is the centrally symmetric affine octahedron. For rho=M/V, the sign of the two derivative factors is settled by expanding at 1/3 and at 1 (the latter has positive lower bound 1+6s-8s^2 for s in [0,1/2]). This gives strict decrease then increase with unique minimum 1, ratio 3 on the two simplex branches. Minkowski expansion gives difference-body ratio 2+6rho. The exact left/right series around t=1/2 have common quadratic coefficient 32 and cubic coefficients -32 and -224; distinct slopes of rho'' give no third derivative there and jump -1152. For t<1/4 there is no feasible point, at equality only the centroid, so the normalized ratio is undefined there. Independent symbolic replay with SymPy: python -B /workspace/review_evidence/2_slice.py; output 2_slice.txt. No submitted script executed; sampled tests do not prove the real-parameter assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Postnikov prints the full P4 volume polynomial in three hypersimplex weights. Multiplying by six to normalize by the simplex and expanding gives P(x,y,w)=x^3+4y^3+w^3+6y(x^2+w^2)+12y^2(x+w)+9xw(x+w)+36xyw.",
+          "The prior Godbersen results give universal inequalities and equality cases, not this polynomial specialization; they are not the basis for the overlap."
+        ],
+        "reasoning": "Example 17.2 covers every chamber of this three-dimensional family; applying it to the reflected Minkowski sum covers the two desired coefficients, not merely ordinary volume.",
+        "searches": [
+          "Postnikov arXiv:math/0507163 Theorems 3.1, 3.2 and 17.1, Example 17.2",
+          "arXiv:2607.20387v2 Theorem 1.1; arXiv:2610.06806v2 Theorems 1.2, 1.5",
+          "Resultary: simplex multi-vertex truncation equal cap reflected mixed volume exact profile phases"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507163 §2, §3 and Example 17.2; arXiv:2607.20387v2 and 2610.06806v2",
+        "Resultary dda979276949, ac56e729e888, 98aafdf56b0b, cf789e5906ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In successive chambers the gap vectors are u=(0,0,4t-1), (0,3t-1,1-2t), (2t-1,1-t,0), (1,0,0). The coefficients of 1 and r in P(u+r reverse(u)) are respectively V_t/V_T and 3M_t/V_T. Actual expansion in 2_slice.py recovers all eight frozen volume/mixed-volume branches identically, with no fitting or sampling.",
+          "From these polynomials, direct quotient differentiation factors out 2t-1, leaving cubics positive by the simple endpoint shifts t=1/3+u and t=1-s; Taylor division at 1/2 gives the stated -1152 jump. The minimum and outer-branch plateaus are already apparent from this substitution and sign test."
+        ],
+        "reasoning": "There is no unresolved geometric input on this family after applying the prior polynomial. The phase and smoothness statements are useful descriptions of that substitution but come from routine differentiation, polynomial positivity and Taylor division, not an uncovered structural or exact-invariant result.",
+        "searches": [
+          "Postnikov Example 17.2, p. 48, PDF offsets 167090–170525",
+          "Resultary cf789e5906ce, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In barycentric coordinates the descending vertex representative greedily fills each coordinate up to t until the total is one. Its partial sums are min(jt,1), which majorize every feasible vector; equivalently every vertex is a permutation of this representative since all but at most one coordinate are at bounds. Its orbit hull is exactly Postnikov's permutohedron, including repeated entries. Normalizing by the original simplex removes the constant affine volume factor.",
+          "Reversal of the three adjacent coordinate gaps is reflection up to translation. The Minkowski sum with a multiple of the reflection adds the two hypersimplex-weight vectors, so the two volumes are encoded in one polynomial."
+        ],
+        "reasoning": "This is an exact reparametrization of the same normalized geometric problem, not a different kind of truncation. The generic cap depth of other uniform tetrahedron papers is 1-t on the nonoverlapping truncation interval.",
+        "searches": [
+          "Resultary: equal barycentric caps tetrahedron reflected mixed volume profile all parameters two formulas strict phase diagram cubic jump",
+          "Resultary: tetrahedron difference body volume profile under simultaneous equal vertex truncation barycentric caps mixed volume",
+          "Postnikov arXiv:math/0507163 Definition 2.1 and hypersimplex coordinates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier dda979276949 is the one-cut profile; ac56e729e888 gives the difference-body ratio and Schur-concavity for three disjoint cuts. Same-day distinct 98aafdf56b0b gives an optimization transition for two disjoint caps. These different feasible bodies do not supply the whole four-cap table.",
+          "Earlier cf789e5906ce Finding gives the entire difference body of uniform regular-tetrahedron truncations for depths from 0 to 1/2, matching only t in [1/2,1] after affine transport and parameter conversion. The targeted web lookup did not give decisive mathematical matches."
+        ],
+        "reasoning": "No separate printed complete equal-cap table was located. These exact catalogue results give distinct regimes or objects. The coverage finding rests on the stronger explicitly published P4 polynomial, not on extrapolating any of these tables.",
+        "searches": [
+          "Resultary: exact Godbersen mixed-volume profile one-vertex simplex truncations",
+          "Resultary: tetrahedron difference body volume profile under simultaneous equal vertex truncation barycentric caps mixed volume",
+          "Web: \"simultaneous\" \"vertex truncations\" simplex difference body exact mixed volume profile tetrahedron equal caps barycentric"
+        ]
+      },
+      "rationale": "The exact four-branch profile is mechanically implied by Postnikov's prior explicit P4 volume polynomial, not just by the sharp mixed-volume bounds cited in the frozen result. The monotonicity and differentiability assertions are not stated there; they are elementary one-variable derivative tests and local expansions of precisely those polynomials, not an independently distinct theorem about caps. No evidence of a prior printed equal-cap table is required for this decision.",
+      "residual_risks": [
+        "The bounded search does not settle whether a prior author printed exactly the equal-cap phase diagram. This is not a bibliographic nonexistence claim and does not affect the explicit polynomial implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger formula coverage",
+          "evidence": "The printed P4 polynomial in the u-coordinates explicitly yields both volume functions and all their chamber derivatives.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507163",
+          "material_read": "Definition 2.1, pp. 4–5 around offset 11500; Theorems 3.1–3.2, p. 6; Theorem 17.1 and Example 17.2, p. 48, offsets 167090–170525",
+          "method": "Original OA PDF passages and coefficient substitution",
+          "title": "Permutohedra, Associahedra, and Beyond",
+          "trigger": "Equal-cap slice is a permutohedron; reflection coefficients may already be encoded in a stronger volume formula"
+        },
+        {
+          "assessment": "Exact difference-body coverage on [1/2,1], not all cap chambers",
+          "evidence": "The intersection of the infinity-norm box and the L1 ball specifies the whole difference body for edge-depth d in [0,1/2].",
+          "identifier_or_url": "Resultary cf789e5906ce",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "A unique zonotopal difference body and a sharp width transition for uniform tetrahedral truncation",
+          "trigger": "Same body on the upper parameter branch"
+        },
+        {
+          "assessment": "Different number and geometry of cuts",
+          "evidence": "A single lower bound on the coordinate sum removes one corner; it is not four simultaneous coordinate caps.",
+          "identifier_or_url": "Resultary dda979276949",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Closest exact profile claimed in frozen comparison"
+        },
+        {
+          "assessment": "Not the simultaneous symmetric four-cut problem",
+          "evidence": "Three disjoint cuts and strict Schur-concavity in a fixed-sum depth regime.",
+          "identifier_or_url": "Resultary ac56e729e888",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published local mirror",
+          "title": "Sharp majorization of difference-body volumes under three tetrahedral vertex cuts",
+          "trigger": "Related exact multiple-cap result"
+        },
+        {
+          "assessment": "Distinct result with different body and objective",
+          "evidence": "Two disjoint caps and optimization at fixed removed volume, not the four-cap univariate profile.",
+          "identifier_or_url": "Resultary 98aafdf56b0b",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published local mirror",
+          "title": "Sharp cap-allocation phase transition for the three-dimensional two-cap mixed-volume problem",
+          "trigger": "Same-day exact cap phase result"
+        },
+        {
+          "assessment": "Bounds and simplex equality, not exact profile",
+          "evidence": "Universal upper mixed-volume bound with equality classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.20387v2",
+          "material_read": "p. 2 Theorem 1.1, around offset 9601",
+          "method": "Original OA PDF passage",
+          "title": "Godbersen's conjecture and the Lp-Rogers–Shephard inequality",
+          "trigger": "Universal sharp bound could cover parts of the phase diagram"
+        },
+        {
+          "assessment": "Does not provide the exact profile",
+          "evidence": "Sharp equality assertions for the classical and higher-order inequalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06806v2",
+          "material_read": "pp. 2 and 4, Theorems 1.2 and 1.5",
+          "method": "Original OA PDF passages",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Equality classifications cited in frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural deformation between simplices and an octahedron, and the elementary facet proof is correct. But the proposed scientific invariant is an exact prior P4 polynomial specialization. Reexpressing it, checking the sign of the derivative, and reporting a cubic coefficient jump for this one rational function do not yield a distinct mathematical remainder warranting repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

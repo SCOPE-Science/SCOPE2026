@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Removing the unique bridge edge gives a deletion–link homotopy cofiber. The line-graph identification reduces each factor to a classical cycle or path independence complex, with a further necessary map check: the path-to-cycle inclusion is null for lengths congruent to two, an equivalence for lengths congruent to one, and has contractible source for lengths divisible by three. The two vertex deletions in the equivalence case have contractible links, proving the critical claim. Joining the attaching maps gives the stated six types and split-inclusion results. Finite mod-two enumerations corroborate all residue patterns; the infinite and integral claims are established by the proof, not the computation.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** The 2022 polygonal-line tiling study treats edge-sharing cycles; the 2024 outerplanar result covers a broad wedge-existence property but not exact ranks or maps; the 2023 independence-complex cycle-wedge theorem concerns vertex identification, not this bridge line graph. Targeted source and claim searches for dumbbell/barbell cycle matching complexes and modulo-three formulas found no claim that entails this exact six-case classification. Previously established individual cycle/path formulas and the qualitative outerplanar alternative are fully credited. The chief residual risk is an unindexed equivalent bridge-edge decomposition.
+PASS
 
-**Value — PASS.** A bridge between two disjoint cycles is the simplest bicyclic cactus graph, and adding a single edge can destroy every prior homology generator when both lengths are \(1\pmod3\). The theorem quantifies all cases, detects mixed-dimensional integral homotopy for two \(2\pmod3\) lengths, and resolves the induced map under that natural graph change. This goes beyond an existence-only wedge theorem.
+Deleting the bridge in the matching complex leaves the join A of the two cycle complexes, while the bridge link L is the join of the matching complexes of the vertex-deleted cycles. Its inclusion is the join of the two individual inclusions. For length m=0 mod 3 the individual source is contractible; for m=1 mod 3 each of the two adjacent line-graph vertex deletions has contractible link Ind(P_{m-3}), so the individual inclusion is an equivalence; for m=2 mod 3 the sphere source has smaller dimension than the target and the map is null, including S^0 into a connected circle. These facts make A→X an equivalence when a residue is zero, make X contractible for (1,1), and give a splitting relative to A in the two remaining cases, by a nullhomotopy of the join attachment. Joins distribute up to homotopy as suspended smashes for these based finite complexes, with the S^0 cases included. The sphere dimensions, multiplicities and integral bridge-deletion assertions all follow. I inspected VERIFICATION.md, verify_barbell.py and verification_output.txt without executing the uploaded script. Independently, signed simplicial boundary elimination over F3 (replay: python3 barbell_review.py from the scratch script directory) checked both Betti ranks and inclusion image ranks for all six unordered pairs from {3,4,5}; for (4,5) the degree-2 image has rank 1 in rank 2, and for (5,5) the image has rank 1 in degree 3 and zero in degree 2. The image calculation adds a basis of the deletion's cycles to the columns of the enlarged complex's boundary and subtracts the rank of the boundary alone. This is finite corroboration, not a substitute for the integral cofiber argument.
 
-**Limits.** This is a mathematical proof and finite computational corroboration, not an independent audit. It does not treat longer connecting paths, and bibliographic searches are not proofs of worldwide uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact six-case integral homotopy types and the bridge-deletion map classification. The classical path and cycle formulas and qualitative sphere-wedge alternative are directly credited. The most similar indexed record uses the same barbell graph but computes a different complex and map; the date alone establishes no priority.
+
+## value
+
+PASS
+
+A barbell is a natural minimal test of how matching topology reacts to a bridge. An integral classification with the inclusion identifies exactly when a single edge kills the existing homology, distinguishes mixed-dimensional wedges from the qualitative outerplanar alternative, and gives reusable attachment information not present in Betti counts alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

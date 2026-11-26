@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-four cofactor-kernel reduction proves that primitive positive relations are precisely the minimal zero-sum sequences in the stated full-rank class. Exhaustive rooted reduction under signed coordinate permutations covers all possible supports: \(4\binom{79}{4}=6,010,004\) candidates. Exact signed minors and gcd calculations establish the maximum length \(30\), while orbit enumeration establishes exactly \(768\) maximizing supports in two orbits. Two determinant algorithms agreed, the final standalone code was compiled/executed successfully, and both representatives were checked by separate integer-linear-algebra calculations. This reasoning does not claim to cover lower-rank supports.
+PASS
 
-## Originality — PASS with stated residual risk
+A rank-four 4×5 integer matrix has a one-dimensional kernel spanned by the signed minors. Nonzero same-sign minors are equivalent to strict positivity; dividing by their gcd gives the primitive integer generator, and every integer dependence is its integer multiple by Bézout. Consequently a positive primitive relation is minimal as a zero-sum multiset. No valid support can contain antipodes: their two-term relation would contradict the one-dimensional kernel having full support. An independent exact enumeration used all 658,008 five-subsets of the 40 antipodal directions, computing ordered 4-minors by a cached 24-term Leibniz sum. Five nonzero cofactors give rank four and exactly two sign assignments making the relation positive: signs of the cofactors or all reversed. The absolute cofactor sum divided by gcd thus tests every positive support exactly once via one of the two assignments. The run finds 253,152 qualifying direction sets, 506,304 positive supports, length 30 at exactly 768 supports, and two distinct canonical representatives matching the frozen representatives. The 384 group images of each are distinct; their disjoint union is precisely the 768, proving trivial stabilizers. The given coefficients independently sum to zero vector with gcd one. Rooted appearance counts 120,560 and rooted maximum counts (0,0,84,72) also match; neither rooted quantity is a full-support census. Replay /workspace/branches/five_ray_circuit_audit.py, with retained output at /workspace/branches/five_ray_circuit_audit_output.txt; frozen verify_fourcube.cpp was inspected, not executed. No upper bound was established for rank-deficient five-support multisets or for the full Davenport constant.
 
-The 2026 Girard–Plagne source treats two-dimensional exact values and three-dimensional bounds, not this degree-four radius-one classification. Their 2025 original preprint discusses dimension four heuristically, but does not supply this numerical full-rank extremal value or orbit census. Plagne–Tringali 2015 provides general bounds rather than these exact support-level invariants. Searches for five-point primitive circuits, four-dimensional ternary-box Davenport constants, maximal length \(30\), and equivalent signed-cube orbit descriptions revealed no implication covering the precise statement. Related earlier records concerning dimension three with radius two involve different vector configurations and do not imply this four-dimensional result. Unindexed equivalent enumerations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This settles the first four-dimensional, radius-one case of the **full-rank positive-circuit subclass** of a refined zero-sum invariant motivated by current number-theory work. The rigid two-orbit answer and two inequivalent coefficient multisets provide structural information not obtainable from a lower bound alone, together with a verifiable finite benchmark for further high-dimensional Davenport investigations. Unlike an arbitrary numerical slice, the smallest integral box and support size one above dimension are canonical; rank four is explicitly required so that cofactor geometry controls the invariant.
+The bounded comparison did not establish earlier exact coverage of restricted maximum length 30 or the two-orbit classification on the four-dimensional radius-one box. Known cofactor formulas, general box bounds, and lower-dimensional exact censuses do not give this statement on the inspected evidence.
 
-## Boundaries
+## value
 
-This is not a claim that the unrestricted five-support or full Davenport constant is \(30\). External literature might contain an implicit table, and independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unit ternary box in dimension four is the next natural case beyond the compared two- and three-dimensional box studies. Full-rank supports of size d+1 isolate the positive-circuit obstruction to sharp bounds on minimal zero-sum lengths. An exact sharp upper bound and complete equality-orbit classification add information beyond the witnesses or a numerical search for long relations; the precise equality cases can be used in further box work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

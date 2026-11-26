@@ -1,19 +1,21 @@
-# Review: cubic Fourier return law for two hyperbola shells
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twofold convolution is derived by a quadratic in one parameter, with root exclusions and both coordinate-axis boundaries checked separately. Evaluating that convolution on each of the two shells proves the ordered threefold return count and, by finite-group Fourier orthogonality, the cubic Fourier moment. The coordinate axes are fully contained in the twofold sumset, proving that only the origin can be absent from the threefold sumset. Three quadratic-character signs then give its exact criterion. The ratio census uses two elementary character sums and an explicitly corrected two-character sieve; roots coalesce only in characteristic five in the applicable parameter branch. The smooth elliptic-curve point count, Hasse bound, and direct small-field evaluation establish the sharp existence threshold. The included direct-convolution checker passed across 15 prime-power field models, with full three-sumset support comparisons for the seven models of order at most 17. No finite experiment is substituted for the universal proof.
+PASS
 
-## Originality — PASS against the inspected literature, with residual historical risk
+The frozen return/support calculation is correct; the repaired RESULT uses it as a reduction, not as an independent contribution. Independently, write the three first coordinates in a zero return as sd, −(s+1)d, d with d≠0 and s≠0,−1. For shell labels u₁,u₂,u₃ the second-coordinate equation is u₃s²+(u₃+u₁−u₂)s+u₁=0, with neither excluded s a root. Its discriminants, grouped by the repetitions among the labels, give 8+2a+3b+3c per d. For (A,0), A≠0, take the H₁ first coordinate A/(1−λ) and Hλ first coordinate −λA/(1−λ); reflected coordinates handle the other axis, and antipodes handle zero. Fourier inversion uses the ordinary cubic power at zero. For the repaired theorem, the sums of χ(1−4x), χ(x(x−4)) and χ of their product, with 0 and 1 removed, are 0,0,T−1; the quadratic sum −1 follows by counting (x−2−y)(x−2+y)=4. The raw sieve is (q−3+T)/4. The two distinct character zeros require subtracting (1−χ(−15))/2, and the squarefree cubic has T=−t_E. In characteristic five the zeros merge, T=−1 and the spurious contribution is 1/4. The Hasse lower bound, q=11 direct evaluation, and the characteristic-five formula cover the entire existence threshold. I separately enumerated ordered triples directly for q=3,5,7,9,11,13,17,19,23,25, including each admissible ratio, with independent point counting in the smooth cases: python3 /workspace/branches/record2_triple_check.py. The frozen checker was inspected but not run. The finite tests are not the proof for all q.
 
-The closest one-shell three-sum coverage theorem gives nonzero reachability for larger fields and a different one-shell origin obstruction; it does not yield the two-shell ratio classification. The distinct-summand three-sum theorem is also one-shell and imposes a different counting condition. The exact mixed energy theorem evaluates a fourth Fourier moment, whereas the new theorem is about the cubic return moment and an elliptic count of exceptional shell parameters. A recent hyperbolic-sieve paper addresses scalar linear-projection image unions, not vector threefold sums. An earlier character-sieve-based elliptic enumeration for quartic irreducibility applies to distinct polynomial objects, not shell return walks. All stated comparisons concern mathematical implications, not titles alone. Exact statements may still be hidden in specialist literature or derivable from a more general unpublished identity; neither exhaustive priority nor independent review is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural Fourier quantity is the mean cubic transform of a two-level hyperbolic spectral support, equivalently the exact return count of a three-step additive random walk. This is the first odd moment at which the two shells can jointly remove or restore the origin while the nonzero group remains reachable. The answer identifies a complete field-and-parameter phase diagram, a singular characteristic-five transition, and an elliptic-trace fluctuation in the number of exceptional ratios. This is more than a routine evaluation of a single arbitrary special field or a numerical enumeration.
+Pass for the repaired census only. I do not pass the frozen presentation of the cubic evaluation and coverage criterion as separate new contributions: both follow mechanically from the directly overlapping general pair-count result deadda507c3b. The repair supplies complete replacement scientific text and slogan, recasting those parts as background. The exact exceptional-ratio sum with zero corrections and the fixed elliptic trace is a distinct arithmetic consequence not supplied by that result's fourth-moment cancellation or the other inspected results. Same-day catalogue dates do not determine priority.
 
-## Limitations
+## value
 
-Odd characteristic only; exactly two nonzero hyperbola levels; three-step support and return count, not full nonzero-target multiplicities. The trace expression need not simplify to a polynomial in field size. Independent historical and mathematical validation remains to be performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired finding measures, across all possible second shell levels, how often the only candidate missing target actually is missing. Its exact elliptic fluctuation, characteristic-five transition, and sharp all-field existence threshold distinguish parameters more usefully than a generic count or the already covered pointwise pair table. This is a natural arithmetic invariant of the two-level walk, not a parameter slice selected after computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:01:37.374236Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first letter can start at its own phase. A chosen occurrence of a letter has the next desired letter at the positive residue gap d_j, and taking the earliest such position realizes the minimum span S=1+Σd_j. An endpoint deletion saves its adjacent gap, including for length two; an interior deletion saves q if the two gaps sum to more than q and zero otherwise, including exactly q. Thus E=S−p must be positive and at most both endpoint gaps, which ensures E≤q; all interior saves must then be q. Single deletions suffice by downward closure, and there are no one-letter obstructions. Each admissible gap path, initial letter and eligible excess contributes exactly one word at p=1+Σd_j−E≥1. The resolvent starts with the zero-transition term for length two; endpoint correction yields (1) without negative powers in the resulting series. The q=2 determinant is 1−tz²−t²z³ and the weighted numerator is 2t²z(2+z+tz²). At t=1 the initial data and recurrence follow by coefficient comparison. The positive pole r is simple and dominant (equality in |z²+z³|≤r²+r³ forces the positive phase), giving C=−N(r)/(rQ′(r)). The supplied verification material was inspected, not executed. Independent agreement of complete word sets for 26 cases (q=2, p≤12; q=3, p≤8; q=4, p≤6), and of binary length histograms through p=12, is replayable via python3 /workspace/branches/c7bfc94d-63aa-4c2e-9455-1a0f9020c4e6/check_windows.py. These are finite checks; the span/deletion and transfer proof covers all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.7 is an O(nm) decision algorithm for individual finite-host p-MAS queries.",
+          "Resultary bcfce8efaaec covers exact minimum spans in (0^a1^b)^ω; at (a,b)=(1,1) this is the same binary visibility domain. Its coefficients tally all patterns by length and span, not deletion-minimal absent words."
+        ],
+        "reasoning": "A decision algorithm is not an enumerator or closed transfer law. The per-word binary span formula can be applied to deletions and gives the binary input to the argument, but aggregated span counts lack joint deletion data, and the two-block formula has no general q≥3 permutation specialization.",
+        "searches": [
+          "Resultary: window-bounded minimal absent subsequences periodic words transfer law",
+          "Kosche et al., arXiv:2207.09201, §4 Theorem 4.7 and §5",
+          "Resultary bcfce8efaaec, formulas (1)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Kosche et al. arXiv:2207.09201 §§2,4–5",
+        "Resultary bcfce8efaaec",
+        "Resultary f7b066958a2d and fe91200b1768",
+        "Resultary 2ef499428033, 7389806d175c and 47ef0e5dde29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing d_j=v_(j+1)−v_j+q·1_{v_j≥v_(j+1)} shows the finite-power source's interior triple-decrement test is exactly the same interior saving test. Its endpoint test instead requires weak descents and counts whole periods.",
+          "For the window union the span telescopes to 1+v_m−v_1+qD, where D counts weak descents, so endpoints matter even at fixed D. The excess condition uses actual first and last gap lengths and sums multiple eligible p for one gap sequence."
+        ],
+        "reasoning": "The strongest adjacent result shares the interior rule, but its endpoint restriction and weak-descent weights cannot be specialized to yield the concurrent p/length spectrum of the window union. The new general-q boundary classification and weighted transfer are more than a change of parameter names.",
+        "searches": [
+          "Resultary f7b066958a2d, Deletion-local minimality and General transfer",
+          "Resultary bcfce8efaaec, Exact run formula and spectral generating function",
+          "Kosche et al., arXiv:2207.09201, §4 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al. §2 Definitions 2.2–2.3 define p-subsequence and p-MAS for a finite host; taking a sufficiently long repeated permutation as host realizes every window phase.",
+          "Resultary f7b066958a2d treats one fixed linear host P_q^m. For q=3 and p=3, 20 is a MAS in 012 but is visible in the phase window 201, so the linear-host antichain is not the frozen antichain."
+        ],
+        "reasoning": "The objects use the known bounded-range definitions. The equivalent finite realization uses all phase windows, not the ordinary subsequences of one length-p factor nor the union of those factors' individual MAS sets. The cited circular framework uses conjugates of an entire circular word rather than an explicit classification as p varies.",
+        "searches": [
+          "Resultary: minimal absent p-subsequence periodic windows cyclic permutation stream transfer enumerator",
+          "Resultary: periodic permutation stream minimal absent window gap excess p-visible all phases generating function",
+          "Primary lookup: \"minimal absent subsequences\" \"window\" periodic word enumeration transfer matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected binary Padovan-type entries count MAS of a fixed finite (01)^m and have totals starting 3,5,9,16 rather than 4,2,6,6 for the window union.",
+          "The inspected ternary finite-linear-host records give length spectra for repetitions of 012, not for arbitrary p with all phases. In f7b066958a2d the first totals are 6,16,46,127. Independent testing confirmed all twelve displayed binary window totals and length histograms."
+        ],
+        "reasoning": "A shared recurrence name or alphabet is not exact tabulation coverage. The indexed variable, object, boundary conditions and coefficients differ.",
+        "searches": [
+          "Resultary: alternating binary cyclic windows minimal absent subsequences Padovan recurrence total counts",
+          "Resultary 2ef499428033, 7389806d175c, 47ef0e5dde29",
+          "Resultary f7b066958a2d and fe91200b1768"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the simultaneous window-by-length law and complete endpoint-excess and neighboring-gap classification for permutation streams. General bounded-range p-MAS algorithms, finite-linear powers and binary minimum-span spectra supply relevant ingredients or different data, but the inspected results do not give this general-q obstruction law.",
+      "residual_risks": [
+        "The bounded literature lookup did not settle absolute priority; unindexed exact periodic-stream antidictionaries remain possible.",
+        "The later catalogue entries establish the comparisons stated, not dates of first discovery. The binary per-word span and finite-power interior rule are credited as overlapping ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and decision results, not exact window spectrum",
+          "evidence": "Defines a subsequence of some length-p factor and p-MAS; circular comparisons use whole conjugates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09201",
+          "material_read": "§2 Definitions 2.2–2.3 p. 4 (offset 12750), §4 Theorem 4.7 p. 13 (around 42583), §5 pp. 18–20 (around 61450 and 66435)",
+          "method": "OA original PDF query and bounded passages",
+          "title": "Subsequences in Bounded Ranges: Matching and Analysis Problems",
+          "trigger": "Same bounded-range minimal absence definition and circular setting"
+        },
+        {
+          "assessment": "Covers binary span ingredient, not minimal-absent spectrum or general alphabet",
+          "evidence": "(1) gives per-pattern minimum span; (2)–(3) tally all patterns with span at most p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-bounded-range-subsequence-spectra-of-two-block-periodic-wo--bcfce8efaaec/RESULT.md",
+          "material_read": "Finding through scope and greedy/run enumerator proof, offsets 0–5684",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Exact bounded-range subsequence spectra of two-block periodic words",
+          "trigger": "Exactly the same binary span domain at a=b=1"
+        },
+        {
+          "assessment": "Material shared interior rule; different observation domain and endpoint weights",
+          "evidence": "Full finite powers, weak-descent count d=m, weak descents at both endpoints, and q²-state transfer indexed by adjacent letters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d/RESULT.md",
+          "material_read": "Finding and proof through transfer, offsets 0–5353",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation words",
+          "trigger": "Same permutation family and local deletion plus transfer structure"
+        },
+        {
+          "assessment": "Different counts and domain",
+          "evidence": "Fixed linear alternating host and totals 3,5,9,16 rather than all-phase windows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-padovan-enumeration-of-minimal-absent-subsequences-of-alternatin--7389806d175c/RESULT.md",
+          "material_read": "Finding, finite host and total-count data",
+          "method": "Local mirror passage comparison",
+          "title": "Padovan enumeration of minimal absent subsequences of alternating binary words",
+          "trigger": "Most plausible exact binary recurrence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full obstruction antichain for the union of windows answers which patterns first fail, not simply how many patterns are present. The classification gives a local test with sharply distinct endpoint and interior rules; the q-state resolvent counts every length and window size, including growth from the binary pole. It resolves a natural domain not determined by fixed-host spectra or marginal counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

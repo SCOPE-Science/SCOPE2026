@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside `RESULT.md`, with an unmodified Python 3 standard-library installation. No network, external database, or nonstandard package is needed. The program enumerates all relevant finite permutation-products used in the proof's small-case lemmas, computes complete cyclic-control distributions for orders 6 through 18, computes the explicit 48-state transfer trace for orders 6 through 12, and independently enumerates all proper four-colourings of cycle squares through order 15. It checks the exact three-periodic maxima and multiplicities at every tested order.
+## correctness
 
-The expected final line is:
+PASS
 
-`VERIFY_OK group_relations=checked finite_gap_table=checked transfer_orders=6..12 direct_coloring_orders=6..15 binary_products_orders=6..18 extremal_counts=6..18`
+Each consecutive triple has three distinct letters. The next letter either returns to the oldest or switches to the fourth, giving exactly the stated tuple operations. An indexed bit word closes iff its position permutation is the identity; then there are 24 possible initial tuples. At a vertex only the fourth alternative to the two neighbor colors and current color can work, and the four neighbors use just two colors iff the two relevant moves were both returns. Closed walks with the previous bit in state therefore implement the degree count exactly, with no factor for rotation. A mixed word with k switches and r positive zero gaps has degree n−k−r. S is odd and R is even, so identity forces k even. Positive gaps may be reduced to 1,2,3 preserving closure, residue and r; independent finite multiplication reproduced the relevant 2-, 4- and 6-switch cases and the displayed table. The residue-1 optimum uses a run of four switches; the residue-2 optima use four isolated switches or two runs of three with every positive gap 1 modulo 3. Marking a switch in the former family, or a run in the latter, gives n·binomial(h+1,3)/4 and n(h−1)/2 distinct control words. The extra all-switch word maximizes only at n=8, and the all-return word uniquely maximizes when 3 divides n. This covers the boundary orders n=6,7,8 and all three residues.
 
-The all-length theorem is established by the fixed finite group multiplication classifications and the counting bijections in `RESULT.md`; testing finitely many graph orders does not prove all orders. The published-paper comparisons are bibliographic/statement comparisons, not independent mathematical certification.
+## originality
+
+PASS
+
+The strongest match on the same graph is a frozen-coloring transfer which is exactly the zero-degree specialization in different state coordinates. Its three-class result also implies the residue-zero extremum by the elementary mobility criterion, and its eight-site fall count overlaps this audit's degenerate n=8 subcase. The distinct result is the sharp maximum and multiplicity beyond the known periodic/frozen cases, and the complete weighting beyond degree zero, not the state construction itself.
+
+## value
+
+PASS
+
+The number of movable vertices is a natural local measure in a recoloring state space. The period-three obstruction and its two inequivalent defect patterns reveal how near-perfect mobility first becomes possible and how many indexed colorings realize it. The exact weighted enumerator also makes the rest of the degree spectrum accessible beyond prior frozen-state counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

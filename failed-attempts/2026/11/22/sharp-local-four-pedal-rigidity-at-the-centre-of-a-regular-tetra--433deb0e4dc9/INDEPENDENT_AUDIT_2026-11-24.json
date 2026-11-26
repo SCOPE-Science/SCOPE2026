@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:16:28.295520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–59; VERIFICATION.md lines 18–19; check.py lines 25–77, inspected but not executed"
+      ],
+      "rationale": "An independent all-direction linearization confirms the coefficient. At step j the centered vertices are λv_i, λ=(−1/3)^j, with v_i·v_i=3/4, v_i·v_l=−1/4 for i≠l, and Σv_iv_iᵀ=I. Write their first variation as D_i=aP+b(v_i·P)v_i. To propagate it, write D_i=T+λFv_i, where T=(a+b/4)P and λF=bΣ(v_l·P)v_lv_lᵀ; to first order the transformed face normal is v_i−Fᵀv_i and the offset is −λ/4+v_i·T. Differentiation of the perpendicular foot gives a′=1−b/12, b′=(4/3)(a−1)+2b/9, so from (0,0) one obtains b at steps 1–4 equal to −4/3, −8/27, 20/243, 112/2187. At step four λ=1/81; the derivative of each normalized edge square is (112/27)(v_i+v_l)·P, since the mean variation vanishes. The six pair sums are exactly the signed Cartesian unit vectors. This proves the all-direction norm and the positive lower bound away from zero locally. The foot map is smooth near these nondegenerate centered iterates.",
+      "residual_risks": [
+        "No maximal local neighborhood or global uniqueness is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "66896a3b5b01 is for all d≥3 and all prescribed N and displays the full exact derivative J_d at the centered regular state.",
+          "Zwierzyński supplies centered two-step homothety and a counterexample to universal four-step return, not by themselves the all-direction quantitative assertion."
+        ],
+        "reasoning": "The indexed exact derivative, rather than the qualitative counterexample or the broad theorem headline, is the decisive stronger information after the remaining ordinary symmetry reduction.",
+        "searches": [
+          "Resultary 66896a3b5b01, proof Steps 1–2",
+          "Targeted primary search: four fixed-point facet-plane pedals of a regular tetrahedron; Zwierzyński §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–59 and 64–73",
+        "Resultary 66896a3b5b01 and 95ef2cba435c",
+        "Zwierzyński arXiv:2611.01247v1 §§3–4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "J_3 has trace −2/3, determinant 1 and entry (1,2)=−9/4, so J_3⁴=(28/27)J_3+5I/9 and (J_3⁴)₁₂=−7/3.",
+          "For a displacement ℓ toward the apex of altitude H=2/√3, t=(H/4+ℓ)/(3H/4−ℓ), hence dt/dℓ=16/(9H) at zero. Differentiating (1+q)/(3q) at q=1/2 gives −4/3; the lateral/base ratio derivative is therefore 448/(81H)=224√3/81 per unit ℓ."
+        ],
+        "reasoning": "Three base and three lateral normalized deviations have derivatives ± one half the ratio derivative, so the axial norm coefficient per unit displacement is 112√2/27. The smooth map is equivariant under permutations of the regular tetrahedron's vertices; the standard S₄ representation is irreducible, hence Dg(0)ᵀDg(0) is scalar. That transfers the exact axial coefficient to every direction without further shape information, and Taylor's theorem gives local uniqueness.",
+        "searches": [
+          "Exact J_d in 66896a3b5b01, proof Step 2, mirrored text offsets 760–3720; frozen normalization lines 6–21 and symmetry line 55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact recurrence for q=(base circumradius/altitude)², t=(negative base height)/(apex height), in record 66896a3b5b01 uses the identical marked-point facet-plane projection, with an inessential reflection.",
+          "The adjacent axial ovals record 95ef2cba435c has the same fixed point in a different state coordinate system."
+        ],
+        "reasoning": "In dimension three the squared lateral/base edge ratio is (1+q)/(3q); translating the fixed point on an altitude is exactly the t direction at q=1/2. Reflection does not change the six normalized squared edge lengths.",
+        "searches": [
+          "Resultary: axial tetrahedral pedals, prescribed finite regular-simplex shape return, and centroid rigidity",
+          "arXiv:2611.01247v1 §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct IDs 66896a3b5b01 (exact J_d) and 95ef2cba435c (exact centered two-state Jacobian in conjugate coordinates); the frozen identity 433deb0e4dc9 is not independent evidence."
+        ],
+        "reasoning": "No finite lookup table is needed: the indexed analytic Jacobian supplies the numerical data for any prescribed iterate, including this exact constant. This comparison does not assign priority from the shared date.",
+        "searches": [
+          "Resultary: prescribed regular-simplex pedal return, axial tetrahedral rotation and four-step derivative"
+        ]
+      },
+      "rationale": "The distinct indexed regular-simplex result gives the exact axial Jacobian, not just a non-return statement. Its d=3, N=4 instance yields the claimed numerical coefficient by one matrix power and the conversion to the given edge normalization. Routine tetrahedral equivariance then forces that same norm ratio in every direction. Thus the claimed sharpening is mechanically covered; this is a statement-level implication, not a finding of historical order between same-day records.",
+      "residual_risks": [
+        "Chronological priority of same-day statements is not determined.",
+        "Kostanyan article and Abu-Saris–Hajja doi:10.1007/s00025-009-0411-z could not be inspected directly; neither access issue determines the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the exact derivative from which the frozen coefficient follows",
+          "evidence": "Rational recurrence F_d, centered state (q*,t*), and exact J_d, including trace and determinant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-generic-absence-of-finite-pedal-shape-return-for-regular-simplic--66896a3b5b01/RESULT.md",
+          "material_read": "Finding and proof Steps 1–2, decisive offsets 760–3720",
+          "method": "Local Resultary mirror",
+          "title": "Generic absence of finite pedal shape return for regular simplices",
+          "trigger": "Same operation, regular shape, prescribed iteration, axial near-centroid derivative"
+        },
+        {
+          "assessment": "Same axial state dynamics and fixed point; no displayed six-edge norm",
+          "evidence": "Centered map has characteristic polynomial λ²+(2/3)λ+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-invariant-ovals-and-rotation-dynamics-of-axial-tetrahedral-pedal--95ef2cba435c/RESULT.md",
+          "material_read": "Finding and centered Jacobian/rotation discussion, offsets 0–3466 and 6200–7727",
+          "method": "Local Resultary mirror",
+          "title": "Invariant ovals and rotation dynamics of axial tetrahedral pedal iteration",
+          "trigger": "Same axial dynamics"
+        },
+        {
+          "assessment": "Exact axial setting and related return/non-return results",
+          "evidence": "Regular tetrahedron interior-point counterexample with ratio 57/121, and two-step centered bicentric homothety.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01247v1",
+          "material_read": "§§3–4 including Proposition 4.1, offsets 14800–22960",
+          "method": "OA primary text",
+          "title": "When Pedal Shapes Come Back: a Complex Story",
+          "trigger": "Same operation and fourth-pedal return question"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 66896a3b5b01, F_d and J_d",
+        "Frozen RESULT.md lines 10–21, 46–59"
+      ],
+      "rationale": "The problem and norm are natural and the coefficient is correct, but taking a fixed power of the available exact axial Jacobian and applying ordinary regular-tetrahedron symmetry leaves no distinct nonroutine exact invariant as frozen. The finding does not add a global or nonlinear rigidity bound beyond that consequence.",
+      "residual_risks": [
+        "This does not assess different projection rules, global return, or higher-order shape invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

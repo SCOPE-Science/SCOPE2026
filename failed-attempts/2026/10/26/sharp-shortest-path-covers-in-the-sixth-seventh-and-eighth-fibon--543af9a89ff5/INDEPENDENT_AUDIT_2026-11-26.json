@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.831161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Removing bits not in the target and then adding target bits gives an isometric embedding into the hypercube, so a geodesic uses each coordinate at most once. Each extreme-coordinate edge class has F_n edges (count valid words of length n−2 after fixing the neighboring bit to zero). One class gives the cover lower bound, and their disjoint union is in edge general position. An independent exact replay on the assigned geodesics.json (lines 1–402), using fresh inline Python rather than the supplied verifier, regenerated 21/34/55 vertices and 38/71/130 edges, checked the 8/13/21 paths for valid distinct vertices, unit steps and BFS shortestness, and reproduced the entire edge union in each graph. A set in edge general position uses at most two edges in each covering path, giving the matching upper bounds 16/26/42. The recorded package checks were inspected separately; neither the proof nor the replay covers n>8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 provides the general lower bound; Proposition 4.4 computes dimension five and Conjecture 4.5 asks for equality generally. A later search snippet advertises an all-n edge-general-position theorem, but no underlying full text was identified from the accessible material."
+        ],
+        "reasoning": "The 2023 results do not give the upper bounds for these three dimensions. The later claim, if verified, would cover only the edge-general-position half on the available description, not necessarily the geodesic covers; it is not used for the verdict.",
+        "searches": [
+          "Klavžar and Tan, arXiv:2304.10114 §4",
+          "Later broader lead, X status 2123367539459989822"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify.py and geodesics.json",
+        "Resultary 09740ee26122",
+        "arXiv:2304.10114",
+        "X status 2123367539459989822 (unverified lead only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record supplies explicit shortest-path covers of size F_n in the claimed dimensions and derives both equalities; the journal result gives only the lower bound in those dimensions."
+        ],
+        "reasoning": "The indexed claim entails the full frozen mathematical result directly; supplying another cover proves the same existence result without an additional theorem.",
+        "searches": [
+          "Resultary 09740ee26122, proof and witness construction",
+          "arXiv:2304.10114 §4, lower bound versus conjecture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result permits shortest paths to overlap in the edge cover, and uses the same edge-general-position definition."
+        ],
+        "reasoning": "Both names describe the identical optimization and exclusion conditions on the same Fibonacci cubes; no translation changes either invariant.",
+        "searches": [
+          "Resultary: edge-geodesic covers and edge general position of Fibonacci cubes n=6,7,8; matched 09740ee26122",
+          "Primary search: Fibonacci-cube edge-general-position Conjecture 4.5 and geodesic edge-cover formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For dimensions 6,7,8 it gives the same exact table: covers 8,13,21 and edge general position 16,26,42."
+        ],
+        "reasoning": "The catalogue entry already supplies the identical complete finite profile and verifies covers; different witness paths do not change the values.",
+        "searches": [
+          "Resultary 09740ee26122, Finding and finite witnesses"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states and proves both equalities for exactly the same three dimensions. It has different path lists, but there is no claim about a new property of the paths. This is exact mathematical coverage, not an inference about authorship from catalogue dates.",
+      "residual_risks": [
+        "The relationship and priority between the two certificate constructions are not established. The later all-n lead could not be resolved to an inspectable paper and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full coverage",
+          "evidence": "Same two equalities for n=6,7,8 with explicit geodesic covers; for example, the first listed n=6 path differs from the frozen one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-edge-general-position-and-edge-geodesic-cover-in-three-fib--09740ee26122",
+          "material_read": "RESULT.md Finding and proof, offsets 0–5000; verification and prior work, offsets 5000–8286; compared a listed cover with the frozen certificate",
+          "method": "Local Resultary mirror passage retrieval, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp edge general position and edge-geodesic cover in three Fibonacci cubes",
+          "trigger": "Exact objects, invariants, dimensions and values"
+        },
+        {
+          "assessment": "Partial prior result",
+          "evidence": "Theorem 4.3 gives the general lower bound; Proposition 4.4 and Conjecture 4.5 limit the finite equalities shown and leave the general case open in this source.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10114.pdf",
+          "material_read": "§4, PDF pp. 8–9, text offsets 17400 and 18700",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Edge General Position Sets in Fibonacci and Lucas Cubes",
+          "trigger": "Primary source of the unbounded conjecture and general lower bound"
+        },
+        {
+          "assessment": "Unverified, not used for scientific disposition",
+          "evidence": "The snippet advertises equality for all n≥2 but reports no edge-cover numbers; the post could not be retrieved.",
+          "identifier_or_url": "https://x.com/yonezuresearch/status/2123367539459989822",
+          "material_read": "Search-result snippet only; no underlying paper identified",
+          "method": "Primary search and attempted lawful OA retrieval",
+          "title": "Post advertising a computer-assisted all-dimensions result",
+          "trigger": "Potentially stronger edge-general-position claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "These dimensions would be a motivated finite extension of the conjecture and the covers would give useful exact invariants if missing. The very same finite extension and exact cover values are already established in the indexed result. No additional structure or useful property of the alternative certificates is asserted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

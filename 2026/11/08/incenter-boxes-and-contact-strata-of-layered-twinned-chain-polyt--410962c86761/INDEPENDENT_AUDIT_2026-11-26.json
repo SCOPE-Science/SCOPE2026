@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:03:49.567356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Since every antichain lies in one block, the polar factors into Q_m=Δ_m−Δ_m, where Δ_m is the simplex on 0 and the coordinate unit vectors. The candidates are 0, signed units and ordered differences. The origin is interior; a signed unit is exposed by a same-sign functional with a unique largest absolute coordinate, and e_a−e_b is exposed by the functional with 1 at a, −1 at b and 0 elsewhere. Thus the list of norms and vertices is exact. All product normals have squared norm at most H, and a pair of opposite farthest normals bounds every possible radius by 1/√H; the origin attains it. At this radius all farthest normals annihilate the center. Comparing normals that differ only by opposite singleton signs or opposite ordered differences gives exactly the indicated zero and block-constant coordinates. If j wide blocks use units, the worst dot product for that subset is the sum of the corresponding |t_i|. Its slack threshold f(j)=1−√(1−j/H) satisfies f(j)>j f(1) for j≥2 by strict convexity, with equality for j=0,1. Thus precisely the singleton bounds determine the center locus; exactly one-unit normals with matching signs can add contacts at an active coordinate. The product choices give both exact counts, and block indicators have mutually orthogonal lengths √m_i. With w=0 only the origin remains and all 2^s farthest facets touch it, including the interval k=m_1=1. These arguments are a universal verification from the polar inequalities in RESULT.md Steps 1–5. The reported 27 profiles, 7,210 test vertices and 121 corner counts were inspected in VERIFICATION.md and verification.py, not rerun. The separate reported 13-profile LP evidence was not needed or independently replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsuchiya gives the facet-supporting hyperplanes and all polar vertices for more general twinned pairs.",
+          "The other two papers give ordinal-sum/free-sum structure; the twinned facet-number result gives the total count ∏m_i(m_i+1), not how many facets are tangent to a translated maximal ball."
+        ],
+        "reasoning": "Combinatorial decompostion and even all supporting normals are starting data. It takes an optimization and equality analysis to eliminate all multi-block inequalities and compute contact strata.",
+        "searches": [
+          "arXiv:1512.08332 Theorem 2.2 and Corollary 2.4",
+          "arXiv:2312.13890 Section 4 Proposition 4",
+          "arXiv:2511.22981 Propositions 2.1 and 2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1512.08332",
+        "arXiv:2312.13890",
+        "arXiv:2511.22981",
+        "doi:10.1007/BF02187680 (access attempt)",
+        "2026/11/8/SCOPE-a-sharp-simplex-projection-inball-criterion-for-cayley-sums-of-b--f1443bc5b9c5",
+        "2026/10/11/SCOPE-cube-section-incenter-loci-of-boolean-signed-chain-polytopes--9b96bfb466e7",
+        "2026/10/11/SCOPE-the-euclidean-inradius-of-a-chain-polytope-depends-only-on-poset--04e5ecb8aad2",
+        "2026/10/18/SCOPE-alternating-chain-rigidity-and-the-contact-collapse-of-order-pol--9aba23dfb7e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the largest Euclidean norm in the known polar list gives 1/√H and enumerating its maximizers gives F_0. These are not separately novel.",
+          "At radius 1/√H, identifying which translated centers attain equality requires analyzing all subsets of wide blocks. The strict inequality f(j)>j f(1) for j≥2 rules out both hidden constraints and additional boundary contacts."
+        ],
+        "reasoning": "The known facet lists do not directly state the optimal-center box or reduce the translated feasibility and contact equations to one-wide-block inequalities. The latter analysis is the useful distinct result.",
+        "searches": [
+          "arXiv:1512.08332, Corollary 2.4 exact dual list",
+          "arXiv:2511.22981, Proposition 2.4 facet product",
+          "2026/11/8/SCOPE-a-sharp-simplex-projection-inball-criterion-for-cayley-sums-of-b--f1443bc5b9c5 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The body is the orthogonal free sum of antipodally symmetrized cube hulls. Its block polars are simplex differences; a type-A root polytope identification by deleting the redundant coordinate changes the metric.",
+          "The distinct indexed box-Cayley criterion uses a projected simplex and separate fiber constraints. Central symmetry of such a Cayley polytope would force the projected simplex to be a segment; its fibers with common lower endpoints would then have constant widths. Thus it does not identify the present general centrally symmetric family."
+        ],
+        "reasoning": "Neither the metric-changing root representation nor a box locus for a different family transfers the optimal centers in this specified metric.",
+        "searches": [
+          "Twinned chain polytope or symmetrized cube, incenter/Chebyshev center/largest ball, antichain simplex-difference polar free sum",
+          "arXiv:1512.08332 Corollary 2.4; arXiv:2511.22981 Proposition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed match ending 410962c86761 is a self-match.",
+          "2026/11/8/SCOPE-a-sharp-simplex-projection-inball-criterion-for-cayley-sums-of-b--f1443bc5b9c5 and 2026/10/11/SCOPE-cube-section-incenter-loci-of-boolean-signed-chain-polytopes--9b96bfb466e7 have other center-locus formulas. The related results ending 04e5ecb8aad2 and 9aba23dfb7e5 deal respectively with the ordinary chain inradius and centered contacts of an order-polytope difference body."
+        ],
+        "reasoning": "These compared statements do not give the same object, metric, all-centers locus and boundary-contact rule; a same-day date does not resolve priority and was not used to dismiss the Cayley comparison.",
+        "searches": [
+          "Resultary: twinned chain polytope incenter boxes and contact strata, Boolean signed-chain incenter locus, Cayley box inball criterion, ordinary chain polytope inradius",
+          "Resultary: order polytope difference body inball contacts"
+        ]
+      },
+      "rationale": "The polar/facet list, free-sum structure, and direct consequences for radius and centered contacts are credited. The distinct result is the exact full optimal-center box in the fixed Euclidean metric and the classification and count of contacts at all its strata. The compared prior results do not establish the necessary singleton-reduction and no-extra-contact conclusions.",
+      "residual_risks": [
+        "This does not rule out a Chebyshev-center theorem phrased for equivalent orthogonal free sums or in anti-blocking terminology. The focused external lookup chiefly confirmed already compared sources; search silence is not coverage evidence.",
+        "Stanley's original full text was not retrieved; same-object facet and dual-vertex prior claims were compared via full OA primary texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural coverage, with radius and centered contacts as immediate consequences; no translated-center/contact-strata theorem in the compared passages.",
+          "evidence": [
+            "Theorem 2.2 gives supporting hyperplanes; Corollary 2.4 gives dual vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.08332",
+          "material_read": "Primary PDF pp. 8–9, Theorem 2.2 and Corollary 2.4 at offsets approx. 21800 and 24500",
+          "method": "OA primary comparison and polar norm specialization",
+          "title": "Volume, facets and dual polytopes of twinned chain polytopes",
+          "trigger": "Same twinned polytope and complete prior polar list"
+        },
+        {
+          "assessment": "Free-sum structure, not an inball or tangent-facet classification.",
+          "evidence": [
+            "C(A<B)=C(A)∨C(B) for the ordinal sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.13890",
+          "material_read": "Primary PDF p. 10, Section 4 Proposition 4, around offset 27900",
+          "method": "OA primary statement comparison",
+          "title": "f-vector inequalities for order and chain polytopes",
+          "trigger": "Earlier ordinal-sum decomposition"
+        },
+        {
+          "assessment": "Best facet-count overlap; it concerns all facets, not their tangency at noncentral optimal centers.",
+          "evidence": [
+            "Simultaneous ordinal sums give a free sum and a product of total facet counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.22981",
+          "material_read": "Primary PDF pp. 2–4, Theorem 1.2 and Propositions 2.1 and 2.4",
+          "method": "OA primary comparison against the contact count",
+          "title": "Facet numbers of non-centrally symmetric reflexive polytopes arising from posets",
+          "trigger": "Same twinned objects and facet multiplication"
+        },
+        {
+          "assessment": "Access limitation without implication for novelty; the same-object geometric comparison uses the available twinned-polytopes sources.",
+          "evidence": [],
+          "identifier_or_url": "doi:10.1007/BF02187680",
+          "material_read": "No decisive passage from the original was retrieved by bounded lawful DOI/author-copy attempts",
+          "method": "Primary retrieval attempt; use of the explicit antichain hull definition in the proof",
+          "title": "Two poset polytopes",
+          "trigger": "Foundational chain-polytope reference"
+        },
+        {
+          "assessment": "Different, generally nonsymmetric box-Cayley family; the locus comes from projecting onto a simplex at its unique incenter, not the twinned polar constraints.",
+          "evidence": [
+            "All simplex-base facets touch; two fiber inequalities for each row bound its interval directly."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-simplex-projection-inball-criterion-for-cayley-sums-of-b--f1443bc5b9c5",
+          "material_read": "Mirrored RESULT.md offsets 0–4699, Finding, assumptions and simplex-projection argument",
+          "method": "Local index, mirrored passage and symmetry/projection comparison",
+          "title": "A sharp simplex-projection inball criterion for Cayley sums of boxes",
+          "trigger": "Strong indexed all-centers box and active-contact parallel"
+        },
+        {
+          "assessment": "Boolean signed-chain construction and cube sections, not the symmetrized antichain-block free sum.",
+          "evidence": [
+            "The underlying signed-chain body and its cube-section constraints differ."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-cube-section-incenter-loci-of-boolean-signed-chain-polytopes--9b96bfb466e7",
+          "material_read": "Mirrored Finding on the body and locus",
+          "method": "Local index and mirrored statement comparison",
+          "title": "Cube-section incenter loci of Boolean signed chain polytopes",
+          "trigger": "Centric metric classification for a related signed poset polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact set of translated maximum-radius balls is a natural refinement of a single centered radius in canonical Euclidean coordinates. It has unbounded dimension across the family, edge lengths that retain the actual block sizes, and a complete active-coordinate rule for contact counts on every face. These distinctions are not captured by total face counts or the centered insphere alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

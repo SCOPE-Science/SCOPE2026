@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is limited to \(\operatorname{rank}(N_X^2)\), \(\operatorname{rank}(N_X^3)\), the corresponding blocks of lengths at least three, and the reduced third-power-zero geometry. The matrix-unit derivation gives the exact three coefficient rows for \(N_X^2\) and the sole row for \(N_X^3\); all characteristic-sensitive factors \(2\) and \(3\) are explicit. Each first-superdiagonal support mask has a complete rank classification by linear forms and pivots, and the weighted counts sum to \(q^{10}\). Direct second/third-power composition independently exhausts the relevant seven coordinates over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5\). The geometric decomposition is an exact squarefree monomial decomposition. Risks: the general proof depends on the displayed exhaustive mask table, not on finite tests; the latter alone would not prove the infinite field-size quantifier.
+## correctness
 
-## Originality — PASS (qualified)
-Goodwin–Röhrle (arXiv:1209.1289v1, §3.4) calculate commuting-variety components, not adjoint-power Jordan chains. Soffer (arXiv:1411.5389v1, §§2–6) treats commuting centralizers, not higher adjoint powers. The closest 2026 published fixed-flag theorem, *Uniform twisted-commutator rank spectrum in the \(5\times5\) nilradical*, was inspected in full (`RESULT.md`) and gives ranks of the first twisted commutator; it does not give the second- or third-power ranks or the characteristic-three geometry. Exact equality of a first-power rank distribution does not imply higher-power Jordan data. Targeted published-result and primary-literature comparisons found no equal or stronger claim; negative searches are not proof of uniqueness. Residual historical-priority risk remains for unlocated canonical-form papers.
+PASS
 
-## Value — PASS
-The first triangular nilradical with possible adjoint chains of length four acquires a complete and exact long-chain invariant. The theorem distinguishes characteristics two, three and at least five and gives a structural modular resonance: isolated size-four chains disappear in characteristic three while the reduced third-power-zero variety jumps in dimension and component structure. These facts are not numerical refinements of the ordinary commuting-pair count.
+The degree filtration kills the fourth power. Expanding the commuting left and right multiplication operators gives the three rows of the second power and the sole row of the third; the latter has coefficients -BCD, 3ACD, -3ABD, ABC. Thus the characteristic-three exception is exact, not a size-three-field artifact. For the nonadjacent two-support masks the only variable pivots are the stipulated linear forms (and the private -2AD pivot); for 1011 and 1101 the lower-degree rows are collinear and the remaining row has a private pivot. The other masks follow from the displayed disjoint pivots. Normalizing the four first-superdiagonal entries by diagonal conjugation is valid on the path of five vertices. Summing the support weights recovers all five rows; in particular the two exceptional three-support masks move 2q^6(q-1)^3 from (2,1) to (2,0) in characteristic three. The nilpotent block identities and squarefree monomial component decomposition give the advertised consequences.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim supported by the comparisons is the complete joint second/third-power rank census (equivalently the joint long-block multiplicities), including how characteristic three changes rank two at rank-three-power zero versus one. The same-day maximal-chain record explicitly covers the maximal-chain marginal and geometric jump; no separate originality is credited to those consequences and no order or priority is inferred from the date.
+
+## value
+
+PASS
+
+The last two nonzero powers in this small nilradical distinguish co-occurrence from mere existence of the two longest Jordan blocks. A complete field-uniform law locating the characteristic-three failure of (2,1) and giving the frequencies of all alternatives is useful as a baseline for larger triangular sizes and cannot be inferred from either the maximal-block count or the first-power spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

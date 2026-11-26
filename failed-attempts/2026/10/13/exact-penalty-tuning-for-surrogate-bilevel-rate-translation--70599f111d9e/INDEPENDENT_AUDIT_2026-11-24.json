@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:29:37.945328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–98,100–189,213",
+        "Frozen VERIFICATION.md:18–23, artifacts/verify_penalty_tuning.py and artifacts/verification_output.txt",
+        "Shtern–Taiwo arXiv:2506.16382v3, Proposition 1(ii)–(iii) and Remark 2"
+      ],
+      "rationale": "The conditional scalar minimization is correct. If p and x are the surrogate iterates, the nonnegative squared penalty gives ||x−p||<=sqrt(2 theta_phi/rho); the surrogate outer gap bounds omega(p)−omega*, and the common Lipschitz constant on a set containing p and x bounds omega(x)−omega(p). Substitution gives the stated U. For S=sqrt(2(b1+b0/rho)), U'=a1−ell b0/(rho^2 S), and when b0>0, U''=ell b0(4b1 rho+3b0)/(rho^4 S^3)>0. With a1>0 the derivative goes from −infinity to a1; the unique stationary point must be the minimum. Squaring its equation is reversible because both sides are positive and yields the stated quartic; the stationary identity ell S=2a1 rho+2a1 b1 rho^2/b0 gives the minimum and cube-root special case. For a1=0<b0 the infimum is a0+ell sqrt(2b1) at infinity; for b0=0<a1 the same infimum is approached only at zero; for both zero the expression is constant, including b1=0. Attribution needs a correction: the matching Proposition 1(iii) and Remark 2 are in arXiv v3, not the cited v1. Application by citation to that proposition is on its coercive, g1-real-valued branch (not the g2-only alternative); the pointwise certificate there does not supply common ell. Correctness concerns the explicitly affine, common-ell scalar problem, not universal applicability to the source algorithms.",
+      "residual_risks": [
+        "A uniform constant and an affine certificate must be established in the particular problem and for all penalties compared. The recorded script tests instances, some in floating point, not the quantified theorem or all degeneracies; the analytic check supplies those cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's pointwise Lipschitz constant is on an expanded level set S_x that depends on the certificate and rho. Constant-step formulas allow affine dependence when other constants are fixed. Its backtracking coefficients include maxima (Theorem 2) or a square of the smoothness-dependent coefficient (Theorem 4).",
+          "Latafat et al. use a fixed quadratic coupling for proximal splitting without this bound or tuning rule."
+        ],
+        "reasoning": "Neither broader surrogate estimates nor fixed-coupling reformulations establish the stated exact optimizer. There is also no automatic extension of the frozen rule across branches with nonaffine rates or a rho-dependent Lipschitz constant.",
+        "searches": [
+          "arXiv:2506.16382v3, Proposition 1(ii)–(iii), Theorems 2 and 4",
+          "arXiv:2305.03559v3, Remark 2.1(i)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:2–98,191–215",
+        "arXiv:2506.16382v1 and v3; arXiv:2305.03559v3",
+        "Resultary 6187bd76cfe7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "v1 uses different notation in Proposition 1 and did not display the matching affine remark. v3 writes the affine forms explicitly and says that, depending on their specific forms, there may be a minimizing rho, without the quartic, minimum identity or complete endpoint rule."
+        ],
+        "reasoning": "The prior source supplies the starting scalar objective and qualitative question, not a stronger minimizer theorem to specialize. The explicit solution is a short elementary derivative calculation once that objective and common constant are stipulated.",
+        "searches": [
+          "arXiv:2506.16382v1 and v3 for Proposition 1 and the modified smoothness constant",
+          "v3 Remark 2 compared with frozen stationary equation and boundary cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source raises minimization of the same translated bound; the frozen scalar problem takes affine rate coefficients and holds ell fixed. Resultary 6187bd76cfe7 transfers a Lin–Zhang Penalty W-certificate with a sharp parameter loss; it does not optimize this scalar bound."
+        ],
+        "reasoning": "Different symbols for the rate coefficients do not make the optimization problem new. The explicit stationary and endpoint formulas, not the objective or the tradeoff, are what could be distinct.",
+        "searches": [
+          "Shtern–Taiwo arXiv:2506.16382v3, Proposition 1 and Remark 2",
+          "Resultary topical search for penalty certificate transfer and tuning, strongest hit 6187bd76cfe7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant source inputs are theorem formulas for the chosen method and step rule, not an evaluated optimizer table. The surrogate statements do not tabulate the four coefficients for an arbitrary algorithm and horizon. No exact matching entry was found among inspected Resultary results."
+        ],
+        "reasoning": "This is a continuous parametric problem, not an exact code-parameter lookup. Existing coefficient formulas can instantiate constants but an entry for them would not itself evaluate the minimizer/phase diagram.",
+        "searches": [
+          "arXiv:2506.16382v3, Theorems 2 and 4 and check for coefficient tables",
+          "Resultary penalty-certificate comparisons, strongest hit 6187bd76cfe7"
+        ]
+      },
+      "rationale": "The exact optimizer/minimum/endpoint formulas were not already stated or established by a stronger mathematical finding in the inspected sources. The underlying bound, its affine rho-dependence, and the suggestion to minimize it are already present in Shtern–Taiwo v3. Only the particular explicit algebraic conclusions are distinct in the comparison; their routine derivation is a value issue, not evidence that a prior document states them.",
+      "residual_risks": [
+        "Targeted supplementary literature searches were inconclusive; no proof of absence is claimed. The journal-version text was not separately reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact starting bound and affine observation, not the frozen optimizer; applicability is narrower than a generic tuning prescription",
+          "evidence": [
+            "For coercive omega and real-valued g1 the outer upper bound is theta_omega+ell1 sqrt(2 theta_phi/rho). The compact set in (ii) depends on the certificates. Remark 2 gives modified smoothness L2+2rho and a qualitative existence observation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.16382v3",
+          "material_read": "Proposition 1 pp. 12–13 offset 35800; Remark 2 p. 14 offset 41665; Theorems 2 and 4 pp. 19 and 27 offsets 56800 and 84850",
+          "method": "Primary OA PDF at decisive passages",
+          "title": "On the Convergence Rates of Iterative Regularization Algorithms for Composite Bi-Level Optimization",
+          "trigger": "Exact translation objective and stated motivation"
+        },
+        {
+          "assessment": "Use v3 for the matching remark, not the frozen v1 attribution",
+          "evidence": [
+            "The inspected v1 Proposition 1 uses gamma; v3 positively supplies the matching rho formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.16382v1",
+          "material_read": "Proposition 1 and literal lookup for the modified smoothness statement",
+          "method": "Primary OA PDF passage and locator search",
+          "title": "On the Convergence Rates of Iterative Regularization Algorithms for Composite Bi-Level Optimization, first preprint version",
+          "trigger": "Version specified in the frozen citation"
+        },
+        {
+          "assessment": "Different bound and tuning question",
+          "evidence": [
+            "The lift uses a fixed quadratic coupling to separate proximal operations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.03559v3",
+          "material_read": "Remark 2.1(i), p. 5, offset 19485",
+          "method": "Primary OA PDF passage",
+          "title": "On the Convergence of Proximal Gradient Methods for Convex Simple Bilevel Optimization",
+          "trigger": "Closely related proximal lifting"
+        },
+        {
+          "assessment": "Different certificate and invariant",
+          "evidence": [
+            "Sharp transfer with adjusted certificate constant, not the minimizer of an affine-plus-square-root rate bound."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-penalty-w-certificate-transfer-constant-is-sharp--6187bd76cfe7",
+          "material_read": "Finding and certificate-transfer formula",
+          "method": "Local Resultary evidence",
+          "title": "The Penalty W-certificate transfer constant is sharp",
+          "trigger": "Strongest topical Resultary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:24–98,100–189",
+        "Shtern–Taiwo v3, Remark 2 and Theorems 2,4"
+      ],
+      "rationale": "The penalty tradeoff is genuinely motivated, but the frozen contribution starts after the substantive choices have been assumed: a common Lipschitz bound and four affine coefficients. On that scalar expression the quartic is just the first-derivative equation with positive factors cleared and squared, the convexity is an elementary sign calculation, and the endpoint cases follow by dropping a term. No new estimate, applicability criterion for common ell, or nonroutine analysis of actual surrogate certificate dependence is established. Selecting the matching publication version or adding examples would not change the routine nature of this deduction.",
+      "residual_risks": [
+        "An analysis that establishes a usable uniform constant or optimizes genuine nonaffine or branch-dependent certificates would be a different scientific claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:37:08.570750Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent derivation: for 0<m<=1, condition on the event M_n<=m, of probability m^n. The observations are then iid uniform on [0,m]. For t<m use E[F_n(t)]=t/m and Var(F_n(t))=(t/m)(1-t/m)/n; for t>=m use F_n(t)=1. Integrating n E[(F_n(t)-t)^2] yields P(m)=n(1-m)^2/3+m/6. Differentiate m^n P(m) and divide by n m^(n-1) to get E[W_n^2|M_n=m], then replace m with 1-b. This gives exactly the quoted quadratic, with positive leading term and minimizer strictly inside [0,1]. Interpret the values at b=0,1, and the pointwise regression generally, as the continuous version, not as values uniquely fixed by conditioning on probability-zero events. Integrating m^n P(m) over [0,1] gives E[B_n W_n^2]; subtracting 1/[6(n+1)] gives (n-1)/[2(n+1)(n+2)(n+3)]. Independently, the off-diagonal kernel second moment is the double integral of (min(s,t)-st)^2, which is (2/3) integral_0^1 t^3(1-t)^2 dt=1/90. The one-variable diagonal variance is 1/180. Degeneracy cancels all covariances except those of a pair with itself (or its reversal in the ordered sum), giving variance [n/180+2n(n-1)/90]/n^2. This also identifies the intended fraction at RESULT.md line 139, where a form-feed corrupts the LaTeX command but not the separately stated identity. Beta variance yields the stated positive correlation and asymptotic. Exact replay: python3 /workspace/checks/4.py checks coefficients and moments for n=2..50; the all-n identities are analytic. The frozen script checks correlation in floating point, not exact rational arithmetic, but it follows algebraically from the exact covariance and variances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 2 range record's proof gives E[W|A=a,R=r] = n[a^2+a(r-1)+(1-r)^2/3]+r^2/3-r/6 and the joint extrema density, stronger information than its displayed range regression.",
+          "Accessible descriptions of Knott and Csörgő–Faraway concern the marginal statistic, but full-body access was blocked."
+        ],
+        "reasoning": "At maximum m, set a=m-r. The conditional range has first moments E[r|m]=(n-1)m/n and E[r²|m]=(n-1)m²/(n+1), by the cited joint density. Substitution and averaging gives exactly (n+2)m²/3 - (n+1)(4n-1)m/(6n) + n/3, so the November result verifiably dominates, but is later in the catalogue.",
+        "searches": [
+          "SCOPE-20261102-db9901d1dda2, exact mirrored Proof at offset 2071",
+          "OA attempts: Knott 1974; Csörgő–Faraway 1996"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261102-db9901d1dda2",
+        "SCOPE-20261013-5b761aa791ae",
+        "SCOPE-20261012-2814be50ba91",
+        "doi:10.1111/j.2517-6161.1974.tb01017.x",
+        "doi:10.1111/j.2517-6161.1996.tb02077.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later extrema-conditioned formula implies, by averaging, the full endpoint quadratic and minimizer; its beta moments plus W variance imply the covariance and correlation. The range covariance itself is a different (negative) covariance.",
+          "The same-day Watson result supplies Var(W_n^2) but no joint endpoint information."
+        ],
+        "reasoning": "A marginal variance or covariance with a different global statistic cannot identify this regression. The later overlap establishes current mathematical coverage, not precedence over the assigned endpoint result.",
+        "searches": [
+          "SCOPE-20261102-db9901d1dda2 Proof, offset 2071",
+          "SCOPE-20261013-5b761aa791ae and SCOPE-20261012-2814be50ba91, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing the gap by the maximum reverses the covariance sign and reflects the regression about b=1/2.",
+          "The same-day Watson record SCOPE-20261013-5b761aa791ae and the Oct. 12 Anderson–Darling record SCOPE-20261012-2814be50ba91 concern two integrated statistics, not maximum or gap dependence."
+        ],
+        "reasoning": "The maximum and upper gap are equivalent parameters; the range and the other integrated statistics are not substitutes for either. The targeted literature lookup was low yield and is not evidence of absence.",
+        "searches": [
+          "Resultary: uniform sample maximum, boundary gap, conditional Cramér–von Mises and range dependence",
+          "Web: \"Cramér–von Mises\" \"sample maximum\" joint distribution conditional maximum order statistic exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November record explicitly gives a mean, not a conditional distribution or independence claim.",
+          "Knott and Csörgő–Faraway are plausible sources of exact distribution tables, but no accessible passage verifies a table for the joint law with the maximum."
+        ],
+        "reasoning": "A joint or endpoint-conditional table might recover conditional moments; a marginal CvM table alone cannot. No verified earlier exact table or conditional law establishes the frozen formula.",
+        "searches": [
+          "Resultary: exact endpoint mixed moments and conditional distribution",
+          "DOIs 10.1111/j.2517-6161.1974.tb01017.x and 10.1111/j.2517-6161.1996.tb02077.x: exact-distribution records and OA retrieval"
+        ]
+      },
+      "rationale": "Pass for the specific conditional endpoint profile and induced mixed moments at the frozen record's October catalogue date, not for the classical marginal variances. The most substantial indexed overlap is a November catalogue record with an extrema-conditioned mean that implies the entire endpoint result. It is not disregarded as merely about the range, but there is no evidence that this later entry or its extrema-conditioned formula predated the October record. Earlier checked material and the same-day Watson coupling do not establish the endpoint result. Older joint-distribution coverage remains unexcluded; access limits do not determine the verdict.",
+      "residual_risks": [
+        "Older exact-distribution literature could include an uninspected conditioning formula or joint table. Both highly relevant older bodies remained inaccessible; the cited Lemeshko et al. comparison was not retrieved independently either.",
+        "Catalogue dates are not a claim about when authors derived results privately or their independent provenance. The algebraic overlap with the November range record is explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger formula in later catalogue record",
+          "evidence": "E[W|A=a,R=r] and the joint density yield the frozen maximum regression by averaging at fixed maximum; displayed range correlation alone does not.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-u-shaped-range-regression-for-the-cram-r-von-mises-stati--db9901d1dda2/RESULT.md",
+          "material_read": "Scope and Proof, especially the extrema density and conditional mean at offset 2071",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; direct algebraic conditioning comparison",
+          "title": "A sharp U-shaped range regression for the Cramér–von Mises statistic",
+          "trigger": "Strongest indexed candidate for endpoint implication"
+        },
+        {
+          "assessment": "Overlap only in CvM marginal variance; different second variable",
+          "evidence": "Exact covariance with Watson, not with an endpoint.",
+          "identifier_or_url": "SCOPE-20261013-5b761aa791ae",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored Resultary text",
+          "title": "Cramér–von Mises and Watson statistics have an exact finite-sample covariance",
+          "trigger": "Same-day exact mixed-moment result for the same CvM statistic"
+        },
+        {
+          "assessment": "Different second variable",
+          "evidence": "Coupling with Anderson–Darling, not an order statistic.",
+          "identifier_or_url": "SCOPE-20261012-2814be50ba91",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored Resultary text",
+          "title": "Cramér–von Mises and Anderson–Darling statistics have an exact finite-sample covariance",
+          "trigger": "Earlier exact CvM dependence result"
+        },
+        {
+          "assessment": "Access-limited; no document-wide exclusion",
+          "evidence": "Description identifies the marginal small-sample CvM distribution; no conditional endpoint passage was verified.",
+          "identifier_or_url": "doi:10.1111/j.2517-6161.1974.tb01017.x",
+          "material_read": "Bibliographic description only; full text unavailable in checked access routes",
+          "method": "OA retrieval attempt and search for lawful repository copy",
+          "title": "The Distribution of the Cramér–Von Mises Statistic for Small Sample Sizes",
+          "trigger": "Potential earlier exact distribution or joint-table source"
+        },
+        {
+          "assessment": "Access-limited; no document-wide exclusion",
+          "evidence": "Description concerns CvM distribution results; no conditional endpoint passage was verified.",
+          "identifier_or_url": "doi:10.1111/j.2517-6161.1996.tb02077.x",
+          "material_read": "Bibliographic description only; full text unavailable in checked access routes",
+          "method": "OA publisher and identified repository retrieval attempts",
+          "title": "The Exact and Asymptotic Distributions of Cramér–von Mises Statistics",
+          "trigger": "Potential earlier exact finite-n distribution source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap has an independent, natural endpoint interpretation, while W_n^2 measures integrated global discrepancy. The exact conditional regression shows an initially decreasing response, then an increasing one, even though linear covariance is strictly positive at every n>=2. The interior optimum and exact rate of vanishing correlation give finite-null benchmarks for comparing a tail-coverage diagnostic and an integrated test. This is not a computation of a known marginal CvM variance, and routine maximum moments alone do not determine the coupling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:13:21.670736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof steps 1–5; VERIFICATION.md and verify.py (read only)",
+        "Reproduction: python3 /workspace/reproductions/exact_checks.py 1"
+      ],
+      "rationale": "The exponential generating function e^(−z)/(1−z)^3 gives the stipulated recurrence and G₀=1, G₁=2. Applying (1+D)²/2 to the ordinary derangement EGF gives the exact reduction in the record. For x=2t or 1+2t, the j-th falling factorial has at least floor(j/2) factors with all coefficients even, so the two interpolants are integral restricted series. Modulo eight the even branch needs terms j≤4, the odd j≤5; multiplying their respective residues 1+4t+4t² and 2t+4t² by P(2t) and P(1+2t) gives the normalized differences K₀≡t and K₁≡1+t coefficientwise mod two. Integral restricted series have integral difference quotients by factoring t^j−u^j and taking the convergent sum, so the affine leading units give exact same-parity distances; opposite-parity values are already distinct mod two. This proves bijectivity and least period at every modulus. Legendre gives the disjoint progressions; for X>2 and 2^(L−1)<X≤2^L, all omitted strata beyond 2j+3>L lie in one class mod 2^(L−2), at most O(1) indices. Each included class has O(1) counting error, and the geometric density sum is 1/6. The bounded endpoint X≤2 is immediate, avoiding a negative exponent in the displayed tail proof. Direct EGF evaluation in the independent checker verifies all five example classes and permutation/period mod 2048; the analytic argument gives all exponents.",
+      "residual_risks": [
+        "Only the stated parameter-two normalization is covered; the spot check is finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ulas states an open even-parameter classification and density question alongside partial progressions. The same-day companion theorem proves odd-index isometry and obstruction densities for even v≥4."
+        ],
+        "reasoning": "A result for higher even parameters does not specialize to v=2. Also an odd-branch theorem cannot provide the global residue permutation without treating the other parity.",
+        "searches": [
+          "Ulas §4, Problem 4.1 and Question 4.3",
+          "2026/11/22/SCOPE-exact-three-square-obstruction-densities-for-every-higher-even-g--ca60adc2684c"
+        ]
+      },
+      "checked_sources": [
+        "Ulas §4",
+        "Miska arXiv:1508.01987 selected passages",
+        "Resultary exact and higher-even comparisons",
+        "Primary literature lookup for parameter-two generalized derangements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ulas gives partial even-parameter results rather than classifying all indices at v=2. The higher-even theorem explicitly sets aside v=2 as separately treated. The ordinary-derangement branch discussion does not establish the affine mod-two branch differences for the generalized expression."
+        ],
+        "reasoning": "Neither lower bound nor branch-only/higher-parameter theorem yields the complete bijections. The weighted reduction from ordinary derangements needs new coefficientwise cancellations, so this is not a formal renaming of an ordinary-derangement periodicity theorem.",
+        "searches": [
+          "Ulas, Fibonacci Quarterly 61 (2023), §4",
+          "Higher-even Resultary record, Finding and Relationship to prior work",
+          "Miska arXiv:1508.01987 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ulas's inclusion–exclusion definition yields precisely G₀=1, G₁=2 at v=2. Miska's ordinary derangement parity branches use v=0 rather than this generalized parameter."
+        ],
+        "reasoning": "G is an alias for Ulas's sequence, not a new normalization. Compatible permutation reductions mod every power of two would be equivalent to isometry here, but the ordinary derangement branch statements do not furnish those reductions for G.",
+        "searches": [
+          "Ulas, Representing Generalized Derangements as Sums of Three Squares, D_n^(v)",
+          "arXiv:1508.01987, derangement arithmetic",
+          "Resultary: D_n^(2) global dyadic isometry and obstruction density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The agreeing exact Resultary hit is b27baf1a454b, the frozen record itself. The earlier stated progression n≡2 mod 8 is only the first forbidden stratum."
+        ],
+        "reasoning": "This hit is not external corroboration or another priority claim; the pre-existing single progression does not give every dyadic level or its combined density.",
+        "searches": [
+          "Resultary query for the parameter-two derangement isometry and three-square density",
+          "Ulas §4, v=2 congruence progression"
+        ]
+      },
+      "rationale": "Ulas's parameter-two obstruction progression n=2 mod 8 is covered, but the exact classification, global dyadic isometry and density with discrepancy are not covered by the inspected statements. The strong distinct same-day generalized-derangement result explicitly excludes parameter two and addresses an odd branch. Its reference to the separately solved stronger v=2 result is consistent with the frozen target, not evidence for an independently identified equivalent record.",
+      "residual_risks": [
+        "The web lookup was uninformative; no absence claim is based on it.",
+        "The combinatorial paper cited above was not accessible, and broader arithmetic sources may contain an uninspected equivalent. No priority is inferred from the same date of the complementary record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "partial coverage only",
+          "evidence": "Same parameter-two normalization; n≡2 mod 8 obstructed; even-parameter obstruction classifications and existence of their densities asked.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+          "material_read": "p. 231 definition; §4, p. 236, Problem 4.1 and Question 4.3, PDF offsets 18536 and 20628",
+          "method": "OA PDF passages",
+          "title": "Representing Generalized Derangements as Sums of Three Squares",
+          "trigger": "identical sequence and explicit even-parameter questions"
+        },
+        {
+          "assessment": "complementary domain, no independent v=2 coverage established",
+          "evidence": "Restricts to even v≥4; gives odd-branch isometry and densities 1/24 or 1/6; notes stronger separate v=2 theorem without identifying a distinct source for it.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-square-obstruction-densities-for-every-higher-even-g--ca60adc2684c",
+          "material_read": "Finding at offset 0 and relationship passage at offset 5255",
+          "method": "local mirror",
+          "title": "Exact three-square obstruction densities for every higher even generalized derangement parameter",
+          "trigger": "strongest distinct catalogue overlap"
+        },
+        {
+          "assessment": "identical record",
+          "evidence": "Same identity, obstruction classes and density with error; not a second finding.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dyadic-isometry-and-three-square-obstruction-density-for-g--b27baf1a454b",
+          "material_read": "index summary matched against frozen Finding",
+          "method": "local catalogue and frozen source",
+          "title": "Exact dyadic isometry and three-square obstruction density for generalized derangements at parameter two",
+          "trigger": "exact catalogue hit"
+        },
+        {
+          "assessment": "related arithmetic; no exact target in passages inspected",
+          "evidence": "Studies periodicity and valuations; the closest inspected even/odd branch statements address ordinary derangements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.01987",
+          "material_read": "abstract and §5 ordinary-derangement branches, offset 177039",
+          "method": "OA PDF passages",
+          "title": "Arithmetic Properties of the Sequence of Derangements and Its Generalizations",
+          "trigger": "plausible arithmetic precedent in generalized derangements"
+        },
+        {
+          "assessment": "uninspected and unresolved",
+          "evidence": "No mathematical exclusion inferred from the access failure.",
+          "identifier_or_url": "https://www.rivmat.unipr.it/wwwprotetto/2020-11-2/Riv_Parma_11-2-2020_03.pdf",
+          "material_read": "cited bibliographic information only; PDF not retrieved",
+          "method": "lawful OA attempt",
+          "title": "Some combinatorial properties of generalized derangement numbers",
+          "trigger": "potential normalization/identity overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof steps 3–5",
+        "Ulas §4, Problem 4.1 and Question 4.3"
+      ],
+      "rationale": "The result answers Ulas's obstruction and density questions for a natural first even parameter. The complete progression law goes beyond the previously visible 1/8 lower bound, with a 1/6 exact density and quantitative error. The isometry is a separately useful structural fact controlling every dyadic fiber, not just the chosen number-theoretic application.",
+      "residual_risks": [
+        "Does not answer the general even-parameter problem by itself or count representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

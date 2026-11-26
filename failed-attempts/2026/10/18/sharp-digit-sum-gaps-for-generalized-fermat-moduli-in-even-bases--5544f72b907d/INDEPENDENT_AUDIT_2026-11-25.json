@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:29.667784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full spectrum is true. In frozen RESULT.md lines 21–55, reducing the powers of b modulo b^r+1 gives signed residue-class digit counts c_i. When the total digit weight is at most b, the integer signed evaluation has absolute value at most b*b^(r-1)=b^r, strictly less than the modulus. It must be zero; a coefficient of magnitude b would use all the weight with no other coefficient to cancel it. All remaining coefficients have magnitude less than b, so successive reductions modulo b give c_i=0 for every i, forcing even weight. The b+1 witness uses distinct positions because r>=2 and evaluates to 1+b*b^(r-1) modulo the modulus; the modulus itself has digit sum 2. Disjoint digit blocks add sums without carries. These two generators and the short-weight obstruction give the spectrum, count, largest gap and density, also for b=2. Inspected the frozen verification notes/code without execution; an independent bounded modular replay checked the b+1 witness for 60 pairs (even b=2 through 20, r=2 through 7). The frozen reachability checker, if run, covers all numeral lengths only for its tested parameters and digit caps, not the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 gives a shift by b−1 from any attainable sum; t=2 yields b+1 at this modulus.",
+          "Theorem 1 of arXiv:2303.13017 gives cofiniteness when gcd(b−1,n)=1; Theorem 2 includes all positive multiples of s_b(n), here the even sums."
+        ],
+        "reasoning": "Generic cofiniteness alone does not locate the gaps. The stronger short-weight restriction from Theorem 3 after regrouping, plus Theorem 4 and disjoint blocks, does.",
+        "searches": [
+          "arXiv:2002.02731, Theorems 3–4",
+          "arXiv:2303.13017, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Clokie et al. arXiv:2002.02731",
+        "Phunphayap–Noppakaew–Pongsriiam arXiv:2303.13017",
+        "Resultary records a0db430d1708 and 612537f7b691",
+        "Frozen RESULT.md and verification package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For small sums the block multipliers give s_B(b^tN)<=B for every t. Modulo 2 these regrouped sums select the individual residue classes of base-b positions. Theorem 4's proof also uses the same replacement of one high-order power by b congruent distinct lower-residue powers as the frozen witness."
+        ],
+        "reasoning": "This gives both exclusion and sufficiency at precisely the proposed parameters, with no new extremal decision. In particular the no-divisor-inclusion observation in the frozen record does not exclude the block-base implication.",
+        "searches": [
+          "https://arxiv.org/pdf/2002.02731, text offsets 7420–10584, printed p. 3 and continuation",
+          "Frozen RESULT.md lines 21–55 and 65–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 equates attainability of t with divisibility of a sum of t distinct powers. For modulus B+1 the powers reduce to ±1, so the small odd obstruction is immediate in base B."
+        ],
+        "reasoning": "Base B=b^r digit regrouping and the r shifts transfer this base-B obstruction to all base-b residue classes. This is not the weaker argument by divisibility of b^r+1 by b+1, which cannot handle even r.",
+        "searches": [
+          "Resultary: exact digit-sum spectra for multiples of b^r+1 and b+1",
+          "arXiv:2002.02731, Theorem 3 (printed p. 3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first catalogue record states the exact spectrum for d(b+1) where d divides b−1, giving the B+1 case after renaming the base and setting d=1. The second treats (b^r−1)/(b−1), a different modulus. The public query yielded no usable source."
+        ],
+        "reasoning": "The first record is a real matching base case but same-day metadata do not establish priority; the independent implication from the 2020 primary text is sufficient without it.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708",
+          "Resultary: 2026/10/18/SCOPE-exact-digit-sum-spectra-and-relative-frobenius-gaps-of-generaliz--612537f7b691",
+          "Public query: digit sums, multiples, b^r+1, generalized Fermat numbers, even base, exact spectrum"
+        ]
+      },
+      "rationale": "The whole spectrum is a direct block-base corollary of established digit-sum facts. Set B=b^r and suppose N is a positive multiple of B+1 with s_b(N)<=b. For t=0,...,r-1, regroup the base-b digits of b^t N in blocks of r: s_B(b^t N)<=b^(r-1)s_b(N)<=B. Each b^t N is still a multiple of B+1. In even base B, no multiple of B+1 has odd digit sum at most B: by Clokie et al. Theorem 3, such a sum would be a signed sum of that many ±1 terms divisible by B+1, impossible. Since b is even, the parity of s_B(b^t N) is the sum of the digits of N in positions j with j+t congruent to 0 mod r. Each residue-class sum is therefore even and so is s_b(N). This handles even and odd r, not just the divisor-inclusion case. For sufficiency, the known digit-sum increment Theorem 4 applied to the sum 2 of the modulus gives b+1, and no-carry block concatenation gives precisely the proposed semigroup. This is positive coverage by reduction to prior results, not a failure for lack of access or an inference from same-day priority.",
+      "residual_risks": [
+        "Exact preexisting wording and priority among same-day records are not established; the rejection uses the mathematical implication from accessible earlier theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact claim follows after routine base-block change, shifts and concatenation",
+          "evidence": "Theorem 3: t distinct powers suffice and are necessary. Theorem 4: if s_b(jn)=t, all t+q(b−1), integer q>=0, occur.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+          "material_read": "Theorems 3 and 4 and proofs, printed p. 3 and continuation, extract offsets 7420–10584",
+          "method": "Primary OA PDF passage",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "General criterion and digit-sum increments for multiples"
+        },
+        {
+          "assessment": "Partial general coverage; not decisive alone",
+          "evidence": "Cofiniteness for coprime gcd(b−1,n), and inclusion of multiples of s_b(n).",
+          "identifier_or_url": "https://arxiv.org/abs/2303.13017",
+          "material_read": "Theorem 1 p. 3 (text offset 6824), Theorem 2 p. 5 (offset 13800)",
+          "method": "Retrieved theorem passages in OA primary text",
+          "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+          "trigger": "Cofiniteness and exact output sets for digit sums"
+        },
+        {
+          "assessment": "Matching B+1 subcase, same-day order unresolved",
+          "evidence": "Set d=1 in the exact spectrum for d(B+1) with d dividing B−1.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-digit-sum-spectra-for-divisors-of-b-2-1-in-even-bases--a0db430d1708",
+          "material_read": "Local-mirror RESULT.md beginning and prior comparison at offset 4303",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "Exact digit-sum spectra for divisors of b^2−1 in even bases",
+          "trigger": "Exact B+1 spectrum needed for block-base transfer"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A genuinely unresolved exact gap spectrum would be worthwhile, but this one is determined by routine digit block regrouping and parity, plus the established increment rule. The auxiliary cancellation lemma uses the same short-weight bound and positional uniqueness; the package provides no separate unresolved application or nonroutine classification that would survive as a valuable repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

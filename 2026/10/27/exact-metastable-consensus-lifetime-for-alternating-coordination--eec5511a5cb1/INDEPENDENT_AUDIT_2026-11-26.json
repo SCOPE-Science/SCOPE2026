@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:59:08.140065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly summing the payoff difference at j A-neighbors gives j-(N-1) times the threshold in the sense j-(N-1)*threshold. In a count-k state j is k for a focal B and k-1 for a focal A. This distinction gives q_(m+1)=(m+1)/N, twice the interior value, and its reflected counterpart. At k<=m, upward moves are impossible and q_k=k/N; reflection gives the right cleanup corridor. A positive-probability path to a corridor exists from every interior state and the corridors reach unanimity, giving finite mean time on this finite chain; symmetry gives equal winner probabilities. At the balanced start the exit-time first-step equation has p_r=q_r=1/4, hence d_r=2. For m+2<=k<r, multiply q_k*d_k=1+p_k*d_(k+1) by binomial(N,k) and telescope using detailed balance. This gives the exact half-central-mass numerator and the separate doubled-death-rate endpoint equation gives D_(m+1). Adding the corridor mean NH_m works also at m=0, and m=r-2 uses the valid central condition directly. The lower bound retains the central coefficient in D_(m+2); the upper bound is 2^N/binomial(N,m+2) times polynomial factors plus O(N log N). Stirling along allowable sizes yields the strictly positive rate log 2-H(eta). Independently, I enumerated both payoff matrices and the focal player on one representative labeling per count, then solved the full rational system (u+d)T_k-u*T_(k+1)-d*T_(k-1)=2N with zero unanimous boundary values, where u,d count the upward and downward updates out of 2N equally likely choices. At (N,eta)=(4,1/4),(6,3/10),(20,1/5) this gives means 9, 13 and 20759/21 updates, respectively. The frozen verifier was inspected, not executed; these finite checks do not establish the rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local broader integer-threshold theorem gives Green-kernel formulas at general layer probability p and the rate min(D(alpha||p),D(beta||p)); for p=1/2 and alpha,beta=eta,1-eta its rate is exactly log 2-H(eta).",
+          "Raducha–San Miguel give the shared-action and alternating-layer update on random regular networks. Krapivsky–Redner use group-of-three updates across two classes rather than a single focal player choosing one best response to a selected payoff matrix."
+        ],
+        "reasoning": "The inspected broader theorem covers the rate expression but not the exact finite tie-free chain. The published motivating model supplies the mechanism, not the exact clique expectation in the inspected main-text passages.",
+        "searches": [
+          "Local Resultary: SCOPE-entropy-barrier-selection-and-exponential-consensus-latency-in-t--e24722b498e4, Finding and Proof",
+          "Raducha–San Miguel arXiv:2212.08877 pp. 2 and 9",
+          "Krapivsky–Redner arXiv:2103.04248 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary including the entropy-barrier record and adjacent indexed claims",
+        "Raducha–San Miguel arXiv:2212.08877",
+        "Auletta et al. arXiv:1107.4537",
+        "Krapivsky–Redner arXiv:2103.04248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior mechanisms explain binomial interior weights and the barrier. In the matched tie-retaining formula the interior heat-bath rate holds throughout, whereas the tie-free chain changes the edge conductance out of each boundary-adjacent state by a factor of two. The conductances in the indexed finite theorem are specifically for its uniform heat-bath interior, not a free choice of those two edges.",
+          "The unchanged central and interior equations, altered last increment, and harmonic cleanup together give the distinct exact finite expectation. Changing an endpoint conductance preserves the logarithmic barrier, so the rate overlap is expected."
+        ],
+        "reasoning": "A general Green-kernel method can be applied after identifying the correct noninteger-threshold rates and corridor, but the fixed transition probabilities of the inspected finite theorem cannot yield these rates by a parameter substitution at matched cutoffs. Novelty is limited to the exact model-specific consensus time with its boundary correction, not general first-passage mathematics.",
+        "searches": [
+          "Local entropy-barrier record, Proof offsets 3875–6995",
+          "Auletta et al. §4 and Appendix C",
+          "Frozen RESULT.md lines 38–76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The chain is a lazy symmetric Ehrenfest interior with two absorbing-corridor edges whose outward probabilities are doubled, followed by monotone cleanup. It is not ordinary Ehrenfest passage to two levels measured in the same clock.",
+          "Auletta et al. give a different chain, close to Ehrenfest away from the extremes, and a probability bound for hitting the extremes before a specified time, not the stated mean to unanimity."
+        ],
+        "reasoning": "The waiting clock counts null updates, and crossing the threshold into a corridor is not yet consensus. The endpoint rates and cleanup must both agree for an equivalent mean-time formula.",
+        "searches": [
+          "Raducha–San Miguel arXiv:2212.08877, model and asynchronous update, pp. 2 and 9",
+          "Auletta et al. arXiv:1107.4537, §4 and Appendix C, Lemma C.1",
+          "Resultary: consensus absorption, entropy barriers, and Ehrenfest first passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed comparison furnishes a finite formula but has q_(m+1)=(m+1)/(2N) at matched left corridor cutoff a=m. The tie-free chain has q_(m+1)=(m+1)/N. Its path date 2026/11/8 is later than the frozen 2026/10/27 path date; the content comparison, not an inference of priority, determines what overlaps.",
+          "The other indexed findings concern weighted voting, a semigroup norm, and synchronous survivor voting, respectively, not the exact mean for this chain."
+        ],
+        "reasoning": "The local formula is consequential overlapping evidence, not a duplicate of the full finite-time claim. At fixed symmetric absorbing-corridor endpoints and p=1/2, the ordinary interior increments agree, but the endpoint contribution D_(m+1) is halved relative to tie retention.",
+        "searches": [
+          "Local Resultary: fully overlapping clique consensus with entropy rate and exact binomial mean",
+          "Local mirror: 2026/11/8/SCOPE-entropy-barrier-selection-and-exponential-consensus-latency-in-t--e24722b498e4/RESULT.md",
+          "Local Resultary adjacent entries on square-root weak reinforcement, three-bit Ehrenfest semigroup variation, and metastable geometric fixation"
+        ]
+      },
+      "rationale": "The supported distinct claim is the boundary-corrected exact finite consensus time for the tie-free, opposed-threshold, full-overlap clique model. The entropy rate is not an independent originality claim: it coincides with the symmetric specialization of a broader indexed rate and follows from the same binomial barrier mechanism. The explicitly compared finite theorem for integer thresholds and tie retention has a different endpoint transition, so it does not state or specialize to the finite identity under review.",
+      "residual_risks": [
+        "The Raducha–San Miguel supplemental PDF was not materially inspected; no assertion about its complete contents is made.",
+        "Other classical first-passage work or a different treatment of tie-free clique updates might provide closer exact coverage. The entropy rate itself is not asserted as historically new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial model overlap, not the exact clique lifetime in the passages read",
+          "evidence": "Full overlap shares node states and the layers are selected equiprobably. The main model uses random regular graphs and describes uniformly selected focal nodes with myopic best response among the update rules.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.08877",
+          "material_read": "p. 2, text near offset 12600; p. 9, near offset 65000",
+          "method": "OA primary paper passages",
+          "title": "Evolutionary games on multilayer networks: coordination and equilibrium selection",
+          "trigger": "Same motivating game and shared-player update"
+        },
+        {
+          "assessment": "Equivalent symmetric rate; distinct finite transition law",
+          "evidence": "Integer thresholds with tie retention give down transition (1-p)i/N throughout the heat-bath interior, including i=a+1. Its limit is min(D(alpha||p),D(beta||p)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-entropy-barrier-selection-and-exponential-consensus-latency-in-t--e24722b498e4/RESULT.md",
+          "material_read": "Finding and Proof offsets 0–6995, especially Proof 3875–6995; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passages",
+          "title": "Entropy barrier selection and exponential consensus latency in two-layer coordination",
+          "trigger": "Strongest local overlap: same clique structure, exact Green kernel and entropy rate"
+        },
+        {
+          "assessment": "Different update, boundary location and hitting-time statement",
+          "evidence": "The logit coordination process is near Ehrenfest except at states near the extremes. Lemma C.1 bounds P_k(tau_{0,n}<n log n+cn), not the target exact expectation.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4537",
+          "material_read": "§4, pp. 12–13, offsets around 49300 and 52450–56845; Appendix C, Lemma C.1, pp. 25–27, near offset 107150",
+          "method": "OA primary paper passages",
+          "title": "Metastability of Logit Dynamics for Coordination Games",
+          "trigger": "Modified Ehrenfest process and escape-time precedent"
+        },
+        {
+          "assessment": "Different state and microscopic update",
+          "evidence": "Random groups of three update by majority with a special probability for mixed-class groups, rather than alternating payoff thresholds for a single focal player.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.04248",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary paper passage",
+          "title": "Divergence and Consensus in Majority Rule",
+          "trigger": "Exponentially long consensus for related coordination dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies an exact, reproducible lifetime benchmark for the apparently mixed state of the published coordination mechanism in its natural full-overlap clique limit. It distinguishes eventual absorption from long-lived coexistence, and exactly quantifies the finite-clock effect lost by treating the whole mixed corridor as an ordinary heat bath. The change in the boundary contribution is substantial at a fixed finite threshold and is invisible in the exponent alone; the claim is useful for measuring finite-size consensus, without asserting the same behavior on sparse layers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

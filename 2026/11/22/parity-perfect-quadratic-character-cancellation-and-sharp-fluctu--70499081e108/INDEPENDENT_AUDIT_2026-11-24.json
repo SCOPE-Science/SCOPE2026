@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:37:40.867463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete half-open rows propagate under (a,b)↦(a,a+b),(a+b,b) modulo 5 from (1,1). An exact independent replay produced all 24 zero Cayley–Hamilton defects D_j=B_{j+4}−B_{j+2}+4B_j, j=0,…,23, and the four initial values 1,0,−2,0 (replay: /workspace/branches/205f41a5-0617-4437-8dc1-b6ef0ab5b8b9/replay_24state.py; frozen code not executed). Independently, symmetrize the observable to h=(χ_5(a)+χ_5(b))/2, which gives identical evaluation at the swap-invariant root after any number of steps. Symmetric functions with f(ta,tb)=χ_5(t)f(a,b) are determined by g_0,g_1,g_2,g_4 at (1,0),(1,1),(1,2),(1,4): the missing slope values obey g_∞=g_0 and g_3=−g_2. The backward transfer sends this vector to (g_0+g_1,2g_2,−g_2−g_4,2g_0), of characteristic polynomial X^4−X²+4, and h has coordinates (1/2,1,0,1). Evaluation at the root is g_1. This proves the scalar recurrence and initial values directly and gives the stated rational generating function. Parity follows from its even powers; starting with B_2=−2, reduction of the even recurrence modulo four gives B_{2j}≡2 for every j≥1. The characteristic roots and initial values give c and α as stated. If α/2 were a root of unity, 2Re(α/2)=1/2 would be a rational algebraic integer. Hence the angle is an irrational rotation, so the even normalized values are dense in the interval with endpoints ±2|c|=±sqrt(8/3). The odd values are zero, and the endpoints are limsup and liminf, not asserted to be attained at finite depth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick §4 gives the primitive-pair transfer and uniform limiting distribution, and §5 discusses recurrences for dyadic marginals.",
+          "655e46fed4c6 uses the same T_5 on all 24 states and gives its entire characteristic polynomial with X^4−X²+4 as one factor, and a root-growth upper bound for maximal pair discrepancy on dyadic prefixes."
+        ],
+        "reasoning": "Adjacent differences of prefix-count vectors produce the row-count vector, but the earlier root-growth bound cannot give exact row parity or the sharp normalized constant. The determinant allows the quartic to occur, but also allows other factors; their absence for this observable is additional.",
+        "searches": [
+          "arXiv:math/0610601, Reznick §§4–5",
+          "Resultary same-date consecutive-pair discrepancy record ...--655e46fed4c6, Finding and proof steps 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:math/0610601; arXiv:1704.05253; Lansing JIS 16 (2013)",
+        "Resultary mirror: 655e46fed4c6, 0c8182a44070, 17b06025c42e, 17ef6a7d2dbd and c8dc01beeb78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked T_5 characteristic polynomial also has factors X, X−2, X−1, X+1, X²+1 and X²−X+2. The broad polynomial and uniformity do not supply the restriction of the backward transfer to swap-invariant quadratic-scaling observables or the root evaluation on that restriction.",
+          "The dedicated restriction or exact scalar certificate eliminates the unwanted factors and establishes the numerator and constant."
+        ],
+        "reasoning": "This is algorithmically derivable from the known finite graph, as the record credits. It is not a direct specialization of the known growth bounds or eigenvalue list, which do not determine the scalar's active modes or weights.",
+        "searches": [
+          "655e46fed4c6, proof steps 1–2, local mirror offsets 0–3872",
+          "Reznick §5 on all marginal sequences satisfying recurrences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0c8182a44070 counts projective residue classes of Calkin–Wilf pairs, including the mod-five zero class. Under scaling both coordinates by a nonsquare, a nonzero first-coordinate χ_5 changes sign but the projective class is unchanged.",
+          "17b06025c42e and 17ef6a7d2dbd concern the prefix discrepancy of classes 1 and 4. In the audited character both classes have the same sign, and classes 2 and 3 have the opposite sign."
+        ],
+        "reasoning": "Passage between dyadic prefixes and rows is by adjacent differences, but neither a projective-class count nor the residue-1 versus residue-4 prefix statistic determines the required character sum. The identical assigned record was excluded as priority evidence.",
+        "searches": [
+          "Resultary: Stern modulo 5, quadratic character of dyadic rows, Calkin–Wilf residue oscillations; local mirror of 0c8182a44070, 17b06025c42e, 17ef6a7d2dbd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reznick gives the divisible-by-five marginal recurrence on dyadic prefixes (shared with modulus four), with polynomial T^4−2T³+T²−4, and a bounded check for the 1 versus 4 discrepancy.",
+          "The indexed projective and residue-discrepancy formulas provide exact values for different statistics, not this scalar series. The general literature search supplied no usable result and is not negative evidence."
+        ],
+        "reasoning": "No exact table of the required signed combination across all levels was identified in the inspected material; even exact zero-residue counts alone constrain only the total nonzero count, not its square versus nonsquare split.",
+        "searches": [
+          "Resultary: exact Stern mod-five residue sums and sharp square-root fluctuations",
+          "Reznick §5, explicit dyadic marginal recurrences, PDF offset about 42500"
+        ]
+      },
+      "rationale": "The exact character projection on complete dyadic rows, its perfect parity law, and its oscillation constant are distinct from all checked statements. The transfer mechanism, square-root spectral scale and quartic factor are not credited as novel. The full consecutive-pair spectrum on the same modulus is substantive overlapping evidence, but does not identify the active scalar component, its initial values or amplitude.",
+      "residual_risks": [
+        "Reznick’s reference 16, listed as in preparation, was not retrieved.",
+        "Distinct same-day entries do not order priority; the checked pair-spectrum result has substantial overlap. Further unindexed exact observable evaluations are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers transfer and asymptotic uniformity; exact marginal discussed is different",
+          "evidence": [
+            "Primitive-pair walks for dyadic counts; T(2^r;4,0)=T(2^r;5,0) and its stated recurrence; reference 16 listed in preparation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0610601",
+          "material_read": "§4 Lemma 4.4 and Theorems 4.6–4.7/Corollary 4.8 (PDF pp. 9–11, offsets 24500–33156), §5 p. 15 (about 42500), references p. 16",
+          "method": "Primary OA PDF text by passages",
+          "title": "Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "Primitive residue-pair transfer and mod-five marginals"
+        },
+        {
+          "assessment": "Strong spectral and methodological overlap; does not select the audited scalar factor and numerator",
+          "evidence": [
+            "The discrepancy is maximal over pairs on 0≤n<2^k; the T_5 determinant includes the quartic; theorem bounds the root-growth limsup."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-prime-square-root-discrepancy-failure-for-consecutive--655e46fed4c6/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 1–2, mirror offsets 0–3872",
+          "method": "Resultary and local GitHub mirror",
+          "title": "The first prime square-root discrepancy failure for consecutive Stern residues",
+          "trigger": "Same modulus, transfer and square-root rate"
+        },
+        {
+          "assessment": "Exact but projective rather than quadratic-scale-sensitive",
+          "evidence": [
+            "Ratio classes include the mod-five zero class; nonzero pair scale is forgotten."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-square-root-residue-oscillations-in-the-ternary-and-quinar--0c8182a44070/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local GitHub mirror",
+          "title": "Sharp square-root residue oscillations in the ternary and quinary Calkin–Wilf levels",
+          "trigger": "Sharp quinary Stern-related residue oscillation"
+        },
+        {
+          "assessment": "Not a modular character law",
+          "evidence": [
+            "Normal distribution for log s(n) over a dyadic row; Gauss-map transfer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.05253",
+          "material_read": "Abstract, Theorem 1.1 and transfer setup, PDF offsets 0, about 6400 and 31300",
+          "method": "Primary OA PDF text by passages",
+          "title": "Statistical distribution of the Stern sequence",
+          "trigger": "Statistical distribution on dyadic rows"
+        },
+        {
+          "assessment": "Real size/threshold statistic, not residues",
+          "evidence": [
+            "Counts Stern values above a scaled average."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Lansing/lansing3.pdf",
+          "material_read": "§5, pp. 7–8, PDF offsets 20138–21700",
+          "method": "Primary OA PDF text by passages",
+          "title": "Distribution of Values of the Binomial Coefficients and the Stern Sequence",
+          "trigger": "Stern row distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic character directly measures a natural residue bias. Exact equality at every odd depth and nonzero even discrepancies with both sharp signed accumulation endpoints cannot be inferred from equidistribution or from a bound on the growth rate of individual-pair discrepancies. The result separates a parity cancellation law from an active square-root oscillation and supplies the precise finite-row statistic, not merely a recomputation of an eigenvalue modulus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

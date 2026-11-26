@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The marked-cycle count provides the exact mixed-moment identity by uniform residual permutations. A uniform insertion coupling and the uniformly distributed length of a fixed label's cycle prove \(a_{k+1}-a_k\ge1/2\). The deterministic truncation bound then proves strict negativity for all \(r\le n/2\); the residual-size restriction yields the exact remaining formula and its sign. Both endpoint regimes, \(n=2\), \(r=n\), and possible equality \(r=a_n\) are covered. Exact-rational distribution recurrences through \(n=35\) and independent brute-force enumeration through \(n=8\) agree.
+PASS
 
-## Originality — PASS, with residual risks
+Marking one r-cycle weights a permutation by its exact count C_{n,r}; the n!/r labeled choices leave a uniform permutation on n−r labels. The mixed first moment and E[C_{n,r}]=1/r follow, including r=n with M_0=0. Uniform insertion into a specified longest cycle has conditional probability M_k/(k+1), and the longest length cannot decrease in the other cases. The uniform length of the cycle of label 1 gives a_k≥(k+1)/2 and thus a_n−a_m≥r/2 for m=n−r≥1. For r≤m, on all 1≤x≤m, (r−x)_+≤r(1−x/m); hence the capped-mean uplift is at most r(m−1)/(2m)<r/2, including n=2,r=1. For r>n/2 the cap fixes the maximum at r, giving the exact sign and any zero case without needing nonintegrality of a_n. The Golomb–Dickman limits follow by division by n and by r respectively, with the stated exclusions.
 
-The full relevant parts of Shepp–Lloyd's primary article (cycle-type model, longest-cycle asymptotics, insertion construction) provide known marginals and implicit general cycle-type probabilities, but not the marked-cycle covariance and all-size sign boundary. Arratia–Barbour–Tavaré address Poisson–Dirichlet component limits rather than finite covariance signs. Shi's readable thesis treats correlations among ordered cycle lengths, which differs from the number of cycles of prescribed size. Published set-partition block-count sign-switch results use a different probability law and compare total block count, not longest-cycle length. Actual literature searches for aliases of the mixed moment, sign-change threshold, Ewens cycle-count dependence, and Golomb–Dickman boundary produced no covering statement. These checks cannot prove absolute novelty; an implicit special case of an older full joint transform or an uninspected publication is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single theorem classifies, for every sample size and every cycle size, the sign of a natural dependence between an extremal permutation statistic and the exact-size component census. It distinguishes negative influence of short cycles from positive influence of cycles above the mean maximum, identifies the exact critical scale with a classical constant, and provides a nonzero, explicit macroscopic covariance limit. This complete parameter classification requires a nontrivial comparison inequality beyond merely reciting the cycle-index count formula.
+Passes for the finite uniform sign theorem and its exact boundary, not for cycle marking or the classical longest-cycle mean limit. The exact mixed-moment formula follows routinely from the known cycle-type law; the cited results do not provide the strict short-cycle estimate or the combined sign law.
 
-## Scope and limitations
+## value
 
-All assertions concern uniform permutations, not general weighted Ewens measures. The exact result is a covariance reduction and sign theorem, not an elementary closed form for the mean maximum; no distributional independence is claimed. The source coverage may omit an equivalent old transform, and independent scientific auditing has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign of dependence between a maximum and an exact-size frequency is a natural finite question not answered just by the classical limiting constant. The short-cycle comparison across the entire finite range and the exact single cutoff give useful information even on the integer boundary, without evaluating a joint distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

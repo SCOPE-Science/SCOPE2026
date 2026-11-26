@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim is fully quantified for nonnegative spherical orders and positive rational scales. Exact terminating Hankel expansions give a reduced rational phase with \(\ell\) poles. A degree identity and independent \(1/z\) comparison force equality of both orders and scales, except the explicitly handled order-zero case. Every nonzero root is transcendental by the Lindemann–Weierstrass argument, contradicting a nonzero algebraic-coefficient polynomial equation obtained from a hypothetical common zero. Supplementary exact symbolic checks passed 8,610 assertions but are not used to infer infinite validity.
+## correctness
 
-**Originality (O): PASS relative to evidence.** Binyamini–Kiro–Kozma–Pila, arXiv:2610.28477 (sections 1, 2, 5, 8), treats the arithmetic of zeros and rational exponential phases at a fixed half-integer order, while published fixed-order noncommensurability does not quantify over different orders. Classical unscaled Bourget rigidity concerns only scale one. The new cross-order conclusion follows from comparing both the pole degree and first Laurent coefficient of *different* rational Hankel phases. The closest fixed-order public report was indexed but its full text was inaccessible; this and older unlocated equivalences remain risks.
+PASS
 
-**Value (V): PASS.** The all-degree sharp classification forbids a complete family of exact multi-angular-momentum spectral collisions under rational radial rescaling, including cases not ruled out by pole counts alone. The order-zero and equal-order exceptions are classified exactly. This is a structural arithmetic boundary for spherical Fourier–Bessel analysis rather than an isolated calculation.
+The terminating Hankel formulas give the rational phase R_l=(-1)^l B_l/A_l at each nonzero zero, with denominators nonzero: at a common A_l,B_l root away from zero both Hankel solutions would vanish, contrary to their Wronskian -2i/z^2; at zero both polynomial constants are nonzero. Hermite–Lindemann then makes every such zero transcendental. A common zero at positive rational scale a/b forces R_l(z)^a=R_m(az/b)^b identically, since otherwise the zero is a root of a nonzero algebraic-coefficient polynomial. Reduced pole multiplicities give a*l=b*m, and the normalized Laurent coefficient at infinity gives a^2*l(l+1)=b^2*m(m+1). Cancellation gives a^2*l=b^2*m, hence a=b and l=m if both orders are positive. Exactly one zero order fails pole equality. The two exceptional cases have witnesses (b*pi for order zero; positive zeros for identical positive order, also seen from the oscillatory Hankel asymptotic). The proof does not rely on finite numerical searches.
 
-**Limits.** No irrational-scale claims, quantitative lower bounds, or general independence statements. The proof is not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct assertion is the exclusion of rational ratios between positive zeros of different spherical orders. The fixed-order rigidity, the order-zero exception, and the rational phase method receive prior credit, not a second claim of originality. The strongest inspected results do not establish the general different-order comparison.
+
+## value
+
+PASS
+
+Gives a complete obstruction to exact rational resonance between radial modes of different angular orders, not just a check of small orders or a reformulation of fixed-order rigidity. The pole-count tie witnesses why a separate invariant is needed; the normalized Laurent coefficient provides a uniform discriminator across all orders and rational scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

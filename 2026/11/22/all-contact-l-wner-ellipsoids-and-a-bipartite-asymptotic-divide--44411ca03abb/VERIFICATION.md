@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `OPENBLAS_NUM_THREADS=1 python checks/check_pq_lowner.py` from the extracted artifact root, with Python 3, NumPy and SymPy installed. This standalone script checks 25 parameter pairs \(3\le r\le7\), \(2\le s\le6\), including complete enumeration of every allowed vertex, the vertex probability measure, the centered full covariance matrix, all four positive eigenvalue families, inverse-covariance contact for every vertex, the Euclidean enclosing-ball radius, the ellipsoid volume determinant and the uniform-weight threshold. Symbolic computations check the exact contact-polynomial and threshold identities. Its successful final output is `BALANCED_MULTIPARTITE_PQ_LOEWNER_PASS cases= 25`.
+## correctness
 
-The actual proof for all dimensions relies on the displayed covariance eigenspaces, the exact two-orbit contact identity, the equality of the positive quadratic root, and the global trace–determinant optimality certificate. Finite numerical checks verify only their stated parameter range. The source comparison does not certify historical priority and independent mathematical audit has not been performed.
+PASS
+
+The contact measure has uniform marginals. On the centered affine directions (the covariance formulas with A/k are restricted to 1-perp), the adjacency has eigenvalues −s on class contrasts and 0 on within-class contrasts. Orthogonal sum/difference coordinates yield the four stated positive eigenvalues and certify full dimension. For an ordered edge the two within-class projected components are supported in different classes, giving r(s−1)/N in each sign; the class-constant components give (r−2)/N and r/N. For a diagonal the U components double and V vanishes. These reproduce both inverse-covariance norms. Independently factored the cleared contact numerator as −2 times the stated quadratic and reproduced the exact factorization of F at the uniform mass. F decreases from 2(r−1)/(r−2) to −∞, so the unique contact mass lies strictly inside (0,1). The covariance trace forces both orbit gauges to be d; strict convexity excludes all other contacts. Averaging containment proves the trace/determinant bound and its strict equality condition even with unrestricted competitor centers. All vertices have squared distance d/N, and the same mean certificate proves ball optimality. The determinant ratio and p~(r−1)/(r(r−2)s) give the positive fixed-r limit; the bipartite substitution yields √2 exp(−1/4) s^(−1/4). The advertised checker was not included among the frozen files; VERIFICATION.md reports it, but the audited proof and independently reconstructed symbolic identities do not rely on it.
+
+## originality
+
+PASS
+
+The supported distinct result is the explicit all-contact outer ellipsoid for balanced PQ multipartitions with r≥3, the s=2 threshold for uniform weighting and the fixed-r asymptotic. Earlier bipartite and star formulas and the classical determinant certificate are not new; none of the inspected statements covers the r≥3 answer.
+
+## value
+
+PASS
+
+Equal-size multipartitions are a natural extension of the bipartite geometry. The explicit optimal design resolves whether a uniform vertex covariance suffices and evaluates the distortion in volume from using the minimal containing ball. The change from a vanishing ratio to a strictly positive limit for each fixed r≥3 is a qualitative boundary rather than a cosmetic change of parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

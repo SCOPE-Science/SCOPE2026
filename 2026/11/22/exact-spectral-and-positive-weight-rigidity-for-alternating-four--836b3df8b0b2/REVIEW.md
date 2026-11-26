@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The explicitly normalized Fourier matrix decomposes after parity Fourier transforms into two-by-two blocks with trace \(2\) and determinant modulus \(|\cos(N\delta/2)|\), yielding the full Gram spectrum and boundary. A transitive rotation/reflection action averages arbitrary positive weights to uniform while preserving eigenvalue bounds; strict convexity follows from the invertible Vandermonde moment map. The determinant is a product of weights and the unnormalized result reduces to a strictly convex one-variable quadratic. The included checker supplies 846 supplementary finite assertions, not an infinite certificate.
+PASS
 
-## Originality
+Direct Fourier moments on the two m-gons give diagonal 1 and the only nonzero off-diagonals at k−l=±m, conjugates with modulus s=|sin(mδ)|. The resulting m blocks give the claimed spectrum, including coincident eigenvalues at δ=0. Rotation by 2π/m and reflection about π/N act transitively; conjugation or conjugate-unitary equivalence preserves the Loewner bounds and the Frobenius objective. Averaging therefore gives both individual eigenvalue bounds and the condition bound for every normalized positive vector. Vandermonde injectivity makes the squared defect strictly convex in the weights, and det G=|det A|² prod w_j gives precisely the unique AM–GM equality case. At any total mass t the unique equal-weight minimum is N[(t−1)²+t²s²], whose minimizer is t=1/(1+s²). The endpoints leave m distinct nodes with Vandermonde rank m; expansion of cos(π(1/2−|α|)) gives the claimed condition divergence. The direct moment argument bypasses the transpose convention in the displayed 2-by-2 evaluation block.
 
-PASS relative to inspected sources and available search results. The most relevant recent work, Wind-Andersen (arXiv:2611.02379), treats first-order compensation, explicitly setting aside the exact fixed-imperfect-node and spectral objectives. Austin–Trefethen (2017) and Yu–Townsend (2022) establish more general interpolation/stability estimates and do not supply these exact globally weight-optimal constants on a periodic even grid. A related polyphase paper (Ghosh–Mulleti–Seelamantula, arXiv:2610.36142) provides a broad reconstruction framework; its available abstract does not assert the present simultaneous positive-weight optima. An older equivalent two-coset/polyphase calculation is a genuine residual priority risk. A negative search is not proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. This complete natural periodic-timing-jitter model has a sharp worst-case sampling condition number, exact mean-square Gram defect, volume loss, best positive compensation, and precisely quadratic collapse at node collision. It proves uniform stability even for displacement fractions beyond the usual uniform Kadec sufficient range and shows that no nonuniform positive reweighting can improve either spectral extreme. The restrictions to two interlaced cosets and critical sampling are scientifically material.
+Pass for the conjunction of the exact two-coset spectral bounds, simultaneous global weighting objectives, Frobenius and determinant rigidity, and mass shrinkage. The indexed matches and inspected sampling papers do not give this fixed-grid all-weight result. Polyphase reduction, symmetry averaging, and AM–GM themselves are not novel.
 
-## Limits
+## value
 
-No arbitrary-jitter extension or uniqueness assertion for condition-number minimizers is proved. The proof is analytic and self-contained; numerical checks are supplementary. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural periodic test of critically sampled Fourier stability gives the exact improvement ceiling for every positive density compensation, not merely a uniform spectrum or perturbative bound. The saturation and divergence at collision and the optimal tradeoff when mass may shrink give usable benchmarks for reweighting objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

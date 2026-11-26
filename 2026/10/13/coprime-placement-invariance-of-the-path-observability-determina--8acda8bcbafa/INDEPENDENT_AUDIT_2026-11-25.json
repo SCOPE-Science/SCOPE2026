@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:04:27.859002Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized sine basis diagonalizes the specified Toeplitz path, with distinct real eigenvalues since β≠0. In that basis W_H=D_j K_H D_j, where K_H is the Gram matrix of sequences (1,λ_k,…,λ_k^(H−1)); the Vandermonde square at H=n proves K_H positive definite for all H≥n. Exactly gcd(j,n+1)−1 sensor weights vanish. At each coprime node the multiplication-by-j permutation modulo n+1 gives identical absolute sine products, and the roots-of-unity evaluation gives the squared modal product 2^(−n)(n+1)^(2−n). This establishes positive ties versus singular positions. The endpoint Krylov matrix is triangular with diagonal β^t for 0≤t<n, so its Gramian determinant is β^(n(n−1)); the modal tie transfers it. At strict Schur stability, K∞ has entries 1/(1−λ_kλ_l) and is positive definite by the first n samples. The double-alternant identity gives its determinant as the squared Vandermonde divided by the ordered-pair product; division by the finite K_n determinant gives the claimed stable value, including zero λ by continuity. The inspected checker.py corroborates bounded finite-horizon ranks and determinants only; it was not executed and does not test the stable formula. The proof does not extend these placement conclusions to heterogeneous couplings, other graph boundary conditions or other criteria.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parlangeli–Notarstefano Theorem 4.4 gives arithmetic path-Laplacian observability conditions. Pasqualetti–Zampieri–Bullo define the determinant-volume metric. Summers–Lygeros focus on trace; the dynamical sampling paper includes numerical path examples and discusses frame bounds/conditioning."
+        ],
+        "reasoning": "Rank/PBH identifies zero determinants, not equality of positive determinants; volume definitions and trace-optimization results do not determine the sensor-dependent modal product. The scope-limited comparator results do not dominate the claim.",
+        "searches": [
+          "arXiv:1109.3556",
+          "arXiv:1308.1201",
+          "arXiv:1306.2491",
+          "arXiv:2609.25472"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1109.3556",
+        "arXiv:1308.1201",
+        "arXiv:1306.2491",
+        "arXiv:2609.25472",
+        "Resultary Oct. 11 normalized path, Oct. 13 weighted stars, and Nov. 22 damped combinatorial path records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-horizon comparison needs a product of the Dirichlet sine weights, with exact permutation invariance under multiplication modulo n+1. Endpoint Krylov triangularity and the discrete-time Cauchy kernel yield the two values."
+        ],
+        "reasoning": "The general factorization is a method, not a prior statement of the path-specific product or its full consequences. The strongest inspected analogous theorem uses a different basis and does not supply that evaluation.",
+        "searches": [
+          "Parlangeli–Notarstefano Theorem 4.4 and spectral discussion",
+          "Normalized-path Resultary Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 11 normalized-path analogue gives a modal Vandermonde formula with a different operator and generally endpoint optimizers.",
+          "The Nov. 22 continuous-time damped combinatorial-path result gives equal positive Gramians at controllable nodes but has different eigenvectors, gcd index, and continuous-time integration."
+        ],
+        "reasoning": "Observability and controllability here are dual by symmetry, and the Dirichlet heat step is an affine adjacency transform. Neither normalized adjacency nor the degree-corrected combinatorial Laplacian is this Dirichlet operator. Analogy of the factorization does not give equivalence of the theorems.",
+        "searches": [
+          "Path observability-Gramian determinants and coprime sensor placement",
+          "Resultary: normalized path dynamical sampling and single-node path D-optimality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day record inspected concerns weighted stars and conductance-dependent sensor scores; normalized and combinatorial paths are the closer indexed results."
+        ],
+        "reasoning": "The gallery of exact placement statements checked does not supply the determinant at H=n or the complete coprime tie for this matrix. Same-day timing was not used as an exclusion criterion.",
+        "searches": [
+          "Resultary: coprime path determinant and D-optimal single sensor",
+          "Resultary 2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7"
+        ]
+      },
+      "rationale": "The strongest earlier related determinant/placement result located is on the normalized path and gives a different rank index and optimizer family. Other primary comparisons supply path rank analysis or the Gramian determinant metric but not the supported exact all-horizon determinant law on the Dirichlet Toeplitz path. The rank criterion and generic determinant tools are not themselves claimed as new.",
+      "residual_risks": [
+        "An unindexed discrete-path determinant theorem or equivalent walk-matrix formulation could exist; search noncoverage is not global priority.",
+        "The normalized and combinatorial path analogues show that the determinant-factorization strategy is not a new general placement technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rank comparison, different boundary model",
+          "evidence": [
+            "Combinatorial path Laplacian and odd-prime divisibility conditions, not determinant ties."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "PDF pp. 9–10, offset 24600, and pp. 16–17, offset 50600, Theorem 4.4",
+          "method": "OA PDF passage inspection",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Arithmetic path rank theorem"
+        },
+        {
+          "assessment": "General method, no path-specific consequence in inspected passage",
+          "evidence": [
+            "Gramian determinant measures reachable volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.1201",
+          "material_read": "PDF p. 3, offset 19700",
+          "method": "OA PDF passage inspection",
+          "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+          "trigger": "General determinant placement metric"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Lists determinant as a metric but focuses on trace."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.2491",
+          "material_read": "PDF p. 3, offset 17900",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal Sensor and Actuator Placement in Complex Dynamical Networks",
+          "trigger": "Quantitative sensor placement"
+        },
+        {
+          "assessment": "Related determinant mechanism; distinct operator and optimizer set",
+          "evidence": [
+            "Symmetric normalized adjacency and arithmetic rank/volume law with generally endpoint optimizers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–6539",
+          "method": "Published record through local mirror",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Earlier close path determinant analogue"
+        },
+        {
+          "assessment": "Different dynamical system",
+          "evidence": [
+            "Continuous-time combinatorial path with common damping and corresponding Cauchy-form Gramian."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unimodular-single-node-controllability-and-universal-d-optimal-t--5f5dcc0ba067/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–7134",
+          "method": "Published record through local mirror",
+          "title": "Unimodular single-node controllability and universal D-optimal ties",
+          "trigger": "Strong structural analogue for Gramian ties"
+        },
+        {
+          "assessment": "Different graph and score law",
+          "evidence": [
+            "Uses continuous-time weighted stars and conductance-dependent sensor scores."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "A complete D-optimal single-sensor classification on weighted stars",
+          "trigger": "Same-day exact placement hit"
+        },
+        {
+          "assessment": "Numerical path examples, different criterion",
+          "evidence": [
+            "Discusses frame bounds and conditioning, not coprime Gramian volume ties."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25472",
+          "material_read": "PDF pp. 19–20, offset 62000",
+          "method": "OA PDF passage inspection",
+          "title": "Dynamical sampling paper, arXiv:2609.25472",
+          "trigger": "Path sampling comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform Dirichlet path is a standard discrete diffusion/network model, and the determinant is the reachable or observable volume criterion. The result gives all exact optimal single-node choices, including interior ties that rank positivity alone cannot distinguish, independent of horizon and coefficients, and provides usable minimal and stable infinite values. It does not claim a novel sine basis, general rank test, or optimization of trace or conditioning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

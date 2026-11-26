@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:02.670595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–61; VERIFICATION.md; verify.py"
+      ],
+      "rationale": "After projection the row-index transition depends only on the sampled value, and positive degrees plus symmetry give detailed balance. A positive floor gives self-loops; without it the graph is complete multipartite on the distinct-value classes, bipartite exactly for two classes and otherwise with two- and three-step returns. For at least 2r+1 distinct values, the Vandermonde matrix has full column rank. In the coefficient matrix each mirrored exponent pair gives a block of negative determinant, even in the exceptional pair with the floor on its diagonal; the central sign is (-1)^r. Congruence and the diagonal similarity of P to its symmetric form prove the sign and nullity counts. For r=1 the centered degree is m(ε+μ₂+y_i²), giving the displayed mean and excess risk, which is nonnegative with precisely the stated equality case (the least-squares objective differs from squared error by the constant μ₂). On the positive-variance centered sphere the two constraint gradients are independent: each cubic extremizer takes exactly two levels, and its squared standardized skewness is m²/[k(m−k)]−4, maximized at k=1 or m−1. Zero-floor outlier mass follows from equal total degrees on the two parts. The theorem is analytic; inspecting the finite checker was not used as proof of rank, periods, or sharpness.",
+      "residual_risks": [
+        "The full sign count needs at least 2r+1 distinct observations. Period two is a property of the chain, not a claim that an initialization already balanced between its parts must oscillate. The moment/risk formulas are for r=1 only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bogomolny–Bohigas–Schmit §1 states a one-positive bound for Euclidean distance matrices. Zhang et al. Thm. 2 treats noisy sparse Bregman algorithms. Resultary 4f6817ccede3 describes the sharp standardized-skewness range for fixed masses."
+        ],
+        "reasoning": "The distance premise is not an all-even-power inertia theorem; the noisy convergence bound is not the stationary law here. The broader moment result covers the extremal skewness factor rather than the residual-projection process.",
+        "searches": [
+          "arXiv:nlin/0301044",
+          "arXiv:2306.06813",
+          "Resultary 4f6817ccede3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen references and Resultary 4f6817ccede3, dd454724b0aa, 5f95cb30e1af",
+        "arXiv:2007.02910, nlin/0301044, 2306.06813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking all masses 1/m gives the skewness supremum (m−2)/√(m−1); the collapsed support yields the attained one-outlier case when duplicates are allowed. Euclidean distance negative type motivates the squared case but does not provide positive nonstationary fourth-power modes."
+        ],
+        "reasoning": "After deriving the sampler’s stationary mean shift, its sharp bound is a direct consequence of known skewness, so that constant is not separately credited. The law’s quantitative risk and inertia conclusions are not selections from the inspected primary statements.",
+        "searches": [
+          "Resultary 4f6817ccede3 Finding and limiting construction",
+          "arXiv:2007.02910 §§2.2–2.3",
+          "arXiv:nlin/0301044 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinerberger §§2.2–2.3 gives residual-powered selection for consistent systems. Resultary dd454724b0aa also projects to sampled scalar values, with weights exp(−η|x−v_i|)."
+        ],
+        "reasoning": "A decreasing exponential weight and the increasing residual-power weight have different stationary distortion and spectrum; substituting the parameters does not equate them.",
+        "searches": [
+          "Resultary scalar inconsistent Kaczmarz, reversible projection sampling and residual power",
+          "arXiv:2007.02910"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The shuffling record uses full-rank paired-row models and finite-horizon losses; the exponential record reports different asymptotic invariants. The fixed-mass skewness record gives the same equal-mass endpoints."
+        ],
+        "reasoning": "The claim is a continuum-parametric theorem, not a numerical census; a closed-form table for the same sign and moment functions would cover it. These matches supply no such combined classification, although the skewness endpoint is shared.",
+        "searches": [
+          "Resultary scalar Kaczmarz stationary bias and powered inertia",
+          "Resultary 5f95cb30e1af, dd454724b0aa, 4f6817ccede3"
+        ]
+      },
+      "rationale": "The supported contribution is the sampling-specific combination of exact stationary distortion and the all-even-power sign/rank classification for inconsistent scalar full projections. Do not credit standard detailed balance or the skewness constant as new. The closest catalogue and primary statements inspected do not give the sign transition and the stationary squared-residual comparison for this model.",
+      "residual_risks": [
+        "An older result giving the exact inertia for this powered kernel or stationary law in equivalent form could narrow the contribution. Some finite-population skewness sources were inaccessible; the known factor is already excluded from the novelty finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sampler prior; inconsistent stationary classification not supplied there",
+          "evidence": "Consistent-system guarantees, with the no-solution case identified as a separate question.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.02910",
+          "material_read": "§§2.2–2.3, PDF p. 4 around offset 11200",
+          "method": "OA primary text",
+          "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Original residual-power sampler"
+        },
+        {
+          "assessment": "Sharp factor is an equal-mass boundary case",
+          "evidence": "Distinct support gives unattained endpoints; two-level collapsed supports yield the claimed extrema with repeated observations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-endpoint-masses-determine-the-exact-skewness-range-of-a-discrete--4f6817ccede3",
+          "material_read": "Finding and proof passages at offsets 0 and 4200",
+          "method": "Local Resultary mirror",
+          "title": "Endpoint masses determine the exact skewness range of a discrete law",
+          "trigger": "Same sharp standardized third moment"
+        },
+        {
+          "assessment": "Inspected result does not give all even powers",
+          "evidence": "Its distance matrix has M_ij=||x_i−x_j|| and at most one positive eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0301044",
+          "material_read": "§1, PDF p. 2 around offset 4220",
+          "method": "OA primary text",
+          "title": "Spectral properties of distance matrices",
+          "trigger": "Potential stronger inertia theorem"
+        },
+        {
+          "assessment": "Different kernels or different dynamics",
+          "evidence": "Decreasing exponential-distance kernel in one; finite-horizon paired-row shuffling in the other.",
+          "identifier_or_url": "Resultary dd454724b0aa and 5f95cb30e1af",
+          "material_read": "Matching Findings and model definitions",
+          "method": "Local Resultary mirror",
+          "title": "Squared corruption, stationary bias and a sharp largest-gap relaxation law; Exact four-way Kaczmarz shuffling constants",
+          "trigger": "Closest stationary and same-day Kaczmarz records"
+        },
+        {
+          "assessment": "Different algorithm and conclusion",
+          "evidence": "Noisy convergence bounds for sparse Bregman variants, not exact scalar full-projection stationary moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.06813",
+          "material_read": "PDF p. 8, Theorem 2",
+          "method": "OA primary text",
+          "title": "A Weighted Randomized Sparse Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Inconsistent/noisy weighted Kaczmarz"
+        },
+        {
+          "assessment": "Access limitations do not affect credit for the already covered constant",
+          "evidence": "The inspected equation relates skewness/kurtosis to a mean/variance correlation rather than the projection chain.",
+          "identifier_or_url": "DOI 10.22237/jmasm/1225512300; 10.1198/000313007X188379; 10.1080/00031305.2012.695960",
+          "material_read": "Shanmugam p. 3 Eq. (4); no full text of Zhang (2007) or Sen (2012) in attempted routes",
+          "method": "OA and lawful DOI/repository attempts",
+          "title": "Further finite-sample skewness sources",
+          "trigger": "Potential coverage of equal-weight skewness bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and sharp examples; Steinerberger §§2.2–2.3"
+      ],
+      "rationale": "The simplest inconsistent full-projection model exposes a concrete design limit: squared residual weighting cannot improve stationary squared error over uniform row selection and can weight one outlier at one-half rather than 1/m. The positive nonstationary modes that appear for fourth but not squared weights show that changing powers also changes relaxation, not merely the magnitude of bias. These exact distinctions are informative without claiming that higher-dimensional or damped methods share them.",
+      "residual_risks": [
+        "No uniform transient rate, high-dimensional behavior or statement about averaging/under-relaxation follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

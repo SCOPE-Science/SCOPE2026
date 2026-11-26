@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:20.051231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–119",
+        "Frozen VERIFICATION.md lines 18–33 and verify_max_greenwood.py lines 1–101 (inspected, not executed)",
+        "Independent ordered-simplex derivation: /workspace/reviews/evidence/spacing_crosscheck.md"
+      ],
+      "rationale": "Under the all-ones Dirichlet law, subtracting x from k exceeding coordinates leaves a simplex scaled by 1−kx; both its mass ratio and the conditional square-sum expectation follow from that change of variables. An independent calculation uses the ordered coordinates d_j and the uniform simplex vector Z_j=j(d_j−d_{j+1}), with d_{m+1}=0. Its third moments give the same mixed moment, with numerator 2(m+1)H_m+H_m²+H_m^(2) over m(m+1)(m+2). Subtracting the product of means yields the stated covariance. The numerator increases by 2(H_m−1)/m for m≥2 from zero at m=1; the two nonzero marginal variances give the correlation, and H_m∼log m and H_m^(2)→π²/6 give the asymptotic. Directly at m=2 the covariance is 1/48. Complete gaps include both boundaries, so the parameter is the number of gaps, not the number of sampled points.",
+      "residual_risks": [
+        "The rational replay's finite ranges are supplementary; the result proven is for all integer m≥2. No extension to nonuniform spacings or other Dirichlet parameters was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint-moment record gives E[G_n 1{M_n>x}] for all x∈[0,1], E[G_n | M_n≤x] for 1/n<x≤1, and the exact mixed moment and correlation. Royen's inspected text concerns the marginal Greenwood law; the ordered-spacings paper treats distributions of ranked gap sums."
+        ],
+        "reasoning": "The indexed mixed-tail result contains the claimed coupling, which the separate classical marginal or ordered-sum studies do not themselves state in the inspected passages.",
+        "searches": [
+          "Resultary 8791657f8166, equations (1)–(7)",
+          "Royen arXiv:1008.4059; Shtembari and Caldwell arXiv:2008.02048"
+        ]
+      },
+      "checked_sources": [
+        "Both frozen spacing RESULT.md files",
+        "Resultary local mirror 8791657f8166 and 7536578b7678",
+        "arXiv:1008.4059",
+        "arXiv:2008.02048",
+        "Pyke DOI 10.1111/j.2517-6161.1965.tb00602.x (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact mixed moment algebraically yields the covariance by subtracting the product of the two known means; division by the established variances gives the exact correlation. In the matched records these consequences are also written explicitly."
+        ],
+        "reasoning": "Neither moving the emphasis from mixed moment to covariance nor the choice of exact beta-integral checking supplies an additional mathematical claim. This is explicit equivalence, not a judgment that every moment known to be computable is already covered.",
+        "searches": [
+          "Frozen record 4 equations (1)–(6) and proof (8)–(13); Resultary 8791657f8166 equations (1), (4)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen record 4's M_m and this record's L_m are the same function of the same Dirichlet vector, with m gaps in both. Its equations (2), (5), and (6) equal this record's displayed formulas."
+        ],
+        "reasoning": "Renaming the largest spacing and factoring the variance terms differently does not change the joint statistics. Complete interval spacings here are explicitly within the other record's assumptions.",
+        "searches": [
+          "Frozen record 4, maximum spacing and Greenwood dispersion, Finding equations (1)–(6)",
+          "Resultary: maximum/largest uniform spacing and Greenwood square sum/quadratic concentration, 8791657f8166 and 7536578b7678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8791657f8166 states the exact covariance and asymptotic in (4)–(5), the mixed moment in (6), and the exact correlation in (7). 7536578b7678 gives the same covariance and derives numerator H_m²+H_m^(2)+2(m+1)H_m for the mixed moment. Frozen record 4 is an exact independent entry for the same formulas."
+        ],
+        "reasoning": "These are formula-level matches across the domain m≥2, not extrapolations from a table. This comparison does not rely on a priority order inferred from catalogue dates.",
+        "searches": [
+          "Resultary mirror records 8791657f8166 and 7536578b7678; exact frozen record 4"
+        ]
+      },
+      "rationale": "The same exact positive covariance, correlation, and rate are explicitly in the distinct frozen harmonic-moment record and other matching indexed records. The mixed moment is also given in the proof here and explicitly in those records. The strongest indexed overlap includes a full mixed-tail formula under precisely the same law. No genuinely distinct remainder is established; dates do not establish priority.",
+      "residual_risks": [
+        "Earlier equivalent literature, including the unavailable Pyke and Bairamov–Berred–Stepanov full texts, may exist; the oldest occurrence is not established. Positive evidence of duplicate coverage, not limited access, determines this assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap",
+          "evidence": "Equations (1), (2), (5), and (6) reproduce the mixed moment, covariance, correlation, and asymptotic.",
+          "identifier_or_url": "Distinct frozen assignment record 4",
+          "material_read": "RESULT.md Finding, scope, and proof equations (1)–(17)",
+          "method": "Read the assigned frozen package",
+          "title": "Maximum spacing and Greenwood dispersion have an exact harmonic mixed moment",
+          "trigger": "Same random variables and harmonic formula"
+        },
+        {
+          "assessment": "Explicit exact and broader coverage",
+          "evidence": "Equations (4)–(7) agree upon n=m, with (1) giving the exact tail profile before integration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-joint-moments-of-the-largest-uniform-spacing-and-greenwood--8791657f8166/RESULT.md",
+          "material_read": "Finding, scope and proof equations (1)–(7), offsets 0–1880 and 2050–5240",
+          "method": "Resultary catalogue and local mirror passage reads",
+          "title": "Exact joint moments of the largest uniform spacing and Greenwood's statistic",
+          "trigger": "Exact claim and stronger mixed-tail formulation"
+        },
+        {
+          "assessment": "Exact covariance and mixed-moment match",
+          "evidence": "The proof gives [H_m²+H_m^(2)+2(m+1)H_m]/[m(m+1)(m+2)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678/RESULT.md",
+          "material_read": "Finding and mixed-moment derivation, offsets 0–3858",
+          "method": "Resultary catalogue and local mirror passage reads",
+          "title": "Exact positive covariance of maximal and quadratic uniform spacings",
+          "trigger": "Identical pair of diagnostics and complete spacings"
+        },
+        {
+          "assessment": "Marginal distribution and univariate tables in the passages inspected",
+          "evidence": "The representation and quantiles concern the square sum alone.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4059",
+          "material_read": "Abstract and section 1, pp. 1–2",
+          "method": "Lawful OA PDF passages",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+          "trigger": "Potential exact Greenwood-law overlap"
+        },
+        {
+          "assessment": "Ranked sums, not direct coverage in these passages",
+          "evidence": "The inspected material gives laws of sums of largest gaps, not the mixed largest-gap square-sum moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.02048",
+          "material_read": "Abstract and sections 4 and 5.3",
+          "method": "Lawful OA PDF passages",
+          "title": "On the sum of ordered spacings",
+          "trigger": "Related ordered-spacing results"
+        },
+        {
+          "assessment": "Access limit, not negative evidence",
+          "evidence": "No claim about the absence of an equivalent formula in Pyke is needed for the decision.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "No full text obtained in the independent retrieval",
+          "method": "Bounded lawful OA and repository-copy attempt",
+          "title": "Spacings",
+          "trigger": "Plausible classical source for joint moment methods and aliases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Distinct frozen record 4 equations (1)–(6)",
+        "Resultary 8791657f8166 equations (1)–(7)"
+      ],
+      "rationale": "A finite-size Pearson calibration of these diagnostics can be useful, but the record adds no distinct fact or scope to the same exact covariance, correlation and asymptotic already demonstrated in the compared records. A different check range or placing the emphasis on positivity is not an additional result.",
+      "residual_risks": [
+        "This assesses the value of a separate contribution, not whether the shared formula is useful in itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

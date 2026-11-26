@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:47:04.432627Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–105",
+        "Frozen VERIFICATION.md, verification.py and requirements.txt, inspected but not executed",
+        "Repaired RESULT.md, including the connected-star specialization",
+        "Independent exact check of the moment integrals and sign factorization"
+      ],
+      "rationale": "Strictly decreasing self-avoiding time paths have a summable factorial tail, so a finite causal region determines each state almost surely. Deleting the center gives independent branch occupation times with survivor u, which solves u'=−u^(Delta−1) by the independent children and uniform attempt density. Given the uninterrupted cavity count k>0, the root remains blocked with probability one minus the expected earliest occupation time among those k branches. Its survivor at time t is ((u(t)−a)/(1−a))^k; averaging gives exactly the positive-count coefficients. When the center succeeds, all neighbors stay vacant. The zero-count event equals occupied center by terminal maximality, giving (1−a²)/2. This also reconstructs the intervention PGF, including the Delta=2 case and the logarithms in the cubic at Delta=3. For a fixed k-tuple, the analogous conditional calculation gives m_k=(1−a)^k−∫_a^1(s−a)^k s^(1−k) ds. Independently evaluated the first three integrals and checked the covariance, cumulant, and rational-factor identities in exact symbolic algebra. The covariance is positive since sinh(2s)>2s for s=−log a>0. The cumulant is −a²F(a)/4, and the strict two-term artanh bound gives F(a)>(1−a)^4(a³+7a²+9a+7)/(1+a)^3>0 for 0<a<1. The supporting large-degree ratio follows from Delta p=log Delta+o(1) and Delta p²=o(1). In the repair, differentiation of the explicit Q_{d,k} reproduces the center-deletion term and the k neighbor-deletion terms, with initial value one; expansion of z^X by the vacancy indicators recovers the law. No finite-tree simulation is needed for any of these claims.",
+      "residual_risks": [
+        "The sign concerns three distinct neighbors of one center and requires Delta≥3. It is not a claim of failure of positive association or a result for cyclic or nonregular graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General blocking-vacancy equation: deleting one site from the vacancy set expands the required sites by its neighboring sites in the deleted graph. On a connected star this gives Q'_{d,k}=−u^d−k u^(Delta−1)Q_{d−1,k−1}; the repair gives its explicit solution.",
+          "Theorem 13 gives the distance-two pair covariance, not the sign of the third mixed cumulant. Dehling et al. give general vacancy correlations and the one-site density on random-degree trees."
+        ],
+        "reasoning": "The stronger finite-set equation is a direct antecedent of the closed star law. Pair or parity-dependent covariance does not determine a third centered product. Derivability of the probabilities is acknowledged without treating the strict inequality as a restatement of the equation.",
+        "searches": [
+          "arXiv:math/0503519v1, Proposition 2 equation (5), Theorems 12–13",
+          "arXiv:0711.4061, section 2 equations (2.1)–(2.7)",
+          "Sudbury DOI 10.1142/S0217984908017485"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503519v1 and arXiv:0711.4061 primary passages",
+        "Local Resultary 23985ac98f83 and b8aec21b6129",
+        "Repaired RESULT.md",
+        "Available metadata/excerpt for Sudbury 2008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Terminal maximality makes P(X=0)=p, with known p=(1−a²)/2. Expanding p gives (1−p)^Delta asymptotic to 1/Delta and the log-enhancement immediately. The solved connected-star recurrence also gives all neighbor-vacancy moments and hence the PGF.",
+          "The repaired result proves negativity after exact evaluation of the centered third product, by a uniform lower bound for F using an artanh truncation and a positive rational factor."
+        ],
+        "reasoning": "Credit the law and the enhancement as prior implications. The retained distinction is a strict universal sign that the known density and covariance do not imply and that is not read off a vacancy recursion or a raw moment without a global inequality.",
+        "searches": [
+          "arXiv:math/0503519v1, Proposition 2 and Theorem 12 equations (28)–(30)",
+          "Frozen RESULT.md Steps 2–4 and repaired prior-work specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any specified neighbor subset W, P(W vacant)=P(W and center vacant)+P(center occupied), since an occupied center forces all neighbors vacant. The set in the first term is a connected star; the resulting probabilities determine the count law by binomial inversion.",
+          "For three variables the third mixed cumulant for occupation is minus that for vacancy, since changing each indicator to its complement negates each centered factor."
+        ],
+        "reasoning": "A connected-star vacancy result on the same blocking model can give equivalent distributional coverage even without a count PGF. A verified strict positive third vacancy cumulant for the specified neighbors would likewise cover the repaired sign. The accessible abstract does not specify model, star-size scope or terminal regime of its vacancy formulas and does not give a sign.",
+        "searches": [
+          "Resultary semantic searches for full-star law, third cumulant, Bethe-lattice emptiness and multisite RSA",
+          "Penrose–Sudbury, arXiv:math/0503519v1, Proposition 2",
+          "Sudbury, DOI 10.1142/S0217984908017485, accessible abstract snippet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23985ac98f83 studies the one-site response to an altered arrival rate as a function of distance shell in the same type of RSA tree. Same-date b8aec21b6129 studies cross-class leaf counts in uniform spanning trees of complete multipartite graphs."
+        ],
+        "reasoning": "Neither quantifies the same-center mixed terminal cumulant. Ranked results do not rule out older exact vacancy or cumulant tables.",
+        "searches": [
+          "Resultary semantic searches for the jammed star law and third cumulant",
+          "Local mirror SCOPE 23985ac98f83 and b8aec21b6129, opening Findings"
+        ]
+      },
+      "rationale": "The repaired contribution is a strict all-degree third-cumulant sign, not the star law itself, the one-site or pair law, or the high-degree empty-star ratio. The closest previous machinery solves the needed vacancy probabilities, but it does not state this sign; obtaining it requires combining the evaluated moments and proving a separate inequality with cancellations. No inspected source or indexed claim established the same sign in this model. The connected-set and other multisite papers with inaccessible full text remain specific access risks, not negative evidence.",
+      "residual_risks": [
+        "Original full text was unavailable for Sudbury 2008, Fan–Percus 1991, and Gouet–Sudbury 2008; their exact higher-order conclusions remain unverified.",
+        "The indexed connected-set description may cover the underlying star law even more directly than the general recurrence. It is not evidence for or against priority of the strict inequality by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers marginal and pair results and yields the count law; no strict triplet-cumulant sign identified",
+          "evidence": "Alpha(t)=(1+beta(t)²)/2 gives the vacancy density; Eq. (34) at distance two supplies pair covariance; Eq. (5) applies to arbitrary finite vacancy sets.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519v1",
+          "material_read": "Proposition 2, equation (5), pp. 6–7, offset 18900; section 4.1, Theorems 12–13 and pair proof, pp. 18–21, offsets 51033 and 53256",
+          "method": "Primary full-text passages, followed by an exact star specialization",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Same blocking model, Bethe-lattice laws and multisite equations"
+        },
+        {
+          "assessment": "One-site density and correlation machinery, not an identified sign result",
+          "evidence": "Defines set vacancy correlations and evolution, and gives the density including the regular case.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.4061",
+          "material_read": "Section 2, equations (2.1)–(2.7), pp. 3–5, offset 9400",
+          "method": "Primary full-text passages",
+          "title": "Parking on a random tree",
+          "trigger": "Regular-tree limit of another blocking-vacancy hierarchy"
+        },
+        {
+          "assessment": "Strong related lead; exact model and scope not settled from accessible material",
+          "evidence": "The snippet mentions both dimer and blocking models, then states that the probability that a connected set of sites remains unoccupied is calculated. It does not report the terminal triplet sign.",
+          "identifier_or_url": "https://doi.org/10.1142/S0217984908017485",
+          "material_read": "Monash publication record 035bca75d4ac41fe8c3c26742248b001 (citation only), and abstract snippet associated with Semantic Scholar 3ec13d30b4f3e64006a94fca73783ab44d6baec1",
+          "method": "Lawful exact DOI/publisher and alternate-copy attempts; metadata and indexed excerpt only",
+          "title": "Emptiness probabilities in random sequential adsorption on the Bethe lattice",
+          "trigger": "Connected-set vacancy could specialize to a connected star and yield the full count law"
+        },
+        {
+          "assessment": "Primary result not inspectable; possible equivalence is unresolved",
+          "evidence": "No original passage on the lattice, correlation order or cumulant sign could be inspected.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.44.5099",
+          "material_read": "Frozen citation and characterization only",
+          "method": "Lawful DOI, publisher and ADS retrieval attempts",
+          "title": "Asymptotic coverage in random sequential adsorption on a lattice",
+          "trigger": "Frozen citation as a possible multisite antecedent"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "No available primary passage established a specialized infinite-tree third-cumulant statement.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-007-9451-5",
+          "material_read": "Frozen citation and characterization only",
+          "method": "Lawful exact-source retrieval attempts",
+          "title": "Blocking and dimer processes on the Cayley tree",
+          "trigger": "Closest cited finite-tree blocking and dimer comparison"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "One-site marginal response by distance from a changed-rate vertex, not three terminal neighbors.",
+          "identifier_or_url": "Resultary: 23985ac98f83",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Parity and sharp factorial screening of a single adsorption-rate perturbation",
+          "trigger": "Closest indexed same-model result"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": "Leaf counts in a uniform spanning tree, not blocking adsorption.",
+          "identifier_or_url": "Resultary: b8aec21b6129",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Universal cross-part leaf-count repulsion in random complete multipartite graphs",
+          "trigger": "Distinct same-date ranked overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Step 3",
+        "Penrose–Sudbury, Theorem 13 for the prior pair context"
+      ],
+      "rationale": "Coordination statistics of a jammed star probe dependence beyond the known marginal and parity-sensitive pair correlations. The strict negative mixed third cumulant for every regular degree, coexisting with positive pair covariance, supplies an exact higher-order test that a model calibrated only to pair statistics cannot infer. The uniform sign is substantive, rather than a numerical example or the recomputation of the known density and its empty-star consequence.",
+      "residual_risks": [
+        "No conclusion about higher cumulant orders or signs for other triplet geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

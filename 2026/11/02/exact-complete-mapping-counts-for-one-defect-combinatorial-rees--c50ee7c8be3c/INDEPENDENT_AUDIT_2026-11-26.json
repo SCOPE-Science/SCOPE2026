@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:27.119256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–44",
+        "VERIFICATION.md and verify_complete_maps_missing_edge.py, inspected, not executed",
+        "Independent finite check: recurse by swapping target entries in the permutation array; compute product cell (i,mu) directly unless the designated sandwich entry is zero; test distinctness over all source cells"
+      ],
+      "rationale": "The product map fixes the absorbing zero, so its injectivity forces the complete mapping to fix zero and prohibits any other zero output. For each source first coordinate i, the second coordinates of the product outputs must form a permutation pi_i. For each fixed target second coordinate mu, the first coordinates of the mapping outputs then form a permutation sigma_mu. Conversely these row and output-column permutations give bijective product and mapping in the all-one case, hence the all-one factorial count. In this parametrization the forbidden product for source (i,lambda0) occurs exactly if A(i)=pi_i(lambda0) and B(A(i))=i with B(mu)=sigma_mu^(-1)(j0). The functions A:I->Lambda and B:Lambda->I are uniform and independent under the all-one measure. Simultaneous forbidden products specify mutual edges in the two-part directed function graph; compatible r-edge sets are matchings, numbering (m)_r(n)_r/r!, each with probability (mn)^(-r). Incompatible sets have probability zero. Inclusion-exclusion therefore gives the exact count. Relabelling the two sets independently moves the zero. For the joint limit the r-th unsigned term, extended by zero, is bounded by 1/r! and tends to 1/r! for each fixed r; for one dimension fixed the sum is finite and the binomial theorem gives the stated fixed-dimension limit. A separate exhaustive recursion over nonzero-cell target permutations, testing product outputs from the multiplication rule, produced all-one counts 16,288,288,46656 and defect counts 2,48,48,9984 for (2,2),(2,3),(3,2),(3,3), with zero coordinates (lambda0,j0)=(1,1),(2,0),(0,2),(1,1) in zero-based labels, respectively.",
+      "residual_risks": [
+        "Finite corroboration covers only the four displayed size pairs; generality follows from inclusion-exclusion.",
+        "The derivation is for labelled bijections, a trivial maximal subgroup and exactly one deleted sandwich entry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.2 gives an existence criterion via balanced support; Proposition 6.5 counts a diagonal Brandt case via Latin squares. McKay–Wanless enumerate Latin squares and related rectangles. The indexed rectangular groups over C_2 have a different maximal subgroup."
+        ],
+        "reasoning": "An existence test cannot imply the multiplicities, and the diagonal Brandt and nontrivial-group settings do not subsume the trivial-group dense rectangle with a missing entry.",
+        "searches": [
+          "arXiv:2608.25092v1, Theorem 6.2 and Proposition 6.5",
+          "Resultary: exact complete mapping count one-defect Rees semigroup missing sandwich matrix entry",
+          "arXiv:0909.2101v1, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.25092v1",
+        "arXiv:0909.2101v1",
+        "Resultary rectangular-band, three-row support and higher-power mapping records above",
+        "Hansen–Jaworski institutional abstract",
+        "Holzmann rook polynomial notes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard rook formula weights nonattacking rook placements by (n-k)! to count permutations avoiding a fixed board. The reduced bipartite model requires probabilities (mn)^(-r) for selected mutual edges, not fixed forbidden cells of a single uniformly random permutation. The chapter search result advertises exact cyclic-point and component statistics; no original theorem passage about two-cycles was retrievable."
+        ],
+        "reasoning": "Once the identification of the two independent functions is made, the subsequent weighted matching count is elementary inclusion-exclusion, and the limits follow routinely. The inspected rook theorem alone does not yield that identification or these weights. An exact two-cycle distribution would immediately yield the normalized law; a cyclic-point count combined with the conditional cycle law could also cover the probabilistic calculation. No such implication was established from the accessible passages.",
+        "searches": [
+          "Kaplansky–Riordan doi:10.1215/S0012-7094-46-01324-5 and Holzmann, Permutations with Restricted Positions and Rook Polynomials, pp. 1–2",
+          "Large components of bipartite random mappings, Hansen–Jaworski, institutional abstract",
+          "A Random Bipartite Mapping, ScienceDirect PII S0304020808736168"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete Mappings of Semigroups, arXiv:2608.25092v1, introduction and Proposition 6.5, connect orthomorphisms and Brandt semigroup mappings to Latin squares, not ordinary complete mappings with a single sandwich defect.",
+          "Hansen–Jaworski's institutional abstract specifies two independent uniform maps between the parts, the exact law for A and B in the review's reconstruction."
+        ],
+        "reasoning": "The normalized count is precisely the probability of no two-cycle in that model, not a new random-mapping law by definition. The available primary abstract states a result about ranked component sizes; such a limit does not specify the two-cycle count or transfer it to the semigroup problem.",
+        "searches": [
+          "Resultary: exact complete mapping count one-defect Rees semigroup missing sandwich matrix entry",
+          "Resultary: \"one-defect combinatorial Rees\" complete mappings exact counts",
+          "random bipartite mappings number of 2-cycles no mutual pairs Hansen Jaworski exact distribution inclusion exclusion alternating mappings cyclic vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-orthomorphism-fibers-and-cycle-spectra-of-finite-bands--522c8013084e includes the identical all-one rectangular-band factorial baseline. Resultary 2026/11/2/SCOPE-sparsest-permutation-matchable-three-row-rectangular-zero-bands--904ca12df0bd counts structure matrices with a matching constraint, not complete mappings on one specified matrix. Resultary 2026/11/8/SCOPE-two-complete-mappings-of-completely-zero-simple-semigroups--5c83cffe9cd6 considers a higher-power product."
+        ],
+        "reasoning": "These indexed entries are substantial context but none of the inspected statements gives the one-defect complete-mapping count. The all-one baseline is exact coverage and is not credited here as new.",
+        "searches": [
+          "Resultary: \"C_{m,n}\" \"(mn)^r\" complete mappings",
+          "Resultary: \"e^{-1}\" complete mappings Rees sandwich matrix",
+          "Resultary: exact complete mapping count one-defect Rees semigroup missing sandwich matrix entry"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact labelled enumeration and survival law for one missing sandwich entry. The all-one baseline is covered by the known rectangular-band case, and the avoidance probability is equivalent to absence of a directed two-cycle in a standard random bipartite mapping. The reduction from complete mappings of this semigroup to that probability, and the resulting enumeration, were not supplied by the inspected Rees, Latin-square, rook or random-mapping statements. The random-mapping equivalence is a material access risk, not a claim to a new probabilistic model or counting technique.",
+      "residual_risks": [
+        "Full texts of the closest random bipartite mapping papers were not obtained. They may contain the normalized avoidance probability or results implying its evaluation, independently of the Rees mapping interpretation.",
+        "The checked record and paper statements do not establish historical priority; other orthomorphism, random mapping or rook terminology may hide equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in definitions and existence theory; different exact enumerated support",
+          "evidence": "Thm. 6.2 characterizes existence by balanced support; Prop. 6.5 identifies diagonal Brandt mappings with Latin squares.",
+          "identifier_or_url": "https://arxiv.org/html/2608.25092v1",
+          "material_read": "Introduction offset 3431; section 6 Thm. 6.2 at 79775 and Prop. 6.5 at 96252",
+          "method": "Lawful OA HTML",
+          "title": "Complete Mappings of Semigroups",
+          "trigger": "Primary paper on the same complete mappings of Rees zero-matrix semigroups"
+        },
+        {
+          "assessment": "Exact factorial baseline only",
+          "evidence": "The single rectangular-band case gives (m!)^n(n!)^m; a defective sandwich is not that rectangular band.",
+          "identifier_or_url": "2026/11/8/SCOPE-orthomorphism-fibers-and-cycle-spectra-of-finite-bands--522c8013084e",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Orthomorphism fibers and cycle spectra of finite bands",
+          "trigger": "Indexed exact counts for rectangular bands"
+        },
+        {
+          "assessment": "Exact model equivalence; the accessible claim is about joint limiting component sizes, not the two-cycle count. Full-text coverage remains unresolved.",
+          "evidence": "Independent uniform outgoing choices to the opposite part define the model; the abstract gives the Poisson–Dirichlet limit for normalized component sizes as both parts grow.",
+          "identifier_or_url": "https://researchportal.hw.ac.uk/en/publications/large-components-of-bipartite-random-mappings/; Random Structures and Algorithms 17 (2000), 317–342",
+          "material_read": "Institutional abstract and publication metadata at offsets 450–1912; no full text",
+          "method": "Lawful institutional page; identified alternate listings failed to return the original article full text",
+          "title": "Large components of bipartite random mappings",
+          "trigger": "Exact probabilistic equivalence to a standard bipartite mapping without mutual pairs"
+        },
+        {
+          "assessment": "Plausible unresolved coverage of the normalized probability; neither negative nor affirmative evidence about the full text",
+          "evidence": "The search result mentions component and cyclic-point counts, but does not state the distribution of two-cycles.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/chapter/bookseries/abs/pii/S0304020808736168",
+          "material_read": "Search excerpt only; no original full-text theorem passage read",
+          "method": "Lawful direct and alternate route returned HTTP 403",
+          "title": "A Random Bipartite Mapping",
+          "trigger": "Plausible prior coverage by exact statistics in the probabilistically equivalent model"
+        },
+        {
+          "assessment": "Different object from the dense defective Rees complete mapping",
+          "evidence": "The passage defines Latin rectangles and relates reduced and total counts.",
+          "identifier_or_url": "arXiv:0909.2101v1",
+          "material_read": "p. 1, PDF offset 1400",
+          "method": "Lawful OA PDF",
+          "title": "On the number of Latin squares",
+          "trigger": "Primary exact enumerations under the related Latin rectangle formulation"
+        },
+        {
+          "assessment": "Supports the standard counting method, not the semigroup-to-function-graph reduction",
+          "evidence": "The ordinary rook formula is the alternating sum of r_k times (n-k)!, not the normalized probabilities for this pair of independent functions.",
+          "identifier_or_url": "Holzmann notes; related primary source Kaplansky–Riordan doi:10.1215/S0012-7094-46-01324-5",
+          "material_read": "Holzmann p. 1, PDF offsets 955–1495; original Kaplansky–Riordan full text not retrieved",
+          "method": "Lawful OA notes; attempted OA primary retrieval",
+          "title": "Permutations with Restricted Positions and Rook Polynomials",
+          "trigger": "Rook inclusion-exclusion and weighted matching interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and permutation parametrization",
+        "arXiv:2608.25092v1, Theorem 6.2"
+      ],
+      "rationale": "Removing one allowed sandwich entry is a natural minimal change to a fully supported rectangular Rees semigroup. An exact count goes beyond the known existence test: it shows that one defect removes a nonvanishing fraction of complete mappings and quantifies how joint growth differs from keeping one side fixed. The weighted-matching reduction explains why the loss is macroscopic despite the single modified entry.",
+      "residual_risks": [
+        "No value is attributed to the all-one count or the inclusion-exclusion technique in isolation; the result does not enumerate arbitrary sandwich support patterns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

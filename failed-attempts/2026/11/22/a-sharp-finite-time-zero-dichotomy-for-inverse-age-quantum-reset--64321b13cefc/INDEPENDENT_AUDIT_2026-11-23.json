@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:25:53.190823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact no-reset survival is (a)_k/k!, and the renewal mass is the coefficient of (1−w)^−b, so at age k the stated weight is its product with (b)_{t−k}/(t−k)!. A reset consumes one step, leaving the gate phase z^k and the claimed off-diagonal element. Differentiating the generating function gives the recurrence; after phase centering at z=e^{2iθ}, division by the leading Legendre normalization gives the stated continuant with positive diagonal D in its imaginary part. Hence for θ in (0,π) and a≠b it cannot have a null vector. At z=1 normalization gives P_t(1)=1. For each fixed t, the leading coefficient stays nonzero on the path from γ=0 through γ<1/2, so the no-crossing argument with P_t=z^t at γ=0 gives t interior roots. Reversal of coefficients swaps a and b and reciprocates nonzero roots, proving the exterior half. At equality the recurrence is Legendre's, with t distinct interior real zeros in the cosine variable and a bijective phase parametrization, giving t simple unit-circle roots. This proves the actual finite-time claim; it does not give a degree-uniform distance from the circle. The supplied checker was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Positive Meixner–Pollaczek orthogonality on R holds for λ>0 and θ in (0,π), with weight |Γ(λ+iξ)|² exp((2θ−π)ξ) for real ξ. Positive real orthogonality gives only simple real zeros in ξ for every degree. The classical three-term recurrence at λ=1/2 and ξ=i(a−b)/2 is also exactly the frozen phase-centered recurrence. Wald et al. supply the inverse-age reset model but are not the basis of the zero theorem coverage."
+        ],
+        "reasoning": "Real-rootedness at nonreal ξ rules out a zero at every admissible θ simultaneously for fixed unequal positive shapes. The frozen determinant is a valid special-case proof from the same classical recurrence, not a gap in its hypotheses.",
+        "searches": [
+          "Koekoek–Swarttouw arXiv:math/9602214, §1.7, Eqs. (1.7.2), (1.7.3), (1.7.5)",
+          "DLMF 18.19.6–18.19.9 and §18.2(vi)",
+          "Wald et al., arXiv:2410.11497v3, §4 Eqs. (37)–(39)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9602214 §1.7",
+        "DLMF 18.23.7, 18.19.6–18.19.9, 18.2(vi), 18.5.7",
+        "arXiv:2410.11497v3 §4",
+        "doi:10.1007/s00365-026-09739-6",
+        "Resultary and local mirror: 4532bc9cfbd9, 1985d778d78f, 96ff16d9f745, 49b8d8d6df6b, 669edc24d60f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At |z|=1 and z≠1, take z=e^{2iθ} with 0<θ<π; e^(−itθ)P_t equals the old polynomial at ξ=i(a−b)/2. At z=1 the coefficient sum is (a+b)_t/t!>0. At b=0 the polynomial is a nonzero scalar multiple of z^t, and at positive shapes exact coefficient reversal swaps a and b."
+        ],
+        "reasoning": "On a path of constant positive a+b from b=0 to b<a, no root can cross the unit circle and the degree stays fixed. Reversal puts all roots outside if b>a. At equality and sum one the same generating function specializes to Legendre, as in the published node record. Thus the exact asymmetry and balanced classifications follow, without relying on a scaling limit or an additional conjecture.",
+        "searches": [
+          "Koekoek–Swarttouw §1.7 p. 32, orthogonality and generating function",
+          "DLMF §18.2(vi), real zeros for OPs",
+          "Mirrored 4532bc9cfbd9, §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase-centered coefficient identity is exact at ξ=i(a−b)/2 and λ=(a+b)/2. The alternate ordinary Jacobi mapping is proportional to P_t^(a−t−1,0)(1−2z) and lies outside its usual positive orthogonality range; the inspected varying-parameter Jacobi proposition treats a different parameter line."
+        ],
+        "reasoning": "The inequivalent Jacobi proposition does not decide coverage. The Meixner–Pollaczek identity is coefficient-by-coefficient, with a positive real orthogonality measure in ξ even though the evaluation point in this problem is nonreal.",
+        "searches": [
+          "DLMF 18.23.7 Meixner–Pollaczek generating function",
+          "DLMF 18.5.7 Jacobi hypergeometric representation",
+          "doi:10.1007/s00365-026-09739-6, Proposition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 4532bc9cfbd9 derives the balanced weights and exact Legendre nodes in the entanglement readout. Published 1985d778d78f concerns the continuous Beta Fourier transform, 96ff16d9f745 concerns beta-binomial thinning, and distinct same-day 49b8d8d6df6b classifies a different circle-barrier polynomial. The DLMF formulas provide exact functional rather than numeric-table coverage of the asymmetric core."
+        ],
+        "reasoning": "The matching balanced readout follows the identical polynomial. A continuum transform, a thinning invariant or a different same-day polynomial do not themselves give the finite asymmetry result; classical orthogonal-polynomial coverage instead decides it.",
+        "searches": [
+          "Local Resultary and mirror: inverse-age resets, Legendre nodes, asymmetric Beta zeros, beta-binomial PGFs and finite-degree circle classification",
+          "DLMF Meixner–Pollaczek entries 18.19 and 18.23"
+        ]
+      },
+      "rationale": "The claimed asymmetric zero exclusion is a direct specialization of classical Meixner–Pollaczek real-rootedness. In fact write P_t(z;a,b) for the frozen polynomial and take λ=(a+b)/2, ξ=i(a−b)/2. Substitute w=e^(−iθ)v in its generating function. Then e^(−itθ)P_t(e^(2iθ);a,b) is exactly the Meixner–Pollaczek polynomial of degree t and parameters (λ,θ), evaluated at ξ: its factors are (1−e^(iθ)v)^(−λ+iξ) and (1−e^(−iθ)v)^(−λ−iξ). Eq. (1.7.5) of Koekoek–Swarttouw and DLMF 18.23.7 give that generating function. Positive orthogonality on R for λ>0 and 0<θ<π makes every zero in ξ real, so evaluating at the nonreal ξ for unequal shapes already excludes the entire unit circle apart from z=1, which is positive. The degree-preserving continuity and coefficient reversal in the frozen proof then give the full strict side classification. This deduction uses a theorem covering every degree and in fact applies along each fixed positive sum a+b, not just a+b=1. The balanced Legendre case was already explicitly treated in the published reset finding. Failure rests on a verified prior implication, not on search quality or exact wording in the prior sources.",
+      "residual_risks": [
+        "The audit does not identify the first publication to phrase the classical implication as a beta-binomial disk theorem; the explicit older generating function and orthogonality suffice to establish coverage.",
+        "Not all varying-parameter Jacobi references were read, and no priority is inferred from a same-day catalog date. Neither limitation weakens the exhibited exact reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive older coverage of the generating function, three-term recurrence and positive orthogonality; all-degree asymmetric exclusion follows by the substitution in the rationale.",
+          "evidence": [
+            "The factors are (1−e^(iθ)v)^(−λ+iξ)(1−e^(−iθ)v)^(−λ−iξ); the real orthogonality weight is positive for λ>0, 0<θ<π."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9602214",
+          "material_read": "Koekoek and Swarttouw, §1.7, printed p. 32 (PDF p. 34), Eqs. (1.7.2), (1.7.3), (1.7.5); title page dated February 20, 1996",
+          "method": "OA PDF passage at offsets 117160–120181, mathematical signs cross-checked in DLMF",
+          "title": "The Askey-scheme of hypergeometric orthogonal polynomials and its q-analogue",
+          "trigger": "Exact phase-centered generating-function match and real orthogonality of the matching polynomial"
+        },
+        {
+          "assessment": "Corroborates the exact identity and that the orthogonal polynomial has only real zeros in its orthogonality variable.",
+          "evidence": [
+            "The interval of orthogonality is the real line and the weight is positive for λ>0 and 0<θ<π; §18.2(vi) places every zero in the interval of orthogonality."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.23.E7",
+          "material_read": "Eq. 18.23.7 (offset 4740); https://dlmf.nist.gov/18.19, Eqs. 18.19.6–18.19.9 (offset 8050); https://dlmf.nist.gov/18.2#vi, real-zero passage (near offset 26669)",
+          "method": "OA original HTML equations and located theorem passage",
+          "title": "NIST Digital Library of Mathematical Functions, Hahn Class orthogonality and generating functions, and general zeros of orthogonal polynomials",
+          "trigger": "Direct formula and real-zero verification"
+        },
+        {
+          "assessment": "Covers the balanced mathematical case and provides physical context; no asymmetric result relied on here.",
+          "evidence": [
+            "Gives the symmetric beta-binomial weights and exact all-horizon Legendre concurrence nodes."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-legendre-entanglement-nodes-and-bessel-scaling-under-a-cri--4532bc9cfbd9",
+          "material_read": "Mirrored RESULT.md §§2–3, offsets 3900–6373",
+          "method": "Local Resultary and mirror",
+          "title": "Exact Legendre entanglement nodes and Bessel scaling under a critical discrete reset clock",
+          "trigger": "Exact balanced-case polynomial and phase nodes under the critical hazard"
+        },
+        {
+          "assessment": "Model precedent; the inspected passage studies age-dependent hazard and survival/steady-state behavior rather than this finite zero theorem.",
+          "evidence": [
+            "Treats r_n=γ/(n+1)^α, including the inverse-age case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.11497v3",
+          "material_read": "§4, Eqs. (37)–(39), PDF p. 9, offsets 50700–57150",
+          "method": "OA PDF passage inspection",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Source of the inverse-age reset law"
+        },
+        {
+          "assessment": "Not the mapped family in the frozen result; independent Meixner–Pollaczek coverage is decisive instead.",
+          "evidence": [
+            "The proposition treats P_m^(m+1/2,−m−1/2) and the disk |z+1|<1, not P_t^(a−t−1,0)(1−2z)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00365-026-09739-6",
+          "material_read": "§1 and Proposition 1.1, PDF p. 3; offsets 2700–8699",
+          "method": "OA PDF passage and exact parameter comparison",
+          "title": "Asymptotics and Zeros of a Special Family of Jacobi Polynomials",
+          "trigger": "Potential circle-root theorem for a degree-dependent Jacobi family"
+        },
+        {
+          "assessment": "Statement is about a different Q_{N,α}; no identity with the reset polynomial was established.",
+          "evidence": [
+            "Its barrier states exterior roots for 0<α<1 and circle roots at α=1. The similarity of root geometry is not used as priority or coverage evidence."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-exterior-zero-barrier-and-radial-escape-for-generalized-ha--49b8d8d6df6b",
+          "material_read": "Mirrored RESULT.md, finding at offsets 381–614",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp exterior zero barrier and radial escape for generalized harmonic polynomials",
+          "trigger": "Distinct same-day catalog hit with a circle dichotomy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finite-time coherence nodes are a meaningful physical question, but the frozen contribution supplies no independently substantive result once the old polynomial is identified. Its all-degree exclusion is a nonreal evaluation of a real-rooted orthogonal polynomial, and the passage from exclusion to a side of the circle is the elementary degree-preserving homotopy and reversal. The balanced physical nodes and reset setup were already available. The record supplies no new quantitative stability, clock extension or other surviving theorem, and the alternative continuant proof is the directly specialized classical recurrence. This is useful as an exposition, not a new finding under the scientific-value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

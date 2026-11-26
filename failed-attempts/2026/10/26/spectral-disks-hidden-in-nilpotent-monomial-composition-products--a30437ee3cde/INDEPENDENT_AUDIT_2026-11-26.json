@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:15:25.797286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen check_monomial_spectrum.py lines 17–72, inspected only"
+      ],
+      "rationale": "The frozen Finding for C_m C_n^* is correct. The fixed ratios at m and n give bounded composition operators and positive edge weights w_k=c_k^2/(c_mk c_nk) tending to rho; the fixed ratio at 1/2 bounds c_k above and below by powers of k by iterating k -> floor(k/2), sufficient for the claimed analytic realization. Coprimality gives n^q | j after q forward edges starting at j and m^q | j for q possible backward edges, hence every positive-index reducing path is finite. All eigenvalues on these blocks are zero, for both the operator and its adjoint; the constant block accounts for 1, with one-dimensional eigenspace. Verified the singular sequence on the disjoint paths m^h n^(L-h): the adjoint geometric vector has one constant-weight endpoint error tending to zero even on the circle (rho/sqrt(L+1)), and the weight errors are uniformly o(1). The singular sequence is weakly null, excluding Fredholmness; at zero use infinitely many start vertices. Outside the disk remove the finite union of blocks containing a fixed low-index cutoff, then invert on the tail by a norm bound. If 1 is outside the disk, it remains Fredholm with a finite-dimensional kernel and cokernel on the constant summand. Nonzero points other than 1 inside the disk have zero kernels on both sides, dense range, and nonclosed range because they are not invertible. The essential norm is the limiting norm of the orthogonal tail columns, and testing the weakly null source monomials gives the reverse inequality. The aside at line 32 should not be read as a further theorem: C_n C_m^* is the adjoint and in this case has the same spectral types; the literal reversed product C_n^* C_m is not the adjoint in general. No such reversal assertion is needed for the Finding.",
+      "residual_risks": [
+        "Analytic audit, not formal verification. The frozen finite checker cannot establish a disk or fine spectral types; no inference was made from truncations. The incidental orientation wording is misleading and is not endorsed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hardy source covers all incomparable degrees, including but not limited to coprime ones, and provides the whole reducing-block model plus a polynomial norm calculus. Leng–Zhao treat Schatten membership for mixed products including inner symbols. Clifford–Zheng provide a compactness criterion and an upper bound for the essential norm of the reverse product."
+        ],
+        "reasoning": "The analytic-function-space papers do not in the inspected passages furnish the entire asserted spectrum. The stronger Hardy block model is the relevant broader structural result: positive weights do not change the finite-path graph and convergence of weights is enough for compact comparison. The divisible degree-only result 9acc7c79434f addresses a disjoint regime.",
+        "searches": [
+          "Resultary 71d831748432, Hardy classification for all incomparable degrees",
+          "Leng–Zhao arXiv:2610.15472v1, Theorem 3.24",
+          "Clifford–Zheng DOI 10.1142/S0252959903000438, Theorems 1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71d831748432, e66a895c9359, 822a771af7c9 and 9acc7c79434f",
+        "Leng–Zhao, Theorem 3.24",
+        "Clifford–Zheng, Theorems 1.1–1.3",
+        "Chalendar–Partington, pp. 707–708",
+        "Clifford et al., DOI 10.1007/s43036-025-00476-4 (bibliographic comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write S for the nonconstant unweighted shift from the known Hardy classification. Under monomial basis identification the difference T|nonconstant - rho S sends e_nk to (w_k-rho)e_mk and kills all other source vectors. Orthogonal images make the tail norm sup_{k>=N}|w_k-rho| -> 0, hence the difference is compact. Both the weighted finite blocks and their adjoints have only eigenvalue zero."
+        ],
+        "reasoning": "Calkin invariance and positive scaling give the disk and norm immediately. Spectrum outside the disk on the nonconstant summand is ruled out by Fredholmness together with trivial kernel and cokernel; inside the disk the same kernel test yields the continuous type for nonzero values. The constant block and the index sign comparisons require only direct substitution. The assertion is therefore mechanically implied, not merely similar in wording.",
+        "searches": [
+          "Resultary 71d831748432, exact unitary classification and Calkin norm calculus; mirror passage offset 300–1841; frozen RESULT.md lines 38–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 71d831748432, Finding and Proof §§2–3, classifies C_n^* C_m on Hardy space for incomparable degrees as a constant block plus the direct sum of infinitely many copies of each finite nilpotent Jordan shift. It gives the Fredholm disk and exact polynomial essential norms.",
+          "Resultary e66a895c9359 treats the direct orientation on Hardy; Resultary 822a771af7c9 gives the disk and norm on classical weighted Bergman spaces for all distinct degrees."
+        ],
+        "reasoning": "On Hardy monomials in the coprime case, n divides mj precisely when n divides j. Thus the reverse-order product in the predated source agrees exactly with the target product in the unweighted case, not merely by an analogy between adjoints. The other records corroborate overlap on specific subfamilies; their later catalogue dates are not used to infer priority.",
+        "searches": [
+          "Local Resultary: Hardy composition-adjoint monomial products, coprime degree arithmetic and finite Jordan blocks",
+          "Local Resultary: weighted Bergman spectral disks and exact essential norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact spectral disk and norm entries on Hardy (71d831748432, e66a895c9359) and classical weighted Bergman (822a771af7c9), including the matching radius (mn)^(-(alpha+1)/2) in the latter."
+        ],
+        "reasoning": "The target is an analytic classification, not a finite table. The exact entries for these natural subfamilies are already indexed; no separate database entry for arbitrary coefficient sequences was needed to establish the implication from the block model.",
+        "searches": [
+          "Local Resultary classification and exact essential norm searches; Hardy, regularly varying and classical weighted Bergman coefficient normalizations"
+        ]
+      },
+      "rationale": "The stronger predated Hardy block classification in Resultary 71d831748432 makes the general weighted classification a routine compact-perturbation consequence. After identifying orthonormal monomial bases, the nonconstant part of the frozen operator differs from rho times the known unweighted partial shift by a compact weighted partial permutation. Its essential disk and exact essential norm follow in the Calkin algebra. The already classified finite path components remain finite nilpotent blocks when weighted; both kernels at nonzero lambda on that part vanish, so Fredholmness outside the disk gives invertibility there and the remaining nonzero points have dense nonclosed range. The constant summand restores 1. Thus this is more than an overlap at beta=0: the short implication covers the asserted general classification. The unresolved Blaschke-product source is not the basis of failure.",
+      "residual_risks": [
+        "Priority of all historical mixed-product formulations is not adjudicated. Exact contents of the Blaschke-product paper remain unresolved; failure rests on an affirmative, independently inspected structural implication, not an access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive predated structural coverage",
+          "evidence": "For incomparable degrees the constant block is followed by infinitely many copies of each finite J_L; ordinary and Fredholm spectra are the disk and the polynomial essential norms are exact.",
+          "identifier_or_url": "2026/10/18/SCOPE-arithmetic-unitary-types-and-essential-spectra-of-hardy-monomial--71d831748432",
+          "material_read": "Finding and Proof §§2–3; mirror offsets 300–1841 reconfirmed the classification and norm, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and bounded mirror text inspection",
+          "title": "Arithmetic unitary types and essential spectra of Hardy monomial composition-adjoint products",
+          "trigger": "Same monomial paths after checking order of products"
+        },
+        {
+          "assessment": "Exact Hardy subcase; later catalogue entry",
+          "evidence": "C_m C_n^* has the same finite Jordan-chain case for coprime degrees.",
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-spectral-trichotomy-for-monomial-composition-adjoint--e66a895c9359",
+          "material_read": "Finding and Proof §§2–3",
+          "method": "Local Resultary and mirror text",
+          "title": "Arithmetic spectral trichotomy for monomial composition-adjoint products",
+          "trigger": "Direct orientation in the Hardy case"
+        },
+        {
+          "assessment": "Exact Bergman subfamily overlap; later catalogue entry",
+          "evidence": "Classical A^2_alpha for every distinct degree pair, same disk and exact essential norm.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-fredholm-disk-and-weak-trace-defect-for-unequal-degree--822a771af7c9",
+          "material_read": "Finding",
+          "method": "Local Resultary and mirror text",
+          "title": "The exact Fredholm disk and weak trace defect for unequal-degree Bergman products",
+          "trigger": "Weighted example within the frozen coefficient class"
+        },
+        {
+          "assessment": "Disjoint hypotheses",
+          "evidence": "One degree divides the other, impossible for distinct coprime degrees at least 2.",
+          "identifier_or_url": "2026/10/26/SCOPE-uniform-similarity-model-and-spectral-type-switch-for-divisible--9acc7c79434f",
+          "material_read": "Finding",
+          "method": "Local Resultary and mirror text",
+          "title": "Uniform similarity model and spectral-type switch for divisible monomial composition products",
+          "trigger": "Similar product with a spectral-type classification"
+        },
+        {
+          "assessment": "Schatten criterion in inspected theorem, not exact spectral classification",
+          "evidence": "For inner psi, C_phi C_psi^* is in S_p on H^2 iff C_phi is in S_p.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15472v1",
+          "material_read": "Abstract, §1 and Theorem 3.24, OA offsets 350, 5200, 107500",
+          "method": "Lawful OA HTML",
+          "title": "Schatten class membership of products of composition operators and their adjoints",
+          "trigger": "Same product orientation with inner symbols"
+        },
+        {
+          "assessment": "Relevant criteria and upper bound, not exact disks in inspected theorems",
+          "evidence": "Compactness criterion for C_phi C_psi^*, upper bound for the other order, and a reverse-product compactness result with univalence.",
+          "identifier_or_url": "https://doi.org/10.1142/S0252959903000438",
+          "material_read": "Publisher PDF pp. 434–435, Theorems 1.1–1.3, offset 4600",
+          "method": "Lawful publisher OA PDF",
+          "title": "Composition Operators on Bergman Spaces",
+          "trigger": "Essential norm for analogous mixed products"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not used for verdict",
+          "evidence": "Related mixed-product order in title; exact spectral claims could not be assessed from primary full text.",
+          "identifier_or_url": "https://doi.org/10.1007/s43036-025-00476-4",
+          "material_read": "Bibliographic title and the frozen reference's abstract-level comparison only",
+          "method": "Lawful OA direct/VPN and repository-copy attempt did not retrieve full text",
+          "title": "The operator C_phi^* C_psi when phi is a Blaschke product",
+          "trigger": "Same Hardy symbols are finite Blaschke products"
+        },
+        {
+          "assessment": "Different monomial-operator model in inspected introduction",
+          "evidence": "Agler–McCarthy operators on L^2(0,1) and a half-plane weighted-composition identification, not the disk mixed products at issue.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-023-01909-3",
+          "material_read": "PDF pp. 707–708, offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Boundedness and compactness of weighted composition operators and monomial operators",
+          "trigger": "Monomial operator classification with weights"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 38–89",
+        "Resultary 71d831748432, exact classification and norm"
+      ],
+      "rationale": "The finite-nilpotent-block disk is mathematically useful, but that mechanism is already available in the stronger Hardy model. The remaining change is an asymptotically scalar rescaling plus a compact tail error, with no new invariant of nonconstant weight profiles or new block geometry. The phase comparison against the fixed constant eigenvalue is routine once the disk scales by rho. No genuinely distinct valuable remainder was established for repair.",
+      "residual_risks": [
+        "The failure does not say the formulas are false or useless as a corollary. It does not assess other invariants sensitive to weight profiles or common-divisor regimes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

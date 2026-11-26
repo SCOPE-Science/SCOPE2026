@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:34:18.346275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are m spacings, including boundaries, with Dirichlet(1,…,1) law. The shifted-simplex integration is valid below the zero-probability endpoint t=1/k and yields the two harmonic sums in RESULT.md. Independently, for unnormalized iid unit exponentials let R be their maximum and Z their sum of squares. Independent ordered increments of rates r=1,…,m give Cov(R,Z)=2 sum_j(A_j B_j + C_j), with A_j, B_j, C_j the tails of sum 1/r, 1/r², 1/r³ from r=j. Summing C_j gives H_m^(2); splitting the double sum in A_j B_j at r=s gives H_m+(H_m²−H_m^(2))/2. Since the total T is independent of the normalized spacings, E[RZ]=m(m+1)(m+2)E[MQ]; E R=H_m and E Z=2m give the claimed moment. Subtraction, the positive harmonic increment, the two checked variances, and H_m^(2)→π²/6 give the stated sign, Pearson expression and asymptotic. m=2 gives Cov=1/48. Inspected the frozen verification notes, script and output without executing them; independent exact ordered-gap arithmetic for m=2,…,30 is replayable with python3 /workspace/branches/independent_bounded_checks.py. The bounded checks corroborate rather than prove the all-m theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8791657f8166 supplies the threshold profile E[Q 1{M>x}] rather than only its integral.",
+          "Royen treats marginal Greenwood distribution; no marginal identity alone determines this joint moment. The located Pyke bibliographic/abstract evidence is not a full-text comparison."
+        ],
+        "reasoning": "Integration of the pre-existing mixed-tail profile supplies the frozen mixed moment for every dimension. The October 26 result additionally states the same formulas for circular spacings.",
+        "searches": [
+          "8791657f8166, conditional square-sum and mixed-tail formulas",
+          "Royen arXiv:1008.4059; Pyke DOI 10.1111/j.2517-6161.1965.tb00602.x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a4f2c9f76454",
+        "Resultary 8791657f8166",
+        "Resultary 7536578b7678",
+        "Resultary 90264ed7a2e8",
+        "Pyke 1965 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At rate 1 and sample size m+1, 90264ed7a2e8 gives m Cov(R,S²)=H_m²+H_m^(2).",
+          "Subtract the minimum: the m positive residuals are iid exponentials by memorylessness, with total T independent of their normalized spacings. Then R=TM and m S²=T²(Q−1/(m+1)). E S²=1, E R=H_m and E T³=m(m+1)(m+2)."
+        ],
+        "reasoning": "Substitution yields E[T³] E[MQ]=m Cov(R,S²)+2(m+1)H_m, proving implication even from the older, differently normalized formulation. The October 26 match does not require any such reduction.",
+        "searches": [
+          "90264ed7a2e8, RESULT.md Finding eq. (2); a4f2c9f76454, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a4f2c9f76454, RESULT.md Finding: identical unscaled sum, n−1 samples and n boundary-inclusive gaps; identical formulas after n=m",
+          "8791657f8166, RESULT.md Finding and proof near offset 2700: the weighted tail for the square sum integrates to E[MQ]"
+        ],
+        "reasoning": "There is neither a scaling discrepancy nor a change in the sample or spacing count. The tail identity is enough for this mixed moment; it is not the full bivariate law.",
+        "searches": [
+          "Resultary: largest uniform spacing and Greenwood / simplex maximum and square sum mixed moment; inspect a4f2c9f76454 and 8791657f8166",
+          "Primary-literature search: uniform simplex maximum / Greenwood statistic exact joint moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7536578b7678 states the exact covariance and its proof gives the same mixed moment (Finding and around offset 2400).",
+          "a4f2c9f76454 Finding gives the exact Pearson expression and sqrt(6)/(2π) asymptotic constant, not just selected values."
+        ],
+        "reasoning": "The catalogue hits resolve to all-dimension formula statements, stronger evidence than agreement at particular table entries. The frozen table is author-supplied reproduction evidence, not a priority source.",
+        "searches": [
+          "Resultary exact spacing-moment matches 7536578b7678, 8791657f8166, a4f2c9f76454; mirrored RESULT.md passages"
+        ]
+      },
+      "rationale": "Exact prior coverage: the distinct October 26 Resultary record a4f2c9f76454 states the same mixed moment, covariance, Pearson formula and sharp asymptotic for the identical boundary-inclusive model, with n in place of m. Two October 18 matches independently cover the mixed moment/covariance, one via a stronger weighted-tail identity. The October 4 exponential-range covariance also implies the headline mixed moment by the shifted sample and gamma factorization. This is demonstrated overlap, not an inference from titles or access failure.",
+      "residual_risks": [
+        "Older historical priority, including Pyke's full text, was not established; the demonstrable earlier catalogue coverage suffices for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage",
+          "evidence": "Same linear spacing model, two variances, strictly positive covariance, Pearson expression and asymptotic coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positive-dependence-and-slow-decorrelation-of-the-largest--a4f2c9f76454/RESULT.md",
+          "material_read": "Finding, offset 0 through end of statement",
+          "method": "Resultary search, local mirror passage read",
+          "title": "Exact positive dependence and slow decorrelation of the largest uniform spacing and Greenwood's statistic",
+          "trigger": "Exact semantic match and earlier record"
+        },
+        {
+          "assessment": "Broader weighted-tail coverage",
+          "evidence": "E[Q 1{M>x}] and its exact integral already contain the claimed mixed moment.",
+          "identifier_or_url": "8791657f8166",
+          "material_read": "Mirrored RESULT.md Finding and proof passage around offset 2700",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact joint moments of the largest uniform spacing and Greenwood statistic",
+          "trigger": "Potential more general joint result"
+        },
+        {
+          "assessment": "Exact moment and covariance coverage",
+          "evidence": "Identical number of gaps and mixed-moment numerator and denominator.",
+          "identifier_or_url": "7536578b7678",
+          "material_read": "Mirrored RESULT.md Finding and proof passage around offset 2400",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact positive covariance of maximal and quadratic uniform spacings",
+          "trigger": "Exact covariance match"
+        },
+        {
+          "assessment": "Implies exact mixed moment after n=m+1 and rate 1",
+          "evidence": "Cov(range, unbiased sample variance)=(H_(n−1)²+H_(n−1)^(2))/((n−1)λ³).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8/RESULT.md",
+          "material_read": "Finding, equation (2), offset 350–724",
+          "method": "Targeted local mirror read and memoryless/gamma reduction",
+          "title": "Exact harmonic covariance of range and sample variance in exponential sampling",
+          "trigger": "Closest alternative model cited in frozen record"
+        },
+        {
+          "assessment": "Earlier historical priority unresolved; not used as negative evidence",
+          "evidence": "The abstract does not resolve this particular bivariate moment.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "Bibliographic and abstract material only; full text not obtained",
+          "method": "Bounded primary/OA retrieval including alternate search",
+          "title": "Spacings",
+          "trigger": "Plausible classical coverage of joint spacing moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covariance is scientifically useful for comparing two established diagnostics, but the submitted finding adds no mathematical invariant, range, or asymptotic beyond exact pre-existing coverage. The examples and probability-integral-transform scope do not constitute a distinct valuable remainder; no repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

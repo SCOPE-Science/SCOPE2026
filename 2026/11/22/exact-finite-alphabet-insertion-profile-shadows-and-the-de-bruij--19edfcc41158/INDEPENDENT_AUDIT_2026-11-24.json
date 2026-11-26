@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:28:36.228680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49",
+        "Frozen VERIFICATION.md, verify_profile.py and verification_output.txt (inspected, not executed)",
+        "Independent literal-output profile replay, ternary length 3 and length 10"
+      ],
+      "rationale": "Subtracting the fixed source profile reduces equality to equality of increments. If the inserted symbol equals either letter bordering an interior gap, exactly a unit loop remains, and the loops realized this way or at endpoints are precisely those of present symbols. Otherwise the three coordinates are distinct and the sole negative coordinate identifies the old bigram. For an old nonloop ab only the positive coordinate starting with a can be ax; for aa the two positive coordinates are ax and xa, which also uniquely recover x. The endpoint nonloop sets intersect in exactly the coordinate w_n w_1 when the endpoints differ, and otherwise do not intersect. This includes n=1, where there are no interior gaps. For q>=3 each incidence coefficient is strictly positive, so maximizing requires full bigram support and equal endpoints. At minimum length there are exactly q^2 gaps between letters and the bigrams form an Euler tour; the complete directed graph with loops admits one. With a particular starting edge fixed, BEST gives q^(q-2)*((q-1)!)^q tours by Cayley arborescences and local orders; all q^2 rotations give different indexed words because every edge appears once. This gives (q!)^q. For n>=2 endpoint equality has probability 1/q; maximality differs from that event only if some bigram is absent. Independent disjoint adjacent blocks bound each absence probability and a union bound gives the displayed estimate. Independent literal profile enumeration over all 59,049 ternary length-10 inputs (1,948,617 insertion operations) confirmed the formula and found exactly 216 maximizers of size 19.",
+      "residual_risks": [
+        "The bounded replay covers only two ternary lengths; the injection-of-signatures and Euler-tour arguments establish the universal claims. At q=2 the equality characterization is not transferred by positive-coefficient reasoning; the frozen new scope excludes that case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "En Gad's theorem uses edit-correcting codes, and §2.1 works with L-gram spectra above a length-dependent k. The sequence-profile paper develops equivalence classes and error correction, with a different question about the observable channel."
+        ],
+        "reasoning": "A general edit model can encode this insertion operation, but the statements inspected do not enumerate its two-gram images exactly or characterize where the pointwise count is maximal.",
+        "searches": [
+          "Eyal En Gad, arXiv:2609.19493v2, p. 2 and §2.1 p. 5",
+          "Kiah–Puleo–Milenkovic, arXiv:1502.00517v1, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored readings (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2609.19493v2 and arXiv:1502.00517v1",
+        "Frozen proof and its credited de Bruijn enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary law is the exact q=2 reduction, where q-2=0. Deletion changes two source edges into one and substitution preserves length, with distinct support and overlap constraints. The mirrored deletion and substitution findings have different capacities and extremal conditions."
+        ],
+        "reasoning": "Inverting an insertion relation between lengths does not make the degree of its outgoing projected neighborhood equal to a deletion degree, and a substitution does not generate it either. The earlier binary calculation suggests a strategy but cannot force occurrence of every ordered nonloop factor; positivity of a genuinely new incidence term is essential for this extremal result.",
+        "searches": [
+          "Binary Resultary Finding 7545727346c0; deletion Finding 975a3e757408; substitution Finding 34ff8f27117b; En Gad p. 2 and §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier exact binary record 7545727346c0 has the same endpoint, letter-support and loop terms but no oriented nonloop term.",
+          "En Gad's definition includes insertion as an ordinary edit; the stated code theorem concerns correction under bounded edits, not counting all distinct two-gram profiles of one word's outputs."
+        ],
+        "reasoning": "Local changes of substring-count vectors are relevant machinery, but bounding edit-induced differences for code construction is not an equality/collision classification of the complete projected output neighborhood. Binary alphabets admit no symbol distinct from both letters of a nonloop bigram.",
+        "searches": [
+          "Resultary: single-insertion ordered bigram/dinucleotide profile, nonbinary alphabets and k-abelian formulations",
+          "arXiv:2609.19493v2, b-substring edits and L-gram spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact binary table covers capacity six at length five only. The matching nonbinary insertion entry is the assigned record itself. Nearby exact nonbinary entries tabulate other edit operations. The number of de Bruijn cycles and the count after rotation are classical, not new numerical enumerations."
+        ],
+        "reasoning": "The formula (q!)^q is relevant through an independently established extremizer characterization; its appearance as a classical count is not evidence that the insertion-shadow extremal condition was known.",
+        "searches": [
+          "Local Resultary exact insertion profile search: 19edfcc41158 (identical), 7545727346c0 (binary), 975a3e757408 (deletion), 34ff8f27117b (substitution)",
+          "Frozen RESULT.md, classical BEST/de Bruijn enumeration"
+        ]
+      },
+      "rationale": "The binary law and the Euler-tour count are expressly old. The supported distinct finding is the complete nonbinary one-insertion profile formula, whose positive oriented-nonloop term gives the sharp insertion capacity and forces shortest maximizers to be de Bruijn linearizations. Neither the inspected general edit coding result, the exact binary law, nor the neighboring deletion and substitution results supply that term and consequence in this channel.",
+      "residual_risks": [
+        "A bounded comparison does not establish priority under unindexed equivalent terminology. No priority is inferred from the same date of adjacent records. No originality is claimed for binary insertion or the de Bruijn count itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant machinery, not an exact insertion-neighborhood result in those passages",
+          "evidence": "b-substring edits include ordinary insertion; the t>=2 code theorem and long-spectrum setting do not state the frozen single-insertion exact two-gram count.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19493v2",
+          "material_read": "p. 2 edit definition and code statement (OA offset 6758); p. 5 §2.1 (16776)",
+          "method": "OA PDF passage comparison",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Broad q-ary local edit and profile-vector methods"
+        },
+        {
+          "assessment": "Profile-channel motivation, not equivalent",
+          "evidence": "Studies sequence-equivalence classes and coding against profile-channel noise rather than this local neighborhood size.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517v1",
+          "material_read": "p. 1, OA offset 1162",
+          "method": "OA PDF passage comparison",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Earlier sequence profiles as equivalence classes"
+        },
+        {
+          "assessment": "Exact prior coverage of the binary special case",
+          "evidence": "Binary count is 1 plus equal endpoints plus the two letter-presence and two loop-presence indicators; capacity 6 first occurs at length 5.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact single-insertion dinucleotide-profile ambiguity in binary words",
+          "trigger": "Exact same edit/profile statistic for a smaller alphabet"
+        },
+        {
+          "assessment": "Different operation, not equivalent",
+          "evidence": "One-deletion capacity q(q-1)^2+q+2 and first saturation length q(q-1)^2+2q+2; not an insertion result.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-nonbinary-one-deletion-dinucleotide-profile-capacity-and-f--975a3e757408",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp nonbinary one-deletion dinucleotide-profile capacity and first saturation",
+          "trigger": "Distinct same-date exact nonbinary profile bound"
+        },
+        {
+          "assessment": "Different operation and de Bruijn order",
+          "evidence": "One-substitution capacity (q-1)(q^3-q+2) is governed by triples rather than this single-insertion bigram support.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-substitution-dinucleotide-profile-capacity-and-de-brui--34ff8f27117b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-substitution dinucleotide-profile capacity and de Bruijn extremizers",
+          "trigger": "Distinct same-date de Bruijn extremal profile result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and extremal proof",
+        "Earlier binary exact-profile result 7545727346c0"
+      ],
+      "rationale": "The statistic answers a natural ambiguity question after loss of global order in a bigram-profile channel. Counting insertion sites alone cannot provide it. The oriented nonloop term is visible only beyond binary and makes full directed bigram coverage a necessary extremal property. It gives a sharp capacity, the exact saturation onset and a structural characterization of all shortest witnesses, together with a simple finite-length bound toward the random-word limit.",
+      "residual_risks": [
+        "No extension to cyclic words, longer profiles, multiple edits or optimal codes is claimed. The rate bound is sufficient for exponential convergence, not asserted to be the optimal error exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

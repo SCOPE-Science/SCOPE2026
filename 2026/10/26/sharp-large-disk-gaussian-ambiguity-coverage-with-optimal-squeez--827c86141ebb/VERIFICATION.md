@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the squared Gaussian ambiguity design law
+# Independent mathematical audit
 
-The normalized Gaussian has \(\|g_a\|_2=1\). Completing the square in the ambiguity integral gives \(|\mathcal A g_a(X,\Omega)|^2=e^{-\pi(aX^2+\Omega^2/a)}\); rotations give the quadratic forms used in RESULT.md. The proof establishes the continuum minima and the global supremum by the largest-gap estimate, an equispaced two-neighbor boundary-layer calculation, and a comparison of their matched leading coefficients. Strict derivative and second-derivative estimates give the quantitative optimizer rigidity. The perturbation law follows by expanding at the two neighbors of each gap midpoint, taking the local hyperbolic-cosine minimum, and maximizing the cyclic gap increment.
+## correctness
 
-The supplied standard-library checker at `checks/gaussian_design_check.py` was executed from that exact file path and returned `PASS: 86 finite analytic-identity and numerical assertions.` It checks the normalized exponential profiles, the two-channel case, the coefficient identities, and several finite-parameter near-asymptotic cases. Dense finite angular grids cannot establish the global continuous minimum or an infinite limit; those statements rely on the written proof.
+PASS
 
-All claims concern equal-precision *linear ambiguity inversion*. Neither nonlinear recovery of a signal from spectrogram magnitudes nor priority over all possible unindexed literature is established. No external independent audit or validation was performed.
+The repaired statement explicitly sorts the unordered axes in positive cyclic order; a cyclic shift of an arbitrary input tuple is insufficient (reversing the tuple of a maximizing design preserves the objective). The squared sum is the normalized forward information gain, not the squared norm of the inverse. Also corrected which step of the largest-gap bound has strictness. Independently verified the continuum estimate by uniform convexity of exp(-t q) in a fixed distance band around δ, where q' is uniformly positive. Jensen gives the two-endpoint lower bound throughout each midpoint neighborhood, a nearer axis excludes all off-midpoint neighborhoods, and a largest-gap midpoint provides the upper bound with exponential error. AM–GM and compactness locate all optimizers, then the gap/squeeze increments force the two little-o scales. The angular Taylor coefficient is q'_a(δ)/2=cos(π/m), and the squeeze coefficient is cos²(δ)/a_m³. Verified m=1,2 separately. Read the frozen verification note and nested checker; neither its recorded 86 checks nor finite angle sampling is relied on for the continuum theorem. The complete corrected RESULT.md contains the proof.
+
+## originality
+
+PASS
+
+The supported distinct claim is the global squared-sum prefactor for arbitrary orientations and fixed m, the correctly ordered all-maximizer scales and the fixed-offset penalty. The threshold rate and the leading constant restricted to a fixed equiangular triple are overlapping results, not grounds for priority claims.
+
+## value
+
+PASS
+
+The sharp factor controls the best worst-direction linear noise variance, which the exponent alone cannot determine. The all-design rigidity and explicit limiting loss trade off squeeze errors on the t^-1/2 scale against angular gap errors on the t^-1 scale. This distinguishes near-optimal designs even when their exponential rates coincide. No nonlinear recovery significance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

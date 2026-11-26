@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain is every \(0<\rho<1\) and all distinct nonnegative integer observation times. The exact Gramian reduction and derivative signs exclude every later positive lag. Exact comparison formulas and root uniqueness arguments establish all four sharp thresholds. The starting-time distinction between condition-number optimization and scale-sensitive criteria has been retained. Computation is supplemental to a fully quantified proof.
+PASS
 
-## Originality
+For lag d, conjugation by the start rotation and multiplication by q^s give the shifted Gramian. Scale strictly disfavors shifting nonsingular E/A/D schedules and every T schedule, and is invisible to K. At start zero the trace and determinant are 1+q^d and q^d sin²(dπ/4); multiples of four are singular. Within a nonsingular angular class the lag weight z=q^d orders all four criteria strictly: E equals (1+z-sqrt(1+z²))/2 for odd lags and z for lags 2 mod 4, both strictly increasing; D increases, inverse trace decreases, and normalized determinant cz/(1+z)² increases and is strictly decreasing as a function of condition number. Thus lags 1 and 2 alone compete. Direct comparison gives q_D=1/2 and q_A=√2−1. For E, 1+q−2q²=(1−q)(1+2q)>0, so the cubic from squaring gives an equivalent tie; it decreases strictly from 1 to −1. For K the reciprocal quartic becomes v²−2v−4 with v=q+q⁻¹>2, monotone in q, giving exactly one tie. For small q the lag-one E and K scores are better, and at q→1 lag two wins; A and D have the asserted signs directly. Exact polynomial signs put q_K in (0.34,0.35), q_E in (0.40,0.41) and q_A in (0.41,0.42). Strict within-class comparisons rule out other ties. T directly prefers s=0 and d=1, regardless of angular class. The angle used throughout is π/4 per step; the descriptive title should not be read as π/2. The bundled numerical checker was inspected, not executed; the infinite-horizon comparison is analytic.
 
-PASS subject to historical-priority limitation. The primary papers by Baran, Szák-Kocsis and Stehlík (arXiv:1704.05719), Siami, Olshevsky and Jadbabaie (arXiv:1805.00606), and Siami and Jadbabaie (arXiv:2005.03143) were compared at the level of models and guarantees. Published damped-oscillator three-time information work and a fixed cyclic-actuator spectral majorization theorem were also inspected in full. The most relevant available earlier two-reading result concerns continuous-time E-optimality; it does not assert this complete discrete-lag five-criterion table. Unlocated older exact-design literature remains a residual risk. A failed search is not a proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The result supplies an exact global answer to a natural two-measurement sensor schedule for one damped rotating state. The ordered thresholds reveal genuinely different optimal schedules for four competing standard information objectives; this distinction disappears if only local or single-criterion analysis is done. It is a narrowly scoped complete classification, not a theorem for arbitrary linear systems.
+The inspected comparisons cover Gramian scheduling generally, oscillator timing continuously, or exact optimizers in a different design variable. They do not supply the exact two-integer-reading cross-criterion classification on the evidence inspected. The distinct claim is the complete switching law and all attaining schedules, not the Gramian or the criteria themselves.
 
-## Boundaries and limitations
+## value
 
-The conclusion requires equal-precision noise and known \(45^\circ\) discrete rotation, with exactly two distinct integer observation times. The condition number cannot identify a unique absolute starting time. The proof does not solve irregular real-time scheduling or multi-sensor network design. No independent audit or exhaustive publication-priority confirmation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A two-reading budget is a natural minimal full-rank design for a planar initial state. The exact four distinct switch points quantify where common objective choices select incompatible schedules in the same experiment; the K-only freedom in start time is another useful distinction. The global reduction and threshold order make the result more useful than a tabulation of two matrix scores or a numerical finite-lag comparison. The conclusion is specialized to known 45-degree steps and equal precision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

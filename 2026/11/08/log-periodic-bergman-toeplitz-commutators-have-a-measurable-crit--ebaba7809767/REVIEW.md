@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact gamma quotient comes from the radial beta integral, and multiplication by a coordinate is an orthogonal monomial shift. The first-difference recurrence and the degreewise beta Riemann sum give the critical trace coefficient with summable errors. The positive-phase interval supplies enough uniformly sized singular values to compare ordered and degree cutoffs; this makes the critical Dixmier trace independent of generalized limits. The accompanying standalone finite consistency checker passed 448 checks. Infinite quantifiers rely on the analytic proof, not the finite checks.
+PASS
 
-## Originality — PASS relative to inspected literature
+The stated monomial normalization follows from the weighted ball Dirichlet integral. The radial symbol has diagonal beta moments, and the first-coordinate shift maps distinct inputs to orthogonal outputs with coefficient sqrt[(α₁+1)/(m+d+τ+1)]. Thus |C| is exactly diagonal with the absolute weighted increments. For a Fourier mode ζ=ikω the exact finite difference is ζ U_k(m)/(m+d+τ+1−ζ); the gamma ratio gives Δ_m=m⁻¹G'(log m)+O(m⁻²), avoiding differentiation of an asymptotic error. Counting α₁=j and using a bounded-variation beta Riemann sum gives Γ(1+p/2)/Γ(d+p/2) times m^(d−1)+O(m^(d−2)) for the weights, with the single disk monomial handled directly. The d-th power has a summable O(m⁻²) shell error, and the Lipschitz periodic average integrates to the stated R log M+O(1); G is nonconstant since gamma has no zeros. Shell decay suffices for p>d, divergence at d implies divergence for all smaller positive p, and the degree count gives s_j=O(j⁻¹/d). For ordered sums at N=binom(M+d,d), the degree sum is a lower bound. Contributions from the at most N selected indices of degree >M are in total at most N·O(M⁻ᵈ)=O(1), giving the upper bound even if G' vanishes at some phases. Interpolating and using log N=d log M+O(1) proves the ordered coefficient R/d and the stated measurability. The beta average of |sin|^d gives both stated unweighted examples. Independent transformed beta quadratures and a disk sorted-sum check used python -B /workspace/independent_checks.py 2; these are finite diagnostics, not the spectral proof.
 
-Looi (arXiv:2603.10879) supplies the log-periodic Toeplitz eigenvalues but no coordinate-commutator singular trace. Engliš–Guo–Zhang (arXiv:0707.2025) work with smoothly extendible boundary symbols and commutator products, not the present no-boundary-limit absolute-power trace. Bendaoud et al. (doi:10.15407/mag16.01.003) study Schatten properties of the radial Toeplitz operator itself. The numerical gamma filter, beta multiplicity and comparison of ordered sums are genuinely needed for the present combined statement; the separate classical identities are not themselves claimed new. An equivalent characterization in earlier operator-ideal literature remains a residual publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem exactly measures the boundary-induced critical singularity of a natural nonconvergent radial Toeplitz observable and identifies a dimension-dependent, nonzero trace residue in every power-weighted ball. It separates qualitative compactness from sharp Schatten cutoff and strengthens a finite-degree trace law to a sorted measurable trace, with explicit cosine constants.
+Limited to the explicit critical law for finite real log-periodic profiles across complex ball dimensions and power weights, including the Gamma-filtered residue and bounded-error ordered law. A same-day record closely overlaps the mechanism and gives a stronger counting law in a special complex disk family, not a dominating theorem for the profiles or dimensions here. Looi's beta-eigenvalue calculation is prior input, not the claimed novelty.
 
-## Scope and limitations
+## value
 
-The proof is for finite trigonometric profiles and fixed positive power weights, not arbitrary oscillatory measurable radial symbols. No external audit or publication-priority certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example answers a concrete question at the edge of smooth-symbol trace theory: a boundary-oscillating bounded symbol with no boundary limit still has a strictly positive measurable critical commutator power. The exact dimension- and weight-dependent trace and the uniform bounded error in ordered sums are useful quantitative invariants, not merely another radial Toeplitz moment calculation or a compactness test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

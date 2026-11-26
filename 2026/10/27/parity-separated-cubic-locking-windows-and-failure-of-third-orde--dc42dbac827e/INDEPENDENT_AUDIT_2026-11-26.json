@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:33:37.348553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coordinate H(x)=integral_0^x 1/v takes each step to h+O(h²) uniformly, and H(x)−Lx is bounded, giving L rho(h)=h+O(h²). For the crossing calculation set z=1/q, h=Lz+gamma z³ and k=q/2+d. The order-z coefficient of (1+h)^k/(3/2) is dL−L²/4, and that of (1−h)^k/(2/3) is −dL−L²/4. Strict signs at consecutive steps give first crossings with d=1/2 or 1 from 0 (odd or even), and d=1/2 or 0 from 1/2. For the formal remaining branch segments the computed qth endpoints are 1+O(z²) and 3/2+O(z²); the penultimate points are below those breakpoints by h+O(z²) and (3/2)h+O(z²), respectively. Monotonicity within each branch therefore justifies using those affine segments up to the final evaluation. The uniform order-z² coefficients for the two endpoint displacements, after division by 1 or 3/2 respectively, are gamma+L³/3−dL²+(dL−L²/4)² and gamma+L³/3+dL²−(dL+L²/4)². Substituting the appropriate d gives exactly gamma−a_p and gamma−b_p. With a fixed positive epsilon the strict signs of the leading terms persist throughout each stated gamma interval; continuity produces a lifted q-cycle with displacement 1. Comparing the two interval endpoints in a putative third-order expansion leaves the nonzero term L^-1(W_p−2 epsilon)q^-3, since the squared and cubed differences have smaller orders. Replay: affine identities and expansions in frozen RESULT.md lines 26–53; separate direct-velocity midpoint checks for q=41,42 are described in /workspace/branches/78972f2f-f3c4-445e-a9c4-dee3e1869e4c/record-2-check.txt. They are diagnostics, not the proof. The provided checker and recorded output were inspected; the uploaded checker was not executed. No exact maximal tongue boundary is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Glendinning results focus on fixed rational rotation and local scaling; the 2506.19508 differentiability theorem has a C¹ perturbation condition not literally met by v. The Campbell et al. tip and plateau models inspected do not use the same two-branch parameter path."
+        ],
+        "reasoning": "Even local scaling at the identity considered as one fixed rational point does not control q^-3 windows at the sequence 1/q. Neither fixed-denominator transversality nor the alternate map models give the needed uniform cubic terms.",
+        "searches": [
+          "arXiv:2505.13689v1 Theorems 2.5–2.6 and §9",
+          "arXiv:2506.19508 Definition 1.1 and Theorem 1.3",
+          "arXiv:chao-dyn/9502018 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt",
+        "Independent affine coefficient and direct orbit checks",
+        "arXiv:2505.13689v1, 2506.19508, chao-dyn/9502018",
+        "Resultary 485062d335ba and e144d81f7af4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Herman parametrization supplies the input slopes. Fixed-rational scaling results supply neither of the two sign-separated endpoint displacements at h=L/q+gamma/q³. The contracted-rotation width is first order in a fixed-rational offset in another family."
+        ],
+        "reasoning": "It takes a two-parity crossing calculation and uniform second-order q-iterate asymptotics to obtain the q^-3 windows; the arithmetic distinction and the Peano obstruction are not direct translations of the prior statements. The obstruction by itself is a short consequence of the windows, not a separate priority claim.",
+        "searches": [
+          "arXiv:2505.13689v1 Theorems 2.5–2.6, Eq. (37) and §9 example",
+          "arXiv:2506.19508 Theorem 1.3",
+          "Resultary 485062d335ba Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Put mu=h, lambda=1+h, c=1/2, beta=−log(1−h)/log(1+h) into the branches of Eq. (37), which gives lambda^(-beta)=1−h. Then the branches are (1+h)x+h and (1−h)x+2h and agree at c. The paper's nearby Eq. (41) example fixes lambda and beta=1 at half rotation, rather than following this path."
+        ],
+        "reasoning": "This is an exact equivalence of maps, independently of the apparent missing minus sign in Eq. (38)'s printed continuity condition. Equivalence of the family does not show equivalence of the asymptotic claim.",
+        "searches": [
+          "arXiv:2505.13689v1 §9 Eq. (37) (Herman's two-component map)",
+          "Resultary high-denominator rational locking, piecewise-linear circle maps and identity expansions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "485062d335ba gives exact tongue scaling for contracted rotations near a fixed p/q. e144d81f7af4 gives a signed quadratic cusp at a degenerate fixed half resonance for an analytic path. Neither is an exact indexed instance of these parity-separated cubic windows."
+        ],
+        "reasoning": "The closest indexed exact results are formulas about distinct maps and limits, not tables or equivalents giving these four constants. This bounded comparison cannot establish absence from all earlier records.",
+        "searches": [
+          "Resultary exact rational tongues and rotation-number cusps, records 485062d335ba and e144d81f7af4"
+        ]
+      },
+      "rationale": "The map itself is not new: the two branches are exactly on a parameter path in Herman's family as displayed by Glendinning–Ma–Montaldi. The supported distinct content is the singular large-denominator asymptotic for this path, including explicit odd/even cubic-scale interior windows and the third-order identity obstruction. The closest inspected fixed-rational results do not give estimates uniform in q or determine these two constants. No claim of first discovery of the family or comprehensive priority is made.",
+      "residual_risks": [
+        "An equivalent large-denominator calculation could occur in earlier Herman-family or mode-locking literature under another parametrization; the inspections do not exclude this globally.",
+        "The result gives only certified interior intervals, not the asymptotic locations of the maximal tongue boundaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MODEL_DIFFERENT_ASYMPTOTIC",
+          "evidence": "Eq. (37) contains both affine branches; the explicit example is about perturbing a fixed half-rotation and the theorems do not give q-dependent cubic locking.",
+          "identifier_or_url": "https://arxiv.org/html/2505.13689v1",
+          "material_read": "Theorems 2.5–2.6 at offsets 17800 and 22000; §9 Eqs. (37)–(41), offsets 60000–66642",
+          "method": "Bounded OA HTML passage inspection",
+          "title": "Piecewise linear circle maps and conjugation to rigid rational rotations",
+          "trigger": "Same two-branch model and potentially applicable scaling results"
+        },
+        {
+          "assessment": "FIXED_RATIONAL_AND_DIFFERENT_REGULARITY",
+          "evidence": "Local differentiability near fixed p/q with a C¹ perturbation assumption, not the claimed one-sided Peano obstruction along accumulating plateaus.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.19508",
+          "material_read": "Definition 1.1 at offset 8300 and Theorem 1.3 at offset 11500",
+          "method": "Bounded OA passage inspection",
+          "title": "Scaling of the rotation number for perturbations of rational rotations",
+          "trigger": "Closest theorem on perturbative regularity"
+        },
+        {
+          "assessment": "RELATED_MODEL_COMPARISON",
+          "evidence": "The inspected tip and plateau formulas and rotation-interval setting are not the specific positive-velocity Herman path. This is not a full-paper exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/chao-dyn/9502018",
+          "material_read": "Abstract, p. 1, and §2 model formulas, p. 7",
+          "method": "Lawful OA copy of the same paper, bounded PDF passages",
+          "title": "Piecewise linear models for the quasiperiodic transition to chaos",
+          "trigger": "Older broad piecewise-linear locking literature"
+        },
+        {
+          "assessment": "RELATED_CONTRACTED_ROTATION",
+          "evidence": "For R_{lambda,b} the slope tongue width starts at 4q/(q²−1) times the translation offset at fixed p/q. Different map class and scaling variable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-fixed-translation-rational-tongues-and-universal-vertex-sl--485062d335ba/RESULT.md",
+          "material_read": "Finding and fixed-rational scaling statement",
+          "method": "Resultary search and local mirror",
+          "title": "Exact fixed-translation rational tongues and universal vertex slopes",
+          "trigger": "Closest indexed exact rational windows"
+        },
+        {
+          "assessment": "FIXED_RESONANCE_DIFFERENT_MECHANISM",
+          "evidence": "Signed quadratic cusp at half rotation, not a cubic obstruction based on increasing denominators near identity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-second-order-rotation-number-cusp-at-a-degenerate-half-resonan--e144d81f7af4/RESULT.md",
+          "material_read": "Finding and hypotheses on the analytic path",
+          "method": "Resultary search and local mirror",
+          "title": "A second-order rotation-number cusp at a degenerate half resonance",
+          "trigger": "Closest indexed non-Taylor behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural positive-velocity path through the identity has a well-defined first-order rotation rate, yet its large-denominator plateaus preclude a third-order approximation. Explicit parity-sensitive coefficients make this an effective witness, not merely a qualitative assertion that rational plateaus occur. The distinction between a fixed-resonance perturbation and the singular identity limit matters for interpreting rotation-number regularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

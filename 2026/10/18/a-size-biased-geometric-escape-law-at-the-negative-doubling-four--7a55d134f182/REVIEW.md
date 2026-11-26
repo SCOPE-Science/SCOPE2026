@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The four equal-length Markov cells give complete twofold expanding coverage along every permitted arrow. The exact matrix identity \(M^n\mathbf1=(n+1,1,1,n+1)^{\mathsf T}\) reconstructs every survival cylinder and proves the survival-length formula without relying on experiments. Subtraction gives the full size-biased geometric first-entrance law. Counting the two initial phases and unique moment of transition into an absorbing recurrent cell proves the conditioned uniform time profile. The geometric comparison phase has a separate direct full-covering argument. The exact-rational checker examines both the transfer matrix and independently pulled-back intervals.
+## correctness
 
-**Originality (O): PASS, with residual risk.** Ding–Steiner–Sun, arXiv:2610.03327v1 (first public 2 October 2026), analyzes negative-doubling survivor sets, topological entropy and dimension plateaux, not Lebesgue finite-time survival. The closest published exact same-hole classification gives periodic points and a zeta function, not survivor-length sums or entrance-time distributions. A second published same-map result treats widths of symbolic parameter plateaux, not statistical escape. Those published RESULT.md documents were read in full. A general Markov transfer-matrix method is classical and expressly not claimed as new; literature might contain an equivalent worked example that was not located.
+PASS
 
-**Mathematical value (V): PASS.** The parameter \(a=2/5\) is structurally selected by the period-four threshold. The result exposes a Jordan double-pole escape law and asymptotically uniform switching time within a known zero-entropy phase, quantifying transient survival that periodic points alone do not capture. The small-hole geometric regime provides an exact, naturally motivated contrast.
+At a=2/5 the four equal cells have full surviving transitions A→C,D; B→B; C→C; D→A,B, modulo endpoints. Each n-arrow cylinder has length 1/(5·2^n), and M^n1=(n+1,1,1,n+1). The n+2 entry categories (start inside, enter at each k=1,…,n, never enter by n) contain exactly two cylinders each. This proves the survivor and conditional entry laws; normalization by 4/5 and successive differences give P(N=n)=n/2^(n+1), whose mean and variance are 3 and 4. The power series sums to (4−z)/(5(1−z/2)^2); the entry limit follows by Riemann sums. For a≤1/3 the only surviving positive-length branches alternate the two outer intervals, with inverse length ratio 1/2; the isolated equality endpoint has zero mass. Independently enumerated by integer forward iteration on the exact preimage mesh: 13 conditional histograms for a=2/5, n=0–12, and 30 survivor counts at a=1/3, 2/7, 3/11, n=0–9, all agree. Replay: /workspace/branches/independent_checks.js. This finite check is not an all-n proof; the frozen verifier was inspected, not executed.
 
-**Limitations.** No claim for intermediate holes \(1/3<a<2/5\), no general quasi-stationary measure theorem, and no independent literature-priority certification. The finite verifier is diagnostic and cannot substitute for the all-\(n\) proof. A technical check of every work ever written on finite Markov holes is impossible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected earlier sources cover the location of the period-four change and the symbolic/periodic survivor structure, not the transient path weights or the entry-time law. Two distinct later catalogue records do cover the numerical laws, including the complete conditional law after an index shift; neither establishes prior coverage of the frozen finding. No earlier or same-day equivalent was identified in the searches performed. The supported distinction is the finite-time Lebesgue and conditional-history laws, not the orbit classification or the Markov method.
+
+## value
+
+PASS
+
+The parameter is a previously identified periodic boundary, not a chosen numerical slice. The linear survival prefactor distinguishes the transient reducible dynamics from the geometric phase despite the same exponential rate, and the exact uniform conditioned switching categories explain where that prefactor comes from. This supplies a useful critical-hole benchmark beyond the zeta/periodic information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

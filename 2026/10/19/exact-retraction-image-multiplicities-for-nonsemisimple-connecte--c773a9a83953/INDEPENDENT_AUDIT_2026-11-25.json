@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:21:14.251755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a quandle homomorphism, the identities intertwining right translations and their inverses hold even if the map is not bijective. The displacement products R_y R_z^(−1) give every translation by surjectivity of I−T; applying the intertwined translation at zero proves additivity after subtracting the constant, and using y=0 proves commutation with T. This argument also applies to isomorphisms between the connected image quandles, so their elementary-divisor arrays distinguish isomorphism types. An affine idempotent is an ordered invariant splitting V=U⊕W with one translation in W. The module automorphism group acts transitively on such splittings of assigned types with block-diagonal stabilizer Aut(U)×Aut(W). To verify the unit formula, for each φ-primary module reduce on M/φM and order blocks by length. A map from a shorter block into a longer one reduces to zero, so this reduction is block triangular. It is invertible exactly when each equal-length diagonal reduction is invertible, which also gives invertibility before reduction by nilpotence of φ. These diagonal residues are independent and unrestricted; each pair of lengths contributes Q^min(e,j) choices to End(M). This gives the stated automorphism factor, interpreting the diagonal unit product inside the product over φ as the proof specifies. For fixed U and a fixed image coset, complements are graphs of Hom(W,U), and each has exactly one coset representative, proving the fiber; multiplying by the count of distinct cosets recovers the total. The indecomposable boundary gives just constants and identity; V≠0 makes them distinct. Independent exact replay: python3 /workspace/branches/independent_checks.py 5 takes T=ωI+E12 over F4³ as an F2-linear map (one quadratic primary of lengths two and one). It enumerates the 1,024 matrices in the commutant by T^4=ωI, tests idempotency and groups literal affine image sets. The multiplicities (image size, fiber size) are (1,1):64, (4,4):64, (16,4):16, (64,1):1, matching the formula. This bounded check is not a proof of the general affine classification; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Niebrzydowski–Przytycki identify Alexander retractions with split module epimorphisms. Mader computes the related classical group orders by p-primary block lengths. The two affine/quasi-affine papers address homomorphic-image recognition and subquandle structure rather than this quantitative profile."
+        ],
+        "reasoning": "The split-epimorphism characterization and the general stabilizer principle cover the structure, and primary-module unit counts are established tools. The asserted type- and coset-resolved counting result uses the explicit interplay of splitting types, translations, and complement Hom factors. No inspected broader classification gives that quantitative census as a stated specialization.",
+        "searches": [
+          "arXiv:0907.4732 §5 Lemma 33 and Corollary 34",
+          "Mader, Automorphism Group of Finite Abelian p-Groups, §3",
+          "arXiv:2006.05946v1 p. 1",
+          "arXiv:1708.02362 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index; 117335b68a3e, 13e4168574bb and b3ec99783ff2",
+        "arXiv:0907.4732",
+        "arXiv:2006.05946v1",
+        "arXiv:1708.02362",
+        "Mader (2012) §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The retraction/split-module link already gives the indecomposability criterion; the quotient of automorphism orders for ordered splittings is the direct orbit–stabilizer identity. The previous exact profiles use semisimple dimensions or a single common nilpotence length; arbitrary same-primary mixed lengths instead give cross terms min(e,j), and distinct primaries have no cross Hom contributions."
+        ],
+        "reasoning": "Do not count either the split criterion or the formal stabilizer identity as a new finding. The meaningful extension is the explicit evaluation by arbitrary elementary-divisor array and the closed uniform fiber law for each affine image coset. Neither of the exact prior restricted formulas implies the mixed-length fixed-coset count by parameter substitution.",
+        "searches": [
+          "arXiv:0907.4732 Lemma 33 and following text",
+          "117335b68a3e prescribed-image theorem",
+          "13e4168574bb class-size theorem",
+          "Mader §3 unit-count formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the connected semisimple record the factor k^(Q−k) is one, and the per-image product is exactly the e=1 limit of h(r,w). With a single linear primary of block length d and multiplicity m, A(s)=p^{(d−1)s²}|GL_s(F_p)| and N(r)=p^{d(m−r)+(2d−1)r(m−r)} times the Gaussian binomial, precisely the equal-length centralizer record's class size."
+        ],
+        "reasoning": "These are exact mathematical overlaps on the stated subfamilies. Equal-length free modules over F_p[ε]/(ε^d) cannot parametrize sums with mixed block lengths or higher-degree irreducible primary powers by a change of rank. The disconnected rank-one unipotent catalogue entry has singular I−T and cannot substitute for the connected claim.",
+        "searches": [
+          "Resultary local index: idempotent Alexander quandle maps, primary block lengths, image multiplicities",
+          "117335b68a3e Finding and homomorphism rigidity",
+          "13e4168574bb Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "117335b68a3e gives an exact specified-image fiber in the semisimple case. 13e4168574bb gives exact class sizes and a centralizer census for equal-length linear-primary blocks. b3ec99783ff2 counts images in a non-connected I+N family."
+        ],
+        "reasoning": "Credit the exact restricted entries; their formula agreement at shared hypotheses is not evidence for an earlier all-type table. No full matching catalogue record was established in the bounded comparison, and directory dates do not establish priority.",
+        "searches": [
+          "Resultary local index: semisimple Alexander retractions; nonsemisimple and primary-power retraction exact profiles",
+          "Resultary records 117335b68a3e, 13e4168574bb, b3ec99783ff2"
+        ]
+      },
+      "rationale": "Pass for the explicit image-type and prescribed-image census across arbitrary connected nonsemisimple primary data. Established ingredients are the Alexander split-epimorphism description, affineness, orbit–stabilizer and primary-module automorphism orders; the indecomposable no-proper-retract consequence is immediate from the split description and is not an independent novelty. A prior semisimple catalogue result and a catalogue result for equal-length linear-primary blocks give exact boundary or restricted profiles. Neither is an exact type and fixed-coset census for arbitrary mixed lengths and distinct primaries.",
+      "residual_risks": [
+        "An earlier exact formula for prescribed direct-summand-image multiplicities in finite primary modules could encode much of the affine count. The bounded search does not rule this out.",
+        "The semisimple and homogeneous linear-primary quantitative overlaps must be distinguished from the mixed-primary contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural coverage, not the quantitative census",
+          "evidence": [
+            "The text after Lemma 33 identifies Alexander retractions with split Z[t^(±1)]-module epimorphisms; Corollary 34 uses direct-sum projections in homology."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0907.4732",
+          "material_read": "§5 p. 21 Lemma 33 and following text, Corollary 34",
+          "method": "OA primary PDF passages",
+          "title": "Homology operations on homology of quandles",
+          "trigger": "Prior qualitative Alexander-retraction classification"
+        },
+        {
+          "assessment": "Classical related unit/group-order calculation, not an affine quandle count",
+          "evidence": [
+            "The order calculation depends on the lengths and multiplicities of the cyclic primary blocks."
+          ],
+          "identifier_or_url": "https://www.labmath.uqam.ca/~annales/volumes/36-2/PDF/559-575.pdf",
+          "material_read": "§3, PDF pp. 4–5",
+          "method": "OA primary journal PDF passages",
+          "title": "The Automorphism Group of Finite Abelian p-Groups",
+          "trigger": "Classical primary-module group orders could contain prior counting machinery"
+        },
+        {
+          "assessment": "Quotient characterization and algorithms; no quantitative retraction census established in inspected passages",
+          "evidence": [
+            "The focus is recognition/covering and characterizations by displacement groups and affine meshes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.05946",
+          "material_read": "v1 abstract and introduction, PDF p. 1",
+          "method": "OA primary PDF passages",
+          "title": "Homomorphic images of affine quandles",
+          "trigger": "Broader affine quotient theory"
+        },
+        {
+          "assessment": "Quasi-affine structural comparison, not evidence of exact idempotent counts",
+          "evidence": [
+            "The scope is quasi-affine quandles and subquandle structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02362",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Subquandles of affine quandles",
+          "trigger": "Broader theory of affine images as subquandles"
+        },
+        {
+          "assessment": "Exact overlap at the semisimple boundary, not arbitrary primary powers",
+          "evidence": [
+            "For a specified image the formula is k^(Q−k)∏ q_i^{r_i(d_i−r_i)}. The connected part has Q=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-semisimple-alexander-quandle-retractions-a-transformation-affine--117335b68a3e/RESULT.md",
+          "material_read": "Finding and affine-map proof, local-mirror offsets 2100–5670",
+          "method": "Local Resultary index and primary mirror passages",
+          "title": "Semisimple Alexander-quandle retractions",
+          "trigger": "Exact prior prescribed-image law"
+        },
+        {
+          "assessment": "Exact N(r) overlap for equal-length split primary blocks; no priority inferred from date",
+          "evidence": [
+            "Its counting theorem assumes (F_p[ε]/ε^d)^m and T=λ+ε. Its mixed-length example addresses centralizers, not the general mixed-length prescribed-image census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-centralizer-rigid-retractions-of-nonsemisimple-finite-alexander--13e4168574bb/RESULT.md",
+          "material_read": "Finding and Assumptions, local-mirror offset 0–3057",
+          "method": "Local Resultary index and primary mirror passages",
+          "title": "Centralizer-rigid retractions of nonsemisimple finite Alexander quandles",
+          "trigger": "Exact nonsemisimple class-size formula"
+        },
+        {
+          "assessment": "Not the connected operator in the frozen claim",
+          "evidence": [
+            "The operator is I+N and I−T is singular."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-retraction-images-and-exact-rank-census-for-rank-one-unipotent-a--b3ec99783ff2",
+          "material_read": "Local index statement and scope comparison",
+          "method": "Local Resultary index",
+          "title": "Retraction images and exact rank census for rank-one unipotent Alexander quandles",
+          "trigger": "Exact fiber counts for a related nonsemisimple operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact image distributions and counts onto each embedded coset are natural invariants of the finite quandle endomorphism monoid. Already at mixed primary lengths the choice of image module and its available complements depends on more than dimension; grouping isomorphism types and then aggregating equal cardinalities prevents losing that information. The all-type fiber and counting profiles are useful without treating the elementary indecomposability consequence or the known semisimple examples as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

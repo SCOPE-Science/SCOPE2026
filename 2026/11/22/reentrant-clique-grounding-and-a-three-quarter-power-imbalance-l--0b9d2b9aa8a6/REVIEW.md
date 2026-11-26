@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The independently variable vertex gains are reduced to two orbits only after proving strict inverse-trace convexity and hence uniqueness. The two eigenvalue contrast spaces and one two-dimensional quotient give the exact scalar function. Its right-boundary derivative is strictly positive, and its left-boundary derivative produces the necessary-and-sufficient support inequality. A unimodal scalar threshold function gives the entire phase structure. The scale \(q\asymp p^{3/4}\) follows from a controlled expansion of the envelope. Exact inversion of graph matrices and directional gradients passed 712 deterministic standard-library checker assertions. The proof, not finite testing, covers all real budgets and integer graph sizes.
+## correctness
 
-## Originality — PASS on inspected evidence, with priority risk
-Lin, Fardad and Jovanović's 2013 work supplies the inverse-trace noisy-leader formulation and convex relaxation, but does not determine the finite-gain complete split optimization. Fitch and Leonard's 2014 treatment uses finite designated leaders with common gains and solves different graph families. The most directly relevant published balanced split-graph result uses *perfect/noise-free leaders* and integer leader counts, and its square-root leader-budget transition does not imply the present continuous-gain support phase or the \(q/p^{3/4}\) threshold. Earlier exact reentrant grounding on stars and \(K_{2,q}\) has a related mechanism, but the extra clique edges and arbitrary growing clique size require new exact calculations; an already existing Kemeny optimum on split graphs uses a different decision variable and objective. Searches can miss an equivalent independently published formula, so publication priority is not certified.
+PASS
 
-## Value — PASS
-The distinction between funding every vertex and abandoning a densely connected clique is a concrete network-control design decision. An exact all-size three-regime characterization, two asymptotically separated budget transitions, and a new \(\sqrt2\) times three-quarter-power network-imbalance threshold supply structural information unavailable from the general convex program. The result remains scoped to unit edge weights, uniform actuator prices and isotropic noise.
+Connectedness and B>0 give a positive definite grounded Laplacian throughout the simplex. For a nonzero diagonal variation D the Hessian quadratic form is 2||A^(-1/2) D A^(-1)||_F²>0, so the minimizer is unique and invariant under both class permutation groups. The two contrast eigenspaces and the quotient on partwise constants give the stated trace. With b=(B−pa)/q, differentiation gives q² f'_B(0)=F_{p,q}(t) and f'_B(B/p)=2/B+1/p−(p−1)/(p+q+B/p)²>0. Strict convexity proves the criterion including equality. The turning point of h_β=(β+2/t)(1+t)² is its unique positive critical point, βt₀²+t₀=1; its minimum and divergence at both ends prove the support classification. For p=2 and q≤5, α≤10<Γ(1)≤Γ(β), while q=6 gives F(1/2)=53/48 and the stated cubic, whose positive roots agree with the displayed decimals. For q/p^(3/4)→c, the difference α−β is 2c³p^(1/4)+o(p^(1/4)), whereas Γ−β is 4cp^(1/4)+o(p^(1/4)); this proves the crossover away from c=√2. For fixed p, α→∞ and β→p force the two roots to zero and infinity; the leading balances give the stated transition budget scales. The two size limits are different; neither resolves the critical joint scaling layer.
 
-## Scientific limitations
-The critical size boundary \(q/p^{3/4}\to\sqrt2\) is not classified here. No results are asserted for weighted graph edges, unequal actuator prices, limited number of controlled vertices or graph families outside the specified split graphs. Verification uses exact tests but independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inverse-trace optimization itself is already present as a special case of an existing convex relaxation. The strongest distinct indexed exact result shares reentrance, the q=6 onset for two hubs and both leading budget scales, but it concerns K₂,ᵩ without the hub edge and has different exact thresholds. The supported distinct contribution is the general split-graph closed support inequality, budget-window classification and growing-clique three-quarter-power law, not the general optimization or the existence of hub reentrance in any network.
+
+## value
+
+PASS
+
+For a natural continuous-actuation variance objective, it matters whether to devote nothing to an entire well-connected orbit as available actuation increases. The exact budget window and nontrivial moving-size threshold answer this without repeated optimization runs. The asymptotic constants for two hubs overlap prior bipartite behavior; the varying-p classification and 3/4 crossover provide structural value beyond adding one edge or reporting numerical optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

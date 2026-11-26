@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:44.247428Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a part all positive vertices see the same exterior zero set. If there is only one defender part, that part is all positive, and the exterior positive count cannot decrease the baseline-plus-one-ceiling lower bound. If two defender parts exist (even if a third also exists), choose one defender from each. Decreasing either selected part's positive count down to one removes a baseline unit per step and increases at most one ceiling by at most one. With t positive vertices in the third part, reducing t to zero changes each ceiling by at most ceil(t/p); for t>=2, 2 ceil(t/p)<=t, so only t=0 or 1 can improve the minimum. All-positive assignments are bounded below by W1; the three constructions are legal and attain their costs. For a>=4 and p=2a−2 the costs are (a+2,6,5). At total weight five every defender in this family sees a zero neighbor since each part has at least eight exterior vertices. Two positive defenders alone would both need label three. For two label-two defenders and a unit label, the latter must be outside both defender parts to bring both zero-neighbor counts down to p. These and only these assignments give 3a^3. Independent direct predicate replay (/workspace/branches/a0cfb095-52ec-4d11-bb69-f857fb501bc6/replay.py and replay.out) found optimum 4 with 42 minima for (2,2,2), p=3 from 4096 labelings, and zero below 5 and 192 at 5 for (4,4,4), p=6, from 6031 candidates of weight at most 5. The uploaded script and recorded output were inspected, not executed; the replay is not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Valenzuela-Tripodoro et al. Proposition 15 treats K_{r,s} with 3<=p<=Δ−1. The 2026/10/12 matching-deletion result also concerns bicliques.",
+          "For p>=Δ, the allowed maximum label is two and a zero can only be defended by a two. The 2026/10/4 ordinary Roman-domination polynomial result gives value 3 if the smallest part has size 2 and value 4 for larger minimum part size."
+        ],
+        "reasoning": "The high-p value min(m+1,4) is prior ordinary Roman domination. A bipartite exact value permits no third part containing a unit auxiliary that reduces both defender costs. Total support and the k-strong game impose different constraints.",
+        "searches": [
+          "arXiv:2501.10140 §4 Proposition 15 and its preceding general bounds",
+          "Resultary: p-strong Roman value of matching-deleted bicliques",
+          "Resultary: Roman domination polynomial of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.10140 / DOI 10.37394/23206.2024.23.104",
+        "Resultary 2026/10/26 ... 89b08e6c5efd",
+        "Resultary 2026/10/4 ... fa4c41b40973",
+        "Resultary 2026/10/12 ... 18af4adf3e3f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier same-definition bipartite Proposition 15 does not imply the two simultaneous ceiling drops triggered by one auxiliary vertex in a third part.",
+          "The later result is genuinely stronger for optimum values and gives the same sharp mode; the explicit optimizer census requires showing all weight-five assignments have the stated label locations."
+        ],
+        "reasoning": "Do not treat the extension p>=Δ or the overlapping value in the later record as a separate novelty. Neither inspected earlier result establishes the three-part interior range or the optimizer census.",
+        "searches": [
+          "arXiv:2501.10140 Proposition 15, PDF pp. 14–15",
+          "2026/10/26 multipartite record Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/26 multipartite record gives a two-defender cost with subtraction of one iff both exterior numerators X_i=N−n_i−1 and X_j are 1 modulo p.",
+          "For a selected pair the minimum of its W2 and W3 costs subtracts exactly one under precisely that condition, since each ceiling drops by one iff its numerator is 1 modulo p. Minimizing the one-part cost chooses a smallest part."
+        ],
+        "reasoning": "The later formula is identical on the shared range, including value five in the critical balanced family. The catalogue date comparison is separate from this algebraic equivalence and does not establish independent priority.",
+        "searches": [
+          "Resultary: exact p-strong Roman domination complete tripartite and complete multipartite graphs; W1 W2 W3 and residue correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later multipartite record's balanced formula gives five in this family, but its Limitations explicitly exclude a complete set or count of optimal labelings. Its constructions do not classify every optimum.",
+          "The earlier ordinary Roman polynomial does not apply to p=2a−2<Δ=2a."
+        ],
+        "reasoning": "Counting every labeled optimizer is different from tabulating the optimum value. The cited value at weight five is not a census, and a ranked search miss is not proof of the absence of an exact census elsewhere.",
+        "searches": [
+          "Resultary: K_{a,a,a}, p=2a−2, minimum functions 3a^3",
+          "2026/10/26 multipartite record balanced specialization and Limitations",
+          "2026/10/4 ordinary Roman polynomial Finding"
+        ]
+      },
+      "rationale": "A distinct 2026/10/26 Resultary record exactly subsumes the value formula for 3<=p<=Δ−1 via its two-defender residue correction, but is catalogued later than this frozen record and does not enumerate the minimizers. This is equivalent coverage now, not evidence by itself of anterior priority. Earlier ordinary Roman results cover the routine p>=Δ branch, and earlier inspected p-strong results for bipartite graphs do not settle the third-part auxiliary-label regime. The substantive contribution assessed here is the three-regime characterization for 3<=p<=Δ−1 and the sharp balanced-family census, not the Roman boundary or a claim that the later multipartite formula differs on their common domain.",
+      "residual_risks": [
+        "Equivalent interior-range values now occur in the later indexed record. The dates alone do not establish derivation, precedence outside the catalogue, or independent priority.",
+        "The full optimizer census was checked against the closest record, not an exhaustive index of every earlier graph-domination paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact bipartite result, not the tripartite value or census",
+          "evidence": "The exact-values section opens with complete bipartite graphs; Proposition 15 has two part parameters and restricts 3<=p<=Δ−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.10140",
+          "material_read": "§4 introduction and Proposition 15, PDF pp. 14–15, text offsets 43800–46073",
+          "method": "OA PDF full-text passage comparison",
+          "title": "p-Strong Roman Domination in Graphs",
+          "trigger": "Original p-strong definition and exact values on complete graph families"
+        },
+        {
+          "assessment": "Equivalent value on the common parameter range, in a later catalogued record; no census claimed",
+          "evidence": "The pair term subtracts a unit if both ceiling numerators are 1 modulo p. The stated range is r>=3 and 3<=p<=Δ−1; the Limitations exclude a full count of minimum labelings.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-p-strong-roman-domination-of-complete-multipartite-graphs--89b08e6c5efd",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0; balanced specialization; Limitations, offset 7843",
+          "method": "Local Resultary matching and mirrored full statement inspection",
+          "title": "Exact p-strong Roman domination of complete multipartite graphs: a two-defender residue correction",
+          "trigger": "Closest equivalent and broader Resultary match"
+        },
+        {
+          "assessment": "Covers the ordinary Roman boundary only",
+          "evidence": "For all parts at least two, the ordinary Roman value is 3 for minimum part size two, otherwise 4.",
+          "identifier_or_url": "2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror comparison",
+          "title": "Roman domination polynomial of complete multipartite graphs",
+          "trigger": "Roman domination equivalence for p>=Δ"
+        },
+        {
+          "assessment": "Related but does not cover three parts",
+          "evidence": "Concerns K_{r,s} and matching-deleted complete bipartite graphs.",
+          "identifier_or_url": "2026/10/12/SCOPE-matching-deletion-preserves-the-p-strong-roman-value-of-biclique--18af4adf3e3f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "Matching deletion preserves the p-strong Roman value of bicliques",
+          "trigger": "Closest earlier same-parameter graph-family record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact optimization for a natural family distinguishes a genuine third mode, where placing a positive vertex without choosing it as a defender saves two capacity units for a cost of one. The balanced family proves the regime is necessary for infinitely many instances and classifies all optimal labelings there. This is not justified by the routine ordinary Roman boundary alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

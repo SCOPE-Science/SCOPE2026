@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The displacement-orbit lemma explicitly checks congruence and the universal property, using the established equivalence between mediality and an abelian displacement group. Kai's right-action formula gives \(s_h=\zeta^{-1}\Psi_h\) with central \(\zeta\), so the derived displacement subgroup is precisely the diagonal image of \([G,G]\). The index-two orbit criterion is proved by identifying the pointed centralizer, and the counts are independently derived by orbit splitting and Burnside's lemma. The embedded exact enumerator checks all marked permutations for \(2\le n\le7\), representative independence at small ranks, and mediality on the finite quotients. The infinite theorem is proved algebraically rather than inferred from the enumeration.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Kai's arXiv:2609.17438v3, fully inspected in Sections 3–4 and searched for the relevant concepts, determines the *full* diagonal group orbits and connected components, not the derived-group orbit medial reflection or the pointed alternating orbit-splitting formula. Bardakov–Sangare arXiv:2610.18676v1, Section 5, analyzes medial quotients of *conjugation* quandles; it does not classify the marked permutation orbit quotient of Kai's action target. Targeted mathematical-literature and published-finding corpus similarity queries found no exact or dominating statement. Ordinary \(A_n\)-class splitting is antecedent group theory, but distinguished-cycle stabilization produces a different criterion. General commutator-orbit medialization may be implicit in existing displacement theory; novelty is assessed on the unified exact action-family and pointed count, not the generic displacement lemma alone. Searches cannot establish absolute uniqueness, and unavailable or differently named accounts remain risks.
+PASS
 
-## Value — PASS
-The action quandle is a natural universal target for embeddings of every quandle of a given finite size. Determining its universal medial image is an invariant describing exactly how its nonmedial symmetry collapses. The result handles *all* group actions structurally, and in the particularly important symmetric-group family gives an exact finite quotient in every rank, including a nontrivial parity splitting phenomenon and two checkable counting formulas. It is not an arbitrary isolated small-parameter computation.
+For a right quandle the medial identity is equivalent to pairwise commutation of the relative translations s_a s_d^{-1} for a fixed d; these generate the displacement group D. The subgroup N=[D,D] is normal in the inner group, and s_{n(b)}=n s_b n^{-1} for n∈N. The latter equality and normality show that its orbits respect both operands, including right division. The quotient displacement group is an abelian image of D. A homomorphism to a medial quandle intertwines translations and inverses with those on its image; hence it kills the commutator action and factors uniquely through the quotient. For the given formula s_(y,h)=ζ^{-1}Ψ_h, where Ψ_h is diagonal right action and ζ(x,g)=(x^g,g) commutes with it. Relative translations with h=1 as the reference are exactly Ψ_h, proving D=Ψ(G) and N=Ψ(G′), also for nonfaithful or nontransitive actions. For n≥2, the marked stabilizer fixes the marked cycle pointwise and its remaining permutations are rotations and equal-length exchanges. A remaining even cycle or repeated odd cycle length yields an odd stabilizer element; distinct odd lengths give only even rotations. Thus precisely those remaining distinct-odd partitions cause a split, including the empty partition. Counting the split types gives the baseline plus split bonus. Independently, each even S_n class contributes 2 m_1(λ) in Burnside's sum because the centralizer size cancels the class-size denominator. The two sum formulas are for n≥2, where the index is two; the separate n=1 value is one. A fresh enumeration of marked representative orbits for n=2,…,7 matches both expressions (4,6,10,16,24,36) and the splitting criterion. Replay/output: /workspace/branches/af26e821-43be-4b7f-8fd0-9cb2d977fde7/independent_marked_counts.py and independent_marked_counts.txt in the same directory. The general result is proved, not inferred from these finite cases.
 
-## Scope of review
-The computational checks are exact but finite; the general statement uses the structural proof. The references and comparison checks cannot exclude all unpublished or unindexed equivalences. No independent mathematical evaluation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit marked alternating-orbit census of the universal medial quotient. The displacement computation and orbit-quotient argument are direct applications of earlier action-quandle and displacement theory, not a new general mediality criterion or commutator theory. Earlier marked S_n component parameters, unmarked class splitting, and unmarked conjugation medialization do not state the marked stabilizer rule and both enumerations for the action quandle.
+
+## value
+
+PASS
+
+The calculation gives an explicit census of the universal medial quotient of a natural action-quandle family. A mark changes which cycle lengths constrain splitting, so the familiar unmarked conjugacy quotient cannot recover the labeled component refinements. The stabilizer rule decides each split without constructing the large quandle table, and the two formulas give direct and independent ways to compute its size. Value rests on that marked invariant, not on the standard displacement criterion by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:44:38.929934Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced the finite census using the necklace portion of /tmp/opencode/small_frozen_review.py. For each n=1,…,8 start from all binary n-tuples, repeatedly take the least remaining word, and remove its entire rotation orbit. For each root calculate the triple coordinates by summing L_a R_c over positions bearing middle letter b, where L_a and R_c count letters strictly before and after the position, respectively. Pair counts are first-letter prefix counts summed over positions bearing the second letter, and one-letter counts are frequencies. Group by the resulting full 14-coordinate signature and require at least two distinct rooted strings in a group, not just distinct cut labels. The necklace counts are 2,3,4,6,8,14,20,36 and no collision survives the distinct-root test through length 7. At length 8 the sole exceptions are 00011011 with {4,6} and {5,7}; 00100111 with {1,3} and {2,4}; and 00101101 with {3,7}. Thus there are five unordered pairs, all at weight four, and the histogram over 1,2,4,6,7,8 profiles is 2,1,3,2,1,27. The displayed witness has identical singles, pairs and triples, with the given triple vector. The 01 cut identity also follows directly by subtracting the two cross-block counts. The computation includes periodic and constant words and proves only the stated binary finite domain. The frozen verifier implements exhaustive direct combinations and a subsequence recurrence; it was inspected, not used as the independent computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Thue–Morse papers concern factors of infinite words; the generalized shortest-factor theorem gives length 8 at m=2,k=3 but only in that factor language.",
+          "The weight-three catalogue classifications cannot apply at weight four. The four-run catalogue theorem restricts to linear words with at most four runs; every claimed collision has a root with more than four linear runs."
+        ],
+        "reasoning": "Factor-language and restricted-weight/run results do not cover both roots of all weight-four orbit collisions or exclude other length-eight necklaces. General binary binomial equivalence defines the invariant, not this orbit-count distribution.",
+        "searches": [
+          "arXiv:1812.07330; arXiv:2412.18425 Theorem 1.11",
+          "Resultary 61b009fefb1e, f95f52cd118b and 58afc1431d6d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Chrisnata et al., DOI 10.3934/amc.2021032 author-hosted original",
+        "Resultary bbb6af29d4a1, 61b009fefb1e, f95f52cd118b and 58afc1431d6d",
+        "arXiv:1812.07330",
+        "arXiv:2412.18425"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The table has one global deck per word for 3≤n≤6; for n=7 its deficit is two. The equal-deck pair 1000110 and 0110001 has three ones, and its complement gives a disjoint pair of weight four. Neither pair is related by rotation."
+        ],
+        "reasoning": "The two disjoint equal-deck pairs exhaust the global deficit at length seven, proving the no-earlier-cyclic-collision slice (lengths 1 and 2 are immediate from the full profile). The Thue–Morse row then gives a known example at length eight, but the global table and these examples do not classify all shortest ambiguous necklaces, their cut classes, or the distribution.",
+        "searches": [
+          "Chrisnata et al., Table 1 and p. 15 short equal-deck words; Resultary bbb6af29d4a1, 61b009fefb1e and f95f52cd118b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For equal-length words of length at least three, an equal length-three deck entails equality of all shorter decks.",
+          "Resultary bbb6af29d4a1 gives the exact Thue–Morse row; starts 0 and 4 of 01101001 map to cuts 3 and 7 of canonical 00101101."
+        ],
+        "reasoning": "Thus ordinary length-three scattered decks are an equivalent signature on equal-length roots for n≥3; the extra constraint is that the two different roots lie in the same cyclic orbit. The finite Thue–Morse result makes that restriction but only in its specific orbit family.",
+        "searches": [
+          "Resultary: cyclic three-binomial equivalence of rotations; three-deck collisions in binary necklaces; Thue–Morse rotations",
+          "Chrisnata et al., On the Number of Distinct k-Decks, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table gives 126 and 247 distinct global three-decks at lengths 7 and 8, respectively.",
+          "The finite Thue–Morse record gives seven profiles and one doubled profile class at length 8, but no other necklace rows."
+        ],
+        "reasoning": "The global counts reproduce as checksums of the new exhaustive computation. A global deck deficit does not identify pairs within individual orbits, so it is not the histogram of profile counts per necklace.",
+        "searches": [
+          "Chrisnata et al., Table 1; Resultary bbb6af29d4a1 finite Thue–Morse classes"
+        ]
+      },
+      "rationale": "The creditable distinct claim is the complete length-eight orbit-conditioned census and distribution, including the two non-Thue–Morse necklaces and their cut classes. The known finite Thue–Morse result covers the third row, and the lower-length exclusion follows from the published global table together with the explicit length-seven pair and its complement. Neither covered piece is counted as a separate novelty here. The strongest checked results do not imply the remaining length-eight census; in particular, global deck counts forget the necklaces containing each deck's roots. This is a best-of-knowledge assessment of the full classification, not a claim of priority for discovering cyclic ambiguity at length eight in an example.",
+      "residual_risks": [
+        "An unindexed orbit-level short-word table could affect historical priority.",
+        "The Thue–Morse catalogue record shares the frozen record's UTC date; its distinct matching statement is credited without inferring within-day order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global counts and short example imply the lower exclusion, not the length-eight orbit census",
+          "evidence": "D_3(7)=126 and D_3(8)=247; the length-seven example and its complement exhaust the deficits at length seven, not at eight.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+          "material_read": "PDF pp. 1 and 3 definition and Theorem 3; p. 8 Table 1 (around offset 23000); p. 15 short word examples and weight bounds (around offset 53600)",
+          "method": "Lawful author-hosted copy of the primary paper; publisher route unavailable",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+          "trigger": "Same deck invariant, exact small-length table, and possible full short-collision classification"
+        },
+        {
+          "assessment": "Directly covers exactly the Thue–Morse row of the frozen collision census",
+          "evidence": "Seven classes for every T_k with k≥3, one of size 2^(k−2) and six of size 2^(k−3); the length-eight double class corresponds to cuts 3 and 7 in the frozen normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-seven-cyclic-three-binomial-classes-in-finite-thue-morse-words--bbb6af29d4a1/RESULT.md",
+          "material_read": "Finding and class sizes for finite iterates, opening passage",
+          "method": "Indexed record via local mirror",
+          "title": "Seven cyclic three-binomial classes in finite Thue–Morse words",
+          "trigger": "Same cyclic profile invariant and a length-eight overlap"
+        },
+        {
+          "assessment": "Different factor-language domain",
+          "evidence": "Treats binomial equivalence and complexity of factors, not arbitrary finite binary necklaces.",
+          "identifier_or_url": "arXiv:1812.07330",
+          "material_read": "PDF pp. 1–3, about offsets 0–9000",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "On the k-binomial equivalence of factors of the Thue–Morse word",
+          "trigger": "Published three-binomial results on the corresponding infinite word"
+        },
+        {
+          "assessment": "Shortest distinct equivalent factor length, not an orbit census",
+          "evidence": "The minimal length formula 2m^(k−1) gives 8 in binary order three, under the hypothesis of factors of the generalized Thue–Morse word.",
+          "identifier_or_url": "arXiv:2412.18425",
+          "material_read": "Theorem 1.11, PDF p. 5, offset about 18183",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Generalized Thue–Morse binomial equivalence",
+          "trigger": "Possible theorem giving a sharp minimal ambiguous length"
+        },
+        {
+          "assessment": "Does not give all the target collision pairs or exclude others",
+          "evidence": "Each target pair has a root with more than four linear runs, outside the stated class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-deck-fibres-for-binary-words-with-at-most-four-runs--58afc1431d6d/RESULT.md",
+          "material_read": "Finding and at-most-four-linear-runs scope",
+          "method": "Indexed record via local mirror",
+          "title": "Exact three-deck fibres for binary words with at most four runs",
+          "trigger": "Potential classification of equal decks by run structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite object is naturally singled out by the first possible failure of distinguishing a circular word's starting cut. The complete exceptions and exact multiplicities distinguish genuine information loss at that boundary from identical periodic roots. They provide a reconstruction test set that a global deck count or the single Thue–Morse example cannot supply. No value is assigned to arbitrary larger slices or to extrapolation beyond length eight.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

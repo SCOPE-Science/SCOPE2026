@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:42:05.756216Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–41 and 43–87",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify.py, lines 9–49",
+        "Zelent arXiv:2610.01299v1, §2 Proposition 1 proof, equations (13)–(14) for the prolate boundary facts"
+      ],
+      "rationale": "For fixed s, the bandwidth bounds control all evaluation derivatives and yield the exchange expansion m^2 Q_s+m^4 U_s+O(m^6) in operator norm, with the fourth-order endpoint derivative factor 1/12. With the leading simple eigenvalue isolated, the complementary part of the first eigenvector correction in parameter m^2 is R_s Pi Q_s psi. The scalar equation therefore adds W_s to the fourth-order Rayleigh term. For the weighted problem at m=0, the Rayleigh principle gives the global maximum at zero; equality for a nonzero shift would force a translate to be collinear with psi by simplicity, incompatible with nonzero square-integrable periodic modulus. The translated integrals vanish at infinity; uniform C^2 convergence localizes all maxima near zero, where Phi_0''(0)=2u'(a)<0 and evenness forces the unique maximizer to be zero. The slope and positive boundary value hold for the first prolate. To check nonvanishing, on the Fourier band Q_s psi is the Fourier transform of psi'(a)(delta_a+delta_-a)-psi(a)(delta'_a-delta'_-a). If proportional to psi, the eigenvalue equation would equate it on that band to the transform of an absolutely continuous compactly supported density. Both transforms extend entire, and distributional Fourier injectivity contradicts the nonzero boundary Dirac derivatives. The reduced resolvent is positive on the complement, so W_s>0. Resolvent boundedness and parity give convergence and the even-mode series. In the ratio, the denominator has leading coefficient 4u'(a)^2 m^4, which is nonzero.",
+      "residual_risks": [
+        "The proof is an analytical review, not formal verification. The support script was inspected, not run; it discretizes the fixed-center comparison and does not certify the continuum coefficient or the translation maximizer.",
+        "The exact center statement and expansion apply to sufficiently small exchange width at fixed s; they are not uniform at the extremes of s."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelent covers measurable sets of fixed measure and gives 0 <= D-eta <= C_s D^2. Abreu–Speckbacher prove global optimality of an interval for the concentration problem."
+        ],
+        "reasoning": "The broader results bound the response from above or identify the baseline optimum. They leave open whether the ratio for small perturbations has a positive limit; neither calculates the response or its sign.",
+        "searches": [
+          "Zelent arXiv:2610.01299v1, Theorem 1 and §1.4",
+          "Abreu–Speckbacher arXiv:2607.19192v1, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–41 and 89–106",
+        "Resultary 2c548bca48bc",
+        "arXiv:2610.01299v1",
+        "arXiv:2607.19192v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical prolate facts supply the boundary slope, spectral gap and weighted interval behavior. The prior general estimate is compatible with D-eta=o(D^2); the leading spectral loss in the known example cannot rule that out."
+        ],
+        "reasoning": "The usual perturbation formula supplies a candidate coefficient but not its nonvanishing for this operator, nor the exact optimizing center. The analytic distribution argument and the translation maximization check supply those missing implications.",
+        "searches": [
+          "Zelent arXiv:2610.01299v1, §§1.1, 1.4 and Proposition 1",
+          "Crossover 2c548bca48bc",
+          "Slepian–Pollak 1961 §V as traced in Zelent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the same concentration and discrepancy conventions, the crossover finding is about leading spectral loss lambda_0-||T_E|| for a one-sided endpoint detachment. The frozen difference is ||T_E|| minus the supremum of the prolate Rayleigh integral over translations."
+        ],
+        "reasoning": "Changing from losses to concentration values gives the same frozen difference, not the leading spectral loss. Reflection of the prior one-sided example does not yield the spectral response for a simultaneous symmetric two-sided perturbation: the resolvent term is quadratic in the combined operator perturbation, and the optimal center also matters.",
+        "searches": [
+          "Resultary: Paley–Wiener concentration, detachment, optimizer response and discrepancy; exact detachment crossover 2c548bca48bc",
+          "Zelent arXiv:2610.01299v1, §§1.1 and 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Crossover records the leading equivalent -u_s'(r) eps b along its one-sided detachment, including order eps^2 when b=eps; Zelent gives the corresponding order examples. Neither inspected exact example records the quartic response for the two-sided family."
+        ],
+        "reasoning": "There is no candidate finite enumeration table for this fixed-bandwidth continuum asymptotic. The relevant exact indexed examples were inspected instead; they do not tabulate or symbolically identify W_s.",
+        "searches": [
+          "Resultary exact detachment crossover record 2c548bca48bc, Finding and Relationship to prior work",
+          "Zelent arXiv:2610.01299v1, §1.1 detachment examples"
+        ]
+      },
+      "rationale": "The supported claim is the exact positive quartic response for the specified symmetric endpoint exchange, after optimizing the prolate translation, and the resulting sharpness of the squared-discrepancy order. Compared sources supply the upper order, the interval optimizer and related one-sided loss examples, not the positive response. No absolute priority claim is made.",
+      "residual_risks": [
+        "Searches and passages are bounded; another perturbative concentration treatment could contain an equivalent calculation. Original Slepian–Pollak full text was not accessible in the attempted retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes upper order and needed prolate facts, not positive saturation",
+          "evidence": [
+            "D defined by optimization over centers; 0 <= D-eta <= K_s^2 D^2/[2(lambda_0-lambda_1)]",
+            "u(s/2)>0 and u'(s/2)<0; one-sided detachments with specified leading orders"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01299v1",
+          "material_read": "§1.1, HTML offset 5685; Theorem 1 and §§1.3–1.4, offset 14561; §2 Proposition 1 proof, (13)–(14), around offsets 19100–24531",
+          "method": "Primary HTML passages",
+          "title": "Stability of concentration in the Paley–Wiener space",
+          "trigger": "Same discrepancy, general quadratic bound and endpoint examples"
+        },
+        {
+          "assessment": "Overlaps in concentration setting and boundary-slope mechanism; reports a different asymptotic quantity",
+          "evidence": [
+            "One-sided family and eta asymptotic -u_s'(r) eps b, with b>=eps and b tending to zero"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-detachment-crossover-for-paley-wiener-concentration--2c548bca48bc",
+          "material_read": "RESULT.md, Finding and Relationship to prior work, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact detachment crossover for Paley–Wiener concentration",
+          "trigger": "Closest exact catalogue example"
+        },
+        {
+          "assessment": "Baseline global optimality, not an expansion of the optimizer response",
+          "evidence": [
+            "Centered interval realizes maximal concentration at prescribed finite measure"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.19192",
+          "material_read": "Theorem 1.1, (4), printed p. 2, OA offset 5033",
+          "method": "OA PDF passage",
+          "title": "Optimal concentration in the Paley–Wiener space",
+          "trigger": "Interval optimality among arbitrary sets of given measure"
+        },
+        {
+          "assessment": "Historical source for prolate facts; no whole-document absence claim",
+          "evidence": [
+            "Zelent states strict boundary inequalities and the slope explicitly, citing §V"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/j.1538-7305.1961.tb03976.x",
+          "material_read": "No original full text read; §V attribution and consequences inspected in Zelent §2",
+          "method": "Publisher retrieval unsuccessful; confirmed use via accessible primary stability paper",
+          "title": "Prolate spheroidal wave functions, Fourier analysis and uncertainty—I",
+          "trigger": "Classical first-prolate hypotheses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations in Finding and proof steps 2–6",
+        "Zelent arXiv:2610.01299v1, §1.4"
+      ],
+      "rationale": "The natural equal-measure exchange tests a specific open sharpness issue of the existing discrepancy estimate. The theorem both rules out a uniform little-oh improvement and explains the obstruction as a strictly nonzero eigenfunction response transverse to the baseline eigenvector, rather than as a center displacement or the leading loss alone.",
+      "residual_risks": [
+        "No extremal quartic coefficient over arbitrary perturbations or variable bandwidths is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

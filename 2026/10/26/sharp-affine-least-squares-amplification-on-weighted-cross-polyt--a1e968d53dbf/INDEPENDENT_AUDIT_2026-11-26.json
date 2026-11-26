@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:15.636529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rescaling by the axes identifies the normalized law with a signed Dirichlet vector with d unit parameters and slack alpha+1. Each coordinate magnitude T is Beta(1,m), with second moment 2/((m+1)(m+2)); sign symmetry diagonalizes the Gram matrix. The resulting row 1+c sum_i x_i y_i/a_i² uses c=(m+1)(m+2)/2>1. The row mass is convex, and distinct vertex rows have opposite signs on positive-measure interior sets close to the negative of a vertex, so equality is possible only at a vertex. At a vertex the excess over 1 equals E(cT−1)_+ = c integral_[1/c,1] (1−t)^m dt, giving the formula. The sign row and negative-set indicator yield the two claimed extremal values by unit row mass, and self-adjointness gives L1 duality. Full support and affine continuity justify vertex values for essential suprema. For excess F and b=1−2/((m+1)(m+2)), differentiation and log b>−(1−b)/b give (log F)'>(m²+5m+2)/(m(m+2)(m+3))>0. Expansion b^m=1−2/m+8/m²+O(m^-3) gives the stated norm; E(sum |Y_i|/a_i)=d/(m+1) proves weak concentration at fixed d. This includes d=1 and all m>d−1 in fixed d. Replay: RESULT.md lines 25–58. VERIFICATION.md and verify.py describe 204 finite exact/symbolic/high-precision checks; the supplied script was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacobi simplex weights include a slack power on the unsigned simplex. Earlier asymmetric Dirichlet records give sharp beta-tail formulas there; the same-day symmetric one gives 1+2C_(n,alpha) and only simplex vertices maximizing for its own barycentric law."
+        ],
+        "reasoning": "Applying a simplex projector on one signed orthant does not give the global orthogonal projection onto affine functions on their union. The independent signs change the Gram matrix and the law of a maximizing kernel row. Same-day scope was examined without inferring order.",
+        "searches": [
+          "arXiv:1111.2994v1",
+          "2026/10/18/SCOPE-least-concentrated-vertices-govern-asymmetric-dirichlet-affine-p--5c9fbf13aa23",
+          "2026/10/25/SCOPE-sharp-affine-projection-norms-under-asymmetric-dirichlet-weights--1ef5a2f170d1",
+          "2026/10/26/SCOPE-a-logarithmic-concentration-boundary-for-affine-jacobi-projectio--8de5a5d258c9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary October 18 solid and October 25 boundary cross-polytope records",
+        "Resultary October 18 and October 25 asymmetric Dirichlet records; October 26 symmetric Jacobi record; October 4 uniform simplex record",
+        "November 2 polar-body and November 8 skeletal records",
+        "Aktas–Xu arXiv:1111.2994",
+        "Foucart (2006), DOI 10.1016/j.jat.2005.12.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For nonnegative integer alpha, the projection of the uniform unit ball of l1 in dimension d+alpha onto its first d coordinates has the frozen slack-weight law, by integrating the omitted cross-section. Thus the unweighted formula can cover the scalar norm over those parameters via the same kernel row marginal. The real monotonicity and noninteger evaluations are not consequences of integer coverage."
+        ],
+        "reasoning": "The useful step is the normalized signed-beta kernel analysis at general real m, not an integer-dimensional relabeling, extrapolation from numerical values, or the orthant weight formula by itself.",
+        "searches": [
+          "October 18 solid cross-polytope norm, Finding",
+          "October 25 boundary cross-polytope norm, Finding",
+          "Aktas–Xu, simplex Jacobi weights and orthogonality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 solid result is the identical formula at alpha=0. October 25 normalized surface formula is identical at m=d−1 after combining a factor in the prefactor with the power; alpha=−1 is excluded here."
+        ],
+        "reasoning": "Positive axis lengths do not change the invariant. The boundary law is a limiting radial measure, not the weighted solid law for an interior value of alpha.",
+        "searches": [
+          "Resultary: exact affine projector norm on weighted/unweighted cross-polytope, beta marginal and positivity defect",
+          "2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d",
+          "2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unweighted values are exact specializations of the October 18 formula. The November 2 polar-body and November 8 skeleton results also cover solid volume, not the real slack-weight curve. The web lookups were non-diagnostic."
+        ],
+        "reasoning": "This prevents novelty credit for any integer value already determined by the earlier formula. No table or formula for the real-parameter invariant was identified by the inspected sources.",
+        "searches": [
+          "Resultary exact solid, surface and polar-body cross-polytope projection invariants",
+          "Primary-literature searches for transverse beta/Dirichlet cross-polytope affine projection"
+        ]
+      },
+      "rationale": "The October 18 unweighted solid result gives exactly the same norm at m=d and the October 25 surface result gives the excluded boundary limit m=d−1. The weighted result deserves no independent credit for those cases, coordinate rescaling, or the old integer scalar values. The inspected simplex results concern different laws. The supported distinct claim is the signed slack-weighted family for all real alpha>−1, including its sharp monotonicity in real m, unique norming evaluations, and concentration-versus-amplification behavior. No inspected result gives that family.",
+      "residual_risks": [
+        "The frozen discussion does not cite the directly overlapping earlier unweighted result; its special cases should not be treated as new.",
+        "Identified literature and catalogue coverage is bounded; an equivalent signed beta-weighted formula may have been expressed in other terminology. The low-yield web searches are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier alpha=0 overlap, not the real-weight law",
+          "evidence": "Uniform solid-volume formula 1+d(d+3)/(2(d+1))*(1−2/((d+1)(d+2)))^d.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "Sharp affine least-squares stability separates the cube from its polar cross-polytope",
+          "trigger": "Same norm and unweighted geometry"
+        },
+        {
+          "assessment": "Earlier excluded boundary case",
+          "evidence": "The surface formula matches the weighted expression with m=d−1, not the general weight.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "Exact norm and positivity defect of the affine L2 projector on the cross-polytope boundary",
+          "trigger": "Same polytope and singular radial endpoint"
+        },
+        {
+          "assessment": "Different signed geometry and kernel",
+          "evidence": "Norm governed by the least barycentric Dirichlet parameter of a simplex law.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-affine-projection-norms-under-asymmetric-dirichlet-weights--1ef5a2f170d1",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "Sharp affine projection norms under asymmetric Dirichlet weights",
+          "trigger": "More general Dirichlet parameters with beta-tail row norms"
+        },
+        {
+          "assessment": "Different law and concentration statement",
+          "evidence": "Symmetric simplex rule with beta marginal Beta(alpha,(n−1)alpha), not an independent sign times Beta(1,m).",
+          "identifier_or_url": "2026/10/26/SCOPE-a-logarithmic-concentration-boundary-for-affine-jacobi-projectio--8de5a5d258c9",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "A logarithmic concentration boundary for affine Jacobi projection",
+          "trigger": "Same-day Jacobi concentration and extremal vertices"
+        },
+        {
+          "assessment": "Supplies simplex weight context, not the norm on joined signed orthants",
+          "evidence": "Includes products of coordinate powers and a power of the slack, and studies Sobolev orthogonality.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.2994",
+          "material_read": "p. 1 at OA offset 0",
+          "method": "OA primary text",
+          "title": "Sobolev orthogonal polynomials on a simplex",
+          "trigger": "Possible general Jacobi-weight theorem"
+        },
+        {
+          "assessment": "Different projecting space and setting",
+          "evidence": "Spline projection with multiple knots, not weighted affine approximation on the signed polytope.",
+          "identifier_or_url": "https://foucart.github.io/publi/SplineProj2.pdf",
+          "material_read": "p. 1 at OA offset 0",
+          "method": "OA primary PDF",
+          "title": "On the Value of the Max-Norm of the Orthogonal Projector onto Splines with Multiple Knots",
+          "trigger": "Known sharp endpoint orthogonal-projection norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The radial slack exponent changes observation concentration without changing the affine space, and the exact formula quantifies the resulting stability and worst negative excursion throughout that natural family. In particular weak concentration at one site can coexist with linearly diverging amplification; the real-parameter law and strict vertex geometry add useful information beyond recomputing the unweighted constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:11:37.594717Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56 and VERIFICATION.md",
+        "Matomäki–Merikoski–Teräväinen, arXiv:2401.17570v1, §1.1.1"
+      ],
+      "rationale": "For S=2^(t+1)−1 and K=2^t p, the binary expansion of (S−p)/2 uses powers through 2^(t−1); adding K gives S(p+1)/2. Coprime multiplication preserves the partition by the unique divisor factorization. Minimality of t gives K≤2p². For odd n and p∤n, n−K is odd and nonzero modulo p, hence is coprime to M=2pK≤4p³. Uniform Linnik with L=5 gives q≪p^15. For p in (n^δ,2n^δ] and fixed δ<1/15, q+K=o(n) uniformly, so n−q=K(1+2pj), j≥1, has the required coprime multiplier. The product of more than floor(1/δ) distinct primes >n^δ exceeds n, so this number bounds both the number lost to p|n and the number of parameters producing any one z<n. The dyadic prime number theorem then gives the claimed liminf. This is an analytic reconstruction; no enumeration is required.",
+      "residual_risks": [
+        "No conclusion at δ=1/15 from the stated proof, no numerical cutoff, and no general even-integer statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d798476efd98 proves R(N)≥N/[100(log N)^5] eventually on odd inputs; the later 25ef5c1bdf13 states a still stronger log-cubed bound. Li's main result bounds the exceptional density; Lemma 3.1 is a coprime-prime-parameter construction with a uniform threshold, not itself a stated multiplicity estimate."
+        ],
+        "reasoning": "The prior plus-complement progression permits counting all primes in one residue class, not merely choosing one least prime per parameter. This is pointwise domination, not a density-to-pointwise inference.",
+        "searches": [
+          "Resultary d798476efd98 and moving-modulus bound 25ef5c1bdf13",
+          "Li arXiv:2610.19574v1, Lemma 3.1 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d798476efd98 and 25ef5c1bdf13",
+        "arXiv:2610.19574v1",
+        "arXiv:2310.14149v2",
+        "arXiv:2401.17570v1",
+        "OEIS A368082"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d798476efd98 chooses an odd p∤N with p≤2log N via the Chebyshev function. Its seed z=2^a p has z<p² and all z(1+jz) are Zumkeller. The modulus z² is O((log N)^4); N−z is reduced modulo z², and uniform Siegel–Walfisz counts primes in (N/3,2N/3] in that progression. Each such prime gives a distinct complement."
+        ],
+        "reasoning": "The stated weighted error O(N/(log N)^8) is smaller than the main N/[3φ(z²)], so the proof gives the prior bound uniformly. Multiplying by log N/N^δ gives N^(1−δ)/[100(log N)^4]→∞. Even eventual existence alone follows from Li's uniform threshold by a least odd prime not dividing N of size O(log N).",
+        "searches": [
+          "d798476efd98 RESULT.md, Finding and Proof steps 1–4, offset 0",
+          "Li arXiv:2610.19574v1 §3, Lemma 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d798476efd98 counts primes q<N with N−q Zumkeller. This is exactly the ordered count (q,z) since z=N−q is uniquely determined. Somu–Kukla–Tran ask for odd n>8 other than 21 and cover specified residue classes, not the quantitative bound."
+        ],
+        "reasoning": "The earlier quantitative finding covers the same parity and eventual quantifier. Neither it nor the frozen finding decides the stated finite exceptions.",
+        "searches": [
+          "Resultary: prime plus Zumkeller, odd n pointwise representation count and additive complements",
+          "arXiv:2310.14149v2, Proposition 4.12 and Conjecture 4.20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A368082 lists integers representable as a prime plus a Zumkeller number, not the representation counts, and links a finite table. Resultary's match is an infinite theorem, not a numerical table."
+        ],
+        "reasoning": "Finite representability data cannot imply an eventual uniform multiplicity estimate. The covering evidence is the earlier proof.",
+        "searches": [
+          "OEIS A368082; Resultary d798476efd98"
+        ]
+      },
+      "rationale": "The earlier indexed d798476efd98 states and proves a strictly stronger lower bound for the identical R(N) and all sufficiently large odd inputs. Its decisive proof was read and checked, not inferred from the title. The frozen finite constant is dominated: the normalized liminf is already infinite for every fixed δ<1 in that result. A different least-prime proof of the weaker frozen inequality is not a distinct new finding.",
+      "residual_risks": [
+        "Literature search is not exhaustive; no reliance on failed searches or on the later indexed lower bound. The Xylouris journal article was not inspected separately; the uniform exponent was checked in the cited later paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves a dominating lower bound on the exact frozen quantity",
+          "evidence": "R(N)≥N/[100(log N)^5] for every sufficiently large odd N; all primes in a reduced residue class in (N/3,2N/3] produce distinct representations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-quantitatively-many-prime-plus-zumkeller-representations-of-ever--d798476efd98/RESULT.md",
+          "material_read": "Finding, assumptions and complete proof steps 1–4, offset 0 through Verification heading",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quantitatively many prime-plus-Zumkeller representations of every sufficiently large odd integer",
+          "trigger": "Earlier indexed claim of pointwise multiplicity"
+        },
+        {
+          "assessment": "Later stronger stated bound; not needed for disposition",
+          "evidence": "States R(N)≥cN/(log N)^3 for sufficiently large odd N.",
+          "identifier_or_url": "2026/11/8 Resultary 25ef5c1bdf13",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp local prime-sieve lower bound for Zumkeller complements",
+          "trigger": "Broader indexed quantitative match"
+        },
+        {
+          "assessment": "Uniform single-parameter existence premise and separate density estimate, not a stated pointwise multiplicity theorem",
+          "evidence": "For p∤n and odd n above a threshold ≪p^(3L), returns one representation; the theorem bounds the exceptional counting function.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19574v1",
+          "material_read": "Theorem 1.2, HTML offset 4070; §3 Lemma 3.1, offset 7180",
+          "method": "Open-access HTML",
+          "title": "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number",
+          "trigger": "Closest cited primary argument"
+        },
+        {
+          "assessment": "Prior partial coverage and conjecture only",
+          "evidence": "Conjecture 4.20 asks for all odd natural numbers above 8 other than 21; Proposition 4.12 leaves the odd class 18k+3.",
+          "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+          "material_read": "Proposition 4.12, offset 33900; Conjecture 4.20, offset 50400",
+          "method": "Open-access HTML",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Origin of the conjectured finite cutoff"
+        },
+        {
+          "assessment": "Supports correctness of L=5; not a source of novelty for the additive application",
+          "evidence": "States least prime ≪q^L in a reduced residue and attributes L=5 to Xylouris; bibliography cites the Bonn dissertation.",
+          "identifier_or_url": "arXiv:2401.17570v1",
+          "material_read": "§1.1.1, p. 1, offset 1390; bibliography [18], p. 33",
+          "method": "Open-access paper",
+          "title": "Primes in arithmetic progressions and short intervals without L-functions",
+          "trigger": "Uniform Linnik exponent premise"
+        },
+        {
+          "assessment": "Lists representability, not multiplicity",
+          "evidence": "Links a table for indices 1 through 65 and discusses infinite representability and nonrepresentability without an odd pointwise count.",
+          "identifier_or_url": "https://oeis.org/A368082",
+          "material_read": "Sequence definition, data and Comments/Links",
+          "method": "Public OEIS entry",
+          "title": "Positive integers which can be written as a sum of a Zumkeller number and a prime number",
+          "trigger": "Exact database check"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof step 3 and Limitations",
+        "Resultary d798476efd98 proof",
+        "Somu–Kukla–Tran, Conjecture 4.20"
+      ],
+      "rationale": "Pointwise abundance in this published additive question is meaningful, but the frozen result does not supply a needed unknown quantitative fact: the prior same-count theorem gives dramatically more representations for the same inputs, including finiteness of odd exceptions. The alternative prime-parameter packing is a correct proof of a weaker conclusion and supplies no asserted effective numerical cutoff, boundary classification, or additional representation constraint. No distinct surviving claim has been established for repair.",
+      "residual_risks": [
+        "This judgment is about the frozen result, not the value of solving the exact finite-exception conjecture or proving an explicit effective cutoff."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

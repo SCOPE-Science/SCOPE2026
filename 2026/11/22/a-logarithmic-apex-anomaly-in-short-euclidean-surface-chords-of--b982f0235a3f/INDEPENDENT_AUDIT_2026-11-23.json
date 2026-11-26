@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:39:10.159244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Area density in slant radius u is 2u/L^2 and azimuth is uniform. The Euclidean distance square is (u-v)^2+4q^2uv sin^2(phi/2), giving the capped arcsine in (1) with unit Jacobian to midpoint/difference coordinates. In the source proof the region x<=Cr is O(r^4) by the uniform x^2 bound. For x>=Cr the expansion through x^(-1) is uniform, and the integrated bound O(r^5/x^3) is O(r^4) because the h-range has length 2r and the x-cutoff is proportional to r. The rim upper endpoint changes the logarithmic integral only by a bounded multiplier of r^4; the cubic term comes from the linear-in-|h| part of (L-|h|/2)^2. An independent check of the entire expansion uses s=max(u,v), t=min(u,v)/s. The joint density factors as (4s^3/L^4)*(2t), and D=s*d, with d^2=(1-t)^2+4q^2t sin^2(phi/2). With J(rho)=Pr(d<=rho) and rho small at fixed q, put h=1-t, k=sqrt(rho^2-h^2)/(2q). There is no angular saturation and J(rho)=(4/pi)*integral_0^rho (1-h) arcsin(k/sqrt(1-h)) dh. The integrand expands as k(1-h/2-h^2/8)+k^3/6+O_q(rho^4), uniformly in 0<=h<=rho. The elementary half-interval integrals give J(rho)=rho^2/(2q)-rho^3/(3*pi*q)+(1-q^2)*rho^4/(64*q^3)+O_q(rho^5). Integrate J(r/s) against 4s^3/L^4: s<=Cr contributes O(r^4), the integrated Taylor error over s>=Cr is O(r^5*integral_{Cr}^L ds/s^2)=O(r^4), and the degree-four term yields 4 times its coefficient times log(L/r)/L^4. The degree-two and degree-three terms are r^2/(qL^2) and -4r^3/(3*pi*q*L^3), exactly the prescribed area and perimeter normalization. At q=1 the degree-four coefficient in J vanishes; for proper q the logarithm is positive and the prefactor after multiplying by A^2 is B=pi^2*(1-q^2)/(16q). This agrees with integrating the local curvature-square term since kappa_2=sqrt(1-q^2)/(q*s) and kappa_1=0. To take the limit defining B before knowing L, any fixed positive reference length can replace L inside the logarithm; their ratio in the limit is 1. Solving q^2+beta*q-1=0 gives the stated inverse, while area and rim alone already determine L=2A/P. The proof does not use uniformity over cone openings, the base disk, or an assumption that a smooth expansion is valid uniformly through the apex.",
+      "status": "PASS",
+      "verification": "The frozen NumPy checker was read as text, not run. Its two-sector quadrature assumes the split x0 is below the upper endpoint; this holds for its fixtures but need not hold for every small q allowed by its helper's argument guard. The analytic proof instead uses a sufficiently small radius depending on q. Independent finite quadrature uses t and phi after integrating s out exactly as min(1,(r/(L*d))^4). At q=1/2, L=1, it gives F(0.05)=0.00490196494827, F(0.10)=0.0192539827260 and F(0.20)=0.0744264541881, stable in the stated 64-to-128 node refinement to about 1.1e-15 absolute. These are finite numerical checks, not a certified radius-uniform error or the asymptotic proof. Replay files: /workspace/branches/d82d4bde-8f90-4e46-a4e4-86ac33acf114/ordinal5_finite_check.py and ordinal5_finite_check.txt."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciccariello–Riello–Benedetti give the smooth-surface expansion with second term r/32 times averaged squared curvature difference, and the open-surface form adds a perimeter term. Ma–Torquato §III.A explicitly does not pursue higher-order F_ss terms in its argument and assumes differentiability for that part.",
+          "Karp–Pinsky's abstract states the local two-term extrinsic ball law for submanifolds. The same-metric convex polyhedral result derives an exact quartic for each fixed finite faceting."
+        ],
+        "reasoning": "The curvature average in the smooth formula is infinite for the proper cone. Applying the smooth formula to annular cuts at fixed slant distance does not justify taking the cut proportional to r: its asserted small-r error is not stated uniform in that cut, and the inner boundary is changing. To extract the logarithm with O(r^4) error needs estimates on the apex layer and a summable macroscopic error, as the independently reconstructed expansion provides. Similarly no uniform small-radius interval as the number of facets grows is part of the polyhedral theorem; a limit of its quartics is not an implication here.",
+        "searches": [
+          "arXiv:1507.06801 §3.2 Eqs. (22),(27); arXiv:1808.01326 §III.A",
+          "Web: Karp Pinsky small extrinsic ball submanifold pi curvature coefficient full text preprint pdf 10.1112/blms/21.1.87",
+          "Resultary 61a02a61804e full theorem and proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.06801",
+        "arXiv:1808.01326",
+        "Gille DOI:10.1016/S0898-1221(00)85013-0 abstract/index only",
+        "Karp–Pinsky DOI:10.1112/blms/21.1.87 abstract only",
+        "Resultary 61a02a61804e",
+        "Resultary 681d4e624b00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gille's abstract concerns a small-length expansion of a cone chord correlation and mentions a logarithmic singularity. Ciccariello–Riello–Benedetti show which normal orientation factors distinguish the bulk stick derivative and the surface correlation. Their perimeter term, converted from gamma_S to the CDF, already yields the coefficient -2P/(3A^2) in the smooth-boundary setting."
+        ],
+        "reasoning": "The substantive claim is the conical logarithm in the *unweighted* lateral pair law. Its mechanism is suggested by applying the known smooth curvature formula on truncated regions, but the divergence prevents applying the integrated formula to the full surface. A uniformized local estimate and scaling of both exceptional layers explain a fixed exact coefficient where the usual curvature integral does not exist. Gille's logarithm is not itself claimed; an additional relationship or an ancillary unweighted computation in his paper was not resolved by the available abstract.",
+        "searches": [
+          "Web: Gille Analysis of the chord length distribution of the right circular cone for small chord lengths 85013-0 full pdf logarithm",
+          "arXiv:1507.06801 §§3.2–3.3",
+          "Resultary 681d4e624b00 exact distribution and two-variable reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ciccariello–Riello–Benedetti's Eq. (21) is the angular average of the surface measure autocorrelation normalized by 4*pi*A, so their gamma_S gives F'(r)=4*pi*r^2*gamma_S(r)/A where the radial derivative exists.",
+          "Their §3.3 explicitly contrasts the unweighted surface measure convolution with the normal-dot-direction factors in the second derivative of the bulk stick probability."
+        ],
+        "reasoning": "The observable itself is not new. The invariant line measure for chords of a convex body, expressed in endpoint variables x,y, is proportional to |n_x·e||n_y·e|/|x-y|^2 times product area, where e is the unit chord direction. This follows by composing solid angle at one endpoint with the projection of its area element perpendicular to e. For two lateral points the unnormalized weight is (1-q^2)*q^2*u*v*(1-cos(phi))^2/D^4, not constant even at fixed distance, and a solid-body measure also allows the base. One cannot convert the invariant-line length marginal to this pair law by multiplying by a known radial density factor.",
+        "searches": [
+          "Resultary: Euclidean surface-surface correlation thin shell or curved cone small radius invariant line chord Karp Pinsky surface pair conical logarithmic curvature integral",
+          "Web: thin films thread-like samples surface correlation function small distance curvature arxiv Ciccariello Riello Sobry",
+          "arXiv:1507.06801 §§3.1–3.3 Eq. (21), Eq. (32)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ciccariello–Riello–Benedetti list sphere, disk, rectangle and cubic surface examples of the surface correlation, plus general smooth formulas. Gille's indexed cone expansion is for the chord length distribution of the solid cone. The same-sidewall Resultary 681d4e624b00 gives an exact scale-free intrinsic-to-extrinsic stretch law."
+        ],
+        "reasoning": "The stretch marginal discards the scale information and cannot be used as a distance marginal; the elementary Euclidean chord identity in its derivation is known and is not the logarithmic coefficient. The disk and faceted tables are non-equivalent geometries and do not cover the apex term. No matching table or exact lower-tail coefficient was located among the inspected sources; this is bounded comparison evidence only and excludes the assigned record itself.",
+        "searches": [
+          "Web: circular cone independent random points lateral surface Euclidean distance distribution small distances logarithm surface pair Gille surface correlation cone Karp Pinsky",
+          "Resultary: Euclidean pair-distance surface area uniform lateral circular cone small distance apex logarithm surface surface correlation",
+          "arXiv:1507.06801 abstract, Sections 3.2–3.4 examples and references"
+        ]
+      },
+      "rationale": "The unweighted cone sidewall surface-pair observable is a form of a known surface correlation function, and both leading coefficients and the local curvature-square mechanism are known in smooth settings. The increment is the singular apex-dependent coefficient and the bounded remainder after subtracting the divergent logarithm for this exact finite geometry. The older same-shape Gille logarithm concerns a different chord measure; its inaccessible full text leaves qualified priority uncertainty, not evidence of absence.",
+      "residual_risks": [
+        "An earlier equivalent derivation may be in conical thin-film scattering, including work citing Teubner or Gille. The comparison to Gille is bounded by abstract access; no claim is made about all contents of that paper.",
+        "The published smooth curvature coefficient clearly anticipates the mechanism, so priority is limited to the explicitly normalized singular result with its controlled remainder, not recognition that curvature affects short-distance laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the observable and of smooth curvature and perimeter ingredients. Not an applicable formula at a non-integrable curvature singularity",
+          "evidence": [
+            "Eq. (22) assumes a closed smooth surface; Eq. (27) adds a finite-perimeter correction for an open surface using a finite averaged curvature difference. §3.3 identifies the two normal factors in the competing bulk derivative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06801",
+          "material_read": "Primary PDF abstract, §3 opening assumptions, §§3.1–3.3 including Eqs. (21), (22), (26), (27) and the comparison preceding Eq. (31)",
+          "method": "OA PDF passage and formula comparison with the surface pair measure",
+          "title": "Small-angle scattering behavior of thread-like and film-like systems",
+          "trigger": "Same unweighted surface correlation under radial differentiation; plausible stronger curvature/perimeter expansion"
+        },
+        {
+          "assessment": "Reported invariant-line/solid chord statistic is mathematically different; auxiliary full-text implications remain unverified",
+          "evidence": [
+            "The abstract describes the chord length distribution near zero, correlation-function expansion and hypergeometric shape factors; it does not provide an unweighted lateral surface-pair coefficient."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0898-1221(00)85013-0",
+          "material_read": "Publisher/indexed abstract and bibliographic snippets only; full text not available in successful reading",
+          "method": "OA requests for DOI, publisher and the indexed CORE PDF https://core.ac.uk/download/pdf/82171944.pdf; DOI exposed only landing material and publisher/CORE requests returned HTTP 403",
+          "title": "Analysis of the chord length distribution of the right circular cone for small chord lengths",
+          "trigger": "Same shape, small-distance asymptotics and a reported logarithm"
+        },
+        {
+          "assessment": "Direct overlap on leading behavior only in the passages read",
+          "evidence": [
+            "The interface argument assumes differentiability and after Eq. (27) explicitly sets aside higher-order F_ss corrections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.01326",
+          "material_read": "Primary PDF definition (19) and §III.A around Eqs. (26)–(29)",
+          "method": "OA PDF text and small-distance hypothesis comparison",
+          "title": "Precise algorithms to compute surface correlation functions of two-phase heterogeneous media and their applications",
+          "trigger": "General surface correlation asymptotics for interfaces"
+        },
+        {
+          "assessment": "Does not cover the proper smooth-away-from-tip cone",
+          "evidence": [
+            "The short-distance law is polynomial for a fixed finite set of planar facets; the common radius threshold depends on the fixed geometry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-exact-short-euclidean-surface-pair-law-and-its-dihedral-bend--61a02a61804e/RESULT.md",
+          "material_read": "Full result, particularly finding and finite planar-facet proof",
+          "method": "Resultary mirror, compared geometry and range of radius uniformity",
+          "title": "The exact short Euclidean surface-pair law and its dihedral bending coefficient",
+          "trigger": "Same metric, measure and short-distance statistic for polyhedral boundaries"
+        },
+        {
+          "assessment": "Prior coordinate geometry and alternate opening identification, not the present small-radius CDF",
+          "evidence": [
+            "The exact stretch marginal concerns D_g/D_e and is independent of L; it is explicitly computed from log slant-ratio and azimuth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-stretch-distribution-and-sharp-extreme-distortion-on-a-cir--681d4e624b00/RESULT.md",
+          "material_read": "Finding, assumptions and proof through exact law and endpoint",
+          "method": "Resultary mirror, compared joint slant/azimuth coordinates and observable",
+          "title": "Exact stretch distribution and sharp extreme distortion on a circular-cone sidewall",
+          "trigger": "Same sampling on the same cone and an exact length-related observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The non-polynomial term distinguishes a smooth-away-from-apex developable surface from flat or fixed faceted cases after ordinary area and rim losses have been accounted for. It quantifies the effect of curvature accumulating across slant scales, giving a concrete singular surface-correlation benchmark and an alternative inverse invariant. The alternative inverse is not a claim of improved efficiency, stability or minimal data; the scientific value is the singular coefficient and its scope, not re-solving the two-parameter reconstruction already available from area and perimeter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

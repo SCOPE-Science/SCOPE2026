@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:46:21.702158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem A of Takahasi–Yamamoto is the coding input; the counted objects are unrestricted finite blocks in the closed Dyck coding, not realized or periodic trajectories. Independently, a nonzero-reduction word decomposes uniquely at its unmatched brackets: all unmatched closers precede all unmatched openers, and the gaps are balanced typed Dyck words. A matched pair cannot straddle an unmatched bracket. With C=1+Mt²C² for one balanced gap, summing all numbers of unmatched closers and openers gives C/(1−MtC)². For q=tC this is the claimed OGF, using (1−q)(1−Mq)=(1+Mq²)(1−(M+1)t). For a check of the pole calculation put z=(M+1)t and r=Mq; then z=(M+1)r/(M+r²) and (1−z)²F=(M−r)²/[M(M+r²)]. At z=1 the analytic branch has r=1 and dr/dz=(M+1)/(M−1); the value and negative z-derivative of (1−z)²F there are (M−1)²/[M(M+1)] and 4/(M+1). The double-pole coefficients thus give the stated slope and constant (M+1)/M. The radical is holomorphic in |z|<(M+1)/(2sqrt(M)); r=1 forces z=1, with no other poles. Subtracting the principal part and taking a Cauchy radius 1/ϑ gives exactly the normalized remainder for fixed M≥2. Lagrange extraction gives A_{n,M}=(n+1)^{-1}∑_{k≡n mod 2, 0≤k≤n}(k+1)² M^((n+k)/2) binom(n+1,(n−k)/2); an independent integer evaluation for M=2 and n=0,…,9 matches the table. The entropy refinement follows by expanding the logarithm for large n, not at n=0. The frozen verifiers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A gives the same Dyck language for the specified codings. Inoue–Krieger distinguish nonzero-reduction language from product-one Dyck words and treat zeta functions and entropy. Takahasi's exact formulas are for period-n points.",
+          "The matched Resultary record gives the error O_M((2sqrt(M))^n n^{−3/2}) for this same word count."
+        ],
+        "reasoning": "Entropy and periodic counts do not directly yield the assertion. But the matched count is a symbolic invariant, so the existing coding theorem transports its formula to the three-dimensional family, and the sharper error implies every normalized exponential bound claimed here.",
+        "searches": [
+          "arXiv:2209.04905, Theorem A",
+          "arXiv:1001.1839, §1",
+          "arXiv:2409.01261, §§1.1 and 2.5",
+          "Resultary 95f659142ec7, singularity analysis"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 95f659142ec7, with differently scoped balanced-Dyck deficit comparator d83db6a811f2",
+        "arXiv:2209.04905, 1001.1839, 2409.01261"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator gives precisely the two coefficients (m−1)²/[m(m+1)] and (m+1)/m. Its error bound has exponential rate 2sqrt(m) before normalization.",
+          "The existing coding identification leaves no extra dimension-three combinatorics in the specified closed spaces."
+        ],
+        "reasoning": "Coefficientwise equality yields the complete word law, the stronger asymptotic implies the frozen one, and taking a logarithm yields the stated entropy correction. No separate claim on actual trajectories or parameter-dependent errors survives as an increment.",
+        "searches": [
+          "Resultary 95f659142ec7, Finding and branch-point analysis",
+          "arXiv:2209.04905, Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 95f659142ec7, Finding: g_m=t+mtg_m² and F=(1−g_m)/((1−(m+1)t)(1−mg_m)); this is the small root q_M with m=M.",
+          "The comparator's push/pop skeleton assigns the same weight to unmatched closers and counts the same full language. Its linear and constant coefficients are identical."
+        ],
+        "reasoning": "Different notation, a balanced-gap computation and a biased-walk evaluation describe the same counting invariant. Balanced Dyck excursion counts alone would not be equivalent, but the matched record includes unmatched brackets.",
+        "searches": [
+          "Web search on unrestricted Dyck shift word complexity and generating functions",
+          "Resultary: generalized heterochaos finite-word complexity and sharp two-term growth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue generating function specifies all coefficients for every n and m in scope, not only the M=2 table. The periodic-point formula subtracting a truncated binomial sum counts a different object."
+        ],
+        "reasoning": "The decisive match is an exact all-parameter enumerator in a different record; the finite table follows from it, whereas periodic enumerators and counts for balanced words do not recover it.",
+        "searches": [
+          "Resultary: exact finite Dyck-language enumerator; comparator 95f659142ec7",
+          "arXiv:2409.01261, §2.5 exact periodic counts"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 95f659142ec7 (2026/11/2), states the same unrestricted Dyck-language generating function for every alphabet size in scope and the same two-term asymptotic with a sharper error. The dimension-three wording does not give a different count once the previously established coding theorem is applied, and the logarithmic refinement is immediate from the shared coefficients. The failure is material equivalent coverage without an established distinct mathematical contribution, not a claim that the later-dated catalogue entry predates this frozen record or that historical priority has been settled.",
+      "residual_risks": [
+        "The date ordering does not settle provenance or priority between overlapping records. The confirmed coverage comparison does not assign priority.",
+        "The earlier 2015 periodic-count article cited by Takahasi was not independently obtained; only the formulas reproduced in the 2024 paper were inspected.",
+        "The search does not rule out other equivalent all-word counts in combinatorics literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage; stated stronger error. Distinct later-dated record, not evidence of earlier priority.",
+          "evidence": [
+            "Same quadratic small root, OGF, skeleton weighting, and both asymptotic coefficients; error O_m((2sqrt(m))^n n^{−3/2})."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-two-term-symbolic-word-complexity-for-generalized-heteroch--95f659142ec7",
+          "material_read": "RESULT.md Finding and branch-point error analysis.",
+          "method": "Read local Resultary mirror, offsets 0 and 4908.",
+          "title": "Sharp two-term symbolic word complexity for generalized heterochaos baker maps",
+          "trigger": "Exact all-length enumerator and two-term asymptotic for the same Dyck language."
+        },
+        {
+          "assessment": "Coding is prior and transfers the exact enumerator; does not itself state the enumerator.",
+          "evidence": [
+            "Theorem A gives the symbol correspondence and Dyck coding identification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.04905",
+          "material_read": "Theorem A, p. 5.",
+          "method": "Inspected OA theorem passage at offset 15490.",
+          "title": "Heterochaos baker maps and the Dyck system",
+          "trigger": "Identical language in the specified closed codings."
+        },
+        {
+          "assessment": "Different enumerative scope; entropy does not fix the prefactor.",
+          "evidence": [
+            "Nonzero monoid product defines admissibility, product one defines balanced Dyck words; h(D_N)=log(N+1) is known."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.1839",
+          "material_read": "§1, pp. 2 and 4.",
+          "method": "Inspected OA PDF passages at offsets 6908 and 14123.",
+          "title": "Subshifts from sofic shifts and Dyck shifts, zeta functions and topological entropy",
+          "trigger": "Dyck monoid language and possibly competing generating functions."
+        },
+        {
+          "assessment": "Period-n points, not unrestricted blocks.",
+          "evidence": [
+            "Exact periodic-point counts by bracket type are reproduced and attributed to prior work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.01261",
+          "material_read": "§1.1 and §2.5, pp. 3–4 and 10–11.",
+          "method": "Inspected OA PDF at offsets 9554 and 28500.",
+          "title": "Distributions of periodic points for the Dyck shift and the heterochaos baker maps",
+          "trigger": "Exact counts on the same dynamical system."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical theorem, exact word complexity for this canonical nonsofic coding is a useful invariant. The linear factor and constant reveal finite-length behavior invisible to the known exponential entropy, across every M≥2 and all interior geometric parameters. The mathematical significance of that theorem is separate from its equivalent coverage in a distinct record; the dimension-three restatement and the entropy expansion are not separate advances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

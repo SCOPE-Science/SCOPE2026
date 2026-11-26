@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:18:14.707877Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result uses unnormalized counting convolution on the full sixteen-bit group. A block is a two-flat incidence word, equivalently a weight-four word of RM(2,4); the span contains the quadratic monomials, linear terms (by adding two products sharing a factor), and the constant (a parallel class). Its annihilator is RM(1,4). In independent exact arithmetic, testing one character per affine coset via the degree-four Krawtchouk average and then summing signed reciprocal multipliers on each of the 2048 codewords reproduced the full frozen distribution and inverse table, including the zeros. Off the code the reciprocal character sum cancels by affine-frequency invariance. The corrected inverse statement is also verified without computing a spectrum: classification by alternating polar rank and the radical restriction of the linear part yields eight affine-coordinate orbits on the quadratic code. Counting h+P for all 140 distinct level-set products P and one representative h of each orbit gives the stated integer quotient matrix; independent replay verifies the matrix, its orbit-size balance and its convolution identity with the numerator column. Zero extension off the code preserves the identity Tk=δ0. A unit coordinate vector and the signs of one row attain respectively the column and row absolute-sum norms, both equal to 14468/3360=3617/840. The original numerical claims are true, but the repaired claim does not assert a new spectral classification. The supplied source script was inspected, not executed.",
+      "repaired_files": [
+        "/workspace/repairs/4/RESULT.md",
+        "/workspace/repairs/4/SLOGAN.txt",
+        "/workspace/repairs/4/orbit_inverse.py"
+      ],
+      "replay": "python3 /workspace/repairs/4/orbit_inverse.py (stdlib, Python 3.10+); complementary check: python3 /workspace/branches/audit-checks/4.py (NumPy)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 report abstract describes canonical EA/CCZ representatives, class sizes and extended Walsh spectra up to dimension four; no PDF passage was retrieved from that site.",
+          "Kaski et al. count the order-16 designs; de Vries fixes the exact classical block design and studies parallel classes and orthogonal resolutions."
+        ],
+        "reasoning": "The Boolean classification framework, not a design census or orthogonal resolution, is a material source for spectral overlap. A design-level result or general abelian character diagonalization does not compute the inverse's exact signed spatial amplitudes.",
+        "searches": [
+          "2019/316 Extended Affine and CCZ Equivalence up to Dimension 4",
+          "Kaski–Östergård–Pottonen https://pottonen.kapsi.fi/sqs16.pdf",
+          "de Vries DOI:10.1007/s10623-008-9207-5"
+        ]
+      },
+      "checked_sources": [
+        "Public Affine Equivalence Classes n=4 table",
+        "IACR 2019/316 indexed abstract (full text not retrieved)",
+        "de Vries 10.1007/s10623-008-9207-5 pp.288–289",
+        "Kaski–Östergård–Pottonen author PDF pp.1–2",
+        "Resultary 39959c302866 and d7e24b39e872 original Findings; bound self hit 270b10657346",
+        "Pavone 10.1016/j.ffa.2023.102277 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a coloring s, averaging Krawtchouk K4(wt(s+a)) over the 32 affine words a is its signed weight-four multiplier by character orthogonality.",
+          "Any unindexed spectrum or table of absolute Walsh distributions lacks individual character locations; a fully indexed character assignment, or full orbit representatives with their affine actions worked out, would allow inversion. No inspected source reports that inversion or an equivalent spatial-kernel invariant for these blocks."
+        ],
+        "reasoning": "The spectral levels are a direct substitution into known classification data and are no longer the claimed novelty. Adding affine-orbit transition counts in the primal code is a different calculation from recomputing the eigenvalue list: the eight spatial coefficients and their orbit sizes give the endpoint amplification. The ordered-pair coset-distance and projection findings do not provide those counts or the needed identity.",
+        "searches": [
+          "RM(1,4) coset weight enumerators; indexed weight-four RM(2,4) adjacency",
+          "Boolean Functions for Cryptography n=4 full table",
+          "Resultary 39959c302866 and d7e24b39e872 original Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The code-shell Cayley adjacency lives on RM(2,4) and uses the same 140 generators. The original full spectrum repeats its reduced spectrum 32 times because the character kernel is RM(1,4).",
+          "The eight absolute Walsh histograms in the Boolean classification table give multipliers 140,70,28,6,12,−4,−10,−20 in table order via (sum of fourth powers /16 −736)/24."
+        ],
+        "reasoning": "The fourth-moment sum counts ordered zero-sum quadruples of points; deleting the 736 degenerate contributions leaves 24 orders of each affine plane. Therefore the general Boolean-class data really cover the level/nonvanishing claim, not just a similarly named Walsh problem. They do not directly tabulate the reciprocal sum against fixed incidence coordinates.",
+        "searches": [
+          "weight-four Cayley adjacency spectrum of RM(2,4)",
+          "four variable Boolean functions extended affine equivalence eight classes Walsh spectra Reed Muller RM(1,4) coset weight distributions classification affine addition normal forms",
+          "Boolean Functions for Cryptography — Affine Equivalence Classes, n=4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit containing 3617/840 is the bound finding itself, not prior-work evidence.",
+          "The published RM(1,4) mirror Finding counts joint minimum distances of two cosets, not the per-coset weight enumerators needed for every signed multiplier. The distinct same-date affine-plane record uses 480 noncollinear triples of AG(2,4), with 6150 zero multipliers and a projection norm 558109/16384.",
+          "The inspected Boolean orbit table provides truth-table examples and absolute Walsh histograms, not a table of inverse coefficients."
+        ],
+        "reasoning": "The two indexed near matches count different mathematical objects. Canonical spectra reproduce the individual levels; the inverse norm requires the values relative to the incidence-coordinate group structure. The repaired calculation gets the inverse values from orbit-to-orbit block transition counts.",
+        "searches": [
+          "Resultary: sixteen-point affine SQS signed block spectrum and inverse endpoint norm",
+          "Resultary 2026/10/12/SCOPE-exact-two-query-coset-distance-spectrum-of-the-binary-four-varia--39959c302866",
+          "Resultary 2026/11/22/SCOPE-six-coordinate-walsh-cancellation-in-the-affine-plane-of-order-f--d7e24b39e872",
+          "Affine Equivalence Classes, n=4 table"
+        ]
+      },
+      "rationale": "Pass for the repaired inverse-in-incidence-coordinates result and its sharp endpoint norm, not for the eight-level zero-free classification framed as new. The inspected four-variable Boolean orbit table gives the eight levels directly by fourth moments, and the full signed spectrum reduces to those levels weighted by the orbit sizes. No priority order is assumed for the public webpage. No inspected result supplies the spatial inverse or the endpoint norm. The repaired contribution exhibits the affine-orbit convolution equations which determine that concrete inverse directly.",
+      "residual_risks": [
+        "An earlier fully indexed shell spectrum or explicit orbit algebra could make an equivalent exact inverse already available; no such spatial inverse or norm was verified in the compared passages.",
+        "The searchable date of the public Boolean class table was not used to infer priority. The unavailable IACR and Pavone PDF passages do not establish absence of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap with the eight levels and nonvanishing, not a spatial inverse table; page priority not assigned",
+          "evidence": [
+            "The eight classes have distinct absolute Walsh histograms and a representative each; exact substitution gives 140,70,28,6,12,−4,−10,−20."
+          ],
+          "identifier_or_url": "https://booleanfunction.github.io/equivalence-classes.html",
+          "material_read": "Definitions and complete n=4 table, HTML offset 0–3600",
+          "method": "Open public source passage plus explicit evaluation of fourth moments",
+          "title": "Affine Equivalence Classes — Boolean Functions for Cryptography",
+          "trigger": "Complete class spectra can supply the claimed eight levels"
+        },
+        {
+          "assessment": "Abstract supports plausible broader spectral coverage; no claims based on unread tables",
+          "evidence": [
+            "Abstract describes canonical representatives, sizes, degrees and extended Walsh spectra up to dimension four; primary HTML and PDF retrieval returned 403."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2019/316",
+          "material_read": "Indexed abstract only; PDF unavailable on tried lawful routes",
+          "method": "Title/abstract search and attempted lawful open primary retrieval",
+          "title": "Extended Affine and CCZ Equivalence up to Dimension 4",
+          "trigger": "Canonical representative and class-size data could cover the full spectral multiplicities"
+        },
+        {
+          "assessment": "Classical block orbit and resolutions, not inverse convolution",
+          "evidence": [
+            "The 16-point labeling and block orbit specify the design studied for orthogonal resolutions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-008-9207-5",
+          "material_read": "Printed pp.288–289, PDF offsets 2710 and 5998",
+          "method": "Primary PDF passages",
+          "title": "On orthogonal resolutions of the classical Steiner quadruple system SQS(16)",
+          "trigger": "Same affine Steiner system"
+        },
+        {
+          "assessment": "Classifies designs rather than signed convolution on the affine member",
+          "evidence": [
+            "1,054,163 isomorphism classes with assorted design invariants."
+          ],
+          "identifier_or_url": "https://pottonen.kapsi.fi/sqs16.pdf",
+          "material_read": "Author PDF pp.1–2, offsets 478 and 2000",
+          "method": "Primary PDF passages",
+          "title": "The Steiner Quadruple Systems of Order 16",
+          "trigger": "Possible exact-design table"
+        },
+        {
+          "assessment": "Neither is the same inverse problem; same-day distinct record compared directly",
+          "evidence": [
+            "Joint minimum coset-distance polynomial and second generalized covering radius 9; separate noncollinear-triple convolution of AG(2,4) with nontrivial kernel and projection norm."
+          ],
+          "identifier_or_url": "39959c302866 (2026/10/12); d7e24b39e872 (2026/11/22)",
+          "material_read": "Original local-mirror RESULT.md Findings, offset 0 for each",
+          "method": "Resultary search followed by original passage comparison",
+          "title": "Exact two-query coset-distance spectrum of the binary four-variate first-order Reed–Muller code; Six-coordinate Walsh cancellation in the affine plane of order four",
+          "trigger": "Closest matching code and same-dimensional Walsh invariants"
+        },
+        {
+          "assessment": "Access risk, not a whole-paper determination",
+          "evidence": [
+            "Frozen references cite this work for the design decomposition; it is not relied on as independent negative evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2023.102277",
+          "material_read": "Identification only; full text not retrieved in the independent DOI/ScienceDirect attempts",
+          "method": "Attempted open retrieval",
+          "title": "A quasidouble of the affine plane of order 4 and the solution of a problem on additive designs",
+          "trigger": "Same affine block set and potential exact calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this canonical sign-incidence recovery operator, the exact endpoint norm measures the strongest possible amplification of bounded error or ℓ¹ input error. It differs substantially from the ℓ² inverse norm and is not specified by just the unordered eight spectral levels. A small explicit affine-orbit convolution system supplies the spatial sign and size of every inverse coefficient and the sharp worst-case constant. This retains a meaningful exact invariant rather than rebranding the existing Boolean spectral table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

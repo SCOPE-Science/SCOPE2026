@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact two-contact rule is stated for every labelled vertex. Newly excited peripheral sites at time one require an initially excited hub, whereas a newly excited hub requires an initially resting hub. These mechanisms are exclusive and preclude every activation at time two. The entire extinction-time population is then partitioned by the existence of a first-update activation and by the smallest initially positive refractory colour. The two disjoint exceptional families yield the stated last-layer formula; the remaining disjoint alphabet slices yield all earlier layers. The formula is positive and attains the universal cutoff on a single triangle for every colour count. Exhaustive independent microscopic checks cover fourteen parameter pairs and verify every layer and no residual state after time \(k\). The proof—not the finite enumerations—covers all parameters.
+## correctness
 
-## Originality
-**PASS, qualified.** A targeted published-record search found threshold-one friendship-graph exact temporal censuses (`13eed7214670`, `e79c2691fb75`) but no two-contact, arbitrary-colour, all-state extinction-time polynomial. The published density obstruction (`352367f51e91`) **does** subsume the weaker eventual-extinction conclusion for three states, and its proof extends to longer refractory chains; that qualitative conclusion is explicitly background rather than the contribution. Its general excitation budget does not imply the sharp uniform clock or count the labelled extinction strata. A two-contact wheel cutoff (`58917bc0decb`) addresses a different graph. The 2014 full-text network-topology study emphasizes relative thresholds and single-seed propagation, not this formula. Historical unindexed equivalents and the unavailable full 1993 preprint remain residual priority risks.
+PASS
 
-## Value
-**PASS.** The finding is a natural complete classification across two independent unbounded parameters: the number of linked triangles and the number of refractory states. It quantitatively resolves the contact-threshold transition on a standard graph family: threshold one admits persistent oscillations, but threshold two truncates the entire excitation genealogy after one generation. The exact all-initial-state hitting-time polynomial and its nondegenerate limiting \(2/k\) versus \(1-2/k\) mass split explain finite-time behavior that neither the generic extinction budget nor an attractor-only classification measures. This is not a claim that eventual extinction alone is novel.
+Each peripheral vertex has just two neighbors, its partner and the hub. A new excitation at time one is therefore either a hub activation with at least two initially excited peripherals, or a peripheral activation requiring an initially excited hub and an initial 0/1 pair. The two modes exclude each other. In the first, there are no excited peripherals at time one; in the second, the hub is at state 2, is not resting, and cannot excite a peripheral. No excitation is created at time two, and after that no excited vertex remains. Thus a time-one activation lasts until update k, whereas an initially positive state r lasts to update k-r absent reactivation. The two trigger counts subtract respectively zero or one ones from all peripheral words, and words avoiding both ordered 0/1 pairs from all petal words. These give the stated C_(k,m); each trigger is possible already for one petal. Without time-one activation the minimum initial positive state determines the first hitting time. The alphabets excluding successively smaller positive states give the lower layer differences, and subtraction gives the layer at k-1. The early-layer probability is ((k-1)/k)^(2m+1); the three excluded terms of C_(k,m), after normalization by k^(2m+1), decay exponentially for fixed k, giving the two-layer limit. The argument includes k=3: at time one the previously excited hub is already refractory even if it will return to rest at time two. For (k,m)=(3,1) the proof gives (1,7,16,3), consistent with the supplied census.
 
-## Closest literature and limits
-Greenberg–Hastings (1978) and Durrett–Griffeath (1993) give foundational excitable dynamics; Fretter et al. (2014) explore topological thresholds under a different rule. Published threshold-one friendship results and the threshold-two wheel result were compared directly in their full RESULT texts, as was the general density-budget theorem. The proof is specific to synchronous, absolute two-contact excitation on shared-hub triangles. Finite verification is corroborative only. A historical-priority search cannot establish absolute uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the depth-one trigger and full labelled all-k extinction-time census for friendship graphs at absolute threshold two. Eventual extinction is covered by a prior general criterion, and the analogous 2/k mass from two hub-state channels is known for multistate wheels. Neither observation is credited as a new general phenomenon here.
+
+## value
+
+PASS
+
+Friendship graphs isolate the effect of a universal hub and degree-two petal vertices in a natural family. The full labelled counting law gives more than qualitative extinction: it identifies precisely when any new excitation can occur and partitions all initial conditions by relaxation time. Contrasting the cone over a matching with a wheel shows how identical limiting top-layer masses can arise from different trigger states and different sharp clocks. The all-color polynomial makes that comparison exact rather than an empirical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

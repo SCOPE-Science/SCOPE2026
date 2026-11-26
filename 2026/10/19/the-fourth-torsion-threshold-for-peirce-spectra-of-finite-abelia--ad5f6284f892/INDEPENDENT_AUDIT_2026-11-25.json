@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:02.716364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reindexing e_x e_y=e_(2y−x) gives the Fourier rule c_χ(vu)=c_(χ^−1)(v)c_(χ²)(u). For an idempotent u, P_χ=c_χ(u)c_(χ^−1)(u) satisfies P_χ=P_χP_(χ²); the eigenvalues of R_u² are P_(χ²). If there is no four-torsion, all squared characters lie in the odd part, where squaring is a permutation, and the recursion around each cycle gives P∈{0,1}. A basis idempotent yields 1 and −1 if inversion has a two-element orbit; the uniform idempotent kills a difference of distinct basis vectors in the same 2G coset. If 2G=0 then R_u is the identity for every nonzero idempotent (which has augmentation 1). Independently, in the order-four subgroup itself, the sums of each parity class are fixed by every right translation. Thus u=((1+t)(e_0+e_2)+(1−t)(e_1+e_3))/4 is an idempotent for every complex t; e_0−e_2 has eigenvalue t. Multiplication restricts to the subgroup algebra, so this proves the all-complex branch in G. The frozen global Fourier family is also valid: the only nonzero possible coordinates are at the trivial character and a self-inverse square of an order-four character, and on the order-four inverse pair both off-diagonal entries are t. The trivial group and t=0 are covered. Bounded group-basis witness checks for seven groups passed (python3 /workspace/replay_checks.py 1); the proof, not the finite checks, covers arbitrary t and G.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang has the Fourier product framework and proves the spectrum for nontrivial odd-order cores. Kaur–Singh also proves the odd cyclic result.",
+          "The inspected Fourier idempotent theorem in Elhamdadi–Ta–Virgin concerns integral rather than complex idempotents, and the dihedral/Takasaki module papers concern right representation decompositions."
+        ],
+        "reasoning": "A right module decomposition can aid an eigenvalue computation but does not by itself specify which right actions arise from complex idempotents. The prior odd-order proof uses cycles of squaring and does not imply the four-torsion branch.",
+        "searches": [
+          "Zhang arXiv:2610.08204v1, sections 5.1 and 5.3",
+          "Elhamdadi–Ta–Virgin arXiv:2609.03799v1, abstract and §4",
+          "Even dihedral and Takasaki module decompositions arXiv:2206.03162 and arXiv:2303.06948"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Zhang arXiv:2610.08204v1",
+        "Sangare–Ta arXiv:2608.01550",
+        "Elhamdadi–Nunez–Singh arXiv:2207.09257v1",
+        "Kaur–Singh arXiv:2609.09183v1, arXiv:2206.03162 and arXiv:2303.06948",
+        "Elhamdadi–Ta–Virgin arXiv:2609.03799v1",
+        "Churchill et al. arXiv:2608.09149, abstract and integral idempotent discussion",
+        "Later Resultary exact-spectrum record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior isomorphism uses the algebra with (a,b)(c,d)=(ac,bc). Any idempotent (c,d) has c²=c and dc=d; if c=0 then d=0. Conversely (c,0) lifts every idempotent. Right action repeats R_c on both coordinates."
+        ],
+        "reasoning": "This proves unchanged right Peirce spectrum under a trivial two-element factor and mechanically gives all no-four-torsion cases from prior results. In contrast, the existence of a freely varying complex eigenvalue on a C4 subcore is not implied by these cited theorems without a further witness.",
+        "searches": [
+          "Sangare–Ta arXiv:2608.01550, Lemma 4.8",
+          "Zhang arXiv:2610.08204v1, Theorem 5.5",
+          "Elhamdadi–Nunez–Singh arXiv:2207.09257v1, section 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The abelian core is the Takasaki quandle, with cyclic case the dihedral quandle. For odd n, R_(2n) is R_n times a trivial two-element quandle; generally the no-four-torsion case is an odd core times a trivial elementary-two core.",
+          "The later 2026-11-08 Resultary Finding gives the same three branches and cyclic specialization."
+        ],
+        "reasoning": "Iterating the trivial-factor reduction covers the purported new discrete even branch. The full-spectrum implication reduces to the order-four subcore, rather than to any odd-order or non-Latin order-three example. The additional exact order-four literature lookup returned no result; that is not positive priority evidence.",
+        "searches": [
+          "Resultary: fourth torsion, complex Peirce spectrum, finite abelian core/Takasaki and even dihedral",
+          "arXiv:2608.01550, Lemma 4.8 and R_(2n) application; arXiv:2610.08204v1, Theorem 5.5",
+          "Web literature query: quandle ring idempotents dihedral quandle order 4 R4 all idempotents even dihedral Peirce spectrum explicit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The small-quandle examples give {1} for trivial quandles and give the whole plane for a different non-Latin quandle of order three, alongside the odd Latin case.",
+          "The later 2026-11-08 indexed statement is an exact overlap on the spectrum; no distinct same-day record surfaced in the focused searches."
+        ],
+        "reasoning": "The comparison is an infinite group classification, so even a finite exact small-quandle table would control it only if it covered the pivotal C4 case or supplied a controlling stronger theorem. The full-plane order-three example is not this subcore.",
+        "searches": [
+          "Resultary: exact three-case classification with same-day and even cyclic formulations",
+          "Elhamdadi–Nunez–Singh arXiv:2207.09257v1, section 7, explicit Peirce examples"
+        ]
+      },
+      "rationale": "The nontrivial odd-order spectrum and the trivial-core branch are prior, and the entire elementary-two-factor extension of the odd case is a mechanical implication of prior work, not a separate novelty. Positive credit is limited to demonstrating that four-torsion suffices for the full complex spectrum in a core and hence closing the exact boundary. The strongest later indexed overlap is an exact three-branch statement with an additional diagonalizability theorem; that later record does not establish prior coverage.",
+      "residual_risks": [
+        "A prior explicit complex-idempotent spectrum or equivalent order-four subcore witness in unindexed literature could remove the remaining novelty. Ranked search limits and the later match do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the odd group branch in the same normalization",
+          "evidence": "Theorem 5.5 states the spectrum {0,1,−1} when G is finite abelian, nontrivial and odd in order, using right multiplication by nonzero idempotents.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08204v1",
+          "material_read": "Section 5.3 and Theorem 5.5 around HTML offset 30244; Fourier context in sections 5.1 and 5.3",
+          "method": "Lawful OA HTML, bounded passages",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Closest prior Fourier Peirce theorem"
+        },
+        {
+          "assessment": "The known product algebra forces the no-four-torsion extension when combined with the odd theorem",
+          "evidence": "The algebra isomorphism of Lemma 4.8 sends (x,a) to (x,0) and (x,b) to (x,x); R_(2n) splits as R_n times T2 for odd n.",
+          "identifier_or_url": "https://arxiv.org/html/2608.01550",
+          "material_read": "Section 4, Lemma 4.8 around offset 34599 and dihedral passage around 42202",
+          "method": "Lawful OA HTML, bounded passages",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Potential stronger trivial-factor theorem and even cyclic implication"
+        },
+        {
+          "assessment": "Trivial spectra already covered; the all-complex example is not a fourth-torsion core",
+          "evidence": "Section 7 explicitly gives {1} for trivial quandles and contrasts a non-Latin order-three quandle giving the complex plane with the Latin example.",
+          "identifier_or_url": "https://arxiv.org/html/2207.09257v1",
+          "material_read": "Section 7, Theorem 7.4 and Conjecture 7.6, offsets 65830–78585",
+          "method": "Lawful OA HTML",
+          "title": "Enhancements of link colorings via idempotents of quandle rings",
+          "trigger": "Foundational Peirce examples including full-plane values"
+        },
+        {
+          "assessment": "Direct odd-dihedral prior coverage only in this theorem",
+          "evidence": "Theorem 3.2 gives the discrete spectrum for odd dihedral orders.",
+          "identifier_or_url": "https://arxiv.org/html/2609.09183v1",
+          "material_read": "Section 3, Theorem 3.2 around offset 11530",
+          "method": "Lawful OA HTML",
+          "title": "A note on idempotents in quandle rings",
+          "trigger": "Same invariant for dihedral quandles"
+        },
+        {
+          "assessment": "Relevant section addresses integral idempotents, not a complex Peirce classification",
+          "evidence": "Proposition 4.1 concerns integral idempotents for finite odd-order groups; the semi-Latin discussion is framed around the integral idempotent conjecture.",
+          "identifier_or_url": "https://arxiv.org/html/2609.03799v1",
+          "material_read": "Abstract and section 4, including Proposition 4.1 around offset 21981",
+          "method": "Lawful OA HTML",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Potentially controlling Fourier result not fully inspected in the frozen record"
+        },
+        {
+          "assessment": "Even-order right decompositions do not state an idempotent spectrum union",
+          "evidence": "The conclusions decompose the underlying right representation; they do not assert the attainable eigenvalues as the right multiplier ranges over complex algebra idempotents.",
+          "identifier_or_url": "arXiv:2206.03162 and arXiv:2303.06948",
+          "material_read": "First source abstract and §2 offsets 0–7228; second §§6.2–6.3, Theorems 6.9 and 6.12 around offsets 55640 and 59496",
+          "method": "Lawful OA HTML, bounded passages",
+          "title": "Dihedral and Takasaki quandle ring decompositions",
+          "trigger": "All even cyclic orders or even abelian Takasaki groups may be controlled by representations"
+        },
+        {
+          "assessment": "Exact numerical and structural overlap on spectrum, later catalogue date",
+          "evidence": "Same three branches, even dihedral specialization and all-complex witness; also states diagonalizability of every right Peirce operator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-four-torsion-bifurcation-in-peirce-spectra-of-finite-abe--02ea9f7af0d6",
+          "material_read": "RESULT.md offsets 0–3717",
+          "method": "Published record through local mirror",
+          "title": "A sharp four-torsion bifurcation in Peirce spectra of finite abelian cores",
+          "trigger": "Exact indexed claim on the same group class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The spectrum is a natural invariant already studied in quandle algebras. Showing a jump from a fixed discrete set to all of C at a specific group-theoretic threshold fills the even-core boundary and separates two behaviors among non-Latin cores. The arbitrary complex value can already be witnessed in one small subcore, so the classification is useful across all finite abelian groups without solving their idempotent varieties. No distinct value is claimed for rederiving the previously implied discrete branches.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:01:41.346207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57; VERIFICATION.md and check_hexagon.py inspected, not executed",
+        "Replay of independent radial identity and symbolic spectrum check: python /workspace/branches/independent-checks/hexagon.py"
+      ],
+      "rationale": "For any graph in scope, bipartiteness and girth twelve give unique geodesics through layer five; at layer six all q+1 neighbours lie in layer five. This yields the stated intersection numbers and vertex count, without transitivity. Independently used multiplication by A on the basis of seven distance matrices and obtained the characteristic polynomial x(x²−q)(x²−3q)(x²−(q+1)²). The basis is independent by disjoint distance supports and cyclic under multiplication by A from I, so these are precisely the seven adjacency eigenvalues. For z=e^(−a) the layer recurrence gives ((1+qz²)I−zA)K=(1−z²)(I−qz⁶ A₆). The top-distance eigenvalues are q⁵ on ±(q+1), q² on ±√q, and −q² on 0 and ±√(3q). The identity, with the row sum or alternating row sum on the valency sectors, reproduces the frozen factorizations. At 0<z≤1/q the left factor is positive on all sectors except the positive valency at z=1/q, where the kernel row sum is strictly positive directly. The right factor is positive on nonvalency sectors and vanishes at this endpoint on the negative valency, which is simple by connected regular bipartiteness. On 1/q<z<1 its kernel multiplier (1−z)(1−qz)(1+q²z²+q⁴z⁴) is negative, while z=1 is J. Thus exactly the stated PSD interval and ranks hold. The derivative of the negative-valency multiplier at z=1 is (q−1)(1+q²+q⁴)>0; it is a positive eigenvalue of the ordinary distance matrix on a zero-sum vector, directly ruling out conditional negative semidefiniteness. The alternating direction is the first obstruction, not the only sector that can become negative outside the PSD interval; the actual Finding and spectrum do not require such uniqueness.",
+      "residual_risks": [
+        "Exact symbolic identities plus universal sign arguments, not exhaustive sampling of existing geometries or formal verification. No unequal-order or powered-distance claim is certified here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Voit's Theorem 2.6 gives PSD iff the radial function is positive definite on the associated finite polynomial hypergroup, equivalently has a positive-measure representation on the spectrum. This does apply to the frozen graph.",
+          "The distance-regular graph survey p. 15 describes the common eigenspaces and P,Q matrices determined by intersection numbers. Fiol's spectral-excess setting supplies structural machinery rather than a Gibbs-parameter interval."
+        ],
+        "reasoning": "A general test is applied to this natural family, but still requires the graph-specific calculation and universal sign comparisons. The located general statement does not imply the explicit interval by parameter substitution alone.",
+        "searches": [
+          "Voit arXiv:2111.02116v2, Theorem 2.6",
+          "van Dam–Koolen–Tanaka arXiv:1410.6294, Bose–Mesner spectral framework",
+          "Fiol arXiv:1304.4354, distance-biregularity and spectral excess"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.02116v2, 2305.14636, 1410.6294 and 1304.4354",
+        "Resultary 9535d19cf47d and 5d13c26bd56c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older radial criteria reduce the test to eigenvalues in seven sectors. The exact root z=1/q appears from the alternating row sum and is sharp only because the other six sectors are strictly positive there and throughout the preceding interval; that is additional, evaluated spectral information.",
+          "Failure of all-scales Schoenberg positivity by itself cannot identify the full set of individually invalid scales, and the quadrangle threshold concerns distinct distance coefficients and multiplicities."
+        ],
+        "reasoning": "The equivalence and ranks do not follow merely from the general test, from knowing that there is at least one failing scale, or from the lower-diameter classification. The novelty assessment is limited to the evaluated hexagon result.",
+        "searches": [
+          "arXiv:2111.02116v2 §2.2 and arXiv:1410.6294 p. 15",
+          "Resultary 9535d19cf47d and 5d13c26bd56c, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Voit's Gibbs matrix is exactly Q_z=(z^d) with z=e^(−a); the present PSD set in 0≤z≤1 is [0,1/q] together with {1}, where z=0 adds I in the Gibbs formulation.",
+          "For a q-distance parameter r with z=1/r in (0,1), Koolen et al.'s geometric sum matrix is (J−Q_z)/(1−z). On the orthogonal complement of constants this makes the test equivalent to nonpositivity of that sum matrix; the constant eigenvalue of Q_z is positive. Their Corollary 4.4 assumes a classical r-type adjacency eigenvalue rather than giving a sign classification for all r. In this hexagon a nonconstant classical-type standard sequence with positive ratio z≠1 would be b+c z^i with c≠0. The interior recurrence θu_i=u_{i−1}+q u_{i+1} forces b=0 for θ≠q+1; u₀=1 and u₁=θ/(q+1) then force z²=1. Thus that hypothesis does not supply the needed classification for z in (0,1)."
+        ],
+        "reasoning": "The first is a direct change of parameters and the second a linear transformation of the same distance profile. Neither matching formulation was found to give the evaluated hexagon interval and ranks.",
+        "searches": [
+          "Voit arXiv:2111.02116v2, Gibbs positivity Introduction and §2.2",
+          "Koolen et al. arXiv:2305.14636, q-distance matrix and Corollary 4.4",
+          "Focused literature search for generalized-hexagon Gibbs, q-matrix and q-distance positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9535d19cf47d gives exact radial inequalities and an exponential cutoff with ranks for generalized quadrangles, whose diameter is four.",
+          "Resultary 5d13c26bd56c gives same-geometry powered negative-type exponents and all-scales Schoenberg consequences, not the fixed-scale transition at power one. It overlaps the negative-type motivation but not the claimed exact positivity interval. No matching exact hexagon Gibbs table was identified in the bounded lookup."
+        ],
+        "reasoning": "A different diameter changes the distance-polynomial spectrum; same-geometry powered negative type quantifies over every scale and does not give where PSD returns at a fixed power beyond the negative-type exponent.",
+        "searches": [
+          "Resultary generalized hexagon, incidence metric, exponential-distance or radial-kernel exact positivity",
+          "Resultary 5d13c26bd56c and 9535d19cf47d, mirrored Findings",
+          "Voit arXiv:2111.02116v2, generalized-hexagon and Gibbs positivity comparison"
+        ]
+      },
+      "rationale": "The exact matrix is already known as a Gibbs kernel, and general spectral and hypergroup criteria genuinely apply here. The inspected criteria do not evaluate the sharp positive Gibbs parameter set or the multiplicity of its nullspace for hexagons. The closest Resultary findings address arbitrary radial kernels on quadrangles and powered-distance negative type on hexagons. The supported distinct claim is the explicit positive-parameter interval with its endpoint and ranks for every admissible equal-order hexagon, not the general spectral method or merely the failure of negative type.",
+      "residual_risks": [
+        "An association-scheme specialization, older exact Gibbs table or general polygon kernel theorem not retrieved could establish equivalent coverage. No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine general applicability but not evaluated hexagon threshold",
+          "evidence": [
+            "Q_x(u,v)=x^d; finite distance-regular radial kernel PSD is equivalent to positive definiteness on its polynomial hypergroup and to positive spectral measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2111.02116v2",
+          "material_read": "Introduction offset 0; §2.2 Theorem 2.6 offset 25453",
+          "method": "Open primary arXiv HTML, bounded passages",
+          "title": "Positivity of Gibbs states on distance-regular graphs",
+          "trigger": "Same exponential-distance matrix and broader graph class"
+        },
+        {
+          "assessment": "Different matrix but directly related; located corollary does not cover the needed reciprocal parameter regime",
+          "evidence": [
+            "Off-diagonals are geometric sums; Corollary 4.4 requires a classical q-type eigenvalue and gives a three-eigenvalue conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.14636",
+          "material_read": "Introduction offset 0; §4 Corollary 4.4 and adjacent Lemma 4.5 around offset 34450",
+          "method": "Open primary arXiv HTML, bounded passages and hypothesis comparison",
+          "title": "Distance-regular graphs with exactly one positive q-distance eigenvalue",
+          "trigger": "Geometric-sum distance spectrum can reformulate exponential-kernel positivity"
+        },
+        {
+          "assessment": "Covers general evaluation framework, not specific sign classification",
+          "evidence": [
+            "Distance matrices share eigenspaces; the P,Q eigenmatrices depend on the intersection numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.6294",
+          "material_read": "p. 15, OA offset 49116, Bose–Mesner algebra and P,Q discussion",
+          "method": "Open primary PDF passage",
+          "title": "Distance-regular graphs",
+          "trigger": "General distance-regular eigenmatrix formulas might entail the interval"
+        },
+        {
+          "assessment": "Structural spectral result in located scope, not an exponential cutoff",
+          "evidence": [
+            "The statement concerns distance-biregularity and spectral excess."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.4354",
+          "material_read": "p. 1, OA offset 1210",
+          "method": "Open primary PDF passage",
+          "title": "The Spectral Excess Theorem for Distance-Biregular Graphs",
+          "trigger": "Cited incidence-graph spectral framework"
+        },
+        {
+          "assessment": "Related but different graph geometry",
+          "evidence": [
+            "Quadrangle radial cone, exponential cutoff and ranks; diameter four rather than six."
+          ],
+          "identifier_or_url": "Resultary 9535d19cf47d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Exact positivity cone of distance-radial kernels on finite generalized quadrangles",
+          "trigger": "Exact same radial positivity question in a neighboring incidence family"
+        },
+        {
+          "assessment": "Overlap in negative-type theme, not the fixed-scale threshold theorem",
+          "evidence": [
+            "Powered-distance conditional negative type and all-scales Schoenberg positivity are classified; no equivalent cutoff or rank statement in the located finding."
+          ],
+          "identifier_or_url": "Resultary 5d13c26bd56c",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Sharp negative type and a fifth-power decay law for generalized hexagons",
+          "trigger": "Potential overlap for exactly the same incidence geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and full-rank versus one-dimensional-defect proof",
+        "Voit arXiv:2111.02116v2 Introduction and Theorem 2.6"
+      ],
+      "rationale": "The exponential of graph distance is the standard Gibbs kernel and a natural proposed covariance, not an invariant chosen after the calculation. An exact parameter set and one-dimensional endpoint loss give information that an abstract spectral criterion or negative-type failure alone does not give. The result is uniform over the entire family at equal order without an automorphism assumption; it exposes the alternating bipartition direction as the binding constraint. There is no claim of a new general spectral method.",
+      "residual_risks": [
+        "Scope is the ordinary graph distance, real a≥0 and equal-order generalized hexagons only; no quantitative conditioning or broader geometry inference is certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

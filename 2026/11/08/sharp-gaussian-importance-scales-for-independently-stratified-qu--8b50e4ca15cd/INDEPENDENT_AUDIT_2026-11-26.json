@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:35:37.991116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–31 and 35–91",
+        "VERIFICATION.md lines 19–23, check.py lines 10–62 and recorded check_output.txt lines 1–8; source script not run"
+      ],
+      "rationale": "The density ratio under x=sqrt(s)z gives the stated unbiased f_s and elementary Gaussian integration shows f_s is square integrable exactly for s>1/2. If s<=1/2 an endpoint stratum has infinite second moment, and the estimator is a nonnegative sum with finite mean. For square-integrable f, independence gives Var(Q)=||f-P_N f||_2^2/N. The sharp smooth limit is obtained from the variance h^2/12 of the uniform offset on cells of width h=1/N and a uniform Taylor remainder. Cellwise Poincare and density extend the norm limit to H^1; restricting the same smooth calculation to full interior cells gives a liminf bound for every compact interval and hence divergence when the derivative's integral is infinite. Substitution u=Phi(z) in the derivative norm gives the weight exp(-(s-3/2)z^2) times [2z-(s-1)z^3]^2. No polynomial cancellation changes the boundary at s=3/2. The Gaussian second, fourth and sixth integrals yield the displayed C(s) after the factor 1/12. The log derivative has the stated cubic, whose shifted coefficients have one sign change, with a negative constant and positive leading coefficient. Both finite-range endpoint limits are infinite, so its unique root is the unique best fixed scale. Independent decimal evaluation gives s*=3.771072680736151, C(s*)=6.561382327199923, C(3)=7.2551974569368705 and a 9.563008% drop. The unstratified second moment is 3s^3/(2s-1)^(5/2), with derivative sign s-3, giving its unique optimum s=3.",
+      "residual_risks": [
+        "The numerical quadratures near s=3/2 can be far below the limiting coefficient even at N=512; the fixed-s analytic limit, not the grid, proves the thresholds and comparison. No uniform statement for s depending on N is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 97–110 distinguish RQMC boundary-growth guarantees, Haber/higher-order cubature and contextual option pricing",
+          "The retrieved arXiv:2506.07437 excerpt covers performance comparison to IID importance sampling at the method level"
+        ],
+        "reasoning": "A generic error bound or a theorem for correlated randomizations does not determine the independent-stratum coefficient. Even a general smooth sharp energy formula leaves the non-H^1 cases, explicit Gaussian integrals and strict comparison of scales to be addressed.",
+        "searches": [
+          "He–Zheng–Wang arXiv:2203.03220 Theorem 3.5 and Corollary 3.6",
+          "Chopin–Gerber arXiv:2210.01554",
+          "One-dimensional quantile-stratified sampling arXiv:2506.07437",
+          "Glasserman–Heidelberger–Shahabuddin DOI 10.1111/1467-9965.00065"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31, 41–91, 97–110",
+        "Resultary 8b50e4ca15cd and acdf8ccfa2ee",
+        "arXiv:2506.07437 search excerpt, arXiv:2203.03220, arXiv:2210.01554, arXiv:2403.11374 and DOI 10.1111/1467-9965.00065 with access limitations recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md lines 41–91 separate the generic cell-variance identity from the exact derivative integrability and minimization",
+          "He–Wang–Wang is cited for randomly shifted lattices; same-day catalogue result has a different observable"
+        ],
+        "reasoning": "A proposal choice optimized under IID or under a different stratification dependence is not an implication for the independent-cell Sobolev objective; here the two optimizers provably differ. The standard leading variance principle itself is antecedent background.",
+        "searches": [
+          "arXiv:2403.11374 randomized lattice importance proposals",
+          "arXiv:2506.07437 quantile-stratified importance sampling compared with IID",
+          "Resultary: acdf8ccfa2ee phase transition versus quadratic importance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2506.07437 search excerpt explicitly combines quantile stratification with importance sampling from the candidate distribution",
+          "RESULT.md lines 35–47 establish that proposal quantile jitter and uniform-integrand stratification are equivalent here"
+        ],
+        "reasoning": "Quantile-blocked and inverse-CDF descriptions are method aliases, so their general use is not original. The retrieved excerpt does not identify the quadratic observable's two scale boundaries or optimizing cubic.",
+        "searches": [
+          "Resultary: sharp Gaussian importance scales independently stratified quadratic integration",
+          "Primary literature: stratified importance sampling Gaussian quadratic normal second moment optimal proposal variance inverse quantile derivative asymptotic variance constant Haber Chopin Gerber"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8b50e4ca15cd is the frozen record, not independent coverage",
+          "acdf8ccfa2ee concerns a fixed normal tail probability and threshold-cell error terms"
+        ],
+        "reasoning": "Exact-value tables are not intrinsically applicable to a continuous one-parameter integral optimum. The result catalogue was checked for an exact match; the tail indicator is not the quadratic observable and introduces a jump absent here.",
+        "searches": [
+          "Resultary: 8b50e4ca15cd exact 3.77107268073615 stratified Gaussian proposal; acdf8ccfa2ee Gaussian proposal phase transition"
+        ]
+      },
+      "rationale": "Independent probability strata, the 1/12 derivative-energy principle and general importance-sampling strategy are not credited as new. The supported distinct contribution is the exact two-threshold classification and constrained Gaussian optimum for the standard quadratic benchmark, separated rigorously from its ordinary variance optimum. Published Gaussian RQMC results and the same-day Gaussian stratified tail problem overlap on the importance-proposal mechanism but do not give this particular Sobolev boundary and optimizer. The closest one-dimensional quantile-stratified importance paper was identified, but its full-text passages were unavailable. No retrieved result was shown to give the claimed benchmark as its own specialization without the singular endpoint analysis and scale optimization.",
+      "residual_risks": [
+        "The original passages for the closest one-dimensional quantile-stratified work and cited broader literature were not recovered. A prior exact specialization within this Gaussian quadratic benchmark remains possible. The unsuccessful lookups are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method overlap; exact benchmark specialization not established from the excerpt",
+          "evidence": [
+            "Quantile-stratified sample from the candidate distribution, with performance contrasted to IID samples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.07437",
+          "material_read": "Primary search excerpt on quantile-blocked importance sampling; targeted PDF passage retrieval timed out",
+          "method": "Focused literature search and OA literal passage attempt",
+          "title": "One-dimensional quantile-stratified sampling and its applications",
+          "trigger": "Closest same-method prior, including comparison with IID importance sampling"
+        },
+        {
+          "assessment": "No passage-level claim of noncoverage; the cited rate guarantees do not specify the independent-cell quadratic optimum",
+          "evidence": [
+            "RESULT.md lines 97–99 and 105–107"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.03220",
+          "material_read": "Bibliographic identification and frozen comparison of Theorem 3.5 and Corollary 3.6; original passages unavailable",
+          "method": "Reference-led OA passage attempt",
+          "title": "On the Error Rate of Importance Sampling with Randomized Quasi-Monte Carlo",
+          "trigger": "Gaussian proposal covariance and boundary regularity"
+        },
+        {
+          "assessment": "Relevant antecedent to the variance principle, not inspected as a full-document negative result",
+          "evidence": [
+            "RESULT.md lines 97–99 and 108"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.01554",
+          "material_read": "Frozen comparison and bibliography; OA full-text retrieval timed out",
+          "method": "Reference-led OA attempt",
+          "title": "Higher-order Monte Carlo through cubic stratification",
+          "trigger": "Haber stratification and importance examples"
+        },
+        {
+          "assessment": "Different randomization and observables in the cited comparison",
+          "evidence": [
+            "RESULT.md lines 97–99 and 109"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.11374",
+          "material_read": "Bibliographic ID and frozen description; OA retrieval timed out",
+          "method": "Reference-led OA attempt",
+          "title": "Importance sampling with randomized lattice rules for Bayesian inverse problems",
+          "trigger": "Potential broader Gaussian proposal optimization"
+        },
+        {
+          "assessment": "Not independently verified against primary passages; no claim of whole-document noncoverage",
+          "evidence": [
+            "RESULT.md line 110 identifies the context and abstract-only evidence"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1467-9965.00065",
+          "material_read": "Frozen contextual citation only; OA retrieval timed out",
+          "method": "Reference-led OA attempt",
+          "title": "Asymptotically optimal importance sampling and stratification for pricing path-dependent options",
+          "trigger": "Possible broader importance-stratification optimum"
+        },
+        {
+          "assessment": "Different normal-tail indicator, with threshold-cell and endpoint regimes; same date does not establish order",
+          "evidence": [
+            "Catalogue summary describes a fixed Gaussian tail probability"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-gaussian-proposal-phase-transition-for-stratified-rare-event-q--acdf8ccfa2ee",
+          "material_read": "Catalogue statement; local mirror passage unavailable",
+          "method": "Resultary and targeted mirror attempt",
+          "title": "A Gaussian proposal phase transition for stratified rare-event quadrature",
+          "trigger": "Same-day Gaussian proposal stratification and phase transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–31, 77–91, and 101–103"
+      ],
+      "rationale": "Estimating the already-known normal second moment is a deliberate benchmark, not practical numerical integration. It isolates a material method-choice distinction: finite ordinary importance variance starts at s>1/2, the nominal N^-3 stratification coefficient needs s>3/2, and optimizing ordinary variance gives the wrong fixed Gaussian proposal even within the regular regime. The exact mismatch, variance gain and endpoint classification are useful for checking general claims about what stratification changes; they are not significance inferred from the small numerical difference alone.",
+      "residual_risks": [
+        "This is not a finite-N optimization, an optimal non-Gaussian proposal, or a claim of superiority over more general quadrature methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

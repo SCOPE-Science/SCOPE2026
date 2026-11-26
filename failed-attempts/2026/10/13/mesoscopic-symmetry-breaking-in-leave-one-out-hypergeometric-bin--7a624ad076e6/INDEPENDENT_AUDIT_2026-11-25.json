@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:23.028017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–74",
+        "Frozen VERIFICATION.md and verify.py (static inspection; exact probability identity and finite numerical checks)"
+      ],
+      "rationale": "With p=K/N and q=1−p the two hypergeometric masses are p at K−1 and q at K, and both binomial masses are C(N,K)p^Kq^(N−K). This gives (N−1)H(p)−log C(N,K) in nats. The all-composition Stirling error O(1/K+1/(N−K)) is uniformly bounded; if pq tends to zero along a maximizing subsequence, its log-pq term tends to minus infinity relative to the center, a contradiction. Uniform interior Stirling and the strict maximum of F at u=p−1/2=0 then give u→0. Expanding half log(pq)−H in 2u cancels the quadratic term and gives −(8/3)u^4+O(u^6) relative to the center, with all higher even coefficients negative. The Stirling coefficient has increment (4/3)u^2/(1−4u^2). Comparing to the nearest central point, whose baseline error is O(N^-3), gives (8/3)u^4≤C u^2/N+O(N^-3), hence y=√N u is bounded for all maximizers. On bounded y the rescaled profile is uniformly (4/3)y^2−(8/3)y^4+o(1); compare with lattice approximations to ±1/2, possible even for odd N. Every maximizing subsequence approaches that two-point set and the limiting gain is 1/6. The baseline constants F(0)=−2 log 2 and G(0)=1/4 give exactly the absolute expansion including the coefficient 1/(6N²).",
+      "residual_risks": [
+        "No uploaded code was run and the finite checks were not independently rerun; they are illustrative only. The proof gives an asymptotic for every maximizing choice, not an exact finite-N maximizer formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Gavalakis–Kontoyiannis treat relative entropy with composition dependence, but their compared bounds use samples of size at most half of the population. Harremoës–Matúš's Theorem 5.1 gives a limiting expression in the limiting unsampled fraction, for fixed color count and proportions away from zero. It gives no composition-dependent expansion as this fraction goes to zero; interpreting its limit at zero as divergent still gives no optimizing composition or correction.",
+          "Dümbgen–Samworth–Wellner compare hypergeometric and binomial laws via maximal density ratios, not the same divergence, and the inspected bound has a sample-size restriction."
+        ],
+        "reasoning": "Neither other sampling regimes nor bounds on a different discrepancy give the endpoint quartic/quadratic competition. The decisive coverage is the exact endpoint treatment in the catalogue.",
+        "searches": [
+          "arXiv:2404.06632, Theorem 1.1 and Proposition 1.2",
+          "arXiv:2002.03002v1, Theorem 5.1",
+          "arXiv:1905.03009v1, §2, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Distinct near-census Resultary record linked above",
+        "Primary papers arXiv:2404.06632, arXiv:2002.03002v1 and arXiv:1905.03009v1",
+        "Frozen RESULT.md, lines 79–88"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform Stirling formula in the covering record uses G(p)=log(p(1−p))/2−h(p) and A(p)=(1/p+1/(1−p)−1)/12. It gives an O(n^-3) remainder. At p=floor(n/2)/n, p−1/2=O(n^-1); the same proof gives a quartic G increment and quadratic A increment.",
+          "Thus D_n(floor(n/2))=log(πn/8)/2+1/(4n)+O(n^-3), since G(1/2)=−2 log 2 and A(1/2)=1/4."
+        ],
+        "reasoning": "Adding the stated excess 1/(6n²)+o(n^-2) to the evaluated balanced baseline proves the full absolute maximum expansion. No additional claim survives this comparison.",
+        "searches": [
+          "Near-census record, Finding at offset 0; Proof steps 2–4, offset 2680 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Finding uses the same sampling laws, direction, logarithms and nonempty colors. Its identity −log[C(n,j)p^j q^(n−j)]−h(p) equals (n−1)h(p)−log C(n,j). Writing a_n=min(j_n,n−j_n) converts n/2−a_n to |j_n−n/2|.",
+          "It states the same √n/2 displacement for every maximizing sequence and the 1/6 limit for n² times the maximum's excess over D_n(floor(n/2))."
+        ],
+        "reasoning": "Changing from composition K to the minority count, or shifting the objective by its balanced value, does not change its optimization problem. The change of baseline is evaluated explicitly in the implication check.",
+        "searches": [
+          "Resultary semantic formulations: leave-one-out hypergeometric/binomial KL; near-census binary urn relative entropy; N−1 sampling endpoint; finite-population divergence extremum",
+          "2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct near-census catalogue result gives the infinite-sequence limits and also an n=4 witness; its numerical checks are only for selected finite orders.",
+          "No other directly overlapping same-day entry appeared among the reviewed ranked hits."
+        ],
+        "reasoning": "A table of a few finite maximizers or even the n=4 witness would not cover an all-maximizers asymptotic or a second-order coefficient. The published analytic finding and proof do.",
+        "searches": [
+          "Resultary ranked checks for the exact N−1 endpoint and square-root imbalance",
+          "Near-census record, Finding and reported finite checks, offsets 0 and 6049"
+        ]
+      },
+      "rationale": "A distinct published catalogue record verifies coverage of the same optimizing compositions and leading excess over balance. Its uniform Stirling expansion at the central composition converts this excess to the complete absolute expansion in the frozen result without any new asymptotic term. The covering record's displayed catalogue date is later; this is current mathematical coverage, not a retrospective priority finding. The external earlier literature inspected does not supply the composition-sensitive endpoint optimum.",
+      "residual_risks": [
+        "The bounded literature and catalogue searches are not exhaustive. Neither a later catalogue date nor this disposition establishes priority, dependence, or an earlier published equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire claim in the present catalogue, including its absolute maximum expansion by a baseline conversion",
+          "evidence": [
+            "Same finite identity, every-maximizer limit and balanced excess, with the same central Stirling coefficients and remainder."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0); Stirling expansion and localization (offset 2680); verification and relationship to prior work (offset 6049)",
+          "method": "Published catalogue semantic lookup and bounded exact local-mirror readings",
+          "title": "A square-root imbalance maximizes near-census binary-urn relative entropy",
+          "trigger": "Exact same optimization under near-census urn wording"
+        },
+        {
+          "assessment": "Compared theorem does not include the leave-one-out endpoint",
+          "evidence": [
+            "Its bound assumes a sample size at most half of the population."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.06632",
+          "material_read": "Abstract p. 1, Theorem 1.1 p. 3 offset 12623, Proposition 1.2 p. 4 offset 14297",
+          "method": "Bounded primary PDF reading",
+          "title": "Relative entropy bounds for sampling with and without replacement",
+          "trigger": "Composition-sensitive bounds for matched urn laws"
+        },
+        {
+          "assessment": "No optimizing endpoint expansion in compared result",
+          "evidence": [
+            "The limit is expressed in the limiting unsampled fraction r, not a variational estimate uniform in composition at r=1/N."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.03002",
+          "material_read": "Theorem 5.1, PDF pp. 14–15, offset near 41601",
+          "method": "Bounded primary PDF reading",
+          "title": "Bounds on the Information Divergence for Hypergeometric Distributions",
+          "trigger": "Same divergence and finite-population asymptotics"
+        },
+        {
+          "assessment": "Different discrepancy, not an implication for the KL optimum",
+          "evidence": [
+            "The maximum-density-ratio comparison is not a KL expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.03009",
+          "material_read": "§2, especially Theorem 2, PDF pp. 3–4, offsets 8704–13494",
+          "method": "Bounded primary PDF reading",
+          "title": "Bounding distributional errors via density ratios",
+          "trigger": "Same approximation question with a possible competing extremal criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–19 and 39–74",
+        "Near-census Resultary record, Finding and proof of the balanced excess"
+      ],
+      "rationale": "The mesoscopic displacement is meaningful in isolation: it explains why balance fails despite the limiting strict maximum at balance. But the current catalogue already gives that phenomenon and its leading gain. The only apparent difference, an absolute rather than centered expansion, follows by reading off the balanced Stirling baseline from the covering proof. The frozen record supplies no further case, correction, or mechanism relative to that coverage.",
+      "residual_risks": [
+        "This is an assessment of incremental scientific content against current verified coverage, not a claim that the original asymptotic observation lacks intrinsic interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

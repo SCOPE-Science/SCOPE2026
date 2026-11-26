@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-rank corner trace identity gives the universal \(\sqrt{|p-q|}\) lower bound. A matched \(S\oplus S^*\) pair is a rank-one perturbation of a bilateral shift, for which dyadic arc-step projections have the exactly computed \(2N[1-\operatorname{sinc}^2(\pi/N)]\) commutator energy. Direct-sum coordinate projections attain the remaining \(|p-q|\) energy. Every strongly exhaustive bounded self-adjoint cutoff asymptotically commutes in Hilbert–Schmidt norm with each Hilbert–Schmidt perturbation. A diagonal tapered cutoff gives ordinary modulus zero. All cases \(p,q\ge0\), \(p+q\ge1\), and arbitrary \(K\in\mathcal S_2\) are covered.
+## correctness
 
-**Originality — PASS, qualified.** Liu–Zhao's Theorem 1.2 [1] quantifies over positive contractions, so it does not imply vanishing of a projection-restricted modulus; our index-positive examples explicitly show why. Voiculescu [2] likewise defines the usual modulus with positive contractions. Davidson [3] supplies classical normal-operator approximation and therefore underlies the balanced case, but does not state the sharp unbalanced multiplicity law. Prior projective-cutoff trace and Fredholm-index techniques are recognized as standard ingredients. Comparison with published mathematical research records and related Hilbert–Schmidt studies did not identify the exact combined statement. An older implicit reformulation remains possible. Lauric (2019), a related Hilbert–Schmidt approximate-unit paper, was accessible only via abstract, and no full-text noncoverage conclusion is asserted.
+PASS
 
-**Mathematical value — PASS.** The formula answers a structurally motivated approximation question raised by the positive-cutoff/orthogonal-cutoff distinction: it classifies precisely when the stronger cutoffs can succeed, including exact cost, index dependence, and perturbation robustness. It separates the topological obstruction from the always-zero classical modulus, rather than just exhibiting an isolated counterexample.
+For a finite projection P the two squared leakage norms sum to the squared unnormalized Hilbert–Schmidt commutator norm, and their signed difference is the compressed trace of T*T−TT*. For the shift model this compressed trace tends to p−q for every strong exhaustion, giving the required lower bound without assuming nestedness. Pairing a forward and backward copy gives the bilateral shift after adding one matrix unit. Dyadic arc-constant projections increase strongly to the identity; on each arc the compressed multiplier has modulus sinc(π/N), so both leakages have total squared norm 2N(1−sinc²(π/N))→0. Each unpaired copy contributes a single boundary matrix unit to the direct-sum nested sequence, attaining |p−q| in squared norm. For any strong exhaustion by self-adjoint contractions, multiplication of I−R_n against a Hilbert–Schmidt K tends to zero in Hilbert–Schmidt norm on both sides by finite-rank approximation; this proves invariance sequence by sequence. The diagonal ramp with N jumps of size 1/N has squared cost (p+q)/N, hence the ordinary positive-contraction modulus vanishes. The index q−p follows from kernel and cokernel dimensions and compact-perturbation invariance. This covers also the balanced and pure one-sign cases. The frozen diagnostic is supplementary; the review used the analytic identities, not a run of that script.
 
-**Limits.** The result is for finite direct sums of forward/backward shifts plus Hilbert–Schmidt perturbations; it is not a universal Fredholm theorem. The standard pieces have older precedents; the claimed new content is the complete quantitative combination and its sharpness. External independent validation is absent.
+## originality
 
-References: [1] https://arxiv.org/abs/2611.15604; [2] https://arxiv.org/abs/2503.23248; [3] https://jot.theta.ro/jot/archive/1988-020-002/1988-020-002-003.pdf.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the usual positive-contraction zero, Hilbert–Schmidt stability mechanism, and normal approximation as background. The supported distinction is the exact nonzero unnormalized projection-only energy governed by the index in the specified model, including nested attainment and arbitrary Hilbert–Schmidt perturbations. No distinct result supplying this sharp law was established in the bounded comparison; older related index results remain a priority risk.
+
+## value
+
+PASS
+
+Forward/backward shifts are canonical index models, and the least commutator leakage for projection cutoffs is a natural approximation invariant. The law quantifies exactly how the two signs cancel and separates this projection cost from a zero cost under positive contractions. An exact dimension-free floor, not just existence or nonexistence of approximate commutation, is useful in testing what information projection approximations can retain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:03.565179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57; VERIFICATION.md; inspected supplied verify.py without executing it",
+        "Independent replay: /workspace/replay_frozen_math.py, python3 replay_frozen_math.py 3"
+      ],
+      "rationale": "Equality of individual softmax probabilities is equivalent to equality of the log odds for all two competitors i,k. Using the binary basis states and varying the two positive payoff parameters independently gives the row identity lambda_i P_i - lambda_k P_k = (s-1)(e_i-e_k)^T. For s≠1, a nonadjacent common-neighbor pair violates the i-coordinate, so a connected graph cannot have an induced path of length two and is a clique. A third common neighbor forces equal lambda on the clique, then s=1-lambda/(n-1). For s=1 the row sums give constant lambda on each even-walk class; on a nonbipartite graph identical rows at nonzero lambda contradict the zero diagonal. On a bipartite graph identical supports on a nonzero side and connectedness force the complete bipartite graph. The stated cases satisfy the identity even at leaves. For uniform lambda on a clique the payoff difference is -c-b/(n-1), so the effective constant ratio is R. In the mixed-state birth–death recursion the product of reverse-to-forward ratios to level j is [n-1+j(R-1)]/[(n-1)R^j]. Its reciprocal normalization is (n-1)/(n sum_{j=0}^{n-2} R^{-j}), which gives the stated formula, the neutral limit and the strict sign relative to 1/n. The independent replay checks the full nullspace including the scalar variable on all 4, 38 and 728 connected labeled graphs of orders 3, 4 and 5, and solves 60 exact tridiagonal absorption systems.",
+      "residual_risks": [
+        "Finite enumeration corroborates but does not replace the proof; no expert or formal attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiong et al. supply the same exponential fitness and death–birth rule and analyze weak selection; a2407b826de5 covers invisibility for every connected simple graph, not just bipartite examples."
+        ],
+        "reasoning": "Weak-selection analysis alone would not cover the theorem, but the published classification covers the entire s=1 slice. Neither inspected source states the full scalar classification.",
+        "searches": [
+          "Resultary: exact universality classification social comparison complete bipartite graph susceptibility",
+          "Xiong et al., arXiv:2609.39012, model and Methods"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2407b826de5",
+        "Xiong et al., arXiv:2609.39012",
+        "Tkadlec et al., DOI 10.1371/journal.pcbi.1007494"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the competitor odds condition allowing s, the i-coordinate rules out any common-neighbor nonedge when s≠1. On the now-forced clique, Pu=(sum(u)1-u)/(n-1), so comparison changes only the scalar on payoff differences and feeds directly into the known fixation formula."
+        ],
+        "reasoning": "The remainder is a short implication of the same log-odds setup and the elementary clique matrix identity, not an independent nontrivial fixation theorem.",
+        "searches": [
+          "a2407b826de5/RESULT.md, proof of competitor odds condition",
+          "Tkadlec et al., DOI 10.1371/journal.pcbi.1007494, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published definition compares each replacement probability to its lambda=0 value for all binary states and positive b,c at fixed positive delta. This is exactly the frozen s=1 equivalence; delta cancels in the log odds."
+        ],
+        "reasoning": "The quantitative domain and transition granularity coincide; no change of observable or restriction of susceptibility removes the overlap.",
+        "searches": [
+          "Resultary: social comparison death-birth dynamics heterogeneous susceptibility parent-choice equivalence graph",
+          "a2407b826de5/RESULT.md, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a2407b826de5 is an exact classification match for invisibility; Tkadlec et al., PDF p. 2, give the displayed constant-ratio clique fixation formula."
+        ],
+        "reasoning": "The earlier exact classification and exact formula are substantive matches, though the catalog match does not include arbitrary s.",
+        "searches": [
+          "Resultary: all selection strengths parent replacement probabilities donation game comparison network",
+          "Resultary: Tkadlec death-Birth complete graph fixation formula constant fitness ratio"
+        ]
+      },
+      "rationale": "The principal invisible-comparison classification, including arbitrary signed part constants, is already stated for the same individual parent-choice probabilities in the published complete-bipartite record. This is exact coverage of the s=1 portion, not merely a similarity of fixation statistics. The full s-variable theorem is not stated there; the remaining clique rescaling follows immediately by comparing the diagonal coordinate in the same log-odds test and then using P=(J-I)/(n-1). The fixation formula is already stated by Tkadlec et al.; the social-comparison ratio and reversal are the application of that clique identity. There is no sufficiently distinct surviving substantive contribution to repair the frozen framing.",
+      "residual_risks": [
+        "No separate earlier statement of the full all-scalar theorem was established by this bounded comparison. The failure is for the verified coverage and elementary remainder, not a claim that every sentence occurs verbatim in earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen zero-profile and complete-bipartite cases with s=1",
+          "evidence": "Partwise arbitrary real constants; zero profile otherwise; all configurations and positive donation parameters, individual parent probabilities.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-bipartite-classification-of-invisible-social-comparison--a2407b826de5",
+          "material_read": "RESULT.md Finding/assumptions at offset 0; proof at offset 4282",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Complete-bipartite classification of invisible social comparison in death–birth games",
+          "trigger": "Exact parent-choice invisibility match"
+        },
+        {
+          "assessment": "Same model; inspected analysis assumes weak selection",
+          "evidence": "Equations (1)–(2) give the fitness and individual replacement rule; Methods specifies delta much less than one.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39012",
+          "material_read": "PDF pp. 4–5 and 18–19, model and Methods updating equations",
+          "method": "OA PDF passage inspection",
+          "title": "Social comparison shapes the evolution of cooperation in structured populations",
+          "trigger": "Original model and possible classification overlap"
+        },
+        {
+          "assessment": "Exact formula under constant fitness ratio; not a classification of comparison rules",
+          "evidence": "rho_dB(K_N,r)=(1-1/N)(1-1/r)/(1-1/r^(N-1)); surrounding analysis focuses on r>1.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1007494",
+          "material_read": "PDF p. 2, constant-fitness-ratio complete graph formula",
+          "method": "OA PDF passage inspection",
+          "title": "Limits on amplifiers of natural selection under death-Birth updating",
+          "trigger": "Exact clique fixation formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem, scope and fixation consequence",
+        "a2407b826de5"
+      ],
+      "rationale": "As a mathematical classification, equality of all microscopic parent probabilities is a useful and stronger observable than a coincident fixation statistic; the scope distinguishes exact cancellation from selection reversal. This intrinsic value does not make the already-covered classification or the simple clique deduction a distinct new contribution.",
+      "residual_risks": [
+        "Large susceptibilities are a mathematical model extension, not an empirical prediction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

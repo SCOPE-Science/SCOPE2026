@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:08:36.319370Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Independent generation of the defining coefficients over F3 checked all 12,293 nonzero coordinate histograms for 3<=n<=40 (for n=5,8,11,14 the reduced projective point counts over F3 were 5,43,34,2731). This does not establish geometric support over an algebraic closure or local lengths; those follow analytically. The frozen check.py prints 'block_residue_cases=11000+' but its modular filter executes only 1274 block-case assertions of each kind; the label overstates the tested domain. The proof is unaffected. Embedded structure at the diagonal in the line case is outside the claim.",
+      "rationale": "The algebraic classification in RESULT.md is correct. Each coordinate solves the same monic quadratic X^2-e1 X+e2. For two distinct block values a,b the equations reduce to e1=a+b and e2=ab. With A=m-1 and B=l-1 these are A a+B b=A a^2+B b^2=0; distinctness makes the equivalent conditions A a=B b=0. For the all-equal nonzero case the gradient vanishes just at n=1,2 mod 3 and the cubic just at n=0,1,2 mod 9. A single nonzero block has size 1 mod 9; two blocks of sizes 3u+1,3v+1 give e3=(ua+vb)^3. The residues yield the stated support, including the diagonal (on a qualifying line) when n=2 mod 9, and the antipodal partitions in the two finite residues. At a distinct two-block point of sizes 1 mod 3 the cross Hessian entries are zero and each diagonal block is a nonzero scalar times J-I, with nullity one. Thus the gradient ideal is locally the smooth plane ideal: the plane is contained in the gradient scheme and the equal tangent and local dimensions give a regular local ring. The cubic then cuts a linear cube in the finite case and vanishes identically on the surviving planes. In the other residues the complementary block is invertible and the Hessian has corank one; at an all-equal surviving point (n=1 mod 9), the Hessian is a nonzero multiple of J-I with corank one as well. A projective chart removes the radial coordinate and gives the asserted local lengths. Complementation and top-cycle multiplicities give the two degree formulas.",
+      "replay_paths": [
+        "/workspace/replay/cubic.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie gives the exact threshold and all extremal partition components with generic multiplicity one, and gives the generic local ring on coordinate axes. Smaller and embedded components are not classified.",
+          "Orzel gives an exact dimension criterion, not all components or their lengths. Cafure–Matera–Privitelli's outer-polynomial nonsingularity hypothesis fails for G=Y_3 in characteristic 3."
+        ],
+        "reasoning": "Xie's broader theorem directly covers the top cycle and the standard coordinate point lengths. Neither the dimension criterion nor the partition method supplies noncoordinate local lengths.",
+        "searches": [
+          "arXiv:2610.00259v1 Theorems 1.1, 1.3, 1.4 and §7",
+          "arXiv:2509.05009 §2 and Theorem 3.6",
+          "arXiv:1109.2265 §§3.2–3.3 and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00259v1",
+        "arXiv:2509.05009",
+        "arXiv:1109.2265",
+        "Resultary 2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=p=3 and 9|n-2, Theorem 1.3 gives every extremal space by partitioning into two blocks of sizes 1 modulo the smallest 3-power strictly greater than 3, i.e. 9. All are multiplicity one. The top degree follows by counting these complementary partitions.",
+          "A complete reduced finite list does not determine its scheme degree: n=8 has 43 reduced points and length 129."
+        ],
+        "reasoning": "Known positive-dimensional component counts and generic multiplicities cannot be claimed as new by giving a new proof. Exclusion of additional isolated support in the line case and noncoordinate finite local lengths are the meaningful possible remainder.",
+        "searches": [
+          "Xie, arXiv:2610.00259v1 Theorems 1.1, 1.3–1.4 and §7",
+          "Matched Resultary RESULT.md offsets 0–5632 and 5500–8203"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine cone of the frozen scheme is Xie's Z2(e3) for p=3; block partition spaces projectivize to P_S.",
+          "The matched Resultary finite classification calls the objects isolated singular points of elementary symmetric cubic hypersurfaces and uses weight and signed bipartition descriptions of the very same projective points."
+        ],
+        "reasoning": "The cone/projective change does not alter the components off the vertex, and complementary partitions index exactly the same line or sign point. Scheme length is an extra invariant beyond a reduced classification.",
+        "searches": [
+          "arXiv:2610.00259v1 §§1.2–1.3",
+          "Resultary: 2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched RESULT.md lists weight-1 mod 9 support and antipodal points for n≠2 mod 9, with exact counts including 43 reduced points for n=8. It does not compute local length or include the n=2 mod 9 case."
+        ],
+        "reasoning": "This is a substantial catalogue overlap including finite reduced point counts; its later listing does not prove precedence or erase the new multiplicity information.",
+        "searches": [
+          "Configured Resultary semantic search (50 results)",
+          "2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd"
+        ]
+      },
+      "rationale": "A material part of the frozen novelty claim is already implied by Xie: the positive-dimensional partition lines, their generic multiplicities and hence their count and exact degree are a direct specialization of Theorem 1.3. RESULT.md:74–78 and the accompanying self-review do not correctly delimit the claim to finite scheme degrees and genuinely additional support information. This is verified partial prior coverage, not a claim that the whole theorem is old. The later Resultary overlap independently duplicates the finite reduced classification, but is not evidence of earlier priority. No corrected claim is submitted here.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison; there may be additional prior coverage of the remaining noncoordinate lengths.",
+        "The catalogue listing dates do not determine priority for the geometric overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage",
+          "evidence": "Theorem 1.3 identifies all extremal components and says each is generically smooth and multiplicity one. Theorem 1.4 describes coordinate axes, and the text limits the coverage of smaller and embedded components.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00259v1",
+          "material_read": "§§1.2–1.3 and §7; decisive HTML text offsets 7540–10852",
+          "method": "Lawful OA full-text passages",
+          "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+          "trigger": "Same multiplicity scheme and claimed component classification"
+        },
+        {
+          "assessment": "Dimension criterion covered; no complete scheme classification in these statements",
+          "evidence": "Specializing its dimension criterion to d=p=3 yields the same threshold 9|n-2.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.05009",
+          "material_read": "§2 and Theorem 3.6; text offsets 11100–14299 and 37700–41649",
+          "method": "Lawful OA full-text passages",
+          "title": "Computing the Elementary Symmetric Polynomials in Positive Characteristics",
+          "trigger": "Same singular locus in a general degree framework"
+        },
+        {
+          "assessment": "Background only for the target cubic",
+          "evidence": "The relevant theorem uses a nonsingular outer polynomial G in the specified symmetric generators, unlike G=Y_3 here.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.2265",
+          "material_read": "§§3.2–3.3 and Theorem 3.1; text offsets 32000–35473 and 39200–43088",
+          "method": "Lawful OA full-text passages",
+          "title": "Singularities of symmetric hypersurfaces and an application to Reed–Solomon codes",
+          "trigger": "Partition-space method for symmetric hypersurfaces"
+        },
+        {
+          "assessment": "Equivalent finite reduced support and point counts only; no priority finding",
+          "evidence": "The full geometric point list for n not congruent to 2 modulo 9 is the same; scheme lengths and the line case are not treated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd",
+          "material_read": "RESULT.md offsets 0–5632 and 5500–8203",
+          "method": "Configured Resultary search and local mirror full-text passages",
+          "title": "All isolated singular points of elementary symmetric cubic hypersurfaces",
+          "trigger": "Strongest catalogue match for the finite part"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite scheme degrees and noncoordinate local lengths address a real gap beyond dimension and extremal geometry: a support count alone misses the threefold thickness at all 35 antipodal points for n=8. The absence of additional isolated support in the line regime is also useful. The positive-dimensional top cycle as a stand-alone invariant is already covered, so its recomputation is not a source of distinct value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

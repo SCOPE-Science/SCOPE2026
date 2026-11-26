@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Expansion along two columns yields the exact polynomial \(u^{\mathsf T}A(B)v\). The all-ones specialization gives an explicitly nonzero determinant for every \(n\ge3\), making \(v\mapsto A(B)v\) invertible on a dense principal open. This proves a genuine scheme isomorphism, not merely equality of tangent cones. Jacobian differentiation of the split quadratic equation proves reducedness and the component claim on that open; the normal Hessian determinant gives the degeneration divisor. The exact integer checker corroborates small cases. The rank-drop locus is not globally classified.
+## correctness
 
-**Originality — PASS, with risk.** Alper--Bogart--Velasco (arXiv:1505.02205, Remark 1.5) already identifies the two-zero-column singular points and obtains the \(2n\) codimension upper bound. Boralevi--Carlini--Michałek--Ventura (arXiv:2402.17839, Section 4.5) studies related global codimension problems and does not give the explicit all-size open product normal form or transverse Hessian discriminant. Laubenbacher--Swanson (arXiv:math/9812112) treats two-by-two permanental ideals; it does not supply the all-size claim. These known containment/upper-bound results are excluded from novelty. There is residual risk of an equivalent unindexed local calculation and incomplete review of von zur Gathen (1987).
+PASS
 
-**Value — PASS.** The permanent hypersurface's singular-component problem is a longstanding geometric issue. Exact local scheme structure, a full-rank transverse quadratic model for infinitely many natural linear components, and the explicit equation and degree of the degeneration locus constrain future classifications and distinguish actual ordinary-node regions from more degenerate intersections. This is more than a low-degree example or a restatement of singular containment, but does not solve the complete singular-locus problem.
+On a projective chart normalized by a nonzero coordinate of the remaining columns B, the permanent is exactly u^T A(B)v: a permutation chooses ordered distinct rows for u,v. At the all-ones B, A=(n-2)!(J-I) is invertible, with eigenvalues (n-1)(n-2)! and -(n-2)!. On the determinant-open chart, w=A(B)v has a regular inverse. The equation becomes sum u_i w_i, whose full Jacobian ideal is (u,w), including scheme structure; the equation itself belongs to the ideal. Thus the open transverse cone has dimension 2n-1 and multiplicity two, and the zero-column space is a whole irreducible component since it is the entire singular locus on an ambient open meeting it densely. There are exactly n(n-1) distinct spaces of the specified types (not necessarily all components); even for n=3 the surviving coordinate positions distinguish row and column spaces. The codimension in the ambient projective space is 2n. The Hessian determinant is (-1)^n(det A)^2, so the degree-n(n-2) divisor is det A, not the full determinant divisor; no squarefreeness or degeneracy classification follows. Inspected checker.py, checker_output.txt and VERIFICATION.md. The retained 42 expansion and six determinant checks are finite; they were not rerun and are not required for the algebraic proof. The checker uses int.bit_count, so Python 3.10+ rather than the advertised 3.8+ is appropriate for replay.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit prior singular containment, the complementary-permanent Jacobian/Hessian and the rank-drop criterion. The supported distinct contribution is the explicit algebraic trivialization of the entire hypersurface on the determinant-open projective charts, not the computation of the transverse tangent form at a point. The component and divisor statements are geometric consequences or close to consequences of known calculations, not independent priority claims.
+
+## value
+
+PASS
+
+A uniform regular coordinate chart on every such stratum gives usable geometric information beyond a tangent-space dimension, including the full reduced Jacobian scheme where the chart applies and an explicit boundary of applicability. This is a structural lemma about classical singular strata, without claiming to solve the global component or codimension problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

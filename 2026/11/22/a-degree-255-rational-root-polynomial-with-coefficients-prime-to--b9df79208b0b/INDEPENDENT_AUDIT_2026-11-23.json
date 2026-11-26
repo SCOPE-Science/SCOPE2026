@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:52:40.490033Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The factorization gives exactly the two rational roots and degree 255. Modulo 2, (1+X)^256=1+X^256, and division by 1+X gives 256 unit coefficients for exponent 255. Modulo 5, the digit vectors (2,2,4,0) and (3,3,0,1) give A(X)A(X⁵)B(X²⁵)(1+X¹²⁵), where A has coefficients (1,1,3,3,1,1) and B=(1,1,1,1,1). In H=A(X)A(X⁵), the nonzero residue classes of the exponent modulo 5 each get one nonzero product in the coefficient range. The exponent-zero class has neighbor sums 2,4,1,4,2 and boundary units. Its first six and last six coefficients combine to (3,2,1,1,2,3) modulo 5. Since deg H=30, the spacing-25 shifts never have triple overlaps and their overlaps have exactly these six coefficients. The resulting G has degree 130 and unchanged end blocks, so the spacing-125 shift has the same six overlap coefficients and all coefficients survive. The integer gcd requirement and conditional lower bound follow. Independently calculated every coefficient using the signed binomial-sum formula over ℤ (`python /workspace/review_checks/3.py`): gcd(c,10)=1 for all 256, with residue counts 1:74, 3:102, 7:20, 9:60, agreeing with the frozen output (uploaded code inspected only). No finiteness or extremality claim is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The article abstracts three scopes: bounded coefficient height, coefficients avoiding primes 2 and 3, and coefficients composed of primes from a prescribed finite set. Neither height restriction nor smoothness of coefficients implies existence of a large example avoiding 2 and 5."
+        ],
+        "reasoning": "An upper bound for a different prime pair cannot give this lower-bound example. Restrictions on allowed prime divisors or absolute coefficient sizes are distinct from requiring absence of two fixed primes. Unread portions of the paper are not certified free of examples.",
+        "searches": [
+          "10.1112/mtk.12209 publisher abstract in Crossref",
+          "Resultary related-family results from the exact-exponent search"
+        ]
+      },
+      "checked_sources": [
+        "Crossref/OpenAlex metadata and publisher abstract for 10.1112/mtk.12209",
+        "Resultary exact-exponent and prime-pair ranked query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-pair issue is an upper-bound question; the witness is a lower bound. The parity argument alone cannot imply mod-five nonvanishing: (X+1)^255 has all odd coefficients but its X coefficient is 255 and is divisible by 5."
+        ],
+        "reasoning": "The signed multiplicities and overlap analysis, not the automatic binary unit coefficients, do the work. The published abstract's theorem for 2 and 3 and the familiar binomial parity fact do not imply the proposed quantitative obstruction.",
+        "searches": [
+          "10.1112/mtk.12209 publisher abstract, plus comparison with the frozen description of Problem 1 and parity lemma",
+          "Resultary exact witness query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary query returned the exact submitted witness first. The nearby algebraic hits (including Stern coefficient polynomials and Franel/ramanujan-sum irreducibility) describe different polynomial families or assertions. The journal abstract at DOI 10.1112/mtk.12209 specifies a two-prime obstruction with primes 2 and 3, not 2 and 5."
+        ],
+        "reasoning": "All coefficients being units in ℤ/10 is exactly simultaneous full coefficient support modulo 2 and 5, even when coefficients are negative; translation to primes 2 and 3 does not preserve this predicate.",
+        "searches": [
+          "Resultary: rational root integer polynomial all coefficients coprime to ten Hajdu Tijdeman Varga degree 255 exponents 112 143",
+          "websearch: Hajdu Tijdeman Varga polynomials only rational roots Problem 1 coefficients modulo 2 and 5 degree 255 (x-1)^112 (x+1)^143 prime pair"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact degree-255 witness with multiplicities 112 and 143 matched the record under review. The other retrieved ranked records included divisibility and irreducibility for Stern, Franel, binomid and other different families, not an earlier example of degree 255 or larger for this pair in the retrieved material."
+        ],
+        "reasoning": "A pre-existing larger admissible example would dominate the lower-bound consequence even at different exponents; none was evidenced by the material compared. A finite ranked list does not rule out an older table. The replay histogram establishes arithmetic, not priority.",
+        "searches": [
+          "Resultary: rational root integer polynomial all coefficients coprime to ten Hajdu Tijdeman Varga degree 255 exponents 112 143 (10 results)",
+          "Crossref DOI lookup 10.1112/mtk.12209"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass only for the explicit witness at the pair {2,5} and the resulting lower bound, not for the parity identity or a resolution of the general-pair problem. The motivating publication's abstract is specific about {2,3} for its two-prime theorem. Ranked Resultary matches were compared where germane; the exact self-hit is the frozen claim, not earlier evidence.",
+      "residual_risks": [
+        "Websearch was unavailable. The 2023 publication body was not independently obtained through the available lawful routes, so no whole-document noncoverage conclusion is drawn. An earlier example or larger bound at {2,5} under different wording remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Read material confirms the known theorem asks a different prime-pair question; unread parts remain a qualification",
+          "evidence": [
+            "Publisher abstract states explicitly that in the second theorem primes 2 and 3 do not divide any coefficient; the other two theorems impose coefficient size or prime-support restrictions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/mtk.12209",
+          "material_read": "Publisher abstract as deposited in Crossref, dates and bibliographic metadata; not the paper body or Problem 1 in the primary text",
+          "method": "Crossref/OpenAlex by DOI; publisher HTML/PDF and lawful OA attempts did not yield the body",
+          "title": "On polynomials with only rational roots",
+          "trigger": "Original statement of the rational-root degree problem and different prime-pair theorem"
+        },
+        {
+          "assessment": "Same record, not independent prior coverage",
+          "evidence": [
+            "Identical polynomial, 256 unit coefficients and same conditional lower bound."
+          ],
+          "identifier_or_url": "Resultary record b9df79208b0b",
+          "material_read": "Ranked summary reconciled with the complete frozen result",
+          "method": "Resultary and frozen source read",
+          "title": "A degree-255 rational-root polynomial with coefficients prime to ten",
+          "trigger": "Exact database match to multiplicities 112,143 and prime pair {2,5}"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prime pair is motivated by a coefficient-avoidance degree question, and an explicit degree 255 is meaningful evidence against a small universal bound modeled on the sharp {2,3} case. It solves 256 nonvanishing conditions by a transparent digit and overlap argument and gives a benchmark for future bounds. It is not claimed to settle the existence of a bound or be a record degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

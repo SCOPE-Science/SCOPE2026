@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:08:56.549385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_valley.py, verify_valley.cpp and checks.txt (evidence inspected, uploaded programs not run)",
+        "Corrected /workspace/repairs/4/RESULT.md and SLOGAN.txt",
+        "Independent replay: cd /workspace && python3 -I reproductions/4.py"
+      ],
+      "rationale": "Re-audited corrected RESULT.md and SLOGAN.txt against the frozen assignment-cell definitions. A forbidden triple is exactly one with largest entry in the middle, which gives the decreasing-then-increasing characterization by splitting at the minimum. In the remaining interval after the larger ranks have been removed, the worst rank v is at one endpoint, so the adaptive cell reads the next independent bit (credited background). The matching online upper bound follows from the number of leaves versus hypotheses. For n=2k−1 the odd-value cells above rank 3 can be toggled independently using one left placement per consecutive value pair. The last three values give two independent static answers: b_3 controls the rank-3 cell and b_2 can make b_2+b_3 equal or unequal to 1 to toggle the rank-1 cell. Appending the new maximum preserves those answers at even size; {12,21} handles n=2. A shattered (n−1)-support would give a bijection between hypotheses and traces and hence half marginals for all cells used. The binomial two-atom calculation excludes every v<n at n≥4; the only two half marginals for the maximum are mutually exclusive. For the finite result, an independent exact enumeration filtered all permutations directly, built only supports with an all-positive witness, and counted the distinct Boolean projections onto each such support without splitting trace classes. Every shattered support was included as a candidate. It reproduced every coefficient through n=8, ruled out larger sizes by the first empty layer or the cardinality bound, and confirmed the gaps 0,0,0,1,1,2,2,3. The repair keeps all numerical conclusions, while making the class characterization, singleton example and empty-support trace initialization precise.",
+      "residual_risks": [
+        "The exact coefficient check is limited to n≤8. The arbitrary-order bounds are analytic; no exact arbitrary-order static classification or expert/formal attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The t=0 matching result gives rank n−1 for the full permutation-matrix class. Its upper bound transfers, but an adaptive lower bound on the larger class does not transfer to valleys by monotonicity. Its n−2 static value for derangements is for a different class.",
+          "Bukata et al. study ascent/descent counts for the value-complement pair of forbidden patterns; these are not assignment-trace statistics.",
+          "The earlier nested comparison cube construction provides an even-size static lower-bound construction after translating a pair's two possible deletion orders."
+        ],
+        "reasoning": "The relevant general matrix rank and comparison cube results are credited for what does transfer. They do not give the valley-specific half-marginal obstruction, the extra odd-size query, or exact counts of static assignment supports.",
+        "searches": [
+          "Resultary bbd7533ba4ae exact online ranks for permutation assignments avoiding a matching",
+          "Resultary c8a8ba074d20 §§2–4",
+          "arXiv:1812.07112 Table 1 and Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c8a8ba074d20 and bbd7533ba4ae at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2202.11352, arXiv:1812.07112, arXiv:2112.01946",
+        "Frozen RESULT.md and corrected RESULT.md §§Finding, Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier endpoint-deletion tree immediately implies the adaptive benchmark by nodewise substitution; independent choices in even-size full nested pair blocks yield the size-n/2 static assignment lower bound.",
+          "The earlier pairwise static VC bound is floor(n/2); the repaired odd-size construction achieves two independent fixed cell queries over the final three positions, a step outside that known comparison-support classification.",
+          "The new upper bound uses exact marginals of rank-position cells under the uniform valley law, and the independent exhaustive projection count is over cell supports, not compared pairs."
+        ],
+        "reasoning": "The repaired contribution is limited to what survives these implications. In particular neither the adaptive value nor the even-size cube idea is treated as new; the all-order static separation and the complete small-order static classification are not direct corollaries of the compared results.",
+        "searches": [
+          "Resultary c8a8ba074d20 Proof §§2 and 4, mirror offsets 4904 and 6747",
+          "Resultary bbd7533ba4ae Findings and universal upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under inverse ranked-list coordinates, a fixed-axis single-peaked order gives the same valley rank assignment on axis positions.",
+          "At a node with unassigned interval [ℓ,r] the worse endpoint has the largest unused rank v. Asking if the left endpoint is worse is precisely the cell (ℓ,v) on that node; labels can be reversed to match the earlier tree.",
+          "Johnson–Wickes realize all k! relative orders of a selected set, not all Boolean traces of matrix cells."
+        ],
+        "reasoning": "Comparisons and cells are adaptively equivalent along the particular earlier tree, not equivalent as static coordinate families. This decisively removes the adaptive tree as an independent novelty claim but does not identify the static supports.",
+        "searches": [
+          "Resultary: assignment-query shattering and exact online ranks for permutation assignments avoiding a matching",
+          "Resultary c8a8ba074d20 Proof §§2 and 4",
+          "arXiv:2202.11352 §3 Thm. 1",
+          "arXiv:2112.01946 definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching valley catalogue record is the assigned item itself, not independent priority evidence.",
+          "The earlier pairwise comparison polynomial gives coefficients 1,28,70,28,1 at n=8, not the assignment counts 1,52,510,1238,560. Its first three-unit gap occurs at seven, not eight.",
+          "The primary permutation-statistics table concerns permutations with certain ascent/descent counts rather than shattered cell supports."
+        ],
+        "reasoning": "Even equal dimensions at one size do not identify the two face polynomials or the first size reaching the gap. The checked earlier tables do not contain the exact assignment census.",
+        "searches": [
+          "Resultary: assignment-query shattering valley permutations static face polynomial and exact eight-letter gap",
+          "Resultary c8a8ba074d20 Finding and §3",
+          "arXiv:1812.07112 Table 1 and Proposition 6"
+        ]
+      },
+      "rationale": "The original presentation treated the all-order adaptive construction as distinct from the earlier endpoint-deletion comparison tree. That attribution does not survive: the two trees have exactly the same splits on each node's restricted hypotheses. The even-size lower-bound idea also transfers from the earlier nested comparison cubes. The corrected RESULT.md and slogan retain those facts only as credited baseline and place the distinct claim on the static assignment-cell census, the static gap obstruction and odd-order shattering beyond the comparison bound. The inspected prior results do not imply that remaining claim.",
+      "residual_risks": [
+        "The checked comparisons are bounded; an unindexed earlier assignment-cell classification could affect the remaining static results.",
+        "This pass applies to the repaired static contribution only, not to the original novelty framing around the adaptive tree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the adaptive benchmark by immediate translation and the even-size cube idea; not the assignment static profile",
+          "evidence": [
+            "Proof §4 compares current endpoints and deletes the worse, precisely the endpoint queried for the highest currently unassigned rank. Proof §2 constructs independent nested pair deletion blocks. The static polynomial is the binomial comparison polynomial."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-nested-comparison-shattering-and-a-continuous-domain-vc-countere--c8a8ba074d20/RESULT.md",
+          "material_read": "Finding and Proof §§2–4, especially mirror offsets 4904–9706",
+          "method": "Local Resultary mirror; nodewise and pair-block mathematical comparison",
+          "title": "Nested comparison shattering and a continuous-domain VC counterexample for single-peaked preferences",
+          "trigger": "Same hypothesis domain; possible change of coordinates in adaptive splits and static cubes"
+        },
+        {
+          "assessment": "General rank upper bound transfers; lower bounds and static ranks for named matching classes do not determine static valley traces",
+          "evidence": [
+            "A query is membership of a prescribed edge. The full permutation-matrix case has online rank n−1; the derangement class in the same paper is not the valley class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-online-ranks-for-permutation-assignments-avoiding-a-matchi--bbd7533ba4ae/RESULT.md",
+          "material_read": "Finding and proof passages at mirror offsets 0 and 5613",
+          "method": "Local Resultary mirror",
+          "title": "Exact online ranks for permutation assignments avoiding a matching",
+          "trigger": "Same cell primitives and a strict superfamily at t=0"
+        },
+        {
+          "assessment": "Covers the endpoint-choice encoding and cardinality, not the assignment-cell shattering result in the inspected passage",
+          "evidence": [
+            "Each preference is specified by n−1 endpoint signs; there are 2^(n−1) preferences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.11352",
+          "material_read": "§3 Theorem 1, pp. 5–6 (OA text offset 12169)",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Sign representation of single-peaked preferences and Bruhat orders",
+          "trigger": "Possible equivalent encoding and all-rank order results"
+        },
+        {
+          "assessment": "Covers avoidance class enumeration and ascent/descent statistics, not cell faces in the inspected material",
+          "evidence": [
+            "The class Av(213,312) is the value-complement image of Av(132,231); the proposition gives binomial ascent/descent counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07112",
+          "material_read": "Table 1 p. 4 and Proposition 6 p. 14, OA offsets 8300 and 30000",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Distributions of Statistics over Pattern-Avoiding Permutations",
+          "trigger": "Same double-pattern class up to value complement"
+        },
+        {
+          "assessment": "Different domain and traces",
+          "evidence": [
+            "Requires realizing all induced orders on a selected k-set; the claimed finite polynomial counts Boolean cell supports instead."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.01946",
+          "material_read": "Definition of shattering on p. 1, OA text near offset 500",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Shattering k-sets with Permutations",
+          "trigger": "Potential alternate shattering terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md table and Proof §§2–4",
+        "Resultary c8a8ba074d20 pairwise comparison polynomial",
+        "Independent replay /workspace/reproductions/4.py"
+      ],
+      "rationale": "The rank-at-one-position predicate is a natural fixed query on a single-peaked preference ranking. Changing from comparisons to cells preserves the adaptive benchmark but changes the static shattering complex, even changing the first size that realizes a three-unit gap. The odd-size construction and the all-order obstruction give structural evidence beyond the finite experiment, and the coefficientwise census identifies which finite cutoff really occurs rather than testing isolated instances. It is useful as an exact comparison benchmark for any general classification of static shattering, without claiming an exact dimension for larger n.",
+      "residual_risks": [
+        "The all-order static bounds need not be sharp, and the eight-letter cutoff is not a result about other predicates or other permutation classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

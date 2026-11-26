@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:04.873686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exactly k windows contain the joker, so the resolved occurrence count is N+k. At counting equality for k>=3, the two resolved walks U→V and the nonempty ordinary V→U walk would partition the de Bruijn edges. Balance forces U=V, where the two resolutions already use both possible outgoing edges, precluding the ordinary walk. For k=2 the two length-2 hosts each miss a constant pair; the stated k=1,2,3 witnesses give the upper bounds. For k>=4 inspect the one-positions of U b V, indexed from zero: k−2 and 2k−3, plus k−1 for b=1. With b=0 the first and last windows coincide, the intervening single-one windows have distinct positions, and one window has two extreme ones. With b=1 the adjacent pair moves through distinct offsets, the unique triple is distinct, and the final two-one window has distance k−2. These patterns prove that the resolved walks delete exactly 2k−1 distinct edges, with the sole duplicate U0:U→V. Hence the complement has imbalance +1 at V and −1 at U. Only the three displayed deletions can block append-one; after two steps the edges end in at least three ones, while a second-step block requires the unique deleted edge ending in 11. The four explicit retained edges attach all exceptions to the append-one component. Euler's criterion therefore yields the complementary trail, and writing its bits between the joker's following V and preceding U gives a cyclic host with exactly the required windows and length. Multiplicity then follows by counting for every optimum. `python3 /workspace/branches/independent_replay.py 2` independently exhausted the counting-bound hosts for k=2–4 and checked the deleted edge multiplicities, balances, and weak connectivity for k=4–12; these checks do not replace the all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orenstein et al.'s template is a length-k mask repeated along the host and its cyclic ILP imposes coverage and overlap flow. A one-mark template has one joker per period, not one overall. Their Theorem 3 / Eq. (5) is a generic coverage lower bound with denominator |Σ|^(number of template marks), not a closed construction here.",
+          "Fillmore et al.'s diamondicity counts jokers per window and their upcycle definition enforces exact-once coverage."
+        ],
+        "reasoning": "The general at-least-once model with periodically marked positions and the exact-once cycle theory both have materially different admissible hosts. Neither yields the sharp single-total-joker construction by specializing a parameter.",
+        "searches": [
+          "Orenstein–Yu–Berger DOI 10.1089/cmb.2018.0032 publisher full text §§2, 3.2, 4.3",
+          "Fillmore et al. arXiv:2310.13067 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76, VERIFICATION.md and one_joker_cover_verifier.py (read only); DOI 10.1089/cmb.2018.0032 full text; arXiv:1601.06456 and 2310.13067; Resultary SCOPE-746e93756418 and SCOPE-8014b1a86d73; attempted TAMC 2010 primary/alternate text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k>=3 the known period property plus counting implies the claimed lower bound. It says nothing about existence with one repeated resolution. At that length the duplicate count is automatic if such a cover exists.",
+          "The attained length rests on a specific duplicated U0 edge making the residual incidence exactly that of one V→U trail, together with a structural weak-connectivity proof. Neither exact-once exclusion nor the known template flow constraints imply this witness."
+        ],
+        "reasoning": "Do not credit the known obstruction or its immediate multiplicity arithmetic in isolation. Credit the matching upper construction, which closes the relaxed cyclic extremal problem uniformly in k.",
+        "searches": [
+          "Chen et al. arXiv:1601.06456 Lemma 14 vs. frozen counting and Euler-witness claims",
+          "Orenstein et al. cyclic ILP and Theorem 3 vs. frozen deleted-edge connectivity lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resolving a single joker adds exactly k occurrences, so the counting-bound cyclic candidate would be an exact-once universal partial cycle. Chen et al. require a joker at i+k whenever one occurs at i; for N=2^k−k>k this is impossible with exactly one joker. The k=2 case is explicitly excluded in their discussion.",
+          "Cutting just after the joker and appending the first k−1 ordinary bits gives a linear host of length N+k−1 with one joker. Even a sharp linear length 2^k−1 only transports back as N>=2^k−k; a linear construction does not supply the wraparound overlap."
+        ],
+        "reasoning": "The exact-once equivalence holds only at counting equality, not at the claimed attainable length. The linear direction is a one-way unrolling, not a reduction giving a cyclic witness.",
+        "searches": [
+          "arXiv:1601.06456 Lemma 14 and its small-length discussion",
+          "arXiv:2310.13067 §2: upcycle diamondicity/periodicity",
+          "DOI 10.1007/978-3-642-13562-0_13: binary de Bruijn partial words with one hole"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two publisher tables give solver/heuristic and lower-bound comparisons for DNA, reverse-complement DNA, or amino-acid parameters; the one-mark table is a repeating-template DNA case, not an exact binary single-total-joker table.",
+          "The matched indexed records count linear exact-once binary words with the joker fixed at the first/second or third position. The first is same-day and compared on content, not on priority."
+        ],
+        "reasoning": "No exact number in those actual tables or censuses concerns the cyclic relaxed covering family. The exact-once matching obstruction comes from a theorem, not an inferred trend in those tables.",
+        "searches": [
+          "Orenstein–Yu–Berger §4.4, Tables 2–3",
+          "Resultary meaning search for exact one-joker binary enumeration: SCOPE-746e93756418; SCOPE-8014b1a86d73"
+        ]
+      },
+      "rationale": "The lower-bound obstruction follows already from known k-periodicity for exact-once partial cycles. The credited distinction is an explicit all-order attainment with one unavoidable repeated resolution under the single-total-joker cyclic constraint. The available exact-once and repeating-template results do not yield that attainment.",
+      "residual_risks": [
+        "The 2010 theorem and its Euler trail were not independently inspected in full; an implicit cyclic adaptation there or an unindexed equivalent could be closer. The pass is best-of-knowledge and only credits the matching cyclic upper bound beyond known exact-once obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related optimization but periodically repeated joker, not one total",
+          "evidence": "Length-k mask, coverage and cyclic flow; lower bound scales by alphabet size to the number of marks. One-mark numerical table varies DNA target multiplicity.",
+          "identifier_or_url": "https://sage.cnpereading.com/doi/10.1089/cmb.2018.0032",
+          "material_read": "§1 related literature near offset 7600; §2 template definitions 10900–16500; §3.2 cyclic ILP Eqs. (1)–(3) 30700–39900; §4.3 Theorem 3/Eq. (5) 52000–55200; §4.4 Tables 2–3 near 57800 and 61000",
+          "method": "Publisher open full text with equations after PMC landing page only",
+          "title": "Joker de Bruijn: Covering k-Mers Using Joker Characters",
+          "trigger": "Plausibly broader cyclic at-least-once formulation with an exact one-mark template"
+        },
+        {
+          "assessment": "Mechanically implies the lower bound, not upper attainment",
+          "evidence": "Periodicity forces another joker at shift k unless the host closes there; length 2 is expressly excluded for the one-joker binary exact-once case.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.06456",
+          "material_read": "Definition p. 1; examples/Theorems 9–10 pp. 3, 9–10; Lemma 14 p. 14 near offset 50520 and discussion p. 15 near offset 53000",
+          "method": "Public arXiv full-text passages",
+          "title": "On Universal Partial Words",
+          "trigger": "Exact-once single-joker cyclic obstruction and possible construction"
+        },
+        {
+          "assessment": "Exact-once structural overlap, not a relaxed upper bound",
+          "evidence": "Defines upcycles by exact coverage and gives total joker count in terms of diamondicity, k, and alphabet size.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.13067",
+          "material_read": "Abstract p. 1 and §2 pp. 2–3, offsets about 9800–11200 for diamondicity and periodicity",
+          "method": "Public arXiv full-text passages",
+          "title": "The Existence and Structure of Universal Partial Cycles",
+          "trigger": "Cyclic structure theorem and wildcard counts"
+        },
+        {
+          "assessment": "Primary theorem overlap not independently resolved; related literature confirms one-joker binary coverage",
+          "evidence": "2018 primary text identifies earlier coverage of binary k-mers with one joker; the frozen report describes the result as linear of length 2^k−1. The latter characterization is not a full-text verification in this review.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-13562-0_13",
+          "material_read": "Description of the work in Orenstein et al. §1 and frozen RESULT.md lines 64–65; primary theorem not independently retrieved",
+          "method": "DOI and Springer chapter/PDF attempt, followed by identified Paperzz, ResearchGate and Academia copies; these did not yield readable text",
+          "title": "Binary De Bruijn Partial Words with One Hole",
+          "trigger": "Closest 2010 one-hole binary antecedent; frozen record invokes Theorem 4 and an Euler construction"
+        },
+        {
+          "assessment": "Linear exact-once profile",
+          "evidence": "Counts words with the joker at the first or second position rather than minimizing a cyclic at-least-once host.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-enumeration-of-boundary-joker-binary-universal-partial-wor--746e93756418",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary meaning search and local mirror",
+          "title": "Exact enumeration of boundary-joker binary universal partial words",
+          "trigger": "Same-day indexed exact binary one-joker result"
+        },
+        {
+          "assessment": "Linear exact-once profile",
+          "evidence": "Third-position joker and linear exact-once windows.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-enumeration-of-binary-universal-partial-words-with-the-jok--8014b1a86d73",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary meaning search and local mirror",
+          "title": "Exact enumeration of binary universal partial words with the joker in third position",
+          "trigger": "Adjacent exact binary one-joker count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Allowing repetitions opens a natural next question beyond nonexistence of exact-once cyclic partial words. The result answers it for the basic binary single-joker case: exactly one extra resolution is both necessary and sufficient at every nontrivial order. The constructive retained-edge trail certifies that this small additive gap is achievable rather than a counting artifact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

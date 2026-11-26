@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:26:40.408507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite-period normalization: the joint divisibility mean is 1/lcm(d,e), so expanding gcd(d,e) as a sum of totients gives the exact second moment Σ_{r≤By} φ(r)G(r/y)²/r². The first moment is v+O(1/y) by harmonic sums, with no rational-endpoint requirement. Summatory φ and partial summation give κ log x+O(1) for total weight and log(v/u) times κ as the limiting weight of each interval (u,v] away from zero. Finitely many floor jumps on any truncated interval allow integration against the limit. G(t)=v+O(t); for nonzero v the replacement by v² in the second moment costs O(1), since φ(r)/r²≤1/r. For zero v the contribution r≤εy is O(ε²) uniformly, giving exactly the stated finite integral after subtracting the vanishing squared mean. Polarization supplies the rank-one covariance matrix. Direct finite-X pair discrepancies sum to O(y²/X), and the corresponding means cost O(y/X). For the balanced dyadic difference G=−1 on (2,4), proving strict positivity. An independent step-sum calculation with x=4/t and cut at x=400000 gives 0.50821852788883831499…; the omitted positive tail is bounded by 5×10^(−9) using |G(t)|≤10t near zero. Replay: python3 /workspace/branches/f2242719-5199-4216-880c-d47ecbdc3d65/dyadic_constant_decimal_check.py (also dyadic_constant_independent.py). Ford's presence estimate transfers to period sampling by taking X an arbitrarily large multiple of L_y for each fixed y, so each dyadic presence probability tends to zero. The union bound gives convergence in probability to zero for the difference, while its squared mean tends to zero and its second moment does not. Frozen verify.py inspected, not executed; numerical computation supports only the displayed decimal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ford Corollary 2 concerns presence; the 2026 preprint Theorem 1.1 concerns frequencies of many divisors in one dyadic interval. Ford–Tenenbaum concerns local multiplicity frequencies. The synopsis describes single-window count statistics and supplies no comparison theorem. Lester arXiv:1502.01170 and Ivić arXiv:0708.1601 concern additive short differences of summatory divisor-function errors."
+        ],
+        "reasoning": "A single-window marginal frequency bound, even though needed for the convergence-in-probability corollary, does not identify cross-window second moments or their order-one remainder after cancellation. Summatory floor errors in an additive interval are a different statistic.",
+        "searches": [
+          "Ford arXiv:math/0401223v5; Ford–Gabdullin–Pratt arXiv:2611.15534v1; Ford–Tenenbaum arXiv:math/0607460; Kovaleva conference synopsis",
+          "Primary search on variance of short-interval divisor counts and divisor-sum errors"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary searches and the distinct arithmetic-progression onset RESULT.md",
+        "Ford, Ford–Gabdullin–Pratt, Ford–Tenenbaum and Kovaleva passages",
+        "Lester arXiv:1502.01170; Ivić arXiv:0708.1601, opening passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ford's presence estimate mechanically supplies the vanishing probability under periodic sampling. The classical gcd sum supplies an exact starting identity, but the limiting variance requires the zero-frequency cancellation G(t)=O(t) when v=0, weak convergence away from zero, and control of the singular tail."
+        ],
+        "reasoning": "The presence estimates imply neither the covariance coefficient nor the finite limiting energy; they give no second-order control for a non-uniformly-integrable contrast. The distinct result is the full classification of bounded fixed contrasts, not the classical identity or presence statement.",
+        "searches": [
+          "Ford §1 Theorem 1 and Corollary 2; Ford–Gabdullin–Pratt §1 Theorem 1.1; separate onset Finding; classical totient-expansion computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All four queries returned the assigned finding as the closest match. The strongest distinct catalogue statement read was the arithmetic-progression onset law, a first-support and LCM-multiple result."
+        ],
+        "reasoning": "The covariance question can be formulated as a fixed signed window weight and a second moment on a complete period or with negligible finite-X discrepancy. The onset law only addresses thresholds in an initial range and does not identify the limiting quadratic form under either sampling scheme.",
+        "searches": [
+          "Resultary: rank-one covariance of proportional divisor-count windows; finite-energy balanced contrasts; dyadic difference variance; divisor presence and sampling transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the self-match supplied the exact dyadic constant or balanced contrast energy among retrieved matches. The distinct exact onset record concerns the first possible integers passing divisor-count thresholds, not a variance table."
+        ],
+        "reasoning": "The scientific claim is the general quadratic limit rather than a new numerical table; the decimal is a consistency check on its exact integral.",
+        "searches": [
+          "Resultary dyadic difference variance and harmonic-energy/normalized variance searches"
+        ]
+      },
+      "rationale": "Credit the classical gcd–totient identity, summatory totient asymptotic, and prior divisor-presence and frequency theory. On bounded evidence the joint proportional-window covariance law and the necessary-and-sufficient contrast criterion with its exact limiting energy are distinct. No priority is claimed for the vanishing presence probability.",
+      "residual_risks": [
+        "A written account of Kovaleva's project or a general weighted divisor-indicator moment theorem may overlap. The public synopsis and the inspected frequency statements do not resolve that possibility. This is a bounded originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different question; same-day date does not determine priority",
+          "evidence": [
+            "Counts or characterizes support for at least r divisors in an initial range via multiples of an LCM; no joint covariance or contrast energy in inspected statements."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-arithmetic-progression-onset-law-for-short-interval-div--475c52c21692",
+          "material_read": "RESULT.md offsets 0 and 4155, Finding and relevant continuation",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact arithmetic-progression onset law for short-interval divisor counts",
+          "trigger": "Closest distinct Resultary divisor-window exact law"
+        },
+        {
+          "assessment": "Covers presence input, not joint covariance in inspected results",
+          "evidence": [
+            "Corollary 2 bounds H(X,u,cu)/X for fixed c>1 by a quantity tending to zero as min(u,X/u) grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0401223v5",
+          "material_read": "§1, Theorem 1 and Corollary 2 near OA offset 11000",
+          "method": "OA arXiv passage",
+          "title": "The distribution of integers with a divisor in a given interval",
+          "trigger": "Primary source for divisor presence and possible distributional coverage"
+        },
+        {
+          "assessment": "Frequency tail, not the two-window contrast in the inspected theorem",
+          "evidence": [
+            "Studies the proportion of integers with many divisors in a single dyadic interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15534v1",
+          "material_read": "Abstract, §1 and Theorem 1.1 from offset 0",
+          "method": "OA arXiv HTML",
+          "title": "Integers with many divisors in a dyadic interval",
+          "trigger": "Recent same-statistic theorem with possible moment overlap"
+        },
+        {
+          "assessment": "Related frequency theory, not cross-window covariance in the inspected material",
+          "evidence": [
+            "The statistic is frequency of multiple divisors in a short interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0607460",
+          "material_read": "Abstract and §1 opening, offset 0",
+          "method": "OA arXiv HTML",
+          "title": "The distribution of integers with at least two divisors in a short interval",
+          "trigger": "Divisor multiplicity frequency comparator"
+        },
+        {
+          "assessment": "Potential overlap unresolved; not treated as evidence of noncoverage",
+          "evidence": [
+            "The synopsis discusses distribution of τ(n;y) and random multiplicative sums without stating a comparable covariance or contrast theorem."
+          ],
+          "identifier_or_url": "https://www.math.mcgill.ca/darmon/qvnts/kovaleva.html",
+          "material_read": "Conference synopsis at offset 0",
+          "method": "Public webpage; no full written treatment identified",
+          "title": "Statistics of the divisor function on intervals (y,2y]",
+          "trigger": "Same single-window count, potentially relevant ongoing moment work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural fixed-window vector has a single logarithmically diverging direction and a complete finite-energy criterion for contrasts orthogonal to it. The positive contrast for disjoint adjacent dyadic windows shows what leading correlation and convergence in probability both miss. The exact integral, not just the numerical constant, makes the classification reusable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

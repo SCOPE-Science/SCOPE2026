@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:45:42.117179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–87, exact path expansion and crossing equations",
+        "Frozen VERIFICATION.md and checker.py lines 9–79, inspected without executing; the integrating-factor/error-function and erfc formulas are the supplied replay for the finite checks"
+      ],
+      "rationale": "Topological iteration of scalar variation of constants gives each directed path exactly once, with positive coefficient ε^(−number of fast edges) times a weighted integral over Δ_k(t); the zero-length path is exact. Rate boundedness makes each phase Lipschitz in the k times uniformly in t. For t≥θ and ε<θ, contraction of the simplex toward a maximizer by ε/t retains volume ε^k/k!, within ε in each coordinate of the maximizer, including at any boundary or multiple maximum. Together with the positive compact feed bounds, each path is sandwiched between c ε^k exp(M/ε) and C ε^(−k) exp(M/ε). A fixed finite positive path sum preserves the uniform O(ε log(1/ε)) estimate. For the example A_x=t²/2−3t, A_y=t²−4t, the feed phase is exactly 1/2−(s−1)²/2. The logarithmic downstream error at t*=2+√(7/2) is ε/2 log(2π/ε)+o(ε), proving class-wide sharpness. Also ε(x+y)'=(t−2)(x+2y); the total is below 1 at t=2 for small ε and strictly increases afterward, crossing once. Taking fixed times on either side of t* with A_x<0 localizes the crossing; the Gaussian tails and initial y contribution are exponentially small there. Setting y=1−x gives A_y(t_ε)+1/2=(ε/2)log(ε/(2π))+o(ε), hence a displacement of order ε log(1/ε) and the stated second-order formula with ℓ*=2√(7/2). The rescaled normalized feed is exactly a conditioned standard Gaussian and its total variation discrepancy is the omitted mass. This proves the limit, not just convergence of simulated moments.",
+      "residual_risks": [
+        "Constant depends on the fixed problem and positive-time cutoff; the claimed estimate is not uniform over different systems or at t=0.",
+        "The example uses a horizon containing the return. The Gaussian law is for the normalized feed integral in that example, not for arbitrary graphs or individual reactions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borsotti treats block-diagonal families λ_jI+N_j, with nilpotent depth setting the logarithmic shift.",
+          "Hsu–Ruan assume a smooth slow-fast system with invariant sheets and a linked singular closed orbit; the main theorem gives existence and stability of relaxation oscillations from a return map."
+        ],
+        "reasoning": "These frameworks neither state nor imply the positive open-loop path estimate, with arbitrary continuous rates and fixed compact positive times, or the finite-parameter return and Gaussian supply statistic for the example. Applicability of classical quantitative Laplace theory to the bound is separately credited below.",
+        "searches": [
+          "Borsotti arXiv:2610.15670 §§2–3",
+          "Hsu–Ruan arXiv:1910.06318v2 abstract and Theorems 2.4–2.5",
+          "Campbell–Rose DOI 10.1137/0510051 attempted"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and generalized comparisons",
+        "arXiv:2610.15670v1",
+        "DOI 10.1007/s10884-023-10266-2",
+        "arXiv:1910.06318v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duhamel over positive ordered path simplexes and elementary quantitative Laplace bounds genuinely imply the uniform rate; no distinct claim is made for that abstract method.",
+          "Ordinary Gaussian Laplace theory supplies the local prefactor once the quadratic phase is identified; the return comparison and feed law connect that phase to the finite-parameter dynamics beyond a leading exit location."
+        ],
+        "reasoning": "Prior logarithmic shifts already refute any claim that the order itself is new. The inspected systems and statements do not settle the submitted joint result, which couples uniformity for arbitrary finite positive DAG data to an exactly resolved, non-Jordan sharpness mechanism. The Gaussian limit is classical as an asymptotic tool, not an independently new limit principle.",
+        "searches": [
+          "Frozen RESULT.md lines 34–87 compared with Borsotti arXiv:2610.15670 §§2–3 and Kaklamanos et al. Theorem 1 and §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact topical return 706312272d5d is the audited record; other hits were not the same path expansion or error law.",
+          "Borsotti gives logarithmic shifts and lexicographic selection for nilpotent blocks; Kaklamanos et al. give leading exit for two intersecting fast eigendirections and a one-way-coupling example."
+        ],
+        "reasoning": "A common diagonal rate with nilpotent constant coupling has algebraic depth amplification; the audited crossing has unequal varying rates and a nondegenerate interior maximizing transfer time. The one-way entry–exit example has sign-changing feed and provides no matching positive-DAG quantitative statement.",
+        "searches": [
+          "Resultary: positive triangular time-dependent acyclic linear system Duhamel max-plus path approximation epsilon log 1/epsilon uniformly Lipschitz simplex quantitative Laplace",
+          "Borsotti arXiv:2610.15670 §§2–3",
+          "Kaklamanos et al. DOI 10.1007/s10884-023-10266-2 Theorem 1 and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact model/constants search returned the audited record first, followed by different escape-clock and logarithmic scaling problems; no distinct match for these coefficients and the normalized supply-time observable surfaced."
+        ],
+        "reasoning": "This is not a finite census; the exact-comparison targets are the coefficient 1/2, the return constant with the same return normalization, and the Gaussian law on supplied mass. Generic logarithmic terms with different phase geometry do not match these targets.",
+        "searches": [
+          "Resultary: cascade entry-exit t-3 2t-4 2+sqrt(7/2) half logarithmic shift Gaussian feed-time crossing"
+        ]
+      },
+      "rationale": "The path expansion, log-sum-exp and a quantitative Lipschitz Laplace bound already supply the general estimate once assembled; neither those ingredients nor logarithmic shifts in general are credited as new. The inspected entry–exit papers do not give this stated DAG synthesis together with sharpness via an interior transfer rather than a Jordan block, a resolved return constant, and the normalized feed-time law. This is a best-of-knowledge comparison of that submitted combination, not a new general Laplace principle or priority certification.",
+      "residual_risks": [
+        "The broad literature lookup returned no useful comparison; that is not evidence of absence. A prior general path-integral or nonautonomous triangular estimate may cover more of the synthesis.",
+        "The Campbell–Rose publisher text was not obtained; no priority judgment relies on that failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive partial overlap",
+          "evidence": "Nilpotent depth controls algebraic amplification and ε|log ε| exit shifts for a common rate in each block; competing blocks select lexicographically. No interior-feed quadratic prefactor or general DAG bound in those results.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15670",
+          "material_read": "Abstract p. 1 and §§2–3, pp. 2–4, offsets about 7200–20929",
+          "method": "Lawful OA full text",
+          "title": "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems",
+          "trigger": "Prior logarithmic exit shift"
+        },
+        {
+          "assessment": "Qualitative crossing precedent, not the quantitative graph theorem",
+          "evidence": "Theorem 1 gives a leading location with o(1) remainder, and §3.1 has a feed x z₁ into z₂ that changes sign as x evolves.",
+          "identifier_or_url": "https://doi.org/10.1007/s10884-023-10266-2",
+          "material_read": "Theorem 1 pp. 567–568 and §3.1 pp. 569–570, offsets 28000–37966",
+          "method": "Lawful OA full text",
+          "title": "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues",
+          "trigger": "Prior two-eigendirection crossing and triangular coupling"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "The invariant-sheet and singular closed-orbit setup gives relaxation-oscillation existence and stability under a nondegenerate return-map test, not a pathwise logarithmic solution estimate for feed networks.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.06318",
+          "material_read": "Abstract p. 1 and Theorems 2.4–2.5 pp. 9–10, preprint text offsets 28600 and 32800",
+          "method": "Lawful OA preprint v2 of the same paper after publisher access failed",
+          "title": "Relaxation Oscillations and the Entry-Exit Function in Multi-Dimensional Slow-Fast Systems",
+          "trigger": "Cited broad multidimensional entry–exit theorem"
+        },
+        {
+          "assessment": "Unresolved from source access",
+          "evidence": "HTTP 403 on the tried routes; no statement-level inference is drawn from access failure or title.",
+          "identifier_or_url": "https://doi.org/10.1137/0510051",
+          "material_read": "Bibliographic citation only",
+          "method": "Lawful OA publisher retrieval attempted on direct and alternate configured routes",
+          "title": "Singular Perturbation of Autonomous Linear Systems",
+          "trigger": "Cited singular-perturbation background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–87 and the compared block and two-eigendirection entry–exit theorems"
+      ],
+      "rationale": "The uniform estimate supplies a usable error scale without smooth crossings, spectral ordering, or favorable initial exponent order. The sharpness witness is motivated by the question whether the logarithmic penalty is only a Jordan phenomenon: a single nondegenerate interior transfer times the departure, yields a half-log prefactor instead of an integer nilpotent depth, and gives a normalized law for when the feed accumulated. Connecting those facts to a specified return level makes the example an informative benchmark rather than a parameter-only exercise.",
+      "residual_risks": [
+        "Practical consequences are confined to fixed finite positive cascades; the example does not establish a generic Gaussian law or feed-time concentration at nonsmooth or boundary optima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -14,7 +14,7 @@ Consequently, for every real \(\beta\) and \(J>0\), the exact zero-field canonic
 Z_4(\beta J)=17504+26880\cosh(4\beta J)+17280\cosh(8\beta J)+3840\cosh(12\beta J)+32\cosh(16\beta J).
 \]
 
-In particular the first excitation above the ground energy has multiplicity \(1920\), which is \(120\) times the known sixteenfold ground-state multiplicity. This is an exact finite-temperature and excitation-level census, *not* a new statement about the ground-state energy or ground-state count.
+In particular the first excitation above the ground energy has multiplicity \(1920\), which is \(120\) times the sixteenfold ground-state multiplicity confirmed by the census. The contribution concerns the full finite-temperature and excitation-level census, not priority for either ground-state endpoint.
 
 ## Assumptions and scope
 
@@ -54,11 +54,11 @@ The checker independently evaluates every one of the \(2^{16}=65536\) complete s
 
 ## Verification
 
-Run `python3 verify_ising_q4.py` using Python 3.8 or later; no packages beyond the standard library are required. The independent direct and layer-decomposed enumerations assert all nine integer counts, all 65,536 assignments, 32 signed edges, the negative product around each of the 24 square faces, and \(A^2=4I\). Coefficient sums equal \(65536\), and the independent infinite-temperature moment checks from the coefficients give \(\mathbb E[S^2]=32\) and \(\mathbb E[S^4]=2432\). Their agreement does not replace the explicit exhaustive counting proof.
+Run `python3 verify_ising_q4.py` using Python 3.10 or later; no packages beyond the standard library are required. The direct and layer-decomposed enumerations assert all nine integer counts, all 65,536 assignments, 32 signed edges, the negative product around square faces, and \(A^2=4I\). As additional identities from the displayed coefficients, the total count is \(65536\) and the infinite-temperature moments are \(\mathbb E[S^2]=32\) and \(\mathbb E[S^4]=2432\). These moment identities are not separate tests in the checker.
 
 ## Relationship to prior work
 
-Derrida, Pomeau, Toulouse and Vannimenus (1979) study fully frustrated hypercubes and explicitly report the **sixteen ground states** for dimension four; this is prior, not newly claimed. Parisi and Potters (1995) study the same fully frustrated orthogonal interaction matrix and asymptotic mean-field thermodynamics; its large-system free-energy analysis is not an exact finite sixteen-spin density-of-states table. Wang (2026) studies the minimum frustration index and spectral extremal configurations, not the full finite-temperature Ising partition polynomial. The present exact nine-energy table addresses the remaining finite-energy census and can be used as a small, analytically reproducible finite-temperature benchmark.
+Derrida, Pomeau, Toulouse and Vannimenus (1979) exhibit an isolated fully frustrated \(H_4\) with eight negative bonds and show that its energy saturates the lower bound (Fig. 3 and Table I, pp. 620–621; the table uses a lattice energy-per-spin normalization). Table I reports internal-field distributions for the extremal problem, not an Ising density of states. Their remark reporting sixteen ground states in dimension four (p. 624) is in the discussion of the simple-cubic lattice; it is not explicitly stated there as the isolated-cell count. Parisi and Potters (1995) use the same fully frustrated orthogonal interaction matrix and analyze large-system thermodynamics rather than the exact finite sixteen-spin density of states. Wang (2026) studies the minimum frustration index and spectral extremal configurations, not the full finite-temperature Ising partition polynomial. The nine-energy table supplies an exact finite-temperature benchmark on the isolated cell.
 
 ## Limitations
 
@@ -66,6 +66,6 @@ The result is exact only for a single sixteen-site, zero-field hypercube cell (n
 
 ## References
 
-1. B. Derrida, Y. Pomeau, G. Toulouse, J. Vannimenus, *Fully frustrated simple cubic lattices and the overblocking effect*, Journal de Physique **40**, 617–626 (June 1979), DOI: https://doi.org/10.1051/jphys:01979004006061700 ; lawful full text https://www.lps.ens.fr/~derrida/PAPIERS/1979/f-frustr-79.pdf.
+1. B. Derrida, Y. Pomeau, G. Toulouse, J. Vannimenus, *Fully frustrated simple cubic lattices and the overblocking effect*, Journal de Physique **40**, 617–626 (June 1979), DOI: https://doi.org/10.1051/jphys:01979004006061700 ; open full text https://hal.science/jpa-00209146v1/file/ajp-jphys_1979_40_6_617_0.pdf.
 2. G. Parisi, M. Potters, *Mean-Field Equations for Spin Models with Orthogonal Interaction Matrices*, arXiv:cond-mat/9503009 (first submission March 1, 1995; accessible complete v2 March 27, 1995), https://arxiv.org/html/cond-mat/9503009v2.
 3. L. Wang, *The frustration index of fully frustrated hypercubes*, arXiv:2611.14906 (November 11, 2026), https://arxiv.org/html/2611.14906v1.

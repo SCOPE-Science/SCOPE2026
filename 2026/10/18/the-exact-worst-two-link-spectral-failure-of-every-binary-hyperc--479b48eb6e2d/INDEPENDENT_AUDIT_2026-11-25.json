@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:05.137540Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–22",
+        "Frozen VERIFICATION.md and verify.py (inspection only)",
+        "Independent rational evaluation of the three small-d comparisons as specified above"
+      ],
+      "rationale": "On the orthogonal complement of constants the unfailed spectral bottom is 2, and the surviving Laplacian is positive definite because cube edge connectivity is d≥3. Conjugating the downdate by (L−sI)^(-1/2) shows that it is positive definite exactly while the top eigenvalue of the two-incidence-vector resolvent K(s) is below 1. K increases strictly and its top eigenvalue diverges at 2 from the first Walsh level; this identifies the first and smallest surviving positive eigenvalue. Tensoring the one-bit kernel gives the common diagonal A. Parallel edges differing in k base bits have cross integrand 2 exp(−(2−s)t)a^(d−1−k)b^k, with strict maximum at k=1. For different directions each active coordinate contributes one signed exp(−2t) factor, so the absolute cross term is bounded by V with all other factors chosen diagonal. At the unit level ρ of F=A+P, substitution u=exp(−2t) gives the normalized density u^(α−1)((1+u)/2)^k, k=d−2, α=1−ρ/2. Under it P−V=(1−2E[u])/2. Integration by parts gives E[u]<2(1−α)/k<1/2 for k≥4. The d=3,4,5 direct rational checks give respectively (F,P−V)=(20/21,2/231),(14/15,1/35),(2980/3289,7230/141427), at s=1/2,1,7/5. These were recomputed independently by evaluating M_i=2^(−k)∑_j binom(k,j)/(α+j+i) for i=0,1 using exact fractions, then taking (M_0,(M_0−2M_1)/2). The normalized mean decreases as s increases, because its derivative is −Cov(u,log u)/2, so the strict comparison holds at the larger unit-level s. Thus every nonsquare pair crosses later. Counting both opposite-side choices in each square gives d(d−1)2^(d−2). Expanding F gives the claimed equation and ρ_3; F decreases strictly with d and the terms of index j≥1 at the root sum to O(1/d) by the binomial-integral bound. This proves monotonicity and the stated asymptotic without relying on the supplied finite tests.",
+      "residual_risks": [
+        "Exactly two distinct edge deletions; not an assertion for arbitrary fault cardinality, adjacency spectrum, normalized Laplacian or retuned edge weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. maximize λ₂ over rates subject to a linear constraint, not minimize it over forced unit-weight deletions.",
+          "Li–Xu characterize conditional disconnecting cuts, not λ₂ within a still-connected graph.",
+          "The same-cube Kirchhoff-loss record has a different optimizing orbit: an adjacent pair."
+        ],
+        "reasoning": "None of the inspected stronger-looking results provides the required strict ordering for all two-failure cube geometries. Full-text coverage of Wu et al. could not be assessed.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis DOI 10.1137/S0036144504443821",
+          "Li–Xu arXiv:1212.4892",
+          "Wu–Zhang–Chen–Wang DOI 10.1155/2017/1382980",
+          "Resultary 2ceddd7c09e4 and 24ab48d1f4b0"
+        ]
+      },
+      "checked_sources": [
+        "Stanford FMMP OA copy",
+        "arXiv:1212.4892",
+        "Resultary 2ceddd7c09e4, 802f32599c5e, 4ba744782660, 24ab48d1f4b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cut robustness yields only positivity for the surviving gap; weighted rate optimization varies the wrong parameters; the two-failure Kirchhoff objective distinguishes the edge geometry differently."
+        ],
+        "reasoning": "The strict same-square result uses the cross-resolvent comparison at its own spectral root. Neither positivity, an optimized choice of adjustable rates, nor optimizing the trace of a pseudoinverse implies that comparison.",
+        "searches": [
+          "FMMP abstract and §1, Stanford OA PDF",
+          "Resultary 24ab48d1f4b0, Finding and scope",
+          "Li–Xu arXiv:1212.4892 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Among the distinct close inspected entries 2ceddd7c09e4 optimizes over available edges and 24ab48d1f4b0 optimizes a different quantity for the same two-failure family."
+        ],
+        "reasoning": "Continuous-time symmetric consensus rate and λ₂ are equivalent here. Kirchhoff index and adjacency spectral radius are not equivalent to λ₂ under deletions: the surviving graph need not be regular, and trace inverse weights all positive eigenvalues.",
+        "searches": [
+          "Resultary: exact worst two-link spectral failure hypercube two deleted edges algebraic connectivity opposite parallel sides of square",
+          "Resultary: hypercube edge deletion spectral gap two failed edges worst case Laplacian",
+          "Resultary: exact minimizing pair of deleted edges hypercube Laplacian second eigenvalue square face rho_d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close entries inspected compute exact thresholds for antipodal additions, chord screening, or resistance measures; no inspected entry supplies the all-d unit resolvent level for this fault orbit."
+        ],
+        "reasoning": "Individual hypercube spectra or finite-d lists would at most cross-check instances; a direct exact catalogue counterpart would need the deleted-edge geometry and all-dimensional extremum.",
+        "searches": [
+          "Resultary: worst spectral gap two deleted edges Boolean hypercube algebraic connectivity",
+          "Resultary: hypercube link removals spectral gap two-edge failure orbit square"
+        ]
+      },
+      "rationale": "The inspected works give context on consensus rates, cut robustness or different spectral and resistance objectives, but not the strict worst-pair orbit for the unit-weight combinatorial gap, its root equation and dimension dependence. The most directly titled adjacency-radius source was not accessible in full; the verdict does not treat that access failure as evidence of noncoverage.",
+      "residual_risks": [
+        "Full text of Wu et al. was unavailable despite identified lawful attempts. Broader web queries were deferred. Ranked catalogue results and bounded inspected passages cannot establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rate interpretation, different extremum and variables",
+          "evidence": "Assign transition rates to maximize λ₂ of the weighted graph subject to a linear rate constraint.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Author-hosted PDF p. 1 abstract and §1 opening, text offsets 980–3368",
+          "method": "Lawful OA author copy; located by variance unfolding",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same second Laplacian eigenvalue in symmetric continuous-time mixing"
+        },
+        {
+          "assessment": "Different cut objective in the inspected result",
+          "evidence": "The generalized conditional cut parameter is 2^h(n−h), describing removal sufficient to disconnect while respecting a degree condition.",
+          "identifier_or_url": "arXiv:1212.4892",
+          "material_read": "OA PDF p. 1 abstract, offset 0",
+          "method": "Lawful OA PDF",
+          "title": "Edge-Fault Tolerance of Hypercube-like Networks",
+          "trigger": "Edge deletion in hypercube-like graphs"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; adjacency objective reported in frozen citation not independently checked in full",
+          "evidence": "The title names minimum spectral radius; the direct proof concerns the second eigenvalue of a different matrix. No full-document exclusion is inferred.",
+          "identifier_or_url": "DOI:10.1155/2017/1382980",
+          "material_read": "Title and frozen citation only; DOI, identified Hindawi PDF and Wiley PDF did not yield readable full text",
+          "method": "Lawful OA retrieval including publisher alternate",
+          "title": "The Minimum Spectral Radius of an Edge-Removed Network: A Hypercube Perspective",
+          "trigger": "Closest title-level scholarly match: edge removals and an extremal spectrum in the cube"
+        },
+        {
+          "assessment": "Strong thematic overlap, distinct invariant and orbit",
+          "evidence": "Maximizes Kirchhoff-index increase at adjacent failures; it does not state the opposite-square minimum λ₂ result.",
+          "identifier_or_url": "Resultary 2026/10/25, 24ab48d1f4b0",
+          "material_read": "Local-mirror RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Adjacent links uniquely maximize two-failure Kirchhoff loss in binary hypercubes",
+          "trigger": "Same graph, deletion count, conductances and strict orbit extremum"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": "Adds antipodal edges in a budgeted conductance design and identifies a price threshold for zero weight, not two deletions of ordinary edges.",
+          "identifier_or_url": "Resultary 2026/10/18, 2ceddd7c09e4",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp antipodal-edge price transition and optimizer rigidity",
+          "trigger": "Same-day cube conductance and spectral optimization"
+        },
+        {
+          "assessment": "Different graph operation and functional",
+          "evidence": "Adds nonedges and studies a two-summing/free-lattice norm.",
+          "identifier_or_url": "Resultary 2026/10/18, 802f32599c5e",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Dimension-saturated chord screening for hypercube two-summing norms",
+          "trigger": "Same-day cube result manipulating edges"
+        },
+        {
+          "assessment": "Different family and functional",
+          "evidence": "Maximizes Kirchhoff-index loss in a complete bipartite graph; the pairs share an endpoint in the larger part.",
+          "identifier_or_url": "Resultary 2026/10/18, 4ba744782660",
+          "material_read": "Local-mirror RESULT.md Finding and scope, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A cubic imbalance threshold in two-link resistance vulnerability",
+          "trigger": "Same-day exact worst pair under two deletions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof steps 3–5",
+        "Sun et al. FMMP abstract",
+        "Resultary 24ab48d1f4b0"
+      ],
+      "rationale": "The binary cube and its consensus rate give a natural fault experiment, and the comparison identifies the worst geometry rather than just proving that two failures leave a connected graph. The strict orbit separation, exact minimum and dimension law together provide a benchmark for resilience analysis in a canonical network, including a counterpoint to adjacency-based intuitions from other two-failure objectives.",
+      "residual_risks": [
+        "Motivates comparisons, but does not justify design rules for arbitrary graphs or fault budgets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

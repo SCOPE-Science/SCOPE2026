@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:36:30.040714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the full assignment board, let T and F be the positive and negative cells of a trace. Inclusion–exclusion on F sums the signed completion count for each T union U with coefficient (-1)^|U|. Nonmatchings contribute zero, and for a matching leaving two or more rows free, swapping their images cancels the signed count. At n-1 cells only the full-support term can survive, with the stated sign and magnitude one exactly for a matching. For short traces with T a matching, the residual board of order m has at most m-2 forbidden cells; a one-factorization leaves at least two surviving completions, and cancellation supplies both parities. If the support is a matching, ordinary inclusion–exclusion produces the stated factorial count before dividing by two. A match of n-1 cells has only one all-positive completion, and its sign class lacks the trace obtained by making just one cell negative: the residual two-row switch has the other sign. Heredity and the all-positive requirement give the exact shattered supports and their matching-number polynomial. Littlestone dimension is bounded by the positive child at every root, a single sign class on the board of order n-1; induction from the n=2 singletons gives n-2, matching the VC lower bound. For a deterministic tree, an inconsistent leaf has no mass, a consistent short-support leaf has zero signed difference, and a boundary leaf has absolute difference at most one. Because each parity class has n!/2 members, TV is the sum of these absolute differences divided by n!; at most 2^(n-1) leaves are possible, and the nonadaptive matching has that many unit terms. Convexity handles independent randomization, and equal priors give the stated Bayes success. The unrestricted dimensions n-1 follow by the same positive-child induction and shattering a near-perfect matching (at most m-1 forbidden residual cells). The n=2 boundary has TV one and both dimensions zero. Source verifiers and stored outputs were inspected, not executed. Independent bitset checks (python3 /workspace/review_checks.py 1) exhaust all supports and responses through size n-1 at n=2..5, including nonmatching boundary supports, and check both online dimensions. Finite checks supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d84d57a040aa states trace universality through n-2 off-diagonal cells for derangements; bbd7533ba4ae states VC n-2 and online n-1 for the full diagonal exclusion at n>=5.",
+          "e127590b865a concerns parity in noncrossing partitions with pair-equality queries, not permutation-sign cosets."
+        ],
+        "reasoning": "Forbidden-cell restrictions, other parity statistics and symbol-order patterns do not dominate the signed law on the complete board.",
+        "searches": [
+          "Resultary d84d57a040aa, bbd7533ba4ae and e127590b865a",
+          "arXiv:1906.05908; arXiv:2112.01946"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification_output.txt",
+        "Resultary aa8ae022a14b, d84d57a040aa, bbd7533ba4ae, 824e5263ec2a, e127590b865a",
+        "arXiv:1906.05908 and arXiv:2112.01946 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alternating-group transitivity explains all lower-order signed cancellations but does not articulate the n-1 exact forbidden-response coefficient or the optimization over adaptive leaves.",
+          "The diagonal exclusion case supports the comparison rather than the online dimension for sign classes."
+        ],
+        "reasoning": "The n-1 coefficient needs the unique-completion term after inversion, and the sharp adaptive formula uses all leaf supports and a matching attaining the leaf bound. Classical ingredients are credited without treating the exact conclusion as an automatic consequence of a cited general theorem.",
+        "searches": [
+          "RESULT.md lines 39–60, 65–71",
+          "Resultary d84d57a040aa and bbd7533ba4ae"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit aa8ae022a14b is the subject record itself. Resultary 824e5263ec2a uses relative-order comparison queries, whereas a Boolean query here fixes a single row's image.",
+          "Signed exact trace counts are the inclusion–exclusion transform of signed prescribed-entry counts; determinant signs give the individual terms."
+        ],
+        "reasoning": "Agreement of ordinary prescribed-entry probabilities through n-2 recovers exact short-trace balance by inclusion–exclusion and is classical. Relative-order queries do not identify the n-1 signed trace at a prescribed set of matrix entries.",
+        "searches": [
+          "even permutations cell membership query VC dimension Littlestone shattering parity trace permutation matrices alternating group",
+          "Resultary: signed parity permutation-matrix membership traces; 824e5263ec2a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the frozen finding itself; the separately indexed nearby records list other classes or domains.",
+          "The recorded finite enumerations end at n=6 for static claims and n=4 for adaptive TV. They are evidence about the present claim, not prior all-order tabulations."
+        ],
+        "reasoning": "Neither the closest catalogue statements nor a finite census establishes the signed degree boundary and adaptive optimum for all n.",
+        "searches": [
+          "Resultary catalogue: exact first signed permutation leakage and adaptive TV",
+          "RESULT.md lines 62–71; verification_output.txt"
+        ]
+      },
+      "rationale": "The credited transitivity, matching counts and edge-restriction comparisons are not stand-alone contributions. The supported distinct claim is the exact first signed Boolean trace and optimal bounded-query distinguishing law, together with the sign-class structural classification, on row-to-image queries. None of the matching statements inspected in the catalogue or compared in the frozen package supplies that combination or its first-depth TV formula. This is bounded evidence, not a claim of historical uniqueness.",
+      "residual_risks": [
+        "The focused primary search was unproductive; some closest full texts were unavailable. Alternate treatments of alternating-group designs, partial injections, or signed permutation tests may encode the boundary.",
+        "No novelty is assigned to alternating-group transitivity or the classical matching-number formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps short compatible traces for a different restriction",
+          "evidence": [
+            "Off-diagonal domain and fixed-point-free permutations; summary states compatible traces through n-2."
+          ],
+          "identifier_or_url": "Resultary:d84d57a040aa",
+          "material_read": "Catalogue statement; full result retrieval did not complete",
+          "method": "Local catalogue match and mathematical comparison",
+          "title": "Perfect-matching trace universality and the shattering polynomial of derangements",
+          "trigger": "Same row-image queries and low-order shattering"
+        },
+        {
+          "assessment": "Supports cited diagonal distinction, not signed counts",
+          "evidence": [
+            "The full diagonal avoidance case has different online rank n-1 for n>=5."
+          ],
+          "identifier_or_url": "Resultary:bbd7533ba4ae",
+          "material_read": "Catalogue statement; full text not retrieved",
+          "method": "Local catalogue and comparison with RESULT.md line 28",
+          "title": "Exact online ranks for permutation assignments avoiding a matching",
+          "trigger": "Closest VC and online dimension comparison"
+        },
+        {
+          "assessment": "Different query model",
+          "evidence": [
+            "Relative-order comparisons rather than row-image cell equality."
+          ],
+          "identifier_or_url": "Resultary:824e5263ec2a",
+          "material_read": "Catalogue statement",
+          "method": "Local catalogue and comparison of instance domains",
+          "title": "Parity-refined comparison shattering of even permutations",
+          "trigger": "Same parity class under a possibly equivalent query model"
+        },
+        {
+          "assessment": "Access-limited; no whole-paper exclusion inferred",
+          "evidence": [
+            "The frozen comparison distinguishes matching intersection or symbol-order patterns from signed Boolean incidence traces."
+          ],
+          "identifier_or_url": "arXiv:1906.05908; arXiv:2112.01946",
+          "material_read": "Frozen comparison, RESULT.md lines 65–80; targeted retrieval did not yield independently readable decisive passages",
+          "method": "Source-specific retrieval and comparison of the recorded hypotheses",
+          "title": "Perfect matchings and derangements on graphs; Shattering k-sets with Permutations",
+          "trigger": "Closest named primary works on matching traces or shattering permutations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical permutation query model this identifies the first query budget with any statistical signal, computes the exact optimal signal and parity rule even against adaptivity, and describes what parity restriction does to the VC complex and online learnability. The leafwise signed boundary makes the result substantially more informative than a transitivity observation or a finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

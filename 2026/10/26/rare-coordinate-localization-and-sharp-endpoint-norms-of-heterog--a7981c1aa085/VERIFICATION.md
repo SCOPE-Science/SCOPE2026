@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,12 +21,6 @@
 
 # Verification summary
 
-The included `check.py` operates using Python's exact `fractions.Fraction`. It inverts the affine least-squares Gram matrix and constructs the entire finite projection kernel independently of the claimed probability formula. It then tests induced endpoint norms, rare-vertex rows, sign extremizers, weighted kernel symmetry and idempotence, three four-coordinate rational values and both strict mean-preserving spread directions and the componentwise monotonic inequality across sampled rational biases.
+`python check.py` uses only the Python standard library and exact rational arithmetic. It reconstructs the projector by inverting the affine Gram matrix and evaluates complete weighted kernel rows and columns. In particular it checks the three four-bit values \(77/27\), \(371/128\), and \(6213/2048\), their signed differences, and equality of the endpoint norms. The included script also contains checks for the general affine endpoint formula, used here as prior work rather than claimed as new. Its recorded full run returned `PASS {'assertions': 4863, 'matrix_instances': 38, 'bias_comparisons': 500}`.
 
-Run `python check.py` with standard Python (no external libraries required). The completed local run returned:
-
-```
-PASS {'assertions': 4863, 'matrix_instances': 38, 'bias_comparisons': 500}
-```
-
-These are only finite consistency checks. The proof of arbitrary-dimensional norm equality, localization, unique minimization, and limiting supremum appears in `RESULT.md`; no program run or finite enumeration substitutes for those universal arguments. Historical priority beyond the inspected literature is not independently settled.
+The proof in `RESULT.md` uses the established norm formula and identifies the two opposing strict inequalities with the two failures of Schur ordering. Finite exact arithmetic is corroboration of the witnesses, not a novelty determination or a general theorem about all bias vectors.

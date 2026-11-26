@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The theorem is supported by explicit integral identities and dominated-convergence arguments in `RESULT.md`. In particular, finite tests are not substituted for uniform or infinite-domain limits.
+# Independent mathematical audit
 
-## Reproduction
+## correctness
 
-Execute `python check.py` with Python 3 and NumPy/SciPy installed. The standalone script directly evaluates the inverse-Lindley-hazard integrals, checks the scaling of exact marginal moments at \(\kappa=10^4\) and \(10^8\), and uses exact conditional exponential sampling with numerical marginal inversion to compare empirical rank and Pearson coefficients. Fixed pseudorandom seed and explicit numerical acceptance ranges are included in the script.
+PASS
 
-On the included execution, it returned \(A=1.6584519762515066\), \(B=2.2706861125004743\), and \(A^2/B=1.2112915749961253\) for the symmetric unit-parameter example; simulated Pearson/Kendall/Spearman values at \(\kappa=10^8\) were approximately \(-0.07450,-0.86010,-0.97413\). All numerical assertions passed.
+The derivative of H_theta lies between theta^2/(theta+1) and theta, so h is strictly increasing and bounded above and below by positive linear multiples of y. Integrating out either exponential conditional gives the stated marginal and normalizer, Z_k ~ log(k)/k. For powers 1 and 2, h_i(y)^p exp(-a_i y)/y is an integrable majorant for the marginal numerator multiplied by k; thus E[X_i] ~ A_i/log(k) and Var(X_i) ~ B_i/log(k). The conditional mean also gives E[Y_1 Y_2]=E[Y_1/(a_2+kY_1)]<=1/k, bounding the mixed X moment by O(1/k). The covariance is therefore asymptotic to -A_1 A_2/(log(k))^2, proving the prefactor. For finite k>0 the conditional X_2 mean strictly decreases with Y_1 while X_1 increases, proving strict negativity; continuity at finite k and the two zero endpoints yield an attained negative minimum in the interior. On intervals inside (0,1), the logarithmic coordinate T_1 has limiting uniform mass by integration of 1/(ky); letting interval endpoints approach 0 and 1 gives tightness and the uniform limit. The conditional exponential representation gives T_2=max(0,1-T_1)+o_P(1) because the log-sum differs from the max by O(1/log(k)) and log(E)/log(k) tends to zero. Hence the log coordinates tend jointly to (U,1-U). Continuous limiting uniform marginal quantiles give copula convergence; the common Lipschitz bound makes it uniform. Decreasing both coordinates reflects the copula twice but fixes W, and both limiting rank statistics follow from bounded rank-score or independent-copy formulas with no ties in the limit. Independent quadrature using numeric inverse hazards and a logarithmic integration coordinate tested two fixed parameter sets through k=10^16. It also returned approximately -0.2561772788 at a parameter point where the source paper's Table 1 prints +0.9552; the analytic sign proves that the positive table value cannot describe the density of its Eq. (32). Replay: python3 /workspace/reproductions/frozen_checks.py 2.
 
-## Limits of verification
+## originality
 
-Numerical integration and Monte Carlo corroborate, but cannot establish, limiting logarithmic constants or copula convergence for arbitrary parameters. The proof uses the positive integrable majorants, an all-range mixed-moment bound, exact conditional laws, and weak convergence of logarithmic coordinates. Historical priority remains subject to review of the original 1988 article, whose full text was not accessible. Independent mathematical audit has not been performed.
+PASS
+
+The bivariate family, its hazard transformation, the exponential-conditional parent density and finite-coupling dependence are not new. The supported distinct claim is the simultaneous countermonotone copula limit and explicit sharp Lindley-scale Pearson asymptotic as the coupling alone diverges. The checked model and generation papers provide the density/conditional representation, not the joint logarithmic-rank degeneration or the inverse-hazard dependent coefficient. The conclusion is bounded by the inability to inspect the full 1988 article.
+
+## value
+
+PASS
+
+This is a natural regime of a published lifetime model where two common dependence diagnostics give opposite practical impressions: the copula approaches the most negatively dependent possible rank law while Pearson correlation vanishes. The explicit nonzero logarithmic coefficient gives the scale of this mismatch for each fixed set of parameters, rather than merely showing numerical smallness or a qualitative contrast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: sharp two-input energy stability of clique fractional maxima
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-ball definition on \(K_n\) reduces exactly to \((M_\alpha f)_i=\max\{|f_i|,n^{\alpha-1}\sum_j|f_j|\}\). Coordinatewise absolute value is nonexpansive in vertex \(\ell^2\), so the positive-cone calculation is sufficient for arbitrary complex data. Each strictly feasible activation mask has \(k<c^{-1}\) self-selected sites, and every such size has a positive interior realization. On its cell, the complete-edge Dirichlet quadratic form of the Jacobian splits orthogonally into the active contrast sector (eigenvalue \(n\), multiplicity \(k-1\)) and a rank-one two-level sector (eigenvalue \((n-k)[1+kc(nc-2)]\)); the other sectors vanish. The exact maximum of these cell norms is the global modulus by segment subdivision, and a small norming perturbation inside a positive interior cell proves attainment. The endpoint jump is obtained by comparing the only two nonzero mask sizes near \(c=1/2\). An independent executable cross-check confirmed 214 exact rational matrix identities, 14,400 real and 1,500 complex direct pairs, local sharp witnesses and 18 boundary comparisons. These finite checks are corroboration, not a substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The most relevant source is Liu–Lian–Wang, arXiv:2611.15377v1 (2026), Section 4 and Theorem 1.5: its precise clique formula is shared but its sharp result compares one maximal output with one input's graph variation. González-Riquelme–Madrid, arXiv:2005.03146v3 (2020), Theorems 3 and 4, treat boundedness/continuity and strong vertex-\(\ell^2\) norms for individual maximal outputs. González-Riquelme–Kovač–Madrid, arXiv:2603.12462v1 (2026), Theorem 1, gives a one-input edge-variation bound, without fractional two-input Euclidean sensitivity. Lu–Zhao, arXiv:2611.24189v1 (2026), treat sharp *one-input* fractional variation, not the pairwise modulus. The closest published two-input clique result concerns ordinary centered maximal averaging with total variation on both sides; its proof and exact coefficient do not establish the present fractional Euclidean-to-quadratic-edge norm. Relevant full texts and published research records were inspected and explicit semantic searches checked multiple aliases. These comparisons support the stated original contribution; they do not prove absolute historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The precise two-input modulus addresses stability of fractional maximal graph analysis under vertex-\(\ell^2\) noise. Its feasible-active-set constraint \(kc<1\) produces a nontrivial spectral competition between within-active contrasts and an offset-sensitive two-level mode. The threshold \(c=1/2\) eliminates a whole open activation sector, causing an exact modulus jump in every eligible dimension except five. This arithmetically classified instability is invisible in the corresponding one-input inequalities and identifies a meaningful boundary for parameter selection, rather than a small numerical improvement or an arbitrary finite case.
+On the clique the centered balls have sizes 1 and n, so the map on positive data is T_i=max(x_i,cΣx) with 1/n<c<1. The absolute-value reduction does not increase the input Euclidean distance. A strict active set of size k>0 must satisfy kc<1 by summing active inequalities, and every such set is feasible with its coordinates equal to one and the others positive and sufficiently small; k=0 occurs for constant positive data. For each cell, counting each undirected edge once gives energy nΣ_{i∈S}|h_i−mean_S(h)|²+k(n−k)|mean_S(h)−cΣh|². The two terms act on orthogonal subspaces: active contrasts with squared singular value n when k≥2, and the rank-one direction u=1_S/k−c1, with eigenvalue k(n−k)||u||²=(n−k)[1+kc(nc−2)]. The empty branch contributes zero. Segment decomposition and continuity give the global upper bound, including tied inputs, and norming directions within strict positive cells give actual distinct positive real attaining inputs. At c=1/2 only k=1 is possible; near it from below both k=1 and k=2 occur and their limiting rank-one values are n(n−1)/4 and (n−2)²/2. Taking the maximum including the k=2 contrast n gives strict left loss for n=3,4 from the contrast and for n≥6 from the rank-one k=2 mode, with equality for n=5. The n=2 case has no admissible c=1/2. At n=6 the two squared values are 8 and 15/2.
 
-## Limitations and residual priority risk
-The graph must be an unweighted complete graph and the output norm the quadratic edge seminorm; no claim is made for general graphs, all fractional endpoint values, or other exponent pairs. The formula includes all feasible finite-dimensional masks and has an all-dimensional proof, but the checker only samples rational parameters and finite dimensions. Semantic search and targeted full-text reading cannot exclude an unindexed equivalent theorem; independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the all-size fractional clique Euclidean-to-edge coefficient, feasible-mask spectral formula, and dimension-dependent threshold behavior. The broad phenomenon of jumps for two-input maximal averaging has a close comparison on P₃; no claim of novelty for that general phenomenon alone. The available clique comparisons change the norm, fractionality, or one-input versus two-input structure and do not imply the stated formula.
+
+## value
+
+PASS
+
+An exact perturbation modulus for a standard graph maximal operator answers a stability question not addressed by single-input inequalities. Its spectrum separates contrast and rank-one modes, and strict feasibility rather than continuity of individual maximal outputs controls the jump. The exceptional dimension n=5 and switches in the dominating mode give concrete consequences that a routine upper bound would miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

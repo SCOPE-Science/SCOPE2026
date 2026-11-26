@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The analytic proof reconstructs the conformal kernel normalization, derives the necessary and sufficient corner integrability cutoff, and proves the three asymptotic regimes by rescaling or a critical logarithmic annulus. The universal logarithmic coefficient is fixed by the angular measure \(\pi\) and the radial ratio \(r^p\). The Mellin moment variance is an exactly summable disk-orthogonality series. Independent finite quadrature tests in `CHECK.py` agree with these predictions; they are not used as an infinite proof.
+## correctness
 
-**Originality — PASS, best-knowledge.** Taskinen's complete 2021 publicly available polygonal-domain paper gives a qualitative boundedness/Carleson equivalence and angle-dependent weighted estimates, not a homogeneous power symbol's exact universal corner profile or logarithmic resonance. Mannersalo's 2018 open preprint uses Whitney-square averages to prove generalized Toeplitz boundedness, not a Mellin-scale Berezin law. The accessible indexed mathematical findings checked under aliases including wedge Berezin Mellin asymptotics, power-symbol threshold and polygon-corner logarithmic response had no equivalent dominating statement. Historical priority remains conditional on unindexed older local-asymptotic work.
+PASS
 
-**Value — PASS.** The theorem gives a natural quantitative invariant for a boundary singularity where classical smooth-boundary Berezin localization does not apply: the full scale response of corner-distance symbols, exact admissible integrability cutoff, critical resonance, and geometric saturation, with a nonconstant angle-dependent universal profile. It detects finite coherent-state response for singular corner powers even when their ordinary area integral diverges in sufficiently acute corners, without pretending boundedness of a Toeplitz operator.
+For ordinary area measure the half-plane Berezin probability has density 4(Im u)^2/(π|u−conj(v)|^4). Straightening the genuine sector by w^p and reflecting gives an analytic chart with nonzero positive derivative in the straightened coordinate, so hσ(v)=c^(−s)|v|^s(1+O(|v|)) near zero, s=σ/p. For fixed interior u the small-radius integral has exponent s+1: divergence at s≤−2 is at every evaluation point. On an interior angular compactum, |u−conj(v)| is bounded below by a fixed multiple of |u|+|v|. Consequently the rescaled middle integrand is dominated by a constant times |v|^s/(1+|v|)^4, and the part away from the mapped corner is of order r^(2p). At s=2, on 2|u|<|v|<ε the relative errors O(|v|)+O(|u|/|v|) have bounded integrals against d|v|/|v|; the angular measure π and the radial logarithm p log(1/r) give 4p sin²(pφ), with the two complementary regions bounded after division by r^(2p). For s>2 the integrable majorant hσ(v)|v|^(−4) gives the asserted saturated coefficient, with no need for hσ to have bounded support in the half-plane. Under a change ψ(v)=λv/(1+bv) the Jacobian ratio |ψ′(v)|²/|ψ(v)|⁴=λ^(−2)|v|^(−4) cancels the change in c². Reflection gives angular symmetry; off any neighborhood of the relevant side point ±1 the weighted kernel mass tends to zero, using the same two integrability exponents. At the bisector the Cayley map gives uniform disk area, q↦−q negates the logarithm X, and its disk orthogonality variance is 2∑_{n odd}1/[n²(n+1)]=π²/4−2log 2. Strict Jensen and a Taylor expansion justified by exponential moments in |s|<2 give both bisector claims.
 
-**Closest literature and limits.** The conformal transformation is standard and credited; the new claim is the full power-law trichotomy. The result does not extend by assertion to curved corners, nonpower symbols, or tangential approaches. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit standard conformal kernel transport and familiar polygonal Bergman and Toeplitz theory. The distinct claim supported by the inspected statements is the complete sharp localized corner-power response, including the coefficients and angular contrast, not the conformal formulas themselves or boundedness criteria.
+
+## value
+
+PASS
+
+Corner distance is a canonical singular test symbol for coherent-state localization. Exact thresholds separate divergence at every interior point, a universal angular response, a universal logarithmic correction, and a saturated response whose coefficient depends on the cutoff/global chart. This is quantitative information not supplied by qualitative boundedness, including for acute corners and some powers that are not ordinary area-integrable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

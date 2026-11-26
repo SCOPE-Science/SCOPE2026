@@ -1,183 +1,45 @@
 # All optimal proper conflict-free colorings of half graphs
+
 ## Finding
-For every integer \(n\ge4\), let \(H_n\) be the half graph with bipartition
-\[
-A=\{a_1,\ldots,a_n\},\qquad B=\{b_1,\ldots,b_n\},
-\]
-and edge rule
-\[
-a_i b_j\in E(H_n)\quad\Longleftrightarrow\quad i\le j.
-\]
 
-Then
-\[
-\chi_{\mathrm{pcf}}(H_n)=4.
-\]
+For \(n\ge4\), let \(H_n\) have vertices \(a_1,\ldots,a_n\) and \(b_1,\ldots,b_n\), with \(a_ib_j\) an edge exactly when \(i\le j\). The proper conflict-free chromatic number is already known to be four: \(H_n\) is a chain graph with \(2n-2\) vertices of degree at least two, so Pradhan and Sharma's chain-graph theorem applies [1, Theorem 8]. **The contribution here is the complete description and count of the optimal colorings, not this scalar value.**
 
-More strongly, all optimal colorings are completely classified. For any optimal coloring \(\varphi\), define
+In each optimal coloring \(\varphi\), the colors
 \[
-c_0=\varphi(a_1),\quad c_1=\varphi(a_2),\quad c_2=\varphi(b_{n-1}),\quad c_3=\varphi(b_n).
+(c_0,c_1,c_2,c_3)=(\varphi(a_1),\varphi(a_2),\varphi(b_{n-1}),\varphi(b_n))
 \]
-These four colors are pairwise distinct. Choose independently
+are pairwise distinct. Fix their names. The full set of optimal colorings is given by the following independent choices:
 \[
-t\in\{c_0,c_1\},\qquad s\in\{c_2,c_3\}.
+\begin{aligned}
+ &t\in\{c_0,c_1\}, &\quad \varphi(a_3)=\cdots=\varphi(a_{n-1})=t, &\quad \varphi(a_n)\in\{t,c_2\},\\
+ &s\in\{c_2,c_3\}, &\quad \varphi(b_2)=\cdots=\varphi(b_{n-2})=s, &\quad \varphi(b_1)\in\{s,c_1\}.
+\end{aligned}
 \]
-Then every optimal coloring has exactly the form
-\[
-\varphi(a_3)=\cdots=\varphi(a_{n-1})=t,
-\qquad
-\varphi(a_n)\in\{t,c_2\},
-\]
-and
-\[
-\varphi(b_2)=\cdots=\varphi(b_{n-2})=s,
-\qquad
-\varphi(b_1)\in\{c_1,s\}.
-\]
-Conversely, every assignment of this form is a proper conflict-free coloring.
-
-Thus there are exactly
-\[
-2^4=16
-\]
-optimal colorings up to permutation of the four colors, and exactly
-\[
-4!\,2^4=384
-\]
-named optimal four-colorings. Remarkably, this count is independent of \(n\).
+Consequently there are exactly \(16\) optimal colorings up to permuting colors, and \(384\) optimal colorings with a fixed palette of four named colors.
 
 ## Assumptions and scope
-A proper conflict-free coloring is a proper vertex coloring in which every nonisolated vertex has a color that appears exactly once in its open neighborhood. The minimum number of colors is denoted \(\chi_{\mathrm{pcf}}\).
 
-The half graph convention here is the nested-neighborhood bipartite graph above. It is a canonical chain/Ferrers graph: the neighborhoods on each side are linearly ordered by inclusion.
-
-The structural classification is stated for \(n\ge4\). The boundary \(H_3\) also has proper conflict-free chromatic number \(4\), but it has additional optimal coloring patterns because the two interior constant blocks used in the theorem are empty. The graph \(H_2\) is a path on four vertices and belongs to the previously solved tree case.
+A proper conflict-free coloring is a proper vertex coloring for which each nonisolated vertex has a color used exactly once in its **open** neighborhood [2]. Optimal means using the fewest colors. Only permutations of colors, not graph automorphisms, are factored out in the count of 16. The statement is for the specified half graphs, not for arbitrary chain graphs, whose ordered neighborhoods need not have distinct sizes.
 
 ## Proof
-We first prove the lower bound. Suppose \(n\ge3\) and \(\varphi\) is proper conflict-free.
 
-The open neighborhood of \(b_2\) is exactly
-\[
-N(b_2)=\{a_1,a_2\}.
-\]
-For a color to occur exactly once there, \(a_1\) and \(a_2\) must have different colors. Similarly,
-\[
-N(a_{n-1})=\{b_{n-1},b_n\},
-\]
-so \(b_{n-1}\) and \(b_n\) have different colors.
+The neighborhood of \(b_2\) is \(\{a_1,a_2\}\), so the two vertices have distinct colors. The neighborhood of \(a_{n-1}\) likewise forces distinct colors on \(b_{n-1},b_n\). Each vertex in the first pair is adjacent to each in the second, so properness gives all four inequalities across the pairs. Thus the four core colors are distinct and name the whole optimal palette.
 
-Every vertex in \(\{a_1,a_2\}\) is adjacent to every vertex in \(\{b_{n-1},b_n\}\). Properness therefore makes all four colors
-\[
-\varphi(a_1),\quad \varphi(a_2),\quad \varphi(b_{n-1}),\quad \varphi(b_n)
-\]
-pairwise distinct. Hence
-\[
-\chi_{\mathrm{pcf}}(H_n)\ge4.
-\tag{1}
-\]
+The universal adjacency of \(b_n\) to \(A=\{a_1,\ldots,a_n\}\) excludes \(c_3\) from \(A\). Adjacency to \(b_{n-1}\) excludes \(c_2\) from \(a_1,\ldots,a_{n-1}\). Every prefix of those first \(n-1\) vertices is a neighborhood of some \(b_j\); in the resulting binary color sequence, every prefix must therefore have a singleton. The first two colors differ. The third chooses a majority color \(t\), while the other stays a singleton. Each subsequent binary entry must repeat \(t\): repeating the singleton would make both multiplicities at least two. Since \(n\ge4\), there is such a third position in the restricted prefix. At \(a_n\) the full prefix \(N(b_n)\) still needs a singleton. The only allowed extensions are to repeat \(t\) or to use the new color \(c_2\). The reverse sequence \(b_n,\ldots,b_1\) has the symmetric constraints: \(a_1\) excludes \(c_0\) throughout it, \(a_2\) excludes \(c_1\) through \(b_2\), and the relevant neighborhoods are reversed prefixes. This gives precisely the block color \(s\) and the two choices at \(b_1\).
 
-A four-coloring exists, for example by coloring \(a_1\) with one color, all other vertices of \(A\) with a second color except as needed to keep \(a_1,a_2\) distinct, coloring \(b_n\) with a third color, and all earlier vertices of \(B\) with a fourth color. More explicitly, the classified family below contains such a coloring, so equality holds in (1).
+Conversely, the only colors that can appear on both shores under these rules are \(c_2\) at \(a_n\) and \(c_1\) at \(b_1\). These uses are proper because \(a_n\) has sole neighbor \(b_n\) of color \(c_3\) and \(b_1\) has sole neighbor \(a_1\) of color \(c_0\). The forced singleton survives in each prefix or reversed prefix of length at least three, including the full ones, and the neighborhoods of sizes one and two also have a singleton. The rules therefore give proper conflict-free four-colorings. They are optimal by the four core colors. The two interior blocks are nonempty, and their colors and the two endpoint choices are recoverable from each coloring. With the core colors named this gives \(2^4=16\) distinct assignments, and assigning the four palette labels to the core contributes \(4!\).
 
-Now fix an optimal four-coloring and write
-\[
-c_0=\varphi(a_1),\quad c_1=\varphi(a_2),\quad c_2=\varphi(b_{n-1}),\quad c_3=\varphi(b_n).
-\]
-The lower-bound argument already shows that these are the four distinct available colors.
+## Verification and boundaries
 
-Because \(b_n\) is adjacent to every vertex of \(A\), color \(c_3\) does not occur on \(A\). Because \(b_{n-1}\) is adjacent to \(a_1,\ldots,a_{n-1}\), color \(c_2\) does not occur on those first \(n-1\) vertices. Thus
-\[
-\varphi(a_i)\in\{c_0,c_1\}
-\qquad(1\le i\le n-1).
-\tag{2}
-\]
-For every \(j\), the neighborhood of \(b_j\) is the prefix
-\[
-N(b_j)=\{a_1,\ldots,a_j\}.
-\]
-Hence every prefix of the sequence
-\[
-\varphi(a_1),\ldots,\varphi(a_{n-1})
-\]
-must contain a color occurring exactly once.
+The accompanying Python 3 program `verify.py` enumerates all assignments from palettes of sizes three and four at \(n=3,4,5\), testing each edge and open neighborhood directly. In the recorded run there were zero valid three-color assignments. For \(n=4,5\) the verifier finds 384 named four-colorings and the exact set of 16 forms after fixing the core colors. It also definition-checks every listed form for \(4\le n\le50\). These are bounded checks of the proof, not a substitute for it. Run `python3 verify.py` with assertions enabled.
 
-We use a simple binary-prefix observation. If a binary sequence begins with two distinct symbols and every prefix has a singleton symbol, then from the third term onward all terms are equal. Indeed, after the third term one symbol occurs once and the other twice; adding the singleton symbol would make both multiplicities at least two, so every later term must repeat the current majority symbol. Consequently there is
-\[
-t\in\{c_0,c_1\}
-\]
-such that
-\[
-\varphi(a_3)=\cdots=\varphi(a_{n-1})=t.
-\tag{3}
-\]
-
-The last vertex \(a_n\) cannot receive \(c_3\), and it may receive \(c_2\). If it receives the color in \(\{c_0,c_1\}\setminus\{t\}\), then the full prefix \(N(b_n)=A\) has no singleton color: the formerly unique color is used a second time, while \(t\) is already repeated. Therefore
-\[
-\varphi(a_n)\in\{t,c_2\}.
-\tag{4}
-\]
-
-The argument on the other side is the exact reverse. Since \(a_1\) is adjacent to every vertex of \(B\), color \(c_0\) does not occur on \(B\). Since \(a_2\) is adjacent to \(b_2,\ldots,b_n\), color \(c_1\) does not occur there. Hence
-\[
-\varphi(b_j)\in\{c_2,c_3\}
-\qquad(2\le j\le n).
-\]
-Every neighborhood
-\[
-N(a_i)=\{b_i,\ldots,b_n\}
-\]
-is a suffix, so the reversed binary-prefix observation yields some
-\[
-s\in\{c_2,c_3\}
-\]
-with
-\[
-\varphi(b_2)=\cdots=\varphi(b_{n-2})=s.
-\tag{5}
-\]
-The full suffix at \(a_1\) then forces
-\[
-\varphi(b_1)\in\{c_1,s\};
-\tag{6}
-\]
-using the other member of \(\{c_2,c_3\}\) would eliminate the last singleton color.
-
-Equations (3)–(6) prove necessity.
-
-Conversely, every listed assignment is proper. The only possible reuse of \(c_2\) across the bipartition is at \(a_n\), but \(a_n\) is adjacent only to \(b_n\), whose color is \(c_3\). The only possible reuse of \(c_1\) across the bipartition is at \(b_1\), but \(b_1\) is adjacent only to \(a_1\), whose color is \(c_0\). All other colors are separated by side. The binary prefix and suffix forms show directly that every neighborhood retains a singleton color. Hence every listed assignment is proper conflict-free.
-
-There are four independent binary choices: \(t\), whether \(a_n\) is \(t\) or \(c_2\), \(s\), and whether \(b_1\) is \(s\) or \(c_1\). This gives \(16\) color-permutation classes. Assigning the four named colors to \((c_0,c_1,c_2,c_3)\) gives another factor of \(4!\), for a total of \(384\).
-
-## Verification
-The included checker constructs \(H_n\) from the defining inequality \(i\le j\) and tests properness and the open-neighborhood singleton condition directly.
-
-It exhausts every three- and four-color assignment for \(n=3,4,5\), a total of \(1{,}184{,}547\) assignments. No three-coloring is proper conflict-free. For \(n=4\) and \(n=5\), it finds exactly \(384\) four-colorings; after fixing
-\[
-\varphi(a_1)=0,\quad \varphi(a_2)=1,\quad \varphi(b_{n-1})=2,\quad \varphi(b_n)=3,
-\]
-the complete exhaustive set consists of exactly the \(16\) theorem-predicted forms.
-
-The verifier also constructs all \(16\) normalized forms and checks them directly for every
-\[
-4\le n\le50.
-\]
+At \(n=3\) both interior blocks are empty. The core still forces four colors, but either endpoint can choose any of the three colors not forbidden by its sole neighbor: each full prefix or suffix has length three and begins with two distinct colors, so some color is still a singleton. This gives 9 color-permutation classes and 216 named colorings, rather than the stated general census. The classification is not claimed for \(n=3\), for repeated neighborhood classes, or when quotienting by graph symmetries.
 
 ## Relationship to prior work
-Fabrici, Lužar, Rindošová, and Soták initiated the study of proper conflict-free coloring with respect to open neighborhoods. Their work focuses mainly on planar and outerplanar bounds. Its accessible full text contains no occurrence of “half”, “chain”, or “Ferrers”, and no half-graph theorem.
 
-Caro, Petruševski, and Škrekovski subsequently determined the parameter for several basic graph classes, including trees, cycles, hypercubes, and subdivisions of complete graphs, and proved general maximum-degree bounds. Those classes and bounds do not determine the half-graph value or the exact optimizer family.
-
-Later work developed sparse and planar upper bounds. A 2024 full-text treatment of odd and proper conflict-free coloring again contains no “half”, “chain”, or “Ferrers” occurrence. The closest indexed exact family found in the checked literature is a crown-graph result for the same parameter; crown graphs have almost-complete bipartite neighborhoods rather than the nested Ferrers neighborhoods of half graphs and do not imply the theorem above.
-
-## Limitations
-The full optimal-coloring classification is for \(n\ge4\). The boundary \(H_3\) still has \(\chi_{\mathrm{pcf}}=4\), but the absence of interior vertices creates additional optimal patterns; the exhaustive checker finds \(216\) named four-colorings there.
-
-The theorem is for half graphs, not arbitrary chain graphs with repeated neighborhood classes.
-
-The finite computation is corroborative only. The all-order classification and count follow from the four forced core colors and the binary prefix/suffix argument.
-
-A differently phrased or non-indexed half-graph treatment may exist.
+Pradhan and Sharma [1, §4.3, pp. 15–16] determine the scalar invariant on chain graphs; their Observation 3 already gives a canonical four-coloring, corresponding here to \(t=c_1\), \(s=c_2\), with no endpoint reusing a color from the other shore. Their algorithm computes an optimal coloring, not all optimal colorings or their number. The refinement here forces the binary prefix and suffix structure at optimality and enumerates the full set, including patterns with color reuse across shores. The inspected prior theorem does not characterize these patterns. Other optima on different bipartite families do not imply this classification. Earlier or differently indexed classifications beyond the sources examined are not ruled out.
 
 ## References
-1. I. Fabrici, B. Lužar, S. Rindošová, R. Soták, “Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods,” arXiv:2202.02570v1, first public version 5 February 2022; Discrete Applied Mathematics 324 (2023), 80–92, DOI 10.1016/j.dam.2022.09.011.
-2. Y. Caro, M. Petruševski, R. Škrekovski, “Remarks on proper conflict-free colorings of graphs,” arXiv:2203.01088v1, first public version 2 March 2022; Discrete Mathematics 346(2) (2023), 113221, DOI 10.1016/j.disc.2022.113221.
-3. J. Anderson, H. Chau, E.-K. Cho, N. Crawford, S. G. Hartke, E. Heath, O. Henderschedt, H. Kwon, Z. Zhang, “The forb-flex method for odd coloring and proper conflict-free coloring of planar graphs,” arXiv:2401.14590v1, first public version 26 January 2024.
+
+1. Dinabandhu Pradhan and Vaishali Sharma, *Complexity and algorithms for proper conflict-free coloring in graphs*, arXiv:2608.10874v2, §4.3, Observation 3 and Theorem 8. https://arxiv.org/abs/2608.10874v2
+2. I. Fabrici, B. Lužar, R. Rindošová and R. Soták, *Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods*, Discrete Applied Mathematics 324 (2023), 80–92. https://doi.org/10.1016/j.dam.2022.09.011

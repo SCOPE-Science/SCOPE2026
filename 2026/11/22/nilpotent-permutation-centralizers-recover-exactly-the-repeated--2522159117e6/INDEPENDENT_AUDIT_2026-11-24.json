@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:21:55.666212Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–45",
+        "Frozen VERIFICATION.md and verify.py, read only",
+        "/workspace/review-evidence/reproduce.py 4; /workspace/review-evidence/reproduce-4.txt"
+      ],
+      "rationale": "Equality of the partial maps forces σ-invariance of the domain. Equivariance and injectivity then identify the map with partial injections on equal-length cycle labels, with d possible phase choices per arrow of a length-d block. A label cycle forbids nilpotence regardless of phases; a chain with j labels contributes j−1 arrows and dies at the jth power. Thus with k arrows there are r−k ordered chains as an unordered collection: permute the labels, choose k noncut positions among r−1 gaps, and divide by (r−k)!. With a bound s on chain size, a j-chain has exponential generating series weight d^(j−1)z^(d(j−1))u^j because its j! orderings cancel the j! label denominator. The exponential can be taken over Q and the extracted counts are integral. A block with r=0 or 1 is invisible; otherwise its first coefficient is d r(r−1) in degree d. After dividing out the recovered factors, the least nonzero residual degree identifies the next d without knowing n, and that coefficient identifies r≥2 uniquely. Divisions lower degree, so this also proves termination and exact ambiguity. The empty map has index 1, and taking a single chain in each nonempty block attains both stated maxima.",
+      "residual_risks": [
+        "The independent enumeration verifies all 29 cycle profiles of positive degree at most six, including exact-power cutoffs and absence of extra rank collisions there; unbounded degrees are justified by the proof, not by enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araújo–Bentz–Konieczny characterize commuting partial injections using same-length cycle shifts and chain segments, citing Howie. Konieczny's partial-transformation result allows equivariant quotients of a cycle onto one of dividing length; injectivity gives equality.",
+          "Elliott–Levine–Mitchell count isomorphism types of monogenic inverse submonoids using chain/cycle representations. The objects counted are not individual nilpotents centralizing a given permutation."
+        ],
+        "reasoning": "The structural ingredients are covered. No inspected stronger invariant/recovery theorem applies to the specific compressed rank polynomial or supplies its exact ambiguity. The two Lipscomb full texts were not retrieved.",
+        "searches": [
+          "arXiv:1205.1664, Proposition 2.2, p. 4",
+          "doi:10.1017/S0017089599970301, Theorem 2.1 and references",
+          "doi:10.1007/BF02573142 and doi:10.1007/BF02574354, primary full-text retrieval attempts",
+          "arXiv:2303.12387, Theorem 1, Lemma 8 and Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror 8be29dd91c24, 571dfd1d61eb, 1d8c7c099b3b, 46b24971b86b",
+        "Araújo–Bentz–Konieczny arXiv:1205.1664",
+        "Konieczny doi:10.1017/S0017089599970301",
+        "Elliott–Levine–Mitchell arXiv:2303.12387",
+        "Lipscomb 1988/1992 full-text attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known structural description plus Lah enumeration gives the forward rank factorization. The compressed inverse needs triangular recovery from the smallest residual rank, since the rank variable merges all block contributions. The polynomial for all centers or all diagram elements does not give this inverse for a subfamily.",
+          "Same-length chain counting with size cutoff bounds the nilpotency index by label-chain vertices; the cited monogenic-submonoid enumeration does not count such truncated weighted chain collections for a fixed centralizer."
+        ],
+        "reasoning": "Credit the direct structural/counting corollary. The asserted inverse concerns a lossy selection of maps, not reconstruction from the entire centralizer or from a stronger observable on different objects.",
+        "searches": [
+          "arXiv:1205.1664, Proposition 2.2",
+          "Resultary 8be29dd91c24, Finding; 571dfd1d61eb, Finding and formula (3); 1d8c7c099b3b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8be29dd91c24 fixes a nilpotent partial injection and recovers its chain partition from all commuting partial injections. Target record fixes a unit and counts only nilpotent commuting partial bijections, recovering only its repeated-cycle profile.",
+          "Resultary 571dfd1d61eb instead counts all partial Brauer diagrams commuting with a permutation unit, by transversal rank, recovering full cycle type. Resultary 1d8c7c099b3b uses a fixed nilpotent partial bijection and a cancellation sieve."
+        ],
+        "reasoning": "These are meaningful inversion and enumeration analogues but different input or output statistics. Reversing which member is nilpotent, or restricting the monoid/diagram rank, does not turn one theorem into another. No priority inference is drawn from a same-day catalogue date.",
+        "searches": [
+          "Local Resultary: nilpotent centralizer rank inversion, cycle-type rigidity, cycle cancellation",
+          "arXiv:1205.1664, Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed statements count different inputs, different elements, or different ranks; 46b24971b86b counts idempotent total transformations by image rank, not nilpotent partial bijections.",
+          "The catalogued title Semigroups of Transformations Commuting with Injective Nilpotents led only to an inaccessible lead, not evidence about the precise rank statistic."
+        ],
+        "reasoning": "No independent exact computation or table for the target statistic was substantiated in the checked material. An inaccessible title does not exclude actual coverage.",
+        "searches": [
+          "Local Resultary/mirror: rank and nilpotent/partial permutation centralizers; records 8be29dd91c24, 571dfd1d61eb, 1d8c7c099b3b, 46b24971b86b",
+          "Primary-literature lookup for nilpotent centralizer rank and recovery"
+        ]
+      },
+      "rationale": "The structural equal-length wreath/phase decomposition and Lah chain counts are known ingredients, and applying them gives the forward product. The supported contribution is the exact information retained by the nilpotent rank statistic for total permutations, including its unavoidable singleton ambiguity, together with the rank/index refinement. The closest checked reconstruction and centralizer results change the objects, counted elements, or rank and do not supply this equivalence.",
+      "residual_risks": [
+        "The Lipscomb full texts were unavailable; possible exact earlier enumeration there or elsewhere was not ruled out.",
+        "The frozen reference to a published fixed-nilpotent rank-recovery theorem lacks an exact citation; the checked Resultary analogue is scientifically distinct, and an inaccessible title did not establish the identity of the alleged publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural reduction, not invariant inversion",
+          "evidence": [
+            "Same-length cycles map by a shift; chain segments also appear in the general criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Proposition 2.2, p. 4 (offset 13958)",
+          "method": "OA primary PDF passage",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Known exact commuting criterion in the same inverse monoid"
+        },
+        {
+          "assessment": "Broader class of maps, different statistic",
+          "evidence": [
+            "A domain cycle maps as a whole to one of dividing size. No rank inversion in the theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0017089599970301",
+          "material_read": "pp. 45–46, Theorem 2.1; references p. 57",
+          "method": "OA primary PDF passages",
+          "title": "Green's Relations and Regularity in Centralizers of Permutations",
+          "trigger": "Exact permutation-centralizer claim and references to Lipscomb"
+        },
+        {
+          "assessment": "Known structural background; possible further overlap unresolved",
+          "evidence": [
+            "Konieczny credits Lipscomb with structure/representation and order results; Springer routes did not yield the original passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02573142 ; https://doi.org/10.1007/BF02574354",
+          "material_read": "No full-text passages obtained; descriptions in Konieczny's introduction and references",
+          "method": "Publisher access attempts and checked primary citations",
+          "title": "The structure of the centralizer of a permutation; Centralizers in symmetric inverse semigroups: structure and order",
+          "trigger": "Prior same-object structural results may contain an equivalent enumeration"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": [
+            "Counts and classifies monogenic inverse submonoids rather than elements in a specified centralizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.12387",
+          "material_read": "Theorem 1, pp. 1–2; Lemma 8/Theorem 10, pp. 5–6",
+          "method": "OA primary PDF passages",
+          "title": "Counting Monogenic Monoids and Inverse Monoids",
+          "trigger": "Chain enumeration and classification in the same ambient monoid"
+        },
+        {
+          "assessment": "Distinct (fixed nilpotent, all commuting partial injections)",
+          "evidence": [
+            "Recovers the chain partition of a nilpotent partial injection rather than a unit's repeated cycle lengths."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-nilpotent-partial-permutation-conjugacy-is-determined-by-its-cen--8be29dd91c24",
+          "material_read": "RESULT.md, Finding and Relationship to prior work",
+          "method": "Local Resultary mirror",
+          "title": "Nilpotent partial permutation conjugacy is determined by its centralizer rank polynomial",
+          "trigger": "Closest indexed rank-recovery comparison"
+        },
+        {
+          "assessment": "Different monoid, all-diagram count and rank",
+          "evidence": [
+            "The transversal rank polynomial determines the full cycle type of a permutation unit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-unit-centralizer-rank-spectra-and-cycle-type-rigidity-in-partial--571dfd1d61eb",
+          "material_read": "RESULT.md, Finding, formula (3) and Relationship to prior work",
+          "method": "Local Resultary mirror",
+          "title": "Unit-centralizer rank spectra and cycle-type rigidity in partial Brauer monoids",
+          "trigger": "Same-day analogous reconstruction of a unit cycle profile"
+        },
+        {
+          "assessment": "Different fixed map",
+          "evidence": [
+            "Its fixed input is a nilpotent partial bijection, not a total permutation."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-cycle-cancellation-sieve-for-nilpotent-centralizers-in-symmetr--1d8c7c099b3b",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A cycle-cancellation sieve for nilpotent centralizers in symmetric inverse semigroups",
+          "trigger": "Nilpotent centralizer counts and rank in the same monoid"
+        },
+        {
+          "assessment": "Different counted maps and rank convention",
+          "evidence": [
+            "Enumerates idempotent total transformations by image rank."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-rank-enumeration-and-minimum-retraction-size-in-permutation-cent--46b24971b86b",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Rank enumeration and minimum retraction size in permutation centralizers",
+          "trigger": "Same type of centralizer and rank-refined count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural subfamily of commuting maps discards every singleton cycle, yet its one-variable domain-rank counts retain all repeated lengths and multiplicities even across degrees. This exact loss-of-information boundary is useful when only the nilpotent part of a centralizer is observed and is not an ordinary isomorphism classification of the whole centralizer. The index cutoff adds a separate usable count for bounded escape in the partial map.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -89,9 +89,9 @@ P_{\rm std}(-x_*)=-x_*(\gamma-\gamma_*)^2\le0,
 \]
 Consequently, for every \(\gamma\ne\gamma_*\), that cubic has a real eigenvalue strictly between \(-x_*\) and \(0\). Thus \(g_m(\gamma)<x_*\) away from the proposed optimizer. At \(\gamma=\gamma_*\), set \(z=w-x_*\). The standard cubic factors as
 \[
-P_{\rm std}(w-x_*)=w\bigl[w^2+(2s+s^{-1})w+2(s^2+1)\bigr].
+P_{\rm std}(w-x_*)=w\bigl[w^2+(2s-s^{-1})w+2s^2\bigr].
 \]
-Every other standard root has real part strictly less than \(-x_*\). The shifted trivial cubic is
+Since \(s\ge1\), both nonleading coefficients of the quadratic factor are strictly positive; every other standard root thus has real part strictly less than \(-x_*\). The shifted trivial cubic is
 \[
 P_{\rm tr}(w-x_*)=w^3+(2s-s^{-1})w^2+(5s^2+6)w+(2s^3+3s-2s^{-1}).
 \]

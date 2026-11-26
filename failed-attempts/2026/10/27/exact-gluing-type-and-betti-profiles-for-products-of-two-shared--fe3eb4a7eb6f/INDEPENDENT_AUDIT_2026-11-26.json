@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:59:33.394317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distributing the ideal product gives the four displayed generators. The first three lie in [m²,2m²), and the fourth exceeds each and is not divisible by m, proving minimality. Since d∈H and d is invertible modulo m, the bounded normal form exists by carrying md and is unique. For a pseudo-Frobenius gap, addition of d forces the top digit m−1; testing positive mH gives the necessary PF condition on h. Conversely, addition of a positive mH term or the carry of d adds a positive member of H to h, proving the lift. The Apéry representatives modulo m² are m u_r+jd, yielding the genus formula by summing. Type invariance and the three-generator criterion force the asserted pair-gcd test. The monic regular relation has coefficients in the graded maximal ideal, so the minimal mapping cone multiplies the 3-generator Betti polynomial by 1+z, in every field. For the defect, each PF gap other than F has a gap as its complement under x↦F−x, giving 2g−F≥t; substitution then proves the exact defect and excludes almost symmetry in type two. The stated m=3 extremum gives (F,g,t)=(46,25,2). At the endpoint family the residue costs come from steps ±1, so the two candidate costs suffice. Only branch endpoints P and Q can be maximal in Apéry order. With e_0=(2m−1) mod 3, their difference is P−Q=m(2−e_0)−1; it is 2m−1 when m≡2 mod 3, otherwise m−1 or −1, so only the first case has domination. This closes the implicit step at RESULT.md line 62. Frozen support was inspected, not executed. Direct membership enumeration, independently checking endpoint PF and genus at m=3,…,35, is replayable with python3 /workspace/branches/independent_bounded_checks.py. It is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gimenez–Srinivasan Theorem 3.1 and Corollary 3.2 compute the minimal resolution and convolution of Betti numbers for a general gluing; the N_0 factor has only β_0=1.",
+          "The classical three-generator criterion gives H symmetric iff some pair with gcd e>1 has the remaining generator in the normalized pair semigroup. Both pairs containing m have gcd one, so the stated pair is the only candidate.",
+          "Eto et al. Theorem 1 forces odd embedding dimension for almost symmetric almost complete intersections of embedding dimension at least three. The type-two ring here has four relations in codimension three, so its nonsymmetry obstruction is already covered."
+        ],
+        "reasoning": "The Betti dichotomy follows from the two possible 3-generator Betti vectors by the general gluing multiplication, and is not a new homological case. The numerical inequality sharpening the almost-symmetry obstruction follows immediately from the exact defect identity and nonnegativity of the defect of H.",
+        "searches": [
+          "numerical semigroup gluing Betti polynomial multiplied 1 plus mapping cone gluing numerical semigroups free resolution Gimenez Srinivasan theorem",
+          "Eto et al. arXiv:2609.24880 Theorem 1; Morales–Dung arXiv:2601.07467 Theorem 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Chen et al. arXiv:2607.10778",
+        "Gimenez–Srinivasan arXiv:1710.07237",
+        "Morales–Dung arXiv:2601.07467",
+        "Eto et al. arXiv:2609.24880",
+        "NumericalSgps Chapter 6",
+        "Resultary 01ffc9877a2f, 94ebfd94b1e9, 7091c6f11bba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the boundary H use the AAG parameters (a,h,k,d,c)=(m,1,1,1,2m−1) in Morales–Dung. Their negative remainder Euclidean algorithm starts s_0=m, s_1=m−1, p_0=0, p_1=1. All quotients are two until the zero remainder, so s_i=m−i, p_i=i, r_i=1−2i, r_i'=m+1−3i. Thus μ=floor(m/3) from r'_μ>0≥r'_(μ+1), and ρ_μ=0.",
+          "With s_μ−s_(μ+1)=p_(μ+1)−p_μ=1, Theorem 3.8(i)'s two monomial rectangles are exactly the pure powers with weights j(2m−1) for 0≤j≤μ, and j(m+1) for 1≤j≤m−μ−1. Here m−μ−1=floor((2m−1)/3). These are precisely the two residue branches, leaving only their top elements for the PF computation; the simple difference test resolves the tie.",
+          "All remaining stated product quantities follow from the general PF/type and Betti laws or the Apéry sum. In particular Δ(C)=m(2g(H)−F(H)−t(H))+(m−1)(t(H)−1); the lower bound and smallest equality example need no new classification."
+        ],
+        "reasoning": "The endpoint is not merely computable per instance by a general algorithm: substitution gives both exact Apéry branches symbolically for every m, with the same break and the same two candidates for the exact PF set. The family-specific gluing and boundary calculations do not leave a distinct validated remainder.",
+        "searches": [
+          "Pseudo-Frobenius numbers almost arithmetic sequences, Morales–Dung arXiv:2601.07467, Lemma 3.4, Definition 3.6 and Theorem 3.8 (i)",
+          "Chen et al. Proposition 4.5; gluing resolution Corollary 3.2 of arXiv:1710.07237"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four pairwise products are m times the generators of H and d; d is in H and gcd(m,d)=1. This is precisely a gluing with the one-generator component N_0.",
+          "Proposition 4.5 allows mA+nB with coprime m,n and n∈A. Its disjoint residue decomposition is indexed by Ap_m(B); for B=N_0 those indices are 0,…,m−1 and the sole semigroup-order maximal element is m−1.",
+          "Proposition 4.9 assumes the offsets are congruent modulo m, which fails here."
+        ],
+        "reasoning": "The older gluing theorem matches through expansion of the product, not by applying the wrong congruence case. Taking A=H, B=N_0, n=d gives the exact PF formula, type, normal form, and hence Hilbert series and Frobenius formula. Summing the resulting Apéry costs is the genus identity.",
+        "searches": [
+          "common-generator numerical semigroup ideal products, gluing, type and Betti profiles",
+          "Chen et al., arXiv:2607.10778, Propositions 4.5 and 4.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 01ffc9877a2f treats the different product <2,3> times an ordinary semigroup; 94ebfd94b1e9 treats powers of a three-generator factor.",
+          "Resultary 7091c6f11bba covers <m,m+1,hm−1>, including the exact boundary under h=2. The theorem concerns thresholds for two representations, but its proof near offset 1738 compares the least base weights A_r and B_r and therefore already identifies the ordinary Apéry minimum as a proof ingredient."
+        ],
+        "reasoning": "The later second-threshold record is relevant mathematical coverage of the intermediate Apéry formula, not evidence of earlier priority. No equivalent earlier catalogue table was established by the bounded search; the earlier primary AAG theorem gives a direct implication independent of the catalogue.",
+        "searches": [
+          "Resultary: exact Apéry and pseudo-Frobenius formula for numerical semigroup m m+1 2m-1, products of <m,m+1> and <m,2m-1> period-three boundary type genus Frobenius",
+          "numerical semigroup 2m−1 m+1 Apéry set pseudo-Frobenius numbers and genus"
+        ]
+      },
+      "rationale": "The main theorem is a specialization of general gluing and three-generator results after expanding the four generator products. In particular, Chen et al. Proposition 4.5, not merely their distinct-scope Proposition 4.9, already gives the entire PF/type lift and its residue decomposition. Gimenez–Srinivasan's gluing resolution gives the asserted Betti multiplication. The exact defect identity is algebraic substitution into the general Frobenius, genus and type formulas. The strongest candidate for a distinct remainder, the extremal-offset ordinary Apéry law, also specializes explicitly from Morales–Dung Theorem 3.8 with a closed one-line evaluation of its Euclidean parameters, and the displayed PF set follows by taking the two maxima of that specialization. This finding is correct but the stated package does not establish a distinct scientific claim. No repair is claimed.",
+      "residual_risks": [
+        "Herzog's historical primary full text was not obtained; classical three-generator implications are corroborated by later sources and the homological argument. An exact earlier source stating the same product-family packaging was not established; the demonstrated broader mathematical implications suffice for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad exact PF/type coverage; Proposition 4.9 has different offset hypothesis",
+          "evidence": "PF(mA+nB)=mPF(A)+nMax_m(B); the disjoint union is indexed by Ap_m(B).",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10778",
+          "material_read": "Proposition 4.5 and residue-decomposition proof, p. 16 (offset 57480), and Proposition 4.9, p. 18 (offset 62700)",
+          "method": "OA PDF passages and explicit H,N_0 substitution",
+          "title": "The Arithmetic of Semirings, Part I: Ideals",
+          "trigger": "Exact ideal operation and nearby symmetry result"
+        },
+        {
+          "assessment": "Direct coverage after inserting the one-generator component",
+          "evidence": "β_i(C)=sum_j β_j(A)(β_(i−j)(B)+β_(i−j−1)(B)).",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.07237",
+          "material_read": "Corollary 3.2 and proof, pp. 6–7 (offset 21076)",
+          "method": "OA PDF locate and passage read",
+          "title": "The structure of the minimal free resolution of semigroup rings obtained by gluing",
+          "trigger": "General theorem potentially supplying both Betti vectors"
+        },
+        {
+          "assessment": "Directly supplies the ordinary Apéry branches for every endpoint m; PF maxima then follow",
+          "evidence": "At k=h=1, p_i=i and s_i=m−i, with μ=floor(m/3); the theorem's two rectangles reduce to the two pure-power branches.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.07467",
+          "material_read": "§3.1, Lemma 3.4 and Euclidean recursion pp. 4–5 (offset 13340), Definition 3.6 p. 6 (offset 17439), Theorem 3.8(i) pp. 6–7 (offset 21070)",
+          "method": "OA PDF passage reads and exact closed evaluation of the Euclidean parameters",
+          "title": "Frobenius number of Almost Symmetric numerical generalized almost arithmetic semigroups",
+          "trigger": "Potential broader exact ordinary Apéry formula for the endpoint"
+        },
+        {
+          "assessment": "Implies non-almost-symmetry for the stated type-two Betti case",
+          "evidence": "Almost-symmetric almost-complete-intersection semigroups of embedding dimension ≥3 must have odd embedding dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24880",
+          "material_read": "Theorem 1, p. 2 (offset 7690)",
+          "method": "OA PDF passage inspection",
+          "title": "The structure of almost symmetric almost complete intersection numerical semigroups",
+          "trigger": "Broader almost-symmetry obstruction in the nonsymmetric branch"
+        },
+        {
+          "assessment": "Later threshold result with ordinary Apéry minimum implicit in proof",
+          "evidence": "The first weights on x−y=r and x−y=r−m are r(m+1) and (m−r)(hm−1); no other branch can have a lower weight.",
+          "identifier_or_url": "7091c6f11bba",
+          "material_read": "Mirrored RESULT.md Finding and Proof §1 near offset 1738",
+          "method": "Resultary search and local-mirror passage read",
+          "title": "First generalized Frobenius numbers and second Apéry thresholds for a near-arithmetic triple",
+          "trigger": "Same intermediate boundary semigroup at h=2"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact invariants are useful descriptive data for the new ideal-product setting, but the proposed contribution consists of expanding the product definition and specializing existing gluing, three-generator and near-arithmetic formulas. The genus/defect algebra and the smallest sharpness witness do not supply an independently unknown invariant, obstruction or boundary after those implications are credited. No nonroutine substantive remainder was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

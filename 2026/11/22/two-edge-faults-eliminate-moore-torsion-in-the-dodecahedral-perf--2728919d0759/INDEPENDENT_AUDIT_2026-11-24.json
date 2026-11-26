@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:58.367400Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, pp. at lines 19–56; VERIFICATION.md; VERIFIER_OUTPUT.txt; verify_two_fault.py (inspected only)",
+        "/workspace/branches/69550c32-198e-4e85-bac4-cdf7e4d6a65f/independent_morse_replay.py",
+        "/workspace/branches/69550c32-198e-4e85-bac4-cdf7e4d6a65f/independent_morse_replay.json",
+        "/workspace/branches/69550c32-198e-4e85-bac4-cdf7e4d6a65f/independent_morse_replay.log"
+      ],
+      "rationale": "The complex is the downward closure of surviving perfect matchings, not the ordinary matching complex. Independent code reenumerated 36 original perfect matchings, 120 automorphisms and all 435 distinct unordered double faults in eight orbits. The full Hasse graphs verified acyclicity; removing the empty-face pairing leaves one critical basepoint. The critical 2-/3-cell profiles in the listed orbit order are (0,0),(2,2),(1,1),(1,0),(1,0),(1,1),(1,1),(1,2). The signed degree matrix vanishes except for a single primitive nonzero column (1,−1) at (0,5). The CW two-skeleton is a wedge of 2-spheres, so Hurewicz identifies the entire attaching-map data with these degree matrices. Integral basis changes on source and target wedges leave the homotopy cofiber unchanged and cancel the unit entry. This proves the counts 60,120,240,15 for the four types and the disappearance of torsion. Intact and one-fault torsion are credited antecedent results, not new consequences of the census.",
+      "residual_risks": [
+        "The separate replay implements the same Morse pairing strategy; the direct mod-2 and mod-3 homology ranks corroborate it but do not prove integral torsion-freeness by themselves. No conclusion about inclusion-induced homomorphisms follows from the census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classifications inspected concern honeycomb/grid and polygonal line-tiling families under different graph hypotheses. The generalized Petersen paper concerns a different complex."
+        ],
+        "reasoning": "These families and invariants do not include the punctured graph with the stated face predicate; no applicable stronger result was established.",
+        "searches": [
+          "Bayer–Jelić Milutinović–Vega, Perfect Matching Complexes of Honeycomb Graphs",
+          "Chandrakar–Singh arXiv:2407.05809 Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "Resultary 2619f7f9ee9d, 2c09902bba79, efd05431d7b5",
+        "Bayer–Jelić Milutinović–Vega; Chandrakar–Singh; Kim, cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-edge inclusion induces an H₂ isomorphism to the intact complex. The two-edge complex is an intersection of two such subcomplexes, whose homotopy type is not specified by their types and the stated map on H₂."
+        ],
+        "reasoning": "Neither the known H₂ preservation nor the abstract Morse machinery determines these signed attaching maps, orbit multiplicities, or the smallest fault count eliminating torsion.",
+        "searches": [
+          "Resultary 2619f7f9ee9d, Finding",
+          "Resultary 2c09902bba79, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GP(10,2) is the dodecahedral graph. Independence complexes studied by Kim have a different face predicate; even ordinary matchings would require a nontrivial extendability restriction. The legitimate alternative formulation is deleting two vertices of the intact extension-restricted simplicial complex (its induced deletion), because avoiding both edges is equivalent to using a matching of the punctured graph."
+        ],
+        "reasoning": "The names GP(10,2), dodecahedral graph, and two-vertex deletions in the extendable-matching complex refer to the same check. Generic graph independence calculations do not cover it.",
+        "searches": [
+          "Resultary: dodecahedral perfect-matching complex, two-edge faults, Moore torsion",
+          "Kim arXiv:2611.22021v1 §1.2; Bayer–Jelić Milutinović–Vega Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact known types are M(Z/2,2)∨20S³ for the intact case and M(Z/2,2)∨4S³ for all single-edge cases. The returned double-fault census is the identical assigned record, not independent coverage."
+        ],
+        "reasoning": "The closest inspected table-like exact entries stop at one fault and do not tabulate the double-fault orbits and homotopy types.",
+        "searches": [
+          "Resultary dodecahedral complex records 2c09902bba79, efd05431d7b5 and 2619f7f9ee9d"
+        ]
+      },
+      "rationale": "The intact and single-edge homotopy types, elementary method, and graph are known. The strongest available matches give intact torsion or its preservation after one fault, not the signed double-fault census or the disappearance of torsion after every pair. The identical two-edge record was a self-match; the distinct same-day single-edge comparison was not excluded or treated as earlier merely by its date.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparisons do not establish historical priority or exclude unpublished or unindexed exact computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant antecedent; distinct same-day result, no pair coverage",
+          "evidence": "All one-edge deletions have M(Z/2,2)∨4S³ with H₂ inclusion isomorphism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-single-edge-faults-preserve-the-2-torsion-of-the-dodecahedral-pe--2619f7f9ee9d",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Bounded local mirror",
+          "title": "Single-edge faults preserve the 2-torsion of the dodecahedral perfect-matching complex",
+          "trigger": "Same graph, same invariant and adjacent fault count"
+        },
+        {
+          "assessment": "Intact baseline only",
+          "evidence": "M(Z/2,2)∨20S³ for the intact complex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-order-two-torsion-and-a-moore-space-decomposition-for-the-dodeca--2c09902bba79",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Bounded local mirror",
+          "title": "Order-two torsion and a Moore-space decomposition for the dodecahedral perfect-matching complex",
+          "trigger": "Identical original complex without faults"
+        },
+        {
+          "assessment": "Intact baseline, not pair-deletion data",
+          "evidence": "Same intact homotopy type; no pair classification in the statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-moore-space-summand-in-the-dodecahedral-perfect-matching-compl--efd05431d7b5",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Bounded local mirror",
+          "title": "A Moore-space summand in the dodecahedral perfect-matching complex",
+          "trigger": "Same graph and Morse invariant"
+        },
+        {
+          "assessment": "Same extension-restricted invariant, different family",
+          "evidence": "Faces are subsets of perfect matchings; the classifications concern honeycomb graphs.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i2p45/pdf",
+          "material_read": "Abstract and Definition 1 (pp. 1–2; OA offsets 1021, 5077)",
+          "method": "Bounded OA journal text",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Original definition and graph-family homotopy calculations"
+        },
+        {
+          "assessment": "Grid/line-tiling family, not this graph",
+          "evidence": "Scope is stated in terms of these tilings rather than arbitrary edge faults of GP(10,2).",
+          "identifier_or_url": "https://arxiv.org/html/2407.05809",
+          "material_read": "Theorem 1.1 (OA offset 6055)",
+          "method": "Bounded OA text",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Plausible broader classification"
+        },
+        {
+          "assessment": "Different simplicial invariant",
+          "evidence": "Identifies the dodecahedral GP(10,2) but treats independence complexes of GP(n,2).",
+          "identifier_or_url": "https://arxiv.org/html/2611.22021v1",
+          "material_read": "Introduction and §1.2 (OA offsets 0, 2568, 8500)",
+          "method": "Bounded OA text",
+          "title": "Kim, arXiv:2611.22021v1 (generalized Petersen graphs)",
+          "trigger": "Identical graph alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and orbit census",
+        "Intact and single-edge Results, Findings"
+      ],
+      "rationale": "This is a natural fault threshold for a known torsion-bearing, symmetric extension complex. The complete homotopy-type census answers both sharp robustness (one fault is insufficient and every two distinct faults suffice) and what replaces the torsion, including the effect of incidence and disjoint-pair orbits. The invariant is not determined by a matching count or a homology calculation over one field.",
+      "residual_risks": [
+        "It does not establish a fullerene family principle or classify greater fault counts; its value is the motivated complete classification for the canonical graph."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

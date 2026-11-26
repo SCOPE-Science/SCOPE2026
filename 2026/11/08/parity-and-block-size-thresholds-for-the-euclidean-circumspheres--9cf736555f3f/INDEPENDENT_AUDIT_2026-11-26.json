@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:30:01.174792Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The path edge-incidence constraints on block sums give an integral stable-set polytope: signing the columns by bipartition turns the transposed edge-incidence into oriented incidence, with the coordinate bounds preserving total unimodularity. A convex decomposition of the sums lifts by conditional choices with probabilities x_ij/s_i, and each resulting colored independent-set indicator is a vertex since it is a cube vertex. At a block-constant trial center with block masses p_i, direct expansion gives the common baseline sum p_i^2/a and weights 1-2p_i/a. For even m and a>1 the largest objective is the maximum independent support size k; compressing the k ordered positions gives k+1 supports. At a=1 all weights vanish and the independent-set recurrence gives F_(m+2). For odd m and 1<a<=m+1, the proposed h and ell balance (k+1)w_o=k w_e. The positive alternating edge multipliers sum to the corresponding weight at each vertex, so equality requires exactly one occupied endpoint on each edge and forces one of the two alternating supports. This includes a=m+1, where ell=0. Above it the same edge multipliers dominate the even weights strictly, so only the odd alternating support reaches equality. Uniform coordinate choice on the stated supports (with a mixture giving the candidate block masses) puts their barycenter at the center. The variance identity proves the claimed radius and uniqueness against every other center, and strict convexity rules out nonvertex contacts. Both odd radius expressions agree at the threshold; substituting h gives the first branch, and the all-odd mixture gives the second. An independent bounded calculation compared exact coordinate distances and contact counts at 49 parameter pairs, 245593 colored vertices and 491501 rational assertions, including each of m=3,5,7 at and beyond a=m+1. It used separately constructed colored independent sets and exact rational distances; no separate durable replay script was delivered for that check. The source's verify.py and VERIFICATION.md were inspected, not executed; their recorded tests corroborate, but do not replace, the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elzinga–Hearn state a finite general algorithm for the smallest sphere enclosing a convex polyhedron (accessible abstract).",
+          "The complete-multipartite theorem gives center, radius and contacts for stable sets lying in single graph classes; the cone theorem is for cones over vertex-transitive graphs. The cited cycle record was not directly retrievable."
+        ],
+        "reasoning": "A generic algorithm computes instances but does not give a symbolic path parity and contact threshold. Complete-multipartite or vertex-transitive-base hypotheses do not cover arbitrary expanded paths, though the complete graph at m=2 is a covered special case. The supposed cycle comparison is limited to the scope described in the frozen source.",
+        "searches": [
+          "Elzinga–Hearn, DOI 10.1002/nav.3800210414, RePEc abstract",
+          "Resultary minimum spheres of stable-set polytopes: 2a7050b5d350, cited 0b914e4f06d2, and cone theorem a4388ee8bd83"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–106, VERIFICATION.md and verify.py support",
+        "arXiv:2607.22008; Elzinga–Hearn RePEc abstract and retrieval attempts",
+        "Resultary 2a7050b5d350 and 3cc79fb90b9e; 0b914e4f06d2 access attempt; a4388ee8bd83 cone record comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For even m at a=1, the containing alternating-bound model's optimal ball already contains the path polytope and the latter contains the two antipodal alternating vertices, forcing the same ball. For any uncolored m those two vertices alone similarly certify the cube-center sphere through all binary vertices.",
+          "For m=2, the colored path polytope is the stable-set simplex of the complete graph K_(2a), covered by the complete-multipartite model. For m=3,a=1 the path is also complete bipartite. Other expanded paths can have stable sets using several nonadjacent blocks, without those sets being confined to one independent class of a complete-multipartite graph.",
+          "More generally a 0/1 vertex set's enclosing-ball center is the projection of the cube center onto its convex hull, by the projection inequality and the contact-barycenter variance identity. This reduction is not by itself the solution of that projection, nor its full equality set for colored path constraints."
+        ],
+        "reasoning": "Credit the easy binary and exact covered small graph cases, and standard optimization certificates. The all-parameter evaluation and the change of the exposed contact supports at odd a=m+1 require a path-specific argument; neither the prior vertex enumeration nor the general projection or sphere-algorithm reduction yields them as stated.",
+        "searches": [
+          "3cc79fb90b9e Finding and proof §§1–3",
+          "2a7050b5d350 Finding and Proof",
+          "Jiang–Yang–Zhong arXiv:2607.22008 v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full July 24 Jiang–Yang–Zhong preprint, pp. 1–2, treats the very same path block object, not just analogous paths.",
+          "Same-day record 3cc79fb90b9e gives a sphere and contacts for alternating adjacent-sum bounds s,s+1 in one coordinate per block. At s=1 its even-path model contains P_(m,1)."
+        ],
+        "reasoning": "Clique-expanded path stable sets and the present vertices encode the same polytope, not different invariants. The alternating-bound theorem materially overlaps the even a=1 case but is not equivalent to the colored family for general a.",
+        "searches": [
+          "Resultary path block/smallest enclosing sphere and alternating adjacent-sum path records, 3cc79fb90b9e and 2a7050b5d350",
+          "arXiv:2607.22008 v1, path block definition and colored-independent-set interpretation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family enumerative results count lattice points and include the colored independent-set vertex count. They do not label which vertices are at the Euclidean circumradius for a>1.",
+          "The same-day alternating bound formula has 3^(m/2) contacts at s=1 for even m, counting the larger polytope. The P_(m,1) contacts are a subset with F_(m+2) vertices."
+        ],
+        "reasoning": "An exact count of all vertices handles the count once every vertex contacts, not contact classes in the genuinely colored regimes. The indexed exact formulas were checked for overlap, not treated as evidence of novelty just because they use different parameters.",
+        "searches": [
+          "Resultary 3cc79fb90b9e and 2a7050b5d350 exact formula records",
+          "arXiv:2607.22008, Abstract and p. 2, including the q=1 count"
+        ]
+      },
+      "rationale": "The path block polytope, colored stable-set structure, and general algorithms for enclosing spheres are known; the a=1 sphere is standard binary geometry and the simplest graph slices overlap other exact results. The supported distinct theorem is the all-block-size parity classification, in particular the odd saturation a=m+1 and the complete equality families on both sides and at the boundary. The strongest inspected same-family or same-invariant statements do not give this transition. Same-day ordering is not inferred.",
+      "residual_risks": [
+        "The original cycle record and complete Elzinga–Hearn text were not directly compared. Inaccessibility is not evidence for or against coverage.",
+        "The same-day overlap on a subcase carries no within-day priority information. Earlier explicit projections of clique-expanded stable-set polytopes or differently titled exact metric results could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier same polytope and combinatorics, no matching enclosing-sphere statement in inspected material",
+          "evidence": "Transfer matrices and Ehrhart results; exact path-block and colored independent-set model. Metric keyword misses are locators, not exhaustive negative evidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.22008",
+          "material_read": "Full v1 PDF retrievable; p. 1 Abstract and p. 2 definitions and q=1 interpretation near offset 8500 examined; targeted metric term checks in extracted text",
+          "method": "Primary OA PDF passage and literal locators",
+          "title": "Transfer Matrices and Ehrhart Theory for Path and Cyclic Block Polytopes",
+          "trigger": "Original source for the identical path constraints"
+        },
+        {
+          "assessment": "Finite optimization algorithm in the checked abstract; full text access limitation",
+          "evidence": "Generates extreme points and their smallest enclosing spheres until optimum; no parameter formulas in the abstract.",
+          "identifier_or_url": "https://ideas.repec.org/a/wly/navlog/v21y1974i4p715-718.html",
+          "material_read": "Accessible abstract around offset 349 only",
+          "method": "RePEc comparison and unsuccessful lawful publisher and alternate recovery",
+          "title": "The minimum sphere covering a convex polyhedron",
+          "trigger": "Potential general theorem covering the optimal sphere and equality cases"
+        },
+        {
+          "assessment": "Covered complete-multipartite special cases, not the general path threshold",
+          "evidence": "Stable sets contained in a single part; exact sphere and class-contact regime for that geometry.",
+          "identifier_or_url": "2026/10/11/SCOPE-large-part-screening-in-minimum-spheres-of-complete-multipartite--2a7050b5d350",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary local mirror",
+          "title": "Large-part screening in minimum spheres of complete multipartite stable-set polytopes",
+          "trigger": "Exact same metric invariant and stable-set formulation"
+        },
+        {
+          "assessment": "Unresolved direct priority check",
+          "evidence": "Frozen record describes a one-coordinate cyclic fractional model; no original passage checked.",
+          "identifier_or_url": "2026/10/11/SCOPE-cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2",
+          "material_read": "Frozen source's comparison only; original matching mirror path unavailable",
+          "method": "Local mirror lookup by exact identifier",
+          "title": "Cycle fractional stable-set polytopes have a parity-split minimum sphere",
+          "trigger": "Closest cited parity-split sphere theorem for analogous constraints"
+        },
+        {
+          "assessment": "Genuine even a=1 implication, not colored transition",
+          "evidence": "For even d=2r with alternating s,s+1 bounds, center (s/2)1 and squared radius rs^2/2; containment plus antipodal vertices establishes the overlap at s=1.",
+          "identifier_or_url": "2026/11/8/SCOPE-fibonacci-contact-rigidity-and-exact-diametral-pairs-of-alternat--3cc79fb90b9e",
+          "material_read": "RESULT.md Finding, Assumptions and proof §§1–3, starting offset 0",
+          "method": "Resultary local mirror",
+          "title": "Fibonacci contact rigidity and exact diametral pairs of alternating adjacent-sum polytopes",
+          "trigger": "Same-day path sphere and contact formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the precise Euclidean center, radius and extremal supports for a natural colored path family. In the odd case the center reaches the boundary at a=m+1 while both contact families still remain; only above it does one family disappear. That distinction, the exact counts and the all-parameter classification provide meaningful information beyond stable-set integrality, a generic optimization algorithm, or the standard cube-center argument for a=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

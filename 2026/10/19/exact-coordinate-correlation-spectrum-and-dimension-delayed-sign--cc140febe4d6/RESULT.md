@@ -1,106 +1,70 @@
-# Exact coordinate-correlation spectrum and dimension-delayed sign reversal for the twisted baker map
+# Sharp dimensional slowdown of first-coordinate covariance in the twisted baker map
 
 ## Finding
-For the twisted baker map in every dimension \(M\geq2\) and normalized Lebesgue stationary measure \(m\), the entire infinite matrix of two-time coordinate covariances is determined exactly by powers of an explicit \(M\)-by-\(M\) rational matrix \(B_M\). The centered first-coordinate autocovariance \(C_M(n)\) has rational generating function
+
+For each integer \(M\ge2\), let \(F\) be the twisted baker map on \(X=[-1,1]\times[0,1]^{M-1}\), and let \(m\) be normalized Lebesgue measure. For the first-coordinate stationary autocovariance
 \[
-\boxed{\sum_{n\geq0}C_M(n)z^n=\frac{(1-z/2)^{M-1}}{3\big[(1-z/4)(1-z/2)^{M-1}+z^M/2^{M+1}\big]}.}
+C_M(n)=\int_X x_1(F^n x)_1\,dm(x),\qquad \rho_M=\limsup_{n\to\infty}|C_M(n)|^{1/n},
 \]
-Its sign changes for the first time **at exactly the ambient dimension**:
+the exact exponential rate has the sharp large-dimension expansion
 \[
-\boxed{C_M(n)=\frac{1}{3\cdot4^n}>0\quad(0\leq n<M),\qquad C_M(M)=\frac13\left(4^{-M}-2^{-(M+1)}\right)<0.}
+\boxed{\displaystyle \rho_M=1-\frac{\log3}{2M}+O(M^{-2}).}
 \]
-The transfer matrix has characteristic polynomial
+In particular, the physical coordinate has no dimension-uniform exponential rate bounded strictly below one. A pair of nonreal transfer roots approaches one as
 \[
-\boxed{\det(\lambda I-B_M)=(\lambda-1/4)(\lambda-1/2)^{M-1}+2^{-(M+1)}.}
+\lambda_{M,\pm}=1+\frac{-\log3\pm i\pi}{2M}+O(M^{-2}).
 \]
-The exact exponential autocovariance rate \(\rho_M=\limsup_{n\to\infty}|C_M(n)|^{1/n}\) lies in \((0,1)\), equals the maximum modulus of the roots of this polynomial, and tends to \(1\) as \(M\to\infty\). More quantitatively, there is a pair of roots satisfying
-\[
-|\lambda_M|=1-\frac{\log3}{2M}+O(M^{-2}).
-\]
-This exhibits dimension-dependent slowing of a natural geometric correlation despite measure-theoretic Bernoulli mixing in each fixed dimension.
+It is not necessary to identify which roots maximize the modulus in each dimension: the pair gives the sharp lower bound, and the characteristic equation gives a matching upper bound for the maximal modulus.
 
 ## Assumptions and scope
-For an integer \(M\geq2\), let \(X=[-1,1]\times[0,1]^{M-1}\) and define
+
+The map is
 \[
 F(x_1,\ldots,x_M)=
 \begin{cases}
 (1+2x_1,x_2,\ldots,x_M),&x_1<0,\\
-(1-2x_M,x_1,\ldots,x_{M-1}),&x_1\geq0.
+(1-2x_M,x_1,\ldots,x_{M-1}),&x_1\ge0.
 \end{cases}
 \]
-Let \(m\) be the normalized \(M\)-dimensional Lebesgue probability on \(X\). The two inverse branches on \(X\) have constant Jacobian determinant magnitude \(1/2\), proving that \(m\) is invariant. The centered coordinate observables are \(\xi_1(x)=x_1\) and \(\xi_j(x)=x_j-1/2\) for \(2\leq j\leq M\). Write
-\[
-C_{ij}(n)=\int_X\xi_i(x)\xi_j(F^nx)\,dm(x),\qquad C_M(n)=C_{11}(n).
-\]
-The matrix \(B_M\) has nonzero entries, for \(M\geq2\),
-\[
-(B_M)_{1,1}=1/4,\quad(B_M)_{1,2}=1/2,\quad
-(B_M)_{i,i}=(B_M)_{i,i+1}=1/2\ (2\leq i<M),
-\]
-\[
-(B_M)_{M,1}=-1/4,\qquad(B_M)_{M,M}=1/2,
-\]
-with all unlisted entries zero. For \(M=2\) the first and last rows are distinct, so the displayed assignments remain unambiguous.
+The observable \(x_1\) has zero mean. The limit superior is in lag with dimension held fixed; the dimension is then taken large in the resulting rate. This is not a claim about all observables, a simultaneous lag-and-dimension asymptotic, or the full transfer spectrum.
 
 ## Proof
-**1. Transfer closure.** The inverse branches and their probabilities under \(m\) are
-\[
-G_L(y)=((y_1-1)/2,y_2,\ldots,y_M),\qquad
-G_R(y)=(y_2,\ldots,y_M,(1-y_1)/2).
-\]
-Since both branches cover \(X\) and have volume contraction \(1/2\), the Perron–Frobenius operator on densities or observables is
-\[
-(P\varphi)(y)=\tfrac12\varphi(G_Ly)+\tfrac12\varphi(G_Ry).
-\]
-Evaluating the \(M\) centered coordinate functions on the two inverse branches gives the exact vector identity \(P\xi=B_M\xi\), with no constant term. Induction yields \(P^n\xi=B_M^n\xi\) for every integer \(n\geq0\).
 
-**2. Entire covariance matrix.** For any integrable \(u\) and bounded \(v\), change of variables on the two full branches gives \(\int u(x)v(F^nx)\,dm(x)=\int (P^nu)(y)v(y)\,dm(y)\). Independence of the coordinates under \(m\) yields
+**Transfer input.** The two full inverse branches \(G_L(y)=((y_1-1)/2,y_2,\ldots,y_M)\) and \(G_R(y)=(y_2,\ldots,y_M,(1-y_1)/2)\) each have Jacobian magnitude \(1/2\). Their average is the stationary transfer operator. On centered coordinates \(u_1=x_1\), \(u_j=x_j-1/2\) for \(j\ge2\), its row-coefficient matrix \(B_M\) has first row corresponding to \(Pu_1=u_1/4+u_2/2\), rows \(Pu_j=(u_j+u_{j+1})/2\) for \(2\le j<M\), and last row corresponding to \(Pu_M=-u_1/4+u_M/2\). This finite action and the first-coordinate resolvent are available in [2]. For completeness, independence and transfer duality give \(C_M(n)=(B_M^n)_{11}/3\). The determinant of \(I-zB_M\) has a diagonal term and a single cyclic term, and the first principal cofactor is \((1-z/2)^{M-1}\), giving
 \[
-\int\xi_j\xi_k\,dm=v_j\mathbf1_{j=k},\qquad v_1=1/3,\qquad v_j=1/12\ (j\geq2).
+\sum_{n\ge0} C_M(n)z^n
+=\frac{(1-z/2)^{M-1}}{3[(1-z/4)(1-z/2)^{M-1}+z^M/2^{M+1}]}.
 \]
-Consequently
-\[
-\boxed{C_{ij}(n)=v_j(B_M^n)_{ij}\quad(i,j=1,\ldots,M;\ n\geq0).}
-\]
-
-**3. Exact resolvent.** The matrix \(I-zB_M\) is upper bidiagonal apart from its lower-left entry \(z/4\). Its determinant is
-\[
-D_M(z)=(1-z/4)(1-z/2)^{M-1}+z^M/2^{M+1}.
-\]
-Deleting row and column one leaves an upper-triangular matrix with diagonal \(1-z/2\). Cramer's rule therefore yields \([(I-zB_M)^{-1}]_{11}=(1-z/2)^{M-1}/D_M(z)\). Multiplying by \(v_1=1/3\) proves the generating function and the displayed characteristic polynomial.
-
-**4. Sharp first sign reversal.** Factoring \((1-z/2)^{M-1}\) from the denominator shows that its first-coordinate resolvent is
-\[
-\frac{1}{1-z/4+z^M/[2^{M+1}(1-z/2)^{M-1}]}.
-\]
-Formal power-series expansion therefore agrees with \((1-z/4)^{-1}\) through degree \(M-1\), and at degree \(M\) first acquires the correction \(-2^{-(M+1)}\). Since \(2^{M-1}>1\) for \(M\geq2\), the corrected coefficient is negative. No numerical asymptotic argument is involved.
-
-**5. Exact rate and dimensional slowdown.** The characteristic roots satisfy
+The numerator cannot cancel any finite poles, as the denominator inside brackets at \(z=2\) is \(1/2\). Each nonzero eigenvalue gives a pole at its reciprocal. The equation for eigenvalues is
 \[
 (4\lambda-1)(2\lambda-1)^{M-1}=-1.
 \]
-No root has modulus at least one, because \(|4\lambda-1|\geq3\) and \(|2\lambda-1|\geq1\) there. Moreover the numerator \((1-z/2)^{M-1}\) has no common root with \(D_M(z)\), since \(D_M(2)=1/2\). Thus every nonzero characteristic root is a genuine pole of the covariance generating function, with no cancellation. Cauchy–Hadamard gives \(\rho_M=\max\{|\lambda|:\lambda\in\operatorname{spec}B_M\}<1\).
+No such root can have modulus \(\ge1\), because the two factors then have moduli at least \(3\) and \(1\), respectively. There is a nonzero root since the trace is positive. The radius formula for a power series therefore gives \(\rho_M=\max|\lambda|\), with \(0<\rho_M<1\).
 
-To prove dimension slowdown, put \(h=1/M\), \(s=2\lambda-1=e^{hw}\). The characteristic equation becomes
+**Near-unit roots.** Put \(h=1/M\) and \(2\lambda-1=e^{hw}\). The equation becomes
 \[
 (2e^{hw}+1)e^{(1-h)w}+1=0.
 \]
-At \(h=0\) it has the simple complex root \(w_0=-\log3+i\pi\), because its derivative in \(w\) is \(-1\). The analytic implicit-function theorem produces a root \(w(h)=w_0+O(h)\) for all sufficiently small positive \(h\). Therefore \(\lambda=(1+e^{h w(h)})/2=1+w_0/(2M)+O(M^{-2})\), whose modulus is \(1-(\log3)/(2M)+O(M^{-2})\). The spectral radius is at least this modulus and strictly below one, so \(\rho_M\to1\). This does not claim that the displayed root always has maximal modulus, nor assert the sharp \(1/M\) coefficient for \(\rho_M\).
+At \(h=0\), the root \(w=-\log3+i\pi\) is simple, since the derivative in \(w\) is \(-1\). Analytic implicit continuation gives a root \(w(h)=-\log3+i\pi+O(h)\) and its conjugate for real \(h\). Expanding \(\lambda=(1+e^{hw(h)})/2\) gives the pair in the Finding. In particular \(\rho_M\ge 1-(\log3)/(2M)-K/M^2\) for some fixed \(K\) and all sufficiently large \(M\).
 
-For the concrete two-dimensional case, the eigenvalues are \((3\pm i\sqrt7)/8\) and one obtains the explicit closed form
+**Matching upper bound.** For an eigenvalue \(\lambda\) of maximal modulus, the lower bound just proved gives \(|4\lambda-1|\ge4\rho_M-1\ge3-O(M^{-1})\). The exact characteristic equation then yields
 \[
-C_2(n)=\frac{2^{-n}}{3}\left(\cos(n\phi)-\frac{\sin(n\phi)}{\sqrt7}\right),\quad\phi=\arccos(3/4).
+\rho_M=\left|\frac{1+(2\lambda-1)}2\right|
+\le\frac{1+|2\lambda-1|}2
+=\frac{1+|4\lambda-1|^{-1/(M-1)}}2
+\le 1-\frac{\log3}{2M}+O(M^{-2}).
 \]
+For the last step, use the lower bound \(3-L/M\) on \(|4\lambda-1|\) for a constant \(L\); the logarithm of that lower bound is \(\log3+O(M^{-1})\). Together the two bounds give the sharp rate.
 
 ## Verification
-The standalone standard-library program `verify_twisted_baker_affine.py` constructs the exact rational transfer matrices and checks their full affine branch action. It compares inverse-word enumerations, finite rational resolvent coefficients, determinants and the earliest sign reversal for dimensions \(2\leq M\leq8\), plus planar closed-form diagnostics. Run `python verify_twisted_baker_affine.py`; expected output begins `PASS: 3483 exact-rational identities / finite floating diagnostics`. The all-dimensional claims, absence of pole cancellation and complex root asymptotics follow from the proof, not the finite computation.
+
+The accompanying `verify_twisted_baker_affine.py` checks the finite transfer calculation, including the characteristic determinant and rational resolvent, and compares inverse-branch words with matrix powers in small dimensions. These are checks on the transfer input; the analytic continuation and modulus bounds, not the code, prove the dimensional asymptotic.
 
 ## Relationship to prior work
-Saiki, Takahasi and Yorke introduced the map, established Lebesgue invariance and a Bernoulli coding, and proved qualitative mixing (Theorem D). Their spectral results concern Jacobians of *forward periodic-orbit derivatives*, not the finite-dimensional Perron–Frobenius action on centered coordinates. A separate published exact-real-spectrum classification also concerns those forward periodic Jacobians and does not imply the averaged inverse-branch covariance resolvent. The new statement is specifically the complete coordinate covariance matrix, rational generating function, first negative lag exactly equal to dimension and nonuniform dimensional affine mixing rate. Classical transfer-operator and Cauchy–Hadamard techniques are used as tools, not claimed as new methods.
 
-## Limitations
-The result is restricted to the given piecewise-affine map, the normalized Lebesgue stationary law and coordinate-linear observables. It does not give a uniform mixing rate for all measurable or smooth observables, a full infinite-dimensional transfer-operator spectrum, or the precise first-order coefficient of the maximal spectral radius as dimension tends to infinity. The result is not an independence or cryptographic statement. Independent historical priority assessment could uncover a general transfer-theoretic statement that subsumes the calculation; a failed title or keyword search is not evidence of novelty by itself.
+Saiki, Takahasi and Yorke [1] introduced the map, proved invariance and established Bernoulli mixing; their periodic-orbit Jacobians are different spectral objects. The centered-coordinate transfer matrix and the complete first-coordinate resolvent are credited to the equivalent available calculation in [2], which further studies sign oscillations and long-run variance. The exact first sign reversal at lag \(M\) follows by expanding that resolvent and is not claimed as a separate finding here. The present result is the sharp dimension dependence of the geometric covariance rate, not the fixed-dimension transfer polynomial or an oscillation theorem.
 
 ## References
-1. Y. Saiki, H. Takahasi and J. A. Yorke, *The twisted baker map*, arXiv:2202.04304, first public preprint 9 February 2022; revised 13 January 2023; journal DOI 10.1088/1361-6544/acb4d3. Original map: Section 1; invariant Lebesgue measure: Section 1; Theorem D and Section 3: mixing and Bernoulli isomorphism.
-2. *Exact real-spectrum residue law for the twisted baker map*, published mathematical note available through https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b (forward periodic derivative-spectral classification, not transfer covariances).
+
+1. Y. Saiki, H. Takahasi and J. A. Yorke, *The twisted baker map*, [arXiv:2202.04304](https://arxiv.org/abs/2202.04304), Theorem D and §3.
+2. *Oscillatory coordinate memory and dimension-free variance in the twisted baker map*, [Resultary record 765a4f4ba4c8](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-oscillatory-coordinate-memory-and-dimension-free-variance-in-the--765a4f4ba4c8), Finding and proof steps 1–2.

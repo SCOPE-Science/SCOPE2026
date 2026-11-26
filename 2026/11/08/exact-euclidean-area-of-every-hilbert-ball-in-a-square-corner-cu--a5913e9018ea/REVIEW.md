@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Hilbert cross-ratio/facet identity is reconstructed with the unhalved normalization. Coordinate-projection intervals and the four disjoint corner-triangle areas prove the exact all-center formula. The interval bound yields strict uniqueness at the center, and the second-order expansion gives Hessian \(-12t^2(1-t^2)I_2\). The standalone checker confirms the formulas against 350 direct half-plane-clipped polygons and 150 direct cross-ratio comparisons; these finite checks are not infinite proofs.
+## correctness
 
-## Originality — PASS (provisional)
-Papadopoulos–Troyanov (arXiv:1406.6983v1, 2014) supplies Hilbert polytope facet formulas. Nielsen–Shao (DOI 10.4230/LIPIcs.SoCG.2017.67, 2017) already constructs polygonal Hilbert balls and treats vertex combinatorics generally; that constructive and combinatorial information is expressly not asserted as new. Neither examined source states the closed four-corner Euclidean-area formula, global area-maximizing center, or its exact Hessian. The constructive result gives a mechanical route to polygon areas, so the residual possibility of a previously simplified equivalent formula deserves further historical review.
+PASS
 
-## Mathematical value — PASS
-For a full two-dimensional nonsimplicial Hilbert domain, the result computes the finite-radius probability mass of every ball under an ambient uniform measure. Unlike a single-area calculation, it identifies the optimizer for all radii and quantifies strict stability. The result applies to ordinary Euclidean area on squares/parallelograms, not general polygons or intrinsic Hilbert volume measures.
+The extrema of the four normalized facet functions along a line give the full-logarithm distance. The two opposite-facet bounds in each coordinate give J(w) with width 2t(1-w²)/(1-t²w²). For each cross-facet inequality its affine violation is largest at the corresponding rectangle corner. There, one within-coordinate inequality per coordinate is saturated, not both directions as the source's wording may suggest. Only the higher of the two corner high ratios can violate the opposite coordinate's low-ratio bound. Both center-coordinate lines satisfy every cross-bound strictly, so the two intercepts are on the adjacent half-edges and the cuts have disjoint interiors. Their intercept product divided by two gives T. The positive factor (1+min(a,b))(1−max(a,b)) makes the vanishing criteria exact, hence 4, 6 or 8 vertices. The width bound gives strict optimality away from zero; expanding the rectangle gives quadratic coefficient −4t²(1−t²) and the four cuts give −2t²(1−t²). The only nonsmooth numerator terms are proportional to |a−b|³, which are C², so the Hessian assertion follows. Area scales by the absolute determinant under affine transport, and normalized mass is unchanged. The frozen verifier was inspected but not run. Independent clipping and shoelace in /workspace/branches/460cc471-3f80-4ea2-a8c1-0dcfb8e28df9/area_reproduction.py compared 725 cases (maximum absolute difference 4e−15); this is diagnostic, not the proof. Scope is ordinary Euclidean area, finite r>0 and interior centers under the unhalved convention.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the all-center ordinary area law with sharp positional optimum and second variation for the square and its affine images. The ratio representation and generic polygonal-ball construction are known. Neither the construction nor the simplex mass result inspected gives the asserted area comparisons and Hessian for a parallelogram.
+
+## value
+
+PASS
+
+Euclidean mass of metric balls is a natural invariant for uniform sampling on a square or parallelogram. An all-center area expression is usable even across degenerating corner cuts, and the exact nonzero Hessian answers how much mass is lost under a small displacement at any fixed positive radius. This is more than the existence of a polygon construction or a check of a symmetric center.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

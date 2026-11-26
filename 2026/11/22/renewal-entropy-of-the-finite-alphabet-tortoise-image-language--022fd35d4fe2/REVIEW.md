@@ -1,19 +1,21 @@
-# Scientific review: finite-alphabet tortoise-image entropy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recursive decomposition into maximal-letter-separated lower blocks is exact in both directions. The marker-terminated sublanguage has a unique decomposition even though the full image grammar may be ambiguous; therefore the proof bounds *distinct* image counts rather than erroneously counting every representation. The lower and upper generating-function bounds have the same unique dominant simple pole because the lower language contains all constant-zero blocks. The four-letter specialization is derived by a separate binary/ternary factorization and the resulting rational identity is checked numerically and by finite enumeration. The forbidden-factor argument establishes strict sub-full-alphabet growth at every alphabet size at least three. The verification files reproduce 52,389 independent finite tests; the proof is not based on those tests.
+PASS
 
-## Originality — PASS against inspected sources
+The Defant–Kravitz maximum-letter recursion proves both language inclusions, since each lower-alphabet output block can be lifted independently. To check the ambiguous initial concatenation, let B(z) count distinct words in I_{q-1}I_{q-1}. Splitting at successive maximum letters then gives the exact unambiguous block-level series A_q=A_{q-1}+z B/(1-z A_{q-1}), with A_{q-1} coefficientwise <= B <= A_{q-1}^2. The smaller-alphabet growth induction makes A_{q-1} diverge at its radius and z A_{q-1}(z) strictly increase through 1 at an interior first root. On the root circle there are no other zeros of the renewal denominator: the z and z^2 coefficients are positive, so equality in the triangle inequality requires the positive real point. The positive numerator and simple pole give the claimed two-sided exponential bounds (indeed a positive leading constant), and the interior root gives strict monotonicity. In the binary case every word ending in 1 and only those and all-zero words are possible. For larger q the specified four-letter factor would force a descending length-two image between consecutive maxima; a direct length-two check excludes it. Independent aligned windows give the stated exponential bound. For the sextic, splitting every binary prefix after its last 1 gives I_2 I_2 all binary words, which yields the stated rational A_3 and the sextic as its denominator minus z times its numerator. Decimal bisection (`python /workspace/branches/frozen_replay.py 5`) gives lambda_4=3.5503790656826695146745…. The frozen enumeration was read as bounded corroboration, not a proof for arbitrary lengths.
 
-The 2018 Defant–Kravitz article provides the defining map and fertility/sortability methods, not this unrestricted output-language entropy law. The 2026 Campbell–Rampersad article concerns factor-image equivalence and complexity in restricted binary automatic sequences, not the image of the entire free monoid. A preexisting ternary image language and its growth constant constitute genuine prior coverage of the three-letter instance, explicitly excluded from novelty here. Actual indexed searches found no all-alphabet renewal-entropy theorem or quaternary constant. A possibly unindexed equivalent result remains a residual priority risk. The absence of a search hit is not treated as a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of distinct channel outputs under a fixed alphabet is a natural Hartley-information invariant of a generalized stack-sorting map. The theorem converts an apparently highly ambiguous image grammar into an exact all-alphabet renewal equation for its exponential growth, proves strict dependence on alphabet size, and identifies a sharp binary-versus-higher-alphabet transition in image density. The quaternary constant is a concrete first value beyond the known ternary enumeration, but the value does not rest only on that numerical case.
+Pass for the supported uniform sharp growth characterization and fixed-alphabet density dichotomy, with the quaternary constant as a consequence. The word recursion is prior and the binary/ternary specializations are covered; neither gets originality credit. No established broader source supplies the stated all-alphabet renewal root or its sparsity consequence.
 
-## Limits
+## value
 
-The general polynomial degrees can grow with the alphabet and no compact general exact coefficient formula is asserted. The induced output measure, iterated maps and other stack variants are outside scope. Formal independent review and historical-priority adjudication have not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural word stack map, the supported result determines the exponential size of the reachable set at every fixed alphabet size, not merely whether sorting succeeds on special words. The universal recurrence turns that rate into an exact algebraic quantity, and the binary positive-density versus larger-alphabet exponential-decay transition is a meaningful qualitative separation. This concerns image cardinality, not Shannon entropy or fiber sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:22:42.100384Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The odd-degree Kummer presentation w=xty has degree 3M (the commuting cyclic actions act faithfully on w), with ramification gcds 1,M,1. The gcds at zero and infinity use gcd(M,3)=1 and M=2 mod 3, and tame Riemann–Hurwitz gives M. Local valuations make a differential holomorphic exactly when the two fractional parts sum to more than one. Counting by the CRT for (i mod 3,i mod M) gives M pairwise distinct characters. For 2j=i mod 3M the remaining factors after extracting a square are t and t+1 to exponents 0 or 1. When i is in the basis, if j is not in it, a nonzero such digit would force the doubled fractional-parts sum to be at most one. The Cartier rules thus give precisely the asserted partial inverse-doubling permutation; its stable image is the span of complete surviving cycles, which gives the two-rank, not merely the rank of one Cartier application. The residue-one two-step condition is u in (1/6,1/3) or (2/3,5/6). For branch choices a,b, the inverse map from J_b to J_a is x -> (x+2a+1-b)/4. Composing along a word and adjoining the reflected terminal symbol gives one fixed point of the reflected contraction; its denominator divides 4^h+1, so it cannot hit a boundary with denominator three or six. This proves existence and uniqueness of each itinerary, and 4^h=-1 mod M makes those tests sufficient for the entire orbit. Doubling exchanges the two nonzero residue classes, giving 2^(h+1). Bounded independent replay: python3 /workspace/reproductions/frozen_checks.py rank constructs and checks the base-four digit witnesses for h=1..10. It is not a proof of the rank theorem or a reproduction of the frozen finite-field zeta computation. Frozen verification code and notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The formula gives slopes by Frobenius orbits of characters of a three-point cyclic cover; slope zero multiplicity is the p-rank."
+        ],
+        "reasoning": "The general formula covers the reduction to a combinatorial evaluation, not the evaluation for all exponents in this sparse sequence.",
+        "searches": [
+          "Li–Mantovan–Pries–Tang arXiv:1805.04598, Theorem 3.2 and Proposition 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Timpanella arXiv:2609.34709",
+        "Li–Mantovan–Pries–Tang arXiv:1805.04598",
+        "Resultary e8ae484a70e1 and 5889c50effed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the bound gives gamma<=M-1 and even rank, leaving several possibilities. The stronger general slope result requires identifying complete surviving doubling orbits; the count here uses 4^h=-1, the full two-branch transition and exact fixed-point counting."
+        ],
+        "reasoning": "The symbolic count and resulting exact growth are not direct parameter substitutions into the known bound or generic orbit algorithm.",
+        "searches": [
+          "Timpanella Proposition 4.6/Example 4.7",
+          "Li–Mantovan–Pries–Tang Proposition 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.2 includes the same curves and genus. Proposition 4.6 identifies the inversion quotient y^k=P_M(u) and proves gamma(X)=2 gamma(X/<inversion>).",
+          "Resultary records e8ae484a70e1 and 5889c50effed treat different curve families."
+        ],
+        "reasoning": "The quotient could equivalently supply the result by computing its rank as 2^h; the Artin–Schreier description z^2+z=u^(-2) does not compute that quotient rank.",
+        "searches": [
+          "Timpanella arXiv:2609.34709, Theorem 1.2 and Proposition 4.6",
+          "Resultary local search: characteristic-two dihedral Kummer rank and Artin–Schreier quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 4.7 uses the exact h=1 model but states only gamma<=4. Table 1 includes the genus-five and genus-seventeen group entries, not exact ranks.",
+          "Local comparison found adjacent rank claims for different normal forms, not this sequence."
+        ],
+        "reasoning": "A matching model or group table does not specify its rank; even a matching low-rank datum would not give the h-uniform formula.",
+        "searches": [
+          "Timpanella arXiv:2609.34709, Example 4.7 and Table 1",
+          "Resultary local search: exact two-ranks for genus-five, genus-seventeen and sparse dihedral Kummer curves"
+        ]
+      },
+      "rationale": "Credit the known family, genus and group, quotient and upper bound, and the general three-point-cover slope method. The distinct finding is the uniform exact 2-rank evaluation for M=4^h+1. Applying general slope formulas to a fixed M could compute a particular case, but the dependence on h does not follow without a nontrivial all-h orbit count. The reflected binary itinerary is such a count.",
+      "residual_risks": [
+        "An earlier closed evaluation of the relevant cyclic-cover or quotient rank may exist outside the inspected sources. A web search returning no links was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact curve and genus already covered; rank reduction and bounds not the claimed values.",
+          "evidence": "The proposition gives the quotient rank relation and bound; the example gives only an upper bound four for genus five.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34709",
+          "material_read": "Theorem 1.2 p. 3; Deuring–Shafarevich formula p. 12; Proposition 4.6 and Example 4.7 p. 22; Table 1 p. 23",
+          "method": "Lawful open primary PDF passages",
+          "title": "Large cyclic automorphism groups and cyclic subgroups of index two in characteristic two",
+          "trigger": "Identical dihedral family; smallest parameter treated explicitly"
+        },
+        {
+          "assessment": "Covers generic slope computation, not the uniform arithmetic evaluation in this family.",
+          "evidence": "Slope values determined from character and Frobenius-orbit data; the accessed passage does not enumerate the doubling itineraries for M=4^h+1.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.04598",
+          "material_read": "p. 6 p-rank interpretation; Theorem 3.2 p. 7 and Proposition 3.7 p. 8",
+          "method": "Lawful open primary PDF passages",
+          "title": "Newton polygons of cyclic covers of the projective line branched at three points",
+          "trigger": "General orbit formulas able to compute the rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise rank of an existing geometric family is a motivated invariant. The sparse sequence realizes unbounded positive rank with rank/genus tending to zero, invisible to the prior upper bound. The reflection and itinerary argument is a substantive exact evaluation rather than finite tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

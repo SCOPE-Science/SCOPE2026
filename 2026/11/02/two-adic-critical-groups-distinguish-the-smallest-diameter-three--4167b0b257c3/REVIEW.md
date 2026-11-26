@@ -1,11 +1,21 @@
-# Review of the two-adic Doob–Hamming critical-group distinction
+# Independent mathematical audit
 
-**Correctness — PASS.** The two 64-vertex graphs are completely defined by six Shrikhande generators (or two rook coordinate rules) plus four-clique fibers. Their common Laplacian spectrum gives an independently derived determinant \(2^{147}3^{27}\). Modular Smith reductions of the actual 63-by-63 reduced Laplacians, independently reconstructed by Python and C++, yield exactly the stated prime-power elementary divisors. The reductions operate over sufficiently high prime-power moduli, use only invertible row/column operations, and leave no unresolved valuations. Their valuation sums agree with the tree-number determinant. The different orders of the four-torsion subgroups follow immediately from the decompositions.
+## correctness
 
-**Originality — PASS, qualified by literature-access risks.** Peeters' complete published treatment of modular adjacency ranks in Hamming and Doob graphs was inspected in its relevant pages; the finding strengthens his equal-prime-field-rank result but does not reproduce a stated higher-adic Smith classification. The distance-regular graph survey explicitly notes Biggs' already-known 16-vertex Shrikhande/rook critical-group difference; that prior result is acknowledged, and the 64-vertex Cartesian-product classification is separate. Jacobson–Niedermaier–Reiner study products of complete graphs and give a generally useful block identity, but the checked publisher abstract and indexed text do not supply the full Shrikhande-factor Smith data. The complete text of that closest method source could not be fully inspected, leaving a specific residual priority risk. Searches by Doob/Hamming aliases and chip-firing/Smith terminology found no direct published 64-vertex factorization, but search absence is not a uniqueness certificate.
+PASS
 
-**Value — PASS.** These are the smallest order-64, diameter-three exceptional Doob–Hamming pair. A precise chip-firing invariant separates them even though all ordinary prime-field ranks for their Laplacians, the adjacency spectra, and the numbers of spanning trees coincide. The sizes \(2^{67}\) versus \(2^{69}\) of their order-four torsion distinguish information that is invisible to mod-two rank. Exact primary decompositions are natural and reusable benchmark data in integral algebraic graph theory. The calculation does not rely on an artificial subset or a trivial improvement to a known table.
+The base graphs have A^2=4I+2J, degree six and adjacency eigenvalues 6,2,-2 of multiplicities 1,6,9, respectively. Products with K4 give Laplacian eigenvalues 0,4,8,12 of multiplicities 1,9,27,27; the reduced determinant is 2^147*3^27 by the matrix-tree theorem. Independent exact replay python3 -B /workspace/reproduce_frozen.py 4 regenerates both adjacency relations, checks intersection numbers from every basepoint (9,6,3;1,2,3), the full characteristic polynomials, both integer reduced determinants, and all local factors of the cofactor deleting the first vertex. The independent algorithm splits off an entire unit rank block, clears it, then divides the complementary block by p and repeats. This extracts the multiplicity of each p-adic valuation; all factors are recovered with no truncated final block. For exponents 0–6 the two-primary lists are (28,3,4,2,6,14,6) and (28,1,8,0,6,14,6); for 3 they are (36,27) at 0,1. The determinants rule out further primes, and the 28 unit factors give rank 28 mod two. The sum of min(e,2) is 67 and 69, respectively, so the two groups are distinct. This proves the finite computations, not a formula for other Doob graphs.
 
-**Boundaries.** This is a finite proof by reproducible exact modular computation, not a uniform formula for all Doob graphs. Publication priority beyond inspected accessible material is unverified. Both verifiers share the same standard number-theoretic normal-form principle but construct graphs and traverse reduction pivots independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The retained contribution is the two-primary determination on D(1,1) and the exact four-torsion separation from H(3,4). The common intersection array, spectrum, prime-field ranks, and the base-pair counterexample are known. The Hamming factors alone are covered by specialization and small-block Smith reduction of Jacobson–Niedermaier–Reiner's Theorem 13; they are not counted as new. The arbitrary-product method in their Proposition 9 leaves the noncomplete Shrikhande factor to be analyzed. No compared statement supplies the missing Doob factors or the order-four torsion distinction at this product level.
+
+## value
+
+PASS
+
+These are a canonical first diameter-three Doob–Hamming comparison, not an arbitrary 64-vertex sample. Their order-four torsion gives a specific integral separation where the common spanning-tree count and parity rank cannot. The exact two-primary Doob factors supply reusable benchmark data, with the sequence of lower invariants agreeing before the difference at order four. The Hamming factors serve as the known benchmark, not a separate scientific gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

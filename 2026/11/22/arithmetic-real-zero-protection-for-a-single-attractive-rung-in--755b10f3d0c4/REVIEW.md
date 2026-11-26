@@ -1,19 +1,21 @@
-# Scientific assessment: one marked attractive rung in paired hard-core paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-replica configuration sum separates according to whether both marked sites are occupied, giving the squared-path identity. For rung weight below one it factors into two vertex-weighted independent-set polynomials of paths; each is a weighted matching polynomial of the next longer path and therefore has only negative real zeros. Positive weights make the tridiagonal spectral zeros simple. On the attractive side the expression is a sum of two squares on the real axis, and its common-zero condition reduces to the unweighted path trigonometric spectrum. Injectivity of cosine in the relevant angular range gives two disjoint divisor-index classes, exactly counted by the two greatest common divisors. A derivative argument proves that the retained roots are precisely double, and a local Taylor expansion proves the square-root splitting. The proof handles all positive sizes and marked positions, the boundary weights zero and one, and the lack of a uniform degree claim at zero. Exact configuration enumeration and Sturm checks supplement, not replace, the proof.
+PASS
 
-## Originality — PASS on examined evidence, provisional
+The simultaneous-rung configurations contribute (zB)^2, giving Z=I_n^2+(a−1)(zB)^2 with B=I_{v−2}I_{n−v−1}. For a<1 factor using √(1−a); the factors are path polynomials with marked vertex weights 1±√(1−a). The symmetric weighted adjacency matrix on P_{n+1} gives their negative roots by pairing ± eigenvalues. For 0<a<1 the tridiagonal matrix has positive off-diagonals and simple spectrum; at a=0 splitting at a zero edge still gives only negative finite zeros, with no degree or multiplicity claim needed. For a>1 the sum of squares on the real axis vanishes only at a shared root of I_n and B (z=0 is excluded), and the squared simple I_n derivative gives exactly multiplicity two. Path angles jπ/(n+2) lie below π/2, so equality with a subpath root is exactly divisibility of jv or j(v+1) by n+2. The two classes are disjoint and a gcd d contributes floor((d−1)/2) indices. At a=1 all m roots are double. For a>0 every pair of maximum independent sets has positive weight, so degree 2m holds even if no maximum set contains v; this clarifies the use of 'maximal' in the proof. At an unprotected root use the analytic implicit function theorem on the separate factors with parameter τ=√(1−a) or i√(a−1); the derivative in τ is ∓rB(r)/I_n′(r). Independent example: n=4,v=2 gives Z=(1+z)^2[(1+3z)^2+(a−1)z^2], with exactly the protected double root −1 for a>1. The frozen verifier was read, not executed; its finite enumeration and distinct-root counts are corroborative, not the all-n or multiplicity proof.
 
-Heilmann–Lieb and Wagner already establish weighted matching real-rootedness. Scott–Sokal study the much broader repulsive lattice-gas zero problem, not the attractive single-rung arithmetic survival count. A related centered-bond hard-core-chain result is exactly the end-rung special case of this two-replica polynomial, and thus covers \(v=1\) or \(v=n\). It does **not** imply the interior-rung classification: for instance, \(n=4,v=2\) protects a double real root at \(z=-1\) for every \(a>1\), unlike the end-rung cases. The indexed search comparisons did not return an identical or stronger rung-specific result, but historical priority is not guaranteed: the proof's spectral ingredients are classical and an unpublished or unindexed equivalent construction may exist. The strongest claimed novelty is the **complete all-size arithmetic census under attraction**, rather than classical factors or the base negative-root theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model is a canonical two-replica lattice gas with one adjustable cross-layer bond, a natural minimal test of how a local attractive interaction changes Lee–Yang-type fugacity zeros. The theorem resolves every size, every defect site and every nonnegative bond weight, classifies which double real zeros are protected by exact number-theoretic resonances, and gives the local pair-opening scale. The prime versus composite path-length distinction is structural rather than a numerical curiosity. It does not assert a thermodynamic phase transition or generalize automatically to multiple interlayer interactions.
+The scoped contribution is the interior-site arithmetic survival and multiplicity census at all attractive strengths. The endpoint case and its opening law are exactly covered by the distinct centered-bond record and are not credited separately; the matching real-rootedness ingredient is classical. No inspected result covered the interior census, including the equivalent formulation with a conjugate-complex weight at an interior matching edge.
 
-## Sources and remaining limitations
+## value
 
-Primary literature compared: Heilmann and Lieb (1972), DOI 10.1007/BF01877590; Scott and Sokal (first arXiv version 2003-09-15), arXiv:cond-mat/0309352; Wagner (first arXiv version 2008-03-11), arXiv:0803.1659. published-finding corpus semantic records and the accessible previous paired-chain and one-chain claims were compared by statements, not titles. A focused literature search cannot certify absolute historical novelty, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-site gcd criterion identifies when an attractive local perturbation leaves some fugacity zeros exactly protected and when all disappear. The exact locations, multiplicities and parameter independence give usable finite-volume information for a natural two-replica model, including interior behavior qualitatively absent from the endpoint case. No thermodynamic or general multirung conclusion is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

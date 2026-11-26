@@ -1,19 +1,21 @@
-# Assessment of the two-probe XTrace diagnostic
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The samplewise equality comes from the equality of the two sketch norms for any diagonal matrix under Rademacher signs. Both leave-one-out estimates reduce to the same expression in the coordinatewise products of the probes. Walsh-pair orthogonality gives the exact error second moment, and a short case analysis gives the necessary and sufficient zero-risk classification. Exact rational enumeration of 7,168 pairs independently checks the formulas in selected dimensions.
+PASS
 
-## Originality
+With two unnormalized Rademacher vectors the leave-one-out projectors have rank one; the two squared sketch norms both equal S₂>0. Writing P_j=∑a_i^j g_i h_i, applying either residual projector in the basic estimate gives S₁+S₃/S₂−2P₁P₂/S₂+S₃P₁²/S₂². This proves equality before averaging and makes the sample-variance diagnostic (3.1) zero on every sample. The diagonal terms in the products cancel the constant beyond S₁, and the independent fair probe-product signs give the orthogonal pair characters with the stated coefficients, hence the stated MSE and unbiasedness. For two nonzero entries a,b the decisive factor is −ab(a+b); for at least three, equality of all pair sums would force all nonzero entries equal, in which case their pair sum is twice S₃/S₂. This exhausts zero risk in scope. For A=I_n the coefficients are all −2/n, giving MSE 2(1−1/n); the two-point n=2 law and the direct Hutchinson comparison follow exactly.
 
-PASS, qualified. The primary XTrace source states the estimator and its correlated-error diagnostic and supplies an abstract identity (Proposition 3.1) explaining underreporting at positive correlation. It does not identify the perfect samplewise correlation for every diagonal input at two Rademacher probes, nor the complete diagonal Walsh risk formula or zero-risk classification. A later software paper discusses XTrace probes without deriving these special-case identities. The abstract correlation identity is compatible with, but does not produce without further input, the pathological diagonal family. An unidentified earlier specialization remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The exact model is a natural matrix-free trace-estimation baseline, not an arbitrary numerical slice: XTrace with its smallest nontrivial even budget and standard Rademacher probes. Its empirical squared-error indicator is identically zero on an entire positive-definite class where actual error is random, and a one-probe Hutchinson estimator is exact. This directly informs the limitations of empirical leave-one-out error estimates used in adaptive stopping. For dimension at least five the specified budget is smaller than the ambient dimension.
+Credit only the two-probe samplewise theorem across arbitrary real nonzero diagonals, the exact Walsh risk and its zero set. Both the general diagnostic mechanism and a close scalar-identity example of false stopping with more sign probes were already known. Neither inspected result gives the full finding at two probes.
 
-## Closest literature and limits
+## value
 
-Epperly–Tropp–Webber, arXiv:2301.07825 (equations (1.4)–(1.6), (3.1), Proposition 3.1 and sections 2.3, 5.6), is closest. Epperly's 2024 discussion of probe distributions and the 2025 traceax paper are supporting comparisons. Scope is strictly the unnormalized two-probe estimator with independent Rademacher probes and real diagonal matrices. The residual-renormalized variant is excluded. Priority needs independent confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal two-probe budget is a natural boundary of this empirical diagnostic, not an arbitrary finite slice. The theorem supplies a full class on which exchangeable estimates coincide and hide nonzero MSE, even for positive-definite inputs in dimensions above the matvec budget. The zero-risk classification and exact true-versus-reported risk are directly useful for testing diagnostics and interpreting small-budget behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

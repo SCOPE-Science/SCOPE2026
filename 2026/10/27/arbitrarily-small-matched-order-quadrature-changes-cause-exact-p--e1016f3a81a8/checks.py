@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Exact-rational checks of the one-node HJB quadrature-dynamics formulas."""
 from fractions import Fraction as Q
+from itertools import product
 
 
 def left_phi(x):
@@ -57,6 +58,18 @@ def test(e):
     assert nonresidual_step(lo,t)==hi
     assert nonresidual_step(hi,t)==lo
     assert hi-lo==Q(5,6)*t
+    # Pointwise policies can choose controls independently at the midpoint
+    # and at the two shifted left nodes when the input is exactly 1.
+    xleft, xright = Q(1,2)-e, Q(1,2)+e
+    wleft = b1_at_left_nodes(xleft)*left_phi(xleft)/2
+    wright = b1_at_left_nodes(xright)*left_phi(xright)/2
+    assert wleft+wright==b1
+    for mid,left,right in product((0,1),repeat=3):
+        first=(f0+left*wleft+right*wright)/(2+mid)
+        assert (first > 1 if mid==0 else first < 1)
+        assert nonresidual_step(first,t) in (lo,hi)
+        if mid==left==right:
+            assert first==(hi if mid==0 else lo)
     assert nonlinear_residual(lo,t)==-Q(5,3)*t
     assert 2*(lo-1)==-Q(2,3)*t
     assert nonlinear_residual(hi,t)==t/Q(2)-t*t
@@ -80,7 +93,7 @@ def test(e):
 def main():
     for e in [Q(1,2**k) for k in range(5,13)]:
         print('eps=',e,'data/cycle/rate=',test(e))
-    print('PASS: 8 rational offsets; exact quadrature, cycles, nonlinear residual, contraction, matching case')
+    print('PASS: 8 rational offsets; exact quadrature, cycles, pointwise ties, nonlinear residual, contraction, matching case')
 
 
 if __name__=='__main__':

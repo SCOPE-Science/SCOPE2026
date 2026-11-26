@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:52:32.426443Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–63, VERIFICATION.md and verify_staggered_potts.py (inspected, not executed)",
+        "Replay: python /workspace/evidence/reproduce.py 5; output /workspace/evidence/5.txt"
+      ],
+      "rationale": "The nine column states and the forward oriented diagonal charge precisely the specified bonds; field hits and the rung may be booked at either endpoint of each transition since the word is closed. I independently enumerated all 125,673 elementary directed cycles, including loops, using the rung and field terms at the departing rather than arriving column. Every closed walk decomposes into elementary cycles and its mean is a length-weighted average of their means. At h=0,1,2 the exact minimum cycle means are 0,-2/3,-2. Each cycle has affine energy in h, so interpolation gives the two bounded-field lower lines, and its field-hit mean is at most 2, giving the final lower line for h>=2. The two period-three words have (bond,hit) means (0,2/3) and (2/3,4/3), and the constant (0,1) word gives (2,2). They attain the three respective branches for every 3|n. Padding a minimizing periodic word by at most two columns changes finitely many terms, giving the claimed limit for all lengths at each fixed h. For counts, optimal walks are exactly the closed walks in the graph of edges on optimal elementary cycles: shifting edge costs by the minimum mean gives no negative cycle, so shortest-path potentials from an auxiliary source give nonnegative reduced costs; all edges on optimal cycles have zero reduced cost. The graph of optimal elementary cycles is constant on each open interval because a nonnegative affine cycle gap cannot vanish at an interior point unless identically zero there. The five exact characteristic polynomials of these cyclic-edge graphs agree with the frozen table; the h=0 polynomial also agrees with the first regime. trace(A^n) counts words with fixed column labels, not rotation classes. At h=1 and n=3k the trace is 3(phi^(2k)+phi^(-2k))=3L_(2k). At h=2 the cubic companion is nonnegative, strongly connected and has a loop; its Perron root 2.1478990357 strictly dominates the other roots in modulus. Dividing log counts by 2n yields the stated two entropy limits and zero on the strict phases. This calculation independently verifies the cycle bounds and cyclic counts; audited claims do not rely on the recorded six-column experiment.",
+      "residual_risks": [
+        "Exact finite-size energies and multiplicities are commensurate-length statements; other lengths have only the asserted energy-density limit. No positive-temperature singularity is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shrock–Xu allow a subset of colors but take the same subset at every vertex; the triangular example inspected has q=5 and a common two-color favored set.",
+          "Chang–Shrock's finite-temperature width-two strip treatment has more temperature/length coverage but does not allow distinct favored colors on the two rows."
+        ],
+        "reasoning": "These parameter families do not contain this Hamiltonian; general transfer methods alone are computational tools and not an evaluated covering ground-state theorem.",
+        "searches": [
+          "arXiv:1009.1182, generalized field definition p. 2",
+          "arXiv:0907.0925, strip transfer matrices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/9907403",
+        "arXiv:cond-mat/0004181",
+        "arXiv:0907.0925",
+        "arXiv:1009.1182",
+        "Resultary: 351c4c99b7bc, c2a2bf28f112, 8039a29611d5, daf48b28408b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior chromatic and zero-field partition polynomials apply to the same strip type at h=0, so that endpoint and strip geometry are not new.",
+          "The cited nonzero-field methods assign a common vertex color or color subset and thus cannot be directly specialized to the row preferences with unchanged interactions."
+        ],
+        "reasoning": "One must resolve the competing minimum mean cycles and optimal-cycle subgraphs of the new field law; the prior zero-field results and the available explicit field polynomials do not imply the two exact coexistence counts.",
+        "searches": [
+          "arXiv:cond-mat/9907403, Section V",
+          "arXiv:cond-mat/0004181, pp. 2–3",
+          "arXiv:0907.0925, field Hamiltonian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Shrock use -H sum_i delta(sigma_i,1), with one common preferred color.",
+          "A global permutation preserves the distinction between the two preferred colors here; a one-row permutation changes the equality interactions on rungs and diagonals."
+        ],
+        "reasoning": "Uniform color preference on the same geometry is not the same problem under a label change or field reparameterization.",
+        "searches": [
+          "arXiv:0907.0925, Hamiltonian p. 1",
+          "Resultary: row-dependent field and triangular two-row strip"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "351c4c99b7bc is the assigned record itself. The closest Lucas count is 2L_n at a critical field in the single-color-field wheel record c2a2bf28f112.",
+          "The same-day tripartite and generalized Petersen records 8039a29611d5 and daf48b28408b have distinct field conditions, geometries and exact thresholds or counts."
+        ],
+        "reasoning": "None of the distinct catalogue matches tabulates this labeled count or gives the critical closed-walk polynomials. Similar multiplicity growth or same date does not imply equivalence or determine priority.",
+        "searches": [
+          "Resultary: staggered-field cyclic triangular strip and Lucas/cubic ground multiplicities",
+          "Resultary records 351c4c99b7bc, c2a2bf28f112, 8039a29611d5, daf48b28408b"
+        ]
+      },
+      "rationale": "The distinct supported claim is the staggered-field envelope and both exact coexistence counts on the specified cyclic strip. Zero-field strip counting and standard transfer-matrix methods are prior; neither the examined uniform-field strip formulas nor the analogous phenomena on other graphs give this evaluated staggered result.",
+      "residual_risks": [
+        "A more general evaluated inhomogeneous Potts strip formula or an unindexed identical computation could affect priority; the comparison is bounded to inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers zero-field proper-color counts; not staggered nonzero fields",
+          "evidence": [
+            "Section V treats the cyclic width-two triangular strip by its chromatic polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9907403",
+          "material_read": "PDF p. 1 abstract and p. 16 Section V (offsets 1480, 35850)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact Partition Functions for Potts Antiferromagnets on Cyclic Lattice Strips",
+          "trigger": "Same cyclic triangular-strip geometry and zero-temperature count"
+        },
+        {
+          "assessment": "Zero-field strip, not the staggered Hamiltonian",
+          "evidence": [
+            "The Hamiltonian excludes the staggered term; cyclic boundaries and width-two diagonals agree with the underlying geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0004181",
+          "material_read": "PDF pp. 2–3, model and strip definitions (offsets 6400–8300)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact Potts Model Partition Function on Strips of the Triangular Lattice",
+          "trigger": "Same ladder with one diagonal per square"
+        },
+        {
+          "assessment": "One common favored color; not a specialization route",
+          "evidence": [
+            "The field is -H sum_i delta(sigma_i,1) at every site."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.0925",
+          "material_read": "PDF p. 1 abstract and field Hamiltonian (offsets 1200, 3900–5700)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Structure of the Partition Function and Transfer Matrices for the Potts Model in a Magnetic Field on Lattice Strips",
+          "trigger": "Most direct plausible finite-temperature strip formula"
+        },
+        {
+          "assessment": "Allowed color subset is common across vertices",
+          "evidence": [
+            "The favored set I_s does not change by site; the triangular example is not a row-dependent three-state calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+          "material_read": "PDF p. 2 field definition and pp. 14–15 triangular example (offsets 3500, 41500)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "A generalized field might cover distinct local color preferences"
+        },
+        {
+          "assessment": "Mathematical analogues, not covering statements",
+          "evidence": [
+            "The wheel has 2L_n under a uniform one-color field; the complete tripartite and generalized Petersen results have other graph and field conditions."
+          ],
+          "identifier_or_url": "Resultary: c2a2bf28f112, 8039a29611d5, daf48b28408b",
+          "material_read": "Exact findings in mirrored RESULT.md files",
+          "method": "Local semantic lookup and comparison of actual statements",
+          "title": "Resultary magnetic threshold and residual-degeneracy comparisons",
+          "trigger": "Lucas count or multiple magnetic crossings under related field laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–21, 48–60",
+        "arXiv:0907.0925",
+        "Resultary: c2a2bf28f112"
+      ],
+      "rationale": "Incompatible row preferences are a natural inhomogeneous-field extension of the standard width-two antiferromagnetic cylinder. The exact magnetic energy envelope is valid over the full field axis, and the two critical counts expose distinct exponential growth laws separated by bounded multiplicity phases. This supplies an exact zero-temperature benchmark for local-field methods, going beyond a few finite samples or the computation of a single transfer eigenvalue.",
+      "residual_risks": [
+        "The benchmark concerns a fixed strip width and equal strengths of the two preferences; it does not extrapolate to two-dimensional limits or arbitrary field patterns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

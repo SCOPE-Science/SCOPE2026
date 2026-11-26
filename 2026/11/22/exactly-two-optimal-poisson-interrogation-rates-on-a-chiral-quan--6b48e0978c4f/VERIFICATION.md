@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone script `verify_chiral_probe.py` requires Python 3, SymPy, NumPy and SciPy; invoke `python verify_chiral_probe.py` in a directory containing that file. It checks the Hermitian matrices and spectral cubic identity, the target amplitude, the Laplace-transform rational probability, the sharp square-factor identity for two positive forward optima, and the exact reverse derivative with its unique positive optimum. It independently computes 14 exponential-duration probabilities from direct numerical integration of 3-by-3 unitary matrix exponentials (seven rates and both circulations), then tests strict positivity and global upper bounds on 150 sampled positive rates per orientation. The recorded output was `PASS: exact symbolic identities and 614 direct numerical assertions;`.
+## correctness
 
-The universal proof is algebraic, using the displayed sum-of-squares factorization and positive-quartic derivative. Numerical integration error tolerances do not certify untested rates. Both rates use the same ideal re-preparation protocol; matrix conjugation models flux reversal. External publication priority and experimental feasibility have not been independently validated.
+PASS
+
+Independently recomputed the one-attempt rational functions by summing the exact Laplace transforms of differences of the three eigenfrequencies using spectral projectors, rather than relying on the source checker. They agree for both fixed source-target orientations. Unit-hopping |0⟩ preparation and |2⟩ detection are unchanged under the diagonal gauge D=diag(1,i,i). The forward matrix gauged as D*H₊D has 01 and 12 entries one and 02 entry −i; this gives sin Φ=−1 in the matching stationary-reset source. Independently renewed durations and outcomes justify E[T]=1/(rp) without assuming success independent of its own trial duration; the sum of durations weighted by survival to each trial is a convergent geometric sum. In the repaired proof division by r² gives rp=2(x∓3)/(x²+3) for x=r+6/r≥2√6. The forward rational function has a unique strict maximum in x at 3+2√3>2√6, with value 1/(3+2√3); both positive inverse images are exact and distinct. The backward function is strictly decreasing in x on the entire interval, giving the unique fixed-point rate √6 and mean 27/(6+4√6). This proves global optimality, reproduces the original rates and signs, and explains why the same reciprocal symmetry permits different optimizer multiplicities.
+
+## originality
+
+PASS
+
+Pass for the repaired global optimizer classification, not the one-attempt probability law. The exact same-gauge individual populations in 848fc77e7b52 supply both probability functions on specialization. The strongest inspected matching result instead optimizes the stationary site-population imbalance. It does not classify global optima of the different elapsed-time objective, or imply the reciprocal symmetry's two-preimage optimum from its imbalance theorem.
+
+## value
+
+PASS
+
+A maximally chiral three-site ring is a natural smallest cycle with flux, and mean detection time with renewal is a standard objective. A precisely tied finite pair, in contrast to a strict single optimum on changing only flux direction, is stronger than finding multiple local extrema and provides a sharp benchmark for attempts to prove single-optimum behavior. The reciprocal-rate symmetry shows the mathematical mechanism and explains why it produces two rates only for one orientation. The value is not in re-integrating the known site occupation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

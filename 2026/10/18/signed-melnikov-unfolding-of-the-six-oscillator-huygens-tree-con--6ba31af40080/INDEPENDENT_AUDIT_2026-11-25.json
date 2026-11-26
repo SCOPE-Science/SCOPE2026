@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:15.940837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–82; VERIFICATION.md and verify.py inspected, not executed. Independent derivation from the given map and local manifold graphs."
+      ],
+      "rationale": "On z=(u,v,v,v,v) the weighted matrix gives the displayed two rows exactly. The largest eigenvalue of the full positive definite edge Gram matrix is (5+√17)/2 (the complementary eigenvalues to the two-coordinate restriction are 3,1,1). The derivative of the full lift is similar to I+h K_*^{1/2} diag(α,1,1,1,1) diag(cos z) K_*^{1/2}; the stipulated strict bound keeps it invertible for α near one. The torus map is homotopic to the identity and hence its local diffeomorphism has degree one. In w=u−v−π coordinates the exact update is w⁺=w+h[sin v−α sin(v+w)]. At α=1 the map on w=0 is v⁺=v+2h sin v, increasing on [0,π], with tangent multipliers 1+2h and 1−2h and normal multipliers 1−h and 1+h at the two endpoints, respectively. The local manifolds are smooth graphs over v; near each persistent endpoint the parameter derivative of the graph vanishes at the endpoint, and the derivative in v at α=1 is zero. This justifies the decaying boundary condition on the derivative along the moving perturbed half-orbit. Moving v makes no term in the normal derivative. Iterating W_{j+1}=a_jW_j−h sin(v_j) from the past gives a negative unstable contribution and solving backward from the future gives a positive stable contribution; the endpoint multipliers yield geometric tails. Smooth continuation to a transverse section gives a quadratic Taylor remainder with the indicated sign and order of subtraction.",
+      "residual_risks": [
+        "No uniform detuning radius over h or endpoint sections, no conclusion on the full five-dimensional manifolds, and no reliance on the source floating-point diagnostic for the sign or series identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted path concavity and weighted spanning-path results do not apply to this double-star, which has no spanning path. Structural stability in Cor. 5.8 assumes a Morse–Smale base under the theorem's hypotheses, unlike this unit-weight example.",
+          "7db502bab444 generalizes the unit-weight obstruction over trees, not the central-edge unfolding."
+        ],
+        "reasoning": "A theorem allowing weight changes near a different base or classifying unit-weight obstructions does not imply a signed splitting law around this nontransverse base.",
+        "searches": [
+          "Resultary: unequal-bipartition heteroclinic obstructions discrete Huygens trees",
+          "arXiv:2610.10993, weighted §§5.2–5.3, Corollaries 5.6, 5.8–5.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993",
+        "Resultary 7db502bab444; search-only hits 1850f7239092 and b2c31d3ca7d8",
+        "DOI 10.1137/080713173, bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact motivating equations determine the symmetric orbit, but the sign requires computing the detuning forcing and its two half-orbit responses. Lomelí–Ramírez-Ros is identified as a discrete Melnikov method comparator; full text was not inspected."
+        ],
+        "reasoning": "Persistence of hyperbolic branches alone does not determine the sign or even guarantee a nonzero first variation. The proof here uses the model-specific forcing −h sin(v_j), positive multipliers, and the endpoint conditions.",
+        "searches": [
+          "arXiv:2610.10993, Propositions 5.11–5.12 and Corollaries 5.6, 5.8–5.9",
+          "DOI 10.1137/080713173, lawful OA retrieval comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.10993, Prop. 5.12, gives exactly the leaf-symmetric two-dimensional unit-weight map and the v+2h sin(v) connection.",
+          "7db502bab444 treats signed cuts and coincident nontransverse unit-weight arcs."
+        ],
+        "reasoning": "The unperturbed arc, saddle endpoints, and lack of transversality are prior results in equivalent coordinates. A signed first derivative of the section gap with respect to the central weight is not a rephrasing of any of those.",
+        "searches": [
+          "Resultary: Huygens tree coincident heteroclinic arc central edge weight perturbation splitting",
+          "Primary search: \"Morse–Smale dynamics in discrete Huygens networks\" Buescu D'Aniello Oliveira Proposition 5.11 5.12 weighted networks central-edge heteroclinic splitting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue hit 7db502bab444 gives unperturbed signed-cut data, not any first-variation formula. The other returned same-day star and curvature summaries concern different reported quantities; their original files were unavailable for definitive comparison."
+        ],
+        "reasoning": "An exact table would need the central-edge sensitivity or an equivalent formula for the section displacement; neither an unperturbed arc nor a finite orbit sample encodes the claimed sign for all permitted h and interior sections.",
+        "searches": [
+          "Resultary: Huygens tree coincident heteroclinic arc central edge weight perturbation splitting"
+        ]
+      },
+      "rationale": "The unit-weight connection on this exact tree and its scalar dynamics are known. The supported distinct claim is the signed nonvanishing derivative under central-edge-only detuning, at each fixed interior section. Neither the unit-weight result, the inspected weighted criteria, nor the nearby catalogue results supply that derivative or its sign.",
+      "residual_risks": [
+        "Some older Melnikov texts and two same-day catalogue originals were unavailable. The pass is for the evidenced distinct detuning claim, not a universal priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unperturbed special case, not the signed central-edge variation",
+          "evidence": "Prop. 5.12 analyzes the same unit-weight double-star and arc. Corollaries 5.6, 5.8–5.9 require weighted-path or Morse–Smale hypotheses not present here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10993",
+          "material_read": "§§5.2–5.3, pp.15–17 offsets 49200–54768; §5.4 Propositions 5.11–5.12, pp.18–20 including offsets 61215–67366",
+          "method": "Primary search then OA PDF bounded passage inspection",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Exact network, step interval, and motivating connection; possible weighted coverage"
+        },
+        {
+          "assessment": "Unit-weight comparison, no coverage of the detuning",
+          "evidence": "Classifies signed cuts for unit weights, acknowledging the known six-vertex obstruction.",
+          "identifier_or_url": "2026/10/26 Resultary 7db502bab444",
+          "material_read": "Finding and scope within offsets 0–4395",
+          "method": "Resultary search plus local mirror",
+          "title": "Unequal-bipartition heteroclinic obstructions in discrete Huygens trees",
+          "trigger": "Best catalogue match for nontransverse arcs"
+        },
+        {
+          "assessment": "Unresolved method comparison, not evidence against overlap",
+          "evidence": "The cited subject is three-dimensional volume-preserving maps; no conclusion about uninspected parts of the text.",
+          "identifier_or_url": "10.1137/080713173",
+          "material_read": "Bibliographic identification only; substantive primary text not accessible",
+          "method": "Lawful OA retrieval and alternate-copy check; access denied",
+          "title": "Separatrix Splitting in 3D Volume-Preserving Maps",
+          "trigger": "Potential discrete Melnikov reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; arXiv:2610.10993 Proposition 5.12"
+      ],
+      "rationale": "This is a motivated perturbation of a known nontransverse obstruction, not another example of the same exact arc. A single physical edge-weight change has an explicitly oriented nonzero effect without assuming small step size beyond the original invertibility range. The two-sided series explains why cancellation cannot occur and supplies an actionable prediction at a chosen section.",
+      "residual_risks": [
+        "The scientific increment is local to the invariant torus and does not settle nearby global Morse–Smale dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

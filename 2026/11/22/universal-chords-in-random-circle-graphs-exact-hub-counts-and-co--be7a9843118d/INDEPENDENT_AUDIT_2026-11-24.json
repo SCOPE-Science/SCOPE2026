@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:50.535318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A universal chord must leave n−1 endpoints on each side. For k specified diameters the pattern of sides changes once per selected diameter in each half-turn; its complement occurs only in the opposite sector. Thus gap populations s_i must be paired across opposite sectors independently in s_i! ways. Marking a starting selected diameter counts each k-set k times, giving n/k times the factorial composition sum divided by (2n−1)!!. If n−1 diameters are present, the remaining endpoints force the last one. In the two-arc permutation representation chord pairs cross iff their images are in the same order. An additional universal chord forces j to be a fixed point and all lesser indices to map to lesser values, i.e. the singleton direct-sum block criterion. Under that conditioning the expected excess count is (1/N) sum of reciprocals of binom(N−1,r); the two boundary terms contribute 2/N, the next terms O(N^−2), and the at most N interior terms are each O(N^−2) before the outside 1/N. Bonferroni and size bias prove the stated probabilities, including E[U−1|U≥1]=O(1/n) since U−1≤binom(U,2) on the event. Rotating the fixed diameter gives the size-biased law for X; tilting by U changes the existence-conditioned law by O(1/n) in total variation. The inversion-sequence independent discrete uniforms give the conditional mean/variance and Lindeberg CLT with n^(3/2) scaling and variance 1/36. For the unconditional density, pairing independent continuous endpoints chord-by-chord gives independence for crossing indicators with disjoint chord labels and variance O(n³). Empty permutations cover n=1. A fresh exact scan of active chord endpoints (/workspace/branches/replay_chords.py) reproduced all binomial moments through n=7, and both per-permutation identities and the conditional crossing histograms through n=8; submitted checker inspected, not run. Finite replay does not validate the limits by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan’s degree-length inequality forces any universal chord to be diametral. Flajolet–Noy give unconditional crossing moments and CLT; Paguyo adds an unconditional rate. Acan–Pittel condition on a prescribed small crossing count, not a universal chord."
+        ],
+        "reasoning": "Neither unconditioned normality (even with its rate) nor the low-count conditioning regime covers the existence of at least one degree-(n−1) vertex, an exponentially rare event with a different macroscopic crossing density.",
+        "searches": [
+          "arXiv:1501.01489v1 PDF p.4 §2",
+          "Flajolet–Noy RR-3914 Thm 3 PDF p.10",
+          "arXiv:2104.01134v2 Thm 1.1 PDF p.3",
+          "arXiv:1406.2867v2 introduction PDF p.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1501.01489v1",
+        "7c3b3c68ffff",
+        "3db04d00c97a",
+        "Flajolet–Noy RR-3914",
+        "arXiv:2104.01134v2",
+        "arXiv:1406.2867v2",
+        "JIS Article 12.4.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Mahonian law after the two-semicircle bijection and its Lindeberg limit are classical inversion consequences. The identified prior single marked-degree mean and diameter constraint do not give simultaneous forced diameters or the total-variation transfer from U-size bias to the existence event."
+        ],
+        "reasoning": "The novelty assessment does not rest on re-proving a permutation CLT. The model-specific extra steps are the exact composition count and the rare multiplicity/tilt comparison for X under existence; verified prior laws with different conditioning do not entail that comparison.",
+        "searches": [
+          "Resultary 7c3b3c68ffff exact maximal-degree specialization",
+          "Flajolet–Noy Thm 3",
+          "arXiv:1501.01489v1 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a uniform size-N permutation the relevant points simultaneously are left-to-right maxima and right-to-left minima, equivalently singleton direct-sum components: their northwest and southeast quadrants are both empty, in the terminology of marked mesh patterns. Choosing r such singleton components leaves r+1 arbitrary permutation gaps; the unnormalized total for r marked points is the factorial composition sum. Under the fixed-diameter law these points count U−1. The frozen unconditional moments follow by the U-size-bias identity E binom(U,k)=(EU/k) E_fixed binom(U−1,k−1)."
+        ],
+        "reasoning": "A paper or table for the full singleton-block statistic would materially cover the moment calculation after this simple transfer, unlike a table of ordinary fixed points or all direct-sum blocks. No such decisive formula was located in the available searches and passages; the general mesh vocabulary alone is not a formula. This equivalence is conditional, not a raw permutation representation of the unconditional matching law.",
+        "searches": [
+          "Resultary universal chord factorial moments and singleton direct-sum permutation blocks",
+          "permutation strong fixed points distribution enumeration factorial moments singleton indecomposable components",
+          "permutation mesh pattern length one shaded northwest southeast distribution occurrence",
+          "Kitaev–Remmel JIS Article 12.4.7 p.2, empty quadrants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The marked regression gives exactly E crossings among the other chords = (n−1)(n−2)/4 at maximal marked degree, so the conditional mean is covered. The prescribed-chord result gives exact variance under presence of a chord, without fixing its degree. No directly matching all-k hub-count table surfaced; search results on ordinary fixed points or separable/alternating restricted permutations are not that table."
+        ],
+        "reasoning": "The mean matches exactly, but neither of these moments determines the high-degree Mahonian law or the all-size hub count. No uniqueness is inferred from the negative part of the table search.",
+        "searches": [
+          "Resultary universal chord counts and singleton-block factorial moments",
+          "Resultary 7c3b3c68ffff Finding/Proof §3",
+          "Resultary 3db04d00c97a Finding/Proof",
+          "permutations simultaneous left-to-right maxima right-to-left minima distribution separating points"
+        ]
+      },
+      "rationale": "Credit the diameter obstruction, the marked-chord conditional mean, unconditional crossing laws and classical inversion distribution as known ingredients. The exact joint universal count, its rare-event multiplicity control and the resulting crossing law under existence conditioning constitute the supported distinct claim. No examined source covers that law or provides the full universal chord statistics; historical equivalents in permutation enumeration remain possible.",
+      "residual_risks": [
+        "An older equivalent law for singleton sum blocks, simultaneous left-to-right maxima and right-to-left minima, or a length-one mesh pattern could substantially anticipate the finite counts. Targeted search and bounded passages do not establish absence.",
+        "The specified-chord Mahonian law is a short consequence once the permutation model is recognized; any historical fuller treatment of the specified case would reduce that portion, but is not evidence of an existence-conditioned limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior diameter obstruction; not joint universal-count result in passage",
+          "evidence": "Chord degree is at most its length, which is maximal only for diameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489v1",
+          "material_read": "§2, PDF p.4, OA offset 12000",
+          "method": "OA PDF passage",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Strong prior chord-degree result in the same model"
+        },
+        {
+          "assessment": "Exact conditional mean precedent, not variance or full law",
+          "evidence": "Evaluating the regression at a=b=t=n−1 gives the frozen mean after adding the marked chord’s crossings.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-conditional-crossing-regression-for-a-marked-random-ch--7c3b3c68ffff/RESULT.md",
+          "material_read": "Finding and proof §3, offset 0",
+          "method": "Configured local mirror",
+          "title": "Universal conditional crossing regression for a marked random chord",
+          "trigger": "Strong exact overlap on marked conditioning"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "Averages over degrees conditional on the chord being present, not being universal.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-conditional-crossing-variance-inflation-from-a-prescribed--3db04d00c97a/RESULT.md",
+          "material_read": "Finding/Proof from offset 0",
+          "method": "Configured local mirror",
+          "title": "Sharp conditional crossing-variance inflation from a prescribed chord",
+          "trigger": "Potential exact conditional variance overlap"
+        },
+        {
+          "assessment": "Unconditional law",
+          "evidence": "Gives crossing moments and Gaussian limit for uniform matchings without a hub event.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "RR-3914 Thm 3, PDF p.10, offset 18900",
+          "method": "OA PDF passage",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Exact crossing statistics and CLT"
+        },
+        {
+          "assessment": "Unconditional rate, not rare-event CLT",
+          "evidence": "Kolmogorov bound O(n^−1/2) for the unconditioned crossing statistic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134v2",
+          "material_read": "Thm 1.1, PDF p.3, offset 8100",
+          "method": "OA PDF passage",
+          "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+          "trigger": "Stronger known crossing CLT in the base model"
+        },
+        {
+          "assessment": "Different forced statistic and scale",
+          "evidence": "Prescribes a small total crossing count of order n log n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2867v2",
+          "material_read": "Introduction, PDF p.4, offset 10378",
+          "method": "OA PDF passage",
+          "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+          "trigger": "Prior conditional random-chord graph work"
+        },
+        {
+          "assessment": "Equivalent pattern language, no formula verified for this exact count",
+          "evidence": "An empty-set parameter prescribes an empty quadrant. Taking both opposite inversion quadrants empty realizes the statistic; literal misses are not a proof of absence.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL15/Kitaev/kitaev5.pdf",
+          "material_read": "P.2 definition, offsets near 3776; conclusion p.27",
+          "method": "OA PDF passages and literal searches for the two-empty-opposite-quadrant notation",
+          "title": "Quadrant Marked Mesh Patterns",
+          "trigger": "Potential equivalent permutation statistic under another name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum possible degree is a natural global structural threshold. The factorial composition formula gives exact probabilities for all hub multiplicities, not just the expected number of diameters, and supports a sharp change in crossing density and a fluctuation law under a meaningful rare-event condition. This distinguishes a typical hub-bearing diagram from an ordinary diagram and from conditioning on a named present chord.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

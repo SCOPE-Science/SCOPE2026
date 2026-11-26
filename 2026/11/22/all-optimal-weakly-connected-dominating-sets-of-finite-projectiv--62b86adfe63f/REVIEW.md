@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(q\ge2\), the \(2N-1\) spanning-edge requirement and \((q+1)\)-regularity prove \(|D|\ge2q+1\). The plane incidence axioms imply the exact connectivity criterion: both shore domination conditions plus a selected incidence. At the lower-bound cardinality each shore must have at least \(q\) selected vertices; the \(q\) selected lines must attain their maximal \(q^2+1\)-point union, forcing concurrency, and the other shore is its \(q\) uncovered points plus one covered point. Duality is exhaustive; the extra point has exactly \(q^2+1\) choices, with incidences \(e_D=q\) or \(e_D=1\). The edge-count formula gives cycle rank \(q-e_D\). Two independent standalone \(q\in\{2,3\}\) enumerators constructed from distinct coordinate systems and graph algorithms agree with every computed coefficient; they corroborate but do not replace the all-plane proof.
+PASS
 
-The argument explicitly treats the boundary order \(q=2\), finite projective planes without coordinates, the two distinct shore allocations, uniqueness of the omitted pencil line and the selected-incidence edge count. The Python and C++ checkers produced the same 210 and 1,040 optimum counts; their counts split into 168/42 and 936/104 by retained-subgraph cycle rank. They were run from the package artifact paths.
+With N=q^2+q+1, the retained graph must have >=2N-1 edges, whereas at most 2q selected vertices supply <=2q(q+1). At size 2q+1 both shores are nonempty. All selected points are joined through their connecting lines, and dually all selected lines are joined; the two cores are disjoint unless there is a selected point–line incidence. Thus connectivity is exactly domination plus at least one selected incidence. With a selected points the number of lines met is <=1+aq, so b>=q(q+1-a). If a<=q-1 this exceeds 2q+1-a by at least q-2. The boundary q=2,a=1 forces all four selected lines to avoid that point, violating the incidence condition. Duality forces shore sizes (q+1,q) or (q,q+1). For (q+1,q), at most q points are outside the union of selected lines, since all such points are selected and at least one selected point is covered. The union of q lines has <=q^2+1 points, with equality only for a pencil (automatic for q=2); equality is forced here. The uncovered points are the q points on the omitted line other than the center. Choosing these and any one point of the pencil union dominates both shores and supplies a selected incidence. The pencil determines its center and omitted line uniquely. There are N(q+1)(q^2+1) choices per dual type. Precisely the extra-center choices yield q selected incidence edges (not q independent pairs) and cycle rank zero; off-center choices yield one selected incidence and cycle rank q-1. This checks the exact total and refined counts for all existing planes using only incidence axioms. Both frozen census programs were inspected, not run; COUNTS.txt reports 210 (42 tree) and 1040 (104 tree), matching the formulas for q=2 and 3.
 
-## Originality — PASS
+## originality
 
-Searched the same definition under weakly induced graph, closed stars and spanning-star-tree terminology, as well as the exact finite-plane count and low-order aliases; compared implications of primary full texts and indexed related findings. Existing generic bounds and regular spanning-star-tree existence theorems do not yield the full incidence-pencil optimizer classification or cyclic branch. One plausible 1997 paper remains inaccessible in full and absolute priority is not independently established.
+PASS
 
-In particular, the 1997 weakly connected domination source provides the parameter, while the 2009 random-regular and 2013 surface-bound papers provide general context only. The older spanning-star-tree results apply a stronger acyclicity requirement: the present \(e_D=q\) subfamily meets it, but the \(q^2\)-times larger \(e_D=1\) branch does not. The primary theorem is the dual, all-optimum geometric characterization and enumeration, not a claim to originate weak connectedness or the general spanning-tree bound.
+The prior ordinary-domination minima and pencil structures are real overlap, and a stronger small-minimal-domination result recovers the weak classification with an extra incidence argument for q>81. The distinct result supported here is the single weak-connectivity characterization and both exact counts for every finite projective plane, including small orders and without restrictions on coordinatization. The regular edge-count lower bound and the spanning-star-tree concept are not new.
 
-**Closest literature and remaining limitations.** The 1997 Grossman paper on spanning star trees was inspected only at abstract level, so its unobserved special cases remain a genuine priority risk. Other indexed mathematical findings about connected domination and incidence geometry were compared on their mathematical properties and do not by themselves imply this weakly connected optimization result. No comprehensive publication priority or independent external validation is claimed.
+## value
 
-## Value — PASS
+PASS
 
-The exact optimum geometry and count hold uniformly for all finite projective planes (including non-Desarguesian planes) and reveal a natural duality. The sharp edge-count threshold produces a structural, not only numerical, split between 2N(q+1) spanning-star-tree optima and 2N(q+1)q^2 connected cyclic optima. The finding gives a complete classifier useful for extremal network-coverage design on highly symmetric incidence networks; it is more informative than a minimum number or a finite table.
+The all-order geometric rigidity and exact optimizer census settle a natural connectivity-constrained covering problem, without coordinatization or a small-plane exception table. The split into tree and cyclic optimizers explains the retained graph structure, not just its count. The value is in the uniform classification and dichotomy, not the elementary edge lower bound or the already-known ordinary pencil sets.
 
-The exact class includes every finite plane of order at least two that exists, not just the Desarguesian examples tested. The dichotomy between tree and cyclic weak-star networks separates genuine shapes at a sharp coverage threshold. The full enumeration supplies concrete optimizer multiplicities, not an arbitrary parameter substitution.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:21.638222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and lines 4–23 and 78–81",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent piecewise-affine pulse-schedule check at the stated example"
+      ],
+      "rationale": "At fixed mass, summing over past periods gives the periodic susceptible trajectory with denominator 1−exp(−B−δT). Its integrated exponential of arc masses is strictly convex: if two controls agree on almost all arcs then the right-continuous cumulative function of their zero-total difference is almost everywhere constant, hence the controls agree. This covers singular controls as well as pulses. The integrated response H to an added atom agrees from both sides at the candidate pulse; redistributing mass has derivative equal to the integral of H(0)−H(s). Therefore the candidate is optimal precisely when H is maximized there. On each constant-transmission piece, H' has the form δC exp(δs)+βA exp(−δs) with A>0. A nonpositive left derivative forces strict subsequent decrease in the high season, and a nonnegative right derivative forces strict preceding increase in the low season. Reversing either derivative sign creates an improving two-atom transfer. Substituting the endpoint values yields exp(−B)≥max(α/β_H,β_L/α), with equality included. Integrating the single-pulse trajectory gives the stated J, and dividing by T(γ+μ) gives the scalar invasion normalization. An independent affine period-map check gave the cutoff 0.390979957597113 and, at B=0.5, a strict decrease of about 9.86×10^−9 on transferring 10^−4 to time 0.001.",
+      "residual_risks": [
+        "No conclusion for endemic burden, infeasible instantaneous pulses, or a different vaccination budget measure. B=0 admits only the zero measure, not a positive pulse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general periodic-control paper proves strict convexity and the switching condition; its jump theorem relies on support hypotheses not giving this cutoff for an isolated pulse. The epidemic paper's explicit upward-jump formula in Theorem 10 requires positive density on both sides of the jump.",
+          "The indexed threshold record additionally excludes any other phase for a globally optimal single pulse and classifies a parameter regime of mixed pulse plus continuous vaccination beyond the cutoff."
+        ],
+        "reasoning": "The two general primary sources give machinery or different jump regimes, while the distinct indexed claim directly contains the finite-budget theorem under review and goes beyond it.",
+        "searches": [
+          "10.1007/s00245-025-10374-z Lemma 1, Theorem 5 and §4.1",
+          "10.1007/s11538-026-01741-0 Theorem 10",
+          "Resultary record 0337dc4fc3b6 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0337dc4fc3b6",
+        "Gavish–Katriel DOI 10.1007/s11538-026-01741-0",
+        "Gavish–Katriel DOI 10.1007/s00245-025-10374-z"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under x=α the indexed adjoint product has exactly the same two endpoint derivatives and sufficient sign test. Its proof says violating either inequality gives a strictly beneficial infinitesimal redistribution from the pulse.",
+          "Its post-pulse susceptible value implies S(t)=1−[(1−exp(−B))/(1−exp(−B−δT))]exp(−δt) in the no-control segment; integrating against the transmission on both seasons yields the frozen minimum directly."
+        ],
+        "reasoning": "Neither the two-pulse witness nor the explicit objective value leaves a distinct substantive claim after comparison. The general first-order condition alone would not establish the endpoint reduction.",
+        "searches": [
+          "Resultary record 0337dc4fc3b6, Proof §§1–2, text offsets 0–7057",
+          "10.1007/s00245-025-10374-z §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With H=β_H, L=β_L, a_0=exp(−δh) and b=exp(−δ(T−h)), expand H(1−ca_0)=H(1−a_0)+La_0(1−b) and 1−ba_0=1−exp(−δT). Thus x=α and M_0=log min{H/x,x/L}=B_*.",
+          "Both works admit all nonnegative periodic Borel measures of fixed hazard mass and use the same multiplicative jump, exposure objective and invasion normalization."
+        ],
+        "reasoning": "Changing variables or describing the response via a backward adjoint instead of future propagation does not change the theorem. These are not merely matching parameters or analogous models.",
+        "searches": [
+          "Resultary record 0337dc4fc3b6, Finding and Assumptions",
+          "10.1007/s11538-026-01741-0, model and §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 9 reports the same square-wave transition near 0.4, not an exact numerical table or analytic cutoff.",
+          "The indexed record gives the exact symbolic cutoff for all parameters; this already supplies the school-term value by direct evaluation."
+        ],
+        "reasoning": "The older numerical observation does not cover an exact value, but the exact indexed formula does. An independently useful table is not the claim here.",
+        "searches": [
+          "Resultary search for the two-season vaccination threshold, exact match 0337dc4fc3b6",
+          "10.1007/s11538-026-01741-0 Fig. 9 and accompanying §7 text"
+        ]
+      },
+      "rationale": "The central finding has verified equivalent existing coverage in a distinct indexed publication: the same all-measure model, the same exact threshold including equality, the same uniqueness, and the same improving mass-transfer mechanism. The comparison is a statement-level coverage finding, not a priority judgment: the matching record is dated later in the index, and this review does not infer who first derived the result or that it was known at the frozen record's earlier date. The older papers supply the model, general calculus and numerical transition, but not the exact cutoff in the passages inspected.",
+      "residual_risks": [
+        "The relation between the two derivations and their true chronological priority is not established. No claim is made that the earlier papers or unsearched sources lack all equivalent results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct, exact equivalent and broader coverage; later index date, no priority assigned",
+          "evidence": "Unique global single pulse through M_0=log min{H/x,x/L}; necessity, sufficiency, beneficial redistribution beyond it, and a further mixed-phase characterization in one regime.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-season-vaccination-thresholds-and-the-intermediate-pul--0337dc4fc3b6",
+          "material_read": "Finding, Assumptions and proof §§1–2 plus opening of §3, offsets 0–7057",
+          "method": "Configured Resultary search and bounded local-mirror text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-season vaccination thresholds and the intermediate pulse-mass law",
+          "trigger": "Same two-season objective and exact threshold"
+        },
+        {
+          "assessment": "Numerical precursor and general jump result under different hypotheses",
+          "evidence": "Positive vaccination density on both sides is assumed for the explicit Dirac-mass formula; Fig. 9 reports a pure pulse below approximately 0.4 without this analytic cutoff.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01741-0",
+          "material_read": "Theorem 10 and §7/Fig. 9, PDF text offsets 63350–69765",
+          "method": "Lawful Springer full-text PDF, bounded passages",
+          "title": "Optimal Vaccination for Contagious Diseases with Seasonal Transmission",
+          "trigger": "Same model, same example, upward-jump pulses"
+        },
+        {
+          "assessment": "Covers variational foundations, not the two-season endpoint test in the passages examined",
+          "evidence": "Strict convexity and necessary-and-sufficient switching condition; the jump theorem's case with an atom at a downward jump in c/w presumes support on both sides.",
+          "identifier_or_url": "https://doi.org/10.1007/s00245-025-10374-z",
+          "material_read": "Lemma 1 (pp. 9–10), Theorem 5 (pp. 18–19), §4.1 (pp. 24–25)",
+          "method": "Lawful Springer full-text PDF, bounded passages",
+          "title": "Optimal Regulation in a Time-Periodic Environment: Insights from a Simple Model",
+          "trigger": "General measure-control optimization potentially implying the cutoff"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and assumptions",
+        "Gavish–Katriel 10.1007/s11538-026-01741-0 Theorem 10 and Fig. 9"
+      ],
+      "rationale": "The mathematical target is worthwhile: an exact finite-budget boundary for when concentration into one pulse is optimal over the full measure class answers a concrete uncertainty from the seasonal vaccination literature and identifies how optimality is lost. This is a judgment of the theorem's scientific usefulness, not an originality credit for a covered theorem or a claim about actual vaccination programs.",
+      "residual_risks": [
+        "The original does not characterize an optimal schedule beyond the cutoff or account for realistic delivery constraints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

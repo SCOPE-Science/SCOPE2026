@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The zero-count identity is established from a positive diagonal Gaussian covariance, the expected-zero (Poincaré–Lelong) formula, and an exact classical cosine Jensen integral. Direct differentiation gives the exact finite-radius identity, including the necessary additive term. Taylor expansion of the radicand in the joint \(\varepsilon=\lambda(1-r)^{1/4}\) regime stays a uniform distance from the square-root branch cut and zero on every compact \(\lambda\)-range, proving the stated uniform remainder. The profile derivative has exactly one sign change, at the claimed nonzero maximizer. Standalone quadrature and finite-scaling computations independently corroborate the identities but do not replace their proofs.
+## correctness
 
-## Originality — PASS, with historical-priority uncertainty
-The closest directly relevant work is Noda–Shirai (arXiv:2106.02860v1), especially Theorem 1.1 and Section 3. It establishes **fixed-covariance** asymptotics for two distinct double spectral zeros and the quartic collision and gives exact contour representations. The exact count formula in the present package is therefore treated as preparatory, not newly discovered. The surviving new statement concerns a **radius-dependent covariance parameter**, a uniform singular transition profile and the unexpected strict interior maximizing separation. Neither separated fixed-parameter asymptotic implies a bound uniform through coalescence. The later Shirai arXiv:2501.02586v1 studies spectral-density-dependent zero densities; no matching coupled crossover was identified in the accessible material inspected. Relevant semantic research-index searches and prior accessible claims did not reveal a statement equivalent to the new profile. A fuller priority search could still uncover equivalent double-scaled asymptotics.
+PASS
 
-## Value — PASS
-The quartic spectral zero is a natural coalescence boundary of the 2-dependent covariance family. The sharp \((1-r)^{1/4}\) separation scale is forced by competition between the squared spectral separation and radial regularization. The explicit profile interpolates two singular fixed models and resolves which nearby configuration produces the largest expected-zero deficit. Importantly, the strict optimum does not occur at the coalesced quartic case. This nonmonotone structural classification cannot be read directly from either fixed-parameter asymptotic.
+The frozen proof stated a false complex square-root equality in §3 (already false at q=0); its real-part version and the theorem are correct. The complete replacement RESULT.md under repairs/4 uses i/sqrt(−q+2i)=conj((q+2i)^(−1/2)) on the principal branch. Independent recheck: summing the two covariance lags yields the stated positive diagonal variance. The factorization by s=r/(v+W), with |s|<1 since Re(v conj W)>0 and (v+W)(v−W)=r², gives angular log-mean 2 log|v+W|. Differentiation at fixed epsilon gives the exact formula with rv'−v=−c−i/(2δ). The scaled radicands remain uniformly in a compact neighborhood in the upper half-plane for bounded lambda; analyticity of the inverse square root gives the asserted absolute remainder. The conjugation identity preserves the real-part profile. Its derivative in q=lambda² is proportional to −cos(3 arg(q+2i)/2), crossing from positive to negative at q=2/sqrt(3). Direct evaluation gives the correct height and endpoint/tail constants. The repaired theorem makes no finite-radius or global moving-parameter optimization claim. The unmodified finite checker is diagnostic and was not executed.
 
-## Limitations
-The theorem is for the specified moving-average covariance family and expected counts only. Uniformity is asserted solely on bounded nonnegative scaling parameters. Its exact finite-radius formula is not claimed to be prior-work-independent. Historical priority remains provisional pending broader expert literature review; no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published exact integral machinery and both fixed-parameter regimes. The supported distinct claim is the uniform joint-merger profile including its strict nonzero-separation maximum. The repaired branch argument leaves this claim unchanged.
+
+## value
+
+PASS
+
+The competing length scales arise intrinsically from this degeneration, not from an arbitrary parameter slice. The profile, uniform error and exact positive optimizer quantify an unexpected effect: separating the double zeros on the critical scale can produce a stronger leading deficit than exact collision. The endpoint asymptotics alone do not answer it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

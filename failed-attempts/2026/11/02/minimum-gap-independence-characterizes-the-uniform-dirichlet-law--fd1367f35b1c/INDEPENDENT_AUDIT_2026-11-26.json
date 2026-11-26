@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:02:54.508840Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the chamber with minimum at j, use coordinates m and n−2 excess coordinates on the opposite face. The factor (1−nm)^(n−2) is the face Jacobian, and the conditional density is proportional to ∏(m+(1−nm)z_i)^(α−1). The minimum has positive density throughout its open support, where the conditional expectation is continuous. At m→0, for α<1 use domination by a constant times ∏z_i^(α−1), since 1−nm stays bounded below; for α≥1 the weight is bounded. At m→1/n the limit is uniform. The identity T=n∑z_i²−1 and the Dirichlet second moment give the stated nonzero endpoint gap for α≠1, n≥3. For α=1 the simplex volume gives B=1−nM with density (n−1)b^(n−2), independent of the residual. Dirichlet fourth moments give E[Q²]=(24k+4k(k−1))/(k(k+1)(k+2)(k+3)) with k=n−1 and Q=∑z_i²; beta moments and G=(1+B²T)/n give the stated regression, negative covariance and correlation. T is strictly positive and has no atoms for n≥3 since its quadratic level sets have zero face volume; the coupled conditional G laws are strictly ordered and the null calibration applies only to selection measurable with respect to M. For n=2 the residual is a single unit coordinate and T=1. The finite algebra checks recorded with the source are supporting evidence, not the proof; the frozen script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October paper gives independence of the full normalized residual vector from the minimum at α=1 and states the simplex volume tail. Royen's inspected p. 1–3 material gives the marginal square-sum law. The accessible description of the 2014 work concerns fixed index partitions."
+        ],
+        "reasoning": "Whole-vector uniform independence implies the α=1 conditional pivot and its use after selection on M; mere marginal Greenwood distributions and fixed-index partition summaries do not imply the scalar iff statement.",
+        "searches": [
+          "Resultary 254686d5bc83, proof steps 1 and 3",
+          "Royen arXiv:1008.4059v1",
+          "Sakowicz–Wesołowski DOI:10.1016/j.jmva.2014.04.004",
+          "Pyke DOI:10.1111/j.2517-6161.1965.tb00602.x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 254686d5bc83 and 8821b74b45c3",
+        "Royen arXiv:1008.4059v1",
+        "Sakowicz–Wesołowski DOI:10.1016/j.jmva.2014.04.004 (limited description)",
+        "Pyke DOI:10.1111/j.2517-6161.1965.tb00602.x (full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record writes W_h(Y)=∏[1/n+h(nY_i−1)]^(α−1), notes ∑(nY_i−1)=1 and ∑(nY_i−1)²=n²Q−n−1, and normalizes this expansion against a bounded count. Thus the normalized density relative to uniform ν is 1−(α−1)n⁴h²(Q−EνQ)/2+O(h³), uniformly on the compact face."
+        ],
+        "reasoning": "Integrating against Q gives E[Q|M=1/n−h]=EνQ−(α−1)n⁴Varν(Q)h²/2+O(h³). The variance is positive for n≥3, so this is nonconstant unless α=1. This is a direct substitution into the documented conditional expansion, not an inference from independence of the different count. The endpoint formulas also follow from that prior conditional density by taking the uniform and Dirichlet limits and applying the second moment.",
+        "searches": [
+          "Resultary 254686d5bc83, proof step 4, W_h and normalized expectation (offsets 0 and 5350)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Write Q=∑Y_i² for the residual vector used in the October record. In the frozen claim, T=nQ−1 exactly; no additional statistic beyond that proof's quadratic Q is required."
+        ],
+        "reasoning": "Affine invertibility makes independence of T equivalent to independence of Q, not to independence of the raw Greenwood statistic or the earlier threshold count.",
+        "searches": [
+          "Local Resultary: min and normalized quadratic Dirichlet excess, minimum–Greenwood covariance and minimum-spacing rigidity",
+          "Resultary 254686d5bc83, proof steps 1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-rank covariance formula has T_(m,m)=1/m and U_(m,m)=1/m², giving −2(m−1)/(m³(m+1)(m+2)) exactly. Royen's table concerns marginal Greenwood quantiles, not the conditional law."
+        ],
+        "reasoning": "Exact special-case covariance coverage is demonstrable; it is not the evidence for the nonunit-shape converse.",
+        "searches": [
+          "Resultary 8821b74b45c3, Finding",
+          "Royen arXiv:1008.4059v1, square-sum law and Greenwood quantiles"
+        ]
+      },
+      "rationale": "The October Resultary count-rigidity record does not state this scalar theorem in its Finding. Its actual proof, however, already specifies the general minimum-conditioned residual law and isolates its leading shape-dependent log-density term, proportional to the very quadratic statistic proposed here. Normalizing that expansion and testing against the same quadratic gives the converse immediately with a nonzero variance. Its uniform factorization supplies the forward direction and the entire conditional pivot. The same-day rank–Greenwood record also covers the specific covariance, without establishing any chronological order between the two same-day records. The endpoint proof is a correct alternate derivation, not a distinct surviving claim under the direct-corollary standard.",
+      "residual_risks": [
+        "Historical priority and the relation between records were not determined.",
+        "Inaccessible historical spacing and neutrality texts may have additional overlap; the decision rests on positive implication from available evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different headline statistic, but explicit conditional expansion and uniform factorization imply the frozen core theorem",
+          "evidence": [
+            "The quadratic Q occurs as the complete degree-two shape-dependent coefficient of the conditional density weight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-critical-independence-and-sharp-dirichlet-rigidity-for-minimum-s--254686d5bc83/RESULT.md",
+          "material_read": "Finding and proof steps 1–4, especially the conditional face transformation and normalized expansion in step 4",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0 and 5350",
+          "title": "Critical independence and sharp Dirichlet rigidity for minimum spacing and above-mean counts",
+          "trigger": "Same parameter family and minimum-selected residual; plausible direct coverage"
+        },
+        {
+          "assessment": "Exact covariance coverage at terminal rank; not nonuniform rigidity; no same-date priority inference",
+          "evidence": [
+            "Rank m is the minimum in the decreasing convention."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-rank-threshold-for-greenwood-dependence-among-unifor--8821b74b45c3/RESULT.md",
+          "material_read": "Finding, assumptions and ranked-gap proof passages",
+          "method": "Local mirror, offset 0",
+          "title": "A universal rank threshold for Greenwood dependence among uniform spacings",
+          "trigger": "Exact minimum–Greenwood covariance overlap"
+        },
+        {
+          "assessment": "Marginal law is a reference ingredient, not a minimum-conditioned law in the inspected material",
+          "evidence": [
+            "Eq. (1.3) relates the normalized square sum to a squared coefficient of variation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.4059v1",
+          "material_read": "Abstract and pp. 2–3 including Eq. (1.3)",
+          "method": "OA original PDF, including offsets 4505 and 6960",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+          "trigger": "Marginal law of the reference pivot's squared norm"
+        },
+        {
+          "assessment": "Only the described fixed-partition statement was compared; no whole-document exclusion",
+          "evidence": [
+            "Fixed partitions are not selected by an order statistic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmva.2014.04.004",
+          "material_read": "Accessible description of fixed-partition neutrality; primary full text unavailable",
+          "method": "DOI/repository and publisher access attempts; no lawful full text retrieved",
+          "title": "Dirichlet distribution through neutralities with respect to two partitions",
+          "trigger": "Related Dirichlet characterization by independence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A minimum-selected Greenwood pivot is a useful interpretation of the residual law, but this record's scalar rigidity falls directly out of the existing quadratic score calculation and its null calibration is an immediate use of existing vector independence. The boundary moment calculation and uniform regression/correlation are straightforward moments of the same known conditional law; they do not supply a separate substantive contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

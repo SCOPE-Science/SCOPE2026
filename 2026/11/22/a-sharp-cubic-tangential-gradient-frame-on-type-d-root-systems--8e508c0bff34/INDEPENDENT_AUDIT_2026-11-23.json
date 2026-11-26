@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:32.647844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sign averaging separates each odd support as a character. At support {i}, permutations of the d−1 other coordinates act on the harmonic coefficients as the trivial line and the sum-zero standard space; both sample and Dirichlet forms are invariant, so these are orthogonal scalar blocks. All supports of a given kind are equivalent by permutation. Each three-coordinate support is the one-dimensional squarefree block. Their dimensions exhaust the harmonic cubics. Euler's identity gives the tangent form |∇F|²−9|F|² at a root, and the Dirichlet multiplier is 3(d+1). With D=d(d+2)(d+4), the spherical moments for Z,T,Q are 6(d−1)/[d(d+2)^2(d+4)], 4/D, 1/D. Counting signed root supports gives their sampled tangent energies 9(d²+4d−8)/[4d(d+2)^2], (2d−5)/[2d(d−1)] and 3/[2d(d−1)]. These ratios reproduce all three eigenvalues. At d=4 the listed Z and Q multiplicities are sector counts; their shared eigenvalue 8/5 has total multiplicity eight. The eigenvalue differences give the stated ordering and the switch of smallest sector between d=8 and 9. Squared conditioning is 12 at d=3, decreases on the middle integer branch and increases on the last; kappa_8=12/5<kappa_9=109/44. The transverse eigenvalue can be written as [2d+7−(12d+33)/(d²−1)]/24 and is increasing, while Q stays above its limit 1/2. Hence 35/192 at d=3 is the strict all-dimension minimum apart from its sector multiplicity. At d=4, Z_i vanishes on the entire value orbit but retains positive tangent energy. The frozen checker was inspected but not run; its finite exact Gram checks do not give all-dimensional coverage.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "595d8dd49f8a defines harmonic evaluation in each degree and gives the value/Gegenbauer operator, not the action of differentiation between degree sectors.",
+          "f749a9ac5b43 is a pure-gradient spectrum on normalized hypercube vertices, while 5e30c4d0afca characterizes a weighted combination of value and tangent-gradient forms in dimension three using moments.",
+          "Hirao–Nozaki–Tasaka specify D4 harmonic-index design properties. Xiao–Zhuang's inspected variational gradient is of the design objective, not observations of the target harmonic."
+        ],
+        "reasoning": "The cube has all coordinates active, unlike type D. The S² Parseval theorem neither covers all d nor gives the pure gradient Gram on these nodes. D4's strengths do not enforce quadrature on the sixth-degree restriction appearing in |∇F|²−9|F|². No dominating derivative theorem was located in the original passages read.",
+        "searches": [
+          "Resultary: all-degree exact Gegenbauer spectra on type-D roots, cubic hypercube gradient sampling, derivative-repaired Parseval cubature and positive two-jet Parseval",
+          "arXiv:2303.09000 and arXiv:2303.05365"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f5a84d916bec, 4fdcf93793d3, 595d8dd49f8a, f749a9ac5b43, 5e30c4d0afca and self-hit 8e508c0bff34",
+        "arXiv:1705.01032 Eq. (2); arXiv:2303.09000 abstract; arXiv:2303.05365 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Euler yields the derivative form as ∑_i E₂(∂_i F) squared minus 9 times the cubic value form; the ∂_i F are harmonic quadratics.",
+          "Even with exact scalar spectra, one must resolve the derivative map between sectors. In the degree-two decomposition into traceless diagonal and off-diagonal harmonics, the fraction of spherical ambient-gradient energy in the diagonal sector is d/(d+2), 1/3, and 0 for Z,T,Q respectively. Those weights follow by differentiating the representatives and computing quadratic norms, not from the eigenvalue lists alone."
+        ],
+        "reasoning": "This gives an alternative synthesis using prior value forms once the additional derivative inter-degree calculation is done. There is no direct specialization of an evaluation theorem to this new vector-valued observable. Exact finite-dimension optimization and positive-gradient repair of the value blind sectors then use the new eigenvalues.",
+        "searches": [
+          "Original RESULT.md for Resultary 595d8dd49f8a and f5a84d916bec, exact-degree value operators",
+          "Original RESULT.md for 5e30c4d0afca, cubic mixed Parseval statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In f5a84d916bec the signed constant-weight nodes at weight k=2 equal R_d, but the observable is point value. The exact scalar Z,T,Q ratios there are (d+4)(d−4)^2/[24(d−1)], (d+2)(d+4)/[8(d−1)], 0.",
+          "Allasia et al. impose general interpolation conditions D^β H(z_i)=D^β f(z_i), not the spectrum of a derivative-only observation operator."
+        ],
+        "reasoning": "The all-dimension squarefree value nullspace and the extra d=4 zonal nullspace contrast with strictly positive tangent eigenvalues; there can be no scalar or unitary renormalization of the value Gram that produces the gradient Gram. Hermite–Birkhoff cardinal conditions do not assert the quantitative Dirichlet frame bound.",
+        "searches": [
+          "Resultary: cubic harmonic signed constant-weight spheres, exact type-D cubic spectrum, 24-cell gradient-only sampling",
+          "arXiv:1705.01032 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ending 8e508c0bff34 is this record, not an antecedent.",
+          "4fdcf93793d3 directly lists the same-orbit cubic point-value spectrum and rank eight at d=4; f5a84d916bec contains that scalar case in a wider nodes family.",
+          "The distinct f749a9ac5b43 and 5e30c4d0afca cover different observation models or nodes; their original statements were checked rather than discarded by date."
+        ],
+        "reasoning": "Neither the scalar table nor the same-day derivative tables list these three positive pure-gradient bands or the d=8 optimal conditioning. No ordering was inferred for same-day entries.",
+        "searches": [
+          "Resultary: three cubic tangent-gradient singular sectors at type-D roots, cubic D_n value spectra, hypercube derivative spectrum and cubic Parseval cubature"
+        ]
+      },
+      "rationale": "Exact cubic scalar evaluation spectra on the identical orbit, and an all-degree scalar family, are already available. They do not state the derivative Gram, and reconstructing it from scalar forms requires an additional harmonic-gradient compression and determination of its sector weights. The inspected same-day cubic derivative results use a full-support hypercube, or a weighted value-plus-gradient form on S². Neither applies to the two-active-coordinate root orbit and pure tangent form. The exact derivative splitting, the best-conditioned dimension and the sharp lower bound survive the comparison; assessment is limited to inspected sources.",
+      "residual_risks": [
+        "Resultary c849bccb9874, positive two-jet Parseval cubature, was only available as a summary. Its reported value/gradient/Hessian constraint d≤(l−2)^2 does not reach l=3 and d≥3, but the original passage was unavailable in the local mirror.",
+        "An unindexed jet-sampling theorem may give a closer comparison; the bounded search does not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same-orbit scalar sampling, not gradient observations",
+          "evidence": [
+            "The concentration operator uses values; squarefree eigenvalue vanishes at k=2 and the zonal branch vanishes at d=4."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-cubic-harmonic-sampling-on-signed-constant-weight-spheres-exact--f5a84d916bec",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror, exact substitution at k=2",
+          "title": "Cubic harmonic sampling on signed constant-weight spheres",
+          "trigger": "Same orbit at k=2 under a more general cubic sampling theorem"
+        },
+        {
+          "assessment": "Scalar evaluation operator and its rank defect",
+          "evidence": [
+            "Defines E_n as cubic evaluation on the roots and gives rank eight for n=4."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-cubic-harmonic-sampling-spectra-on-type-d-n-roots--4fdcf93793d3",
+          "material_read": "Original RESULT.md Finding, offsets 0–2793",
+          "method": "Local Resultary mirror",
+          "title": "Complete cubic harmonic sampling spectra on type-D roots",
+          "trigger": "Exact same nodes and cubic source"
+        },
+        {
+          "assessment": "All-degree evaluation, not a derivative spectrum",
+          "evidence": [
+            "E_{n,l} is exact-degree harmonic evaluation and the Gegenbauer Gram describes node values and antipodal parity."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-gegenbauer-spectra-and-low-degree-resonances-on-the-type-d--595d8dd49f8a",
+          "material_read": "Original RESULT.md Finding, offsets 0–1743",
+          "method": "Local Resultary mirror; compare operator and derivative compression",
+          "title": "Exact Gegenbauer spectra and low-degree resonances on the type-D root orbit",
+          "trigger": "Potential stronger all-degree coverage"
+        },
+        {
+          "assessment": "Exact gradient spectrum, different orbit",
+          "evidence": [
+            "Uses d^(−1/2){±1}^d and gives injectivity for d≥4; it has no support-two case in the stated family."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cubic-spherical-gradient-sampling-spectra-at-hypercube-ver--f749a9ac5b43",
+          "material_read": "Original RESULT.md Finding, offsets 0–1807",
+          "method": "Local Resultary mirror",
+          "title": "Sharp cubic spherical gradient sampling spectra at hypercube vertices",
+          "trigger": "Same normalization and derivative observable"
+        },
+        {
+          "assessment": "Mixed value and gradient Parseval rule on S², not gradient only on type D",
+          "evidence": [
+            "Moment characterization of a weighted value-plus-gradient form; example 3S₀/7+4S₁/7=I on the icosahedron."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-derivative-repaired-parseval-cubature-for-cubic-spherical-harmon--5e30c4d0afca",
+          "material_read": "Original RESULT.md Finding, offsets 0–1891",
+          "method": "Local Resultary mirror",
+          "title": "Derivative-repaired Parseval cubature for cubic spherical harmonics",
+          "trigger": "Potential derivative frame coverage by cubature"
+        },
+        {
+          "assessment": "Derivative interpolation conditions, not sharp harmonic-frame bounds",
+          "evidence": [
+            "Prescribes D^β H(z_i)=D^β f(z_i) on scattered manifold nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.01032",
+          "material_read": "Original PDF abstract and p. 2 Eq. (2), offsets 381 and 9200",
+          "method": "Bounded open primary passages",
+          "title": "Hermite–Birkhoff interpolation on scattered data on the sphere and other manifolds",
+          "trigger": "General derivative interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The root shell is canonical, and the derivative-only stability invariant is motivated by a specific and proven failure of values on the same shell. A quantitative spectrum is stronger than recovering injectivity: it gives the best-conditioned dimension and a dimension-uniform sharp lower frame bound. These are useful for reconstruction independently of extensions to other degrees or root families. The mode-dependent derivative compression and optimization are not scalar-value table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

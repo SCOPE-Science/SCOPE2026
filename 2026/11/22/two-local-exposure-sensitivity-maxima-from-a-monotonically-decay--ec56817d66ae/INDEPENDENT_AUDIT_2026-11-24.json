@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:57.591990Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the precise background-limited objective, S'=N/(2T^(3/2)) with N=2TI−E. This N satisfies N(0)=0, is positive near zero, and tends to −a/λ−b/μ. Differentiation gives N'=a(1−2λT)e^(−λT)+b(1−2μT)e^(−μT). Multiplying by e^(λT) and differentiating twice leaves b d e^(−dT)(d+4μ−2μdT) with d=μ−λ>0, so Rolle bounds the distinct positive zeros of N' by three. The zero of N at zero then bounds its distinct positive zeros by three as well. Three strict maxima would force at least five critical points including the two interior minima, even when some critical points are degenerate. This is the decisive bound; four alternating sampled signs, as opposed to four sign changes, require only three intervening extrema, so the informal sentence at line 36 is unnecessary. An independent exact Fraction enclosure, using degrees 12 and 13 at x/32 before powering, bounds 10⁶ N at 1/20,1/8,1/3,1 in (28439,28440), (−30229,−30228), (27711,27712), (−63029,−63028). Three disjoint sign crossings exhaust the allowed zeros, giving strict max/min/max. Widths for the reported degree-16/17 method check separately. For one mode, N' changes from positive to negative exactly once while N starts at 0 and has a negative limit, proving the unique strict maximum. Replay: RESULT.md 17–48 and python3 /workspace/reproductions/exposure.py. The frozen checker was inspected, not run. No astrophysical fit is used in the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical exponential-polynomial zero bounds (or twice iterated Rolle after exponential conjugation) already supply the zero-count ceiling used in this model; they do not yield attainment with fixed coefficient signs.",
+          "The fitted two-exponential form in Davenport and the actual exposure/cadence compromise in Bruno use different objectives from E(T)/√T."
+        ],
+        "reasoning": "Credit the general zero-count technique and the existing physical motivation: a general bound on zeros leaves open whether coefficients linked by the integral and restricted to positive amplitudes can realize the necessary three crossings. No inspected general exposure result supplies that attainment.",
+        "searches": [
+          "arXiv:1411.3723, §III.2, two-component cooling",
+          "arXiv:2403.17065, p. 3 exposure passage",
+          "Resultary: multi-timescale exposure and decay-driven extrema"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.3723",
+        "arXiv:2403.17065",
+        "10.1002/cmr.a.21298 institutional description",
+        "Resultary ec56817d66ae (self) and 3f001ca0ae7a (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-mode SNR optimization does not control the stationary points of a positive sum. The flare-template work supplies a special positive signal but not an extremum theorem; the CHEOPS duty-cycle comparison concerns those specific observations.",
+          "Positive attainability here requires a signed derivative witness at increasing durations, not just applicability of an exponential-sum root bound."
+        ],
+        "reasoning": "The maximum count and attainability together do not follow from the inspected literature by substitution. The one-mode baseline and model input are not independently novel.",
+        "searches": [
+          "10.1002/cmr.a.21298, Bucknell description",
+          "arXiv:1411.3723 §III.2, Eq. (4)",
+          "arXiv:2403.17065, abstract and §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent squared objective E²/T has the same strict maxima since E/√T>0, and stationary points are characterized by 2TI=E.",
+          "The accessible monoexponential abstract reports a single optimum near 1.26 T₂, consistent with e^x=1+2x here, but no positive-mixture maxima theorem in the accessible material."
+        ],
+        "reasoning": "A one-mode coincidence is credited, and the comparison also allows energy-normalized or squared-SNR descriptions of the same objective. Bi-exponential light-curve fitting is a different operation, not optimization of either equivalent objective.",
+        "searches": [
+          "Resultary: two-exponential decay, multiple local optima of integrated exposure",
+          "Williams–Rovnyak 10.1002/cmr.a.21298, optimal monoexponential acquisition",
+          "arXiv:1411.3723, §III.2, Eq. (4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit for (1,5,1,30) and the sharp count is this frozen record at Finding offset 718, not independent evidence.",
+          "The nearby decay-mixture catalogue hit describes a two-power-law apparent exponent, and Davenport's tabulated fit has a different parameter tuple and no exposure-optimum counts."
+        ],
+        "reasoning": "Comparison is about the objective and a sharp count, not matching an example tuple alone. No independent table or exact result was retrieved for this combination.",
+        "searches": [
+          "Resultary: two local exposure sensitivity maxima monotonically decaying transient, ec56817d66ae",
+          "Resultary: decay-mixture turning points, 3f001ca0ae7a",
+          "arXiv:1411.3723, Eq. (4), fitted coefficients"
+        ]
+      },
+      "rationale": "Passes for the sharp maximum count with a strictly positive two-mode witness for this specific noise-normalized integral; neither decay templates, the one-mode optimum, nor the standard analytic zero-count method is claimed new. The bounded searches and inspected statements found no independent matching two-maximum result.",
+      "residual_risks": [
+        "The full Williams–Rovnyak paper was not accessible; the exact historical single-mode objective has not been checked against its equations.",
+        "A two-mode attainment result under signal-integration or squared-SNR terminology may remain unindexed or outside the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives fitted decay shape, not an exposure-maxima theorem in the inspected passage",
+          "evidence": [
+            "Fits decay using rates 1.600 and 0.2783 in rescaled time, with positive amplitudes 0.6890 and 0.3030."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.3723",
+          "material_read": "Section III.2, PDF p. 7, Eq. (4), offset 44296",
+          "method": "OA primary arXiv PDF",
+          "title": "Kepler Flares II: The Temporal Morphology of White-Light Flares on GJ 1243",
+          "trigger": "Positive biexponential astrophysical flare template could include the same functional"
+        },
+        {
+          "assessment": "Consistent with the one-mode baseline; no whole-document exclusion for other models asserted",
+          "evidence": [
+            "Reports monoexponential SNR maximum at about 1.26 T₂ and a Lambert-W expression."
+          ],
+          "identifier_or_url": "https://digitalcommons.bucknell.edu/fac_journ/867/ ; DOI 10.1002/cmr.a.21298",
+          "material_read": "Institutional repository description; publisher text inaccessible and no open full-text alternate resolved",
+          "method": "Lawful repository and DOI routes, abstract-level comparison only",
+          "title": "A Closed-Form Solution for the Optimal Time Evolution of an Exponentially Decaying Signal with Thermal Noise",
+          "trigger": "Optimal acquisition of a decaying signal, closest single-mode antecedent"
+        },
+        {
+          "assessment": "Reports observational cadence and duty-cycle choices, not the audited local-maxima question in the inspected passages",
+          "evidence": [
+            "The reported 3 s cadence is a compromise between on-target time and duty cycle; the present model excludes such overhead factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.17065",
+          "material_read": "PDF abstract p. 1, offset 2145, and §3.1 p. 3 adjacent instrument-exposure passage, offset 20085",
+          "method": "OA arXiv PDF, bounded passages",
+          "title": "Detailed cool star flare morphology with CHEOPS and TESS",
+          "trigger": "Cadence and possible exposure optimization in the cited flare data work"
+        },
+        {
+          "assessment": "The described turning points are for an apparent decay exponent, not this cumulative-signal ratio; not a whole-source exclusion",
+          "evidence": [
+            "Two shifted power-law contributions and apparent Omori decay, rather than positive exponential exposure scoring."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-offset-contrast-threshold-for-reentrant-apparent-omori-d--3f001ca0ae7a",
+          "material_read": "Indexed scientific summary only",
+          "method": "Resultary catalogue search",
+          "title": "A sharp offset-contrast threshold for reentrant apparent Omori decay",
+          "trigger": "Nearby decay-mixture turning-point result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The score for a monotone source can nevertheless offer multiple locally optimal durations, and two positive decay components are minimal for that behavior. A sharp bound and rigorous witness are useful when interpreting or testing a local exposure-time optimizer under the model. This is not a claim about typical observed flares, instrument-specific noise or overhead, or the number of global optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

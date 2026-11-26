@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:24:33.938339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed y, put a vertex at each allowed insertion description. Equal-parent descriptions occupy consecutive gaps (deleting two different coordinates from the same parent gives the same y iff the intervening parent symbols are all equal). In each such class the adjacent-equality edges form a path, so counting vertices minus edges is exact. At y=0 the parents are the zero word and q−1 single-nonzero words at each zero-check coordinate. Losing even one free gap leaves at most q(z−1)+n−z descriptions, below this baseline by q+1−n≥1. Thus restrict to W perpendicular: an adjacent pair touching a zero-check coordinate always duplicates, since that gap permits every symbol and the resulting word also has the alternative description. For the other pairs the duplicate condition is exactly b_i·y=0. The nonzero restrictions b_i outside W have kernels of relative size 1/q, and at most n−1<q such kernels cannot cover W perpendicular (zero-dimensional case has no nonzero restrictions). This proves sharpness and the rank computation. In the F5 examples W is spanned by (1,1,0),(0,1,1) for h; (1,4,1) is perpendicular and its merged form evaluates nonzero. The other check's merged form is zero. For the stated binary all-ones boundary, the number of nonduplicates is the number of 1s of an even-parity received triple, or of 0s of an odd-parity triple; both are at most two and attainable. Frozen enumeration evidence was read, not used to infer the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives inequalities for linear-code rate and fixed list size; the latter uses channel graph degrees for bounds on sizes of deletion-correcting codes."
+        ],
+        "reasoning": "Neither bounds all intersected insertion neighborhoods with an equality depending on h nor yields the finite-field simultaneous avoidance condition.",
+        "searches": [
+          "arXiv:2610.23270v1 Theorem 7 and Corollary 8",
+          "arXiv:1302.6562v2 pp. 1–2 degree/packing discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2610.23270v1 and arXiv:1302.6562v2",
+        "Resultary/SCOPE d834481dd89c, 7c5ff1200899, 964e0d173874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=4, q=5, a pair with the same zero locations gives 10 and 9, respectively. The exact graph degree without a code constraint is independent of h, and the read-vector formula uses different parent constraints."
+        ],
+        "reasoning": "An all-words degree or a code-size inequality does not control this change with coefficients. Special-pattern binary bounds and exact ordered read inversion supply no reduction to this invariant.",
+        "searches": [
+          "Remark 9 versus the rank formula",
+          "Cullina–Kiyavash channel graph degrees versus fixed-h inverse degree",
+          "Resultary d834481dd89c exact read-deletion comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 9 treats c_1+c_3+…+c_(2L−1)=0 over F2 and a list bound of L for one deletion, not all nonzero checks.",
+          "Resultary d834481dd89c, Finding, gives 2q+floor((n−3)/(ℓ−1)) for deleting one entire overlapping ℓ-mer from an ordered read vector."
+        ],
+        "reasoning": "Insertion-ball intersection is the same invariant as inverse one-deletion list in the frozen code. Deletion of one vector-valued read with overlap constraints is not that problem; the binary alternating-support family has q<n.",
+        "searches": [
+          "Resultary: fixed parity-check hyperplane one-deletion list; single-check code inverse list; one insertion ball intersected with a linear hyperplane; coefficient-dependent single deletion",
+          "Verma–Hollanti–Tajeddine arXiv:2610.23270v1 Remark 9",
+          "Cullina–Kiyavash arXiv:1302.6562v2, deletion channel graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact short-length data optimize binary codebook size or linear dimension under a prescribed list limit, rather than maximizing a fiber for a prescribed h."
+        ],
+        "reasoning": "Neither a finite binary capacity table nor its linear variant tabulates this invariant on prime-power fields q≥n.",
+        "searches": [
+          "Resultary records 7c5ff1200899 and 964e0d173874, Finding at offset 0"
+        ]
+      },
+      "rationale": "The coefficient-dependent formula for a fixed hyperplane is distinct on the evidence inspected. The closest same-code-class example is a binary list-size bound for a special check, outside the alphabet hypothesis. Neither ambient channel degrees nor stated general rate bounds determine the rank-sensitive extrema.",
+      "residual_risks": [
+        "Bounded searches do not exclude older synchronization literature phrased in terms of supersequence fibers or parity-check insertion constraints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same class in a special binary example; no covering theorem for the arbitrary large-field check",
+          "evidence": "Remark 9 constructs the alternating-support check at length 2L−1 for L≥3 and bounds its list by L.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23270v1",
+          "material_read": "Theorem 7 and Corollary 8, PDF p. 7 near offset 21500; Remark 9, pp. 8–9 near offset 25200",
+          "method": "OA primary PDF text",
+          "title": "A Generalized Half-Singleton Bound for List Decoding of Insertion/Deletion Errors",
+          "trigger": "Closest cited single-parity-check case"
+        },
+        {
+          "assessment": "Related graph counting, not exact fixed-check inverse list",
+          "evidence": "The input degrees model distinct deletion outputs and enter packing bounds for code size.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.6562",
+          "material_read": "pp. 1–2, offsets near 4900 and 10900",
+          "method": "OA primary PDF text",
+          "title": "An Improvement to Levenshtein’s Upper Bound on the Cardinality of Deletion Correcting Codes",
+          "trigger": "Plausible channel-incidence dual formulation"
+        },
+        {
+          "assessment": "Different symbol channel and constrained parent class; same-day date is not a priority inference",
+          "evidence": "Inversion of one dropped ℓ-mer in an ordered overlapping-read vector.",
+          "identifier_or_url": "2026/10/27/SCOPE-exact-inverse-list-distribution-for-one-deleted-overlapping-read--d834481dd89c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact inverse-list distribution for one deleted overlapping read",
+          "trigger": "Strongest exact inverse-list catalogue hit"
+        },
+        {
+          "assessment": "Different direction of optimization",
+          "evidence": "Optimize code size or dimension, not the list of a fixed check.",
+          "identifier_or_url": "7c5ff1200899 and 964e0d173874",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror",
+          "title": "Binary single-deletion list capacity; exact short-block dimensions for binary linear two-list single deletion",
+          "trigger": "Exact tables potentially including single checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact nonenumerative worst-case list size for a natural code class supports comparison of actual check vectors, not just bounds depending on length and field size. It identifies a rank obstruction and shows why support alone cannot determine the list size, with a sharp all-length theorem on the stated regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

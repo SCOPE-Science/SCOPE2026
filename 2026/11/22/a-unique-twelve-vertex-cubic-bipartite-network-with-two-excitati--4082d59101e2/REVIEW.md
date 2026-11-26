@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has two finite exhaustive layers. Every connected simple cubic bipartite graph on at most twelve vertices is represented by an \(m\times m\) zero-one biadjacency matrix with three ones per row and column, where \(m=3,4,5,6\). Sorting row multisets and canonicalizing under column permutations and shore exchange is isomorphism-complete for connected bipartite graphs. The standalone enumeration outputs exactly \(1,1,2,5\) nonisomorphic graphs at the four orders. Two independently represented and independently classified full functional digraphs agree exactly on every one of the \(3^n\) configurations of all nine graphs. The unique pair of nonzero \((8,4)\) and \((10,5)\) columns occurs on the same twelve-vertex graph, with counts \(1{,}208\) and \(4{,}784\). The direct witnesses and reproducibility replay pass. This proves the sharp minimum **within the specified graph class**; no infinite-order classification is asserted.
+PASS
 
-## Originality
+The claimed minimum and counts were independently reproduced. The shores have equal size m≥3. By Hall's theorem, a regular bipartite graph decomposes into perfect matchings by repeatedly removing one; for cubic graphs these give three disjoint permutations. Relabel to make one the identity and simultaneously relabel both shores to put the second into a representative of its derangement cycle type. Enumerating every permissible third matching, rejecting disconnected graphs and quotienting by permutations and shore swap gives 1,1,2,5 classes at orders 6,8,10,12. This exact class set matched the decoded graph6 representatives. On each class the independent census built vectorized ternary successor arrays and squared each successor map until successive image cardinalities agreed: the smaller power is then a permutation of its image, hence that image is exactly the cycle set. First return on this set gives least periods, which pull back to every initial state. Joint tables and maximal entry depths matched all nine original rows; the representative's labeled row masks and both trajectory witnesses also matched. Only K??FEQoT@WB_ had both channels, with 1,208 plus 4,784 discrepancy states, leaving 525,449 equal-period states. Each pair uses the same start for the two rules; the two channels are realized by disjoint sets, not by one common coloring.
 
-**PASS with historical-priority limitations.** The earliest model literature (Durrett–Griffeath 1993) and the major general graph paper (Gravner–Lyu–Sivakoff 2016) establish the automata and qualitative framework, not the present twelve-vertex paired period census. A previously published general period-divisibility theorem is stronger in its domain but weaker in the relevant conclusion: divisibility does not imply that both distinct halving channels occur on the same graph, their counts, or the sharp minimum. The full available Heawood result concerns a fourteen-vertex graph possessing both channels but proves no minimality and gives different populations. The Frucht and Petersen comparisons concern different graphs and do not establish the minimum within connected cubic bipartite graphs. A prior small cubic bipartite graph census concerns other update rules. Search results and accessible primary statements did not identify a covering theorem or table. Unindexed equivalent finite computations remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The matched-initial-coloring comparison between CCA and GHM has a known global divisibility restriction, and a fourteen-vertex Heawood example exhibits two different strict divisibility channels. Finding the *unique first connected cubic bipartite graph* at which those mechanisms coexist is a natural minimal-witness question in finite nonlinear graph dynamics. Unlike a random one-graph computation, the result establishes minimality and uniqueness by a complete isomorphism-class census and resolves both discrepancy populations. It also distinguishes the narrower single-channel behaviors occurring already in graphs of orders ten and twelve. The result need not imply a theorem for all larger cubic graphs to be valuable.
+The available sources establish the earlier Heawood coexistence and an all-graph divisibility constraint, plus the five-class structural catalog, but none of those covers the exact minimum order, its unique isomorphism class, or its paired state populations. The exact matching indexed hit is this record itself. This is a best-of-knowledge verdict, not a claim that no exact census can exist elsewhere.
 
-## Closest literature and limitations
+## value
 
-The closest exact comparisons are the Heawood paired-period classification, the general all-graph period-divisibility theorem, and the Frucht and Petersen paired-period classifications (references and identifiers appear in RESULT.md and AUDIT.json). The current theorem is a finite exact classification. It does not establish minimum order over arbitrary graphs or all cubic graphs, and it has not received an independent external mathematical review. The original 1993 paper's abstract and bibliographic record were accessible but its archived full text was not materially checked; no novelty claim depends on an interpretation of that inaccessible paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The previously established coexistence of two distinct period-halving channels on Heawood motivates asking the smallest network in the same graph class that exhibits both. A complete finite cutoff and unique witness answer that question, while the paired counts distinguish common and rare dynamical responses under identical starts. This goes beyond cataloging graph types or demonstrating isolated trajectories; divisibility alone provides none of these sharp data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

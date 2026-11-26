@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces every ordered cubic-graph sum fiber over any odd prime-power residue ring to the elementary root count for a quadratic congruence, including the \(p=3\) singular coefficient. It explicitly establishes the number of unit-square classes and the exact squared-root multiplicity sum \(S_p(j)=p^{j-1}(p+j(p-1))\) using the invertible change \((u-v,u+v)\). The support and energy formulas follow by counting each possible valuation of the first sum coordinate and multiplying under Chinese remaindering. Character orthogonality supplies the stated Fourier normalization. A standalone direct enumeration checks every finite fiber at 13 prime powers and five composite odd moduli; this is corroboration rather than an unrestricted proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The nearest inspected primary research [1]–[3] includes the classical cubic factorization and general fourth-moment or polynomial-graph theory, but concerns integer interval bounds or general estimates, not the complete prime-power target-fiber census. The nearest two published related cubic-graph classifications [4]–[5] determine a finite-field sharp extension norm and the prime-square exponential spectra, respectively. The former implies the prime-field ordinary collision structure, not the higher-prime-power representation formula; the latter concerns a different invariant. Searches across standard names (cubic graph, cubic moment curve, pair-sum fibers, additive energy, cubic exponential fourth moment, prime-power rings) found no direct statement. This is a qualified best-knowledge judgment, not a claim of uniquely certified priority: a broadly formulated older local-density or general congruence-root theorem could entail the calculation.
+PASS
 
-## Mathematical value — PASS
-The exact twofold sumset and additive energy of a natural polynomial graph are structural arithmetic invariants, directly equivalent to complete fourth moments of its exponential sums. The result treats every odd prime-power exponent, every target and every odd composite modulus, and identifies a quantitatively different singular branch at the prime three. The all-target fiber specification is stronger than isolated bounds and is not just a finite computation; the known quadratic-root lemma is used as an ingredient, not offered as a separate discovery.
+At fixed sum s, the invertible change u=x−y gives 4t=s³+3su². If g=gcd(3s,p^k), a necessary condition is g|4t−s³; after division, there are g lifts of each root mod p^k/g. The singular case g=p^k gives one t and p^k pairs; it occurs once for p≠3 and three times for p=3, even at k=1. For a nonzero reduced target with valuation d, the valuation must be even (d=2h), and a unit root mod p has exactly one lift at each successive step by its derivative 2u; two roots each acquire p^h lifts when restoring the factored p^h. For the zero target the root count is p^floor(j/2). Counting attainable unit squares at the even valuations gives Q_p(j). At fixed nonsingular s the admissible quotient residues c range over all p^j values; only the square residues have nonzero fiber. The sum of their squared root counts equals Σ_{a mod p^j} gcd(a,p^j)=p^j+j(p−1)p^{j−1}, by the invertible (u−v,u+v) change. There are (p−1)p^{j−1} sum coordinates with quotient exponent j for p≠3 and 2·3^j for p=3; multiplying these counts by the square of the lift factor yields the printed energy polynomials. Direct CRT on pair parameters proves all factorizations, and summing additive characters over both dual coordinates introduces q², exactly canceled in the formula. Bounded independent replay check_1.py checked 280221 targets across 13 moduli, comparing all, including zero fibers, by direct x at fixed s and independently counting reduced squares and product-zero pairs. Examples (modulus, support, energy): (3,3,27), (27,87,8019), (243,5703,1436859), (315,4875,3974211).
 
-## Evidence and limits
-References [1]–[3] in RESULT.md were consulted in available full-text material, and references [4]–[5] in published complete scientific reports. The exact comparisons and residual risks are recorded in AUDIT.json. Neither historical exhaustiveness nor independent mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified for the combined exact target census, support and unweighted energy over all odd moduli. The cubic collision identity, square-root arithmetic and prime-field specialization are not new; prior identities motivate but do not state or give the full prime-power fiber census and singular-prime moment.
+
+## value
+
+PASS
+
+The fixed-sum singular strata change both support and energy, including dramatically in characteristic 3 and nonreduced rings. Knowing the exact fibers, not merely a moment estimate, answers every representation query and yields the complete normalized fourth moment uniformly across odd moduli. The unified prime-power and CRT formulas are independently useful in modular additive and restriction calculations even though the ingredients are elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

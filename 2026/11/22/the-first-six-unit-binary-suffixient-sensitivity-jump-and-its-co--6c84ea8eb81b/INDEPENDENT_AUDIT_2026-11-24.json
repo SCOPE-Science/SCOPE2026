@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:09:06.479212Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "Frozen VERIFICATION.md, both verifier sources and both recorded outputs (inspected as evidence)",
+        "/workspace/branches/replay/suffixient.py",
+        "/workspace/branches/replay/suffixient.out"
+      ],
+      "rationale": "On the uniquely terminated word every required extension is a suffix of a suffix-maximal one, and two distinct suffix-maximal ones cannot both end at one position; this proves the minimum-set formula. The one-letter domination test is justified because deleting symbols from the left of a right-maximal factor preserves its two distinct followers; the preceding symbol cannot be the terminator. Independently, adjacent LCPs of sorted suffixes recover every branching prefix, including the empty one, and the extension ending-position sets are laminar: if two intersect then one extension is a suffix of the other. Counting distinct inclusion-minimal ending-position sets therefore computes the minimum directly. Enumerating all 32,766 source words and 425,986 directed bit flips by this procedure reproduces (0,1,1,1,2,2,3,4,4,4,4,5,5,6); the 16 length-14 extrema all have values 5 to 11, with exactly the listed one-based positions and source words. No inference is made beyond length 14.",
+      "residual_risks": [
+        "Finite executable proof, not a formal verification or an asymptotic result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 proves an order-square-root lower bound for the same additive substitution sensitivity. Its binary construction in Lemma 6 starts at m≥3; the displayed words have length 4m(m+1)."
+        ],
+        "reasoning": "An asymptotic lower bound and witnesses starting at length 48 do not supply a sharp upper bound at any of the audited binary lengths or characterize their maximizers.",
+        "searches": [
+          "Resultary: suffixient-set edit sensitivity under substitution",
+          "arXiv:2506.05638v7, §4, Theorem 1 and Lemma 6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary queries above",
+        "Fujimaru–Navarro–Romana–Urbina, arXiv:2506.05638v7",
+        "Distinct-run sibling primary RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The extension identity reduces each measure evaluation to a finite calculation but contains no maximizing comparison across different words. The distinct-run theorem gives χ=2q+1 and k^(2q−1) minimum position sets under its family hypotheses."
+        ],
+        "reasoning": "Neither a formula only for a special periodic family nor an asymptotic sensitivity lower bound implies the full early binary profile, absence of a six-unit jump below 14, or completeness of the four groups of flip positions.",
+        "searches": [
+          "arXiv:2506.05638v7, §§3–4",
+          "Distinct-run sibling RESULT.md, theorem, local-mirror offsets 300–3447"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older paper identifies the suffixient number with the number of supermaximal right extensions of w followed by its unique terminator and defines additive sensitivity by an oriented difference."
+        ],
+        "reasoning": "This is an exact equivalence of the measure and question. Also, taking the maximum of the absolute change gives the same maximum because each bit-flip edge is reversible, but the positive directed extremizer census is not the undirected count.",
+        "searches": [
+          "Resultary: supermaximal-right-extension sensitivity",
+          "arXiv:2506.05638v7, §§2.2–3, Definitions 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed match 2026/11/22/SCOPE-the-first-six-unit-binary-suffixient-sensitivity-jump-and-its-co--6c84ea8eb81b is this assigned record itself. The strongest distinct result is 2026/11/22/SCOPE-all-smallest-suffixient-sets-of-sentinel-terminated-distinct-run--e99246fc12d2. No independent equivalent profile was located."
+        ],
+        "reasoning": "The distinct record classifies suffixient sets within a prescribed periodic distinct-run family, not bit-flip extremizers over all binary words; same-day metadata does not resolve priority.",
+        "searches": [
+          "Resultary: exact assigned title",
+          "Resultary: binary length-14 one-substitution suffixient profile",
+          "Resultary: supermaximal-right-extension sensitivity"
+        ]
+      },
+      "rationale": "The same measure, its right-extension characterization and the substitution-sensitivity question are already known. The supported distinct claim is the exact binary profile through 14 and its complete maximizing-pair classification, not the measure or general sensitivity.",
+      "residual_risks": [
+        "Broad web search did not return usable hits in the admitted wave; the assessment rests on the successful primary-source and local-index checks, not on that lookup.",
+        "An unindexed exact enumeration, software supplement, or other equivalent table could predate the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying statistic and asymptotic sensitivity lower bound, not the finite cutoff and census.",
+          "evidence": "χ(w) is measured on the terminated word; the binary lower-bound construction uses m≥3 and words of length 4m(m+1).",
+          "identifier_or_url": "https://arxiv.org/html/2506.05638v7",
+          "material_read": "§2.2 edit and additive-sensitivity definitions, §3 Definitions 1–5, §4 Theorem 1 and Lemmas 6–7; Lemma 6 offset 31045 onward",
+          "method": "OA primary full-text passages",
+          "title": "Smallest Suffixient Sets: Effectiveness, Resilience, and Calculation",
+          "trigger": "Same definition and substitution sensitivity"
+        },
+        {
+          "assessment": "Different inputs and output classification.",
+          "evidence": "For a restricted distinct-run family, χ=2q+1 and the number of minimum position sets is k^(2q−1); no all-binary one-substitution extremal statement.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-smallest-suffixient-sets-of-sentinel-terminated-distinct-run--e99246fc12d2",
+          "material_read": "RESULT.md theorem, offsets 300–3447, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary result",
+          "title": "All smallest suffixient sets of sentinel-terminated distinct-run words",
+          "trigger": "Closest distinct indexed result on the same measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finite theorem and extremizer table",
+        "Fujimaru–Navarro–Romana–Urbina, §4",
+        "/workspace/branches/replay/suffixient.out"
+      ],
+      "rationale": "This resolves the first length at which the edit effect exceeds five for a published compression measure, but the value does not rest on choosing the number six alone: the complete initial profile and all equality cases show exactly how extreme changes emerge in the smallest alphabet. At the first gain of six every source has measure five and the only extremizers are four highly structured words with four flip positions each. This supplies exact short-input benchmarks and concrete constraints on prospective sharp sensitivity bounds; it is not a new asymptotic estimate.",
+      "residual_risks": [
+        "The demonstrated value is an exact local benchmark and does not imply any particular structure of extremizers at longer lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

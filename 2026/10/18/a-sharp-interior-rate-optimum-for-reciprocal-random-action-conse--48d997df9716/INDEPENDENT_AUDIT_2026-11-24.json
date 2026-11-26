@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:15:45.407186Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–134",
+        "Frozen VERIFICATION.md, lines 19–21, and code/verify_random_actions.py, lines 10–71, inspected without execution",
+        "Independent exact-rational replay on one three-step case; /workspace/branches/cdf45baf-c737-4e0a-90f2-6ff30671059e/independent-check.md"
+      ],
+      "rationale": "In the half-sum and half-difference coordinates, fresh conditionally independent actions give conditional variances alpha^2 u/2 in both coordinates and conditional means m and (1-2 alpha)d. Using u=m(1-m)-d^2 yields the exact two-moment matrix in the record. It is primitive: both off-diagonals and its first diagonal are strictly positive. The trace is below 2, both eigenvalues are real, and det(I-M)=2 alpha^3(1-alpha)>0, so the Perron root lies below 1. The bounded martingale m_t has a limit and geometric summability of E[d_t^2] gives d_t->0 almost surely. The expectation of m_t(1-m_t) tends to zero, forcing a binary limit Z. The conditional expectation of Z is m_t, giving the exact unconditional terminal squared error 2U_t+4V_t. All nonabsorbed initial states give a nonzero nonnegative starting vector, so its Perron projection and the coefficient of this error are strictly positive. Only the larger radical candidate survives the unsquared derivative sign condition; the endpoint values are 1 and the interior rates are strictly smaller, so the unique stationary point is the unique minimum. The eigenvalue there is the stated larger root. An independent exact enumeration at alpha=1/2 from (1/3,2/3) through three updates checked the U,V recurrence at each step; the first-step terminal-error identity evaluates to 1/2.",
+      "residual_risks": [
+        "The finite replay is not a proof of the asymptotic result. The consensus theorem does not include alpha=1, for which (1,0) swaps forever, nor does it concern the distance to a deterministic target."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leshem–Scaglione define the general Bernoulli-action update and give a first-moment DeGroot recursion and a binary-herding theorem.",
+          "Abrahamsson–Danev–Larsson give general-network convergence and L^r convergence under network hypotheses.",
+          "The thesis was identified, but retrieval did not yield a passage for comparison."
+        ],
+        "reasoning": "A first-moment recursion does not determine the second-moment Perron spectrum, and convergence without a sharp quantitative rate does not determine an attained base or an optimal coefficient. The thesis is not ruled out.",
+        "searches": [
+          "arXiv:1704.01660v1 Eqs. (1), (4), (7), Lemma 1 and Theorem 1",
+          "arXiv:2401.16574 §III and Corollary 2",
+          "Abrahamsson thesis DOI 10.3384/9789180755993"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its references",
+        "Resultary and primary passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The required operator evolves uncertainty and disagreement moments together, and the terminal-error identity uses the conditional expectation of the limiting binary variable.",
+          "The inspected first-moment and qualitative-convergence statements do not provide the coupled second-moment matrix or optimize the particular error. The related Resultary optimizer applies to a different averaging and noise model."
+        ],
+        "reasoning": "Knowledge of the update or of asymptotic consensus supplies the setting, not the attained second-moment rate, which requires a positive Perron projection for all nonabsorbed starts and a genuine interior critical point. A trajectory's late descent factor is not the ensemble terminal quadratic rate.",
+        "searches": [
+          "Leshem–Scaglione arXiv:1704.01660v1 pp. 4–6 versus Frozen RESULT.md lines 54–134",
+          "Abrahamsson–Danev–Larsson arXiv:2401.16574 §III and Corollary 2",
+          "Link-reliability RESULT.md, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-vertex renewal voter model copies a binary neighbor on the first clock ring and gives an expected gap (a-b)S_1 S_2.",
+          "The same-day four/five-agent voter result analyzes binary link-dynamics consensus hitting-time moments under added edges.",
+          "Leshem–Scaglione discuss discrete copying and its coalescing-walk dual while their random-actions model updates continuous opinions using sampled actions."
+        ],
+        "reasoning": "The two-vertex match does not implement simultaneous partial relaxation of probabilities, and the hitting-time statistic is not a terminal squared-error moment. The inspected dual discussion does not reduce the continuous-belief process to either local result; no priority inference is made from the shared date.",
+        "searches": [
+          "Resultary: reciprocal two-agent random actions, exact mean-square Perron convergence and gain optimization, two-vertex voter dual",
+          "arXiv:1704.01660v1 p. 2 voter-model discussion",
+          "2026/10/25/SCOPE-an-exact-two-vertex-obstruction-to-a-non-markovian-opinion-maste--2058ed395f4b",
+          "2026/10/18/SCOPE-sharp-four-and-five-agent-mean-variance-tradeoffs-under-added-vo--ba98d8521d40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The link-reliability result has an exact Perron base and optimizer for four-cycle Laplacian averaging with independent edge erasures; the error is disagreement from the arithmetic mean and the gain is in [0,1/2].",
+          "The random best-response result gives an exact two-moment recurrence and Perron rate for random single-agent steps in a complete game within a non-clipping neighborhood.",
+          "The critical random-action learning result gives a stationary-law threshold at alpha=1/2 for one learner with two stubborn endpoints."
+        ],
+        "reasoning": "These are closest exact entries by objective, technique or model name, but their transition kernels and observables differ. None yields the audited two-agent terminal-error law by reading off or specializing its optimizer.",
+        "searches": [
+          "Resultary: exact attained mean-square consensus rate and optimum",
+          "2026/11/22/SCOPE-a-sharp-link-reliability-threshold-for-fastest-mean-square-conse--6c07e9471bde",
+          "2026/10/26/SCOPE-exact-euclidean-mean-square-relaxation-of-random-best-response-o--5ca343eee007",
+          "2026/11/8/SCOPE-full-support-singular-opinions-at-a-critical-random-action-learn--cfba8772283c"
+        ]
+      },
+      "rationale": "Pass, to the best of current knowledge, for the exact attained terminal squared-error exponent and its unique optimum for the stated reciprocal Bernoulli-action model. The update mechanism and qualitative convergence are prior, and exact Perron optimization has close analogues for other consensus processes. The inaccessible thesis is a residual priority risk, not a basis for a verdict on its content.",
+      "residual_risks": [
+        "Exact coverage in the Abrahamsson thesis could not be assessed. Search for equivalent voter or dual formulations was bounded and no global priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model overlap, first-moment and herding statements; no exact terminal-error optimizer in the inspected passages.",
+          "evidence": [
+            "Eqs. (1), (4), (7) give the action and opinion update; Lemma 1 gives DeGroot first moments; Theorem 1 addresses binary herding under its hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.01660",
+          "material_read": "PDF v1 pp. 2 and 4–6, text offsets 4800–9565 and 9500–18031",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "The Impact of Random Actions on Opinion Dynamics",
+          "trigger": "Original work on the identical update family and voter comparison"
+        },
+        {
+          "assessment": "Qualitative and moment convergence covered in a general network setting, not the rate and optimization claimed here.",
+          "evidence": [
+            "Row-stochastic Bernoulli-action model; L^r convergence under the stated network conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.16574",
+          "material_read": "PDF §III p. 3 (text offset 11700) and Corollary 2 p. 8 (61200)",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "Strong Convergence of a Random Actions Model in Opinion Dynamics",
+          "trigger": "Strongest general theorem for the same model class"
+        },
+        {
+          "assessment": "Coverage unresolved; not treated as evidence against originality.",
+          "evidence": [
+            "Identified copy: https://liu.diva-portal.org/smash/get/diva2:1852189/FULLTEXT01.pdf ; retrieval did not expose its text."
+          ],
+          "identifier_or_url": "https://doi.org/10.3384/9789180755993",
+          "material_read": "Bibliographic identification only; no thesis passage available for comparison",
+          "method": "Lawful DIVA repository copy attempted through OA routes; DOI lookup did not yield an alternate copy",
+          "title": "On Aggregation and Dynamics of Opinions in Complex Networks",
+          "trigger": "Same author and topic; plausible additional quantitative results"
+        },
+        {
+          "assessment": "Close methodological overlap, different process and error.",
+          "evidence": [
+            "Four-cycle iid edge erasures, Laplacian averaging, and an arithmetic-mean disagreement rate."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-link-reliability-threshold-for-fastest-mean-square-conse--6c07e9471bde",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp link reliability threshold for fastest mean-square consensus",
+          "trigger": "Closest exact rate/optimal gain objective"
+        },
+        {
+          "assessment": "Exact rate for different stochastic dynamics.",
+          "evidence": [
+            "Random single-agent best responses in a strategic-substitutes game, within a non-clipping neighborhood."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-euclidean-mean-square-relaxation-of-random-best-response-o--5ca343eee007",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact Euclidean mean-square relaxation of random best response",
+          "trigger": "Closest two-moment recurrence analogue"
+        },
+        {
+          "assessment": "Different topology and stationary observable.",
+          "evidence": [
+            "One ordinary agent with self-action and two stubborn endpoints; threshold at alpha=1/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-full-support-singular-opinions-at-a-critical-random-action-learn--cfba8772283c",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Full-support singular opinions at a critical random-action learning coefficient",
+          "trigger": "Closest random-action model-family hit"
+        },
+        {
+          "assessment": "Binary renewal-clock copying rather than relaxation of continuous beliefs.",
+          "evidence": [
+            "First ring gives consensus and expected gap is (a-b)S_1 S_2."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-an-exact-two-vertex-obstruction-to-a-non-markovian-opinion-maste--2058ed395f4b",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "An exact two-vertex obstruction to a non-Markovian opinion master equation",
+          "trigger": "Two-agent voter equivalent candidate"
+        },
+        {
+          "assessment": "Not a terminal-error rate; no priority judgment based on the date.",
+          "evidence": [
+            "Mean and variance of hitting time in binary link dynamics under added edges."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-four-and-five-agent-mean-variance-tradeoffs-under-added-vo--ba98d8521d40",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp four- and five-agent mean-variance tradeoffs under added voter links",
+          "trigger": "Same-day small-network stochastic consensus match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43, 89–148",
+        "arXiv:1704.01660 and arXiv:2401.16574 passages in source_inspections"
+      ],
+      "rationale": "The smallest reciprocal random-action network is a natural benchmark for the quantitative gap left by qualitative convergence: how fast the realized uncertain beliefs approach their eventual random consensus on average. The attained exponent for every nonabsorbed start and its exact unique optimum show a real tradeoff, with deterioration near both endpoints. Neither qualitative convergence nor an idealized last-stage trajectory factor answers that tuning question.",
+      "residual_risks": [
+        "No extension to general networks, correlated actions, asynchronous updates or other objectives is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

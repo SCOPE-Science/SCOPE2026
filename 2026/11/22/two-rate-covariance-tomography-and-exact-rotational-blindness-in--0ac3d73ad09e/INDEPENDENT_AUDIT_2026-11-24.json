@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:26.609569Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "VERIFICATION.md lines 19–21",
+        "checker.py lines 12–103"
+      ],
+      "rationale": "Renewal from zero gives the Gaussian age mixture and the reset covariance 2∫exp(−ru) exp(−Ku) D exp(−Kᵀu)du. The integrand is strictly positive definite at finite u, so C₁, C₂ and Δ=C₁−C₂ are strictly positive definite. The two stable Lyapunov equations subtract to KΔ+ΔKᵀ=Q; in dimension two every possible antisymmetric part of KΔ is ωJ, and the first equation then fixes D. With M=Δ⁻¹C₁ the off-diagonal slope of D is (JM−MᵀJ)₁₂/2=(M₂₂−M₁₁)/2. The single linear equality and the strict inequalities tr(K)>0, det(K)>0 and Dᵢᵢ>0 yield the complete fiber, including infeasible h=0,d₀≠0; uniqueness of each stable Lyapunov solution proves sufficiency. As a check of this infeasible branch, take r₁=1,r₂=2, Δ=I and C₁ with diagonal 2 and off-diagonal 1/2, C₂=C₁−I. All covariance order checks pass, but h=0 and d₀=3/4. Unequal diagonal damping gives nonzero h, and the covariance as a function of parameters is rational, so the exceptional algebraic condition is nontrivial. In the blind family, whitening by D⁻¹/² gives damping κI plus a skew matrix, so the age-specific covariance is (1−exp(−2κt))D/κ, independent of rotation. The resulting exponential mixture gives the full one-time equality and the stated C_r, whereas unreset stationary circulation is controlled by K(D/κ)−(D/κ)Kᵀ=2ωJ/κ. The supplied exact-rational checker was inspected, not run; its finite covariance checks cannot prove the entire inverse or equality of full laws.",
+      "residual_risks": [
+        "The claim is for exact full matrices and known positive rates, diagonal positive diffusion, stable planar drift, and resets to zero. No temporal-law blindness, noisy identifiability, or uniform conditioning near h=0 is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godrèche–Luck give general steady-state Sylvester and Onsager identities. Monti et al. treat stable drift parameterizations and likelihood inference. The clonal record uses derivatives of a branching-population covariance curve; the inverse-spectrum result constrains dissipation at fixed stationary law and drift spectrum."
+        ],
+        "reasoning": "None of these statements identifies a general drift and two unknown diagonal bath coefficients from two reset-rate covariances or treats the affine fiber when the observable slope vanishes. The branching covariance jet is different data.",
+        "searches": [
+          "arXiv:1807.00694 §§2.3–2.5",
+          "arXiv:2608.16401 §5.4",
+          "Resultary 6291c62e0ff7 and 862d45a61789"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06322, 1807.00694 and 2608.16401",
+        "Resultary 6291c62e0ff7, 862d45a61789 and ffa5a1f89e59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known renewal and whitened commuting-skew identities imply the all-rate example as a corollary. The two-rate inverse uses a different step: the difference of two Lyapunov equations leaves one scalar freedom, and the off-diagonal bath constraint has observable slope h/2."
+        ],
+        "reasoning": "The prior formulations give no theorem establishing this slope criterion, including necessity of nonuniqueness under physical feasibility and the arbitrary-data stability test. The verdict credits the classification rather than the individual forward identities.",
+        "searches": [
+          "arXiv:2611.06322 Eq. (9)",
+          "arXiv:1807.00694 Lyapunov and current relations",
+          "Resultary 6291c62e0ff7 commuting case and ffa5a1f89e59 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The forward resetting gyrator uses a fixed-point renewal mixture, but its drift is symmetric and its parameters are inputs. The clonal record uses stationary-covariance whitening, in which a repeated damping eigenvalue permits a commuting skew drift with e^(−Bu)e^(−Bᵀu)=e^(−2Su)."
+        ],
+        "reasoning": "For the frozen blind family the unreset stationary covariance is D/κ, and the whitened S is κI. The clonal kernel identity therefore gives the very same age-covariance cancellation after multiplying by the whitened diffusion κI and integrating; Gaussianity and the known renewal mixture give blindness across all reset rates. The two-rate inverse is not a reparameterization of that cancellation.",
+        "searches": [
+          "arXiv:2611.06322, fixed-point renewal and gyrator model",
+          "Resultary 6291c62e0ff7, OU whitening and commuting degeneracy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ac3d73ad09e is the identical frozen entry. Distinct matches are clonal blindness 6291c62e0ff7, fixed-law planar OU inverse spectrum 862d45a61789 and same-day reset-mark radial invariance ffa5a1f89e59."
+        ],
+        "reasoning": "The reset-mark result varies angular marks at fixed gyrator drift, preserving two-time covariance but not asserting identical full position distributions or recovering an unknown drift. Its same-day date proves no ordering. No distinct exact match for the two-matrix inverse was located.",
+        "searches": [
+          "Resultary search for resetting covariance inverse, OU rotational blindness and all-rate observational equivalence"
+        ]
+      },
+      "rationale": "The distinct content is the necessary-and-sufficient observable two-rate criterion, complete physical inverse fiber and admissibility test. The age mixture, Lyapunov relation and commuting-skew blindness mechanism are known inputs; the all-rate family is a resetting consequence of that mechanism, not an independent discovery of rotational blindness.",
+      "residual_risks": [
+        "An equivalent structured Lyapunov inversion may exist in system-identification work not caught in the comparison; no historical priority established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward PDF, covariance and circulation for the symmetric-drift model; supplies renewal but not the classified inverse.",
+          "evidence": [
+            "Exponential-age mixture at a fixed reset point; coupled gyrator drift assumed known."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.06322",
+          "material_read": "PDF pp. 1, 4–6 and 17, model, Eq. (9) renewal and Eq. (39) currents",
+          "method": "Lawful OA PDF passage inspection, offsets 0–4488, 10000–15414, 18000–22470 and 60000–64490",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "Primary forward study with resetting and baths"
+        },
+        {
+          "assessment": "Known Sylvester/Onsager framework, not a two-reset-rate inverse.",
+          "evidence": [
+            "Detailed balance condition BD=DBᵀ and stationary probability current via the antisymmetric Onsager component."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "§§2.3–2.5, PDF pp. 5–6, offset 14000",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+          "trigger": "General OU stationary-law and irreversible drift equivalences"
+        },
+        {
+          "assessment": "Commutes in the same whitened geometry; implies the age-covariance cancellation but not the two-reset-rate inverse.",
+          "evidence": [
+            "Repeated damping eigenvalue gives H(u)=e^(−2Su) even with nonzero rotation; the isotropic planar example changes entropy production."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-identifiability-and-a-rotation-blindness-boundary-for-clon--6291c62e0ff7",
+          "material_read": "RESULT.md finding, whitening and sharp degeneracy proof, offsets 0 and 6500–9840",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Sharp identifiability and a rotation-blindness boundary for clonal Ornstein–Uhlenbeck covariance",
+          "trigger": "Closest exact rotational-blindness mechanism"
+        },
+        {
+          "assessment": "Different measured quantities and inverse objective.",
+          "evidence": [
+            "Fixes stationary Gaussian law and real drift spectrum to classify dissipation and anisotropy."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789",
+          "material_read": "RESULT.md finding and inverse proof, offsets 0 and 7200",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Exact inverse-spectrum dissipation and anisotropy frontier for planar Ornstein–Uhlenbeck steady states",
+          "trigger": "Planar covariance inverse with irreversible dynamics"
+        },
+        {
+          "assessment": "Changes reset marks rather than unknown drift; covariance rather than full one-time law.",
+          "evidence": [
+            "Same reset radial law can preserve two-time covariance at every rate while changing sign of mean angular velocity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-radial-law-envelope-for-hidden-circulation-in-a-reset-br--ffa5a1f89e59",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "A sharp radial-law envelope for hidden circulation in a reset Brownian gyrator",
+          "trigger": "Same-day reset-rate blindness of position observables"
+        },
+        {
+          "assessment": "Likelihood and parameter-coordinate gauge issues, not the stated two-reset covariance problem.",
+          "evidence": [
+            "Stable drift parameterization and likelihood methods for unrestricted OU drift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.16401",
+          "material_read": "PDF abstract and §5.4, pp. 20–21, offsets 0 and 47600",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Stable Matrix Parametrizations and Structured Adjoints for Ornstein–Uhlenbeck Processes",
+          "trigger": "Potential broad OU system-identification coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45 and 61–89",
+        "Forward model arXiv:2611.06322 and Resultary 6291c62e0ff7"
+      ],
+      "rationale": "The two measured covariances directly decide whether a natural controlled stationary experiment identifies both bath coefficients and the unconstrained planar drift. The complete feasibility test and open nonidentifiable fiber are more informative than generic dimension counting. The physically different all-rate example makes clear what can still be hidden even by finer one-time observations, without requiring that known mechanism to carry the novelty.",
+      "residual_risks": [
+        "No claim that the inverse is statistically efficient or stable near the blind branch, or that temporal measurements cannot distinguish the example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

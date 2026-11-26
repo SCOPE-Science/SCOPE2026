@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:14:20.415879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated bilinear group law gives (x,z)^2=(0,(x_u x_v)_e); thus x≠0 is impossible in the target even for a central target supported on isolated vertices. Nonzero edge labels force their endpoints nonzero, all other edges on those endpoints must also be nonzero, and their external neighbours are forced to zero. The free nonzero support is exactly an independent subset of the remaining induced graph. Comparing two solutions on a nonzero component gives ratios alternating between a and a⁻¹; an odd cycle forces a²=1, which has one solution since q−1 is odd. Root propagation tests existence, and the ratio calculation determines multiplicity whenever a solution exists. For the image, distinct feasible endpoint sets give disjoint strata, with empty endpoint set contributing one; the component product homomorphism gives the cardinality of each stratum. The zero-edge target is the independence-polynomial case and every fourth power is the identity. This argument covers q=2, empty and edgeless graphs, isolated vertices and mixed components. Inspected the supplied checker.py and recorded verification; its 24 cases enumerate vertex vectors and edge-label targets, use the uniform central-coordinate factor rather than an exhaustive full-group census in every case, and are not a proof for all graphs. No uploaded code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rossmann's graph-uniform theorem counts conjugacy classes by size.",
+          "The retrieved abstract of arXiv:2403.17096 concerns classical matrix groups over odd-order fields.",
+          "SCOPE 1c150d6b326e treats radical-square-zero quiver unit groups, not this family."
+        ],
+        "reasoning": "The universal setup of a class-two quadratic map or a power-map theorem in a different group family does not give the induced support, multiplicative consistency and independent-set completion for arbitrary square targets here.",
+        "searches": [
+          "Graphical group square maps; class-two square word map; finite-field edge-product map",
+          "arXiv:2107.05564v3 Theorem A",
+          "arXiv:2403.17096 abstract",
+          "SCOPE 1c150d6b326e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.05564v3",
+        "arXiv:2403.17096",
+        "Resultary records 152f534a63f7, d37be33201da, 1c150d6b326e, 3e561a32bdb5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed support, the connected signless incidence Smith factors are ones with one zero in the bipartite case or one factor 2 in the nonbipartite case. Reduction modulo the odd q−1 gives exactly the fixed-support image size and the conditional lift count.",
+          "SCOPE d37be33201da has support-dependent bipartite-component terms but for an additive linear multiplication kernel.",
+          "An ordinary edge-ring Hilbert function counts graded semigroup elements, not prescribed lifts at mixed zero and nonzero edge labels over a finite field."
+        ],
+        "reasoning": "The fixed-support multiplicity and image term are standard consequences, and the identity/order component is explicitly covered elsewhere. The full graph theorem combines feasible induced supports and label constraints with forced-zero neighbourhoods and independent-set choices; the inspected comparisons do not supply that classification.",
+        "searches": [
+          "Finite-field toric edge products and graph signless incidence, cyclic-group images, edge ring Hilbert functions",
+          "SCOPE d37be33201da, Kernel of the degree-one multiplication map",
+          "arXiv:2107.05564v3 §1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rossmann's graphical group is the same group family, but his enumerated equivalence relation is conjugacy, not equality of squares.",
+          "SCOPE 152f534a63f7 counts prescribed commutators of friendship-graph groups, not prescribed squares."
+        ],
+        "reasoning": "A conjugacy-class histogram does not identify preimages of each specified central element. Even in characteristic two where a commutator is the polarization of the square map, the commutator's own histogram does not specify the prescribed-square fibers.",
+        "searches": [
+          "Resultary: graphical groups prescribed square-map fibers, characteristic-two graphical group involutions, graph-group word-map fibers",
+          "arXiv:2107.05564v3",
+          "arXiv:2403.17096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 3e561a32bdb5 (2026-11-02 UTC) explicitly gives the same identity fiber q^m I_Gamma(q−1) and therefore also the order-four count. Its involution-class counts concern conjugacy and are not a catalogue of nonzero square targets.",
+          "The investigated prescribed-fiber record 152f534a63f7 is for commutators."
+        ],
+        "reasoning": "There is exact overlap for the zero target and order counts, not for an arbitrary label vector or the full image sum. The later indexed date does not establish earlier priority.",
+        "searches": [
+          "Resultary: exact square-map fibers, image polynomial, and involution counts in characteristic-two graphical groups",
+          "SCOPE 3e561a32bdb5, Finding part 1 and The square map",
+          "SCOPE 152f534a63f7, Finding"
+        ]
+      },
+      "rationale": "Pass for the full prescribed-square classification and assembled graph-uniform image formula, not for the group presentation, the fixed-support torus image calculation in isolation, or a separate originality claim for the element-order counts. The latter counts occur explicitly in another indexed record. The direct comparisons did not establish coverage of the complete prescribed-label theorem.",
+      "residual_risks": [
+        "A prior treatment of finite toric maps including zero coordinates or graph-indexed class-two word maps could contain the assembled formula; the search does not settle global priority.",
+        "The broader classical-group comparison uses only the stated abstract scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the group construction and a distinct counting problem",
+          "evidence": [
+            "Theorem A counts conjugacy classes by their size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.05564v3",
+          "material_read": "§1.1 p. 1, §1.2 pp. 2–3, Theorem A p. 3",
+          "method": "Located and read relevant primary-text passages in the OA version",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Identical graphical group family and plausible graph-uniform coverage"
+        },
+        {
+          "assessment": "Exact component overlap, not full prescribed fibers",
+          "evidence": [
+            "The order-dividing-two count is q^m I_Gamma(q−1); no classification of arbitrary nonzero square targets in the inspected statement."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-characteristic-two-graphical-groups-involution-classes-and-maxim--3e561a32bdb5",
+          "material_read": "Finding part 1 and proof section The square map, RESULT.md offsets 0–7777",
+          "method": "Read the matching Resultary record in the local mirror",
+          "title": "Characteristic-two graphical groups: involution classes and maximal abelian subgroups (indexed record)",
+          "trigger": "Same group family, same characteristic, and exact overlap at the identity target"
+        },
+        {
+          "assessment": "Different word map and narrower graph family",
+          "evidence": [
+            "Two inputs and prescribed commutator, rather than a single input and prescribed square."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-commutator-fibers-and-commutator-width-for-friendship-grap--152f534a63f7",
+          "material_read": "Finding and proof Steps 1 and 4, RESULT.md offsets 0–4999",
+          "method": "Read the local-mirror statement and proof excerpts",
+          "title": "Exact commutator fibers and commutator width for friendship-graph groups",
+          "trigger": "Prescribed word-map fibers on a related graphical group"
+        },
+        {
+          "assessment": "Related linear algebra, not multiplicative label fibers",
+          "evidence": [
+            "The counted kernel is additive and linear."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-finite-field-multiplication-rank-spectra-of-graph-face-algebras--d37be33201da",
+          "material_read": "Finding and proof subsection Kernel of the degree-one multiplication map, offsets 0–5406",
+          "method": "Read the local-mirror statement and proof excerpts",
+          "title": "Finite-field multiplication rank spectra of graph face algebras",
+          "trigger": "Graph support and bipartite-component formulas for multiplication"
+        },
+        {
+          "assessment": "Methodological analogue for a different group",
+          "evidence": [
+            "Its formulas concern unit groups of radical-square-zero quiver algebras."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e",
+          "material_read": "Finding and proof subsection Power images and identity fibers, offsets 0–7386",
+          "method": "Read selected local-mirror passages",
+          "title": "Complete power-map fibers in radical-square-zero quiver unit groups",
+          "trigger": "Prescribed power maps and image formulas"
+        },
+        {
+          "assessment": "Stated group and characteristic scope differs",
+          "evidence": [
+            "The abstract specifies classical groups over odd-order fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.17096",
+          "material_read": "Abstract p. 1, OA locator offset 287",
+          "method": "Read the primary abstract for scope; did not inspect the entire article",
+          "title": "Square-map study of finite classical groups",
+          "trigger": "Search for a wider square-map result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A researcher investigating distributions of word maps on graphical groups can use the theorem to decide feasibility and count roots of a specified central target, not just determine which elements square to the identity. The decomposition makes a graph-uniform distinction between even-cycle constraints, odd-cycle determinacy and the independent-set contribution away from the forced support. This is an exact classification for a natural infinite family, even though some components are standard or separately known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:13:09.209507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m≥3 two vertices in one clique fiber have a third common neighbor. In neighboring fibers a mixed-label pair has a common Cartesian corner; a same-label pair does not. In fibers two steps apart the shared neighborhood is through an intervening fiber and requires matching labels. For n≥5 these cases exhaust common neighbors and give the exact cyclic-word characterization. No three successive fibers can be occupied, hence 3|S|≤2n. The directed two-symbol-state transfer uses exactly the allowed triples; its indexed closed walks correspond one-to-one to indexed packing words, with deficit 2n−3|S|. Splitting the color vector into constant and zero-sum parts, the off-diagonal color adjacency J−I acts by a and −1 respectively. The constant block has determinant (1−q²x)(1−a qx²−ax³)−m q³x³−m q²x⁴, which simplifies to the first factor of D_m; the zero-sum block gives 1+qx²+x³ with multiplicity a. The formal trace/logarithm identity then counts every size. Expanding through q² gives the three displayed coefficients at the least allowable deficits 0,1,2; each is positive for the stated k and a≥2, so the upper bound is sharp and the coefficients count precisely the maxima. An independently written subset- and series-check agreed in all sizes in three direct graph instances and with cyclic-word histograms for m=3, 5≤n≤12 and m=4, 5≤n≤10. Replay: python3 /workspace/branches/4b5697de-7e6a-4162-9e72-689c83c22fb0/independent_recheck_record3.py. These are finite corroboration. The frozen programs and logs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 bounds ρᵒ(G□K_m) by α₂(G) and gives equality for triangle-free G with an m-colorable component quotient from a maximum 2-independent set. For cycles the sliding three-window bound and repetitions of occupied pairs with the leftover sites give α₂(C_n)=floor(2n/3); the quotient has maximum degree two and is 3-colorable.",
+          "The prism theorem states ρᵒ(G□K₂)=2ρ₂(G) for bipartite G. The Shalu–Kirubakaran abstract states the common-neighbor definition."
+        ],
+        "reasoning": "The general product theorem already implies the scalar optimum on these cycles but neither it nor the K₂ result is a census of all labeled packings here. A closed-neighborhood 2-packing is not the same object.",
+        "searches": [
+          "arXiv:1901.06813v3 Theorem 3.4",
+          "arXiv:2309.04963 Theorem 2.2",
+          "arXiv:2406.06982 definitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.06813v3, arXiv:2309.04963, arXiv:2406.06982",
+        "Resultary ...--132e9b58cce6, ...--27f63f2dbcd5, ...--caf3fe2c4a63, ...--485e379a3ef1 and submitted ...--c69eac233aa9 (identity)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path paper gives a compressed four-state matrix for the constant-color part; specializing its edge weight to one and reweighting transitions for deficits gives the constant-color cyclic block up to a diagonal conjugation. It does not see the zero-sum block, since its start and final vectors are invariant under every color permutation.",
+          "The cyclic trace additionally sees the zero-sum part and its determinant factor (1+x³+qx²)^(m−1). Its signs contribute to the census, including the n=3k alternating term."
+        ],
+        "reasoning": "The cyclic computation is a natural extension, with substantial shared methods. The closest open-boundary enumerator and scalar product theorem do not already imply the exact cyclic trace by a parameter substitution; color tracking and closing constraints must be evaluated.",
+        "searches": [
+          "Mirrored clique–path RESULT.md, Finding and Step 2, offsets 0 and 2920",
+          "arXiv:1901.06813v3 Theorem 3.4, offsets 25700–28299"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For C_n an occupied run has length at most two. Its vertices share a color; runs separated by one empty column must differ in color. The proof of Theorem 3.4 gives the relevant component-coloring construction on a triangle-free base.",
+          "The earlier P_n□K_m record encodes the same distance-one and distance-two color constraints but starts at state 00 and sums all final states."
+        ],
+        "reasoning": "The local coloring is prior structure. Cyclic boundary closure is a trace before color compression, not the path initial-to-final-state statistic; a mismatch of boundary conditions changes both maxima and count.",
+        "searches": [
+          "Resultary: open-neighborhood independence for Cartesian cycle–clique products",
+          "arXiv:1901.06813v3, definitions and Theorem 3.4",
+          "Resultary: clique–path bivariate enumerator ...--132e9b58cce6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact m≥3 cyclic hit ...--c69eac233aa9 is the submitted record itself. Other exact cyclic polynomials found cover only K₂.",
+          "The squared-cycle hit imposes at most three chosen vertices in each closed neighborhood of C_n², and has maximum floor(3n/5); it is a different census."
+        ],
+        "reasoning": "The exact catalogue comparison is applicable and distinguishes neighboring whole-family enumerations. For K₂, same-fiber vertices no longer have a third clique neighbor, so these formulas do not cover m≥3. Ranked hits are not an exhaustive sweep of tables.",
+        "searches": [
+          "Resultary: exact maximum counts C_n□K_m, cyclic all-cardinality determinant",
+          "Resultary: circular-ladder enumerators ...--27f63f2dbcd5, ...--caf3fe2c4a63; same-day squared cycles ...--485e379a3ef1"
+        ]
+      },
+      "rationale": "Credit the known scalar maximum, the component-coloring construction, and the path transfer. The supported distinct contribution is the labeled cyclic all-cardinality determinant with its additional color factor and the resulting maximum census for every m≥3, n≥5. The strongest path and K₂-cycle comparisons do not supply that count.",
+      "residual_risks": [
+        "Earlier cyclic-word or independence-polynomial enumerations could use different terminology. The comparisons support the distinct cyclic factor/census, not an exhaustive historical-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar optimum and component-coloring idea, not the cyclic census in the inspected theorem.",
+          "evidence": "ρᵒ(G□K_m)≤α₂(G), equality under triangle-free and quotient-colorability hypotheses.",
+          "identifier_or_url": "https://arxiv.org/html/1901.06813v3",
+          "material_read": "Definitions, offsets 7600–9999; Theorem 3.4 and proof, offsets 25700–28299",
+          "method": "Open primary arXiv article",
+          "title": "(Open) packing number of some graph products",
+          "trigger": "General G□K_m theorem potentially covering the cycle result"
+        },
+        {
+          "assessment": "Same local constraint, different boundary and only the color-invariant sector in the stated matrix statistic.",
+          "evidence": "Q_{m,n}=e_{00}ᵀTⁿ1 with a four-state compressed matrix, and path maximum ceil(2n/3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-bivariate-open-packing-enumerator-and-extremal-multiplicities-fo--132e9b58cce6/RESULT.md",
+          "material_read": "Finding and Step 2, offsets 0–2970 and 2920–5012",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Bivariate open-packing enumerator and extremal multiplicities for Cartesian clique–path graphs",
+          "trigger": "Closest prior exact full-family enumerator"
+        },
+        {
+          "assessment": "Different factor/domain, scalar optimum only in the compared theorem.",
+          "evidence": "ρᵒ(G□K₂)=2ρ₂(G) for bipartite G.",
+          "identifier_or_url": "https://arxiv.org/html/2309.04963",
+          "material_read": "Abstract and Theorem 2.2, offsets 0–2400 and 11490–13289",
+          "method": "Open primary arXiv article",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Clique prism packing result"
+        },
+        {
+          "assessment": "Background in the inspected passage; no whole-paper exclusion inferred.",
+          "evidence": "A set is an open packing if no pair of selected vertices has a common neighbor.",
+          "identifier_or_url": "https://arxiv.org/html/2406.06982",
+          "material_read": "Abstract, offset 0–1035",
+          "method": "Open arXiv article, bounded definition passage",
+          "title": "Open Packing in Graphs: Bounds and Complexity",
+          "trigger": "Common-neighbor characterization and general packing results"
+        },
+        {
+          "assessment": "C_n□K₂ rather than the m≥3 product in this claim.",
+          "evidence": "The two-vertex factor yields a different conflict graph and six-residue census.",
+          "identifier_or_url": "Resultary 2026/10/12 ...--27f63f2dbcd5 and 2026/10/18 ...--caf3fe2c4a63",
+          "material_read": "Finding/assumptions on the circular ladder and clique order; first record offset 0–1851",
+          "method": "Local mirror and catalogue comparisons",
+          "title": "Open-packing profiles and perfect partitions of circular ladders; Complete open-packing polynomial and six-residue maximum census",
+          "trigger": "Exact cyclic polynomial matches by title and property"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard product graph, the labeled optimum multiplicity and all-cardinality distribution refine the known optimum size in a way that distinguishes cyclic closure and the clique color count. Resolving the color-sensitive cyclic spectrum yields both exact polynomials and short residue-specific counts, a reusable enumeration rather than a recomputation of the scalar packing bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

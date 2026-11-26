@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:50:34.875185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any two deletions at i<j agree iff all symbols on i..j are equal, by comparing the shifted substrings. Thus the leftmost index of a run suffices, and a new forbidden triple can occur only across the resulting gap. The applicable tests are w_(i−2)≠w_(i+1) and w_(i−1)≠w_(i+2); test only when the indices exist. For n≥4 the initial and final marks handle the two left and right positions, and a shift of a four-letter state marks the third index of the previous window after the fifth symbol is known. Every legal state is one of the six displayed equality patterns with six concrete labelings, and appending a legal symbol implements the marked transition without extra multiplicity. Independent replay python /workspace/branches/independent_math_1_4.py 3 recomputes the transfer on labeled contexts by deletion and equality of actual strings, checks lumpability to six states, verifies the numerator identity coefficientwise, and matches direct exhaustive legal-source/output counts through n=13. The rational identity is exact: for a six-state transfer the true denominator has degree ≤6 in z and the true numerator has degree ≤9 (using its adjugate and the three short-length terms), so with the displayed denominator the cross difference has z-degree ≤13; the replay checks coefficients through 27. The displayed numerator has degree six, giving the recurrence from n=7. Top-degree comparison uses m_(3h)=2h+1, m_(3h+1)=2h+1 and m_(3h+2)=2h+2: only P_(n−3) with shift +2 contributes in class 0, in class 1 the contributions are +P_(n−1), +uP_(n−2), +u²P_(n−3), −u²P_(n−4), and in class 2 the contributions are +uP_(n−2), +u²P_(n−3). The six initial polynomials (including deletion to the empty word at n=1) give the three positive leading-coefficient laws and hence exactly the maxima. Frozen verify.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen et al. enumerate avoidance of a finite forbidden-factor set by length. Setting u=1 in the present formula gives 3z+9z²/(1−2z), but the specializing map loses the protected degree.",
+          "The parametric coding framework supplies encoders, and ordinary deletion spheres count descendants without applying the same legality filter to them."
+        ],
+        "reasoning": "An automaton or cluster framework is an available tool, but its cited statements do not evaluate constrained row degrees. The critical additional work is assigning exactly one weight per distinct legal output and extracting sharp top coefficients with boundary marks.",
+        "searches": [
+          "arXiv:2407.16449 Theorem 1.1 and §5.1",
+          "arXiv:2304.01317",
+          "arXiv:2206.07995 ordinary deletion spheres",
+          "Resultary bf9864c108ef"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bf9864c108ef",
+        "Resultary 0d29c1ef3c8e",
+        "Resultary cac09d3624b5",
+        "arXiv:2407.16449",
+        "arXiv:2304.01317",
+        "arXiv:2206.07995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the example 0110, unrestricted and no-aaa deletion sizes are three, while the protected size here is two; even the per-word unrestricted result need not coincide under a valid source.",
+          "Known totals of admissible words cannot recover the coefficients in u; a histogram capacity or count for layered permutations has no covering inclusion of these source–output pairs."
+        ],
+        "reasoning": "No inspected result determines the protected law, maximum or optimal multiplicities by a specialization. The distinct same-day overlaps share deletion-spectrum methods, and the date does not imply priority.",
+        "searches": [
+          "Resultary bf9864c108ef Finding",
+          "Resultary 0d29c1ef3c8e Finding",
+          "arXiv:2206.07995 p. 4",
+          "arXiv:2407.16449 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The condition w_i≠w_(i+2) forbids both aaa and nonconstant aba; equivalently, each parity subsequence has distinct adjacent letters.",
+          "The distinct same-day run-two survivor record bans only aaa and otherwise counts legitimate constrained readouts. For source 0110 common to both languages, deleting one 1 yields 010, counted under no-aaa but not here."
+        ],
+        "reasoning": "Filtering the source alone or substituting run-two words does not produce the same receiver relation. The identical assigned record in the catalog is not an additional result.",
+        "searches": [
+          "web: deletion palindrome-avoiding words ternary",
+          "Resultary: ternary constrained/protected distinct single-deletion survivors with no length-three palindrome",
+          "Resultary bf9864c108ef",
+          "arXiv:2407.16449 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact catalog item is the assigned record. A same-day layered-permutation enumeration standardizes permutation outputs; its maximum uses a floor, not this ceiling.",
+          "The same-day trigram-profile item counts distinct histograms, not distinct admissible readouts. The run-two item is an exact census under a strictly weaker source and receiver constraint."
+        ],
+        "reasoning": "A numeric coincidence at some lengths or a common use of the word spectrum does not give this bivariate family or its optimizer counts.",
+        "searches": [
+          "Resultary: exact spectra and extremal counts for distinct single-deletions of ternary constrained words",
+          "Resultary 0d29c1ef3c8e",
+          "Resultary cac09d3624b5",
+          "Resultary bf9864c108ef"
+        ]
+      },
+      "rationale": "The complete marked distribution and sharp optimizer counts concern source and receiver under the same strict three-palindrome constraint, with duplicate outputs collapsed. Closest checked work either counts the source language, changes the allowed patterns or counts a different deletion image. None covers the exact marked law under the theorem's hypotheses.",
+      "residual_risks": [
+        "An unindexed exact spectrum or an applicable general constrained-deletion enumeration might exist. The focused primary search yielded no useful exact match, which does not rule out such coverage.",
+        "Several primary comparisons are passage-level, not claims about every section or chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural overlap, different source and receiver language",
+          "evidence": "Counts distinct legal one-deletions under no constant triple, not no palindromic triple.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-survivor-deletion-spectrum-of-run-two-words--bf9864c108ef",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp survivor-deletion spectrum of run-two words",
+          "trigger": "Same-day exact constrained-output deletion degree spectrum"
+        },
+        {
+          "assessment": "Different objects, operation and counts",
+          "evidence": "Permutation outputs are standardized; maximum is floor((2n+1)/3), and at n=4 the record has one optimizer, versus 18 here.",
+          "identifier_or_url": "Resultary 0d29c1ef3c8e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact one-deletion sphere spectrum and Gaussian law for layered permutations",
+          "trigger": "Same-day bivariate law and superficially similar extremal degree"
+        },
+        {
+          "assessment": "Different output equivalence and statistic",
+          "evidence": "Counts distinct trigram histograms of deletion outputs, not distinct survivors obeying the constraint.",
+          "identifier_or_url": "Resultary cac09d3624b5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp q-ary one-deletion trigram-profile capacity and saturation witnesses",
+          "trigger": "Same-day one-deletion trigram statistic"
+        },
+        {
+          "assessment": "Covers the source length enumeration, not the protected degree",
+          "evidence": "The cluster enumerator counts avoiding words; the palindrome section gives the avoidance framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.16449",
+          "material_read": "Theorem 1.1, p. 3, offset 10793; §5.1, p. 13, offset 50415",
+          "method": "OA PDF passage inspection",
+          "title": "Constrained coding upper bounds via Goulden–Jackson cluster theorem",
+          "trigger": "Same forbidden palindrome constraint and rational enumerator"
+        },
+        {
+          "assessment": "Encoder framework not shown to cover; bounded scope comparison",
+          "evidence": "Includes a minimal-palindrome constraint in its encoder setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.01317",
+          "material_read": "p. 2, offset 8142",
+          "method": "OA PDF passage inspection",
+          "title": "Universal Framework for Parametric Constrained Coding",
+          "trigger": "Potential general coding and palindrome theorem"
+        },
+        {
+          "assessment": "Unrestricted output sphere comparison",
+          "evidence": "The ordinary D_t(x) deletion sphere does not restrict output membership in the source language.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.07995",
+          "material_read": "p. 4, offset 10928",
+          "method": "OA PDF passage inspection",
+          "title": "On the Size of Balls and Anticodes of Small Diameter under the Fixed-Length Levenshtein Metric",
+          "trigger": "General distinct deletion spheres"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-type constraint and the protected distinct deletion degree are natural before enumeration: the degree measures surviving received-word diversity while retaining the same language. The complete length-dependent spectrum and sharp period-three optimizer multiplicities supply a reusable benchmark that total word counts and unrestricted run counts do not determine. No coding-optimality or capacity result follows by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

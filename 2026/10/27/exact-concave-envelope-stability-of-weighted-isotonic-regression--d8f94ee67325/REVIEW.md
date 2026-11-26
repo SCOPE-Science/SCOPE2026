@@ -1,19 +1,21 @@
-# Scientific review: concave-envelope isotonic stability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem covers every integer \(n\ge2\), all strictly positive fitting masses and edge-variation weights, and every real input pair. Weighted PAV has finitely many linear block-average pieces; the edge-step decomposition gives their exact variation seminorms. For a step crossing a block, the only nonzero output gradients occur at its two external boundaries, yielding a mass-coordinate chord. Their maximum is the least concave majorant of edge weights. Strictly decreasing block data with sufficiently separated exterior singleton levels realize each chord locally, so the bound is sharp and attained; strictly increasing data attain the unit case. The adjoining-slope condition is precisely discrete concavity. The provided exact-rational checker independently tests block partition norms, input pairs, attaining witnesses, and the linear-time hull algorithm. Computations are not used to infer the all-dimensional result.
+PASS
 
-## Originality — PASS with explicit residual risk
+For the repaired RESULT.md the exact formula, criterion, attainment and arithmetic complexity hold. On each linearity cell the projection is the mass-weighted block average. Slicing a segment and using continuity reduces to its largest block operator seminorm. Modulo constants, steps form the weighted l1 basis for variation, so testing each step gives the exact block seminorm. A step inside a block averages to (A_R-A_j)/(A_R-A_L) there; both adjacent weights then give exactly the displayed chord height. Each such block has a stable cell: strictly decreasing block data have strictly positive proper-prefix residuals relative to their weighted mean, and strictly separated singleton fits ensure the cell persists for a sufficiently small step perturbation. A cut between fitted blocks yields factor one, already attained on the identity cell; in particular n=2 poses no exception. The upper hull gives the maximum chord height at each node, and its stack construction plus sweep is linear in arithmetic operations. The frozen worked example omitted the first-cut contribution epsilon/2, so its displayed equality could fail for epsilon>2. The repaired example includes both ratios, verified from the two length-two blocks; the original asymptotic and theorem are unchanged. VERIFICATION.md records limited rational finite checks; CHECK.py was inspected, not executed.
 
-Yeganova–Wilbur (2009) supplies weighted PAV and fitted block means. Guyader–Jégou–A. Németh–S. Németh (2012) studies order-cone geometry and iterative bounded-variation fitting. Yang–Barber (2017) gives a **general qualitative** nonexpansivity criterion for unweighted isotonic projection under arbitrary seminorms; its neighbor-averaging theorem can subsume the **unweighted qualitative contraction subcase**, which is not claimed separately as new. The assessed result instead computes the exact constant when contraction fails, for arbitrary quadratic observation masses and independently chosen variation weights, with a mass-coordinate concave-majorant formula, attainment and a linear-time algorithm. Searches of mathematical publications and published research records returned related projection stability results in coordinatewise norms but no statement implying this quantitative weighted-variation formula. A historically implicit formula remains possible, particularly in older sensitivity analyses of PAV.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The observation masses arise naturally as precision/reliability weights, whereas the edge weights specify the desired regularity of perturbations. Their interaction previously left the sharp path-variation sensitivity undetermined in the inspected literature. The theorem turns this operator stability question into the classical geometry of a concave envelope; it identifies all contractive weight configurations, gives an exact and efficiently computable amplification ratio for noncontractive configurations, and produces actual worst-case perturbations. Three-vertex examples have arbitrarily large amplification when one edge penalty becomes small, showing the precision of the weight criterion matters rather than simply providing a routine small-parameter correction.
+The repaired claim retains the sharp all-positive-mass, all-positive-edge-weight quantitative two-input factor, with witness and algorithm. Yang–Barber covers the equal-mass qualitative criterion but not the amplification factor or the general mass envelope. Three inspected Resultary entries are mathematically equivalent but have later catalogue dates than the frozen result. They are material exact overlaps, not evidence of prior coverage on the evidence available. This is not a claim of historical priority over all sources.
 
-## Closest sources and limitations
+## value
 
-Closest primary sources: Yeganova and Wilbur, doi:10.1007/s10957-008-9477-0, weighted PAV §2; Guyader and collaborators, arXiv:1211.3930, order-cone geometry §§1–2; Yang and Barber, arXiv:1706.01852, contraction theorem in §2 and proof in §6. No independent external audit has been performed. The mathematical theorem is confined to finite weighted least-squares chains with positive parameters; any generalizations to partial orders or alternate losses are outside its scope. The literature search cannot exclude unindexed equivalent calculations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise invariant measures perturbation amplification in a seminorm that detects changes between neighboring data, with observation masses and measurement weights serving different roles. A practitioner can decide exactly whether smoothing is nonexpansive and, if not, compute a sharp bound and a realizing input pair rather than relying on a one-input or qualitative estimate. The corrected three-point example makes both possible weight imbalances explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:32.949716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the 15 duads versus 15 synthemes, each symbol indicator s_i has s_i B equal to the all-ones row. The six indicators are independent over Q since each two-symbol coordinate tests c_i+c_j; hence five differences are independent left-kernel vectors and rank_Q B≤10. My independent script enumerates triples of duads with six distinct symbols, reconstructs the five numbered flags from the table and checks them as ones with distinct endpoints. Signed partial-permutation dynamic programming for the Leibniz determinant, not the supplied Bareiss code, gives core determinant −1 and 32 augmented minors all ±1, including full determinant −1 in the stated order. Replay: python3 /workspace/branches/independent_incidence.py; output /workspace/branches/independent_incidence.txt. An independent rational-elimination check agrees. For any selected subset of k flags, expanding the augmented minor in the k edit cells kills every term of degree below k because its coefficient is a minor of B of order greater than ten. Distinct endpoints leave the unit core as the coefficient of their joint product, so the maximal minor is unimodular; rank rises by at most k. The determinantal divisors give 10+k unit Smith factors and 5−k zeros, including the k=0 baseline over every d. For C the edited matrix, the cut amplitude matrix is d^−15 ω^(xᵀCy). Character orthogonality makes the reduced density matrix a direct sum of constant-entry blocks on the cosets of ker Cᵀ over Z/d, with one nonzero eigenvalue per coset; the Smith form gives precisely d^(10+k) equal eigenvalues d^−(10+k). The Schmidt coefficients are their square roots and each positive-order Rényi and von Neumann entropy is (10+k) log₂ d. For fewer than five arbitrary original incidence omissions, reduction modulo any prime divisor of d has rank at most 10+k<15, so C cannot be surjective modulo d and the cut cannot be maximally entangled. This proves necessity for composite as well as prime d; the specified five achieve surjectivity. Bundled scripts and verification notes were read but not executed. The proof says neither that every set of five omissions works nor that other cuts obey the same law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peter Sin's survey reviews general invariant-factor/gcd-of-minors theory and distinguishes p-rank data from full Smith forms. At §3.5 Problem 3.16 it poses the family problem for generalized quadrangles; §3.6 notes p-rank results. The survey does not give this deleted-incidence certificate.",
+          "The publisher-indexed abstract for Grossman–Kulkarni–Schochetman specifies ordinary undirected graph vertex-edge incidence matrices and odd cycles. The article and identified CORE copy did not yield readable full text; this abstract description is not a verdict about the whole article."
+        ],
+        "reasoning": "Ordinary vertex-edge incidence columns have two endpoints, unlike the three duads in a syntheme column. General graph-state rank and standard Smith machinery change the question to one about unit minors, but do not impose the permitted-edit pattern or solve it. The old survey's then-open family problem is not evidence against a later or isolated exact calculation.",
+        "searches": [
+          "arXiv:1401.8210, §3.5 Problem 3.16 and §3.6",
+          "arXiv:quant-ph/0307130, p. 7, Proposition 3 and Eq. (43)",
+          "Primary literature: On the minors of an incidence matrix and its Smith normal form author DOI abstract PDF"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, VERIFY_RANK.py and VERIFY_BINARY.py",
+        "Resultary 0f1e8bff6768 and 6d719eb5d30f",
+        "arXiv:quant-ph/0307130",
+        "arXiv:1401.8210",
+        "Grossman–Kulkarni–Schochetman, ScienceDirect PII 002437959300173W (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-order plane theorem gives one-bit increments for matchings up to q and a drop from that gain at q+1 for specified collinear or pencil patterns. Its hypothesis is a projective plane, where all pairs of points lie on a line.",
+          "In the frozen duad configuration two duads meeting in a symbol lie on no common syntheme; also the q=2 plane's cut has size 7 rather than 15. Neither plane theorem asserts unimodular maximal minors over Z for the specified GQ(2,2) subpatterns."
+        ],
+        "reasoning": "Their proof techniques can motivate a rank-edit analysis but their input axioms do not specialize to the frozen graph. Even knowledge of the unedited GQ Smith form would leave the existence of an allowed set of five incident edits with all-subset unit-maximal-minor certificates to establish.",
+        "searches": [
+          "Resultary 0f1e8bff6768, RESULT.md Finding offset 0 and rank perturbation offsets 4895–9108",
+          "Resultary 6d719eb5d30f, RESULT.md Finding offset 0",
+          "Frozen RESULT.md lines 5–39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same cut can be described by duad/syntheme incidence in GQ(2,2) or the 15-by-15 crossing adjacency block of the Tutte–Coxeter Levi graph; swapping sides transposes the block with the same Smith factors and spectrum.",
+          "Hein–Eisert–Briegel Proposition 3 identifies binary cut rank with the base-two logarithm of the Schmidt rank, with flat spectrum in the inspected passage. Smith factors determine the image size at composite d; arbitrary binary rank knowledge alone does not.",
+          "The core unit minor plus the five specified distinct incident coordinates is an equivalent sufficient certificate for the subset conclusion by determinant expansion."
+        ],
+        "reasoning": "Searching only quantum-information language would miss independent incidence-minor determinations. The generalized quadrangle's point-line matrix is a crossing block, not the vertex-edge incidence matrix of the ordinary Levi graph. The cut-rank and Smith form frameworks are credited without treating them as a prior computation of this block and its constrained edits.",
+        "searches": [
+          "Resultary: Tutte–Coxeter, duad–syntheme, unit-minor incidence terms",
+          "Primary literature: Tutte Coxeter graph duad syntheme incidence matrix Smith normal form generalized quadrangle GQ(2,2) unimodular minors edge deletion",
+          "arXiv:quant-ph/0307130, Proposition 3 and Eq. (43)",
+          "arXiv:1401.8210, determinantal divisors and §3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 0f1e8bff6768 concerns every even-order projective plane and qubit entropy; for q=2 it has seven points and seven lines.",
+          "Distinct same-day Resultary record 6d719eb5d30f gives an odd-order projective-plane qubit omission law involving a kernel K_F, and S=n−k+1 for nonempty induced matchings. The actual finite geometry and omission law differ.",
+          "No distinct exact GQ(2,2) table including the specified unit-minor fault pattern was established by the inspected returns."
+        ],
+        "reasoning": "Both catalogue hits are substantive omission-law comparisons, not mere title similarities. Neither an even- nor an odd-order projective plane is the fifteen-point, fifteen-line generalized quadrangle here; no dated entry was dismissed based on its date.",
+        "searches": [
+          "Resultary: exact Tutte–Coxeter, duad–syntheme and unit-minor terms",
+          "Resultary: even-plane incidence matching fault and entanglement omission-law terms"
+        ]
+      },
+      "rationale": "The binary cut-rank method, rank-one edit bound and Smith determinant-divisor theory are prior tools. The distinct result is an optimal allowed incidence deletion pattern on the Tutte–Coxeter cut that raises the rank by one for every selected omission, with a unit maximal minor for every subpattern and therefore a sharp preserved law at every integer dimension. Related omission laws for projective planes are substantive precedents in method and interpretation, not statements implying this generalized-quadrangle certificate. This is a bounded evidence judgment, not historical priority.",
+      "residual_risks": [
+        "An exact incidence edit or integral minor calculation may exist in alternative finite-geometry or design-theory terminology outside the inspected records.",
+        "The Grossman–Kulkarni–Schochetman full text was unavailable; only its indexed abstract's scope is reported.",
+        "No claim of historical priority or extension to larger generalized quadrangles or arbitrary omitted matching patterns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close overlap in method; not coverage of the quadrangle cut",
+          "evidence": "Qubit law through q+1 matching omissions on an even-order projective plane; q=2 is the Fano plane.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768",
+          "material_read": "RESULT.md Finding offset 0, perturbation argument offsets 4895–9108 and relationship/limitations offset 9700 onward",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+          "trigger": "Closest earlier incidence-omission construction"
+        },
+        {
+          "assessment": "Different geometry and binary criterion",
+          "evidence": "S=n−dim ker K_F in the stated odd-plane problem, and S=n−k+1 for nonempty induced matchings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-exact-omission-law-for-entanglement-on-odd-order-projective-p--6d719eb5d30f",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "An exact omission law for entanglement on odd-order projective planes",
+          "trigger": "Distinct same-day exact omission-law record"
+        },
+        {
+          "assessment": "Prior general cut-rank method, not this finite matrix certificate",
+          "evidence": "Flat qubit Schmidt spectrum with base-two log rank equal to F₂ rank of the crossing adjacency matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+          "material_read": "PDF p. 7 Proposition 3 and Eq. (43), around extracted offset 50500",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "General method directly evaluating qubit cuts"
+        },
+        {
+          "assessment": "General framework and family problem, not this deleted-incidence calculation",
+          "evidence": "Invariant factors follow from gcds of minors; the then-open generalized-quadrangle family problem is distinguished from partial p-rank data.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.8210",
+          "material_read": "PDF p. 2 determinantal-divisor characterization and §3.5 Problem 3.16, §3.6 on p. 13 (offsets 46350–48217 for the decisive latter passage)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Smith Normal Forms of Incidence Matrices",
+          "trigger": "Prior tables or theorem on generalized quadrangle incidence Smith forms"
+        },
+        {
+          "assessment": "Abstract indicates an ordinary graph vertex-edge setting; whole-document coverage not adjudicated",
+          "evidence": "The retrieved abstract frames the minors in terms of odd cycles of an undirected loopless graph, not point-line incidence edits.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/002437959300173W",
+          "material_read": "Publisher-indexed abstract only; no full-text passage",
+          "method": "Bibliographic lookup and lawful OA retrieval attempts at publisher and identified https://core.ac.uk/download/pdf/82466711.pdf; HTTP 403 for both full-text routes",
+          "title": "On the minors of an incidence matrix and its Smith normal form",
+          "trigger": "Plausibly competing incidence-minor theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classical 30-vertex Levi graph and its natural incidence cut motivate the resource question independently of a particular minor. Reaching the deficiency lower bound while deleting only allowed nonzero entries is nontrivial; the unit determinant and every-subset stability make this an exact entanglement benchmark even for composite local dimension, not a binary rank table or routine graph-state application. The work is an ideal preparation benchmark, not a claim about noisy devices or arbitrary cuts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,10 @@
 # Review
 
 ## Correctness
-PASS. The construction is explicit. A Boolean evaluation \(b\) is extended through the modal operator by \(b(\Box\varphi)=b(\varphi)\); the constant closure has image \(H=b^{-1}(1)\). Frame validity implies membership in \(H\) by evaluating at the valuation matching \(b\), which proves \(\mathsf G\). Truth-functional closure of \(H\) under modus ponens proves \(\mathsf K\). A valuation disagreeing with \(b\) at one atom makes the intersection of truth sets of formulas in \(H\) empty while that atom is absent from \(H\), contradicting \(\mathsf{KRep}\). The source definition of finiteness is satisfied because there is one world and the generator is empty.
+The raw generator is empty and the closure sends every argument to \(H=b^{-1}(1)\). The source's frame conditions apply to \(H\). Frame validity implies truth under the valuation matching \(b\), hence membership in \(H\); truth functionality gives modus ponens within \(H\). With a different valuation in which \(p\) is true, the intersection of truth sets of formulas in \(H\) is empty although \(p\notin H\), contradicting \(\mathsf{KRep}\). The model is finite in the source's sense.
 
-## Originality
-PASS. The source's published counterexample to \(\mathsf G+\mathsf K\Rightarrow\mathsf{KRep}\) uses countably many worlds and the identity closure. The new statement is not a renaming of that example: it proves that infinitude of the world set and generator is unnecessary by giving a source-finite, one-world model. Direct statement and alias searches did not locate this finite/singleton sharpening, and comparison against the nearest same-source prior result found only an unrelated complexity theorem.
+## Originality and scope
+Nishimura's Example 4.24 gives an infinite-world counterexample using identity closure. It does not establish failure on a singleton or with finite generators and a finite world set. The constant map in the singleton construction is monotone and idempotent but is not extensive or the identity. The two examples address different restrictions.
 
 ## Value
-PASS. Kripke representability is one of the paper's principal representation boundaries. Locating failure of the converse at the minimum possible world cardinality isolates the obstruction from infinite-world phenomena and shows that finite-model restrictions alone cannot repair the gap between \(\mathsf G+\mathsf K\) and \(\mathsf{KRep}\). The result is deliberately limited to unrestricted closure maps and therefore complements rather than replaces the source's identity-closure example.
-
-## Closest literature and limitations
-The closest source is Nishimura, arXiv:2610.01433v1, Lemma 4.23 and Example 4.24. That example proves the same non-implication under the stronger side condition \(\operatorname{cl}=\mathrm<built-in function id>\) but with \(W=\mathbb{N}\). The present result sharpens only the world-cardinality and source-finiteness boundary. It does not resolve whether an identity-closure counterexample can be finite.
-
-Self-review: passed. Independent audit: not yet performed.
+Finiteness in the sense of Definition 2.2 is insufficient to recover Kripke representability from \(\mathsf G\) and \(\mathsf K\). The construction makes the distinction between frame validity and truth in a selected model explicit even at the minimum world cardinality.

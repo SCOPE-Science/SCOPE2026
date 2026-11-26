@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact one-site probabilities \(p=2^{-k-1}\), \(q=p(1-\varepsilon/2)^{k+1}\), and the offsite cross-pattern probability \(r_d=\varepsilon2^{-k-d-2}(1-\varepsilon/2)^{k-d}\) follow by partitioning the required paired-bit coordinates. Same-copy starts at distances at most \(k\) are incompatible. The uniform summability bound for shifted cross-copy starts makes the marked-point-process Chen–Stein parameters \(b_1,b_2\) vanish and \(b_3=0\). The cited process approximation theorem, rather than finite enumerations, proves the limiting law. The delivered rational-arithmetic script reproduces 181 exact finite-case checks; it does not certify infinity independently.
+PASS
 
-## Originality — PASS, with bounded historical risk
+Read the sparse scaling along admissible lengths as in RESULT.md's scope and limitations: with integer k it cannot hold along every integer n (successive ratios would force k_(n+1)−k_n eventually zero). For an interior start p=2^(−k−1), and the same-site joint probability q=p(1−ε/2)^(k+1) includes the preceding zero. At displacement 1≤d≤k, same-copy starts exclude each other. One cross orientation forces one specified discordant pair (ε/4), k−d specified concordant ones (t/2 each), and 2d singly specified coordinates (1/2 each), giving r_d=ε t^(k−d)/2^(k+d+2). The other orientation is symmetric; outside distance k the paired blocks are disjoint. With site/type indicators, same-site different marks are mutually exclusive, b₃=0 by disjoint underlying coordinates, and b₁≤9(n−k)(2k+1)p²=o(1). The ordered neighbor contribution is at most 4(n−k)Σr_d. For d≤k/2 the remaining factor t^(k−d)≤exp(−εk/4), and for d>k/2 the geometric 2^(−d) tail is O(2^(−k/2)); multiplying by ε makes both bounds uniformly o(1). AGG Theorem 2 then controls the finite array in total variation. The independent Poisson site's Laplace functional converges by Riemann sums on the compact marked space to the claimed three independent homogeneous components, with shared fraction θ. The chance of an omitted first-site run in either copy is ≤2^(1−k), giving the joint zero-count probability. Summing r_d−p² with multiplicity 2(n−k−d), plus the diagonal, gives the finite covariance; b₂ and b₁ respectively control the shifted joint and product terms. VERIFICATION.md and verify.py were read, not executed.
 
-The closest inspected material is Arratia–Goldstein–Gordon (1990), which contains static longest-run clumping and a general *marked* Poisson method, and Benjamini–Häggström–Peres–Steif (2003), which studies dynamical run tests and qualitative noise sensitivity. Kamalja–Shinde (2011) establishes general finite bivariate-run PGF machinery that can generate finite coupled statistics. Johnson–Fu (2014) surveys marginal run-count approximation. None of the material actually inspected explicitly states this particular three-population spatial limit, its critical retention parameter \(e^{-c/2}\), and the simultaneous longest-run formula. A stronger general correlated-pattern theorem might imply it, and this is a genuine historical-priority risk; no claim of independent validation is made.
+## originality
 
-## Value — PASS
+PASS
 
-Long-run exceedance is a canonical rare failure statistic in runs tests, stream monitoring and consecutive-success reliability. Marginal Poisson approximation alone cannot calculate the simultaneous probability of avoiding a long run in two correlated measurements, and qualitative noise sensitivity does not identify its finite critical crossover. The formula distinguishes persistence, accidental creation, and destruction of rare extreme runs at the natural logarithmic threshold.
+Static declumping, general marked Poisson approximation, and run-test dynamical sensitivity are prior work. The supported distinct contribution is the explicit quantitative two-copy extremal location coupling in the sparse lattice window, including the negligible shifted coincidences and the exact critical shared fraction. The finite covariance is not asserted to be a separate novelty.
 
-## Verification status and restrictions
+## value
 
-The result assumes fair independent bits and one refresh step. The lattice of integer run lengths entails subsequential normalization. No broader dynamical trajectory theorem is claimed, nor is finite computation treated as an infinite proof. Independent validation is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single-copy limit cannot diagnose whether refreshed extreme runs persist at their original locations or merely survive as counts. The three-component limit resolves that distinction with a sharp nontrivial fraction, and quantitatively determines joint longest-run failure in the critical window. This is substantive even though the general approximation machinery is established and the first-ever static longest-run law is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

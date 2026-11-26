@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational checks and proof boundaries
 
-The main claim is a theorem for all nonempty finite simple graphs (static support criterion and rank dichotomy) and all positive path lengths (exact dimensions). It is proved in `RESULT.md`, independently of finite computation.
+# Independent mathematical audit
 
-Run from the directory containing these files:
+## correctness
 
-```sh
-python3 check_parity.py
+PASS
 
-g++ -O2 -std=c++17 check_parity.cpp -o parity_checker
-./parity_checker
-```
+For an independent support S, a wrong-parity positive trace Y can be realized iff at least one vertex outside S can join Y, since any realization must contain such a vertex and just one corrects parity. The maximal wrong-parity traces are S itself or the single deletions from S, according to parity. Removing a vertex from a maximum independent set gives a universal corrector and the lower VC bound; at maximum size the only allowed correctors for single deletions must be external private neighbors. On odd paths the unique maximum set has no such neighbors. On even P_(2k), k private witnesses would exhaust the complement and rule out every 101 pattern, requiring n>=3k-2, impossible for k>=3. The cases n=1,2,4 agree with the listed explicit trace families. Online, a depth-alpha complete tree would have a maximum independent set along the all-positive branch, so it requires matching parity. On odd paths of order at least three, flipping the last answer would require a corrector adjacent to at most the last queried vertex of that unique maximum set; every external vertex is adjacent to two, so the leaf is impossible. Endpoint querying on P_n gives P_(n-1) with the same parity and P_(n-2) with opposite parity; the base cases and the four residue classes attain the corresponding upper bounds. Independently checked direct graph traces on all 1099 labeled graphs of orders 1–5 and solved exact finite path VC and complete-tree existence for both parities through n=12 (python3 /workspace/checks/finite_review.py 4; /workspace/checks/4.txt). This finite verification corroborates rather than proves the graph and path theorems; no general-graph online formula is asserted.
 
-The Python verifier constructs both parity classes for path orders 1–16, independently computes exact Littlestone ranks by complete version-space splits, and uses direct trace enumeration at orders 1–12 to check the private-neighbor criterion. It also tests that criterion on every labeled simple graph of orders 1–5 (1,099 graphs total), for both parities and every support. The C++ verifier independently reconstructs the hypothesis family and enumerates every support trace and complete online split at path orders 1–12. The recorded stdout in `check_python.txt` and `check_cpp.txt` is from successful executions of those code files. The boundary cases n=1,2,3,4 are explicitly checked.
+## originality
 
-A finite program cannot certify the unbounded graph and path statements. Those statements depend on the parity-correction lemma, the universal maximum-independent-set bound, and the exact endpoint recursion proved in the result. No external audit or machine-checked infinite proof has been performed.
+PASS
+
+Fixed-weight, maximal-independent, and independent-dominating path theorems handle materially different hypothesis families. The private-neighbor terminology is standard; what is distinct in the available evidence is its exact equivalence to shattering maximum supports for parity-restricted independent sets, the full support criterion, and the all-length period-four online dimension. This is not a priority certification and the inaccessible comparisons are retained explicitly.
+
+## value
+
+PASS
+
+Parity is a natural global restriction on the independent-set language. The trace criterion converts shattering into an explicit graph property, with a sharp one-unit VC dichotomy. The exact path ranks separate adaptive from static querying in an infinite family and show the parity of the advantage alternating modulo four; a rank for a single weight or a mere cardinality estimate would not reveal this.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

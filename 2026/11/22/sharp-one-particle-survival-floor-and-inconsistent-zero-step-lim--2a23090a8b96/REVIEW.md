@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-particle transition separates exactly into a zero-Poisson-predictor branch and a positive-predictor binomial-backtracking branch. The Poisson generating function yields the closed-form survival formula without approximation; nonincrease of the state and absorption at nonpositive counts yield the all-time semigroup; the Taylor coefficient yields the wrong continuum limit. Completing a square gives the unique, globally sharp \(3/4\) midpoint floor. Verification is reproducible from the accompanying independent implementation of the probability kernel. The proof does not rely on finite tests as infinite certification.
+PASS
 
-## Originality
+For the final result in /workspace/repairs/1/RESULT.md, I checked Definitions 2–3 against the extra explicit all-integer clipping assumption. The zero-predictor branch contributes e^(-t); Poisson thinning in the positive-predictor branch contributes e^(-theta p0 t)−e^(-theta t), with p0=(1−1/(2 theta))/theta in [0,1]. No return to state one is possible, so products are exact and the derivative at zero gives the stated fixed-time limit. The coefficient range [1/2,2−sqrt(2)] follows from AM–GM and endpoint convexity. At the midpoint the perfect square in e^(-t/2) gives the unique minimizer and recovery; without thinning only the zero-predictor branch can survive. The repair corrects the verification description: frozen verify.py lines 16–63 are Poisson-sum and sampled survival checks, not a transition-matrix construction. The script was inspected, not executed; the analytic derivation accounts for all parameters.
 
-PASS with residual risk. Definition 3 and Appendix A of Scott--McCallum--Foster (arXiv:2611.16975v1) were read directly, including the source's low-count condition and first-order local weak-error result. These facts mean that a local low-count inconsistency is **not** the novelty asserted here. The new full one-molecule semigroup, exact unadjusted comparator, and the sharp global survival floor/large-step return are additional statements not obtained by merely restating the source's generic bounds. Earlier tau-leaping references concern original weak-order scaling and alternative nonnegativity mechanisms. Search cannot exclude an older unindexed equivalent finite-step calculation.
+## originality
 
-## Value
+PASS
 
-PASS. The algorithm's intended binomial handling of degenerate predictor steps is most active exactly in low-copy-number kinetics. Here its backtracking prevents one-particle disappearance in at least three quarters of midpoint steps, even as the true disappearance probability tends to one, while the scheme it modifies retains exactly the right one-particle survival probability. The exact floor and the noncommutation of step refinement with the true generator give an actionable boundary for using the correction or adding critical-event handling. No stronger claims about typical systems are drawn.
+Pass only the repaired distinct exact finite-step claim: survival law, sharp midpoint floor and recovery, and exact contrast to the baseline. A distinct Resultary theorem covers the first-order inconsistency coefficient and implies the refined-time limit under absorption. The repaired finding retains the limit as a credited consequence, not a separate novelty claim. No priority order follows from the index date.
 
-## Closest literature and limitations
+## value
 
-The source's Appendix A first-order local-error coefficient already warns that degenerate, low-count channels are outside favorable error assumptions. The present global formula goes beyond that coefficient. The results are restricted to one initial molecule, a clipped linear death propensity and a fixed \(\theta\in[1/2,1)\); the large-step floor requires \(\theta=1/2\). Review of earlier weak-order and negative-population publications was limited by access to some article full text. The mathematical argument remains subject to independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact, all-step-size survival obstruction at the smallest occupied state shows a concrete failure mode of a correction designed for degenerate propensities. The midpoint retains at least three quarters of initial particles in probability even when true survival is nearly zero, while the unadjusted scheme has exact survival under the same clipping. This is more informative for a low-count diagnostic than reporting only a local error term. No inference about all observables, network behavior or nonnegativity is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the sharp strong-reinfection SEIRV asymptotic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is about positive equilibria with fixed rates \(\Lambda,\alpha,\mu,\gamma,\delta,\theta>0\) and \(0<\sigma<1\). The five stationarity equations reproduce the scalar reduction in the primary paper's Lemma B.1 exactly. The primary-infection term strictly decreases with positive infection and increases with primary transmission. The leading coefficient of the cleared cubic is \(-H B\beta^2\sigma\), and its constant coefficient is negative throughout the strictly subcritical regime, ensuring at most two positive roots. A smooth blow-up \(I=B^{-1/2}y\), \(\beta=\beta_\infty+B^{-1/2}z\) produces a nondegenerate fold with explicitly verified derivatives. Localization inequalities confine *every* nonnegative scalar value in the near-critical strip to this fold scale and preclude a remote competing positive branch. The implicit-function theorem supplies the stated error orders; a separate regular perturbation yields the \(B^{-1}\) and order-one infected branches. The printed verifier checks nontrivial exact rational identities and a two-positive-root witness; those examples are not substitutes for the analytic proof.
+PASS
 
-## Originality — PASS (specific statement)
+For the printed five equations and fixed positive rates, elimination reconstructs strictly positive S,E,R,V at every positive zero of F=Pβ(I)−H−δμ/(μ+BI), with H=K−δ>0. The primary term strictly decreases in I, strictly increases in β, and Pβ(0)=cβ; hence F<0 for β≤H/c. Set ε=B^(−1/2), I=εy, β=H/c+εz. The smooth rescaled function equals cz−Ly−δμ/y at ε=0, with L=−P′ at I=0 and β=H/c. Its stationary zero has y=√(δμ/L), z=2√(δμL)/c and nonzero F/ε derivative in z and negative second derivative in y, so the implicit-function theorem supplies a double root for all sufficiently large B. Globally, for β<K/c the cleared cubic has negative leading and constant coefficients, hence a negative root. At the fold the remaining degree is exhausted by the double positive root; endpoint negativity and its even multiplicity give F≤0 everywhere on I>0 at that β. Strict increase in β and endpoint negativity then give no positive roots below and exactly two above the fold for β<K/c. Along the fold ∂B F>0 and ∂β F>0 imply β′c(B)<0. For fixed H/c<β<K/c, smooth continuation in 1/B at the simple scaled small root gives B I−→μ(K−cβ)/(cβ−H); at the simple outer zero Pβ(Jβ)=H it gives the stated negative 1/B correction. Both branch error orders follow by smoothness. Independent exact arithmetic reproduced the constants and the three sign checks for B=100; those checks are illustrative only.
 
-The motivating Khan–Wang–Liu–Xiong paper already proves existence of a subcritical saddle-node, the scalar cubic, and a finite-reinfection threshold computed numerically. It is not credited here with (nor claimed here anew) that previously proved structure. The new exact claims concern the positive limiting floor for \(\mathcal R_0^C(B)\), the coefficient of its \(B^{-1/2}\) approach, and the two different infected-equilibrium scales for fixed subcritical primary transmission. Published SEIRE and SVEIRE studies already contain reinfection and backward bifurcation but employ different flow systems, so those mechanisms alone do not imply the displayed SEIRV singular asymptotics. A related analysis of vaccination dependence of the *local* reinfection threshold concerns a distinct parameter sensitivity and does not determine the global-fold large-\(B\) limit. Search coverage and unavailable full-text comparisons remain risks, not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise gap is how far reducing the primary-transmission reproduction number can lower the critical equilibrium threshold when reinfection is very strong. The leading constant \(1-\delta/K\) is a sharp floor, not just a numerical trend; the \(B^{-1/2}\) fold scaling identifies a singular contact between two mechanistically different endemic regimes, and the \(B^{-1}\) lower branch quantifies its separation from the persistent order-one upper branch. These statements refine, rather than repackage, the plotted finite-parameter threshold curve and give an explicit high-reinfection benchmark for analyses of vaccination and waning-immunity extensions.
+The model, scalar reduction, finite-reinfection backward bifurcation, and the idea of tracking a critical threshold are prior work. The supported distinct content is the exact positive limiting floor, its sharp B^(−1/2) approach with universal fixed-rate coefficients in this model, and the two fixed-β branch expansions. The published primary full text could not be read after reasonable retrieval attempts; the priority assessment is bounded by that limitation, not inferred from it.
 
-## Closest literature and risks
+## value
 
-The primary model and its original lower-threshold theorem: Khan–Wang–Liu–Xiong (2026), DOI `10.1080/17513758.2026.2713881`, §§2,5,7,8 and Appendix B.1 as available through indexed full-text sections. Related earlier mechanisms: Wang et al., DOI `10.1142/S1793524522501327`; Sulayman–Abdullah–Mohd, DOI `10.3390/math9040327`. The 2022 SEIRE work was inspected through its arXiv full-text HTML rendering (with some missing formula glyphs); some publisher/PDF contents were not accessible, and unindexed or newer results may cover special aspects of the calculation. This does not establish global dynamical stability or exact parameter independence of epidemic forecasts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves a meaningful qualitative question in the known model: increasing reinfection does not push the existence threshold down to zero. It determines the limiting positive floor, the rate of approach, and two different endemic prevalence scales. These are structural equilibrium results, not a new interpretation of a finite numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

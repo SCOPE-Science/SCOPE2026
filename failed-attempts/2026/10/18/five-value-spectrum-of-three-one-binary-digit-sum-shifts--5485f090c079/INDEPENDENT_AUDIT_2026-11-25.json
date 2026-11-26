@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:33.700095Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the binary column equations gives digit-sum change equal to three minus the total carries. A carry entering a zero gap has already cost at least one carry; surviving three more zero columns incurs at least four, so accepted paths are carry-free after those columns. All subsequent zero columns, including the rest of a final zero run, are inert and their freely chosen digits do not affect the density. For an arbitrary original shift the event is therefore determined by a finite low-bit residue class; coordinate deletion of the inert bits preserves the proportion of accepted residues. Parity shows c_(2t)=c_t. Independently, /workspace/branches/replay_4.py computes exact tail densities using the even/odd splitting recurrence on shifts, based at t=1 on the geometric law of trailing ones, not the frozen carry transfer. It recovers all sixteen counts row by row: (43,76,164,336), (76,160,320,656), (164,320,640,1312), (336,656,1312,2688). Dividing by 2^(6+G+H) gives exactly the table, only the two minimal cells (0,1),(1,0), and the unique maximal cell (0,0). The frozen verifier was inspected, not run. Its Python 3.8 compatibility note is inaccurate for int.bit_count(); it needs Python 3.10 or later as written.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "04e8343e48d1, original Finding and Gap-clipping lemma: for every k clip each d_i to min(d_i,k+1) without changing c_t. The proof uses the same counted incoming carry and rejection of k further carries. 42dc8159362a has a separated-bits central-binomial result giving the (3,3) cell; 48b5fe626b3a gives the (1,1) cell via its three one-blocks with single-zero separators.",
+          "Spiegelhofer–Wallner Theorem 1.1 concerns many maximal one-blocks; Cheng 2606.23398 Theorem 1.1 yields 65/128 at weight three, weaker than the exact minimum. Cheng 2608.25899 Theorem 1.1 is asymptotic as the weight tends to infinity."
+        ],
+        "reasoning": "The all-weight theorem covers the arbitrary gaps, unlike a high-weight asymptotic or a lower bound. Specializing k=3 yields clipping zero gaps to length 3, including simultaneous clipping of both gaps.",
+        "searches": [
+          "Resultary 04e8343e48d1, 42dc8159362a and 48b5fe626b3a",
+          "arXiv:2005.07167",
+          "arXiv:2606.23398",
+          "arXiv:2608.25899"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04e8343e48d1",
+        "Resultary 42dc8159362a",
+        "Resultary 48b5fe626b3a",
+        "arXiv:1509.08623",
+        "arXiv:2005.07167",
+        "arXiv:2606.23398",
+        "arXiv:2608.25899"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "04e8343e48d1 gives the truncation d_i≤4 at weight three and explicit coefficient updates for the accepted carry counts. The prior exact distribution recurrence is independently sufficient for each clipped shift. The independent review evaluated all sixteen with a parity recurrence and obtained the frozen table exactly."
+        ],
+        "reasoning": "Use t=1+2^d1+2^(d1+d2) for d1,d2 in {1,2,3,4}, compute c_t for each from the exact recurrence, and compare the resulting sixteen rational numbers. The theorem on gap clipping removes the only infinite quantifier; the remaining arithmetic is a mechanical table extraction. This covers the spectrum and maximum even though the source Finding only prints the minima.",
+        "searches": [
+          "Resultary 04e8343e48d1, Gap-clipping lemma and Exact arithmetic for the finite census",
+          "arXiv:1509.08623, Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 04e8343e48d1 indexes gaps by consecutive set-bit position differences d_i, which equal one plus the number of intervening zeros. The definition of c_t and the removal of powers of two are the same. At weight 3 its exact minimum is 19/32 and all odd minimizing shifts are 11 and 13.",
+          "Drmota–Kauers–Spiegelhofer use the density of the digit-sum difference equal to j; c_t is its mass at j≥0."
+        ],
+        "reasoning": "Changing from position differences to counts of intervening zeros, or from a full difference distribution to its upper-tail probability, does not distinguish the two claims.",
+        "searches": [
+          "Resultary: Cusick bias, fixed Hamming weight three, carry gaps, exact shift minima",
+          "Resultary 04e8343e48d1",
+          "arXiv:1509.08623, Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ArXiv:1509.08623 Table 1 arrays for shifts 1–15 yield c_7=43/64 and c_11=c_13=19/32 by summation over nonnegative changes. The Resultary 04e8343e48d1 Finding explicitly tabulates the weight-three minimum and its full set of odd equality cases, with 16 representative shifts examined."
+        ],
+        "reasoning": "The old short-shift table alone would not establish extrema among arbitrarily large shifts. The matched general clipping theorem and exact minimum table instead supply both an unbounded reduction and exact minimum/equality coverage.",
+        "searches": [
+          "Drmota–Kauers–Spiegelhofer arXiv:1509.08623, Table 1",
+          "Resultary 04e8343e48d1 exact minima table"
+        ]
+      },
+      "rationale": "Strong positive coverage evidence: Resultary 04e8343e48d1 proves a stronger all-weight gap-clipping theorem and reports the exact weight-three minimum and extremizers. Substituting k=3 gives the same sixteen shifts; applying the already available exact transfer or prior distribution recurrence to those representatives is sufficient to read out every entry, the value set and the maximum, with no new inference about arbitrary shifts. The full spectrum is not expressly printed in the matched Finding, but is a direct finite corollary. This assesses distinctness given the inspected evidence, not which record first discovered the result; the catalogue dates differ and cannot resolve priority or derivational dependence by themselves.",
+      "residual_risks": [
+        "Provenance and priority relative to the matched stronger result are unresolved; only statement-level coverage and implication are established.",
+        "The decisive stronger catalogue result is independent of any unsuccessful keyword search in the fixed-weight asymptotic paper; the latter's uninspected sections are not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the gap cap and minimum/equality and mechanically implies the spectrum and maximum",
+          "evidence": [
+            "Every d_i can be replaced by min(d_i,k+1). The weight-three row explicitly gives 19/32, odd representatives 11 and 13 and 16 cases."
+          ],
+          "identifier_or_url": "Resultary 04e8343e48d1",
+          "material_read": "Original Finding and Assumptions, carry identity, Gap-clipping lemma and integer transfer, offsets 0–4403",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "Gap clipping and exact initial fixed-weight minima for Cusick's binary digit-sum bias",
+          "trigger": "Same density and exact weight-three minimum plus plausible stronger gap theorem"
+        },
+        {
+          "assessment": "Prior exact arithmetic and overlapping individual values; not by itself the arbitrary-gap reduction",
+          "evidence": [
+            "Table lists distributions for t≤15; Eq. (3) gives a recurrence for the complete shift-difference distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.08623",
+          "material_read": "pp. 3–4, Eq. (3) and Table 1, offsets around 8400 and 10500",
+          "method": "Lawful OA PDF passages",
+          "title": "On a conjecture of Cusick concerning the sum of digits of n and n+t",
+          "trigger": "Exact distribution method and small-shift values"
+        },
+        {
+          "assessment": "Many-block positivity and numerical checks, not the exact three-one table",
+          "evidence": [
+            "The theorem assumes at least M_0 maximal one-blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.07167",
+          "material_read": "p. 2, Theorem 1.1 and discussion at offset 7000 and following",
+          "method": "Lawful OA PDF passages",
+          "title": "The binary digits of n+t",
+          "trigger": "Possible broader bit-block law"
+        },
+        {
+          "assessment": "Universal positivity bound, not the claimed spectrum",
+          "evidence": [
+            "Bound is c_t≥1/2+2^(-2s_2(t)-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+          "material_read": "p. 2, Theorem 1.1, offset around 7600",
+          "method": "Lawful OA PDF passage",
+          "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+          "trigger": "Stronger-looking all-shift theorem"
+        },
+        {
+          "assessment": "The inspected result is asymptotic and does not determine the finite k=3 spectrum",
+          "evidence": [
+            "F(k) is asymptotic to (log_2(k)/k)^(3/2)/(2 sqrt(pi)) as k tends to infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+          "material_read": "pp. 1–3, abstract and Theorem 1.1, offsets 0 and 7000",
+          "method": "Lawful OA full PDF available; relevant passages inspected",
+          "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+          "trigger": "Same fixed-weight extremal question; original review lacked full text"
+        },
+        {
+          "assessment": "Covers one cell of the frozen table",
+          "evidence": [
+            "At weight 3 the formula for sufficiently separated one-bits gives 21/32."
+          ],
+          "identifier_or_url": "Resultary 42dc8159362a",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "Exact central-binomial Cusick bias for uniformly separated one-bits",
+          "trigger": "Large gaps in both positions"
+        },
+        {
+          "assessment": "Covers one cell of the frozen table",
+          "evidence": [
+            "Use three one-blocks each of length one to get t=21 and c_t=5/8."
+          ],
+          "identifier_or_url": "Resultary 48b5fe626b3a",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "Sharp three-block digit-sum density with single-zero separators",
+          "trigger": "Three isolated one-bits with short gaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact spectrum is a naturally motivated invariant, and a new arbitrary-gap cutoff would substantively address it. But the cutoff and extremal minimum are already covered, and the remaining maximum and list of values are a sixteen-entry recomputation using the same clipped domain and known exact recurrences. No independently useful unknown claim survives narrowing the frozen result to those entries. This is a failure of distinct scientific contribution, not of the arithmetic or the motivation for the question.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

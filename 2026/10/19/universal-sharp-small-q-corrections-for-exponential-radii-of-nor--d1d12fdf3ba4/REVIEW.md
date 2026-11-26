@@ -1,9 +1,21 @@
-# Scientific review: sharp small-\(q\) exponential radii
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficient recurrence is derived exactly from both normalized \(q\)-Bessel series, with \(b_{n+1}/b_n\le q^{\kappa n}\). It gives convergence of the base functions and derivatives to \(1-x+\epsilon x^2\) with a quadratic-order error in \(\epsilon\). The published order-zero all-positive-zero factorization supplies the required global radial sharpness, independently reconstructed using the product and its \(B+uxB'\) derivative. Strictly decreasing limiting log derivatives and the implicit derivative formulas prove all displayed positive coefficients and error bounds. Direct high-precision finite checks agree with the analytical expansions. Risk: the theorem deliberately restricts \(\nu\) to \((0,1]\); outside this range the convexity positive-weight proof for the power normalization is not available.
+## correctness
 
-**Originality — PASS (with specific residual risk).** The strongest same-object source, Kazımoğlu–Deniz–Cotîrlă–Breaz (2026, Sections 2 and Theorems 2.1–2.2), gives exact implicit transcendental radius equations. Its statements do not present the fixed-order \(q\to0\) leading constants, first nonzero perturbative coefficients, or relative Jackson/Hahn–Exton comparison. Baricz–Kumar–Singh (2024) give asymptotic expansions for ordinary starlikeness radii as \(\nu\to\infty\) with \(q\) fixed, an inapplicable limiting problem. Relevant published-result searches produced nearby results on other exponential classes and ordinary Bessel questions, not a dominating equivalent small-\(q\) law. A closely titled Yasin–Raza (2026) article could only be inspected through its abstract; it is a real residual novelty risk, not proof of absence.
+PASS
 
-**Value — PASS.** The small-\(q\) singular limit is a natural boundary of the same special-function family whose exact geometric radii were recently characterized. The result supplies a simultaneous sharp asymptotic profile for starlikeness and convexity across both \(q\)-Bessel realizations and all three normalizations, including a nonzero first correction and a precise change of correction exponent between the two constructions. This is quantitative geometric information not supplied by an implicit root locator or by large-order expansions; it also gives an explicit asymptotic ratio relevant when comparing the two families. Scope does not include uniformity at \(\nu=0\) or any global all-\(q\) ordering.
+The normalized series has b_0=b_1=1, b_2=epsilon_s and b_(n+1)/b_n<=q^(kappa_s n), so truncation after x² costs O(q^(3 kappa_s)) with all fixed derivative orders on compact x disks. The positive-zero Hadamard product for B and the product for D=B+u x B' justify the radial extremum: finite products give strictly positive D roots via the derivative of x^(1/u) B(x) and Rolle interlacing; local uniform convergence/Hurwitz preserves the positive-root location, and the coefficient bound gives order zero for D. A first pole occurs for D before B (the real logarithmic derivative of B forces D/B through zero), including when a=1 and the B term in C drops out. With weights u, m(a-1), m all nonnegative, each logarithmic-derivative sum has its disk bound at positive real x. For |w-1|<delta, the logarithm power series gives |log w|<=-log(1-|w-1|)<1. The first e^(-1) roots therefore give the exact radii, not just lower bounds. Setting B=1-x and D=1-vx gives the stated X_star and the quadratic for X_c (its value at 1/v is -um/v); the roots are simple and below the poles. For a factor 1-beta x+gamma epsilon x², the perturbation of its logarithmic derivative is gamma(2x-beta x²)/(1-beta x)². Applying this to (beta,gamma)=(1,1) and (v,1+2u) gives exactly both Y's by the negative reciprocal slopes, with a positive leading displacement and O(epsilon_s²) residual. The mth root, exact lambda ratio and epsilon_2=q epsilon_3 yield the stated radius ratio. This covers the coincident f and g at nu=1 and uses no uniformity as nu goes to zero. The finite high-precision support checks were read as evidence, not executed or used to certify the universal claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact radius equations and positive-zero machinery are established coverage. The distinct claim is their explicit sharp fixed-order small-q perturbation across both q-Bessel families and geometry types: common scaled leading and slope data, two different sharp powers in q, and the nonzero linear term in the unscaled comparison. None of the inspected sources gives those asymptotics. The judgment is bounded by the unresolved directly related Yasin–Raza paper.
+
+## value
+
+PASS
+
+The result quantifies a natural exact geometric threshold in a singular parameter limit. It explains why the two base families have the same scaled first data yet different genuinely sharp correction orders, and gives the first coefficient of their radius comparison for each normalization and both geometric properties. The correction and its sign are not obtained from the leading scaling or from a numerical approximation to the implicit equations. No novelty or value is assigned to re-stating those equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

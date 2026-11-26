@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:13:23.575372Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify_ihsb_gaussian_tail.py (inspected only)",
+        "Gemeay et al., DOI 10.3934/math.2026464, Proposition 4 and model formulas",
+        "/workspace/review_evidence/5/hazard_check.py (independent mpmath replay)"
+      ],
+      "rationale": "The primary article's Proposition 4 gives the frozen normalization: the hazard is x^(alpha−1) R_0(x)/m_alpha(x), and the common density/survival normalizer cancels. The exact model formulas use the frozen scales. For the two baselines, put nu=−1 (half-normal) or nu=1 (Maxwell). Their survival is asymptotic to a positive constant times x^nu exp(−x²/(2 beta²)); comparison with each exact density gives baseline hazard h_0(x)~x/beta² without differentiating a big-O error. Both q=beta² x^(alpha−2) R_0(x) and m_alpha tend to zero, m_alpha' is everywhere negative, and q'/m_alpha'=beta² h_0(x)/x−beta²(alpha−2)/x²→1. Hence q/m_alpha→1 and the transformed hazard tends to infinity on the right with the stated equivalent. Tonelli applied to X_0^alpha=∫_0^{X_0} alpha t^(alpha−1) dt gives the finite strictly positive m_alpha(0); lower-endpoint continuity gives the second equivalent. Right divergence excludes even nonincreasing behavior. For 0<alpha<1 both ends diverge, so minimizing on a compact subinterval cut off above a fixed interior value gives an interior global minimum. The hazard is nonconstant real analytic on (0,infinity), so such a minimum is also an actual local turn. The independent tail-moment calculation at alpha=0.1, beta=1 finds local minima near 0.7925118344 and 0.6556500382 and reproduces the hazard values at those points and at 0.1 and 10.",
+      "residual_risks": [
+        "The numeric stationary-point checks do not certify uniqueness, the numerical location of the global minimum, or a full monotonicity classification. None is required by the analytic assertions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4 provides the general IHSB hazard formula, not the right-endpoint classification. The DLMF expansions cover both baseline survival functions and supply the asymptotic inputs."
+        ],
+        "reasoning": "Standard expansions apply to the baseline tails; a transformed hazard still involves a separate weighted tail integral. No stronger inspected reliability statement already asserts the relevant preservation of the diverging hazard for these models.",
+        "searches": [
+          "Gemeay et al., Section 2.4.1, Proposition 4, and both model applications",
+          "NIST DLMF §7.12(i), Eq. 7.12.1; §8.11(i), Eqs. 8.11.2–8.11.3"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2026464 publisher PDF",
+        "DLMF §§7.12 and 8.11",
+        "Resultary 9f38807432e0 and the bounded indexed searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary article says both families can display monotone and non-monotone HRF patterns, including decreasing, increasing, and bathtub-shaped behavior. The exact hazard involves a weighted integral absent from the baseline DLMF estimates."
+        ],
+        "reasoning": "Relating the weighted integral to its integrand via the baseline hazard is the needed endpoint argument. The source formulas and standard estimates enable that calculation, but the inspected model article does not draw the conclusion and instead gives the contrary global reading. The correction does not dispute locally decreasing segments.",
+        "searches": [
+          "DOI 10.3934/math.2026464, Proposition 4 and text paired with Figures 1 and 3",
+          "DLMF 7.12.1 and 8.11.2–8.11.3",
+          "Resultary 9f38807432e0, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9f38807432e0 excludes global decrease for a right-truncated exponentiated Ailamujia law through h(x)~1/(1−x) at a finite boundary. The IHSB article itself lists decreasing hazards for the two Gaussian-tail models."
+        ],
+        "reasoning": "The right-truncation mechanism comes from an interval of integration shrinking to zero at a hard endpoint, not from a Gaussian decay rate at infinity. That finding is neither equivalent to the IHSB asymptotic nor a general theorem covering it. The primary article's formula is identical but its qualitative conclusion is different.",
+        "searches": [
+          "Resultary: Neither Gaussian-tail IHSB model can have a globally decreasing hazard",
+          "Resultary: Families of weighted distributions with inverse-hazard size bias: theory and applications; DOI 10.3934/math.2026464",
+          "Resultary: IHSB half-normal Maxwell Gaussian-tail hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary figures are at beta=1 and cover a finite x range for selected shapes; the indexed truncation analog has a different exact asymptotic."
+        ],
+        "reasoning": "No discrete table lookup applies to an all-shape and all-scale asymptotic theorem. The closest substitute, checking the original plots and associated statements, cannot establish global monotonicity or its exclusion. The illustrative numerical minima are not a separate originality claim.",
+        "searches": [
+          "Resultary: IHSB half-normal Maxwell Gaussian-tail hazard",
+          "Primary article Figures 1 and 3 discussion at printed pp. 11305 and 11307"
+        ]
+      },
+      "rationale": "The published model definitions and Gaussian tail expansions are antecedents. The best supported distinct result is an all-parameter exclusion of a hazard class explicitly named in the primary article's figure discussions, with a common asymptotic slope and the interior-minimum consequence. The actual primary passages were retrieved and checked; the closest indexed analog concerns a different endpoint mechanism.",
+      "residual_risks": [
+        "A separate author correction or a more general weighted-tail theorem could exist outside the inspected evidence. The assessment is not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the identical hazard formulas; both figure discussions list decreasing as a hazard pattern. The verified result excludes that pattern on the entire support, not on finite intervals.",
+          "evidence": [
+            "Proposition 4 sets h=x^(alpha−1)R/m_alpha; both special models use that form with the claimed baseline survivals. The discussion at each figure explicitly contrasts monotone and non-monotone hazard patterns and names decreasing, increasing and bathtub-shaped behavior."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/4/PDF/math-11-04-464.pdf",
+          "material_read": "Title and DOI; Proposition 4, printed p. 11300; IHSBHN hazard and Figure 1 discussion, p. 11305; IHSBM hazard and Figure 3 discussion, p. 11307",
+          "method": "Bounded OA reads of direct publisher PDF at offsets 0, 15400, 30440, 31320, 37980 and 39120, after DOI and landing-page access attempts failed",
+          "title": "Families of weighted distributions with inverse-hazard size bias: theory and applications",
+          "trigger": "Exact source for both models and the hazard-shape classification"
+        },
+        {
+          "assessment": "Supplies baseline asymptotic inputs, not an IHSB classification",
+          "evidence": [
+            "The leading erfc term and fixed-shape upper gamma term yield x^(−1) and x times the common Gaussian factor respectively."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/7.12 ; https://dlmf.nist.gov/8.11",
+          "material_read": "§7.12(i) Eq. 7.12.1 and §8.11(i) Eqs. 8.11.2–8.11.3",
+          "method": "Bounded reads of OA references",
+          "title": "NIST Digital Library of Mathematical Functions: Asymptotic Expansions of Error Functions; Asymptotic Approximations and Expansions of Incomplete Gamma Functions",
+          "trigger": "Standard asymptotic sources with possible broader coverage"
+        },
+        {
+          "assessment": "Analogous hazard-shape exclusion but an unrelated endpoint mechanism and parameter family",
+          "evidence": [
+            "The right-truncated law on (0,1) has reciprocal-distance blow-up at 1; it gives no Gaussian-tail hazard equivalent on (0,infinity)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-right-truncation-forces-a-universal-tea-hazard-blow-up--9f38807432e0",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record read through local mirror",
+          "title": "Right truncation forces a universal TEA hazard blow-up",
+          "trigger": "Closest structural overlap in the indexed corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Primary article pp. 11305 and 11307, hazard formulas and figure discussions"
+      ],
+      "rationale": "This answers a concrete error in how two published lifetime models can be used: neither can represent globally decreasing failure rates. One analytic tail mechanism settles all shape and scale parameters and explains why a descending segment on a finite window cannot establish global decrease. For shapes below one it additionally proves the existence of a turn without relying on optimization of a plotted curve.",
+      "residual_risks": [
+        "This does not classify critical points or prove global increase for any remaining parameter range."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

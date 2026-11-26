@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:26:30.078212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The axes are invariant and the logarithmic equations preserve positivity for positive data. Since f(u) is bounded above by F=(1-a*phi)^2/(4*phi), exponential bounds on u over finite intervals give finite v bounds as well, proving global existence. The Jacobian at extinction has eigenvalues -a/epsilon,-1. At coexistence its trace is f'(1)/epsilon=[1-phi*(2-a)]/epsilon<0 and determinant v_*/epsilon>0. For the coexistence certificate the predator-prey cross terms cancel, giving Hdot=(u-1)[f(u)-f(1)]=-phi*(u-1)^2*(u-u_c). The admissible range gives a<u_c<1. On u<=u_c the prey contribution to H is at least B, and at (u_c,v_*) equality holds. Any larger strict sublevel contains this point (and points on its left), proving sharpness for containment. Before a first approach to u_c the entropy is nonincreasing, so a solution in H<B stays in its compact initial sublevel in the positive quadrant. The only invariant set of Hdot=0 therein is (1,v_*): at u=1 the prey derivative is (v_*-v)/epsilon. Thus LaSalle applies. With u<=a and v>0 the prey enters/stays below a and decreases; a positive limit is ruled out by the uniformly negative f on any interior compact interval below a. Once u->0, v decays exponentially. For u_0>a the bounds v(t)>=v_0 exp(-t) and f<=F yield epsilon log(u/u_0)<=Ft-v_0(1-exp(-t)). Minimizing (Ft+c)/(1-exp(-t)) gives the sole minimum at exp(T)-1-T=c/F, since the left side is strictly increasing from zero; the minimum is F exp(T) and exp(T)>1 selects W_{-1}. This is sharp only for the stated scalar comparison operated as a strict upper bound test, not for the true separatrix. At a=1/2,phi=4/5,epsilon=1/10, u=4/5, the entropy inequality at v_*=1/10 follows from u_c=3/4<u<1, and the fold is 7/8. For v_0=1/4 use t=4/5: the order-six alternating upper bound on exp(-4/5) and the order-seven upper bound on log(1+3/5) make the required strict comparison an exact rational inequality. Independent replay (python3 -B /workspace/branches/independent_replay.py 3) confirms that inequality, the symbolic cancellation, and yields 0.2487838970931023 for the comparison threshold. The frozen checker was read, not executed; no finite integration is used to prove either basin claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Shi–Wei's broader class includes this parameter regime and gives outcome regions using invariant-manifold graphs. Van Voorn et al. use a stable-manifold curve and numerical continuation. The Hennessy–Popović–Sattar ramp threshold concerns a nonautonomous parameter and singular geometry."
+        ],
+        "reasoning": "The broader geometric analysis substantially covers the background, not these computable entropy and Lambert comparison formulas. No inclusion between the new sufficient regions and all prior manifold-based sufficient regions is claimed.",
+        "searches": [
+          "Wang–Shi–Wei §§2–4, Propositions 2.2–2.4 and Theorem 2.6; van Voorn et al. §4.1; Hennessy–Popović–Sattar §§3 and 5",
+          "Resultary: strong Allee predator prey explicit initial-condition extinction criterion high predator density"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12319v1",
+        "DOI:10.1007/s00285-010-0332-1",
+        "DOI:10.1016/j.mbs.2007.02.006",
+        "SCOPE-20261122-e577228d7cf3",
+        "SCOPE-20261122-bfad9b498216"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior geometric criteria describe outcomes relative to graphs, without giving this sublevel H<B or a minimization of a scalar exponential-predator bound. Prior extinction for u_0<=a covers that branch of the frozen statement."
+        ],
+        "reasoning": "The new quantitative comparisons require an explicit positively invariant Lyapunov sublevel and optimization of a separate comparison over time. These do not follow just by invoking existence of bistability, a fold or a separating manifold.",
+        "searches": [
+          "Wang–Shi–Wei Propositions 2.2–2.4, Theorem 2.6; van Voorn et al. §4.1 pp. 9–11; Hennessy–Popović–Sattar Eq. (3) and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ArXiv:2610.12319v1 Eq. (3) is the same frozen u,v system before ramping.",
+          "With x=phi*u, y=phi*v/epsilon and new time t/phi the system is x'=x(f(x)-y), y'=y(x-phi), with f(x)=(1-x)(x-phi*a)/epsilon. This is Wang–Shi–Wei's form. With y=phi*v and time t/(phi*epsilon) it instead gives van Voorn et al.'s k=1, l=phi*a, m=phi, c=epsilon."
+        ],
+        "reasoning": "The exact changes of variables prevent crediting the polynomial vector field or phase geometry as new. A quantitative test is distinct if it applies directly to given (u_0,v_0) without constructing the invariant-manifold graph.",
+        "searches": [
+          "Resultary: H(u,v) entropy sublevel u_c and optimized Lambert-W high-predator extinction bound; entropy basin convergence certificate Allee predator prey coexistence threshold",
+          "Web: (\"strong Allee\" predator prey) \"relative entropy\" Lambert W basin extinction high predator explicit threshold",
+          "Hennessy–Popović–Sattar Eq. (3); Wang–Shi–Wei Eq. (1.2); van Voorn et al. Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen hit f7e958313282 is a self-match. Distinct same-day e577228d7cf3 gives an entropy sublevel in a three-species chain; bfad9b498216 gives a finite-time hitting criterion for an Allee–fear–aggregation flow with different equations. The retrieved van Voorn example is not the frozen same-prey witness."
+        ],
+        "reasoning": "Compare exact outcomes, hypotheses and parameters rather than treating a similar extinction plot or a differently sized food chain as an exact matching table. This is a formula claim on a continuum; the witness tests that formula, not historical priority by its numeric values.",
+        "searches": [
+          "Resultary: frozen strong-Allee entropy coexistence, high-predator Lambert-W extinction and same-prey below-fold certificates",
+          "van Voorn et al. §4.1 numerical-separatrix example; Hennessy–Popović–Sattar §3 fast fold"
+        ]
+      },
+      "rationale": "Pass the two explicit quantitative membership tests, including their precise method-limited bounds, for the frozen polynomial flow at all positive epsilon. The flow itself, its bistable geometry, the fast fold, extinction below the Allee threshold, and extinction-above-separatrix criteria are prior, including under exact rescaling. Neither inspected same-flow phase portrait supplies the explicit pair of inequalities for specified initial data. The proof methods are classical and are not credited as new.",
+      "residual_risks": [
+        "An older specialized Lyapunov or comparison formula for the equivalent polynomial family may exist outside the inspected passages and returned results.",
+        "No priority inference is drawn from same-day dates. No comparison of all prior implicit basin graphs against these explicit regions was computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and fold overlap; the cited threshold changes the carrying-capacity parameter rather than certifying initial data for the frozen system",
+          "evidence": [
+            "Same scaled prey/predator equations, followed by slow-fast fold geometry and a reduced-flow ramp criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12319 (v1)",
+          "material_read": "Primary PDF Eq. (3), p. 3, offset 11385; fold in §3, p. 4, offset 15478; ramp threshold in §5, p. 7, offset 28237",
+          "method": "Lawful OA primary PDF text, targeted excerpts",
+          "title": "A minimal model for rate-induced tipping to extinction",
+          "trigger": "Same frozen model as the motivation for the certificates"
+        },
+        {
+          "assessment": "Substantial coverage of phase portrait and some initial-data outcomes; not the pair of evaluated explicit membership tests",
+          "evidence": [
+            "Basin information expressed using invariant manifolds, and extinction at or below the Allee threshold."
+          ],
+          "identifier_or_url": "https://jxshix.people.wm.edu/shi/11-wang-shi-wei-JMB.pdf (DOI:10.1007/s00285-010-0332-1)",
+          "material_read": "Author manuscript Eq. (1.2), §1 pp. 293–294, offset 7353; Propositions 2.2–2.4 and Theorem 2.6 around pp. 296–301, offsets 15706–29945",
+          "method": "Lawful author PDF text, targeted excerpts",
+          "title": "Predator–prey system with strong Allee effect in prey",
+          "trigger": "Broader class containing the frozen system exactly by scaling"
+        },
+        {
+          "assessment": "Same-flow global bifurcation and implicit/numerical basin information but not the asserted formulas",
+          "evidence": [
+            "Orbits above a computed stable-manifold curve converge to extinction; a plotted heteroclinic threshold is parameter-specific."
+          ],
+          "identifier_or_url": "https://www.bio.vu.nl/thb/research/bib/VoorHeme2007.pdf (DOI:10.1016/j.mbs.2007.02.006)",
+          "material_read": "Author manuscript §2.1 Eq. (1), p. 6, offset 7535; §4.1 pp. 9–11, offsets 18000 and 20646",
+          "method": "Lawful author PDF text, targeted excerpts",
+          "title": "Heteroclinic orbits indicate overexploitation in predator–prey systems with a strong Allee effect",
+          "trigger": "Same polynomial model under exact state/time rescaling"
+        },
+        {
+          "assessment": "Analogue or method overlap, not equivalent scope",
+          "evidence": [
+            "The first has three species and different entropy dissipation; the second has a different Allee–fear–aggregation model and certifies finite-time hitting below the threshold."
+          ],
+          "identifier_or_url": "SCOPE-20261122-e577228d7cf3; SCOPE-20261122-bfad9b498216",
+          "material_read": "Both mirrored RESULT.md Findings",
+          "method": "Published statements via local mirror",
+          "title": "An exact entropy barrier for coexistence in a three-level Allee food chain; Sharp predator-loss threshold for universal finite-time extinction",
+          "trigger": "Exact computable basin/threshold analogues in the same day's catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap is practical within the mathematical model: local stability and a separatrix defined as an invariant manifold do not tell a reader which outcome is guaranteed at a specified positive initial state without further calculation. The two explicit, complementary sufficient tests answer that question on distinct computable regions uniformly in positive epsilon; they distinguish outcomes at the same prey below the fast fold, where treating the fold as a basin boundary would be misleading. The value is in explicit certified regions and their precise method-limited thresholds, not a full basin partition, ramp-rate threshold or stochastic extinction claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

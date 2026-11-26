@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:14:02.398133Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, findings and graph/rule/basin definitions, lines 4–54",
+        "Frozen VERIFICATION.md, verification/majority_gp.py, verification/majority_lcf.cpp, and verification/replay.txt inspected without running uploaded programs",
+        "Independent exact reproduction: python3 /workspace/audit-evidence/4/duerer_census.py"
+      ],
+      "rationale": "Each input one is counted twice among same-layer neighbor sums and once in the opposite layer. A predecessor of outer-all-one/inner-all-zero therefore has 2A+B>=2n and A+2B<=n. Together they force B=0, A=n. The target is itself fixed by the two same-layer neighbors and complementation commutes with the rule, giving two singleton basins in the entire stated family. For the Dürer census I independently evaluated all 4096 states using pairwise bitwise majority and a fresh first-repeat trace for every start. The sorted cycle suffix uniquely identifies each temporal attractor, grouping both phases of each two-cycle. This reproduced all 15 basin sizes with their multiplicities, the complete entry histogram by period, two consensus basins of 736, and precisely the singleton states 63 and 4032. The witness trajectory 79,263,70,257,64,0 first becomes periodic at update five; at time four it is not periodic, so F^6=F^4 fails while F^7=F^5 holds. Only inner vertices lie on triangles, so the two layers are invariant under automorphisms; every symmetry of the outer cycle extends, and the spokes force its unique extension. The independent quotient computation gave 7 fixed and 31 two-cycle classes and Burnside sums 84 and 372.",
+      "residual_risks": [
+        "The full tables are exact for this labelled graph and synchronous open-neighbor rule, not for arbitrary GP(n,k). Only the isolation lemma generalizes here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite majority theory gives period at most two and a bound by the number of edges as stated in the local certification paper. On this graph that bound is 18.",
+          "Benjamini et al. give an almost-sure period bound under their graph/invariance assumptions."
+        ],
+        "reasoning": "Neither general bound fixes the sharp transient of five or gives individual functional-graph components, predecessor fibers, or the orbit quotient. The new computation does not reclaim eventual period at most two.",
+        "searches": [
+          "arXiv:2309.01852, PDF pp. 2–3",
+          "arXiv:1405.2486v1, Theorem 1",
+          "10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-graph recurrent tables, closest graph/rule analogues and self-match above",
+        "arXiv:2309.01852 and arXiv:1405.2486v1",
+        "10.1016/0012-365X(80)90121-1 and IAS perfect-2-coloring full-text access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recurrent count papers restrict to configurations already satisfying F(x)=x or F^2(x)=x.",
+          "The perfect-coloring literature is a plausible match for identifying fixed layer colorings; the indexed description concerns admissible parameter matrices, and the primary full text was inaccessible."
+        ],
+        "reasoning": "A two-color partition with one opposite and two same-color neighbors identifies a fixed point but does not itself rule out nonfixed preimages. The summed predecessor inequalities give precisely that missing property on every stated graph. Similarly, aggregate recurrent counts and a coarse upper bound do not mechanically determine the basin spectrum or the sharp entry histogram.",
+        "searches": [
+          "Prior recurrent-count Findings and scope above",
+          "Perfect 2-colorings of the generalized Petersen graph, IAS 126/03/0289-0294",
+          "arXiv:2309.01852, general convergence bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Dürer record is the identical frozen record. The other basin censuses concern GP(10,2), GP(10,3), or ternary plurality on GP(5,1)/GP(5,2).",
+          "The Dürer LCF and GP(6,2) descriptions name the same graph, as verified by the explicit bijection in the frozen checker."
+        ],
+        "reasoning": "One must look for the same labelled census under either Dürer or GP(6,2) names; the compared other graphs have different orders/layers and no such isomorphism, and the ternary update and state set are not the specified binary system. Similar method does not imply the data.",
+        "searches": [
+          "Resultary: assigned Dürer exact self-match; 2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+          "2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff",
+          "2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A prior all-size recurrent census directly lists 14 fixed points and 184 two-cycle orbits for GP(6,2); a separate fixed-point theorem also gives 14. The former explicitly excludes basins and entry times, the latter covers fixed points only."
+        ],
+        "reasoning": "Credit prior exact coverage of the recurrent counts. Those counts sum roots/cycles, not the numbers of configurations flowing to each, or the automorphism action on those orbits. No separate exact Dürer basin/entry table was found in the material examined.",
+        "searches": [
+          "2026/11/17/SCOPE-an-equilibrium-oscillation-entropy-reversal-on-generalized-peter--e1d2b1ea8d39, Finding/table and Limitations",
+          "2026/11/17/SCOPE-ninth-degree-spin-sectors-and-an-entropy-gap-in-majority-dynamic--81296e8da636, Finding and scope"
+        ]
+      },
+      "rationale": "The closest indexed prior theorem includes the exact recurrent population on the identical graph and expressly excludes the basin and transient questions. Those recurrent totals are context, not a contribution under review. Other records classify basins on different generalized Petersen graphs or with different state alphabets. The isolation proof gives uniqueness of the predecessor, not just a new way to identify an already-known polarized fixed point.",
+      "residual_risks": [
+        "A separate unindexed census or a stronger theorem about preimages of perfect colorings may exist; the perfect-coloring primary article and original Goles–Olivos paper were not read in full. Unrelated or deferred search queries were not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit recurring-population coverage; explicitly not basins/transients",
+          "evidence": "Lists 14 and 184 at n=6; limitations restrict coverage to states already on recurrent orbits.",
+          "identifier_or_url": "2026/11/17/SCOPE-an-equilibrium-oscillation-entropy-reversal-on-generalized-peter--e1d2b1ea8d39",
+          "material_read": "Local RESULT.md Finding/table offsets 0–3385 and Limitations 9684–11445; VERIFICATION.md 0–2137",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An equilibrium–oscillation entropy reversal on generalized Petersen graphs",
+          "trigger": "Exact table for the same graph and majority process"
+        },
+        {
+          "assessment": "Stronger within the fixed-state count only",
+          "evidence": "All-n fixed-state formula includes 14 at n=6, and scope excludes periodic and transient dynamics.",
+          "identifier_or_url": "2026/11/17/SCOPE-ninth-degree-spin-sectors-and-an-entropy-gap-in-majority-dynamic--81296e8da636",
+          "material_read": "Local RESULT.md Finding offsets 0–3805 and scope near 2434",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Ninth-degree spin sectors and an entropy gap in majority dynamics on generalized Petersen graphs",
+          "trigger": "Potential broader same-family enumeration"
+        },
+        {
+          "assessment": "Invariants coincide in type, not in graph or coverage",
+          "evidence": "Complete basins on GP(10,2) and GP(10,3); Petersen discussion concerns GP(5,2), not GP(6,2).",
+          "identifier_or_url": "2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea; 2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff",
+          "material_read": "Dodecahedral RESULT.md offsets 0–3238 and 8237–10015; Petersen/Desargues Finding and assumptions 0–2596",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census; A four-step Petersen majority projection and the Desargues double cover",
+          "trigger": "Closest comparable exact majority censuses on generalized Petersen graphs"
+        },
+        {
+          "assessment": "Non-covering for graph and rule, independently of any priority order",
+          "evidence": "Binary recurrent comparison at GP(5,1), GP(5,2); the basin classification there is ternary.",
+          "identifier_or_url": "2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d",
+          "material_read": "Local RESULT.md Finding offsets 0–2300",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Distinct same-day adjacent majority/plurality record"
+        },
+        {
+          "assessment": "Generic convergence/period control, no sharp Dürer census",
+          "evidence": "Period at most two and a finite bound by edges are known; the second paper's relevant theorem concerns almost-sure eventual period under transitivity and invariance hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.01852; https://arxiv.org/pdf/1405.2486v1",
+          "material_read": "First paper's introduction pp. 2–3, text offsets 6800–9287; second paper's Theorem 1 p. 3, offsets 6950–9437",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Local Certification of Majority Dynamics; Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "Broader potential convergence and duration theorems"
+        },
+        {
+          "assessment": "Potential fixed-coloring overlap; sole-predecessor scope unresolved",
+          "evidence": "Index describes parameter-matrix enumeration; no available decisive passage for predecessor uniqueness.",
+          "identifier_or_url": "https://www.ias.ac.in/article/fulltext/pmsc/126/03/0289-0294",
+          "material_read": "Indexed description only; no independent primary full text",
+          "method": "Primary search result and bounded OA attempts returning HTTP 403",
+          "title": "Perfect 2-colorings of the generalized Petersen graph",
+          "trigger": "Possible prior layer-coloring characterization for GP(n,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and proofs; independent all-state census",
+        "Published same-family recurrence tables and general convergence bound above"
+      ],
+      "rationale": "This supplies precise basin and transient reference data for a named cubic graph in an already studied majority-dynamics family. The exact populations distinguish recurrent abundance from its dynamical reach, and the sharp fixed-only final entry layer is information not present in a period bound. The matching-spoke isolation argument also identifies recurrent states that cannot be reached from any other start, for a natural whole family rather than just the instance audited.",
+      "residual_risks": [
+        "The finite census does not explain general basin-size asymptotics across the family; the structural conclusion concerns the two polarized states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

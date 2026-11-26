@@ -1,19 +1,21 @@
-# Review of Third- and fourth-order resonance laws detect switching in integer expanding circle maps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every choice of integer slopes at least two and every length \(n\ge1\) is covered by a complete signed-frequency classification. The single-frequency and two-pair baseline terms, the local tripling and consecutive-doubling resonances, and the impossibility of other low-degree collisions are each proved in `RESULT.md`. The run-count argument proves attainability of every inverse-grid point. The actual `checks/verify_moments.py` independently evaluated finite Fourier coefficients using rational arithmetic: 2,297 complete moment comparisons and 66 small-length complete inverse-spectrum checks passed. These diagnostics are finite; they are not presented as a substitute for the all-\(n\) proof.
+PASS
 
-## Originality — PASS, with priority risk
+Lebesgue integration selects signed frequency sums equal to zero, with weight 2^(-k) for k cosine factors. Growth by integer factors at least two implies that a unique largest term in a cancellation with at most four factors must be the sum of all the smaller terms with the same sign: even the two largest smaller frequencies together are at most the largest, and any subtraction makes the inequality strict. With three factors this gives two equal half-frequencies, necessarily an adjacent doubling. With four factors, three equal smaller frequencies give an adjacent tripling, with four permutations and weight 1/8 per product. Exactly two equal smaller ones require the repeated smaller frequency to be half the larger smaller frequency, and that one half the largest: for u<v<w one needs w=2u+v, since w=u+2v would contradict integer divisibility. With four distinct frequencies the three smaller sum to at most 7/4 times the second largest, never the largest. If the largest repeats, only pair cancellations survive except the all-equal case already counted. The single-frequency and two-pair baselines give 3n²/4−3n/8, and consecutive doublings contribute twelve permutations at weight 1/8. Third and fourth cumulants then give the switch counts as stated. At fixed m>0 and L=n−1, A=m−r for r nonempty runs, and every r from 1 to min(m,L−m+1) is realized by separating runs with tripling switches and placing surplus symbols arbitrarily. The case m=0, including n=1, is the singleton range. The annealed cumulant averages the conditional one here because both the conditional mean and variance are constant. No full word reconstruction or noisy estimability follows.
 
-The most direct prior method, Aistleitner–Berkes–Tichy (arXiv:2301.05561, Section 3), derives moments from signed Diophantine frequencies and explicitly identifies dyadic triple resonance; this method and principle are established prior work. Suzuki (arXiv:2303.17521, primarily 37E05) concerns random beta-map invariant densities. Prochno–Strzelecka (arXiv:2312.09137) prove asymptotic moderate deviations by cumulant estimates. Aimino–Nicol–Vaienti (arXiv:1310.4359, Example 7.3) prove quenched CLTs for random integer multiplication maps. Published published-finding corpus findings c097279b5a2a (annealed asymptotic variance rigidity) and d5c688b954c6 (pair-correlation variance) were checked in full public RESULT text. None of these inspected claims computes both arbitrary-word exact low moments and a sharp complete inverse attainable spectrum. An uncatalogued elementary equivalent enumeration remains a genuine priority risk; unsuccessful searching does not prove global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first and second moments are invariant under every integer multiplier sequence, whereas the third/fourth moments identify the exact number and temporal clustering of minimal expansion choices. The sharp no-gap range for all binary schedules and counts is a natural completed invariant: it provides a quantitative finite-time diagnostic between Gaussian-scale universality and arithmetic resonances without requiring broad asymptotic claims. It does not reconstruct entire words or guarantee identifiability from empirical observations.
+Exact constant-base cases are prior: Aistleitner–Gantert–Kabluchko–Prochno–Ramanan give the same finite dyadic third and fourth cumulants outright, the tripling fourth-cumulant correction in the proof of Theorem B(iv), and independent-arcsine moments through order q at fixed base q. Do not credit those coefficients or the Fourier zero-sum method as new. The surviving distinct claim is the full finite classification under arbitrary integer-product switching, including isolation of which adjacent doubling pairs contribute and exact inference and attainability for nonconstant binary schedules. The inspected literature or catalogue entries do not resolve that classification for arbitrary prescribed mixed products.
 
-## Scientific boundaries
+## value
 
-All expectations in the deterministic-schedule theorem are over Lebesgue-uniform initial points. The independent-schedule formulas are an explicitly separate annealed corollary; they should not be confused with a quenched central-limit statement. Other observables, noninteger slopes, and noisy finite-sample inference are unproved. Classical Fourier orthogonality and signed-frequency combinatorics are not credited as new. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural first Fourier observable has a variance blind to all schedules; this calculation quantifies exactly which first non-Gaussian statistics detect local switch order, and which values are attainable at a fixed slope count. For example the schedules (2,2,3) and (2,3,2) have equal mean, variance and third moment, but their fourth cumulants differ by 3/2. A fixed-base table cannot answer that comparison. The inference is explicitly limited to two exact aggregate statistics, not full reconstruction or sample-efficient detection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

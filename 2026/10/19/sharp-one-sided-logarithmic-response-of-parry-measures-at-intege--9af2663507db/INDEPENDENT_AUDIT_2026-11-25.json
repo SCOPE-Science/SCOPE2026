@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:40:23.008416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–36 and 40–125; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent bounded Decimal Parry-series check at b=2: normalized (mean difference, probability TV) about (−0.32549, 0.56789) for ε=10^−8 and (−0.34038, 0.62033) for ε=10^−14; analytic limits are (−0.36067, 0.72135) to these digits."
+      ],
+      "rationale": "The Parry series normalized by its integral is invariant: applying the transfer operator to each initial interval and telescoping the digits recovers the series, including when the orbit terminates. Subtracting its nonnegative defect vβ from Sβ=β/(β−1) gives the signed density (dβ−vβ)/(Sβ−dβ), where dβ=∫vβ. To check the exact digit cutoff, let Dₙ=ε(βⁿ−1)/(β−1) be the candidate endpoint defect. Given aₙ₋₁=1−Dₙ₋₁ on the maximal-digit block, βaₙ₋₁=b−Dₙ. Thus the digit at the preceding step n−1 is b−1 exactly when Dₙ≤1 (Dₙ>0); equality yields aₙ=0 and is correctly included. Equivalently Dₙ₋₁≤(1−ε)/β, so there is no index discrepancy. The maximal block has length floor(logβ(1+(β−1)/ε)); β^(−m)=O_b(ε), and its contribution to dβ is ε/(β−1) times ∑ₙ₌₁ᵐ(1−β^(−n)), with all later contributions O_b(ε). Hence dβ~ε log(1/ε)/[(b−1)log b]. On any [0,1−η] the terms present have Dₙ≥η or lie in the tail, giving vβ=O_{b,η}(ε) there. Nonnegativity and the mass asymptotic imply a concentrated endpoint measure in the scaling limit, and Sβ−dβ→b/(b−1). Probability TV is the positive-part integral of the signed density, bounded above by dβ/(Sβ−dβ); its lower bound over [0,1−η] is asymptotically at least 1−η times that upper bound. Let η tend to zero. Testing the weak limit with x gives the stated mean coefficient and sign.",
+      "residual_risks": [
+        "Weak convergence on compact [0,1] is not TV convergence of the rescaled measures; the probability TV coefficient is half the full L¹ density difference coefficient. The finite checks are corroboration only; no formal or expert certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baladi reports a Keller logarithmic L¹ modulus in the unimodal setting and logarithmic-sequence obstructions for some observables; the regular response theorem is for horizontal directions.",
+          "Keller–Howard–Klages §4.2 treats transport coefficients of integer-slope circle coverings rather than the acip parameter response of Tβ. Góra's potentially relevant full text was not obtained."
+        ],
+        "reasoning": "Order estimates and nonresponse examples do not identify the constant, weak signed limit, or full one-sided asymptotic along this parameter family. Transport of observables by circle coverings with Lebesgue invariant is a different target.",
+        "searches": [
+          "Baladi arXiv:1408.2937 §4.1, Theorems 4.1 and 4.3",
+          "Keller–Howard–Klages arXiv:0801.2413 §4.2",
+          "Góra DOI 10.1017/S0143385707000053"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 00439be8715b",
+        "arXiv:1408.2937 §4.1",
+        "arXiv:0801.2413 §4.2",
+        "Frozen transfer-operator derivation of Parry's series",
+        "Access attempt for DOI:10.1017/S0143385707000053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The density series alone has no uniform long maximal-digit count or quantitative endpoint localization; these follow here from the exact recurrence and O(ε) control of the arbitrary tail.",
+          "The broader logarithmic modulus or a lower bound along a sequence cannot yield the sharp all-ε coefficient or distinguish probability-TV and weak convergence."
+        ],
+        "reasoning": "The proof extracts additional orbit information and a sign-concentrated measure from the classical density. The parallel mechanism in the double-base theorem does not give the needed orbit identity for the single-base path.",
+        "searches": [
+          "Classical Parry density identity, independently derived in frozen RESULT.md lines 40–49",
+          "Baladi arXiv:1408.2937 §4.1 pp. 11–13",
+          "Resultary 00439be8715b Finding and critical-prefix proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 00439be8715b has a one-sided signed ε log(1/ε) coefficient C_B(μ₀−δ_M), matched probability TV and mean, and a maximal-prefix/endpoint localization proof, but for the two-base family with B fixed and q=B/(B−1)−ε.",
+          "Baladi discusses postcritical density jumps and horizontal versus nonhorizontal response in a piecewise expanding unimodal setting."
+        ],
+        "reasoning": "In the indexed two-base path the changing branch parameter is q and the other base stays fixed; the frozen theorem changes the common slope of all greedy branches. Unimodal saltus formulas supply an analogy, not an equivalent family and coefficient.",
+        "searches": [
+          "Resultary logarithmic response, Parry measure, maximal-digit block, greedy integer-base limits and endpoint atom",
+          "arXiv:1408.2937 §4.1, postcritical jumps and saltus response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact Resultary law 00439be8715b gives constants for another map. Search also surfaced a random-β invariant-measure paper and Brown–Yin on natural extension, not an inspected exact deterministic response law."
+        ],
+        "reasoning": "This is an all-integer symbolic leading term, not an empirical table. No exact symbolic match was established by the indexed comparison; the web hit list is not negative full-text evidence.",
+        "searches": [
+          "Resultary queries for Parry signed coefficient, probability TV, mean and one-sided integer response",
+          "Primary-literature web lookup on greedy β-transformation integer-base invariant-measure response"
+        ]
+      },
+      "rationale": "The invariant-density formula and general logarithmic stability or failure of linear response are prior knowledge. The supported distinct claim is the explicit signed leading coefficient for every integer approached from below, with the matching sharp probability-TV asymptotic. The closest Resultary statement has the same structural response and proof device for a different double-base map and path; it does not specialize to the single-slope greedy β family here.",
+      "residual_risks": [
+        "The Góra primary text, Keller's original stability paper and Brown–Yin full text were not inspected. The result is distinct to the best of the bounded evidence, not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural and proof overlap, different map and constants; no implication to the frozen family",
+          "evidence": [
+            "Fixed B and q approaching B/(B−1) from below, on [0,M]; response C_B(μ₀−δ_M). The catalogue date is not used as a novelty decision."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-logarithmic-boundary-response-for-greedy-double-base-invar--00439be8715b/RESULT.md",
+          "material_read": "Finding, setup and critical-prefix/localization argument, local-mirror offsets 0–3766 and 3800–7454",
+          "method": "Local Resultary mirror exact record",
+          "title": "Sharp logarithmic boundary response for greedy double-base invariant measures",
+          "trigger": "Closest exact indexed signed-response, TV and mean law"
+        },
+        {
+          "assessment": "Provides relevant logarithmic-scale and saltus precedents, not this exact one-sided greedy response",
+          "evidence": [
+            "The unimodal results include L¹ order control and some subsequential logarithmic lower behavior, not the all-integer normalized limit. Keller's 1982 primary paper was not inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2937",
+          "material_read": "§4.1 pp. 11–13, Theorems 4.1 and 4.3, offsets 32685–36797 and 37700–41805; Keller citation p. 20",
+          "method": "OA primary PDF passages for the stated response results and review exposition for Keller's estimate",
+          "title": "Linear Response, Or Else",
+          "trigger": "General logarithmic stability and moving critical-orbit jump aliases"
+        },
+        {
+          "assessment": "Different coefficient and model",
+          "evidence": [
+            "Integer-slope circle coverings with Lebesgue invariant; transport/diffusion coefficients, not variation of the greedy invariant density toward an integer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.2413",
+          "material_read": "§4.2 p. 10, OA offsets 35200–40169",
+          "method": "OA primary PDF passage",
+          "title": "Continuity properties of transport coefficients in simple maps",
+          "trigger": "Integer-slope piecewise expanding maps and sharp continuity"
+        },
+        {
+          "assessment": "Unresolved access risk; no inference that it lacks the claim",
+          "evidence": [
+            "The cited source is a plausible generalization of the invariant-density setting, but no statement-level evidence of the asymptotic was obtained from it."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0143385707000053",
+          "material_read": "Bibliographic record only; no readable primary full text retrieved",
+          "method": "OA direct and VPN attempts; no identified open repository copy",
+          "title": "Invariant densities for generalized β-maps",
+          "trigger": "Potential exact or broader β-density statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and defect/localization proof",
+        "Baladi arXiv:1408.2937 §4.1 for comparison with order-only results"
+      ],
+      "rationale": "The one-sided perturbation of a classical greedy expanding map at a full-branch integer base is a natural response problem. The sharp scale, signed endpoint term, and explicit coefficient determine which observables have nonzero leading response and how strongly the invariant law moves in probability TV. This is useful information beyond an order bound or a failure of differentiability for one observable.",
+      "residual_risks": [
+        "No right-side response, noninteger parameter regularity, random transformation result or conclusion about any varying choice of test functions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

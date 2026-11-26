@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivative of an increasing Lipschitz function identifies its minimum secant slope with its essential infimum. If that slope is attained, differentiation and nonnegative integral equality force a constant-derivative interval. The lower bound follows from comparing that plateau with the global essential infimum and the smallest interval essential supremum of the reference derivative. The matching construction clips the derivative outside one chosen interval and makes it exactly constant within. A distinct construction subtracts a constant slope just above the lower derivative bound, creating opposite derivative signs and hence a repeated value. The fat-Cantor example uses only positive measure and nowhere density, with the nonattainment boundary proved separately. No computational certificate is required.
+PASS
 
-## Originality — PASS, with priority qualification
+For normalized interval maps the norm is the essential supremum of the derivative. An increasing injective attainer must have positive minimum slope c, equal to the essential infimum of its derivative, and constant derivative c on its attaining interval. A perturbation of norm δ then satisfies c ≤ a+δ and h(f) ≤ c+δ; decreasing competitors cost at least b. For any δ>(h−a)/2, putting slope a+δ on a suitable interval and clipping slopes below a+δ elsewhere meets the bound and attains the minimum. Below distance a all competitors are strictly increasing. When h>3a, subtracting a slope just above a yields derivatives of both signs and hence a repeated value, attaining zero minimum slope. For the two-speed example, positive measure of F and relative openness and density of its complement give a and h=b. The midpoint affine slope realizes the bound for b≤3a, including equality; for b>3a every competitor within distance a is increasing strictly, has minimum slope at most 2a, and has slopes exceeding 2a on a positive-measure subset of every interval, so no interval attains that minimum.
 
-The closest identified preprint is Choi (arXiv:2609.11080, 2026-09-10), whose accessible abstract establishes a qualitative density characterization; the present quantitative derivative-envelope distance and exact best-approximation existence transition are stronger conclusions not logically implied by the qualitative theorem. The available detailed synopsis describes measure splitting and zero-minimum approximations but no numerical distance identity. Searches of published mathematical records for the exact functional and its alternate formulations returned related Lipschitz-free norm-attainment and discrete pointwise attainment results, not an implication of this claim. The complete Choi preprint could not be read through the available public or authorized routes; an uninspected quantitative lemma is a genuine residual priority risk, not a negative search certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines, for all increasing scalar bi-Lipschitz interval maps, the actual metric distance to a nonclosed nonlinear attainment class and separates two geometrically distinct approximation mechanisms. The two-speed positive-measure nowhere-dense example has an exact phase transition at the speed ratio three between existence and nonexistence of nearest approximants. It quantifies the non-density question without simply restating it or relying on a narrow numerical instance.
+The exact pointwise distances and attained/unattained boundary survive comparison with Choi's qualitative density theorem and quantitative two-level witness. The witness is antecedent to the example's construction, not to its exact distances or transition.
 
-## Scope and references
+## value
 
-The formula does not assert results for vector-valued maps, arbitrary subsets of the real line, or other metric spaces. Its only first-public source date is that of Choi, *A bi-Lipschitz characterization of strong minimum-attainment for Lipschitz maps*, arXiv:2609.11080 (2026-09-10). The proof is self-contained apart from standard real analysis. Specialist and full-text priority verification remain desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The derivative envelope computes the individual approximation radius behind an existing qualitative non-density result. Separating injective approximation from collision-based approximation explains which mechanism sets the radius. The two-speed example gives a sharp and inclusive threshold for the existence of a best map, not just another obstruction to density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

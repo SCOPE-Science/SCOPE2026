@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:04:44.676862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–80; independent determinantal-divisor, tensor, modular-rank and generator-count derivation",
+        "VERIFICATION.md lines 21–25 and verify_gcd_snf.py, including lines 104–117 and 159–161; supplied finite tests inspected, not executed"
+      ],
+      "rationale": "Let a=p−1. Expanding a proper r-minor of aI+J by columns uses at most one J-column in any nonzero term and gives divisibility by a^(r−1). Taking rows 0,…,r−1 and columns 1,…,r and subtracting the unmatched row realizes exactly ±a^(r−1), including r=1. The full determinant is a^(p−1)(a+p), so the consecutive determinantal-divisor ratios are precisely the claimed local multiset, including {1,3} at p=2. CRT factors the numerical gcd of the difference for squarefree N, making the matrix the Kronecker product after reindexing. Both tensor products of the local Smith transformations are unimodular by tensoring their integral inverses. Thus the product entries form an integer diagonal presentation; sorting valuations separately and aligning equal positions is the structure theorem over each prime and then CRT, not a sort of the unsplit integer entries. The determinant formula also follows from the positive prime-factor determinants and the tensor determinant identity. For modulo ell, if a vanishes the local matrix is J, of rank one; otherwise a times the identity plus a rank-one perturbation has kernel at most one-dimensional, and its determinant vanishes exactly if ell divides 2p−1. This includes ell=p without any eigenspace decomposition assumption. Tensor ranks multiply. The generator number is the maximum dimension of the cokernel modulo a prime. The minimum total rank is one at ell=2 for odd N, and at most two for even N by ell=2. For even N rank one forces ell=3 by the factor at p=2, and every odd local factor then has rank one exactly for p≡1 mod 3. Otherwise ell=3 has a factor of rank at least three, and ell=2 is a minimizer. N=2 is the separate one-generator case. This proves the all-N statements directly without extrapolating numerical samples.",
+      "residual_risks": [
+        "The analytic proof concerns squarefree N; recorded determinant/minor checks and optional Smith replays are examples only. No extension to arbitrary prime powers is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first nearby result gives the entire SNF at odd prime-square order for the power kernel, specializing to the numerical kernel at a=1. The second covers all prime-power depths and p=2 but gives only the exponent and defining-prime rank, not the complete form.",
+          "The prime-square size is outside the squarefree family. The prime-power theorem meets the squarefree hypothesis only at k=1."
+        ],
+        "reasoning": "Larger depth or a more general kernel parameter in these statements does not dominate squarefree moduli with multiple distinct prime factors; the cases must be compared according to both the underlying ring and which invariants are determined.",
+        "searches": [
+          "Resultary …--6bac5dc6cda2 and …--47e5f01be76b, Findings and hypotheses",
+          "Sander–Sander arXiv:1112.3205 and 1205.4603"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 77–91",
+        "Resultary and OA passages listed above",
+        "Sander–Sander arXiv:1112.3205 and 1205.4603, abstracts, p.1",
+        "Resultary Ramanujan circulant and Gram Findings …--0bffd4ff77aa and …--1831f22124b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=1 the exponent formula reduces exactly to (p−1)(2p−1), the largest local invariant here. The rank at the defining prime is p, also in agreement. The prime-square block theorem uses an extra same-residue modulation not present in the squarefree prime factors.",
+          "The cited graph-energy and arithmetic determinant results give spectral or determinant information, not a generator classification involving modular ranks across all primes for a composite order."
+        ],
+        "reasoning": "The overlapped prime-order data do not, as stated, give all integral factors for multi-prime order. The elementary prime calculation is an ingredient; the global tensor alignment and minimizing rank at the common residue prime are what produce the new classification and the modulo-three generator distinction. No dominating specific result implying both global claims was identified.",
+        "searches": [
+          "…--47e5f01be76b, Finding and projection calculation at mirror offset 0–2587",
+          "…--6bac5dc6cda2, Finding and block-kernel proof at offset 0–2549"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sander–Sander graph spectra concern 0–1 adjacency defined by a set of admissible gcds, not the matrix of the numerical gcds with diagonal N.",
+          "Hong–Lin define G_(m,n) using gcd(i,j) on integers, which is not a cyclic difference kernel. The prime-power Resultary findings do concern the same cyclic kernel for their stated moduli."
+        ],
+        "reasoning": "The graph adjacency and ordinary GCD-matrix names can be mistaken for the target; their matrices and invariants are not equivalent. In contrast the two prime-power comparisons are exact same-kernel comparisons, subject to their order and invariant restrictions.",
+        "searches": [
+          "Resultary cyclic GCD matrix Smith, squarefree numerical gcd difference and gcd kernel circulants",
+          "Primary query: Smith normal form invariant factors circulant gcd difference cyclic gcd matrix gcd(i-j,n) numerical gcd squarefree determinant CRT Ramanujan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local catalogue match is the assigned record itself. Nearby Resultary forms concern c_n(i−j) or a divisor-indexed Ramanujan Gram matrix, not the numerical gcd(i−j,N).",
+          "Schlage-Puchta's C_n is indexed by divisors and contains Ramanujan sums; Theorem 1 gives its determinant, not a cyclic numerical-GCD Smith table."
+        ],
+        "reasoning": "The exact invariant tables inspected count for their own objects only; neither different kernels nor an identical-record hit give distinct exact coverage. The all-squarefree conclusion is a formula, not just a finite table of sample orders.",
+        "searches": [
+          "Resultary exact squarefree Smith factors and generator formula; same-day target self-hit and two adjacent prime-power records",
+          "2026/10/25/…--0bffd4ff77aa and 2026/11/8/…--1831f22124b8, Findings",
+          "Schlage-Puchta, DOI 10.1007/s00013-021-01643-8, Theorem 1"
+        ]
+      },
+      "rationale": "The supported contribution is the whole squarefree numerical-GCD circulant classification, with the sharp arithmetic generator-count dichotomy at composite even orders. Local rank-one Smith arguments, CRT, tensor operations and invariant-factor alignment are classical. The closest exact matches address the same cyclic kernel at prime-power order, with demonstrable overlap on the largest factor at prime order; the compared results do not state the full invariant alignment at general squarefree order or the global generator dichotomy. The ordinary divisor-indexed or index-pair GCD and Ramanujan determinants are different matrices.",
+      "residual_risks": [
+        "The bounded comparison does not establish global historical priority; older work on arithmetic circulants or tensor decompositions could contain an unindexed equivalent statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but at nonsquarefree modulus p²; no priority inference",
+          "evidence": "SNF concerns entries gcd(x−y,p²)^a on all p² classes and assumes odd p.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-smith-factors-of-cyclic-power-gcd-matrices-at-odd-prime--6bac5dc6cda2",
+          "material_read": "Finding, scope and opening proof, mirror offset 0–2549",
+          "method": "Resultary and local mirror",
+          "title": "Complete Smith factors of cyclic power-GCD matrices at odd prime-square order",
+          "trigger": "Identical kernel at exponent one and same-day full Smith calculation"
+        },
+        {
+          "assessment": "Overlap at k=1 for the exponent and defining-prime rank, not a classification of all squarefree invariant factors",
+          "evidence": "The displayed exponent reduces to (p−1)(2p−1) at k=1, and scope explicitly excludes determining all intermediate factors.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-cokernel-exponent-of-prime-power-cyclic-gcd-matrices--47e5f01be76b",
+          "material_read": "Finding, scope and projection proof, mirror offset 0–2587",
+          "method": "Resultary and local mirror",
+          "title": "The exact cokernel exponent of prime-power cyclic GCD matrices",
+          "trigger": "Same exact numerical GCD kernel, including prime orders in the target"
+        },
+        {
+          "assessment": "Different kernel, index set, and invariant",
+          "evidence": "Defines C_n=(c(d,t)) on pairs of divisors; the theorem evaluates det C_n.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-021-01643-8",
+          "material_read": "Abstract and Theorem 1 with Cayley-graph context, pp.379–380 (PDF offset 1025–2730 for main statement)",
+          "method": "OA paper",
+          "title": "A determinant involving Ramanujan sums and So’s conjecture",
+          "trigger": "Arithmetic matrix determinant and integral circulant connection"
+        },
+        {
+          "assessment": "Different GCD matrix",
+          "evidence": "The entry is gcd(i,j) with indices in an integer interval, not gcd(i−j,N) on a complete residue ring.",
+          "identifier_or_url": "https://doi.org/10.5486/PMD.2018.8139",
+          "material_read": "Abstract and matrix definition, p.171 (PDF offset 0–1644)",
+          "method": "OA journal copy",
+          "title": "New results on the value of a certain arithmetical determinant",
+          "trigger": "Potential confusion with classical GCD matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–46 and 59–75",
+        "Independent proof and comparison with the prime-power exponent and prime-square Smith findings"
+      ],
+      "rationale": "The numerical GCD difference kernel is a natural arithmetic convolution on a cyclic group. The output gives its complete finite integral cokernel uniformly, retaining mixed-prime information not supplied by a determinant or rational spectrum. In particular the exact generator count distinguishes even squarefree orders according to the residues of all their odd prime factors modulo three. This arithmetic distinction and the complete family prescription are the useful content; the local rank-one Smith calculation alone is routine.",
+      "residual_risks": [
+        "This is specialized to a numerical GCD kernel, not a general Smith algorithm for circulants and not a classification at arbitrary N."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

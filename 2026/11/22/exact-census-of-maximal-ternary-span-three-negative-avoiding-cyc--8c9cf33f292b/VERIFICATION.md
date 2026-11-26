@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction of the exact finite census
+# Independent mathematical audit
 
-From a directory containing all attached files run:
+## correctness
 
-```sh
-python3 graph_enumeration.py
-python3 word_enumeration.py
-```
+PASS
 
-Only the Python 3 standard library is required. Expected outputs are provided in `graph_output.txt` and `word_output.txt` and include asserted final totals. The two algorithms have different enumeration units: \(8192\) complete edge-pair choices, and \(1,594,323\) indexed cyclic words. The directed matrix-tree determinant uses fraction-free integer elimination, and the BEST factor counts circuits modulo cyclic edge rotation. Word enumeration uses direct cyclic windows and a distinct canonicalization routine. Both tests have been run from the extracted package and their complete stdout matched the stored outputs.
+There are thirteen nonzero negation pairs, giving the upper bound; the displayed word attains it. Feasible maximal words correspond bijectively to distinct labeled cyclic edge tours of complete pair selections. A balanced graph with connected active undirected support is strongly connected on that support; loops count toward degrees but cancel from the tree Laplacian. In the BEST formula one can fix a single outgoing edge at the active root, rather than multiply by the root degree. A separately written enumeration fixing the minimum chosen edge and tracing feasible unused-edge paths, without determinants or BEST, exhausted all 8192 selections and reproduced 8120 unbalanced, 12 balanced disconnected, 60 Eulerian and the full tours/degree histograms. It obtained 288 distinct rotation classes, 3744 indexed words (the distinct windows force least period 13), and 72 orbits of size four. Independently, negation cannot preserve a selected edge set. Reversal would require an index reflection of thirteen edge positions, which has only one fixed edge, whereas a full selector contains four palindromic triples. Negated reversal sends each selected palindrome to its forbidden negative. These facts also explain freeness without computation.
 
-The proof of completeness is the explicit equivalence of every maximal negative-avoiding cycle with one of the \(2^{13}\) edge selections and of every indexed word with one of \(3^{13}\) tested tuples. No randomness, external data files, unbounded search, solver certificates or extrapolation are used. The two computations establish only the exact ternary span-three case, not all possible spans or alphabet sizes.
+## originality
+
+PASS
+
+The bound, existence and antinegative Euler subgraph representation are prior. The complete cyclic-tour census, orbit count and selector refinement are not furnished by the strongest inspected sources under equivalent definitions.
+
+## value
+
+PASS
+
+The first ternary three-window optimizer problem asks for all positional cyclic designs achieving the exact distinguishability bound, not a single witness. The counts distinguish the design space, its actual symmetries and how differently eligible balanced supports contribute. The finite cutoff is fixed by the extremal problem; it is not an arbitrary truncation or a claim of practical performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

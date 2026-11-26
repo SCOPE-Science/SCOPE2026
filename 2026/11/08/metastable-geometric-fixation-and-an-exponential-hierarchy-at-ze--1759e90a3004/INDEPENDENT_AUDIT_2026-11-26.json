@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:49:33.528668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen check.py, exact row/holding/occupation checks and finite-horizon diagnostics",
+        "Frozen VERIFICATION.md"
+      ],
+      "rationale": "Counting maps from the n ballots onto j of k active labels yields the stated Stirling kernel; first-step conditioning gives the PGF. Each visited k has one geometric holding block with exit probability a_k at least ((k-1)/k)^n. At entry into {1,2}, the conditional ratio P(k,2)/P(k,1)=(k-1)(2^n-2)/2 gives the shortcut bound uniformly, and the post-entry time from 2 is an independent positive geometric. A deterministic shift u costs exactly 1-(1-q_n)^u in total variation, giving the displayed bound after averaging the entrance delay, including the empty delay for k=2. For fixed k, at first entry into {1,...,k}, the ratio of probabilities below and at k is O_k(((k-1)/k)^n) uniformly over the preceding state, by surjection count bounds. The resulting missing-visit probability changes h_k/a_k by O_k(1). The two-empty-bin term in a_k is O_k(((k-2)/k)^n); the reciprocal correction is bounded since k(k-2)/(k-1)^2<1 (and is zero at k=2). The tail above fixed r is bounded by the first remaining hold-time bound plus n times the next, giving the claimed exponential remainder. These analytic arguments do not rely on extrapolating the checker.",
+      "residual_risks": [
+        "The hierarchy is for fixed r and the all-active start, not growing r or positive reinforcement. No formal proof certification or rerun of the supplied script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weak-reinforcement Finding/Assumptions includes c=0 with equal positive weights, and gives E T_n~2^(n-1) and T_n/2^(n-1) => Exp(1).",
+          "Conclave Definition 1.1 assumes strictly increasing weights and states the fixed power rule for positive exponents."
+        ],
+        "reasoning": "The indexed weak-reinforcement theorem dominates the leading claims but does not retain the residence times at each fixed k>=3. The motivating fixed-exponent theorem is not an endpoint theorem.",
+        "searches": [
+          "Resultary: square-root weak reinforcement, record 538e5bf91609",
+          "arXiv:2607.22324"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 538e5bf91609, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2607.22324",
+        "arXiv:2001.11246v2",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof bounds E tau_2 by n(3/2)^n, controls shortcut to 1, and at c=0 has the same exact binary hazard. It does not estimate the probability of skipping each fixed k or resolve its contribution at the next exponential order."
+        ],
+        "reasoning": "The leading limits and core bottleneck ingredients are covered. The ordered all-r hierarchy with a remainder of strictly lower exponential rate than its last retained term requires additional fixed-level estimates.",
+        "searches": [
+          "Weak-reinforcement record 538e5bf91609, proof §§1–2, 5",
+          "arXiv:2607.22324, model and ancestry comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-population ancestry uses (n)_j S(k,j)/n^k with k lineages, not (k)_j S(n,j)/k^n with n ballots; the binary hazards are respectively 1/n and 2^(1-n).",
+          "Cancrini–Posta retains a fixed bin set and reallocates only removed balls, unlike permanent survivor losses and resampling all ballots."
+        ],
+        "reasoning": "Matching one-round occupancy at k=n is not a chain equivalence; neither of these formulations gives the endpoint hierarchy.",
+        "searches": [
+          "arXiv:2607.22324, Definition 1.1 and Wright–Fisher discussion",
+          "arXiv:2001.11246v2, opening model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both the target itself and the distinct weak-reinforcement record were located. The latter specifies the identical initial model at c=0 but states only leading behavior and estimates for entry into the two-label region."
+        ],
+        "reasoning": "Do not count self-indexing as another source or infer priority from indexing. The distinct record is positive evidence of partial coverage, not an independent source of the exact hierarchy.",
+        "searches": [
+          "Resultary searches for survivor-only zero-reinforcement fixation and weak-reinforcement conclave",
+          "Targeted literature lookup on survivor-only occupancy/fixation"
+        ]
+      },
+      "rationale": "Credit is for the quantitative full-process comparison and especially the complete subleading fixed-level expectation hierarchy, not the Stirling kernel, binary metastable mechanism, leading expectation, or scaled exponential limit. The strongest matching indexed theorem explicitly includes the same zero-reinforcement endpoint and those leading conclusions. Its initial-contraction and two-label estimates are close predecessors (and readily recover a geometric comparison in this specialization); they do not give the frozen explicit uniform bound or the hierarchy of contributions from all fixed higher survivor levels.",
+      "residual_risks": [
+        "No claim of priority for the shared leading results or classical occupancy count.",
+        "The bounded search does not exclude a less visible theorem on iterative occupancy with permanently shrinking support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading conclusions and bottleneck mechanism, not the full subleading hierarchy",
+          "evidence": "Explicit c=0 definition; both leading limits; pre-two-label time bound and strong-Markov argument in proof.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-square-root-weak-reinforcement-shifts-the-metastable-consensus-c--538e5bf91609/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2 and §5; local-mirror offsets 0, 2900, 6721",
+          "method": "Bounded reads of the original record via local mirror",
+          "title": "Square-root weak reinforcement shifts the metastable consensus clock",
+          "trigger": "Exact endpoint match inside a larger parameter family"
+        },
+        {
+          "assessment": "Related, not identical to the target endpoint or to its support chain",
+          "evidence": "Strictly increasing weights; in the ancestry comparison two lineages choose from the same fixed n parents.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22324",
+          "material_read": "Definition 1.1 on PDF p. 1 and Wright–Fisher discussion on p. 5",
+          "method": "OA PDF passages",
+          "title": "The Conclave Process",
+          "trigger": "Motivating process and possible coalescent equivalence"
+        },
+        {
+          "assessment": "Different transition mechanism",
+          "evidence": "Fixed bins and reassignment of the removed balls only.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.11246",
+          "material_read": "Opening model definition, PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "Mixing time for the Repeated Balls into Bins dynamics",
+          "trigger": "Potentially equivalent repeated-occupancy model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–4",
+        "Weak-reinforcement record 538e5bf91609, leading conclusion and proof"
+      ],
+      "rationale": "A leading metastable clock does not determine the transient contribution to the mean. Here each fixed survivor level has a distinct exponential contribution with a controlled remainder at the next rate. The first correction, (3/2)^n/3, is exponentially large in absolute terms and identifies a separate three-survivor timescale; the complete hierarchy makes this quantitative beyond the leading overlap.",
+      "residual_risks": [
+        "Value is specific to this survivor-only endpoint; no analogous positive-exponent hierarchy is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

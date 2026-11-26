@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:11:07.263661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired Hilbert factorization holds in the full real spaces for every injection, including a possible f(a)=0 and the empty word. Prefixes 0^a have disjoint nonempty derivative supports D_a: a common suffix fixes its count of zeros r and then forces a=a' by injectivity. If a prefix already contains a one, a nonzero derivative is supported at precisely one all-ones suffix; the other prefixes have zero columns. Grouping coefficients by these two disjoint types has l1 norm at most the input norm, so the Hilbert input map is contractive. At a suffix at most one coordinate from each family is evaluated, giving output norm at most sqrt(2) times the Hilbert norm. Factorization through a reflexive space implies weak compactness; infinitely many norm-separated Boolean derivatives imply noncompactness and nonregularity. For L_le, fixed j gives eventual zero while fixed i gives eventual one along j. If R were weakly compact at distance delta<1/2, a weakly convergent subsequence of its zero-prefix columns would have limit r with |r(1^j)|<=delta for each j. A free-ultrafilter limit along 1^j is a bounded functional with values at least 1-delta on every such column and thus on r, a contradiction. The midpoint gives the matching upper bound. The prior approximation numbers apply to both nonregular languages. The original general gap is also correct: weak convergence in C(beta J) allows pointwise continuous thresholding and dominated convergence against each regular measure on a common norm bound; Eberlein–Šmulian then gives relative weak compactness of the thresholded column set and Krein's theorem gives that of its closed absolutely convex hull. No finite truncation, numerical assertion or computation is used to prove these infinite statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hristov et al. prove regularity iff norm compactness and give the compact and finite-rank distance and flat approximation-number tail for every nonregular language. Section 8 does not obtain the arbitrary-injection Hilbert factorization.",
+          "The Grothendieck criterion treats all bounded families in C(K) and explains the classical weak-compactness gap and half-graph obstruction; it does not supply the structural factorization here.",
+          "The same-day palindrome result concerns length-weighted complex operators on l2 and Schatten behavior, not the real l1 to l-infinity operators and their factorizations."
+        ],
+        "reasoning": "The universal approximation theorem fully covers both numerical tails. Neither it nor the classical criterion provides the quantitative Hilbert maps; those require the particular derivative support structure.",
+        "searches": [
+          "arXiv:2608.15185v1 §8 Theorems 8.4–8.5",
+          "arXiv:1703.04761v2 p. 1",
+          "Resultary 20474b9d72c9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.04761v2",
+        "arXiv:2608.15185v1",
+        "3c32a2f92305",
+        "20474b9d72c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given delta<1/2, choose a continuous threshold constant 0 on (-infinity,delta] and 1 on [1-delta,infinity). Applying it to weakly compact columns in C(beta J) preserves relative weak compactness by pointwise weak sequential convergence and dominated convergence; the column hull then gives weak compactness of the Boolean operator itself. Together with the midpoint, this implies the general gap.",
+          "A classical half-graph directly gives the order-language obstruction. The Hilbert factorization of L_f uses a new ingredient relative to the inspected sources: the derivative supports for every arbitrary injection split into two disjoint families after collapsing repeated singleton supports, with a uniform bound sqrt(2)."
+        ],
+        "reasoning": "The general gap and the numerical tails are covered consequences and are not retained as originality claims. The example-level conclusion does not follow by applying the prior compactness characterization or the double-limit test alone.",
+        "searches": [
+          "Pillay arXiv:1703.04761v2 statement of Grothendieck Theorem 6",
+          "arXiv:2608.15185v1 §8",
+          "3c32a2f92305 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weak compactness of the Hankel map is equivalent to relative weak compactness of the indicator left-derivative family, by the closed absolutely convex hull of the columns. The half-graph is the classical double-limit obstruction in this formulation.",
+          "The later diagonal-family record treats L_S={0^n1^n:n in S}; it overlaps the identity injection up to the empty-word term, but it is not the arbitrary-injection Hilbert factorization."
+        ],
+        "reasoning": "Compared both the operator-ideal formulation and the equivalent weak compactness test for translates/left derivatives, and distinguished equality of weak compactness conclusions from an explicit Hilbert norm bound.",
+        "searches": [
+          "Resultary: weakly compact language Hankel maps; injective graph languages; weakly almost periodic/stable languages",
+          "arXiv:1703.04761v2 p. 1",
+          "Resultary 3c32a2f92305"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no finite table parameter in the revised theorem: it covers arbitrary injections, possibly not effective. The relevant exact analogue is an indexed formula or factorization. The later diagonal exact example uses c0 and establishes weak compactness/strict singularity on its narrower form; the palette of Schatten thresholds is on a different operator.",
+          "The exact numerical approximation tail is already universal in Theorem 8.5."
+        ],
+        "reasoning": "The strongest concrete indexed example and the exact general formula for the tail were checked in place of a finite table lookup; neither is evidence for a new tail result.",
+        "searches": [
+          "Resultary results for weakly compact nonregular-language Hankel operators",
+          "3c32a2f92305",
+          "20474b9d72c9",
+          "arXiv:2608.15185v1 Theorem 8.5"
+        ]
+      },
+      "rationale": "The frozen general-gap novelty claim does not pass: the midpoint together with classical weak compactness under continuous thresholding and the column hull criterion already yields the exact Boolean half-gap. This is stronger than a mere suspicion of folklore; there need not be a prior paper stating the operator distance verbatim. The repair removes the general gap from the main result and retains the concrete quantitative Hilbert factorization for arbitrary injective graphs. The same-tail comparison provides the motivation; neither the approximation numbers nor the order-language obstruction are claimed as new principles. Within the inspected literature no earlier coverage of the explicit arbitrary-injection factorization and norm bound was identified.",
+      "residual_risks": [
+        "An external targeted query was unavailable; the inspected passages do not rule out an earlier arbitrary-injection example under stable-language or weak almost periodic terminology. Grothendieck's original proof was not retrieved; the precise criterion was read in Pillay's attribution and the gap implication was checked directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical basis for the half-graph obstruction and the resulting weak-compactness calculus, not the arbitrary-injection norm bound",
+          "evidence": "A bounded subset of C(K) is relatively weakly compact iff the two iterated limits are equal whenever both exist; attributed to Grothendieck's Theorem 6.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.04761v2",
+          "material_read": "p. 1, statement of double-limit criterion, OA offset 900",
+          "method": "Read decisive OA passage",
+          "title": "Stability and Grothendieck",
+          "trigger": "Equivalent WAP/stability formulation of the weak-compactness issue"
+        },
+        {
+          "assessment": "Exact tail and compactness classification covered; no arbitrary-injection Hilbert factorization in the inspected section",
+          "evidence": "Regularity, finite rank and compactness are equivalent; any nonregular language has distance 1/2 to compact and finite-rank operators, and a_n=1/2 for n>=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15185v1",
+          "material_read": "§8 pp. 16–20 (OA offsets 46000, 51000, 54430), especially Theorems 8.4–8.5",
+          "method": "Read original definitions and relevant OA theorem passages",
+          "title": "Banach Spaces Generated by Finite-Valued Functions: Superreflexive Rigidity, Hankel Operators, and Universality",
+          "trigger": "Underlying language operator and approximation numbers"
+        },
+        {
+          "assessment": "Partial diagonal overlap, later displayed date and different factorization",
+          "evidence": "For L_S={0^n1^n:n in S} with S infinite, the derivative space is isometric to c0 and the operator is noncompact, weakly compact and strictly singular via a factorization involving c0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-isometric-c-0-structure-and-strictly-singular-weakly-compact-han--3c32a2f92305",
+          "material_read": "RESULT.md Finding and the factorization statement",
+          "method": "Read local-mirror passages",
+          "title": "Isometric c0 structure and strictly singular weakly compact Hankel operators",
+          "trigger": "Concrete weakly compact but noncompact language Hankel family"
+        },
+        {
+          "assessment": "Different domain, codomain, scalar field and invariant; no priority inference from the shared date",
+          "evidence": "Complex length-weighted palindrome matrices act on l2 and are classified by Schatten thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-schatten-thresholds-and-a-weak-endpoint-for-palindromic-la--20474b9d72c9",
+          "material_read": "RESULT.md Finding and operator assumptions",
+          "method": "Read local-mirror statement",
+          "title": "Sharp Schatten thresholds and a weak endpoint for palindromic language operators",
+          "trigger": "Related same-day language-Hankel operator-ideal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves a concrete question after the compact approximation-number theorem: a flat tail for nonregular languages does not decide weak compactness, even when one side is Hilbert-factorable. The positive witness is a uniform factorization for the whole natural injective-graph family, without monotonicity or computability restrictions, not merely an isolated example or a restatement of the shared tail. The familiar order pattern is a comparison witness, not a new general obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

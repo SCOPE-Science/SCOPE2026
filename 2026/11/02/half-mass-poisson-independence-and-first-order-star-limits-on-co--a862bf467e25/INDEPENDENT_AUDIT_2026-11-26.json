@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:00:20.591506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent analytic dependency and Poisson generator check described above"
+      ],
+      "rationale": "With iid vertex colors and an open neighborhood the mean is p_c(2p(S))^d, giving subcritical extinction by Markov. The only dependent distinct centers are at distances one and two. At distance one the other neighbors are disjoint and the centers must satisfy each other's palette constraints; at distance two precisely two open neighbors are shared. Both give the joint upper bound p_c² p(S)^(2d−2), so the displayed normalized variance vanishes for supercritical mass. At criticality use one indicator per (center, palette, color), with dependence neighborhoods the closed center ball of radius two times the types. The product-of-means sum is at most m² D_d 2^(−d). At a common center, different center colors are disjoint; for equal color, distinct palettes give the exact intersection-mass^d term, whose total is at most m²ρ^d. At distinct close centers at least 2d−2 input vertices have palette restrictions of mass at most 1/2, giving the remaining 4m²D_d2^(−d) bound. Each pair of distinct half-mass palettes has intersection mass strictly below 1/2 by positivity. For an independent normalization check of the point-process estimate, solve the Poisson Stein equation with the immigration–death semigroup on the finite index set, using indicator test functions. Its solution has all mixed second differences bounded by ∫0^∞ 2 exp(−2t)dt=1: both inserted particles must survive and the mixed difference of an indicator is at most 2. In the generator identity compare each first difference to the vector with its dependence neighborhood removed; the comparison terms cancel by independence from that indicator, and the two errors are bounded by b1 and b2 (the death term already removes the indicator itself). Thus supremum-event TV is bounded by b1+b2, in particular by the claimed 4(b1+b2), independent of the citation's norm convention. Summing independent Poisson coordinates separately by type contracts TV and gives exact means p_c. Fixed Boolean threshold evaluations then follow by a finite union bound for the noncritical events and TV for the critical vector. The empty critical set, positive dimensions including d=1, and uniform odd/even consequences fit the same calculation. For q=2 each palette total sums two independent Pois(1/2) variables, giving joint positivity (1−e^(−1))².",
+      "residual_risks": [
+        "The frozen finite checker reports 82,096 event checks and 203 observed histogram states; these are not an asymptotic proof. The AGG original's theorem normalization was not directly inspected, so correctness of the constant was independently checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Point-process Poisson approximation is a general input; the frozen record explicitly distinguishes an inward-edge-orientation example with independent edge directions.",
+          "Xie–Bhattacharya Theorem 1.4 fixes r-uniformity, and the two-layer formulation counts monochromatic edges under uniform vertex coloring, with a growing color count in its finite-intensity regime."
+        ],
+        "reasoning": "The standard approximation theorem does not state the cube-specific multitype limits without a simultaneous local-dependence analysis, and the hypermultiplex theorems' fixed edge sizes and monochromatic marks do not include degree-d neighborhoods with independently prescribed center and subset marks.",
+        "searches": [
+          "Arratia–Goldstein–Gordon DOI:10.1214/aop/1176991491, Theorem 2 and cube orientation example",
+          "Xie–Bhattacharya arXiv:2412.00610v1, Theorem 1.4 and §1.2 (1.4), Theorem 1.6"
+        ]
+      },
+      "checked_sources": [
+        "Weber DOI:10.1002/mana.19871310105 (abstract excerpt)",
+        "Arratia–Goldstein–Gordon DOI:10.1214/aop/1176991491 (bibliography and access attempt, theorem unchecked at source)",
+        "Xie–Bhattacharya arXiv:2412.00610v1",
+        "Ghosh–Schwarzentruber arXiv:2610.26187v1",
+        "Resultary 35b3f92e894d, 8e017366da07 and 4c6f84cc27e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar Poisson theorem for each palette or an orientation model does not determine the joint law when palette events share the same vertex colors. In the frozen model different palettes at the same center can co-occur, at the explicit intersection-mass rate. The logical motivating work concerns counting graphs and trees satisfying modal logic with counting and convergence, not this cube event model."
+        ],
+        "reasoning": "The required same-center cross-palette term and the multitype dependency sum make independence a genuine extra check rather than a formal consequence of scalar convergence. The Boolean-fragment result is an immediate consequence of the joint count law and is credited only as that scoped application.",
+        "searches": [
+          "Weber DOI:10.1002/mana.19871310105",
+          "Arratia–Goldstein–Gordon Poisson point-process approximation",
+          "Ghosh–Schwarzentruber arXiv:2610.26187v1, abstract",
+          "Resultary 35b3f92e894d and 4c6f84cc27e6 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the fair two-color case, retaining color c identifies the center-c, opposite-neighbor-palette coordinate with the isolated-retained-vertex count. Weber's indexed abstract concerns Poisson limits for counts of (isolated) k-dimensional subcubes under independent site or bond deletion."
+        ],
+        "reasoning": "This is a genuine equivalence for one coordinate and potentially a known special case. The abstract does not settle k=0 or multivariate coverage; no inference from it excludes Weber at whole-document level. Site-percolation counts for a single retain/delete scheme do not on their own supply all multi-palette and center-color marks.",
+        "searches": [
+          "Resultary: colored hypercube vertex-centered star events, half-mass subsets, marked local Poisson counts and logical thresholds",
+          "Weber DOI:10.1002/mana.19871310105, isolated subcubes in site/bond random n-cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest cube record counts phase defects with mean (4/3)^d and approximates their location field; the first-order classification record concerns fair-colored equivalence classes. The same-day successor-collision record counts orientation profiles from independent sampled successor relations."
+        ],
+        "reasoning": "These actual findings overlap with the host, approximate independence or logic, but none counts the fixed-intensity palette-star types. These ranked searches are bounded evidence, not exhaustion of the catalog.",
+        "searches": [
+          "Resultary: Poisson hypercube local events and joint critical colors",
+          "Resultary: first-order star thresholds colored finite structures and joint independent Poisson counts",
+          "Resultary 35b3f92e894d, 8e017366da07 and 4c6f84cc27e6"
+        ]
+      },
+      "rationale": "Credit is limited to the simultaneous marked, possibly overlapping half-mass palette vector in iid vertex-colored cubes and the resulting fragment evaluation. One isolated-vertex coordinate has concrete site-percolation precedence risk; neither that single count, generic Poisson approximation, nor a general first-order convergence law is credited as new. No inspected result supplies the fixed-palette joint law for all these marks and overlapping palettes.",
+      "residual_risks": [
+        "Weber's full text was not accessible; the isolated-vertex special case may already be explicit and an earlier multivariate extension is unresolved. Access failure was not treated as evidence of noncoverage.",
+        "The inspected corpus does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material single-count precedent and unresolved scope, not excluded",
+          "evidence": "Abstract describes Poisson convergence for counts of (isolated) k-dimensional subcubes in independent site or bond deletion; Wiley full text returned 403, so k=0 and multivariate scope were not verified.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.19871310105",
+          "material_read": "Official Wiley indexed abstract excerpt",
+          "method": "Primary publisher retrieval with DOI recovery; no same-paper OA copy found",
+          "title": "Poisson Convergence in the n-Cube",
+          "trigger": "Exact colored-cube reduction to isolated site-percolation vertices"
+        },
+        {
+          "assessment": "Method credited; no full-text originality exclusion based on access failure",
+          "evidence": "Original theorem page not retrieved through lawful routes. The quantitative point-process implication was checked directly; the frozen comparison identifies an independent-edge inward-orientation example rather than iid vertex colors.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Bibliographic/landing material; no verified theorem page",
+          "method": "DOI, Project Euclid publisher and direct download route checked, with alternate search",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "Exact method and possible cube illustration"
+        },
+        {
+          "assessment": "Different mark and asymptotic regime",
+          "evidence": "Each layer is uniform of fixed order, and indicators count a single color on the entire edge, not half-mass palette membership at d neighbors plus a separately marked center.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.00610v1",
+          "material_read": "Theorem 1.4 p. 3; §1.2, Eq. (1.4) and start of Theorem 1.6 pp. 4–5 (offset 17400 onward)",
+          "method": "Primary OA PDF",
+          "title": "Joint Poisson Convergence of Monochromatic Hyperedges in Multiplex Hypergraphs",
+          "trigger": "Potential general joint law for colored overlapping neighborhoods"
+        },
+        {
+          "assessment": "Motivating precedent; not evidence of an identical cube count theorem",
+          "evidence": "Abstract frames graph/tree counting for modal logic with counting and studies convergence.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26187v1",
+          "material_read": "Abstract and background convergence references (offsets 76–600 and around 8893 and 9788)",
+          "method": "Primary OA HTML excerpts",
+          "title": "On Counting Graphs for Modal Logic with Counting",
+          "trigger": "Logical motivation and candidate convergence overlap"
+        },
+        {
+          "assessment": "Different cube local observable and intensity",
+          "evidence": "Three-state phase defects have Poisson approximation with diverging mean (4/3)^d and a near-independent defect field; not an open-neighbor count indexed by all half-mass subsets and centers.",
+          "identifier_or_url": "Resultary 2026/11/17, 35b3f92e894d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Almost independent phase defects and vanishing immediate excitation waves on Boolean cubes",
+          "trigger": "Closest cube local-event Poisson field"
+        },
+        {
+          "assessment": "Different random structures and events",
+          "evidence": "Two independent Poisson class counts at criticality for fair-colored equivalence classes.",
+          "identifier_or_url": "Resultary 2026/11/8, 8e017366da07",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Poisson window classification for first-order limits of randomly colored equivalence classes",
+          "trigger": "Parallel logical threshold spectrum"
+        },
+        {
+          "assessment": "Distinct random input and test vocabulary; same-day chronology not assumed",
+          "evidence": "Counts orientations of collisions of independently sampled successor relations, with a growing vocabulary/sentence family.",
+          "identifier_or_url": "Resultary 2026/11/2, 4c6f84cc27e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Poisson orientation profiles at the growing successor collision threshold",
+          "trigger": "Same-day marked joint Poisson result with existential tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and proof, especially common-center dependence and logical evaluation",
+        "Weber abstract comparison",
+        "Resultary 35b3f92e894d and 8e017366da07"
+      ],
+      "rationale": "The natural question is whether simultaneously rare star events with overlapping palettes on the same cube behave independently, not just whether any one count is Poisson. The full multitype law supplies concrete joint threshold probabilities, including the zero–one versus nontrivial uniform-palette dichotomy for the specified Boolean fragment. The bound identifies a palette-overlap error distinct from geometric near-center dependence. This is an increment beyond a scalar isolated-vertex approximation, without implying an unrestricted first-order convergence law.",
+      "residual_risks": [
+        "The quantitative estimate may be trivial at small dimensions, and the logic consequence applies only to fixed finite Boolean combinations of star-threshold sentences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

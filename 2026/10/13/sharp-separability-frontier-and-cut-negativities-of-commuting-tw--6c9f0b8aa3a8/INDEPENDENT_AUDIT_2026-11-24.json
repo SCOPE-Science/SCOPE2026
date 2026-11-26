@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:32:02.222665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–50",
+        "VERIFICATION.md, verify.py and requirements.txt (inspected, not executed)",
+        "Horodecki–Horodecki–Horodecki, arXiv:quant-ph/9605038, p. 1"
+      ],
+      "rationale": "For commuting Pauli strings the number of common sites with different axes is even. A conflict at v therefore forces a common second site w and identical two-site support. Any term touching just one of v,w would have to use an axis commuting with two different axes, which is impossible. On the pair, the two independent commuting generators have exactly their four-element Pauli span as centralizer modulo phases. Local Clifford rotations make it the Bell Pauli span and preserve the individual collected coefficient bounds; all other sites are single-axis and locally diagonal. The Gibbs state factors over the isolated pairs and the diagonal part. Partial transposition of each Bell projector gives half the identity minus a projector onto a permuted Bell vector (by transposing the maximally entangled projector and conjugating by local Paulis); the mixture has spectrum {1/2−q_s}. Two-qubit PPT is sufficient, and tracing to each pair gives the converse for full separability. Trace norms multiply, with factors of 1 from the diagonal Gibbs sector and all noncrossing pairs, and max(1,2p_e) from crossing pairs. Any two Bell sign triples differ in exactly two coordinates, so the maximum energy gap is 4J. The largest weight is consequently at most (1+3exp(−4βJ))^−1. The degree-two Hamiltonian J(XX+YY+ZZ) gives one energy −3J and three at +J, attains that bound, and is NPT exactly above βJ=ln(3)/4. This proves sufficiency and necessity, including the endpoint, for every cap Δ≥2.",
+      "residual_risks": [
+        "The stored subset enumerations and floating-point PT comparisons are finite corroboration, not independent replay or certificates of the general result. The coefficient bound applies after collecting duplicate strings, and the finite-dimensional zero-temperature statement is understood as a limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiani's unrestricted-locality bound at degree two is ln(2)/4 and its degree-two tree witness includes internal weight-four terms. Marvian–Lidar's treatment is about ground-space/noise structure; the interaction-algebra decomposition is a structural precursor."
+        ],
+        "reasoning": "Restricting the unrestricted-locality theorem gives a smaller sufficient inverse-temperature interval, not a sharp upper bound in the two-local class. General interaction-algebra structure alone does not quantify the coefficient-capped Bell populations.",
+        "searches": [
+          "Kiani, arXiv:2609.30149v1, p. 2 and p. 5",
+          "Marvian–Lidar, arXiv:1410.5487, p. 1",
+          "Bravyi–Vyalyi, arXiv:quant-ph/0308021, Lemmas 7–8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the two named findings",
+        "arXiv:2609.30149v1",
+        "arXiv:quant-ph/0308021",
+        "arXiv:1102.0770",
+        "Bouland–Mančinska–Zhang, Claim 3.1",
+        "arXiv:1410.5487",
+        "arXiv:quant-ph/9605038"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known isotropic Heisenberg transition gives the same number for one example (with the coupling normalized as a Pauli coefficient), an obstruction but not a universal guarantee. The cover needs the fixed coefficient-preserving dimer reduction and a uniform energy-gap comparison across all anisotropic choices."
+        ],
+        "reasoning": "Sectorwise eigenvector structure or diagonalization of a repeated two-qubit interaction does not directly give independent Gibbs factors with the same Pauli coefficient cap. The structural and extremal steps give the universal sufficiency not implied by the single witness; the cut formula then follows routinely.",
+        "searches": [
+          "arXiv:2609.30149v1, degree-two bound and commuting tree construction",
+          "arXiv:1102.0770, pp. 5,16",
+          "arXiv:quant-ph/0308021, Lemmas 7–8",
+          "RESULT.md lines 27–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Commuting interaction algebras give preserved sectors and disjoint-edge factors within sectors. Bell-diagonal PPT gives the dimer law without a new entanglement criterion. The examined Bouland et al. result is for a fixed commuting two-qubit interaction and uses arbitrary basis change."
+        ],
+        "reasoning": "The Pauli property is used to obtain globally fixed isolated pairs, not merely sectorwise weak entanglement of eigenvectors. Arbitrary unitary changes need not preserve a per-Pauli coefficient bound. With the fixed partition in place, the all-cut identity is a direct tensor-product consequence, not an independent new dimer formula.",
+        "searches": [
+          "Bravyi–Vyalyi, arXiv:quant-ph/0308021, Lemmas 7–8",
+          "Aharonov–Eldar, arXiv:1102.0770, pp. 5,16",
+          "Bouland–Mančinska–Zhang, Claim 3.1",
+          "Horodecki et al., arXiv:quant-ph/9605038, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-one record gives the threshold ln(1+sqrt(2))/2 with a two-term dimer. The other record gives a phase diagram for matching-overlap components, including arbitrary-locality two-term components."
+        ],
+        "reasoning": "A matching of the term-overlap graph is a different restriction from the matching of isolated site pairs here. The three-term dimer has a term-overlap triangle and is not included by either criterion.",
+        "searches": [
+          "2026/10/4/SCOPE-exact-degree-one-separability-threshold-for-bounded-coefficient--c145342499dd, Finding",
+          "2026/10/12/SCOPE-exact-full-separability-phase-diagram-for-matching-overlap-pauli--34e7994de7cf, Finding"
+        ]
+      },
+      "rationale": "The standard Bell-pair PPT law and the isotropic dimer crossing temperature are not themselves new. The supported contribution is the coefficient-preserving fixed-matching reduction for this Pauli class and the exact global consequences proved from it, particularly uniform optimality of the Heisenberg witness over arbitrary systems. Neither the closest unrestricted-locality result nor the inspected structural or degree-one results give those consequences under the stated hypotheses.",
+      "residual_risks": [
+        "An implicit restricted-locality thermal corollary elsewhere remains possible. The bounded retrieval did not yield full text for DOI 10.1103/PhysRevLett.87.017901 or DOI 10.1103/PhysRevA.54.1838; the familiar single-dimer calculations are not part of the priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharper scope comparison than the frozen record's abstract-only assessment; not a direct implication",
+          "evidence": "The degree-two unrestricted threshold is ln(2)/4 and the construction has two qubits per tree edge, hence internal degree-two terms have weight four.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.30149",
+          "material_read": "Bound at p. 2 (OA offset 8000), tree construction p. 5 (offset 19500)",
+          "method": "Bounded OA full-paper passages",
+          "title": "Sharp universal death of entanglement threshold for Pauli Hamiltonians",
+          "trigger": "Sharp thermal threshold with the same coefficient and overlap-degree parameters"
+        },
+        {
+          "assessment": "Close general structural precursor",
+          "evidence": "Edge tensor factors in irreducible sectors and direct-sum decompositions in the reducible case, not a coefficient-capped thermal statement.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0308021",
+          "material_read": "Lemmas 7–8, pp. 14–18 (OA offsets 43700–51700 and 52900–57596)",
+          "method": "Bounded OA PDF passages",
+          "title": "Commutative version of the local Hamiltonian problem and common eigenspace problem",
+          "trigger": "Interaction-algebra decomposition for commuting two-local Hamiltonians"
+        },
+        {
+          "assessment": "Substantial structural overlap but not the claimed thermal factorization and optimization",
+          "evidence": "Choice of a preserved sector yields disjoint edges and only local two-body entanglement in the resulting eigenbasis. Nontrivial local direct sums on a qubit have one-dimensional sectors.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.0770",
+          "material_read": "pp. 5,16 (OA offsets 15700, 50700)",
+          "method": "Bounded OA paper passages",
+          "title": "On the Complexity of Commuting Local Hamiltonians, and Tight Conditions for Topological Order in Such Systems",
+          "trigger": "Disjoint edge and qubit-dimension structure"
+        },
+        {
+          "assessment": "Different uniform interaction model and basis restriction",
+          "evidence": "Local diagonalizability for the commuting interactions in that model uses U⊗U and does not preserve individual Pauli bounds for arbitrary U.",
+          "identifier_or_url": "https://theory.stanford.edu/~abouland/Papers/commuting_hamiltonians.pdf",
+          "material_read": "Claim 3.1 p. 3 and proof pp. 8–9 (OA offsets 7445, 28000)",
+          "method": "Bounded OA PDF passages",
+          "title": "Complexity Classification of Two-Qubit Commuting Hamiltonians",
+          "trigger": "Explicit canonical forms for commuting two-qubit interactions"
+        },
+        {
+          "assessment": "Ground-subspace comparison only",
+          "evidence": "No finite-temperature quantity in the inspected ground-subspace error-suppression statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.5487",
+          "material_read": "p. 1 (OA offset 0)",
+          "method": "Bounded OA paper passage",
+          "title": "Quantum error suppression with commuting Hamiltonians: Two local is too local",
+          "trigger": "Related two-local short-range quantum structure"
+        },
+        {
+          "assessment": "Standard dimer input; no novelty assigned to PPT",
+          "evidence": "PPT necessary and sufficient for 2×2 states.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/9605038",
+          "material_read": "p. 1 (OA offset 0)",
+          "method": "Bounded OA PDF passage",
+          "title": "Separability of Mixed States: Necessary and Sufficient Conditions",
+          "trigger": "Exact single-pair separability criterion"
+        },
+        {
+          "assessment": "Material adjacent scope, not the arbitrary-degree Pauli dimer reduction or its universal frontier",
+          "evidence": "Both are restricted by degree-one or matching term-overlap structure; the three-term same-pair witness lies outside.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-degree-one-separability-threshold-for-bounded-coefficient--c145342499dd; 2026/10/12/SCOPE-exact-full-separability-phase-diagram-for-matching-overlap-pauli--34e7994de7cf",
+          "material_read": "Both RESULT.md Findings (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Exact degree-one separability threshold; exact full-separability phase diagram for matching-overlap Pauli Hamiltonians",
+          "trigger": "Exact neighbouring indexed thresholds and phase diagrams"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–24 and 27–50",
+        "Kiani, arXiv:2609.30149v1, p. 2"
+      ],
+      "rationale": "For a physically natural restricted class the result isolates all finite-temperature quantum correlations into pairs even when the classical interaction graph is complex. It gives an exact separability decision and cut-by-cut quantitative entanglement without many-body Gibbs diagonalization, and a strictly improved, attained universal temperature boundary compared with the unrestricted-locality degree-two bound.",
+      "residual_risks": [
+        "No claim for higher-weight terms, qudits, noncommuting models, or distillability; the value is in exact control of this class rather than a new general thermal bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

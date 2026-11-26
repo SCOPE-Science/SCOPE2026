@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:33:34.046947Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and expected_output.txt",
+        "Independent replay: python /workspace/reviews/recheck_4.py; transcript /workspace/reviews/recheck_4.txt",
+        "Fujii–Kimura–Nozaki arXiv:2412.19039v2, Theorem 1.2"
+      ],
+      "rationale": "An independent replay used the outer/inner presentation GP(5,2), explicitly explored the recoloring components, and counted cells by assigning each cell to its lexicographically least vertex. Square-freeness forces each coordinate enlarged beyond a singleton to have equal singleton neighbors; enlarged positions form an independent set of the source cycle. If a minimum-corner walk admits d greater colors at an eligible position, its positive-dimensional choices at that position have weight dz+binom(d,2)z². Counting independent position sets with these weights counts each cell once, separately by component. The replay reproduces the complete cell vector and the component data (size, Euler characteristic, multiplicity) = (1,1,2640), (198,0,40), (6600,0,24). Theorem 1.2 of Fujii–Kimura–Nozaki applies to the finite connected nonbipartite source and square-free nonbipartite target, so the Euler-zero components are homotopy equivalent to circles. Singletons are exactly the walks without immediate backtracking. Replay at 3,5,7,9 gives no two positive-dimensional size families, so the order threshold within odd simple cycles is correct.",
+      "residual_risks": [
+        "The conclusion is a homotopy equivalence, not a homeomorphism. The calculation is for a fixed target and bounded lengths, not an independent proof of the general square-free-target theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uniform record covers every simple cycle length n≥3 and gives Q_n and T_n. The Fujii–Kimura–Nozaki theorem covers arbitrary finite connected square-free targets under the relevant hypotheses but only gives component homotopy types in this case."
+        ],
+        "reasoning": "The all-length formula specializes directly to the claimed homotopy type; the older general topology theorem does not supply the counts by itself and is correctly credited as an input.",
+        "searches": [
+          "Resultary 172d5b46cff5 uniform all-cycle formula; arXiv:2412.19039v2 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and broader published-record comparisons; frozen Finding and prior-work section",
+        "ArXiv:2412.19039v2 Theorem 1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct record both implies and explicitly verifies the principal result and the split; its limitations disclaim the exact cell structures of circle components. The frozen proof's global CW cell vector is not asserted as a standalone contribution in its Finding."
+        ],
+        "reasoning": "A new enumeration method or a useful independent certificate cannot make the stated homotopy and component-size fact distinct. The cell vector is a supporting computation, not a sufficient surviving motivated replacement on the available evidence. Exact same-day coverage should not be confused with proof of prior publication.",
+        "searches": [
+          "Compare frozen Finding with 172d5b46cff5 Finding, transcript and prior-work/limitations passages; compare Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "172d5b46cff5 defines the same target and ordinary polyhedral complex; for odd n it expresses the homotopy type by rigid nonbacktracking walks and primitive-necklace circle counts. Its transcript gives n=11, rigid=2640, circles=64."
+        ],
+        "reasoning": "KG(5,2) and GP(5,2) define the same Petersen graph. The closed-walk counting is for labeled source vertices and the uniform formula gives the same homotopy type, not a quotient by source rotations or the reconfiguration graph alone.",
+        "searches": [
+          "Resultary: Hom(C11,KG(5,2)), Petersen cycle-Hom circle and singleton counts, odd-cycle graph-Hom classifications"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact transcript states: n=11 homomorphisms=168960 rigid=2640 circles=64 null_components=0 distribution=[(5, 6600, 24), (9, 198, 40), (11, 1, 2640)]. Its range covers smaller odd cycles. The Nov. 1 record ce6537190eb4 gives 120 points, 24 circles, and 24 circles plus 360 points at 5,7,9 respectively."
+        ],
+        "reasoning": "The last two coordinates in each length-eleven triple are precisely component size and multiplicity, so this is exact coverage even of the finding's refined size data, not only the homotopy counts.",
+        "searches": [
+          "Resultary 172d5b46cff5 verification_output.txt, offset 667; ce6537190eb4 Finding for lengths 5,7,9"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary record on exactly the ordinary Hom complexes into the Petersen graph proves a uniform primitive-period formula and explicitly records the same length-eleven circle, singleton and component-size counts, with stronger reduced-length labels. Together with its earlier-length rows this covers the asserted first odd-source split as well. Originality is not established for the frozen Finding. This is demonstrated scientific coverage, not a finding about chronological priority: the companion record credits accessible particular-length calculations including length eleven, but the date and mirror do not establish the relative publication order or independently resolve attribution.",
+      "residual_risks": [
+        "The identical length-eleven numbers are directly documented; the relative publication order is not. The review makes no allegation about which record produced the calculation first."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct, stronger coverage of the frozen main result; no chronology inferred from date.",
+          "evidence": "All n≥3 formula; exact length-eleven 2640/64 and size 198/6600 row; prior-work passage recognizes particular-length results including length eleven.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-primitive-period-formula-for-all-petersen-cycle-hom-complexes--172d5b46cff5",
+          "material_read": "RESULT.md Finding and assumptions at offset 0; prior work and limitations at offset 8645; verification_output.txt length-eleven line at offset 667",
+          "method": "Bounded local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A primitive-period formula for all Petersen cycle-Hom complexes",
+          "trigger": "Strongest exact/general Resultary match"
+        },
+        {
+          "assessment": "Confirms the stated smaller examples but does not cover length eleven by itself.",
+          "evidence": "Restricts to C5, C7, C9 and gives 120 points, 24 circles, and 24 circles plus 360 points.",
+          "identifier_or_url": "2026/11/1/SCOPE-odd-cycle-graph-hom-complexes-into-the-petersen-graph-twenty-fou--ce6537190eb4",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Odd-cycle graph-Hom complexes into the Petersen graph: twenty-four circles and rigid nine-cycles",
+          "trigger": "Cited exact smaller-cycle classification"
+        },
+        {
+          "assessment": "Applies, supplies the universal point/circle dichotomy, not the specific counts.",
+          "evidence": "For the square-free target case with both finite connected graphs nonbipartite, gives a disjoint union of points and circles up to homotopy.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039v2",
+          "material_read": "Theorem 1.2, p. 2, offset 6501",
+          "method": "Open primary text, bounded passage",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Primary prerequisite and possible dominating theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scope and cell-count proof; 172d5b46cff5 Finding, limitations and transcript; independent replay"
+      ],
+      "rationale": "The Petersen cycle-Hom family and the first size splitting are natural questions. However, the exact distinguishing invariant and its refinement are already supplied in a broader available account, so the frozen claim adds no distinct exact classification. The independent finite cell enumeration is useful as corroboration, but its global face vector is used here only to certify Euler characteristic; no independent mathematical need for that vector as an isolated result was established. A code replay or change of emphasis would not repair this finding.",
+      "residual_risks": [
+        "This does not rule out a motivated future result on exact cell structures, equivariance, or a different graph family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

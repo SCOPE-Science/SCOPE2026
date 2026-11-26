@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Independent edge-arrival ordering and coalition-pivot calculations yield the two closed formulas; the affine sign expression for consecutive ratios proves unimodality. The strict initial inequality follows from the positive consecutive difference for \((2^n-1)/n^2\), \(n\ge2\). The gamma asymptotic supplies the limiting sign. All hypotheses specify edge ownership and normalized Banzhaf indices; the seven-edge endpoint and optional tie are stated precisely. The finite exact-rational verifier directly enumerated all coalitions of nine illustrative networks, plus recurrence checks for \(154\) parameter pairs.
+PASS
 
-## Originality
+Conditional on its uniform arrival time x, a tagged long edge pivots precisely if its b-1 companions have arrived and all m short paths remain incomplete. Integrating and aggregating gives the beta integral and product. For the normalized Banzhaf calculation the analogous independent-coalition factors give the short-to-long per-edge ratio (2^b-1)/(2^a-1); summing over ma short edges and b long edges gives the displayed share. The Shapley integrands differ by the strictly positive x^(a-1)(1-x^a)^(m-1)(1-x^(b-a)). With A=b/a and T=a(2^b-1)/(b(2^a-1)), the adjacent difference in (2^n-1)/n^2 has strictly positive numerator for n>=2, so T>A and R_1>1. The sign of R_(m+1)/R_m-1 is the opposite of A-T+(A-1)mT, strictly increasing in m, hence any plateau is at the peak above one. The gamma ratio yields R_m of order m^(1-A), which tends to zero; the boundary has at most one tie. Seven is minimal within the stated family after adding a short path since m>=2 and 2a+b>=7, not a claim about all simple graphs. New exact permutation and coalition enumeration verified both minimal-witness fractions and the 1/6 tie. The frozen certificate reports finite checks only; its 17040 pivotal count is the nominal total of edge/other-edge subsets, while the code skips states already winning, not 17040 separate swing evaluations. This accounting detail does not affect its fractions or the theorem.
 
-**PASS (best-knowledge; not independently certified).** Bachrach–Rosenschein (2007) introduced edge-controlled network connectivity power indices; Elkind and colleagues (2008) computed both relevant indices in general series–parallel networks; Bachrach and colleagues (2013) studied vertex-controlled connectivity. None of the relevant inspected statements establishes the single phase transition in **aggregate path shares** as a redundancy parameter varies. Broader read-once-formula comparative-statics literature might imply the result, so the unlocated-equivalence risk remains.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem classifies, for every pair of unequal path lengths, when two canonical cooperative reward-allocation rules invert their *relative allocations* under the addition of homogeneous alternative paths. This affects fairness interpretation and reliability importance in networks where individual edges and whole routes are distinct units of interest. It provides a sharp smallest example and a genuine equality boundary. No broader-network or heterogeneous-reliability conclusion is claimed.
+The game class and computation of the two indices are established prior art. The supported distinct result is the aggregate physical path allocation crossing uniformly in both path lengths and the number of parallel alternatives, including its unique boundary and scoped smallest witness. Neither the inspected index algorithms nor the adjacent catalogue rankings give this parametric inequality.
 
-## Limitations and closest prior art
+## value
 
-The argument is for undirected simple terminal-path networks with \(2\le a<b\), one long path, and \(m\) equal short paths. It compares aggregate Shapley–Shubik with **normalized** Banzhaf only. General index algorithms in the cited 2008 paper are established prior results; the single-transition comparison is the present claim. The finite verifier complements, rather than proves, the infinite theorem. Independent historical coverage has not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp redundancy threshold compares two standard allocation methods on a motivated network observable. It separates aggregate path allocation from per-edge rankings, establishes a unique reversal rather than isolated counterexamples, and includes a sharp small witness and a genuine tie.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

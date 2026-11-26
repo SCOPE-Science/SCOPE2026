@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:13.767675Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The bounded corroboration directly enumerates increasing position triples, N=0,…,8, groups by actual eight-coordinate decks and compares the groups with the explicit gap-pair rule. The all-length conclusion rests on the proof, not this bounded enumeration or execution of the supplied script.",
+      "rationale": "At fixed N=n−3, the two-one coordinates A=3a+b and B=2(b+c) determine the third two-one coordinate and S=sum p_i=A+B/2 for the three zero-prefix counts. The one-one-coordinate C=[001] fixes sum p_i^2=2C+S; then [010]=(N−1)S−2C and [100]=3 binom(N,2)−C−[010]. The all-zero and all-one counts depend only on N. A,B and the total force gap shifts (t,−3t,3t,−t), so the change in C is t(c−b+3t), from the squared-prefix changes (t,−2t,t). Its unique possible nonzero root forces the middle gaps to swap, with nonnegativity the only extra constraint. Orienting t>0 avoids all double counting and gives N=a+d+2c+4t in the theorem’s parameters. Subtracting one per doubleton yields the displayed rational series, including zero terms below n=3. The first pair has N=4 and is exactly the stated pair of length-seven words. The doubleton series has leading pole 1/[8(1−z)^4] at 1; other poles have order at most two. It follows that there are N^3/48+O(N^2) doubletons, establishing both the coefficient 7/48 for distinct decks and the 1/4 ambiguous-word limit. An independent direct positional count for 0–8 zeros, 495 words, found 472 fibers and 23 doubletons, all as predicted.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nilforoushan and Parvaresh count decks across unrestricted binary weights and prove order n^9; that count does not compute a weight-three restriction.",
+          "Catalogue c4727dbbe5d0 gives finite worst-case data for all binary words, while 537d6221a547 concerns contiguous substring composition, not scattered subsequences.",
+          "The 2019 conference antecedent was identified but its full text was not obtained."
+        ],
+        "reasoning": "A bound for the unrestricted count neither enumerates the fixed-weight decks nor controls the exact size of each such fiber. The contiguous data use a different statistic.",
+        "searches": [
+          "arXiv:2609.23106v2 abstract, contribution summary and Section 7",
+          "Resultary: exact earlier binary three-deck fiber tables and three-one reconstruction",
+          "DOI 10.1109/ISCIT.2019.8905191"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/amc.2021032 author-hosted full text",
+        "DOI 10.1109/ISCIT.2019.8905191 bibliographic record and attempted retrieval",
+        "arXiv:2609.23106v2",
+        "Resultary records 39c59472a4df, 61b009fefb1e, ddfb28b06c4a, f95f52cd118b, c4727dbbe5d0, 537d6221a547"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior binomial difference, when expanded from its displayed binomial expression, is t(c−b+3t), so the necessary condition and at-most-one other candidate follow directly from the prior calculation. Lemmas 24 and 26 apply strict inequalities to distinguish a lower-bound family; they do not establish that equality gives the full three-deck.",
+          "Theorem 27 and Corollary 28 give a lower bound and cubic order, not the exact enumeration."
+        ],
+        "reasoning": "The distinct step is proving all the other coordinates agree at the sole candidate, determining precisely when it is admissible, and enumerating the admissible orbits without duplicates. The conjecture does not itself imply those steps.",
+        "searches": [
+          "Chrisnata et al., Section 5.3, preceding calculation, Lemmas 24 and 26, Theorem 27, Corollary 28 and Conjecture 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chrisnata et al. use zero-vector shifts (t,−3t,3t,−t) for two-deck equivalence; their Conjecture 1 is exactly the displayed generating function.",
+          "Catalogue records 39c59472a4df and ddfb28b06c4a explicitly give the same gap swaps; 61b009fefb1e uses one-positions, related to the gaps by cumulative sums plus the index. Record f95f52cd118b gives the same pair with zero gaps and interval constraints."
+        ],
+        "reasoning": "The different parametrizations classify the same fibers, not merely related statistics. Demonstrable equivalent coverage in those catalogue records is distinct from evidence of antecedent priority.",
+        "searches": [
+          "Resultary: exact weight-three binary three-deck collision classification and conjectured generating function",
+          "Chrisnata et al., DOI 10.3934/amc.2021032, Section 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The article states verification of the first 20 coefficients, not a table with an all-length completeness theorem.",
+          "The four equivalent catalogue records below cover the exact series or the pair-count series, not merely matching small coefficients."
+        ],
+        "reasoning": "Initial coefficient agreements do not establish a rational identity without a bound or proof. The equivalent catalogue statements are the substantive matches and are distinguished from finite checks.",
+        "searches": [
+          "Chrisnata et al., Conjecture 1 and following finite verification",
+          "Resultary: exact fixed-weight rational series and gap-swap fibers"
+        ]
+      },
+      "rationale": "The generating function as a conjecture, the gap-line direction, the binomial difference underlying the collision test and the cubic-order result all have antecedents in Chrisnata et al. Credit the completed equivalence for the entire deck, the exhaustive nonredundant enumeration of doubletons, and hence the proved identity, not the original ingredients or the formula's conjectural discovery. Several separately indexed records give equivalent proofs or classifications and are recorded as material coverage; their catalogue paths are later than the frozen record's, but path dates alone do not establish priority or independent discovery. No earlier established proof surfaced in the evidence inspected.",
+      "residual_risks": [
+        "The conference paper was not available for statement-level inspection. The bibliographic search did not surface a further resolution; empty results are not negative evidence.",
+        "The overlapping catalogue records' relative priority or provenance is not resolved by their path dates. An earlier equivalent proof outside the inspected sources is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent of the conjecture and several proof ingredients; exact enumeration is stated as a conjecture",
+          "evidence": "Offsets 54580–55888 give the two-deck line and the binomial difference; 57151–58539 show strict separation in the lower-bound family; 58520–62162 give cubic order, the exact conjectured series and the first 20 coefficients check.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "Section 5.3, pp. 15–17, zero-vector matrix and binomial difference, Lemmas 24 and 26, Theorem 27, Corollary 28 and Conjecture 1",
+          "method": "Author-hosted OA PDF, literal locator and bounded offsets",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Exact conjecture and possible derivation in preceding lemmas"
+        },
+        {
+          "assessment": "No statement-level decision on exact coverage from this copy",
+          "evidence": "The full text was not returned; its contents are not inferred from the access result.",
+          "identifier_or_url": "https://doi.org/10.1109/ISCIT.2019.8905191",
+          "material_read": "Bibliographic identification only; no full-text passages",
+          "method": "Publisher retrieval attempt",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds (ISCIT)",
+          "trigger": "Earlier same-topic conference antecedent"
+        },
+        {
+          "assessment": "Unrestricted-weight theorem does not cover the exact fixed-weight result",
+          "evidence": "Offsets 0, 12220 and 44262 give D_{2,3}(n)=Theta(n^9) for unrestricted binary words and clarify the domain.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23106v2",
+          "material_read": "Abstract p. 1, contribution summary p. 4, Section 7 p. 13",
+          "method": "OA full-text passages",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "Later theorem on the same scattered subsequence statistic"
+        },
+        {
+          "assessment": "Equivalent coverage in a distinct, later-dated catalogue record",
+          "evidence": "Same rational series, size at most two and same gap parametrization.",
+          "identifier_or_url": "2026/10/25/SCOPE-proof-of-the-weight-three-binary-three-deck-enumeration-conjectu--39c59472a4df",
+          "material_read": "RESULT.md offsets 0–4164 and 4100–7094",
+          "method": "Resultary local mirror",
+          "title": "Proof of the weight-three binary three-deck enumeration conjecture",
+          "trigger": "Plausible identical theorem"
+        },
+        {
+          "assessment": "Equivalent fixed-weight coverage in a later-dated record",
+          "evidence": "Same series and collision classification using positions of the three ones.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-weight-three-binary-three-deck-classes-and-the-conjectured--61b009fefb1e",
+          "material_read": "RESULT.md offsets 0–4177 and 4100–6892",
+          "method": "Resultary local mirror",
+          "title": "Exact weight-three binary three-deck classes and the conjectured generating function",
+          "trigger": "Possible equivalent description in one-position coordinates"
+        },
+        {
+          "assessment": "Equivalent fixed-weight coverage in a later-dated record",
+          "evidence": "Unique admissible gap-swapped partner and exact series.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-weight-three-binary-three-decks-a-gap-swap-classification--ddfb28b06c4a",
+          "material_read": "RESULT.md offset 0–2691",
+          "method": "Resultary local mirror",
+          "title": "Exact weight-three binary three-decks: a gap-swap classification",
+          "trigger": "Plausible identical gap-swap classification"
+        },
+        {
+          "assessment": "Equivalent pair parametrization and count, independently indexed on the same date as ddfb28b06c4a; relative priority not established",
+          "evidence": "Equivalent zero-gap pair and the doubleton generating function.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-binary-three-deck-collisions-at-weight-three--f95f52cd118b",
+          "material_read": "RESULT.md offset 0–2550",
+          "method": "Resultary local mirror",
+          "title": "All binary three-deck collisions at weight three",
+          "trigger": "Plausible equivalent pair enumeration"
+        },
+        {
+          "assessment": "Finite all-weight census, not the all-length classification",
+          "evidence": "Worst-case data through length 16 across unrestricted binary words.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-onset-of-superlinear-ambiguity-for-binary-three-subsequenc--c4727dbbe5d0",
+          "material_read": "RESULT.md offset 0–3599",
+          "method": "Resultary local mirror",
+          "title": "Sharp onset of superlinear ambiguity for binary three-subsequence decks",
+          "trigger": "Earlier three-deck fiber census"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Contiguous substring-composition spectra and reconstruction up to reversal, not a scattered three-deck.",
+          "identifier_or_url": "2026/10/18/SCOPE-two-heavy-layer-composition-spectra-reconstruct-all-binary-three--537d6221a547",
+          "material_read": "RESULT.md offset 0–4014",
+          "method": "Resultary local mirror",
+          "title": "Two-heavy-layer composition spectra reconstruct all binary three-one words",
+          "trigger": "Earlier fixed-weight reconstruction result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a specifically posed exact enumeration question and explains the source of every lost count, rather than just determining the leading order. The collision classification also answers word-level reconstruction at weight three, with the sharp first ambiguity and the limiting failure fraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

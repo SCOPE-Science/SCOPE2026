@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:17:15.360818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–72",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "/workspace/review_replay.py, record 3 (executed)"
+      ],
+      "rationale": "An invertible affine change preserves all attainable phase pairs, and the common translation phase cancels from orthogonality. For two normalized characters the zero condition is a+bz=-(c+dz)w with z,w on the unit circle. Equality of the two magnitudes gives H+2J Re(z)=0, also sufficient when both sides vanish. Four characters fill the four-dimensional weighted evaluation space; squared row norms are four times the masses, so four are possible exactly at uniformity. For a triple the three-column projection similarly gives 3 times each mass <=1. If H=J=0, equality of the sums and products of the positive row pairs leaves either a zero line w=-1 (if a=c and b=d with a!=b, ruling out a triple) or the opposite-equal case a=d, b=c. There the projection bound is the stated ratio-two bound; the cosine construction cancels the first two differences by C plus the reciprocal-ratio term, and the third by 2C^2-1=-r, valid including r=1/2 and after swapping the roles of a,b. Outside H=J=0 the denominator can vanish at a zero only when z=-1, a=b and c=d; its zero line likewise precludes a triple. Otherwise Re(z) is fixed and w determined, so the zeros are contained in a conjugate pair. A triple must have a nonidentity order-three difference, because both opposite points and their doubled difference must also be zeros. Strict positivity rules out either coordinate equal to 1 at order three. The only possible phase pairs then impose a=d=b+c or b=c=a+d via the real relation 1+omega+omega^2=0, each attained. Uniformity is correctly checked first. `python3 /workspace/review_replay.py 3` independently checked representative cube-root witnesses and ratio-two boundary identities in exact arithmetic; the case proof covers all real masses, not only sampled weights.",
+      "residual_risks": [
+        "The support must be a nondegenerate parallelogram with strictly positive masses. The proof gives maximum cardinality with real frequencies, not all inclusion-maximal systems or results for integer-only frequencies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tetrahedron result has the same two-equal-pair weights and inclusive ratio [1/2,2] for triples off uniformity, but independent coordinates supply all four phases up to a common phase. The square imposes phase(00)*phase(11)=phase(10)*phase(01). Theorem 3 for two parallel segments requires equal constant densities for full spectrality."
+        ],
+        "reasoning": "Tetrahedral impossibility applies to the restricted square phases, but tetrahedral existence does not imply existence under the extra phase relation. Continuous segment spectrality does not govern partial orthogonality among four positive point masses.",
+        "searches": [
+          "Resultary 21adec2b1a44, Finding",
+          "Spectrality of Weighted Measures on Two Line Segments, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 21adec2b1a44, 47f1c08c4cbe, b51ecb1779fe",
+        "Spectrality of Weighted Measures on Two Line Segments, Theorem 3",
+        "DOI 10.3390/axioms15080563 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection by (1,2) transfers the prior consecutive-sites triple on b=c=a+d to square frequencies; reflecting the first square coordinate gives the other resonance a=d=b+c. The tetrahedral interval shows a necessary bound for opposite-equal square weights by restriction."
+        ],
+        "reasoning": "Credit those resonance existence implications and the interval necessity. Neither the planar no-other-triples statement nor the opposite-equal sufficiency follows from these sources: failure on one phase subtorus is not failure on the full torus, and a tetrahedral witness is not automatically a parallelogram witness. Same catalogue date is not evidence of priority in either direction.",
+        "searches": [
+          "Resultary 47f1c08c4cbe, Finding and proof",
+          "Resultary 21adec2b1a44, Finding",
+          "Resultary b51ecb1779fe, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b51ecb1779fe counts zeros for equal-modulus coefficients on finite cyclic grids. Resultary 47f1c08c4cbe classifies positive weights at four consecutive integer sites. The paper on weighted line segments treats full spectrality for continuous measures."
+        ],
+        "reasoning": "A finite-grid zero count does not test pairwise differences of arbitrary real frequencies. Four consecutive sites can be obtained by projecting the square with (1,2), but this restricts the square's available phases to the subtorus w=z^2. The support is not a spectrally equivalent affine model for the entire planar frequency domain.",
+        "searches": [
+          "Resultary: partial orthogonal exponentials for positive four-mass supports; phase-only rectangle zero counts",
+          "Literature: weighted four point measures orthogonal exponentials partial spectra three characters positive weights square parallelogram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first index supplies the exact b=c=a+d stratum for consecutive support, the second the ratio-two bound for tetrahedral support, and the earlier rectangle result an exact zero-count spectrum under equal coefficient magnitudes."
+        ],
+        "reasoning": "The relevant comparisons are parametric classifications, not a list of sampled weights: a finite numeric table cannot resolve this continuous-mass question without a theorem covering the full parameter space. The inspected exact classifications have different phase domains or weight restrictions.",
+        "searches": [
+          "Resultary indexed exact stratifications 47f1c08c4cbe and 21adec2b1a44",
+          "Resultary b51ecb1779fe, finite-grid zero spectrum"
+        ]
+      },
+      "rationale": "Meaningful subcases are covered or bounded by related theorems, including the existence of the two root-of-unity families from the one-dimensional classification by projection and reflection. The distinct result is the full classification on the phase-constrained parallelogram, in particular attainability throughout the opposite-equal interval under its phase constraint and the exhaustive exclusion of any other triples.",
+      "residual_risks": [
+        "Bounded search under spectral-measure and weighted Fourier aliases does not establish priority. An additional Springer self-affine cardinality hit and the cited Li–Wang text were not accessible in full; older weighted trigonometric quadrature formulations could also be relevant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds the square triple case from above but does not prove sufficiency on its restricted phases",
+          "evidence": "Four affinely independent sites with two copies of each weight; nonuniform maximum three iff the ratio is in [1/2,2].",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-three-orthogonal-fourier-characters-survive-exactly-up-to-a-two--21adec2b1a44",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Three orthogonal Fourier characters survive exactly up to a two-to-one mass imbalance on a tetrahedron",
+          "trigger": "Matching two-equal-pair ratio threshold"
+        },
+        {
+          "assessment": "Implies resonance sufficiency under projection (and reflection); does not rule out triples off the restricted phase locus",
+          "evidence": "Nonuniform triples at consecutive sites precisely when b=c=a+d.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-complete-fourier-orthogonality-stratification-of-four-consecutiv--47f1c08c4cbe",
+          "material_read": "Mirrored Finding and proof passages at offsets 0 and 3950",
+          "method": "Local published-record mirror",
+          "title": "Complete Fourier-orthogonality stratification of four consecutively supported positive masses",
+          "trigger": "Exact linear resonance equation overlap"
+        },
+        {
+          "assessment": "Different coefficient and frequency restrictions and different invariant",
+          "evidence": "Counts grid zeros for equal-modulus coefficients; it is not the arbitrary-positive-weight triple criterion.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+          "trigger": "Same four-site rectangle algebraic support"
+        },
+        {
+          "assessment": "Full spectrality of continuous weighted segments is a distinct question",
+          "evidence": "The two parallel segments are spectral iff their constant densities are equal.",
+          "identifier_or_url": "Title and Theorem 3, p. 5",
+          "material_read": "Theorem 3 and its constant-density hypothesis, p. 5",
+          "method": "OA PDF text",
+          "title": "Spectrality of Weighted Measures on Two Line Segments",
+          "trigger": "Closest open primary text returned for weighted spectrality"
+        },
+        {
+          "assessment": "Unresolved as full-text evidence, not used for exclusion",
+          "evidence": "No passage available for comparison.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms15080563",
+          "material_read": "Citation and title only; full text not retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "The Number of Orthogonal Exponential Functions of a Class of Self-Affine Measures in R^3",
+          "trigger": "Potential related maximum-cardinality theorem cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the degenerate and nondegenerate zero loci",
+        "Resultary 21adec2b1a44 and 47f1c08c4cbe"
+      ],
+      "rationale": "The smallest planar parallelogram carries both a nontrivial dependence among the four phases and varying positive atom masses. The exact classification distinguishes existence of one zero from packing three pairwise-orthogonal characters, and exhibits both a sharp continuous threshold and isolated types of torsion resonance. Having the exhaustion on the full torus is useful and is not a restatement of finite spectrality or either related support classification.",
+      "residual_risks": [
+        "No general planar quadrilateral classification or complete parametrization of all maximizing frequency families is obtained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

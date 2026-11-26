@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:52:12.651886Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md, lines 19–27; verify.py, lines 33–55 and 80–156 (read, not executed)"
+      ],
+      "rationale": "Scaling f_i=e_i/a_i gives the claimed c_i. A relation among the squares satisfies lambda_i=-c_(i-1)lambda_(i-1); its solution space is zero or one dimensional, and any nonzero solution has full support. This gives the determinant criterion and independence of any two squares for n≥3. The image of multiplication by a natural vector is one dimensional: nondegeneracy makes its own square nonzero and it annihilates all other vectors of that basis. In the displayed basis its image is the span of the squares in its support, so it must be supported on one coordinate. Isomorphisms are therefore monomial, and matching directed successor terms forces a rotation; matching the normalized loops makes every scalar 1. This argument is unchanged over field extensions. Any nonzero ideal contains a square by multiplication with a coordinate vector; the successor term propagates membership to all squares. Thus every nonzero ideal contains E², which has codimension one exactly on the singular locus. For finite fields a fixed block repeated e=n/d times has singular product iff its block product is an e-th root of (-1)^n. Such a root exists (use (-1)^d), so there are gcd(e,q-1) choices, including in characteristic 2. Burnside counts all rotations, Möbius inversion extracts minimum periods, and each orbit with minimum period m has size m and stabilizer C_(n/m). The constant necklaces leave exactly Q-gcd(n,Q) simple classes; this includes Q=1, when none exist.",
+      "residual_risks": [
+        "The recorded finite tests are supplementary. The unrestricted and extension-field conclusions rest on the rank and ideal arguments, not on those tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elduque and Labra give the graph automorphism group-scheme sequence for perfect algebras.",
+          "Costoya et al. realize a finite group by an absolutely simple evolution algebra under a field-size bound; Boudi et al. show that nonzero ideals of perfect evolution algebras are basic."
+        ],
+        "reasoning": "These supply broad machinery and overlap with the perfect case, without covering the singular family, the exact count over small fields, or the joint minimal-period and product invariant. The ideal propagation itself is elementary and not credited here as a general discovery.",
+        "searches": [
+          "Elduque and Labra, arXiv:1902.02191, Theorem 3.2",
+          "Costoya et al., arXiv:2207.01335, Theorem A",
+          "Boudi et al., arXiv:2006.14460, Proposition 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior work and limitations",
+        "arXiv:2006.14460, 1902.02191, 2207.01335",
+        "Three stated Resultary mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Natural-vector rigidity reduces the algebra isomorphism problem to monomial maps but does not supply their normalized invariant.",
+          "The perfect graph sequence and existence theorem have no variable-coefficient singular orbit census. The constant singular calculation sees stabilizer C_n only."
+        ],
+        "reasoning": "The ordinary all-word necklace sum is classical. The content not supplied by these sources is that normalization is complete for this nonperfect locus too, and that the singular product restriction has exactly gcd(n/d,Q) possible block products at each repeat length. The putative implication to the simultaneous simple/singular stabilizer spectrum is missing without those steps.",
+        "searches": [
+          "Boudi et al., Theorem 2.4, Corollary 2.7, Proposition 4.2; Elduque and Labra, Theorem 3.2; Costoya et al., Theorem A",
+          "Resultary 5af99936bc19 singular constant case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boudi et al. identify rank-one support as the condition for a nonzero-square natural vector and provide the relevant natural-basis rigidity criterion.",
+          "Resultary bb0314b7771b counts looped-cycle nilpotent matrices under diagonal similarity and cyclic monomial conjugacy; Resultary e8db04aa8932 treats loop-free weighted evolution algebras."
+        ],
+        "reasoning": "Diagonal similarity preserves matrix diagonal entries and rescales the successor weights by ratios of diagonal entries of the conjugator; this is not the quadratic change of basis in an algebra product. For instance on constant loop coefficient 1, diagonal similarity of the matrices retains just the full successor product, while algebra isomorphism retains the entire successor necklace. Removing the loops also removes the equation forcing the scalar factors to be 1. Neither comparator is an equivalent parameterization.",
+        "searches": [
+          "Resultary looped cyclic evolution algebras, monomial orbits, weighted cycles and rotation stabilizers",
+          "Boudi et al., arXiv:2006.14460, Theorem 2.4 and Corollary 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5af99936bc19 gives exactly the three ideals and C_n for the all-one necklace in characteristic two, and goes on to classify its endomorphisms.",
+          "The two other returned comparators enumerate a matrix pattern or a loop-free algebra family, not the product-constrained counts by minimum period of this family."
+        ],
+        "reasoning": "The constant characteristic-two subcase is corroborated coverage, not a separate novelty. It fixes one necklace, not a determination of the censuses as the field and necklaces vary. Dates are not used to decide priority.",
+        "searches": [
+          "Resultary looped-cycle ideal/symmetry records, specifically bb0314b7771b, e8db04aa8932, 5af99936bc19"
+        ]
+      },
+      "rationale": "Credit existing natural-basis rigidity, the graph treatment of perfect algebras, the classical necklace count and the exact constant characteristic-two overlap. Pass the variable-coefficient classification coupled to the product-constrained, stabilizer-refined census across the perfect and singular strata. The examined prior statements do not cover that combined invariant.",
+      "residual_risks": [
+        "The nearby paper Basic ideals in evolution algebras was not accessible in full through the route tried; no negative coverage inference is made.",
+        "A broader monomial-orbit or product-constrained necklace result could cover part of the classification. The inspected sources do not establish that implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits rigidity and perfect-ideal structure; no shown variable-weight census. Only the forward rigidity implication is needed in small fields.",
+          "evidence": [
+            "Rank-one support criterion for a natural vector with nonzero square; nonzero ideals of perfect evolution algebras are basic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.14460",
+          "material_read": "Theorem 2.4 p. 5; Corollary 2.7 and Definition 2.8 p. 6; Proposition 4.2 pp. 12–13",
+          "method": "Open primary full-text passage inspection",
+          "title": "Natural families in evolution algebras",
+          "trigger": "Basis rigidity and perfect ideals may subsume structural claims"
+        },
+        {
+          "assessment": "Broad overlap for perfect evolution algebras, not a singular result",
+          "evidence": [
+            "The perfect-case group-scheme sequence has diagonal kernel and maps into the graph group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.02191",
+          "material_read": "Theorem 3.2 p. 9 near offset 23550",
+          "method": "Open primary full-text passage inspection",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Potential graph-based determination of automorphism groups"
+        },
+        {
+          "assessment": "Existence with a sufficient field-size bound, not exact small-field enumeration in this family",
+          "evidence": [
+            "Realizes G by an absolutely simple evolution algebra if |k×|≥2|G|."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.01335",
+          "material_read": "Theorem A p. 1 near offset 2600",
+          "method": "Open primary full-text passage inspection",
+          "title": "Automorphism groups of Cayley evolution algebras",
+          "trigger": "Absolutely simple realizations of prescribed groups"
+        },
+        {
+          "assessment": "Different equivalence and nilpotent matrix invariant",
+          "evidence": [
+            "Counts diagonal-similarity and cyclic monomial-conjugacy classes of nilpotent matrices, not isomorphism classes of the evolution products."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/13/SCOPE-exact-nilpotent-realization-counts-and-monomial-orbit-spectra-fo--bb0314b7771b",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact nilpotent realization counts and monomial orbit spectra",
+          "trigger": "Same looped-cycle support and monomial orbits"
+        },
+        {
+          "assessment": "Genuine overlap of theme; different support and arithmetic invariants",
+          "evidence": [
+            "The classified algebras satisfy e_i²=a_i e_(i+1) only and are counted by squaring orbits."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cycli--e8db04aa8932",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras",
+          "trigger": "Cyclic evolution algebra isomorphism and automorphism counts"
+        },
+        {
+          "assessment": "Exact subcase overlap; not the full two-support classification or census",
+          "evidence": [
+            "In characteristic two, e_i²=e_i+e_(i+1) has the three-ideal lattice and automorphism group C_n."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-a-rank-gap-and-parity-transition-in-endomorphism-monoids-of-sing--5af99936bc19",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "A rank gap and parity transition in endomorphism monoids of singular cyclic evolution algebras",
+          "trigger": "Exact singular constant subcase"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings lines 5–40 and scope lines 42–44",
+        "Costoya et al., Theorem A, for the broader realization context"
+      ],
+      "rationale": "The family is the sparse directed cycle with both loop and successor terms nonzero, a natural setting in which distinct squared basis vectors stay independent even as perfection fails. Knowing the exact unique proper ideal at degeneration and the number of classes at each automorphism order gives concrete information unavailable from mere existence of a realization. In particular the exact full-symmetry simple count decides realizability in this family over very small finite fields. This is a complete joint census of the stated family, not a choice of a few sample fields or a claim of novelty for unrestricted necklace enumeration.",
+      "residual_risks": [
+        "The result is about ordinary linear automorphisms in the looped-cycle family, not semilinear maps, automorphism group schemes or arbitrary support digraphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

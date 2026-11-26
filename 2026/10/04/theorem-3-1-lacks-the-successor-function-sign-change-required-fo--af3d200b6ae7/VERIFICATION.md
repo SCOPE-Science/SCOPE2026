@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source equation for the unilateral lower-threshold impulse is \(\Delta x=p_1x\), \(\Delta y=-\tau_1\) at \(x=h_1\). Thus, if the continuous flow reaches \(B=(h_1,y_B)\), the post-impulse point has predator coordinate \(y_B-\tau_1\), and the successor value relative to \(A\) is \(y_B-\tau_1-y_A\).
+# Independent mathematical audit
 
-Theorem 3.1's proof is checked in the following order:
+## correctness
 
-1. The theorem condition \(y_B-\tau_1\ge y_A\) is consistent with a nonnegative model-consistent successor value at \(A\).
-2. In the strict case, the proof says a second point with negative successor value is required.
-3. The next displayed calculation concludes \(f(A_1)=y_{B_1}-y_B>0\).
-4. Therefore the displayed endpoint values do not straddle zero, so continuity does not justify the asserted fixed point.
+PASS
 
-`verify_successor.py` checks the reset substitution with exact rational arithmetic and confirms that the model-consistent and printed multiplicative formulas can differ. It also verifies a concrete same-sign pair compatible with the proof's displayed inequalities. Running the script prints `VERIFY_OK`.
+The source's system (2.2) resets B=(h1,yB) to ((1+p1)h1,yB−tau1); the successor map must therefore use f(A)=yB−tau1−yA. Theorem 3.1 instead prints yB(1−p1)−yA. In the strict case the model gives f(A)>0. The printed argument asks for f(A1)<0, chooses an impact height yB1>yB, and prints f(A1)=yB1−yB>0 before applying the intermediate value theorem. The same-sign printed values do not imply a zero. Even the corrected f(A1)=yB1−tau1−yA1 has no negative sign established by yB1>yB alone. In the equality case the admissible first return closes at A. This is a diagnosis of the printed argument, not a counterexample to the theorem or to its numerical example. The supplied checker was inspected as an algebraic witness only; the conclusion follows directly from the source reset and proof.
 
-Limit: the checker does not decide whether Theorem 3.1 is true by some other argument. The verified claim is only that the published proof, as written, lacks the required successor-function sign change and uses a successor expression inconsistent with the stated reset.
+## originality
+
+PASS
+
+The source contains the faulty inference, not its diagnosis. No distinct record or prior correction establishing this particular proof gap was found in the bounded checks. The generic successor-function method and intermediate value theorem are not claimed as new.
+
+## value
+
+PASS
+
+This is not merely a mismatched sign character: the published existence proof for the strict case ends without its needed lower endpoint (and uses a different reset in the same argument). Identifying that missing obligation tells users of the theorem what must be established before relying on it, while separating the valid direct equality case and not mislabeling the theorem itself as false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

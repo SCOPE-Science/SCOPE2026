@@ -1,19 +1,21 @@
-# Review of rank-one randomized Jacobi absorption law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orthogonal-similarity invariant retains a scalar identity plus one rank-one term. A genuine Jacobi pivot must eliminate one, and only one, active rank-one coordinate, while a zero pivot leaves support unchanged. The support-size transition probability is exactly the ratio of active unordered pairs to all pairs. Independent pivot samples give independent geometric holding times. Means, variance, probability-generating function, the exponential limit with uniform tail expectation, and the block hypergeometric recursion have complete proofs in RESULT.md. Exact rational recurrence checks and direct matrix identities agree with the derivation. Finite simulations are not used as infinite proofs.
+PASS
 
-## Originality — PASS within inspected evidence, not a uniqueness certificate
+Exact orthogonal similarity preserves λI+ρvvᵀ. The selected nonzero block has one exceptional eigenvalue because ρ≠0, so diagonalizing a block with r≥2 active coordinates leaves exactly one active coordinate there. A pair with fewer than two leaves the support unchanged under the prescribed rule. Diagonality is equivalent to support size one. Conditional on any past at support j, the next pair succeeds with probability binom(j,2)/binom(n,2); the holding-time law is geometric and its parameter is independent of the entry history, giving independent holding times at successive sizes. This gives the finite moments, including zero time for s=1 and (n−1)² for s=n. For fixed j the scaled waiting time has exponential rate j(j−1) in the limit; the expected scaled tail above K is at most 1/K. Summation gives mean 1, and the variance follows by summing [1/(j−1)²+1/j²−2/(j(j−1))]. The conventional Kingman rate is half as large, so the time here is half the conventional absorption time. For blocks, the active count is hypergeometric and the first-step equation gives the stated expected-sample recurrence, with a positive exit probability at every s≥2 and one sample when b=n. These arguments apply to the exact pivot clock including ineffective samples. The recorded check in reproduce.py is bounded corroboration, not part of the all-size proof; the frozen script was inspected, not executed.
 
-Detherage and Shah's recent uniform-pivot analysis gives algorithmic convergence guarantees but does not state the exact rank-one support-count death chain and its sampled-step law in the relevant inspected sections. Möhle and Pitters establish the pre-existing coalescent law; the contribution here is its precise Jacobi stopping-time representation and the block recurrence. Targeted searches for equivalent rank-one Jacobi, coalescent, stopping-time, and generalized pivot claims did not reveal implication by another inspected theorem. Residual risk: classical rank-one eigensolver and less-indexed Jacobi sources may treat the same special benchmark. The source comparisons are not exhaustive.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform random pivoting is an actively studied design for Jacobi eigenvalue algorithms, and a scalar-identity rank-one perturbation is a canonical completely solvable spectral model. This result obtains the entire stopping-time law for arbitrary support/dimension, its quadratic expected pivot cost and nondegenerate limit, and the exact effect of increasing block size. It quantitatively distinguishes uniform blind selection from always selecting an active off-diagonal (\(n-1\) successful pair pivots). These are motivated spectral-algorithm cost facts, not an arbitrary scalar substitution or a purely numerical observation.
+The supported distinction is the rank-one Jacobi support-chain reduction and its exact cost consequences. Uniform randomized/block Jacobi and the limiting coalescent law itself are already known and are not credited as new. Neither the nearest primary convergence theorem nor the strongest inspected indexed stochastic analogue covers the matrix-specific stopping-time and block-expectation claims.
 
-## Scope and residual risks
+## value
 
-Exact arithmetic, rank one, and independent uniform samples are essential. The coalescent distribution itself is established prior work; only its randomized-Jacobi identification and explicit block stopping law are assessed here. Unindexed equivalent sources remain possible; mathematical correctness does not imply an independent novelty certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rank one is a natural test of generic randomized Jacobi estimates. Exact finite termination alone would say little about a rule that wastes pivots; the distribution quantifies that overhead and shows nonvanishing fluctuations at the n² scale. The block recurrence also isolates the effect of block size on the sample clock, without confusing it with arithmetic cost. These are meaningful exact predictions for a canonical model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

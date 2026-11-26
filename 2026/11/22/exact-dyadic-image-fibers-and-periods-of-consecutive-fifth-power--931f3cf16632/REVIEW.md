@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Faulhaber identity \(F=H\circ T\), two triangular parity isometries, and two normalized unit classes for each nonzero valuation shell give an infinite proof. Difference factorizations have precisely one factor of two on each relevant class, so finite-level injectivity and compactness imply exact surjectivity. The zero fiber is isolated, and summing disjoint output balls gives Haar measure \(1/6\). The finite-fiber census and sharp least period follow from an independent argument at each precision. `check.py` passed 32,805 exact assertions through precision \(2^{13}\). Its finite coverage is not used as an infinite-proof step.
+PASS
 
-## Originality — PASS (historical priority qualified)
+For T(x)=x(x+1)/2 and H(t)=t^2(4t-1)/3, the first difference of H(T(n)) is n^5 and its value at zero is zero. The two parity restrictions T(2a+e) are isometries in a, hence both permute each finite quotient and are onto Z_2. For t=2^r u with odd u, the normalized H-value has fixed unit residue modulo eight (1 for r=0 and 5 for r>=1). The difference of two normalized values with units in the same class modulo four has valuation v2(u-v)+1. Thus each such unit class maps bijectively onto the requisite unit ball. H has two roots at every supported nonzero value and only t=0 above zero; composing with T gives four and two respectively. The disjoint balls have measure 1/8+sum_(r>=1) 2^(-2r-3)=1/6. For k>=2 the correct intermediate count uses t modulo 2^(k-1), two index residues per t. For a target at valuation 2r>0, units are read modulo 2^(k-r-1); the prescribed class is tested at j=k-2r, yielding multiplicity 2^(r+min(2,j-1)), counting both index parities. The zero condition counts t divisible by 2^ceil(k/2); the odd case has one intermediate t at k=2, two at k>=3. This also gives the stated image count. Since H(t)-H(s) gains at least one valuation for same-parity t,s, an index shift of 2^k is a period. Its half fails at n=0 for k=2,3 and at n=1 for k>=4: with M=2^(k-1), F(M) has valuation 2(k-2) while (M+1)^5-1 has valuation k-1. At k=1 the repeating values 0,1,1,0 have least period four. The source checker was inspected, not executed. Independent direct accumulation and enumeration through k=9 checked every target and tested period divisors (1040 assertions); replay: /workspace/branches/79dd8796-bc7c-4a01-9fd2-7c1c5436667b/replay.py and replay-output.txt in that directory. The all-depth conclusion rests on the proof, not the replay.
 
-Faulhaber's 1631 identity is credited and is not being claimed as new. Lengyel's *On Divisibility of Some Power Sums* (2007), inspected in the published full text, proves special-endpoint two-adic valuations such as \(\nu_2(F(2^m-1))=2(m-1)\); this is not the complete target-value image, image density, exact preimage census, or least-period theorem. The accessible 2013 computational power-sum algorithm addresses evaluation rather than the target-classification statement. Searches of archived mathematical findings and relevant published literature did not reveal an equivalent fifth-power partial-sum image theorem. The accessible comparison does not establish historical uniqueness, and potentially implicit older treatments remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fifth-power partial-sum sequence is the first odd Faulhaber case beyond the pure triangular square identity \(\sum_{j\le n}j^3=T(n)^2\). Its extra odd unit factor generates a genuinely distinct, alternating local-solubility law: odd targets occupy \(1+8\mathbb Z_2\), while positive even valuations require odd part congruent to five modulo eight. The exact four-preimage law, singular zero fiber, sharp index periods, finite target counts, and measure \(1/6\) provide a natural complete local classification at every precision, not a hand-selected numerical slice.
+The supported distinct contribution is the exact finite and inverse-limit fiber classification of the fifth-power partial sums, with the period and measure consequences. The strongest available candidate statements give special-index valuations or cover other maps. Neither the classical Faulhaber identity nor the matched special-index valuation states or immediately supplies the surjectivity and multiplicity on both unit branches. The matching catalogue item for the full claim is the frozen record itself. This is a bounded best-of-knowledge judgment, not a claim of historical priority.
 
-## Closest literature, scope, and risks
+## value
 
-1. Tamás Lengyel, *On Divisibility of Some Power Sums*, *Integers* 7 (2007), A41, https://math.colgate.edu/~integers/h41/h41.pdf — direct special-index valuation predecessor; full relevant theorem/proof inspected.
-2. *Faulhaber's Formula*, https://mathworld.wolfram.com/FaulhabersFormula.html — preexisting polynomial identity and triangular coordinate, not the image theorem.
-3. *A Fast Algorithm for Computing Binomial Coefficients Modulo Powers of Two*, 2013, https://onlinelibrary.wiley.com/doi/10.1155/2013/751358 — published Section 4 algorithm excerpt; full publisher text inaccessible in the present comparison.
-4. Distinct published classifications of dyadic polynomial images and fifth-power graphs concern different input maps; inspected search-result summaries are not substituted for whole-text negations.
+PASS
 
-An unindexed historical equivalent and inaccessible plausible sources are residual originality risks. The result is local at two. An independent mathematical audit has not been performed.
+For the natural problem of representing a prescribed target by a consecutive fifth-power sum, this classifies all local obstructions at two, gives the exact number of index classes attaining each allowed target, and identifies the least index modulus needed. The inverse-limit four-versus-two law distinguishes actual two-adic roots from the larger modular multiplicities near zero, and the measure quantifies how restrictive local representability is. This is a natural complete classification, not evaluation at an arbitrary cutoff.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

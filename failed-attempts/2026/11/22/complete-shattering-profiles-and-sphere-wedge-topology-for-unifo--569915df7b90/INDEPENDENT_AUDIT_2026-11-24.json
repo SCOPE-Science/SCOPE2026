@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:02:07.330296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The minimax proof is valid. Removing the support and at most two neighbors for each prescribed positive leaves a bipartite graph; its larger side plus the positives yields the stated ceiling lower bound. The upper-bound trace is built recursively by excluding the first vertex if it is in the support, allowing at most one selection in the first two positions if both are outside the support, or prescribing the second vertex positive and excluding its two neighbors; the short bases and the ceiling update check out. All-positive forces independence and size at most k. Capacity at least k for every trace is sufficient by trimming outside its positive vertices. Spacing compression gives the binomial counts. For d≥1, 3d≤n+1, and every maximal independent set dominates the path and hence has at least ceil(n/3) vertices. For an independent check of shellability without relying on the unavailable Björner–Wachs copy: in any path forest with all maximal independent sets of size at least d, choose the neighbor v of a leaf u when there is an edge. In the deletion of v every maximal independent set contains the now isolated u and is maximal in the original, so has size at least d. In the deletion of the closed neighborhood of v a maximal independent set has size at least d−1, by adjoining v to make a maximal set of the original. These two smaller forests give the deletion and link of the rank-d truncation at v, of ranks d and d−1, with no common facet. Induction gives pure vertex decomposability, starting at rank zero and at edgeless graphs (ordinary simplex skeletons, with the same deletion/link induction). Pure shellability gives the wedge, whose multiplicity is (−1)^(d−1) times reduced Euler characteristic as stated. For d=0 the complex consists of the empty face and no sphere-wedge conclusion is needed. Frozen verification_output.txt lines 1–4 records finite trace, minimax and two-field homology checks; verify.py was inspected and not executed. Neither recorded field homology nor finite trace checks establish all-parameter topology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The antecedent's alternating-completion rule applies to every segment with compatible endpoint parity and at least two changing edges.",
+          "Theorem 3.12 gives vertex decomposability of r-independence complexes of caterpillars; a path with r=1 is included. The same-day path census 2c80e8096553 treats all inclusion-maximal independent sets, not exact cardinality."
+        ],
+        "reasoning": "The relevant broader ingredient for coverage is the segment rule combined with the earlier analysis of arbitrary path supports. The maximal-independent-set record does not imply the uniform-family result. The caterpillar and shelling results are topology ingredients, not literature on which supports are shattered.",
+        "searches": [
+          "Resultary 253357213fec, arbitrary-segment completion in §3",
+          "arXiv:2106.10863 Theorem 3.12",
+          "Resultary 2c80e8096553 maximal independent-set shattering"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5, VERIFICATION.md and verification_output.txt",
+        "Resultary 253357213fec and 2c80e8096553",
+        "arXiv:2106.10863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a path with a support of s independent positions, use the s+1 segments between consecutive padded boundaries/support vertices. With prescribed bits a,b on a segment of length L, the prior mismatch bit δ is L−(a xor b) modulo 2. Its lower bound of δ zero-zero edges is attained by the prior alternating-segment construction with δ inserted edges. Interior segments have L≥2, so with endpoints 11 the remaining even length is at least 2, as required to visit a zero. If the number of changing edges is 0 or 1, the endpoints are not both 1; the constant zero segment or one change with zeros inserted realizes the bound. This also handles a segment of length 1 at a padded endpoint.",
+          "Consequently the exact maximal trace extension has size (n+1−sum δ)/2. The prior §6 says the mismatch vectors range over the binary vectors of total parity n+1; their largest weight is s+1 or s according to parity. Substitution gives precisely ceil((n−s)/2) as the worst extension. All-positive and trimming give the criterion as in the frozen proof. For n=2k−1, outside the earlier cycle parameter range, there is just the unique alternating size-k path set, so only the empty support is shattered; n≤2 is direct.",
+          "From the criterion the face count is the ordinary path-independence count up to rank d. The purity inequality is an immediate domination bound, and the topology and alternating rank then follow from standard pure shellability and Euler characteristic."
+        ],
+        "reasoning": "This is a concrete derivation from stronger local statements plus elementary consequences, not a claim that equality of the two VC dimensions implies equality of complexes. Applying the prior segment rule at the minimum parity-permitted slack is all that is needed for the same minimax invariant. The alternative recursion and the packaged sphere count do not leave a separate nonroutine original theorem on this comparison.",
+        "searches": [
+          "Resultary 253357213fec RESULT.md §3 at offset 1800 and §6 at offset 5050",
+          "arXiv:2106.10863 p. 3; Björner–Wachs skeleton reference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§6 explicitly pads a path incidence word with endpoint zeros, counts n+1−2k zero-zero edges, and identifies the possible mismatch vectors for arbitrary queried positions. It states the same path VC dimension, using one witness.",
+          "§3 gives a general endpoint-bit segment construction: take the alternating sequence with the prescribed number of changing edges and insert zero-zero edges at a zero."
+        ],
+        "reasoning": "In the padded path, maximizing the cardinality of an extension of a fixed trace is exactly minimizing the number of zero-zero edges, since each selected vertex uses two changing edges. Thus segment mismatch plus completion is not merely an online or numerical dimension analogy; it answers the same trace-optimization problem.",
+        "searches": [
+          "Resultary 253357213fec, Proof §§2–3 and 6",
+          "Fixed-size independent-set shattering literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier fixed-weight record states the exact path dimension but not an all-coefficient path shattering polynomial. The distinct same-day exact path polynomial is for inclusion-maximal sets."
+        ],
+        "reasoning": "No independent identical exact coefficient table is needed to establish overlap: the earlier segment characterization already implies which faces to count. The maximal-family polynomial is not credited as a duplicate, and no same-day precedence is inferred.",
+        "searches": [
+          "Resultary fixed-weight cyclic/path independent sets and exact shattering polynomials",
+          "Resultary 253357213fec and 2c80e8096553"
+        ]
+      },
+      "rationale": "The earlier fixed-weight cycle/path result was recovered in full at the decisive locations. It does not print the minimax identity or the path shattering polynomial, but its padded-path mismatch analysis and its general alternating-segment completion rule together give the minimax identity and exact support criterion directly. The polynomial and wedge rank are then standard face counts, purity and shellability consequences. The original proof is correct and uses a different trace construction, but the claimed complete classification is not distinct on the evidence below. This is an implication finding, not an assertion that the earlier record prints the same formulas or that every formulation is historically accounted for.",
+      "residual_risks": [
+        "The bounded general literature lookup did not supply additional relevant primary text and is not evidence of absence. The failure rests on the explicit derivation from the earlier inspected proof, not the inaccessible shelling reference or a keyword match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the full support and minimax claims by the segment calculation above",
+          "evidence": "§6 gives all parity-compatible mismatch vectors for padded paths; §3 constructs sequences with compatible endpoints and prescribed zeros by inserting zeros into an alternating sequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-weight-cyclic-independent-sets-a-one-logarithm-online-boun--253357213fec/RESULT.md",
+          "material_read": "Finding; Proof §§1–3 at offset 1800 and §6 at offset 5050, with limitations",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Fixed-weight cyclic independent sets: a one-logarithm online boundary effect",
+          "trigger": "Earlier exact same path VC dimension; possible stronger proof coverage"
+        },
+        {
+          "assessment": "Different family, not decisive prior coverage",
+          "evidence": "It ranges over all inclusion-maximal independent sets, not all independent sets with exactly k selected vertices.",
+          "identifier_or_url": "Resultary 2026/11/22 2c80e8096553",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Same-path exact shattering polynomial"
+        },
+        {
+          "assessment": "Known path vertex-decomposability",
+          "evidence": "The r-independence complexes of caterpillar graphs are vertex decomposable for r≥1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.10863",
+          "material_read": "p. 3, Theorem 3.12, offset 9550",
+          "method": "Original OA PDF passage",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Topology ingredient"
+        },
+        {
+          "assessment": "No source-level verification from this attempt; replaced for correctness by a direct decomposition argument",
+          "evidence": "No passages claimed.",
+          "identifier_or_url": "Björner–Wachs, Trans. AMS 348 (1996), 1299–1327",
+          "material_read": "Full text not obtained",
+          "method": "DOI and AMS OA PDF attempts, both HTTP 403",
+          "title": "Shellable nonpure complexes and posets. I",
+          "trigger": "Cited skeleton theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact shattering complex of a uniform path class is a natural object, and the alternative minimax proof is clear. But the earlier exact segment rules already determine the complete support complex and worst trace capacities by direct substitution. The enumerator and sphere count then use the standard path spacing count, domination bound, shellability and Euler characteristic. As submitted, no separate substantive exact result beyond these routine consequences has been established; finite verification does not supply that missing gain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

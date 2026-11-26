@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every real \(\beta>0\). Its large-parameter proof uses an exact positive theta-product logarithmic derivative, the strictly decreasing Gaussian-derivative envelope on \([1/2,\infty)\), an explicit uniformly dominated trigonometric tail at the symmetry line, and exact Zak reflection. Fourier duality reduces all smaller parameters to the proven regime and permutes the three parity zeros. The tail is bounded by a convergent geometric-moment sum below one, not by truncated numerical approximation. Boundary fibers and the half-open fundamental domain are handled explicitly. A standalone script probes identities on a finite grid but does not replace any analytic step.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Faulhuber (arXiv:2502.09510, Sections 3–4, Conjecture 4.1) explicitly asks whether generalized first-Hermite Zak transforms have only three zeros. That conjecture includes dilution/dilation and chirp. The new theorem establishes the full unchirped dilation slice \(s=0\), which is not stated as proven in the source. Other related indexed results treat the quadratic B-spline, Gaussian/first-Hermite mixtures, or common Zak-channel zeros—not the global zero set of pure first-Hermite dilates. A historical unindexed proof remains the principal residual originality risk.
+PASS
 
-## Mathematical value — PASS
-Exact global zero enumeration over a continuous scale family answers a naturally isolated case of an explicit recent open question. Its significance is not a toy computation: Zak zeros control non-frame obstructions for periodically structured Gabor sampling, and exact absence of further zeros is stronger than identifying symmetry-forced zeros or one prescribed lattice failure. The full chirped conjecture remains unresolved.
+Absolute locally uniform convergence follows from Gaussian tails. Poisson summation gives the periodized Gaussian's Jacobi product with q=exp(−π²/β); its logarithmic derivative is strictly negative for 0<x<1/2 since every denominator is positive and sin(2πx)>0. Thus the Zak value at ω=0 is strictly positive there, and odd pairing gives zeros at x=0 and 1/2. For β≥2, u exp(−βu²) is strictly decreasing on [1/2,∞), including at β=2 (the derivative vanishes only at the left endpoint). Grouping ±n makes Re Z at least its ω=0 value for 0<x≤1/2, strictly above it at x=1/2 for ω not an integer by the n=1 term. On x=0, the sine coefficient tail divided by the first lower bound is at most ∑(m+1)² exp(−6m)<1, using |sin(nθ)|≤n sin θ on 0<θ<π. One can also derive this fiber directly at every scale by differentiating ∑exp(−βn²)exp(−2πinω) in ω and using the same Jacobi product with nome exp(−β). The substitution k↦−1−k in the reflected fiber establishes the sign and phase in the reflection identity, excluding the other half strip. With the specified negative Fourier convention the transform of t exp(−βt²) is −i(π/β)^(3/2) ξ exp(−π²ξ²/β). Poisson on f(t)exp(−2πitω) gives Zf(x,ω)=exp(2πixω) Zf̂(ω,−x). For β<2 the dual scale is >2, and the map (x,ω)↦(ω,−x) permutes the claimed three points modulo the quasiperiod lattice. This proves the precise half-open-domain count for all β>0 without relying on samples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the three guaranteed parity zeros and the previously stated conjecture. The distinct theorem is global exclusion of any other Zak zeros for arbitrary positive dilation with zero chirp. The strongest accessible earlier result asserts the same three forced zeros but leaves exclusivity open in the larger family. Related rectangular-frame and half-density results do not count the zeros of one Zak transform. The accessible abstract of the plausibly titled older Janssen chapter treats nonnegative windows, not the odd first Gaussian derivative; its full text remained unassessed.
+
+## value
+
+PASS
+
+Unchirped dilation is a natural full continuous family of first-Hermite windows and a clearly defined slice of an explicit published conjecture. Global exclusion gives information beyond the forced zeros and frame obstructions at a particular density: it locates every scalar Zak zero, which can be used directly when analyzing simultaneous-zero conditions. The proof is scale-uniform and does not claim to settle the chirped family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

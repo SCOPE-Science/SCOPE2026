@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:14:00.282172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–106",
+        "VERIFICATION.md (recorded statuses and checks)",
+        "verify.py (floating-point checks, inspected, not run)"
+      ],
+      "rationale": "Reconstructed all formulas. B1B2=0 makes im(B1ᵀ) and im(B2) orthogonal; after similarity by P_r^{1/2}, the nonzero singular modes give two-by-two blocks with a=1−νh on the diagonal and off-diagonal magnitudes b=hσγ0√r, c=hσγ1/√r. Trace and determinant give the larger singular value (b+c)/2+sqrt(a²+(b−c)²/4). It increases with σ and dominates the kernel norm, so σ=s yields (1). Its right derivative at h=0 is C_r−ν; convexity precludes contraction when this is nonnegative. Otherwise squaring the contraction inequality yields (2), with the proposed endpoint below 1/C_r by (ν−C_r)²+D_r²>0. With Q=ν²+D_r², set x=Qh−ν; stationarity gives x=−C_rD_r/sqrt(Q−C_r²), on the correct branch, and substitution gives (3). The symmetric case D_r=0 has the unique kink minimizer 1/ν. For every h>0 the norm is strictly increasing with C_r at fixed p, so minimizing the scalar function γ0√r+γ1/√r on the exact condition-budget interval gives the unique clip rule. Solving the quadratic in K^{1/4} gives the strict root threshold before symmetrization, including equality at the Euclidean boundary. The eigenvalue endpoints 1−h(ν±p) establish Schur stability independently, and similarity yields the √K transient bound. The triangle calculations give the stated threshold 256/9 and optimum constants at budget 81.",
+      "residual_risks": [
+        "Optimality is over the specified reciprocal scalar degree-weight family only. The transient estimate is an upper bound, not a claim of sharp actual Euclidean transient growth."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 has a more general strongly convex objective but proves continuous-time exponential convergence with the symmetrizing metric. Carletti et al. use a continuous-time Master Stability Function for nonlinear synchronization.",
+          "The Braatz–Morari full text was not recovered through the DOI and alternate routes."
+        ],
+        "reasoning": "The broader continuous-time hypotheses do not transfer their conclusions to exact explicit-Euler one-step norms under a condition cap. General matrix-scaling literature may contain some pieces; the inaccessible paper is not treated as non-covering evidence.",
+        "searches": [
+          "arXiv:2610.22628v1 Theorems 9–10",
+          "arXiv:2410.15338 §6.3",
+          "Braatz–Morari DOI 10.1137/S0363012992238680 and lawful alternate-copy attempt"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "arXiv:2610.22628v1",
+        "arXiv:2410.15338",
+        "Resultary 2d808ba1bdde and 667886489945",
+        "DOI 10.1137/S0363012992238680"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous-time mode eigenvalues already determine the Euler spectral interval by the map λ↦1−hλ. Full symmetrization likewise gives the usual symmetric-Euler optimum.",
+          "The frozen result carries these to a finite-step induced norm and joint optimum for every allowed reciprocal scaling budget, including when it does not permit symmetrization."
+        ],
+        "reasoning": "Spectral stability and certified logarithmic-norm contractivity are not equal to the one-step induced norm of a nonnormal Euler matrix. The novelty supported here is the budgeted finite-step transition, not either classical implication or the fully symmetrized case.",
+        "searches": [
+          "arXiv:2610.22628v1 pp. 13–14 and continuous-time stability discussion",
+          "Resultary 2d808ba1bdde and 667886489945"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted one-step norm is the largest singular value after a reciprocal block scaling; the continuous-time Euclidean arithmetic-mean bound instead compares a symmetric part with ν.",
+          "The cited fully symmetrizing P is exactly r=γ1/γ0, a member of the frozen family."
+        ],
+        "reasoning": "The logarithmic derivative at h=0 and the fully symmetrized eigenvalue condition recover existing endpoints, but neither equivalent description gives the finite-step optimal h or its value at nonsymmetrizing budgets.",
+        "searches": [
+          "Resultary searches for Dirac descent, forward Euler weighted induced norm and metric-conditioning budgets",
+          "arXiv:2610.22628v1 Theorems 9–10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d808ba1bdde gives an exact log-norm budget frontier for a four-stage cascade, with a nonexpansive semigroup threshold K=16 for −I₄+2N. 667886489945 treats Jordan cascades of arbitrary length with exact log-norm and semigroup budget regimes."
+        ],
+        "reasoning": "The closest exact indexed curves are for different operators and logarithmic norms; they do not tabulate or generalize the Dirac Euler step, weight and strict budget optimum.",
+        "searches": [
+          "Resultary metric-conditioning and diagonal-contraction searches; records 2d808ba1bdde and 667886489945"
+        ]
+      },
+      "rationale": "The fully symmetrizing metric and continuous-time geometric- versus arithmetic-mean criteria are prior. The compared related condition-budget theorems concern different continuous-time operators. The distinct supported statement is the exact finite-step contraction and optimization frontier within the specified degree family, including budgets below complete symmetrization.",
+      "residual_risks": [
+        "Full Braatz–Morari text was unavailable; possible implications of general scaling literature remain a priority limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial continuous-time antecedent, not the budgeted Euler optimum",
+          "evidence": "Mode eigenvalues are ±bα√(γ0γ1); the continuous-time Lyapunov metric uses r=γ1/γ0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22628v1",
+          "material_read": "Theorems 9–10, PDF pp. 13–14 and continuous-time stability discussion",
+          "method": "Targeted OA PDF passages",
+          "title": "Distributed Optimization over Simplicial Complexes via Topological Dirac Synchronization",
+          "trigger": "Same Dirac model and symmetrizing degree metric"
+        },
+        {
+          "assessment": "Continuous-time nonlinear synchronization, not the finite-step claim",
+          "evidence": "The linearization is analyzed through a Master Stability Function.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15338",
+          "material_read": "§6.3, PDF pp. 13–16",
+          "method": "Targeted OA PDF passages",
+          "title": "Global Topological Dirac Synchronization",
+          "trigger": "Dirac mode stability in a wider dynamical setting"
+        },
+        {
+          "assessment": "Different generator, metric family and continuous-time criterion",
+          "evidence": "For the four-stage cascade −I₄+2N the threshold is K=16, with arbitrary positive diagonal scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-metric-conditioning-phase-transition-for-a-four-stage-posi--2d808ba1bdde",
+          "material_read": "RESULT.md statement of the weighted logarithmic norm and semigroup threshold",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp metric-conditioning phase transition for a four-stage positive cascade",
+          "trigger": "Exact conditioning budget and sharp contraction transition"
+        },
+        {
+          "assessment": "More general chain length for a different generator and logarithmic norm",
+          "evidence": "The operator is a Jordan cascade, not a Hodge-mode sum of nonnormal reciprocal two-by-two Euler blocks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-diagonal-contraction-metrics-for-jordan-cascades-of-arbitr--667886489945",
+          "material_read": "RESULT.md statements on high-budget and least contractivity budget",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp diagonal contraction metrics for Jordan cascades of arbitrary length",
+          "trigger": "Potentially broader exact diagonal contraction theorem"
+        },
+        {
+          "assessment": "Unresolved for general scaling implications",
+          "evidence": "The DOI returned an access failure; no substantive claim assessed from that failure.",
+          "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+          "material_read": "Bibliographic identification only; no readable full text retrieved",
+          "method": "DOI and lawful alternate-copy attempt",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "Potential matrix-scaling implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(7) and the triangle example",
+        "arXiv:2610.22628v1 Theorems 9–10"
+      ],
+      "rationale": "The frontier quantifies the practically and mathematically distinct regimes of spectral stability, Euclidean one-step contraction, and contraction achieved by a limited metric distortion. It supplies an exact budget and step rule instead of merely exhibiting a fully symmetrizing metric; the triangle has a genuine nonempty gap between the budget for any contraction and that for full symmetrization.",
+      "residual_risks": [
+        "No extension to general SPD metrics, nonlinear descent, finite precision or larger time discretization families is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

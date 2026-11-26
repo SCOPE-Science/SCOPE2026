@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with Python 3's standard library. The exact-rational determinant routine checks squared intrinsic Euclidean facet measures against the barycentric-gradient formula on 900 rational weight profiles in dimensions 2--5. The program then checks 11 log-product-constrained numerical optimality systems in dimensions 2--12, their reversal symmetry, the strict endpoint inequalities for dimensions at least three, and the analytical dimension-three value. Successful execution ends with `LECTURE_HALL_FIXED_VOLUME_SURFACE_OPTIMIZER_PASS`.
+## correctness
 
-## Proof versus computation
+PASS
 
-Strict convexity of the exponential Euclidean edge norm, coercivity on the zero-sum log hyperplane, the exact KKT identities and the endpoint comparison establish the theorem for every dimension and all positive weights. Finite numerical optimizers are diagnostics only. The displayed formulas and extremality statements do not rely on numerical global optimization or on floating-point uniqueness tests.
+The simplex has volume ∏s_i/n!, and each facet has area nV times the norm of the gradient of the vanishing barycentric coordinate. This gives precisely the two end terms and the adjacent-pair norms in the stated objective. Normalize the product, and use t_i=log(1/s_i) with ∑t_i=0. Weighted Cauchy–Schwarz bounds the second directional derivative of each edge norm below by (e^{2u}h²+e^{2v}k²)/sqrt(e^{2u}+e^{2v}), so the full Hessian is positive definite. The objective dominates exp(max t_i), and max t_i≥||t||∞/(n−1) on the constraint, proving coercivity. Equating derivatives and summing gives the Euler system with multiplier M_n/n; strict convexity gives its unique positive normalized solution. Reversal preserves the objective. If y_1≥y_2, for n≥3 the difference of the first two derivatives is positive because the subtracted term y_2²/sqrt(y_2²+y_3²) is strictly smaller than y_2≤y_1 and the shared-edge contribution is nonnegative. For n=2 reversal yields equality; for n=3 the reduced equation 2r²−1=sqrt(1+r²) selects r=√5/2, giving M_3=5(2/√5)^{1/3}. Scaling proves the ratio and its exact equality condition at every prescribed positive volume. The finite Gram and numerical KKT checks in VERIFICATION.md were inspected, not rerun; they are not needed for the proof.
 
-## Limits
+## originality
 
-The general sharp constant is implicitly characterized, not claimed to have a closed elementary expression. No numerical test certifies absolute historical originality. Independent mathematical verification has not been performed.
+PASS
+
+The known exact area formula and standard convex optimization tools are not the contribution. The distinct supported finding is the all-dimensional fixed-volume optimizer with shape, sharp ratio and equality conditions. No inspected antecedent states or already implies that classification.
+
+## value
+
+PASS
+
+Weighted chain simplices are a natural Euclidean family with a known general surface formula. That formula alone does not distinguish the standard equal-weight shape from its competitors at fixed volume. The uniqueness and strict end-weight comparison resolve this for every dimension, and the Euler characterization determines the sharp scale-free constant even without radicals for n≥4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

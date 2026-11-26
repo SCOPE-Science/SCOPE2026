@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:08.108979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 5–41 and 51–88",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt"
+      ],
+      "rationale": "With normalized monomials, write X and Y for the two damped composition operators. On the nonconstant basis each has singular values given by its exponential factors times sqrt(w_p) or sqrt(w_q), and w_j<=1. Each is in every positive Schatten quasi-ideal (the constant is finite rank), hence so is D=X-Y. On the positive indices let U=X*X+Y*Y (diagonal) and W=X*Y. Then D*D=U-W-W*. The only positive-index action of W is e_(p0 k) to a multiple of e_(q0 k), with squared amplitude r^(2(a q0+b p0)k) w_p(q0 k)w_q(p0 k). Neither W nor W^2 has a diagonal because p0/q0 differs from 1. Thus Tr((D*D)^2)=Tr(U^2)+2||W||_2^2 on the nonconstant subspace; D kills the constant. This independently recovers (1). Solving the input/output rotation equations gives full singular-value phase invariance. From the beta-integral monomial norm, w_j(n)=j^(-alpha-1)+O(1/n); each geometric sum has leading 1/[c(1-r)] and its 1/n remainder is logarithmically bounded. This gives the four terms in (3), and the diagonal trace gives (4). At alpha=0, p=2, q=3, a=b=1 the result is 1/16+1/36+1/12+1/30=149/720. Replay: RESULT.md (1)–(8) and the traced expansion above; verify.py was inspected, not executed and is supplementary. Two nonmaterial textual issues: the literature paragraph calls the invariant a fourth power of the Gram operator, but it is its square; the Hardy-space exclusion is a scope choice, not an obstruction to this argument (setting all monomial norms to one gives the Hardy analogue).",
+      "residual_risks": [
+        "The error estimate is for fixed parameters; the exact finite-section checks are not an infinite-dimensional certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strong/weak Schatten criteria use local density conditions; the accessible Choe comparison is membership for Schatten exponents at least two.",
+          "The Hardy/bidisc approximation-number abstract addresses upper and/or lower estimates rather than the weighted-Bergman evaluation."
+        ],
+        "reasoning": "An operator-class characterization or comparable norms do not give the necessary exact coefficient. A general kernel could be used as a starting point but still requires evaluation of the monomial overlap terms and weighted radial limit.",
+        "searches": [
+          "Ai–Yang arXiv:2611.23733v1, Theorems 1.1–1.2",
+          "Choe–Choi–Koo–Park DOI:10.1007/s11785-026-01962-0",
+          "Bayart–Gilmore–Şahin arXiv:2509.19797v1"
+        ]
+      },
+      "checked_sources": [
+        "Ai–Yang 2611.23733v1",
+        "Choe et al. DOI:10.1007/s11785-026-01962-0 (limited)",
+        "Bayart et al. 2509.19797v1 (abstract)",
+        "Resultary 15c93892be02, 4d9675ff0ea8 and ba7c08a56403"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An undamped essential interval cannot keep track of compact radial trace data and in particular has no damping speeds. A trace of a mixed-product self-commutator captures different combinations and cancellation than the Gram square of X-Y."
+        ],
+        "reasoning": "None of those statements directly specializes to the joint quartic trace and boundary coefficient. The common collision relation and its coprime ratios are credited to the prior arithmetic of mixed monomial products, not to this finding.",
+        "searches": [
+          "Resultary 15c93892be02 Finding and Proof steps 1–2",
+          "Resultary 4d9675ff0ea8 and ba7c08a56403 exact formulas and monomial actions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The collision term is twice the Hilbert–Schmidt square of X*Y restricted off constants, not a self-commutator invariant. The Hardy equal-speed prior explicitly gives the mixed-product arrows; the earlier Bergman commutator proof gives the undamped weighted arrows.",
+          "Ai–Yang's Gram kernel gives a general representation of D*D, not an evaluated quartic trace."
+        ],
+        "reasoning": "These are substantial overlap at the level of the monomial mechanism. The Hardy mixed-product action supplies the collision for that narrower setting by a geometric sum; the weighted undamped action supplies the weight factors, not the damped difference moment. What remains is their use with the trace expansion and two-speed weighted Abel estimate for the actual difference.",
+        "searches": [
+          "Resultary: exact fourth Schatten moment for radial weighted Bergman monomial differences and mixed-product/commutator aliases",
+          "Ai–Yang arXiv:2611.23733v1, Lemma 2.1 (2.1)",
+          "Resultary ba7c08a56403 and 4d9675ff0ea8, Proof step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 4f66d74591e4 is the frozen item itself. The distinct near matches are the undamped spectral gap 15c93892be02, the Bergman commutator 4d9675ff0ea8, and the damped Hardy self-commutator ba7c08a56403."
+        ],
+        "reasoning": "The distinct hits were checked at statement level. No exact earlier table of the two-rate coefficient surfaced; it is a symbolic parameter law, and a catalogue non-hit is not priority proof.",
+        "searches": [
+          "Resultary indexed searches for two-rate damped power-map differences, fourth traces and reduced-degree collision residues"
+        ]
+      },
+      "rationale": "The distinct claim is the joint exact compact-difference fourth moment and sharp two-speed radial coefficient on weighted Bergman spaces. Neither the mixed-product collision parametrization itself nor the undamped operator invariants are new. The accessible strongest operator comparisons concern different invariants, settings, or only class membership; none inspected gives the full weighted two-speed quartic trace or its boundary coefficient.",
+      "residual_risks": [
+        "Choe et al. full text was not accessible on attempted lawful routes; membership comparison does not exclude an exact specialized example there.",
+        "The source comparisons are targeted rather than exhaustive priority research."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General membership and Gram representation, not evaluated exact moments",
+          "evidence": [
+            "Local density criteria",
+            "Kernel representation for D*D"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23733v1",
+          "material_read": "Original PDF abstract and Theorems 1.1–1.2 (pp. 1–3); §2.1 Lemma 2.1 (2.1); §1 discussion of related membership results",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Schatten and weak Schatten classes of composition operator differences on Bergman spaces",
+          "trigger": "Same family of operators and potentially stronger class or kernel theorem"
+        },
+        {
+          "assessment": "Membership overlap established; a specialized exact example in the full paper remains unresolved",
+          "evidence": [
+            "Ai–Yang describes p>=2 membership criterion"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11785-026-01962-0",
+          "material_read": "Bibliographic and membership description in Ai–Yang §1 and bibliography; publisher/direct-PDF attempts did not supply full text",
+          "method": "Lawful DOI/direct PDF attempts and accessible cited description",
+          "title": "Schatten Class Difference of Composition Operators on the Bergman Space",
+          "trigger": "Same weighted-Bergman differences and Scha​tten membership including exponent four"
+        },
+        {
+          "assessment": "Abstract does not cover the requested weighted Bergman quartic trace; not a whole-document exclusion",
+          "evidence": [
+            "Hardy H^2 and bidisc approximation-number bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.19797v1",
+          "material_read": "Original PDF abstract, p. 1",
+          "method": "Lawful OA PDF inspection",
+          "title": "Approximation numbers of differences of composition operators",
+          "trigger": "Potential approach to singular-value information for differences"
+        },
+        {
+          "assessment": "Undamped essential spectrum/range, not compact radial traces",
+          "evidence": [
+            "No separate radial damping rates in the undamped statement"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-hardy-bergman-spectral-gap-for-differences-of-power-map-composit--15c93892be02/RESULT.md",
+          "material_read": "Finding and Proof steps 1–2",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Hardy–Bergman spectral gap for differences of power-map composition operators",
+          "trigger": "Exact spectral result on the same two power-map difference at r=1"
+        },
+        {
+          "assessment": "Shares the collision arithmetic and Hardy equal-damping action, but evaluates the product's self-commutator, not the weighted two-rate difference's trace",
+          "evidence": [
+            "T e_(Mj)=q^j e_(Nj)",
+            "Trace and Hilbert–Schmidt invariants of T*T-TT*"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-ideal-spectral-rigidity-for-damped-monomial-composition-adjo--ba7c08a56403/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof step 1, mirror offset 0 onward",
+          "method": "Local mirror passage inspection",
+          "title": "Two-ideal spectral rigidity for damped monomial composition–adjoint products",
+          "trigger": "Strongest damped mixed-product arithmetic overlap"
+        },
+        {
+          "assessment": "Undamped cross-adjoint difference and its logarithmic singular trace, not the radial quartic moment",
+          "evidence": [
+            "w_m(bq)w_n(aq) is explicitly the undamped cross-adjoint product weight"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arithmetic-compactness-and-logarithmic-singular-traces-of-monomi--4d9675ff0ea8/RESULT.md",
+          "material_read": "Finding and Proof steps 1–2, mirror offset 0 onward",
+          "method": "Local mirror passage inspection",
+          "title": "Arithmetic compactness and logarithmic singular traces of monomial Bergman composition commutators",
+          "trigger": "Bergman weighted collision amplitudes and similar gcd asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen equations (1)–(4) and scope",
+        "Resultary 15c93892be02 and ba7c08a56403"
+      ],
+      "rationale": "The fourth moment is the first of the two stated even Schatten moments that detects overlaps between distinct input monomials. Its exact positive, normalized arithmetic contribution determines how much Hilbert–Schmidt diagonal information misses and quantifies the boundary loss of compactness in the two-speed model. This is a useful trace calculation, not a claim of new class theory or a full spectral law.",
+      "residual_risks": [
+        "Restricted monomial symbols and fixed parameters; not a claim on larger Schatten exponents, arbitrary symbols or a uniform boundary regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

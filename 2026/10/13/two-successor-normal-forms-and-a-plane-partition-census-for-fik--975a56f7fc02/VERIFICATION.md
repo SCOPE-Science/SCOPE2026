@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` (Python standard library only). It independently checks the raw forward-confluence condition on each of the \(2^{n^2}\) binary relations over \(n\)-element chains for \(n=1,2,3,4\), including all row and column choices (66,066 candidate relations in total). For every forward-confluent relation it directly interprets FIK's global box and local diamond on every upset and at every world, verifies persistence, extracts the proposed threshold invariants, constructs the two-successor normal form, and verifies equality of the two complete modal operator tables. Distinct operator tables must have distinct invariants. It checks the class census \(2,10,77,726\) and independently enumerates all interlacing pairs for \(n\le6\), including the MacMahon product and functional/nonfunctional split.
+# Independent mathematical audit
 
-Expected terminal line:
+## correctness
 
-`VERIFY_OK 378803 exact assertions; exhaustive all 66066 relations through n=4; independent ordered-pair counts through n=6`
+PASS
 
-These are finite corroborations. The general classification, generating product and sharp branching argument are proved in `RESULT.md`. No independent mathematical audit has been performed.
+Forward confluence is equivalent to a suffix of nonempty rows whose maxima are nondecreasing: once a row is nonempty the maximum in any later row must dominate its maximum, and choosing that later maximum suffices for confluence. The diamond truth table on thresholds recovers both the active suffix and each maximum. The future-quantifying box truth table recovers each suffix-union minimum; for empty prefix rows the box sees the same suffix as at the first active row. These minima are nondecreasing and no larger than the respective row maxima. The rows {u_i,m_i} therefore realize every legal signature without changing either table. The empty relation has a separate signature. Matching tables yield matching formula interpretations by induction, and an operator disagreement is already visible with one atom. Reversing the columns and ordering the maximum row above the minimum row gives exactly a boxed plane partition. The MacMahon product telescopes to the claimed factorial ratio; its product recurrence reproduces all ten listed numbers. A partial-functional representative exists exactly on the diagonal u_i=m_i, giving the hockey-stick sum binom(2n,n). For every n>=2, even a suffix of length one permits u_1=0<m_1=1, proving sharpness.
+
+## originality
+
+PASS
+
+The Boolean row data for confluence and the plane-partition formula are prior results. The independently supported contribution is the exact pointwise FIK quotient, including the suffix-minimum invariant, simultaneous bounded-branching realization and exact class counts. No inspected comparison covers that combination or supplies it by direct restriction.
+
+## value
+
+PASS
+
+On the same labeled chain, this result tells one exactly which relation edges are dispensable to every formula, supplies a sharp uniform branching bound, and counts the observable structures rather than their encodings. The separation between raw and observable counts and between one- and two-successor realizations is substantive for finite-frame enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

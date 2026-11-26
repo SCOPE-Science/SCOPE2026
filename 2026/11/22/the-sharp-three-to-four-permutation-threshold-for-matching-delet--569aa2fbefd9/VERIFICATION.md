@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no third-party dependencies. The checker independently reconstructs every pairwise adjacency by counting relative-order switches across blocks, rather than invoking the theorem formula as an oracle. It verifies:
+## correctness
 
-```
-FOUR_PERMUTATION_FAMILY 366 PASS
-THREE_PERMUTATION_FAMILY 226 PASS
-TRIPLE_ORDER_POSET_CHECK 2 4 PASS
-TRIPLE_ORDER_POSET_CHECK 3 36 PASS
-TRIPLE_ORDER_POSET_CHECK 4 576 PASS
-TRIPLE_ORDER_POSET_CHECK 5 14400 PASS
-TRIPLE_ORDER_POSET_CHECK 6 518400 PASS
-VERIFY_OK
-```
+PASS
 
-The finite parameter ranges are \(1\le a,b\le9\), each valid matching-deletion count, and all normalized three-block words on at most six vertices. For the unbounded theorems use the written defect-intersection equivalence, transitive-orientation obstruction, explicit two-order constructions, and induced-subgraph restriction of the published four-permutation crown word. The tests do not alone establish those unlimited quantifiers. No independent audit has been performed.
+Each boundary contributes one defect precisely when the pair order changes. With three blocks the two changes that characterize nonedges become agreement in all three orders after reversing the first and third. The intersection is a poset, and applying the same reversal to a three-order realizer is the converse. In the family complement, the middle of three matched A vertices in any transitive clique order can neither point to nor receive an arrow from its match: one choice forces an edge to the earlier vertex, the other to the later one. For s=0,1,2 the proposed two orders agree within each shore and exactly on the deleted cross pairs. In particular at s=2 the common shore orders are a1,A′,a2 and b2,B′,b1, and the only cross agreements are a1 before b1 and b2 before a2, including when either primed sequence is empty. In the published four-block word, within-shore pairs switch twice; for a cross pair the first two orders agree and the last two differ only at a deleted match, where there are exactly two switches. The indicated restriction keeps exactly the required matching of cross nonedges and preserves all pair defects. At most two blocks always give a complete graph, so only K2 needs one block.
+
+## originality
+
+PASS
+
+The three-block threshold-rule characterization and sharp non-comparability obstruction after three matching deletions are distinct on inspected evidence. The four-block crown construction, general permutational existence, and ordinary comparability/realizer correspondence are not claimed as new.
+
+## value
+
+PASS
+
+The complement/realizer correspondence gives a structural test at exactly the shortest potentially noncomplete block count. Applied to a natural deletion family, it identifies the obstruction already present on three matched pairs and makes the known crown construction sharp, rather than just transcribing it. The answer holds for arbitrary shore sizes and not just the balanced crown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

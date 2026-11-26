@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:09:43.685150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the threshold by sink elimination, rather than matrix inversion from the uploaded checker. With w=B/m, the sink block of −H is positive definite and its Schur complement on the refuge is the threshold minus r. Set the refuge coordinate to one. A single sink branch gives value w/(d+w); the branch of length two gives the first value w(d+w)/(d²+3dw+w²) by solving its two sink equations. Thus the interior-refuge path has threshold wd[1/(d+w)+(d+2w)/(d²+3dw+w²)], with w=B/3, yielding the stated r_P. In the diamond the refuge is linked to all three sinks; equal sink values w/(d+w) solve their equations (all sink–sink flows cancel). The threshold is 3wd/(d+w), w=B/5. On a common positive denominator their difference has numerator 3Bd²(3d²−B²), so gives a strict single crossing and opposite invasion decisions between the thresholds. The exact example inequalities 66/155<107/250<3/7 and 1/2<51/100<39/76 hold. For order three, write t=d/B. The path center, path endpoint and triangle thresholds divided by B are 2t/(2t+1), 2t(t+1)/(4t²+6t+1), and 2t/(3t+1). Center minus triangle is 2t²/[(2t+1)(3t+1)] and triangle minus endpoint is 2t²(t+2)/[(3t+1)(4t²+6t+1)], both positive. Order two has only one rooted type, so minimality holds at fixed order. General inertial sign and simplicity follow from the positive definite sink block (equivalently the rank-one congruence), with strict positivity of the principal eigenvector by connectivity. For the logistic corollary, v·x decays to zero when λ≤0 by weighted Cauchy–Schwarz. When λ>0 a small multiple of v and a large constant are lower and upper solutions; their monotone bounded trajectories converge, and the maximal-coordinate ratio test rules out distinct positive equilibria by strict quadratic loss. Positivity after any positive time and comparison give convergence from all nonzero nonnegative states. Inspected check.py and VERIFICATION.md without executing source code; numerical eigensamples corroborate the symbolic thresholds but are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karnatak–Wollrab normalize incoming adjacency by in-degree and use probabilistic connectivity; this is not a fixed total undirected conductance.",
+          "Bansaye–Lambert use the spectral radius of a mean-offspring matrix in an individual-based branching/dispersal model with weighted oriented probabilities.",
+          "The Nicoletti et al. resolvent is a particularly relevant methodological antecedent per the frozen source's Eq. (6) locator, but the independent retrievals did not make the primary passage readable."
+        ],
+        "reasoning": "General survival criteria or a Green function identify what to calculate. The exact sign change and minimum order require comparing the concrete budget-rescaled Laplacians; the accessible broader statements do not supply those computations.",
+        "searches": [
+          "DOI:10.1038/s41598-020-79162-9 model and extinction criterion",
+          "arXiv:1111.2535 mean-offspring criterion and source–sink examples",
+          "DOI:10.1073/pnas.2311548120 publisher, PMC10655566 and lawful repository full-text routes"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1038/s41598-020-79162-9",
+        "arXiv:1111.2535",
+        "Resultary 365eb550e61d, 56bee6769edb, f98f14803ee1, f381f0f41430 and self-match 05d94569135f",
+        "DOI:10.1073/pnas.2311548120 bibliographic match and source locator only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier investment theorem asks when Dt·Λ_B(t)+2bH vanishes for two four-edge adjacency matrices with fixed baseline weights. The present models have three versus five edges and reallocate every conductance; the dominant eigenvalue includes degree-dependent conservative losses and a one-refuge diagonal.",
+          "The graph-resistance example adds one edge without rescaling old ones, with three unequal recruitment-to-extinction ratios and at a single f. It does not compare threshold order as a shared B/d varies with one refuge and equal sinks."
+        ],
+        "reasoning": "Neither changing the names of the optimization variables nor reducing the rank-one criterion equates these results. The old claims do not imply the √3 crossing or contradict the three-vertex obstruction.",
+        "searches": [
+          "Compare Resultary 56bee6769edb Finding and M_A,M_B assumptions; compare 365eb550e61d Finding and model with RESULT.md lines 4–21 and 65–78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent exact test is a crossing of two diagonal functions e0ᵀ(dI+(B/m)L)⁻¹e0 or of their reciprocal thresholds. It is not a crossing of Perron roots of unshifted weighted adjacencies.",
+          "Resultary 365eb550e61d writes (aI+fL)⁻¹ diag(b). Formally taking a=d, f=B/m, and b=(r+d,0,…,0) gives the common rank-one threshold criterion, as a boundary specialization beyond its strictly positive b hypothesis."
+        ],
+        "reasoning": "This recognizes exact overlap of the algebraic criterion, and the standard fast-mixing expansion can also be found from that resolvent. It does not establish the finite-B comparison or the no-crossing obstruction for all two- and three-patch rooted types.",
+        "searches": [
+          "Resultary: one favorable patch, fixed sum of symmetric conductances, interior-root path versus diamond, rooted graph-Laplacian inverse",
+          "Web: Nicoletti emergent encoding of dispersal network topologies spatial metapopulation models 2311548120 arxiv author accepted pdf source sink Laplacian refuge fixed total conductance path diamond graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-a-sharp-four-patch-corridor-budget-inversion-at-b-sqrt-3-d--05d94569135f is the identical frozen record, not independent evidence.",
+          "Distinct same-day 2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d has a fast-exploration L⁺ correction and a path-to-triangle sign change with b=(3,2,1), keeping all old edge weights when adding a corridor.",
+          "Older 2026/11/2/SCOPE-a-unique-corridor-investment-reversal-in-a-four-patch-landscape--56bee6769edb compares two fixed baseline weighted paths each augmented by one different corridor under weighted adjacency Perron ranking.",
+          "The identical-local-degrees record f98f14803ee1 compares directed graph invasion thresholds, not the symmetric fixed-budget comparison."
+        ],
+        "reasoning": "These are material but different retrievals. None of the inspected numerical and symbolic catalogue comparisons supplies the rooted P4/diamond threshold pair under B/m or the small-order obstruction. Same-day priority is not inferred.",
+        "searches": [
+          "Resultary: four-patch equal-corridor budget inversion, spectral ranking reversal, source–sink path/diamond and small graphs"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact equal-total-conductance threshold crossing at B/d=√3 for the specified rooted path and diamond, with the fixed-order two/three-vertex obstruction. Spectral invasion tests, rank-one reductions, and topology-dependent examples in other ecological models are established and not part of the originality basis.",
+      "residual_risks": [
+        "Full independent primary-text checks of Nicoletti et al., Li et al. (10.1002/ece3.10166), and Cosner (10.1007/BF00167155) were not possible through the attempted routes. The exact condition remains a bounded conclusion relative to readable comparisons.",
+        "An unindexed rooted Green-function comparison may precompute some or all graph-specific identities; the lookup does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different adjacency spectra and added corridors, no budget-normalized refuge thresholds",
+          "evidence": [
+            "Baseline edge weights a,b,c are unchanged, alternatives are added edges 1–3 and 2–4 with weights αt,βt."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-corridor-investment-reversal-in-a-four-patch-landscape--56bee6769edb",
+          "material_read": "Finding, M_A and M_B assumptions, characteristic polynomial factorization",
+          "method": "Resultary and mirrored Result.md, offset 0–3096",
+          "title": "A unique corridor-investment reversal in a four-patch landscape",
+          "trigger": "Closest older four-patch single reversal"
+        },
+        {
+          "assessment": "Shared Laplacian resolvent and related survival comparison; no fixed-budget threshold reversal/minimality",
+          "evidence": [
+            "Positive b, K_f=(aI+fL)⁻¹; b=(3,2,1), a=2, f=10, h=49/50 on path vs adding unit-weight edge to make triangle."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d",
+          "material_read": "Finding and Assumptions, kernel, fast-exploration theorem, and exact finite example",
+          "method": "Resultary and mirrored Result.md, offset 0–3200",
+          "title": "A graph-resistance critical window for fast exploration in heterogeneous metapopulations",
+          "trigger": "Closest same-day graph-resolvent theorem and three-patch example"
+        },
+        {
+          "assessment": "Incoming-degree normalization and other modeling differences exclude the exact comparison",
+          "evidence": [
+            "Connectivity is adjusted by incoming degree and generated from modified Waxman probabilities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-020-79162-9",
+          "material_read": "Abstract, model pp. 2–3, and extinction eigenvalue criterion p. 9",
+          "method": "OA PDF bounded passages near offsets 14300–26742 and 62000",
+          "title": "A probabilistic approach to dispersal in spatially explicit meta-populations",
+          "trigger": "Network-based extinction thresholds with comparable migration notation"
+        },
+        {
+          "assessment": "Source–sink spectral method in a distinct stochastic dispersal model",
+          "evidence": [
+            "Criterion for stochastic extinction/survival at mean-offspring spectral radius 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.2535",
+          "material_read": "Abstract, mean-offspring criterion p. 5, two-patch example pp. 9–10",
+          "method": "Open arXiv PDF bounded passages at offsets 0, 16800–18200 and 33000–37967",
+          "title": "Past, growth and persistence of source-sink metapopulations",
+          "trigger": "Earlier general graph source–sink spectral persistence theorem"
+        },
+        {
+          "assessment": "Method antecedent identified; exact independent full-text coverage unresolved, not classed as whole-paper noncoverage",
+          "evidence": [
+            "Frozen source attributes h(f)(I+f Lᵀ)⁻¹ Aᵀ to Eq. (6) in the settlers/explorers model. Access failure itself supplies no scientific evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2311548120",
+          "material_read": "Bibliographic match and frozen Eq. (6) locator only; independent full-text retrieval did not permit reading the original equation",
+          "method": "Bounded OA attempts via publisher, PMC10655566 and University of Padua repository; web lookup identified the lawful repository copy, which also returned 403",
+          "title": "Emergent encoding of dispersal network topologies in spatial metapopulation models",
+          "trigger": "Closest primary ecological Laplacian resolvent antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp minimal benchmark showing that adding uniform corridors under a fixed total budget can favor either topology, depending on the ratio of total conductance to sink mortality. The exact threshold separation yields an explicit window in which the two graphs differ in deterministic invasion, not just in the value of an eigenvalue, and the rooted low-order obstruction explains why smaller examples cannot show this effect under the same normalization. The model does not identify realistic ecological parameters or stochastic extinction times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

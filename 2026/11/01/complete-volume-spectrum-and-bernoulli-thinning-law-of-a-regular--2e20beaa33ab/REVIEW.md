@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An exact field-arithmetic supporting-facet census covers every subset of the twelve vertices. For each three-dimensional hull, oriented facet triangulation and the divergence-theorem determinant identity recover the volume with no approximation. The certified multiplicities sum to the binomial count for each cardinality; 29 distinct levels, the twelve planar neighbor rings, and the fifteen additional four-vertex antipodal-pair planes are all checked. The full exhaustive output matches an independent numerical convex-hull construction to within 1.07×10⁻¹⁴; floating-point agreement is not the proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+Independently re-enumerated all 4096 masks with exact determinant arithmetic in Z[sqrt(5)] on doubled coordinates. A mask is three-dimensional exactly when at least one affine four-point determinant is nonzero. For each full-dimensional hull, sign-homogeneous supporting triples identify the facets, deduplicated by their planar vertex sets. The common circumsphere excludes three collinear vertices. Taking any selected off-plane point as a witness, exact determinant signs identify the perimeter edges of each facet. A fan from a facet vertex gives the boundary triangles; coning these to the strict interior barycenter of the selected vertices yields tetrahedra with disjoint interiors. Summing their absolute affine determinants avoids the source verifier's oriented volume sum about the origin. The replay checks each boundary edge has two incident facets and the Euler count, reverses the factor of eight from doubling, and converts exactly to six-volume pairs in 1,phi. All printed census rows and expectation coefficients agree, including the 29 values, coefficient divisibility, and the separate mask identities for 12 five-neighbor rings, their 60 distinct planar four-subsets, and 15 additional antipodal-pair planes. No six-or-larger mask has zero volume. An individual labelled mask of size k has weight p^k(1-p)^(12-k), so the exact mass and expectation polynomials, including their deterministic endpoint cases, follow by summation. At p=1/2 exact arithmetic independently gives 3710 full-dimensional masks, E[V]=(4601+7113 phi)/3072, and relative volume (2089+2512 phi)/20480.
 
-Newman's 2020 independent vertex-retention model does not list the fixed icosahedron's volume law. The published *Complete tetrahedron-volume spectrum and continuous maximum families in the regular icosahedron* provides exactly the four-point layer, which is credited and recovered here. Its multiplicities do not imply the joint incidence of larger selected subsets, the other eight layers, or the expected-volume polynomial. Jacobson's 2026 work studies a different face-constraint simplification operation. No exact all-subsets 29-level distribution was located in the inspected literature, but the published four-point record was accessible only in detailed synopsis, and historical priority is not conclusively established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact law measures volume loss under independent vertex thinning of a classical regular polyhedron, a natural and geometrically motivated finite random-polytope model. It is a complete classification over all 4096 choices, not a narrow arbitrary test case: the law resolves the full support, all cardinality-dependent multiplicities, the expectation for every retention parameter, and the complete coplanar exception structure. The result is finite and does not assert a general complexity or high-dimensional theorem.
+Two previously indexed tables are exact subfamily overlaps: the entire four-vertex layer and the 64 six-vertex transversals of the antipodal pairs. These data and the general Bernoulli sampling model are credited. The supported distinct result is the complete joint cardinality–volume census on all masks, especially the uncovered parts of layers k≥5, which determines the entire Bernoulli volume law. The novelty is the specific exact data, not the hull algorithm or probability reweighting.
 
-## Scope and limitations
+## value
 
-The support is fixed to the twelve regular icosahedral vertices, common independent retention probability, and ordinary Euclidean three-volume. The four-vertex spectrum is previously known; its duplication is not claimed as novelty. Published-source inspection was incomplete for that one relevant four-vertex record; independent historical and mathematical audits remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Vertex retention is a natural model and the whole icosahedron, rather than a handpicked slice, gives a complete exact small-solid benchmark for volume under thinning. The joint data distinguish masks with the same retained count but different volumes and masks of different counts with equal volume; they supply exact atoms, expectation and the dimension-collapse probability for every p. Neither the isolated tetrahedral spectrum nor the antipodal-transversal layer gives these probabilities. The geometric description of all lower-dimensional exceptions is useful beyond a numerical hull histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

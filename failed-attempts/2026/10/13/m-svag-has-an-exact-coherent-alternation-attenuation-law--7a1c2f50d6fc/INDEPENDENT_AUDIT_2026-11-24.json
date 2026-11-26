@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:44.058237Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For zero initialization the normalized weights at time t are w_h=β^h/Σ_{a=0}^t β^a, h=0,…,t. Their sum is one and the squared-weight sum is ρ_t as displayed. The normalized raw second moment is G², while the first moment divided by g_t is Σ_h (−1)^h w_h, giving the finite-time ratio. At t=0 the ordinary division by 1−ρ_t would be 0/0; the expressly stipulated source convention is ŝ_0=0, γ̂_0=1 here. For t≥1 the correction is well-defined. Taking limits with r=(1−β)/(1+β) gives ŝ_∞=G²(1+r), γ̂_∞=r/(1+2r), and direction gain r²/(1+2r). At β=9/10 these give the stated 20G²/19, 1/21 and 1/399, with momentum ratio 1/19. A nonzero constant gradient yields exactly zero corrected variance and direction gain one. This is an exact statement about prescribed gradients and the paper's update direction, not noise measured on an objective trajectory. The frozen moment-checking script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact arbitrary-history M-SVAG estimator and practical update are already specified. The source explains the local-stationarity premise and where it can be a poor model.",
+          "The closest catalogue results treat normalization or centering in a different optimizer and do not give a general period-response theorem encompassing M-SVAG."
+        ],
+        "reasoning": "Algorithm and modeling insight are inherited. No inspected period-response theorem specialized to a common β and corrected M-SVAG variance provides an independently stated evaluation.",
+        "searches": [
+          "Balles–Hennig ICML 2018, §§4.1–4.4, Eqs. (20)–(22),(24)–(25), Algorithm 1",
+          "Resultary: period-two response of adaptive optimizers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Balles–Hennig ICML 2018",
+        "Resultary comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 already gives the bias-corrected two moments and γm; one geometric sum for the alternating mean and substitution into the stipulated correction give every response formula here.",
+          "AdaMomentum's cancellation uses a momentum-squared denominator, and the PowerSign/AddSign results use an EMA sign comparison. These results do not transfer to the variance correction tested here."
+        ],
+        "reasoning": "The source has no separate response theorem to restate, but it mechanically determines this diagnostic once the sequence is inserted. This limits originality credit to the explicit presentation and supplies affirmative grounds for the value verdict.",
+        "searches": [
+          "Balles–Hennig Eqs. (20)–(22),(24)–(25), Algorithm 1",
+          "2026/10/4/SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4",
+          "2026/10/13/SCOPE-powersign-and-addsign-have-a-sharp-alternating-amplitude-agreeme--604561322840"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The leading close matches instead treat QHAdam, whose second-moment denominator on constant magnitude is |G|+ε, and ACProp, which uses the delayed centered residual; neither uses the M-SVAG gain m²/(m²+ρs)."
+        ],
+        "reasoning": "Alternation, Nyquist gain and normalized update ratio denote the same test signal and question, but the estimators compared are different, not alternate parametrizations of this rule. Same-day dating gives no priority inference.",
+        "searches": [
+          "Resultary: M-SVAG, period-two input, Nyquist attenuation",
+          "Primary literature: M-SVAG alternating gradient and frequency-response terminology",
+          "2026/10/13/SCOPE-qhadam-has-an-exact-nyquist-attenuation-floor--7311683468c0",
+          "2026/10/13/SCOPE-acprop-has-a-sharp-nyquist-centering-gain--43aae8744798"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked source gives the algorithm, not a table for this diagnostic. The inspected indexed close matches give exact numbers or laws for other algorithms, not an M-SVAG gain table."
+        ],
+        "reasoning": "The numerical specialization is direct arithmetic from the one-parameter formula, not an independently original datum. No equivalent indexed response table was identified.",
+        "searches": [
+          "Resultary: M-SVAG, Nyquist attenuation, alternating constant-magnitude gradient, beta 0.9",
+          "Balles–Hennig §4.4 and Algorithm 1"
+        ]
+      },
+      "rationale": "Narrowly, the explicit M-SVAG period-two response is not separately stated as a response theorem in the inspected source or matches. The EMA response and entire variance-adaptation algorithm are prior; the response numbers are direct consequences of those rules, which defeats the value requirement below. No credit for a new mechanism or general result is warranted.",
+      "residual_risks": [
+        "Priority for an explicit M-SVAG frequency diagnostic is not established beyond the bounded comparisons. The repository implementation was not retrieved; the proof uses the source-paper algorithm and its prose convention rather than an implementation-specific claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact estimator; no separately evaluated period-two response in the inspected sections",
+          "evidence": [
+            "Algorithm 1 gives m,v bias factors, s=(v−m²)/(1−ρ), γ=m²/(m²+ρs) and the update γm. Section 4.4 handles the first step and states no additive denominator ε."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v80/balles18a/balles18a.pdf",
+          "material_read": "PDF pp. 5–6, §§4.1–4.4, Assumption 1, Eqs. (20)–(22),(24)–(25), Algorithm 1; located around offsets 35400, 37300–39700 and 41200–44129",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Dissecting Adam: The Sign, Magnitude and Variance of Stochastic Gradients",
+          "trigger": "Defining M-SVAG source and claimed variance-adaptation factors"
+        },
+        {
+          "assessment": "Shared diagnostic input but different update",
+          "evidence": [
+            "The second moment contributes the denominator |G|+ε; the reported limit is 1−2ν₁β₁/(1+β₁)."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-qhadam-has-an-exact-nyquist-attenuation-floor--7311683468c0",
+          "material_read": "Original bound alternating-input law",
+          "method": "Resultary and local mirrored statement",
+          "title": "QHAdam has an exact Nyquist attenuation floor",
+          "trigger": "Closest equivalent-input indexed comparison"
+        },
+        {
+          "assessment": "Related signal, different second moment",
+          "evidence": [
+            "Uses a delayed, centered residual with alternating scale 2β₁/(1+β₁), not the M-SVAG correction."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-acprop-has-a-sharp-nyquist-centering-gain--43aae8744798",
+          "material_read": "Original bound centering law",
+          "method": "Resultary and local mirrored statement",
+          "title": "ACProp has a sharp Nyquist centering gain",
+          "trigger": "Related alternating-input variance-adaptation stress test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deterministic stress test is interpretable, and it shows an extra attenuation factor beyond momentum. But for this prescribed input the raw second moment is constant by definition, the first moment is a single geometric sum, and both the positive corrected variance and gain then follow mechanically from the published estimator by substitution. Nothing in the record establishes a more informative boundary or robustness statement, a distinct mechanism, or a need for these particular constants beyond illustrating the source's stated stationarity limitation. This is a useful worked example, not a surviving nonroutine exact result; a prose-only reframing would not repair it.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

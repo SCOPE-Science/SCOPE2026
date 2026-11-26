@@ -1,23 +1,21 @@
-# Scientific review: minimum discriminating codes of biplanes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every symmetric \(2\text{-}(16,6,2)\) design, rather than relying on a census of its three known isomorphism types. The lower bound is the exact nonzero binary-signature capacity inequality \(2^4-1<16\). At size five, three incidence moments and the uniqueness of singleton signatures force a single five-point trace, making every minimum code a block punctured at one point. Conversely, the design's pair multiplicity and dual pair intersections partition the other fifteen blocks into five singleton traces and ten doubletons. Distinct blocks share only two points, yielding exactly 96 codes and the exchange components \(16K_6\). The packaged verifier checks the incidence axioms and all 4368 five-point candidates for an explicit example; its evidence is corroborative, not a substitute for the universal proof.
+PASS
 
-**Risk/boundary:** Discriminating codes *require* nonempty traces. A weaker semi-resolving set need not hit every block; the statement does not classify that larger collection. No infinite family or ordinary metric-basis theorem is asserted.
+There are only 15 nonempty subsets of four selected points, so at least five are required. For exactly five, counting blocks, selected incidences and selected pairs in blocks gives sums 16,30,20 for the trace-size weights 1,j,binom(j,2). Nonempty distinct traces force r1≤5. Eliminating yields r1=8−r4−3r5 and r3=6−3r4−6r5; r1≤5 and r3≥0 then give r5≥1, and r5≤1 by uniqueness of the full trace. Thus r5=1 and r4=r3=0. Conversely for C=B∖{p}, the second block on each of the 15 pairs in B is distinct because each other block meets B in exactly two points. These pairs give exactly five singleton and ten doubleton traces, and B gives C. Thus each of the 16 blocks supplies six distinct codes, and the same block never shares a 5-subset with another block. Same-block punctures intersect in four points; different-block punctures intersect in at most two. Thus the exchange graph is 16K6 with 240 edges. The proof uses the design axioms uniformly and does not require the classification of realizations or an exhaustive program.
 
-## Originality — PASS, with residual risks
+## originality
 
-The closest antecedent is Bailey, *On the metric dimension of imprimitive distance-regular graphs*, Proposition 14 (arXiv:1312.4971), which proves that puncturing a biplane block gives a semi-resolving set. This already establishes the construction and is expressly credited. The newly evaluated claim is the **if-and-only-if classification for the stronger, standard discriminating-code condition**, plus the enumeration of 96 exact optima and their entire minimum-exchange graph. The published work of Charon--Cohen--Hudry--Lobstein on bipartite planar graphs defines precisely this discrimination problem, but its inspected full text analyzes trees and planar families, not the biplane classification. Tang--Zhou--Chen--Zhang address metric resolving sets of the full incidence graph, with differing vertex choices and inequalities, and do not directly imply the claimed nonempty one-side characterization from the inspected material. Relevant research-record searches using `discriminating codes`, `semi-resolving`, `identifying test sets`, `symmetric (16,6,2)`, and `exchange graph` found no covering proposition.
+PASS
 
-**Residual risks:** The complete PDF of Charbit--Charon--Cohen--Hudry--Lobstein's 2008 broad survey/bounds paper was not obtained after open-access and institutional-access attempts, although its abstract was inspected. The full text of the 2021 metric-dimension paper was also unavailable; the accessible abstract and section-five excerpts were read. These restrictions leave a possibility of an unrecognized stronger implication. Unindexed literature may also contain a code enumeration. None of the inspected *stated* results proves the converse or minimum exchange classification; a failed search is not treated as proof of novelty.
+Bailey's versioned Proposition 14 proves the punctured-block separation construction in any biplane, and nonemptiness follows at once from two-point block intersections. This already implies the minimum size and a known family of 96 candidates at these parameters, using the elementary information bound. The supported distinct claim is the converse for nonempty traces, hence the exhaustive count and exchange decomposition, not the construction. The closest Resultary match also counts 96 size-five codes but uses closed neighborhoods of the Shrikhande graph and has 16 cycles instead of 16 cliques. The available statements do not establish an equivalent classification. Earlier inaccessible design-catalogue literature remains a named bounded risk.
 
-## Value — PASS
+## value
 
-Discriminating codes formalize a natural simultaneous detection-and-identification problem for the incidence graph of a biplane. Classifying **every** optimum, not just constructing one, identifies which sensors are mathematically interchangeable. The surprising obstruction is global: all local one-point replacements remain within a fixed six-point block, leaving sixteen disconnected components. Because the proof uses only \((16,6,2)\) axioms, it applies uniformly to every realization of the classical biplane parameters. Exact classification and disconnectedness at the information-theoretic minimum constitute a structural result useful for studying fault detection and constrained reconfiguration of identifying sets, rather than an arbitrary table entry.
+PASS
 
-## External validation
+The parameter set is a natural small biplane family and the minimal code model is independently defined by nonempty distinct incidence signatures. The converse resolves the full equality structure for every realization, ruling out any optimal single-point reconfiguration between block families. That exact structural information is useful beyond a numerical census or the prior construction, even without a theorem for larger biplanes.
 
-Independent external review has not been performed; the reproducibility program gives only same-study finite verification in one instance.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:48:45.196047Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final /workspace/repairs/3/RESULT.md uses full directed bigram multiplicities for one genuine replacement in a linear word. Row and column marginals recover the ordered interior replacement; their nonzero pattern separates both ends. For a fixed b→d, comparing support in the equation R_a−R_a′=C_c′−C_c forces both changed neighbor pairs to lie in {b,d}; direct evaluation gives exactly one double fiber and q²−1 interior outcomes. When q≥3 each literal triple has a private difference for some replacement, forcing n−2≥q³ at equality; covering all triples suffices and is preserved under padding. For the count, A²=J and equal row/column degrees give q²−1 nonzero Laplacian eigenvalues q counted with multiplicity. The equal Matrix-Tree cofactors are q^(q²−3). Fixing a first triple arc selects one representative per cyclic Euler tour, and BEST followed by q³ distinct starts gives (q!)^(q²) linear words. The original limitation incorrectly attributed binary behavior to extra collisions; the repaired statement correctly identifies the loss of the third-letter private-context argument. Fresh full-profile enumeration at length 8 found 00010111 attaining 8 distinct results, consistent with the frozen outputs. The analytic proof and correction were rechecked; supplied scripts/outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "En Gad's Section 2 uses local count changes for edits including substitutions, but on long-substring-unique words with L>2⌈log_q n⌉+2, and compares source pairs through multiple edits in a code hash. Simmonds et al. abstract concerns context-dependent mutation and dinucleotide-frequency biases. Kiah et al. introduction concerns coding/reconstruction from noisy traces."
+        ],
+        "reasoning": "General local bookkeeping is prior, but none of these inspected statements supplies the enumeration of coincident fixed-order bigram change vectors for arbitrary source contexts or the private-context necessity result.",
+        "searches": [
+          "Kiah–Puleo–Milenkovic, Codes for DNA Sequence Profiles",
+          "En Gad arXiv:2609.19493v2 §2–2.1",
+          "Simmonds et al., BMC Genomics 14:610"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary findings",
+        "Record 4 exact Finding and proof",
+        "Kiah–Puleo–Milenkovic abstract/introduction",
+        "Simmonds et al. abstract",
+        "En Gad §2–2.1",
+        "He–Kari–Millan Arias abstract",
+        "BEST/Matrix-Tree count reconstructed in final proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trigram theorem uses five-letter windows and seven collision orbits, not a theorem uniform in factor order. Projecting to adjacent-pair counts is many-to-one and can change the collision relation. De Bruijn universality gives a sufficient witness but supplies no lower bound on the length of an arbitrary saturating source."
+        ],
+        "reasoning": "None of the inspected stronger-looking formulations implies the bound together with earliest saturation and rigidity. The private-difference proof is the additional ingredient that makes the classical count applicable.",
+        "searches": [
+          "Resultary trigram substitution RESULT.md, Finding and local proof",
+          "En Gad §2, local replacements",
+          "He–Kari–Millan Arias arXiv:2506.22172v2 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Directed pair histograms can be identified with edge vectors of the order-one de Bruijn digraph. Shifting by the fixed source profile or reversing all oriented pairs preserves image size. He–Kari–Millan Arias abstract identifies vectorized FCGR with k-mer frequencies, but constructs words given a distribution rather than counting mutant observations."
+        ],
+        "reasoning": "The observable admits equivalent representations; these do not change the quantifier over mutants of one fixed source. The inspected coding and inverse-profile statements do not give this image cardinality.",
+        "searches": [
+          "\"one-substitution\" dinucleotide profile capacity oriented k-gram counts trigram profile q-ary mutation ball",
+          "arXiv:1502.00517v1",
+          "arXiv:2506.22172v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed result is this assigned record. The distinct same-day trigram finding was inspected and applies to length-three factors and a different template count. The three other named catalogue items are frozen references for different edits or global counts; their full texts were not independently reopened. The de Bruijn factor (q!)^(q²) is the standard marked order-three count obtained by BEST."
+        ],
+        "reasoning": "No equivalent exact table was evidenced. Insertion/deletion change total count mass, and the global profile census does not hold the source fixed. Standard de Bruijn counts determine the number only once the new extremizer characterization is established.",
+        "searches": [
+          "Local Resultary: fixed-source one-substitution oriented bigram capacity",
+          "SCOPE-sharp-one-substitution-trigram-profile-capacity-over-finite-alph--f088cc3e61fa",
+          "SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+          "SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+          "SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f"
+        ]
+      },
+      "rationale": "The distinct result is exact maximum cardinality of the fixed-source one-substitution bigram image and the sharp necessity/sufficiency of complete triple coverage. The equality-case count uses the known de Bruijn count and is not a novel independent enumeration of de Bruijn cycles. No inspected competing claim covers the collision census and structural cutoff.",
+      "residual_risks": [
+        "The bounded search cannot exclude an equivalent unpublished or unindexed Markov-type or mutation histogram calculation.",
+        "Inspected scope is limited to the listed material, not every passage of every related reference; same-day indexing does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct order, not a theorem for bigrams",
+          "evidence": [
+            "q≥2, length-three factors, all-length capacity (q−1)(q⁵−q²−4q+4); length q⁵+4 is sufficient, not shown first."
+          ],
+          "identifier_or_url": "SCOPE-sharp-one-substitution-trigram-profile-capacity-over-finite-alph--f088cc3e61fa",
+          "material_read": "Finding and proof, mirror offsets 0 and 3800; matching frozen record 4",
+          "method": "Local Resultary and matching original",
+          "title": "Sharp one-substitution trigram-profile capacity over finite alphabets",
+          "trigger": "Same-day same edit and the nearest indexed statement"
+        },
+        {
+          "assessment": "Coding and reconstruction rather than this exact mutation-image count",
+          "evidence": [
+            "Sequence reconstruction from noisy substring observations and profile equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Primary OA HTML",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same observable and noisy-channel setting"
+        },
+        {
+          "assessment": "Relevant local context bookkeeping, not a matching exact combinatorial result in the available passage",
+          "evidence": [
+            "Models context-dependent effects on dinucleotide frequency biases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1471-2164-14-610",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary paper reading",
+          "title": "Modelling mutational and selection pressures on dinucleotides in eukaryotic phyla",
+          "trigger": "Local changes of the same histogram under mutation"
+        },
+        {
+          "assessment": "Different regime and coding objective",
+          "evidence": [
+            "Uses t≥2, L>2⌈log_q n⌉+2, and local changes in confusable source pairs with separated edits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19493v2",
+          "material_read": "§2–2.1, PDF offsets 16450–21390",
+          "method": "Locate replacement, then read bounded primary PDF passage",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Local effect of single replacements on spectra"
+        },
+        {
+          "assessment": "Equivalent histogram representation and inverse problem, not the fixed-source substitution ball in the inspected statement",
+          "evidence": [
+            "Vectorized FCGR corresponds to k-mer frequencies; reconstruction proceeds from prescribed counts through Eulerian paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.22172",
+          "material_read": "v2 abstract, p. 1, offset 0",
+          "method": "Primary OA PDF",
+          "title": "Bridging Chaos Game Representations and k-mer Frequencies of DNA Sequences",
+          "trigger": "Potential equivalence via k-mer frequency vectors and Euler paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact mutation-observation capacity for overlapping bigrams quantifies a genuine compression collision effect not answered by the Hamming ball size. The first saturation length and rigidity link observation diversity to complete triple coverage, giving a meaningful source-design cutoff and characterization. The binary clarification does not change these q≥3 results, and no generic code-size claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

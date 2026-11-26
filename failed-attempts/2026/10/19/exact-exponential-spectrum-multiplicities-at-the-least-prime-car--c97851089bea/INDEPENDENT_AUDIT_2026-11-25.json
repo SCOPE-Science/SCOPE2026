@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:15:09.002293Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52; VERIFICATION.md; inspected verify_squarefree_spectra.py lines 11–87 (not executed)",
+        "Lam–Leung, arXiv:math/9511209, Thms. 4.8 and 5.2 used as an independent route to the critical cancellation fact"
+      ],
+      "rationale": "For a vanishing sum of at most p roots, split off a prime s>p from the squarefree conductor. At most p fibers are occupied, while the minimal polynomial over the remaining cyclotomic field is 1+X+…+X^(s-1); its degree s-1 follows from the coprime cyclotomic degree ratio. A missing fiber forces all coefficients to vanish, and induction on the number of primes forces exactly one occupied fiber and one p-cycle. The one-prime case follows from the same minimal polynomial over Q, and conductor 1 cannot vanish. Applying the result to exponent products a(b-b') gives a full residue set mod p and constant coordinates at r>p where the difference is nonzero. Since B has p entries, all differences nonzero mod p is equivalent to its being a transversal. The converse gives each required Fourier zero. Labeling the selected elements by their p-coordinate counts literal sets exactly once: B has r^p choices for a constant coordinate of A and r choices elsewhere; A has r choices per constant coordinate and r^p-r per nonconstant coordinate. This gives the stated multiplicities, their distinctness by unique factorization, and Q times the product of (2r^p-r). For N=30, the positive strata total 225 supported two-sets, out of 435; the weighted multiplicity total is 10125. The analytic proof, not tests, establishes all t≥1.",
+      "residual_risks": [
+        "Only squarefree N with cardinality the least prime divisor is assessed; the counts do not quotient by symmetries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam–Leung Thm. 5.2 excludes weight below p; Thm. 4.8 classifies every minimal element as symmetric (a translate of a prime subgroup sum) unless weight exceeds the third prime. The argument covers arbitrary cyclic orders at this weight. Tan–Zhang give general squarefree spectral-set existence by transversality at cardinality dividing the order and a canonical spectrum; their pair elimination theorem is related but does not give the literal-pair counts."
+        ],
+        "reasoning": "At weight p the sum is minimal and must be symmetric of size p. This is decisive prior structural coverage, stronger than the existence-level squarefree comparisons.",
+        "searches": [
+          "arXiv:math/9511209 Lower Bound Thm. 4.8, Cor. 4.9, and Thm. 5.2; arXiv:2610.02218v1 Thms. 1.1 and 2.3; arXiv:2005.05800 Thm. 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Lam–Leung arXiv:math/9511209",
+        "Malikiosis arXiv:2005.05800",
+        "Tan–Zhang arXiv:2610.02218v1",
+        "Zhou arXiv:2505.01189v3",
+        "Local Resultary comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A coset of the p-subgroup in CRT coordinates is all p residues in that component and constant in each other component. In products a(b-b'), the full p-coordinate requires nonzero (b-b') mod p and A bijective mod p; a constant r-coordinate means b=b' mod r or A constant mod r. Applying this to each pair gives the entire classification. Each remaining coordinate admits r choices for a constant function and r^p arbitrary functions. The union of the two one-sided constancy conditions has 2r*r^p-r² choices, independently across r."
+        ],
+        "reasoning": "The proof beyond the prior conclusion is Fourier orthogonality by definition, a coordinatewise rewrite, and a product of elementary function counts (or the corresponding single-set count with one side fixed). There is no independent new characterization or nontrivial enumeration beyond that direct implication.",
+        "searches": [
+          "Apply arXiv:math/9511209 Thms. 4.8 and 5.2 to frozen RESULT.md lines 31–51, checking Malikiosis and Tan–Zhang as alternate frameworks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orthogonality is precisely p-term vanishing for every nonzero difference of column labels. Lam–Leung classify these minimum-weight sums as translated prime cycles. Zhou treats nonvanishing principal minors, a different property."
+        ],
+        "reasoning": "For the relevant Fourier statistic the p-cycle criterion can be applied directly to the exponent multiset {a(b-b') mod N}; it is not just a parallel-looking theorem about an unrelated object.",
+        "searches": [
+          "arXiv:2005.05800 Thm. 3.3 and Thm. 3.5; arXiv:math/9511209 Thms. 4.8, 5.2; arXiv:2505.01189v3 pp. 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/16 SCOPE-exact-tensor-spectrum-of-prime-cardinality-fourier-basis-inciden--fc48e952fdff explicitly states the same pair criterion and ordered count ∏(2r^(p+1)-r²), and gives further incidence-matrix results. Its stated criterion implies the fixed-set count. It is later-dated; the order of the paths does not settle provenance. The earlier four-point Z_(4p) record is nonsquarefree and not the present general count."
+        ],
+        "reasoning": "There is a material exact content match but no demonstrated earlier priority from the later entry. The older full-text structural theorem supplies the independent prior-coverage basis.",
+        "searches": [
+          "Local Resultary on prime-cardinality Fourier bases, spectrum multiplicities and orthogonal pairs; closest exact record Finding and Proof §§1–4"
+        ]
+      },
+      "rationale": "The classification and its multiplicity products are mechanically implied by Lam–Leung’s prior classification of minimum-weight vanishing sums, followed by column orthogonality and independent-coordinate counting. The exact products were not located as earlier explicit statements, but that does not protect this direct corollary. The later-dated exact content match is recorded separately and is not the basis for the failure.",
+      "residual_risks": [
+        "The later exact match does not settle priority or provenance. Failure means mechanically covered, not that the exact multiplicity products were shown to have been printed in the older source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by mechanical implication",
+          "evidence": [
+            "Thm. 4.8: a minimal vanishing element is symmetric or has at least 3 distinct prime factors in the group order and weight greater than p3.",
+            "Thm. 5.2: weights lie in the nonnegative semigroup of the prime divisors; its proof notes symmetric elements have prime weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+          "material_read": "Introduction p. 2; Lower Bound Theorem 4.8 p. 11, Corollary 4.9 p. 12, and Theorem 5.2 and its proof pp. 12–13, OA offsets near 28548, 29700–31933, 32000–34000",
+          "method": "Lawful OA PDF, located named theorems and read relevant passages",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Could supply the full minimum-weight structure, not just weight existence"
+        },
+        {
+          "assessment": "General Fourier-zero background and spectral constructions; reference to decisive prior vanishing-sum source",
+          "evidence": [
+            "Tile-to-spectral theorem and Fourier-zero/divisor criteria; reference 20 is Lam–Leung."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.05800",
+          "material_read": "Abstract, p. 3 Thm. 1.5; pp. 6–7 Thms. 3.3 and 3.5; p. 37 ref. 20",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "On the structure of spectral and tiling subsets of cyclic groups",
+          "trigger": "Prime-coordinate Fourier-zero and spectral-set structure"
+        },
+        {
+          "assessment": "Earlier existence criterion and coordinate-elimination theorem, not a statement of the literal multiplicity counts",
+          "evidence": [
+            "For size m a tile/spectral set is exactly a transversal modulo m with m|N; a canonical spectrum is supplied."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02218",
+          "material_read": "v1 Thm. 1.1 pp. 3–4 and Thm. 2.3 pp. 5–7",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Fuglede’s Conjecture for Cyclic Groups of Square-free Order",
+          "trigger": "Directly relevant squarefree spectral-set classification"
+        },
+        {
+          "assessment": "Direct content match in a later-dated record, not evidence of earlier priority",
+          "evidence": [
+            "The stated coordinate criterion and ∏(2r^(p+1)-r²) coincide; rank and eigenvalues are additional."
+          ],
+          "identifier_or_url": "Resultary 2026/11/16 SCOPE-exact-tensor-spectrum-of-prime-cardinality-fourier-basis-inciden--fc48e952fdff",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact tensor spectrum of prime-cardinality Fourier-basis incidence",
+          "trigger": "Exact pair criterion and product-count match"
+        },
+        {
+          "assessment": "Different property; principal invertibility is not paired orthogonality",
+          "evidence": [
+            "Principal minor nonvanishing and associated Riesz-basis questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.01189",
+          "material_read": "v3 pp. 1–4",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Principal Non-singularity of Fourier Matrices",
+          "trigger": "Potentially equivalent Fourier-minor theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, especially lines 42–52; Lam–Leung arXiv:math/9511209 Thms. 4.8 and 5.2"
+      ],
+      "rationale": "Literal multiplicity is a legitimate invariant, but in this scope the proposed contribution is an immediate coordinate count after applying a known minimum-weight theorem to the orthogonality equations. Neither the histogram nor the ordered count introduces a separately motivated unknown invariant requiring nonroutine work. The N=30 example illustrates the same formula, rather than exposing a new obstruction or structural phenomenon.",
+      "residual_risks": [
+        "The disposition does not discredit the formulas as correct examples or useful expository corollaries."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:48.105763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "VERIFICATION.md; verify_full.py and verify_quotient.py inspected, not executed; source replay paths are those two scripts",
+        "Frozen verification_full.log lines 1–8 and verification_quotient.log lines 1–25",
+        "Independent bounded vertex-level check: enumerate {0,1,2}^d, form unit-coordinate edges, refine by old-colour and neighbour-colour multiset; d=2,3,4 matched all partitions, with first stable rounds 2,4,6 and class counts 6,10,15"
+      ],
+      "rationale": "At round 1 the signature distinguishes the marked origin, identifies b by degree d+b and detects adjacency to the mark. Coordinate permutations preserve all signatures, so each (b,c) type is indivisible. From round t to t+1, in any fixed-b unreached class at most one type can have distance t+1; it alone sees a reached colour. All types at distance >t+1 have exclusively unreached neighbours, with d−b in the b+1 tail and 2b in the b−1 tail (zero-count tails are irrelevant), independently of c. Old colours prevent merging. The final two b=0 types at distances 2d−2 and 2d are still tied at 2d−3, including d=2; at 2d−2 all tails contain at most one type. No earlier equality could precede a later split. Root distance and degree are rooted-automorphism invariants and determine (b,c); coordinate permutations give transitivity on each type. The multinomial size and triangular count follow. The stronger proof statement about the full stabilizer is also sound: degree distinguishes 2e_i among the distance-two neighbours of e_i, and the difference of distances to 2e_i and to the origin determines x_i.",
+      "residual_risks": [
+        "The bounded computation is corroboration only; the induction proves the dimension-uniform result. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marked rectangular grid Finding and Assumptions and scope, offset 0: d≥3 and arbitrary path lengths; scope excludes any claim of optimal round count.",
+          "Kiefer–McKay PDF p. 2 concerns extremal iteration counts over graphs of given order."
+        ],
+        "reasoning": "The broader grid theorem gives terminal orbit classes and therefore their sizes here for d≥3, but generic iteration bounds and that terminal theorem do not determine when each type separates.",
+        "searches": [
+          "Resultary: marked Cartesian grid corner coordinate profile wavefront exact orbit refinement",
+          "Kiefer–McKay, arXiv:2005.10182, Theorems 1.1 and 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Indexed marked rectangular-grid, mixed Hamming, unmarked path-power and rectangular-grid records listed above",
+        "Kiefer–McKay arXiv:2005.10182, Theorems 1.1–1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Steps 1–4 use equitability of the stable colours to recover paired coordinate distances; Step 5 identifies their rooted orbits. For P3 factors these pairs are precisely the three coordinate values."
+        ],
+        "reasoning": "Setting all lengths to 3 mechanically gives the d≥3 terminal classes, but those arguments do not prove round-t equality of unreached types or supply the two-type tie at 2d−3. The new bound rests on that separate wavefront invariant.",
+        "searches": [
+          "Marked rectangular grid RESULT.md, proof offsets 2100 and 6214"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mixed Hamming grid Finding, offset 0, treats complete graph factors K_q, not path factors P3. The external search returned unrelated results."
+        ],
+        "reasoning": "The marked ternary path product is neither a ternary Hamming graph nor a uniform-colour path power. These comparisons do not yield an equivalent temporal partition. The web miss is not evidence of absence.",
+        "searches": [
+          "Resultary: P3 Cartesian powers single marked corner color refinement wavefront exact stabilization depth",
+          "Web: \"marked corner\" \"colour refinement\" Cartesian powers grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed matches included a stable marked-grid result, rooted Hamming wavefronts, unmarked path powers, and unmarked two-factor grids; the inspected Findings differ in either factor, initial colouring or temporal output."
+        ],
+        "reasoning": "The published-result index was the relevant lookup for the dimension-uniform formula. A finite graph table listing stable partitions or small sizes could not by itself cover all the claimed rounds and dimensions.",
+        "searches": [
+          "Resultary: P3 Cartesian powers single marked corner color refinement wavefront exact stabilization depth",
+          "Resultary: marked Cartesian grid corner coordinate profile wavefront exact orbit refinement"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full time-dependent partition and sharp round 2d−2. Do not credit eventual rooted orbit recovery as distinct for d≥3: the inspected same-day rectangular-grid result covers it. Its stable-colour proof does not control intermediate colours or imply the sharp lower bound. The date alone does not establish priority.",
+      "residual_risks": [
+        "Same-day terminal-orbit overlap is real; its relative priority is unresolved and not needed for the temporal claim.",
+        "Bounded searches cannot exclude a specialized derivation under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers terminal orbit partition for d≥3, not the exact dynamics",
+          "evidence": [
+            "Proof reconstructs coordinate profiles from stable colours by equitability; no optimal iteration count is claimed or proved."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-marked-corner-recovers-all-orbits-in-higher-dimensional-rect--737f571f9272/RESULT.md",
+          "material_read": "Finding and scope, offset 0; proof offsets 2100 and 6214",
+          "method": "OA local mirror, bounded passage inspection",
+          "title": "One marked corner recovers all orbits in higher-dimensional rectangular grids",
+          "trigger": "Strongest overlapping indexed result"
+        },
+        {
+          "assessment": "Different factors",
+          "evidence": [
+            "Uses K_q factors, whereas P3 is not complete."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-one-root-colour-refinement-wavefronts-for-mixed-hamming-gr--625c3d483d15",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact one-root colour-refinement wavefronts for mixed Hamming graphs",
+          "trigger": "Similar dynamics on Cartesian products"
+        },
+        {
+          "assessment": "Different initial colouring",
+          "evidence": [
+            "Initial partition is uniform, not a singled-out corner."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-unmarked-colour-refinement-depth-on-cartesian-powers-of-pa--4ecb820297ab",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact unmarked colour-refinement depth on Cartesian powers of paths",
+          "trigger": "Same product family with a possible iteration formula"
+        },
+        {
+          "assessment": "Different initial colouring and parameter family",
+          "evidence": [
+            "Concerns unmarked two-factor grids."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-colour-refinement-depth-of-rectangular-grid-graphs--19dfa9d1dbd4",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact colour-refinement depth of rectangular grid graphs",
+          "trigger": "Exact grid refinement depth"
+        },
+        {
+          "assessment": "General extremal bounds do not cover the marked-family formula",
+          "evidence": [
+            "The compared statements concern extremal counts over graphs of order n, not these intermediate rooted partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.10182",
+          "material_read": "PDF p. 2, Theorems 1.1/1.2, offsets 6621 and 7077",
+          "method": "OA paper passages",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "General sharp iteration results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–27, 45–51; marked rectangular-grid Finding and proof"
+      ],
+      "rationale": "This is a natural controlled family for distinguishing propagation from convergence. The formula tells exactly which types remain indistinguishable after any fixed number of rounds, and shows that orbit separation can finish two rounds before the distance-to-mark signal could reach the far corner. Eventual orbit identification alone does not give either fact.",
+      "residual_risks": [
+        "This is a benchmark for single-corner marking on P3 powers, not a general product-depth or graph-identification theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

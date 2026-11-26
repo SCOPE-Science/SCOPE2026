@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:18.894259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over an individually named finite base A, an extension point's link specifies the induced one-point extension. Two realizations of the same link are conjugate over A by homogeneity. A link is allowed exactly when it omits at least one of the three pairs of every hyperedge of A: a new tetrahedron must consist of the extension point and three adjacent base vertices. Every allowed link has arbitrarily many distinct realizations by taking copies with no edges involving two new points and using the age extension property. Thus the allowed links give all nonalgebraic types exactly once, and the only algebraic types are the n equality types. The designated bases are admissible: a tetrahedron extending the base triple (i,i+1,i+2) would require its fourth vertex simultaneously to be i−1 and i+3; this cannot occur on the path or modulo n≥5. For n=4 the cycle is forbidden. The constrained pairs are consecutive edges a_i and distinct distance-two chords b_i (including at n=5); each constraint is a_i a_(i+1) b_i=0. Summing over each private b_i gives 1+u except at (a_i,a_(i+1))=(1,1), where it gives 1. The weight u^(a_(i+1)) produces exactly the stated M; a fixed labelled starting edge leads to vM^(n−2)1 for the path and trace M^n for the cycle, without any rotational quotient. Isolated pair variables explain the free exponents. At u=1 the determinant is −2 and trace 3, so eigenvalue powers give all the stated counts and the fraction with decay base (3+√17)/8>7/8. The supporting verifier and recorded output were inspected, not executed. Independent inclusion-exclusion over sets of base triples gives the small totals, including 573, 16328 and 930432, and the n=5 cycle coefficient sequence (1,10,45,115,175,152,65,10); replay /workspace/branches/independent_small_checks.py. The proof, not the finite tests, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trinks gives general weak-independence recurrences via vertex and edge operations and realizes the polynomial as a subgraph-counting specialization; the inspected subdivision replaces one edge by pairs through a new vertex and is not the loose enlargement by a private vertex.",
+          "The established homogeneity framework explains when local extension data determine complete types, but does not enumerate this type spectrum."
+        ],
+        "reasoning": "The general recurrences permit evaluation on a specified instance. To get these all-length formulas requires constructing the pair-variable hypergraph, eliminating the private chord choices and using the corresponding path and cyclic boundary conditions; those are not a parameter substitution into the statements read. The cover-polynomial reciprocity identifies another alias, not a family-specific evaluation.",
+        "searches": [
+          "Trinks arXiv:1406.2990v1 introduction, Corollaries 17 and 19, Theorems 18 and 20, Props. 23–24",
+          "Assari–Hosseinzadeh–Macpherson §1/§1.3; Resultary linear edge expansions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Trinks arXiv:1406.2990v1; Frieze–Krivelevich–Loh arXiv:1005.4711; Assari–Hosseinzadeh–Macpherson submitted version",
+        "Resultary 28293137ef14, 6db160410a0c, aca820cf2535 and 48f4e118c696"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frieze–Krivelevich–Loh define the same tight cycle but study packing. The oriented-cycle transfer uses different local states and different allowed links; maximal strong independence uses a different predicate on the same auxiliary families. Trinks gives general recurrences rather than the specific all-length path and trace expressions."
+        ],
+        "reasoning": "Neither the analogues nor the general combinatorial framework inspected gives the asserted all-length named-base spectrum and cycle probability just by matching parameters. In particular the classical transfer computation is used after identifying the local chord constraints, not claimed as a new generic transfer theorem.",
+        "searches": [
+          "ArXiv:1005.4711 p. 1; Trinks §4, pp. 9–10; Resultary 6db160410a0c and 28293137ef14 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constrained pair-variable edges {a_i,a_(i+1),b_i} are loose, not tight; their weak independent sets may select two vertices of a triple but not all three.",
+          "For a graph G whose edges each acquire a private vertex, the weak polynomial is the sum over S⊆V(G) of u^|S| times (1+u)^(|E(G)|−e_G(S)). With G a path or cycle this is a binary nearest-neighbor partition function, which produces the specified two-state transfer.",
+          "Resultary 28293137ef14 treats the same loose families, but its sets are inclusion-maximal and strong."
+        ],
+        "reasoning": "The weak polynomial plus isolated-pair factors is exactly equivalent to the frozen spectrum, so a prior explicit weak formula for the loose families would matter. Strong independence forbids selecting two members of an edge, and inclusion-maximality adds a further difference; it cannot yield this polynomial.",
+        "searches": [
+          "Resultary: named one-point type spectra, consecutive triple avoidance, weak independence polynomials of loose hyperpaths and hypercycles",
+          "Primary search: loose hyperpath and hypercycle independent-set enumeration; Martin Trinks arXiv:1406.2990v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matrix or all-degree sequence surfaced in the bounded queries. Record 6db160410a0c gives three-state matrices over oriented cycles in a different theory. Records aca820cf2535 and 48f4e118c696 count two-point types over matching bases and induced profiles in another structure, respectively.",
+          "The loose-family check found 28293137ef14 for maximal strong sets, not weak sets."
+        ],
+        "reasoning": "These hits were compared by their actual forbidden configurations, number of extension points, or counting statistic. An isolated coincidence of an unweighted recurrence would not establish the claimed polynomial; no such equivalent weighted table was found.",
+        "searches": [
+          "Local Resultary: tight hypergraph link spectrum, loose-family weak independence polynomial, one-point cycle transfer count"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit all-length, degree-refined type count and resulting probability over these two named-base families, not the Fraïssé framework or a new transfer-matrix method. The auxiliary problem is the weak independence polynomial of a loose hyperpath or hypercycle and was checked in that form too. The strongest inspected general weak-independence recurrences compute the invariant for any hypergraph but do not provide the family-specific two-state simplification or its sharp type-count asymptotic in the passages read. The inspected exact expansion result counts a different kind of independent set.",
+      "residual_risks": [
+        "An earlier family-specific weak independence, cover-spectrum or binary-spin formula may be indexed under another alias. The inspected general recurrences do not settle that priority question.",
+        "The antiregular hypergraph paper was not inspected beyond bibliographic information. The searches and inspections do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same underlying polynomial, general recurrences but no specialized formula in passages read",
+          "evidence": "Cor. 17 is edge-based inclusion-exclusion; Cor. 19 gives deletion and contraction; Thm. 20 uses subdivision with pair edges; Prop. 24 gives I(G,x)=x^|V| Ψ(G,x⁻¹).",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2990",
+          "material_read": "Introduction at offset 1450; pp. 9–11, offsets 23060 and 26600 (Cor. 17, Thm. 18, Cor. 19, Thm. 20, cover equivalence)",
+          "method": "OA original PDF; literal locator then bounded offsets",
+          "title": "A survey on recurrence relations for the independence polynomial of hypergraphs",
+          "trigger": "Exact weak-independence alias of the local constraint count"
+        },
+        {
+          "assessment": "Same base object, distinct question",
+          "evidence": "Consecutive triples define the cycle; focus is packing edge-disjoint cycles in random and pseudorandom hypergraphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.4711",
+          "material_read": "Definition and introductory scope p. 1, offset 439",
+          "method": "OA PDF",
+          "title": "Packing tight Hamilton cycles in 3-uniform hypergraphs",
+          "trigger": "Same tight-cycle base in the primary combinatorics literature"
+        },
+        {
+          "assessment": "Context for ages, limits and homogeneity, not the claimed spectrum in inspected passages",
+          "evidence": "The cited passages discuss homogeneity and age theory and the surrounding work concerns set-homogeneity.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12796",
+          "material_read": "Abstract; §1 and §1.3, pp. 1855–56, offset 13320",
+          "method": "Lawful White Rose submitted-version PDF after DOI route unavailable",
+          "title": "Set-homogeneous hypergraphs",
+          "trigger": "Tetrahedron-free homogeneous 3-graph context"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Counts inclusion-maximal sets meeting each hyperedge in at most one vertex; frozen allowed sets need only miss at least one vertex of each size-three edge.",
+          "identifier_or_url": "Resultary 2026/11/8 28293137ef14",
+          "material_read": "RESULT.md offset 51",
+          "method": "Local mirror",
+          "title": "Maximal strong independence in uniform linear edge expansions",
+          "trigger": "Same loose auxiliary hypergraph family"
+        },
+        {
+          "assessment": "Different relation, forbidden configuration and transfer states",
+          "evidence": "Oriented cycles in a homogeneous oriented graph with transitive triangles forbidden; three-state matrices, not this binary tetrahedron link problem.",
+          "identifier_or_url": "Resultary 2026/11/22 6db160410a0c",
+          "material_read": "RESULT.md offsets 51, 3469 and 6627",
+          "method": "Local mirror",
+          "title": "Parity-frustrated coefficientwise extremality of one-point types",
+          "trigger": "Closest exact named-base one-point cyclic transfer analogue"
+        },
+        {
+          "assessment": "Different base and two-point statistic",
+          "evidence": "Ordered two-point types over matching bases and mutual-link perturbations.",
+          "identifier_or_url": "Resultary 2026/11/22 aca820cf2535",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Sharp phase-sensitive mutual-link perturbation over disjoint tetrahedron-free matching bases",
+          "trigger": "Same homogeneous theory and link counts"
+        },
+        {
+          "assessment": "No coverage judgment based on this hit",
+          "evidence": "Full text unavailable; title alone does not establish a loose path/cycle theorem.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X25004081",
+          "material_read": "Bibliographic result only; no full text obtained",
+          "method": "Lawful OA attempts",
+          "title": "On the independence polynomial and threshold of an antiregular k-hypergraph",
+          "trigger": "Primary loose-independence search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The tight path and cycle provide natural overlapping-edge bases in the same homogeneous structure, with respectively open and periodic boundary conditions. The formulas determine every rank of the link spectrum, not just small counts, and quantify the difference from treating consecutive tetrahedron constraints as independent. The exact family-wide reduction to two states gives usable information not supplied by brute force or the base's age alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

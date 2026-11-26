@@ -1,19 +1,21 @@
-# Scientific review: refresh-frequency reversal in loopless SVRG
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence is reconstructed from the pre-step snapshot rule in the original algorithm, including the independence of component sampling and the refresh coin. Exact branch averaging gives a positive second-moment map. A positive-definite test covariance \(P\) satisfies \(\mathcal T^2(P)=P-hQK/d\) with \(K\succ0\), giving an exact necessary-and-sufficient stability criterion. The proof additionally shows that the physically required common initialization becomes positive definite after at most three steps and establishes the boundary and large-step failure cases. The derivative of the positive quadratic root proves the phase inversion. The standalone rational checker passed \(1{,}710\) varied parameter cases and the exact convergence/divergence witness. The infinite-time conclusions rest on the matrix-order argument, not enumeration.
+PASS
 
-## Originality — PASS, subject to stated priority risk
+Under independent uniform sign sampling and independent Bernoulli pre-step refresh, put r=1-h and d=p+(1-p)h. Averaging the update gives C'11=(r²+h²v²)C11-2h²v²C12+h²v²C22, C'12=r[pC11+(1-p)C12], C'22=pC11+(1-p)C22. For P with unit diagonal and off-diagonal pr/d this gives M(P)=P-(hQ/d)E11, with E11+M(E11) positive definite by its positive leading minor and determinant p[1+h²v²+(1-p)r²]. Thus the two-step map supplies an order contraction when Q>0 and growth when Q<0, with a fixed positive definite P at Q=0. From common nonzero initialization, C2 is positive definite by independent nonzero sign variance except at p=h=1, when C3 is positive definite. This gives the required lower comparison for the iterate, not just a statement about an abstract spectral radius. At h=2 the same growth argument works even for the semidefinite P at p=1; at h>2 Jensen and the unbiased mean give exponential growth. Q is strictly concave with Q(0)>0, Q(2)<0, and a single positive root. Q(1)=1-2v² and Q_p=(h-1)(h-2), proving the direction of the strict reversal and its constant threshold at v²=1/2. Independent rational substitution gives 7/64 and -1/32 at the two witness probabilities; when Q<0, M(P)≥P also transfers the geometric lower bound to the intervening iterates. The finite check corroborates only that witness, not the theorem.
 
-The defining constant-step loopless-SVRG paper and Qian–Qu–Richtárik's arbitrary-sampling extension give sufficient convergence estimates, but their inspected algorithmic and theorem sections do not contain the sharp all-probability scalar frontier. Sebbouh and coauthors treat a **different, decreasing-step** loopless variant. A previously derived fixed-probability \(p=1/2\) frontier is **recognized as covered**, not claimed as new. The additional strict sign reversal of the admissible step limit as the refresh probability varies, including a same-stepsize stable-versus-unstable example, is not implied by that fixed-probability result. Search of indexed mathematical findings revealed no equivalent statement. Unindexed equivalent work remains a priority risk; search absence is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-Snapshot-refresh probability is an essential control parameter of variance-reduced methods. The exact sign change at \(v^2=1/2\) shows that spending more gradient computation on refresh can even reduce the maximum mean-square-stable step in this pre-step-refresh algorithm. The counterexample has strictly positive component curvatures and exact rational parameters, and it distinguishes two actual convergence classifications, not merely a small constant improvement. The scope is an intentionally solvable scalar benchmark, not a claim about general optimizer performance.
+The exact p=1/2 frontier is existing coverage, as already acknowledged by the finding. Credit only the all-positive-p classification and the contrast-dependent reversal with the fixed-step witness. The closest inspected narrow theorem excludes other p; the broad algorithm papers do not give exact scalar necessity or the reversal.
 
-## Closest literature and limitations
+## value
 
-The closest results are the original loopless-SVRG analysis (arXiv:1901.08689), the arbitrary-sampling extension (arXiv:1906.01481), the practical variants of Sebbouh and coauthors (arXiv:1908.02725), and the covered fixed-probability scalar specialization. Only the exact dependence on \(p\) and its reversal are newly asserted. General nonquadratic convergence, noncommuting Hessians, post-step refresh, and runtime-optimal choice of \(p\) remain outside the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact boundary separates stable and unstable behavior in a canonical variance-reduced method; the fixed-step witness isolates a counterintuitive failure caused by increasing refresh alone, even though the estimator remains unbiased. The contrast cutoff supplies a structural explanation and is useful separately from the already known single-p boundary. It is not a claim about optimal refresh cost or general objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

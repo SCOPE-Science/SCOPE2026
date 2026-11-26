@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:26:30.450785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Width and projection area have coefficient rows v and w on the positive octant. Haar folding gives surface density 2/pi there, and the map on the row plane has area factor sqrt(det(LL^T))=N. Each lift from the disk to the sphere has Jacobian 1/sqrt(1-s); retain the positive lifts, giving twice the single-sheet factor near any positive point of the fold. The topological support is the image of the closed octant, with the formula specifying its density off null boundaries. The cross-product components and the positive difference (b^2-a^2)(c^2-b^2)(a^2+c^2) give q^2>1/2. To independently check the crucial hexagon, write d=2q^2-1>0. The two fixed vertices on the coordinate faces u1=0 and u3=0 have rays (0,r,q) and (q,p,0). On u1=0 and (Ru)2=0 there is the ray (0,2qr,d); its other constraints are strict, since (Ru)1=2pr and (Ru)3>0. On u3=0 and (Ru)2=0 use (d,2pq,0); reflection gives the other two vertices. No axis is feasible, and the three other mixed facet intersections have no nonzero nonnegative ray. The inward-normal dot products give the six stated exterior angles, so Girard's area formula divided by pi/2 gives the ambiguity probability. A positive fixed point gives positive mass, and directions near the middle axis are excluded because R22<0. Geometric progression sides have p=r tending to zero; adjacent-pair coalescence with the third distinct makes R a coordinate swap in the limit. The extrema are thus sharp limits only. The supplied numerical checker triangulates the spherical polygon and samples directions for six boxes; it was inspected, not executed, and is not the all-shape proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas's general spherical coarea statement is for scalar width; the reconstruction theorem is for labelled second- and third-order measurements. The absolute-value inverse problem is distinguished from that theorem.",
+          "Abas relates box brightness marginals to width marginals of reciprocal-edge boxes, and recovers the unordered side triple from width cumulants. Finch studies area and perimeter of shadows."
+        ],
+        "reasoning": "A projection-body relation reexpresses B as a width but does not give the joint law of W and B at their shared U from the individual marginals. The scalar coarea and labelled moment theorems do not enumerate or integrate the two lifts in a fixed box.",
+        "searches": [
+          "arXiv:2609.26202, abstract, §1.2, §3.1 and Theorem 7.3",
+          "arXiv:2608.03305, §1.2 and Theorems A and C",
+          "arXiv:1203.2464, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Abas, arXiv:2609.26202 and 2608.03305",
+        "Finch, arXiv:1110.0671 and 1203.2464",
+        "Resultary local index and mirrored SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8 RESULT",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-sheet Jacobian follows from standard geometric integration. The resulting closed ambiguity formula additionally uses the middle-normal inequality and the six feasible incidences to obtain the solid angle.",
+          "The ellipsoid map in squared coordinates is one-to-one, offering no specialization whose output is a two-fiber region."
+        ],
+        "reasoning": "The basic Jacobian is an application of known methods, not a separate novelty claim. Neither the scalar density theorem nor the ellipsoid pushforward determines the spherical-hexagon combinatorics and its exact mass for this family.",
+        "searches": [
+          "arXiv:2609.26202, §§1.2, 3.1 and 7",
+          "Resultary mirror SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8, Findings and recovery proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ellipsoid record's same-direction squared observables determine the squared viewing coordinates uniquely through a simplex map.",
+          "Abas's tomography determines a line configuration from labelled absolute-product moments, not individual direction fibers given two scalar observations."
+        ],
+        "reasoning": "Brightness here is axial projection area, and the inverse target is an absolute viewing direction for a known object. These distinctions rule out conflating it with area/perimeter law or recovery of unknown edge lengths or normals from a distribution. For the same box, two-direction ambiguity is equivalently the normalized solid angle of intersection of the octant with its row-plane reflection.",
+        "searches": [
+          "Resultary local index: paired directional width–brightness and directional recovery; matched SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8",
+          "arXiv:2609.26202, §1.4 and Theorem 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The regular-polyhedron source tabulates or computes scalar width moments; the box paper gives an exact scalar law. The indexed triaxial exact joint law is for an ellipsoid."
+        ],
+        "reasoning": "These are relevant exact-law sources, but none is a table of the parameterized box ambiguity solid angle. Marginal, regular, and ellipsoidal distributions cannot be substituted for the present triaxial co-observation model.",
+        "searches": [
+          "Resultary local index: exact joint width and brightness laws; SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8",
+          "arXiv:1110.0671 p. 1; arXiv:2608.03305 Theorem A"
+        ]
+      },
+      "rationale": "The distinct result is the explicit two-lift multiplicity and its all-triaxial-box arcsine probability, including the sharp shape dependence. General projection and area-formula methods, box width marginals, and recovering box edges from distributional moments are not new. The closest indexed comparison asks the same paired inverse problem for a triaxial ellipsoid, but is affine in squared direction coordinates and yields uniqueness, not octant reflection ambiguity. The original plausible full-text gap around Abas's broad paper has been narrowed by inspecting its decisive density and reconstruction statements. No equivalent or covering theorem for this triaxial cuboid geometry was established by these comparisons.",
+      "residual_risks": [
+        "A focused web search without material hits is not evidence of absence; a broader inverse-projection or orthant-angle source may contain an equivalent formula. Historical priority beyond the compared passages remains provisional.",
+        "The exact density is noiseless and specific to Haar views of triaxial boxes, not a stability, repeated-edge or oblique-body law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad relevant scalar density and tomography, not the paired per-direction inverse claim in checked material",
+          "evidence": [
+            "The information chain after Theorem 7.3 runs from labelled moment data to signed Gram data and direction configuration modulo signs and O(3). The cellwise formula is for a scalar statistic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202",
+          "material_read": "Abstract and §1.2 (PDF pp. 1–2, offsets 489, 2200); §1.4 (offset 9000), scalar coarea §3.1 (pp. 10–11), Theorem 7.3 and conclusion (pp. 56–59, offsets 177488, 180805, 186862)",
+          "method": "Public arXiv full-text PDF available; original statements/sections read in bounded passages and terminology localized",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Very closely titled broad primary source; plausible prior joint law"
+        },
+        {
+          "assessment": "Covers marginals and shape identification, not the joint directional inverse",
+          "evidence": [
+            "Reciprocal-edge box width gives the brightness marginal; the first three width cumulants identify the unordered side lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.03305",
+          "material_read": "Abstract p. 1, §1.2 p. 3, Theorems A and C pp. 4–5 (offsets 269, 8500, 10900, 15227)",
+          "method": "Public arXiv primary PDF passages",
+          "title": "Width distributions for rectangular boxes",
+          "trigger": "Same underlying family, exact width and brightness comparison"
+        },
+        {
+          "assessment": "Overlapping question, distinct body, map and multiplicity; same-day indexing establishes no priority",
+          "evidence": [
+            "Squared half-width and normalized squared area give an affine simplex map recovering U_i^2 uniquely."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8/RESULT.md",
+          "material_read": "Finding and recovery proof, offsets 310–1151 and 3743–4670",
+          "method": "Local Resultary search and mirror of exact RESULT",
+          "title": "Triangular joint width–brightness law and directional recovery for triaxial ellipsoids",
+          "trigger": "Closest distinct indexed paired direction recovery result"
+        },
+        {
+          "assessment": "Width moments or shadow area and perimeter, not width and brightness for a triaxial box",
+          "evidence": [
+            "The second observable paired with shadow area is the projected perimeter, not directional width orthogonal to supporting planes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671 ; https://arxiv.org/pdf/1203.2464",
+          "material_read": "First paper p. 1; second paper pp. 1–2",
+          "method": "Public arXiv primary PDFs, bounded passages",
+          "title": "Width Distributions for Convex Regular Polyhedra; Planar Projections and Second Intrinsic Volume",
+          "trigger": "Classical regular-solid width and paired-shadow comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Width and projected area are natural paired measurements. Their separate distributions cannot tell how often a single measured pair is insufficient even with noiseless data and known geometry. The explicit mass solves that inverse identifiability question for every triaxial box, and the sharp limits show that no uniform ambiguity guarantee follows merely from all edges being distinct. This exact invariant is useful independently of general coarea or simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

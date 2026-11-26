@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:46:53.158628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the fitting, normalization and all three limits. Exponential transformation gives fitted logarithms beta_n(E_i−m_n) with beta_n−1=O_P(n^−1/2), m_n=O_P(n^−1) and max E_i=O_P(log n). The exact substitution u=gamma_n t gives gamma_n² T=(n/gamma_n) times the squared H norm of the centered clipped means, including for the fitted statistic. Direct integration gives the covariance kernel K; it is positive as the integral of products of min(x,1/u) against x^−2 dx. The diagonal bound 2/u gives trace convergence by domination, and the covariance kernels converge weakly as operators by Cauchy–Schwarz and the same bound; positivity, convergence of traces and finite-rank approximation then give trace norm convergence. The maximal Gaussian-regime summand norm is at most sqrt(gamma_n/n). At a finite ratio, above x=epsilon the observation count is binomial with success probability 1/(n epsilon); given this count, the sizes have density epsilon/x² on x>epsilon. The H-valued cutoff functions and deterministic compensators converge there by dominated convergence; below epsilon the centered H² error is at most 2 epsilon. Above the boundary, truncation of the Pareto sum at n and Mn gives mean minus log n tight (P(max>Mn)≤1/M); the norm of upper clipping tends to zero by integrating h(r)/r from gamma_n/(Mn) to infinity. Thus the centered H vector divided by log(gamma_n/n) converges to −1 and its squared norm to 2, even for arbitrarily fast rates. Checked equation (6) separately: for cap v≥1 the first log-weighted truncated moment is 1+log v+(log v)²/2 and the second is O(v(1+log v)²); integrating with the given H weight bounds the fitted-minus-oracle error by o_P(sqrt(gamma_n/n)) below the boundary. Above and at it the uniform relative perturbation and O_P(log n) Pareto mean make the H error o_P(1). For caps a≤b, the fourth cumulant integral is 2a²b−2a³/3; Wick's formula and the change v=ut give Var(Q)=6.704649979265373967 by independent high-precision quadrature and the additional slope (8/3)(1−log 2). The frozen checker was read, not executed: its fitted-sample checks are only nonnegativity and finiteness, not evidence of the nuisance rate or finite-sample convergence of moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chakrabarty–Samorodnitsky give finite-dimensional radial truncation CLTs for the hard regime, stable limits in the soft regime, and an infinitely divisible intermediate law obtained by truncating stable jumps.",
+          "The DOI lookup did not supply lawful full text for Tang–Han; its scope remains a priority risk."
+        ],
+        "reasoning": "At a single u the cap is asymptotically in the same heavy-tail regimes, and the α=1 intermediate jump mechanism is prior. The inspected stronger vector theorems concern a fixed finite number of coordinates subjected to radial truncation, not changing caps across H, likelihood fitting, or the resulting critical fourth-cumulant slope and typical-value collapse of this integrated square.",
+        "searches": [
+          "Chakrabarty–Samorodnitsky arXiv:1001.3218, §2 Theorems 2.1–2.2 and Remark 1",
+          "Tang–Han DOI 10.1080/03610926.2023.2209231"
+        ]
+      },
+      "checked_sources": [
+        "Meintanis et al. arXiv:2310.12348",
+        "Chakrabarty–Samorodnitsky arXiv:1001.3218",
+        "Tang–Han DOI 10.1080/03610926.2023.2209231 (access attempt)",
+        "Resultary 8a91c773e772, 6ba258234d7b, fd6e896d1821 (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Meintanis Theorem 5.5 takes one weight w and gives a weighted chi-square null limit via its fixed kernel; Proposition 3.1 gives equivariance.",
+          "The hard/intermediate scalar cutoff results predict Gaussian/infinitely divisible ingredients, and the source test is explicitly credited."
+        ],
+        "reasoning": "Equivariance removes the true parameters but not the estimation error versus the oracle. Nor does the fixed-weight theorem justify exchanging sample size and cutoff limits; the new proof controls both the operator tails and the perturbation of all caps, then computes separate moments of the critical quadratic law.",
+        "searches": [
+          "Meintanis et al. arXiv:2310.12348 §3 and Theorem 5.5",
+          "Chakrabarty–Samorodnitsky Theorem 2.2 and Remark 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meintanis et al. Eqs. (3.1), (3.3), (4.1)–(4.2) use this exact equivariant statistic and Pareto centering.",
+          "Under t=u/gamma the theorem is a quadratic integrated Winsorized-mean fluctuation law with continuum of caps gamma/u."
+        ],
+        "reasoning": "The theorem in the alternative clipped-mean formulation still requires joint convergence in weighted H and negligible effect of fitting. A single-cap limit or a fixed weighting result does not give the quadratic continuum functional.",
+        "searches": [
+          "Primary literature: Meintanis Milošević Jiménez Gamero Pareto min characteristic goodness of fit increasing exponential weight gamma bandwidth Poisson truncation null limit",
+          "Resultary: Pareto Meintanis Milošević Jiménez Gamero min characteristic goodness fit exponential weight diverging Gaussian Poisson bandwidth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corpus results include the frozen record itself, a fitted Pareto KS/log-binning study (8a91c773e772), a power-weighted Pareto minCF discrepancy (6ba258234d7b), and the fixed-sample Weibull weight collapse (fd6e896d1821).",
+          "Finite evaluation formulae in the primary paper describe T, not tables of the law at gamma_n/n→c."
+        ],
+        "reasoning": "Different weights or statistics and fixed-sample collapse do not provide the fitted Pareto limit or the exact slope; the constants here are analytic, not recovered table entries.",
+        "searches": [
+          "Resultary: Pareto Meintanis Milošević Jiménez Gamero min characteristic goodness fit exponential weight diverging Gaussian Poisson bandwidth",
+          "arXiv:2310.12348, §4 closed-form evaluation and §5 null limit"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the increasing-rate fitted H-quadratic trichotomy and exact critical moment separation, not for equivariance, the minCF statistic, or generic heavy-tail truncation limits. The nearest general prior genuinely covers important scalar mechanisms.",
+      "residual_risks": [
+        "A joint cutoff empirical-process theorem may cover part of the oracle result; neither the 2024 reformatted journal printing of the test paper nor the full Tang–Han article was separately inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for the statistic and fixed-weight theorem, not the varying-weight conclusion in the inspected passages",
+          "evidence": [
+            "Eqs. (3.1), (3.3), (4.1), (4.2), (5.3)–(5.4)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12348",
+          "material_read": "Preprint §§2–4 including displayed statistic and Pareto minCF; §5 surrounding hypotheses and Theorem 5.5",
+          "method": "Legitimate open PDF text, checked the integral weight and standardization at their defining equations",
+          "title": "Goodness-of-Fit Tests Based on the Min-Characteristic Function",
+          "trigger": "Exact Pareto fitted test and null limit"
+        },
+        {
+          "assessment": "Strong partial coverage of the cutoff mechanisms, not the specific fitted Hilbert quadratic",
+          "evidence": [
+            "Eq. (1.2), Theorems 2.1 and 2.2, Remark 1 Eqs. (2.12)–(2.14)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.3218",
+          "material_read": "Open preprint model and regime definitions; §2 soft, hard and intermediate limit statements",
+          "method": "Read PDF text around Definition (1.2) and the cited results",
+          "title": "Understanding Heavy Tails in a Bounded World or, Is a Truncated Heavy Tail Heavy or Not?",
+          "trigger": "Potential stronger theorem for equivalent capped sums"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion; possible stronger component results remain a risk",
+          "evidence": [
+            "Communications in Statistics – Theory and Methods 53 (2024), 5168–5185"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2023.2209231",
+          "material_read": "Citation and DOI lookup; lawful full text unavailable in this review",
+          "method": "Attempted open DOI retrieval",
+          "title": "The asymptotic distribution of a truncated sample mean for the extremely heavy-tailed distributions",
+          "trigger": "Possible stronger general cutoff asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weight rate of an actual fitted goodness-of-fit statistic determines qualitatively different null laws. The equal means and exactly different variances give a quantitative distinction that fixed-weight calibration cannot provide, and supercritical collapse has a useful sharp typical-value scale. No claim of bootstrap validity, power or growing-rate finite-sample moment convergence is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:26:54.795728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the independent two-sided switching history gives a centered Gaussian with variance V in [H,L], H=D/b and L=D/a. A stiff interval of length tau forces the entrance gap Z=L-V of the next soft interval into [(L-H)(1-exp(-2b tau)), L-H], bounded away from zero. At soft age A the gap is Z exp(-2a A); renewing whole cycles, the unconditional probability of soft phase and age greater than t is integral_t^infty Pr(W>u) du/(mu+tau). Squeezing between the two deterministic entrance gaps gives Pr((L-V)/L<y, soft) asymptotic to K[log(1/y)/(2a)]^(1-beta), with K=c/((mu+tau)(beta-1)). A stationary stiff interval has deterministic length, so the preceding soft duration there is not length biased; small gap requires a preceding duration of order at least log(1/y)/(2a), giving only O(log(1/y)^(-beta)). To pass from this variance edge to the density, write Y=(L-V)/L and q=x^2/(2L). The density ratio is the expectation of (1-Y)^(-1/2) exp(-qY/(1-Y)). For fixed 0<eta<1 the contribution below Y=q^(-1-eta) gives a lower bound (1-o(1))Pr(Y<q^(-1-eta)); the upper bound is (1+o(1))Pr(Y<q^(-1+eta))+O(exp(-q^eta)), using V>=H. Divide by Pr(Y<1/q) and let eta decrease to zero. Thus the ratio is asymptotic to K[log q/(2a)]^(1-beta); the factor of two cancels when changing from q to displacement. This checks the unconditional density and full constant without imposing a density on W. VERIFICATION.md and CHECK.py were inspected, not executed; the two Pareto quadrature examples are diagnostics, not a proof or an attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel's general age-structured model precedes this result, but the explicit heavy-clock tail computation uses zero stiffness in the released phase.",
+          "The 2024 on/off model uses exponential clocks; the indexed two-positive-stiffness calculation concerns fast equal-rate Poisson switching and different joint displacement/switching scales."
+        ],
+        "reasoning": "A general model containing these parameters is not a theorem giving the sharp stationary tail. The closest proved tail and crossover regimes do not dominate this fixed-parameter heavy-clock regime.",
+        "searches": [
+          "arXiv:2607.05173, Secs. IV-V",
+          "arXiv:2407.12213, Eqs. (1), (10)-(15)",
+          "Resultary: 2026/11/22/SCOPE-two-scale-failure-of-gaussian-averaging-under-fast-harmonic-trap--e599bfc07eb3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, CHECK.py",
+        "arXiv:2607.05173",
+        "arXiv:2407.12213",
+        "Resultary records c888e9514754, 918a353be34f, e599bfc07eb3, d0a2199c1680"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian-mixture identity alone does not give the probability law near its upper variance edge. The release-tail theorem has no such upper edge. The active particle edge law concerns another variable and does not identify the mixture variance or bound the stiff contribution."
+        ],
+        "reasoning": "Sharp attenuation needs the variance entrance-gap bound, the comparison of length-biased soft age with ordinary preceding duration in the stiff phase, and the edge-to-density calculation in this setting. The indexed algebraic forcing-reset tail does not imply those facts.",
+        "searches": [
+          "arXiv:2607.05173, Eq. (54) and Sec. V",
+          "Resultary: 918a353be34f and d0a2199c1680, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel uses a variance-space Gaussian mixture, but drives the variance without a finite ceiling in the released state K_1=0, obtaining algebraic spatial tails instead.",
+          "The October indexed claim is a compactly supported active particle position edge-mass law without translational Brownian noise, not a Brownian conditional-variance edge or spatial Gaussian-tail equivalent."
+        ],
+        "reasoning": "Comparing as both a variance-gap law and a spatial-tail law exposes the common renewal-age mechanism but not equivalent statements. Restoring strictly positive soft stiffness changes the variance support and the tail calculation.",
+        "searches": [
+          "Resultary: harmonically trapped heavy-tailed renewal, logarithmic edge, switching variance",
+          "arXiv:2607.05173, Secs. IV-V, Eqs. (54)-(66)",
+          "Resultary: 2026/10/26/SCOPE-logarithmic-edge-concentration-in-a-heavy-tailed-harmonically-tr--918a353be34f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit c888e9514754 is the evaluated record itself; distinct hits 918a353be34f, e599bfc07eb3 and d0a2199c1680 concern a compact position edge, fast Poisson switching, and renewal reset of forcing, respectively."
+        ],
+        "reasoning": "This is a continuum asymptotic, not a tabulated constant or finite census. The relevant exact-claim index was checked, and none of the inspected distinct records supplies this equivalent. Same-day records were compared by statement, not date order.",
+        "searches": [
+          "Resultary: logarithmically weakened Gaussian tails under heavy-tailed switching",
+          "Resultary: logarithmic edge and harmonic renewal forcing"
+        ]
+      },
+      "rationale": "The model and Gaussian-mixture method have direct antecedents, and the inverse-logarithmic renewal-age mechanism occurs in a related indexed work. The distinct result supported by the checked sources is the normalized Gaussian-tail attenuation, with constant, for the Brownian particle with two positive stiffnesses and the specified heavy-tailed soft clock.",
+      "residual_risks": [
+        "The literature keyword lookup yielded no additional relevant source; that does not establish historical priority or exclude an earlier unindexed finite-variance-edge analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct method and model antecedent; not the stated positive/positive tail",
+          "evidence": "Sec. IV takes K_1 to zero; Sec. V gives off-state variance and spatial power laws for a long release, not the finite variance edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.05173",
+          "material_read": "Secs. IV-V, pp. 7-11, especially Eqs. (54)-(66)",
+          "method": "OA primary PDF passages",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "Same alternating trap framework and explicit heavy-clock tail analysis"
+        },
+        {
+          "assessment": "Earlier construction, different clocks and confinement",
+          "evidence": "Exponential on/off switching does not give the asserted heavy-renewal attenuation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.12213",
+          "material_read": "pp. 2-3, model and Eqs. (1), (10)-(15)",
+          "method": "OA primary PDF passages",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Earlier Gaussian mixture for harmonic switching"
+        },
+        {
+          "assessment": "Mechanism overlap, not equivalent coverage",
+          "evidence": "Inverse-logarithmic mass at a bounded run-and-tumble position edge; no translational Brownian noise and additional run-law assumptions.",
+          "identifier_or_url": "2026/10/26/SCOPE-logarithmic-edge-concentration-in-a-heavy-tailed-harmonically-tr--918a353be34f",
+          "material_read": "RESULT.md, Finding and assumptions from offset 0",
+          "method": "Resultary local-mirror text",
+          "title": "Logarithmic edge concentration in a heavy-tailed harmonically trapped process",
+          "trigger": "Closest distinct indexed logarithmic mechanism"
+        },
+        {
+          "assessment": "Distinct joint scaling regime",
+          "evidence": "Equal-rate Poisson switching and fast-switching displacement scales q^(1/4) and q^(1/2), rather than fixed heavy-tailed renewal.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-failure-of-gaussian-averaging-under-fast-harmonic-trap--e599bfc07eb3",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary local-mirror text",
+          "title": "Two-scale failure of Gaussian averaging under fast harmonic-trap switching",
+          "trigger": "Two positive stiffnesses and Gaussian density comparison"
+        },
+        {
+          "assessment": "Distinct dynamics and spatial law",
+          "evidence": "Renewal resets the forcing while position stays continuous; the resulting spatial tail is algebraic.",
+          "identifier_or_url": "2026/11/22/SCOPE-pareto-positional-tails-from-renewal-reset-brownian-forcing-in-a--d0a2199c1680",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary local-mirror text",
+          "title": "Pareto positional tails from renewal-reset Brownian forcing",
+          "trigger": "Heavy-tailed renewal in a confined Brownian system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact density equivalent distinguishes a truly Gaussian equilibrium from a stationary law with the same quadratic decay rate but a vanishing Gaussian density ratio. It identifies how a heavy residence-time law remains visible despite uniform confinement, including the exponent and normalization and the contrast with a released trap. The analysis uses a physically meaningful endpoint of the conditional variance distribution, not just a recomputation of Gaussian decay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

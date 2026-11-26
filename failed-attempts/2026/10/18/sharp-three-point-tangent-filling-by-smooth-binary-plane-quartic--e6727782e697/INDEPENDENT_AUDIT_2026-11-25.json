@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:21.851624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_fano_quartic.py and verification_output.json",
+        "Independent exact affine-system and orbit replay: python3 /workspace/branches/quartic_incidence_check.py; independent projective derivative checks above"
+      ],
+      "rationale": "Two distinct Fano lines cover five points and three cover seven if and only if concurrent. I independently solved affine binary systems rather than inspecting every form: for each three-point zero set and each bijection to the three lines of a rational pencil incident with the assigned contacts, impose all seven quartic values and the three gradients. A form contributing to the minimum satisfies exactly one such system. The resulting 448 distinct forms split by the transposition, coordinate cycle and a transvection (generating GL_3(F2)) into masks 4114,4115,4306,4309,4383 with sizes 84,84,84,28,168. Smoothness was checked algebraically: for F1 and F2, F_y=z³ and the equation force z=y=0, where F_z=x³≠0. For F3, z=0 would force y=0 and F_z=x³≠0; z≠0 and F_y=xz²=0 give x=0, and then F_x=0 gives y=0 or y=z, both off the curve. For F4, its gradients have no common projective zero on z=0. On z=1 their vanishing forces x²=y³, y²(x+1)=1, and the equation reduces to y⁴+y³+y²+y+1=0. Thus y⁵=1 but y≠1, which gives x²=1+y; substitution of y³=1+y into the reduced equation yields y⁴+y²=0, a contradiction. Mask 4306 is singular at [1:ω:1] with ω²+ω+1=0 by direct substitution. The four surviving orbits have noncollinear rational triples; centers are [1:0:0] for 4114 and [1:1:0] for the other three. The respective membership tests are yes, no, no, yes. This gives 364 smooth equations, stabilizers 2,2,6,1, and the 252/112 split.",
+      "residual_risks": [
+        "No equivalence asserted after base change. The count is over F2 and the smoothness checks are over its algebraic closure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "206b3755df02 gives all 2,656 tangent-filling smooth binary quartic equations in 20 projective classes, and explicitly isolates 364 equations at three rational points and three tangents.",
+          "Nart–Ritzenthaler classify the ambient smooth curves with normal models, not the tangent-filling subset in inspected passages."
+        ],
+        "reasoning": "The stronger tangent-filling census includes the actual minimum and the equality class census. Ambient normal forms allow a finite incidence computation but are not themselves evidence of a stated tangent-filling census.",
+        "searches": [
+          "Resultary 206b3755df02 RESULT.md, Finding and scope, offset 0",
+          "Nart–Ritzenthaler arXiv:math/0312366, pp. 1–2 and 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic lookup and mirrored content for 206b3755df02, 986597a0550f, 7239f23fa903",
+        "Asgarli–Ghioca 2302.13420",
+        "Nart–Ritzenthaler math/0312366",
+        "Homma–Kim 0903.1918"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same masks in the same monomial order, including the orbit sizes, determine the quartic and hence all seven rational values and gradients for each representative.",
+          "Homma–Kim require the curve itself to pass through every rational plane point, a different 7-point locus."
+        ],
+        "reasoning": "Three covering lines in the Fano plane must be a pencil. Taking their intersection on the four already-tabulated models and checking F at the center gives on-curve masks 4114 and 4383 and off-curve masks 4115 and 4309; their sizes yield 252 and 112. The noncollinearity check likewise uses only the listed equations. The center split need not have been separately printed to be mechanically implied by this exact coverage.",
+        "searches": [
+          "Resultary 206b3755df02 RESULT.md and orbit_profiles.tsv",
+          "Homma–Kim arXiv:0903.1918 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli–Ghioca define the same rational tangent-covering condition; their characteristic-two remark concerns conics, not this quartic census.",
+          "The three-rational-hyperflex record's quartic F0 becomes the present F3 by the invertible substitution F0(Y,Y+Z,X+Z), giving partial overlap with the 28-element orbit."
+        ],
+        "reasoning": "Rational tangent coverage is not the same as containing the seven plane points. In this three-point case it is equivalent to having three distinct concurrent rational tangents; hyperflex counts identify one orbit but do not describe the whole tangent-pencil condition. The complete exact match uses the same smoothness and projective equivalence.",
+        "searches": [
+          "Resultary semantic lookup for binary smooth quartics with three rational points and a covering tangent pencil",
+          "Asgarli–Ghioca arXiv:2302.13420 pp. 1–2, 5",
+          "Resultary 986597a0550f Finding and representative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Filtering the profile table at rational_points=3 gives exactly 4114,4115,4309,4383 with orbit sizes 84,84,28,168 and stabilizers 2,2,6,1; the encoding agrees with the frozen source.",
+          "The Bertini census gives 420 at N=3,t=3, where t counts transverse lines rather than covering tangents."
+        ],
+        "reasoning": "The tangent-filling table supplies an exact match, not a title or parameter coincidence. The Bertini joint table alone does not identify the bound subset.",
+        "searches": [
+          "Resultary 206b3755df02 orbit_profiles.tsv, offset 0",
+          "Resultary 7239f23fa903 rational-line Bertini census, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "Exact coverage in a distinct indexed Resultary record: 206b3755df02 explicitly states the same sharp minimum, count and orbit sizes as part of a larger census, and lists the identical four defining masks and stabilizers in its TSV. The ancillary center split and noncollinearity follow by a four-representative incidence test, not a new surviving classification. This is a finding of demonstrable coverage at review, not a claim about historical precedence or attribution between the records.",
+      "residual_risks": [
+        "Coverage is demonstrable; the catalogue dates and matching computations do not establish who obtained the result first or whether there was dependence. Uninspected literature could add historical context, but is not needed for this scope comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the frozen extremal classification as a subset; separate from historical priority",
+          "evidence": "Explicit N=3,r=3 row 364; exact four masks and sizes/stabilizers in TSV, same exponent ordering. Center incidence follows directly from those models.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02",
+          "material_read": "RESULT.md Finding/scope offset 0, enumeration offset 3300, comparisons offset 7895; orbit_profiles.tsv offset 0",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Twenty projective classes of tangent-filling smooth plane quartics over F2",
+          "trigger": "Potential full covering classification with identical smoothness and filling definitions"
+        },
+        {
+          "assessment": "Exact partial orbit overlap",
+          "evidence": "A 28-equation orbit with three rational hyperflexes; its representative transforms to F3 by the stated invertible substitution.",
+          "identifier_or_url": "Resultary 986597a0550f, RESULT.md",
+          "material_read": "Finding and model, offsets 0 and 4170",
+          "method": "Published-record local mirror",
+          "title": "Three rational hyperflexes characterize one projective orbit of binary plane quartics",
+          "trigger": "Potential duplicate of the exceptional small orbit"
+        },
+        {
+          "assessment": "A distinct aggregate invariant, not the exact match",
+          "evidence": "10,920 smooth equations in 78 classes; N=3,t=3 aggregate has 420, with t counting transverse lines.",
+          "identifier_or_url": "Resultary 7239f23fa903, RESULT.md",
+          "material_read": "Finding and definition of transverse lines, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Exact rational-line Bertini spectrum of smooth plane quartics over F2",
+          "trigger": "Ambient orbit and rational-line census"
+        },
+        {
+          "assessment": "Motivates the problem; inspected characteristic-two statement does not supply this quartic classification",
+          "evidence": "General obstructions and constructions, and a characteristic-two observation for conics.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "PDF pp. 1–2 (offsets 0, 2700) and p. 5 (offset 17721)",
+          "method": "Bounded primary PDF inspection",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Origin of the same tangent-filling condition"
+        },
+        {
+          "assessment": "Complete ambient classification, not exact incidence data in inspected passages",
+          "evidence": "Normal models for smooth characteristic-two quartics and arithmetic projective equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0312366",
+          "material_read": "PDF pp. 1–2 and 5, offsets 0, 3900, 11700",
+          "method": "Bounded primary PDF inspection",
+          "title": "Non hyperelliptic curves of genus three over finite fields of characteristic two",
+          "trigger": "Potential complete source of isomorphism models"
+        },
+        {
+          "assessment": "Not an equivalent filling condition",
+          "evidence": "The curve contains all rational points of the plane itself; at q=2 that means seven rational curve points.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.1918",
+          "material_read": "PDF pp. 1–2, offsets 0 and 4326",
+          "method": "Bounded primary PDF inspection",
+          "title": "Nonsingular plane filling curves of minimum degree over a finite field and their automorphism groups",
+          "trigger": "Possible equivalent plane-filling terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Resultary 206b3755df02 Finding and orbit_profiles.tsv",
+        "Independent incidence check of the four masks"
+      ],
+      "rationale": "The sharp extremal question and exact incidence census are naturally motivated. However, the actual frozen claim does not supply a stand-alone new result relative to the complete tabulation: the minimum and four equality forms are already listed, and the remaining center and collinearity data are a direct evaluation on those four forms. The evidence supports a correct finite check, not a separately valuable narrow advance beyond that coverage.",
+      "residual_risks": [
+        "This does not assess historical credit or rule out value from a substantially different structural theorem about tangent filling."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every contraction has a consecutive image; idempotence fixes that interval pointwise. All remaining choices are independent weak-step walks on its left and right, counted by the lazy path adjacency matrix. This is a bijection for every integer \(n\ge1\) and every permitted image rank. The resulting generating function reproduces all boundary cases and yields \(c_{7,3}=131\), with interval contributions \(29,24,25,24,29\). Independent finite enumeration through \(n=7\) agreed with every coefficient. The finite test confirms, but does not prove, the unrestricted theorem; the combinatorial bijection supplies the proof.
+## correctness
 
-## Originality — PASS, residual risk documented
-The full PDF of Zubairu and Ali (2021) includes exactly this monoid and an explicit open problem for intermediate image ranks. Its established Corollaries 10 and 13 give boundary ranks, which are fully credited; its Conjecture 14 predicts \(130\) at \(n=7\), in contrast with the proven \(131\). The inspected Umar--Zubairu (2018) original analyzes Green relations and regularity, and Ojo et al. (2021) concern order-preserving partial maps. Searches for metric retractions, Motzkin/lazy-walk formulations, and full-contraction idempotent enumerations revealed no theorem with broader coverage. Uncatalogued equivalent literature remains possible. The abstract of a 2026 paper on narrower order-preserving monoids was accessible, but its PDF was not.
+PASS
 
-## Value — PASS
-The result supplies a complete image-rank enumeration of a natural semigroup family, including the previously unresolved range, and a specific exact counterexample to a directly motivating conjecture. The transfer-matrix formulation is reproducible for all sizes without enumerating the full transformation monoid.
+The adjacent jump bound implies all Lipschitz inequalities by the triangle inequality, and no intermediate integer between the smallest and largest images can be skipped. Idempotency is equivalent to fixing the whole image interval. For a fixed rank-r interval, each outer tail can be read outward from the corresponding fixed endpoint; its admissible values form a walk on the r-vertex path with a loop at every vertex. Conversely two such walks and the fixed interval give a unique full contraction and retraction. Reflection equates the two endpoint-started counts; summing over tail lengths with sum n-r proves the convolution and squared resolvent for every 1≤r≤n, including constants and the identity. At rank 3 the endpoint and middle start series F,H satisfy F=1+z(F+H), H=1+z(2F+H), so F=(1-2z-z²)^(-1). The independently authored repro/review4.py tested every map at n≤7 with pairwise metric inequalities and equality of fixed set and image. It obtained rank counts (7,192,131,46,14,4,1), total 395, and per-interval rank-three counts (29,24,25,24,29). This checks 131 versus 130 from the exact formula and coefficients transcribed in the frozen record. The 2021 primary conjecture wording was not independently retrieved, so the bibliographic identification of that formula and scope remains a limitation, not part of the arithmetic confirmation. The frozen checker was inspected but not executed.
 
-## Sources and limitations
-Umar and Zubairu, arXiv:1804.10057v1 (2018); Zubairu and Ali, DOI 10.47495/okufbed.799385 (2021); Ojo, Al-Kharousi and Umar, DOI 10.4236/ojdm.2021.113007 (2021). Full contractions only; no partial-map counts or complete literature novelty guarantee. The published conjecture is compared as printed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-image-rank enumeration of full (not necessarily monotone) contractions and its exact rank-three discrepancy with the prediction recorded in the source package. The known structural and boundary results are credited. A separately indexed, later-dated loopless path record is mathematically equivalent for the rank counts after adding flat steps, as detailed below; it is not evidence that this count was already available before the frozen finding, and no independent rediscovery or priority claim follows from archive dates.
+
+## value
+
+PASS
+
+The complete image-rank polynomial for a standard finite-chain transformation monoid answers a natural enumeration question beyond its boundary ranks. The structural reason is that arbitrary nonmonotone retractions split into two independent constrained exterior walks around a forced fixed interval. It explains the interior-rank figure 131 exactly, including the middle interval's 25 possibilities rather than 24, and makes the recorded rank-three prediction testable. This is not a purely finite brute-force comparison or a claim about partial contractions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

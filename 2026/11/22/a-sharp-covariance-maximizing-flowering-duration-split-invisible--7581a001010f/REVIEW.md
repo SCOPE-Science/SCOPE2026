@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem assumes one uniform annual phase, fixed circular centers, two proper contiguous arcs, and an exactly fixed total duration. Direct circle geometry gives zero overlap when the combined half-length does not reach the center separation, and dual disjointness of the complementary arcs when it exceeds the longer-route boundary. In the interior band the exact overlap law is constant until a nesting boundary, then decreases linearly. Subtracting the fixed-marginal product proves the strict rise followed by strict fall of covariance. The unique extremizer is admissible only and always in the specified band. Exact algebra reconstructs the entire one-time richness distribution and the rational opposite-sign example. The standalone checker confirms the critical intersection formulas and exact witness; finite checks are supplementary to the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Let u=S/2 and t=|ℓ₁−ℓ₂|/2, so 0≤t<min(u,T−u). Place the first arc on a line lift centered at zero and the second on lifts centered at d+kT. Only the two nearest lifts can contribute positive overlap, since the sum of half-lengths u is less than T. Each contribution for separation D is max(0,min(u−t,u−D)), and the contributions have disjoint interiors. Thus for u≤d the arcs are disjoint up to measure zero. For u≥T−d the proper complementary arcs have center separation d and zero overlap, and covariance is unchanged on taking both complements; covariance is strictly negative in both outer ranges, including their endpoints. This covers the antipodal case. For d<u<T−d, only the short-route lift overlaps, with H=min(u−t,u−d). The covariance H/T−(u²−t²)/T² increases strictly to t=d on the first branch and decreases strictly on the second since its derivative there is −(T−2t)/T². The unique imbalance t=d is feasible, gives precisely the two labeled assignments and sharp positive value (u−d)(T−u−d)/T². For t≤d, H=u−d and P(N=2)=H/T, P(N=1)=2(u−H)/T; the missing mass is P(N=0)=(T−u−d)/T. Only the marginal product changes, yielding the exact gain t²/T² and maximum gain d²/T². At the proposed rational witness H=1/5 and the covariance values are −1/20 and 1/25 at the identical law (1/5,3/5,1/5). Supplied finite diagnostics were inspected, not executed; this continuous calculation proves the stated scope.
 
-Full-text comparison: Austin et al. (2024) calculate focal-normalized overlap from estimated flowering intervals and co-flowering richness, not the exact constrained covariance extremum or same-richness sign inversion. Albor et al. (2020) use Schoener overlap and empirical network modularity, not the present fixed-sum two-arc covariance theorem. Stemkovski et al. (2022) examine skewness effects on phenological overlap, not richness-law ambiguity. Rafferty et al. (2013) review methods. Relevant indexed mathematical results concern stochastic circular coverage or non-temporal species richness/covariance, without implication of the present deterministic arc split under a shared uniform phase. Standard circle-intersection and Bernoulli formulas are explicitly recognized as prior ingredients. Residual risk: related historical geometric or ecological treatments may contain an unlocated equivalent statement; the scientific priority assessment is not exhaustive.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating phenology literature explicitly uses seasonal duration and co-flowering richness to discuss ecological reassembly. The theorem identifies a precise limitation of one-time aggregated richness: a continuum of distinct species-specific seasonal allocations produces the same full count law, yet changes covariance by a sharp amount and can reverse its sign. It supplies the exact feasible budget band and a unique maximum nested split, rather than a chosen numerical parameter slice. This is a motivated mathematical boundary for interpreting summary co-flowering observations, not an intervention prescription or evidence of biological facilitation/competition.
+The strongest primary comparison uses the same biological idea of pairwise flowering overlap but a different focal-normalized statistic and empirical design. The closest distinct same-day catalogue comparison optimizes overlap over Gaussian onset variability for equal window lengths, not a deterministic fixed-duration reallocation. Exact richness non-identifiability is established in other sampling models, but the inspected results do not supply this joint sharp interval, optimizer and constant count-law plateau. Novelty is restricted to that conjunction, not the standard circle overlap or Bernoulli identities.
 
-## Scope and closest literature
+## value
 
-The result is restricted to two proper circular uniform-activity windows and a uniform one-time observation. Species-resolved or longitudinal data need not be ambiguous; changing onset, skewed flowering, and nonuniform sampling are outside scope. Source information is detailed in the result and structured scientific review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The practical mathematical issue is whether a one-time survey that keeps only the number flowering can recover a temporal association between the two species. Rather than an unconstrained Bernoulli example, the result gives a continuum of physically admissible centered flowering windows with fixed annual budget and identical full count law, even at opposite signs of covariance. The sharp feasibility band and nesting optimum make the observation-loss mechanism quantitative. It does not imply biological facilitation or competition, and the loss of information need not persist with separately measured durations or longitudinal sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

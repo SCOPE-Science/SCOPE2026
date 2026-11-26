@@ -1,15 +1,21 @@
-# Review of the Frobenius splitting of Weierstrass supports
+# Independent mathematical audit
 
-## Correctness — PASS
-The prior complete Weierstrass-semigroup classification yields exactly 540 rational points and 288 further geometric Weierstrass points characterized by primitive ninth-root ratios. The new field argument checks both Kummer lift equations (fourth and twelfth powers) in a rigorously identified finite field with 1,771,561 elements. Explicit modular identities for representatives of the two Frobenius orbits and the exact group-order power criterion prove all 288 lift over the cubic extension. Distinctness and minimal degree follow from the ratio's order. The standalone checker reproduces these steps; finite experiments are not substituted for the cited complete enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The closest work is Beelen--Montanucci--Vicino, arXiv:2303.00376 and its 2023 journal version: they established the complete semigroup classification and existence/count of the nonrational points, which are **not claimed as new**. The additional computation of both Kummer-coordinate characters determines the precise Frobenius cycle lengths and the reduced support's zeta function. Targeted searches of published mathematical findings and literature did not identify this precise conclusion; absence of a search hit does not prove uniqueness. A later version, unindexed numerical table or further hidden implication is a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The Weierstrass locus is a canonical arithmetic configuration of a maximal algebraic curve, and this is the smallest parameter in the cited family exhibiting nonrational Weierstrass points. The exact descent field and reduced-support zeta function distinguish geometric exceptional points from those available over quadratic and cubic extension fields, relevant when selecting rational marked points or one-point constructions. It is a natural finite classification rather than an arbitrary coefficient slice. Its significance is restricted to one curve; no broader all-characteristic classification is asserted.
+BMV's published classification gives exactly 540 rational Weierstrass points and identifies the nonrational ones at q=11 with P-order 2. In Lemma 3.11 this means B³ has order 3, equivalently B has order 9. The six B's have degree three over k=F₁₂₁ (121≡4 mod 9), and z=a⁴ is the invertible Möbius transform (ω−Bω²)/(ω²−Bω), also of degree three. To check the two necessary lifts independently, set K=F₁₁⁶. Over k the three conjugates of B are the roots of X³−B³, and ω∈k. Taking their product in the Möbius transform gives Norm(z)=(1−B³)/(1−B³)=1. Since z+1=(B−1)/(ω²−Bω), Norm(z+1)=−1, hence Norm(−z(z+1))=1. The norm-one group is the subgroup of (121−1)st powers in K×, contained in both the fourth and twelfth powers since 12 divides 120. The denominators and z,z+1 are nonzero by primitivity of B. K contains all fourth and twelfth roots of unity, so every one of the 48 distinct smooth affine lifts per B belongs to K. They cannot descend further as B is recovered from z. This gives 288 points in 96 cycles, plus the 540 known fixed points. The reduced zeta function follows from the product over closed points, and the extension-field cardinalities follow by cycle lengths. Separately, the independent SymPy computation python3 /workspace/branches/record3_norm_check.py checks all six finite-field norms and periods and recovers both frozen polynomial representatives and their v values. The supplied checker was inspected, not run; no point census is used to replace the prior exhaustiveness theorem.
 
-## Scope and limitations
-This review assesses one new Frobenius-descent assertion on a reduced zero-dimensional support. The underlying curve and geometric point counts are established prior results. The check is mathematical and computational and not independent human validation. The published author's journal version was identified, while the corresponding arXiv full text was the material inspected in detail.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The geometric classification and counts, and the degree-three orbit of the auxiliary ratio, are already known or immediate from BMV. The supported distinct conclusion is that every coordinate lift of that ratio is defined over the cubic extension; the reduced-support Frobenius cycle type and zeta function then follow. The prior ratio degree does not by itself imply a degree for the lifted point.
+
+## value
+
+PASS
+
+This is the first parameter of the studied maximal-curve family with nonrational Weierstrass points. The least extension supporting all exceptional marked points and the exact factorization of their reduced zeta function are natural arithmetic data not obtained from the geometric count or the curve's maximality. The finding does not claim Weierstrass multiplicities or a classification for other parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

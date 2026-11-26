@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:07:08.382109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Verification",
+        "Frozen VERIFICATION.md and certificate.json",
+        "Independent replay: python3 /workspace/petersen_audit_replay.py <frozen record directory>/certificate.json"
+      ],
+      "rationale": "An independent exhaustive reconstruction used fixed-order edge assignments with endpoint masks, built each two-colour component by traversal on the ten Petersen vertices, and checked that every resulting neighbour was a proper enumerated state and every adjacency was reciprocal and loop-free. The graph automorphism group is exactly S5: the five size-four independent sets of KG(5,2) are the five stars of two-subsets through a fixed symbol. A pairwise intersecting family of two-subsets without a common symbol has size at most three; each vertex is recovered as the intersection of its two stars. Applying adjacent transpositions on symbols and on labels therefore gives the full required orbit decomposition. One complete BFS per orbit independently gave 49,920 states, 377,280 edges, degrees 15 and 16 with multiplicities 44,160 and 5,760, 21 orbits, radius 7, diameter 8 and eccentricity multiplicities 45,600 and 4,320. BFS reached all states. The two eccentricity-eight orbit sizes and far-sphere sizes gave (1440*2+2880*1)/2=2880 unordered pairs. The replay matched every frozen representative to a different reconstructed orbit, verified every sphere vector and recovered the exact recorded far targets at both eccentricity-eight roots, including the stated witness.",
+      "residual_risks": [
+        "Finite exact replay for this labelled graph and this move rule only; no claim about other cubic graphs or other adjacency rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald–Mohar–Scheide prove that all (Delta+1)-edge-colourings are Kempe equivalent for maximum degree Delta at most 3.",
+          "Belcastro–Haas study class counts for cubic three-edge-colourings and reconfiguration graphs of class-1 Delta-regular graphs with Delta colours."
+        ],
+        "reasoning": "The first theorem implies the connectivity portion exactly, not distances or local valencies. The other results concern different palette or class assumptions and do not supply the graph census.",
+        "searches": [
+          "arXiv:1005.2248 Theorem 3",
+          "arXiv:1209.1730 p. 1",
+          "Australasian Journal of Combinatorics 69 (2017), pp. 197–214, opening scope and definition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f42ba7a5e7e8 and 859b0ac0d1b1",
+        "OEIS A159233 and A270842",
+        "arXiv:1005.2248, 1209.1730 and 2003.05956",
+        "Australasian Journal of Combinatorics 69 (2017), 197–214"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources determine the size and connectedness. The related exact metric records use different move rules or different states."
+        ],
+        "reasoning": "State count and equivalence do not determine neighbour counts, orbit stabilizers or the distance partition under the stated rules; the exact additional statistics require further structural analysis or exhaustive calculation.",
+        "searches": [
+          "OEIS A159233",
+          "arXiv:1005.2248, Theorem 3",
+          "Resultary f42ba7a5e7e8 and 859b0ac0d1b1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey's edge-Kempe-chain definition agrees with the frozen move rule.",
+          "Resultary f42ba7a5e7e8 uses the same named four-edge-colourings but single-edge recolouring, with 962 components and diameter 25 in two large components.",
+          "Resultary 859b0ac0d1b1 concerns 120 proper vertex three-colourings, diameter 4, not the four-edge-colouring graph."
+        ],
+        "reasoning": "An equal state set does not identify the move graph; a single-edge recolouring is not the entire Kempe adjacency relation. The distinct same-date vertex-colouring record is also not equivalent.",
+        "searches": [
+          "Resultary: Petersen four-edge Kempe graph, 21 orbits, 2,880 diametral pairs, metric classification",
+          "arXiv:2003.05956, p. 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A159233 records 49,920 proper Petersen edge-colourings with four colours.",
+          "A270842 explicitly allows adjacent edges the same colour when counting colourings modulo graph automorphisms."
+        ],
+        "reasoning": "Neither table records the orbits of proper colourings under both actions or move distances. The exact state-count match is prior coverage, not a new finding.",
+        "searches": [
+          "OEIS A159233 and A270842",
+          "Resultary searches for 21 orbits and 2,880 diametral pairs"
+        ]
+      },
+      "rationale": "The count and connectivity are already known and are correctly credited. The strongest inspected tables and reconfiguration results do not supply the claimed local degree, combined symmetry-orbit, eccentricity or distance-eight classification. This assessment applies to those additional data, not to the state count or connectivity.",
+      "residual_risks": [
+        "An exact computation might exist in unindexed tables or under alternate terminology. The inspected sources and local-index results are not a historical priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, different adjacency",
+          "evidence": [
+            "Single-edge recolouring; 962 components and diameter 25 in large components."
+          ],
+          "identifier_or_url": "Resultary f42ba7a5e7e8",
+          "material_read": "Finding and hypotheses in mirrored RESULT.md, offset 0",
+          "method": "Local index and statement inspection",
+          "title": "Local-sign parity and exact mobile distances in Petersen four-edge recolouring",
+          "trigger": "Identical state space, exact reconfiguration distances"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": [
+            "120 vertex three-colourings; diameter 4."
+          ],
+          "identifier_or_url": "Resultary 859b0ac0d1b1",
+          "material_read": "Finding and hypotheses in mirrored RESULT.md, offset 0",
+          "method": "Local index and statement inspection",
+          "title": "The Petersen three-colouring Kempe graph: a five-clique quotient and diameter four",
+          "trigger": "Distinct same-date Petersen Kempe result"
+        },
+        {
+          "assessment": "State count covered; claimed orbit and metric tables not covered by these entries",
+          "evidence": [
+            "49,920 at four colours in A159233; A270842 allows monochromatic adjacent edges."
+          ],
+          "identifier_or_url": "https://oeis.org/A159233 ; https://oeis.org/A270842",
+          "material_read": "Entry passages at offsets 461 and 475 respectively",
+          "method": "Public entry text inspection",
+          "title": "Numbers of Petersen edge-colourings and orbits of colourings",
+          "trigger": "Plausible exact enumeration tables"
+        },
+        {
+          "assessment": "Connectivity already covered",
+          "evidence": [
+            "All (Delta+1)-edge-colourings are Kempe equivalent when Delta is at most 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2248",
+          "material_read": "Theorem 3, PDF p. 3, offset 6217",
+          "method": "Primary PDF passage inspection",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "Known general connectivity theorem"
+        },
+        {
+          "assessment": "Different number of colours and invariant",
+          "evidence": [
+            "Class counts concern three-edge-colourable cubic graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.1730",
+          "material_read": "PDF p. 1, abstract and scope",
+          "method": "Primary PDF passage inspection",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Related exact edge-Kempe enumeration"
+        },
+        {
+          "assessment": "Different graph class and palette",
+          "evidence": [
+            "Class-1 Delta-regular graphs using Delta colours."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "Printed p. 197, definition and opening scope",
+          "method": "Primary PDF passage inspection",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "Related edge-Kempe graph invariants"
+        },
+        {
+          "assessment": "Same move definition; inspected passage has no matching table",
+          "evidence": [
+            "Edge-Kempe-chain switching is the component-wise exchange used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.05956",
+          "material_read": "PDF p. 10, offset 29700",
+          "method": "Survey PDF passage inspection",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Check equivalent terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–26",
+        "Independent exhaustive orbit and distance census",
+        "McDonald–Mohar–Scheide Theorem 3"
+      ],
+      "rationale": "The Petersen graph is a canonical class-two cubic graph and four is its smallest feasible palette. For the natural component-switch move, exact distances quantify the worst-case number of exchanges and distinguish typical states from the peripheral ones, information not given by connectedness. Counting the extremal pairs and classifying their two orbit types provides a concrete benchmark for reconfiguration and symmetry-reduction methods rather than another computation of the previously known state count.",
+      "residual_risks": [
+        "A benchmark for one canonical graph, not an asymptotic bound or a theorem for all snarks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

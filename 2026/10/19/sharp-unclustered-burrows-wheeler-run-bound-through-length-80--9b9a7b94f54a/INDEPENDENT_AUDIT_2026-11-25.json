@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:04.749145Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, witnesses.json, verify.py and output.txt (uploaded script not executed)",
+        "Kumallagov arXiv:2606.01267 Definitions 2.1 and 3.1, Proposition 3.2",
+        "Independent replay: /tmp/opencode/scope_independent_cert.py, bwt() (67/67 certificates passed)"
+      ],
+      "rationale": "The exact same U_q(n) lower bound is established in Kumallagov Proposition 3.2 by applying the factor-two BWT amplification inequality to the Lyndon rotation, whose endpoints differ and thus whose linear and cyclic run numbers agree. For the upper bound an independent bounded program parsed the witness file with duplicate-key rejection and checked the exact set of 67 keys. For each row it verified length, ternary support and n-1 unequal adjacent output pairs; reconstructed a candidate by traversing Psi, the inverse of stable-ranked LF; verified n distinct length-n rotations and recovered the stated BWT by sorting them and extracting last letters; and counted exactly ceil(n/2) cyclic input changes including the closing edge. The checks are exact for every listed length. A ternary solution embeds in every ordered q-letter alphabet for q>=3 without changing the order of its rotations or any run count.",
+      "residual_risks": [
+        "Exact finite certificate, not evidence of a universal proof or of a classification of all extremizers. Linear output and cyclic input runs must not be interchanged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad relaxation attains ceil(n/2), but the one-cycle question remains open there.",
+          "Fici et al. construct unclustered BWTs at arbitrary lengths, using generalized de Bruijn and insertion/deletion constructions, without establishing the optimal inverse run count. Remark 23 gives a sharp length-12 example, notes the ordinary ternary de Bruijn family has ratio 3/2 rather than 2, and leaves broader ratio-2 coverage open."
+        ],
+        "reasoning": "The relaxation drops a necessary feasible-necklace condition; unconstrained arbitrary-length output existence lacks the optimal inverse run requirement. Neither subsumes the certified minimum in the window.",
+        "searches": [
+          "Kumallagov arXiv:2606.01267 Theorem 9.5 and Corollary 9.6 (GRR relaxation)",
+          "Fici–Gabory–Romana–Sciortino DOI:10.4230/LIPIcs.CPM.2026.13, Theorems 2–3, Remark 23 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Kumallagov arXiv:2606.01267 v1 full-text passages (accessible in this review)",
+        "Fici et al. CPM 2026 DOI:10.4230/LIPIcs.CPM.2026.13",
+        "Resultary 28725205da02, 7a090c7d8daf, ac801e67f659, 30e8ececf3c4 and 4c5373b9573c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-root theorem covers only the eligible p-1,p pairs (m even, p=2m+1 prime, 2 primitive modulo p). All-n equality is conjectured, not proved.",
+          "The 59 remaining lengths relative to Kumallagov are 14–27, 30–35, 38–51, 54–59 and 62–80.",
+          "The union of the two later consecutive ranges covers 51 frozen lengths, namely 14–64, and not 65–80."
+        ],
+        "reasoning": "Additional witness realizability at every uncovered length, not repetition of the lower bound or tabulation of an implied formula, is needed. The frozen certificate supplies it without assuming the conjecture.",
+        "searches": [
+          "Kumallagov Proposition 8.1, Conjecture 7.1 and Corollary 9.6",
+          "Fici et al. Theorem 2 and Remark 23; exact local Resultary census and interval Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumallagov uses exactly the same primitive-necklace optimization with cyclic input and n linear output runs.",
+          "For realizable outputs L, cyclic inverse run count is Hamming distance from the sorted column F, since LF sends a row to its preceding-letter row."
+        ],
+        "reasoning": "Row/Hamming certificates and run amplification of the Lyndon representative describe the same exact optimization, not distinct claims. Without single-cycle realizability the same Hamming minimum need not imply the asserted result.",
+        "searches": [
+          "Totally / completely unclustered ternary BWT; cyclic run amplification and minimum-run primitive inverse; Kumallagov U_k(n)",
+          "Kumallagov arXiv:2606.01267, Definitions 2.1, 3.1 and Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kumallagov establishes small lengths through 12 and the eligible prime-root pairs, including 12,13, then eight window values; 14 is the first still open relative to this preprint.",
+          "The later census states equality at 13–30 and lists the exact frozen n=14 witness 10101210212021. The later interval states equality at 31–64. The later Parikh-spectrum entry also covers ternary equality at 13–30 with additional data.",
+          "A later prime-root family gives point overlaps 15,16,31,32,39,40,55,56,63,64. The later singleton-third-letter record's printed prime-root criterion conflicts with its own parity condition, so no new endpoint coverage is credited from that discrepancy."
+        ],
+        "reasoning": "The older table and prime family verify only part of the exact window. The later entries give actual overlapping numeric results, not merely neighboring titles, but no checked later table covers the entire interval. Identical witness provenance is unresolved.",
+        "searches": [
+          "Kumallagov Proposition 6.1 and Table 1; Proposition 8.1 prime-root family",
+          "Local Resultary search and mirror: 28725205da02, 7a090c7d8daf, ac801e67f659, 30e8ececf3c4, 4c5373b9573c"
+        ]
+      },
+      "rationale": "The actual primary preprint establishes the identical lower bound, small values and eight sharp lengths in this window: 28,29,36,37,52,53,60,61. It does not establish sharpness at the remaining 59 lengths, starting at 14; its all-length formula is a conjecture and its all-length relaxation omits one-cycle realizability. Later distinct Resultary entries cover the exact numeric assertion on 14–64 and go beyond it there in some respects; one even has the exact same length-14 certificate. Credit that overlap without inferring independent discovery or priority. The complete finite interval, in particular its tail 65–80 beyond those later consecutive ranges, was not already established by the inspected statements.",
+      "residual_risks": [
+        "There may be further finite tables, unpublished certificates or a broad theorem not located. Dates and a shared witness do not identify certificate provenance or establish independent priority. Prior overlapping exact values must not be advertised as individually new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior partial coverage, no all-window theorem in the decisive passages",
+          "evidence": "Exact lower bound, small values and eligible sharp prime-root pairs; broad GRR equality omits one-cycle feasibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01267",
+          "material_read": "PDF pp. 2–4 definitions and Proposition 3.2; p. 8 Proposition 6.1 and Table 1; pp. 8–9 Conjecture 7.1 and Proposition 8.1; pp. 13–14 Theorem 9.5 and Corollary 9.6",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+          "trigger": "Exact same extremum, conjecture, small values and potential broader coverage"
+        },
+        {
+          "assessment": "Broader unclustered-output existence but not optimal all-length inverse run count",
+          "evidence": "Arbitrary-length construction does not impose the target cyclic input runs; sharp ratio-2 example is at length 12, outside the frozen range.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.13",
+          "material_read": "OA offsets 6400, 24800, 41890 and 58400; Theorems 2–3, Example 14, Remark 23 and conclusion",
+          "method": "Lawful publisher OA PDF passages",
+          "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+          "trigger": "Broader all-length existence theorem and potential high-amplification examples"
+        },
+        {
+          "assessment": "Distinct later-dated exact overlap, stronger census/classification data",
+          "evidence": "Both cover 13–30 as applicable; census shares the exact n=14 frozen witness. The relationship between certificates is not established.",
+          "identifier_or_url": "Resultary 28725205da02; ac801e67f659",
+          "material_read": "Census Finding and prior-work passage, offsets 0 and 5900; spectra Finding offset 0",
+          "method": "Local Resultary retrieval and mirror",
+          "title": "Exact sharpness census through length 30; sharp ternary Parikh spectra through length 30",
+          "trigger": "Exact early-window coverage and overlapping certificates"
+        },
+        {
+          "assessment": "Distinct later-dated exact overlap for the middle interval",
+          "evidence": "Same minimum for every 31–64, acknowledging older prime-root instances there.",
+          "identifier_or_url": "Resultary 7a090c7d8daf",
+          "material_read": "Finding offset 0 and prior-work passage offset 4300",
+          "method": "Local Resultary retrieval and mirror",
+          "title": "A 64-length sharpness interval for completely unclustered Burrows–Wheeler images",
+          "trigger": "Exact continuous middle-window coverage"
+        },
+        {
+          "assessment": "Shifted family gives point overlaps; singleton criterion has unresolved internal parity conflict",
+          "evidence": "The eligible shifted p+2,p+3 instances in the target all lie below 65. For the other record, the proof requires even m, inconsistent with the printed iff criterion (e.g. p=19); no additional sharp values inferred.",
+          "identifier_or_url": "Resultary 30e8ececf3c4; 4c5373b9573c",
+          "material_read": "Findings offset 0 and singleton proof passage offset 4600",
+          "method": "Local Resultary retrieval and mirror",
+          "title": "Two new sharp prime-root lengths; singleton-third-letter rigidity",
+          "trigger": "Possible longer or shifted arithmetic families in the target range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen 67-case witness set; Kumallagov Conjecture 7.1 and Proposition 8.1; later Resultary census and interval Findings"
+      ],
+      "rationale": "This closes the first consecutive block of unchecked lengths after the previously established small cases for a named natural extremal problem, rather than choosing isolated favorable parameters. Relative to the primary preprint it fills 59 explicit gaps; the checked neighboring records still do not cover the continuous tail 65–80. The full prefix is a compact exact testbed for potential constructive proofs and rules out any counterexample at the certified lengths. The numerical endpoint is a certificate extent, not a claimed phase transition or an extrapolation.",
+      "residual_risks": [
+        "No infinite construction or exhaustive classification of minimizers; if further blanket coverage appears, the finite extension's value and originality would need reassessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

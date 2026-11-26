@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:49:20.859267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On unnormalized complex column space, s=cr reduces all nonzero c to the c=1 matrix or its conjugate, preserving its entire singular spectrum and the real candidate right-singular line. The c=1 kernel expands as C+iSη(1+u)+(1−C)1_{u=−1}; the zero/constant sector and the nontrivial multiplicative-character sector are orthogonal invariant subspaces. On each character χ the map to χ inverse has multiplier iS times the shifted Jacobi sum plus (1−C)χ(−1). For η, reindexing by u/(1+u) makes the shifted sum the sum of η over the field excluding 1, hence −1. This gives modulus m=2sin(π/p). For the other nontrivial χ, χη is nontrivial, so the Gauss-product identity gives Jacobi modulus √p, hence S√p−(1−C)≤|Lχ|≤S√p+(1−C). The lower bound is strictly above m at p=5 and stays so by monotonicity of √p cos(π/p) and 1+sin(π/p). For the zero/constant block B, the normalized constant gives the √(p−1) entries and summation over the kernel gives its lower-right entry 1+(p−1)C−w. Thus det B=w(1−C−ipS); the trace of B*B is 2p−1+(1+(p−2)C)^2+S². Independent symbolic expansion reduces det(B*B−m²I) to (p−1)(p−3)(1−C)^2(1+2C)>0, and the shifted trace is positive. Both block modes therefore exceed m strictly, proving simplicity. For p≥7, |B_22|≥(p−1)C>3(p−1)/5>√p+1/2 bounds all nontrivial characters from above and lies below or at the block's largest singular value. For p=5 the second-column squared norm is (15+√5)/2 and exceeds (S√5+1−C)^2, as verified by the stated strict rational bounds. The top singular value is consequently the larger Gram root's square root. Finally T_p=p²+O(1), D_p=O(1), and m=2π/p+O(p⁻³), which give the claimed condition number including its bounded remainder. CHECK.py was inspected as a finite numerical diagnostic, not run or used in place of the all-prime argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank-trichotomy catalogue statement is for the phase exp(2πi(a st+b s²t²)/p), not the phase η(st+c). A rank claim is not a numerical lower singular bound even on the same domain.",
+          "The frozen comparison identifies Wei–Li–Wu, Theorems 1.2–1.4, as determinant identities for finite-field matrices on power-residue subsets; the stated objects do not themselves form the full complex three-phase matrix.",
+          "The distinct same-day two-row chirp conditioning result has a three-site aperture, rather than this whole-field square operator."
+        ],
+        "reasoning": "The finite-field determinant and extension-norm questions reported in the frozen comparison are not dominant spectral-map statements for the specified matrix. Independent full-text retrieval was unsuccessful, so subsidiary exact coverage is not ruled out.",
+        "searches": [
+          "Wei–Li–Wu arXiv:2305.16064; González-Riquelme–Oliveira e Silva arXiv:2405.16647",
+          "Resultary: quadratic-phase Fourier sampling rank 5bfb4c77019d; two-row quadratic chirp conditioning a2fc110c3fc9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary catalogue entries 4e02c8108017, 5bfb4c77019d and a2fc110c3fc9",
+        "Bibliographic and access checks: arXiv:2305.16064, arXiv:2405.16647, DOI 10.1007/s00026-011-0069-6, Purdue Gauss/Jacobi-sum lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearby rank and two-row conditioning catalogue statements give quantitative conclusions on inequivalent phases or dimensions.",
+          "For this matrix the exceptional Jacobi sum identifies the candidate weak mode, yet proving its strict separation also needs positivity of B*B−4sin²(π/p)I. The standard Jacobi magnitudes do not settle that comparison or identify the top block."
+        ],
+        "reasoning": "No accessible comparator supplied an implication to the sharp endpoints and simple mode. The subject is exact stability, not merely nonsingularity or Fourier diagonalizability.",
+        "searches": [
+          "Resultary 5bfb4c77019d and a2fc110c3fc9; RESULT.md lines 106–117; primary Jacobi-sum background comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue hits for the endpoints and shift equivalence all lead to the target itself, 4e02c8108017.",
+          "On the nonzero field, inversion of a column index represents the multiplicative Hankel kernel as multiplicative convolution. The row/column indexed by zero is additional, and the two constant-sector singular values are not determined by the nontrivial Jacobi magnitudes."
+        ],
+        "reasoning": "Both Legendre-phase and multiplicative convolution descriptions were compared. A Jacobi modulus theorem supplies an input to the singular-sector bounds but not their ordering with the two-dimensional Gram block.",
+        "searches": [
+          "Resultary: exp(2πiη(st+c)/p), three-phase Legendre mask, simple weakest direction, shift invariance and singular endpoints",
+          "Primary: quadratic character OR Legendre, shifted product, three-phase complex matrix singular values, 2 sin, prime field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available distinct catalogue conditioning/rank summaries do not give a singular-value table or edge formula for the same all-field quadratic-character mask.",
+          "The frozen source describes an exact Jacobi-symbol-enumerator Hankel determinant in Eğecioğlu, not a table for this complex shifted-product matrix."
+        ],
+        "reasoning": "A symbolic determinant of a different Hankel matrix does not specify this operator's two singular edges; the lack of a retrieved matching table is not proof of historical absence.",
+        "searches": [
+          "Resultary: 2sin(π/p) smallest Legendre-phase singular value and exact largest singular value",
+          "Eğecioğlu, DOI 10.1007/s00026-011-0069-6"
+        ]
+      },
+      "rationale": "Credit the classical character transform and Jacobi identities. The supported distinct claim is the two exact complex singular edges, the simple quadratic right-singular line, nonzero-shift equivalence, and resulting exact conditioning of this shifted-product three-phase mask at angle 2π/p. Closest retrieved comparators differ in phase function, normalization, matrix dimensions or spectral question. The exact-source literature lookup is bounded, including explicit access limits for the closest determinant paper.",
+      "residual_risks": [
+        "Primary text access did not settle whether a Legendre-matrix paper or older character-spectrum calculation contains an equivalent complex result.",
+        "The distinct catalog comparisons are based on available summaries; the narrow primary search returned no matching statement but cannot establish historical absence. Other character types, phases, shifts including zero, or extension fields are not included."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different phase in the rank result and much smaller observation matrix in the conditioning result; dated order was not inferred",
+          "evidence": [
+            "The rank phase is quadratic in st, while the second result measures a two-row, three-site aperture."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d ; 2026/11/22/SCOPE-universal-sharp-conditioning-of-two-quadratic-chirp-rows-on-any-prime-field-three-site-aperture--a2fc110c3fc9",
+          "material_read": "Resultary catalogue summaries; the rank record's full text was not retrieved in this audit",
+          "method": "Local semantic search and attempted OA passage retrieval for the rank record",
+          "title": "Sharp rank trichotomy for quadratic-phase Fourier sampling on a prime-field parabola; Universal sharp conditioning of two quadratic chirp rows on any prime field three-site aperture",
+          "trigger": "Closest catalogue hits for prime-field phase rank and sharp conditioning"
+        },
+        {
+          "assessment": "Reported finite-field subgroup determinants and Fourier extension bounds address other quantities; full-document coverage not independently resolved",
+          "evidence": [
+            "Frozen RESULT.md lines 106–107 distinguishes finite-field determinant values and extension inequalities from singular values in complex Euclidean norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.16064 ; https://arxiv.org/abs/2405.16647",
+          "material_read": "Frozen comparison and theorem locators, including Wei–Li–Wu Theorems 1.2–1.4; independent OA passage requests timed out",
+          "method": "Targeted OA attempts and comparison to the statements described in frozen RESULT.md and AUDIT.json",
+          "title": "On generalized Legendre matrices involving roots of unity over finite fields; Sharp extension inequalities on finite fields",
+          "trigger": "Plausible Legendre-matrix exact results and broader sharp Fourier estimates"
+        },
+        {
+          "assessment": "Different determinant object in the reported result; general Gauss/Jacobi background in the snippet, no textual basis for broader exclusion",
+          "evidence": [
+            "The Jacobi-sum modulus formula used in the proof is classical and is excluded from the novelty claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00026-011-0069-6 ; Purdue introductory Gauss/Jacobi sums primary-search result",
+          "material_read": "Frozen reference and comparison for Eğecioğlu, and search snippet for the Purdue hit; independent OA text not retrieved",
+          "method": "Bounded literature lookup, frozen bibliographic comparison and attempted OA read",
+          "title": "A Prime Sensitive Hankel Determinant of Jacobi Symbol Enumerators; An Introduction to Gauss and Jacobi Sums in Number Theory",
+          "trigger": "Jacobi/Hankel exact identity and imported character-sum ingredient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A shifted multiplicative mask with a canonical quadratic character and unimodular phases is a natural family for a sharp stability calculation. Exact singular edges determine worst-case Euclidean inverse amplification and identify a unique, explicitly described direction invisible to rank alone. The uniform quadratic growth quantifies increasing ill-conditioning despite constant entry magnitudes; the result need not imply a general claim about finite-field sampling to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

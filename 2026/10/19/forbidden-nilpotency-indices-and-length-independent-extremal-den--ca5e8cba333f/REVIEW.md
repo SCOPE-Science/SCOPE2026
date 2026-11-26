@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The residue-field partition (zero versus nonzero nilpotent) is exhaustive. The cyclic case has an independently reconstructed companion and Cayley–Hamilton recurrence. The valuation estimates prove the absence of every intermediate exponent; the leading \((-d)^{m-1}A\) term cannot cancel because \(I,A\) are a free pair. The determinant differential at a rank-one residue matrix is nonzero and makes the first valuation layer uniform. Independent direct multiplication verifies four finite-ring configurations and the non-chain parity witness. No finite test is treated as an infinite proof.
+## correctness
 
-## Originality (O): PASS, with limitations
-Avni–Onn–Prasad–Vaserstein's explicit cyclic representatives and their similarity-class count are earlier, stronger classification machinery. They do not explicitly state this all-length **nilpotency-index gap** or the mass of the extremal exponent; this contribution is an invariant-level consequence requiring the power recurrence and valuation analysis, not a claim to new similarity normal forms. A published length-three Jordan-lift study covers that restricted setting and was explicitly excluded as a novelty basis. The present gap grows with arbitrary length, includes mixed-characteristic chain rings, and has a sharp non-chain, characteristic-sensitive counterexample. Residual risk: the result may be an unrecorded corollary of earlier broad normal-form work or may have appeared under the terms nilpotence degree/power index. Full specialist priority audit remains outstanding.
+PASS
 
-## Value (V): PASS
-Nilpotency index is a natural discrete invariant in matrix problems over nonfields. The theorem forbids a whole interval of length \(m-2\), not one isolated value, while identifying a stable positive fraction at the remote maximal exponent. Both sides occur for every ring in the family; the length-three non-chain witness demonstrates the significance of the chain hypothesis. This is a sharp uniform boundary and an explicit mass formula, rather than a sample-only observation or a routine small-table count.
+Nilpotence is equivalent to nilpotent reduction because A² is then in πM₂(R), so A^(2m)=0. There are q² residue nilpotents (zero plus (q+1)(q−1) choices of image line and nonzero quotient-to-line map), each with q^(4m−4) lifts. The zero fiber dies by power m. In each other fiber t=tr(A) and d=det(A) belong to (π). If d∈(π²), Cayley–Hamilton gives inductively A^h∈π^(h−1)RA+π^h RI, so A^(m+1)=0. If d=πδ with δ a unit and t=πτ, put B=τA−δI; then A²=πB, B commutes with A, and B modulo π is invertible as a nonzero scalar plus a nilpotent. Thus π^(m−1)B^(m−1)A=A^(2m−1)≠0, since its factor after π^(m−1) has nonzero reduction. The determinant's first-order map at each rank-one residue matrix has a nonzero cofactor and is affine surjective; this applies without a coefficient-field splitting. The fraction (q−1)/q of each nonzero fiber therefore has index 2m, giving the stated count and density. Companion matrices with (t,d)=(π,0),(0,π) attain m+1 and 2m. For the nonchain witness, C³=−xC−xyI, C⁴=−2xyC and C⁵=0; the lower-left entries certify both characteristic cases. Separate literal matrix-power enumeration matched total/extremal counts 1024/384 in Z/8 and F₂[t]/(t³), 16384/6144 in Z/16, and 59049/34992 in Z/27. No forbidden index occurred. Finite tests corroborate but do not establish the general proof.
 
-## Verification and scope
-The attached program executes literal ring and matrix arithmetic in finite cases, including both equal and mixed characteristic. The proof handles all lengths and residue sizes. Lower nilpotency-index multiplicities for arbitrary length are not claimed. The oldest directly supporting publicly dated background source is arXiv:0708.1608v1 (12 August 2007).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim supported by the inspected literature is the joint full forbidden interval and global extremal mass for all finite commutative chain rings at every m≥3, including mixed characteristic, with an explicit nonchain failure. Known companion classification supplies the reduction; the equal-characteristic length-three regular-fiber result and the equal-characteristic arbitrary-length extremal-fiber count materially overlap and are not credited as separate novelty. The inspected higher-tail theorem does not cover the full new interval for m>3 or the mixed-characteristic scope.
+
+## value
+
+PASS
+
+The result replaces a coarse universal 2m nilpotency bound by a forbidden interval whose length increases without bound, and supplies a ring-independent exact extremal share across mixed and equal characteristics. The determinant-layer criterion makes the result usable without similarity enumeration; the nonchain example isolates a real boundary rather than adding an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

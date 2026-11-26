@@ -1,15 +1,21 @@
-# Scientific review: two-barrier strong-selection law
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated update probabilities, per-step funded cost, absorption convention and the number of transient states are explicitly fixed. The finite-state occupation kernel is proved by harmonicity and its unit jump at the rewarded state; substitution of the two piecewise exponential scale factors yields the exact competing endpoint factors. The leading funded-boundary contribution is shown to dominate all lower funded states, uniformly for incentives a positive distance above the disadvantage. The same Green identity gives the two finite-cost regimes. The logarithmic crossover follows from a uniform bound, not an exchange of unproved limits. Standalone `verify.py` passed 510 exact occupation/Markov comparisons and 54 high-precision limiting and crossover comparisons. The program does not certify the infinitely many parameter instances; those rest on the explicit inequalities in the written proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 2024 paper, Duong, Durbac and Han, Bulletin of Mathematical Biology 86, 115, DOI 10.1007/s11538-024-01344-7, defines the partial-funding Fermi model and its finite-transition resolvent, proves asymptotics at cutoff one, and reports numerical studies at other cutoffs. Its main results and appendix were inspected; the all-partial-cutoff exponential barrier exponent, sharp prefactor and logistic crossover were not identified. The authors' 2023 hybrid-incentive and 2021 full-invest work address different funding interfaces. Semantically related indexed results about Fermi games, incentives and stochastic barriers and accessible prior mathematical statements did not imply this theorem. The novelty claim does not cover the classical Green formula, Fermi rule, or the paper's existing exact finite-matrix representation. Residual risk is an unpublished equivalent derivation or a more general rare-transition theorem from which the stated model-specific asymptotics follow immediately.
+PASS
 
-## Value — PASS
-The source singles out arbitrary partial funding thresholds as analytically challenging. The new theorem resolves their strong-selection scaling for all interior cutoff values and all mixed starting states, including exact finite/exponential cases, an identified incentive crossover and an explicit width-one-defector comparison with full investment. It quantifies a concrete and counterintuitive budget failure: partial subsidies at strong selection can require exponentially growing expected spending while full subsidies have finite cost. Sharp prefactors and the crossover predict finite-selection costs and define a natural parameter boundary; the result is not simply a restatement of a birth–death formula.
+I independently checked the asymptotic by renewal at t on the embedded jump chain. Each visit to j costs θj/u_j in expected update expense when funded, with u_j=j(N−j)/N². Write ε=exp(−β(θ−d)), δ=exp(−βd), and m=N−1−t. A cycle from t ends at the next return to t or absorption. One-dimensional gambler's ruin on each side gives its exact escape probability [ε^t/(∑_{k=0}^{t−1}ε^k)+δ^m/(∑_{k=0}^{m}δ^k)]/(1+ε). The factor ε from the first downward jump at t is essential. The cycle's expected cost is θt/u_t times 1+O(ε): the right excursion pays nothing and the left excursion starts with probability O(ε) and has bounded expected length for fixed N, since a fixed block of up-steps has probability bounded below. Renewal therefore gives E_t=(θt/u_t)/(ε^t+δ^m) times 1+O(ε+δ), uniformly on the asserted compact sets. From any other mixed state the chance of absorbing before t is O(ε+δ) by the same ruin calculation; the expected pre-hit cost is bounded, hence also a relative O(ε+δ). This yields the claimed prefactor, minimum barrier exponent, half coefficient at equality, and logistic limit by setting β(A−B)=s. In the finite regimes the limiting embedded transient chain is still absorbing, so its inverse and occupations are continuous. Below d every step goes down; for full funding above d every step goes up. At equality the funded segment is unbiased, absorbing at zero and reflecting at t once the unrewarded t→t+1→t excursion is collapsed. Its visit Green function at funded j is 2min(i,j), by the discrete second-difference equation with reflecting condition at t (initial i>t first reaches t). Multiplying by θj/u_j gives all three finite formulas. The frozen scale-kernel normalization agrees with these independent checks.
 
-## Scope and remaining limitations
-The asymptotics hold at fixed finite population size, with a fixed state-independent game disadvantage and absorbing no-mutation dynamics. Extensions to joint growing population or noisy mutation are unproved. The closest prior paper provides finite-\(\beta\) formulas, so publication priority requires external expert scrutiny; this report is a self-review and not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive claim is the all-partial-cutoff, all-transient-start, compact-uniform sharp law including its discrete-update prefactor and logistic competition window. The same model, fundamental matrix, cutoff-one divergence, some finite regimes, and finite-beta cutoff-two cost formulas already exist and are not credited as new. The predecessor comparison should acknowledge its explicit cutoff-two cost formulas, not merely inverse-matrix entries.
+
+## value
+
+PASS
+
+The result explains which absorbing exit limits expense and determines the scale and leading coefficient even at equality of the two barriers. A single uniform law captures the width and shape of the changeover; this cannot be read off from the qualitative divergence or from separately taking fixed-incentive limits. Its normalization is useful for the stated discrete institutional cost, and the discontinuous change from finite to exponential cost on omitting the final state is an informative contrast within the model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:12:16.873114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–33, 37–47 and 49–109",
+        "VERIFICATION.md, recorded rational and numerical checks",
+        "verify.py, root brackets, stationarity and window tests inspected"
+      ],
+      "rationale": "The graph of W is primitive and its Perron normalization is similar to W/λ_+. Direct determinant expansion gives p(x)=(x−1)(x²−wx−1)−s². The signs at −1,0,1,+∞ bracket one simple root in each of (−1,0),(0,1),(1,∞). The sum of the non-Perron roots is 1+w−λ_+, with the sign of p(1+w)=w²−s², because both lower-root factors are positive at 1+w. This proves the exact modulus comparison, including which mode wins and the equality case. At w=s the factorization is (x−1−s)(x²−1+s); multiplying the corresponding positive left and right Perron coordinates gives the stated stationary law. In the window w=sτ, τ=e^(−ξ), the equation for x=1+sz is z(2z−τ+s(z²−τz))−1=0. The two near-one roots have first-order coefficients (τ±√(τ²+8))/4, with O(s²) errors in x by simplicity. Vieta gives the remaining root −1+sτ/2+O(s²). Normalization gives gap coefficients √(τ²+8)/2 and (3τ+√(τ²+8))/4; their minimum switches at τ=1. The stationary weight at state 0 tends to 1/(1+2z_+²), which is the claimed L(ξ); the remaining two weights become equal, and the transitions converge to 0→0 and 1↔2. This proves cylinder convergence to the mixture. The two maximizing components are the zero-energy fixed point and alternating orbit; the threshold concerns the selected relaxation mode, not a change in the set of maximizing measures.",
+      "residual_risks": [
+        "The asymptotic proof holds with ξ fixed, not uniformly over unbounded ξ or all observables. The recorded numerical tests do not prove the formulas; the determinant, eigenvectors and simple-root argument do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chazottes–Gambaudo–Ugalde treats limiting component weights, including a period-two component, under a fixed locally constant potential.",
+          "Jenkinson–Pollicott proves convergence for m_(tf) with fixed locally constant f.",
+          "Bissacot–Garibaldi–Thieullen treats convergence/divergence of Gibbs measures with two fixed-point ground states on a two-symbol shift."
+        ],
+        "reasoning": "These methods support static measure selection; the stated results do not classify the normalized non-Perron spectrum. The shift r_β=r_*+ξ/β also varies the potential, so fixed-f convergence alone gives neither the window nor its relaxation scale.",
+        "searches": [
+          "arXiv:0903.1212, fixed-potential zero-temperature renormalization",
+          "arXiv:2610.19990, Brémont convergence theorem",
+          "Bissacot–Garibaldi–Thieullen, double-well zero-temperature phase diagram"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and originals 8fb4352bba3d, 40ab4f079cbc and bcc2f2b27cd4",
+        "Garibaldi–Thieullen DOI 10.1007/s10955-011-0357-x §6.1",
+        "arXiv:0903.1212",
+        "arXiv:2610.19990",
+        "arXiv:1009.2152",
+        "Bissacot–Garibaldi–Thieullen DOI 10.1017/etds.2016.57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garibaldi–Thieullen pp. 167–168 collapse the alternating component, compute λ−1 at leading order and derive the stationary weight formula at the fixed-potential balance.",
+          "The frozen dynamic comparison evaluates the exact characteristic polynomial at 1+w, and the window compares the root near −1 with the second root near +1."
+        ],
+        "reasoning": "The prior reduced Perron problem can explain the phase mixture and the bridge scale, and suggests the near-one quadratic. It does not retain the alternating negative mode or determine whether its modulus passes the positive mode at every temperature. To obtain the claimed piecewise gap both sub-Perron roots must be controlled on the same scale. The exact cancellation and resulting comparison are distinct from those prior implications.",
+        "searches": [
+          "Garibaldi–Thieullen §6.1.1–6.1.3 and Figure 5, three-state Puiseux analysis",
+          "Nearest indexed mixing and undamping results 40ab4f079cbc and bcc2f2b27cd4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garibaldi–Thieullen compares the one-loop exponent with the mean of the two bridging exponents and computes Perron asymptotics and limiting phase weights.",
+          "Chen–Chen study embeddability with two coinciding negative eigenvalues; here the tied modes are distinct, real, and have opposite signs."
+        ],
+        "reasoning": "A gauge of the Gibbs bridge weights and Perron normalization preserve the relevant eigenvalue comparison, but fixed-potential limiting weights or continuous-time embeddability are not this comparison of two sub-Perron moduli at finite temperature.",
+        "searches": [
+          "Three-state Gibbs transfer matrices, alternating and fixed phases, negative subdominant eigenvalue and spectral gap",
+          "Garibaldi–Thieullen §6.1.1–6.1.3",
+          "arXiv:1009.2152, coinciding negative eigenvalues in three-state Markov chains"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 8fb4352bba3d treats static pressure and coexistence in a rational-frequency shift.",
+          "Record 40ab4f079cbc treats a doubly stochastic three-state family with an optimal defective collision; bcc2f2b27cd4 treats a real-to-complex transition in a four-state rate ring."
+        ],
+        "reasoning": "The returned entries concern related phase or spectral notions but do not tabulate or give exactly the threshold and gap for this matrix. Neither a defective collision nor the onset of complex roots is the opposite-sign equal-modulus event here.",
+        "searches": [
+          "Resultary: three-state matrix Gibbs relaxation, opposite-sign spectral-mode threshold, low-temperature scaled gap and coexistence",
+          "Resultary records 8fb4352bba3d, 40ab4f079cbc and bcc2f2b27cd4"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact finite-temperature positive-versus-negative sub-Perron mode comparison, together with the associated normalized critical-window gap. The static ground-state competition, bridge-exponent comparison and fixed-potential selection overlap materially with prior work and are not credited as new.",
+      "residual_risks": [
+        "The inspected literature and catalogue do not exclude prior finite-temperature computations of these sub-Perron branches under another parametrization. The static overlap with the Puiseux phase diagram is explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial static overlap; these passages do not give the dynamic mode comparison or gap.",
+          "evidence": [
+            "Collapses states 2 and 3 for the positive eigenvectors and compares the preferred loop exponent with the mean bridge exponent.",
+            "Derives the limiting stationary weight formula at equality and summarizes it in Figure 5."
+          ],
+          "identifier_or_url": "DOI 10.1007/s10955-011-0357-x",
+          "material_read": "§6.1 and §6.1.1–6.1.3, Fig. 5, pp. 167–168, offsets 147700–155735",
+          "method": "Author-hosted open original PDF passages",
+          "title": "Description of Some Ground States by Puiseux Techniques",
+          "trigger": "Closest primary three-state model and same bridge-exponent balance"
+        },
+        {
+          "assessment": "Static selection, including an alternating periodic ground component.",
+          "evidence": [
+            "Gives fixed-potential renormalization of equilibrium weights and an example converging to the uniform measure on a period-two orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.1212",
+          "material_read": "pp. 1–3 and 14, offsets near 3000 and 43350",
+          "method": "Original open PDF passages",
+          "title": "Zero-temperature limit of one-dimensional Gibbs states via renormalization",
+          "trigger": "General fixed-potential selection theorem"
+        },
+        {
+          "assessment": "Fixed locally constant potential; not a sub-Perron gap statement.",
+          "evidence": [
+            "Treats weak-* convergence of m_(tf) at fixed f and algebraicity of cylinder weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19990",
+          "material_read": "Abstract, p. 1, and theorem, p. 3, offsets 0 and 10293",
+          "method": "Original open PDF passages",
+          "title": "An elementary proof of Brémont's theorem on the convergence of equilibrium measures at temperature zero",
+          "trigger": "Recent general measure convergence theorem cited by the result"
+        },
+        {
+          "assessment": "The stated model has two fixed-point ground states and addresses convergence of equilibrium measures.",
+          "evidence": [
+            "The main question is a Peierls-barrier classification for two-symbol long-range potentials."
+          ],
+          "identifier_or_url": "DOI 10.1017/etds.2016.57",
+          "material_read": "Abstract and start of §1, p. 1, offsets 0–3043",
+          "method": "Author-hosted open original PDF passage",
+          "title": "Zero-temperature phase diagram for double-well type potentials in the summable variation class",
+          "trigger": "Literature hit for phase competition and zero-temperature thresholds"
+        },
+        {
+          "assessment": "Different spectral regime and question.",
+          "evidence": [
+            "Assumes coinciding negative eigenvalues and seeks a continuous-time embedding criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2152",
+          "material_read": "Abstract and start of Introduction, offsets 0–2123",
+          "method": "Original open PDF passage",
+          "title": "On the Imbedding Problem for Three-state Time Homogeneous Markov Chains with Coinciding Negative Eigenvalues",
+          "trigger": "Literature hit for equal eigenvalue moduli in a three-state stochastic matrix"
+        },
+        {
+          "assessment": "Different family and collision mechanism.",
+          "evidence": [
+            "Optimizes a bistochastic family with a defective collision instead of a real positive/negative modulus comparison."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 40ab4f079cbc",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Local repository mirror",
+          "title": "Sharp mixing on the sparsest primitive three-state bistochastic support",
+          "trigger": "Closest indexed three-state mixing-factor optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Garibaldi–Thieullen §6.1 and Figure 5"
+      ],
+      "rationale": "This primitive Gibbs family contains the simplest competing fixed and alternating components. Equilibrium weights alone cannot identify whether the leading relaxation alternates, or on what scale the gap closes. The exact all-temperature switch together with its two different critical-window gap branches gives a motivated, useful spectral boundary. It is not merely an evaluation of stationary weights or a check of a single numerical parameter.",
+      "residual_risks": [
+        "Oscillation of the dominant mode need not be visible to an observable with zero projection onto it; results are limited to the stated graph and energy parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

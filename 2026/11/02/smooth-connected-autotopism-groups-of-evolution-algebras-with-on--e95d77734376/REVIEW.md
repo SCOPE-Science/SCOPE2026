@@ -1,19 +1,21 @@
-# Scientific review: one-dimensional-square autotopism groups
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the rank-\(r\) bilinear multiplication \(xy=b(x,y)u\), the autotopism identity is equivalent to the pair \(H(u)=tu\), \(F^TBG=tB\). Because the two inputs are invertible, both preserve the radical of \(b\). A block calculation uniquely determines one nondegenerate input block and leaves the two lower-left shear blocks and the first-map parabolic shear unconstrained. This establishes all points functorially and supplies a split semidirect product of general linear and additive groups. The dimension and field orders follow with \(\operatorname{GL}_0=1\). Exhaustive small-field checks independently reproduce the matrix counts; the proof does not depend on them.
+PASS
 
-## Originality
+Choose vectors with b(x,y)=1 over K. After base change to any commutative K-algebra, the defining equation on this pair forces H(u)=tu, and H invertible in a basis starting with u forces t and the complementary block J to be invertible. The equation FᵀBG=tB forces F and G to preserve the fixed split radical summand (using that the other factor is surjective), and the inverses satisfy the converse inclusions. In a complement-plus-radical basis the nonsingular block equation forces G's upper diagonal block to be t B0⁻¹ A⁻ᵀ B0; both radical diagonal blocks and the two lower shears are free. These are matrix identities over the base algebra and require no pointwise reducedness assumption. Conjugating the G coordinate by diag(B0,I) gives upper block t A⁻ᵀ. Writing all factors as a unipotent shear times a diagonal element, the latter acts by D X_F A⁻¹, t⁻¹ W X_G Aᵀ and t Y J⁻¹ on the two lower shears and the H upper shear. The action as well as the parameter spaces thus depend only on n,r. The H basis may be chosen independently, so the square line's position relative to the radical does not change the isomorphism. The normal vector group and split reductive complement give smoothness, geometric connectedness and the Levi splitting. Their dimensions sum to 2n²−n+s²+1 and the point count is obtained by choosing the shear and diagonal coordinates independently. The argument includes n=r=1, s=0 and characteristic two without any isometry or division-by-two step.
 
-**PASS, qualified.** The closest source, Martín González–Rabie–Sánchez-Ortega (2024), already gives the perfect-case ternary automorphism group scheme and general ternary derivation formulas. Neither the perfect restriction nor the infinitesimal Lie algebra calculation by itself supplies the stated full group scheme of invertible triples, its connected unipotent radical, or its exact finite-field group order for *all* one-dimensional-square algebras. Brache and colleagues (2021) provide the form-based isomorphism theory of these algebras, not the group of ternary automorphisms. Kaygorodov–Martín González–Viruel (2026) highlights autotopy group schemes as a live structural issue. Ordinary linear-algebraic stabilizer principles are known and are credited. Remaining risk: the formula could appear under bilinear-form isotopies in older literature with different terminology; priority is not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The rank-one square stratum is the first intrinsically nonperfect class to contrast with known perfect-case autotopy group schemes. The theorem determines the entire algebraic group, not just examples or infinitesimal symmetries: it identifies its smoothness/connectedness behavior, Levi factor, abelian unipotent radical, dimension, and every finite-field group order, uniformly across arbitrary rank degeneracies and characteristics. It also shows that this triple-symmetry invariant discards bilinear-form distinctions retained by algebra isomorphism, clarifying what autotopy can detect.
+The supported distinct claim is the exact ordered triple group scheme in the nonperfect one-dimensional-square stratum, including the shear action and rank-only dependence. Perfect-algebra ternary maps, one-dimensional-square isomorphism classes and related endomorphism or natural-basis invariants are established separate results. The perfect overlap n=1 is prior, not novelty evidence.
 
-## Sources and limitations
+## value
 
-Primary sources inspected: arXiv:2610.22248v1 (2026 survey, autotopy question); arXiv:2405.10241 (2024, perfect ternary automorphisms and general ternary derivations); arXiv:2103.01625 (2021, rank-one-square bilinear-form classification). Neither ternary derivations nor ordinary algebra isomorphism classifications are claimed as new. Higher square ranks are outside scope. An alternative published stabilizer formulation may imply the group formula, which is a residual historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordered ternary group scheme is an established invariant, and the one-dimensional-square locus is a natural nonperfect stratum. The result gives the group law and geometry, not just dimensions or small-field table entries. In particular, the action of the output multiplier and the absence of generator-position and form-type distinctions give useful structural information in all characteristics, in contrast with the finer algebra classification. The matrix method is elementary, but the exact triple stabilizer and its Levi action are the useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

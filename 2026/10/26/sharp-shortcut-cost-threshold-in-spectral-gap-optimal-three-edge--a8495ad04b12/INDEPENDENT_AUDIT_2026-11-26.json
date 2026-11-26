@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:12.990048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected /workspace/repairs/2/RESULT.md. The frozen Finding's assertion that adding an edge's conductance would strictly increase the gap at fixed other weights is false here: adding shortcut weight is a PSD update that annihilates the at least m−1 zero-terminal gap eigenvectors. The repair states the exact invariance in this comparison, not a fixed-budget comparison. Independently, concavity validates path-permutation and terminal-reflection averaging. The even constant-on-path sector gives 0 and (m+1)x, the two fluctuation sectors give x and x+2y each m−1 times, and the odd constant-on-path sector is the displayed normalized two-by-two block. For gap at least one, x≥1 and its Schur complement is the stated bound on y. Minimizing the reciprocal-plus-linear lower cost in z uses mx+2z−1=mx/√τ when feasible; below and at the threshold the resulting lower cost increases strictly with x. Above the threshold the constrained minimizer is z=0, and x²/(mx−1) is nondecreasing for x≥1. At x=1 the bound is tight with positive y, contact in the odd block and the same z=0 on both branches at equality. This gives the value, symmetric optimizer, and multiplicity m after scaling. The fixed shortcut is unchanged by averaging. The repair also justifies unrestricted multiplicity explicitly: the kernel of an average of PSD operators on the orthogonal complement of the constants is contained in every summand's kernel. The even zero-terminal fluctuation vectors there force each outer weight, and the odd gap vector has nonzero opposite values on the two interior vertices of every path, forcing each middle weight once the outer weights are fixed. Thus even the full optimal Laplacian is fixed. The frozen exact and numerical check sources and recorded output were inspected, not executed; global optimality and rigidity are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic SDP permits arbitrary positive edge prices and has the equivalent gap-one cost minimization. Its inspected solved examples use a different six-vertex graph, paths and cycles."
+        ],
+        "reasoning": "The theorem is inside the general formulation, but computing the optimizer as a function of m and τ, and the rank and equality cases, requires more than substituting costs into that SDP.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis, doi:10.1137/S0036144504443821, budget form, §§3.2–3.3 and examples §§5.1–5.3"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify_exact.py, verify_numeric.py and verification_output.txt",
+        "/workspace/repairs/2/RESULT.md",
+        "Resultary 7dc3d941617f, 798a42b2934c, 7f96525dec6d, 7c4d78b27fde",
+        "doi:10.1137/S0036144504443821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the four-cycle critical price the shortcut varies over an unrestricted optimal segment. The priced star has unrestricted uniqueness but has no shortcut and its gap multiplicity changes with price. The generic SDP does not give these equality conditions for the book graph."
+        ],
+        "reasoning": "The nontrivial m−1 path-index fluctuation modes pin the repaired optimizer when m≥2, a mechanism absent on the four-cycle. The threshold, fixed shortcut, and exact gap multiplicity are not implications of the inspected solved examples.",
+        "searches": [
+          "Budgeted continuous-time Laplacian design in Sun et al.; optimizer sets in 798a42b2934c, 7f96525dec6d and 7c4d78b27fde"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadrilateral-book result prices the same direct edge on the same paths, but minimizes the sum of pairwise effective resistances via the Kirchhoff index. The m=1 spectral result has different structure from the m≥2 case."
+        ],
+        "reasoning": "A sum of inverse nonzero eigenvalues is not a transform of the smallest nonzero eigenvalue alone. Exact Kirchhoff minimizers therefore do not give the repaired spectral result. Four-cycle gap multiplicity and critical nonuniqueness are different, not a relabeling.",
+        "searches": [
+          "Resultary: weighted algebraic connectivity, priced shortcut, quadrilateral book and fastest mixing; matches 7dc3d941617f, 798a42b2934c, 7f96525dec6d, 7c4d78b27fde",
+          "Web: \"fastest mixing Markov process\" \"cost\" conductances algebraic connectivity weighted Laplacian parallel paths shortcut spectral gap optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two four-cycle entries give cutoff 9 for m=1; the book-resistance result has a different cutoff, for instance 99/35 at m=2 under the Kirchhoff objective. The star has its own exact multiplicity classification."
+        ],
+        "reasoning": "This is a formula over a continuous cost parameter and all integers m≥2 rather than a finite table. The checked exact formula entries do not give the same invariant on this family.",
+        "searches": [
+          "Resultary priced-fastest-mixing and quadrilateral-book entries 798a42b2934c, 7f96525dec6d, 7dc3d941617f and priced-star entry 7c4d78b27fde"
+        ]
+      },
+      "rationale": "The corrected exact result for m≥2 survives the statement-level comparisons. The closest indexed result with the same topology minimizes a different objective. The closest indexed result with the same priced spectral-gap objective is the four-cycle, outside this range and with different optimizer behavior. The general budgeted-Laplacian formulation is established and not claimed as new; its displayed theory and examples do not supply the corrected closed form or rigidity on this topology.",
+      "residual_risks": [
+        "This is a best-of-knowledge finding; an equivalent closed form indexed under other graph-design terminology could have been missed. Catalogue dates alone were not used to establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph, distinct objective",
+          "evidence": "The bridge-price cutoff is for minimizing the Kirchhoff index and is specified by a different scalar root.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bridge-price-transition-on-quadrilateral-book-resistance--7dc3d941617f/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "A sharp bridge-price transition on quadrilateral-book resistance",
+          "trigger": "Identical graph and continuous priced conductances"
+        },
+        {
+          "assessment": "Different graph (m=1), not included in the corrected claim",
+          "evidence": "The value is 4B/(5+τ+2√τ) up to τ=9 and B/5 above; at equality the optimal allocations form a segment with varying shortcut weight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "A sharp shortcut-cost phase transition for fastest mixing on a four-cycle",
+          "trigger": "Closest same-objective support transition"
+        },
+        {
+          "assessment": "Different graph (m=1)",
+          "evidence": "Gives the four-cycle threshold and the reflection-invariant optimal set at equality, not the repaired family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "A sharp edge-price transition in spectral-gap design of a four-cycle",
+          "trigger": "Alternate indexed priced-cycle formulation"
+        },
+        {
+          "assessment": "Same type of optimization, different topology and spectral behavior",
+          "evidence": "Solves a heterogeneously priced weighted star, with no parallel paths or direct shortcut and a change in multiplicity from m−1 to one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-square-root-price-threshold-for-optimal-spectral-connectivity--7c4d78b27fde/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "A square-root price threshold for optimal spectral connectivity",
+          "trigger": "Price threshold with gap multiplicity and optimizer rigidity"
+        },
+        {
+          "assessment": "Contains the optimization model but not the exact repaired classification in the inspected results",
+          "evidence": "Provides the weighted budget and gap-one SDP; solved examples inspected do not give the formula for parallel three-edge paths with a shortcut.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "p. 683 (offset 6800); §§3.2–3.3, pp. 686–687 (17150); §§5.1–5.3, pp. 694–697 (43800 and 48400)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact general continuous-time cost-weighted Laplacian problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves a concrete design tradeoff: how costly a direct redundant link can become before every optimum must delete it. It provides the full optimal value, exact boundary behavior, and spectral/optimizer rigidity for arbitrarily many alternate paths. The path modes explain why merely allowing more shortcut weight cannot improve the gap at the optimum with the other weights fixed. The result is not a numerical SDP instance or a renaming of a solved cycle problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

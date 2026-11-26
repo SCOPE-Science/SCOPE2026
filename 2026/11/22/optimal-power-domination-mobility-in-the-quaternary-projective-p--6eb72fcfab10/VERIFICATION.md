@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The two different graph presentations agree on all five- and six-vertex seed counts for the 42-vertex \(\operatorname{PG}(2,4)\) incidence graph. The homogeneous-coordinate program tests every set size from one through six; the affine-coordinate program tests every size-five and size-six subset and then the complete exchange graph. Both implement simultaneous unique-unobserved-neighbor forcing, not asynchronous forcing. A successful configuration is counted once as an unordered subset.
+## correctness
 
-Expected certificate values: \(850{,}668\) failed five-subsets, \(5{,}245{,}786\) examined six-subsets, \(566{,}160\) successful six-subsets. The nonzero (point count, observation time) entries are \((2,3):65{,}520\), \((3,2):52{,}080\), \((3,3):383{,}040\), \((4,3):65{,}520\). The minimum-set jump graph has \(19{,}706{,}400\) edges and one component. The slide graph has \(2{,}257{,}920\) edges and 30,241 components (30,240 singletons and one component of 535,920 vertices). Of the singletons, 10,080 have observation time two and 20,160 time three.
+PASS
 
-Recompile and execute the three supplied C++17 files using the commands in `RESULT.md`. The two connectivity algorithms and distinct coordinate geometries form a reproducible computational cross-check, not an independent mathematical audit. A graph of order beyond four is not tested, and no untested generalization is asserted.
+Independently built the incidence graph from the 21 cyclic translates of {0,1,4,14,16} modulo 21. Its ordered nonzero differences cover all 20 residues once, hence it is a projective plane of order four and isomorphic to PG(2,4) by uniqueness at that order. The independent vectorized computation takes the closed neighborhood at time 1 and uses only observed sources and the previous observation mask for all later forces. It exhausts 850668 five-sets with zero successes; monotonicity rules out all smaller sets because a force either remains available or its target is already observed in a superset. Exhausting 5245786 six-sets gave 566160 successes, with (point count,time) frequencies (2,3):65520, (3,2):52080, (3,3):383040, (4,3):65520. Each unordered jump pair has a unique common five-core. Summing binomial(f,2) by core frequency f gives 19706400 and replacing each core clique by a spanning path preserves precisely the one connected component. For slides, deleting a point and inserting an incident line counts each edge once; exact sparse connectivity gives 2257920 edges, component sizes 535920 once and 1 exactly 30240 times, with frozen frequencies (3,2):10080 and (3,3):20160. The script /workspace/reviews/evidence/pg24.py replayed with Python 3, NumPy and SciPy: first run 'seeds OUTDIR' (full, no limit) and then 'exchanges OUTDIR' on the same fresh directory. This resolves the finite claim without relying on the author's programs.
+
+## originality
+
+PASS
+
+The checked exact counts and mobility classification concern a distinct finite plane instance; formulations and prior bounds are not credited as new. The closest related record has the same invariant on the same family, but covers only the two-sensor boundary and the q=2 optimum census.
+
+## value
+
+PASS
+
+Order four is the first extension-field projective plane and a canonical finite test for the propagation/reconfiguration problem. The time-and-shore census and contrast between jumping connectivity and sliding with a giant component plus immobilized states provide an exact benchmark for both predicates, beyond a minimum-size computation or a count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

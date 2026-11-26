@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:17.410331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the repaired odd case, the columns are I+Sᵀ up to scaling and centering. Odd alternating closure makes this incidence map invertible, so the hull is a simplex in 1⊥. The normalized facet height opposite vertex i is 1−n, with all other heights 1 by centering. The scaled normal (α/2)w alternates between −(n−1)/2 and (n+1)/2 with multiplicities (n+1)/2 and (n−1)/2, hence the exact norm squared (n−1)²(n+1). The normal sum vanishes under cyclic shifts. Summing the equal-norm inequalities proves the global bound attained at zero, and spanning forces the center to be zero at the bound. Undoing the scale α/2 gives 2/√(n(n²−1)) for the standard edge polytope. A separate exact linear-system reproduction through n=26 passed 1,034 checks including all odd orders 3–25 and the original even cases; replay /workspace/branches/a151a61d-dd0c-4695-a180-f57d69810054/independent_check.py. The frozen verify.py was inspected without execution. The finite replay tests sample the exact formula; they do not prove all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tran–Ziegler gives the odd-cycle simplex and even-cycle sum of two simplices; Yi concerns the complete midpoint set. Wheel results add spokes or signed vertices and use different polytopes."
+        ],
+        "reasoning": "Known face type does not determine Euclidean facet height. The complete midpoint configuration and wheel geometry do not specialize to the odd-cycle selected hull's inball.",
+        "searches": [
+          "Tran–Ziegler arXiv:1307.6708 Example 3",
+          "Yi arXiv:2611.05421v2",
+          "Resultary ordinary cycle edge polytope intrinsic inradius"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and prior assessment materials",
+        "Repaired odd-case proof",
+        "Bipartite-cycle root-polytope catalogue theorem statement",
+        "Tran–Ziegler Example 3",
+        "Yi abstract",
+        "Same-hull chord-distance Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even radii, incenter dimensions and facet counts match under sign-switching similarity; the older statement also reports a distance spectrum, without its formula in the accessible summary. In odd order, affine simplex structure supplies no common height, and the exact norm depends on odd closure of the recurrence."
+        ],
+        "reasoning": "Known even claims are withdrawn, rather than recertified. For the odd case the result adds the exact metric normal calculation, and the prior exterior distance result does not imply it by replacing external vertices with facet inequalities.",
+        "searches": [
+          "Bipartite-cycle root-polytope summary 2c6fea9ced07",
+          "Tran–Ziegler Example 3",
+          "Exact Euclidean chord-distance shells RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The diagonal map changing the sign on odd coordinates sends roots e_i−e_j, i even and j odd, to incidence vertices e_i+e_j. Center and scale by α/2 to obtain precisely the midpoint hull. Multiplying the catalogue root radius √(2/[m(m²−1−δ_m)]) by √(2m/(2m−1))/2 gives the frozen even radius and preserves all center dimensions. The sign assignment cannot close around an odd cycle."
+        ],
+        "reasoning": "This is an orthogonal map plus translation and scale, preserving intrinsic Euclidean geometry with the exact scale factor, not mere combinatorial or affine equivalence. The even overlap is decisive; it does not transfer to the repair.",
+        "searches": [
+          "Euclidean support-plane shells and an incenter parity law for bipartite-cycle root polytopes 2c6fea9ced07",
+          "odd cycle ordinary edge polytope intrinsic Euclidean inradius (n-1) sqrt(n+1) unit circumradius simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-object chord-distance table gives squared distances from exterior hypersimplex vertices (e.g. 5/6 and 3/4 shells), not distances from the centroid to supporting planes. An odd-formula query retrieves the subject itself and other graph polytopes."
+        ],
+        "reasoning": "The even radius is an exact rescaling of the October result. The compared table on the ordinary edge polytope measures a different invariant and does not provide the odd formula.",
+        "searches": [
+          "2026/11/17/SCOPE-exact-euclidean-chord-distance-shells-of-cycle-edge-polytopes-in--13ab26bd16cc",
+          "Resultary odd cycle inradius (n−1)√(n+1)"
+        ]
+      },
+      "rationale": "The final finding is the exact odd-cycle metric invariant. It avoids the prior even case by a structural distinction (odd cycles are nonbipartite); affine independence and simplex combinatorics are credited, not claimed. No inspected exact statement supplies the odd-cycle radius.",
+      "residual_risks": [
+        "Full bipartite-cycle root record not accessible in the local mirror, so detailed even-locus priority was not determined; those details are outside the repair.",
+        "An earlier exact odd-cycle metric result outside the compared sources remains possible; unavailable broad search is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive positive coverage of the even radius and center-dimension law, not evidence about the full even-locus formulas",
+          "evidence": [
+            "m² facets; radii √(2/[m(m²−2)]) for even m, √(2/[m(m²−1)]) for odd m; unique exactly for even m, dimension m−1 otherwise"
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-euclidean-support-plane-shells-and-an-incenter-parity-law-for-bi--2c6fea9ced07",
+          "material_read": "Exact catalogue theorem summary only; identified RESULT.md requested but absent in local mirror",
+          "method": "Configured catalogue and lawful local-mirror attempt; explicit orthogonal similarity comparison",
+          "title": "Euclidean support-plane shells and an incenter parity law for bipartite-cycle root polytopes",
+          "trigger": "Candidate metric equivalence to the even cycle"
+        },
+        {
+          "assessment": "Prior combinatorial characterization, not the compared odd metric formula",
+          "evidence": [
+            "Odd independent incidences; even dimension n−2 and two-simplex sum"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.6708",
+          "material_read": "Example 3, p. 3, PDF offset 7500",
+          "method": "Lawful primary PDF passage",
+          "title": "Extremal Edge Polytopes",
+          "trigger": "Same standard ordinary edge polytope"
+        },
+        {
+          "assessment": "Exterior rather than intrinsic support-plane distances",
+          "evidence": [
+            "Squared exterior distance shells 5/6 and 3/4"
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-euclidean-chord-distance-shells-of-cycle-edge-polytopes-in--13ab26bd16cc",
+          "material_read": "Mirrored RESULT.md Finding around offset 351",
+          "method": "Configured catalogue and local mirror",
+          "title": "Exact Euclidean chord-distance shells of cycle edge polytopes inside the second hypersimplex",
+          "trigger": "Same hull and metric"
+        },
+        {
+          "assessment": "All edge midpoints and centroid in an extremal configuration; not a cycle-subhull metric comparison",
+          "evidence": [
+            "Complete midpoint set rather than Hamiltonian-cycle selection"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.05421v2",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "Lawful primary passage",
+          "title": "Isosceles sets and two-distance sets in Euclidean space",
+          "trigger": "Same ambient regular-simplex midpoint configuration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Odd cycles are the natural nonbipartite class of the Hamiltonian selection, not an arbitrary finite slice. The exact radius and all-facet tangency measure the roundness of that simplex family in its fixed canonical Euclidean metric; the coefficient of its n^−3/2 decay and the absolute inball scale are useful geometric data not supplied by its face type.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

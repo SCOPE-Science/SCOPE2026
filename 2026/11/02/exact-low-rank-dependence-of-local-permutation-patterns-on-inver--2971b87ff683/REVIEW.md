@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The label-swapping involution cancels every event with at most one adjacent label in the window. The residual event is partitioned by its unique adjacent rank pair, and counting its value subsets proves the exact covariance for all admissible indices. A positive diagonal triangular minor proves the kernel rank, while adjacent-value swaps produce a spanning family of inverse-descent signatures. Their composition proves exact full matrix rank and profile classification. Fixed-degree asymptotics give the Bernstein scaling. The included exact enumerator independently checked 10,192 covariance comparisons among 20,321 assertions. Finite checks do not serve as the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Swapping the consecutive values j,j+1 flips D_j and preserves the window pattern whenever at most one is in the window. Otherwise their window ranks are consecutive and the two binomial factors count exactly the sets realizing those ranks; conditional ordering contributes 1/k!. This proves the signs, normalization and window-start invariance, including k=n and j=1,n-1. The first k-1 columns of the kernel are triangular with positive diagonal, and the identity signature and its single adjacent-value reversals span the signature space. Every signature occurs (orient the chain on ranks and take a linear extension). The binomial leading terms give the Bernstein scaling; the two three-letter peak signatures are opposite. The scope's caveat on independence must be read as concerning the full vector: the peak indicator and each single D_j are in fact independent because both are Bernoulli, whereas the all-zero D vector forces the identity and hence no peak.
 
-Related full texts inspected: Petersen's two-sided Eulerian numbers (2012); Elizalde's survey of consecutive patterns (2015); Crane and DeSalvo's random permutation pattern-avoidance framework (2015); and Gessel and Zhuang's two-sided descent statistics (2023), notably the peaks/inverse-descents section. These study aggregate counting, occurrence/avoidance, or mixed descent-statistic polynomials, and do not state the fixed-window/fixed-value matrix, rank theorem, and signature equivalence. In particular, the local patterns of 1324 and 3412 differ despite identical permutation and inverse descent sets, so the stronger-looking two-sided descent-class data do not by themselves imply the local-pattern claim. Search coverage cannot establish exhaustive historical priority; a specialized local mixed-indicator identity may have been overlooked.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves the natural matrix of local consecutive-pattern indicators versus value-indexed inverse descents for every pattern length. It identifies an exact, dimension-independent rank and a complete equivalence classification with \(2^{k-1}\) genuinely different dependence profiles, alongside signed Bernstein scaling. It refines global two-sided permutation statistics in a manner directly relevant to dependence diagnostics for local permutation patterns.
+The inspected matches cover two-sided aggregate descent or peak statistics, or organize local covariances with different partner statistics. None establishes the all-k fixed-window, fixed-value covariance factorization and signature classification. The judgment is for that structural statement, not the general idea of two-sided statistics or the adjacent-transposition argument.
 
-## Scientific limitations
+## value
 
-Only uniform random permutations and pairwise covariance are covered. No independence or higher-order joint-law assertion is made. The all-size proof is analytic/combinatorial, whereas verification is finite. Historical priority is qualified and independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mixed covariance matrix couples two naturally different coordinates, local positional order and adjacent numerical labels. Its exact rank and its equivalence classes give information not supplied by aggregate correlations: they identify every pattern contrast that disappears from these measurements, and show that moving the window cannot change those measurements. The finite boundaries and the explicit scaling are useful for treating fixed pattern length across n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

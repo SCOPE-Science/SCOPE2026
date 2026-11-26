@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:31:34.736834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected admissible symmetric chain, L=I-P is positive definite on constants' orthogonal complement. The objective is the trace of the inverse there. For a nonzero symmetric direction D, writing B=A^(-1/2) D A^(-1/2) gives second derivative 2 tr(B A^(-1) B)>0. The compressed Laplacian identifies the full zero-row-sum matrix and hence every edge weight. A connected feasible walk exists, and along any approach to a disconnected walk the smallest nonconstant eigenvalue goes to zero and its reciprocal diverges. Thus compactness gives a connected optimum and strict convexity gives uniqueness before using symmetry. Conjugation by base automorphisms and the apex swap forces precisely one apex weight a and one base weight b, subject to 0<a≤1/n and 2a+db≤1. Laplacian modes are the apex difference (na), the constant-on-base contrast ((n+2)a), and the mean-zero base modes (2a+bη_i). Since η_i>0 for each such base mode, b must be maximal at each a. Then the base denominators are s_i+2a(1-s_i), 0<s_i≤2 by the regular undirected base spectrum. Terms with s_i≤1 contribute nonpositively to F'; for s_i>1 the denominator is at least one and the positive contribution is at most 2. The two apex terms dominate: F'≤-(1/n+1/(n+2))n²+2(n-1)=-4/(n+2). Both row classes are therefore saturated at the claimed weights; this is full uniqueness among symmetric kernels, not merely among orbit weights. For cycles the two spectra reduce to 1-(1-2/n)cosθ and (4-2cosθ)/n on the nonconstant base modes. Summing the Poisson expansion over roots of unity retains exactly indices divisible by n. The omitted k=0 term is n/2 in both evaluations; the apex contributions are 1+n/(n+2). For the optimum the geometric ratio simplifies to q_n=(√(n-1)-1)/(√(n-1)+1), giving exponentially small q_n^n in √n and leading term n^(3/2)/2. For maximum-degree weights the ratio is the fixed 2-√3 and the leading term is n²/(2√3). These give the displayed exact values and ratio, with equality at n=4, strict inequality for n≥5 by uniqueness, and no maximum-degree formula claimed at n=3. The inspected verify.py, with NumPy/SciPy requirements, was not executed; the recorded finite spectral and optimization diagnostics cannot prove unrestricted uniqueness or the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel et al. supply a reversible convex/SDP formulation. Ghosh et al. give a fixed-total-conductance wheel example and a barbell family with divergent suboptimality of uniform conductances. The same-double-cone Resultary theorem optimizes the second-largest eigenvalue modulus."
+        ],
+        "reasoning": "Neither the general optimization formulation nor symmetry reduction forces the row constraints active on this class. The same-family SLEM law finds a different base allocation even for large cycles; its dependence on extreme base eigenvalues cannot replace the inverse-sum argument. The global conductance budget does not impose hub saturation.",
+        "searches": [
+          "doi:10.1109/TAC.2015.2426317, pp. 3–4",
+          "arXiv:0709.0955, §§5.3.2–5.3.3",
+          "doi:10.1137/050645452, Eqs. (2), (38)",
+          "Resultary: 7fd543281a6a"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/TAC.2015.2426317",
+        "doi:10.1137/050645452",
+        "arXiv:0709.0955",
+        "Boyd–Diaconis–Xiao (2004), Table 1(d)",
+        "Resultary: 7fd543281a6a",
+        "Resultary: 3468c5b7f546"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel saturation proof uses essentially the same strategy of first adjusting the rim weight and bounding positive derivative terms, with one hub, one contrast mode, and denominators 1-(1-1/m)cosθ at optimum; its maximum-degree baseline has denominators (3-2cosθ)/m.",
+          "The prior SLEM cycle law uses the maximal apex weight for sufficiently large n, but not the no-holding Kemeny kernel there. Fixed-budget resistance optimization establishes an unbounded gain on another graph family."
+        ],
+        "reasoning": "The single-hub comparison is substantial and its proof methods and exponent pattern are shared; its theorem does not mechanically give a two-apex optimum or arbitrary transitive-base saturation. The extra apex-difference mode and independent row budget change the inverse trace; the negative derivative gap must be established under those new constraints. Neither the known SLEM objective nor the older unbounded resistance comparison gives the exact double-cone Kemeny conclusion.",
+        "searches": [
+          "Resultary: 3468c5b7f546, Findings and proof Steps 3–5",
+          "Resultary: 7fd543281a6a, cycle cases",
+          "doi:10.1137/050645452, wheel and barbell examples",
+          "doi:10.1109/TAC.2015.2426317"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With N=n+2 vertices and symmetric stochastic P, the Kirchhoff index is N tr((I-P)^+)=N K, with nonnegative conductances subject to a separate sum cap of one at every vertex.",
+          "Ghosh–Boyd–Saberi Eq. (2) uses one global total-conductance constraint, and Patel–Agharkar–Bullo give a general reversible Kemeny optimization for prescribed stationary distribution (the extra return constant does not affect optimization)."
+        ],
+        "reasoning": "Equivalent objective formulations do not make the fixed-total and row-capped feasibility domains equivalent. The degree-capped problem here is a uniform-stationary case of general Kemeny optimization, but the formulation does not solve the claimed optimizer analytically.",
+        "searches": [
+          "Ghosh Boyd Saberi Minimizing effective resistance of a graph Stanford PDF sum of edge weights budget degree constraints",
+          "doi:10.1109/TAC.2015.2426317",
+          "Resultary: 3468c5b7f546 and 7fd543281a6a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-vertex n=3 graph appears in the fastest-mixing table with a SLEM optimum; complete multipartite and wheel examples also cover certain settings such as the short complete-multipartite double cones.",
+          "The single-hub cycle catalogue has exact Kemeny formulas and loss ratio sqrt(2m/5), and the other catalogue entry has double-cone SLEM formulas, but neither tabulates these constrained double-cone Kemeny optima for arbitrary bases."
+        ],
+        "reasoning": "The most pertinent tabulated and exact solved families were checked rather than treating a finite result as exhaustive. A table of a different objective, or exact values for a different number of hubs, does not contain the claimed infinite row-capped family.",
+        "searches": [
+          "Boyd–Diaconis–Xiao 2004, Table 1(d)",
+          "arXiv:0709.0955, §§5.3.2–5.3.3",
+          "Resultary: 7fd543281a6a and 3468c5b7f546"
+        ]
+      },
+      "rationale": "Qualified pass for the uniform saturation theorem across connected vertex- and edge-transitive bases with two nonadjacent apexes, and the exact cyclic comparison. Credit the existing constrained convex Kemeny framework and effective-resistance connection, the earlier demonstration of unbounded improvements over uniform conductances with another budget and family, and the SLEM theorem's shared spectral reduction on exactly these double cones. The same-day single-hub Kemeny wheel result is especially close in both proof and conclusions: saturation, Poisson resolvent and the square-root loss pattern are already there for that model. The double-cone theorem still needs the distinct two-apex modes, derivative bound for an arbitrary permitted base spectrum, and different constants. No same-day priority is inferred.",
+      "residual_risks": [
+        "Broad literature lookup was limited; a general analytic degree-capped Kemeny saturation theorem could subsume the claim. Inspected passages substantiate the distinctions, not a universal priority guarantee.",
+        "The same-day wheel record establishes a closely parallel method in a different family; no chronological priority or novelty of its shared technique is assigned here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the appropriate optimization framework and convexity, not the closed graph-family optimizer in the inspected passages.",
+          "evidence": "Fixed-support, fixed-stationary-distribution reversible Kemeny optimization admits a convex/SDP formulation; return convention differs by one.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "p. 1 and pp. 3–4, text offsets 0, 16500–19400 and 23300–29159",
+          "method": "Lawful author's open primary PDF passages.",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "General stochastic Kemeny optimization may imply the desired result."
+        },
+        {
+          "assessment": "Credit exact optimization methodology, a wheel analogue, and divergent gap phenomenon; different global budget and comparison family.",
+          "evidence": "Eq. (2) constrains 1ᵀg=1, not individual conductance rows; wheel Eq. (38) has n(α+β)=1 and one hub contrast. The divergent-gap example uses a barbell.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "pp. 37–39 (Eq. (2) and the summary of graph examples; offsets 0, 4100, about 9000), pp. 59–60 (Eq. (38), offset 77040)",
+          "method": "Lawful Stanford primary PDF identified through authors' group page after publisher access was unavailable.",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same trace-of-inverse objective; graph-family optimizers and unbounded gain over uniform allocation."
+        },
+        {
+          "assessment": "Shared symmetry and spectral tools, different objective and coverage.",
+          "evidence": "Complete multipartite and one-hub wheel SLEM formulas, not a double-cone Kemeny theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "§5.3.2, p. 28, and §5.3.3, pp. 28–29 (offsets 94900, 98300–102867)",
+          "method": "Lawful open primary PDF passages.",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Symmetry reductions with nearby and sometimes overlapping graph families."
+        },
+        {
+          "assessment": "Exact finite overlap of the graph, not of the requested optimization.",
+          "evidence": "Five-vertex n=3 graph has a tabulated SLEM of 1/4 for fastest mixing.",
+          "identifier_or_url": "Boyd–Diaconis–Xiao (2004), SIAM Review 46(4), Table 1(d)",
+          "material_read": "PDF p. 8, printed p. 674 (offsets 25801–28076)",
+          "method": "Lawful open primary table passage.",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Check exact finite graph table for double-cone instances."
+        },
+        {
+          "assessment": "Same-family overlap with no transfer of optimizer or uniqueness by objective substitution.",
+          "evidence": "SLEM law has multiple regimes including saturation of the apex for large cycles, but a different base-edge allocation from the Kemeny optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+          "material_read": "RESULT.md, Finding and cycle passages (offsets 0 and 7800)",
+          "method": "Local published mirror.",
+          "title": "A three-phase fastest-mixing law for double cones over transitive graphs",
+          "trigger": "Identical graph family and orbit spectrum in another optimization."
+        },
+        {
+          "assessment": "Very close same-day single-apex cycle result and argument, not a two-apex or arbitrary-base theorem.",
+          "evidence": "Unique no-holding optimizer on K₁∨C_m, derivative bound -1/(m+1), optimized leading m^(3/2)/√2 and maximum-degree ratio asymptotic to sqrt(2m/5).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-saturated-hub-law-and-a-square-root-kemeny-penalty-on-wheel-ne--3468c5b7f546/RESULT.md",
+          "material_read": "RESULT.md, Finding and Assumptions (offset 0); proof Steps 3–5 (offset 3950)",
+          "method": "Local published mirror, bounded exact passages.",
+          "title": "A saturated-hub law and a square-root Kemeny penalty on wheel networks",
+          "trigger": "Closest analogue with the same Kemeny optimization and claimed saturation and square-root loss."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives the actual unique policy over all individual symmetric edge weights on a broad family, and shows that the saturation decision is independent of the base spectrum despite the spectral objective and the different fastest-mixing policies. For cycles it quantifies the growth of the performance penalty for a natural feasible maximum-degree policy with an explicit ratio, not merely a slight local improvement. The qualitative gap and argument have close precedents; the useful distinct output is the universal two-apex saturation and its quantified consequence under vertex row constraints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

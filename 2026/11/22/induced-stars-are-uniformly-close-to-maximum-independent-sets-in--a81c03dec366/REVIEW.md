@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified for all finite sizes and an arbitrary common atomless continuous endpoint law. A probability integral transform reduces the model to iid uniforms. For the threshold \(t=\sqrt{k/(8n)}\), the central-spanning hub has individual probability \(k/(4n)\), and endpoint-tail intervals have the same probability. Existence of a hub forces the maximum-independent-set loss to be at most one plus the total number of endpoint-tail intervals. A binomial subset union bound gives the second exponential tail without requiring independence between the hub and tail counts. For \(k>n\) the claim holds trivially. The proof of growth of the global independent set uses a fixed-bin occupancy argument. Independent exhaustive and greedy optimization algorithms agree on all \(146598\) pairing patterns through seven intervals. The infinite theorem is analytic; the finite experiment is only a consistency check.
+PASS
 
-## Originality — PASS (qualified historical search)
+For a common atomless law the probability integral transform gives distinct iid uniforms and preserves their ranks almost surely even if the CDF has flat intervals. For 1≤k≤n the two ends of [t,1−t], t=√(k/(8n)), define disjoint endpoint-tail regions. A hub spans the central segment with probability 2t²=k/(4n), so the no-hub probability is at most e^(−k/4). An interval not meeting any chosen hub must be counted among the Y intervals wholly in one tail, with Y binomial of mean k/4. From a maximum independent family remove those members and the hub itself if present, since its neighborhood is open. Thus D_n≤Y+1 on the hub event. The event D_n>k+1 there is contained in Y≥k, whose probability is at most (e/4)^k by selecting k sampled intervals; independence of Y and the hub event is not used. The k>n case is trivial, and the geometric tail sums give the claimed exponential moments for 0<λ<1/4. For every fixed r, each of r disjoint equal-length bins contains a whole sampled interval except on an event of probability at most r(1−r^(−2))^n; endpoint ties have probability zero. Hence α_n diverges in probability and tight D_n gives the ratio limit. The supplied verify.py and its 146598-pairing evidence were inspected, not rerun. The analytic proof, not that bounded diagnostic, establishes the result for all n and k.
 
-The closest same-model sources are *Random Intervals* (Justicz, Scheinerman and Winkler, 1990), and the paper by Boucheron and Fernandez de la Vega (2001). Available abstracts and the full accessible review by Diaconis, Holmes and Janson (2011) discuss global independent packing, universal intervals, and limit theory, but no exhibited statement controls the additive gap between global packing and the maximal independent neighborhood uniformly in \(n\). The universal-interval probability of \(2/3\) addresses just the zero-gap event and does not imply a tail bound on its complement. De, Khurana and Singh's accessible 2023 paper defines the independent kissing number and analyzes algorithmic consequences in geometric graphs, not this random-interval tail. Direct semantic database searches for local/global independent packing and induced stars found no statement logically covering the claim. The 1990 and 2001 full texts were inaccessible, which remains an explicit priority risk; this review does not assert an exhaustive negative full-text result for them.
+## originality
 
-## Value — PASS
+PASS
 
-The independent kissing number is a natural geometric-intersection-graph invariant measuring how many disjoint objects one sampled object can meet. The theorem supplies an all-size uniform exponential additive comparison with the maximum disjoint packing. It shows local overlap structure captures global packing to within a bounded number of intervals, in stark contrast to unbounded worst-case gaps for arbitrary interval graphs (e.g. a collection of isolated vertices). The complete gap-control theorem is structural, not a routine change of normalization of known degree or independence results.
+The supported new comparison is the uniform exponential additive gap between the independent kissing number and independence number in the iid-endpoint model. The invariant itself, the universal-vertex event, and results about the global independence number are prior. No inspected statement supplies the uniform additive control; historical coverage is qualified below.
 
-## Boundaries and research risks
+## value
 
-The numerical constants are explicit but not asserted optimal. No exact limiting gap distribution is established. Full texts of the two oldest same-model articles were not retrieved; an equivalent statement might be embedded there or elsewhere. None of the finite computations by itself proves the all-size theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Local independent packing around one sampled interval captures global packing up to an exponentially tight additive loss. This is stronger than relative convergence and rules out the arbitrarily large gaps possible even for deterministic interval graphs. It quantifies the quality of a single sampled hub outside the classical universal-vertex event and for every graph size. The constants are not claimed optimal, and no limiting gap distribution is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

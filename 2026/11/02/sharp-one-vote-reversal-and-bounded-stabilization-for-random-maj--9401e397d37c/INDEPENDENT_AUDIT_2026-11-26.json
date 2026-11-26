@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:31.377976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and all Finding formulas; VERIFICATION.md and verify_clique_majority.py",
+        "Independent replay: python /workspace/audit_reproduction.py (record 2); reconstructed the single-agent transition convolution, checked closed count states and reachability, and verified the Bellman identities in all 858 count classes on orders 2–40."
+      ],
+      "rationale": "On a loopless even clique, nonbalanced nonunanimous states reach the majority consensus in one update, and balanced configurations complement with no fixed point: closed two-cycles pair distinct complements. On odd order 2r+1, a one-vote layer has r+1 independent tied agents while the initially minority agents are forced to the other color. For each critical row, a=2^(-r-1) is the swap probability and also the direct consensus probability for the current majority; b=(r+1)a is the stay probability. Since a+b<1, these layers are transient and all other nonunanimous states stabilize the next round. Color symmetry gives minority win a/(1-b+a), and the first-step time is 1+(a+b)E+1-2a-b. Its solution 2+b/(1-a-b) strictly decreases from 4 at r=1 to 2; the reversal probability is asymptotic to 2^(-r-1). Conditioning on the binomial count, including the endpoint masses and the even-layer zero entry time, gives both Bernoulli-start formulas for all p.",
+      "residual_risks": [
+        "The replay tests lumped classes only. Actual even balanced recurrent classes are complement pairs, as proved by the configuration update, not singleton balanced-count states in configuration space.",
+        "The proof uses simultaneous updates, no self-loops, and conditionally independent fair tie choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle theorem covers odd consensus/even blinking on cycles, not cliques of order at least four. The multipartite records cover three parts or two parts and hence the triangle or single edge special cases; the reversal-title record uses incumbent-retaining ties."
+        ],
+        "reasoning": "These graph families do not contain arbitrary cliques as specified update graphs. A bound for even/odd cycles or for bicliques is not a clique time bound.",
+        "searches": [
+          "Zehmakan, journal Theorems 2.5, 2.7, 4.2 and Corollary 4.3",
+          "Same-day Resultary 716355e379ca, f53926f40d07, ae0f4a3c7aa9 and e01a4db57fb2, Findings and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s10458-024-09651-y",
+        "arXiv:2302.06760v1",
+        "Resultary 716355e379ca, f53926f40d07, ae0f4a3c7aa9, e01a4db57fb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At 3 blue on C5 the cycle probability of all blue is 3/5; at 3 blue on K5 it is 5/6. The K3 formula averages to p under Bernoulli starts, already a consequence of the cycle law at that size."
+        ],
+        "reasoning": "The actual probabilities diverge at larger orders, and a quadratic cycle-time bound supplies no uniform clique bound. The sharp maximum uses a known equality case but needs a new all-size comparison.",
+        "searches": [
+          "Zehmakan journal Theorems 2.5, 2.7, 4.2 and Corollary 4.3; arXiv:2302.06760v1; same-day Resultary 716355e379ca and f53926f40d07"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synchronous independent fair-tie model coincides exactly with the primary source's; K3=C3=K_{1,1,1}, and K2=K_{1,1}. Stabilization is closed-class entry, not eventual cessation of individual flips."
+        ],
+        "reasoning": "Credit both exact aliases and the common dynamics. Orthogonal majority results changing the ties or topology are not the clique kernel.",
+        "searches": [
+          "Zehmakan, DOI 10.1007/s10458-024-09651-y, §1.1 and cycle theorems; arXiv:2302.06760v1",
+          "Resultary 716355e379ca and f53926f40d07"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published expressions 2i(n-i) for the lazy endpoint hitting chain and i/n for odd cycle blue consensus give exactly 4 and 1/3 at K3 with one-vote margin. The polynomial and exact time law for bicliques in f53926f40d07 belong to a different graph family."
+        ],
+        "reasoning": "The triangle numbers are already known even without a row explicitly marked K3. No compared table supplies the general clique formulas or their binomial mixtures.",
+        "searches": [
+          "Resultary exact reversal and absorption comparisons: 716355e379ca and f53926f40d07",
+          "Zehmakan journal Lemma 2.4, Theorem 2.5 and Corollary 4.3"
+        ]
+      },
+      "rationale": "The original explicitly credits the published triangle special case and the independent fair-tie model. In fact the primary source already implies both the triangle's reversal probability 1/3 and its mean 4. The distinct contribution is the all-clique classification, exact critical formulas on larger odd cliques, and sharp upper bound over that family, not rediscovery of K3 or invention of the tie rule.",
+      "residual_risks": [
+        "The ACM conference PDF was inaccessible; the preliminary arXiv version and full journal treatment were available.",
+        "The comparisons do not rule out unindexed exact clique treatments or establish priority between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage at K3; no extension of the inspected cycle claims to arbitrary cliques",
+          "evidence": "Independent uniform ties, odd-cycle consensus and fixed-count probability i/n, and lazy-chain endpoint time 2i(n-i) imply the triangle cases.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "§1.1 pp. 4–5; Lemma 2.4 pp. 11–12 (~34748); Theorem 2.7 p. 16 (~48200); Theorem 4.2 and Corollary 4.3 pp. 20–21 (~65352 and 67000)",
+          "method": "Lawful journal PDF passages and specialization",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "Primary model and strongest exact alias K3=C3"
+        },
+        {
+          "assessment": "Concrete prior implication for triangle hitting time",
+          "evidence": "The count chain identifies n as the upper endpoint and i as blue count; for C3 it is the actual one-step chain.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.06760v1",
+          "material_read": "Proof of Theorem 2.5, around offset 45754",
+          "method": "Same-work lawful arXiv alternative; proof comparison",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Preliminary version of same results; conference PDF inaccessible"
+        },
+        {
+          "assessment": "Same-day partial exact overlap; date does not settle priority",
+          "evidence": "Equal tripartition gives almost-sure consensus with only the two closed consensus classes, including K_{1,1,1}.",
+          "identifier_or_url": "Resultary 2026/11/2 record 716355e379ca",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Mirrored statement and parameter comparison",
+          "title": "Exact recurrent-class phase diagram for random majority diffusion on complete tripartite graphs",
+          "trigger": "Same-day exact overlap on recurrent classes at K3"
+        },
+        {
+          "assessment": "Same kernel, only K2 is a clique in the family",
+          "evidence": "Closed classes and exact laws on K_{a,b} with a sharp mean bound 79/27 there.",
+          "identifier_or_url": "Resultary 2026/11/2 record f53926f40d07",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Mirrored statement and graph-family comparison",
+          "title": "Exact random majority absorption laws and the sharp universal time bound for complete bipartite graphs",
+          "trigger": "Closest same-day package of exact outcome, Bernoulli and timing laws"
+        },
+        {
+          "assessment": "Different graph family or tie rule",
+          "evidence": "Fair specialization of the former stays bipartite; the latter retains ties and concerns reversal under random starts, not the specified critical clique layers.",
+          "identifier_or_url": "Resultary 2026/11/2 records ae0f4a3c7aa9 and e01a4db57fb2",
+          "material_read": "Both RESULTS' Findings and Assumptions",
+          "method": "Mirrored comparison of kernels and events",
+          "title": "Biased biclique laws and persistent majority reversal on balanced tripartite graphs",
+          "trigger": "Same-day tie-rule and reversal aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of extremum; Zehmakan cycle benchmark"
+      ],
+      "rationale": "The natural dense benchmark has a nontrivial parity distinction: balanced even cliques enter deterministic blinking immediately, whereas odd cliques stabilize to consensus and can reverse a strict majority only at the one-vote margin. The exact exponentially decreasing reversal probability and sharp bounded mean are quantitative benchmarks on an unbounded family, rather than a routine rediscovery of the triangle or an empirical small-size fit.",
+      "residual_risks": [
+        "This gives neither constant-time stabilization for general graphs nor a bound on each realized odd-clique stabilization time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

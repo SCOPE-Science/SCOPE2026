@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated finite irreducible chain, detailed balance gives the exact probability ratios. The proof reduces mode changes to \(N-2\) explicit thresholds and establishes a unique discrete minimum at \(i=\lfloor N/2\rfloor+1\) by sign checks at the endpoints of the normalized importation interval; all intermediate normalized rates inherit the signs by affine dependence. The condition \(\varepsilon<\mu/N\) fixes a strict zero mode. Adjacent-threshold equalities are handled as two-point upper plateaus rather than asserted strict peaks. The separate parity-pair identity and maximum follow by exact symbolic finite differences. The packaged exact-rational checker directly verifies stationarity and modal-plateau boundaries for all tested cases, including every exceptional equality parameter; it is not offered as the proof for all \(N\).
+PASS
 
-## Originality — PASS, with residual priority risk
+For the frozen finite birth–death chain, positive birth rates on nonterminal states and positive downward rates off zero give irreducibility. Detailed balance gives the stationary adjacent ratios. The ratios at edges 0 and 1 are strictly below one; for every edge i>=2 the ratio crosses one exactly at G_i, which is positive. Put a=N*epsilon/mu. On clearing the positive denominators of the normalized successive threshold difference, the numerator is affine in a. At a=0 it is P_0=2i^2+5i+1-N(i+3); at a=1 its sign is that of (2i-N)(N+1)(i+1). For i<=floor(N/2), P_0<=1-i<0 and the other endpoint is nonpositive, so the strict sign survives for 0<a<1. For i>=floor(N/2)+1, P_0>=4 and the other endpoint is positive. Thus the unique minimum is at m+1; at N=3 this is simply the only candidate. Below it all ratios are below one; at it the unique tie is a nonmodal descending shoulder. Above it the increasing edges are one nonempty consecutive block starting at i>=2. A tie on the left boundary is a flat valley; a tie on the right yields a two-point upper mode. The endpoint N can be an upper mode, with no right neighbor required. The strict threshold valley excludes a third mode or an upper plateau of length three. With vanishing importation, substitution gives both parities the same F(m)=4+2(m-2)/(m(m+1)) in units of mu, with successive difference 2(4-m)/(m(m+1)(m+2)). The tied maximum is at m=4,5, and the separate N=3 limit is 3mu. This limit concerns thresholds, not the absorbing stationary law at zero importation. The exact-rational source checker was inspected, not executed; it tests bounded cases, while the sign and edge arguments establish the universal conclusion.
 
-Direct comparisons cover Kiss et al. (2023) on complete-simplicial SIS, Vezzani et al. (2022) on exact generic stationary products and a different higher-order birth–death law, and Kiss, Bick and Simon (2024) on deterministic bifurcations. General stationary detailed balance is expressly acknowledged; it does not state the finite, seed-dependent mode-onset minimizer or the parity-paired nonmonotone population-size maximum. Targeted searches for these aliases and parameter limits did not identify equivalent stronger coverage. The existence of a generic product representation and potentially unindexed equivalent classifications remain specific priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-Small spontaneous infection converts the absorbing finite higher-order epidemic into a genuinely irreducible stochastic process with a meaningful stationary mode structure. Its sharp second-mode threshold is natural and observable, and the unexpected intermediate-size maximum contradicts the simplistic assumption that a finite-population threshold must move monotonically to its mean-field limit. This is a complete exact classification for the chosen natural homogeneous stochastic model, including equality and boundary cases. It does not pretend to describe metastable time scales, the global-mode competition, heterogeneous networks or a general epidemic phase transition.
+The stationary product formula and the general qualitative cap on strict mode counts overlap prior work. The distinct result is the exact optimizer for this normalized quadratic rate, its plateau-aware threshold classification, and the parity-paired nonmonotone limiting law. The strongest broader theorem inspected does not supply these quantities.
 
-## Closest literature and scientific limits
+## value
 
-The two closest primary sources are arXiv:2309.12752 (the exact triadic contagion mechanism) and arXiv:2210.03504 (the already-known generic birth–death stationary product and spontaneous-seeding regularization). The analytical transition depends on a strict small-importation hypothesis, and vanishing-importation threshold limits are not zero-importation stationary laws. Possible independently published equivalent results outside inspected sources remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural finite irreducible birth–death model, the result identifies where a second local stationary peak first exists and distinguishes it from a shoulder at equality. The exact nonmonotone size dependence of the vanishing-seed threshold, with four maximizing sizes, adds information not contained in either a general mode bound or an infinite-size limit. The law of local modes does not describe relative mode weights, transition times, or a thermodynamic transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

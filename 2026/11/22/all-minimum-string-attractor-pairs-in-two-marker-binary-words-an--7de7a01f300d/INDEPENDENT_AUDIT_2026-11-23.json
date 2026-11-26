@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:58.621239Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The headline means minimum cardinality two, not a collection of two attractors; the formulas and quantified pair description make the intended claim clear. Any two-position attractor must select exactly one marker and one zero, and 0^M forces the zero into a longest run. Any zero in such a run suffices for every pure-zero length, and either marker suffices for every factor containing both markers. With the first marker selected, uncovered one-marker factors are exactly the second occurrence rectangle [0,b]×[0,c] minus [0,a]×[0,b]. The left excess exists iff b>a and is governed by the unique occurrence of 0^(a+1)1; the right excess exists iff c>b and is governed by the unique occurrence of 10^(b+1). All larger excess intervals contain the corresponding diagnostic interval. Both excesses make the intersection consist of the forbidden marker; otherwise intersect the proper interval(s) with the union of longest runs. This gives exactly the printed cases and integer lengths, including a=c>b and b=a=c; reversal gives the second family without overlap. If b is largest, the first-marker family is nonempty. If an outer gap is largest, say a, the first-marker family works when c≤b, and the reversed family works when c>b (since a≥c). Thus minimum size is always attained. Equality in the upper bound 2(a+b+c) already forces every zero to be in a longest run, so all three lengths agree, which conversely suffices. For the mean, off ties the discrete cases are a+c+2, max(a,c), and b+1 as b moves from largest to intermediate to smallest. Positive compositions yield a uniform simplex Riemann sum; tie planes carry O(n) lattice triples out of Θ(n²), and K/n is uniformly bounded. Uniform-simplex inclusion-exclusion gives Pr(max>u)=Σ_{j=1}^3(−1)^(j+1) binom(3,j)(1−ju)_+² and hence E[max]=11/18; E[min]=1/9 from the surviving simplex above u in each coordinate. Symmetry of the ranks of the middle gap gives (1−11/18+11/18+1/9)/3=10/27 and verifies the distributional formula. Read VERIFICATION.md, verify_pairs.py, verify_intervals.py and both saved outputs without executing them. The supplied full-search count compares 1000 triples; the 512-case interval check tests sufficiency of each proposed pair by literal coverage. Neither is the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. construct two-position attractors in particular binary families and pose the unrestricted binary size-two class question. Banbara et al. classify all smallest attractors for Fibonacci, period-doubling and Thue–Morse finite words, not arbitrary positive gaps around two isolated markers.",
+          "Kempa et al. distinguish k-attractors from k-sharp-attractors and discuss polynomial solvability for minimum 2-sharp-attractors; that does not give all full optimal position pairs for weight-two words.",
+          "The symmetric five-run theorem gives the minimum size and witness positions, not a multiplicity law over arbitrary outer gaps."
+        ],
+        "reasoning": "The broader binary question is about existence/minimum size and the general verification algorithms are not parametric classification theorems. A size-only overlap cannot supply the exact optimal choices, even in the symmetric slice.",
+        "searches": [
+          "Mantaci et al., A Combinatorial View on String Attractors, Example 24 and following question",
+          "Banbara et al. arXiv:2602.16152, all smallest attractors for morphic families",
+          "Kempa et al. arXiv:1803.01695 §3.3",
+          "Symmetric five-run binary palindrome Resultary theorem"
+        ]
+      },
+      "checked_sources": [
+        "Mantaci et al., TCS 850 (2021), Example 24 and discussion",
+        "Banbara et al. arXiv:2602.16152",
+        "Kempa et al. arXiv:1803.01695 §3.3",
+        "Exact Resultary self hit and distinct three-run, four-run, asymmetric/symmetric five-run, bounded-length two-attractor and circular marker hits",
+        "Frozen RESULT.md, VERIFICATION.md, verify_pairs.py, verify_intervals.py and saved outputs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric record takes 0^A1^B0^C1^B0^A and size three iff A≥2, B≥2, C<A. Therefore B=1 gives minimum size two on all of the present a=c slice. Its proof takes a particular marker/zero pair in the central gap when C≥A, or at the end of the first zero run and the second marker when C<A.",
+          "The frozen result enumerates every pair in that slice, including 6A pairs at A=C and 2(min(A,C)+1) otherwise, and covers asymmetric outer gaps; its composition-law normalization is not the symmetric record's proportion of words requiring size three."
+        ],
+        "reasoning": "Credit the symmetric existence result and explicit witnesses. The earlier size proof does not classify all positions even on that slice, and the two-dimensional composition limit requires the asymmetric parameter regions that the symmetric theorem omits. The relative order of the records is not established.",
+        "searches": [
+          "Inspect the same-day symmetric five-run Finding and explicit size-two cases I–II, comparing b=1 and identified witness pairs with the frozen intervals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family is all binary words of weight two with separated ones and positive end gaps, up to complement; reversal interchanges the two marker roles. The standard full-attractor requirement concerns all distinct contiguous nonempty factors, not just two-letter ones.",
+          "Nearby Resultary results with 'two-attractor' count attractors for factors of length at most two, and a circular marker theorem permits wraparound on a different domain."
+        ],
+        "reasoning": "A full binary weight-two enumeration restricted to these words would cover the result, while the bounded-length and circular notions do not. The focused primary-literature search was unavailable; no negative evidence is inferred from it.",
+        "searches": [
+          "Binary string attractors with two ones / weight two / five runs / all optimum pairs",
+          "Resultary query for exactly two isolated ones, three positive zero gaps and mean 10/27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full exact hit 2026/11/22/SCOPE-all-minimum-string-attractor-pairs-in-two-marker-binary-words-an--7de7a01f300d is the same frozen record.",
+          "The distinct exact count for three-run words 2026/10/26/SCOPE-all-minimum-string-attractors-of-three-run-binary-words-and-the--671c96898290 is for 0^a1^b0^c and mean tending to 5/2; the four-run record 2026/11/1/SCOPE-sharp-size-two-string-attractor-phase-diagram-for-four-run-binar--0020a8b06c9c assumes 0^a1^b0^c1^d. Neither input can have two positive, isolated one-runs and both positive end gaps.",
+          "The asymmetric five-run record 2026/10/25/SCOPE-sharp-four-position-attractor-criterion-for-a-five-run-binary-fa--199f2b51eb0f uses 0 1^r 0^s 1 0^e and has its four-position regime only for r≥4, s≥3, e>s. Its domain intersects the two-marker family at r=1 and leading zero gap one, but its four-position finding does not count optimum pairs there."
+        ],
+        "reasoning": "These are actual mathematical scope comparisons. Exact tables for shorter runs, bounded lengths or circular words cannot be used as independent corroboration of the claimed all-parameter pair or mean law.",
+        "searches": [
+          "Resultary for minimum pairs, two isolated markers, five runs and simplex mean",
+          "Read closest Resultary run-pattern and bounded-length records via local mirror"
+        ]
+      },
+      "rationale": "The symmetric-slice cardinality two and some explicit pairs are already present in the same-day symmetric five-run record. The supported distinct contribution is the complete minimum pair family for arbitrary positive outer and middle gaps, its resonance and limiting multiplicity distribution/mean. The best related classifications retrieved concern different run patterns or truncated factors; no priority is inferred from absence or same-day ordering.",
+      "residual_risks": [
+        "The external search was unavailable; a differently phrased earlier full binary weight-two classification remains possible. The actual inspected statements, not the unavailable lookup, support the bounded judgment.",
+        "No historical priority is inferred between the same-day symmetric and present records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows size two for particular families and states the general size-two question; does not give this position enumeration or mean",
+          "evidence": [
+            "The question asks to characterize all binary words having a size-two attractor."
+          ],
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+          "material_read": "PDF p. 15, Example 24 and immediately following paragraph",
+          "method": "Lawful OA PDF passage compared with five-run hypotheses",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "Cited two-position binary construction and general characterization question"
+        },
+        {
+          "assessment": "Same multiplicity concept but the stated morphic families are not the variable three gaps",
+          "evidence": [
+            "The stated scope is Fibonacci, period-doubling and Thue–Morse finite words."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.16152",
+          "material_read": "Abstract and introduction, OA offset around 1411",
+          "method": "Lawful OA HTML passage",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words (later expanded)",
+          "trigger": "Existing all-smallest-attractor classifications"
+        },
+        {
+          "assessment": "Algorithmic bounded-factor results do not imply the exact full-attractor enumeration",
+          "evidence": [
+            "The inspected algorithmic result is for minimum 2-sharp-attractors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.01695",
+          "material_read": "§3.3, OA offset around 48800",
+          "method": "Lawful OA HTML passage",
+          "title": "String Attractors: Verification and Optimization",
+          "trigger": "Potential general optimization coverage"
+        },
+        {
+          "assessment": "Establishes the same size on the symmetric slice and constructs specific pairs, without complete position sets or the asymptotic pair law",
+          "evidence": [
+            "Minimum size three iff A≥2, B≥2, C<A.",
+            "Case I chooses the last first-run one and last central zero; Case II chooses the last leading zero and second marker."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-string-attractor-phase-transition-in-symmetric-five-run-binary-p--6c22da7fa05f",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and proof cases I–II, offsets 0–3900 around the relevant cases",
+          "method": "Local mirror and exact specialization of parameters",
+          "title": "String-attractor phase transition in symmetric five-run binary palindromes",
+          "trigger": "Closest material overlap on a=c and singleton markers"
+        },
+        {
+          "assessment": "Parallel question on different words; cannot specialize to two isolated one-runs separated by positive zeros",
+          "evidence": [
+            "Its count is for 0^a1^b0^c and the limiting unnormalized mean is 5/2."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-all-minimum-string-attractors-of-three-run-binary-words-and-the--671c96898290",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror comparison of run structure and random ensemble",
+          "title": "All minimum string attractors of three-run binary words and the mean–typical gap",
+          "trigger": "Earlier exact position and mean law for a closely related word class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two isolated markers are a natural next regime after single-block binary words, and an optimum value of two alone does not say where either position may be placed. The exact occurrence obstructions, equal-gap resonance, and nondegenerate limiting law explain both the finite ties and the linear typical scale. The closed count is useful for this standard attractor invariant rather than just a finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

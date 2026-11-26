@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every invariant probability supported on a compact subset of the open state box, logarithmic generator tests are bounded and valid. The risk coordinate gives a whole family of weighted identities and therefore the conditional law \(\mathbb E[x\mid r]=\chi\). The cost logit determines \(\mathbb E r=\eta\), and the cooperation logit determines \(\mathbb E c=B\mathbb E[rF(x)]\). Conditional Jensen, applied to the exact least concave majorant of the binomial pivotal curve, yields the necessary strict bound \(\beta<B\eta H(\chi)\). If a compact forward-invariant interior set existed, averaging its trajectory would construct a prohibited invariant probability. The example's strict contradiction is \(16/225<18/225\). A standard-library checker completed 12,000 exact-rational comparisons; finite checks do not prove the invariant-measure step. The proof does.
+PASS
 
-## Originality — PASS, with residual literature risks
+On a compact interior support, extend any continuous risk test h to a neighborhood and differentiate a primitive of h(r)/[r(1−r)] along the flow. Its invariant integral is zero, so continuous tests annihilate the signed risk marginal of x−χ, proving E[x|r]=χ and the covariance statement for bounded measurable tests. The cost and cooperation log odds have generator derivatives (α−β)[θ₁−θ₄−(θ₁+θ₂)x+(θ₃+θ₄)r] and BrF(x)−c, yielding E[r]=η and the cost identity. For p=M−1, q=N−M, d=p+q−1, the quadratic bracket in F″ at the two joins is −(p−1)q/d and −p(q−1)/d. Convexity of the bracket makes it nonpositive throughout the central interval. Maximizing F(s)/s and F(s)/(1−s) gives the endpoint tangencies, including omitted chords when p or q is 1, and concavity forces any majorant above those chords. Conditional Jensen and r>0 give β<E[c]≤BηH(χ). Empirical time averages of a compact forward orbit have invariant weak limits; positive eventual distance from the boundary would give precisely such an orbit closure. For sharpness of the moment relaxation use r=η and the appropriate chord-endpoint mixture for x, or x=χ on the central interval. Contracting the x-mixture toward χ gives interior approximations without changing the moments. In the rational example u₋=1/3 and F(1/3)=8/27, giving H(1/10)=4/45 and BηH(χ)=16/225<β=2/25. The mean-only coupling gives 4/45, strictly above β, and violates risk calibration.
 
-The motivating article by Wang and coauthors (2026; DOI 10.1371/journal.pcbi.1013512) presents the full underlying model, equilibria and bifurcation/stability analysis. Its inspected main text does not establish the conditional risk-fiber law or the exclusion of all compact interior recurrence. The exact concave envelope of the binomial pivotal function is already in the published published-finding corpus record *Sharp exact-count envelope under infinite Bernoulli exchangeability* and is expressly treated as prior mathematics. The published published-finding corpus record *Mutual mean-independence and exact zero covariance in the classical Lotka–Volterra flow* develops a related conditional-generator method for different differential equations, not the model-specific payoff obstruction. Semantic searches for aliases and reductions found no directly covering claim, which does not amount to exhaustive proof of novelty. The separately hosted full supplement of the motivating paper could not be read; its comparison is an outstanding literature risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The risk coordinate constrains the entire conditional cooperation profile, not just its average. This significantly strengthens a naïve moment bound: the explicit exact-rational example is inconclusive under both marginal means alone, yet the risk-fiber constraint excludes interior equilibria, periodic orbits and compact persistent chaotic dynamics simultaneously. This is a motivated qualitative distinction for a recently studied multistable evolutionary game, not merely another fixed-point calculation. It does not assert extinction or select a boundary attractor.
+The supported distinct contribution is risk-conditioned calibration coupled to the sharp moment obstruction β<BηH(χ) for all compactly supported interior invariant laws, particularly for 0<η<1. The scalar envelope is exactly known, the conditional-generator mechanism has a close analogue, and related same-model results cover the out-of-range η branch or give only marginal means. The inspected sources do not supply the combined result on the interior-range branch.
 
-## Scope and limitations
+## value
 
-Only Model 1, the specified feedback structure, interior compact recurrence and deterministic infinite-population trajectories are covered. The envelope is sharp for probability measures with the indicated moments, not proven attainable by an invariant law. Equilibria on the boundary, boundary recurrence, and transitory interior trajectories are not ruled out. Independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equilibrium coordinates do not settle whether periodic, aperiodic, or other compact interior invariant dynamics persist. The conditional law gives a usable parameter test that forbids all such interior dynamics even where the two marginal means alone cannot certify the obstruction, as the exact witness demonstrates. The proof distinguishes a sharp probabilistic ceiling from any stronger claim of dynamical attainability or global convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

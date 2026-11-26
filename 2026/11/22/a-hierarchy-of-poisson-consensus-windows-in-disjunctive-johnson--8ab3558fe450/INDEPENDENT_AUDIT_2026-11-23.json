@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:25:42.987321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronous OR, the relevant support comes from exact-length walks, not automatically from distance balls. Johnson distance is k−|A∩B|; replacing an edge by a two-edge path around a triangle, then inserting backtracks as needed, reaches either parity at all lengths at least the positive distance. Closed walks of lengths 2 and 3 handle distance zero for times ≥2. Thus at t=k−r the zero sites are exactly the k-cliques of uncovered r-faces. For a fixed tuple of h distinct sites, its e distinct faces have e·m_n+O(n^(k−r−1)) forbidden seed blocks by the union bound and the pairwise containment-family inclusion–exclusion bound. For fixed h the Bernoulli vacancy probability is uniformly n^(−ke/b)exp(−ce)(1+o(1)), since p²m_n and the overlap correction multiplied by p vanish. An overlap type on v labels has O(n^v) copies. Within each connected component of the site intersection graph, order the sites by a connected traversal. A new site with s labels already seen adds k−s labels and at least b−binom(s,r) faces, so the exponent v−ke/b changes by at most −s+(k/b)binom(s,r), strictly negative when 1≤s<k for r≥2 and nonpositive for s=k. The second site in a nonsingleton component is distinct and enforces strict negativity. Disjoint tuples alone contribute (exp(−bc)/k!)^h, giving Poisson convergence by factorial moments. By absorption of the all-ones state, earlier consensus would require a fixed site to be active at t−1, bounded by O(log n/n) from its candidate seed blocks even when t−1=1. Complete (r−1)-coverage follows by a union bound with vacancy exp(−Θ(n log n)); full r-coverage fails with high probability by a diverging mean and uniform pair-probability factor 1+o(1). At r=1, the uncovered-label Poisson law and the identity Y=binom(X,k) give a lower tail, not a Poisson zero count at the site level. All nonempty states fill by k and a singleton seed has a disjoint site not reached earlier. The two frozen scripts were inspected, not run. The nominal 26,180 figure counts update iterations, including time one where no ball assertion is made; the asymptotic proof does not use these diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cooley–Kang–Koch count j-sets of a fixed degree and obtain the Poisson isolation limit at leading coefficient j. Riordan couples clique hypergraphs of binomial hosts to independent hypergraphs one-sidedly for factor thresholds; that is not a coupling for the vacancies of faces in a denser covering shadow."
+        ],
+        "reasoning": "Neither general deterministic OR transient machinery, extremal Johnson domination, independent-host clique counting, nor the high-order connectivity hitting-time theorem subsumes the dependent vacant-clique law in the stated parameter window. The triangle detours and strictly balanced exponent calculation are what give the indicated consensus times.",
+        "searches": [
+          "arXiv:1502.07289 Theorems 1–2",
+          "arXiv:1802.01948 introduction and Theorems 1–2",
+          "arXiv:0805.0275v1 introduction and theorem overview",
+          "arXiv:2610.04675v1 introduction and main theorem statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.07289",
+        "arXiv:2610.04675v1",
+        "arXiv:0805.0275v1",
+        "arXiv:1802.01948",
+        "doi:10.1006/jcta.1996.0065 (abstract/metadata only)",
+        "Resultary 9b800a9dcc5a (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For j=r and degree zero, CKK's Poisson window has p=(r log n+c_n)/m_n with c_n=o(log n). Matching the proposed p would need c_n=(k/b−r)log n+c, outside that hypothesis. The number of isolated r-faces here has mean of order n^(r−k/b)→∞. The same CKK theorem at j=1 does supply the earlier-known isolated-label law used in the contextual endpoint."
+        ],
+        "reasoning": "The proof of the frozen law is not obtained by putting j=r in the known theorem. One needs simultaneous vacancy on all b faces of a candidate block and must suppress overlapping candidate clusters. At r=1, by contrast, the consensus lower tail is a short consequence of the known isolated-label limit and the distance equivalence; it is not independent evidence of originality.",
+        "searches": [
+          "Cooley–Kang–Koch arXiv:1502.07289 Theorem 2, especially degree zero",
+          "Godbole–Janson title and accessible abstract metadata",
+          "Cornet–Dravec–Torres arXiv:2610.04675v1 main results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The t-step event for t≥2 is random distance-t domination on the Johnson graph, equivalently the absence of a K_k^(r) in the complement of the selected blocks’ r-shadow. The Johnson total-domination comparator optimizes the number of selected vertices with open one-step neighborhoods, not the random t≥2 event."
+        ],
+        "reasoning": "This is indeed a clique obstruction after the exact-length reduction, but the random hypergraph of uncovered faces does not have independent r-edges. Vacancies of two distinct faces share all Bernoulli blockers containing their union when that union fits in one host block. One must control these overlaps to transport the independent strict-balance intuition.",
+        "searches": [
+          "Resultary: Johnson graph disjunctive Boolean dynamics synchronous OR consensus hitting time Poisson vacant cliques uncovered random covering designs",
+          "Web: random covering all uncovered cliques hypergraph shadow Johnson graph domination random Bernoulli seeds Poisson consensus Johnson graph thresholds",
+          "Web: random covering designs uncovered r-set clique shadow of random hypergraph independence Kneser Johnson distance-domination Poisson threshold random coverage Godbole Janson Riordan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-object catalogue hit is this same record. Other consensus records concern other graphs, and the Johnson shadow cover-time result concerns a walk covering every smaller set. The exact earlier isolated-face Poisson parameters do not include k-site all-face vacancy."
+        ],
+        "reasoning": "Counts for fully covered shadows, one-face isolation, or another geometry are not a parameter reindexing of the thresholds k/binom(k,r) or the consensus-time mass exp(−exp(−bc)/k!). No checked table provides that intermediate sequence.",
+        "searches": [
+          "Resultary Johnson vacancy-clique and OR consensus search above",
+          "Cooley–Kang–Koch arXiv:1502.07289 Theorem 2 numerical limiting parameter",
+          "Godbole–Janson doi:10.1006/jcta.1996.0065 and author-copy/publisher OA attempts"
+        ]
+      },
+      "rationale": "The original part is the sequence of interior vacancy-clique thresholds and their precise two-time consensus law. Ordinary Johnson geometry, general OR-network propagation tools and the r=1 uncovered-label Poisson law do not themselves constitute novel contributions. The earlier full-coverage results count a different obstruction at a strictly later scale; the usual independent-edge clique theorem does not apply to this dependent shadow without the additional joint vacancy argument.",
+      "residual_risks": [
+        "Godbole–Janson full text was inaccessible in lawful attempts; its exact theorem and possible ancillary statements were not independently verified.",
+        "A more general dependent-cover theorem or an earlier result indexed as random metric domination rather than OR consensus could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-face Poisson and connectivity hitting time covered; interior vacancy-clique law not implied",
+          "evidence": [
+            "Theorem 2 counts j-sets of degree s at j log n+s log log n+c_n; Theorem 1 connects disappearance of the last isolated j-set to j-connectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.07289",
+          "material_read": "Primary results section, p. 3 Theorems 1 and 2 and the stated hypotheses",
+          "method": "Lawful OA full text; targeted theorem comparison",
+          "title": "Threshold and hitting time for high-order connectivity in random hypergraphs",
+          "trigger": "Same binomial host and uncovered-face events"
+        },
+        {
+          "assessment": "Full theorem scope not independently resolved; not negative evidence",
+          "evidence": [
+            "The available comparison describes complete coverage of the smaller sets. The accessible CKK result independently distinguishes that scale from all-face k-site vacancy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jcta.1996.0065",
+          "material_read": "Accessible landing/abstract material and bibliographic information only; candidate author-copy not readable",
+          "method": "Lawful OA attempts at DOI, ScienceDirect and the indexed author copy; PDF blocked or unavailable",
+          "title": "Random Covering Designs",
+          "trigger": "Prior random covering threshold and Poisson obstruction"
+        },
+        {
+          "assessment": "Deterministic extremal one-step coverage, not random later-time windows",
+          "evidence": [
+            "The main results bound or determine domination and total-domination numbers; the triangle-cover reformulation concerns deterministic optimal sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04675v1",
+          "material_read": "Primary introduction, domination and total-domination definitions and main theorem statements",
+          "method": "Lawful OA HTML text",
+          "title": "Domination and Total Domination in Johnson graphs",
+          "trigger": "Same Johnson graph and neighborhood covering formulation"
+        },
+        {
+          "assessment": "Background dynamics and order duality, not the random initial-state Johnson threshold law",
+          "evidence": [
+            "Theorem 1.3 relates disjunctive and conjunctive systems by complementing states; results on deterministic network dynamics do not give the shadow-vacancy asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275v1",
+          "material_read": "Primary introduction and theorem overview on conjunctive/disjunctive systems",
+          "method": "Lawful OA PDF text",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General OR-network dynamics possibly give the clocks"
+        },
+        {
+          "assessment": "Different dependence mechanism and direction",
+          "evidence": [
+            "The coupling inserts an independent sparse hypergraph into the clique hypergraph of an independent host. It does not identify the complement of the r-shadow of selected k-blocks with a binomial r-graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.01948",
+          "material_read": "Primary definitions and Theorem 1 with discussion of one-sided coupling, plus factor theorem context",
+          "method": "Lawful OA PDF text",
+          "title": "Random cliques in random graphs and sharp thresholds for F-factors",
+          "trigger": "Potential reduction from a dependent clique hypergraph to a binomial host"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact-length network reduction poses a natural random coverage question that full coverage does not answer. For every intermediate update the theorem identifies a distinct scale and a sharp nondegenerate probability profile while showing that many faces remain uncovered. The failure of the same clique-count Poisson mechanism at the first-shadow boundary explains why the final pair of times has a different probability law. This is useful beyond a deterministic diameter bound or a first-moment threshold estimate, within the fixed-k scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear system is square and invertible for each \(0<c<1\); projection matrices are defined explicitly. The one-step proof uses the exact eigenvalue of a two-row weighted frame operator, then balances it against the orthogonal row. For the exact annealed exponent, a covariance superoperator is decomposed into three invariant blocks, the largest eigenvalue of each block is controlled exactly, and a positive-semidefinite leading eigenmatrix proves the spectral radius really equals the limiting worst-initialization MSE factor. Strictness of both lower envelopes and of their within-pair equality conditions proves unrestricted uniqueness. The exact rational instance and sharp max are checked symbolically; 8,466 grid inequalities check the actual nine-dimensional Kronecker operator. Boundary probabilities are permitted; the endpoints in the correlation parameter are explicitly excluded. No finite test is substituted for the analytic argument.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+For q=p3, s=1-q and D=p1-p2, the smaller planar eigenvalue of the expected row projector is (s-sqrt(c²s²+(1-c²)D²))/2. The planar lifted top eigenvalue is q+(s+sqrt(c⁴s²+(1-c⁴)D²))/2: the weighted Gram matrix of the two planar rank-one complementary projectors has their Frobenius overlap c². The axial rate is s and the cross-block norm is at most s. The trace test for the annealed factor is valid, also on the boundary: the top plane eigenspace contains a positive combination of the active rank-one projectors (at s=0 the plane map is the identity), and the axial eigenmatrix is itself PSD. Thus the top eigenspace has nonzero projection of I, and the PSD matrices Phi^k(I) have spectral and Frobenius norms within a fixed factor. At each q with s>0 the planar terms are strictly optimized by D=0. For D=0 the lower envelopes are maxima of one strictly decreasing and one strictly increasing affine function; crossing gives the displayed unique laws. At the one-step optimum q is smaller than the annealed crossing, so the axial rate is exactly 2/(3-c). Differentiating the ratio gives sign(c²-6c+3); its unique maximum on (0,1) is at 3-sqrt(6), with value 6-2sqrt(6), and the rational example agrees. For minimal dimension, use planar doubled-angle unit vectors n_i of the complementary projectors: the one-step rate is (1+|E n|)/2 and the lift is half the 3-by-3 moment matrix of (1,n). If zero is in the convex hull, the lift minimum is 1/2 exactly at mean zero. Otherwise let rv be the nearest point of the hull to zero. All n_i·v>=r. The lift Rayleigh quotient at (1,rv) is at least (1+r²)/2, with equality possible only on the supporting chord; equal masses at its two ends attain it, and equality in the eigenvector condition forces zero tangent mean. This is precisely the one-step minimizing mean rv. Dimension one is immediate. The apparent malformed fraction token in the displayed comparison at line 26 does not change the unambiguous rates in the other displays and proof. The frozen numerical checker was inspected, not executed; strict analytic inequalities rather than its finite grid establish uniqueness.
 
-The 2014 Agaskar–Wang–Lu full paper already establishes exact lifted covariance spectral optimization for arbitrary row families; the 2014 Dai–Soltanalian–Pelckmans full paper establishes one-step eigenvalue SDP optimization, and neither general formalism is claimed novel. The published three-row signed-triangle result subsumes the one-step half, which is explicitly credited. The published real-plane theorem proves optimizer coincidence in all two-dimensional spanning frames and gives the minimal-dimension context, but it does not cover the claimed three-dimensional divergence. The published two-population one-step classification does not address the lifted annealed criterion. No inspected primary text or relevant indexed record stated the exact pair of different laws or their sharp \(6-2\sqrt6\) loss. The general SDP could numerically recover the fact and unindexed explicit equivalents remain possible; independent literature-priority clearance is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-For a standard projection-based linear solver, a common proxy optimization (the one-step guaranteed decrease) fails to optimize the exact long-run mean-square exponent at the smallest ambient dimension that permits divergence. The gap has a sharp universal upper envelope within the natural one-angle orthogonal-sum family, and there is a rational example with exactly 10% degradation. The distinction identifies a real methodological limit to transferring one-step-optimal sampling prescriptions to asymptotic objectives. The claim is narrow but structurally motivated and provides an exact, non-implied analytic comparison, rather than a routine recomputation of either known SDP alone.
+The supported distinct contribution is the explicit, unrestricted annealed-versus-one-step separation and family-wise sharp penalty, not either general optimizer formulation or the one-step law alone. No inspected statement supplies this comparison; priority is qualified by unavailable close full texts.
 
-## Closest literature and limitations
+## value
 
-Agaskar–Wang–Lu (GlobalSIP 2014) gives the lifted mean-square operator and general minimization problem; Dai–Soltanalian–Pelckmans (arXiv:1402.2863) gives one-step spectral optimization; the complete published planar coincidence theorem and complete three-row one-step formula delimit precisely what is new. All-source priority cannot be guaranteed by a search, and the result is confined to the displayed real three-row family and stationary iid sampling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The planar coincidence makes dimension three the first meaningful setting for an objective mismatch. A correlated pair plus an orthogonal row isolates why the two rates depend on c versus c² and proves that optimizing a standard one-step proxy can incur a sharply quantified loss (even exactly 10 percent at c=3/5). This is an exact guide to the choice of criterion, not a claim about all 3D row systems or about almost-sure rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:17.051751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, scope and Proof",
+        "VERIFICATION.md, verify.cpp and verification_output.txt (inspected, not run)",
+        "Independent replay: python3 /workspace/audit_checks.py 4"
+      ],
+      "rationale": "An independent uniform argument uses dephasing to put 1s in the first row and column and four unit complex entries A,B,C,D in the lower block. Singularity is (A-1)(D-1)=(B-1)(C-1). If both sides are nonzero, conjugation gives AD=BC, and expansion gives A+D=B+C. The unordered pairs then agree, forcing duplicate rows or columns. If both sides vanish, one entry from each product equals 1; those entries share a row or column, which duplicates the first row or column. In the original Fourier minor two rows are proportional iff N divides their index difference times every column difference. At N=3p a nonzero such row difference divisible by p forces all column indices to agree mod 3, and one divisible by 3 forces them to agree mod p; a unit cannot yield proportionality. Transpose for columns. This recovers all four singularity clauses, including p=5. Rank one requires all pair products divisible by both primes, giving exactly the two cross-pure cases. There are p triples pure mod p, 3*binom(p,3) pure mod 3, and K-p^3 and K-27*binom(p,3) triples with collisions mod 3 and p respectively (K=binom(3p,3)). In the four singular events the only pairwise overlaps are the two cross-pure rank-one blocks. Inclusion-exclusion gives the stated polynomials. Independent exact Phi_N reduction checks all 207025 pairs at p=5 and 18000 seeded pairs each at p=7,13,19 without mismatch.",
+      "residual_risks": [
+        "Only the analytic proof establishes the all-prime claim. The recorded verifier's comment about sixth roots is imprecise; its actual coefficient arithmetic uses the correct CRT factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later distinct-prime Resultary Finding specializes at 3,p to this rank classification and census.",
+          "Caragea–Lee and Zhou address principal minors. Theorem 9 of Full Spark Frames characterizes uniform distribution over divisors for full spark at prime-power order. None of those examined theorem passages covers the all-pairs 3p count.",
+          "The precise Loukaki theorem could not be independently read; the frozen record describes matched-population sufficient conditions."
+        ],
+        "reasoning": "Distinguish a true later stronger specialization from genuinely earlier exact coverage; differences in principal, full-spark or matched-population questions do not invalidate the decisive same-day exact match.",
+        "searches": [
+          "Resultary all distinct-prime rank incidence 6a97dfb3d140",
+          "Caragea–Lee arXiv:2409.09793v1",
+          "Zhou arXiv:2505.01189",
+          "Alexeev–Cahill–Mixon arXiv:1110.3548 Theorem 9",
+          "Loukaki DOI 10.1112/blms.70192"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0290eba11adf, 6a97dfb3d140, feb52ea6712b and 1482c28703d6",
+        "arXiv:2409.09793v1, arXiv:2505.01189, arXiv:1110.3548",
+        "DOI 10.1112/blms.70192 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decisive same-day record proves the same all-pairs claim using a unit-modulus proportional-pair lemma and annihilators, whereas the frozen record uses cyclotomic independence and residue cases."
+        ],
+        "reasoning": "Different proofs do not distinguish the frozen scientific finding, which claims a rank classification and counts, not a distinct proof-method theorem. The co-dated record needs no extra derivation to recover any of its substantive conclusions.",
+        "searches": [
+          "Resultary 0290eba11adf Finding and Proof §§1–2",
+          "Resultary 6a97dfb3d140 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the CRT record, d-pure is exactly one distinct reduction mod d and d-colliding is fewer than three. Its four singularity alternatives and two rank-one alternatives are identical to those frozen here."
+        ],
+        "reasoning": "The CRT-group Fourier table identifies with the cyclic table up to invertible index relabeling. Thus this is exact equality of the all-pairs rank statement, not a similar parameter or a restriction to principal minors.",
+        "searches": [
+          "Resultary full 3-by-3 complex Fourier rank spectrum at Z/(3p), record 0290eba11adf",
+          "Caragea–Lee Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 0290eba11adf Finding lists rank-one p^2(p-1)(p-2), rank-two 3p^2(p-1)(3p^2-7p+6), and rank-three K^2-p^2(p-1)(9p^2-20p+16). These are exactly the frozen three populations.",
+          "The older catalogued odd prime-square and general principal 3-point results have different scope."
+        ],
+        "reasoning": "Exact formula equality and equality of the underlying counting universe settle the database check. The separately indexed same-date record is not the frozen record itself.",
+        "searches": [
+          "Resultary 0290eba11adf, 6a97dfb3d140, feb52ea6712b, 1482c28703d6"
+        ]
+      },
+      "rationale": "A distinct indexed same-day Resultary record exactly covers the entire frozen classification and census, including all parameters, ranks and normalization equivalence. Distinct scientific content is not established for the frozen finding; neither date nor this verdict establishes which proof came first. The failed axis is not based on inaccessible literature, and the mathematical claim is not false.",
+      "residual_risks": [
+        "Relative priority of the two same-day records is not established.",
+        "Precise scope of Loukaki's theorem and of some other candidate publications was not independently verified; these do not drive the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive full equivalence, with relative date/order unestablished",
+          "evidence": "Four pure/colliding alternatives, two cross-pure rank-one conditions, and identical polynomials for all three populations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-spectrum-of-three-by-three-fourier-minors-on-mathbb-z--0290eba11adf/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof §§1–2 (offset 0–3982)",
+          "method": "Resultary semantic lookup and primary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact rank spectrum of three-by-three Fourier minors on Z_{3p}",
+          "trigger": "Exactly matching modulus, size and census"
+        },
+        {
+          "assessment": "Exact later specialization at 3,p, not evidence of earlier priority",
+          "evidence": "Covers independent triples and counts for every pair of distinct primes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-third-order-fourier-minor-rank-incidence-for-distinct-p--6a97dfb3d140/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary semantic lookup and primary local mirror, same snapshot",
+          "title": "Complete third-order Fourier minor rank incidence for distinct primes",
+          "trigger": "Stronger semiprime result"
+        },
+        {
+          "assessment": "Principal subfamily only",
+          "evidence": "For squarefree N>4 all 3-by-3 principal minors are nonzero.",
+          "identifier_or_url": "https://arxiv.org/html/2409.09793v1",
+          "material_read": "Theorem 1.1, HTML offset 3435",
+          "method": "OA author version",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Same squarefree order and 3-by-3 size"
+        },
+        {
+          "assessment": "Scope in abstract is principal; not a full-document exclusion",
+          "evidence": "Conditional principal nonsingularity for distinct odd primes.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.01189",
+          "material_read": "Abstract, offset 0",
+          "method": "OA arXiv abstract",
+          "title": "Principal Non-singularity of Fourier Matrices on Z_p × Z_q",
+          "trigger": "Distinct odd primes and nonsingularity"
+        },
+        {
+          "assessment": "Prime powers, not cyclic order 3p",
+          "evidence": "Uniform distribution over divisors characterizes full spark at prime power order.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Theorem 9, p. 12, offset 46220",
+          "method": "OA PDF, bounded theorem passage",
+          "title": "Full Spark Frames",
+          "trigger": "Uniform-residue full spark criterion"
+        },
+        {
+          "assessment": "Unresolved details; not used to infer noncoverage or to fail",
+          "evidence": "Frozen description reports a matched-population sufficient condition; publisher denied access and no verified open copy was obtained in this check.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.70192",
+          "material_read": "No primary theorem passage obtained; frozen prior-work description inspected",
+          "method": "Lawful OA DOI and alternate recovery attempt",
+          "title": "Chebotarev's theorem for cyclic groups of order pq and an uncertainty principle",
+          "trigger": "Potential semiprime matched-residue overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Resultary 0290eba11adf Finding and rigidity argument"
+      ],
+      "rationale": "A complete independent-triple rank census at 3p is a natural and potentially useful invariant. As a distinct contribution here, however, every claimed classification and count is already part of the exact indexed match. The frozen case split establishes that same invariant; no separate useful theorem or additional exact datum is supported. This does not deny the value of the shared classification or decide priority between proofs.",
+      "residual_risks": [
+        "No substantive repair supported in the frozen scope; a shorter or independently verified proof alone would not remove the exact overlap."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

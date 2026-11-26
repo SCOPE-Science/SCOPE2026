@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:23:54.741190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89; VERIFICATION.md and CHECKER.py inspected but not executed",
+        "Independent replay: python /workspace/branches/independent_finite_checks.py 5. It uses a prefix sum of individual integer valuations to calculate factorial valuations, compares the entire histograms with the weighted chain and the exact rational moments at 15 levels across p=3,5,7,11. For p=3,r=4 the histogram is [1296,1620,1701,1296,648]."
+      ],
+      "rationale": "For the undivided S(m,n), Kummer gives the two self-addition carry totals minus the mixed-addition carry total. There are r input digits plus no further nonzero outgoing carries after the zero padding since all three incoming carries are at most one. For p=2h+1 the reachable class-zero incoming states are 000,011,101. From 000 the class-zero destinations count (h+1)²+2·h(h+1)/2=L: add the both-low square and the two mixed triangles where the mixed sum produces a carry. From 011 they count h(h+1)+h(h+1)/2+(h+1)(h+2)/2=L, because the high thresholds are h+1 and h, and the mixed carry threshold is 2h. Swapping digits gives 101. Neither a both-low mixed carry nor a missing both-high mixed carry occurs in these three rows, so the increments stay in {0,1}; complementing all bits and digits interchanges class zero and class one and verifies the other three rows. Hence the lumping is independent of the microscopic state and its weighted matrix is K(t)=[[L,Bt],[B,Lt]]. Its trace, determinant and initial terms give the exact rational generating function, including r=0. All transition entries are positive, so each intermediate valuation occurs and the all-zero and all-one paths count L^r and BL^(r−1). For Y_i=(−1)^(X_i), the eigenvalue 1/p gives E Y_i=p^(−i) and E Y_iY_j=p^(−|i−j|). Summing gives the stated mean and variance, including zero mean and variance at r=0. The two-state matrix is irreducible and aperiodic; its stationary sign covariances p^(−|i−j|) give the positive occupation-time asymptotic variance (p+1)/(4(p−1)). The finite-state additive-functional CLT applies from state zero. Dividing the quotient by 2 does not change any valuation for odd p.",
+      "residual_risks": [
+        "The finite replay does not establish the all-prime transition law or the Gaussian limit; these follow from the digit counts and the finite-state chain. The proof and asymptotic claim do not concern p=2 or a simultaneous growing-prime limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holte's ordinary carry transition theorem is general in base and summand count, but for an ordinary sum. The super Catalan results inspected give weighted path interpretations, q-identities, or congruences for double sums, not this uniform per-pair valuation process."
+        ],
+        "reasoning": "Taking two ordinary summands in the broader theorem determines the shared law once equivalence is proved. Kummer or a generic factorial-ratio digit transfer yields a representation with correlated carries, not the evaluated two-class transition law, whose independence from the incoming microscopic state is needed.",
+        "searches": [
+          "Diaconis–Fulman arXiv:0806.3583, H1–H2 for n ordinary summands",
+          "Allen–Gheorghiciuc arXiv:1403.5246v2 Theorems 1–3 and arXiv:1403.5296v2 Theorem 2",
+          "Liu arXiv:1804.09485 Theorems 1.2–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and distinct exact carry-law Findings; focused primary discovery search with no further usable quotient-to-carry reduction",
+        "Diaconis–Fulman H1–H2; Allen–Gheorghiciuc Theorems 1–3 and companion Theorem 2; Liu Theorems 1.2–1.3; Rodelet–Causse–Tevlin introduction and the documented inaccessible algebraic-interpretation comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching the ordinary chain recovers the rational generating function and moments and makes the distributional consequences known once the quotient is linked to it. The actual missing implication is that the three carry states can be lumped by the signed increment into a two-state process with the same conditional transition counts from every state of each class. The primary passages and the comparable indexed records did not establish that implication for this quotient."
+        ],
+        "reasoning": "The six-to-two-state evaluation is uniform in odd p and uses the relation between simultaneous doubling and mixed-carry thresholds. It is neither a substitution of the summand count in H1–H2 nor a consequence of prior univariate counts of the factors; it is the supported original part.",
+        "searches": [
+          "Diaconis–Fulman §1 H1–H2 versus frozen proof lines 46–85",
+          "Focused primary search for a known super Catalan to ordinary carries reduction; Rodelet–Causse–Tevlin arXiv:2505.09821 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S=binom(2m,m)binom(2n,n)/binom(m+n,m); the difference of the three Kummer carry totals is insensitive to normalization by 2. The floor-based description at each digit scale is floor(2u)+floor(2v)−floor(u+v), where u and v are the normalized remainders at that scale. Diaconis–Fulman treat ordinary addition of independent uniform digits; two summands in base p give the identical occupation law."
+        ],
+        "reasoning": "Equality in distribution with the ordinary carry count, equivalently the valuation of an ordinary random binomial coefficient binom(U+V,U) over the same index square, is a consequence of the observed matching initial state and transition matrix. There is no pointwise equality with the mixed carries for the same pair (m,n): at any odd p at one digit m=(p+1)/2,n=0 gives one self-carry but no mixed carry. The known ordinary law does not itself identify the quotient's correlated carry process.",
+        "searches": [
+          "Resultary: super Catalan odd-prime valuation spectra, factorial quotient digit laws and carry-process equivalences",
+          "Focused primary search for odd-prime super Catalan valuation distributions or equivalence to ordinary factorial-ratio/binomial carries",
+          "Diaconis–Fulman, arXiv:0806.3583, §1 (H1)–(H2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact histogram hit is the assigned entry itself. The distinct nearby catalogue entries give a varying-arity Fuss–Catalan law from a fixed binomial column and a five-state joint law for adjacent central-binomial valuations over one index, respectively."
+        ],
+        "reasoning": "Neither table has the same factorial quotient or index domain; one-dimensional histograms for a central-binomial factor also cannot determine the distribution of the two factors minus the correlated mixed carry count. The independent numerical samples here are correctness evidence, not a priority table.",
+        "searches": [
+          "Resultary exact super Catalan histogram and Markov-law searches",
+          "2026/11/22/SCOPE-all-prime-arity-valuation-spectra-and-sharp-periods-for-fuss-cat--34811cfc1a4a",
+          "2026/11/22/SCOPE-exact-adjacent-central-binomial-valuation-law-and-its-covariance--a6bbb4c7d618"
+        ]
+      },
+      "rationale": "The transition matrix, occupation histogram and probabilistic consequences are already those of Holte's ordinary two-summand carry chain. The supported distinct arithmetic claim is that the super Catalan quotient, a signed combination of three correlated carry counts, has exactly that process law on every square block. The inspected primary and indexed statements do not supply this quotient-specific identification or its weighted transfer. This is not a novelty claim for the ordinary carry chain, its moments or its CLT, nor a demonstration of historical priority.",
+      "residual_risks": [
+        "A stronger or unindexed evaluation of the super Catalan digit process may already give the same reduction. The unavailable algebraic-interpretation paper was not ruled out by title or snippet. The new-part assessment is restricted to the quotient-to-ordinary-carry identification and exact spectrum that follows from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ordinary carry law, not the super Catalan identification in the inspected statements",
+          "evidence": "It forms the chain by adding ordinary independent uniform base-b digits. For two inputs at b=p, threshold a+b+i≥p gives exactly L and B in the two rows with initial carry zero.",
+          "identifier_or_url": "https://arxiv.org/html/0806.3583",
+          "material_read": "§1 equations (H1)–(H2), OA offsets 0–4999",
+          "method": "OA HTML passage",
+          "title": "Carries, Shuffling and An Amazing Matrix",
+          "trigger": "Identical two-state matrix and occupation counts in classical carry theory"
+        },
+        {
+          "assessment": "Known quotient and different results",
+          "evidence": "Theorem 1 gives a weighted 2-Motzkin interpretation; §3 gives Dyck-path interpretations for T(2,n). These statements do not describe the odd-prime spectrum over square index blocks.",
+          "identifier_or_url": "https://arxiv.org/html/1403.5246v2",
+          "material_read": "Introductory definition; Theorem 1 at offset 4700; §3 Theorems 2–3 at offset 9000",
+          "method": "OA HTML passages",
+          "title": "A weighted interpretation for the super Catalan numbers",
+          "trigger": "Same factorial quotient up to normalization"
+        },
+        {
+          "assessment": "q-analogue, not an odd-prime valuation histogram",
+          "evidence": "Theorem 2 gives a q-weighted Dyck-path result.",
+          "identifier_or_url": "https://arxiv.org/html/1403.5296v2",
+          "material_read": "Definition at offset 900 and Theorem 2 at offset 10500",
+          "method": "OA HTML passages",
+          "title": "On super Catalan polynomials",
+          "trigger": "Same family in q form; possible generating-function overlap"
+        },
+        {
+          "assessment": "Related arithmetic, not the same statistics",
+          "evidence": "The theorems are congruences for double sums rather than laws of the valuations of individual summands.",
+          "identifier_or_url": "https://arxiv.org/html/1804.09485",
+          "material_read": "Introduction and Theorems 1.2–1.3 at offset 2850",
+          "method": "OA HTML passages",
+          "title": "Congruences on sums of super Catalan numbers",
+          "trigger": "Super Catalan arithmetic on a two-index sum"
+        },
+        {
+          "assessment": "Different quotient and index domain",
+          "evidence": "Fixes a Fuss–Catalan size and varies arity using a fixed binomial column.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-prime-arity-valuation-spectra-and-sharp-periods-for-fuss-cat--34811cfc1a4a",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "All-prime arity valuation spectra and sharp periods for Fuss–Catalan numbers",
+          "trigger": "Exact digit-law and valuation-spectrum formulation for a related factorial ratio"
+        },
+        {
+          "assessment": "Different joint law and index domain",
+          "evidence": "Five-state law for adjacent central-binomial valuations over a single index, rather than two independently sampled indices with a mixed-carry subtraction.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-adjacent-central-binomial-valuation-law-and-its-covariance--a6bbb4c7d618",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact adjacent central-binomial valuation law and its covariance",
+          "trigger": "Related valuations of binomial factors and joint carry laws"
+        },
+        {
+          "assessment": "q-generating functions are a different scope; this is not a whole-document noncoverage claim",
+          "evidence": "The introduction defines the q-analogue and describes identities, generating functions and Narayana refinements.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.09821",
+          "material_read": "PDF introduction, printed p. 1, OA offset 3000",
+          "method": "OA PDF passage",
+          "title": "q-Super Catalan Numbers: Combinatorial Identities, Generating Functions, and Narayana Refinements",
+          "trigger": "Primary search surfaced generating functions for the same family"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence for or against priority",
+          "evidence": "No theorem was read from this source and no noncoverage conclusion is based on the snippet.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9713AF75545E349356428E6FD376BCE8/S0004972723001107a.pdf/an-algebraic-interpretation-of-the-super-catalan-numbers.pdf",
+          "material_read": "Search snippet only; full text unavailable in the bounded retrieval attempt",
+          "method": "OA publisher copy timed out; no readable linked copy obtained",
+          "title": "An Algebraic Interpretation of the Super-Catalan Numbers",
+          "trigger": "Same quotient; search surfaced an algebraic characterization which might bear on valuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and six-state-lumping proof; Diaconis–Fulman ordinary carry theorem; Allen–Gheorghiciuc and Liu for the super Catalan object and nearby arithmetic problems"
+      ],
+      "rationale": "The two-index quotient combines carries that are correlated and subtracts the mixed stream; neither the usual Kummer law for one binomial coefficient nor independent convolution of factor histograms predicts its values. The exact uniform reduction to an ordinary two-state process supplies the full distribution and extremal counts for every block and gives an identifiable arithmetic interpretation of a familiar probability law. That reduction is substantive; the standard moments and limit law alone would not be a separate scientific contribution.",
+      "residual_risks": [
+        "The reported classification averages a square of independent index samples and does not give the same law for arbitrary correlated sampling, other domains, or p=2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

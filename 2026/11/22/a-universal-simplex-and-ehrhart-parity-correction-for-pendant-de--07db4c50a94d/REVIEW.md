@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree slack substitution is an invertible affine map with determinant of magnitude two for every odd rim length. The positivity of all inverse rim coordinates in the missing simplex follows from the bound \(a_i\ge(1-\sum(s+b))/2\). Half-integrality and the single odd cycle ensure that the only nonintegral relaxation vertex is the all-half rim assignment, with zero leaves; all cutting-plane base vertices are exact matching vectors. The parity restriction on integer inverse images follows from the index-two incidence lattice, not numerical extrapolation. The generating function and nonvanishing pole at \(z=-1\) are algebraic consequences. Exact finite enumeration provides an independent check on selected dimensions but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-The directly related published odd-cycle cap result concerns the undecorated case only and does not assert the attachment-invariant all-dilation Ehrhart correction. The published cyclic block Ehrhart theorem uses different constraints: every variable participates in two neighboring cyclic sums; the leaf variables here participate in only one cycle-vertex sum. Guo and Vishvajeet study truncated fractional matching volumes and do not evaluate the integer matching-hull defect. Kafer et al. study circuit diameter. Their accessible primary texts and two relevant published result records were compared by mathematical implication, not keyword similarity. A full paper of Ehrenborg on the undecorated graph polytope was not accessible in the searches; it remains a specifically disclosed priority risk but cannot cover positive-leaf graphs directly without an additional graph transformation.
+PASS
 
-## Mathematical value — PASS
-The exact universal Ehrhart discrepancy for every positive pendant allocation gives a complete, nontrivial arithmetic invariant of a natural infinite family of nonisomorphic matching polytopes. The invariant simultaneously determines missing Euclidean volume, the entire dilation-dependent lattice defect and the sharp noncancellation of period two. The mathematical interest lies in the surprising invariance under distributing the leaves, not just a routine numerical value; it also quantifies precisely the failure of the degree relaxation to capture integral matchings.
+Assessed the corrected /workspace/repairs/4/RESULT.md. The frozen phrase ‘open simplex’ taken literally is incorrect: even the apex is in F_G minus M_G. The replacement states precisely that only the base facet is removed. Balinski’s half-integral support description leaves only the all-half rim as a fractional vertex because every other edge meets the rim. For cyclic shift P of odd order, (I+P)^(−1)=(1/2)Σ_{r=0}^{n−1}(−P)^r and |det(I+P)|=2. In mixed degree-slack and leaf coordinates the defect is all nonnegative vectors of total j<1, since each inverse rim coordinate is ≥(1−j)/2; equality j=1 gives the base. Unit base vectors leave one rim vertex unmatched or match that vertex to its designated leaf. Every new clipped vertex is on that integral base, and every old retained vertex is integral, so the clipped polytope is exactly M_G. The determinant gives volume 1/(2d!). At dilation k, summing the inverse equations gives right-hand side total nk−j. The cycle matrix has image exactly the even-sum sublattice by containment and index two. Stars and bars on the surviving j<k of parity k yields the asserted count (in particular Δ(0)=Δ(1)=0, Δ(2)=1 and Δ(3)=d). The single pole at −1 gives 2^(−d−1)(−1)^k, which cannot cancel a lattice Ehrhart polynomial. The repair preserves the quantitative formulas and scope. The frozen checker and verification notes were read, not executed: enumeration counts strict rim-inequality violations for 47 finite cases; the proof, not the enumeration, identifies the matching hull in general.
 
-## Limits
-The result is restricted to one odd cycle with directly attached leaves; it does not address deeper rooted attachments, other nonintegral configurations, or full Ehrhart series individually. Searches cannot certify historical uniqueness. Finite checks are corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected statement the distinct result is the exact attachment-pattern-independent defect, including its full lattice series for positive pendant count. The bare-cap simplex and odd-cycle parity mechanism are credited, not claimed anew. The comparison explicitly accounts for how the earlier slack argument extends and for the scope of tangent-cone parity results.
+
+## value
+
+PASS
+
+The full defect answers how a natural fractional relaxation differs from its matching hull at every lattice dilation. It distinguishes exact period from the denominator-two upper bound, and distinguishes the full lattice correction from the previously known bare volume or the alternating coefficient alone. The leaf-slack characterization explains why arbitrary attachment patterns with the same edge count give the very same count despite changing the two polytopes. The assessment is for direct leaves only and does not assign novelty to the classical cut or lattice counting in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

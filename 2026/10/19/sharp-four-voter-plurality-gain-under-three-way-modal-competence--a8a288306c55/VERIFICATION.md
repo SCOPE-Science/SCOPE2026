@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The program `VERIFY.py` is standalone and uses only Python's standard library. It computes each of the 256 vertex-assignment accuracy increments in exact rational arithmetic by two independent methods: direct plurality outcome averaging, and the \(2,1,1\) event decomposition. It also checks the deterministic 81-profile identity, the 35 exchangeability classes, the exact two accuracy values of the sharp witness, and a finite combinatorial consistency check of the uniform-subset identity.
+## correctness
 
-The symbolic proof that the 35 types exhaust all modally competent independent probability vectors is in RESULT.md. It uses the explicit convex-combination coefficients and separately affine dependence of expected accuracy on each row. For \(N\geq4\), the universal extension is justified by the exact identity \((N-3)/(4\binom{N}{4})=1/\binom{N}{3}\), not by computation.
+PASS
 
-Run: `python VERIFY.py`. The program prints `VERIFY_OK` summary lines followed by a complete list of the 35 sorted vertex-type rational increments.
+Only the (2,1,1) multiplicity pattern changes the accuracy under deletion averaging: for a doubled true label the gain is 1/3; for a doubled false label it is −1/6. The (2,2) case averages its fair tie correctly, and the two-label identity follows by omitting (2,1,1). The four stated probability vectors generate the modal simplex slice by the supplied nonnegative convex coefficients. Independence gives separate affineness. I independently computed the 35 multiset types by multiplying integer generating polynomials for their uniform supports and extracting the three (2,1,1) coefficients; every table value matches and 0012 is the only maximizing vertex type. In it A4=1, and the outcome which gives the gain 1/3 occurs with probability 1/4, giving A3=11/12. The general N argument is exact because each triple has N−3 four-element extensions and each extension deletes to that triple with probability 1/4.
 
-Limits: this is a self-review, with no independent audit; the program does not test strategic voters, dependence, more than three alternatives, or stronger unpublished theorems.
+## originality
+
+PASS
+
+Prior jury theorems address binary random-subcommittee monotonicity, asymptotic modal competence with common vote laws, or strategic voting in large elections. No compared source establishes both this finite heterogeneous nonnegativity result and the sharp 1/12 upper envelope. The claim is not that plurality, modal competence or the jury framework is new.
+
+## value
+
+PASS
+
+This adjacent odd-to-even comparison distinguishes ternary accuracy from an identically flat binary comparison. The deterministic gain has both signs, so monotonicity under independent weak modal competence is a genuine restriction, especially with different error directions. The exact 1/12 envelope and an explicit attaining panel give a finite, interpretable benchmark for multiclass judging from randomly staffed panels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

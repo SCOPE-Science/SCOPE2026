@@ -1,15 +1,21 @@
-# Review: sharp sixth-moment phase contrast for analytic trinomials
+# Independent mathematical audit
 
-## Correctness — PASS
-A full cubic-convolution expansion establishes the single-cosine phase formula and its exact amplitude coefficients. Since the minimum moment is the integral of a nonzero polynomial, the positive denominator is rigorous. For fixed normalized middle energy, the derivative in the endpoint-asymmetry variable is strictly negative. A one-sign-change quartic then has exactly one positive root and supplies the unique maximizing magnitude ratio. The equality cases follow from strictness of both derivative arguments and phase cosine extrema. The packaged symbolic checker verifies all critical identities and the displayed derivative factors; periodic quadrature in five cases is corroborating evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary work concerns trigonometric-trinomial maximum modulus (Neuwirth, 2007) and idempotent Hardy–Littlewood majorant inequalities (Krenedits, 2010). Those differ in norm or allowed magnitude variation. Closest published mathematical results compute the sharp energy-normalized sixth moment for analytic quadratics (records 0b2c2efe6412, 1a8e79d7e85a); their extremizer has a different middle-coefficient ratio and their inequality does not determine the fixed-magnitude *minimum* over phases. The unimodular phase-collision identity (record 7849dda51c79) holds only at equal magnitudes. Targeted mathematical-record and literature searches identified no direct sharp global maximum/minimum phase ratio. Arestov's earlier metric-inequality article is a meaningful remaining equivalence risk because the full text was not read, so priority is not certified.
+PASS
 
-## Mathematical value — PASS
-Phase-only changes in spectral coefficients affect high Fourier moments, even when energy is fixed. This theorem determines the optimal, dimensionless *multiplicative dynamic range* of that effect over all nonzero analytic quadratics, identifies its unique optimal magnitude geometry, and supplies all extremal phases. The optimum is algebraic and is not the known energy-normalized Nikolskii optimizer. The invariant is a natural quantitative stability question distinct from the classical norm inequality, with complete sharp equality classification.
+For circle Haar probability, the integral is the squared coefficient norm of (a+bz+cz²)³. Among its seven coefficients, only 3a(ac+b²), b(6ac+b²), and 3c(ac+b²) carry interference, and their squared moduli give a single cosine of δ=2arg b−arg a−arg c with coefficient 6AB²C(3A²+2B²+3C²). When ABC>0, both phases are achievable and the minimum integral is positive (also at least (A²+B²+C²)³ by Jensen). If any magnitude vanishes all phases tie. Divide the extrema by (AC)³ and set S=(A²+C²)/(AC)≥2 and T=B²/(AC)>0. The denominator H simplifies to S³+9TS²+(6−18T+9T²)S+18T−12T²+T³. The derivative numerator for 12T(3S+2T)/H in S is −36T[2S³+12ST²+5T³+T(11S²−14)], strictly negative. At S=2 the denominator is (T+2)(T²+4T+10); differentiation gives −24 times T⁴+6T³−40T−60 divided by its square. Descartes' rule and the opposite signs at zero and large positive T give exactly one positive root, with the derivative strictly changing from positive to negative. The maximum is attained exactly at A=C>0 and T=t_*, with δ=0,π respectively for the two extrema. A nontrivial integer rescaling preserves Haar by the power map; translating the spectrum only multiplies by a unit modulus monomial. Taking the sixth root gives the norm contrast, not the sixth moment contrast.
 
-## Limitations
-The analytic proof uses an elementary Parseval expansion and concerns a sharply delimited sixth-moment phenomenon. The full historic metric-inequality corpus was not available; the correctness proof does not entail independent publication-priority validation. No generalization to other exponents or nonprogression frequencies is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-support results give a maximum divided by coefficient energy or a phase response restricted to unit magnitudes. Neither determines the maximal distortion relative to the minimum at the same unknown magnitudes. The known cubic-convolution mechanism is not the distinct claim; the contribution is the exact global ratio, its balancing and unique amplitude optimum. Arestov's 1980 article could not be compared in full; no absence is inferred from that access gap.
+
+## value
+
+PASS
+
+This is the exact largest phase distortion of the sixth norm for the shortest analytic progression with a genuine relative-phase interaction at this exponent. It measures a different property from the well-studied maximum norm per coefficient energy and identifies a different optimizing amplitude. The optimizer and constant give a concrete reference for coefficient-multiplier distortion on small spectra rather than a new claim about general majorant theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

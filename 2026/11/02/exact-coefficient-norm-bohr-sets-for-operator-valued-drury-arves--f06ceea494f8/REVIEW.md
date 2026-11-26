@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim reviewed.** Exact pointwise coefficient-norm Bohr profile for contractive operator-valued Drury–Arveson multipliers vanishing at zero, including the associated set, nonradiality and dimension-collapse corollaries. Coefficientwise operator norms are essential to the statement.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The multiplier action on constant vector functions bounds every coefficient by its normalized monomial weight. Multivariate Vandermonde proves that each normalized monomial has multiplier norm one; a separable diagonal direct sum simultaneously saturates all these bounds. Finite-dimensional convergence, the exact \(2\times2\) witness, and infinite-variable first-degree obstruction follow as in the proof. The standalone checker passed 52,012 supplementary assertions, but infinite statements rest on the analytical inequalities and direct-sum construction. No unproved infinite extrapolation is used.
+The kernel expansion gives squared monomial norms alpha!/|alpha|!. Testing the multiplier on each unit constant vector bounds each coefficient norm by the reciprocal monomial norm. For a normalized monomial, the product with another basis monomial has squared norm equal to the factorial norm ratio in RESULT.md:52–59. The numerator is one term of the multivariate Vandermonde sum, so the weight is at most one; the vacuum attains one. Distinct shifted basis vectors are orthogonal. The diagonal sum of these norm-one multipliers is contractive on a separable coefficient space and saturates all coefficient norms. In countably many variables the degree-n diagonal block is bounded by ||z||_2^n, so there is no analytic convergence problem for the operator series; the norm majorant itself may diverge, in which case finite diagonals give arbitrarily large values. For finite d, Cauchy–Schwarz on each degree bounds the sum by a polynomial factor times ||z||_2^n. The axial profile, degree-four nonradial witness, first-degree large-support obstruction, and diag(1,w_j) unanchored witness follow. The disk 2-by-2 witness is inside the claimed earlier radius and has norm sum 10/9. Independent corroboration: `python3 -B /workspace/review_checks.py 3` checked 1,450 exact factorial ratios and exact inequalities for the two witnesses; finite checks do not replace the proof. This is not a sharp result for every fixed finite coefficient dimension.
 
-## Originality — PASS (best-knowledge)
+## originality
 
-The closest fresh scalar complete-Pick result is Brevig–Seip–Zlotnikov (arXiv:2609.26395), which classifies the **scalar** Drury–Arveson Bohr set. Popescu's free-variable Bohr bounds (arXiv:1709.01375; arXiv:math/0507156) concern different homogeneous operator evaluations; Bhowmik–Das (arXiv:2003.05810) bound an operator-order sum, not the sum of separate operator norms. Allu–Halder (arXiv:2111.11713, Lemma 2.2 and Theorem 2.2) assert a stronger zero-constant norm-sum radius, but their stated hypotheses are fulfilled by \(F(w)=\operatorname{diag}(w,w^2)\), whose majorant is \(10/9>1\) at \(r=2/3<1/\sqrt2\). That assertion is not valid mathematical coverage of the present exact theorem. A different-nomenclature exact formula in earlier literature remains a priority risk; source searches alone cannot establish uniqueness.
+PASS
 
-## Mathematical value — PASS
+The closest known same-space and same-normalization pointwise result is scalar; it does not apply to sums of separate operator norms. The operator-order literature uses a different majorant, and the stronger-looking Allu–Halder disk radius is contradicted within its stated operator-valued class. On the checked evidence the unrestricted coefficient-dimension, zero-anchored, factorial-weighted pointwise formula is distinct. No priority is claimed for the scalar threshold, the normalized-monomial calculation as a technique, or a fixed matrix-size optimum.
 
-The result solves the natural matrix amplification of a newly characterized scalar Bohr-set problem, including an exact non-Euclidean set in several variables and a collapse of every positive uniform Euclidean radius in countably infinitely many variables. Its complete classification and concrete structural obstruction to an existing claimed threshold are substantive beyond a routine improvement of a constant.
+## value
 
-## Scientific boundaries
+PASS
 
-The theorem does not give the sharp optimum at each fixed finite matrix size, nor does it identify a pointwise norm-majorant for arbitrary bounded functions that are not Drury–Arveson multipliers. Operator absolute-value sums and homogeneous-block majorants are distinct. Priority and independent validation remain open.
+The exact amplification of a natural scalar Bohr problem is not just a radius change: it gives a nonradial pointwise set, loss of every positive Euclidean inradius in infinitely many variables, and a finite counterexample to a plausible norm-sum generalization. The single multiplier attaining all bounds identifies precisely why the scalar estimate does not transfer.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

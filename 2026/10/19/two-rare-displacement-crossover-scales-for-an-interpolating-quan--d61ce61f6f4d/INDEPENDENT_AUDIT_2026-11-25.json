@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:11:40.988653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary Theorem 1 fixes q=1-p and the variance scale r=|a|²/|b|². Conditioning on the variance gives the stated angular ratio, with amplitude A and phase B; subtracting cos(theta) from B gives the displayed q-order numerator over a denominator ≥(1-q)². Together with |log A|≤artanh(q) this gives the 8q(1+eta) envelope for all x, including x=0. For the uniform endpoint argument set y=1-cos(theta); the exact phase loss is B(1)-B(1-y)=b_q y/(1-2qy/(1+q)²), where b_q=(1-q)/(1+q)³ is bounded below on [0,1/4]. Uniformly on a small fixed y interval, replacement by b_q y incurs a relative integral error O(eta^-1): the amplitude error is O(y) and the exponential error is bounded by a constant times eta*y²*exp(-c*eta*y), integrated against y^-1/2. Outside this interval the positive phase gap is uniform and the endpoint weight remains integrable. The prefactor A(1)/sqrt(b_q)=1+q and the comparison at q=0 give the (1+q)exp(-q*eta/(1+q)) correction to I_0, hence the e^-z limit. For any fixed q<1 the same positive endpoint slope holds, giving the stated |x|^-1 density prefactor. Integrating and doubling uses the Gaussian tail integral with weight 1/x and yields the stated x^-2 survival prefactor, including the factor U_q. This is a statement about a fixed-parameter infinite-time law, not a finite-time rare-event or simultaneous time limit. The frozen quadrature checker was inspected but is not needed for the analytic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary work gives the general exact integral for this walk at each fixed q. Hintz et al. study computation and estimation for normal variance mixtures generally. Standard endpoint Laplace asymptotics apply for each fixed q because the variance upper endpoint is nondegenerate in the angular variable."
+        ],
+        "reasoning": "The known exact integral permits deriving all claims, but the fixed-q specialization alone gives no q→0 control when the variance interval collapses. The uniform relative estimate requires exposing the combined parameter eta and verifying uniform endpoint constants; no stronger covering estimate was identified.",
+        "searches": [
+          "External: arcsine-scale Gaussian variance mixture rare displacement asymptotics",
+          "arXiv:1911.03017 (Hintz–Hofert–Lemieux)",
+          "arXiv:2503.03021v1 Thm. 1, equation (1)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and mix_crossover_checker.py",
+        "arXiv:2503.03021v1",
+        "arXiv:1911.03017",
+        "Resultary --0e1a12411b1d and --3df9c1acff95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary weak convergence is at fixed p; it yields a mixture with explicit endpoints and by ordinary conditioning the weak Gaussian limit as q→0. The inspected passages supply neither uniform comparison on eta intervals that grow with 1/q nor a statement as q*eta tends to a positive constant."
+        ],
+        "reasoning": "The far-tail exponent and fixed-q prefactor are routine consequences once the endpoint is identified. The distinctive implication in this record compares the full phase to the Bessel approximation uniformly enough to locate a second scale at which that approximation suffers an order-one error.",
+        "searches": [
+          "arXiv:2503.03021v1, Theorem 1 and Corollaries (OA pp. 2–3)",
+          "Resultary: Bessel enhancement; uniform tail; e^-z correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both the scaled arcsine variable and product sigma*Z in the primary paper exactly match the frozen input. The characteristic function involves a Bessel factor through the mixing distribution; the claim here is a spatial density ratio on growing displacement scales, not that transform.",
+          "Resultary --0e1a12411b1d studies a J_1-squared limit on S_n; --3df9c1acff95 studies K_0/Laplace laws with restart."
+        ],
+        "reasoning": "Changing from q=1-p to p, or representing the mixture as a Gaussian product, does not change the model. Neither of the other Bessel profiles is the same law or asymptotic statement.",
+        "searches": [
+          "Resultary: Bessel-scale enhancement; second e^-z crossover",
+          "Resultary: arcsine variance mixture fixed-q tails; quantum walk uniform rare displacements",
+          "arXiv:2503.03021v1 Theorem 1 and Corollaries 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact density integral for all displacements is printed in the prior paper; its theorem passages do not list the growing-displacement crossover ratios or the tail asymptotics. No equivalent indexed profile was returned by the bounded queries."
+        ],
+        "reasoning": "There is a known function, not a new catalogue value. Its integral representation is not an explicit uniform tail comparison to a Gaussian, and merely tabulating it would not establish the two limits.",
+        "searches": [
+          "Resultary: fixed-q tails including equivalent variance-mixture laws; large-eta uniform prefactor; second crossover",
+          "Yoshino et al. exact density, arXiv:2503.03021v1 Cor. 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit envelope, the uniform q-small endpoint estimate and the two rare-displacement profiles. The walk, mixing law and ordinary Gaussian limit are prior. The fixed-q sharp tails are standard endpoint-Laplace consequences of the known mixing law, not a standalone originality basis. The inspected prior symmetry/crossover results concern different laws, and the mixture theorem and general mixture sources inspected do not state or uniformly control the second displacement regime.",
+      "residual_risks": [
+        "Published general mixture asymptotics beyond the passages inspected, including the 1982 variance-mean mixture literature, could imply part of the uniform statement for an appropriately scaled endpoint family.",
+        "The bounded search is not a negative certificate; the fixed-q prefactor in particular is a standard consequence and may already have appeared in other notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the fixed-parameter input, not the asserted uniform crossover",
+          "evidence": "Uses p for classical updates, q=1-p, and gives the arcsine variance distribution and Gaussian product/density. The limiting r in the theorem follows from the displayed endpoints; the reciprocal mentioned in the discussion appears to be a typo.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.03021v1",
+          "material_read": "Model p. 2 offset 5370; Theorem 1, equation (1), and Corollaries 1–2, offsets 6269–12705",
+          "method": "OA PDF",
+          "title": "Normal Variance Mixture with Arcsine Law of an Interpolating Walk Between Persistent Random Walk and Quantum Walk",
+          "trigger": "Exact same model and law"
+        },
+        {
+          "assessment": "General mixture context; no inspected passage covers the two scales",
+          "evidence": "Develops density evaluation and related algorithms for general variance mixing, not the arcsine small-width tail transition in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.03017",
+          "material_read": "Abstract and relevant normal-mixture introductory material",
+          "method": "OA PDF",
+          "title": "Normal variance mixtures: Distribution, density and parameter estimation",
+          "trigger": "Possible broader mixture result"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "J_1-squared profile for a standard Fourier mode on S_n, not the spatial density ratio of an arcsine variance mixture.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-plancherel-bessel-crossover-for-the-standard-mode-of-quantum-r--0e1a12411b1d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A Plancherel–Bessel crossover for the standard mode of quantum random transpositions",
+          "trigger": "Strongest indexed Bessel crossover neighbor"
+        },
+        {
+          "assessment": "Later-dated, mathematically different",
+          "evidence": "K_0/Laplace limit and exponential tails of a restarted three-state walk.",
+          "identifier_or_url": "2026/10/25/SCOPE-bessel-to-laplace-profiles-and-ballistic-fronts-in-a-weakly-rest--3df9c1acff95",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Bessel-to-Laplace profiles and ballistic fronts in a weakly restarted walk",
+          "trigger": "Related indexed walk crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weak convergence to a Gaussian does not detect how the tails change. The natural eta scale first gives an I_0 enhancement, and an explicit uniform estimate then identifies precisely where that approximation itself breaks down and what replaces it. The density and survival prefactors anchor the estimates in the far tail. The numerical constant in the global bound and the fixed-q calculation alone are not the value basis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

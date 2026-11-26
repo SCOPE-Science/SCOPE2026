@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:23:02.113114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subspaces invariant under multiplication by t correspond to ideals of F_q[t] containing (f); the subspace (g)/(f) has codimension deg(g) in V. A subalgebra outside V has exactly q^deg(g) lifts of its intersection W=(g)/(f), because a normalized exterior generator is specified modulo W. All subspaces inside V are abelian, giving the Gaussian counts at codimension one higher. For ideals outside V, the necessary and sufficient condition is tV contained in W. Its codimension in V is zero or one as t does not divide or divides f, giving just the whole algebra or additionally q codimension-one ideals. Pairs in V have ordinary span dimension 0, 1 or 2 with the asserted rank counts. For fixed nonzero exterior coordinates (a,b), the combination av-bu is uniform over V with fiber size q^m and one exterior direction remains. An element w with annihilator (g) generates a cyclic module of dimension deg(g) and is (f/g)c with c a unit modulo g (g=1 gives the single zero element). This gives all N_j, the full-generation probability by division by q^{2m+2}, and the irreducible gap. The proof does not require squarefreeness or odd characteristic. A separate direct census at q=2, f=t^4+t^2, using coset subspace generation, bracket tests and poset inversion for generated dimensions, gives subalgebra, ideal and pair distributions (1,5,27,51,31,1), (1,3,2,3,2,1), and (1,93,306,240,192,192); replay: python3 /workspace/branches/independent_lie.py. This check is finite; the algebraic argument covers all q,m,f in scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avetisyan's structural result has no cyclicity restriction and makes no finite-field or dimension cutoff.",
+          "Lee's 2026 finite zeta formulas have low-dimensional scope; the earlier Theorems 3.1 and 3.5 give exactly the maximal-class nilpotent prime-field specialization, which the frozen finding excludes."
+        ],
+        "reasoning": "Excluding the known f=t^m slice avoids direct overlap with Lee's nilpotent formulas, and m>=4 avoids low-dimensional tables. It does not avoid Avetisyan's general characterization. Counting W by codimensions of divisors, and lifts by affine cosets, immediately grades its output.",
+        "searches": [
+          "arXiv:1610.05365, Proposition 3 and proof",
+          "arXiv:2602.07254 Theorems 1.6–1.8",
+          "arXiv:2010.02268 Theorems 3.1 and 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.05365",
+        "DOI 10.1137/S089548010139388X, author-hosted ANU PDF",
+        "arXiv:2602.07254",
+        "arXiv:2010.02268",
+        "Resultary 0e69fccd676e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactly one invariant W=(f/g)/(f) has annihilator (g) for each monic g|f; the polynomial quotient gives its dimension deg(g).",
+          "Specializing Brent–Gao–Lauder to a cyclic W with one random vector gives generator density product_{P|g}(1-q^{-deg P}); multiplying by |W| gives Phi_q(g).",
+          "Proposition 3 characterizes all subalgebras containing a fixed normalized exterior pivot using invariant W, so the generators land in the indicated W exactly when their in-V combination lies there."
+        ],
+        "reasoning": "Apply the cyclic probability to each possible generated W, not only to the ambient V. The disjoint events that av-bu generates one of the W of dimension j-1 have total size R_{j-1}(f) in V. Elementary pair and fiber counts then give the entire stated N_j and its endpoint and gap; the zeta counts are direct grade counts of Proposition 3. No numerical or lexical match is required for this implication.",
+        "searches": [
+          "arXiv:1610.05365 pp. 6–7, Proposition 3",
+          "Random Krylov Spaces over Finite Fields, Thm. 5 and proof of Thm. 9 (pp. 280–281 and 283)",
+          "Lee finite zeta formulas in the specified theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avetisyan classifies subalgebras outside V by normalized exterior generator and invariant W; the condition for exterior ideals is that W contain ad(e0)V.",
+          "Brent–Gao–Lauder identify Krylov spanning with module generation. The proof of their Theorem 9 explicitly specializes the exact Theorem 5 to a cyclic action."
+        ],
+        "reasoning": "For any pair with nonzero exterior projection, the generated subalgebra is the one corresponding in Proposition 3 to the smallest W containing its in-V linear combination. That W is precisely the single-vector Krylov module. This is a reduction to known statements over every finite field, including repeated irreducible factors.",
+        "searches": [
+          "Web: finite-field almost-abelian Lie algebra subalgebra and ideal zeta polynomials cyclic module generated-pair dimension distribution",
+          "arXiv:1610.05365 Proposition 3",
+          "DOI 10.1137/S089548010139388X, Section 2.1 and Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0e69fccd676e concerns ranks of Lie retractions for invertible actions, not grades of generated subalgebras or ideal counts.",
+          "Lee's inspected explicit zeta tables or formulas address smaller dimensions or the excluded nilpotent specialization."
+        ],
+        "reasoning": "No exact all-three-profile table was found among these bounded inspections. That does not settle originality: the decisive coverage is the implication from the structural theorem and the cyclic generation theorem, rather than a matched literal table.",
+        "searches": [
+          "Resultary: cyclic almost-abelian finite-field zeta profiles and dimension of two-generator Lie subalgebras",
+          "arXiv:2602.07254 and arXiv:2010.02268 finite zeta tables"
+        ]
+      },
+      "rationale": "The coverage is by direct implication rather than an earlier located table carrying N_j. Avetisyan's Proposition 3 describes every subalgebra and ideal for arbitrary almost Abelian actions over any field. Its restriction to a cyclic module gives both zeta polynomials by counting lifts through each invariant subspace. For the full pair profile, not just the full-algebra probability, fix one normalized exterior linear combination of the two generators. By Proposition 3, the subalgebras containing that combination are indexed exactly by their invariant intersection W with V. Containing the other generator then means W contains av-bu. For each W=(f/g)/(f), apply Brent–Gao–Lauder's existing one-vector generating formula to W itself, which is cyclic with annihilator (g): exactly Phi_q(g) vectors there generate W (one for W=0). Summing over W of dimension j-1 and multiplying by (q^2-1)q^m, the elementary fiber count for the projection (u,v) to av-bu, gives the entire exterior term. The pairs in V are just ordinary matrix ranks. Thus all claimed components follow from the existing stronger descriptions by ordinary cyclic-submodule and vector-space counting, without a new case-specific mathematical step.",
+      "residual_risks": [
+        "Earliest explicit publication of these grading polynomials or the full pair table was not determined. The failure is based on demonstrated mathematical implication, not access failure or an assertion of earlier exact wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader coverage for both zeta polynomials and for expressing the generated algebra via a minimal invariant subspace.",
+          "evidence": [
+            "Subalgebras in V are arbitrary; exterior subalgebras are W plus a normalized exterior line with W invariant; exterior ideals require W containing ad(e0)V."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.05365",
+          "material_read": "Abstract on any scalar field; Proposition 3 and proof pp. 6–7, extracted offsets 21460–23630",
+          "method": "Open primary arXiv PDF, literal locate and bounded read",
+          "title": "The structure of almost Abelian Lie algebras",
+          "trigger": "General classification of the exact subobjects being counted"
+        },
+        {
+          "assessment": "Gives the module generating probability on every smaller cyclic module to be summed by annihilator degree. Does not itself state Lie-pair formulas.",
+          "evidence": [
+            "Theorem 5 gives the exact factor product; in the proof of Theorem 9, the factor for an irreducible g is 1-q^{-s deg g} with s random vectors, hence 1-q^{-deg g} for one."
+          ],
+          "identifier_or_url": "https://maths-people.anu.edu.au/~brent/pd/rpb201.pdf ; DOI 10.1137/S089548010139388X",
+          "material_read": "Section 2.1 Lemma 1, Theorem 5 and start of proof, and Theorem 9 cyclic specialization (extracted offsets 6840, 16425, 25375)",
+          "method": "Identified lawful ANU author copy, located and read original passages",
+          "title": "Random Krylov Spaces over Finite Fields",
+          "trigger": "Equivalent cyclic one-vector generation for every possible invariant submodule, not just V"
+        },
+        {
+          "assessment": "Low-dimensional and excluded nilpotent family overlap; not the decisive covering general theorem.",
+          "evidence": [
+            "The first inspected formulas go through the dimension-four cases; the second gives both zeta polynomials for prime-field maximal-class M_c."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.07254 ; https://arxiv.org/pdf/2010.02268",
+          "material_read": "First PDF pp. 3–4, Theorems 1.6–1.8; second PDF pp. 16–18, Theorems 3.1 and 3.5",
+          "method": "Opened primary arXiv texts and inspected exact theorem statements",
+          "title": "Zeta functions of solvable Lie algebras over finite fields -- with calculations in detail; Zeta functions of F_p-Lie algebras and finite p-groups",
+          "trigger": "Same counting statistic and potential larger-dimensional formula"
+        },
+        {
+          "assessment": "Counts ranks of maps and pairs of maps, an adjacent but different statistic.",
+          "evidence": [
+            "Uses invertible defining actions and counts commuting idempotent Lie endomorphisms."
+          ],
+          "identifier_or_url": "Resultary 0e69fccd676e",
+          "material_read": "RESULT.md Finding at offset zero in the publication mirror",
+          "method": "Actual published passage from local mirror",
+          "title": "Commuting Lie retractions: a rational-canonical joint rank census",
+          "trigger": "Same almost-abelian module data and a rank distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The subobject counts and pair generation spectrum are natural statistics, but this record's formulas are routine finite-field grade counts of an existing general classification and sums of existing cyclic-generator counts. The irreducible gap follows immediately because there are no proper nonzero invariant submodules. The record does not establish a separate structural increment or nonmechanical exact count beyond those results.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

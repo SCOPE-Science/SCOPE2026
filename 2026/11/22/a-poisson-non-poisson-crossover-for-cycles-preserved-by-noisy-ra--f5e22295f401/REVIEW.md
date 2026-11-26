@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is based on a fully counted collection of vertex-disjoint oriented cycles. A prescribed \(k\)-cycle survives both mappings with probability \((s_n/n)^k\); ordered lists yield the exact falling-factorial formula. Compactly supported multiplicative-functionals are bounded by an exponential series, so the critical Riemann-sum limit, the intermediate Poisson limit and the finite-noise limit follow without an unwarranted moment-determinacy step. The critical cross-band covariance is a strict negative double integral because the union of two cycles consumes a joint set of vertices. A tail bound allows convergence of the largest-cycle distribution. The standalone verifier exhaustively enumerated 50,068 maps over sizes two through six and passed 115 rational checks. These finite checks corroborate, rather than certify, the asymptotic theorem.
+## correctness
 
-## Originality — PASS (qualified)
-The closest literature is Aldous–Pitman (1994 and their 2004 full-text treatment), Hansen–Jaworski (2007 and 2010), and Finch (2022). The 2010 primary paper's conditional uniform permutation representation is prior art; the 2022 longest-cycle law is prior art for the unrefreshed endpoint. The 2007 trimming process cuts **noncyclic** rather than cyclic edges. The selected claim is about **surviving identical directed cycles under independently refreshed outgoing edges**, with a noise-dependent critical factorial density, new strict negative cross-size covariance and a crossover to the Poisson extreme regime. No covering statement was found in accessible full text and actual indexed searches; this cannot establish absolute historical uniqueness. A full original copy of the 1994 paper was inaccessible, and unindexed general noise-marking equivalents remain possible.
+PASS
 
-## Mathematical value — PASS
-The critical \(n^{-1/2}\) noise window and limiting cross-band covariance distinguish two different fluctuation mechanisms for cycle preservation. This is useful when assessing whether two closely related random functional networks retain the same periodic trajectories and how large the largest preserved trajectory can remain. It is not merely a restatement of the single-map cycle count or a fixed-size enumeration.
+Distinct cycles in one mapping cannot share vertices. For an ordered list of lengths, choose K distinct labels in order and divide by each cycle's length (no r! when the list is ordered); a specified collection has probability (s_n/n)^K from independent images and agreement, with s_n including redraw coincidences. The compact multiplicative functional expands in these ordered moments with r! division; harmonic sums on a compact rescaled band give a uniform exponential majorant. For K=O(1/δ_n) with δ_n√n→∞ the disjoint-label factor tends uniformly to one; for K=O(√n) its logarithm is −K(K−1)/(2n)+o(1). The resulting compact Riemann sums give the two stated Laplace functionals and factorial densities; first moments give local tightness, and exponential domination gives uniqueness. When s_n→s<1, finite-dimensional Poisson generating functions and a geometric bound on the expected count beyond L give also the total Poisson limit, including zero when s=0. For disjoint compact bands the adjusted covariance integral is finite and strictly negative since e^(−xy)<1. For N_ε=Xi_a((ε,b)), the same factorial-density comparison on a square gives Var N_ε≤E N_ε, and E N_ε=log(1/ε)+O(1). Chebyshev shows P(N_ε≤m)→0 for each m; monotonicity gives an infinite count almost surely on (0,b). The integral for the cross-band difference can remain finite as ε→0 but cannot be interpreted as the covariance of an infinite count. Finally, the exact first moment bounds the far tails by the integrable exponential or Gaussian envelopes. The positive threshold x carries no atom; truncation at a large B therefore turns vague convergence into convergence of the no-cycle-above-x event. Limiting inclusion–exclusion is absolutely summable by the stated split Gaussian bound on S², so the two largest-cycle formulas survive unchanged.
 
-## Scope and limitations
-The proof treats only identical oriented cycles and does not cover cyclic vertices whose trajectories have changed. It supplies weak convergence and explicit extreme-value formulas but not convergence rates. The \(a=0\) endpoint is classical. No independent mathematical audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unthinned critical process and longest-cycle limit are prior, as is the given-core uniform permutation description. The factorial formula for refreshed common cycles is an elementary counting extension and the fixed critical law an explicit size-dependent thinning; neither is a new general mapping principle. The non-covered contribution assessed here is the explicit joint noise-scale crossover and largest-cycle laws in the same experiment, including the limit at a moving mesoscopic cutoff and its change to strict critical dependence on positive compact bands. A theorem on length-resolved cycles in a partial mapping with a cemetery target and varying survival could cover this, but no such implication was established in examined material.
+
+## value
+
+PASS
+
+An independently refreshed random mapping can retain periodic vertices without retaining their trajectories. For the stricter natural observable of identical directed cycles, the crossover identifies whether macroscopic count statistics can be treated as independent and quantifies the largest surviving trajectory at either scale. Strict dependence between finite bands, the effective redraw adjustment, and the different limiting extreme laws make the comparison informative beyond a single moment. The revised covariance scope removes a real defect: arbitrary size intervals reaching zero are not admissible finite-variance measurements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment of the finite triangular-graph excitation classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a precise, finite statement about two fully defined update maps on the ten vertices of \(T(5)\). `verification/census.py` classifies every one of the \(59{,}049\) states using full functional-graph indegree pruning. `verification/independent.cpp` independently rebuilds the maps and classifies every initial state by Floyd's cycle algorithm, checking both entire transient tables and the pointwise period equality. `verification/symmetry.py` traverses every primitive-three temporal cycle under all \(120\) induced vertex permutations, and the proof identifies this as the complete automorphism group via its five intrinsic maximal four-cliques. All actual package programs were executed successfully; exact reference data files and array invariants were compared. The argument applies to this finite graph only.
+PASS
 
-## Originality — PASS, qualified
+On the specified ten intersecting two-subsets, the replay reconstructs both synchronous threshold-one successor maps and processes all 59,049 labelled colorings. Indegree-zero deletion leaves exactly the directed cycles, and reverse deletion assigns the exact entry time and least period from each successor. The two period arrays match pointwise (3,399 with period 1; 55,650 with period 3); the entire joint census matches, with sharp entry cutoffs 2 and 4. There are 30,240 common primitive-three recurrent states, exactly those with a successor-color neighbor at every vertex. On them both rules increment every site, which preserves that condition and gives least period three. This is not equality on the entire recurrent sets: the fixed point counts are 3 and 1. The five size-four cliques are exactly the stars of K5; a pairwise-intersecting family with no common point is contained in a triangle. Thus every automorphism permutes the five stars, recovering all and only S5. Replaying the spatial action modulo the three phases partitions 10,080 cycles into 118 orbits with size/count pairs (15,2), (20,3), (30,7), (60,49), (120,57). This certifies only the specified finite graph and rules. The uploaded artifacts were inspected, not executed.
 
-published-finding corpus searches used aliases \(T(5)\), \(J(5,2)\), \(L(K_5)\), *triangular graph*, complementary Petersen graph, CCA, Greenberg–Hastings, and orbit multiplicities, and the current accessible prior claims were checked for coverage. The closest published exact comparison studies the Petersen graph itself, giving 4,800 mismatched periods there, not its triangular-graph complement. The biclique theorem establishes period matching on graphs not isomorphic to this one; the \(KG(6,2)\) theorem is about fifteen vertices and disjointness adjacency. Gravner–Lyu–Sivakoff (2018), Theorem 3, concerns qualitative synchronization and excitation-rate invariants, not the finite first-entry and symmetry census. No located primary source or accessible prior claim implies the full new table. An unindexed prior exact enumeration remains a residual priority risk, and that uncertainty is not represented as proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The graph \(T(5)\) is the strongly regular ten-vertex complement of the Petersen graph. The exact transition from 4,800 mismatched eventual periods on the Petersen graph to *pointwise matching* periods and common recurrent waves on its complement is a motivated comparison of two canonical interacting media. The 118 spatial wave classes and the complete, sharply different first-entry distributions are natural dynamical invariants of that comparison, rather than an arbitrary bit slice or a mere numerical bound.
+Pass for the exact finite classification on J(5,2): common primitive-three map, sharp labelled entry census for both rules and spatial orbit distribution. The qualitative synchronization equivalence is not new. Direct and related public catalogue entries and the strongest general theorem inspected do not give the full classification.
 
-## Scope and limitations
+## value
 
-Proof consists of complete and reproducible enumeration on a fixed finite graph; no theorem for all line graphs, all complementary pairs, alternative thresholds or other color counts is inferred. Independent external review and complete historical-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Comparing Petersen with its canonical complement tests whether the documented period mismatch persists under changing disjointness to intersection. The answer is not just agreement of fixed-point basin sizes: the same nontrivial cycles occur but with markedly different entry clocks, and the exact phase-quotiented orbit histogram gives a benchmark for geometric classification of these waves. This motivation is specific to the object and observables, without implying an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

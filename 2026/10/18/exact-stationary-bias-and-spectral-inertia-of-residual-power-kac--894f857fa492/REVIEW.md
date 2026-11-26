@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Complete algebraic reconstruction establishes the exact transition from the full row projection, positivity of all row normalizers, reversibility and aperiodicity, Vandermonde factorization and eigenvalue inertia, squared-residual moment identities, and the compact-constraint sharp cubic-moment bound. All period-two exceptions and repeated data have been kept. `verify.py` passes 12,006 exact rational test cases and 54 exact outlier cases. The finite tests support but do not replace the general proof.
+PASS
 
-## Originality
+After projection the row-index transition depends only on the sampled value, and positive degrees plus symmetry give detailed balance. A positive floor gives self-loops; without it the graph is complete multipartite on the distinct-value classes, bipartite exactly for two classes and otherwise with two- and three-step returns. For at least 2r+1 distinct values, the Vandermonde matrix has full column rank. In the coefficient matrix each mirrored exponent pair gives a block of negative determinant, even in the exceptional pair with the floor on its diagonal; the central sign is (-1)^r. Congruence and the diagonal similarity of P to its symmetric form prove the sign and nullity counts. For r=1 the centered degree is m(ε+μ₂+y_i²), giving the displayed mean and excess risk, which is nonnegative with precisely the stated equality case (the least-squares objective differs from squared error by the constant μ₂). On the positive-variance centered sphere the two constraint gradients are independent: each cubic extremizer takes exactly two levels, and its squared standardized skewness is m²/[k(m−k)]−4, maximized at k=1 or m−1. Zero-floor outlier mass follows from equal total degrees on the two parts. The theorem is analytic; inspecting the finite checker was not used as proof of rank, periods, or sharpness.
 
-PASS, with documented residual bibliographic uncertainty. The primary residual-power Kaczmarz paper proves convergence for consistent systems and explicitly asks about inconsistent equations. Other noise-tolerant/sparse Kaczmarz studies analyze alternative algorithms and convergence bounds rather than an exact row-index invariant law with the sharp bias and spectral-inertia classification. Closest indexed records concern cyclic under-relaxation bias, maximal-distance one-step residual spikes, and two-row cyclic finite-horizon rates. Classical Markov reversibility and distance-kernel inertia are acknowledged as inputs; neither alone states the full sharp residual-driven Kaczmarz classification. The nearest published comparison is algorithmically narrower; hidden/unindexed equivalent constructions remain possible. The no-covering assessment is not an independence or database-completeness claim.
+## originality
 
-## Value
+PASS
 
-PASS. The source explicitly motivates residual-weighted Kaczmarz as improving projection progress, making the inconsistent-system behavior a consequential algorithmic gap. The theorem proves an unambiguous design warning: for one outlier among arbitrarily many unit-row observations, pure residual weighting visits it in one half of stationary steps, rather than one over sample size; even away from this extremum, squared weighting never improves stationary least-squares error relative to uniform full projections. The exact maximum skewness-controlled bias and all-exponent spectral-sign change classify quantitative and qualitative failure mechanisms, not simply one numerical counterexample.
+The supported contribution is the sampling-specific combination of exact stationary distortion and the all-even-power sign/rank classification for inconsistent scalar full projections. Do not credit standard detailed balance or the skewness constant as new. The closest catalogue and primary statements inspected do not give the sign transition and the stationary squared-residual comparison for this model.
 
-## Closest literature and limits
+## value
 
-Steinerberger, arXiv:2007.02910v1 (original sampler and explicit inconsistent-system question); Zhang et al., arXiv:2306.06813v1 (related noisy weighted sparse Kaczmarz); Bogomolny--Bohigas--Schmit, arXiv:nlin/0301044v1 (distance-matrix spectral background); classical detailed-balance and inertia results. Scope is strictly exact full-step scalar projections, with no claim for higher-dimensional or damped variants. In the two-distinct-value zero-floor case, convergence is only Cesàro because the chain is periodic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simplest inconsistent full-projection model exposes a concrete design limit: squared residual weighting cannot improve stationary squared error over uniform row selection and can weight one outlier at one-half rather than 1/m. The positive nonstationary modes that appear for fourth but not squared weights show that changing powers also changes relaxation, not merely the magnitude of bias. These exact distinctions are informative without claiming that higher-dimensional or damped methods share them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

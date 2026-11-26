@@ -1,15 +1,21 @@
-# Scientific review: curvature-vertex bifurcation of a circular trefoil
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the standard smooth embedded \((2,3)\) ring-torus curve with \(R>1\). Its curvature-squared derivative is computed exactly and reduced by the map \(c\mapsto(1+c)/(1-c)\) to a quintic with six explicit coefficient polynomials. The first two coefficients are strictly positive, while the other four have unique ordered positive parameter zeros. Descartes' rule yields a global *unique* interior critical cosine below the threshold and none above it. Endpoint signs give the six-versus-twelve count and an implicit-function expansion gives the pair-splitting coefficient. The zero-curvature exception at \(R=13/4\) is handled as a strict, nondifferentiable local minimum. Arithmetic and direct differential checks ran from the packaged checker. Risks: the large polynomial expansion should be independently checked; finite numerical evaluations alone do not prove its identity, but the algebra is explicitly reproducible.
+## correctness
 
-## Originality — PASS, subject to independent historical priority
-Closest literature: Oberti and Ricca (2016), *On torus knots and unknots*, DOI:10.1142/S021821651650036X, Sections 2–6, is unusually close: it contains the same standard parametrization, graphical curvature profiles and the *different* inflection threshold \(\lambda=4/13\). It does not state the exact vertex-count phase boundary \(\lambda=0.098997\ldots\), the cubic equation or the square-root collision. Starostin and van der Heijden (2014), DOI:10.1088/1742-6596/544/1/012007, study elastic braid equilibria rather than the fixed circular trefoil. Searches of related mathematical records and available prior claims found no stated equivalent. Risks: the fact that one source already plots two peaks means the new result refines an observed effect; an unindexed calculation might have anticipated the exact threshold. The comparison is about implications and source content, not merely title dissimilarity.
+PASS
 
-## Value — PASS
-The number and type of local curvature extrema of the simplest nontrivial knot's canonical embedded representative are motivated geometric descriptors relevant to bending distributions. The theorem identifies a non-obvious threshold very close to a thin torus, distinct from the established inflection threshold, and fully classifies the extrema over the entire ring-torus family. It gives a quantitative square-root normal form at the transition. This is a natural, complete shape classification rather than an arbitrary isolated numeric evaluation. It is not a theorem about minimum-energy knots or all torus knot types.
+Differentiating in the moving cylindrical frame gives ||X′||²=V=4(R+c)²+9 and X′·X″=−12(R+c)sin(3t); the Gram determinant gives the stated N. Independently expanded (N_c V−3NV_c)/8 and substituted R=1+z, c=(y−1)/(y+1), clearing (1+y)^5 using exact integer polynomial convolution. All six g_j rows agree; direct Horner evaluations at the four proposed R brackets give (−8028,32508), (−162022,38160), (−684562,401217), (−125222,1563705). The positive first two rows and exactly one positive zero of each other row, in increasing order, give one sign change in y when g5<0 and none when g5≥0, ignoring zero coefficients. Thus any interior root is unique and simple. F_R(−1)>0, while F_R(1) is the stated positive quadratic factor times the cubic. Passing to curvature preserves strict extrema because square root is strictly increasing. Each interior cosine root has six preimages, each endpoint three. At R=13/4 the inner endpoint gives K=0, K_c>0 and hence a positive multiple of |t−t0| to leading order; no other curvature zero occurs since the radial cross component is 18 sin(3t)(c−R). At the vertex threshold, g5=0 and F_c(1)=−g4/2<0, so the cosine expansion gives a fourth-order decrease at positive curvature. The cubic crosses simply, so F_R's parameter derivative is positive there; the implicit root satisfies c=1−Pδ+O(δ²) and inverse cosine gives the two branches. Independent bisection and differentiation give R*=10.1012691095328, reciprocal 0.09899746152256, splitting coefficient 0.1707184632790. The supplied checker was inspected, not run; global coverage is from the sign proof.
 
-## Reproducibility and boundaries
-Run `python3 check_trefoil_curvature.py` in the extracted package. The numerical checker is supplementary to the exact sign/Descartes proof. The analysis requires \(R>1\) and the stated canonical embedding. No external mathematical verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Oberti–Ricca study exactly this geometry, including the exact inflection value and a qualitative observation that two curvature peaks develop, which are prior. Their sampled profiles include λ=0.1, close to the reviewed threshold, but do not give the cubic vertex onset, exclude further extrema at all ratios, or supply quantitative splitting. The nearest inspected same-geometry catalogue records instead treat integrated curvature or regular torsion zeros. The sign proof and local scale resolve an exact gap rather than reasserting the known peak observation or inflection theorem.
+
+## value
+
+PASS
+
+The circular trefoil is a canonical embedding, and pointwise extrema describe its bending geometry independently of knot type or integrated curvature. The result replaces sampled peak profiles with a complete all-ratio count, distinguishes inflection from onset of new extrema, and gives a quantitative merger law. The global exclusion of additional branches is substantive, not a routine local differentiation or a single numerical parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

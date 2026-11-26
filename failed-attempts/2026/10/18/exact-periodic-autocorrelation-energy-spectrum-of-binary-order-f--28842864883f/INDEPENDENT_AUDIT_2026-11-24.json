@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:51.896988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74",
+        "Frozen VERIFICATION.md and CHECKER.py",
+        "/workspace/branches/independent_replay.py"
+      ],
+      "rationale": "An anchored cycle using all five-bit edges defines exactly one incoming-to-outgoing matching per four-bit vertex and conversely a single 32-cycle in the successor permutation defines exactly one de Bruijn rotation class. No reversal/complement quotient is taken in this count. Independent bit-prefix enumeration rooted at 00000 and enforcing all four wrap windows recovers 2,048 words; XOR/popcount over all 31 nonzero rotations independently computes the signed periodic correlations. All 47 bins match exactly, including endpoints 192:12 and 1952:4, missing multiples, the three plus one four-element extremal orbits, and moments 2813/4 and 1336631/16. Symmetry pairs opposite shifts; each correlation is divisible by four, and the balanced antipodal shift has an even number of unequal pairs and is divisible by eight, giving energy divisibility by 32. Balance at each lag below five comes from uniform five-windows. Parseval with unnormalized forward transform gives fourth-power sum divided by 32 less 1024. Replay: python3 /workspace/branches/independent_replay.py 5; output /workspace/branches/independent_replay.out. Frozen scripts were inspected, not executed.",
+      "residual_risks": [
+        "The result is exhaustive only for order five. No physical performance or aperiodic correlation claim is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "132a86d69a57 classifies complete signed autocorrelation signatures and reversal/complement orbits, a richer object than energy. 6e926677b401 tabulates peak sidelobes jointly with linear complexity. Fujisaki–Nabeshima Tables I–II concern extremal individual lags, not squared sums."
+        ],
+        "reasoning": "A full cycle-indexed vector determines its squared norm, whereas maximum or minimum values at individual lags do not. The full-vector dataset includes multiplicities and the orbit labels required to recover the additional conclusions.",
+        "searches": [
+          "Resultary: per-cycle periodic autocorrelation and exact sidelobe spectra; 132a86d69a57 and 6e926677b401",
+          "DOI 10.1587/nolta.2.400"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 132a86d69a57, 6e926677b401, 556e9ff1e8aa",
+        "DOI 10.1186/1687-1499-2011-4 and 10.1587/nolta.2.400",
+        "DOI 10.1109/AERO.2013.6496833, full text not obtained"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The phase-retrieval record fixes the same 2,048 rotations-only ensemble and supplies unnormalized lags 1 through 16 for every row. It also supplies the reversal/complement orbit assignment."
+        ],
+        "reasoning": "Since R(32−t)=R(t), compute E=2Σ_{t=1}^{15}R(t)²+R(16)² for each row, then tally or group by the included orbit labels. The moments and missing multiples are direct summaries; no new classification is needed to extract them.",
+        "searches": [
+          "Resultary 132a86d69a57 Finding and cycles.csv against frozen E definition",
+          "DOI 10.1186/1687-1499-2011-4 Table 3; DOI 10.1587/nolta.2.400 Tables I–II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "132a86d69a57 uses x_j=2b_j−1 and unnormalized signed periodic R_B(t) for cycles modulo rotation. The earlier DS-CDMA paper uses periodic RMS sidelobes, but reports rounded averages. 556e9ff1e8aa considers non-wrapping lags at indexed cuts."
+        ],
+        "reasoning": "x_j is minus the frozen s_j, which cancels in all products. Periodic RMS per word is sqrt(E/31)/32 under the published normalization, and 1024/E is one-to-one with E. Averages of RMS or aperiodic per-phase data cannot simply be equated with the periodic energy table.",
+        "searches": [
+          "Resultary: order-five de Bruijn energy histogram; periodic energy/merit factor",
+          "Resultary 132a86d69a57; 556e9ff1e8aa",
+          "DOI 10.1186/1687-1499-2011-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cycles.csv is explicitly a complete per-cycle table; the header has cycle, orbit_representative, orbit_size, and R1,…,R16, with actual word-level rows verified at both ends. Table 3 reports 2,048/784/12 cycles with rounded normalized average RMS values 0.146/0.123/0.078, not per-word rows."
+        ],
+        "reasoning": "The complete per-word table suffices to recover all 47 bins without enumerating new cycles. The published threshold counts and rounded RMS averages do not.",
+        "searches": [
+          "Resultary: exact per-cycle correlation/RMS/energy tables, 12 and 784 peak threshold counts",
+          "132a86d69a57 cycles.csv",
+          "Spinsante–Andrenacci–Gambi (2011) Table 3"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary record provides a per-cycle table of the full periodic signature and orbit labels for exactly these 2,048 rotation classes, in the same autocorrelation normalization. Taking squared norms and tallying already supplied rows mechanically yields the energy histogram, moments, extremal classes/orbits and 1024/E distribution; the histogram need not be printed there. This is coverage, not a determination of relative priority. The checked journal papers give weaker aggregates or extreme single-lag values rather than that full coverage.",
+      "residual_risks": [
+        "Same-date record paths imply no relative priority, independence or dependence.",
+        "The 2013 paper and other alternative normalizations may contain further coverage not examined here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite mechanical coverage without a priority inference",
+          "evidence": "Stated complete database has exact R1–R16 for each rotation class and reversal/complement orbit assignments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "RESULT.md Finding, offset 0; cycles.csv schema and rows at offsets 0 and 232500",
+          "method": "Bounded local mirror reads of result and data file",
+          "title": "Almost-complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Same ensemble and a stronger exact periodic signature database"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Peak-lag spectrum and linear complexity include the 12 peak-four cycles, not the complete energy spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-joint-linear-complexity-and-periodic-sidelobe-spectrum-of--6e926677b401",
+          "material_read": "Finding and definition of sidelobe statistic",
+          "method": "Local mirror passage read",
+          "title": "Exact joint linear-complexity and periodic-sidelobe spectrum",
+          "trigger": "Nearby periodic exact census"
+        },
+        {
+          "assessment": "Not the periodic invariant",
+          "evidence": "Indexed cuts and non-wrapping lags differ from the 32-term modulo-32 sums and rotation quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-phase-dependent-aperiodic-sidelobe-spectra-of-binary-order--556e9ff1e8aa",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror passage read",
+          "title": "Exact phase-dependent aperiodic sidelobe spectra of binary order-five de Bruijn cycles",
+          "trigger": "Similar purported energy spectra"
+        },
+        {
+          "assessment": "Overlap in measured RMS and threshold subsets, not a complete histogram",
+          "evidence": "Whole set 2,048; F8 784; F4 12; rounded RMS averages 0.146, 0.123, 0.078.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "Periodic correlation pp. 4–5, PDF text offset 23800; Table 3 p. 8, offset 48600",
+          "method": "OA PDF bounded passages",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Exact same ensemble in early correlation-statistics literature"
+        },
+        {
+          "assessment": "Exact but different single-lag extrema",
+          "evidence": "Modulo N correlation; worst and second-worst signed correlations with lag positions/counts, not full per-cycle signatures or energy.",
+          "identifier_or_url": "https://doi.org/10.1587/nolta.2.400",
+          "material_read": "Def. 1 p. 401, offset 3000; Tables I–II offsets 16000–20355",
+          "method": "OA PDF bounded passages",
+          "title": "On auto-correlation values of de Bruijn sequences",
+          "trigger": "Exact tables with periodic correlation"
+        },
+        {
+          "assessment": "Unresolved individually; immaterial to confirmed dataset coverage",
+          "evidence": "No primary passage can be certified for this source.",
+          "identifier_or_url": "https://doi.org/10.1109/AERO.2013.6496833",
+          "material_read": "No full text obtained; cited §4 and Fig. 6 not inspected",
+          "method": "Lawful OA retrieval attempted",
+          "title": "DS-SS with de Bruijn sequences for secure Inter Satellite Links",
+          "trigger": "Cited all-cycle correlation figure and possible data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42, 54–82",
+        "Resultary 132a86d69a57 Finding and cycles.csv",
+        "Spinsante–Andrenacci–Gambi Table 3"
+      ],
+      "rationale": "Periodic energy is a natural aggregate and the finite histogram would be independently useful if exact cycle-level data were unknown. Here all the asserted quantitative and symmetry results are direct projections of the richer existing table. A re-enumeration and normalization check validate the numbers but do not add an independently needed classification or identify a distinct surviving result.",
+      "residual_risks": [
+        "No claim is made about catalogue coverage of other de Bruijn orders or different energy conventions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

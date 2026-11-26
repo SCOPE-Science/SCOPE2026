@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The half-integer identities reduce the precise Bessel quotient to an explicit positive ratio \(F_\gamma/G_\gamma\). The derivative-ratio identity \(G_\gamma'/F_\gamma'=1-L/x-\gamma L\) has exactly one minimum: its derivative changes sign precisely once because \((\sinh^2x-x^2)/x^4\) is a strictly log-convex nondegenerate moment-generating function. Differentiating \(F_\gamma D_\gamma-G_\gamma\) proves a single quotient maximum; endpoint expansions give strict endpoint separation. An analytic implicit-function expansion gives the small-tilt terms, while a uniform large-argument stationary equation yields the critical double-logarithm and additive excess. Supplementary numerical and symbolic identities are checked by `CHECK.py`; no finite test is substituted for the global argument.
+## correctness
 
-## Originality
-PASS relative to inspected evidence. Yang–Zhang's Section 6 obtains a general stationary characterization and expansions but no global uniqueness or critical double-logarithmic optimizing location. Gaunt's 2025 paper concerns exactly the positive-power integral used here and proves upper bounds; his main theorem does not evaluate the sharp constant or classify its equality point. Gaunt's 2018 related integral inequalities likewise do not imply a global uniqueness statement. Broad and exact-parameter literature searches and available mathematical research records did not identify a dominating statement. Residual risk: an unindexed specialized hyperbolic-integral optimization or a later revision could contain the same result.
+PASS
 
-## Value
-PASS. The question concerns the best possible coefficient in a family of Bessel integral inequalities used in special-function estimates. The published sufficient constants are not the optimal tilted constants. This proof supplies a complete one-parameter sharp solution with unique equality, plus two substantively different boundary-scale laws, including an unusual double logarithm at critical tilt. The mechanism is structural rather than finite sampling.
+The standard half-order formulas cancel the common square-root factor. With F the integral, G the tilted hyperbolic denominator, direct differentiation gives D=G'/F', with F', F and G positive for x>0. Writing N=sinh(x)^2-x^2, L'=N/[x^2 sinh(x)^2] and -(L/x)'/L'=N'/(2N)-2/x. Expanding cosh(2x) to third order with integral remainder gives the stated positive symmetric Laplace transform of N/x^4; its tilted measure is not a point mass, so the log curvature is strictly positive. The resulting logarithmic slope divided by two runs from 0 to 1. Hence D' changes from negative to positive once. The stationary numerator FD-G starts at zero and its derivative is FD'; at infinity D-G/F=x^(-2)+o(x^(-2)) for each fixed tilt, so the stationary numerator crosses zero once. The reciprocal G/F then decreases and increases, giving the sharp maximum, strict endpoint comparisons, and the unique equality point. At zero tilt the analytic stationary equation has slope -1/20 in x and 1/2 in gamma; reflection of (x,gamma) makes the local optimizing branch odd and its value even. At critical tilt, the endpoint lower bound forces x to diverge and the exact quotient excludes bounded delta*x. With y=delta*x diverging, differentiating gives 2 exp(-y)(1+delta*x*(x-1))=2-delta+O(x^2 exp(-2x)), uniformly near delta=0. Taking logs yields y-2 log y=log(1/delta)+o(1), hence the second logarithm as stated. The quotient's 1/x denominator correction gives additive 1/y, while the numerator exponential contributes only O(y^(-2)). Replay: `cd /workspace && python audit_checks.py 2` verifies the log-derivative identity, small-tilt expansion and exact numerator of the critical-tilt score independently of the supplied checker.
 
-## Scope and limits
-The assertion is specifically the weighted \((\mu,q)=(1/2,1)\) case and does not address arbitrary orders or power weights. The extremal constant requires solving one uniquely defined transcendental equation. An independent scientific audit has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is global one-turn uniqueness, including the unique equality point, and the optimizer and sharp-value asymptotics in the two tilt limits. The sharp quotient, its endpoint limits, strict excess over both endpoints, and stationary-value representation all specialize from earlier general results and are not credited as new.
+
+## value
+
+PASS
+
+This is a natural special-function reduction of an established sharp-constant problem. It replaces an unconstrained search over stationary points with one uniquely characterized equality point, and resolves the singular strong-tilt displacement and additive gap where the leading endpoint bound alone is uninformative. The log-convexity argument explains the uniqueness rather than merely sampling optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:25:28.612241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Detailed balance gives unit edge conductances against the masses |k|+2 and normalization L²+5L+2. The first excited Jacobi mode has one sign change; reflection and simplicity rule out an even mode. Its odd restriction gives the stated half-chain quotient, including the single incident edge at L. With h=1/L the scaled gap is the stiffness divided by the right-endpoint mass sum. On each linear cell the L¹ norm of (xf²)'' is bounded in aggregate by a constant times the stiffness, so trapezoidal quadrature has a uniform O(h²) mass remainder relative to stiffness. The order-h mass consists of the endpoint trace f(1)²/2 and the bulk 2∫f², with both signs positive. Differentiation of the simple continuum eigenvalue gives −μ b₁(u)/b₀(u); interpolation and the eigenfunction weak identity bound the discrete eigenvalue error by O(h²) at the scaled level, giving O(L⁻⁵) after rescaling. The stationary limit follows by a Riemann sum; the relaxation parameter is the smallest positive eigenvalue of I−P, equivalently the Poissonized rate. Independent replay: python -B /workspace/review_replay.py 3, using a power-series solution rather than Airy evaluation and half-chain eigenvalues at L=16,64,256,1024. The numerical checks corroborate, not prove, the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grebenkov and Tupikina give general finite-matrix spectral methods for heterogeneous walks; their interval example has one absorbing and one reflecting boundary.",
+          "The compared higher Airy quantization record studies a periodically weighted shift on a half-line rather than this discrete string."
+        ],
+        "reasoning": "A general matrix spectral representation is not a two-term asymptotic theorem. No inspected broader statement supplied the correction for both the endpoint mass and the +2 offset of this string.",
+        "searches": [
+          "arXiv:1712.01020 §II.B",
+          "Resultary: Airy spectral gaps and finite-size spectral corrections"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.13077",
+        "arXiv:2410.22097",
+        "arXiv:1712.01020",
+        "Resultary 72714a45cd28",
+        "Resultary 64562d188f19",
+        "Resultary 10e79aeb504f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior unconfined t^(1/3) scale suggests L³ as a time scale but says nothing about the mass-quadrature correction.",
+          "The coefficient contains two independently identifiable terms: the reflecting-end half weight and the microscopic waiting-weight offset."
+        ],
+        "reasoning": "Neither the exponent nor a continuum boundary spectrum alone implies the L⁻⁴ coefficient; obtaining it requires controlling the lattice-to-continuum error at the next order. No inspected source supplies that conclusion for the displayed kernel.",
+        "searches": [
+          "arXiv:2301.13077 Eqs. (43)–(50)",
+          "arXiv:1712.01020 §II.B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zodage et al., PDF p. 2: same per-step probabilities; p. 10, Eqs. (43)–(50): absorbing threshold for the unconfined maximum.",
+          "Del Vecchio and Majumdar, §II.A and conclusions: free-space scaling and path observables."
+        ],
+        "reasoning": "Reversibility and restriction to odd modes identify a discrete weighted string with a fixed end and a natural reflecting end. Neither free-space trajectory observables nor first passage with an absorbing threshold is that eigenvalue problem; equality of the microscopic jump rule or use of the Airy equation is insufficient.",
+        "searches": [
+          "arXiv:2301.13077",
+          "arXiv:2410.22097",
+          "Resultary: sluggish random walk, finite-volume Airy spectral gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the findings of records 72714a45cd28, 64562d188f19 and 10e79aeb504f: respectively a periodic weighted shift, a Dicke-state quantum walk, and a penalized Langevin diffusion."
+        ],
+        "reasoning": "The returned records give neither an exact gap table for this kernel nor a determination of μ and c for its boundary convention. This is limited to checked matches.",
+        "searches": [
+          "Resultary: sluggish walk reflecting box gap; Airy eigenvalue and two-term correction"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the two-term rejected-boundary box gap, specifically the lattice-sensitive L⁻⁴ term. The walk and its unconfined Airy behavior are known; neither is credited as new. The methods and source comparisons do not establish exhaustive priority.",
+      "residual_risks": [
+        "The broader discrete-string and turning-point literature was not exhaustively covered; an earlier equivalent expansion under that language remains possible.",
+        "The assessed novelty is not the exponent, the Airy equation, or the general variational technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model on the line, not the rejected-boundary box asymptotic",
+          "evidence": "The maximum derivation imposes an absorbing threshold at L.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.13077",
+          "material_read": "PDF pp. 2 and 10, Eqs. (43)–(50)",
+          "method": "OA PDF passages",
+          "title": "A sluggish random walk with subdiffusive spread",
+          "trigger": "Same microscopic walk and Airy equations"
+        },
+        {
+          "assessment": "Different observables",
+          "evidence": "The inspected material uses free-space propagators and trajectory observables, not relaxation eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.22097",
+          "material_read": "PDF pp. 5–6, §II.A; p. 22 conclusions",
+          "method": "OA PDF passages",
+          "title": "Generalized arcsine laws for a sluggish random walker with subdiffusive growth",
+          "trigger": "Same process, related scaling limits"
+        },
+        {
+          "assessment": "Covers finite-matrix method, not the stated expansion",
+          "evidence": "The worked finite interval has one absorbing and one reflecting endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.01020",
+          "material_read": "PDF pp. 3–5, §II.B",
+          "method": "OA PDF passages",
+          "title": "Heterogeneous continuous time random walks",
+          "trigger": "Plausible broader spectral coverage including finite reflectors"
+        },
+        {
+          "assessment": "Different operator and limit",
+          "evidence": "Four-periodic weighted shift on a half-line, with fixed-rank Dirichlet–Airy modes.",
+          "identifier_or_url": "Resultary 72714a45cd28",
+          "material_read": "Finding",
+          "method": "Resultary search and mirrored record",
+          "title": "Higher Airy eigenvalue quantization and eigenvector limits",
+          "trigger": "Nearby Airy eigenvalue gap"
+        },
+        {
+          "assessment": "Different operator and coefficients",
+          "evidence": "Cyclic Dicke-state walk with harmonic-number scaling.",
+          "identifier_or_url": "Resultary 64562d188f19",
+          "material_read": "Finding",
+          "method": "Resultary search and mirrored record",
+          "title": "Sharp spectral relaxation at the admissibility boundary",
+          "trigger": "Nearby two-term spectral gap"
+        },
+        {
+          "assessment": "Different operator and boundary",
+          "evidence": "Penalized Langevin diffusion and continuous effective interval length.",
+          "identifier_or_url": "Resultary 10e79aeb504f",
+          "material_read": "Finding",
+          "method": "Resultary search and mirrored record",
+          "title": "Square-root soft-wall shift and dispersive spectral correction",
+          "trigger": "Nearby boundary-sensitive correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-box relaxation time is a natural measurable invariant of an existing subdiffusive walk. Its exact first correction distinguishes rejected endpoints and the microscopic waiting law from continuum models with the same spreading exponent and leading scale. The coefficient is useful as a finite-size benchmark, not merely another finite numerical check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

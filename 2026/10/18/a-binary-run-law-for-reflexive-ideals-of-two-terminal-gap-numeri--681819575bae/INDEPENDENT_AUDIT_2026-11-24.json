@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:35.266093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=3 the conductor is 2m and sums of positive semigroup elements reach the conductor. A normalized ideal is determined by the gaps it adds, and closure is tested by adding semigroup members to those gaps. In the one-gap family every included low gap x forces c=2m-1 via c-x in the semigroup; once c is included every low subset is allowed. Pairing complementary integers about c proves symmetry and the Frobenius-witness argument gives biduality. In the two-gap family, adding only b=2m-2 permits just the optional low gap 1 because c-x belongs to S for all other low x. Adding only c permits just the optional m-1 because b-x belongs to S for all smaller low x. With neither, no low gap is allowed, and with both, every low subset is allowed. The classification includes the endpoint m=3, where the positive semigroup block below the conductor is {3}. For I != S the colon is contained in S and excludes 0; its elements are at least m, hence both terminal gaps are in the bidual. With both gaps in I, an element m+j of S below the conductor belongs to the colon exactly when low gaps m-2-j and m-1-j are both absent. The colon contains the entire conductor tail, and for x<0 the tail witness 2m-1-x excludes x from the bidual. An absent low gap stays absent precisely when it lies in a missing adjacent pair, including the single available neighbor at a boundary. Thus the bidual fills just the singleton missing positions, and the base S accounts for the extra reflexive ideal. Counting k runs of zeros by their 2k minimal zeros and k-1 separators proves the binomial sum, and the regular-language decomposition gives the rational series and recurrence. The characteristic polynomial has one real root lambda in (1,2) (both critical values are negative), with conjugate roots of modulus 1/sqrt(lambda). A simple-pole calculation gives the stated positive residue constant and the asymptotic density; bounded arithmetic independently gives lambda=1.7548776662466927 and C=0.722124418303113. Frozen verification documentation and script were read, not replayed. The script checks finite conductor windows for m=3 through 13; exclusion of negative integers is analytic, and the theorem does not depend on exhaustion over an unbounded parameter. The repaired RESULT, REVIEW and slogan retain the correct census, identify the known numerator and narrow the distinct claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reflexive ideal framework does not by itself classify the ambient ideal sets for the two terminal deletions.",
+          "Chavan pp. 1–2, offsets 2400–4802, studies counts of ideals by codimension or conductor, explicitly treats embedding-dimension-two and specified families, and discusses stationary counts; the inspected scope does not give the normal census for these unbounded multiplicity families.",
+          "Spirito abstract at offset 0 counts star operations via antichains of nondivisorial ideals, not the full ideal counts for the terminal families.",
+          "The sliding-window theorem focuses on the reflexive subfamily; the same colon of multiple choices of terminal gaps does not track all normalized ideals."
+        ],
+        "reasoning": "The full count requires determining which low gaps are permitted in each terminal-gap selection, including four proper exceptions that fail reflexivity. A classification of fixed points of the bidual and a different ideal-counting scope do not supply these exceptions or their ambient denominator.",
+        "searches": [
+          "arXiv:2610.06426v1",
+          "arXiv:2304.13690",
+          "arXiv:1604.02862v1",
+          "Resultary 62b4b8c42504"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify_reflexive.py; corrected RESULT.md, REVIEW.md and SLOGAN.txt",
+        "Resultary 62b4b8c42504",
+        "arXiv:2610.06426v1, 2304.13690 and 1604.02862v1",
+        "OEIS A005251"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed quotient formula I^v=S∪B∪{x:E_x⊆Z} at r=2 has exactly the frozen fixed points, and if B(z) is the indexed word series at r=2, 1+zB(z) equals the frozen no-isolated-zero series. The indexed discussion acknowledges a length-two result without identifying a different source.",
+          "The fully classified window ideals all contain the terminal block except S itself, so they do not enumerate all ideals with a proper nonempty selection of that block."
+        ],
+        "reasoning": "The narrower wording r>=3 does not prevent the quoted argument from giving the numerator by a direct specialization. In contrast, the separate gap-addition analysis determines the complete ideal family under each selection: neither terminal gives 1, only b or only c gives 2 each, and both gives 2^(m-1). The exact denominator and exceptional sets, not the already determined exponential behavior of the word sequence, support the repaired result.",
+        "searches": [
+          "Indexed 62b4b8c42504 Finding, proof §§1–5 and relation statement",
+          "Chavan arXiv:2304.13690, introduction",
+          "OEIS A005251"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed Finding offsets 0–2137 gives S_(m,r), windows E_x and normal reflexive ideals for r>=3. Proof offsets 2940–6329 give the colon, completion and window-union classification without using r>=3 as opposed to r>=2.",
+          "Campochiaro–D’Anna–García-Sánchez, pp. 16–17 near offset 63494, gives the symmetric implication and bidual framework."
+        ],
+        "reasoning": "For r=2 the indexed semigroup is exactly S_m^(2) with L=m-2. Index i in the window range corresponds to the low-gap pair (L-i,L-i+1); i is absent from the hit union exactly when both are absent. The completion rule therefore includes an absent low gap precisely when it has no absent neighbor. The single-terminal case uses ordinary numerical-semigroup symmetry, not a new form of biduality.",
+        "searches": [
+          "Local Resultary normalized divisorial ideals / terminal gap blocks / forbidden runs comparisons",
+          "2026/10/26/SCOPE-sliding-window-classification-and-growth-of-reflexive-ideals-in--62b4b8c42504",
+          "arXiv:2610.06426v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005251 comment at offsets 2070–2540 identifies term n>=2 as the count of words of length n-2 without isolated zeros; the page also cites Austin–Guy (1978) under complementation.",
+          "Indexed 62b4b8c42504 discusses an unnamed length-two forbidden-run result in its relationship section (offset 7759 onward), and gives a window parametrization and generating function, but not the exact total of all normalized ideals."
+        ],
+        "reasoning": "For the frozen a_n use table term n+2. This is exact existing sequence coverage, not evidence by itself of an ideal count. The indexed window proof supplies the ideal bridge for the reflexive numerator separately. Neither entry counts the nonreflexive exceptional terminal selections in the ambient normalized family.",
+        "searches": [
+          "OEIS A005251, search for binary words without isolated zeros",
+          "Local Resultary terminal gap ideal enumeration and binary run rule"
+        ]
+      },
+      "rationale": "PASS is for the repaired census of the entire normalized-ideal families, especially the exact five exceptional ideals outside the Boolean family in the two-gap case, and the resulting exact density with that denominator. No novelty is credited for the all-reflexive symmetric case, the word sequence, or the local bidual rule claimed in the original: the proof of the indexed sliding-window theorem works without a new step for r=2 and yields the reflexive subfamily. The comparator’s theorem as stated excludes r=2; this is proof-level coverage, not literal statement coverage or a priority decision. Its quotient calculation discards information about which partial terminal selections yield valid ideals and does not supply the complete normalized-ideal census. The repair separates the two enumerations and supplies the comparison explicitly.",
+      "residual_risks": [
+        "A wider ideal-poset classification or unindexed example may already enumerate the full two-gap family; no such statement was established in the bounded readings.",
+        "The unnamed length-two result in the comparator is not identified, and is not assumed to be a distinct earlier record or assumed to cover the exceptional ideal census.",
+        "Austin–Guy was identified via OEIS rather than examined in full. No priority claim is inferred from repository dates or an unproductive topical web query."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stated r>=3 scope, but the proof covers the r=2 reflexive classification, not the full normalized-ideal census",
+          "evidence": "Window unions and quotient formula give exactly the adjacent-pair omission rule when r=2. The work distinguishes its claimed range and acknowledges a length-two result without a precise citation.",
+          "identifier_or_url": "2026/10/26/SCOPE-sliding-window-classification-and-growth-of-reflexive-ideals-in--62b4b8c42504",
+          "material_read": "RESULT Finding offsets 0–2137, proof offsets 2940–6329, prior-work discussion offsets 7759–8861",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sliding-window classification and growth of reflexive ideals in terminal-gap numerical semigroups",
+          "trigger": "Same family after specializing block length and exact binary classification"
+        },
+        {
+          "assessment": "Existing framework and symmetric case; no ambient two-gap census in the inspected passage",
+          "evidence": "Proposition 52 cited for symmetric numerical-semigroup reflexivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06426v1",
+          "material_read": "pp. 16–17 around PDF offset 63494, symmetric implication and framework",
+          "method": "OA PDF passages",
+          "title": "Reflexive ideals of a numerical semigroup",
+          "trigger": "Same biduality invariant and symmetric family"
+        },
+        {
+          "assessment": "Exact prior binary sequence, no identification with the full semigroup census",
+          "evidence": "For n>=2 the nth term counts length n-2 binary words without isolated zeros.",
+          "identifier_or_url": "https://oeis.org/A005251",
+          "material_read": "Binary-word interpretation, offsets 2070–2540; page bibliography cites Austin–Guy",
+          "method": "Bounded OA public-page read",
+          "title": "A005251",
+          "trigger": "Exact word sequence under index shift"
+        },
+        {
+          "assessment": "Different families or counting questions in inspected scope",
+          "evidence": "Counts by codimension or conductor, explicit stationary terms for specified families, not a reported census for the two terminal-gap families.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13690",
+          "material_read": "Abstract and pp. 1–2, offsets 2400–4802, scope and counting definitions",
+          "method": "OA PDF passages",
+          "title": "Counting Ideals in Numerical Semigroups",
+          "trigger": "Potentially broader census of semigroup ideals"
+        },
+        {
+          "assessment": "Different invariant in available passage, not comprehensive noncoverage evidence",
+          "evidence": "Counts star operations in terms of antichains of nondivisorial ideals.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.02862v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA abstract passage",
+          "title": "Star Operations on Numerical Semigroups: Antichains and Explicit Results",
+          "trigger": "Adjacent work on divisorial ideals and counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving result is a complete classification of the ambient normalized-ideal families for a natural terminal-gap deletion, not a new name for a word sequence or just a fixed-point count. It identifies the exact boundary exceptions outside the Boolean family and supplies the denominator needed when sampling all normalized ideals, an invariant not recoverable by counting only reflexive ones. It quantifies the change from universal reflexivity to exponentially sparse reflexivity with an exact finite-m proportion rather than a density heuristic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

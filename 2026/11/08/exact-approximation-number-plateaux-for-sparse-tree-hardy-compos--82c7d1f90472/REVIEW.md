@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The general theorem is proven by the exact level-averaging identity, a rank-one root term plus mutually separate finite-dimensional copy blocks, and matching approximation-number bounds. The upper bound retains the largest coordinate weights in a finite-rank approximation; the lower bound adds the root direction to enough independent input coordinate directions so every lower-rank map has a kernel witness. Compactness follows both from norm convergence of finite-rank truncations and a separated-sequence obstruction. The arithmetic plateau, ideal threshold, and weak endpoint are consequences of an exact geometric count. The finite checker records 2,166 supplementary assertions but is not substituted for proof.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+The root value is observed without loss at the output root, and on the copied output vertices the root term is absent. The full level averages are convex combinations of the p-th powers of the respective input level norm and root value; this proves contractivity and the constant function gives equality. With each level rescaled to a standard ℓ_p block, each copy is δ_j times an isometric coordinate embedding. Keeping the root term plus k−1 coordinates gives rank at most k, and deleting arbitrary coordinates within an ℓ_p block has norm at most one. Conversely on the span of the root input unit and k copied coordinates of weights ≥w_k, the norm of the output dominates w_k times the full input norm, by testing separately the root and each copied piece. Every rank ≤k map has a kernel vector there. This works even when some input and output depths coincide, since a single application does not compose those copies. Exact tails and unit vectors on distinct input levels give both directions of compactness; no weak convergence hypothesis on the ℓ∞ sum is needed. In the arithmetic case the a-index endpoints are J_{j−1}+2 and J_j+1, giving exactly the printed liminf and limsup. For arbitrary ρ the ceilings are nondecreasing and each weight is between q^(−1/p)q^(−j/ρ) and q^(−j/ρ); the cumulative block count is comparable to q^j even when weights tie. The proof, not the diagnostic, establishes these claims. The frozen checker was statically inspected: its normpower function divides two integers using `/`, so some input averages are floating-point despite the advertised exact-rational scope. This does not enter the proof; do not cite those comparisons as an exact certificate.
 
-Liu–Ma (arXiv:2610.33717v1), Sections 3–4, gives a compactness characterization and explicit cancellation examples rather than the exact approximation-number sequence of the level-copy family. Muthukumar–Ponnusamy (arXiv:2004.03171v1), especially its norm and compactness sections, and the earlier generalized tree Hardy-space paper (arXiv:1609.09729) provide foundational space/operator results but no matching approximation plateaux. Lechner–Li–Queffélec–Rodríguez-Piazza's 2018 work treats analytic Hardy-space operators on the disk; approximation numbers of integral Hardy operators on metric trees have different definitions. Nearby published mathematical records concern scalar \(C(K)\) weighted compositions, quasi-Banach sequence spaces, and weighted block maps; none identified makes the stated unweighted \(\mathbb T_p\) theorem a previously published special case. General coordinate truncation is standard, and no methodological priority is claimed. Residual risk: a previously unlocated general direct-sum operator theorem might imply this result through a nontrivial identification of the composition symbol.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating literature obtains qualitative compactness for a rich class of tree Hardy composition operators. The new theorem quantitatively determines every finite-rank approximation error for a natural infinite family, including exact plateau lengths and critical endpoint behavior. A direct, unweighted symbolic construction realizes every positive approximation-ideal threshold; the strict strong/weak separation and distinct liminf and limsup remain visible at the exact endpoint. This is more than an isolated coefficient or routine finite check, though it does not settle arbitrary-tree symbols.
+Best-of-knowledge for the complete approximation-number profile and its threshold realization; the norm and qualitative compactness are prior consequences, and the general proof technique is standard.
 
-## Scope and remaining risks
+## value
 
-The sparse symbols must have distinct input and output depths, with \(q\ge2\) and \(1\le p<\infty\). The claim is about Banach approximation numbers, not Hilbert singular values. Priority remains provisional pending broader human literature review; an undiscovered equivalent general block result cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives all optimal rank errors for a simple family of unweighted symbols in a setting where the general criterion is qualitative. In particular it exhibits every positive strong/weak approximation summability transition on one fixed tree Hardy space and computes the distinct endpoint constants instead of just a decay exponent. The calculation is useful independently of generalizations to other symbols; no Schatten conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Averaging over circle rotations and reflection reduces the infimum over all admissible real operators to an even convolution kernel with exactly two free multipliers. Its normalized \(L^1\) norm is coercive and differentiable. The two vanishing sine moments forbid zero, one, or two sign changes; a cubic can have at most three, yielding three simple crossings. The five exact equations are necessary and sufficient by convexity, and comparison of signs at those simple roots establishes uniqueness. Splitting the elementary primitive at the roots gives the exact minimum. The proof, not numerical sampling, establishes existence and uniqueness for the entire continuum of operators.
+## correctness
 
-**Originality — PASS with residual historical risk.** H.-N. Wu, arXiv:2609.02695, develops sharp general positivity-loss bounds and the symmetry reduction, but does not compute the continuous degree-one-to-three constant or its unique three-crossing kernel. Deregowska–Foucart–Lewandowska–Skrzypek, DOI 10.1007/s00605-018-1159-x, analyze specific de la Vallée–Poussin kernels and prove nonminimality for the relevant wide-transition scheme, not the unrestricted optimum. Defant et al., arXiv:2609.22050, treat different fixed-range projection constants. These are mathematical nonimplications, not evidence of guaranteed priority. An earlier exactly equivalent extremum might be unindexed; some earlier adjacent material was not available in full.
+PASS
 
-**Value — PASS.** The first Fourier reproduction problem allowing *two* freely optimized higher modes yields a fully characterized sharp norm, a unique extremizer with three sign changes, and a strict improvement over the degree-two optimum. This supplies an exact benchmark where the standard degree-three averaging kernel is known to be nonoptimal, thereby completing the natural next finite transition-band case rather than recomputing a fixed projection constant.
+Rotation and reflection averaging preserve reproduction and contract the norm, leaving the two free real multipliers. The resulting normalized L¹ objective is convex, coercive by the Fourier coefficient bound, and differentiable since each nonzero kernel has only finitely many zeros. The mass and first cosine moment are both one, so the kernel cannot have constant sign. One sign change cannot make both sine moments zero. For two crossings, the second-harmonic equation forces the sum of angles to be π/2 or 3π/2 and their difference below π/2; then the third-harmonic equation cannot hold. The polynomial in cos(t) has degree at most three, so the three remaining crossings are simple. The stationary equations suffice by convexity. Equality in the midpoint L¹ inequality forces identical crossing locations and hence identical cubic up to scale, fixed by mass one. Integration on the four intervals gives the norm formula. For each real unital A, continuity and the substitution g=2f−1 identify its worst excess with (||A||−1)/2. For degree two, the a=1/2 kernel has one crossing at π/2 and vanishing derivative in the single free direction, establishing the stated 4/π benchmark. It is not stationary in both directions at degree three. Independent 80-digit replay gives 1.161395443269471428720196… and 0.080697721634735714360098…; maximum equation residual 3.17e−81 and separate interval quadrature agrees. The canonical delayed kernel has larger norm, about 1.18809092367265300728.
 
-**Verification and limits.** The included reproducible numerical checker solves the five equations to residual below \(10^{-50}\), tests the primitive against quadrature and checks the candidate's Hessian. These checks are supplementary and do not independently certify novelty or prove statements for all operators. The word "unique" applies only to the even convolution kernel. Historical priority, and independent mathematical validation, remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general circle reduction and sharp-order bounds, the strict nonminimality of the delayed kernel (including these parameters), and the closest exact degree-two result are credited. No inspected result gives or implies the degree-three optimum or its unique even optimizer. The exact fixed-band calculation, not the already-known reduction or nonminimality alone, is the distinct contribution.
+
+## value
+
+PASS
+
+This is a natural next transition band: once two freely adjustable multipliers are present, the optimum necessarily develops three crossings and cannot be inferred from the one-free-multiplier case. The exact kernel and its norm quantify the best achievable positivity tradeoff among all such reproducers and give a concrete replacement for the canonical nonminimal mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

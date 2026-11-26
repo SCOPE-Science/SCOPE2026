@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance calculations reduce posterior-risk minimization to maximization of a rational expression over a compact square. Explicit substitution proves strict non-collocation for every positive discrepancy ratio. A uniform remainder estimate based on covariance Cauchy–Schwarz localizes all global optimizers to two golden-ratio neighborhoods as the ratio grows. Smooth Hessian estimates give strict local concavity and exactly two global maximizers for sufficiently large ratio. Stationarity produces the first high-site displacement coefficient, and all boundary and coincident cases are handled by continuous extension. The supplied checker independently reconstructs the two-by-two Gaussian regression algebra, but does not replace the continuum proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Integration of the bridge kernel gives the integral-point covariance t(1−t)/2 and integral variance 1/12. Updating on the low site after the high site gives residual covariance (b−k)/2 and residual variance b−k²/((1+d)a); the latter is positive in the interior since k²≤ab and d>0. The formula extends correctly when y is an endpoint: the low correction is bounded by (1+1/d)b/4. When x tends to an endpoint and y stays interior, k=O(a), so the correction tends to b/4, the correct low-only result. On the diagonal it is zero, and the separated quarter-point design gives the exact positive gap stated. Uniformly on the square the low correction differs from g/4 by at most 1/(16d). This first forces every maximizing x to the midpoint and then forces every limit of y to be a maximizing y of g at the midpoint. The two distinct maximizers on that slice are obtained from the sign of the derivative on the two reflection halves; at them g_yy=−10+4√5<0. On two disjoint small interior rectangles away from x=y, the smooth remainder is O(1/d) through second derivatives. The Hessian has a negative yy entry bounded away from zero, xx=−d/2+O(1), and bounded xy; it is negative definite for sufficiently large d. Hence each rectangle contains at most one optimizer, and compactness and reflection give exactly two in total. The x gradient gives x−1/2=O(1/d); the nonzero y curvature then gives y−y₀=O(1/d). Inserting these estimates in the x gradient gives the specified high-site coefficient with O(d⁻²) error. The leading quadratic loss from x costs O(d⁻¹) in value, so the limiting correction is g(1/2,y₀)/4. Independent symbolic checks of finite separation and the golden constants: python3 /workspace/replay/checks.py 2. No finite check certifies uniqueness or an explicit d₀.
 
-Full mathematical texts on multilevel Bayesian quadrature and co-kriging were inspected for the integrated objective, mixed-fidelity covariance model, optimal-site implications, and stronger general theorems. Standard covariance and BQ posterior formulas are covered, but the cited results do not determine the globally optimal non-nested placement of one high and one low evaluation, the strict universal separation, or the large-discrepancy golden-ratio two-optima classification. Related prior single-bridge two-sensor and random-design results do not have the same observation field or criterion. Search cannot establish publication priority, and historical specialized results may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a structural design question in a natural minimal two-fidelity Gaussian-process integration model: a seemingly reasonable nested/co-located design loses information at every discrepancy strength, and the optimal separated low-fidelity site has an unexpected exact limit. It also quantifies the surviving benefit of the low-fidelity observation when the discrepancy dominates. The claim is not a general multilevel complexity theorem and does not assert performance improvements for other kernels or sample budgets.
+Standard Gaussian conditioning and additive-discrepancy covariance modeling are not novel. The supported difference is the exact strict non-collocation for the labeled budget at every d>0 and the eventual reflected optimizer pair with golden-ratio locations and quantified gain. The closest distinct indexed Brownian-bridge theorem has another observation model and asymptotically vanishing separation. The closest primary multifidelity comparisons are limited by full-text access.
 
-## Closest work and scientific limits
+## value
 
-Li et al. (2022, arXiv:2210.08329) optimize sampling counts and bound multilevel integration error with level-difference evaluations, but do not solve this non-nested two-site problem. Yang et al. (2018, arXiv:1811.09757 and 1812.02919) analyze co-kriging and greedy pointwise design, not this exact integrated posterior criterion. Global uniqueness is proved only for sufficiently large discrepancy and the proof does not produce a numeric cutoff. Independent mathematical and literature-priority checking remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a minimal exact two-fidelity integration problem, zero residual low-fidelity information at co-location leads to strict suboptimality at every nonzero discrepancy ratio, with a surviving strictly positive absolute gain even as the discrepancy dominates. The exact location asymmetry and the optimizer count quantify a natural design phenomenon beyond a Gaussian conditioning exercise. This does not claim a result for other kernels, costs, or budgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

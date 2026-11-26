@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:22:45.620975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–81",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify_pascal.py, inspected but not executed",
+        "Frozen verification_output.txt, lines 1–10"
+      ],
+      "rationale": "For the normalized conic parametrization, the opposite chords give Pascal coefficients [−z, x(y+z−1)+z, −xyz]. Distinct vertices give distinct opposite-side intersection points, and the quadratic conic restriction has discriminant z²D with z nonzero. For distinct y,z outside {0,1}, the x-quadratic discriminant has character χ(y(y−1)z(z−1)); it is nonzero, and the linear cases y+z=1 have character sum zero and one root each. Removing x=0,z subtracts two sets of square values. The x=1 and x=y exclusions factor into the two stated products; their sums are both −2q+6+χ(−3), giving A_S−A_E=−3q²+20q−33−2χ(−3). For tangencies, the two deleted zero sets have q−4 members each; the resulting A_T is (q−4)(q−5). The nonsplit line orbit is transitive, since an affine F_q transformation can send any nonrational parameter in F_{q²} to another, carrying conjugates along. The other two orbits follow from transitivity on conic points and pairs. Dividing each normalized tally times |PGL₂| by its orbit size and by the free dihedral factor 12 gives the claimed per-line counts. In particular (6,6,48) at q=7 is the normalized tally, whereas (6,21,64) is the correct per-line tally. All three formulas are positive for permitted q≥7, and q=5 has only exterior lines hit. Direct independent censuses agreed at q=5,7,11.",
+      "replay_paths": [
+        "/workspace/branches/826c2d69-8625-4ec6-9e6f-56fb14b1ebc1/independent_pascal_replay.py"
+      ],
+      "residual_risks": [
+        "The independent census is over prime fields only. The source records a separate finite F_25 check; the character-sum argument proves every extension degree in scope.",
+        "The title omits the q=5 exception; the mathematical Finding explicitly states it and limits surjectivity to q≥7."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The enumerative article treats fixed-line fibers and simultaneous prescribed-line constraints over the complex field. The degeneration paper treats collisions over a complex conic. The finite-field spectrum ranges over many characteristics, but fixes the sextuple and imposes genericity."
+        ],
+        "reasoning": "None of these broader settings yields all finite fields in scope, with all distinct rational sextuples and no additional genericity imposed. Nonsplit exterior lines and the characteristic character correction need explicit finite-field analysis.",
+        "searches": [
+          "arXiv:2303.10319, setup and Proposition 2.1",
+          "arXiv:2202.12975, abstract",
+          "Resultary 1e6ef0f36929, RESULT.md finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.10319",
+        "arXiv:2202.12975 (abstract scope)",
+        "Resultary b12bbb99614c",
+        "Resultary 1e6ef0f36929",
+        "Innamorati (landing-page abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complex fiber dimension/rationality does not count rational points on the deleted loci of the open sets and does not distinguish the three rational line types. The F_5 catalogue resolves one value of q only."
+        ],
+        "reasoning": "A complex open parametrization can guide the counting, but does not make the finite-field count uniform in line type, prescribe its character correction, or prove the positive fibers for all q≥7. Those conclusions rely on the submitted normalization, exclusions and character-sum enumeration.",
+        "searches": [
+          "arXiv:2303.10319 p. 6 Proposition 2.1",
+          "Resultary b12bbb99614c, RESULT.md finding and cited finite-geometry antecedents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chipalkatti parametrizes a fixed-symbol, fixed-line variety as an open subset of an affine four-space in the complex setting; this is the closest geometric formulation.",
+          "Resultary b12bbb99614c has the exact F_5 cyclic-ordering distribution. Resultary 1e6ef0f36929 counts Frobenius types for one fixed incidence-generic divisor, rather than preimages of one line over all rational divisors."
+        ],
+        "reasoning": "For a fixed symbol, counting rational ordered sextuples in the fiber and dividing by 12 would indeed give the submitted invariant. Neither complex parametrization nor Frobenius classification for one divisor is itself that rational count.",
+        "searches": [
+          "Resultary, rational Pascal-line fibers / all conic sextuples / finite-field conic exterior lines",
+          "arXiv:2303.10319, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b12bbb99614c gives six orderings for each of ten exterior lines and none on the other lines at q=5, with an additional orbit decomposition; 1e6ef0f36929 lists spectra for fixed degree-six divisors rather than per-line fibers."
+        ],
+        "reasoning": "The q=5 row specialization is exact indexed overlap; same-day records do not establish priority. No inspected table gives the q≥7 general fiber law.",
+        "searches": [
+          "Resultary b12bbb99614c and 1e6ef0f36929, mirror RESULT.md from offset 0"
+        ]
+      },
+      "rationale": "The supported contribution is the complete rational fiber count by secant, tangent and exterior line type, including the quadratic-character dependence and sharp surjectivity threshold. Credit is not assigned for the already catalogued F_5 distribution or for the geometric notion of a fixed Pascal-line fiber.",
+      "residual_risks": [
+        "Older finite-projective-geometry counts, including Edge references and Innamorati's full paper, may bear on priority. Historical priority for the exact F_5 overlap is unresolved. No global uniqueness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related geometry but no coverage of the type-dependent rational fiber law",
+          "evidence": "Proposition 2.1 identifies the fixed-line Pascal variety with a dense open subset of an affine four-space in the complex setup.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.10319",
+          "material_read": "PDF p. 3 setup offset 5214 and p. 6 Proposition 2.1 offset 11847",
+          "method": "OA PDF passages",
+          "title": "On the Enumerative Geometry of Pascal's Hexagram",
+          "trigger": "Fixed Pascal symbol and fixed-line fiber antecedent"
+        },
+        {
+          "assessment": "Inspected scope is vertex collision, excluded here",
+          "evidence": "Studies degeneration and resolution of the construction when vertices of a complex conic collide.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12975",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA PDF passage",
+          "title": "Degenerations of Pascal Lines",
+          "trigger": "Closely related Pascal-map fiber geometry"
+        },
+        {
+          "assessment": "Exact overlap for q=5 only; same-day priority undetermined",
+          "evidence": "Sixty cyclic orderings give six per exterior line on the ten exterior lines, with a finer orbit split.",
+          "identifier_or_url": "b12bbb99614c",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sixfold Pascal collapse onto the ten exterior lines of the complete conic in PG(2,5)",
+          "trigger": "Exact special-case indexed overlap"
+        },
+        {
+          "assessment": "Different fixed-object quantification",
+          "evidence": "Summarizes Frobenius behavior of flags for one incidence-generic degree-six divisor.",
+          "identifier_or_url": "1e6ef0f36929",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Frobenius orbit spectra and rational incidence obstructions for Pascal–Kirkman flags",
+          "trigger": "Finite-field Pascal counts in overlapping characteristics"
+        },
+        {
+          "assessment": "No theorem-level comparison to the full text",
+          "evidence": "The indexed exact F_5 statement was checked separately; the access limitation supplies no negative priority evidence.",
+          "identifier_or_url": "Innamorati, cited in Resultary b12bbb99614c",
+          "material_read": "Public landing-page abstract only",
+          "method": "Lawful OA attempt; full text not retrieved",
+          "title": "Note on Discovering Doily in PG(2,5)",
+          "trigger": "Older close source for the F_5 special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2303.10319, Proposition 2.1",
+        "Resultary b12bbb99614c"
+      ],
+      "rationale": "The rational fiber sizes of a classical map give more than an existence result: they distinguish the three line orbits, quantify the field-dependent discrepancy, and explain the first-size exception while proving all-line surjectivity in larger fields. The exact per-line count is useful for finite conic incidence calculations and is not a recomputation of the F_5 catalogue alone.",
+      "residual_risks": [
+        "The result does not cover repeated vertices, characteristics 2 or 3, or simultaneous constraints on several Pascal lines."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

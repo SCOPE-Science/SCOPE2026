@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global claim follows from exact finite-degree interpolation, compact-uniform critical scaling, a geometric-sum escape estimate, a complete trigonometric sign classification, a one-zero derivative argument, and a global tail exclusion. The coalesced endpoint uses two jet conditions, not an illegitimate repeated two-point inverse. The equation for the global minimizer is exact; decimal constants are indicative only. The standalone numerical checker agrees with independent normal-equation calculations for small degrees and with asymptotic tests; no finite test is substituted for the global proof.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+Reconstructed the residual problem: 1-r is divisible by the quadratic exactly when r has the two required evaluations, or the value and zero derivative at the double root. The residual degree bound N-1 then gives an admissible quotient of degree at most n. Inverting the two evaluation rows gives the stated formula with numerator 2(N-Re S_N); at the double root the Gram rows are 1 and k, giving 2(2N-1)/(N(N+1)). Dividing both expectation expressions by c^2 makes their integrands jointly continuous at c=0. The limiting divided denominator is strictly positive on any bounded c-interval (at zero it is Var(U)=1/12 and for c>0 the continuous uniform characteristic function has modulus less than one), so Riemann sums really give locally uniform convergence including collision. The geometric-sum estimate uses the shorter angle in [0,pi] and forces scaled cost 2 along unbounded-scale subsequences. The sign of F-2 is the negative of the sign of 4 sin(t)(t cos(t)-sin(t)), t=c/2: on (m*pi,m*pi+pi/2) tan(t)-t crosses from negative to positive exactly once for m>=1, while on the latter half the bracket stays negative. Direct differentiation gives F'/2=W/D^2 and W'=c^3 sin(c)-4(1-cos(c))^2. On (2pi,3pi), the ratio of the two positive terms is strictly increasing when the second is divided by the first: its log derivative is 3 cot(t)/2+tan(t)/2-3/c>0 by AM–GM. Thus W first increases and then decreases, and its opposite endpoint signs force exactly one zero. Later windows have F>=2-8pi/(16pi^2-4), strictly larger than F(5pi/2) by the displayed rational difference (the cubic numerator is positive from 3 onward). The escape estimate and compact-uniform convergence then force every minimizing angle sequence to converge in scaled units to the unique global optimum. Fresh local replay used modified Gram–Schmidt on the coefficient columns z^j f_theta and orthogonal projection of 1, testing n=0..11 at theta=0,1/16,7/16,1,2,pi: 72 comparisons, maximum absolute discrepancy 3.51e-14. Solving the derivative numerically at 55-digit working precision with seeds 7,8 gave 7.5403141895947861456 and error 1.7912691607609162356, not a root certificate. The package checker was inspected, not executed; the continuum conclusions rest on the proof.
 
-The finite inverse-Gram interpolation formula is already in Bénéteau–Manolaki–Seco (arXiv:1901.00694, Theorem 1.1), and the two-boundary-root example is explicit in Acuaviva–Seco (arXiv:2110.06788, Example 3.2). These are acknowledged as covering the algebraic starting point. The distinct contribution assessed here is the optimization over **varying angular separations across all configurations** at each degree: the unique global limiting optimizer, its exact transcendental characterization, asymptotic rigidity of all finite-degree optimal placements, and complete infinitely recurring below-baseline intervals. Those conclusions were not identified in the inspected material or indexed comparisons. Other sources could contain an equivalent optimization.
+## originality
 
-## Value — PASS
+PASS
 
-The natural design variable is the angular distance between two prescribed unit-circle zeros of a quadratic cyclic generator. The result gives a sharp, configuration-optimized asymptotic for approximation of unity, distinguishing coincident zeros (scaled cost 4), fixed separated zeros (scaled cost 2), and optimally coalescing zeros (scaled cost approximately 1.7913). This nonmonotone collision benefit and the unique optimal spacing are not a simple fixed-parameter restatement of the general interpolation formula. The scope is exact and deliberately limited to the classical Hardy quadratic problem.
+Best-of-knowledge pass for the global limiting optimum, unique placement scale, and window analysis. The exact finite two-point Gram formula and repeated-root starting point are not new claims.
 
-## Closest literature and remaining limits
+## value
 
-The cited 2019 coefficient and residual theorem is the strongest known implication for the finite interpolation reduction; the 2021/2022 equidistribution study includes a two-root example but assumes fixed distinct roots for its convergence claims. A broad kernel approximation existence paper concerns existence, not global asymptotic placement. The possible existence of an unindexed optimization result remains a priority risk. No independent examination has been performed, and no uniform finite-degree error bound is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The angle is a natural design variable rather than an arbitrary parameter slice. Separating the two fixed-node baselines from the smaller optimized cost shows that neither collision nor macroscopic separation is asymptotically best. The global proof locates the single relevant scale despite infinitely many competing windows and controls all optimal sequences, not just selected numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

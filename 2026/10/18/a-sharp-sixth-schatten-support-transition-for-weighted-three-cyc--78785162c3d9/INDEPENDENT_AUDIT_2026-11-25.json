@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:27.973421Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the moment using H=A_theta* A_theta. Writing s2=xy+yz+zx and s3=xyz, tr H=t^2+u^2, the second elementary symmetric function of H is t^2u^2+(t^2-u^2)^2 s2, and det H=(t^6+u^6+2t^3u^3 cos(6 theta))s3, by the two directed-cycle terms in det A_theta. Newton's identity gives the claimed phase polynomial, whose maximum is achieved at theta=0 including zero coefficients. For sorted x>=y>=z, cubic Schur's gap is (x-y)^2(x+y-z)+z(x-z)(y-z); its zeros are exactly the uniform and equal two-edge profiles. Combining Schur with s2<=1/3 proves the minimum and strict equality regimes on either side of E/D=9/4. The D=0 case instead gives all and only boundary profiles. E/D=(1-q)^2/(1-2q) away from the center, strictly increasing for 0<q<1/2, and elementary bisection is not needed: the quadratic root and direct evaluation give t*=0.359741911255301. Endpoints and reflection t↔1−t are included. RESULT.md, VERIFICATION.md and the supplied checker were inspected; the checker was not executed, and finite grid checks are not used to justify the continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Pal–Chandok theorem is an upper bound via generalized Aluthge transforms; inspected examples compare bounds for selected matrices.",
+          "The circle-covariant result gives a general even-moment upper bound using the Schatten norm of the input."
+        ],
+        "reasoning": "Upper bounds of that form do not give the fixed-Hilbert–Schmidt-energy minimum. A fully supported three-cycle also has a finite nonzero spectrum and is not unitarily equivalent to all its scalar rotations.",
+        "searches": [
+          "arXiv:2610.11336, Theorem 2.1 and pp. 11–12",
+          "Resultary 2026/10/11/SCOPE-sharp-even-schatten-numerical-radius-moments-under-circle-covari--6104c50d4ada"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (Finding, proof, prior-work comparison), VERIFICATION.md and verify_triangle_s6.py",
+        "Pal–Chandok arXiv:2610.11336 and Hamza–Issa arXiv:2204.02469",
+        "Published Resultary cycle, path and circle-covariance records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nilpotent result is fourth order on paths. The flux theorem identifies the harmonic but leaves a phase-independent coefficient and does not solve the normalized minimization. The block and Aluthge inequalities do not give the claimed sharp lower envelope."
+        ],
+        "reasoning": "The target needs the full normalized polynomial and a simultaneously sharp support inequality, including the singular D=0 regime. The prior formulas and inequalities inspected do not directly imply that classification.",
+        "searches": [
+          "arXiv:2610.11336, Theorem 2.1",
+          "arXiv:2204.02469, §§1–2",
+          "Resultary 2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+          "Resultary 2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same weighted radius is defined by Pal–Chandok, and Hamza–Issa's generalized radius on the off-diagonal block matrix with blocks tS and (1−t)S equals 2^(1/p−1) times the target radius.",
+          "At cycle length three the Resultary flux theorem gives the identical 6t^3(1−t)^3xyz cos(6 theta) term."
+        ],
+        "reasoning": "These are exact reformulations or formula-level overlap, not statements determining the energy-normalized minimum and all equality cases. The flux entry is later-dated; overlap is noted separately from priority.",
+        "searches": [
+          "arXiv:2204.02469, Lemma 2.1",
+          "arXiv:2610.11336, p. 3",
+          "Resultary 2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two indexed findings are exact equality classifications but use the fourth moment on four- and seven-cycles; the third switches support for an infinite unilateral shift under different moment constraints."
+        ],
+        "reasoning": "These are the meaningful comparison records rather than an applicable finite table: the target is an all-real-parameter classification. Same-day entries were compared by statement, not excluded on date; none supplies the matching length, exponent, normalization and equality conditions.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-sharp-three-regime-sparsification-of-the-weighted-schatten-fourt--191526c15335",
+          "Resultary 2026/10/18/SCOPE-two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd",
+          "Resultary 2026/11/2/SCOPE-a-sharp-mean-variance-envelope-for-three-periodic-weighted-shift--722309e917f5"
+        ]
+      },
+      "rationale": "The inspected papers give the same functional or an equivalent block formulation and general inequalities; the closest indexed cycle results give a phase formula or different Schatten-fourth minima. None inspected establishes the exact normalized three-cycle minimum with the claimed support transition and complete equality sets. The pass is for that classification, not for the functional, Schur's inequality, or exclusive ownership of the harmonic formula.",
+      "residual_risks": [
+        "A targeted primary search miss is not negative evidence. An unindexed classification or a general extremal theorem not uncovered by the bounded comparison could still subsume the result.",
+        "The motivating Pal–Chandok PDF was accessible in this review; targeted statement inspection does not certify bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Functional overlap, not coverage in inspected statements",
+          "evidence": "General Aluthge upper bounds and examples, no constrained three-cycle equality classification in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11336",
+          "material_read": "p. 3 definition, p. 5 Theorem 2.1, pp. 11–12 examples",
+          "method": "Lawful OA primary PDF, bounded relevant passages",
+          "title": "On weighted Schatten p-numerical radii via generalized Aluthge transformation",
+          "trigger": "Same weighted radius and motivating recent primary paper"
+        },
+        {
+          "assessment": "Equivalent functional up to a known scalar; different inequality objectives",
+          "evidence": "The real part of the off-diagonal block matrix gives the weighted combination and its adjoint, with the stated two-block Schatten factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.02469",
+          "material_read": "Abstract, §§1–2, including Lemma 2.1",
+          "method": "Lawful OA primary PDF, bounded relevant passages",
+          "title": "Generalized Numerical Radius Inequalities for Schatten p-Norms",
+          "trigger": "Equivalent numerical-radius definition via block matrix"
+        },
+        {
+          "assessment": "Later-dated exact harmonic overlap; distinct constrained optimizer claim",
+          "evidence": "n=3 gives C_{t,W}+6[t(1−t)]^3 Re(e^(6i theta)Q^2), Q=w0 w1 w2.",
+          "identifier_or_url": "2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525",
+          "material_read": "RESULT.md, Finding",
+          "method": "Published Resultary mirror",
+          "title": "First flux-sensitive Schatten moments of weighted directed cycles",
+          "trigger": "Exact overlap in first winding-sensitive even moment"
+        },
+        {
+          "assessment": "Analogous structural classification, different cycle lengths and moment",
+          "evidence": "Both use Schatten-fourth; their exact support regimes are not the three-cycle sixth-moment transition.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-three-regime-sparsification-of-the-weighted-schatten-fourt--191526c15335; 2026/10/18/SCOPE-two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd",
+          "material_read": "Both RESULT.md Findings",
+          "method": "Published Resultary mirror",
+          "title": "Sharp three-regime sparsification on a four-cycle; Two spectral thresholds and all minimizers of the seven-cycle weighted Schatten-fourth radius",
+          "trigger": "Strongest same-day exact sparsification/equality analogues"
+        },
+        {
+          "assessment": "Different hypotheses and direction of inequality",
+          "evidence": "The bound is an upper bound in terms of the input's Schatten norm under continuous circle covariance.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-even-schatten-numerical-radius-moments-under-circle-covari--6104c50d4ada",
+          "material_read": "RESULT.md, Finding",
+          "method": "Published Resultary mirror",
+          "title": "Sharp even Schatten numerical-radius moments under circle covariance",
+          "trigger": "General even-order bound could subsume special cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directed triangle is a natural first test for nonzero winding at Schatten order six. At fixed Hilbert–Schmidt energy the exact threshold distinguishes a uniform supported cycle from a broken path, resolves coexistence at the transition, and reveals the larger equality family at symmetry. This is a useful extremal benchmark that general upper bounds and fourth-moment path results cannot supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

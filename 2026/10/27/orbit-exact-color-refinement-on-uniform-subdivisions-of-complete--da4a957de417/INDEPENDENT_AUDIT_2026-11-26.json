@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:04:39.434618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–42",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py, read only"
+      ],
+      "rationale": "Branch vertices are recognized by degree n−1>2 and determine all automorphisms. Each interior mark forces preservation of its endpoint pair, and an off-midpoint mark fixes both endpoints. Two marked paths sharing an endpoint fix all their endpoints because both distinct pairs must be preserved. This propagates in each nontrivial support component. The only moves left are independent endpoint flips on free-central edges and arbitrary permutations of unused unmarked branches. Refinement at round r recognizes distance ≤r from any original singleton mark, with a distinct out-of-range outcome (induct by a shortest path through a neighbor). By round L−1 the branch signatures distinguish exactly that stabilizer’s branch orbits: a mark identifies a marked branch or an oriented endpoint, and a shared signature of nonempty midpoint supports can only arise from the two endpoints of an isolated free-central edge. The degree test keeps these classes separate from interiors. Another L−1 rounds recognize distances <L from those branch classes. The only branches at distance <L from an interior vertex are its two endpoints; two different endpoint classes give the position relative to either class, and one shared class gives the position up to reflection. Independent block actions have exactly those interior orbits; within a common block the action is transitive on unordered pairs and realizes reversal. Counting gives L−1 orbits per pair of distinct classes, and floor(L/2) per nonsingleton class. For the latter, sizes are twice the number of endpoint pairs except at the midpoint, where they are that number. This also handles S empty, L=2 and u=0 or 1. Since every refinement color is invariant under the stabilizer and its orbit partition is equitable, the partition at the asserted bound is stable.",
+      "residual_risks": [
+        "The supplied finite checks were not rerun and do not establish the general theorem. The bound is for obtaining the stable partition, not a uniform sharpness claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of arXiv:2605.19702 characterizes (k+1)-Tinhofer via orbit equality for |S|≤k; its introduction credits the all-S criterion to Arvind et al."
+        ],
+        "reasoning": "A broader equivalence supplies a test, not an assertion that all uniformly subdivided cliques pass it or any timing/count formula.",
+        "searches": [
+          "Bhattacharjee–Panse–Sarma arXiv:2605.19702, stabilizer and color refinement",
+          "Resultary: orbit exact color refinement subdivisions K_n individualization depth 2L-2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and bibliography",
+        "Arvind et al. Theorem 30",
+        "Bhattacharjee–Panse–Sarma Theorem 1.1",
+        "Resultary records fb5f0359b702 and affd2b3b0182",
+        "Brešar et al., abstract and plan"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known pointwise edge-stabilizer analysis for J(n,2) is relevant to the combinatorics. The subdivision proof also has oriented off-midpoint marks and marked branches, and uses two distinct distance-propagation stages for recovery and timing."
+        ],
+        "reasoning": "The prior stabilizer mechanism is credited; the distinct orbit-recovery result and quantitative claims require a new argument for the changed vertex set and adjacency.",
+        "searches": [
+          "Arvind et al., Appendix A.2 and Theorem 30",
+          "Bhattacharjee–Panse–Sarma, §3.1",
+          "Resultary fb5f0359b702 §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Tinhofer condition is exactly orbit recovery after every singleton individualization, but J(n,2) is the line graph of the clique, not its incidence subdivision, and has no branch vertices."
+        ],
+        "reasoning": "Orbit-exactness and Tinhofer membership express the same qualitative claim here; a result on a different graph does not identify its marked equitable partition.",
+        "searches": [
+          "Resultary: uniform subdivisions of complete graphs color refinement stabilizer orbits",
+          "Arvind et al., arXiv:1502.01255, Johnson graph and Tinhofer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching orbit-count or round-bound record surfaced. The same underlying graph for L=2 appears in fb5f0359b702 (Rips persistence), and affd2b3b0182 studies two marks in J(n,k)."
+        ],
+        "reasoning": "Neither a same-graph topological invariant nor a two-mark Johnson result is the arbitrary-mark orbit/count assertion.",
+        "searches": [
+          "Resultary: Orbit-exact color refinement on uniform subdivisions of complete graphs",
+          "Resultary: orbit exact color refinement subdivisions K_n individualization depth 2L-2"
+        ]
+      },
+      "rationale": "The supported distinction is the uniform subdivision family with simultaneous branch and interior marks, an explicit orbit census, and an n-independent round bound. The general Tinhofer criterion and the Johnson graph proof are prior; neither gives these conclusions for the stated graphs.",
+      "residual_risks": [
+        "Bounded searches do not establish worldwide priority. For precise attribution, distinguish the preexisting all-S characterization from the later k-Tinhofer extension; this does not change the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Tinhofer result for the line graph",
+          "evidence": "Theorem 30 proves J(n,2) is Tinhofer; its vertex set is the 2-subsets, adjacent when they meet.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "Appendix A.2, pp. 28–29, around text offset 90019",
+          "method": "OA PDF, literals and bounded offset",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Most similar prior arbitrary-mark theorem"
+        },
+        {
+          "assessment": "General equivalence, not classification of the family",
+          "evidence": "Theorem 1.1 gives the bounded-individualization analogue of the all-S criterion credited to Arvind et al.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.19702",
+          "material_read": "Introduction p. 4 offset 11900 and Theorem 1.1 p. 10 offset 29200",
+          "method": "OA PDF, literals and bounded offsets",
+          "title": "A Hierarchy of Tinhofer Graphs: Separations and Membership Testing",
+          "trigger": "Possible stronger general criterion"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Point and subdivision vertices with incidence adjacency are exactly the L=2 graph, but the claims concern homotopy of its Rips complexes.",
+          "identifier_or_url": "fb5f0359b702",
+          "material_read": "Mirrored RESULT.md, §Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The Rips filtration of the complete-graph subdivision has two critical scales",
+          "trigger": "Identical graph at L=2"
+        },
+        {
+          "assessment": "Different graph and mark quantifier",
+          "evidence": "Covers two marks on the Johnson graph, not arbitrary marks on uniform subdivisions.",
+          "identifier_or_url": "affd2b3b0182",
+          "material_read": "Mirrored RESULT.md at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Two marked vertices recover Johnson-graph automorphism orbits",
+          "trigger": "Closest catalogue color-refinement analogue"
+        },
+        {
+          "assessment": "Different coloring notion in the inspected statements",
+          "evidence": "The treatment of complete-graph subdivisions connects mutual-visibility coloring parameters to Ramsey numbers.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-026-01280-y",
+          "material_read": "Abstract p. 1 and plan p. 3 offset 7354",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Independent mutual-visibility coloring and related concepts",
+          "trigger": "Exact family of incidence subdivisions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Arvind et al., Theorem 30"
+      ],
+      "rationale": "A natural extension of a known Tinhofer family question is whether arbitrary marks still suffice when the graph is replaced by its uniform incidence/path subdivision. The result settles it with a mechanism that isolates all residual symmetry and supplies a uniform convergence bound independent of graph order, as well as exact sizes and counts, rather than just certifying individual cases.",
+      "residual_risks": [
+        "No claim for arbitrary precolorings or nonuniform subdivision lengths; no algorithmic complexity consequences beyond the stated refinement depth are needed for the value assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

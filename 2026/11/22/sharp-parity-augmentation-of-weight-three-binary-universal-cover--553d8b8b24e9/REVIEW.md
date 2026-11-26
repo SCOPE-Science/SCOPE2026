@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fixed-weight overlap arcs split into vertex-disjoint rotation cycles. Balance forces any auxiliary weight-two multiset to be a union of whole rotation orbits with constant multiplicity. Connectivity implies that its selected pairs hit every triple, so their complement is triangle-free and Mantel's bound gives the sharp minimum. The parity construction is balanced and connected through weight-three necklaces joining each even separation to separation two. At equality, rotation invariance and Mantel equality force the parity bipartition and unit multiplicities. The standalone verifier checks exact Euler-factor multisets and all rotation-closed candidate supports through even length fourteen. The proof covers all even orders at least six; the finite verification is not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The complete consecutive-weight universal-cycle construction is established in Ruskey–Sawada–Williams (2012), and the general gluing construction in Sawada–Williams–Wong (2013). Neither inspected theorem minimizes a selectively added weight-two necklace family while requiring all weight-three factors exactly once, nor gives the Mantel extremizer and unique optimal factor multiset. Related indexed work treats separate tracks, all-weight-two targets, and complete weight ranges rather than this selective one-circle problem. These statement-level distinctions survive plausible specialization of the cited theorems. An older, unindexed equivalent sparse gluing construction remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The result identifies the exact minimum resource needed to join disjoint weight-three rotation classes into one universal circular representation, and proves a rigid, unique optimum. It saves a quadratic number of redundant windows compared with the standard complete weight-two/three universal cycle. This all-length covering and rigidity theorem has a natural extremal-graph interpretation, not just a code or finite census. It makes no claims about unrestricted auxiliary weights, odd orders, or the number of distinct realizing circles.
+In the length-(n−1) overlap graph the fixed-weight arcs have one predecessor and one successor at every active vertex; those successors rotate the labels. Subtracting the balanced mandatory weight-three layer from any closed walk therefore forces constant auxiliary multiplicity along each weight-two necklace. The pair support hits every position triple: rotate a proposed three-one arc to put the deleted one at its end, and the weight-two arc obtained by appending zero to the same prefix shares that vertex. Conversely, a shared vertex of weight two realizes exactly such a pair. Without a hit, that triple’s necklace would be isolated, and there is more than one required necklace since binomial(n,3)>n. Mantel’s bound gives n(n−2)/4 auxiliary arcs; equality makes the complementary graph balanced complete bipartite (at equality all degrees are n/2 and the neighbors of any vertex are independent). One-step rotation cannot preserve either class individually and hence must exchange them, forcing the parity partition. The parity support is balanced and connected: {0,2,d} links the selected separation d>2 to separation 2, and every mandatory cycle attaches to a selected one. Euler traversal gives exactly the specified windows. The conclusion is uniqueness of the multiset, not the circle. A separate enumeration of all 8 and 16 auxiliary support choices at n=6,8 recovered the unique minima 26 and 68 and checked their Euler words; at n=6 it recovered 11001010100110100011100010. These finite cases are corroboration only; the uploaded verify.py was inspected, not executed.
 
-Closest antecedents: Ruskey–Sawada–Williams, *De Bruijn Sequences for Fixed-Weight Binary Strings*, https://doi.org/10.1137/100808782; Sawada–Williams–Wong, *Universal Cycles for Weight-Range Binary Strings*, https://doi.org/10.1007/978-3-642-45278-9_33; Sawada–Williams–Wong, *Generalizing the Classic Greedy and Necklace Constructions*, https://doi.org/10.37236/5517.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected work provides full-range cycles or optimizes a different notion of cover. No available statement gives the sharp selection cost and unique minimizing multiset here. This is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+This determines the exact cost of turning separate fixed-weight cycles into one circle while retaining exact-once coverage of the mandatory layer. The n²/4 saving over the complete adjacent range and the forced parity support are structurally useful, not a small-order census. The link to triangle-free extremality explains why all optimum covers have the same factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:30.010978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two differences, the eight ballots yield the stated centered four-vector with covariance (1/8)[[2,0,1,0],[0,2,0,1],[1,0,2,0],[0,1,0,2]]. The support contains zero and signed basis vectors; hence both the irrational integer marginal and the coprime rational projections have unit full-lattice span. Partial Fourier inversion on the pinned integer coordinates and scaling by sqrt(n) give the Gaussian Schur complement on the unpinned coordinates, nondegenerate even at the rational endpoints. Thus asymptotically half of the pair equalities beat the third committee. Pair-equality masses are 2/sqrt(2 pi (a^2+b^2)n) and 2/(pi n), while triple equalities are O(n^-1) and O(n^-2), respectively. The disjoint exactly-two-plus-triple decomposition gives both constants. A fresh exact replay (python3 /workspace/replay_thiele.py) enumerated ordered profiles through n=4 with exact quadratic-irrational comparisons and recovered 1147/4096 and 1075/4096. The frozen checker uses tolerances in some comparisons; neither it nor the replay establishes the infinite limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia's integer-score Thiele theorem gives 1-resoluteness of order n^-1/2 at a nonsingleton expected top set; integer scaling of rational scores preserves winner sets. The smoothed single-winner tie paper treats other voting rules."
+        ],
+        "reasoning": "The rational order is prior; the integer theorem does not cover an irrational marginal or provide the stated leading constants.",
+        "searches": [
+          "arXiv:2503.03082v1 Theorem 14, p. 19 and proof locator Appendix D.1",
+          "arXiv:2011.03791v3 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 1 and 2",
+        "arXiv:2503.03082v1",
+        "arXiv:2305.01769v1",
+        "arXiv:2011.03791v3",
+        "Resultary 0d19a8f984bb, 63dca58972b3, 6f885c038aef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 2 uses the same lattice score decomposition and gives both asymptotic expansions. Xia's theorem applies after scaling by the denominator."
+        ],
+        "reasoning": "Record 2 implies every frozen scope case and exact limit; Xia alone implies only the rational order.",
+        "searches": [
+          "Assigned record 2 RESULT.md:25–105",
+          "arXiv:2503.03082v1 Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent fair ballot bits, global optimization of the same 0,1,1+alpha scores and identical tie event. Record 2's (3/2)sqrt(2/(pi(p^2+q^2))) equals 3/sqrt(2 pi(a^2+b^2)); both irrational constants are 3/pi."
+        ],
+        "reasoning": "The entire limit theorem including the endpoint and proportional-approval specializations is obtained by rewriting record 2.",
+        "searches": [
+          "Assigned record 2, RESULT.md:3–17",
+          "Resultary targeted search for rational/irrational Thiele tie asymptotics and exact constants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near hits 0d19a8f984bb, 63dca58972b3 and 6f885c038aef address JR failure, deterministic cyclic scores, or AJR respectively. Janeczko–Faliszewski study algorithms and experimental tie rates."
+        ],
+        "reasoning": "No exact matching probability table emerged among these sources; the equivalence finding instead rests on matching theorem statements.",
+        "searches": [
+          "Resultary: rational/irrational winning tie probability, three candidates two seats, exact Thiele constants",
+          "arXiv:2305.01769v1"
+        ]
+      },
+      "rationale": "The separate assigned record 2 already states and proves the entire focal finding in the same model, and gives a further elementary finite-size clause. The two formulations differ by notation and limits versus little-o expansions, not by mathematical content. This is demonstrable frozen-set coverage, not a determination of publication priority or an identification of the two packages as the same record. Xia also covers the rational order independently, but not the constants or irrational law in the inspected theorem.",
+      "residual_risks": [
+        "No within-date ordering is inferred from frozen paths.",
+        "Ranked corpus search is not exhaustive; being absent from a ranked list does not establish historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent main claim",
+          "evidence": "Common p/q and irrational formulas in the same culture and exact optimization regime.",
+          "identifier_or_url": "a592c8a3362e/RESULT.md",
+          "material_read": "Finding, assumptions and proof, in particular lines 3–17 and 70–105",
+          "method": "Frozen full-text comparison",
+          "title": "An arithmetic tie-rate dichotomy for three-candidate Thiele committees",
+          "trigger": "Matching finite voter model and asymptotes"
+        },
+        {
+          "assessment": "Covers rational order",
+          "evidence": "Integer Thiele rules with nonunique top expected-utility committees have nonunique winners with probability Theta(n^-1/2).",
+          "identifier_or_url": "https://arxiv.org/abs/2503.03082v1",
+          "material_read": "p. 19 Theorem 14 and adjacent proof sketch",
+          "method": "OA full text, offset about 80101",
+          "title": "A Linear Theory of Multi-Winner Voting",
+          "trigger": "Integer Thiele irresoluteness"
+        },
+        {
+          "assessment": "Algorithms and experiments in inspected passage, not the target asymptotics",
+          "evidence": "Reports tie detection and counting for Thiele rules and tie frequencies in moderate-sized experiments.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA full text, offsets 773–1484",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Same rule class and tie event"
+        },
+        {
+          "assessment": "Related methods, different stated model",
+          "evidence": "Smoothed linear-order preferences with positional, edge-order and some elimination rules.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.03791v3",
+          "material_read": "Abstract and introduction",
+          "method": "OA full text, offsets 0–9321",
+          "title": "How Likely Are Large Elections Tied?",
+          "trigger": "General tie probability methods"
+        },
+        {
+          "assessment": "Different events or deterministic inputs",
+          "evidence": "Existence of JR-violating maximizer; counts for deterministic cyclic ballots; distribution of AJR compliance.",
+          "identifier_or_url": "0d19a8f984bb; 63dca58972b3; 6f885c038aef",
+          "material_read": "Each RESULT.md opening Finding",
+          "method": "Local-mirror paper reader, offset 0",
+          "title": "Three nearby Resultary records on approval and PAV",
+          "trigger": "Potential random or exact tie coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result in isolation, the fixed-weight exponent transition and constants give a useful baseline for optimal committee ties and explain why exact irrational weights cannot be replaced by fixed rational approximants for this limit. This value does not make the duplicated theorem a distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

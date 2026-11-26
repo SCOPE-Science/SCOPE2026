@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:08.728556Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the endpoint labels (a,b) of the bridge. On the a side, a=3 protects all internal vertices; a=2 leaves only assignments with at least one zero and no internal 2 or 3 to delete. For a=0 or 1, internal validity requires a 3, two 2s, or one 2 and all remaining internal labels 1. The last case protects a=1 already, but protects a=0 only when b≥2. These give exactly the four matrix rows including the exceptional terms in G_n and J_n. The two sides involve disjoint choices conditioned on (a,b), so the weight exponents add and the sum of the products is tr(M_n²). For n≥4, a side weighing at most 2 necessarily leaves an undefended internal zero. A side of weight 3 without a 3 has either one 2 and one 1 (leaving an undefended internal zero) or only 1s and 0s (no defender for any internal vertex). Thus each side must contain one 3 at weight 6, giving n² choices. Fresh direct adjacency enumeration over all labelings for n=2 and 3 in /workspace/branches/769a392d-55ad-4d41-9a0d-d72547d36996/reproduce_barbell.py confirmed every coefficient: 114 and 2325 valid functions, with leading terms 4x⁵ and 13x⁶ respectively. The frozen verifier and recorded output were inspected, not executed; the independent finite test supports the boundary cases, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Banerjee–Henning–Pradhan abstract gives linear-time algorithms for the minimum double Roman domination number on proper interval and block graphs. The symmetric barbell is a block graph, including a K₂ bridge block.",
+          "The founding double Roman paper’s institutional description gives the same label tests and describes bounds and relations for the scalar invariant."
+        ],
+        "reasoning": "The broader optimization result covers computing the least weight, but an optimizer or the optimum does not supply the all-weight spectrum or counts of optimizers. This comparison is limited to the accessible material.",
+        "searches": [
+          "Web literature barbell polynomial query above",
+          "10.1007/s10878-019-00457-3, abstract",
+          "10.1016/j.dam.2016.03.017, institutional description"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and the six matched statements above",
+        "Beeler–Haynes–Hedetniemi institutional description",
+        "Banerjee–Henning–Pradhan publisher abstract",
+        "Focused public literature search for the all-weight barbell polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a single bridge the endpoint-0 row changes when the opposite endpoint is at least 2, owing to the unique internal 2 plus all 1s case. None of the inspected general scalar results or other clique enumerators accounts for those coefficients.",
+          "A clique bouquet has one common universal attachment, unlike two bridge endpoints that can independently take all four labels."
+        ],
+        "reasoning": "The all-weight formula requires the local admissibility counts and the bridge interaction, even if a general optimization algorithm already yields the minimum number. No inspected prior result implies the whole formula by substitution.",
+        "searches": [
+          "10.1007/s10878-019-00457-3, block-graph result described in the abstract",
+          "Resultary bridge-endpoint and full enumerator queries above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph signed record 01438911ae14 counts closed-neighborhood signed domination with labels −1 and 1, not 0–3 double Roman functions.",
+          "Record a74e96e1e54b counts maximal double Roman functions on matched cliques K₂ □ K_n, not unrestricted functions on a single bridge. Record 7da13d4880e0 has an extra outer-independence requirement and concerns clique bouquets."
+        ],
+        "reasoning": "Changing the graph edges or the feasibility rule changes the set of functions. None of these is an alternative form of the same generating function.",
+        "searches": [
+          "Resultary: double Roman domination functions weight enumerator on the barbell graph formed from two cliques joined by one bridge",
+          "Resultary: transfer matrix enumerator all double Roman dominating functions two cliques joined by a bridge",
+          "Web literature: double Roman domination polynomial OR double Roman weight enumerator barbell clique bridge all functions coefficients graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest all-weight hit 0179133c45f9 has a universal vertex joined to clique blades; ef9981a266ea has a complete split graph.",
+          "The same-day barbell record 63b734786b3e enumerates restrained dominating sets, not these labeled functions. Its actual statement, not its date, distinguishes it."
+        ],
+        "reasoning": "These are explicit enumerators for other objects. The inspected ranked findings did not supply the claimed barbell coefficient table or symbolic expression; this does not exclude unlocated tables.",
+        "searches": [
+          "Resultary: ‘double Roman weight enumerator’ barbell",
+          "Resultary: double Roman domination polynomial barbell B_n clique bridge endpoint labels"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the full ordinary double-Roman weight polynomial on two K_n joined by one edge, including minimum-layer multiplicities. The strongest checked indexed hits either match the graph but not the domination rule, or match the rule but not the graph. Available primary descriptions of optimization do not give all-weight coefficients. This is a best-of-evidence pass for the coefficientwise result, not a priority claim for scalar minimum weights or for the transfer-matrix method.",
+      "residual_risks": [
+        "The Yang–Zhou primary text and Banerjee–Henning–Pradhan paper body/supplements were unavailable through the attempted lawful routes. The surveyed literature could contain an unlocated special-family enumeration. The Rupnik Poklukar–Žerovnik survey article body was likewise not obtained.",
+        "The comparisons cover the strongest inspected matches, not all terminology or indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching convention; describes scalar bounds, not an enumerator. Whole-paper noncoverage not established by the description.",
+          "evidence": [
+            "A zero needs a neighboring 3 or two neighboring 2s, and a one needs a neighboring 2 or 3; the description reports relations with domination and Roman domination and an upper bound."
+          ],
+          "identifier_or_url": "https://dc.etsu.edu/etsu-works/15015/ (DOI 10.1016/j.dam.2016.03.017)",
+          "material_read": "ETSU institutional record, Description; not the paper body.",
+          "method": "Read institutional publication record.",
+          "title": "Double Roman domination",
+          "trigger": "Original definition and potential scalar coverage"
+        },
+        {
+          "assessment": "Accessible result is optimization, not all-weight counting. No whole-document noncoverage inference.",
+          "evidence": [
+            "‘We then present linear time algorithms for computing the double Roman domination number in proper interval graphs and block graphs.’"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10878-019-00457-3",
+          "material_read": "Publisher-indexed abstract passage on proper interval and block graphs; no body or supplement obtained.",
+          "method": "Publisher abstract and lawful repository recovery attempt; body route unavailable.",
+          "title": "Algorithmic results on double Roman domination in graphs",
+          "trigger": "Potential broad theorem on block graphs containing barbells"
+        },
+        {
+          "assessment": "Unresolved coverage; access failure is not evidence of absence.",
+          "evidence": [
+            "Article body unavailable via the attempted lawful routes; the frozen keyword claim was not relied on."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/6481092",
+          "material_read": "No decisive passage obtained.",
+          "method": "Attempted Wiley and identified Hindawi article/PDF routes and DOI repository recovery.",
+          "title": "Some Properties of Double Roman Domination",
+          "trigger": "Primary special-graph results; possible barbell case"
+        },
+        {
+          "assessment": "Adjacent results, no equivalent statement among these findings.",
+          "evidence": [
+            "The barbell hits use signed labels or restrained dominating sets; the unrestricted double-Roman hits of comparable enumerator type use other graphs; maximal and outer-independent variants add restrictions."
+          ],
+          "identifier_or_url": "Resultary/SCOPE 01438911ae14, 63b734786b3e, 0179133c45f9, 7da13d4880e0, ef9981a266ea, a74e96e1e54b",
+          "material_read": "Actual mirrored Findings, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Ranked Resultary search followed by local mirror statement comparison.",
+          "title": "Indexed weight enumerators on barbells, clique bouquets, split graphs and matched cliques",
+          "trigger": "Closest graph, invariant and methodological matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A barbell is a natural first case of two dense blocks interacting through a cut edge. The polynomial gives all feasible weights and multiplicities, not just an optimization number; it identifies the extra tied optima at n=3 and the rigid one-3-per-block classification from n=4 onward. These exact coefficients and boundary layers are useful for evaluating counting methods and for comparison with other glued-clique graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

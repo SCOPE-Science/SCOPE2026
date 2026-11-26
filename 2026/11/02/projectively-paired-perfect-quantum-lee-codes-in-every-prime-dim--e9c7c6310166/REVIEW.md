@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The syndrome map enumerates every nonzero vector in \(\mathbb F_p^r\) exactly once from the \(4n\) elementary shift errors. Because paired columns are collinear, symplectic check orthogonality is automatic; the projective matrix has rank \(r\). Distinct one-error syndromes exclude any Lee-weight-two zero syndrome, and the local \(XZ^2\) witness is an undetectable non-stabilizer of Lee weight three. The parity obstruction counts opposite-sign orbits on each projective line. The complete algebraic proof works for all permitted parameters. The standalone exact checker passed five representative parameter sets.
+## correctness
 
-**Originality — PASS, subject to literature-access risk.** Guo et al. (2026) present the joint-Lee bound, an isolated \([[6,4,3_{\diamond}]]_5\) example and other metric-specific families, but not the projective all-rank construction or the collinear-class congruence condition. Matsumoto (2021) uses CSS codes with separate error-component Lee weights. Classical Golomb–Welch tilings and Hamming parity checks furnish the syndrome-counting precursor, but do not automatically satisfy the stabilizer symplectic equation. Targeted literature and mathematical-record comparisons found no stronger equivalent theorem. The 1970 original full text was not obtained, and unpublished or unindexed analogous constructions remain possible.
+PASS
 
-**Value — PASS.** The construction produces a perfect joint-Lee quantum code at arbitrarily large redundancy for each admissible prime, rather than another finite parameter row. The prime congruence obstruction is exact within a geometrically defined natural class of termwise-commuting checks. It supplies a structural extension of the first Lee-metric perfect-code examples; no ordinary Hamming-distance or fault-tolerance advantage is inferred.
+The elementary syndromes are ±x_i and ±z_i. The consecutive pairing uses each antipodal class on each projective line exactly once. Every wedge x_i∧z_i vanishes and the columns span, giving an isotropic rank-r stabilizer. Every nonzero joint-Lee error of weight at most two is a difference of distinct radius-one errors, so none lies in the centralizer. The coordinate with pair (1,2) supplies X_i Z_i² of weight three and syndrome zero. Removing that coordinate leaves at least all other projective lines, which outnumber the lines in a hyperplane by p^(r−1)−1>0, so no stabilizer is supported there. Conversely, in a perfect nonempty coordinatewise-collinear code every syndrome is nonzero except the identity's, and each coordinate uses exactly two antipodal classes on a unique line. Thus (p−1)/2 must be even. This counts within the stipulated frame and does not give an obstruction for noncollinear checks.
 
-**Scientific limits.** All conclusions are in the specified joint Lee metric and local Pauli frame. The negative congruence statement does not exclude general noncollinear stabilizers. No efficient physical implementation, decoding complexity theorem, or newness of the already-known small parameters is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the all-rank collinear stabilizer construction and the matching obstruction in that restricted class receive credit. Classical perfect Lee syndrome transversals and the six-qudit joint-Lee parameters are prior. The closest matching quantum example has rank-two column pairs; the complementary catalogue construction uses noncollinearity for the other prime congruence class. Classical Mannheim codes provide an even closer syndrome analogue, but the examined statements do not give this quantum family and necessity result.
+
+## value
+
+PASS
+
+The useful result is a restricted-class classification in a fixed joint-Lee frame: it gives a uniform nondegenerate construction saturating the packing bound and a necessary constraint for designs with locally proportional checks. This is useful beyond merely evaluating the bound or reprinting the first parameter example, and the simple termwise commutativity makes the distinction from noncollinear global-cancellation designs precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

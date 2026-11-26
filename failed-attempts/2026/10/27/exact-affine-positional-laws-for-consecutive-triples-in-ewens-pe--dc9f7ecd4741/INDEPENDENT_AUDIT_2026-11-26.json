@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:03.712040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–59",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify.py inspected, not executed",
+        "Independent replay: /workspace/review-checks/5-ewens-certificate.js"
+      ],
+      "rationale": "A specified three-arrow injection decomposes into forced cycles and open directed paths. Deleting the former and contracting the latter removes exactly three units from the count of free units; completing the permutation gives total weight θ^κ θ^(overline{n−3}). To justify a finite all-n certificate, mark subsets of closed cycles and expand θ^κ in powers of θ−1. Each compatible fixed collection prescribes at most three sorted ranks and has a product of binomial counts with total degree at most three in u=i−1, v=n−i−2 (incompatible collections give zero). The degree bound holds for all nonnegative integer u,v including n=3. The binomial-product basis is triangular with diagonal ones on the ten nodes u+v≤3. Independently enumerating complete permutations by cycle count at these nodes and dividing each pattern weight polynomial by the rising factorial of length n−3 matched 60 rows, or 240 integer coefficients. Replay with node /workspace/review-checks/5-ewens-certificate.js. This is exact verification at degree-determining nodes, not numerical extrapolation. Subtracting consecutive rows gives the stated slopes; θ=1 gives each pattern weight C(n,3), hence probability 1/6.",
+      "residual_risks": [
+        "No claim for nonconsecutive windows, longer patterns, or probability at θ=0. The check and proof do not establish originality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Féray Lemma 2.1 supplies the exact general partial-image identity used in the assigned proof; applying it without summing over specific order patterns does not give the evaluated affine table. Féray and Kammoun give asymptotic pattern-count results. Kammoun's exact determinantal joint descents are uniform; Pinsky–Schickentanz gives one-pair marginals and total inversion expectation."
+        ],
+        "reasoning": "The inspected published results give a known core counting identity and useful marginals or limits. A single descent marginal, aggregate count or uniform joint descent formula is not the all-θ finite six-pattern law.",
+        "searches": [
+          "Féray arXiv:1201.2157 Lemma 2.1 and Theorem 1.8",
+          "Kammoun arXiv:2012.05845 Proposition 31, Theorem 33, Corollary 34",
+          "Pinsky–Schickentanz arXiv:2510.20654 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary …101ce30e229c and …b968e2801c74",
+        "arXiv:1201.2157, 2012.05845, 2510.20654"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed difference vector between any two middle sites m and ℓ is (m−ℓ)(θ²−1)(0,−1,1,1,−1,0)/W in the same pattern order."
+        ],
+        "reasoning": "Taking m−ℓ=1 gives every claimed slope, position invariance and reversal at θ=1. For n=3 each pattern is one whole permutation; the coefficients are its cycle weight and there is only one position. No distinct substantial remainder survives in the assigned Finding.",
+        "searches": [
+          "2026/11/8 …101ce30e229c, rank-one difference immediately following the table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the matching entry's middle index m=i+1, n−m−1=g and m−2=j. Its H is T, D is W, and n(n−3)/2=T+h. Thus its rows agree term for term."
+        ],
+        "reasoning": "These substitutions identify identical probabilities rather than an analogy of parameters. All n≥4 and θ>0, and all positions, agree.",
+        "searches": [
+          "Resultary comparison: finite consecutive-triple Ewens laws, middle site versus starting position",
+          "2026/11/8 …101ce30e229c, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first distinct catalogue entry explicitly tabulates all six rows; the second gives exact cycle-count covariance with each triple pattern under the uniform law."
+        ],
+        "reasoning": "The first is decisive direct table coverage. The uniform covariance result alone would not cover the full parameter dependence.",
+        "searches": [
+          "Resultary exact table matches …101ce30e229c, …b968e2801c74"
+        ]
+      },
+      "rationale": "The complete nontrivial positional claim is demonstrably covered by a distinct indexed statement: Resultary …101ce30e229c gives the same six probabilities and the stronger arbitrary-position rank-one difference. The n=3 addition is just direct enumeration of S3, with no positional variation possible. The matching entry is dated after the assigned record; this is a determination of equivalent coverage, not a finding that the matching entry came first, an allegation of borrowing, or a claim about historical priority.",
+      "residual_risks": [
+        "Historical priority and any dependence between the two records are unresolved. The bounded comparison does not establish when the formula first appeared; the direct match is sufficient for the present coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact table and stronger arbitrary-pair slopes for n≥4; no historical-priority inference",
+          "evidence": [
+            "Same Ewens weight, middle rather than start index, all rows match by m=i+1, T+h=n(n−3)/2; rank-one formula includes adjacent differences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rank-one-site-drift-and-sharp-parameter-extremizers-for-ewens-tr--101ce30e229c/RESULT.md",
+          "material_read": "Finding, assumptions, partial-map step and relationship/limitations, offsets 0–4242 and 8137–10611",
+          "method": "Local Resultary mirror",
+          "title": "Rank-one site drift and sharp parameter extremizers for Ewens triple patterns",
+          "trigger": "Decisive match to full six-pattern table"
+        },
+        {
+          "assessment": "Related uniform statistic only",
+          "evidence": [
+            "Exact Cov(C,I) under uniform permutations, not the general θ probabilities."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-positional-sign-laws-for-cycles-and-consecutive-triple-patterns--b968e2801c74",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Positional sign laws for cycles and consecutive triple patterns",
+          "trigger": "Same triple patterns and cycle statistic"
+        },
+        {
+          "assessment": "Known completion identity and aggregate asymptotic pattern counts",
+          "evidence": [
+            "Lemma 2.1 is θ to the forced-cycle count divided by the falling product from n+θ−1 for arbitrary partial images."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.2157",
+          "material_read": "Theorem 1.8, p. 5; Lemma 2.1 and proof opening, p. 8 (offset 31774)",
+          "method": "OA PDF passages",
+          "title": "Asymptotic behavior of some statistics in Ewens random permutations",
+          "trigger": "General Ewens partial-image and pattern theorem"
+        },
+        {
+          "assessment": "Uniform exact or asymptotic, not the finite all-θ table",
+          "evidence": [
+            "Exact joint descent determinant for uniform permutations; conjugation-invariant limit results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.05845",
+          "material_read": "Proposition 31, pp. 17–18; Theorem 33, p. 19; Corollary 34, p. 20",
+          "method": "OA PDF passages",
+          "title": "Universality for random permutations and some other groups",
+          "trigger": "Vincular patterns and joint descents"
+        },
+        {
+          "assessment": "One-pair order and total inversion expectation only",
+          "evidence": [
+            "Pair inversion probability gives an adjacent descent marginal by inverse symmetry, not a joint order of three images."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.20654",
+          "material_read": "Theorem 1, p. 3",
+          "method": "OA PDF passage",
+          "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+          "trigger": "Exact same-law local inversion probabilities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings lines 3–28",
+        "Resultary …101ce30e229c, table and rank-one identity"
+      ],
+      "rationale": "The six-pattern statistic is natural and useful, but this review finds no additional scientific value as a distinct contribution beyond the exactly matching indexed table and stronger position-difference identity. The n=3 endpoint is the immediate six-permutation cycle-weight table and adds no positional statistic. This is not a criticism of the intrinsic value of the invariant or the correctness of the proof.",
+      "residual_risks": [
+        "This value decision concerns the independent contribution relative to checked coverage, not the pedagogical merit of the polynomial certificate or historical credit."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

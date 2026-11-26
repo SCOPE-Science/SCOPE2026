@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:35.427996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Slice y=±ts gives a rectangle with area 4t(1−s)² and mean x²=t²(1−s)²/3, so the volume mean is t²/5. The eight triangular facets comprise four with area t√(t²+1) and barycentric mean t²/6, four with area t√2 and mean t²/2. Their area-weighted difference from the volume mean is t²(9√2−√(t²+1))/[30(√(t²+1)+√2)], proving the exact threshold, equality case and strict example at t=13. Central symmetry gives both centroids zero; exposed base corners and apices give six vertices, while antipodal pairs must span dimension three. Independently triangulated the boundary and coned its triangles to the origin for tetrahedral volume quadrature; the three tested values agree, including surface 33.67898021143849 versus interior 33.8 at t=13 (replay /workspace/branches/independent_checks.js). This is finite corroboration only. The prior-work adjective non-tangential concerns the obstruction regime: K₁ itself has equal facet distances; this does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pasteczka's positive cases include parallelotopes; Tokmachev requires a planar body with agreeing centroids or a circumscribed polytope with a common incenter and centroid. Lotnikov's three-dimensional basis is the anisotropically stretched convex hull of a square section and two octagonal caps."
+        ],
+        "reasoning": "In the reversal regime the bipyramid facet offsets t/√(t²+1) and t/√2 are unequal, so the centered-inball theorem does not apply. The earlier counterexample method applies to a different construction and does not give six vertices or the finite exact crossover.",
+        "searches": [
+          "Pasteczka, arXiv:1804.03688, abstract and Proposition 1",
+          "Tokmachev, arXiv:2607.08869, Theorems 1–2",
+          "Lotnikov, arXiv:2608.14848, §§8.2–8.3 and Corollary 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71d633ba6685, ded383cc21db and 32daa224b529",
+        "arXiv:1804.03688, 2607.08869, 2608.06470 and 2608.14848",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For independent centered copies X,X', E|X−X'|²=2E|X|², and for Y,Y' likewise. Lotnikov's strict n=2 inequality gives E|X|²>E|Y|² and hence a direction u with E(u·X)²>E(u·Y)². Its spatial construction has octagonal end facets, each with eight vertices, not two apices."
+        ],
+        "reasoning": "Qualitative central-symmetry failure for some quadratic, even for a polytope in the spatial construction, is covered by implication. The existence of a direction does not imply its occurrence on a vertex-minimal polytope or the threshold for the specified coordinates.",
+        "searches": [
+          "Lotnikov, arXiv:2608.14848, Corollary 7 for n=2 and §8.2 construction",
+          "Primary literature search on boundary vs. interior convex quadratics and few-vertex polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day result 71d633ba6685 constructs a martingale proving domination on products of Euclidean balls. The later ded383cc21db characterization is an iff for orthogonal Cartesian products in terms of their factors."
+        ],
+        "reasoning": "Equal centroids are shared, but a bipyramid is not a product of those factors, and the asserted direction is reversed. The date is not used to establish priority.",
+        "searches": [
+          "Resultary: volume–boundary convex order bipyramid, quadratic witness, centrally symmetric polytope",
+          "Resultary 71d633ba6685 and ded383cc21db, original Finding passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later five-vertex result 32daa224b529 concerns pairwise mean distances. Shen's listed six vertices give a nonsymmetric pairwise mean-distance witness. Neither gives the exact one-point moment difference or the bipyramid parameter threshold."
+        ],
+        "reasoning": "The superficially close vertex counts are not exact coverage; the statistics and feasible classes differ. No exact numerical threshold or stronger family calculation was identified in the inspected matches.",
+        "searches": [
+          "Resultary: rectangular bipyramid, six vertices, x² and √161 convex-order crossing",
+          "Resultary 32daa224b529, original Finding",
+          "Shen, arXiv:2608.06470, Example 4.2 and Theorem 4.3"
+        ]
+      },
+      "rationale": "Earlier work already gives the qualitative existence of centrally symmetric examples with a quadratic reversal: Lotnikov's n=2 inequality implies a second-moment trace reversal. The surviving distinction is the fixed coordinate quadratic, a sharp crossing in the explicit rectangular bipyramid, and attainment with the minimum six vertices. The strongest prior spatial construction uses a square and two octagonal caps; the closest same-day result is a positive theorem about products of balls. Neither supplies the six-vertex threshold.",
+      "residual_risks": [
+        "Equivalent examples can be written in the language of anisotropically stretched octahedra or covariance differences; searches are not exhaustive. No priority for the qualitative reversal or classification of all six-vertex shapes is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different geometry and opposite direction; no inference from date",
+          "evidence": "An explicit martingale from volume to boundary on products of balls proves domination.",
+          "identifier_or_url": "Resultary 71d633ba6685 (2026-10-18)",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "An explicit boundary martingale for orthogonal products of Euclidean balls",
+          "trigger": "Closest same-day convex-order result"
+        },
+        {
+          "assessment": "Orthogonal products only, not the bipyramid",
+          "evidence": "Iff condition formulated in terms of the Cartesian product factors.",
+          "identifier_or_url": "Resultary ded383cc21db",
+          "material_read": "RESULT.md, Finding and prior-work comparison at offsets 0 and 8100",
+          "method": "Lawful local mirror text",
+          "title": "A Cartesian-product characterization of geometric volume–surface convex order",
+          "trigger": "Closest broader result for the same order comparison"
+        },
+        {
+          "assessment": "Different statistic and no prior six-vertex symmetric example",
+          "evidence": "Pairwise mean-distance counterexample with five vertices rather than a centered one-point second-moment witness.",
+          "identifier_or_url": "Resultary 32daa224b529",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "A five-vertex spatial counterexample to the Zaporozhets–Tarasov mean-distance inequality",
+          "trigger": "Counterexample with an apparent improvement in vertex count"
+        },
+        {
+          "assessment": "Does not cover the obstruction geometry",
+          "evidence": "Proposition 1 treats parallelotopes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.03688",
+          "material_read": "Abstract and Proposition 1, pp. 1–3, offset near 5300",
+          "method": "Lawful OA PDF passages",
+          "title": "Jensen-type geometric shapes",
+          "trigger": "Prior positive volume–boundary Jensen classes"
+        },
+        {
+          "assessment": "No coverage at the three-dimensional, non-tangential obstruction",
+          "evidence": "Planar positive theorem and positive theorem for a circumscribed polytope whose incenter equals both centroids.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.08869",
+          "material_read": "Theorems 1–2, p. 3, offset near 9271",
+          "method": "Lawful OA PDF passages",
+          "title": "Inequalities for convex functions of random points inside and on the boundary of convex bodies",
+          "trigger": "Prior theorems with both centroids equal"
+        },
+        {
+          "assessment": "Nonsymmetric construction for a different quantity",
+          "evidence": "The vertex list is not centrally symmetric, and the inequality concerns mean pairwise distances.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.06470",
+          "material_read": "Example 4.2 and Theorem 4.3, p. 10, offset near 25200",
+          "method": "Lawful OA PDF passages",
+          "title": "The Zaporozhets–Tarasov Conjecture on Mean Distances",
+          "trigger": "Prior related six-vertex construction"
+        },
+        {
+          "assessment": "Prior qualitative existence, not six-vertex realization",
+          "evidence": "Corollary 7 orders the n-th pairwise moments for a centrally symmetric example. Its spatial construction has equatorial square and two octagonal cap faces, retained under stretching.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.14848",
+          "material_read": "Definitions pp. 4–5; §8.2 pp. 23–25 offset 65620; §8.3 Corollary 7 p. 28 offset 77800",
+          "method": "Lawful OA PDF passages",
+          "title": "Mean distance between points inside and on the boundary of a convex body",
+          "trigger": "Prior central symmetry and n=2 implication, possible identical spatial body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction reaches the smallest possible centrally symmetric spatial vertex count with a simple convex test and an exact sign crossing. Unlike merely proving that the comparison can fail, it tests sharp complexity and reproduces the obstruction with an integer-coordinate example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

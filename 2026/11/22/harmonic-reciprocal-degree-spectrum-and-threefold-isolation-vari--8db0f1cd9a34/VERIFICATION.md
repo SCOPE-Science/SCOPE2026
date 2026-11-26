@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`checker.py` is standalone and requires only Python 3 standard-library modules. Execute `python3 checker.py` from the extracted directory. It returned `PASS 4246 assertions`; the exact rational components verify the beta-mixture formula for sample sizes 1 through 30, the harmonic normalization and first two reciprocal-degree moments, the two-tag rectangle relation on a rational grid, the exponential minimum identity, and direct-versus-offline graph-degree calculations. The seeded simulation of 2,000 samples with 500 vertices returned empirical mean 6.61600 and variance 16.60854, compared with theoretical mean 6.79282 and asymptotic variance benchmark 18.64382.
+## correctness
 
-Finite enumeration and simulation do not certify the infinite limit. That limit is proved analytically in `RESULT.md`, using an explicit negligible-direct-edge bound, the exponential coordinate transformation, and dominated convergence of an integrable shared-neighbor overlap kernel. The exact limiting overlap integral equals two; the tagged marginal contribution equals one. No independent external audit or validation has been performed.
+PASS
+
+Conditional on the tag coordinates, neighbors are independent and the hit area is xy. The product-uniform beta mixture gives (H_n-H_k)/n; equivalently, the number m of labels satisfying one cross inequality is uniform on 0,…,n−1, and mixing over the other uniform tagged coordinate gives degree uniform on 0,…,m conditional on m. For the variance, the two tagged rectangles have intersection min(X1,X2)min(Y1,Y2); excluding the direct edge and taking the (n−2)nd power of the complement of their union is exact. When both tag products are ≤ε=10 log(n)/n, a direct edge forces one pair of coordinates near 0 and the other near 1 in one of two opposite boxes of volume O(ε⁴); elsewhere the union area gives a negligible exponential upper bound. The independent-baseline exponent adjustment is O(log²(n)/n) after n² rescaling. With t_i=nX_iY_i and u_i=−log X_i the Jacobian is 1/n per tag; after integrating out the common translation, its allowed length divided by log n tends to one. The rescaled overlap term is dominated by a constant times (1+|log t1|) max(t1,t2) exp(−|u1−u2|) exp(−max(t1,t2)/2), which is integrable. Averaging the limiting kernel over the independent exponential t_i gives exp(−|u1−u2|), of integral two. Hence the pair term contributes 2 log n+o(log n), and the one-tag term contributes log n+O(1); Chebyshev proves the stated concentration. Read RESULT.md, VERIFICATION.md and checker.py. The recorded finite and simulated checks were not rerun and do not certify the limit.
+
+## originality
+
+PASS
+
+The underlying random digraph and the mutual-edge convention both have prior coverage. The finite harmonic law is an elementary distributional calculation in that model. The substantive supported distinction is the logarithmic reciprocal-isolation variance, including the overlap contribution of two, not an originality claim for the parent model or the beta integral.
+
+## value
+
+PASS
+
+The variance quantifies the failure of the independent rare-isolation approximation in the reciprocal graph of an established random digraph. The one-vertex law alone predicts only the marginal unit of logarithmic variance, while the actual shared-neighbor geometry adds two more. The exact coefficient distinguishes dependence mechanisms at the natural isolation scale; the elementary degree calculation is not the sole value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

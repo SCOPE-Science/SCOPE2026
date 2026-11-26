@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:20:32.597173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Folded angular differences are independent uniform on [0,π]. The squared ratio is a positive weighted average of the squared one-circle arc/chord factors, which increase strictly to (π/2)². It tends to 1 at the all-zero corner and reaches π/2 exactly on the other 2^d−1 corners, so all sufficiently high exceedances are localized there. Expanding at antipodal set A gives deficit F=L+O(L²) with L=Σ_{j∈A}r_j²s_j/(2S_A)+Σ_{i∉A}(π²−4)r_i²y_i²/(16πS_A); all coefficients are positive at fixed radii. In a small fixed neighborhood, F<ε is thus squeezed by L<ε±O(ε²). The volumes of these model sets scale exactly with exponent (d+|A|)/2. The squared-coordinate substitution and beta integral give c_A as stated, with a relative O(ε) error, so a singleton's next error cannot contribute to the second coefficient (including d=2). The AM–GM equality case is exactly equal radii. On singleton corners, rescaled model contributions have simplex density proportional to the product of inverse square roots of the coincident-coordinate contributions; adding slack gives Dirichlet(1,1/2,…,1/2,1). The squeeze implies the same law for the true exceedance and either exact or leading slack. Singleton corner weights are proportional to r_j^d, and the labelled ratios plus diameter determine the scale. All claims are for fixed positive radii and the specified embedding.",
+      "reproduction": "python3 /workspace/reproductions/04_torus.py independently integrates the full two-dimensional angular domain by slicing the separated squared inequality into two monotone branches. For radii (1,1), (1,2), (1.3,0.8), the residual after subtracting C_1 ε^(3/2), divided by ε², approaches the computed C_2, and the error after both terms divided by ε^(5/2) stays bounded across ε=0.003 to 0.0001. This is a finite diagnostic, not proof for all d. Frozen checks/verify_clifford_tail.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 77–86 distinguishes classical Clifford-torus geometry and the chord metric used by Tavernier et al. in Coulomb lattice sums.",
+          "Resultary rectangular and well-rounded torus covering records 69782c68e7ea and 559d72822a1a optimize multi-site covering radii, rather than sampling a pair and taking a quotient of distances."
+        ],
+        "reasoning": "Rigidity or minimality of a balanced embedded surface does not yield a radius-imbalance inequality for a probability coefficient. Optimized intrinsic coverings and generic manifold covering tail bounds do not dominate this fixed-pair observable.",
+        "searches": [
+          "Clifford torus rigidity arXiv:1203.6597",
+          "Clifford supercell chord geometry arXiv:2107.04686v1",
+          "Resultary: random ratio asymptotics, flat torus covering"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify_clifford_tail.py",
+        "Resultary sidewall and annular distortion records 4f029a6c5ce8, 681d4e624b00, 7132014140cc",
+        "Resultary flat quotient and flat-torus covering records 158649a31c2d, 69782c68e7ea, 559d72822a1a",
+        "arXiv:2107.04686v1 and arXiv:1203.6597 (frozen attribution; primary retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known angular distance formulas give an integral representation. The exact maximizing corners, unequal scaling of antipodal and coincident defects, and the gap of a half power between the first two corner orders must still be identified.",
+          "The annulus summary has a uniform-simplex law, not the square-root density from the coincident angular directions."
+        ],
+        "reasoning": "The global π/2 bound follows readily from the metric formulas and one-circle monotonicity. The two term constants and inverse/conditional laws depend on the product corner structure and are the distinct claim.",
+        "searches": [
+          "RESULT.md lines 39–72 versus arXiv:2107.04686v1 and Resultary cylinder and annulus summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cylinder 4f029a6c5ce8 and cone 681d4e624b00 concern the same ratio on sidewalls with height or opening parameters; annulus 7132014140cc has π/2 endpoint but cubic tail.",
+          "Flat inversion orbifold 158649a31c2d gives an intrinsic pair-distance law and terminal tail on a quotient."
+        ],
+        "reasoning": "Arc/chord stretch, detour ratio and intrinsic-to-ambient distortion name the same type of observable, but the joint metrics and maximizers differ between these spaces. An intrinsic-distance marginal on a quotient cannot specify the ratio of the two correlated distances on the embedded product.",
+        "searches": [
+          "Resultary: intrinsic-to-ambient random-pair stretch upper tail orthogonally embedded product torus",
+          "Resultary: intrinsic pair distance flat inversion orbifolds",
+          "Clifford boundary conditions, arXiv:2107.04686v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cylinder entry advertises an exact one-quadrature law with ε^(3/2) leading behavior, the cone entry a variable endpoint, and the annulus entry an ε³ tail. The quotient entry gives an exact law for intrinsic distance only."
+        ],
+        "reasoning": "A resolved exact distribution of this same ratio for arbitrary positive radii could cover the expansion, but an exact distribution or spectrum on any of the identified different spaces or observables does not.",
+        "searches": [
+          "Resultary: exact ratio distribution endpoint tail on product circles, also cone, cylinder and annulus",
+          "Resultary: exact pair distances and spectral data on flat/Clifford tori"
+        ]
+      },
+      "rationale": "Available sources share ingredients, statistics in other geometries, or intrinsic-distance observables on flat tori. No inspected statement gives the claimed two corner orders, labelled inverse proportions and conditional simplex law for the specified orthogonal product embedding. Credit the corner tail and defect law rather than classical metric formulas or the Clifford torus itself.",
+      "residual_risks": [
+        "The strongest related passages available were indexed summaries; the OA primary and full matching-record requests timed out. Neither a lack of search hits nor the dates establish priority over another full result on the embedded product."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different geometry; not discarded on account of the date.",
+          "evidence": [
+            "Finite circular-cylinder sidewall; one-quadrature law, ε^(3/2) tail and a thin-height crossover."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-extreme-stretch-and-a-thin-cylinder-crossover-for-random-s--4f029a6c5ce8",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search; primary passage retrieval unsuccessful",
+          "title": "Exact extreme stretch and a thin-cylinder crossover for random surface pairs",
+          "trigger": "Same ratio and leading exponent in dimension two"
+        },
+        {
+          "assessment": "Same kind of ratio but not the product-torus geometry.",
+          "evidence": [
+            "Circular-cone sidewall and opening-dependent endpoint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-stretch-distribution-and-sharp-extreme-distortion-on-a-cir--681d4e624b00",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search",
+          "title": "Exact stretch distribution and sharp extreme distortion on a circular-cone sidewall",
+          "trigger": "Exact distribution of an intrinsic-to-ambient ratio"
+        },
+        {
+          "assessment": "Material analogy, not equivalent coverage.",
+          "evidence": [
+            "Planar annulus, π/2 endpoint, ε³ and a uniform-simplex law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cubic-extreme-detour-law-and-shape-recovery-for-random-annular-p--7132014140cc",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search",
+          "title": "Cubic extreme detour law and shape recovery for random annular pairs",
+          "trigger": "Same endpoint, geometric inverse inference and simplex limit"
+        },
+        {
+          "assessment": "Different space and distance observable.",
+          "evidence": [
+            "The terminal tail is for intrinsic pair distance on an inversion quotient."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-schur-ordering-and-exact-geodesic-pair-distance-laws-on-flat-inv--158649a31c2d",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search; full related-record text unavailable",
+          "title": "Schur ordering and exact geodesic pair-distance laws on flat inversion orbifolds",
+          "trigger": "Exact distance asymptotic on a related flat space"
+        },
+        {
+          "assessment": "Credited input; no full-text noncoverage conclusion.",
+          "evidence": [
+            "The frozen comparison cites the product-circle chord formula in an application to lattice sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.04686v1",
+          "material_read": "Frozen comparison RESULT.md lines 77–86; full primary passage unavailable",
+          "method": "Attempted OA retrieval and local attribution",
+          "title": "Clifford Boundary Conditions for Periodic Systems: the Madelung Constant of Cubic Crystals in 1, 2 and 3 Dimensions",
+          "trigger": "Same intrinsic and chord geometry"
+        },
+        {
+          "assessment": "Different rigidity statement.",
+          "evidence": [
+            "The cited theorem concerns embedded minimal tori in S³, rather than an optimization of a random-pair tail coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.6597",
+          "material_read": "Frozen comparison RESULT.md lines 77–86; full primary passage unavailable",
+          "method": "Attempted OA retrieval and local attribution",
+          "title": "Embedded minimal tori in S^3 and the Lawson conjecture",
+          "trigger": "Rigidity of balanced Clifford torus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The second term reflects a genuinely different antipodal stratum rather than a correction to the most likely stratum. The coefficients measure geometric imbalance, identify equal radii uniquely, and recover labelled shape information from rare events. The conditional defect profile gives more than an endpoint exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

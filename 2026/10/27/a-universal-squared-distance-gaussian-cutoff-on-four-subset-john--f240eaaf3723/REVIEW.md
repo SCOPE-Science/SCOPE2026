@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact Newton coefficients give a sum of incidence Gram matrices with a strictly positive identity component below the root and an exact boundary rank of \(\binom n3\). For every parameter above the root and below one, one of two explicit nonzero harmonic vectors on an induced eight-point Johnson slice gives a strictly negative quadratic form. Rational checker identities support the formulas, and the analytic monotonicity and incidence-rank arguments cover all stated sizes.
+## correctness
 
-**Originality: PASS under bounded literature review.** Filmus (arXiv:1406.0142, Section 4) supplies the Johnson harmonic decomposition, not the universal 4-subset squared-distance Gaussian transition. Feragen--Lauze--Hauberg (arXiv:1411.0296, Sections 2--3) concern path-geodesic spaces and do not classify finite Johnson graphs. Damase--Pascoe (arXiv:2602.09010, Sections 4 and 6--7) treat broader abstract positive-definite extension theory without this exact threshold. Indexed research searches returned Johnson sampling, Hamming-shell, and other radial positive-definite problems but no statement implying the present interval and boundary rank. Unindexed equivalent calculations remain possible.
+PASS
 
-**Mathematical value: PASS.** Squared *intrinsic* Johnson distance is a natural but non-Euclidean covariance choice on constant-weight binary data. The theorem gives a parameter guarantee independent of ambient ground-set size, a sharp rank loss at equality, and a fixed eight-point obstruction for every larger ground set. The top harmonic coefficient even becomes positive again while the kernel stays indefinite, illustrating why a single-sector diagnostic is unreliable. This is a closed admissibility classification rather than a numerical fit or arbitrary table lookup.
+For n≥8 the full four-subset kernel has the Newton expansion of s↦q^((4−s)²) at s=0 into the PSD matrices M_j M_jᵀ, with the degree-four term F(q)I. The first four coefficients are positive for 0<q≤1/3; F changes sign between 1/4 and 1/3 and is decreasing up through 13/25 by the displayed derivative bound. At the root, the lower incidence column spaces nest in that of M₃, so rank reduces to rank M₃. The column-independence induction works because the exchange of x,y passes from (t,k,n) to (t−1,k−1,n−2) within t≤k≤n−t, forcing adjacent t-set coefficients equal and hence zero. On eight points the degree-four and degree-three pair differences are eigenvectors by flips and unpaired-coordinate symmetry. Counting flips gives F and G=1−2q+2q⁹−q¹⁶, respectively; G=(1−q)(1−q⁸)(1−sum_{i=1}^7 q^i), which is negative on [13/25,1) by even the first four terms of the sum. Thus between the first root and 13/25 the degree-four form is negative, and beyond it up to 1 the degree-three form is negative. The eight-point matrices are principal submatrices at every n≥8, and unit diagonal ensures a positive direction. The all-ones endpoint is separate. At 19/20 a bounded numerical check gives F≈0.00616653 and G≈−0.07962785, consistent with the rational signs; for general n the degree-three eigenvalue counts one choice preserving the unpaired point and n−7 choices adding one unit to the distance, hence equals F+(n−6)γ₃ and is negative there as well. Replay: RESULT.md lines 28–83; VERIFICATION.md and check.py were inspected, not run. The result uses d² for shortest-path d, not squared Euclidean distance of indicators.
 
-**Limits and risks.** The result is restricted to weight-four slices and squared Johnson distance. It is not a general positive-definiteness result for all Johnson levels. Literature coverage is necessarily bounded, and independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-n first-loss polynomial, cutoff rank, and incidence method overlap substantially with the broader published Resultary frontier. Those parts cannot be treated as distinct from that catalogue result. The distinct contribution supported here is the full four-subset classification beyond the first frontier, proving no additional admissible interval all the way to the isolated all-ones endpoint despite top-sector reentry. The broader frontier explicitly leaves the relevant high-q region unclassified. Catalogue dates do not decide priority.
+
+## value
+
+PASS
+
+A radial kernel usable on every ground-set size has an explicit, size-independent admissible set and an exact rank at loss of strict positivity. The same finite obstruction excludes every high-q interval; the top harmonic's sign reversal shows why recording only the first transition is insufficient in this natural distance family. This is a full classification rather than a numerical bandwidth or one small matrix computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

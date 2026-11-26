@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:55.393821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed RESULT.md:5–56, VERIFICATION.md, and checks/check_extremizers.py. Positivity and the order-unit norm make the same unit vector norm all powers, including in the complex case by the lattice modulus inequality. Hence the optimum absolute Cesàro constant is the supremum of the prefix averages of a_j = ||T^j||. For each j between 0 and n, submultiplicativity gives a_j a_(n-j) >= a_n; AM–GM summed over j gives (n+1)sqrt(a_n) <= sum a_j <= (n+1)K. This includes zero powers and n=0. The finite backward shift with endpoint weights c and interior weights 1 has powers with norms 1, c (N−1 terms), c², then zero. The largest prefix average includes c² and equals c+(c−1)²/(N+1). For each exact K>1 the tuning equation has one c_N>1 by strict monotonicity and unboundedness in c, and 0<K−c_N<=(K−1)²/(N+1); thus c_N² tends to K². K=1 is attained by the identity. Independent bounded replay: python3 /workspace/branches/replay_frozen_review.py 2 checked 16 exact rational matrix orbits using basis vectors and row sums. That tests the construction, not the infinite-dimensional inequality or the quantifier over real K; these are proved algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abbar–Arnold–Coine prove ACB implies p-ACB for positive operators on L^p, 1<p<infinity, and give finite-p power-growth bounds.",
+          "Arnold gives sharp improvement from p-ACB to q-ACB for q<pK/(K−1), with finite-exponent endpoint examples on weighted shifts."
+        ],
+        "reasoning": "This finite-exponent theory does not supply a uniform operator-norm bound on unital AM-spaces or the exact-K endpoint extremizers. No justified p-to-infinity limit with those conclusions is given in the compared results.",
+        "searches": [
+          "arXiv:2609.24601, Theorem 2.1 and Remark 2.3",
+          "arXiv:2610.00271v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24601",
+        "arXiv:2610.00271v1",
+        "arXiv:1912.10507 / DOI 10.1016/j.jmaa.2020.124035",
+        "2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dual argument yields an upper bound once the order unit gives a common bound on the prefix averages of operator norms. The finite-p prior construction optimizes a different functional and exponent range."
+        ],
+        "reasoning": "Credit the material implication for the upper bound. The prior upper-bound argument does not prove any lower bound for the supremum at fixed K, and the finite-p formula does not imply a maximizing sequence in finite-dimensional ℓ-infinity. The tuned nilpotent construction closes that gap.",
+        "searches": [
+          "arXiv:1912.10507, Proposition 2.1 and proof",
+          "Resultary finite-horizon extremal RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order-unit reduction is equivalent to bounding a submultiplicative sequence of power norms by its optimal prefix mean squared.",
+          "Cohen–Cuny–Eisner–Lin prove power boundedness from absolute Cesàro boundedness of both T and T*. The AM-space reduction supplies the appropriate norm control for both."
+        ],
+        "reasoning": "Neither the qualitative equivalence nor the quadratic upper bound alone distinguishes this record. The content tested is sharpness as a function of every exact K>1, realized as a supremum even within finite positive nilpotent shifts.",
+        "searches": [
+          "Positive AM-space/L-infinity absolute Cesàro power-norm endpoint and sharp scalar submultiplicative prefix-mean bounds; Resultary lookup for absolute Cesàro power amplification",
+          "arXiv:1912.10507, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact extremal formula is at each finite horizon n and for 1<=p<infinity; for p=1 its order grows like n^(1−1/K) at K>1. Its weighted-shift examples and quantitative law are explicit, not just table values."
+        ],
+        "reasoning": "This is the closest catalogue entry. It does not encode the uniform-in-horizon optimal sup norm at the positive AM-space endpoint. A table of fixed horizons would not by itself give exact-K realizability and sharpness for the whole continuum of K.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc, RESULT.md, offset 76"
+        ]
+      },
+      "rationale": "The upper estimate and qualitative power boundedness are not counted as original. The supported distinction is the exact best function of the optimal one-sided absolute Cesàro constant at the positive order-unit endpoint, with finite-dimensional nilpotent witnesses at each prescribed K. The closest verified results give finite-exponent improvements, different finite-horizon estimates, or a two-sided power-boundedness argument without this optimality. This is a bounded conclusion, not historical priority.",
+      "residual_risks": [
+        "The elementary order-unit/submultiplicativity route may have an older implicit sharpness construction under different terminology. Bounded searches, including an unrelated literature-query return, do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-p results, not the norm endpoint or its sharpness",
+          "evidence": [
+            "Positive L^p, 1<p<infinity, ACB implies p-ACB; ||T^n||=O(n^(1/p−epsilon))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24601",
+          "material_read": "Theorem 2.1 (p. 4, offset 15539), Remark 2.3 (p. 7, offset 25943)",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "On absolutely Cesàro bounded operators",
+          "trigger": "Closest positive ACB self-improvement theorem"
+        },
+        {
+          "assessment": "Sharp finite-exponent comparison, not an AM-space estimate",
+          "evidence": [
+            "q<pK/(K−1) for improvement from p-ACB; finite-exponent sharpness on weighted shifts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00271v1",
+          "material_read": "Abstract and introduction (p. 2, offset 6188)",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Self-improvement for absolutely Cesàro bounded operators",
+          "trigger": "Sharp exponents and positive weighted shifts"
+        },
+        {
+          "assessment": "Relevant to the upper estimate; no exact-K lower witness in the compared argument",
+          "evidence": [
+            "ACB of both T and T* implies power boundedness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.10507",
+          "material_read": "Proposition 2.1, p. 4, offset 12654",
+          "method": "Authors' lawful OA preprint of DOI 10.1016/j.jmaa.2020.124035",
+          "title": "Resolvent conditions and growth of powers of operators",
+          "trigger": "Classical dual route to the upper estimate"
+        },
+        {
+          "assessment": "Closest exact quantitative analogue; excludes the p=infinity endpoint",
+          "evidence": [
+            "Finite-p exact envelope for ||T^n||^p and attainability by one weighted shift on ℓ^p across finite horizons."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc",
+          "material_read": "RESULT.md, exact finite-horizon formula and parameter scope, offset 76, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Sharp finite-horizon power amplification under absolute Cesàro bounds",
+          "trigger": "Exact quantitative extremum and positive shifts in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact amplification allowed by an optimal average bound is a natural quantitative operator invariant. The upper inequality alone is simple; the exact-K finite-dimensional witnesses are what make this a useful sharp endpoint. They rule out improving the bound at any K>1, not merely improving the exponent as K grows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

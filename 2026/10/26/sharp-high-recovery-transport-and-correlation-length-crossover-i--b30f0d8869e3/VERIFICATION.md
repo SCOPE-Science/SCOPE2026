@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 
-The analytical theorem follows from the exact source stationary-current and transfer-eigenvalue formulas. A positive-root count using a polynomial coefficient sign change proves uniqueness for all positive rate ratios; the implicit-function expansion at the unique root gives the optimized coefficients. The logarithm of the exact second-to-first transfer-eigenvalue ratio gives the correlation-length coefficients.
+The proof starts from the exact stationary formulas and the known unique positive optimizer root. It uses a simple-root expansion for the next-order transport terms and a two-state Gibbs chain calculation for the correlation length and susceptibility.
 
-The standalone `verify_tep.py` script was run with Python, SymPy, NumPy, and SciPy. It passed 67 distinct groups of symbolic and numerical assertions: eleven symbolic identity and asymptotic-series groups, twenty-four independent current/optimization groups, twelve fixed-density correlation-asymptotic groups, and twenty optimizing-limit and susceptibility groups. Independent density-coordinate optimization was compared against the derivative-polynomial root. The script states all tested parameter values and tolerances.
+The supplied `verify_tep.py` uses Python, SymPy, NumPy and SciPy. The recorded run reports 67 symbolic and numerical check groups, covering stationary identities, direct-density optimization at sample parameters, and finite-rate checks of the fixed-density and optimizing asymptotics. This script checks the correlation quantities through the transfer eigenvalue and geometric sum; the equivalent density representation using \(D=\sqrt{1+4(q-1)\rho(1-\rho)}\) is established analytically in `RESULT.md`.
 
-Limits: numerical observations are not proofs of all-parameter uniqueness or all-order asymptotics; these claims are proven separately. No full finite-system Markov generator computation was necessary for the thermodynamic consequences. Independent scientific audit and external priority validation have not been performed.
+Finite tests corroborate the formulas and coefficients; they cannot establish the asymptotic remainders or uniform finite-ring claims. The thermodynamic limit is taken before the strong-recovery limit.

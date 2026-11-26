@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:17.305220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Weighted Cayley contraction gives the stated distance probability, including the Hamiltonian path case. Conditional exchangeability gives h_n=(E L-1)/(n-2). The tree median of the three marked labels is either one of them (probability h_n for each) or another label (probability j_n for each), and the latter event at b is exactly three-component separation. Thus K=j_n I+(h_n^2-j_n)11^T, yielding both formulas. Gaussian tail domination of the rescaled distance sum gives E L/sqrt(n) -> sqrt(pi/2); hence n j_n -> 1 and the collective eigenvalue tends to pi/2-1. In particular both eigenvalues are eventually positive and the stated Euclidean condition number follows. The spectrum proof also requires noncoincidence to name the exact eigenspaces at every n: put S_k=Pr(L>=k), d=sum S_k. The survival recurrence (k+1)S_k=n(S_k-S_{k+1}) gives sum k S_k=n-d. Decreasing survival ratios give S_i S_j>=S_{i+j-1}, strictly for i=j=2. Hence d^2+d>n, and summing just the i=2 row of the nonnegative differences gives D=d^2+d-n>=1-2d/n. Now (n-2)^2[(n-3)h_n^2+3h_n-1]=(n-3)D+3d-n-1>=d(1+6/n)-4. For n>=6, x=4n/(n+6) satisfies x^2+x<=n, so d>x. At n=4,5, exact arithmetic gives h_n^2>j_n directly. I also independently enumerated connected (n-1)-edge subsets of K_n at n=4,5,6 and unioned surviving edges after deleting b: (h,j)=(5/16,1/16),(37/125,7/125),(61/216,11/216). This is a finite replay distinct from the recorded Prufer enumeration, not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai proves PSD for general weighted spanning trees, but the inspected theorem and applications do not give an eigenvalue formula or spectral scale ratio.",
+          "The prior Cayley distance law and mean limit already imply the exact h_n and its leading term by exchangeability."
+        ],
+        "reasoning": "A stronger qualitative theorem is not stronger than the quantitative spectral claim. The known distance input itself is not counted as a contribution.",
+        "searches": [
+          "Cai, arXiv:2610.22180v1, Theorem 1.1 and applications",
+          "Resultary d9ddfb06a9ae, Finding (1) and distance-limit proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22180v1",
+        "Resultary d9ddfb06a9ae and 4740ad229d71; mirrored source statements",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspected, not executed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known P(L=k) gives H by averaging the internal labels. To compute J one still needs the median argument and the identity 3h_n+(n-3)j_n=1. Exchangeability then reduces the numerical kernel to two modes."
+        ],
+        "reasoning": "The final diagonalization and passage to the limit are elementary once J is identified, but the inspected results do not themselves give the off-diagonal relation or its spectral consequences.",
+        "searches": [
+          "Cai's weighted PSD theorem compared with the median and spectrum derivation in RESULT.md lines 34–48",
+          "Resultary d9ddfb06a9ae distance mean and 4740ad229d71 path-contraction formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai's H_B and J_B specialize exactly to these H and J at B={b}.",
+          "The closest indexed marked-path record instead calculates conditional leaf counts."
+        ],
+        "reasoning": "The change of name from ancestor inequality to kernel makes no novelty difference. The new comparison concerns eigenvalues, not the definition or positive semidefiniteness.",
+        "searches": [
+          "Cai, arXiv:2610.22180v1, Section 1: ancestor hit, three-component event, singleton B",
+          "Local Resultary: uniform Cayley tree ancestor kernel and marked path laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record has the exact fixed-endpoint distance law and limiting distance scale; the second uses the same marked-path extension count but concerns leaf statistics."
+        ],
+        "reasoning": "Neither bound statement supplies the exact kernel spectrum. Same-day publication of the distinct leaf result was not treated as a reason to disregard it.",
+        "searches": [
+          "Local Resultary 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "Local Resultary 2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71"
+        ]
+      },
+      "rationale": "The kernel and its qualitative positivity are prior work, and the path law and Rayleigh mean are established inputs. The distinct finding is the exact separation/median link evaluated in this kernel and its resulting full spectrum and scale contrast. The strongest inspected antecedents do not supply these numbers: the general positivity theorem is not a spectral evaluation, and the two-vertex distance law needs a separate three-label argument to give the off-diagonal entry. No equivalent spectral statement was identified in the inspected evidence.",
+      "residual_risks": [
+        "An equivalent singleton-ancestor spectral computation in older random-tree literature remains possible; full text of the Aldous 1990 source and the attempted Pitman fixed-forest source was not obtained. Neither access limitation is evidence against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definitions and broader PSD theorem, not the exact spectrum",
+          "evidence": "Theorem 1.1 gives H_B H_B^T-J_B PSD; at B={b} this is the same kernel.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22180v1",
+          "material_read": "Section 1 definitions, Theorem 1.1 and applications, HTML offsets 0–2171 and 1650–6638",
+          "method": "Primary open full-text passages",
+          "title": "A quadratic ancestor inequality for spanning trees",
+          "trigger": "Same H and J; potential general coverage"
+        },
+        {
+          "assessment": "Distance law and leading mean previously recorded",
+          "evidence": "P(D=k)=(k+1)(n-2)_{k-1}/n^k and E D/sqrt(n) -> sqrt(pi/2).",
+          "identifier_or_url": "Resultary d9ddfb06a9ae",
+          "material_read": "Finding (1) and distance-limit proof",
+          "method": "Local indexed source and mirrored RESULT.md",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Exact distance input"
+        },
+        {
+          "assessment": "Shared enumeration input, distinct statistic",
+          "evidence": "Uses (d+1)n^(n-d-2) for a specified d-edge path; derives conditional leaf counts.",
+          "identifier_or_url": "Resultary 4740ad229d71",
+          "material_read": "Finding and proof, offsets 0–4205",
+          "method": "Local indexed source and mirrored RESULT.md",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Same model and marked path"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is a natural complete-graph test case of the general ancestor inequality. PSD by itself predicts neither the order-one collective mode nor a vanishing transverse scale. Exact eigenvalues and the pi/2-1 coefficient distinguish these two forms of stability and give a useful quantitative benchmark without relying on small-n extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

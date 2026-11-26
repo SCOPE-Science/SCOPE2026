@@ -1,133 +1,68 @@
-# Sharp fourth-cumulant rigidity and two-barrier ordering in periodic random walks
+# The harmonic-coordinate variance gives the exact fourth-cumulant excess on a periodic bond walk
 
 ## Finding
 
-**Theorem.** Fix an integer \(n\ge3\) and positive edge conductances \(c_0,\ldots,c_{n-1}\), repeated periodically on \(\mathbb Z\). A continuous-time walker at \(x\) jumps to \(x+1\) at rate \(c_{x\bmod n}\) and to \(x-1\) at rate \(c_{(x-1)\bmod n}\). Put \(r_j=c_j^{-1}\) and \(R=\sum_{j=0}^{n-1}r_j\). For \(j=0,\ldots,n-1\), define \(u_j=r_j-R/n\), \(S_j=\sum_{i=0}^{j-1}u_i\), \(\overline S=n^{-1}\sum_jS_j\), and \(E=\sum_j(S_j-\overline S)^2\). The displacement's stationary-independent, long-time cumulant rates satisfy
-
+Let \(X_t\) be the continuous-time nearest-neighbor walk on \(\mathbb Z\) with rate \(c_j>0\) in either direction across edge \((j,j+1)\), repeated with integer period \(n\ge3\). Write \(r_j=1/c_j\), \(R=\sum_{j=0}^{n-1}r_j\), and \(\pi\) for the uniform law on the residue classes. Let \(\chi\) be the unique mean-zero periodic corrector for which \(x+\chi(x\bmod n)\) is harmonic. Equivalently,
 \[
-\kappa_2=\frac{2n}{R},\qquad
-\frac{\kappa_4}{\kappa_2}=1+\frac{12nE}{R^2}.
+\chi(j+1)-\chi(j)=\frac{n}{R}r_j-1,\qquad \sum_j\chi(j)=0.
 \]
-
-More explicitly, defining \(B=\sum_{0\le i<j<n}r_ir_j(j-i)(n-j+i)\), one has
-
+For the cumulant rates \(\kappa_m=\lim_{t\to\infty}t^{-1}\operatorname{cum}_m(X_t-X_0)\), the exact excess over the homogeneous fourth-to-second ratio is
 \[
-\kappa_4=\frac{2n^3}{R}-\frac{24nB}{R^3}.
+\boxed{\frac{\kappa_4}{\kappa_2}-1=12\operatorname{Var}_\pi(\chi).}
 \]
-
-Thus at fixed total edge resistance \(R\), effective diffusion \(D=\kappa_2/2=n/R\) is unchanged by edge order or dispersion, whereas the normalized fourth cumulant satisfies the **sharp all-profile inequality**
-
-\[
-1\le\frac{\kappa_4}{\kappa_2}<n^2.
-\]
-
-Equality at the lower bound holds **if and only if** all rates are equal. The upper bound is the sharp supremum over all strictly positive conductances, approached when one edge resistance dominates all others; it is never attained by a finite strictly positive profile.
-
-For exactly two identical slow edges with resistances \(1+\delta\) (\(\delta>0\)) and all other resistances one, let \(d\in\{1,\ldots,\lfloor n/2\rfloor\}\) be their shortest circular edge separation. Then
-
-\[
-\frac{\kappa_4(d)}{\kappa_2}=1+\frac{4\delta^2}{(n+2\delta)^2}\bigl[n^2-1-3d(n-d)\bigr].
-\]
-
-At fixed \(n\) and \(\delta\), this is strictly decreasing in the distinct allowed distances \(d\). Adjacent slow edges maximize \(\kappa_4\); maximally separated slow edges minimize it. For \(n=3\), there is only one allowed separation, so no nontrivial ordering comparison.
+In particular, if \(S_j=\sum_{i<j}(r_i-R/n)\) for \(0\le j<n\) and \(\bar S=n^{-1}\sum_jS_j\), the right-hand side is \(12nR^{-2}\sum_j(S_j-\bar S)^2\). This gives the exact profile-dependent deviation, not just an envelope for it, without computing any eigenvalues or using a small-contrast approximation.
 
 ## Assumptions and scope
 
-The lattice is the infinite universal cover \(\mathbb Z\) of an \(n\)-cycle; **unwrapped** displacement, not position reduced modulo \(n\), is counted. Every \(c_j\) is a finite strictly positive number. No drift, killing, resetting, or time dependence is present. Rates are symmetric **on each undirected edge**, but may vary between edges. For an arbitrary fixed initial site, \(\kappa_p:=\lim_{t\to\infty}t^{-1}\operatorname{cum}_p(X_t-X_0)\). The limit exists because the tilted finite-state generator has an analytic simple principal eigenvalue near zero; transients do not affect the per-time limit. Both odd cumulant rates through third order vanish; in fact the local principal eigenvalue is even.
-
-The fourth *cumulant rate* is not a fourth central moment and does not claim finite-time Gaussianity. The normalized ratio has time-dimension-free units because lattice steps have length one.
+All rates are finite and strictly positive, and symmetry is across each undirected bond, not just the absence of a net steady-state current. Displacement is unwrapped and lattice steps have length one. The ratio uses rates of cumulants, not finite-time kurtosis. The initial site may be arbitrary and fixed. No analogous claim is made about biased walks, random nonperiodic environments, higher cumulants or other geometries.
 
 ## Proof
 
-**1. Tilted spectral reduction.** On the \(n\) residue classes set
+**Corrector.** Across an edge the positive oriented increment of \(x+\chi(x)\) is \((n/R)r_j\). Multiplication by the local rate gives the same flux \(n/R\) across every edge; right and left contributions cancel at each site. Conversely, harmonicity forces a constant flux, and the sum of the increments across a period is \(n\). This proves the expression and uniqueness with the mean-zero convention. The residue generator is symmetric, so the stationary law \(\pi\) is uniform.
 
+**Spectral reduction to an effective-resistance sum.** Let \(L_k\) be the tilted residue generator with forward and backward off-diagonal factors \(e^k,e^{-k}\), respectively, and the unchanged escape-rate diagonal. Its analytic eigenvalue \(\lambda(k)\) issuing from zero gives the cumulant rates. Indeed the simple eigenvalue is separated from the rest at zero. For \(k\) near zero the dominant spectral term in the moment generating function at any starting site is \(a(k)e^{t\lambda(k)}\), with \(a\) analytic, \(a(0)=1\), and a remainder exponentially smaller on a sufficiently small neighborhood of zero. Thus the derivatives per unit time converge to those of \(\lambda\).
+
+Write \(C=\prod_jc_j\) and \(P(z)=\det(zI-L_0)\). The established unicyclic characteristic-polynomial relation of Pietzonka, Barato and Seifert [1, Appendix C, Eqs. (C5)–(C6)] gives
 \[
-(L_k f)(j)=c_je^k f(j+1)+c_{j-1}e^{-k}f(j-1)-(c_j+c_{j-1})f(j).
+P(\lambda(k))=2C[\cosh(nk)-1].
 \]
+Here products of a forward and backward traversal cancel the tilt, and the only tilt-dependent permutation terms are the two directed full circuits. This also verifies the normalization \(nk\) for lattice displacement rather than the winding number.
 
-Residue indices are modulo \(n\). The analytic eigenvalue \(\lambda(k)\) continuing the simple eigenvalue \(0\) of \(L_0\) is the scaled cumulant-generating function. Let \(C=\prod_jc_j\). In a determinant expansion, a permutation term acquires a nonzero net power of \(e^k\) only by completing a directed circuit around the entire periodic cycle; every other contribution has net exponent zero. Hence, for all \(n\ge3\),
-
+Let \(\mu_1,\ldots,\mu_{n-1}>0\) be the nonzero eigenvalues of \(-L_0\). The matrix-tree identity gives \(P'(0)=nCR\): deleting edge \(i\) gives a tree of weight \(Cr_i\), with \(n\) choices of root. Thus, with \(T=\sum_j\mu_j^{-1}\),
 \[
-\det(zI-L_k)=\det(zI-L_0)-2C[\cosh(nk)-1]. \tag{1}
+P(z)=nCR\bigl(z+Tz^2+O(z^3)\bigr).
 \]
-
-The cases \(n=3\) and \(n\ge4\) follow from the same full-winding permutation argument; no multiple-edge convention for \(n=2\) is needed.
-
-**2. Rooted-forest coefficients.** The matrix-tree and all-minors matrix-forest expansions of the cycle Laplacian yield
-
+Comparing powers at zero gives \(\lambda(k)=(n/R)k^2+[n^3/(12R)-Tn^2/R^2]k^4+O(k^6)\). If \(K=\sum_{i<j}R_{\rm eff}(i,j)\) on the weighted residue cycle, then \(K=nT\): sum \((e_i-e_j)^\mathsf T(-L_0)^+(e_i-e_j)\) over \(i<j\), using \(\sum_{i<j}(e_i-e_j)(e_i-e_j)^\mathsf T=nI-\mathbf1\mathbf1^\mathsf T\). In particular,
 \[
-\frac{\det(zI-L_0)}C=nRz+Bz^2+O(z^3). \tag{2}
+\kappa_2=2n/R,\qquad \frac{\kappa_4}{\kappa_2}=n^2-\frac{12K}{R}.
 \]
+This spectral expression is an application of the known winding determinant, not the new identity by itself.
 
-Indeed, deleting edge \(i\) yields a spanning tree of weight \(Cr_i\) with \(n\) choices of root, accounting for \(nR\). Deleting two distinct edges \(i<j\) creates components of sizes \(j-i\) and \(n-j+i\); their product counts choices of two component roots and yields the coefficient \(B\). This derivation also verifies that edges are counted exactly once.
-
-Expanding (1)–(2) at \(z=\lambda(k)\) and equating powers gives
-
+**Exact variance deficit.** For \(d\in\{1,\ldots,n-1\}\), the forward arc from \(i\) to \(i+d\) has resistance
 \[
-\lambda(k)=\frac nR k^2+\left[\frac{n^3}{12R}-\frac{nB}{R^3}\right]k^4+O(k^6).
+A_{i,d}=\frac{R}{n}\bigl(d+\chi(i+d)-\chi(i)\bigr),
 \]
-
-Taking two and four derivatives at zero gives the two formulas for \(\kappa_2\) and \(\kappa_4\). Equation (1) is even in \(k\), yielding vanishing odd cumulants.
-
-**3. Cyclic resistance-energy identity.** Let \(g(h)=h(n-h)\) for \(h\in\{0,\ldots,n-1\}\), extended periodically. Write \(u_j=r_j-R/n\), so \(\sum_ju_j=0\), and \(H_i=\sum_ju_jg(i-j)\). The cyclic second difference \(\Delta g(h)=g(h+1)-2g(h)+g(h-1)\) satisfies \(\Delta g(h)=-2+2n\mathbf1_{\{h=0\}}\); therefore \(\Delta H_i=2nu_i\). The cyclic first differences obey
-
-\[
-H_{i+1}-H_i=2n(S_{i+1}-\overline S),
-\]
-
-where \(S_n=S_0=0\). To verify the constant, sum all the first differences over the cycle; the right-hand side sums to zero. The uniform-resistance reference has
-
-\[
-B_{\mathrm{unif}}=\frac{n^2-1}{12}R^2,
-\]
-
-from the cyclic distance sum. Its mixed term with \(u\) cancels because \(\sum u=0\). Cyclic summation by parts then gives
-
+and the two parallel arcs have effective resistance \(A_{i,d}(R-A_{i,d})/R\). Expanding this product and summing over \(i\) for each \(d\), the linear term cancels by periodicity. Each unordered pair of vertices appears twice. The homogeneous reference at total resistance \(R\) contributes \(\frac{R}{2n}\sum_{d=1}^{n-1}d(n-d)=R(n^2-1)/12\), and
 \[
 \begin{aligned}
-B_{\mathrm{unif}}-B
-&=-\tfrac12\sum_i u_iH_i\\
-&=\frac1{4n}\sum_i(H_{i+1}-H_i)^2\\
-&=n\sum_i(S_i-\overline S)^2=nE. \tag{3}
+K&=\frac{R(n^2-1)}{12}-\frac{R}{2n^2}\sum_{i=0}^{n-1}\sum_{d=1}^{n-1}[\chi(i+d)-\chi(i)]^2\\
+ &=\frac{R(n^2-1)}{12}-R\operatorname{Var}_\pi(\chi).
 \end{aligned}
 \]
-
-Insert (3) into the cumulant formula to get the displayed nonnegative exact excess \(12nE/R^2\). Equality implies all \(S_i\) constant and hence all \(u_i=0\), and the converse is immediate.
-
-**4. Sharp upper bound.** As every resistance is positive, \(B>0\) and
-
-\[
-\kappa_4/\kappa_2=n^2-12B/R^2<n^2.
-\]
-
-Choose \(r_0=M\) and \(r_1=\cdots=r_{n-1}=1\). Then \(B=O(M)\) but \(R^2=\Theta(M^2)\) as \(M\to\infty\), proving that \(n^2\) is the supremum. This limiting profile does not contradict strict positivity for any finite \(M\).
-
-**5. Exactly two identical defects.** Substitute \(r_0=r_d=1+\delta\) and \(r_j=1\) elsewhere into the two-edge formula for \(B\), or into (3), obtaining
-
-\[
-B_{\mathrm{unif}}-B=\delta^2\left[\frac{n^2-1}{3}-d(n-d)\right],\qquad R=n+2\delta.
-\]
-
-This produces the stated exact normalized fourth cumulant. The function \(d(n-d)\) strictly increases for consecutive integers \(1\le d\le\lfloor n/2\rfloor\), so the extremizers and equality cases follow. Adjacent and diametrically farthest defects are unique up to rotations/reflections.
+The second line uses the ordered pair identity \(\sum_{i,j}(\chi_j-\chi_i)^2=2n^2\operatorname{Var}_\pi(\chi)\). Substitution gives the claimed exact excess. It vanishes precisely for a constant corrector, which by its increment formula means a homogeneous bond profile.
 
 ## Verification
 
-The accompanying `verify.py` implements two independent routes using exact rational arithmetic: formal perturbation through order four of the full tilted generator (including all first- and third-order terms), and the combinatorial rooted-two-forest expression. It checks 42 heterogeneous profiles on sizes \(3\le n\le8\), homogeneous profiles, 90 additional cyclic-energy identities, and 240 exact two-defect formulas with strict separation order. Run `python verify.py` with SymPy installed. The analytic determinant, forest, and summation-by-parts arguments—not these finite enumerations—establish the all-size claims.
+Run `python verify.py` with SymPy. It compares the identity with exact rational perturbation of the full tilted generator through order four, checks harmonicity and the effective-resistance deficit independently on the same finite profiles, and includes homogeneous and nonhomogeneous cases. This is supporting arithmetic; the proof above applies to all stated periods and profiles.
 
 ## Relationship to prior work
 
-Derrida (1983) derived general-period drift and diffusion for hopping models; Zhang (2009) studied periodic-hopping diffusion limits. Those results account for the harmonic-resistance second cumulant and are not claimed as new. Gerry and Segal (2023) analytically found that the **fourth** cumulant reveals modulation in a two-rate, period-two chain and numerically studied longer modular chains. This establishes the central qualitative sensitivity to structure *before* the present calculation. The current theorem instead gives an exact formula for arbitrary \(n\ge3\) and any positive symmetric bond profile, a sharp global \([1,n^2)\) ratio with equality/supremum classification, and an exact all-distance two-bottleneck arrangement comparison. The period-two special case of the formula is already implied by their analytic calculation and is intentionally excluded from the theorem's stated domain.
-
-Related disordered-walk work discusses fourth-order or modified Burnett coefficients, notably Hernández-García and collaborators (1990). Only its available abstract could be examined; this leaves a residual historical-priority risk for uninspected detailed fourth-order expressions or inequalities. No claim of exhaustive bibliographic uniqueness is made.
-
-## Limitations
-
-There is no extension here to biased hopping, random environments without exact periodicity, higher cumulants, interacting walkers, graph geometries beyond the one-dimensional periodized cycle, or arbitrary joint finite-time displacement laws. The upper constant is a supremum, not a finite strictly-positive-profile maximum. The exact ordering result assumes two identical slow bonds against a uniform baseline; it is not a full global rearrangement theorem for arbitrary inventories. General full-text equivalence with inaccessible historical work is not ruled out.
+Pietzonka, Barato and Seifert [1, Eq. (53)] bound the equilibrium winding generating function by two hyperbolic cosine functions sharing its second-order coefficient. Since lattice displacement is \(n\) times winding up to a bounded residue term, comparing fourth-order coefficients already yields the enclosing inequalities \(1\le\kappa_4/\kappa_2\le n^2\) in lattice units. That bound is prior coverage, not a new contribution here. The winding determinant is likewise prior [1, Appendix C]. Ptaszyński [2, Sec. III E] compares skewness and normalized fourth cumulant in more general unicyclic models. Gerry and Segal [3, Eq. (16)] give an exact alternating two-bond fourth cumulant and longer-period numerics. The exact two-bond placement dependence on the cycle is an effective-resistance calculation, covered at that level by the weighted-ring spacing identity in [4]; no separate spacing result is claimed here. The distinct statement studied above is the positive corrector-variance expression for the exact excess for arbitrary profiles, not the hyperbolic cosine bounds, the determinant method, or the effective-resistance definition. Historical priority cannot be ruled out for uninspected work on fourth-order transport in disordered or periodic media, including [5].
 
 ## References
 
-- B. Derrida, “Velocity and diffusion constant of a periodic one-dimensional hopping model,” *Journal of Statistical Physics* **31**, 433–450 (1983), DOI: 10.1007/BF01019492.
-- Y. Zhang, “Limit properties of periodic one dimensional hopping model,” arXiv:0906.3343 (first posted 2009-06-18).
-- M. Gerry and D. Segal, “Random walks on modular chains: Detecting structure through statistics,” arXiv:2305.09759 (first posted 2023-05-16).
-- L. Beghin, C. Macci, and B. Martinucci, “Random time-changes and asymptotic results for a class of continuous-time Markov chains on integers with alternating rates,” *Modern Stochastics: Theory and Applications* **8**, 63–91 (2021; online 2020), DOI: 10.15559/20-VMSTA169.
-- E. Hernández-García et al., “Transport properties for random walks in disordered one-dimensional media,” *Physical Review B* **42**, 10653 (1990), DOI: 10.1103/PhysRevB.42.10653 (abstract compared; full text not verified).
+1. P. Pietzonka, A. C. Barato and U. Seifert, *Universal bounds on current fluctuations*, Phys. Rev. E **93**, 052145 (2016), DOI:10.1103/PhysRevE.93.052145, arXiv:1512.01221.
+2. K. Ptaszyński, *Bounds on skewness and kurtosis of steady state currents*, arXiv:2204.08421.
+3. M. Gerry and D. Segal, *Random walks on modular chains: Detecting structure through statistics*, arXiv:2305.09759.
+4. *Sharp defect-spacing laws for continuous-time diffusion on weighted rings*, [published record](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-defect-spacing-laws-for-continuous-time-diffusion-on-weigh--962eb926e664), edge-pair expansion.
+5. E. Hernández-García et al., *Transport properties for random walks in disordered one-dimensional media*, Phys. Rev. B **42**, 10653 (1990), DOI:10.1103/PhysRevB.42.10653 (abstract comparison only).

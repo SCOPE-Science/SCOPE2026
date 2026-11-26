@@ -1,11 +1,21 @@
-# Review of four-color cyclic dominance on complete split graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The neighborhood-contact convention, all positive clique/independent-set orders, arbitrary labeled initial four-colorings, and first periodic entry are defined explicitly. Same-initial-color cohorts in each vertex class evolve identically; the complete map on the 225 possible nonempty palette pairs is therefore an exact quotient for every size. The independent all-palette finite certificate checks every cohort trajectory and its first-entry time and least period, and records a six-row support-size count; elementary surjection identities turn this into the six stated universal formulas. The separate direct-vertex checker verifies 463,760 labeled configurations, but finite graph samples are corroboration, not an infinite-family proof. Risk: a bug in the finite certificate or in the reduction logic; both are checked independently by a direct implementation, and the matrices and derivation can be manually inspected.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Full accessible source sections from Gravner–Lyu–Sivakoff (2016, arXiv:1610.07320v1) address three colors on arbitrary graphs and explicitly discuss the difficulty of four-color dynamics. Bello–Sivakoff (2021, arXiv:2108.06404v1) treats higher thresholds on infinite regular trees; those statements do not cover threshold-one finite complete split graphs. A related prior four-color complete-tripartite orbit census covers the \(m=2\) graph specialization, so coarse period/four-cycle observations there are not claimed anew. The six exact first-entry layers, the antipodal-palette basin criterion for all positive \(m,n\), and the fixed-core probability limit are the assessed new claim. Query comparisons found no exact wider source implying the claim. Risk: unindexed equivalent finite-state classifications or a general multipartite theorem beyond the sources checked.
+PASS
 
-**Value — PASS.** Opposite-color pairs are non-interacting under four-color CCA, so their placement across a fully connected core and an independent periphery determines whether oscillation survives. The theorem classifies this contact obstruction for a natural infinite family, supplies an exact first-entrance distribution rather than just periods, and exhibits a sharp contrast between persistent probability of four-cycles and maximal three-round freezing in the growing-periphery limit. This is a motivated dynamical invariant rather than a small numerical parameter census.
+The update preserves identical colors among vertices in the same initial class and color cohort. For clique clones the only exceptional adjacency is to vertices of the same current color, which cannot be a successor. Thus a trajectory on the induced graph of one representative per cohort lifts exactly, and equality of entire representative vectors is equivalent to equality of the actual labelled states. A fresh direct adjacency replay evolved all 225 nonempty palette pairs, found the first repeated full color vector, matched the stated activation criterion in every case and recovered all six coefficient matrices. Substitution of W_i(m)W_j(n) was checked as a formal polynomial identity in the powers of 2, 3 and 4, not only for sampled sizes; the total is 4^{m+n}. The four-cycle states have disjoint sets of four along each orbit and hence N_{0,4}/4 orbits. For n>=2 a singleton clique palette 0 with independent palette {1,2} takes exactly three steps, and clones give all larger admissible sizes. For n=1,m>=2 clique palette {0,1} and independent color 2 take two steps, and the coefficient table excludes third entry. A consecutive-color edge at m=n=1 takes one step and the table excludes more. Finally B_4/4^{m+n} tends at fixed m to [W_4(m)+4W_3(m)+2W_2(m)]/4^m. Both the fixed basin and N_{3,1} have leading term 4(2^m-1)4^n for fixed m, giving the conditional limit; a full clique palette has probability tending to one as m grows, irrespective of n.
 
-**Scientific limitations.** Exactly four colors, threshold one, synchronous updates, open neighborhoods, and complete split graphs are essential. No global historical-novelty or independently checked status is asserted. A previous complete-tripartite specialization is explicitly excluded from any claim of fresh coarse period discovery.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit exact recurrent-state and period coverage on the m=2 tripartite slice, as well as known CCA dynamics. The closest same-day Resultary record does not cover arbitrary clique size or the all-size first-entry distribution, basin criterion and fixed-core limits. The frozen finding does not claim the m=2 coarse period phenomenon as separately new. The full content is not covered by the matching specialization or the primary sources that could be checked.
+
+## value
+
+PASS
+
+The complete split family has a natural clique–independent asymmetry. Classifying activity by antipodal exposure and quantifying both recurrent and transient classes give more than a three-step bound or a periodic-orbit count. In particular the persistent activity probability depends on the core, while conditional on freezing almost every initial coloring takes the full three updates for large independent sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

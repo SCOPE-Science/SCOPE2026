@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:08:31.244825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At reset epochs the retained coordinate is an affine recursion with i.i.d. interval/innovation pairs. For T~Exp(r) its multiplier (g+exp[-(1+1/g)T])/(g+1) lies strictly between 0 and 1 almost surely, so its pth-moment contraction factor is <1 for every p>=1. The innovation is Gaussian conditional on T, with variance O(1+T), so the perpetuity exists uniquely with all polynomial moments; interpolation over stationary renewals preserves these moments. Poisson compensation gives the time-stationary law as the law seen just before resets. Independent exact linear solves of the degree-two and degree-four generator equations with the reset term -r M_ij for i>0 reproduced the displayed A/[(g+1)^2 B], the positive mean, and both endpoint laws from RESULT.md 5–20, 33–69. The difference is 2P(r)/(r+4) with P strictly increasing on r>0; exact signs bracket its unique root at 0.49168 and 0.49169. The reduced g-derivative numerator has degree 7 and a positive denominator. On r=1/2+t/10, 0<=t<=1, exact signed Bernstein minima in degrees 7,5,4,3,2,1,0 are 54075/128, 126400338/15625, 131263578/15625, 463806/3125, 2461/2, 1086, 180; the minimum for -N_r(1) is 14591839608/1953125. Thus the g^6 coefficient cannot change the two Descartes sign variations; signs at 0, 1 and infinity give two distinct positive roots, hence both simple, with the claimed extremum order. At r=1/2 the signs at g=0.38,0.39,16.1,16.2 are +,-,-,+. Replay: /workspace/branches/456f1caf-8ee8-49b9-8740-f78b71b7167e/independent_check.py and exact_check_output.txt. VERIFICATION.md, verify.py and simulate.py were read as evidence, not executed. Endpoint ordering does not assert monotonicity, and the turning-point count is proved only on the stated closed rate interval. The stationary laws are taken at finite positive g before limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra and Das give the same probe-only operator and general mixed-moment hierarchy, and apply it to positional statistics. Biswas et al. study GLE position variance and correlations in a viscoelastic bath."
+        ],
+        "reasoning": "The prior hierarchy supplies a constructive route to the moments, not a general sign or extrema theorem for moment ratios. The stationary crossover and exact, positive-friction root count do not follow without evaluating this observable and comparing a parameter-dependent polynomial.",
+        "searches": [
+          "arXiv:2603.17027v1 §§II.1, III.1–III.2",
+          "arXiv:2412.09260 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, simulate.py",
+        "Santra–Das arXiv:2603.17027v1; Olsen–Gupta arXiv:2401.11919v2; Biswas et al. arXiv:2412.09260",
+        "Resultary f1d8b7519312, 6d27e15f4a50, 4f53487f213c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model second-order moments support the mean; the general generator recurrence can be specialized at degrees two and four. Neither a two-point time covariance nor a common exponential-tail slope yields a polynomial sign certificate for d(CV²)/dg."
+        ],
+        "reasoning": "Credit the old model and method and their immediate moment consequences. The new content supported here is the comparison of the stationary friction endpoints as a function of reset rate, and the exact Descartes/Bernstein classification throughout a nontrivial rate interval.",
+        "searches": [
+          "arXiv:2603.17027v1 §§III.1–III.2; Resultary 4f53487f213c, Finding and assumptions; Resultary 6d27e15f4a50, Finding and proof opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen and Gupta treat thermodynamic work with a controlled return; the frozen W is a state function difference across the map (X,Y)->(0,Y) and is signed.",
+          "Resultary f1d8b7519312 is the identical record. The same-model 4f53487f213c and 6d27e15f4a50 have different observables."
+        ],
+        "reasoning": "A finite-time return protocol's work is not obtained by renaming the instantaneous spring jump. Coordinate marginals, even with sharp tail exponents, do not determine the mixed quartic M22-M31+M40/4 needed here.",
+        "searches": [
+          "Resultary: probe only Poisson reset retained memory Brownian harmonic bath signed spring energy variation reset work XY minus X squared half exact moments bath friction turning points",
+          "arXiv:2401.11919v2, abstract and Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit f1d8b7519312 is the frozen record itself, not a separate result. Distinct full-statement hits 6d27e15f4a50 (coordinate tail cutoffs) and 4f53487f213c (second-order lag covariance) do not tabulate the jump's CV² or its thresholds."
+        ],
+        "reasoning": "The same model and similar mathematical wording are not exact data matches. The thresholds concern signed per-reset energy, not tail decay, correlations in lag, or excess kurtosis of a position.",
+        "searches": [
+          "Resultary: probe only Poisson reset retained memory Brownian harmonic bath signed spring energy variation reset work XY minus X squared half exact moments bath friction turning points"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the signed spring-jump relative-variance crossover and certified two-turning-point interval, not for the probe-only reset model, mixed-moment hierarchy, or routine derivation of the jump mean from known second moments. General moment solvability does not itself classify the stationary points of this particular quotient.",
+      "residual_risks": [
+        "The same-model hierarchy may have been used for an unindexed spring-jump calculation; targeted passage comparison does not prove priority.",
+        "The PDF route for Santra and Das exceeded size limits; decisive sections were read in the identified OA HTML of the same paper, not by treating the access limit as evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and recurrence covered; phase classification not shown in inspected passages",
+          "evidence": "Only the probe resets; evolution equations for mixed moments and application to positional cumulants.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+          "material_read": "§II.1 model near offset 5200; §§III.1–III.2 probe-only operator and moment hierarchy near offset 15400",
+          "method": "Primary OA HTML passages; PDF route exceeded size limit",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Identical stochastic model and general moment equations"
+        },
+        {
+          "assessment": "Different work observable and model",
+          "evidence": "Work of a finite-time implemented reset, not the signed instantaneous jump of a retained spring.",
+          "identifier_or_url": "https://arxiv.org/html/2401.11919v2",
+          "material_read": "Abstract and Introduction near offset 900",
+          "method": "Primary OA HTML passage",
+          "title": "Thermodynamic work of partial resetting",
+          "trigger": "Work statistics and partial resetting"
+        },
+        {
+          "assessment": "Adjacent background; inspected claim concerns position, not the spring-jump threshold",
+          "evidence": "Renewal computation of position variance and correlation for generalized Langevin dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+          "material_read": "Abstract p. 1, offsets 2420–4670",
+          "method": "Primary OA PDF text",
+          "title": "A resetting particle embedded in a viscoelastic bath",
+          "trigger": "Viscoelastic resetting and stationary stochastic observables"
+        },
+        {
+          "assessment": "Different result under identical dynamics",
+          "evidence": "Common marginal exponential-moment cutoff sqrt[r(g+1)] and tail slope; not the signed W variance quotient.",
+          "identifier_or_url": "6d27e15f4a50",
+          "material_read": "Finding, assumptions and beginning of Proof §1, offsets 0–3187",
+          "method": "Local mirror RESULT.md",
+          "title": "A common sharp exponential-tail scale for a selectively reset viscoelastic Brownian pair",
+          "trigger": "Same model and exact memory-dependent threshold"
+        },
+        {
+          "assessment": "Second-order comparator, not fourth-order spring-jump phase structure",
+          "evidence": "Directional lag covariance and inverse formula concern second-order temporal statistics.",
+          "identifier_or_url": "4f53487f213c",
+          "material_read": "Finding and assumptions, offsets 0–2694",
+          "method": "Local mirror RESULT.md",
+          "title": "Directional lag correlations and parameter identification in a partially reset Brownian probe–bath pair",
+          "trigger": "Identical dynamics and exact second-order moments"
+        },
+        {
+          "assessment": "Identity, not a distinct priority match",
+          "evidence": "Same title, parameter interval, rational moment certificate and record identifier.",
+          "identifier_or_url": "f1d8b7519312",
+          "material_read": "RESULT.md around offset 4700, compared with the frozen source and proof",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp reset-rate threshold and reentrant spring-energy fluctuations in a retained-memory Brownian bath",
+          "trigger": "Exact local semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observable is a specified energetic effect at each reset, distinct from either position fluctuations or the full cost of reset control. A threshold that reverses which memory endpoint has less relative noise, and an exact interval with both a maximum and a minimum between those endpoints, reveal why endpoint comparisons alone cannot identify favorable intermediate memory. No all-rate extremum classification or implemented-work claim is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

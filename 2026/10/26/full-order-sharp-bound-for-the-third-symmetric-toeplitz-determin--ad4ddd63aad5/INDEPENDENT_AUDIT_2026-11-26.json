@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:13:19.631714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s=1-alpha the logarithmic derivative is 1+2s omega/(1-omega). Integrating the Taylor expansion of its positive-power part and exponentiating derives a2,a3,a4, and expansion of the determinant factors it as stated. Two Schur steps on omega/z yield y=(1-r^2)b and c=(1-r^2)(d-conj(x)b^2), r=|x|, |b|=t, |d|<=1-t^2 (at r=1, Schwarz's lemma gives y=c=0). The resulting triangle majorants have maxima at r=1: independently recomputed Taylor coefficients and nonnegative deficit factorizations on 0<=r,t<=1 and 0<s<=1 in /workspace/reproductions/3.py (Python 3/SymPy) give M1=2(4+3s+2s^2)/3 and M2=2(7+6s+8s^2)/3 for the two scaled factors. The M1 deficit is strictly positive for r<1. It follows that equality in the product forces omega=xz, |x|=1; maximizing |2x-(2/3+2s+4s^2/3)x^3| forces x^2=-1. Both choices give the claimed values in both factors and integration gives the claimed functions. Radial Banach maps restrict to h_v(zeta)=zeta*phi(zeta v); since DF(z)z=(phi+Dphi(z)z)z, the support-functional condition on the reciprocal of the radial inverse derivative is exactly Re(zeta h_v'/h_v)>alpha. The factorial-normalized derivatives give the scalar Taylor coefficients. For the extremal lift phi=(1-i ell(z))^(-2s), phi is nonzero and its radial derivative multiplier is nonzero by the half-plane condition, hence DF is invertible by the rank-one formula. Its one-dimensional restrictions are starlike and it is injective since nonzero equal images must lie on the same complex line. The matching v-slice yields sharpness in each nonzero space. This checks the symmetric, not Hermitian, determinant and excludes alpha=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2.1 explicitly limits B2 to alpha<=2/3; the full-order B1 in Theorems 2.1–2.2 is for the other determinant (already 25 at order zero, versus 84 for B2).",
+          "Giri–Sivaprasad Kumar's generalized paper estimates T_(3,1) and T_(2,2) with a higher-vanishing restriction, not unrestricted T_(3,2)."
+        ],
+        "reasoning": "Neither the full parameter range for a different determinant nor a bound under extra Taylor vanishing covers the target class and functional.",
+        "searches": [
+          "arXiv:2610.15497v1 Remark 2.1, comparison of B1 and B2",
+          "arXiv:2601.03039v1 Main Results, generalized Toeplitz and higher vanishing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15497v1",
+        "arXiv:2606.17778",
+        "arXiv:2601.03039",
+        "arXiv:1704.00657",
+        "Resultary 85305eeb9019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A lower-bound witness of the stated form persists beyond alpha=2/3, but the published sharp upper proof is stated only through 2/3. The frozen uniform Schur bound supplies the needed upper bound where the prior theorems give none."
+        ],
+        "reasoning": "A fixed witness demonstrates attainability if the inequality holds, not its universal validity. Scope restriction does not disappear by reparametrizing s=1-alpha or passing from Banach slices to the disk.",
+        "searches": [
+          "Panja–Majumder–Banerjee arXiv:2610.15497v1 Thm. 2.3 and its sharpness proof",
+          "ArXiv focused search for full-order sharp T3(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panja–Majumder–Banerjee give the exact B2 formula, same factorial normalization and radial class for 0<=alpha<=2/3. Their extremal lift is z/(1-i ell(z))^(2(1-alpha)), not a proof that only the two stated functions give scalar equality.",
+          "The Resultary order-parameter transition record 85305eeb9019 treats |mu a2 a4-a3^2|. Even at mu=1/2 its separate maximum need not give the sharp Toeplitz factor: at small s the Schwarz choice omega=z^2 yields s^2 for that functional but a2=0, unlike the shared Toeplitz extremizer."
+        ],
+        "reasoning": "The lower-interval determinant formula is a genuine overlap after scalar slicing. The parameterized Hankel functional omits a2^2 and the multiplicative factor a2-a4 and cannot be substituted as the same bound.",
+        "searches": [
+          "arXiv:2610.15497v1 Thms. 2.3–2.4, Remark 2.1: T3(2), order-alpha, directional normalization",
+          "Resultary: full order sharp third symmetric Toeplitz determinant and closely related Hankel/Zalcman functionals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's closest verified record is 85305eeb9019 with a different Hankel functional. Ali–Thomas–Vasudevarao and Giri give the exact order-zero value 84, scalar and radial Banach respectively."
+        ],
+        "reasoning": "The exact endpoint is prior, not in itself evidence of a full-order table. No match on the missing interval was verified in the inspected records.",
+        "searches": [
+          "Resultary: sharp third symmetric Toeplitz determinant of order alpha on disk/Banach ball",
+          "arXiv:1704.00657 Thm. 2.2 and arXiv:2606.17778 Thm. 5"
+        ]
+      },
+      "rationale": "The supported advance is the sharp third-order formula on the previously unproved interval 2/3<alpha<1 and the complete scalar extremal classification. The constant, radial transfer and a sharpness witness are prior in the lower interval and are not credited as independently new there.",
+      "residual_risks": [
+        "Searches are bounded; an unindexed parameter-uniform estimate or equivalent prior result could remain. The radial transfer by itself is not new, and the result does not generalize to arbitrary nonradial or Hermitian determinants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower interval only for the target determinant.",
+          "evidence": [
+            "Remark 2.1 gives B2 only through 2/3; the sharpness proof uses the same -i lift."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15497v1",
+          "material_read": "Thms. 2.3–2.4, Remark 2.1 and the sharpness passage (HTML offsets around 16232, 18989, 29394 and 49421)",
+          "method": "Direct OA HTML passages",
+          "title": "Toeplitz determinants for starlike mappings of order alpha in several complex variables",
+          "trigger": "Identical sharp formula, radial normalization and equality witness"
+        },
+        {
+          "assessment": "Sharp ordinary order-zero case only for the target comparison.",
+          "evidence": [
+            "Theorem 5 gives 84 for radial maps on a Banach ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.17778",
+          "material_read": "Thm. 5 (HTML offsets 11539–16318)",
+          "method": "OA primary full-text passage",
+          "title": "Third-Order Toeplitz Determinant for a Subclass of Starlike Mappings in Higher Dimensions",
+          "trigger": "Same radial determinant"
+        },
+        {
+          "assessment": "Different determinantal indices and restricted class.",
+          "evidence": [
+            "Main results impose higher vanishing and estimate T_(3,1) and T_(2,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.03039",
+          "material_read": "Abstract and Main Results, HTML offset around 10418",
+          "method": "OA primary full-text passages",
+          "title": "Generalized Toeplitz determinants for Starlike Mappings in Several Complex Variables",
+          "trigger": "Potentially broader determinant estimates"
+        },
+        {
+          "assessment": "Exact alpha=0 case; not an order-parameter extension.",
+          "evidence": [
+            "Theorem 2.2 gives scalar sharp 84."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.00657",
+          "material_read": "Thm. 2.2 (HTML offset around 10396)",
+          "method": "OA primary full-text passage",
+          "title": "Toeplitz determinants whose elements are the coefficients of analytic and univalent functions",
+          "trigger": "Classical starlike T3(2) case"
+        },
+        {
+          "assessment": "Different functional, no verified implication.",
+          "evidence": [
+            "Uses |mu a2 a4-a3^2|, not the symmetric third Toeplitz product."
+          ],
+          "identifier_or_url": "Resultary 85305eeb9019",
+          "material_read": "RESULT.md finding and functional definition",
+          "method": "Local mirror",
+          "title": "Exact order-parameter transition for the second Hankel functional",
+          "trigger": "Closest catalogued parameterized sharp functional and radial transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result completes the precise sharp parameter gap for a classical determinant under the same normalization, with no change of extremizer and an exact uniqueness analysis. The uniform proof explains why the same extremal behavior persists as alpha approaches 1; the Banach slice result transfers this improvement in each direction without claiming unrestricted Banach mapping sharpness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

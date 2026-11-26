@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:17:45.184258Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 37–90",
+        "Frozen VERIFICATION.md and verify.py, especially lines 29–87"
+      ],
+      "rationale": "The commutator lands in the six-dimensional arrow ideal J. With three distinct diagonal values its restriction to J is triangular with six nonzero pivots. For a double value, conjugation by 1+h with h of degree one eliminates the cross-block degree-one terms modulo J² because [h,D] scales each cross-block path by a nonzero diagonal difference. A second conjugation with h in J² eliminates the residual cross-block degree-two terms. Each cross block then contributes full rank, and the radical-square-zero repeated-value corner adds one precisely when its internal radical component is nonzero. For fixed diagonal D, the rank-four elements are exactly its 1+J orbit, of size q^4 since the stabilizer consists of 1 plus the two internal paths. For scalar diagonal, the length-one commutator on arrows is exterior multiplication by the arrow coefficient vector (up to row ordering), so has rank two whenever that vector is nonzero, including characteristic two. The incidence on idempotents then adds one or two according as the arrow support has one or at least two edges: in the one-edge case the only missing degree-two coordinate is the reverse path whose endpoints are identified by the kernel, and in the two-or-more case that kernel is constant. With zero arrow vector only the length-two incidence remains, of rank zero, one or two. These strata give all seven coefficients; summing q^(9-r) per element and dividing by q^18 gives the displayed probability. Split Fourier idempotents, with the cyclic labeling chosen to match the arrow direction, realize the ordinary Taft algebra multiplication for q ≡ 1 mod 3. The supplied checker was inspected, not run; the argument applies to every finite field without computer enumeration.",
+      "residual_risks": [
+        "Does not cover a nonsplit Taft presentation, Hopf adjoint actions, or arbitrary Loewy length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Van Oystaeyen–Zhang calculate Green rings from tensor products of indecomposable modules, including the case n=3.",
+          "Shen describes the singularity category in terms of a stable module subcategory and category equivalences."
+        ],
+        "reasoning": "Even though these results include relevant module categories and Taft parameters, neither theorem gives the centralizers of individual algebra elements or the associated rank counts.",
+        "searches": [
+          "Resultary: cyclic Nakayama centralizers",
+          "arXiv:1111.1837, abstract and introduction",
+          "arXiv:1404.2451, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 003c97167e0e",
+        "Resultary 5ebbee94c07d",
+        "Resultary 052f1548351c",
+        "arXiv:1111.1837",
+        "arXiv:1404.2451",
+        "arXiv:1510.08211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radical formula aggregates every nonzero arrow vector together, whereas the frozen full map separates one-edge from larger supports and also has a repeated-eigenvalue rank-five stratum.",
+          "Dutta–Basnet–Nath give general finite-ring commuting-probability relations and bounds, not the centralizer-size distribution in this cyclic algebra."
+        ],
+        "reasoning": "The generic count of commuting pairs is background, not the evaluation of this count. A unit-group conjugacy class count without weighted element-centralizer data does not yield the claimed all-element histogram. Neither identified radical result supplies the previously needed nonscalar diagonal analysis.",
+        "searches": [
+          "Record 003c97167e0e, Finding and Assumptions and scope",
+          "Record 5ebbee94c07d, Finding and Assumptions and scope",
+          "arXiv:1510.08211, abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank histogram is equivalent to the additive element-centralizer size histogram via |C_A(a)|=q^(9-r), and the split nine-dimensional Taft formulation is the same algebra.",
+          "Record 052f1548351c defines the left Hopf adjoint via the coproduct and antipode, on the four-dimensional Sweedler algebra."
+        ],
+        "reasoning": "Neither changing to the split Taft name nor reporting centralizer sizes would make this a distinct result; the identified Sweedler census is for a different operator and algebra.",
+        "searches": [
+          "Resultary: exact truncated oriented three-cycle rank census",
+          "Resultary: ordinary Taft-algebra commutators",
+          "Resultary: exact title and leading coefficient formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 003c97167e0e specializes on the three-cycle to q^3(1+(q^3−1)t²), for a in J and ad_a restricted to J.",
+          "Record 5ebbee94c07d gives Jordan-type data for left and right multiplication by radical elements."
+        ],
+        "reasoning": "The radical table recovers the rank-two exterior multiplication subcalculation but cannot see idempotent columns or nonscalar diagonal entries. Separate Jordan types of L_a and R_a are not a rank table for their difference. No matching seven-coefficient table was identified.",
+        "searches": [
+          "Resultary: truncated-cycle rank polynomial and leading formula",
+          "Resultary: Sweedler/Taft/Nakayama centralizer or conjugacy enumerations"
+        ]
+      },
+      "rationale": "No covering all-element ordinary commutator census was found in the inspected evidence. The closest exact radical census counts a restriction with a different domain and does not supply the diagonal-collision strata or even the scalar-diagonal incidence contributions in the full algebra. Green-ring and singularity-category results organize modules, not the ranks of L_a−R_a indexed by elements of A. This is a best-of-knowledge statement, not a priority claim.",
+      "residual_risks": [
+        "An additional targeted literature-index query for older cyclic-quiver element-centralizer tables was deferred, not a negative hit. Older general formulas could subsume the census if they supply full elementwise strata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap, not full coverage",
+          "evidence": "The centralizer is C_J(a) for a in J. The cycle specialization has only ranks zero and two on J; the frozen record counts ranks on A.",
+          "identifier_or_url": "Resultary 003c97167e0e",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "Composability graphs determine radical commutator rank spectra",
+          "trigger": "Exact rank census in the same truncated cyclic quiver family"
+        },
+        {
+          "assessment": "Different operator and domain",
+          "evidence": "Jordan data for left and right multiplication on radical elements do not give the centralizer of an arbitrary element.",
+          "identifier_or_url": "Resultary 5ebbee94c07d",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "Jordan-type gaps and a motivic transfer census for cyclic Nakayama algebras",
+          "trigger": "Same Loewy length and cyclic Nakayama family"
+        },
+        {
+          "assessment": "Not the ordinary commutator census",
+          "evidence": "The action is the left Hopf adjoint on the four-dimensional Sweedler algebra.",
+          "identifier_or_url": "Resultary 052f1548351c",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "The complete adjoint rank spectrum and triangular quotient of the Sweedler algebra",
+          "trigger": "Potential match under Taft and adjoint aliases"
+        },
+        {
+          "assessment": "Representation-ring background, not the claimed ranks",
+          "evidence": "The object computed is the Green ring defined by tensor-product decompositions of indecomposable modules; the examples include n=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.1837",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Lawful open PDF, targeted passage read",
+          "title": "The Green Rings of Taft Algebras",
+          "trigger": "Split Taft family, including the same dimension"
+        },
+        {
+          "assessment": "No covering statement in the inspected passage",
+          "evidence": "The construction relates a Frobenius category of modules to modules over a selfinjective Nakayama algebra, not centralizer sizes of elements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.2451",
+          "material_read": "Introduction, p. 1, stable subcategory construction",
+          "method": "Lawful open PDF, targeted passage read",
+          "title": "The Singularity Category of a Nakayama Algebra",
+          "trigger": "Potential broader Nakayama coverage"
+        },
+        {
+          "assessment": "Background, not the cycle census",
+          "evidence": "The paper defines Pr(R) by ordered commuting pairs and develops bounds and invariance for pairs of rings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.08211",
+          "material_read": "Abstract and §1, pp. 1–2",
+          "method": "Lawful open PDF, targeted passage read",
+          "title": "On commuting probability of finite rings",
+          "trigger": "General algebraic commuting-probability method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and rank-stratum proof",
+        "Resultary 003c97167e0e for the restriction to the radical"
+      ],
+      "rationale": "The full ordinary centralizer distribution of this natural small cyclic algebra is usable beyond its first moment, the commuting probability. It shows precisely how repeated diagonal values and the length-two radical layer create ranks missing from the square-zero truncation, with an exact all-field classification rather than a test at selected field orders.",
+      "residual_risks": [
+        "This is a motivated exact invariant for one algebra family, not a general classification by Loewy length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,19 +5,20 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification and scope
 
-# Computational consistency checks
-
-Run `python verify.py` with Python 3, NumPy and SciPy. The script tests 42 combinations of the separation and enhancement parameters against tridiagonal finite-section eigenvalues, including both possible positive bound-state branches where sufficiently separated from the continuous band. It separately checks nine fixed-amplitude splitting ratios, and the near-critical limits for five couplings across three chain separations. Its expected terminal output is `CHECKS PASSED`.
-
-The checker does not prove the infinite-volume spectral count, uniqueness of secular roots, infinite-separation asymptotics, or novelty. Those require the analytic matching, root-count, and scaling arguments in `RESULT.md`. Finite Jacobi sections have finite-size band-edge shifts, so eigenvalues closer than the chosen comparison margin to the edge are not used in the strict numerical eigenvalue tolerance checks. The mathematical hypotheses and all algebraic root equations are stated independently of the code.
+The analytic sign brackets and exact product identity in `RESULT.md` prove both limits. A finite check of the detuned approximation can use monotone bisection in \(t>0\) for \(m\operatorname{expm1}(2t)/[-\operatorname{expm1}(-(m-1)t)]=2+s/m\) whenever \(2+s/m>2m/(m-1)\). Compute the gap as \(2\sinh^2(t/2)\) to avoid cancellation. For \(m=32,128,512\), respectively, the fourth-order scaled gaps at \(s=3\) are approximately \(0.382313,0.468264,0.491914\) (limit \(0.5\)), and at \(s=5\) are \(3.686888,4.282403,4.444656\) (limit \(4.5\)). The exact criterion rules out the branch at \(s=2\). These finite values illustrate convergence; the arbitrary-detuning assertion is proved by the uniform Taylor remainder, not the finite checks.

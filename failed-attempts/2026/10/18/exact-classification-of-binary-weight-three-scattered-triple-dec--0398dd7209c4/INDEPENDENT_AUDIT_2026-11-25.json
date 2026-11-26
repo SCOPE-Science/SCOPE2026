@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:50.088766Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof Steps 1–3; VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt inspected, bundled code not executed",
+        "Independent replay: python /workspace/reproductions/decks_necklaces.py"
+      ],
+      "rationale": "Write r=(a,a+b,a+b+c) for the numbers of zeros preceding successive ones, and N=n-3. The three counts with two zeros are sums over r_i of binomial(r_i,2), r_i(N-r_i), and binomial(N-r_i,2); they depend exactly on N, T=sum r_i and Q=sum binomial(r_i,2). The two-ones counts are U=3a+b, 2(T-U) and 3N-2T+U; pure-symbol counts depend only on N. Conversely Q,U,T are read from 001,011,101, so (N,T,U,Q) is sufficient and necessary. Equal N,T,U force the gap shift t(1,-3,3,-1), which changes r by (t,-2t,t). Expanding the binomial squares yields exactly Q'-Q=t(c-b+3t), so the only possible distinct mate is the stated swap with t=(b-c)/3, subject to integrality and nonnegativity. It is involutive. Orient a pair by c>b and use c=b+3h, a=A+h: its unique nonnegative parameters satisfy N=A+d+2b+4h with h>=1. Counting A+d gives the double sum and multiplying the four geometric series gives the pair generating function. Each pair reduces the number of classes by one; subtract from the count of weight-three words. When n<3 there are no words, and N>=4 is necessary for pairs, with the first at n=7. Independent dynamic counts recover all classes and the complete pair map through n=19; that finite corroboration is separate from the all-n proof.",
+      "residual_risks": [
+        "Applies to fixed weight exactly three and all eight triple multiplicities, not arbitrary binary words or higher-order decks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nilforoushan–Parvaresh give an unrestricted binary three-deck count of order n^9, not an exact count of weight-three fibers.",
+          "Related c4727dbbe5d0 has a finite census through length 16; ef95cc2ffb13 states the size-at-most-two bound at weight three, not the complete map or generating function."
+        ],
+        "reasoning": "A stronger growth exponent on a larger family, a finite census and a class-size bound do not imply the full theorem. Exact all-length coverage instead comes from 39c59472a4df and the other exact matches.",
+        "searches": [
+          "Nilforoushan–Parvaresh arXiv:2609.23106v2 §1.4 and §7.1; Resultary all-weight three-deck ambiguity and fixed weight four"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 39c59472a4df, 61b009fefb1e, ddfb28b06c4a, f95f52cd118b, ef95cc2ffb13 and c4727dbbe5d0",
+        "Chrisnata et al. doi:10.3934/amc.2021032; Nilforoushan–Parvaresh arXiv:2609.23106v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 27 and Corollary 28 give bounds/cubic growth; 39c59472a4df supplies the exact admissibility condition, involution and unique parametrization r+2s+4t+u=N."
+        ],
+        "reasoning": "The original lower bounds are weaker than the desired count. The catalogued quadratic collision criterion is literally identical after renaming variables, and the same nonnegative parameter count produces the double sum as well as its generating function.",
+        "searches": [
+          "Compare 39c59472a4df Proof Steps 1–3 and Chrisnata et al. Theorem 27, Corollary 28 and Conjecture 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "39c59472a4df RESULT.md offsets 0–4645 gives the complete vector invariants, the same gap shift, the same quadratic factorization and explicit swap.",
+          "61b009fefb1e expresses the pair classification through the three one-positions; ddfb28b06c4a and f95f52cd118b express it in gaps."
+        ],
+        "reasoning": "The number of zeros preceding a one is its position minus its one-rank; hence the one-position and gap coordinates are equivalent. In the strongest matched proof replacing (T,U,Q) by (U,3N-2T+U,Q) changes no equivalence class.",
+        "searches": [
+          "Local Resultary: exact binary weight-three scattered three-deck enumeration, three-binomial equivalence and zero-gap or one-position collision map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chrisnata et al. printed p. 17 gives the same generating function as Conjecture 1, first twenty coefficients checked; 39c59472a4df expressly proves both the rational deck and pair counts."
+        ],
+        "reasoning": "The published conjecture and checked coefficients alone do not establish equality at all lengths. The distinct proof covers all coefficients, including its pair enumerator, rather than only the initial sequence.",
+        "searches": [
+          "Chrisnata et al., doi:10.3934/amc.2021032, Conjecture 1; local Resultary exact fixed-weight three-deck generating function"
+        ]
+      },
+      "rationale": "Chrisnata et al. genuinely pose the exact rational function as Conjecture 1, not a theorem there. But distinct Resultary entry 39c59472a4df contains the same all-length proof, quadratic collision identity, gap involution and pair enumeration. Its statistics (A,B,F) are (U,3N-2T+U,Q), exactly an invertible change at fixed N. It parameterizes the very same pairs from the opposite representative. Other indexed findings independently establish mathematical overlap at the level of statements, including the one-position version of the collision map. This verifies equivalent coverage; the relationship and historical precedence of the records are not established.",
+      "residual_risks": [
+        "The chronology and relationship of the overlapping entries are unresolved; the assessment concerns exact statement-level coverage, not first proof or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete mathematical coverage, no historical-priority inference",
+          "evidence": "Identical fixed-weight setup, two rational series, collision factorization, unique partner and parametrized pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-proof-of-the-weight-three-binary-three-deck-enumeration-conjectu--39c59472a4df/RESULT.md",
+          "material_read": "Finding, scope and Proof Steps 1–3, offsets 0–4645",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Proof of the weight-three binary three-deck enumeration conjecture",
+          "trigger": "Closest distinct indexed exact theorem and proof"
+        },
+        {
+          "assessment": "Same result under one-position coordinates",
+          "evidence": "All-length count and singleton/pair classification via ordered positions of the ones.",
+          "identifier_or_url": "Resultary 61b009fefb1e",
+          "material_read": "RESULT.md exact enumeration and pair classification passages",
+          "method": "Configured local mirror",
+          "title": "Exact weight-three binary three-deck classes and the conjectured enumeration",
+          "trigger": "Equivalent one-position formulation"
+        },
+        {
+          "assessment": "Conjecture and finite evidence only for this exact count",
+          "evidence": "Same rational expression explicitly labeled Conjecture 1; finite coefficient checks and cubic-order growth are not an exact proof.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "Author PDF printed pp. 16–17, especially Conjecture 1 and Corollary 28, offsets 59000–63453",
+          "method": "Lawful author PDF",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+          "trigger": "Conjecture stated in frozen source"
+        },
+        {
+          "assessment": "Different count; no exact weight-three result in these passages",
+          "evidence": "D_(2,3) counts over the binary alphabet without fixed weight; the main claim there is an order of growth.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23106v2",
+          "material_read": "§1.4 pp. 3–4 and §7.1 p. 13 (offsets approximately 10200 and 44200)",
+          "method": "Lawful author preprint",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "Plausible broad deck-parameter or enumeration theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 39c59472a4df Finding and Proof",
+        "Chrisnata et al. Conjecture 1"
+      ],
+      "rationale": "An exact resolution of the named conjecture and a uniform collision classification are naturally useful, but both the conjecture resolution and the stronger pair criterion are already present in an exact covering record. No separate unresolved fixed-weight parameter regime, tool, or structural lemma remains in the submitted finding.",
+      "residual_risks": [
+        "This is an assessment of incremental value and not a claim about when the conjecture first had a correct proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

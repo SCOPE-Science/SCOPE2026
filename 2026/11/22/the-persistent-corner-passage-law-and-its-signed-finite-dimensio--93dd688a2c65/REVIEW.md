@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed chain is stationary on the uniform binary cube, with independent coordinate flips of probability \(a/d\) for fixed \(a>0\) and \(d>2a\). From the corner, the exact return probability is \(u_d(k)=((1+(1-2a/d)^k)/2)^d\). The stationarity/first-entrance renewal identity gives the exact mean and the Laplace transform of passage. A binomial central-concentration argument evaluates the limiting return Green function, and a fourth-order Taylor expansion with exponentially small tails gives the signed \(1/d\) coefficient. The conditional uninterrupted corner-run length is geometric. A pure-Python checker corroborates the finite identities for dimensions 1 through 7 (with admissible rational flip rates) and tests the asymptotic coefficient; 225 assertions passed. Tests do not prove the infinite-dimensional claims, which follow from the written argument.
+PASS
 
-## Originality — PASS against inspected evidence
+Write π=2^(-d), λ=1-2a/d, and u(k)=[(1+λ^k)/2]^d. For each k the stationary probability π of being at zero is the convolution of the first-entrance law (including time zero) with u. Thus F(z)=π/[π+(1-z)G(z)], where G(z)=π Σ_{j=1}^d binom(d,j)/(1-zλ^j). Taking the derivative at one gives exactly the stated mean. I verified the signed correction also by expanding the return kernel in time, independently of the proof's Taylor expansion around the binomial mean. For k≤C log d, u(k)=e^(-ak)[1+a²(k²/2-k)/d+O_a((1+k)^4/d²)], from expanding d log((1+λ^k)/2). Subtracting π costs O(π log d) in this range. The remaining Green sum from K onward is E[λ^(JK)/(1-λ^J); J≥1], J binomial(d,1/2), bounded by O_a(e^(-aK/2)+d exp(-c d)) by splitting at J=d/4. Choosing C sufficiently large controls the truncated series and yields a summed O_a(d^(-2)) error. With r=e^(-a), Σ_{k≥0}r^k(k²/2-k)=r(3r-1)/(2(1-r)^3), verifying the coefficient and eventual sign for a≠log 3. For z=e^(-sπ), the spectral sum gives 0≤G(1)-G(z)≤(1-z)G(1)/(1-λ)=o(1). Substitution into F gives the stated exponential Laplace limit, including the trivial s=0 case; at t=0 the tail is 1-π. The geometric run counts the entry visit and ends at the first clock step with any flip, with exact parameter 1-(1-a/d)^d by the Markov property.
 
-Tanzi–Tenaglia, *Stability of quasi-stationary measures in high-dimensional products of mixing Markov chains* (arXiv:2609.10178, 2026, Hypothesis 1 and Theorems 2.1–2.2), assumes a fixed underlying chain with contraction bounded away from one. The present one-bit contraction \(1-2a/d\) tends to one. Their quasi-stationary density theorems do not entail this exact stationary-corner first passage formula or its finite-size coefficient. Černý–Gayrard, *Hitting time of large subsets of the hypercube* (arXiv:math/0611242, 2006, Theorems 1.1–1.3), studies the single-coordinate-at-a-time simple walk and target families; its point-hitting references are classical background, not the synchronous independent-flip result. Nestoridi, *A non-local random walk on the hypercube* (arXiv:1507.05690, 2015), flips a fixed number of chosen coordinates and establishes mixing bounds. Peixoto–Marcondes, *Stopping Times of Random Walks on a Hypercube* (arXiv:1709.02359, 2017), establishes hitting/return laws for the nearest-neighbor and lazy one-coordinate walks, not independent simultaneous flips. Related publicly indexed findings on cube walks concern resets, mixing, and coordinate exploration rather than the stated stationary corner Green-function asymptotics. We found no statement or stronger theorem covering the signed \(1/d\) correction. This absence is not proof of historical uniqueness: Kemperman's 1961 stationary-passage monograph was not inspected in full, and a specialized theorem may exist in broader rare-event theory.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed-corner target has stationary mass \(2^{-d}\), yet the first-entry rate on that natural scale is \(1-e^{-a}\), not one: short return clusters change the macroscopic clock. The signed coefficient \(a^2e^{-a}(3e^{-a}-1)/[2(1-e^{-a})^3]\) locates a natural \(a=\log3\) approach-direction boundary and supplies a quantitative finite-dimension correction for calibrating rare passage in slowly mixing coordinate products. This is a motivated stochastic boundary effect, rather than an arbitrary numerical slice. It does not assert uniformity near the crossover or a full Poisson-cluster process.
+The stationary renewal identity, spectral computation of the exact mean, and exponential approximation framework are classical or standard specializations. The supported distinct contribution is the explicit asymptotic analysis of the Green sum in the triangular array with flip probability a/d, in particular its signed correction and crossover. The closest statement-level comparisons do not give that calculation.
 
-## Closest literature and limitations
+## value
 
-The exact return/renewal identity is classical and not itself claimed to be new. The two main relevant differences are the vanishing one-coordinate spectral gap and the precise finite-dimensional signed correction. A fixed \(a>0\), stationary start and one corner are necessary. The closest historical point-hitting theory may deserve independent priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The independent flip array is a natural regime with O(1) mean flips, increasing dimension, and vanishing one-coordinate gap. Return clusters change the entrance clock by a nontrivial rate factor relative to stationarity mass. The explicit first correction resolves which side the finite-dimensional normalized mean approaches from, and its zero is not accounted for by the geometric run length alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

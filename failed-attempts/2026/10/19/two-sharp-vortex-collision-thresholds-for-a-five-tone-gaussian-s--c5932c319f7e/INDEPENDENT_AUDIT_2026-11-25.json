@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:12:59.453477Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, and proof equations (1)–(2)",
+        "Frozen VERIFICATION.md and verify_five_tone.py"
+      ],
+      "rationale": "Gaussian Fourier integration gives the nonzero factor exp(−pi xi^2−2 pi i xi x) times 1+2q cosh(w)+2q^4 cosh(2w), where q=exp(−pi Delta^2) and w=2 pi Delta(xi+i x). Exponentiation gives a bijective cylinder coordinate with the reciprocal quartic of degree four and nonzero constant term. The quadratic in cosh(w) has discriminant 4q^2(2s−1)(4s^2+2s−1) with s=q^2. The values at y=±1 stay positive; the minimum of 1−2q+2q^4 for q>0 is 1−3/(2·4^(1/3))>0. Thus the inverse cosh never coalesces at its branch values. The two real roots lie in (−1,1) near s=1, meet at −1/sqrt(2) at s=1/2, become conjugate in the next interval, and meet below −1 at s_B; they remain below −1 for s<s_B. In the conjugate regime the upper-left root has one inverse with positive real part and angle in (pi/2,pi), and reciprocal and conjugate symmetry produce exactly the rectangle. Double roots pull back to double zeros because sinh(w) is nonzero there. Holomorphic multiplicity becomes negative phase winding in the reversed (x,xi) orientation; the nonzero prefactor adds no local winding. As q tends to zero the two root moduli are 1/(2q) and 1/(2q^3) up to relative O(q^2), yielding the stated midpoint errors after applying arcosh. The support script was inspected, not executed; its finite comparisons are not used for completeness.",
+      "residual_risks": [
+        "Only the exact five-tone Gaussian model is covered; the proof makes no stability or zero-detection claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue statement permits arbitrary positive Gaussian width and angular tone gap; the frozen normalization is included.",
+          "Chand, Nolen and Wu §2 restricts its exact interference analysis to two components, while §§3–4.1 treat ridge resolution and local zero and winding information in that two-component setting."
+        ],
+        "reasoning": "The Gaussian normalization is a specialization of the catalogue theorem; the two-component primary paper is methodological background, not the five-tone classification.",
+        "searches": [
+          "\"Gaussian\" short-time Fourier transform zeros multi-tone equally spaced five tones collision bifurcation",
+          "arXiv:2601.10910, §§2–4.1",
+          "Resultary: 2979aab47cf8, Finding and Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8, 2979aab47cf8",
+        "arXiv:2601.10910, §§2, 3, 4.1",
+        "Primary-literature search for Gaussian STFT multitone zeros and bifurcations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue proof gives the holomorphic cosh factor times a nonvanishing Gaussian prefactor and assigns analytic orders one and two. Reversal of the plotted orientation therefore gives windings −1 and −2.",
+          "For its Q_r(Y)=Y^2+r^(3/2)Y+r^2−2 the two root magnitudes are r^(3/2)(1+O(1/r)) and r^(1/2)(1+O(1/r)), directly by the quadratic formula and product of roots. The last-regime inverse arcosh maps these to the frozen distant-tone frequencies with the stated scale of error."
+        ],
+        "reasoning": "The supplementary winding and midpoint claims are local-degree and leading-root corollaries of explicit matched formulas, not materially distinct extensions.",
+        "searches": [
+          "Resultary: 2979aab47cf8, Proof, mirror offset 2400–5357",
+          "arXiv:2601.10910, §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under sigma=1/sqrt(2 pi), Omega=2 pi Delta, t=x, and the catalogue angular frequency equal to 2 pi xi, its r=exp(sigma^2 Omega^2)=1/s and its z=w. Thresholds r=2 and 1+sqrt(5) coincide. Its quadratic variable is twice the frozen y and its reciprocal quartic agrees coefficient by coefficient.",
+          "The time period 2 pi/Omega is 1/Delta; both frequency variables run over the real line and both signals have equal unit coefficients."
+        ],
+        "reasoning": "This is the same zero set under a bijective coordinate and window-convention change, with multiplicities preserved.",
+        "searches": [
+          "Resultary: five equally spaced equal-amplitude Gaussian-window STFT four zeros two collision thresholds reciprocal quartic",
+          "Resultary: Gaussian STFT spectrogram zeros multi-tone exponential polynomial root location bifurcation collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed Finding gives the exact four-zero count, the two two-double-zero configurations and the complete geometry between and outside the threshold values."
+        ],
+        "reasoning": "This is not merely a catalogue hit by topic; the explicit classification is stated in the entry itself.",
+        "searches": [
+          "Resultary: five equally spaced equal-amplitude Gaussian-window STFT four zeros two collision thresholds reciprocal quartic",
+          "Resultary: 2979aab47cf8"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem gives the same entire zero classification in rescaled coordinates, including both collision thresholds, multiplicities and all three arrangements. The frozen winding convention and distant-tone asymptotic follow directly from the matched holomorphic factor and explicit quadratic, so they do not supply a materially independent remainder. This is a finding of equivalent indexed coverage as of review, not a claim about historical order or dependence; the catalogue path is later-dated than the frozen path.",
+      "residual_risks": [
+        "Neither the date labels nor nonmatching search results settle historical priority. A further pre-existing heat-deformation or exponential-polynomial treatment was not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact indexed coverage of the core; auxiliary frozen statements are routine consequences",
+          "evidence": [
+            "Thresholds r=2 and r=1+sqrt(5); the same geometry and multiplicities; quadratic Q_r and reciprocal quartic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sharp-zero-bifurcation-scales-for-a-five-tone-gaussian-spect--2979aab47cf8",
+          "material_read": "Mirrored RESULT.md, Finding and scope at offset 0; Proof through the quartic, including offsets 2400–5357",
+          "method": "Local Resultary search and mirrored statement and proof inspection",
+          "title": "Two sharp zero-bifurcation scales for a five-tone Gaussian spectrogram",
+          "trigger": "Identical symmetric five-tone model and two analytically specified collision scales"
+        },
+        {
+          "assessment": "Relevant exact two-component analysis and general holomorphic method, not the five-tone classification",
+          "evidence": [
+            "Explicit K=2 model, a balanced two-mode resolution threshold, and a local destructive zero and winding result."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2601.10910",
+          "material_read": "§2 two-component model, about offset 8045; §3 ridge resolution about 21990; §4.1 holomorphy, zero and winding about 45948",
+          "method": "Lawful OA ar5iv passage inspection",
+          "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+          "trigger": "Gaussian STFT interference, zeros, and spectral thresholds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary 2979aab47cf8"
+      ],
+      "rationale": "A global classification in a tractable interference model answers where every phase zero is, how zeros collide, and which geometries persist as the frequency gap changes. These are substantively useful statements beyond exhibiting a few zeros or plotting ridge maxima. The frozen package nonetheless does not add a distinct result beyond the exact catalogue coverage.",
+      "residual_risks": [
+        "The usefulness is model-specific and does not transfer to unequal amplitudes or arbitrary windows without more work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

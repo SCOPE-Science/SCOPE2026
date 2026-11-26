@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The flux ratio at equilibrium reduces exactly to a strictly monotone function of the total opinion fraction. The integral representation proves its derivative has a fixed sign for the full admissible interval, so there is one hyperbolic attractor and no hidden second branch. Uniform convergence of this ratio on compact opinion intervals establishes the reciprocal scaling limit; a separate boundary argument yields the fixed-bias power law. No numerical root search or finite-grid enumeration substitutes for these analytic arguments. A standalone standard-library checker corroborates representative identities and parameter limits.
+PASS
 
-## Originality — PASS, with residual risks
+The inward endpoint signs and the log ratio of the two positive interior fluxes are correct. To check monotonicity independently, put v=u(1-u) on Z<u<1/2. Then R_Z=A_Z/B equals sqrt(1-4v) times the integral from 0 to Z of 1/[(v-t(1-t))(-log v)]. The denominator in the integrand has v-derivative -log v-1+t(1-t)/v>0, so R_Z has strictly negative derivative, with limits infinity and zero. At a root the drift derivative is the positive reverse flux times B R'_Z<0. The flux signs, reflection, and the exact neutral drift Z(1-2u) give global attraction including endpoints; differentiating the original drift at neutrality gives -(1-2Z)log(4)/(8Z). For rho/Z→c the rescaled drift converges locally uniformly in the interior to 1-2u+c u(1-u)log(u(1-u)); the sign change at its unique zero brackets the finite-Z root, including c=0. Implicit differentiation of this limiting drift at (u,c)=(1/2,0) gives U'(0)=-log(4)/8. For fixed rho>0 the root tends to zero because the limiting zero-commitment drift is strictly negative on compact subintervals of (0,1/2]. With x=u_*-Z its stationary equation gives x/(x+Z)=[(1-2Z-x)/(1-Z-x)^(1-rho)](x+Z)^rho→0, then x/Z^(1+rho)→1. An independent bisection on the original and limiting drifts reproduced 0.3068815408197915 for u_*(0.225,0.6) and 0.3329154617472118 for U(1).
 
-Huang and Prokopenko (arXiv:2609.18684v1, equilibrium equations (26)–(27), Figure 2) supply the model and a numerically traced equilibrium for one fixed committed fraction; they do not establish the all-parameter uniqueness/global-stability theorem or the singular small-commitment scaling law. Vasconcelos, Levin, and Pinheiro (arXiv:1811.08525) analyze the zealot-free competing-contagion dynamics, which lacks the positive-commitment limiting selection proved here. Mobilia (arXiv:1506.04911) analyzes a distinct symmetric superlinear \(q\)-voter equation whose bistability does not imply a theorem for reciprocal exponents straddling one. Searches of mathematical findings and relevant literature found no equivalent claim. The remaining risk is a generalized monotone-flow or zealot-regularization theorem under different terminology that might subsume the precise singular crossover.
+## originality
 
-## Value — PASS
+PASS
 
-The scaling limit isolates a motivated nonuniformity in a recent model for crisis-related opinion adoption: as committed fractions vanish, an arbitrarily small reciprocal feedback asymmetry can still cause a macroscopic change, provided the feedback and commitment vanish at comparable rates. The no-bistability result distinguishes this mechanism from superlinear \(q\)-voter tipping, and the explicit crossover predicts the amplitude and direction of equilibrium opinion shifts. This is a structural and model-specific conclusion rather than an arbitrary parameter evaluation.
+The source supplies the model and an equilibrium curve at one fixed commitment. The all-parameter monotonicity and global attraction, and especially the singular moving-parameter equilibrium limits, are distinct. No examined related general model or indexed result was shown to imply them.
 
-## Scientific limitations
+## value
 
-The theorem applies to a frozen-feedback, deterministic, well-mixed system with equal committed fractions; no statement is made for time-dependent feedback, finite stochastic populations, heterogeneous networks or the coupled epidemic dynamics. The mathematical verification is analytic with supplementary finite numerical checks. Historical-priority comparison is not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question is motivated by the source's numerical equilibrium curve. The result rules out bistability across the frozen parameter domain and shows why a vanishing absolute bias can still yield a finite shift when the bias and commitment are comparable. The limiting profile and distinct fixed-bias minority law give quantitative predictions that a fixed-commitment plot cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

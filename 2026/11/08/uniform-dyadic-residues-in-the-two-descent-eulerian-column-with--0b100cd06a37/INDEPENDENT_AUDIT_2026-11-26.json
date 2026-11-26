@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:17:29.280955Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md, lines 3–13 and 21–31",
+        "Frozen verify_eulerian.py (inspection only)",
+        "Independent modular check for k=1,…,10"
+      ],
+      "rationale": "For n≥3 the classical inclusion–exclusion count is E_n=3^n−(n+1)2^n+n(n+1)/2. On n=2t+ε, differences of the surviving triangular term are (t−s)[2(t+s+ε)+1], while differences of the exponential term have 2-adic valuation 3+ν₂(t−s). Thus the surviving expression is an isometry separately on each parity parameter t and permutes every quotient modulo 2^k. A block of 2^(k+1) consecutive indices contributes a complete quotient on each branch. The correction vanishes from N_k=max(3,2⌈k/2⌉−1): for odd k use n≥k; for even k the only possible exception in the range is n=k−1, with even n+1. For k≥5 the preceding index is even and below k, so its correction does not vanish; its translate by the period equals the uncorrected residue and is different. Sliding the preceding block to the first good block replaces just those two unequal residues, proving sharpness even for the unrefined histogram. The increment 2^k has valuation k−1 in the output differences on the tail, so the least tail period, which divides 2^(k+1), cannot be any smaller divisor. For k≤4 the natural domain boundary is sharp. An independent bounded modular check on k=1,…,10 corroborated parity fibers in the onset block, agreement with the reduced expression across two periods, and the preceding-index obstruction. The uploaded checker was inspected, not executed; its finite coverage is not the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source identifies Cao–Pan Theorem 1.1 as concerning fixed-row sums; it identifies the Castro–González–Medina paper as concerning valuations of Eulerian entries. The targeted congruence search surfaced arXiv:2111.07082, but full-text passage retrieval did not succeed.",
+          "Resultary a900c8064e91 describes a similar fiber method for the fifth Stirling column."
+        ],
+        "reasoning": "Fixed-row column sums and valuations relative to a fixed target are not pairwise difference valuations on each parity subsequence. Generic isometry results could explain the method, but no retrieved broader result identifies these Eulerian branches and gives the exact finite transient. The full scope of the inaccessible valuation paper is not settled.",
+        "searches": [
+          "arXiv:2111.07082",
+          "Castro–González–Medina, DOI 10.1080/10586458.2014.981899",
+          "Cao–Pan, arXiv:math/0608564",
+          "Primary search: 2-adic isometries for Eulerian columns"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 70–83",
+        "Resultary 0b100cd06a37, 1c3a3c08654b, 05dba94c6d35 and a900c8064e91 (catalogue statements)",
+        "OEIS A000460 and arXiv:2111.07082 (identified; passage retrieval unavailable)",
+        "Castro–González–Medina DOI 10.1080/10586458.2014.981899 (limited scope evidence)",
+        "Cao–Pan arXiv:math/0608564 and Nakamura 2015 (scope reported in frozen source)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula supplies the two separate terms used in the proof, but the pairwise isometry and the distinct incoming/outgoing residues at the sharp boundary require their own valuation arguments.",
+          "The frozen source describes Nakamura's scope as descent distributions at fixed permutation size, not the residue distribution of actual counts as size changes."
+        ],
+        "reasoning": "An exact expression makes the proof short and reproducible, but it is not an existing theorem giving this count or the optimal period and cutoff. A result about counts with large valuations, or probabilities at a fixed size, does not by itself count the fibers of nonzero target residues.",
+        "searches": [
+          "Classical formula cited at OEIS A000460",
+          "Castro–González–Medina p-adic valuation paper",
+          "Nakamura, Pseudo-Normal Random Number Generation via the Eulerian Numbers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0b100cd06a37 is the frozen record itself; 1c3a3c08654b treats the two-descent column modulo powers of three; 05dba94c6d35 treats the three-descent column modulo powers of two."
+        ],
+        "reasoning": "The same result could be expressed as two bijective parity subsequences modulo 2^k after precision-dependent corrections. A ternary result for the same function or a dyadic result for a different Eulerian column does not give those particular two bijections or their sharp threshold.",
+        "searches": [
+          "Resultary: two-descent Eulerian column and dyadic uniform residue fibers",
+          "Primary search: fixed-column Eulerian congruences, residue distributions and periods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000460 is identified in the frozen source as listing the two-descent column and its classical explicit formula. The exact Resultary match has the same record identifier and statement as the item under review."
+        ],
+        "reasoning": "A sequence table and its formula identify the inputs to the theorem, not the claimed all-moduli distribution with an optimal cutoff. The matching Resultary copy is not independent coverage; no claim is made that uninspected OEIS comments lack such a theorem.",
+        "searches": [
+          "OEIS A000460",
+          "Exact Resultary match 0b100cd06a37"
+        ]
+      },
+      "rationale": "Credit the explicit Eulerian formula and general 2-adic methods to prior work. The supported distinct claim is the fixed two-descent column's simultaneous one-per-parity output fibers and sharp onset and period at every binary precision. No inspected distinct source states or is shown to imply that combination. This is a best-of-current-evidence assessment, not a historical priority certificate.",
+      "residual_risks": [
+        "The Castro–González–Medina full text and targeted congruence preprint passages were not available for independent inspection. Possible stronger prior coverage remains open.",
+        "Catalogue and search results are limited; unsuccessful retrieval is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record; not independent coverage",
+          "evidence": "Exact agreement on period, one preimage per parity, and sharp onset",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-dyadic-residues-in-the-two-descent-eulerian-column-with--0b100cd06a37",
+          "material_read": "Resultary summary and frozen Finding, lines 5–21",
+          "method": "Catalogue comparison with original",
+          "title": "Two-descent Eulerian column (Resultary exact hit)",
+          "trigger": "Exact statement match"
+        },
+        {
+          "assessment": "Credit sequence and formula; direct verification of other entry content unavailable",
+          "evidence": "3^n−(n+1)2^n+binom(n+1,2) is already identified as the formula",
+          "identifier_or_url": "https://oeis.org/A000460",
+          "material_read": "Search identification and frozen RESULT.md lines 72 and 80; direct page retrieval timed out",
+          "method": "Database lookup and comparison with frozen citation",
+          "title": "Eulerian numbers: permutations of n with 2 ascents",
+          "trigger": "Exact sequence and classical formula (ascent–descent symmetry)"
+        },
+        {
+          "assessment": "Relevant unresolved risk; no equivalent result verified",
+          "evidence": "Available scope concerns valuations/zeros, not an independently verified theorem for every target residue",
+          "identifier_or_url": "https://doi.org/10.1080/10586458.2014.981899",
+          "material_read": "Bibliographic identification and supplied abstract-scope account at RESULT.md lines 72–76; no independent primary passage obtained",
+          "method": "Targeted search and lawful primary-source retrieval attempt",
+          "title": "The p-adic Valuation of Eulerian Numbers: Trees and Bernoulli Numbers",
+          "trigger": "Most plausible earlier same-column valuation coverage"
+        },
+        {
+          "assessment": "Fixed-row sums are not fixed-column output fibers",
+          "evidence": "Row fixed and descent index summed, versus descent index fixed and row varying here",
+          "identifier_or_url": "https://arxiv.org/abs/math/0608564",
+          "material_read": "Theorem 1.1 scope as identified at frozen RESULT.md line 72; no independent full-text passage relied upon",
+          "method": "Statement-scope comparison with supplied citation",
+          "title": "Congruences on Stirling numbers and Eulerian numbers",
+          "trigger": "Eulerian congruences that might have stronger coverage"
+        },
+        {
+          "assessment": "Not excluded as whole-document coverage; no matching statement obtained",
+          "evidence": "Title and identifier alone do not establish overlap",
+          "identifier_or_url": "https://arxiv.org/abs/2111.07082",
+          "material_read": "Search identification only, primary passage retrieval timed out",
+          "method": "Lawful source retrieval attempt",
+          "title": "Congruences related to Eulerian and Euler numbers",
+          "trigger": "Targeted congruence search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof lines 25–62"
+      ],
+      "rationale": "The theorem gives exact residue frequencies on any sufficiently late moving window for a natural Eulerian column, determines the parity of both preimages, and gives the shortest possible period and earliest uniform-window threshold. The parity isometry structurally explains the distribution; the exact moving-window threshold detects the initial correction and is stronger than asymptotic equidistribution or calculating a few moduli.",
+      "residual_risks": [
+        "Restricted to powers of two and the two-descent column; no other column or prime is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

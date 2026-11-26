@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:50:27.240819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use a common labelling relative to the identity. If the cycle through the hub contains h leaves, and the q nontrivial leaf-only cycles use s leaves, hub transpositions realize those cycles using h+s+q swaps: a hub cycle takes h, and a leaf cycle of length l takes l+1 by bringing the hub in and out. Since q<=s/2 and s<=2t-h, the upper bound is 3t. Equality requires a fixed hub and t disjoint leaf transpositions. A within-petal pair makes the constructive upper bound at most 1+3(t-1). Conversely, for a matching across petals, every component of the used-edge support is invariant under the permutation. Every matched pair joins distinct components of the graph after hub deletion, so its endpoints' support component must contain the hub. These pairs cover all leaves, giving connected support. Each newly joining support edge merges two current permutation cycles, so any factorization of a permutation with c cycles on n vertices has at least n-1 merges; the cycle-count change gives length at least n+c-2. Here n=2t+1 and c=t+1, hence 3t. Cyclically pairing a_i with b_(i+1) realizes the bound for every t>=2. The count is inclusion–exclusion over the t forbidden petal pairs (with empty matching counted as one); dividing state–antipode incidences by two counts unordered pairs. The generators are distinct odd transpositions and contain the generating star: this verifies degree, bipartiteness, connectivity and the equal radius/diameter by token relabelling. At t=1 all transpositions are edges, and a 3-cycle takes two swaps. Separate byte-permutation BFS and recursive matching generation (`python -B /workspace/independent_replay.py 5`) reproduced diameters 2,6,9,12, and full farthest-state set equality at t=2,3,4 (counts 2,8,60). It is finite corroboration only. Frozen checker.py and its recorded output were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available indexed description for transposition-tree diameters has the tree hypothesis. The frozen account describes arXiv:2103.06707 as citing the exact star diameter and DOI 10.37236/12771 as addressing automorphism groups, not geodesics. Primary passages for these latter comparisons were not obtained.",
+          "The sequential-walk rule in the frozen description of arXiv:2210.02835 imposes adjacency of successive traversed edges, not merely legality of each edge swap."
+        ],
+        "reasoning": "A star diameter theorem proves an upper bound when moves are added; it alone cannot prove inequality in the other direction or characterize what remains farthest. An automorphism statement or another swapping model is not an upper-and-lower metric classification of this Cayley graph.",
+        "searches": [
+          "Ganesan arXiv:1111.3114; ScienceDirect S0166218X14004508 tree-generated diameter bounds",
+          "arXiv:2103.06707 star diameter",
+          "DOI 10.37236/12771 general transposition sets",
+          "arXiv:2210.02835 sequentially swapping tokens"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, checker_output.txt",
+        "Primary search statements for arXiv:2509.23511v1 and transposition-tree diameter article S0166218X14004508",
+        "Resultary query batch outcome and bounded OA attempts as documented above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof explicitly excludes novelty of its star construction and transitive-factorization lower bound. Connected support is not automatic for arbitrary configurations; here it follows from all leaves being paired across articulation petals.",
+          "The cited star/special-case and retrieved tree or star-based statements do not in the available evidence place both the swap set and the extremal permutation under a known exact diameter classification."
+        ],
+        "reasoning": "The lower-bound lemma needs a problem-specific spanning connected support argument, and the shortest within-petal correction excludes the rest of the potential extremizers. Adding edges invalidates a lower-bound implication from the star metric alone. No accessible stronger result has been verified to give this equality classification.",
+        "searches": [
+          "Resultary: connected transposition factorization support graph cycles lower bound N plus c minus 2",
+          "arXiv:2103.06707 and DOI 10.1007/s00453-017-0387-0 star baseline",
+          "arXiv:2509.23511v1 and arXiv:1111.3114 diameter comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For labelled sequential swaps the exact Cayley generators are all hub transpositions plus a perfect matching on the leaves. The tree-generated Cayley graphs surfaced by the search do not have these triangle cycles.",
+          "The nearest primary search hit, arXiv:2509.23511v1, concerns diameters of friends-and-strangers components and includes a star case in the available summary."
+        ],
+        "reasoning": "Token swapping is equivalent to a friends-and-strangers graph with one factor the complete graph (all token pairs may exchange) and the other factor this windmill. 'Friendship graph' in a two-factor model names a role, not necessarily the windmill graph; the star case in the available statement is not identification of these generators or their farthest elements.",
+        "searches": [
+          "\"friendship graph\" transposition Cayley graph diameter farthest permutations token swapping star matching windmill",
+          "Resultary: token swapping friendship graph Dutch windmill diameter antipodes farthest configurations",
+          "Resultary: token swapping star plus matching peripheral edges diameter friendship graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS entry access failed; no sequence identity is asserted. Resultary batch returned rate_limited/search_completed:false, not a list of hits or a negative result.",
+          "Inclusion–exclusion directly gives 2,8,60 for t=2,3,4; a separate enumerator of matchings on the peripheral labels produced the complete BFS farthest sets at those t."
+        ],
+        "reasoning": "The raw count of avoiding matchings is a standard enumerative reduction and not credited independently. Even an exact matching table counts a specified family of matchings, not the proof that precisely those permutations attain the swap diameter.",
+        "searches": [
+          "OEIS A053871 attempted entry check for matchings avoiding disjoint forbidden edges",
+          "Resultary: transposition Cayley graph friendship graph farthest permutations cross petal perfect matchings count",
+          "Direct count of perfect matchings on complete multipartite graph with t parts of size two"
+        ]
+      },
+      "rationale": "The credited finding is the exact friendship-windmill diameter and complete extremal permutation characterization after adding the peripheral matching, not the star upper bound, a connected transposition-factorization lemma, or the abstract matching count. The strongest retrieved comparisons address trees or different two-graph hypotheses, and do not give that characterization. Some cited full texts and the catalogue search were unavailable; that does not establish the absence of prior coverage.",
+      "residual_risks": [
+        "Rate-limited catalogue search established no result list; no exact local priority conclusion follows.",
+        "Full texts were not retrieved in the attempted OA comparisons. A general diameter classification for cone/block/petal transposition graphs or an older windmill treatment could cover these configurations under another name.",
+        "The exact sequence identity was not confirmed and no originality is claimed for the abstract matching count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nearby diameter problem, not the exact family in the available summary",
+          "evidence": "The summary discusses diameter of connected components and a star case; it supplies neither the peripheral-matching generator condition nor a farthest-element statement for windmills.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.23511",
+          "material_read": "Indexed summary including star case of the two-graph model",
+          "method": "Primary search; bounded OA literal-query request timed out",
+          "title": "Diameter Bounds for Friends-and-Strangers Graphs",
+          "trigger": "Closest result of direct windmill/Cayley diameter literature query"
+        },
+        {
+          "assessment": "Tree-generated baseline based on available statement",
+          "evidence": "The generating graph in the indexed description is a tree, while the frozen generating graph has t triangles.",
+          "identifier_or_url": "arXiv:1111.3114; ScienceDirect S0166218X14004508",
+          "material_read": "Indexed tree-diameter description; no decisive passage retrieved",
+          "method": "Primary search and OA literal transposition-tree lookup",
+          "title": "Diameters of Cayley graphs generated by transposition trees",
+          "trigger": "Potential broader transposition-Cayley diameter result"
+        },
+        {
+          "assessment": "Star baseline credited; no claim about uninspected full-text coverage",
+          "evidence": "Frozen account explicitly separates the exact star diameter and polynomial star sorting result from adding a matching among the leaves.",
+          "identifier_or_url": "arXiv:2103.06707; DOI 10.1007/s00453-017-0387-0",
+          "material_read": "Frozen RESULT.md lines 50–59 descriptions; primary passages not retrieved",
+          "method": "Bounded OA on arXiv, DOI and public journal PDF; requests timed out",
+          "title": "Hardness of Token Swapping on Trees; Complexity of Token Swapping and Its Variants",
+          "trigger": "Known star-special-case distances and possible stronger sorting result"
+        },
+        {
+          "assessment": "Different invariant/model in available descriptions, not a whole-document claim",
+          "evidence": "The frozen description distinguishes automorphism groups and the rule that successive swaps must form a walk from unrestricted sequential edge swaps.",
+          "identifier_or_url": "DOI 10.37236/12771; arXiv:2210.02835",
+          "material_read": "Frozen prior-work description; no decisive passages retrieved",
+          "method": "Bounded OA lookups for transposition sets and sequential swaps; timed out",
+          "title": "General transposition-set automorphisms and sequential-walk token swaps",
+          "trigger": "Potential general generators theorem or swap-rule alias"
+        },
+        {
+          "assessment": "Unresolved identity; no effect on distinctness of the geometric classification",
+          "evidence": "The count itself is derived by inclusion–exclusion; no OEIS identification is relied on.",
+          "identifier_or_url": "https://oeis.org/A053871",
+          "material_read": "None; entry and alternate retrieval did not yield a statement",
+          "method": "OA literal perfect-matching query and bounded public entry retrieval",
+          "title": "OEIS entry checked as candidate matching-count comparison",
+          "trigger": "Potential reuse of the forbidden-matching count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The windmill is a natural non-tree extension of the star with 50% more swap edges. Knowing that the worst-case number of swaps does not improve, and precisely which token assignments resist any improvement, is information not supplied by monotonicity or an upper-bound comparison. The result identifies articulation and cross-petal structure as the extremal obstruction and provides the exact census, rather than a slight quantitative improvement or a table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

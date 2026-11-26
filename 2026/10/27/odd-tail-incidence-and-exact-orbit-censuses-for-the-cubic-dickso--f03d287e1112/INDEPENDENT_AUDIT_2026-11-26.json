@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:12.462079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The even half-coordinate is the permutation g=T3 modulo 2^r: g is the identity mod 2 and its derivative is odd. Odd inputs map into this permuted class in precisely one step. For G a power-of-two iterate, G′≡1 mod 4, so Taylor expansion of G(G(t))−t has valuation one more than G(t)−t whenever that difference is nonzero with valuation at least 3. The exhibited fixing time is a power of two, and the preceding power fails unless the point is already fixed; the period follows by divisibility. Splitting t by parity yields the stated cycle census, including r=0 and the fixed counts. For odd input 2u+1, the half-entry h is odd and its difference from the appropriate sign has valuation 1+2ν₂(u(u+1)); the other difference has valuation 1. This yields the periods and aggregate counts. For the incidence, the scaled cubic B(v)=v²(2^(s+1)v±3) is constant modulo 8 on odd v, and B′(v) has valuation exactly 1. For shifts 2^a with a≥2 all Taylor terms beyond the derivative have valuation at least a+2. The four roots at precision 3 begin the lifting induction: pairing roots separated by 2^(q−1) splits their outputs evenly at the next precision, and lifting each root duplicates it. The two signed entry classes each contain 2^j targets; g preserves their scaled unit modulo 8 and each target has period 2^j, so each class is one cycle. Restoring the discarded input bits gives 4·2^(s+1) odd predecessors per target. Independent finite corroboration: tabulated successors and odd indegrees, traversed the even cycles, and compared cycle counts, aggregate odd counts, occupied cycle counts and per-cycle-vertex indegrees for k=1 through 15 (65,534 residues). This corroborates, not proves, the general result; the uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iwasaki–Umeno give odd-degree permutation period tables; Lu–Dai–Li study the Chebyshev permutation paths and cycle counts. Ishii is relevant to dyadic periodicity, but only selected, partly degraded passages were readable."
+        ],
+        "reasoning": "Credit the T3 orbital census to prior coverage. The inspected permutation statements do not extend it to odd leaves of the monic map on the full ring.",
+        "searches": [
+          "arXiv:1602.08238, Theorem 1",
+          "arXiv:2605.21819, orbital period and cycle results",
+          "arXiv:1209.4396",
+          "doi:10.11540/jsiamt.18.2_257"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 5e7f44cf3ca5, 7802afd6e155 and ddf9bc41bbc3",
+        "arXiv:1602.08238v2, arXiv:2605.21819v1, arXiv:1209.4396v3",
+        "doi:10.11540/jsiamt.18.2_257"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the Nov. 22 trace formula take its shell index equal to s+1. At nonfixed precision the normalized unit has at least j+3≥4 bits available, with the same residues 7/1 or 3/5 modulo 8, and the exponent in H is s+3. Subtract the unique even preimage. The alternative later square-root law gives 16 excess preimages on the s=1 class and, for s≥2, a square-root count 2^s multiplied by 8."
+        ],
+        "reasoning": "The later formula plus the even period and preservation of the shell gives exactly one supported cycle per sign, rather than merely similar aggregate counts. The earlier permutation theorems alone do not give this arithmetic information.",
+        "searches": [
+          "Resultary 7802afd6e155 H_(±,k) law",
+          "Resultary 5e7f44cf3ca5 square-root fiber law",
+          "arXiv:2605.21819"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f(2t)=2T3(t), but 2T3(x/2) cannot be used as a change of variable on the odd part of Z/2^k. Gassert's functional graphs are over fields."
+        ],
+        "reasoning": "The Chebyshev equivalence transfers the even permutation only. Nonempty odd fibers cannot occur in a permutation graph, and fields of characteristic two are not the dyadic rings at higher precision.",
+        "searches": [
+          "Resultary: x^3−3x, D3(x,1), cubic Dickson trace polynomial, odd-tail functional graphs",
+          "arXiv:1602.08238",
+          "arXiv:2605.21819"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Nov. 22 records give exact later fibers for the same map; the Nov. 2 dyadic graph is for x+x³, not D3(x,1). Lu–Dai–Li's table is for the permutation branch."
+        ],
+        "reasoning": "Distinguish exact later arithmetic coverage, the known even table, and a graph-theoretic analogy. No inspected earlier exact table covers the full odd-tail incidence.",
+        "searches": [
+          "Resultary 5e7f44cf3ca5",
+          "Resultary 7802afd6e155",
+          "Resultary ddf9bc41bbc3",
+          "arXiv:2605.21819, period table"
+        ]
+      },
+      "rationale": "The even-state classification is known via T3, as the result acknowledges. The nonpermutation odd-tail placement is a supported distinct contribution relative to the inspected pre-existing work. Two later indexed same-map records directly cover the one-step odd indegrees (not merely a similar-looking polynomial), and in combination with even period information give the cycle-incidence refinement; they document later coverage and are not evidence of earlier priority.",
+      "residual_risks": [
+        "An earlier exact fiber result under Dickson/trace nomenclature or a broader finite-ring theorem was not ruled out. The Ishii paper was only selectively inspected with limited text quality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact later fiber coverage; implies leaf incidence with the even dynamics",
+          "evidence": "For even y the total is 1+H_+(y+2)+H_−(y−2); each H gives a signed valuation shell, scaled unit class and multiplicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-fibers-of-the-cubic-dickson-trace-polynomial--7802afd6e155/RESULT.md",
+          "material_read": "Finding, H formula and inverse-limit counterpart, offset 300",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact dyadic fibers of the cubic Dickson trace polynomial",
+          "trigger": "Strongest same-map target-by-target overlap"
+        },
+        {
+          "assessment": "Later exact target classification in quadratic coordinates",
+          "evidence": "Constant 17 on two classes mod 128; the two other nontrivial branches are one plus eight times a square-root count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-fiber-law-for-the-cubic-dickson-polynomial--5e7f44cf3ca5/RESULT.md",
+          "material_read": "Finding and even-branch argument, offset 300",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact dyadic fiber law for the cubic Dickson polynomial",
+          "trigger": "Second same-map exact match"
+        },
+        {
+          "assessment": "Different map, not coverage",
+          "evidence": "The polynomial is x+x³ and the extra odd indegree is eight on its specified targets.",
+          "identifier_or_url": "Resultary ddf9bc41bbc3",
+          "material_read": "Finding describing map and leaf placement",
+          "method": "Resultary search and statement comparison",
+          "title": "Complete dyadic functional graphs of the cubic map",
+          "trigger": "Odd depth-one leaf analogy"
+        },
+        {
+          "assessment": "Permutation periods, relevant to even component",
+          "evidence": "Odd-degree Chebyshev permutations, with period classes by degree and starting point.",
+          "identifier_or_url": "arXiv:1602.08238v2",
+          "material_read": "PDF p. 1 offset 456 and Thm. 1, p. 3 offset 20400",
+          "method": "Lawful OA PDF passages",
+          "title": "Three Theorems on odd degree Chebyshev polynomials and more generalized permutation polynomials over a ring of module 2^w",
+          "trigger": "Prior dyadic period formula"
+        },
+        {
+          "assessment": "Even-component coverage via T3, not the full-ring D3",
+          "evidence": "Period distributions for permutations; degree odd is the binary permutation case.",
+          "identifier_or_url": "arXiv:2605.21819v1",
+          "material_read": "PDF pp. 1–3, offsets 0, 13095 and 23419",
+          "method": "Lawful OA PDF passages",
+          "title": "Graph Structure of Chebyshev Permutation Polynomials over Binary and Ternary Adic Rings",
+          "trigger": "Prior period and cycle census"
+        },
+        {
+          "assessment": "Domain differs",
+          "evidence": "Graph description for prime-degree Chebyshev maps over finite fields.",
+          "identifier_or_url": "arXiv:1209.4396v3",
+          "material_read": "PDF p. 1 offset 0",
+          "method": "Lawful OA PDF passage",
+          "title": "Chebyshev Action on Finite Fields",
+          "trigger": "Potential general Chebyshev graph result"
+        },
+        {
+          "assessment": "Relevant periodicity; scope outside read passages not settled",
+          "evidence": "Inspected title, abstract and selected Japanese/OCR theorem and proof passages; not a full-text negative coverage claim.",
+          "identifier_or_url": "doi:10.11540/jsiamt.18.2_257",
+          "material_read": "PDF p. 1 offset 808, fragmented corollary offset 12500 and p. 3 proof passage offset 16327",
+          "method": "Lawful J-STAGE text extraction",
+          "title": "Periodicity of Chebyshev Polynomials over the Residue Ring of Z/2^r Z and An Electronic Signature",
+          "trigger": "Early relevant dyadic literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural nonpermuting monic cubic has depth-one tails for elementary reasons, but their placement is not read off from even periods. Identifying exactly two of ten occupied cycles per applicable period and computing uniform leaf multiplicities distinguishes their full nonfixed local graph structure, rather than just giving total period counts. The fixed-point leaf incidence is not claimed individually.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

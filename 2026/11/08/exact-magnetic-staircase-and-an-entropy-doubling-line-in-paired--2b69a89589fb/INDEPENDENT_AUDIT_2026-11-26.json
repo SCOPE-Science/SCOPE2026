@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:31.906037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, complete Finding and Proof",
+        "VERIFICATION.md and verify.py, inspected without executing"
+      ],
+      "rationale": "Writing k for the number of opposite-spin pairs gives H/J=2s²−n+(K/J−1)(n−2k)−2(h/J)s, because the all-edge interaction depends only on total magnetization 2s. The constraints on pair counts give exactly k=0 or 1 through n−|s| in steps of two, according to the parity of n−|s|. The sign of K−J thus selects the minimum or maximum feasible k, and all k tie at equality. Choosing the pair types and opposite-pair orientations gives every stated multiplicity. Forward sector differences divided by 2J are t_s−t; for 0<K<J the consecutive threshold gaps alternate between 2K/J and 4−2K/J, both positive, and for K≥J the gap is 2. At K=0 the gap of the first type vanishes, giving exactly the listed triple transitions, including s=−1,0,1 at zero field for odd n. Spin reversal supplies all other signed cases. At fixed unscaled couplings and field, |s| is bounded uniformly in n, so the sector counts have exponential rates n log 2 off K=J and 2n log 2 on it; summing the at most three coexisting sectors preserves the rate.",
+      "residual_risks": [
+        "The finite verifier compares the all-edge magnetization identity plus the pair sum against the sector formula, not a separately written edge-by-edge Hamiltonian. Its reported tests are supplementary; the derivation above does not rely on them. Entropy is for exactly zero temperature and fixed parameters, not a scaling limit with n-dependent K−J."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record a4dcae4432d6 treats zero-field planar XY spins with ferromagnetic nonmatching couplings and antiferromagnetic matching couplings. Record 5287af52a571 treats zero-field bipartite spins with scaled off-diagonal cross-couplings and ferromagnetic matching. Varma considers ladders and kagome."
+        ],
+        "reasoning": "These are related structured antiferromagnets or matched complete graphs, but not an exact partition function, general theorem, or family containing this model across its interaction and field ranges. The different same-day bipartite claim was compared by its Hamiltonian, not assumed later or excluded by date.",
+        "searches": [
+          "Resultary records a4dcae4432d6 and 5287af52a571 on matched complete and bipartite interactions",
+          "arXiv:1305.4606, abstract and saturation-field treatment"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a4dcae4432d6, 5287af52a571, 4725ceae9993",
+        "arXiv:cond-mat/0508218, cond-mat/0512043, 0912.2959, 1305.4606"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-graph case follows from fixed total magnetization and binomial counting. For general K, a sufficiently strong exact joint partition function would preempt the finite sector claim: its coefficients would count the p,q,k pair types at each energy and magnetization. None of the inspected partition functions has these interactions."
+        ],
+        "reasoning": "Knowing the K=J count loses all information about which k values minimize and with what parity when K≠J. A general method for exact finite partition sums does not by itself provide the perturbed sector counts and their asymptotics. The finding is not credited with inventing the multinomial counting technique.",
+        "searches": [
+          "RESULT.md, cited complete-graph, infinite-range, dimer and cluster comparisons; exact-model searches noted above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural equivalent model is an all-pairs Ising antiferromagnet with a correction (K−J) on the perfect matching. The cited long-range antiferromagnets are quantum transverse-field/two-sublattice models; the cited dimer paper starts from a random short-range spin glass."
+        ],
+        "reasoning": "Grouping the present spins as dimers leaves a deterministic quadratic term in total magnetization and an independent intra-pair correction. Neither the quantum two-sublattice separation nor a short-range dimer approximation gives this Hamiltonian or exact degeneracies.",
+        "searches": [
+          "Resultary: paired complete-graph antiferromagnet and matching-coupling entropy",
+          "Primary literature lookup on complete graph plus a perfect matching, cocktail-party Ising and paired/dimer formulations; arXiv:cond-mat/0508218, cond-mat/0512043, 0912.2959"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue record 4725ceae9993 describes the three-state Potts antiferromagnet on the cocktail-party graph. The literature results did not supply an exact table for the specified Ising family."
+        ],
+        "reasoning": "At K=0 the underlying graph agrees but three-state Potts optima are not the two-state Ising optima, and the catalogue description concerns a zero-field residue law rather than the signed-field staircase. The bounded search is not an assertion that no exact table exists.",
+        "searches": [
+          "Resultary: cocktail-party Ising, parity triple-sector transitions, coupled-pair entropy",
+          "Focused primary literature lookup for exact paired-complete-graph magnetization/partition functions"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact ground-sector classification of the deterministic matching deformation for all couplings and fields in scope, with the triple crossings and residual entropy contrast. The unperturbed complete-graph case is routine and not credited separately. Related exact solutions use different graphs, interaction signs, or spin spaces and do not give this matching deformation.",
+      "residual_risks": [
+        "An equivalent classical all-to-all paired model or a complete joint energy–magnetization partition sum under block-spin terminology may remain unindexed. The three-state Potts catalogue hit was compared only at summary level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Planar XY, opposite sign pattern, zero field.",
+          "identifier_or_url": "Resultary a4dcae4432d6",
+          "material_read": "Finding, interaction and spin assumptions",
+          "method": "Local publication mirror",
+          "title": "A reciprocal-coupling ground-state transition in frustrated complete graphs",
+          "trigger": "Complete graph with a distinguished matching"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Bipartite graph, J/n off-diagonal cross-edges, matched ferromagnetic bonds, no magnetic field.",
+          "identifier_or_url": "Resultary 5287af52a571",
+          "material_read": "Finding and Hamiltonian assumptions",
+          "method": "Local publication mirror",
+          "title": "Parity-resolved first-order entropic transition in a matched bipartite model",
+          "trigger": "Parity-sensitive entropy and a matching deformation"
+        },
+        {
+          "assessment": "Related catalogue claim only; access limited",
+          "evidence": "Three-state Potts residue-class law, not a two-state Ising staircase in the described result.",
+          "identifier_or_url": "Resultary 4725ceae9993",
+          "material_read": "Catalogue scientific summary only",
+          "method": "Resultary and local mirror access attempt",
+          "title": "Three-state Potts frustration and a split-pair entropy anomaly on the cocktail-party graph",
+          "trigger": "Same K=0 interaction graph"
+        },
+        {
+          "assessment": "Inspected model does not cover the finding",
+          "evidence": "Quantum transverse-field Hamiltonian with two-sublattice treatment.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508218",
+          "material_read": "p. 1 Eq. (1), p. 2 Eq. (2)",
+          "method": "OA original passages",
+          "title": "A solvable quantum antiferromagnet model",
+          "trigger": "Exact long-range antiferromagnetic solution"
+        },
+        {
+          "assessment": "Inspected model does not cover the finding",
+          "evidence": "Random fields and quantum transverse dynamics, not deterministic matched-bond tuning.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0512043",
+          "material_read": "pp. 1–3, interactions and field assumptions",
+          "method": "OA original passages",
+          "title": "Analysis of the long-range random field quantum antiferromagnetic Ising model",
+          "trigger": "Long-range Ising partition function"
+        },
+        {
+          "assessment": "Inspected model does not cover the finding",
+          "evidence": "Random ±J bonds on a short-range square lattice and dimer mean-field treatment.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.2959",
+          "material_read": "p. 1 Eq. (1)",
+          "method": "OA original passage",
+          "title": "Dimer mean-field model for the Ising spin glass",
+          "trigger": "Possible dimer formalism for the same perturbation"
+        },
+        {
+          "assessment": "Inspected cases do not cover the finding",
+          "evidence": "Saturation field and lattice transfer treatments for ladders and kagome, not the complete-graph matching perturbation.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.4606",
+          "material_read": "pp. 1–2, abstract and model scope",
+          "method": "OA original passages",
+          "title": "Antiferromagnetic Ising model saturation field entropies: ladders and kagome lattice",
+          "trigger": "Exact partition functions and entropy at field crossings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, sector counts, thresholds and entropy statement",
+        "Inspected long-range/paired Hamiltonians and the related matched-graph results"
+      ],
+      "rationale": "The perturbation continuously connects two standard highly symmetric graph models, rather than selecting an arbitrary field grid. It separates which types of configurations carry the residual entropy: essentially aligned pairs below equal coupling, opposite pairs above it, and both kinds available without a matching-energy penalty on the equality line. The exact field transitions, triple degeneracies at the deleted matching, and quantitative entropy contrast give a usable zero-temperature benchmark across the deformation.",
+      "residual_risks": [
+        "This is a structurally simple solvable family; value is in the full classification and entropy comparison, not a new general phase-transition technique or a finite-temperature claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

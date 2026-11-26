@@ -1,19 +1,21 @@
-# Review of the modified-energy and near-CFL amplification theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full claim is a single mode-wise theorem. The original amplification polynomials imply \(C=-\rho\overline B\) and \(A^2+\rho|B|^2=1\), establishing exact Hermitian invariance for \(0<q^2<12\). The power identity yields an exact projected-output weighted-energy factor for all integer observation indices. The near-edge proof is uniform in that integer index, and integer quarter-period sampling proves both sharp limiting constants from the same real input. The symbolic polynomial certificate and sampled tests in `verify.py` have passed. The finite checks are auxiliary to the quantified analytic proof; the endpoint is excluded from boundedness.
+PASS
 
-## Originality — PASS (qualified)
+The primary modal polynomials (12)–(15) give B/q=−1+(1/8−i/(8√3))q² and C=−ρ conjugate(B), ρ=1−q²/12, on substituting the stated a. In particular |B|²=q²(q⁴−12q²+48)/48, and det M=1 gives A²+ρ|B|²=1. With S=diag(√ρ,1), SMS⁻¹ is unitary (determinant one) on 0<q²<12. Using the exact power formula and real S, SP_nS⁻¹ has diagonal cos(nθ) and antisymmetric off-diagonal entries ±(Re B/|B|)sin(nθ); the Gram matrix is the scalar in the output-energy identity. At q²=8 the real coupling vanishes and A=−1/3. At q²=12−δ, A=1−δ/2+δ²/24, sinθ∼√δ, B→√3−3i and C=O(δ). Hence the rescaled diagonal and lower-left entries vanish uniformly in n, and the upper-right coefficients approach (√3−3i)sin(nθ) and √3 sin(nθ). The rank-one norms yield sharp upper bounds, and the integer nearest π/(2θ) gives the lower bounds on the same real vector e₂, without an assumption of phase-density for a fixed q. At δ=0 the nonzero shear grows linearly, including after projection. The real part is taken only after the full recurrence. The supplied verifier and metadata were inspected without executing the script; the exact algebra and uniform-in-n argument establish the limits.
 
-The full primary source [Duan, Li and Guo, arXiv:2608.22315](https://arxiv.org/abs/2608.22315) was inspected across its modal matrix, CFL proposition, exact power representation, and real-output convention. Those underpin and receive credit for the method, its matrix, and the role of projection. They do not assert the sharp singular-CFL complex and physical gains, the exact weighted output-energy law, or the interior real-output notch. The full related [Bernier et al. 2023 paper](https://arxiv.org/abs/2303.10950) covers generic near-unitary conjugacy of different complex splitting schemes but not the specific quantitative modal claim. A published general triangular-multiplier result was compared by indexed scientific summary only because its linked complete text was inaccessible; it remains a documented priority risk. The source's explicit matrix means these are algebraic and asymptotic refinements, not a new algorithm or an independent rediscovery of its spectral bound.
+## originality
 
-## Value — PASS
+PASS
 
-Near-CFL mode amplitude is a motivated numerical-stability quantity. The positive modified invariant does **not** imply preservation of physical electromagnetic energy, while the real projection can suppress the modified norm even at stable interior modes. The two exact distinct leading blow-up constants show quantitatively how the hidden complex field differs from reported physical output. This is more informative than a qualitative strict-margin existence bound and supplies a sharp test at the edge without claiming higher global order or a PDE-wide result.
+The substantial distinction is the sharp all-time near-CFL norm split for this specified integrator with real output. The explicit modified energies are useful supporting identities, not a claim to have invented unitary similarity, spectral CFL, or the exact propagation formula.
 
-## Closest literature and limitations
+## value
 
-The 2026 Maxwell source already supplies the composition, phase optimizer, critical CFL value, output projection, and Cayley-Hamilton power formula. The 2023 reversible-splitting theory supplies general related structure. A 2026 published triangular-multiplier result remains summary-only. The present theorem concerns one transverse Fourier polarization on a homogeneous periodic grid, with no uniform continuum PDE guarantee, no new time integrator, no physical Maxwell energy conservation, and no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp constants show how badly Euclidean transients can deteriorate on approaching a spectral CFL boundary, and exactly how much of that largest transient is still visible in the physical output. The separate real and complex limits, common real excitation and measurable observation time are useful for this known integrator and go beyond restating strict-CFL stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

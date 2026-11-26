@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:47.150926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–75",
+        "Frozen VERIFICATION.md and verify_stationarity.py (read, not executed)",
+        "Fresh replay: python3 /workspace/branches/voter_labeled_check.py; PASS on 20 labeled chains, including 13 with both flexible parts nonempty, and 120 distinct-pair comparisons"
+      ],
+      "rationale": "The Finding is correct, but RESULT.md line 33 incorrectly asserts irreducibility: the count state (a,0), where all flexible voters match their own part's zealot, has no incoming transition and has positive exits. For K_{2,2}, its stationary probability is zero and each other state has probability 1/3. Uniqueness on the labeled chain nonetheless follows: from every configuration first turn all flexible second-part vertices red using the fixed red neighbor, then turn all first-part voters red using a red flexible second-part neighbor. Thus every closed class must contain the all-red flexible state. Within-part symmetry now follows from uniqueness. The one-site drift equations give mu=b/(a+b+1), nu=(b+1)/(a+b+1). Centering the products gives C_A=b C_AB/(b+1), C_B=a C_AB/(a+1), with unavailable pairs omitted. The cross equation after substitution has coefficient (3(a+b)+2)/((a+1)(b+1)) on C_AB and right side (a+b)/(a+b+1)^2, yielding all displayed covariances. The stationary drift of D=X-Y has linear term -2D, a uniform O(1/a+1/b) forcing, and jump-square rate at most 1/a+1/b, so E[D^2] vanishes. The mean coordinate z=(X+Y)/2 has scaled drift (theta-z)/(2 theta(1-theta)) and scaled half jump variance z(1-z)/(4 theta(1-theta)) in stationary L^1; the scaled Taylor remainder is O(1/(a+b)). This gives the recursion (k+1)M_k=(2 theta+k-1)M_{k-1}; compact moment determinacy yields the joint beta limit. The pair disagreement limit follows from the one-site means and covariances. This passes the Finding, not the erroneous irreducibility sentence.",
+      "residual_risks": [
+        "Finite check covers 1 <= m,n <= 4 and (m,n)=(2,6),(6,2),(3,5),(5,3), where m=a+1, n=b+1; it does not certify the infinite-size limit.",
+        "The original proof text retains its false irreducibility assertion; no repaired submission is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stubborn-agent covariance via dual-walk absorption is available in Yildiz et al.; it requires graph-specific evaluation and does not supply the beta limit.",
+          "Mori et al. use grouped dynamics with a different update model; Ben-Ari et al. study survival-conditioned, zealot-free dynamics with one side fixed; neither limit directly applies."
+        ],
+        "reasoning": "The general finite moment method is prior but is not the decisive coverage for the combined claim. The exact indexed specialization supplies that coverage.",
+        "searches": [
+          "Primary literature: opposing-zealot bipartite voter model and focused lookups for Yildiz et al., Mori et al., and Ben-Ari et al.",
+          "Yildiz et al., Lemma 1 and Propositions 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 5",
+        "Resultary exact-correlation 105e89e100fd and aggregate c0ee5c798ad2",
+        "Yildiz et al. MIT manuscript",
+        "arXiv:1810.05643",
+        "arXiv:2004.10187"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For example, the cross pair moment n(m+3n-4)/((N-1)(3N-4)) minus n(n-1)/(N-1)^2 yields the cross covariance here under m=a+1, n=b+1.",
+          "The two same-part moments give the remaining covariances by the same subtraction; the shared joint limit makes the balanced uniform and disagreement conclusions immediate."
+        ],
+        "reasoning": "No new proof step beyond algebra and moment conversion is needed from the exact indexed and companion statements to the Finding.",
+        "searches": [
+          "Exact-correlation indexed record, RESULT.md Finding and proof",
+          "Frozen record 5, RESULT.md lines 35–60 and 77–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact-correlation record's Finding gives all three covariances and the synchronized beta law under its first-part ratio rho=1-theta.",
+          "Frozen record 5 uses m=a+1, n=b+1 and the same fixed-opinion assignment, rates and limit. Its exact pair products minus the products of the appropriate site means give each covariance here."
+        ],
+        "reasoning": "The reparameterization preserves the full model and limits. The disagreement corollary uses only the means and pair products already given.",
+        "searches": [
+          "Resultary: complete bipartite voter model two fixed zealots beta stationary law covariance",
+          "Frozen record 5, Finding and Proof §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-an-exact-correlation-law-and-a-beta-limit-for-competing-zealots--105e89e100fd: inspected Finding and proof match all finite entries and the limit.",
+          "2026/11/8/SCOPE-opposing-zealots-on-a-complete-bipartite-network-exact-fluctuati--c0ee5c798ad2: matching aggregate and beta law but not explicit individual covariances in the inspected Finding."
+        ],
+        "reasoning": "The indexed exact-correlation record matches the symbolic formulas, not just numerically coincident parameters. No finite table is needed for an all-parameter exact match.",
+        "searches": [
+          "Resultary: complete bipartite voter model two fixed zealots beta stationary law covariance; finding-specific indexed searches"
+        ]
+      },
+      "rationale": "The claimed formulas and limit are already covered by a distinct indexed record and by an equivalent same-date frozen finding plus its proof. This is a coverage judgment, not a priority judgment. No distinct surviving part of the Finding is identified.",
+      "residual_risks": [
+        "The bounded literature survey cannot establish external priority. The same date of the frozen pair and later dates of the indexed overlaps do not order the underlying discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "All three finite pair covariances and synchronized beta law after replacing its first-part ratio by 1-theta.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-correlation-law-and-a-beta-limit-for-competing-zealots--105e89e100fd",
+          "material_read": "RESULT.md Finding and proof excerpts at offsets 3800–7482",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact correlation law and a beta limit for competing zealots on complete bipartite voter networks",
+          "trigger": "Resultary exact-model hit"
+        },
+        {
+          "assessment": "Equivalent coverage via its proof",
+          "evidence": "Same one-site means, equivalent finite pair products and same beta limit.",
+          "identifier_or_url": "Frozen record 5 (ebcc1433a9e3)",
+          "material_read": "RESULT.md lines 3–22, 35–60, 77–91",
+          "method": "Direct frozen file read and algebraic comparison",
+          "title": "Opposing fixed opinions on complete bipartite graphs: exact fluctuations and a beta-law limit",
+          "trigger": "Same assigned model"
+        },
+        {
+          "assessment": "Direct coverage for limit, aggregate result only for fluctuation in inspected passage",
+          "evidence": "Same scaled positive count mean, variance and limit; no explicit three pair covariances there.",
+          "identifier_or_url": "2026/11/8/SCOPE-opposing-zealots-on-a-complete-bipartite-network-exact-fluctuati--c0ee5c798ad2",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Opposing zealots on a complete bipartite network: exact fluctuations and a Beta limit",
+          "trigger": "Resultary exact-model hit"
+        },
+        {
+          "assessment": "General prior method, not evaluated limit in inspected passages",
+          "evidence": "Coalescing dual absorption yields covariance and average-opinion variance characterizations.",
+          "identifier_or_url": "https://web.mit.edu/Asuman/Desktop/asuman/www/documents/voter-submit.pdf",
+          "material_read": "PDF pp. 11, 15–16, Lemma 1 and Propositions 2–3",
+          "method": "Lawful OA full-text passages",
+          "title": "Discrete Opinion Dynamics with Stubborn Agents",
+          "trigger": "General stationary pair equations"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Group-specific interactions/tendencies, rather than exclusive opposite-part copying with two fixed vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.05643",
+          "material_read": "PDF pp. 1 and 6, abstract and group dynamics",
+          "method": "Lawful OA full-text passages",
+          "title": "A Voter Model on Networks and Multivariate Beta Distribution",
+          "trigger": "Group-structured beta law"
+        },
+        {
+          "assessment": "Different regime",
+          "evidence": "No zealots, conditional survival, one partition fixed in the limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.10187",
+          "material_read": "PDF pp. 1–5, abstract and setup",
+          "method": "Lawful OA full-text passages",
+          "title": "Quasi-Stationary Distributions for the Voter Model on Complete Bipartite Graphs",
+          "trigger": "Same graph family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding lines 4–20",
+        "Frozen record 5",
+        "Indexed exact-correlation Finding 105e89e100fd"
+      ],
+      "rationale": "Synchronization with a nondegenerate beta limit and size-dependent correlations are meaningful facts about this natural model. As a distinct contribution here they add no new regime, structural result or separately useful unknown statistic to the exact overlapping coverage; the extra disagreement statement is a routine moment conversion.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

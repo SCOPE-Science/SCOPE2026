@@ -1,21 +1,21 @@
-# Scientific review: arithmetic plane degeneration of the Fermat cubic fourfold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the Fermat cubic in \(\mathbb P^5\) over the complete unramified quadratic dyadic ring \(R\), with relative Fano scheme of *planes*. The proof gives the complete \(405+486\) local-factor decomposition. It separates known generic \(405\)-plane and special \(891\)-plane counts from the newly calculated local lifting obstruction. The characteristic-two polar-space count proves that every geometric plane is \(\mathbb F_4\)-rational. The code classification, nine-dimensional tangent calculation, explicit \(uvw\)-coefficient obstruction modulo four, and formal implicit-function argument together establish the claimed \(405\) horizontal and \(486\) reduced vertical components. Exact coefficient arithmetic and finite enumerations are replayable with `verify_fermat.py`; the structural steps over all fields and the complete DVR are written separately and do not depend on extrapolating the enumeration.
+PASS
 
-## Originality — PASS, with residual priority risk
+Polarizing the cubic in characteristic 2 gives L^[2]=L^perp, whence L^[4]=L and descent to F4. The Hermitian isotropic spaces are pairing codes if they contain a weight-two vector (split off the pair and use the length-four Singleton bound), and otherwise their systematic generator is the unique normalized hexacode matrix. At each point in the [I|A] chart the last three linear forms are a basis, and the differential has image exactly the nine monomials with a repeated variable. The integral hexacode restriction is 4(u^3+v^3+w^3)+18uvw, whose uvw coefficient cannot be changed modulo 4 by any correction. Eliminating nine equations by the invertible Jacobian yields R/(g); the pairing sections imply g=0, and nonexistence of a mod-4 lift implies v_2(g)=1 at every hexacode point. Properness and finite fibers give finiteness, and Henselian splitting assembles the local factors. Independently enumerating Hermitian orthonormal frames in each systematic chart gave 405 and 486 points, verified all four incidence rows by vector-set intersections, and exact ring expansion verified the obstruction coefficient. The finite check does not itself prove the scheme decomposition.
 
-Shimada, *On Edge's correspondence associated with \(\cdot222\)* (2017; arXiv:1708.06054), proves and analyzes the \(891\) characteristic-two planes and their full geometric incidence graph. Degtyarev–Itenberg–Ottem, *Planes in cubic fourfolds* (2021; arXiv:2105.13951), establishes the classical \(405\) characteristic-zero Fermat planes. The classical hexacode classification is not claimed as novel. Those known results do not state the relative Fano scheme's completed local rings or the uniform nonliftability modulo four of the other \(486\) planes. The proof's decisive distinction is the integral identity with coefficient \(18uvw\), which remains an obstruction under all first-order plane deformations. Related cubic-fourfold line-locus results concern a different Hilbert problem. Auel–Kulkarni–Petok–Weinbaum’s finite-field census (2023, §3.4) counts \(\mathbb F_2\)-planes but does not study the relative dyadic Hilbert scheme. An unindexed earlier calculation could still establish the same relative-scheme result; this is a priority risk, not a correctness gap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives the complete finite nonflat arithmetic Fano scheme for a natural smooth integral cubic fourfold, not just two geometric point counts. The identification of all surviving and vertical planes, each formal local factor, and an explicit first-order obstruction explains how a smooth hypersurface can gain \(486\) isolated planes in characteristic two. The refined intersection table connects the arithmetic survival distinction with the known Hermitian incidence configuration. The question and invariant are canonical for this model, not an arbitrary parameter slice.
+The known geometric counts, Hermitian incidence and hexacode classification are inputs, not new results. The inspected literature and catalog evidence distinguish the claimed full local and global dyadic scheme, explicit modulo-4 obstruction and pairing/hexacode incidence refinement from those inputs and from plane schemes of other cubics.
 
-## Limits and references
+## value
 
-The decomposition is for this specific Fermat integral model over \(R\), not a classification of all cubic-fourfold models or all plane degenerations. Full mathematical priority cannot be proved by searches. The finite verifier checks exact algebra, but the geometric proof is required for completeness and flatness statements. Independent mathematical audit and external validation have not occurred.
+PASS
 
-Primary references: Ichiro Shimada, arXiv:1708.06054 (2017-08-21); Alex Degtyarev, Ilia Itenberg and John Christian Ottem, arXiv:2105.13951 (2021-05-28). Contextual reference: Frank Gounelas and Alexis Kouvidakis, arXiv:2302.09562 (2023).
+The scheme of planes of a smooth arithmetic cubic is a natural enumerative and deformation-theoretic object. The result distinguishes actual horizontal sections from vertical reduced points, measuring the missing lifts at the first infinitesimal stage rather than merely subtracting two counts. The incidence refinement makes the position of the liftable planes within the established Hermitian configuration explicit.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

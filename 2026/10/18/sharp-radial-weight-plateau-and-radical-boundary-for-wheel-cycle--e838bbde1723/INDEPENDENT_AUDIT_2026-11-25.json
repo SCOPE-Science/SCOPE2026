@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:29.714119Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 25–138",
+        "VERIFICATION.md: lines 19–29",
+        "check_wheel_exact.py: data and smaller_case",
+        "check_wheel_unrestricted_lp.py: unrestricted and main"
+      ],
+      "rationale": "The quantity is the minimum over projections that fix the circulation subspace, in the weighted edge ℓ1 norm. Conservation gives s=Dr. Finite dihedral conjugation preserves both the range constraint and the identity on that range, so averaging preserves the projection and cannot increase its norm. Reflection sends rim index i to −i−1 with reversed rim orientation and sends spoke index i to −i without reversal. This gives the stated antisymmetry. The two weighted column norms follow from B=I−AD and AD=DA. For the two-entry kernel v, b has masses 1−2v,v,v at indices 0,1,−1; its variation is 2−4v up to v=1/3 and 8v−2 immediately above it, with v<1/2. Solving equality of the first branch and the spoke norm yields v=t(1+2t)/(2Z), and v≤1/3 iff 2t²−t−2≤0. For the lower certificate, apply D twice to e_j−e_{m−1−j} and pair with the five-entry q. This gives (4,1,1) for m=6, (4,1,0) for m=7, and (4,1,0,−1,0,…) for m≥8 (by the support of the cyclic second difference). The bound on the remaining coefficients, sum b=1, and zero sum of Da give the two supporting inequalities. The weighted average with coefficients 2t²/Z and (1+2t)/Z cancels a_0 and leaves the positive penalty t(3−2t)/Z on the other entries. The minimum is attained since the antisymmetric problem is continuous and S(a)≥||a||_1/t makes a bounded sublevel compact. Thus equality would force support on the two entries and S=T; above t_* it contradicts the switched variation formula. At t=t_* the two variation branches coincide. For m=3,4,5 the linear-profile kernel gives b_0=1−2v and b_i=2v/(m−1) for i≠0. The proposed v satisfies 2mv≤m−1 (after clearing the denominator the difference is (m−1)H_m+(2m−4)t>0), which justifies the variation sign in U_m. The three differences from F and the stated derivative of F check by algebra. These checks include the tied edge presentation at t=1/2 and do not extend the strict result to t≥3/2.",
+      "residual_risks": [
+        "Packaged checks inspected, not executed. The reported 520 rational cases plus 30 small-wheel cases and the 20 finite-precision unrestricted LP cases do not prove the continuum result.",
+        "Independent spot-check replay: form D by subtracting each coordinate's cyclic predecessor, evaluate q·D(D(e_j−e_{m−1−j})) for m=6,7,8,9,61, and evaluate the two displayed column norms at t=1/2,t_* and above the threshold. The uniform certificate and attainment argument, not these spot checks, establish strictness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two papers' finite-group averaging arguments apply in the wider invariant projection setting but do not evaluate the wheel convolution minimum.",
+          "The cut-cycle result uses a specified conductance-normalized orthogonal pair, not the present unrestricted weighted-ℓ1 optimization."
+        ],
+        "reasoning": "Averaging reduces the unknowns but supplies no sign-vector, sharp boundary or small-wheel certificate. The checked stronger-looking frameworks therefore do not dominate the substantive claim.",
+        "searches": [
+          "arXiv:1807.03814 §4.4 and literal wheel",
+          "arXiv:2305.12582 §2.1 and literal wheel",
+          "Resultary cut-cycle projection norms 169e544dd2d8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and neighboring weighted-wheel records d57fbcbd9da9, 3efd9f463ccd, 88b74b793cef, 169e544dd2d8",
+        "arXiv:1807.03814",
+        "arXiv:2305.12582",
+        "arXiv:1910.03625"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No one-point value entails constancy in m at varying t. Diagonal scaling to an ordinary ℓ1 norm changes the range graph to the graph of tD, not the unweighted range graph. The weighted result needs a common dual lower bound plus a change of the variation branch at v=1/3."
+        ],
+        "reasoning": "The plateau in rim size, endpoint, and strict post-endpoint bound are not mechanical consequences of the unit value or general invariant projection reduction.",
+        "searches": [
+          "arXiv:1807.03814 §4.4; arXiv:2305.12582 pp. 6 and 9; Resultary d57fbcbd9da9, 3efd9f463ccd and 169e544dd2d8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-date Hodge record 3efd9f463ccd treats a fixed Euclidean gradient projection in energy-normalized ℓ∞ and rim conductance.",
+          "The same-date John ellipsoid record 88b74b793cef shares the metric family but optimizes an ellipsoid in a Lipschitz-function ball.",
+          "Theorem 3.1 of arXiv:1910.03625 is a weighted edge ℓ1 quotient by Z, not the relative projection constant onto Z."
+        ],
+        "reasoning": "Neither the cycle/gradient distinction nor normalization can be discarded: fixing an orthogonal projector or passing to the quotient does not compute the minimum of the edge norm over all projections.",
+        "searches": [
+          "Resultary weighted wheel cycle-space projection constants; Hodge and cut-cycle variants",
+          "arXiv:1910.03625 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed d57fbcbd9da9 gives min{2−1/(m−1),9/5} for the unweighted model, hence 9/5 for m≥6 and 3/2,5/3,7/4 for m=3,4,5. Its limitations exclude edge-weight assertions."
+        ],
+        "reasoning": "Exact match for t=1, stronger small-wheel information on that slice, no matching weighted range in the checked entry. Its 2026-11-02 UTC record date is later than the frozen record date and is not evidence of earlier priority.",
+        "searches": [
+          "Resultary exact wheel cycle-space projection constants / six-rim stabilization"
+        ]
+      },
+      "rationale": "The supported distinct claim is the coupled edge-weight interval and sharp loss of the common value, with a strict smaller-wheel comparison. The checked literature supplies the quotient model and averaging, not the weighted extremum or its equality obstruction. There is an exact indexed overlap for the unit slice only; no new priority is credited for that slice.",
+      "residual_risks": [
+        "The frozen remark that the unit constant was previously known is not sourced by the passages inspected; the later indexed exact overlap does not settle its earlier history.",
+        "A bounded search cannot exclude an unindexed equivalent weighted-wheel computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unit-slice coverage only",
+          "evidence": [
+            "Minimum of 2−1/(m−1) and 9/5; unweighted model only."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cycle-space-projection-constants-of-wheels-with-a-six-rim--d57fbcbd9da9",
+          "material_read": "RESULT.md Finding and limitations, offsets 0 and 6000",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact cycle-space projection constants of wheels with a six-rim cutoff",
+          "trigger": "Exact wheel value and same cutoff"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": [
+            "Fixed gradient projector, energy ℓ∞ and rim conductance."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-hodge-stability-and-logarithmic-contrast-tuning-o--3efd9f463ccd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp endpoint Hodge stability and logarithmic contrast tuning",
+          "trigger": "Same-date weighted wheel and projection norm"
+        },
+        {
+          "assessment": "No matching invariant",
+          "evidence": [
+            "John ellipsoid of Lipschitz ball, not projection onto circulations."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-contact-threshold-and-curvature-jump-for-weighted-wh--88b74b793cef",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A universal contact threshold and curvature jump for weighted wheels",
+          "trigger": "Same spoke-length family"
+        },
+        {
+          "assessment": "Orthogonal-pair problem, not a covering theorem",
+          "evidence": [
+            "Fixed conductance-normalized Euclidean cut/cycle pair."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-moving-conductance-threshold-for-sharp-cut-cycle-projection-no--169e544dd2d8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A moving conductance threshold for sharp cut-cycle projection norms",
+          "trigger": "Weighted projection and phase threshold"
+        },
+        {
+          "assessment": "General method, not wheel evaluation",
+          "evidence": [
+            "Edge quotient model and finite-group averaging; applications to other graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "p. 3 and §4.4 p. 18, offsets 7795 and 47400",
+          "method": "OA primary-text passages and literal wheel locate",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Invariant cycle projections"
+        },
+        {
+          "assessment": "General tools and different computed families",
+          "evidence": [
+            "Relative projection constant and averaging; tori and Hamming graphs are principal families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "pp. 1, 6, 9, offsets 926, 18600, 28600",
+          "method": "OA primary-text passages and literal wheel locate",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Minimal cycle-space projection norms"
+        },
+        {
+          "assessment": "Framework only",
+          "evidence": [
+            "Theorem 3.1 identifies a weighted quotient, not the projection constant onto its kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.03625",
+          "material_read": "p. 1 and §3 p. 12, offsets 1381 and 35450",
+          "method": "OA primary-text passages",
+          "title": "On relations between transportation cost spaces and ℓ1",
+          "trigger": "Weighted graph quotient framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: Finding, dual lower bound, strict boundary and small-wheel proof",
+        "arXiv:2305.12582: relative projection constant and invariant projections"
+      ],
+      "rationale": "The invariant controls the best bounded linear retraction onto circulations, not just the performance of a chosen projector. A single optimal formula independent of rim count under a natural two-orbit metric deformation, together with a provably sharp cutoff in rim count and the failure of the formula precisely when a column variation changes sign, is useful structural information. The finite-support dual witness explains the uniformity across all larger wheels and the sharp threshold; this is not merely computing the norm of a trial matrix or recovering the unit slice.",
+      "residual_risks": [
+        "The post-threshold optimum and the smaller-wheel optima as functions of t are not computed; the value assessment does not rely on an exact solution there."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

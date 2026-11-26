@@ -1,92 +1,55 @@
-# Sharp matching-deletion stability for two-way additive least squares
+# Exact intermediate matching-deletion stability for two-way additive least squares
 
 ## Finding
-Fix an integer \(n\ge3\). Let \(E_{n,r}=\{(i,j):1\le i,j\le n\}\setminus\{(s,s):1\le s\le r\}\), where \(0\le r\le n\). On the real functions on this observed-cell set, let \(P_{n,r}\) be the orthogonal projection, for the uniform counting inner product, onto the restrictions of additive two-way functions \(g(i,j)=a_i+b_j\). Then
-\[
-\boxed{\|P_{n,r}\|_{\ell^\infty(E_{n,r})\to\ell^\infty(E_{n,r})}=
-\begin{cases}
-3-\frac4n+\frac{2(n-2)}{n\,[n(n-2)+r]},&0\le r<n,\\[3pt]
-3-\frac4n,&r=n.
-\end{cases}}
-\]
-For \(r<n\), precisely the observed cells with **both indices outside** \(\{1,\ldots,r\}\) have maximal absolute projection-kernel row sums. For \(r=n\), every observed cell is maximizing. Each maximizing row yields all real norm-one data attaining the operator norm: the data must equal a common overall sign times the sign of that row at every nonzero kernel entry (values at any zero entries are arbitrary within the unit interval).
 
-The norm strictly decreases with each additional deletion of a cell on the matching. For \(0\le r\le n-2\), with \(T_r=n(n-2)+r\),
-\[
-\|P_{n,r}\|-\|P_{n,r+1}\|=\frac{2(n-2)}{nT_r(T_r+1)}.
-\]
-The last deletion has the larger drop
-\[
-\|P_{n,n-1}\|-\|P_{n,n}\|=\frac{2(n-2)}{n(n^2-n-1)},
-\]
-which is exactly \((n+1)(n-2)\) times the preceding decrement. Thus the last missing matched cell gives a disproportionate stability improvement. The sharp negative fitted value for data in \([0,1]\), over all observed target cells, is \((\|P_{n,r}\|-1)/2\).
+For an integer \(n\ge3\), let \(E_{n,r}=\{1,\ldots,n\}^2\setminus\{(s,s):1\le s\le r\}\), with \(0\le r\le n\). Let \(P_{n,r}\) be the real orthogonal projector, for the uniform counting inner product on observed cells, onto the restrictions of arrays \(a_i+b_j\). Put \(T_r=n(n-2)+r\).
 
-## Assumptions and scope
-The table is square with \(n\) levels for each factor; all observed cells have equal positive weight. The missing cells are any matching of size \(r\): independent permutations of the row and column labels bring it to the displayed diagonal matching. The additive model includes constants; parameterization \(a_i+b_j\) has one redundancy, but fitted cell values and the orthogonal projection are unique. The bipartite observation graph remains connected when \(n\ge3\), including the full crown graph at \(r=n\). The norm is on **observed cells only**, not extrapolations to absent cells, and it is the norm of this fixed least-squares projector, not the infimum over arbitrary projections.
+The intermediate matching-deletion law, for \(2\le r<n\), is
+\[
+ \|P_{n,r}\|_{\ell^\infty\to\ell^\infty}=3-\frac4n+\frac{2(n-2)}{nT_r}.
+\]
+Exactly the observed cells with **both** indices outside \(\{1,\ldots,r\}\) maximize the absolute kernel row sum. The same formula for \(r=0,1\) gives the known intact and one-deletion results [1]; for the full crown \(r=n\), the known norm is \(3-4/n\) and all rows maximize [2,3]. These cases are recalled for comparison, not claimed as discoveries.
+
+Together the formulas give a strictly decreasing profile. The decrement before the final deletion, for any step \(r\to r+1\) with \(0\le r\le n-2\), is \(2(n-2)/[nT_r(T_r+1)]\); the first such step is the square specialization of [1]. The last step has decrement \(2(n-2)/[n(n^2-n-1)]\), exactly \((n+1)(n-2)\) times the preceding step. Thus the disappearance of the last cell with neither index marked accounts for an exceptional final improvement.
+
+Norming real data are obtained by choosing any maximizing row and assigning one overall sign times the signs of its nonzero entries, with arbitrary values in \([-1,1]\) at zeros. The minimum possible fitted value for input data in \([0,1]\), over all observed target cells, is \(-\big(\|P_{n,r}\|-1\big)/2\).
+
+## Scope
+
+Any matching of size \(r\) can be put in the displayed form by independent row and column label permutations. The table is square, the observed cells have equal weight, and the norm concerns only those cells, not extrapolation. The bipartite observation graph is connected for \(n\ge3\): any two vertices in the same part have a common neighbor, and every vertex has an edge. Thus the additive design has rank \(2n-1\); the projector and the fitted cell values are unique even though the unrestrained two-factor parametrization has one redundancy. The result is for the fixed orthogonal projector, not the best norm among arbitrary projections.
 
 ## Proof
-Put \(T=n(n-2)+r\). For the full table, the row-and-column projection has kernel
-\[
-H^0_{(i,j),(k,l)}=\frac{\mathbf1_{i=k}+\mathbf1_{j=l}}n-\frac1{n^2}.
-\]
-Let \(D=\{(s,s):1\le s\le r\}\) and write \(E=E_{n,r}\). The deleted principal block of \(H^0\) is \(H^0_{DD}=(2/n)I_r-(1/n^2)J_r\). Deletion of observations from a full-column-rank design, followed by the Sherman--Morrison--Woodbury inverse identity, gives the **exact** observed hat matrix
-\[
-H=H^0_{EE}+H^0_{ED}(I_r-H^0_{DD})^{-1}H^0_{DE}.
-\]
-This is justified by taking the usual \(2n-1\) independent additive-model columns; the Gram matrix after deletion is invertible because the observation graph is connected. Since \(n\ge3\),
-\[
-(I_r-H^0_{DD})^{-1}=\frac{n}{n-2}I_r-\frac{n}{(n-2)T}J_r.
-\]
-For \(e=(i,j)\) let \(u_e(s)=(\mathbf1_{i=s}+\mathbf1_{j=s})/n-1/n^2\) for \(1\le s\le r\). Consequently, for all observed \(e,f\),
-\[
-H_{ef}=H^0_{ef}+\frac{n}{n-2}\sum_{s=1}^r u_e(s)u_f(s)-\frac{n}{(n-2)T}\left(\sum_{s=1}^r u_e(s)\right)\left(\sum_{s=1}^r u_f(s)\right).
-\tag{1}
-\]
-This formula is valid also at \(r=0\), with empty sums. Because constants belong to the additive model, \(\sum_fH_{ef}=1\), and hence
-\[
-\sum_f|H_{ef}|=1+2\sum_{f:H_{ef}<0}|H_{ef}|.
-\tag{2}
-\]
 
-The possible evaluation rows have three symmetry types: U (neither index deleted), M (exactly one index deleted), and B (both indices deleted; the latter row is observed only when the two indices differ). **U** occurs for \(r<n\). Substitution of \(u_e(s)=-1/n^2\) into (1) gives, for a U row \(e=(i,j)\),
+Write \(T=T_r\), \(D=\{(s,s):1\le s\le r\}\). The intact-table projector has kernel \(H^0_{(i,j),(k,l)}=(\mathbf1_{i=k}+\mathbf1_{j=l})/n-1/n^2\). For the full-rank additive design, deletion subtracts the deleted rows' Gram matrix contribution. Woodbury gives the resulting observed kernel \(H=H^0_{EE}+H^0_{ED}(I-H^0_{DD})^{-1}H^0_{DE}\), where \(H^0_{DD}=2I_r/n-J_r/n^2\) and \((I-H^0_{DD})^{-1}=nI_r/(n-2)-nJ_r/((n-2)T)\). These formulas also hold with empty deleted blocks at \(r=0\).
+
+For an observed cell \(e=(i,j)\), let \(x_e(s)=\mathbf1_{i=s}+\mathbf1_{j=s}\) for \(s\le r\) and let \(m_e=\sum_s x_e(s)\) and \(d_e=n-2+m_e\). Each \(x_e(s)\) is either zero or one, because the repeated marked index is deleted. For \(f=(k,l)\), put \(S=\mathbf1_{i=k}+\mathbf1_{j=l}\). Substituting \(H^0_{e,(s,s)}=x_e(s)/n-1/n^2\) into the deletion identity and collecting terms gives
 \[
-H_{(i,j),(k,l)}=\frac{\mathbf1_{i=k}+\mathbf1_{j=l}}n-\frac{n-2+\mathbf1_{k\le r}+\mathbf1_{l\le r}}{nT}.
-\tag{3}
+ H_{ef}=\frac Sn+\frac{x_e\cdot x_f}{n(n-2)}-\frac{d_e d_f}{n(n-2)T}. \tag{1}
 \]
-It is strictly positive when \(k=i\) or \(l=j\) and strictly negative otherwise. The negative entries have total magnitude
-\[
-N_U=\frac{(n-2)((n-1)^2+r)}{nT}=\frac{n-2}{n}+\frac{n-2}{nT}.
-\tag{4}
-\]
-The count uses \((n-1)^2-r\) allowable pairs with neither index matching and a further \(2r(n-2)\) in the weighted marked-index terms.
+The entries with \(S>0\) are positive. If a shared coordinate is marked, \(x_e\cdot x_f\ge1\), so the product \(d_ed_f\) is bounded by \((n-1)^2<(n-1)T\) when \(r=1\), and by \(n^2<(n-1)T\) when \(r\ge2\). If the shared coordinate is unmarked, the product is at most \((n-1)^2\) and is at most \((n-2)^2\) when \(r=0\). For \(r\ge1\), \((n-2)T\ge(n-1)^2\), with equality only for \(n=3,r=1\); equality in the product bound then requires both cells marked once, which with a shared unmarked coordinate forces \(e=f\) and \(S=2\).
 
-For **M**, label the distinguished deleted index \(I\), the distinguished undeleted index \(J\), the other deleted indices \(M'\), and the other undeleted indices \(U'\). The negative entries of (1), classified by the class of the row index and column index of \(f\), are exactly
-\[
-(M',I),\ (M',M'),\ (M',U'),\ (J,M'),\ (J,U'),\ (U',M'),\ (U',U').
-\]
-Here pairs with identical deleted indices are omitted and empty classes contribute zero. Substitution and summation give
-\[
-N_U-N_M=\frac{r^2-nr+n^2-3n+3}{n(n-2)T}
-=\frac{(r-n/2)^2+3(n-2)^2/4}{n(n-2)T}>0.
-\tag{5}
-\]
-For **B**, choose two distinct marked indices \(I,K\); with \(M'\) the other marked indices and \(U'\) all unmarked indices, the negative entry classes are
-\[
-(K,M'),\ (K,U'),\ (M',I),\ (M',M'),\ (M',U'),\ (U',I),\ (U',M'),\ (U',U').
-\]
-Their exact negative mass is \(N_B=(n-2)/n\). The sign assertions in the last two classifications follow directly from (1), using \(3\le n\), \(1\le r\le n\), and only nonempty row classes. In particular the potentially limiting M-row positive entry indexed by a different marked row and distinguished unmarked column has numerator \(n(n-2)(n-3)+r(n-2)-1\), positive whenever that class occurs; the reversed marked-pair B-entry has numerator \(n(n-4)+2r\), positive when the B class occurs. All other signs are immediate after collecting nonnegative terms.
+For \(S=0\), entries with no marked overlap are negative. For exactly one marked overlap, the sign is that of \(T-d_ed_f\). If both cells are marked once, \(d_ed_f=(n-1)^2\) and \(T=(n-1)^2+r-1\), so the entry is nonnegative (zero when \(r=1\)). If at least one cell is marked twice, this one-overlap entry is negative: \(d_ed_f=n^2\) for two such cells, or \(n(n-1)\) for a mixed pair, in which case \(r<n\). Two marked overlaps with \(S=0\) occur only at the reversed cell of a row marked twice. This entry is positive since \(2T-n^2=n(n-4)+2r>0\) for \(n\ge3,r\ge2\).
 
-Thus U exceeds M strictly by (5), and U exceeds B by \(N_U-N_B=(n-2)/(nT)>0\) whenever U exists. If \(r=n\), only B rows exist, all with negative mass \((n-2)/n\). Applying (2) proves the asserted norm and all maximizing rows. The strict deletion and final-jump identities follow by subtraction; the \([0,1]\) positivity defect follows by selecting exactly those data with negative kernel coefficients at a maximizing row. Equality in the absolute row-sum triangle inequality gives the sign classification of norming inputs.
+Each row and each column of observed cells has total \(d_f\)-weight \(T\): an unmarked line has \(n(n-2)+r\), and a marked line has \((n-1)^2+r-1\). Across the whole table the weight is \(nT\). Thus the total weight of cells with \(S=0\) for target \(e\) is \((n-2)T+d_e\). Denote by \(N_j\) the negative kernel mass for a target with \(j=m_e\) marked indices, when that class exists.
 
-## Verification
-The companion `verify_crown.py` is self-contained Python 3 code using only standard-library exact fractions. It directly constructs independent full-rank additive regression matrices, computes the Gram inverse by rational elimination, and checks every surviving row against the closed formulas for all \(3\le n\le6\) and \(0\le r\le n\) (22 designs; 466 observed-cell rows). The checker does **not** use (1) to construct its projection matrices. This finite computation is a consistency check, not a proof for unbounded \(n\); the universal proof is the exact inverse and the three analytic sign-class sums above.
+- For \(j=0\), all cells with \(S=0\) are negative. Hence \(N_0=(n-2)/n+(n-2)/(nT)\).
+- For \(j=1\), write the target as \((I,J)\) with \(I\) marked and \(J\) unmarked, transposing if necessary. Among disjoint cells there are \(n-r\) nonnegative overlap cells \((k,I)\) with \(k\) unmarked. Remove their weight \((n-r)(n-1)\). The other \(r-1\) overlap cells are negative and each adds \(1/[n(n-2)]\) to the signed entry in (1). Consequently
+  \[
+  N_1=\frac{(n-1)\big((n-2)T+n-1-(n-r)(n-1)\big)}{n(n-2)T}-\frac{r-1}{n(n-2)}.
+  \]
+  Subtraction gives \(N_0-N_1=[(r-n/2)^2+3(n-2)^2/4]/[n(n-2)T]>0\).
+- For \(j=2\), remove only the reversed cell from the disjoint set; it has weight \(n\). The remaining single overlaps are the \(n-2\) disjoint cells in the row indexed by the target's column and the \(n-2\) in the column indexed by the target's row. Each is negative and gets the same \(1/[n(n-2)]\) signed correction. This gives \(N_2=(n-2)/n\).
 
-## Relationship to prior work
-Electrical-network projection and edge leverage identities were established in the graph-sparsification literature, including Spielman--Srivastava (2008) and Drineas--Mahoney (2010). The identity \(H=BL^+B^\mathsf T\), up to edge orientation and weighting, is background. The present result concerns a different sharp quantity, the **absolute row sum** of the additive-model projector after a matching deletion, and provides its exact values, all norming rows and the unequal successive decrements. The published foundational sources do not claim this all-dimensional matching-deletion extremizer classification. It is possible that an older experiment-design hat-matrix calculation implicitly supplies equivalent special cases; the priority claim is qualified accordingly.
+Since constants are fitted, each kernel row sums to one. The maximum absolute row sum is therefore \(1+2\max_j N_j\). The zero-mark class exists for \(r<n\) and strictly dominates each other existing class; for \(r=n\) only the twice-marked class exists. Subtracting adjacent values gives the decrement formulas, using \(T_{n-2}=(n+1)(n-2)\) for their final ratio. Equality in the absolute-row-sum bound gives the norming sign patterns, taking the union over maximizing rows. For the fitted minimum, choose input one on negative entries and zero on positive entries of a maximizing row; no other row can have larger negative mass.
 
-## Limitations
-No statement is made about nonmatching deletion patterns, nonuniform cell weights, rectangular tables with unequal side lengths, statistical risk under stochastic noise, or the minimum norm among all nonorthogonal projections. The exact endpoint \(r=n\) requires \(n\ge3\); at \(n=2\) deleting a full matching disconnects the graph. An independently performed mathematical audit has not been obtained; the scientific conclusions and literature comparison are limited to the materials and arguments described here.
+## Verification and relation to prior work
 
-## References
-- D. A. Spielman and N. Srivastava, *Graph Sparsification by Effective Resistances*, arXiv:0803.0929v1 (first posted 2008-03-06), especially the edge-space projection identity and its spectral role. https://arxiv.org/abs/0803.0929
-- P. Drineas and M. W. Mahoney, *Effective Resistances, Statistical Leverage, and Applications to Linear Equation Solving*, arXiv:1005.3097v1 (first posted 2010-05-18), Sections 3.1–3.2 for statistical leverage and incidence projection. https://arxiv.org/html/1005.3097v1
+The unchanged companion `verify_crown.py` constructs rational additive-design projection matrices directly from the Gram inverse. It checks all observed rows for \(3\le n\le6\), including the known cases. These are finite checks; Equation (1) and the sign-and-weight argument above prove the full result.
+
+The additive projector equals the cut-space orthogonal projector of the observed bipartite graph after changing the signs of the column vertex potentials. General transfer-current and leverage identities, such as [4,5], give its entries but do not optimize their absolute row sums. The intact case and the corresponding exact one-edge drop and maximizers were already obtained in [1], and the full crown norm was computed in [2,3]. The increment here is the exact intermediate matching-deletion law with its maximizing cells and the final-step comparison, not the known endpoint norms or the general projection identity. Earlier equivalent intermediate laws outside the inspected literature remain possible.
+
+1. *Exact edge-erasure sensitivity of gradient projections on rectangular bicliques*, [Resultary record](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-edge-erasure-sensitivity-of-gradient-projections-on-rectan--430cc80014f3/RESULT.md), finding.
+2. *Sharp cut and cycle complementability after deleting a perfect matching*, [Resultary record](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-cut-and-cycle-complementability-after-deleting-a-perfect-m--6319a2a73e78/RESULT.md), finding and proof §§2–3.
+3. *Sharp minimal cut-cycle projection norms on crown graphs*, [Resultary record](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-minimal-cut-cycle-projection-norms-on-crown-graphs--a18a2c603916/RESULT.md), finding.
+4. D. A. Spielman and N. Srivastava, *Graph Sparsification by Effective Resistances*, [arXiv:0803.0929v1](https://arxiv.org/abs/0803.0929), Lemma 3.
+5. P. Drineas and M. W. Mahoney, *Effective Resistances, Statistical Leverage, and Applications to Linear Equation Solving*, [arXiv:1005.3097v1](https://arxiv.org/abs/1005.3097), §3.2, Lemma 1.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem gives a fixed-detuning, large-rate limit for a reflected Brownian interval with permanently retained endpoint-visit history. Every boundary-value transform is explicit; exact Poisson renewal and event inclusion–exclusion reduce cover survival to three single-target survivals. Their Laplace transforms converge after rescaling to exponential clocks with intensities \(e^\delta\), \(e^{-\delta}\), and their sum. A separate negative-Laplace-argument geometric-cycle bound controls positive exponential moments, justifying convergence of *all* positive moments. The accompanying checker independently passes 222 finite-parameter identities and asymptotic consistency tests; those do not substitute for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Linn–Lawley 2024 explicitly covers the known symmetric \(3/2\) mean prefactor, arbitrary fixed-site mean and broad frequent-reset moment bounds. Ghosh–Sabhapandit 2026 gives the exact midpoint law, so the zero-detuning specialization is derivative of existing results. The full moving-site \(O(r^{-1/2})\) distributional crossover with unequal competing exponential rates and all positive moment limits was not found in their inspected primary text or in the closest accessible published mathematical findings. General multi-target renewal theory could contain an implicit equivalent; publication priority is not certified.
+PASS
 
-**Value — PASS.** The boundary layer is physically selected by the Brownian diffusion length per reset, not an arbitrary parameter slice. It clarifies the singular transition from a unique farthest target to two equally rare, competing endpoint detections. The resulting non-exponential time law and moments are observables not supplied by the known mean-only phase diagram. The result is restricted to this one-dimensional reflected, full-resetting, persistent-memory model.
+The two mixed Dirichlet–Neumann and the Dirichlet–Dirichlet boundary problems give the three stated transforms. Setting kappa=sqrt(r/D), the relevant distances in units of 1/kappa are s-delta, s+delta, and s to the midpoint, with s=(L/2)kappa. On substituting r+u*theta_r, the relative wavenumber change is O(exp(-s)), and its product with the largest scaled distance is O(s exp(-s))=o(1). Thus the three one-cycle success transforms times exp(s) tend to a=e^delta, b=e^(-delta), and a+b, respectively. Renewal produces the three exponential survivor limits with these rates; exact retained-history inclusion–exclusion gives the maximum law, with no finite-rate independence assumption. For 0<epsilon<min(a,b), the failed-cycle weight at the positive exponential tilt is r(1-F(r-epsilon*theta_r))/(r-epsilon*theta_r)<1 for each endpoint by the same transform estimates. Summing the convergent geometric series bounds each tilted single-hit moment uniformly, and the cover exponential is at most their sum. This justifies every positive real power. Integrating the limiting survivor gives Gamma(q+1)(a^(-q)+b^(-q)-(a+b)^(-q)), including the displayed mean, second moment and symmetric variance/CV. The initial site is interior for all sufficiently large r at fixed delta. The frozen checker was read, not executed, and the review relies on the exact renewal and moment arguments.
 
-**Closest coverage:** Linn–Lawley (arXiv:2406.12154), Ghosh–Sabhapandit (arXiv:2605.31207), and the two cited 2026 finite-rate Brownian cover-time studies. The 2023 thesis was inspected in relevant portions only. Unindexed or implicit prior coverage remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No new finite-rate transform or midpoint claim survives this comparison: the earlier all-site variance record already gives the three exact transforms and arbitrary-site cover-survival resolvent when combined by inclusion–exclusion; the exact arbitrary-site mean and the exact midpoint law are also prior. The assessed result is the full moving-site distributional crossover together with moment convergence on the natural competition scale. At fixed nonzero detuning in that scale the two excursion probabilities remain comparable, so the one-farthest-target simplification does not apply. The claimed limit requires the joint wavenumber/frequency asymptotics in the known resolvent, and the tilted renewal bound is a separate uniform-in-r step. The nearest inspected sources provide the ingredients, not the crossover as a specialization of their stated fixed-asymmetry or fixed-rate asymptotics.
+
+## value
+
+PASS
+
+The diffusive displacement in a reset interval sets the unique natural order of location detuning for which the two exponentially rare endpoint probabilities remain comparable. The limiting maximum law clarifies the transition where a single-farthest-target approximation misses the cover-time distribution, and the proven moment convergence gives meaningful risk measures on that same scale. This is not a claim of exact finite-rate clock independence or of uniformity for unbounded detuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

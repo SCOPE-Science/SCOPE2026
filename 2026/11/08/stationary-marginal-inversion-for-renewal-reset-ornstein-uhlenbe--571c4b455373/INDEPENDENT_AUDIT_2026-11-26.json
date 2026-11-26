@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:49:44.033168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Renewal reward gives the stationary age density S(a)/μ, including lattice clocks with equilibrium phase. From a zero reset the Gaussian variance is (D/κ)(1−e^(−2κa)); the Jacobian of u=e^(−2κa) gives g=q/u. All even moments exist, and after dividing by their Gaussian factors they determine the compact mixing law by polynomial density. The canonical left-continuous q is fixed by its a.e. values and produces a right-continuous survival curve; this picks the correct value at atoms. For the converse, monotonicity plus ∫q/u=1 implies q(0+)=0. Normalizing by c=q(1−)>0 then gives S(0)=1, a proper finite positive law, and the same integral gives mean 1/(2κc). As an independent atomic check, clock masses 1/3,2/3 at times 1,2 give equilibrium age densities 3/5 and 2/5 on the two unit slabs; endpoint normalization and the downward jumps recover the stated masses and mean 5/3. In the alias construction the (K+1)st derivative of a compact bump annihilates every polynomial through degree K; small amplitude keeps both g and q′ strictly positive on its compact support, with the endpoint untouched and hence the mean fixed. In the instability construction ∫δg=0, q(1−)=1, ∥δg∥₁=O(ε/n), but δq′=−εuη cos(nu)+O(ε/n) uniformly. The chosen ε preserves positivity; the Gaussian mixture contracts TV, while the clock-density change has TV exactly (1/2)∫|δq′|du. The zero-mean periodic part of |cos| has a bounded primitive, so integration by parts against the smooth compact weight uη gives the average 2/π and the stated limiting positive distance. Thus the discontinuity is at the smooth exponential baseline with the specified fixed mean, not at every reset law or for unknown dynamical parameters. Replay RESULT.md:38–82. The frozen verify.py was inspected, not executed; its cancellation examples and arithmetic checks do not establish these uniform or infinite-frequency claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior general clock filter characterizes its image in the transform variable, and the standard forward renewal construction spans much more than OU motion.",
+          "Frydel's Eqs. (52)–(59) derive forward stationary variance-distribution equations for an alternating trap."
+        ],
+        "reasoning": "General forward formulas imply the age mixture and, with standard Hausdorff uniqueness, make bare injectivity straightforward. They do not assert quantitative failure of inverse continuity in total variation on the constrained class of smooth strictly positive clocks of one fixed mean. The alternating-trap equations pertain to different sampling and do not supply this counterexample.",
+        "searches": [
+          "arXiv:2605.30059 pp. 6,9 reset spectral-filter realizability",
+          "arXiv:1510.07876 p. 2 stationary mixture",
+          "arXiv:2607.05173 stationary variance laws in alternating traps"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.30059",
+        "arXiv:1510.07876",
+        "arXiv:2607.05173",
+        "distinct Resultary one-clock record and exact self-match",
+        "DOI:10.1103/PhysRevE.100.042103 (retrieval attempted)",
+        "frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact reconstruction can be viewed as composing generic Gaussian scale-mixture uniqueness with known survival normalization. Compact bump derivatives produce arbitrary finite moment cancellation while still varying the clock smoothly at fixed mean.",
+          "The oscillatory perturbation of the transformed age density has vanishing L¹ norm; its differentiated survival curve has a nonvanishing limiting TV distance as a probability law for T."
+        ],
+        "reasoning": "Even severe smoothing in a forward formula does not alone imply TV discontinuity on the monotone-survival, fixed-mean class, because unconstrained oscillations can violate monotonicity or mean. The construction preserves those constraints and produces an explicit order bound on one full law and a nonzero limit on the other. The inspected prior realizability or finite-block statements do not mechanically supply that conclusion.",
+        "searches": [
+          "arXiv:2605.30059 Eqs. (19)–(20) and age-filter criterion",
+          "Resultary one-clock finite-moment ambiguity Finding",
+          "RESULT.md:52–80 smooth perturbation proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jolakoski Eqs. (19)–(20) give the integrated renewal survival and Laplace relation E exp(−uA)=[1−E exp(−uT)]/[u E T]. An age-filter criterion later characterizes when 1−τu h(u) is a probability Laplace transform.",
+          "Eule–Metzger Eqs. (2),(7) give the general-renewal forward mixing and stationary limit."
+        ],
+        "reasoning": "This is the same age inversion after a different transform, not an unrelated mechanism. OU snapshots encode the age through Gaussian variance and a nonlinear change of variables; polynomial determinacy recovers the relevant age measure from that particular observable. The endpoint survival description translates the genuine-probability condition to the image for the snapshot, including atoms. Neither age formulation yields the smooth inverse TV modulus asserted here.",
+        "searches": [
+          "arXiv:2605.30059 §4 equilibrium-age Laplace filter and image",
+          "arXiv:1510.07876 arbitrary-renewal stationary propagator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 2026/11/8/SCOPE-stationary-marginal-inversion-for-renewal-reset-ornstein-uhlenbe--571c4b455373 is this frozen record.",
+          "The separate one-clock record's Finding gives exact full-law clock identification and same-mean finite-support clock pairs matching moments through 2K in an alternating free/OU model observed conditional on release."
+        ],
+        "reasoning": "There is no finite database of instances needed for this theorem. The closest different indexed statement shares the exact-versus-finite-moment contrast, but its observation, admissible clock class, and finite-support witnesses differ; a finite-block result supplies no TV discontinuity for the full marginal. The same calendar day does not establish priority order in either direction.",
+        "searches": [
+          "Resultary: stationary marginal renewal-reset OU inversion smooth aliases and TV instability",
+          "2026/11/8/SCOPE-one-clock-identifiability-and-finite-moment-ambiguity-in-a-semi--6fbdf34d3ec1"
+        ]
+      },
+      "rationale": "The checked forward renewal theory and general age-filter inversion are substantial prior ingredients; the one-marginal identifiability principle itself is a short composition with compact Gaussian-mixture determinacy. The supported distinct contribution is an exact range in terms of the observable mixing density, together with explicit admissible smooth counterexamples quantifying what is lost even at fixed mean. In particular, the positive limiting TV separation despite full observable-law TV convergence does not follow from a finite moment alias or from the general age/filter identity alone. This judgment is against the inspected statements, not a historical-first claim.",
+      "residual_risks": [
+        "A general inverse theorem for Gaussian mixtures with monotone survival inputs might supply the same quantitative discontinuity; no such passage was located in the bounded comparison.",
+        "Primary full text for Masoliver–Montero was unavailable. The related indexed record's same-day date does not resolve order. The focused primary search yielded no useful extra comparator and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent input for clock recovery from age, not the smooth inverse stability claim for the OU position law.",
+          "evidence": [
+            "Equilibrium-age transform quotient and necessary/sufficient transform condition for given mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.30059",
+          "material_read": "PDF §4 p. 6 Eqs. (19)–(20) around offset 23900, and age-filter criterion p. 9 around offset 37300",
+          "method": "Open-access PDF targeted passages",
+          "title": "Ridge Regression from Poisson Resetting: A Renewal Perspective on Spectral Regularization",
+          "trigger": "Strong competing renewal-age inverse and image characterization"
+        },
+        {
+          "assessment": "Known forward stationary mixture ingredient; inspected statements do not address the fixed-mean TV inverse.",
+          "evidence": [
+            "General-renewal propagator and small-Laplace-parameter stationary limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07876",
+          "material_read": "PDF p. 2 Eqs. (2), (7), around offset 13000",
+          "method": "Open-access PDF targeted passage",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "Primary arbitrary-renewal forward steady-state precedent"
+        },
+        {
+          "assessment": "Conceptual overlap; separate alternating mechanism, phase-conditioned observation, and finite-support clocks. Inspected Finding gives no smooth full-law TV separation.",
+          "evidence": [
+            "Full conditional marginal determines one clock; same-mean finite-support clocks match moments through 2K."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-clock-identifiability-and-finite-moment-ambiguity-in-a-semi--6fbdf34d3ec1/RESULT.md",
+          "material_read": "Finding at file start",
+          "method": "Local Resultary mirror",
+          "title": "One-clock identifiability and finite-moment ambiguity in a semi-Markov switching model",
+          "trigger": "Closest distinct indexed inverse/alias claim"
+        },
+        {
+          "assessment": "Forward stationary variance equations in an alternating trap, not the same observation or inverse result.",
+          "evidence": [
+            "Stationary equations for the variance distribution in the two phases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+          "material_read": "PDF pp. 9–10 Eqs. (52)–(59), around offsets 68600 and 72600",
+          "method": "Open-access PDF targeted passages",
+          "title": "Frydel, alternating-trap stationary variance-distribution study",
+          "trigger": "Possibly equivalent harmonic stationary-variance mixing model"
+        },
+        {
+          "assessment": "Specific uncertainty about its full coverage; not used as negative evidence.",
+          "evidence": [
+            "Comparison of the forward stationary construction rests on the accessed Eule–Metzger source instead."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.100.042103",
+          "material_read": "No primary full text obtained",
+          "method": "Lawful DOI and APS retrieval attempts; no open alternate resolved",
+          "title": "Anomalous diffusion under stochastic resettings: A general approach",
+          "trigger": "Arbitrary-reset-clock mixture precedent cited in the frozen result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The position marginal is natural to observe and renewal intervals may be hidden. The theorem separates exact realizability, finite-moment ambiguity, and robustness even with full distributional information. In particular, keeping the mean, smoothness, positivity and OU dynamics fixed still does not yield inverse continuity in the strong TV sense, which is a useful constraint for calibration beyond the standard forward mixture. It does not provide finite-sample estimators or rates and should not be interpreted as an inverse theorem for unknown κ,D or nonequilibrium sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

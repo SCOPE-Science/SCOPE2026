@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph definition, strict three-neighbor majority rule, parity decomposition, exact side maps, and endpoint recurrence criterion agree. The proof of the minimum nontrivial fixed support uses the cubic matching-cut condition and the six square-face cycles. Exact full-state and independently factorized enumerations agree across all 16,777,216 labelled states, all first-entry bins, and the sharp five-update witness. The spatial symmetry construction is checked edge-by-edge and contains the entire group of order 48.
+## correctness
 
-**Originality — PASS, with historical qualifications.** Goles–Olivos establish eventual period at most two generally; Kaaser–Mallmann-Trenn–Natale derive general voting-time estimates; neither provides the exact truncated-octahedron enumeration. Benjamini and collaborators study infinite transitive and random graphs, not this census. Collares–Erde–Geisler–Kang study monotone bootstrap growth on permutohedra, not reversible binary opinion changes. Published exact majority censuses for the dodecahedral and Clebsch graphs and the four-cube have different adjacency structures and do not imply these values. The known perfect-matching census on the same permutohedral graph is not a count of vertex-majority fixed or periodic states. Database searches for graph aliases and exact quantities did not reveal a covering result. Unindexed historical coverage is possible.
+PASS
 
-**Value — PASS.** The four-letter permutohedron is the canonical cubic Archimedean 24-vertex graph, and its complete periodic-state, transient, and geometric orbit classification is a natural exact dynamical invariant. The six square-face minimum supports link the dynamical fixed-state boundary to the polyhedron's geometry. A 12+12 parity reduction makes the census structurally interpretable and independently reproducible, rather than an isolated numerical report.
+The input graph and strict open-neighbor rule determine three distinct votes per vertex. Independent replay /workspace/reviews/replay4.py (Python 3 + NumPy) generates the adjacent-swap graph, builds majority by combining at-least-one and at-least-two truth tables on arbitrary 12-bit halves, and tests F^{t+2}=F^t on every 24-bit input from t=0 through first equality. The fixed and period-two columns agree at every t: [208,27808,185520,137856,35424,37728] and [43056,3314528,8819280,3471744,350880,353184]. No state remains after step 5; the witness 9762 has the stated trajectory and first equality at 5. Exhaustive adjacency/nonadjacency-preserving backtracking finds precisely 48 automorphisms, independently supporting the manuscript's terse group upper bound. Acting on fixed configurations and on unordered pairs {x,F(x)} gives precisely the stated orbit-size histograms, hence 20 and 717 classes. The only positive fixed masks of weight at most 4 are the six commuting-swap square masks. Analytically, the bipartite factorization's first even/odd equality conditions follow by projecting F^{2k} and F^{2k+1} to their sides; equality persists under F. This is a census by entry time and ultimate period, not individual basin sizes. The supplied programs and archived outputs were inspected, not executed.
 
-The result is limited to this finite graph and voting rule. Independent expert or external validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the graph-specific cutoff, entry census and orbit/support classification, not for the general bound on eventual period or the graph's geometry and symmetry.
+
+## value
+
+PASS
+
+The truncated octahedron is a distinguished cubic bipartite graph (and a small permutohedron), rather than an arbitrary 24-vertex sample. The exact sharp clock and joint census by entry and period describe how the qualitative period-two theorem manifests on it. Unordered cycle orbits separate spatial degeneracy from temporal phase, and the identification of all minimal fixed supports with faces gives a structural check. These are useful benchmark data for comparisons across graph families without being a general convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(2\le q\le7\), the graph on ordered unequal symbol pairs and the ordinary outsider-only locating signature are explicit. An exact bitmask enumeration covers every relevant \((k-1)\)- and \(k\)-element subset; increasing mask order and a checked binomial trial total certify completeness. Every smaller candidate is rejected; the code prints a valid optimum. The same enumeration counts all labeled optima and closes them under the specified adjacency-preserving relabeling and reversal generators. The standalone checker passed `VERIFY_OK`; a separately coded Python neighbor-set implementation passed `ALTERNATE_OK`, and independent integer constraints corroborated the two largest minima.
+PASS
 
-## Originality — PASS, qualified
+The graph is the simple orientation-forgetting Kautz graph on ordered unequal pairs; the signatures are open-neighborhood intersections, and only outsiders are compared. I checked the monotonicity proof by restriction of larger-set signatures to the smaller set. An independent clause-branching calculation encoded coverage by {v} ∪ N(v) and outsider separation by {u,v} ∪ (N(u) △ N(v)); a set satisfies every clause exactly when it is locating-dominating. At a chosen unhit clause, branching on the least ultimately selected available member partitions all feasible extensions; supersets of smaller clauses are redundant. Every accepted set was also checked against its actual signatures. Exact k−1 counts were zero; exact minimum triples (k, labeled, natural orbits) were (1,2,1), (3,20,3), (4,168,7), (5,84,2), (7,11040,16), (8,13860,5). Attaining sets from all six rows were checked separately. Generator closure under adjacent alphabet transpositions and reversal gives the full stated histograms, including size:multiplicity 120:2,360:4,720:7,1440:3 and 630:2,2520:1,5040:2. Replay: python3 /workspace/branches/d0eaae95-0603-4a9e-aea8-9862290b557b/constraint_audit.py; audit_run.txt beside it records CONSTRAINT_AUDIT_OK, about 51 s. Frozen checker.cpp, secondary_check.py and VERIFICATION.md were inspected, not executed. No all-order conclusion or full-automorphism-group quotient is inferred.
 
-Araki's Kautz work studies directed twin domination, not injective outsider signatures. Boutin–Goliber–Pelto study directed de Bruijn identifying codes. Stronger all-vertex identifying-code calculations for the same graph offer upper bounds only and cannot imply a complete census of the weaker outsider-only code family. The most relevant research-index results considered directed Kautz identification or location-domination in other graph families. Searches did not expose exact prior coverage of the stated finite pair \((\lambda_q,F_q)\) plus symmetry classes; this is not a guarantee against earlier unindexed priority. The original article rendering for one plausible historical source was not completely accessible, although relevant definitions and theorems were inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant quantifies the minimum detectors needed to locate an unsensored failure in the natural undirected Kautz network, not an arbitrary imposed alphabet slice. At six symbols, one extra detector becomes necessary compared with the preceding three nontrivial alphabet orders, and at seven that deficit persists. The exact labeled and natural-symmetry census distinguishes genuinely different optimal sensor layouts. This is a finite classification, not a statement about larger alphabets or noisy physical observation.
+The supported distinction is the first ordinary outsider-only excess at six symbols, the next case, and the labeled/natural-orbit census. The strongest same-family comparison is the distinct same-day all-vertex identifying-code record. Its reported results cover compatible upper bounds and, with an elementary counting bound, give two of the minimum sizes; they do not establish the first excess or the overall census. No reviewed evidence gives a stronger equivalent result covering those claims. This is a bounded judgment, not a finding of historical priority.
 
-## Verification and limits
+## value
 
-The delivered source `checker.cpp` is a complete exact finite checker requiring C++17. Its second implementation `secondary_check.py` uses Python3 standard-library set operations. All asserted numerical results are finite and reproducible. The checker does not imply any result for \(q\ge8\). Some plausible historical priority may remain unindexed, and independent mathematical audit has not yet taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum number of sensors needed to distinguish all unsensored vertices is a natural input to network identification. The first failure of the q-sensor budget and the distinct symmetry types of optimal layouts give exact design benchmarks; this is more than one isolated candidate or a repetition of all-vertex code counts. The value is finite and graph-theoretic, not a claim about larger alphabets or physical sensing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

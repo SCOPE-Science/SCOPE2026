@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and exact limits
+# Independent mathematical audit
 
-Run `python3 verify_primary.py` and `python3 verify_secondary.py` using Python 3 without installing dependencies. Both files implement their own eligibility criteria, graph construction, and exhaustive clique algorithms, and each ends with `VERIFY_OK` after all checks pass.
+## correctness
 
-Primary verified partition count fourteen, \(45\) candidates for each \(1+3\) class and \(60\) for each \(2+2\) class; maximum clique sizes \(9\) (eight partitions) and \(12\) (six partitions), four maximizers per balanced partition, twenty-four distinct globally optimal codes, with orbit sizes \(12,12\) under the symmetric group on alphabet symbols.
+PASS
 
-Secondary counted \(24\) total twelve-vertex cliques and zero thirteen-vertex cliques, using a greedy coloring upper bound to prune an exact depth-first search. Its count per balanced partition was exactly four and was zero elsewhere.
+Disjoint initial and final symbol supports follow from the length-one condition. Every nonempty code is in an ordered split A versus its complement, as required; multiple representations do not alter the set union. Unequal word endpoints rule out self-borders of lengths one and three, and remove exactly |A||B| period-two words from the raw 16|A||B| candidates. Pairwise compatibility then encodes all remaining overlaps and the distance condition. The maximal-clique equivalence is within a fixed split, which suffices for maxima. Independent replay /workspace/branches/review_replay_5.py used a different exact search: choose at most one word per three-position prefix group (by distance), branch also on skipping the group, and discard a branch only if chosen size plus the surviving group count is strictly below the incumbent. The three splits up to symbol permutations gave (eligible, optimum, ties)=(45,9,72),(60,12,4),(45,9,72). Applying all symbol permutations and deduplicating produced 24 sets and verified the two displayed representatives have disjoint 12-element orbits exhausting them. This is exhaustive for the specified finite domain, not for other alphabet sizes, lengths, or additional constraints.
 
-The partition coverage lemma and clique/constraint equivalence appear in `RESULT.md`; together with the exhaustive finite enumeration they prove the asserted statement for four-letter words over four distinguishable symbols. No part of the computation verifies claims for other alphabets, lengths, Hamming distances, reversal, or reverse complements. Both implementations are reproducibility checks, not an external independent audit.
+## originality
+
+PASS
+
+The inspected exact code tables count ordinary non-overlapping codebooks, and the inspected theorem for the combined distance and overlap invariant stops at 16. Related indexed finite enumerations either change parameters or impose added symmetry; none supplies the exact unrestricted 12 and its two symbol orbits by known substitution or reduction.
+
+## value
+
+PASS
+
+This is a small natural test of the interaction between all overlap lengths and single-substitution detection. The exact optimum distinguishes the joint constraint from the general bound 16, and the complete two-orbit classification gives all sharp constructions rather than just one feasible lower bound. Such a baseline lets researchers test sharpness and compare finite constructions without conflating non-overlap alone with the combined invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

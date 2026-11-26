@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(G=(V,E)\) be any finite simple labelled graph. Independently assign a continuous random priority \(U_v\) to every vertex \(v\); only the ranking matters. Let \(P_u\) indicate that the priority at \(u\) is strictly greater than every priority at its neighbors, and let \(V_v\) indicate that the priority at \(v\) is strictly smaller than every priority at its neighbors. An isolated vertex is both a peak and a valley.
+Let \(G=(V,E)\) be any finite simple labelled graph. Assign independent and identically distributed atomless random priorities \(U_v\) to the vertices; only the ranking matters. Let \(P_u\) indicate that the priority at \(u\) is strictly greater than every priority at its neighbors, and let \(V_v\) indicate that the priority at \(v\) is strictly smaller than every priority at its neighbors. An isolated vertex is both a peak and a valley.
 
 For distinct \(u,v\in V\), the covariance has a complete three-way sign law:
 

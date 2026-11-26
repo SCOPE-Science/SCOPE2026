@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Euler identity \(a+b+c=ab+2\) is exact for the three-object nerve with projective-plane-wedge Euler characteristic one. The sink graph is forced connected by the mapping-cone long exact sequence because integral first homology is finite, and its base graph gives \(a\ge r+1\); the opposite category gives \(b\ge r+1\). In the constructed table, every extra edge is a leaf and each of the \(r\) core cycles has winding number \(\pm2\) on one independent generator, so the mapping cone is exactly a wedge of \(r\) projective planes. Five complete finite cellular-chain checks corroborate the proof, without substituting for the all-integer argument.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The 2026 primary article constructs the single \(\mathbb{RP}^2\) model and proves object-minimality, but does not assert the present \(r\)-dependent optimum for nonidentity morphisms. General existence of three-object models of two-dimensional CW types is weaker than the claimed optimization; the known three-object morphism minimum for wedges of spheres concerns a different integral homology type. Targeted searches of accessible mathematical literature and indexed results did not find a statement or stronger theorem implying the precise quadratic optimum. This is not a proof of global novelty; implicit or unindexed constructions may remain.
+PASS
 
-## Mathematical value — PASS
-The exact formula quantifies the cost of concentrating a growing nontrivial torsion fundamental group into the smallest possible number of acyclic-category objects, answering the morphism-size side of the explicit object-versus-parallel-morphism trade-off. The proof is structural, simultaneously forces both adjacent hom-set sizes, and provides a uniform optimal category, not a case-by-case enumeration.
+A three-object acyclic nerve without a composable pair is a graph, hence cannot have the required torsion H1. After labeling the chain 0<1<2, its counts are 3 vertices, a+b+c edges and ab triangles, so χ=1 gives m=ab+2. Removing the sink leaves a graph Y with a parallel arrows. The sink link Γ has g- and h-vertices, an edge per pair g∘f=h, and a map to Y sending that edge to f. The cone attaches one new vertex, one spoke per sink arrow, and exactly the composable triangles, giving the nerve. Its reduced homology sequence surjects H1(B C) onto the free group H̃0(Γ); finite H1 forces Γ connected. Then H1(B C) is a quotient of Z^(a−1), so reducing mod 2 gives a−1≥r. Reversal of simplices for the opposite category gives b−1≥r. Equality in m≥(r+1)²+2 fixes a=b=r+1, c=r²+1; reversing the two equal adjacent sizes does not change this triple. In the constructed graph the r squares meet along one edge and all other edges are leaves. A spanning tree is obtained by deleting one nonshared edge per square; hence these squares are a free loop basis. The map to Y reads f0⁻¹ f_i f0⁻¹ f_i on the i-th square. Contracting f0 in Y, the cone attaches one 2-cell along the square of each separate basis element. The resulting wedge of degree-two cones is the required wedge of real projective planes, not just a space with matching homology. The argument includes r=1, without claiming priority there.
 
-## Scientific limitations
-The result is restricted to exactly three objects and wedges of two-dimensional real projective planes; no optimization over categories with more objects is asserted. Priority remains provisional pending outside review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct result is the all-r≥2 sharp nonidentity-arrow minimum and forced minimizing cardinalities at exactly three objects. The graph-cone framework and the six-arrow projective-plane construction at r=1 are credited as prior. The strongest identified distinct statements use different homotopy types or optimize objects rather than arrows; access limits on full-text comparison remain.
+
+## value
+
+PASS
+
+A sharp quadratic resource cost at the least possible object count is a natural invariant for categorical models. The result forces two separate dimensions of every optimal table and realizes them in a model with the specified homotopy type. This is useful beyond isolated small-count checks, and the two-sided torsion bound addresses a gap not answered by general existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

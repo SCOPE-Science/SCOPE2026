@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:10:53.052124Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63; VERIFICATION.md and verify.py inspected as evidence, not executed"
+      ],
+      "rationale": "After the first choice i, staying in mode i maximizes all future costs; any different mode sends the state to zero. The geometric sum including the time-zero cost gives J. Any valid envelope covers the value 1+beta on each coordinate vector using some piece. Pigeonholing gives r coordinates covered by one piece; on their normalized sign cube the mean of that piece is at least 1+beta, while J is constant at 1+beta/r. This proves the lower bound even with arbitrary off-diagonal entries. Balanced blocks yield P_g=I+beta D_g and an upper bound because each coordinate lies in some block. With largest squared-coordinate fraction t, the largest block fraction is at most min(1,rt); the ratio bound increases to t=1/r and then decreases (the r=1 bound is one). Equal magnitudes on a largest block attain it. The source-block-to-every-target edges of label i give co-completeness, hence path-completeness by constructing paths backwards; the Bellman inequalities follow from rho^2(1+beta)=beta and support on coordinate i. This covers m=1 and m=n and the limit rho tending to one within scope. An independent hand check at n=3,m=2,rho=1/2 gives 8/7 on (1,0,1) with blocks {1,3},{2}.",
+      "residual_risks": [
+        "The finite rational checks reported in the source are corroboration only; the proof is specific to coordinate retention, unrestricted switching and the stated cost."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ninite et al. Definition 3 and Theorem 1 give co-completeness and the generic value upper-bound mechanism.",
+          "The located controlled extension passages concern joint policy synthesis and min–max value bounds. Ahmadi–Jungers discuss complexity of stability Lyapunov functions, including piecewise-quadratic ones."
+        ],
+        "reasoning": "The broader methods explain why the graph certifies an upper bound but do not give a matching relative error obstruction for a fixed stable coordinate-reset family at every piece budget. Stability complexity and controlled-policy objectives are different.",
+        "searches": [
+          "arXiv:2602.04310",
+          "arXiv:2607.15055",
+          "arXiv:1504.03761"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE catalogue",
+        "Frozen RESULT.md lines 69–81",
+        "arXiv:2602.04310",
+        "arXiv:2607.15055",
+        "arXiv:1504.03761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 supplies Bellman sufficiency; the known stability obstructions concern families requiring complex Lyapunov functions.",
+          "Here validity forces r simultaneous diagonal constraints on one piece; cancellation on a constant-value sign cube makes them a sharp global bound, realized by balanced blocks."
+        ],
+        "reasoning": "Specializing the known sufficiency theorem to the reset maps certifies feasible envelopes but does not imply that their worst-state overestimate is optimal among all envelopes, even those with no Bellman graph.",
+        "searches": [
+          "arXiv:2602.04310 PDF pp. 4, 6–7",
+          "arXiv:1504.03761 PDF pp. 3, 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match has the same source record identity and covers the same ratio, off-diagonal lower bound and graph; it is not an independent predecessor.",
+          "The prior max-quadratic Bellman formulation imposes graph inequalities, whereas the sign-cube obstruction applies with only pointwise domination."
+        ],
+        "reasoning": "Changing the objective from a bound to its relative ratio, or writing the m=1 case as a single ellipsoid comparison, does not uncover a separate equivalent statement in the sources checked. The unrestricted lower bound and graph attainment together are the contribution.",
+        "searches": [
+          "Resultary coordinate-reset/coordinate-retention and max-quadratic piece-budget searches; published record 2a2bb46bbd5b",
+          "arXiv:2602.04310, Definition 3 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact source identity was the strongest hit; bounded semantic searches did not identify a distinct entry for the ceil(n/m) factor. The closest theorem supplies bounds rather than tabulating this exact optimum."
+        ],
+        "reasoning": "The same record is not prior coverage, and neither a small rational check nor a general bound supplies the exact all-parameter formula. The negative search result is bounded.",
+        "searches": [
+          "Local Resultary search for coordinate resets and exact quadratic piece budgets; published record 2a2bb46bbd5b",
+          "arXiv:2602.04310 Theorem 1"
+        ]
+      },
+      "rationale": "Credit the general co-complete max-quadratic Bellman upper-bound construction to the prior framework. The distinct claim supported here is the sharp piece-budget frontier for this system, including a lower bound on the entire pointwise-valid envelope class and equality within the graph-restricted class. No earlier equivalent frontier was identified in the examined statements; this is not a priority certificate.",
+      "residual_risks": [
+        "Bounded search is not comprehensive. Controlled-extension comparison is limited to located passages; an unlocated equivalent ellipsoid or switched-value tradeoff remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not separate prior coverage",
+          "evidence": [
+            "RESULT.md lines 5–18 and 34–61 state the sharp factor and proof for the same family."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadratic-piece-budgets-for-worst-case-coordinate-reset-co--2a2bb46bbd5b",
+          "material_read": "Catalogue identification and exact local frozen RESULT.md Finding and Proof; mirror file retrieval timed out",
+          "method": "Local Resultary search and direct frozen text comparison",
+          "title": "Sharp quadratic-piece budgets for worst-case coordinate-reset control",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Covers the certificate mechanism, not the matched sharp frontier in the examined theorem",
+          "evidence": [
+            "Every node has an incoming edge of each label; the max over node functions supplies the value upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04310",
+          "material_read": "Definition 3, PDF p. 4 offset 15984, and Theorem 1 and proof, pp. 6–7 offset 23557",
+          "method": "OA primary PDF passage reading",
+          "title": "A Path-Complete Approach for Optimal Control of Switched Systems",
+          "trigger": "Closest general Bellman certificate theorem for autonomous switching"
+        },
+        {
+          "assessment": "Located passages concern controlled policy synthesis; no whole-document exclusion inferred",
+          "evidence": [
+            "Joint synthesis and graph-indexed min–max bounds are described."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.15055",
+          "material_read": "Search-located p. 1 passages at offsets 1113 and 1847; follow-up offset reads timed out",
+          "method": "Bounded primary PDF lookup",
+          "title": "Robust Optimal Control of Arbitrarily Switched Systems: A Path-Complete Framework",
+          "trigger": "Possible generalization giving a sharper coverage theorem"
+        },
+        {
+          "assessment": "Different stability objective and families",
+          "evidence": [
+            "The listed function classes include piecewise quadratics; the obstruction concerns families needing arbitrarily complex stability certificates, not a relative value-overestimation function."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.03761",
+          "material_read": "PDF p. 3 offsets 7838–9165 and p. 16 offset 48175",
+          "method": "OA primary PDF passage reading",
+          "title": "Lower Bounds on Complexity of Lyapunov Functions for Switched Linear Systems",
+          "trigger": "Possible complexity lower bound that implies this frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–28, 34–63 and 69–75",
+        "Ninite et al., arXiv:2602.04310, Theorem 1"
+      ],
+      "rationale": "The example is a fully analytic benchmark for a motivated complexity-versus-conservatism question in switched Bellman certificates. The ceiling produces exact piece-budget thresholds, and equality between the implementable co-complete construction and the unrestricted lower bound identifies the lost accuracy as intrinsic to the number of pieces, not an artifact of graph restrictions. The signed witnesses explain why allowing dense quadratic matrices cannot improve the benchmark.",
+      "residual_risks": [
+        "A special rank-one problem, not a general graph-selection algorithm or empirical performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

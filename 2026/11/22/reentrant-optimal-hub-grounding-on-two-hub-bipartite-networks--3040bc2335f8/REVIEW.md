@@ -1,23 +1,21 @@
-# Review: Reentrant optimal hub grounding on two-hub bipartite networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The grounded matrix is positive definite for any nonnegative budget allocation with positive total budget. Strict convexity in all individual diagonal gains establishes a unique unrestricted optimum, so bipartition symmetry forces gains to be constant within each part. The exact reciprocal eigenvalue decomposition gives
-\[
-F_q(x,y)=\frac1{q+x}+\frac{q-1}{2+y}+\frac{q+2+x+y}{2x+qy+xy}.
-\]
-Exact directional derivatives show that the peripheral-only boundary is never optimal, and that the hub-free boundary is optimal precisely when \(q(q-1)(B/q)\ge(2+B/q)^3\). The function \((t+2)^3/t\) has unique minimum 27 at \(t=1\), yielding hub reactivation exactly for integer \(q\ge6\). The limiting root equations give the two budget scales. The standalone checker passed 4,599 assertions; finite checks are corroboration, not the universal proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+The grounded quadratic form is positive definite on the entire compact positive-budget simplex. The second variation is 2||A^(-1/2) H A^(-1)||_F^2, positive for every nonzero diagonal direction; thus the unrestricted optimum is unique and invariant under permutations within each part. Splitting into the two zero-sum spaces and the two part-constant vectors gives the stated scalar inverse trace. Independent exact differentiation recovers both endpoint expressions: the derivative into the feasible segment at y=0 is negative for all q>=3, and the derivative into the segment at x=0 has the boxed numerator. Strict convexity makes a nonnegative derivative at x=0 sufficient, including equality, and otherwise gives one interior critical point. The unfolded level function (t+2)^3/t has its unique minimum 27 at t=1 and tends to infinity at both ends; integer q(q-1) crosses 27 first at q=6. On the two monotone branches the roots tend respectively to zero and infinity, giving q t_-~8/q and q t_+~q^2 from the defining equation. The independent full-matrix directional derivative at q=6, B=6 equals 1/54. The frozen self-review's phrase 'peripheral-only boundary is never optimal' in its correctness paragraph reverses the boundary label; RESULT.md correctly rules out y=0, the hubs-only boundary.
 
-Lin, Fardad and Jovanović (arXiv:1302.0450) establish the trace-inverse objective and general leader-selection optimization framework. Zhou et al. (arXiv:1511.02012) address extremal-eigenvalue pinning speed rather than trace inverse. The related complete-bipartite heterogeneous-price result (2026 public note, inspected full result) maximizes the *smallest eigenvalue*, and the previously documented \(K_{2,q}\) cubic leader-allocation note addresses *discrete noise-free leader sets*. Neither has the continuous-gain trace-inverse KKT implication needed to give this exact two-threshold law. A previous star-network reentrance concerns a one-hub tree, whereas \(K_{2,q}\) is cyclic for \(q\ge2\). Unindexed literature can still contain an equivalent result; no absolute priority is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural two-hub complete bipartite network is a canonical redundant-bottleneck graph. Its independent continuous-gain noise-suppression objective exhibits a nonmonotone optimal support: two hubs turn off and then on as the budget increases, with a sharp first example at eight vertices and two different asymptotic budget scales. The complete classification is useful for control allocation and avoids numerical multidimensional convex solvers.
+The prior objective and the qualitative phenomenon of hub reentrance are credited. The exact two-hub finite-budget support law, onset and asymptotic scales are not covered by the closest checked claims. The star comparator is not set aside because of its date; the distinction is its graph and support polynomial.
 
-## Limitations
+## value
 
-The result assumes unit graph-edge conductance, continuous independently adjustable diagonal gains, and one uniform unit price per actuator. It does not classify larger left bipartitions, heterogeneous prices, capped control, or fixed-cardinality perfect leaders. The calculations were checked here; independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard variance objective on a natural redundant-hub family, the unique allocation is not nested in budget. Exact onset and thresholds predict when two simultaneously active actuators should both be disabled, and separate a vanishing lower budget from a diverging upper one. This extends rather than rediscovers the star phenomenon, with a new two-hub test that avoids solving the interior optimization to decide support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

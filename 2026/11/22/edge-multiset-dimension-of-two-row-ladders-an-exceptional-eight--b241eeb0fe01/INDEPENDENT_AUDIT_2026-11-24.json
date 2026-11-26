@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:48:20.879449Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md",
+        "/workspace/branches/f13eeddf-31a3-464d-9598-745696623fa8/independent_replay.py",
+        "/workspace/branches/f13eeddf-31a3-464d-9598-745696623fa8/independent_replay_output.txt"
+      ],
+      "rationale": "The empty and singleton sets fail, and for two landmarks the first and last edges of a shortest path collide, with the adjacent-landmark case covered by minimum degree two. For the infinite construction use the three top-rail columns 0,j,N, with j=2 for even N>=6 and j=3 for odd N>=9. In the right region each signature has the distinguished j-spaced pair (q-j,q) and third entry N-q+c with c in {-1,0,1}; equal distinguished pairs identify the edge. A collision with different pairs forces c'=c-j and 2q=N+c-j, impossible for j=3 and impossible by parity for j=2. In the left region the listed triples are distinct and only the first rung has a j-spaced pair. Its pair (0,j) would force q=j on the right, where the third entry is strictly below N. Independent BFS and subset enumeration of the exceptional orders checks all subsets at n=2,3,4 and all sizes through four at n=5,6,8. It reproduces the infinite dimensions, absence of smaller bases at 5,6,8, and the 4,20,80 basis counts; it also found four three-sets at n=7. The referenced finite_obstructions.json is absent in the frozen package and was not validated; the independent enumeration establishes the required finite facts without it.",
+      "residual_risks": [
+        "The finite replay is not the proof of the tail; that part was reviewed symbolically. The missing original certificate was not authenticated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 15 treats the rooted comb of two paths, both orders at least four; Theorem 12 treats cycles of order at least seven. The survey defines the invariant and discusses prior families."
+        ],
+        "reasoning": "A rooted path comb is a tree and a ladder has 4-cycles. A larger ladder is not a cycle either. These inspected families do not cover the theorem.",
+        "searches": [
+          "Ikhlaq et al., DOI 10.3390/sym15030762, §§4.3 and 5, Theorems 12 and 15",
+          "Farhan et al., arXiv:2607.10311, §6.1, pp. 20–21"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (local index), including b241eeb0fe01",
+        "Ikhlaq et al., Symmetry 15 (2023), 762",
+        "Farhan et al., arXiv:2607.10311"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established general lower bound of three matches the elementary lower-bound part. The positive construction and absence of any basis at small orders do not follow from that lower bound."
+        ],
+        "reasoning": "Credit the known lower bound and prior dimension-three constructions on other families. The exceptional eight-column jump, the infinity cases, and labelled minimum-basis multiplicities are distinct claims.",
+        "searches": [
+          "Ikhlaq et al., DOI 10.3390/sym15030762, §4.3 and edge-multiset section",
+          "Farhan et al., arXiv:2607.10311, §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary sources distinguish ordered edge-distance vectors from unordered signatures with multiplicity; vertex and edge signatures also have different represented objects."
+        ],
+        "reasoning": "Neither ordered edge-metric dimension nor vertex multiset dimension determines the invariant under review.",
+        "searches": [
+          "Ikhlaq et al., DOI 10.3390/sym15030762, pp. 8–9, Lemma 1",
+          "Farhan et al., arXiv:2607.10311, §6.1, p. 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed statement under b241eeb0fe01 is the same frozen record. The comb tables encode representations for a different graph; Theorem 8's table uses vertices."
+        ],
+        "reasoning": "No distinct corresponding basis census appeared in the focused database and table comparisons.",
+        "searches": [
+          "Resultary: ladder edge-multiset dimension and basis counts",
+          "Resultary ID b241eeb0fe01",
+          "Ikhlaq et al., comb-product tables accompanying Theorems 8 and 15"
+        ]
+      },
+      "rationale": "The exact Resultary entry is the frozen result itself. The closest primary results use the same invariant on different graph families, or different invariants; none of the inspected statements implies the classification or the finite basis multiplicities.",
+      "residual_risks": [
+        "Focused statement-level comparisons are not a historical priority certification; unindexed results or equivalent terminology elsewhere may remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": [
+            "The vertex result and edge result each concern a comb; the other inspected edge result is about cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15030762",
+          "material_read": "§4.3 p. 7; theorem and table for the vertex result on p. 8; Lemma 1 pp. 8–9; edge-multiset Theorems 12 and 15 pp. 12–15 and associated tables",
+          "method": "Open full-text passage inspection",
+          "title": "A New Technique to Uniquely Identify the Edges of a Graph",
+          "trigger": "Original definition and promising path-product and cycle formulas"
+        },
+        {
+          "assessment": "Inspected section does not state the ladder theorem",
+          "evidence": [
+            "Definition preserves the distinction between vector and multiset; section reviews previous families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10311",
+          "material_read": "§6.1 pp. 20–21",
+          "method": "Open full-text passage inspection",
+          "title": "Multiset resolvability parameters in graphs: A survey with new results and open problems",
+          "trigger": "Recent survey of adjacent parameters and broader coverage"
+        },
+        {
+          "assessment": "Identical record, not distinct prior coverage",
+          "evidence": [
+            "Both specify infinity at 2,3,4; four at 5,6,8 with 4,20,80 bases; three at 7 and from 9 onward."
+          ],
+          "identifier_or_url": "Resultary record b241eeb0fe01",
+          "material_read": "Indexed statement and matching frozen Finding",
+          "method": "Configured local search and statement comparison",
+          "title": "Edge-multiset dimension of two-row ladders: an exceptional eight",
+          "trigger": "Exact match to the claimed graph family and finite counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and symbolic construction",
+        "Independent finite BFS census",
+        "Ikhlaq et al., original invariant and comb-product comparison"
+      ],
+      "rationale": "The two-row Cartesian grid is a basic test family for an order-insensitive distance invariant. The result separates nonexistence from low finite dimension, supplies a uniform construction, and shows a genuine isolated reversal of the naïve monotonicity expectation at eight columns. Exact labelled basis multiplicities quantify that exceptional regime rather than merely producing isolated witnesses.",
+      "residual_risks": [
+        "The finding does not classify optimal triples in general or imply a theorem on wider rectangular grids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

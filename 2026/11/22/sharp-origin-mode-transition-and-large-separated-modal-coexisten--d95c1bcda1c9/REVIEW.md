@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The PMiD mass formula and parameter domain are reconstructed from the primary full text. Normalization follows from two elementary geometric sums. Comparing each positive count directly with count zero proves an **if and only if** origin-mode threshold, including boundary ties and the infinite support. The exact rational example is certified by the sign of a quadratic in every adjacent index, not by truncation, and the equality at zero and six follows by rational arithmetic. The small-rate limit includes explicit exclusion of minimizers at both the zero and infinite rescaled-index boundaries and strict uniqueness of the minimizer of \((e^x-1)/x^2\). The accompanying checker passed 1192 assertions; numerical experiments are expressly not used as infinite proofs. Boundary \(\theta=2\), strict parameter positivity, and the distinction between local and global modes are all stated.
+PASS
 
-## Originality (O): PASS, qualified
+Geometric-series normalization and its twice-differentiated version give total mass one. Each affine comparison to zero is strictly negative for all b>0 unless q^kT_k>2; the latter set is finite by exponential decay, nonempty via k=1 if θ<2, and empty when θ≥2 by the decreasing ratios q(k+3)/(k+1). This gives the exact threshold including all ties and θ=2. Independent rational checks (python /workspace/independent_checks.py 2) find 35 competitors at θ=1/5, unique minimizer k=6 and b=31031/781688. For an analytic tail certificate the adjacent difference has the sign of b(k+2)(9−k)−1; since 24<1/b<28, the signs are just decrease for k=0,1, increase for k=2,…,5, and decrease for all k≥6. For minimizers as θ→0, compare with k≈x/θ. The lower bound (exp(k log(1+θ))−1)/(θ²(k+1)(k+2)) excludes both kθ→0 and kθ→∞ (including bounded k at the first endpoint). Along any convergent subsequence of rescaled minimizers the limit is therefore an interior global minimizer of (exp(x)−1)/x², by comparison to floor(y/θ) for each y>0. Its derivative numerator has derivative (x−1)exp(x), so its minimum is exactly x=1 (not before x=1 as in RESULT.md:89); the single positive zero is in (1,2), as claimed. High-precision independent root solving confirms both constants. The qualitative convexity typo does not affect the minimizer or the finding. No uploaded checker was executed.
 
-Maya et al. (2022), full open-access Sections 3.1, 3.2, discussion and Appendix A, provide the PMiD mass function and local quadratic inequalities, but not the exact zero-to-nonzero global-mode minimization, globally tied rational pair, or first-crossing asymptotics. Altun, Cordeiro and Ristić (2021), open-access full-text Proposition 2, **already establish qualitative two-local-mode behavior in the diagonal Poisson–xgamma subfamily**; that known contribution is explicitly excluded from the novelty claim. Their specialization \(\alpha=\theta\) does not cover the first-mode transition along \(\alpha\sim c\theta^2\). Relevant indexed findings on order-\(k\) Poisson and negative-binomial modal jumps concern different laws and do not imply the two-parameter PMiD threshold. Actual searches for this law, bimodality, algebraic mode ties and modal phase changes found no directly covering full theorem; failure to locate a result is not a proof of world-wide novelty. Residual risk: unindexed later papers or equivalently parametrized geometric-plus-negative-binomial mixtures could already contain the same global threshold.
+## originality
 
-## Value (V): PASS
+PASS
 
-A sharp global-mode phase boundary controls whether the **most likely count** is zero, which is a direct structural quantity for overdispersed discrete count modeling. The exact distant equal-global-mode example is a strong counterexample to interpreting the model as universally single-peaked and sharpens the limitations discussed in its introducing paper, while respecting the earlier one-parameter local-bimodality result. The singular small-rate asymptotic shows that the first global mode can move by unbounded distance and gives its scaling constant; it is more than a numerical threshold or a parameter substitution. The result makes no claim that the whole class of positive-to-positive transitions is classified.
+The supported distinct contribution is the complete first global origin transition with a certified remote tie and sharp inverse-rate/quadratic asymptotics. Comparison to zero by an affine difference is easy, and qualitative two-local-peak behavior and the law are known; neither is claimed here as a new result. Relevant retrieval failures are not evidence of absence.
 
-## Scientific limits
+## value
 
-The proof is analytic with reproducibility diagnostics; no independent review or historical-priority certification has occurred. The limiting law is pointwise along small rate and does not assert a uniform error expansion. Later modes beyond loss of zero dominance are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A global mode of zero is substantively different from a local shoulder or from a positive most probable count. The exact rational witness rules out a generally single-peaked interpretation and the asymptotics show the first jump can become arbitrarily large while the shape parameter is only of order θ². The exact finite criterion, infinite-tail proof and scaling answer a meaningful question in the introduced model, without claiming later positive-to-positive transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

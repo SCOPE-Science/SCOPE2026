@@ -1,15 +1,21 @@
-# Scientific review: centre of finite rook power monoids
+# Independent mathematical audit
 
-## Correctness
-PASS. The centrality obstruction uses single-point partial identities to exclude every moved arrow; invariance under conjugation by full permutations then forces complete rank layers. Conversely, rank-layer products with an arbitrary partial injection are identical on both sides because restrictions of any given size can be realized by choosing a domain or image subset with the same outside-complement capacity. Intersection cardinalities prove the exact product law. The idempotent classification follows from closure under rank decrement; a complement-union argument gives the exact powers of a single layer and the sharp exponent. `verify.py`, run on the present standalone file, produced `VERIFY_OK` with exhaustive centrality enumeration for base sizes 1 and 2, direct candidate/product checks for size 3, and rank-index checks through size 9.
+## correctness
 
-## Originality
-PASS with historical-priority qualification. Primary full-text comparison: Liu–Tringali, arXiv:2610.29525v1 (2026-10-21), proves inverse-semigroup power-monad rigidity using localizers; it does not imply the centre or rank-set multiplication without the new argument. Liu–Tringali, arXiv:2606.01917v1, treats the unit group/global isomorphisms. Tringali, arXiv:2602.15754v3, surveys factorization and rigidity. Konieczny's 2020 centralizer abstract concerns individual partial bijections inside the inverse monoid, not the centre of its nonempty power monoid. Searches for centre/center, power semigroup/semigroup of complexes, symmetric inverse/rook monoid, central subsets, and sharp aperiodicity did not reveal a direct covering theorem. Lack of indexing or accessible older treatments remains a real risk; search absence is not a proof of priority.
+PASS
 
-## Mathematical value
-PASS. This completely describes a natural characteristic submonoid in an important infinite family of finite inverse-semigroup power monoids: every central element, multiplication, number of idempotents, and exact uniform stabilization identity. It distinguishes centrality of subsets from centrality of individual maps and shows that a commutative centre need not be a band. The exact exponent and rank product law support further structural and algorithmic study of semigroup power constructions.
+For the nonempty-subset power monoid a central subset commutes with each singleton. If a member sends i to j != i, its right restriction by the singleton-domain identity on i produces an arrow with image j, impossible on the other side. Thus every member is a partial identity. Conjugation by full permutations makes a central subset a union of the rank layers E_r. Conversely, for a partial bijection of rank d, composing on either side with E_r gives exactly its restrictions to u domain points with max(0,r+d-n) <= u <= min(r,d): the chosen r-set is completed outside its domain or outside its image, respectively. Intersection of supports gives the claimed rank multiplication. For 1 <= r < n, the square of E_r contains E_(r-1), forcing downward closure below n for an idempotent; n is an independent identity layer. This gives exactly 2n+1. An intersection of any nonempty family of supports can be realized using at most n members by choosing one missing-point witness for each point outside the intersection (one member if the intersection is full); repeated factors pad to n. Hence A^n = A^(n+1). Exactly n distinct coatoms are required to make the empty intersection, so E_(n-1) proves sharpness for n >= 2; n=1 has exponent one. The subgroup and non-band consequences follow. An independent arrow-set calculation returned (number central, number idempotent, maximal stabilization index) = (3,3,1), (7,5,2), (15,7,3) for n=1,2,3.
 
-## Scope and limits
-The empty subset is excluded, while the empty partial bijection is included as an underlying monoid element. The general proof applies to all integers \(n\ge1\); exhaustive finite computations alone do not establish that generality. The theorem does not handle arbitrary inverse semigroups or infinitely many underlying points. Originality rests on compared published formulations and may be defeated by an unindexed equivalent prior result. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected comparisons cover a different base semigroup or isomorphism rigidity, not the internal center of the finite symmetric inverse monoid's nonempty-subset power monoid. The distinct claim credited here is the entire rank-layer algebra, with its idempotent structure and exact uniform power bound; ordinary subset-intersection identities in isolation are not novel.
+
+## value
+
+PASS
+
+This is a natural complete center classification for a standard finite inverse monoid. The rank product replaces multiplication of subsets of a large semigroup by rank intervals, gives a complete idempotent census, and yields a best possible aperiodicity identity for the whole center. The distinctive useful fact is the structural reduction to rank supports rather than a small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

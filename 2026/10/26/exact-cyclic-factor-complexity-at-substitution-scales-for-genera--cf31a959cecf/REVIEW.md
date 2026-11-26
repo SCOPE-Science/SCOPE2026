@@ -1,19 +1,21 @@
-# Scientific review: generalized Cantor cyclic complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers all integer bases \(q\ge3\), every scale exponent \(k\ge0\), and the boundary weights. Exhaustive block decomposition follows from the three allowed neighboring substitution blocks. Both candidate cyclic classes at a fixed positive weight are reversals. The unique cyclic one-gap congruent to \(1\pmod{q-1}\) anchors conjugacy to reversal and reduces equality to a valuation palindrome. The elementary valuation criterion holds precisely for powers of two, giving \(2^{k+1}-k\). The independent finite-factor checker reproduces the predicted weight-by-weight counts in 29 parameter cases, including the full binary Cantor prefix through level seven.
+PASS
 
-## Originality — PASS against inspected material; historical priority not independently certified
+At length N=q^k a factor crosses at most one aligned block boundary. Since precisely 00, 01, 10 occur as adjacent letters of the block coding, the suffix-plus-zeros and zeros-plus-prefix families exhaust the factors, including aligned blocks and the all-zero word. Shifting through an internal zero preserves the necklace and passing a one decreases the suffix weight or increases the prefix weight by one, so each family supplies one class at each of its weights. The two interior-weight representatives reverse each other since the substituted one-block is palindromic. Its one-positions are the base-q expansion with digits (q−1) times the binary digits of the one index; the internal gap at index j is (q−2)q^{v_2(j)}+1 by carrying. For the prefix representative, the complementary wraparound gap is the only gap congruent to 1 modulo q−1, so rotations cannot shift its position relative to the sequence of internal gaps. The two classes coincide exactly when the latter sequence is its own reversal. If m is a power of two then v_2(j)=v_2(m−j) throughout. For odd m>1, j=1 fails, and for m=2^s u with odd u>1, j=2^s fails. This includes the empty gap list at m=1 and handles k=0 with only the two extreme classes. Counting gives 2^{k+1}−k. The suffix family has N distinct linear words from their differing terminal zero-run lengths, proving the ratio limit without an assumption on ordinary complexity.
 
-The closest primary source, Cassaigne–Fici–Sciortino–Zamboni (arXiv:1402.5843), defines cyclic complexity, proves general structural results, and calculates examples for Sturmian and several other automatic words. Its single-discrepancy substitution result is inapplicable because the present two substitution images differ at both endpoints. Chen–Lü–Wu (arXiv:1703.04063) examines \(k\)-Abelian rather than cyclic-rotation equivalence of Cantor factors. Neither inspected text asserts the present base-independent enumeration or its power-of-two collision criterion. Comparison against accessible earlier claims about generalized Cantor factor and Abelian complexity revealed no implication yielding this cyclic count. Mathematical-record searches did not identify a stronger exact result. The remaining priority risk is an unindexed or uninspected treatment of cyclic complexity for Cantor-type substitutions.
+## originality
 
-## Value — PASS
+PASS
 
-Cyclic complexity is a well-motivated invariant introduced specifically to refine ordinary factor complexity by identifying rotations. The result answers its exact counting question on a natural infinite family of morphic words for all bases at all substitution scales. The congruence obstruction and two-adic gap symmetry explain why only the powers of two collapse candidate cyclic classes. The consequence \(c_q(q^k)/p_q(q^k)\to0\) exhibits a marked separation between cyclic and ordinary complexity, uniformly for each fixed base, rather than a merely cosmetic numerical identity.
+The credited claim is the substitution-scale rotation count, particularly the exact power-of-two criterion for a single class at interior weight. The closest cyclic-complexity theorem inspected has a one-site-discrepancy hypothesis absent here. The closest same-word and same-scale results classify different equivalence relations or use a distinguished subset of words at different lengths. No source inspected gives or mechanically implies the frozen per-weight classification or total. The ratio limit is a corollary, not a separate basis for originality.
 
-## Scope and residual risk
+## value
 
-Arbitrary nonscale lengths are not classified. The computational verification is finite and corroborative; the unrestricted theorem rests on the explicit proof. Historical priority remains subject to independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rotation classes are a standard refinement of weight classes and a coarsening of ordinary factor complexity. The natural substitution scales give a complete exact comparison for every base, including a nontrivial criterion for when the two reflected candidates are actually rotations and a vanishing fraction of distinct linear factors after quotienting. The class count and its per-weight structure provide useful test data and a structural characterization, not just selected computed values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

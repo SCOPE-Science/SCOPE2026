@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:27:27.354999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the stated composition order, e_ab e_cd is nonempty iff b=c, and then equals e_ad. If both products are nonempty and equal, the arrows coincide. Thus for distinct arrows adjacency is b≠c and d≠a; inclusion–exclusion gives (AX)_ab=S-R_b-C_a+X_ba-(1-δ_ab)X_ab. The last term is essential for the simple graph. This action preserves the real symmetric and skew-symmetric subspaces. On skew arrays it is R_a-R_b-2X_ab; the row sum is multiplied by n-2 and ranges onto zero-sum vectors by X_ab=(r_a-r_b)/n. The row-sum kernel has scalar -2 and dimension (n-1)(n-2)/2. On symmetric arrays the map X→(R,d) is onto: with prescribed diagonal, the orthogonal complement to the image of the unsigned off-diagonal incidence matrix consists of u_a+u_b=0 for all distinct a,b, hence is zero for n>=3. Its kernel is annihilated and has dimension n(n-3)/2. On the image, row sums update by (n-1)S-nR+d and diagonal by S-2R+d. The constant block has trace (n-1)² and determinant (n-1)(n-2); the zero-sum block, repeated n-1 times, has trace 1-n and determinant -(n-2). The blocks exhaust n² coordinates, proving the polynomial. Reality follows from real symmetry. The constant block contributes two positives and the zero-sum block one positive and one negative per copy, yielding exactly the stated inertia, rank and nullity. Nonsingularity at n=3 and singularity for n>=4 are within the claimed range; the symmetric map's surjectivity argument does not extend to n=2. The saved checker output (n=3..6, exact polynomials) and source were inspected, not run; the real all-index argument is independent of that evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full inverse semigroup paper studies graph parameters beyond the rank-one stratum, not its adjacency polynomial. The Rees result gives exact spectra for the broader loop-retaining mutual-zero relation; its identity sandwich yields the loop-retaining rank-one block. The all-ranks rook monoid result is also loop-retaining.",
+          "The published De Bruijn spectral theorem as presented in the University of Geneva thesis, Chapter 4, Lemma 4.4.1 and Proposition 4.4.2, analyzes D+D*, i.e. symmetrization by sum of arcs. It preserves reciprocal arcs with multiplicity and counts loops; this is confirmed by its matrix identity, not a terminology inference."
+        ],
+        "reasoning": "Broader coverage of the object or a different spectral matrix does not automatically cover the simple adjacency. Adding or dropping vertices or rank-dependent diagonal entries changes these spectral questions. The weighted de Bruijn formula must not be used as if it were for the underlying simple graph.",
+        "searches": [
+          "Araújo–Bentz–Konieczny, arXiv:1205.1664v1, commuting graph of the symmetric inverse semigroup",
+          "Resultary 6e0e87b77114, spectral formulas for Rees mutual annihilation; 72b990ba98ea, all-ranks rook monoid",
+          "de Bruijn and spider-web spectra; Delorme–Tillich, DOI 10.1006/eujc.1997.0183"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.05000v1",
+        "arXiv:1205.1664v1",
+        "Resultary 6e0e87b77114",
+        "Resultary 72b990ba98ea",
+        "Resultary 1b1574a71fa7",
+        "Geneva OA thesis, Chapter 4 §4.4",
+        "arXiv:2410.07622",
+        "Delorme–Tillich DOI 10.1006/eujc.1997.0183 (primary attempt; reproduced theorem inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Brandt paper establishes graph parameters and map structure, not the explicit invariant spectral blocks. The Rees paper distinguishes its relation from the ordinary loopless adjacency (offsets around 2427 and 7472). The de Bruijn adjacency operator in arXiv:2410.07622, Definition 7, is a normalized sum of shifts, with self-loop terms retained in its adjacency setup; the older spectral formula reproduced in the thesis likewise uses the sum operator."
+        ],
+        "reasoning": "Let Δ project onto diagonal words aa. The looped annihilation matrix is A+I-Δ, not a scalar shift. If D counts directed length-two de Bruijn arcs, their underlying simple adjacency is D+Dᵀ-P-Δ, where P reverses each two-letter word, removing duplicate reciprocal arcs once (including the diagonal intersection); Δ then removes the remaining self-loops. The reported spectrum of D+Dᵀ alone does not determine the effect of these corrections, and Δ is not a commuting scalar on the relevant spaces. Likewise the previously computed Brandt graph invariants do not give the symmetric/skew quotient eigenvalues. The required new calculation concludes both exact factors and the sharp zero multiplicity.",
+        "searches": [
+          "Kumar–Dalal–Pandey arXiv:2010.05000v1 abstract, Brandt definitions and Section 3",
+          "Resultary Rees relation-versus-adjacency passages, 6e0e87b77114",
+          "De Bruijn spectral matrix conventions: arXiv:2410.07622 p. 11 and Geneva Chapter 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar–Dalal–Pandey, p. 2 or HTML offset 4009 onward, define the aperiodic Brandt semigroup with exactly this matrix-unit multiplication. Mapping e_ab to (a,1,b) and adjoining the empty map as zero is a multiplicative bijection; deleting zero gives a graph isomorphism.",
+          "Two-letter words ab and cd are adjacent in the underlying simple de Bruijn graph precisely when distinct and b=c or d=a. This makes it exactly the complement, not the commuting graph itself."
+        ],
+        "reasoning": "Under the Brandt alias any same-matrix spectral theorem would cover the claim. The de Bruijn alias also permits transfer if an exact simple-graph polynomial is known: constant-on-diagonal and constant-on-off-diagonal form an invariant two-space containing the all-ones vector, with complement-group quotient [[0,2n-2],[2,2n-3]] for the de Bruijn graph. The rest of its eigenvalues would transfer by λ→-1-λ. The inspected de Bruijn theorems instead concern different matrices as described below.",
+        "searches": [
+          "Resultary and web: trivial-group Brandt matrix units commuting adjacency polynomial, rank-one partial bijections",
+          "Underlying simple length-two de Bruijn graph and its complement",
+          "Kumar–Dalal–Pandey, arXiv:2010.05000v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue directly tabulates this theorem in the assigned record itself. The Heisenberg mirror states an exact nontrivial local-group family and mentions a 'known distinct' aperiodic spectrum (offset about 6800), but gives no separate match or matrix-unit polynomial. The Rees entry tabulates the loop-retaining spectral relation."
+        ],
+        "reasoning": "Neither same-day date ordering nor the Heisenberg record's unsupported attribution establishes another exact match. There is no independently verified exact table in the checked evidence from which the all-index simple-graph spectrum could be read off.",
+        "searches": [
+          "Resultary: aperiodic Brandt/nonzero matrix-unit exact spectrum, nullity onset and rank-one inertia",
+          "Resultary: same-day Heisenberg Brandt 1b1574a71fa7 and Rees mutual annihilation 6e0e87b77114"
+        ]
+      },
+      "rationale": "The graph itself is explicitly known as the nonzero trivial-group Brandt commuting graph; its complement is the underlying simple length-two de Bruijn graph. The distinct claim supported is the explicit real spectrum and inertia with the required loop and multiplicity conventions. Neither the known Brandt graph invariants, the conventional symmetrized multigraph de Bruijn spectra nor the available mutual-annihilation spectral formulas supply that polynomial. One same-day Heisenberg record calls the matrix-unit spectrum known without an identifiable separate source; the inspected evidence does not independently substantiate that statement.",
+      "residual_risks": [
+        "The Heisenberg record's attribution is unresolved and a separate unindexed spectral result under the matrix-unit alias could exist.",
+        "A separate formula for the loopless, unweighted de Bruijn graph (with reciprocal arcs merged) would likely imply the result, but the examined known spectra are not for that matrix. The inaccessible Delorme–Tillich original was compared by way of its reproduced theorem, not excluded in every passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent graph, no equivalent spectral theorem established",
+          "evidence": "B_n is defined over the trivial group; graph parameters and automorphism/endomorphism results are specified. An additional search of the arXiv HTML for eigenvalue returned no literal match, not by itself an exclusion.",
+          "identifier_or_url": "https://arxiv.org/html/2010.05000v1",
+          "material_read": "Abstract, aperiodic Brandt definition (PDF p. 2, OA offset 4850; corresponding HTML offset 4009 onward), Section 3 graph-invariant passage",
+          "method": "OA arXiv paper passages",
+          "title": "On the Commuting Graphs of Brandt Semigroups",
+          "trigger": "Exactly the same simple graph under a matrix-unit alias"
+        },
+        {
+          "assessment": "Semigroup setting and invariants, not rank-one spectral coverage",
+          "evidence": "Graph invariants for the symmetric inverse semigroup; no derivation of the required induced adjacency spectrum in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "PDF pp. 1–2, offsets 0 and 6400",
+          "method": "OA arXiv paper passages",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Broader monoid graph"
+        },
+        {
+          "assessment": "Exact overlap on a different, looped matrix",
+          "evidence": "The mutual-zero matrix retains square-zero diagonals; at P=I these are exactly the off-diagonal cells of the rank-one operator.",
+          "identifier_or_url": "6e0e87b77114",
+          "material_read": "RESULT.md offsets 0–4400, especially the matrix definition; relation-versus-adjacency distinction near 7472",
+          "method": "Local Resultary mirror passages",
+          "title": "Singular-value rigidity of annihilation spectra in combinatorial Rees semigroups",
+          "trigger": "Distinct same-day spectral theorem with identity sandwich specialization"
+        },
+        {
+          "assessment": "Different indexed matrix and loop convention",
+          "evidence": "All ranks including zero, with the diagonal of the mutual-zero relation retained.",
+          "identifier_or_url": "72b990ba98ea",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Exact inertia of the mutual-annihilation matrix of the rook monoid",
+          "trigger": "Earlier exact inertia in the same monoid"
+        },
+        {
+          "assessment": "Different local group; unsourced possible overlap noted",
+          "evidence": "The claim is for UT3 only; the comment about the known aperiodic case does not identify a work stating the target polynomial.",
+          "identifier_or_url": "1b1574a71fa7",
+          "material_read": "RESULT.md finding and prior-work passage, offsets 0 and about 6800",
+          "method": "Local Resultary mirror passages",
+          "title": "Complete adjacency spectrum and nonsingularity of Heisenberg Brandt commuting graphs",
+          "trigger": "Same-day Brandt spectral result mentioning the aperiodic matrix-unit spectrum"
+        },
+        {
+          "assessment": "The reproduced older de Bruijn theorem uses a different adjacency convention",
+          "evidence": "Lemma 4.4.1 uses symmetrization A+A*, and Proposition 4.4.2 states the Delorme–Tillich weighted transformation. This retains reciprocal arcs twice and retains loop contributions.",
+          "identifier_or_url": "https://access.archive-ouverte.unige.ch/access/metadata/508af692-2825-4ccd-9640-6451a2a80c8b/download",
+          "material_read": "Chapter 4 §4.4, PDF p. 83, offsets 238850–242244; reference [34]",
+          "method": "OA thesis PDF passages",
+          "title": "De Bruijn graphs and generalizations",
+          "trigger": "Spectral alias via the simple de Bruijn complement"
+        },
+        {
+          "assessment": "Only the reproduced result is ruled out as equivalent",
+          "evidence": "The DOI returned a landing stub, not the full article. The reproduced computation uses the weighted symmetrization, not simple complement adjacency.",
+          "identifier_or_url": "https://doi.org/10.1006/eujc.1997.0183",
+          "material_read": "No readable primary passage via DOI; theorem as reproduced in thesis consulted separately",
+          "method": "Lawful DOI route plus statement-level comparison with the OA thesis above",
+          "title": "The Spectrum of de Bruijn and Kautz Graphs",
+          "trigger": "Original source of the de Bruijn spectrum cited in the thesis"
+        },
+        {
+          "assessment": "Adjacent spectral theory, not the desired matrix",
+          "evidence": "The adjacency framework retains self-loops; the tensor operator is a normalized sum of the two oriented shifts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.07622",
+          "material_read": "p. 11, offsets 30700–33586, adjacency convention and Definition 7",
+          "method": "OA arXiv PDF passage",
+          "title": "Eigenvectors of the De Bruijn Graph Laplacian: A Natural Basis for the Cut and Cycle Space",
+          "trigger": "Modern exact eigenvector result for closely related de Bruijn operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-one stratum is the intrinsic first nonzero Green class and a canonical all-index graph family, not an arbitrary subgraph. The spectral decomposition of its actual simple adjacency explains exactly which symmetric arrow modes become null and when, giving a precise baseline for comparison with group-labelled Brandt extensions and with looped semigroup relations. The value is the full set of eigenvalues with multiplicities and sharp rank transition, not renaming a known graph or tabulating small cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

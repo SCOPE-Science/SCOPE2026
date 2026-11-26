@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Direct reproducibility
+# Independent mathematical audit
 
-Run `python verify_double_star.py`. Its exact rational portion constructs weighted Laplacians for 15 double-star test instances with 2 to 6 leaves per hub, forms the pseudoinverse using the rank-one centering formula, and checks both reciprocal spectral-moment traces (30 exact assertions). Its numerical portion checks 27 optimum/derivative comparisons and 3 large-order asymptotic root tests, totaling 60 assertions. These finite checks are subordinate to the exact analytic proof in RESULT.md.
+## correctness
 
-There is no independent mathematical review or external certification. The originality analysis acknowledges published first-order all-tree optimality and published unweighted double-star biharmonic formulas. No unsupported external verification channel is asserted.
+PASS
+
+Independently derive L⁺=Σ_e c_e c_eᵀ/w_e on the zero-sum subspace using the centered cut indicators as the basis dual to a tree's oriented incidence columns. Then F₂=Σ_{e,f}(c_eᵀc_f)²/(w_e w_f). The leaf/leaf inner products off the diagonal are −1/N, leaf/bridge inner products have magnitude 1/2, and the bridge squared norm is (m+1)/2, giving exactly the stated A₁,A₂ and cross coefficient m. This also proves strict convexity directly on the full positive orthant: each positive diagonal term is proportional to w_e⁻² and strictly convex in its coordinate, and each off-diagonal 1/(w_e w_f) is convex (its 2×2 Hessian has positive diagonal and determinant 3/(w_e⁴w_f⁴)). Boundary divergence and all-spoke symmetry therefore give a unique interior optimizer, without restricting competitors in advance. Differentiating yields the stated cubic and its one positive root. Sign bracketing under r=m^(2/3)s gives s→4^(−1/3); r₁∼sqrt(m/2). The two bridge-budget equivalents and leading objective totals 8m³ at r₂ and 10m³ at r₁ give the 5/4 limit. A finite exact rational check at m=2,3 agreed, but does not replace the proof.
+
+## originality
+
+PASS
+
+Best of knowledge: the novel result is the positive-budget inverse-square optimum and the precise cross-objective 5/4 asymptotic penalty. The first-order tree optimizer, coherence definitions and general convexity ideas are prior or standard.
+
+## value
+
+PASS
+
+The balanced two-hub bottleneck is a natural test of whether first-order resistance optimization also serves a second-order noise objective. The different allocation exponents and exact, nonvanishing performance penalty give a useful all-size benchmark, beyond solving a cubic for its own sake.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

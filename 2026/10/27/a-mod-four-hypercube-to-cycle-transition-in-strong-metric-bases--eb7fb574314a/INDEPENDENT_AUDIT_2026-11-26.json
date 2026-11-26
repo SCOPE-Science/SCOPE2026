@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:17.527644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph distance is ceil(s/2) at cyclic separation s. For M=floor(n/2), moving two steps toward the antipode increases distance for s≤M−2; the two top separations tie if M is even, while only M is maximal if M is odd. This proves the stated mutually maximally distant step table. A third vertex cannot strongly resolve a mutually maximally distant pair; conversely a geodesic through any given pair can be extended one end at a time until its endpoints are mutually maximally distant, and covering that endpoint pair resolves the original pair. The basis complements are therefore exactly the maximum independent sets of the auxiliary graph. In residue 2 this gives matching transversals and a cube. In residue 0 antipodal fibers have equality constraints along their chain and an opposite-side seam, so a full assignment is impossible; dropping one fiber leaves a path with exactly two choices, producing the listed intervals and precisely the start-index shifts ±1 as exchanges. In residues 1 and 3 the multipliers give C_n(1,3) and C_n. Allowed gaps and their total slack force one length-five or length-three gap respectively, with all other gaps two. The long gap cannot be split into two allowed gaps; removing an endpoint instead permits the two ordered splits that move the long gap. This gives precisely the exchanges ±2 on the start labels and hence an odd cycle. The argument applies from n=6 (the first 2,3,0,1 cases being 6,7,8,9); counts and diameters follow from those graphs. The uploaded checker was inspected but not executed; its finite cases are only diagnostic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The vertex-cover equivalence reduces the task to the auxiliary graph; it does not give its step lengths or maximum-set exchanges. Kuziak's thesis uses C_n² independence for a strong-resolving calculation on a direct product. The inspected independent-set reconfiguration passages give general move definitions."
+        ],
+        "reasoning": "The classification requires identifying all optimum sets after the reduction. Also, any maximum-independent-set jump is a slide in the auxiliary graph, since otherwise one could add the new vertex without removal. This general move fact alone gives no exchange graph and does not imply sliding in the original input graph.",
+        "searches": [
+          "Oellermann–Peters-Fransen DOI 10.1016/j.dam.2006.06.009",
+          "Kuziak thesis Lemma 3.6 and Theorem 3.7",
+          "arXiv:1008.4563 and arXiv:2203.16861 for independent-set moves"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 1f4d3c505b47 and 88ae76317dd1",
+        "Jamil et al., DOI 10.1155/2023/3635342",
+        "Kuziak thesis",
+        "arXiv:1401.3008, 1008.4563 and 2203.16861",
+        "DOI 10.1016/j.dam.2006.06.009 and DOI 10.3934/math.2024766 retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle-power reconfiguration proof assumes every gap is at least r+1, whereas residue 1 has legal gaps two and at least four but not three. Residue 0 uses a signed seam in antipodal fibers, and residue 2 uses independent endpoint choices.",
+          "The Jamil result minimizes weighted local resolution for adjacent pairs, not integer vertex strong resolution of all pairs."
+        ],
+        "reasoning": "An ordinary one-slack argument covers the underlying idea of the easily analyzed odd-cycle subcase; it does not recover the mod-four result or the antipodal and forbidden-gap classifications. The broader cited numerical or fractional results do not determine the family of bases.",
+        "searches": [
+          "1f4d3c505b47 mirrored RESULT.md, Finding and gap proof at offset 0",
+          "88ae76317dd1 mirrored RESULT.md, Finding at offset 0",
+          "Jamil et al., Complexity 3635342, p. 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jamil et al. treat the same input C_n(1,2) in a local fractional strong-resolving problem; Kuziak's thesis Lemma 3.6 gives α(C_n²)=floor(n/3) as a different independent-set invariant.",
+          "The strong resolving graphs here are isomorphic to a Möbius ladder, C_n(1,3), an antipodal matching, and an odd cycle, respectively; they are not the graphs whose maximum independent sets are classified in the indexed squared-cycle census."
+        ],
+        "reasoning": "Searching both the original graph and its complements-of-vertex-covers formulation separates distinct invariants. In residue 0 relabel by 2q−1, an odd unit modulo 4q, to get unit steps plus antipodes. Neither the same input aliases nor the resulting auxiliary aliases identified an equivalent full exchange classification.",
+        "searches": [
+          "Resultary: squared-cycle or circulant strong bases, maximum independent sets, and basis exchanges",
+          "strong metric dimension square cycle C_n^2 antiprism circulant C_n(1,2) mutually maximally distant maximum independent sets Möbius ladder basis exchange",
+          "strong resolving graph powers of cycles / square of a cycle / antiprism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 1f4d3c505b47 has a cycle exchange graph in the one-slack case for maximum independent sets of C_L^r with r≥2.",
+          "Distinct indexed 88ae76317dd1 gives cube- and cycle-type strong-basis exchanges for Cartesian clique cylinders C_n □ K_m, not C_n²."
+        ],
+        "reasoning": "There is a material match in output type and cyclic optimization method, but neither indexed table has the audited input, auxiliary graphs, and mod-four optimum families. The comparison does not rest on the records' dates.",
+        "searches": [
+          "Resultary: strong resolving graph and exchange classifications in cyclic graph families"
+        ]
+      },
+      "rationale": "The standard strong-resolving/vertex-cover reduction, odd-cycle gap argument, and generic token move facts are not new. The supported distinct claim is the joint mod-four classification of every strong basis and its exchange graph for the squared-cycle family. No inspected matched object or broader theorem supplies that classification.",
+      "residual_risks": [
+        "An unindexed treatment under antiprism, Möbius ladder, or graph-power terminology could cover a further subcase or numerical dimension formula. Bounded comparisons do not establish absolute priority.",
+        "The original vertex-cover article and Nasir et al. full texts were not available through the tested routes; this did not supply any negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares gap technique and one cycle outcome, not the classified auxiliary graphs",
+          "evidence": "r≥2, gap threshold r+1; one slack gives C_L and two slack yields a distinct four-regular graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-two-slack-reconfiguration-transition-in-powers-of-cycles--1f4d3c505b47/RESULT.md",
+          "material_read": "Finding, scope and exchange proof at offset 0",
+          "method": "Configured local index and mirrored source",
+          "title": "A two-slack reconfiguration transition in powers of cycles",
+          "trigger": "Earlier cyclic maximum independent-set exchange classification"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The source treats Cartesian products C_n □ K_m and also batch exchanges; the frozen input is a graph power.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-optimal-strong-metric-basis-exchange-geometry-of-cyclic-clique-c--88ae76317dd1/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured local index and mirrored source",
+          "title": "Optimal strong metric basis exchange geometry of cyclic clique cylinders",
+          "trigger": "Same invariant and closely related output types"
+        },
+        {
+          "assessment": "Different local fractional invariant",
+          "evidence": "The p. 6 result is for lsdim_f(C_n(1,2)) and uses the cardinalities of local strong resolving neighborhoods.",
+          "identifier_or_url": "https://ir-library.mmust.ac.ke/server/api/core/bitstreams/a74f94d7-8446-45b1-a7fe-eddd91496ecc/content",
+          "material_read": "p. 2 definition location and p. 6 theorem/proof for C_n(1,2)",
+          "method": "Lawful university repository copy after publisher access failure",
+          "title": "Local Fractional Strong Metric Dimension of Certain Complex Networks",
+          "trigger": "Same input circulant and closely named invariant"
+        },
+        {
+          "assessment": "Same graph used in a different calculation",
+          "evidence": "The square itself has independence number floor(n/3); it is used for studying a strong resolving graph of C_r × K_t.",
+          "identifier_or_url": "https://webs-deim.urv.cat/~discrete-math/RGoDM/Thesis/Thesis_digital_version_DorotaKuziak.pdf",
+          "material_read": "Lemma 3.6 and opening of Theorem 3.7, PDF pp. 53–54",
+          "method": "Open university-hosted thesis",
+          "title": "Strong Resolvability in Product Graphs",
+          "trigger": "Strong resolving graphs and the same squared-cycle notation"
+        },
+        {
+          "assessment": "Framework credited; equivalence independently checked in this review",
+          "evidence": "No readable full-text copy recovered by this route. No claim about uninspected specific results is inferred.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2006.06.009",
+          "material_read": "Bibliographic identification/landing page only; theorem not retrieved there",
+          "method": "OA DOI retrieval with repository recovery attempt",
+          "title": "The strong metric dimension of graphs and digraphs",
+          "trigger": "Original reference for vertex-cover reduction"
+        },
+        {
+          "assessment": "Title indicates a different edge-resolution invariant; full-text comparison unavailable",
+          "evidence": "No lawful readable text was obtained via the tested routes; this is not evidence of no overlap.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2024766",
+          "material_read": "Title/bibliographic level only",
+          "method": "Publisher and OA alternate retrieval attempts",
+          "title": "Characterizing edge-based doubly resolving sets within circulant networks C_n(1,2)",
+          "trigger": "Exact same input circulant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph and optimum exchange operation are natural. The result determines every optimum basis, not just the minimum size, and separates two qualitatively distinct exchange geometries, one with exponentially many solutions. The signed antipodal seam and the odd forbidden-gap pattern explain why the other residues behave differently.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

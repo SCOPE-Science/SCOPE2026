@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every order-five de Bruijn cycle corresponds bijectively to an Eulerian circuit of a 16-vertex directed graph with 32 individually labeled edges. A local switch at each vertex yields exactly 65,536 configurations, of which precisely 2,048 yield a single 32-edge circuit. Independently, edge-avoiding depth-first traversal yields the identical 2,048 canonical words. The half-cycle balance statistic is evaluated separately by direct cyclic sums and by prefix sums; word validity, per-word counts, symmetry orbits, eleven histogram cells, and exact rational moments agree. The even, nonzero lower bound is also proved analytically by antipodal sign reversal and unit-step interpolation. The result is finite and exhaustive, not a claim about arbitrarily large orders.
+## correctness
 
-**Originality — PASS subject to residual literature risk.** Material from *Abelian-Square-Rich Words* (arXiv:1701.00948, direct HTML inspection and full-text terminology search) concerns Abelian-square richness and general/Sturmian/Thue–Morse words, not an order-five de Bruijn half-cycle count. *On the Existence of Balanced Generalized de Bruijn Sequences* (arXiv:2201.11863, full arXiv document, definitions, main theorem, Eulerian construction and open problems) guarantees balanced sequences and recalls cycle counts, but has no such cut spectrum. Search results about a later list of 2,048 rule representatives do not state this new statistic; the full later text was not accessible. Existing related enumeration provides the family and does not itself assert these eleven multiplicities. An equivalent computation elsewhere cannot be excluded by searching.
+PASS
 
-**Mathematical value — PASS.** The statistic asks how many antipodal ways a cyclic sequence containing all five-bit patterns can be divided into two equally balanced blocks, an intrinsic full-period Abelian repetition and circular-design quantity. Even under the same global balance and de Bruijn coverage, the count ranges sharply from two to 22, with every even intermediate value and a nontrivial symmetry classification. The exact finite invariant and extremal characterization are mathematically motivated rather than an arbitrary slice. No asymptotic or larger-order theorem is claimed.
+All 32 possible length-five factors occur once, so there are 16 ones in a period. If f_i is the length-16 window weight minus eight, then f_(i+16)=−f_i and adjacent f values differ by at most one. This proves a nonzero even count of starts, with no assumption of reversal or complement identification. Each rotation class corresponds to one Euler tour of the order-four graph starting at its unique zero edge; the frozen local successor permutations and unused-edge traversal both cover it. For an independent exhaustive check, enumerate all 32,768 choices of outgoing-edge orders at the nonzero vertices, fixing the order 0 then 1 at vertex zero. Each anchored tour induces exactly one accepted choice of orders and each choice that exhausts the graph yields one anchored tour. Verify all cyclic factors and full weight, compute H by sliding the length-16 sum, and normalize orbits by lexicographically smallest rotations. This reproduces the eleven frequencies 300,316,436,256,294,182,120,70,34,32,8, all per-row orbit columns, the 528 group orbits, and mean 1985/256 and variance 1278079/65536. The only nontrivial transformation fixing a rotation class is reversal followed by complement (64 fixed classes); this independently explains the observed 32 size-two orbits. Complement and reversal preserve the balanced-start count by reindexing or replacing the weight by 16 minus the weight.
 
-Closest literature and limits: Fici–Mignosi–Shallit (2017) for Abelian repetitions and Baker–Mittal–Mouli–Tang (2022) for de Bruijn balance. Search-based originality is provisional; this is a computationally exhaustive order-five theorem only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rotation-class population, total balance, enumeration method, and unconditioned symmetry orbit counts are prior. The surviving exact result is the H-conditioned histogram with its symmetry refinement and derived moments, not the de Bruijn census or the standard Abelian-square definition.
+
+## value
+
+PASS
+
+A full-cycle square and its equal-length antipodal partition are canonical in a cyclic order-five word: the length is the whole period, not an arbitrarily chosen short-factor cutoff. The exact distribution, attainable range and symmetry-conditioned census answer how often a global balance guarantee appears as balance at individual antipodal cuts. They are useful as an exhaustive small-order reference, independently of the already known total class and orbit counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:42.184417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finding is exactly the classification of S=78 and S=77, with the known sorted bound and shift profiles cited as background. The edge definition matches repeated integer convexification because consecutive image segments overlap at their endpoints and together cover the whole image hull. Thus the first return is a shortest positive closed walk, which exists by the return of the original sites at step 13 and has a simple shortest representative of length at most 12. The frozen C++ builds precisely these edge masks and checks for return before discarding already expanded vertices, which cannot shorten a first return incorrectly. Rooting an orbit at 0 gives unique fixed-successor blocks of 11! suffixes. The independent checker uses factoradic unranking and queries the min and max of every image interval from two overlapping power-of-two ranges; it records first containment directly, without any graph search. Its twelve completed blocks certify 479001600 cycles, zero missing returns, zero inequality violations, 12 sum-78 translations and no other sum-78 cycles, precisely two sum-77 nontranslations, and 479001586 below 77. The two witness lists and their common profile (1,2,3,4,5,6,6,8,9,10,11,12) agree with the repaired text. The proof is a complete finite census for thirteen sites, not a classification of rigidity for all n.",
+      "replay": "In /workspace/branches/6b0e4b0f-451a-474d-b004-0c5edc4320f8 run python3 selfcheck.py and for a in $(seq 1 12); do python3 interval_census.py --shift \"$a\" --batch 20000; done (Python with NumPy). The independently inspected interval_census.py, block_01.txt–block_12.txt and reproduction_summary.txt provide the method and complete results. The 1,000,000-cycle probe took 1.168 s and the complete replay 487.405 s measured across the blocks. The self-check compares scalar and batched hulls on 500 seeded cycles and checks the extreme suffix ranks, the two witnesses and all translations. The frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Definition 1.4 and Lemma 1.6 at pp. 1–2 of the 2023 paper state the same c'_k≤k for all cyclic permutations; §4 supplies the proof, with the determinant/principal-minor implication on p. 12. Theorem 1.2 proves the covering-system periodic point result."
+        ],
+        "reasoning": "The arbitrary-order theorem subsumes the frozen order-13 inequalities and implies S≤78. It does not classify equality or near equality. The repair removes the covered inequality as a finding and does not describe the general conjecture as open.",
+        "searches": [
+          "On an existence problem of periodic points in intervals whose images cover themselves: Wang conjecture solved, characteristic sequence, later work on covering intervals",
+          "arXiv:2306.10523v1 Lemma 1.6, §4"
+        ]
+      },
+      "checked_sources": [
+        "Yihan Wang arXiv:2306.10523v1, Def. 1.4, Lemma 1.6 and proof, Example 3.6(1)",
+        "Yihan Wang arXiv:2205.07225v1, Def. 1.6, Prop. 3.5, Example 3.7",
+        "Resultary exact-claim search and 9624ad907a63",
+        "Burkart 1982, bibliographic context only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang's proof uses nonzero principal-minor sums to force at least i short returns, and Example 3.6(1) states that the sorted maximal profile is attained by the coprime shifts. These show max S=78 but not which other cycles might have maximal profile. No one-deficit classification is given in the inspected passages."
+        ],
+        "reasoning": "The repaired classification retains only the exhaustive rigidity and next-tier assertions. Their proof is a separate exact enumeration excluding every other labeled cycle, not a corollary of the bound or the fact of attainment.",
+        "searches": [
+          "arXiv:2306.10523v1 §4 proof of Lemma 1.6 and Example 3.6(1), comparison with S=78 and S=77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Wang manuscripts use the same adjacent-pair return after integer convexification. The original Proposition 3.5 and later Proposition 3.4 agree with the shortest-return graph formulation. Example 3.6(1) in the 2023 paper includes all nonzero modular shifts at prime order 13."
+        ],
+        "reasoning": "Switching between labeled 0-based and 1-based sites or using the graph instead of hulls does not make the bound or shift examples new. The repaired claim is about exclusivity and the first near-maximal tier with the original invariant.",
+        "searches": [
+          "Yihan Wang arXiv:2205.07225v1; arXiv:2306.10523v1, characteristic sequence and interval mapping graph",
+          "Local Resultary: Wang Yihan cyclic permutation characteristic sequence convex hull extremizers modular translations n=13 sum 78 77 equality first near-extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 Example 3.7 reports finite checks through 12. The later Example 3.6 gives modular-shift and Štefan-type profiles and refers to a five-site graph enumeration, not an exact order-13 extremizer table. Resultary 9624ad907a63 concerns rank-three first-order theories of finite permutations, not this statistic; no exact frequency overlap was identified."
+        ],
+        "reasoning": "Neither a smaller census nor individual prior examples supply the labeled order-thirteen equality and second-tier counts. The low-signal exact web search is not used as evidence of nonexistence.",
+        "searches": [
+          "Local Resultary order-13 characteristic sequence, convexification, extremizers and first near-extremizers",
+          "Wang 2022 Example 3.7; Wang 2023 Example 3.6",
+          "Primary search: characteristic sequence Wang interval transitive permutation conjecture 13 periodic covering 479001600 extremal translations"
+        ]
+      },
+      "rationale": "For the repaired claim only: the all-order inequalities and the coprime shift profiles are expressly prior. The strongest inspected statements do not classify every order-thirteen maximizer or determine the two sum-77 cycles. An applicable general bound or the demonstration that the shifts attain it is not the converse excluding all other equality cases.",
+      "residual_risks": [
+        "Unindexed or unpublished classification of these extremal sums, or a stronger rigidity implication not located. Burkart full text was not inspected. These do not overturn the directly demonstrated coverage of the bound or supply exact coverage of the repaired classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT COVERAGE OF BOUND AND ATTAINING EXAMPLES; NOT THE REPAIRED CLASSIFICATION",
+          "evidence": [
+            "Same c_i and sorted convention; Lemma 1.6 proves the bound for every cyclic permutation and Example 3.6(1) gives (1,2,…,n−1) for all coprime translations. The final proof is an existence-of-enough-short-returns argument, not an equality characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10523",
+          "material_read": "Theorem 1.2 and Definition 1.4 at pp. 1–2, Lemma 1.6 p. 2 (offsets 4558–6743), Example 3.6(1) and start of §4 pp. 8–9 (offsets 18800–22340), final proof p. 12 (offsets 27900–30097)",
+          "method": "OA primary PDF, targeted passages and proof",
+          "title": "On Periodic Points in Covering Systems",
+          "trigger": "Follow-up claiming the general conjecture and using cyclic permutations"
+        },
+        {
+          "assessment": "EARLIER BOUND FORMULATION AND GRAPH REDUCTION",
+          "evidence": [
+            "The 2022 source gives the same formulation and the check through order 12; the 2023 paper supersedes this as evidence about the status of the bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.07225v1",
+          "material_read": "Definition 1.6 and Conjecture 1.7, p. 2 near offset 4103; Proposition 3.5 p. 9 near offset 20255; Example 3.7 p. 10 near offset 23345",
+          "method": "OA primary PDF, targeted passage inspection",
+          "title": "On an existence problem of periodic points in intervals whose images cover themselves",
+          "trigger": "Frozen reference for finite-range verification"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT",
+          "evidence": [
+            "Classifies first-order rank-three theories of bijections with a 19-point representative bound; it does not address hull iteration or the extremal characteristic sums."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-143-rank-three-theories-of-finite-permutation-digraphs-and-a--9624ad907a63",
+          "material_read": "Finding and scope of finite permutation theory classification",
+          "method": "Local-mirror original text",
+          "title": "The 143 rank-three theories of finite permutation digraphs",
+          "trigger": "Closest inspected permutation-related match in the local search"
+        },
+        {
+          "assessment": "FULL-TEXT COMPARISON NOT ESTABLISHED",
+          "evidence": [
+            "The verified general graph reduction is not claimed as new. No inference about the entire Burkart article is based on the unsuccessful retrieval."
+          ],
+          "identifier_or_url": "J. Combin. Theory Ser. B 32(1), 57–68 (1982), Uhland Burkart",
+          "material_read": "Bibliographic citation and scope only; full text not accessed",
+          "method": "Reference-list comparison; attempted DOI retrieval unsuccessful",
+          "title": "Interval mapping graphs and periodic points of continuous functions",
+          "trigger": "Historical directed graph framework cited by both Wang papers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Once the all-order bound is known, its equality and first stability tier are natural structural questions about the same adjacent-return statistic. At thirteen sites the census distinguishes having twelve known extremizers from knowing that none others exist, and shows that there are only two first-deficit patterns with a single shared characteristic profile. The exact witnesses and rigidity supply benchmarks for any general characterization. The finite contribution is not credited merely for rechecking the universal bound, the number of cycles traversed, or a conjecture frontier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:23:13.317348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Moreau orthogonality gives the stated three branches. In the middle branch set u=z/||z||₂ and s=t/||z||₂; differentiation gives the symmetric matrix in RESULT.md line 36. Absolute row and column maxima agree, so the two global moduli agree by scalar direction tests and integration. Along a segment ||z||₂²−t² is quadratic; if identically zero the restricted projection is identity or zero according to the sign of t, and otherwise there are only finitely many crossings. The axial row gives T_d=(1+√d)/2. For a=|u_i| the spatial row is [1+a+s(1−a²)+|s|aΣ_{j≠i}|u_j|]/2, maximized in the limit s→1; equal absolute sizes of the other u_j attain the Cauchy–Schwarz bound. The spatial objective has negative second derivative and opposite derivative signs at the endpoints for d≥2. Substitution a=2/3 proves spatial dominance for d=2,3,4. For d=5 the tangent bound gives B_5≤89/40<√5, and √d−a√(1−a²)√(d−1) increases for d≥2; hence the comparison remains strict. In d=1 the nonzero branch row sums are one. Independent bounded bisection confirmed the signs of spatial-minus-axial maxima for d=2,3,4,5 (+0.15407,+0.09701,+0.04162,−0.00998). The frozen script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong–Tunçel–Xiu Theorem 3.1 gives general derivative structure for symmetric cones, not the optimized row-sum comparison in the passage inspected."
+        ],
+        "reasoning": "The generalized derivative provides the input for the optimization; the exact row optimization is established separately by the matching indexed theorem.",
+        "searches": [
+          "Kong–Tunçel–Xiu, Clarke Generalized Jacobian of the Projection onto Symmetric Cones, §3",
+          "Wang–Xiu DOI 10.1007/s10957-011-9834-2",
+          "Outrata–Sun DOI 10.1007/s11228-008-0092-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_soc_projection.py",
+        "Resultary 2d1b9aa4230e",
+        "Kong–Tunçel–Xiu author PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching proof displays the same symmetric middle Jacobian and the other symmetric derivatives I and 0."
+        ],
+        "reasoning": "For every such matrix the induced ℓ₁ norm is the maximum column sum and thus the maximum row sum. Integration and local derivative witnesses then give equality of the global ℓ₁ and ℓ∞ constants, including d=1. No new optimization is required.",
+        "searches": [
+          "Resultary 2d1b9aa4230e, Proof §1 (projection and derivatives)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding has the same L₁ in spatial dimension one (in maximum norm), same critical equation and formula for spatial dimensions 2–4, and (1+√d)/2 for d≥5."
+        ],
+        "reasoning": "The dimensions and coordinate conventions agree: d is spatial, and both projectors are Euclidean. The scalar critical equation and strict switch produce the same exact invariant.",
+        "searches": [
+          "Resultary: Lorentz-cone Euclidean projector, exact coordinate norm and spatial-to-axial cutoff",
+          "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem gives exact formulas for all dimensions and example decimals for the transition dimensions."
+        ],
+        "reasoning": "The match is in the all-dimensional theorem, not merely agreement of numerical constants in a finite list.",
+        "searches": [
+          "Resultary 2d1b9aa4230e, exact Finding"
+        ]
+      },
+      "rationale": "A distinct indexed result contains the same sharp maximum-norm formula, unique scalar maximizer, and strict dimension-five switch. The only material-looking addition, equality of the sharp ℓ₁ constant, follows immediately from symmetry of the already-displayed Jacobians and the same integration and derivative-witness argument. The indexed path date is later; this determines no historical priority or dependence.",
+      "residual_risks": [
+        "Wang–Xiu and Outrata–Sun full-text comparisons remain unresolved.",
+        "Date labels do not establish ordering or dependence between the two exact statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent maximum-norm theorem; the displayed symmetric derivative yields the ℓ₁ companion.",
+          "evidence": "Finding states the same scalar equation and dimension-five transition; Proof §1 supplies the symmetric block Jacobian.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and opening proof sections, offsets 0–3078",
+          "method": "Configured Resultary search and local-mirror reading",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "Same exact constants, cutoff, and cone"
+        },
+        {
+          "assessment": "General derivative structure; no exact coordinatewise cutoff in the inspected theorem passages.",
+          "evidence": "The theorem gives the B-subdifferential and its convex hull; keyword misses do not establish absence elsewhere.",
+          "identifier_or_url": "https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+          "material_read": "Abstract and introduction; discussion at PDF p. 8; §3 Theorem 3.1 at PDF p. 9 (offset near 29404)",
+          "method": "Lawful author-hosted PDF passages and literal location searches",
+          "title": "Clarke Generalized Jacobian of the Projection onto Symmetric Cones",
+          "trigger": "Prior general result for the same projection derivative"
+        },
+        {
+          "assessment": "Unresolved primary comparison, not used as negative evidence.",
+          "evidence": "Closest relevant passages are identified by the frozen citation but were not independently read.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-011-9834-2",
+          "material_read": "No primary full-text passage; frozen RESULT.md cites §2.2, equations (10)–(11) and Propositions 2.2–2.4",
+          "method": "Bounded DOI/primary-text retrieval unsuccessful",
+          "title": "Strong Semismoothness of Projection onto Slices of Second-Order Cone",
+          "trigger": "Projection and derivative formulas for axis-weighted second-order cones"
+        },
+        {
+          "assessment": "Unresolved primary comparison; no inference from access failure.",
+          "evidence": "Known related source, not needed to establish the positive indexed overlap.",
+          "identifier_or_url": "https://doi.org/10.1007/s11228-008-0092-x",
+          "material_read": "No primary full-text passage recovered",
+          "method": "Bounded DOI/repository retrieval unsuccessful",
+          "title": "On the Coderivative of the Projection Operator onto the Second-Order Cone",
+          "trigger": "Earlier sensitivity analysis for exactly this cone"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying exact switch in the norm of a standard projector answers a natural coordinatewise stability question and is not a generic consequence of Euclidean nonexpansivity. The extra ℓ₁ statement does not independently distinguish this record, as assessed under originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

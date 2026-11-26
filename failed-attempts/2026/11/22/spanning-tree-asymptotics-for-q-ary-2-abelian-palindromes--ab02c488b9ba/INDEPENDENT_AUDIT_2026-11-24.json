@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:23:31.675148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For linear indexed words the pair-count balance forces equality of endpoints by the divergence identity; on a closed path a divergence-free integer current vanishing on the cotree must vanish also on the tree. Orthogonality on the cotree torus gives the stated trace of H(θ)^{n−1}, including all q roots. The Hermitian eigenvalues are in [2−q,q], and equality at q in the triangle/Rayleigh bound requires all phases to be a vertex gauge; the star fixes this gauge, leaving exactly the zero point on the torus. Independently checking the Hessian, for a unit vector u the quadratic form of qI−H is ∑_{edges ij}|u_i−e^{iθ_ij}u_j|² with zero angles on the star. At zero the single minimizing vector is uniform up to phase; its analytic continuation has real and imaginary first variations. The leading energy minimizes a nonnegative real-gradient square and the imaginary-gradient square with imposed cochain Jθ/√q. The real gradient can vanish; projecting the imaginary residual onto the cycle space gives θ^T J^T P J θ/q. Both bounds follow by expanding the analytic minimizer and testing the minimizing first-order trial vector. Conjugation eliminates odd orders. The fundamental-cycle Gram matrix I+C^TC has determinant q^{q−2} by the complete-graph Laplacian on the nonroot vertices and Sylvester's identity. The spectral gap and positive Hessian justify Gaussian localization with determinant factor; dividing by q^{n}, not q^{n−1}, accounts for the additional 1/q. The binary H has constant eigenvalues 2,0 and gives the exact formula for n≥2 (n=1 is separately all letters). In the ternary cycle the three currents of a closed walk coincide, so the net signed increment is three times that common current; zero signed sum also implies closure. Counting balanced increments gives precisely the stated central trinomial sum including n=1. The supplied exhaustive and transfer programs plus verification notes were inspected, not run; the all-q result is supported by the analytic argument in RESULT.md lines 30–86.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The crystal-lattice prior covers periodic finite-base graph walks, and the retrieved abstract expressly reports a local-limit refinement and an extension beyond the symmetric case. Here the base is finite, the cover has finite quotient and free abelian deck group, symmetry supplies zero drift, and holding makes the walk aperiodic.",
+          "The available Saarela introduction describes generalized (k,S)-equivalence and linear-algebraic characterizations; the frozen audit's account of §6 identifies counts of classes with palindromes, not counts of individual words. The 2014 and 2018 rich/poor works were not inspected at decisive full-text passages."
+        ],
+        "reasoning": "The broad implication is from a return LLT, not from class enumeration or counts of palindromic factors within a host. The graph is a crystal lattice in the LLT sense, with one lift per deck point over each of q base vertices.",
+        "searches": [
+          "arXiv:1510.05102v1, transition probabilities on crystal lattices",
+          "Saarela, Equivalence Relations Defined by Numbers of Occurrences of Factors, §6",
+          "Karhumäki–Puzynina doi:10.1007/978-3-319-09698-8_17 and Cassaigne–Karhumäki–Puzynina doi:10.1016/j.ic.2018.04.001"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, verify_exhaustive.py and verify_transfer.py",
+        "Ishiwata–Kawabi–Kotani arXiv:1510.05102v1 abstract and standard crystal-lattice return LLT",
+        "Huova–Karhumäki arXiv:1104.4273 opening; Karhumäki–Saarela–Zamboni arXiv:1301.5104v1 abstract; Saarela author-hosted opening and frozen §6 account",
+        "Resultary ab02c488b9ba, 5122acc1b9bd and 9d4b0696d935 exact localized comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Centering the cotree increments by a vertex gradient gives the harmonic representative PJ; there is no covariance contribution from drift because the corrected conditional means vanish. Since each oriented edge contributes probability 1/q², Σ=2G/q² (G=J^TPJ); the full integral deck lattice, holding and stationarity fix the local prefactor.",
+          "The crystal-walk prefactor m(r)(2π)^{−d/2}(det Σ)^{−1/2}, with m(r)=1/q, equals q^{d−1+(q−2)/2}/(2√π)^d. The determinant factor is thus the usual cycle Gram/covolume calculation, not a different invariant from the general theorem's Albanese metric."
+        ],
+        "reasoning": "Once written as a walk return, the precision of the frozen constant is forced by the existing general local limit and standard incidence linear algebra. The independent Fourier proof is correct but rederives that specialized limit; the failure is prior coverage by implication, not that the exact string-count formula was found verbatim.",
+        "searches": [
+          "Ishiwata–Kawabi–Kotani arXiv:1510.05102v1 abstract and the symmetric crystal-lattice LLT it identifies",
+          "Derive the target constant by specializing the return LLT to the cotree-current lift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 32–38 identifies the word condition with a rooted walk of zero cotree current. Lifting with deck displacement equal to the cotree current identifies precisely the return event on the maximal abelian cover of K_q.",
+          "The verified abstract of Ishiwata–Kawabi–Kotani, arXiv:1510.05102v1, lines 11–29, discusses transition-probability asymptotics with the Albanese metric, refining a prior crystal-lattice local limit theorem and extending the prior symmetric result."
+        ],
+        "reasoning": "In the language of word equivalence the return-event identification can be easy to miss. The walk is the reversible lazy uniform lift with fully generated integral coordinates, not the probability two independent words share all bigram counts, not a quotient by rotations, and not the number of equivalence classes.",
+        "searches": [
+          "Resultary: fixed-q 2-Abelian palindrome indexed word asymptotic; bigram balance and Euler-trail flow",
+          "Kotani–Sunada crystal lattices random walk local limit and Albanese metric",
+          "Ishiwata–Kawabi–Kotani arXiv:1510.05102v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching full Resultary record reproduces the same frozen theorem, so is not independent prior evidence. The local-mirror binary ambiguity result maximizes a single-profile fiber and observes balance of its opposite bigrams; it does not sum every balanced word. The local-mirror homopolymer-free ternary result counts attainable 2-Abelian classes by Euler-trail feasibility, not all individual balanced words."
+        ],
+        "reasoning": "There is no need for a literal table to show the broader implication. Neither of the two nearby catalog results is used as an exact match; the small-alphabet factors are the elementary equal-endpoint count and three times a central trinomial coefficient.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-spanning-tree-asymptotics-for-q-ary-2-abelian-palindromes--ab02c488b9ba",
+          "Resultary 2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd",
+          "Resultary 2026/10/26/SCOPE-exact-2-abelian-reconstruction-capacity-of-homopolymer-free-tern--9d4b0696d935"
+        ]
+      },
+      "rationale": "The general return-probability local central limit theorem for walks on crystal lattices covers the principal asymptotic under an equivalent exact model. This is not a priority judgment based on an inaccessible article or on nearby word-class counts. For q≥3 take the maximal free abelian cover of K_q with cotree coordinates from a star and give the simple walk holding probability 1/q. A uniform length-n word corresponds to L=n−1 of these steps with uniform start over base vertices. Its balanced-pair event is exactly return to the same lift: the base endpoint is the same and the integral cycle current is zero. Star triangles give all coordinate generators, verifying the full deck lattice Z^d. The covariance in these coordinates is elementary: correct the oriented edge increments J by a vertex coboundary to get the divergence-free representative PJ, which makes the corrected increments martingale differences. Stationary directed edges each have probability 1/q² (holding steps contribute zero), so Σ=2J^TPJ/q². The stationary mass of each base vertex is 1/q. The aperiodic crystal-walk return LLT gives (1/q)(2π L)^{−d/2}(det Σ)^{−1/2}; using the elementary fundamental-cycle Gram determinant q^{q−2} gives exactly the frozen constant. Alternatively remove the holding steps: the nonholding walk has period two (zero current forces an even number of traversals in total and a two-step reversal is possible). The period factor two cancels with the asymptotic even-parity probability one half under binomial mixing at time L(q−1)/q. Thus this implication does not depend on a loop convention for the prior theorem. The binary and ternary formulas are trivial endpoint and balanced-increment counts, with the latter not asserted new in the record. No separate nonmechanical remainder is supported.",
+      "residual_risks": [
+        "The exact primary crystal-LLT theorem page and some word-combinatorics passages could not be recovered, and no whole-document exclusion or exact historical word-formula priority is inferred. The negative conclusion rests on the explicit specialization to the known return LLT.",
+        "The 2014 and 2018 full rich/poor articles were not assessed and the CIRM ternary presentation passage was not retrieved; this does not determine priority of the auxiliary ternary identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary evidence for the stronger class of transition asymptotics and its symmetric predecessors; coverage follows by the described crystal-walk equivalence, not by reading an occurrence of the word formula",
+          "evidence": [
+            "Lines 24–29 state a spectral-geometric asymptotic expansion for n-step transition probabilities, refining a local CLT and generalizing the symmetric crystal-lattice result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.05102",
+          "material_read": "v1 PDF abstract, p. 1, extracted lines 11–29; exact theorem page not obtained in bounded OA passage lookup",
+          "method": "Lawful arXiv PDF preview; checked the standard return-LLT specialization mathematically, including deck group, normalization, covariance and laziness",
+          "title": "Long time asymptotics of non-symmetric random walks on crystal lattices",
+          "trigger": "A transition-probability local limit theorem on a maximal abelian cover could imply the main formula"
+        },
+        {
+          "assessment": "Class-count overlap as reported, not evidence of the required individual-word probability; draft front matter is not reliable publication metadata",
+          "evidence": [
+            "Opening describes generalized factor occurrence equivalences; frozen account identifies §6 statistics as counts of classes containing palindromes."
+          ],
+          "identifier_or_url": "https://amsaar.gitlab.io/articles/sa16fi.pdf",
+          "material_read": "Author-hosted opening passage pp. 1001–1002; frozen audit's separate account of §6 and Theorems 6.4–6.5",
+          "method": "PDF opening comparison; exact §6 passages were not independently recovered",
+          "title": "Equivalence Relations Defined by Numbers of Occurrences of Factors",
+          "trigger": "Counts of (k,S)-palindromes might refer to individual words rather than classes"
+        },
+        {
+          "assessment": "Different statistic and restriction: classes of homopolymer-free ternary words",
+          "evidence": [
+            "Uses Euler-trail feasibility with n³/8+O(n²) class growth, not a zero-current return probability."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-2-abelian-reconstruction-capacity-of-homopolymer-free-tern--9d4b0696d935",
+          "material_read": "Local-mirror Finding and proof comparison",
+          "method": "Configured Resultary lookup followed by local-mirror text read",
+          "title": "Exact 2-Abelian reconstruction capacity of homopolymer-free ternary words",
+          "trigger": "Earlier indexed exact flow-based 2-Abelian enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting reversal-balanced words is a natural question and the Fourier proof is clear, but the claimed exact constant is the standard crystal-walk return constant on a complete base, with the standard full-cycle covolume. No new periodicity obstruction, adaptation beyond the existing reversible finite-base LLT, or further independent invariant is needed. The binary and ternary checks are basic consequences of endpoint balance and zero signed increment. The package works as an illustration of the return theorem, not as a separate nonmechanical finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

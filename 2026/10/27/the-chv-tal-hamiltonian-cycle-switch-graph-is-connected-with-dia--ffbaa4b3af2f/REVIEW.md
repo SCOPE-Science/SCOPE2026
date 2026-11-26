@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rooted-path verifier enumerates every Hamiltonian cycle up to reversal and the independent 2-factor verifier enumerates the same family without rooted paths. Since each Hamiltonian cycle is a twelve-edge subset, symmetric difference of four edges is exactly the stipulated legal two-edge switch. Exact graph exploration yields 185 states, 382 edges, one connected component, diameter nine, radius six, and full distributions. The independent source confirms all headline results. A finite exhaustive proof is appropriate here because the universe is explicit, finite, and completely covered.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The original 1970 Chvátal graph article and standard catalogues cover the graph and its previously reported count of 370 oriented Hamiltonian cycles, not the two-edge exchange geometry claimed here. Takaoka (2018) considers precisely the exchange operation in general and its complexity and special positive classes; none implies connectivity of this 4-chromatic non-chordal graph or its exact diameter. Kleer–Patel–Stroh (2020) applies high-degree hypotheses that fail dramatically for this four-regular graph. Searches for Hamiltonian two-edge switch, 2-opt exchange, Chvátal, equivalent Hamiltonian-tour transformations, and relevant indexed research records found no covering statement. This is a best-knowledge comparison, not a guarantee of publication priority; unindexed graph databases and earlier enumeration studies remain concrete risks.
+PASS
 
-**Value — PASS.** Two-edge-switch reachability and exact maximum reconfiguration distance are natural invariants of the optimum tour space. The Chvátal graph is a canonical small, sparse, triangle-free, 4-chromatic, 4-regular stress test outside classes with automatic switch connectivity. Establishing that all 185 optimum tours interconvert, with an exact worst-case nine switches and a nontrivial seven-class degree spectrum, provides a reproducible finite benchmark; the known scalar Hamiltonian-tour count alone does not imply the result.
+An independently written exact replay (python3 /workspace/audit_chvatal.py) generates cycles as connected unions of two disjoint perfect matchings. Every Hamiltonian cycle in this even-order graph has exactly one unordered partition into its two alternating matchings, so the enumeration is complete and unduplicated. For each resulting cyclic order, deleting two disjoint edges cuts two paths; there is exactly one other matching of their four endpoints that rejoins them into a single cycle, and the replay tests both of those new edges against the input. Shared-endpoint deletions cannot give a nontrivial degree-preserving switch. Exhaustive BFS on the resulting adjacency gives 185 vertices, 382 edges, a single component, radius 6, diameter 9, degrees 2:21,3:48,4:60,5:28,6:6,7:18,9:4, eccentricities 6:12,7:104,8:53,9:16, and unordered distances 1–9 of 382,1129,2694,4116,4876,2992,713,110,8. A distance-nine witness has cyclic orders (0,1,7,8,2,3,9,11,6,10,5,4) and (0,9,10,8,4,3,7,11,5,1,2,6). These statements are about Hamiltonicity-preserving switches in the given graph; there is no separate notion of a TSP optimum in the hypotheses. The independent generation and reconnection tests differ from both supplied generation routines and their mask comparison.
 
-**Limitations.** No asymptotic generalization, rapid-mixing claim, or independent external validation. The earliest archival source date is not a publication claim for this result. A future primary-literature audit may uncover equivalent wording in earlier work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Chvátal graph, its tour count and the switch operation are known. The assessed distinct result is the exact connected switch graph's size, radius, diameter and distributions for this graph. The strongest inspected papers and catalogue overlaps give the general operation and different settings or the known state count, not the target adjacency and metric census.
+
+## value
+
+PASS
+
+The standard sparse, triangle-free 4-chromatic graph is a natural named test outside the cited positive reachability regimes. The exact census gives an independent benchmark for Hamiltonian-constrained 2-opt: every tour is reachable while some pairs require nine exchanges, and the attainable eccentricities and counts distinguish central and worst cases. This is more than recomputing the known number of tours, but it makes no claim on mixing or other graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

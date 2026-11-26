@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:03:11.392682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under total-entry-sum-one and full Frobenius normalization, each normalized hollow block has squared norm 1/(2ab); a star has squared norm (n+1)/(2n²), with its diagonal counted once. Top-right overlaps are coordinatewise minima in a and b; they do not intersect lower-left blocks even across different vertices, since simultaneous overlap would violate admissibility. This gives the three distance families in Proof §1. Hollow distances are strictly below 1/2 and star–star distances equal 1/n, so only H_(1,1)/interior-star pairs attain the printed larger diameter for n≥3; the n=2 star pair is checked separately. Strict convexity of squared distance in each argument shows that an arbitrary diametral pair must be a vertex pair. For a star in the top a rows, increasing b strictly decreases the mixed distance, then at b=n−a the resulting expression strictly increases with a, selecting a=1, i=1. Simultaneous reversal of the row and column indices gives the other minimum at i=n (ordinary matrix transpose fixes every vertex, so it is index reversal that is used in Proof §3). A nested hollow pair minimizes only if it differs by one step, since all steps have positive increments. For a crossing pair each exclusive support contributes at least 1/(4M_n), with joint equality impossible for n≥4: equality in b²≤2(b−1)b and c²≤2(c−1)c forces b=c=2, then a=d=1, whereas M_n≥(n−2)(n−1)>2. The forward difference of the cubic changes sign at b=(2n−4)/3, producing one maximizer except for two adjacent maximizers at n≡2 mod 3. The explicit n=2,3,4 comparisons and the bound M_n≥2(n−3)(n−2) for n≥5 complete the full-simplex comparison; rescaling b by n gives M_n∼4n³/27 and the stated ratio. The cutoff is at matrix order n=5, not affine dimension five. Replay RESULT.md Proof §§1–5; the exact-rational checker and its finite coverage through n=12 were inspected, not executed. This is a full-matrix metric result for the stated simplex, not a minimum distance between arbitrary points.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The propositions establish the full simplex with the exact star and hollow vertices in the same normalization.",
+          "The earlier a9c1f0b7e6c9 result explicitly is hollow-only. Related catalogue hits on corner-block projection onto a metric face and the hollow incenter use different invariants."
+        ],
+        "reasoning": "The normalized vertices permit calculation of pair distances, but provide no optimizing labels or comparison across vertex families as matrix order varies. The separate hollow results do not have stars in their domain.",
+        "searches": [
+          "Erickson–Kretschmann, arXiv:2311.07522, §§2.2, 3, 4.1 and Propositions 4.1–4.2",
+          "Resultary: symmetric Monge simplex Euclidean extrema, projections and incenter"
+        ]
+      },
+      "checked_sources": [
+        "Erickson–Kretschmann, arXiv:2311.07522",
+        "Local Resultary exact hollow result a9c1f0b7e6c9; related projection and incenter hits 50bf05bdf745 and 0902c4e4745e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=3 all three hollow edges tie at 1/4, whereas the full simplex has exactly two shortest, mixed edges at 5/36.",
+          "The mixed maximum requires both unit block indices and a star outside the end blocks, neither of which is picked out by the earlier hollow-only minimizer theorem."
+        ],
+        "reasoning": "Additional mixed-family counting, monotonicity and comparison over n are needed to obtain the full classification. Coincidence of a projection maximum with H_(1,1) in a related result does not imply a diametral vertex-pair classification.",
+        "searches": [
+          "arXiv:2311.07522 Propositions 4.1–4.2 compared with the frozen mixed-pair identity (1)",
+          "Resultary a9c1f0b7e6c9, Finding and Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier hollow result gives 1/(2M_n) with M_n=max_a a(n−a−1)(n−a). Putting a=n−b−1 gives the exact cubic in the frozen record, with the same adjacent-block pairs and two-or-four counts (and the separate hollow n=3 tie)."
+        ],
+        "reasoning": "Credit exact equivalent coverage of the hollow subcase, not just tangent relevance. Hollow support omits all additive stars and cannot directly classify their mixed distances. The primary-literature query returned no usable passages and does not support a negative priority inference.",
+        "searches": [
+          "Resultary: symmetric Monge Frobenius shortest edges and mixed diameters",
+          "\"hollow symmetric Monge\" \"shortest edge\" simplex exact",
+          "Resultary 2026/11/17/SCOPE-sharp-vertex-separation-and-metric-face-crossings-in-hollow-symm--a9c1f0b7e6c9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is an exact indexed hollow classification, a9c1f0b7e6c9, not merely a few numerical checks. The source propositions enumerate vertices in closed form; they do not tabulate these full-simplex distance extrema."
+        ],
+        "reasoning": "A finite vertex-distance census only gives fixed-order examples. The output here is a classification with complete extremizing labels across all matrix orders, with the known indexed hollow component credited.",
+        "searches": [
+          "Resultary: exact Euclidean vertex separation and extremizers in symmetric Monge simplices",
+          "arXiv:2311.07522 §4.1, Propositions 4.1–4.2"
+        ]
+      },
+      "rationale": "The full vertex description and the hollow-only minimum and minimizing pairs are already covered. The supported distinct claim is the mixed minimum and diameter classification in the full symmetric simplex and the exact order-five switch that results from comparing the mixed and known hollow extrema. The frozen record expressly excludes the hollow-only calculation from its priority claim.",
+      "residual_risks": [
+        "The focused primary-literature lookup did not yield a usable further comparison; unindexed metric formulas and equivalent realizations of the full simplex remain possible.",
+        "No novelty is claimed for the simplex construction, hollow-only shortest-edge calculation, or general Frobenius support counting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies precisely the normalization, vertices and simplex assumption, not the claimed metric optimization",
+          "evidence": [
+            "The probability normalization counts the entire matrix.",
+            "The normalized blocks use 1/(2ab), and stars 1/(2n) times a row plus column.",
+            "The affine dimension is n(n+1)/2−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.07522",
+          "material_read": "§2.2 p. 3 (offset 12814), §3 p. 5 (19000), §4.1 p. 6, Propositions 4.1–4.2 (23147 and 26005)",
+          "method": "Lawful OA PDF, localized passages",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Same full symmetric simplex and possible direct metric theorem"
+        },
+        {
+          "assessment": "Covers the hollow-only minimum and pair labels exactly; excludes the full nonhollow simplex",
+          "evidence": [
+            "Its maximizing cubic is the same after reindexing.",
+            "It gives the same modular counts for n≥4 and the separate n=3 hollow tie."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-vertex-separation-and-metric-face-crossings-in-hollow-symm--a9c1f0b7e6c9/RESULT.md",
+          "material_read": "RESULT.md Finding and Proof §§2–4, offsets 0–8292",
+          "method": "Local catalogue mirror",
+          "title": "Sharp vertex separation and metric face crossings in hollow symmetric Monge simplices",
+          "trigger": "Exact prior hollow distance extremum and equality patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are natural metric invariants of normalized symmetric Monge cost matrices. The smallest separation distinguishes nearest extreme cost patterns, and the diameter controls maximum separation. The exact equality cases expose a geometric contrast: the longest pairs remain mixed while the shortest pairs switch to hollow at a sharp matrix order. The full-dimensional classification and scale ratio add information beyond the vertex list and previously classified hollow face.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

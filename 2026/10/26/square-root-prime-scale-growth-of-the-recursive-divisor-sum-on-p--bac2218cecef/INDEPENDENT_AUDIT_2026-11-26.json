@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:44:36.850763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence, including n=1, is (2 delta-1)*kappa_1=id. Its coefficientwise absolutely convergent expansion yields the shifted-prime product with weight 2^(-r-1), including the r=0 term. For z comparable to sqrt(x), effective PNT and partial summation give the difference of log logs; the scaled kernels after removing the prime harmonic contribution have integrals 1 and 0. In the small-p tail one may split at sqrt(z): the cruder O(sqrt(z) log z) bound below it is negligible and dyadic groups above it give O(epsilon(1+|log epsilon|) z/log z) for the logarithmic kernel. The large-p dyadic tail is O(z/(M log z)) for both kernels. The errors are uniform on compact z/sqrt(x) intervals. The derivative signs and strict concavity trap the real saddle at (1+o(1))sqrt(x); rounding inside the same interval is harmless. Beyond 2sqrt(x) the negative slope gives a geometric tail of size O(log x) times the peak term, and the rest has O(sqrt(x)) terms. Thus taking a log incurs only O(log x), negligible at the claimed scale. Independent bounded replay: python -B /workspace/checks/bounded.py compares the full divisor recursion to exact rational series enclosures through the fifth primorial; it does not certify the asymptotic. Passage from prime endpoints to all real cutoffs is included in the uniform PNT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fink's convolution series applies to general inputs and powers, but does not evaluate the primorial asymptotic. The fixed-support extremum result and general nested-binomial formula in the mirrored catalogue concern the count."
+        ],
+        "reasoning": "General input coverage for a different observable, or an exact expansion still requiring new asymptotic estimates, is not coverage of the constant 2.",
+        "searches": [
+          "arXiv:2307.09140, §§2–3",
+          "arXiv:2307.16691, §2",
+          "Resultary: recursive divisor prime-support asymptotics and extremal exponent patterns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.07979 (incl. v1)",
+        "arXiv:2307.09140",
+        "arXiv:2307.16691",
+        "A000629 as cited and defined in arXiv:1912.07979v1",
+        "Resultary mirrored records ending 13e23db90ece, 263a7e9c189f, 896c4d49c8ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a squarefree product the prior convolution expansion gives the factors p+r exactly. The two weighted prime estimates and uniform saddle and tail analysis yielding the leading constant were not present in the compared statements."
+        ],
+        "reasoning": "Credit the exact series as a prior specialization. The conclusion is not obtained by merely substituting P(x) in that formula or applying an unweighted PNT estimate.",
+        "searches": [
+          "arXiv:2307.09140, §2 Theorem 1 and §3, pp. 3–4",
+          "arXiv:1912.07979, §6.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper poses the exact kappa_1 value at the product of the first k primes. The closest indexed recursive-divisor records instead fix kappa_0 and ask about a finite formula or exponent extrema."
+        ],
+        "reasoning": "Passing from real cutoffs to prime indices is equivalent, but substituting recursive-divisor count for sum changes the arithmetic weights and the saddle.",
+        "searches": [
+          "Resultary: normalized recursive-divisor sum, primorial shifted-prime saddle and square-root largest-prime asymptotic",
+          "arXiv:1912.07979, §6.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000629 in the primary paper is explicitly for the number of recursive divisors on products of distinct primes. The mirrored nested-binomial finding also handles kappa_0 only."
+        ],
+        "reasoning": "An integer table of either observable, absent a matching asymptotic annotation or theorem, does not determine this limiting constant. The nearby count sequence is not a table of the primorial sum.",
+        "searches": [
+          "Resultary: primorial kappa_1 and recursive divisor exact product formula",
+          "arXiv:1912.07979v1, OEIS citations including A000629"
+        ]
+      },
+      "rationale": "Best current evidence supports the leading logarithmic growth constant as a distinct contribution; it does not support novelty for the recurrence, Dirichlet series, or exact primorial product series, nor a claim to have solved the exact finite-value question.",
+      "residual_risks": [
+        "Semantic catalogue search and the inspected primary works do not rule out other asymptotic treatments of equivalent shifted-prime products. No claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivation, not the logarithmic asymptotic",
+          "evidence": "Asks for kappa_1 of the product of the first k primes; separately identifies A000629 for counts on products of distinct primes.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07979",
+          "material_read": "§6.4 exact-value question; first-version OEIS comparison passage",
+          "method": "Open PDF text comparison",
+          "title": "Recursively divisible numbers",
+          "trigger": "Original function and primorial question"
+        },
+        {
+          "assessment": "Covers exact series, not the claimed saddle asymptotic",
+          "evidence": "Dirichlet series zeta(s-x)/(2-zeta(s)); exact convolution series directly gives the frozen prime-product summand.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09140",
+          "material_read": "§2 Theorem 1; §3 pp. 3–4",
+          "method": "Open PDF theorem and convolution expansion",
+          "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+          "trigger": "General result with plausible specialization"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Closed form for kappa_0=2K counts recursive divisors, not their first-power sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16691",
+          "material_read": "§2, Theorem 1",
+          "method": "Open PDF theorem comparison",
+          "title": "Number of ordered factorizations and recursive divisors",
+          "trigger": "Plausible general exact formulas"
+        },
+        {
+          "assessment": "Different power and finite claim",
+          "evidence": "Nested-binomial formula for kappa_0 on positive integers.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-proof-of-the-nested-binomial-formula-for-recursive-divisor-cou--13e23db90ece",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "A proof of the nested binomial formula for recursive-divisor counts",
+          "trigger": "Closest indexed finite formula"
+        },
+        {
+          "assessment": "Different observable and question",
+          "evidence": "Optimizes kappa_0 over exponent vectors at fixed support; not first-power primorial growth.",
+          "identifier_or_url": "2026/10/12/SCOPE-strict-exponent-balancing-and-sharp-support-extrema-for-recursiv--263a7e9c189f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Strict exponent balancing and sharp support extrema for recursive divisor counts",
+          "trigger": "Closest indexed support-dependent result"
+        },
+        {
+          "assessment": "Different arithmetic function and asymptotic domain",
+          "evidence": "Normal order of a valuation of the ordinary divisor sum, not kappa_1 on primorials.",
+          "identifier_or_url": "2026/10/26/SCOPE-normal-order-of-prime-adic-valuations-of-the-divisor-sum-functio--896c4d49c8ce",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Normal order of prime-adic valuations of the divisor-sum function",
+          "trigger": "Distinct same-day prime/divisor asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Primorials are singled out in the original literature. The theorem gives their unconditional leading growth law and constant for the normalized sum, not just an exact normalization or a table. The saddle at sqrt(x) and its height are informative beyond the known series even though the exact finite-value question remains distinct.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

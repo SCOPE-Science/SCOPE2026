@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:36.569847Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed both digit reductions from the defining unsigned sums. Lucas for binomial(n,j) and the first carry in n+j eliminate precisely the disallowed Apéry terms. For Domb, grouping the multinomial-square sum by two of the four parts gives the stated integer definition by Vandermonde, and only carry-free multinomial terms survive. Independent single-digit evaluation gives (1,1),(0,4),(3,3),(0,1),(1,1). With g marking 3, the diagonal census is (2+g)^L in Z[g]/(g^4-1). Subtracting it from (3+g+g^2)^L leaves a coefficient vector with Fourier values 5^L-3^L, 3^L-1, 0, 0 at 1,-1,i,-i; inversion recovers exact residue labels, counts, bias and L=0. All eight cells are positive at L=3 and padding with digit 4 preserves each pair at infinitely many distinct indices. Fresh replay: python3 -B /workspace/reviews/reproduce.py 4; direct Pascal-residue sum evaluations for 250 indices (complete blocks through L=3) and independent pair-transition checks through L=12 passed. Finite checks are not the all-index proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give pointwise Lucas laws, including stronger prime-power variants in Straub. Caruso et al. treat a factorization/Galois group, not the simultaneous index distribution."
+        ],
+        "reasoning": "Pointwise digit factorization is credited background. It does not evaluate the Fourier differences for the marked Apéry strata; a separate exact computation and interpretation are required.",
+        "searches": [
+          "Malik–Straub arXiv:1508.00297 Theorem 3.1",
+          "Straub arXiv:2301.12248 Theorems 1.2–1.3",
+          "Caruso et al. arXiv:2510.23298v1 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 4 RESULT.md, VERIFICATION.md and verify_apery_domb.py (read, not run)",
+        "Resultary 60b755902f8c, 2a5729bc4f6f and 43552c627a5d",
+        "arXiv:1508.00297, arXiv:2301.12248, arXiv:2510.23298v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unconditional sign total is 3^L and the diagonal sign total is 1; differencing gives the conditioned sign total 3^L-1. The full law additionally requires cancellation of both order-four Fourier modes and gives separate counts for 1,4,3,2."
+        ],
+        "reasoning": "Even a Domb-only sign distribution does not partition its mass into the Apéry-zero and diagonal strata or distinguish the individual units within each sign. No inspected result directly specializes to the precise joint census.",
+        "searches": [
+          "43552c627a5d Resultary catalog and local-mirror RESULT.md retrieval",
+          "Malik–Straub Theorem 3.1; Straub Theorems 1.2–1.3; Caruso et al. Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "60b755902f8c is this same finding, not a separate precedent.",
+          "The target's parity is the exponent of 3 modulo 2, i.e. the Domb quadratic character conditioned on Apéry vanishing, not parity of n. Caruso et al. use (-1)^n D_n and study generating-series field structure and factorization."
+        ],
+        "reasoning": "Accounting for signed versus unsigned normalization is necessary, but reinterpreting the inspected generating-series result does not turn it into the Apéry-conditioned histogram.",
+        "searches": [
+          "Resultary: exact joint Apéry–Domb residue distribution modulo five, including zero-Apéry conditioned Domb quadratic character",
+          "Public literature lookup: joint Apéry–Domb mod-five residue distribution",
+          "arXiv:2510.23298v1, signed Domb normalization and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a5729bc4f6f RESULT.md Finding gives eleven pairs for T14B/T14A, not the classical sequences.",
+          "43552c627a5d catalog entry addresses same-prime Domb signs and autocorrelation; its exact result was unavailable in the local mirror."
+        ],
+        "reasoning": "Neither an analogue with different operands nor an unconditional Domb sign law supplies the ordered Apéry–Domb cell table. No distinct exact table of the required kind was identified.",
+        "searches": [
+          "Resultary: joint Apéry and Domb five-adic digit-product census; exact database matches 60b755902f8c, 2a5729bc4f6f, 43552c627a5d"
+        ]
+      },
+      "rationale": "Pass the precise ordered full histogram for classical Apéry and unsigned Domb modulo five, not Lucas congruences, Domb-only sign bias or cyclic Fourier inversion. The searched equivalent labels and inspected stronger candidates do not supply the conditioned four-unit census; the reported Domb-only sign work overlaps its mechanism but not the full supported result on available evidence. No priority guarantee.",
+      "residual_risks": [
+        "The full 43552c627a5d Domb-only sign/autocorrelation record was not available through the local mirror; it could further anticipate the bias component.",
+        "An unlocated explicit or implicit joint census remains possible; the search does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pointwise digit input",
+          "evidence": "Lucas congruences for sequences in its tables.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+          "material_read": "Theorem 3.1, PDF p. 6, OA text offset 18084",
+          "method": "OA paper, theorem passage",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Known Apéry-like Lucas theory"
+        },
+        {
+          "assessment": "Covers individual pointwise laws and lifts, not the evaluated joint table",
+          "evidence": "Single-sequence relation A(pn+k)=A(k)A(n) modulo p and its stated prime-square extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.12248",
+          "material_read": "Theorems 1.2–1.3, PDF p. 3, OA text offsets 7023–9070",
+          "method": "OA paper, theorem passages",
+          "title": "Gessel–Lucas congruences for sporadic sequences",
+          "trigger": "Potential stronger prime-power result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Uses delta_n=(-1)^n D_n; theorem gives a truncated-polynomial factorization and Galois information.",
+          "identifier_or_url": "https://arxiv.org/html/2510.23298v1",
+          "material_read": "Normalization and Theorem 3, OA offsets 5228 and 6821",
+          "method": "OA paper, definition and theorem passages",
+          "title": "Galois Groups of Apéry-like Series Modulo Primes",
+          "trigger": "Includes Domb generating series modulo five"
+        },
+        {
+          "assessment": "Related sign law; full overlap not determined from accessible material",
+          "evidence": "Summary describes adjacent Domb sign bias and all-shift Domb correlations; no Apéry conditioning is established by the accessible text.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-pair-sign-laws-and-sharp-autocorrelation-extremizers-for-d--43552c627a5d",
+          "material_read": "Catalog summary only; exact RESULT.md not present on local-mirror retrieval",
+          "method": "Resultary search and local-mirror lookup",
+          "title": "Exact pair-sign laws and sharp autocorrelation extremizers for Domb numbers modulo five",
+          "trigger": "Strongest distinct same-object and same-prime match"
+        },
+        {
+          "assessment": "Different sequences and support",
+          "evidence": "T14B and T14A produce eleven pairs, not the eight classical Apéry–Domb pairs.",
+          "identifier_or_url": "2a5729bc4f6f",
+          "material_read": "RESULT.md Finding, mirror offset 0; also frozen assigned record 2 lines 5–33",
+          "method": "Local mirror and frozen full text",
+          "title": "Exact joint mod-five image and sharp conditional mixing for two level-14 Apéry-like sequences",
+          "trigger": "Strongest distinct joint mod-five classification analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two standard unsigned binomial sums the complete census identifies a rigid cross-sequence constraint: the nonzero Apéry stratum forces exact equality, whereas the zero stratum exhibits exact quadratic-character bias without any order-four component. The missing cells and finite-depth bias, including their crossover in support, are useful baseline data for comparative mod-five behavior; this is more than evaluating the five digit terms or re-proving Lucas. The contribution is a modest explicit classification, not a new congruence technique.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:58:03.796199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70",
+        "Frozen CHECK.py, lines 1–65",
+        "Frozen VERIFICATION.md, lines 1–23"
+      ],
+      "rationale": "In open-interval BV, f modulo constants is the Bochner integral of h_t=1_(t,1) against df; t maps continuously to h_t in L2 and the measure is finite. Projecting the integral gives the upper bound by the largest single-jump residual, and an atom realizes it. Differentiating the finite Parseval expression for E_n(t) gives -t plus the telescoping sum of P_j(P_{j-1}-P_{j+1}), hence E_n'=-P_n P_{n+1} also at n=0. The proposed closed form has that derivative by the two consecutive Legendre derivative identities and vanishes at t=1. Interlacing and the sign at 1 make exactly the P_{n+1} zeros the interior maxima. For g=P_{n+1}, put W=(1-x^2)g'; then W'=-lambda g, so the derivative of W^2+lambda(1-x^2)g^2 is -2lambda xg^2. Integrating between any two nonnegative distinct zeros, including 0 when applicable, strictly orders the critical values because W(z)=(n+1)P_n(z). Evenness and zero endpoint values finish the maximization. For equality, the derivative measure must be supported on maximizing nodes and its signed residuals must agree in direction by equality in Hilbert-space integration; distinct jumps cannot give collinear residuals because their linear combination cannot be a polynomial unless both coefficients vanish. The central binomial value yields the even constant, Stirling and nested projections squeeze both parities, and the odd jump tends to zero: for even ell=n+1, w=sqrt(1-x^2)P_ell satisfies w''+[ell(ell+1)/(1-x^2)+1/(1-x^2)^2]w=0 with w'(0)=0; comparison with a cosine of frequency sqrt(ell(ell+1)+1) bounds the first positive zero by pi/(2 sqrt(ell(ell+1)+1)). At n=3 the exact square is (225+12 sqrt(30))/3430, agreeing with the stated decimal. This proof uses dx, not dx/2, and no endpoint variation.",
+      "residual_risks": [
+        "The frozen 892-check report is finite corroboration as recorded; custom code was not needed to prove the all-degree statement, and the uploaded script was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DLMF identity gives the diagonal kernel, but does not assert its weighted maximum or its BV equality cases.",
+          "The 1981 title matches Fourier–Legendre convergence on BV, but the DOI landing response and blocked publisher route yielded no usable theorem statement."
+        ],
+        "reasoning": "A general sharp theorem for this same residual, if located, would count as coverage. The inspectable classical identity alone requires a separate critical-value ordering and equality proof.",
+        "searches": [
+          "Bojanić–Vuilleumier, DOI 10.1016/0021-9045(81)90031-9, DOI and publisher routes",
+          "DLMF §18.2(v), equation (18.2.13)"
+        ]
+      },
+      "checked_sources": [
+        "DLMF §18.2(v)",
+        "Resultary 50de2eabbe22 and 9f934dc097f6",
+        "Bojanić–Vuilleumier DOI metadata/access attempts",
+        "Klimach–Zudrop–Roller limited comparison with frozen description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Confluent Christoffel–Darboux evaluates the kernel at any given point; the energy identity supplies a separate strict ordering of its weighted nodal critical values.",
+          "The same-day cubic TV-amplification record selects a central jump, whereas for L2 residual in degree three the optimum lies off center."
+        ],
+        "reasoning": "Neither the kernel formula, the known different operator invariant, nor an individual step value is a stronger statement implying the full uniform norm and rigidity theorem.",
+        "searches": [
+          "DLMF §18.2(v), diagonal limit",
+          "Resultary 50de2eabbe22 and 9f934dc097f6, actual Findings",
+          "2015 fixed-step case as described in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The residual is equivalently the maximum in t of (1-t^2)K_n(t,t)/(n+1)^2 in squared norm.",
+          "Distinct cubic records 50de2eabbe22 and 9f934dc097f6 concern total variation of the projection itself, not L2 of its residual."
+        ],
+        "reasoning": "Replacing the residual with a weighted diagonal kernel is an equivalent question, whereas TV amplification does not specify that maximum even in degree three.",
+        "searches": [
+          "Resultary semantic comparison for sharp BV Legendre projectors and jump residuals",
+          "DLMF §18.2(v), confluent Christoffel–Darboux identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-degree catalogue match is the assigned record itself; distinct cubic hits use TV amplification.",
+          "The frozen relationship section describes the 2015 table as using the fixed jump t=2/3; primary access for that table was blocked. Direct degree-three computation gives E_3(2/3)=42905/839808, strictly below the maximizing (225+12 sqrt(30))/3430."
+        ],
+        "reasoning": "If the reported fixed-location scope is correct, such a table cannot itself supply the maximizing jump, and the exact degree-three catalogue neighbors do not compute the same norm.",
+        "searches": [
+          "Resultary searches for all-degree Legendre BV projection and cubic sharp estimates",
+          "Klimach–Zudrop–Roller, DOI 10.7717/peerj-cs.35, article/PDF/DOI routes"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact global residual norm, parity-dependent maximizing nodes, and exhaustive BV equality, not the classical projector identities or generic single-jump reduction. The evidence does not establish historical priority.",
+      "residual_risks": [
+        "The 1981 BV convergence paper could contain an equivalent sharp result; full text unavailable after lawful attempts. The exact coverage of the 2015 primary text is also unverified. Access failure itself is not evidence of noncoverage.",
+        "An equivalent sharp weighted-kernel inequality may exist elsewhere in the classical literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical identity, not the weighted maximum/equality claim",
+          "evidence": "The confluent expression relates the diagonal sum to derivatives of consecutive orthogonal polynomials.",
+          "identifier_or_url": "https://dlmf.nist.gov/18.2.v",
+          "material_read": "§18.2(v), equation (18.2.13) and surrounding diagonal-limit material",
+          "method": "Located literal passage in open reference",
+          "title": "NIST DLMF, Christoffel–Darboux Formula",
+          "trigger": "Equivalent weighted diagonal-kernel formulation"
+        },
+        {
+          "assessment": "Scope unresolved; not found to be non-covering",
+          "evidence": "The DOI response did not provide article material; publisher access was forbidden.",
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(81)90031-9",
+          "material_read": "Bibliographic title only; no usable full-text passage",
+          "method": "Lawful DOI and publisher access attempts",
+          "title": "On the rate of convergence of Fourier–Legendre series of functions of bounded variation",
+          "trigger": "Most plausible same-function-class historical paper"
+        },
+        {
+          "assessment": "The reported fixed-location comparison is conditional on the frozen description",
+          "evidence": "The article/PDF/DOI attempts returned HTTP 403; independently computed t=2/3 gives a nonmaximal degree-three residual.",
+          "identifier_or_url": "https://doi.org/10.7717/peerj-cs.35",
+          "material_read": "Frozen description only; no primary table independently retrieved",
+          "method": "Lawful article, PDF, and DOI access attempts",
+          "title": "Generation of high order geometry representations in Octree meshes",
+          "trigger": "Possible exact tables of Legendre step error"
+        },
+        {
+          "assessment": "Matching projector and function class but different norm",
+          "evidence": "The bounds use TV(Pi_3 f)/TV(f), not ||f-Pi_3 f||_2/TV(f).",
+          "identifier_or_url": "Resultary 50de2eabbe22 and 9f934dc097f6",
+          "material_read": "Findings and target norm",
+          "method": "Resultary lookup and mirror statement inspection",
+          "title": "Cubic Legendre projection sharp bounded-variation amplification; sharp BV norm of cubic Legendre projector",
+          "trigger": "Distinct same-day and earlier sharp BV records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and relationship section"
+      ],
+      "rationale": "The exact worst-case projection error is a natural invariant for approximating discontinuous BV data. The optimizer shifts off the midpoint in every odd degree, in contrast to common fixed-step examples, and the strict equality classification excludes mixtures of jumps. The closed constant answers both finite-degree estimates and the leading sharp scaling rather than supplying isolated degree computations.",
+      "residual_risks": [
+        "Value is confined to unweighted one-dimensional real BV and orthogonal L2 projection, not general weighted or pointwise approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:57.668300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "/workspace/repairs/5/RESULT.md, Finding, Assumptions and Proof",
+        "Frozen RESULT.md, lines 4–67",
+        "Frozen VERIFICATION.md, lines 19–25 and verify.py, lines 10–70"
+      ],
+      "rationale": "For the repaired cyclic orientation, B^T maps the vertex torus onto the stated edge torus with diagonal circle kernel, by summing the consecutive edge differences. Under signed reorientation B'=BS the torus, matrix and phase variables transform together: Z'=SZ, K'=SKS, and the sine map commutes with S. For h≤1/Λ the strict sine-secant inequality gives injectivity of the lift even at equality; lattice and rotation equivariance, compactness and degree one give a quotient homeomorphism. The lower bound on the quotient derivative is positive in the strict interval, and the boundary witnesses have a kernel (all π for even n; one zero for odd n, retaining a vector in the two-dimensional top eigenspace perpendicular to the exceptional edge). For h>1/Λ, balanced ±arccos(c) phases with c just below −1/(hΛ) obey closure, adding a zero edge for odd n. The even-cycle top eigenspace is simple, and in the odd case the exceptional edge's nonzero top Fourier projection removes one, but only one, of the two zero directions at the critical cosine. The remaining direction crosses to negative, with all others positive. On an inverse branch from this regular negative source, regular values of the full map form a nonempty open set by Sard and compactness. Degree +1 then gives at least two positive preimages in addition to the negative one.",
+      "residual_risks": [
+        "The verifier was inspected, not executed. It samples Jacobian inertia and endpoint nullity, not the topological conclusion. The repaired proof asserts neither exact fibre cardinality nor dynamics of iterates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The network theorem gives a sufficient diffeomorphism bound and sinusoidal sharpness for trees.",
+          "SCOPE-a9b6ba912b20 gives the full corresponding trichotomy for positive-definite K and positive weights on a full torus. Its supercritical witness prescribes all cosines, changes one downward independently, and explicitly excludes edge closure on cycles."
+        ],
+        "reasoning": "Cycle K is singular and its state space is a proper closed torus in edge coordinates. Restricting to its mean-zero tangent does not make the edge sine coordinates independent. The full-torus witness is not guaranteed to meet closure; the repaired odd-cycle construction instead inserts a zero phase, lifts one of two top directions, and preserves the other.",
+        "searches": [
+          "arXiv:2610.10993v1, Theorem 3.2 and Remark 3.3",
+          "Resultary SCOPE-a9b6ba912b20, Finding, Assumptions and Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Corrected RESULT.md",
+        "arXiv:2610.19953v1",
+        "arXiv:2610.10993v1",
+        "Maistrenko et al. (2008), Eq. (1) and system (4)",
+        "Local published Resultary index, SCOPE-a9b6ba912b20, SCOPE-8b2e707e76b5 and SCOPE-9f0efc2849f5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict diffeomorphism bound is prior. Local cubic branching and knowledge of the first singular set cannot force the persistence of a negatively oriented source as h increases arbitrarily.",
+          "Degree +1 gives a multiplicity implication only after establishing a negative regular source for that h. The requisite source in the cyclicly constrained domain follows from the paired phases and parity-dependent inertia, not from the prior full-torus degree count."
+        ],
+        "reasoning": "The additional global fact is required for every supercritical h, beyond the local bifurcation and beyond any available potential-descent bound; those previous conclusions do not imply it.",
+        "searches": [
+          "arXiv:2610.19953v1, Theorem 2.1",
+          "Resultary SCOPE-8b2e707e76b5, Finding and first singular-set proof",
+          "Resultary SCOPE-a9b6ba912b20, Proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ring map in vertex coordinates is the common-rotation quotient of θ+hB sin(B^Tθ), so the earlier strict range is for the same object, not merely the same bound.",
+          "Maistrenko et al. give K≤1 injectivity and K>1 noninvertibility for their globally coupled model, not a theorem covering all sparse repulsive rings and regular fibre sizes."
+        ],
+        "reasoning": "Switching to edge coordinates, changing edge signs and moving between the quotient and its vertex lift do not create novelty. The claimed arbitrary-h regular multiplicity is not a sign-convention or reparametrization of the older all-to-all statement.",
+        "searches": [
+          "Resultary search for discrete Huygens ring reversibility, inverse branches and triple fibres",
+          "arXiv:2610.19953v1, §2 and Theorem 2.1",
+          "Maistrenko et al. (2008), Phase Chaos and Multistability in the Discrete Kuramoto Model, Eq. (1) and system (4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-8b2e707e76b5 is the strongest same-object match: its Finding gives the entire endpoint singular locus and cubic branching near the threshold, explicitly not arbitrary-large-h noninjectivity. SCOPE-a9b6ba912b20 has the same global fibre bound on a different domain/class. SCOPE-9f0efc2849f5 concerns a canonical target for all-to-all coupling."
+        ],
+        "reasoning": "The relevant database object is the exact all-parameter classification, not a numerical table of selected sampled h. The same-day records overlap substantially, but neither stated theorem includes the repaired cycle result; their within-day priority is not inferred.",
+        "searches": [
+          "Resultary local lookup for parity-dependent cubic onset, persistent triple fibres, and all-to-all Kuramoto inverse branches"
+        ]
+      },
+      "rationale": "Pass is for the cycle-specific extension to open sets of regular triple fibres at every supercritical step, giving the closed injectivity boundary. Strict-subcritical diffeomorphism and endpoint singularity of this map are covered, and the secant and degree methods have close antecedents. What is not furnished by the inspected statements is a negative-orientation witness inside the constrained cycle torus for arbitrary supercritical h, specifically the odd-cycle rank-one lifting of just one critical direction under closure.",
+      "residual_risks": [
+        "Within-day historical priority of the adjacent catalogue records is not established. Unlocated work on orientation reversal under constrained edge cosines could affect priority; the pass is bounded to the inspected evidence and does not rely on claiming the degree argument as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers strict-subcritical global diffeomorphism, not the stated closed-endpoint and global supercritical fibres",
+          "evidence": [
+            "Diffeomorphism for 0<h<1/Λ; separate descent for 0<h<2/Λ."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19953v1",
+          "material_read": "§2 and Theorem 2.1, OA offsets 12000–17983",
+          "method": "lawful OA HTML passage",
+          "title": "Almost-global convergence to twisted states in discrete Huygens rings",
+          "trigger": "Direct primary precedent for the same ring and critical step size"
+        },
+        {
+          "assessment": "General sufficient invertibility bound, with the cited sharpness statement for trees",
+          "evidence": [
+            "The tree sharpness claim uses independent edge coordinates, unlike the cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "§3 Theorem 3.2 and Remark 3.3, OA offsets 18191–23119",
+          "method": "lawful OA passage",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Potential more general graph theorem"
+        },
+        {
+          "assessment": "Different graph and coupling; related qualitative invertibility, no cycle fibre claim in inspected passages",
+          "evidence": [
+            "An attractive all-to-all map is one-to-one through its threshold and noninvertible above it."
+          ],
+          "identifier_or_url": "Maistrenko et al. (2008), journal pp. 218–222",
+          "material_read": "Eq. (1), pp. 218–219, offsets 4300–9235, and system (4) discussion on p. 222, offsets 14000–18992",
+          "method": "lawful OA PDF passages",
+          "title": "Phase Chaos and Multistability in the Discrete Kuramoto Model",
+          "trigger": "Related discrete phase-map one-to-one threshold"
+        },
+        {
+          "assessment": "Analogous theorem on unconstrained torus with K positive definite; controlled extension to the constrained cycle not stated or automatic",
+          "evidence": [
+            "Its assumptions explicitly do not assert the graph conclusion for cycles.",
+            "Step 3 uses freely prescribed cosines and a rank-one negative perturbation."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-sharp-topological-reversibility-and-persistent-triple-fibres-for--a9b6ba912b20",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof §§1–4, offsets 0–5500",
+          "method": "published-record local mirror",
+          "title": "Sharp topological reversibility and persistent triple fibres for all weighted tree Huygens maps",
+          "trigger": "Strongest same-day global mathematical match"
+        },
+        {
+          "assessment": "Endpoint singularity is covered; the supercritical result is local, with different quantitative conclusions",
+          "evidence": [
+            "Requires 0<hΛ−1<ε_n and explicitly does not assert noninjectivity for arbitrarily large h."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-parity-dependent-cubic-onset-of-noninjectivity-in-discrete-huyge--8b2e707e76b5",
+          "material_read": "RESULT.md, Finding, Assumptions and first singular-set proof, offsets 0–4669",
+          "method": "published-record local mirror",
+          "title": "Parity-dependent cubic onset of noninjectivity in discrete Huygens rings",
+          "trigger": "Strongest same-day match on the identical cycle map"
+        },
+        {
+          "assessment": "Different family and target claim",
+          "evidence": [
+            "All-to-all coupling, with a 2^N−1 lower bound over a canonical target."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-exponentially-many-inverse-branches-at-the-discrete-kuramoto-fol--9f0efc2849f5",
+          "material_read": "RESULT.md Finding",
+          "method": "published-record local mirror",
+          "title": "Exponentially many inverse branches at the discrete Kuramoto fold",
+          "trigger": "Related catalogue regular inverse-branch multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof §§2–3",
+        "SCOPE-8b2e707e76b5, Finding",
+        "SCOPE-a9b6ba912b20, Assumptions and Proof §3"
+      ],
+      "rationale": "The exact interval of global reversibility is a natural classification for these phase maps. Proving an open regular multiplicity lower bound for every larger step resolves a nonlocal inverse question left open by convergence bounds and cubic onset. The odd-cycle closure obstruction makes the arbitrary-step witness substantive; this is not merely a change of incidence conventions or another near-onset example.",
+      "residual_risks": [
+        "No classification of weighted cyclic graphs, attractors or larger fibre sizes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

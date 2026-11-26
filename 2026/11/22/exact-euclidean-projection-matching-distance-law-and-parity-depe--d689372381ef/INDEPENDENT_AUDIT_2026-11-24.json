@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:49:22.573584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the unscaled coordinate norm for s>=3, ell>0 and a_i>=2ell, a positive defect requires x_i>a_i-ell>=ell and x_(i+1)<ell, so positive edges are a matching even when a_i=2ell. Correcting each by d_i/2 leaves its tail >=a_i-ell and its head <=ell, both in the box. If a neighboring correction raises the tail of an inactive link, that tail is <=ell<=a_j-ell; if it lowers the head, that head is >=ell and the tail is <=a_j. Either bound suffices even when the link is flanked by two active edges. The residual is a nonnegative combination of tight normals, proving the unique minimizer, and disjoint supports give squared norm sum(d_i^2)/2. Equality at the sharp bound requires a maximum matching with every matched pair at (a_i,0); the two perfect matchings for even s and the unique matching leaving each prescribed vertex unmatched for odd s prove the complete locus. The expansion over a matching uses inclusive joint violations, not independence conditional on the exact active set. The deficit density on a violated pair is 2(ell-u)/ell^2, giving the stated Laplace factor, first moment and zero atom. Independent rational feasibility/tightness checks use record5() in /workspace/branches/frozen_metric_replay.py; these sample four rational grids, not all inputs. The analytic argument supplies universality. Frozen numerical tests were read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "34949f1e593d gives an exact matching trace for the integral of exp(t sum_i x_i) over C and Gaussian section-coordinate fluctuations.",
+          "Same-date 5d0777188f6c concerns boundary area and vertex counts in complementary coordinate-sum sections; its date was not used to dismiss it."
+        ],
+        "reasoning": "Neither the exponential coordinate-sum tilt on C nor comparisons of two sections of C determine the marked positive defects of a point sampled in B. The matching formalism is shared, not the law.",
+        "searches": [
+          "Resultary: 34949f1e593d and 5d0777188f6c",
+          "arXiv:2211.08382v1, Section 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.08382v1",
+        "Resultary:34949f1e593d",
+        "Resultary:ba6c425a7f01",
+        "Resultary:5d0777188f6c",
+        "Resultary:d689372381ef (self-hit only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Disjoint violated-coordinate pairs and triangle volume are already present in the original volume proof, and supply the factorization used for the weighted transform.",
+          "The projection needs a further global feasibility/normal-cone argument, and only that metric reduction makes the squared local defect a valid Laplace mark. Neither the section trace nor radial deficit formula makes that reduction."
+        ],
+        "reasoning": "Credit the overlap lemma and zero-distance atom; retain the exact metric projection, sharp farthest locus and resulting full marked law as the supported distinct conclusions.",
+        "searches": [
+          "arXiv:2211.08382v1 Proposition 6.8 proof",
+          "Resultary: 34949f1e593d, ba6c425a7f01, 5d0777188f6c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 6.8 computes volume of the identical admissible body; its inclusion-exclusion concerns excluded corner overlaps.",
+          "The inspected radial-shell record classifies vertex distances from an enclosing-sphere center, not distances from points of the box to the convex body."
+        ],
+        "reasoning": "Changing from vertex radii to a box projection or directed Hausdorff gap changes both the points being optimized over and the reference set. The defining inequalities and volume equality do not supply the proposed projector.",
+        "searches": [
+          "Resultary: box-to-chainlink Euclidean projection and cyclic matching distance law",
+          "arXiv:2211.08382v1, definition and Proposition 6.8",
+          "Resultary: ba6c425a7f01"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published volume trace divided by the box volume is exactly the tabulable atom at D=0.",
+          "The direct indexed projection hit was d689372381ef, the assigned record itself, not a second result; no separate matching transform or maximizer classification was identified in the bounded comparison."
+        ],
+        "reasoning": "The zero-error row is prior; it contains neither the continuous positive-error distribution nor the location of maximizing box points. The search is not a proof of absence.",
+        "searches": [
+          "Resultary: exact chainlink box projection and matching squared-distance transform",
+          "arXiv:2211.08382v1 Proposition 6.8"
+        ]
+      },
+      "rationale": "The known chainlink corner exclusions and matching volume trace cover the zero-distance atom exactly, as credited. The box-to-body projection, associated parity-dependent maximizing locus and full squared-distance law are distinct from the inspected section and vertex-shell results. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "A public primary-literature query returned no usable results and supplies no negative evidence. An earlier equivalent projection under cyclic difference constraints or another optimization name is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the volume and thus zero atom, but no identified positive-error law or projection in these passages",
+          "evidence": [
+            "Only cycle matchings have nonempty excluded-corner intersections; each matched pair contributes area ell^2/2 and each unmatched coordinate its side length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.08382v1",
+          "material_read": "Definition and Proposition 6.8 with its proof, PDF pp. 19–20",
+          "method": "Lawful OA primary PDF, relevant statement and proof passages",
+          "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+          "trigger": "Identical body and exact cycle-matching formula"
+        },
+        {
+          "assessment": "Different tilted statistic and sampling domain",
+          "evidence": [
+            "The exact tilted integral is over C with weight exp(t sum_i x_i)."
+          ],
+          "identifier_or_url": "Resultary:34949f1e593d",
+          "material_read": "RESULT.md offsets 0 and 3950",
+          "method": "Published local-mirror full-text passages",
+          "title": "Tilted-matching law and Gaussian section fluctuations of chainlink polytopes",
+          "trigger": "Same body and a marked matching trace"
+        },
+        {
+          "assessment": "Vertex radial deficit does not give the box-to-body problem",
+          "evidence": [
+            "Shells are defined relative to the minimum enclosing sphere of C."
+          ],
+          "identifier_or_url": "Resultary:ba6c425a7f01",
+          "material_read": "RESULT.md offsets 0 and 3400",
+          "method": "Published local-mirror full-text passages",
+          "title": "The first Euclidean radial vertex shell of chainlink polytopes",
+          "trigger": "Same embedding and a sharp Euclidean shell theorem"
+        },
+        {
+          "assessment": "No matching claim identified in its stated section comparison",
+          "evidence": [
+            "The invariants compared are section boundary areas and vertex counts."
+          ],
+          "identifier_or_url": "Resultary:5d0777188f6c",
+          "material_read": "RESULT.md offset 0, statement",
+          "method": "Published local-mirror statement",
+          "title": "Higher-dimensional chainlink section pairs preserve two separate invariants",
+          "trigger": "Distinct same-date Euclidean chainlink record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact nearest feasible point is useful in its own right: it turns a cyclic quadratic projection problem into a single coordinate pass. The sharp Hausdorff gap and isolated-versus-segment parity locus describe how the body departs from its generating box. The full error distribution refines the existing volume fraction, rather than merely restating it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

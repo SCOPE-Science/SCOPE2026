@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact downset counting creates a uniform gap between rank-\(r\), rank-\((r+1)\) and higher-rank outside points. Collapsing the contractible rooted downset gives literal graphs in the early stages; integral graph cycle lattices yield the circle ranks, the split injection and the complete degree-zero barcode. The separately implemented small-instance checker passed 35 parameter cases and 8,380 enumerated degree-two simplices. The checker is finite and mod-two only; the integral all-parameter assertions are proved by the graph construction.
+## correctness
 
-**Originality — PASS (best-knowledge, with priority risk).** Badra–Singh define furtherness and its filtration and prove generic degree-zero birth statements, not the exact truncated-Boolean two-scale deaths or early graph homotopy types. The closest published full Boolean result concerns every nonempty subset and uses different downsets and weights; the proper Boolean-sphere results omit the top and study extreme roots, and rank-span filtration results constrain a different function. Exact published claims and semantically indexed records were compared by implication rather than title alone. Unindexed equivalence remains a risk.
+PASS
 
-**Mathematical value — PASS.** The truncated Boolean family is natural in order topology and rank-selection, and the first two positive-rank entrance thresholds reveal both connected-component deaths and emergent integral circles. The result specifies a complete all-time degree-zero barcode, plus explicit early homotopy and an integral persistent injection, not merely a small enumerated example or a routine restatement of generic stability.
+For 2<=r<n and r<=k<n, with [n] retained, the zero stage is the cone on the rooted downset. Exterior rank r enters at 1; an exterior rank-(r+1) point has weight r+1 if it contains exactly one outside element, and r+2 otherwise. A rank-(r+2) point containing an outside element has at most r+1 elements in the center, so its downset difference is at least binom(r+2,r)+1; passing to a subset containing an outside element yields the same lower bound for every higher rank. In the early window any chain touching the exterior is at most an edge because nothing inside the center lies above an exterior point. The core is a contractible CW subcomplex, and its compatible collapses give a graph at each stage. At r+1 and for each chosen exterior element there are binom(k,r) new points and binom(k,r-1) adjacent exterior rank-r points; each new point has r+1 incident edges, one to the core. Subtracting the increased vertex count from the edge count gives (k-r)binom(k,r-1) circles per exterior element, and exactly i=d-a rank-r points remain isolated. At r+2 the rank-r Johnson swap paths through rank r+1 prove connectivity; if E is the number of exterior rank-(r+1) points, the quotient has d+E+1 vertices and (r+1)E edges, giving c=rE-d. The old cycle lattice embeds and is saturated because a nonzero multiple cannot have support only in old edges unless the original cycle already does. This proves the integral split injection. On H0 use the class of S and, for each exterior rank-r point v, the difference [v]-[S] until it merges; these form integral bases at every stage. The differences die precisely at r+1 and r+2 in the claimed multiplicities. Each later entering point contains an already present rank-r subset, so there are no more births. The argument includes k=r and n=r+1, when some multiplicities or circle ranks vanish.
 
-The homotopy classification stops before the first possible exterior rank-\((r+2)\) point, and there is no general positive-degree barcode claim after that cutoff. The earlier all-degree full-Boolean case is acknowledged as existing. Direct sources: arXiv:2610.16386v1 (primary MSC2020 55N31; first public October 12, 2026), arXiv:2603.18580v1, and the public mathematical results named in RESULT.md. Source comparison cannot guarantee absolute priority. Exact finite checks cannot substitute for the infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general degree-zero birth theorem and the earlier full all-degree nonempty-Boolean barcode. The distinct contributions are the early integral graph homotopy and map, and the exact degree-zero deaths for r>=2 with downsets computed after truncation. No inspected result covers those claims.
+
+## value
+
+PASS
+
+Removing the bottom ranks of the Boolean inclusion poset is a natural change of finite space, not a numerical slice of the full-Boolean result. It gives two distinct component-merger thresholds tied to how many elements lie outside the center, an integral cycle lattice with a controlled inclusion, and a complete coefficient-independent H0 invariant across all thresholds. These are explicit useful refinements of general birth-only results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

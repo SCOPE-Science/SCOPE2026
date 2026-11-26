@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Run the standard-library Python 3 program `verify.py` in this package. It constructs, without using the cyclic-increment characterization, all scattered subsequences of each phase's contiguous length-\(p\) window and independently identifies the absent words whose every one-letter deletion is present. Those full sets are compared against the claimed local classification, with alphabet/window pairs \((q,p)\) given by \(q=2\), \(1\le p\le11\); \(q=3\), \(1\le p\le8\); and \(q=4\), \(1\le p\le6\). There are 25 complete parameter cases. In the binary cases the histogram by word length is also compared with the coefficients of the proposed bivariate rational generating function.
+## correctness
 
-The expected success message is `PASS cyclic-window minimal-absent direct exhaustive vs distance characterization and binary recurrence; cases 25`.
+PASS
 
-The proof of all-parameter correctness is the separate minimum-span/deletion-cost argument and weighted transfer derivation in `RESULT.md`. The test is a finite independent computational cross-check, not an infinite proof or independent audit. Symbolic simplification of the transfer matrix was separately checked for \(q=2,3,4,5\) using exact rational polynomial arithmetic; that symbolic calculation is a supplementary check, not a dependency needed to run the standalone program. Mathematical originality is compared in `REVIEW.md` and `AUDIT.json` and remains subject to ordinary bibliographic uncertainty.
+The first letter can start at its own phase. A chosen occurrence of a letter has the next desired letter at the positive residue gap d_j, and taking the earliest such position realizes the minimum span S=1+Σd_j. An endpoint deletion saves its adjacent gap, including for length two; an interior deletion saves q if the two gaps sum to more than q and zero otherwise, including exactly q. Thus E=S−p must be positive and at most both endpoint gaps, which ensures E≤q; all interior saves must then be q. Single deletions suffice by downward closure, and there are no one-letter obstructions. Each admissible gap path, initial letter and eligible excess contributes exactly one word at p=1+Σd_j−E≥1. The resolvent starts with the zero-transition term for length two; endpoint correction yields (1) without negative powers in the resulting series. The q=2 determinant is 1−tz²−t²z³ and the weighted numerator is 2t²z(2+z+tz²). At t=1 the initial data and recurrence follow by coefficient comparison. The positive pole r is simple and dominant (equality in |z²+z³|≤r²+r³ forces the positive phase), giving C=−N(r)/(rQ′(r)). The supplied verification material was inspected, not executed. Independent agreement of complete word sets for 26 cases (q=2, p≤12; q=3, p≤8; q=4, p≤6), and of binary length histograms through p=12, is replayable via python3 /workspace/branches/c7bfc94d-63aa-4c2e-9455-1a0f9020c4e6/check_windows.py. These are finite checks; the span/deletion and transfer proof covers all parameters.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the simultaneous window-by-length law and complete endpoint-excess and neighboring-gap classification for permutation streams. General bounded-range p-MAS algorithms, finite-linear powers and binary minimum-span spectra supply relevant ingredients or different data, but the inspected results do not give this general-q obstruction law.
+
+## value
+
+PASS
+
+A full obstruction antichain for the union of windows answers which patterns first fail, not simply how many patterns are present. The classification gives a local test with sharply distinct endpoint and interior rules; the q-state resolvent counts every length and window size, including growth from the binary pole. It resolves a natural domain not determined by fixed-host spectra or marginal counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

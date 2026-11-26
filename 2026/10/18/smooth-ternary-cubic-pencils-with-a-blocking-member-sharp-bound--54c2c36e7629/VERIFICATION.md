@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of exact enumeration
+# Independent mathematical audit
 
-Run `python verify_ternary_pencil.py` with Python 3 and SymPy. The script completes exhaustive cubic-form normalization, finite incidence tests, PGL-orbit enumeration, exact modular Gröbner chart tests, and all complementary pencils for one smooth blocking cubic. Its expected asserted output includes: 29524 ternary cubics, 936 blocking curves without rational lines, a single orbit of size 936, 1152 generators surviving only the rational singular-point sieve, 936 geometrically smooth admissible complementary generators, 312 pencils through the fixed blocking cubic, and 292032 total pencils; the per-blocking-fiber profiles are 24, 132, 42, and 114. The rational sieve is necessary only for efficiency, not for proving smoothness.
+## correctness
 
-Exact geometric smoothness is checked in the polynomial ring over F3 by finding the unit Gröbner basis for the cubic and its partial derivatives in each affine projective chart. The verified orbit statement reduces every smooth blocking cubic to the explicit one; the threefold overcount is exact because every F3-pencil has four projective parameter points. The thirteen rational points provide a finite exhaustive incidence universe; they do not suffice by themselves to test geometric singularities, which are separately checked.
+PASS
 
-Verification does not include independent expert checking or validation of a publication's novelty; those remain open.
+Re-audited the full corrected RESULT.md with geometric smoothness defined by the simultaneous vanishing of the equation and all partials. The brief blocking-size double-count excludes blocking sets of size ≤5 containing no full line; a smooth cubic has no full line by Bézout. All four rational fibers have points by Hasse and their rational point sets partition the 13 points when there is no rational base point, so two blocking fibers are impossible. An independent exact replay computed 29524 scalar classes, verified injective cubic point evaluation, recovered exactly 936 smooth blocking equations in the model's PGL orbit, and enumerated distinct pencils through it directly as sets of the three complementary scalar-normalized forms. The replay used a separate geometric-smoothness criterion: reject a rational line component, an empty rational point set or a rational singularity. A geometrically integral singular cubic has exactly one singular point by its genus defect, hence a rational one. A geometrically reducible cubic with no rational line must be three conjugate lines; any rational point common to its support then lies on all conjugates and is singular. Thus the alternative test is exact, and no finite extension cutoff is needed. The result is 312 pencils with profile frequencies 24, 132, 42, 114 as stated; the example belongs to the 132 class. Transitivity transfers this to each of the 936 blocking equations. Uniqueness gives 936·312=292032 without multiple counting. The repaired statement, proof and retained Gröbner verifier consistently use C=0 along with the partials; no verification-file edit is required.
+
+## originality
+
+PASS
+
+For the repaired finding credit only the exact pencil incidence census and complementary-fiber profile frequencies. The numerical upper bound on blocking fibers is a routine corollary of earlier facts; the identical single-cubic classification is present in a separate same-day indexed result. Neither provides the count or profiles of pencils through a specified cubic, and the separately indexed base-point census does not mark blocking members. Their date supplies no ordering.
+
+## value
+
+PASS
+
+The census is a motivated refinement of blocking-versus-nonblocking behavior in pencils, not an arbitrary coefficient slice: it simultaneously controls all four fibers over the first odd prime field, with no rational base points. The exact incidence count and its four complementary profiles tell which rational fiber configurations are realized around the exceptional blocking class and their frequencies. They can be used in finite-field pencil constructions and in comparing counts with and without incidence restrictions. The value is in this independently useful distribution, not in recomputing one cubic orbit or the simple upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

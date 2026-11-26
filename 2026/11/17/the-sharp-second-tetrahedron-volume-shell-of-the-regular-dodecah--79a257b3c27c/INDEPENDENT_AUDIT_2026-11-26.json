@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:22:43.644176Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, VERIFICATION.md and check.py (read, not executed).",
+        "Independent replay: python3 /workspace/branches/f5681615-7e73-4a89-afcd-205984c1c917/repro_distance_gram.py; captured output in the same directory at repro_distance_gram.out. Uses distances and an explicit symmetric Gram determinant instead of the signed coordinate determinant computation in the original certificate."
+      ],
+      "rationale": "For each unordered four-vertex selection, the squared absolute edge-vector determinant is the determinant of its three-by-three Gram matrix; polarization obtains every entry from the six squared distances. Independent exact enumeration in Q(phi), phi²=phi+1, over all 4,845 selections reproduces the eleven magnitudes d=6V, in order, with counts 495, 320, 900, 1110, 120, 900, 400, 150, 320, 120, 10. All algebraic ordering comparisons are exact, and squaring is injective on nonnegative magnitudes. The maximum 16 and runner-up 8phi occur 10 and 120 times; both squared-edge biconditionals were tested on every selection. The volume gap is 4(2−phi)/3. Allowing arbitrary points in the solid preserves the absolute maximum because the signed affine determinant is separately affine in its four points, hence a convex combination of signed vertex-supported values; that reasoning does not give a continuous runner-up.",
+      "residual_risks": [
+        "The classification uses exactly the displayed coordinates and counts unordered vertex subsets, including coplanar subsets. In other normalizations volumes scale cubically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Rips paper distinguishes graph, Euclidean and spherical metrics, but its count of ten tetrahedra with all graph-metric edges of length three does not classify all Euclidean volumes. Simon–Timofeyev treat generic point partitions under symmetry conditions."
+        ],
+        "reasoning": "Neither a Rips homotopy type nor an existence theorem on symmetric partitions fixes the six joint edge lengths and Gram determinants of every four-element subset of this fixed vertex set.",
+        "searches": [
+          "arXiv:2302.14388 pp. 1–2, 4 and p. 9 Lemma 4.1; arXiv:2110.09322 p. 1."
+        ]
+      },
+      "checked_sources": [
+        "Resultary match, primary open passages and targeted web discovery above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source's tetrahedron uses a central sphere center and three neighboring centers. The second counts the clique tetrahedra at one graph scale; the top regular shell is already known."
+        ],
+        "reasoning": "Even granting the classical ten maxima and the full list of possible pairwise distances, neither comparator determines which six-edge patterns coexist and how often or which det(Gram) is immediately below the maximum. The separate all-subset exact census settles that gap.",
+        "searches": [
+          "Compare Leppmeier pp. 4–6 and Saleh–Titz Mite–Witzel p. 9 Lemma 4.1 to the runner-up assertion and edge biconditional."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match ending 79a257b3c27c is the same assigned result, not prior coverage. ArXiv:1904.06108 treats an icosahedral tetrahedral construction associated with a dodecahedral Voronoi cell, on a different vertex set."
+        ],
+        "reasoning": "An equivalent scale-free comparison would have to count the same four-subsets with magnitudes rescaled by a common factor or squared; duality to the icosahedron changes the vertex set from twenty vertices to twelve.",
+        "searches": [
+          "Resultary searches on regular dodecahedron vertex tetrahedra, spectrum and second volume; web query 'regular dodecahedron all tetrahedra formed by four vertices distinct volumes distribution 4845 second largest tetrahedron volume determinant table 120 495'."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary gives the identical posted census. The web discovery results returned named-solid geometry references, not a distinct identifiable volume histogram; this is limited discovery. The inspected Rips Lemma 4.1 gives an exact count for a specific graph threshold only."
+        ],
+        "reasoning": "A genuine competing census would match the normalized 11-shell determinant histogram (or a stronger table of all tetrahedron shapes that directly yields it), not merely the coordinate list of the polyhedron or the ten regular compounds.",
+        "searches": [
+          "Same Resultary and determinant-distribution web queries, with regular-dodecahedron background as the principal returned reference class."
+        ]
+      },
+      "rationale": "The classical ten regular maximal tetrahedra are not the contribution. The geometric and database comparisons support distinctness of the complete Euclidean volume census, the next distinct shell, its multiplicity, and its squared-edge signature, subject to historical search limits.",
+      "residual_risks": [
+        "An older, unindexed tetrahedron-orbit enumeration, or an equivalent finite data table, could already settle the invariant; the bounded search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Tetrahedra in an associated icosahedral neighbor model, not on dodecahedron vertices",
+          "evidence": "Uses the central sphere center and three neighboring sphere centers.",
+          "identifier_or_url": "arXiv:1904.06108",
+          "material_read": "PDF pp. 4–6, open-text offsets 10850 and 14900",
+          "method": "Open primary PDF passages",
+          "title": "The Dodecahedron as a Voronoi Cell and its (minor) importance for the Kepler conjecture",
+          "trigger": "Closely matching solid and tetrahedron volumes"
+        },
+        {
+          "assessment": "Inscribed partitions of generic point sets, not a volume census",
+          "evidence": "The hypotheses and the observable differ from fixed four-vertex subsets.",
+          "identifier_or_url": "arXiv:2110.09322",
+          "material_read": "PDF p. 1, opening scope",
+          "method": "Open primary PDF passage",
+          "title": "Inscribed Tverberg-type partitions for orbit polytopes",
+          "trigger": "Possible more general symmetry-based classifications"
+        },
+        {
+          "assessment": "Substantial overlap with the already-known maximum family; not a determinant spectrum",
+          "evidence": "Ten tetrahedra whose pairwise graph distances are three; studies distinct graph, Euclidean and spherical metrics.",
+          "identifier_or_url": "arXiv:2302.14388",
+          "material_read": "PDF pp. 1–2, 4 and p. 9 Lemma 4.1",
+          "method": "Open primary PDF passages",
+          "title": "Vietoris–Rips complexes of Platonic solids",
+          "trigger": "Same dodecahedron vertex set and a tetrahedron multiplicity"
+        },
+        {
+          "assessment": "Identical record, not independent prior evidence",
+          "evidence": "Same twenty coordinates, histogram and 120 runner-up count.",
+          "identifier_or_url": "2026/11/17/SCOPE-the-sharp-second-tetrahedron-volume-shell-of-the-regular-dodecah--79a257b3c27c",
+          "material_read": "Finding and complete histogram in the bound original, matched to the local index record",
+          "method": "Local Resultary discovery and frozen-source comparison",
+          "title": "The sharp second tetrahedron-volume shell of the regular dodecahedron",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59; independent exact histogram and equality tests; the Rips comparison for the known maximum family."
+      ],
+      "rationale": "The natural comparison begins with the classical regular tetrahedral compound: the second volume and its gap quantify how much volume is lost outside the maximum orbit family. The biconditional lets one recognize all near-maximal tetrahedra directly from metric data, and the complete volume distribution is reusable for exact random vertex-simplex statistics or census comparisons on Platonic vertex sets. This is more than recomputing the known top shell or reporting an arbitrary slice.",
+      "residual_risks": [
+        "No geometric orbit classification of every shell or continuous second-best theorem is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

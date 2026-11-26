@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:49:28.698204Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent layer-maxima reconstruction: the pushforward of volume under M_i=max_j X_ij has density ∏ m_i M_i^(m_i−1) on ∑M_i≤1, so its integral is ∏m_i!/d! and the normalized law including the slack is Dirichlet(m_1,…,m_k,1). Given each maximum M_i, the maximum label is uniform and other coordinates are independent uniform on [0,M_i], independently across layers. This gives the stated means and diagonal, same-layer and distinct-layer mixed moments after integrating the Dirichlet moments. In the normalized block basis the off-block terms equal −h_i h_j, while adding h_i² back to a block diagonal entry leaves (m_i+1)(2m_i+1)/(6D). The contrasts carry λ_i, and the rank-one determinant lemma gives the displayed factor and R≥1/(d+1). With fixed k and p_i≥ε, λ_i=(p_i²/12)(1+O_{k,ε}(1/d)), a_i stays bounded away from zero and R→1/4 uniformly. Hence log detΣ=−d log12+2d∑p_i log p_i+O_{k,ε}(1). Stirling puts +(k−1)log d/2 in log volume; subtraction gives the stated leading negative defect. The cube cases k=1 and the triangle (1,1) agree, and the (30,30) strict opposite comparison holds by exact arithmetic. Replay: python3 /workspace/branches/independent_exact_replay.py independently builds the covariance via maxima and uses rational elimination and exact ratio comparisons in dimensions 2, 6, and 60; computed L² for (30,30) is approximately 0.0828036003. The frozen checker was inspected but not executed. This is not a uniform-as-k-grows assertion; the O bound is on sets with a fixed positive lower bound on proportions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hanner recursions concern centered centrally symmetric products and free sums",
+          "The maximal-ranked-poset work and ordinal-sum f-vector paper concern Ehrhart or face-number invariants, not this nonsymmetric mean-block determinant"
+        ],
+        "reasoning": "Centrally symmetric free-sum covariance has vanishing component means in centered form; it cannot substitute for the nonzero layer means of the vertex-anchored cube sum. Face numbers and volume do not compute the covariance determinant.",
+        "searches": [
+          "Resultary: exact isotropic constant formulas for joins/free sums; 7976b0937cd2",
+          "Unconditional Reflexive Polytopes DOI 10.1007/s00454-020-00199-8 p. 439",
+          "Ahmad–Fourier–Joswig arXiv:2309.01626v2"
+        ]
+      },
+      "checked_sources": [
+        "Stanley DOI 10.1007/BF02187680; arXiv:2312.13890v3; arXiv:2309.01626v2; DOI 10.1007/s00454-020-00199-8",
+        "Resultary b0d90330e56d, 510023d084f1, f3037609ea09, 7976b0937cd2",
+        "Frozen RESULT.md, VERIFICATION.md, checker.py; independent_exact_replay.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day inertia paper gives the exact chain-gap coordinate coupling and full within-layer covariance difference, but for distinct layers proves constant blocks without their values",
+          "The previous order law gives the contrasts and volume; the chain proof identifies the remaining block as diag(a_i)−hhᵀ"
+        ],
+        "reasoning": "The coupling can be used to rederive the chain moments, so that background method is covered. A trace or rank-at-most-k perturbation of the order covariance is not a determinant identity and does not by itself bound the small chain mean-block eigenvalues. The surviving calculation uses the disjoint-layer mixed moments to identify a rank-one subtraction of a diagonal, factors its determinant, and controls it uniformly for the asymptotic. This is an exact invariant of the nonsymmetric natural free sum, not the order formula renamed.",
+        "searches": [
+          "510023d084f1 proof §§2–6, OA offsets 4285–8434",
+          "b0d90330e56d exact determinant and asymptotic, offset 0",
+          "Frozen RESULT.md lines 34–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chain of an ordinal sum is the free sum of the chain polytopes; each antichain is a cube",
+          "Stanley gives vol C(P)=e(P)/d!",
+          "510023d084f1 §6 gives congruence to the order polytope for k≤2 and excludes it for k≥3 by positive inertia gap"
+        ],
+        "reasoning": "The natural alternative is the free sum of cubes anchored at a vertex, not their ordinary product or the free sum of centered cubes. The k=2 reflection allows direct transfer of the corresponding order determinant and comparisons, but it does not carry those invariants at k≥3.",
+        "searches": [
+          "Resultary: layered chain/order polytopes covariance determinants isotropic log defect",
+          "Stanley DOI 10.1007/BF02187680 §2 and Cor. 4.2",
+          "Freij-Hollanti–Lundström arXiv:2312.13890v3 §4 Prop. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b0d90330e56d gives an exact order determinant with the same contrast factors and the same leading asymptotic defect",
+          "510023d084f1 states a same-layer order–chain covariance difference and a rank bound; f3037609ea09 states a diagonal variance difference"
+        ],
+        "reasoning": "These are strong theorem-level matches, not just numerical examples. The order determinant is expressed using a different k×k matrix. Neither covariance difference result states the full chain determinant factor R or the chain normalized-volume defect for k≥3.",
+        "searches": [
+          "Resultary: b0d90330e56d layered order polytope determinant and 510023d084f1 layered inertia gap; f3037609ea09 coordinatewise dominance"
+        ]
+      },
+      "rationale": "Pass for the factorized chain determinant and corresponding chain-polytopal comparison in the noncongruent k≥3 case. The standard volume, contrasts, and exact two-layer comparisons are covered or immediately recoverable. The order determinant and trace-gap matches are substantial but do not supply the across-layer chain mean-block factor. No priority inference is made from the same-day record.",
+      "residual_risks": [
+        "A broader vertex-anchored free-sum covariance theorem not located in this bounded comparison could imply the explicit factor.",
+        "No precedence is inferred for same-day records; the positive assessment concerns the distinct formula, not the standard coupling, volume, contrasts or the two-layer examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the volume and standard object; does not establish the determinant in the inspected passages",
+          "evidence": [
+            "Nonnegative coordinates with chain sums bounded by one",
+            "vol O(P)=vol C(P)=e(P)/d!"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Definition 2.1 p. 12; Corollary 4.2 p. 15, offsets 7900 and 15650",
+          "method": "Primary OA PDF",
+          "title": "Two Poset Polytopes",
+          "trigger": "Foundational chain/order definitions and volumes"
+        },
+        {
+          "assessment": "Structural precedent, not metric classification",
+          "evidence": [
+            "C(A<B)=C(A)∨C(B)",
+            "The stated comparison concerns f-vectors"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.13890v3",
+          "material_read": "Abstract and §4 Proposition 4, pp. 9–10, offset near 27800",
+          "method": "Primary OA text",
+          "title": "f-vector inequalities for order and chain polytopes",
+          "trigger": "Free-sum reformulation for ordinal sums"
+        },
+        {
+          "assessment": "Scope on Ehrhart equivalence and face-number comparisons, not evidence of determinant coverage",
+          "evidence": [
+            "Studies face vectors of chain-order interpolants"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.01626v2",
+          "material_read": "Abstract and introduction p. 1, offset 0",
+          "method": "Primary OA text",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "Prior work on precisely layered posets"
+        },
+        {
+          "assessment": "Exact overlap for k≤2 by reflection; analogous but different mean block in general",
+          "evidence": [
+            "detΣ_O=(det B)∏ λ_i^(m_i−1) with B an order-statistic covariance sum",
+            "d log(12L_O²)=−(k−1)log d+γ_k(α)+o(1)"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-layered-order-polytopes-approach-the-cube-isotropic-constant-wit--b0d90330e56d/RESULT.md",
+          "material_read": "Finding, assumptions and rank covariance start, offsets 0–4139",
+          "method": "Local Resultary mirror",
+          "title": "Layered order polytopes approach the cube isotropic constant with a universal logarithmic defect",
+          "trigger": "Exact determinant and same below-cube asymptotic type"
+        },
+        {
+          "assessment": "Material same-day match on covariance contrasts, trace and coupling; does not give numerical off-layer covariance differences or their determinant",
+          "evidence": [
+            "Within layer g the order-minus-chain variance/covariance difference is s_g(d−s_g−m_g)/((d+1)^2(d+2))",
+            "Full difference has rank at most k, and congruence holds precisely for k≤2"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1/RESULT.md",
+          "material_read": "Finding and proof §§1–6, offsets 0–8434",
+          "method": "Local Resultary mirror",
+          "title": "A third-symmetric-polynomial law for the Euclidean inertia gap of order and chain polytopes",
+          "trigger": "Same family, possible order-to-chain covariance implication"
+        },
+        {
+          "assessment": "Coordinate variances and trace, not determinant or off-layer structure",
+          "evidence": [
+            "Var(X_v)−Var(Y_v)=Cov(L_v(X),U_v(X))≥0"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-coordinatewise-euclidean-inertia-dominance-for-every-order-chain--f3037609ea09/RESULT.md",
+          "material_read": "Finding and assumptions start, offsets 0–1820",
+          "method": "Local Resultary mirror",
+          "title": "Coordinatewise Euclidean inertia dominance for every order–chain polytope pair",
+          "trigger": "Broader covariance-comparison claim"
+        },
+        {
+          "assessment": "Central-symmetry restriction excludes the noncongruent positive-coordinate layered family",
+          "evidence": [
+            "The Hanner construction uses products and free sums of centrally symmetric bodies"
+          ],
+          "identifier_or_url": "Resultary 7976b0937cd2; https://doi.org/10.1007/s00454-020-00199-8",
+          "material_read": "Catalogue Finding and recursion offsets 0 and 3500; primary paper p. 439 near offset 32500",
+          "method": "Local Resultary mirror and primary OA PDF",
+          "title": "Sharp isotropic constant range of all Hanner polytopes; Unconditional Reflexive Polytopes",
+          "trigger": "Strongest located free-sum metric recursion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The determinant is the affine-invariant covariance datum needed for precise isotropic comparisons in a natural family of vertex-anchored free sums. The product and rank-one factor avoids an unevaluated growing determinant, gives explicit dependence on every layer, and yields the direction and leading size of the isotropic defect beyond the congruent cases. The metric question is not answered by the earlier inertia trace alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:07:23.867853Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the frozen arrows leaves two independent uniform targets. An arrow into the sink basin closes exactly one cycle and an arrow outside closes none. A single inside target gives either sign with equal weight k(n−k)/n²; it is uniform in the rooted tree, yielding the path mark. Cayley counting with the specified basin vertex set gives b(n,k), with K=n having mass 1/n and only a zero jump. Rooted forest extension of a prescribed depth-h path gives a(k,h)=(h+1)(k−1)_h/k^(h+1). This equals t_h−t_(h+1) for t_h=(k−1)_h/k^h, so its tail at h≈r√k tends to exp(−r²/2). The one-sign basin weight is (n−k)/n² times the binomial mass at k for success probability k/n. Stirling gives its interior density at scale n^(−3/2), with uniform envelope proportional to u^(−1/2)(1−u)^(1/2), whose endpoint contributions vanish as the truncation is removed. Its integral with the normalizing factor 1/√(2π) is √(π/8), giving the beta mark and the total rate. The conditional basin size tends to infinity in probability; the depth kernel then yields independent Rayleigh after division by √K, and multiplication by √(K/n) gives the asserted joint mark. Independently enumerated n=3 masses per sign are 8/81, 2/81, 2/81 at (1,1), (2,1), (2,2) (branches/e546cb88-f6d2-4a5d-96ef-cc3b4006ef5a/independent_n3.py and independent_n3.txt). Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A new random mapping model §1 discusses static predecessor/successor statistics; Structural transition in random mappings treats restricted in-degrees and static cycles/components.",
+          "The exact Finding in distinct same-day record f5e22295f401 studies common directed cycles under independently refreshed arrows and their factorial measure and cycle-length limits."
+        ],
+        "reasoning": "The noise family is broader as a perturbation model but counts a different observable. Even a single refresh can replace a cycle with another while leaving its total count unchanged; preserved cycles are not the signed count difference, and their point process does not contain the sink basin mark.",
+        "searches": [
+          "Hansen–Jaworski arXiv:math/0603529 and DOI 10.37236/3572",
+          "Baron–Drmota–Mutafchiev, DOI 10.1017/S0963548300002091",
+          "Resultary: noisy random mappings and preserved cycles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Hansen–Jaworski 2013 DOI 10.1239/jap/1378401232 and arXiv:math/0603529",
+        "Hansen–Jaworski DOI 10.37236/3572 abstract",
+        "Resultary ee25bd4949eb and f5e22295f401",
+        "Baron–Drmota–Mutafchiev DOI 10.1017/S0963548300002091 (attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor law supplies K and the classical rooted-tree law supplies depth conditional on K. The independent-target surgery introduces the nontrivial conditioning weight k(n−k)/n² per sign.",
+          "The signed update law then integrates a beta-weighted basin intensity and retains a basin-scaled random depth; the closest indexed noise theorem counts cycles shared across two maps and does not retain those quantities."
+        ],
+        "reasoning": "The static counts are inputs, not the marked asymptotic after this tilt. The supported result uses binomial/Stirling endpoint control and conditional height scaling in addition to the prior enumeration.",
+        "searches": [
+          "Hansen–Jaworski 2013 Theorem 2.1 and Resultary f5e22295f401 Finding",
+          "Primary literature lookup: single-arrow refresh, predecessor count and cycle perturbation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hansen–Jaworski Theorem 2.1 gives predecessor counts for a distinguished set; p. 723 identifies the uniform mapping case with Poisson degrees. The frozen basin is the root-inclusive predecessor set because changing the root's arrow cannot affect the first hit of the root."
+        ],
+        "reasoning": "Credit the equivalent static size statistic (with root inclusion or the corresponding shift). Equivalent predecessor definitions do not encode which of the old and new targets enters that set or which length is born/destroyed.",
+        "searches": [
+          "Hansen–Jaworski, DOI 10.1239/jap/1378401232, predecessor and successor laws for exchangeable in-degrees",
+          "Resultary: one-arrow cycle-count changes and predecessor basin marks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned ee25bd4949eb item is the exact matching claim; the strongest distinct f5e22295f401 Finding measures common cycles rather than the joint jump mass."
+        ],
+        "reasoning": "No separate exact indexed formula for the same triple of marks was identified in the bounded comparison. The independent small-n enumeration corroborates correctness only.",
+        "searches": [
+          "Resultary: one-arrow refresh exact finite marked sign and length law; preserved cycles under refresh"
+        ]
+      },
+      "rationale": "The root-inclusive static basin marginal and rooted Cayley height law are not new. The supported distinct claim concerns the one-arrow before/after jump, including its limiting intensity and the joint basin and cycle-length marks under jump conditioning.",
+      "residual_risks": [
+        "The older predecessor text was unavailable and the attempted Flajolet–Odlyzko PDF extraction unreadable. A more complete joint perturbation theorem in other literature could cover this result; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static predecessor coverage, not a refresh coupling",
+          "evidence": [
+            "The theorem gives the predecessor count of a marked set in the form b+t."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1378401232",
+          "material_read": "p. 723 uniform/Poisson specialization, OA offset 7800; p. 727 Theorem 2.1, offset 28800",
+          "method": "Lawful OA PDF",
+          "title": "Predecessors and successors in random mappings with exchangeable in-degrees",
+          "trigger": "Plausibly equivalent static basin distribution"
+        },
+        {
+          "assessment": "Related noise model but a different observable; same date is not priority evidence",
+          "evidence": [
+            "Common cycles under independent per-vertex refresh, factorial measures, and cycle-length limits."
+          ],
+          "identifier_or_url": "Resultary:f5e22295f401",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A Poisson–non-Poisson crossover for cycles preserved by noisy random mappings",
+          "trigger": "Closest distinct published result with refreshed random maps"
+        },
+        {
+          "assessment": "Background model and static statistics",
+          "evidence": [
+            "Describes the uniform mapping case and predecessor/successor statistics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+          "material_read": "§1 p. 2, offset 3800",
+          "method": "Lawful OA PDF",
+          "title": "A new random mapping model",
+          "trigger": "Static random-mapping antecedent"
+        },
+        {
+          "assessment": "Unresolved scope; not used as evidence of absence",
+          "evidence": [
+            "The identified article is a static predecessor lead; the DOI attempt timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548300002091",
+          "material_read": "Identification and DOI attempt only; readable full text not retrieved",
+          "method": "Lawful retrieval attempt",
+          "title": "Predecessors in Random Mappings",
+          "trigger": "Potential older predecessor law including a tree mark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies both how often a single-coordinate update changes the component count and the length distribution of the affected cycle on that rare event. The basin and length marks specify the jump geometry that an unmarked probability or a preserved-cycle count would miss.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

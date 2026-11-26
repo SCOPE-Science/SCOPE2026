@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive probability normalization is fixed by the latitude integral and gives the exact entire radial transform. The factorization of the first derivative of the numerator forces every repeated positive real root to be a shared sine zero. Reduced rational arithmetic then gives all and only opposite-parity odd-multiple resonances; evaluation of the third derivative proves exact multiplicity three. Counting is an exact progression count. Analytic Taylor coefficients and a three-root perturbation argument prove the signed cube-root unfolding with one real and two nonreal nearby roots. Numerical checks reproduce the formula, derivative orders, and local splitting. The result applies to real Fourier zeros only except where local complex-frequency branches are explicitly discussed.
+## correctness
 
-## Originality — PASS, with publication-priority uncertainty
-The foundational spherical transform formula and Bessel connection are classical (Bezubik–Strasburger, 2006). González Vieli (online 2011) proves a uniqueness criterion for Fourier restrictions of general measures on one sphere, not an equal-mass two-shell repeated-zero census. Logan (1983) bounds multiplicity-counted zeros of all positive-definite bandlimited functions but does not, in the accessible abstract, identify the arithmetic resonance locus or local cubic-root splitting for this two-shell family. Searches for two-centered-uniform-mixture and sum-of-sincs aliases, and comparisons to accessible published mathematical records, found no stronger statement that directly implies the proposed complete resonance-and-unfolding result. The accessible Logan material is abstract-only, and older exponential-sum or diffraction literature may contain an equivalent calculation. Non-detection alone does not establish definitive priority.
+PASS
 
-## Mathematical value — PASS
-A nonnegative measure on two concentric spheres is a basic Fourier-scattering and spherical-mean object. Real Fourier nulls are measurable invariants, and repeated nulls affect stability under geometric perturbations. The theorem identifies the exact arithmetic exceptional locus, an infinite sharp multiplicity-excess counting law, and the universal cube-root instability at every exceptional null. The full parameter-wide resonance classification is more informative than checking one example, and the bifurcation gives a structural sensitivity law. No new broad theory of positive-definite entire functions is claimed.
+The probability latitude integral is sinc(at) on a sphere of radius a, so the normalized mixture is one at zero and at nonzero zeros has the same multiplicity as H=sin(t)+sin(rt)/r. H_t factors into two cosines. If either vanishes, sin(t)=±sin(rt); because r is strictly between zero and one the coefficient 1±1/r cannot vanish, and both sines must vanish at a repeated zero. The integer phases are opposite in parity exactly at odd multiples of qπ for a reduced opposite-parity pair p,q. There H_tt vanishes and H_ttt=cos(⁠t₀)(r₀²−1) is nonzero, so the root contributes exactly two to multiplicity minus distinct count. Also H_r=−cos(t₀)t₀/r₀ there. Substituting δ=u³ and t−t₀=uw into the analytic expansion leaves a holomorphic quotient by u³ whose limiting cubic has three distinct roots with C³=6t₀/[r₀(r₀²−1)]. The simple-root implicit function theorem and a fixed-disk Rouché count give three simple roots with the stated error; conjugation fixes the real branch and exchanges the two off-axis branches. This is an analytic all-parameter check, not reliance on the recorded numerical examples.
 
-## Scope and limitations
-The masses of the two shells must be equal; the radii are distinct and positive; dimension is three. The entire function may have other multiple complex zeros, not classified here. The local expansions are for each fixed resonance, and publication priority is not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact arithmetic multiplicity classification of the equal-mass two-shell sum and the evaluated local radius-detuning law, not for the transform of an individual sphere, generic cube-root behavior, or setting up a sum of sincs. The nearest actually inspected results have different measures or observables.
+
+## value
+
+PASS
+
+For a natural positive radial model built from just two probability shells, the result specifies exactly when radial signals have higher-order nulls, their locations and multiplicity excess, and which nearby complex zeros remain real when the radius is detuned. The sharp parity boundary excludes all other ratios and repeated real roots, and the coefficient quantifies sensitivity to radius. This is more than the classical spherical transform or citing generic Puiseux scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

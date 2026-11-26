@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:07.404583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt inspected as evidence",
+        "python /workspace/replay/5-domination.py 16 (independent exact enumeration and subset check)"
+      ],
+      "rationale": "Rooted-forest ancestor graphs cover all trivially perfect graphs. On disjoint components domination multiplies, and adding a universal root to a nonempty forest adds z(1+z)^(n-1) to its polynomial; the one-vertex start is z. Independently I enumerated forests by integer partitions of their orders and combinations with replacement of the rooted types in each equal-size block. Rooting such a forest once gives exactly the connected tree shapes at the next order. All 1,011,310 positive-order forest shapes through 16 were checked with exact integer coefficients. The only violating forest is the rooted tree with three five-vertex chains attached at its root, and so gives exactly the stated graph isomorphism class, irrespective of whether uniqueness of a forest presentation is assumed. The only failing index is 2; a separate 2^16 subset count agrees with the full witness polynomial and the defect 230-225=5. The general clique-bouquet defect is m(2m^2-9m-3)/2, positive at 5 and for all larger integer m. The order-zero forest has constant polynomial 1.",
+      "residual_risks": [
+        "Finite cutoff and designated infinite family only; no theorem about unimodality or other larger-order graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rather gives the more general join-of-cliques formula. Omar's threshold class is narrower. Beaton–Schoonhoven's displayed tree family includes an induced P4 rather than lying in the trivially perfect class."
+        ],
+        "reasoning": "The more general formula covers the witness calculation but does not classify all trivially perfect graphs. General tree counterexamples and positive results for threshold graphs are not the cutoff either.",
+        "searches": [
+          "Rather, Theorem 2.16 and the following question",
+          "Omar arXiv:2601.14494 abstract and Theorem 19",
+          "Beaton–Schoonhoven arXiv:2411.02288 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 18 ...597bca1d14ea, October 13 ...416c1ef8152b and October 26 ...5d6778d8bf31",
+        "Rather Theorem 2.16; Omar arXiv:2601.14494 §5; Beaton–Schoonhoven arXiv:2411.02288 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution of a central K1 and three K_m blocks gives z(1+z)^(3m)+((1+z)^m-1)^3. The October 18 connected census and closure under convolution cover all orders and disjoint graphs here."
+        ],
+        "reasoning": "The family and the defect calculation follow directly from the formula; there is no new implication needed from that theorem to the witness. The global minimum and uniqueness are not implied by that formula alone, but are already stated and established in the indexed census.",
+        "searches": [
+          "Rather §2 Theorem 2.16, clique-join specialization",
+          "October 18 RESULT.md continuation, disconnected case and bouquet formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ...597bca1d14ea Finding covers the cutoff and graph uniqueness, with 376,464 connected classes tested.",
+          "Resultary ...416c1ef8152b covers the minimum and unique offending polynomial, with graph uniqueness explicitly outside its scope."
+        ],
+        "reasoning": "The October 18 claim quantifies over the same class, includes disconnected graphs, and names the same exception, not merely the same coefficients. The October 13 claim is a partial, not complete, overlap.",
+        "searches": [
+          "Resultary: trivially perfect domination-polynomial log-concavity first failure and unique order-16 graph; K1 joined with three K5",
+          "October 18 Finding and census under rooted-tree/union formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 18 supplies an exact size-16 exhaustive census and identifies precisely the three-K5 bouquet. October 13 identifies the exact failing vector, but does not claim graph uniqueness. The same-date hit is about crown graphs."
+        ],
+        "reasoning": "Recomputing the census with other code or recording the total of connected plus disconnected forest shapes does not add a new sharp boundary. The separate crown-graph classification is not coverage.",
+        "searches": [
+          "Resultary October 18 rooted-tree census and October 13 coefficient census",
+          "Same-date Resultary study of domination-polynomial log-concavity, ...5d6778d8bf31"
+        ]
+      },
+      "rationale": "The October 18 indexed finding covers the same sharp minimum order and the same uniquely exceptional graph up to isomorphism. The difference between enumerating disconnected graphs and treating their products by convolution is a proof-route difference, not a distinct claim. The displayed infinite family is already covered by the general join-of-cliques formula with an elementary coefficient comparison. No distinct valuable remainder was identified.",
+      "residual_risks": [
+        "The independent correctness check and exact indexed content comparison do not establish absolute publication priority; an earlier census under other names may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the theorem",
+          "evidence": "Through 15 all log-concave; at 16 only K1 join (3 K5); exact coefficients and graph up to isomorphism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-unique-first-failure-of-domination-polynomial-log-concavity--597bca1d14ea/RESULT.md",
+          "material_read": "Finding, rooted-tree census, disconnected convolution and clique-bouquet comparison; offsets 0–4420 and 4420–7879",
+          "method": "Local mirrored RESULT.md, bounded passages",
+          "title": "The unique first failure of domination polynomial log-concavity",
+          "trigger": "Same sharp boundary and exact graph witness"
+        },
+        {
+          "assessment": "Covers cutoff and polynomial, not graph uniqueness",
+          "evidence": "Explicit uniqueness limitation distinguishes the strength from the October 18 theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-16-vertex-onset-of-domination-polynomial-non-log-concavity--416c1ef8152b/RESULT.md",
+          "material_read": "Finding, census and scope; offsets 0–4545 and 4545–8471",
+          "method": "Local mirrored RESULT.md",
+          "title": "Sharp 16-vertex onset of domination-polynomial non-log-concavity",
+          "trigger": "Same minimum and exception vector"
+        },
+        {
+          "assessment": "Covers witness formula, not the finite cutoff",
+          "evidence": "The theorem gives the clique join expression; the following text asks about coefficient shape.",
+          "identifier_or_url": "https://doi.org/10.61091/jcmcc126-19",
+          "material_read": "§2 Theorem 2.16, p. 8, and following paragraph, near PDF text offset 22187",
+          "method": "Primary OA paper, theorem and discussion",
+          "title": "On domination polynomials of some graphs",
+          "trigger": "Contains the general join-of-cliques formula"
+        },
+        {
+          "assessment": "Threshold graph result is narrower; Theorem 19 states unimodality",
+          "evidence": "No extension in those passages to all trivially perfect graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2601.14494",
+          "material_read": "Abstract near offset 1200 and §5, Theorem 19 near offset 68076",
+          "method": "Primary OA text",
+          "title": "New Perspectives on the Unimodality of Domination Polynomials",
+          "trigger": "Shape theorems for a related graph class"
+        },
+        {
+          "assessment": "Different examples; one general nine-vertex example not specified in that passage",
+          "evidence": "Displayed tree family has an induced P4.",
+          "identifier_or_url": "https://arxiv.org/html/2411.02288",
+          "material_read": "§2 near offset 6099",
+          "method": "Primary OA text",
+          "title": "On the unimodality of nearly well-dominated trees",
+          "trigger": "Earlier non-log-concavity examples"
+        },
+        {
+          "assessment": "Not the same graph class or classification",
+          "evidence": "Treats ordinary and total domination in crown graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-log-concavity-cutoff-for-domination-polynomials-of-crown--5d6778d8bf31/RESULT.md",
+          "material_read": "Finding and graph class",
+          "method": "Local mirrored RESULT.md",
+          "title": "A sharp log-concavity cutoff for domination polynomials of crown graphs",
+          "trigger": "Distinct, closely worded same-date hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; October 18 same boundary and graph characterization; Rather general join formula"
+      ],
+      "rationale": "The sharp boundary is mathematically motivated and useful, but this package recomputes the already covered minimum and graph uniqueness. Apart from a different census route, the extra numerical totals are standard rooted-forest counts and the clique-family inequality is a routine specialization. There is no independently useful new increment to preserve by repair.",
+      "residual_risks": [
+        "This is not a claim that the underlying boundary lacks mathematical interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

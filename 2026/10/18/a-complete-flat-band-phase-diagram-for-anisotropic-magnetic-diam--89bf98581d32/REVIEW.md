@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain fixes four strictly positive hoppings, arbitrary real periodic onsite energies and an arbitrary flux. The Laurent determinant has exactly the three Fourier coefficients displayed in the proof. Their vanishing gives the exhaustive and mutually exclusive flat-band regimes, including exceptional half-flux balanced products; this also rules out exactly two distinct flat energies. Explicit Laurent eigenvectors establish two-cell localization, and the constant-vector coefficient obstruction proves the exact one-cell criterion. All divisions are justified: the unequal-side-potential branch has \(E_*\notin\{v,w\}\). Independent exact-rational identities and direct sampled determinants corroborate, but do not replace, the analytic argument.
+## correctness
 
-## Originality — PASS, subject to residual risk
-Sabri–Youssef (arXiv:2304.06465, §2, §4, §7) derive general algebraic and semialgebraic tools, but not the explicit complete weighted magnetic diamond phase diagram. Xia et al. (DOI:10.1364/OE.441554, §2) treat equal nearest-neighbor hoppings and symmetric/antisymmetric detunings. Danieli et al. (DOI:10.1515/nanoph-2024-0135, §3) document the conventional half-flux cage and general compact-state recipes. Marques et al. (arXiv:2407.14405v1, §III–V) treat an equal-hopping conventional clean chain and localized impurities in an open chain. Their applicable symmetric or equal-hopping conclusions are credited as antecedents, not novelty. The complete nonunit weighted/periodic-potential classification and one-cell threshold were not recovered in the inspected work. Residual risk: a stronger unlocated flat-band-generator theorem may implicitly cover this natural three-site slice; independent priority assessment has not occurred.
+PASS
 
-## Value — PASS
-A complete natural phase diagram with three discrete outcomes and exact compact-state support is useful for engineering periodic rhombic quantum and photonic networks with unequal arms and controlled onsite detunings. It simultaneously establishes a no-two-flat-bands obstruction, identifies a strength-independent half-flux caging condition on arm products, and gives non-symmetric periodic detuning designs outside the conventional protected flat-band slice. This is a motivated all-parameter classification of an established model, not merely a single numerical example or renaming of the known unit-hopping case. No downstream general theorem is asserted.
+For the stated cell convention, write the determinant as (u-E)(v-E)(w-E)-(w-E)|a+bz|^2-(v-E)|c+d exp(i phi) z|^2. Its three Laurent coefficients must separately vanish. For equal side potentials the nonconstant term factors as -(v-E)(ab+cd exp(i phi)); it cancels identically in E exactly at balanced products and half flux. The remaining quadratic then has two distinct roots different from v. For unequal side potentials E cannot be either side energy, the nonconstant coefficient enforces exp(i phi)=±1, and its linear equation has either the single stated candidate or no solution when ab±cd=0. The constant coefficient gives exactly the stated onsite tuning. The explicit eigenvectors are nonzero Laurent polynomials with exponents in two consecutive cells. After translating any proposed one-cell state to cell zero, its Bloch vector is constant; the lower-row z^-1 terms force its central component to vanish, and the upper row forces both side components nonzero and ad exp(i phi)=bc. Under positivity this is exactly the stated zero-flux proportionality. An independent symbolic determinant and kernel calculation and exact tuned zero- and half-flux examples were run (python3 /workspace/branches/recompute_frozen.py); the coefficient argument, not tests, establishes completeness.
 
-## Limits
-The theorem excludes vanishing hoppings, longer-range interactions, aperiodic impurities and general unit-cell geometries. Its reproducibility code samples finitely many models, while its proof is algebraic for all allowed continuous parameters. A stronger overlapping treatment may exist beyond the full texts compared.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the simultaneous weighted magnetic phase diagram with arbitrary periodic potentials, in particular the unequal-side tuned branch and sharp support criterion. General Laurent methods and equal-hopping symmetric caging are prior work; related finite caging and differently connected periodic graphs do not give this classification.
+
+## value
+
+PASS
+
+A complete phase diagram of an established lattice is useful for choosing periodic magnetic couplings and site energies. It distinguishes the protected flat band, full caging, and tuned unequal-side flatness; it excludes two flat energies and supplies a sharp minimum compact support rather than only a dispersionless eigenvalue. The conclusions test all positive hoppings and real periodic onsite energies, not a fixed sampled profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

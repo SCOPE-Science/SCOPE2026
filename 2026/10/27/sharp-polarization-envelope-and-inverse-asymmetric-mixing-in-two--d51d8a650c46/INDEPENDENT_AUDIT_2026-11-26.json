@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:49.706893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Δ=x₂−x₁ the input difference is KΔ. A logistic chord of absolute length s has absolute response difference sinh(s/2)/[cosh(midpoint)+cosh(s/2)], maximized uniquely at midpoint zero for s>0. At λ≤0 its signed contribution opposes Δ so |Δ| decays at least as e^(−t). At λ>0 compare with y′=−y+tanh(Ky/4); at K=4, y decreases to zero and (y^(−2))′→2/3 for y(0)>0, giving the universal constant. At symmetric weights and h=−β/2 the anti-diagonal is invariant and realizes equality, so sharpness is across the allowed family. At equilibrium the chord bound forces |Δ|≤d for K>4. Equality requires centered inputs and hence complementary activities. Writing m=(x₁+x₂)/2, the mean input is h+β[m+(a−b)Δ/2], so the stated h_σ centers it at m=1/2 and actually realizes each extremum. Strict increase of artanh(d)/d on (0,1) gives the unique positive cap, with none at or below K=4. Both logistic derivatives then equal (1−d²)/4; the row-stochastic matrix has eigenvalues 1 and λ. This gives the asserted Jacobian spectrum, with H′=[d−(1+d²)artanh(d)]/d²<0 and H falling from one to zero. The stimulus midpoint and separation yield the stated inverse without sign ambiguity only when orientations are labeled; coincidence of h_+ and h_− correctly means a=b. Replay: chord identity, mean-input formula and Jacobian above or RESULT.md lines 21–41. The frozen verify.py was inspected, not executed. Neither convergence to the maximizing states, nonlinear stability at the zero eigenvalue, nor noisy identifiability is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 18 sharp theorem applies to arbitrary shared measurable forcing and all nonnegative row-stochastic matrices. Its coefficient is |λ| here, so for λ>0 it gives the same contrast bound and sharp critical law. For λ≤0 and large β|λ| it does not give the sign-opposing e^(−t) estimate.",
+          "The Nov. 2 theorem gives the symmetric two-node attraction threshold H(d_c)=λ and both stability types, as well as a broader autonomous-network convergence result. Boudourides gives equitable quotients and symmetric two-block cusps, and leaves asymmetric quotient behavior open in its conclusion."
+        ],
+        "reasoning": "At complementary activities both response derivatives are equal, so stability depends only on the same two eigenvalues as for the matching symmetric matrix. The indexed symmetric spectrum therefore substantially covers this part by direct transfer; neither broader contraction result furnishes recovery of which cross-weight is larger from labeled maximizing stimulus positions.",
+        "searches": [
+          "Resultary 2026/10/18 3ecc92a730da, Finding",
+          "Resultary 2026/11/2 bf3050d364d8, Finding",
+          "Boudourides arXiv:2609.10580v1 §5 Thm. 5.1 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Boudourides arXiv:2609.10580v1 §5 and conclusion",
+        "Holehouse–Pollitt PLOS One PDF p. 9",
+        "Resultary 3ecc92a730da and bf3050d364d8 exact findings",
+        "Targeted Resultary search for the oriented stimulus inverse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonlinear diameter comparison plus the equality criterion for a logistic chord gives the cap and forces complementary states. A symmetric realization of that contrast and the same stability criterion is explicit in the indexed results.",
+          "For the directed system the input midpoint at a complementary state contains the term β(a−b)Δ/2. Its cancellation gives the two oriented offsets, which neither a scalar contrast theorem nor the symmetric cusp analysis records."
+        ],
+        "reasoning": "Known results largely settle the magnitude and the coincident-field symmetric baseline. To extract directed weights one must additionally identify at which physical common stimulus each orientation attains the bound. The support for distinctness is confined to that directed extremum and measurement law, not the standard logistic/secant facts or critical coefficient.",
+        "searches": [
+          "arXiv:2609.10580v1 §5 and conclusion",
+          "Resultary 3ecc92a730da and bf3050d364d8, exact comparison and pattern existence/attraction statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric centered pattern contrast solves d=tanh(βλd/4), the same scalar equation written using a logit secant. The indexed all-network chord comparison bounds stationary contrast by its positive fixed point for λ>0.",
+          "At fixed λ an arbitrary equilibrium of the directed model at h has the same coordinates in the symmetric model at the adjusted field h+β(a−b)Δ/2. This change is state-dependent, not a single field reparameterization for both contrast orientations."
+        ],
+        "reasoning": "The all-stimulus feasible contrasts themselves can be transported to the symmetric system; symmetry cannot predict the actual unequal labeled optimal fields without the directed mean-input term. The inverse uses exactly the information lost when the objective alone or the symmetric fixed-field branch is kept.",
+        "searches": [
+          "Resultary: identify directed asymmetric mixing a minus b logistic two-community from opposite maximizing common stimulus positions exact equilibrium contrast inverse weights field bias artanh",
+          "Resultary 3ecc92a730da and bf3050d364d8, Findings",
+          "Holehouse–Pollitt doi:10.1371/journal.pone.0267083, scalar mean-field equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact scalar stabilization curve and a numerical example occur in the indexed symmetric analysis; the cited prior-model text tabulates no matching directed extrema. Other retrieved entries use different dynamics, such as reversal of circulation in a four-state aspiration Markov chain."
+        ],
+        "reasoning": "The question is a continuous-field inverse, so the decisive lookup is of analytic formulas rather than a finite table. The matched symmetric scalar curve does not contain the oriented field offset. Ranked search misses do not establish priority.",
+        "searches": [
+          "Resultary: directed logistic threshold maximizing stimulus positions asymmetric mixing inverse weights",
+          "Resultary bf3050d364d8, Finding numerical example and exact H threshold",
+          "Boudourides arXiv:2609.10580v1 §5"
+        ]
+      },
+      "rationale": "Credit the directed assignment of the optimal contrasts to their stimulus values, and the resulting identification of ordered cross-weights in the exact two-block model. The positive-λ synchronization threshold, critical comparison law, contrast magnitude and symmetric stability transition are covered or directly implied by indexed results and are not credited as new. The signed λ≤0 decay statement is a two-block refinement of the absolute row-difference bound.",
+      "residual_risks": [
+        "Unindexed asymmetric sigmoid equilibrium or identification work could contain the two-field transformation and inverse; bounded search does not prove priority.",
+        "The indexed dates do not by themselves establish dependence or relative priority. The overlap of the scalar and stability parts is credited irrespective of record ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quotient machinery and symmetric cusps, not the directed stimulus inverse",
+          "evidence": [
+            "The two-block cusp theorem takes symmetric coupling. The conclusion identifies asymmetric quotient matrices as a remaining direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.10580v1",
+          "material_read": "Abstract, §5 Theorem 5.1 (offset near 27500), and conclusion (near 43300)",
+          "method": "OA HTML and statement comparison",
+          "title": "Collective Hysteresis and Multistability in Threshold Networks",
+          "trigger": "Motivating logistic network and potentially covering two-block theorem"
+        },
+        {
+          "assessment": "Directly covers the sharp contrast dynamics for λ>0 and supplies an upper bound for stationary contrast",
+          "evidence": [
+            "The autonomous scalar majorant is r′=−r+tanh(qr/4). At q=4 it has the same sharp √(3/2) constant; at q>4 the symmetric realization uses the same fixed point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da/RESULT.md",
+          "material_read": "Finding, scope and first proof steps, offsets 0–3335",
+          "method": "Local catalogue mirror and row-coefficient comparison",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold networks",
+          "trigger": "Exact matching sharp contrast estimate on a broader network class"
+        },
+        {
+          "assessment": "Exact stability overlap for the symmetric realization and direct spectral transfer, not the asymmetry inverse",
+          "evidence": [
+            "The theorem states H(v_s)=δ, saddle and sink types, and one zero eigenvalue at equality. The realizing matrix is symmetric and its prescribed field is −β/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-contrast-extinction-critical-slowing-and-reentrant-pattern--bf3050d364d8/RESULT.md",
+          "material_read": "Finding, assumptions and chord proof opening, offsets 0–4163",
+          "method": "Local catalogue mirror and match the two-node eigenvalues",
+          "title": "Sharp contrast extinction, critical slowing, and reentrant pattern stability in logistic threshold networks",
+          "trigger": "Exact pattern stability overlap and possible broader envelope coverage"
+        },
+        {
+          "assessment": "Scalar equivalent equation, not evidence of a directed two-community optimum/inverse",
+          "evidence": [
+            "The inspected equation is a scalar tanh mean-field law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0267083",
+          "material_read": "PDF p. 9, scalar mean-field equation passage around offset 54608",
+          "method": "OA primary article passage",
+          "title": "Non-equilibrium time-dependent solution to discrete choice with social interactions",
+          "trigger": "Scalar mean-field tanh precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A maximum contrast alone cannot tell which community influences the other more: all allowed pairs with the same a+b have the same contrast bound. Optimizing over the actual controlled input and reporting the field along with the contrast resolves precisely that information loss. The exact oriented field offsets give a usable deterministic test for directed asymmetry, and the saddle/sink distinction limits when the envelope might be observed by passive relaxation. This is structural model information, not a claim of a new scalar decay phenomenon or a statistical estimation guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

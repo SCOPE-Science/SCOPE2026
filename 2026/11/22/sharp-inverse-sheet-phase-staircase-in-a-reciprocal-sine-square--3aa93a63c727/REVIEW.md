@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed \(a,b>0\) and strictly interior \((u,v)\), the full inverse equations reduce exactly to finitely many second-coordinate phase graphs and a quadratic equation with one positive solution per integer first-phase label. Monotonicity counts each sheet without enumeration cutoffs. The result includes all domain edges and the phase equality \(\zeta=b\pi\), not the excluded input singularity \(x=0\); the target-edge cases are explicitly excluded. The Jacobian determinant is nonzero for interior targets. Summing reciprocal asymptotics proves both the exact leading preimage coefficient and the atomic transverse convergence rate. The packaged standalone script passed 270 separately counted finite-fiber cases, 21,424 numerical inverse/regularity tests and threshold tests. The analytic proof, not the finite script, establishes the universal theorem.
+PASS
 
-## Originality — PASS within inspected literature
+For fixed positive a,b and an interior target, each positive second phase ζ≤a+bπ uniquely determines the segment y=(ζ-ax)/(bπ), on x in (0,1] intersected with [(ζ-bπ)/a,ζ/a]. On it the first phase divided by π is a/x+ζ/π²−ax/π², strictly decreasing. Each of the two distinct first-phase progressions crosses it at most once per integer, equivalently at the unique positive quadratic root. The inverse labels are injective because the actual phases fix both labels. Exactly the phases 0<ζ≤bπ have segments reaching x=0, including equality where y=1−ax/(bπ). Their two disjoint second-phase progressions give the stated floors. Counting integers on each truncated phase interval gives a/ε+O(1) per first-phase progression on an edge-reaching segment and a bounded count elsewhere. The smallest phase is arcsin(sqrt(v)), giving the if-and-only-if threshold, including equality when b<1/2. The phase Jacobian determinant is −ab(1+π²/x²), and the two sine derivatives are nonzero at interior targets. For K>0, each edge-reaching segment has weight 1/K+O(ε); its transverse distance to ζ/(bπ) is ax/(bπ), with x=a/m+O(m⁻²). Summing the distances gives a harmonic logarithm, while exceptional segments and weight rebalancing cost O(ε). This proves the stated W1 upper bound without uniformity near target endpoints or staircase jumps. VERIFICATION.md and checks/verify_inverse.py were inspected; the finite floating-point diagnostics were not run and are not needed for exhaustion or threshold equality.
 
-The July 19, 2023 original publisher HTML gives the identical equations and discusses numerical dynamics and encryption but not the targetwise inverse-phase staircase. A published result on the same map gives a small-state *fixed-point* saddle pair and its \(2a/\varepsilon\) count; these constraints cannot imply the arbitrary-target coefficient \(2aK_b(v)/\varepsilon\), the phase selection threshold in \(b\), or the transverse empirical limit. A published Chialvo cosine-flux inverse-valence theorem is analogous but has a different map and domain, with no parameter or conjugacy reduction found. Mira's general noninvertible-map framework contains no equivalent specialized assertion. Actual published-finding corpus semantic queries, web searches, source readings and statement-by-statement comparisons are documented in AUDIT.json. A broader unindexed oscillatory inverse theorem remains a priority risk, and external review may revise the novelty assessment.
+## originality
 
-## Value — PASS
+PASS
 
-The exact number of backward explanations of a regular target is a natural global invariant for a noninvertible dynamical map. This theorem identifies unexpectedly infinite regular inverse valence even in a bounded source square, locates all its singular accumulation levels, and gives an exact discontinuous phase diagram for targetwise multiplicity. Those facts are not inferred from chaotic orbit plots, finite numerics or the prior fixed-point theorem. They do not claim forward chaotic indicators, entropy, cryptographic security or an invariant physical measure.
+The map, ordinary critical-set framework and similar counting mechanisms are prior. The distinct claim supported here is the fixed-interior-target finite-phase staircase, its exact leading valence, the sharp parameter threshold, and the quantitative transverse empirical law on the given one-step domain. No checked comparator covers this combination or implies it by specialization.
 
-## Closest sources and limitations
+## value
 
-Zhu et al. (2023), DOI 10.3390/math11143171; the same-map fixed-point saddle finding at https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-fixed-point-saddles-per-reciprocal-phase-band-in-a-coupled-s--99bf14d32624 ; the Chialvo inverse-valence finding at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-singular-zero-to-infinite-inverse-valence-transition-in-a-cosine--8b96b0ec53ba ; C. Mira (2007), Scholarpedia 2(9):2328. The proof requires strictly positive parameters and strictly interior targets; all estimates are fixed-parameter.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Inverse multiplicity is a natural invariant of this already studied noninvertible map. Even in a bounded source, regular preimages can be infinite; the exact threshold and phase-dependent leading count distinguish target heights for which this occurs, and the atomic law identifies where the multiplicity resides. The usefulness is for one-step inverse geometry, not forward chaos or security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

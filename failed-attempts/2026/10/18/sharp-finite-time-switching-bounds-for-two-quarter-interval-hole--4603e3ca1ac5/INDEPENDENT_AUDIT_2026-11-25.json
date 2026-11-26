@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:27:06.216692Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each length-(n+1) cylinder has measure 2^−(n+1), and its word survives exactly when it avoids the designated equal-bit pair at each step. After the first check the sorted terminal counts are (1,2). Thereafter the two updates keep either the smaller or the larger entry and replace the other by the sum. The count is at least n+2, attaining it only when the smaller is always kept (switch the hole); the two entries are bounded respectively by F_(n+1),F_(n+2), with simultaneous equality only when the larger is always kept (repeat the hole). The n=0,1 cases follow directly. For alternation, flipping every second bit converts the restriction to avoiding one directed pair, hence at most one change in the transformed sequence. This gives countably infinitely many eventually period-two survivors and dimension zero. A constant hole gives the Fibonacci subshift, with dimension log(φ)/log(2); removing ambiguous dyadic codings does not change it. The rates then follow from the counts. Independent replay: python -B /workspace/review_replay.py 1 checks all 1,023 schedules through n=9 by applying the map directly to exact dyadic-cylinder midpoints. The all-n claims use induction, not the finite run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "962cd78c291c generalizes the alternating minimum to integer bases, specializing to n+2 at base two; it does not give the constant-schedule maximum.",
+          "ae0aa2f134e9 gives the exact alternating and fixed-hole counts and schedule-density criteria, not the complete finite-time optimization.",
+          "91c8d26540fd gives the exact optimization and additionally first-hit expectations and a periodic entropy/dimension/escape-rate trichotomy."
+        ],
+        "reasoning": "The integer-base result already covers one side, but only 91c8d26540fd resolves both finite-time sides and the relevant infinite behavior together. The general quenched formalism does not supply that finite-horizon extremum in the inspected material.",
+        "searches": [
+          "Resultary: optimal alternating Markov hole escape, sparse repetition doubling moving holes",
+          "arXiv:2103.04712"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 91c8d26540fd, ae0aa2f134e9 and 962cd78c291c",
+        "arXiv:1312.7030",
+        "arXiv:2103.04712",
+        "arXiv:1302.2486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record's periodic formula at period one gives the asserted golden-ratio dimension and escape rate; its alternating proof enumerates the infinite itineraries. Its finite-time inequalities bound any escape-rate limit simply by taking logarithms."
+        ],
+        "reasoning": "No distinct original remainder was found in the stated claim. The uncountability of constant-hole survivors is implicit in the positive dimension, and each alternating itinerary is eventually period two by the explicit bit flip. Generally related moving-hole literature alone would not establish such coverage.",
+        "searches": [
+          "Resultary 91c8d26540fd and ae0aa2f134e9; arXiv:1312.7030"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "91c8d26540fd, Finding: same map, both half-open intervals, same time cutoffs, and exactly the same formulas and schedules.",
+          "91c8d26540fd, Proof §5: b_j XOR (j mod 2) converts alternation to avoiding 01; the resulting one-change words give precisely the countable eventual-period-two behavior after undoing the flip."
+        ],
+        "reasoning": "The survival symbols P_n and Leb(S_n) denote the same event, not just isomorphic bounds. The negative-doubling reduction concerns the alternating case alone; the exact catalogue match covers all schedule words without this reduction.",
+        "searches": [
+          "Resultary: doubling map moving holes finite-time extrema alternating Fibonacci constant",
+          "arXiv:1312.7030",
+          "arXiv:1302.2486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91c8d26540fd, RESULT.md Finding paragraphs 1–3 and Proof §5: exact expressions and equality conditions, not just matching initial numbers."
+        ],
+        "reasoning": "The catalogue contains an exact statement-level match in a distinct record, which includes additional assertions not in the frozen finding. Its displayed date is not evidence of priority over this submission.",
+        "searches": [
+          "Resultary: sharp moving-hole escape envelopes two quarter holes"
+        ]
+      },
+      "rationale": "A distinct already-indexed result directly states the same sharp all-schedule finite-time envelopes with both iff equality conditions, and covers the infinite cases. This is a finding of demonstrable coverage in the catalogue, not a finding about first discovery or historical priority: the matching record has a later displayed path date.",
+      "residual_risks": [
+        "Catalogue overlap is not proof of historical priority, direction of derivation, or authorship.",
+        "The investigation did not exhaust alternative presentations via negative doubling or the equivalent two additive integer recurrences. The independent direct catalogue match suffices for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage in a distinct record, with additional conclusions",
+          "evidence": "For every n≥0 the displayed n+2 and F_(n+3) bounds hold, with iff alternation and constancy at n≥2; §5 gives the survivor coding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0–2458); periodic trichotomy and countability proof (4900–7502)",
+          "method": "Resultary search and mirrored statement and proof",
+          "title": "Sharp moving-hole escape envelopes and a zero-entropy alternating phase for the doubling map",
+          "trigger": "Strongest exact catalogue match"
+        },
+        {
+          "assessment": "Related, not full sharpness result",
+          "evidence": "Exact alternating and fixed counts; eventual period two under alternation.",
+          "identifier_or_url": "Resultary ae0aa2f134e9",
+          "material_read": "Finding and proof passage at offsets 4204–6704",
+          "method": "Resultary search and mirrored record",
+          "title": "Sparse repetition is the exact zero-growth boundary for two moving holes",
+          "trigger": "Same two holes and exact counts"
+        },
+        {
+          "assessment": "Exact coverage of the minimum only",
+          "evidence": "Base two recovers n+2 and its alternating equality case.",
+          "identifier_or_url": "Resultary 962cd78c291c",
+          "material_read": "Finding",
+          "method": "Resultary search and mirrored record",
+          "title": "Optimal alternating Markov-hole escape in integer expanding maps",
+          "trigger": "Broader base parameter"
+        },
+        {
+          "assessment": "Different hole dynamics",
+          "evidence": "Time-periodic oscillating or breathing hole and Ulam escape calculations, not the exact deterministic switching optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.7030",
+          "material_read": "PDF pp. 1, 2 and 7",
+          "method": "OA PDF passages",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same dynamical map with moving holes"
+        },
+        {
+          "assessment": "The inspected summary does not yield the claimed extremum",
+          "evidence": "Quenched pressure, escape rate and dimension for random interval maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.04712",
+          "material_read": "Abstract",
+          "method": "OA PDF abstract passage",
+          "title": "Thermodynamic Formalism for Random Interval Maps with Holes",
+          "trigger": "Plausible broader formalism"
+        },
+        {
+          "assessment": "Static, not arbitrary switching",
+          "evidence": "The hole is a fixed interval (a,b).",
+          "identifier_or_url": "https://arxiv.org/abs/1302.2486",
+          "material_read": "Abstract",
+          "method": "OA PDF abstract passage",
+          "title": "The doubling map with asymmetrical holes",
+          "trigger": "Static-hole alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp optimization is naturally motivated, but the frozen result adds no new exact fact or independently useful remainder to the distinct catalogue result, which gives the same optimization and further implications. The alternate recurrence proof and finite checks do not supply a separate scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

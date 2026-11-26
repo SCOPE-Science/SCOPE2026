@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:59.836447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The setting is four distinct integer residues modulo nine and unweighted rows multiplied by 1/2, so if D is the unscaled determinant its squared modulus is divided by 256. With w_j=z^(2λ_j), substitute the four-root monic polynomial for w_j^4 in the last column of the alternant (1,w,w³,w⁴); after removing repeated columns and swapping the last two one obtains the Vandermonde times e_2. I independently enumerated all 126 cases with a subset-DP determinant in the group ring of Z/9, cyclic autocorrelation for D times its conjugate, and reduction by z^6+z^3+1. This reproduced the entire 14-row orbit list including all three optimizing representatives, the class counts 18,27,27,27,27, and the squared value 81/256 for each of the four restricted digit towers. Translates preserve modulus by row phases and act freely: any nontrivial stabilizing translation partitions the set into orbits of size 3 or 9, impossible for size 4. In the exact cyclotomic field t=z+z^(-1), its cubic x³−3x+1 is increasing for x>1 and t is the root with 3/2<t<8/5. The stated ordering follows by comparing 0,2−t,4−t²,3,t+t². The maximum is the positive square root of its squared class, with decimal 0.6396513989643324… and ratio sqrt((t+t²)/3) to the tower value 9/16. Replay: python3 /workspace/branches/recheck_1.py. The submitted checker was inspected but not executed. No statement is made about real frequencies, conditioning or higher depths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferguson–Mayeli–Sothanaphan define the finite-group determinant optimization invariant; de Dios Pont–Liehr–Taylor prove no Fourier frames for infinite odd-base Cantor measures. The general-depth binary-tower product covers depth two only within the tower class, whereas the all-grid four-frequency optimizer uses four consecutive rows."
+        ],
+        "reasoning": "A motivating infinite obstruction does not determine finite determinant values. A general-depth or general-grid result with a stricter or different row/frequency predicate does not dominate the unrestricted finite Cantor spectrum.",
+        "searches": [
+          "arXiv:1904.04487 Definitions 3.8–3.10",
+          "arXiv:2607.08656 Theorem 1.1",
+          "Resultary:078452622ace and bb69c4d14769"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:bd4012acfc55",
+        "Resultary:de39e0486913",
+        "Resultary:078452622ace",
+        "Resultary:bb69c4d14769",
+        "Resultary:fd6d74b9b6dd",
+        "arXiv:1904.04487",
+        "arXiv:2607.08656"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-spark criterion gives existence of singular minors at N=9 and the exact algebraic determinant factorization. A rank census cannot distinguish any two nonsingular cases; the tower product gives 9/16 and cannot bound all nonsingular off-tower cases. The unrestricted maximum lies above that benchmark and is attained in three distinct translation orbits."
+        ],
+        "reasoning": "Knowing the factorization makes a calculation possible but is not itself a numerical spectral or optimizer table; the positive strata and sharp comparison require the exact unrestricted census. The existing rank and tower implications are credited rather than used as novelty evidence.",
+        "searches": [
+          "Resultary:de39e0486913 proof and bd4012acfc55 submatrix-rank proof/verification",
+          "Resultary:078452622ace statement versus frozen RESULT.md lines 18–26 and 41–57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiplication by the unit 2 sends {0,1,3,4} to {0,2,6,8}; on frequency subsets this relabels all minors without changing the census. The full-spark record uses that equivalent pattern and the same alternant. The consecutive row set is not affine-equivalent: the Cantor row pattern has mod-three occupancy multiset {2,2,0} while four consecutive rows have {2,1,1}."
+        ],
+        "reasoning": "Neither reflecting or translating the rows, swapping row and column roles or relabeling by units makes the volume spectrum a consequence of the known full-spark criterion. The consecutive-row result solves an inequivalent pattern even where the objective is exactly the same.",
+        "searches": [
+          "Resultary: Z/9 order-nine four-point Cantor determinant and optimizer",
+          "Resultary:de39e0486913 and bb69c4d14769 Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bd4012acfc55 computes every submatrix rank over the ninth cyclotomic field with both finite-field reductions and gives positional-support incidence statistics. Restrict its rank table/algorithm to these four rows and test rank <4 to obtain precisely the singular frequency sets. fd6d74b9b6dd optimizes E-optimality and conditioning for a three-column real band on the same grid, not the square determinant; its {0,2,4,6} overlap is an optimizer for a different objective. e923fb13ff56 is this same record."
+        ],
+        "reasoning": "The all-mask rank calculation covers which determinants are zero, even though it does not print the fixed-row count 18; the exact-support orbit of size (4,5) alone would not demonstrate this because a singular kernel vector may have fewer than four nonzero entries. None of these exact indexed tables recovers the four positive magnitudes, distinguishes their order or classifies the square-volume optimizers.",
+        "searches": [
+          "Resultary: same-grid order-nine Fourier ranks and support incidence bd4012acfc55",
+          "Resultary: same-grid E-optimality/conditioning fd6d74b9b6dd and frozen self-match e923fb13ff56"
+        ]
+      },
+      "rationale": "The supported contribution is the nonzero determinant-magnitude stratification with exact multiplicities and the complete unrestricted optimum and optimizer classification at this depth, together with the resulting strict comparison to the already-known restricted benchmark. The alternant, non-full-spark fact, tower value, and rank/zero information are not credited as independent novelties. The strongest same-grid positional-incidence prior mechanically covers the zero stratum through its all-mask rank computation, but that computation returns ranks, not positive determinant magnitudes.",
+      "residual_risks": [
+        "An unindexed determinant-valued order-nine table could overlap; the all-mask rank evidence is an established overlap for the zero class, not just a risk. The priority assessment is limited to the actual sources compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct algorithmic rank/zero coverage; no determinant-magnitude census",
+          "evidence": [
+            "The proof states every submatrix rank equals the maximum of two finite-field ranks and the implementation tabulates both over all 512² pairs of masks. The program's reported quantities are counts and orbit distributions, not absolute determinant values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-positional-fourier-support-incidence-on-the-cyclic-nine-po--bd4012acfc55/RESULT.md",
+          "material_read": "Local-mirror RESULT.md Finding offsets 0–3843 and exact rank proof, verification and scope offsets 3843–9003",
+          "method": "Read statement and inspect the decisive rank and output passages in the mirror",
+          "title": "Exact positional Fourier-support incidence on the cyclic nine-point group",
+          "trigger": "Strongest same-grid tabulation that might subsume this one"
+        },
+        {
+          "assessment": "Covers factorization and failure of full spark",
+          "evidence": [
+            "Full spark iff gcd(N,6)=1; alternant with the Vandermonde and e_2."
+          ],
+          "identifier_or_url": "Resultary:de39e0486913",
+          "material_read": "Local-mirror RESULT.md, Finding and proof offsets 79–2736",
+          "method": "Read statement and formula; compared equivalent pattern and N=9",
+          "title": "Exact full-spark criterion for the four-row Fourier pattern {0,1,3,4}",
+          "trigger": "Exact same row pattern after unit relabeling"
+        },
+        {
+          "assessment": "Known restricted 9/16, no unrestricted optimum",
+          "evidence": [
+            "The tower determinant product covers only binary frequency towers."
+          ],
+          "identifier_or_url": "Resultary:078452622ace",
+          "material_read": "Local-mirror RESULT.md offsets 489–2889",
+          "method": "Read theorem and restriction, specialize depth 2 and base 3",
+          "title": "Exact Fourier volume and the parity barrier in binary Cantor digit towers",
+          "trigger": "Exact prior depth-two determinant benchmark"
+        },
+        {
+          "assessment": "Different affine type of rows",
+          "evidence": [
+            "The spatial rows are the four consecutive indices {0,1,2,3}."
+          ],
+          "identifier_or_url": "Resultary:bb69c4d14769",
+          "material_read": "Local-mirror RESULT.md offsets 0–2969",
+          "method": "Read actual row hypothesis and optimizer statement",
+          "title": "Exact four-frequency determinant optimum on every cyclic grid",
+          "trigger": "Exact same objective and arity"
+        },
+        {
+          "assessment": "Different matrix, different objective; same set {0,2,4,6} not equivalent coverage",
+          "evidence": [
+            "Four samples of a real three-column band, with {0,2,4,6} optimal for conditioning."
+          ],
+          "identifier_or_url": "Resultary:fd6d74b9b6dd",
+          "material_read": "Local-mirror RESULT.md Finding offsets 0–3424",
+          "method": "Read actual dimensions and objectives",
+          "title": "First equal-leverage Fourier sampling split between E-optimality and conditioning",
+          "trigger": "Same-day, same-nine-grid overlapping optimizer orbit"
+        },
+        {
+          "assessment": "Framework, not this precise value or census",
+          "evidence": [
+            "D(E) is a maximum over the absolute values of the exponential-basis determinants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.04487",
+          "material_read": "Primary PDF pp. 15–16, Definitions 3.8–3.10, offsets 47800–51145",
+          "method": "Read primary OA definitions",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "General finite-group optimal determinant invariant"
+        },
+        {
+          "assessment": "Different infinite-level question",
+          "evidence": [
+            "No Fourier frame for the limiting odd-base Cantor measures."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08656",
+          "material_read": "Primary PDF p. 2, Theorem 1.1, offsets 5488–7676",
+          "method": "Read accessible OA theorem passage",
+          "title": "Cantor measures with odd base do not admit Fourier frames",
+          "trigger": "Primary same-family infinite-measure source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first nontrivial Cantor depth at which the natural digit-tower restriction can be tested against all integer-grid frequency sets; at depth one every two-element frequency set reduces by translation to a binary one-digit choice. The depth-two census gives a sharp strict counterexample to extending tower optimality to unrestricted designs and classifies all winners, not just a single computed improvement. The four positive volumes and their counts add determinant information beyond the existing ranks and are useful as a finite benchmark without claiming an infinite-frame consequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

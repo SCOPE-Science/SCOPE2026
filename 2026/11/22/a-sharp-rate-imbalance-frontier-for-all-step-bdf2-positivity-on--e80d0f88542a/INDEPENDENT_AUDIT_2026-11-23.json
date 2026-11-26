@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:37.102347Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the analytic all-index proof in RESULT.md. The complementary stationary/centered projections give M_n=Π+z_n(I−Π), with unit row sums, off-diagonal sign set by 1−z_n, and diagonal lower condition z_n≥−min(a,b)/max(a,b). For 0<r<1/2 the real roots are (2∓√(1−2r))^−1 and the stated BE-started coefficients have the larger-root coefficient exceeding the subtracted one by one; thus z_n>0. At r=1/2 the repeated-root solution is 2^−n(1+n/3)>0. The first-difference recurrence then proves strict decrease in this regime. For r>1/2, matching z₀ and z₁ gives the stated trigonometric solution. Using |sin(nθ)|≤n sinθ bounds |z_n| by 2^−n(1+n/3), hence z_n<1 for n≥1 and |z_n|≤5/192 for n≥7. Independently checked the shifted polynomials from the recurrence and the four quadratic discriminants (−1843840, −101573568, −5495631872, −124090302464 in index order). The split about t=2 for P₃ and the positive higher coefficients in P₄–P₆ give strict positivity, so z₃,…,z₆>−29/1000>−(17−12√2). For n=2 the rational derivative has its only positive zero at r=3+3√2, a strict minimum with z₂=−(17−12√2); n=0,1 cannot tie. Reciprocating proves the claimed rate boundary and its unique normalized equality step for one diagonal. For fixed positive rates the real-root regime is safe and the complex-root bound also gives uniform |z_n|≤5/[3(3+2r)] for n≥2 as r→∞; z₁→0 separately. The exact 40:1 witness has r=7 and z₂=−1/34, hence (M₂)₁₁=−3/697. Inspected VERIFICATION.md, verify.py and the recorded output; did not execute the uploaded script. Its checks are finite support, not the all-index proof. Scope is constant step, irreducible two-state row generator, BE startup from one initial law and exact arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jensen–Lóczi–Ketcheson identify the optimized family member κ=0 as standard BDF2. The simplex finding 8623505eab6d needs κ≥1/3 for independently specified histories and gives π_min≥7/16 for existence of an all-step family member.",
+          "Li–Liao study stability under variable steps; the CWI report could be identified but no decisive restriction passage could be read reliably from its extracted text."
+        ],
+        "reasoning": "The stronger arbitrary-history positivity property is false for classical BDF2, as the cited violating history in that classification shows; this neither proves nor refutes positivity on the specific BE-generated history. Variable-grid stability is not entrywise nonnegativity and does not establish an imbalance bound.",
+        "searches": [
+          "Resultary 8623505eab6d Finding, Proof §2 and Relationship",
+          "arXiv:2610.22685v1 Eq. (25), p. 17",
+          "arXiv:2201.00527v1 abstract; CWI MAS-R0210"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cf66315c5a14, 8623505eab6d, 34750bc994c5, d1edebcb808b and self-match e80d0f88542a",
+        "arXiv:2610.22685v1 Eq. (25)",
+        "arXiv:2201.00527v1 abstract",
+        "CWI MAS-R0210 (limited read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For scalar positivity the r=1/2 threshold remains valid at equality; above it a negative iterate eventually occurs. The earlier exact phase formula describes when but not how negative it can be.",
+          "At equal alternating steps the earlier positive-decay condition reduces to r≤1/2. The arbitrary-history example does not use BE-constrained data."
+        ],
+        "reasoning": "Neither the first negative index nor its phase representation makes the all-index extremization an immediate implication: it must exclude deeper later excursions at other steps, as the uniform tail and exact polynomial certificates do. Projection then converts their sharp bound to simplex invariance even in a range of parameters for which centered scalar sign is lost.",
+        "searches": [
+          "Resultary cf66315c5a14 scalar phase result; 34750bc994c5 alternating-grid criterion; 8623505eab6d arbitrary-history proof",
+          "Primary arXiv:2610.22685v1 Eq. (25)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cf66315c5a14 treats the exact same scalar recurrence and finds the first negative index N_−(r), with N_−(r)√(r−1/2)→π√2 as r decreases to 1/2 from above.",
+          "In stationary-mass coordinates the tested frontier is π_min≥(17−12√2)/(18−12√2), from π_min/(1−π_min)≥17−12√2. The closest checked stationary-mass frontier, 8623505eab6d, uses arbitrary independent histories and a family of methods."
+        ],
+        "reasoning": "A first sign-loss index for each r does not specify the largest negative excursion over all r and n. Stationary mass and the rate ratio are equivalent formulations only with the same starter and time quantifiers; the inspected balance theorem does not have those quantifiers.",
+        "searches": [
+          "Primary lookup: BDF2 Markov positivity backward Euler two-state rate ratio",
+          "Resultary: backward-Euler-started scalar BDF2 sign loss and Markov simplex stationary balance",
+          "Resultary cf66315c5a14 Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the same frozen result. The distinct same-day d1edebcb808b is an exact heat-semigroup starter rather than BE, with scalar-response zero counts and graph self-returns.",
+          "34750bc994c5 is a BE-started alternating-grid positive decay diagram, not a quantitative lower envelope."
+        ],
+        "reasoning": "The distinct indexed results are separated by their statements, not their dates. This minimization over a continuous step parameter and an unbounded iterate count has no applicable exact finite-object table lookup.",
+        "searches": [
+          "Local Resultary: self-match e80d0f88542a and near hits cf66315c5a14, 8623505eab6d, d1edebcb808b, 34750bc994c5"
+        ]
+      },
+      "rationale": "Credit the scalar sign boundary and phase representation, standard stationary projection, and multistep monotonicity framework. The supported claim is the sharp quantitative global negative envelope, uniquely at the second step, and the consequent necessary and sufficient all-step imbalance frontier for the precise BE-started history. The nearest arbitrary-history classification includes classical BDF2 as a parameter value but demonstrably has different quantifiers.",
+      "residual_risks": [
+        "The classical CWI report's decisive passages could not be read reliably, and an equivalent lower-bound theorem in the cone-preserving or multistep literature may have been missed. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial phase-formula overlap, different extremal question",
+          "evidence": "First negative index formula and divergence at r=1/2; not a depth or uniform lower-envelope bound.",
+          "identifier_or_url": "Resultary 2026/10/4/cf66315c5a14",
+          "material_read": "Mirrored RESULT.md Finding/Proof, offsets 452–1700",
+          "method": "Local mirror passage inspection",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Exact same scalar response and starter"
+        },
+        {
+          "assessment": "Arbitrary input history, not the prescribed startup",
+          "evidence": "Independent histories in the simplex; κ≥1/3 necessary and smaller stationary mass at least 7/16 for a qualifying family member.",
+          "identifier_or_url": "Resultary 2026/11/2/8623505eab6d",
+          "material_read": "Mirrored RESULT.md Finding, Proof §2 and Relationship passages",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp seven-sixteenths stationary-balance frontier for two-step probability-simplex preservation",
+          "trigger": "Same two-state simplex question with a family containing BDF2"
+        },
+        {
+          "assessment": "Confirms family membership, not the tested invariant",
+          "evidence": "Classical BDF2 corresponds to κ=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685v1",
+          "material_read": "PDF title and p. 17 Eq. (25), passage at offset 51400",
+          "method": "OA PDF passage inspection",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Verify classical BDF2 is actually contained in the broader-method family"
+        },
+        {
+          "assessment": "Scalar sign classification under alternating steps",
+          "evidence": "x+y<2 and (x−y)²−4(x+y−1)≥0, giving scalar positivity for an equal small step, not an all-step lower envelope.",
+          "identifier_or_url": "Resultary 2026/11/8/34750bc994c5",
+          "material_read": "Mirrored RESULT.md Finding/Assumptions, offset 480",
+          "method": "Local mirror passage inspection",
+          "title": "Exact positive-decay phase diagram for backward-Euler-started BDF2 on alternating time grids",
+          "trigger": "Same startup and potentially includes constant steps"
+        },
+        {
+          "assessment": "Distinct initial response and mathematical statement",
+          "evidence": "Exact starter g₁=e^(−z) used for counting zeros and deriving graph self-return behavior.",
+          "identifier_or_url": "Resultary 2026/11/22/d1edebcb808b",
+          "material_read": "Mirrored RESULT.md Finding/Assumptions, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact zero counts and repeated positivity failures for exact-start BDF2 graph heat",
+          "trigger": "Related same-day BDF2 heat/Markov positivity result"
+        },
+        {
+          "assessment": "Stability, not simplex invariance",
+          "evidence": "Stability on arbitrary grids is not a componentwise sign result.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527v1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Stability of Variable-Step BDF2 and BDF3 Methods",
+          "trigger": "General BDF2 stability possibly mistaken for positivity"
+        },
+        {
+          "assessment": "General antecedent credited; precise implications not independently established from this extraction",
+          "evidence": "Report MAS-R0210 (2002); coverage of the exact quantitative envelope not verified.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "Cover and isolated hits; no reliable extracted decisive BDF2 passage",
+          "method": "Lawful OA PDF passage retrieval",
+          "title": "Monotonicity-Preserving Linear Multistep Methods",
+          "trigger": "Classical monotonicity restrictions possibly stronger than this calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp rate-ratio criterion answers a natural question not resolved by generic step restrictions: can a standard BE-started integrator preserve every initial probability for every step on the simplest irreducible exchange? It shows how a signed centered mode is compatible with positivity because of the stationary mass, gives an exact obstruction at the second step, and distinguishes intermediate failures from eventual large-step safety. This is an exact model-specific invariant and explanation, not a claim for general Markov generators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

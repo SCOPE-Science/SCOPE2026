@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:15.047099Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In an unrolled host, two consecutive weight-two windows t starts apart share the same residues for any retained ones modulo k; all deleted and entering positions lie in the same t-residue arc when t<k. With one retained one the distance changes by at most the arc diameter t-1; with none both distances are at most t-1; with both it is unchanged. For t>=k the bound is automatic. Cyclic variation between label extrema gives the claimed count of nonrequired windows. For the construction, neighboring gaps always sum to at least k, including the middle and cyclic join. Thus a gap d supports every allowed placement of the pair while the outside neighbors are excluded. The gaps sum to the claimed length. The N distinct windows require N starts, and 011 proves k=3. Independent exact small enumeration returned B2(3)=3, B2(4)=9, B2(5)=14, and direct extraction checked the construction for k=4..40: python3 /workspace/check_frozen_math.py. These are finite corroborations, not the proof. Frozen VERIFICATION.md and verify.py inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weight range [1,2] yields an upper bound binom(k,2)+k, not the new lower correction. The fixed-weight s-overlap results use shifts of at least two in the relevant setting."
+        ],
+        "reasoning": "Earlier checked universal-cycle constructions address related but different coverage requirements; they do not prove the assigned near-exact interval.",
+        "searches": [
+          "Sawada–Williams–Wong, Universal cycles for weight-range binary strings (2013), Theorem 1",
+          "King–Laubmeier–Orans–Godbole, arXiv:1405.5938, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary exact records 2d48166498e3 and f4651bf8d572",
+        "Sawada–Williams–Wong (2013)",
+        "King–Laubmeier–Orans–Godbole (arXiv:1405.5938)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact claim implies both frozen bounds with the frozen upper endpoint always attained. The 2013 weight-range theorem alone implies only the slightly weaker upper bound."
+        ],
+        "reasoning": "The overlap is mathematical implication in the same model; later publication dates do not establish priority over the earlier frozen record.",
+        "searches": [
+          "Resultary exact records 2d48166498e3 §§1–4 and f4651bf8d572 Proof §§1–3",
+          "Sawada–Williams–Wong, 2013, introduction and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A closed directed walk on the binary de Bruijn graph, with all weight-two length-k edges mandatory and other edges or repetitions permitted, is precisely an indexed cyclic host in this definition."
+        ],
+        "reasoning": "Circular superstring, cyclic coverage, and the unit-cost directed rural-postman formulation use the same feasible sets and length; none changes rotation, window step, or permitted padding.",
+        "searches": [
+          "Resultary: SCOPE-sharp-circular-superstring-length-for-all-binary-weight-two-wind--2d48166498e3",
+          "Resultary: SCOPE-a-sharp-circular-covering-law-for-binary-words-of-weight-two--f4651bf8d572"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two available RESULT.md files supply an exact formula for all k>=4, not an extrapolation from a finite table. Their residual walks and Euler constructions address exactly this minimum."
+        ],
+        "reasoning": "Exact indexed theorem coverage is stronger than checking tabulated optima. The k=3 case already falls in the ordinary fixed-weight unit-shift class of weight n-1.",
+        "searches": [
+          "Resultary: two exact covering-length records dated 2026-11-02, identifiers 2d48166498e3 and f4651bf8d572"
+        ]
+      },
+      "rationale": "Two distinct published records establish the stronger exact answer B2(k)=binom(k,2)+k-1 for the identical freely padded cyclic problem for every k>=4. The decisive residual-circulation proof checks out: with at most k-2 extra edges, Fine–Wilf identifies any intersecting residual cycles, and each short cycle touching the adjacent-pair required component touches no other required component, so it cannot connect the required subgraph. Their periodic extra walk yields the same upper endpoint. A different explicit word and the elementary k=3 case do not give a surviving distinct covering theorem. This is verified coverage at review time, not a finding of earlier historical priority: both exact records are dated after the assigned record.",
+      "residual_risks": [
+        "Historical priority is not settled. The bibliographic lookup was unavailable; earlier rural-postman formulations may exist. Neither limitation affects decisive exact indexed coverage at review time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem covering the frozen interval",
+          "evidence": [
+            "Required edges are rotation circuits; the period-(k-1) walk adds k-2 weight-one edges and one repeat; Fine–Wilf separates distinct short residual supports."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-circular-superstring-length-for-all-binary-weight-two-wind--2d48166498e3/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, decisive proof extract at offset 1700",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp circular superstring length for all binary weight-two windows",
+          "trigger": "Exact indexed overlap"
+        },
+        {
+          "assessment": "Identical optimization and stronger exact formula",
+          "evidence": [
+            "Each short periodic sequence visiting the adjacent-pair component contains 11 in every vertex window and cannot visit another mandatory component; distinct short simple cycles cannot intersect by Fine–Wilf."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-circular-covering-law-for-binary-words-of-weight-two--f4651bf8d572/RESULT.md",
+          "material_read": "Finding and residual-circuit proof plus Euler construction, offset 2500",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp circular covering law for binary words of weight two",
+          "trigger": "Second exact indexed overlap"
+        },
+        {
+          "assessment": "Related construction, weaker upper bound",
+          "evidence": [
+            "A universal cycle for weights one and two uses exactly binom(k,2)+k windows; fixed-weight cycles in the introduction exclude interior weights."
+          ],
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "material_read": "PDF pp. 1 and 3, introduction and Theorem 1",
+          "method": "Author-hosted open-access full text",
+          "title": "Universal cycles for weight-range binary strings",
+          "trigger": "Closest original weight-range unit-shift construction"
+        },
+        {
+          "assessment": "Not the unit-shift optimization",
+          "evidence": [
+            "The relevant s-overlap construction has s<=k-2, allowing shifts of at least two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5938",
+          "material_read": "§3, PDF pp. 11–12",
+          "method": "arXiv open-access full text",
+          "title": "Universal and Overlap Cycles for Posets, Words, and Juggling Patterns",
+          "trigger": "Fixed-weight overlaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The problem naturally asks how many nonrequired windows a cycle must pay to join rotation classes. Controlling the sharp linear correction, with a transparent variation obstruction and uniform construction, is mathematically substantive relative to the basic counting and weight-range bounds. The independent originality failure reflects supersession by the exact covering theorem, not a defect of motivation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

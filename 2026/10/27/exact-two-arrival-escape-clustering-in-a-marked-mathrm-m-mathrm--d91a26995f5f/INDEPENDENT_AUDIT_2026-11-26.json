@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:19.983508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent marking leaves the unmarked arrival-epoch queue stationary under the two-tag conditioning. With u=1-p, a=1/(1+rho p), d=1/(1+rho), b=1-d, the first tag has an Erlang(q+1,mu) sojourn given Q=q. If the gap to the known susceptible second tag is T, the later-mark avoidance factor is exp(-lambda p (D-T)_+); integrating its exponential first-arrival law gives (exp(-lambda p D)-p exp(-lambda D))/(1-p). Summing with the geometric Q law and u^Q yields the first marginal. At the second tag, if Q1>0, the first tag is exactly the newest predecessor, so its corresponding mark factor is u^(Q1-1), rather than u^Q1; if Q1=0 the factor is one. Its geometric marginal, memorylessness, and Erlang transform give (1-rho)(a+rho a^2/(1-rho ua)), the same s as the first marginal. For joint escape, every pre-first customer contacts the first tag and every post-second arrival before the second departure contacts the second tag. There is no untagged intervening arrival, and any post-second contact of the first tag is included because FCFS orders their departures, even if their visits are disjoint. Thus j=a E[u^Q a^Q1]. Before the second arrival, the independent potential-completion clock gives P(G=g)=b d^g and Q1=max(Q+1-G,0); summing the truncated geometric law gives E[u^Q z^Q1]=(1-rho)(d+bz/(1-rho uz))/(1-rho ud). Substitution at a gives j=as. Then j-s^2>0 since a-s=2p rho^2/((1+p rho)(1-rho+2p rho)); dividing by s(1-s) gives the correlation. The variance, ordered cells, and fixed-p heavy-traffic limit follow without boundary conditioning on null events. The source applies only to adjacent arrivals in the full stream, zero exposure threshold and no onward transmission. Inspected the frozen script and recorded 840 rational checks and three simulation comparisons, without executing them; those checks do not supply the stationary-law or contact-union arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The infectious-overlap time transform and exposure reversal are each centered on one tag. Adjacent unmarked overlap-duration results do not specify the union of contacts with all other marks. Service-facility R0 measures are a different output."
+        ],
+        "reasoning": "General exposure thresholds or service laws on a single-tag observable are not dominance in the number of tags or the paired conditioning. The adjacent overlap-duration law alone does not determine the two-tag count generating function.",
+        "searches": [
+          "arXiv:2610.09019v1 Theorems 3.4, 3.9 and 3.14",
+          "DOI:10.1017/jpr.2026.10107 Theorem 4",
+          "arXiv:2311.04387v1 §§2 and 4; arXiv:2103.13441 §1",
+          "Resultary:8db4266a62f5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09019v1",
+        "DOI:10.1017/jpr.2026.10107",
+        "arXiv:2311.04387v1",
+        "arXiv:2103.13441",
+        "Resultary:8db4266a62f5",
+        "2025 Boxma–Pender G/G/1 overlap source linked by 8db4266a62f5 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Newman–Pender's conditional independence is between preceding and succeeding exposure mechanisms for one susceptible given its sojourn; it cannot justify independent outcomes for two tags. For the marked-union PGF one still needs the coupled law of Q and Q1; the joint calculation preserves the shared predecessor set and counts later arrivals only once."
+        ],
+        "reasoning": "Mark thinning and the arrival-epoch stationary marginal are existing ingredients, but neither specifies E[u^Q a^Q1]. The two-arrival embedded kernel supplies the extra dependence calculation rather than a new name for a one-tag formula.",
+        "searches": [
+          "arXiv:2610.09019v1 Theorem 3.14 and its conditioning",
+          "Boxma–Pender Theorem 4 and Palomo–Pender Theorem 4.2",
+          "Resultary:8db4266a62f5 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given the unmarked queue, both tags escape with probability (1-p)^K where K counts distinct untagged customers overlapping their union. The one-tag earlier/later exposure transform uses a different contact set. In the original marked model the unconditional-along-the-stream one-susceptible marginal at zero threshold is (1-rho)/(1-rho+2p rho), not s."
+        ],
+        "reasoning": "Recasting the event as a distinct-customer count PGF distinguishes joint tag outcomes from the bivariate before/during overlap transform of one customer. Complementing escape to infection does not change the two-tag covariance or correlation.",
+        "searches": [
+          "Resultary semantic search for adjacent marked FIFO M/M/1 escape laws and two-arrival exposure correlations",
+          "Literature search for marked M/M/1 escape of consecutive customers and union overlap contact counts",
+          "arXiv:2610.09019v1 §§2–3; DOI:10.1017/jpr.2026.10107 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8db4266a62f5 is the strongest relevant indexed record inspected: it yields a pathwise earlier/later contact identity and conditional independence of directional exposure for one tag, not a table or formula of two-tag cells."
+        ],
+        "reasoning": "No exact published-record match for the ordered pair law on this parameter domain surfaced. A single-customer conditional probability table does not contain the joint cell needed for the clustering factor.",
+        "searches": [
+          "Published Resultary lookup for exact adjacent escape cells, correlation and conditional FIFO exposure"
+        ]
+      },
+      "rationale": "Pass for the exact two-tag, two-mark-conditioned joint law and dependence, not the original queue model, overlap calculus or one-tag escape probabilities. No equivalent statement or direct implication of that same paired result was found in the inspected primary and indexed material. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "A distinct expression for the same union-contact PGF may exist outside the inspected overlap literature.",
+        "The linked 2025 Boxma–Pender G/G/1 paper could not be retrieved via the repository link or DOI; no negative coverage conclusion is drawn from that access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and one-tag result overlap, not two-tag joint escape",
+          "evidence": "The zero-threshold one-tag escape formula lacks the additional conditioning on the adjacent mark; earlier/later conditional independence is for a single sojourn.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09019v1",
+          "material_read": "§§2–3, Theorems 3.4, 3.9 and 3.14, offsets 28494–32554, 39554–45946 and 52893–57692",
+          "method": "Primary OA HTML passages",
+          "title": "When Lines Become Contagious: Analyzing the Spread of Infection in the M/M/1 Queue",
+          "trigger": "Identical marked FCFS infection model"
+        },
+        {
+          "assessment": "Different bivariate observable",
+          "evidence": "The two components are infectious overlap times with preceding and arriving customers for one tag.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2026.10107",
+          "material_read": "Theorem 4, pp. 16–18",
+          "method": "Primary OA paper passages",
+          "title": "The Overlapping Time Distribution in the M/M/1 Queue",
+          "trigger": "Joint infectious overlap transform in M/M/1"
+        },
+        {
+          "assessment": "Unmarked overlap geometry, not the marked-union PGF",
+          "evidence": "Adjacent overlap and minimum-overlap time concern durations, not escape status from all overlapping customers.",
+          "identifier_or_url": "https://arxiv.org/html/2311.04387v1",
+          "material_read": "§2 and §4, including Theorem 4.2, offsets 0 and 18500–23801",
+          "method": "Primary OA HTML passages",
+          "title": "The Maximum Overlap Time in the M/M/1 Queue",
+          "trigger": "Adjacent arrival overlaps"
+        },
+        {
+          "assessment": "Closest indexed relative, no two-tag result in inspected statement",
+          "evidence": "Pathwise earlier/later rank-shift identity and conditional independence for one tag; states a limitation on closed-form two-sided-union infection probabilities.",
+          "identifier_or_url": "Resultary:8db4266a62f5",
+          "material_read": "Finding and scope, offsets 0–12743",
+          "method": "Published record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arrival-index duality and conditional exposure reversal in FIFO queues",
+          "trigger": "Arrival-index FIFO exposure identities"
+        },
+        {
+          "assessment": "Relevant risk metric, not a same-scope pair distribution",
+          "evidence": "The stated focus is the facility-induced R0 system risk measure.",
+          "identifier_or_url": "https://arxiv.org/html/2103.13441",
+          "material_read": "Abstract and §1, offset 0–6989",
+          "method": "Primary OA HTML passage",
+          "title": "A Queueing-Theoretic Framework for Evaluating Transmission Risks in Service Facilities During a Pandemic",
+          "trigger": "Marking and infection exposures in service-facility queues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacent pair is the first nontrivial dependence observable beyond a one-tag marginal in this stationary FIFO model. The joint calculation quantifies the exact error of an independence assumption for pair-count variance and shows that the rare-escape clustering does not vanish in heavy traffic. These are well-defined properties of the mathematical zero-threshold marked queue, not claims for longer lags or more general transmission mechanisms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

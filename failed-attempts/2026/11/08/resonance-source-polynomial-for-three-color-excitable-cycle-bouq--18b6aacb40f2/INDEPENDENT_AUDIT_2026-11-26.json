@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:53:38.496187Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over a three-step return, each vertex is identically zero or advances each step. A zero trace adjoining an advancing trace would see color 1 and could not stay zero. Thus on this connected graph nonzero return states are exactly colorings with a successor-colored neighbor at every vertex; all advance globally and have least period three. Trees are uniquely forced by leaf-to-root induction (child equal to parent minus one), and cannot support their roots. On a petal with hub phase fixed, each consecutive pair of differences must have preceding 2 or following 1, which gives exactly 2^a1^(L-a) or 2^a01^(L-a-1). Counting zero total modulo 3 in the two families gives respectively (r+1,r), (r,r+1) or (r+1,r) for L=3r, 3r+1 or 3r+2. Hub support is possible only in the pure 1 or pure 2 word, each valid exactly at 3|L. Independence at fixed hub phase, deletion of the no-support choices, and three possible hub phases give the asserted polynomial and all its corollaries; each orbit has three states with the same support count. `python3 /workspace/branches/independent_math_replay.py 1` exhaustively replayed three simultaneous updates using bit sets on 100,845 states of seven graphs, including a rooted branching attachment, a nonresonant example and mixed lengths; all histograms and the unique fixed point agreed. Proof rather than the finite check covers arbitrary lengths and trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published general-graph paper proves limiting synchronization/activity results, not an exact immediate three-cycle census. The more pertinent SCOPE path statement gives c_L(d), p_L(d) and q_L(d) for each terminal phase difference d and all lengths L≥2; the bouquet uses only d=0 and L≥3."
+        ],
+        "reasoning": "The two-terminal final graph theorem does not literally apply to a one-terminal graph, but the stronger local path result in its proof applies unchanged to each split petal, independent of the number of paths. It supplies all transfer data including for a two-petal bouquet.",
+        "searches": [
+          "arXiv:1610.07320 Theorems 3 and 5",
+          "SCOPE f7be757a3807 Proof §2, admissible paths at fixed terminal phase difference"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE f7be757a3807, f7a512de43c0, 6e5034274f28, 18b6aacb40f2",
+        "arXiv:1610.07320, Theorems 3 and 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take W_{L,0}(z,z). The two residue sums for c_L(0) give 2⌊L/3⌋+1; p_L(0)+q_L(0)=2·1_{3|L}. Thus W_{L,0}(z,z)=b_L-a_L+a_L z. At the merged hub the criterion is at least one supplier to either end, not at least one to each end. Hence multiply these derived weights, subtract their product at z=0, and multiply by three. The same source's tree lemma gives the unchanged decoration count."
+        ],
+        "reasoning": "Apply the phase-zero specialization before the support filter. This derives exactly every coefficient of the frozen formula by merging the local transfer categories and deleting the constant term. Merely taking the published two-terminal globally filtered polynomial at s=t would be incorrect; it is the available local path result that supplies the implication.",
+        "searches": [
+          "SCOPE f7be757a3807 RESULT.md offsets 0 and 3789: W_{L,d}, admissible words, terminal gluing and attached trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Splitting the bouquet hub into two terminals makes each length-L petal a separate path. Closing that path back to the hub requires terminal difference d=0. The local theta-path polynomial W_{L,d}(s,t) has disjoint categories: neither terminal supported, only the first, only the second. The last two are the two pure difference words, counted by p_L(d) and q_L(d)."
+        ],
+        "reasoning": "After coalescing, a petal is a supplier iff it belongs to either of the two support categories. Mark both with the same variable z. This is the exact frozen support observable, with no double counting because the categories are disjoint.",
+        "searches": [
+          "Resultary: three-color Greenberg–Hastings bouquet source census and excitation on cacti",
+          "SCOPE f7be757a3807 RESULT.md Finding and Proof §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hit 18b6aacb40f2 is this assignment itself. Distinct hits include f7be757a3807 (the transfer-count result), f7a512de43c0 (single-resonant connected cacti), and 6e5034274f28 (triangle chains). The latter two cover the one-resonant total and the two-triangle total, respectively, but not the general polynomial."
+        ],
+        "reasoning": "The decisive indexed coverage is an exact symbolic path enumeration, not an identical title or a finite table. Three chain triangles give 102, compared to 78 for three hub triangles; the triangle-chain result alone is not a covering theorem.",
+        "searches": [
+          "Resultary: same support polynomial, resonance and primitive-three populations on bouquets/cacti"
+        ]
+      },
+      "rationale": "A distinct indexed theta-network result already gives the exact local transfer weights required for this census. Its terminal-coalescence specialization gives the complete frozen polynomial, not just the positivity criterion or a boundary case. This is demonstrated statement-and-proof coverage, not a claim about chronological priority between records with the same catalogue date.",
+      "residual_risks": [
+        "The indexed records are dated the same day; the mathematical implication does not resolve chronological priority. The adjacent regular-tree paper DOI:10.1214/22-AAP1885 was not available in full via OA; that access gap does not drive the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the entire frozen census using an explicitly given local path formula, not merely a numerical boundary case.",
+          "evidence": [
+            "The only supporting words at the two ends are all-positive and all-negative increments, and they are distinct. W is their marked count with all other locally valid words counted without support marks. The tree proof is unchanged by coalescence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-terminal-source-census-for-three-color-excitable-theta--f7be757a3807/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0, and proof §§2–4, offset 3789, local mirror revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Read primary indexed statement and proof; specialize the phase and merge terminals before imposing the support filter.",
+          "title": "Exact two-terminal source census for three-color excitable theta networks",
+          "trigger": "Exact local source transfer in the same dynamics under related terminal topology"
+        },
+        {
+          "assessment": "Limiting synchronization and activity, not the source-weighted census.",
+          "evidence": [
+            "Theorem 3 uses the induced one-form to characterize synchronization; Theorem 5 gives oscillation-probability statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Theorems 3 and 5, pp. 4–5 (OA offsets 14637 and 16209).",
+          "method": "Primary OA PDF comparison of graph assumptions and observables.",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Strong general-graph theorem for the same rule"
+        },
+        {
+          "assessment": "Overlaps in a boundary case, not the full multi-resonant result.",
+          "evidence": [
+            "Exactly one resonant simple cycle is required, giving 6 times the product of nonresonant cycle factors."
+          ],
+          "identifier_or_url": "SCOPE f7a512de43c0",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0.",
+          "method": "Indexed primary statement comparison.",
+          "title": "A block product law for primitive-three periodic excitation",
+          "trigger": "Same exact state statistic on singly resonant cacti"
+        },
+        {
+          "assessment": "Overlaps at two triangles, but the topology and count differ already at three.",
+          "evidence": [
+            "N_1=6, N_2=24, and N_m=4N_{m-1}+N_{m-2} for m≥3."
+          ],
+          "identifier_or_url": "SCOPE 6e5034274f28",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0.",
+          "method": "Indexed primary statement comparison.",
+          "title": "A two-state recurrence for three-periodic excitation on triangular chains",
+          "trigger": "Same period statistic and common two-triangle geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Source redundancy in a bouquet is a natural observable, and the explicit formula is a useful exposition. But every coefficient and the deletion interpretation follow mechanically by identifying the terminals in the already source-resolved path counts, then applying a single constant-term subtraction. No separately motivated, nonmechanical surviving claim was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

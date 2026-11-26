@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:37.577841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43; VERIFICATION.md; check_generic_evolution.py lines 10–58"
+      ],
+      "rationale": "Orthogonality of distinct images of basis elements and the invertibility of the target structure matrix force disjoint nonempty column supports and hence a monomial isomorphism. On monomial matrices entry-squaring is multiplicative, giving the stated change-of-basis action and stabilizer. A permutation moving m letters fixes (n-m)^2 ordered pairs; each other weighted orbit has at most one degree of freedom, so its total codimension is at least mn/2. Multiplying by the number of scalings and summing from m=2 gives the first geometric bound. A small support of nonunit diagonal entries kills at least m(n-m) coordinates; a large support kills at least the sum of the squares of its nonunit multiplicities, which is greater than n^2/[4(q-2)]. For q=2 the diagonal subgroup is trivial; for q>=3, q^(-1/2)<=(q-1)/q bounds the small-support exponential at the claimed rate. The unconditioned sum of fixed-point fractions bounds the conditioned mean after division by the positive limiting GL density. Burnside gives the exact mean correction. Each orbit with stabilizer size s>=2 contributes |G|(1-1/s)>=|G|/2 to the stabilizer-excess sum, giving the class-uniform bound. This checks all the quantifiers including fixed q and rational automorphisms; the attached script is a finite enumeration, inspected but not executed.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In 340420fa11f4, eq. (10) bounds the all-matrix sum by O_q(n^2(1-1/q)^n), with a sharper diagonal-subgroup bound in eq. (9). Eq. (12) gives the same orbit asymptotic for every corank.",
+          "The survey Question 22 asks about random automorphism statistics; the question is not itself a theorem of coverage."
+        ],
+        "reasoning": "Corank zero is exactly perfection. The lower bound on GL density converts the earlier additive normalized error to the submitted multiplicative one. No new estimate on the perfect stratum is needed.",
+        "searches": [
+          "Resultary 340420fa11f4, Finding and proof §§3–5, equations (6)–(12)",
+          "arXiv:2610.22248, §1.3.4 and Question 22"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 340420fa11f4, 00a124f91008, 6c834a318056, 1dd6c2dc31bf, 8764d79e8d9d, c0b936280b48",
+        "arXiv:2310.12368, 2610.22248, 2607.15154"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (6) defines R as the sum of nonidentity fixed-point fractions over all matrices. Eq. (10) gives its rate. Eq. (12) states the census error uniformly in corank.",
+          "For nonnegative monomial stabilizer excess, the conditional mean on GL is at most R divided by the GL density; on GL it is exactly the algebra-automorphism excess. A stabilizer-s orbit contributes |G|(1-1/s) incidences."
+        ],
+        "reasoning": "The nontrivial-automorphism probability and class-weighted bound then follow without new estimates. No distinct surviving claim in the submitted theorem warrants a repair.",
+        "searches": [
+          "Resultary 340420fa11f4 proof, equations (6), (10), (12), local RESULT.md offsets 3520 and 5600"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei–Zou give the same monomial-orbit classification of invertible structure matrices in the transpose convention and Burnside's formula. The transpose convention exchanges the roles of i,j in the fixed-coordinate condition.",
+          "340420fa11f4 equations (6)–(10) give the mean nonidentity monomial stabilizer size in the ambient matrix space at exactly the stated decay rate."
+        ],
+        "reasoning": "A fixed-point sum counts stabilizer incidences, not just exceptional matrices. Hence the earlier estimate translates directly to the sought expectation after conditioning.",
+        "searches": [
+          "Resultary: fixed-q asymptotic evolution algebra monomial stabilizer and orbit census; 340420fa11f4",
+          "arXiv:2310.12368, Theorem 1.1, Corollary 1.1 and equation (2.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei–Zou's finite tables overlap the low-dimensional orbit framework but do not establish the asymptotic. 340420fa11f4 contains the decisive uniform theorem, not merely sample counts.",
+          "00a124f91008 counts diagonal stabilizers only; later 8764d79e8d9d and c0b936280b48 give sharp asymptotics for the nonbinary and binary perfect models, respectively."
+        ],
+        "reasoning": "The decisive match is the stronger 340420fa11f4 theorem, without relying on a finite table or a later sharpened result for the failure decision.",
+        "searches": [
+          "Resultary: mean excess stabilizer of invertible evolution-algebra matrices and perfect orbit asymptotic; 340420fa11f4, 00a124f91008, 8764d79e8d9d, c0b936280b48",
+          "arXiv:2310.12368 finite-field counts in dimensions 2, 3, 4"
+        ]
+      },
+      "rationale": "The distinct published Resultary corank census 340420fa11f4 already proves precisely the all-matrix nonidentity fixed-point sum at the proposed rate and the orbit-count asymptotic uniformly in matrix corank. On the invertible stratum the proof in this review identifies the stabilizer with the full algebra automorphism group, so conditioning that estimate proves the submitted mean excess with the same rate. The remaining claims are exact Burnside, Markov and orbit-stabilizer consequences. This is verified coverage by a stronger result, not an inference of historical priority from catalogue dates.",
+      "residual_risks": [
+        "The comparison establishes mathematical coverage, not an exhaustive priority history or a claim about how the records arose."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger verified coverage",
+          "evidence": [
+            "Eq. (10) supplies the all-matrix nonidentity mean bound; eq. (12) supplies the uniform-in-corank count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-asymptotic-isomorphism-enumeration-and-corank-distribution-of-fi--340420fa11f4/RESULT.md",
+          "material_read": "Finding and proof §§3–5; in particular eqs. (6)–(10), (11)–(12)",
+          "method": "Local published RESULT.md, including offsets 3520 and 5600",
+          "title": "Asymptotic isomorphism enumeration and corank distribution of finite-field evolution algebras",
+          "trigger": "Same fixed-q census with all coranks and same error rate"
+        },
+        {
+          "assessment": "Exact orbit and Burnside framework; different from a mean estimate",
+          "evidence": [
+            "Monomial classification and finite-dimensional counts precede the asymptotic claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "Theorem 1.1, Corollary 1.1, equation (2.1), small dimensions",
+          "method": "Primary PDF pp. 2–4, offsets 5389, 7461, about 8399, 9706",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Same class of perfect algebras and finite-field census"
+        },
+        {
+          "assessment": "Motivation rather than the decisive coverage",
+          "evidence": [
+            "Question 22 asks for random automorphism probabilities; probability alone would not bound mean excess."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "§1.3.4 and Question 22",
+          "method": "Primary PDF pp. 6, 23, offsets about 21600 and 81354",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Explicit random automorphism questions"
+        },
+        {
+          "assessment": "Sharper material overlap, not needed for the prior-coverage decision",
+          "evidence": [
+            "Gives an asymptotic for mean excess and the induced Burnside correction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 8764d79e8d9d",
+          "material_read": "Finding and proof §5",
+          "method": "Local published RESULT.md offsets 0 and 6000",
+          "title": "Sharp generic rigidity and orbit asymptotics for perfect evolution algebras",
+          "trigger": "Sharp same-model bound for q at least 3"
+        },
+        {
+          "assessment": "Sharper material overlap in a single field; not the deciding source",
+          "evidence": [
+            "Gives the sharp probability and orbit-count correction at q=2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 c0b936280b48",
+          "material_read": "Finding",
+          "method": "Local published RESULT.md offset 0",
+          "title": "Sharp rare symmetry law for perfect binary evolution algebras",
+          "trigger": "Sharp binary case in the same perfect model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Generic rigidity and the weighted orbit error are worthwhile mathematical questions, but here the separately proved contribution is a restriction of the stronger uniform corank census and its identical-rate ambient mean bound. The proof does not yield a sharper rate, a new exceptional symmetry law, or a useful new regime, and the class-uniform rarity bound is a direct orbit-stabilizer consequence. There is no supported distinct mathematical increment to preserve as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

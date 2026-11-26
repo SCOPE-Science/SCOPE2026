@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:06:42.754527Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cut the cycle at the absorbing target and use interval endpoints 0 and m; each reset returns to the interior starting site and counts one step. Solving the discrete harmonic recurrence gives the cosh ratio F(s). With s=1-r, a cycle between renewals succeeds with probability F(s); its expected duration, including a reset on failure, is sum_{k>=0} s^k*Pr(T>k)=(1-F(s))/r. This gives the stated mean. The even and odd cosh quotients satisfy the printed ODE (in the odd case the divided-out cosh(t/2) introduces the extra w coefficient); coefficient comparison gives c_1(j)=j(j+epsilon) and the recurrence. For d=a-b, alpha-beta=d(m-d); the numerator N of the mean excess has no constant or linear term and its quadratic coefficient is mu*(5*mu+5-m^2)/6. Thus the right derivative has that sign. For beta small (b=0,1), all higher terms come only from P_a and its shift. For b>=2, a nonnegative quadratic term implies alpha/beta>=4, including b=2 even by the integrality of a. For 3<=j<=b+1 the coefficient ratio is at least 4^(j-1)>j*(2*j-1), whereas the required threshold is at most j*(2*j-1) since alpha-q>=mu. Beyond b+1 all remaining coefficients of N are nonnegative and the leading one is positive. This proves strict worsening at every 0<r<1 on the entire weak reverse side, not just for small resets. In particular for m=5,d=1 the polynomial gives H=4+4*w^2/(1+2*w), strictly larger than 4 even though the derivative is zero; for d=1 the strict-improvement condition is m>=6. Frozen verification notes and script were inspected, not run; the proof supplies the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4e78d85f744c mirrored RESULT.md offsets 0 and 3165 states the same cycle theorem and additionally proves a unique positive benefit cutoff on the favorable side plus spatial nesting",
+          "Riascos et al. 1910.13568 §III Eqs. (15)–(16) gives the exact ring law and mean; 2110.15437 §3.2 Eqs. (30)–(36) gives CV^2(0)>1+1/E[T(0)] for small resetting; §4.1 Eq. (39) gives ring MFPT and numerical optima"
+        ],
+        "reasoning": "The published continuum-in-reset-rate ring formulas already determine the means, and the general weak-reset criterion implies the same improving direction for small rates. It does not imply the no-improvement direction at every rate. The earlier catalogue theorem does give that direction and a strictly stronger full sign classification, in precisely the same protocol.",
+        "searches": [
+          "Resultary: cycle resetting every positive reset probability worsens mean first passage equality global exclusion",
+          "Resultary: Riascos Boyer Mateos discrete-time random walks arbitrary networks resetting advantageous ring infinitesimal criterion",
+          "arXiv:1910.13568 literal query ring; arXiv:2110.15437 literal query fluctuations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 4e78d85f744c and b2c6e0d0575c, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1910.13568, 2110.15437 and 2102.00895, sections above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 4e78d85f744c the sign certificate has P(1)=-mu*(m^2-5*mu-5)/6, equal to the derivative since q=(1-r)^2/(1+r^2) in its auxiliary variable r",
+          "In b2c6e0d0575c equations (2)–(6) give the identical numerator under z=r/(1-r) in frozen reset notation, with quadratic coefficient mu*(N^2-5*(N-2*i)^2+20)/24; the coefficient positivity proof also treats equality",
+          "Bonomo–Pal Eq. (25) uses CV^2>1-1/E[N], the zero-duration convention distinguished from the costed convention in Riascos et al. 2110.15437 p. 9"
+        ],
+        "reasoning": "Neither a relabeling of absorbing states nor the revised estimate of the same Chebyshev coefficient ratio leaves a distinct theorem. The sign exclusion, favorable small-rate implication, exact derivative and equality case are covered. The strongest overlap is independent of whether the earlier primary literature's exact ring formulas were previously used for a global sign proof.",
+        "searches": [
+          "4e78d85f744c mirrored RESULT.md offsets 0 and 3165",
+          "b2c6e0d0575c mirrored RESULT.md offsets 0 and 3297",
+          "arXiv:2102.00895 literal query geometric restart"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b2c6e0d0575c uses a symmetric nearest-neighbor interval walk, resetting to the start at the cost of one step; it gives improvement iff N^2-5(N-2i)^2+20<0, and strict worsening for every positive reset probability on the weak reverse side",
+          "Cutting at the target gives N=m and i=d (or m-d). Then N^2-5(N-2i)^2+20=-4*(m^2-5*d*(m-d)-5)"
+        ],
+        "reasoning": "Before absorption the transition kernels and step costs are identical after relabeling, including adjacent/antipodal distances and the r=0 baseline. The inequality is exactly the same after substitution, not an interval analogy. Bonomo–Pal's different reset timing, by contrast, does not yield this equivalence.",
+        "searches": [
+          "Resultary: finite cycle random walk resetting sharp threshold m^2 > 5 d(m-d)+5 global beneficial",
+          "Resultary: Bonomo Pal confined lattice walks restart discrete time absorbing endpoints mean first passage criterion",
+          "Mirrored RESULT.md of b2c6e0d0575c, offsets 0 and 3297"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matches 4e78d85f744c and b2c6e0d0575c provide closed, all-order phase criteria, not finite tables. 4e78d85f744c explicitly also gives m>=6 for adjacent-target benefit",
+          "arXiv:2110.15437 §4.1 has finite numerical optima; it is not the decisive coverage"
+        ],
+        "reasoning": "The result is not a single invariant for a fixed input requiring a numeric table lookup. The exact indexed entries cover all allowable inputs and the continuum of positive reset probabilities.",
+        "searches": [
+          "Resultary: finite cycle random walk resetting sharp threshold m^2 > 5 d(m-d)+5 global beneficial",
+          "Resultary: cycle resetting every positive reset probability worsens mean first passage equality global exclusion"
+        ]
+      },
+      "rationale": "Exact scientific coverage in two earlier-dated indexed records. The October 26 record uses the identical walk and full-step reset cost, states the identical strict global exclusion including equality and the identical phase line, and further classifies the whole improving interval and cutoff. The October 18 gambler's-ruin record gives the equivalent result on the interval obtained by cutting the cycle at its absorbing target, including the exact derivative coefficient and essentially the same parity-Chebyshev coefficient certificate. This is demonstrable statement and proof coverage, not a verdict based on title, date alone, unavailable literature, or a merely local prior test.",
+      "residual_risks": [
+        "The mirror establishes indexed statement-level coverage; this assessment does not infer authorship, chronology within a day, or historical priority in the external literature.",
+        "The early network formulas may contain further relevant specializations beyond the inspected passages; this uncertainty does not affect the two exact matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly stronger classification for the same model",
+          "evidence": "Same m,d and one full update per reset. For kappa=m^2-5*d*(m-d)-5<=0 it proves strict slowdown at every positive rate, and for kappa>0 it proves one benefit interval and cutoff. P(1) also determines the derivative.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-exact-global-reset-benefit-thresholds-and-spatial-nesting-on-fin--4e78d85f744c/RESULT.md",
+          "material_read": "Finding, scope, renewal and palindromic sign certificate, offsets 0–5664",
+          "method": "Catalogue search and bounded local-mirror passages",
+          "title": "Exact global reset-benefit thresholds and spatial nesting on finite cycles",
+          "trigger": "Exact same phase line in the indexed result"
+        },
+        {
+          "assessment": "Equivalent phase line and derivative, and substantially the same polynomial proof route",
+          "evidence": "The criterion N^2-5(N-2i)^2+20<0 becomes the frozen threshold. The explicit w_2 of Eq. (5) is the derivative after dividing the excess-mean numerator by z times the denominator polynomial, which is 1 at z=0.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-when-can-resetting-accelerate-finite-gambler-s-ruin-a-sharp-glob--b2c6e0d0575c/RESULT.md",
+          "material_read": "Finding, scope and proof through coefficient positivity and interior optimum, offsets 0–6478",
+          "method": "Catalogue search and bounded local-mirror passages",
+          "title": "When can resetting accelerate finite gambler’s ruin? A sharp global criterion",
+          "trigger": "Exactly equivalent absorbing-interval formulation"
+        },
+        {
+          "assessment": "Exact finite means in same model; retrieved passages do not state the global threshold",
+          "evidence": "Each step chooses hop or reset, and the ring mean is computed from the transition spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+          "material_read": "§II, PDF p. 2 offset 9190, and §III Eqs. (15)–(16), pp. 3–4 offsets 19129–27441",
+          "method": "Targeted OA passage retrieval by ring and offsets",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Exact ring MFPT under the matching update convention"
+        },
+        {
+          "assessment": "Prior local criterion and exact mean, not the global converse in inspected material",
+          "evidence": "States the step-cost criterion CV^2>1+1/E[T] for small resetting, gives the ring MFPT and computes numerical optima.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15437",
+          "material_read": "§3.2 Eqs. (30)–(36), PDF pp. 8–9 offsets 25521–34447; §4.1 Eq. (39), pp. 10–11 offset 34447",
+          "method": "Targeted OA passage retrieval by fluctuations and offsets",
+          "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+          "trigger": "General weak-reset test and explicit rings"
+        },
+        {
+          "assessment": "Different reset-cost convention",
+          "evidence": "The geometric-restart mean contains (1-p)/p and Eq. (25) has CV^2>1-1/E[N], not the one-full-step criterion; the inspected examples include lazy walks with two absorbing boundaries.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.00895",
+          "material_read": "PDF p. 4 offset 27218 and §§ on confined examples, offset 46200 at pp. 5–6",
+          "method": "Targeted OA passage retrieval by geometric restart and offsets",
+          "title": "First passage under restart for discrete space and time: application to one dimensional confined lattice random walks",
+          "trigger": "Alternative confined-walk formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The global-versus-local distinction is meaningful for resetting, but this package adds no demonstrated substantive advance over the already available result for the same walk. Its alternate ratio estimate establishes the same positivity certificate already present for the equivalent interval, while the earlier cycle result additionally resolves the beneficial interval and distance nesting. The frozen finding gives neither a strengthened classification nor a distinct proof mechanism that would make the repeated theorem valuable as a separate finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

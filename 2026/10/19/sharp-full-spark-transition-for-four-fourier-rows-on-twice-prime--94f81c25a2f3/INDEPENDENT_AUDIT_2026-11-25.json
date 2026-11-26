@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:19:33.780157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–50; VERIFICATION.md and CHECK.py inspected as supplied evidence",
+        "/workspace/branches/c5111afd-456b-4f06-ba92-a27dd844710e/replay.py and representative.out, N10.out, N14.out"
+      ],
+      "rationale": "For distinct column roots the Vandermonde factor is nonzero. The alternant quotient is an integer Schur polynomial, equal to h₂ for exponents 0,1,2,5. Every 2p^k-th root has a unique product representation as a sign times a p^k-th root. A vanishing Schur value therefore makes the integer polynomial formed by replacing the p^k-th root with X divisible by Φ_{p^k}; evaluation at 1 gives a signed Schur value divisible by p. This proves the general sufficient criterion, with distinct rows and N greater than the largest row. Here h₂ on four signs is (4+(sum of signs)^2)/2, taking values 2,4,10. This proves full spark for every odd p other than 5, including N=6. When p=5, four fifth-root columns make rows 0 and 5 identical for every k. The comparison mask ending in row 4 has quotient h₁ and vanishes on two antipodal column pairs whenever it fits an even order. A fresh integer cyclotomic-remainder replay found 0, 10 and 0 singular minors out of 15, 210 and 1001 at N=6,10,14 respectively, corroborating but not replacing the proof.",
+      "residual_risks": [
+        "Replay is finite. The criterion is sufficient only; full spark does not assert numerical conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prime-power sufficiency in Theorem 9; p. 16 gives general necessity and a counterexample to unrestricted composite sufficiency."
+        ],
+        "reasoning": "The prime-power classification does not cover 2p^k for odd p. The general necessity alone cannot establish the positive branch.",
+        "searches": [
+          "Alexeev–Cahill–Mixon arXiv:1110.3548, Theorem 9 and composite-order discussion; focused primary search for composite full-spark coverage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548",
+        "04538f9363bb",
+        "bb8a5601ae6d",
+        "de39e0486913",
+        "579f4b382450",
+        "be518195ffd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cyclotomic argument uses Φ_{p^k}(1)=p; general divisor-uniformity necessity detects R mod 5. The same-mask odd-semiprime result already identifies h₂."
+        ],
+        "reasoning": "Credit both the old divisibility technique and the implied negative branch. The extra sign variable and its exact evaluations give a uniform positive conclusion not stated or implied by the compared classifications.",
+        "searches": [
+          "arXiv:1110.3548 Lemmas 10–11 and pp. 12–16; Resultary 04538f9363bb Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "04538f9363bb: same mask and h₂, but N=3q for odd prime q; bb8a5601ae6d and de39e0486913: adjacent masks with distinct Schur factors or arithmetic criteria"
+        ],
+        "reasoning": "The same zero-polynomial formulation at odd semiprime orders cannot turn into the even-order assertion by affine row or column reindexing. Adjacent masks solve different determinant problems.",
+        "searches": [
+          "Resultary: same mask {0,1,2,5}, h₂ and adjacent four-row harmonic masks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At order 10 the mask fails the modulo-5 balance requirement; at order 14 the mask is balanced and outside the listed exceptional four-row orbit."
+        ],
+        "reasoning": "These are genuine previously covered individual orders. Neither census gives the arbitrary-exponent transition.",
+        "searches": [
+          "Resultary complete row-set classifications at orders 10 and 14: 579f4b382450, be518195ffd5"
+        ]
+      },
+      "rationale": "Known prime-power theory supplies the divisibility method, and known divisor-uniformity necessity already accounts for the failure at five. The same mask was studied at odd orders 3q via the same Schur factor. Neither that result, the checked individual orders, nor prime-power uniformity supplies the positive sufficiency for the distinct orders 2p^k or the sign-evaluation criterion used here. This judgment is bounded to the sources inspected.",
+      "residual_risks": [
+        "A focused primary search returned no additional result; this is not evidence of historical priority or exhaustive literature coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage and prior technique",
+          "evidence": "Uniformity equivalent at prime powers, necessary at arbitrary orders; a composite counterexample rules out unconditional sufficiency.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Theorem 9 p. 12; Lemmas 10–11 pp. 13–14; p. 16, OA offsets 46000, 47800–50598, 59000",
+          "method": "Bounded OA text inspection",
+          "title": "Full Spark Frames",
+          "trigger": "Potential general theorem for composite DFT orders"
+        },
+        {
+          "assessment": "Same mask, disjoint domain",
+          "evidence": "At N=3q the mask is full spark for q≥7, with 15 rank-three singular minors at N=15.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-odd-semiprime-full-spark-rigidity-theorem-for-a-four-row-four--04538f9363bb",
+          "material_read": "RESULT.md Finding and Proof §1, beginning at offset 0",
+          "method": "Local mirror statement and proof comparison",
+          "title": "An odd-semiprime full-spark rigidity theorem for a four-row Fourier mask",
+          "trigger": "Same row mask and degree-two Schur reduction"
+        },
+        {
+          "assessment": "Distinct mask",
+          "evidence": "The mask ending in 4 fails at even order through antipodal pairs.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-singular-minors-for-the-near-consecutive-four-row-harmonic--bb8a5601ae6d",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Adjacent near-consecutive exponent pattern"
+        },
+        {
+          "assessment": "Distinct mask",
+          "evidence": "The criterion is gcd(N,6)=1, not the transition studied here.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-full-spark-criterion-for-the-four-row-fourier-pattern-0-1--de39e0486913",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact full-spark criterion for the four-row Fourier pattern {0,1,3,4}",
+          "trigger": "Other nearby four-row mask"
+        },
+        {
+          "assessment": "Covers N=10 only",
+          "evidence": "Classifies all order-10 row sets, including the unbalanced target mask.",
+          "identifier_or_url": "2026/10/4/SCOPE-complete-order-10-full-spark-classification-for-harmonic-fourier--579f4b382450",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror table/classification comparison",
+          "title": "Complete order-10 full-spark classification for harmonic Fourier frames",
+          "trigger": "Exact census at the first exceptional order"
+        },
+        {
+          "assessment": "Covers N=14 only",
+          "evidence": "The balanced target mask is outside the exceptional cardinality-four orbit.",
+          "identifier_or_url": "2026/10/4/SCOPE-complete-full-spark-classification-for-row-subsets-of-the-order--be518195ffd5",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror table/classification comparison",
+          "title": "Complete full-spark classification for row subsets of the order-14 Fourier matrix",
+          "trigger": "Exact census at a positive-case order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; arXiv:1110.3548, composite-order discussion; bb8a5601ae6d"
+      ],
+      "rationale": "The mask is the next degree after the near-consecutive h₁ mask that fails at every admissible even order. The h₂ transition gives a concrete family of nonconsecutive Fourier samplers with all maximal minors nonzero, over an infinite composite-order family where simple divisor balance is not a general criterion. The signed test provides a reusable sufficient condition beyond this mask; the failure at five alone would not be the contribution.",
+      "residual_risks": [
+        "No stability or conditioning bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

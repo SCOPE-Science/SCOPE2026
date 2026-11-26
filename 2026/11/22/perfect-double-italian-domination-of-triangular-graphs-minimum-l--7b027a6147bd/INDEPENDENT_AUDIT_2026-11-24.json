@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:12:19.139725Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–60; VERIFICATION.md and both supplied Python sources inspected",
+        "/workspace/branches/replay_triangular.py"
+      ],
+      "rationale": "The closed sum at root edge uv is d(u)+d(v)-f(uv), so completeness of K_n forbids two root degrees below 2. A weight at most n-1 then forces the sole low degree to be zero and the others 2, violating the lower bound on an incident edge. At weight n, a zero degree forces the other n-1 degrees to be at least 3, impossible for n>=5. A degree of one forces exactly one degree-three vertex, which must be the endpoint of the sole incident unit edge. Its edges to all n-2 remaining degree-two vertices must be positive to avoid closed sum 5 on a zero edge, but only two units remain. Conversely all degrees 2 give sums 4 and 3 at labels 0 and 1, and a spanning simple cycle realizes weight n. The associated loopless 2-regular multigraph has uniquely determined doubled edges and simple cycles. On j>=3 chosen vertices there are (j-1)!/2 undirected cycles, and a chosen pair gives one doubled edge, so the component series is ux^2/2+sum_{j>=3}x^j/(2j). Exponentiation gives both stated series; logarithmic differentiation gives the recurrence and the analytic factor at x=1 yields the stated e^(-1/4) asymptotic. Independently enumerating low-weight edge multisets and testing closed sums reproduces weights/counts {5:22}, {6:130}, {7:822} among 2893, 52224, and 1141536 assignments respectively, and separate component counts reproduce all listed values through n=12.",
+      "residual_risks": [
+        "The direct replay is finite (n=5,6,7); the written degree argument covers the full range. No claim for n<5 or arbitrary line graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen extraction notes identify path, cycle, complete-multipartite and graph-order results in Hao et al.; the original primary passages were not independently accessible in this review.",
+          "The mirrored square-rook finding establishes weight 2n and the degree-two characterization on L(K_{n,n})."
+        ],
+        "reasoning": "A complete bipartite root does not give the complete root graph by a specialization preserving the hypothesis or the optimum space. Its bipartite decomposition cannot count the odd simple cycles of the triangular case.",
+        "searches": [
+          "Hao–Jalilolghadr–Mojdeh DOI and publisher routes",
+          "Local Resultary: perfect double Italian domination and degree-two multigraph structure for line graphs"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact hit and three distinct indexed comparators above",
+        "Hao–Jalilolghadr–Mojdeh DOI/access and frozen provenance; primary-literature lookup did not yield a usable new passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square rook: minimum 2n, all root bipartite degrees two; perfect Roman triangular: exactly-one label-2 neighbor at zeros and root matching optima; ordinary Roman triangular: minimum n-1 and matching-based minima."
+        ],
+        "reasoning": "None supplies the all-root-pairs constraints that rule out the only exceptional low-degree patterns at weight n or proves that all degree-two complete-root multigraphs are optimal for this rule. Once that rigidity holds, the EGF is a standard consequence and is not separately claimed as an original counting method.",
+        "searches": [
+          "Mirrored RESULT.md Finding/Assumptions/Proof for the square-rook, triangular perfect Roman, and triangular ordinary Roman records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hao–Jalilolghadr–Mojdeh is the cited source for the perfect rule; the frozen source comparison identifies the older Roman {3} rule as a lower-bound-only condition.",
+          "The mirrored matching-rigidity and ordinary Roman polynomial findings use other label alphabets or conditions."
+        ],
+        "reasoning": "The graph aliases describe the same family, but Roman lower-only and exactly-one-defender formulations are not equivalent to requiring 3 or 4 in a closed neighborhood at both labels 0 and 1.",
+        "searches": [
+          "Local Resultary: perfect double Italian domination of triangular graphs, L(K_n), weighted degree two; targeted primary-literature lookup for triangular/Johnson graphs and Roman {3} terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching index ID ends in 7b027a6147bd and identifies this assigned finding itself. The distinct perfect Roman triangular-graph record ends in 0d0302466963 and gives a matching classification under its own rule."
+        ],
+        "reasoning": "The self-hit is not independent coverage. The distinct same-date record is excluded by its mathematical assumptions and conclusion, not by date. No separate exact same-rule optimizer table was identified in the inspected evidence.",
+        "searches": [
+          "Local Resultary: triangular graph perfect double Italian minimum rigidity and doubled-edge/cycle EGF"
+        ]
+      },
+      "rationale": "The strongest verified analogue has the same rule on a different root graph. The verified same-family statements have different neighborhood constraints and matching, not degree-two, optima. The supported distinction is rigidity for the stated perfect double Italian rule on the complete root graph and the resulting optimizer census, not the labeled exponential formula itself. Best-of-knowledge assessment, not historical priority certification.",
+      "residual_risks": [
+        "Hao et al. full text was not obtained independently; unindexed equivalent coverage may exist. Failed access is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and class coverage are reported in the frozen evidence; independent broader coverage remains limited by access.",
+          "evidence": [
+            "Frozen AUDIT.json lines 75–85 identifies Definition 1 and gives the cited extraction locators; independent routes returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2023.2218457",
+          "material_read": "Frozen extraction notes for Definition 1 and Sections 2–5; no new full-text passage obtained",
+          "method": "Inspected frozen provenance; lawful DOI and publisher access attempts",
+          "title": "Perfect double Italian domination of a graph",
+          "trigger": "Defining article; plausible broader coverage"
+        },
+        {
+          "assessment": "Close structural analogue on a different root class",
+          "evidence": [
+            "L(K_{n,n}); optimum 2n with row and column weight sums 2; bipartite multigraph components."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0/RESULT.md",
+          "material_read": "Finding, assumptions and proof excerpt, offsets 0–4495",
+          "method": "Local index and mirrored source",
+          "title": "Perfect double Italian domination of square rook graphs",
+          "trigger": "Same rule and degree-two optimum characterization"
+        },
+        {
+          "assessment": "Different domination rule and optimizer family",
+          "evidence": [
+            "Exactly one 2-neighbor at zeros; matchings of K_n classify optima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-matching-rigidity-of-perfect-roman-domination-on-triangular-grap--0d0302466963/RESULT.md",
+          "material_read": "RESULT.md offsets 0–4236",
+          "method": "Local index and mirrored source",
+          "title": "Matching rigidity of perfect Roman domination on triangular graphs",
+          "trigger": "Distinct same-date hit on the same graph"
+        },
+        {
+          "assessment": "Ordinary Roman enumeration, not perfect double Italian",
+          "evidence": [
+            "Minimum weight n-1 with matching-based structures."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f/RESULT.md",
+          "material_read": "RESULT.md offsets 0–4227",
+          "method": "Local index and mirrored source",
+          "title": "Roman-domination polynomial of triangular graphs, with minimum-function census",
+          "trigger": "Same graph, exact optimizer enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Square-rook comparison in mirrored RESULT.md"
+      ],
+      "rationale": "This determines the complete minimum space of a local domination invariant on the canonical clique line-graph family, not only its scalar minimum. It supplies a direct construction of every optimum and its refined enumeration by doubled edges, including factorial-scale growth. Odd cycles and the optimizer family are not captured by the bipartite rook analogue.",
+      "residual_risks": [
+        "Does not determine the complete weight polynomial or extend the classification to other root graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:58:47.196188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed s>0 write a+sZ=R exp(iΘ) under the stated circular Gaussian normalization. Differentiation under the expectation is justified by the pointwise bounded displacement derivative of the norm away from a null event. Using E[R cosΘ]=a, the derivative of Var(R)=a²+s²−(ER)² is 2 Cov(R,cosΘ). Polar conditioning gives density proportional to exp(2ar cosθ/s²), so the derivative of E[cosΘ|R=r] in r is (2a/s²)Var(cosΘ|R=r)>0 for a>0. The independent-copy covariance identity proves strict monotonicity for a>0. At a=0 the Rayleigh variance is s²(1−π/4), giving (ER)²≤a²+c²s², with equality only on the two axes, including s=0 directly. Gaussian unitary invariance reduces any affine F to A+sZ with A=|a|, s=‖b‖₂ and r=‖F‖₂=√(A²+s²). The squared difference between the chord c r+(1−c)A and the preceding square-root upper bound is 2c(1−c)A(r−A) in the sense of difference of their squares. Thus the chord bound is strictly improved in every mixed case. Expanding the two squared distances using ∫F=a proves the radial inequality and axis equality cases. The unit pure linear wave has squared phase distance 2 and squared modulus distance 2−√π, forcing the exact Lipschitz constant; equality at positive distance in that bound additionally requires r=1. Constants of nonunit norm saturate the radial remainder, so its coefficient cannot be raised with the phase-distance coefficient fixed. Direct numerical evaluation of the exact constant agreed with the printed decimal 2.9646965828533536. Inspected the 64-point Bessel checker, not executed; the replay of the global claim is the analytic covariance and chord proof, not its finite grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertolini et al. establish a finite vacuum constant in full Fock space and broader finite Hermite results, without an optimal affine coefficient. Bortolotto–Ramos estimate F² and |F|², not the unsquared affine modulus. Führ–Getter supply kernel-Cheeger stability constants, not the exact chord or equality profile.",
+          "The older Rice distribution reference inspected gives the Bessel description. Moser's noncentral chi-square work concerns log and reciprocal expectations; those outputs do not deliver the required square-root moment bound. The search lead for older MRI variance methods did not expose an accessible verified exact Rayleigh minimum theorem."
+        ],
+        "reasoning": "The full-Fock and general Cheeger results are broader in competitors but not sharp in the invariant that matters. A true general Rice-variance lower bound would dominate the scalar ingredient, unlike stating a moment formula or limiting noise regimes.",
+        "searches": [
+          "arXiv:2605.20527 Theorems 1.3–1.5",
+          "arXiv:2608.26365 Theorem 1.1 and Corollary 1.2",
+          "arXiv:2512.24169 Theorems 3.6, 3.10",
+          "Rice variance monotonicity and Rayleigh lower bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md and verify_affine.py",
+        "arXiv:2605.20527, arXiv:2608.26365, arXiv:2512.24169",
+        "Resultary 51e0f1878311",
+        "MathWorld Rice Distribution and Moser noncentral chi-square moment paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A published lower bound Var|A+sZ|≥s²(1−π/4) would immediately give the first square-root inequality. The squared chord comparison and orthogonality would then recover the whole affine theorem with strict mixed cases, even if that earlier variance lower bound were non-strict.",
+          "The later normalized chord proof instead directly implies the complete remainder, not just a similar numerical constant; the inspected earlier Fock estimates do not."
+        ],
+        "reasoning": "Priority hinges on an earlier covering sharp scalar inequality, not on whether a prior source uses affine phase-retrieval terminology. The decisive earlier bound was not verified, so the result is supported subject to the stated literature risk.",
+        "searches": [
+          "Resultary 51e0f1878311 §2 chord/convexity offsets 2227 and 3442",
+          "Older full-Fock explicit constants and MRI Rice variance monotonicity/Rayleigh minimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The latter record proves strict convexity of m(u)=E|u+√(1−u²)Z| between m(0)=c and m(1)=1. With u=A/√(A²+s²) and scaling back, this is an exact implication of the claimed mean chord and equality cases.",
+          "The frozen full-distance inequality expands to exactly that chord for a standard circular complex Gaussian; the coefficient is √(2/(2−√π)) in the later one-dimensional statement and (1−c)^(−1/2) here."
+        ],
+        "reasoning": "The later claim covers the higher-dimensional affine formula via the same one-complex-Gaussian law; dimension and explicit radial formatting do not evade this overlap.",
+        "searches": [
+          "Affine Bargmann–Fock vacuum modulus stability versus Rice/noncentral chi mean chord",
+          "Resultary 51e0f1878311 normalized Gaussian mean and sharp affine phase constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 51e0f1878311 Finding near offset 386 gives the exact sharp constant and normalized pure-linear extremizer. Catalogue publication 2026-11-08 UTC is later than the frozen 2026-10-19 finding. No earlier exact chord or affine constant was verified in these bounded lookups.",
+          "Accessible MathWorld material gives the Bessel density, not the sharp inequality needed for an exact coefficient. Earlier MRI papers surfaced as plausible variance-relationship leads but no qualifying full-text proof was obtained from them by the checked routes."
+        ],
+        "reasoning": "There is an actual current exact-result entry, not merely a similar title. Its later publication does not set historical priority; distributions and moment tables are not themselves sharp inequalities.",
+        "searches": [
+          "Resultary search for affine Fock modulus stability, first Hermite and exact vacuum coefficient",
+          "MathWorld Rice Distribution; targeted searches for the displaced/Rician modulus variance monotonicity and lower bound"
+        ]
+      },
+      "rationale": "The supported distinction relative to earlier verified work is the exact sharp Gaussian-affine vacuum inequality and equality profile, not the Rician mean formula, a new distribution, or the existence of Fock stability. The distinct Resultary record 51e0f1878311 demonstrably covers this exact claim mathematically: its strict convex normalized modulus mean implies the full dimension-free radial remainder as well as the sharp constant, by Gaussian reduction and expanding squares. It is a later catalogue release, not evidence of an earlier result; the reported one-dimensional phrasing does not make the frozen general-d assertion a new independent extension of that convexity. Older inspected analytic estimates are nonsharp or for different observations. An independently verified earlier sharp Rice variance lower bound or mean chord would be covering; the bounded comparisons did not establish such an antecedent, and inaccessible method papers do not constitute negative coverage evidence.",
+      "residual_risks": [
+        "A sharp central-minimum Rician variance result in uninspected literature would imply the main theorem routinely; older MRI variance sources including Gudbjartsson–Patz and the Sijbers lead were not verified in substantive full text via the checked routes. No absence claim is made for them.",
+        "A bounded search and a later exact match do not certify unique origin or exclude an earlier equivalent Gaussian inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite global and finite-Hermite stability constants, not this sharp affine constant",
+          "evidence": [
+            "Theorems 1.3–1.5 include a global existence and local explicit δ=1/4601 and M̃=23003, not the sharp two-level remainder."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.20527",
+          "material_read": "p. 4 Theorems 1.3–1.5, OA offsets 12700–17298",
+          "method": "Primary OA statement comparison",
+          "title": "L²-Stability for STFT phase retrieval",
+          "trigger": "Same vacuum and general global phase stability"
+        },
+        {
+          "assessment": "Different squared-amplitude data; does not state the exact affine modulus estimate",
+          "evidence": [
+            "The coercive comparison uses F² and |F|²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.26365",
+          "material_read": "p. 4 Theorem 1.1 and Corollary 1.2, around OA offset 11500",
+          "method": "Primary OA functional and constants compared",
+          "title": "A complex-analytic proof of square-restricted stable phase retrieval in Fock space",
+          "trigger": "Possible quantitatively broader vacuum inequality"
+        },
+        {
+          "assessment": "Cheeger-based stability, not this exact optimal chord",
+          "evidence": [
+            "The displayed estimates involve kernel-Cheeger bounds rather than the sharp affine Gaussian mean and equality profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.24169",
+          "material_read": "pp. 15, 17, Theorems 3.6 and 3.10; offsets 53201 and 60636",
+          "method": "Primary OA theorem comparison",
+          "title": "Cheeger Bounds for Stable Phase Retrieval in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Potential more general kernel inequality"
+        },
+        {
+          "assessment": "Later exact coverage via strict normalized convexity, including the radial inequality after Gaussian reduction",
+          "evidence": [
+            "Normalized modulus mean lies below the same chord, with endpoint equality; equivalent optimal constant and normalized linear extremizers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-fock-modulus-stability-at-the-vacuum-on-the-affin--51e0f1878311",
+          "material_read": "Finding around offset 386, §2 around offsets 2227 and 3442, Limitations near 5691",
+          "method": "Local mirror proof and conclusion comparison",
+          "title": "Sharp Gaussian Fock modulus stability at the vacuum on the affine subspace",
+          "trigger": "Strongest exact indexed match and stronger optimization statement"
+        },
+        {
+          "assessment": "Defines the Rice density; no chord inequality stated in the accessed entry",
+          "evidence": [
+            "Gives the modified-Bessel density and cites Papoulis for the derivation."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/RiceDistribution.html",
+          "material_read": "Distribution entry, offset 0",
+          "method": "OA entry text checked",
+          "title": "Rice Distribution",
+          "trigger": "Plausible formula table for the exact scalar inequality"
+        },
+        {
+          "assessment": "Evaluates log and inverse moments, not a verified square-root mean bound",
+          "evidence": [
+            "The abstract names the expectation of the logarithm and of nth powers of the reciprocal."
+          ],
+          "identifier_or_url": "https://moser-isi.ethz.ch/docs/papers/smos-2007-5.pdf",
+          "material_read": "p. 1 scope and main quantities, OA offsets 497–2144",
+          "method": "Primary OA abstract and introductory scope comparison",
+          "title": "Some Expectations of a Non-Central Chi-Square",
+          "trigger": "Potential stronger noncentral Gaussian moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An optimal global constant and equality classification on the vacuum plus first Hermite band give a natural calibrated test for an established full-space stability problem, rather than an arbitrary finite slice. The positive remainder explains the distinction between norm mismatch and genuine phase-orbit error; the pure-linear extremizers give a lower benchmark for any full-space vacuum constant. The sharp quantitative fact is not supplied by the earlier verified qualitative full-space theorems. The result does not assert the full-space constant or a discrete-sampling guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

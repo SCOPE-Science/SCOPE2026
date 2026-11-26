@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stable-face condition is exactly containment of the perpendicular foot in the supporting facet. Signed-distance barycentric gradients give \(q_{ij}=-(h_i/h_j)\langle u_i,u_j\rangle\), so the facet-active region satisfies linear inequalities \(\lambda_j\ge(-q_{ij})_+\lambda_i\). The explicit invertible affine coordinate change maps this region to a whole simplex; its height ratio is \((1+b_i)^{-1}\), proving the probability and mean. The angular bound follows from two monotone rational terms and AM–GM; the symmetric two-apex example realizes equality in all dimensions. The independent exact-rational verifier checks exact rational tests, including the published tetrahedron with exact mean \(509/210\). No finite test is used to extrapolate the proof.
+## correctness
 
-## Originality — PASS (priority qualified)
-Full text of Almádi et al. (2023) establishes existence and qualitative all-centers face stability, not the volume measure. Full text of Nasonov et al. (2024) identifies the facet-active prism and considers all normal bases, but does not calculate its simplex intersection volume or expected facet-only count. A 2026 ridge-normal result has a closely related two-term rational loss for codimension-two normal bases. That equality of coefficients is explicitly acknowledged; it is not an assertion about exact volumes of facet-stability loci and does not itself yield the stated all-facet expectation. The 2013 robustness study uses minimal perturbation displacement, not the present volume statistic. The identified source overlap is real, and undiscovered equivalents remain possible. The novel object is the complete quantitative shape/volume description, not the already-known active-region concept.
+PASS
 
-## Mathematical value — PASS
-The 2023 tetrahedron study explicitly describes how a fixed polyhedron can switch stable supporting faces when its mass center is altered; the 2024 normals study proposes an averaged shape indicator. The theorem supplies a natural exact distributional facet invariant in every dimension, a full constructive parametrization of its active region, an exact measure for a cited monostable tetrahedron, and a sharp angular loss that holds independently of all other simplex geometry. It is not a textbook implication without calculation: the projection inequalities must be converted into a nontrivial simplex-volume identity and the sharp extremizers constructed. Complete joint count distributions and non-simplex bodies remain open here.
+Writing λ_j=(c_j−u_j·x)/h_j, the facet coordinates of the foot of v_i are q_ij=−(h_i/h_j)g_ij. The affine projection of x onto F_i has coordinates λ_j+λ_i q_ij. Inside T, nonnegativity is precisely λ_j≥(−q_ij)_+λ_i, and subtracting these multiples from λ_j and scaling λ_i by 1+b_i sends this region bijectively to the standard simplex. Its apex has altitude h_i/(1+b_i), proving the volume ratio. Strictly interior foot and closed-foot conventions differ on null hyperplanes; the latter is the closure of the former. Linearity yields the mean, maximal iff every g_ij≤0. For the specified g>0, the two contributions with a=g h_i/h_j and b=g h_j/h_i are at least (a+b+2g²)/(1+a+b+g²), strictly increasing in a+b since g<1. Equality requires equal heights and no extra positive pair. To check existence, take the two stated apices (±a,b,0) and a centered regular equatorial simplex of radius ρ. If m=d−1, the remaining gradients have y component −1/(bm); for m>1 their mutual products are 1/(bm)²−(m−1)/(m²ρ²), strictly negative for small ρ. Their products with the apical gradients are negative; for d=2 there is just one remaining gradient. This realizes each angle with the claimed equality. The four rational benchmark probabilities and the sum were independently recovered by cofactor inversion of the affine vertex matrix.
 
-## Closest comparisons and limitations
-- Almádi et al., *On equilibria of tetrahedra*, arXiv:2304.06984, Definition 2, Lemma 7 and Theorem 4: qualitative weighted stability, no measured active-region volume.
-- Nasonov–Panina–Siersma, arXiv:2406.01773, Lemma 1 and Section 6: general active-prism condition and mean total normals, but not facetwise exact volume.
-- *An exact ridge-normal obstruction and a quantitative mean-normal deficit for simplices* (2026): one ridge and total normals, with acknowledged same rational two-term expression; not a facet-only mean identity.
-- Domokos–Lángi, arXiv:1301.4031: displacement robustness, not uniformly weighted stability probability.
-- Mathematical limitations: uniform interior reference point, facewise mean only, no independence or whole distribution; dimension-general equilibrium notion specified in the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supporting-foot event and facet active region are prior objects, and the earlier ridge obstruction contains exactly the same two-term altitude/angle expression. The credited increment is the simplex-specific exact region and volume law, all-facet mean, and sharp deficit and equality for this facet count, not the definition, the tetrahedron, or the rational pair expression in isolation.
+
+## value
+
+PASS
+
+The exact active simplex quantifies the mass-center robustness of each natural support facet rather than testing a single center. The mean and a sharp shape-to-stability loss with equality characterize a measurable aspect of variable-center equilibrium distinct from all-strata counts. In particular, knowing an obtuse dihedral angle alone gives an optimal dimension-independent loss without reconstructing the shape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

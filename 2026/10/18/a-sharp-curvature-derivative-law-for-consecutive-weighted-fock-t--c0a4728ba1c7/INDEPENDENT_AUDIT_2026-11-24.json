@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:56:15.459208Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unnormalized moment density for the written e^(−2Φ) norm is r^(2k+1)e^(−2Φ(r)). Its strictly concave log has unique mode r_k with r_k²γ(log r_k)=k+1/2 and −h_k''(r_k)/2=A_k=2γ+γ′ there. The exact normalized adjacent likelihood ratio is R²/m_k with m_k=E_k R², so the optimizer changes sign at √m_k, not generally at r_k, and the optimum is the L¹ distance (twice probability TV). For |x|≤r_k^(1/8), the log density of x=R−r_k differs from −A_k x² up to a constant by O(|x|³/r_k). The bound on γ″ controls this remainder; h_k''≤−3/2 controls the complement and normalization is uniformly bounded below by a fixed-size interval at the mode. Integrating the weighted Gaussian difference yields E x=O(r_k^−1), E x²=O(1), and E|x|=1/√(πA_k)+O(r_k^−1). Thus m_k=r_k²+O(1) and E|R²−m_k|=2r_k/√(πA_k)+O(1). Dividing by m_k and using the mode relation proves the claimed scaled error O(k^−1/2). For the globally Gaussian weight, R² is Gamma(k+1,1), giving Δ_k=2e^−(k+1)(k+1)^(k+1)/(k+1)! and the same leading constant by Stirling. In the periodic tail D_g′≥7/4, τ(u+2L)=τ(u)+L, and rounding exp(u+2Lm) gives integer subsequences for each phase. Q_g constant forces g′/g constant and hence zero by periodicity. This verifies the full cluster interval and the factor two in the adjacent square-root-metric slope. The numerical checker was inspected, not executed; its finite sinusoidal examples do not prove uniformity over weights or symbols.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian square-root-metric result controls continuity for individual radial symbols and characterizes the closure of their sequences.",
+          "Bdarneh supplies the moment formula across radial weights. Xu–Dong study Schatten–Lorentz and singular-value Weyl behavior of individual Toeplitz operators."
+        ],
+        "reasoning": "A qualitative continuity theorem or a representation across a broader weight class does not give the asymptotic sharp adjacent difference over the symbol unit ball. Fixed-symbol estimates have different quantifiers and cannot be optimized as stated.",
+        "searches": [
+          "Esmeral–Maximenco arXiv:1505.07906, pp. 2–3, 5",
+          "Bdarneh arXiv:2609.20652, Theorem 6.2",
+          "Xu–Dong arXiv:2609.16970, abstract and §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and sensitivity_checker.py",
+        "arXiv:1505.07906, 2609.20652 and 2609.16970",
+        "Resultary records of 2026-10-11, 2026-10-18 and 2026-11-08 cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The likelihood ratio r²/m_k gives the exact dual norm mechanically from the known integral representation, but determining the scaled absolute deviation needs accurate local variance and centering as k varies.",
+          "At the radial mode the negative half-second derivative of the log density is 2γ+γ′. A fixed-symbol leading term governed by γ alone cannot determine the effect of γ′ in this norm. The power-log theorem has a different scale and does not yield the stated coefficient or phase by specializing its parameters."
+        ],
+        "reasoning": "The new asymptotic follows from a quantitative moving-mode calculation and periodic phase inversion, not direct substitution into a cited result. Generic Laplace methods and the Gaussian special case are background, not claims of novelty.",
+        "searches": [
+          "arXiv:2609.20652, Theorem 6.2 compared with frozen RESULT.md lines 34–68",
+          "Resultary 2026-10-18 radial-area-density Weyl record, proof offsets 0 and 3000",
+          "Resultary 2026-11-08 Gaussian local variation record, offsets 0 and 3314"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bdarneh gives the general radial spectral moment representation from which the signed-measure duality follows.",
+          "The November 8 result explicitly uses the same L¹ duality and a Gaussian crossover for power-log moments, but at α=2 its γ(log r)=log(r)/r² tends to zero, outside the frozen 1≤γ≤2 hypotheses."
+        ],
+        "reasoning": "The duality and single sign change are not credited as independently new. The weighted adjacent asymptotic in the uniformly convex regime is a different conclusion from the crossover as the power-log parameters vary.",
+        "searches": [
+          "Resultary: total variation of adjacent radial Toeplitz eigenvalue functionals and monomial moment measures",
+          "arXiv:2609.20652, Theorem 6.2",
+          "2026/11/8/SCOPE-sharp-gaussian-local-variation-law-for-radial-toeplitz-eigenvalu--a30c891cc707, Proof, offset 3314"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day radial-area-density result shares the mode equation, an O(n^−1/2) law, and a cluster interval, but those concern individual singular values for a fixed positive power-decaying symbol and depend on Φ′(r)/r, not its log derivative in the adjacent norm.",
+          "The October 11 logarithmic filter uses normalized singular-value sums/Dixmier traces with standard Gaussian weight, not the L¹ difference of two varying moment laws."
+        ],
+        "reasoning": "There is genuine common saddle structure, but no equivalent exact phase law in these matched records. The same date does not establish relative priority.",
+        "searches": [
+          "Resultary: radial Fock logarithmically periodic curvature and sharp adjacent Toeplitz norm",
+          "2026/10/18/SCOPE-radial-area-density-exactly-controls-fock-toeplitz-weyl-constant--11aeb72ff555, Finding and Proof",
+          "2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5, Finding"
+        ]
+      },
+      "rationale": "The radial eigenvalue representation is established, and the exact total-variation/threshold identity follows directly from it. The supported distinct contribution is the sharp moving-saddle coefficient for arbitrary admissible γ and the quantitative log-periodic phase and full cluster set. Neither fixed-symbol Weyl results (including a distinct same-day record with the same saddle) nor prior metric continuity for each symbol give this optimized adjacent law. The later power-log total-variation theorem treats a different curvature regime. This is a bounded statement-level comparison, not a priority certificate.",
+      "residual_risks": [
+        "An exact adjacent-distribution asymptotic in wider exponential-family or Laplace literature could cover more than the inspected sources.",
+        "Only targeted passages were compared; same-day ordering and exhaustive priority were not established. The standard Gaussian special case and total-variation reduction are not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact moments, not the optimized adjacent curvature law",
+          "evidence": [
+            "The theorem represents radial eigenvalues via the normalized radial moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.20652",
+          "material_read": "Theorem 6.2, p. 9, offset 26468",
+          "method": "Targeted arXiv PDF passage",
+          "title": "Toeplitz C*-algebras on radially weighted Fock spaces: commutativity and spectral representation",
+          "trigger": "Same general weight setting and eigenvalue functionals"
+        },
+        {
+          "assessment": "Metric and Gaussian prior background, not the oscillatory coefficient for general weights",
+          "evidence": [
+            "Square-root uniform continuity and closure of spectral sequences; adjacent Lipschitz criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.07906",
+          "material_read": "pp. 2–3 and p. 5, offsets 6777 and 16754",
+          "method": "Targeted arXiv PDF passages",
+          "title": "Radial Toeplitz operators on the Fock space and square-root-sequences",
+          "trigger": "Canonical Gaussian square-root metric"
+        },
+        {
+          "assessment": "The compared problem treats singular values of individual symbols, not the bounded-symbol unit-ball difference",
+          "evidence": [
+            "Schatten–Lorentz/Weyl results for Toeplitz operators with fixed symbol."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16970",
+          "material_read": "Abstract p. 1; frozen comparison locates Theorem 5.2 and Proposition 5.3",
+          "method": "Targeted PDF abstract and comparison against the frozen section locators",
+          "title": "IDA symbols and Schatten–Lorentz theory for Toeplitz operators on weighted Fock spaces",
+          "trigger": "Weighted Fock curvature and spectral asymptotics"
+        },
+        {
+          "assessment": "Common saddle, different fixed-symbol statistic; no order inferred",
+          "evidence": [
+            "The fixed positive power-decay singular-value coefficient depends on b(r)=Φ′(r)/r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-radial-area-density-exactly-controls-fock-toeplitz-weyl-constant--11aeb72ff555",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 3000",
+          "method": "Local mirror bounded passage reads",
+          "title": "Radial area density exactly controls Fock–Toeplitz Weyl constant",
+          "trigger": "Same-day result with the same saddle and cluster-law structure"
+        },
+        {
+          "assessment": "Later result in a different asymptotic regime",
+          "evidence": [
+            "Power-log weights give a two-normal crossover; the α=2 adjacent limit is positive before any √k scaling, with vanishing γ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-local-variation-law-for-radial-toeplitz-eigenvalu--a30c891cc707",
+          "material_read": "RESULT.md offsets 0 and 3314",
+          "method": "Local mirror bounded passage reads",
+          "title": "Sharp Gaussian local variation law for radial Toeplitz eigenvalues",
+          "trigger": "Matching total-variation characterization and local comparison"
+        },
+        {
+          "assessment": "Gaussian fixed-weight trace statistic rather than adjacent optimized differences",
+          "evidence": [
+            "The observable averages singular values via normalized sums."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage read",
+          "title": "The logarithmic spectral filter for smooth radial Fock Toeplitz operators",
+          "trigger": "Log-periodic oscillation in a closely related radial setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural optimization asked by the square-root spectral metric is the exact unit-ball sensitivity of a pair of consecutive coordinate functionals. The sharp law shows that a variable radial geometry changes this sensitivity through a derivative term, and the complete cluster interval detects oscillation and its size, even under uniform convexity. Index-dependent optimizers and local leading coefficients give information unavailable from fixed-symbol regularity. The result does not claim the global modulus or a common optimal symbol.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,81 +1,45 @@
-# Parity-controlled token mobility of minimum dominating sets on cyclic prisms
+# Slide-frozen minimum dominating sets with a cyclic jump graph on prisms of length 1 modulo 4
 
 ## Finding
 
-Write \(P_n=C_n\square K_2\), with vertex set \(\{t_i,b_i:i\in\mathbb Z/n\mathbb Z\}\), horizontal edges \(t_it_{i+1}\), \(b_ib_{i+1}\), and rungs \(t_ib_i\), for integers \(n\ge3\). A *dominating set* is a set \(S\) such that every vertex belongs to \(S\) or has a neighbor in \(S\). A *minimum* dominating set has cardinality \(\gamma(P_n)\).
-
-The **token-slide graph** \(\mathcal T_n\) has the minimum dominating sets as vertices, and joins two when one replaces a selected vertex by an adjacent unselected vertex of \(P_n\), remaining minimum dominating. The **token-jump graph** \(\mathcal J_n\) uses the same replacement rule without requiring adjacency.
-
-**Theorem (zero-or-one-defect regimes).** For all integers \(n\ge3\) with \(n\not\equiv2\pmod4\),
-
+Let \(P_n=C_n\square K_2\) for \(n\ge5\) with \(n\equiv1\pmod4\). Let \(\mathcal J_n\) be the graph of labeled minimum dominating sets, with two sets adjacent if one can be obtained from the other by replacing a single vertex. Let \(\mathcal T_n\) use the same adjacency but require the departing and arriving vertices to be adjacent in \(P_n\). Then
 \[
-\mathcal T_n\cong
-\begin{cases}
-K_3\square K_3,&n=3,\\
-4K_1,&n\equiv0\pmod4,\\
-2nK_1,&n\equiv1\pmod4,\ n\ge5,\\
-C_{2n},&n\equiv3\pmod4,\ n\ge7,
-\end{cases}
+\mathcal J_n\cong C_{2n},\qquad \mathcal T_n\cong 2n K_1.
 \]
-
-and
-
-\[
-\mathcal J_n\cong
-\begin{cases}
-K_3\square K_3,&n=3,\\
-4K_1,&n\equiv0\pmod4,\\
-C_{2n},&n\text{ odd},\ n\ge5.
-\end{cases}
-\]
-
-For every odd \(n\ge5\), there are exactly \(2n\) optimal states and \(2n\) token-jump edges. The token-jump graph has radius and diameter \(n\); when \(n\equiv3\pmod4\), the same holds for the token-slide graph. When \(n\equiv1\pmod4\), **every optimal state is slide-frozen although the jump graph is one long cycle**. For \(n\equiv0\pmod4\), both reconfiguration graphs have four isolated states.
+Thus every minimum dominating set is frozen under token slides, whereas exactly two jumps are available from every state, and all states can be reached by jumps. The jump graph has radius and diameter \(n\).
 
 ## Assumptions and scope
 
-Graphs are finite, simple, undirected and vertex-labeled; \(C_3\) is a triangle. A token replacement changes precisely one member of the selected set. We classify ordinary (closed-neighborhood) domination, not total or independent domination; jumps are not necessarily edges of the host graph. The result covers every odd cycle length and every length divisible by four; the two-defect regime \(n\equiv2\pmod4\) is deliberately **not** claimed. The optimal-state count itself is background from the cyclic-prism literature; the transition graphs and exact movement distances are the contribution.
+The host is a finite simple undirected graph with a top and bottom vertex in every cyclic column \(i\in\mathbb Z/n\mathbb Z\). Edges are rungs within columns and same-row edges between consecutive columns. Domination means coverage by closed neighborhoods; a dominating set need not be independent. Both move graphs keep cardinality fixed at the minimum. The minimum size and state count are background. The claim is the exact move graphs and jump distances for the residue class stated above.
 
 ## Proof
 
-**1. Optimal cardinality and absence of double columns.** Every vertex of \(P_n\) has closed neighborhood of size four, so \(\gamma(P_n)\ge\lceil n/2\rceil\). For \(n\equiv0\pmod4\), placing alternating top and bottom tokens at alternate columns achieves \(n/2\). For odd \(n\ge5\), the cyclic singleton construction in Step 2 achieves \((n+1)/2\). For \(n=3\), one top and one bottom token dominate both triangles and attain two. Thus the lower bound is sharp in every claimed case.
+**1. The minimum words.** Write \(n=2m-1\), so \(m\ge3\) is odd. Since every closed neighborhood has size four, a dominating set needs at least \(m\) tokens. Denote a top-only column by \(A\), a bottom-only column by \(B\), and an empty column by \(C\). A dominating word with \(m\) tokens and only these three letters exists: put a pair of \(A\)'s at columns \(0,1\), then alternate empty and singleton columns around the rest of the cycle. Starting from column 1, change the singleton color each time a \(C\) is crossed. There are \(m-1\) empty columns, an even number, so this instruction returns to \(A\) at column 0. Each empty column sees tokens of both colors, and every occupied column is dominated by its own token via the rung. The minimum size is therefore \(m\).
 
-Call a column \(A\) if only its top vertex is selected, \(B\) if only its bottom is selected, \(C\) if neither is, and \(D\) if both are. If \(n\equiv0\pmod4\), an optimal set has exactly \(n/2\) tokens and its closed neighborhoods have total cardinality \(4(n/2)=2n\). They must therefore be pairwise disjoint. In particular no \(D\)-column is possible.
+In any minimum set the excess number of neighborhood incidences above one per vertex is \(4m-2n=2\). If both vertices of column 0 are selected, their neighborhoods already use both excess incidences at column 0, and together cover both rows of columns \(-1,0,1\). Any further selected vertex in columns \(-2,-1,1,2\) would overlap that union and exceed the budget. The two vertices of column 2 could then only be dominated by selecting both vertices of column 3. For \(n=5\), column 3 is itself forbidden; for \(n\ge9\), the two selected vertices in column 3 would use additional excess incidences. Thus all occupied columns are singletons.
 
-Now let \(n\ge5\) be odd, and write \(m=(n+1)/2\). An optimal set has \(m\) tokens and the sum of the cardinalities of their closed neighborhoods is \(4m=2n+2\). Thus any such covering has exactly two excess incidences above one coverage per vertex. Suppose it has both tokens in column zero. Their closed neighborhoods already have exactly two repeated incidences (at \(t_0,b_0\)) and together cover both rows of columns \(-1,0,1\). Every further token would have to contribute a closed neighborhood disjoint from this six-vertex union and from all other token neighborhoods. Consequently no further token may lie in columns \(-2,-1,1,2\): each such token's closed neighborhood intersects that union. Yet both vertices of column 2 still require domination. If \(n=5\), their only possible selected neighbors lie in forbidden columns 1, 2, or 3 (where 3 is \(-2\)), a contradiction. If \(n\ge7\), their only possible selected neighbors are respectively \(t_3\) and \(b_3\); both would have to be selected, creating further repeated incidences and contradicting the exhausted excess budget. Thus no minimum set contains \(D\) for odd \(n\ge5\).
+Consecutive empty columns are impossible: dominating the first of such a pair would require both tokens in the preceding column. Since there are \(m\) singleton and \(m-1\) empty columns, exactly one interval between cyclically consecutive empty columns contains two singletons and the others contain one. Write \(i,i+1\) for the distinguished consecutive singleton pair. Each empty column must have one \(A\) and one \(B\) as flanks. Because the path of singles around the other way between the pair members crosses \(m-1\) empty columns, both members of the pair have the same color. Choosing \(i\) and that color determines the entire word. In particular these ordinary minima are not independent.
 
-**2. Exact minimum words.** With no \(D\), two adjacent \(C\)-columns are impossible: each of the two rows in the first empty column must then be covered from the preceding column, forcing a \(D\) there. For \(n=4k\), there are exactly \(2k\) singleton columns and \(2k\) empty columns, so the word alternates singleton and \(C\). Every \(C\) must be flanked by one \(A\) and one \(B\), since both row vertices need horizontal coverage. There are precisely four words, specified by the parity of occupied columns and the color of the first singleton.
+**2. Exactly two moves.** At a fixed column support the two colorings are complementary, differing at all \(m\) tokens, so no one-token move keeps the support. Removing a singleton outside the distinguished pair creates two empty–empty edges, one on either side of the vacated column. Filling either neighboring empty column leaves the other empty–empty edge, and filling any other column leaves both. A replacement is therefore impossible there. Removing the left member at \(i\) forces a token into the empty column \(i-1\); removing the right member at \(i+1\) forces a token into \(i+2\).
 
-For odd \(n=2m-1\ge5\), there are \(m\) singleton columns and \(m-1\) empty columns. With no consecutive \(C\)'s, exactly one gap between consecutive \(C\)'s contains two consecutive singletons, and every other gap contains exactly one. Let that distinguished pair be \(x,y\) at columns \(i,i+1\), with \(x,y\in\{A,B\}\). All remaining letters are forced by the rule that each \(C\) has complementary singleton neighbors. The singleton at column \(i-2\) has the color opposite to \(x\); the singleton at \(i+3\) has the color opposite to \(y\). Between these two outer singletons lie exactly \(m-3\) isolated \(C\)'s, each reversing the singleton color. Therefore \(x=y\) precisely when \(m\) is odd, namely \(n\equiv1\pmod4\), and \(x\ne y\) precisely when \(m\) is even, namely \(n\equiv3\pmod4\). Choosing the index \(i\) and \(x\in\{A,B\}\) uniquely constructs a feasible minimum word. This gives exactly \(2n\) states.
-
-**3. All possible jumps in the odd regime.** The occupied-column support is a minimum vertex cover of the column cycle: empty columns form an independent set and there is precisely one adjacent occupied pair. It is unchanged by a same-column row swap, but for a fixed support the coloring is one of two globally complementary words. The two colorings differ at all \(m\ge3\) selected vertices, so they are not related by one-token replacement. If the occupied-column support changes by removing a singleton outside the distinguished pair, both its neighboring columns become empty and filling only one of them leaves two adjacent empty columns, impossible. Removing the left member \(x\) of the pair must be accompanied by filling the empty column \(i-1\); removing the right member \(y\) must fill \(i+2\). In either case the newly empty column demands opposite colors on its two neighbors, uniquely determining the target row. All other empty columns retain valid flanks, so both moves are legal jumps.
-
-Parameterize a state by \((i,x)\), with \(i\) the first column of the distinguished pair and \(x\) its color. A left jump replaces \(x\) in column \(i\) by the complementary color in column \(i-1\) when \(x=y\), or by the same color when \(x\ne y\). The new distinguished pair starts at column \(i-2\), whose color is the complement \(\bar x\). Thus the left-jump action on state parameters is
-
-\[
-F(i,x)=(i-2,\bar x),
-\]
-
-and its inverse is the right jump. Because \(n\) is odd, translation by \(-2\) visits all \(n\) column indices, and after \(n\) repetitions the color is reversed. Hence \(F\) is a single permutation cycle of length \(2n\). The two jumps are distinct for \(n\ge5\), so \(\mathcal J_n\cong C_{2n}\).
-
-**4. Slides and remaining cases.** In the odd case, the two jumps always change the occupied column by one. They are slides along a horizontal host edge if and only if the new token stays in its original row. From the new-empty-column constraint this happens exactly when \(x\ne y\), hence exactly when \(n\equiv3\pmod4\). The other parity admits no slides. For \(n=4k\), the four minimum words differ pairwise in at least two token locations (for opposite occupied-column parity, at least \(n/2\ge2\); for the same parity but opposite singleton colors, exactly \(n/2\ge2\)). No single-token jump or slide is possible. Finally, \(P_3=K_3\square K_2\) has exactly the nine minima choosing one vertex from each of its two triangles; replacing one chosen vertex inside its triangle gives either type of move, and no other replacement works. The corresponding graph is \(K_3\square K_3\).
-
-A cycle on \(2n\) vertices has radius and diameter \(n\), proving all metric assertions. \(\square\)
+In the left move, the old color of the token at \(i+1\) determines the new token at \(i-1\): it must be the opposite color to dominate the newly empty column \(i\). Every other remaining empty column keeps its valid flanks. Thus the new token is in the opposite row from the departing one, and this move is a jump but not a slide. The right move is its reflected counterpart and is likewise a jump but not a slide. The new pair after the left move starts at \(i-2\), whose original color is opposite to the old pair's color. Hence the left move maps \((i,x)\) to \((i-2,\bar x)\), and the right move is the inverse. Since \(n\) is odd, subtracting 2 visits every column, and after \(n\) moves the starting column is recovered with its color flipped. The permutation is a single cycle of order \(2n\). Its two neighbors are distinct, so the undirected jump graph is \(C_{2n}\); the slide graph has no edges. The farthest vertex from any point on this jump cycle is at distance \(n\).
 
 ## Verification
 
-The standalone `verification/verify_prism_direct.py` enumerates every size-\(\lceil n/2\rceil\) subset for \(3\le n\le12\), outside the explicitly excluded congruence class, independently tests coverage by bitmask unions of all closed neighborhoods, constructs every possible one-token replacement, and calculates degree distributions, edge counts and connected components. The independent `verification/verify_prism_language.py` builds the complete word families using the forced-gap characterization, tests the original domination condition, and compares **every pair** of states for token differences and host adjacency through \(n=129\). Both outputs are included and both programs can be rerun directly with Python 3 without dependencies. The finite tests corroborate, but do not replace, the infinite-family proof above.
+The bundled finite tests can be run from the package root with `python3 verification/verify_prism_direct.py` and `python3 verification/verify_prism_language.py`. The first exhaustively checked minimum-size subsets and explicit moves for a small range, including \(n=5,9\); the second constructed the forced word families and compared every pair for one-token exchanges through \(n=129\), including all lengths in the present class in that interval. The recorded outputs include other residues for comparison. These checks are finite and neither are needed to infer the all-size claim, proved above.
 
 ## Relationship to prior work
 
-Suzuki, Mouawad and Nishimura (2014) investigate addition/deletion of tokens through dominating sets of *size at most* a threshold; their adjacency changes the number of selected vertices and differs from fixed-cardinality token sliding/jumping. Bouchou and Blidia (2016) study two-rainbow domination and criticality on cycles. The correspondence between ordinary domination of \(C_n\square K_2\) and two-row labels is relevant context, but their object/claims do not determine these state-transition graphs. Allagan (2026) develops cyclic-word enumeration of *minimum* dominating sets of the same host graph and obtains the background numbers four, \(2n\), and a quadratic enumeration in separate congruence regimes. His principal theorem counts optimal configurations; it does not give the two fixed-cardinality reconfiguration graphs. The proof here reconstructs its own needed state classification, including the parity-dependent colors of the unique adjacent singleton pair, and then analyzes the allowed moves. The 2011 introduction of \(\gamma\)-graphs under sliding by Fricke and collaborators motivates the movement model. A search of the cited full-text sources and relevant bibliographic and research-record searches found no implication supplying the present exact graph isomorphisms. A negative search is not a uniqueness theorem.
+Allagan [1, Theorem 3.1 and §3.3] gives the minimum-set count and cyclic-word approach; in the residue here the forced word language provides the input for analyzing exchanges. The additional step is to exclude every move except the two opposite-row exchanges, compute their action on the exceptional pair, and determine exact connectedness and distances. The numerical overlap index in [1, §4.2] does not classify these edges. Addition/deletion reconfiguration [2] uses an adjacency of a different kind.
+
+The independent-domination exchange theorem [3] already gives both move graphs for the ordinary minima when \(4\mid n\) and when \(n\equiv3\pmod4,\ n\ge7\): in those classes the ordinary minimum words are independent and the two optima coincide. Indeed, when \(4\mid n\) disjoint closed neighborhoods exclude adjacent tokens. In the odd class with \(n\equiv3\pmod4,\ n\ge7\), the same incidence argument excludes double columns and the forced pair has opposite colors since there are \((n-1)/2\) empty columns, an odd number. In every graph, a one-token exchange between independent dominating sets moves along an edge, because the new vertex is dominated before the move but is adjacent to none of the retained vertices. These other residues are therefore background, not new claims. For \(n\equiv1\pmod4\), independent domination needs one more token and cannot give the ordinary minimum move graph by that equivalence.
 
 ## Limitations
 
-The two-defect congruence class \(n\equiv2\pmod4\) is excluded, including the exceptional length six. The statement does not concern nonminimum dominating sets, simultaneous moves, the addition/deletion model, or general prisms \(G\square K_2\). The claimed novelty is qualified by the risk of unindexed earlier work. The result has undergone self-review only, not independent scholarly audit.
+No new claim is made for other residues, nonminimum sets, or other host graphs. The bounded literature comparison is not a guarantee of priority.
 
 ## References
 
-1. A. Suzuki, A. E. Mouawad, N. Nishimura, *Reconfiguration of Dominating Sets*, arXiv:1401.5714 (first public version January 22, 2014), https://arxiv.org/abs/1401.5714.
-2. A. Bouchou, M. Blidia, *Criticality indices of 2-rainbow domination of paths and cycles*, Opuscula Mathematica 36 (2016), 563–574; first online June 29, 2016, https://doi.org/10.7494/OpMath.2016.36.5.563.
-3. J. Allagan, *Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words*, arXiv:2601.03488 (January 7, 2026), https://arxiv.org/abs/2601.03488.
-4. G. H. Fricke, S. M. Hedetniemi, S. T. Hedetniemi, K. R. Hutson, *γ-Graphs of Graphs*, Discussiones Mathematicae Graph Theory 31 (2011), 517–531, https://doi.org/10.7151/dmgt.1562.
+1. J. Allagan, *Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words*, arXiv:2601.03488v1, https://arxiv.org/abs/2601.03488v1.
+2. A. Suzuki, A. E. Mouawad and N. Nishimura, *Reconfiguration of Dominating Sets*, arXiv:1401.5714, https://arxiv.org/abs/1401.5714.
+3. *Minimum independent-domination reconfiguration on circular ladders*, Resultary, 2026-10-26, https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladde--5713d863fdac/RESULT.md.

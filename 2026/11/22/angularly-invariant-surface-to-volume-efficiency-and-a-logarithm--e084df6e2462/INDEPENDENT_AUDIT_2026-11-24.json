@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:45:02.136639Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–94; VERIFICATION.md; check_bicylinder.py (inspect only)"
+      ],
+      "rationale": "The two transverse-normal coordinates and the normal to the axes' plane give rectangular sections and Jacobian sin(beta). Radial distance to each axis has gradient of length one on its exposed patch, so coarea gives S=V_R+V_r; the common boundary lies in finitely many curves and contributes zero area, including at equality. Homogeneity gives the stated F-representation of Q. For t>1, 3−Q is the expectation of g=t(t−1)/(t²−y²) under density proportional to sqrt((t²−y²)(1−y²)). The t-derivative of g has a positive numerator at least (t−1)², and the covariance with the density score is nonnegative because both functions increase in y. This proves strict decrease of Q; continuity, F(1)=16/3, F'(1+)=8, and uniform g→1 at infinity give the range (2,3]. After y=sin u, with Delta=sqrt(1−k² sin²u), the area integrals reduce to E and integral cos²u/Delta=[E−(1−k²)K]/k². Integrating the derivative of sin u cos u Delta gives the stated volume elliptic reduction. For the cusp, t=1+eta and u=1−y give F'' integrand −4 sqrt(u)/(u+eta)^(3/2) times (1+O(u+eta)), with endpoint integral −4 log(1/eta)+O(1). This yields the stated Q cusp and Q'(1+eta)=−3/2+(3/2)eta log(1/eta)+O(eta), so the right second derivative is not finite. Expanding the integral uniformly in 1/t² gives F=2πt[1−1/(8t²)+O(t^(−4))] and the far-end expansion. There is a common seam even at equality; the singularity concerns resolution of the equal-radius endpoint degeneracy, not first existence of a seam.",
+      "residual_risks": [
+        "The 123 reported numerical diagnostics were not replayed; the infinite claims were checked analytically.",
+        "Nonparallel intersecting axes only. The inverse uses the smaller radius to form Q and does not recover angle or absolute scale from S/V alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hubbell §§2–4 includes all crossing angles for the volume and unequal radii via the elliptic expression.",
+          "Aschmoneit–Cockx abstract and §2 treat volume and area of orthogonal partially intersecting cylinders indexed by depth H/D.",
+          "bef1cf01440b gives an increasing 2 to 3sqrt(3)/2 Löwner/John ellipsoid-volume ratio in the same central geometry."
+        ],
+        "reasoning": "The all-angle volume supports the identity but not the new strict monotonicity as a simple restriction. The depth parameter and an ellipsoid volume ratio are different observables and give no surface-to-volume inverse law.",
+        "searches": [
+          "Hubbell, Common Volume of Two Intersecting Cylinders",
+          "Aschmoneit–Cockx arXiv:2512.22555v1",
+          "Resultary angle-independent cylinder invariants"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary and published findings listed above",
+        "Hubbell and Aschmoneit–Cockx original passages",
+        "Steinmetz exposition and bounded Moore retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hubbell §§3–4 supplies an unequal-radius volume series and exact complete elliptic expression; it can be differentiated to produce surface terms and used with endpoint expansions to recover the Q asymptotics.",
+          "Moore's original full text was not accessible; the 2008 exposition cites it for equal-radius volume."
+        ],
+        "reasoning": "The far-end series in particular is a consequence of standard expansion of the known integral, and the cusp is obtainable from analysis of that integral, not a new elliptic singularity. The key sign is strict positivity of the derivative of (t−1)F'/F for every t>1, which does not follow merely from existence of V, S or endpoint series; the positive-score covariance proof establishes it.",
+        "searches": [
+          "Hubbell unequal-radius series and elliptic modulus representation; standard first-variation reduction",
+          "Moore 1974 symmetrical intersections via DOI and lawful accessible copy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Q-catalogue hit e084df6e2462 is this record itself.",
+          "Hubbell already factors the volume into angle dependence and a one-dimensional radius expression. First variation immediately transfers the same angle factor to area, equivalently giving angle cancellation in the ratio."
+        ],
+        "reasoning": "Credit known volume and the direct transfer to angle cancellation; equal-ratio identification as a globally unique inverse additionally needs the sign result for a nonconstant logarithmic derivative.",
+        "searches": [
+          "Resultary angle-independent surface-to-volume law, inverse radius ratio and logarithmic cusp",
+          "Hubbell 1965, §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8cb749eaa167 gives a logarithmically diverging K(a/b)/(πb) coefficient as radii approach equality, for a near-minimum random projection-width probability.",
+          "f1c36680292a gives a width-density log singularity in the orthogonal equal-radius example; 1bfc7d9fbd11 gives a planar section area profile there.",
+          "The 2008 exposition has equal-radius orthogonal area and volume calculations, giving known endpoint normalization, not the all-ratio law."
+        ],
+        "reasoning": "These exact profiles evaluate different functions, with no tabulated Q inverse or equivalent monotonicity condition. Matching elliptic integral and logarithm keywords does not equate a width density singularity with the second derivative of Q. Same-day entries establish no priority order.",
+        "searches": [
+          "Resultary Q, bicylinder elliptic/logarithmic endpoint laws and equal-radius profiles",
+          "2008 Steinmetz exposition equal-radius area and volume"
+        ]
+      },
+      "rationale": "The foundational volume integral and its elliptic evaluation and the equal-radius Steinmetz normalization are existing coverage, not new findings. The inspected prior volume formulas also encode analytic ingredients for the area and end expansions via differentiation. The supported distinct claim is the strict all-ratio inverse theorem for this specific efficiency, with its sharp endpoint behavior; the inspected sources did not show a monotonicity theorem for it or a stronger assertion from which that theorem is immediate.",
+      "residual_risks": [
+        "Moore full text and potential early engineering treatments remain uninspected. Analogous surface formulas or asymptotics may predate the record; no priority claim is made for ingredients or consequences of published elliptic formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known volume and elliptic evaluation; independent coverage of the new inverse theorem not established.",
+          "evidence": "Angle-dependent common-volume integral, special equal-radius value, unequal-radius series and complete elliptic expression with modulus r1/r2.",
+          "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/jres/69C/jresv69Cn2p139_A1b.pdf",
+          "material_read": "pp. 139–140, §§2–4, offsets 2142, 4822, 10677",
+          "method": "OA original PDF",
+          "title": "Common Volume of Two Intersecting Cylinders",
+          "trigger": "same geometry and exact integral"
+        },
+        {
+          "assessment": "Unresolved primary comparison.",
+          "evidence": "The 2008 exposition cites this work for equal-radius common volume; no wider negative inference.",
+          "identifier_or_url": "https://doi.org/10.2307/3615957",
+          "material_read": "Bibliography and citation in related exposition; no original passage obtained",
+          "method": "DOI and bounded lawful alternative retrieval attempts",
+          "title": "Symmetrical intersections of right circular cylinders",
+          "trigger": "historical symmetry and potential area formulas"
+        },
+        {
+          "assessment": "Equal-radius area and known volume, not proof of the full Q law.",
+          "evidence": "Gives equal-radius orthogonal area calculation and a formula for unequal-radius common volume using complete elliptic integrals.",
+          "identifier_or_url": "https://anhngq.wordpress.com/2008/01/19/steinmetz-solid/",
+          "material_read": "Opening and body near offset 543, discussion of equations (5)–(8), (12)",
+          "method": "OA webpage text; equation images missing from extraction",
+          "title": "Steinmetz Solid",
+          "trigger": "known normalization and unequal-radius formulas"
+        },
+        {
+          "assessment": "Different intersection model and parameter.",
+          "evidence": "Volume and area integrals depend on intersection depth delta=H/D, with approximation and simulation checks.",
+          "identifier_or_url": "https://arxiv.org/html/2512.22555v1",
+          "material_read": "Abstract, introduction and §2, offsets 396–3140",
+          "method": "OA original HTML",
+          "title": "Volume and Surface Area of two Orthogonal, Partially Intersecting Cylinders",
+          "trigger": "recent area/volume formulas for cylinders"
+        },
+        {
+          "assessment": "Same body, different invariant.",
+          "evidence": "Its Löwner/John volume ratio increases from 2 to 3sqrt(3)/2.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-an-angle-independent-ratio-for--bef1cf01440b",
+          "material_read": "Finding and assumptions, offsets 0 and 1689",
+          "method": "local mirror",
+          "title": "Exact John–Löwner ellipsoids and an angle-independent ratio for intersecting cylinders",
+          "trigger": "same geometry and inverse angle-independent ratio motif"
+        },
+        {
+          "assessment": "Width, not surface/volume.",
+          "evidence": "Near-minimal projection-width probability coefficient K(a/b)/(πb) diverges near equality.",
+          "identifier_or_url": "2026/11/22/SCOPE-elliptic-rare-width-tomography-for-unequal-orthogonal-bicylinder--8cb749eaa167",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Elliptic rare-width tomography for unequal orthogonal bicylinders",
+          "trigger": "same-day unequal-radius log effect"
+        },
+        {
+          "assessment": "Different observable, equal radii.",
+          "evidence": "Random-width density has a logarithmic minimum-width singularity.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-elliptic-random-width-law-and-logarithmic-polar-localization--f1c36680292a",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Elliptic random-width law and logarithmic polar localization",
+          "trigger": "same-day bicylinder log effect"
+        },
+        {
+          "assessment": "Cross-sectional area, not full boundary or inverse property.",
+          "evidence": "Orientation-dependent planar sections of the orthogonal equal-radius body.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-planar-section-area-profile-of-the-steinmetz-bicylinder--1bfc7d9fbd11",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Complete planar-section area profile of the Steinmetz bicylinder",
+          "trigger": "related exact area profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–33, 54–94, and comparison with the older ellipsoid-ratio record"
+      ],
+      "rationale": "Recovering the radius ratio from scale-normalized boundary area per volume in a classical convex family without angular data is a natural inverse problem. Strict monotonicity makes the recovery unambiguous, and the logarithmic second-order correction rules out a smooth quadratic approximation at the symmetric endpoint. Neither a volume formula alone nor a finite table establishes this sign or boundary regularity.",
+      "residual_risks": [
+        "No statistical stability under noise, angle recovery, or extension to displaced axes is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

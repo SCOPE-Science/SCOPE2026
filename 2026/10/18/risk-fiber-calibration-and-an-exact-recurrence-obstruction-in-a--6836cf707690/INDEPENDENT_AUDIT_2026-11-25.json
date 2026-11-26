@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:09.101938Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 39–97",
+        "Frozen VERIFICATION.md and check.py, inspected without execution",
+        "Independent algebraic check of generator identities, concavity endpoints, and exact rational witness"
+      ],
+      "rationale": "On a compact interior support, extend any continuous risk test h to a neighborhood and differentiate a primitive of h(r)/[r(1−r)] along the flow. Its invariant integral is zero, so continuous tests annihilate the signed risk marginal of x−χ, proving E[x|r]=χ and the covariance statement for bounded measurable tests. The cost and cooperation log odds have generator derivatives (α−β)[θ₁−θ₄−(θ₁+θ₂)x+(θ₃+θ₄)r] and BrF(x)−c, yielding E[r]=η and the cost identity. For p=M−1, q=N−M, d=p+q−1, the quadratic bracket in F″ at the two joins is −(p−1)q/d and −p(q−1)/d. Convexity of the bracket makes it nonpositive throughout the central interval. Maximizing F(s)/s and F(s)/(1−s) gives the endpoint tangencies, including omitted chords when p or q is 1, and concavity forces any majorant above those chords. Conditional Jensen and r>0 give β<E[c]≤BηH(χ). Empirical time averages of a compact forward orbit have invariant weak limits; positive eventual distance from the boundary would give precisely such an orbit closure. For sharpness of the moment relaxation use r=η and the appropriate chord-endpoint mixture for x, or x=χ on the central interval. Contracting the x-mixture toward χ gives interior approximations without changing the moments. In the rational example u₋=1/3 and F(1/3)=8/27, giving H(1/10)=4/45 and BηH(χ)=16/225<β=2/25. The mean-only coupling gives 4/45, strictly above β, and violates risk calibration.",
+      "residual_risks": [
+        "No full rerun of the corroborating rational mesh checker or formal verification. The obstruction is necessary, not sufficient; the moment optimum does not construct an invariant law or select a boundary attractor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The collapse result proves stronger trajectory behavior when its Δ>0, equivalent here to η<0. The odds clock excludes compact interior sets for η outside (0,1), and the saturation theorem treats η≥1 with explicit rates for η>1.",
+          "The Lotka–Volterra proof uses a primitive satisfying H′(x)=φ(x)/x, leading to the analogous conditional expectation in that system."
+        ],
+        "reasoning": "Credit the out-of-range exclusions and methodological overlap. Neither stronger boundary asymptotics in those regimes nor the earlier model-specific generator test covers the present β versus BηH(χ) case with 0<η<1.",
+        "searches": [
+          "Resultary 238b78f6c336, 5d4f74c81834, 410c58bb662c on the same Model 1",
+          "Resultary 5a8ff27e72a6 conditional-generator proof"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1371/journal.pcbi.1013512 primary article",
+        "Local Resultary 276990ec2acf, 5a8ff27e72a6, 238b78f6c336, 5d4f74c81834 and 410c58bb662c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known envelope alone only bounds F averaged under a prescribed mean; with the two marginal means the explicit three-atom example still gives 4/45, not 16/225. The earlier conditional test is for Lotka–Volterra, not the risk fiber of this model."
+        ],
+        "reasoning": "The adaptation to the evolving risk coordinate followed by risk-weighted conditional Jensen is the additional deduction. Marginal or equilibrium analyses do not justify conditioning the sharp envelope at a common χ for all risk values.",
+        "searches": [
+          "Resultary 276990ec2acf offsets 2723–6684 and 5a8ff27e72a6 offset 3650",
+          "DOI 10.1371/journal.pcbi.1013512 p. 5",
+          "Resultary 5d4f74c81834 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al.'s interior equilibrium coordinates simplify to x*=χ, r*=η and c*=Br*F(x*). This gives the time average identities for a point mass, not E[x|r]=χ for other invariant laws.",
+          "The risk–cost odds-clock result gives marginal Cesàro means, and the Lotka–Volterra result gives actual conditional calibration for different coordinates in another flow."
+        ],
+        "reasoning": "The invariant form equivalent to the distinctive calibration is E[(x−χ)h(r)]=0 for every bounded measurable h. Neither fixed-point coordinates nor two marginal means are equivalent to that family of identities.",
+        "searches": [
+          "DOI 10.1371/journal.pcbi.1013512 Eqs. (6)–(10), Results and Table 1",
+          "Resultary 5a8ff27e72a6 and 5d4f74c81834"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "276990ec2acf gives the identical scalar majorant under n=N−1, k=M−1, p=s. The PLOS table classifies equilibria and gives no comparable invariant-measure bound. The odds-clock indexed result matches the out-of-range exclusion and marginal means."
+        ],
+        "reasoning": "There is exact coverage of components, not a table or indexed formula furnishing the stated conditional calibration and cost ceiling for interior η.",
+        "searches": [
+          "Resultary 276990ec2acf exact-count envelope",
+          "DOI 10.1371/journal.pcbi.1013512 Table 1 and equilibrium expressions",
+          "Resultary 5d4f74c81834 Finding"
+        ]
+      },
+      "rationale": "The supported distinct contribution is risk-conditioned calibration coupled to the sharp moment obstruction β<BηH(χ) for all compactly supported interior invariant laws, particularly for 0<η<1. The scalar envelope is exactly known, the conditional-generator mechanism has a close analogue, and related same-model results cover the out-of-range η branch or give only marginal means. The inspected sources do not supply the combined result on the interior-range branch.",
+      "residual_risks": [
+        "The full Wang et al. S1 File could not be inspected; its description does not rule out overlap. Searches were bounded, and corpus date tags do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equations and calibration at equilibria; main-text passages inspected do not extend to the frozen invariant-measure obstruction.",
+          "evidence": "ε₁=ε₂=1 yields the assigned dynamics; p. 5 supplies χ, η and c*; Table 1 addresses equilibrium stability.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1013512",
+          "material_read": "Primary PDF Eqs. (6)–(10), pp. 3–4; equilibrium formulas p. 5; Table 1 p. 6; S1 description on pp. 4 and 10",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Coevolutionary dynamics of cooperation, risk, and cost in collective risk games",
+          "trigger": "Same Model 1 and exactly matching equilibrium coordinates"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence about its contents.",
+          "evidence": "Main text describes equilibrium stability analysis, Model 1 robustness figures, and extended Model 2 analysis.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1013512.s001",
+          "material_read": "Main-article descriptions only, pp. 4 and 10; supplement full text not obtained",
+          "method": "PLOS lawful OA supplement and asset retrieval attempted; exact DOI/title lookup for an alternate copy did not identify one",
+          "title": "Wang et al., S1 File",
+          "trigger": "Same-model supplement could contain stronger analysis"
+        },
+        {
+          "assessment": "Exact prior mathematics for H; not the dynamical theorem.",
+          "evidence": "Binomial point mass and tangent points (k−1)/(n−1), k/(n−1) match the frozen ones by substitution.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf",
+          "material_read": "Scalar majorant and proof, offsets 2723–6684",
+          "method": "Local Resultary mirror",
+          "title": "Sharp exact-count envelope under infinite Bernoulli exchangeability",
+          "trigger": "Same one-variable pivotal envelope"
+        },
+        {
+          "assessment": "Same analytic method for another flow.",
+          "evidence": "Primitive derivative φ(x)/x gives L H=φ(x)(α−βy), hence E[y|x]=α/β, plus the reciprocal identity there.",
+          "identifier_or_url": "2026/10/11/SCOPE-mutual-mean-independence-and-exact-zero-covariance-in-the-classi--5a8ff27e72a6",
+          "material_read": "Conditional generator proof, offset 3650",
+          "method": "Local Resultary mirror",
+          "title": "Mutual mean-independence and exact zero covariance in the classical Lotka–Volterra flow",
+          "trigger": "Analogous conditional-generator identity"
+        },
+        {
+          "assessment": "Material partial coverage on η<0; same-day date is not a priority finding.",
+          "evidence": "Δ>0 means η<0, drives c to α and under an additional inequality gives convergence to (0,1,α).",
+          "identifier_or_url": "2026/10/18/SCOPE-global-collapse-despite-positive-coexistence-equilibria-under-ri--238b78f6c336",
+          "material_read": "Statement and relevant proof, offsets 0–7937",
+          "method": "Local Resultary mirror",
+          "title": "Global collapse despite positive coexistence equilibria under risk–cost feedback",
+          "trigger": "Same-model recurrence obstruction with stronger trajectory behavior"
+        },
+        {
+          "assessment": "Covers marginal means and the out-of-range η clause.",
+          "evidence": "Exact Cesàro means under compact interior residence and exclusion when η∉(0,1); no risk-conditioned cost ceiling in the inspected claim.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-risk-cost-odds-clock-rules-out-persistent-interior-recu--5d4f74c81834",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact risk–cost odds clock rules out persistent interior recurrence",
+          "trigger": "Same-model identities and exclusion"
+        },
+        {
+          "assessment": "Covers η≥1 and strengthens trajectory behavior for η>1, not the interior-range case.",
+          "evidence": "Boundary saturation bound for η>1 and no compact interior invariant set for η≥1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-boundary-saturation-rate-in-adaptive-collectiv--410c58bb662c",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp universal boundary saturation rate in adaptive collective-risk games",
+          "trigger": "Same-model exclusion for the high-risk branch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and rational witness, lines 13–35 and 84–97",
+        "Wang et al. equilibrium analysis",
+        "Same-model Resultary out-of-range comparisons"
+      ],
+      "rationale": "Equilibrium coordinates do not settle whether periodic, aperiodic, or other compact interior invariant dynamics persist. The conditional law gives a usable parameter test that forbids all such interior dynamics even where the two marginal means alone cannot certify the obstruction, as the exact witness demonstrates. The proof distinguishes a sharp probabilistic ceiling from any stronger claim of dynamical attainability or global convergence.",
+      "residual_risks": [
+        "The test is specific to the Model 1 feedback structure; it does not classify attractors or imply empirical behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

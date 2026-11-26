@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:00:30.828654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen assertion of exactly three distinct eigenvalue levels for all k≥2 is false at k=2. Indeed in Z₃ the support {0,1} is perfect, and the two nonidentity blocks have the same eigenvalue 3/4, of combined multiplicity 8; the identity eigenvalue is 3. Also, the equality characterization must be for attaining 1/k in the feasible branch, not for maximizing in the no-perfect-set branch, where every eligible window has margin zero. Corrected and re-audited files: /workspace/repairs/1/RESULT.md and /workspace/repairs/1/VERIFICATION.md; the latter preserves the original status block and corrects the description of the numerical tests. The necessary count |S−S|≤|S|(|S|−1)+1 forces uniqueness of each directed difference at capacity. On a perfect support every nonzero shift has one product term; the product over all distinct pairs and AM–GM give the maximum least pair modulus 1/k, with equality only for uniform weights. At zero shift character orthogonality gives the second modulus and the exact weighted nonvanishing condition. On normalized Weyl basis vectors the lifting columns are orthogonal characters of G×Ĝ scaled in modulus by |A|/√v, so squared singular values equal v|A|². The identity remains maximal; the trace-free bound separately uses Parseval to lower-bound its maximal zero-shift modulus by √(k−1)/k. A missing shift causes a nonidentity kernel direction, hence singularity also in the traceless sector. Moyal gives the SIC comparison; its excess over 7/8 is (k−4)²/(8k²). A projective line and its nontrivial Singer translates intersect in a single point, giving the claimed perfect supports; q=2^(3t+1) gives unbounded orders divisible by 7 and greater than 7 for t≥1. A direct independent lift SVD (not the frozen ambiguity-sum script) reproduced the two levels in v=3 and three in v=7. Replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy/SciPy); finite checks do not certify the all-group proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Wang derive the general spectrum and a prime-power finite-field SIC-relative design family, and give the support obstruction S−S≠Z_d and the counting bound, explicitly noting difference-set saturation.",
+          "Li's construction addresses full spark and quantitative ambiguity without this threshold-sparse optimization.",
+          "Bojarovska–Paternostro's flat window overlap calculation gives both nonidentity moduli."
+        ],
+        "reasoning": "The support-count argument forces a perfect support at equality in its cyclic setting; it is prior machinery, not the new optimization. The known general SIC comparison and less support-restricted designs do not determine the global bound/equality case under the specific at-most-k coordinate constraint. A flat-support table cannot by itself compare all nonflat coefficients.",
+        "searches": [
+          "Zhu–Wang arXiv:2608.11850 Theorem 1, structured obstructions Appendix D Prop. 12(3)",
+          "Li arXiv:2609.09614v2 Abstract and §1",
+          "Bojarovska–Paternostro arXiv:1507.01829 Prop. 2.5, Thm. 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Bojarovska–Flinth arXiv:1503.05800",
+        "Bojarovska–Paternostro arXiv:1507.01829",
+        "Zhu–Wang arXiv:2608.11850",
+        "Li arXiv:2609.09614v2",
+        "Resultary 197476c0c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full-spectrum or full-condition minimization controls the maximum through the fixed identity direction. After deleting that direction the largest remaining singular value is no longer fixed; a separate Parseval optimization is needed.",
+          "The arbitrary-weight maximin requires bounding the single-pair amplitudes in every allocation; the flat overlap formulas only prove attainability. The indexed cyclic Singer result does give maximin and full-condition rigidity, but no class-wide trace-free optimum or arbitrary-abelian version."
+        ],
+        "reasoning": "Among feasible perfect supports, optimizing trace-free conditioning over all weights is not a corollary of merely computing it for the flat optima of the full lift. The separate Parseval-versus-pair-product proof supplies that competitive bound and rigidity. The exact SIC fraction and support count are already implied by prior formulas and are treated as interpretation and prerequisites.",
+        "searches": [
+          "Zhu–Wang arXiv:2608.11850 Theorem 1 and Appendix D Prop. 12(3)",
+          "Bojarovska–Paternostro Theorem 2.9",
+          "Resultary 197476c0c2a4 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ambiguity maximin is the squared-frame-spectrum minimax after multiplying the squared modulus by v, and likewise determines the least singular value.",
+          "Zhu–Wang Theorem 1 gives that general spectral equivalence and IC iff the nonidentity coefficients are nonzero; Bojarovska–Flinth Theorem 2.3 gives the corresponding frame bounds in the cyclic setting.",
+          "Resultary 197476c0c2a4 states the same floor, flat-support rigidity and full condition optimum for cyclic Singer orders."
+        ],
+        "reasoning": "The prior spectral equivalence itself is not new. The indexed singular-value optimum is substantively the same as the ambiguity optimum on the cyclic Singer subfamily; its restriction and the lack of a separate class-wide trace-free optimum matter. The dated entry is later and does not establish earlier priority.",
+        "searches": [
+          "Resultary: sharp sparse Gabor tomography Singer cyclic ambiguity margin, conditioning and phase-rigid perfect difference sets",
+          "arXiv:1503.05800 Theorems 2.2–2.3",
+          "arXiv:2608.11850 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The flat Singer overlap formulas already yield the exact eigenvalue multiset when inserted into the standard Weyl spectrum. Proposition 2.11 rules out an ETF for these difference-set systems when v>3.",
+          "Resultary 197476c0c2a4 (2026-11-08) specifies √v/k, flat perfect-support rigidity, the full singular-value spectrum, optimal full condition number, and an additional deletion rank assertion for cyclic Singer parameters."
+        ],
+        "reasoning": "The fixed-window spectral values and SIC ratio are covered or immediately implied, not priority claims. The later-dated indexed match directly covers much of the cyclic subfamily, but does not establish earlier coverage or give the all-window trace-free lower bound by stating the spectrum of optimizers.",
+        "searches": [
+          "Resultary: cyclic Singer/projective-plane least singular value, trace-free condition optimum",
+          "Bojarovska–Paternostro arXiv:1507.01829 Table 1, Prop. 2.5, Thm. 2.9, Prop. 2.11"
+        ]
+      },
+      "rationale": "For the corrected claim, the supported distinction is the sharp all-weights optimization and its equality cases, particularly the separate optimum for the trace-free lifting over the entire sparse class, in the arbitrary finite abelian setting. The support-count obstruction, flat-window overlaps, framework for the full spectral calculation, and Singer construction are prior; the SIC ratio is an evaluated implication of the known flat-window table and Moyal, not an independent priority claim. There is direct later-dated indexed maximin/rigidity overlap on the cyclic Singer subfamily, explicitly scoped below. The corrected verification does not promote the boundary case to a novelty claim.",
+      "residual_risks": [
+        "The later-dated catalogue record is equivalent on a major subfamily; the dated entries do not settle transmission or historical priority.",
+        "The two recent primary PDFs were accessible here, but the comparison is passage-bounded. Unindexed extremal or finite-design literature could supply an additional implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Frame bounds and specific examples, not class-wide optimized weights",
+          "evidence": [
+            "Theorem 2.3 states Hilbert–Schmidt frame bounds N times min/max squared ambiguity. The difference-set proposition has arithmetic restrictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorems 2.2 and 2.3, pp. 4–5; §2.3.2 differences and Proposition 2.2 pp. 6–7",
+          "method": "OA PDF passage comparison",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Earlier ambiguity-based tomography stability and difference-set windows"
+        },
+        {
+          "assessment": "Exact fixed-window levels and Singer parameters are covered; no minimization comparing arbitrary coefficient weights in inspected passages",
+          "evidence": [
+            "Nontrivial Fourier intensity is K−λ for the difference-set indicator; the coherence proof gives the one-overlap off-shift magnitude for λ=1. The EQ/ETF exception occurs at the smallest dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.01829",
+          "material_read": "Prop. 2.5 p. 3, Theorem 2.9 pp. 5–6, Prop. 2.11 and Singer table p. 7",
+          "method": "OA PDF theorem and proof passage comparison",
+          "title": "Gabor fusion frames generated by difference sets",
+          "trigger": "Direct antecedent for flat perfect difference-set overlaps and dimensions"
+        },
+        {
+          "assessment": "Covers the general spectral equivalence, the cyclic support obstruction and its saturated counting mechanism, and a different prime-power SAC/SIC-relative design family; does not give all-weights threshold-sparse stability extrema in the inspected passages",
+          "evidence": [
+            "Theorem 1 gives the spectrum from d|χ_φ(u)|². Prop. 12(3) gives d≤|S|(|S|−1)+1 as necessary for nonvanishing and mentions difference-set saturation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.11850",
+          "material_read": "Abstract p. 1, Theorem 1 p. 3 and argument (offsets 13750–19086), Appendix D Prop. 12 item 3 p. 14 (offsets 108400–112500)",
+          "method": "OA full PDF accessible; inspected the exact relevant passages including support threshold and its proof",
+          "title": "Uniformly Stable Minimal Weyl–Heisenberg Measurements Approaching the SIC Benchmark",
+          "trigger": "Strongest primary potential implication: WH SIC minima, full spectrum and sparse obstructions"
+        },
+        {
+          "assessment": "Overlap on quantitative ambiguity design, not exact minimum-sparsity optimizer rigidity in the material inspected",
+          "evidence": [
+            "Full-spark algebraic perturbation construction with quantitative ambiguity margins, rather than a perfect-support maximin over all sparse weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v2",
+          "material_read": "Abstract p. 1, §1 p. 3 design and theorem scope",
+          "method": "OA full PDF accessible; substantive opening passage comparison",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Contemporary quantitative ambiguity-margin construction"
+        },
+        {
+          "assessment": "Explicit direct overlap for the cyclic Singer subfamily; later dated and narrower in group scope, with a separate deletion-rank assertion",
+          "evidence": [
+            "Maximin √N/(q+1) for N=q²+q+1, same optimizer rigidity and full condition number, and the same spectral levels there. No separate all-sparse trace-free condition optimization is stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sparse-gabor-tomography-at-singer-projective-plane-lengths--197476c0c2a4",
+          "material_read": "Finding and proof passages at offsets 0 and 5900",
+          "method": "Local semantic search and mirror comparison",
+          "title": "Sharp sparse Gabor tomography at Singer projective-plane lengths",
+          "trigger": "Closest material Resultary equivalent finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the least possible sparsity in these orders, the new optimization classifies when sparse feasible designs are best-conditioned rather than merely giving one feasible construction. The traceless-sector optimum is separately informative for perturbations of fixed trace, and shows that the dominant nontrivial singular value cannot be traded against the least one to improve the ratio. The endpoint correction preserves both exact optima, and the known/evaluated SIC comparison helps interpret the least directional stability without claiming equiangularity. No general physical robustness or quantitative effect outside the sparse class is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

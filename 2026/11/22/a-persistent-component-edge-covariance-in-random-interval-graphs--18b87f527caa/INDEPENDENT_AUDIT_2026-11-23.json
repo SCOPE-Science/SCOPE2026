@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:59:37.682879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Common atomless independent endpoints have a uniform rank permutation and hence induce a uniform perfect matching. A cut with no open interval has even rank, separates adjacent overlap components, and every component boundary gives one such cut. The cut probability is ((2k−1)!!(2n−2k−1)!!)/(2n−1)!!=p_{n,k}. Conditioned on the cut, the matchings factor and no edge runs between the blocks; the difference between the unrestricted expected edge count and the sum of the two block expectations is exactly (2/3)k(n−k). Thus adding cut covariances gives the claimed strictly negative sum for n≥2. To check the variance, put (A,B)=(left endpoint,1−right endpoint) after the rank-preserving uniform transformation, with density 2 on A,B≥0, A+B≤1. Then E[A²]=1/6, E[A⁴]=1/15, E[A²B²]=1/90, so 1−A²−B² has variance 2/45. This is the covariance for distinct edges sharing a vertex; edges with disjoint vertices are independent. Counting the 3 binom(n,3) unordered incident edge pairs yields the edge variance. For the cutoff estimates p_{n,1}=1/(2n−1), p_{n,i}=O(n^(−i)) for fixed i, and the ratio test shows that the probabilities decrease to the middle. In the unweighted sum, the interior beyond each second term costs at most O(n)p_{n,3}; in the weighted sum, beyond each third term it costs O(n³)p_{n,4}. The paired extremes therefore give S_n=1/n+O(n⁻²) and weighted sum 1+O(n⁻¹). Two simultaneous cuts have probability p_{n,k}p_{k,j} for j<k. Summing with S_k=O(1/k) on the right half and bounding p_{n,k} by p_{n,3} for k=3 through the left half (handling k=2 separately) gives O(n⁻²). This gives both the component variance and the disconnection probability with the stated errors. The standard deviations' product is asymptotic to n√(2/45), giving the −√10 correlation constant after rescaling. The supporting exhaustive checker was inspected without execution; no limiting claim relies on finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kasraoui–Zeng compute the full crossing/nesting generating function for perfect matchings; diagonal specialization gives the marginal distribution of E_n for all n.",
+          "Iliopoulos gives edge probability 2/3, the mean and a variance-order analysis; the inspected interval-limits passage summarizes connectivity and edge density."
+        ],
+        "reasoning": "All sizes and the canonical ordered concatenation together make the finite component/edge moments accessible, even though knowing two marginals at a single n would not identify their coupling. The broader result is formal power-series enumeration, not a sharp asymptotic covariance or correlation formula.",
+        "searches": [
+          "arXiv:math/0601081, Proposition 3.8",
+          "random interval graph joint number of edges connected components covariance matching indecomposable overlap edge count generating function Scheinerman",
+          "Iliopoulos arXiv:1507.06275 §§3.2–3.3; Diaconis–Holmes–Janson arXiv:1102.2841 §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Kasraoui–Zeng, arXiv:math/0601081, Proposition 3.8",
+        "Iliopoulos, arXiv:1507.06275 §§3.2–3.3",
+        "Diaconis–Holmes–Janson, arXiv:1102.2841 §2.3",
+        "Scheinerman, doi:10.1007/BF02189092 (abstract/secondary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let G(z,q)=∑ L_n(q,q)z^n. A matching is a unique sequence of nonempty indecomposable components and E is additive, so its primitive-component series is 1−1/G and the joint enumerator is 1/[1−u(1−1/G)]. Differentiation at u=q=1 gives the finite covariance: the u derivative is G²−G, and the q derivative of this is (2G−1)G_q.",
+          "After normalizing coefficients by (2n−1)!! the convolution produces the same p_{n,k}. Getting the constant requires proving that the two outermost cuts dominate the k(n−k)-weighted sum, not merely that some cut is rare. Correlation additionally requires a sharp bound for simultaneous cuts."
+        ],
+        "reasoning": "The direct exact implication rules out treating the finite moment as a new isolated number or formula. It does not entail the sharp rare-event limit by specialization, rescaling a table or a one-line substitution into known asymptotics. Those estimates supply the remaining originality.",
+        "searches": [
+          "arXiv:math/0601081 §3.2 and Proposition 3.8",
+          "Scheinerman 1988 random interval graphs Eric Scheinerman full text pdf connectivity journal author's website graph cut"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iliopoulos §3.2 identifies the uniform endpoint order. In the matching formulation, an interval edge is a crossing or a nesting, not an alignment.",
+          "Components are consecutive indecomposable factors of a linear matching, i.e. successive returns of its open intervals to zero. A crossing-only chord intersection graph instead deletes nesting edges, changing both statistics."
+        ],
+        "reasoning": "The equivalent joint count is by the total number of crossing plus nesting pairs and the number of contiguous indecomposable factors. Using only circular interlacings tests a different graph.",
+        "searches": [
+          "Local Resultary: Scheinerman random interval graph indecomposable matching",
+          "random chord diagrams linear matching indecomposable connected components joint crossings nestings sum edges generating function interval graph overlap statistic Touchard Riordan",
+          "Distribution of crossings, nestings and alignments Kasraoui Zeng matchings arxiv Charlier diagrams"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed target RESULT.md gives the cut formula; it is not independent prior evidence.",
+          "The exact L_n(p,q) series and its examples L₂, L₃ constitute a stronger edge-marginal table at p=q: e.g. L₂(q,q)=1+2q."
+        ],
+        "reasoning": "The prior series determines the finite moments after the obligatory concatenation transform; recomputing small finite instances does not establish value. The sharp large-n mixed limit and correlation rate are the tests that are not covered by that exact table.",
+        "searches": [
+          "Local Resultary: Scheinerman random interval graph indecomposable matching",
+          "arXiv:math/0601081, Proposition 3.8 and subsequent L₂,L₃ examples"
+        ]
+      },
+      "rationale": "The finite identity is not a standalone originality basis. Kasraoui–Zeng's Proposition 3.8 already gives the all-size overlap-edge polynomials via the diagonal specialization of their crossing/nesting series. The standard concatenation of interval components then mechanically gives a full bivariate series, whose mixed derivative recovers the reported sum. What survives is the asymptotic mixed-dependence result: locating the endpoint cuts that alone contribute at order one and proving that all other weighted cuts and simultaneous cuts are negligible, giving the nonzero covariance limit and the sharp correlation coefficient. The exact series does not state or extract those asymptotics; neither separate connectivity nor edge statistics justify them. The available sources do not cover this sharp weighted-cut analysis.",
+      "residual_risks": [
+        "The original Scheinerman full text and the cited Boucheron–Fernández de la Vega full text were not independently read; a stronger earlier result on exact or asymptotic dependence remains possible.",
+        "The originality decision is for the asymptotic weighted mixed law, not the exact moments already obtainable by standard manipulations of the published generating function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the exact all-size E marginal. Combined with unique contiguous factorization it gives the finite joint law; it does not give the weighted-cut asymptotic estimates.",
+          "evidence": [
+            "Proposition 3.8 gives the continued fraction for L_n(p,q)=∑ p^{cr}q^{ne} over perfect matchings. The diagonal is exactly the overlap-edge count series."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601081",
+          "material_read": "Introduction at offset 0; §§3.2–3.3-end enumerative passages near offsets 28850 and 30950, especially Proposition 3.8 on p. 11.",
+          "method": "Bounded primary PDF passages located by continued fraction and opened at the proposition.",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "Potential stronger exact law for E=number of crossings plus nestings."
+        },
+        {
+          "assessment": "Provides model, edge mean and variance-order analysis, not the constant mixed limit in the passages inspected.",
+          "evidence": [
+            "§3.2 gives the uniform ordered endpoints; §3.3 gives edge probability 2/3 and mean n(n−1)/3, and separates variance contributions by types of edge pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.06275",
+          "material_read": "§3.2 near offset 3782 and §3.3 near offsets 5400, 6900 and 8639 through 12233.",
+          "method": "Bounded open thesis passages on endpoint ordering and edges.",
+          "title": "Random Interval Graphs",
+          "trigger": "The same iid rank/interval model and variance, possibly with a joint formula."
+        },
+        {
+          "assessment": "Accessible secondary account of connectivity and density, not a mixed dependence identity or asymptotic.",
+          "evidence": [
+            "The passage attributes known marginal connectivity and density results to Scheinerman."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+          "material_read": "§2.3, p. 4 around offset 9505, located by Scheinerman [38] shows.",
+          "method": "Bounded reference passage in the open paper.",
+          "title": "Interval graph limits",
+          "trigger": "Connectivity and density in the same model; evidence about the older original article."
+        },
+        {
+          "assessment": "Material priority limitation; nothing conclusive about whole-paper coverage.",
+          "evidence": [
+            "The abstract lists edge, degree and other graph statistics; the secondary passage attributes connectivity and edge density to this article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+          "material_read": "Publisher abstract and secondary account in Interval graph limits §2.3; no original full text.",
+          "method": "Lawful same-paper OA PDF attempts at the DOI/publisher PDF routes; the full text was not recovered.",
+          "title": "Random interval graphs",
+          "trigger": "Original article for the identical canonical random-model parameters, potentially covering mixed moments."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The component count and overlap-edge count are natural topology and density statistics of the same model. The quantified phenomenon is that an O(1/n) disconnection probability still leaves a nonzero covariance, while the standardized correlation has the exact coefficient −√10 at scale 1/n. The proof identifies the dominant mechanism rather than just printing finite moments from an exact series. This is a useful calibration for dependence in the canonical endpoint model, including its extension to arbitrary common atomless laws, without needing a broader graph class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

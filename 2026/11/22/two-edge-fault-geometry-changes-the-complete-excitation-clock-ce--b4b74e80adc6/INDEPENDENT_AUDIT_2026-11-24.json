@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:50.068100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–60",
+        "Frozen VERIFICATION.md, both verification/*.py and corresponding *.out (inspected, not executed)",
+        "Independent census_replay.py: exhaustive support trajectories through the seventh iterate, exact symbolic population coefficients and direct full-state checks n=5..7 (python3 branches/replay/census_replay.py from the review workspace)"
+      ],
+      "rationale": "The two deleted-edge incidence types exhaust all pairs up to relabelling. On either graph, for each surviving color lineage in the universal clique, its next color depends only on its current color, the exact states of the fault endpoints, and whether any twin is excited. A resting twin cannot itself be that excited witness. All copies of an initial twin color thus follow the same lineage. Keeping one labelled representative of every initial color preserves state equality at every pair of times in both directions, even if lineages merge. The reduction does not merely classify cycles in the quotient by the current unordered support. I independently built neighbor sets and computed the first t with F^(t+3)(s)=F^t(s) for every one of the 189 and 567 endpoint/support representatives. Such a t was always found by 4; the period is 1 if the state is fixed and 3 otherwise. First equality at distance 3 is first periodic entry because any eventual period divides 3. All ten support triples in each family matched. For support coefficient triple (c,d,e) and r fault endpoints, the exact coefficients of (1,2^n,3^n) are (c-2d+3e,(d-3e)/2^r,e/3^r) by surjection counts; this independently matches every reported formula. Direct full-state enumeration at n=5,6,7 also agreed. The (0,3) counts divided by three imply the two-orbit difference, and summing period-one cells gives the six-state extinction difference. The nonzero singleton-support counts at t=4 ensure sharpness for every allowed n. At the excluded n=4 disjoint boundary the labelled word (1,0,0,2) has least period four, independently confirming the exception.",
+      "residual_risks": [
+        "The direct full-state checks are finite corroboration; the exact lineage reduction and support weighting justify all n. The result gives no per-orbit basin counts or classification for other defect patterns or update rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff characterize eventual synchronization/oscillation and bound synchronization using diameter. Doba treats rest versus periodic excitation and the maximum-cycle-density excitation rate.",
+          "b65add71b337 gives primitive orbit counts for perfect-matching deletion but disclaims exact basin sizes and sharp transient lengths."
+        ],
+        "reasoning": "The arbitrary-graph criteria apply qualitatively, but the inspected statements do not give the labelled joint histogram or its sharp fourth step; neither exact same-rule census comparator contains the target graph families.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1, Theorem 3 and Corollary 4",
+          "Doba Complex Systems 27 (2018), §6 Theorem 1 and §7",
+          "Resultary 86c3801557a2 and b65add71b337"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b65add71b337, 86c3801557a2, 28a6bff0b607, b113126832b9, ccade4380bb4 and b4b74e80adc6 (same record)",
+        "Primary OA arXiv:1610.07320v1 and Doba (2018) §§6–7",
+        "Access attempts: Greenberg–Hastings DOI 10.1137/0134040 and Durrett–Griffeath arXiv:patt-sol/9303002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diameter bound for synchronizing states does not tally entry times for oscillating configurations. Even exact identification of extinction for a given configuration does not tabulate all t and p populations.",
+          "Restricting the cyclic graph-family theorem to two disjoint faults changes neither its incompatible local map nor its entry-time cutoff."
+        ],
+        "reasoning": "The weighted signature calculation and the differing fourth-step shells do not follow by parameter specialization from any inspected theorem. The familiar qualitative dichotomy and finite-signature method are not the originality claims.",
+        "searches": [
+          "arXiv:1610.07320v1, Theorem 3 and Corollary 4; Doba §§6–7",
+          "Resultary 28a6bff0b607 at matching size 2; 86c3801557a2 and b65add71b337, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "28a6bff0b607 includes K_n minus two disjoint edges in its matching-defected family for n>=6, but is the cyclic successor-contact automaton and has entry by time two.",
+          "b65add71b337 is same-rule excitation with an entire perfect matching removed. 86c3801557a2 gives a same-rule complete split-graph census."
+        ],
+        "reasoning": "Under cyclic successor contact any color can wait; under the audited rule colors 1 and 2 advance unconditionally. This is not a phase relabelling: even the homogeneous configurations have different behavior. Two disjoint faults leave universal vertices for n>=5, unlike complete matching deletion, and adjacent faults are not a matching. A split graph of the cited form can only omit a clique of edges on its independent part, so cannot omit exactly two edges.",
+        "searches": [
+          "Resultary: three-state excitation, labelled first-entry/least-period census, two adjacent or disjoint missing edges from cliques",
+          "Resultary b65add71b337, 86c3801557a2 and 28a6bff0b607, Findings and scopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4b74e80adc6 is the same frozen record. Distinct same-day b113126832b9 concerns CCA/GHM period basins on the fixed Herschel graph; ccade4380bb4 concerns the fixed Petersen line graph at multiple thresholds."
+        ],
+        "reasoning": "The catalogue comparisons are on objects and update rules, not date. Neither table includes even one of the audited all-order families under the specified two-edge rule.",
+        "searches": [
+          "Resultary b4b74e80adc6, b113126832b9 and ccade4380bb4 and the related clique/census entries; inspected RESULT.md findings"
+        ]
+      },
+      "rationale": "No inspected theorem supplies the full joint least-period and first-entry census for these two graph families under the specified Greenberg–Hastings update. The closest graph match uses a different rule, and the closest census in the same rule uses split graphs. The general graph results are credited for synchronization criteria, not mistaken for the joint enumeration.",
+      "residual_risks": [
+        "Foundational Greenberg–Hastings and Durrett–Griffeath full texts were not retrieved in this check; only the latter's landing/abstract was available. A closer inaccessible or unindexed exact enumeration cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Perfect matching deletion only; not the two-edge joint census",
+          "evidence": "Period-three orbit counts for K_{2m} minus a perfect matching for m>=3; m=2 is the excluded four-vertex graph; exact basin sizes and sharp transient lengths not covered.",
+          "identifier_or_url": "Resultary b65add71b337",
+          "material_read": "RESULT.md Finding, offset 0; Limitations, offset 9150",
+          "method": "Local published mirror",
+          "title": "Three-state excitation on cocktail-party graphs: a sharp period transition and exact orbit count",
+          "trigger": "Same rule; disjoint missing edges"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Complete join of a clique and an independent set; missing-edge count is binomial in the independent set size, never two.",
+          "identifier_or_url": "Resultary 86c3801557a2",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Four-phase entrance statistics for three-state excitation on complete split graphs",
+          "trigger": "Closest same-rule joint census format"
+        },
+        {
+          "assessment": "Different update law, so parameter specialization does not transfer",
+          "evidence": "Successor-contact CCA; all colors conditional, rather than unconditional excited and refractory transitions.",
+          "identifier_or_url": "Resultary 28a6bff0b607",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Linear orbit loss and quadratic delayed waves in matching-defected cliques",
+          "trigger": "Contains the same disjoint-fault graphs as a special case"
+        },
+        {
+          "assessment": "General qualitative results, no exact census here",
+          "evidence": "Synchronization is characterized by irrotationality and synchronization time bounded by graph diameter.",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "Theorem 3 and Corollary 4, offset 13200",
+          "method": "Primary OA full-text passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broad same-rule dynamics and transient bounds"
+        },
+        {
+          "assessment": "Qualitative and rate criteria, not the joint census",
+          "evidence": "Rest-versus-periodic behavior and an excitation-rate criterion via maximum cycle density.",
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "§6 Theorem 1 pp. 114–115 (offset 21800); §7 pp. 115–117 (offset 25200)",
+          "method": "Primary OA PDF passages",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "General finite-graph excitation theorem"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Fixed graphs and, respectively, a comparison across update rules and across contact thresholds rather than exactly two missing edges on a clique.",
+          "identifier_or_url": "Resultary b113126832b9 and ccade4380bb4",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local published mirror",
+          "title": "Same-day Herschel excitation basins and Petersen line-graph excitation census",
+          "trigger": "Distinct same-day excitation censuses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and support census, lines 3–26 and 31–57",
+        "Same-rule split and perfect-matching comparison records 86c3801557a2 and b65add71b337"
+      ],
+      "rationale": "These exhaust the two ways of imposing the same smallest nontrivial edge-incidence comparison on a dense clique. Exact conditioning on the least period and first-entry clock finds a redistribution at maximal latency and a constant difference in orbit and extinction counts invisible to edge count. The finite lineage reduction is an explicit all-order mechanism for obtaining these sharp counts, not a fit at small n.",
+      "residual_risks": [
+        "The comparison is deterministic and specific to the two defects and three-state threshold-one rule; it does not quantify generic perturbation resilience."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

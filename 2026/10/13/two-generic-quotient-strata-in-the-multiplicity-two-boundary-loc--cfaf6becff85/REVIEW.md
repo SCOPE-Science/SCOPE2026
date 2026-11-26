@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs both restriction splittings from the published resolution of the reflexive hull. For a smooth conic whose plane misses the hull singular point, the three restricted linear forms form the complete basis of conic hyperplane sections, giving \(F|_C\simeq\mathcal O_{\mathbf P^1}(-1)^{\oplus2}\) and hence a projective line of quotient kernels. For a line avoiding the singular point, \(F|_L\simeq\mathcal O_L\oplus\mathcal O_L(-1)\), so the component map to \(\mathcal O_L(-1)\) is unique up to scalar; for two disjoint lines the target automorphism group removes both scalars. The resulting dimensions are exactly \(12\) and \(11\). Stability, Chern classes, the double dual, and quotient purity are independently checked.
+## correctness
 
-## Originality
-PASS. The initiating source defines \(\mathcal C(-1,1,1,2)\), proves its points are smooth in the ambient moduli space, and explicitly leaves this locus for further study. The older degree-two quotient paper proves that \(\mathcal T(2)\) has two irreducible \(8\)-dimensional components but does not combine them with the \(\mathcal R(-1,1,1)\) hull. Exact, alias, broader-coverage, and implication searches found no covering statement of the two exact kernel-family dimensions.
+PASS
 
-## Value
-PASS. These are the two generic quotient types forced by the two irreducible components of \(\mathcal T(2)\), so the calculation gives natural structural information about a specifically unresolved boundary locus. The \(12\)-versus-\(11\) dimension difference has a geometric explanation: a genuine \(\mathbf P^1\) of quotient maps survives for a smooth conic, while a fixed skew-line quotient has a unique kernel.
+Reconstructed the two constructible kernel families over C, not a decomposition of the boundary. On a conic in a plane missing p the three entries of O(-4) -> O(-2)^3 are a basis of binary quadrics. By Serre duality the induced H^1 map is an isomorphism, so the rank-two cokernel has degree -2 and no sections and splits as O(-1)^2 on P^1. Its nonzero maps to the degree -1 target are onto and are parametrized modulo scalars by P^1. On a line missing p the restricted presentation is (x,y,0), giving O + O(-1) and a unique map up to scalar to O_L(-1). Disjoint supports let the two line maps be rescaled independently, giving exactly one kernel for each unordered pair. The hull is determined by the common zero p (different bases of the three linear forms give isomorphic hulls), and the kernel recovers the hull and quotient by double duality and the quotient map up to equivalence; hull automorphisms are scalar by stability. For algebraicity of the conic count one can work over the open 11-dimensional space of parametrized degree-two embeddings of P^1: the degree -1 target then exists in family, and constant rank Hom with vanishing H^1 gives a relative P^1. Adding p off the plane and forgetting the parametrization (fibers PGL2 of dimension 3) gives dimension 12 and an irreducible constructible image. Ordered skew lines and p form an irreducible open parameter base of dimension 11; unordered pairs only remove a finite ordering. In both cases E agrees with the reflexive hull off codimension two, is slope-stable by inclusion with equal slope, and the pure quotient has ch(Q)=2H^2-4H^3 by RR. Subtracting from ch(F) yields c(E)=(-1,3,7). The computation neither needs nor proves that all quotients in the boundary have one of the two displayed types.
 
-The result does not claim a complete irreducible decomposition of \(\mathcal C(-1,1,1,2)\), and special incidence degenerations remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two dimensions and the difference in fibers of the quotient-map construction were not covered by the strongest compared statements. The proof uses existing inputs, but the restriction behavior of the specific non-locally-free hull is essential; neither the dimensions of quotient moduli nor ambient smoothness alone gives the dimensions of these images.
+
+## value
+
+PASS
+
+Gives exact structural dimensions of the families arising over the two generic degree-two target types in a named, unresolved moduli boundary, with a geometric explanation of the difference (a genuine pencil of distinct conic kernels versus a single skew-line kernel). This distinguishes contributions to the boundary that a target dimension count alone would conflate, and supplies reference strata for studying closures and incidence degenerations. It does not claim to settle the full boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

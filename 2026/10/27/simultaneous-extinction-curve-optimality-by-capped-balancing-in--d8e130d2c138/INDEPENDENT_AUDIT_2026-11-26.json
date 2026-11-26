@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:47:47.680383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–70; frozen VERIFICATION.md, verify.py and certificate.json (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/947ea86f-2597-4dae-b410-cc3523fac5c6/direct_permutation_replay.py; result direct_census_n1_n5.json in the same directory"
+      ],
+      "rationale": "A prefix with x_j removals in each group extinguishes exactly the product of the x_j counts. All products vanish before r removals. At t>=r a maximum has no zero coordinates; after assigning one removal per group, maximizing log product amounts to selecting t-r increments from lists log((k+1)/k), k=1,...,a_j-1. Each list decreases strictly, so selecting the largest available increment takes a highest remaining entry and cannot violate precedence. This is precisely the smallest unsaturated count rule, even with ties, and it proves simultaneous optimality at every budget. For a<=b, summing k(k-1), k^2 for k=1,...,a, then a(a+j) for j=1,...,b-a, gives a(a^2+3b^2+3b-1)/6. Under a<b the initial degrees force the smaller side first, giving ab(b+1)/2; the difference a(a^2-1)/6 is positive exactly when a>=2. The frozen subset recurrence chooses the final vertex, with minimum initial degree when restricted, and is exact. An independent direct edge-score permutation census checked all 1,099 labeled simple graphs of orders 1–5 and all orders, found no strong degree failures through four, and found exactly the ten labeled K_{2,3} graphs at five, each scoring 13 versus 12. Order zero, if allowed, is immediate.",
+      "residual_risks": [
+        "The all-size claim requires complete Cartesian-product incidence; the census is exact only through five and assumes a simple graph without repeated passive partner pairs. The strict bipartite degree comparison is only for 2<=a<b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 primary work uses the same loss-of-all-partners rule and largest-area objective for general empirical networks, using methods including a genetic algorithm to estimate optima.",
+          "5a5fdb56266c optimizes degree allocations in a random-removal model, including trajectory averages."
+        ],
+        "reasoning": "These are broader ecological questions or different optimization variables, not an exact theorem about nested prefix maximizers on complete product incidence or a census of deterministic degree-order obstructions.",
+        "searches": [
+          "Domínguez-García and Muñoz DOI 10.1038/srep08182, pp. 2 and 4",
+          "Resultary 5a5fdb56266c",
+          "Memmott–Waser–Price DOI 10.1098/rspb.2004.2909"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0406c3406a18 and 5a5fdb56266c",
+        "Domínguez-García–Muñoz 2015; Biniaz et al. arXiv:2609.27117",
+        "Memmott–Waser–Price 2004, lawful retrieval attempts",
+        "Bounded primary searches for ecological rankings and reversed first-cover ordering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed bipartite minimum is ab(a+1)/2; it does not determine the maximum a(a^2+3b^2+3b-1)/6.",
+          "The older heuristic studies do not exclude smaller obstructions or give the unique offending five-vertex type.",
+          "Standard marginal allocation yields the product optimizer once tuple incidence is translated into a product; the finite graph restriction and all-tie boundary are separate."
+        ],
+        "reasoning": "The product proof is a structured application of discrete balancing. The exact five-vertex obstruction requires an additional finite argument; it does not follow from the minimum-first-endpoint cost or known empirical rankings.",
+        "searches": [
+          "0406c3406a18, Finding and complete-bipartite formula",
+          "DOI 10.1038/srep08182, pp. 2 and 4",
+          "Primary maximum-first-position/reversed MSVC query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An edge contributes n+1-max(pos(u),pos(v)) in forward order, which is min(pos_reverse(u),pos_reverse(v)).",
+          "The exact indexed 0406c3406a18 optimizes the sum of first positions by minimization, using contiguous nondecreasing-size part blocks."
+        ],
+        "reasoning": "Reversal turns area maximization into maximizing that first-position sum, not minimizing it. A minimum vertex cover-time law is not the same as the maximum or the best degree tie-breaking census.",
+        "searches": [
+          "Resultary: minimum-sum vertex cover on complete multipartite graphs; ecological pair-incidence robustness",
+          "Primary search: maximum sum vertex cover, maximize first cover times, K2,3, minimum sum last endpoint, densest prefixes",
+          "Biniaz et al., arXiv:2609.27117 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected numeric expression ab(a+1)/2 is a minimum first-cover cost, not the required maximum or the two-optimum comparison at K_{2,3}.",
+          "The ecological paper describes finite rankings and empirical comparisons, not the exact labeled census for all simple graphs through five in the passages inspected."
+        ],
+        "reasoning": "A catalogue of small graphs by isomorphism would enumerate candidates but would not settle which have no optimal degree order; that requires the exact score comparison over ties and all permutations.",
+        "searches": [
+          "Resultary: small ecological graph ranking failures, complete multipartite order optimization and degree-allocation phase transitions",
+          "Domínguez-García and Muñoz, ranked extinction curve and optimization passages"
+        ]
+      },
+      "rationale": "Prior ecological work defines the same deterministic extinction curve and optimization objective. Discrete concave allocation is also standard and is not credited as new. The distinct results supported here are the exact pointwise optimum for the product family and, particularly, the sharp all-graph obstruction to initial-degree ranking at five vertices, including its unique isomorphism type. The closest indexed graph-order result takes the opposite extremum of the reversed objective. The other nearby ecological record optimizes degree allocations under random primary losses, not an ordering on a fixed incidence graph.",
+      "residual_risks": [
+        "No whole-document conclusion is made for Memmott–Waser–Price. A specialized maximum-sum ordering result or prior small-network census may be unindexed or missed; available searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for the graph interpretation and area score, not exact complete-product optimization or small-graph classification in the passages read.",
+          "evidence": [
+            "Passive species die upon losing all partners; the best ranking maximizes area; larger instances use approximate optimization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/srep08182",
+          "material_read": "OA full text pp. 2 and 4, offsets 14000 and 27312",
+          "method": "Bounded full-text passage inspection",
+          "title": "Ranking species in mutualistic networks",
+          "trigger": "Identical ecological ranking objective"
+        },
+        {
+          "assessment": "Opposite extremum after reversal; materially related, without implication.",
+          "evidence": [
+            "Minimizes first endpoint positions and has an optimum with contiguous blocks sorted by increasing part size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18/RESULT.md",
+          "material_read": "Finding and bipartite formula",
+          "method": "Local mirror passage inspection",
+          "title": "Minimum-sum vertex cover on complete multipartite graphs",
+          "trigger": "Same family of bipartite graphs and a related endpoint ordering"
+        },
+        {
+          "assessment": "Confirms the direction of optimization and endpoint convention.",
+          "evidence": [
+            "MSVC minimizes the sum of first endpoint positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27117",
+          "material_read": "p. 2, offsets 4300–6335",
+          "method": "Bounded OA PDF inspection",
+          "title": "Minimum Sum Vertex Cover (definition in Biniaz et al.)",
+          "trigger": "Standard definition behind the competing graph-order formulation"
+        },
+        {
+          "assessment": "Random removals and degree allocation are not fixed-graph deterministic order optimization.",
+          "evidence": [
+            "Optimizes over degree multisets under random primary extinction and discusses trajectory averages."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-degree-allocation-phase-transitions-for-two-partner-ecological-p--5a5fdb56266c",
+          "material_read": "Finding and scope of degree optimization",
+          "method": "Local mirror statement inspection",
+          "title": "Degree-allocation phase transitions for two-partner ecological persistence",
+          "trigger": "Closely matched indexed ecological variables"
+        },
+        {
+          "assessment": "No content-based conclusion from unavailable text.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2004.2909",
+          "material_read": "Citation only; full text not retrieved",
+          "method": "Publisher and identified repository routes attempted",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "Early relevant ecological removal study cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, comparison and limitations",
+        "Independent exact census replay",
+        "Domínguez-García–Muñoz 2015, area and degree ranking context"
+      ],
+      "rationale": "Initial-degree ranking is a natural baseline in the established application. The result both supplies a single optimal ranking for every removal budget in a transparent family and identifies the smallest structure that makes all degree tie-breakings fail. The useful content of the small computation is the complete sharp obstruction and its interpretation, not the one-unit score difference alone.",
+      "residual_risks": [
+        "No implication for typical empirical networks, dynamic responses to loss, weighted graphs or general-purpose ranking algorithms is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

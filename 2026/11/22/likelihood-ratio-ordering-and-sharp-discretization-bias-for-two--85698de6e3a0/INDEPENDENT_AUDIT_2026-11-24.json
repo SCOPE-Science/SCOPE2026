@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:39:12.296622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60, VERIFICATION.md and check.py inspected, frozen script not executed.",
+        "Independent replay: python3 -B /workspace/branches/independent_arithmetic.py, section 1; exact TV coefficient under the logistic-survival substitution."
+      ],
+      "rationale": "Writing S(n)=2q^n/(1+q^n) gives a_n=S(n)-S(n+1) and exact normalization. The positive density sample weights are geometrically summable. The normalized ratio a_n/b_n is 2(1-q)Z times (1+q^n)/(1+q^(n+1)), strictly decreasing in n. Its b-weighted average is one so its first value exceeds one and its limit is below one. There is one crossing, allowing a tie at at most one integer, and TV is exactly the sum of the positive differences. For h=theta, the composite trapezoid estimate h sum_{n>=0} f(nh)=int f+h f(0)/2+O(h^2) applies to g, yg and the survival profile because their second derivatives are integrable. It gives Z=1/(2h)+1/8+O(h) and prefactor 1-h/4+O(h^2). The exact ratio expands with uniform error O(h^2) for e^(-nh) in [0,1], with first-order profile d(y)=1/(1+exp(y))-1/4 and zero log 3. Its strict opposite signs on either side give h k_h -> log 3. The positive-part map is 1-Lipschitz, so replacing the ratio minus one by h d in the b-weighted TV sum costs O(h^2) including the crossing cell. The density normalization and the Riemann-sum estimate for the integrable Lipschitz-on-pieces function 2g d_+ (with integrable derivative) reduce TV to h times its integral plus O(h^2). Substituting z=1/(1+exp y) gives 2 integral from 1/4 to 1/2 of z-1/4, which is 1/16. The integrals of g and yg are 1/2 and log 2; the survival sum starts at n=1 and contributes -1/2, while the sampled mean denominator contributes -(log 2)/2. The positive mean gap is E[B]-E[A], tending to (1-log 2)/2. For q down to zero, the n>=2 tails and their first moments are O(q^2) by geometric domination. At n=1, a_1=2q+O(q^2), b_1=4q+O(q^2); at zero, a_0-b_0=2q+O(q^2), the sole positive difference for sufficiently small q by the exact order. Both discrepancies are therefore 2q+O(q^2).",
+      "residual_risks": [
+        "The mean discrepancy is the positive or absolute gap, not E[A]-E[B]. The proof covers both resolution limits and every positive rate for the order, not generalized shape models or fitted-rate comparisons. The spot check does not replace the uniform asymptotic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day item faa9d0caf98a concerns likelihood-ratio comparison between two rates within a fixed-shape generalized density family; same-day item 5b53a656fb3e concerns mode changes in the generalized survival family. They preserve at most one of the two compared constructions when specialized to shape one.",
+          "For a positive log-concave density f, f(n+s)/f(n) decreases with n for fixed s>0, implying the qualitative floor-versus-sample LR order upon averaging over s in [0,1]."
+        ],
+        "reasoning": "The generic LR reduction and generalized results are not credited as new. Neither the generic order nor a same-family rate or mode theorem supplies the same-rate TV coefficient, mean gap or scaled cross-discretization crossing. No priority is inferred from the shared date.",
+        "searches": [
+          "Resultary: generalized half-logistic density-mimicking rate-LR phase diagrams and type-I survival-law modal thresholds",
+          "DOI 10.1007/s41096-024-00185-w §2.2"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1007/s10479-023-05807-3, 10.1007/s41096-024-00185-w, 10.47086/pims.1346708 (metadata only for last)",
+        "Resultary faa9d0caf98a and 5b53a656fb3e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survival-law paper bounds its mean by the parent mean and one-unit rounding; the density paper presents the normalized mean series and its own normalizer approximations. Their joint mass ratio is a direct algebraic implication of the separate formulas, but the primary results do not compare the positive part of the normalized difference or subtract the signed first-order biases."
+        ],
+        "reasoning": "Crediting the qualitative conclusion as readily implied leaves the quantitative limit theorem. It requires retaining the lattice endpoint correction, resolving its change of sign and summing the signed or positive difference with a uniform error. The exact low-resolution comparison additionally uses the different zero weights and geometric tails.",
+        "searches": [
+          "DOI 10.1007/s10479-023-05807-3 §3 p. 31 and §7 pp. 51–52; DOI 10.1007/s41096-024-00185-w §§2.1, 2.2 and 2.6",
+          "Resultary faa9d0caf98a and 5b53a656fb3e",
+          "Exact title lookup: An Alternative Discrete Analogue of the Half-Logistic Distribution (Barbiero–Hitaj; 10.47086/pims.1346708), for an accessible alternate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (5) specifies the floor/survival-difference probabilities; Eqs. (3)–(4) specify normalized probability-density samples. The latter paper's decreasing successive ratios concern one probability sequence, not a ratio of the two pmfs."
+        ],
+        "reasoning": "The comparison is between bin-integrated and normalized lattice-sampled versions at the same rate. Continuous approximation of one cdf or within-law log-concavity is not equivalent to an asymptotic of their pointwise mass difference.",
+        "searches": [
+          "Resultary: same half-logistic law survival-preserving versus density-mimicking likelihood-ratio ordering, crossing and exact discretization bias",
+          "DOI 10.1007/s10479-023-05807-3 §3 Eq. (5); DOI 10.1007/s41096-024-00185-w §2 Eqs. (3)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Annals paper's comparison table uses cdf-discrepancy-optimized constructions as comparators to the survival law, not the normalized density sample. The two closest distinct catalogue hits give LR rate and mode thresholds for their own families. No independent exact comparison of the target pair was identified."
+        ],
+        "reasoning": "A Cramer-distance optimum for a different cdf is not TV between the two fixed pmfs, and same-day thresholds in different parameters do not tabulate the target scaling constants. The PIMS DOI supplied bibliographic access only; its contents were not excluded by a negative search.",
+        "searches": [
+          "Resultary: exact log 3 / 1/16 crossover and total variation for the two half-logistic count constructions",
+          "DOI 10.1007/s10479-023-05807-3 §7, Table 8; DOI 10.47086/pims.1346708"
+        ]
+      },
+      "rationale": "The two masses, normalization formulas and separate mean series are known, and the LR ordering itself is an immediate consequence of the defining masses or of strict continuous log-concavity. The accepted distinction is the sharp quantitative comparison of these two different same-rate discretizations, especially the scaled mass crossing and leading TV and mean-bias coefficients. No covering published comparison was identified in the inspected primary and catalogue passages.",
+      "residual_risks": [
+        "The PIMS full text remains unavailable and may contain an overlap not resolved by the related Annals discussion. An earlier general asymptotic for floor versus normalized samples could also affect priority. Neither risk is negative evidence or a uniqueness claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior survival-law definition and single-law mean; comparisons use different discretizations",
+          "evidence": [
+            "Mass is S(n)-S(n+1); mean differs from the continuous mean by less than a unit.",
+            "§7 defines cdf-discrepancy constructions, not normalized samples of the probability density."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10479-023-05807-3",
+          "material_read": "§3 Eq. (5) and mean series pp. 30–31; §7 and Table 8 pp. 51–52",
+          "method": "Lawful open primary full-text passages",
+          "title": "Discrete half-logistic distributions with applications in reliability and risk analysis",
+          "trigger": "Defines the survival-law probabilities and contains a prior alternative-method comparison"
+        },
+        {
+          "assessment": "Prior pmf and mean series, within-law shape and small-rate cdf approximation; no target comparison in inspected passages",
+          "evidence": [
+            "PMF is normalized density sampling, distinct from survival matching.",
+            "Decreasing successive density-sampled mass ratios are within one law.",
+            "The exact mean is given by a first-moment series divided by the normalizer."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41096-024-00185-w",
+          "material_read": "§2 Eqs. (3)–(4) pp. 375–76; normalizer p. 377; §§2.1–2.2 p. 378 and §2.6 p. 381",
+          "method": "Lawful open primary full-text passages",
+          "title": "A Discrete Version of the Half-Logistic Distribution Based on the Mimicking of the Probability Density Function",
+          "trigger": "Defines the density-sampled law, reports normalizer and shape/mean results"
+        },
+        {
+          "assessment": "Unresolved primary-passage access; no whole-paper noncoverage finding",
+          "evidence": [
+            "Barbiero–Hitaj, Proceedings of International Mathematical Sciences 5(2), pp. 76–80 (2023). The related Annals paper directly confirms its own cdf-optimized comparisons; it does not verify all statements of PIMS."
+          ],
+          "identifier_or_url": "https://doi.org/10.47086/pims.1346708",
+          "material_read": "Bibliographic metadata only for this paper; Annals §7 is related text but not this article",
+          "method": "DOI/OA lookup, attempted lawful DergiPark route, exact-title alternate lookup; full text unavailable",
+          "title": "An Alternative Discrete Analogue of the Half-Logistic Distribution",
+          "trigger": "Plausible earlier comparison of alternate discretizations"
+        },
+        {
+          "assessment": "Rate LR ordering within the density family, not the comparison between constructions",
+          "evidence": [
+            "With shape fixed, the varied parameters are two rates; at shape one both compared laws are still density samples."
+          ],
+          "identifier_or_url": "Resultary faa9d0caf98a",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, snapshot 36a7204",
+          "method": "Local primary-result mirror, bounded statement",
+          "title": "A sharp likelihood-ratio crossover in density-mimicking generalized discrete half-logistic laws",
+          "trigger": "Material same-day half-logistic LR crossover overlap"
+        },
+        {
+          "assessment": "Modal thresholds of survival law only",
+          "evidence": [
+            "Optimizes the mass index within type-I generalized survival-preserving laws; it does not compare density sampling at the same rate."
+          ],
+          "identifier_or_url": "Resultary 5b53a656fb3e",
+          "material_read": "Mirrored RESULT.md Finding and literature discussion, snapshot 36a7204",
+          "method": "Local primary-result mirror, bounded passages",
+          "title": "The exact modal staircase of the type-I generalized discrete half-logistic law",
+          "trigger": "Material same-day result for the other discretization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–57; both defining Barbiero–Hitaj modeling papers"
+      ],
+      "rationale": "These are two independently proposed, naturally comparable count laws for the same continuous parent and parameter. The joint limits quantify when they can be close in probability yet differ in mean counts by a constant, and locate where their mass bias reverses. The independently useful quantitative discrepancy, rather than the routine ratio monotonicity alone, supports value for discretization and risk calibration.",
+      "residual_risks": [
+        "No implication about fitted-model performance, empirical risk prediction or superiority of a discretization for all purposes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

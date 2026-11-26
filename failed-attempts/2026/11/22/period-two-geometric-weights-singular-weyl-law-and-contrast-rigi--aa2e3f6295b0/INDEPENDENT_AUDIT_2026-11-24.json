@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:42:23.870059Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed q,u,v, unitary conjugation gives the lower-triangular kernel r^(j−i)√(d_j/d_i)/j, r=√q, a compact diagonal times a bounded geometrically summable operator. In odd/even blocks the even-to-odd transfer starts at lag one and the odd-to-even transfer at lag zero, giving F(z)=(1−qz)⁻¹[[1,ar z],[r/a,1]]. Discarding the first block and replacing the remaining paired diagonal by 1/(2k) changes the operator only by finite rank and a summable O(k⁻²) diagonal times a bounded operator. For the counting lemma in RESULT.md lines 47–59 I checked the limit without assuming uniform convergence of symbol counts at atoms: for a banded symbol, cut the block indices at finitely many fixed scaled points x=tk on [ε,R], chosen at continuity points of the symbol distribution. Separating the pieces costs rank bounded independently of t. The head costs at most dε/t+O(1) rank, and the tail has norm below t for R>||B_F||. On each middle piece, the smallest and largest diagonal values sandwich the weighted singular numbers by scaled unweighted singular numbers; block circulants differ by bounded rank and sample the symbol on a Fourier grid. Upper and lower sums converge to the integral of the symbol counting function as the scaled mesh shrinks and ε→0. Uniform approximation by band symbols then uses tN(ηt;D(B_F−B_M))≤d||B_F−B_M||/η and the singular counting inequalities at (1±η)t. Trace-class errors have tN(t)→0; count inversion applies since the coefficient is positive. With two indices per block the coefficient is (4π)⁻¹∫||F||_*; the determinant modulus is 1/Δ and the Frobenius norm squared is [2+q(a²+a⁻²)]/Δ². The two-by-two nuclear norm identity gives the displayed integral. Its strict increase in a²+a⁻² gives absolute log-contrast only, not parity. The neutral pair folds to the scalar symbol; equal Bloch singular values force equal column norms and zero inner product, i.e. a=1 and z=−1. At z=−1 the squared difference is q(a−a⁻¹)²/(1+q)². Compactness reduces the nonzero spectrum to eigenvalues, and the first nonzero coordinate plus the explicit polynomial-growth binomial eigenvectors give exactly 1/j. The Schatten and log-average consequences follow from s_n∼K/n. The supplied checker was inspected, not run; there is no required finite computational proof step.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ponge's Eq. (2.9) is an indexed singular-value asymptotic with integral of tr_E |σ(P)|^p over S*M for classical negative-order operators on a Hermitian bundle. In dimension one at order −1, p=1.",
+          "Independently of a sign typo in the displayed order hypothesis of Proposition 2.9 in the HTML, the unambiguous Theorem 4.1 gives the indexed limit for Q u P with P,Q of order −n/2 and matrix-valued u in L log L. Take n=1, P=Q=Λ⁻¹/²P_+, and u(θ)=F(e^{iθ})/2, smooth. This has the same leading symbol and differs from the left-weighted realization by an order −2 commutator term, hence trace class on S¹.",
+          "The finite Toeplitz and GLT texts were not independently read in full; no implication from their finite-section statements alone is needed."
+        ],
+        "reasoning": "Equation (4.1) gives (2π)⁻¹ times the trace-norm integral of F/2 in the positive direction, exactly the proposed coefficient for every a>0. To see the trace-class difference, commute Λ⁻¹/² past M_F through the right factor; [Λ⁻¹/²,M_F] has order −3/2, and the left Λ⁻¹/² lowers it to −2. This prior theorem covers the actual period-two nonneutral case.",
+        "searches": [
+          "Raphaël Ponge arXiv:2107.13605, Birman–Solomyak Proposition 2.9 Eq. (2.9) and Theorem 4.1 Eq. (4.1)",
+          "Tilli DOI:10.1080/03081089808818584; Serra-Capizzano DOI:10.1016/S0024-3795(02)00504-9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and AUDIT.json",
+        "Ponge arXiv:2107.13605",
+        "DOI:10.1017/S1446788715000221",
+        "DOI:10.1186/s13660-017-1464-2",
+        "Resultary de465e616ced, 9192576eedcf, 1f8dad68e971, 43fc115e6443",
+        "Tilli DOI:10.1080/03081089808818584 and Serra-Capizzano DOI:10.1016/S0024-3795(02)00504-9 (full-text attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The operator coverage obtains the actual indexed s_n limit, including its normalization, by integrating the nuclear norm of the known explicit symbol. That norm depends strictly monotonically on a²+a⁻² by direct inspection of the integrand. The same symbol's Gram matrix yields the equality and zone-edge separation test.",
+          "The compact unmodulated generalized Cesàro spectrum is prior; the alternating positive diagonal similarity is bounded and boundedly invertible, so it leaves that spectrum unchanged.",
+          "The Schatten threshold and logarithmic mean are immediate from the prior-implied limit."
+        ],
+        "reasoning": "The claim is not merely analogous to a Weyl law: it follows from a standard identification of the two-cell Toeplitz matrix with a Fourier compression, then substitution into the prior theorem, plus elementary symbol algebra. The frozen statement claims no quantitative unequal-weight remainder or parity-recovery result that escapes those implications.",
+        "searches": [
+          "Ponge arXiv:2107.13605 §2.3 and Theorem 4.1",
+          "Albanese–Bonet–Ricker DOI:10.1017/S1446788715000221",
+          "Yıldırım–Durna DOI:10.1186/s13660-017-1464-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen block Toeplitz B_F is P_+ M_F P_+ on the positive Fourier modes of L²(S¹;C²); P_+ retains e^{ikθ} for k≥1. D is, on that subspace, the restriction of Λ⁻¹=(1−∂_θ²)^(−1/2) up to a diagonal O(k⁻³) trace-class error.",
+          "Extended by zero to nonpositive frequencies, (1/2)Λ⁻¹P_+M_FP_+ is classical of order −1. The Fourier projection has homogeneous symbol 1 on ξ>0 and 0 on ξ<0 (smoothly interpolated at bounded ξ). The principal symbol of the product is (1/2)|ξ|⁻¹F(e^{iθ}) for ξ>0 and zero for ξ<0."
+        ],
+        "reasoning": "This identifies the actual infinite operator up to unitary identification, zero extension and trace-class perturbation. The vanishing negative-frequency symbol is allowed in the singular-value law and leaves a single cosphere direction. There is no assumption of ellipticity on both directions or inference from only finite sections.",
+        "searches": [
+          "Resultary: geometric weighted Cesàro indexed singular asymptotics, scalar elliptic coefficients and periodic Rhaly modulation",
+          "Ponge Connes Integration and Weyl's Laws Birman Solomyak negative order pseudodifferential operators singular values vector bundles principal symbol arxiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day de465e616ced gives a stronger quantitative scalar asymptotic, and 9192576eedcf the exact scalar elliptic leading coefficient. Both match a=1 after r=√q; neither is used to infer priority from date.",
+          "Earlier 1f8dad68e971 concerns periodic row modulation of an unweighted operator and its essential spectrum; 43fc115e6443 concerns W_t with entries t^n for j≤n, not r^(n−j)/(n+1)."
+        ],
+        "reasoning": "These are positive exact scalar overlaps and distinct neighboring formula sets, not an earlier exact table for a≠1. An identical entry is unnecessary for the originality failure because the inspected general operator theorem determines the coefficient on the whole family.",
+        "searches": [
+          "Resultary: geometric Cesàro elliptic Weyl coefficient, generalized Cesàro exterior powers, periodic row-modulated Rhaly",
+          "Resultary de465e616ced, 9192576eedcf, 1f8dad68e971, 43fc115e6443"
+        ]
+      },
+      "rationale": "The leading indexed law is a direct specialization of the existing Birman–Solomyak classical matrix-valued pseudodifferential Weyl law (as stated in Ponge §2.3, and also obtained from his Theorem 4.1). The circle/positive-frequency realization meets the hypotheses and gives exactly the claimed contrast-dependent integral, not just a finite-section distribution or the scalar subcase. The strict recovery of absolute contrast and the band meeting/splitting follow by elementary two-by-two matrix identities for the same symbol; the spectral and summability consequences do not provide a distinct new remainder. This is positive prior-implication evidence, not a finding of an identical earlier printed weighted Cesàro formula or a rejection based on inaccessible literature.",
+      "residual_risks": [
+        "No exact earlier unequal-weight Cesàro formula or chronological ordering of the same-day records is established; the decision does not require either.",
+        "Tilli and Serra-Capizzano full text was not obtained. A direct block-Toeplitz prior statement could give additional overlap, but neither source's unavailability bears on the verified circle-operator implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the asymptotic after the circle compression and principal-symbol substitutions given above. Theorem 4.1 supplies a clean direct route for both frequency directions without relying on the order-sign typo in the HTML of Proposition 2.9.",
+          "evidence": [
+            "Eq. (4.1) states lim j μ_j(QuP) = [n(2π)^n]⁻¹∫_{S*M} tr_E |σ(Q)uσ(P)|, for classical order −n/2 operators on a Hermitian bundle and matrix-valued L log L potential.",
+            "Remark 2.10 attributes the classical closed-manifold result to Birman–Solomyak and distinguishes the earlier compact-support Euclidean setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.13605",
+          "material_read": "Abstract; §2.3 Proposition 2.9, Eq. (2.9), Remarks 2.10–2.11; §4.1 Theorem 4.1 and start of its proof.",
+          "method": "Focused literature search and bounded OA primary HTML reads at offsets 0, 30790 and 64493 following exact statement localization.",
+          "title": "Weyl’s Laws and Connes’ Integration Formulas for Matrix-Valued L log L-Orlicz Potentials",
+          "trigger": "A stronger infinite-operator singular value theorem for smooth matrix symbols on a closed manifold"
+        },
+        {
+          "assessment": "Compactness/spectrum background, not the source of the prior indexed singular coefficient. Decreasing weights in the inspected scope need not cover every alternating pair.",
+          "evidence": [
+            "Thm. 4.2 supplies a sufficient weighted compactness criterion, not an indexed singular-value Weyl law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446788715000221",
+          "material_read": "Cambridge PDF p. 1 abstract and §4 Thm. 4.2 (PDF p. 22, journal p. 308).",
+          "method": "Bounded primary PDF passage reading.",
+          "title": "Spectrum and compactness of the Cesàro operator on weighted ℓp spaces",
+          "trigger": "Originating class of weighted Cesàro operators"
+        },
+        {
+          "assessment": "Matches the neutral matrix and describes known compactness and spectrum; does not settle singular values under alternating similarity.",
+          "evidence": [
+            "The generalized matrix has entries t^(n−k)/(n+1) for k≤n, and the introduction credits Rhaly with the Hilbert-space compactness and spectrum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-017-1464-2",
+          "material_read": "Open PDF §1 p. 1, extracted offset about 1802.",
+          "method": "Targeted primary passage read.",
+          "title": "The spectrum and some subdivisions of the spectrum of discrete generalized Cesàro operators on ℓp",
+          "trigger": "Neutral generalized Cesàro model and spectral antecedent"
+        },
+        {
+          "assessment": "Exactly neutral contrast; same-day dating not used to establish priority.",
+          "evidence": [
+            "Gives κ(√q)/n with O_q(n⁻³/² log(2+n)) remainder and κ(r)=(2π)⁻¹∫|1−r exp(iθ)|⁻¹dθ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-elliptic-weyl-coefficient-and-quantitative-singular-decay-of-geo--de465e616ced",
+          "material_read": "Mirrored RESULT.md Finding, offset 0.",
+          "method": "Resultary search and bounded local mirror read.",
+          "title": "Elliptic Weyl coefficient and quantitative singular decay of geometrically weighted Cesàro averaging",
+          "trigger": "Closest exact scalar indexed catalogue overlap"
+        },
+        {
+          "assessment": "Same scalar leading law and a separate exterior-power result, not the period-two operator; no chronology inferred from the date.",
+          "evidence": [
+            "For t^(i−j)/(i+1) the scalar indexed coefficient is the same integral with t=√q; the Limitations explicitly flag pseudodifferential coverage risk."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exterior-power-ordering-and-an-elliptic-singular-value-law-for-c--9192576eedcf",
+          "material_read": "Mirrored RESULT.md Finding (offset 0) and Limitations (offset about 10800).",
+          "method": "Resultary search and bounded local mirror read.",
+          "title": "Exterior-power ordering and an elliptic singular-value law for compact generalized Cesàro operators",
+          "trigger": "Distinct neutral Fourier-coefficient overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometric alternating weights and contrast diagnostic are natural, and the elementary counting proof can be helpful exposition. As a research finding, however, the purported new invariant is determined mechanically by a prior indexed matrix-symbol theorem through the two-cell representation. Strict contrast sensitivity follows at once from the two-by-two trace norm, and the gap is the direct zone-edge eigenvalue calculation. There is no separate substantial result outside that coverage: no nonneutral remainder estimate, finite-index characterization, or recovery of the parity phase. Thus the record does not establish an independently valuable new exact fact under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

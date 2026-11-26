@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification
 
-Run `python3 verify_facets.py` from a directory containing the extracted script. It performs direct complex-arithmetic support checks for the non-simple facets and the two-edge tetrahedral facet family for every `n` from 3 through 80, and asserts the analytic formulas for each instance. The exhaustive proof of those statements for all dimensions is in `RESULT.md`; this finite check serves only to detect mistakes in signs, indexing, and boundary conditions. No independent audit has been performed.
+Run `python3 verify_facets.py` with Python 3's standard library. It counts two-edge contacts over the original regular-polygon support inequalities for each integer \(3\le n\le80\). Separately, using the actual cap triangles, it reconstructs the side faces from the horizontal edge normals and tests their vertex counts and degrees. Expected initial lines: `3 two-edge tetrahedra 0 prism 6`, `4 two-edge tetrahedra 12 octahedron 4`; expected final line: `PASS 3 <= n <= 80`. The all-parameter proof is in `RESULT.md`; numerical checks have finite scope and use a tolerance.

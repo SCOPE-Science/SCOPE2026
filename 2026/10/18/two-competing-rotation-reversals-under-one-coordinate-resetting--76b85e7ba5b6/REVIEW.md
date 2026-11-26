@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The contraction coupling and Lyapunov inequality establish a unique stationary second-moment regime. The diffusion-plus-Poisson-jump generator closes exactly on three second moments. Its exact linear-system solution gives the separately defined continuous and jump-inclusive twice-area rates, and strict positivity of the common denominator reduces the complete sign classification to a quadratic and an affine polynomial. A standalone exact-symbolic checker confirms these identities and their limiting and equal-bath cases; 120 independent exact-rational matrix solves test them without substituting finite experiments for the proof. The signed-area observable explicitly includes reset chords and is not confused with polar angular velocity.
+## correctness
 
-**Originality — PASS, subject to historical search limitations.** The two-temperature harmonic gyrator, conventional unreset torque, general resetting machinery, and coordinate-constrained stochastic resetting were already known and are credited. The directly relevant accessible articles were compared in their mathematical objects and observables: the classic gyrator has no Poisson resets, the OU reset study analyzes a different one-dimensional temporal-area observable, and the reset-to-line active-particle system has Lorentz forcing instead of a coupled harmonic two-bath potential. No inspected source supplied both exact full-path/flow signed-area formulas and their mutually exclusive temperature-dependent crossing classification. General partial-reset moment results could make their derivation straightforward, and unlocated equivalent articles remain a residual risk; a failed search is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** Signed stochastic area is a natural measure of directional circulation in this established physical model. Reset chords contribute a geometric transport term that changes the qualitative phase diagram: each of two physically distinct definitions reverses in a different sector, equal bath temperatures create opposing signs, and a nonzero high-frequency continuous-area rate is canceled by jumps. The exact sharp thresholds and all-positive-parameter classification answer a motivated observable-definition and transport question, not an arbitrary numerical case.
+The positive spring matrix contracts the homogeneous evolution exponentially; each reset is a nonexpanding projection. The stochastic convolution from the infinite past exists in second moment by this bound, is stationary, and synchronous coupling gives uniqueness and convergence of the quadratic expectations for finite-second-moment starts. With A=2a+r, the stationary equations give u=2(T_x-cv)/A, w=(T_y-cv)/b, and (a+b+r-2c²/A-c²/b)v=-c(2T_x/A+T_y/b). Multiplication by bA produces the stated strictly positive D. Stationary product balance for XY (Y has no jump and the independent noises have no mixed covariation) gives J_all=-2(cu+bv). The chord from (X,Y) to (0,Y) contributes XY, so Poisson compensation gives J_jump=rv and flow=all-jump. Independent symbolic elimination and expansion reproduce all three currents, the equal-bath ratio and the limits. For T_y<T_x the flow numerator has positive leading coefficient and negative constant, hence exactly one positive root, the reported r_f; for T_y≥T_x its linear coefficient is positive and constant nonnegative. The affine factor for the full rate starts negative and rises through zero only at T_x<T_y<2T_x, giving the claimed r_a. The equality endpoints and r>0 signs in all four sectors follow immediately; there is no assertion of a finite reversal at T_y=2T_x.
 
-**Scientific limitations.** The result concerns an overdamped two-dimensional linear harmonic diffusion with independent baths and one-coordinate Poisson resets; it does not compute mean winding angle, local current curl, entropy production, nonlinear response, or inertial effects. Cross-model and historical novelty checks are necessarily non-exhaustive. No independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the pair of separate signed-area laws and mutually exclusive reversal sectors for Poisson projection onto X=0, not for the Brownian gyrator, stochastic area, moment closure, or resetting-induced reversal generically. The closest inspected claims share either the reset geometry or the observable, not their combination; the later fixed-point paper overlaps specifically in the continuous area observable but with a different moment balance and reversal mechanism.
+
+## value
+
+PASS
+
+The choice of whether to include the actual reset movement in a signed-area measurement changes even the sign at equal temperatures and changes which temperature sector permits a reversal. The exact complete sign classification and cancellation of nonzero continuous transport by chords in the fast-reset limit quantify this observable dependence. This is a meaningful comparison for pathwise versus between-reset measurements, even though the moment technique is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

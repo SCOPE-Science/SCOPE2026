@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:46:24.943071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed S=sL and diffusion −aL, both stages involve the same commuting operator and complete to (I+E_h²)/2. With ρ=a/s, t=sh and λ∈{0,1,3}, the filter amplification is 4(1+λt)/(2+λt)², so the completed amplification is G(ρq(λt)), G(w)=1−w+w²/2. The constant mode stays one; differentiating q gives max q=2C₂, so 1/2≤G≤1 throughout 0<ρ≤1/C₂. Projection onto the constant, antisymmetric and remaining symmetric modes shows only T_13=T_31 can be negative; 6T_13=ρ(3q(t)−q(3t))−ρ²(3q(t)²−q(3t)²)/2. The first bracket is positive because q(t)/t strictly decreases, so sign can fail only in the positive-denominator domain of R. I regenerated the denominator polynomial M and derivative polynomial P from q, recovering both displayed coefficients and signs: each has exactly one sign change, M(0)=−256<M(1)=605576, and P(3)<0<P(4). Thus the denominator becomes positive at one t_0∈(0,1); on (t_0,∞), R decreases to exactly one minimum t_*∈(3,4) and increases after. The positive numerator stays nonzero at t_0, and the large-t orders t⁻¹ over t⁻² give divergence at infinity. This proves the all-step cutoff, isolated contact and one bounded open negativity interval for ρ between the positivity and energy limits. Direct exact resolvent composition at (s,a,h)=(1,3/2,4) gives T_13=−37010590/4202539929, with 2/3>C₂, also proving the gap is strict. For a connected two-vertex graph the constant mode plus one contracted mode yields off-diagonal entries (1−g)/2≥0; hence no smaller graph supplies this defect. The conclusions concern the completed matrix in the specified energy-stable scalar-split class, not every stage or noncommuting and nonlinear cases.",
+      "replay": "Independent exact reconstruction in /tmp/opencode/frozen_1_to_5_math_replay.py, section 5, regenerated M and P, verified the factorization and sign-variation certificate, and recomputed the witness directly. High-precision diagnostics give t_*≈3.847021676241445933, ρ_*≈1.480920892342302556 and σ_*≈0.675255515112861485; these are not used as uniqueness certificates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Shu give all-step L² bounds under splitting conditions, including the same energy factor for this filter. The earlier paper concerns nonlinear EIN energy stability, not the same cone test.",
+          "General split Runge–Kutta positivity is a relevant broader question; the exact Horváth paper was not accessible in full. The exact negative remote entry while the energy bound holds independently rules out an energy-implies-positivity implication on this class."
+        ],
+        "reasoning": "Neither the inspected energy theorem nor a generic sufficient positivity criterion establishes necessity or the unique failing interval for this stable family. Stronger cone-preserving or exact criteria would have to be shown applicable to the two-sided rational filter and completed map; the inaccessible reference is a residual risk, not a negative finding.",
+        "searches": [
+          "arXiv:2611.02282v1 §§3,6",
+          "arXiv:2610.34539v1 §1.3",
+          "doi:10.1016/S0168-9274(98)00050-6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02282v1 §§3 and 6",
+        "arXiv:2610.34539v1 §1.3",
+        "Resultary c740afdf92d6 and 4f94a5560a16, theorem passages",
+        "doi:10.1016/S0168-9274(98)00050-6 (citation only)",
+        "doi:10.4208/cicp.OA-2019-0197 (connection described in Wu–Shu §6; original not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior energy estimate bounds each modal g independently, whereas the remote entry requires the signed relation 2−3g₁+g₃≥0. The latter fails for an exact admissible witness.",
+          "A first-order sharp weighted-path cutoff does not give the minimization of R(t) for Heun. The new exact statements use the spectral interaction of the two nonzero modes and a single-root certificate for R'(t)."
+        ],
+        "reasoning": "Prior definitions and energy results yield the starting modal inequalities. The distinct necessary and sufficient entrywise inequality and its global scalar minimization are additional, not a renaming of C₂ or either first-order threshold.",
+        "searches": [
+          "Wu–Shu order-two energy factor and Heun equations in arXiv:2611.02282v1",
+          "Resultary c740afdf92d6 and 4f94a5560a16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact spectral function here is G(ρq(λt)), with the order-two two-sided filter and Heun polynomial. Wu–Shu's §6 identifies a prior kernel construction with equivalent two-sided placement in the matched state-independent periodic convolution setting.",
+          "The closest path results instead study first-order filtered Euler. One varies the two edge conductances and obtains an all-step positivity criterion at ratio ≤2; another gives all-step positivity on P₃ in the first-order energy class and a failure on P₄."
+        ],
+        "reasoning": "Neither a graph reweighting nor a scalar step change identifies the distinct stability functions. The local limiting phase condition here tests the second-degree Heun response to the squared order-two filter; equivalent filter placement by itself is not equivalent positivity coverage for this completed step.",
+        "searches": [
+          "arXiv:2611.02282v1 §3.1 (3.6)–(3.13), Example 3.2 (3.39), §6 (6.6)–(6.8)",
+          "Resultary c740afdf92d6 and 4f94a5560a16, first-order two-sided filters on paths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed records give exact thresholds for first-order path maps. c740afdf92d6 classifies a weighted path by conductance imbalance and has a finite-step positive region for ratio >2; 4f94a5560a16 gives a first-order minimal failing vertex count of four.",
+          "The SSP-EIN2 example fixes the prior Heun composition, not a table entry giving the second-order three-site cutoff or its unique stationary point."
+        ],
+        "reasoning": "The same-date examples were compared on their statements, without inferring priority. Different methods, parameter variables, and positivity sets exclude exact overlap with the checked algebraic cutoff in these sources. The search is bounded.",
+        "searches": [
+          "Local Resultary semantic lookup for three-site two-sided filtered Heun positivity/energy gap",
+          "Resultary c740afdf92d6, mirrored RESULT.md offsets 0–3174",
+          "Resultary 4f94a5560a16, mirrored first-order theorem",
+          "arXiv:2611.02282v1 Example 3.2"
+        ]
+      },
+      "rationale": "Wu–Shu already provide the second-order filter, completed SSP-EIN2 method, and energy constant C₂. Distinct same-date Resultary records cover closely related first-order cone-positivity problems. The supported distinct result is the all-step entrywise threshold strictly above C₂ for the completed second-order map on the unweighted three-site path, with exact contact and a single bounded violation window. It is not a claim of priority for either the method or the general distinction between stability and positivity.",
+      "residual_risks": [
+        "Primary text for Horváth and the earlier kernel paper cited by Wu–Shu was not obtained; broader equivalent criteria in inaccessible literature remain possible.",
+        "Same-date catalogue records establish conceptual overlap but not their order, and alternative rational-diffusion formulations may be indexed differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the method, C₂ and matched periodic-convolution filter connection. The decisive passages address energy contraction, not the stated path cone threshold.",
+          "evidence": [
+            "Order-two filter and C₂ appear in §3.1; Example 3.2 gives the completed SSP-EIN2 scheme; §6 compares the preceding kernel construction for matched scales and fixed coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02282v1",
+          "material_read": "PDF p. 10, (3.6)–(3.13); p. 15, Example 3.2 (3.39); p. 25, §6 (6.6)–(6.8)",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Unconditionally L²-stable explicit–implicit–null filtered Runge–Kutta methods for general nonlinear degenerate parabolic equations",
+          "trigger": "Same order-two method and energy constant; possible positivity coverage"
+        },
+        {
+          "assessment": "Related nonlinear EIN energy estimates, not an inspected cone-positivity classification for the audited scheme.",
+          "evidence": [
+            "Describes energy stability for first- through third-order methods under coefficient conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34539v1",
+          "material_read": "PDF p. 4, §1.3",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Energy stability of explicit–implicit–null time discretizations for nonlinear degenerate parabolic equations with state-dependent coefficients",
+          "trigger": "Potential prior coverage by a broader stability theorem"
+        },
+        {
+          "assessment": "Material conceptual overlap, different first-order method, conductance-ratio parameter and step frontier; does not cover second-order s/a cutoff.",
+          "evidence": [
+            "All positive steps preserve positivity when the edge-conductance ratio is at most two; above two there is a sharp finite-step cutoff."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-positivity-frontier-of-two-sided-filtered-euler-diffusion--c740afdf92d6",
+          "material_read": "Mirrored RESULT.md offsets 0–3174, theorem and method",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "Sharp positivity frontier of two-sided filtered Euler diffusion",
+          "trigger": "Closest distinct Resultary three-site positivity classification"
+        },
+        {
+          "assessment": "First-order path result, not the second-order Heun positivity boundary.",
+          "evidence": [
+            "P₃ is all-step positive for the first-order scalar splitting at s≥1/2 in that normalization, while P₄ can fail in its energy regime."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-vertices-are-the-sharp-positivity-barrier-for-symmetrically--4f94a5560a16",
+          "material_read": "Mirrored RESULT.md theorem on P₃ and P₄",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "Four vertices are the sharp positivity barrier for symmetrically filtered Euler diffusion",
+          "trigger": "Same scalar splitting and minimal-vertex question for a related method"
+        },
+        {
+          "assessment": "Unresolved older general-method comparison; no whole-paper conclusion.",
+          "evidence": [
+            "The cited topic is positivity for RK and diagonally split schemes; applicability to this particular rational filter was not independently verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Bibliographic title and citation only; primary full text not obtained",
+          "method": "Lawful open-access lookup",
+          "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+          "trigger": "Broader RK and split-method positivity criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal path is a natural diffusion test, and the published energy bound is a meaningful baseline. The exact cone test shows that a completed second-order step can create a negative remote-node value even while stable in Euclidean norm, and gives the precise additional splitting required to avoid it and where it can fail. The small dimension is structural, not merely computational convenience: one nonzero mode cannot cause the defect. A lone sampled negative entry or recomputation of the energy constant would not establish this classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

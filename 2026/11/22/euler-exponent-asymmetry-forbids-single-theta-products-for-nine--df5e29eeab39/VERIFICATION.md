@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in the same directory. It requires only Python's standard library and should report three PASS lines, the 18-row table, and the exceptional exponent pair. There are no external input files.
+## correctness
 
-The test computes all nine-colored partition coefficients needed through \(q^{379}\) by a finite, exact, nine-color unbounded-coin recurrence in \(\mathbb F_{19}\); constructs \(B_r\) independently from the two-term dissection formula; checks all nineteen truncated components through \(y^{19}\); extracts the unique Euler exponent vectors through degree \(18\) by the logarithmic derivative; and reconstructs each unit from its Euler factors. For each \(r\ne17\), it verifies either \(\epsilon_1\ne\epsilon_{18}\) or, for \(r=3\), \(\epsilon_2\ne\epsilon_{17}\). It also tests all 715 four-factor products as a redundant corroboration.
+PASS
 
-## Proof boundary
+For any putative scalar-shifted monomial the valuation and initial coefficient are forced; normalizing leaves a unit. Removing (1-y^j) factors successively determines unique exponents mod 19 through degree 18. Frobenius gives (1-y^j)^19 = 1 mod y^19, so this test applies to arbitrary integer powers, including negative powers. P0 is trivial in this truncation and each Pa forces equal exponents at a and 19-a. An independent reproduction computes integral colored-partition coefficients through q^379 via n p9(n) = 9 sum_{j=1}^n sigma_1(j) p9(n-j), then reduces mod 19 and removes Euler factors by geometric-series division. It reproduces every row, with valuation 1 only at residues 6 and 13; the pair (1,18) disagrees except at residue 3, where (2,17) gives (10,18). The finite mismatch contradicts any full identity; infinite vanishing at 17 instead follows from Bilgici's dissection, not the computed zero truncation.
 
-The formal uniqueness of Euler exponents in degrees below \(19\) and the paired-exponent necessity for theta products give the infinite identity obstruction; the finite computation is exhaustive for that obstruction, not a sample of indefinitely many cases. No independence or external certification is asserted. It does not address factor alphabets beyond the ten stated products or any additive rewrite.
+## originality
+
+PASS
+
+The surviving distinct result is the unrestricted integer-exponent obstruction for all eighteen nonzero normalized components in the stated alphabet. The dissection and zero component are known; so is the narrower quartic-product observation in the motivating paper. The exact published catalogue match is the same record, not a distinct antecedent. No inspected distinct source covers the unrestricted obstruction.
+
+## value
+
+PASS
+
+This answers a concrete question in Bilgici's Section 8 for the factor alphabet of the dissection. The paired-exponent test covers infinitely many exponent vectors at once and excludes denominator identities as well as quartic products. The value is the complete obstruction, not the known zero progression or another table of dissection terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

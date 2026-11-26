@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the five Python files in the order shown in `RESULT.md` from the `verification` directory. `sympy` 1.14.0 was used for the Gröbner implementation; independent polynomial reduction uses only the standard Python library. The enumerations are finite and exact over the two-element field.
+## correctness
 
-The rational-point ideal has dimension 15 in bidegree \((3,5)\). Its exact total of 32,768 forms is counted twice: once through Gaussian elimination of the nine evaluation constraints, once through the explicit ideal generators. Their rationally smooth subfamilies both have size 5,832. Four affine chart ideals are tested exactly for geometric singularities, first on all 206 orbit representatives by `sympy.groebner`, then with a separate standard-library Buchberger implementation on all 5,832 rationally smooth forms. Both methods give exactly 2,304 geometrically smooth forms, and the representative method produces 76 orbits.
+PASS
 
-`orbit_representatives.csv` is the complete table of projective orbit representatives, encoded by bitmask \(\sum c_{ij}2^{6i+j}\); the source computes their orbit sizes from generator closure rather than inferring size from distinct bitmasks. `classification.json` includes the singularity-test outcome of every screened orbit representative, permitting targeted reruns of disputed cases. The programs were executed from the embedded-file directory and the reference count files agree.
+Nine evaluations have rank nine: the exponent choices {0,1,3} in X and {0,1,5} in Y give tensor-product interpolation bases, leaving 15 free coefficients. Local first derivatives screen exactly for smoothness at those nine points. I independently interpolated the full space, applied all 36 invertible matrix pairs to each orbit representative, and tested the affine Jacobian ideal for being the unit ideal (lex F5B over F2), together with univariate gcd tests on the two boundary lines and evaluation at their common corner. Over an algebraic closure a proper ideal has a common zero, so this checks geometric smoothness, not just points of small extension degree. Replay obtained 32768 vectors including zero, 5832 rationally smooth vectors, 206 screened orbits, then 2304 geometrically smooth vectors in 76 orbits of sizes 36, 18, 12, 6 with multiplicities 55, 15, 3, 3. The fixed-point sum is 2736, and all representative masks and sizes match the frozen CSV. A reducible smooth divisor would have disjoint components; any nontrivial partition of an effective divisor class of bidegree (3,5) has positive intersection, excluding that possibility. Adjunction gives genus (3-1)(5-1)=8.
 
-**Unproved limits.** No abstract isomorphism classification of all genus-eight curves is asserted. No evidence of uniqueness against unindexed prior computational publications is claimed. Independent audit: not performed.
+## originality
+
+PASS
+
+Earlier work supplies the rational-point ideal and nearby smooth filling examples or exact censuses of other bidegrees. The inspected statements do not give or force this binary asymmetric bidegree-(3,5) census and stabilizer distribution.
+
+## value
+
+PASS
+
+This is a complete classification at the first asymmetric bidegree beyond the binary minimal (3,4) with first degree fixed at 3. The underlying genus-eight curves fill nine points and carry the two specified projections. The exact census, representatives and stabilizer distribution provide a usable benchmark for binary filling curves and for comparison of embedded families, rather than merely another existence example or a sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-Conditioning on the first accepted dimer proves the exact recurrence for every even path and every even cycle. The analytic generating function follows from an explicitly solved Riccati equation, and positivity of the denominator's coefficient deficit proves its unique minimal zero. An exact pole residue establishes the infinite-size probability law. Coefficient comparison proves strict monotonicity in rate contrast; implicit analytic continuation proves the symmetry crossover. An independent direct finite-state absorbing-chain checker passed 35 rational comparisons; further high-precision checks passed 21 coefficient tests and two pole estimates. Finite tests are not substituted for the proof.
+## correctness
 
-## Originality: PASS (qualified)
-The equal-rate open-line vacancy distribution is classical (Page, 1959), and is not claimed new. The meaningful departure is a complete rare-event probability on **even cycles with alternating positive bond rates**, its strict two-branch exponential domination, and its exact \(1/n\) contrast crossover. The 1989 occupied-edge graph adsorption paper examines marginal occupancies according to its accessible abstract; the 1994 inhomogeneous bipartite-lattice study computes sublattice mean coverages; the complete accessible 2015 Purvis–Reeve–Wattis–Mao manuscript studies coverage–availability scaling. These do not imply the new rate-dependent full-event expression in the inspected material. The 2019 Pasinetti et al. full paper concerns jamming coverage distributions. Direct published-finding corpus searches for aliases, formulas, and possible stronger results found no dominating claim. The inaccessible full texts of Page (1959), Pippenger (1989), and de Oliveira–Tomé (1994) remain substantive bibliographic risks, not asserted noncovering. An undetected exact weighted greedy-matching theorem remains possible.
+PASS
 
-## Value: PASS
-Perfect vacancy-free deposition is rare and therefore poorly described by mean coverage. Alternating rates represent a natural patterned-substrate perturbation with two competing perfect ring tilings. The all-size solution and the exact field-like \(1/n\) crossover quantify when one deposition pattern dominates and provide analytical benchmarks for dynamic simulations.
+On an even path an even-index first bond strands odd components, while an odd-index first bond splits two even paths with the original boundary rate. Its probability is alpha/(m-1+alpha); Poisson memorylessness makes the two remaining components independent. On a simple even cycle the first accepted bond leaves an even path of its own type, producing the two stated weighted coefficients. The recurrence gives zP'=beta(P-1)+alpha zP²; P=-u'/(alpha u) gives the entire 0F1 denominator and the quotient. All nonconstant coefficients of u are strictly negative, so on the positive axis its single zero is simple, and the triangle equality with consecutive nonzero powers precludes any other zero on or inside that modulus. The quotient residue is -1/alpha; Cauchy's estimate after subtracting the pole gives the unit-amplitude contribution R^{-n} per branch. For alpha2>alpha1 the m≥2 recurrence-factor ratio is at least c=alpha2(1+alpha1)/(alpha1(1+alpha2))>1. Induction gives a coefficient ratio ≥c^{(m-1)/2}, proving the strict radius decrease, not merely monotonic coefficients. This quantitative bound and the simple analytic root also give -R'(1/2)/R0≥2/3 (consistent with the direct derivative proof). A fixed circle separating the symmetric simple zero from the remaining zeros continues to separate it for nearby rates, making the Cauchy estimate uniform. Expanding log R at alpha=1/2±t/n yields the two factors exp(±kappa t) and the stated cosh. Independent accepted-order weights checked the exact branch coefficients for both perfect matchings in 50 cycle/rate cases, n=2 through 11, including the smallest simple cycle. A separate series calculation gave R0=1.43922883989064515077598 and kappa=1.09364675458441884588785.
 
-## Scope and limitations
-The theorem assumes a simple even cycle, nonzero alternating nearest-neighbor deposition rates, irreversible dimers, and eventual coverage without vacancies. It does not characterize other terminal patterns, adsorption time, or an arbitrary heterogeneous substrate. The symmetric specialization is treated as historical context, not a novel result. The originality assessment is limited to actually retrieved material. Numerical constants are approximations of exact implicit values, and no independent review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the genuinely alternating-rate law, the strict ordering of its two poles, and the 1/n crossover, not the homogeneous specialization or first-event method. Krapivsky's exact homogeneous path extremal-count distribution already gives the symmetric path recurrence, generating function and pole. Via the line-graph correspondence and one cycle cut it gives the exact symmetric cycle probability and its leading asymptotic as well. The closest catalog finite-cycle crossover uses a different acceptance rule and studies coverage time, while the closest catalog result with the same deposition rule gives an infinite-chain marginal. Neither supplies the alternating finite-cycle probability of zero vacancies or the symmetry crossover of that probability.
+
+## value
+
+PASS
+
+Perfect jamming coverage is a well-defined rare event not recoverable from mean occupancy. Resolving its exact inhomogeneous finite-size law, proving which weighted matching controls the exponential rate, and identifying a nontrivial scaling window are useful information beyond the known symmetric law. The asymptotic result is supported by both exact pole residues and a quantitative monotonicity proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

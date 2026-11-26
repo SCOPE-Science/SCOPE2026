@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:21.182263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–65; VERIFICATION.md; structural_census.py, independent_recursion.py, burnside_direct.py and their recorded outputs",
+        "Independent replay: python3 /workspace/review_evidence/bipartite.py; output /workspace/review_evidence/bipartite.txt"
+      ],
+      "rationale": "Expanding the universal-type/existential-witness recursion gives the stated pair and singleton tests. A qualifying same-shore pair needs a spare same-shore vertex and four opposite-shore profiles, so rank at least three at the root forces at least four vertices per shore. Four edges would all be incident with one qualifying left pair, but the qualifying right pair needs three distinct nonzero left rows. In the displayed witness, using zero-based labels, left vertex 2 has same-shore partner 3 and mixed partners at right vertices 0 and 2 with opposite incidence values; right vertex 0 has same-shore partner 1 and mixed partners at left vertices 2 and 3 with opposite values. Thus the witness attains both lower bounds. The independent replay applies the definition bottom-up on all 65,536 matrices, and checks every recorded orbit and the fixed-point matrix. It gives 9,672 labelled matrices, 29 orbits of sizes 72/96/288/576 with multiplicities 1/4/16/8, the stated seven edge counts, and the Burnside sum 16,704. The 576 five-edge matrices form one orbit, represented by a six-vertex path and the two isolates. The census is for rank at least three, with named shores, at host order eight only.",
+      "residual_risks": [
+        "No census of larger orders or assertion of global uniqueness at five edges; uploaded code was inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The April rank paper defines the relative rank and gives results for other classes including ordinary graphs.",
+          "The multi-state comparison has the uncoloured q=2 specialization (7 vertices, 6 edges) and a different oriented-graph example (13 vertices, 23 arcs)."
+        ],
+        "reasoning": "Changing to two named shores changes both the type at the empty set and the admissible incidences on each shore; a result for free pair states does not supply the distinct profile recursion or its sharp numbers.",
+        "searches": [
+          "arXiv:2604.14461v1",
+          "Resultary SCOPE-sharp-three-round-thresholds-and-certified-extremizers-for-colou--e2773954132c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local published-record index and the exact records above",
+        "arXiv:2604.14461v1",
+        "Truss, DOI 10.1007/s00153-025-00986-1",
+        "OEIS A241956"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier uncoloured graph finding has minima 7 vertices and 6 edges.",
+          "The distinct same-day triangle-free finding has a four-signature nonedge test, minima 6 vertices and 4 edges, and 2,292 labelled six-vertex witnesses in nine classes."
+        ],
+        "reasoning": "These are genuine analogues, but the allowed one-point extensions of their marked subgraphs differ from those when a shore is named. In particular a same-shore pair here permits only one same-shore type as well as the four opposite-shore profiles; forgetting sorts changes the universal quantifier. Neither census or pair criterion implies the frozen theorem. Same-day dating does not establish relative priority.",
+        "searches": [
+          "Resultary SCOPE-sharp-rank-three-onset-and-six-edge-extremum-for-finite-graphs--a3c35b6162f1",
+          "Resultary SCOPE-rank-three-witnesses-and-the-nine-six-vertex-forbidden-shapes-fo--e2e144f657d5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent matrix problem uses independent row and column permutations and recursive extension-by-profile; neither arbitrary row/column switches nor transposing the matrix are isomorphisms of the named sort structure.",
+          "The nearby homogeneous ordered bipartite classification is of countable structures, not recursive rank of finite hosts."
+        ],
+        "reasoning": "Recoding the edges as bits or as the two cross-pair states preserves the rank filter but does not equate it to an unfiltered or differently sorted classification.",
+        "searches": [
+          "Resultary: rank-three onset and extremal edges in named-shore bipartite graphs",
+          "Truss, Countable homogeneous ordered bipartite graphs",
+          "OEIS A241956"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A241956 gives 317 ambient classes and has no predicate or breakdown for extension rank.",
+          "The local Resultary comparison found the frozen record itself and related rank records, but no second match for the 9,672 labelled / 29 orbit census."
+        ],
+        "reasoning": "An ambient set of classes allows one to test a new predicate; it does not determine which classes meet that predicate or the edge, stabilizer or fixed-point counts.",
+        "searches": [
+          "OEIS A241956, ambient 4×4 binary matrices up to row/column permutations",
+          "Resultary named-shore bipartite rank-three census"
+        ]
+      },
+      "rationale": "The rank framework is prior work, as are sharp rank-three extremal problems for related ages and the unfiltered binary-matrix census. The distinct contribution is the named-shore bounds and the complete rank-filtered first-order census, including the unique minimum-edge orbit. No inspected result gives that combination by equivalence or implication.",
+      "residual_risks": [
+        "No claim of universal historical priority over unindexed exact filtered enumerations.",
+        "Same-day related results were compared by statement, not presumed to be later."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational rank coverage but not the specialized numbers",
+          "evidence": "Relative extension-rank framework and examples including ordinary graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2604.14461v1",
+          "material_read": "Introductory and rank/finite-graph passages at offsets 0, 3350–6557 and 8000–10999",
+          "method": "Lawful OA original text",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Defining paper and potential general coverage"
+        },
+        {
+          "assessment": "Different age",
+          "evidence": "Ordinary finite simple graphs, order 7 and edge bound 6 with a unique edge minimizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rank-three-onset-and-six-edge-extremum-for-finite-graphs--a3c35b6162f1",
+          "material_read": "RESULT.md offsets 0–2280 and 3400–6488",
+          "method": "Published-record local mirror",
+          "title": "Sharp rank-three onset and six-edge extremum for finite graphs",
+          "trigger": "Earlier near-identical extremal question"
+        },
+        {
+          "assessment": "Different extension rules and census; relative priority unresolved",
+          "evidence": "Four-signature nonedge condition, 6 vertices, 4 edges, 2,292 labelled witnesses in nine classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-rank-three-witnesses-and-the-nine-six-vertex-forbidden-shapes-fo--e2e144f657d5",
+          "material_read": "RESULT.md offsets 0–1871 and 2200–5364",
+          "method": "Published-record local mirror",
+          "title": "Rank-three witnesses and the nine six-vertex forbidden shapes for triangle-free graphs",
+          "trigger": "Same-day structural analogue"
+        },
+        {
+          "assessment": "Different classes; not a named-shore specialization",
+          "evidence": "q=2 uncoloured graph specialization; different oriented example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-three-round-thresholds-and-certified-extremizers-for-colou--e2773954132c",
+          "material_read": "RESULT.md passage around offset 1572",
+          "method": "Published-record local mirror",
+          "title": "Sharp three-round thresholds and certified extremizers for coloured structures",
+          "trigger": "Potentially broader pair-state coverage"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Classifies countable homogeneous ordered bipartite graphs.",
+          "identifier_or_url": "https://doi.org/10.1007/s00153-025-00986-1",
+          "material_read": "PDF p. 1",
+          "method": "Original paper",
+          "title": "Countable homogeneous ordered bipartite graphs",
+          "trigger": "Closest cited homogeneous bipartite graph paper"
+        },
+        {
+          "assessment": "Ambient orbit count only",
+          "evidence": "The 4×4 ambient entry is 317.",
+          "identifier_or_url": "https://oeis.org/A241956",
+          "material_read": "Page offsets 0–1584",
+          "method": "Original public table",
+          "title": "A241956: binary matrices under independent row and column permutations",
+          "trigger": "Possible exact orbit table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 33–59",
+        "Independently recovered labelled and orbit census"
+      ],
+      "rationale": "For the natural two-sorted random bipartite age this identifies the smallest finite hosts supporting three successive rounds of every requested extension, a constraint not visible from ambient 4×4 isomorphism counts. The all-order edge obstruction and its unique smallest-order extremizer explain the sparse end of the problem. The complete filtered orbit census describes every optimal-order witness and demonstrates how much stronger rank is than merely having enough vertices on both shores.",
+      "residual_risks": [
+        "The value is a sharp boundary and classification for one natural age, not a general rank theory or a large-order census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

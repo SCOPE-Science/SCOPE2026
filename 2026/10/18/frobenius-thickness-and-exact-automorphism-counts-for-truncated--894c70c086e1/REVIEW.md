@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The universal endomorphism relations are coefficientwise consequences of Frobenius, since surviving monomials are distinct. The independent finite free module invertibility argument confirms that the linear determinant condition works over arbitrary (possibly nonreduced) coefficient rings; Nakayama is applied to residue-field fibers and the determinant criterion lifts it back. The nilradical quotient is a product of polynomial-coordinate and full-general-linear opens, and the nilpotent ideal has the stated free truncated basis. The tangent and rational-point formulas follow directly. An exhaustive checker independently multiplies images and tests the entire substitution matrix for five prime-field configurations, including the eight-dimensional case with 2048 automorphisms. Risk: code tests only small prime fields; the stated algebraic proof, not enumeration, supports all fields.
+## correctness
 
-## Originality: PASS (subject to outside review)
-The closest 2026 article by Díaz–Lucchini Arteche–Manzano-Flores (arXiv:2609.13741) treats monomial automorphism groups over algebraically closed characteristic-zero fields; its root subgroup description does not address positive-characteristic infinitesimal coefficient constraints or finite-field point counts. The 2024 Díaz–Liendo–Manzano-Flores–Regeta classification (arXiv:2408.02197) likewise explicitly restricts characteristic; the 2024 Díaz–Lucchini Arteche reconstruction theorem (arXiv:2409.15081) addresses a different implication. Nearby coordinate-cross algebra results concern quotients with zero mixed products, unlike the nonzero mixed monomials of this tensor-product algebra, and nearby nonsmooth examples concern nonassociative families. No inspected prior statement implied the complete coordinate ring or its rank/dimension/count formulas. Risk: a standard treatment of automorphism schemes of infinitesimal group coordinate rings may encode an equivalent description under different terminology; no bibliographic search proves absolute novelty.
+PASS
 
-## Value: PASS
-The Frobenius rectangles form a natural unbounded family of zero-dimensional monomial complete intersections. The theorem identifies the full nonreduced automorphism scheme, rather than merely its field-valued points; computes its nilpotent thickness and exact tangent excess (an arbitrarily large discrepancy); and turns the description into a uniform finite-field counting formula. This links the prime-characteristic Frobenius relations with concrete deformation and symmetry invariants. It is neither a mere specialization of the cited characteristic-zero result nor an isolated small-case enumeration.
+Over any commutative k-algebra R, the Frobenius relations on generator images separate coefficient by coefficient because distinct surviving monomials stay distinct after scaling by p^{a_i}. Exactly u_i coefficients of image i (including its constant term) are constrained by their p^{a_i}-th powers. For each residue field the constant terms vanish, and invertible cotangent action implies surjectivity on each graded piece of the maximal-ideal filtration and hence invertibility. On the full finite free R-module this criterion holds exactly when all residue-field fibers are invertible, by the determinant criterion; it does not require assuming every substitution preserves the augmentation over nonreduced R. Modulo a nilpotent ideal of constrained coefficients the linear matrix is block triangular, with blocks ordered by exponent value. Inverting its determinant is equivalent to inverting the product of the block determinants since the difference is nilpotent. This gives the proposed scheme product, not a law of composition. Its nilradical is the truncated-coordinate ideal; the ordinary-variable quotient is geometrically reduced and connected. The monomial basis in the truncated coordinates gives the exact free rank, while all defining power equations have zero first differentials, giving tangent dimension dN. Every u_i is positive, so tangent dimension always exceeds local dimension. Over a field the constrained coordinates have only value zero, leaving precisely the stated point-count formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The credited overlaps include the level-one Jacobson–Witt identification, common-height field-level results, exact square-zero and univariate scheme products, and mixed two-variable counts and dimensions. The supported distinction is the full ordinary algebra-automorphism scheme product with all infinitesimal coefficient exponents and rational counts at arbitrary unequal p-power heights, not any one of those specializations or a count of structured Hopf automorphisms.
+
+## value
+
+PASS
+
+The arbitrary mixed-height decomposition separates rational symmetry from infinitesimal symmetry: e.g. it specifies the lengths of each nonreduced coordinate, which are invisible to the rational counts and are not determined by counting tangent directions. It gives a uniform usable coordinate presentation for nonreduced base changes and a simultaneous counting formula for a standard family of local complete intersections. The value survives crediting the exact small and equal-height cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

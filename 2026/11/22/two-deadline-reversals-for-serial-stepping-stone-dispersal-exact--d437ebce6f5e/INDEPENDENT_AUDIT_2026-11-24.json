@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:59:37.199102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Erlang and exponential CDFs are correct under independent stage clocks and constant independent viability. With x=γT, the preference is the sign of R−q. For r≤1 stochastic dominance yields R<1; for r>1 the derivative has the sign of U=Bh−A, where h=A′/B′ is proportional to x^(k−1)exp(−(r−1)x). Since U′=Bh′, U increases from zero and then decreases strictly to −1; its only positive zero is simple. Thus R rises from 0 to a nondegenerate maximum above its terminal limit 1 and then decreases to 1. At each r>1 the finite maximum is smooth and strictly increasing, because ∂rR>0 and the maximizer has negative second derivative. The limit at r=1 uses compact convergence including the removable endpoint x=0 and R≤1/(1−exp(−x)) in the tail; x=r^(−1/2) proves divergence at infinity. This gives the three crossing regimes and transversality, and the square-root coefficient follows by substituting r−r_c=s², x=x_c+sy, dividing by s² and applying the implicit function theorem at the two distinct roots of the resulting quadratic. For the speed limit one can even sandwich M_k(r)/r between c_k and c_k+1/r by 1/u≤1/[r(1−exp(−u/r))]≤1/u+1/r. The derivative numerator of G_k(u)/u increases from zero to a positive value at k−1 and decreases to −1, giving u_k>k−1 and c_k≤1/(k−1); the LLN at u=k(1+ε) gives the matching lower limit for kc_k. The slower-mean example was rechecked exactly. Replay: python /workspace/audit-evidence/frozen2.py independently checks the rational Taylor certificate 1139/1200000 and probes the splitting at k=3,q=1.5; the numerical probe does not certify the universal theorem. The frozen check.py was inspected, not executed; its actual finite probes do not include the integration and finite-difference benchmarks described in the result's verification prose. This does not affect the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinelis §2, printed pp. 5–7, treats quotient monotonicity through the derivative ratio, a general method covering the peak mechanism.",
+          "SCOPE-mortality-matched-investment-for-serial-habitat-passage-under-ar--29df00c87775 optimizes rate allocation under per-stage loss, rather than comparing direct and serial routes."
+        ],
+        "reasoning": "The general calculus principle can be applied to the CDF shape but does not state this independent viability/rate frontier or its speed and stage laws. The adjacent optimization model does not dominate the stated comparison.",
+        "searches": [
+          "Pinelis, L’Hospital-Type Rules for Monotonicity, §2",
+          "Resultary: serial habitat passage, deadline, rate/viability frontier"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md and check.py",
+        "Resultary fish passage --4d124dc381af; competence window --60a157a6fd78; rate allocation --29df00c87775; Erlang census --f2977d7fd585",
+        "Pinelis open PDF §2",
+        "Szojka–Germain and Saura–Bodin–Fortin: citation/access only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Along the mortality slice r lies between 1 and 2 and q is tied to r; the record does not give arbitrary r and q or higher k.",
+          "A square-root exponent is generic for a nondegenerate tangency; the specific derivative coefficient and global/asymptotic frontier require separate calculation."
+        ],
+        "reasoning": "These results explain the proof method and show related reversals, but do not imply the entire threshold surface and sharp asymptotics. The supported originality is not the existence of a quotient rule or a fold.",
+        "searches": [
+          "Pinelis §2",
+          "Fish-passage RESULT.md Finding, Assumptions and scope, Relationship to prior work, Limitations",
+          "Primary literature search: Erlang versus exponential deadline crossing and viability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fish-passage Finding and Assumptions and scope: shared exponential mortality, mean-matched exponential and Erlang-2, threshold μτ≈0.31646135.",
+          "Competence-window Finding: two onset thresholds and a critical window width for mean-matched clocks, without independent viability weights."
+        ],
+        "reasoning": "Tilting the transit densities by exp(−μt) both shifts rates and yields constant mass factors; the overlap is a one-dimensional slice at k=2. The window result compares interval probabilities rather than these viability-weighted CDFs. Neither is an equivalent formulation of the whole claim.",
+        "searches": [
+          "Resultary: two deadline reversals, serial Erlang versus exponential, viability and mortality",
+          "SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af",
+          "SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fish-passage record tabulates/states a critical mortality parameter along its k=2 model, not r_c(k,q).",
+          "The Erlang progression census concerns a binary-information cutoff, not the functional maximum c_k=max G_k(u)/u."
+        ],
+        "reasoning": "The central statement is parameter-uniform, not a tabulated coincidence; even an exact match at one k or viability ratio cannot certify the frontier, uniqueness, or the two limits.",
+        "searches": [
+          "Resultary: exact Erlang exponential crossing frontier and large-ratio or large-stage constants",
+          "SCOPE-sharp-binary-census-information-in-erlang-progression-a-universa--f2977d7fd585"
+        ]
+      },
+      "rationale": "Credit the known quotient-monotonicity method, generic fold behavior, and the genuine overlap with the same-day fish-passage result. Exponential tilting turns the latter's common independent exponential death clock into a fixed-viability CDF pair: for equal means before mortality and z=μτ, take r=(2+z)/(1+z) and q=(2+z)^2/[4(1+z)]. Thus for z>0 it compares a specific k=2 curve within the frozen frontier, not an independent confirmation of novelty for the two-reversal phenomenon. The distinct supported contribution is the entire k,r,q frontier, its model-specific local coefficient, and the sharp large-q and k limits. The sources inspected do not establish equivalent or broader coverage of that package, and a same-day date does not establish priority.",
+      "residual_risks": [
+        "Two cited ecological full texts were inaccessible after lawful attempts; no inference of noncoverage is drawn from this.",
+        "The semantic and primary-literature searches are bounded. Relative priority among the same-day records and broader historical priority are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case overlap after exponential tilting; no general frontier",
+          "evidence": "Equal-mean exponential versus two-stage Erlang, common mortality, two crossings iff 0<μτ<a_c≈0.31646135. The substitution r=(2+μτ)/(1+μτ), q=(2+μτ)^2/[4(1+μτ)] shows the restriction.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af",
+          "material_read": "RESULT.md Finding and Assumptions and scope at offset 0; Relationship to prior work and Limitations at offset 5000, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local published-record mirror",
+          "title": "A sharp mortality threshold for two deadline reversals in fish passage",
+          "trigger": "Strongest same-day Resultary overlap"
+        },
+        {
+          "assessment": "Related but different comparison",
+          "evidence": "Two onset thresholds for narrow, finite competence windows, not lower eventual viability over a common interval from time zero.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two-boundary competence-window phase diagram for matched-mean release",
+          "trigger": "Similar two-threshold gamma/exponential comparison"
+        },
+        {
+          "assessment": "Known approach, not model-specific coverage",
+          "evidence": "Derivative-ratio monotonicity constrains changes of quotient monotonicity.",
+          "identifier_or_url": "https://pages.mtu.edu/~ipinelis/lhosp/textbook.pdf",
+          "material_read": "§2, printed pp. 5–7, near text offset 9965",
+          "method": "Lawful open PDF, relevant passage read",
+          "title": "L’Hospital-Type Rules for Monotonicity: Include Them into Calculus Texts!",
+          "trigger": "General quotient method"
+        },
+        {
+          "assessment": "Not independently resolved; not evidence of noncoverage",
+          "evidence": "Publisher access returned HTTP 403; no readable OA alternate found in the attempt.",
+          "identifier_or_url": "10.1002/ecs2.4814",
+          "material_read": "Bibliographic citation and characterization at frozen RESULT.md lines 85–87, no primary full text",
+          "method": "DOI/publisher and OA recovery attempted",
+          "title": "Dispersing across habitat boundaries: Uncovering the demographic fates of populations in unsuitable habitat",
+          "trigger": "Ecological motivation cited by the frozen result"
+        },
+        {
+          "assessment": "Not independently resolved; not evidence of noncoverage",
+          "evidence": "Publisher access returned HTTP 403; no readable repository copy was found in the attempt.",
+          "identifier_or_url": "10.1111/1365-2664.12179",
+          "material_read": "Bibliographic citation and characterization at frozen RESULT.md lines 85–87, no primary full text",
+          "method": "DOI/publisher and OA recovery attempted",
+          "title": "Stepping stones are crucial for species' long-distance dispersal and range expansion through habitat networks",
+          "trigger": "Cited multi-step connectivity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold answers when a slower-mean serial route with lower eventual viability can beat the direct route, and exactly when that advantage disappears. The global impossibility of further reversals and the sharp speed/stage scaling give reusable benchmarks for the specified completion-time model. The generic fold alone would not justify acceptance, and this is not an empirically calibrated dispersal recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

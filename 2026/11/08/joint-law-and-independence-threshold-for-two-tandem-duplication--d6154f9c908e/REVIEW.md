@@ -1,19 +1,21 @@
-# Scientific review of the two-length tandem-duplication joint law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes a uniform independent alphabet model, two distinct positive duplication lengths and every permissible source length. Equality of two one-step duplicated outputs is proved equivalent to all intervening lagged equalities; this gives an exact count of distinct descendants. The equality-constraint graph has binomial one-color marginals and pairwise-independent distinct edges. Up to source length equal to the sum of the two duplication lengths, its connected components are induced paths and residue-class cycles, and the gcd-based cycle-survival threshold is derived exactly. The full-cycle correction follows by comparing the all-equal probability with the forest baseline. The mixed factorial-moment inequality proves the independence threshold at **all** longer lengths without extrapolating the short-length generating function. The proof specifies its finite and infinite scope and has no numerical-only lemmas. The two executable tests independently corroborate the graph/collision identity and the exact generating coefficients.
+PASS
 
-## Originality — PASS, qualified
+Deleting the common prefix and suffix of two outputs shows duplication positions i<j coincide exactly when x_t=x_(t+h) for i≤t<j. Thus the deficit is the sum of lag-h equality indicators. A selected constraint graph has all-equalities probability q^(−|S|+β(S)); this gives each binomial marginal and zero covariance across distinct lags. For L=k+ell the two edge lengths are ±k modulo L, a graph of g simple cycles of length L/g≥3. The r-th congruence class loses its cycle precisely when n≤L−g+r, and counting the starting vertices of ordinary length k or ell in the full class gives b or a edges respectively. For n≤L the restriction leaves c whole cycles and paths; only the full selection of a cycle changes the forest baseline. This verifies all exponents and the first corrected coefficient, including c=0 and n=ell. At any larger n containing the residue-zero cycle, the same factorial moment includes a strictly positive cycle contribution and no negative differences from the product baseline. No short-range factorization is assumed past L. Reproduction: python /workspace/reproductions/frozen_checks.py, first check, creates the actual descendant sets for eight small instances, including below, at, and above a noncoprime threshold and beyond L. The source's two finite scripts were inspected, not executed, and do not prove the infinite claim.
 
-The standard fixed-length tandem-duplication operation, difference transform and one-length coding model are prior work in Jain, Farnoud, Schwartz and Bruck (arXiv:1606.00397), with earlier capacity/expressiveness studies in Jain, Farnoud and Bruck (arXiv:1509.06029) and a different evolution model in Penso-Dolfin and Greenman (arXiv:1402.0104). The later Kovačević–Tan article (arXiv:1808.10328) provides single-length code bounds, not the same-source **joint** law for distinct lengths. The evaluated two-length generating polynomial, sharp gcd independence boundary and coexistence of zero covariance with higher-order dependence are not logical consequences of the published stated results without additional graph analysis. The general forest equality formula is standard and is acknowledged. Relevant full-text sections and accessible abstracts were inspected, and searches for equivalent wording, alias invariants, general multi-length dominance and exact tables found no conclusive prior coverage. Unindexed earlier derivations and a comprehensive yet-unread version of later channel literature remain residual priority risks; an independent historical-priority audit is not represented as completed.
+## originality
 
-## Value — PASS
+PASS
 
-The size of a one-error descendant sphere measures source-dependent ambiguity in a tandem-duplication channel. Comparing two possible duplication lengths for the **same** word is natural when mutation length is unknown. The result shows exactly where the two size statistics cease to be independent, despite staying uncorrelated, and gives an explicit finite-length joint law throughout the entire first-dependence regime. The gcd boundary and factorial correction are structural rather than selected numerical examples; they can inform joint redundancy estimates and tests of channel models without claiming such downstream bounds have already been proved.
+Credit the one-lag statistic, the forest and covariance laws, and substantial direct coverage of the threshold mechanism. The supported distinct result is the explicit full two-lag factorial law through L including its color-sensitive correction, not originality of the convergence/independence graph criterion or of the gcd threshold in isolation.
 
-## Boundaries and verification
+## value
 
-The closed joint polynomial is established only for source length at most the sum of the duplication lengths. Its first-order marginals, zero covariance and independence threshold hold for every permissible length. The uniform-i.i.d. source hypothesis is essential. Complete biological validity, code constructions, extensions to noisy duplications and independent priority verification are not claimed. The repeatable checks are `python verify_joint.py` and `python check_graph.py`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint law resolves the actual dependence of two same-source sphere sizes, a natural distinction missed by separate distributions or a covariance calculation. It identifies where the first factorial departure appears and quantifies it throughout the first-dependence length window. It is an exact result for abstract independent letters, not a code bound, experimental result or model of biological mutation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

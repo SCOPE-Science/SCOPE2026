@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-party identity follows from the zero-sum discrepancy vector \((x,-x)\). For three parties, sign and permutation reduction to \((a,b,-a-b)\) gives the exact formula \(G^2=(3L^2+h^2)/4\), from which the sharp band and reversal criterion follow. The integer-grid statement is a complete exact enumeration of every positive vote and seat composition through denominator \(11\); the packaged verifier returns `VERIFY_OK` and classifies all first-layer reversals by symmetry.
+## correctness
 
-Risk: the denominator threshold is specific to the common positive grid and is not asserted for unequal vote and seat denominators.
+PASS
 
-## Originality
-**PASS.** Gallagher's primary paper already states that the two indices coincide with two parties, explains their different sensitivity to concentrated discrepancies, and reports that disproportionality measures can alter empirical rankings. Later literature proves the general inequality \(G\le L\) and characterizes equality. Those results do not supply the exact three-party geometry, the necessary-and-sufficient existence threshold \(L_A/L_B>\sqrt3/2\), or the positive-grid denominator-\(11\) first layer. Targeted published-result and literature searches did not locate those statements.
+Two coordinates of a zero-sum vector are x and -x. For three, sign and permutation give (a,b,-a-b), hence 4 G² = 3 L² + (a-b)². The endpoint shapes attain both bounds, so the strict ratio cutoff follows, with equality excluded. The prescribed values are admissible index values 0 < L_A < L_B < 1; positivity at those exact values follows by taking votes v=d^-+((1-L)/3)1 and seats s=d^++((1-L)/3)1, not by rescaling a fixed prescribed L. On the grid the analogous one-unit lower bound is equivalent to integer positive discrepancy mass l ≤ N−3, by placing an integer slack vector with each entry at least one beneath both the positive and negative parts. Thus through N=10 the largest possible ratio is at most 6/7. At N=11 only l_A=7, l_B=8 can reverse. At l=7 the four possible squared Gallagher numerators are 37,39,43,49, and at l=8 the minimum is 48 with the next value 49. Exactly the two extremal shapes therefore reverse; each has six labeled versions and the l-values distinguish the members, giving 36 unordered pairs. The realizable-vector count is 1+sum_{l=1}^8 6l=217 (hexagonal shells). Independent replay python3 /workspace/reproductions/3.py confirms all layers. 'Shapes' means relabeling and sign change separately for the two elections, as in the frozen canonicalization, not a claim of one simultaneous symmetry orbit; the replay finds three simultaneous orbits of size 12. Below N=3 there are no positive three-part compositions.
 
-Risk: because the proof reduces to elementary norm geometry in three dimensions, an unindexed exercise or software test may contain an equivalent construction. Search failure is not proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** Loosemore–Hanby and Gallagher are standard electoral-disproportionality summaries, and Gallagher explicitly motivates his index by its different treatment of concentrated versus diffuse vote-seat discrepancies. The sharp party-count boundary identifies the first political setting in which that design choice can change an election comparison. The closed-form three-party band explains the mechanism rather than merely exhibiting a numerical example, while the integer-grid layer supplies a reproducible finite benchmark.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the indices, the two-party coincidence and the prior upper comparison; the supported contribution is the exact sharp three-party reversal geometry and the positive-grid first layer. The close catalogue parallels use different indices and comparison spaces. This is a best-of-knowledge comparison, not bibliographic uniqueness.
+
+## value
+
+PASS
+
+For two common disproportionality measures the exact threshold identifies when rankings can disagree, explaining the tradeoff between total and concentrated error. The integer cutoff is a reproducible minimal test of that effect under explicit positivity and common granularity, rather than an arbitrary enumeration of election outcomes. It is not a claim about actual electorate sizes or electoral-system quality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

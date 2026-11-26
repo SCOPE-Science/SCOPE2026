@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:07:18.506696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39 (independent proof reconstruction)",
+        "Frozen verify_boundary.py, verify_series.py, and both captured .out files (inspected, not executed)"
+      ],
+      "rationale": "A balanced nonempty word can delete itself, and the empty word loses. For nonzero balance each endpoint deletion preserves the total balance and cuts the itinerary exactly at an interior A (prefix) or B (suffix), leaving that symbol as an endpoint. In the interior game, a Dyck word leaves only nonzero-sum interiors when cut at a legal symbol. In a non-Dyck word, cutting the suffix from the first negative step leaves a Dyck prefix; if there is no negative step, cutting through the last unmatched A leaves a Dyck suffix. Induction applies to the strictly length-decreasing game. Excursions between consecutive visits to {0,h} concatenate uniquely: an exterior return has the primitive Catalan series P, while the interior return and crossing entries follow by cofactors of I-zA on the length-(h-1) path, whose determinant is D_(h-1). For h=1 these reduce to no interior return and a single-step crossing. An interior with j pairs and k peaks contributes k A-to-B changes and k-1 reverse changes; the outer endpoints add two equal-boundary pairs when j>0. This gives the stated Narayana weights and the lone v_h term when j=0. Letter exchange handles negative balance; finite valuation makes all sums coefficientwise valid. On b^i a^j b, j=i+1 is balanced, j<=i produces a first interior B, and j>=i+2 gives itinerary AABB. The slice has infinitely many distinct left residuals, establishing nonregularity.",
+      "residual_risks": [
+        "The recorded comparisons test game outcomes through length 16; lengths 17–18 are recorded series coefficients only. The unrestricted claim rests on the proof, not the outputs.",
+        "Nothing in the proof classifies all nonzero Sprague–Grundy values or allows deletion of a balanced interior factor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Inoue–Inazu discussion treats broader two-sided prefix and suffix rules but gives no original-length census for the balanced trigger in the inspected results. The older Timber article was not extractable at the available journal PDF; exact overlap for the reduced game was established from the accessible preprint."
+        ],
+        "reasoning": "Framework inclusion is not a uniformly evaluated theorem for the loss counts. The unweighted Dyck solution supplies the boundary-word test once the record's reduction is made, not path-passage multiplicities for its preimages.",
+        "searches": [
+          "arXiv:2611.09157v1, Exercise 5.3 and Problem 5.1, pp. 54–55",
+          "The Game of timber!, JCMCC 85, pp. 213–225"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39 and 48–57",
+        "Resultary exact record and three related indexed full-text findings listed above",
+        "arXiv:2611.09157v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dyck theorem does imply the loss test on interior itinerary words. Classical peak counts enumerate abstract itineraries by semilength and peaks; the original binary lengths additionally depend on boundary stays, crossings, and all attainable heights."
+        ],
+        "reasoning": "Credit the known loss theorem for the induced game and classical Narayana counts. Neither alone specifies the weighted continuant factors, their height-dependent power series, or the coefficient sum for the original game.",
+        "searches": [
+          "arXiv:2611.09157v1 §5.1",
+          "Frozen RESULT.md lines 31–38 and Narayana reference at line 57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inoue–Inazu identify the game deleting a prefix ending in a or a suffix beginning in b with Timber and prove that its losing words are Dyck. This is exactly the induced interior game, after relabelling A and B.",
+          "The Resultary variants ending in ab/beginning in ba, deleting only endpoint-constrained balanced suffixes, and deleting Dyck prefixes or suffixes impose different legal moves on the original word."
+        ],
+        "reasoning": "The itinerary is a many-to-one reduction preserving options on interiors, not a length-preserving bijection of original games. A Dyck trigger is stricter than an arbitrary balanced trigger; a one-sided endpoint condition cannot stand in for unrestricted two-sided deletion.",
+        "searches": [
+          "arXiv:2611.09157v1 §5.1, p. 51",
+          "Resultary comparisons for the balanced-end two-sided game, including SG and Dyck removal variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-narayana-chebyshev-enumeration-of-losing-positions-in-a-balanced--98406dab7d57 is the identical frozen record. Decisive passages of three distinct same-day Resultary variants describe other predicates or outputs. The targeted literature query returned general Dyck material, not an inspected exact match."
+        ],
+        "reasoning": "The identical record gives no independent coverage. Variant records were compared by rules, not discarded by date. The nonmatching search does not show absence of an earlier listing or table.",
+        "searches": [
+          "Resultary balanced-end losing positions and Narayana–continuant census",
+          "Literature query: balanced prefix suffix deletion word game Dyck losing positions Narayana generating function"
+        ]
+      },
+      "rationale": "Credit the Dyck criterion for the reduced interior game to the known Timber analysis. The distinct result is the reduction from balanced end deletions of the original word, together with the exact original-length census across all endpoint heights. The general framework, the known reduced P-language, and the related same-day records do not supply that weighted census in the passages examined.",
+      "residual_risks": [
+        "Direct access to the original Timber theorem pages was limited, and the classical Narayana paper was not retrieved. Neither absence of a keyword nor the best available comparison certifies historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL exact overlap, on the induced game",
+          "evidence": "The Timber passage proves Dyck losing interiors under prefix-ending-a and suffix-starting-b deletion. The broader discussion does not give the assigned count on binary-word preimages.",
+          "identifier_or_url": "arXiv:2611.09157v1",
+          "material_read": "§5.1 p. 51 (offset 153266); Exercise 5.3 and Problem 5.1 pp. 54–55 (offset 164571)",
+          "method": "OA primary-text passages",
+          "title": "Word Subtraction Games",
+          "trigger": "Exact reduced two-ended game and broad framework"
+        },
+        {
+          "assessment": "Direct original-paper comparison limited",
+          "evidence": "The accessible later primary treatment expressly gives the Timber/Dyck result; the first paper's detailed scope was not directly assessed.",
+          "identifier_or_url": "JCMCC 85 (2013), 213–225; https://combinatorialpress.com/article/jcmcc/Volume%20085/vol-085-paper%2013.pdf",
+          "material_read": "No theorem text extracted from the cited journal PDF; related exact result read in arXiv:2611.09157v1 §5.1",
+          "method": "OA lookup of cited PDF; PDF text extraction unavailable",
+          "title": "The Game of timber!",
+          "trigger": "Classical antecedent for the reduced game"
+        },
+        {
+          "assessment": "DISTINCT trigger",
+          "evidence": "It uses removal of prefixes ending in ab or suffixes beginning in ba, not balanced ends.",
+          "identifier_or_url": "2026/11/22/SCOPE-run-rigidity-and-exact-losing-position-enumeration-for-two-lette--0a8d7e89e639",
+          "material_read": "RESULT.md opening finding and rules (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Run rigidity and exact losing-position enumeration",
+          "trigger": "Same-day related two-letter two-end enumeration"
+        },
+        {
+          "assessment": "DISTINCT one-sided constrained game",
+          "evidence": "It deletes only balanced suffixes whose endpoints are a.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-excursion-run-law-for-endpoint-constrained-balanced-suffix-wo--6a1a4edf498c",
+          "material_read": "RESULT.md opening finding and rules (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "An excursion-run law for endpoint-constrained balanced suffix words",
+          "trigger": "Balanced removal and Sprague–Grundy alias"
+        },
+        {
+          "assessment": "DISTINCT predicate on original words",
+          "evidence": "The allowed deletions must be Dyck words; allowing arbitrary balanced words changes the move graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-pile-nim-decomposition-and-exact-grundy-spectrum-for-dyck--4e85e5bd5dcc",
+          "material_read": "RESULT.md opening finding and rules (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "A two-pile Nim decomposition and exact Grundy spectrum for Dyck deletions",
+          "trigger": "Two-sided Dyck trigger and a potentially stronger SG theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–25 and 30–39",
+        "arXiv:2611.09157v1 §5.1 for the distinction from the reduced game"
+      ],
+      "rationale": "Counting every losing binary starting word by actual length is a natural complement to the known reduced-game criterion. The itinerary eradicates most original letter positions, so its known Dyck classification does not say how often positions occur. The exact height-resolved factors recover this lost length information and allow computation at every length without solving the complete game tree. Nonregularity also distinguishes this rule from games governed by a finite-state losing language.",
+      "residual_risks": [
+        "The scope is two uniform letter weights and one deletion rule; the formula yields neither asymptotics nor a complete Sprague–Grundy spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

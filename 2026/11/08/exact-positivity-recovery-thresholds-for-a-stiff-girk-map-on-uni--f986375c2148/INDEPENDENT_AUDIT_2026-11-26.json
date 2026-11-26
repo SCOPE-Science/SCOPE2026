@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:14.441984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–74",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/replay/birth_prism_checks.py, birth_chains() (fresh exact check, executed)"
+      ],
+      "rationale": "The RK determinant is 1−2z+2z² and the numerator is 1−z. The matrix denominator is invertible because its diagonal is D=1+2h+2h² on transient states and 1 on the absorbing state. The transient block is F(−hI+hN) with N nilpotent; equivalently its bands are the coefficients of (1+h−hx)/(D−(2h+4h²)x+2h²x²). Conservation F(hQ)1=1 gives the remaining column. A fresh exact denominator-clearing check verified the proposed entries and row sums for every n=2,3,4,5, including the −7/625 witness at h=1/2. Sizes two and three use only nonnegative entries. For h>0 in size four the only obstruction is the factor 2h²+2h−1 in B4; in size five the first-row B5 is negative throughout 0<h<1/√2. At and beyond 1/√2 both tails are nonnegative and the order-three transient band is positive (4h⁴+16h³+12h²−1>0); the lower bands are nonnegative as well. At h=0 the update is the identity. These are sign proofs including both threshold equalities, not a sampled classification.",
+      "residual_risks": [
+        "The proof is about the equal-rate absorbing chains and this single rational map, not arbitrary generators, all GIRK tableaux or full drag-source splitting. The stiff-window comparison is a normalization, not a physical identification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-tableau primary passages establish spectral damping for stiff source updates rather than positivity of matrix entries. General RK positivity literature is relevant, but full text of these two Horváth papers was not available for theorem-level checking."
+        ],
+        "reasoning": "Eigenvalue stability cannot control the nilpotent bands or absorbing tails. Broad positivity criteria are possible tools for proving the claim, but no inspected theorem establishes the specific disconnected safe sets.",
+        "searches": [
+          "arXiv:2511.07562v1 Appendix B",
+          "arXiv:2610.18979v1 §II.4.1",
+          "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6 and 2005 DOI 10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Tedeschi-Prades et al., arXiv:2511.07562v1",
+        "Chen et al., arXiv:2610.18979v1",
+        "Horváth 1998 and 2005 DOI entries (full text not inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the same five-state chain f(z)=1/(1−z+z²/2) gives a threshold near 0.496606, not the GIRK threshold. Radau IIA and RK4 have their own state/step classifications. F'''(0)=−12 is consistent with positivity for sizes two and three, showing why a sign condition on all derivatives is not the same as this finite-chain result."
+        ],
+        "reasoning": "Neither the other rational functions' classifications nor mode damping implies the sign of the GIRK absorbing tail. The finite-chain computation adds a nontrivial comparison around the stiff switch.",
+        "searches": [
+          "Resultary mirrored RESULT.md: 1a149558ee9c, be294053bb82, f681978f4cc7",
+          "arXiv:2511.07562v1 §II.7 and Appendix B; arXiv:2610.18979v1 Eqs. (21)–(25)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row sums one make entrywise positivity here exactly stochasticity of the one-step matrix, also expressible using its transient Taylor bands and absorbing row tails. The primary papers use the same tableau for a stiff update but their cited results are about modes. The same-day second-order Padé record has a different rational map."
+        ],
+        "reasoning": "Transpose and row/column conventions do not change entry signs. The closest algebraic reformulations inspected do not identify the GIRK test with another map's recovery set.",
+        "searches": [
+          "Local Resultary: exact GIRK rational, unit-rate absorbing birth chain, five-state recovery",
+          "Primary web lookup: RK/Markov positivity for the GIRK rational",
+          "arXiv:2511.07562v1 and arXiv:2610.18979v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-map index hit is the assigned record. The coefficient table identifies the scheme, not the Markov sign thresholds. The strongest distinct indexed comparisons are the second-order Padé, Radau IIA and RK4 birth-chain records listed below."
+        ],
+        "reasoning": "No inspected table records this map's n=4 and n=5 thresholds; a different method's threshold is not data for this map.",
+        "searches": [
+          "Local Resultary exact map/state-count and pure-birth chain searches",
+          "arXiv:2511.07562v1 Table 1"
+        ]
+      },
+      "rationale": "The tableau and its spectral damping are known, as is the matrix-function machinery. The checked prior results on the same chain use materially different rational maps, and the closest source using the identical map analyzes drag/gyromotion eigenmodes rather than the defective birth chain. The exact finite-dimensional recovery sets and the stiff-window witness are distinct on the inspected evidence; this is not a priority certification.",
+      "residual_risks": [
+        "The Horváth papers could not be reviewed at full-text level; other unindexed equivalent classifications may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical tableau in the first splitting scheme, not the birth-chain claim",
+          "evidence": "At γ1=1 the coefficients are the frozen A and b. The second scheme uses a different tableau. Appendix B addresses A/L-stability and decay of R; the stiff switch in Eq. (36) uses a strict inequality.",
+          "identifier_or_url": "https://arxiv.org/html/2511.07562v1",
+          "material_read": "§II.7 Eq. (36), Table 1 (HTML offsets 27000–31963); Appendix B (from offset 54200)",
+          "method": "Lawful OA full-text passages",
+          "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+          "trigger": "Origin of identical tableau"
+        },
+        {
+          "assessment": "Damping on the designated physical modes, not entrywise sign control for Q_n",
+          "evidence": "The source step is half the full step and the stiff branch includes equality, yielding the normalized h≥1/2 comparison in the pure-drag setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18979v1",
+          "material_read": "§II.4.1 Eqs. (21)–(25), offsets 21800–26734",
+          "method": "Lawful OA full-text passages",
+          "title": "A Nonlinear General Implicit Runge-Kutta Integrator for Multifluid Charged Dust and Gas",
+          "trigger": "Identical stiff step and motivating normalization"
+        },
+        {
+          "assessment": "Distinct map, not equivalent; date does not establish ordering",
+          "evidence": "Uses 1/(1−z+z²/2) with five-state recovery around 0.496605762665489, unlike the GIRK map and its 1/√2 recovery.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-transition-immunity-and-a-sharp-five-state-positivity-thre--1a149558ee9c",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Three-transition immunity and a sharp five-state positivity threshold for the second-order Padé Markov step",
+          "trigger": "Strongest same-chain and recovery match"
+        },
+        {
+          "assessment": "Analogous problem for another RK method",
+          "evidence": "Two-stage Radau IIA has sizes two to five safe on [0,3] and a size-six re-entrant window; this is not a statement about F.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A six-state re-entrant positivity threshold for two-stage Radau IIA",
+          "trigger": "Same re-entrant positivity question"
+        },
+        {
+          "assessment": "Analogous classification for a different stability function",
+          "evidence": "Classical RK4 yields connected finite positivity intervals rather than the stated GIRK recovery rays.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact state-count positivity thresholds for classical RK4 on pure-birth chains",
+          "trigger": "Same chain and exact positivity sets"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence",
+          "evidence": "No whole-paper noncoverage inference is made.",
+          "identifier_or_url": "10.1016/S0168-9274(98)00050-6; 10.1016/j.apnum.2004.08.026",
+          "material_read": "Bibliographic information; no decisive full-text passage accessible",
+          "method": "DOI and repository retrieval attempts",
+          "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods; On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Potential general positivity coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Chen et al. §II.4.1",
+        "Exact sign classification and witness"
+      ],
+      "rationale": "This is a bounded but motivated diagnostic for a stiff update already used in the literature. It identifies the smallest chain that exhibits a negative entry in the specified stiff window and the exact recovery boundary, despite damped scalar modes. The absorbing-tail sign and its separation from spectral damping are useful information not supplied by the prescribed stiffness condition.",
+      "residual_risks": [
+        "It is a linear Markov test problem rather than a physical gas-dust prediction, and it does not give a positivity theory for general generators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

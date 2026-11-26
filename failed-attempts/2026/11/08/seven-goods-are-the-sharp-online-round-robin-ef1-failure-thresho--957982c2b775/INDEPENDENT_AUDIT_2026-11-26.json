@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:00.131325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correct for pure equilibria, the scope explicitly stated in RESULT.md line 25. With at most six goods, a target bundle of size two has a second pick still available at every agent's first turn. A pure unilateral deviation can secure that good regardless of the continuation; monotonicity and the Nash condition give the requisite singleton bound. Bundles of size at most one are immediate. For seven goods, additivity makes already acquired utilities sunk and the number of remaining goods determines the mover. Independent exact backward induction matched the certificate in all 128 states and 448 state-action alternatives. It gives path (1,2,3,5,4,6,7), utilities (2090,1120,1042), and B's minimum value after removal from A's bundle is 1286, exceeding B's own value by 166. All 128 bundle values per agent are distinct. The unqualified phrasing in line 5 should not be read as a pathwise result for mixed equilibria. Indeed, with five goods X,Y,H,L,Z valued by B at 4,4,10,1,0 and by A and C at zero, A can first take X; after B takes L, C can mix between H (probability 1/20) and Z, and A then takes Y. After B instead takes H,Y,Z, respectively, C and A can take (Y,L),(H,L),(H,Y), leaving B payoffs 10,4,1 versus expected 10.5 from L. Completing B's prescriptions by backward induction yields a mixed SPNE in which the H branch violates EF1. This does not affect the explicitly pure claim.",
+      "replay_paths": [
+        "/workspace/branches/b9ac1f94-8492-43b9-8305-cf92435f2a21/witness_replay.py",
+        "/workspace/branches/b9ac1f94-8492-43b9-8305-cf92435f2a21/witness_replay.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary proves EF1 for m<=2n with arbitrary normalized monotone valuations, explicitly noting 'only root Nash optimality, not subgame perfection'. Goldberg et al. give a unique unfair SPNE allocation at nine goods."
+        ],
+        "reasoning": "The catalogue covers the purported pure-NE strengthening by specialization to n=3. The nine-good comparison has a stronger equilibrium quantifier but does not supply a seven-good example.",
+        "searches": [
+          "Resultary 7bf15c9ed289, Proof: Universal lower horizon",
+          "arXiv:2609.18309v1 Sec. 4, Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7bf15c9ed289",
+        "arXiv:2609.18309v1",
+        "arXiv:2610.23686v1",
+        "https://rainwangphy.github.io/aftd-platform/d/round_robin_three_agents_seven_goods_pne_ef1/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the catalogue's n=3 specialization and its strict seven-good witness yields both halves of the frozen theorem. The cited published-mechanism comparisons differ by equilibrium quantifier, number of goods, or strategy space."
+        ],
+        "reasoning": "Direct indexed coverage, not inferred from title matching, and not a claim that the offline or nine-good papers already prove the threshold.",
+        "searches": [
+          "Resultary 7bf15c9ed289, Finding and Proof",
+          "arXiv:2609.18309v1 Theorem 17",
+          "arXiv:2610.23686v1 Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue Finding uses the same fixed cyclic public picking and defines the same EF1 inequality, with a strictly positive additive seven-good witness and strict bundle preferences. Amanatidis et al., Sec. 3 Prop. 1, instead fixes simultaneous ranking reports and has an eight-good failure."
+        ],
+        "reasoning": "The catalogue equivalence is at theorem level, whereas the offline report outcome is not a strategic outcome equivalence.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-seven-goods-are-the-sharp-first-ef1-failure-horizon-for-strategi--7bf15c9ed289",
+          "arXiv:2609.18309v1",
+          "arXiv:2610.23686v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue stores a different strict-positive seven-good table with an unfair pure SPNE, and identifies exactly two SPNE allocations for that table. Goldberg et al. Table 3 has nine goods."
+        ],
+        "reasoning": "No need for entrywise identity: the indexed table already witnesses the existential threshold. The frozen table is only a second witness.",
+        "searches": [
+          "Resultary 7bf15c9ed289, Finding, valuation table, and witness characterization",
+          "Goldberg et al. Sec. 4 Table 3"
+        ]
+      },
+      "rationale": "A distinct Resultary record already states the identical existential seven-good sharp boundary in the same observed sequential game and proves the pure-NE lower bound in a broader number-of-agents regime. Its strict additive witness is numerically different and has a stronger equilibrium characterization. The exact theorem is covered; neither the new table nor the different certificate is a new sharp threshold.",
+      "residual_risks": [
+        "Historical priority beyond the directly covering catalogue record is not established; catalogue coverage is sufficient for this review's decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "Identical seven-good existential theorem with different data; pure-root-NE lower-bound argument explicitly extends to m<=2n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-seven-goods-are-the-sharp-first-ef1-failure-horizon-for-strategi--7bf15c9ed289/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Universal lower horizon, witness characterization",
+          "method": "Resultary query and bounded local-mirror full text, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4; offsets 0–3366 and witness proof",
+          "title": "Seven goods are the sharp first EF1-failure horizon for strategic three-agent round-robin",
+          "trigger": "Same threshold, mechanism, and three-agent witness"
+        },
+        {
+          "assessment": "Comparison does not establish seven-good first failure",
+          "evidence": "Unique unfair SPNE allocation on nine goods.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18309v1",
+          "material_read": "Intro p. 1; Section 4, Table 3 and Theorem 17 p. 8",
+          "method": "Open primary PDF passages",
+          "title": "Equilibria of Round-Robin: Computational Hardness and Fairness for Few Subadditive Agents",
+          "trigger": "Same online equilibrium notion"
+        },
+        {
+          "assessment": "Different game",
+          "evidence": "Eight-good pure-NE failure in simultaneous ranking reports, not observed sequential play.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23686v1",
+          "material_read": "Mechanism distinction in introduction; Sec. 3 Proposition 1 p. 3",
+          "method": "Open primary PDF passages",
+          "title": "Revisiting the Fairness of Pure Nash Equilibria of Round-Robin",
+          "trigger": "Plausibly conflicting small EF1 boundary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp boundary itself is mathematically meaningful, but already established with equally strict valuations and broader lower-bound coverage. The alternative table and its replay add no identified equilibrium phenomenon, useful restriction, or stronger conclusion beyond the indexed result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

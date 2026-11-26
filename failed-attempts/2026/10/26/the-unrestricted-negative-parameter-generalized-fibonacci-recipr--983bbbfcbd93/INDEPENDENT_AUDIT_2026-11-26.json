@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:18.176138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55; independent reconstruction of the uniform inequality",
+        "Frozen VERIFICATION.md and verify.py, inspected but not run"
+      ],
+      "rationale": "The domain gives s≥3, λ=√(s²−4t)≥s−2≥1, and roots α≥2, 0<β≤1. Put A=α^r and B=β^r. Binet gives a positive convergent tail and geometric comparator G=λ A^(1−n)/(A−1)<S. The exact summand difference divided by λ is (B/A²)^k divided by 1−(B/A)^k. Geometrically summing after bounding the denominator below by 1−B/A, and using G^(-1)−S^(-1)=(S−G)/(GS)<(S−G)/G², gives the source's inequality (1). One can check the uniform unit bound even without splitting off (3,2): in its bracket, h(B)/B=(A−1)² A/[(A²−B)(A−B)] ≤ A/(A+1)<1, so 1−B+h(B)<1. Thus 0<D−S^(-1)< B^(n−1)/λ ≤1 for D=U_(rn)−U_(r(n−1)). Taking the floor is valid since D is integral, including D=1. At the excluded double-root pair U_j=j and the positive tail diverges, so the exclusion is substantive.",
+      "residual_risks": [
+        "The 7600 exact-rational tests are reported finite checks, not independently executed or needed for the all-parameter analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Park requires sufficiently large s,t. Cui et al. require sampled recurrence c_(j+1)=P c_j+ρ c_(j−1), P≥3, −1≤ρ<0 and the specified growth inequality. On t=1, ρ=−1 for every stride, c_1=U_r, c_2=U_r(α^r+β^r), and α^r+β^r≥U_r+1. The gap c_(j+1)−c_(j−1) is nondecreasing, so the inequality holds from j=1 onward. For t≥2 the stride coefficient is −t^r<−1, outside that case.",
+          "The public dossier gives a real-coefficient tail lemma under specific recurrence and growth hypotheses and verifies the integer-family stride conditions P≥Q+1, P≥U_r+2 for Q=t^r."
+        ],
+        "reasoning": "Cui has exact partial coverage, Park has a different partial regime, and the dossier's more general conditional recurrence argument explicitly specializes to the whole frozen integer domain.",
+        "searches": [
+          "arXiv:1407.8086 Theorem 18",
+          "arXiv:2212.02639v2 Theorem 1.7 Case 1",
+          "Public dossier Route and Scope assessment, real RecData recurrence theorem"
+        ]
+      },
+      "checked_sources": [
+        "TrureTuring public ACMS first-clause dossier",
+        "arXiv:1306.6511",
+        "arXiv:1407.8086",
+        "arXiv:2212.02639v2",
+        "arXiv:1503.00803",
+        "Kuhapatanakul JIS 13.7.1 pp. 1–3",
+        "Resultary e607dd8db2c7 and f7bec89e9630"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The public proof sets a_k=U_(rk), b_k=a_(k+1)−a_k and gives D_k=a_(k+1)²−a_k a_(k+2)=c²Q^k and D_k+1≤a_(k+2)−a_k. Multiplying the comparison of 1/a_(k+1) with 1/b_k−1/b_(k+1) by the positive denominators leaves the strict Cassini defect D_k; replacing b by b−1 leaves D_k−(a_(k+2)−a_k)+1≤0, reversing the comparison. Telescoping yields 1/b_m<S_m≤1/(b_m−1) for b_m>1, and the positive endpoint b_m=1 needs only the first bound. Taking m=n−1 gives the identical floor.",
+          "The reported companion inequalities suffice for the defect bound: with c=a_1 and d_k=a_(k+2)−a_k, d_0=Pc≥c²+1 and d_1−Qd_0=c[P(P−Q)−Q−1]≥0. The recurrence and P−Q≥1 preserve d_(k+1)≥Qd_k."
+        ],
+        "reasoning": "This is verified implication from the public proof's mathematical route, not a reliance on its repository-status label or a claim that its formal declaration was replayed. The distinct analytic proof in the frozen record does not make the theorem statement uncovered.",
+        "searches": [
+          "Public dossier Route, Evidence and Scope assessment at offsets 0–4648 and 4920–7080",
+          "Cui et al. Theorem 1.7 Case 1, proof pp. 12–14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ACMS uses f_j(s,−t)=U_j(s,t); its excluded pair written (s,−t)≠(2,−1) is exactly the frozen exclusion.",
+          "The public dossier's theorem D5.S1.Recurrence.LinearRows.ACMSReciprocalTailFloor.result reindexes k as n+k from k=0, includes summability, and has the same real reciprocal and floor endpoint in all parameters."
+        ],
+        "reasoning": "The arithmetic proposition is identical after notation and indexing changes; neither source combines this clause with the reciprocal-square claim. The public result's mechanism is root-free and differs from the frozen Binet comparison.",
+        "searches": [
+          "First-power Conjecture 4.6, negative-coefficient Lucas sequences, arbitrary stride and all s>t≥1",
+          "ACMS arXiv:1306.6511, Conjecture 4.6; Floors of reciprocal generalized Fibonacci tails, Problem and Statement echo"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The September 17 fifth-power Fibonacci record e607dd8db2c7 and November 2 reciprocal-square record f7bec89e9630 have different exponents; the latter also uses t=1. They do not supply the first-power theorem.",
+          "The exact result located is the public dossier's proof, rather than an extrapolation from a table. Its reported finite numerical checks were not used as proof evidence."
+        ],
+        "reasoning": "Numerical matches on another exponent or a finite list of s,t,n,r would not cover this quantified identity. The exact matched theorem has a quantified proof.",
+        "searches": [
+          "Resultary: negative-parameter generalized Fibonacci reciprocal tails, floor identities, and arbitrary powers and strides",
+          "Exact-statement primary lookup for ACMS Conjecture 4.6 first clause"
+        ]
+      },
+      "rationale": "The TrureTuring public research dossier presents the identical first-clause theorem, including convergence and all symbolic strides and parameters, and supplies a distinct reconstructible Cassini/telescoping argument, not merely a search snippet or another copy of the conjecture. This establishes exact equivalent proof coverage in the inspected evidence. The dossier has no visible release date in the passages read, so this is not a finding that its proof came first. Independently, Cui et al. cover all t=1 and Park covers a large-parameter regime. Those two partial overlaps alone would not warrant this FAIL.",
+      "residual_risks": [
+        "The dossier does not resolve literature priority and no visible date was found in the inspected passages. Do not infer earlier publication or independent formal verification of the frozen record.",
+        "Holliday–Komatsu DOI 10.1515/integ.2011.031 was not accessible in full; the quoted positive-coefficient theorem does not govern this recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage by a distinct proof. Reported formal resolution was not kernel-replayed in this review; public release precedence is undetermined.",
+          "evidence": [
+            "Public theorem identifier D5.S1.Recurrence.LinearRows.ACMSReciprocalTailFloor.result, with the exact hypotheses and summability in the claim; gives the Cassini defect, shifted bound, and floor interval."
+          ],
+          "identifier_or_url": "https://www.trureturing.org/research/amdeberhan-chen-moll-sagan-2014-reciprocal-tail-floor-conjecture-4-6/",
+          "material_read": "Problem, Statement echo, Route, Evidence and Scope assessment, offsets 0–4648 and 4920–7080",
+          "method": "Lawful public OA website reading, mathematical reconstruction of telescope comparison",
+          "title": "Floors of reciprocal generalized Fibonacci tails",
+          "trigger": "Exact same external conjecture and all-parameter first-power resolution"
+        },
+        {
+          "assessment": "Stated exactly but conjectural in this source.",
+          "evidence": [
+            "First clause for s>t≥1 and n,r positive, and a separate squared-reciprocal clause."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1306.6511",
+          "material_read": "Conjecture 4.6, p. 13, around offset 43800",
+          "method": "OA primary PDF",
+          "title": "Generalized Fibonacci polynomials and Fibonomial coefficients",
+          "trigger": "Original conjectural statement"
+        },
+        {
+          "assessment": "Partial large-parameter result.",
+          "evidence": [
+            "The statement retains the hypothesis that s,t are sufficiently large."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.8086",
+          "material_read": "§3, Theorem 18 and proof passages, pp. 8–11",
+          "method": "OA primary PDF",
+          "title": "Arithmetic properties of generalized Fibonacci sequences",
+          "trigger": "Known proof in a restricted parameter regime"
+        },
+        {
+          "assessment": "Implies all strides of the t=1 subfamily, not t≥2.",
+          "evidence": [
+            "Requires −1≤ρ<0 and c_1²(−ρ)^(j−1)≤c_(j+1)−c_(j−1)−1 for the displayed branch."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.02639",
+          "material_read": "v2, Theorem 1.7 Case 1, p. 3 and proof pp. 12–14, offsets 11642 and 43821",
+          "method": "OA primary PDF",
+          "title": "Sums of Reciprocals of Recurrence Relations",
+          "trigger": "General negative-second-coefficient recurrence reciprocal sums"
+        },
+        {
+          "assessment": "Reciprocal cube for coefficient −1, not the first-power arbitrary-coefficient theorem.",
+          "evidence": [
+            "Has a step-five floor correction; the last author is Zhou, not Zhuo."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.00803",
+          "material_read": "Yuan–He–Zhou, Theorem 1.1, p. 2",
+          "method": "OA primary PDF",
+          "title": "On the sum of reciprocal generalized Fibonacci numbers",
+          "trigger": "Negative-parameter recurrences and lacunary floor corrections"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–55",
+        "ACMS Conjecture 4.6",
+        "Public dossier's distinct Cassini comparison"
+      ],
+      "rationale": "The scientific question is an exact named conjectural identity on a natural two-parameter recurrence family and is substantively interesting regardless of priority. The proof supplies a different quantitative and uniform explanation rather than a re-tabulation: when β<1 the positive distance from the integer endpoint decays geometrically in the cutoff, and the proof also controls β=1 and the corner λ=1. This assesses mathematical utility of the argument, not novelty for the already covered floor statement.",
+      "residual_risks": [
+        "No separate priority or validated standalone finding is assigned to the quantitative bound, and no squared-reciprocal claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

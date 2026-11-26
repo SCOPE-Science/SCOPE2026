@@ -4,12 +4,12 @@
 Let \(\Gamma=\{(x,y)\in\mathbb R^2:x^4+y^4=1\}\), with Euclidean perimeter \(L\). Let \(P_1,P_2,P_3\) be independent, Euclidean-arclength-uniform points of \(\Gamma\), and let \(A=\frac12|\det(P_2-P_1,P_3-P_1)|\) be their unsigned Euclidean triangle area. Then
 \[
 \boxed{\Pr(A\le t)\sim C_4\,t^{3/5}\quad(t\downarrow0),\qquad
-C_4=\frac{4I_4}{L^3}=1.7794049442086\ldots,}
+C_4=\frac{4I_4}{L^3}\approx1.77940494420824,}
 \]
 where the completely explicit universal homogeneous-volume constant is
 \[
 I_4=2\,8^{3/5}\sqrt{\frac\pi6}\,\frac{\Gamma(1/10)}{\Gamma(3/5)}3^{1/10}
-\int_0^1\frac{dz}{[z(1-z)]^{3/5}(1-z+z^2)^{1/10}}=153.744226422418\ldots .
+\int_0^1\frac{dz}{[z(1-z)]^{3/5}(1-z+z^2)^{1/10}}\approx153.7442264223871.
 \]
 Here \(\Gamma(\cdot)\) in the displayed constant denotes Euler's gamma function, not the curve. The perimeter is the independently defined Euclidean arclength of \(\Gamma\), numerically \(L=7.017697943564\ldots\).
 
@@ -41,20 +41,20 @@ Its arclength density in this coordinate is \(j(y)=\sqrt{1+x'(y)^2}=1+O(y^6)\). 
 \[
 \frac{A_\Gamma(t^{1/5}u_1,t^{1/5}u_2,t^{1/5}u_3)}{t}\longrightarrow H(u_1,u_2,u_3).
 \]
-Indeed the determinant formed by the graph \(x=1-y^4/4\) is exactly \(H(y)\). To check, order \(y_1<y_2<y_3\), write \(a=y_2-y_1\), \(b=y_3-y_2\), \(m=(y_1+y_2+y_3)/3\); the fourth divided difference yields
+Indeed the unsigned triangle area formed by the graph \(x=1-y^4/4\) is exactly \(H(y)\). To check, order \(y_1<y_2<y_3\), write \(a=y_2-y_1\), \(b=y_3-y_2\), \(m=(y_1+y_2+y_3)/3\); the second divided difference of \(y^4\) yields
 \[
 H(y)=\frac{ab(a+b)}8\left(6m^2+\frac{a^2+ab+b^2}{3}\right).
 \]
 The formula extends continuously to coincident arguments and to any ordering.
 
-**4. An integrable majorant.** Define \(f(y)=1-(1-y^4)^{1/4}\), a locally convex function with \(f''(y)=3y^2+O(y^6)\). For a sufficiently small fixed tip chart \(|y|<\delta\), \(f''(y)\ge\frac12(3y^2)\). On three ordered abscissae, the triangle area for the graph of any convex function is the Vandermonde product times a second divided difference, which is a *positive linear functional* of its second derivative (the standard positive Peano kernel). Consequently comparison of second derivatives gives
+**4. An integrable majorant.** Define \(f(y)=1-(1-y^4)^{1/4}\), a locally convex function with \(f''(y)=3y^2+O(y^6)\). For a sufficiently small fixed tip chart \(|y|<\delta\), \(f''(y)\ge\frac12(3y^2)\). On three ordered abscissae, the triangle area for the graph of any convex function is half the Vandermonde product times a second divided difference, which is a *positive linear functional* of its second derivative (the standard positive Peano kernel). Consequently comparison of second derivatives gives
 \[
 A_\Gamma(y_1,y_2,y_3)\ge\frac12H(y_1,y_2,y_3)
 \quad(|y_i|<\delta).
 \]
-The rescaled indicator of \(A_\Gamma\le t\) is therefore bounded by \({\bf1}_{\{H(u)\le2\}}\), which is integrable once finiteness of \(I_4\) is established in Step 5. The densities \(j\) are bounded and tend to one. Dominated convergence on \(\mathbb R^3\) proves that each flat tip contributes precisely \((I_4/L^3)t^{3/5}+o(t^{3/5})\), and proves convergence of its *unnormalized rescaled conditional density in* \(L^1\).
+The rescaled indicator of \(A_\Gamma\le t\) is therefore bounded by \({\bf1}_{\{H(u)\le2\}}\), which is integrable once finiteness of \(I_4\) is established in Step 5. The level set \(H=1\) is null: in the variables of Step 5, for each fixed \(w,z\) it contains exactly one radial value. The densities \(j\) are bounded and tend to one. Dominated convergence on \(\mathbb R^3\) proves that each flat tip contributes precisely \((I_4/L^3)t^{3/5}+o(t^{3/5})\), and proves convergence of its *unnormalized rescaled conditional density in* \(L^1\).
 
-**5. Exact volume of the homogeneous sublevel.** In the ordered sector \(u_1<u_2<u_3\), write \(a=u_2-u_1>0\), \(b=u_3-u_2>0\), \(m=(u_1+u_2+u_3)/3\). The Jacobian of \((u_1,u_2,u_3)\mapsto(m,a,b)\) has absolute value one. There are six sectors. Put \(r=a+b\), \(z=a/r\in(0,1)\), \(m=rw\), and \(q(z)=(1-z+z^2)/3\). The Jacobian of \((m,a,b)\mapsto(w,r,z)\) in absolute value is \(r^2\), while
+**5. Exact volume of the homogeneous sublevel.** In the ordered sector \(u_1<u_2<u_3\), write \(a=u_2-u_1>0\), \(b=u_3-u_2>0\), \(m=(u_1+u_2+u_3)/3\). The Jacobian of \((u_1,u_2,u_3)\mapsto(m,a,b)\) has absolute value one. There are six sectors. Put \(r=a+b\), \(z=a/r\in(0,1)\), \(m=rw\), and \(q(z)=(1-z+z^2)/3\). The new volume element is \(dm\,da\,db=r^2\,dw\,dr\,dz\), while
 \[
 H=\frac{r^5}{8}z(1-z)[6w^2+q(z)].
 \]
@@ -78,7 +78,7 @@ probability constant C=4I/L**3: 1.7794049442086
 All diagnostics passed. Numerical checks are not an infinite-limit proof.
 ```
 
-The proof of the infinite asymptotic and total-variation limit is analytical (Steps 1–6); the script checks computations, not the theorem in lieu of proof. For extremely small thresholds, convergence of finite-sample estimates can be slow because the limiting homogeneous sublevel has long integrable tails.
+The preceding block is the original double-precision diagnostic, not a certificate for its last digits. The refined approximations above can be reproduced with `python3 verify_refined.py` (mpmath). It integrates the perimeter over one symmetry octant with a smooth endpoint and computes the gap integral in two ways: smoothing its endpoint by \(z=x^5/2\) on half of the interval, and using Euler's hypergeometric integral after the change of variable \(v=4z(1-z)\). The proof of the infinite asymptotic and total-variation limit is analytical (Steps 1–6); these scripts check computations, not the theorem in lieu of proof. For extremely small thresholds, convergence of finite-sample estimates can be slow because the limiting homogeneous sublevel has long integrable tails.
 
 ## Relationship to prior work
 The classic unit-circle triangle-area problem and its maximal-area asymptotics are not claimed as new. Koroleva and Nikitin (first public 2013-01-07, arXiv:1301.1360) analyze maximum perimeter/area among random inscribed polygons on the **circle**, not the lower tail on a curvature-degenerate quartic oval. Zhao (journal public 2015-06-18; arXiv:1509.05485 first posted 2015-09-18) treats curvature measures and affine surface area for convex bodies, providing background on convex curvature but not this probability law. The published research record *A sharp small-area law for inscribed random triangles and the optimal affine sampling density* (2026-11-08) proves a \(t^{2/3}\) law for \(C^3\) ovals with **strictly positive curvature everywhere**. That theorem does not cover this curve: at a coordinate-axis tip \(\kappa(s)\sim3|s|^2\), so the prior curvature integral \(\int\kappa^{-2/3}ds\) diverges. Its coefficient cannot be substituted into this problem. It is credited as the closest result for the regular-curvature case, not presented as a new result here.
@@ -91,7 +91,7 @@ Only the fixed quartic Lamé oval and independent uniform Euclidean-arclength sa
 ## References
 1. E. V. Koroleva and Ya. Yu. Nikitin, *U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons*, arXiv:1301.1360, first public 2013-01-07, https://arxiv.org/abs/1301.1360.
 2. Yiming Zhao, *On \(L_p\) Affine Surface Area and Curvature Measures*, published online 2015-06-18, https://doi.org/10.1093/imrn/rnv178; open preprint arXiv:1509.05485 (2015-09-18).
-3. *A sharp small-area law for inscribed random triangles and the optimal affine sampling density*, published research record dated 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-small-area-law-for-inscribed-random-triangles-and-the-op--36a2639eeafd.
+3. *A sharp small-area law for inscribed random triangles and the optimal affine sampling density*, published research record dated 2026-11-08, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-small-area-law-for-inscribed-random-triangles-and-the-op--36a2639eeafd.
 4. Bernard W. Silverman and Tim Brown, *Short distances, flat triangles and Poisson limits*, Journal of Applied Probability **15** (1978), 815–825, https://doi.org/10.2307/3213436.
 5. D. G. Kendall, *Exact distributions for shapes of random triangles in convex sets*, Advances in Applied Probability **17** (1985), 308–329, https://doi.org/10.2307/1427143.
 6. E. W. Weisstein, *Circle Triangle Picking*, MathWorld, https://mathworld.wolfram.com/CircleTrianglePicking.html.

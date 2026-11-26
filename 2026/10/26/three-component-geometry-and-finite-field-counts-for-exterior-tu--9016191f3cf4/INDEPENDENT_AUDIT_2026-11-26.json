@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:26:21.069194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, equations and proof at lines 35–79",
+        "VERIFICATION.md, lines 19–27; verify_square_zero_flags.py and verify_rulings.py inspected, not executed"
+      ],
+      "rationale": "The square and mixed coefficients are separately imposed; in any characteristic, a nonzero b_h forces all a_i=c_i=0, and for b=0 the coefficients are exactly those of det(sum t_i H_i). For a nonzero rank-one uv^T in the span, every other nonzero member shares its image or row line; members with opposite strict alternatives would sum to a rank-two matrix. This proves the union in all characteristics. The common-line loci are closed by projective incidence (also by stacked-matrix minors). On a chart with a selected nonzero column/row, recovering the common line or kernel by that column/row is rational, so the incidence map is birational, not merely generically injective in positive characteristic. The two rulings are incomparable for r>=2 (take two independent matrices in one ruling); neither lies in L, and L has points with b nonzero. Their dimensions are 3r+1 against 4r for L. The intersections reduce respectively to 2r free entries, rank-at-most-one 2-by-r arrays, and tuples in Hom(k^2/K,I) for a pair of lines; including f gives 3r, 2r+1, 2r+2, with the stated triple intersection. Over F_q, span ranks 0, 1 and 2 have respectively 1, (q+1)^2(q^r-1), and 2(q+1)(q^r-1)(q^r-q) ordered tuples before the q^r factor; L adds q^(4r)-q^(3r). In particular the rank-two term vanishes at r=1. The proof does not address scheme structure.",
+      "residual_risks": [
+        "The reported finite check is limited to its specified field orders and tuple lengths; no formal proof assistant or nonreduced scheme audit.",
+        "verify_rulings.py tests only r=2 as invoked; its adjacent-pair loop is not an all-pairs checker for larger r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ngo–Šivic studies tuples of commuting nilpotent matrices without a fixed flag or square-zero restriction.",
+          "Chen–Wang's generality in matrix size does not give r-tuples over arbitrary characteristic."
+        ],
+        "reasoning": "Intersections of ambient components with extra triangular and square equations need not remain irreducible; ambient results do not imply the three components or their intersection dimensions.",
+        "searches": [
+          "Ngo–Šivic, arXiv:1308.4438",
+          "Chen–Wang, arXiv:1805.00378v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d2968257cb40",
+        "arXiv:1308.4438",
+        "arXiv:1805.00378v2",
+        "RESULT.md, lines 87–102"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical two rulings classify rank-at-most-one subspaces in M_2; the separate b-nonzero branch is specific to the exterior relations in the four-step flag.",
+          "Pair-level geometry and point counts do not give the all-r intersections or numbers of spanning r-tuples without the uniform branch and span analysis."
+        ],
+        "reasoning": "The result uses the known rulings, but must identify the correct determinant pencil, deal with b nonzero, and check all-characteristic compatibility before using them. This is a distinct scientific claim beyond the matched pair result.",
+        "searches": [
+          "Resultary d2968257cb40, Finding",
+          "Chen–Wang, arXiv:1805.00378v2, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d2968257cb40 states three components for commuting square-zero pairs in the same strict triangular algebra; in characteristic two this is exactly r=2.",
+          "Chen–Wang treats unrestricted anticommuting pairs over C, without these square-zero and flag hypotheses."
+        ],
+        "reasoning": "Exterior-algebra representations here impose both square-zero and anticommutation. In odd characteristic they do not agree with commuting square-zero pairs: X=E13+E24 and Y=-E12+E34 satisfy XY=E14=-YX, nonzero. Neither equivalence nor whole-scope coverage follows from the pair result.",
+        "searches": [
+          "Resultary: square-zero anticommuting or commuting tuples, strict four-step flag, determinantal components",
+          "Chen–Wang, arXiv:1805.00378v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related record gives q^8+2q^7-2q^5 and component dimensions 8,7,7 for commuting square-zero pairs."
+        ],
+        "reasoning": "The submitted formula at r=2 simplifies to the same polynomial even in odd characteristic, so that numerical specialization is overlapping, not an originality claim. The cited pair entry does not tabulate or imply the arbitrary-r formula.",
+        "searches": [
+          "Resultary d2968257cb40, Finding"
+        ]
+      },
+      "rationale": "The demonstrated overlap is the pair case within a related commuting family, not the uniform anticommuting square-zero tuple theorem. Credit the classical Segre rulings and the overlapping pair results; the supported contribution is the arbitrary-r fixed-flag component, intersection and counting result together, not new rank-one matrix-space theory.",
+      "residual_risks": [
+        "Older classifications of small triangular representations could contain implicit overlap; exact historical priority is not established.",
+        "Known pair-level overlap is not evidence that all specializations are new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage; different relations in odd characteristic and no arbitrary-r claim in the inspected statement",
+          "evidence": "Commuting square-zero pairs, dimensions 8,7,7, intersection dimensions 6,5,6 and count q^8+2q^7-2q^5. Catalogue date alone does not decide scientific priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-determinantal-components-of-commuting-square-zero-pairs-in--d2968257cb40/RESULT.md",
+          "material_read": "Finding at offset 0, local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage and algebraic specialization",
+          "title": "Three determinantal components of commuting square-zero pairs in a four-step flag",
+          "trigger": "Same triangular algebra, square-zero relations and component numbers at r=2"
+        },
+        {
+          "assessment": "Adjacent object in inspected passage",
+          "evidence": "Commuting nilpotent tuples rather than fixed-flag exterior tuples.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.4438",
+          "material_read": "Abstract, PDF page 1",
+          "method": "Original OA PDF",
+          "title": "On varieties of commuting nilpotent matrices",
+          "trigger": "Nilpotent tuples and component geometry"
+        },
+        {
+          "assessment": "Different scope in inspected statements",
+          "evidence": "Unrestricted n-by-n pairs over C; no square-zero input condition.",
+          "identifier_or_url": "https://arxiv.org/html/1805.00378v2",
+          "material_read": "Abstract and Introduction, HTML offsets 530 and 1513",
+          "method": "Original OA HTML",
+          "title": "Anti-commuting varieties",
+          "trigger": "Component classification for anticommuting matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and sections 1–4",
+        "Resultary d2968257cb40, comparison at r=2"
+      ],
+      "rationale": "This is a complete reduced component classification for a natural fixed-flag exterior representation space, not just a rank-one lemma or a few checked field counts. It explains non-equidimensionality and which branches can meet and gives uniform, characteristic-two-inclusive point counts useful as tests of more general fixed-flag analyses.",
+      "residual_risks": [
+        "Value is local to the four-step fixed flag; no extension to larger sizes, quotient moduli, or unreduced schemes is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:49:39.231696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62",
+        "Frozen VERIFICATION.md, check_power_fibers.py and checker_output.txt (inspected, recorded runs distinguished from our checks)",
+        "/workspace/audit_replays/powers.py (exact prime and extension field matrix arithmetic, including 262144 matrices over F_8)"
+      ],
+      "rationale": "An increasing path for an m-fold product has gap m or m+1 in this dimension. The shorter gaps give the first-diagonal products A and B with the same inner factor P; the larger gap must use a single two-step jump, giving precisely the stated linear form in the second-diagonal entries. When at least one outer coordinate is nonzero, choosing the m−1 nonzero inner entries fixes both ends and leaves at least one nonzero linear coefficient. With both coordinates zero and P nonzero, both end entries vanish, so the form vanishes (the ends are not consecutive, even at m=2). With P zero, the form is nonzero exactly for a single interior zero or two consecutive zeros, giving the middle formula. Counting target multiplicities and subtracting all nonzero fibers from q^dim J gives the displayed zero-target formula. Its excess over the middle fiber is positive by the strict binomial inequality q^m>(q−1)^(m−1)(q+m−1) for m≥2. The counts show surjectivity, and weighting by q−1 central nonzero and q³−q other targets yields the conditional law and its fixed-q asymptotic. The group interpretation is the commuting characteristic-power binomial identity only for m=p^t. An independent matrix-product census checked every target and absence of support outside J^m at (m,q)=(2,8),(3,3),(4,2).",
+      "residual_risks": [
+        "Fixed-q conditional concentration is not an unconditional central-output law. The scope is dimension m+2, and the all-parameter conclusion relies on the analytic count, not the finite tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general all-matrix rank-resolved result fixes a nonzero rank-one square-zero target and allows all M_n roots. The triangular square-zero formula counts all triangular roots at exponent two and target zero. Sosnovsky's width-one theorem for fields with at least three elements and Dolfi–Singh–Yadav's p-th power image comparison identify or constrain image, not the fibers."
+        ],
+        "reasoning": "Restricting the root space to one fixed flag is not accomplished by knowing the full-matrix count. Also, both nonzero outer coordinates allow rank two, and the current formula includes the zero target. The known all-matrix concentration takes q large at fixed n,m, not m large at fixed q.",
+        "searches": [
+          "Resultary 415af50377ac, Finding and Assumptions",
+          "arXiv:math/9512224, p. 1",
+          "arXiv:1201.6513, Theorem 1(c)",
+          "arXiv:1905.04244, Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e14651f0a3e6, 415af50377ac, a0406ea893e0, 40edc4be6c75",
+        "arXiv:math/9512224, 1905.04244, 1201.6513 and 1506.02806"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Image equality at n=p+2 recovers surjectivity in an important characteristic-power case but has no target weights. The fixed cubic result and square-zero theorem have no growing-exponent limit. The full-matrix fixed-target law does not resolve the constraint of a prescribed flag."
+        ],
+        "reasoning": "The active adjacent-pair support analysis with m variable is required to enumerate all niltriangular targets by type, and the nonzero target multiplicities are required for the conditional limit. Neither is a direct specialization of the inspected stronger-looking results.",
+        "searches": [
+          "arXiv:1905.04244, Proposition 3.4",
+          "arXiv:1201.6513, Theorem 1(c)",
+          "Resultary 415af50377ac and e14651f0a3e6, statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For characteristic-power exponents the map on 1+J is equivalent by X↔I+X; the cubic record explicitly gives the characteristic-three translation. Dolfi–Singh–Yadav identify the group image at n=p+2 but do not count roots of each prescribed target there. Root existence after embedding into a larger group (Menshov–Roman’kov) varies the ambient dimension."
+        ],
+        "reasoning": "An image or width count omits multiplicities. A root in a larger group is not a prescribed root inside the fixed niltriangular algebra. For arbitrary m not a p-power, the algebra result does not assert a group correspondence.",
+        "searches": [
+          "Resultary: near-top niltriangular matrix powers, prescribed roots and cubic fibers",
+          "arXiv:1905.04244 Proposition 3.4",
+          "arXiv:1506.02806, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day cubic table gives exactly q^5(q−1)^2, q^5(2q³−3q²+1), q^5(5q³−5q²+1). Ekhad–Zeilberger specialize at n=4 to 2q^4−q², the same F_2(0). The full UT_5 square-root table and UT_5 square-image table are at m=2,n=5, outside the n=m+2 slice."
+        ],
+        "reasoning": "Credit exact existing specialization coverage even though no relative priority is inferred for the same-day cubic table. The neighboring dimension square table counts a different root domain and target pattern, not all exponents on the bound slice.",
+        "searches": [
+          "Resultary: exact square and cubic unitriangular root fibers and generator tables",
+          "Resultary e14651f0a3e6, a0406ea893e0 and 40edc4be6c75, Findings",
+          "arXiv:math/9512224, p. 1"
+        ]
+      },
+      "rationale": "The exact cubic fiber law and the square-zero specialization are already covered by inspected sources, and the unitriangular image and width assertions substantially overlap prior group results. Do not credit these pieces separately. The supported original contribution is the uniform three-fiber law for arbitrary exponent at dimension m+2 over every finite field and the resulting fixed-q growing-dimension central concentration. The strongest explicit nearby prescribed-target theorem counts roots in the full matrix algebra, not in the fixed niltriangular algebra.",
+      "residual_risks": [
+        "No general older fixed-target niltriangular law was found in a bounded search. The inaccessible Bier text is not negative evidence. A result in an older implicit flag-count formulation remains possible; late or same-day date alone does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact for m=3 only; same date does not resolve priority",
+          "evidence": "Over all finite fields the three multiplicities and characteristic-three group interpretation match.",
+          "identifier_or_url": "Resultary 2026/11/22 record e14651f0a3e6",
+          "material_read": "RESULT.md Finding offset 0 and related work offset 3980",
+          "method": "Local-mirror statement and assumptions comparison",
+          "title": "Three-level cubic power fibers in the five-by-five nilpotent triangular algebra",
+          "trigger": "Exact cubic specialization of the target family"
+        },
+        {
+          "assessment": "Counts different ambient root set, with distinct target restriction and limit",
+          "evidence": "Counts all M_n roots for fixed nonzero rank-one square-zero target, asymptotic at q→infinity with n,m fixed.",
+          "identifier_or_url": "Resultary 2026/11/8 record 415af50377ac",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "Rank-resolved finite-field power roots of the minimal nonzero nilpotent target",
+          "trigger": "Exact prescribed-target root multiplicity theorem for broader matrix algebra"
+        },
+        {
+          "assessment": "Exact zero-target case at m=2",
+          "evidence": "General triangular square-zero count; its diagonal automatically vanishes and n=4 gives 2q^4−q².",
+          "identifier_or_url": "https://arxiv.org/abs/math/9512224",
+          "material_read": "p. 1, offsets 0 and 430",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "An Explicit Formula for the Number of Solutions of X^2=0 in Triangular Matrices over a Finite Field",
+          "trigger": "Potential exact zero-target specialization"
+        },
+        {
+          "assessment": "Proves image equality, not multiplicities",
+          "evidence": "U(n,q)^p=U_{p−1}(n,q) for n=p+1,p+2.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.04244",
+          "material_read": "p. 7, Proposition 3.4, offset 19850",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "p-Power conjugacy classes in U(n,q) and T(n,q)",
+          "trigger": "Same n=p+2 image boundary in the equivalent group formulation"
+        },
+        {
+          "assessment": "Width one on specified regime, not fiber counts",
+          "evidence": "Width-one threshold at n≤p^t+2 for the corresponding word, with |K|≥3.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.6513",
+          "material_read": "p. 2, Theorem 1(c), offset 7450",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "On the Width of Verbal Subgroups of the Groups of Triangular Matrices over a Field of Arbitrary Characteristic",
+          "trigger": "Near-top p-power verbal width"
+        },
+        {
+          "assessment": "Different dimension for the same exponent",
+          "evidence": "Characteristic-two UT_5 square-root table; m=2 in the bound theorem corresponds to UT_4.",
+          "identifier_or_url": "Resultary 2026/11/8 record a0406ea893e0",
+          "material_read": "RESULT.md Finding offset 0 and prior-work section offset 7300",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact square-root fibers in the five-by-five unitriangular group",
+          "trigger": "Complete nearby exact group root table"
+        },
+        {
+          "assessment": "Different dimension and distinct squares, not root counts",
+          "evidence": "Image membership and cardinality in UT_5.",
+          "identifier_or_url": "Resultary 2026/10/13 record 40edc4be6c75",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact square-word membership and image size in UT_5",
+          "trigger": "Nearby reported exact power data"
+        },
+        {
+          "assessment": "Larger-dimension root existence, not prescribed fiber",
+          "evidence": "Adds roots by embedding in a larger unitriangular group.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.02806",
+          "material_read": "p. 1, offset 471",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Adjoining roots to elements of unitriangular groups",
+          "trigger": "Alternative group-root formulation"
+        },
+        {
+          "assessment": "No whole-document coverage verdict; used accessible image and width comparisons instead",
+          "evidence": "The frozen record attributes image/width results to Bier; that attribution does not establish what the inaccessible text may imply about fibers.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218196712500191",
+          "material_read": "No full text independently read",
+          "method": "DOI and identified lawful Academia transcription attempts both returned 403",
+          "title": "The Width of Verbal Subgroups in the Group of Unitriangular Matrices Over a Field",
+          "trigger": "Plausible strong result cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25, 33–62",
+        "Exact specialization, full-matrix and image comparisons under originality"
+      ],
+      "rationale": "The near-top exponent is a natural extremal regime: it leaves three possible output coordinates and separates generic, central and zero targets. Knowing merely that every target is attained obscures the strong conditional bias toward the center; the exact fiber formula makes the bias quantitative for every field size and yields a nontrivial growing-dimension law. The new infinite-parameter statement is more than a recomputation of the cubic or square-zero row.",
+      "residual_risks": [
+        "Does not determine fibers at wider offsets n−m or a joint regime of growing m and q beyond what follows directly from the exact fraction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

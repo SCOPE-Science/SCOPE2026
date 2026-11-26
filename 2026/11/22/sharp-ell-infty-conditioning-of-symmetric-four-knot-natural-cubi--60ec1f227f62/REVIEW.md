@@ -1,19 +1,21 @@
-# Review: sharp uniform stability of four-knot natural cubic interpolation
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive central-to-outer gap ratio, the natural second-derivative interpolation equations have positive determinant \((r+2)(3r+2)\). The four cardinal functions were derived explicitly on both geometrically distinct cell types. Their signed factorizations prove, without sample-grid assumptions, that the exact sharp operator norm is the maximum of the outer-cell and middle-cell formulas stated in RESULT.md. The first decreases strictly with the ratio and the second increases strictly; hence their unique algebraic intersection is the unique symmetric-mesh minimizer. The range-escape identity follows from reproduction of constants. The bundled symbolic verifier reconstructs the formulas and its recorded output includes 456 additional exact-rational interpolation checks. Residual scientific scope: this does not optimize asymmetric meshes or arbitrary cubic boundary conditions.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest inspected primary study is Beatson and Chacko's *Which Cubic Spline Should One Use?* (1990 preprint, 1992 journal), which treats the natural boundary condition among eight spline schemes and compares operator norms on random and uniform multi-interval meshes. The inspected numerical tables and operator-norm section do not report the exact symmetric four-knot envelope or its minimax root. Saeidian et al. (2021) study constrained Hermite interpolation and Amat et al. (2022) study nonlinear quasi-interpolants, not the same fixed natural-spline operator. The closely matching published natural-spline research record concerns **total variation of the output relative to input increments**, rather than the unweighted \(\ell^\infty\) input-noise amplification. Its reported optimizer is markedly different. The polynomial four-node minimax interpolation and three-knot natural-spline range-defect records also do not imply this four-knot result. A related mathematical record was available through its indexed claim rather than full document; undetected earlier specialization remains possible. These qualifications do not supply independent priority certification.
+PASS
 
-## Value — PASS
-Four knots give the first natural cubic spline with two coupled interior curvatures; the exact minimax amplification directly controls adversarial bounded measurement noise and the worst violation of a known data range. The theorem gives a complete sharp geometry within the natural reflected-symmetric design family, and discovers that exact equal spacing is not the minimizer. It also shows a material difference between optimizing noise amplification and optimizing total variation: the published variation-optimal ratio near \(1.4288\) has present noise-amplification norm about \(1.4871\), compared with the sharp \(1.3044\). The relative improvement over uniform spacing itself is small (about \(0.27\%\)) and should not be advertised as a large universal numerical gain. The precise fact is useful as a stability benchmark rather than a broad spline approximation theorem.
+Reconstructed the interpolant independently with first-derivative cubic Hermite data. If Delta_j are the raw successive data differences, natural ends give m_0=(3 Delta_0-m_1)/2 and m_3=(3 Delta_2-m_2)/2. Matching second derivatives at the two inner knots gives diagonal 3r+4 and off-diagonals 2 in the system for m_1,m_2, with right sides 3r Delta_0+6 Delta_1/r and 3r Delta_2+6 Delta_1/r. This nonsingular system yields all cardinal functions; the replay /workspace/replay/03_hermite.py checks natural conditions, matching, reflection, and both Lebesgue-function identities, and reproduces the optimum numerics. For all r>0, the sole negative cardinal on the open left cell is ell_2; on the open middle cell only the two endpoint cardinals are negative. The factored cardinals verify these signs on the entire cell, with endpoint zeros allowed. Since they sum to one, the excess over one is 2(r+1)t(1-t^2)/(r(3r+2)) on the left and 6r^2 t(1-t)/(3r+2) in the middle, with respective maxima at 1/sqrt(3) and 1/2. The right cell is reflected. The outer maximum is strictly decreasing from infinity to one; the middle maximum strictly increases from one to infinity, so their unique crossing solves the claimed cubic and is the unique minimizer. Sign choices in the nodal cube attain the norm; translating and rescaling [0,1] to [-1,1] using reproduction of constants proves the range-escape claim in both directions. The comparison to equal spacing is strict by uniqueness and the crossing not being at one. Frozen source scripts were inspected, not run.
 
-## Closest literature and limits
-- Saeidian et al., *A New Approach of Constrained Interpolation Based on Cubic Hermite Splines*, DOI 10.1155/2021/5925163 (2021), full open text reviewed, different adjustable-derivative scheme.
-- Amat et al., *A class of \(C^2\) quasi-interpolating splines free of Gibbs phenomenon*, DOI 10.1007/s11075-022-01254-6 (2022), full open text reviewed, different nonlinear scheme.
-- Beatson and Chacko, *Which Cubic Spline Should One Use?*, DOI 10.1137/0913059, accessible preprint text and relevant operator-norm tables reviewed, no exact four-knot symbolic mesh optimizer identified.
-- *Unique variation-optimal symmetric four-knot natural cubic interpolation*, published mathematical record (2026), indexed summary compared, full document unavailable.
-- Rack and Vajda, *Optimal cubic Lagrange interpolation: Extremal node systems with minimal Lebesgue constant* (2015), article/abstract compared, polynomial interpolation rather than natural \(C^2\) spline interpolation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The norm/largest cardinal row-sum principle and range translation are standard; the supported distinct result is the exact two-cell competition for this natural-spline family and its unique optimizer. The closest exact Resultary finding studies the same family with a different norm and gives a different optimum.
+
+## value
+
+PASS
+
+The meaningful result is not the small percentage improvement alone. Exact signed-cell competition explains why equal gaps are not optimal even among reflected-symmetric four-site meshes and why the variation-optimal mesh is unsuitable as a proxy for minimax nodal noise. It gives a sharp condition number and range escape for every positive gap ratio, including near-degenerate meshes. This is an exact design result for the stated natural interpolation operator, not a claim about asymmetric or larger meshes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

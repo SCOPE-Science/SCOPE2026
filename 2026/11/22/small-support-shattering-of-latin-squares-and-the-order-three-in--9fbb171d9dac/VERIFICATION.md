@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The attached `verify_latin.py` enumerates the \(3\times3\) Latin squares by independent row permutations and column checks, then enumerates all candidate query supports of sizes zero through four. It computes the 270-by-216 mod-two edge–triangle boundary matrix and eliminates it using integer XOR operations. It additionally enumerates the 576 order-four Latin squares and checks every one of the 25,920 compatible three-query supports.
+## correctness
 
-The attached `verify_latin.cpp` generates the order-three Latin squares instead as coordinate isotopes of the cyclic addition table, deduplicates them, and independently builds Boolean traces, facets, and the mod-two boundary matrix. It uses exact `std::bitset` row reductions.
+PASS
 
-Commands from the directory containing the two files:
+For all n>=2, compatibility is necessary by the all-positive trace. For a compatible k-support, all specified cells are distinct. Insert positives, then insert an alternative symbol at each negative cell: at most k-1 earlier entries ban symbols in the relevant row or column and the query bans at most one more. For k<=n-1 a choice always remains. The resulting k-entry partial Latin square satisfies Smetaniuk's completion theorem (Evans conjecture), so realizes the trace. A compatible full row has an impossible pattern of n-1 positives and one negative, proving sharpness as an existential obstruction. For n=3 there are 6 first rows and two derangements for the second row, with the third forced. Each point occurs four times. Two compatible points occur together twice when they share one coordinate, and once when they share none, by normalizing labels and checking these row choices. On a shattered triple the seven nonempty traces exhaust its twelve positive incidences, so each occurs once; all three pairs must share a coordinate and these equalities cannot all lie in one fibre, which would give two all-positive traces. Conversely the normalized Latin triangle {(0,0,0),(0,1,1),(1,0,1)} has one all-positive trace, and its pair and singleton incidence counts give all other traces. There are 24 such triangles through a point, and every edge sharing a coordinate lies in one. No size-four support fits 16 traces into 12 squares. An independently written enumeration of the 12 squares, all supports through size four, maximal edges, and binary incidence columns was run; replay: python3 /workspace/branches/01c403cf-fb9f-414f-ba95-94fbc1a9fafc/latin_independent.py. It returns (1,27,270,216,0), 108 maximal edges, 216 triangles, rank(partial_2)=133 and a connected one-skeleton. Thus rank(partial_1)=26, giving reduced Betti numbers 111 and 83 over F2 and zero in other degrees. No integral homology claim is established or asserted. Both frozen checkers were inspected, not executed.
 
-```sh
-python3 verify_latin.py
-g++ -std=c++17 -O2 verify_latin.cpp -o verify_latin
-./verify_latin
-```
+## originality
 
-The expected assertions are 12 order-three Latin squares, 576 order-four Latin squares, face vector \((1,27,270,216,0)\), 108 maximal pairs, 216 maximal triangles, boundary rank 133, reduced Betti ranks \((111,83)\), and 25,920 compatible and shattered order-four triples. Both programs were executed from their actual delivery contents before the present report was prepared.
+PASS
 
-The all-order statement is deductive and uses the published partial Latin completion theorem; the finite verifiers do not purport to certify infinitely many cases. The computation does not establish integral homology, homotopy type, or independent mathematical validation.
+Credit the uniform sharp signed-trace criterion and the exact Latin-square shattering complex, not the completion theorem, the concept class, or the ternary triangle boundary calculation as a freestanding new invariant. The strongest indexed overlap, the antipodal-sphere complex, has exactly the same triangles and boundary rank, as follows from comparing the two concepts mathematically. It does not give the Latin-square shattering theorem or its specific edge and facet classifications. The original finding is the classification for the Latin-square concept class; the homology figures are valid consequences with the overlap credited, not the basis for the originality pass.
+
+## value
+
+PASS
+
+The uniform sharp cutoff distinguishes when arbitrary negative prescriptions are as feasible as positive partial completion. The exact first nontrivial boundary describes which compatible triples survive and which lower-dimensional facets cannot extend. This provides a useful finite model for the established shattering class; the transferred boundary rank by itself is not the value justification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:31.557846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bounded backward Laplace solution on x<0 has slope λu(0)/√(D(r+λ)) at zero; C¹ matching to the positive interval and absorption at L give the stated transform. These conditions also justify the stopped-generator representation (no interface local-time term). Competing independent exponential blind resets give the stated renewal mean. At zero blind rate the formula follows from monotone convergence of (1−exp(−λH_r))/λ as λ decreases to zero. For the global step the product for G makes G'/G=Q₁ and G''/G=Q₁²−Q₂>0, with differentiation valid by locally uniform convergence. The inequality Q₂²≤Q₁Q₃ makes Q₂/Q₁² nonincreasing from 2/5. Thus (G')²/(GG'')≤5/3, and completing the square gives v²G''−vG'+3G/4≥G/3 for v=s+w²>0, including s=0. The other summand has strictly positive curvature. Taylor expansion gives a₁ and a₂; the monotone cubic fixes the sign of the initial derivative and divergence at infinity plus strict convexity proves the sharp global classification. At equality strict convexity still excludes every positive rate. The derivative equation has an analytic branch with slope −a₁'(w_c)/(2a₂(w_c)); on its positive side it is the global optimum. Substitution gives gain coefficient a₁'(w_c)²/(4a₂(w_c)).",
+      "replay": "python3 /workspace/branches/frozen_review_replay.py 4; 60-digit Newton/root and coefficient evaluation gives w_c=1.47981574875514555665…, w_c²=2.18985465026375207810…, slope=3.46557133042744267845…, gain coefficient=0.41012797867876219949…. Inspected check_hybrid.py without executing it. The numerical evaluation is supplementary to the global product proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general restart identity and CV-based local response apply directly to the feedback-only completion distribution. The asymmetric-reset study also derives a general one-sided backward equation."
+        ],
+        "reasoning": "The renewal formula indeed implies the hybrid mean on plugging in the known transform, and its derivative implies the local cubic sign. The availability of an expression or a local criterion does not itself establish strict convexity or exclude lower distant minima.",
+        "searches": [
+          "Pal–Reuveni arXiv:1607.06048v3 Eq. (3), Eqs. (8)–(9)",
+          "general first passage under restart, weak restart criterion, asymmetric diffusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.10108v1",
+        "arXiv:2007.12417v2",
+        "arXiv:1607.06048v3",
+        "Resultary …356cc4233200, …2f98eb59a566 and …599c525eb34e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier monotone mean trend in Plata et al. varies the feedback rate r while blind resets are absent. Pal–Reuveni quantify the onset of speedup for weak restart; sign of the infinitesimal change alone is not global inhibition. The product curvature bound is the extra step in this record."
+        ],
+        "reasoning": "Known transform plus renewal makes the local analysis available, but the all-s curvature inequality and exclusion of a second global optimum do not mechanically follow from the prior local criterion. The near-critical laws follow from the global characterization and ordinary implicit differentiation.",
+        "searches": [
+          "arXiv:2409.10108v1, Laplace transform and mean",
+          "arXiv:2007.12417v2 §IV",
+          "arXiv:1607.06048v3, restart criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Tal-Friedman one-sided reset is the exact baseline. For Plata et al. Model I in the absorbing problem of §IV, the map Y=x_r−X, with x_r=L and X₀=x_r, sends their threshold/reset point to 0, the absorbing origin to L and the active half-line to Y<0. Eq. (12) has just rΘ(X−x_r), so this is exact one-clock overlap, not a different model merely because of coordinates."
+        ],
+        "reasoning": "The hybrid generator can also be written as a single state-dependent intensity ρ+r1_{Y<0}. The inspected prior one-clock models have zero intensity on the other half-line, so cannot cover a varying positive constant component by relabeling variables.",
+        "searches": [
+          "smart resetting, asymmetric resetting, two-rate Brownian search; arXiv:2409.10108v1",
+          "Plata–Gupta–Azaele arXiv:2007.12417v2 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest one-clock record …356cc4233200 derives a geometric return count and reset-depth law. Same-day …2f98eb59a566 is a 21-reset budget termination threshold; …599c525eb34e orders CV crossings versus reset distance. Neither computes the hybrid optimizing curve or its threshold."
+        ],
+        "reasoning": "Those exact records are not alternative tabulations of the claimed optimizer. They change the observable, the reset budget or the optimization variable; same-day dating does not establish priority.",
+        "searches": [
+          "Resultary searches on two-clock threshold and convexity, one-sided resetting, asymmetric resetting, and restart criteria"
+        ]
+      },
+      "rationale": "The single feedback clock and its first-passage baseline, as well as renewal under an extra independent exponential reset, are prior inputs. The exact hybrid mean and local slope are calculations from those inputs, not the grounds of the originality pass. The distinct result is global strict convexity in the blind rate, which upgrades the local criterion to an exact global dichotomy and a continuously vanishing unique optimizer.",
+      "residual_risks": [
+        "Bounded statement comparisons do not exclude an unindexed hybrid-model treatment or a stronger general theorem for special first-passage transforms. The OA portions of both papers reported unavailable in the frozen record were available for this review; no first-publication claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Baseline and transform are covered, not varying a blind rate",
+          "evidence": "Uses feedback on the unfavorable side and derives the one-clock survival transform and mean.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.10108v1",
+          "material_read": "PDF pp. 3–6, Eqs. (1)–(4) and mean first passage",
+          "method": "Lawful OA statement and model comparison",
+          "title": "Smart Resetting: An Energy-Efficient Strategy for Stochastic Search Processes",
+          "trigger": "Exact feedback-only model and transform"
+        },
+        {
+          "assessment": "Covers the pure diffusion feedback-only subcase, not a full constant-rate addition",
+          "evidence": "The reset term in (12) is rΘ(x−x_r)[τ(x_r)−τ(x)], and the target is absorbing at zero in §IV; Fig. 6 varies that same r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.12417",
+          "material_read": "Model I pp. 2–3 (offset 15800 onward), §IV absorbing backward equation (12) and Eqs. (13), Fig. 6 and conclusion pp. 4–5 (offsets 30400–36982)",
+          "method": "Lawful OA and coordinate reflection about x_r; separate reflecting and absorbing regimes",
+          "title": "Asymmetric Stochastic Resetting: Modeling Catastrophic Events",
+          "trigger": "Possible equivalent backward equation"
+        },
+        {
+          "assessment": "Covers renewal and local criterion, not global convexity in this process",
+          "evidence": "The weak Poisson restart response is determined by the baseline coefficient of variation; a restart identity alone does not classify the curvature.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.06048",
+          "material_read": "PDF p. 3 Eq. (3), pp. 4–5 Eqs. (8)–(9) and following discussion",
+          "method": "Lawful OA result and implication comparison",
+          "title": "First Passage Under Restart",
+          "trigger": "Broader restart identity and optimizing criteria"
+        },
+        {
+          "assessment": "The same feedback-only process, different statistics",
+          "evidence": "Computes the actual-return count and reset-depth law with only the feedback clock.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-reset-count-and-accumulated-distance-law-for-one-sided-bro--356cc4233200",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact reset count and accumulated distance law for one-sided Brownian resetting",
+          "trigger": "Closest same-process indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global result answers a natural question that a local speedup test leaves unresolved: whether a distant beneficial blind rate can persist after weak blind resetting ceases to help. Strict convexity rules that out. The exact transition and its linear rate and quadratic benefit scales describe optimization for the stated Brownian model, not arbitrary restart laws or resetting costs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

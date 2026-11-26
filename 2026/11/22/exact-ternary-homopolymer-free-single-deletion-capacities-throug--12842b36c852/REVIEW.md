@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The deletion channel and constrained source are explicitly defined, with no constraint imposed on received strings. Exhaustive maximum-clique branch-and-bound on the exact compatibility graph establishes the integer optima \((1,3,4,8,12,22)\) for lengths \(2\) through \(7\), and length \(1\) follows directly. The complete search uses valid greedy coloring upper bounds, not a time-limited answer; the length-seven traversal visits \(1,526,900\) recursion nodes. Independently formulated mixed-integer linear optimization confirms the integer values. Rational primal/dual weights, checked against every incidence entry in exact arithmetic, establish the fractional optima. Both construction and all output signatures are checked separately. Risk: finite algorithm correctness must be reproduced from the included code; no mathematical proof is claimed beyond the stated lengths.
+PASS
 
-## Originality
+Two deletion positions i<j give the same word iff the entire interval i…j is constant, impossible here. Disjoint shadows are exactly the decoding condition and must include descendants with adjacent repeats. The supplied color-prefix search is sound: independent color classes bound a clique on the remaining prefix, and each feasible extension has a largest processed vertex, so it is visited or excluded by the bound. Independently rebuilt the incidence and conflict masks from the definition, checked all supplied witnesses, and excluded a family of size M_n+1 by exact branching on a group of mutually conflicting words (one member or none); partitioning the remaining candidates into such groups gives a valid upper bound. This proved (1,1,3,4,8,12,22), with 1,837,807 nodes for the length-seven upper bound. For the ordinary packing LP, an independent rational replay checked every primal load and dual cover against the rebuilt incidence and verified equality of objectives (1,3/2,3,9/2,42/5,27/2,99/4). The empty word gives both optima at n=1. Lengths through six give fewer than 16 messages, while the length-seven witness suffices; its additive LP gap is 99/4−22=11/4. No assertion about later lengths or an asymptotic capacity is validated.
 
-**PASS, qualified.** Comparison was based on implications under the **same source language and channel**, not matching terminology. Kulkarni and Kiyavash's constrained-source result is a general fractional bound and a binary zero-run example, not an evaluated ternary maximum-run-one integer table. Nguyen et al. give quaternary DNA constructions with different objectives rather than these exact finite capacities. Benerjee and Banerjee study Hamming-distance homopolymer-free codes, where the receiver neither deletes nor loses symbol indices. Related two-read deletion reconstruction and known-position erasure results are weaker observational models and do not establish the one-read single-deletion optimum. Research-record queries returned no equivalent finite classification. Risk: mathematical-index coverage and historical unpublished enumerations are incomplete; absence of indexed hits is not uniqueness proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Four information bits require at least \(16\) distinct codewords. The exact values \(M_6=12\) and \(M_7=22\) prove the minimum feasible short-block length of seven under two naturally coupled channel and sequence restrictions. The nontrivial integrality gap \(P_7-M_7=11/4\) also quantifies the limitation of the usual fractional shadow-packing method and identifies a reproducible finite benchmark for constrained synchronization coding. This is a natural finite design cutoff, not an arbitrary parameter perturbation. Risk: its direct application is limited to the ternary maximum-run-one model, not DNA's usual four-letter alphabet.
+The exact finite integer and ordinary LP optima concern ternary input words of maximum run length one, with unconstrained deletion outputs and unknown position. Comparison finds the standard hypergraph and LP framework and multiple related exact capacities, but not a verified same-hypothesis theorem or a mechanical implication for these values. Credit is for the resolved finite optima and first 16-message length, not for either optimization formulation.
 
-## Scope and closely related literature
+## value
 
-The closest framework is the constrained-source deletion hypergraph in Kulkarni and Kiyavash, 2012, https://arxiv.org/abs/1211.3128 . Later related coding constructions are Nguyen et al., 2020, https://arxiv.org/abs/2001.02839 , and homopolymer-free Hamming theory is Benerjee and Banerjee, 2023, https://arxiv.org/abs/2305.10741 . These objects and claim implications are distinguished in RESULT.md. The proof depends on finite exhaustive computation with complete reproducible code, with no all-length extrapolation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source restriction, unknown-deletion channel and minimum block length for 16 codewords define a concrete finite coding question rather than an arbitrary cutoff. The constructed optimum and exact exclusion of larger codes give an actionable threshold, while the rational LP table shows specifically where the ordinary shadow relaxation ceases to certify the integer sizes. Those exact facts are not supplied by the broader matching model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

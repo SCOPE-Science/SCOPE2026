@@ -1,15 +1,21 @@
-# Review of the paired-block dispersal threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-season product is the square of the nonnegative two-by-two matrix \(K=J(M_s(m)D_+)^2\). Its exact trace and negative determinant give the normalized characteristic equation, and substituting the isolation benchmark factors as \(mH_{c,s}(m)\). For \(0<s<1\), the cubic \(H\) is strictly convex on \([0,1]\). Its limiting positive low-survival values and strict negativity near \(m=0\) at \(s=4/c\) force one onset. Strict Perron monotonicity in migrant survival excludes return to isolation dominance and ensures uniqueness of the onset. The threshold's two optimizers follow from the unique interior zero-minimum of \(H\). Exact rational and numerical checks were independently run from `verify.py`; finite checks do not substitute for the stated global argument.
+## correctness
 
-## Originality — PASS on inspected sources
-The closest mathematical records establish (i) endpoint optimality for two seasons under reversible dispersal, (ii) an endpoint switch for *annual* alternating high/low habitat profiles with mortality, (iii) existence of interior optima in a four-season cost-free model, and (iv) growth rankings when four profiles are reordered at a fixed migration fraction. These theorems do not imply the present all-fitness-contrast paired-block **mortality** threshold, the cubic double-root classification, or the local-versus-global paradox. Backus et al. (2024) simulate heterogeneous habitat dispersal, while Benaïm et al. (2024) analyze continuous-time conservative periodic migration and not this discrete-time loss mechanism. Direct relevant full results and HTML were inspected; published-finding corpus meaning searches additionally checked aliases. Residual risk: an earlier optimization of periodic positive-matrix products could cover the special case even without matching terminology. Failed search is not absolute novelty proof.
+PASS
 
-## Value — PASS
-The modeled contrast between long environmental blocks and annual alternation matters for conservation movement timing. A single explicit algebraic tangency separates complete isolation from mixed dispersal; the discontinuity shows why small-migration perturbations and local cost-benefit derivatives can select a globally inferior strategy. The theorem is a motivated structural benchmark for deterministic paired-habitat growth, not a trivial numerical optimum, and the double-root criterion can be evaluated from calibrated growth and migrant-survival ratios. It is not a direct field prescription.
+For each a>b>0, let u=1−m and v=sm. The habitat swap gives P=(J(MD₊)²)²; the trace of the inner matrix is (a+b)²uv and its determinant is −(ab)²(u²−v²)². Thus the isolation comparison is the sign of the characteristic polynomial at 1 after normalization, exactly mH. The endpoints are R(0)=1 and R(1)=s, including lossless full migration. For s below 1 the cubic is strictly convex, at s→0 it is uniformly positive, and at s=4/c it is negative at small positive m. For each interior m, increasing s strictly increases the positive square-block matrix and Perron root; this gives one open upper interval of strict migration benefit. The threshold is below 4/c, so both H endpoints are strictly positive and compactness forces an interior zero minimum. Strict convexity makes its position unique, and rules out any other interior tie or tangency in the specified ranges. Local positivity of H near m=0 persists for s in a neighborhood of s*, so all maximizers approaching from above stay away from 0 and converge to m* by compactness and uniqueness of the positive tie. R′(0)=(cs−4)/4 gives the claimed interval of local loss with global benefit; above threshold no endpoint can maximize. The submitted text does not claim uniqueness of the positive maximizing fraction for all larger s. Independent matrix and polynomial reconstruction and numerical root replay agree with the stated example.
 
-## Limitations
-Only two patches, four-season paired blocks, positive fixed growth factors, season-independent symmetric dispersal and a constant mortality penalty are covered. The theorem proves uniqueness of the threshold and its co-optimizing fraction, **not** uniqueness of the interior growth maximizer for all survivals above threshold. Demographic stochasticity and density dependence are excluded. Historical priority is provisional; independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected prior results cover endpoint switches with exactly alternating seasons and interior-optimum existence or fixed-order comparisons in costless four-season models. A distinct same-day record captures the qualitative abrupt-onset and local/global reversal phenomenon, but with another seasonal word, parameter and no mortality. None of these resolves the mortality-dependent paired-block tangency for every contrast.
+
+## value
+
+PASS
+
+The difference between a harmful marginal perturbation and a beneficial finite move changes the decision in a natural periodic population model. The survival dimension is physically meaningful even when the paired habitat schedule is idealized. The cubic contact yields an exact global cutoff and co-optimal fraction for every contrast, supplementing prior endpoint and costless analyses; a local derivative or a grid of optima would miss the sharp onset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

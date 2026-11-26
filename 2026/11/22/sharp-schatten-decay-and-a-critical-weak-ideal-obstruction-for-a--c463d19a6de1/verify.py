@@ -1,49 +1,37 @@
-#!/usr/bin/env python3
-"""Finite reproducibility diagnostics for Aluthge iterates of power-weighted shifts.
-Requires numpy and scipy. Finite checks do not prove asymptotics."""
-import math
-import numpy as np
-from scipy.stats import binom
-from scipy.special import zeta
+"""Finite diagnostics for two-term power-weight Aluthge asymptotics (Python 3)."""
+from math import comb, exp, expm1, fsum, log, log1p
 
-checks = 0
-for n in (3, 7, 17):
-    t = .37
-    probs = binom.pmf(np.arange(n+1), n, t)
-    assert abs(np.sum(probs)-1) < 1e-12
-    for alpha in (0.7, 1.4):
-        j = np.arange(1, 41)
-        a = np.exp(-alpha * (np.log(j[:,None]+np.arange(n+1)) @ probs))
-        assert np.all(np.diff(a)<0)
-        assert np.all(a <= j**(-alpha)*(1+1e-12))
-        checks += 3
-for alpha,p,t in ((1.5,2,.3),(.8,2,.7),(1,2,.5),(1.5,2,.9)):
+
+def corrections(alpha, p, t, n, J):
+    m, s = n*t, alpha*p
+    pmf = [comb(n,k)*t**k*(1-t)**(n-k) for k in range(n+1)]
+    assert abs(fsum(pmf)-1) < 2e-13
+
+    def mean_log(j):
+        return fsum(prob*log1p(k/j) for k,prob in enumerate(pmf)) + log(j)
+
+    initial = fsum(exp(-s*mean_log(j)) for j in range(1,J+1))
+    q = J+m
+    tail_lo = q**(1-s)/(s-1)-q**(-s)/2
+    trapezoid_error = s*q**(-s-1)/8
+    # If Y=X-m, Taylor's inequality from |log''(u)| <= j^-2 for u>=j
+    # bounds the log-mean defect by Var(X)/(2j^2). Jensen bounds it below by zero.
+    v = s*m*(1-t)/2
+    geometric_error = exp(v/(J+1)**2)*v*J**(-s-1)/(s+1)
+    leading = m**(1-s)/(s-1)
+    lo = (initial+tail_lo-leading)*m**s
+    hi = lo+(trapezoid_error+geometric_error)*m**s
+    op = m*expm1(-alpha*(mean_log(1)-log(m)))
+    return lo, hi, op
+
+
+for alpha,p,t in ((1.5,2,.3),(.8,2,.7),(1.,2,.5),(.25,5.,.8),(2.,.75,.6)):
     s = alpha*p
-    target = -(1+s*t)/(2*(1+s))
-    for n in (100, 250):
-        m=n*t
-        k = np.arange(n+1)
-        probs = binom.pmf(k,n,t)
-        J = np.arange(1, 2401)
-        exact = np.exp(-s * (np.log(J[:,None]+k) @ probs))
-        tail = zeta(s, 2401 + m)
-        # The tail geometric means differ from (j+m)^-s by O(n/(j+m)^2)
-        # and the resulting tail error is negligible at this precision.
-        estimate = np.sum(exact) + tail
-        observed = m**s*(estimate - m**(1-s)/(s-1))
-        assert abs(observed-target) < .017, (n,s,t,observed,target)
-        checks += 1
-        op_exact = np.exp(-alpha * (np.log(1+k) @ probs))
-        op_approx = m**(-alpha)*(1-alpha*(1+t)/(2*m))
-        assert abs(op_exact/op_approx-1)< .002
-        checks += 1
-for n in (2,7,25):
-    t=.4; alpha=1.25
-    k=np.arange(n+1); probs=binom.pmf(k,n,t)
-    j=np.array([1000.,10000.,100000.])
-    a=np.exp(-alpha*(np.log(j[:,None]+k)@probs))
-    critical=j**alpha*a
-    assert np.all(critical<=1+1e-10)
-    assert abs(critical[-1]-1)<1e-3
-    checks+=2
-print('VERIFY_OK',checks,'finite assertions')
+    expected_mass = -(1+s*t)/(2*(1+s))
+    expected_op = -alpha*(1+t)/2
+    for n in (160,360):
+        lo,hi,op = corrections(alpha,p,t,n,3000)
+        assert hi-lo < 0.002, (alpha,p,t,n,lo,hi)
+        assert max(abs(lo-expected_mass),abs(hi-expected_mass)) < 0.02, (alpha,p,t,n,lo,hi)
+        assert abs(op-expected_op) < 0.03, (alpha,p,t,n,op)
+print('PASS: two finite correction diagnostics at each of 10 parameter choices')

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:25:07.077111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen theorem is mathematically correct. Subtract x_star=−H^(−1) c_bar and work in the orthonormal Hessian eigenbasis, obtaining scalar dynamics r_j e−eta delta_(i,j). In an epoch the weights are 1,r_j,…,r_j^(n−1). The off-diagonal covariance is zero for IID and −s_j²/(n−1) for a random permutation by the zero-sum offsets; diagonal entries are s_j² in either case. This gives the two epoch variances as eta² s_j² Q_n and eta² s_j²(nQ_n−W_n²)/(n−1). With independent fresh epochs and zero-mean noise, sum the variances against S_(n,K) and add the same squared propagated initialization. The risk weights lambda_j/2 require no independence across eigenmodes. Subtracting reproduces the Finding; geometric sums factor Q_n−W_n² as 2(1−r^n)(r^n−r)/((1−r)^2(1+r)), with sign opposite to r throughout the stable range except at r=0. Opposite symmetric offsets supported in either signed eigenmode realize both mixed-spectrum signs for fixed H, eta, n and K. RR variance is bounded by n/(n−1) times IID variance since W_n²≥0, and summing with the shared nonnegative bias preserves the universal factor two even if the IID risk vanishes. The centered scalar n=2 ratio is (1−r)^2/(1+r²) and tends to two as r approaches −1 from above. Frozen check.py is a finite rational-path check and was inspected, not executed; the all-parameter result follows from the covariance proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published catalogue result proves both universal spectral implications as if-and-only-if statements and exhibits both signs in the mixed regime. Liu's theorem uses averaged output; Domingo-Enrich treats stationary rather than transient variances; Safran–Shamir give a fresh-RR exact finite-epoch recurrence for a balanced common-curvature coordinate within a different construction."
+        ],
+        "reasoning": "The generic rate or stationary papers are not the decisive broader result; the inspected exact terminal result already covers and strengthens the proposed classification.",
+        "searches": [
+          "4354fb22c6bf, finding and proof steps 3–4",
+          "arXiv:2606.32005 Theorem 1",
+          "arXiv:2206.00632 additive-noise model and stationary scope",
+          "arXiv:2106.06880 proof of Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Published SCOPE/Resultary 4354fb22c6bf and 402dad3ef2fc, mirrored statements",
+        "arXiv:2606.32005 Theorem 1",
+        "De Sa, NeurIPS 2020, pp. 1 and 7",
+        "arXiv:2206.00632 pp. 3–5",
+        "arXiv:2106.06880 pp. 1–2 and 15–16",
+        "Safran–Shamir COLT 2020, PDF pp. 4–5, offset 12626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior RR noise is v(nB_n−A_n²)/(n−1), prior IID noise is vB_n. Thus the ratio in each positive-variance mode is ≤n/(n−1)≤2; the nonnegative initial bias is shared by Eq. (4). Substituting n=2 and optimal initialization into those same equations gives ratio (1−q)^2/(1+q²), approaching 2 at q→−1, with the epoch factor cancelling for each K. De Sa's shared-minimizer noncommuting example is a different reversal mechanism."
+        ],
+        "reasoning": "The bound drops a square from an already displayed expression and the sharpness follows from the simplest permitted parameter substitution. Neither depends on a new lemma, phenomenon or extremizing construction outside the earlier theorem.",
+        "searches": [
+          "4354fb22c6bf, Eqs. (4)–(6), exact fresh-epoch moments",
+          "De Sa, Random Reshuffling Is Not Always Better, NeurIPS 2020, pp. 1 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Eq. (1) uses quadratic centers b_i. Expanding the square gives c_i=−Hb_i and arbitrary additive constants have no effect. H is invertible so the data parametrizations are equivalent. Its centered variance v_j becomes s_j²=lambda_j² v_j and (q,A_n,B_n,G_K) become (r,W_n,Q_n,S_(n,K))."
+        ],
+        "reasoning": "The exact formulas coincide term by term under a bijective reparametrization. Both compare fresh independent epoch permutations with uniform IID sampling after nK component evaluations at the same deterministic start and stable step.",
+        "searches": [
+          "Resultary/published SCOPE 4354fb22c6bf, common-Hessian terminal random reshuffling overshoot",
+          "Resultary/published SCOPE 402dad3ef2fc, two-component one-epoch variance reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored 4354fb22c6bf defines precisely the same invariant and displays the all-K exact risk difference and sign factorization, Eqs. (1)–(2). Mirrored 402dad3ef2fc covers n=2,d=1,K=1 and the same equal-curvature reversal boundary."
+        ],
+        "reasoning": "The earlier exact formula is stronger than a numerical table or finite path match; it covers all inputs. The second result corroborates independently covered special cases but is not needed for rejection.",
+        "searches": [
+          "Targeted Resultary local search: 2026/10/13 published records 4354fb22c6bf and 402dad3ef2fc"
+        ]
+      },
+      "rationale": "Demonstrated prior coverage, not an inference from a search hit or access failure. The published common-Hessian overshoot theorem 4354fb22c6bf gives the identical finite-epoch risk formula, same modewise threshold and stronger if-and-only-if spectral classification. The linear-offset and center versions coincide by c_i=−Hb_i up to arbitrary additive constants that cancel from the dynamics and objective gaps. The remaining factor-two observation, including sharpness, is a direct consequence of its displayed variances (4)–(6). There is no independent new remainder to repair.",
+      "residual_risks": [
+        "The Ying dissertation cited for finite-population covariance in the prior record could not be inspected through lawful OA (HTTP 403). This does not affect the proven mathematical overlap.",
+        "Other primary literature may precede the terminal comparison; the rejection does not rank independent priority beyond identifying demonstrated prior published coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage of the central formula and theorem; displayed variances also imply the sharp universal constant.",
+          "evidence": [
+            "Eq. (1) gives terminal RR–IID risk; Eq. (2) gives the exact sign factorization; the finding states the uniform-data phase classification.",
+            "Eqs. (4)–(6) are individual moments with the common bias and both noise variances needed for the factor bound and limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-overshoot-boundary-for-terminal-random-reshuffling-on-co--4354fb22c6bf/RESULT.md",
+          "material_read": "Mirrored RESULT.md snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, finding and proof steps 1–4, offsets 0–3666 and 4757–8379; overlap assessment also checked up to offset 9688.",
+          "method": "Configured local Resultary search and local mirror passages.",
+          "title": "A sharp overshoot boundary for terminal random reshuffling on common-Hessian quadratics",
+          "trigger": "Exact terminal-risk comparison in the same common-Hessian and stable-step setting."
+        },
+        {
+          "assessment": "Covered special case; not the decisive stronger comparison.",
+          "evidence": [
+            "One epoch with two components and arbitrary start has the same equal-curvature threshold eta lambda=1."
+          ],
+          "identifier_or_url": "402dad3ef2fc",
+          "material_read": "Mirrored RESULT.md finding, offset 0.",
+          "method": "Configured local Resultary search and mirror.",
+          "title": "A sharp one-epoch variance-reversal threshold for two-component random reshuffling",
+          "trigger": "Identical reversal mechanism in two-component scalar equal-curvature case."
+        },
+        {
+          "assessment": "Different output and comparison.",
+          "evidence": [
+            "Defines an average over nK within-epoch iterates and bounds that output's rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.32005",
+          "material_read": "Theorem 1, PDF p. 5, offset 17576.",
+          "method": "Lawful OA arXiv PDF passage.",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Apparent dominance in the opposite direction."
+        },
+        {
+          "assessment": "Different mechanism: varying Hessians and shared component minimizer in the inspected example.",
+          "evidence": [
+            "In the inspected formulation every component gradient vanishes at the shared minimizer; the nontrivial case excludes a common Hessian eigenpair."
+          ],
+          "identifier_or_url": "C. De Sa, NeurIPS 2020",
+          "material_read": "Abstract and problem definition, PDF pp. 1 and 7, offsets 135 and 33721.",
+          "method": "Lawful OA PDF passages.",
+          "title": "Random Reshuffling Is Not Always Better",
+          "trigger": "Prior stable examples where IID outperforms RR."
+        },
+        {
+          "assessment": "Relevant stationary limit, not a finite terminal calculation in inspected material.",
+          "evidence": [
+            "Examines stationary variances of IID, RR and shuffle-once and explicitly does not model transient time; equal Hessians make the additive-noise reduction exact."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.00632",
+          "material_read": "PDF pp. 3–5, contributions and model, offsets 9417, 14328 and 18772.",
+          "method": "Lawful OA arXiv PDF passages.",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Additive-noise variance comparison under shuffling."
+        },
+        {
+          "assessment": "Exact balanced single-mode special-case implication, not the general result in those passages.",
+          "evidence": [
+            "The fresh-RR proof includes a common-curvature coordinate with balanced offsets and an exact variance recurrence; another coordinate has component-dependent curvature."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+          "material_read": "PDF pp. 1–2 and 15–16, distinction between sampling schemes and proof of Theorem 2, offsets 4487, 55948 and 61105.",
+          "method": "Lawful OA arXiv PDF passages.",
+          "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+          "trigger": "Exact finite fresh-epoch recurrences for quadratic examples."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact common-Hessian reversal is a meaningful question, but its answer and finite-epoch spectral classification are already supplied by the earlier specific theorem. As an incremental mathematical contribution the factor bound subtracts a nonnegative square from its variance formula, and the sharpness is the direct n=2 endpoint limit of that formula. This is a useful restatement for exposition, not a surviving substantive mathematical gap or independently valuable new finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

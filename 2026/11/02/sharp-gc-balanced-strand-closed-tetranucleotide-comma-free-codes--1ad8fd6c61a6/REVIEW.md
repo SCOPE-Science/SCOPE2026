@@ -1,15 +1,21 @@
-# Scientific review of a finite tetranucleotide synchronization tradeoff
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed exact optimum is a finite theorem with a complete computational proof. The orbit reduction from 96 GC-balanced words to 52 reverse-complement orbits is exhaustive. Forbidden supports on at most three orbits exactly encode comma-freeness and framed Hamming distance. The exhaustive branch recurrence uses only an explicitly justified upper bound from pairwise-incompatible color classes; it loses no permissible codebooks. The executable certificate reconstructs the full inventory and direct-checks all 224 maximal codebooks, including the asserted complement-preserving symmetry actions. The verifier produced `VERIFY_OK` after a complete fresh execution. This verifies the claimed length-four theorem, not any asymptotic property.
+## correctness
 
-## Originality — PASS (qualified)
-Golomb–Gordon–Welch (1958) and Jiggs (1963) study unrestricted comma-free codes without the simultaneous nucleotide constraints. King (2003, arXiv:math/0306197) studies constant-GC Hamming codes and reverse-complement *separation*, which forbids positive-distance RC-closed nonempty codes, and does not impose comma-freeness. Prior near-neighbor results on reverse-complement-closed non-overlapping codes use a strictly stronger grammar and cannot bound the comma-free family, whose distance-one code attains 21 words. Previous binary comma-free and four-nucleotide deletion-correcting results are distinct. Targeted literature and research-record searches did not reveal a stronger covering theorem or exact table for these three combined constraints. Unindexed historical sources remain a genuine residual priority risk, and no independent historical certification is asserted.
+PASS
 
-## Value — PASS
-For a natural DNA-style framed codebook constrained simultaneously by GC balance, strand symmetry and self-synchronization, the exact capacity loss from no distance restriction (21) to single-substitution detection (17) and correction (7) is meaningful. The complete maximizer census (136/16/72) and symmetry orbits (17/2/9), rather than a single convenient construction, characterize every solution at these three canonical thresholds. This is a self-contained finite classification, not a claim about biochemical behavior, desynchronization after substitution, or longer block lengths.
+The balanced universe has choose(4,2)·2⁴=96 words; a fixed reverse complement is determined by its first two letters, exactly one of which is from the GC pair, giving eight fixed words and 52 orbits. Closure is exactly taking unions of these orbits. Forbidden orbit supports encode every off-frame substring of two concatenated words, including repeated words/orbits, and every distinct pair below the distance cut. I independently regenerated the constraints from the word definitions and ran an exact binary include/exclude search without a prescribed target size. At inclusion it removes conflict pairs and completions of forbidden triples with a previously selected vertex. Its bound partitions remaining vertices into cliques of pairwise conflict, summing maximal clique weights; it discards only branches strictly below the current best, preserving all ties. It recovered maximum sizes 21,17,7; labeled counts 136,16,72; fixed counts 3,1,1 in every maximizer; and 17,2,9 symmetry classes, each of size eight. Distance-ordered forbidden-support totals were 4668,4732,5174 and independent search visits were 5565,2717,673. Every complete maximizing inventory matches the frozen JSON word for word. Complement-commuting letter permutations exchange/flip the two complementary pairs; exchanging them preserves exact half composition, and the whole action preserves Hamming and comma constraints. In known frames, a single substitution is detectable at distance two and correctable at distance three by disjoint radius-one balls; no corrupted-frame synchronization follows.
 
-## Limitations and validation status
-The conclusions apply exactly to four-nucleotide, two-GC, Watson–Crick-closed, comma-free codes, with Hamming distance on correctly framed blocks. The finite verifier is supplied for replay; no independent external scientific audit or proof of historical priority has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected prior sources establish unrestricted comma-free variants, constant-GC packing with reverse-complement separation, or proper-overlap/closed Hamming variants. None inspected gives or mechanically implies the three-way exact constrained maximum or classification. This is a bounded literature judgment, not a priority certification.
+
+## value
+
+PASS
+
+A balanced uncorrupted quaternary frame presents a natural smallest case to ask about both strand closure and compatibility with substitutions. The complete exact frontier quantifies the cardinality cost of known-frame single-error detection and correction under the same synchronization rule. Counting every optimizer and checking the symmetry stabilizers make the result more than a single feasible construction or an arbitrary numerical sample and supply a reusable benchmark for other finite code constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

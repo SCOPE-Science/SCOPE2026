@@ -1,15 +1,21 @@
-# Review: A single anchor repairs every real Rademacher phase-retrieval ambiguity
+# Independent mathematical audit
 
-## Correctness
-PASS. Equation (4) is the exact Walsh expansion of the product of the sum/difference signals. Walsh orthogonality forces one constant and all degree-two coefficients to vanish. The support argument uses both the off-diagonal constraints and the zero dot product, leaving exactly a two-coordinate family and no unclassified nontrivial fibers. Identity (6), the quotient distance, and the coordinate witnesses reproduce equation (3) with no missing factor. The proof covers all real dimensions \(d\ge2\); exact finite complement tests are supplementary.
+## correctness
 
-## Originality
-PASS subject to normal priority risk. The initiating July 2026 paper establishes the Rademacher problem, not a repair with one auxiliary row. The subgaussian phase-retrieval paper similarly notes its noninjectivity and establishes different restricted-signal recovery results. The standard complement-property theorem is a general equivalence, not the explicit Boolean-frame ambiguity classification or exact margin. Cahill–Casazza–Jasper–Woodland Theorems 4.1–4.2 already establish generic minimal-count completion of arbitrary real frames and therefore cover the existence of a generic one-vector repair once a one-dimensional partition deficit is proved. Novelty is **not** claimed for this generic existence corollary but for all specific successful anchors, the complete collision geometry and the exact attained restricted margin. Closest published examples of flat-sign full spark in dimension five and planar Mercedes stability address different operators/invariants. Search for the same completion criterion, equivalent Walsh quadratic zero-pairs, stronger frame-completion results, and exact database entries found no covering implication. Unindexed results under another terminology may exist.
+PASS
 
-## Mathematical value
-PASS. The sign frame is a natural extremal measurement system, and even the full exponential family cannot distinguish coordinate basis directions. Classifying **all** its failures identifies a finite-dimensional repair that works for every signal, not merely generic or restricted signals. The sharp fiberwise constant quantifies exactly how the repair loses separation as two anchor-coordinate magnitudes coalesce; equality is attained by the motivating basis-vector obstruction. It is a self-contained structural and quantitative result, not an arbitrary small-dimensional census or a numerical recomputation.
+Squaring and subtracting gives the Walsh polynomial (4); its constant and distinct degree-two coefficients give exactly (5), in both directions. For two nonzero half-sums u,v a nonzero coordinate in just one support would give a nonzero off-diagonal coefficient by pairing it with the support of the other vector. On the common support the ratios v_i/u_i are nonzero and pairwise opposite, so there are at most two indices; orthogonality excludes just one. The two ratios being opposite and u·v=0 give equal absolute coordinates in u and then the stated symmetric/antisymmetric form for u and v. For a fixed pair, equality under the anchor is equivalent to annihilating either half-sum, i.e. a_i=±a_j; a tied pair is independently witnessed by e_i,e_j, and unequal absolute coordinates can be chosen for every d. The absolute difference of |p+q| and |p−q| in magnitude is 2 min(|p|,|q|); applied to the anchor it gives the lower bound 1/sqrt(2) times the minimum absolute-coordinate gap (divide by 2 sqrt(2) min(|alpha|,|beta|)). Coordinate vectors attain it, including when the gap vanishes. The separate compactness argument for positive global stability is sound: scaling both half-sums to unit length bounds the squared quotient from below, and a zero on the product of spheres would give a nontrivial collision. 'One additional non-flat measurement' means an appropriately chosen row satisfying (2), not every non-flat row; the precise iff statement already specifies this.
 
-## Scope and residual risk
-Primary classification 46B15 concerns functional-analytic aspects of real Hilbert-space frames. Only real, complete sign frames are treated. The auxiliary fiberwise margin must not be read as the exact global stability constant. Independent examination of publication priority is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Rademacher obstruction and existence of generic minimal frame completion are prior. The supported distinct part is a complete description of collision directions for this frame, the criterion for every fixed anchor, and the attained sharp separation on exactly the old collision set. Structural analogues in cyclic Gabor phase retrieval do not establish coverage. No historical priority certification follows from this comparison.
+
+## value
+
+PASS
+
+The all-signal obstruction of the natural maximal flat real frame is known, but describing precisely how it fails identifies every offending direction and provides an exact deterministic design condition for the cheapest completion. The restricted margin gives a calibration quantity for just the formerly indistinguishable signals, with attained witnesses, while distinguishing it from full-map conditioning. This is a usable structural and quantitative result beyond a generic existence theorem or an isolated collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

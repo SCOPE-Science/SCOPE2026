@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:25.842687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Hermitian part of A is −(aP₁+bP_N)/2. A nondecaying eigenvector would have zero endpoint amplitudes, and the nonzero hopping in the path recursion forces it to vanish. The integrated endpoint effects are therefore positive, sum to I by differentiating the survival norm, and are the unique solutions of the adjoint Lyapunov equations. For the proposed E_L, the diagonal equations are ad₁+2Jc=a and bd_N=2Jc. For N≥3 the first and last bond equations are J(d−d₁)+ac/2=0 and J(d_N−d)+bc/2=0. For N=2 they merge into J(d_N−d₁)+(a+b)c/2=0. In the interior the diagonal is constant and the potential two-step entries cancel because the bond entries are constant. Substituting the displayed coefficients satisfies all equations; the upper-bond sign is −ic for A=−iH−(aP₁+bP_N)/2. The trace formula applies to arbitrary density matrices, but interior-site flatness only to site starts and their diagonal mixtures. For each fixed b>0 and an interior start, differentiating the reported rational probability yields the sign of 4J²−a², giving a unique optimum a=2J and the stated probability and zero end limits. Setting a=b yields 1/2. Inspected RESULT.md, VERIFICATION.md, artifacts/verify.py and artifacts/requirements.txt; the reported finite matrix and rational checks were not executed or used as proof of length-uniform claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Žnidarič gives the exact many-body NESS for arbitrary Γ_L, Γ_R and bath magnetizations, with the full/empty case a specialization. Arbitrary initial path density matrices require only this one covariance, not an identification of the many-body and absorbing dynamics.",
+          "The comparison papers on repeated projective measurements and a single sink on a semi-infinite chain do not give this two-sink specialization. Prosen's general covariance theory explains the duality framework but the inspected equal-coupling example alone would not decide originality."
+        ],
+        "reasoning": "The stronger solved NESS includes both unequal rates and all finite path lengths. The uncovered-looking change of observable becomes a transpose of an already determined covariance. Other monitoring models need not share this covariance even when some scalar limits coincide.",
+        "searches": [
+          "Žnidarič arXiv:1006.5368 Eqs. (4)–(5), (8), (13), and §3",
+          "Prosen's third quantization arXiv:0801.1257 versus equal-coupling XXZ arXiv:1106.2978v2",
+          "Singh–Kessler–Barkai arXiv:2601.16111v2, protocol; Riberi arXiv:2605.08056v4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts verifier package",
+        "arXiv:1006.5368, 0801.1257, 1106.2978v2, 2601.16111v2 and 2605.08056v4",
+        "Resultary 254467010772 and 64802ff320ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set ℓ=Γ_L, r=Γ_R, Δ=(ℓ+r)(1+ℓr) and μ=−2 with mean zero in Eq. (13). The spin magnetizations converted by (1+⟨σᶻ⟩)/2 give d₁=1−r/Δ, d=ℓ(1+r²)/Δ, and d_N=ℓ/Δ. Section 3 gives ⟨σ_jˣσ_{j+1}ʸ⟩=−t, ⟨σ_jʸσ_{j+1}ˣ⟩=t and zero same-axis bond components, with t=−2ℓr/Δ, hence Im C_{j,j+1}=−t/2=ℓr/Δ.",
+          "For separated fermion sites the Jordan–Wigner bilinear has x/y endpoints and at least one intervening σᶻ. In the exact MPO, ⟨1|A^{x/y} lies on auxiliary indices 3,4, and the corresponding rows of A^z in Eq. (8) vanish. This directly gives C_{jk}=0 for |j−k|≥2."
+        ],
+        "reasoning": "Cᵀ is exactly the frozen effect, with the N=2 diagonal reading as the two endpoint coefficients. In these units, d is ℓ(1+r²)/[(ℓ+r)(1+ℓr)]; its derivative at fixed r has sign 1−ℓ², the same as the known current factor since d/c=(1+r²)/r. Evaluating at ℓ=1 gives (1+r²)/(1+r)², exactly the stated optimum under a=2Jℓ, b=2Jr. This derives every advertised feature from the existing solution and ordinary scalar calculus.",
+        "searches": [
+          "arXiv:1006.5368 Eq. (13), PDF p. 6, offsets 21500–27097; Eq. (8), p. 4, offsets 11700–15983; §3 current formula, p. 7, offsets 29290–33089"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The XX Hamiltonian in Eq. (1) has one-particle hopping 2. The dissipator in Eq. (3) has a factor of two relative to the conventional single-jump form. At μ=−2 and mean magnetization zero, Eqs. (4)–(5) give full occupation injection on the left and empty occupation extraction on the right. Thus a=4Γ_L and b=4Γ_R at J=2 (generally a=2JΓ_L and b=2JΓ_R after rescaling time)."
+        ],
+        "reasoning": "With C_{jk}=⟨c_k†c_j⟩ under Jordan–Wigner, the covariance equation for the full/empty reservoirs is A C+C A†=−aP₁. The right spin jump differs from the fermion jump by parity, which cancels on even observables such as the bilinears in C. Since A is symmetric, transposition gives A†Cᵀ+CᵀA=−aP₁, so E_L=Cᵀ by stability. Equivalently the same boundary limit can be taken continuously from interior bath occupations.",
+        "searches": [
+          "Boundary-driven dephasing-free XX chain, unequal endpoint rates and exact NESS; Žnidarič arXiv:1006.5368 Eqs. (1)–(5), (8), (13) and §3",
+          "Prosen arXiv:0801.1257; arXiv:1106.2978v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 254467010772 is an equal-rate total survival-time kernel and optimizes mean time; 64802ff320ee is infinite-line band-centre scattering at fixed loss budget. Neither supplies the finite unequal-rate branching probabilities. The decisive match is a closed parametric formula, not a finite table."
+        ],
+        "reasoning": "Even an equal numerical optimizer 2J in a different problem is not evidence of equivalence. In contrast the coefficients in Eq. (13) cover the entire parameter domain after changing units; no numerical table is needed to support that equality.",
+        "searches": [
+          "Local Resultary: coherent end sinks, splitting, and absorption kernel; records 254467010772 and 64802ff320ee",
+          "Žnidarič Eq. (13) exact all-parameter coefficients"
+        ]
+      },
+      "rationale": "The exact unequal-rate XX-chain solution of Žnidarič (arXiv:1006.5368) already determines the same full matrix by transpose Lyapunov duality, including all complex bond entries and zero further entries. Its printed magnetization and current formulas give the site-resolved splitting and reduce the rate optimization to differentiation of the known current factor. This is stronger evidence than shared use of a Lyapunov method or a comparison with projective monitoring. The two physical protocols differ, but the mathematical correspondence is exact.",
+      "residual_risks": [
+        "No historical claim about who first stated the absorption protocol or impedance-matching wording. The failure is based on the older explicit unequal-rate NESS coefficients and exact observable mapping, not on an unverified overlap or incomplete search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known stronger exact solution; Jordan–Wigner two-point specialization and transpose exactly give the frozen effect at arbitrary unequal rates",
+          "evidence": [
+            "Eq. (13) states the bulk magnetization, both endpoint corrections and t=μΓ_LΓ_R/[(1+Γ_LΓ_R)(Γ_L+Γ_R)]. Eq. (8) kills long Jordan–Wigner strings as above; §3 gives the exact neighboring cross-spin expectations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1006.5368",
+          "material_read": "PDF pp. 2–3, Eqs. (1)–(5), offsets 6700–11012; Eq. (8), p. 4, offsets 11700–15983; Eq. (13), p. 6, offsets 21500–27097; §3 spin current, p. 7, offsets 29290–33089",
+          "method": "OA PDF literal locate of arbitrary reservoir coupling, then original passage inspection by offset",
+          "title": "A matrix product solution for a nonequilibrium steady state of an XX chain",
+          "trigger": "Strongest alternative formulation: unequal-rate exact boundary-driven XX covariance and current"
+        },
+        {
+          "assessment": "General linear-bath covariance framework, not the decisive printed unequal-rate formula",
+          "evidence": [
+            "Quadratic fermionic Lindblad dynamics with linear bath operators permit computation of NESS observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0801.1257",
+          "material_read": "Abstract and introductory setup, pp. 1–2, offsets 3177–3560",
+          "method": "OA PDF passage inspection",
+          "title": "Third quantization: a general method to solve master equations for quadratic open Fermi systems",
+          "trigger": "Quadratic fermionic Lindblad covariance and steady-current equivalence"
+        },
+        {
+          "assessment": "Relevant Δ=0 specialization uses equal boundary coupling in the inspected setup",
+          "evidence": [
+            "Strong boundary driving is parameterized by a common ε."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.2978v2",
+          "material_read": "PDF pp. 1–2, offsets 700, 7600–10303",
+          "method": "OA PDF passage inspection",
+          "title": "Exact Nonequilibrium Steady State of a Strongly Driven Open XXZ Chain",
+          "trigger": "Related exact strongly driven spin-chain NESS"
+        },
+        {
+          "assessment": "Repeated projective measurements; different dynamics",
+          "evidence": [
+            "The one-half regime is a large-system result with a sampling-time condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.16111v2",
+          "material_read": "Abstract and protocol, offsets 721–1242 and 7550–10349",
+          "method": "OA HTML passage inspection",
+          "title": "Transition in Splitting Probabilities of Quantum Walks",
+          "trigger": "Close observable in finite coherent path"
+        },
+        {
+          "assessment": "One boundary sink on a semi-infinite line, not a two-sink branching solution",
+          "evidence": [
+            "The non-Hermitian boundary modes arise in the single-sink model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08056v4",
+          "material_read": "PDF pp. 1, 3–4, offsets 0 and 6400",
+          "method": "OA PDF passage inspection",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Continuous localized Lindblad absorber comparison"
+        },
+        {
+          "assessment": "Equal-rate total survival-time kernel, not unequal-rate channel effect",
+          "evidence": [
+            "The rate optimizer concerns mean absorption time, and the result does not classify unequal absorber rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-boundary-absorption-time-kernel-for-coherent-quantum-p--254467010772/RESULT.md",
+          "material_read": "Finding, scope and distinction between mean-time and splitting objectives",
+          "method": "Local Resultary search and mirror statement inspection",
+          "title": "Exact two-boundary absorption-time kernel for coherent quantum paths",
+          "trigger": "Closest Resultary match by dynamics and geometry"
+        },
+        {
+          "assessment": "Different infinite-line scattering model and fixed-budget objective",
+          "evidence": [
+            "Band-centre scattering with two imaginary defects, rather than terminal Lindblad jumps on a finite path."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-parity-dichotomy-and-uniquely-optimal-loss-allocation-for--64802ff320ee/RESULT.md",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary search and mirror statement inspection",
+          "title": "Exact parity dichotomy and uniquely optimal loss allocation for two absorbing lattice sites",
+          "trigger": "Secondary Resultary hit for two coherent absorbers and loss optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The competing absorption observable is physically motivated, but its proposed full effect, flat interior, and sharp rate optimum are a transpose and elementary optimization of an already solved covariance. No additional nonroutine observable or mathematical consequence survives as a separate repairable claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

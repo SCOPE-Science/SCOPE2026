@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:07:46.405486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary cubics span all evaluations on the three rational P^1 points, so the tensor evaluation is onto dimension nine and the all-ones fiber has 128 masks. In independent replay (python3 /workspace/checks/check124.py, record 2), all 128 masks were first partitioned by direct action of all 72 ambient transformations, rather than generator closure on a prefiltered set. A four-chart Jacobian ideal check in grevlex over F2 on each orbit representative determined geometric smoothness; by the Nullstellensatz a proper ideal on any chart gives a geometric singularity. The accepted union matched every one of the 84 frozen masks; sizes and stabilizers were b0bd: 24 and 3, b0db: 24 and 3, b1cb: 36 and 2. Independent finite-field arithmetic, using alternate defining polynomials in degrees three and four, gave exactly (0,2,18,18), (0,0,18,12), (0,2,21,26). A smooth ample (3,3) divisor is geometrically connected. Adjunction gives its canonical bundle O(1,1)|C; the four ambient Segre sections form the full canonical linear system, and the containing quadric is unique because H^0(Q,O(-1,-1))=0. Thus the ambient orbits are abstract F2-isomorphism classes and the stabilizers are the F2-rational automorphism groups, not claims about automorphism group sizes over the algebraic closure. The bounded C singularity search is not required for this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xarles enumerates and tests every canonical quadric type, deduplicates using each quadric's stabilizer, and obtains 1044 classes with 40 pointless, including 31 in the nonhyperelliptic/trigonal row. The printed table does not give the split-only subtotal.",
+          "Earlier Resultary 6b3c6b41e8c6 and a37275c098ff also enumerate the full smooth split-quadric domain (16020 equations, 252 classes), with different stratifying invariants. Howe–Lauter–Top prove existence, not this census."
+        ],
+        "reasoning": "The whole-field prior census retains both the canonical quadric and point-count information, which is the stronger result relevant here. Existence alone or an aggregate stratification by another invariant would not establish the zero-point subset.",
+        "searches": [
+          "arXiv:2007.07822 §2, Theorem 10 and Table 1",
+          "Resultary 6b3c6b41e8c6 and a37275c098ff, Findings",
+          "arXiv:math/0403178 abstract and genus-four discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.07822 and author's linked README and rendered ListCurvesGenus4p2.txt",
+        "arXiv:2005.07054",
+        "arXiv:math/0403178",
+        "Resultary 6b3c6b41e8c6, a37275c098ff, 915e888979b7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xarles's steps 1–5 explicitly form fixed-quadric orbits of cubic sections modulo multiples of the quadric, and steps 6–8 smoothness-test and record each representative and its four point counts. In split coordinates these are the same orbits being counted here.",
+          "The native section labels are a coordinate conversion, and sizes 24, 24, 36 and corresponding rational stabilizers can be counted by the 72 substitutions on the resulting three models; summing yields the number of sections. The later Resultary 915e888979b7 set with both first and second counts zero is different and is not the basis for rejection."
+        ],
+        "reasoning": "There is no need for a new census of all 128 masks to extract the classes from prior data. The additional normalizations and elementary orbit weights do not yield a separately distinct classification. No claim is made that the literal mask labels and weights appeared verbatim in Xarles's table.",
+        "searches": [
+          "Xarles arXiv:2007.07822 §2 enumeration steps 1–8 and §3 data description; census README",
+          "Resultary 6b3c6b41e8c6 and later 915e888979b7 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faber–Grantham identify the two-pencil case with a smooth (3,3) divisor on the split canonical quadric. Xarles's split canonical quadric is xy+zt; the Segre identification gives precisely the frozen locus.",
+          "Restriction of cubic forms on P^3 to the split quadric has kernel the quadric times linear forms and is onto the sixteen (3,3) coefficients. Thus Xarles's quotient by cubic multiples and subsequent quadric-group orbits describe the same embedded isomorphism problem."
+        ],
+        "reasoning": "The change to binary bihomogeneous masks changes neither the class condition nor the logical content of classifying those extensions of a cubic modulo the quadric ideal. The nonsplit, cone and hyperelliptic cases are not included in the selection.",
+        "searches": [
+          "arXiv:2005.07054 Lemma 5.1, split quadric, two trigonal pencils and (3,3)",
+          "arXiv:2007.07822 §2 Lemma 9, split canonical quadric over F2",
+          "Resultary: pointless genus-four curves split quadric / bi-trigonal over F2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The README expressly describes N as the four point counts and C[i][j] as the quadric/cubic pair of a canonical curve with point counts N[i]. Thus the published index includes both exact selection keys and the models, not merely counts distributed by an unrelated invariant.",
+          "The rendered file at commit 60df54a7e07d7ee854a925d5cb971e75455314f2 lists all three target point-count vectors in N near offsets 4800–5025. The rendered slice did not show the later equation rows, so no independent line-by-line mask cross-match or uniqueness assertion about those vectors in the full genus-four census is made."
+        ],
+        "reasoning": "The data format and proof establish recoverability by filtering the indexed canonical records for rational-point count zero and quadric xy+zt. The matching numerical vectors alone would not prove that correspondence; the documented completeness and the recorded quadric key do.",
+        "searches": [
+          "Xarles Censusforgenus4curvesoverF2 README; ListCurvesGenus4p2.txt",
+          "Resultary: exact pointless split-quadric 84 section orbits 24 24 36 and fingerprints"
+        ]
+      },
+      "rationale": "Xarles's prior exhaustive genus-four census and its documented equation and point-count tables cover the main classification. The condition is a direct selection by the recorded split quadric and N[1]=0, not a new orbit classification or an application of an existence theorem. The displayed section masks use different coordinates, and the exact fixed-coordinate orbit weights are not stated in the passages inspected; once the prior classes are known, those weights are the sizes of their finite ambient orbits in the Segre coordinates. This is demonstrated broader database coverage rather than a verdict based on possible inaccessible overlap.",
+      "residual_risks": [
+        "Exact mask-by-mask conversion from the published cubics and a source statement of the stabilizer orders were not checked. The originality decision concerns the verified coverage by the original complete equation census and its point-count index, not priority of literal hexadecimal masks or orbit-size typography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of all relevant isomorphism classes",
+          "evidence": [
+            "One representative for each accepted canonical quadric orbit; four point counts recorded; split quadric xy+zt."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.07822",
+          "material_read": "§2 Lemma 9 pp. 6–7 at offset 17850; orbit and smoothness procedure at offset 19578; §3 Theorem 10 and Table 1 pp. 7–8 at offset 21400",
+          "method": "Bounded primary PDF, statement and data-structure comparison",
+          "title": "A Census of All Genus 4 Curves over the Field with 2 Elements",
+          "trigger": "Potentially dominating exact census in the same genus and field"
+        },
+        {
+          "assessment": "Prior data encode the split/pointless filter and all target fingerprints; individual canonical cubic rows not independently cross-matched",
+          "evidence": [
+            "C[i][j] stores quadric and cubic; N[i] stores the four point counts; all three target vectors are present in N."
+          ],
+          "identifier_or_url": "https://github.com/XavierXarles/Censusforgenus4curvesoverF2",
+          "material_read": "README describing N, H and C; rendered data blob at commit 60df54a7e07d7ee854a925d5cb971e75455314f2 near offsets 4800–5410; later rows not inspected",
+          "method": "Bounded public web display and data-schema comparison",
+          "title": "Censusforgenus4curvesoverF2: README and ListCurvesGenus4p2.txt",
+          "trigger": "Published exact equations and count data linked from the primary article"
+        },
+        {
+          "assessment": "Identifies the locus; extremal result, not the zero-point census",
+          "evidence": [
+            "The split case is a smooth (3,3) curve with two pencils."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.07054",
+          "material_read": "Lemma 5.1 pp. 7–8 near offsets 20550–21782; Theorem 5.2 near offset 25816",
+          "method": "Bounded primary PDF comparison",
+          "title": "Binary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "Intrinsic geometric equivalence and possible prior zero-point census"
+        },
+        {
+          "assessment": "Existence, not full split census in inspected material",
+          "evidence": [
+            "Existence in genus four for q≤49."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0403178",
+          "material_read": "Abstract and pp. 8–12",
+          "method": "Bounded primary PDF comparison",
+          "title": "Pointless Curves of Genus Three and Four",
+          "trigger": "Earlier pointless genus-four work"
+        },
+        {
+          "assessment": "Strong domain overlap for the prior records; different zero-point condition for the later record",
+          "evidence": [
+            "First two count 16020 smooth sections in 252 classes by other statistics. The later three-class set requires zero F4 points, unlike two of the frozen classes."
+          ],
+          "identifier_or_url": "Resultary 6b3c6b41e8c6; a37275c098ff; 915e888979b7",
+          "material_read": "Prior split-locus findings beginning at offset 0; later record offsets 3737–4045",
+          "method": "Compare exact loci and statistics in mirrored text",
+          "title": "Paired total-ramification spectra; Cartier and 2-rank strata; Complete genus-four gonality–Weil incidence spectrum",
+          "trigger": "Earlier larger split-locus censuses and a possible exact pointless subcensus"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The split bi-trigonal locus and absence of rational points are natural questions. Here the classes and extension fingerprints are a mechanical extraction from a published complete database of the same objects with the necessary fields. The added fixed-coordinate counts are small finite group actions on the extracted equations, without a separate unresolved structural or arithmetic question for which those particular counts are needed. The replay is a useful cross-check, not a distinct valuable result at the stated scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

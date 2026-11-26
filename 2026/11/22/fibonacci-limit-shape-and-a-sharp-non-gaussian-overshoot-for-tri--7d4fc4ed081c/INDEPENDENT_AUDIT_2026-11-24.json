@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:56.295109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86",
+        "Frozen VERIFICATION.md and check.py (inspected only)",
+        "review_evidence/4-constants.py and review_evidence/4-constants.txt; replay with python3 /workspace/review_evidence/4-constants.py"
+      ],
+      "rationale": "For each possible largest index i in a triple, the maximal sum of two smaller lengths is Y_{i−1}+Y_{i−2}. The no-triangle condition therefore gives exactly the nonnegative slack orthant (ties are null), and the triangular map has Jacobian one. Inverting by the Fibonacci recurrence and summing gives the column weights G_r. After conditioning, rescaling and reversing indices gives a common exponential coupling: the numerator for rank j is weighted by 0 for r≤j and F_{r−j}/G_r otherwise, and the denominator is the sum of the first n exponentials. Subtract c_j inside the numerator. Binet gives summable deviations O_j(φ^{−r}); Tonelli gives absolute almost sure and L1 convergence of the series and the strong law gives the common denominator/n→1. This proves joint fixed-rank convergence and the conditional deterministic shape. For j=0, φ²F_r−F_{r+2}=−(−1/φ)^r gives the positive coefficients, b_1=1/φ is the unique largest, and F_r/G_r≤1/2 for r≥2 by the Fibonacci recurrence. Splitting off the first exponential leaves a remainder with a strictly stronger exponential moment. The exact identity 1−φb_r=φ(G_r−F_r)/G_r=φG_{r−1}/G_r gives the telescoping prefactor G_N/φ^{N−1}→φ³/√5. Conditioning on the remainder gives that prefactor and the remainder tail is negligible by the stronger moment. The positive support and positive variance exclude a Gaussian; the product Laplace formula follows by bounded convergence. An independent numerical check with explicit geometric truncation bounds agrees with the three stated constants.",
+      "residual_risks": [
+        "The supplied finite checker compares normalizing formulas and tests positivity of calculated moments; it is not independent integration or an infinite-limit certificate. The tail is for the limiting law only, and top ranks are fixed, not increasing with n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mukerjee's broader k-gon avoidance proof supplies a full finite transformed density. The indexed two-tail theorem addresses conditional fixed-threshold rank fractions at n² LDP speed for finite positive tail slopes; the Pareto shape theorem concerns changing the Pareto parameter at fixed n."
+        ],
+        "reasoning": "The k-gon transformation specializes to the triangle slacks and covers the finite joint representation but not their fixed-top-rank limit and tail analysis. Exponential lengths do not satisfy the finite upper log-tail slope in the two-tail theorem, and fixed-n Pareto localization is a different limit. Same-day comparisons do not establish priority.",
+        "searches": [
+          "Mukerjee arXiv:2207.07879, §2, Theorem 1 and (2)–(4)",
+          "Resultary: joint order 1/n fluctuations conditional triangle avoidance exponential lengths series law"
+        ]
+      },
+      "checked_sources": [
+        "Mukerjee arXiv:2207.07879 original passages; identified probability abstracts and distinct Resultary Findings listed above",
+        "Frozen RESULT.md lines 36–89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unit Jacobian orthant change and linear expression for the sum enforce independent exponential slacks conditionally. In the assigned asymptotic proof, reversing the weights, bounding their infinite centered deviations, and isolating and evaluating a dominant exponential's remainder moment lead to genuinely additional conclusions."
+        ],
+        "reasoning": "The full finite law logically determines its limits. It does not give the scale, joint series limit, dominant coefficient or exact telescoping constant by a specialization alone. Credit the prior reduction and assess the analytic asymptotic conclusions as the surviving claims.",
+        "searches": [
+          "Mukerjee arXiv:2207.07879 PDF, Proposition 1 and §§1–2 exact transformed density",
+          "Frozen RESULT.md lines 49–83 versus that prior representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct matches include the assigned finding itself. Mukerjee Prop. 1 identifies ordered broken-stick spacings with ordered exponentials normalized by their sum; its §2 transformation treats the same cone because triangle avoidance is invariant under common scaling."
+        ],
+        "reasoning": "Broken stick and normalized exponential formulations are genuinely equivalent here, so prior finite-law coverage must be credited. No inspected equivalent formulation states the joint n-scale or sharp overshoot limit. The primary search was bounded, not evidence of absence.",
+        "searches": [
+          "Resultary: triangle-free exponential sticks conditional top order statistics Fibonacci limit shape largest stick overshoot",
+          "Resultary: normalized largest sticks conditional on no triangle Fibonacci cone Dirichlet law",
+          "Primary search: (\"triangle-free\" OR \"no triangle\") exponential stick lengths conditioned on triangle avoidance Fibonacci order statistics Dirichlet conditional distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact Fibonacci product is an event probability. The query for exact overshoot constants returns the assigned result; the strongest other records retrieved concern different quantities and parameter regimes."
+        ],
+        "reasoning": "The avoidance normalizer and standard Fibonacci values are not a table of overshoot laws or leading coefficients. The asymptotic coefficient is not merely a Fibonacci value read off from that probability.",
+        "searches": [
+          "Resultary: Fibonacci slack cone conditioned exponential Dirichlet exact tail coefficient overshoot",
+          "Barczy–Lovas arXiv:2611.04436v1 abstract; Brennan–Callow–Lin arXiv:2604.27573v2 abstract"
+        ]
+      },
+      "rationale": "Mukerjee's proof already determines the exact finite joint law by exponentials in the Fibonacci slack coordinates. Neither the finite conditional law nor the avoidance probability is new. The distinct contribution is the joint conditional asymptotic extraction at fixed top ranks and, especially, the sharp limiting upper tail from isolating a unique dominant exponential and exactly telescoping its remainder moment. The prior representation is the starting point for those arguments, not a prior asymptotic theorem or a mechanical identification of the tail coefficient.",
+      "residual_risks": [
+        "Unindexed conditional cone or Dirichlet asymptotic results could offer closer overlap. The bounded search and probability abstracts are not whole-literature or whole-paper exclusions; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FINITE_CONDITIONAL_LAW",
+          "evidence": "Ordered normalized exponentials give the broken-stick law. The triangular unit-Jacobian orthant change rewrites the sum as a positive linear form. Thus conditional slacks are independent exponentials with the column-sum rates; the proof gives the finite Fibonacci representation at k=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07879",
+          "material_read": "Proposition 1, printed p. 1 offset 0; §2 Theorem 1 and (2)–(4), printed pp. 2–3 offset 4300",
+          "method": "OA original PDF",
+          "title": "A Statistical Approach to Broken Stick Problems",
+          "trigger": "exact same cone and exponential normalization under an equivalent model"
+        },
+        {
+          "assessment": "EXPLICIT_PROBABILITY_OVERLAP",
+          "evidence": "States n! divided by the product of (F_r−1) for r=3,...,n+2 and acknowledges the previously solved exponential probability problem; the inspected abstract makes no top-rank limit claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.04436",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA original PDF, bounded comparison",
+          "title": "Pick-up sticks problems for exponential and Pareto distributions",
+          "trigger": "same exponential avoidance and Fibonacci formula"
+        },
+        {
+          "assessment": "PROBABILITY_COMPARISON",
+          "evidence": "The stated results concern polygon-formation and avoidance probabilities, not the stated top-profile scale or overshoot equivalent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.27573",
+          "material_read": "v2 p. 1 abstract, offset 0",
+          "method": "OA original PDF, bounded comparison",
+          "title": "Fibonacci numbers and the probability of polygon formation using random length sticks",
+          "trigger": "broader polygon Fibonacci formulas"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT_AND_HYPOTHESES",
+          "evidence": "Fixed-threshold fraction LDP at speed n² with finite positive slopes; not fixed top-order normalized shares, and the exponential upper log-tail slope is infinite.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-tail-triangle-free-stick-samples-a-sharp-rare-event-exponent--6f2f08f38b12/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "Two-tail triangle-free stick samples: a sharp rare-event exponent",
+          "trigger": "conditional ranks of no-triangle samples"
+        },
+        {
+          "assessment": "DIFFERENT_LIMIT",
+          "evidence": "Fibonacci localization and a scaled slack limit for Pareto samples at fixed n as the shape parameter changes; no exponential n→∞ overshoot theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-pareto-shape-index-endpoints-for-triangle-free-sticks-fibona--7bf1f00a0539/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "Two Pareto shape-index endpoints for triangle-free sticks",
+          "trigger": "conditional Fibonacci profiles and scaled slacks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 49–83; Mukerjee §2 for the distinction from the finite representation"
+      ],
+      "rationale": "The rare-event probability does not describe which sticks dominate the surviving samples. The joint rank profile and one-sided non-Gaussian fluctuations quantify that conditional geometry. The exact leading tail coefficient gives more than a rate bound: it resolves the contribution of all remaining slack coordinates in closed form by a Fibonacci telescope.",
+      "residual_risks": [
+        "No uniform finite-sample tail equivalent or distribution-class universality is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

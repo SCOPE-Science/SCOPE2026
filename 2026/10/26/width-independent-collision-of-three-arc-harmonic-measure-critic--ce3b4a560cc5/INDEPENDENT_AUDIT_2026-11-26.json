@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:14.923218Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48, exact numerator and reciprocal reduction independently reconstructed",
+        "Frozen VERIFICATION.md, verify_three_arc.py lines 1–22 and CHECK_OUTPUT.txt lines 1–6 inspected without executing the script"
+      ],
+      "rationale": "The harmonic extension of an arc uses Fourier coefficients sin(nβ)/(πn); summing the differentiated holomorphic series gives the three rational summands, with poles only on the boundary. For c in {1,exp(iα),exp(−iα)}, their three elementary symmetric functions are A=1+2cosα, A, 1. After clearing denominators the constant and quartic coefficients are A, the linear and cubic coefficients are −4bA, and the middle coefficient is A²−3+12b², with b=cosβ. The reciprocal reduction t=z+1/z gives discriminant 16A(1−x)(1+x−2b²), x=cosα. The last factor is strictly negative since α>2β. If A>0 each nonreal conjugate t gives one simple disk root, necessarily with positive real part since Re(t)=2b=Re(z)(1+|z|^(−2)). If A<0, the downward quadratic takes strictly positive values at ±2 by the two stated factorizations and strict bounds −b<x<2b²−1; its real roots lie outside [−2,2] on opposite sides. The reciprocal quadratics give one interior root of each sign. At A=0 the numerator is exactly 3(4b²−1)z², nonzero except for a double zero at 0. For the local scale, the critical-point equation bounds |B||z|²≤10|A| for |z|≤1, so the stated O(sqrt(|δ|)) substitution is justified. A=−sqrt(3)δ+O(δ²) then yields z²=δ/[sqrt(3)(4b²−1)]+O(|δ|^(3/2)), giving the claimed signed branches with O(|δ|) errors. A simple or double derivative zero gives respectively the real part of a nonzero quadratic or cubic as the first nonconstant harmonic term. The strict admissible range includes 2π/3 for every allowed β.",
+      "residual_risks": [
+        "Despite the frozen prose calling the checker symbolic, the inspected script checks the cleared numerator numerically at selected points and tests numerical root residuals. Neither it nor the recorded output establishes an exact polynomial identity or multiplicity. The exact independently checked proof supplies both.",
+        "The asymptotic is at fixed β and not a uniform bound as β approaches π/3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 1948 opening excerpt describes critical points of linear combinations of Green functions and harmonic measures on simply and multiply connected regions",
+          "The 1950 monograph title and bibliographic identity were verified, but relevant mathematical text was not accessible"
+        ],
+        "reasoning": "Our harmonic measure is a sum of three arc harmonic measures, so the 1948 framework is materially plausible broader coverage. The inspected excerpt does not state a theorem implying the discriminant signs, the collision parameter, or the coefficient. No whole-document noncoverage conclusion follows.",
+        "searches": [
+          "Walsh 1947 DOI 10.1073/pnas.33.1.18",
+          "Walsh 1948 DOI 10.1090/S0002-9904-1948-08984-4 and AMS PDF",
+          "Walsh 1950 DOI 10.1090/coll/034"
+        ]
+      },
+      "checked_sources": [
+        "Walsh 1947 and 1948 indexed passages; Walsh 1950 catalogue and lawful retrieval attempts",
+        "Dubinin–Vuorinen arXiv:1011.4178 Abstract",
+        "The two Resultary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dubinin–Vuorinen bound means of harmonic measures for domains in an extremal decomposition",
+          "The atom result changes masses at the fixed cube roots of unity and has a cusp/sublevel focus",
+          "Walsh treats the more general linear combination of harmonic functions, without a recovered exact phase statement"
+        ],
+        "reasoning": "Bounds on values at prescribed points are not bounds on zeros of the derivative. The atomic collision is not the finite-width case at any positive β, and even a zero-width analogy supplies no finite-width coefficient c_β. A Walsh theorem or worked example might supply a stronger implication, but no recoverable passage establishes one.",
+        "searches": [
+          "Dubinin–Vuorinen arXiv:1011.4178 Abstract and §1",
+          "Three-atom Resultary record, RESULT.md offsets 3191–4791",
+          "Walsh 1948 indexed opening excerpt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-a-sharp-three-atom-sublevel-connectivity-phase-portrait-and-cusp--f0b148f14ffb, RESULT.md offsets 0–2924 and 3191–4791, has a double critical point at zero separating real and conjugate pairs for three atoms",
+          "The accessible Walsh 1947 excerpt treats invariance under conformal disk self-maps"
+        ],
+        "reasoning": "The phase pattern for three atoms is genuinely similar, but changing one atomic mass with fixed support does not produce a Poisson integral of the indicator of three equal-width arcs at moving locations. Conformal invariance alone does not fix the relative separation and width of this family.",
+        "searches": [
+          "Resultary: critical points of three equal boundary arcs; harmonic measure reciprocal quartic; width-independent double-zero collision",
+          "Walsh 1947 DOI 10.1073/pnas.33.1.18, JSTOR stable/87461"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved critical-point phase classification is the three-atom record with varying mass, at offsets above",
+          "The topical boundary-arc splitting record 2026/11/2/SCOPE-sharp-boundary-arc-splitting-for-simultaneous-disk-harmonic-meas--e16718e661ad, offset 0–3767, optimizes harmonic measure at prescribed points over changing sets"
+        ],
+        "reasoning": "Neither source tabulates or implies the arc family's exact critical locations. In the optimizer problem the split concerns the maximizing boundary set, not coalescence of interior derivative zeros. Ranked retrieval cannot exclude an unindexed equivalent table or theorem.",
+        "searches": [
+          "Resultary targeted searches for three-arc critical-point tables, exact threshold 2π/3 and square-root coefficient of the arc bifurcation"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact phase portrait and square-root location law for the equal-width, reflection-symmetric three-arc family, not the Poisson derivative representation or general localization of harmonic-measure critical points. Classical Walsh sources are materially relevant; limited accessible passages do not establish equivalent coverage, and the uninspected full texts remain named risks. In the closest catalogue analogue a weight of a boundary atom changes while three atom locations stay fixed, rather than three equal-length arcs changing separation; it supplies neither the global three-arc sign classification nor its width-dependent coefficient.",
+      "residual_risks": [
+        "The uninspected 1948 article and relevant 1950 monograph chapters, and incomplete 1947 retrieval, leave a real possibility of earlier equivalent coverage. The PASS does not certify absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Topical precedent; exact coverage not determined",
+          "evidence": [
+            "Harmonic measure and its critical points are invariant under conformal disk self-maps; JSTOR challenge and PNAS 403 prevented full reading"
+          ],
+          "identifier_or_url": "10.1073/pnas.33.1.18; JSTOR stable/87461",
+          "material_read": "Indexed excerpt on conformal invariance; not pp. 18–20 in full",
+          "method": "Indexed record and attempted JSTOR, PNAS and PMC access",
+          "title": "On the Location of the Critical Points of Harmonic Measure",
+          "trigger": "Classical paper with exactly the underlying invariant"
+        },
+        {
+          "assessment": "High-relevance source remains unresolved; availability failures are not negative evidence",
+          "evidence": [
+            "The excerpt names linear combinations of Green functions and harmonic measures in simply and multiply connected domains",
+            "Project Euclid blocked and the official PDF returned 403 on both routes"
+          ],
+          "identifier_or_url": "10.1090/S0002-9904-1948-08984-4",
+          "material_read": "Indexed opening excerpt, not theorem or example pages",
+          "method": "Index, Project Euclid access attempt and exact official AMS journal PDF attempted through lawful OA routes",
+          "title": "The Critical Points of Linear Combinations of Harmonic Functions",
+          "trigger": "The three-arc harmonic measure is a linear combination of arc measures"
+        },
+        {
+          "assessment": "Unresolved priority risk",
+          "evidence": [
+            "Access attempts failed; no relevant chapter theorem was inspected"
+          ],
+          "identifier_or_url": "10.1090/coll/034",
+          "material_read": "Bibliographic description only, not relevant chapters",
+          "method": "AMS/DOI access attempts and lawful copy lookup",
+          "title": "The Location of Critical Points of Analytic and Harmonic Functions",
+          "trigger": "Monograph may contain covering general theorem or worked example"
+        },
+        {
+          "assessment": "Different family and deformation parameter; not an equivalent exact phase portrait for finite-width arcs",
+          "evidence": [
+            "For masses at cube roots of unity, real pair for central relative weight below one, double zero at weight one, conjugate pair above one"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-three-atom-sublevel-connectivity-phase-portrait-and-cusp--f0b148f14ffb",
+          "material_read": "RESULT.md offsets 0–2924 and 3191–4791",
+          "method": "Resultary and local mirror",
+          "title": "A sharp three-atom sublevel connectivity phase portrait and cusp",
+          "trigger": "Strongest analogous double-zero collision"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": [
+            "The optimizing boundary set switches from one central arc to two arcs for a fixed pair of observation points"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-boundary-arc-splitting-for-simultaneous-disk-harmonic-meas--e16718e661ad",
+          "material_read": "RESULT.md offsets 0–3767",
+          "method": "Resultary and local mirror",
+          "title": "Sharp boundary arc splitting for simultaneous disk harmonic measure",
+          "trigger": "Closest matching disk/arc splitting terminology"
+        },
+        {
+          "assessment": "Different invariant and problem",
+          "evidence": [
+            "Extremal inequality for means of harmonic measures in decomposed disk domains, not the derivative-zero location theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1011.4178",
+          "material_read": "Abstract and §1 opening",
+          "method": "OA PDF passage at offset 0",
+          "title": "An Extremal Decomposition Problem for Harmonic Measure",
+          "trigger": "Harmonic-measure decomposition precedent cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 28–48",
+        "Comparison with the catalogue three-atom location phase portrait"
+      ],
+      "rationale": "This is a global classification on a full admissible two-parameter family, not just a symmetric point computation. Threefold symmetry accounts for the origin at the symmetric parameter; it does not on its own exclude other collisions or locate the two saddles on each side. The reciprocal reduction does both, and the width-dependent square-root coefficient quantifies how the critical points leave the origin even though the threshold does not depend on the width.",
+      "residual_risks": [
+        "The result concerns equal widths and reflection symmetry, not irregular arcs or critical-level-set topology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

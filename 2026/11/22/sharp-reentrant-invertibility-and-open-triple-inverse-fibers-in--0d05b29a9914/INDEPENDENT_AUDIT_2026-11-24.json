@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:38.763838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For this exact map on the real plane, the centered, bounded sigmoid perturbation of (1−T)I gives a uniformly proper homotopy for T≠1, so degree +1 forces surjectivity and the signed count +1 for every regular target. Such fibers are compact and discrete, hence finite and odd. Differentiating gives D=diag(d₁,d₂), dᵢ=α sech²(αzᵢ)>0, and DF=(1−T)I+TMD. The determinant is strictly positive for 0<T<1 and for T>1 with q=T−1≥(17/10)Tα, even at equality because the off-diagonal contribution is +T²d₁d₂. There is then exactly one preimage by degree; local inverses give a smooth global inverse. T=1 is an invertible affine transform of the open tanh square, not an onto map of the plane. At equality along (0,R), DF tends to a rank-one matrix, so inverse derivatives are unbounded and a Lipschitz inverse is impossible. For q<(17/10)Tα, the determinant along (0,R) tends to q(q−(17/10)Tα)<0, while along (R,R) it tends to q²>0. Continuity gives critical points. Use local inversion on the negative sheet and Sard to choose a regular target there: one negative sign requires at least two positive signs by degree. Local inversion on three disjoint neighborhoods gives an open common output neighborhood; properness also makes the critical-value set closed, if one wants all targets in a smaller neighborhood to be regular. Solving the inequality gives the restoration boundary, including 20/3 at α=1/2. `python /workspace/replay_checks.py 1` independently confirms the exact rational sign bound at (0,6) and three numerical branches of signs +,−,+, not an exhaustive census at that output. The full-plane statements are analytic, not based on the numerical example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen record identifies general noninvertible-map theory for degree, critical curves and inverse sheets (RESULT.md lines 90–94); the primary source was not independently obtained. Independently, proper-map degree +1 and a negative regular Jacobian imply the at-least-three result, once a negative sign is established for this map."
+        ],
+        "reasoning": "The general degree implication is covered as background and credited. It does not evaluate signs throughout this two-parameter family, explain why equality is finite-point nonsingular, or give the singular limit at infinity. A Jacobian written for local equilibrium stability alone would not assert those global facts.",
+        "searches": [
+          "Scholarpedia, Noninvertible maps",
+          "Primary lookup for the Buscarino–Famoso–Fortuna base map and Jacobian"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, check_inverse.py",
+        "Resultary 0d05b29a9914, 8f9bdcdcb9f6, d40768f347f0, c95dbffbba8c (catalogue)",
+        "DOI:10.1007/s11071-023-08897-7 (search description and retrieval attempts); Scholarpedia (frozen attribution and retrieval attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The attractor and two-cycle catalogue statements are forward, and the same-day equilibrium statement is at a step where the separate affine tanh argument makes one-step injectivity immediate. The inverse classification for T>1 instead depends on signs of the determinant at arbitrary states, including saturation of one or both coordinates."
+        ],
+        "reasoning": "Even a fixed-point or periodic-point census does not count all real points mapping to a generic target. Compact forward attraction neither implies nor is implied by full-plane diffeomorphism here. No available statement either supplies this sign criterion across the family or makes the equality's inverse Lipschitz behavior a corollary.",
+        "searches": [
+          "Resultary 8f9bdcdcb9f6, d40768f347f0 and c95dbffbba8c; published-map paper and noninvertible maps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 4–10 and 30–31 give the exact formulation and published-coefficient attribution; the originating article's returned search text described the forward map, without displaying its equations. The strongest exact inverse-diagram catalogue hit was the assigned record itself, 0d05b29a9914.",
+          "The reported same-map forward results refer to attractors, two-cycles, or sinks; none has the same output-fiber quantifiers."
+        ],
+        "reasoning": "Unique one-step predecessors on the whole plane is the invariant regardless of naming, and is different from stability, return after two steps, or reconstructing a backward orbit confined to an attractor. At T=1 many distinct fixed points can coexist even though each output in the image has a unique predecessor: the fixed points are different outputs.",
+        "searches": [
+          "Resultary: two-cell sigmoid spiking map, global reversibility, injectivity and inverse fibers",
+          "Buscarino–Famoso–Fortuna, DOI:10.1007/s11071-023-08897-7, equations (4)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is 0d05b29a9914 itself. Returned separate results include 8f9bdcdcb9f6 (compact global attractor for T≤2), d40768f347f0 (primitive-two-cycle exclusion through T=2 and an example regime above), and same-day c95dbffbba8c (four attracting sinks among equilibria at T=1 for α≥6)."
+        ],
+        "reasoning": "These visible parameter statements are not an inverse-fiber table; the T=2 forward boundaries and T=1 equilibrium counts cannot be substituted for the gain-dependent inverse boundary. The ranked catalogue does not certify exhaustive absence.",
+        "searches": [
+          "Resultary: exact gain/step invertibility phase, open inverse fibers, and same-map thresholds"
+        ]
+      },
+      "rationale": "The map, degree method, and inverse-sheet vocabulary are not new here. The supported contribution is the exact one-step global invertibility diagram, including the equality behavior and the open multiple-preimage phase, not the previously studied forward dynamics. The available same-map statements are materially different; independent confirmation of the original paper's equation-level attribution and full-text priority is limited as detailed below.",
+      "residual_risks": [
+        "Original-paper equations and Jacobian passages and the same-map mirror findings could not be independently read. The review validates the frozen mathematical problem as stated and does not claim independent full-text confirmation of attribution or priority.",
+        "An uninspected same-family global inverse theorem remains possible. A search/access failure is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the originating model; no external equation-level or full-text exclusion claimed",
+          "evidence": [
+            "The frozen attribution specifies equations (4)–(5), μ=7/10, s=1, biases −3/10,+3/10. The available primary description concerns spiking and forward dynamics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-08897-7",
+          "material_read": "Retrieved search description of the forward Euler spiking map; frozen equation attribution at RESULT.md line 31. No actual equations or relevant appendices were retrieved independently.",
+          "method": "Primary-literature lookup; bounded attempts at Springer PDF/article, authorized institutional IRIS PDF and identified alternate ResearchGate PDF",
+          "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+          "trigger": "Origin of the exact map and most likely primary prior"
+        },
+        {
+          "assessment": "Available statement is complementary, not a fiber classification",
+          "evidence": [
+            "Compact global attraction through T=2 and escape of sufficiently remote states for T>2 are forward statements."
+          ],
+          "identifier_or_url": "Resultary 8f9bdcdcb9f6",
+          "material_read": "Catalogue statement and frozen comparison at RESULT.md line 91; mirror Finding not obtained",
+          "method": "Resultary and targeted mirror attempt",
+          "title": "A sharp global-attractor threshold for the two-cell sigmoid spiking map",
+          "trigger": "Same map and exact threshold"
+        },
+        {
+          "assessment": "Available statement concerns return orbits, not all targets",
+          "evidence": [
+            "Primitive two-cycles are reported excluded for 0<T≤2 at all gains; for T>2 and gains at least 10, a localized repelling primitive two-cycle is reported."
+          ],
+          "identifier_or_url": "Resultary d40768f347f0",
+          "material_read": "Catalogue statement and frozen comparison at RESULT.md line 91; mirror Finding not obtained",
+          "method": "Resultary and targeted mirror attempt",
+          "title": "Sharp prime-two exclusion and a saturated repelling cycle in a two-cell spiking map",
+          "trigger": "Same map and neighboring gain-step regimes"
+        },
+        {
+          "assessment": "Fixed-point and basin assertions do not give common-output fiber multiplicities",
+          "evidence": [
+            "At T=1 and α≥6, the summary reports at least nine hyperbolic rest states, including four attracting sinks."
+          ],
+          "identifier_or_url": "Resultary c95dbffbba8c",
+          "material_read": "Catalogue statement only; mirror not retrieved",
+          "method": "Resultary and attempted mirror retrieval",
+          "title": "A uniform four-sink coexistence certificate for a two-cell spiking map",
+          "trigger": "Strongest distinct same-day same-model catalogue overlap"
+        },
+        {
+          "assessment": "Credit general critical-set and sheet principles; no source-wide exclusion",
+          "evidence": [
+            "The audit recovers the standard signed-count mechanism independently; the model-specific threshold is a separate sign result."
+          ],
+          "identifier_or_url": "https://www.scholarpedia.org/article/Noninvertible_maps",
+          "material_read": "Frozen RESULT.md lines 90–94 attribution; article passage not obtained",
+          "method": "Targeted OA request and mathematical comparison to proper-map degree",
+          "title": "Noninvertible maps",
+          "trigger": "General inverse-sheet comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global backward reconstruction is a different structural question from forward spiking and local stability. A sharp complete parameter diagram identifies when a larger step restores unique inversion, when the inverse loses uniform regularity despite remaining smooth, and when ambiguity persists on open sets. This is useful exact geometry even without a maximum fiber count or a stability claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

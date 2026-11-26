@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:20:18.528102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–23, 27–129; VERIFICATION.md lines 19–23; verify.py lines 9–106."
+      ],
+      "rationale": "The asserted limits concern the last preferred spot conditional on success, with half-L1 total variation. Independently, fix all direction choices and park on a circle of n+1 spots: rotation puts the final vacancy at the sentinel in exactly one of n+1 translates. Cutting at the sentinel gives the weighted line normalization (n+1)^(n-1). With j the hole before the last arrival, neither preferences nor searches can cross that hole during successful prefix parking, so the two sides factor with the binomial interleaving count. The last preference left of the hole succeeds with probability p, and right of it with probability 1-p; this gives the sign and normalization of (1). Stirling applied to the Borel factorization gives the n^(-5/2) interior scale and an O(1/(n j^(3/2))) bound at the left boundary. The signed cumulative weight is anchored at the midpoint and its increment is b_j+b_(j+1); the limiting derivative is twice the interior density. The n-scaled absolute mass includes one unit at the two endpoints together and the interior integral of |1+t f|. Pairing reflected positions reduces that integral to the integral on [0,1] of max(1,a z/sqrt(1-z²)), with a=8|t|/sqrt(2π); splitting at z=(1+a²)^(-1/2) yields sqrt(1+a²). The same integrable endpoint bound gives the fixed-bias norm limit; the unbiased terms are O(1/n) there. This includes p=0,1 and any sequence with the stated finite scaled limit.",
+      "residual_risks": [
+        "Proof audit, not formal verification. The frozen script was inspected, not executed. Its small exact probability checks and finite asymptotic diagnostics do not prove the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sharp critical-window Finding gives the same critical profile and √n TV/|2p_n−1|→√(2/π) in the outer regime, including fixed biased p. Harris–Ribeiro–Yin give bounds for m≤n and analyze m=cn with c<1."
+        ],
+        "reasoning": "Specializing the indexed outer statement to constant p produces the claimed fixed-bias coefficient since |2p−1|=2|p−1/2|. The later primary paper's partial occupancy bounds are not the full-occupancy sharp limit.",
+        "searches": [
+          "Resultary SCOPE-a-sharp-critical-window-total-variation-law-for-probabilistic-pa--24669551b33f; arXiv:2502.00269 Theorem 3.3 and Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.00536",
+        "arXiv:2502.00269",
+        "Resultary 24669551b33f",
+        "Resultary 6761d8a609fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 supplies the exact finite conditional law, whose rearrangement is frozen (1). Theorems 5 and 6 give Θ(1/n) and Θ(1/√n) at unbiased and fixed biased p. Neither theorem evaluates the constants. The indexed sharp-window Finding evaluates both and includes the parameter-varying regime."
+        ],
+        "reasoning": "The orders alone do not imply the limits, and extracting the asymptotics from the finite law requires additional analysis. Coverage here is established instead by the indexed limit statements.",
+        "searches": [
+          "arXiv:2211.00536, PDF p. 3, Theorems 3, 5, 6; mirrored 24669551b33f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed crossover Finding and the frozen Finding both concern the last preferred location (not its occupied location), full parking, and √n(p_n−1/2)→t; both give (1+sqrt(1+32t²/π))/2. The indexed finding also gives a signed-measure limit with two boundary atoms and a bulk density."
+        ],
+        "reasoning": "Same law, scaling variable, normalization and limiting function, not merely the same model.",
+        "searches": [
+          "Resultary critical bias, last preferred parking spot, and total variation; SCOPE-exact-critical-bias-crossover-for-probabilistic-parking-preferen--6761d8a609fa; arXiv:2211.00536"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 24669551b33f Finding gives the arbitrary-sequence critical profile and the unbiased constant 1, as well as the outer limit. The 6761d8a609fa Finding independently matches the profile as a statement."
+        ],
+        "reasoning": "These are exact theorem matches in distinct indexed records, not approximate numbers in a table and not the assigned artifact itself. Their directory dates do not establish priority.",
+        "searches": [
+          "Local Resultary index and mirrored Findings for 24669551b33f and 6761d8a609fa"
+        ]
+      },
+      "rationale": "The classical primary source does not state the sharp constants or joint limit, but a distinct indexed finding covers the whole submitted asymptotic claim, including every fixed biased p as a special case of a stronger sequence statement. Another distinct indexed finding contains the identical critical profile. This is a statement-level coverage verdict, not a finding about chronological priority, authorship, or dependence.",
+      "residual_risks": [
+        "Comparison is bounded, not a historical priority certificate. The indexed counterparts have later directory dates, which establish neither dependence nor priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior finite law and orders, not the sharp limits in those statements",
+          "evidence": [
+            "Theorem 3 specifies the last preference a_n conditional on all cars parking; Theorems 5–6 are order statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00536",
+          "material_read": "PDF p. 3, Theorems 3, 5 and 6; OA offsets 9861–15516",
+          "method": "Read bounded primary OA passages at the theorem statements",
+          "title": "Probabilistic Parking Functions",
+          "trigger": "Same exact conditional law and directional regimes"
+        },
+        {
+          "assessment": "Different asymptotic regime or inequalities, no matching full-occupancy sharp profile in these passages",
+          "evidence": [
+            "Proposition 3.4 specializes to m=cn for c<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.00269",
+          "material_read": "PDF pp. 10–11, Theorem 3.3 and Proposition 3.4; OA offsets 45740–49865",
+          "method": "Read bounded primary OA passages",
+          "title": "Probabilistic (m,n)-Parking Functions",
+          "trigger": "Broader parking protocol and TV results"
+        },
+        {
+          "assessment": "Covers all submitted limits",
+          "evidence": [
+            "Matching critical law; unbiased coefficient 1; normalized outer limit √(2/π)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-critical-window-total-variation-law-for-probabilistic-pa--24669551b33f",
+          "material_read": "Mirrored RESULT.md Finding and Relationship to prior work, offsets 0 and 4778",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "A sharp critical-window total variation law for probabilistic parking",
+          "trigger": "Strongest exact/stronger indexed match"
+        },
+        {
+          "assessment": "Matching critical law and additional signed-measure limit",
+          "evidence": [
+            "Same arbitrary-sequence crossover and the two endpoint atoms plus bulk density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-critical-bias-crossover-for-probabilistic-parking-preferen--6761d8a609fa",
+          "material_read": "Mirrored RESULT.md Finding and Relationship to prior work, offsets 0 and 4501",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Exact critical bias crossover for probabilistic parking preferences",
+          "trigger": "Second exact critical-window match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (3)–(9); arXiv:2211.00536, Theorems 5–6."
+      ],
+      "rationale": "The asymptotic question is mathematically substantive: the unbiased boundary mass and the bulk bias compete at one scale. Their combination produces a curved profile, not a replacement of order notation by arbitrary constants. This value of the mathematical result does not make an additional duplicate finding valuable as a distinct contribution.",
+      "residual_risks": [
+        "Single last preferred location and full occupancy only; no claims about joint preferences or convergence rates to the curve."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

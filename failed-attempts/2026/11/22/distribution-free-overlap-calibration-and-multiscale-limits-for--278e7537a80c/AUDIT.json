@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exchangeability conditional on size is transitive and yields a uniform fixed-size matching. Counting prescribed disjoint edges gives all exact falling-factorial moments and the PGF. Normalized iid exponential circle gaps reduce reciprocity to local minima: single, adjacent, distance-two probabilities 1/3, 0, 2/15 give the exact mean and 2n/45 variance. Conditioning on the matching shared by two pairwise overlap variables gives covariance 8n/[405(n-1)^2]. Joint mixed factorial moments for fixed q have leading disjoint edge configurations and all collision configurations cost O(1/n); a bounded two-dependent CLT and concentration then give an independent Gaussian-Poisson joint limit. The included standalone exact checker passed 75 matching and circle enumeration assertions, including n<=7 fixed-size matchings and 86,400 n=6 circle rank/label arrangements. Finite tests support, but do not substitute for, the analytic limit proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deng (2025) states a multivariate Poisson theorem for one uniform perfect matching intersecting several sparse graph edge sets.",
+        "The perfect-matching result can dominate the isolated two-sample marginal Poisson limit after a thinning reduction and therefore that marginal is not asserted as new.",
+        "The claimed finite-size matching polynomial, covariance shared between independently resampled geometric comparisons, and joint Gaussian-Poisson sample-size behavior are more specific conclusions not stated in that theorem."
+      ],
+      "reasoning": "Distinguishes matching intersections within a single perfect matching from random independent partial-matchings of stochastic size. Any implication to a marginal Poisson law is credited; a reduction to the full exact conditional and mixed-scale result is not evidenced.",
+      "searches": [
+        "Common edges between two independent uniform random matchings of size linear in n Poisson universal",
+        "Joint limit Gaussian reciprocal nearest neighbor pair totals and Poisson shared labeled reciprocal pairs independent random point clouds",
+        "arXiv:2505.13799 Theorem 1.2 multivariate Poisson intersections of a uniform perfect matching with sparse graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1605.01940",
+      "https://arxiv.org/abs/2505.13799",
+      "https://doi.org/10.2307/3316135",
+      "https://oeis.org/A000085",
+      "https://arxiv.org/abs/2505.13799"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bahadır-Ceyhan recovers one-sample reciprocal-pair means, variance and CLT on an interval; the claim requires repeated independent labelled samples and conditions on two observed matching sizes.",
+        "Deng provides asymptotic (not finite exact) prescribed-graph intersection laws in a uniform perfect matching.",
+        "Published-record searches returned single-sample nearest-neighbor covariance and matching models but not a three-replicate overlap covariance or joint Poisson-Gaussian independence statement."
+      ],
+      "reasoning": "One-sample moments do not fix the joint persistence law. Generic perfect-matching Poisson approximation anticipates marginals, but not the exact finite-size replicated matching calibration and the positive O(1/n) covariance with joint multiscale independence.",
+      "searches": [
+        "Poisson law for intersection of mutual nearest-neighbor pairs in two independently labelled random point clouds, circle, one-dimensional nearest neighbor matching",
+        "Joint limit Gaussian reciprocal nearest neighbor pair totals and Poisson shared labeled reciprocal pairs independent random point clouds",
+        "Finite covariance between shared reciprocal nearest neighbor pairs across three independent labelled spatial samples",
+        "arXiv:1605.01940 Sections 2-4",
+        "arXiv:2505.13799 Sections 1 and 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1605.01940 analyzes one-sample reciprocal and shared nearest-neighbor pair totals on an interval, rather than independent repeated labels.",
+        "arXiv:2505.13799 uses uniform perfect matchings and prescribed sparse graphs, giving related Poisson approximation but not the exact random partial matching size-conditioned polynomial together with Gaussian sample-size fluctuations."
+      ],
+      "reasoning": "A random reciprocal-neighbor graph is a matching; conditioned on cardinality, exchangeability makes it uniformly random. This reduction is explicitly examined, not concealed as geometric novelty. The new assessment is its exact finite calibration combined with a multi-replicate joint two-scale theorem and covariance.",
+      "searches": [
+        "Poisson law for intersection of mutual nearest-neighbor pairs in two independently labelled random point clouds, circle, one-dimensional nearest neighbor matching",
+        "Exact conditional law and probability-generating function for the number of common edges of two independent uniform random partial matchings given their sizes; distribution-free labelled exchangeable matchings",
+        "Universal factorial moments 2^r(a)_r(b)_r/(n)_{2r} overlap two random partial matchings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000085 enumerates all labelled partial matchings (involutions), not conditional overlap probabilities by both specified matching sizes.",
+        "No matching exact overlap probability table appeared in the retrieved targeted results; this negative search is not a uniqueness proof."
+      ],
+      "reasoning": "The conditional polynomial refines the ordinary matching enumeration by overlap size and gives exact conditional null tails. Generic involution counts do not directly encode the two matching sizes and their intersection; undiscovered equivalent tables remain a risk.",
+      "searches": [
+        "OEIS joint intersection fixed-size partial matchings overlap common edges exact table",
+        "Common edges two random matchings factorial moments",
+        "Universal factorial moments 2^r(a)_r(b)_r/(n)_{2r} overlap two random partial matchings"
+      ]
+    },
+    "rationale": "The full size-conditioned finite PGF, joint Gaussian-Poisson decoupling across multiple independent labelled reciprocal-nearest-neighbor matchings, and strictly positive finite covariance of overlaps sharing a replicate were not found as a combined statement in the accessible primary material or related published-record searches. The one-sample R_n law and marginal sparse-perfect-matching Poisson limit are treated as prior art, not as new. Unindexed general matching identities remain a historical-priority risk.",
+    "residual_risks": [
+      "Exact size-conditioned overlap laws for two arbitrary uniform partial matchings may appear in classical combinatorial or permutation-test literature not indexed by the retrieved searches.",
+      "The isolated Poisson limit is closely anticipated by general perfect-matching sparse-intersection results; novelty depends on the exact calibration, multi-replicate covariance and joint mixed-scale formulation.",
+      "An inaccessible or unindexed synthesis of matching null tests and nearest-neighbor CLTs could partially subsume the contribution. The available checks are not a priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-sample count and CLT prior art; no cross-replicate labelled matching overlap law found in the inspected material",
+        "evidence": "The text defines R_n and Q_n on one sample, expresses R_n in spacing-rank local extrema, and cites earlier n/3 and 2n/45 results.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+        "material_read": "Accessible HTML introduction and the detailed nearest-neighbor gap representation, one-sample moments and CLT discussion",
+        "method": "Read accessible primary HTML text at the cited arXiv page",
+        "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+        "trigger": "Direct predecessor for one-dimensional reciprocal-nearest-neighbor count and CLT"
+      },
+      {
+        "assessment": "Strong coverage of Poisson marginal/perfect-matching overlaps, credited; no explicitly stated finite random-partial-matching conditional calibration with replicated Gaussian totals",
+        "evidence": "Theorem 1.2 fixes sparse graphs D_m and samples one uniform perfect matching R, with the vector |E(R intersect D_m)| approaching independent Poisson counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2505.13799",
+        "material_read": "Accessible HTML abstract, introduction, Theorems 1.2 and 1.3 and Section 2.1 matching-count/probability-generating-function discussion",
+        "method": "Read accessible primary arXiv HTML text",
+        "title": "Deranged Perfect Matchings on complete graph and balanced complete r-partite graph",
+        "trigger": "Plausibly dominating multivariate matching-intersection Poisson theorem"
+      },
+      {
+        "assessment": "Computes one-sample cluster/reciprocal-pair distribution and moments; does not address independently repeated labelled samples in the inspected portions",
+        "evidence": "The predecessor analyzes societies of one point ensemble and states one-dimensional mean n/3 and variance 2n/45.",
+        "identifier_or_url": "https://doi.org/10.2307/3316135",
+        "material_read": "Accessible article transcription including abstract, introduction and one-dimensional society count formulas",
+        "method": "Read accessible primary-text excerpt at academia.edu/85762166 and matched bibliographic DOI",
+        "title": "A cluster problem as defined by nearest neighbours",
+        "trigger": "Historical precursor for the reciprocal-neighbor pair count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "278e7537-a80c-4d66-bb9c-5fa994e58f80",
+  "value": {
+    "rationale": "Exact overlap p-values conditional only on observed reciprocal-pair counts give a dimension- and density-free calibration for independent repeated labelled point-cloud comparisons. For a fixed finite collection of comparisons, the theorem identifies the full joint null, including explicit finite O(1/n) shared-replicate dependence and asymptotic Gaussian-Poisson decoupling. This supplies a natural reproducibility test statistic and multiscale inference object, not merely a renamed marginal Poisson fact or an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}

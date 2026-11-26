@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The interval \((6/7,1)\) restricts sorted unit-fraction denominators to four \((x,y)\) pairs. All four have exact finite bounds on \(z\). For \((2,3)\), cancellation of the denominator's \(2\)- and \(3\)-parts would force \(z=6k\) with \(k\equiv1\pmod6\), but \(2\le k\le6\) has no solution. For \((2,4)\), cancellation of the denominator's factor \(2\) forces a nonexistent valuation among \(5\le z\le9\). The two remaining pairs have explicitly checked denominators divisible by \(2\) or \(3\). A totient ratio strictly above \(6/7\) uses only prime factors at least \(11\), so its reduced denominator cannot have either factor. Equality forces precisely powers of \(7\). Exact finite tests cover the claimed local arithmetic checks without being used as infinite proof.
+## correctness
 
-## Originality — PASS, with literature risk
-The accessible preprint and journal texts of Mandal's paper were examined at their theorem statements, proofs, and Future Research section. They pose the exact threshold as a question; the prime-power theorem and restricted multifactored nonrepresentation results do not imply the all-integer optimum. An apparently stronger \(4/5\) assertion in Future Research is mathematically contradicted by the same paper's \(n=7\) example, so it cannot substantiate prior coverage. Searches for the exact threshold, equivalent denominator formulation, and stronger uniform results found no supported covering proof. Unindexed or unpublished-equivalent work remains possible; search non-detection is not proof of novelty.
+PASS
 
-## Value — PASS
-This gives the sharp answer and complete equality classification for an explicitly posed threshold question in the 2026 motivating paper. The denominator obstruction explains the mechanism uniformly across arbitrary prime support rather than only computing a short list of values or another prime-power example.
+For sorted x<=y<=z and 6/7<q<1, x is 2 or 3. Bounding the two remaining terms by 2/y leaves only (x,y)=(2,3),(2,4),(2,5),(3,3); using the two strict inequalities gives respectively z=7..41, 5..9, 5..6 and 4..5. In the first branch cancellation of both negative valuations in 5/6+1/z requires z=6k with gcd(k,6)=1 and then 5k+1 divisible by 6. This needs k=1 mod 6, impossible for 2<=k<=6. In the second branch cancellation at 2 requires v2(z)=2 and no z in range qualifies. The last two branches give only 9/10, 13/15 and 11/12. Conversely any totient ratio >6/7 has all prime factors of n at least 11 by the product formula; its reduced denominator divides rad(n) and is prime to 6, excluding all four branches. A ratio of exactly 6/7 requires 7|n by the reduced denominator, and the factor for 7 already equals 6/7, excluding any other prime factor. The witness 1/2+1/3+1/42 works for every 7^k and disproves the weak-threshold implication for every c<=6/7. Thus the set is (6/7,1] with unattained infimum. The n>=2 restriction is necessary, and the exhaustion permits repeated denominators.
 
-## Limits
-The result excludes \(n=1\) for a necessary mathematical reason and does not address representations below the threshold. The earliest public-access date is based on a verified author-upload day, while a preprint month-only label may precede it. The finite checker and scientific review are not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact all-integer threshold, using a denominator obstruction that applies to composite prime supports as well as prime powers. The displayed equality representation is credited to Mandal; the equality locus is then a short, necessary Euler-product argument. No inspected statement or documented implication covers all n with the same threshold. This is a best-of-knowledge judgment, not a priority certification.
+
+## value
+
+PASS
+
+This is a natural exact cutoff in the three-term totient-ratio problem: it decides the strongest uniform exclusion, distinguishes the attained endpoint from the strict exclusion interval, and gives a residue-based obstruction independent of the size of n. The uniform passage from prime powers to arbitrary prime support is substantively useful; the equality witness by itself would not be.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

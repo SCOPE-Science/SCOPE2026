@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:49:02.421974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact scope of RESULT.md lines 4–12 is the cyclic-vertex count (all cycles, including loops) and each fixed indegree d, not the number of cycles or a growing-degree estimate. Conditional on the cyclic set of size c, its restriction is a uniform permutation of that set, not necessarily one cycle. Peeling the least nonroot leaf gives n−c−1 freely chosen parent letters in [n] and a final parent in the root set; the inverse successively removes the least nonroot absent from the remaining word, which exists because the final letter is a root. Each root gains indegree one from the permutation and the distinguished final root one more. This yields the stated conditional mean, with the c=n permutation case handled separately, and counting words and permutations yields P(C_n=c)=c(n)_{under c}/n^{c+1}. Direct mapped-orbit and indegree enumeration at n=2 through 5 confirmed this conditional formula and mass function (python3 /tmp/opencode/frozen_math_reproduction.py); the supplied checker was inspected, not run. For j>=0, log of j! times the binomial mass expands to −1+(1−j)c/n−(j/2)(c/n)^2+(1+j−j²)/(2n), with error O_j((c/n)^3+c/n²+n^−2) uniformly up to c=n^{3/5}. Exponentiating and using d!/((d−1)!)=d and d!/((d−2)!)=d(d−1), with the missing masses zero for d=0,1, gives zero linear term and conditional regression coefficient e^−1(−d²+3d−1)/(2d!) times (c²/n−1). The error is uniformly o(1) on that range; outside it the falling-factorial tail bound makes its contribution vanish even after multiplication by any fixed power of n. The same product bound and a Riemann sum imply Rayleigh convergence with polynomial moments, and Cov(X,X²)=sqrt(π/2). Conditioning gives the claimed covariance limit and strict eventual signs. The two profile sums are zero by the Poisson(1) moment identities; convergence for growing d or termwise summation of arbitrary n-dependent errors is not needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives the exact cyclic-count law for exchangeable indegrees; its proof gives P(cyclic set=L | D) as a constant times the sum over j in L of (D_j)_2 prod_{i in L excluding j}D_i.",
+          "For uniform mappings, tilting their multinomial law by each such factorial weight preassigns one ball to each member of L and one extra to j, leaving n−|L|−1 multinomial placements. Thus the entire finite conditional histogram mean is already obtainable by a direct substitution into this published result.",
+          "The public abstract of the 2010 paper likewise describes the conditional rooted-forest and permutation construction."
+        ],
+        "reasoning": "These are stronger exact structural ingredients; no separate originality attaches to the conditional law. The full Charlier covariance limit additionally requires evaluating the second-order asymptotic regression uniformly enough to average against the cyclic-count fluctuations.",
+        "searches": [
+          "Hansen–Jaworski arXiv:math/0603529 Theorem 1 and proof pp. 5–11",
+          "Hansen–Jaworski 2010, Ars Combinatoria 94, 341–359, public research-portal abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0603529v1",
+        "Hansen–Jaworski, Ars Combinatoria 94 (2010), abstract",
+        "Resultary 007c2a04bfe9, 303f0920fc82, 0c1fa0e07cad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general cyclic-set formula recovers the exact finite conditional regression by factorial tilting, but does not identify its leading cancellation and residual quadratic at c on the sqrt(n) scale.",
+          "The d=0 analogue has one coordinate, and the other full profile is a covariance with a different function of c. The actual target requires the nonzero-degree Charlier coefficient, control of the uniform remainder and conversion with the Rayleigh cross moment."
+        ],
+        "reasoning": "A finite probability kernel determines these covariances in principle, but the frozen finding is the evaluated leading all-degree asymptotic, not merely an alternate expression for that kernel. The checked statements do not directly specialize to the full limit.",
+        "searches": [
+          "arXiv:math/0603529 Theorem 1 proof, conditional cyclic set formula offset 24300",
+          "Resultary 303f0920fc82 and 007c2a04bfe9, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For D_1 the indegree of a tagged vertex, exchangeability gives Cov(C_n,H_{n,d})=n Cov(C_n,1_{D_1=d}), equivalently n P(D_1=d) times the difference of conditional and unconditional cyclic-count means.",
+          "303f0920fc82 has the same quadratic but for the number of weak components, with covariance tending unscaled to e^−1(−d²+3d−1)/(2d!)."
+        ],
+        "reasoning": "Tagged-degree regression is an equivalent formulation. The weak-component statistic is different: its conditional mean given the cyclic-vertex count is a harmonic number, not a constant multiple of that count, so the component covariance does not yield the cyclic-vertex covariance by a scalar conversion.",
+        "searches": [
+          "Resultary: random mapping cyclic core leaf covariance and Poisson Charlier indegree profile",
+          "Resultary 303f0920fc82, component–indegree covariance, RESULT.md offset 0",
+          "Hansen–Jaworski arXiv:math/0603529 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "007c2a04bfe9 gives the exact target's d=0 leading covariance −sqrt(π/2) sqrt(n)/(2e)+o(sqrt(n)).",
+          "0c1fa0e07cad gives a joint law of cyclic and indegree-zero counts and the same d=0 coefficient."
+        ],
+        "reasoning": "Both are verified overlaps on d=0; exact leaf information does not encode the histogram for d>=1, even with total-degree and total-vertex constraints. No priority claim is made based on dates.",
+        "searches": [
+          "Resultary 007c2a04bfe9, sharp leaf covariance, RESULT.md offset 0",
+          "Resultary 0c1fa0e07cad, exact cyclic and terminal vertex joint law, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The exact cyclic-set/degree law and the zero-indegree coordinate are established antecedents. The supported distinct claim is the full fixed-degree second-order asymptotic for the cyclic-vertex covariance, including its nonzero-degree coefficients. A component-count profile with the same polynomial is not that covariance. The comparison explicitly credits the conditional-forest regression as recoverable from the stronger published exact law, rather than treating it as new.",
+      "residual_risks": [
+        "The 2010 paper was not available for full-text inspection; an explicit prior full-profile expansion there or in another mapping asymptotics treatment cannot be excluded.",
+        "Exact exchangeable-indegree formulas already contain the finite law; any priority claim must be limited to the evaluated asymptotic for the cyclic-vertex statistic, not the general conditioning method or the leaf case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact conditional mean by multinomial specialization, not the evaluated full covariance limit in the inspected passages",
+          "evidence": "The exact conditional cyclic-set probability is a sum of mixed falling-factorial factors with one doubled root contribution, establishing the claimed prior implication for finite regression.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+          "material_read": "Abstract; Theorem 1 and proof pp. 5–6 and 10–11 (offsets 13430–17563 and 24300–26694); component conditional comparison Eq. (3.7), p. 12",
+          "method": "OA primary PDF text",
+          "title": "A new random mapping model",
+          "trigger": "General exact cyclic-set law given exchangeable indegrees"
+        },
+        {
+          "assessment": "Related construction verified from abstract only; exact full-text implications not established",
+          "evidence": "Uniform forest rooted at the selected cyclic vertices and independent random permutation; abstract emphasizes typical component size.",
+          "identifier_or_url": "https://researchportal.hw.ac.uk/en/publications/random-mappings-with-a-given-number-of-cyclical-points/",
+          "material_read": "Public metadata and abstract, offsets 0 and 500; publisher PDF could not be text-extracted and alternate author PDF returned 403",
+          "method": "Research portal and lawful primary-PDF attempts",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Conditional forest representation for exactly the target model"
+        },
+        {
+          "assessment": "Exact d=0 overlap",
+          "evidence": "Gives negative sqrt(n) covariance of cyclic and leaf counts, with the identical leading constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9",
+          "material_read": "RESULT.md finding and conditioning at offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Exact covariance in same model"
+        },
+        {
+          "assessment": "Different count and normalization",
+          "evidence": "Same polynomial for components, with unscaled constant-order covariance, not for the number of vertices lying on cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-poisson-second-difference-law-for-component-indegree-covarianc--303f0920fc82",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local mirror text",
+          "title": "A Poisson second-difference law for component–indegree covariance in random mappings",
+          "trigger": "Same complete Poisson quadratic profile"
+        },
+        {
+          "assessment": "Stronger exact information for d=0 only",
+          "evidence": "Joint cyclic-vertex/terminal-vertex distribution and identical leading leaf covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Exact joint law of cyclic and terminal vertices in uniform random mappings",
+          "trigger": "Strong exact joint-law comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic core and the entire degree histogram are canonical global and local statistics of the same random structure. At their natural scale the evaluated covariance profile supplies the leading size and sign for every fixed class and identifies a second-order Poisson mode orthogonal to both conservation laws. This explains more than the earlier leaf coordinate or a sign observed in numerical sampling; no inference about growing degrees or joint fluctuations is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic flag is preserved under all scalar extensions. Orthogonality kills every strict upper-triangular nonterminal image coefficient; the remaining diagonal powers and terminal-coordinate recursion give exactly a unit parameter constrained by the weight gcd and one free annihilator translation. Bezout gives the group scheme over arbitrary commutative base rings. The tangent equation \(gh=0\) proves the characteristic criterion; the order of 2 modulo p yields the sharp dimension cutoff. Independent derivation-equation row reduction, exhaustive binary four-by-four maps and explicit dual-number substitution checks all passed.
+PASS
 
-The proof holds over arbitrary commutative base extensions. The explicit certificate runs the finite checks for primes \(2,3,5,7\), including direct dual-number substitution; computations are supporting rather than exhaustive evidence for all \(n\).
+Over an arbitrary commutative test algebra the squares of the tail basis vectors span the next tail, by the unit leading coefficients; hence all tails are intrinsic. Triangularity and invertibility give unit diagonal entries. For i<j<n, the coefficient of e_(j+1) in the product of the images of e_i,e_j is the e_j off-diagonal entry times the j-th diagonal unit, so that entry vanishes even over nonreduced rings. In each square equation the leading term forces t_(i+1)=t_i². The terminal-coordinate equations force u_(n−1),…,u₂=0 by descending substitution, leaving u₁ arbitrary. Each nonzero skipped coefficient, a unit from K, gives t^(2^(j−1)−2^i)=1. Bézout for these exponents in R× is equivalent to t^g=1; every resulting triangular matrix is invertible and respects all products. Composition in z=u₁/t gives z+t^(2^(n−1)−1)y, identifying the action and the representing functor, not merely points. In characteristic p, write g=p^a h, p∤h; the reduced factor is μ_h and the tangent equation g·dt=0 contributes one extra dimension exactly when p divides g. Every weight is even; for odd p, every supported gap j−1−i must be a positive multiple of ord_p(2) for nonsmoothness. The maximum gap is n−3, and b_(1,r+2)=1 alone realizes resonance whenever n≥r+3. Finite-field counts follow from cyclicity and the free additive coordinate. The multiplication also gives V_i V_j=V_(max(i,j)+1); balanced power splittings yield the stated maximal nilindex.
 
-## Originality — PASS, with historical-priority risk
+## originality
 
-Theorem 5.2 of Mukhamedov et al. (2018/2019) supplies ordinary automorphism matrices and the very same gcd condition in characteristic zero; it is explicitly credited and not asserted as new. Casas et al. (2012) classify/characterize the underlying maximal-index evolution algebras over complex coefficients, not automorphism group schemes. The currently checked sources and indexed findings do not yield functorial characteristic-p group schemes, nonreduced infinitesimal symmetries or the sharp modular dimension threshold. This is provisional historical priority, not an absolute novelty certificate.
+PASS
 
-Closest literature: Casas–Ladra–Omirov–Rozikov, arXiv:1208.1709 (maximal-index structure); Mukhamedov–Khakimov–Omirov–Qaralleh, arXiv:1805.10285, Theorem 5.2 (ordinary automorphism matrices and gcd constraint in characteristic zero). The latter is an essential predecessor. Indexed results about perfect evolution algebras, chain endomorphism monoids, and other nonsmooth automorphism schemes do not cover the present modular nilpotent class. A hitherto unchecked positive-characteristic publication could subsume the result.
+The ordinary automorphism matrix and gcd-of-weights condition are substantially known, as is the normalized maximal-index family. The distinct supported result is the group scheme on all test rings for this nilpotent family and its sharp characteristic-dependent nonsmoothness boundary. The closest ordinary proof uses reductions valid over fields, including vanishing inferred from zero squares; that proof cannot be interpreted wholesale over nonreduced rings. A known scheme theorem with a related roots-of-unity and derivation mechanism concerns perfect, not nilpotent, evolution algebras.
 
-## Value — PASS
+## value
 
-The exact scheme-theoretic symmetry and smoothness boundary are natural invariants for an infinite family of maximal-nilindex nonassociative algebras. The parameter g encodes torsion invisible to ordinary finite-field automorphism cardinalities; the characteristic-two universal nonsmoothness and sharp odd-p first occurrence explain why characteristic-zero derivation classifications cannot be transferred by ordinary-point substitution. The result gives a concrete infinite family of hidden infinitesimal symmetries and a full structural description.
+PASS
 
-## Limitations
+Passing from ordinary points to the actual stabilizer scheme detects a genuine phenomenon invisible to rational-point enumeration: the additive dimension persists while a multiplicative tangent direction appears precisely in resonant supports. The exact first possible occurrence for every odd prime and its explicit one-coefficient witness answer a natural classification question in a standard maximal-index family. The supporting all-rings proof excludes hidden nilpotent matrix coordinates, so the result adds more than a repackaging of the characteristic-zero count.
 
-The theorem is for the normalized presented family, not a full isomorphism classification. Only the functorial argument proves the general result, and no independent audit has occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

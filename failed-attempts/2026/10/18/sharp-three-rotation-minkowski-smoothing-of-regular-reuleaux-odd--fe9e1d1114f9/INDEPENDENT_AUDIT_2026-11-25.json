@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:50.929415Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–82; Fourier coefficients, gap extrema (including repeated phases) and curvature identity independently checked",
+        "Frozen VERIFICATION.md and verify.py, read without executing"
+      ],
+      "rationale": "Scale to w=1 and set α=π/n, β=α/2. Curvature in the normal angle is the alternating 0/1 wave (each arc has length α in angle, each intervening vertex cone also has length α by the antipodal constant-width relation). Its odd-harmonic amplitudes are 2(−1)^((ℓ−1)/2)/(πℓ). Dividing each by 1−n²ℓ² for the support function and using area=(1/2)∫(h²−h'²) yields the two-copy deficit f(t)=π^−1 Σ_{ℓ odd}(1+cos(nℓt))/(ℓ²(n²ℓ²−1)). To obtain its closed form, integrate the cosine coefficients of g(x)=sin(β−x/n) by parts twice: their unnormalized integral is [g'(π)(−1)^ℓ−g'(0)]/(ℓ²−1/n²). Matching f'' and using f'(0)=0 and f(α)=0 gives f(t)=−π/4+(n/4)[t+(sinβ+sin(β−t))/cosβ] on [0,α]. The three-copy deficit by polarization is (4/9)Σ f(gap)−f(0)/3. If a positive gap is at least α, its derivative is nonnegative while smaller positive gaps have negative derivative, excluding a stationary minimum. For all gaps in (0,α), equal derivatives imply equal gaps or a complementary pair summing to α; a complementary pair would force the third gap to be α, so the only interior minimum candidate has gaps 2α/3. If a gap is zero, even periodicity and nonnegativity give Σ f≥f(0). Independently, the closed form and the triple-angle identity give f(0)−3f(2α/3)=n sin³(β/3)/cosβ>0, ensuring strict improvement over the boundary. At equal gaps the three curvature waves have alternating upward and downward jumps at intervals α/3 and their average has values 1/3 and 2/3, the curvature of (2/3)B_1+(1/3)R_{3n}(1). The support functions can differ only by a first harmonic, excluded by the common center and n-fold invariance. The disk deficit is quadratic in the centered nonconstant part of the support function, hence one ninth of the regular 3n-gon deficit. Substituting the regular Reuleaux area (also obtained from f(0)) gives the exact stated area and the tan expansion gives π³w²/(3888n²). Strict monotonicity follows from d[s tan(c/s)]/ds=tan u−u sec²u<0 for u=c/s>0 in this range.",
+      "residual_risks": [
+        "Equal weights, fixed regular odd order and common rotation center only. Recorded numerical tests are not proofs of rigidity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In addition to the same maximum and equality, the first record gives the minimum over three rotations and local quadratic stability. The general-k random result reports finite-sample expectations and variance and a limit law, not a sharp deterministic maximizer. Falcó–Myroshnychenko give a minimum over a class of group-invariant bodies."
+        ],
+        "reasoning": "The three-rotation result covers the main frozen finding and contains more area information. A random general-k theorem and a minimum over a different admissible class do not imply this maximum; they are not the basis for failure.",
+        "searches": [
+          "Resultary aab4b3e84798 Finding",
+          "Resultary b78353b61adf on randomly rotated Minkowski means; focused general-k deterministic optimizer lookup",
+          "Falcó–Myroshnychenko arXiv:2608.05125v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic lookups and aab4b3e84798, 53c190e0340e, b78353b61adf",
+        "Resnikoff 1504.06733v1",
+        "Sallee 10.4153/CMB-1970-037-1",
+        "Falcó–Myroshnychenko 2608.05125v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "aab4b3e84798 explicitly provides both the equally spaced phases and the curvature wave (w/2)(1+sgn(cos nθ)). It also states the same leading deficit. Sallee quotes Firey's side-count monotonicity for regular Reuleaux isoperimetric ratios, not a triple-mean theorem."
+        ],
+        "reasoning": "Averaging that square wave at the covered phases gives w/3 and 2w/3 on alternating intervals of length π/(3n), i.e. the curvature of (2/3)B_w+(1/3)R_{3n}(w) up to rotation. Centering makes h+h'' determine the body. The one-ninth deficit is the standard quadratic area identity for this width-preserving mix, and strict growth with n is elementary from the covered formula. The additional shape description is consequently implied by the already-specified maximizer rather than an independent optimization result.",
+        "searches": [
+          "Resultary aab4b3e84798 Finding, square-wave assumption, and Fourier/gap proof",
+          "Resnikoff arXiv:1504.06733v1 equations (2.32)–(2.33)",
+          "Sallee DOI 10.4153/CMB-1970-037-1 p. 175"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct result uses exactly three equal-weight rotations of centered regular odd Reuleaux n-gons of width w. It states the same phases modulo 2π/n and disk deficit w²[n(sin c−2 sin(c/3))/(6 cos c)−π/36], c=π/(2n)."
+        ],
+        "reasoning": "Writing u=c/3 and using sin(3u)−2sin u=tan u cos(3u) shows exact agreement with the frozen deficit w²[n tan(π/(6n))/6−π/36]. Phase and centering conventions are identical.",
+        "searches": [
+          "Focused Resultary lookups for three-phase Reuleaux Minkowski smoothing and sharp deterministic area rigidity",
+          "Resultary aab4b3e84798 RESULT.md, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database has an exact theorem match in aab4b3e84798. The two-copy profile 53c190e0340e concerns n=3 and the disk at one relative angle, not the triple case."
+        ],
+        "reasoning": "There is no finite table underlying the claim; it quantifies over angles, positive widths and all odd n. The exact database coverage is at the statement/formula level, not a numerical coincidence.",
+        "searches": [
+          "Resultary semantic search for exact area formulas and optimizer phases in Minkowski means; aab4b3e84798 and 53c190e0340e mirrored findings"
+        ]
+      },
+      "rationale": "An indexed distinct finding gives the same sharp maximum and its equality phases on exactly the same optimization domain, with the same positive deficit and its asymptotic. Its different trigonometric expression is identically equal. The maximizer's body identity, not found verbatim in the inspected finding, follows directly from the covered equality phases and the same record's square-wave curvature formula. This is equivalent or implied scientific coverage, not a finding about historical priority.",
+      "residual_risks": [
+        "Web literature lookup unavailable and Firey's full text not retrieved; they are not the basis of the verdict. The exact distinct catalogue overlap is demonstrable, but priority and provenance are not resolved by catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on hypothesis and extremum; cutoff/shape refinements mechanically follow from explicit formula and square wave; no priority inference",
+          "evidence": "States the identical equally spaced phase set and deficit after a triple-angle identity, the same leading asymptotic, and explicitly gives the curvature wave that determines the optimal shape.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-three-rotation-area-rigidity-for-regular-reuleaux-odd-gons--aab4b3e84798",
+          "material_read": "RESULT.md Finding and assumptions offset 0–3333; proof of gap minimization at offset 4867–6992 and nearby passages",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp three-rotation area rigidity for regular Reuleaux odd-gons",
+          "trigger": "Same maximization, angle set and deficit; check additional shape claim"
+        },
+        {
+          "assessment": "Related two-copy result only",
+          "evidence": "For n=3 two equal-weight copies attain the disk at relative angle π/3; provides the complete two-copy profile.",
+          "identifier_or_url": "Resultary 53c190e0340e, RESULT.md",
+          "material_read": "Finding, offsets 0–3973",
+          "method": "Published-record local mirror",
+          "title": "Exact rotational Minkowski-average area profile of the Reuleaux triangle",
+          "trigger": "Same rotational average, possible equivalent profile"
+        },
+        {
+          "assessment": "Random sampling and distribution rather than extremal deterministic phases",
+          "evidence": "Independent uniform rotations; expected area, variance and limiting fluctuations.",
+          "identifier_or_url": "Resultary b78353b61adf, RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2436",
+          "method": "Published-record local mirror",
+          "title": "One-sided non-Gaussian area fluctuations of randomly rotated Minkowski means",
+          "trigger": "General number of rotations, potential discovery of a stronger theorem"
+        },
+        {
+          "assessment": "Classical area machinery, not searched as an indexed matching extremum",
+          "evidence": "Support-function area/Fourier identities and the ordinary Reuleaux-triangle area.",
+          "identifier_or_url": "https://arxiv.org/html/1504.06733v1",
+          "material_read": "Eqs. (2.32)–(2.33), offsets 37800–43477; Eq. (3.13), offset 54586 through 56356",
+          "method": "Bounded OA full-text inspection",
+          "title": "On Curves and Surfaces of Constant Width",
+          "trigger": "Support and Fourier area calculations"
+        },
+        {
+          "assessment": "Different global variables and extrema; Firey's own full text not retrieved",
+          "evidence": "Firey's quoted theorems concern ratios within Reuleaux polygons and monotonicity of the regular case with side count.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1970-037-1",
+          "material_read": "p. 175, offset 797 and p. 179 bibliography",
+          "method": "Bounded primary PDF inspection; Firey comparison via Sallee's quotations",
+          "title": "Maximal Areas of Reuleaux Polygons",
+          "trigger": "Regular Reuleaux extremality and dependence on side count"
+        },
+        {
+          "assessment": "Abstract states a different minimization; not a whole-paper negative claim",
+          "evidence": "Regular Reuleaux odd-gons minimize under cyclic or dihedral invariance, over constant-width bodies rather than rotated sums.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05125v1",
+          "material_read": "Abstract, offset 567",
+          "method": "Bounded OA inspection",
+          "title": "Area Minimization Among Group-Invariant Planar Convex Bodies of Constant Width",
+          "trigger": "Symmetric maximizing mean might be covered by a group-invariant theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equality body proof",
+        "Resultary aab4b3e84798 Finding and explicitly given curvature function"
+      ],
+      "rationale": "The odd-copy obstruction and strict optimizing phases are a natural geometric question. As a distinct contribution, however, the frozen result leaves only the description of a known maximizer as a disk–Reuleaux mixture and consequences of the existing deficit formula. The mixture follows immediately by averaging the three supplied curvature functions and adds no separate unknown extremal or structural fact to the checked coverage.",
+      "residual_risks": [
+        "A broader nontrivial result about deterministic rotations or equality shapes may still be valuable; that is outside this frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

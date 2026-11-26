@@ -1,15 +1,21 @@
-# Review of exact fourth moments for three consecutive \(SU(2)\) characters
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact Clebsch--Gordan character-product rule and normalized Haar orthogonality, yielding formula (1) with all multiplicities displayed. The use of modulus majorization is valid because every multiplicity is nonnegative; at the maximizing point, all three magnitudes are strictly positive and all equality conditions are explicitly enforced. The remaining scalar optimization has an explicit positive stationary point in the middle squared amplitude and a cubic with exactly one positive root in the outer-amplitude ratio, by coefficient signs and the derivative identity. These analytic arguments cover all integers \(n\ge0\) and both endpoints. The attached checker verified 306 independent comparisons and algebraic identities. Its finite tests are supplemental evidence, not a proof of the infinite family.
+## correctness
 
-## Originality — PASS, best knowledge
-The closest published high-weight parity-localization record treats leading growth and parity-controlled limiting optimizers for fixed sparse central packets on \(SU(2)\). It is a genuine strong analogue: the leading term in this finding is consistent with that asymptotic picture and **is not claimed new on its own**. The novel claim assessed here is an all-weight exact sharp cubic formula, complete finite-weight equality classes, and a next-order asymptotic correction. The record's full text was not accessible, so equivalence of its unstated finite formulas cannot be wholly excluded. Cardona--Ruzhansky (2021), in its introduction and main multiplier theorem, concerns general boundedness conditions, not exact three-character \(L^2\)-to-\(L^4\) norms. Frank (2022) proves inequalities for coherent-state transforms and weighted polynomial realizations, not these Haar central character moments. Previously observed two-character \(SU(2)\) formulas and abelian three-character norms neither contain nor imply the present nonabelian triple formula. An independently reviewed bibliographic priority determination has not been performed.
+PASS
 
-## Mathematical value — PASS
-The three-adjacent-character packet is the smallest non-pair central spectral band of a compact nonabelian group, and its exact sharp amplification is a natural Fourier synthesis invariant. A single cubic solves the problem **uniformly for every initial weight**, including the low-weight exceptions and the large-weight regime. More importantly, the optimizer always uses three nonzero coefficients, in contrast to the finite-weight exclusion phenomenon of two-character packets. The formula provides a finite-weight correction to the already understood leading parity asymptotic. This is a parameter-uniform spectral result with complete extremizers rather than an isolated computed sample.
+For ordinary SU(2) characters and Haar probability, Clebsch–Gordan and orthogonality give the displayed |f²|² sum; its repeated even term disappears at n=0 while its odd |b(a+c)|² term persists. Positivity reduces to coefficient moduli. For c>0, writing u=|b/c|², the u-derivative has a strictly positive fixed factor times u_n(t)−u; u_n(t)>0 since 4t²−t+3 is positive and all other numerator terms are nonnegative. Independent symbolic expansion checked reduction to R_n and the derivative identity; H_n(0)<0<H_n(1) and one sign change for each n give the unique interior maximizer, strictly above R_n(0) and its limit at infinity. At c=0 and a≠0, continuity and t→∞ bound the quotient by the latter limit; the pure-b quotient n+2 is strictly below the interior u-optimum at any fixed t. Equality in |a²+b²+c²| and |b(a+c)| then forces exactly a common complex scalar with a free middle sign. The positive root tends to 1 and the expansion gives t_n=1−1/(2n)+O(n⁻²) and u_n=4/5+8/(25n)+O(n⁻²). For K_n the leading rational term has zero derivative at t=1, hence the constant correction is the same as from evaluating at 1: (128n²+314n+197)/(28n+38)=32n/7+491/98+O(n⁻¹). The independent bounded reproduction at branches/f69c1132-ca0c-4731-a89d-4680338628e2/independent_reproduction.py also compares exact semicircle-moment and character calculations on 24 complex samples and checks the sample root values. It does not by itself prove the all-weight statement. The supplied script was inspected, not executed.
 
-## Closest literature and limits
-Primary sources: Cardona--Ruzhansky, arXiv:2101.12314 (2021); Frank, arXiv:2210.14798 (2022). A searchable public mathematical-result record entitled *High-weight parity localization of central fourth moments on \(SU(2)\)* provides the closest comparison. Its linked full text was inaccessible, limiting definitive priority assessment. The theorem does not apply to noncentral blocks or longer packets. External expert examination has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known high-weight result already covers the leading slope and limiting optimizer, and the general product rule is classical. The inspected sources do not cover the exact all-weight sharp value, positive-cubic-root characterization, finite-weight phase rigidity, or next asymptotic term of this triple. This is a bounded assessment of the distinct finite-weight theorem, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+Consecutive central triples give a natural first packet beyond all two-mode problems. The exact, uniform-in-weight interior optimizer and its phase rigidity decide how parity mixing occurs at finite weight, not just its asymptotic pattern. The finite-weight formula and first correction are useful even when the leading slope is already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

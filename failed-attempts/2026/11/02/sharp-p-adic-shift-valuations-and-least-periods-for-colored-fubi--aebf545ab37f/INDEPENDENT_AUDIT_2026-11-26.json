@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:49.275406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Putting h=t+1, rewrite the exponential generating function as e^(-z)/(1-h+h e^(-z)). Expanding in h/(1-h) gives the stated convergent p-adic moments; the coefficient at base b is a unit times h^(b-1). For an even shift the b=1 term cancels and b=2 has valuation s+ell. If ell=0 every other unit term has valuation at least 2s. If ell>0, then p-1 divides q and primitive-root lifting gives ell=1+v_p(q/(p-1)); Fermat and lifting give this as a lower bound on v_p(b^q-1) for every unit b. The other unit terms have valuation at least 2s+ell; the nonunit terms have valuation at least n. Thus at the stated threshold the leading term survives without cancellation. Reduction mod p^s leaves (-1)^n, making odd shifts units (p odd) and giving period two for a<=s. Above s, the exact even-shift formula and order of 2 modulo p^(a-s) give the minimal eventual period and stated onset. The supplied tests were inspected, not run; the proof and the independent coefficientwise/derivative argument establish the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every modulus m the indexed theorem gives coefficientwise G_(n+lambda(m))=G_n mod m from n>=max(a:p^a exactly divides m).",
+          "Danesh gives eventual Carmichael periodicity of integral substitutions G(e^z-1); the proof uses the integer power-sequence decomposition of factorial Stirling coefficients."
+        ],
+        "reasoning": "For ell>0 the primitive-root hypothesis makes q a multiple of lambda(p^ell), and the indexed theorem gives the needed uniform coefficientwise divisibility for n>=ell. It does not state this parameter-sensitive exact valuation explicitly, but supplies it by the root and derivative argument below. The integral-substitution theorem gives related upper-period background, not a sharp scalar equality statement.",
+        "searches": [
+          "Resultary 6f2e97b87162, Finding and Proof §1",
+          "Danesh viXra:2608.0078v1, Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 6f2e97b87162, be3d86aee431 and d80a1c925594",
+        "arXiv:1706.08950 and arXiv:1308.1637v1",
+        "Poonen pp. 72–73",
+        "viXra:2608.0078v1",
+        "DOI 10.1016/j.jnt.2016.09.032 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For even q, write P(X)=G_(n+q)(X)-G_n(X). The generating function at X=-1 is exp(-z), so P(-1)=0. Its X derivative there is exp(-z)-exp(-2z), giving P'(-1)=-(-2)^n(2^q-1).",
+          "Coefficientwise periodicity by lambda(p^ell) gives P in p^ell Z[X] for n>=ell when ell>0; when ell=0 the assertion is immediate from integrality."
+        ],
+        "reasoning": "Divide P by p^ell(X+1) in Z[X] to obtain K. Then K(-1)=P'(-1)/p^ell is a p-adic unit and K(t) has that same nonzero residue. This is the exact valuation s+ell, with onset n>=ell, stronger than required. The odd shift and low-modulus period follow from G_n(t) congruent to (-1)^n mod p^s; above s the condition is exactly 2^q=1 mod p^(a-s), whose least order is the asserted even period. Thus all clauses follow, not merely an upper period.",
+        "searches": [
+          "Resultary 6f2e97b87162, coefficientwise congruence at prime powers and its index threshold",
+          "Frozen RESULT.md exponential generating function at t=-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_n(t) is the evaluation G_n(t) of the polynomial in Resultary 6f2e97b87162, with identical coefficients k! S(n,k).",
+          "Corollary 11 and Remark 15 of Mihoubi–Taharbouchet give prime-modulus reductions in the index, including F_(mp+q) congruent to F_(m+q), without a sharp higher-power valuation."
+        ],
+        "reasoning": "At the special residue -1, the useful equivalent formulation is the first Taylor coefficient of a coefficientwise-divisible index difference with a root there. A prime-modulus scalar comparison alone would not determine that normalized Taylor coefficient at all prime powers.",
+        "searches": [
+          "Resultary: colored Fubini shift valuations; geometric/ordered-Bell polynomials at fixed residues; sharp scalar periods",
+          "Mihoubi–Taharbouchet arXiv:1706.08950, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact scalar hits concern F_n(1), including an unweighted full totient-shift defect and exact ternary preperiod in be3d86aee431; the unweighted case is excluded at odd primes by t congruent to -1.",
+          "The indexed coefficientwise theorem covers every modulus exactly but describes its invariants for polynomial coefficients, not tables of fixed-color valuations."
+        ],
+        "reasoning": "Neither numerical tables nor the ordinary sequence give the claimed colored sharpness. The decisive coverage is the exact polynomial congruence and its algebraic implication, not an empirical match or a substitution t=1.",
+        "searches": [
+          "Resultary exact shift-defect and least prime-power-period searches; Resultary be3d86aee431 and 6f2e97b87162",
+          "Poonen, Periodicity of a Combinatorial Sequence, Theorems 2–3; Mező arXiv:1308.1637v1"
+        ]
+      },
+      "rationale": "The complete colored law is a short consequence of the distinct indexed coefficientwise periodicity theorem 6f2e97b87162 and the first derivative at -1. It is not just a specialization of the coefficientwise *least* period: the coefficientwise divisibility supplies the crucial factor, and the first derivative proves exactness at every allowed weight. This derives the same result at the stated onset and in fact for n>=ell. The two records are distinct; no priority inference is made from their shared catalogue date or from the unnamed archived record discussed in the related-work section.",
+      "residual_risks": [
+        "The catalogue dates and unnamed scalar reference do not establish which record came first, and the Diagana–Maïga full text was unavailable. Neither uncertainty is the basis of the decision: the separately inspected coefficientwise theorem and the explicit implication are decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive implication via Taylor expansion at -1",
+          "evidence": "Coefficientwise modulo p^a, shift by lambda(p^a) holds for all n>=a. It notes a scalar finding without identifying it; the implication does not depend on that note.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-coefficientwise-index-periods-of-ordered-bell-polynomials--6f2e97b87162/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §1, and relationship/limitations (offsets 0 and 4850)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp coefficientwise index periods of ordered-Bell polynomials at every modulus",
+          "trigger": "Same polynomial, strongest indexed prime-power period theorem"
+        },
+        {
+          "assessment": "Different weight regime and shift quantifier",
+          "evidence": "The specified totient shift is for the ordinary sequence F_n(1); it is not a theorem for t=-1 mod p and every even q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-prime-power-shift-defects-and-exact-ternary-preperiods-of-ordere--be3d86aee431/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Configured local mirror",
+          "title": "Prime-power shift defects and exact ternary preperiods of ordered Bell numbers",
+          "trigger": "Sharp p-adic shift defect for Fubini numbers"
+        },
+        {
+          "assessment": "Prime-modulus overlap",
+          "evidence": "Polynomial and index congruences modulo p, not the sharp scalar arbitrary-power law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.08950",
+          "material_read": "Section 3 pp. 5–8, Corollary 11 and Remark 15",
+          "method": "OA PDF passages",
+          "title": "Identities and congruences involving the Fubini polynomials",
+          "trigger": "The same parameterized geometric polynomial"
+        },
+        {
+          "assessment": "Unweighted case",
+          "evidence": "Eventual totient shift and exact odd prime-power period for ordinary Fubini numbers.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/26-1/poonen.pdf",
+          "material_read": "Theorems 2–3 pp. 72–73",
+          "method": "OA PDF passages",
+          "title": "Periodicity of a Combinatorial Sequence",
+          "trigger": "Exact Fubini prime-power periods"
+        },
+        {
+          "assessment": "General periodicity background",
+          "evidence": "Integer substitutions G(e^z-1) have Carmichael eventual period by factorial Stirling coefficients and finite modular power sums; the result itself does not state sharp fixed-color valuations.",
+          "identifier_or_url": "https://vixra.org/pdf/2608.0078v1.pdf",
+          "material_read": "Theorem 3.1 and Theorem 4.1 with proof, pp. 3–5 (offset 5810)",
+          "method": "OA PDF passages",
+          "title": "A Valuation Criterion for Totient-Periodic Stirling Transforms",
+          "trigger": "Broad Stirling-transform congruence cited by the indexed theorem"
+        },
+        {
+          "assessment": "Not a whole-document comparison; not used as negative evidence",
+          "evidence": "The inspected material did not settle the exact parameterized valuation question.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2016.09.032",
+          "material_read": "Landing page and abstract only",
+          "method": "DOI and lawful open-copy retrieval attempt",
+          "title": "Some New Identities and Congruences for Fubini Numbers",
+          "trigger": "Potentially related higher-power Fubini congruences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dependence of scalar period on the residue of the color parameter is a natural question. Here the precise valuation and period are mechanically implied by coefficientwise periodicity and the linear Taylor coefficient at -1. The written threshold is weaker than the one that falls directly out of this argument and does not claim or establish a separate sharp preperiod. No independently non-implied exact invariant remains in the stated result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

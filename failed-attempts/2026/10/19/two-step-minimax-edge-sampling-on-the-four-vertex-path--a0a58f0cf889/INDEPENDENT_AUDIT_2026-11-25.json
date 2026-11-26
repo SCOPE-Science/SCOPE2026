@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:13:17.651668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–103, VERIFICATION.md lines 19–25, verify.py lines 23–145 inspected only",
+        "python3 /workspace/replay.py 1: direct vector averaging over both edge draws, exact bilinear polynomial checks at rational points, exact radical-sign bisection and decimal evaluation"
+      ],
+      "rationale": "The squared norm for an ordered pair of independent updates gives P_i P_j P_i, before taking the top eigenvalue on the zero-sum subspace. The linear vector (-3,-1,1,3) gives the one-step weighted Laplacian gap bound 1/5, achieved at (3/10,2/5,3/10); attainment fixes both outer probabilities by the end-vertex eigenvector equations. For the second step, reflection averaging adds d^2(P1-P3)^2 to the symmetric moment because the outer projections commute. The odd-block top eigenvector has positive unequal coordinates for interior a, making this increment strictly positive on the maximizing direction when d is nonzero. The symmetric even block is dominated there, and either boundary value of a leaves the path disconnected. The top odd-block eigenvalue is the displayed f: the norm term has second derivative at least -2 and the trace second derivative is 5, giving f'' >= 3/2. The analytic derivative has opposite endpoint signs and is negative at 3/10. On P3, the two rank-one projected lines in the zero-sum plane have squared inner product 1/4, yielding the stated trace and determinant and a strictly decreasing factor in p(1-p). P2 has only one choice. The decimals and two-step objective separation reproduce independently.",
+      "residual_risks": [
+        "Only a fixed iid law and an adversarial deterministic start are classified; the replay tests do not independently prove global optimization without the analytic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. optimize the second-largest eigenvalue of the expected averaging matrix. Gower–Richtárik distinguish expected-iterate and squared-error convergence and give general bounds. The exact MSE conference paper could not be retrieved for passage-level comparison."
+        ],
+        "reasoning": "The spectral program coincides with the one-step objective but does not itself provide the two-step optimum. Substantive coverage is established instead by the exact indexed theorem.",
+        "searches": [
+          "Boyd et al., DOI 10.1109/CDC.2004.1429652, Section IV, Eqs. (14)–(15)",
+          "Gower–Richtárik arXiv:1506.03296, Sections 4.1–4.3",
+          "Agaskar–Wang–Lu DOI 10.1109/GlobalSIP.2014.7032145, Harvard and IEEE routes attempted"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d96e8c040b54 and 91d0f3171cfc",
+        "Boyd et al., Section IV; Gower–Richtárik, Sections 4.1–4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both findings include global uniqueness, the same two-draw quantifiers, the optimizer split and its minimality; the strict improvement at the one-step law also follows directly from global uniqueness."
+        ],
+        "reasoning": "The precise additional decimal digits and the equivalent derivative characterization are not a substantively new mathematical remainder.",
+        "searches": [
+          "Indexed d96e8c040b54 Finding and assumptions, offset 0; frozen RESULT.md lines 5–34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record minimizes the top expected squared-disagreement factor over the full probability simplex for the same fixed iid law and adversarial start. It parameterizes the middle edge by b and lists the same optimum, one-step benchmark, and minimality."
+        ],
+        "reasoning": "Substitute b=1-2a in the indexed objective: its polynomial part and its radical reduce exactly to those of f(a). The same minimax problem and theorem are stated directly.",
+        "searches": [
+          "Resultary: P4 path two-step minimax iid edge averaging worst-case mean-square optimizer finite horizon unique sampling probabilities",
+          "Resultary d96e8c040b54, RESULT.md at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d96e8c040b54 explicitly gives the full P2/P3/P4 cutoff and F2 at the one-step optimum as 1/2+sqrt(754)/100. The isotropic-start comparison gives (3/8,1/4,3/8) at P4."
+        ],
+        "reasoning": "A full exact theorem, not an inferred table entry or an identical title, establishes the overlap. Isotropic expected error is a trace objective and not this fixed-start minimax factor.",
+        "searches": [
+          "Resultary d96e8c040b54 and 91d0f3171cfc, Findings"
+        ]
+      },
+      "rationale": "Distinct indexed coverage explicitly gives the same unique global two-step optimizer, the same one-step benchmark and exact loss under that law, and the same minimal path. The two parametrizations are algebraically identical, not merely near each other numerically. This scientific overlap is established; publication chronology or provenance of the records is not established.",
+      "residual_risks": [
+        "Exact indexed match establishes coverage; its later catalogue date does not settle provenance or priority. Agaskar–Wang–Lu full text was not inspectable, and the focused search offered no usable supplementary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive equivalent theorem",
+          "evidence": [
+            "Unique global optimizer b*=0.39432184835338379..., exact F(2/5), P2 and P3 agreement and P4 divergence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-four-vertices-first-separate-spectral-and-two-step-randomized-go--d96e8c040b54/RESULT.md",
+          "material_read": "Finding, assumptions, opening moment identity; offset 0",
+          "method": "Local-mirror primary text, direct change of variables",
+          "title": "Four vertices first separate spectral and two-step randomized gossip design",
+          "trigger": "Exact minimax uniqueness and minimal path"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": [
+            "Isotropic starting field, P4 optimizer (3/8,1/4,3/8)."
+          ],
+          "identifier_or_url": "Resultary 91d0f3171cfc",
+          "material_read": "Finding, offset 0–3514",
+          "method": "Local-mirror primary text",
+          "title": "Two-contact isotropic gossip favors path boundaries unlike spectral design",
+          "trigger": "Same graph and horizon"
+        },
+        {
+          "assessment": "Spectral/one-step objective",
+          "evidence": [
+            "Minimize the second-largest eigenvalue of the expected update matrix by selecting probabilities."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+          "material_read": "Section IV, Eqs. (14)–(15), PDF pp. 3–4",
+          "method": "Primary open-access paper passage",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "Standard optimal edge law in gossip"
+        },
+        {
+          "assessment": "General framework and rates, not the finite optimizer",
+          "evidence": [
+            "Distinguishes expected squared error from the squared norm of expected error."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Sections 4.1–4.3, pp. 12–14, including Eq. (4.1) and Theorem 4.4",
+          "method": "Primary open-access paper passage",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Broader exact-error or rate implication"
+        },
+        {
+          "assessment": "Primary comparison unresolved, not a basis for verdict",
+          "evidence": [
+            "Frozen RESULT.md lines 105–107 report an exact MSE formula and asymptotic exponent optimization, not verified from the primary paper."
+          ],
+          "identifier_or_url": "10.1109/GlobalSIP.2014.7032145",
+          "material_read": "No accessible primary passage",
+          "method": "Attempted lawful Harvard, DOI and IEEE retrieval",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Closest cited exact MSE optimization paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21, 95–111"
+      ],
+      "rationale": "The small numerical gain is not the motivation: the exact minimizer changes and the theorem locates the first path and first possible nontrivial horizon of that change. This is meaningful for finite-horizon design regardless of who first obtained it.",
+      "residual_risks": [
+        "Does not establish analogous differences for larger paths or additional rounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

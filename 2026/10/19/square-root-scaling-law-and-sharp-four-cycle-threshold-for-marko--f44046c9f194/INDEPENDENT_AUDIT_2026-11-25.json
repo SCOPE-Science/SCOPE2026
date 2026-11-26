@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:23.843724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–110; VERIFICATION.md and verify_cycle.py (not executed)",
+        "Independent Fraction replay at n=4, h=50, m=2 and 80-digit Decimal evaluation of the threshold equation"
+      ],
+      "rationale": "The cycle resolvent A=(I+a(I−P))⁻¹ is strictly positive and stochastic by the geometric series. Hence 2A−I preserves row sums and is positive when a<1. Direct cyclic convolution gives the stated diagonal cutoff for n=3 and all-positive square for every a>0; the n=2 rational entries are positive. For fixed n, the inverse of I−P on the zero-sum subspace has forward coefficient (n−3)/(2n). For even m, expanding the nontrivial multipliers via log(−ρ)=−2/[a(1−λ)]+Oₙ(a⁻²), then exponentiating, gives a forward coefficient −(n−3)q/n+Oₙ(q²+q/a), q=2m²/h. This holds uniformly over the dyadics with q bounded by a small constant as h grows (a then diverges uniformly), so it rules out every such dyadic, not just a fixed power or a subsequence. The unsquared large-step diagonal tends to 2/n−1. At the first dyadic above C√h, q stays in a fixed compact positive interval and the nonconstant multipliers have modulus e⁻ᑫ+o(1) uniformly. For sufficiently large C this makes each entry differ from 1/n by less than 1/n. At n=4, inversion using λ=i,−1,−i gives a minus sine for the forward entry, and the other three limiting entries are strictly positive for q>0. The forward sign is that of eᑫ−1−2 sin q, strictly convex on (0,π) with negative initial derivative and strictly positive for q≥π, proving the unique strictly positive threshold. Independent exact rational arithmetic reproduced all four witness numerators and their sum; Decimal bisection reproduced 0.9777603734668504137… .",
+      "residual_risks": [
+        "The limiting threshold is not a finite-h cutoff at the boundary. All statements are for exact arithmetic, not rounded implementations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general single-factor test C_h≥0 iff its backward-Euler resolvent diagonals are ≥1/2 applies even to nonreversible generators; the reversible spectral bounds in that same record are a separate result.",
+          "The inspected primary papers study accuracy and cost of Padé choices, Markov uniformization, sign of a single Cayley factor, or Dirichlet heat discretizations, respectively."
+        ],
+        "reasoning": "The general single-factor criterion supplies the s=0 specialization; none of these results treats the sign of many coupled dyadic powers at the n-cycle critical scale.",
+        "searches": [
+          "Resultary d475df91cd2a, finding and assumptions",
+          "arXiv:2404.12789, scaling-and-squaring and Padé sections",
+          "DOI 10.1007/s00180-021-01102-6, §§3.1–3.2",
+          "arXiv:2608.22703, Theorem 5",
+          "arXiv:2301.01066, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d475df91cd2a, 5dc6def72908 and 6b800a293f32",
+        "arXiv:2404.12789, arXiv:2608.22703, arXiv:2301.01066",
+        "DOI 10.1007/s00180-021-01102-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=3 the prior one-factor criterion specializes using r=h/(h+2) and Aᵢᵢ=(1+r+r²)⁻¹, giving h≤1+√5. The balanced n=2 all-step result is already included in d475df91cd2a.",
+          "A negative entry eventually for each fixed m permits the threshold step to depend arbitrarily on m, so does not yield a lower bound of order √h for a varying minimal m. The all-mode uniform estimates in the target address that distinction."
+        ],
+        "reasoning": "Credit the mechanically implied s=0 slice and the exact fixed-power overlap; the leading scaling order and the four-cycle zero require a varying-power limit not furnished by those results.",
+        "searches": [
+          "d475df91cd2a, exact general resolvent-diagonal criterion",
+          "5dc6def72908, fixed-power proof",
+          "arXiv:2608.22703, Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing C_t=R(tQₙ) gives Tₙ,ₛ(h)=C_{h/m}^m. The indexed 5dc6def72908 classification applies to all fixed integer powers, including fixed dyadics; for n=3 even powers are positive at all steps, and for n≥4 every fixed even power is eventually negative.",
+          "The indexed 6b800a293f32 one-factor classification includes the same n=3 cutoff, but does not discuss squaring."
+        ],
+        "reasoning": "This is real statement overlap under change of variables, regardless of date; the indexed paths Oct. 26 and Nov. 2 do not show earlier priority over the Oct. 19 target. Neither result is equivalent to positivity when the exponent grows with the step.",
+        "searches": [
+          "Resultary: cyclic Crank–Nicolson/Cayley positivity repeated powers, scaling-and-squaring and critical limits",
+          "Resultary 5dc6def72908 and 6b800a293f32, findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed exact thresholds found were single-factor positivity and fixed-power all-step criteria (d475df91cd2a, 5dc6def72908, 6b800a293f32). The reported 4×4 rational row is just a witness, not the purported new invariant."
+        ],
+        "reasoning": "An exact finite row or fixed-power threshold does not tabulate the uniform asymptotic minimum or the limiting sign profile. No matching indexed asymptotic statement was established by these checks.",
+        "searches": [
+          "Resultary: exact directed-cycle positivity thresholds, minimum squaring budget and four-state critical scaling"
+        ]
+      },
+      "rationale": "Credit the exact overlap in the one-factor result and the overlap in fixed-power classification. The supported distinct part is the uniform-in-budget half-logarithmic minimum for fixed n≥4 and the four-cycle limiting profile and critical constant. The inspected fixed-power laws and general matrix-exponential methods do not determine these coupled limits.",
+      "residual_risks": [
+        "No comprehensive priority claim is supported by the bounded search; additional work on coupled rational powers could contain the asymptotic law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers s=0 criterion and balanced two-state case",
+          "evidence": "C_h=2R_{h/2}−I and the diagonal test is universal; its monotone spectral formula is restricted to reversible chains.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Local mirrored Resultary full-text passage",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Earlier general one-factor test"
+        },
+        {
+          "assessment": "Exact overlap for fixed powers in broader exponent domain, not the growing budget or root",
+          "evidence": "All-step positivity iff n=2 or n=3 with even exponent; eventual negative entries for fixed even powers when n≥4.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-step-positivity-and-a-three-state-parity-exception-for-cycli--5dc6def72908",
+          "material_read": "Finding and proof, offsets 0 and 5674",
+          "method": "Resultary search and local mirrored record",
+          "title": "Two-step positivity and a three-state parity exception for cyclic Crank–Nicolson",
+          "trigger": "Same cyclic generator and fixed powers"
+        },
+        {
+          "assessment": "One-factor overlap only",
+          "evidence": "Reports h*=1+√5 at n=3, without powers.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32",
+          "material_read": "Finding, directed-cycle specialization",
+          "method": "Resultary search and local mirrored record",
+          "title": "A first-return law makes Crank–Nicolson positivity one interval",
+          "trigger": "Exact directed-cycle step threshold"
+        },
+        {
+          "assessment": "Algorithmic antecedent, not cycle positivity",
+          "evidence": "Addresses accuracy, tolerance and computational cost in choosing degrees and scale.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.12789",
+          "material_read": "Abstract p. 1; scaling-and-squaring and Padé pp. 3–4, offsets 7766 and 9048",
+          "method": "Lawful OA full-text passages",
+          "title": "Efficient scaling and squaring method for the matrix exponential",
+          "trigger": "Same matrix-exponential algorithm family"
+        },
+        {
+          "assessment": "Different matrix approximation",
+          "evidence": "The Markov scaling-and-squaring procedure uses truncated uniformization, not the Cayley factor.",
+          "identifier_or_url": "https://doi.org/10.1007/s00180-021-01102-6",
+          "material_read": "§§3.1–3.2, PDF pp. 8–10, offsets 23645 and 30251",
+          "method": "Lawful OA full-text passages",
+          "title": "Direct statistical inference for finite Markov jump processes",
+          "trigger": "Scaling and squaring for Markov exponentials"
+        },
+        {
+          "assessment": "Single-factor sign precedent",
+          "evidence": "Analyzes one Cayley factor for eventually exponentially positive generators, not dyadic powers.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22703",
+          "material_read": "Theorem 5, p. 8, offset 30275",
+          "method": "Lawful OA full-text passage",
+          "title": "Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker–Planck equation",
+          "trigger": "Large-step positivity of Crank–Nicolson"
+        },
+        {
+          "assessment": "Different generator family",
+          "evidence": "One-dimensional Dirichlet heat discretization, not unit-rate directed cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Lawful OA full-text passage",
+          "title": "Higueras–Roldán Crank–Nicolson positivity analysis",
+          "trigger": "Related positivity thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–38 and 85–110",
+        "Independent rational witness and root replay"
+      ],
+      "rationale": "The calculation addresses a concrete structural failure: a stochastic row sum does not preserve the qualitative positivity of a Markov approximation. The budget law distinguishes the least necessary scaling order from an easy sufficient linear subdivision count, and the explicit four-state threshold makes the first nontrivial regime quantitatively testable. This is a positivity result, not an accuracy or cost-optimality guarantee.",
+      "residual_risks": [
+        "Restricted to the directed unit-rate cycles and [1/1] method; the constants are not uniform in dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

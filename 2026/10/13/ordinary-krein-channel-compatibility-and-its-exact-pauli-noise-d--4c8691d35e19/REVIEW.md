@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs both ordinary and twisted Choi matrices using the source's left-multiplication convention. Positivity of \(C\) and \(\Gamma C\), with \(\Gamma\) a Hermitian involution, forces \(C\) onto its positive eigenspace; this is exactly the intertwining Kraus condition. Trace preservation then proves fundamental-sector population conservation. The qubit disk follows from diagonal Kraus normalization. The Pauli minimax diamond distance has a matching single-state lower bound and explicit compatible-channel upper bound, so no numerical optimization or extrapolation is used.
+## correctness
 
-## Originality
-PASS. Heo's 2026 Section 2 and Heo's 2022 Remark 2.4 give the twist and the *sufficient* intertwining condition. The earlier indefinite-metric formulation gives J-Kraus representations. The new claim supplies the converse from simultaneous ordinary/J-complete positivity, the resulting full finite-dimensional Kraus support characterization, and the exact Pauli-noise metric to that physical class. Closely related primary texts were materially inspected; targeted alternative phrasing and exact-parameter searches did not find an equivalent or stronger covering theorem. Ordinary symmetry-preserving channel theory is an acknowledged potential source of differently named equivalent formulations.
+PASS
 
-## Value
-PASS. The result answers a physical realizability question: a trace-preserving map satisfying both channel positivity notions cannot move population across fundamental sectors. In the simplest nontrivial case it completely classifies those maps and supplies a sharp, operationally meaningful diamond-norm penalty for Pauli errors that flip sectors. The quantitative penalty is attained by a specified compatible channel for all Pauli probabilities.
+Input-first Choi vectorization gives C_Xi=(J_A^T tensor J_B) C_Phi: expand J_A E_ij=sum_k (J_A)_ki E_kj and left multiply the output by J_B. Gamma=J_A^T tensor J_B is a Hermitian involution even for a non-real symmetry. If C and Gamma C are both PSD, Hermiticity implies Gamma C=C Gamma, and on the negative eigenspace C and -C are PSD, forcing the block to vanish. Thus C has positive support, Xi=Phi, and the range vectors in every Kraus decomposition satisfy J_B K=K J_A; conversely these vectors give a positive Choi matrix unchanged by the twist. No TP is used here. The TP normalization then gives Phi^*(P_B^±)=P_A^±. At J=Z for qubits, diagonal Kraus coefficient columns have unit norm, so their scalar inner product c has |c|<=1; the displayed pair realizes every c, including the unit circle and zero. For Pauli noise let t=q_X+q_Y. On input |0><0| the target moves mass t to |1><1| and every compatible channel fixes the input, yielding trace norm 2t without ancillas. The proposed I/Z mixture is compatible and the difference is q_X(Ad_X-id)+q_Y(Ad_Y-Ad_Z), whose diamond norm is at most 2t by the unit channel norm. The endpoints t=0 and t=1 cause no exception; depolarizing has t=p/2, hence unhalved distance p. The independent rational grid verifies the Pauli probability mass reassignment and matching l1 upper bound in 3,185 instances; the Choi and norm arguments, not the grid or the frozen checker, prove the continuum statement.
 
-## Closest literature and limitations
-The primary anchor is Heo, Filomat 40(4) (2026), DOI 10.2298/FIL2604449H. Closest older work is Heo, Quantum Information Processing 22 (2023), DOI 10.1007/s11128-022-03771-8, and Felipe-Sosa–Felipe, arXiv:2009.07759v3. The result assumes finite-dimensional systems and a fixed left-multiplication complete-J-positivity convention. Its exact diamond-distance formula covers a qubit with \(J=Z\) under Pauli-diagonal noise; it does not solve the general non-Pauli approximation problem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The twist and Choi criteria are established. Heo explicitly gives strong intertwining as a sufficient premise (in the same-symmetry case); his inspected criteria concern the two positivities individually, not the necessity of strong intertwining in their intersection. The ordinary qubit disk itself is prior as the d=2 genuinely incoherent/Schur channel class, and the diamond metric for two Pauli channels is prior. The supported distinct content is identifying the simultaneous positivity cone via matching symmetry sectors, identifying that known disk specifically as the qubit intersection, and giving the attained separation from the full compatible class. This is not a priority claim for the disk, the metric, or the elementary Pauli probability calculation.
+
+## value
+
+PASS
+
+It is a natural physical realizability question whether maps constructed using an indefinite positivity notion are also ordinary CP. A structural answer for arbitrary finite input and output sectors, without assuming equal signs or a trace normalization to prove necessity, shows exactly which population transfers physical compatible maps forbid. The Pauli formula translates that obstruction into a sharp operational separation even allowing all coherent phases in the free comparator. The value lies in that intersection and its quantitative interpretation, not in renaming the familiar Schur-channel disk or proposing a new diamond-norm method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

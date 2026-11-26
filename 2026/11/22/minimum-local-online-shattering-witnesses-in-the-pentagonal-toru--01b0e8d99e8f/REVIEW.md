@@ -1,11 +1,21 @@
-# Scientific review: minimum local online shattering witnesses
+# Independent mathematical audit
 
-**Correctness (PASS).** A depth-three tree on exactly eight centers needs a 4/4 root split, forcing the four neighbors of its root into the same eight-point subset. The search then reduces rigorously to precisely 1140 cases at a fixed root. Two independent exact graph and tree implementations both report 84 rooted cases, 2050 distinct supports, 2100 valid rooted pairs, the 2000/50 root distribution, and 12 symmetry orbits split 9/2/1 by size 200/100/50. The supplied tree certifies existence; the independent pair-trace check proves VC dimension two on each admitted support. The proof explicitly states the exhaustive finite nature of the remaining count, and the code/check certificates are self-contained.
+## correctness
 
-**Originality (PASS within inspected evidence).** The closest static exact finite-field circle results and the 2020/2021 primary literature give full-domain VC classification, not the *simultaneous center-and-query restricted* local online census. The closest all-translates four-point adaptive result uses unrestricted queries; an online Hamming-graph theorem does not cover induced pentagonal grids. Searching the exact count, synonyms, graph model, and local centre/query variants found no dominating or equivalent published result in the inspected records. Remaining risk: an unindexed induced-subgraph classification could imply the enumerator.
+PASS
 
-**Mathematical value (PASS).** Eight is not a chosen arbitrary cutoff but the sharp information-theoretic minimum for adaptive depth three. A complete classification of all minimizers, 12 nontrivial symmetry orbit types, and their uniquely/nonuniquely viable roots gives a natural finite learning invariant. It provides minimum depth-three local realizations of a strict VC/Littlestone gap on a canonical finite-field distance graph, a finer question not answered by full-ambient VC or online dimensions.
+The field equation gives exactly the four open Cartesian neighbors. Distinct leaves must have distinct Boolean concepts and hence distinct centers, so depth three requires at least eight centers and depth four is impossible on eight. Each root branch on eight needs four centers, forcing the root's full four-neighbor set inside the same E. On each four-center branch the next query must split two against two, and each pair can be separated precisely when its two centers have different adjacency to some query in E. The published rooted reduction tests exactly binomial(20,3)=1140 candidates at a fixed root; translating then gives the rooted pairs. The independent replay scanned all 1,081,575 eight-sets directly, without the fixed-root translation reduction, finding 84 at the origin, 2,050 total and 2,100 rooted pairs (2,000 one-root sets and 50 two-root sets). It tested all static traces on triples and pairs as needed, yielding VC dimension exactly two on every winning set. An elementary ambient upper bound also holds: a shattered triple would share a common neighbor; three of the four neighbors of one vertex include an opposite pair, whose only common neighbor is that vertex, ruling out the trace consisting of that pair alone. The replay verified the exact representatives of the 200-map symmetry group (9 orbits of size 200, 2 of 100, 1 of 50) and all eight length-three paths of the supplied witness. Both queries and leaves are inside E throughout.
 
-The result concerns only the 25-vertex pentagonal torus and relies on checkable complete finite computation for the exact enumerator. Historical priority and external independent proof checking remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The static predicate and the general binary-tree cardinality bound are known; the distinct contribution is the exact self-restricted online minimizer classification in the pentagonal torus, including root multiplicities and the symmetry quotient. The closest same-predicate paper treats static VC and leaves small supports outside its size guarantees. The inspected online analogues are for other graph families or have ambient queries. No independent matching census was established; this is a bounded comparison, not a claim of absolute priority.
+
+## value
+
+PASS
+
+The support size eight is forced by the leaf bound rather than chosen for computational convenience. Attainment in this symmetric degree-four graph is not automatic once queries and centers must share the support. The census identifies every minimal-size support achieving an adaptive depth not available statically, and the orbit and root counts distinguish essentially different witnesses and quantify where adaptation can start. This is a precise baseline for studying how graph symmetries and locality constrain online learning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

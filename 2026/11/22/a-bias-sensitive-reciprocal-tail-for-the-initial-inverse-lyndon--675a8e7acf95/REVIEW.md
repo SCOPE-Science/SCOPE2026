@@ -1,15 +1,21 @@
-# Scientific review: initial inverse Lyndon prefix in a biased iid source
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim concerns exactly the maximum initial inverse Lyndon length, not longest Lyndon factors elsewhere. The strict-sesquipower/prenecklace characterization and uniqueness of the primitive anti-Lyndon root yield the exact probability decomposition (1). Rotation orbits have exactly \(d\) distinct members, each with the same iid weight, so the \(1/d\) expectation is exact even for nonuniform source probabilities. A short run of the greatest letter forces the first \(m\) letters of the greatest rotation; the disjoint-block estimate makes failure superpolynomially rare for \(m\) up to a small logarithmic cutoff. The remaining repeated-root contributions admit a geometric bound using \(\rho=\max_a p_a<1\). This proves \(n\Pr(T\ge n)=(1-p_\top)^{-1}+O(n^{-\delta})\), then exact tail sums give the expectation, variance and moment threshold. The two runnable rational-arithmetic checkers verify word/root equivalence and the FKM/Möbius alternative independently on finite ranges; these are checks rather than infinite proofs.
+## correctness
 
-## Originality
-PASS relative to the material inspected. The 2017 original work supplies the inverse-Lyndon strict-sesquipower equivalence, the 2024 article applies it to factorization, and the 2026 inverse-array articles provide its array definition and linear-time construction. They do not give a source-biased first-entry tail or moment law. Classical FKM prenecklace enumeration implies the **uniform** coefficient \(q/(q-1)\); this is explicitly prior work, not a new claim. The nearby published-finding corpus Lyndon *scattered-subsequence* expectation and *quasinecklace* overhead result were read in full and concern distinct random variables. A general random-Lyndon-factorization limit law concerns complete factorization lengths, not the initial inverse-Lyndon stopping time. The closest sources, actual search terms, semantic implication comparisons and access limitations are recorded in AUDIT.json. Historical priority outside indexed and inspected records remains uncertain.
+PASS
 
-## Value
-PASS. The recent inverse Lyndon-array framework motivates precise source-dependent behavior of its initial entry, including biased character frequencies that occur in text applications. The theorem shows a striking reciprocal tail, identifies a sharp coefficient depending **only on the highest ordered symbol's probability** rather than on entropy or the most likely symbol, and derives the infinite-mean/finite-fractional-moment boundary and the different logarithmic versus linear first/second-moment scales. This is an all-length probabilistic law, not a routine restatement of uniform necklace counting or an arbitrary finite calculation.
+Prefix closure and the unique nontrivial anti-Lyndon sesquipower representation identify the tail event and partition it by root length. Bernoulli weight is rotation-invariant, giving a factor 1/d on each primitive orbit, and the forced extra letters have exactly the continuation weight in (1). For m=n-d at most L=floor(log n/[4 log(1/p_top)]), d is at least n/2 and the all-top-letter block probability is at least n^(-1/4); using disjoint blocks bounds the absence probability by exp(-c n^(3/4)/log n). Independently of this event, the nonprimitive probability is at most d rho^(d/2), by testing proper repeating divisors. The resulting main sum is a geometric series in p_top, with distant terms bounded by rho^m, and n/(n-m) changes the main sum by O(1/n) using summability of m p_top^m. The summable tail error yields the mean constant and stated variance, and the discrete power tail sum gives the strict threshold at 1. An independently written rotation-orbit/suffix enumeration checked identical word sets and unique roots through length 8 over a ternary alphabet with ordered masses (2,5,1)/8, where the top letter is not modal. At length 8 there were 1318 valid prefixes of mass 4053105/16777216. This does not test the infinite limit. Documentation only: RESULT.md names check_inverse.py and check_fkm.py, but the supplied programs are verify_direct.py and verify_fkm.py, correctly named in VERIFICATION.md. The actual finite checks are inspectable and the proof does not depend on the filenames.
 
-## Closest literature and limitations
-The strict-sesquipower theorem (Bonizzoni et al., arXiv:1705.10277) is a key known lemma, and the uniform prenecklace count is known; neither is claimed novel. The primary recent array article is arXiv:2603.17537 (first public March 18, 2026). The expanded arXiv:2609.23401 full-text edition was not fetched in this review; its publicly accessible abstract describes algorithms and factorization rather than a probabilistic law, creating limited residual comparison risk. This assessment is not independent validation. Source probabilities must be fixed positive masses, and the theorem gives no alphabet-growing uniformity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge, limited to the fixed, nonuniform Bernoulli first-entry law and its moment consequences. The real ingredients are closely related to established weighted primitive-word probabilities and extremal-letter run analysis, not independently new, and the exact uniform result is already classical. The inspected closest papers do not give the summed, weighted sesquipower tail or its error term.
+
+## value
+
+PASS
+
+The statistic is a canonical entry of an existing word array under a natural random-text model, not the outcome of picking an arbitrary small instance. The result gives a precise distributional scale, identifies the ordered extremal letter rather than the modal letter or the entropy as the controlling parameter, and separates almost-sure finiteness from infinite expectation while giving precise truncation scales. Uniform counting alone cannot answer this source-sensitive question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

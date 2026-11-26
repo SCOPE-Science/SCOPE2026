@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:34.223052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md (1)–(8) for the actual moment ratio, not its pth root. Scale by (|a|²+|b|²)^{p/2} and set r=2|ab|/(|a|²+|b|²). The Chebyshev Rodrigues integrations by parts leave no boundary terms and give sign (−1)^k for k≥2; dominated convergence at r=1 uses integrability with exponent s−1/2 at −1. For the positive integral for |c_k|, the logarithmic derivative of r^k(1+ru)^{s−k} is bounded below by (k+sr)/(r(1+r)); the c₀ derivative is bounded above by s/(1+r). Thus every normalized alias modulus increases strictly for 0<r<1, including the m=2 first alias. Absolute Fourier convergence justifies aliasing; the upper bound is strict for r<1. At r=1 the first alias must align with its sign for a positive extremum, which is exactly a grid zero; requiring negative alignment instead makes the second alias positive, losing equality. For the constant, the beta mean and c₁/c₀=s/(s+1), together with the Fourier recurrence from (1+cos θ)F′=−s sin θ F, independently give c_{k+1}/c_k=(s−k)/(s+k+1). Reflection gives the stated positive Gamma sum; the uniform fixed-s large-index power bound permits the zeta asymptotic. Summing sin³ at the grid gives the cubic cotangent identity, with integral 32/(3π). At the balanced phase the moment ratio extends continuously to both boundary exponents; at p=2 the affine squared modulus has no aliases for m≥2, while at p=4 the second harmonic gives 1/3 for m=2 only. No endpoint equality classification is needed. The inspected checker contains finite diagnostics, not evidence for the global optimization or an independently executed check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai–Kosov–Murasko prove a high-probability random approximation for subspaces with an L∞/Lp bound; Marzo–Seip state deterministic comparability for higher-degree polynomials and roots of unity with constants independent of degree."
+        ],
+        "reasoning": "Random samples at controlled size do not imply the sharp error for a specified equal-weight grid. General comparability bounds on a larger polynomial space need not be sharp for its two-mode subclass and give no corresponding phase rigidity.",
+        "searches": [
+          "Resultary: Dai–Kosov empirical Lp approximation versus deterministic circle quadrature",
+          "arXiv:2611.08896v1 abstract",
+          "arXiv:0712.3478v1 §1 equation (2)"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and CHECKER.py",
+        "SCOPE-20261117-62ae1c7fdc6a Finding and Assumptions",
+        "arXiv:2611.05930v1 and 2611.08896v1 abstracts",
+        "arXiv:0712.3478v1 §1 (2)",
+        "DOI 10.1137/130932132 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior two-mode sharp theorem is limited to 1<p<2. The audited proof instead bounds the rate of increase of c₀ and proves strict growth of |c_k|/c₀; the aliased sign for k≥2 is reversed relative to the subquadratic theorem."
+        ],
+        "reasoning": "Continuing a special-function expression does not continue a maximization theorem through a sign change. The normalized monotonicity, sign alignment, and m=2 endpoint alias require a new argument in the audited interval. None of the compared bounds yields those implications directly.",
+        "searches": [
+          "SCOPE-20261117-62ae1c7fdc6a mirror RESULT.md",
+          "arXiv:2611.05930v1 abstract",
+          "arXiv:2611.08896v1 abstract",
+          "arXiv:0712.3478v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the moment as (1+r cos θ)^s reduces the theorem to an exact shifted trapezoidal relative error over r and shift. The actual Finding of 62ae1c7fdc6a has the same object and a Gamma alias sum but assumes 1<p<2 and gives an underestimate."
+        ],
+        "reasoning": "An aliasing identity alone evaluates errors for given r and shift, not their supremum or the equality conditions. The same extremizer geometry below p=2 does not supply the sharp theorem above p=2.",
+        "searches": [
+          "Resultary: subquadratic two-mode sampling and zero-on-grid extremizers",
+          "Resultary: regular-m-gon Gamma-series extremizers",
+          "Resultary: deterministic equal-weight/shifted quadrature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed family found besides the audited entry is 62ae1c7fdc6a, for 1<p<2. It does not tabulate the superquadratic constants or the p↑4 two-node boundary."
+        ],
+        "reasoning": "A tabulation of an aliased sum at a fixed phase would not in itself establish that it is the worst absolute error over arbitrary complex pairs; opted ranges and equality directions were compared rather than treating a self-hit as independent evidence.",
+        "searches": [
+          "Resultary: regular-m-gon Gamma-series extremizers",
+          "Resultary: deterministic equal-weight/shifted quadrature",
+          "Resultary: subquadratic title and zero-on-grid extremizers"
+        ]
+      },
+      "rationale": "The strongest retrieved record proves the structurally corresponding theorem only for 1<p<2 and gives the opposite extremal sign. The examined deterministic and probabilistic statements do not determine the exact uniform error or equality law in the specified 2<p<4 range. This supports the distinct strict-range result, not priority for aliasing, the Gamma identities, or the subquadratic case.",
+      "residual_risks": [
+        "An older sharp two-mode quadrature result could appear under different sampling or norm terminology.",
+        "Trapezoidal review full text was not obtained; the literature comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly overlapping object but disjoint open exponent domain and opposite extremizer sign",
+          "evidence": [
+            "The actual Finding states a sharp Gamma sum and node-zero balanced equality only for 1<p<2, with underestimate."
+          ],
+          "identifier_or_url": "SCOPE-20261117-62ae1c7fdc6a",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions",
+          "method": "Resultary search and configured local mirror",
+          "title": "Sharp two-mode Lp circle sampling distortion and zero-on-grid extremizers",
+          "trigger": "Same circle, subspace, sampling and extremizer geometry"
+        },
+        {
+          "assessment": "Random-sample approximation under L∞/Lp control, not deterministic grid exactness",
+          "evidence": [
+            "Conclusion is a high-probability empirical approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08896",
+          "material_read": "v1 PDF p. 1 abstract, extracted lines 5–24",
+          "method": "Targeted lawful PDF passage",
+          "title": "Empirical approximation of Lp norms for p in (2,infinity)",
+          "trigger": "General same-exponent discretization theorem"
+        },
+        {
+          "assessment": "Different exponent range and random samples",
+          "evidence": [
+            "Independent random samples and finite-dimensional space assumptions in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.05930",
+          "material_read": "v1 PDF p. 1 abstract, extracted lines 8–33",
+          "method": "Targeted lawful PDF passage",
+          "title": "Empirical approximation of Lp norms for p in (1,2)",
+          "trigger": "Related empirical sampling and subquadratic scope"
+        },
+        {
+          "assessment": "Norm comparability; no implication of the exact two-mode error from that result",
+          "evidence": [
+            "Equation (2) compares p-means at n+1 roots for degree n, with constants independent of n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.3478",
+          "material_read": "v1 PDF p. 1 abstract and §1 equation (2), extracted lines 11–45",
+          "method": "Targeted lawful PDF passage",
+          "title": "The Kadets 1/4 theorem for polynomials",
+          "trigger": "Deterministic equispaced polynomial sampling"
+        },
+        {
+          "assessment": "No whole-document exclusion; general aliasing is not claimed new",
+          "evidence": [
+            "Original ref. 4 identifies the paper; the audited alias identity is in RESULT.md (7)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/130932132",
+          "material_read": "Bibliographic identification; no full-text passage obtained",
+          "method": "Targeted publisher PDF and HTML attempts did not provide readable text",
+          "title": "The Exponentially Convergent Trapezoidal Rule",
+          "trigger": "Aliasing and periodic-grid quadrature context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest nonconstant Fourier subspace is a natural benchmark for deterministic moment discretization. The exact all-grid error with an exhaustive sign and phase classification, and the two-node fourth-moment resonance, identify how the known subquadratic mechanism changes; they are not just generic upper bounds or finite cubic evaluations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

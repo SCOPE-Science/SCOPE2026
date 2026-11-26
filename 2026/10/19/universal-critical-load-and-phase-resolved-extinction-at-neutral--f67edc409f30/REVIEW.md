@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof supplies an exact logarithmic-ratio identity across continuous flow and multiplicative pulses, a globally attracting pulsed logistic resident through its affine reciprocal-period map, a nonzero-limit contradiction for the monotone ratio, and a positive finite in-cycle integral \(I\). The key quantitative step is an exact reciprocal difference converging to \(I\), giving the universal \(n^{-1}\) load. Initial conditions are strictly positive; neutral invasion and coefficient alignment are required. Direct finite numerical comparisons check these algebraic reductions and selected solutions; they cannot certify the asymptotic theorem.
+PASS
 
-## Originality — PASS, with unresolved bibliographic risk
+The pulse product and between-pulse growth yield the exact periodic, positive factor S. Independent reduction: V(t)=S(t)x(t)^λ/y(t), using the periodic right-continuous S, is continuous at every pulse, and V'=gSx^λ between pulses by cancellation. Positivity, logistic bounds and finitely many fixed positive multipliers give global solutions and uniformly bounded intra-cycle logarithmic drifts. If V remained bounded, integrability of gSx^λ and those drift bounds would force x→0 uniformly by phase, and y=Sx^λ/V→0 as well. But then the log of x increases by a uniformly positive amount per sufficiently late cycle, since the net resident growth log P+∫r>0, a contradiction. Thus V→∞ and y→0 by bounded x. The perturbed affine reciprocal period map for x has limiting slope (P exp(∫r))^-1<1 and the resident fixed point; it gives x→x_* uniformly in phase with the specified pulse convention. Increments V((n+1)T)−V(nT) converge to I=∫gSx_*^λ>0, so V(nT)/n→I, yielding the phase limit. Since (log V)'=gy with no jumps, J_n=log(V((n+1)T)/V(nT)), hence nJ_n→1 and ∫_0^{NT}gy=log(V(NT)/V(0))=log N+log(y(0)I/x(0)^λ)+o(1). This proves the limits with arbitrary strictly positive initial values, all phases, and zero-size pulses allowed. The example script integrates a finite sample and was inspected, not run.
 
-The 2026 pulsed permanence paper by Courcelle, MacDonald and Patel develops a strict-invasion robust permanence theorem, not neutral invasion at equality and its exact critical population profile. Schreiber's flow-kick theory gives invasion-sign permanence and extinction criteria, not this explicit critical amplitude. The closest impulsive competition and forced competition studies primarily establish positive-cycle stability, persistence, extinction conditions or bifurcation descriptions. Published mathematical-research searches for the exact log-ratio reduction, a neutral pulse multiplier, periodic phase-profile amplitudes and a universal normalized cyclic load yielded no directly covering statement. The older 2004 and 2005 impulsive-competition studies were not fully readable, so an equivalent critical reduction elsewhere remains a genuine residual risk. Search absence is not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At the neutral invasion boundary, strict permanence criteria are silent. An exact universal load constant \(1\), an explicit phase-resolved \(n^{-1}\) extinction coefficient, and a cumulative logarithmic law together distinguish near-critical transients across arbitrary seasonal coefficients and finitely many pulse phases. This is an analytic classification for a natural nonautonomous pulse-competition class, not a reparameterization of a known equilibrium or a finite-sample result.
+The distinct result is the global phase-resolved quantitative neutral exclusion law for the aligned family with periodically varying interactions, including the weighted load constant and initial-state logarithmic offset. The exact ratio cancellation and inverse-linear asymptotic mechanism are elementary. Inspected earlier sign-based results and the earlier cooperative analogue do not cover the theorem. An exact constant-interaction overlap in a later catalogue record is credited as a substantive comparison, not taken as earlier priority or as coverage of the varying interactions.
 
-## Scope and review limits
+## value
 
-Only a specified coefficient-aligned two-population class is proved. No general classification of all competitive impulse equations, no empirical finite-population inference and no independently certified originality are claimed. Full text of older especially relevant impulsive competition articles remains a bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact boundary between strict invasion cases is a motivated quantitative gap. A globally valid phase profile identifies how a neutral competitor vanishes despite a unit linear invasion multiplier; the universal normalized load and explicit initial-state offset translate that profile into measurable model quantities. The value is the combined result for an aligned seasonal and impulsive family, not novelty of ratio cancellation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

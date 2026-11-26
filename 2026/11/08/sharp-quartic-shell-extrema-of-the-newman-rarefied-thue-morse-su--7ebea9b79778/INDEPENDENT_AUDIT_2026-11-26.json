@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:10:54.634436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition uses the half-open prefix starting at zero and half-open shells. Group the terms at 4j through 4j+3: their signs are τ(3j),τ(3j),−τ(3j+1),−τ(3j+2), giving F(4m)=3F(m)−S(m), with S(m) the ordinary Thue–Morse prefix at 3m. Pair cancellation gives S=0 for even m and a=τ(3m)=−S for odd m. The four corrections are (0,a,2a,3a) for even m and (a,2a,3a,3a−b) for odd m, b=τ(3m+1), all of absolute value at most 4. In the base shell k=1 the extrema and two bottom equality positions follow by direct summation. In the induction only m=A=4^k and A+1 can yield either of the next two lowest values; at A the four increments are 0,1,2,3, and at A+1 the corrections are all positive. All other parents are ≥L+2, hence their descendants are ≥3L+2. For the upper bound only parents U or U−1 matter. At U, m is even and the next index is inside the shell, so maximality forces a=−1. At U−1 the only dangerous correction is +4, requiring a=+1,b=−1. Then z=(3m−1)/2 and z+1 both have sign −1, forcing z odd and τ(z+2)=+1. Thus F(m+2)=U+1, impossible in the shell. The exceptional last odd m=4A−1 has b=+1 by its stated base-four digit string, excluding the same danger. The explicit N_k is in the shell, is even and has the given base-four expansion. Since 3(N_k−1)=10·4^k−1 has digits 21 followed by k threes, a=+1 there, and N_(k+1)=4(N_k−1)+2 gives F(N_(k+1))=3F(N_k), with F(14)=12. No uniqueness of the maximum is inferred. Independent direct bit-count enumeration /workspace/newman_replay.py confirms both levels/uniqueness and the maximum with its witness through k=9. This is corroboration; the induction proves the entire domain. Frozen source/checker and log were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit proves a base-(4,3) synchronized representation for this exact sum and upper/lower pseudopower bounds.",
+          "Shallit reports Coquet's exact behavior and sharp normalized upper constant. Hofer's accessible abstract concerns Coquet-type formulas for weighted rarefied sums under eventual-periodicity conditions. Their full texts were not recovered.",
+          "The related SCOPE nine-rarefied paper uses modulus 9 and fixed dyadic prefix lengths, not modulus 3 with a variable cutoff in a quartic shell."
+        ],
+        "reasoning": "An exact evaluation automaton or a formula for F itself provides a method for optimization; it does not state the optimized values or equality language for these shells. Coquet/Hofer might have a stronger implication beyond the passages available; no conclusion of noncoverage for their full texts is made.",
+        "searches": [
+          "Shallit arXiv:2302.09436v2 §§3–4 and Remark 5",
+          "Coquet DOI 10.1007/BF01393827 publisher and DOI recovery",
+          "Hofer DOI 10.1016/j.disc.2011.04.008 publisher and DOI recovery",
+          "Resultary for rarefied Thue–Morse renormalization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.09436v2",
+        "Newman (1969), via Shallit; original not recovered",
+        "DOI 10.1007/BF01393827, secondary evidence only",
+        "DOI 10.1016/j.disc.2011.04.008, abstract and citation only",
+        "2026/11/8/SCOPE-sharp-quartic-shell-extrema-of-the-newman-rarefied-thue-morse-su--7ebea9b79778",
+        "2026/11/8/SCOPE-first-attainment-locations-for-dyadic-extremal-rudin-shapiro-fac--5cea8f57dd29",
+        "2026/10/27/SCOPE-two-scale-exact-dyadic-renormalization-for-nine-rarefied-thue-mo--d0dd28c1a584",
+        "2026/10/12/SCOPE-sharp-logarithmic-discrepancy-constants-for-thue-morse-01-occurr--29efb4b8c4fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 says N≤p_(3,4)(F(N))≤(3N−1)/2 and describes equality with those bounds. For A=4^k, the numerical bounds allow F(A)=3^k+1 (which is too small when k≥2), since its pseudopower is A+1; for N=4A−1 they allow F(N)=4·3^k+1 since its pseudopower is 5A+1. Neither test uses an equality case for k≥2.",
+          "The known sharp normalized upper constant is for F(N)/N^(log₄3), a different optimization; its bound near N=4A does not give F(N)≤4·3^k."
+        ],
+        "reasoning": "The strongest inspected explicit bounds, including pseudopower equality cases, leave room below and above the required shell extremal levels. The automaton can support a fresh proof via a shell-constrained calculation, but does not give these values by shifting notation or applying the stated equalities.",
+        "searches": [
+          "Shallit arXiv:2302.09436v2 Thms. 3,4,6 and Remark 5",
+          "Coquet normalized bound as quoted by Shallit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f_(3,0)(N)=∑_{0≤j<N}(−1)^s₂(3j) with no endpoint shift.",
+          "Shallit Theorem 6 gives F(2·4^i)=2·3^i and F((85·4^(i+1)+1)/3)=55·3^i. In the relevant shells k=i (i≥1) and k=i+3 these are strictly between the asserted extrema."
+        ],
+        "reasoning": "Exact normalization does not turn these different special-value sequences into the two bottom equality locations or the displayed maximum family.",
+        "searches": [
+          "Shallit arXiv:2302.09436v2 §§1,4: f_(3,0), rarefied Thue–Morse, exact special values",
+          "Resultary for Newman rarefied-prefix extrema and extremal locations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit catalogue exact match is 2026/11/8/SCOPE-sharp-quartic-shell-extrema-of-the-newman-rarefied-thue-morse-su--7ebea9b79778, the assigned record. Other inspected indexed hits concern Rudin–Shapiro factor starts, modulus-9 prefixes, or Thue–Morse 01-occurrence discrepancy.",
+          "Shallit gives exact special-value families and an exact evaluation automaton, not a list of shell extrema or the two bottom-level attainment sets."
+        ],
+        "reasoning": "The exact self-match is not independent priority evidence. A table of the sum or a machine computing its graph would need a uniform extremal query/analysis, not lookup of one isolated entry.",
+        "searches": [
+          "Resultary exact quartic-shell extrema and equality positions",
+          "Shallit arXiv:2302.09436v2 Thm. 6 and §4 exact-value comparison"
+        ]
+      },
+      "rationale": "Pass for the precise shell extrema, first two equality positions at the lower end, and explicit maximizing family. Shallit studies exactly this F, not merely a related variant, and gives an automaton computing every value. His stated bounds and equalities do not directly settle the shell optimization. An automaton implementation or explicit Coquet-type formula is relevant prior machinery, but the inspected statements do not establish the optimization without further analysis. Coquet and Hofer full texts remained inaccessible and are residual priority risks.",
+      "residual_risks": [
+        "The full Coquet and Hofer statements could contain a sharp implication or earlier equality characterization not visible from the accessed material; the Newman comparison is secondary. This is a bounded originality decision, not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact evaluation machinery, broad growth bounds and different special-value sets; not direct shell-extremum coverage",
+          "evidence": [
+            "Theorem 3 compares the digit-base pseudopower to N and (3N−1)/2; Theorem 6 states special values strictly inside the shell ranges."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.09436v2",
+          "material_read": "§1 OA offsets 1750–4348; §§3–4, Thms. 3–4 and Remark 5 offsets 7200–14064; Thm. 6 offsets 13700–20199",
+          "method": "Targeted primary OA HTML passages and direct inequality implication check",
+          "title": "Rarefied Thue-Morse Sums Via Automata Theory and Logic",
+          "trigger": "Exact same normalized integer sequence"
+        },
+        {
+          "assessment": "Known positivity/growth history, not a negative finding about the whole Newman paper",
+          "evidence": [
+            "Shallit attributes positivity and normalized bounds 1/20 and 5 to Newman."
+          ],
+          "identifier_or_url": "Proc. Amer. Math. Soc. 21 (1969), 719–721; Shallit ref. [16]",
+          "material_read": "Shallit §1 summary and bibliography; no Newman full-text passage accessible",
+          "method": "Primary AMS attempt blocked; secondary account only",
+          "title": "On the number of binary digits in a multiple of three",
+          "trigger": "Classical source for this same sum"
+        },
+        {
+          "assessment": "Strongest unresolved possible priority route; do not infer not-covering from access limits",
+          "evidence": [
+            "Shallit credits exact behavior of the sum and a sharp bound of about 1.602 for the normalized sum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01393827",
+          "material_read": "Shallit §1, Remark 5 and reference [3]; Coquet full text unavailable",
+          "method": "Secondary citation passage; attempted publisher and DOI recovery",
+          "title": "A summation formula related to the binary digits",
+          "trigger": "Exact formula on the identical rarefied sum"
+        },
+        {
+          "assessment": "Abstract identifies possible broader framework only; full coverage unresolved",
+          "evidence": [
+            "Coquet-type formulas for weighted rarefied sums under an eventual-periodicity condition on weights."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2011.04.008",
+          "material_read": "Publisher search-result abstract and Shallit reference [12]; no full-text passage",
+          "method": "Publisher access refused; DOI recovery did not locate a repository copy",
+          "title": "Coquet-type formulas for the rarefied weighted Thue–Morse sequence",
+          "trigger": "Potential broader formula for weighted sums"
+        },
+        {
+          "assessment": "Different modulus and fixed prefix lengths",
+          "evidence": [
+            "Six-step recurrence for ∑_{i<2^ℓ}(−1)^s₂(9i+j)."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-two-scale-exact-dyadic-renormalization-for-nine-rarefied-thue-mo--d0dd28c1a584",
+          "material_read": "Published finding on the modulo-nine dyadic-prefix recurrence",
+          "method": "Local Resultary match and original statement comparison",
+          "title": "Two-scale exact dyadic renormalization for nine-rarefied Thue–Morse sums",
+          "trigger": "Near indexed rarefied Thue–Morse match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quartic intervals are aligned with the natural base-four scaling of rarefaction by three. Exact smallest, next-smallest and largest discrepancies with their specified locations describe what happens at every finite scale, information not supplied by power-law growth envelopes or isolated values. The result also gives an elementary proof of sharp bounds; no value is assigned to a full maximizer classification, which is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

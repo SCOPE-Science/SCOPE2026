@@ -1,169 +1,95 @@
 {
   "correctness": {
-    "rationale": "All-degree logarithmic coefficients of the exact pgf are computed analytically. The sign of every even coefficient is decided by a ratio and degree two, with summability and boundary normalization proved. The classical thinning criterion is reduced to a parity-dependent canonical difference, whose infinitely many even cases are equivalent to a single inequality when the base ratio is at most one. Log-concavity for shape at least one uses convolution of log-concave masses; for smaller shapes the full Gamma-ratio expansion proves eventual positive second log-difference. Exact-fraction diagnostics (9791 checks) support but do not replace these proofs.",
+    "rationale": "The first variation of the all-retention quotient forces nonnegative canonical differences. Conversely, integrating their nonnegative binomial jump polynomials yields a compound-Poisson quotient. Parity and the ratio r/theta reduce all differences to the two stated inequalities, including equality. Finite exact arithmetic is an illustration, not the proof.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The 1979 work characterizes all discrete self-decomposable pgfs by a decreasing canonical sequence but has no explicit Bernoulli-convolution parameter phase diagram.",
-        "Published zero-inflated negative-binomial phase boundaries alter the mass at zero rather than convolve with an independent Bernoulli count.",
-        "Published folded discrete Laplace results concern folded differences of geometric counts, a different generating function.",
-        "Letac et al. (2002) covers the real convolution powers of the exact same Bernoulli plus NB law, stronger than the ordinary ID part; that part is expressly excluded from the novelty claim."
+        "The 1979 criterion uses all canonical differences; the Ben Salah abstract describes real convolution powers; eb5c7d74b649 explicitly treats the exact same model and settles its mass curvature."
       ],
-      "reasoning": "The general canonical-characterization theorem is stronger in object class but does not itself express the simultaneous parameter cutoffs for this specific model; it is explicitly used and credited in the proof. The relevant specific results concern pgfs not reducible to the Bernoulli-convolved negative binomial across this model’s real-shape parameter space.",
+      "reasoning": "The general monotonicity test is credited and is evaluated here analytically on the entire family. The curvature theorem covers the removed shape claim, not the all-retention quotient.",
       "searches": [
-        "Published mathematical research record query: sharp infinite divisibility and discrete thinning self decomposability classification of Bernoulli plus negative binomial convolution pgf (1-p+pz)((1-theta)/(1-theta z))^nu",
-        "Published mathematical research record query: generalized shifted inverse trinomial binomial negative-binomial convolution canonical jump intensities self decomposability logarithmic coefficients",
-        "Web: \"binomial-negative binomial convolution\" \"infinitely divisible\"",
-        "Steutel and van Harn (1979) Theorem 2.2"
+        "Steutel–van Harn (1979), Theorem 2.2",
+        "Ben Salah DOI 10.1080/03610926.2021.1879863",
+        "Resultary eb5c7d74b649"
       ]
     },
     "checked_sources": [
-      "https://doi.org/10.3390/stats6030059",
-      "https://www.ism.ac.jp/editsec/aism/pdf/060_1_0001.pdf",
-      "https://pure.tue.nl/ws/files/1956807/Metis199408.pdf",
-      "https://www.mdpi.com/2571-905X/9/4/79",
-      "https://doi.org/10.1090/S0002-9939-02-05352-2",
-      "https://doi.org/10.1080/03610926.2021.1879863"
+      "Ong et al. 2023",
+      "Letac et al. 2002",
+      "Steutel–van Harn 1979",
+      "Ben Salah abstract",
+      "Resultary eb5c7d74b649, 12cdb9820df2 and 41c5de93e28d"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 2023 paper gives the pgf and asserts log-concavity for the whole stated positive-shape range, but NB shape below one is eventually log-convex.",
-        "The classical theorem gives general necessary-and-sufficient canonical sequences, whose explicit coefficients and parity sign analysis are derived here.",
-        "An accessible earlier finding for this exact count family classifies its first three factorial cumulants, not these structural properties.",
-        "Letac, Malouche and Maurer (2002), The Real Powers of the Convolution of a Negative Binomial Distribution and a Bernoulli Distribution, directly treats the same object and its real-power/Jørgensen set; additive ID is prior art."
+        "Real powers of G concern additive divisibility; at (nu,theta,p)=(1,1/2,1/4) the law is additively infinitely divisible but violates thinning. The curvature Finding includes the exact shape-one cutoff."
       ],
-      "reasoning": "The generic real-power and exact infinite-divisibility classification of the same convolution is prior work (2002), not new. The present claim is restricted to binomial-thinning self-decomposability and the corrected global-log-concavity boundary; those require different all-degree canonical monotonicity and eventual-curvature arguments. The 2021 real-power paper is relevant but not decisively compared in full text.",
+      "reasoning": "The explicit separation shows why ordinary divisibility does not suffice for thinning. The exact curvature claim and its examples are outside this version.",
       "searches": [
-        "Ong et al. (2023) eqs. (3)-(5), §2.6",
-        "Steutel and van Harn (1979) Lemma 1.2 and Theorem 2.2",
-        "Aoyama et al. (2008) eq. (8), §4.2",
-        "Published mathematical research record query: negative binomial shifted negative binomial Bernoulli convolution log concavity threshold shape reliability hazard infinite divisibility",
-        "Letac, Malouche and Maurer (2002), full openly viewable text, Sections I--III, especially the conclusion on the Jørgensen set"
+        "Letac et al. p. 2107 abstract and same-law real-power classification",
+        "Resultary eb5c7d74b649 Finding"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Ong et al. pgf (5) equals a Bernoulli times a negative binomial pgf.",
-        "Aoyama et al. eq. (8) gives a binomial--negative-binomial pgf at common integer power, overlapping the shape-one Bernoulli subclass; the visible section does not give canonical-sign or thinning conditions.",
-        "The older pgf-equivalence literature concerns model identity and probability formulas, not the three sharp parameter regions.",
-        "The 2002 Letac--Malouche--Maurer pgf is the same Bernoulli--negative-binomial convolution up to pgf normalization and tilting, so the source is treated as strong direct prior coverage."
+        "The shift-mixture law is exactly a Bernoulli convolution of a negative binomial; Letac et al. p. 2107 analyzes real powers of the same convolution."
       ],
-      "reasoning": "The common-power generalized shifted inverse trinomial and shifted-mixture parametrizations can represent overlapping distributions; that overlap was checked as the same underlying object rather than dismissed for different names. Their stated results do not classify additive divisibility, thinning self-decomposability and all-shape log-concavity for the real-shape mixture. The 1979 canonical criteria cover arbitrary pgfs in abstract form; the exact parameter inequalities and joint phase diagram are specialized new deductions, with residual historical-specialization risk.",
+      "reasoning": "Neither a one-count shift nor a variable change creates a new law. Normalized convolution powers and the ratio with an affinely transformed argument impose different requirements.",
       "searches": [
-        "Published mathematical research record query: negative binomial shifted negative binomial Bernoulli convolution log concavity threshold shape reliability hazard infinite divisibility",
-        "Web: \"NB-shifted NB\" \"infinitely divisible\" OR \"self-decomposable\"",
-        "Ong et al. (2023) §§2.1,2.2,2.6",
-        "Aoyama et al. (2008) §4.2"
+        "Ong et al. DOI 10.3390/stats6030059",
+        "Letac–Malouche–Maurer DOI 10.1090/S0002-9939-02-05352-2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Ong et al. Table 1 contains illustrative probability masses and dispersion values; its Section 2.6 argues universal log-concavity without the necessary shape restriction.",
-        "The matched published mathematical records concern different count models or the same family’s three-cumulant feasibility rather than this canonical coefficient phase diagram.",
-        "The 2008 table and model formulas do not tabulate the cutoffs in this theorem."
+        "The exact catalogue hit ccc124e0694b is the original version of this work; 12cdb9820df2 uses a Bernoulli–Poisson–Lindley law and 41c5de93e28d classifies first-three-cumulant feasibility."
       ],
-      "reasoning": "A finite parameter table cannot imply the quantified infinite-degree canonical sign conditions or universal eventual-log-curvature obstruction. Searches did not reveal an exact classification table. Absence from finite tables is not treated as a proof of historical uniqueness.",
+      "reasoning": "Neither the latter two entries nor finite parameter tables give the evaluated all-rate thinning boundary for this negative-binomial convolution.",
       "searches": [
-        "Published mathematical research record query: mixture of Bernoulli and negative binomial count distribution exact compound Poisson infinite divisibility threshold",
-        "Published mathematical research record query: negative binomial shifted negative binomial Ong Sim Liu Srivastava 2023 mixture infinite divisible phase diagram",
-        "Ong et al. (2023), Table 1, §2.6; Aoyama et al. (2008) §4.2"
+        "Resultary: Bernoulli plus negative binomial binomial thinning nonincreasing canonical coefficients"
       ]
     },
-    "rationale": "Claim narrowed to the exact binomial-thinning self-decomposability cutoff and sharp global log-concavity boundary. Letac–Malouche–Maurer (2002) explicitly studies real powers of exactly the Bernoulli–negative-binomial convolution, covering the additive-infinite-divisibility criterion in substance, and is credited as prior art. The 1979 canonical theorem is also credited. Ong et al. (2023) states an unqualified log-concavity conclusion which fails below shape one. A 2021 broader real-convolution-powers paper includes the negative-binomial case, but full text was inaccessible; residual overlap risk is named. No directly covering thinning or global-shape criterion was established from accessible sources.",
+    "rationale": "The claim is limited to the explicit inclusive Bernoulli-thinning boundary. The ordinary infinite-divisibility and mass-curvature boundaries are not contributed here.",
     "residual_risks": [
-      "The 1979 general theorem may have been specialized to an algebraically equivalent count model in unlocated older literature.",
-      "A 2008 integer-power subclass overlaps the underlying pgf but was not proved to cover the current classification.",
-      "No independent literature-priority audit has been performed.",
-      "Ben Salah (2021), a broader paper on Bernoulli plus infinitely divisible real convolution powers, lacked accessible full text; possible specialized overlap with thinning classification not ruled out."
+      "Ben Salah's full text was unavailable for a decisive comparison; unlocated earlier thinning specializations remain possible."
     ],
     "source_inspections": [
       {
-        "assessment": "SAME_MODEL_NOT_COVERING_CLASSIFICATION",
+        "assessment": "Real-power predecessor",
         "evidence": [
-          "Eq. (5): Bernoulli times NB pgf for positive real shape",
-          "§2.6 invokes convolution log-concavity without imposing shape at least one",
-          "No compound-Poisson or binomial-thinning phase boundary given"
+          "Characterizes nonnegative coefficients of (1+z/c)^x(1-z)^(-y)."
         ],
-        "identifier_or_url": "https://doi.org/10.3390/stats6030059",
-        "material_read": "Full open-access HTML, abstract, introduction, §§2.1--2.6, §3 and references",
-        "method": "Read displayed article sections and compare pgf (5), shape claim and parameter domain",
-        "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
-        "trigger": "Defines the exact target law and makes log-concavity claims"
-      },
-      {
-        "assessment": "RELATED_PGF_NOT_EXPLICIT_STRUCTURAL_PHASES",
-        "evidence": [
-          "§4.2 eq. (8) is a common-integer-power binomial–negative-binomial convolution",
-          "The section discusses factorization, reproduction and pmf rather than CP/DSD conditions"
-        ],
-        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/060_1_0001.pdf",
-        "material_read": "OA PDF 20-page text, especially §4.2, equation (8), and properties; inspected page 11 image",
-        "method": "Read primary PDF text and visually inspect relevant page image",
-        "title": "A First-Passage Time Random Walk Distribution with Five Transition Probabilities: A Generalization of the Shifted Inverse Trinomial",
-        "trigger": "Earlier plausible equivalent generating-function family"
-      },
-      {
-        "assessment": "GENERAL_CRITERIA_APPLIED_AND_CREDITED",
-        "evidence": [
-          "Lemma 1.2: discrete infinite divisibility iff nonnegative logarithmic canonical coefficients",
-          "Theorem 2.2: binomial-thinning self-decomposable iff canonical sequence nonincreasing",
-          "No specialization to the target pgf or boundary inequalities"
-        ],
-        "identifier_or_url": "https://pure.tue.nl/ws/files/1956807/Metis199408.pdf",
-        "material_read": "OA PDF pp. 893--895, especially Lemma 1.2 and Theorem 2.2; visually inspected theorem page",
-        "method": "Read primary PDF text and relevant page image",
-        "title": "Discrete Analogues of Self-Decomposability and Stability",
-        "trigger": "Potential dominating general theorem for both stochastic properties"
-      },
-      {
-        "assessment": "DIFFERENT_BIVARIATE_OBJECT",
-        "evidence": [
-          "Studies a bivariate generalized shifted inverse-trinomial model rather than additive-divisibility and thinning-shape phase diagram of Bernoulli plus a real-shape NB law"
-        ],
-        "identifier_or_url": "https://www.mdpi.com/2571-905X/9/4/79",
-        "material_read": "Open-access full HTML, abstract and model/theorem sections",
-        "method": "Compared structure and parameters of related bivariate extension",
-        "title": "Flexible Bivariate Generalized Shifted Inverse Trinomial Distributions",
-        "trigger": "Recent related generalized inverse-trinomial model"
-      },
-      {
-        "assessment": "DIRECT_PRIOR_COVERAGE_OF_ADDITIVE_INFINITE_DIVISIBILITY_NOT_THINNING_OR_LOG_CONCAVITY",
-        "evidence": [
-          "The article explicitly studies the same Bernoulli and negative-binomial convolution",
-          "Jørgensen-set classification covers the ordinary infinite-divisibility criterion; excluded from the novelty claim",
-          "The inspected text does not provide thinning canonical-monotonicity or global log-concavity shape cutoffs"
-        ],
-        "identifier_or_url": "https://doi.org/10.1090/S0002-9939-02-05352-2",
-        "material_read": "Accessible article text, full Sections I--III, especially pages 2109--2113 real-power results",
-        "method": "Read openly viewable article text and compare pgf and Jørgensen-set conditions",
+        "identifier_or_url": "10.1090/S0002-9939-02-05352-2",
+        "material_read": "p. 2107 abstract",
+        "method": "AMS article PDF",
         "title": "The Real Powers of the Convolution of a Negative Binomial Distribution and a Bernoulli Distribution",
-        "trigger": "Exact same object and stronger real-convolution-power analysis"
+        "trigger": "Exact same count family"
       },
       {
-        "assessment": "PLAUSIBLE_PRIOR_SOURCE_UNRESOLVED",
+        "assessment": "Covers mass curvature, which is excluded here",
         "evidence": [
-          "Abstract states real-power generalization including NB; does not explicitly describe thinning self-decomposability or log concavity",
-          "Full-text absence prevents a decisive same-object implication comparison"
+          "Proves log-concavity at shape at least one and strict log-convexity at every index k>=2 below one."
         ],
-        "identifier_or_url": "https://doi.org/10.1080/03610926.2021.1879863",
-        "material_read": "Published abstract only; full article was not accessible",
-        "method": "Read publisher abstract and search for lawful full text",
-        "title": "Generalized Convolution Product of an Infinitely Divisible Distribution and a Bernoulli Distribution",
-        "trigger": "Broader real-power result including negative-binomial special case"
+        "identifier_or_url": "Resultary eb5c7d74b649",
+        "material_read": "Finding and scope",
+        "method": "Archived RESULT.md passage",
+        "title": "Sharp mass-curvature and hazard transitions for Bernoulli–negative-binomial counts",
+        "trigger": "Same model and shape transition"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "scientific_scope_note",
   "schema_version": 1,
   "scope_run_id": "ccc124e0-694b-4ad6-8bbe-687b531d9c47",
   "value": {
-    "rationale": "A natural sharp classification of thinning self-decomposability for a published dispersion-flexible count model, plus an exact shape boundary correcting the source’s unconditional log-concavity assertion. Unlike the already-known ordinary additive-infinite-divisibility region, the new thinning boundary determines precisely when binomial-thinning stationary decompositions exist. Distinct overdispersed examples show the separation.",
+    "rationale": "An infinite list of marginal feasibility constraints reduces to an explicit exact parameter test. An overdispersed counterexample separates that test from ordinary additive infinite divisibility.",
     "status": "PASS"
   }
 }

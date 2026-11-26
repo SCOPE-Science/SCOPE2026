@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-`verify_riesz_moments.py` runs with Python 3's standard library. Run `python3 verify_riesz_moments.py`. It independently expands each factor's Fourier series with exact fractions, convolves across geometric frequencies, and compares the zero coefficient against the proposed two-state matrix product. It additionally checks the strict adjacent-base inequalities for orders four through ten and specific exact fourth-moment coefficients. The observed output was `PASS: 220 independent exact assertions`.
+## correctness
 
-The finite replay does not establish statements for arbitrary product length or arbitrary integer exponent. The proof in `RESULT.md` supplies the digit-carry bijection, finite state bound, transfer reduction, matrix positivity, Perron convergence, and perturbative onset constants. There are no numerical approximations in the asserted exact equalities. All variables and normalizations appear in `RESULT.md`. No independent validation is claimed.
+PASS
+
+Normalized integration selects exactly the signed strings with sum d_j q^j=0. Reducing successive prefixes modulo q yields unique integer carries c_(j+1)=(d_j+c_j)/q, with both terminal carries zero. The bound p+1<2q traps carries in {-1,0,1}, including p=4,q=3. Reflection folds the two nonzero states by summing their weights, which accounts for the factor 2 only on the outward transition from 0. The explicit top coefficients imply a_(p-2)+a_p>a_(p-1)>a_p. A two-step excursion followed by zero steps supplies a strictly larger contribution at each adjacent base for n>=2; no excursion leaves zero if q>=p+1. Equality for n=1 is intentional. For constant amplitude, Cayley–Hamilton and positivity give the recurrence and rate; expanding the larger eigenvalue via (Lambda-A)(Lambda-B)=2a_q a_1 and A-B→1 gives the two leading constants. Substituting the five order-four coefficients gives the displayed radicals. The independent bounded replay python /workspace/reproduce_frozen.py compares direct signed-digit sums with the matrix products for p=4..7, q=p-1..p+2 and three unequal amplitudes; this is supplemental, not a proof for all lengths/orders. The frozen checker was inspected, not executed. Here independence means factorization of the specified moments, not probabilistic independence of the trigonometric factors.
+
+## originality
+
+PASS
+
+Best of current knowledge, the supported distinct contribution is the variable-amplitude transfer law over both adjacent resonances and the strict comparison and different small-amplitude onsets. Credit the independent-range factorization and the exact q=p, amplitude-one specialization, including its recurrence and rate, to the sources below. The judgment is on the extension and comparison, not on those covered components or on carry methods generally.
+
+## value
+
+PASS
+
+The slice is the two nearest dependent bases next to exact factorization, not an arbitrary parameter selection. The transfer gives exact moments for nonidentical factors, separates the two bases at every eligible length, and resolves the distinct orders at which weak modulation changes the long-product growth. These are useful quantitative answers beyond the previously known flat critical recurrence and factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

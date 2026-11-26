@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim concerns a finite, explicitly specified 15-vertex graph and all its 3^15 labelled initial states, not a sample or an unbounded family. The Petersen-to-line-graph construction is checked for degree four by two presentations, and the exact update rule is independently encoded in two standalone programs. A functional-graph indegree decomposition and a different direct-trajectory decomposition agree on all four threshold-specific period counts, full entry-time/least-period cross tables, and every individual basin-size histogram. The reproducible `replay.py` reconstructs and replays both programs from supplied sources, checks the exact expected totals, and fails on any disagreement. A six-update extinction witness and a twelve-update periodic-entry witness prove sharpness. Code execution was successful; the algorithms and full reproducibility procedure constitute the finite proof. No conclusion for arbitrary graph sizes is made.
+PASS
 
-## Originality: PASS, with specified residual priority risks
+Independently recomputed every one of the 3^15 labelled states at each threshold, without executing frozen scripts. checks/petersen_images.py computes the successor of each resting edge from disjoint active incidences at its two Petersen endpoints; the other phases have their unconditional successors. Iterated images of the complete state set are nested and stabilize precisely on the periodic set. Traversing this set gives each orbit once; successive synchronous predecessor layers give exact first entry and inherit the orbit label. For all four thresholds the attractor/period/basin populations, entry histogram, joint time and period histogram, and individual basin-size histogram match both frozen output tables in full. The four recorded max depths are 12,6,3,3; directly checked 94238 at depth 12, and 66495→5626834→12602018→3228168→169→2→0 with exact depths 6 through 0. All-rest is fixed and the only fixed state since phases 1 and 2 always change. The threshold-one period lcm is 120, giving equality after 12 and failure one update earlier. Run python3 checks/petersen_images.py with theta=1,2,3,4 as the positional argument (NumPy); each checks/petersen_images_*.out is saved. This certifies the stated finite graph and thresholds only.
 
-The closest recorded results are the general Tait-edge-coloring/primitive-three correspondence and half-degree balance rigidity. They exclude only period-three recurrence at threshold two on the Petersen line graph, leaving other periods, finite extinction and its sharp cutoff unresolved. The published induced-density bound cannot be applied at threshold two since this four-regular line graph has maximum induced edge density exactly two. The threshold-one literature studies finite-graph dynamical criteria but does not provide the claimed specific complete basin and attractor census. Searches for Petersen line graph excitation, alternative names, period and threshold variants, exact tables, and stronger covering theorems did not identify an implication covering the final claim. The detailed comparison and actual repository identifiers appear in `AUDIT.json`. Unindexed tables or an uninspected section of an older full paper could still bear on priority; failed searching alone was not treated as proof.
+## originality
 
-## Value: PASS
+PASS
 
-The result measures a sharp nonlinear phase transition of a canonical 15-site 4-regular network: 220,960 coexisting oscillatory cycles at one excited contact disappear completely at the next threshold, exactly at the edge-density bound's unresolved equality case. The six-update universal extinction and detailed per-period attraction basins are natural model invariants, not an arbitrary numerical slice. Their reproducible complete finite classification provides a stringent benchmark for threshold excitation dynamics and a concrete critical-equality example. No generalized graph theorem is claimed.
+The exact all-threshold census and sharp finite settling statistics are supported as distinct findings. Qualitative eventual threshold-two extinction is already implied by a matching same-day structural Resultary theorem and the earlier Tait correspondence. Do not claim that qualitative extinction itself is distinct or infer order from the shared date. Neither structural theorem nor the other inspected results supply the sharp depth 6, its 930 initial states, or the labelled threshold-one census.
 
-## Scientific limits
+## value
 
-All computations are exhaustive only because the graph has fifteen sites. The two replayable implementations are not external independent certification. The historical priority inquiry was bounded and may omit unindexed equivalent computations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This line graph is a natural small four-regular example at the critical half-degree threshold, built from a canonical snark. The sharp worst-case settling time and how many states attain it are additional natural invariants even after eventual extinction is structurally known. The complete low-threshold basin/period census and the finite cutoff provide an exact comparative benchmark beyond detecting recurrence on a few states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:59:46.130279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–5 and explicit inverse-slope formula",
+        "Frozen VERIFICATION.md, inspected; no independent numerical package was required"
+      ],
+      "rationale": "Both full inverse branches have maximal absolute slope γ=2/(3+α)<1. Substituting ψ(u)=(4u)^p Q((4u)^(p−1)) in 4u=3ψ+ψ^α gives an analytic implicit Q near Q=1. The convergent expansion bounds ψ^(j)(u)=O(u^(p−j)) at noninteger p and yields the asserted positive coefficient of ψ′. Thus for k<p the kth branch derivatives are bounded and the (k+1)st integrable, as needed for the Sobolev transfer estimate. The highest differentiated transfer term costs γ^k by change of variables; the coefficient of the next-highest derivative gives an integrable weight after change of variables, since its pushforward L¹ norm equals the original coefficient's L¹ norm. Splitting off a small L¹ tail and using the W^{1,1} sup bound absorbs it; lower terms cost only W^{k−1,1}. Iteration gives power bounds and the compact embedding gives essential radius <1. The invariant integration functional gives a fixed vector in each eligible space. For clarity on uniqueness and positivity, at order one, taking absolute values of a real fixed vector yields another fixed vector by positivity and conservation of the integral. Every nonzero nonnegative continuous fixed vector is positive on the entire interior by the full-cylinder argument. The positive and negative parts of a real fixed vector are fixed and cannot both be nonzero, so the fixed space is one-dimensional. The order-one power bound and quasi-compactness make its Cesàro averages converge to that space, and L¹ contraction and density of W^{1,1} in L¹ extend uniqueness to all L¹ invariant densities. All higher-order and analytic fixed vectors therefore represent the same density. The transfer equation gives the endpoint power with h(1/2)>0; its noninteger exponent lies strictly between ceil(p)−2 and ceil(p)−1, contradicting the endpoint Taylor expansion required by W^{ceil(p),1}. For integer p=m, the inverse of 4u=z+3z^m is analytic along the interval with simple roots, so ψ=z^m is holomorphic nearby. In a sufficiently thin complex tube the branch derivatives are uniformly <1; integrating along a segment to a closest real point puts both images in a compactly contained smaller tube. Signed holomorphic weights ±φ′ replace the real absolute weights. Compactness by Montel and invariance of integration again give a nonzero holomorphic fixed function, which restricts to a nonzero fixed vector on the real interval. No numerics are needed for either direction.",
+      "residual_risks": [
+        "The spatial assertion concerns the exact full-height two-branch map and a complex neighborhood of the closed interval. It is not analytic dependence on α or on cusp height."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Resultary family is broader in the linear coefficient, but its density result covers only 1<p<2; it yields nonmembership in W^{2,1} and higher by nesting, not the complete iffs on p>1.",
+          "The cited cusp regularity theorems treat second-order spaces. The inspected analytic theorem uses full-branch expanding differentiability and inverse-Jacobian weights strictly positive on its compact real set; here the weight vanishes at the boundary target and the forward cusp has unbounded derivative."
+        ],
+        "reasoning": "Generalizing the map parameters without covering the order and exponent regimes does not dominate the classification. The analytic operator method is prior, but the quoted theorem is not a direct application across this cusp.",
+        "searches": [
+          "Oltiboev arXiv:2505.17462v1 assumptions and Theorem 1.1",
+          "Oltiboev–Rakhimov–Ruziboev arXiv:2608.26969v1 Theorem 2.2",
+          "Bandtlow–Jenkinson Theorem 8.5",
+          "Resultary d55fbcbd710b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d55fbcbd710b",
+        "arXiv:2301.02301v3",
+        "arXiv:2505.17462v1",
+        "Bandtlow–Jenkinson Theorem 8.5",
+        "arXiv:2610.23180v1",
+        "arXiv:2608.26969v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed endpoint power law already implies the higher integer Sobolev exclusion in its own range by nesting, and nonanalyticity there by the noninteger power. Its scope does not include p>2 or reciprocal-integer analyticity.",
+          "Existing second-order Lasota–Yorke bounds do not alone give bounds for higher inverse-branch derivatives. Analytic parameter response at p=2 is distinct from spatial holomorphic extension."
+        ],
+        "reasoning": "The proof adds the all-order bootstrap, obstruction in the remaining noninteger regimes, and spatial integer-resonance result with boundary-zero weights. It does not recredit the covered subrange obstruction as an independent discovery.",
+        "searches": [
+          "Bandtlow–Jenkinson Theorem 8.5 proof",
+          "Bahsoun–Galatolo Theorem 1 and Sobolev spectral estimates",
+          "Oltiboev–Vafoyev arXiv:2610.23180v1 abstract and §3",
+          "Resultary d55fbcbd710b Proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the indexed family F(1/2±t)=1−ϑt−At^(1+β), set β=α−1, ϑ=3/2, A=2^(α−2). This is exactly the frozen map and identifies the published parameter range −1/2<β<0 with 1<p<2.",
+          "Bahsoun–Galatolo's equation (4.1) at zero perturbation is the target map for p=8."
+        ],
+        "reasoning": "The overlap at 1<p<2 is exact, not resemblance by terminology, and p=8 is an exact example in the primary paper. Neither formulation covers the full p>1 and all-k classification.",
+        "searches": [
+          "Resultary: cusp-tent Sobolev classification inverse exponent and spatial analytic invariant density",
+          "Resultary d55fbcbd710b, Finding and Proof §§1–4",
+          "Bahsoun–Galatolo arXiv:2301.02301v3 §4 equation (4.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed coefficient is 2h(1/2)/[(1+β)A^(1/(1+β))]. Under A=2^(α−2) this simplifies to p4^p h(1/2), and −β/(1+β)=p−1. The exact match applies to 1<p<2.",
+          "The p=8 and p=2 primary results establish W^{2,1}, not all-order membership or holomorphic extension for a family of integer inverses."
+        ],
+        "reasoning": "The overlapping subrange is a theorem with the identical exact coefficient, not a merely matching numerical exponent. No inspected catalogue entry computes the all-order classification or the integer/noninteger holomorphic split.",
+        "searches": [
+          "Resultary d55fbcbd710b, exact endpoint coefficient",
+          "Bahsoun–Galatolo arXiv:2301.02301v3 at p=8",
+          "Oltiboev–Vafoyev arXiv:2610.23180v1 at p=2"
+        ]
+      },
+      "rationale": "PASS for the complete all-order spatial Sobolev classification and reciprocal-integer holomorphic dichotomy for this family. The exact endpoint term and W^{2,1} obstruction for 1<p<2 themselves overlap a broader indexed family and are not credited as distinct in that regime. Primary exact-map and related transfer results cover regularity at some orders and parameters and analytic mechanisms under different hypotheses, not the complete classification. Dates alone do not settle priority.",
+      "residual_risks": [
+        "Other analytic operator results allowing boundary-vanishing weights or more general all-order Sobolev results could reduce the incremental proof contribution. The cited primary passages were checked, not all historical literature or all publisher versions.",
+        "The distinct indexed overlap is dated November 8 versus October 18 for the frozen record, not evidence of order or provenance. The originality assessment explicitly excludes independent credit for the covered 1<p<2 boundary result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact, material partial coverage on 1<p<2",
+          "evidence": "The broader family includes the target via β=α−1 and ϑ=3/2. It gives the exact coefficient and nonmembership in W^{2,1}, but does not give W^{1,1} or the complete p>1 dichotomy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-invariant-density-cusp-exponent-above-the-critical-sobolev--d55fbcbd710b/RESULT.md",
+          "material_read": "Finding and Proof §§1–4; frozen comparison with mirror offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Sharp invariant-density cusp exponent above the critical Sobolev threshold",
+          "trigger": "Exact cusp endpoint power and sharp W^{2,1} failure"
+        },
+        {
+          "assessment": "Prior second-order regularity and response",
+          "evidence": "Exact unperturbed p=8 map and W^{2,1} density regularity; not all spatial orders.",
+          "identifier_or_url": "https://arxiv.org/html/2301.02301v3",
+          "material_read": "Theorem 1 and §4 equation (4.1), OA offsets 11200 and 38500",
+          "method": "OA primary manuscript passages",
+          "title": "Linear response due to singularities",
+          "trigger": "Original exact p=8 cusp-tent map and Sobolev proof"
+        },
+        {
+          "assessment": "Order-two overlap, no full classification",
+          "evidence": "W^{2,q} regularity for q>1 under β<(1−2q)/(2q) and L^q parameter response; threshold arises from a different quantified question.",
+          "identifier_or_url": "https://arxiv.org/html/2505.17462v1",
+          "material_read": "Assumptions and Theorem 1.1, OA offsets 4800 and 8200",
+          "method": "OA primary manuscript passages",
+          "title": "Linear response for systems with a cusp",
+          "trigger": "Broader cusp maps and stronger Sobolev integrability at order two"
+        },
+        {
+          "assessment": "Analytic operator context; theorem hypotheses not directly satisfied at the cusp",
+          "evidence": "Proof uses inverse-Jacobian weights strictly positive on the compact real set, whereas here both inverse Jacobians vanish at 1.",
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/o.m.jenkinson/weights25.pdf",
+          "material_read": "Theorem 8.5, theorem preview p.2 and proof p.24 at OA offset 57388",
+          "method": "OA primary PDF passages",
+          "title": "Invariant measures for real analytic expanding maps",
+          "trigger": "Potential dominating analytic transfer-operator theorem"
+        },
+        {
+          "assessment": "W^{2,1} and analytic response in the perturbation parameter, not spatial analyticity",
+          "evidence": "Treats the critical β=−1/2 case, not the holomorphic iff across p.",
+          "identifier_or_url": "arXiv:2610.23180v1",
+          "material_read": "Abstract and §3, PDF pp.1–3, OA offsets 0 and 4800",
+          "method": "OA primary PDF passages",
+          "title": "Critical cusp cancellation and analytic response for a Bernoulli random interval map",
+          "trigger": "Reciprocal-integer p=2 and nearby analytic terminology"
+        },
+        {
+          "assessment": "Second-order common-cusp setting",
+          "evidence": "W^{2,1} stationary densities for −1<β<−1/2 in the relevant setting, not all-order spatial regularity.",
+          "identifier_or_url": "arXiv:2608.26969v1",
+          "material_read": "Assumptions and Theorem 2.2, OA offsets 14500 and 19000",
+          "method": "OA primary manuscript passages",
+          "title": "Linear response for random systems with a cusp",
+          "trigger": "Generalized cusp-map transfer estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Bahsoun–Galatolo arXiv:2301.02301v3 §4",
+        "Resultary d55fbcbd710b, Finding"
+      ],
+      "rationale": "The theorem distinguishes intrinsic invariant-density regularity from the order available in low-order transfer estimates. The noninteger obstruction identifies sharp loss at an endpoint in the actual density, and isolated reciprocal-integer cases offer a different analytic regime despite an unbounded forward derivative. This is a unified classification for a family used in response theory, not simply another second-order estimate or a numeric endpoint calculation.",
+      "residual_risks": [
+        "The classification is spatial and exact-model-specific; it does not justify new response theory for height perturbations or random maps by itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

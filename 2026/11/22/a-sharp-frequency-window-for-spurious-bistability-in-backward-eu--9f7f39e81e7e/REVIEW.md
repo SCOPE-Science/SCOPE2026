@@ -1,19 +1,21 @@
-# Scientific review of the backward-Euler Hopf bistability theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's exact domain is \(h>0\), \(\omega\ne0\), \(\lambda\in\mathbb R\), and a globally smooth unique implicit step. Reconstructing the map \(\Psi(w)=(1-h\lambda+h|w|^2-ih\omega)w\) gives its radial function and the exact Jacobian determinant \(3u^2+4au+a^2+b^2\), where \(u=h|w|^2\), \(a=1-h\lambda\), and \(b=h|\omega|\). Its minimum yields precisely \(a>-\sqrt3 b\) for global smooth invertibility. Two positive invariant-circle radii exist precisely at \(u=-a\pm\sqrt{1-b^2}>0\). Requiring both within the diffeomorphism range is equivalent to \(1/2<b<1\) and \(-\sqrt3 b<a<-\sqrt{1-b^2}\). The origins and radial multipliers, radial comparison signs, complete attraction basins, and rigid rotation angles all follow analytically. Exact-rational tests and a standalone radial iterator passed for two parameter choices. Numerical convergence is supplementary, not a proof of the universal statement.
+PASS
 
-**Boundaries and limits:** Strict inequalities matter. At \(a=-\sqrt3 b\), the implicit inverse is not a smooth diffeomorphism; at \(b=1\), there can be one neutral nonzero radius but not the claimed two circles. At the inner-circle radius the orbit remains on that circle rather than converging to the origin or outer circle. The conclusion is about distance to a circle, not necessarily convergence to one point on it.
+Reverse the implicit step: the predecessor of w is (a+h|w|²−ihω)w. The radial map is H(s)=s√((a+hs²)²+b²); its derivative has numerator 3u²+4au+a²+b² with u=hs². This is positive for a≥0, and for a<0 its minimum on u≥0 is b²−a²/3. Positivity, radial properness, and the radius-dependent rotation give smooth global inversion. Equality gives a singular Jacobian, and below equality there is a decreasing radial portion, so smooth invertibility fails at both. Positive fixed radii solve (a+u)²+b²=1: for 0<b<1, both roots −a±√(1−b²) are positive exactly for a<−√(1−b²), and they fit the smooth-inverse condition exactly for b>1/2. At b=1 the possible positive root is double with unit radial multiplier; at b>1 there is none. The origin multiplier has modulus (a²+b²)^(−1/2)<1 in the window. The two reciprocal radial derivatives give inner repulsion and outer attraction. The signs +,−,+ of H(s)−s and monotone inversion give the stated basins and exclude recurrence off the fixed radii; rotations on the two circles have the stated angles. The exact example multipliers check as 25/21 and 25/93. The proof is for the exact step of this isochronous normal form; check.py and VERIFICATION.md were inspected, not executed, and cover only supplementary finite checks.
 
-## Originality — PASS within inspected sources
+## originality
 
-Oliveira's arXiv:2611.03336v1 addresses local cyclic Lyapunov–Schmidt reductions at real multipliers \(+1\) and \(-1\); its implicit planar example is a fixed-point cusp. Its conclusion explicitly reserves two-dimensional center questions. Buescu–Oliveira's arXiv:2611.12327v1 treats singular evolution folds and a different backward-Euler planar model interacting with period doubling. Neither inspected development supplies this smooth globally invertible Hopf-map threshold or its two circles and basins. The closest indexed numerical-map finding, *An exact supercritical Euler-induced oscillatory circle below a descending prey nullcline*, treats an explicit Euler predator–prey map with a single induced attracting circle. The closest indexed general global-invertibility finding concerns a cosine normal-return map instead. Classical Hopf normal forms and backward-Euler numerical stability are acknowledged as established, not new. Search results and local comparison support the combined theorem's originality under currently inspected evidence but cannot prove absence of every older equivalent.
+PASS
 
-**Residual priority risk:** The extensive older literature on spurious dynamics under implicit numerical integration, including *Dynamical Approach Study of Spurious Steady-State Numerical Solutions on Nonlinear Differential Equations*, was not exhaustively inspected at full-text level. The combined exact smooth-inverse frequency threshold may have an unindexed equivalent; this remains a bounded originality risk, not a claim of a conclusive worldwide uniqueness search.
+The inspected sources cover local implicit-orbit and evolution-fold theory, not the exact global inverse and bistability intersection, its circle stability, or its basin classification for this oscillator. Credit the classical backward-Euler linear amplification and Stuart–Landau model; the distinct claim is the combined global classification, not either antecedent.
 
-## Mathematical value — PASS
+## value
 
-Backward Euler is a standard numerical step whose extra damping is well known, but the present exact example proves a **non-obvious coexistence**: an artificially stabilized equilibrium and an attracting oscillatory circle persist simultaneously, divided by a repelling circle, while the continuous equation has an unstable equilibrium. The sharp frequency threshold \(h|\omega|=1/2\) is forced by the intersection of the two-circle and global-invertibility conditions, not by a merely chosen example. Exact basins, radii, and transverse multipliers make the criterion useful for diagnosing qualitative failure of coarse implicit integration in oscillatory normal forms. No general implicit-bifurcation theorem or robustness under arbitrary perturbations is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A standard implicit integrator creates a qualitatively false bistability even where there is no ambiguity or branch choice anywhere in its nonlinear solve. The necessary and sufficient step-frequency restriction and exact separating basin boundary distinguish this artifact from ordinary linear instability or implicit-solver failure. This is a useful benchmark for the natural cubic oscillator, not a claim about arbitrary Hopf systems or discretizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

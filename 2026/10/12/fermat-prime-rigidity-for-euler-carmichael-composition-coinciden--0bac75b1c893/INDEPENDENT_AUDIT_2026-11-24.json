@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:33:33.329228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p−1=2^t u with u odd, write c(j)=v₂(λ(2^j)), T=max(t,c(a)), S=a+t−1 and λ(u)=2^h K with K odd. The first iterates have the common odd part p^(b−1)u; p divides neither u nor λ(u) since λ(u)≤u<p. Thus the composed numerator is 2^L p^(b−2)uφ(u), L=T+t−1, and the denominator is 2^E p^(b−2)lcm(u,K), E=max(t,c(S),h). Cancellation works also at b=2. The lcm divides uφ(u). For u>1 its quotient into uφ(u) has valuation f=v₂(φ(u))≥1; h≤f and c(S)≤L (for a≤2 use c(S)≤S−1, for a≥3 use c(S)=a+t−3). Therefore L+f−E≥min(L,f)≥1. For u=1 the exponent is t−1 at a=1,2 and max(0,t−(a−2)) at a≥3. This proves the integer quotient, b-independence, parity obstruction and exact equality classification, including p=3 and the first qualifying a. The frozen verifier was inspected, not executed: lines 88–102 compare both compositions directly in the finite sweep, whereas the extra threshold assertions at lines 103–106 evaluate formula() only (the sweep itself reaches the 257 threshold). The proof does not depend on the script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1–2 bound the global counting function; Theorem 3 concerns normal order; §3.1 constructs equality examples from squarefree inputs and their prime factors."
+        ],
+        "reasoning": "Those theorems have broader domains but do not determine the local quotient or rule out all non-Fermat primes with b≥2 in the assigned family.",
+        "searches": [
+          "Banks–Luca–Saidak–Stănică author copy, §1 Theorems 1–3 and §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Banks–Luca–Saidak–Stănică (DOI 10.1007/BF02942044), §1 and §3.1",
+        "OEIS A123101 internal entry",
+        "Resultary 15c9a50cf10e",
+        "Resultary 36f7915745ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary comparison yields global estimates and sufficiency constructions, not a necessity test on 2^a p^b. The strongest Resultary analogues concern different defining equations."
+        ],
+        "reasoning": "The exact answer needs a local cancellation and a 2-adic obstruction forcing u=1, followed by a sharp boundary in a. They are not consequences of the estimates or sample constructions inspected.",
+        "searches": [
+          "Banks–Luca–Saidak–Stănică §1 and §3.1; OEIS A123101; local Resultary RESULT.md for 15c9a50cf10e and 36f7915745ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banks–Luca–Saidak–Stănică, §1, uses the same composition equality and its quotient.",
+          "Resultary 15c9a50cf10e is about λ(n)=λ(n+1); Resultary 36f7915745ba is about prime-power pseudoperfect and Giuga numbers."
+        ],
+        "reasoning": "Swapping the two sides of the composition equation or describing a prime with p−1 a power of two as a Fermat prime leaves the target unchanged. Neither consecutiveness nor pseudoperfectness translates the matching Resultary statements into this equality.",
+        "searches": [
+          "Focused literature lookup on φ∘λ versus λ∘φ on 2^a p^b and Fermat primes",
+          "Resultary semantic searches for Euler–Carmichael composition coincidences and Fermat-prime two-prime-power rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A123101 specifies the identical composition equation, displays initial values including 18, 36, 54, 72, 108 and 144, and links a finite table. The linked file was not retrieved."
+        ],
+        "reasoning": "The displayed terms overlap with the p=3 case. Neither a finite table nor code testing the defining equality gives the infinite classification or exact quotient.",
+        "searches": [
+          "OEIS A123101/internal and its linked table b123101.txt"
+        ]
+      },
+      "rationale": "The exact local quotient and unbounded equality classification survive the statement-level comparisons. The best matches treat the same equation globally or enumerate bounded examples, or use Fermat primes in different equations; no inspected source supplies or implies the full local parity obstruction and threshold. This is a best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Unindexed local calculations or equivalent restatements may exist.",
+        "The linked OEIS file was not retrieved; the visible entry establishes bounded tabulation, not infinite coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same global problem; inspected results do not cover the local census",
+          "evidence": "Global lower/upper estimates, normal order and a squarefree construction; first page gives pp. 215–243, rather than the terminal page 244 in the frozen citation.",
+          "identifier_or_url": "https://uncg.edu/~f_saidak/hamburg.pdf",
+          "material_read": "First page; §1 Theorems 1–3 (printed pp. 217–218, text offset 6468); §3.1 (printed pp. 219–221, offset 13462)",
+          "method": "Open author PDF, bounded text passages",
+          "title": "Compositions with the Euler and Carmichael Functions",
+          "trigger": "Same compositions and equality problem"
+        },
+        {
+          "assessment": "Exact definition and finite examples, not a family theorem",
+          "evidence": "The equation is λ(φ(n))=φ(λ(n)); the initial values contain examples in the assigned family.",
+          "identifier_or_url": "https://oeis.org/A123101/internal",
+          "material_read": "Internal entry, definition, displayed terms, links and program",
+          "method": "OA website text",
+          "title": "OEIS A123101",
+          "trigger": "Exact equality data"
+        },
+        {
+          "assessment": "Different coincidence condition",
+          "evidence": "Studies λ(n)=λ(n+1) with both arguments having Ω≤2; classifies n=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-two-almost-prime-layer-of-consecutive-carmichael-function-co--15c9a50cf10e",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The two-almost-prime layer of consecutive Carmichael-function coincidences",
+          "trigger": "Closest same-day Carmichael coincidence hit"
+        },
+        {
+          "assessment": "Shared form of solutions but distinct invariant and condition",
+          "evidence": "Pseudoperfect numbers arise with a Fermat-prime factor, and Giuga numbers with a Mersenne-prime factor; neither condition compares the two compositions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-prime-power-egyptian-two-prime-rigidity--36f7915745ba",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Prime-power Egyptian two-prime rigidity",
+          "trigger": "Fermat primes on a two-prime-power input family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-prime-power family isolates the 2-adic contribution to a studied composition equation while allowing arbitrarily large exponents on both primes. The result gives an exact obstruction for all odd parts u>1 and a least qualifying 2-adic exponent otherwise, connecting a natural arithmetic coincidence to Fermat primes. This is useful beyond reproducing finite entries or merely exhibiting another sufficient construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

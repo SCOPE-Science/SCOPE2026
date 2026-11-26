@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite normalizer follows by telescoping the exact radiation probabilities. Direct differentiation produces a quadratic whose leading coefficient changes sign precisely when outer mass exceeds inner mass. The unique positive root, above-baseline crossing, exact tangent-value formula, and boundary-onset asymptotics are proved algebraically in RESULT.md. The nearest-only and farthest-only edge cases are explicitly separated. A standalone Python verification reproduces the exact rational witness and extensive independent finite tests; it is supplemental rather than a substitute for the proof.
+PASS
 
-## Originality
+Each raw weight is m/(m+s_j)−m/(m+s_j+n_j); completeness and strict radial order make the denominator telescope to S/(m+S). For b=a+n, set F=P/(n/S). Then F−1=((c−a)m−ab)/((m+a)(m+b)), and F' has numerator (a−c)m²+2abm+Sab over a positive denominator. For a>0 the derivative stays positive at and below c=a; above c=a the quadratic has opposite-sign roots, with the positive root m* given in the Finding because ab+S(c−a)=c(n+c). The positive root exceeds the baseline crossover ab/(c−a). At the positive finite maximum the equation F=λ has a double root and λ>1. Its discriminant gives the two stated signed radical values; the larger value exceeds S/n (since b(n+c)−ac=nS), hence its double root is negative because λ(a+b)>S. The smaller value is the attained peak. Substituting ε=c−a into the exact peak location gives εm*→2ab, and substituting this into F−1 gives (F(m*)−1)/ε²→1/(4ab). For a=0, cancellation leaves n(m+S)/(S(m+n)), strictly decreasing unless c=0, when it is 1. The farthest case c=0<a is covered by the positive derivative. The exact (1,1,8) shares at m=2 follow by telescoping or direct evaluation and give (2/5,1/5,2/5). The new bounded script `python /workspace/independent_reproduction.py` independently checks derivative and discriminant identities and the example's factor 2; the proof is not a finite sample. The frozen checker was inspected, not executed.
 
-PASS, provisional relative to accessible sources. The precise scalar normalizing law was introduced earlier by Masucci and coauthors and is credited. Simini and coauthors give the radiation kernel and large-origin saturation, Kang and coauthors vary its mobility-law structure, and Hilton and coauthors compare empirical variants. The present inner/outer threshold, unique finite conditional-share maximum, exact peak enrichment, and critical onset are not supplied by the relevant material inspected. Actual research-record searches found no direct equivalent; they did return largely unrelated results. A model formula being known is not, by itself, a published classification of all source-size regimes. Risks include general rational comparative-statics theorems and less accessible source-size analyses, so historical priority is not certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem characterizes a measurable within-origin modal observable—one destination's share of all outbound commuting—under a natural one-parameter demographic counterfactual. Unlike the unnormalized radiation weight or a cumulative destination distribution, the finite-normalized individual share can increase and then decrease. The sharp criterion depends solely on the balance of mass beyond versus before the destination, and not on its own attraction mass; the peak location and relative enrichment have closed forms and a singular boundary scaling. The explicit three-site example exhibits a twofold peak enrichment without changing external opportunities. This is a structural comparative-static statement, not merely a checked numerical case.
+Credit the entire normalized share formula to the existing model: it is a direct re-expression of Masucci et al. The distinct claim on inspected evidence is the complete outer-vs-inner criterion and its peak and onset for one fixed destination as source mass varies. The analysis uses elementary calculus, not a new mobility law or a new monotonicity technique. I found no prior statement or stronger comparative-statics result covering this classification in the actual passages compared.
 
-## Closest literature and limitations
+## value
 
-The closest source is Masucci et al., arXiv:1206.5735, Section I.B, Eq. (4), which provides the *input* finite normalization but not the classified variation of its single-destination share with source mass. Simini et al., arXiv:1111.0586, main Eq. (2) and supplementary Sections 2 and 4, supply the kernel and unnormalized saturation. Hilton et al. (2020) use related normalized formulas and emphasize alternative calibrations. Kang et al. (2015) study extended variants; the complete publisher presentation was not reliably accessible for a full exclusion claim. These are theoretical model statements only, not proven empirical effects in evolving cities. Independent historical and mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a modest but natural complete classification of a model observable, not just evaluation of a known formula at chosen parameters. Finite normalization can remove a peak that exists for the raw radiation weight. The balance of opportunity mass beyond vs before a fixed site, independently of its own mass, decides which sites overshoot the limiting share; the onset calculation distinguishes a peak arriving from infinity from one emerging at finite origin size. Those are usable structural constraints when interpreting the normalized model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

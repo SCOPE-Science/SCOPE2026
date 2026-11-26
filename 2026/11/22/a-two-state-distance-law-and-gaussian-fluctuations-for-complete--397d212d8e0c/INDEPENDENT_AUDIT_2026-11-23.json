@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:29:00.681121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–87",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, lines 12–70"
+      ],
+      "rationale": "Unit flow on this DAG decomposes into increasing source-to-sink paths, and each indicator path is extreme (its support alone carries only that unit flow). Two independent uniform subsets of the m internal vertices give four equiprobable membership symbols per site. Squared distance counts the edge symmetric difference; a common arc joins consecutive 11 symbols after deleting 00 symbols, with 11 at the two endpoints. Thus tracking whether the last nonzero symbol is 11 gives exactly the stated matrix and the sink charge 2 only in state 0. Direct path comparison at m=2 gives (4+8z³+4z⁴)/16; m=0 gives 1. Independently, the probability r_j of state 1 after j sites is 1/3+(2/3)4^(−j). A site charges 1 or 1/2 in expectation conditional on state 0 or 1. Summing 1−r_j/2 over j=0,...,m−1 and adding 2(1−r_m) yields the exact mean. The characteristic polynomial is λ²−(3+2z)λ/4+(1+2z−z³)/8; implicit differentiation at the simple root 1 gives λ′(1)=5/6 and λ″(1)=7/27. Hence the log eigenvalue at z=e^t has second derivative 43/108. The other root is 1/4 at z=1, so analytic spectral projection yields the CLT via characteristic functions and the variance rate by differentiation; the square-root identity gives 43/360 for the ordinary-distance limit.",
+      "residual_risks": [
+        "The verification script was inspected, not executed. Its reported finite recurrence and ordered-pair checks do not establish the CLT or an error rate. All metric checks use orthonormal arc coordinates and sampling with replacement, not a Birkhoff Frobenius metric or interior-volume sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dugan gives the complete transitive DAG path-vertex correspondence and binary-word representation; the evaluated invariants are face counts."
+        ],
+        "reasoning": "An encoding or f-vector, even one including the count of vertices, does not give joint edge use across random path pairs. General spectral machinery does not by itself identify these two states or compute the derivatives.",
+        "searches": [
+          "Resultary: flow polytope vertices represented as increasing paths complete graph f-vector vertex count 2^m",
+          "Dugan arXiv:2409.15519, proof of Proposition 5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.15519",
+        "Resultary 5a75317a14af, 99e76fca2995 and self-match 397d212d8e0c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diameter result concerns only the top-distance coefficient. The zigzag result uses unit and double steps, with Fibonacci-counted paths rather than independent fair subsets. Dugan's binary words describe individual vertices."
+        ],
+        "reasoning": "Neither a coefficient at the extremum nor a distribution on a more restricted graph yields this transfer law by specialization. The path encoding is prior but the exact shared-arc calculation and constants are not established by the checked statements.",
+        "searches": [
+          "Resultary local-mirror claims 5a75317a14af and 99e76fca2995, original RESULT.md passages",
+          "Dugan, Proposition 5.1 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-DAG diameter record 5a75317a14af has the same full arc-coordinate metric and proves a diameter and a census of diametral pairs; it does not count pairs at all distances."
+        ],
+        "reasoning": "D=|E(P)|+|E(Q)|−2|E(P)∩E(Q)| makes common-arc statistics a genuine alternative formulation if joint with both path lengths. Extremal pair enumeration and alternative polytope embeddings without metric preservation do not give that joint law.",
+        "searches": [
+          "Resultary: increasing paths on complete ordered DAG two independent paths shared edges overlap distribution central limit",
+          "Resultary: two uniformly sampled source sink paths complete DAG common arcs shared-edge count path-pair overlap generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact Resultary hit is the assigned record 397d212d8e0c itself. A distinct same-day hit 99e76fca2995 gives a random-pair law on a zigzag DAG. The web hit was unrelated."
+        ],
+        "reasoning": "No independent matching law was found in the bounded results. The web nonmatch is not evidence of absence, and same-day dates do not establish priority order.",
+        "searches": [
+          "Resultary: complete DAG unit-flow polytope uniform path vertices squared Euclidean distance pair PGF Gaussian variance common edges",
+          "Web: \"complete DAG\" \"increasing paths\" flow polytope vertex pair distance common edges distribution"
+        ]
+      },
+      "rationale": "The supported distinction is the evaluated random-pair law and fluctuation constants in the full arc-coordinate metric for the complete DAG. The path encoding, analytic transfer matrix method and extremal distances are not claimed as novel. The checked statements do not supply the random-pair law or imply the evaluated constants.",
+      "residual_risks": [
+        "An equivalent joint common-arc count and path-length law under random word or increasing-path terminology could be unindexed. No historical uniqueness is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior path representation, not random-pair geometry",
+          "evidence": [
+            "Vertices are source-to-sink paths with a binary word for each internal vertex subset; main objects are face numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.15519",
+          "material_read": "p. 1 and p. 15, proof of Proposition 5.1",
+          "method": "OA original PDF passages",
+          "title": "On the f-vectors of flow polytopes for the complete graph",
+          "trigger": "Identical complete-DAG flow polytope and path encoding"
+        },
+        {
+          "assessment": "Exact extremal information, not the full law",
+          "evidence": [
+            "Determines squared diameter and classifies/counts diametral path pairs in the arc metric."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-parity-sharp-euclidean-diameter-and-complete-antipodal-pair-ce--5a75317a14af",
+          "material_read": "RESULT.md offsets 0–2900 and 6300–8666",
+          "method": "Local Resultary mirror",
+          "title": "A parity-sharp Euclidean diameter and complete antipodal pair census",
+          "trigger": "Same graph and Euclidean metric; potentially matching pair enumeration"
+        },
+        {
+          "assessment": "Methodological analog, different graph and sampling law",
+          "evidence": [
+            "Only unit and double steps are present; paths are Fibonacci-counted and the stated constants differ."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-euclidean-distance-law-and-gaussian-fluctuations-for-zigza--99e76fca2995",
+          "material_read": "RESULT.md offsets 0–1900 and comparison at offset 6332",
+          "method": "Local Resultary mirror",
+          "title": "Exact Euclidean distance law and Gaussian fluctuations for zigzag DAGs",
+          "trigger": "Distinct same-day exact pair law with a Gaussian limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, and §§Exact distance encoding and Fluctuations",
+        "Same-polytope diameter comparison 5a75317a14af"
+      ],
+      "rationale": "Uniform vertex-pair distances in the canonical edge metric describe the geometry of a standard flow polytope beyond its incidence structure or diameter. A two-state exact full law makes distance probabilities computable and quantifies both typical scale and the nonvanishing ordinary-distance fluctuation, rather than reporting a few cases or a big-O bound.",
+      "residual_risks": [
+        "No universality across other graphs, netflows, metrics, or sampling measures is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

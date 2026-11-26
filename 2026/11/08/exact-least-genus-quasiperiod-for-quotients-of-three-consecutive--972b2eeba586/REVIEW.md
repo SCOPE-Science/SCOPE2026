@@ -1,15 +1,21 @@
-# Review of the exact least genus quasiperiod theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The gap-interval characterization follows by comparing the number of generators in a representation with the quotient \(\lfloor N/a\rfloor\). Exact counting of multiples in each gap interval gives the floor sum. Its decomposition into complete blocks of length \(p\) and a final tail yields an exact quadratic branch formula, not an asymptotic approximation. The gcd expression for its linear coefficient follows from the standard, explicitly stated finite floor-sum identity. Minimality follows from the locations of the two largest values of the gcd statistic, and from strictly unequal constant terms on suitable pairs of branches. The exceptional moduli \(p=2\) and \(p=4\) are treated separately. Exact separately implemented dynamic-programming checks passed on 3,375 pairs of parameters; these do not replace the symbolic proof.
+## correctness
 
-## Originality — PASS, qualified
-Adeniran et al. (arXiv:1809.09360), Theorem 1.3, give a generic root-of-unity formula for the quotient genus; Section 3 analyzes the three-generator arithmetic progression in cases where the modulus divides the first generator. It does not state the unrestricted sharp least period or gcd-dependent linear coefficient. Liu (arXiv:2607.23076), Theorem 1.4, studies the *Frobenius number*, not genus, of a *two*-generator quotient and shows a period dividing the quotient modulus. Liu (arXiv:2604.26415) considers a different quotient family with divisibility assumptions. The exact doubled period and its arithmetic obstruction are neither statements nor immediate specializations of these results. Related searchable research claims about two-generator quotients were also distinguished. A hidden equivalent computation or derivation from the general root-of-unity identity remains a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The result gives a sharp, uniform least-period classification, including the exceptional factor-two collapse, for a natural first embedding-dimension-three family. It goes beyond numerical evaluation by exposing the gcd-controlled linear coefficient and showing precisely why the full period cannot be compressed. It answers a natural structural question left open by period-divisibility bounds for consecutive two-generator quotients and earlier genus identities. The method is specifically for a three-term interval and does not classify arbitrary arithmetic progressions.
+In the block N=qa+r, 0<=r<a, no expression can use more than q generators; exactly q gives every excess up to 2q, and fewer cannot exceed q(a+2). Hence the disjoint missing intervals and their exact multiple counts are valid. Writing a=2pm+r and q=tp+s gives the floor summand 2(m-t)+δ_s(r). Summing complete p-blocks and the tail gives the proposed quadratic. Summing remainders of sk modulo p uses every multiple of gcd(p,k) with multiplicity gcd(p,k); subtracting the contribution from exact divisibility in the shifted first floor gives D_p(r). After conversion to polynomials in a, the linear coefficient has period p for p=3 and p>=5 (for p>=5 the two maximal residues of the gcd sum are 0,-2 and cannot be permuted by a nonzero translation), and period 2 at p=4. The constant terms obstruct period p: for odd p both tails at 0,p vanish and the difference is -1/4; for even p, with r=p+1 the tail counts s<p/3 in 0<=s<=p/2-1, giving ceil(p/3), whereas the tail at 1 is empty. The branch difference is the stated strictly positive constant for even p>=4. Any eventual period T and 2p give gcd(T,2p) by equality of branch polynomials on infinite compatible progressions. This and the explicit p=2 parity polynomials give precisely the claimed least periods, including p=4.
 
-## Limitations
-The full result is established by elementary exact arithmetic, with no external proof assistant and no independent verification. The source comparison uses the relevant open primary texts and indexed records, but cannot prove global historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-residue exact genus formula with the sharp least eventual period. Previously treated divisibility branches and the generic root-of-unity genus identity are not new. The frozen comparison understates Liu 2604.26415: it does include the target family on p dividing a. Neither that specialization, nor the closest same-family Frobenius result, yields the stated unrestricted genus-period classification.
+
+## value
+
+PASS
+
+The genus, unlike the Frobenius number, measures every missing element of a quotient. The gcd statistic and separate constant-term obstruction predict exactly which polynomial branches must be distinguished for the first consecutive three-generator family. The genuine period doubling and its exception are structural information, not a finite re-tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:44.185082Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–111; VERIFICATION.md and verify.py inspected",
+        "Independent replay: python3 /workspace/replay/token_cut.py"
+      ],
+      "rationale": "The red graph is on base labels and includes the possible red pair ab; its edge set describes token colors, not present base edges. Each intact token adjacency shares a unique base label v, so the cut score is the sum of r_v(n−1−r_v). Removing the base edge ab deletes only the (n−2) adjacencies {a,w}--{b,w}, losing exactly one per mismatched external label. Maximizing the local terms gives the two central degrees at even order and the single central degree at odd order; for n≡3 mod 4 an all-central degree sum is odd, forcing a loss of at least one and giving exactly the one-defect equality condition. Equality at M_n for the faulted graph forces zero mismatch. In the displayed constructions, a,b have degree 1+|S|, an S vertex has degree |S|+1−deg_D(s) plus its cross-degree, and a T vertex has degree |T|−1 plus its cross-degree. Substitution gives the required central values in all four residues (including just the unmatched T vertex one below center for n≡3); n=3,4 are checked separately. At n=5 the intact score is 20 minus a sum of squared degree deviations; loss one is impossible by parity. The score-20 red graphs are exactly the twelve 5-cycles and every one loses two when ab is deleted. All remaining faulted optima have squared loss two and no mismatch. For these, when both endpoint degrees are two the (t,s)=(0,2) case has three choices of the synchronized neighbor set, and the permitted red edges on the remaining triple are either one of the two edges from its non-neighbor to a neighbor, or both; (1,1) is the complement. The cases (1,0),(0,3) contribute one each. Thus there are 12+9+9+1+1=32 ordered optima. Independent enumeration at n=3,4,5,6 gives scores 2,8,18,36 and ordered multiplicities 2,2,32,56 and checks the optimizer predicates against actual cut scores. The all-order conclusion rests on the construction and bound, not the enumeration.",
+      "residual_risks": [
+        "Single base-edge deletion, ordinary unweighted two-token graph, and all token states retained; there is no estimate for other deletion patterns or higher token counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General parity lifting gives (N−2)m(G) as a lower bound, and Proposition 5 gives the exact intact Johnson maximum and balanced incidence method.",
+          "The proved split-family value for independent size m≥r−1 gives N=4 and 5 at m=2; for r≥4 it only proves a strict inequality against its displayed threshold formula, not a replacement formula.",
+          "Apte–Parekh–Sud provides the token-graph setting and the Johnson identification, not an exact faulted maximum in the inspected passages."
+        ],
+        "reasoning": "A broader theorem can cover some of the target's orders while failing at other parameters. The full odd-order stability result and synchronized optimizers are not covered by these statements.",
+        "searches": [
+          "arXiv:2506.03441v1 token graphs and Johnson graph passages",
+          "arXiv:2611.25153v1, eq. (1) and Proposition 5",
+          "Resultary 9c686d18a910, Finding and below-threshold proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a36ba5973cee, 9c686d18a910 including its supporting exact log, and c46a125db54b",
+        "arXiv:2506.03441v1 and 2611.25153v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N=2k≥4 a balanced base partition can place a,b on the same side, so m(K_N−ab)=k². The parity-lift lower bound (2k−2)k² equals M_N, the upper bound from intact monotonicity. This already implies every even-order value.",
+          "For N=2k+1≥5 the same lift leaves a gap k−1_{k odd} to the intact bound. The split theorem resolves N=5 only; at N≥7 the two bounds do not meet and the split threshold is outside range.",
+          "Intact balanced-degree conditions do not alone supply synchronized examples; for N=5 all intact optimizers in fact violate synchronization."
+        ],
+        "reasoning": "The remaining odd-order stability and full criteria require additional arguments; neither equality in the previously known intact incidence bound nor parity lifting gives them alone.",
+        "searches": [
+          "arXiv:2611.25153v1, parity lift eq. (1) and Proposition 5",
+          "Resultary 9c686d18a910, threshold theorem and supporting log"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_2(K_n)=J(n,2); the fault removes the matching { {a,w},{b,w} } for external w.",
+          "K_N−ab is exactly K_{N−2} joined with an independent two-set. The distinct same-day split result therefore covers N=4,5 in its exact threshold range, with uniqueness at N=4 and an N=5 multiplicity lower bound in its Finding.",
+          "The same-day cycle record c46a125db54b studies F_2(C_n), not the all-order one-edge-deleted complete family. The exact a36ba5973cee hit is the assigned record."
+        ],
+        "reasoning": "The split reformulation gives a genuine overlap, not merely a similar graph: at independent size two its threshold holds only for 2≤r≤3 (N=4,5). It does not give the target all-order result. The cycle-base family is different.",
+        "searches": [
+          "Resultary: single-edge deletion of two-token complete graph and exact maximum cut",
+          "Resultary 9c686d18a910 complete split-graph threshold",
+          "arXiv:2611.25153v1 two-token graph and parity-lift passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The split-graph verifier fixes the side of one token to enumerate unordered cuts and prints (r,m,maximum,multiplicity). Its recorded rows (2,2,8,1), (3,2,18,16), (4,2,36,28) correspond to target N=4,5,6.",
+          "In particular, 16 unordered (32 ordered) at N=5 and maximum 18 are actual tabulated overlap, not merely a similar claimed invariant.",
+          "No different exact all-order table or optimizer classification was identified in the ranked matches; the exact full statement hit was the assigned record."
+        ],
+        "reasoning": "The exact small-order census is covered by the same-day artifact, without resolved priority. A finite table for N=4,5,6 does not cover the structural characterizations or the infinite family.",
+        "searches": [
+          "Resultary: exact maximum-cut and exceptional n=5 census",
+          "Resultary 9c686d18a910, verification_log.txt and verify.py brute_maxcut"
+        ]
+      },
+      "rationale": "The universal deletion-stability theorem with optimizer classification is distinct as a whole in the inspected material. In particular, the odd orders n≥7 require a synchronized construction beyond the compared intact and split-graph results. Do not credit the intact value/degree mechanism, the even-order value, or the isolated n=5 value and multiplicity as distinct: the first two are prior results or immediate implications, and the distinct same-day split-graph record covers the last two at theorem/log level respectively. It does not classify the n=5 optimizers or supply the all-order statement. No chronology is inferred from a same-day date.",
+      "residual_risks": [
+        "The external search attempt was unavailable; the judgment relies on primary passages and ranked Resultary coverage, not a claim of exhaustive priority.",
+        "First-posting chronology for the Apte et al. source was not independently resolved from the title-page date; no priority conclusion depends on it.",
+        "No order is assigned to the distinct same-day split result and the frozen subject."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior intact value and immediate even-order faulted value by the bounds above; no full odd-order classification in those results",
+          "evidence": [
+            "Parity lower bound binom(N−2,k−1)m(G); Proposition 5 gives the exact intact two-token complete-graph value, balanced incidence condition, and odd handshake obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+          "material_read": "Parity-lift construction and eq. (1), around OA offsets 9441–10941; Proposition 5 and proof at offset about 26163",
+          "method": "Primary OA HTML text",
+          "title": "Max-Cut on Token Graphs",
+          "trigger": "Closest primary exact theorem and general implication for the same optimization objective"
+        },
+        {
+          "assessment": "Theorems exactly cover N=4,5 for the value; artifacts record N=5's exact count and also give a finite N=6 match; no general optimizer classification",
+          "evidence": [
+            "Exact rn(n+r−2) for independent-set size n≥r−1; uniqueness for n≥r. Fixes one side in brute_maxcut; row (3,2,18,16) records 16 unordered optima."
+          ],
+          "identifier_or_url": "Resultary 9c686d18a910",
+          "material_read": "RESULT.md Finding, proof and limitations at offsets 0 and 6090; verification_log.txt exhaustive rows; verify.py brute_maxcut and output fields, offsets about 3080–4580",
+          "method": "Local mirror of claim and exact evidence",
+          "title": "Sharp split-graph threshold and uniqueness for two-token maximum cuts",
+          "trigger": "Equivalent base graph at independent size two; distinct same-day result with parameter range and finite tabulation"
+        },
+        {
+          "assessment": "Cycle-base maximum-cut theorem, not a faulted complete-base theorem",
+          "evidence": [
+            "Uses F_2(C_n) and its cycle decomposition."
+          ],
+          "identifier_or_url": "Resultary c46a125db54b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "An equal-length cycle decomposition and exact maximum cut of two-token cycle graphs",
+          "trigger": "Distinct same-day result with identical graph invariant"
+        },
+        {
+          "assessment": "Token-graph and Johnson background; no faulted exact value in inspected sections",
+          "evidence": [
+            "Defines MaxCut and relates F_k(K_n) to J(n,k) and its spectra. Extracted title block date is not used as evidence of first arXiv posting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.03441v1",
+          "material_read": "OA HTML passages at offsets about 16432 and 81467; extracted title block",
+          "method": "Primary OA text",
+          "title": "Conjectured Bounds for 2-Local Hamiltonians via Token Graphs",
+          "trigger": "Motivating token-graph cut and spectral source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–3",
+        "arXiv:2611.25153v1 and Resultary 9c686d18a910"
+      ],
+      "rationale": "A one-edge fault in a highly symmetric parent graph removes a whole matching in the token graph, and the persistence of the exact cut optimum is not merely monotonicity. The all-order synchronization criterion and explicit residue constructions explain when the intact upper bound survives, including the odd orders left open by previously known parity bounds. The five-cycle obstruction and complete exceptional optimizer description explain why that lone order fails, beyond the already tabulated exceptional number.",
+      "residual_risks": [
+        "No closed all-order count of optimal cuts is established; value is in the exact stability and structure, not a new general MaxCut algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

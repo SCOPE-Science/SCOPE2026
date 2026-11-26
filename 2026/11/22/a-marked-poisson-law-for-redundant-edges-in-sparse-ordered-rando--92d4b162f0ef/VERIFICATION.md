@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the delivered standalone file. It requires Python 3 standard library only. The executed output was `PASS finite checks 67738 ; all cyclic-order checks 3..8 and all ordered digraphs 3..6`.
+## correctness
 
-The verifier enumerates all rank assignments to simple cycles of lengths 3 through 8 and checks that precisely \(2r\) of the \(r!\) assignments contain an increasing shortcut. It then enumerates every simple forward-arc subset on \(n=3,4,5,6\), compares direct alternate-path reachability against witness existence, and verifies by exact rational arithmetic the binomial witness expectation under independent half-probability arcs.
+PASS
 
-This check does not inspect every size, does not prove Poisson convergence, and does not establish independence of the limiting Poisson marks. Those conclusions use the explicit cycle factorial-moment and truncation argument in `RESULT.md`. No independent mathematical audit has occurred.
+For a fixed increasing r-subset the unique candidate is its consecutive path plus the endpoint arc; all r edges must occur, with no induced-subgraph condition. Expand each mixed factorial moment directly over distinct witness tuples. For q prescribed sizes r_i, vertex-disjoint sets contribute (n)_{sum r_i}(c/n)^{sum r_i}/prod r_i!, tending to the product of the required means. Distinct witnesses have distinct undirected cycle supports (the endpoint arc must join the extreme ranks; this also handles triangles). A connected union of distinct overlapping cycles has cycle rank at least two, and hence at least one more edge than vertex. With the sizes and moment order fixed there are finitely many union types; each overlapping type contributes O(1/n). This proves the marked finite-dimensional law for all fixed c, including c>1. For the cutoff L, non-disjoint short witnesses have probability O(1/n), and long witnesses have probability at most sum_{r>L} c^r/r! uniformly in n. Letting n then L grow gives vertex-disjointness of all witnesses with probability tending to one; reachability in a DAG makes the redundant arc equivalent to at least one such witness, and multiple alternatives would share its endpoints. Thus marks and totals transfer by coupling. The witness tail also gives the Poisson total limit, and weak convergence to an integer-valued law gives total variation by convergence at each integer and tightness. The mean upper bound is E W_n; the lower bound follows from the bounded second moment of the finite-cutoff witness count on the high-probability disjoint event. Bounded exact replay independently verifies 2r orders at r=3–8, expected witness counts at each length for n=3–6 at p=1/2, and equality of per-arc witness support with per-arc deletion reachability. In the n=4 diamond with its endpoint shortcut, W=2 but R=1. The frozen script checks aggregate inequality and joint zero/nonzero, not the full per-arc correspondence or the infinite law.
+
+## originality
+
+PASS
+
+Provisional for the combined sparse Bernoulli deletion law, length spectrum, and unique/disjoint certificates. The ingredients are classical but the all-length factorial tail and the correspondence between witness counts and minimal reachability deletions are specific to this theorem. No inspected source states or immediately covers that combination. This is not a priority claim for cycle Poisson counts or transitive reduction.
+
+## value
+
+PASS
+
+The number of removable arcs measures how much the random DAG can be compressed without changing precedence. The explicit null law gives a benchmark for fixed c, and the length spectrum and structural disjointness say which certificates account for deletions—even above the underlying undirected giant-component threshold. This is a natural joint invariant, not an arbitrary choice of a small pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:30.933554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54; VERIFICATION.md and verify_entropy_cross.py inspected",
+        "Replay: python3 /workspace/checks/entropy_integer_products.py"
+      ],
+      "rationale": "I reproduced the full finite classification with a different exact computation. For each census size and species abundance I enumerated all labelled subsets by binary masks, recording sample size m and intersection count j. For a profile let P(m) be the product of j^j over every subset of size m and every species with j>=2. The expected plug-in entropy is log(m)-log(P(m))/(m*binom(N,m)), so direct integer comparisons of the products give signs, and equality gives exactly zero. Choosing cuts among N-1 positions and accepting nondecreasing part lengths enumerates each unordered positive partition with at least two parts exactly once. Comparing unordered pairs within each part count and omitting zero signs before counting reversals gives no pair with two or more reversals for any N=2..14. At N=15 there are 175 profiles and 1708 eligible pairs, of which 1684 have no change, 23 have one and exactly one has two. The witness and its nine positive, four negative, and final positive signs match exactly. The frozen hypergeometric expression and its rational atanh-series remainder bound are also valid; the independent replay uses neither binomial weighting nor logarithm approximation for its comparisons.",
+      "residual_risks": [
+        "The proof asserts only the stated finite layer and does not cover unequal census sizes or richness, with-replacement draws, or other Shannon estimators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 framework separates size- and coverage-based diversity curves and uses a different finite-sample estimand. The four-species theorem concerns observed richness under independent draws with replacement."
+        ],
+        "reasoning": "Neither is a broader theorem containing the without-replacement, fixed-richness sign-change classification for the expectation of the sample entropy. The 2013 abstract's estimator framework does not establish the classification; full text access remains a risk.",
+        "searches": [
+          "Chao, Wang & Jost 2013, DOI 10.1111/2041-210X.12108",
+          "Chao et al. 2014, DOI 10.1890/13-0133.1, finite-sample framework and Appendix J",
+          "2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7"
+        ]
+      },
+      "checked_sources": [
+        "The exact catalogue statements, primary Hill-number passages, Appendix J, and bounded access checks listed above",
+        "Additional fixed-profile comparison: 2026/10/12/SCOPE-eight-individuals-are-the-sharp-shannon-brillouin-strict-ranking--2d5223184b0f, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former states a sharp layer for three reversals of expected singleton counts at N=17 under a majorization comparison; the latter states the N=10 threshold for one reversal of expected observed richness."
+        ],
+        "reasoning": "Those expectations weight observed multiplicities respectively by 1_{j=1} and 1_{j>=1}; the Shannon comparison uses j log j after cancellation of log(m). Pairwise order and reversal counts for the former scores impose no stated implication for the latter. The same-day entry is distinct scientific work; no priority inferred.",
+        "searches": [
+          "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4",
+          "2026/10/13/SCOPE-ten-individuals-are-the-sharp-fixed-richness-rarefaction-crossin--4d8e8efaca3b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Shannon–Brillouin catalogue Finding compares two indices on fixed profiles, not the same Shannon statistic at multiple sample depths; Chao et al. (2014) use expected abundance-frequency counts in their definition of expected diversity."
+        ],
+        "reasoning": "Exponentiating the expected entropy would preserve order but neither inserting expected frequency counts into a Hill number nor taking expected effective diversity is in general exponentiation of the expected plug-in entropy. Fixed-profile comparison is not the depth-dependent claim.",
+        "searches": [
+          "Resultary: expected plug-in Shannon finite-population rarefaction two sign reversals and exact witness profiles (1,1,4,4,5) versus (2,2,2,2,7)",
+          "hypergeometric rarefaction expected Shannon entropy sample without replacement abundance distributions rank reversal sample size",
+          "2026/10/12/SCOPE-eight-individuals-are-the-sharp-shannon-brillouin-strict-ranking--2d5223184b0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix J uses 201 species/2100 individuals and 1120 species/9550 individuals; it reports two crossings at equal coverage but not at equal sample size. The witness and first finite layer were not matched in the bounded catalogue searches."
+        ],
+        "reasoning": "The known crossing example and its table meet neither the equal-census/equal-richness assumptions nor the comparison criterion. That table does not count or characterize the audited pairs.",
+        "searches": [
+          "Resultary exact-profile and threshold queries",
+          "Chao et al. (2014) Appendix J Table J1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the first and unique two-reversal pair for equal-census, equal-richness expected sample plug-in Shannon entropy without replacement. The closest published comparators either use another statistic, use a different sampling index, or study an estimator without establishing this finite classification. No checked source established a duplicate or an implication to the bound result.",
+      "residual_risks": [
+        "The full texts of the 2013 estimator article and the 2012 coverage article were not retrieved. Neither access failure nor bounded search establishes absence of other overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different estimand; no implication in examined passages",
+          "evidence": "Uses Hill numbers from expected frequency counts and distinguishes sample-size from coverage curves.",
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/6842.pdf",
+          "material_read": "Order-one Hill diversity and finite-sample expectation, pp. 3, 5–6; OA offsets about 20326 and 39600–44981",
+          "method": "OA author-hosted full-text PDF, bounded passages",
+          "title": "Rarefaction and extrapolation with Hill numbers",
+          "trigger": "Closest framework for Shannon rarefaction"
+        },
+        {
+          "assessment": "Nonmatching crossing example",
+          "evidence": "Sample-size curves do not cross; coverage curves cross twice and the two assemblages have unequal census and richness.",
+          "identifier_or_url": "https://www.esapubs.org/archive/mono/M084/003/appendix-J.pdf",
+          "material_read": "p. 1, offsets 1900–3753, and Table J1",
+          "method": "OA publisher supplement",
+          "title": "Rarefaction and extrapolation with Hill numbers, Appendix J",
+          "trigger": "Explicit two-crossing example and abundance table"
+        },
+        {
+          "assessment": "Abstract does not establish overlap; full text not adjudicated",
+          "evidence": "Describes entropy estimation and its link to species accumulation.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12108",
+          "material_read": "Accessible abstract only; publisher and an identified alternate PDF unavailable",
+          "method": "Primary lookup and bounded lawful copy attempts",
+          "title": "Entropy and the species accumulation curve",
+          "trigger": "Same entropy-estimation and rarefaction setting"
+        },
+        {
+          "assessment": "Unresolved access risk only",
+          "evidence": "Substantive size/coverage distinction assessed directly in the accessible 2014 paper and Appendix J.",
+          "identifier_or_url": "https://doi.org/10.1890/11-1952.1",
+          "material_read": "DOI and access checked; full text not retrieved",
+          "method": "Bounded lawful OA attempts",
+          "title": "Coverage-based rarefaction and extrapolation",
+          "trigger": "Different notion of depth used in related crossing comparisons"
+        },
+        {
+          "assessment": "Different statistic and layer",
+          "evidence": "Expected singleton counts; (9,4,3,1) versus (7,6,2,2) at N=17.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A one-switch transfer law and a sharp 17-individual triple reversal",
+          "trigger": "Same-day finite rarefaction threshold with equal census and richness"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Expected observed richness; first reversal at N=10.",
+          "identifier_or_url": "2026/10/13/SCOPE-ten-individuals-are-the-sharp-fixed-richness-rarefaction-crossin--4d8e8efaca3b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Ten individuals are the sharp fixed-richness rarefaction crossing threshold",
+          "trigger": "Closest without-replacement small-census ranking threshold"
+        },
+        {
+          "assessment": "Different sampling and statistic",
+          "evidence": "Observed richness under independent draws with replacement, with a witness at depths 2,5,12.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Four species are necessary and sufficient for two reversals",
+          "trigger": "Two reversals in diversity rarefaction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite-layer classification and estimator scope; independent exact labelled-subset check; comparison with sample-size/coverage distinction in Chao et al. (2014)"
+      ],
+      "rationale": "Equal census and fixed richness control two confounders of a common diversity comparison. The exact smallest finite population and unique witness show when absolute sample depth alone can flip the expected Shannon ranking twice; that is a motivated sharp boundary, not an arbitrary size slice. The witness and full sign pattern are useful for testing ranking heuristics and implementations.",
+      "residual_risks": [
+        "Small strict expected differences do not establish empirical detectability from field samples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every endomorphism preserves the one-dimensional derived ideal, reducing bracket preservation exactly to a bilinear similitude equation. Idempotence forces either identity or a projection onto a totally isotropic subspace with one freely chosen functional on the image. Complement counting establishes the map/image fiber distinction, while a double count of nested isotropic subspaces, together with elementary finite quadratic-form zero counts, proves the numerical formulas. The supplied checker directly enumerates small finite-field matrices and isotropic subspaces; its evidence supports but does not replace the general proof. The nondegeneracy, characteristic, and labeled-count assumptions are explicit.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The complete primary text of Kurdachenko–Pypka–Subbotin, arXiv:2211.01074v1, concerns internal three-dimensional structure, rather than idempotent endomorphism ranks. The closely relevant full primary text of Kurdachenko–Pypka–Semko, arXiv:2310.11180v1, treats automorphism groups of the same kind of symmetric central family, not its singular retracts. Published mathematical-record searches involving bilinear-form Leibniz algebras, orthogonal projections, endomorphism idempotents, and retract counting yielded nearby work on automorphisms, ordinary matrices, and orthogonal Grassmannians but no established implication of these complete formulas. This does not exclude older unindexed results under alternative terminology; the residual risk is disclosed.
+PASS
 
-**Value — PASS.** A full classification of retractions on a canonical family of two-step Leibniz algebras answers a natural structural question left aside by automorphism-group calculations. It identifies exactly when proper nonzero retracts exist, distinguishes maps from embedded images, and determines an all-rank enumerator uniformly in the odd field size, Witt type, and dimension. This is a natural complete classification, not a selected small-instance computation.
+The derived line is preserved, so write an endomorphism as (v,t) -> (Av, phi(v)+lambda*t). Bracket preservation is B(Av,Aw)=lambda B(v,w). Idempotence gives A^2=A, lambda^2=lambda and phi A+lambda phi=phi. For lambda=1, nondegeneracy makes A invertible; hence A=1 and phi=0. For lambda=0 the image of A is totally isotropic and phi is uniquely a functional on that image composed with A. Conversely these conditions suffice. The projection is an arbitrary linear projection onto an isotropic subspace, not an orthogonal projection. For image dimension k, there are q^{k(n-k)} complements and q^k graph functionals; the graph recovers the subspace and functional, and the zero and identity maps are counted separately. Incidence with isotropic (k-1)-planes gives the recurrence via W^perp/W. The orthogonal point counts follow by splitting off hyperbolic planes: if Z_d counts zero vectors, then Z_d=q Z_{d-2}+(q-1)q^{d-2}, with bases Z_0=Z_1=1 and Z_2=2q-1 or 1. This gives the claimed Witt-type formulas, including the anisotropic-plane boundary. Hand checks at q=3 give 7130 and 812 for the split and nonsplit four-dimensional forms. Frozen VERIFICATION.md and verify.py were inspected, not executed; those finite checks are not the proof or a formal certification.
 
-All mathematical formulas concern nondegenerate symmetric forms in characteristic different from two; no scheme-level or conjugacy classification is claimed. The quadratic-space counts are classical ingredients and are acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of checked knowledge, the distinct contribution is the all-dimensional classification and labeled map/image enumeration for the nondegenerate symmetric central bracket. The projection method has close analogues and the orthogonal Grassmannian counts themselves are standard. No order of priority is inferred between same-day records.
+
+## value
+
+PASS
+
+The result gives a natural all-ranks invariant of a standard class of central algebras, distinguishes labeled image counts from map counts and gives their common fiber size. It makes the dependence on the orthogonal Witt type explicit, including the existence obstruction. The useful contribution is this census and parametrization for the symmetric bracket, not a new formula for classical isotropic subspaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

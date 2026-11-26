@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:43.411480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two prism vertices conflict exactly at same-layer displacement ±2 or opposite-layer displacement ±1; n=3 correctly retains the triangle-induced same-layer edges and n=4 just duplicates the step of size two. The orbit of (i,t) -> (i+1,1-t) has length lcm(n,2); across its one or two orbits the conflict graph joins positions one or two steps apart. For a j-set in a cycle square the gaps are ≥3, and choosing a marked selected position counts each labeled set j times. This yields the claimed polynomial and its leading coefficient. Three colors force period three; the blocks 123 and 1234 give four colors in the other even cycle-square lengths, including the cyclic joins. The inequalities n/2 ≤ rho^o < 2n/3 for 3 not dividing n force exactly four equally sized maximum classes, hence n=4 or 8 by the stated size formulas. The repeated 1234 words realize these cases. Separate exhaustive tests of the equivalent condition |N(v) intersect S| ≤ 1 for every v checked all 21,824 subsets for n=3–7 against every coefficient (python /workspace/independent_checks.py 3); they supplement, not establish, the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general exact-distance graph product rule yields the claimed conflict adjacency for triangle-free prisms n>=4; n=3 requires a direct triangle check.",
+          "The bipartite prism theorem gives the even-case maximum; the code-coloring prism criterion already gives perfect colorability for 3|n."
+        ],
+        "reasoning": "These stronger general statements independently cover parts of the structural and extremal claims, not by themselves the coefficient or exception formulas. Those are separately covered by the indexed records.",
+        "searches": [
+          "arXiv:1810.10198 Theorem 2.2",
+          "arXiv:2309.04963 Theorem 2.2",
+          "arXiv:2106.09823 §4",
+          "arXiv:2306.01488"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 27f63f2dbcd5 and caf3fe2c4a63",
+        "arXiv:1810.10198",
+        "arXiv:2309.04963",
+        "arXiv:2106.09823",
+        "arXiv:2306.01488"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Oct 12 proof additionally enumerates perfect partitions, not merely establishing their existence.",
+          "The Oct 18 graph identification reduces chi_i to chi(C_m^2) with m even. Period-three forcing and the elementary 123/1234 block construction give exactly 3 or 4 for those lengths."
+        ],
+        "reasoning": "No new mathematical gap is left by isolating the displayed chi_i formula: it is a direct coloring consequence of the already exact graph identification, and all other headline claims are expressly covered.",
+        "searches": [
+          "Resultary 27f63f2dbcd5 Finding and proof",
+          "Resultary caf3fe2c4a63 Finding",
+          "arXiv:2106.09823 p. 2, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Samadi–Yero p. 2 identify injective chromatic number with the ordinary chromatic number of the two-step graph.",
+          "Resultary caf3fe2c4a63 Finding identifies exactly the one/two cycle-square conflict graph.",
+          "A partition into maximum open packings is exactly the perfect injective coloring in the frozen definition."
+        ],
+        "reasoning": "The earlier papers' graph language and the earlier record's packing/partition language describe the same labeled independent sets and the same color classes; this is not a coincidence in notation or graph parameters.",
+        "searches": [
+          "Resultary: circular ladders/prisms, open-packing profiles and perfect partitions",
+          "arXiv:2106.09823"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12 SCOPE record 27f63f2dbcd5, Finding at offset 0: I_n(z)^2 for even n and I_(2n)(z) for odd n, same maximum and labeled counts, and perfect partitions iff 3|n or n=4,8.",
+          "2026/10/18 SCOPE record caf3fe2c4a63, Finding at offset 0: identical polynomial and explicit conflict graph, with matching six-residue counts; coefficient derivation at offset 4476."
+        ],
+        "reasoning": "These are universal exact statements for the identical Cartesian family and labels, not finite samples or similar-looking counts for edge packings.",
+        "searches": [
+          "Resultary: complete open-packing polynomial, six-residue maximum census, circular ladders",
+          "Resultary: perfect partitions of circular ladders, n=4,8"
+        ]
+      },
+      "rationale": "Two distinct earlier catalogue records demonstrably cover the main finding, even though catalogue dates alone do not settle historical priority. In particular, 27f63f2dbcd5 gives the same all-size polynomial, maximum and counts, and the exact perfect partition classification; caf3fe2c4a63 also gives the identical conflict graph and enumeration. The separately displayed injective chromatic number is immediate from the already identified even cycle-square components and does not supply a distinct substantive claim.",
+      "residual_risks": [
+        "The catalogue snapshot establishes mathematical equivalence/coverage, not authorship or exact first public chronology.",
+        "No conclusion about universal priority is needed for the demonstrated overlaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of main claim plus a stronger perfect partition count",
+          "evidence": [
+            "Same I_n^2/I_(2n) split, size/count formulas and exactly 3|n or n=4,8."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-open-packing-profiles-and-perfect-partitions-of-circular-ladders--27f63f2dbcd5",
+          "material_read": "RESULT.md Finding offset 0 and proof offsets 5488–10498",
+          "method": "Read local-mirror statements and compared coefficients, degrees, leading terms and exceptional cases",
+          "title": "Open-packing profiles and perfect partitions of circular ladders",
+          "trigger": "Same labeled prism packing polynomial and perfect partition criterion"
+        },
+        {
+          "assessment": "Exact coverage of structure and enumerative claims",
+          "evidence": [
+            "Same parity decomposition, I_m coefficient and maximum counts."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-open-packing-polynomial-and-six-residue-maximum-census--caf3fe2c4a63",
+          "material_read": "RESULT.md Finding offset 0 and coefficient derivation at offset 4476",
+          "method": "Read the matched claim via the local mirror and compared its formulas at all residues",
+          "title": "Complete open-packing polynomial and six-residue maximum census",
+          "trigger": "Same common-neighbor graph and coefficientwise enumeration"
+        },
+        {
+          "assessment": "Structural specialization for n>=4",
+          "evidence": [
+            "Cartesian product distances add; the theorem gives a union over distance splits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.10198",
+          "material_read": "Theorem 2.2, p. 4, offset 10250",
+          "method": "Compared exact distance two in the product to the two-step graph for triangle-free prisms",
+          "title": "Exact distance graphs of product graphs",
+          "trigger": "General Cartesian product distance theorem"
+        },
+        {
+          "assessment": "Covers even-case degree, not all coefficients",
+          "evidence": [
+            "rho^o(G square K2)=2 rho_2(G) for bipartite G."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04963",
+          "material_read": "Theorem 2.2, p. 5, offset 11200",
+          "method": "Substitute an even cycle and evaluate its 2-packing maximum",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Same open-packing number for bipartite prisms"
+        },
+        {
+          "assessment": "Reduction and sufficient result for 3-divisible n; Proposition 16 is on cycles, not prisms",
+          "evidence": [
+            "For a code-colorable base G, G square K2 is perfectly injectively colorable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.09823",
+          "material_read": "Two-step definitions p. 2 (offset 4000), §4 pp. 15–16 (offset 53500)",
+          "method": "Compared the stated criterion and graph hypotheses",
+          "title": "Injective coloring of graphs revisited",
+          "trigger": "Two-step graph and perfectly injective prism coloring"
+        },
+        {
+          "assessment": "The Cartesian discussion pertains to tori, not this family",
+          "evidence": [
+            "Main product types there include direct, lexicographic and corona."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.01488",
+          "material_read": "Abstract/p. 1 (offset 1500) and Cartesian-cycle discussion on p. 6",
+          "method": "Read and compared graph types in the retrieved passages",
+          "title": "Injective coloring of product graphs",
+          "trigger": "Product-family coloring comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact enumerators and maximum-class partitions for this natural family are intrinsically useful, but already available in the matching records. The only separately displayed number, chi_i, requires just the short coloring observation on the already known components, not an additional independently useful unknown invariant. No distinct valuable remainder was found to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:55:06.170081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50 and 54–101, exact theorem and conditional expectation and root derivation",
+        "Frozen check.py lines 1–67 and VERIFICATION.md lines 19–23; inspected only, not executed",
+        "Independent bounded test: enumerate every length-n four-color word with weight the product of (2+3 times prior count of its next color), divide by product_{k=0}^{n-1}(8+3k), and accumulate the two statistics and their product"
+      ],
+      "rationale": "The sequence probability is exchangeable and the distinguished color's occupancy is beta-binomial. Conditional on that color's count r, its positions are uniform and the others, in order, have the (q-1)-color symmetric urn law. For any adjacent pair the conditional change probability splits into exactly one distinguished position and two others; multiplying by n-1 gives the two terms of (6). Subtraction of the unconditional (n-1)d_q and symmetry give (1), also when n-r is 0 or 1 or q=2. Independently, conditioning on the complete occupancy vector yields E[R_n|N]=(n^2-sum_j N_j^2)/n, and the second factorial moments of the remaining occupancies give the same expression. Writing D=qa+1, E=(q-1)a+1, the leading coefficient b-d is -a(a+1)/(DE); F(r) is strictly negative for r>=2 while F(qr)=r(a+r)(q-1)(qa+2)/(DE)>0. Concavity and the negative limit at infinity prove the ordered roots and exact integer classification. For r=1, F(n)=(n-1)(a+1)/E times (2-na/D). For r large, scaling x=tr gives limiting quadratic -(d-b)t^2+2(1-b)t-(2-b) with an affine O(1/r) correction. Its center is D/a and squared half-width is DE/[a^2(a+1)], verifying (3); strict signs at 1,q and infinity ensure simple roots and the O(1) location error in n. Direct sequential-weight enumeration at q=4,a=2/3,n=2..6 independently agreed for all 20 frequencies, within 6e-16 in the covariance.",
+      "residual_risks": [
+        "Integer zeros occur only for roots on the integer lattice. The proof and finite test are not for asymmetric urns or unequal reinforcements; the large-r statement holds with q and a fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eryilmaz, Theorem 1 and following discussion, pp. 1011–1012: general joint run distributions built from the numbers and lengths of color-specific runs.",
+          "The 10/12 Resultary record uses adjacent changes in a Dirichlet mixture but covaries their rate with the latent Gini–Simpson diversity, not the observed frequency count."
+        ],
+        "reasoning": "The target law is contained in the run-distribution framework (take equal m_j=1 and reinforcement s=1/a), and both statistics are functions of its full run data. That prior distribution is credited, but the inspected broader theorem does not supply the evaluated mixed moment or an analyzed sign theorem.",
+        "searches": [
+          "DOI 10.1239/jap/1231340230, Theorem 1",
+          "arXiv:1305.3671",
+          "2026/10/12/SCOPE-adjacent-changes-recover-latent-gini-simpson-diversity-in-symmet--0de239baeb07"
+        ]
+      },
+      "checked_sources": [
+        "10.1239/jap/1231340230 and arXiv:1305.3671",
+        "Resultary records 9485777d7c83, 0111d981dd23, a8532889aa0a, 0de239baeb07; assigned self-hit 059b9a34ac8e",
+        "Cited Resultary ID 748ea0d89a26 was not retrievable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General run laws determine the covariance by summation; the target evaluates it by conditioning and proves a strict quadratic bracket r<nu_-<qr<nu_+.",
+          "The iid coverage/run result uses richness, not exact frequency; the equal-pair iid sign result lacks finite concentration."
+        ],
+        "reasoning": "Access to the full run law is not an evaluated uniform-in-a sign classification. The iid formula cannot be extended merely by averaging over the latent probabilities: total covariance includes the covariance of conditional expectations as well. Finite-a normalization and inequalities at r and qr are essential to the supported distinction.",
+        "searches": [
+          "10.1239/jap/1231340230, Theorem 1 and p. 1012 discussion",
+          "Resultary 9485777d7c83, Finding and Proof",
+          "Resultary a8532889aa0a, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-parameter targeted query retrieves the assigned record itself as the top hit.",
+          "The 10/18 record's Finding and Proof treat all equal-observation pairs and iid occupancy, including a uniform frequency-sign law.",
+          "The 10/25 record's Finding and Proof treat two specified colors' singleton indicators with initial mass one."
+        ],
+        "reasoning": "Exchangeability gives Cov(R_n,C)=-2/n Cov(sum_j binom(N_j,2),C), so the all-pair formulation is an exact alias if the occupancy law is held fixed. The cited pair-collision result instead uses iid occupancies. Two singleton indicators are not the alias of a switch/frequency covariance, even at concentration one.",
+        "searches": [
+          "Resultary: symmetric Dirichlet multinomial Polya urn covariance between the number of colours occurring exactly r times and total adjacent colour changes; negative positive negative in sample size n around qr; concentration parameter and singleton threshold",
+          "2026/10/18/SCOPE-convex-collision-association-and-two-threshold-frequency-depende--9485777d7c83",
+          "2026/10/25/SCOPE-the-two-reversal-singleton-correlation-window-in-a-symmetric-rei--0111d981dd23"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 2 concerns numbers of runs of specified lengths, not exact total frequencies of observed colors. The closest accessible pair-collision and singleton-urn records supply exact formulas for different variables or laws.",
+          "Focused lookup of the 11/8 title surfaced the distinct 10/18 record; the exact 11/8 file did not resolve in the mirror."
+        ],
+        "reasoning": "The claim is a continuous-parameter theorem, not a finite table lookup. No inspected exact source provides these finite-concentration switch/frequency coefficients or roots; the unresolved cited ID is not counted as negative evidence.",
+        "searches": [
+          "Resultary target query above",
+          "10.1239/jap/1231340230, Theorems 1–2",
+          "2026/11/8/SCOPE-reentrant-covariance-phases-of-occupancy-frequency-counts-and-sa--748ea0d89a26"
+        ]
+      },
+      "rationale": "The most relevant primary run laws encompass the sampling model and the joint run data but do not evaluate the relevant mixed moment or sign regime. The indexed collision and urn sign results change the distribution or at least one random variable. The exact covariance and finite-concentration two-reversal theorem with its singleton and large-frequency boundaries are supported as distinct relative to the inspected sources, not certified historical firsts.",
+      "residual_risks": [
+        "Earlier exchangeable occupancy-moment identities might substantially shorten derivation of the covariance; the all-parameter sign comparison remains based on the material inspected.",
+        "The exact cited 11/8 result was not accessible. If it is broader than the frozen iid characterization, the all-equal-pairs reduction makes it a material comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and joint-law machinery already known; no evaluated frequency-versus-switch quadratic or sign theorem in passages read",
+          "evidence": "Theorem 1 gives laws for functions of color-specific numbers and lengths of runs; total switches and sample color frequencies can be projected from that data.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1231340230",
+          "material_read": "pp. 1008–1010 model and mixture; Theorem 1 p. 1011 and discussion p. 1012, offsets 5000, 11500, 23000, 31000; Theorem 2 topic",
+          "method": "Open Cambridge primary PDF passages",
+          "title": "Run Statistics Defined on the Multicolor Urn Model",
+          "trigger": "Exact model with general joint run statistics"
+        },
+        {
+          "assessment": "Model background only in checked passage",
+          "evidence": "Uses a Dirichlet–multinomial predictive rule to study prediction and redundancy.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.3671",
+          "material_read": "p. 3, offset 7500",
+          "method": "Open paper passage",
+          "title": "Sparse Adaptive Dirichlet-Multinomial-like Processes",
+          "trigger": "Cited predictive-rule comparison"
+        },
+        {
+          "assessment": "Relevant iid special regime, not finite concentration",
+          "evidence": "Exact iid equal-pair/occupancy-frequency covariance and quadratic sign law in frequency for uniform categories.",
+          "identifier_or_url": "2026/10/18/SCOPE-convex-collision-association-and-two-threshold-frequency-depende--9485777d7c83",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Convex collision association and two-threshold frequency dependence in multinomial occupancy",
+          "trigger": "Potential equivalent via exchangeability and equal-pair counts"
+        },
+        {
+          "assessment": "Different joint statistic and restricted concentration",
+          "evidence": "Two specified colors each occurring once, with one initial ball per color; not a switch count or an r>=2 result.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-two-reversal-singleton-correlation-window-in-a-symmetric-rei--0111d981dd23",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "The two-reversal singleton-correlation window in a symmetric reinforced urn",
+          "trigger": "Most similar indexed reinforced-urn reversal claim"
+        },
+        {
+          "assessment": "Different frequency statistic and model",
+          "evidence": "Coverage with iid categorical run changes, not a fixed positive occupancy frequency under reinforcement.",
+          "identifier_or_url": "2026/10/13/SCOPE-categorical-coverage-and-run-count-have-universal-positive-covar--a8532889aa0a",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Categorical coverage and run count have universal positive covariance",
+          "trigger": "Run count versus an occupancy statistic"
+        },
+        {
+          "assessment": "Different second random variable",
+          "evidence": "Adjacent change rate is compared with latent Gini–Simpson diversity.",
+          "identifier_or_url": "2026/10/12/SCOPE-adjacent-changes-recover-latent-gini-simpson-diversity-in-symmet--0de239baeb07",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Adjacent changes recover latent Gini–Simpson diversity in symmetric Dirichlet sampling",
+          "trigger": "Adjacent changes with a symmetric mixture"
+        },
+        {
+          "assessment": "Unresolved exact statement, not used as negative evidence",
+          "evidence": "The distinct 10/18 collision record was accessible; exact 11/8 retrieval returned missing.",
+          "identifier_or_url": "2026/11/8/SCOPE-reentrant-covariance-phases-of-occupancy-frequency-counts-and-sa--748ea0d89a26",
+          "material_read": "Frozen citation and characterization only; external statement not obtained",
+          "method": "Focused Resultary lookup and exact local mirror retrieval attempt",
+          "title": "Reentrant covariance phases of occupancy-frequency counts and sample collisions",
+          "trigger": "Frozen cited iid comparison; equal-pair reduction makes it relevant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 74–101; Eryilmaz Theorem 1 as contrast"
+      ],
+      "rationale": "The theorem describes how temporal diversity and rare observed occupancies associate across sample sizes in a canonical reinforcement model. The global reversal and placement of the positive interval around the exact integer qr, with a qualitatively different singleton case, are information not visible from an unevaluated joint law or a few enumerated parameters. The threshold constants quantify this separation beyond the finite examples.",
+      "residual_risks": [
+        "Covariance signs do not constitute a stochastic-order or independence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

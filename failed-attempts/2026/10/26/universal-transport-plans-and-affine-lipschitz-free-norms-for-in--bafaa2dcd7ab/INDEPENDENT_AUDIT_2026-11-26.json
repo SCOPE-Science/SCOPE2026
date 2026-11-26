@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:53.059682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently verified for real masses. Write P_i,N_i for the positive and negative mass in part i, and q_i for the diagonal mass of a coupling at part level. Capacity outside i forces q_i >= (P_i+N_i-P)_+ for each i; at most one bound is positive since the U_i sum to 2P. If none is positive, fractional Hall applies: a source set in one part sees demand P-N_i, while one meeting two parts sees all demand. If i alone is overloaded, send all outside demand from i and all outside supply into i, then match the equal residual masses within i. Thus all diagonal lower bounds are attained in one plan. Every plan costs P+sum_i(t_i-1)q_i and the coefficients are nonnegative; this proves simultaneous optimality, the norm formula and affinity, including t_i=1 or 2, singleton parts and the zero measure. The frozen rational enumerator is illustrative evidence rather than a proof and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 11 Resultary records 5c07b142df09 and e855a74da4ce classify shared-parameter geometry, not independent weights. The primary Props. 3.4 and 3.5 together cover the full endpoint geometry for every number of nonempty parts and arbitrary part sizes."
+        ],
+        "reasoning": "While only one point of the coefficient cube is needed, the full old endpoint dual description is stronger than the needed endpoint support formula; the positivity of all surcharges transfers that formula to the entire cube.",
+        "searches": [
+          "Resultary: interpolated multipartite metrics facets dual extreme potentials",
+          "Resultary: two-part interpolation shared intrapart distance Lipschitz-free facets classification",
+          "arXiv:1807.07678v1, Sec. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_transport.py",
+        "arXiv:1807.07678v1 Sec. 3.1, Props. 3.4–3.5",
+        "Resultary 5c07b142df09, e855a74da4ce, and 5c63e40dd828"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Up to translation, every listed endpoint dual vertex has values ±1 on one part and zero elsewhere, or takes values in {0,1}. Its pairing is bounded by U_i or P respectively. The unrestricted sign potential supported on i and the positive-support indicator are both endpoint-feasible and attain these bounds."
+        ],
+        "reasoning": "The old classification gives endpoint optimum P+delta, delta=max_i(U_i-P)_+. An endpoint minimizer then has sum_i q_i=delta; since the coordinatewise forced lower bounds sum to delta, it attains them all. Nonnegative surcharges transfer this optimizer to every parameter choice, giving the exact formula and affinity. This establishes coverage even without the new wording in an index.",
+        "searches": [
+          "Higashitani–Jochemko–Michałek, arXiv:1807.07678v1, Props. 3.4(i)–(ii) and 3.5(i)–(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the all-2 endpoint, cross-edge Lipschitz inequalities imply all other inequalities by length-two paths. Thus the symmetric edge polytope's polar is exactly the endpoint Lipschitz dual ball modulo constants."
+        ],
+        "reasoning": "The prior facet descriptions therefore specify the dual extreme potentials for the very endpoint norm used here, not for a different norm. The independent parameters are recovered from the same primal plan.",
+        "searches": [
+          "Resultary: independently weighted multipartite metric common optimal transport plan Lipschitz-free norm affine",
+          "arXiv:1807.07678v1, Sec. 3.1, Props. 3.4 and 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search identified the shared-parameter records and a distinct October 26 coordinatewise metric-projection result (5c63e40dd828), which is not an optimal-coupling result."
+        ],
+        "reasoning": "No exact indexed statement was identified in this bounded retrieval. There is no finite value table that could certify the arbitrary-real mass and parameter claim; the close descriptions are symbolic and are compared on their mathematics.",
+        "searches": [
+          "Resultary: finite multipartite metric transport norm overloading cluster t_i",
+          "Resultary: independently weighted multipartite metric common optimal transport plan Lipschitz-free norm affine"
+        ]
+      },
+      "rationale": "The full finding is a direct corollary of the published graph-metric endpoint dual classification, not just analogous to it. Its support function at the common all-2 endpoint is max(P,max_i U_i); a single endpoint optimizer then attains every independently forced diagonal minimum and is optimal throughout the cube. The argument uses no independent-parameter facet classification and works for exactly the frozen quantifiers.",
+      "residual_risks": [
+        "The bounded retrieval does not settle which earlier source first stated the common-optimizer corollary verbatim. The identified mathematical implication does not depend on that priority question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claim by direct implication",
+          "evidence": "For two parts the listed facet potentials are ±1 on a single part, zero off it; for three or more, the additional type is {0,1}-valued. These classes bound the endpoint pairing by max(P,max_i U_i).",
+          "identifier_or_url": "https://arxiv.org/html/1807.07678v1",
+          "material_read": "Sec. 3.1, Props. 3.4–3.5 and surrounding proofs; OA text offsets 26000–32099",
+          "method": "Located proposition and read bounded full-text passage",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Primary classification of complete multipartite endpoint duals"
+        },
+        {
+          "assessment": "Substantial overlap for a shared parameter; independent cube not stated",
+          "evidence": "The mixed-part type has values 0,t there and t-1,1 elsewhere with one common t.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+          "material_read": "Shared-distance classification statement and type-II potentials",
+          "method": "Indexed lookup and original statement comparison",
+          "title": "Sharp facet jumps for interpolated complete multipartite Lipschitz-free balls",
+          "trigger": "Same multipartite spaces and interpolation"
+        },
+        {
+          "assessment": "Restricted to shared distance and two parts; not needed for implication",
+          "evidence": "The statement distinguishes the two endpoints and common-parameter interior for part sizes at least two.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce",
+          "material_read": "Shared-distance hypotheses and facet count statement",
+          "method": "Indexed lookup and original statement comparison",
+          "title": "Sharp facet count transitions for snowflaked complete bipartite metrics",
+          "trigger": "Bipartite version of the metric family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A reusable transport plan across a coefficient range is a natural object, and the proof is a useful elementary presentation. But as a new finding the independently weighted result and affinity add only the forced diagonal constraints and a change of objective coefficients to an existing endpoint solution. No scientifically distinct valuable remainder was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

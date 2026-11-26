@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:05:01.146358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen certificate.json (parsed as data) and frozen verify.py (not executed)",
+        "Independent replay code and exact output: /workspace/branches/b250291b-9054-4b00-a4ab-e43b29921f44/independent_check.py and independent_output.json"
+      ],
+      "rationale": "The duad–syntheme incidence construction gives the specified simple cubic bipartite graph. Two disjoint duads share a unique syntheme, precluding a 4-cycle; three pairwise disjoint duads exhaust the base set and force the same syntheme, precluding a 6-cycle. The independent replay exhausts the perfect matchings by branching on the least uncovered vertex. It builds transitions both by enumerating all simple 8-cycles and by testing every matching pair for a connected eight-edge difference. The edge sets agree: 90 cycles, 32 alternating matching endpoints per cycle, 288 matchings and 1440 flip edges, all vertices of degree 10. Complement traversal gives exactly 144 of each stated type and every edge crosses the two types. All-source BFS covers all 288 vertices and yields (1,10,42,97,101,37,0) for type (30) and (1,10,45,97,96,37,2) for type (10,20), proving the radius, diameter and center. Exact comparison with the frozen JSON certificate agrees for the incidence edges, cycles, states, types, transitions and all distance histograms.",
+      "residual_risks": [
+        "This is exhaustive computation on the specified finite graph, not formal verification or a theorem for other move lengths or graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tratnik–Ye specify chosen even faces; Ito et al. permit single alternating cycles of arbitrary length. The octagon antipodes record gives the fixed-length metric, then classifies its distance-six pairs by Hamiltonian symmetric difference."
+        ],
+        "reasoning": "Changing the move set changes graph distances. Neither general model's abstract implies this exact metric, while the matching catalogue record proves a strictly stronger result with the same move set.",
+        "searches": [
+          "Tratnik–Ye arXiv:1710.00761, abstract",
+          "Ito et al. arXiv:1907.01700v1, abstract",
+          "2d0e450ce331, Finding and Proof §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d0e450ce331",
+        "Baez 2015",
+        "arXiv:1710.00761",
+        "arXiv:1907.01700v1",
+        "DOI:10.1137/120865938 and DOI:10.3390/sym17010133 (limited access as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its two exhaustive programs agree on the complete exchange-edge enumeration and group each BFS vector by the labeled state's complementary cycle type."
+        ],
+        "reasoning": "The principal invariants are directly stated. The remaining bipartition assertion reads off those same computed edges and types by checking opposite labels; no new metric or structural computation is supplied by the frozen record. Exact catalogue coverage is independent of unresolved priority.",
+        "searches": [
+          "2d0e450ce331, Finding offset 0, distance certificate offset 4400, Verification offset 6820 and prior-work passage offset 7779"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2d0e450ce331 defines adjacency by one alternating length-eight symmetric difference and uses exactly the same duad–syntheme graph."
+        ],
+        "reasoning": "The symmetric difference of two perfect matchings is alternating; the same-matchings, same-single-cycle test defines the identical exchange graph, not a choice of facial moves.",
+        "searches": [
+          "Local Resultary search for Tutte–Coxeter octagon exchange graph, 8-cycle switches and metric profile by complementary two-factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary table states both counts of 144 and the identical two seven-entry profiles, with radius 5, diameter 6, degree 10, 288 vertices and 1440 edges. The cited prior count of 288 is not claimed new; the matching-polynomial table could not be inspected directly."
+        ],
+        "reasoning": "The exact catalogue evidence extends well beyond the unclaimed scalar matching count and covers the center classification by the last nonzero entry of each row.",
+        "searches": [
+          "2d0e450ce331, exact two-row table, offset 0",
+          "Balasubramanian DOI:10.3390/sym17010133, lawful publisher/article lookups"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 2d0e450ce331, gives exact equivalent coverage of the intrinsic exchange graph and both type-indexed metric rows, and further characterizes all antipodes. Its proof generates the exact labeled adjacency and complementary types, from which the absence of same-type edges is an immediate check. The substantive frozen result is covered in the reviewed catalogue. The matching record is catalogued under a later date; this audit does not claim it predates the frozen record or determine independent discovery or priority.",
+      "residual_risks": [
+        "The dossier establishes mathematical overlap in the current catalogue, not chronological priority. No separate external search or inaccessible paper was used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact catalogue overlap and a stronger antipodal result, not evidence of earlier priority",
+          "evidence": "The table has the exact rows (1,10,45,97,96,37,2) and (1,10,42,97,101,37,0). The proof computes the exact exchange-edge set and all complementary types; the Finding also identifies diametral pairs with Hamiltonian symmetric differences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-hamiltonian-union-antipodes-in-the-tutte-coxeter-octagon-flip-gr--2d0e450ce331/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1990; distance proof offset 4400; Verification offset 6820; prior work offset 7779",
+          "method": "Local published-record mirror",
+          "title": "Hamiltonian-union antipodes in the Tutte–Coxeter octagon-flip graph",
+          "trigger": "Identical graph and type-indexed metric"
+        },
+        {
+          "assessment": "Supports the underlying graph, not its asserted flip metric in the passage read",
+          "evidence": "Duads and synthemes give the thirty vertices and 45 incidence edges.",
+          "identifier_or_url": "https://math.ucr.edu/home/baez/visual_insight/20150815%20-%20Tutte-Coxeter%20Graph.html",
+          "material_read": "Opening incidence construction",
+          "method": "Public page",
+          "title": "Tutte–Coxeter Graph",
+          "trigger": "Classical graph definition"
+        },
+        {
+          "assessment": "Different move selection in the inspected formulation",
+          "evidence": "Defines a resonance graph using a chosen set of even faces in an embedding.",
+          "identifier_or_url": "arXiv:1710.00761",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary OA PDF",
+          "title": "Perfect Matchings and Resonance Graphs of Bipartite Graphs on Surfaces",
+          "trigger": "Closely related matching-flip construction"
+        },
+        {
+          "assessment": "Not the specified length-restricted move problem",
+          "evidence": "The abstract requires a ‘single cycle’ for each symmetric difference, with no restriction to eight edges.",
+          "identifier_or_url": "arXiv:1907.01700v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary OA PDF",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "General alternating-cycle move problem"
+        },
+        {
+          "assessment": "Uninspected for graph-specific counts",
+          "evidence": "No theorem or table inferred from access failure.",
+          "identifier_or_url": "DOI:10.1137/120865938",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Lawful DOI/PDF and repository-copy lookups",
+          "title": "On the Number of Perfect Matchings in a Bipartite Graph",
+          "trigger": "Matching-count background"
+        },
+        {
+          "assessment": "Scalar table not directly verified",
+          "evidence": "Both catalogue records identify the scalar count as known and do not claim it; independently the review counted 288.",
+          "identifier_or_url": "DOI:10.3390/sym17010133",
+          "material_read": "Landing or abstract only; exact table unavailable",
+          "method": "Lawful DOI, journal page, PDF and repository-copy lookups",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Cited tabulation of 288 matchings"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 2d0e450ce331, Finding, distance certificate and antipode characterization"
+      ],
+      "rationale": "The intrinsic shortest-cycle reconfiguration metric of this cage is a worthwhile exact invariant. In this review, however, the same computed graph, full metric strata and a stronger antipodal invariant are already available in a distinct record; testing the type labels on the same edge list adds no substantial covered-gap remainder. This is not a rejection of finite graph computations as a class.",
+      "residual_risks": [
+        "The value assessment concerns increment over available exact coverage, not historical attribution or the usefulness of these invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-column finite automaton encodes both Roman zero constraints with a centered five-column window. An explicit 6,561-entry integer potential certifies nonnegative reduced costs on every one of 48,681 admissible transitions; independent graph traversal verifies that only one seven-state directed cycle can carry zero reduced cost. Summing the potential inequalities proves the all-order lower bound; equality forces the seven-shift pattern. The witness satisfies the constraints for all seven-period repetitions. A separate exhaustive two-support enumeration at orders seven and fourteen recovers the same seven optima.
+## correctness
 
-**Originality — PASS.** The closest source, Wang–Xu–Yang–Ji, arXiv:1103.2419, proves only the optimum value and provides constructive examples, not an all-length classification of every optimizer or sharp support-exchange threshold. Shi–Koh, arXiv:1403.1019, develops generic exact counting algorithms and does not tabulate or characterize this infinite generalized-Petersen subfamily. Searches of relevant mathematical-result records and targeted primary-literature queries did not reveal equivalent optimizer rigidity. An unindexed equality-case treatment or an unrecognized deduction from earlier technical lemmas remains a priority risk; search absence alone is not proof of novelty.
+PASS
 
-**Value — PASS.** The known seven-period cost law leaves a substantive structural gap: whether periodic optimal patterns can coexist with defects or independent phases across arbitrarily many periods. The finding proves that they cannot, so an unbounded family with exponentially many possible assignments has precisely seven minima. The sharp linearly growing exchange capacity quantifies their rigidity and makes the exact classification useful for optimum Roman-placement reconfiguration.
+A closed walk of length n with fixed starting index is in bijection with a named feasible cyclic labeling: overlaps recover the columns, and the middle-column test sees all three neighbors of either kind of vertex. I reconstructed all 48,681 edges on 6,561 states in independent Python and synchronously relaxed the integer costs from zero. After ten changing rounds the potential stabilized (range -26 to 0), matching all entries in verification/potential.txt. I checked every reduced cost and pruned the 6,099-edge tight graph by repeatedly deleting sources and sinks. The surviving induced graph consists of exactly seven vertices forming the stated directed cycle, so there is no other tight closed walk. Telescoping gives the bound 7w >= 8n, the cycle realizes equality, and following it from any of its seven states gives exactly the seven distinct labeled minima for every m >= 1. The support intersections per period are one for shifts +/-1 and zero for every other nonzero shift, giving exactly 2m and 3m replacements respectively. This supports the all-order result, not an extrapolation from sizes 7 and 14.
 
-The assertion is restricted to lengths divisible by seven and the stated support-exchange model. The finite certificate is fully replayable but has not been audited by an independent scholar.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is exhaustivity of the seven named minima for all m and the resulting exact reconfiguration graph. The minimum weight and the exhibited word up to shift are already known, so even the existence of seven optima and the exchange distances among those known witnesses are not independent discoveries. No inspected source covers the exhaustivity step.
+
+## value
+
+PASS
+
+The finite certificate resolves a natural all-orders equality-case question for a known sharp domination bound. The result identifies the whole optimum state space and explains why small support moves cannot connect any of the minima as the graph grows; a known weight or sample optima do not tell a reconfiguration researcher this. The support-exchange graph is a useful consequence of the rigidity, rather than the main basis for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

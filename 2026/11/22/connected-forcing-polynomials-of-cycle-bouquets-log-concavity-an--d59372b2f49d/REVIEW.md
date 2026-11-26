@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The required hub is a cut vertex, and a petal with no initially selected peripheral vertex cannot be entered by ordinary forcing because both hub-neighbours remain white. Connectivity makes each peripheral selection a union of one prefix and one suffix, and nonempty runs can propagate independently across the remaining path using only degree-two vertices. The complete bijection produces the product polynomial without assumptions on the number or lengths of petals. The linear coefficient patterns are log-concave, and convolution preservation proves the global property. The exact real-zero boundary follows from factorizations for triangles and squares and a binomial-normalized Newton inequality contradiction for every longer petal. The standalone verifier checks independent initial-set enumeration in finite cases; infinite claims rest on these proofs.
+PASS
 
-## Originality — PASS (historical priority provisional)
+If a peripheral path starts wholly white, the hub has two permanently white neighbors in that petal and no first force can enter. This also forces hub inclusion because a connected set omitting it lies in a single petal. With the hub selected, connectedness is precisely the prefix/suffix restriction; any nonempty pattern spreads through its one possible white gap independently. Thus petal coefficients are s+1 for proper selections of size s>0 and 1 for the full selection, giving the stated product, interval of degrees and extremal coefficients. Each petal has positive log-concave coefficients and the classical no-internal-zero convolution theorem applies. The c>=5 real-zero exclusion follows by normalizing the first three coefficients to 1,3/2,2: for all-negative roots the square of the first nonconstant coefficient would exceed twice the next coefficient, but 9/4<4. Small factors split. Independent replay: python3 /workspace/review_checks.py 2; 47 bouquets with 2–4 petals of lengths 3–7 and order at most 13, 149681 nonempty masks per pass, counting connected sets that hit all minimal forts and comparing exact polynomials. The two-direction fort-hitting equivalence follows from first entry and the stalled white set; finite checks do not prove the general results.
 
-The recent tree-paper arXiv:2611.10985 establishes connected forcing polynomials for trees, not bouquets with two or more cycles. The nonunimodality paper arXiv:2611.11352 constructs counterexamples in a different join graph family, not cycle-bouquet coefficient classifications. Brimkov–Davila–Schuerger arXiv:2507.11194 contains connected-forcing count notation, general extremal coefficients and tree counts; it does not state the exact bouquet polynomial or its coefficient/root consequences. The most relevant mathematical-record entry `47aae2192937` does analyze the identical bouquet objects but counts forts and minimal forts instead of *connected successful* forcing sets. The accessible full results on sunlet and wheel connected forcing concern different graph families. The full documents inspected and recorded in the structured originality review do not imply this factorization or the sharp real-zero threshold as a stated result. Classical Newton and convolution theorems are credited, not claimed new. Residual risk: obscure or unindexed all-cardinality results and general cut-vertex transfer formulas.
+## originality
 
-## Value — PASS
+PASS
 
-The finding gives a complete explicit cardinality distribution for a natural infinite family of cyclic block graphs. Its minimum-set count and total count are closed form, while the coefficient log-concavity theorem is a natural positive counterpoint to recently established nonunimodality of connected forcing polynomials on general graphs. The sharp triangle/square-versus-longer-cycle real-rootedness criterion distinguishes a strictly stronger shape property within a graph family whose coefficients remain log-concave; this is a structural and motivated boundary, not a narrow arbitrary parameter computation.
+For the repaired bouquet log-concavity result and its shape contrast. The old cactus theory structurally supplies the product and minima, and the same-day spider record contains the identical local real-zero proof. Neither was claimed as distinct in the replacement. No inspected theorem establishes the bouquet log-concavity result itself; the use of classical convolution is credited.
 
-## Limits and closest literature
+## value
 
-Only bouquets of at least two cycles joined at a single hub are treated. The prior published-finding corpus bouquet-fort enumerator is a different invariant; the sunlet and wheel connected-force enumerators concern different graph classes. Earlier papers on connected forcing densities contain no whole bouquet polynomial. Historical priority and independent audit remain open; no unrestricted cactus or forcing-time theorem is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bouquets are a natural multicycle cactus family with independent petal choices. The result gives uniform shape in a setting where connected-forcing sequences are not unimodal in general, and pinpoints the precise coexistence of log-concavity with nonreal roots rather than inferring one from the other. This is valuable as a coefficient-shape theorem, not as an assertion of new cactus minimum-set structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

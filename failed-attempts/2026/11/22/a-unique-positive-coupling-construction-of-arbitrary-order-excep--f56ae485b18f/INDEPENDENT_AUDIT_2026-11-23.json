@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:55:33.017273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant recurrence adds g_j² times the preceding minor, since (ig_j)²=−g_j². Parity divides (z+β)^m into Q_m and γQ_{m−1}, and the trace forces γ=mβ. The leading term of each backward remainder then recovers g_j² uniquely, with no sign ambiguity under g_j>0. With λ=1/2−m the monic Gegenbauer recurrence has no vanishing leading coefficient or denominator in the required range and gives the stated positive g_j² for all j<m. For degrees m and m−1 the eigenvalue in the differential equation is the same. The parity pieces of (z±β)^m solve that equation and match the monic solutions: both possible leading degrees are roots of the leading-term equation, but only one of those degrees lies in each parity, so no lower same-parity monic difference is possible. This gives exactly (z+β)^m. Nonzero nearest-neighbor entries force a nonzero eigenvector to have nonzero first coordinate and determine all other coordinates from it, so the sole eigenvalue has exactly one Jordan block. This checks the amplitude-loss convention and all m≥2 and β>0, not detuned sites, extra loss sites or robustness. Frozen verify_ep.py and VERIFICATION.md were inspected, not executed; their exact rational examples are consistency checks, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 allows arbitrary multisets in the upper half-plane, including repetitions, and proves unique recovery of a Jacobi matrix with rank-one imaginary part at the first site.",
+          "Example 5.3 specializes the construction to one n-fold eigenvalue. Holst et al. Appendix H instead derives the escape law conditional on a maximal EP."
+        ],
+        "reasoning": "The more general inverse theorem supplies existence and uniqueness in a larger class. Example 5.3 identifies the precise specialization, and its continued fraction fixes the real diagonal and all positive couplings. The conditional escape theory alone would not have sufficed for a prior-coverage finding.",
+        "searches": [
+          "arXiv:math/0602033, Theorem 5.1 proof, eqs. (5.1)–(5.2)",
+          "On the inverse problem for finite dissipative Jacobi matrices with a rank-one imaginary part, article 419098"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0602033, Theorem 5.1, Example 5.3",
+        "DLMF 15.7.1–15.7.2",
+        "arXiv:2610.26620v1, Appendix H",
+        "Resultary f56ae485b18f",
+        "DergiPark article 419098 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit scale, write x=i/z. The Example 5.3 Weyl function is −1/z times O(x²)/E(x²), where E is the even binomial sum in x and mxO the odd binomial sum of (1+x)^m. The binomial coefficients give E(Z)=F(a,b;c;Z), O(Z)=F(a,b+1;c+1;Z) with (a,b,c)=((1−m)/2,−m/2,1/2) and ordinary F=₂F₁.",
+          "In DLMF 15.7.1–15.7.2 the ratio of regularized functions equals cE/O. Its t_k=k+1/2 and u_k=(k²−m²)/4 for both parities by substitution. Normalizing the nested fraction gives coefficients −u_k/(t_{k−1}t_k)=(m²−k²)/[(2k−1)(2k+1)] and u_m=0 terminates it.",
+          "With Z=−1/z² the resulting Weyl J-fraction is −1/(z−a₁²/(z−a₂²/(…))), so the no-loss real diagonal is zero and its positive off-diagonal squares are exactly those coefficients. Restoring β and k=m−j gives every frozen g_j²."
+        ],
+        "reasoning": "This is an immediate continued-fraction evaluation of the prior exact inverse problem, not an assertion that the 2006 example literally prints the compact rational expression. The specialization already gives the full iff/uniqueness claim and exact formula.",
+        "searches": [
+          "arXiv:math/0602033 Example 5.3, rational Weyl function",
+          "DLMF 15.7.1–15.7.2, Gauss continued fraction for a contiguous hypergeometric ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let S=diag(1,−1,1,...) and R reverse the sites. J=RS(−iA/β)SR has first diagonal iγ/β, otherwise zero diagonal, positive off-diagonals a_k=g_{m−k}/β, and sole eigenvalue i when A has sole eigenvalue −β.",
+          "Example 5.3 constructs exactly this full-coalescence dissipative Jacobi matrix for all m, with loss scale m in its convention. Its general Weyl function and displayed cases match this transformation."
+        ],
+        "reasoning": "Site reversal and a diagonal sign similarity preserve defectiveness; complex scaling maps the prescribed eigenvalues with their multiplicities. An irreducible Jacobi matrix is cyclic at its endpoint, so the prescribed repeated spectrum is already a single-block EP.",
+        "searches": [
+          "Arlinskiĭ–Tsekanovskiĭ arXiv:math/0602033, Theorem 5.1 and Example 5.3",
+          "Resultary rank-one terminal-loss exceptional point; exact record f56ae485b18f",
+          "Holst–Blasi–Khandelwal arXiv:2610.26620v1 Appendix H"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is this frozen finding. Example 5.3's matrices already give loss-end squared couplings (8/3,1/3) for m=3 and (5,4/5,1/5) for m=4, in addition to the all-size exact Weyl fraction.",
+          "The DLMF formula gives the exact full coefficient array from the Weyl object, not just values at m=2,…,5."
+        ],
+        "reasoning": "The examples witness the match but are not used as exhaustive evidence. The all-dimension fraction and its exact tabulated general expansion are decisive.",
+        "searches": [
+          "Resultary f56ae485b18f exact object and formula",
+          "arXiv:math/0602033 Example 5.3, displayed J₂ to J₅",
+          "NIST DLMF https://dlmf.nist.gov/15.7, eqs. 15.7.1–15.7.2"
+        ]
+      },
+      "rationale": "Arlinskiĭ–Tsekanovskiĭ Theorem 5.1 and especially Example 5.3 cover the same unique full-coalescence design for every dimension after a sign, scale and endpoint change. Although Example 5.3 does not print the compact all-size coefficients, its exact Weyl fraction yields them by a single standard terminating Gauss continued-fraction specialization. This is established prior implication, not just a related title, unavailable-source suspicion, or matching low-order examples.",
+      "residual_risks": [
+        "This assessment does not establish who first printed the compact formula or whether it also occurs in other exact tables. The already verified prior general theorem, example and direct fraction evaluation are sufficient regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive same-spectrum coverage and general uniqueness; explicit Weyl fraction is already given for every m",
+          "evidence": "Theorem 5.1 permits repeated eigenvalues; Example 5.3 sets sole eigenvalue i, obtains Im b₁=m, gives the even/odd binomial Weyl fraction and displays explicit matrices through m=5",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602033",
+          "material_read": "Abstract; Theorem 5.1 and eqs. (5.1)–(5.2), pp. 35–36, offsets 88850–92650; Example 5.3 pp. 37–38, offsets 94390–98540",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Non-self-adjoint Jacobi matrices with a rank one imaginary part",
+          "trigger": "Equivalent inverse problem, including multiplicities"
+        },
+        {
+          "assessment": "Determines the exact coefficients with a direct parameter substitution",
+          "evidence": "t_n=c+n, u_{2n+1}=(a+n)(c−b+n), u_{2n}=(b+n)(c−a+n) for the fraction of contiguous hypergeometric functions",
+          "identifier_or_url": "https://dlmf.nist.gov/15.7",
+          "material_read": "Equations 15.7.1–15.7.2 and their regularized function notation, HTML text offset 820 onward",
+          "method": "Bounded official open HTML passage",
+          "title": "NIST Digital Library of Mathematical Functions, Hypergeometric Function: Continued Fractions",
+          "trigger": "Check whether the compact coefficient formula is mechanically implied by the exact prior Weyl fraction"
+        },
+        {
+          "assessment": "Same physical terminal-damped chain; inspected appendix treats escape dynamics conditional on maximal EP, not the coupling list",
+          "evidence": "Appendix H uses the product of squared couplings in the escape law",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26620",
+          "material_read": "v1 main text p. 11 offset 79000 and Appendix H pp. 26–27 offsets 161800 and 164500",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Non-Markovian exceptional points and information backflow: a Heisenberg reaction-coordinate approach",
+          "trigger": "Motivating chain and possible synthesis precedent"
+        },
+        {
+          "assessment": "No exact formula attributed on the basis of the description; unnecessary for the decisive earlier coverage",
+          "evidence": "Description mentions inverse existence/uniqueness; no verified full-text passage",
+          "identifier_or_url": "https://dergipark.org.tr/en/pub/cfsuasmas/article/419098",
+          "material_read": "Search-result description only; page and PDF attempts timed out",
+          "method": "Primary literature lookup and lawful OA attempts",
+          "title": "On the inverse problem for finite dissipative Jacobi matrices with a rank-one imaginary part",
+          "trigger": "Additional inverse spectral comparator"
+        },
+        {
+          "assessment": "Identical assigned record, not independent prior evidence",
+          "evidence": "Identical terminal-loss formula and scope",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-positive-coupling-construction-of-arbitrary-order-excep--f56ae485b18f",
+          "material_read": "RESULT.md Finding, offset 104",
+          "method": "Local catalogue mirror",
+          "title": "A unique positive-coupling construction of arbitrary-order exceptional points with one terminal loss",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit numbers are useful design data, and the Gegenbauer derivation can serve as an exposition. As a standalone finding, however, this is the identical known collapsed-spectrum construction with its Weyl fraction evaluated by a standard identity. The exact novelty proposed as a valuable narrow invariant is mechanically implied, and no additional physical or mathematical result survives that comparison. No substantive repair is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

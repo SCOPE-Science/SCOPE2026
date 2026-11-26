@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact arithmetic over \(\mathbb Q(\sqrt3)\) reconstructs \(\mathcal O_{49}\) from the regular dodecagon, obtains exactly forty-nine rich lines, and reproduces the published singularity census. The unique twelvefold point and the twelve sevenfold points give an exhaustive projective-frame search with only \(1320\) ordered image triples. Exactly \(24\) projectivities preserve all forty-nine lines. The displayed rotation and reflection already generate \(D_{12}\) of order \(24\), so the full projective stabilizer is exactly that group. The line-orbit decomposition is independently computed from the complete stabilizer list.
+PASS
 
-## Originality
+The incidence operator is projectively equivariant, so the displayed rotation and reflection give the full visible subgroup of order 24. An independent exact reconstruction confirms 66 distinct starting points, 49 rich lines, the stated census, and the six line orbits with singleton z=0. It also gives an alternative upper bound over C: the unique twelvefold point is the origin P, and the twelve sevenfold points lie on the smooth conic x²+y²=(2+√3)z². Any stabilizer preserves this conic (two distinct conics cannot share twelve points on a smooth conic) and fixes P, so it preserves the polar of P, namely z=0. In affine coordinates it is therefore linear and preserves x²+y². A chosen sevenfold point has at most twelve images; fixing its nonisotropic vector leaves only the two possible signs on its one-dimensional orthogonal complement. Thus there are at most 24 projectivities, with no restriction to real or rational projectivities. Replay: python3 /workspace/replay/dodecagon.py (SymPy, exact quadratic field); it derives incidence multiplicities from pair counts and computes the orbits under the two generators, not by executing the submitted checker. No claim about abstract lattice automorphisms.
 
-**PASS.** The primary source gives the construction, freeness, rigidity, and singularity counts of \(\mathcal O_{49}\), but the inspected current full text does not determine its projective stabilizer. Searches covering the exact notation, the full singularity signature, regular-dodecagon aliases, and projective-automorphism language found no implication-equivalent statement. The visible dodecagon action only proves a subgroup; it does not imply the no-extra-symmetry upper bound established here.
+## originality
 
-Residual risk: older simplicial-arrangement literature may record the same symmetry group under different notation.
+PASS
 
-## Value
+The construction, census, rigidity and inherited dihedral action are inputs, not the distinct claim. The inspected comparisons do not establish the upper bound on the complex projective stabilizer or the exact line orbits for this realization.
 
-**PASS.** For a rigid free arrangement built specifically from a regular polygon, the exact projective symmetry group is a natural invariant. The result distinguishes inherited dodecagonal symmetry from possible accidental projective symmetry and gives a usable six-orbit decomposition of the forty-nine components.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For a rigid free arrangement built from a regular polygon it is natural to ask whether the construction has projectivities not inherited from the polygon. The upper bound answers exactly that question over C, and the orbit list gives the precise equivariant decomposition of its components, not simply the order of a visible subgroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

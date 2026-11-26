@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundaries
+# Independent mathematical audit
 
-`check.py` is standalone and uses the Python standard library. From the directory containing the two files, run `python3 check.py`. Its output must equal the success lines in `check_output.txt` (ordering is deterministic). The script independently builds the normalized multiplication, constructs the derivation linear equations and computes their finite-field ranks, tests parameterized automorphisms by direct multiplication, exhausts all \(2^{16}\) four-by-four binary linear transformations in two dimension-four cases, and checks the existence or absence of predicted automorphisms over the dual-number rings for selected primes.
+## correctness
 
-The central theorem is not a computational census: its field-independent and scheme-theoretic claims are proved algebraically in `RESULT.md`. The finite-field checks establish the listed finite cases only. The dual-number witnesses test tangent directions but do not independently prove the entire representing group scheme.
+PASS
 
-The first verified public archival precursor is arXiv:1208.1709 (8 August 2012); the ordinary automorphism gcd condition is already explicit in arXiv:1805.10285, Theorem 5.2, under characteristic-zero assumptions. That condition is not claimed as original. The characteristic-\(p\) group-scheme conclusion remains subject to external historical-priority review.
+Over an arbitrary commutative test algebra the squares of the tail basis vectors span the next tail, by the unit leading coefficients; hence all tails are intrinsic. Triangularity and invertibility give unit diagonal entries. For i<j<n, the coefficient of e_(j+1) in the product of the images of e_i,e_j is the e_j off-diagonal entry times the j-th diagonal unit, so that entry vanishes even over nonreduced rings. In each square equation the leading term forces t_(i+1)=t_i². The terminal-coordinate equations force u_(n−1),…,u₂=0 by descending substitution, leaving u₁ arbitrary. Each nonzero skipped coefficient, a unit from K, gives t^(2^(j−1)−2^i)=1. Bézout for these exponents in R× is equivalent to t^g=1; every resulting triangular matrix is invertible and respects all products. Composition in z=u₁/t gives z+t^(2^(n−1)−1)y, identifying the action and the representing functor, not merely points. In characteristic p, write g=p^a h, p∤h; the reduced factor is μ_h and the tangent equation g·dt=0 contributes one extra dimension exactly when p divides g. Every weight is even; for odd p, every supported gap j−1−i must be a positive multiple of ord_p(2) for nonsmoothness. The maximum gap is n−3, and b_(1,r+2)=1 alone realizes resonance whenever n≥r+3. Finite-field counts follow from cyclicity and the free additive coordinate. The multiplication also gives V_i V_j=V_(max(i,j)+1); balanced power splittings yield the stated maximal nilindex.
+
+## originality
+
+PASS
+
+The ordinary automorphism matrix and gcd-of-weights condition are substantially known, as is the normalized maximal-index family. The distinct supported result is the group scheme on all test rings for this nilpotent family and its sharp characteristic-dependent nonsmoothness boundary. The closest ordinary proof uses reductions valid over fields, including vanishing inferred from zero squares; that proof cannot be interpreted wholesale over nonreduced rings. A known scheme theorem with a related roots-of-unity and derivation mechanism concerns perfect, not nilpotent, evolution algebras.
+
+## value
+
+PASS
+
+Passing from ordinary points to the actual stabilizer scheme detects a genuine phenomenon invisible to rational-point enumeration: the additive dimension persists while a multiplicative tangent direction appears precisely in resonant supports. The exact first possible occurrence for every odd prime and its explicit one-coefficient witness answer a natural classification question in a standard maximal-index family. The supporting all-rings proof excludes hidden nilpotent matrix coordinates, so the result adds more than a repackaging of the characteristic-zero count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

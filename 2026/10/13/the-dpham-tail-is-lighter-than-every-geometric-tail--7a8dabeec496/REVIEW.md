@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof begins with the exact DPham survival implied by the published PMF. For every \(\alpha>0\) and \(\mu>1\), the term \(\mu^{n^\alpha}\) dominates every linear function of \(n\), proving exponential boundedness of the tail and finiteness of all positive exponential moments. A mean-value-theorem argument shows that \(\mu^{(n+1)^\alpha}-\mu^{n^\alpha}\to\infty\), so the adjacent survival ratio tends to \(0\) and the discrete hazard tends to \(1\). Exact inversion yields the upper-quantile formula, and standard lower/upper extreme-value bounds give the maximum concentration scale. The bundled checker replays exact finite formulas only as a consistency test.
+## correctness
 
-## Originality
-PASS. The primary DPham paper was inspected at the survival/PMF definition, moments, order-statistic discussion, and heavy-tail language. Focused searches covered the exact DOI and model name, exponential-moment, long-tail-ratio, survival-discretization, extreme-value, and correction aliases. The continuous Pham literature confirms the precursor survival formula. A recent broad continuous-Pham article is a plausible stronger source because it advertises moment and extreme-value properties, but its full text was unavailable; its accessible abstract does not state the DPham lattice theorem. This access limitation is retained as a residual risk rather than treated as proof of novelty.
+PASS
 
-## Value
-PASS. The target motivates DPham in part through heavy-tailed counts and long-tailed persistence. The finding gives a global parameter-space classification showing that the model is instead lighter than every geometric tail, together with an MGF theorem, terminal-hazard limit, explicit extreme-quantile rate, and sample-maximum scale. This is a structural correction to a headline modeling interpretation, not a finite-grid or cosmetic calculation.
+Telescoping the published PMF gives the inclusive survival. With L=log(mu)>0, the derivative of exp(L x^alpha) has logarithm L x^alpha+(alpha−1)log(x)+log(alpha L), which tends to infinity even when alpha<1. The mean-value theorem therefore gives a divergent adjacent increment and a vanishing tail ratio. Since exp(L n^alpha)/n tends to infinity, the survival is o(exp(−cn)) for every c>0, and the PMF is bounded above by a survival with any desired eventual geometric decay. This proves finiteness of every positive exponential moment and hazard limit one. The stated ceiling is exact for the left generalized inverse, including exact jumps, since F(n)>=1−q iff n+1 reaches the continuous inverse threshold. For maxima, take rounded thresholds n±=(1±epsilon)a_m+O(1); then mu^(n±^alpha)=(log m)^((1±epsilon)^alpha+o(1)). The upper union bound and lower bound via P(M_m<n−)≤exp(−m S(n−)) yield the asserted convergence. No finite check is relied upon for these limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct result is the explicit all-parameter asymptotic correction for the DPham law, particularly the opposite-to-long-tailed adjacent ratio, the all-positive-exponential-moment classification, and the leading iid maximum law. The PMF, unrounded quantile inversion, and finite-sample order-statistic formulas are not original here.
+
+## value
+
+PASS
+
+The short proof settles a substantive modeling distinction raised by the article's wording: arbitrarily slow-looking pre-asymptotic behavior of the fitted family cannot yield conventional heavy or long tails for any admissible fixed parameters. The maximum scale and hazard limit give concrete consequences, rather than only a terminology objection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

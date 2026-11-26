@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:48.743200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof 1–4",
+        "VERIFICATION.md and verify.py (read, not executed)",
+        "Independent evaluation of the affine flows: for a=1,b=2,beta=1,Y0=4 the caps 1,2,5 give budgets 1, 0.8109302162, 0.7347333311; T=0.7,B=0.6,U=2 gives terminal Y=2.6637267, 2.9482908, 3.1736147 for early, uniform, and late control"
+      ],
+      "rationale": "On the calibrated state interval, Y=N^beta satisfies Y'=beta(a-u)Y-beta b. The explicit integrating-factor formula is decreasing under cumulative-effort domination while both solutions are positive. For equal totals the terminal prefactor is common and strict ordering follows from the integral whenever the continuous effort curves differ. For U<=g(N0), the constant-cap trajectory never decreases below N0 and bounds all competitors below. For U>g(N0), the maximal-rate trajectory decreases strictly to Nc. Spending less than its cost gives a front-loaded trajectory that runs out of effort above Nc, then grows; cumulative ordering rules out any competitor reaching Nc. At the minimal cost, terminal strictness forces the same initial maximal-rate pulse up to the first hit. Integration along that pulse gives the displayed budget integral and its strict monotonicity; substitution near U=g(N0) gives the stated logarithmic rate and constant. The deadline and strict-crossing conclusions follow from trajectory comparison and Nc>Nref. The pulse expressions presuppose U>0; at U=0 the only admissible control is identically zero and the ordering is trivial. No positive-state claim beyond calibration was used.",
+      "residual_risks": [
+        "Finite checks corroborate the formulas only; the measurable-control result follows from the analytic comparisons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holling-III predator treatments, 2026/10/25, Proof §§1–2: sets w=z+H and compares w'=F(w-H) for nonincreasing F; this is the same scalar comparison method with the opposite ordering orientation.",
+          "Fixed-budget Beverton–Holt harvesting, 2026/11/22, Finding: a unique two-season sustainable-catch allocation can be concentrated in either season or split; that is a discrete yield objective.",
+          "The retrieved bibliographic/abstract-level information for Cid et al. and Grey et al. identifies discrete harvest-timing problems; full theorem scope was not inspected."
+        ],
+        "reasoning": "The general comparison mechanism is not credited as new. None of the inspected statements provides a result implying the full access criterion, unique minimum integrated proportional loss, and exact frontier for the stated power law.",
+        "searches": [
+          "Resultary: optimal harvest timing Allee effect bounded effort continuous population front-loaded back-loaded",
+          "Primary literature: Cid–Hilker–Liz, DOI 10.1016/j.mbs.2013.12.003; Grey–Lenhart–Hilker–Franco, DOI 10.1111/nrm.12321"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Relationship to prior work, References",
+        "Resultary local catalogue and matching records identified above",
+        "Crawley–Tanaka arXiv:2610.12436v1",
+        "Cid–Hilker–Liz DOI 10.1016/j.mbs.2013.12.003",
+        "Grey–Lenhart–Hilker–Franco DOI 10.1111/nrm.12321"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eqs. (4), (16), (18) provide the uncontrolled population ODE, power-law collaboration response and natural critical population. The added loss rate is not present in those equations.",
+          "The catalogue comparison supplies a scalar scheduling method, not a hitting-time optimum over controls nor an integrated-cost singularity."
+        ],
+        "reasoning": "The prior model supplies the uncontrolled ingredients, but not the optimization over measurable capped controls. The result couples a comparison argument to an exact finite-access condition and model-specific cost calculation.",
+        "searches": [
+          "Crawley–Tanaka, arXiv:2610.12436v1, Eqs. (4), (16), (18)",
+          "Holling-III predator treatments, Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Old-state discrete harvesting, 2026/11/22, Finding/Proof: every global minimizer's positive effort amounts are nonincreasing, for a discrete recurrence with quadratic effort cost.",
+          "Strong-Allee rescue timing, 2026/10/26, Finding: compares single addition pulses and identifies ranking reversals, rather than a continuous proportional loss cap.",
+          "Writing z=log(N), w=z+H gives w'=g(exp(w-H)); scalar comparison recovers the timing theorem without the power reduction."
+        ],
+        "reasoning": "Timing can be expressed as cumulative-effort dominance, but the discrete and addition-pulse statements have different objectives and admissible controls. The equivalence in log coordinates does not establish prior coverage for the full threshold-cost theorem.",
+        "searches": [
+          "Resultary: bounded rate proportional harvesting fixed cumulative effort front-loaded control terminal population exact ordering",
+          "Resultary: optimal harvest timing Allee effect bounded effort continuous population front-loaded back-loaded"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching exact frontier was identified among the returned catalogue records; the motivating collaboration paper states an uncontrolled threshold, not a table of bounded-control costs."
+        ],
+        "reasoning": "No exact precomputed formula or frontier entry was identified in the bounded search; absence of a hit does not rule one out.",
+        "searches": [
+          "Resultary: critical integrated effort threshold access cap U greater initial per-capita growth explicit decreasing budget frontier",
+          "Resultary: Crawley Tanaka collaboration population threshold intervention control cumulative effort takeoff"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp capped threshold-access frontier and its limiting behavior for the specified collaboration law. Scalar cumulative-effort ordering and linear ODE solution methods are background, not independent originality claims. The available comparable statements do not yield the full frontier.",
+      "residual_risks": [
+        "The two cited discrete harvesting papers were not retrieved in full. An unindexed continuous-time scalar control theorem or model-specific derivation could overlap; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and natural threshold covered; inspected equations do not imply controlled optimum",
+          "evidence": [
+            "tau N'=N[kappa p(N)-mu] and the specified p(N); Eq. (18) defines the uncontrolled Ncrit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12436v1",
+          "material_read": "Eqs. (4), (16), (18); passages at offsets 14400–20876 and 27363",
+          "method": "Lawful OA full-text passages",
+          "title": "Ecology of AI Agents: Collaboration Creates a Population Threshold for Takeoff",
+          "trigger": "Identical uncontrolled collaboration law"
+        },
+        {
+          "assessment": "Related standard method; distinct model, sign, and conclusion",
+          "evidence": [
+            "z'=F(z)-u(t), and w=z+H yields w'=F(w-H) with nonincreasing F."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-carrying-capacity-threshold-for-ordering-holling-iii-pre--38e01062130d",
+          "material_read": "RESULT.md Proof §§1–2",
+          "method": "Local indexed full-text mirror",
+          "title": "A sharp carrying-capacity threshold for ordering Holling-III predator treatments",
+          "trigger": "Cumulative-effort scalar ordering"
+        },
+        {
+          "assessment": "No equivalent statement in the inspected passages",
+          "evidence": [
+            "Nonincreasing positive effort sequence for a discrete penalized harvesting problem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-global-and-local-pulse-thresholds-for-old-state-discrete-h--78f8c5354fcd",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local indexed full-text mirror",
+          "title": "Sharp global and local pulse thresholds for old-state discrete harvesting",
+          "trigger": "Front-loading of removal effort"
+        },
+        {
+          "assessment": "Different control sign, number of interventions, and result",
+          "evidence": [
+            "Two initial-density boundaries reverse the order of early and late addition pulses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-sharp-rescue-timing-reversals-in-a-strong-allee-population--8154f80df1a3",
+          "material_read": "RESULT.md Finding",
+          "method": "Local indexed full-text mirror",
+          "title": "Two sharp rescue-timing reversals in a strong-Allee population",
+          "trigger": "Allee threshold and timing"
+        },
+        {
+          "assessment": "Full result scope unresolved",
+          "evidence": [
+            "Identifies a discrete single-species model; no full-text theorem read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2013.12.003",
+          "material_read": "Bibliographic and landing-page material only",
+          "method": "Literature lookup and lawful OA retrieval attempt",
+          "title": "Harvest timing and its population dynamic consequences in a discrete single-species model",
+          "trigger": "Potential related timing result"
+        },
+        {
+          "assessment": "Full result scope unresolved",
+          "evidence": [
+            "Comparative discrete harvest-control formulation indicated by accessible metadata only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/nrm.12321",
+          "material_read": "Search bibliographic material; full text unavailable by identified lawful routes",
+          "method": "Literature lookup and lawful OA retrieval attempt",
+          "title": "Optimal control of harvest timing in discrete population models",
+          "trigger": "Potential broader timing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof 2–4, Limitations",
+        "Crawley–Tanaka arXiv:2610.12436v1 Eqs. (4), (16), (18)"
+      ],
+      "rationale": "For a previously motivated deterministic takeoff law the result separates a rate-cap obstruction that no total effort can fix from the minimum sufficient finite budget. It also quantifies the singular cost near the feasibility boundary, identifies the unique measurable optimal schedule, and distinguishes threshold access from crossing. Those are useful exact control predictions beyond solving an affine equation for a prechosen constant intervention.",
+      "residual_risks": [
+        "Integrated proportional loss is not headcount or monetary cost; the result does not establish actual population extinction, claims below calibration, or applicability to stochastic or congested systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

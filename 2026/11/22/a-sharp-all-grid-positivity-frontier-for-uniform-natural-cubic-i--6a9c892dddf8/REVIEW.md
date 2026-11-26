@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The natural-spline tridiagonal Green function gives exact cardinal signs and a two-tail negative-mass formula. A tensor-product Bernstein certificate with nine explicitly listed, nonnegative algebraic coefficients proves the dimension-free finite-boundary inequality. Sharpness follows from centered cells receding from both endpoints, and positive-data extremizers are chosen according to the signs of the cardinal weights. The standalone symbolic checker reproduces the algebra and 315 independent finite-grid instances. Finite computation is supplemental to the analytic all-integer proof.
+PASS
 
-## Originality
+Independently verified the finite-tail formulas and the strict all-grid certificate. Set θ=arcosh(2), D=sinh(nθ), and F=a sinh((k+1)θ)−b sinh(kθ)>0 for an interior evaluation. For source index v≤j the combined inverse row aG[j,v]+bG[j+1,v] equals (−1)^(j+v) F sinh(vθ)/(sinh(θ)D). On the left tail an interior data index i has coefficient 6(−1)^(j+i)F sinh(iθ)/(sinh(θ)D) because the interior second-difference matrix equals the curvature matrix minus 6I. The endpoint i=0 instead contributes (−1)^j F/D when j>0. Taking the odd-index-distance terms gives the factor cosh(jθ)−1: its step-j-to-j+2 increment is 6 sinh((j+1)θ)/sinh(θ), and its bases are 0 and 1. Reflection gives the right tail. An interior central coefficient has its positive cubic baseline, e.g. (1−t)^3, plus six times the positive combined inverse row at its index. At a left boundary cell the endpoint coefficient is 1−t−bG[1,1]>0 since G[1,1]<2−√3<1/2 and b/(1−t)=t(1+t)<2; the right boundary is reflected. The two-knot case is linear and knots have zero negative mass. Algebraically, for X=r^j,Y=r^k, (1−r²X²Y²)C_a=[(1−X)²(1−r²Y²)−r(1−Y)²(1−X²)]/2, and C_b is the reflection. Independently expanding these expressions and changing basis in exact Q(√3) reproduced all nine listed Bernstein coefficients. Their positivity away from (0,0) for finite X,Y proves N<3c/4, while X,Y→0 and t=1/2 proves sharpness. Constant reproduction gives norm 1+2N and pointwise minimum m−(M−m)N, so the displayed contrast is equivalent and equality gives strict positivity on every finite grid.
 
-PASS on the stated all-finite-boundary claim, subject to independent priority review. Beatson–Chacko (1990) explicitly acknowledges the previously known infinite-cardinal norm \((1+3\sqrt3)/4\) and numerically tabulates finite natural cubic norms approaching it; neither the infinite constant nor their finite table is proposed as new. Their inspected full report does not give a proof of the sharp *all finite natural-boundary* upper bound or a necessary-and-sufficient all-grid positive-data contrast. Bogdanov–Volkov (2019) covers positivity conditions for classical cubic splines but the inspected natural-type criteria are sufficient local comparisons, not this exact global threshold. Aràndiga–Baeza–Yáñez (2021) modifies Hermite slopes to retain monotonicity, rather than classifying positive data for unmodified natural splines. The closest existing numerical database results concern fixed small knots, other norms, or monotone secant ratios rather than arbitrary-length positive nodal contrasts. Unlocated earlier finite-boundary inequalities remain possible; literature comparison is not an independence proof.
+## originality
 
-## Value
+PASS
 
-PASS. Without changing an established spline method, a user can certify that strictly positive sampled values remain positive everywhere on any equispaced grid using only their maximum-to-minimum contrast. The exact limiting constant, finite-grid strictness, and constructed failure for any larger ratio explain a practical safety boundary and distinguish the finite natural endpoint condition from the infinite cardinal calculation. This is a natural all-length shape-preservation classification, not an arbitrary numerical slice.
+To the best of current knowledge, the distinct result is the proven strict uniform upper bound over every finite equally spaced natural grid, including endpoint cells, with sharpness along growing grids and the equivalent sharp positive-data contrast. Beatson–Chacko explicitly study the same finite operator (Method E) and its selected-grid norms; those numerical results and the previously known infinite-cardinal constant are not original here. The accessible primary report does not establish the claimed strict inequality uniformly in grid length.
 
-## Limits
+## value
 
-Uniform grids and natural end conditions only. The result is not a monotonicity guarantee or approximation-error estimate, and the historic infinite-cardinal constant is prior knowledge. Final historical-priority review and independent proof audit are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact threshold on ordinary nodal data range is motivated by whether standard natural interpolation can create spurious negative values without using a shape limiter. Uniformity and strictness at every finite length, together with constructive failure above the threshold, are substantive beyond computing a few norm values. This value judgment does not settle priority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

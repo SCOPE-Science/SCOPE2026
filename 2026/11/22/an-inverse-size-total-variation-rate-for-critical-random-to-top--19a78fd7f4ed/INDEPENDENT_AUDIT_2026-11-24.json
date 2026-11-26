@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:59:06.971555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on K=k moved labels, the ordered prefix is a uniform injection and the fixed suffix consists exactly of the labels above its maximum M. For M>k, condition also on the position of M: the k−1 other positions form a uniform injection into [M−1], and the k−1 distinct target labels are in [M−1]. A common relabeling of the targets and alphabet identifies its fixed-count law with the stated partial-injection law. At M=k the prefix is a full permutation. For a t-entry injection into [m], the factorial moments are (t)_s/(m)_s; termwise product comparison with (t/m)^s and absolutely summable factorial-moment inversion yield the e²/t bound. The geometric hazard comparison includes the last survival test j=n−k, at which survival is zero. Replacing the conditional Poisson parameter by k/n costs at most (j+2)/n, and the endpoint M=k costs at most 1/n for k<n. For k=n the full-permutation bound applies directly. The occupancy mean differs from a by O_c(n⁻¹) and its variance is O(n⁻¹) by nonpositive indicator covariances. The uniformly bounded second ℓ¹ derivative of the convolution on [a/2,1], the signed average of the linear term, and Chebyshev on k<an/2 give the claimed rate for fixed c>0. The nested checker and output were inspected, not run; the proof does not use the finite data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-way result has the identical model and floor(cn), and proves joint weak convergence for prefix count, suffix length, and normalized descents and occupancy. Its conditional proof takes fixed-j limits with central k, and uses qualitative tightness.",
+          "The descent–inversion result concerns other observables. The Luce result gives unquantified TV convergence for fully sampled permutations with weights, not the partially moved prefix plus ordered suffix."
+        ],
+        "reasoning": "The stronger joint weak theorem has the marginal limit but no usable marginal error modulus. A TV theorem for fully sampled Luce rankings does not control the unmoved-card fixed suffix.",
+        "searches": [
+          "Resultary a1f81953daaa, joint rare–Gaussian factorization",
+          "Resultary 7cc85a6a6c85, occupancy-mediated joint Gaussian fluctuations",
+          "Resultary 54d919a68dd2, finite-step Luce rankings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/verify.py and checks/output.txt",
+        "Clay, arXiv:2603.09008v1",
+        "Resultary a1f81953daaa, 7cc85a6a6c85 and 54d919a68dd2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clay treats the fixed deterministic prefix length floor(an) for the qualitative limit and identifies convergence rates for Theorem 1.1 as a direction in Section 8.",
+          "The four-way factorization proof obtains fixed-order factorial-moment convergence and, separately, a covariance limit."
+        ],
+        "reasoning": "Neither a deterministic-prefix limit nor its mixture via concentration justifies this modulus. An absolute Lipschitz replacement of random K/n costs up to the fluctuation scale n⁻¹/²; the signed first-order term has expectation O_c(n⁻¹), and the second-order term is O_c(n⁻¹). The reviewed bound adds and controls precisely these terms.",
+        "searches": [
+          "Clay, Proposition 5.5 and Section 8",
+          "Resultary a1f81953daaa, Finding, Proof §§3–4, and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clay decomposes the count into n minus the maximum moved label and the number of prefix fixed positions, with a uniform permutation independent of occupancy.",
+          "Clay's critical limit is the identical independent Poisson plus zero-based geometric convolution. The exact-title indexed hit is the frozen result itself."
+        ],
+        "reasoning": "Changing from weak to TV convergence on the nonnegative integers is not by itself distinct: convergence of the masses and tightness suffice. The distinguishing claim is the O_c(1/n) modulus.",
+        "searches": [
+          "Clay, arXiv:2603.09008v1, Theorems 1.1 and 4.1, Proposition 4.5, Lemma 5.3",
+          "Resultary: inverse-size total-variation rate for critical random-to-top fixed points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact results give uniform prefix sampling, its maximum law, conditional factorial moments, and a finite conditional mean.",
+          "The frozen checks tabulate only selected finite TV distances."
+        ],
+        "reasoning": "The pertinent analogue of a table here is an exact finite law, not a catalogue of special values. Exact component formulas underlie the result but are not an already-tabulated or asymptotic uniform TV error bound; finitely many distances cannot establish an all-n rate.",
+        "searches": [
+          "Clay, Proposition 4.5 and Lemma 5.3",
+          "Resultary a1f81953daaa, sections on the conditional laws and covariance"
+        ]
+      },
+      "rationale": "The exact conditional representation and qualitative limit were known. The strongest inspected comparisons do not state or imply the inverse-size rate for the marginal fixed-point law; summable conditional errors and a second-order occupancy-mixture estimate are additional arguments.",
+      "residual_risks": [
+        "The assessment is bounded to the inspected material and indexed comparisons; broader quantitative approximation results or unindexed work could contain an equivalent rate.",
+        "No optimality, leading TV coefficient, or uniform bound as c approaches zero is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers conditional setup and qualitative limit, not the inverse-size TV rate in inspected material",
+          "evidence": "The critical fixed-point limit has Poisson parameter 1−e^(−c) and independent geometric mass (1−e^(−c))e^(−cj); the discussion identifies a convergence-rate question.",
+          "identifier_or_url": "https://arxiv.org/html/2603.09008v1",
+          "material_read": "Theorems 1.1 and 4.1, Proposition 4.5, Lemma 5.3, Proposition 5.5 and Section 8 (notably offsets 7400, 22000, 24600, 39700–45500, 76500)",
+          "method": "Open preprint, bounded statement and proof passages",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Identical critical fixed-point observable and exact shuffle representation"
+        },
+        {
+          "assessment": "Joint weak result and exact covariance inputs; no O_c(1/n) TV control identified in the compared arguments",
+          "evidence": "Fixed-j conditional limits and geometric tightness give the rare split; the separate unscaled covariance conclusion does not control the marginal TV error.",
+          "identifier_or_url": "Resultary a1f81953daaa",
+          "material_read": "Finding; Proof §§3–5 and start of §6, offsets 3970–7208; Limitations, offsets 10460–11086",
+          "method": "Indexed local mirror, bounded passages",
+          "title": "Four-way rare–Gaussian factorization and a hidden covariance in random-to-top shuffling",
+          "trigger": "More observables at exactly floor(cn), possible marginal rate"
+        },
+        {
+          "assessment": "Different statistics",
+          "evidence": "Joint Gaussian convergence for descents and inversions, not a fixed-point distribution estimate.",
+          "identifier_or_url": "Resultary 7cc85a6a6c85",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2110",
+          "method": "Indexed local mirror",
+          "title": "Occupancy-mediated joint Gaussian fluctuations of descents and inversions in random-to-top shuffles",
+          "trigger": "Same time scale and conditioning variable"
+        },
+        {
+          "assessment": "Different sampling and limit; no rate transfer",
+          "evidence": "Sequential samples exhaust the labels and the class counts converge jointly in TV to independent Poissons. Its two-block quantitative formula concerns the limiting mean.",
+          "identifier_or_url": "Resultary 54d919a68dd2",
+          "material_read": "Finding, offsets 0–1895",
+          "method": "Indexed local mirror",
+          "title": "Poisson fixed points for finite-step Luce rankings",
+          "trigger": "Closest TV fixed-point claim for a related sampling model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The estimate quantifies an explicitly identified convergence-rate question for a natural critical-time statistic. It improves on simply conditioning and bounding deviations absolutely by showing why fluctuations of order n⁻¹/² contribute only order n⁻¹ to this distribution. This yields a finite-size error guarantee for all fixed-point events, not just selected moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

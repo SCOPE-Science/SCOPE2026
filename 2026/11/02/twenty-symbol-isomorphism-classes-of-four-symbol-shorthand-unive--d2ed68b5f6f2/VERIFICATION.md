@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with `classes.tsv` in the same directory. The standard-library-only program exhausts all directed Euler tours anchored at the unique arc `012`, then independently exhausts all 2048 last-exit assignments on the 11 nonroot vertices. Both methods yield exactly 384 identical cyclic words.
+# Independent mathematical audit
 
-Every global symbol permutation and its composition with reversal is then applied to every word, with a unique rotation normalization at `012`. All five conjugacy-class fixed-point profiles, the exact 20 relabeling classes, the exact 11 relabeling-and-reversal classes, their orbit sizes, and the full canonical class table are rederived. Successful local output is `VERIFY_OK`.
+## correctness
 
-The complete finite enumeration establishes only the stated four-symbol, length-three-window result. It does not imply a comparable formula for other sizes. Independent scientific auditing remains unperformed.
+PASS
+
+A cyclic word corresponds exactly to an Euler tour of ordered distinct pairs linked by ordered distinct triples. The unique 012 window removes position rotations without modding out alphabet labels. To verify exhaustion independently, assign at each of the twelve overlap vertices a bijection between its two incoming and two outgoing arcs. The resulting permutation of 24 arcs is a valid Euler tour iff it has one orbit. Conversely each valid cycle gives one such assignment. Among all 4096 assignments this gives 384 words. Independent normalization by lexicographically least cyclic rotation and exhaustive tests of all 24 relabelings with and without reversal reproduced each per-permutation fixed count, the 20 and 11 quotients, the joint orbit sizes, and all 20 rows of classes.tsv, including self-mirrors 6 and 10. Burnside gives (384+96)/24=20 and (384+96+48)/48=11. No stabilizer can contain two alphabet transpositions since their product is another excluded type. The 96 cycles with a relabeling stabilizer therefore give eight orbits of size 12; the other twelve have size 24.
+
+## originality
+
+PASS
+
+The labeled count 384 is exactly covered and is not claimed as the new contribution. The inspected counting theorems and closest indexed symmetry censuses do not imply the full four-symbol relabeling and mirror classification. The pass is for the nonfree action, fixed-point table and canonical orbits on the specified word set. Historical priority is qualified by the unavailable shorthand-cycle full text and possible unindexed tables.
+
+## value
+
+PASS
+
+Changing the letter names or orientation does not change the underlying construction, so their quotients are motivated directly by the cycle definition. This determines exactly which minimal nontrivial cases are essentially different, including nontrivial stabilizers and the two self-mirror classes. It supplies canonical test objects for permutation universal cycles and their Gray-code versions, data that cannot be reconstructed by dividing the established labeled total by group order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

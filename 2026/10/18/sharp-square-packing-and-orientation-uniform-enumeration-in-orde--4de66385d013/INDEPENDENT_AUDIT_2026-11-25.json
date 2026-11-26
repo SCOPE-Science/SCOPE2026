@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:19.392219Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The triple edges of a de Bruijn cycle have one cyclic successor permutation, so neither a fixed point from aaaa nor a two-cycle from both abab and baba can occur for q³>2. Removing all unequal alternating triples leaves a balanced graph; the retained abb reaches a diagonal, xxy and xyy connect diagonals, and xxy reaches every off-diagonal from its source diagonal. For any chosen orientations, put a distinguished loop for each ordered pair of alternating edges at the appropriate off-diagonal. This preserves balance and connectivity; contracting and expanding disjoint two-edge blocks gives a rotation-respecting bijection to the desired extrema. The unchanged a₀a₀a₀ edge is a unique first edge under rotation. In a fixed-first-edge BEST count the last exits from nonroot vertices form an in-arborescence, and each vertex contributes (d−1)! from ordering the remaining exits or, at the root, fixing the first one. Added loops cannot affect arborescences or the Laplacian. Exactly q+binom(q,2) vertices have degree q and binom(q,2) degree q−1, proving the factor even at q=2. Independent integer cofactors give 1,108,3538944 for q=2,3,4. Literal Euler-tour exhaustion through q=3 gives one binary cycle per orientation and 6912 ternary cycles per orientation, totaling 55296 ternary extrema. Replay: /workspace/branches/ff311abc-2d88-4ea7-8b87-0804cec4890f/reproduce_square_checks.py and reproduction_results.txt in that directory. The supplied verifier was inspected, not executed; exhaustive enumeration was only binary and ternary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4f258063228e counts Euler tours on the graph with all palindromic triples removed. 33e2bbb0da78 counts a different constrained local transition system.",
+          "The concatenation framework treats general successor rules and Chee et al. treat run-length-limited (n,s)-sequences."
+        ],
+        "reasoning": "Deleting all palindromic triples gives a different universal cycle length q²(q−1), and neither enumerates the full q³-edge tours grouped by maximum-square orientation. The reusable Euler-tour tools still require identifying the specific contraction and degree-multiset invariance.",
+        "searches": [
+          "Resultary 4f258063228e nonpalindromic three-factor universal cycles; 33e2bbb0da78 colored permutation profiles",
+          "Sawada et al. Theorem 15 and Corollaries 16–17; Chee et al. arXiv:2403.01454 §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 02203ca2da50, 4f258063228e, 3a32aa1283e5 and 33e2bbb0da78",
+        "arXiv:2308.12405, 2308.16257 and 2403.01454; Lempel (1971) bibliographic citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting n=3 in next-order support yields one-factor attainability and the exclusion of constants; its scope explicitly states some cycle, not occurrence probabilities.",
+          "The nonpalindromic-tree formula fully implies T_q but its fixed-edge BEST factorial counts a different tour ensemble with degree q−1 at every vertex."
+        ],
+        "reasoning": "Using the known core data still requires the obstruction to both opposite successors and the bijection that replaces each disjoint two-edge alternation by a loop at a selected vertex. This is the structural part underlying sharp packing, simultaneous realization and orientation uniformity. No chronological priority is inferred from either catalogue date.",
+        "searches": [
+          "Resultary 02203ca2da50 Finding and scope offsets 0–1519; 4f258063228e proof offsets 3100–4788; Sawada et al. §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 02203ca2da50 Finding gives single next-order factor support across the union of all cycles.",
+          "Sawada et al. §5.1 gives concatenation and successor-rule constructions; Álvarez et al. use factor for a family of register orbits, not substring occurrences."
+        ],
+        "reasoning": "Occurrence of abab is the forced succession aba→bab, not merely membership of an edge in the graph. Individual support gives the constant-square exclusion and individual attainability, but a union of factors over all tours cannot certify arbitrary simultaneous selections.",
+        "searches": [
+          "Resultary: literal alternating factors in order-three de Bruijn cycles, edge-transition constraints, and nonpalindromic triple universal cycles",
+          "arXiv:2308.12405 universal cycle successor rules; arXiv:2308.16257 extremal de Bruijn factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4f258063228e gives t_q=q^(q(q−1)/2+q−3)(q−2)^((q−1)(q−2)/2)(q−1)^(q−1) for q≥3 and t_2=1. Its graph omits the q constant loops in addition to the unequal alternating triples.",
+          "3a32aa1283e5 tabulates length-six Abelian square counts across 2048 binary order-five cycles."
+        ],
+        "reasoning": "Adding the q constant loops leaves every Laplacian entry unchanged, so the first result supplies exactly the frozen T_q and all the small cofactors. The second table uses another statistic and cycle family; neither is a table of full order-three extrema by orientation.",
+        "searches": [
+          "Resultary 4f258063228e proof at offsets 3100–4788; 3a32aa1283e5 binary Abelian square spectrum"
+        ]
+      },
+      "rationale": "The supported distinct claim is simultaneous free orientation of all alternating square pairs at the sharp packing bound, and uniform exact enumeration of those constrained full de Bruijn cycles. A same-day indexed theorem already covers individual occurrence/nonoccurrence, and another indexed theorem covers the tree cofactor exactly. Neither gives the interaction between all the prescribed local transitions within a single full tour. BEST and its cofactors are not original contributions here.",
+      "residual_risks": [
+        "Lempel's original text was not retrieved, and the primary query was low-yield. Earlier equivalent enumeration under prescribed Euler transitions remains possible.",
+        "The known cofactor product and same-day individual support are not treated as new; the PASS is limited to the joint extremal orientation theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material individual-factor overlap; not simultaneous",
+          "evidence": "Union across all cycles excludes constants for q≥3; at q=2 the extra exclusions at n=3 are 0110 and 1001, not the alternating factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50/RESULT.md",
+          "material_read": "Finding and scope at offsets 0–1519",
+          "method": "Local mirror and specialization to n=3",
+          "title": "Exact next-order factor support across de Bruijn cycles",
+          "trigger": "Same cyclic factors of length four when order is three"
+        },
+        {
+          "assessment": "Exact cofactor coverage and different cyclic family",
+          "evidence": "Matrix-tree closed product and BEST count t_q((q−2)!)^(q²), where its Laplacian equals the frozen core Laplacian.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-enumeration-of-nonpalindromic-three-factor-universal-cycle--4f258063228e/RESULT.md",
+          "material_read": "Finding around offset 70 and proof offsets 3100–4788",
+          "method": "Local mirror, Laplacian and normalization comparison",
+          "title": "Exact enumeration of nonpalindromic three-factor universal cycles",
+          "trigger": "Same triple graph up to constant loops and exact cofactors"
+        },
+        {
+          "assessment": "Frameworks or distinct constraints in passages inspected",
+          "evidence": "Successor-rule construction, extremal orbit factors, or maximum run-length-limited sequences, rather than counts of prescribed alternating-square classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.12405; https://arxiv.org/pdf/2308.16257; https://arxiv.org/pdf/2403.01454",
+          "material_read": "Sawada et al. §5.1 p. 17 offset 74800; Álvarez et al. p. 3 offsets 4300–8088 and Lempel reference p. 17 offset 47412; Chee et al. abstract offset 2124 and §4 p. 17 offset 52580",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Concatenation trees; On extremal factors of de Bruijn-like graphs; Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Successor constraints and possible stronger cycle constructions"
+        },
+        {
+          "assessment": "Unresolved; not negative evidence",
+          "evidence": "Bibliographic citation only. The citing paper's graph-factor notion concerns orbit cycles.",
+          "identifier_or_url": "A. Lempel, J. Combin. Theory Ser. B 11 (1971), 17–27",
+          "material_read": "Citation in Álvarez et al., p. 17; original full text unavailable from attempted identifier",
+          "method": "Lawful bounded retrieval attempt, no confirmed full text",
+          "title": "On extremal factors of the de Bruijn graph",
+          "trigger": "Potentially relevant older graph-factor result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The problem asks how many local repetitions a fully universal cycle can pack, whether their choices interact, and how many maximizers there are. The joint realization and exact equidistribution of an exponentially large family of prescribed transition sets is a natural structural classification, not a lookup of the cofactor or a small-cycle census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

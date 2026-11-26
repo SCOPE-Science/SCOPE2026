@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact model \(\mathbb F_{17}[t]/(t^4+3)\) is a field: \(14=-3\) has order \(16\) modulo \(17\), which forces roots of \(t^4-14\) to have degree four. The primitive fifteenth root's order is checked. There are exactly two Frobenius orbits of primitive fifteenth roots, represented by exponents one and seven. Division-free Laplace recursion and independent Gaussian elimination each exhaust every nonempty principal index set in both orbits, with no zeros. Applying the published 2025 lifting theorem to \(N'=15,p=17\) gives the asserted complex \(15\)-principal conclusion. No assertion is inferred only from a partial sample.
+## correctness
 
-## Originality: PASS within searched literature
-The 2025 theorem's covered orders \(2p,3p,5p,6p,7p\), and its numerical sufficient-growth hypothesis, do not include \(255\); the new input is the complete characteristic-seventeen base certificate. Prior finite-field certificates at orders ten, eleven and fourteen, and the characteristic-seven failure classification at base order fifteen, neither cover nor imply this result. Principal-minor formulations, residue-balanced aliases, modular determinants, general lifting, and adjacent orders were explicitly compared. Remaining risk: an unindexed earlier computation or an inaccessible equivalently strong published statement. The full 2026 paper on distinct orders 70 and 143 was not materially inspected.
+PASS
 
-## Value: PASS
-Proving a new three-prime square-free instance of the principal-minor conjecture answers a natural sampling-uniqueness question. The stronger \(15\)-residue-balanced nonsingularity shows that recovery is valid for an explicit large class of nonprincipal Fourier restrictions. A fully reproducible exact local certificate is a meaningful finite cutoff even though it relies on the published global lifting theorem; the new result is not a re-labeling of an already covered order. The proof does not classify all nonprincipal restrictions or all square-free orders.
+Verified that Definition 3.2 and Theorem 1.4 of arXiv:2505.24326 apply to exactly the equality-of-residue-occupancies hypothesis with N=17·15 square-free. Independently checked the required F_15 computation using the two quartic factors X^4+5X^3+15X^2+11X+1 and X^4+11X^3+15X^2+5X+1 of Φ_15 mod 17. All primitive roots have degree ord_15(17)=4, so these irreducible factors cover the two Frobenius orbits. Gaussian rank over each quotient field, using exact multiplication/log tables and coefficientwise subtraction, yielded zero singular cases among all 32,768 subsets in each factor (32,767 nonempty). Replay: python3 /workspace/checks/order255_audit.py 5 for the timed slice or python3 /workspace/checks/order255_audit.py for all sizes; output /workspace/checks/order255_audit.out. The empty determinant is one. This replay checks the finite-field premise, not a direct enumeration at order 255. The two supplied checkers and frozen verification notes were inspected, not run. The record's two-orbit Frobenius argument suffices; a separate second-orbit check is not logically indispensable if one also uses the complementary-minor identity for F_15 inverse.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The lift is published; credit only the new parameter-specific finite-field premise and resulting 15-principal nonsingularity at order 255. The closest exact indexed statements concern a different characteristic for F_15 or a different order for the lift.
+
+## value
+
+PASS
+
+The instance is a three-prime square-free order outside the inspected unconditional families and spacing estimate, in a conjecture-driven class. A tractable exhaustive premise certifies an all-sizes conclusion at a substantially larger Fourier order, and the residue-balanced result is strictly broader than principal-only nonsingularity. This is a substantive finite instance, not a claim about arbitrary composite Fourier minors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

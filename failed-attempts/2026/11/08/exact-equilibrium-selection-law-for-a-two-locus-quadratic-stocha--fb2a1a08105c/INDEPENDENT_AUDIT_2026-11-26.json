@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:55:25.723908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each pair-mass fiber the disequilibrium (1-c)x-cu decays by 1-[a(1-c)+bc], with bx+au conserved. This gives the claimed limiting product state and Z. The conditional-uniform integral was independently evaluated symbolically with exact difference zero; the frozen verification note and checker were inspected, not executed. An independent CDF calculation gives F(z)=z+s(z)(2z-1)/(1+κs(z)), 0≤z≤1. Differentiation reproduces the density. At fixed κ this yields the endpoint coefficient κ+3; with z=w/κ the density and scaled CDF limits follow directly. Pointwise interior convergence and mass one give total variation convergence. Density at w=0 is by its continuous extension, and the null fibers C=0,1 and zero coefficients impose no additional almost-sure claim. For equal coefficients Z=X+U is Beta(2,2) by aggregation; for κ>0 endpoint powers and the central value exclude every Beta law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 in arXiv:1409.4941 gives the exact piecewise polynomial density for projected Dirichlet variables, including unit shapes and arbitrary distinct knots after translation. Roozegar's Theorem 3.2 requires Dirichlet weights and supplies only the symmetric benchmark in the conditional mixture formulation. The many-loci paper is broader in dynamical scope, not the needed distributional antecedent."
+        ],
+        "reasoning": "Use the stronger projection theorem rather than assuming the conditional weight is Beta when a≠b. Equal knots at a=b are handled by Dirichlet aggregation.",
+        "searches": [
+          "arXiv:1409.4941",
+          "arXiv:1508.01731",
+          "arXiv:2409.19687"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_two_locus.py",
+        "Targeted Resultary lookup",
+        "arXiv:1409.4941",
+        "arXiv:2210.00247",
+        "arXiv:1508.01731",
+        "arXiv:2409.19687",
+        "DOI 10.1016/j.spl.2012.04.017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For unit shapes, integrating equation (13) from the threshold to infinity and using the partial fractions in (14) gives the survival sum over knots above threshold: (knot-threshold)^3 divided by its three knot differences. Only the two positive knots contribute at zero. Their sum is (1-z)^2[1+(κ+2)z]/[1+κz(1-z)]."
+        ],
+        "reasoning": "Subtract from one to obtain the CDF, differentiate for the claimed density, and put z=w/κ for the scaling laws. This involves no additional distributional theorem, asymptotic estimate or case analysis beyond unit-shape aggregation in the symmetric case.",
+        "searches": [
+          "arXiv:1409.4941, Theorem 8 equations (13)–(14)",
+          "arXiv:2210.00247, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deterministic limit is Z=(bX+aU)/(b(X+Y)+a(U+V)). The denominator is positive, so Z>z is exactly the positive halfspace event for the linear functional with four knots b(1-z), -bz, a(1-z), -az."
+        ],
+        "reasoning": "This is a uniform tetrahedron cut at threshold zero, or a Dirichlet linear projection evaluated at a shifted threshold; the rational form does not take it outside that exact law.",
+        "searches": [
+          "arXiv:2210.00247",
+          "arXiv:1409.4941; Theorem 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact formula and boundary-layer match is the assigned record itself; no distinct exact indexed match was identified in the targeted lookup."
+        ],
+        "reasoning": "The identical record is not prior evidence. The failure rests on a checked primary theorem and a substitution, not a database non-match.",
+        "searches": [
+          "Resultary weighted-average and two-locus selection lookup; 2026/11/8/SCOPE-exact-equilibrium-selection-law-for-a-two-locus-quadratic-stocha--fb2a1a08105c"
+        ]
+      },
+      "rationale": "The asymmetry is not covered by the cited Beta closure theorem, but it is a direct two-term specialization of the prior exact law for linear projections of a uniform simplex, combined with the prior deterministic limit. The same specialization gives both scaling limits by substitution; this is demonstrated prior implication, not an assertion that a prior paper prints the identical density in this notation.",
+      "residual_risks": [
+        "A closer earlier explicit formula might exist; no historical first-publication claim is made.",
+        "Homei full text was not retrieved. That uncertainty does not affect the demonstrated implication from the inspected projection theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the pushed-forward law once the deterministic limit is inserted",
+          "evidence": [
+            "The partial-fraction coefficient at a translated knot A_i is A_i^3/product_{j≠i}(A_i−A_j) at four unit shapes. Integrating the Beta(1,3) component above the translated threshold cancels A_i^3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.4941",
+          "material_read": "PDF pp. 6–7, equal-knot aggregation (12), Theorem 8 (13)–(14), projection interpretation (19)–(21)",
+          "method": "Lawful OA PDF, read by offset after locating the B-spline discussion; reduced the equations at four unit shapes",
+          "title": "Real numerical shadow and generalized B-splines",
+          "trigger": "Exact stronger formula for a uniform-simplex halfspace cut"
+        },
+        {
+          "assessment": "Supplies the deterministic antecedent for the halfspace substitution",
+          "evidence": [
+            "Invariant-fiber convergence identifies the two limiting product parameters from the initial state."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.00247",
+          "material_read": "Section 2, Theorem 1 and limit formula, PDF pp. 2–3",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Evolutionary behavior in a two-locus system",
+          "trigger": "Same map and deterministic limiting product state"
+        },
+        {
+          "assessment": "Covers equal-coefficient Beta benchmark, not asymmetric conditional weights",
+          "evidence": [
+            "For asymmetric coefficients the transformed weight q has density 6a²b²q(1-q)/[b+(a-b)q]^4, rather than the required Beta weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.01731",
+          "material_read": "Section 3, Theorem 3.2, PDF p. 7",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Certain Family of Some Beta Distributions Arising from Distribution of Randomly Weighted Average",
+          "trigger": "Possible direct coverage of conditional weighted averaging"
+        },
+        {
+          "assessment": "Background only; no whole-document exclusion",
+          "evidence": [
+            "Abstract concerns evolution via invariant subsets, not the uniform-prior selection density."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19687",
+          "material_read": "Abstract",
+          "method": "Lawful OA passage inspection",
+          "title": "A many-loci system with evolution characterized by uncountable linear operators",
+          "trigger": "Broader invariant-fiber dynamics"
+        },
+        {
+          "assessment": "No full-text originality inference",
+          "evidence": [
+            "Beta random proportions are adjacent; full theorem coverage was not assessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2012.04.017",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA lookup; no same-paper repository copy recovered",
+          "title": "Randomly weighted averages with beta random proportions",
+          "trigger": "Adjacent Beta-weight law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Selection probabilities and endpoint scaling are motivated for a uniform start, and the compact formula is useful for exposition. But the quantity in this frozen claim is already exactly available by a two-term halfspace substitution, and its boundary layer is an immediate rescaling of that rational CDF. No distinct exact invariant or additional scientific result survives beyond this routine specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

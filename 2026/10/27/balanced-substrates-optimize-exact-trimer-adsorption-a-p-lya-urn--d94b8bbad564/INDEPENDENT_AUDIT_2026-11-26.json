@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:25:31.582185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two available path counts from vacant class sizes u,v are choose(u,2)v and u choose(v,2). Equal-rate clocks choose proportionally, which gives the stated two-count recurrence. The required type counts a−t and 2t−a prove feasibility; any such schedule has positive probability. Subtracting adjacent recurrences gives the stated positive-coefficient difference recursion. For t≤a<floor(3t/2), the earlier difference at a−2 is strictly positive (including at the support entrance), and the one at a−1 is nonnegative, including the preceding odd central tie. The t=2 base and symmetry give exactly the listed maxima. The extreme profile iterates the factor (2t−1)/(3t−2), while the inward ratio satisfies r_t=[t+2(t−1)r_(t−1)]/(2t−1), r_1=1, yielding (t+2)/3. Summing gives S_t/S_(t−1)=(3t−1)/(3t−2); both gamma identities and the edge asymptotic follow. Normalization gives the urn as stated, including its mixed symmetric initial state. Its centered increments are ±1/2 with conditional mean C_k/(3k+2), proving the exact variance recurrence. The even-moment recurrence has homogeneous growth k^(2r/3), below the forced order k^r, and forces successive Gaussian moment constants by the factor (2r−1)·3/4. Uniform moment bounds and Gaussian determinacy justify the weak limit, not pointwise probabilities. Independently written exact code agreed with all 26 positive labeled bipartitions through t=4, checked the stated profile identities through t=80 and matched independent normalized urn propagation through t=41. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model jamming paper proves scaling limits of terminal vacancies using the same jump chain.",
+          "Graph monomer/dimer RSA, continuum trimer RSA, and regular uniform hypergraph unmatched-set bounds treat different subsets of assumptions or observables.",
+          "General Eulerian asymptotic normality applies directly to the transformed recurrence."
+        ],
+        "reasoning": "The terminal-vacancy scaling law does not give the exact zero-vacancy probability as a function of initial composition. In particular weak scaling cannot recover the integer mass at zero. The broader polynomial and urn machinery applies after the new finite-probability identification, not in place of it.",
+        "searches": [
+          "Resultary 0215db9f67be, Finding and vacant-count chain",
+          "arXiv:math/0503519",
+          "arXiv:1309.7021",
+          "arXiv:1210.3581",
+          "Janson DOI 10.1016/j.spa.2003.12.002",
+          "arXiv:1807.01412 §2, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_trimers.py",
+        "Resultary 0215db9f67be",
+        "arXiv:1807.01412, math/0503519, 1309.7021 and 1210.3581",
+        "Janson DOI 10.1016/j.spa.2003.12.002 (landing-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 takes α(1)=3, β(1)=−1 and gives μ=1/2 and σ²=3/4 here. Its P_t(1) product also evaluates the total weight after dividing by the rescaling product.",
+          "The jamming report's exact jump chain gives the recurrence by setting the target to zero vacancies, but its asymptotic vacancy statements are not an evaluated finite perfect-cover profile."
+        ],
+        "reasoning": "The weak CLT and generic weight calculation are consequences of known machinery. The remaining finite statements form a distinct result: the proof establishes strict shape in a conditional-success profile, gives both a sharp boundary rate and the exact one-step inward gain, and connects that profile to a specific finite forward urn process.",
+        "searches": [
+          "arXiv:1807.01412 §2 equations (10)–(12)",
+          "Resultary 0215db9f67be jump chain and terminal-vacancy results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deposition is random greedy matching on the hypergraph of three-site paths; shifting a by t yields an Eulerian coefficient array.",
+          "For F_t(z)=Σ_j f_t(t+j)z^j, define P_t=F_t∏_(s=1)^t(3s−2). Then P_0=1 and P_t=[(2+z)t−1]P_(t−1)−z(1−z)P'_(t−1). This is the α(z)=2+z, β(z)=−z, γ(z)=−1 specialization of arXiv:1807.01412, equation (9)."
+        ],
+        "reasoning": "The transform is exact, not merely an asymptotic similarity: the coefficient distribution of P_t is A_t−t. The general family overlaps at the level of polynomial machinery and limit behavior; it does not identify this adsorption event with the specified recurrence or evaluated profile.",
+        "searches": [
+          "Resultary: complete bipartite trimer adsorption, perfect cover and normalized composition urn; generalized Eulerian and box-sorting profiles",
+          "Hwang Chern Duh Eulerian recurrence distribution theory combinatorial central limit polynomial recurrence P_n derivative arxiv path trimer complete bipartite perfect cover Polya urn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-model report's verification section describes exact labeled and count-state dynamic programming for terminal vacancies only for 1≤a,b≤4. Its Finding concerns scaling laws.",
+          "Independent exact small-profile values include normalized masses (3,4,3)/10 at t=2 and (21,42,50,42,21)/176 at t=4; neither the symmetric binomial nor the fitted symmetric beta-binomial gives this profile."
+        ],
+        "reasoning": "An exact finite dynamic program can reproduce individual cases but is not an all-size evaluated profile, monotonicity theorem, or boundary-layer law. The checked nearby probability families are not interchangeable with this parameter array. No exhaustive table search is claimed.",
+        "searches": [
+          "Local Resultary: complete bipartite trimer exact adsorption profile / bipartition balance / generalized Eulerian or box-sorting profile",
+          "Resultary 0215db9f67be, exact computation scope"
+        ]
+      },
+      "rationale": "Credit the distinct exact perfect-cover composition analysis: the strict optimizer, evaluated edge and first inward layer, and identification of its normalized finite law. Do not credit the two-count jump mechanism as distinct from the same-model jamming record, or the Gaussian limit as an independent urn theorem. The inspected general Eulerian theorem already implies the Gaussian limit once the adsorption coefficients are identified; it does not supply that model-specific identification or the evaluated edge and optimizer. No exact prior coverage of that residual analysis was established in the bounded comparison.",
+      "residual_risks": [
+        "A specialist adsorption or Eulerian-number source could contain an equivalent finite evaluated profile; bounded searches do not establish historical priority.",
+        "The mathematical comparison credits no new generic Gaussian theorem and establishes no local limit or fixed-composition vacancy limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process and recurrence mechanism, different evaluated observable",
+          "evidence": "States m^(1/4) vacancy scaling and an imbalanced limiting vacancy law; the checks for full terminal distributions are bounded to small class sizes, not the exact composition profile theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-quarter-power-jamming-law-for-random-three-site-adsorption-on--0215db9f67be/RESULT.md",
+          "material_read": "Finding, Proof jump-chain passage near offset 2488, and Verification/Relationship passage near offset 7100",
+          "method": "Bounded local indexed mirror text",
+          "title": "A quarter-power jamming law for random three-site adsorption on complete bipartite networks",
+          "trigger": "Exact same substrate, adsorbate and equal-rate process"
+        },
+        {
+          "assessment": "Stronger analytic theorem directly covers the weak CLT once the recurrence is given",
+          "evidence": "Equation (12) yields μ=1/2 and σ²=3/4 from α(z)=2+z, β(z)=−z; the preceding P_n(1) identity yields the weight product.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.01412",
+          "material_read": "PDF pp. 10–11, §2 and equations (10)–(12), near offset 40850",
+          "method": "Open-access primary PDF passage and explicit parameter substitution",
+          "title": "An asymptotic distribution theory for Eulerian recurrences with applications",
+          "trigger": "Exact Eulerian rescaling of the finite adsorption profile"
+        },
+        {
+          "assessment": "The stated model covers monomers and dimers, not path trimers",
+          "evidence": "Explicitly lists monomers blocking neighbors and dimers.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "PDF p. 1 abstract, near offset 574",
+          "method": "Open-access primary abstract passage",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Graph RSA precedent"
+        },
+        {
+          "assessment": "Different substrate and observable in the inspected statement",
+          "evidence": "Identical spheres forming adsorbates on a two-dimensional flat homogeneous surface.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.7021",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Open-access primary abstract passage",
+          "title": "Random sequential adsorption of trimers and hexamers",
+          "trigger": "Trimer RSA precedent"
+        },
+        {
+          "assessment": "Asymptotic unmatched-set bound, not an exact finite perfect-cover theorem",
+          "evidence": "Treats regular uniform hypergraphs and controls unmatched size.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.3581",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Open-access primary abstract passage",
+          "title": "A natural barrier in random greedy hypergraph matching",
+          "trigger": "General random greedy matching formulation"
+        },
+        {
+          "assessment": "Generic urn precedent; no inference of noncoverage from access failure",
+          "evidence": "A decisive exact limit implication was independently checked in the accessible Eulerian recurrence theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2003.12.002",
+          "material_read": "Landing page/abstract only; no retrieved full text",
+          "method": "Bounded lawful retrieval, with no accessible full-text copy found in the attempted recovery",
+          "title": "Functional limit theorems for multitype branching processes and generalized Pólya urns",
+          "trigger": "General urn limit precedent cited by the original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect occupation is a practical and sharply defined endpoint of a natural irreversible matching process. For a fixed total size, the finite analysis answers which bipartitions maximize it, quantifies how rare success is at the feasibility edge and the exact gain from moving one site inward, and explains the distribution of favorable compositions. Those results are useful independently of the known general Gaussian machinery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,74 +1,36 @@
-# Sharp Fourier-bias balancing on incomplete finite-field line pencils
+# Equality cases for Fourier bias on incomplete finite-field line pencils
 
 ## Finding
 
-Fix a prime power \(q\ge2\) and \(2\le k\le q\). Let \(L_1,\ldots,L_k\) be any \(k\) distinct one-dimensional \(\mathbb F_q\)-linear subspaces of \(\mathbb F_q^2\), and set \(S=\bigcup_{j=1}^k L_j\). Given any nontrivial additive character \(\psi\) of \(\mathbb F_q\), define the unnormalized Fourier transform of a probability mass \(\mu\) by
-\[
-\widehat\mu(\xi)=\sum_{x\in\mathbb F_q^2}\mu(x)\,\psi(-\xi\cdot x).
-\]
-The *optimal nontrivial Fourier bias* of the support is
-\[
-\mathfrak b(S)=\inf_{\substack{\mu\ge0,\ \operatorname{supp}(\mu)\subseteq S\\\sum_x\mu(x)=1}}\ \max_{\xi\ne0}|\widehat\mu(\xi)|.
-\]
-Then the exact sharp result, independent of the selected directions and of \(\psi\), is
-\[
-\boxed{\mathfrak b(S)=\begin{cases}
-\dfrac{1}{2k-1},&q\le2k,\\[3pt]
-\dfrac{q-k}{k(q-1)},&q\ge2k.
-\end{cases}}
-\]
-The branches agree at \(q=2k\). An attaining mass has constant weight \(a\) at the origin and constant weight \(b\) at each of the other \(k(q-1)\) points, with
-\[
-(a,b)=\begin{cases}
-\left(\dfrac{2k-q}{q(2k-1)},\dfrac{2}{q(2k-1)}\right),&q\le2k,\\[4pt]
-\left(0,\dfrac{1}{k(q-1)}\right),&q\ge2k.
-\end{cases}
-\]
-**Central-atom rigidity:** every attaining probability measure, even one without radial or line-permutation symmetry, assigns exactly the displayed mass \(a\) to the origin. Thus every optimizer charges the origin if \(q<2k\), and no optimizer charges it if \(q\ge2k\). The displayed canonical optimizer has *constant absolute Fourier coefficient at every nonzero frequency* exactly when \(q\le2k\); for \(q>2k\), its nontrivial Fourier magnitudes have two distinct levels. The uniform probability mass on all of \(S\) is optimal exactly when \(q=2k-2\).
+Let \(q\) be a prime power, \(2\le k\le q\), and \(S\) the union of \(k\) distinct lines through zero in \(\mathbb F_q^2\). Fix a nontrivial field additive character \(\psi\). For a nonnegative probability mass \(\mu\) supported on \(S\), define \(\widehat\mu(\xi)=\sum_x\mu(x)\psi(-\xi\cdot x)\) and minimize \(\max_{\xi\ne0}|\widehat\mu(\xi)|\). No symmetry or evenness of \(\mu\) is assumed.
 
-## Assumptions and scope
+* For \(q\le2k\), the minimizing probability is **unique**, not only unique among symmetric measures. It assigns \(a=(2k-q)/[q(2k-1)]\) to zero and \(b=2/[q(2k-1)]\) to each other point of \(S\).
+* For \(q>2k\), every minimizer assigns zero mass to zero and has the same Fourier coefficient on every selected dual line, namely \((q-k)/[k(q-1)]\) at its nonzero frequencies. Uniqueness need not persist: a pencil of three lines over \(\mathbb F_7\) has nonsymmetric minimizers.
 
-All fields have finite order \(q=p^m\) and all lines are through the origin. Nonnegative real probability weights may vanish, so the support need only be contained in \(S\). The maximum excludes the zero frequency, at which \(\widehat\mu(0)=1\). The Fourier normalization is **unnormalized**; this is essential for the numerical constants. The result holds for every choice of distinct line directions and every nontrivial additive character, including characteristic two. It concerns positive-measure Fourier flatness, not unconstrained complex Fourier synthesis or restriction norms.
+The turnover at \(q=2k\) is thus an equality-case constraint on arbitrary nonnegative measures, not merely on optimizers in a symmetry-reduced problem. The value of the minimax is included below to specify the equality case; no novelty is claimed for the value obtained from the homogeneous graph optimization.
 
 ## Proof
 
-**1. Radial symmetrization.** For every \(c\in\mathbb F_q^*\), replace \(\mu\) by the pushforward of \(\mu\) under \(x\mapsto cx\). This preserves \(S\), the mass at the origin, positivity, and total mass; it permutes nonzero Fourier frequencies. Since the maximum absolute Fourier coefficient is a convex function of the measure, averaging these \(q-1\) pushforwards cannot increase the objective. The averaged measure takes one value \(a\ge0\) at \(0\) and a common value \(b_j\ge0\) on \(L_j\setminus\{0\}\). Write \(B=\sum_j b_j\), so \(a+(q-1)B=1\).
-
-**2. Exact Fourier levels.** For nontrivial \(\psi\), the sum over nonzero elements of a line is \(q-1\) when \(\xi\) annihilates that line and \(-1\) otherwise. Each nonzero frequency annihilates exactly one projective line, and the annihilator lines of the selected \(L_j\) are disjoint except at zero. Consequently, with \(t=a-B\), the averaged Fourier transform equals \(1\) at \(\xi=0\); it equals \(t+qb_j\) at each of the \(q-1\) nonzero frequencies of \(L_j^\perp\); and it equals \(t\) at the \((q+1-k)(q-1)\) remaining nonzero frequencies. As \(k\le q\), that last class is nonempty. Thus the exact bias of the averaged mass is
+For each dual line \(D\), average \(\widehat\mu(\xi)\) over \(\xi\in D\setminus\{0\}\). If \(x\in D^\perp\) the average character value is \(1\). Otherwise the sum over all \(\xi\in D\) is zero, by a nontrivial field character sum, leaving \(-1/(q-1)\) after removing zero. Thus the exact average is \((q\mu(D^\perp)-1)/(q-1)\); this also holds for nonprime fields and characteristic two. Let \(a=\mu(0)\), and write \(t=(qa-1)/(q-1)\). For each omitted dual line the average is \(t\). The arithmetic mean of the averages on the \(k\) selected dual lines is
 \[
-\max\left\{|t|,\max_{1\le j\le k}|t+qb_j|\right\}.
+y=\frac{1+(k-1)t}{k},
 \]
-For fixed \(a,B\), replacing every \(b_j\) by the mean \(B/k\) preserves feasibility and cannot increase this maximum: \(\big|t+qB/k\big|\le\max_j|t+qb_j|\) by the triangle inequality. In particular, an optimum exists among the *fully symmetrized* masses \(a\) at zero, \(b\) at every other site. Both symmetrizations leave the origin mass unchanged.
+because the sum of the masses of the selected primal lines is \(1+(k-1)a\). There is at least one omitted line. The Fourier bias is therefore at least \(\max\{|t|,y\}\) with \(t\in[-1/(q-1),1]\), and this bound is attained at each fixed \(a\) by taking the constant nonzero-point weight \(b=(1-a)/[k(q-1)]\). For that measure the two exact pointwise frequency levels are \(t\) and \(y\) by the same character sums.
 
-**3. One-variable minimax.** The constraints \(a+k(q-1)b=1\) and \(t=a-kb\) give
-\[
- b=\frac{1-t}{kq},\qquad a=\frac{1+(q-1)t}{q},\qquad
- -\frac1{q-1}\le t\le1.
-\]
-For nonzero dual-line frequencies the coefficient is
-\[
-y=t+qb=\frac{1+(k-1)t}{k},\]
-which is nonnegative throughout this interval because \(k\le q\). Hence one must minimize \(\max\{|t|,y\}\). On \(t\ge0\), the objective is \(y\), which increases with \(t\) because \(k\ge2\). On \(t\le0\), the two competitors \(-t\) and \(y\) cross exactly at \(t_*=-1/(2k-1)\). The crosspoint is feasible precisely when \(q\le2k\). If feasible it is the unique minimizer. Otherwise the unique minimizer is the left endpoint \(t=-1/(q-1)\), which makes \(a=0\). Substitution gives the boxed constant and displayed weights, including agreement at the boundary. For \(q>2k\), the two levels are \(1/(q-1)\) off selected dual lines and \((q-k)/(k(q-1))\) on them; the latter is strictly larger. For \(q\le2k\), their magnitudes both equal \(1/(2k-1)\).
+Since \(y\ge0\) and strictly increases with \(t\), the unique minimizing \(t\) is the crossing \(-t=y\), at \(-1/(2k-1)\), when \(q\le2k\). Otherwise it is the left endpoint \(-1/(q-1)\), with value \(y=(q-k)/[k(q-1)]\). In particular every optimizer, without any symmetry assumption, must have the displayed \(a\) for \(q\le2k\) and \(a=0\) for \(q>2k\).
 
-**4. Rigidity of the origin atom.** Apply the two averaging steps to an *arbitrary* global minimizer. Neither step changes its origin atom and neither can increase its bias; since the starting bias was minimal, the resulting fully symmetric mass also minimizes. The one-variable minimizer above is unique, so this symmetric mass has the displayed atom \(a\). Therefore the original, possibly asymmetric minimizer must have precisely that same \(a\). The only fully symmetric optimum is the displayed one. Finally, uniform mass means \(a=b\). In the interior branch \(a/b=(2k-q)/2\), yielding \(q=2k-2\); in the boundary/exterior branch \(a=0<b\). This proves the uniform-mass assertion.
+For the equality statement, if finitely many numbers \(z_i\) satisfy \(|z_i|\le m\) and their average is \(m\) or \(-m\), all numbers are equal to that average. This follows by taking real parts, which reach the corresponding endpoint only at \(z_i=\pm m\). For \(q\le2k\), apply this to each omitted ray with mean \(-m\), and to all nonzero selected dual frequencies together, with mean \(m=1/(2k-1)\). Every nonzero Fourier coefficient is therefore fixed, while \(\widehat\mu(0)=1\). Invertibility of the full Fourier transform proves uniqueness of the canonical mass, including at \(q=2k\). For \(q>2k\) only the selected dual averages are forced to saturate, giving the asserted pointwise values there; the nonselected averages have smaller modulus.
 
-## Verification
+For the failure of uniqueness, take the horizontal axis, vertical axis and diagonal in \(\mathbb F_7^2\). Write \(g(1)=1,\ g(-1)=-1\), zero elsewhere on \(\mathbb F_7\). Define a real signed perturbation \(f\) by \(g(s)\) at \((s,0)\) and \((0,s)\), by \(-g(s)\) at \((s,s)\), and zero elsewhere. Its total mass is zero and \(\widehat f(u,v)=\widehat g(u)+\widehat g(v)-\widehat g(u+v)\), where \(\widehat g(0)=0\) and \(\widehat g(-u)=-\widehat g(u)\). It vanishes on the selected dual lines \(u=0, v=0, u+v=0\). The canonical nonzero weights equal \(1/18\) and the Fourier magnitudes on omitted lines equal \(1/6\), below the optimum \(2/9\). For any real \(0<|\varepsilon|<1/108\), adding \(\varepsilon f\) preserves nonnegativity and normalization and changes the omitted coefficients by at most \(6|\varepsilon|<1/18\). Hence these perturbed masses are also optimal and are not even.
 
-The standalone standard-library script `check_bias.py` constructs the field operations, distinct projective lines, selected pencils, and their unnormalized complex Fourier transforms. It tests prime orders \(2,3,5,7,11\), and nonprime prime powers \(4,8,9\), several values of \(k\), and multiple direction selections. Its run compared 4,376 nonzero Fourier coefficients with the two-level formulas and checked the maximum against the exact minimax constant; all comparisons passed. These finite numerical checks are supplementary only. The proof above establishes the result for every prime power and every permitted pencil.
+## Relationship to prior work and scope
 
-Two illustrative exact cases: when \(q=5,k=2\), the optimum is \(3/8\), attained with no atom at the origin and weight \(1/8\) at each of eight other support points; when \(q=5,k=3\), the optimum is \(1/5\), attained with weight \(1/25\) at the origin and \(2/25\) at each of twelve other support points. In the latter case all \(24\) nonzero Fourier coefficients have magnitude \(1/5\).
-
-## Relationship to prior work
-
-Fraser, *Fourier analytic properties of Kakeya sets in finite fields*, first available as arXiv:2505.09464 on 2025-05-14, proves an existence bound for probability measures on unions of lines in prescribed orientations (Theorem 2.1 and the accompanying incidence construction). For \(k\) concurrent directions in the plane, that construction gives the bound \(1/k\), but the inspected theorem and proof do not solve the exact nontrivial-frequency minimax problem or the change in the optimal intersection mass. The present result gives an exact value strictly below that incidence bound for \(2\le k\le q\), a spectral-flatness threshold, and atom rigidity. This is a specialization of the *geometric setup*, not a corollary of the previously stated inequality.
-
-Iosevich–Li–Yu, *Spectral synthesis, Fourier extension, and arithmetic in \(\mathbb Z_N^d\)*, arXiv:2609.25404v2, studies a different ratio involving the largest Fourier coefficient divided by its full \(\ell^r\) norm. Its affine-transitive exact-constant theorem does not apply to this intersection-versus-lines support, and its ratio does not imply the positive-measure off-zero minimax value here. Independently catalogued sharp Fourier synthesis constants for line pencils at the fourth power, and all-exponent synthesis for two axes, concern that different objective and do not settle this theorem.
-
-## Limitations
-
-The theorem does not classify the *entire* set of nonsymmetric optimizing measures, though it proves their origin mass is fixed. It does not concern affine translates of different lines with separate intersection patterns, complex signed measures, or quantitative perturbation stability. For the excluded complete pencil \(k=q+1\), \(S=\mathbb F_q^2\) and the uniform measure has bias zero. No claim of independent mathematical review or unrestricted bibliographic novelty is made; an older equivalent exact minimax statement for positive measures could remain undiscovered.
+Translation walks \(P(x,y)=\mu(y-x)\) on the pencil graph realize the Fourier objective as the modulus of the largest nonconstant eigenvalue. Restricting to even \(\mu\) gives reversible uniform-equilibrium walks; averaging \(\mu(x)\) with \(\mu(-x)\) cannot increase the bias. The graph determined by the selected directions is strongly regular, with two nonconstant adjacency eigenvalues \(q-k\) and \(-k\). Thus the numerical optimum is also a homogeneous-edge fastest-mixing calculation on a two-class association scheme, related to the general fastest-mixing results below. The equality proof here concerns all convolution laws, including those that are not reversible, and gives an explicit loss of uniqueness despite a unique homogeneous optimum. It does not classify all nonsymmetric equality cases in the regime \(q>2k\). Fraser's finite-field direction-cover work concerns existence bounds; sharp fourth-power synthesis on the same support optimizes a different Fourier norm ratio over complex functions.
 
 ## References
 
-1. J. M. Fraser, *Fourier analytic properties of Kakeya sets in finite fields*, arXiv:2505.09464v1 (2025-05-14), https://arxiv.org/abs/2505.09464 ; *Bulletin of the London Mathematical Society* (2026), https://doi.org/10.1112/blms.70367. Specifically §2, Theorem 2.1, and §3.1.
-2. A. Iosevich, Z. Li, and K. Yu, *Spectral synthesis, Fourier extension, and arithmetic in \(\mathbb Z_N^d\)*, arXiv:2609.25404v2 (2026-11-16), https://arxiv.org/html/2609.25404v2. Specifically §1 and §4.
+1. S. Boyd, P. Diaconis and L. Xiao, *Fastest Mixing Markov Chain on a Graph*, SIAM Review 46 (2004), 667–689, https://doi.org/10.1137/S0036144503423264.
+2. S. Boyd, P. Diaconis, P. Parrilo and L. Xiao, *Fastest Mixing Markov Chain on Graphs with Symmetries*, §3, https://arxiv.org/abs/0709.0955.
+3. S. Jafarizadeh, *Pareto–Optimal Design of Markov Chains on Networks Based on Association Schemes*, https://ieeexplore.ieee.org/abstract/document/11513850.
+4. J. M. Fraser, *Fourier analytic properties of Kakeya sets in finite fields*, https://doi.org/10.1112/blms.70367.
+5. *Universal sharp fourth-power Fourier synthesis on finite-field line pencils*, Resultary record `87d7ea89b8bb`.

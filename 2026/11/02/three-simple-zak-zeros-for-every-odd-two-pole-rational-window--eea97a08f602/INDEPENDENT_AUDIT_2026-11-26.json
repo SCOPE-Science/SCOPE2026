@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:04:02.799639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fourier transform follows by subtracting the two odd Cauchy-kernel terms. The Fourier coefficients of the continuous, 1-periodic function e^{-2πitξ}Z(t,ξ) are then exactly the transform at k+ξ; summing its exponential tails gives the stated rational formula. The defining Zak series is C¹, including across the ξ=0 seam, since the ξ-derivative is bounded termwise locally by a summable order-|m|^{-2} bound. All four rational denominators stay nonzero on the unit circle. A separate symbolic calculation from the four cleared terms reproduced the exact reciprocal resultant and both edge and midpoint factorizations, without executing CHECK.py. Real coefficients ensure any unit-circle root is common with the reciprocal. For 0<ξ<1, B is strictly negative. For A, factoring the exponential terms reduces its sign to the difference of the increasing sinh ratios at ξ and 1-ξ. For C, the derivative in the pole parameter reduces to monotonicity of y tanh y, again excluding vanishing except at ξ=1/2. At the midpoint the residual quadratic divided by z has a strictly positive lower bound (1+w²)(1+s²) on the circle; at the edge only z=±1 can vanish. At those real points S_z is positive: it is a difference of increasing functions 2q/(1∓q)² evaluated at q and r on the edge, or of the increasing function √q(1+q)/(1-q)² at the midpoint. S_ξ has signs +,+,- by the stated hyperbolic derivative tests. Thus ∂_t S=2πizS_z yields the three nonzero real Jacobians with signs -,+,+ in the stated orientation. The packaged checker was inspected, not run; finite comparisons of Zak sums are only corroboration. No conclusion outside distinct positive a,b or at other Gabor densities is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belov–Kulikov–Lyubarskii use rational fractions and a Zak representation for one-sided pole classes. Their near-critical frame criterion assumes a positive real part on the entire circle, not a classification of forced zeros, and their critical-density completeness assertion uses almost-everywhere nonvanishing.",
+          "Ghosh fixes x/((x²+1)(x²+4)); the inspected cubic and reflection formulas apply to that window in a rational-density frame problem."
+        ],
+        "reasoning": "One-sided pole conditions exclude the mixed upper/lower pairs, and almost-everywhere nonvanishing says nothing about the number or multiplicity of isolated zeros. The fixed-ratio formula is an antecedent, not a theorem for arbitrary pole ratios.",
+        "searches": [
+          "Belov Kulikov Lyubarskii Gabor frames rational functions critical density poles Zak transform",
+          "arXiv:2103.08959, Theorems 1.3–1.5 and Section 4.7",
+          "arXiv:2608.10568, Eq. (1.2), Theorem 1.1 and Sections 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–100, VERIFICATION.md, CHECK.py lines 7–39",
+        "arXiv:2608.10568 Eq. (1.2), Theorem 1.1, Sections 2–3",
+        "arXiv:2103.08959 Theorems 1.3–1.5",
+        "Resultary SCOPE-d1d5c707922d, SCOPE-c62a57cef13d and SCOPE-7d9bb307f8cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rational Zak formula can be rederived by linearity from Cauchy terms. The three candidate points already follow from oddness and the Zak boundary relations.",
+          "The decisive calculation needs nonvanishing of the reciprocal resultant off midpoint for every independent pole ratio, followed by strict signs of ξ-derivatives at the possible zeros."
+        ],
+        "reasoning": "Neither rationality, parity, nor a frame or completeness assertion at a different density supplies this nonvanishing and sign comparison. It requires explicit parameter inequalities, not a change of convention or a rescaling of the known cubic.",
+        "searches": [
+          "arXiv:2608.10568 Sections 2–3, cubic and reflection identity",
+          "arXiv:2103.08959 Section 1.5, near-critical criteria",
+          "Frozen RESULT.md lines 39–97"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-window Resultary result treats scaled windows of fixed 1:2 pole ratio and the curvature of a sum of two squared channels at half density.",
+          "The first-Hermite result finds the same three positions for unchirped dilations of a different window."
+        ],
+        "reasoning": "Neither a two-channel curvature at one point nor equality of zero locations for another odd window is equivalent to the single-channel zero set and indices here. Pole-ratio variation cannot be produced by a dilation of the fixed-ratio window.",
+        "searches": [
+          "Resultary: exact rational two-pole Zak zeros and signed zero sets for odd windows",
+          "SCOPE-a-unique-curvature-crossover-at-a-rational-gabor-half-density-ob--d1d5c707922d",
+          "SCOPE-exactly-three-zak-zeros-for-every-unchirped-dilate-of-the-first--c62a57cef13d",
+          "Primary search: odd rational Zak zeros with paired imaginary poles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparable Hermite finding lists exactly the same three points for its window family. The same-day quadratic B-spline finding counts zeros on a symmetry fiber, with a transition between one and three."
+        ],
+        "reasoning": "The relevant inventory would have to describe the full two-dimensional cell, with indices, for the rational family and a continuum of parameters. Neither a matched coordinate list for Hermites nor a B-spline fiber count is such an inventory.",
+        "searches": [
+          "Resultary exact three Zak zeros and rational-window signed zero classifications",
+          "SCOPE-exactly-three-zak-zeros-for-every-unchirped-dilate-of-the-first--c62a57cef13d",
+          "SCOPE-sharp-symmetry-fiber-zero-transition-for-the-quadratic-b-spline--7d9bb307f8cd"
+        ]
+      },
+      "rationale": "The distinct contribution is the complete simple signed zero set uniformly for two independently placed positive pole pairs. Oddness forces the three candidate points, the rational Zak representation has close precedents, and the same three coordinates in a different window class are not new. Available prior results do not settle exclusion of other zeros or the Jacobian signs over this two-parameter family.",
+      "residual_risks": [
+        "A more general mixed-pole classification outside the inspected statements could subsume the rational result; the literature comparison is not a historical-priority certificate.",
+        "The independent symbolic check establishes identities, not sign uniformity or completeness by itself; those depend on the analytic inequalities and unit-circle argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant fixed-ratio antecedent, not arbitrary-pair signed zeros",
+          "evidence": "Window x/((x²+1)(x²+4)), cubic polynomial, reflection identity, rational transform and rational-density frame assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.10568",
+          "material_read": "PDF p. 2, Eq. (1.2); Theorem 1.1; Sections 2–3, pp. 4–6, OA offsets 13048, 17996 and 22961",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Gabor Frames for Rational Windows with Symmetric Poles",
+          "trigger": "Closest primary rational odd window and Zak polynomial"
+        },
+        {
+          "assessment": "One-sided or positive-real-part conditions do not cover this zero-divisor calculation",
+          "evidence": "Theorems 1.3–1.5 include restrictions on the real parts of all pole parameters and, for the near-critical criterion, positive real part of the rational Zak function everywhere.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08959",
+          "material_read": "PDF p. 4 and preceding statement, offset 8260; critical-density discussion located in Section 4.7, p. 23",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Gabor frames for rational functions",
+          "trigger": "Potentially stronger rational-window frame and Zak theorems"
+        },
+        {
+          "assessment": "Different observable and fixed ratio",
+          "evidence": "Local quadratic comparison for a two-channel half-density energy of scaled copies of a 1:2 window.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-unique-curvature-crossover-at-a-rational-gabor-half-density-ob--d1d5c707922d",
+          "material_read": "Mirrored RESULT.md at offset 0, finding",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "A unique curvature crossover at a rational Gabor half-density obstruction",
+          "trigger": "Closest same-window indexed record"
+        },
+        {
+          "assessment": "Distinct family and theorem",
+          "evidence": "The complete three-point set holds for first-Hermite dilates, not for rational functions.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-three-zak-zeros-for-every-unchirped-dilate-of-the-first--c62a57cef13d",
+          "material_read": "Mirrored RESULT.md at offset 0, finding",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Exactly three Zak zeros for every unchirped dilate of the first Hermite window",
+          "trigger": "Identical zero coordinates and complete count for another window"
+        },
+        {
+          "assessment": "Distinct family and only one fiber; same-day dating does not decide priority",
+          "evidence": "Three or one frequency zeros along a symmetry fiber for B-splines, not a rational-window zero set and signed Jacobians.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-symmetry-fiber-zero-transition-for-the-quadratic-b-spline--7d9bb307f8cd",
+          "material_read": "Mirrored RESULT.md at offset 0, finding",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp symmetry-fiber zero transition for the quadratic B-spline",
+          "trigger": "Same-day exact Zak zero-count result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Oddness alone does not preclude additional zeros or degeneracy. This exact uniform classification controls the obstruction in a natural sign-changing rational family whose two pole locations can vary independently. The indices establish transversality and local orientation, which a mere zero count cannot give.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

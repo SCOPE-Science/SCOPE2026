@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source recurrence is fixed explicitly, and the reduced polynomial is obtained by factoring an invariant unit root from the actual four-dimensional transition. Necessity and sufficiency of the five strict real cubic Schur inequalities are standard; the algebra and rational witness were independently reconstructed by the included symbolic checker. The near-negative upper bound is global over every stable stepsize, not merely small steps, because the constant coefficient bounds such steps, the limit Schur obstruction excludes every nonzero accumulation point, and the local expansion then forces the sharp order-one coefficient two. For the positive branch a limiting polynomial root forces the sharp upper bound. The valid initial condition for the finite unstable example is checked separately. Limits concern fixed disparity in the open interval.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating work's heterogeneous general-case analysis supplies a sufficient certificate, not a sharp necessary-and-sufficient two-node Schur frontier. Its special exact regimes do not include the present nonzero heterogeneous disparity with nontrivial signed graph. A previous published finding derives exact signed *rate-optimal tuning* at zero heterogeneity; that known qualitative sign effect is explicitly excluded from the novelty claim. Tian–Chai–Xu's full text was inspected for the different AugDGM gradient-tracker mixing and graph/function-class worst-case claims, which do not imply this fixed-instance stability-ceiling comparison. A previously published general theorem with an equivalent sharp two-node boundary remains possible; the search is a priority check, not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The exact family gives a necessary sharp stability-scale obstruction to descriptors-only calibration, a full finite-parameter criterion, and a constructive same-descriptor stable-versus-unstable comparison. The fact is relevant because stability safeguards are usually calibrated from unsigned network spectral radius and curvature disparity. This is distinct from merely recomputing an eigenvalue in an arbitrary small matrix: the source's general certificate is conservative and the two signed regimes force parametrically different *safe* step sizes for the same available descriptors. Limits on graph size and constant-step dynamics are material.
+On consistent initialization y_c=x_c+ηx_d is preserved. Eliminating it in unscaled coordinates (x_c,x_d,y_d) independently gives det(zI−A)=(z−1+β)[(z−ν)^2+βν(z−1)]−β²η²ν(z−1), agreeing with the scaled matrix and all cubic coefficients. The cubic Schur reduction with |c|<1 gives the two endpoint signs and D=1−b+ac−c²>0. At ν=−1+δ, β=kδ, the leading terms of −Q(−1), 1+c and D are 4kδ, 2δ and (8−4k)δ, establishing sufficiency for fixed 0<k<2. To control the supremum, c<1 bounds all stable steps because 1−η²>0 is fixed. At ν=−1 the exact D is −β[h²β³−4hβ+4] with h=1−η²; the bracket is positive by min_{u≥0}(u³−4u)=−16/(3 sqrt(3)). Thus every stable step tends to zero as δ→0, and the Taylor remainder in D=8δ−4β+O((δ+β)²) can be absorbed uniformly to give limsup B_-/δ≤2. The verified prior positive exact formula gives lim B_+=2/(1+η), also obtained by the frozen limiting factorization with roots 1 and 1−β(1±η). Independent bounded SymPy algebra formed the Jacobian of (x_c−β(x_c+ηx_d),ν(x_d−βy_d),νy_d+η(x_c^+−x_c)+(x_d^+−x_d)) and confirmed the determinant, limiting D, directional derivative 8−4k and rational witnesses D=15759/10000 and −1161/10000. For the latter a real root r∈(0,1/100) leaves a conjugate pair with squared modulus 1/(100r)>1, and the no-root-mod-seven check plus rational initial vector excludes confinement to the real eigenspace. The repair also shows the initialization plane K satisfies K+AK=R³ and, for ν≠0, tracker recovery from consecutive positions. This justifies the all-initial-positions interpretation. The frozen verification report and source script were read but not run; the proof, not the finite replay, establishes the limit over the entire stability set.
 
-## Scientific limitations
-Neither the full multi-agent exact stability characterization nor a matching algorithmic performance guarantee is established. The cubic Jury test is not new and numerical checks do not prove the asymptotic. General historical robust-stability statements may cover the special case even without matching words.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen positive branch and its cubic/Jury specialization overlap exact earlier Resultary coverage, not merely a similar spectral-radius certificate. The corrected Finding explicitly narrows the contribution to the sharp fixed-heterogeneity near-negative-endpoint supremum and the resulting separation from the credited positive frontier. Neither the earlier fixed-step signed result, the homogeneous tuning result, nor the inspected general sufficient certificate gives a bound excluding all larger stable steps on the negative branch or its coefficient two. The finite pair illustrates the surviving claim rather than asserting priority for qualitative sign dependence.
+
+## value
+
+PASS
+
+An exact order and leading coefficient for the largest negative-network step give a quantitative limitation on tuning from the unsigned descriptors; the positive ceiling stays bounded away from zero. Controlling all stable steps is essential because a small sufficient interval or one unstable example leaves room for distant stable intervals. This gives a sharp two-agent benchmark for stability safeguards under fixed heterogeneity, not a claim about general convergence rates or an exercise in re-deriving the known positive formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

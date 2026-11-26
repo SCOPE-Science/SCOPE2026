@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:12:33.945840Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25; checker.py; deletion_certificate.py; certificate_output.txt; VERIFICATION.md (inspected, not executed)",
+        "Hoehner, arXiv:2611.10777, Theorem 1.4, pp. 4–5",
+        "Independent replay: python3 /workspace/checks/pair_deletion_exact.py"
+      ],
+      "rationale": "Hoehner's equality characterization is unique up to orthogonal transformations and gives exactly the coordinate set after division by sqrt(2+phi). I independently enumerated the exact support planes that can become facets after at most two deletions. Every facet contains a triple and a facet plane can have at most two original vertices on its outside, so this enumeration is exhaustive. For surviving polygons the directed boundary edges were determined by exact sidedness before taking oriented determinant sums. The 212 candidate planes give base volume 20u^2, the asserted losses for all 32 singleton deletions, and exact agreement with the geometric predicates and algebraic formulas for all 496 unordered pairs. The strict increasing order is 2d_D-eta, 2d_I, d_I+d_D-delta, d_I+d_D, 2d_D with counts 30,66,60,180,160; 0<delta<eta also checks exactly. The replay uses integer arithmetic in the basis (1,phi,3u,3phi*u) and no candidate hull library or symmetry reduction. Some deletion facets are polygons rather than triangles (306 of 496 hulls have at least one), so the source code's comment about exactly three contacts must not be used as a premise; the independent replay triangulates the actual polygonal facets.",
+      "residual_risks": [
+        "Volume units are those of the specified edge-2 icosahedron; divide losses by (2+phi)^(3/2) for the unit sphere. No optimization after deletion is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 optimizes over polytopes with at most 32 vertices and characterizes the equality case. Wimmer is credited with the configuration and volume/optimality within the type.",
+          "The indexed symmetric-edge and type-A deletion records treat single erasures from different polytopes."
+        ],
+        "reasoning": "A global extremal bound does not calculate prescribed nonoptimal 30-site hulls. Different single-deletion results do not cover the pair interactions here.",
+        "searches": [
+          "Hoehner arXiv:2611.10777, p. 4–5 and Wimmer attribution/reference",
+          "Resultary: symmetric-edge-polytope vertex deletion; type-A root deletion"
+        ]
+      },
+      "checked_sources": [
+        "Hoehner arXiv:2611.10777",
+        "Wimmer (1998), through Hoehner's attribution",
+        "Resultary and local mirror: ...8d4390ae0e6b, ...0ddad841eef4, related single-erasure records ...6809163b48e2 and ...a593f125d3ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two face normals that are adjacent and two that are not are both in the ordinary covering class, yet have losses 2d_D-eta and 2d_D, respectively."
+        ],
+        "reasoning": "Neither the covering dichotomy nor the global optimum encodes the exact volume interactions; the new classification requires a separate hull calculation.",
+        "searches": [
+          "Hoehner Theorem 1.4 and fixed-type construction",
+          "Resultary SCOPE-two-erasure-spherical-covering-dichotomy-for-the-icosahedral-fac--0ddad841eef4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The icosahedron plus radial face-centre projections and the spherical pentakis dodecahedron are the same object at the stated radius.",
+          "Resultary ...0ddad841eef4 measures covering radius after the identical deletion operation, not volume loss."
+        ],
+        "reasoning": "Normalize and identify the configuration first; a spherical hole size does not give the oriented-volume sum of the surviving hull.",
+        "searches": [
+          "Resultary: two-erasure volume spectrum, vertex failure, pentakis dodecahedron and icosahedron/face-normal pair deletion",
+          "Hoehner arXiv:2611.10777 Theorem 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "...8d4390ae0e6b is the identical record. The distinct ...0ddad841eef4 comparison yields a 60 vs 436 covering dichotomy, not a table of five volumes."
+        ],
+        "reasoning": "The same-day record is genuinely compared, not excluded by date. No distinct matched five-level volume table was established.",
+        "searches": [
+          "Local Resultary and catalogue statement comparison: ...8d4390ae0e6b and ...0ddad841eef4",
+          "Hoehner arXiv:2611.10777 (deletion, delete, volume loss; then theorem and attribution passages)"
+        ]
+      },
+      "rationale": "The established optimizer and its undeleted volume are not new. The supported distinct result is the exhaustive two-erasure convex-hull volume spectrum, including its nonadditive interaction deductions and sharp pair classifications. The closest catalogue record uses exactly the same erasures but a different invariant; the known global volume theorem supplies the original body, not the volumes of its punctured hulls.",
+      "residual_risks": [
+        "Uninspected Wimmer chapter could contain additional deletion computations. Indexed results and accessed primary passages do not constitute exhaustive historical priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimizer up to orthogonal transformations and its volume, not the examined deletion classification",
+          "evidence": "Equality is the icosahedron plus radial projections of twenty facet centres; prior fixed-type work is credited to Wimmer.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.10777",
+          "material_read": "Theorem 1.4, pp. 4–5, and Wimmer attribution/reference p. 69",
+          "method": "Original OA PDF theorem passages (offsets 10225 and 11216) and reference (221202)",
+          "title": "On maximum volume polytopes inscribed in the sphere",
+          "trigger": "Cited optimum and possible same-object prior"
+        },
+        {
+          "assessment": "Distinct overlapping geometric problem, no volume implication",
+          "evidence": "Covering-radius classification singles out 60 incident mixed pairs and groups the remaining 436 pairs together.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-erasure-spherical-covering-dichotomy-for-the-icosahedral-fac--0ddad841eef4",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "Two-erasure spherical covering dichotomy for the icosahedral face-normal configuration",
+          "trigger": "Identical coordinate configuration and erasures"
+        },
+        {
+          "assessment": "Known fixed-type predecessor; contents beyond the attribution unresolved",
+          "evidence": "Same configuration and undeleted volume are credited; the chapter-files page was unavailable.",
+          "identifier_or_url": "Hoehner arXiv:2611.10777, reference on p. 69; Wimmer Chapter IV, p. 55",
+          "material_read": "Hoehner's attribution and bibliography, not the dissertation chapter",
+          "method": "OA PDF reference and bounded attempt at cited chapter-files page",
+          "title": "Wimmer's Salzburg dissertation (1998)",
+          "trigger": "Earlier explicit same configuration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–7 and exact independent enumeration",
+        "Hoehner Theorem 1.4 (motivation)"
+      ],
+      "rationale": "Worst and best failures are a natural robustness invariant for this canonical optimizer. Classifying all pairs resolves which two point failures interact and by how much; in particular, adjoining the two face-normal erasures gives the smallest loss, whereas nonadjacent ones give the largest. The exact split gives substantially more than a numerical loss or a bound on the original optimum.",
+      "residual_risks": [
+        "A fixed-configurational robustness result, not a general stability theorem or an erasure result for any other vertex count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

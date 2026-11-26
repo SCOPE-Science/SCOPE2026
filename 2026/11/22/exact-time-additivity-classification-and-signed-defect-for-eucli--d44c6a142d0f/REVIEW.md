@@ -1,19 +1,21 @@
-# Review of time-additivity of Euclidean norm proximal maps
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The minimizer is unique; the \(p=1,2\) formulas are immediate by convex first-order conditions. At \(p=\infty\), duality identifies the output with coordinate clipping, and a scalar positive-part decomposition proves exact composition including extinction boundaries. For every finite \(p>1\), smoothness on the positive orthant justifies the implicit-function expansion through quadratic order. The exact product \(\nabla^2\|x\|_p\,\nabla\|x\|_p\) at the displayed positive input has a first coordinate that vanishes precisely when \(p=2\); its sign proves the asserted local defect. The executable checks agree but are not substitutes for the analytic steps. The proof does not depend on rounded computations.
+PASS
 
-## Originality
+The strictly convex coercive objective has a unique minimizer. Soft thresholding at p=1 and radial shrinkage at p=2 compose by threshold addition, including extinction. At p=∞ one can directly constrain the output to a cap λ: within [−λ,λ]^n the least-squares optimizer clips coordinates, and minimizing over λ≥0 gives sum_i(|x_i|−λ)_+=t until extinction at t=||x||_1. A second clipping removes the additional mass s, so its final cap solves the single clipping equation at s+t (or the output is zero). For finite p>1, the implicit equation z+h∇f(z)=x has a jointly smooth local solution around (0,u), with first two h-derivatives at zero −g and 2Hg. The expansion is valid also at the nearby first-step point. Composition contributes 3Hg in order h² compared with 4Hg for the step 2h. Direct differentiation at u gives (Hg)_1=(p−1)(n−1+2^p)^(2/p−3)(2^p−2^(2p−2)). The difference is the negative of this coefficient; it is nonzero except at p=2 and has the stated signs. The n=1 case correctly reduces to the absolute-value map for all p.
 
-**PASS, with a historical-priority risk.** Bërdëllima–Steidl (arXiv:2104.05304, §6.2) constructs nonlinear semigroups as iterated-resolvent limits, rather than asserting additivity of individual finite steps. Bungert et al. (arXiv:1901.06979, §§4.2, 5.2–5.3) supplies broad flow/variational equivalence criteria and explicitly treats the two nonsmooth norm endpoints. Those known sufficient mechanisms are acknowledged. The present claim distinguishes all \(\ell_p\) exponents, proves the finite-exponent exclusion with one common witness, and computes its signed second-order defect. Source searches and full relevant source sections did not identify the exact classification; a previously unstated corollary or older equivalent assertion is still possible. Vilches (arXiv:2007.03798) is a related general proximal-identifiability source, not an identified dominating statement.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A full natural-family classification answers exactly when a finite proximal step equals the time evolution obtained by splitting regularization across steps. The exceptional \(\ell_\infty\) endpoint, despite nonsmoothness, and the sign change at the Euclidean exponent are structural; the explicit quadratic defect quantifies the first discrepancy in the nonadditive cases. The result differentiates finite-step resolvents from general continuous gradient-flow semigroups, rather than claiming generic nonexpansivity as a novel observation.
+The supported distinct content is the complete classification across the canonical ℓ_p family and one common witness with an evaluated sign change. Credit the endpoint formulas, abstract flow theory, and the generic quadratic local resolvent calculation to existing evidence. The strongest distinct published catalogue overlap uses that same local calculation but its group-classification theorem is for a different penalty class and does not specialize to any finite 1<p<∞, p≠2 here.
 
-## Closest literature and limits
+## value
 
-The closest general literature covers nonlinear resolvent semigroup limits, exact flow/variational equivalence under structural hypotheses, and known soft-thresholding/radial-clipping mechanisms. Those results substantially motivate the classification and limit any originality claim to the all-exponent necessity boundary and its quantified defect. The result does not solve other norm families or independent publication-priority questions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete answer for the basic ℓ_p scale distinguishes when one Euclidean proximal step really is a time semigroup step, a stronger condition than existence of the associated flow. One witness covers every excluded exponent, and the signed leading defect distinguishes the two sides of p=2. This is useful as a worked exact norm-family classification and diagnostic; the standalone Taylor formula and the positive endpoint shrinkages are not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

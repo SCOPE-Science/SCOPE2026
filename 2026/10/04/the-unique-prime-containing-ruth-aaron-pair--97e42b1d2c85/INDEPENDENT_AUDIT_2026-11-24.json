@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:28.631472Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–88",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "The multiplicity convention gives complete additivity of S. For t≥2, induction under t=ab with a,b≥2 proves S(t)≤a+b≤ab=t, with prime cases immediate; S(1)=0. If composite m=ab satisfies S(m)=m−1, then (a−1)(b−1)≤2, so 2≤a≤b leaves only (2,2),(2,3). The first gives S(4)=4, the second S(6)=5. If n+1 is prime then S(n+1)=n+1>S(n), even at n=1. Otherwise a prime member must be n, and the lemma forces n+1=6, with S(5)=S(6)=5. This works for neighbors of arbitrary factorization complexity. The smallest-prime-factor checker ranges only through 2000000; the two finite predicates corroborate but do not establish exhaustiveness over all m or n. No fresh execution or formal verification is claimed.",
+      "residual_risks": [
+        "The result makes no claim about general composite-only pairs or either member being a higher prime power."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A039752 attributes to Pomerance a general upper bound on the total number of multiplicity pairs up to x. That bound does not classify any prime-member slice. The exact full-text coverage of the original remains unresolved in this review.",
+          "Resultary 9c1a60753b2c excludes pairs of two semiprimes as well but omits an unrestricted composite neighbor of a prime."
+        ],
+        "reasoning": "The counting estimate is genuinely broader in ambient scope but cannot imply the exact classification. The low-Ω theorem is not a dominating theorem: its two-sided restriction omits precisely the unbounded range checked here.",
+        "searches": [
+          "Pomerance, Ruth-Aaron Numbers Revisited (2002), original PDF and alternate aaron6.pdf",
+          "OEIS A039752 comments, counting estimate",
+          "Resultary 9c1a60753b2c Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/local mirror 9c1a60753b2c",
+        "Iannucci–Mintos INTEGERS 5 (2005) A12",
+        "OEIS A039752 and A001414 internal entries",
+        "Pomerance 2002 indexed definition and OA access attempts",
+        "Nelson–Penney–Pomerance 1974 bibliographic record and OA access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iannucci–Mintos obtain (5,6),(24,25),(49,50) for P with distinct-component counts {1,2}; it neither imposes primality on either entry as stated nor covers the S equation with an arbitrary composite neighbor.",
+          "The Resultary low-Ω theorem needs Ω≤2 on each entry, an assumption not supplied by the frozen hypotheses. Its Relationship treats prime-member uniqueness separately.",
+          "The OEIS ingredient S(m)≤m does rule out a prime larger member on its own, but excluding every other composite successor requires the sharp factorization argument at m−1, not the published equality S(m)=m."
+        ],
+        "reasoning": "The proof's important additional step is an unbounded structural exclusion using a factorization m=ab and complete additivity of S. The related theorem about a neighboring factor-count range does not supply that step.",
+        "searches": [
+          "Iannucci–Mintos, INTEGERS 5 (2005), A12, Theorem 1",
+          "Resultary 2026/10/13/SCOPE-the-omega-le-2-boundary-for-ruth-aaron-pairs--9c1a60753b2c",
+          "OEIS A001414, upper-bound and equality comment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A039752 defines equality for the same multiplicity sum; A001414 calls the arithmetic function sopfr and gives S(n)≤n with equality at primes and 4. The one-below composite equality S(m)=m−1 is a separate statement.",
+          "The distinct-prime sum P in Iannucci–Mintos is not the multiplicity sum S; their example (24,25) even gives different S-values, namely 9 and 10.",
+          "The closest distinct Resultary theorem states both entries have Ω≤2, not that one is prime and the other unrestricted."
+        ],
+        "reasoning": "The search and comparison distinguish the standard names, multiplicity convention, and near-equality reformulation. The exact witness common to the related results does not make their hypotheses equivalent.",
+        "searches": [
+          "Resultary: prime-containing multiplicity Ruth–Aaron pairs, Ω≤2 and (5,6)",
+          "OEIS:A001414 internal comments on sopfr(n)",
+          "OEIS:A039752 internal definition and comments",
+          "Iannucci–Mintos, INTEGERS 5 A12, pp. 1 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A039752 defines the exact multiplicity sequence, begins 5,8,15,77,125,714, and links a bounded indexed table. Its inspected comments include infinitude, upper bounds and triples, not prime-member uniqueness.",
+          "A001414's inspected comments state S(n)≤n with equality iff n is prime or 4 and link a finite table of S-values; that equality case is not the composite equation S(m)=m−1."
+        ],
+        "reasoning": "Both are exact database checks on the sequence and auxiliary function. A finite list confirms the example but cannot exclude prime-containing pairs with arbitrarily large neighbors.",
+        "searches": [
+          "https://oeis.org/A039752/internal",
+          "https://oeis.org/A001414/internal"
+        ]
+      },
+      "rationale": "The strongest catalogue comparison gives uniqueness only under a two-sided Ω≤2 restriction; the closest inspected low-component primary theorem uses a different function and different quantifiers. The exact OEIS comments record the ingredient S(m)≤m and list (5,6) via start 5, but do not state the unrestricted prime-member result or the sharp one-below equality in the passages inspected. Historical coverage is not ruled out by the unresolved access gaps.",
+      "residual_risks": [
+        "The 1974 original and 2002 Pomerance chapter did not yield independently readable full text in these retrieval attempts. The identified Drost 1996 article, J. Recreational Math. 28(2), 120–122, was not inspected in full.",
+        "The argument is short and an equivalent observation may exist in historical recreational number theory. The access limitations are not evidence of coverage or non-coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material but non-dominating overlap",
+          "evidence": "Both entries must have Ω≤2, and only (5,6) qualifies. It does not cover arbitrary Ω of a prime's neighbor.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-omega-le-2-boundary-for-ruth-aaron-pairs--9c1a60753b2c",
+          "material_read": "Local RESULT.md from offset 0, Finding and Relationship",
+          "method": "Resultary search and local mirror comparison",
+          "title": "The Ω≤2 boundary for Ruth–Aaron pairs",
+          "trigger": "Strongest distinct catalogue comparison, exact same witness"
+        },
+        {
+          "assessment": "Different function and complexity hypotheses",
+          "evidence": "Contrasts S with P and gives (5,6),(24,25),(49,50) for the distinct-prime convention and component counts {1,2}.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/f12/f12.pdf",
+          "material_read": "Definition p. 1 offset 0, Theorem 1 p. 6 offset 14687, historical references p. 9 offset 22000",
+          "method": "Direct OA PDF passage inspection",
+          "title": "On Consecutive Integer Pairs With the Same Sum of Distinct Prime Divisors",
+          "trigger": "Closest low-component primary result"
+        },
+        {
+          "assessment": "General counting statement is related but exact full-text coverage unresolved",
+          "evidence": "The reported bound is on total multiplicity pairs up to x, not a statement that excludes prime members. No whole-document non-coverage inference is made from the snippet.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/paper130.pdf",
+          "material_read": "Indexed definition snippet and the counting result as described in the A039752 comment; no independently readable full text",
+          "method": "Direct and VPN OA extraction and identified Dartmouth alternate aaron6.pdf; no extractable original or reliable alternate text",
+          "title": "Ruth-Aaron Numbers Revisited",
+          "trigger": "Primary general study of the same multiplicity equation"
+        },
+        {
+          "assessment": "Exact sequence, not the classification in the inspected material",
+          "evidence": "Definition counts primes with multiplicity, lists 5 first and links the historical literature and finite table.",
+          "identifier_or_url": "https://oeis.org/A039752/internal",
+          "material_read": "Internal entry, offset 0 through terms, comments, references and initial formula/code lines",
+          "method": "Direct public OA HTML passage inspection",
+          "title": "Ruth-Aaron numbers (2)",
+          "trigger": "Exact database for pair starts"
+        },
+        {
+          "assessment": "Ingredient, not the sharp one-below characterization in the inspected material",
+          "evidence": "Explicitly records S(n)≤n and the equality set n=4 or prime.",
+          "identifier_or_url": "https://oeis.org/A001414/internal",
+          "material_read": "Internal entry, offset 0 through terms and comments, references and listed table",
+          "method": "Direct public OA HTML passage inspection",
+          "title": "Integer log of n: sum of primes dividing n (with repetition)",
+          "trigger": "Exact database for S and candidate near-equality lemma"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence about coverage",
+          "evidence": "Reference is J. Recreational Math. 7(2), 87–89 (1974); no substantive negative claim is made about its contents.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/714and715.pdf",
+          "material_read": "Exact title, authors and issue from A039752 and Iannucci–Mintos references; full text not readable through attempted OA routes",
+          "method": "Direct and VPN OA extraction yielded no extractable text",
+          "title": "714 and 715",
+          "trigger": "Original 1974 Nelson–Penney–Pomerance note and plausible historical priority source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:2–26, 65–100",
+        "Iannucci–Mintos INTEGERS 5 A12, introduction and Theorem 1",
+        "Resultary 9c1a60753b2c",
+        "OEIS A039752"
+      ],
+      "rationale": "This is the complete minimal prime-factor layer on either side of a standard consecutive-factor-sum equation. Unlike a census or the different two-sided low-Ω problem, it rules out every composite neighbor of arbitrary complexity except the lone witness. Its exact one-below lemma isolates the obstruction and is independently reusable when comparing S(m) to a nearby prime, without making a claim about infinitude or higher-complexity pairs.",
+      "residual_risks": [
+        "The value is a complete, narrow classification, not an improvement to global bounds or a general solution to the Ruth–Aaron problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

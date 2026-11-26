@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:13:29.659684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact computation: form the first four matrix powers and take traces, then recover the monic coefficients by Newton identities c_k=-(sum_{j=1}^k c_{k-j} tr(M^j))/k, c_0=1. The traces are (0,12,0,52) for A and (0,12,24,84) for |A|. This gives spectra {-√5,-1,1,√5} and {3,-1,-1,-1}; both correlation matrices are positive definite since (2√5/5)²=4/5<1 and the minimum eigenvalue of |C| is 3/5. For a symmetric exponent the 2-condition number is exp(spectral width). The strict ratio is exp((4√5-8)/5), approximately 1.207865. The trace-product expression is 4(cosh(t√5)+cosh(t))²/[10+6cosh(4t)]. Exact independent enclosure at t=2/5: take S(x)=sum_{k=0}^5 x^k/(2k)! and U(x)=S(x)+x^6/[12!(1-x/182)], so S(x)≤cosh(√x)≤U(x) for the three squared arguments. With Python fractions the upper bound 4[U(4/5)+U(4/25)]²/[10+6S(64/25)] is below 989/1000 by exactly 268612586886712072883756255493757/450712235476344108586334159615625000. This replays without the uploaded verifier, which was inspected only. The amplification under discussion is worst case over both nonzero base vectors and perturbation directions in Euclidean norm. At a fixed base x0 the disturbance supremum for the forward map M is just ||M||₂||x0||₂/||Mx0||₂. Equality with ||M||₂||M⁻¹||₂ entails maximizing also over x0, not claiming the same order for every fixed state or coordinate shock. The witness proves no empirical loss claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating source's Propositions 2 and 4 concern the nuclear product, and its §4.3 discusses trace formulas and approximations. In Example 4 the printed spectra give widths about 1.9338552 and 2.1922345, so the Euclidean ratio is about 0.7723 while the printed trace ratio is 0.9835251: both less than 1.",
+          "The signed-graph survey bounds individual eigenvalue magnitudes by the underlying graph radius; it does not bound the signed width by the unsigned width or compare the two exponential ratios in the passages inspected."
+        ],
+        "reasoning": "Neither the nuclear comparison alone nor a general radius bound supplies the joint sign reversal; even the nearby primary four-asset example does not exhibit it. The focused spectral-spread web lookup was unavailable, not a negative finding.",
+        "searches": [
+          "arXiv:2407.14272v1 §§4.1–4.3, Propositions 2–5 and Example 4",
+          "signed graph adjacency spectral spread largest smallest eigenvalue signed K4 signed complete graphs sqrt5 one negative edge Estrada sign balance spectra"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked corpus lookup",
+        "Bartesaghi et al. arXiv:2407.14272v1",
+        "Belardo et al. arXiv:1907.04349",
+        "Physica A DOI metadata",
+        "Frozen source support files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the frozen test point the signed width exceeds the unsigned width despite smaller signed spectral radius, while the trace inequality holds with a strict exact margin. The older primary source discusses sign relative to 1 specifically for its Schatten-1 ratio; its printed four-asset example has both signs the same."
+        ],
+        "reasoning": "It is trivial that distinct norms need not produce the same numerical value; it is not the same proposition that their ratios can cross 1 in opposite directions for entrywise unsigned comparison on positive-definite correlation matrices. The explicit witness and exact strict signs answer that motivated question, rather than just resubstituting the prior four-asset example.",
+        "searches": [
+          "arXiv:2407.14272v1 Eqs. (14)–(17), Prop. 4, §4.3 Remark 4 and Example 4",
+          "arXiv:1907.04349 §2 Thm. 2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2407.14272v1 §4.2 Eqs. (14)–(17) distinguish the vector-perturbation expression from the trace product by direct inspection; the text moves from the former to the latter without a norm-compatible identity.",
+          "arXiv:1907.04349 §2, Theorems 2.1–2.5, covers spectra, moments and a bound on the spectral radius of a signed graph."
+        ],
+        "reasoning": "Euclidean conditioning here is equivalent to comparison of spectral widths; Schatten-1 conditioning is comparison of products of traces at opposite exponents. A bound on max absolute eigenvalue is not a bound on the full width relative to the unsigned graph. No claim of novelty for norm inequivalence in general.",
+        "searches": [
+          "Resultary: global balance and systemic risk Bartesaghi condition number Euclidean Schatten trace norm ratio and signed graph counterexample, spectral width",
+          "spectral spread signed complete graph exceeds unsigned K4 sqrt 5 trace exponential condition number signed graph spectral spread Hendrickson four vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source enumerates the underlying signed K4 patterns up to isomorphism; switching the first vertex of the frozen signing makes all but the 2–3 edge positive. Thus the proposed signing is a familiar class, not itself the discovered fact.",
+          "The accessible source's only directly compared printed numerical four-asset matrix, Eq. (21), uses unequal edge magnitudes and gives no reversal. The returned ranked corpus hits pointed to different matrices and invariants, not an exact paired norm comparison for the frozen witness."
+        ],
+        "reasoning": "A graph or spectral table can reproduce a polynomial, but is not itself a table of both ratios for an admissible scaled correlation matrix or a finding about their opposing signs. This result is an explicit example, not a claimed exhaustive catalogue.",
+        "searches": [
+          "Resultary semantic query above (successful ranked corpus lookup)",
+          "Bartesaghi et al. arXiv v1 Fig. 4.1 and Example 4 Eq. (21); Belardo et al. arXiv:1907.04349 §§1–2 and 3.1"
+        ]
+      },
+      "rationale": "Best of knowledge, the exact admissible simultaneous sign reversal is not already stated or supplied by the inspected antecedents. The graph, standard switching, exponential identities and nuclear statistic are not novel. The contribution is that the signed-versus-unsigned comparisons can point in opposite directions on the very domain where the primary source gives a perturbation-sensitivity interpretation.",
+      "residual_risks": [
+        "Absolute priority is not established. Some focused web searches were unavailable. Separate journal text not compared; the finding is scoped to the inspected public preprint's interpretation and the mathematical witness independently of that text.",
+        "Prior signed K4 spectra and switching equivalences may be tabulated; no novelty is assigned to the signing or its characteristic polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct primary antecedent, not coverage of the dual-norm witness in inspected sections",
+          "evidence": [
+            "Eq. (14) describes relative vector perturbation; Eqs. (15)–(17) explicitly use the trace product. Example 4 reports the trace ratio 0.9835251 and the spectra needed to check that the Euclidean comparison is also <1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.14272v1",
+          "material_read": "HTML abstract, background §§2–3, §§4.1–4.3 including Fig. 4.1 caption, Eqs. (14)–(21), Prop. 4 and Example 4; Appendix A via document search",
+          "method": "Compare the perturbation supremum and trace product, then use the actual eigenvalues printed for Example 4 to evaluate its Euclidean direction",
+          "title": "Global Balance and Systemic Risk in Financial Correlation Networks",
+          "trigger": "Same comparison and perturbation interpretation; specifically check the existing K4 cases"
+        },
+        {
+          "assessment": "Spectral background, radius is not width",
+          "evidence": [
+            "§1 switching is diagonal signature similarity; §2 Thm. 2.5 actually bounds the signed spectral radius, not lambda_max-lambda_min."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1907.04349",
+          "material_read": "Introduction and §§2, 3.1; scope of §3.5",
+          "method": "Check switching-equivalence definitions and Theorem 2.5 against the width statistic, not just its headline",
+          "title": "Open problems in the spectral theory of signed graphs",
+          "trigger": "Possible stronger signed-versus-unsigned eigenvalue-width theorem or equivalent Seidel switching formulation"
+        },
+        {
+          "assessment": "Journal metadata verified; no separate whole-text comparison inferred",
+          "evidence": [
+            "Physica A 674 (2025), 130698; matching authors and title."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2025.130698",
+          "material_read": "DOI bibliographic response only; separate journal full text not read",
+          "method": "DOI lookup plus same-paper accessible arXiv v1 comparison as above",
+          "title": "Global balance and systemic risk in financial correlation networks (journal version)",
+          "trigger": "Potential revisions from the accessible preprint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precisely admissible counterexample falsifies the transferable direction of a practical, previously used sensitivity comparison without disputing the published trace statistic or empirical analysis. The dimension, correlation constraint and opposite signs are substantive features. This is useful as a correctness benchmark for signed-correlation models, not merely a numerical difference between two norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

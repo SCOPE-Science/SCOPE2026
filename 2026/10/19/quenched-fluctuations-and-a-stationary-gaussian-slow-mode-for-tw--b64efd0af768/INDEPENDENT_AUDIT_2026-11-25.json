@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:26:41.751667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The row-vector action is exactly X'=(1-εB)X+εR. The coefficient is positive and at most 1-2cε, uniformly below one (the upper bound itself can be attained), and the interval [0,1] is invariant. Starting farther in the past gives a unique pullback weight measurable before the next environment, so the mean is θ. Centering gives an innovation η=R-θB with zero mean; the mixed second-moment term vanishes by independence of the previous centered weight from the entire current pair, without requiring independence of B and η. Solving the second-moment identity gives the stated variance with positive denominator; conditional mean iteration gives every lag. Zero variance at one leakage is equivalent to η=0 a.s., hence to the constant instantaneous ratio and zero variance at every leakage. The coupled deterministic-coefficient recursion differs by D'=(1-εm)D-ε(B-m)(X-θ); the mixed term again vanishes by past measurability, giving the exact O(ε²) stationary mean-square discrepancy. For any finite set of slow times, truncate the independent-innovation array before ceil(ε^(-2)) steps prior to the earliest observation; the normalized squared tail is O(exp(-κ/ε)) for some κ>0. Each coefficient of any fixed linear combination is O(sqrt(ε)), so the finite triangular-array Lindeberg argument applies whenever the limiting variance is positive, and the zero-variance projections converge in L². The covariance tends to σ² exp(-m|t-s|)/(2m); stationarity allows any real times and the degenerate case. This proves exactly finite-dimensional convergence, not tightness in a path space. The replay path is RESULT.md lines 59–113 with the indicated truncation. An independent exact-rational enumeration of the two-rate example over histories of length up to ten corroborated lag two, finite-step variance, and squared coupled discrepancy. Frozen verify.py and VERIFICATION.md were inspected, not executed; notably, the script's geometric covariance comparison multiplies two already-equated variances by the same lag factor, so that check does not independently establish the lag law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kushner–Huang's abstract explicitly reports a weak limit of the natural interpolation to a linear diffusion; their hypotheses and treatment of initialization were not available in full text.",
+          "Chen–Mou–Maguluri treat deterministic Hurwitz drift A and additive noise; their stationary one-time distribution converges to a normal law with the Lyapunov covariance. In the scalar deterministic-drift comparison this gives σ²/(2m), but the theorem as read does not address joint observations at accelerated time lags or dependent multiplicative noise.",
+          "Tai reconstructs regime-weighted covariances with noise centered conditional on the full regime path in the stated formulas; the frozen η is in general a deterministic nonzero function of that regime. The conditional-centering formula by itself cannot be applied to η as written, and no lag or Gaussian slow-time result was identified there."
+        ],
+        "reasoning": "This is a special constant-step regime with linear mean drift. A process theorem could cover it, including by passing from controlled initializations to stationary histories using contraction, but a matching accessible theorem and all its hypotheses were not verified. The checked stationary marginal result is an actual partial overlap, not the full multi-time theorem.",
+        "searches": [
+          "Kushner Huang 1981 asymptotic properties stochastic approximations with constant coefficients locally stable constant-step stationary process diffusion approximation finite-dimensional distributions",
+          "arXiv:2111.06328 §2.2, Theorem 2.2, Eq. (8)",
+          "arXiv:2607.09994v1 §§2.2, 2.4 (Markov-switching affine recurrences)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.09672",
+        "arXiv:2505.22996",
+        "arXiv:1011.5330",
+        "Resultary b872073dd334",
+        "arXiv:2111.06328 §2.2",
+        "doi:10.1137/0319007 abstract",
+        "arXiv:2607.09994v1 §§2.2 and 2.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known product describes the pullback state pathwise and contains the moments implicitly; extracting the exact lag decay is the affine conditional-mean computation. Knowing the zero-leakage averaged weight does not identify σ²: the two environments in the frozen result have the same mean rates and different σ².",
+          "The prior additive stationary CLT matches the one-time law of the comparison recursion. The audited replacement of the multiplicative drift has an exact stationary mean-square error and is applied simultaneously at accelerated time lags; this yields a joint stationary law rather than merely matching marginal variances.",
+          "Kushner–Huang is a materially stronger process-level lead than a marginal CLT; no inference excluding the frozen regime from its full text is made."
+        ],
+        "reasoning": "The supported distinction is explicit stationary two-state fluctuation data across times, beyond the prior model, averaged limit, and verified finite-type or one-time results. The existing stronger-looking process lead remains a real priority risk, not a proved exclusion.",
+        "searches": [
+          "arXiv:2406.09672 §5.1 product and averaged limit, PDF offsets 52600 and 55383",
+          "arXiv:2505.22996 printed pp. 3 and 47",
+          "arXiv:2111.06328 Thm. 2.2",
+          "doi:10.1137/0319007 (constant-step process diffusion, abstract scope)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier metastability paper gives the same stationary weight in backward-series and matrix-product form, and the deterministic averaged limit.",
+          "For the scalar affine recursion with independent current pair (A,Q) and past, the centered innovation Aμ+Q-μ yields the identities Var(X)=E[(Aμ+Q-μ)^2]/(1-E[A²]) and Cov(X_0,X_k)=(EA)^k Var(X). These directly give the frozen moments by substitution; no originality is attributed to the generic calculation.",
+          "The interval-system particle-observable CLT is not a statement about this random invariant weight."
+        ],
+        "reasoning": "The right aliases are an i.i.d. affine stationary recursion and a constant-step stochastic approximation. These explain the overlap in moment methods while distinguishing the quenched invariant-weight process from trajectories sampled from it.",
+        "searches": [
+          "Resultary: exact pullback stationary mass variance Cov(X_n,X_{n+k})=(1-epsilon m)^k two-state random Markov cocycle",
+          "Resultary: quenched two-state Markov cocycle exact stationary variance lag covariance rigidity Gaussian limit",
+          "arXiv:2406.09672 literal queries 'product' and 'invariant probability'",
+          "arXiv:2607.09994v1 Sections 2.2 and 2.4 (affine covariance)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b872073dd334 supplies the same stationary variance and deterministic-mass iff criterion for finite-type i.i.d. environments after matching the transpose conventions. It also proves essential-range endpoints and an L-infinity deviation, which are not claimed here.",
+          "In the inspected statement of b872073dd334 neither the lag law nor the stationary OU limit is given. The more directly focused semantic search did not produce an exact statement for those components."
+        ],
+        "reasoning": "There is direct mathematical overlap on all finite-type mean, variance, and rigidity cases, not merely a shared title. Its later catalogue date is not the reason to set that overlap aside, and the reviewed stationary multi-time conclusion is not supplied there.",
+        "searches": [
+          "Resultary: two-state random metastable Markov cocycle constant ratio rigidity random invariant probability environmental variance",
+          "Resultary record b872073dd334, RESULT.md offset 0",
+          "Resultary: stationary OU finite-dimensional slow-time limit of random invariant weights with exact leakage covariance"
+        ]
+      },
+      "rationale": "Credit is limited to the evaluated finite-leakage lag law together with the stationary slow-time finite-dimensional limit for the random invariant weight in this model. The pullback representation and averaged limit are known; the variance and no-fluctuation criterion agree exactly with an indexed finite-type result and are not credited on that overlap. The variance and lag algebra is generic for scalar affine recursions, not a novel method. The strongest general stationary Gaussian theorem checked in full gives one-time marginals for an additive linear recursion, whereas the strongest process-level lead found in classical stochastic approximation could be checked only at abstract level. Neither comparison established coverage of the stationary multi-time conclusion under the admitted same-environment dependence. This is a qualified best-of-knowledge distinction, not a claim of first discovery of OU approximation or of the elementary scalar moment identities.",
+      "residual_risks": [
+        "Exact applicability of Kushner–Huang (1981) to the stated noise and stationary starting law could not be established from the accessible abstract. The bounded OA attempt for the Kushner–Yin book also did not return full text.",
+        "A general constant-step stochastic-approximation process theorem with suitable initial conditions may imply the OU component. The scalar moment identities are standard-form calculations, and finite-type variance/rigidity is directly overlapped; no absolute novelty or priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known transition model, pullback state, and deterministic limit. Numbering in the inspected version differs from the frozen citations.",
+          "evidence": [
+            "Eq. (1) series; Remark 5.2 Eq. (2) product; Lemma 5.3 Eq. (3) averaged limit"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.09672",
+          "material_read": "PDF printed pp. 5–6 and 19–20, §5.1; offsets 13900, 52600, 55383",
+          "method": "Primary OA bounded passages located by literal queries",
+          "title": "Averaging for random metastable systems",
+          "trigger": "Identical induced random two-state cocycle"
+        },
+        {
+          "assessment": "Observable sums of random trajectories, not stationary environment-to-environment invariant weights",
+          "evidence": [
+            "Quenched observable central limit theorem and diffusion coefficient approximation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.22996",
+          "material_read": "Printed pp. 3 and 47; PDF offsets 5086 and 183592",
+          "method": "Primary OA bounded passages on CLT and jump approximation",
+          "title": "Jumping for diffusion in random metastable systems",
+          "trigger": "Related fluctuation theorems involving the same motivating metastability model"
+        },
+        {
+          "assessment": "Particle observable in deterministic interval dynamics; comparison not a full-text exclusion",
+          "evidence": [
+            "Diffusion coefficient for bounded-variation observables with Markov approximation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.5330",
+          "material_read": "Printed pp. 1 and 5, offsets 947 and 15100",
+          "method": "Primary OA passages around 'diffusion coefficient'",
+          "title": "The diffusion coefficient for piecewise expanding maps of the interval with metastable states",
+          "trigger": "Potential earlier metastability diffusion antecedent"
+        },
+        {
+          "assessment": "Exact finite-type overlap of mean, variance and rigidity; adds essential range, not an inspected lag or OU statement",
+          "evidence": [
+            "Stationary formulas after rate and matrix-convention identification",
+            "Determinism iff the stationary proportions of all types agree"
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 b872073dd334",
+          "material_read": "Original RESULT.md at offset 0, including Finding",
+          "method": "Published record search and local mirror original text",
+          "title": "Essential-range rigidity of random two-state metastable weights",
+          "trigger": "Strongest exact catalogue overlap in model and moments"
+        },
+        {
+          "assessment": "Stationary one-time law for linear deterministic drift with additive noise, not a matching stationary process theorem",
+          "evidence": [
+            "The scaled-limit covariance solves AΣ_Y+Σ_Y Aᵗ+Σ=0"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.06328",
+          "material_read": "§2.2, printed pp. 6–7, Eqs. (7)–(9) and Theorem 2.2, offset 26850",
+          "method": "Primary OA bounded theorem passage",
+          "title": "Stationary Behavior of Constant Stepsize SGD Type Algorithms: An Asymptotic Characterization",
+          "trigger": "General small-step stationary Gaussian theorem"
+        },
+        {
+          "assessment": "Verifies general process-level diffusion scope at abstract level, not stationary initialization/noise hypotheses",
+          "evidence": [
+            "A continuous-parameter interpolation converges weakly to a linear diffusion process"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0319007",
+          "material_read": "Search-returned publisher and technical report abstract; full-text attempts on the identified publisher and report copies did not succeed",
+          "method": "Focused literature query and lawful OA attempts",
+          "title": "Asymptotic Properties of Stochastic Approximations with Constant Coefficients",
+          "trigger": "Closest historical general process-level diffusion approximation"
+        },
+        {
+          "assessment": "Close second-moment machinery; written conditional centering does not literally match the current environment innovation here",
+          "evidence": [
+            "Regime weighted covariance equations and comment on augmenting with first-moment equations for nonzero conditional means"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.09994v1",
+          "material_read": "Abstract and offsets 248, 4739; §§2.2 and 2.4, offsets 9934 and 12386",
+          "method": "Primary OA bounded passages",
+          "title": "Covariance Existence in Markov-Switching Affine Recurrences",
+          "trigger": "General exact affine second-moment reconstruction with regime dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For random invariant weights the entire stationary lag profile and joint Gaussian scaling quantify how long the averaging error persists, rather than just its instantaneous spread. This is a natural question in a metastable approximation, and two rate laws with identical averaged rates really have different answers. The exact comparison of dependent multiplier noise to a stationary deterministic-drift recursion makes the longitudinal conclusion usable without tracking particle-observable CLTs or assuming a functional limit. The value is this quantitative stationary description, not novelty of the autoregression identities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

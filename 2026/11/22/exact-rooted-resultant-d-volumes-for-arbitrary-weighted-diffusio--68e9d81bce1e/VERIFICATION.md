@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the rooted-resultant formula
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing `verify.py`, with Python 3, SymPy, NumPy and SciPy. No input files, network, external proofs or environment variables are needed.
+## correctness
 
-The checker constructs each weighted path Laplacian and its \(n\)-column Krylov matrix from definitions. It verifies the squared rooted-resultant identity by exact rational matrices for three weight patterns at every vertex for \(2\le n\le8\). It separately verifies the already-established coprimality/unimodularity classification for all vertices of unit paths of sizes \(2\) through \(12\), strictly as a regression check. It also proves five parametric symbolic factor identities for a mirror-symmetric five-site weighted path and three exact phase comparisons. The positive finite-horizon Gramian determinant is separately calculated by 80-point Gauss–Legendre quadrature on a heterogeneous four-site path and compared to the exact spectral coefficient, and six stable-path resolvents are checked exactly. Total: **200** checks, all passing in the extracted package.
+PASS
 
-The proof in `RESULT.md` covers all positive real conductances, all path sizes, all valid observation horizons and the distinct zero/nonzero cases. Neither finite checking nor quadrature certifies the infinite claim by itself. The Cauchy determinant formula requires strictly positive damping; no infinite-horizon claim is made without it. The reviewed result has not received independent mathematical validation.
+The cut uses principal blocks with unchanged diagonals. An independent factorization puts the root first and writes B for the direct sum of the cut blocks and v for the coupling from the root. The projected Krylov columns follow y₁=v and yₖ₊₁=Byₖ+v xₖ, where xₖ is the root component. Unit triangular column operations reduce the determinant in absolute value to that of [v,Bv,…,B^{n−2}v]. In block eigenbases the Vandermonde over both cut spectra factors into the two within-block Vandermondes and the cross differences, whose absolute product is the resultant. On each block the product of modal coefficients times its own Vandermonde is the absolute endpoint Krylov determinant: ordering away from the cut makes it triangular by distance, with diagonal entries the coupling to the root times successive path weight products. Multiplication gives precisely Eⱼ, including an empty block and zeros from common eigenvalues. For the full Laplacian the simple Jacobi spectrum gives a Gramian equal in the eigenbasis to its exponential Gram matrix sandwiched by diagonal modal weights. Distinct exponentials on a nonempty interval give a strictly positive common determinant factor after dividing by the squared Vandermonde. The Cauchy formula yields the stated ordered-pair denominator at infinite time for μ>0. For five vertices, the right cut-block polynomial at z=a for root 2 is −a²(a−2b); the center cuts are isospectral, and the endpoint factors are a⁵b⁵. The comparison |a−2b| against a gives precisely the three optimal sets, including all ties at b=a and the nonoptimal singular interior pair at a=2b. Independent symbolic and exact rational checks agree.
+
+## originality
+
+PASS
+
+The supported distinct claim is the all-vertex, all-positive-conductance cross-resultant factor with explicit edge exponents and its weighted five-site switch. The general modal Gramian method, the cofactor resultant in the unfactored form, unit-weight classification and four-site classification are antecedents, not credited as new here.
+
+## value
+
+PASS
+
+The path-specific factorization is a usable algebraic design rule for all locations and all positive conductances: it retains uncontrollable sites, eliminates time integration from optimization, and isolates the role of matching cut spectra and edge magnitudes. The five-site transition exhibits a change in optimal placement that a binary controllability test or the unit-weight result cannot predict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

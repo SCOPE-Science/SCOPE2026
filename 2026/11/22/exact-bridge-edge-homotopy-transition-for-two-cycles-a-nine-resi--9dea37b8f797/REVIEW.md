@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Vertex deletion gives an explicit homotopy cofiber with path and cycle factors. When a cycle has length divisible by three, the nontrivial inclusion of path factors is null for a dimension/connectedness reason; the triangle boundary is handled by the equatorial cone. The nine cases follow without a hidden attaching-map assumption. A separate edge-star relative calculation proves the cofiber is a sphere, or gives a homotopy equivalence, and the integral long exact sequence yields a primitive, split homology inclusion. Finite exact boundary computations independently check 72 absolute and 36 relative cases; they are not mistaken for the infinite proof.
+## correctness
 
-**Originality — PASS against inspected evidence.** The known cactus-graph theorem already proves the qualitative wedge-of-spheres property; that is explicitly excluded from novelty. Kim's ternary-graph theorem establishes an at-most-one-sphere alternative in a subset of residue classes but not exact dimensions, multiplicities or edge maps. The 2023 calculation concerns vertex-identified cycle wedges and does not imply the bridge inclusion, and matched indexed research entries address higher independence, matching, neighborhood, or different graph constructions. No covering exact edge-cofiber classification was located. This comparison is qualified by the possibility of unindexed equivalent work.
+PASS
 
-**Value — PASS.** A bridge is the minimal operation connecting two disjoint cyclic networks. This supplies a complete two-parameter topological response across that operation, distinguishes precisely the three mod-three stability regimes, detects primitive rather than merely rational homology loss, and gives contractibility and topological phase boundaries. It is not an arbitrary finite census or a repackaged proof of the known cactus wedge property.
+Deleting one bridge endpoint u and then its closed neighborhood gives the base D=Ind(P_(p-1))*Ind(C_q) and link L=Ind(P_(p-3))*Ind(P_(q-1)), with Y the homotopy cofiber of L→D. When p≡1 the link is contractible; when p≡2 the base is contractible. When p≡0 and p>=6 the inclusion in the first path factor is null because it is a map from a sphere of dimension a-2 to one of dimension a-1; at p=3 the link maps through the equatorial Ind(C_q) in its suspension, which cones off. A join with the null first-factor map is null. Substitution of the path/cycle formulas gives rows (3,2,1), (2,1,1), (1,1,0) with all sphere summands in the claimed dimension. The removed simplices for bridge insertion are precisely those containing {u,v}; the closed star in X meets Y along its edge boundary joined with R=Ind(P_(p-3))*Ind(P_(q-3)). If a residue equals 1 this intersection and the star are both contractible, so the inclusion is an equivalence by a pushout along cofibrations, not merely by inferring equivalence from a contractible quotient. Otherwise the quotient is the double suspension of R, with (3,3) interpreted literally as an interval with its endpoints identified. The long exact sequence gives H_d(Y)→H_d(X) injective with free rank-one cokernel, using reduced homology for d=1; its splitting is integral, not canonical. Inspected `verify.py`, `verification_output.txt` and `VERIFICATION.md`. Their 72 absolute and 36 relative GF(2) results are the recorded bounded checks, not an integral or homotopy proof; the proof also handles the vacuous wedge and empty path.
 
-The explicit general formula does not cover longer connecting paths or arbitrary cactus graphs. No external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general vertex and edge cofiber methods are prior art. In particular, the bridge's absolute cofiber and the equivalence when either residue is 1 are direct applications of Adamaszek and the classical path formulas (with the elementary augmented-case convention). The supported distinct contribution is the full multiplicity and dimension table together with the integral primitive-loss conclusion, not the cofiber formula on its own.
+
+## value
+
+PASS
+
+Connecting two cycles is a natural first nontrivial test of how homotopy and integral homology change when a bridge is inserted in a cactus. The full table distinguishes equivalence, loss of one primitive direct summand, and even sphere-to-contractible behavior. This gives information that a qualitative wedge result or knowledge of a relative cofiber alone leaves unresolved; no applicability to longer bridges or arbitrary cactus families is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

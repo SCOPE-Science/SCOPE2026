@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:20.714223Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–35; VERIFICATION.md; verify.py and verify_output.txt (read only)",
+        "/workspace/independent_replays/03_bounds.py and 03_bounds.txt (independent exact-rational check of the uniform constants)"
+      ],
+      "rationale": "The proof covers every positive n and every even integer d>=6 (indeed, the estimates do not use evenness of d). For odd m, the reciprocal divisor tail after 1 is strictly below 2^(-d): after rescaling compare to the d=2 tail, and bound the latter by the strict convex midpoint integral over t>=1/2. For even m the divisor 2 forces at least 2^(-d). This and n^d<(n+1)^d rule out odd n. With u=2^(-d), v=3^(-d), the divisors 2 and 3 contribute exactly u and alpha(n)v to the difference of the two normalized sums. After those terms the tails are each in [0,1.8u^2] by the integral test. The log estimate therefore bounds the error in D=log(R_d(n)/R_d(n+1))=u+alpha v+eta by 3u^2, including alpha=0. At a collision D>0 and n=1/(exp(D/d)-1). For y>0, 0<1/y-1/(exp(y)-1)<1: the right inequality is immediate for y>=1, and for 0<y<1 follows from exp(y)<1/(1-y). Thus replacing n by d/D costs less than 1. Expanding the reciprocal once with its exact quadratic remainder gives the stated centers, with the normalized total error strictly less than 23449/5190<5 by monotone rational bounds at d=6. The count of candidates follows even if intervals overlap; no existence claim is made.",
+      "residual_risks": [
+        "The packaged finite neighbor sweep found no collisions in its ranges. Its Decimal comparisons are not exact rational arithmetic despite the comment at verify.py line 40, and the sweep does not support the unbounded quantifiers; neither point affects the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 is for lambda(n); Remark 1 expressly says its method does not work for positive even d. The related 2023 JIS abstract concerns other arithmetic functions and maximal runs."
+        ],
+        "reasoning": "A theorem excluding all these collisions or giving suitably narrower windows would cover the assertion. None of the accessible near sources supplies such a theorem; the unavailable lookup contributes no negative evidence.",
+        "searches": [
+          "Resultary: adjacent equal divisor power sums sigma_d(n)=sigma_d(n+1) localization even exponents",
+          "Web search: \"equal consecutive values\" \"sigma_k\" divisor sums adjacent integers even exponent localization (unavailable)",
+          "arXiv:2402.06832v4, Theorem 3 and Remark 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.06832v4",
+        "JIS 26 (2023), 23.8.4 (abstract)",
+        "OEIS A372114",
+        "Resultary c1104f3334db",
+        "Resultary 1ea62e4a9301"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known extension relies on odd exponents; the weighted-function rigidity reduces to an ordinary sigma collision and divisor-count jump; the almost-prime classification is for ordinary sigma."
+        ],
+        "reasoning": "None of the checked implications controls D=log(R_d(n)/R_d(n+1)) through the signed 3^(-d) correction. Such a correction is needed here because it shifts the center by d(4/3)^d, not by O(d).",
+        "searches": [
+          "arXiv:2402.06832v4, Remark 1 and context",
+          "Resultary c1104f3334db, RESULT.md",
+          "Resultary 1ea62e4a9301, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 1 explicitly restricts its extension for the reciprocal-divisor-power problem to positive odd d. Same-day SCOPE record c1104f3334db instead compares F(n)=sigma(n)^(n-tau(n)) at adjacent arguments."
+        ],
+        "reasoning": "A run-length bound is not a localization of length-two collisions; raising the ordinary divisor sum to an n-dependent power is not summing powers of the divisors. Neither reformulation yields the asserted centers.",
+        "searches": [
+          "Resultary: three-center localization neighboring divisor-power collisions",
+          "Resultary: equal consecutive generalized divisor sums sigma_k(n) sigma_k(n+1)",
+          "Lebowitz-Lockard and Saunders, arXiv:2402.06832v4, Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A372114 is about separation two for square-divisor sums; its comment records the consecutive square-power equality at n=6. Resultary record 1ea62e4a9301 is an ordinary-divisor-sum result with Omega(n),Omega(n+1)<=2."
+        ],
+        "reasoning": "These exact entries concern d=2 or d=1 and cannot cover an all-height theorem for every even d>=6.",
+        "searches": [
+          "OEIS A372114 and its pointer to A001157",
+          "Resultary: equal consecutive generalized divisor sums sigma_k(n) sigma_k(n+1)"
+        ]
+      },
+      "rationale": "The identified neighbors are results on constant-run lengths, a separate weighted function built from the ordinary divisor sum, or low-exponent/low-factor-count problems. No examined source gives or implies the mod-3 refined, uniform O(d)-width localization in the asserted even-exponent regime. This is a bounded finding about existing coverage, not a priority certification.",
+      "residual_risks": [
+        "One external literature query was unavailable; unindexed literature on higher even exponents could contain a related bound.",
+        "The cited ProofWiki square-power page was inaccessible by the attempted OA routes, and the De Koninck square-power article was not read in full. The accessible scope of these sources is d=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Theorem 3 is for the Carmichael function and the extension in Remark 1 explicitly excludes positive even exponents.",
+          "identifier_or_url": "https://arxiv.org/html/2402.06832v4",
+          "material_read": "Introduction, Theorem 3 (near HTML offset 4961), Remark 1 (near offset 9828)",
+          "method": "OA full-text passage inspection",
+          "title": "Arithmetic functions that remain constant on strings of integers",
+          "trigger": "Closest cited paper on constant strings and general divisor-power sums"
+        },
+        {
+          "assessment": "No coverage established from material available",
+          "evidence": "The abstract describes length bounds for divisor counts, proper-divisor sums and other functions; it does not state localization for even sigma_d.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Lebowitz/lebo10.html",
+          "material_read": "Public abstract",
+          "method": "OA abstract inspection",
+          "title": "Arithmetic Functions that Remain Constant on Runs of Consecutive Integers",
+          "trigger": "Cited general comparison on constant runs"
+        },
+        {
+          "assessment": "Different exponent and principally different separation",
+          "evidence": "Separation-two sequence; comment records sigma_2(6)=sigma_2(7)=50 as the consecutive case in A001157.",
+          "identifier_or_url": "https://oeis.org/A372114",
+          "material_read": "Entry, comments and cited De Koninck reference",
+          "method": "Public entry inspection",
+          "title": "OEIS A372114",
+          "trigger": "Cited exact sequence for square-power divisor collisions"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "The function is sigma(n)^(n-tau(n)); reduction concerns ordinary sigma and divisor counts, and leads to Pell-type candidate pairs.",
+          "identifier_or_url": "2026/10/13/SCOPE-consecutive-collision-rigidity-for-weighted-powers-of-the-diviso--c1104f3334db",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Consecutive collision rigidity for weighted powers of the divisor sum",
+          "trigger": "Closest same-date Resultary match"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Ordinary sigma only, with Omega of each neighbor at most 2, giving n=14.",
+          "identifier_or_url": "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+          "material_read": "RESULT.md, claim",
+          "method": "Local mirror inspection",
+          "title": "Unique two-almost-prime solution of the Erdős–Sierpiński equation",
+          "trigger": "Nearby exact neighboring divisor sum result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof; arXiv:2402.06832v4, Remark 1"
+      ],
+      "rationale": "This is a height-independent reduction of an unbounded arithmetic collision problem to O(d) candidate integers per exponent. The mod-3 correction changes the center by an exponentially growing amount, so the narrow uniform windows are not a routine consequence of the leading d2^d estimate. The statement is useful for exact collision testing without asserting nonexistence.",
+      "residual_risks": [
+        "The localization is necessary only; it does not resolve whether any collisions exist in the stated exponent range."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every connected weighted graph with a single biased edge, the fixed-particle exclusion chain is irreducible and has a unique stationary law. Under weighted-twin incident conductances, the adjoint generator leaves the span of the uniform density and the marked occupation contrast invariant: \(L^*1=(b-a)f\), \(L^*f=-(s+a+b)f\). The positive affine tilt is therefore exactly stationary. Swapping the two marked spins proves equality of the full unmarked marginal, not only of single-site means. The explicit currents and entropy production follow by exact two-site probabilities and edge fluxes. The converse uses mean conservation, the positive directed-occupation event, and the unmarked stationarity equations, forcing equality of every incident pair of conductances. Two structurally different exact-rational checkers passed the instances described in VERIFICATION.md. Finite checks are not used as an all-size proof.
+PASS
 
-## Originality — PASS on examined evidence, with residual risk
+Relative to uniform k-particle measure, the symmetric edges act on f=eta_u−eta_v by swapping occupations. A common neighbor w contributes g_w[(eta_w−eta_u)−(eta_w−eta_v)]=−g_w f, with zero swap contribution when occupations agree. On the marked bond the incoming-minus-outgoing balance of the constant and of f gives respectively (b−a)f and −(a+b)f; for equal marked occupations it gives zero. Thus the proposed affine tilt is stationary, strictly positive and normalized; connectedness gives irreducibility for 1≤k≤N−1. Summing over the two marked bits cancels the tilt for every fixed unmarked pattern. The uniform probabilities of each of 10 and 01 are P; weighting them by 1±delta and using the mean difference for symmetric-edge currents yields exactly J_uv and the triangle flows. The configuration-law terms in entropy production sum to zero by stationarity, leaving J_uv log(a/b). In the converse, if the outside means are rho, the marked deviations are d and −d. If d were zero, all symmetric currents would vanish and the driven current would be (a−b) times the strictly positive common probability of 10 and 01, contradicting stationarity. The unmarked balance at each w is then d(c_wu−c_wv)=0, proving equality of the conductances, including absent edges.
 
-The inspected 2010 one-dimensional battery paper studies non-equilibrium macroscopic density and covariance on a ring; the 2011 and 2014 localized-drive papers study lattice response and correlations. None supplies the arbitrary connected weighted graph if-and-only-if screening criterion together with the full finite-volume stationary law and triangle decomposition. Searches for twin-vertex, locally biased bond, exact steady state and exclusion screening formulations found related exclusion and local-drive work, but no statement whose implications cover this theorem. A general finite-network stationary-measure theorem may be missing from the examined set; publication priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-Locally driven exclusion typically supports nonlocal response; an exact structural condition for complete invisibility to all unmarked joint observables is a meaningful boundary case. The weighted-twin characterization is necessary as well as sufficient and holds at every filling on arbitrary finite connected topologies. The simultaneous explicit nonzero entropy production and confinement to triangular currents resolves a natural distinction between measurable local nonequilibrium transport and equilibrium-like remote statistics.
+Dipole equations for one-point means and the finite ring battery model are established. The distinct supported claim is the exact weighted-twin screening condition together with the full stationary tilt at all intermediate fillings on general finite weighted networks, not the electrical analogy or the existence of driven current cycles.
 
-## Scope and limitations
+## value
 
-The calculation assumes conserved fixed particle number and a single asymmetric edge; it neither predicts long-range behavior in general asymmetric lattices nor asserts any relaxation-rate result. Closest literature is cited in RESULT.md, and independent scientific validation is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The structural screening criterion answers when every outside one-point observation is exactly at equilibrium despite local driving. The explicit law upgrades this to every outside joint observation at any fixed filling, even as entropy production remains strictly positive and all current is resolved on triangles. This is a useful finite-graph exception to the familiar nonlocal response to driven bonds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

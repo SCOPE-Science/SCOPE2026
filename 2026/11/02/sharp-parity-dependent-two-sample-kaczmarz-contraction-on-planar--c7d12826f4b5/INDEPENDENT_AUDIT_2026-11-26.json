@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:20.037088Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For phi=pi/m, projecting on the selected unit row removes squared error ||e||^2 max(r_i,r_j), where r_j=cos^2(theta-j phi). All unordered pairs have equal weight, and sum r_j=m/2. Thus normalized progress is 1/2+D/[m(m-1)], where D=sum_{i<j}|r_i-r_j|. By the difference-of-cosines identity and counting ordered cyclic displacements d, D=(1/2) sum_{d=1}^{m-1} sin(d phi) sum_{i=0}^{m-1}|sin(2 theta-(2i+d)phi)|. For odd m, 2i+d ranges over every residue modulo m, so at theta=0 the inner sum and the outer weight sum both equal cot(phi/2); translating theta by phi/2 preserves the value. For even m, the even and odd displacement weight sums are respectively cot(phi) and csc(phi); at theta=0 the respective inner sums are twice these, and at theta=phi/2 they are exchanged. Thus the candidate D values are cot^2(phi)+csc^2(phi) and 2 cot(phi)csc(phi), with difference tan^2(phi/2)>0. Every possible crossing is on the half-step grid. Between these points D''=-4D<0 because a set of m>=3 distinct projected polygon vertices cannot all have one identical projection. Strict concavity and row-rotation symmetry exhaust minimizers, including m=3. Ties do not change the squared decrement. The one-row mean is exactly 1/2; conditional expectation iterates the optimal one-step inequality without claiming a sharp long-run rate. Small-angle expansions give both the stated limit and the even gap asymptotic. The numerical script was inspected, not executed; the angular proof supplies the uniform guarantee.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SKM results analyze uniform-subset greedy selection; Haddock–Ma derive the expected squared residual maximum for normalized rows and express the bound using the residual dynamic range.",
+          "Block subselection uses a block spectral factor and a minimum over selected residuals, not the sharp angular law for regular frames."
+        ],
+        "reasoning": "The Haddock–Ma pointwise proof becomes an equality on a tight frame because ||Ae||^2=(m/2)||e||^2. It gives the objective to optimize, not its maximum dynamic range over angles, row-count parity cases, or identifying which angles attain the equality.",
+        "searches": [
+          "De Loera–Haddock–Needell arXiv:1605.01418v6, Theorem 1",
+          "Haddock–Ma arXiv:1912.03544v2, Theorem 1 proof and Corollary 1",
+          "Zhang–Li arXiv:2211.16682, Theorem 1",
+          "Resultary simplex and symmetric-three-row comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_pairwise_skm.py",
+        "Resultary efae258a460c and 2a5ef1115a3c",
+        "arXiv:1605.01418v6, 1912.03544v2, 2211.16682 and 2511.03055",
+        "DOI 10.1017/9781009004282 book-page access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The statewise tight-frame progress follows from the general subset identity. The simplex proof optimizes over a zero-sum residual vector arising from the full dimension-n simplex analysis map. The symmetric-three-row proof optimizes a long-run cost after the iterate reaches one of three perpendicular lines."
+        ],
+        "reasoning": "For m>3 the planar residual vectors lie in a specific two-dimensional subspace, not the full simplex residual hyperplane. A post-projection recurrence also does not cover arbitrary starting angles. Obtaining the sharp state-uniform constant and all equality angles requires the parity-dependent cyclic-sum evaluation and the exclusion of interior angular minima; they do not follow by parameter substitution.",
+        "searches": [
+          "Haddock–Ma Theorem 1 proof Eq. (6) and Corollary 1; Resultary 2a5ef1115a3c dispersion proof; Resultary efae258a460c weighted Markov recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair-sample decrement is 1/2 plus scaled sum of pairwise differences of the projections of a regular polygon, because 2r_j-1=cos(2 theta-2j phi).",
+          "Resultary 2a5ef1115a3c directly gives decrement 3/4 in its dimension-two simplex case. Up to row sign, these are the m=3 lines. arXiv:2511.03055 §2 adds row differences as new equations and uses a different SKM experiment."
+        ],
+        "reasoning": "The simplex comparison agrees at m=3, but a simplex in dimension n>2 is not the planar system with more lines. Subtracting rows and projecting onto their differences is also not choosing the larger of two residuals on original rows.",
+        "searches": [
+          "Resultary: planar harmonic-frame two-sample sharp decrement, equality directions, even-row gap and row-count asymptotics",
+          "Public lookup: Sampling Kaczmarz, equally spaced rows, sharp best of two and regular-polygon pairwise absolute projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record gives lambda_2=1/4 at x=1/4, the long-run factor with m=3, via a three-state recurrence. The simplex formula gives the corresponding sharp one-step progress 3/4 for m=3."
+        ],
+        "reasoning": "These are exact overlaps and the m=3 constant is covered. Neither catalogue result gives a table or closed formula for the conditional angular minimum, equality directions and gaps as the number of planar rows grows.",
+        "searches": [
+          "Resultary: exact constants for regular planar, three-row and simplex-frame sampling",
+          "Resultary efae258a460c and 2a5ef1115a3c, Findings and Proofs"
+        ]
+      },
+      "rationale": "The supported increment is the exact worst-direction two-sample constant for the full family of regular planar frames, including the parity-resolved equality directions and the finite even-row gap. The selection algorithm, the state-dependent residual identity, and the regular three-row case are not distinct contributions. Neither the fixed-three-row comparisons nor the general state-dependent bounds evaluate the remaining angular optimization over all row counts.",
+      "residual_risks": [
+        "An older planar Kaczmarz computation or an equivalent regular-polygon projection extremum could contain the same finite angular formula. The cited book section was not independently inspected. The PASS is limited to the supported distinction against the inspected results; it establishes no universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-case geometry, different optimization objective",
+          "evidence": "At x=1/4, the SKM pair method has long-run factor 1/4 and ties singleton sampling per residual evaluation, with exceptions for some initial directions under the long-run convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-residual-budget-optimal-sampling-sizes-for-symmetric-three--efae258a460c/RESULT.md",
+          "material_read": "Finding, assumptions and weighted Markov reduction (offset 0)",
+          "method": "Configured local mirror",
+          "title": "Exact residual-budget-optimal sampling sizes for symmetric three-row Kaczmarz–Motzkin",
+          "trigger": "Exact best-of-two behavior for three planar rows"
+        },
+        {
+          "assessment": "Direct in m=3, otherwise different geometry",
+          "evidence": "Dimension two with three simplex rows gives gamma=3/4. Its parity is ambient dimension parity across simplexes, not row-count parity in the plane.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md",
+          "material_read": "Finding, scope and zero-sum dispersion reduction (offset 0)",
+          "method": "Configured local mirror",
+          "title": "Two sampled equations attain the full greedy Kaczmarz worst-case guarantee on regular-simplex frames",
+          "trigger": "Exact one-step, two-sample and parity-dependent minimum"
+        },
+        {
+          "assessment": "General bound, not planar equality",
+          "evidence": "The linear bound for feasibility depends on sampled subset size, the number of satisfied constraints and a Hoffman constant.",
+          "identifier_or_url": "https://arxiv.org/html/1605.01418v6",
+          "material_read": "Algorithm discussion and Theorem 1 (offset 12700)",
+          "method": "OA HTML passage",
+          "title": "A Sampling Kaczmarz–Motzkin Algorithm for Linear Feasibility",
+          "trigger": "General SKM scheme"
+        },
+        {
+          "assessment": "Covers the exact pointwise residual identity on tight frames, not its sharp planar optimization",
+          "evidence": "The error drop is the maximum squared sampled residual divided by selected row norm squared, with uniform subsets when row norms agree. On a tight frame the singular-value lower estimate is equality; the direction-dependent dynamic range still needs optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.03544v2",
+          "material_read": "Theorem 1 proof including Eq. (6), PDF pp. 10–11; Corollary 1 in OA HTML at offset 28100",
+          "method": "OA PDF and HTML passages",
+          "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+          "trigger": "Same residual-dependent one-step objective"
+        },
+        {
+          "assessment": "Adjacent block convergence bound",
+          "evidence": "The rate uses a block spectral norm and residual statistic involving the minimum over retained rows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.16682",
+          "material_read": "Theorem 1 and leading proof, PDF pp. 4–5 (offset 9150)",
+          "method": "OA PDF passage",
+          "title": "Randomized block subsampling Kaczmarz–Motzkin method",
+          "trigger": "Possible general two-sample Kaczmarz specialization"
+        },
+        {
+          "assessment": "Pairwise-difference rows are not the best-of-two rule in this claim",
+          "evidence": "The pair model augments the matrix with difference rows; the displayed experiment uses beta=3 on an inequality feasibility problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.03055",
+          "material_read": "Abstract and §§2.1–2.2, PDF pp. 1, 3–4 (offsets 0 and 9250)",
+          "method": "OA PDF passages",
+          "title": "Read Between the Hyperplanes: On Spectral Projection and Sampling Approaches to Randomized Kaczmarz",
+          "trigger": "Primary search hit for paired and spectral row selection"
+        },
+        {
+          "assessment": "No full-text conclusion from this access",
+          "evidence": "The inspected landing page did not expose the relevant section; this is not evidence against overlap.",
+          "identifier_or_url": "https://doi.org/10.1017/9781009004282",
+          "material_read": "Publisher book page only; cited Section 5.2.2 not obtained",
+          "method": "Publisher page and attempted author-site OA access",
+          "title": "Optimization for Data Analysis",
+          "trigger": "Frozen citation to ordinary randomized Kaczmarz on the same planar geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula quantifies the benefit of one extra sampled residual in a natural tight frame and gives a sharp benchmark for geometry-agnostic contraction bounds. The exact minimizers change with row-count parity even though the limiting constant is the same; the small quartic gap measures a genuine geometric difference rather than numerical error. This is a state-uniform one-step benchmark, not a claim about fastest implementation or an optimal long-run residual budget.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

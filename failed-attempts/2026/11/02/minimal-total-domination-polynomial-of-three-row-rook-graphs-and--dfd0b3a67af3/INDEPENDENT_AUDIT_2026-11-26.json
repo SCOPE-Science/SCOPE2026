@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:09.248779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated labeled polynomial and size gaps are correct. A set must occupy all rows or all columns and induce no isolated selected cell. In full coverage, a selected cell cannot be the only cell of both its row and column (it would be isolated), so any deletion leaves one side covered. All private witnesses are selected, forcing the induced graph to be disjoint edges. In row-only coverage, a cell of a nonsingleton row likewise needs a selected degree-one witness. A row with at least three cells would need at least three singleton rows, which is impossible. With three rows of size at most two, a row of size two must either have two private horizontal witnesses in singleton columns (each cell witnesses the other), or two vertical singleton-row witnesses. Thus the row patterns give a vertical triple, a four-set with two singleton rows sharing a third column or attached in distinct columns to a doubled row, or three horizontal pairs in distinct columns; the (2,2,1) case is impossible. The full-coverage boundary cases are included in these counts. In column-only coverage, singleton columns give the one-row and two-row partitions with no isolated selected cell. To justify the claim in RESULT.md line 45, if one occupied row were a singleton in a doubled column, its only selected neighbor would have at least two selected neighbors because all n>=3 columns are covered by those two rows. Then the singleton cell cannot have a selected private witness; no outside witness is possible since its deletion preserves full column coverage. With both row counts at least two, each doubled-column cell must have a private same-row cell in a singleton column, forcing both row counts to be two and n=3. This gives the extra 18 sets. Independent finite check: python3 /workspace/branches/rook_independent.py evaluates open-neighborhood unions and single deletions for every nonempty subset for n=3 through 7; it reproduced (6,45), (4,93), (5,150,63), (6,270,243), (7,441,630,339) in increasing degree. The finite enumeration does not establish the all-order result. The frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangle record states a complete coefficient-extraction formula M_{m,n}(z) for all m,n>=2 and the disjoint component regimes that yield it.",
+          "Bahadır–Ekim–Gözüpek Lemma 2.1 identifies the open-neighborhood transversal formulation; Brešar et al. define and bound upper total domination in a zero-forcing setting."
+        ],
+        "reasoning": "The rectangle formula contains every coefficient at m=3. The other general literature supplies concepts and bounds, not this polynomial.",
+        "searches": [
+          "Resultary 9e5d921c2b2c, Finding and Assumptions, mirror chars 0–2750",
+          "arXiv:2010.02341",
+          "arXiv:2310.07432"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 9e5d921c2b2c and 0b2a58606477",
+        "OEIS A384118",
+        "arXiv:1910.02431",
+        "arXiv:2010.02341",
+        "arXiv:2310.07432"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With all three rows used, the prior component types reduce to a column 3-star, a two-arm subdivided row star, a column 2-star plus a row-centered two-edge path, or three row-centered two-edge paths. The equality cases of full coverage restore the last two configurations at n=3 and n=6 respectively.",
+          "With an unused row, transposing those component types leaves stars partitioning the columns across one or two used rows, or the two-arm subdivided column star at n=3. The latter has 3 choices of row pair, 3 choices of center column and 2 assignments of the other columns."
+        ],
+        "reasoning": "These regimes reproduce each summand, including 18 at degree 4 for n=3. Combining coefficients gives exactly {3,4,6,n} for n>=8; the gap does not need to be named in the broader source to be covered.",
+        "searches": [
+          "Resultary 9e5d921c2b2c, sections 4–5 and Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook-graph cells correspond to edges of K_{3,n}; open adjacency is edge incidence, so minimal total edge domination is exactly the frozen concept.",
+          "The distinct Resultary record 9e5d921c2b2c uses the same line-graph equivalence and labeled subsets.",
+          "Pan et al. analyze minimum cardinality and complexity rather than the full inclusion-minimal distribution."
+        ],
+        "reasoning": "The line-graph reformulation is not independent content and is covered by the indexed rectangle result. The minimum problem alone is weaker.",
+        "searches": [
+          "Resultary search: labeled rook graphs, minimal total domination, cardinality polynomial",
+          "Pan–Yang–Li–Xu, arXiv:1910.02431"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A384118 gives the number of minimal total dominating sets of rectangles without grading by cardinality; for 3-by-n, n=3..7 it gives 51,97,218,519,1417.",
+          "9e5d921c2b2c gives the entire graded formula and explicitly lists 6z^3+45z^4 for 3-by-3.",
+          "0b2a58606477 counts minimum total 3-dominating sets, a different property."
+        ],
+        "reasoning": "Ungraded totals and the other same-day minimum problem do not settle the coefficients. The exact graded rectangle record does.",
+        "searches": [
+          "OEIS A384118",
+          "Resultary 9e5d921c2b2c; comparison with same-day record 0b2a58606477"
+        ]
+      },
+      "rationale": "A distinct Resultary finding already gives the full size-graded polynomial of the same labeled objects on every rectangle. The frozen polynomial, including small-order cases, and its sparse support are mechanical consequences of that finding's component classification; the exact formula can be correct without constituting a distinct result. This is a determination of coverage, not of historical priority or authorship.",
+      "residual_risks": [
+        "This comparison does not establish historical priority or exhaust the external literature. The directly matching graded rectangle theorem suffices for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage",
+          "evidence": [
+            "M_{m,n}(z) is the coefficient of a sum of three component generating functions times m!n!; the three row restriction yields all stated terms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-minimal-total-domination-of-rook-graphs-a-component-census-and-a--9e5d921c2b2c/RESULT.md",
+          "material_read": "Finding, assumptions/component types, §§4–5 and prior-work discussion, mirror chars 0–2750 and 5550–10182",
+          "method": "Read the decisive passages in the local mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4) and specialize the components to three rows",
+          "title": "Minimal total domination of rook graphs: a component census and a forbidden near-maximum size",
+          "trigger": "Same objects and polynomial on a broader family"
+        },
+        {
+          "assessment": "Different object and extremum",
+          "evidence": [
+            "Minimum sets with three selected open neighbors are not inclusion-minimal sets with one selected open neighbor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-minimum-total-3-domination-census-for-three-row-rook-gr--0b2a58606477",
+          "material_read": "Indexed scientific statement on the minimum total 3-domination census",
+          "method": "Local Resultary comparison",
+          "title": "Complete minimum total 3-domination census for three-row rook graphs",
+          "trigger": "Same graph family and related domination terminology"
+        },
+        {
+          "assessment": "Direct coverage of total counts only",
+          "evidence": [
+            "3-by-n total values agree for n=3..7, with no z-grading."
+          ],
+          "identifier_or_url": "https://oeis.org/A384118",
+          "material_read": "Definition, antidiagonal table and recurrence",
+          "method": "Public entry inspection and evaluations at z=1",
+          "title": "Number of minimal total dominating sets in rectangular rook graphs",
+          "trigger": "Exact count database for the same objects"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Complexity for bipartite graphs of bounded degree; algorithms and bounds for trees concern minimum cardinality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02431",
+          "material_read": "PDF abstract p.1 and introduction p.2",
+          "method": "Original OA paper passages",
+          "title": "The complexity of total edge domination and some related results on trees",
+          "trigger": "Line-graph equivalence and cited primary literature"
+        },
+        {
+          "assessment": "Background equivalence",
+          "evidence": [
+            "Minimal total dominating sets correspond to minimal transversals of the open-neighborhood hypergraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.02341",
+          "material_read": "PDF abstract p.1 and Lemma 2.1 p.3",
+          "method": "Original OA paper passages",
+          "title": "Well-Totally-Dominated Graphs",
+          "trigger": "Minimal open-neighborhood transversals"
+        },
+        {
+          "assessment": "No all-coefficient result in inspected passages",
+          "evidence": [
+            "Gamma_t is the maximum size of a minimal total dominating set; the cited use is in bounds for zero forcing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.07432",
+          "material_read": "PDF abstract p.1 and definitions p.3",
+          "method": "Original OA paper passages",
+          "title": "Bounds on zero forcing using (upper) total domination and minimum degree",
+          "trigger": "Upper total domination as a coarser invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sparse spectrum for a connected family is a motivated invariant, but the frozen contribution is a direct three-row coefficient extraction from a known all-rectangle classification. The size gap is immediate from the resulting exponents; no further structural result beyond that classification was demonstrated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

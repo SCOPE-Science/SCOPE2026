@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact positive definite Fejér Toeplitz Gram form and the explicit vector solving \(Bu=\mathbf1\) prove the sharp constant for every \(m\ge1\), \(n\ge0\); the nonnegative quadratic defect gives both inequality and equality rigidity. The root-location lemma follows from the reversed-coefficient pair and self-reciprocity, including special cases \(q=0\) and \(r=0\). A standalone finite exact-arithmetic script passed 44,893 supplementary checks. The proof does not infer infinite validity from sampling.
+PASS
 
-## Originality — PASS relative to checked evidence
+The frozen Step 4 has a false factorwise identity for nonreal roots: for q=2, alpha=-1+i sqrt(2) and w=i/2 even give the opposite sign on its left-hand side. The complete corrected RESULT.md at /workspace/repairs/4/RESULT.md pairs each factor w-alpha with 1-conjugate(alpha)*w, using the real monic A to justify the reindexing. The identity is then exact and strict in the open disk. Enestrom–Kakeya places every root of A outside the closed disk, and coefficient reciprocity rules out outside roots of P; q=0, including n=0, is immediate. Independently checked the unchanged bound: Fejer–Riesz and normalization give exactly the triangular Gram form; shifted indicator polynomials are independent, so it is positive definite. Its second-difference kernel reduces Bu to a constant since each supported step-m ladder is affine at interior indices, including the adjoining zero at the missing end when r>0; for r=0 the coinciding ladders give constant values on the single residue class. Ordinary symmetry and evaluation at index 0 give Bu=1, also for the empty interior case. Summing u, then applying the positive-definite Cauchy–Schwarz identity, gives the exact coefficient and full equality class, for complex factors and after shifting a prescribed point. The theorem, normalization, all boundary cases and equality claims are unchanged. The frozen rational script only checks the finite matrix identities and is recorded corroboration, not a proof of the root claim or the all-index theorem.
 
-MacDonald's Theorem 3 (arXiv:2611.05363, first submitted November 3, 2026) proves the sharp coefficient \(2\) only for matching Fejér and polynomial degrees; setting \(m=n\) recovers that result. The independently varying order \(m\), degree \(n\), explicit quotient-remainder formula, equality family, and root location are not covered by the material inspected. Semantic searches and accessible research-claim comparisons located related Fejér approximation, sparse coefficient extremals and other Toeplitz bounds, but no identical two-index pointwise theorem. A prior theorem with an equivalent inverse-Toeplitz evaluation constant could still exist outside indexed or accessible sources; independent literature review is necessary for publication-level priority claims.
+## originality
 
-## Value — PASS
+PASS
 
-The independent ratio between smoothing length and signal bandwidth is natural in finite Fourier reconstruction: knowing the bandwidth does not force the averaging order to match it. The theorem determines the exact sharp pointwise loss for all ratios and identifies unique equality polynomials, with a non-obvious all-unit-circle root property. The dependence on \(n=qm+r\) describes a complete sharp staircase rather than a routine reparameterization of the matched case.
+For the repaired claim, best current evidence supports the explicit closed-form kernel value and coefficient vector for independent m,n, not the diagonal, the abstract evaluation norm formula, or the general unit-circle zero property. The repaired text gives the latter its classical context. No checked distinct work establishes the explicit two-index computation; the full Mentz comparison remains an access risk.
 
-## Limits and evidence
+## value
 
-Proof, normalization, boundary cases and reproduction command are in RESULT.md and verification_check.py. The finite checker is supplementary only; neither an independent audit nor an exhaustive historical originality certificate has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Allowing smoothing order and signal bandwidth to vary independently is natural. The explicit sharp loss and sparse, unique equality factor answer the resulting extremal problem across all ratios. The result is useful as an exact kernel and covariance evaluation even without treating the already-classical zero property as a contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

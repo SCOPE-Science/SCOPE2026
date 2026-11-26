@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:28.884250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for the corrected files in repairs/1, not for the original extremizer classification. At any t in (0,tau_1) the real sign input is negative only at zero. Taking f=-1 on the positive squares and +1 elsewhere yields an extremizer not of the stated translated/signed form: viewed from successive square sites, the translated f converges locally to the sign kernel, so summability gives extremizing output values in the limit; no site attains the convolution norm. Also, over complex scalars the allowed global factor is any unit phase, not only a sign. The repair states fixed-output-site equality, where equality in the triangle inequality gives exactly the unit-phase sign pattern and freedom at zero entries. For the main claim, H=Delta G has zero sum and ℓ1 size equal to both endpoint operator norms (point mass and sign input). The Riccati equation orders adjacent log derivatives by the strictly positive derivative of their difference at any common value. At L_m=1 the derivative equals (m^2-x)/x^2; a first crossing below m^2 cannot occur, and at equality the second derivative is strictly negative, contrary to positivity on its left. Small x starts above and large x ends below for m>=1, and every later zero crosses downward. L_0<1 by the positive integral for I_0-I_1. This proves the negative central block and exactly the ordered switches. Telescoping that block gives 4(G(m)-G(m+1)); consecutive nonnegative-index differences differ by H, giving the unique maximizer and adjacent tie. In the scaling h=x^(-1/2), u=mh, expanding the Fourier multiplier with Gaussian domination gives H/h^3=phi(u)[u^2-1+h^2(He_4/12+He_6/24)+O(h^4)]. The crossing localizes at u=1 and the correction there is 1/2; with u^2=m^2/x the root is x=m^2+1/2+O(m^-2). For the first difference about the midpoint, the h^2 relative correction at v=1 is (He_3(1)+He_5(1))/24=1/6. The leading profile v phi(v) has quadratic coefficient -phi(1) there. Mis-rounding occurs only within O(1) in x of x=j^2 and affects the squared phase distance by O(x^-1/2). Thus multiplying the optimized first difference by four and setting x=2t gives the stated coefficient 1/12-rho^2/2 and the exact accumulation interval [-1/24,1/12]. The repair makes these remainder and boundary arguments explicit and corrects the verification description: check.py uses Fourier quadrature, not a positive Bessel series. Frozen verification and script were inspected, not executed; the reported 134 finite assertions are not a proof or a required certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abadias et al. pp. 12–13, Theorem 4.3(iii), proves a p-dependent order bound including ||Delta G||_1 <= C/t; §7.2 discusses difference-order estimates.",
+          "Indexed e0bc15d88f35 Finding/assumptions and limitations restrict to dimension d>=2 and the first off-origin transition and initial norm interval.",
+          "Bounded OA attempts on Ciaurri et al. and Abadias–de León-Contreras did not yield their relevant primary passages in this review."
+        ],
+        "reasoning": "The broader norm bound contains neither an asymptotically sharp constant nor a phase term. The multidimensional first-transition statement does not specialize to the one-dimensional all-order large-time asymptotic. Access failures are not evidence of noncoverage.",
+        "searches": [
+          "arXiv:2401.16377, Theorem 4.3(iii) and §7.2",
+          "2026/10/18/SCOPE-the-first-off-origin-sign-transition-of-multidimensional-lattice--e0bc15d88f35",
+          "arXiv:1401.2091",
+          "10.1007/s00028-022-00851-1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and check.py; repaired RESULT.md, REVIEW.md and SLOGAN.txt",
+        "Resultary 14f278a0557c and e0bc15d88f35",
+        "arXiv:2401.16377 and math/0206089"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gradient comparator bounds the frozen x_m between m^2 and m(m+1), and identifies the maximizing gradient difference, but states no asymptotic shift or refinement. Its upper interval has width m, not a constant.",
+          "The baseline temporal bound identifies the t^-1 order, not the coefficient or a uniform next-order expansion."
+        ],
+        "reasoning": "The indexed exact result plus telescoping is enough for the old exact statement. Establishing the surviving contribution requires the uniform local Fourier expansion at moving n~sqrt(2t), extracting the derivative zero displacement, and evaluating the optimized first difference on the two lattice phases near transitions. The existing theorem and brackets do not provide those conclusions mechanically.",
+        "searches": [
+          "Indexed gradient-peak Finding and Limitations, offsets 0–2454 and 4700–7674",
+          "arXiv:2401.16377, Theorem 4.3(iii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed Finding, offsets 0–2454, gives the positive zero and full sign law for I_n-2I_(n+1)+I_(n+2), its bounds, and the max first-difference staircase for exactly the same lattice normalization.",
+          "Grünbaum–Iliev p. 2, around offset 5408, provides the classical same Bessel kernel."
+        ],
+        "reasoning": "Use n=m-1 and the identity I_(m-1)+I_(m+1)=2I'_m. Thus the indexed root is not different; it is exactly the temporal sign root. The centered negative-block telescope identifies N(t) with four times the indexed gradient norm. Neither this equivalence nor the classical kernel representation supplies the repaired asymptotic coefficients.",
+        "searches": [
+          "Local Resultary searches for Bessel sign crossings, exact temporal heat-semigroup smoothing, discrete Gaussian gradient peaks and asymptotic lattice corrections",
+          "2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c",
+          "arXiv:math/0206089"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed theorem includes exact implicit roots, open brackets, and three numerical roots (offsets 4700–7674), and explicitly disclaims an asymptotic correction formula.",
+          "The retrieved catalogue comparisons did not give the phase-dependent second coefficient or its accumulation interval."
+        ],
+        "reasoning": "The indexed implicit root is already the same exact root, so recomputing finite roots is not novelty. Finite root values and generic Bessel data do not specify an all-order shift or the uniform real-time oscillation. A fixed table is not the analogue of this uniform norm asymptotic.",
+        "searches": [
+          "Local Resultary exact derivative norm / discrete Gaussian staircase / oscillatory coefficient comparisons",
+          "Indexed 14f278a0557c, Verification and Limitations"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired quantitative asymptotic claim: the constant shift with error bound for the switch times and the uniform phase-dependent second-order endpoint norm, including its interval of limit points. The original attribution of novelty to the exact all-time formula and staircase does not pass: the distinct indexed gradient theorem gives exactly their root equation and maximizing-index law, and telescoping transfers the sharp norm. The repair treats those results as inputs or rederived auxiliaries. Existing gradient brackets do not give the shift or optimized second-order coefficient. This is a bounded statement-coverage decision, not a claim of historical priority.",
+      "residual_risks": [
+        "Equivalent moving-order Bessel or signed Skellam asymptotics may exist in sources not retrieved; a broad websearch yielding unrelated hits adds no evidence of novelty.",
+        "Primary access was incomplete for arXiv:1401.2091 and DOI 10.1007/s00028-022-00851-1.",
+        "Relative chronological priority and independent derivation among the catalogue records are not inferred from their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact norm and sign staircase by identity and telescope; no asymptotic correction asserted",
+          "evidence": "Unique simple sign root in ((n+1)^2,(n+1)(n+2)), same extremal first difference, peaks N and N+1 tie at switches, limitations explicitly exclude asymptotic corrections.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c",
+          "material_read": "RESULT offsets 0–2454 and 4700–7674; Finding, proof conclusion, verification and limitations",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact switching staircase for discrete-Gaussian gradient peaks",
+          "trigger": "Matching Bessel zero and optimizing difference under first-difference formulation"
+        },
+        {
+          "assessment": "Temporal norm per-order upper bound, not sharp asymptotics",
+          "evidence": "Same kernel; p=1 gives generic constant times t^-1, not a phase coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.16377",
+          "material_read": "p. 2 offsets 5155–7537; Theorem 4.3(iii), pp. 12–13, offsets 43719–49500; §7.2, p. 24 around 94929",
+          "method": "OA author-manuscript PDF passages",
+          "title": "Large time behaviour for the heat equation on Z, moments and decay rates",
+          "trigger": "Same temporal Laplacian heat-kernel norm"
+        },
+        {
+          "assessment": "Classical kernel input; no optimized norm in the inspected passage",
+          "evidence": "Exact e^-2t I_(n-m)(2t) kernel for the nearest-neighbor heat operator.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0206089",
+          "material_read": "p. 2, offset 5408 (context 5188), kernel passage",
+          "method": "OA article passage",
+          "title": "Heat kernel expansions on the integers",
+          "trigger": "Classical normalization and expansions"
+        },
+        {
+          "assessment": "Different dimension and time regime",
+          "evidence": "d>=2, first off-origin transition and initial interval only; does not cover repaired asymptotic on Z.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-first-off-origin-sign-transition-of-multidimensional-lattice--e0bc15d88f35",
+          "material_read": "RESULT passages at offsets 23, 2173, 7808",
+          "method": "Bounded local mirror read",
+          "title": "The first off-origin sign transition of multidimensional lattice heat flow",
+          "trigger": "Same-date sign transition and exact endpoint norm record"
+        },
+        {
+          "assessment": "Scope beyond cited identities not independently established",
+          "evidence": "Timeout is not evidence of absence.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.2091",
+          "material_read": "No primary passage retrieved in bounded attempt; gradient comparator's references point to formulas (37)–(38)",
+          "method": "OA retrieval attempt",
+          "title": "Harmonic Analysis associated with a discrete Laplacian",
+          "trigger": "First and second Bessel-difference identities cited in gradient comparator"
+        },
+        {
+          "assessment": "Full scope not independently determined",
+          "evidence": "Frozen citation identifies Lemmas 2.4–2.6 and Remark 2.7; not relied on as a primary-text noncoverage finding.",
+          "identifier_or_url": "10.1007/s00028-022-00851-1",
+          "material_read": "No readable relevant full-text passage obtained",
+          "method": "Bounded OA attempt, no verified readable alternate",
+          "title": "Discrete Hölder spaces and their characterization via semigroups associated with a discrete Laplacian and kernel estimates",
+          "trigger": "Potentially relevant temporal and difference bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even after discarding novelty credit for the exact staircase, the sharp uniform second-order asymptotic resolves a natural continuum-versus-lattice question: the correction is a phase effect with a nontrivial interval of subsequential limits, not a constant. It quantifies the best endpoint time-derivative amplification and the discrepancy between continuum rounding and actual switching, rather than just adding an arbitrary parameter or tightening an unmotivated bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

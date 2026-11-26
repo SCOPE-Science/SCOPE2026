@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:09.993833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Closedness is checked in the factor itself. Unary factors are closed. For a two-run factor, any putative border must cross the lone transition; a proper suffix then has fewer letters before that transition than the prefix. Merely starting and ending in different letters is not sufficient to exclude borders in general, but the two-run claim is valid for this reason. A proper border of a three-run factor must be unary: a three-run border would contain both transitions but shorten the initial run in the suffix. This unary border occurs exactly twice precisely when it is the whole of two equal outer runs. In a four-run factor 0^i1^b0^c1^j a proper matching suffix must start in the third run, since starting later in the initial run shortens its initial zero block. The only candidate is 0^i1^j, and it occurs exactly twice if and only if i≤c and j≤b. This proves the disjoint families and n+1+pq. The attainable minima satisfy 2(p+q)≤n and are realized by placing all surplus in a first run of length p+n−2(p+q); balance at p+q=floor(n/2) gives the maximum and p=q=1 the minimum. The independent replay using consecutive-occurrence returns agrees on exact factor sets for 4,845 compositions and every excess spectrum at lengths 4–20. Another bounded check tested both starting letters at lengths 4–18. Neither finite experiment substitutes for the unrestricted proof.",
+      "replay": "python3 /workspace/evidence/replay_small.py 5",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The five-run proof's four-run family 0^i1^b0^c1^j is closed precisely for i≤c and j≤b, amounting to min(a,c)min(b,d) with the stated outer bounds. Its preceding paragraphs classify one-, two- and three-run factors too.",
+          "The two-marked-position result covers an exact p=1 boundary subfamily. Mieno et al. give general counting algorithms rather than this closed form."
+        ],
+        "reasoning": "The five-run proof has broader factor coverage in a superword into which every target word embeds as a prefix. The other sources supply partial or algorithmic coverage only.",
+        "searches": [
+          "Resultary 26670ba71617, five-run exact formula and proof",
+          "Resultary 2ab04efc05f9, exact two marked positions",
+          "Mieno et al. arXiv:2409.19576"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 26670ba71617, 2ab04efc05f9 and 86328d0d91d6",
+        "arXiv:1305.6395, arXiv:2111.00863v3, arXiv:2409.19576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly says unary powers are closed, two-run factors are open, three-run factors close exactly at equal outer lengths, and gives the exact four-run family and count xt. Restrict to the prefix of the word with e=1; no closedness test changes in that restriction.",
+          "The count after restriction is 1+max(a,c)+max(b,d)+p+q+pq, and independent realizability of p and q is equivalent to 2(p+q)≤n by putting the difference into a."
+        ],
+        "reasoning": "The prior proof implies the full exact set, so the product formula and the spectrum are a direct sum and elementary arithmetic corollary rather than a new classification.",
+        "searches": [
+          "Resultary 26670ba71617, local mirror RESULT.md, Complete classification, offsets 1500–6325"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed factors are complete first returns to nonempty borders, together with the empty word and letters under the stated convention. The earlier five-run proof uses this same definition and lists all words run by run.",
+          "Badkobeh–Fici–Lipták use a^kb^ka^kb^ka^(n−4k) for a lower bound, with n=4k giving a balanced four-run case."
+        ],
+        "reasoning": "Complete-return formulation preserves all factor sets under restriction to a prefix. The earlier five-run classification therefore applies without a change of predicate; the older balanced lower bound alone does not suffice.",
+        "searches": [
+          "Resultary: distinct closed factors and closed-factor complexity for four/five runs",
+          "Badkobeh–Fici–Lipták arXiv:1305.6395; complete returns, bitonic words and Theorem 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The papers tabulate unrestricted binary maxima through lengths 20 and 24 respectively; the later source corrects some earlier values. The Resultary maxima at 25–27 are 109,117,126, whereas the four-run maxima in those lengths are 62,69,70 including the empty word."
+        ],
+        "reasoning": "None of these unrestricted extremal tables is an exact four-run spectrum or establishes the product rule; the adverse coverage is from the five-run proof, not the tables.",
+        "searches": [
+          "Badkobeh–Fici–Lipták arXiv:1305.6395 Table 1",
+          "Parshina–Puzynina arXiv:2111.00863v3 concluding table",
+          "Resultary 86328d0d91d6 Finding"
+        ]
+      },
+      "rationale": "The earlier five-run Resultary proof directly gives the complete factor families needed for the four-run claim, not just a coincident product or related maximum. For arbitrary a,b,c,d≥1 append one zero to obtain W=0^a1^b0^c1^d0. Closedness is intrinsic to the factor, hence the closed factors of the prefix w are exactly those explicit families in W whose words occur in w. Retain the unary families (the extra run of length 1 changes no maximum), the three-run families with middle run 1^b and 0^c, and the 0-starting four-run family. Three-run factors with middle 1^d survive only if b=d and then already belong to the 1^b family. The 1-starting four-run family and all five-run factors cannot occur in w. Add the stipulated empty word. This yields the exact set claimed in the frozen record. Summation and the elementary range of two independent run minima yield the count, maximum and spectrum as direct corollaries. The earlier Finding is about five runs, but the earlier proof covers the decisive statements. This is documented prior implication, not a failure of the mathematics or of access.",
+      "residual_risks": [
+        "Other sources may also state the formula; that possibility does not affect the verdict because the prior five-run proof already implies it. No claim about global historical priority among prior sources is needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive implication for the whole frozen factor classification",
+          "evidence": "Explicit one-, three-, four- and five-run families, including exactly the target's 0-starting four-run family; retain the families present in the prefix and add the empty word.",
+          "identifier_or_url": "2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+          "material_read": "Mirrored RESULT.md Finding and Proof, notably Complete classification at offsets 1500–6325",
+          "method": "Published Resultary local mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Closed-factor spectrum and sharp density for five-run binary words",
+          "trigger": "Earliest highly relevant general run-by-run classification"
+        },
+        {
+          "assessment": "Balanced four-run lower-bound overlap, not full classification",
+          "evidence": "Uses the repeated balanced block at n=4k in a quadratic lower bound; table reports global maxima.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+          "material_read": "Theorem 25, PDF p. 9, OA offset 21393; Table 1",
+          "method": "Lawful OA PDF passages",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Earlier binary lower-bound classifications and block-word examples"
+        },
+        {
+          "assessment": "Related but does not give the target spectrum",
+          "evidence": "Five-run repeated-block example, global n²/6 asymptotic and maximum values through length 24.",
+          "identifier_or_url": "https://arxiv.org/html/2111.00863v3",
+          "material_read": "Example 1, offset 11700; concluding discussion and table, offset 53500",
+          "method": "Lawful OA full-text passages",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "Exact or asymptotic closed-factor results for block constructions"
+        },
+        {
+          "assessment": "Algorithmic comparison, not evidence of a closed-form four-run theorem",
+          "evidence": "Counts distinct closed factors algorithmically for input strings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.19576",
+          "material_read": "p. 1, OA offset 1848",
+          "method": "Lawful OA PDF passage",
+          "title": "Online and Offline Algorithms for Counting Distinct Closed Factors via Sliding Suffix Trees",
+          "trigger": "General counts that could contain a run formula"
+        },
+        {
+          "assessment": "Unrestricted maxima, different from the target's constrained spectrum",
+          "evidence": "Exact unrestricted values 109,117,126.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Exact binary closed-rich maxima at lengths 25–27",
+          "trigger": "Possible tabulation of attained counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first run stratum above the binary minimum is a natural object, and the formula is a useful exposition. As a new result, however, it is a mechanically recoverable restriction of already published factor families, and the fixed-length spectrum follows by reallocating surplus run length after selecting the two minima. The frozen claim adds no independent invariant, obstruction, or nontrivial spectrum theorem beyond that prior classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

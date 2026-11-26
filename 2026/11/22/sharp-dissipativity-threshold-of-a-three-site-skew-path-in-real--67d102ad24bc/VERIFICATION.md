@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof's critical identities, branch inequalities, isolating cubic, uniqueness, and semigroup differentiation have been checked in the written derivation. Run the standalone file `verify_path_skew.py` with `python3 verify_path_skew.py` (Python standard library only). Its observed output was:
+## correctness
 
-```
-THREE_SITE_SKEW_PATH_CHECKS_OK 15626 c=0.667939452729616 z=0.233103217096491
-```
+PASS
 
-The script tests exact integer and rational polynomial identities, a rational upper bound on 4,912 nonzero integer triples, root isolation to floating-point tolerance, the unique explicit extremizing ray, and finite-difference slopes. Finite tests alone cannot establish the universal theorem, and the numerical root is not an exact certificate. The complete analytic argument is in RESULT.md. The first-public-source date is the arXiv submission date, not a subsequent revised or journal date. No independent audit has been performed.
+Reconstructed the real quartic quotient in the antisymmetric and kernel coordinates. The two polynomial identities bound the nonnegative-sign branch strictly below 1/2; on the opposite branch removing the kernel coordinate strictly increases the quotient unless it was already zero. The value 2/3 at u=1/2 excludes the first branch. The derivative on the remaining interval has sign given by the strictly decreasing cubic in u^2, which changes sign once; restoring the one-sided numerator sign gives exactly the claimed maximizing line. The norm derivative yields the bound for both signs of beta (and beta=0); a norming initial vector proves optimality with prefactor one. Skew symmetry and the characteristic polynomial give the contrast with Euclidean contractivity and spectral stability. Independently expanded the polynomial identities and derivative and isolated the cubic root by rational signs at 0.23310321709649116 and 0.23310321709649117 (python3 /workspace/branches/review_replay.py 4). The bundled diagnostics were inspected, not run, and are not an all-vector proof.
+
+## originality
+
+PASS
+
+The supported distinct result is the path-specific global maximization including exclusion of the kernel coordinate, the cubic value and the full set of normers. The logarithmic-norm-to-semigroup implication and two-coordinate benchmarks are existing results; no inspected comparison provides the path extremum or its normers.
+
+## value
+
+PASS
+
+The minimal equal-edge path with a nontrivial continuous kernel direction is a useful test case for whether an invariant subspace controls a non-Hilbert contraction threshold. The complete normer classification resolves that issue rather than only producing a lower bound from the plane. The exact scalar threshold gives a usable benchmark distinguishing initial norm growth from spectral and Euclidean stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

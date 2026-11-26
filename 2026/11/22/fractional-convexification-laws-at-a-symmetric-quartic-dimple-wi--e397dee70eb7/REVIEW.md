@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The critical normal-form coefficients follow from an explicit cap integral and the Euclidean arclength expression, both evaluated after the exact scaling \(y=\sqrt\delta\,z\). The proof identifies the two stationary contact points, handles positive and negative parameter sides, and proves that the rest of each nearby curve has positive curvature. For the limaçon, the double tangent is recovered by minimizing its horizontal coordinate, and the signed curvature numerator establishes the exposed remaining arc. Direct integration gives the area formula, and the original-versus-chord arclength difference gives the perimeter formula. The reproduced checker and high-precision values corroborate all coefficients, without substituting tests for the proof.
+PASS
 
-## Originality
+Evenness and the differentiated remainder make f′δ(y)/y strictly increasing as a function of y² in a sufficiently small chart, with its two nonzero zeros at y=±yδ and yδ²=Aδ/(2B)+O(δ²). The unique base left support gives a positive horizontal gap on the compact exterior of the chart. On the retained arcs f″δ>0 locally, and exterior curvature stays positive. The common vertical supporting chord lies outside the discarded arc; the simple closed splice has matching tangents and nonnegative turning, hence bounds the hull. Indeed the original is enclosed by the splice and the splice consists of retained points and convex combinations of the two endpoints. For δ<0 the curvature remains positive. With Y²=A/(2B) the cap integrals give coefficients 2B∫₀^Y(z²−Y²)² dz=16BY⁵/15 and 16B²∫₀^Y z²(z²−Y²)² dz=128B²Y⁷/105. Their ratio is 4A/7 after removing the extra δ. For analytic families the nonzero stationary condition is an analytic equation in y² and δ, and scaling the integrals to a fixed interval makes the two defects δ^(5/2) and δ^(7/2) times nonvanishing analytic factors, with zero negative-side extensions. For the limaçon the supporting line is obtained by minimizing c+qc²; the retained arc has curvature numerator at least 2q²−1/2>0. The omitted upper arc has y′=cos t−q cos(2t)>0 (its minimum in c=cos t occurs at an endpoint); integrating the area by parts gives 2∫(1−q cos t)sin²t(2q cos t−1)dt from 0 to t_q, which reduces to the displayed expression. The speed gives the asserted perimeter formula. Inverting y=(1−q cos t)sin t yields A=4 and B=2 and both quoted constants. Frozen quadrature and script evidence is supplementary and was inspected, not executed.
 
-**PASS, provisional.** The 2015 handbook already publishes the double-tangent location and classical geometry; the 2020 Masih–Kanas article publishes the relevant horizontal extremum. Neither is claimed as new. The results checked do not include the paired fractional area/perimeter defects or their smooth-family universal coefficient law. Other indexed convexification findings concern polygonal sets or different contact models. Exact mathematical implication was compared, not merely title similarity. The residual risk is that the universal local normal-form result may be implicit in an older convex-envelope asymptotics treatment not found in accessible searches.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The question asks for the precise geometric cost of repairing a newly appearing smooth concavity, a natural convex-geometry stability problem. Different rational half-integer orders quantify area and perimeter at the same bifurcation. The theorem predicts sharp coefficients from only two local jets and supplies a complete exact classical example. It is not a routine re-labelling of the known limaçon bitangent, and its scope is broader than one curve.
+The supported contribution is the paired sharp Euclidean area and arclength law for the full stated one-flat-point symmetric quartic class, together with the exact limaçon defect formulas. The classical double tangent and the isolated appearance of the fractional exponents in other examples are not independently credited as new. The closest indexed overlaps are genuine but do not cover this universal pair of laws or the limaçon defects.
 
-## Scope and residual risk
+## value
 
-The local law requires a unique symmetric quartic loss of convexity; its proof does not extend without change to nonlocal contacts, multiple defects or higher-order flattening. The planar limaçon formulas cover \(0<q<1\) and do not include the cusp at \(q=1\). Historical-priority verification is necessarily provisional, and independent mathematical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem quantifies a natural loss of convexity in two physically different geometric observables, including their sharp relative scale and differentiability change. The class-level law, with derivative control and a hull identification, is more than a fitted example or calculation of the already-known double tangent; the exact limaçon model is a concrete check and application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

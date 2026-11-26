@@ -1,11 +1,21 @@
-# Scientific review of the footrule comparison-projection theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The pair-swap conditioning computes each footrule/inversion-indicator covariance as an exact sum over crossed cuts. The complete-graph incidence covariance supplies a positive-definite regression system, and the observed vector lies in its cut eigenspace, making the regression solution unique. Random-assignment variance and finite power sums establish the two evaluated polynomial identities; a factored discrete difference proves the sharp minimum at four labels. The packaged standalone Python execution of the finite verifier corroborates the proof at smaller sizes but does not establish infinite validity by testing.
+## correctness
 
-**Originality — PASS, subject to priority risks.** The exact comparison-indicator covariance and precision are already published; the marginal footrule variance and asymptotic normality are older. Neither is claimed here. Comparison of their statements and the inspected primary footrule literature did not yield a formula for individual footrule/comparison covariances, the complete least-squares coefficients, or the exact all-size variance-explained fraction. The closest footrule paper on asymptotic representations uses a different projection space. Some classic or weighted-ranking full texts were not available, and historical priority is not certified.
+PASS
 
-**Mathematical value — PASS.** Footrule and Kendall comparisons are central nonparametric rank-dissimilarity primitives, and comparing their predictive information is naturally motivated in rank-aggregation surrogate design. This result solves the complete linear approximation problem—not just a scalar covariance—with unique pair weights, the sharp finite-sample worst case, and an unavoidable asymptotic residual fraction. It distinguishes the predictive effectiveness of pairwise linear summaries from the complete nonlinear information already carried by the full comparison pattern.
+For uniform S_n, swapping values x<y between a<b changes footrule by twice the number of cuts t in [a,b) with x<=t<y; other locations are unaffected. Averaging over unordered value pairs gives the stated positive covariances. Two- and three-site orderings give Sigma=(I+B^T B)/12, which is positive definite even at n=2. The cross-covariance is B^T h, so the complete-graph Laplacian puts it in the (n+1)/12 eigenspace of Sigma, yielding the unique affine fit. The residual is for affine prediction only, not a loss of information in the full comparison vector. Independently evaluated the two all-size sums using symbolic power sums: for s_i=i^2-(n+1)i+n(n+1)/2, the double-centered assignment variance is [n^2(n^2-1)/6-2 sum_i(s_i^2)/n+(n^2-1)^2/9]/(n-1). With H_i=i(i-1)(3n+1-2i)/6, the squared cross-covariance norm is [n sum_i(H_i^2)-(sum_i H_i)^2]/[n(n-1)]^2. These reduce to (5) and (6); subtraction verifies (4). The exact forward difference of (3) has numerator 3(2n+1)(23n^4+46n^3-311n^2-334n-504) over a positive denominator. The quartic is negative for 2 and 3 and strictly positive from 4 by its expansion in n-4. R_2^2=1, R_3^2=9/10 and R_4^2=58/65; the leading terms give 51/56. Replay: sum the displayed polynomials over i=1,...,n (or use symbolic summation), then factor R^2(n+1)-R^2(n). The supplied verifier was inspected but not executed; its finite counts are frozen self-reported evidence, not the all-size proof.
 
-Limits: uniform permutations, squared-error affine prediction, no claim about nonlinear or distribution-shifted optimality. Closest mathematical references are Diaconis–Graham (1977), Chen–Li–Feng (2012), Xia–Guan–Xu (2025), and the published incidence-precision law for inversion indicators (2026). Missing full texts remain a specific originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact footrule cross-covariance and complete finite affine projection, including the sharp worst-size and limiting variance fractions, not comparison precision, footrule moments or asymptotic normality. The closest available statements give ingredients or different projections, not the claimed evaluated projection.
+
+## value
+
+PASS
+
+The uniform null is a natural benchmark for replacing footrule by linear comparison summaries. This solves the complete affine prediction problem and supplies both the exact worst-size performance guarantee and the persistent nonlinear fraction 5/56, a distinction one cannot infer from complete pairwise information or a scalar footrule–Kendall correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

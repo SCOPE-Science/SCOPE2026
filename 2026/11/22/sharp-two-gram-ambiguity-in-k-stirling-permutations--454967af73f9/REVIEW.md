@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full claim is for integer \(k\ge2\), \(n\ge1\), with inverse fibers restricted to the labeled \(k\)-Stirling source. Every nonloop oriented bigram can occur at most once because a second occurrence would force a prohibited interlacing of two labels. A loop \(aa\) can occur at most \(k-1\) times, with equality exactly for one whole run \(a^k\). Removing the largest forced-consecutive block creates one uniquely determined smaller profile, and reinsertion has a number of possible gaps depending only on that smaller profile. Induction proves the exact fiber product and sharp maximum; the equality case forces a unique nested construction when \(k\ge3\). The first splitting of a homogeneous block has multiplicity \(k-1\ge2\), proving that singleton sources are precisely the permutations of whole blocks. The classical class-size product and gamma-function ratio give the stated probability. Exhaustive finite verification is consistent with every step, though not used in place of induction.
+PASS
 
-Risks and limits: no claim is made for competitors outside the constrained source, nor for unlabeled or cyclic observations; the algorithm can return an exponentially large fiber. The source-size product and the general two-Abelian definitions are prior mathematics.
+For the stated linear directed counts and fixed k copies, the largest label is contiguous; its observed neighbors uniquely determine the deletion update. Fixed row and column deficits recover the endpoints, so every reduced realization admits exactly one compatible endpoint insertion or exactly the reduced count of the specified internal pair. Insertion and deletion are inverse, also when the neighbors coincide. The realizability procedure inverts every accepted chain, and rejects a negative count, invalid largest-label pattern, or mismatched boundary. If an oriented pair ab with a!=b occurred twice, some smaller letter would lie between copies of a larger letter. A self-pair count is k minus the number of its homogeneous runs. Accordingly every branching factor is <=k-1. In the nontrivial k>=3 equality case, all stages split a fully contiguous block; induction forces the immediately previous largest label to be the only such block and hence fixes the entire maximizing profile. For k=2 all factors equal one. A first split of any block when k>=3 already gives k-1 choices; conversely all-block words give singleton fibers, with n! orders. This covers n=1 as the empty product. The cardinality product, Gamma identity and fixed-k asymptotic give the stated probability. As a cross-check the branching product for any attainable profile reduces to the product over labels of (k-1)!/m_aa!, since a loop branch consumes exactly one loop of its host and only those branches change old loop counts. Independent small multiset-word enumeration rejecting forbidden interlacings directly (not by generating via the supplied insertion routine) verifies that product and the extremal counts, replay: python3 /workspace/review_checks/stirling.py. Finite cases are supplemental; the universal assertions follow from deletion and induction.
 
-## Originality — PASS (qualified)
+## originality
 
-The precise contribution is a constrained inverse-fiber classification, sharp worst-case ambiguity and singleton reconstruction law, not the existing largest-block insertion recurrence. The 2008 generalized-Stirling paper supplies the insertion and tree statistics but not the observed pair-count equivalence classes in its inspected central definitions/theorems. The 2013 two-Abelian paper supplies the general word observation, endpoint result and complexity framework but does not impose this increasing-nesting source. The 2016 tree-Eulerian article studies selected adjacent-pair statistics, not complete joint pair counts. Targeted mathematical-result and publication searches for equivalences and broader prior coverage found adjacent but non-dominating results concerning unrestricted two-gram fibers, restricted double-occurrence rigidity, and Stirling permutation statistics. The previously known double-occurrence singleton theorem already covers the \(k=2\) boundary, which is not claimed novel.
+PASS
 
-Residual priority risk: the result is a relatively direct but nontrivial refinement of known largest-label insertion once the full two-gram observation is introduced; unindexed older treatments of multipermutations by transition matrices or Euler trails could cover the exact same restricted fibers. No independent literature audit has been performed.
+Best current evidence supports the higher-multiplicity restricted-fiber calculation, unique extremal spectrum and singleton law. Largest-label insertion, ordinary two-Abelian factor counting, the total source count and k=2 rigidity are established ingredients or exact overlaps and are not treated as novel.
 
-## Mathematical value — PASS
+## value
 
-This solves an exact inverse problem on a well-established nested multipermutation family for *all* multiplicities and orders. Beyond an ad hoc collision, it reconstructs every inverse fiber, gives the sharp exponential worst-case information loss, proves a unique extremal observation for nontrivial multiplicity and identifies exactly which sources decode without ambiguity. The exact probability of singleton decoding shows exponential decay for every fixed \(k\ge3\). The facts are relevant to restricted-source two-gram sequencing or zero-error source identification without making claims about noisy channels or unrestricted words. Finite examples merely check the theorem rather than constitute its value.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete labeled directed observation defines a natural lossless/ambiguous reconstruction problem on an established nested language. An all-profile exact decoder and fiber product, a unique worst spectrum achieving exponential ambiguity, and an attained classification and probability of exact recovery supply a reusable inverse result rather than isolated collisions or routine recounting of the language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

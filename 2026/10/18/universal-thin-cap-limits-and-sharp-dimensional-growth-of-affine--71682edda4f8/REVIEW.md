@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cap-rescaling proof establishes Hausdorff and volume convergence to a single paraboloidal model, covariance invertibility and uniform convergence of reproducing kernels and their Lebesgue functions. The conditional beta-ball distribution gives the covariance and exact scalar formula; convexity and a Cauchy–Schwarz bound give the \(d/e+O(\sqrt d)\) sharp law. The 37 checker assertions corroborate algebra and sample quadrature, without replacing the infinite quantifiers. The explicit planar rim integral is a lower-bound witness only.
+PASS
 
-## Originality — PASS within examined evidence
+Exposure localizes the cap to the graph neighborhood; the positive-definite quadratic term bounds its scaled footprint. The graph convergence there gives both Hausdorff and symmetric-difference convergence to the capped paraboloid. Affine projection commutes with invertible affine pushforward. The limiting covariance is nonsingular, so kernels converge uniformly on a common compact set. Uniform convergence of absolute row integrals and Hausdorff convergence give convergence of their suprema. The L-infinity norm is the maximum row integral (attain the row by its sign, using continuity and full support); the L1 norm equals it by symmetric-kernel duality. Model slicing gives V density b v^(b-1), E[V]=b/(b+1) and E[U_1^2]=E[V]/(d+1)=1/(d+3). Radial convexity maximizes the row integral at the rim of each height slice, not necessarily at s=1. At the tip, integrate the negative part above (b+1)/(b+2); this gives the stated T_d. The omitted transverse term changes any row integral by at most sqrt(d+3); the remaining convex function of height is bounded by its two endpoints, of which s=1 is O(1) and s=0 is d/e+O(1). This proves the two-sided growth estimate. For d=2 I split the exact rim integral in t=sqrt(v) at t=(sqrt(30)-3)/7. The primitives on the lower and upper intervals respectively are (5t^3-7t^5)/2 and 15t^2/16-5t^4/16+245t^6/144; evaluation in the quadratic field gives the displayed rational and radical coefficients.
 
-Hangelbroek–Narcowich–Sun–Ward treat L2 projectors onto kernel spaces on fixed manifolds. Kroó–Lubinsky and Kroó study Christoffel functions in a high-degree fixed-domain regime. The published simplex projection formula concerns a genuinely different limiting shape and gives a different dimension coefficient. Examined available sources and mathematically targeted searches did not reveal the combination of positive-curvature cap universality, the exact scalar endpoint norm, and its sharp \(1/e\) dimensional coefficient. An historical formula under another terminology remains possible, and independent bibliographic verification is outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The endpoint projector norm controls worst-case error amplification in affine least squares. Cap sampling is a natural boundary-degenerate regime, and this theorem shows exactly what local curvature information disappears in the sharp stability constant. The dimensional coefficient differs nontrivially from the simplex regime and offers a structural comparison between curved and polyhedral local geometry.
+Support is for the collapsing positive-curvature cap limit, its explicit paraboloid norm and sharp coefficient 1/e, not for the general covariance kernel, endpoint duality, or classical quadratic scaling in isolation. The strongest available matches concern fixed-body changes of measure, different affine-projector domains, or different invariants of the same model, and do not establish this limit or coefficient.
 
-## Limits
+## value
 
-The conclusion is confined to affine degree one, smooth positively curved exposed caps, and a sequential limit: first cap depth tends to zero at fixed dimension, then the dimension grows. Finite-depth uniform rates and finite-dimensional maximizer classifications are not established. Independent scientific and priority assessments remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Endpoint amplification measures a genuine worst-case stability problem for the affine fit. The result removes local curvature dependence from the leading thin-cap constant and quantifies how large that stability penalty can become as dimension increases, with a sharp asymptotic coefficient rather than just an O(d) bound. The planar and tip witnesses illustrate the norm, but do not carry the contribution alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

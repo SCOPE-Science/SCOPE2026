@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each orientation word the rank-one block path has circular numerical range. Its Hermitian part is bipartite with off-diagonal factorization \(B=PQ^*\). The two Gram matrices are exactly the parity-split adjacent overlaps \(1\) or \(r\), hence the full numerical radius is half the square root of the Perron root of their product. The positive matrix comparison is strict for \(0<r<1\) and proper defect-set inclusion; the orthogonal-overlap endpoint uses exact path decomposition. At unit overlap, simple-eigenvalue differentiation gives the positive sine-weighted defect penalty. Symbolic calculation confirms the explicit four-node radical, and `verify.py` executes independently reconstructed finite-matrix comparisons. Singular Gram endpoints and nonnormal phases are treated explicitly. No infinite conclusion is based solely on finite experiments.
+## correctness
 
-## Originality — PASS (best-knowledge, with risk)
-Audeh–Kittaneh–Moradi, arXiv:2610.15242v1, Corollary 2.1, contains the alternating-word formula \(\|R\|\cos(\pi/(m+1))\), which is credited as prior work. Their inspected complete main-results section does not classify other orientation words, give the two-parity Gram matrices, prove strict ordering, or compute the first-order positional defect coefficients. Kittaneh–Rashid–Xu (2025) supply broader operator-matrix inequalities, not an implication-equivalent exact orientation classification. Claim-specific mathematical searches found adjacent work on rank-one numerical-radius constants, cyclic weighted shifts, and numerical-radius inequalities, but no exact coverage of this block-word theorem. A potential indirect implication from specialized tensor-product or Gram-matrix literature remains a priority risk.
+PASS
 
-## Value — PASS
-The motivating theorem shows that perfectly alternating adjoints produce a universal sharp numerical radius, independent of the underlying bounded operator. A natural, previously unresolved comparison is what changing the orientation does when the block is nonnormal. The result answers this at all word lengths for the nontrivial rank-one family: it computes every pattern from two small Gram matrices, orders patterns sharply, identifies the exact orthogonality limit, and quantifies the location-sensitive loss from individual adjacent equal-sign defects. This is a coherent exact classification rather than a routine special-case substitution or numerical table.
+A scalar unitary at each vertex gauges away the rank-one phase; a geometric progression of phases rotates the entire superdiagonal. Thus twice the numerical radius is the norm of the Hermitian sum. In its even/odd bipartition the cross block is B=P Q*, one endpoint vector in each column per edge. P*P and Q*Q are exactly the odd/even overlap Grams. Cycling factors in BB* identifies all nonzero eigenvalues, with multiplicities, with those of G_o G_e; zeros do not affect the radius even at singular endpoints. Positive adjacent entries make the product irreducible for r>0, and any increased overlap increases an entry, making strict Perron comparison applicable. At r=0 orthogonal incident directions split the path precisely at equal signs; the longest remaining path has L edges. At r=1 all edge vectors agree at each shared vertex, giving the ordinary scalar path. For the analytic derivative, let sigma=2 cos(theta), and let x=P*f and y=Q*g be the incidences of the normalized odd and even singular vectors. Their pairing is y*x=sigma and G_e x=sigma y, G_o y=sigma x. The derivative of the simple top eigenvalue against one Gram overlap is therefore twice the product of the opposite endpoint incidences, or 4 psi_j psi_(j+2), with psi the normalized sine path vector. Differentiating sqrt(lambda)/2 gives the stated coefficient with no extra factor of two. An exact independent characteristic polynomial check for (++-) gives lambda(lambda^2-3 lambda+2-r^2). The supplied NumPy script was inspected as bounded supporting evidence, not run or relied upon for general validity.
 
-## Boundaries
-The general higher-rank orientation problem is not addressed. Finite checks are supportive; full correctness relies on the analytic proof. Priority confidence is limited by potentially implicit general operator-path results, despite direct comparison with the closest inspected papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the sharp alternating-word value and ordinary path sine spectrum as prior. The supported difference is an all-word rank-one spectral reduction, giving strict order and endpoint equality cases and a localized first variation at fixed length. No retrieved comparator gives or directly implies that combination. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+The orientation question is motivated by the known alternating optimum. A dimension-free exact finite Gram law provides comparisons the scalar optimum alone cannot make; the zero-overlap run statistic and the nonuniform defect slope explain what invalidates simple defect counting. The result is useful for open paths with a fixed rank-one operator, not claimed for general rank or cyclic closures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

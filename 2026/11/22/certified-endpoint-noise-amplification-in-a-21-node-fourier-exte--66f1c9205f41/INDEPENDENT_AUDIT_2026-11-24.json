@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:22:49.225402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45",
+        "verify_endpoint.py, lines 10–140",
+        "VERIFICATION.md, lines 19–22",
+        "arXiv:2603.14421, §§3.1, 3 Step 3 Eq. (4), and 4.1"
+      ],
+      "rationale": "Liu–Zhao–Gong's n=10, m=21, T=6 and uniform samples give L=120 and the stated Gram matrix. The endpoint formula in their Eq. (4), with a zero placeholder at the missing endpoint, gives exactly the coefficient row in the finding. The Euclidean row norm is sqrt(1/|u_p|²−1), attained by an aligned perturbation; even for real data the eigenvector may be chosen real. The rational certificate's rank-one positive shift restricts to the perpendicular complement of the test vector, giving lambda_2(H)>10^−35 in increasing order by min–max and Weyl. The Rayleigh bound places lambda_1(H) below 2·10^−38; the normalized residual and gap then bound the difference of endpoint magnitudes by less than 2·10^−15. Commutation with reflection and simplicity give equal endpoint magnitudes. The strict rational coordinate inequalities imply both claimed gain bounds. For independent centered equal-variance noise, the variance is exactly A²sigma²; the strict lower variance comparison is for sigma²>0, with zero prediction variance at sigma²=0. The Bareiss and endpoint checks were inspected, not independently replayed; the submitted verification reports their successful execution. The line 81 cosine-error comment should not be used: it neglects fixed-point rounding. To recover the actual needed bound, the recurrence uses 49 floors at scale 10^90, with subsequent propagation coefficient at most 1/3 for j≥2, so term errors are at most 1.5 units of scale and contribute less than 74 units in their sum. Angle quantization adds less than two units via the Lipschitz bound for cosine, and the Taylor remainder is below 10^−125. Thus the stated coarser cosine bound 10^−85 is ample: together with the final downward entry rounding it gives entry error less than 2·10^−75 and a row-sum bound less than 10^−70. No change to the scientific bound is needed.",
+      "residual_risks": [
+        "This is a fixed ideal-arithmetic noise gain, not a bound on bias, roundoff, correlated errors, or the error of the integrated quadrature."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barnett controls the condition number for general contiguous Fourier submatrices, including the target geometry.",
+          "Dirckx et al. give the simple spectrum of the commuting tridiagonal matrix, explaining that the Gram spectrum can have repeats and the two spectra need not be ordered in the same way."
+        ],
+        "reasoning": "Bounds on singular values or on conditioning do not constrain an individual normalized singular-vector coordinate to this interval. The general commuting-matrix theorem does not supply the fixed-block numerical certificate.",
+        "searches": [
+          "Barnett arXiv:2004.09643, Theorems 1–2",
+          "Dirckx–Huybrechs–Ongenae arXiv:2208.12583 §§2.3–2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.14421",
+        "arXiv:2208.12583",
+        "arXiv:2004.09643",
+        "Resultary 057551e22287",
+        "Identical Resultary entry 66f1c9205f41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact norm identity follows from the published predictor and Cauchy–Schwarz. An isolated Gram eigenvalue and quantitative endpoint-magnitude estimates are additionally certified in the frozen result."
+        ],
+        "reasoning": "Deriving the row norm does not certify that it lies in the stated interval. The primary eigenvector scheme locates a useful alternate numerical representation, but identifying and enclosing the relevant mode still needs a substantive gap and component verification.",
+        "searches": [
+          "Liu–Zhao–Gong Eq. (4) and §4.1 versus constant in frozen RESULT.md",
+          "Dirckx et al. §§2.3–2.4 and Barnett Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (4) imposes the approximate smooth-data relation u_min* f≈0 and solves for exactly the missing endpoint in this block.",
+          "The periodic-prolate eigensystem covers the same contiguous Fourier matrices and gives eigenvectors via J(p,q) and J(q,p); it distinguishes the tridiagonal eigenvalues from the corresponding Gram eigenvalues."
+        ],
+        "reasoning": "The problem is equivalently to bound the normalized endpoint component in the lowest Gram mode, not to bound the singular value. The compared equivalent computational formulation does not give the required component inequality.",
+        "searches": [
+          "arXiv:2603.14421 §§3.1 and 3, Step 3 Eq. (4)",
+          "arXiv:2208.12583 §§2.3–2.4, periodic discrete prolate matrix and commuting tridiagonal eigensystem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching interval in 66f1c9205f41 is the same frozen record. The distinct 057551e22287 exact gain is an infinity-to-infinity minimax norm of smooth blends of equispaced Lagrange extrapolants.",
+          "The original method specifies m=21 and T=6, not a certified endpoint-coordinate or noise-gain table in the inspected passages."
+        ],
+        "reasoning": "The closest exact table-like Resultary result refers to a different linear operator and norm. The identical entry supplies no independent precedent.",
+        "searches": [
+          "Resultary by meaning: smallest Fourier-extension endpoint mode and endpoint noise amplification",
+          "Resultary local mirror 057551e22287 and identical record 66f1c9205f41",
+          "Original method paper, §§3 and 4.1"
+        ]
+      },
+      "rationale": "The predictor and the choice of Fourier block are existing work, and the row-norm and independent-noise variance identities are elementary. The distinct surviving claim is the certified size of the endpoint gain for the published 21-row block. Prior Fourier-block singular-value estimates do not estimate this coordinate; the closest vector machinery provides a way to compute it but not the bracket or an already certified substitute.",
+      "residual_risks": [
+        "Focused prior-work comparison cannot exclude an unindexed calculation of the same periodic-prolate coordinate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator and parameters, not the stated gain certificate.",
+          "evidence": "m=2n+1=21, n=10, T=6, L=T(m−1); Eq. (4) is minus the ratio of u_min* applied to the zero-filled data and u_min* applied to e_p.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.14421",
+          "material_read": "§3.1 p. 7; §3 Step 3 Eq. (4), pp. 10–11; §4.1 p. 12",
+          "method": "Primary PDF passages, offsets 23800, 34250 and 39450",
+          "title": "High-precision quadrature via local Fourier extension: analytic integration, uniform sampling, and correction for piecewise smooth integrands",
+          "trigger": "Original matching endpoint predictor and numerical configuration"
+        },
+        {
+          "assessment": "Covers the matrix family and gives a numerical eigenvector method, not the interval.",
+          "evidence": "The periodic prolate S(p,q) commutes with a real symmetric tridiagonal J(p,q); eigenvectors of J are eigenvectors of S, while simplicity of J need not imply simplicity of S.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12583",
+          "material_read": "§§2.3–2.4, pp. 4–5, offsets 12750–16541",
+          "method": "Primary PDF bounded read",
+          "title": "On the computation of the SVD of Fourier submatrices",
+          "trigger": "General eigenvectors for the same contiguous Fourier blocks"
+        },
+        {
+          "assessment": "Bounds matrix condition numbers, not the endpoint coordinate.",
+          "evidence": "Both theorem inequalities are lower bounds on cond(A) for contiguous p by q submatrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.09643",
+          "material_read": "Theorems 1 and 2, PDF p. 3, offsets 9868–12158",
+          "method": "Primary PDF bounded read",
+          "title": "How exponentially ill-conditioned are contiguous submatrices of the Fourier matrix?",
+          "trigger": "Uniform theorems on the containing Fourier matrix class"
+        },
+        {
+          "assessment": "Different data-to-continuation operator and comparison norm.",
+          "evidence": "The formula Lambda_d(floor(C/2)) is a minimax infinity norm over transition functions for two-sided equispaced Lagrange extrapolation, not a 20-to-one Euclidean singular-mode predictor.",
+          "identifier_or_url": "Resultary 2026/10/25, 057551e22287",
+          "material_read": "RESULT.md Finding, offsets 0–1783",
+          "method": "Local mirror full-text passage",
+          "title": "Sharp worst-case noise amplification for smooth Fourier-continuation blending",
+          "trigger": "Distinct Resultary result on exact Fourier-continuation data-perturbation gains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original quadrature §§3 and 4.1",
+        "Frozen RESULT.md, Finding and Limitations"
+      ],
+      "rationale": "The published method motivates this precise block before computation. A certified gain above 280000 identifies severe endpoint noise amplification in a method component that smooth-data accuracy and Fourier condition numbers alone do not quantify. It is useful for assessing observation precision requirements without inferring failure of the full quadrature.",
+      "residual_risks": [
+        "End-to-end error may combine, attenuate or cancel errors from different steps and is not evaluated here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

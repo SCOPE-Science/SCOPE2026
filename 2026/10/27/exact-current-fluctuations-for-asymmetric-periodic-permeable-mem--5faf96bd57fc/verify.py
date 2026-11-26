@@ -1,58 +1,62 @@
-#!/usr/bin/env python3
-"""Reproducible checks for the exact periodic membrane current law."""
-import math
+"""Exact algebraic checks for centered and raw dispersion coefficients."""
 import sympy as sp
-D,L,a,b=sp.symbols('D L a b',positive=True)
-S=a+b; Delta=a-b; H=2*D+L*S
-F1=L+S*L**2/(2*D)
-F2=L**3/(3*D)+S*L**4/(12*D**2)
-vcount=2*D*Delta/(L*H)
-second=sp.factor((S-F2*vcount**2)/F1)
-computed=sp.factor(L**2*second/2)
-claimed=D*L*S/H - D*L**2*(4*D+L*S)*Delta**2/(3*H**3)
-assert sp.simplify(computed-claimed)==0
-printed=D*L*(24*D**2*S+2*D*L*(7*a*a+34*a*b+7*b*b)+L**2*S*(5*a*a+14*a*b+5*b*b))/(6*H**3)
-diff=D*L**2*(2*D-L*S)*Delta**2/(6*H**3)
-assert sp.simplify(computed-printed-diff)==0
-assert computed.subs({D:1,L:1,a:1,b:0})==sp.Rational(22,81)
-assert printed.subs({D:1,L:1,a:1,b:0})==sp.Rational(43,162)
-s=sp.symbols('s')
-lap=1/(sp.cosh(sp.sqrt(s))+sp.sqrt(s)*sp.sinh(sp.sqrt(s)))
-series=sp.series(lap,s,0,3).removeO()
-assert sp.simplify(series-(1-sp.Rational(3,2)*s+sp.Rational(49,24)*s*s))==0
-mean=sp.Rational(3,2)
-var=2*sp.Rational(49,24)-mean**2
-assert var==sp.Rational(11,6)
-assert var/(2*mean**3)==sp.Rational(22,81)
-print('PASS: exact cumulant derivatives and published-expression comparison')
-print('PASS: independent one-way renewal certificate')
-# Finite-lattice approximation with correct crossing weights and an explicit
-# finite-dimensional eigenvalue reference. Supplementary numerical check only.
-import numpy as np
-from scipy.optimize import brentq
-from scipy.linalg import eigvals
-ad,bd,dd,ell,theta=2.0,1.0,1.0,1.0,0.03
-rhs=ad*math.exp(theta)+bd*math.exp(-theta)
-def F(lam):
-    if abs(lam)<1e-15: return ad+bd
-    if lam>0:
-        k=math.sqrt(lam/dd)
-        return (ad+bd)*math.cosh(ell*k)+dd*k*math.sinh(ell*k)
-    k=math.sqrt(-lam/dd)
-    return (ad+bd)*math.cos(ell*k)-dd*k*math.sin(ell*k)
-exact=brentq(lambda z:F(z)-rhs,-0.25,0.5,xtol=1e-13)
-for n in [30,60,90]:
-    step=ell/n
-    mat=np.zeros((n,n),dtype=float)
-    rate=dd/step**2
-    for i in range(n-1):
-        mat[i,i]-=rate;mat[i+1,i]+=rate
-        mat[i+1,i+1]-=rate;mat[i,i+1]+=rate
-    right=ad/step;left=bd/step
-    mat[n-1,n-1]-=right
-    mat[0,n-1]+=right*math.exp(theta)
-    mat[0,0]-=left
-    mat[n-1,0]+=left*math.exp(-theta)
-    approx=max(eigvals(mat).real)
-    assert abs(approx-exact)<0.02,(n,approx,exact)
-print('PASS: finite-lattice leading eigenvalues approach continuum root')
+
+D, L, a, b = sp.symbols('D L a b', positive=True)
+y = sp.symbols('y', real=True)
+S, delta = a + b, a - b
+H = 2*D + L*S
+Q, v = 2*D*L/H, 2*D*delta/H
+
+
+def same(lhs, rhs):
+    assert sp.factor(lhs - rhs) == 0
+
+
+# y=u/L; densities in u and y differ by L.
+rho_y = 1 + (L*delta/H)*(1-2*y)
+rho_0, rho_L = rho_y.subs(y, 0)/L, rho_y.subs(y, 1)/L
+same(sp.integrate(rho_y, (y, 0, 1)), 1)
+same(-D*sp.diff(rho_y, y)/L**2, v/L)
+same(a*rho_L - b*rho_0, v/L)
+
+# Derive psi from the endpoint jump size, without imposing the displacement.
+q = sp.symbols('q')
+psi_q = sp.integrate(q*(b+delta*y)*L/D, (y, 0, y))
+q_root, = sp.solve(q-L+psi_q.subs(y, 1)-psi_q.subs(y, 0), q)
+same(q_root, Q)
+psi = psi_q.subs(q, q_root)
+dpsi = sp.diff(psi, y)/L
+same(D*dpsi.subs(y, 0), b*Q)
+same(D*dpsi.subs(y, 1), a*Q)
+same(D*sp.diff(dpsi, y)/L, v)
+
+chi = psi-L*y
+alpha, eta = 2*D/H, L*delta/H
+same(chi, -L*(alpha*y+eta*y*(1-y)))
+chi_bar = sp.integrate(chi*rho_y, (y, 0, 1))
+same(chi_bar, L*(-alpha/2+alpha*eta/6-eta/6))
+c_mid = chi.subs(y, sp.Rational(1, 2)) - chi_bar
+same(c_mid, -L**2*delta*(6*D+L*S)/(12*H**2))
+
+diffusion = D*sp.integrate(dpsi**2*rho_y, (y, 0, 1))
+variance = sp.factor(diffusion + Q**2*(a*rho_L+b*rho_0)/2)
+same(variance, D*L*S/H - D*L**2*(4*D+L*S)*delta**2/(3*H**3))
+raw_mid = sp.factor(variance + v*c_mid)
+same(raw_mid, D*L*S/H - D*L**2*(14*D+3*L*S)*delta**2/(6*H**3))
+printed = D*L*(24*D**2*S + 2*D*L*(7*a*a+34*a*b+7*b*b)
+               + L**2*S*(5*a*a+14*a*b+5*b*b))/(6*H**3)
+same(variance-printed, D*L**2*(2*D-L*S)*delta**2/(6*H**3))
+same(raw_mid-printed, -D*L**2*delta**2/(3*H**2))
+
+one_way = {D: 1, L: 1, a: 1, b: 0}
+same(variance.subs(one_way), sp.Rational(22, 81))
+same(raw_mid.subs(one_way), sp.Rational(37, 162))
+same(printed.subs(one_way), sp.Rational(43, 162))
+s = sp.symbols('s', positive=True)
+laplace = 1/(sp.cosh(sp.sqrt(s)) + sp.sqrt(s)*sp.sinh(sp.sqrt(s)))
+poly = sp.series(laplace, s, 0, 3).removeO()
+mean, second = -poly.coeff(s), 2*poly.coeff(s, 2)
+same(mean, sp.Rational(3, 2))
+same(second-mean**2, sp.Rational(11, 6))
+same((second-mean**2)/(2*mean**3), variance.subs(one_way))
+print('PASS: mean offset, centered and raw dispersion, printed comparisons, renewal limit')

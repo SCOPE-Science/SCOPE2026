@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local-prime valuation argument determines exactly when the base-supported portion of the digit sum divides a two-position expansion; the coprime portion becomes a multiplicative-order gap condition. Independent summation over gaps gives the all-length floor identity. Expanding each floor sum gives both coefficients and bounded periodicity. The 81 decimal pair classifications, rational coefficients, and the 48-residue minimal-period certificate are checked by the accompanying verifier. Tests compare direct integer divisibility with the analytic formulas; finite tests are not an infinite proof.
+## correctness
 
-**Originality — PASS, with scope and residual risks.** Cooper–Kennedy (1985) establish fixed-digit-sum asymptotics and equivalence-class polynomial machinery; their 1988 paper elaborates constants. Consequently neither generic periodicity nor fixed-digit-sum counting itself is claimed as new. The precise all-base two-position necessary-and-sufficient condition, all-length restricted enumeration, exact decimal constants and minimal remainder period are not statements found in the inspected text. Fredricksen et al. (2008) concern minimal integers at prescribed digit sums. The unrestricted 2003 Niven-counting theorem was inspected in the official full-text PDF, but does not resolve the sparse-support-two statistic. An equivalent earlier result, especially buried in general digit-multiset formulas, remains possible; checks cannot prove novelty globally.
+PASS
 
-**Mathematical value — PASS.** Counting a fixed number of occupied digit positions is a natural sparse analogue of ordinary digit-sum counting, and the two-position family is the first nontrivial case. The exact finite formula is computationally and structurally useful for arbitrary bases, not merely an asymptotic existence assertion. The decimal proportion \(1483/1944\), explicit linear coefficient, and least 48-cycle are non-obvious exact arithmetic data for this natural population. General fixed-sum results do not directly supply these support-restricted statistics.
+For p dividing b, unequal digit valuations make v_p(a+c) their minimum, already met by both terms. When the valuations are equal, the term in the lower position has strictly smaller valuation than the other; hence the valuation of n is exactly v_p(a)+i v_p(b). This proves the exact lower-position cutoff, including i=0. The coprime part of the sum divides n iff c(b^(j−i)−1) vanishes modulo it, so division by gcd(q,c) gives the order modulo h, with h=1 unobstructed. For positive gap t k, the admissible lower positions number max(L−I−tk,0), which gives the floor expression even for L≤I. At N=L−I≥0 the exact sum is N²/(2t)−N/2+r(t−r)/(2t), including N=0; expansion proves the stated coefficients and bounded nonnegative periodic remainder. Independently, python3 /workspace/branches/independent_replays.py, function niven, recovered the nine decimal frequency classes for all 81 ordered pairs directly from modular divisibility, not the frozen valuations/order implementation, and verified 1483/48, 623/6 and 1483/1944. Direct decimal counts gave Θ(20)−Θ(4)=−2/3 and Θ(29)−Θ(5)=−1, ruling out periods 16 and 24. Every proper divisor of the already proved period 48 divides one of these two, so the least period of the tail is 48. The normalization is 81 binomial(L,2) in base 10, not 10^L, and only the remainder is periodic.
 
-**Limitations.** Bases and digit cutoffs are fixed as specified; no assertion is made for higher digit weights or all real cutoffs. Imperfect mathematical OCR of the 1985 paper and the possibility of unindexed equivalent digit-multiset derivations leave comparative uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is restricted to the exact all-base ordered-pair cutoff/order law, its closed all-length sum, and the sharp decimal phase and density. Fixed-sum studies already supply an implicit exact decimal counting procedure on this subpopulation by restricting to the union of classes with two occupied positions. They are prior coverage of the existence of residue-class counting, not evidence for novelty of quasi-polynomiality by itself. The inspected procedure does not identify each pair's sharp base-prime cutoff and exact gap progression in arbitrary base or extract the least collective decimal phase and constants.
+
+## value
+
+PASS
+
+Exactly two occupied positions is the first support size where digit interactions can change divisibility. Splitting the exact lower-position cutoff from the exact admissible gap reduces the full population law to a finite digit-pair census for every base. The exact decimal proportion and the least collective phase quantify a natural conditional population not resolved by unrestricted Niven asymptotics. The useful contribution is the classifier and sharp arithmetic data, not merely observing that finite residue classes yield polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

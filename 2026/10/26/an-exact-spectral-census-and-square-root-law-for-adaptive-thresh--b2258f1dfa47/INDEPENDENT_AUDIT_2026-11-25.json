@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:18.761555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A parallel fixed extended state has every bit unchanged; for sequential permutations each vertex is updated only once, so return of the extended state likewise requires no bit switch and hence no threshold change. The local test with i and j active sites gives j+1 and b+1−j allowed thresholds on the A side, and i+1 and a+1−i on the B side. These sum to b+2 and a+2, which fixes the normalization. After dividing out (b+2)^a(a+2)^b the double sum is exactly the diagonal sum of the composed conditional binomials. On the polynomial functions of j of degree ≤b the operator preserves the degree filtration, and binomial factorial moments give its kth graded eigenvalue (a)_k(b)_k/[(a+2)(b+2)]^k, zero if a<k≤b. Thus the claimed zeros have algebraic multiplicity max(0,b−a) on the stated (b+1)-point space. For h=ab/(a+b), use a,b≥h and expand each log[1−(r+2)/(a+2)] and its b analogue at k=⌊t√h⌋ to obtain −t²/2+o(1) with no aspect-ratio assumption. The uniform bound exp(−k²/(4h)) follows from log(1−u)≤−u; the associated step functions are integrably dominated, giving √(πh/2) for the spectral sum. At a=b=n divide by [2(n+1)]^(2n) and use ((n+2)/(n+1))^(2n)→e² to get the stated fraction. The audit's own exact characteristic-polynomial checks on eight graphs and full extended-state updates on six graphs, including sequential orders in both directions and all three schemes, ran via python3 /workspace/branches/independent_reproduction.py bipartite. They gave counts 10, 42, 162, 324, 2128, 2128 in the enumerated cases and confirm asymmetric zero multiplicities in the finite matrix test. The uploaded script was read, not run; the proof establishes the full quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The common fixed-point condition is known, while the chip-firing record gives a trace and factorial-moment diagonalization of a dimension-changing binomial composition.",
+          "The accessible Bernstein-operator metadata indicate method-level proximity; the actual paper was not lawfully retrieved in the bounded attempts."
+        ],
+        "reasoning": "The general local fixed-point condition enables a direct configuration sum but does not state the spectrum of the biased two-stage kernel for that sum. Classical spectral methods and the chip-firing calculation make the triangularization natural; the scoped distinct contribution is identifying and evaluating the adaptive enumeration, not those methods.",
+        "searches": [
+          "Chang et al. arXiv:1305.4599v1 Proposition 4.1 and enumeration section",
+          "Cooper–Waldron DOI 10.1006/jath.2000.3464 lawful OA attempts",
+          "Resultary 7a2058a2e7c4 Proof §§3–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks.py",
+        "Chang et al. arXiv:1305.4599v1",
+        "Resultary 7a2058a2e7c4 and ea4303dd1a2d",
+        "Cooper–Waldron DOI 10.1006/jath.2000.3464 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chip-firing proof gives unshifted summands p_k=(a)_k(b)_k/(ab)^k with p_k≤exp(−k(k−1)/(2h)) and sum asymptotic √(πh/2).",
+          "The adaptive normalized summands are p_k q^k with q=ab/[(a+2)(b+2)]."
+        ],
+        "reasoning": "Since 1−q=O(1/h), the difference of the sums is bounded by (1−q)∑ k p_k=O(1), by the chip-firing Gaussian bound. Thus its asymptotic implies the shifted-sum asymptotic after the new trace identity, including the same leading constant without a balance assumption. The chip-firing numerical count or its asymptotic does not imply the shifted adaptive enumeration.",
+        "searches": [
+          "Resultary 7a2058a2e7c4 Proof §§4–5; compare normalized adaptive and chip-firing sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original adaptive paper gives the extended-state model and common fixed-point set, plus path/cycle enumeration and a procedure for trees.",
+          "The chip-firing record counts primitive two-cycle orbits with the same falling factorial numerator but denominator (ab)^k, not [(a+2)(b+2)]^k. The mixed adaptive star record gives 2(2m+3)3^(m−1), exactly the a=1 specialization."
+        ],
+        "reasoning": "Relabelling one shore’s firing phases aligns the two trace constructions, but it does not remove the adaptive pseudo-counts or turn fixed extended states into chip-firing two-cycle orbits. The shifted trace is different even on small graphs, and the star case fixes one part rather than giving the unrestricted census.",
+        "searches": [
+          "Complete-bipartite adaptive thresholds, extended-state fixed points and binomial trace; Resultary 7a2058a2e7c4 and ea4303dd1a2d",
+          "Chang et al. arXiv:1305.4599v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record 7a2058a2e7c4 states a complete count of a different invariant; it even has N(2,2)=18 primitive orbit pairs, not 324 adaptive fixed states.",
+          "ea4303dd1a2d analytically gives the exact count for mixed adaptive stars only; the adaptive paper’s C4=324 likewise covers an exact boundary case."
+        ],
+        "reasoning": "Compared both formulas and counted objects rather than titles, dates, or isolated values. The overlap on stars and a four-cycle does not supply the two-parameter invariant.",
+        "searches": [
+          "Resultary exact complete-bipartite counts, adaptive thresholds and binomial trace: 7a2058a2e7c4 and ea4303dd1a2d"
+        ]
+      },
+      "rationale": "Pass the specific spectral census of labelled adaptive-threshold fixed extended states on general K_{a,b}. Common fixed-point conditions and path, cycle and star cases are covered; neither the binomial diagonalization technique nor the joint Gaussian asymptotic mechanism warrants a standalone originality claim. In particular, the closely matching unshifted chip-firing asymptotic transfers to the shifted sum by an O(1) comparison once the new enumeration is known. The inspected chip-firing theorem does not enumerate the shifted adaptive fixed points themselves.",
+      "residual_risks": [
+        "The Bernstein-operator full text remains uninspected; an equivalent application in older or unindexed work is possible.",
+        "The same-day chip-firing study establishes mathematical overlap, not publication priority; the pass is specifically for the shifted adaptive count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and fixed-point equivalence; overlapping special cases",
+          "evidence": "Extended thresholds, common fixed-point set, paths/cycles and tree procedure, including four-cycle count 324.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.4599",
+          "material_read": "v1 p. 1, Definitions 2.1–2.2 pp. 3–5, Proposition 4.1 and enumeration pp. 11–14",
+          "method": "Bounded OA PDF passages",
+          "title": "Adaptive Complex Contagions and Threshold Dynamical Systems",
+          "trigger": "Original system and potential existing enumeration"
+        },
+        {
+          "assessment": "Same asymptotic mechanism and closely related spectrum for a different count",
+          "evidence": "Two binomial kernels of opposite firing phase and summands p_k with denominator (ab)^k; Gaussian domination and limit without fixed part ratio.",
+          "identifier_or_url": "Resultary 7a2058a2e7c4",
+          "material_read": "RESULT.md Finding and Proof §§1–6, offsets 0–6019, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record local mirror",
+          "title": "A binomial-trace law for primitive two-cycles in complete-bipartite chip firing",
+          "trigger": "Same-day graph family, trace law and joint Gaussian scale"
+        },
+        {
+          "assessment": "Exact a=1 specialization only",
+          "evidence": "The mixed star count is 2(2m+3)3^(m−1).",
+          "identifier_or_url": "Resultary ea4303dd1a2d",
+          "material_read": "RESULT.md Finding and Fixed states",
+          "method": "Published record local mirror",
+          "title": "Power-of-two oscillatory basins and a quarter law in mixed adaptive thresholds",
+          "trigger": "Exact same dynamics on bipartite stars"
+        },
+        {
+          "assessment": "Unresolved at full-text level",
+          "evidence": "The Bernstein operator is a plausible antecedent for binomial polynomial filtrations; no claim of noncoverage from retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1006/jath.2000.3464",
+          "material_read": "Bibliographic metadata only; decisive full-text passage unavailable",
+          "method": "Bounded lawful DOI and alternate access attempts",
+          "title": "The Eigenstructure of the Bernstein Operator",
+          "trigger": "Potential broader spectral formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of extended-state equilibria is a motivated invariant of the specified adaptive system. The two-variable spectral sum replaces exponential enumeration and identifies the finite spectrum of the enumeration kernel. It also quantifies how rare fixed states are even when both shores grow at very different rates, rather than only for stars, cycles, or balanced sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

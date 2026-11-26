@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and verification
 
-Run `python3 checker.py` with Python 3 and no third-party packages. A recorded successful output is included in `checker_output.txt`. The checker performs 1,321 exact assertions for dimensions \(4\) through \(9\), including direct convolution coefficients for complex Gaussian-integer arrays, combinatorial fourth-moment formulas, graph spectral identities, coefficient stability, and vertex-phase extremizers.
+The supplied Python standard-library checker and its recorded output remain unchanged. The exact arithmetic checks in dimensions 4–9 compare ordered pair-sum convolution, the four-cycle formula, the line graph spectrum and the magnitude inequality. The dimension-four calculation is ancillary. Finite checks do not certify the theorem for every \(n\ge5\).
 
-The global theorem for all integer dimensions \(n\ge4\) is proved analytically in `RESULT.md`: (i) character collision classification, (ii) two elementary four-cycle majorants, (iii) line-graph incidence diagonalization, (iv) equality-phase reconstruction. Computational checks are finite corroboration, not exhaustive proof of unbounded-dimensional statements. The stability coefficient is not claimed optimal, and independent validation has not been performed.
+The analytic replay is the collision identity followed by the two complementary four-cycle majorants, the unsigned incidence matrix identities, and projection to the constant and two nonconstant eigenspaces. The result estimates magnitudes only and the stability coefficient is not claimed optimal.

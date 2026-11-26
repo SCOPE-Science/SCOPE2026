@@ -1,9 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Diagonalizing the symmetric positive-definite drift gives an oriented quadratic torque \(\delta Z_1Z_2\); the Lyapunov equation and Wick pairing prove the exact exponential covariance, its integrated finite-time variance and the strict sharp bath-correlation bound. The unit-SNR threshold is unique because the integrated exponential attenuation is a strictly decreasing positive Laplace transform; the near-singular positive-definite bath family establishes sharpness. The packaged checker passes 455 independent numerical and identity assertions; no infinite assertion is inferred from finite testing.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Viot et al. address stochastic angular-momentum and angular-velocity PDFs, rather than the deterministic torque's bath-optimized finite-time squared SNR. Cerasoli et al. calculate the underlying coordinate covariances, which together with Wick's rule imply the unoptimized torque covariance. Du Buisson and Touchette give general long-time quadratic-observable variance machinery, covering the large-time variance coefficient in principle. The proposed distinct result is the sharp **all-positive-definite-bath finite-window optimum and exact unit-SNR feasibility classification** with a soft-mode asymptotic. General Gaussian formulas may permit an equivalent deduction, so external priority verification remains important.
+PASS
 
-**Value — PASS.** The gyrator literature explicitly debates whether average torque is measurable amid noise and suggests inertia/flywheel averaging. The sharp finite-window feasibility theorem solves a well-motivated design question without confusing instantaneous drift torque with noisy angular momentum. The separation between a fixed normalized autocorrelation decay rate and a diverging minimal detection window is a meaningful structural boundary, not just a static variance computation. The theorem does not address finite-sample inference, constrained laboratory bath ranges, stochastic angular momentum, or extraction of work.
+In a positively oriented drift eigenbasis the torque is (λ1−λ2) Z1 Z2. Stationarity gives Sii=Dii/λi and S12=2D12/k in that basis. Independently, the centered product Z1 Z2−S12 is an eigenfunction of the OU generator with eigenvalue −k, so its full stationary covariance is its variance times exp(−k|t|). Gaussian fourth moments give the instantaneous squared mean/variance ratio r/(1+r), where r=S12²/(S11 S22)=α² D12²/(D11 D22). Time averaging multiplies the variance by F(kT); strict positive definiteness bounds r strictly below α², and correlations approaching ±1 realize the supremum in the limit. The integral F(z)=2∫₀¹(1−s)e^(−zs)ds decreases strictly from 1 to 0 and is asymptotic to 2/z, proving the exact strict threshold, nonattainment at equality, and the soft-mode limit. In the Cartesian two-bath example the eigenbasis correlation has absolute value |Tx−Ty|/(Tx+Ty), so the same supremum is approached with one cold bath. The threshold time is an infimum, not an attained least time. The recorded 455 tests and verify.py were inspected, not independently executed; they are finite cross-checks, not the proof. The distinct-eigenvalue assumption excludes zero torque and an undefined ratio.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the exact sharp diffusion-optimized finite-window SNR and its necessary-and-sufficient observation-time boundary for drift torque. The OU and Gaussian moment ingredients, and the ability to calculate a finite-window variance, are not independently claimed as novel. No earlier coverage of the optimized boundary was found in the focused catalogue and source comparison.
+
+## value
+
+PASS
+
+The result gives an exact feasibility limit for resolving a natural stationary mechanical observable even with optimally chosen baths, rather than an asymptotic variance or a calculation at one diffusion matrix. The strict boundary and soft-mode divergence despite unchanged normalized correlation time distinguish a limitation of the signal amplitude from a limitation of temporal averaging. This is a moment-based ratio, not a confidence level, a claim about stochastic angular-velocity noise, or a guarantee for experimentally constrained baths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

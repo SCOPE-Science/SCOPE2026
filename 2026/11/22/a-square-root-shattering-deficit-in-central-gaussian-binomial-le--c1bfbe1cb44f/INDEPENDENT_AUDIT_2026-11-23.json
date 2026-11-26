@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:09:20.496470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite poset, comparable queried cells cannot be shattered. For an antichain, the all-in and all-out labels impose the two closure-size bounds; for any labelling the forced down-closure lies in the complement of the forbidden up-closure, and a linear extension of the difference realizes the desired intermediate size. On the square grid the two closures intersect exactly in the s queried points. Their total size must be at most m², so there are at least s cells incomparable to the entire support. Such cells occur only in the (m−s) unused rows and (m−s) unused columns, giving s≤(m−s)² and the stated ceiling. For the anti-diagonal prefix of length d_m, the down- and up-closures separately sum to d_m(2m−d_m+1)/2; the quadratic inequality makes the band nonempty and includes floor(m²/2). The argument includes s=0 and m=1 and does not say the displayed band is exhaustive. An independently written direct trace enumeration for every rank through m=4 gave central dimensions 0,1,1,2 (for m=4 the maximal band is actually k=5,…,11, wider than guaranteed). The source package's verify.py and verify_output.txt give an additional finite antichain-trace check, inspected without executing it; the all-order conclusion rests on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al., p. 2, Theorem 4.3 and Corollary 4.6: intersection-closed function classes and free resolution/homological dimension",
+          "Cambie et al., pp. 2 and 7: shattering defined via lattice meets",
+          "Iams et al., p. 1 Problem 1 and §2.2: adaptive identification of directed lower sets"
+        ],
+        "reasoning": "A nontrivial fixed-size diagram family is generally not intersection-closed; lattice meet-shattering or a directed-ideal search complexity is not the asserted fixed-area cell-query VC dimension. None of the inspected results yields the square extremum.",
+        "searches": [
+          "Chen–Eur–Yang–Zhang arXiv:1909.02159",
+          "Cambie et al., EJC 27(4), #P4.19",
+          "Iams–Johnston–Muth arXiv:2009.07348"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary 055d9e52aeed",
+        "arXiv:1909.02159",
+        "arXiv:2009.07348",
+        "EJC 27(4) #P4.19",
+        "arXiv:1208.2180"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 2, offsets 2880–4210: with a size-(m−1) support there is one omitted row, so all incomparable cells are in that row and in omitted columns; equations (2)–(4) then force a single feasible rank for that support",
+          "Frozen RESULT.md lines 38–61 gives the arbitrary-size square obstruction and balanced anti-diagonal prefix"
+        ],
+        "reasoning": "The earlier criterion tests a specified support and does not optimize over supports. The rectangular proof technique generalizes to counting incomparable cells in unused rows and columns, so this technique is not credited as independent novelty. The rectangular theorem itself does not imply the sharp arbitrary-s square bound together with the square central construction and band. Its reference to an earlier square-board bound is unspecific and may reference the very finding under review; no order was inferred from the same-day labels.",
+        "searches": [
+          "Rectangular Resultary RESULT.md Steps 1–3 and Relationship to prior work, local mirror offsets 0–4917 and 4917–8384"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rectangular Young-diagram record, Step 1: exactly the same antichain and two-closure condition",
+          "Wild, arXiv:1208.2180, p. 1: enumeration of fixed-cardinality ideals, not of their traces"
+        ],
+        "reasoning": "Passing from diagrams or monotone lattice paths to cells of a lower ideal does not change the query class; area is cardinality. Reflection through both coordinates followed by complement swaps the two closures and maps k to m²−k, not to a different aspect ratio. The fixed-rank criterion is credited background.",
+        "searches": [
+          "Local Resultary on fixed-area Ferrers/Young diagrams, rank-selected lower ideals and VC shattering",
+          "Focused literature lookup for fixed-cardinality ideal and lattice shattering formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed rectangular record isolates m attaining ranks for m×(2m−2), with m≥3",
+          "The Gaussian binomial gives the number of diagrams of each area, not which cell-label traces appear"
+        ],
+        "reasoning": "The inspected indexed alternative is a different exact classification. A table of rank sizes alone does not determine all label traces or yield the stated sharp all-order VC result.",
+        "searches": [
+          "Local Resultary: grid rank slices, fixed-area Young diagrams, maximal and central VC/shattering ranks",
+          "Classical Gaussian-binomial rank enumeration as cited in frozen RESULT.md, ref. 3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp square-grid universal bound and its central and band attainment, not the general closure criterion or the incomparable-cell technique as such. The strongest distinct indexed overlap is the rectangular Young-diagram record. Its unused-row/column argument is substantially the same mechanism, and it determines rigid ranks in one aspect ratio, but its stated theorem neither contains the square regime nor supplies the square central witness and band. Inspected primary literature concerns other shattering notions or computational objectives. This is a best-of-knowledge assessment, not a priority finding.",
+      "residual_risks": [
+        "The exact bibliographic source of the credited general criterion was not resolved; it is not counted as new.",
+        "The rectangular record mentions an earlier square bound without identifying it; shared date is not priority evidence.",
+        "A stronger square or rectangular fixed-rank result outside inspected sources could affect the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers criterion and shares obstruction method; does not state or subsume square theorem",
+          "evidence": [
+            "Equations (2)–(4) force the unique rank for a support under the rectangular hypotheses"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-isolated-maximal-shattering-ranks-in-rectangular-young-diagrams--055d9e52aeed/RESULT.md",
+          "material_read": "Finding, Steps 1–3 and Relationship to prior work; direct Step 2 passage at offsets 2880–4210",
+          "method": "Local Resultary and bounded local-mirror text",
+          "title": "Isolated maximal shattering ranks in rectangular Young diagrams",
+          "trigger": "Closest indexed same-object claim"
+        },
+        {
+          "assessment": "Different closure hypotheses and conclusions",
+          "evidence": [
+            "Intersection-closed families and a free resolution/dimension bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.02159",
+          "material_read": "p. 2, Theorem 4.3, Corollary 4.6",
+          "method": "Bounded primary OA text",
+          "title": "Free resolutions of function classes via order complexes",
+          "trigger": "Shatter-complex theorem of possible broader scope"
+        },
+        {
+          "assessment": "Different ideal convention and adaptive search objective",
+          "evidence": [
+            "Nonempty finite ideals are directed and principal in §2.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.07348",
+          "material_read": "Problem 1, §2.2",
+          "method": "Bounded primary OA text",
+          "title": "Searching for quicksand ideals in partially ordered sets",
+          "trigger": "Product-poset ideal queries"
+        },
+        {
+          "assessment": "Different shattering definition, no fixed-area cell trace conclusion in inspected material",
+          "evidence": [
+            "Shattering in a lattice uses meets and ranks of shattered lattice elements"
+          ],
+          "identifier_or_url": "Electronic Journal of Combinatorics 27(4) (2020), #P4.19",
+          "material_read": "pp. 2 and 7, definitions and meet-shattering setup",
+          "method": "Bounded primary OA text",
+          "title": "A Sauer–Shelah–Perles Lemma for Lattices",
+          "trigger": "Broader lattice-shattering candidate"
+        },
+        {
+          "assessment": "Enumerates ideals; does not give a theorem determining fixed-area shattering",
+          "evidence": [
+            "Problem is output-polynomial ideal enumeration"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.2180",
+          "material_read": "p. 1 abstract/introduction",
+          "method": "Bounded primary OA text",
+          "title": "Output-polynomial enumeration of all fixed-cardinality ideals of a poset",
+          "trigger": "Exact-cardinality ideal problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Middle fixed-area Ferrers layers are natural slices of a classical distributive lattice. Their trace complexity need not be read off from rank size or width. The quantitative square-root deficit supplies an exact all-order comparison with unrestricted width, and a concrete support gives every labelling on a specified interval of ranks. The claim does not determine the VC dimension at every rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

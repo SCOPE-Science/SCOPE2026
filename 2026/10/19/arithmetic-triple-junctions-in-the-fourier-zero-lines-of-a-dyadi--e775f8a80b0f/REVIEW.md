@@ -1,19 +1,21 @@
-# Review of the tetrahedral Fourier-zero junction theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The self-similarity product has a nonvanishing local analytic tail and every finite mask factor is first-order at its zeros. Opposite pairing of four unit phases recovers each mask-zero line. A second vanishing dyadic scale requires two odd-phase pivot coordinates at the smaller scale and a third at the larger scale. Thus there are at most two vanishing factors, and exactly two occur if and only if the finite 2-adic difference test holds. The cube-density computation follows from independent Haar valuations and two convergent geometric series. Integer congruence enumeration for three full cubes supports but does not prove the infinite statement.
+PASS
 
-## Originality — PASS (qualified)
+The compactly supported measure has a product of masks whose tail is nonvanishing and analytic locally: the translated compact complex neighborhoods have a summable bound on deviations from one. For the mask geometry, a nonzero sum of two unit vectors determines their unordered pair, since their product is the sum divided by its conjugate; a vanishing total of four unit vectors therefore pairs them antipodally. This yields the three known line families. At one scale two pivots occur only for the phases (−1,−1,+1); that fixes all coordinates to integers and yields exactly the equal-low-valuation condition. Across k<l, the higher pivot is +1 at k, forcing both others to be −1 there. The higher factor can thus vanish exactly when the nonzero high coordinate and the difference of the low coordinates have equal finite valuation; neither low coordinate can pivot again, and the high coordinate can pivot at only one scale. The three distinct directions are the permutations of (0,1,1), with absolute determinant 2. A pivot derivative of each vanishing factor is nonzero, so Taylor orders add exactly as one or two, even when the real zero lines of a single factor cross. For a specified high coordinate, the probability of a junction with low valuation a is 2^(−3a−3). For a triple the high valuation is a+j with j≥1, and the odd-part difference has valuation j with probability 2^(−j), giving weight 2^(−3a−2j−3). These sums, times three choices of high coordinate, give 3/7 and 1/7. Fixed moduli equidistribute in the centered cubes; discarded large-a or large-j cases require a coordinate in a high power-of-two divisibility class, bounding their upper density by a vanishing geometric tail. Zero high coordinate and coincident low coordinates do not create triples. A separate exact bounded modular recount (bounded_junction_check.py) reproduced (junctions, triples)=(1500,528) at R=7 and (108252,37200) at R=31. It corroborates the lattice arithmetic, not the unrestricted real geometry or the limiting densities. The supplied verify_tetra.py was inspected, not executed.
 
-Dutkay–Jorgensen (arXiv:math/0606349, Theorem 5.1(iii)) already identify the three mask-zero line families; their spectrality conclusions do not establish the all-level Taylor-order bound or arithmetic junction densities. The additional reviewed 2006 foundation and Hu–Zhang–Wang (2024), Section 2, describe affine zero sets without the exact dyadic junction classification. Li (2012) addresses the same digits and spectrality; only its abstract was accessible, so an equivalent earlier observation there is a residual risk. Searches using descriptions of the arithmetic intersection and \(1/7\) density found no dominating statement; non-detection is not an independence certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines the singularity types and their arithmetic frequencies in the entire Fourier-orthogonality zero locus of a canonical, three-dimensional, singular self-similar probability measure. It distinguishes a real-zero **two-line crossing of order one** from a **transverse triple junction of order two**, and computes natural exact densities \(2/7\) and \(1/7\) for the two strata. These are structural invariants not fixed by knowing only the line parametrization without the cross-scale incidence analysis.
+Credit the prior real zero-locus formulas to Dutkay–Jorgensen and Li. Also credit exact mathematical overlap of the indexed even-scale cancellation theorem at b=2: it covers both lattice densities and the at-most-two-level bound on the lattice, and its congruences recover the lattice two-scale test. This is genuine overlap regardless of catalogue date. The frozen junction-and-order theorem as a whole is distinct: it relates real line incidence, exclusions off the lattice, analytic Taylor order, and transversality to the arithmetic. The general index result does not address that real local classification, and the inspected earlier primary zero-locus passages do not resolve the cross-scale incidence analysis or census. This passes the combined theorem, not a standalone claim of originality for either density number, the factor count on the lattice, or the zero-line formula.
 
-## Scientific limitations
+## value
 
-The frequency-space claim is real, exact only for the specified equal-weight dyadic gasket, and the counts apply to integer points in expanding cubes. The source-access and publication-priority risks are recorded explicitly. No independent mathematical or literature audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equal-weight dyadic tetrahedral measure is a standard affine self-similar object, and its known Fourier zero locus does not distinguish ordinary zeros from intersections or Taylor multiplicity. A complete real local classification explains why a two-line crossing can still be first order, identifies exactly where a second factor creates a transverse triple, and makes those singularities countable on the lattice. The geometry/order correspondence is the value beyond the already indexed lattice density calculation; a replay of those density numbers alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

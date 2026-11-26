@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:34.478028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessment of the delivered replacement repairs/3/RESULT.md. The frozen Finding is true, but the frozen proof at line 40 states an incorrect exact one-marker minimum on middle-gap deletion. For a=c=2,b=1, deleting the middle zero loses no one-marker pattern of length 3; the first has length 4. The replacement proves the exact minimum b+1+min(a,c) by observing that loss from the union of rectangles requires u=a+b or v=b+c, and both respective axis points attain those lengths. This supplies precisely the lower bound needed when the two-marker witness has length b+2, so the global witness formula and Finding are unchanged. The published deletion and binary identity give h=1+max lambda_i against all competitors, not only equal-length words. Taking minima with the all-zero witness and then maxima with the marker-deletion witness gives the disjoint gap strata, including the special b=1 case. Their exact polynomial sums to the stated cubic at z=1. The uniform weak compositions converge by simplex Riemann sums, the boundary has probability O(1/n), and inclusion–exclusion yields the stated limit and moments by tail integration. Replay: python3 /workspace/independent_checks.py 3 uses independently generated sets of subsequences of explicit insertions for 220 words, checks 100 coefficients, and verifies the precise counterexample to the frozen proof sentence. Frozen checker and verification were inspected, not executed. The replacement also corrects citations and delimits the contribution; the frozen files were not changed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General algorithms compute h and rho on arbitrary individual words, including binary words represented by their runs. They do not give a joint bounded-height and length polynomial.",
+          "The isolated-marker proof uses all t markers to pin each gap and positive gaps to obtain the requisite alternating subsequences on each side of an insertion. No step of that argument needs t>=3 for positive gaps, but positivity is used and cannot just be dropped."
+        ],
+        "reasoning": "Credit the direct extension to t=2 on the positive interior. A wordwise algorithm, or the explicit formula for all-positive gaps, is not a complete expression for the finite census where gaps can vanish.",
+        "searches": [
+          "arXiv:2412.16560 Corollaries 4.2, 4.6 and Theorem 5.6",
+          "arXiv:2311.15431 Section 3",
+          "Resultary 688d1ac5d334 Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.15431",
+        "arXiv:2412.16560",
+        "Resultary 688d1ac5d334",
+        "Resultary 951e6db8c395",
+        "Resultary 176c90a6c83d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The alternate proof for positive gaps gives h=3+max(a,b,c) at two markers, hence S_(H-3)^3 and the three-coordinate broken-stick limit. Zero gaps are negligible asymptotically but not for exact counting.",
+          "When b=0 with a,c positive the height becomes max(a,c)+2; with b=1 and precisely one positive outer gap d it becomes d+2; for b>=2 and one outer gap it becomes max(b+2,d+3). These are genuinely different active witness regimes."
+        ],
+        "reasoning": "No examined earlier theorem or the overlapping same-day proof produces the missing boundary corrections by substitution. Computational evaluation of a wordwise formula on all triples does not give the exact symbolic census. The repaired result adds the vanishing-gap regimes and their combined finite polynomial, not a new asymptotic mechanism.",
+        "searches": [
+          "Resultary 688d1ac5d334 Proof, offsets 2300–5558",
+          "Resultary 951e6db8c395 and 176c90a6c83d Findings",
+          "arXiv:2412.16560 Theorem 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited statistic is singleton Simon-class height among all binary words. The deletion/minimality-index and insertion characterizations are known equivalent ways to compute it.",
+          "The fixed-content class census uses a related invariant, but rules out neither longer competitors nor a change of marker count at a general depth. The isolated-marker record uses the same height but only all-positive gaps and formally at least three markers."
+        ],
+        "reasoning": "An equal-content singleton is not a singleton among all words. Neither changing coordinates on fixed-content classes nor treating the known witness formulas as a new definition gives the claimed full census.",
+        "searches": [
+          "arXiv:2311.15431 Proposition 3.1, Proposition 3.4, Theorem 3.11",
+          "Resultary 176c90a6c83d RESULT.md",
+          "Resultary 688d1ac5d334 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-run catalogue item gives a square length polynomial for a different run class, not a table of singleton heights for arbitrary two-one words. The two-marker congruence catalogue fixes content and counts equivalence classes. The isolated-marker item gives a positive-composition census whose extension contributes S_(H-3)^3 here."
+        ],
+        "reasoning": "Actual close census entries match only subfamilies or a different equivalence problem. The remaining finite terms are not supplied by those entries.",
+        "searches": [
+          "Resultary 951e6db8c395, 176c90a6c83d and 688d1ac5d334 RESULT.md Findings"
+        ]
+      },
+      "rationale": "Best of current knowledge, the supported distinct claim is the complete two-one length-by-height census including every vanishing-gap stratum. The proof of the same-day isolated-marker result applies at t=2 for positive gaps without a new idea, despite its formally stated t>=3 hypothesis; that fact covers the interior term and implies the same limiting distribution via the negligible boundary probability. The repaired text credits this substantive overlap and does not claim separate novelty for the limit or known height machinery. Shared date does not establish priority.",
+      "residual_risks": [
+        "An unindexed complete census or a stronger enumeration with a marker-count variable could imply the remaining terms; the searches were bounded. The relative priority of the two same-day records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the witness tool, not the census",
+          "evidence": [
+            "Insertion formula for h, deletion formula for rho, and h=rho+1 over binary words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.15431",
+          "material_read": "Propositions 3.1, 3.4 (PDF p. 5), Theorem 3.11 (PDF p. 8)",
+          "method": "Lawful OA full-text passages",
+          "title": "On the piecewise complexity of words and periodic words",
+          "trigger": "Primary exact height characterizations"
+        },
+        {
+          "assessment": "Exact wordwise algorithms",
+          "evidence": [
+            "Algorithms for h and rho, including from compressed binary run notation; the inspected statements do not enumerate the two-one height strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.16560",
+          "material_read": "Corollaries 4.2 and 4.6 and Theorem 5.6; run-level passage near offset 45000",
+          "method": "Lawful OA full-text passages",
+          "title": "On the piecewise complexity of words",
+          "trigger": "Potentially dominating explicit run formulas"
+        },
+        {
+          "assessment": "Its proof directly gives the positive-gap portion at t=2 and the same asymptotic; no coverage of the zero-gap census and no date-order inference",
+          "evidence": [
+            "Stated theorem has t>=3, all gaps positive; proof gives h=t+1+maximum gap, polynomial S_(H-t-1)^(t+1), and simplex maximum limit. Positivity enters the alternating prefix/suffix proof, unlike the t>=3 cutoff."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-piecewise-height-and-exact-distribution-for-binary-words-with-is--688d1ac5d334",
+          "material_read": "RESULT.md Finding and Assumptions; complete relevant Proof from offsets 2300–5558",
+          "method": "Local published mirror",
+          "title": "Piecewise height and exact distribution for binary words with isolated one-markers",
+          "trigger": "Strongest same-day structural and asymptotic overlap"
+        },
+        {
+          "assessment": "Some boundary-word overlap, different total census",
+          "evidence": [
+            "Enumerates positive four-run words 0^a 1^b 0^c 1^d; the generic positive-gap two-marker word has five runs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published mirror",
+          "title": "A perfect-square length enumerator for bounded piecewise height of four-run binary words",
+          "trigger": "Exact bounded-height enumeration nearby"
+        },
+        {
+          "assessment": "Different universe of comparison words",
+          "evidence": [
+            "Classifies classes at fixed composition, whereas h forces identification among words of all lengths and contents."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixed-content-simon-congruence-classes-for-binary-two-mark--176c90a6c83d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published mirror",
+          "title": "Exact fixed-content Simon-congruence classes for binary two-marker words",
+          "trigger": "Same two-marker words and Simon congruence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-marker family is the first fixed-weight setting with three interacting zero gaps. Its bounded-height distribution is an exact calibration case for singleton-language complexity. In fixed-length or cumulative counts, vanishing gaps cannot be discarded: their cumulative correction to the positive-gap count is 3H^2-11H+16 at z=1, and their distinct witness regimes determine small-height and boundary coefficients. This is useful as a complete finite reference even after crediting the positive interior and its classical broken-stick limit; it is not justified by a new proof of that limit alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:53:43.816739Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–5",
+        "VERIFICATION.md, recorded exact and numerical checks",
+        "verify.py, sign-pattern, determinant and local deficit checks"
+      ],
+      "rationale": "The 20 zonotope minors split into two determinants of modulus 1 and two copies of the sum of absolute rotation entries (cofactor identity), giving V=16(1+L). Each Haar entry has mean absolute value 1/2, and the row unit norms give L>=3, with equality for signed permutations. For the maximum, repeated sign row lines give nuclear norm <=sqrt(18)<5. Normalize the first entry of each remaining sign row to +1: three distinct corners of the resulting square have one diagonal pair, so the product of the three off-diagonal Gram signs is negative. Their Gram matrix is 4I-tt^T, with singular values of the sign matrix 2,2,1. After multiplying rows by t and making the first row all positive by column signs, the other two rows each have a sole plus in different columns. Thus the column sums are ±1 and the polar formula preserves all signs strictly. Distinct sign patterns give distinct polar maximizers; there are 4*3*2*2^3=192, paired across determinant signs by reflecting one row. As a normalization cross-check, in local unit-quaternion coordinates (sqrt(1-|b|^2),b) relative to any proper maximizer, the trace against its positive polar factor gives the exact local deficit 96-V=96(b1^2+b2^2)+128b3^2. The double cover of normalized SO(3) gives density (1-|b|^2)^(-1/2)/pi^2 here. Summing the 96 local ellipsoid volumes at this density gives 1/(6 sqrt(2) pi); away from the maxima compactness gives a strict endpoint gap. The L-deficit rescales by 16. Tail integration against k t^(k-1), or the localized beta integral, multiplies its coefficient by Gamma(5/2)*5^(3/2), giving 20 sqrt(10/pi) for the stated real-k moment asymptotic.",
+      "residual_risks": [
+        "Frozen code inspected, not executed. The Gaussian rotation-vector samples are suitable for checking a pointwise volume identity; they do not estimate normalized Haar endpoint probabilities. The proof and quaternion normalization check, not numerical samples, support the limiting constants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BCS give a local-maximizer criterion for the entrywise norm, but the inspected moment discussion supplies no large-k coefficient.",
+          "The planar catalogue result treats area of n independently rotated copies and limiting fluctuations; the three-dimensional catalogue result treats surface area of sums of n rotated bodies.",
+          "The cited rotating-polyhedra construction paper could not be inspected; lawful landing/retrieval attempts failed."
+        ],
+        "reasoning": "A local-maximum criterion or a fluctuation law in number of summands is not a normalized near-maximum sublevel volume of one relative SO(3) rotation. No negative full-text inference is made about the inaccessible source.",
+        "searches": [
+          "arXiv:0901.2923v1, local maxima and high moments",
+          "Resultary b78353b61adf and d8645944ff61",
+          "DOI:10.1145/1377676.1377716"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0901.2923v1",
+        "Resultary b78353b61adf, d8645944ff61, e48b1a6346ec",
+        "DOI:10.1145/1377676.1377716 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BCS's maximum and the zonotope formula imply 96 as the volume endpoint; their global equality forms may encode the same maximizer set.",
+          "A quadratic maximum and the group dimension predict power 3/2, but the leading constant requires the weights of all neighborhoods: correct multiplicity, Hessian determinant and normalization of Haar measure."
+        ],
+        "reasoning": "Known endpoint and general Laplace theory are inputs, not the claimed calculated constant. The compared statements do not supply that normalized sum or an equivalent asymptotic formula.",
+        "searches": [
+          "arXiv:0901.2923v1, pp. 1–5 and 14–15",
+          "Resultary b78353b61adf, d8645944ff61, e48b1a6346ec"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V=16(1+L) equates the volume-tail law with P(5-L<y) asymptotic to (16 sqrt(2)/(3 pi)) y^(3/2). Tail integration gives the stated high moment with no second independent novelty claim.",
+          "BCS explicitly discuss high-order entrywise 1-norm moments on O(3), with the high-k analysis outside their scope (pp. 1–2, 14–15). The O(3) law for L is the same as the SO(3) law: the two components are exchanged by a row reflection preserving L."
+        ],
+        "reasoning": "Comparison in the true equivalent norm and moment formulations, including the two group normalizations, finds the endpoint but not the endpoint coefficient in BCS.",
+        "searches": [
+          "arXiv:0901.2923v1",
+          "Resultary random rotation and cube endpoint comparisons b78353b61adf, d8645944ff61, e48b1a6346ec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact central-section law has upper-tail exponent 2 and coefficient 3(4+pi)/(16 pi sqrt(2)); its random variable is section area, not Minkowski volume.",
+          "BCS give the exact 3x3 endpoint 5 and equality forms, not the large-k prefactor in their moment discussion."
+        ],
+        "reasoning": "The same cube and a sharp endpoint do not identify the same observable. Existing exact norm data are credited; the inspected data do not tabulate the normalized-Haar coefficient of interest.",
+        "searches": [
+          "Resultary e48b1a6346ec (side-two cube endpoint law)",
+          "arXiv:0901.2923v1, K_3 and equality forms"
+        ]
+      },
+      "rationale": "The supported distinct finding is the sharp normalized-Haar upper-endpoint coefficient and its equivalent high-moment prefactor. The earlier entrywise-norm maximization already gives L_max=5 and hence the endpoint 96; the equality forms may also encode the optimizer count. Priority for that count is not needed or inferred.",
+      "residual_risks": [
+        "External search breadth was limited and the Lien text could not be retrieved. An earlier equivalent coefficient outside the inspected passages is not ruled out.",
+        "Priority for the exact optimizer count is unresolved; it may be encoded in prior equality forms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers endpoint and related equality forms, not the high-moment asymptotic in the inspected discussion.",
+          "evidence": "K_3=5; local-maximum criterion; high-k analysis is outside the paper's scope.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.2923v1",
+          "material_read": "pp. 1–5, 7–8, 14–15; OA offsets 819, 9629, 12534, 17030, 20775, 40783",
+          "method": "Lawful primary OA passages",
+          "title": "On orthogonal matrices maximizing the 1-norm",
+          "trigger": "Identical matrix norm, known 3x3 endpoint and explicit question on high moments"
+        },
+        {
+          "assessment": "Different observable, dimension and limiting parameter.",
+          "evidence": "Planar area fluctuations for a sum of n independently rotated copies.",
+          "identifier_or_url": "Resultary b78353b61adf",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "One-sided non-Gaussian area fluctuations of randomly rotated Minkowski sums",
+          "trigger": "Same-day random Minkowski-sum geometry"
+        },
+        {
+          "assessment": "Surface area fluctuations do not give the volume-tail asymptotic.",
+          "evidence": "Surface area of a sum of n independently rotated three-dimensional bodies.",
+          "identifier_or_url": "Resultary d8645944ff61",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact surface area fluctuations of independently rotated three-dimensional convex bodies",
+          "trigger": "Haar rotations and Minkowski sums in three dimensions"
+        },
+        {
+          "assessment": "Distinct section-area observable.",
+          "evidence": "Upper-endpoint exponent 2 with coefficient 3(4+pi)/(16 pi sqrt(2)).",
+          "identifier_or_url": "Resultary e48b1a6346ec",
+          "material_read": "Finding and upper-endpoint formula",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint area laws for random central sections of the three-dimensional cube",
+          "trigger": "Same cube and an exact upper-endpoint power law"
+        },
+        {
+          "assessment": "Coverage unassessed from primary text; no novelty inference from inaccessibility.",
+          "evidence": "Direct and alternate configured copies returned HTTP 403 or timed out.",
+          "identifier_or_url": "https://doi.org/10.1145/1377676.1377716",
+          "material_read": "Bibliographic citation only; no primary passage retrieved",
+          "method": "Lawful ACM retrieval attempts and DOI route",
+          "title": "Minkowski Sums of Rotating Convex Polyhedra",
+          "trigger": "Cited source on rotating Minkowski sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof steps 3–5",
+        "BCS arXiv:0901.2923v1, moment discussion"
+      ],
+      "rationale": "The coefficient answers a concrete probability question about two randomly oriented cubes, not merely which orientations maximize the volume. It also answers the equivalent 3x3 case of the high-moment problem explicitly motivated in the primary matrix-norm literature. The exact weights of the maximizing configurations are needed; the known endpoint alone does not locate rare-event probability at leading order.",
+      "residual_risks": [
+        "No interior distribution, other dimension or analogous polytope claim is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

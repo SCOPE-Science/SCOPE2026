@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3.9 or newer, standard library only. The expected output begins `VERIFY_OK`. The script enumerates exact rational RCGLS projection identities in dimensions two through five (including nonoptimal two-dimensional finite termination), then executes reproducible pseudorandom Gaussian path simulations in dimensions three, five, and nine. It compares the empirical first- and later-step means and second moments, and the product of two consecutive later factors, against the analytically derived independent-beta expectations. The finite tolerance is statistical, not an exact certificate of infinite-sample laws.
+## correctness
 
-The proof independently establishes the distribution by conditioning on the past, projecting an isotropic Gaussian vector into the preceding-direction orthogonal complement, and using the chi-square decomposition of a spherical squared cosine. The same conditional law at all later times proves factor independence. A strong law for the logarithms of strictly positive beta factors proves the almost-sure exponent. The proof explicitly treats dimensions one and two separately. No proof relies on a simulated run.
+PASS
 
-Unproved by this package: any similar factor independence for a nonidentity matrix, any finite-precision stability conclusion, practical speedups, or exhaustive uniqueness in previous literature. The scientific status is self-reviewed only.
+Exact line search makes rᵏ orthogonal to pᵏ⁻¹. If u is the projection of the fresh Gaussian sketch onto (pᵏ⁻¹)⊥, then the corrected direction is (u·rᵏ)u, and the residual update is the orthogonal removal of the u component. At step zero use the unprojected Gaussian. Conditional on all previous sketches, in an orthonormal basis with first vector rᵏ/‖rᵏ‖, the projected sketch has h independent standard normal coordinates, h=d first and h=d−1 thereafter. The ratio is Y/(X+Y), with independent X∼χ²₁ and Y∼χ²ₕ₋₁. For d≥3 this lies a.s. in (0,1), proving by induction that denominators remain nonzero and residuals positive at every finite step. The conditional law is deterministic, so iterated conditioning gives independence including the first factor, not merely equal marginal laws. Means follow by multiplication, and the strong law applies to the subsequent logarithms since the beta density is integrable against |log x|. The one-dimensional complement in d=2 removes the whole residual on the second step, and the first nonparallel sketch leaves a nonzero residual a.s.; d=1 takes one step. Without the correction h=d at every step. Inspected rational checks and Gaussian simulation provide supplementary evidence only; the probability proof does not use a finite simulation.
+
+## originality
+
+PASS
+
+The direction recurrence, spherical projection law, and the finite-termination boundary are not new individually. The supported distinct claim relative to the inspected earlier primary texts is the independent first/later beta-factor process for rank-one Gaussian predecessor-corrected exact line search, including the exact later contraction and logarithmic rate. Two demonstrably equivalent or stronger indexed results postdate the assigned October record; those are material coverage, not evidence of earlier priority.
+
+## value
+
+PASS
+
+The independent product law supplies sharp iteration-by-iteration and almost-sure rates, and distinguishes the correction's effect on the whole error process from the uncorrected method rather than merely repeating a convergence guarantee. The comparison is in exact arithmetic and counts iterations, not practical runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

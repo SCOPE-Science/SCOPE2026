@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:57:01.826093Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95",
+        "Frozen VERIFICATION.md lines 19–29 and verify.py, inspected without executing",
+        "/workspace/branches/review_checks.py (ordinal 3)"
+      ],
+      "rationale": "Convolving the decaying input with the passive loss kernel gives a symmetric divided difference of exponentials, including the finite coincident-rate limit. For a=exp(-lambda Delta) and b=exp(-delta Delta), P(2 Delta)/P(Delta)=a+b. At known gain, P(Delta)/(k Delta C(Delta)) is L(b/a), with L(u)=integral_0^1 u^s ds and L'(u)>0, including L'(1)=1/2. These give a,b and C0 uniquely. At unknown gain the two active readings give a and C0; the sum then gives b, and the first passive reading gives k. Both inverse maps are smooth at positive interior collisions. The minimum-three claim holds on the generic distinct-rate domain: with two passive readings the rate swap persists, with two active readings the loss rate is missing, and with one of each at positive passive time one can vary lambda, match C through C0, and then implicitly adjust delta because the passive convolution is strictly decreasing in delta with nonzero derivative. A passive reading at zero is uninformative. At unknown gain, a rate swap can be masked at any single active time (including zero) by rescaling C0 and keeping k C0 fixed; a single positive-time passive reading instead permits arbitrary delta compensated by k, even knowing the entire active trace. The passive Taylor expansion is even with a quadratic leading sensitivity for fixed positive time. Independent convolution quadrature checked both inverses in 30 bounded cases, including both rate orders and exact and near equality. Replay: `python3 /workspace/branches/review_checks.py 3`.",
+      "residual_risks": [
+        "The numerical check is supplementary. Smoothness at interior collision is not a uniform stability guarantee or field-model validation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The input-output paper's opening states the general noiseless structural-identification objective for linear ODE models.",
+          "The frozen discussion cites the Chen study for empirical active/passive complementarity, not as an inverse theorem; no primary passage was accessible."
+        ],
+        "reasoning": "Structural identifiability from output behaviour does not by itself bound the minimum number of scalar samples or prove uniqueness at a specified finite schedule, and field complementarity is not the stated parameter inverse.",
+        "searches": [
+          "Ovchinnikov–Pogudin–Thompson arXiv:1910.03960",
+          "Chen et al. DOI 10.1016/j.envint.2024.108706"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b4741f41fa53, 355f087d32be and fd2b83b9ab32",
+        "Hawker DOI 10.1002/etc.69 (access-limited)",
+        "Kuan et al. DOI 10.1002/psp4.12909 (access-limited)",
+        "Chen et al. DOI 10.1016/j.envint.2024.108706 (access-limited)",
+        "arXiv:1910.03960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 100–111 expressly credit Hawker for the exponential ambient-input law and calibrated recovery with a richer temporal response; the full primary text was not obtained.",
+          "The actual hybrid proof uses a sum and a strictly monotone divided difference, plus the one-active-time swap with unknown gain."
+        ],
+        "reasoning": "A known model response and richer-time recovery do not on their own give the finite designs, label identification or type-specific impossibility. No statement obtained from prior work implies the full target. Whether Hawker contains a more direct finite-design antecedent remains unresolved.",
+        "searches": [
+          "Hawker DOI 10.1002/etc.69 and identified Griffith author profile",
+          "arXiv:1910.03960"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The passive model is a two-exponential response with the classical rate-label permutation; this piece is credited, not claimed.",
+          "fd2b83b9ab32 fixes both rates and optimizes noisy observation placement for amplitudes."
+        ],
+        "reasoning": "Reparameterizing to unordered exponential poles does not recover the labels or separate k from C0. An amplitude-design result with known rates does not cover the unknown-rate calibration problem.",
+        "searches": [
+          "Resultary semantic search for hybrid active/passive sampler identification and two-exponential finite observations",
+          "Kuan–Wright–Duffull DOI 10.1002/psp4.12909",
+          "Resultary fd2b83b9ab32"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4741f41fa53 is the assigned record itself.",
+          "355f087d32be uses three parallel calibrated sampler rates at a single terminal time for a rectangular pulse; it recovers episode amplitude and endpoints.",
+          "fd2b83b9ab32 fixes the decay rates."
+        ],
+        "reasoning": "The related indexed observations have different unknowns or observation operators. The distinct same-day record is compared on content; no order is inferred. No separate numerical table is material to this symbolic identification theorem.",
+        "searches": [
+          "Resultary b4741f41fa53",
+          "Resultary 355f087d32be",
+          "Resultary fd2b83b9ab32"
+        ]
+      },
+      "rationale": "The supported distinction is the exact minimum hybrid scalar counts for the two calibration regimes, their constructive fixed-time schedule, and the smooth inverse at collision. The response law, rate-exchange ambiguity and general structural identifiability are not new. No inspected prior statement establishes the combined finite-design and lower-bound result. This is a bounded best-of-knowledge assessment, notably not a definitive comparison to Hawker's full text.",
+      "residual_risks": [
+        "Hawker is the materially closest model-level source, but exact finite-design coverage could not be settled against its full text. Other inaccessible or unindexed equivalents cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model overlap credited; design comparison access-limited",
+          "evidence": [
+            "Frozen RESULT.md lines 100–101 and 111; DOI and publisher access denied"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/etc.69",
+          "material_read": "Frozen discussion and bibliographic reference; Griffith profile yielded no paper passage",
+          "method": "Targeted DOI/publisher and lawful author-profile access",
+          "title": "Modeling the response of passive samplers to varying ambient fluid concentrations of organic contaminants",
+          "trigger": "Closest kinetic-model antecedent and calibrated recovery"
+        },
+        {
+          "assessment": "Rate-swap background, not proof of prior hybrid coverage",
+          "evidence": [
+            "Frozen RESULT.md lines 82–88 and 108"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/psp4.12909",
+          "material_read": "Frozen account and bibliographic reference; no accessible primary passage retrieved",
+          "method": "Targeted DOI/publisher and PubMed access",
+          "title": "The influence of flip-flop in population pharmacokinetic analyses",
+          "trigger": "Equivalent rate-label exchange"
+        },
+        {
+          "assessment": "Empirical context as cited; no full-text noncoverage inference",
+          "evidence": [
+            "Frozen RESULT.md lines 100–101 and 107"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.envint.2024.108706",
+          "material_read": "Frozen summary; publisher access did not yield primary passage",
+          "method": "Targeted publisher lookup",
+          "title": "Passive eDNA sampling facilitates biodiversity monitoring and rare species detection",
+          "trigger": "Possible earlier active/passive integration"
+        },
+        {
+          "assessment": "Passage covers general noiseless ODE identification, not the finite sampling target",
+          "evidence": [
+            "Opening characterization concerns deducing parameters from the model equations and input-output structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.03960",
+          "material_read": "Version 5, page 1 abstract, text offsets 344–1018",
+          "method": "Lawful arXiv PDF passage",
+          "title": "Input-output equations and identifiability of linear ODE models",
+          "trigger": "Potential dominating structural-identifiability theorem"
+        },
+        {
+          "assessment": "Different pulse family, sampler design and unknowns",
+          "evidence": [
+            "Three rates k, 2k and 3k, one terminal time; recovery of a rectangular episode."
+          ],
+          "identifier_or_url": "355f087d32be",
+          "material_read": "RESULT.md opening finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Three-rate passive-sampler pulse recovery and a universal short-window bound",
+          "trigger": "Closest distinct Resultary passive inverse"
+        },
+        {
+          "assessment": "Known rates; amplitude-only noisy observation placement",
+          "evidence": [
+            "The third observation is placed to optimize the design criterion, not to identify either rate."
+          ],
+          "identifier_or_url": "fd2b83b9ab32",
+          "material_read": "RESULT.md opening finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp horizon transition for pinned observations of two exponential modes",
+          "trigger": "Finite observations of two exponential modes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–95 and 103–104",
+        "arXiv:1910.03960, opening context"
+      ],
+      "rationale": "The two exact calibration-dependent designs answer a natural experiment-selection problem in the idealized model. The necessity by observation type says why, at unknown gain, more samples of the same type cannot replace a missing type of observation; collision regularity shows a genuine advantage over extracting unlabeled poles. These are structural distinctions, not claims of improved field accuracy.",
+      "residual_risks": [
+        "No claim for stochastic or noisy deployments, arbitrary schedules, or time-global accuracy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

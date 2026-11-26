@@ -1,19 +1,21 @@
-# Scientific review: dimension \(35\) cyclic-shift signs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is explicitly necessary for real Weyl–Heisenberg fiducials with odd-degree coordinate field and separately gives shift-only sufficiency over the reals. The identity \(T^2=(3+S)/3\) follows by summing normalized cyclic correlations, and the odd field-degree condition forces \(T\in\mathbb Q\), then integral. The parity/range argument leaves only \(S=-3,9\). Fourier eigenvalues of the symmetric circulant Gram matrix give an exact positive-semidefinite criterion. The included rational arithmetic script enumerates all \(21{,}828\) possibilities without floating-point decisions; its certified cosine intervals, signed eigenvalue lower/upper bounds, and orbit computation reproduce counts \(19,0\), sizes \(12,3,4\), and strictly positive eigenvalues away from the constant mode. Fourier spectral factorization proves the restricted real-vector converse. There is no inference from finitely many checked dimensions to infinitely many.
+PASS
 
-## Originality — PASS, with residual literature risk
+Summing the shift autocorrelations gives T²=(3+S)/3. Odd extension degree excludes a quadratic subfield and hence forces T rational; a reduced denominator s would satisfy s²|3, so T is integral. S=3(T²−1) is odd with |S|≤17; T must be even, leaving 0 or ±2 and respectively seven or thirteen positive signs. The symmetric circulant Gram spectrum has constant mode T² and paired modes k,35−k with 3λ_k=3+∑σ_a cos(2πka/35). For nonzero k, the full root sum gives the equivalent 3λ_k=7/2+2∑_(a∈P) cos(2πka/35), also for nonunits. Independently replayed all combinations with python3 /workspace/replay/shift35_review.py, using alternating arctangent brackets for π, a rational Taylor bound plus cosine's Lipschitz bound, and outward rounding at scale 10^18. The 19,448 and 2,380 candidates gave 19 and zero survivors with no ambiguous signs. The 19 have λ₀=0 and all other λ_k≥67924701873905317/1500000000000000000, exceeding the frozen common bound. Independent orbit grouping verified disjoint sizes 12,3,4 and the three frozen representatives. Real shift-only realizability follows by Fourier inversion of the symmetric coefficients sqrt(λ_k), with the forward transform unnormalized and inverse divided by 35; this gives the autocorrelation and squared norm one. It does not realize a prescribed field degree or impose any nonzero modulation equation. The bundled rational code at verification/spectral_census.py was inspected, not executed; its positive-definite print label means strict positivity on the nonconstant subspace for survivors, not on the whole space.
 
-The first-posted 2026 preprint of Van Loo and Oggier supplies dimension and sign constraints but does not state a dimension-\(35\) exact positive-type sign enumeration. Khatirinejad's full characterization treats generic equations and particular real Legendre constructions in dimensions \(7\), \(19\); Appleby et al. treat Stark-unit SICs in a different dimension family; Song–Tranel classify circulant concurrence matrices for small designs, not this sign-Gram problem. Current relevant database searches for exact sign counts, dimension, equivalent circulant spectra, and multiplier orbits retrieved neighboring spectral/quantum results but no theorem implying this census. Comparisons are by mathematical implication, not title matching. The absence of a search hit cannot prove global uniqueness, and undiscovered specialized tabulations remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Dimension \(35\) is the first dimension above \(3\) permitted by the 2026 odd-degree field sieve \(d=4m^2-1\) with even \(2\)-adic valuation of \(m\): \(m=2\) is excluded, \(m=3\) gives \(35\). The finite exact theorem reduces \(21{,}828\) field-compatible raw shift-sign assignments to \(19\), and quotienting unit multipliers leaves only three search templates. The sharp cyclic-shift classification and realizability distinction give a mathematically motivated finite boundary for further algebraic tests; the claim neither pretends that an unrestricted SIC theorem follows nor asserts existence in odd-degree fields.
+The distinct claim is the complete dimension-35 shift PSD census and resulting exclusion of T=±2 under the necessary field-degree restriction, not the general sign identity, odd-degree dimension criterion, circulant diagonalization, or spectral factorization. The strongest inspected primary passages supply the general restrictions but not the finite classification. Neither the local catalogue comparisons nor the searched primary passages establish covering evidence for this census. This is a bounded judgement, not a priority guarantee.
 
-## Closest sources and limitations
+## value
 
-Most relevant are Van Loo–Oggier, arXiv:2610.13168v1, §§2–6; Khatirinejad (2008), Theorem 2.2, §§3–5, Appendix; Appleby et al. (2022), §§V–VII and appendix; and Song–Tranel (2022), §5. The full Weyl–Heisenberg equations and field-degree realizability are outside this claim; independent audit remains pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dimension 35 is the first dimension above three admitted by the stated odd-degree necessary sieve, making it a motivated exact instance. Reducing 21,828 discrete possibilities to three multiplier templates and ruling out the nonzero sum branch gives a usable, exact constraint for further fiducial or sign-subsystem work. The classification is complete for the stated real shift-only PSD relaxation; its value does not depend on claiming full WH realizability or nonexistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

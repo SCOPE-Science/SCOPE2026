@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The normalized determinant kernel has the explicit partition spectrum \(\lambda_{m,n}=a_mb_n\) on \(U(2)\times U(2)\) types of multiplicity \((m-n+1)^2\), inherited with attribution from the full spectral calculation in Ding (2020). The newly proved step replaces each rational spectral cutoff with a cubic positive-part sum with a summable uniform \(O(x^2)\) error. The beta-moment identity fixes the leading coefficient; the harmonic tail of \(nh_n^2\) fixes the second logarithmic coefficient. Rational-arithmetic finite counting diagnostics agreed with direct enumeration, but these are not the justification of the infinite theorem. There is no unproved extrapolation of a finite computation.
+## correctness
 
-**Originality: PASS, with priority risk.** Ding (2020, arXiv:2009.09613) proves the exact partition eigenvalue representation and Schatten threshold, which are credited and not re-claimed. It does not state or derive the uniform small-threshold counting law, the \(\tau^{-2/3}\log(1/\tau)\) correction, or its exact coefficient. Obtaining the second term requires controlling simultaneously the eigenvalue cutoffs in both partition coordinates; it is not a numerical substitution or a direct special case of a prior asymptotic theorem. Ding–Fan (2020, arXiv:2004.13635) treat Dixmier traces on rank-one unit balls, unlike the present rank-two matrix ball. Upmeier–Wang (2015) treat quotient sub-Toeplitz commutators; Upmeier (2021) studies other K-invariant Toeplitz symbols. The closest identified published research findings involve Bergman disk cutoffs, rank-one Toeplitz weak traces, and Bergman ellipsoid Volterra companions; none gives this two-term determinant-kernel counting law. Relevant unindexed historical literature about matrix-ball spectral zeta functions could still contain an equivalent formula.
+PASS
 
-**Mathematical value: PASS.** The rank-two Cartan domain is a canonical test of how higher-rank representation strata influence operator-ideal asymptotics. The exact \(\mathcal L^{1,\infty}\) trace coefficient identifies the critical spectral mass, while the first nontrivial lower-order coefficient detects the interaction between the two partition coordinates. Its logarithmic scale is larger than the natural \(\tau^{-2/3}\) discrete counting error, making it a mathematically resolvable feature rather than a numerical fit. The family along the entire positive critical-weight line is natural, not an arbitrary finite slice. No downstream theorem is claimed.
+Ding's partition multiplier (alpha)_partition/(genus+gamma)_partition gives the positive factors a_m b_n with alpha=gamma+1, genus four and a/2=1. The U(2) highest weight (m,n) has dimension m-n+1, so the product type has squared multiplicity; the nonholomorphic complement is killed. With x=tau^(-1/3), h_n=(A_gamma b_n)^(1/3), the strict upper cutoff in m is the ceiling of the real cubic cutoff minus one, hence x h_n+O_gamma(1). The squared-multiplicity row sum differs from (x h_n-n)_+^3/3 by O_gamma((x h_n)^2+1) on the union of active rows, including possible mismatches close to the boundary. There are O_gamma(sqrt(x)) such rows and sum h_n^2 converges, giving O_gamma(x^2) total error. With Q=(A_gamma B_gamma)^(1/6) sqrt(x)+O_gamma(1), the cubic leading term can be extended to all n for O_gamma(x^2) error and sum b_n=(gamma+2)/2 by a telescoping difference of reciprocal quadratic products. Of the remaining cubic terms, only -x^2 sum_{n<=Q} n h_n^2 exceeds O_gamma(x^2): it is -(A_gamma B_gamma)^(2/3) x^2 log(x)/2+O_gamma(x^2). This gives the stated negative coefficient after log(x)=log(1/tau)/3. Ordinary monotone inversion gives s_j~C_gamma/j, and convergence of the ordinary logarithmic mean yields the stated Dixmier trace and Schatten assertions.
 
-**Limits and evidence.** The precise form of the second term is proved only for the \(2\times2\) matrix ball and fixed \(\gamma>0\), relying on the published exact kernel spectral decomposition. No independent expert audit or novel priority certification has been performed. The proof and the executable rational counting check accompany the finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact spectral characteristic and Schatten threshold are prior results. The additional result is a quantitative two-term ordered count, including an interaction of both partition coordinates, and its explicit weak trace; the inspected prior statements do not give those counting constants or remainder.
+
+## value
+
+PASS
+
+The trace boundary is canonical for this positive determinant kernel. An explicit weak-trace mass and a genuinely rank-two negative logarithmic correction distinguish a spectral ordering phenomenon invisible to the known membership criterion. The result explains the interaction through a borderline sum over the second partition coordinate rather than reporting a numerical cutoff or a new notation for the same criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

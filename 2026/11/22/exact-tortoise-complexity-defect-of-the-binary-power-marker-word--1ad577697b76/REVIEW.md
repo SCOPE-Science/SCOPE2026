@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The definition of the binary one-step tortoise map agrees with the published map. The proof distinguishes zero, one, and at-least-two marker classes. Every multi-marker factor is parameterized by its first marker index and starting offset; the second marker must be the next power marker. The first one in the tortoise image has position \(K=r+2^j-1\), and the disjoint dyadic intervals for \(K\) establish unique recovery. Summing all admissible first-marker gaps yields \(M(n)\), the two exact complexities, and the \(n=1\) boundary. The direct and structural checkers independently reproduced the formulas at stated finite lengths. No experimental check is substituted for the proof.
+PASS
 
-## Originality: PASS relative to inspected evidence
+There is one zero word and every offset of an isolated one occurs; all n weight-one words have the same image. For a factor with at least two ones, the second one is at offset r+2^j where j is the first marker index and r is the first-one offset. Excluding the preceding marker gives 0≤r<2^(j−1) when j≥1, while j=0 forces r=0 by the one-sided boundary. The word is fixed by (j,r). The image's first one is at offset r+2^j−1 by the one-step stack rule: the leading zeros and the first internal zero block are emitted before the first one is popped. Its allowable offset intervals [2^j−1, 3·2^(j−1)−2] for j≥1 and {0} for j=0 are disjoint. Thus the image recovers (j,r), and weight preservation separates all three classes. For n≥2 and k=floor(log₂n), j<k contributes 2^(k−1) factors including j=0; j=k contributes min(2^(k−1),n−2^k); larger j contribute none. This gives M(n), including dyadic endpoints, hence the stated counts and difference. For n=1 both letters are fixed. A separate literal-stack simulation on complete finite window sets corroborated every length 1 through 256 (`cd /workspace && python3 power_marker_reproduction.py`); the interval argument, not that simulation, establishes the all-length claim.
 
-The closest primary work is Campbell--Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811 (2026), especially Theorem 1. Its uniform bounded-defect theorem assumes bounded gaps between ones; the sparse word here has unbounded gaps and an exactly linear defect. Its applications concern Thue--Morse and paperfolding, not the power-marker indicator. Defant--Kravitz (arXiv:1809.09158) supplies the map and studies sorting/preimage behavior, not this factor-complexity instance. Searchable related work on the power-marker word concerns distinct invariants (minimal absent factors, string attractors, and parsing), and related tortoise findings concern other source words. The implication comparisons do not show a prior theorem covering this exact claim. An unindexed equivalent remains a residual risk, and an independent historical-priority review is still outstanding.
+## originality
 
-## Value: PASS
+PASS
 
-The known bounded-defect theorem leaves a concrete structural boundary: whether bounded symbol gaps can be removed while maintaining linear factor complexity. The result establishes a sharp negative answer through an exact entire-length loss \(n-1\), gives the full dyadic image-complexity profile, and isolates the only nontrivial inverse fiber of a sorting map. This is a motivated infinite family of identities with a conceptual explanation; not an arbitrary finite table or an unsupported claim of broad classification.
+The distinct claim is the exact tortoise-image complexity, its size-n fiber and its linearly unbounded defect as a boundary example. The ordinary factor-complexity formula is a baseline already covered by growing-gap theory and does not receive independent novelty credit.
 
-## Scientific limitations
+## value
 
-The proof is restricted to the fixed power-marker source and one tortoise step. It does not imply a converse or classify other sparse words. Finite tests validate computations but not priority. A complete independent audit of correctness and originality remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source is an explicit linear-complexity witness that bounded one-gaps cannot simply be deleted from the uniform-defect theorem. Quantifying the full loss and its sole collision fiber at every length explains the failure rather than merely exhibiting sporadic large deficits. The result is specific to one step and one source, not a general converse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

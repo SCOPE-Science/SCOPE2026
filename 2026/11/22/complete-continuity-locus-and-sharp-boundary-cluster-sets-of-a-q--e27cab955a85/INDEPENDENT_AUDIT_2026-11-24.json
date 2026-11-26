@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:34:28.052878Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–72",
+        "VERIFICATION.md lines 19–23 and verify.py (inspected; exact rational run is recorded source evidence, not an independent run)"
+      ],
+      "rationale": "The maximum of the linear form on the fixed compact box gives exactly the stated feasible domain; strict convexity gives uniqueness. At strict slack, interpolate the base minimizer toward a maximizing box vertex to obtain comparison points feasible for all nearby data, then take subsequential limits and let the interpolation weight vanish. At equality the feasible set is the maximizing face, and any nearby feasible optimizer limit lies in it. For an arbitrary target on that face, assigning epsilon times its free coordinates to the originally zero coefficients and subtracting epsilon times their squared norm divided by a positive coordinate's cap from its coefficient preserves the positive threshold exactly. The target then minimizes the separable Lagrangian with multiplier 1/epsilon: positive base coefficients clip to their caps, negative ones to zero, and the new coefficients give the target's free coordinates. If the maximum is zero, shifting the threshold by epsilon times that squared norm instead gives the same certificate; at a fixed zero threshold the optimizer is always zero. These constructions give all and only the claimed cluster points and attain the jump using all free caps. For the strict-slack example the first coordinate clips to one iff epsilon <= 2/5, the second equals 1/2, and the maximum exceeds the threshold by epsilon/2. The one-dimensional positive-threshold boundary has no zero coefficient.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christner–Chan Eq. (3.7) derives data from DG quantities, and p. 9 calls the solution continuous as a function of the inputs without stating a nondegenerate-boundary qualification.",
+          "Lee–Tam–Yen is a plausible parametric QP analogue; full text was not available in the attempted retrieval. The package README was not independently readable."
+        ],
+        "reasoning": "Generic continuity under regularity assumptions would account for strict slack but would not by itself identify all exceptional points and prescribed attainable limits under constraint-normal perturbation. No such stronger applicable theorem was established from the inspected material.",
+        "searches": [
+          "Christner–Chan arXiv:2507.14488 §3.2",
+          "Lee–Tam–Yen DOI 10.1007/s10957-006-9076-x",
+          "QuadraticKnapsack.jl public repository and raw README"
+        ]
+      },
+      "checked_sources": [
+        "Christner–Chan arXiv:2507.14488 §3.2",
+        "Resultary exact and related records",
+        "Lee–Tam–Yen DOI, QuadraticKnapsack.jl and question 4946681 (retrieval limits as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source gives the clipping solver and a general continuity assertion, not a perturbation theorem for maximizing faces.",
+          "At (a,b)=((1,0),1) the assigned fixed-threshold example stays feasible with a=(1−epsilon,epsilon), yet changes the optimizer from (1,0) to (1,1)."
+        ],
+        "reasoning": "The clipping identity is a tool for constructing the paths, but applying the solver pointwise does not give the outer inclusion, the arbitrarily prescribed face limits, or their realization at fixed positive threshold. The simple counterexample is material in view of the explicit continuity assertion.",
+        "searches": [
+          "arXiv:2507.14488 pp. 8–12, especially Eq. (3.9) and Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Christner–Chan Eq. (3.9) is the same minimum-norm box/halfspace projection up to an immaterial scalar in the objective; the paper gives the clipping algorithm.",
+          "The cited projection discussion returned HTTP 403; no result is inferred from that failure."
+        ],
+        "reasoning": "The exact model and solver are already known under equivalent formulations. Attainability of every competing point on the limiting face and the exact discontinuity locus are different assertions from computing the projection at a given input.",
+        "searches": [
+          "Resultary: quadratic knapsack limiter, box-halfspace projection, boundary cluster face and sharp optimizer jump",
+          "arXiv:2507.14488 Eq. (3.9), Theorem 3.3",
+          "The cited box/halfspace projection discussion, Math Stack Exchange question 4946681"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 2026/11/22/SCOPE-complete-continuity-locus-and-sharp-boundary-cluster-sets-of-a-q--e27cab955a85 is the assigned record itself.",
+          "Distinct same-day Resultary matches concern BV-to-L2 switching (57a70e7bfcf9) and projection onto a nonconvex planar half-quasi-ball (3da7baaf4858)."
+        ],
+        "reasoning": "An exact catalogue comparison is meaningful here for the theorem and sharp witness, not for a numerical table. The distinct hits concern different objectives or feasible sets, not this optimization map.",
+        "searches": [
+          "Resultary: exact feasible-domain continuity and cluster-set classification for the quadratic knapsack limiter"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact feasible-domain discontinuity locus, full attainable face, sharp jump and fixed-positive-threshold strengthening for the particular fixed-box projection. Neither the clipped solver nor general loss of constraint regularity is claimed as new. The result qualifies a continuity assertion made for the abstract limiter optimization; it does not establish a discontinuity along any DG trajectory.",
+      "residual_risks": [
+        "Uninspected general projection or parametric-QP literature could contain an equivalent sensitivity result. The failed public retrievals are not negative evidence.",
+        "The plotted DG examples' exact parameter regime was not verified and is not needed for the conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and solver overlap; sensitivity result qualifies the broad continuity wording for the abstract program",
+          "evidence": [
+            "Box caps are 1−ell_c in the DG application; objective is theta transpose theta.",
+            "The paper calls the solution continuous as a function of the input parameters; no strict-slack restriction appears in the inspected passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.14488",
+          "material_read": "§3.2, pp. 8–9, (3.7), (3.9), and Theorem 3.3 around pp. 11–12",
+          "method": "OA paper passages at offsets 33000 and 40000",
+          "title": "Entropy Stable Nodal Discontinuous Galerkin Methods via Quadratic Knapsack Limiting",
+          "trigger": "Identical limiter problem and claimed continuity"
+        },
+        {
+          "assessment": "Overlap of perturbation regimes unresolved; not evidence of noncoverage",
+          "evidence": [
+            "The title concerns linear perturbations, but does not specify the exact normal-perturbation theorem needed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10957-006-9076-x",
+          "material_read": "Bibliographic title; no usable full-text passage retrieved",
+          "method": "Lawful publisher retrieval attempts",
+          "title": "Continuity of the Solution Map in Quadratic Programs under Linear Perturbations",
+          "trigger": "Possible general QP sensitivity coverage"
+        },
+        {
+          "assessment": "Unverified comparison; no priority conclusion drawn",
+          "evidence": [],
+          "identifier_or_url": "https://github.com/atEchoOff/QuadraticKnapsack.jl",
+          "material_read": "No usable README text retrieved",
+          "method": "Public repository and raw-file retrieval attempts",
+          "title": "QuadraticKnapsack.jl",
+          "trigger": "Equivalent quadratic knapsack formulation"
+        },
+        {
+          "assessment": "Unverified comparison",
+          "evidence": [],
+          "identifier_or_url": "https://math.stackexchange.com/questions/4946681/orthogonal-projection-onto-the-intersection-of-a-box-and-a-half-space",
+          "material_read": "No readable discussion retrieved",
+          "method": "Public page retrieval, returned HTTP 403",
+          "title": "Orthogonal Projection onto the Intersection of a Box and a Half Space",
+          "trigger": "Equivalent box/halfspace formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–35 and 49–72",
+        "Christner–Chan §3.2"
+      ],
+      "rationale": "The result corrects a useful continuity heuristic for an existing limiter and quantifies its exact failure under feasible perturbations. The full face and norm-sharp jump give actionable distinctions between strict feasibility, a nondegenerate boundary and a singular boundary. The fixed-threshold two-coordinate witness shows that positive right-hand side and unique minimizers do not prevent jumps, even when the approaching data have strict slack.",
+      "residual_risks": [
+        "No PDE trajectory, time-accuracy loss or variable-cap result follows from this abstract sensitivity theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

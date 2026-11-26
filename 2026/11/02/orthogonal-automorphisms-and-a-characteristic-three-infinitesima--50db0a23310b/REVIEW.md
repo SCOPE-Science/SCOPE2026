@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The left-multiplication rank-one locus recovers the bipartition intrinsically, excluding omitted mixed linear automorphisms. Bilinear polarization gives exact similitude equations and the cube-root constraint; invertibility of each part size gives the two orthogonal summands. At the identity, mixed blocks vanish scheme-theoretically; the local automorphism group is the product of the two smooth orthogonal factors and the cube-root group scheme. Direct derivation calculation gives exactly one additional characteristic-three tangent direction. The finite-field order follows from Gram determinants of coordinate differences. The standalone `verify.py` was executed and returned `VERIFY_OK`: it exhaustively enumerates side-preserving automorphisms in the smallest balanced cases, and computes tangent dimensions by an independently constructed Leibniz linear system. Finite cases are not the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+Re-audited the corrected /workspace/repairs/1/RESULT.md and VERIFICATION.md. Over every field extension, rank at most one for left multiplication cuts out the union of the two sides on points, forcing block preservation or balanced exchange. Over any coefficient k-algebra, on the open where diagonal blocks are invertible, the mixed products force both off-diagonal blocks to vanish. The product submodule is a direct summand, so block preservation gives unit eigenvalues alpha,beta on its two lines; taking norms and dividing by the units r,s makes beta=alpha², alpha=beta². Dividing each side block by its scalar gives an isometry on the nondegenerate complement and conversely. The diagonal open and, in the balanced case, its disjoint exchange translate cover all scheme points by the residue-field argument. Thus this determines nilpotents as well as points. Orthogonal groups and the constant exchange scheme are smooth; in characteristic three z³−1=(z−1)³ and a dual-number root (1+epsilon) gives scalar derivatives (+1,−1), adding exactly one tangent dimension beyond the reduced geometric group. The original finite-field formula is mathematically consistent (the two difference-basis determinants are r and s), but is removed as a finding. A separate small K(2,2) computation reproduced orders 8,8,24 over F3,F5,F7 and tangent dimensions 1,0 in characteristics 3,5, respectively (replay /workspace/branches/51d5ccbd-3754-45f0-b3b6-bdbce7f6b1ad/independent_check.py). The frozen code was inspected, not executed; such small checks are not a scheme proof.
 
-Giacomelli's May 2026 paper asks for automorphism groups of Ramanujan evolution algebras. The May 2025 graph-automorphism paper already proves the diagonal cubic-root subgroup and a graph-automorphism action, not the two orthogonal factors, full group orders, or tangent defect for the singular complete-bipartite family. Elduque–Labra's 2019 group-scheme classification applies to perfect evolution algebras, unlike the present two-dimensional-square algebra, but importantly establishes cube-root group schemes as prior mathematical technology. Accessible related historical claims on graph-to-random-walk algebra isomorphisms and graph blow-ups concern different implications. Targeted mathematical-record and full-text comparisons found no covering statement. A result under a different terminology (rank-two quadratic algebra, singular evolution algebra, orthogonal similitude) remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete all-dimension, all-odd-characteristic classification for a canonical graph-algebra family directly motivated by an explicit recent automorphism problem. It reveals continuous nonmonomial symmetries in dimensions beyond the smallest cases, determines exact finite-field automorphism orders, and pinpoints the characteristic-three smoothness boundary. The statement neither settles the whole open problem nor claims an arbitrary-graph classification.
+The original finite-field classification/order component fails the distinctness test: an independent same-date catalogue record covers the identical rational-point regime and more. The repair removes finite-field orders as a claim and explicitly attributes that coverage; the surviving claim identifies the entire automorphism functor on arbitrary coefficient rings and its characteristic-three infinitesimal defect for these singular algebras. The existing cube-root diagonal subgroup is credited. The inspected prior scheme theorem has a perfectness hypothesis and the overlapping complete-bipartite record explicitly excludes group schemes. On the evidence inspected, the scheme identification and isolation of the sole nonreduced factor constitute a distinct result; no global priority is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired result gives a full and reusable symmetry description of a natural nonperfect graph algebra, where general perfect-algebra classifications are inapplicable. It separates orthogonal symmetries from infinitesimal symmetry invisible to point counts and shows precisely when and by how much the tangent dimension jumps. This is a meaningful scheme-level classification rather than numerical corroboration of the known finite-field formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:58.401223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A proper border of length at least five would give equal five-bit factors with distinct start positions, even if its two occurrences overlap. The length-one and shortest-length-two counts are forced by occurrence multiplicities of 00 and 11, and of 0101 and 1010, respectively. Rooting at the unique edge 00000 bijects rotation classes with rooted Euler tours in the four-bit vertex graph; exhaustive unused-edge DFS is complete, as is testing single cycles among all local incoming-to-outgoing bijections. Reversal and complementation preserve shortest borders and operate on the normalized rotation classes. Independent replay, using separately written code and not the supplied verifier, enumerated 2,048 tours and checked each proper border at all 65,536 cuts. It recovered the seven profile frequencies 48,64,256,448,48,384,800 in displayed order and the ordered size-2/size-4 orbit cells (4,10),(0,16),(4,62),(0,112),(4,10),(0,96),(20,190), with no other orbit sizes. The counts 48,768,1232 for 8,9,10 unbordered rotations yield mean 613/64 and variance 1191/4096, checked independently in exact arithmetic. Replay: python3 /workspace/branches/bc0ba784-7640-4f97-aae0-14da0a7c52d9/independent_border_census.py; SHA-256 8654ffece8b1bd049e3cb565cbe3af4a46918d37b099f737e8aeca1c391cfc8a. The supplied code and spectrum.csv were inspected; the independently reproduced data check the specific orbit cells, not merely their totals. This verifies order five only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clokie–Gabric–Shallit give unrestricted-word extrema, existence of words realizing the possible counts, and a random-word expectation; their p.2 discussion quotes Harju–Nowotka's general binary bound.",
+          "Holub–Müller examine the extreme case of exactly two unbordered conjugates."
+        ],
+        "reasoning": "Bounds, realizability and expectation on unrestricted words do not give a conditional distribution and orbit refinement on cycles satisfying exact five-window universality. The two-unbordered extremal classification does not apply to the 8–10 spectrum.",
+        "searches": [
+          "arXiv:1904.08187 general unbordered-conjugate maxima, occurrence and means",
+          "arXiv:1504.02222 fully bordered words",
+          "DOI 10.1016/j.jcta.2004.07.009"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ff31e943bf5 (RESULT and profiles.csv), 15954dd9e6c4, 2b078dd02462, 964dfe5e22aa",
+        "arXiv:1504.02222 and arXiv:1904.08187",
+        "Limited Harju–Nowotka retrieval and attempted Blanchet-Sadri–Clader–Simpson retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier run CSV gives identical numerical columns (8,2,1,2,13,4-6) for 00000100011001010110100111011111 and 00000100011001010110111010011111. Direct prefix/suffix counts across their respective 32 cuts give distinct (u0,u3,u4)=(10,0,2) and (10,1,1).",
+          "The statistical restrictions in the inspected general-word literature do not determine the de Bruijn-restricted frequencies."
+        ],
+        "reasoning": "The witness establishes that even the earlier run counts together with the recorded period-two lengths do not determine the individual shortest-border profile. One can compute the new invariant by analyzing the listed words, but the previous aggregate tables and theorems do not supply it. The forced short counts follow from the standard universal-window hypothesis and should not receive independent novelty credit.",
+        "searches": [
+          "SCOPE 0ff31e943bf5 Finding and Proof and first page of profiles.csv",
+          "SCOPE 2b078dd02462 Finding and assumptions",
+          "arXiv:1904.08187 pp.1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-cycle-family run theorem counts maximal intervals of prescribed least period, not the minimum square root length centered at each cut.",
+          "The weight-three unbordered-conjugate record gives a distribution on a different word family; an order-five de Bruijn cycle has sixteen ones."
+        ],
+        "reasoning": "The equivalent cut-based statistic here is the smallest centered square root length after comparing all candidate lengths. Maximal runs can contribute several centers; even a least-period-three square such as 010010 can be centered at a cut with shorter period one. A count of runs of each period need not encode the minimum at each cut.",
+        "searches": [
+          "Resultary: order-five binary de Bruijn shortest border profiles, unbordered conjugates and circular square centers",
+          "\"shortest border\" \"de Bruijn\" cycles order five profile",
+          "SCOPE 0ff31e943bf5 and 15954dd9e6c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier run table gives the same 528 total symmetry orbits (32 of size 2 and 496 of size 4); its CSV provides the canonical words and run columns, not shortest-border columns.",
+          "SCOPE 2b078dd02462 tabulates distinct unbordered length-six circular factors, not unbordered length-32 rotations.",
+          "SCOPE 964dfe5e22aa tabulates a scattered-subsequence universality index and the same full-family orbit totals, not the cut profiles."
+        ],
+        "reasoning": "Available cycle data avoid regenerating the domain, and identical full-family orbit totals are known coverage. Classification by shortest-border profiles and assigning the orbits to those profiles require computing a different invariant from those data.",
+        "searches": [
+          "Resultary: de Bruijn order-five unbordered transition spectrum, orbit tables and run profiles",
+          "SCOPE 0ff31e943bf5 profiles.csv; SCOPE 2b078dd02462; SCOPE 964dfe5e22aa"
+        ]
+      },
+      "rationale": "Pass for the complete shortest-border distribution and its cellwise orbit refinement. The cycle family, its total orbit counts, and its short-factor multiplicities are not credited as new. The strongest same-parameter earlier published SCOPE finding has a different run invariant, and two cycles identical in its reported numerical columns demonstrably have different shortest-border profiles.",
+      "residual_risks": [
+        "The complete texts of the two older border-correlation papers were not retrieved independently; related or unindexed shorter-border enumerations could affect historical priority.",
+        "The raw cycle enumeration and total orbit split are already available; the distinction rests on the shortest-border and profile-conditioned orbit statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared domain and full-family orbit counts; distinct, non-determining run profile",
+          "evidence": [
+            "Its definition uses maximal length ≥2p and least period p; its first two run counts are 8 and 2, not shortest-border cut counts.",
+            "Two equal run-data rows give different shortest-border profiles as detailed above."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-circular-maximal-repetition-runs-in-order-five-binary-de-b--0ff31e943bf5",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–9399 across bounded passages; profiles.csv header and beginning, offsets 0–6881",
+          "method": "Read local-mirror statement and exact CSV columns; compared two rows' cuts directly",
+          "title": "Exact circular maximal-repetition runs in order-five binary de Bruijn cycles",
+          "trigger": "Strongest earlier match: same 2,048 cycles, similar short-square statistics and identical symmetry group"
+        },
+        {
+          "assessment": "Weight-three words, not the de Bruijn family",
+          "evidence": [
+            "Its unbordered-shift possibilities 0,2,3 are characterized by the zero gaps for weight-three inputs."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4",
+          "material_read": "RESULT.md offsets 0–2684",
+          "method": "Read local-mirror Finding and scope",
+          "title": "Exact unbordered conjugate spectrum of binary words containing three ones (indexed record)",
+          "trigger": "Exact unbordered-conjugate distribution"
+        },
+        {
+          "assessment": "Different factor length and statistic",
+          "evidence": [
+            "Counts distinct unbordered length-six factors, not unbordered full rotations."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-unbordered-transition-spectrum-of-binary-de-bruijn-cycles--2b078dd02462",
+          "material_read": "RESULT.md offsets 260–2602",
+          "method": "Read local-mirror definition and spectrum",
+          "title": "Unbordered transition spectrum of binary de Bruijn cycles",
+          "trigger": "Same cycles and an apparently similar unbordered invariant"
+        },
+        {
+          "assessment": "Same full-family symmetry totals; different refinement",
+          "evidence": [
+            "The indices 10 and 11 refer to scattered-subsequence universality."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "material_read": "RESULT.md offsets 0–2391",
+          "method": "Read local-mirror Finding and scope",
+          "title": "Circular subsequence universality spectrum of binary de Bruijn cycles",
+          "trigger": "Same cycle census and symmetry totals"
+        },
+        {
+          "assessment": "Unrestricted-word extrema and random-word results",
+          "evidence": [
+            "Completes the general maximum classification and states realizability up to the maximum; these do not yield the de Bruijn-conditioned distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.08187",
+          "material_read": "PDF pp.1–2, especially extracted offsets 1320 and 5200",
+          "method": "Read relevant OA primary PDF passages and the cited earlier bound",
+          "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+          "trigger": "Direct general unbordered-conjugate extremal and distribution theory"
+        },
+        {
+          "assessment": "Different extreme case",
+          "evidence": [
+            "Its defining target is exactly two unbordered conjugates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+          "material_read": "PDF p.3 around extracted offset 9000",
+          "method": "Read the relevant OA primary passage",
+          "title": "Fully bordered words",
+          "trigger": "Same border/conjugate concepts"
+        },
+        {
+          "assessment": "Partly assessed only; no whole-document noncoverage conclusion",
+          "evidence": [
+            "The accessible later source attributes the general binary upper bound n/2 to Harju–Nowotka."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+          "material_read": "Landing page/abstract and the general bound as reported by Clokie–Gabric–Shallit, PDF p.2",
+          "method": "Bounded lawful OA and DOI recovery; primary full text not obtained",
+          "title": "Border correlation of binary words",
+          "trigger": "Foundational same-statistic paper; possible specialized earlier census"
+        },
+        {
+          "assessment": "Primary-text overlap unresolved; not used as evidence against overlap",
+          "evidence": [],
+          "identifier_or_url": "https://www.researchgate.net/publication/220544393_Border_Correlations_of_Partial_Words",
+          "material_read": "No full-text passage retrieved",
+          "method": "Bounded direct and VPN retrieval attempts",
+          "title": "Border Correlations of Partial Words",
+          "trigger": "Potential refined shortest-border population results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This enumerates an established word statistic on a canonical family and at a cutoff large enough for nontrivial profile and symmetry distinctions. The exact 8–10 rigidity and frequency distribution give concrete benchmarks for constructions or conjectures on border correlations of de Bruijn cycles, and the matched-run-data witness shows why a researcher cannot substitute the existing run profile. The finite scope is explicit; no general-order prediction or novelty of the known cycle list is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

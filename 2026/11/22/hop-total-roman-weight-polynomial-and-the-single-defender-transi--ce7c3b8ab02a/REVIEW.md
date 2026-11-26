@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal center has no distance-two neighbor and therefore must be positive. Every peripheral zero requires a defender in another petal. Sorting all labelings by zero, one, or at least two two-containing petals yields a disjoint, exhaustive symbolic factorization; minimum configurations and the interval spectrum follow by explicit inequalities and label raising. Direct all-labeling C++ enumeration with independently computed shortest paths agrees coefficientwise with the symbolic formula for ten nontrivial parameter profiles (maximum order 13). These computations corroborate, rather than replace, the general argument.
+## correctness
 
-**Originality — PASS, provisional priority.** The original 2023 hop-total-Roman article studies complexity, cycles, paths, and small-weight structural criteria, not the identified complete bouquet enumerator in accessible material. Its broad weight-four characterization may imply the scalar four-weight special case, which is not independently claimed as new. Full published `RESULT.md` files on ordinary total Roman domination for the same bouquet family, hop-total Roman domination on matching-deleted complete bipartite graphs, and total two-rainbow domination of bouquets were inspected: their neighborhoods, graphs, or label sets differ, so their theorems do not imply this complete polynomial. Searches of published research records and scientific prior results revealed no dominating claim. The publisher's complete 2023 full text was not accessible; unindexed literature and semantically equivalent results are residual priority risks.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural weight census for an infinite heterogeneous family of connected block graphs, motivated by a documented domination invariant. It exposes the special role of size-two petals, distinguishes a one-defender-petal strategy from a two-defender-petal strategy, provides exact optimal multiplicities for every mixture of clique orders, and proves the absence of weight gaps. A complete count and structural optimizer classification are not implied by the known scalar minimum results.
+The universal vertex cannot be zero because it has no vertex at distance two. Once positive, it makes totality automatic if there is a positive peripheral vertex. A peripheral zero can be defended exactly from another petal. Partitioning by zero, one, or at least two petals containing a 2 gives respectively z^M, the sum of D_i times the other B_j, and the complement of the unrestricted zero- and one-defender-petal assignments. All cases have a positive peripheral vertex, so the center contributes z+z^2 independently. At z=1 the one-defender-petal correction D_i-C_i gives 2^(s_i+1)-3^s_i-1. The least peripheral weights are M, s_i+1 and 4 in the respective strata, and the last is realized because q>=2. Thus weight four requires a size-two petal and a center 1; when every petal has size at least three, weight five requires a center 1 and either a single size-three petal with one 2 or a 2 in each of two petals. The exact multiplicities follow by choosing the positions of the 2s. Raising a label preserves defense and the positive support condition because of the positive hub. This attains every intermediate weight. An independent BFS/ternary enumeration reproduced all coefficients for (2,2) and (3,3); the general result is proved by the partition, not by this bounded check.
 
-The claim is limited to one hub, at least two petals, and petal sizes at least two. Neither practical reliability of a network defense nor independent mathematical certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the full labeled hop-total weight polynomial and optimizer census, not a priority claim for the scalar minimum-four branch or for introducing the predicate. The strongest checked same-family enumerators count different label constraints, and the strongest checked exact-predicate enumerator counts a different graph family. No examined statement supplies the full claim.
+
+## value
+
+PASS
+
+The problem gives a full benchmark for a natural infinite block-graph family under an established graph-labeling invariant. It distinguishes two competing optimal support types and quantifies their contributions for arbitrary mixtures of petal sizes; a scalar minimum or monotonic interval argument alone would not give those counts or the full distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

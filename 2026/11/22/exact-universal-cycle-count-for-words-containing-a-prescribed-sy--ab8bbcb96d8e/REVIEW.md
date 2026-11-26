@@ -1,19 +1,21 @@
-# Scientific review: exact universal-cycle count for a required symbol
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes a labeled alphabet, one required letter, circular contiguous factors, and rotation-only equivalence. Every edge of the restricted overlap digraph is a unique permitted window. The graph is balanced and strongly connected; the proof gives explicit paths through the all-zero vertex. The key matrix identity is proved over a rational-function field by subtracting the zero-free subalphabet Laplacian from the full de Bruijn Laplacian. The restricted resolvent differs from the smaller full-shift resolvent only by an all-ones matrix; the zero-free Laplacian annihilates this term. The resulting exact determinant and directed matrix-tree coefficient give the in-arborescence count. The fixed-edge BEST theorem yields exactly the number of rotation classes. Exact small-case determinants and direct Euler-tour counts were reproduced from `verify.py`; finite tests are not used to justify the infinite parameter range.
+PASS
 
-## Originality — PASS, qualified
+The graph includes all length-(n−1) words, with equal in/out degrees q for the zero-containing vertices and 1 otherwise; paths via 0^(n−1) prove strong connectivity. Edges are distinct permitted windows, including loops, so fixing the unique 0^n edge is exactly choosing one rotation, not choosing an extra labeled start. For m=n−1 set a=x+q and b=q−1. The de Bruijn shift adjacency B has B^m=J, is q on constants and nilpotent on the zero-sum subspace; the b-ary subshift B_T obeys the corresponding identities. For a T-to-T walk of length j<m each appended symbol persists to the end, so none is zero and the restricted block of B^j is B_T^j. For j≥m this block is q^(j−m)J_T, versus b^(j−m)J_T for B_T. Thus the compressed resolvent and that for aI−B_T differ only in the all-ones term, which C=bI−B_T annihilates. The determinant lemma now multiplies x(x+q)^(q^m−1) by det((a−b)(aI−B_T)^(−1))=(x+1)^(b^m−1)/(x+q)^(b^m−1), including b=1 and m=1. This proves the determinant identity over the rational function field and hence at all x. By the row-Laplacian matrix-tree theorem the linear coefficient is the sum of rooted in-tree counts. Strong connectivity and the zero row and column sums give identical diagonal cofactors (the adjugate is proportional to the all-ones matrix). Dividing q^(q^m−b^m) by q^m and multiplying by the BEST product for a fixed first edge gives the formula. The supplied verifier computes a single principal cofactor in each test case, despite the broader wording in RESULT.md line 86; equality of all rooted counts is justified by balance and rank in the proof, not by that finite test.
 
-Leitner and Godbole (arXiv:0808.1309, password theorem) and Blanca and Godbole (arXiv:1008.2251, Theorem 11) already prove existence of universal cycles for the required-letter language; that existence is explicitly excluded from novelty. Sawada and Gabrić (arXiv:2510.16545) explain uniform arborescence-based sampling for other constrained de Bruijn families. A search of relevant mathematical research records returned related enumerations of bounded-weight, locally square-free, and exact-symbol-multiplicity universal cycles, but not the all-parameter count for all words containing a specified letter. Those restricted factor sets do not contain this full permitted factor family as a counting corollary. The evaluated contribution is the closed arborescence count and full characteristic factorization, not a generic application of BEST. An unindexed prior formula or a general spectral theorem not retrieved could still cover it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact number of compact cyclic indexes for the complete one-required-letter language was not given by the existence results. The family arises directly in restricted universal-cycle/password problems and has exponentially many admissible windows. The formula counts every labeled rotation class for all alphabet sizes and orders, replacing an exponentially large determinant with a closed product. The three-point Laplacian spectrum is a structural conclusion with independent use for tree and tour enumeration; the binary agreement with the ordinary de Bruijn count is a meaningful boundary check, not the basis of the value argument.
+Existence is already covered, the binary case is mechanically the classical binary de Bruijn count, and an earlier exact catalogue theorem gives the entire q≥3,n=3 count. The supported distinct contribution is the general-alphabet, all-order closed enumeration beyond those covered cases, and the full Laplacian factorization on the deleted-subalphabet graph beyond the known regular/loop-only cases. The existing weight-two enumeration does not give the count for the broader family at n>3, and generic tree and tour formulas do not compute this characteristic determinant.
 
-## Sources and residual limitations
+## value
 
-Primary full texts examined: Leitner and Godbole, *Universal Cycles of Restricted Classes of Words* (arXiv:0808.1309); Blanca and Godbole, *On Universal Cycles for New Classes of Combinatorial Structures* (arXiv:1008.2251); Sawada and Gabrić, *Random Generation of Universal Cycles and de Bruijn Sequences* (arXiv:2510.16545). Other related works were compared from their available abstracts or indexed summaries only. The result has not been independently audited, and it does not enumerate simultaneous requirements involving multiple letters, quotient by letter permutations, or reversal classes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural language with one mandatory letter, existence does not quantify the number of exact cyclic indexes. The closed all-order formula avoids an exponentially growing determinant in the genuinely larger nonbinary cases; the full characteristic determinant gives a structural explanation of the simple product and all rooted tree counts. This goes beyond the already covered binary and order-three counts or the trivial order-two star.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

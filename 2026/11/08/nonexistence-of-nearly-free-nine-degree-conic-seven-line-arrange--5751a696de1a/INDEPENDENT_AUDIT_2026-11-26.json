@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:20.699179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–73, VERIFICATION.md and verify_constraints.py",
+        "Gałecka, arXiv:2204.13969, Theorems 3.2, 3.4 and Propositions 4.1, 4.4",
+        "Hirzebruch MPI 85-39, Section 6, (9)",
+        "Corrected proof and replay listed above"
+      ],
+      "rationale": "The frozen proof FAILS: each of the v conic-line-line triples is still a line-only double point; frozen RESULT lines 51–66 and its checker put 21−3u−v in the line inequality instead of 21−3u. The corrected inequality gives only 5≤u≤6, and six incidence cases survive the old geometric premises. The completed replacement proves the same conclusion: Gałecka's bounds, Tjurina and Bézout give n=t−1, s=12−t, 1≤t≤4; the corrected Hirzebruch bound and pair counts reduce to seven refined patterns. With one tangent, central symmetry exchanging two three-line pencils cannot induce an involution on the conic with just one fixed point. With two, two tangents would use the same unique matching on a four-vertex path. With three, the forced on-conic triangle violates the degree-two cycle constraint when b=2; when b=3 the normalized three pair points force equal nonzero dual off-diagonal entries but do not satisfy the primal equation. With four, two diagonal secants intersect off the conic and all tangents, ultimately forcing all three secants to be diagonals and v=0, contrary to v=2. The explicit adjugate verifies all coordinate exclusions over C. The corrected script was replayed with python3 /workspace/repairs/5/verify_constraints.py and returned the seven asserted profiles; it checks arithmetic only.",
+      "residual_risks": [
+        "The numerical script is not a geometric decision procedure or formal verification; the two published inequalities are used as theorems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defect-two plus-one generation is a different hypothesis",
+          "Pokora's (7,1) nearly free curve has four X9 singularities",
+          "Bannai–Guerville-Ballé–Shirane give degree-nine Zariski pairs with one conic, not an exhaustive near-free classification"
+        ],
+        "reasoning": "None of these statements covers the remaining homogeneous defect-one exclusion with only A1, A3 and D4.",
+        "searches": [
+          "arXiv:2309.15228 Thm. 3.4",
+          "arXiv:2608.05662 Thm. 4.1",
+          "arXiv:2410.04969"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.13969",
+        "MPI 85-39",
+        "Resultary 20d0ed6a92c8 and 1069ed6c98b5",
+        "arXiv:2309.15228",
+        "arXiv:2608.05662",
+        "arXiv:2410.04969 (abstract and opening)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After both published inequalities and incidence counts, (t,u,v)=(1,5,6),(2,5,5),(3,5,4),(4,5,3) still satisfy the corrected numerical conditions",
+          "The proof excludes them by pencil symmetry, matching uniqueness, conic-incidence cycle structure and diagonal intersections"
+        ],
+        "reasoning": "The prior inequalities and narrower catalogue results do not mechanically imply the u=5 exclusion. The completed proof supplies distinct geometry rather than relabelling the u=6 result.",
+        "searches": [
+          "Gałecka, Prop. 4.4 and §5",
+          "Hirzebruch, §6 (9)",
+          "Resultary 20d0ed6a92c8, §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under these hypotheses near freeness requires τ=47 and mdr=4; Gałecka §5 leaves degree nine open",
+          "Resultary 20d0ed6a92c8 treats a line subarrangement with six, not five, triples"
+        ],
+        "reasoning": "Replacing near freeness by its necessary τ target, or framing the problem as adjoining one conic to seven lines, exposes the partial u=6 overlap but not a full equivalent prior exclusion.",
+        "searches": [
+          "Resultary: degree-nine nearly free one conic seven lines, A1 A3 D4",
+          "arXiv:2204.13969, §§3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "20d0ed6a92c8 §6 gives τ≤46 for the two numerical rows with six line triples",
+          "1069ed6c98b5 maximizes τ only when a line is added to one particular degree-eight arrangement",
+          "The identical frozen claim indexed in the corpus is not independent evidence"
+        ],
+        "reasoning": "Neither distinct record tabulates or excludes all four u=5 numerical rows.",
+        "searches": [
+          "Resultary near-free degree nine and conic extensions of seven-line arrangements",
+          "Resultary 20d0ed6a92c8 and 1069ed6c98b5"
+        ]
+      },
+      "rationale": "The one-conic/seven-line exclusion is supported by the corrected geometry beyond the available prior implications. The u=6 non-Fano stratum has existing coverage and is credited; the material remaining contribution is the u=5 exclusion, completing the component-count stratum. Same-day evidence is compared by scope rather than assumed chronology.",
+      "residual_risks": [
+        "An unindexed classification of conic extensions of five-triple seven-line arrangements could change priority; exhaustive historical precedence is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Premises, not coverage",
+          "evidence": [
+            "mdr bound, near-free Tjurina and exponent formula, conic–line inequality; 8 and 9 left undecided"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.13969",
+          "material_read": "PDF pp. 3–6, Thms. 3.2, 3.4; Props. 4.1, 4.4; §5",
+          "method": "Read original bounded statements",
+          "title": "On the nearly freeness of conic-line arrangements with nodes, tacnodes, and ordinary triple points",
+          "trigger": "Exact local types and degree-nine classification"
+        },
+        {
+          "assessment": "Premise, not coverage",
+          "evidence": [
+            "Top three multiplicities vanish here; t2+(3/4)t3≥7 yields u≤6 with the correct count"
+          ],
+          "identifier_or_url": "https://archive.mpim-bonn.mpg.de/id/eprint/2262/1/preprint_1985_39.pdf",
+          "material_read": "§6 eq. (9), PDF p. 9",
+          "method": "Read original inequality and hypotheses",
+          "title": "Singularities of Algebraic Surfaces and Characteristic Numbers",
+          "trigger": "Strong line inequality"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": [
+            "τ≤46 when the seven lines have six triples and three nodes; does not exclude five line triples"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-tjurina-bound-for-conics-adjoining-the-non-fano-seven-line--20d0ed6a92c8",
+          "material_read": "Mirrored RESULT opening and §6, offsets 0 and 6981",
+          "method": "Compared exact component and singularity counts",
+          "title": "Sharp Tjurina bound for conics adjoining the non-Fano seven-line arrangement",
+          "trigger": "Closest degree-nine partial exclusion"
+        },
+        {
+          "assessment": "Narrower, not covering the residual claim",
+          "evidence": [
+            "Adds to one specific degree-eight arrangement; maximum τ=46 in that family"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-six-optimal-seventh-lines-for-a-nearly-free-conic-line-arrangeme--1069ed6c98b5",
+          "material_read": "Mirrored RESULT, statement and reported profiles",
+          "method": "Compared the fixed starting arrangement and target baskets",
+          "title": "Six optimal seventh lines for a nearly free conic–line arrangement",
+          "trigger": "Same target degree and potential exhaustive line additions"
+        },
+        {
+          "assessment": "Different defect",
+          "evidence": [
+            "ν=2 is explicit and cases 9,10 are tentative even in that class"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.15228",
+          "material_read": "PDF p. 8, Thm. 3.4 and start of proof",
+          "method": "Read exact defect and degree restrictions",
+          "title": "On plus-one generated conic-line arrangements with simple singularities",
+          "trigger": "Same singularities and nearby homological classification"
+        },
+        {
+          "assessment": "Outside excluded singularity class",
+          "evidence": [
+            "The nearly free member has 8A1+D4+4X9 and exponents (3,6)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.05662",
+          "material_read": "§4, Thm. 4.1 and intersection verification, PDF p. 5",
+          "method": "Read exact local types and exponents",
+          "title": "On the Numerical Terao Conjecture",
+          "trigger": "Nearly free example with exactly the same component degrees"
+        },
+        {
+          "assessment": "The stated constructions do not entail the exclusion; no whole-text negative assertion",
+          "evidence": [
+            "Two degree-nine pairs with one conic are distinguished by connected numbers; this is not an exhaustive nearly free classification"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.04969",
+          "material_read": "Abstract and opening of §1",
+          "method": "Checked scope of positive constructions only",
+          "title": "Zariski pairs of conic-line arrangements with a unique conic",
+          "trigger": "Same component degrees, possible geometric catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gałecka §5",
+        "Corrected RESULT.md case analysis",
+        "Resultary 20d0ed6a92c8"
+      ],
+      "rationale": "The repaired theorem resolves an entire natural stratum of the degree-nine problem, not an arbitrarily chosen arrangement or a finite-field experiment. The genuine missing incidence cases require geometry beyond the global inequalities and now all are excluded. The result does not settle the other component decompositions.",
+      "residual_risks": [
+        "No assertion for several conics, other singularities, or other freeness notions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

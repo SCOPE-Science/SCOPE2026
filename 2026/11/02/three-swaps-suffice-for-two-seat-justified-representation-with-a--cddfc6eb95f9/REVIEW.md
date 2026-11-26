@@ -1,15 +1,21 @@
-# Scientific review: two-seat justified-representation reconfiguration
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of JR is equivalent to the exact integer test \(2u_c(W)<n\). The proof partitions the election by maximum candidate support below, above, or equal to half the electorate. In the equality case it does not assume every pair containing the pivot is JR: the complementary-support witness establishes existence of one valid pivot pair, and a contradiction establishes a pivot neighbor for every JR pair. The pivot clique gives a three-edge route. With at most four candidates, connectivity itself forces a two-edge cross-pair bridge between disjoint committees. For the five-candidate sharpness example, each endpoint leaves only two supporters of any candidate unrepresented, while each cross pair leaves three supporters of the universal candidate unrepresented. The independent integer-program enumeration exhausts all \(376{,}992\) anonymous profiles at five candidates and five voters and finds no detour. The verifier reproduces the claimed witness and upper bound; no finite test is substituted for the all-size proof.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-Dong, Frank, Peters and Suksompong, *Reconfiguring Proportional Committees* (arXiv:2504.15157v1, April 21, 2025), is the closest full-text source. Its Theorem 3.1 concerns disconnectedness for committee size at least three, Proposition 3.3 excludes isolated committees of size two without proving full connectedness, Theorem 3.7 allows approximately JR intermediates, and Section 5 establishes connectivity for restricted domains. None of these results implies arbitrary-profile exact-JR diameter three or the non-geodesic five-candidate boundary. The published treatment of score-based multiwinner reconfiguration concerns optimal-score committees rather than all JR committees. Searches of published mathematical records and relevant voting literature did not surface equivalent coverage; negative searches cannot establish global novelty. An unindexed earlier proof or unpublished computation remains a residual priority risk.
+PASS
 
-## Value — PASS
-The source literature demonstrates that exact JR reconfiguration may fail when the committee size is at least three, while resolving paths by weakening fairness. The present theorem identifies a sharp unconditional positive boundary at size two, supplies a constant exact-JR replacement guarantee independent of election size, and shows why this guarantee cannot be reduced to ambient two-swap geodesics. The smallest five-candidate/six-voter detour gives a concrete obstruction to using only endpoint candidates. This clarifies a substantive frontier in proportional committee reconfiguration rather than a routine numerical variant.
+For two seats the JR obstruction is at least ceil(n/2) unrepresented supporters of a single candidate. Take a maximum-support candidate z. Below half no JR obstruction exists; above half all z-pairs are JR. At exactly half, a failed pair {z,a} requires a witness whose support is precisely the complement of z's support, and a has no supporters in that complement. Pairing z with the witness gives a valid hub pair. If both z-replacements of a JR pair failed, neither of its members would cover any complementary voter, contradicting JR by the same witness. Thus the valid z-pairs form a nonempty dominating clique whenever it is needed. Pairwise distances follow: overlaps give one swap, a disjoint pair has a two-step path exactly via a JR cross pair, and otherwise it is at distance three. With at most four candidates every neighbour of a disjoint endpoint is a cross pair, so connectivity rules out a distance-three pair. In the six-voter witness e is universal: each endpoint misses two e-supporters while each cross pair misses three, and the e-hub path has length three. For five candidates I independently exhausted unordered tuples of ballot masks, fixing any disjoint endpoints by relabelling and checking JR by the original quota-size voter-group intersection condition, not the package's per-candidate count/BFS. The n=1,…,5 profile counts were 32, 528, 5984, 52360, 376992, with zero detours in every layer. The same check confirmed the six-voter witness's endpoint and bridge statuses.
 
-## Scope and limitations
-All results concern unweighted approvals, standard JR, committee size two, and one-candidate exchanges; larger committee sizes and stronger fairness axioms are excluded. The six-voter witness has an analytic proof. Minimal voter count at five candidates is established by complete finite enumeration of approval multiplicity vectors, not by a separate closed-form combinatorial classification. Independent scrutiny of priority and of the exhaustive code remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published reconfiguration framework does not imply unrestricted exact-JR two-seat connectivity, the sharp three-swap diameter, or the extremal witness. It distinguishes non-isolation, approximate intermediate committees, and geodesic paths for a restricted domain. The closest indexed two-seat same-day result concerns a different representation rule and objective.
+
+## value
+
+PASS
+
+The theorem closes the unrestricted two-seat case of the published exact reconfiguration problem and identifies precisely when the natural Johnson shortest path fails. The minimal-candidate witness shows a genuine obstruction despite connectivity and supplies a concrete sharp test instance. The conditional voter cutoff is a supporting extremal fact rather than a standalone brute-force claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

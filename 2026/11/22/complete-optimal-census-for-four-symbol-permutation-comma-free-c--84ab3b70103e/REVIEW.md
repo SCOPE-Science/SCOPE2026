@@ -1,15 +1,21 @@
-# Scientific review: four-symbol permutation comma-free codes
+# Independent mathematical audit
 
-## Correctness (PASS)
-All eligible words are exactly the 24 permutations of four letters, partitioned into six free cyclic-rotation classes. The cyclic-rotation argument proves a universal upper bound of six; the six fixed-leading-symbol words attain it. The 4096-choice product over the six rotation classes exhausts all possible size-six codes without duplication. Two standalone checkers compute 2872 independently, one by direct crossed-window testing and one through a forbidden-subset hypergraph. The first enumerates 73 full orbits, while the second uses 48 separate Burnside fixed-point calculations whose sum is 3504; the orbit class count is 3504/48. Every representative is in the attached TSV table. The 32 strengthened non-overlapping cases are directly checked. Scripts were executed successfully against the attached sources; the proof does not generalize those finite counts to unspecified parameters.
+## correctness
 
-## Originality (PASS, qualified)
-Churchill (2009), DOI 10.37236/114, pages 1–2 and appendix A.1 in the inspected open PDF, uses comma-free overlaps, the cyclic-shift bound and unrestricted/self-reflective four-letter constructions; it does not provide a finite classification of the homogeneous all-distinct four-symbol layer. Windsor (2023), DOI 10.1007/s10817-023-09662-6, and the publicly accessible companion repository address the full quaternary length-four dictionary, with 57 possible unrestricted codewords, not the 2872 maximal six-word composition-restricted codebooks. Targeted searches of published mathematical findings returned binary length-six comma-free equality cases and quaternary non-overlapping GC-balanced equality cases, neither logically implies the present count or its 73 group orbits. The search did not reveal an exact preexisting table for this composition. Historical priority is uncertain because related papers and nonindexed enumerations may exist, and Windsor's full article/preprint was not materially readable via the available access route.
+PASS
 
-## Value (PASS)
-The fixed composition \((1,1,1,1)\) is a natural first quaternary barcode/word layer in which each nucleotide or symbol appears once, and comma-freeness is the exact frame-synchronization condition. The result completely classifies its **optimal** dictionaries, rather than selecting an arbitrary example or just recomputing unrestricted comma-free capacity. Its symmetry census reduces 2872 labeled choices to 73 mathematically distinct representatives; the strict non-overlap refinement of 32 quantifies the gap between two common synchronization requirements. This precise invariant is useful for designing and exhaustively benchmarking balanced, distinct-letter four-mers. Scope is deliberately finite, with no claim about large lengths or physically realistic channel noise.
+Each cyclic rotation of a permutation word is distinct and a nontrivial rotation is a crossed factor of ww. Hence at most one representative per rotation class and the optimum size is at most six; all six words starting with 0 attain it. For the census I independently enumerated all binomial(24,6) sets, first factoring each illicit middle word into an incoming suffix and an outgoing prefix to precompute the forbidden masks, including repeated endpoints. This gave 348 distinct forbidden masks and 2872 accepted sets. Relabeling commutes with crossing and reversal interchanges the roles of the two ends and complementary shifts, so the group action preserves these sets. Independent orbit expansion and Burnside fixed-point summation gave 73 orbits with respective size/multiplicity pairs (8,4),(16,2),(24,17),(48,50), Burnside sum 3504, and exact agreement with all TSV rows. The stronger count is 32 both by direct prefix/suffix tests and analytically. The first-letter and last-letter sets must be disjoint. A singleton first or last forces all six words with that specified endpoint, giving eight codes. Otherwise the endpoints partition the alphabet into ordered sets F,L of size two. Four words have pattern FFLL and four FLFL. Length-two matches occur exactly in two complementary pairs among the alternating words, so an optimum takes all four FFLL words and one from each pair. A length-three match would need a prefix and suffix of FFLL words with patterns FFL and FLL respectively, impossible. Thus the six ordered partitions contribute 24 more codes. Replay: python3 -I /workspace/branches/independent-checks/record1.py; record1.log in that directory. Frozen scripts were inspected, not executed.
 
-## Remaining limitations
-Historical-priority risk remains from unindexed tables and incompletely accessible full text. All mathematical certificates are small exact finite scripts and not independent third-party audits. The group and source assumptions are explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the complete optimum census and symmetry partition on the fixed permutation layer, and the 32-code stronger refinement there. The rotation bound and elementary common-first-letter construction are not novel. Neither the inspected unrestricted maxima nor the separate nominally matching count 32 in related composition/closure problems verifies the claimed census.
+
+## value
+
+PASS
+
+The permutation layer is the natural four-symbol fixed composition with every symbol present once. Optimal synchronization dictionaries on that layer are reusable mathematical objects, and the exact group partition plus reconstructible representative list is useful beyond the elementary capacity six. The non-overlap refinement quantifies the difference between two widely used restrictions, on precisely the same optimum family. Value is in the complete equality classification, not a claim of broad asymptotic impact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

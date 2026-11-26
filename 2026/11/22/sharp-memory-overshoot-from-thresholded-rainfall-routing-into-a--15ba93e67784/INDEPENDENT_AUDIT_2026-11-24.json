@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:05:34.175509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–27, 31–64 and 68",
+        "Frozen VERIFICATION.md and inspected verify.py (not executed); independent quadrature of the exponential split moments and bisection"
+      ],
+      "rationale": "For the fixed cap and iid Exp(1) input, put z=exp(-h). Integration gives Var(F)=2z-z², Var(R)=1−2hz−z² and Cov(F,R)=hz−z(1−z), since FR=hF. The stationary store uses only past inputs. Writing D=Var(Q), N=Cov(Q_t,Q_{t+1}) and X=z[(1−a)h−(1+a)+z], the lag calculation gives N−aD=X and D=(1−a−2X)/(1+a)>0. Thus ρ−a=X/D, and ρ′=(1−a)X′/[(1+a)D²], with X′=z[2(1−z)−(1−a)h]. The first bracket in X is strictly convex, starts negative and has one positive zero h_c. The bracket in X′ is strictly concave, starts at zero with positive slope and eventually becomes negative, so there is a unique positive h_*. At h_c that last bracket equals 1−a−z>0, the derivative of the first bracket at its crossing. Hence h_c<h_*. For lag k≥1, only S_t and R_t carry covariance forward, multiplying the lag-one value by a^(k−1); the limits 0 and a follow by L² convergence of the routed inputs. Independent moment quadrature and bisection at a=1/2 corroborate h_c≈2.888703356193, h_*≈3.920690394873 and ρ(h_*)≈0.529692482. These numerical values are checks, not a proof of the quantifiers.",
+      "residual_risks": [
+        "The cap h is fixed and applied afresh each year; the proof does not use a randomly changing cap. This is a population-correlation result for the stationary model only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The annual-memory search excerpt describes comparison of autocorrelations across water-balance components.",
+          "Frozen RESULT.md lines 70–83 identify spectral transfer-function analysis and nonlinear tracer/partition models; primary full-text formula comparison was not completed."
+        ],
+        "reasoning": "A generic covariance or transfer-function representation can yield D and N given the routed input moments. It does not alone give the positive crossing, its ordering relative to the unique maximizer, or the specific optimizing equation.",
+        "searches": [
+          "Berghuijs et al., doi:10.5194/hess-29-1319-2025 and preprint doi:10.5194/egusphere-2024-2954",
+          "Schuite et al., doi:10.1029/2018WR024579",
+          "Weiler et al., doi:10.1029/2003WR002331"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 70–83",
+        "Resultary 15ba93e67784, e823682c1cc2 and d7dd28e86fa3",
+        "Berghuijs et al. HESS search excerpt; cited transfer-function sources sought by DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wash-off summary compares variability regimes and signs, and the storm-ordering summary varies an input order in a periodic store. The reviewed result instead varies a fixed cap under iid input and compares output correlation with a positive retention."
+        ],
+        "reasoning": "No available implication from those statements specifies the strict crossing in h or the unique maximum. The geometric positive-lag decay from the linear store is background, not claimed as the distinct result.",
+        "searches": [
+          "Resultary e823682c1cc2 and d7dd28e86fa3; Berghuijs HESS annual-memory search excerpt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Resultary wash-off record e823682c1cc2 concerns event-lag load correlation and retained pollutant stock under random fractional wash-off.",
+          "The Berghuijs article's searchable excerpt describes annual water-balance autocorrelation across global observations."
+        ],
+        "reasoning": "Neither reported formulation identifies the deterministic exponential-rainfall split F=(P−h)_+, R=min(P,h), and their available statements do not give the two h-equations. No priority inference is based on the wash-off record's date.",
+        "searches": [
+          "Resultary: thresholded rainfall routing into a linear store and runoff-versus-storage autocorrelation",
+          "Berghuijs et al., doi:10.5194/hess-29-1319-2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "15ba93e67784 is the identical record, not independent evidence; distinct e823682c1cc2 and d7dd28e86fa3 describe wash-off sign transitions and periodic storm ordering, respectively."
+        ],
+        "reasoning": "The available distinct indexed statements do not tabulate or state the optimizing cap or the runoff/storage crossover. No specialized table is known for this model-specific population invariant.",
+        "searches": [
+          "Resultary: thresholded rainfall routing, memory overshoot and saturation runoff"
+        ]
+      },
+      "rationale": "Credit is limited to the exact threshold-dependent classification for this routing model, not annual hydrological memory, linear-store covariance, or nonlinear input partitioning in general. The strongest distinct catalog evidence uses a pollutant wash-off model rather than this rainfall split; the available literature evidence does not demonstrate the exact thresholds. This is a best-of-knowledge decision under the noted access limits.",
+      "residual_risks": [
+        "Full text of the closest distinct wash-off record and the relevant hydrological articles was not available for decisive passage comparison. Older quickflow/baseflow literature may contain a closer model; failed access is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates the comparison; inspected material cannot certify whole-paper noncoverage",
+          "evidence": "Search excerpt describes quantifying annual memory using autocorrelation of annual water-balance components; frozen RESULT.md lines 70–80 identify the empirical and model context.",
+          "identifier_or_url": "https://hess.copernicus.org/articles/29/1319/2025/",
+          "material_read": "Search-result excerpt on global annual water-balance autocorrelation; full article/preprint not obtained",
+          "method": "Literature search and lawful open-access attempts",
+          "title": "Annual memory in the terrestrial water cycle",
+          "trigger": "Nearest cited primary work on annual runoff and storage memory"
+        },
+        {
+          "assessment": "Substantive conceptual overlap, but the available statement compares random wash-off/buildup variability, not a deterministic rainfall cap",
+          "evidence": "Summary describes a load-correlation sign transition while retained stock autocorrelation stays nonnegative.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sign-transition-and-universal-correlation-bounds-for-sto--e823682c1cc2",
+          "material_read": "Indexed statement; full local source not retrieved",
+          "method": "Resultary and targeted mirror retrieval",
+          "title": "A sharp sign transition and universal correlation bounds for stochastic stormwater wash-off",
+          "trigger": "Closest distinct indexed output-versus-stock memory result"
+        },
+        {
+          "assessment": "Could contain related generic formulas; coverage of the exact cap theorem is unverified",
+          "evidence": "The frozen account identifies spectral watershed-property estimation and tracer/runoff transfer functions, not a cap optimizer.",
+          "identifier_or_url": "doi:10.1029/2018WR024579; doi:10.1029/2003WR002331",
+          "material_read": "Citations and descriptions in frozen RESULT.md lines 70–83; primary formulas unavailable",
+          "method": "Targeted OA attempts and frozen reference inspection",
+          "title": "Improving the Spectral Analysis of Hydrological Signals to Efficiently Constrain Watershed Properties; How does rainfall become runoff?",
+          "trigger": "Potential transfer-function and nonlinear-partition antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 39–64 and 74–76"
+      ],
+      "rationale": "The conservation-law model isolates how contemporaneous fast-flow/recharge covariance can lift output correlation above storage retention even with white rainfall. The two exact caps distinguish onset from optimal overshoot, and the same optimum applies at all positive lags. This supplies a precise benchmark for inference from output persistence, not a claim about prevalence in watersheds.",
+      "residual_risks": [
+        "No calibration, observational relevance, or robustness to other input laws is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

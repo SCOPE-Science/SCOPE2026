@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The telescoping shift weights give the exact reciprocal-quadratic Cauchy-dual moment sequence, and polynomial orbit norms give strict 3-isometricity. The finite-difference identity is verified by partial fractions of the two conjugate roots and the product identity for reciprocal affine factors; all prefactors have controlled positive signs. Monotonicity of the arctangent sum in the initial index proves that its first crossing of \(\pi\) is the earliest violating order across *every* initial index, with equality at a prior order harmless. Uniform Taylor expansion and digamma asymptotics yield the exact exponential constant and the second-order Hurwitz-zeta correction. The standalone rational-versus-phase checker passed 588 finite assertions. Risk: finite floating-phase checks are not proofs; the analytic proof covers infinite quantifiers.
+## correctness
 
-**Originality — PASS, with a stated bibliographic risk.** Nailwal (2024), Lemma 2.2, already settles the qualitative real-root discriminant criterion; it does not locate the first failed Hausdorff difference. Anand and Chavan (2016), Section 2, obtain nonexistence of a positive representing measure through sign changes of an oscillatory density, not the earliest finite-order witness. Jabłoński et al. (2026), Example 6.3, gives the quadratic 3-isometric weighted shifts but no Cauchy-dual finite-difference threshold. Relevant published-claim overlap checks, including reciprocal quadratics, Cauchy dual, complex conjugate roots, and first-order witnesses, did not surface an implication covering the exact minimal order or its sharp near-discriminant asymptotic. Risk: a less-indexed rational-sequence finite-difference identity or general complex-root phase theorem may implicitly imply the finding.
+PASS
 
-**Mathematical value — PASS.** The exact first obstruction \(K(u,v)\) is a natural quantitative refinement of the Hausdorff criterion for a standard operator family, and the exponential \(e^{\pi/v}\) onset gives a sharp boundary for how deep *alternating-difference* tests must go. It is not a mere restatement of non-subnormality: all lower orders, for all starting indices, are proved nonnegative. The theorem makes no claim about unrelated moment-matrix tests or about broad numerical certification.
+The shift orbit norms are P(q+n)/P(q), so their third differences vanish and their second differences are positive; the bounded contractive Cauchy dual has moments 1/P(n) at the initial vector by telescoping. Factoring P and taking alternating differences of each reciprocal linear term gives k! divided by the product of the k+1 consecutive shifted factors. The conjugate products give the claimed positive-prefactor sine with the displayed sign. At fixed order the phase is largest at start zero. It diverges in order by harmonic comparison, and the first strict crossing of pi overshoots by at most the last summand, which is less than pi/2. Equality at pi therefore gives zero, not a negative witness, and all earlier orders are nonnegative at every start. At fixed u, expand arctangent uniformly with remainder bounded by a constant times v^5 times the convergent sum of (u+j)^(-5). The crossing and arctangent <= argument force K >= exp(pi/v-O_u(1)), and the overshoot divided by v is <= 1/(u+K). Using the finite-sum digamma identity and the O_u(K^(-2)) cubic-tail error gives log K = pi/v + psi(u) + v^2 zeta(3,u)/3 + O_u(v^4). Independent exact rational checks of the differences at (u,v)=(1,1) and orders 15 and 16 gave positive and negative signs respectively, corroborating the example K=16. The proof, not the numerical examples or the read-only bundled verifier, supplies the general result. It does not locate first failures of other positivity tests or give an asymptotic uniform in u.
 
-**Closest literature:** Nailwal (2024), Lemma 2.2; Anand–Chavan (2016), Section 2; Jabłoński–Jung–Pietrzycki–Stochel (2026), Example 6.3. All were compared at the level of implications, not just titles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the minimum scalar witness order across all starts and the sharp fixed-u onset law. The shift construction, qualitative discriminant criterion, conjugate-pole representation and the idea of concrete finite negative witnesses in related families have prior coverage. The review does not credit those ingredients as new.
+
+## value
+
+PASS
+
+The known non-Hausdorff criterion gives no size for a certifying scalar test. The exact minimum across all starting indices proves that passing finitely many tests can mask failure up to an exponentially large order, and it identifies the exponential scale with a parameter-dependent prefactor and correction. This is an obstruction to detecting non-subnormality by this specific finite-difference hierarchy, not a claim about every possible test. The all-parameter threshold and near-boundary quantification have substance beyond the standard difference identity or isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

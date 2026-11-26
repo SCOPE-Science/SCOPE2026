@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:00:39.392229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stipulated disjoint-pair graph is the usual inclusion-model H(5,2) by complementing the labels on the second shore. In this cubic graph the threshold is 2 neighbors in S for each vertex outside S, so complementation is a cardinality-reversing bijection between minimal global offensive alliances and maximal dissociation sets. For a dissociation set of size d, the cut contains 3d-2e(D)>=2d and at most 3(20-d) edges; equality at d=12 requires a matching on D and an independent complement. Both copies of the pairs avoiding one label give the five specified matchings. The exhaustively reproduced all-set coefficient vector is [1,20,190,1080,3985,9784,15910,16600,10390,3460,564,60,5], and facet counts are (8:65,9:540,10:234,12:5). Heredity validates the single-addition maximality test. Complementing sizes gives exactly 5 z^8 + 234 z^10 + 540 z^11 + 65 z^12. Distinct extremizers intersect on only six vertices; deleting one point from each of their 12 vertices produces sixty distinct eleven-sets, exhausting the eleven-sets. The 240 action maps partition the 844 facets into 12 orbits as listed. The comparison to the strong alliance variant should be read as strict majority in the closed neighborhood (3 rather than 2 here), not strict majority among the three open neighbors; the numerical definition is unambiguous.",
+      "replay_path": "/workspace/reviews/desargues_replay.py",
+      "status": "PASS",
+      "verification": "The bounded replay enumerated all 2^20 subsets, also tested minimal alliances directly, checked all 60 unique extensions and reproduced the orbit sizes. Separate automorphism backtracking found order 240, agreeing with the natural subgroup; the frozen claim only needs that subgroup. Run the replay path with python3. No uploaded code was executed. The computation does not generalize the census to other graphs."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rodríguez–Sigarreta Theorem 3.6 bounds the cubic alliance number.",
+          "Tu–Xiao–Lang's published cubic occupancy bound compares D_G(lambda) with the K4 extremum for 0<lambda<=1.",
+          "Feng–Fernau–Mann explicitly enumerate minimal defensive alliances; the predicate is on members of the set, not all outsiders."
+        ],
+        "reasoning": "The universal order bound gives 8 once a construction is seen, but neither it nor a universal polynomial inequality determines coefficients, facet sizes, or orbits. Cubic K(10,10) with seven missing edges per vertex does not fall in the family with a single matching deleted.",
+        "searches": [
+          "Web: Kumar Tu Lang counting dissociation sets Desargues graph enumerator dissociation complex middle cube cubic induced K1 P2 graph database House of Graphs invariants dissociation number",
+          "Resultary exact dissociation polynomial hits for KG(n,2), K(a,b)-matching and multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0610023",
+        "arXiv:2312.11963v2 (definitions and abstract)",
+        "doi:10.3934/math.2023507 (abstract and theorem description)",
+        "MathWorld Desargues Graph (indexed description)",
+        "Resultary 2b36dd2818f0, ea494ab50b5c and 0ed70c94a745 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound is sharp by the displayed four-label construction; general equality constraints amount here to requiring an induced perfect matching with independent complement."
+        ],
+        "reasoning": "Those constraints do not list all five extremizers or their near-extremizers, and say nothing about lower maximal sets. A generic finite search algorithm is not prior evaluated coverage of those exact combinatorial objects.",
+        "searches": [
+          "arXiv:math/0610023, §§2–3",
+          "Resultary 2b36dd2818f0 and ea494ab50b5c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rodríguez–Sigarreta §2 gives the offensive and strong inequalities.",
+          "The KG(n,2) indexed dissociation census (suffix 2b36dd2818f0) is on one copy of pairs, not the double cover."
+        ],
+        "reasoning": "Complement translates minimal globally offensive alliances into maximal dissociation faces, not minimal defensive alliances. The Petersen graph's single-copy classification only addresses choices applied symmetrically to both shores and cannot enumerate arbitrary two-shore choices.",
+        "searches": [
+          "Resultary: Desargues graph maximal dissociation sets maximum induced matching global offensive alliances cardinality polynomial 844 complement",
+          "Web: Desargues graph minimal defensive alliance spectrum dissociation number 12 bipartite Kneser graph middle cube MH 5",
+          "Web: Desargues graph dissociation OR offensive alliance cubic maximal dissociation independent induced matching census invariant database"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld indexes the Desargues graph and standard alternate representations, not the claimed census in retrieved material.",
+          "The matching Resultary census is the record under review; the Desargues independence and dominance complexes indexed nearby concern different faces."
+        ],
+        "reasoning": "Known graph adjacency and invariant catalogues are input to a new census, not existing values of the two polynomials or a graph-specific orbit classification in the inspected sources. No universal claim about historical tables follows.",
+        "searches": [
+          "Desargues graph dissociation OR offensive alliance cubic maximal dissociation independent induced matching census invariant database",
+          "Resultary Desargues graph maximal dissociation sets cardinality polynomial 844"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim limited to the exact Desargues census, natural-action orbits and completion rigidity. The cubic numerical lower bound and standard graph descriptions are prior, and the mere existence of a size-eight alliance is not an independent novelty claim.",
+      "residual_risks": [
+        "Unindexed graph-invariant tables or historical Desargues-specific computations remain possible.",
+        "This is originality of the full exact classification; not of the generic bound, algorithmic possibility of enumeration, or standard graph model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of definitions and generic bounds, not the exact census",
+          "evidence": [
+            "For v outside S, |N_S(v)|>=|N_{V-S}(v)|+1, strong variant +2; cubic lower bound 2n/5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610023",
+          "material_read": "Abstract, §2 definitions, §§3.1–3.6 main statements and surrounding bounds",
+          "method": "Open arXiv PDF text",
+          "title": "Offensive alliances in cubic graphs",
+          "trigger": "Same class, invariant and extremal bound"
+        },
+        {
+          "assessment": "The inspected bound is an extremal comparison, not a graph-specific enumeration; no whole-paper priority inference from a snippet",
+          "evidence": [
+            "Normalized log dissociation polynomial bounded by that of K4 for lambda in (0,1]."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2023507",
+          "material_read": "Publisher/indexed mathematical abstract and accessible theorem description",
+          "method": "Literature search results and matching publication metadata",
+          "title": "Counting the number of dissociation sets in cubic graphs",
+          "trigger": "Same all-set polynomial in a broader class"
+        },
+        {
+          "assessment": "Different graph family; no direct specialization to two-shore choices",
+          "evidence": [
+            "Uses intersecting families and six pairs on four labels inside the one-copy KG(n,2)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, suffix 2b36dd2818f0",
+          "material_read": "Indexed finding statement",
+          "method": "Configured Resultary search",
+          "title": "Dissociation polynomials and maximal-set purity of KG(n,2)",
+          "trigger": "Same invariant on closely aliased graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete census of faces and facets on a classical high-symmetry cubic graph, not a sampled list or an arbitrary tiny slice. The different orbit sizes, the missing minimal alliance size and forced extension of every one-defect maximum candidate provide exact structural facts needed to compare purity and extremal rigidity of dissociation complexes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

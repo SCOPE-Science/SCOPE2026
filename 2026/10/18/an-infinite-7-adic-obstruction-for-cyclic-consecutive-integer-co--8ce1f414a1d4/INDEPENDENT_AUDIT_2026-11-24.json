@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:26:11.312835Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–45",
+        "VERIFICATION.md and verify.py, inspected without execution",
+        "Independent exact matrix-power reproduction and direct decimal streaming for the base case"
+      ],
+      "rationale": "Appending an e-digit integer acts on (v,k,1) by the upper-triangular matrix with rows (10^e,1,0), (0,1,1), (0,0,1). Over F₇ its sixth power is unipotent of index at most three, hence the 42nd power is the identity; lifting I+7K to its seventh power gives identity modulo 49. The order of 10 modulo 49 is 42 (powers 21,14,6 are 48,30,8). For e≥2, increasing e by 42 leaves the matrix and starting integer unchanged modulo 49, the iteration count unchanged modulo 294 by the Chinese remainder theorem, and e times that count unchanged modulo 42. Independent modular matrix powering and composition of widths 2 through 43 gave (a,b,length)=(1,0,0) modulo (49,49,42). This cycle can start after width four by cyclic conjugation of invertible maps. The computed state through 9999 was (28,39), then appending the first nine width-five integers gave (14,0), independently confirmed by a direct decimal stream through 10008. The nine-integer tail is identical in these residues at every specified width. A rotation moving h digits gives C′≡10^h C modulo 49 because 42 divides the length, so v₇(C′)=1 for every block rotation. This proves the exclusion for every integer power exponent at least two.",
+      "residual_risks": [
+        "The finite reproduction establishes the transfer identity and base pair; the lifting and periodicity argument, not further sampled indices, establishes the infinite range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 excludes powers under arbitrary permutations, a larger class than cyclic rotations, but only when m modulo 9 is 2, 3, 5, or 6. The corollary adds cyclic finite exclusions for m≤447."
+        ],
+        "reasoning": "The broader permutation result would dominate at the same m, but m=10^(d−1)+8 is 0 mod 9. Neither its hypotheses nor the finite extension include any index of this family.",
+        "searches": [
+          "arXiv:2205.10163 v4, Theorem 2.1 and Corollary 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches for cyclic consecutive-integer concatenations and 7-adic obstruction",
+        "arXiv:2205.10163 v4",
+        "OEIS A001292 and A352991",
+        "viXra:2508.0054v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior perfect-power obstruction is mod 9 with finite additional coverage; the later trailing-digit result gives frequency formulas in a separate question."
+        ],
+        "reasoning": "The new exact periodicity of the mod-49 transfer paired with total length mod 42 is additional information: neither the known residue classes nor limiting or finite trailing-digit frequencies imply it.",
+        "searches": [
+          "Ripà, arXiv:2205.10163, Thm. 2.1, Cor. 2.1 and Appendix",
+          "Ripà, viXra:2508.0054v1, §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A001292 describes the same cyclic block concatenations under the Smarandache circular sequence name; A352991 includes general permutations.",
+          "The later same-sequence paper, §§1–3, explicitly studies Question 30 Problem 1: trailing-digit frequencies for complete and incomplete blocks. It sends the other problem to the perfect-powers paper."
+        ],
+        "reasoning": "Sequence and problem aliases were resolved at the statement level. Counting last digits is not the same as proving all rotations have a specified mod-49 valuation. The nearby indexed digit-appending-walk record deals with different numbers and a different invariant.",
+        "searches": [
+          "Resultary: exact title and Kashihara/7-adic concatenation terms",
+          "OEIS A001292 and A352991",
+          "Marco Ripà Evaluation of GPT-5 on an Advanced Extension of Kashihara’s Problem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001292 links a table of the first 10000 sequence terms. The paper reports explicit power testing through sequence term 100128, i.e. through the blocks for m≤447.",
+          "A352991 includes A001292 as a subsequence and records a separate all-permutation calculation."
+        ],
+        "reasoning": "Table term indices are not concatenation block parameters m. Neither the table nor the reported cyclic scan reaches even the first m=10008, much less the infinite family.",
+        "searches": [
+          "OEIS A001292 Links and Comments",
+          "OEIS A352991 description and comments",
+          "arXiv:2205.10163 v4, Appendix"
+        ]
+      },
+      "rationale": "The theorem concerns a specific infinite family with m≡0 mod 9 starting at 10008. The strongest inspected perfect-power results address other residue classes or finite cutoffs below this family. A later study with an advanced extension of Kashihara's problem in its title concerns trailing-digit frequencies, not valuation or perfect powers.",
+      "residual_risks": [
+        "Bounded literature and catalogue searches do not establish absolute priority; no claim is made for all m divisible by nine."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but excludes different residues or smaller indices",
+          "evidence": "Residues 2,3,5,6 mod 9 and reported m≤447 exhaustive cyclic check.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.10163",
+          "material_read": "v4 PDF Table-free statement and proof of Theorem 2.1 and Corollary 2.1, pp. 2–3; Appendix p. 4",
+          "method": "Bounded OA PDF passages",
+          "title": "On some open problems concerning perfect powers",
+          "trigger": "Same perfect-power problem and stronger arbitrary-permutation statement"
+        },
+        {
+          "assessment": "No exact table coverage of the asserted family",
+          "evidence": "A001292 links terms 1 through 10000; A352991 explicitly distinguishes the larger sequence.",
+          "identifier_or_url": "https://oeis.org/A001292 ; https://oeis.org/A352991",
+          "material_read": "Definitions, comments and table/link scope (A001292 offsets 645–1825; A352991 773–2073)",
+          "method": "OA public-page passages",
+          "title": "OEIS A001292 and A352991",
+          "trigger": "Exact sequence databases for cyclic and unrestricted rearrangements"
+        },
+        {
+          "assessment": "Different question on the identical underlying sequence",
+          "evidence": "The original, complete-block and partial-block results all concern the probability of a specified trailing digit, not perfect powers.",
+          "identifier_or_url": "https://ai.vixra.org/pdf/2508.0054v1.pdf",
+          "material_read": "§§1–3 introductory statements and scope, PDF pp. 1–3, offsets 2430–6318",
+          "method": "OA PDF from identified alternate copy after Zenodo download was unavailable",
+          "title": "Evaluation of GPT-5 on an Advanced Extension of Kashihara’s Problem",
+          "trigger": "Same author and sequence; later examination could plausibly overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, finding and periodic proof",
+        "Ripà, Theorem 2.1 and Corollary 2.1"
+      ],
+      "rationale": "This supplies a uniform perfect-power exclusion for infinitely many block indices not decided by the known residue criterion or finite scan. The exact 7-adic valuation across all rotations is the useful invariant and covers all exponents at once; the result is not simply a large finite case.",
+      "residual_risks": [
+        "No assertion for unrestricted permutations or resolution of the full perfect-power question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

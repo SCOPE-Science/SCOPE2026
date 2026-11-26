@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-angle formula follows from the exact probability \(\theta/\pi\) of opposite dot-product signs, applied to each of the \(3m\) prism edges. Every generic section vertex is in bijection with an intersected edge. The cyclic simplification is an exact trigonometric identity, and the differentiated bracket is strictly decreasing with endpoint signs fixed by the perimeter. Convexity/concavity of the angular-gap constraints establishes the complete side-count split, and the regular-pentagon stationary point is a solvable exact equation. The analytic proof covers all positive heights and all qualifying polygons; the executable finite sampling and derivative comparisons are supplementary.
+## correctness
 
-## Originality — PASS (with residual bibliographic risk)
-The closest mathematical literature on optimal polytope slicing [1] describes combinatorial chambers and deterministic optimal sections, not a Haar expectation as the prism's height varies. The related random-polyhedron paper [2] concerns numerical distributions of section **angles**, with a triangle-prism example; its full text was inaccessible, leaving risk, but its available statement does not establish a cyclic-pentagon perimeter transition. The publicly available full result [3] for rectangular boxes already gives the square case, and a separate triangular-prism result covers a regular three-sided specialization; neither logically yields the all-cyclic perimeter dichotomy or the genuine pentagonal shape transition. The inspected full uniform-prism mean-square-width result [4] concerns a different random observable. Direct semantic searches for section-vertex expectation, circumradius/perimeter threshold, golden pentagonal optimum, and polygonal-prism aliases found no equivalent theorem. This does not establish historical priority against unindexed stereology.
+PASS
 
-## Mathematical value — PASS
-Optimizing typical central-section combinatorial complexity over the prism height is a natural geometric-probability extremum. The solution identifies a single classical geometric invariant—perimeter divided by circumradius—which determines whether finite optimal thickness exists, proves uniqueness versus nonattainment, and identifies an actual phase boundary among nonregular five-sided polygons. The regular pentagon has an explicit golden-ratio optimum and a mean strictly exceeding its five-sided tall-prism limit. This provides a complete family-wide answer, not an arbitrary finite computation or a restatement of the known triangular and rectangular cases.
+Away from the null set of planes through a vertex, section vertices are in bijection with crossed prism edges. The angle between endpoint vectors divided by pi is the crossing probability, by the uniform azimuth in their span. Summing one vertical edge per vertex and two horizontal edges per base edge gives the claimed normalization. Thin prisms have vanishing vertical angles and horizontal gaps summing to 2pi on each base. At large h the vertical angle is pi-2r_i/h+O(h^-3); for a horizontal edge the cross product of the scaled endpoints (v_i/h,1),(v_{i+1}/h,1) has norm e_i/h+O(h^-3) and their dot product is 1+O(h^-2), giving its angle e_i/h+O(h^-3). For a centered cyclic base put t=h/R, s_i=sin(delta_i/2) and c_i=cos(delta_i/2). The derivative has the sign of m-2 sum_i s_i t/sqrt(t^2+c_i^2); each summand is strictly increasing, so the sign function strictly decreases from m to m-per(K)/R. This covers the equality threshold too: the derivative stays positive at finite height. The strict bound sin(delta_i/2)>delta_i/pi gives per(K)>4R, and Jensen gives per(K)<=2mR sin(pi/m), proving the 3,4 and >=6 cases. The stated pentagon gaps tend to a perimeter of 4R, and interpolation with regular gaps stays strictly between 0 and pi, realizing the threshold. The regular-pentagon critical equation yields t=(3+sqrt(5))/4; independent evaluation gives mean 5.2462748197293845 in floating point, replayable with node /workspace/checks/geometry-and-word-reproduction.js. The universal conclusions follow analytically, not from sampling. The optimization is for centered cyclic bases, and h is half-height.
 
-## Limitations and closest literature
-The angle-distribution paper [2] could not be inspected beyond its abstract. An older unpublished stereological formula may duplicate the general expectation identity; explicit cyclic-pentagon threshold is the substantive distinguishing claim. The classification assumes a centered cyclic base and Haar normal directions; affine-offset sampling is excluded. Computations cannot establish originality or infinitary correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Sources
-[1] https://arxiv.org/html/2304.14239v1 (sections 1, 2.1, and 5 read).
-[2] https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4485810 (abstract available; full text not accessible).
-[3] https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4 (full RESULT.md examined).
-[4] https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-mean-square-width-of-every-uniform-regular-prism--eb371b3be549 (full RESULT.md examined).
+Pass for the distinct general centered-cyclic perimeter transition, in particular the exact classification for nonregular pentagons. The angular expectation is an application of the standard spherical sign-crossing identity. Exact rectangular coverage is credited; the indexed later regular-prism record also matches the regular n>=5 formulas, including the golden-ratio optimum. The decision does not depend on treating either specialization or the general probabilistic identity as exclusively new.
+
+## value
+
+PASS
+
+The theorem answers a natural optimization question with one measurable base invariant rather than a numerical height search. In particular the number of sides alone does not decide the existence of an optimum at five sides: genuine centered cyclic pentagons fill both regimes and the boundary. This structural classification and its strictness are useful beyond the known regular or rectangular examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

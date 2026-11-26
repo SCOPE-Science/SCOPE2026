@@ -1,19 +1,21 @@
-# Scientific review of the modal-staircase theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement fixes the complete parameter domain \(\theta>0\), \(\alpha>0\), the precise bin law, every integer mode, all equality boundaries, and the fixed-rate asymptotic quantifiers. The proof proceeds from the model's exact CDF differences to a monotone-likelihood-ratio argument in the shape coordinate and a direct double-integral strict log-concavity inequality for the binned density when \(\alpha\ge1\). These yield unique thresholds and prohibit any nonadjacent or triple ties. The threshold asymptotic follows from \(\log\tanh(j\theta/2)=-2e^{-j\theta}+O(e^{-3j\theta})\), a strictly convex scalar root equation and a simple-root perturbation bound. An independent arithmetic checker ran 484 finite diagnostics. Those diagnostics do not replace the proof.
+PASS
 
-## Originality (O): PASS, with residual historical-priority uncertainty
+The PMF telescopes to one and is the unit-bin floor law, with a_0=0. For alpha<=1 the positive parent density strictly decreases, giving strict mass decrease. For alpha>=1 both the log-sech-squared term and the nonnegative multiple of log-tanh give a strictly concave log density. In RESULT.md:57–65, the two interior arguments are strictly inside the same outer interval and their sum equals the sum of the extremes; strict concavity therefore survives integration over both offsets and gives strict discrete log-concavity. The increasing likelihood ratio f_beta/f_alpha integrated over neighboring bins makes each successive mass ratio strictly increasing in alpha, from below 1 at alpha=1 to infinity. Log-concavity then orders the crossings strictly. Independently, for k>=1 divide the crossing by a_{k+2}^alpha: the equation is 1-2r+r^v=0 with r=(a_{k+1}/a_{k+2})^alpha and v=(log a_{k+2}-log a_k)/(log a_{k+2}-log a_{k+1}). The expansion log a_j=-2q^j+O(q^{3j}) gives v=1+1/q+O_theta(q^{2k}) and q^{-k}log(a_{k+2}/a_{k+1})=2q(1-q)+O_theta(q^{2k}). The nontrivial root of the limiting strictly convex function is simple since the function is negative just below 1 and positive at 0. Smooth dependence near that root yields the stated C_q and error. Divergence of the ordered thresholds now gives the complete global mode and tie classification. The supplied checker was read, not run; separate bounded floating-point evaluations reproduced the four theta=1 displayed numbers. Neither the numerics nor the proof assert rate-uniformity.
 
-Barbiero and Hitaj, *Annals of Operations Research* (2024), §4.1, give the exact distribution and show a particular double mode at indices zero and one for a chosen rate; §3.2 establishes log-concavity only for their one-parameter specialization; §4.1 notes a log-concavity failure for another parameter pair. The published statement does not cover the full family of ordered modal transition thresholds or their explicit asymptotic constant. A second full-text Barbiero–Hitaj study in the *Journal of the Indian Society for Probability and Statistics* (2024), §5, uses normalized sampled density values, a different discretization, so it cannot imply the bin-integrated mass theorem. Earlier continuous type-I half-logistic literature does not resolve the integer-bin staircase. Related published modal-staircase work for other distributions has nonidentical probabilities and threshold equations. Exact use of classical log-concavity and likelihood-ratio tools is disclosed; no novelty is assigned to those tools. Broad historical priority has not been independently certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-The shape parameter controls whether a count model's most likely observed value is zero, one or higher. The source paper describes isolated modes and reports real-data use but does not give a method to determine every modal transition. This theorem gives the complete no-skipped-bins classification, exact one-dimensional thresholds, unique double-tie description and sharp large-index scaling constant. In particular, the correction quantifies how increasing concentration moves the most probable count across a coarse observation grid. These are mathematically useful global model-shape boundaries, not merely a numerical restatement of the first example.
+Credit the PMF, its one-parameter shape and the known first-tie example to Barbiero–Hitaj, and the general ordering tools to standard theory. The supported distinct claim is the complete strict all-index classification for this bin law together with the explicit and quantified tail crossing. No covering statement was found in available material; historical priority is not certified.
 
-## Closest literature and limits
+## value
 
-The closest source is Barbiero and Hitaj (2024), DOI `10.1007/s10479-023-05807-3`, sections 3, 4, and 9. Another close but nonidentical construction is DOI `10.1007/s41096-024-00185-w` (2024); continuous context is DOI `10.1080/00949655.2015.1031233`. The theorem is fixed-bin, fixed-rate, and concerns global modes only. The rate-uniform high-index expansion and statistical estimation consequences have not been proved, and full historical priority remains subject to independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Which count value is most probable is a natural shape question for this named PMF. A complete no-skip and adjacent-tie rule determines it for all parameters, while the fixed-rate limit locates the large-index boundaries on the exponential scale more precisely than a continuous mode approximation. This goes materially beyond the known isolated tie and does not claim estimation, hazard, or uniform-rate consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

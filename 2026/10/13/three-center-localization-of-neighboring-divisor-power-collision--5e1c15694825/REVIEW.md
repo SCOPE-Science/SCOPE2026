@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is valid for every even integer \(d\ge6\) and all positive starting integers. Parity excludes an odd start. Uniform divisor-reciprocal estimates give the logarithmic difference \(2^{-d}+\alpha3^{-d}+O(4^{-d})\) with explicit constants; exact inversion and a numerical inequality in the exponent yield the strict \(5d\) radius. The constants \(1.8,1.117,0.117,3,0.135,0.865\) were checked at the worst allowed exponent \(d=6\) and improve thereafter. The independent finite verifier supports but does not replace the proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The closest published 2024 paper covers odd divisor-power exponents by a different large-prime method but explicitly notes its method does not cover even exponents. The 2023 constant-run paper concerns related arithmetic functions, and the square-power equality statement treats only the fixed exponent \(2\). Published-record searches for generalized adjacent-collision localizations and comparison against the available preceding and current research ledgers found no same-strength theorem. An unindexed equivalent or unpublished argument remains possible; no database search proves uniqueness.
+PASS
 
-## Value — PASS
-The exact neighbor-collision equation for varying divisor-power exponent is a natural Diophantine question. The theorem compresses an unbounded search at each even exponent to at most \(30d+O(1)\) candidate integers, with three arithmetically forced exponentially separated centers. The \(O(d)\)-width, as opposed to an exponential-width estimate, is the key useful invariant and permits bounded verification at fixed exponent. It neither asserts solutions exist nor substitutes finite computation for an unrestricted classification.
+The proof covers every positive n and every even integer d>=6 (indeed, the estimates do not use evenness of d). For odd m, the reciprocal divisor tail after 1 is strictly below 2^(-d): after rescaling compare to the d=2 tail, and bound the latter by the strict convex midpoint integral over t>=1/2. For even m the divisor 2 forces at least 2^(-d). This and n^d<(n+1)^d rule out odd n. With u=2^(-d), v=3^(-d), the divisors 2 and 3 contribute exactly u and alpha(n)v to the difference of the two normalized sums. After those terms the tails are each in [0,1.8u^2] by the integral test. The log estimate therefore bounds the error in D=log(R_d(n)/R_d(n+1))=u+alpha v+eta by 3u^2, including alpha=0. At a collision D>0 and n=1/(exp(D/d)-1). For y>0, 0<1/y-1/(exp(y)-1)<1: the right inequality is immediate for y>=1, and for 0<y<1 follows from exp(y)<1/(1-y). Thus replacing n by d/D costs less than 1. Expanding the reciprocal once with its exact quadratic remainder gives the stated centers, with the normalized total error strictly less than 23449/5190<5 by monotone rational bounds at d=6. The count of candidates follows even if intervals overlap; no existence claim is made.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-## Residual risks
-The three windows need not contain actual collisions. The literature survey is not exhaustive; some non-indexed material may contain an equivalent estimate. The 2023 article was inspected through its official abstract and references rather than a complete direct full-text pass; its stated focus differs from the exact claim.
+PASS
+
+The identified neighbors are results on constant-run lengths, a separate weighted function built from the ordinary divisor sum, or low-exponent/low-factor-count problems. No examined source gives or implies the mod-3 refined, uniform O(d)-width localization in the asserted even-exponent regime. This is a bounded finding about existing coverage, not a priority certification.
+
+## value
+
+PASS
+
+This is a height-independent reduction of an unbounded arithmetic collision problem to O(d) candidate integers per exponent. The mod-3 correction changes the center by an exponentially growing amount, so the narrow uniform windows are not a routine consequence of the leading d2^d estimate. The statement is useful for exact collision testing without asserting nonexistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

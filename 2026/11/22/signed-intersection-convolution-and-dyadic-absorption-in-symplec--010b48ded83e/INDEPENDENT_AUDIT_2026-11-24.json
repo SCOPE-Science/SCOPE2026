@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:12.329455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65, VERIFICATION.md and bundled checker logic, without executing uploaded files",
+        "Own replay: python3 /workspace/review_checks.py 3; /workspace/review-evidence/3.txt. Exhaustive maps for n=2 across all 27 three-factor rank profiles; every target map checked against the exact formula."
+      ],
+      "rationale": "For independent singular rank-class factors, choosing an independent uniform admissible domain and uniform signed permutation gives uniform maps: a fixed rank-r partial bijection has 2^(n−r)(n−r)! extensions. Intersect the domains after pulling each back by the preceding full permutation product. Conditional on all the permutations, these pulled-back domains are independent, with unchanged uniform laws, hence independent of the terminal full permutation. It follows that the product is uniform conditional on attained rank (by symmetry of the intersection and uniformity of the terminal extension). Counting j-subsets of this intersection gives the stated binomial moments: there are 2^j binom(n,j) admissible j-sets and the single-factor inclusion probability is binom(r,j)/(2^j binom(n,j)). Binomial inversion then gives the exact prescribed-target counts and independence of the order of the rank parameters, including k=1 and rank zero. Units cannot arise. For maximal singular rank, each pair contributes one independent sign-agreement event of probability 2^(−(k−1)); the rank is binomial. Zero is absorbing. Tail-summing with S=T−1 and expanding 1−(1−2^(−t))^n gives the expectation with the initial +1. Along the specified subsequences n times the survival parameter tends to 2^(theta−z), giving the lattice-phase CDF. The two-factor formula separately counts t agreements, j opposite-sign selections in occupied pairs, and the remaining free signed-pair choices; the factorial moments give the displayed eigenvalues.",
+      "residual_risks": [
+        "The finite check is not an all-rank or absorption-limit proof, and no assertion about unit distributions or nonuniform singular factors is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convolution/block-matrix and double-coset frameworks are known; the signed rook monoid is described by admissible domains and images",
+          "The Report announces an embedding into an ordinary rook monoid, not a measure-preserving identification for uniform ranks"
+        ],
+        "reasoning": "An abstract convolution algebra or signed representation description does not evaluate the relevant signed rank constants. The admissible-subset intersection probability supplies the specific evaluation.",
+        "searches": [
+          "Malandro arXiv:1212.6462 §2.2 Thm. 2.11",
+          "Marx-Kuo et al., Hecke Algebras, Representations, and Character Tables of Monoids (2018), §§1–2",
+          "Li–Li–Cao, Algebraic Monoids and Renner Monoids, Thms. 10 and 24"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1110b14cea6d; arXiv:1212.6462, 0812.1173, 1906.02880, math/0302203; Li–Li–Cao 2014; Marx-Kuo et al. 2018; 2008 DOI retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary law gives hypergeometric or coupon-collector behavior based on unpaired subsets",
+          "The compared signed theorem needs a coupling to admissible sets and the coordinate-level agreement parameter 2^(−(k−1))"
+        ],
+        "reasoning": "The ordinary mechanism is adaptable, but the ordinary exact constants do not imply the signed constants as a rank substitution or a uniform submodel. At maximal proper rank the underlying process and zero-time law differ. Classical discrete extreme-value asymptotics explain the limit after identification of this new monoid probability, not the probability itself.",
+        "searches": [
+          "Strongest retrieved ordinary law: Resultary 1110b14cea6d, offsets 0–10318",
+          "General monoid Hecke paper pointed to by a targeted external query; signed monoid definition in Li–Li–Cao"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1110b14cea6d gives product by uniform restriction outside a union of ordinary deleted subsets, with exact target probabilities",
+          "The Ivanov–Kerov partial permutations are permutations of their support with multiplication via support union"
+        ],
+        "reasoning": "Complementation relates intersections and unions of ordinary sets but does not remove the signed transversal constraint; neither ordinary model carries the measures and multiplication needed here.",
+        "searches": [
+          "Local Resultary searches: signed rank-product law; general inverse-semigroup convolution; signed-transversal/zonal intersections; dyadic absorption",
+          "Ordinary symmetric inverse monoid and symplectic Renner monoid aliases",
+          "Ivanov–Kerov arXiv:math/0302203 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary rook Resultary record gives explicit product formulas, not signed ones",
+          "The inspected signed-Renner sources give the monoid order and representation data, not a per-profile table or formula for the signed product law"
+        ],
+        "reasoning": "A cardinality or representation table is not a count of rank-constrained tuples with specified product. The 2008 publisher text could not be inspected and is not treated as negative evidence.",
+        "searches": [
+          "Resultary exact all-length fiber and absorption comparisons; Li–Li–Cao Thm. 24 and the 2008 representation DOI; arXiv:0812.1173"
+        ]
+      },
+      "rationale": "The distinct content is the evaluated signed-admissible product law on all singular rank classes and its dyadic maximal-class absorption. The strongest unsigned inverse-monoid comparator already gives the same kind of uniform-extension mechanism, target-specific product law and commutative rank algebra for ordinary subsets. Embedding a signed partial map in the ordinary rook monoid on 2n points does not identify the measures: for r≥2 admissible rank-r inputs exclude the domains meeting an opposite pair twice. In particular ordinary full-support or fixed-cardinality thinning does not give independent per-pair sign agreement. The inspected general inverse-semigroup or monoid Hecke results do not compute the admissible intersection probabilities. Neither elementary monoid cardinalities nor the extreme-value limit form by itself is claimed as new.",
+      "residual_risks": [
+        "Earlier signed association-scheme, inverse-semigroup probability, or character-table work may contain an equivalent law. The 2008 full text remains inaccessible; neither that nor a bounded search certifies absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same architecture for unpaired subsets, not the signed measure or dyadic law",
+          "evidence": "A uniform terminal permutation is restricted outside independent fixed-size deleted subsets' union; exact product fibers and coupon-collector absorption follow.",
+          "identifier_or_url": "2026/10/25/SCOPE-rank-uniform-convolution-and-coupon-collector-collapse-in-the-sy--1110b14cea6d",
+          "material_read": "RESULT.md offsets 0–5318 and 5318–10318, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading",
+          "title": "Rank-uniform convolution and coupon-collector collapse in the symmetric inverse monoid",
+          "trigger": "Closest exact convolution and absorption theorem"
+        },
+        {
+          "assessment": "Established signed rook structure and order, not the claimed law in the inspected sections",
+          "evidence": "Admissible domains and images, signed unit group and identification with the symplectic Renner monoid.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/REU/REU2018notes/li-li-cao-renner-monoids.pdf",
+          "material_read": "§2.5.2 Thm. 10, PDF p. 14 offset 33200; §4.1 Thm. 24, p. 24 offset 59200",
+          "method": "Bounded OA primary passages",
+          "title": "Algebraic Monoids and Renner Monoids",
+          "trigger": "Exact signed monoid and general structural theorem"
+        },
+        {
+          "assessment": "Structural framework, no direct evaluation of the signed class measures in that theorem",
+          "evidence": "The transform sends convolution to block-matrix multiplication.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.6462",
+          "material_read": "§2.2 Thm. 2.11, PDF p. 6 offset 22538",
+          "method": "Bounded OA primary passage",
+          "title": "Fourier inversion for finite inverse semigroups",
+          "trigger": "Possible broad convolution theorem"
+        },
+        {
+          "assessment": "Generic convolution and representation comparison, not an inspected equality of rank-class measures",
+          "evidence": "Convolution defined by summing over yz=m; a Borel–Matsumoto analogue for double-coset functions and a rook embedding are reported.",
+          "identifier_or_url": "Marx-Kuo et al., University of Minnesota REU report (2018), exact title",
+          "material_read": "p. 1 abstract and §2 p. 3 offset 8200",
+          "method": "Bounded OA report passages",
+          "title": "Hecke Algebras, Representations, and Character Tables of Monoids",
+          "trigger": "Extant symplectic rook embedding and double-coset convolution"
+        },
+        {
+          "assessment": "Coverage unresolved for this text in particular",
+          "evidence": "The accessible related paper's p. 1 concerns Renner representations and character formulas; it is not a substitute for reading the inaccessible article.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218196708004640",
+          "material_read": "Citation and publisher access attempt; full text unavailable, repository copy not found",
+          "method": "Lawful OA retrieval attempt; related but distinct arXiv:0812.1173 checked",
+          "title": "Representations of the symplectic rook monoid",
+          "trigger": "Plausible primary signed-monoid overlap"
+        },
+        {
+          "assessment": "Classification of a different algebraic invariant",
+          "evidence": "The theorem classifies congruences, not uniform-product fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02880",
+          "material_read": "Theorem 5.2, offset 41569",
+          "method": "Bounded OA primary passage",
+          "title": "Congruences on Orthogonal Rook Monoids and Symplectic Rook Monoids",
+          "trigger": "Exact monoid and multiplication-structure literature"
+        },
+        {
+          "assessment": "Different semigroup product and domains",
+          "evidence": "Partial permutations are permutations on their support, with a union of supports in multiplication.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302203",
+          "material_read": "§2, PDF p. 2 offset 5452",
+          "method": "Bounded OA primary passage",
+          "title": "The algebra of conjugacy classes in symmetric groups, and partial permutations",
+          "trigger": "Partial-permutation intersection/union alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–37 and proof §§2–5",
+        "Unsigned rank-uniform product and absorption comparison, Resultary 1110b14cea6d"
+      ],
+      "rationale": "This evaluates an exact convolution invariant of a classical family: every prescribed output fiber for arbitrary singular rank profiles and word lengths, not only the monoid's size or expected rank. The dependence imposed by opposite pairs changes the thinning and absorption mechanism compared with unpaired subsets. The resulting binomial thinning and the full phase-dependent zero-time law are natural consequences of the evaluated product structure, rather than an unrelated numerical example or a new claim about generic extreme values.",
+      "residual_risks": [
+        "The study is for singular rank-uniform factors, with dyadic absorption specifically at maximal singular rank; no wider unit-group result is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

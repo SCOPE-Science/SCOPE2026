@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:27:11.911791Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "A fresh Dyck-word/stack enumeration of both matchings checked all 69 feasible mixed factorial moments over n=1 through 7, including all 184041 ordered pairs at n=7, and checked covariance for n=3 through 7. For example at n=7, E[XY]=3920/20449 and Cov(X,Y)=−18032/265837. Replay: python3 /workspace/branches/9802caa4-d449-42a8-bd1f-9c809244fc2e/replay_meanders.py. The finite replay does not establish the all-size identity or the CLT.",
+      "rationale": "On four consecutive sites the two distinct noncrossing local pairings must occur in opposite upper and lower positions to produce one component, giving exactly two choices; the two-site component has one choice. Distinct marked components have disjoint supports. For k=r+s labeled windows, ordering the blocks and putting 2n−2r−4s unused sites in k+1 gaps gives k! times binomial(2n−r−3s,k), the stated falling factorial. Removing all marked vertices in both halves is bijective: arcs of the remaining matching can enclose an inserted block but cannot interlace an arc wholly within that block. This gives the squared Catalan ratio, includes empty gaps and the case of zero remaining sites, and confirms the inadmissible moments vanish. At (1,0), (0,1), (1,1), the identity and C_{n−1}/C_n=(n+1)/(2(2n−1)) give the displayed means and covariance. For n≥3 the cubic shifted by n=m+3 is 10m³+49m²+56m+8. For k≤K sqrt(n), the log Catalan ratio differs from −(r+2s)log 4 by O((r+2s+1)/n), and expanding each log in the falling factorial has remainder O((k+1)^3/n²). Substituting k=r+s leaves quadratic coefficients −3/4, −5/2, −7/4 after the common 1/n. These are the two diagonal corrections to the factorial moments and the mixed coefficient in Theorem A.1 of Berzunza Ojeda–Holmgren–Janson: 64(13/128−1/8)/2=−3/4, 512(−5/1024)=−5/2, and 4096(121/8192−1/64)/2=−7/4. Mean scales are n/8 and n/64, standard scales sqrt(n), and the uniform range proved contains the theorem's required rectangle. The determinant is 387/262144 and the stated correlation follows. The frozen checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Thévenin Theorem 1.2 covers an arbitrary single fixed shape, including shapes with nonconsecutive support; Proposition 4.2 gives all univariate factorial moments for a strong shape.",
+          "Theorem A.1 covers arbitrary dimension with a uniform mixed-moment condition. The infinite-noodle theorem gives local convergence and a law of large numbers for total component density."
+        ],
+        "reasoning": "Breadth over shapes one at a time does not include the between-shape information. The larger-dimensional criterion is a proof tool and needs verified mixed moments; convergence of a typical rooted neighborhood and normalized counts likewise does not give second-order aggregate fluctuations.",
+        "searches": [
+          "Janson–Thévenin arXiv:2303.01900 §§1, 3–5",
+          "Berzunza Ojeda–Holmgren–Janson arXiv:2312.04243 Appendix A",
+          "Féray–Thévenin arXiv:2201.11572 introduction and local-limit scope"
+        ]
+      },
+      "checked_sources": [
+        "Janson–Thévenin, arXiv:2303.01900, DOI 10.1017/S0963548324000117",
+        "Berzunza Ojeda–Holmgren–Janson, arXiv:2312.04243v1",
+        "Féray–Thévenin, arXiv:2201.11572"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published univariate argument already uses Catalan deletion and gap placement for repeated copies of one strong shape.",
+          "Mixed windows here have different lengths and two orientations for the four-site type. Counting their mutual exclusion yields the new k(r+3s) term and the −5rs/(2n) mixed contribution."
+        ],
+        "reasoning": "This is an extension of a known method, not a different construction of the known marginal. A joint calculation is required to meet the existing criterion and get the finite and limiting cross-covariances. No inspected stronger multivariate theorem supplies these without it.",
+        "searches": [
+          "Janson–Thévenin Proposition 4.2 and §5 item 1",
+          "Berzunza Ojeda–Holmgren–Janson Theorem A.1 (A.1)–(A.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Janson–Thévenin terminology, the two-site loop is one strong shape and the four-site statistic groups two different strong shapes related by upper/lower interchange.",
+          "Their §5 item 1 explicitly proposes several-shape factorial moments and a multivariate CLT as an extension whose details were not checked."
+        ],
+        "reasoning": "The assessed two-vector is a projection of a three-shape count vector, not a single shape count. Equality in law of the two orientation counts by reflection does not make them equal or independent, and a CLT for each separately does not determine the projected joint law.",
+        "searches": [
+          "Literature: meandric systems joint multivariate central limit theorem components counts small consecutive loops Janson Thevenin mixed factorial moments covariance two four",
+          "Literature: random meandric systems multivariate Gaussian CLT joint component shape counts meanders Kargin Janson Thévenin strong shapes covariance exact joint",
+          "Resultary: uniform meandric systems joint factorial moments adjacent two and four vertex loop component multivariate central limit Janson Thevenin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equation (3.3) already gives exactly the r-th factorial moment of X, i.e. the s=0 axis of the proposed array. Equation (4.4) covers either oriented four-site shape on its own.",
+          "The matching indexed two-variable entry is the assigned record; other returned covariance tables were for different natural objects and do not evaluate the joint meandric statistics."
+        ],
+        "reasoning": "The originality assessment excludes the known axes for individual shape counts; the cross moments and the orientation aggregate at general (r,s) are not read off those arrays. The result retains block supports and does not follow from enumeration by total loop number.",
+        "searches": [
+          "Resultary: uniform meandric systems joint factorial moments adjacent two and four vertex loop component multivariate central limit Janson Thevenin",
+          "Janson–Thévenin (3.3), (4.4)"
+        ]
+      },
+      "rationale": "The known shape-by-shape theory already gives the X marginal, including its factorial moments, and applies separately to each orientation contributing to Y. The full mixed transform and its explicit nonzero negative dependence, rather than those marginal results or the general high-moment theorem, are the distinct contribution.",
+      "residual_risks": [
+        "An earlier or later general multitype theorem or equivalent mixed enumeration outside the inspected sources could cover this special case. The review does not certify priority or resolve the several-shape question for arbitrary supports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers single-shape laws and specifically raises, rather than proves, the corresponding multi-shape extension in the inspected text",
+          "evidence": [
+            "Formula (3.3) is exactly the two-site marginal moment formula. Section 5 displays the proposed several-shape product of falling factorials and says the details were not checked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.01900",
+          "material_read": "Theorem 1.2; computation (3.3) and Theorem 3.1; §4.1 definition and Proposition 4.2; §5 item 1",
+          "method": "Open author PDF by sections; journal version identified by DOI 10.1017/S0963548324000117",
+          "title": "Central limit theorem for components in meandric systems through high moments",
+          "trigger": "Exact same model and fixed-shape counts, plausible coverage of the covariance and CLT"
+        },
+        {
+          "assessment": "Supplies implication after combinatorial asymptotics, not the meandric moments",
+          "evidence": [
+            "The criterion needs growth σ_i≪μ_i≪σ_i³ and uniform moments for every 0≤k_i≤cμ_i/σ_i; (A.2) subtracts the mean along the covariance diagonal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.04243v1",
+          "material_read": "Abstract, Appendix A Theorem A.1 including exact uniform ranges, equations (A.1)–(A.3) and beginning of proof",
+          "method": "Open arXiv full-text sections",
+          "title": "Fringe trees for random trees with given vertex degrees",
+          "trigger": "Broader joint factorial-moment criterion used as a proof input"
+        },
+        {
+          "assessment": "LLN and local convergence, not joint second-order shape counts in the inspected claims",
+          "evidence": [
+            "The total component count divided by n tends in probability to a constant expressed through the infinite-noodle root component."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11572",
+          "material_read": "Abstract and introduction explaining Theorem 1 and the quenched local convergence in Proposition 5",
+          "method": "Open author PDF by sections",
+          "title": "Components in meandric systems and the infinite noodle",
+          "trigger": "Same paired-matching ensemble, potentially wider component statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the smallest two possible sizes with full consecutive support, a canonical test of the multitype fluctuation problem. The explicit covariance detects persistent geometric exclusion missed by the known marginals; the exact finite array also fixes the whole joint law rather than an isolated moment or one enumeration cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

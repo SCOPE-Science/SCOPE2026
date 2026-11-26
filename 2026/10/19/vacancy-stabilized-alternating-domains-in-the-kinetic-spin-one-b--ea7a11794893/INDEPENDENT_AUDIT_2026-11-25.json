@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:20:42.083217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict one-site comparison gives d>|h_i| for a vacancy, and sigma h_i>d for a sign sigma, where h_i is the sum of the two neighboring spins. Thus at d=0 only the uniform signs survive. At 0<d<1 a mixed state consists exactly of isolated vacancies separating alternating sign-runs of length at least two: a zero needs opposite or both zero neighbors, a sign cannot neighbor its opposite, and a sign at a vacancy needs a same-sign neighbor on its other side. A vacancy block of length at least two cannot border a sign. The alternating runs require even k; the k run lengths sum to n-k with all lengths at least two. Counting a marked labeled vacancy and first sign, then removing the k choices of mark, yields (2n/k) binomial(n-2k-1,k-1), in addition to the three uniform states. At d=1 a single matching neighbor with a vacancy opposite is no longer sufficient; at d=2 even two matching neighbors are no longer sufficient. This confirms both transition equalities under the neutral-move convention. With f=zx^3/(1-x), the even-run-length sum is 2x f f_x/(1-f^2). For fixed positive z near 1, f(r,z)=1 gives a unique simple dominant pole: equality of absolute values on |x|=r would require x^3 and x^4 and every subsequent power to have the same phase, forcing x=r. The pole has principal part x/(r-x); the uniform states are exponentially negligible there. The equation for lambda(z)=1/r yields the entropy and the derivative in log z gives 1/(lambda^2+3). Exponential Markov bounds with small fixed positive/negative log z prove concentration from the limiting log moment generating function, without requiring differentiation of a pointwise limit. Replay: RESULT.md lines 23–41; separate bounded exact-rational enumeration matched all 25 cases n=3 through 7 and d in {0,1/2,1,3/2,2}. The uploaded verify_blume.py and VERIFICATION.md were inspected, not executed; neither finite check proves asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cirillo–Olivieri treat local geometry of droplets in a two-dimensional spin-one system with nonzero external field. Spirin–Krapivsky–Redner discuss absence of nontrivial metastable states for the one-dimensional binary Ising chain."
+        ],
+        "reasoning": "Neither setting covers the allowed zero spin and strict three-way substitution rule on this ferromagnetic ring. The binary theorem in particular cannot determine vacancy-stabilized interfaces or the strict equalities at d=1,2.",
+        "searches": [
+          "arXiv:hep-th/9505055v1 §3 zero-temperature Blume–Capel local minima",
+          "arXiv:cond-mat/0105037v1 pp. 1–2 one-dimensional Ising freezing"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_blume.py",
+        "arXiv:cond-mat/0505605v1, hep-th/9505055v1 and cond-mat/0105037v1",
+        "Resultary 34d442d501a3, 190dc97a4214, 3cb90da9e8be, a9d59ac1a17e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once mixed states are identified with an even number of vacancies of cyclic spacing at least three, binomial coefficients follow by elementary composition counting. The inspected exact counts use other dynamical constraints or equilibrium states and do not establish that identification, the admissible field interval, or the treatment of neutral moves."
+        ],
+        "reasoning": "The contribution is the reduction using the actual strict local-energy rule and the resulting piecewise marked count, not a new formula for unlabeled or unconstrained compositions.",
+        "searches": [
+          "arXiv:cond-mat/0505605v1, periodic transfer-matrix equations",
+          "Resultary 34d442d501a3 and a9d59ac1a17e, cyclic counts and spin-one vacancy selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almeida–Dalmazi use the same spin alphabet, Hamiltonian family and ring and compute an equilibrium transfer-matrix trace. This sums Boltzmann weights and is not a test comparing all alternative local spin values at every site."
+        ],
+        "reasoning": "The correct counting equivalence is to a cyclic vacancy-gap word with even parity and gaps at least three, doubled for initial sign, plus uniforms, and only in the open field window. An equilibrium transfer-matrix polynomial does not implement these kinetic constraints.",
+        "searches": [
+          "Strict local minima, frozen/blocked states and vacancy-marked enumeration for the one-dimensional periodic spin-one Blume–Capel model",
+          "arXiv:cond-mat/0505605v1 §2 and Eqs. (25)–(26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 34d442d501a3: binary cyclic weak exchange blocking with additional interactions; 190dc97a4214: random-bond binary spin-flip disorder law; 3cb90da9e8be: binary wheel cooperative blocking counts; a9d59ac1a17e: spin-one antiferromagnetic wheel ground state classification."
+        ],
+        "reasoning": "The nearest results do not count the same objects. A cyclic transfer-matrix method or similar entropy value, by itself, would not establish the strict spin-one absorbing-state coefficients across the field boundaries.",
+        "searches": [
+          "Resultary: spin-one vacancy stabilization, absorbing states and ring blocking entropy"
+        ]
+      },
+      "rationale": "The evidence supports the model-specific strict absorbing-state classification and full vacancy polynomial for all labeled periodic rings and all nonnegative fields in scope. There is no originality credit for the underlying composition count or the simple-pole method in isolation.",
+      "residual_risks": [
+        "An equivalent strict spin-one count may be obscured by different blocked-state terminology or not indexed. The targeted search returned no useful additional source; this does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equilibrium model match, not coverage of the kinetic count",
+          "evidence": "Transfer-matrix eigenvalues give the equilibrium partition function; kinetic strict-local comparison is not its summand.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0505605v1",
+          "material_read": "§2, pp. 2–3, offsets 6500–7500; p. 8 around 24000, Eqs. (25)–(26)",
+          "method": "Primary OA PDF passage comparison",
+          "title": "The Yang–Lee zeros of the 1D Blume–Capel model on connected and non-connected rings",
+          "trigger": "Same model and periodic geometry with exact transfer-matrix formulas"
+        },
+        {
+          "assessment": "Two-dimensional droplet geometry, not this ring",
+          "evidence": "Two-dimensional finite-volume metastability and field-dependent droplets are the objects in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/hep-th/9505055v1",
+          "material_read": "Abstract and §3, p. 14 around offset 29000",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Metastability and Nucleation for the Blume–Capel Model",
+          "trigger": "Genuinely related local minima in the spin-one Hamiltonian"
+        },
+        {
+          "assessment": "Binary dynamics, not the spin-one count",
+          "evidence": "The statement on the one-dimensional chain excludes nontrivial metastability for its binary model.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0105037v1",
+          "material_read": "pp. 1–2 around offsets 7000 and 11700",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Could cover a one-dimensional blocked-state classification"
+        },
+        {
+          "assessment": "Distinct update rules, graph families or state notions",
+          "evidence": "Nearest cyclic counts either change the dynamics and alphabet or count wheel ground states rather than strict one-site ring traps.",
+          "identifier_or_url": "Resultary 34d442d501a3, 190dc97a4214, 3cb90da9e8be, a9d59ac1a17e",
+          "material_read": "Mirrored RESULT.md findings and model definitions",
+          "method": "Local mirror",
+          "title": "Isolated weak-exchange blocking entropy; negative covariance across metastability levels; exact cooperative blocking; parity-controlled vacancy condensation",
+          "trigger": "Exact cyclic blocking counts or spin-one vacancy state enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Vacancies create isolated strictly absorbing interfaces although opposite signs cannot form a direct stable interface. The proof identifies the only field window with nonuniform traps and explains the fate of all configurations at neutral-move boundaries. The exact labeled polynomial supplies more than the entropy: it counts the traps at every vacancy number and yields a concrete macroscopic vacancy density under uniform sampling of the traps, without implying dynamical sampling probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

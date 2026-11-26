@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The physical-clock convention, connected hyperpath construction, initial labeling, and edge-update law are explicit. Direct inspection establishes an invariant single-active-edge front; a two-lane finite chain gives the displayed recurrences with absorbing endpoints. Their explicit solutions are checked by substitution, and expected absorption is finite. A bounded neutral count martingale proves the exact fixation probability. All 336 labeled exact-rational absorbing-chain comparisons pass. Finite checks supplement rather than replace the general proof.
+## correctness
 
-**Originality — PASS (self-review provisional).** Full open-access text of the motivating 2024 article and the 2022 group-interaction preprint were compared, as was the broad 2012 hypergraph-coloring framework. The motivating work supplies the proportional group-update definition and numerical mean-field phenomena; the other full texts give different interaction rules or general Markov frameworks. Searches for overlapping-hyperedge path, domain-wall first-passage, quadratic time, and the explicit parameters did not locate a stronger or equivalent closed first-passage theorem. This is evidence of noncoverage among checked material, not proof of absolute priority. A related 2013 language-group report and the 2024 group-driven-voter preprint are not identical dynamics; their qualitative group-size scaling is credited. Residual publication-priority uncertainty remains.
+PASS
 
-**Value — PASS.** Long-lived coexistence in group voting motivates quantitative dependence on interaction geometry. The theorem shows that a polarized interface does not proliferate into a high-dimensional stochastic system on a genuine hypergraph path, and gives a complete mean/fate law with a quadratic number-of-groups term and inverse overlap fraction. This identifies the precise cost of a narrow social bridge under the source's update mechanism rather than an arbitrary enumerated number.
+Disjoint consecutive overlaps ensure the two front types close under updates: the only mixed edge of each type has either s or k−s A voters, and its update moves the front to the adjacent edge, or absorbs at an endpoint. At k=2s, R_j and V_{j+1} describe the same configuration when both exist; their mapped neighbors and probabilities agree since p=q=1/2. From every transient front, continuing in its direction reaches consensus within L rings with probability at least p^L, which bounds the mean by a geometric block argument. Every transient front has exactly one rate-one clock. Independently of the two-state recurrences, the total A count M has mean-zero increment at a ring and conditional second moment a(k−a)=s(k−s), where a is the A count of the active edge. Thus the bounded stopped count gives fixation M_0/N, and the stopped squared-count identity gives s(k−s) E[T]=N M_0−M_0². Substitution of M_0=j(k−s)+s yields the exact stated mean and the stated L² limit. L=2 gives k/s directly.
 
-**Limits.** No rewiring, arbitrary configurations, independent updates, majority voting, or random-network mean-field claims. Exact group clocks are essential. Neither broad publication uniqueness nor independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for the invariant polarized front on the specified geometry and its exact physical-time first moment. Proportional whole-edge updating, magnetization martingales and general random-walk first-step analysis are established. Fixation M_0/N conditional on absorption is not a standalone novelty claim. On the invariant front, the active-edge index with its last direction is a persistent nearest-neighbor walk; its arithmetic is not claimed as a new abstract ruin law. The exact mapping with one physical rate-one clock and absorption boundaries is substantive and was not identified in the closest inspected hypergraph sources.
+
+## value
+
+PASS
+
+The result resolves finite-size time and the optimal scale constant for a simple repeated-overlap family, rather than a qualitative diffusion analogy. The path-front closure explains why the A-count's quadratic variation is constant and why the physical time changes with overlap s. The degenerate geometry 2s=k and the two-group case remain within the same law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

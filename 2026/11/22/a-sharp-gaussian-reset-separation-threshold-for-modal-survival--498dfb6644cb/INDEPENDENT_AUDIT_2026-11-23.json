@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:52.726777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–85",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent replay: at b=sigma=1, integrate exp(-u) phi_{sqrt(1+2u)}(a) over u>=0 and bracket the zero of this integral minus phi_1(a) in [1,2]. Direct quadrature and root finding give a_c=1.300922293201194, residual 2.776e-17."
+      ],
+      "rationale": "Here a is half the center-to-center separation. At equilibrium the exponential reset age gives displacement transform 1/(1+b^2 k^2); any two initial laws couple at the first reset, so this invariant law is unique. The one-component profile g_b solves the Gaussian-forced resolvent equation. Its ratio to the width-sigma Gaussian is strictly increasing on x>0 by the positive mixture of strictly wider Gaussians, starts below one and tends to infinity. The curvature at sigma is strictly negative termwise, so the crossing is beyond sigma. Differentiating the resolvent gives g_b'''(a_c)>0 and g_b''''(a_c)=-phi_sigma''(a_c)/b^2<0. The derivative of the equal Laplace mixture changes signs exactly at -a, 0, a; Gaussian damping converts its convolution into a bilateral exponential transform. Differentiation after multiplication by an exponential multiplies the measure by y-c at a sign boundary c, removing one sign change. Analyticity and Rolle with multiplicities inductively give at most three real zeros. The origin, symmetry and the strict negative derivative at x=a for a>0 then establish all regimes, with the critical cubic derivative zero exhausting the count. Applying the implicit-function theorem in x^2 gives the claimed coefficient and O((a-a_c)^(3/2)) remainder. For small b the curvature expansion uses the second and fourth Laplace moments and the nonzero Gaussian curvature slope at sigma; for large b, the two-sided Laplace expectation bound at the crossing first gives a_c=O(sigma sqrt(log(b/sigma))), then the stated logarithmic constant. These arguments cover all fixed positive b and sigma, including a=0, but not r=0.",
+      "residual_risks": [
+        "Quadrature corroborates one case only; the analytical proof carries the global and limiting assertions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-passage sources cover random/Gaussian reset laws, but the inspected passages concern hitting times and entropy or mean first-passage time, not modality for this reset law.",
+          "The confined point-reset comparison has a transition at r=kappa and a plateau at criticality, not the free Brownian finite-width result."
+        ],
+        "reasoning": "A more general stationary density formula and a general variation-diminishing bound are ingredients, not by themselves a quantitative root, the sign of the critical fourth derivative, or either threshold asymptotic.",
+        "searches": [
+          "arXiv:2206.14387, Gaussian-reset section",
+          "arXiv:2004.11311, Gaussian reset-position discussion",
+          "Resultary record 2026/11/8/SCOPE-separation-independent-modal-transition-for-harmonically-confine--a6b2a5417eeb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9db875e12990",
+        "Resultary a6b2a5417eeb",
+        "arXiv:2206.14387",
+        "arXiv:2004.11311",
+        "Reed normal–Laplace chapter (access blocked)",
+        "doi:10.1214/009053605000000417 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OU comparison gives m(s)^2=3(s_c-s)+o(s_c-s) in its own parameters; its threshold and limits are for a different kernel. The shared abstract Taylor/implicit-function mechanism is not itself new.",
+          "The stronger conclusions here are the exact normal–Laplace curvature crossing, the count of all stationary points, the corresponding dimensional opening coefficient and the small/large b/sigma formulas."
+        ],
+        "reasoning": "Neither the common local bifurcation nor the Gaussian reset renewal analysis transfers these formulas or global counts to the stated Brownian family. The same catalogue date of the two Gaussian-reset records does not order priority.",
+        "searches": [
+          "Resultary 9db875e12990, RESULT.md offsets 726 and 4836",
+          "arXiv:2206.14387 Gaussian-reset section",
+          "Reed, normal–Laplace chapter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same question is the modality of two equal translates of a symmetric normal–Laplace density. Reed is cited for the individual component, not a translated two-component criterion; the attempted chapter access was blocked.",
+          "The separate thermally calibrated record proves a global peak transition and quartic flattening for a confined OU kernel, not for two translates of the free Brownian normal–Laplace kernel."
+        ],
+        "reasoning": "Identifying the component distribution or sharing a bifurcation shape does not identify the family of stationary densities, the crossing equation, or the asymptotics. No equivalent statement was verified.",
+        "searches": [
+          "Primary literature lookup: symmetric two-Gaussian Brownian resetting and stationary bimodality",
+          "Resultary record 2026/11/22/SCOPE-a-sharp-peak-number-transition-under-thermally-calibrated-gaussi--9db875e12990",
+          "Reed, The Normal-Laplace Distribution and Its Relatives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither catalogue comparison gives the root or limiting formula in b/sigma. The classical unsmoothed Gaussian mixture changes at a=sigma, not at the finite-b crossing; the Ray–Lindsay full text was not retrieved in this review."
+        ],
+        "reasoning": "This is an all-parameter classification, not a numerical table claim. The b=sigma=1 value is a diagnostic derived by quadrature, not the claimed contribution. No matching analytical table or criterion was verified.",
+        "searches": [
+          "Resultary comparisons 9db875e12990 and a6b2a5417eeb",
+          "Primary literature lookup: symmetric two-Gaussian Brownian resetting and stationary bimodality",
+          "doi:10.1214/009053605000000417"
+        ]
+      },
+      "rationale": "The renewal formula, one-component normal–Laplace convolution, Gaussian-mixture limiting threshold and variation diminution are background. The reviewed claim couples an exact finite-b crossing with the full modality classification and two reset-scale limits. The closest distinct catalogue analogue also has quartic flattening and square-root opening but operates under OU confinement, not this free Brownian resolvent. No checked source gives or implies the full finite-b result; this is bounded by the evidence inspected, not a guarantee of priority.",
+      "residual_risks": [
+        "General translated-mixture literature may contain an implication not located in the focused search; no priority certification.",
+        "The Reed chapter and Ray–Lindsay full text were not inspected; access limits do not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, not equivalent coverage; no date-based priority inference",
+          "evidence": [
+            "Ornstein–Uhlenbeck with reset Gaussian variance D/kappa; opening m(s)^2=3(s_c-s)+o(s_c-s); not the free diffusion normal–Laplace equation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-peak-number-transition-under-thermally-calibrated-gaussi--9db875e12990",
+          "material_read": "Mirrored RESULT.md, offsets 726 and 4836",
+          "method": "Local catalogue lookup and bounded mirror reading",
+          "title": "A sharp peak-number transition under thermally calibrated Gaussian resetting",
+          "trigger": "Strongest structural overlap: Gaussian resets, global mode transition, quartic flattening and opening"
+        },
+        {
+          "assessment": "Different process and different critical density",
+          "evidence": [
+            "OU with point resets, r=kappa and critical plateau."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-separation-independent-modal-transition-for-harmonically-confine--a6b2a5417eeb",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Separation-independent modal transition for harmonically confined resetting",
+          "trigger": "Symmetric reset locations and stationary mode classification"
+        },
+        {
+          "assessment": "Relevant setup but not this modality claim in inspected passage",
+          "evidence": [
+            "Gaussian reset-position sampling in a first-passage and entropy analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.14387",
+          "material_read": "Gaussian-position reset section, PDF text offset 38963 (OA locate page 5)",
+          "method": "Bounded open primary text",
+          "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+          "trigger": "Gaussian-position resetting for Brownian motion"
+        },
+        {
+          "assessment": "First-passage optimization, not the mode theorem in inspected passages",
+          "evidence": [
+            "Mean first-passage time with Gaussian random reset positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.11311",
+          "material_read": "Abstract and Gaussian reset-position passage, offsets 1364 and 32237",
+          "method": "Bounded open primary text",
+          "title": "Optimal mean first-passage time for a Brownian searcher subjected to resetting: experimental and theoretical results",
+          "trigger": "Brownian Gaussian reset-position experiments and theory"
+        },
+        {
+          "assessment": "Known component attribution; no inference about absent chapter content",
+          "evidence": [
+            "Frozen result cites Reed for the one-component normal–Laplace density."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/227147267_The_Normal-Laplace_Distribution_and_Its_Relatives",
+          "material_read": "No full text retrieved; attribution in frozen record",
+          "method": "Attempted lawful OA retrieval; HTTP 403",
+          "title": "The Normal-Laplace Distribution and Its Relatives",
+          "trigger": "Same convolution building block and possible translated-mixture treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Closest OU and Brownian first-passage comparisons listed above"
+      ],
+      "rationale": "An invariant density formula alone does not tell whether reset-location bimodality is visible after diffusion. The sharp global transition excludes extra stationary points, separates reset bimodality from stationary bimodality, and describes the scale needed to retain peaks under infrequent resetting. The critical opening coefficient and endpoint laws quantify this distinction without making finite-sample or other-kernel claims.",
+      "residual_risks": [
+        "The value is a theorem for this symmetric equal-variance free model, not a claim about arbitrary reset distributions or empirical observability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

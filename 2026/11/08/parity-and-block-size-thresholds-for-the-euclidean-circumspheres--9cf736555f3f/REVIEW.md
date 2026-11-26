@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is \(m\ge2\), \(a\ge1\), with equal nonnegative blocks, pairwise adjacent block-sum constraints, and the standard Euclidean metric. Integrality of the path aggregate polytope plus conditional within-block coordinate sampling gives the complete vertex set, rather than an unproved assumption about binary vertices. The distance identity reduces all possible contact patterns to weighted independent supports. The proof supplies positive edge-cover dual weights in the odd interior regime and strict even-block slack beyond \(a=m+1\). An explicit contact-vertex barycenter proves global uniqueness; strict convexity rules out unlisted nonvertex contacts. Boundary cases \(a=1\) and \(a=m+1\) have been checked symbolically. The supplied standalone verifier passed 707,576 exact assertions across 274 parameter instances, plus 70 separate numerical quadratic-programming checks. Finite verification is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The original Jiang–Yang–Zhong manuscript (arXiv:2607.22008, first public 2026-07-24) addresses the family in its accessible abstract, primarily for transfer matrices and Ehrhart theory. Its complete text could not be obtained, so the possibility of an uninspected exact metric result remains a material priority risk. The fully inspected published result on complete-multipartite stable-set sphere screening concerns a graph class with independent sets entirely in one part, whereas the present graph's independent sets occupy potentially many nonadjacent clique blocks. The fully inspected fractional-cycle sphere theorem has different cycle and integrality hypotheses and no block-size threshold. General minimum-ball algorithms do not imply the closed family-specific center and contact formula. Existing cyclic-block diameter and alternating-capacity path claims also fail to imply the new theorem. Searches for the exact object, aliases, parameter threshold, and broader stable-set sphere results identified no covering statement, but absence of search hits is not treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-This is a complete metric invariant and full contact classification for an established natural family, not an isolated table entry. The parity distinction is geometric (uniform versus alternating center), and the sharp odd \(a=m+1\) contact transition is nontrivial despite the same stable-set/Ehrhart combinatorial source. The theorem describes the entire infinite two-parameter family and includes an explicit global optimality certificate.
+The path edge-incidence constraints on block sums give an integral stable-set polytope: signing the columns by bipartition turns the transposed edge-incidence into oriented incidence, with the coordinate bounds preserving total unimodularity. A convex decomposition of the sums lifts by conditional choices with probabilities x_ij/s_i, and each resulting colored independent-set indicator is a vertex since it is a cube vertex. At a block-constant trial center with block masses p_i, direct expansion gives the common baseline sum p_i^2/a and weights 1-2p_i/a. For even m and a>1 the largest objective is the maximum independent support size k; compressing the k ordered positions gives k+1 supports. At a=1 all weights vanish and the independent-set recurrence gives F_(m+2). For odd m and 1<a<=m+1, the proposed h and ell balance (k+1)w_o=k w_e. The positive alternating edge multipliers sum to the corresponding weight at each vertex, so equality requires exactly one occupied endpoint on each edge and forces one of the two alternating supports. This includes a=m+1, where ell=0. Above it the same edge multipliers dominate the even weights strictly, so only the odd alternating support reaches equality. Uniform coordinate choice on the stated supports (with a mixture giving the candidate block masses) puts their barycenter at the center. The variance identity proves the claimed radius and uniqueness against every other center, and strict convexity rules out nonvertex contacts. Both odd radius expressions agree at the threshold; substituting h gives the first branch, and the all-odd mixture gives the second. An independent bounded calculation compared exact coordinate distances and contact counts at 49 parameter pairs, 245593 colored vertices and 491501 rational assertions, including each of m=3,5,7 at and beyond a=m+1. It used separately constructed colored independent sets and exact rational distances; no separate durable replay script was delivered for that check. The source's verify.py and VERIFICATION.md were inspected, not executed; their recorded tests corroborate, but do not replace, the all-parameter proof.
 
-## Limitations and close literature
-The ambient Euclidean realization is essential. Unequal block sizes, cyclic closure, inspheres and John ellipsoids are not addressed. The full 2026 source remains inaccessible; an unindexed equivalent remains a historical originality risk. No independent expert or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The path block polytope, colored stable-set structure, and general algorithms for enclosing spheres are known; the a=1 sphere is standard binary geometry and the simplest graph slices overlap other exact results. The supported distinct theorem is the all-block-size parity classification, in particular the odd saturation a=m+1 and the complete equality families on both sides and at the boundary. The strongest inspected same-family or same-invariant statements do not give this transition. Same-day ordering is not inferred.
+
+## value
+
+PASS
+
+This determines the precise Euclidean center, radius and extremal supports for a natural colored path family. In the odd case the center reaches the boundary at a=m+1 while both contact families still remain; only above it does one family disappear. That distinction, the exact counts and the all-parameter classification provide meaningful information beyond stable-set integrality, a generic optimization algorithm, or the standard cube-center argument for a=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

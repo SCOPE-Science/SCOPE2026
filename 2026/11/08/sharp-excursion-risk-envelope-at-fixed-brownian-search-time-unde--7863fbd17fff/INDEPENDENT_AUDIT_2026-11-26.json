@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:48:31.959353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–48 and 50–116",
+        "Frozen VERIFICATION.md, lines 19–23; checker.py, lines 21–133 (inspected only)",
+        "/workspace/audit_evidence/reproduce.py, ordinal 5"
+      ],
+      "rationale": "With k=sqrt(r/D), a reset cycle started at x hits zero before the reset with probability e^(-kx), and has mean duration (1-e^(-kx))/r. The subsequent iid reset cycles have success probability s>=e^(-kb)>0, giving finite MFPT (1-s0)/(rs). For m>max{x0,b}, a jump cannot cross m. The two-boundary Brownian exit probability q satisfies Dq''+r(c-q)=0, q(0)=0, q(m)=1, c=E[q(Z)]. Independently, q(x)=c+A exp(kx)+B exp(-kx), and averaging gives Au+Bs=0, while q(0)=0 sets c=-A-B. Using q(m)=1 gives precisely the frozen formula. After a Brownian hit on m, the path exceeds m immediately almost surely before the next reset or absorption, so there is no atom at an admissible m. The derivative in u is positive since t<s0. Strict Jensen and the strict secant inequality for 1/y on [ell,h] give the unique point-mass and endpoint-mixture extremizers at fixed E[y]=s; mixing those laws fills the entire u interval, and the same strict ordering works for each threshold. At the feasible endpoints there is only one law. Solving the fractional-linear formula identifies u, not the law, and t->0 gives the stated tail coefficient. An independent exact rational ODE comparison passed 63 threshold/interpolation cases (`python3 /workspace/audit_evidence/reproduce.py 5`).",
+      "residual_risks": [
+        "Finite exact comparisons supplement the analytic proof. Essential domain is m>max{x0,b}; mere m>b is insufficient when the initial point itself exceeds m. No unrestricted stochastic ordering below that cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distributed-reset first-passage survival results use one absorbing target and depend on a transform of the reset distribution. Other matches treat optimization of reset rate for two sites or finite-duration return to a prescribed site in a bounded domain."
+        ],
+        "reasoning": "These do not establish the needed two-absorber maximum law with iid instantaneous reset locations under the fixed-MFPT constraint. A more general renewal or splitting identity could supply the exit calculation; it still needs specialization to show the two-moment form, strict dependence and sharp attainable range.",
+        "searches": [
+          "Primary query for first-passage maxima with iid spatial resets or two-boundary exit laws",
+          "arXiv:2401.01125v1 pp. 2–3 and §VI",
+          "arXiv:2611.23790v1 p. 1",
+          "arXiv:2311.11897 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.15929v1, 1107.4225v2, 2401.01125v1",
+        "Resultary acf0d7ce781d",
+        "arXiv:2311.11897 abstract and arXiv:2611.23790v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior envelope orders time statistics, not the path maximum; its initial condition is also different. The statement after Méndez et al. equation (16) about same mean and same averaged first-passage statistics is not implied by the displayed formulas: the mean fixes I(r), but the transform also uses I(r+q) at a positive Laplace argument q."
+        ],
+        "reasoning": "Even an ordering of absorption-time transforms alone does not imply an ordering of pre-absorption maxima. The fixed-site calculation and moments of absorption time do not give the strict one-parameter maximum ordering at fixed mean; the two-boundary reset equation and both exponential moments are needed.",
+        "searches": [
+          "Resultary acf0d7ce781d, Finding and Relationship",
+          "Méndez–Flaquer-Galmés–Campos arXiv:2401.01125v1, equations (13)–(16), (47)",
+          "Guo–Yan–Chen arXiv:2306.15929v1 §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(M>=m) equals the upper before lower exit probability for m>max{x0,b}; complementing the fixed-site lower-exit law recovers the point-mass case. Evans–Majumdar's distributed resetting MFPT matches after taking positive positions and target zero."
+        ],
+        "reasoning": "The exit law divided by an averaged cycle termination probability is not an average of fixed-reset maximum laws. Absorption-time Laplace transforms are not the same exit observable, and substituting a mean-equivalent location does not preserve the independent positive exponential moment.",
+        "searches": [
+          "Guo–Yan–Chen arXiv:2306.15929v1 §III",
+          "Evans–Majumdar arXiv:1107.4225v2 §4",
+          "Resultary acf0d7ce781d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact fixed-site exit formulas and a catalogue theorem for FPT Laplace and variance envelopes were inspected. Neither gives the exact range of above-support maximum laws for arbitrary spatial reset distributions."
+        ],
+        "reasoning": "A table of finite thresholds or reset laws cannot determine this continuous family, equality conditions or its common ordering. The exact formula comparisons are the relevant analogue.",
+        "searches": [
+          "Resultary fixed-mean random-reset records and maximum-envelope queries",
+          "arXiv:2306.15929v1 equations (7)–(10)"
+        ]
+      },
+      "rationale": "The MFPT constraint and the point-reset two-boundary maximum are established premises. The closest same-date record gives fixed-mean envelopes for absorption-time transforms and variance and has essentially the same extremizing measures, but concerns a different observable and uses a random initial position drawn from the reset law. The substantive distinct claim is the exact above-support maximum law and its complete attainable, simultaneously ordered range under arbitrary iid spatial resets at fixed MFPT from x0.",
+      "residual_risks": [
+        "Shared extremizers and constraint with the same-date record are disclosed; catalogue date does not determine order or priority. A broader unindexed two-boundary renewal formulation remains possible. The bounded searches do not certify historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact point-reset special case",
+          "evidence": "A constant reset site x_r enters the lower-exit calculation; no variable reset distribution over a fixed mean constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.15929",
+          "material_read": "v1 §III, p. 3, equations (7)–(10)",
+          "method": "OA PDF passage",
+          "title": "Extremal statistics for a resetting Brownian motion before its first-passage time",
+          "trigger": "Same pre-absorption maximum and two absorbing boundaries"
+        },
+        {
+          "assessment": "Direct coverage of the MFPT identity",
+          "evidence": "For positive reset positions and target zero, the displayed law gives (1-s0)/(rs). The inspected sections are not about the joint maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+          "material_read": "v2 §§4.1–4.2, pp. 10–11, equations (38)–(47)",
+          "method": "OA PDF passage",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Distributed resets and mean constraint"
+        },
+        {
+          "assessment": "Closely overlapping premises, but one-target first-passage statistics rather than a maximum envelope",
+          "evidence": "The one-target formulas involve a Laplace moment of reset distance, and section VI supplies a mean-equivalent reset location.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "v1 pp. 2–3, equations (1), (6), (13)–(16) and §VI, equation (47)",
+          "method": "OA PDF passages",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Same resetting mechanism and mean-equivalent point"
+        },
+        {
+          "assessment": "Material shared mechanism, not mathematical coverage of the excursion envelope",
+          "evidence": "The initial location is sampled from the reset law, and the bounds are on FPT Laplace transforms and variance. The extremizers are the same deterministic-distance and endpoint-mixture measures.",
+          "identifier_or_url": "Resultary acf0d7ce781d",
+          "material_read": "Finding and Relationship, mirror offsets 0 and 7800",
+          "method": "Local published-record mirror",
+          "title": "Sharp fixed-mean first-passage Laplace and variance envelopes",
+          "trigger": "Strong same-date overlap in process, constraint and extremizers"
+        },
+        {
+          "assessment": "Adjacent, not a whole-text exclusion",
+          "evidence": "The optimum concerns reset rate and its transitions in mean search time over a two-site model.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+          "material_read": "Abstract",
+          "method": "OA abstract inspection",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Two-site spatial resetting"
+        },
+        {
+          "assessment": "Inspected model differs from instantaneous iid spatial resets",
+          "evidence": "Finite-duration return to a prescribed site; splitting probabilities and mean times rather than the two-moment maximum design range.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.23790",
+          "material_read": "v1 p. 1 abstract",
+          "method": "OA abstract inspection",
+          "title": "Brownian resetting with finite-duration return in a bounded domain",
+          "trigger": "Near-date splitting-probability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–42, 92–116 and 122–132",
+        "Resultary acf0d7ce781d, Finding"
+      ],
+      "rationale": "A mean search time alone does not measure excursions. The result gives sharp differences in excursion risk at precisely equal mean, with unique designs, no threshold-dependent change of the extremizers on the specified domain, a complete one-parameter attainable family and a measurable second moment. The useful content is this exact reduction of the path statistic to two moments and the resulting stochastic order, not the textbook convexity bound by itself.",
+      "residual_risks": [
+        "The two-moment identification does not recover the spatial law, apply to maxima below the support cutoff or control first-passage-time distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

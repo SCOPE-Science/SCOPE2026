@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:07:33.153617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent exact small-alphabet computation: python3 /workspace/audit_checks/check.py 5"
+      ],
+      "rationale": "Each nonconstant target needs a distinct exact length-two center with equal flanking letters; constant targets need separate runs of length at least four. The run surplus is therefore at least q(q-1)+3q. Each edge in the cyclic skeleton must support both opposing backtracks, which requires at least three occurrences unless the skeleton is a whole two-run circle. That exception is impossible even for q=2, whose dedicated runs require at least four. The skeleton's degrees are even, forcing q/2 extra edges for even q, and attaining that bound gives exactly a matching. The proposed Euler expansion triples the first traversal of each edge without merging neighboring runs, gives separate center runs and leaves an original occurrence per symbol for its long run. This proves equality and all asserted profiles. Equality in the surplus bound forces all other runs to be singletons and the designated long runs to have length four. Independently reproduced the binary and ternary minima with exact subset DP on cyclic orders of chosen target starts and proper suffix-prefix overlaps, and checked both printed examples directly.",
+      "residual_risks": [
+        "The finite computation verifies the minima only at q=2,3; the general rigidity and construction are analytical."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited universal-cycle definitions and applications concern exact-once coverage or existence. The same-day nearby records concern abab, ab followed by its reverse complement, ternary abcba, and complement-tandem factors respectively, with distinct target sets. The quaternary ordinary four-palindrome census is stronger for q=4 but not for all q."
+        ],
+        "reasoning": "Those analogous or more restrictive statements do not themselves imply the ordinary at-least-once minimum over all q. The decisive coverage instead comes from the exact ordinary four-letter match and the run-length reduction to length three.",
+        "searches": [
+          "arXiv:1711.07029, pp. 1–2",
+          "arXiv:1908.01116, p. 1",
+          "Resultary same-day cyclic motif-cover records for abab, reverse complements, length five and complement-tandem motifs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ordinary length-four, length-three, and quaternary census records",
+        "Resultary November 2 analogous motif-cover findings",
+        "arXiv:1711.07029",
+        "arXiv:1908.01116",
+        "OEIS A330022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In an optimal length-three cover the inspected proof forces exactly two loop traversals for each symbol by equality in the summed counts. Since an aaa already uses two adjacent loops, the only nonsingleton run of that letter is exactly the required triple. The same equality forces each off-diagonal multiplicity to be three in the odd case, and the parity excess to be a perfect matching in the even case. Its constructive proof attains equality for any chosen matching."
+        ],
+        "reasoning": "Shorten one designated length-four constant run (or one longer run containing the target) per letter and one designated exact double center per ordered off-diagonal pair in an optimal length-four cover. The image is length-three optimal by the exact reduction. Its unique triple runs and singleton others force exactly the frozen long, doubly repeated and singleton runs before shortening. The transition data are unchanged in both directions, and the length-three arbitrary-matching construction transfers back. Thus the unstated rigidity is a direct equality-case corollary, not a surviving independently established result.",
+        "searches": [
+          "Length-three indexed RESULT.md, local edge requirements, parity obstruction and constructive sharpness",
+          "Ordinary four-letter indexed RESULT.md, Finding and overlap-gap proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary-length-four record has the same target set, cyclic wrap-around, allowance of repeats and full parameter range. For all q>=2 there is an exact run-length reduction: in a length-four cover, shorten one chosen long run per letter and one chosen center per distinct ordered pair by one each. Those runs are disjoint, and the result covers aaa and aba. Conversely lengthen a chosen aaa run and one chosen unit center of every nonconstant aba by one each in a length-three cover. Both maps preserve the run-letter skeleton and change length by exactly q^2."
+        ],
+        "reasoning": "These maps prove L_4=L_3+q^2 without any new extremal bound and take optimal covers to optimal covers. This is stronger than noticing an algebraic coincidence. Linear superstrings and exact-once universal cycles are not equivalent to the general cyclic at-least-once problem.",
+        "searches": [
+          "Resultary semantic lookups for ordinary cyclic palindrome covers, shortest length-four circular superstring, and length-three palindrome cover",
+          "Resultary SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c",
+          "Resultary SCOPE-shortest-cyclic-covers-of-all-length-three-palindromes--18d0cf3a4b8f",
+          "OEIS A330022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct ordinary four-letter entry states both all-q formulas and their five small values verbatim in mathematical content; its overlap-gap and parity proof gives independent coverage. The separate quaternary census uses length 44 and enumerates optima. OEIS A330022 gives the binary linear minimum 12 and an example."
+        ],
+        "reasoning": "The direct matching theorem is the strongest formula evidence, independent of chronology. The binary linear entry and the quaternary census supplement rather than replace the all-q comparison.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c",
+          "Resultary 2026/11/22/SCOPE-complete-census-of-shortest-quaternary-cyclic-covers-of-four-let--ae58e2469c73",
+          "OEIS A330022"
+        ]
+      },
+      "rationale": "The all-q minimum formula is an exact statement match in the indexed ordinary length-four result. The extra length-four signature is not explicitly stated there, but every component follows directly from the length-three indexed minimum and the equality cases of its loop and transition counts by a reversible change in designated run lengths. This is demonstrable indexed coverage, not a determination of which result was obtained first or a claim of external publication priority.",
+      "residual_risks": [
+        "Catalogue path dates do not locate priority of the underlying results; the frozen reference to a prior length-three classification is not securely identified with the November 22 entry.",
+        "Full text of Anisiu et al. (2006) and Simpson (2014), referenced by the length-three record, was not inspected; this does not weaken the actual indexed implication or justify additional claims about historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula coverage, no standalone run rigidity stated in the inspected result",
+          "evidence": "Same abba target family and repetitions policy; gives (5q^2+q)/2 odd and (5q^2+2q)/2 even under identical hypotheses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c/RESULT.md",
+          "material_read": "Finding, assumptions and proof's overlap-gap lower bounds and parity steps, offsets 0–4567",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp cyclic covering length for ordinary four-letter palindromes",
+          "trigger": "Exact all-alphabet ordinary cyclic-cover formulas"
+        },
+        {
+          "assessment": "Minimum and equality-count proof imply the frozen formula and signature through the two-way designated-run edit",
+          "evidence": "Proof bounds each loop count below by two and each distinct-pair multiplicity by three, with the even degree surplus exactly q/2. Its construction uses an arbitrary perfect matching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-shortest-cyclic-covers-of-all-length-three-palindromes--18d0cf3a4b8f/RESULT.md",
+          "material_read": "Finding, assumptions and proof, offsets 0–4291",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Shortest cyclic covers of all length-three palindromes",
+          "trigger": "Potential reduction of length-four minima and rigidity to length three"
+        },
+        {
+          "assessment": "Quaternary-only formula and stronger census data",
+          "evidence": "Minimum 44, with 5472 optimal circles and 124 symmetry classes.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-census-of-shortest-quaternary-cyclic-covers-of-four-let--ae58e2469c73",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Complete census of shortest quaternary cyclic covers of four-letter palindromes",
+          "trigger": "Exact finite overlap on the ordinary four-letter family"
+        },
+        {
+          "assessment": "Different exact-once problem in the material inspected",
+          "evidence": "Universal cycles list the required class exactly once; the discussed families do not supply the ordinary palindrome minimum here.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "Public PDF pp. 1–2, definition and scope",
+          "method": "Primary PDF passage",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Possible general Eulerian restricted-word cover result"
+        },
+        {
+          "assessment": "Exact-once existence and deletion, not this minimization",
+          "evidence": "Studies probabilities for a universal cycle or word of sets obtained after factor removal.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+          "material_read": "Public PDF p. 1, abstract and opening definition",
+          "method": "Primary PDF passage",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "Possible general cyclic word-cover theory"
+        },
+        {
+          "assessment": "One coinciding binary numerical value, linear formulation",
+          "evidence": "Lists 12 and the word 000011001111 at length four.",
+          "identifier_or_url": "https://oeis.org/A330022",
+          "material_read": "Sequence entry and length-four example, page offset near 429",
+          "method": "Public database page",
+          "title": "Length of shortest binary string containing all palindromes of length n as substrings",
+          "trigger": "Binary minimum table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and dedicated-run proof",
+        "Indexed exact length-four Finding",
+        "Indexed length-three parity, loop and Euler construction proof"
+      ],
+      "rationale": "The natural cover problem and the matching obstruction are meaningful, and the frozen proof is valid. As a standalone finding, however, the length computation is exactly covered and the profile is inherited from the length-three optimum by a one-letter edit at each otherwise forced run. The exact required excess and the run signature are immediate once those counts are saturated. No independent new extremal obstruction or classification survives this comparison.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

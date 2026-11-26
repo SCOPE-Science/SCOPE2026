@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:09.124964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the uniform Prüfer word, conditioning on d−1 marked labels leaves n−d−1 iid draws on the other n−1 labels, plus one marked leaf iff d=1. Prefix coupling gives the strict increasing order for d≥2, and adding one draw for d=1 can remove at most one empty box, with a repeat occurring with positive probability (strict comparison with d=2). The star law is the point mass n−1 and strictly dominates L1. At every interior d≥3, the lower endpoint is at least d, whereas L1=2 has positive mass; the upper endpoint is at most n−2, whereas L1=n−1 has positive mass. The two endpoint tails cross. With q=n−1 the degree-three difference is f(q)−1, f(q)=(2−1/q)(1−1/q)^(q−3). The displayed log derivative is negative already by log(1−1/q)≤−1/q. I checked f(7)=16848/16807>1 and f(8)=252105/262144<1. The d=4 expression is positive for q≥11 since (1−1/q)^(q−4)>e^(−1) and 3−3/q+1/q²≥331/121>e; direct exact checks for q=4..10 have smallest positive difference 44020511/100000000. Strict stochastic monotonicity then handles all d>4. Replay: /workspace/replays/recheck_frozen.py, leaves(), inclusion–exclusion tail checks at n=5..20 and exact boundary arithmetic. The analysis, not the bounded checks, handles all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seo–Shin’s passages concern leaders, vertex degree and coding. Addario-Berry et al. treat prescribed degree sequences, probabilistic coding and stochastic comparison of height-type quantities. Drmota–Gittenberger's full text could not be inspected."
+        ],
+        "reasoning": "Coding and enumeration supply tools for the conditional occupancy formula. A comparison of statistics of prescribed degree sequences is not the claimed finite mean sign or first-order order of leaves conditional on a single degree. A broader degree-count enumerator remains a possible indirect overlap.",
+        "searches": [
+          "arXiv:math/0601009 (abstract and reverse Prüfer passage)",
+          "arXiv:2107.09726 (introduction and fixed-degree-sequence growth)",
+          "DOI 10.1002/(SICI)1097-0118(199907)31:3<227::AID-JGT6>3.0.CO;2-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py (read only)",
+        "Resultary 2ebe6d26d6d6 and 0e8a59994112",
+        "arXiv:math/0601009",
+        "arXiv:2107.09726",
+        "Drmota–Gittenberger DOI retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier law gives the extremal tail comparison immediately; its mean formula gives f(q)−1 for d=3, but not its sign for all q. The later theorem explicitly supplies that crossing. Its d≥2 monotone chain cannot prove that d≥4 lies above d=1 when d=3 lies below d=1; bounding the d=4 mean separately is required."
+        ],
+        "reasoning": "Credit exact formula, chain, and their immediate support consequences as covered. A sharp all-size sign result needs additional inequalities and boundary evaluations, which are not supplied by the earlier statement; the later record does cover the main crossing but not the full mean sign classification in the inspected passages.",
+        "searches": [
+          "Resultary: 2ebe6d26d6d6, Finding and Assumptions",
+          "Resultary: 0e8a59994112, Finding and Proof §6 (mean reversal)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both indexed records use ordinary leaves and a fixed marked vertex of a uniform unrooted Cayley tree. Their empty-box model matches, with the valley paper’s K_n=d−1. The later record has the same pairwise diagram, interior incomparability and degree-three crossing, also treats n=3,4, and records zero covariance."
+        ],
+        "reasoning": "The comparisons use the same conditioning event and tail order, not root conventions or an asymptotic approximation. The earlier and later overlaps must be distinguished when assessing what is new relative to earlier evidence.",
+        "searches": [
+          "Resultary: stochastic valley and complete conditional leaf-count diagram, 2ebe6d26d6d6 and 0e8a59994112",
+          "\"conditional\" \"leaf count\" \"degree\" uniform labeled trees stochastic order Cayley"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record tabulates the form of every mass using Stirling numbers and states the exact conditional-mean expression, but not its pairwise all-size sign classification. The later record explicitly reports the n=8,9 mean differences 41/16807 and −10039/262144 and the global crossing. No separate source table of exact conditional sign comparisons was identified."
+        ],
+        "reasoning": "An exact pmf already encodes the individual cases, but is not a read-off certificate for an all-size sign transition. The exact later indexed comparison is documented as such, not treated as a negative search result.",
+        "searches": [
+          "Resultary: 2ebe6d26d6d6, exact occupancy formula and pmf",
+          "Resultary: 0e8a59994112, Finding and Proof §6"
+        ]
+      },
+      "rationale": "The earlier indexed stochastic-valley result already covers the exact law, conditional means as a formula and the monotone chain with its degree-two valley. The incomparability follows readily from that law’s support and is not credited alone. The supported distinct result is the full conditional mean sign classification, in particular the sharp reversal at nine while first-order incomparability persists. The later 0e8a59994112 record is genuine statement-level overlap on the full stochastic diagram and crossing, not a mere topical hit. Its later path date is not evidence that it predates this frozen result, and its compared Finding and reversal proof do not give the higher-degree all-size mean inequality, which does not follow just from the crossing and the chain for n≥9. Historical priority is not certified.",
+      "residual_risks": [
+        "Later record establishes coverage of the central diagram and reversal but the available dating does not resolve independent derivation or provenance.",
+        "The full text of Drmota–Gittenberger remained inaccessible; the bounded search is not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier substantial overlap; no sharp mean sign result in the compared passages",
+          "evidence": "Same occupancy and mean formulas, degree-one-over-degree-two comparison and increasing chain for d≥2; does not claim all the degree-one comparisons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-stochastic-valley-and-a-sharp-nonlinear-dependence-scale-for-l--2ebe6d26d6d6/RESULT.md",
+          "material_read": "Finding, Assumptions, initial Proof; exact occupancy mass and conditional mean",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A stochastic valley and a sharp nonlinear dependence scale for leaves of uniform labeled trees",
+          "trigger": "Same marked degree and total leaf conditioning"
+        },
+        {
+          "assessment": "Later-indexed match on core diagram and crossing; higher-degree mean inequalities not established there by the chain",
+          "evidence": "States the complete diagram and crossing at n=9; treats n=3,4 and zero covariance too. The mean proof bounds the degree-three difference, not the d=4 mean difference.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-conditional-leaf-count-stochastic-order-diagram-of--0e8a59994112/RESULT.md",
+          "material_read": "Finding and exact proof passage for the mean reversal (§6)",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "The complete conditional leaf-count stochastic-order diagram of a uniform Cayley tree",
+          "trigger": "Exact diagram and threshold overlap"
+        },
+        {
+          "assessment": "Coding comparison, not the leaf claim in those passages",
+          "evidence": "Leader enumeration and marked degree rather than conditional tail and mean signs for total leaves.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601009",
+          "material_read": "Abstract p. 1 and reverse encoding passage p. 2",
+          "method": "OA PDF passage inspection",
+          "title": "A Generalized Enumeration of Labeled Trees and Reverse Prüfer Algorithm",
+          "trigger": "Prüfer coding and degree of vertex 1"
+        },
+        {
+          "assessment": "Comparable methods; different conditioning and statistic",
+          "evidence": "Degree-sequence orders and heights, not a comparison of total leaves conditioned on one degree.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09726",
+          "material_read": "Introduction p. 1; tree growth with prescribed degrees pp. 6–7",
+          "method": "OA PDF passage inspection",
+          "title": "The Foata–Fuchs proof of Cayley’s formula, and its probabilistic uses",
+          "trigger": "Stochastic orders under degree constraints"
+        },
+        {
+          "assessment": "Access-limited; no exclusion on full content",
+          "evidence": "No readable full text was recovered for a passage-level comparison.",
+          "identifier_or_url": "DOI 10.1002/(SICI)1097-0118(199907)31:3<227::AID-JGT6>3.0.CO;2-6",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful DOI retrieval attempts and repository recovery",
+          "title": "The distribution of nodes of given degree in random trees",
+          "trigger": "Potential degree-count framework containing leaf cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A marked vertex's degree is a natural predictor for the global leaf count. The result turns the known degree-two valley into a complete set of comparisons and pinpoints a nontrivial all-size sign pattern for means: degree three switches at nine while the stochastic incomparability never changes, and degree four and above never switch. The useful distinction is between prediction in expectation and full tail order, not a new occupancy model or a census through an arbitrary n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

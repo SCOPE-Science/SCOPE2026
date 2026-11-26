@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:29:43.120958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, each block character has m^(2m) maps. Every bijective character permits a block-respecting inner inverse, whereas a collapsed character permits one precisely when the two restriction images are comparable: the whole target block must be taken to a common source block that provides all preimages. Inclusion–exclusion gives R_m=1/2+a_m-b_m/2 for inclusion and equal-image probabilities. Stirling counts by containing image size give the exact supporting count. The inclusion occupancy weights have EGF H(z,w)=1+(e^z-1)e^w. Requiring both tilted means to equal one yields y=x/(1-e^(-x)) and e^(-y)=1+(x-1)e^x, with opposite monotonicities on (0,1) giving uniqueness. The covariance entries x,y,y-1 follow from the first and factorial second moments, and (0,0),(1,0),(1,1) give both positive definiteness and the full difference lattice. The centered characteristic function has uniformly subunit modulus away from zero on the torus; the local Gaussian integral gives mass (1+o(1))/(2*pi*m*sqrt(D)) at the joint mean. Stirling cancels 2*pi*m exactly, leaving C=1/sqrt(D). The saddle minimizes the strictly convex log generating function in log coordinates minus the two coordinates, so rho<=H(1,1)/e²<1. The equal-image proportion conditional on inclusion is bounded by (1-p)^m divided by the local mass at the joint mean, where p>0 is the tilted probability of occupying a cell only in the first map. It is therefore negligible. Independently enumerated m<=3 gave 4/4,60/64,2400/2916. The newly written bounded check under repairs/3 reproduces C=1.2107009912852933 and rho=0.6967429565725238 and the correction ratios 1.00209145 and 1.00104079 at m=40 and 80, and returned VERIFY_OK. The frozen verifier was inspected, not run; it prints twice the density prefactor as C but uses half of that label in its comparison. The replacement reports the correct C and avoids floating subtraction from one half. Finite checks do not replace the asymptotic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 3.4 covers the structural regularity criterion for general partitions. The other Sarkar–Singh count is for the onto-block monoid. Sangkhanan classifies maximal regular subsemigroups containing units, not the fraction of all regular maps.",
+          "The rank record gives 1/2<=Pr(regular)<=1/2+(7/8)^m+exp(-m/32)."
+        ],
+        "reasoning": "The broader structural theorem explains the criterion, and the rank record settles convergence with an explicit upper bound. Neither yields the sharp base and prefactor by mere specialization. Enumeration of an onto-block submonoid or maximal regular subsemigroups is not the all-regular density.",
+        "searches": [
+          "Sarkar–Singh arXiv:2310.19414 Prop. 3.4; arXiv:2010.14033 §6",
+          "Sangkhanan arXiv:2610.38341v1 Theorem 3.15",
+          "Resultary 859bee082aaf, exponential regularity bounds"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 859bee082aaf",
+        "arXiv:2310.19414 Proposition 3.4",
+        "arXiv:2010.14033 §6",
+        "arXiv:2610.38341v1 Theorem 3.15",
+        "arXiv:1504.02520 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evaluating the weighted rank formula proves the original exact count directly; the generic regularity criterion by itself does not. The reported density bound is not asymptotically sharp.",
+          "Dolinka–East–Mitchell treat idempotent generation and rank, not the excess probability for all regular elements."
+        ],
+        "reasoning": "Calculation of an explicit tilted saddle and two-dimensional local mass, together with control of the equal-image term, is needed to pass from that known enumeration to the sharp correction. That is the surviving repaired contribution; neither the count nor a routine restatement of the upper bound is accepted as novel.",
+        "searches": [
+          "Resultary 859bee082aaf, Finding including regular rank polynomial and displayed exponential upper bound",
+          "arXiv:2310.19414 Prop. 3.4 and arXiv:1504.02520 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general regularity criterion becomes nested restriction images for a constant character. The remaining asymptotic is equivalent to finding a sharp probability for inclusion of the two random images, as equality of images is exponentially smaller.",
+          "The rank enumerator gives the same finite nested-image counts and is stronger than enumeration without weights."
+        ],
+        "reasoning": "The containment formulation is not a different theorem merely because it uses occupancy language. The exact overlap is credited. The comparison did not locate an equivalent exact saddle asymptotic for that occupancy event; an unlocated result is still possible.",
+        "searches": [
+          "Image-inclusion asymptotics for two independent uniform selfmaps and occupancy EGF H(z,w)=1+(e^z-1)e^w",
+          "arXiv:2310.19414, Proposition 3.4",
+          "Resultary 859bee082aaf, regular-map rank enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For the same labeled two-block monoid at m>=2, the indexed regular-map rank polynomial is 2P_m(z)^2+C_m(z), where P_m(1)=m^m and [z^s]C_m=4 binom(m,s)s!S(m,s)s^m-2 binom(m,s)(s!S(m,s))²."
+        ],
+        "reasoning": "On setting z=1 and dividing by 4m^(2m), this is the exact frozen expression. The trivial singleton-block case does not distinguish it scientifically. The match is conclusive for the count even without an identical printed fraction. The inspected record's bound does not tabulate the matching constants C or rho.",
+        "searches": [
+          "Resultary: balanced two-block regular density, exact rank enumerator, exponential correction",
+          "Local mirror Resultary 859bee082aaf, Finding offset 125–2380"
+        ]
+      },
+      "rationale": "The frozen scope does not pass originality for its separately assessed exact enumeration: a distinct indexed result supplies a strictly stronger rank enumerator whose value at one is identically the exact count. The catalogue dates do not settle priority or remove mathematical overlap. The complete repair narrows the contribution to the sharp exponential correction including its prefactor, retaining the exact count as credited background. The compared rank record gives qualitative exponential convergence and an upper bound but not this sharp asymptotic; the other inspected structure and enumeration sources do not supply it. The revised distinct claim passes on the available evidence, without priority certification.",
+      "residual_risks": [
+        "An unlocated sharp asymptotic for random-mapping image inclusion or a more general occupancy enumeration could cover the surviving claim.",
+        "The ranked record's date is not a priority determination; the established count overlap is mathematical irrespective of date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS frozen exact count; does not give the repaired sharp asymptotic in the inspected result",
+          "evidence": [
+            "Rank enumerator 2P_m(z)^2+C_m(z), with the identical unweighted count at z=1. The displayed regularity upper bound is 1/2+(7/8)^m+exp(-m/32). The limitations explicitly describe it as a nonsharp estimate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rank-enumerators-and-exponential-size-asymmetry-of-the-two-maxim--859bee082aaf",
+          "material_read": "RESULT.md Finding and assumptions, offsets 125–2380, and limitations and references at 7350–8984",
+          "method": "Read the local indexed mirror's bounded original passages",
+          "title": "Rank enumerators and exponential size asymmetry of the two maximal regular partition-preserving transformation semigroups",
+          "trigger": "Same monoid, exact regular-element counts, and exponential density convergence"
+        },
+        {
+          "assessment": "COVERS the structural criterion; not the sharp asymptotic",
+          "evidence": [
+            "For each block, its intersection with the image of f must be contained in the image of some source block."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.19414",
+          "material_read": "Proposition 3.4, p. 4, OA offset about 13000",
+          "method": "Read bounded OA PDF passage",
+          "title": "Semigroups of transformations whose characters belong to a given semigroup",
+          "trigger": "Known general regularity criterion"
+        },
+        {
+          "assessment": "RELATED enumeration, different domain of maps",
+          "evidence": [
+            "Gamma requires each source block to map onto a whole block; its regular counts are not for all maps preserving the partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.14033",
+          "material_read": "Definition of Gamma on p. 2 and §6 Remark 6.8 and Theorem 6.10, pp. 13–14",
+          "method": "Read bounded OA PDF passages",
+          "title": "Regular, Unit-regular, and Idempotent elements of semigroups of transformations that preserve a partition",
+          "trigger": "Potential exact regular-map count in broader block-preserving semigroup"
+        },
+        {
+          "assessment": "RELATED classification of maximal regular subsemigroups; not the count-rate theorem",
+          "evidence": [
+            "For two equal classes of size at least two the only maximal regular subsemigroups containing the units are M1 and M2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.38341v1",
+          "material_read": "Theorem 3.15, p. 15, PDF offset 50487–51499",
+          "method": "Read bounded OA PDF passage",
+          "title": "Maximal regular subsemigroups containing the group of units of transformation semigroups that preserve a uniform equivalence relation with two classes",
+          "trigger": "Same equal-two-block monoid and structural source of the rank record"
+        },
+        {
+          "assessment": "The checked stated contributions concern a different statistic",
+          "evidence": [
+            "The abstract gives idempotent generation and ranks, not a density of all regular elements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02520",
+          "material_read": "Abstract, p. 1",
+          "method": "Read OA PDF abstract; do not infer whole-document noncoverage from this alone",
+          "title": "Idempotent rank in the endomorphism monoid of a non-uniform partition",
+          "trigger": "Related enumeration of partition-preserving transformations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired asymptotic supplies an explicit rate and prefactor for the rare contribution of the collapsed block characters in a canonical nontrivial partition monoid. It goes beyond the structural criterion, exact finite count and known loose exponential bound by resolving how small the excess fraction is and identifying the underlying occupancy mechanism. The precision is intrinsically meaningful for this probability, rather than a numerical recomputation of a known table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:28:54.254974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55; VERIFICATION.md; checker.py (read, not executed).",
+        "Independent replay: python3 /workspace/review_replay.py 3; integer affine rank for every pattern in dimensions 2–4, hull type counts by subset size, and exact probability bounds at p=1/3,1/2,2/3 in dimensions 3 and 4. Totals at n=3: 105 deficient, 30 exact coordinate hulls and 30 exact pair-type hulls; at n=4: 4657, 1208 and 1812, respectively."
+      ],
+      "rationale": "After coordinate complements, a real hyperplane with k nonzero normal entries cuts out a level antichain of strictly positive subset weights on those k coordinates. Sperner gives 2^(n−k) times the central binomial coefficient; the central binomial fraction for k≥3 is at most 3/8 (it stays constant from odd k to the next even k and then strictly decreases). For k=1 only the two coordinate sides have half the cube; for k=2 only equal positive weights after complementing can repeat a level, yielding the equality/complement traces. Thus there are exactly K=2n+2 binom(n,2)=n(n+1) dominant hyperplanes. Their binary traces are nonzero linear parity equations, whose distinct pairs have either conflicting right sides or two independent equations, so intersect in at most N/4 vertices. The use of parity is only on the trace; all sampled affine ranks are real. Every deficient set, including the empty set, has an affine basis extendible to n affinely independent cube vertices, giving at most binom(N,n) candidate hyperplanes. For a fixed H the containment event has probability q^(N−|H∩cube|). The one- and two-term Bonferroni bounds on the dominant events and the nondominant trace bound give the two claimed errors without assuming event independence. After division by Kq^(N/2) they decay exponentially in N, since binom(N,n)≤exp(n² log 2); for example c_p=−log(q)/16 works for all sufficiently large n. Each dominant trace is affinely a full (n−1)-cube. Independently retaining its vertices gives exactly q^(N/2)(1−ρ_(n−1)) for the event that the affine hull equals that hyperplane. These events are disjoint. The same finite hyperplane union bound gives ρ_(n−1)≤binom(N/2,n−1)q^(N/4), so the disjoint equal masses exhaust the rank-failure event up to exponentially small relative error. The exact pair-type fraction within the family is n(n−1)/K=(n−1)/(n+1); outside-family mass accounts for the claimed overall error.",
+      "residual_risks": [
+        "The theorem is analytic, not extrapolated from the small cubes. The asymptotic rate is for fixed 0<p<1 and gives no uniformity near the endpoints or law for higher codimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The expansion papers concern typical graph behavior for the independent-retention model. Gillmann Theorem 3.11 uses the same sampling model in a sparse dimension-dependent center-containment threshold, and Theorem 3.5 and Corollaries 3.9–3.10 concern fixed-size center containment.",
+          "Kaibel–Remshagen sample a fixed-size subset for graph density and summarize Dyer–Füredi–McDiarmid for repeated iid draws and volume thresholds."
+        ],
+        "reasoning": "Neither the same-model threshold for center containment nor typical graph/volume control provides an exponentially accurate rank-failure equivalent at fixed p. A different sample-size protocol would require uniform rank-failure estimates and a justified transfer, not merely a shared cube.",
+        "searches": [
+          "Ferber et al. arXiv:2509.09831, Guo–Tomon arXiv:2604.09520, Christoph et al. arXiv:2604.20589; Gillmann DOI:10.14279/depositonce-1526",
+          "Fixed-size and iid sampling comparison in Kaibel–Remshagen arXiv:math/0306246"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–55 and 63–78; exact primary and indexed statements listed above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gillmann Lemma 1.4 shows a coordinate-elimination projection for deficient Boolean polytopes. Classical Littlewood–Offord/Sperner bounds control slices of the cube. Neither is a counting statement about simultaneous dominant events or exact affine hulls.",
+          "Full-dimensional Minkowski decomposition pairs indicator variables on opposite slices; rank drop requires their complement outside a containing hyperplane to be empty, a different event."
+        ],
+        "reasoning": "To pass from standard trace concentration to the claimed result one needs the equality-case family, gap for all other hyperplanes, control of overlapping containment events, and a spanning calculation conditional on each trace. The looked-up related theorems do not already imply that full law.",
+        "searches": [
+          "Gillmann Lemma 1.4 and Chapter 3.1; Rudelson–Vershynin §1.2; closest same-day Resultary Minkowski Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Affine rank can be phrased as rank of the selected cube rows with a leading column of ones. Tao–Vu and Song–Wang concern square matrices with independent sign/entry samples, not the random selection of rows from the entire deterministic cube-and-ones matrix.",
+          "The Walsh–Hadamard catalogue match studies row sketches and affine types over F₂, whereas parity here is just an aid for counting traces of real hyperplanes."
+        ],
+        "reasoning": "The augmentation reformulates the event exactly, but does not turn whole-cube retention into iid matrix rows or replace real affine rank by rank modulo two.",
+        "searches": [
+          "Resultary: affine-rank rare event for independently retained Boolean vertices, dominant real hyperplanes",
+          "Bernoulli-matrix singularity and Littlewood–Offord literature; arXiv:math/0501313; arXiv:2607.00495v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed four-cube retention polynomial is for containing the center, and the indexed four-column Walsh rank laws concern a different sketch model. The same-day Minkowski-decomposability law gives n(p²+q²)^(N/2) conditional on full dimension, not the factor Kq^(N/2).",
+          "The inspected Tao–Vu source gives a square-matrix singularity upper bound, duplicate/opposite lower mechanisms and a leading-expression conjecture, not an exact law here."
+        ],
+        "reasoning": "These formula comparisons differ in event, coefficients, model, or dimension coverage; they are not a table of the asserted deficient-set counts or hull probabilities.",
+        "searches": [
+          "Resultary: exact rank-failure and exact vertex-thinning polynomial comparisons",
+          "Tao–Vu arXiv:math/0501313, Introduction and §2"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the finite error bound, fixed-p rare-event equivalent, and exact and asymptotic conditional geometry taken together. The strongest same-model archive match conditions on full dimension and measures decomposition; same-model papers bound typical edge expansion or locate a sparse center-containment threshold. Littlewood–Offord concentration and real rank arguments are standard inputs and do not get separate novelty credit. The verified primary and indexed comparisons did not yield the leading factor with a relative error and the disjoint conditional affine-hull law in this model. This is not an exhaustive priority claim.",
+      "residual_risks": [
+        "The original Dyer et al. and Erdős full texts were not recovered. Gillmann was inspected in targeted sections, not exhaustively. The matrix comparison did not settle all rectangular-matrix literature; a genuinely applicable earlier all-sample-size span law could affect the originality decision.",
+        "Ranked search is not exhaustive; the same-day archive date shows neither order nor priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day but different event; does not cover rank failure",
+          "evidence": "Full-dimensional conditioning, probability n(p²+q²)^(2^(n−1)) times a sharp relative factor, mechanism matching opposite-slice indicators.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-rare-event-law-for-minkowski-decomposability-of-bernoulli--a5dcb777adc8",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Local mirror passage and event/formula comparison",
+          "title": "Sharp rare-event law for Minkowski decomposability of Bernoulli Boolean polytopes",
+          "trigger": "Closest same-model and rare-event indexed claim"
+        },
+        {
+          "assessment": "Finite four-cube center-containment comparison",
+          "evidence": "The named exact polynomial measures center inclusion, not full real affine span.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-center-retention-polynomial-for-vertex-thinned-four-cubes--cd28faf5f2ce",
+          "material_read": "Ranked public record statement",
+          "method": "Resultary search result, used only for its stated event",
+          "title": "Exact center-retention polynomial for vertex-thinned four-cubes",
+          "trigger": "Exact cube thinning counts"
+        },
+        {
+          "assessment": "Different rank setting",
+          "evidence": "Row-sampled Walsh–Hadamard sketches with F₂ affine types, not real sampled polytopes.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-rank-failure-laws-distinguish-affine-types-in-four-column--327ffe54e5f9",
+          "material_read": "Ranked public record statement",
+          "method": "Resultary search result, used only for its stated model",
+          "title": "Exact rank-failure laws distinguish affine types in four-column sketches",
+          "trigger": "Apparent overlap on exact rank failure and affine types"
+        },
+        {
+          "assessment": "Direct same-model precedent for sparse center containment and separate deterministic projection; not the fixed-p affine-rank law in these passages",
+          "evidence": "Coordinate deletion after choosing a nonzero hyperplane coefficient gives an injective projection. Theorem 3.11 instead gives a center-containment threshold with dimension-dependent p.",
+          "identifier_or_url": "doi:10.14279/depositonce-1526",
+          "material_read": "Lemma 1.4, PDF p. 12 offsets 19520–20594; Chapter 3.1.1–3.1.2, printed pp. 48–49 and 54–58, offsets 107800–126657, Theorems 3.5 and 3.11 and Corollaries 3.9–3.10",
+          "method": "OA dissertation, targeted theorem passages",
+          "title": "0/1-Polytopes: Typical and Extremal Properties",
+          "trigger": "Older source for typical Boolean polytope geometry, same retention model"
+        },
+        {
+          "assessment": "Same model, different main event",
+          "evidence": "Independent retention and typical graph expansion rather than rare rank loss.",
+          "identifier_or_url": "arXiv:2509.09831",
+          "material_read": "§1, offsets 1117–1702",
+          "method": "OA paper passage",
+          "title": "On the edge expansion of random polytopes",
+          "trigger": "Same independent retention model"
+        },
+        {
+          "assessment": "Expansion result",
+          "evidence": "Graph edge expansion investigated for the random vertex-thinned cube polytope.",
+          "identifier_or_url": "arXiv:2604.09520",
+          "material_read": "§1, offset 4147",
+          "method": "OA paper passage",
+          "title": "Random 0/1-polytopes expand rapidly",
+          "trigger": "Same model and potentially stronger typical guarantee"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Statement addresses expansion and not the stated disjoint rare real hyperplane events.",
+          "identifier_or_url": "arXiv:2604.20589",
+          "material_read": "§1, offset 6367",
+          "method": "OA paper passage",
+          "title": "The Mihail–Vazirani conjecture and strong edge-expansion in random 0/1 polytopes",
+          "trigger": "Same-model expansion with high probability"
+        },
+        {
+          "assessment": "Fixed-size sample graph density; secondary account of an iid volume model",
+          "evidence": "Uniform subset of prescribed size; describes Dyer et al. as allowing repetitions in iid draws.",
+          "identifier_or_url": "arXiv:math/0306246",
+          "material_read": "PDF p. 2, offset 4823",
+          "method": "OA paper passage",
+          "title": "Graph-density study by Kaibel and Remshagen",
+          "trigger": "Alternative sample-size protocol and older volume results"
+        },
+        {
+          "assessment": "Original full-text comparison unresolved",
+          "evidence": "Accessible secondary passage discusses a volume threshold for iid draws, not a verified affine-rank asymptotic.",
+          "identifier_or_url": "doi:10.1002/rsa.3240030107",
+          "material_read": "Secondary account in Kaibel–Remshagen p. 2; no original theorem passage recovered",
+          "method": "Original DOI returned 403; lawful OA search did not recover copy",
+          "title": "Volumes Spanned by Random Points in the Hypercube",
+          "trigger": "Possible older geometric probability overlap"
+        },
+        {
+          "assessment": "Structural analogue, not the independent-thinning law",
+          "evidence": "Square iid sign matrices, duplicate/opposite mechanisms, subspace decomposition and hyperplane reduction.",
+          "identifier_or_url": "arXiv:math/0501313",
+          "material_read": "p. 1, offset 0; §2, pp. 2–3, offset 3600",
+          "method": "OA paper passages",
+          "title": "On the Singularity Probability of Random Bernoulli Matrices",
+          "trigger": "Hyperplane dominance analogue in random ranks"
+        },
+        {
+          "assessment": "Different random matrix model",
+          "evidence": "Corank of square iid-entry matrices, not affine span of an independently thinned cube.",
+          "identifier_or_url": "arXiv:2607.00495v1",
+          "material_read": "Abstract/§1, offset 0",
+          "method": "OA paper passage",
+          "title": "Song–Wang on corank of square Bernoulli matrices",
+          "trigger": "Recent rank-failure result"
+        },
+        {
+          "assessment": "Concentration ingredient, not full rare-event law",
+          "evidence": "Reviews classical small-ball estimates for weighted sums, distinct from exponential retention probabilities and exact conditional geometry.",
+          "identifier_or_url": "https://websites.umich.edu/rudelson/papers/rv-invertibility.pdf",
+          "material_read": "§1.2, p. 5, offset 8800",
+          "method": "OA paper passage; secondary explanation of Erdős after original DOI failed",
+          "title": "The Littlewood–Offord Problem and Invertibility of Random Matrices",
+          "trigger": "Classical cube-trace concentration precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 27–55; same-model edge-expansion, decomposition and center-containment comparisons above."
+      ],
+      "rationale": "For a canonical random Boolean polytope, the result quantifies a basic geometric degeneracy far beyond a high-probability full-dimension statement. The prefactor and conditional split explain why diagonal equalities or complements, not missing coordinate sides, dominate the rare event. Exact conditional uniformity over both geometrically different types and a rigorous gap to the exceptional events give usable structural information beyond the textbook slice-size bound.",
+      "residual_risks": [
+        "The fixed-p result alone does not quantify a sparse-retention phase transition, higher codimension or expansion conditional on a deficient affine span."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

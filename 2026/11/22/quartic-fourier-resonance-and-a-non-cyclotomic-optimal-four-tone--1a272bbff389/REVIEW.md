@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the normalized four-tone polynomial \(1+z+Uz^m+Vz^{m+1}\), Parseval reduces its eighth moment to the squared coefficient norm of the fourth power. Binomial blocks occupy exponents \([mj,mj+4]\); for \(m\ge5\) they do not overlap, while for \(m=4\) four adjacent-block endpoints coincide. Their exact integer cross-products are \(4,24,24,4\), and the resulting Laurent identity is reproduced by an independently structured dictionary expansion in `check.py`. The sharp optimization reduces to the variable \(h=|1+V/U|\) with lower envelope \(676+36h^4-8h^3+912h^2-24h\). Its derivative is 24 times a strictly increasing cubic with a unique positive root \(\rho\), giving all minimizers and the strict bound \(\mathcal L<676\). The conjugate-pair equality classification follows because the minimizing \(h\) lies strictly between zero and two. Irreducibility of the cubic, non-monicity and algebraic integrality exclude every root-of-unity phase alphabet. All asserted quantifiers and boundary cases have been checked. Verification is supplemental: finite computations alone cannot prove the all-spacing result.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The motivating Iosevich–Li–Yu manuscript, arXiv:2609.25404, was read in its accessible full HTML version, including Sections 8.2, 9.1 and the main theorems. It gives general Fourier energy and extension principles, but no exact phase-constrained lower endpoint for the four frequencies \(\{0,1,4,5\}\). The publicly available full mathematical result *The first cubic-resonance threshold for phase-only two-block Fourier polynomials* was read, and proves fourth/sixth moments for the same adjacent-pair support; it does not imply the eighth-moment quartic alias or algebraic minimum. The full *A sharp phase-order transition for the four-character Fourier rectangle* gives fixed-amplitude phase order on the product torus, not the order-four overlap of a one-variable specialization. The full *Sharp eighth-moment norm at the first fourth-order resonance* treats the three-frequency support \(\{0,1,4\}\) and maximizes over unrestricted amplitudes rather than minimizing four phase-only coefficients. General alignment of phases already explains the upper endpoint, which is not asserted as the principal new contribution. The genuinely new claim is the sharp lower endpoint, equality rigidity, and no finite root-of-unity optimizer. Residual risk: specialized sequence-design literature may contain an equivalent hidden formula; publication priority is not independently certified.
+PASS
 
-## Value — PASS
-This is a natural first collision at convolution order four in an adjacent-pair Fourier aperture whose lower moments cannot detect it. The exact optimum and its two equality orbits quantify the first breakdown of the nonaliasing phase law. More unusually, optimal coefficients cannot all be cyclotomic, establishing a genuine limitation of every finite phase-code alphabet. These facts give a meaningful small-spectral-design invariant rather than a trivial restatement of orthogonality. The result is limited to this motivated aperture family; no broad higher-moment theorem is claimed.
+Global phase and argument rotation uniquely set the first two coefficients to 1. For w=V/U, Parseval applied to P_m^4 splits into blocks [mj,mj+4]. In the separated-block Laurent polynomial the phase exponent difference is at most two, and the second harmonic comes only from j=2, exponent offset 2, with coefficient 6²=36. At w=1 the sum of squared binomial coefficients gives 70²=4900. At w=−1 the circle averages of |1+z|^(8−2j)|1−z|^(2j) are 70,10,6,10,70; multiplying by the corresponding squared binomial weights gives 676. These fix the remaining Laurent coefficients and yield 2644+2112 Re(w)+144 Re(w)², strictly increasing in Re(w). At m=4 the four adjacent overlaps add 2 Re(UK(w)), with coefficients 4,24,24,4. For h=|1+w| the absolute value is 4h(h²+3); maximizing or minimizing in U therefore yields the stated two envelopes. The upper envelope increases to 5012. The lower derivative divided by 24 is the strictly increasing cubic 6h³−h²+76h−1, with its root in (0,1/75) and a value strictly below 676 at h=1/76. Equality forces the stated unique U for each of the two w values. The normalized torus is connected, so there are no gaps in the ranges. The primitive cubic is irreducible by the rational-root bound and is not monic, so ρ is not integral; a root of unity w would make ρ²=2+w+w^(-1), hence ρ, integral. Normalizing root-of-unity phases retains root-of-unity phases. Binary phases have minimum 676. Frequency differences in |P_m|^8 are at most 4(m+1), verifying the stated finite-sampling condition.
 
-## Verification and limitations
-Reproduce the exact coefficient checks, alias threshold and rational witness with `python3 check.py`. The additional 180 quadratures are numerical cross-checks only. No independent expert or automated external mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by the comparison is the resonant m=4 lower endpoint, equality cases, and arithmetic obstruction for the adjacent-pair support. Even-moment convolution and the phase ordering in the separated rectangle case are established methods/results; no originality credit is assigned to those ingredients or to phase alignment at the maximum. The closest indexed resonance and phase-frustration results address materially different supports or objectives.
+
+## value
+
+PASS
+
+The adjacent-pair support has a natural first unresolved alias at the eighth moment. What matters is not the small numerical gain over 676: the optimizing relative phase moves off the antiphase point, and no finite root-of-unity alphabet recovers the exact optimum even though binary phases solve the separated case. The exact endpoint and equality conditions identify when this arithmetic distinction first appears for the support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

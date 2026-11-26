@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:07:24.060021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Chang's Corollary 4.9 applies to all totally positive weights in the real subfield and restricts a nonunit minimum to pi times a unit epsilon, of absolute norm 11. Proposition 5.2 gives the five simultaneous unit minima epsilon*pi/(1-zeta^k). Put A_k=(1-zeta^k)(1-zeta^(-k)) and b_j=sigma_j(a*epsilon*bar(epsilon)*A_1). The full-field trace of a real element is twice the quintic trace. The equal value equations are therefore M b=(sum b)1 with M_kj=sigma_j(1/A_k). I independently verified M1=5*1 and nonsingularity: writing w_r=r(11-r) for 0<=r<=10, the cyclic second differences of w give 1/A_k=-(1/22) sum_r w_r zeta^(kr) modulo Phi_11. The cyclotomic trace is 10 on 1 and -1 on every nontrivial 11th root. Cyclic convolution and half-trace give the stated rational Gram entries 11 on the diagonal and 3 or 4 off it, with determinant 75625. Replay: python3 /workspace/branches/audit-2/check_gram.py. This checks the trace sums and rank, not Chang's norm restriction. For a given positive sum, invertibility forces b=(sum b)/5 times 1; since the element represented by b has all five conjugates equal, it lies in Q with positive value c. This yields exactly a=c/(A_1*epsilon*bar(epsilon)). For sufficiency, Proposition 3.4 gives min 10 at a_0=1/A_1, attained by 1 and pi. Independently, writing y=x/pi=sum_j d_j*zeta^j with 11 coefficients, the trace of y*bar(y) is sum_{i<j}(d_i-d_j)^2. Since O/(pi)=F_11, y=z+m/pi for integral z and integer m modulo 11. For m=0 one can take integer coefficients; unless y=0, at least 10 pairs differ, so the trace is at least 10. For m!=0 the coefficients from 1/pi=(1/11)sum_{j=0}^{10}(10-j)*zeta^j have distinct residues modulo 1 after multiplication by m. Sorting the lifted coefficients gives spacing at least 1/11 and a lower bound sum_{d=1}^{10}(11-d)*d^2/121=10. The displayed coefficients for 1/pi realize equality, and integer coefficients of 1 do also. This proves the infinite reference bound independently of the finite Gram check. Multiplication by the inverse unit permutes O and yields min 10c with both epsilon and pi*epsilon attaining it. Thus the classification is one equivalence class, not one literal ray before unit twists. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Porter–Ling–Sarti–Leibak treat cyclotomic unit reducibility, but Theorem 1.4 does not include conductor 11. Chang identifies the conductor-11 entry as weak reducibility proved in his work.",
+          "Sigrist's complete classification for phi(m)<=16 includes the C11-perfect forms, a finite special subset of all weights up to equivalence."
+        ],
+        "reasoning": "Even an exhaustive classification of perfect forms would need a bridge from having a nonunit minimum to lying on a perfect ray and a way to distinguish which perfect classes have such a minimum. The inspected aggregate statement does not provide those deductions.",
+        "searches": [
+          "doi:10.5802/jtnb.1327 Theorem 1.4",
+          "doi:10.5802/jtnb.295, definition of C_m-perfect forms, weight correspondence and Theorem B",
+          "arXiv:2611.15432v1 discussion table p. 20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15432v1",
+        "doi:10.5802/jtnb.1327",
+        "doi:10.5802/jtnb.295",
+        "SCOPE-the-unique-exceptional-trace-form-class-in-the-eleventh-cyclotom--e957dc4665cd (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chang supplies both the norm/equality constraints and a particular weight yielding a nonunit minimum. His five equalities reduce to a homogeneous balance equation in the embedding weights.",
+          "The reciprocal-conjugate matrix has a nonzero Gram determinant. This is the further algebra needed to show only one normalized solution, and is not stated in the prior equality proposition."
+        ],
+        "reasoning": "The iff is derivable using prior premises plus the full-rank step, not a replacement of a variable in the earlier statements. Nonsingularity or the equivalent rational normal-basis argument upgrades the restricted element types to an all-weight orbit result.",
+        "searches": [
+          "arXiv:2611.15432v1 Theorem 3.3, Proposition 3.4, Corollary 4.9, Proposition 5.2 and Lemma 5.5",
+          "doi:10.5802/jtnb.295, C_m-perfect definition and family B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent locus is the set of weights with a norm-11 shortest vector, or the locus where not every shortest vector is a unit, since Chang rules out all other nonunit norms.",
+          "Chang's five coincident minima constrain the weight in real embedding coordinates, but his statements on these equalities and the explicit reference weight do not assert a unique normalized coordinate vector."
+        ],
+        "reasoning": "Weak unit reducibility means some unit attains the minimum, not that no nonunit can tie. A type classification of all minimal elements and an example of one tie are not a classification of all weights supporting a tie.",
+        "searches": [
+          "arXiv:2611.15432v1 Proposition 5.2 and Corollary 4.9",
+          "Resultary: exceptional trace form class eleventh cyclotomic field, SCOPE-the-unique-exceptional-trace-form-class-in-the-eleventh-cyclotom--e957dc4665cd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit contains precisely the same formula for a and is the frozen record, not an independent precedent.",
+          "Theorem B tabulates family B and the exposition discusses densest Craig forms. The reading exposed surrounding text but not the table cells specifying C11 data; detailed class and minimal-vector data were not verified."
+        ],
+        "reasoning": "No distinct read table gives the all-weight iff. A perfect-form count does not itself identify a nonunit-minimum locus. A complete class-by-class table with marked minimal vectors could have implicit overlap and its extent remains uncertain.",
+        "searches": [
+          "Resultary: SCOPE-the-unique-exceptional-trace-form-class-in-the-eleventh-cyclotom--e957dc4665cd",
+          "Sigrist, doi:10.5802/jtnb.295 Theorem B, PDF p. 8 (printed p. 525)"
+        ]
+      },
+      "rationale": "Chang already proves the full-field weak reducibility, the norm-11 shape for any nonunit minimum, all five companion unit equalities and the reference example. The surviving novel step is weight rigidity: the five equalities have only the constant embedding vector at fixed scale. That identifies every positive weight admitting a nonunit minimum, up to rational and unit-norm actions. The inspected literature did not show this rigidity or the resulting classification; the historical perfect-form tables remain a specific unresolved source of implicit coverage.",
+      "residual_risks": [
+        "Sigrist's full class-by-class C11 data and minimal-vector sets were not independently compared; a historical table could encode an equivalent result or an alternative derivation.",
+        "Catalogue and literature checks are bounded, and unavailable detail or a missing exact hit does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the inputs and reference example, not identified coverage of weight rigidity",
+          "evidence": [
+            "Corollary 4.9 identifies units and pi times a unit; Proposition 5.2 makes all five companion units minimal; Proposition 3.4 gives reference minimum 10."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15432 (v1)",
+          "material_read": "Section 3.4 p. 7; Corollary 4.9 p. 10; Proposition 5.2 p. 11; Lemma 5.5 pp. 12–13; comparison p. 20",
+          "method": "Open-access PDF theorem and equality-case comparison",
+          "title": "Weak Unit Reducibility of the Eleventh Cyclotomic Field",
+          "trigger": "Exact field, global norm restriction, five equalities and reference form"
+        },
+        {
+          "assessment": "The stated positive cases do not cover conductor 11",
+          "evidence": [
+            "Theorem 1.4 omits conductor 11 and is not an all-weight classification for this conductor."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/jtnb.1327",
+          "material_read": "Theorem 1.4, pp. 446–447",
+          "method": "Open-access journal theorem passage; comparison with Chang's table",
+          "title": "Unit Reducible Fields and Perfect Unary Forms II. Cyclotomic Fields",
+          "trigger": "Broader cyclotomic unit-reducibility and perfect-form context"
+        },
+        {
+          "assessment": "Perfect-form classification relevant but does not establish the target implication in passages read",
+          "evidence": [
+            "States coverage of perfect forms for phi(m)<=16; Theorem B reports family B and discusses Craig forms. The detailed C11 table is not independently compared here."
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/JTNB_2000__12_2_519_0.pdf",
+          "material_read": "Definitions and trace correspondence pp. 520–521; printed p. 525, Theorem B surrounding text, extraction offsets 15150–17423; cells not recovered",
+          "method": "Open-access PDF passage inspection; extracted table unavailable",
+          "title": "Cyclotomic quadratic forms",
+          "trigger": "Potential implication via historical complete C11-perfect census"
+        },
+        {
+          "assessment": "The same item, not evidence of an independent predecessor",
+          "evidence": [
+            "The exact displayed iff is identical to the assigned statement."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-unique-exceptional-trace-form-class-in-the-eleventh-cyclotom--e957dc4665cd",
+          "material_read": "Finding: exact norm-11 minimum locus and equivalence convention",
+          "method": "Local Resultary match compared to bound RESULT.md",
+          "title": "The unique exceptional trace-form class in the eleventh cyclotomic field",
+          "trigger": "Direct exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weak unit reducibility leaves open where unit and nonunit minima can tie. Determining the complete exceptional locus in the five-embedding weight cone up to the natural actions answers that structural question, rather than merely locating one form. The independent finite rank calculation proves rigidity for every positive weight using the equality constraints, not just for samples or listed forms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

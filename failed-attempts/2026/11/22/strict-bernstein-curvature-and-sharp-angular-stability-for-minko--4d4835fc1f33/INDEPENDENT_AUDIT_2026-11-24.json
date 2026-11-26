@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:24:54.282069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Steiner reduction, determinant/trace calculation, Gaussian radial constant and differentiated integral are correct for a>b>0 and c>d>0. Domination at zero and infinity gives all endpoint derivatives; -F'' is strictly decreasing, so m=-F''(1) is indeed the optimal pointwise curvature bound. The stated chord inequality holds strictly in the interior and circles give a constant. The finding also calls the fixed-endpoint quadratic surplus sharp (RESULT.md lines 4 and 39); that sharpness is false if it refers to the chord coefficient, rather than the separately stated curvature modulus. In fact let q(x)=-F''(x) and G(u)=F(u)-(1-u)F(0)-uF(1). Then G(u)/[u(1-u)]=u^{-1}∫_0^u xq(x)dx+(1-u)^{-1}∫_u^1(1-x)q(x)dx. Its derivative is -(1/u²)∫_0^u xq(x)dx+(1/(1-u)²)∫_u^1(1-x)q(x)dx<0, since the two scaled weights each have mass 1/2 and q decreases strictly. Its endpoint limit at 1 gives the largest coefficient in the normalization of line 37, namely 2∫_0^1 xq(x)dx=2(F(1)-F(0)-F'(1))>m. Read as claiming only optimal pointwise curvature and a nonoptimal chord refinement, the precise inequalities are correct; that reading does not cure the originality issue below. The finite numerical checker does not compare optimal chord constants and was not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing arbitrary-ellipsoid geometry was compared; the accessible abstracts concern exact parametrizations, and are not credited with derivative theorems. The planar Steiner reduction to an ellipse perimeter supplies the geometric input.",
+          "From DLMF 14.3.6 and 15.5.1, P'_{1/2}(x)=(3/8) F_hyp(5/2,1/2;2;(1-x)/2). DLMF 15.6.1 represents this, up to a positive factor, as ∫_0^1 t^{-1/2}(1-t)^{1/2}(1+(x-1)t/2)^{-5/2}dt. Every x-derivative of this integral alternates strictly for x≥1; the compact integration interval permits differentiation including x=1."
+        ],
+        "reasoning": "The Euler representation directly gives derivative signs on the entire domain of the Legendre argument, not just the geometric subinterval. Positive affine composition transfers every sign, and F''' > 0 puts the minimum of -F'' at the right endpoint.",
+        "searches": [
+          "Resultary: arbitrary rotated planar ellipses Minkowski sum exact area Steiner perimeter elliptic integral formulas",
+          "arXiv:2012.15163",
+          "arXiv:2012.15461",
+          "DLMF 15.5.1 and 15.6.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py",
+        "Resultary 4d4835fc1f33 and 978be5722785",
+        "DLMF equations 14.12.7, 14.3.6, 15.5.1 and 15.6.1",
+        "PDF abstracts arXiv:2012.15163, arXiv:2012.15461 and arXiv:0911.3420"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating the classical positive Euler weight gives not just monotonicity but precisely the Bernstein sign hierarchy. Minimizing the second derivative's magnitude is then an endpoint evaluation, and strong concavity gives the nonoptimal fixed chord bound automatically.",
+          "The nearby indexed intersection theorem does not imply the sum result. The Zheng–Palffy-Muhoray abstract read addresses closest approach, not the whole hierarchy or its coefficient; exclusion or coverage of its full text was not inferred from that abstract."
+        ],
+        "reasoning": "The original claim's precise strong-concavity refinement is mechanically implied by the classical perimeter formulation. The advertised sharp fixed-chord interpretation would be mathematically different, but is not established with the frozen coefficient.",
+        "searches": [
+          "DLMF 14.12.7 to 14.3.6, 15.5.1 and 15.6.1",
+          "Zheng–Palffy-Muhoray arXiv:0911.3420",
+          "Resultary 978be5722785 indexed statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For transformed semiaxes lambda_1,lambda_2 with product s, write x=(lambda_1²+lambda_2²)/(2s). The arc-length integrand after swapping coordinate axes if necessary is sqrt(s)*sqrt(x+sqrt(x²-1)cos(2t)). Its angular average is exactly sqrt(s)*P_{1/2}(x) by DLMF 14.12.7. Thus F=pi(ab+cd)+2pi sqrt(abcd) P_{1/2}((T0+Hu)/(2s)).",
+          "The classical Legendre argument is affine in u, with positive slope, not the usual eccentricity parameter whose derivative signs would not directly transfer."
+        ],
+        "reasoning": "This identifies the complete dependence on angle with a specified classical special function on x≥1. The identification also extends to x=1 by continuity.",
+        "searches": [
+          "Resultary: fixed-product ellipse perimeter monotonicity in sum of squared semiaxes complete monotonicity hypergeometric elliptic integral",
+          "DLMF 14.12.7 with m=0 and nu=1/2",
+          "DLMF 14.3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4d4835fc1f33 is a self-match. Distinct indexed 978be5722785 concerns the perimeter of the intersection of congruent ellipses, decreasing with angle and with endpoint refinements, rather than the area of the sum of arbitrary ellipses. The mirror body was not recovered.",
+          "The decisive handbook coverage is not an entry indexed by the four ellipse semiaxes: it is the exact Legendre integral for the transformed perimeter and Euler formula for its differentiated hypergeometric form."
+        ],
+        "reasoning": "An index mismatch in geometric labels is not a novelty indicator once the exact table identities mechanically give the main inequalities.",
+        "searches": [
+          "Resultary: strict Bernstein curvature Minkowski sum planar ellipses all derivatives sharp angular stability",
+          "Resultary: optimal strong concavity modulus sharp quadratic stability Minkowski area ellipses sin squared angle",
+          "DLMF 14.12.7, 14.3.6, 15.5.1, 15.6.1"
+        ]
+      },
+      "rationale": "The central all-orders law and optimal pointwise modulus are a direct specialization of classical Legendre and Euler integrals after the known planar Steiner/perimeter reduction. This is affirmative mathematical implication from inspected formulas, not an inference from unsuccessful retrieval. The frozen determinant-Laplace integral is a convenient alternative representation; it is not evidence that the angular sign or optimal curvature is new. The distinct intersection-perimeter record is not being treated as coverage.",
+      "residual_risks": [
+        "Full text of the closest geometric papers and the distinct indexed neighbor was not recovered, and the older precise priority for this geometric phrasing is not decided. The originality failure rests instead on the explicit classical implication above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent representation at order zero and degree 1/2, x>1, with continuity at x=1.",
+          "evidence": "14.12.7 is the integral of (x+sqrt(x²-1)cos(phi))^nu cos(m phi) times (nu+1)_m/pi; 14.3.6 expresses P^mu_nu as the regularized hypergeometric function at (1-x)/2 with parameters nu+1,-nu;1-mu and the order-dependent prefactor.",
+          "identifier_or_url": "https://dlmf.nist.gov/14.12.E7 and https://dlmf.nist.gov/14.3.E6",
+          "material_read": "Exact equation TeX for 14.12.7 and 14.3.6",
+          "method": "Exact OA equation lookup; after passage-service failure read the official public equation TeX.",
+          "title": "NIST Digital Library of Mathematical Functions: Legendre integral and hypergeometric representations",
+          "trigger": "Fixed-product ellipse perimeter is an angular integral of a square root with fixed determinant"
+        },
+        {
+          "assessment": "Their direct composition supplies positive integral weights for every derivative, including at x=1.",
+          "evidence": "15.5.1 shifts both numerator parameters and the denominator parameter by one with prefactor ab/c. 15.6.1 integrates t^(b-1)(1-t)^(c-b-1)(1-zt)^(-a) with a gamma normalization. In the derivative of P_{1/2}, choose b=1/2, c=2, a=5/2, z=(1-x)/2.",
+          "identifier_or_url": "https://dlmf.nist.gov/15.5.E1 and https://dlmf.nist.gov/15.6.E1",
+          "material_read": "Exact equation TeX for 15.5.1 and 15.6.1",
+          "method": "Official public equation TeX after OA passage-service failure.",
+          "title": "NIST Digital Library of Mathematical Functions: hypergeometric derivative and Euler integral",
+          "trigger": "Does the classical Legendre representation already encode strict alternating derivatives?"
+        },
+        {
+          "assessment": "Exact boundary formulas are established antecedents; no claim about the full papers' angular derivative coverage from their abstracts.",
+          "evidence": "The first abstract gives a parametric boundary description for arbitrary ellipsoid sums and volume bounds; the second gives smooth-body boundary parameterizations and notes agreement with earlier ellipse/ellipsoid derivations.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.15163 and https://arxiv.org/abs/2012.15461",
+          "material_read": "PDF p. 1 abstracts, extracted lines 24–32 and 17–26 respectively",
+          "method": "Public PDF retrieval after OA passage lookup limits.",
+          "title": "Closed-Form Parametric Equation for the Minkowski Sum of m Ellipsoids in R^N and Associated Volume Bounds; Closed-Form Minkowski Sums of Convex Bodies with Smooth Positively Curved Boundaries",
+          "trigger": "Known exact geometry of sums of arbitrary rotated ellipses/ellipsoids"
+        },
+        {
+          "assessment": "Distinct operation, functional and geometry in the available statement; same date does not establish ordering.",
+          "evidence": "The index describes a sharp quadratic refinement near a right-angle intersection-perimeter minimum and an aligned-endpoint linear cusp.",
+          "identifier_or_url": "2026/11/22/SCOPE-strict-angular-perimeter-minimization-for-intersections-of-congr--978be5722785",
+          "material_read": "Resultary indexed statement; exact body not recovered",
+          "method": "Local semantic lookup and mirror retrieval attempt",
+          "title": "Strict angular perimeter minimization for intersections of congruent ellipses",
+          "trigger": "Closest distinct indexed angular stability result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantitative orientation dependence is a worthwhile question, and the Gaussian expression can be an alternative computational form. But the supportable claims here are a direct specialization of exact classical identities followed by the generic curvature-to-chord inequality; no independent need for that alternative integral as a new invariant is established. The headline fixed-chord sharpness does not hold. Merely changing its coefficient to the endpoint divided-difference value deduced from monotone curvature would remove the error but does not furnish a surviving nonroutine result in this package.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

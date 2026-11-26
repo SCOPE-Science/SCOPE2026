@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is a fixed-\(p\), concentric equal-scale intersection theorem for \(0<p<2\). Its area identity follows from a radial-minimum integral with the correct factor \(1/2\), period \(\pi/2\), and four periods on the circle. The crossings of two even unimodal translates are at the two angular bisectors, giving exactly the fourfold antiderivative difference. The strict derivative sign is valid only for \(p<2\), as stated. The \(d^{p+1}\) coefficient follows from the correct axis expansion and the minimum-direction Taylor symmetry. The astroid antiderivative was differentiated symbolically and matched by direct quadrature. Independent direct radial quadrature, not reused from the derived antiderivative, is included in `CHECK.py`; 163 tests passed. Limits: numerical tests are not exhaustive; the analytic proof is responsible for the universal quantifiers.
+## correctness
 
-**Originality — PASS, provisional.** The closest full-text mathematical comparator, *Exact scale-and-rotation overlap profile of concentric regular polygons*, gives rational trigonometric clipping laws for regular polygons, not the nonlinear Lamé radial family or a continuously varying fractional alignment exponent. *Closed Cycloids in a Normed Plane* supplies cusp/evolute background but no centered rotation-overlap theorem. *Capturing human activity spaces: New geometries* explicitly supplies Lamé shape and orientation formulas but not overlap of rotated copies. *Calculating Ellipse Overlap Areas* concerns general ellipses; it is not a stronger theorem for noncircular, fourfold Lamé regions. The general radial-minimum identity, periodic rearrangement and basic Lamé-area formula are acknowledged as elementary prior tools. Search failures are not proof of global novelty. Residual risk: an earlier specialized shape-matching or integral-geometry calculation could contain the same elementary family profile without keyword overlap; no comprehensive historical priority is claimed.
+PASS
 
-**Mathematical value — PASS.** Exact registration of congruent planar shapes by area of intersection is a natural geometric invariant, and this one-parameter family interpolates between nonconvex pointed astroids, a diamond and strictly convex Lamé regions. The result classifies every relative orientation for all fixed \(0<p<2\), proves inverse orientation rigidity within the exact dihedral symmetry, and identifies the sharp exponent-dependent correction hidden under the leading linear cusp. For the classical astroid it unexpectedly reduces to an elementary arctangent formula with a sharp \(5/3\)-power term. This is a complete natural shape classification, not a recomputation of a standard area or an arbitrary angle slice.
+The squared radial function is strictly decreasing with circular distance to the nearest axis for every 0<p<2. On a period L=π/2 and for 0<d≤L/2, the two profiles cross at d/2 and (L+d)/2. Between these points the first is the minimum; reflection t↦d−t modulo L interchanges the profiles and the two complementary half-periods. Integrating therefore gives I=4∫[d/2,(L+d)/2] fₚ(t)dt, also at d=0 by continuity. This yields the exact formula and strictly negative interior derivative. At the minimum the centered sum is even analytic with quadratic coefficient −fₚ′(π/8)>0. Near the axis fₚ(t)=1−(2/p)tᵖ+O(t^{2p}+t²), and near the diagonal the first change is O(t²); integrating yields the displayed coefficient and little-o remainder for all fixed 0<p<2. The astroid substitution gives 3u²/(1+u²)³ and differentiation verifies its primitive; independent quadrature gives minimum 0.845064236407053630. At p=1 the first nonlinear term is the integer power d² (analytic on the folded branch); the signed-angle profile still has a linear absolute-value cusp. The formulas need no repair; the fractional/nonanalytic description of the nonlinear term is understood only for p≠1.
 
-**Evidence/limitations.** The geometric calculations and exact coefficients are given in `RESULT.md`, and reproducibility details in `VERIFICATION.md`. The original mathematical source was first posted as arXiv:1608.01651 on 2016-08-04. The theorem does not extend by its stated proof to arbitrary translations, unequal scales, or uniform \(p\)-asymptotics. Historical priority is provisional; independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked comparisons do not cover the complete Lamé area profile and its sharp pointwise-in-p correction. The radial-minimum identity, Lamé areas and the square specialization are not the basis for this conclusion.
+
+## value
+
+PASS
+
+The profile provides a strict inverse orientation law including nonconvex regions, and the first nonlinear power relates the overlap profile to the Lamé exponent. The exact constants distinguish the alignment cusp from the diagonal quadratic minimum; the astroid profile gives a practical closed-form reference. These claims are limited to equal-scale concentric copies and are not uniform in the exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

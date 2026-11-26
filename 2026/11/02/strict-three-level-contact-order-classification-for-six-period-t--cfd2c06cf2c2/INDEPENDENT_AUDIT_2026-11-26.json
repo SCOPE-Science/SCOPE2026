@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:14:28.723905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md lines 15–80 and the supplied checker.py by inspection. The Jacobians are the stated symmetric X,Y. Cyclic rotation preserves the characteristic polynomial by det(zI−AB)=det(zI−BA), including the singular case α=β, and reversal transposes the product. Independent exact enumeration of all 20 balanced words partitions them into the 6,12,2 dihedral classes with representative products G=X³Y³, M=X²YXY², A=(XY)³. Symbolic multiplication verifies the two differences p_G−p_M=−4u²v⁴z(z−K_GM), p_M−p_A=−2u²v⁴z(z−K_MA), and the strictly positive gaps tr(M)/3−K_GM=u²(u²v²+8v⁴/3), tr(A)/3−K_MA=u²(u²v²+7v⁴/2). Perron radii of the nonnegative products are positive real roots and bound trace/3 from above, so the polynomial differences are strictly negative at ρ(M) and ρ(A). A monic real characteristic polynomial cannot be negative at a point at or above its spectral radius, proving both strict steps for the full domain, including u≤v. At u=4/5,v=149/500, q=(5/4,3/2,1) yields q−XYq=(899/250000,9/2500,3/1250)>0; hence ρ(A)<1. Independent exact arithmetic gives det(I−M)=−667551319210915426403604273201/931322574615478515625000000000000<0 and thus ρ(M),ρ(G)>1. The independent SymPy replay is in /workspace/branches/a18cd6e7-1956-46ac-afad-59381828cef0/independent_check.py, lines 25–82; uploaded checker was not run. The conclusions concern disease-free mean-field linearization, not persistence in a stochastic chain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alaifari–Cheng–Pierce–Steinerberger Theorem 1 is a spectral-norm grouped upper bound in dimension two for symmetric PSD matrices. Theorem 2 treats a sufficiently small neighborhood of identity under a commutator hypothesis, still for the norm. The preceding discussion explicitly mentions 3×3 counterexamples for the word AABABB versus A³B³.",
+          "For the submitted dimension-three family, eigenvalues of each factor are u,u+v,u−v, permitting indefinite factors."
+        ],
+        "reasoning": "Neither result gives a strict intermediate-versus-alternating spectral-radius comparison, nor a rate-uniform grouped comparison on the assigned domain. A norm upper bound with a generally nonnormal grouped product on its right cannot simply be read as a radius upper bound by the radius of that product.",
+        "searches": [
+          "On matrix rearrangement inequalities, DOI 10.1090/proc/14831 (alternate lawful copy via NSF PAR)",
+          "Prakash et al. §4.2; Valdano et al. temporal propagator criterion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Independent exact symbolic replay",
+        "Prakash et al. 2010",
+        "arXiv:1406.4815",
+        "arXiv:1510.07847",
+        "Alaifari et al., DOI 10.1090/proc/14831",
+        "Resultary 44f85ec9b381, b25e036b05ff, 7314d45567ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact period-two result covers ρ(A) through ρ((XY)³)=ρ(XY)³; the propagator theory turns each radius into a threshold criterion. The published norm theorem neither fixes the matrix family nor provides the ordered characteristic-polynomial comparisons.",
+          "The difference identities and positive trace gaps in the frozen result establish the full comparison without positive definiteness."
+        ],
+        "reasoning": "The alternating threshold is not claimed as new in isolation. The cubing and propagator criteria do not compare it with the other two classes, and the four-season statement is not a substitution yielding these six words. There is material additional content in proving the uniform strict gaps and obtaining the split for the same per-edge counts.",
+        "searches": [
+          "Resultary 44f85ec9b381 and 7314d45567ab Finding and scope",
+          "Alaifari et al. Theorems 1–2",
+          "Valdano et al. arXiv:1406.4815 pp. 3, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general sources use ordered products or an equivalent multilayer propagator with spectral radius ρ(P)^(1/T). Resultary 44f85ec9b381 treats the same single-edge matrices and the period-two alternating schedule."
+        ],
+        "reasoning": "Taking the sixth root of the multiplier preserves order, and reversing chronological multiplication transposes the present product. Normalizing this way does not turn a one-schedule threshold into the simultaneous grouped/intermediate/alternating comparison. The exact alternating result does directly supply the alternating case by cubing.",
+        "searches": [
+          "Local Resultary semantic lookup for three-node alternating paths, schedule-order invasion multipliers and exact three-class laws",
+          "Prakash et al. §4.2",
+          "Valdano et al. arXiv:1406.4815 and arXiv:1510.07847"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "44f85ec9b381 is an exact period-two threshold on the same path; b25e036b05ff gives a continuous-time chronology threshold with a four-snapshot triangle construction; 7314d45567ab classifies 24 four-season permutations for a 2×2 seasonal family into three strict classes."
+        ],
+        "reasoning": "None supplies the class census or exact comparison in the 20 length-six words in two 3×3 generators. The same-day four-season record is compared by matrix and schedule hypotheses rather than assumed earlier or later.",
+        "searches": [
+          "Local Resultary exact schedule-class and threshold lookup: 44f85ec9b381, b25e036b05ff, 7314d45567ab"
+        ]
+      },
+      "rationale": "Existing propagator criteria and the exact alternating model are antecedents, and a same-day analogous three-level ordering is real structural overlap. The inspected results do not cover this complete strict three-class comparison of six balanced steps in the two-edge path matrices for the entire rate domain, or the threshold split within that comparison. Best-of-knowledge judgment, not priority certification.",
+      "residual_risks": [
+        "Other spectral-radius word inequalities or problem-specific enumerations may overlap with a subrange or the full family.",
+        "No exhaustive comparison against all matrix rearrangement literature and no same-day priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion for given snapshot sequence, not ordering of all balanced rearrangements",
+          "evidence": [
+            "Threshold expressed through the periodic system-matrix product."
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/~christos/PUBLICATIONS/PKDD2010VirusProp.pdf",
+          "material_read": "§4.2 pp. 7–8, PDF text offsets 16928 and 20853",
+          "method": "Bounded OA PDF passages",
+          "title": "Virus Propagation on Time-Varying Networks",
+          "trigger": "General periodic switched SIS criterion"
+        },
+        {
+          "assessment": "Covers threshold framework, not six-word classification",
+          "evidence": [
+            "Multilayer spectral criterion and ρ(M)=ρ(P)^(1/T)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.4815",
+          "material_read": "pp. 3 and 5; offsets 8919 and 15780",
+          "method": "Bounded OA PDF passages",
+          "title": "Analytical Computation of the Epidemic Threshold on Temporal Networks",
+          "trigger": "General temporal SIS invasion propagator"
+        },
+        {
+          "assessment": "General threshold result distinct from the equal-contact rearrangement problem",
+          "evidence": [
+            "Periodic weighted contact network and ordered infection-propagator product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.07847",
+          "material_read": "pp. 3 and 5; offsets 7248 and 14985",
+          "method": "Bounded OA PDF passages",
+          "title": "Infection propagator approach to compute epidemic thresholds on temporal networks",
+          "trigger": "Ordered product in weighted network model"
+        },
+        {
+          "assessment": "Does not subsume strict uniform radius order in the assigned family",
+          "evidence": [
+            "Dimension-two symmetric PSD norm estimate; higher-dimensional near-identity norm result with additional hypothesis; general 3×3 counterexample discussion for the intermediate word."
+          ],
+          "identifier_or_url": "https://par.nsf.gov/servlets/purl/10175969",
+          "material_read": "Journal pp. 1837–1838; PDF text offset 11270, counterexample discussion and Theorems 1–2",
+          "method": "Lawful NSF public archive copy; bounded PDF statement read",
+          "title": "On matrix rearrangement inequalities",
+          "trigger": "Potential stronger comparison of grouped and mixed matrix words; publisher inaccessible"
+        },
+        {
+          "assessment": "Covers alternating schedule, not the grouped versus intermediate versus alternating order",
+          "evidence": [
+            "Period-two alternating threshold comparison with a static aggregate."
+          ],
+          "identifier_or_url": "44f85ec9b381",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Two alternating contacts have an exact three-node discrete-time threshold",
+          "trigger": "Identical single-edge factors and exact alternating comparison"
+        },
+        {
+          "assessment": "Different dynamics and schedule domain",
+          "evidence": [
+            "Continuous-time permutation invariance up to three symmetric snapshots, counterexample at four on a triangle."
+          ],
+          "identifier_or_url": "b25e036b05ff",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Four snapshots are the sharp chronology threshold for periodic SIS",
+          "trigger": "Order-dependent threshold on very small periodic networks"
+        },
+        {
+          "assessment": "Different matrices and permutation class; no same-day priority inference",
+          "evidence": [
+            "All 24 permutations of four 2×2 seasonal transmission matrices with equal retention."
+          ],
+          "identifier_or_url": "7314d45567ab",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Four-season pair-matching law and separated invasion thresholds",
+          "trigger": "Same-day strict three-level classification analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated complete classification on the three-vertex path with two competing edges, not an isolated recomputation of an alternating multiplier. For identical per-edge contact counts it certifies three distinct schedule classes across both positive-definite and indefinite factor regimes, and gives an exact parameter witness where schedule alone changes the mean-field invasion verdict. It does not extrapolate to bigger graphs, arbitrary word lengths, heterogeneous edges or stochastic persistence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

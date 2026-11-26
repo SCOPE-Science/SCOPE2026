@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:22.597572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first coordinate leaves t=s-u, yielding the stated monic quartic in u. Any two distinct u give a unique common (s,y) because 2 is invertible, so the first two binomial moments are q^2 and binom(q,2). Vieta on three roots determines a fourth, possibly repeated, and requires Q=-1, where Q has ternary determinant 1/2; with a specified equality the binary determinant is 2. Thus the all-tuple counts are q^2+alpha q, q-beta and, at all equal, 1+gamma. Inclusion–exclusion gives D3=q^2+(alpha-3)q+2+3beta+2gamma. For four roots elimination yields the same Q; in the partition sieve the six single pairs, three double pairs and four triple equalities have weights -1,+1,+2 and counts q-beta,1+beta,1+gamma respectively. All equal is impossible. This yields D4=q^2+(alpha-6)q+11+9beta+8gamma. The moments D3/6 and D4/24, with the normalization and first two moments, invert to the five given counts, support size and energy. The stated Fourier factor q^-2 follows by unnormalized Parseval on F_q^2. N4=0 at q=5, N4=1 at q=7, and q^2-7q-6>0 beyond the next eligible order q=11. Independently enumerated actual ordered graph sums in seven prime fields and F_125 (irreducible X^3+X+1 over F_5), agreeing with every multiplicity count, including (5844,5228,3877,61,615) over F_125. Replay: python3 /workspace/reproduction/2.py; see 2.txt. Only the written finite-field argument establishes the formulas at all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottig–Pérez–Privitelli quote the Li–Wan all-target estimate; their newer result does not cover m=2,k=4",
+          "Lai–Marino–Robinson–Wan give a decision procedure for existence",
+          "Nguyen's dissertation abstract describes two-moment counts but decisive theorem text was not accessible"
+        ],
+        "reasoning": "N4 is exactly the size-four subset count at moments (0,-2); estimates and positivity algorithms do not supply the exact count. Even knowing this single exact count would not supply the separate three-root binomial moment.",
+        "searches": [
+          "arXiv:2401.06964 §1 and Theorem 1.1; arXiv:1910.05894 Theorem 1; Nguyen's two-moment subset-sum dissertation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.09050",
+        "arXiv:2401.06964",
+        "arXiv:1910.05894",
+        "Nguyen, eScholarship 2cr0w697 (bounded access)",
+        "DOI 10.1016/j.ffa.2016.01.013 (bounded access)",
+        "Resultary ...0e6d34edb345 and ...f13a230328b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two binomial moments use only the unique pair collision property",
+          "Exact triple and quadruple moments here require quadratic-character counts of different equality patterns, at a nonzero target",
+          "The available earlier asymptotic/decision results lack those counts"
+        ],
+        "reasoning": "With only the total and the first two moments there are still two degrees of freedom in the five counts. The specific D3 and D4 fill them; the displayed sumset size and Fourier energy are consequences, not separate originality claims.",
+        "searches": [
+          "Compare Slavov Theorem 4, Gottig–Pérez–Privitelli Theorem 1.1, Lai–Marino–Robinson–Wan Theorem 1, and the two closest indexed findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1903.09050 §1 and Theorem 4 handles f(T)+cT+b, including f=T^4+T^2 here, with asymptotic probabilities outside exceptional slopes",
+          "DOI 10.1016/j.ffa.2016.01.013 publisher result identifies normal form T^4+aT^2+bT and mentions an exact formula when b=0; full text unavailable"
+        ],
+        "reasoning": "The bijection (s,y)->(-2s,s^2-y) turns the histogram into the linear-root count distribution of T^4+T^2+cT+b. A value-set size for one slope is not a distribution over roots and all slopes; asymptotic probabilities do not determine the character corrections.",
+        "searches": [
+          "Primary literature searches for quartic root-count distributions and factorization with prescribed coefficients, and quartic value sets",
+          "Resultary searches on exact quartic plus linear spectra and mixed parabola–quartic convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 ...0e6d34edb345: exact self-convolution of C_a={(x,x^4+a x^2)}",
+          "Resultary 2026/11/2 ...f13a230328b3: exact histograms of x^4+a x when q=2 mod 3",
+          "No exact mixed histogram retrieved in bounded searches"
+        ],
+        "reasoning": "The self-convolution is a different pair of curves. The latter fiber family has zero quadratic coefficient, rather than the nonzero quadratic coefficient of this depressed quartic, and is restricted to different field quantifiers.",
+        "searches": [
+          "Targeted Resultary queries for mixed parabola–quartic histograms, exact quartic coefficient-family spectra and quartic graph convolution",
+          "Primary quartic value-set formula comparison"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for exact all-field multiplicity distribution of the stated mixed graph pair, equivalently the specified quartic coefficient family. Earlier short-interval asymptotics, subset-sum sieves and Fourier counting backgrounds are not new. The energy alone is elementary and is not the basis of this originality decision.",
+      "residual_risks": [
+        "Nguyen's precise theorem statements and the quartic value-set paper's treatment of nonzero linear coefficient could not be verified from accessible full text.",
+        "An exact nonzero-target enumeration or an explicit factorization distribution for this short interval under different terminology could predate the claim; bounded searches do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and asymptotic distribution, not exact census",
+          "evidence": "Type probabilities p_lambda+O(q^-1/2) for all but at most d^2-d-1 slopes under the coprimality hypothesis.",
+          "identifier_or_url": "arXiv:1903.09050",
+          "material_read": "§1–Theorem 4, pp.1–2, offsets 0 and 2400",
+          "method": "OA PDF bounded passages",
+          "title": "Factorization type probabilities of polynomials with prescribed coefficients over a finite field",
+          "trigger": "Same affine family of quartics via coefficient change"
+        },
+        {
+          "assessment": "Known estimates rather than the required four-subset count",
+          "evidence": "The quoted Li–Wan result bounds deviation from a main term; the newer parameter range does not cover m=2,k=4.",
+          "identifier_or_url": "arXiv:2401.06964",
+          "material_read": "§1 pp.1–2, Theorem 1.1, offsets 0 and 4400",
+          "method": "OA PDF bounded passages",
+          "title": "An approach to the moments subset sum problem through systems of diagonal equations over finite fields",
+          "trigger": "General exact or estimated two-moment subset counts"
+        },
+        {
+          "assessment": "Existence decision is not exact enumeration",
+          "evidence": "Algorithm for deciding positivity for specified image sets.",
+          "identifier_or_url": "arXiv:1910.05894",
+          "material_read": "p.3, Theorem 1 near offset 9000",
+          "method": "OA PDF bounded passage",
+          "title": "Moment subset sums over finite fields",
+          "trigger": "Higher-moment subset sum algorithms might subsume the root count"
+        },
+        {
+          "assessment": "Unresolved exact scope; no negative finding about the full thesis",
+          "evidence": "Abstract describes two-moment counts; frozen report attributes the cited theorem to the zero target, not independently confirmed.",
+          "identifier_or_url": "https://escholarship.org/uc/item/2cr0w697",
+          "material_read": "Retrieved abstract description; not Theorem 2.11 itself",
+          "method": "OA item and identified PDF routes returned 403",
+          "title": "Higher Moments Subset Sum Problem over Finite Fields",
+          "trigger": "Two-moment dissertation may contain exact target counts"
+        },
+        {
+          "assessment": "Coverage at nonzero linear coefficient unresolved",
+          "evidence": "Synopsis mentions an exact value-set formula when b=0 for X^4+aX^2+bX.",
+          "identifier_or_url": "doi:10.1016/j.ffa.2016.01.013",
+          "material_read": "Publisher search-result synopsis only",
+          "method": "ScienceDirect and ACM access attempts returned 403; no open full text located",
+          "title": "A note on value sets of quartic polynomials",
+          "trigger": "Exact marginal size for the same quartic normal form"
+        },
+        {
+          "assessment": "Different convolution pair",
+          "evidence": "Self-convolution of a quartic-plus-quadratic graph.",
+          "identifier_or_url": "Resultary 2026/11/2 ...0e6d34edb345",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete twofold sum multiplicity spectrum for even quartic graphs",
+          "trigger": "Exact indexed quartic graph convolution census"
+        },
+        {
+          "assessment": "Different coefficient family and narrower field scope",
+          "evidence": "Treats x^4+a x for q congruent to 2 modulo 3, not x^4+x^2+a x.",
+          "identifier_or_url": "Resultary 2026/11/2 ...f13a230328b3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact fiber spectra of quartic-plus-linear maps over finite fields",
+          "trigger": "Exact indexed quartic coefficient-family fiber spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full fiber distribution is a natural arithmetic input for mixed convolution and finite-field graph incidence questions. It separates field-dependent high multiplicities invisible to the pair-collision energy and determines both exact support size and the sharp first fourfold fiber. This is a uniform classification for all eligible finite fields, not an isolated recomputation or an assertion about weighted extension norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

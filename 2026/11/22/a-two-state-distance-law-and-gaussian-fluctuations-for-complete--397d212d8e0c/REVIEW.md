@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies the unit complete-DAG flow polytope, source/sink netflow, standard edge-coordinate Euclidean metric, independent uniform vertex sampling and all parameter ranges. The two-path edge symmetric difference is exactly encoded by whether the last nonempty internal symbol was common to both paths. The resulting transfer weights are checked by direct evaluation of all ordered path pairs through seven internal vertices. The first moment is also derived independently by summing squared arc-inclusion probabilities. The dominant eigenvalue and its analytic Taylor expansion establish the variance asymptotic and central limit theorem, beyond finite checks. Boundary \(m=0\), the diagonal atom, and the distinction from the Birkhoff-matrix embedding are explicit.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Unit flow on this DAG decomposes into increasing source-to-sink paths, and each indicator path is extreme (its support alone carries only that unit flow). Two independent uniform subsets of the m internal vertices give four equiprobable membership symbols per site. Squared distance counts the edge symmetric difference; a common arc joins consecutive 11 symbols after deleting 00 symbols, with 11 at the two endpoints. Thus tracking whether the last nonzero symbol is 11 gives exactly the stated matrix and the sink charge 2 only in state 0. Direct path comparison at m=2 gives (4+8z³+4z⁴)/16; m=0 gives 1. Independently, the probability r_j of state 1 after j sites is 1/3+(2/3)4^(−j). A site charges 1 or 1/2 in expectation conditional on state 0 or 1. Summing 1−r_j/2 over j=0,...,m−1 and adding 2(1−r_m) yields the exact mean. The characteristic polynomial is λ²−(3+2z)λ/4+(1+2z−z³)/8; implicit differentiation at the simple root 1 gives λ′(1)=5/6 and λ″(1)=7/27. Hence the log eigenvalue at z=e^t has second derivative 43/108. The other root is 1/4 at z=1, so analytic spectral projection yields the CLT via characteristic functions and the variance rate by differentiation; the square-root identity gives 43/360 for the ordinary-distance limit.
 
-Dugan's open-access article on \(f\)-vectors of complete-graph flow polytopes (arXiv:2409.15519; initial version 2024-09-23) gives the \(\(2^m\)\) path vertices and face-number formulas; its examined abstract, introduction, Sections 4–5 and searchable full-text terms do not give Euclidean pairwise-distance laws. The indexed result on inballs of complete directed flow polytopes concerns an inequivalent metric property, not vertex pair distances. Searches also targeted random increasing-path overlap, transfer matrices, Hamming distances and the exact constants. No stronger covering statement was identified. Novelty remains provisional because an unindexed probability formulation or the inaccessible full text of an older pattern-avoiding-polytope article could contain a relevant equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives the full distribution of a natural intrinsic pairwise vertex metric in a classical polytope with exponentially many vertices, using a constant-size transfer matrix. It reveals a nontrivial linear squared-distance scale and an explicit positive \(\(43/360\)\) limiting variance for *unscaled* Euclidean distance, despite ambient dimension growing quadratically. Those exact geometric quantities are not implied by the known Catalan volume, face vector or vertex count and can serve as benchmarks for geometry and random vertex sampling in flow polytopes.
+The supported distinction is the evaluated random-pair law and fluctuation constants in the full arc-coordinate metric for the complete DAG. The path encoding, analytic transfer matrix method and extremal distances are not claimed as novel. The checked statements do not supply the random-pair law or imply the evaluated constants.
 
-## Limitations and literature
+## value
 
-This is a result only in standard orthonormal flow-edge coordinates. Published work also studies the affinely equivalent Birkhoff-face realization, but its Frobenius Euclidean metric is not being identified with the flow metric. Historical priority is best-knowledge, and independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform vertex-pair distances in the canonical edge metric describe the geometry of a standard flow polytope beyond its incidence structure or diameter. A two-state exact full law makes distance probabilities computable and quantifies both typical scale and the nonvanishing ordinary-distance fluctuation, rather than reporting a few cases or a big-O bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

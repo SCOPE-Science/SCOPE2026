@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is about the two **explicit** families of stationary coefficient arrays, not the unrestricted global optimum. The orthogonal parity-block transform identifies the full six-dimensional quadratic Walsh space with two three-dimensional Rademacher spaces on disjoint parity supports. The local second variations are computed explicitly: the four-cycle tangent coefficients are strictly negative for the entire open interval \(2<p<3\), and the complete-graph second variation reverses sign exactly at the strictly convex equation \(3^{p-1}=4p-5\). The inactive-block directions have negative quadratic curvature because \(p>2\). The two moment formulas and their crossing follow from exact distributions and a strictly convex two-exponential equation. Exact sign-cube checks and numerical root approximations are supplied separately; the proof, not finite testing, handles all exponents.
+## correctness
 
-## Originality — PASS (qualified)
-Mordhorst (arXiv:1601.07850v1, 2016) gives dimension-free Khintchine constants, while Komorowski's 1988 fixed-length sharp theorem concerns \(p\ge3\). The relevant published quadratic Walsh fourth-moment results concern exponent four and different sign counts; these do not imply the two distinct **local** bifurcation and crossing thresholds at noninteger \(2<p<3\). Search comparisons included the complete n=5 and n≥6 published results, the edge-disjoint-four-cycle result, and finite subgroup-hole moment theorems; none supplies the same two-branch local statement. Searches of alternate wording and the exact equations did not reveal equivalence. Residual risk: an earlier work on finite-length Rademacher local extrema may state these threshold calculations under a different name; absence from a search index is not proof of novelty.
+PASS
 
-## Value — PASS
-A natural first small-dimensional quadratic-chaos space has two distinct and simultaneously stable coefficient geometries. Its complete-graph orbit becomes locally optimal before it overtakes the four-cycle orbit in moment value; the two thresholds are not the same. This resolves a genuine structural local phase diagram for the entire open exponent range, provides explicit noninteger bifurcation equations, and separates metastability from global optimization. It is not presented as a global sharp norm theorem or as a generalization to all sign counts.
+The six distinct quadratic Walsh characters are orthonormal, so unit variance is the unit sphere. On the two values of the product of the three relative signs, opposite edge coefficients combine by a sum or difference. This is an orthogonal change of coordinates, and each parity class has the same absolute moments as a linear three-sign sum with coefficients from its own block, scaled by √2. A positive sign product on a four-cycle lets vertex sign changes clear its four edge signs. The two profiles reduce to (1,1,0)/√2 and (1,1,1)/√3 in an active block, with zero in the other, modulo vertex and overall sign symmetries. Direct expansion of the four absolute powers at the square gives normalized quadratic coefficients −p/2 and p(p−3)/8. At the complete profile the first variation vanishes by symmetry, the S₃-invariant Hessian is scalar on the tangent plane, and the coefficient along (1,−1,0) has sign 4p−5−3^(p−1). Inactive-block mass r costs a positive multiple of r² by homogeneity and adds only O(rᵖ), uniformly in its direction, giving strict maxima on the sphere where claimed and a saddle when the complete profile has positive active curvature. The moments obtained by evaluating the four absolute powers agree with the finding. Strict convexity and the signs at p=2, 5/2 and 3 give uniqueness and separation of the two nontrivial roots (for the crossing use t=p/2−1 and 3(3/2)^t+6^(−t)−4). Independent 50-digit interval evaluations bracket p_loc in (2.34182245474,2.34182245476) and p_cross in (2.73627732198,2.73627732202). The complete branch at p_loc is not classified; the square argument still applies there.
 
-## Restrictions and next checks
-The degenerate endpoint exponents are not classified, other stationary or global maxima may exist, and equivalent unindexed local-extremum literature cannot be eliminated. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest useful equivalence is to the two-sparse and diagonal profiles of the three-sign Khintchine moment, together with perturbations into the other parity block. General dimension-free inequalities and fixed-count diagonal stability for p≥3 are genuine background, but the inspected results do not establish the Hessian sign change, the distinct moment crossing below 3, or coexistence on the four-sign quadratic sphere. The bounded review supports that distinct local claim, not priority for Khintchine extremizers.
+
+## value
+
+PASS
+
+The smallest quadratic Walsh space with these competing support patterns supplies a concrete instance where the onset of local stability and the change in moment ordering are separated. The orthogonal parity reduction and exact roots explain why a comparison of just the two moment values could not detect the onset of coexistence. This is useful finite variational information even without a global sharp norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

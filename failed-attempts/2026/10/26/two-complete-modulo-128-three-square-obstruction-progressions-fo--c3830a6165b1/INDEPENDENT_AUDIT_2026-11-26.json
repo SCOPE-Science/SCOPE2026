@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:11:06.665803Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5; VERIFICATION.md; verify.py inspected",
+        "python3 /workspace/reviews/reproduce_5.py: independent window-recurrence polynomial construction, both exact identities, and exact finite exclusion"
+      ],
+      "rationale": "Splitting the two-color generating product at part size 128 and extracting a residue gives V_r(z) B(z)/(1-z)^14. The mod-8 functional equation for T^2 and P/(1-z^8) has a unique solution with constant 1 because each positive-degree coefficient depends only on earlier ones. The checked polynomial identities give V_r(z) B(z)/(1-z)^14 = 112/(1-z) modulo 128 for r=36,62: division is by units and multiplication by 112 carries the mod-8 identity to mod 128. Independent unbounded coin-change updates through index 224 leave exactly 36,62,96 at n=0 and rule out 96 at n=1. Legendre's theorem applies since each affected count is 16 times an integer congruent to 7 mod 8. The two progressions are disjoint and have combined density 1/64.",
+      "residual_risks": [
+        "The computation verifies finite certificates and the finite exclusion, not the unbounded congruence by sampling; that congruence is obtained by the formal-series argument. No exact density of the full obstruction set is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary b8196a7e7b34 Finding states density 1/32 of the full residue-112 fiber, strengthening the lower bound for three-square obstruction",
+          "Problem 7.2 asks a wider representability question; Proposition 7.3 gives partial results on progressions with constant valuation"
+        ],
+        "reasoning": "A set-wide density is not the universal-progression classification. It is a distinct broader result for the residue fiber and supersedes the numerical lower-bound strength, while the direct coverage is in 48027f9dc065.",
+        "searches": [
+          "Resultary: exact dyadic residue fibers and three-square obstruction density",
+          "arXiv:2211.16622, Problem 7.2 and Proposition 7.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 48027f9dc065",
+        "Resultary b8196a7e7b34",
+        "arXiv:1703.01955",
+        "arXiv:2211.16622"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.4 gives valuation 4 on the coarser classes 4 and 30 mod 32",
+          "The distinct catalogue Finding and proof include congruences modulo 128 and their converse"
+        ],
+        "reasoning": "The coarser published valuation implies divisibility by 16 and nondivisibility by 32, not the odd residue 7 modulo 8. The catalogue record covers the exact statement directly.",
+        "searches": [
+          "arXiv:1703.01955 Theorem 5.4",
+          "Resultary 48027f9dc065 mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 48027f9dc065 Finding gives both progressions and the same converse",
+          "A count congruent to 112 mod 128 is exactly a positive count with 2-adic valuation four and odd part 7 mod 8"
+        ],
+        "reasoning": "Rewriting the condition as a valuation together with an odd part or as a three-square obstruction at valuation four gives the same arithmetic requirement, and the catalogue Finding includes the exact progression-level statement and obstruction.",
+        "searches": [
+          "Resultary: two-colored binary partitions, universal residue 112 modulo 128, three-square nonrepresentability",
+          "arXiv:2211.16622, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48027f9dc065 mirrored RESULT.md Finding explicitly gives classes 36 and 62 as exactly the universal residue-112 classes"
+        ],
+        "reasoning": "This is not a match among tabulated individual coefficients; the source states the infinite and complete classification.",
+        "searches": [
+          "Resultary: two-colored binary partitions, classes 36 and 62 modulo 128"
+        ]
+      },
+      "rationale": "A distinct published catalogue record states the same universal congruences, the same if-and-only-if classification of progressions modulo 128, and the same obstruction and density lower bound. This is demonstrated claim coverage, not a priority or provenance determination. The earlier academic valuation theorem is strictly weaker, but does not remove direct catalogue overlap.",
+      "residual_risks": [
+        "Catalogue dates and overlap do not settle priority or whether the records are related. No exhaustive historical absence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by a distinct indexed record",
+          "evidence": "Both universal congruences 36 and 62, their completeness at modulus 128 for residue 112, and the 1/64 lower bound are stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-positive-density-three-square-obstruction-for-two-colored-bina--48027f9dc065",
+          "material_read": "Mirrored RESULT.md, Finding and finite-polynomial argument, offset 0",
+          "method": "Configured Resultary lookup and local mirror text inspection",
+          "title": "A positive-density three-square obstruction for two-colored binary partitions",
+          "trigger": "Exact progression and density match"
+        },
+        {
+          "assessment": "Distinct stronger density consequence, not used to infer exact progression coverage",
+          "evidence": "The full residue-112 fiber has ordinary density 1/32, giving at least that much obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-dyadic-residue-fibers-and-three-square-obstruction-density--b8196a7e7b34",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary lookup and local mirror text inspection",
+          "title": "Exact dyadic residue fibers and three-square obstruction density",
+          "trigger": "Potentially stronger fiber and obstruction result"
+        },
+        {
+          "assessment": "Related, strictly weaker for the target progressions",
+          "evidence": "Theorem 5.4 supplies valuation 4 on the two parent mod-32 classes without fixing the odd part modulo 8.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.01955",
+          "material_read": "Theorem 5.4, printed pp. 30–31, PDF offset 148902",
+          "method": "Lawful OA PDF text and bounded passage inspection",
+          "title": "Arithmetic properties of coefficients of power series expansion of the Thue–Morse product",
+          "trigger": "Directly relevant two-color congruence and valuation results"
+        },
+        {
+          "assessment": "Relevant wider problem and partial results, not exact coverage in the inspected passages",
+          "evidence": "The general representability question and constant-valuation progressions do not supply the two exact universal mod-128 classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.16622",
+          "material_read": "§7, Problem 7.2 and Proposition 7.3, printed pp. 20–21, PDF offset 60124",
+          "method": "Lawful OA PDF text and bounded passage inspection",
+          "title": "Values of binary partition function represented by a sum of three squares",
+          "trigger": "Same three-square representability question"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§3–5 and Limitations",
+        "Sobolewski–Ulas, Problem 7.2",
+        "Resultary b8196a7e7b34 for the stronger density comparison"
+      ],
+      "rationale": "Evaluated as mathematics, modulus 128 is natural here: valuation four plus the odd part modulo eight is exactly the Legendre obstruction at that valuation. Exhausting all aligned progressions at that modulus and producing a positive-density obstruction for two colors gives more than a sample congruence or a valuation check. This intrinsic value is not a claim of new contribution in light of the exact published overlap.",
+      "residual_risks": [
+        "This is not a classification at other valuations or moduli, and the 1/64 bound is not the strongest indexed bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

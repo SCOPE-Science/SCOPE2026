@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For irrational rotations, every ordinal-pattern probability equals a circular Kronecker gap. Convergent-grid comparison bounds the largest gap by \(3/q_k\) throughout the denominator block and hence bounds the Shannon deficit above by \(\log(3(a_{k+1}+1))\). At an unbounded partial quotient \(a\), the explicit length \(n=\lfloor a/\log a\rfloor q_k\) has \(q_k\) disjoint clusters of equally spaced returns; the exact intracluster mass is \(q_k(b-1)\lVert q_k\alpha\rVert\). Shannon conditioning gives a deficit at least \(\log a-\log\log a-1-o(1)\). This closes both quantified directions for all irrational slopes, rather than relying on finite samples. The standalone finite checker independently tests the partition and selected critical inequalities, not infinite quantifiers.
+## correctness
 
-**Originality — PASS within checked material.** The 2026 generic permutation-entropy study gives motivation but no additive arithmetic criterion. Goda's geometric quasi-uniformity dichotomy supplies classical gap controls but does not state the entropy lower bound for large partial quotients. The published all-slope logarithmic ordinal spectrum depends only on irrationality exponent and cannot distinguish exponent-two slopes with bounded and unbounded partial quotients. The published Fibonacci entropy-defect profile concerns the single golden irrational. The present statement separates all bounded-type from all non-bounded-type slopes and obtains the sharp growth coefficient of the maximum defect in each large-quotient block. Older equivalent information-theoretic formulations remain a real priority risk; failed searches are not proof of absolute novelty.
+PASS
 
-**Value — PASS.** Uniform additive finite-window entropy error is a natural quantitative regularity requirement when all irrational rotations share zero Kolmogorov–Sinai entropy. The theorem gives an exact Diophantine characterization and exhibits exponent-two slopes invisible to the known leading-order normalized entropy spectrum, with an asymptotically sharp numerical scale for the exceptional blocks. The universal scope and sharp scale avoid an arbitrary finite-parameter slice.
+At each cut a different sampled coordinate wraps to become least; the n ordinal permutations are distinct cyclic shifts, with probabilities equal to the circular gap lengths. Thus the defect is the relative entropy from the uniform law on n gaps. In q=q_k through Q−1, Q=q_{k+1}, the first q points lie within 1/Q of a permuted q-grid, so the largest gap is at most 1/q+2/Q, and inserting points only lowers it. This yields Δ≤log(3n/q)≤log(3(a_{k+1}+1)), including the claimed uniform bound by choosing the surrounding denominators. For a=a_{k+1}≥16, b=floor(a/log a) gives n=bq<Q. Writing an index as r+sq puts its b translates of each base point along one direction of the circle, spaced by δ=|qα−p_k|<1/Q. The arc length (b−1)δ is less than 1/(q log a), smaller than the separation of the q base points. There are exactly q large-group gaps and q(b−1) within-cluster gaps, the latter of total mass ε<1/log a. The chain rule gives H_{bq}≤log q+h(ε)+ε log(b−1), so M_k≥log a−log log a−1−o(1) uniformly in earlier quotients. Together these bounds give both the classification and the leading coefficient. For a_j=j, q_j≥j! and q_{j+1}/q_j≤j+2 imply irrationality exponent two by the convergent formula; in fact the uniform block upper bound directly gives Δ/log n→0 there. The optional finite checks are not used to establish the all-slope statement.
 
-**Limitations and nearby evidence.** Source paper: Maga–Szepessy, arXiv:2611.12789v1, Sections 1–3. Closest geometric antecedent: Goda, arXiv:2404.16352v1, Theorem 1.1 and Halton gap lemma. Closest published ordinal results: *Irrationality exponent and the complete logarithmic ordinal-entropy spectrum of rotations* (2026-11-17) and *Fibonacci staircase and sharp entropy-defect oscillation for golden-rotation ordinal patterns* (2026-10-26). Section 5.1 of Cheng–Ospina–Vinhage–Zhai, arXiv:2405.11137v1, treats polynomial slow entropy, not this additive Shannon invariant. The global theorem is conditional on the specific uniform-phase real-order observation and has not undergone independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The gap identity, convergent-block upper estimate and exponent-two normalized law already occur in an indexed earlier result. The supported distinct claim is the all-slope additive classification and uniform large-partial-quotient block growth. Its lower estimate accounts for entropy within the small-gap group without a cost depending on the absolute denominator. The compared exact gap counts and normalized laws do not already give that maximized asymptotic or the classification as stated.
+
+## value
+
+PASS
+
+The additive defect measures loss of near-uniformity of ordinal patterns on a scale where the standard normalized laws discard the difference. The theorem separates bounded-type rotations from exponent-two rotations with slowly growing unbounded partial quotients and quantifies by how much at their worst phases of observation length. The uniform dependence on the current partial quotient, rather than on the whole scale q, is the useful feature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

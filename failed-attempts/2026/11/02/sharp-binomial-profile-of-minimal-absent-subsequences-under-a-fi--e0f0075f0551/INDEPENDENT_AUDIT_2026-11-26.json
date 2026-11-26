@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:59.928280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy embedding of the proper prefix sends each predecessor zero block to the least count that forces the indexed next one: shortening a larger count would keep that source one and hence preserve failure. The last block is likewise forced by failure of the terminal letter and the ability to delete one zero. This injects the words into a subset of the k indexed ones plus the terminal bit, giving Pascal's bound including r=0 and k+1. For (010)^k, the initial cost to select source one i is 2(i-1), and a gap d between selected ones costs g(d)=0 for d=1 and 2d-1 otherwise. A zero deletion in a nonfinal positive block permits shifting all following selected ones back one position: the shortened block fits, interior capacities are unchanged, and the tail gains two zeros (or leaves the final source one available). Deleting a selected one between p and q costs at most 2(q-p-1) merged zeros, which fits before q-1. At the beginning the capacity is 2q-3; at the tail after p it is 2(k-p)+1 for a terminal zero and 2(k-p) before the last source one for a terminal one; the witness counts fit these capacities. With no preceding one the corresponding tail capacities are 2k and 2k-1. Final-block zero deletions and deletion of the terminal letter fit by the threshold definition. Thus every code is realized and different codes give distinct words. The frozen verification is finite corroboration, not the basis of this all-k argument; no frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October proof gives the word-by-word binary append rules, including the condition for the extra replacement in each ending class.",
+          "Adamson et al. count all absent words at fixed length and universality index; Manea et al.'s abstract gives enumeration and longest-MAS algorithms."
+        ],
+        "reasoning": "The former append rules dominate the new layer count by specialization to weighted ending classes; the latter sources do not show the claimed optimization under fixed symbol frequency in the inspected material.",
+        "searches": [
+          "Resultary October 25 sharp minority-frequency bound, Proof",
+          "arXiv:2407.18599, Section 4",
+          "arXiv:2504.21471, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 2026/10/25 sharp minority-frequency bound (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2108.13968",
+        "arXiv:2407.18599",
+        "arXiv:2504.21471",
+        "10.1016/j.ipl.2004.09.001 (author-copy attempt; no primary full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use weights A=sum z^r over words ending in 0, B=sum z^(r-1) over words ending in 1, C=sum z^r over words ending in 00. The same-letter append replacement appends that letter to the old absent word. For appending 1 already present, the rules give B'=zB, A'<=A+zB, C'<=A coefficientwise. For appending 0 already present, A'=A; B gains nothing after a 0, gains C after a single terminal 1, and gains A after a terminal run of at least two ones.",
+          "Inductively A,B<=(1+z)^k; on a word ending in 1 also B<=z(1+z)^(k-1), C<=(1+z)^(k-1). The displayed update proves the induction on a 1. On a 0 after a single terminal 1 use the two stronger bounds; after a longer run A is unchanged from the prefix with one fewer 1, giving A<=(1+z)^(k-1). On 0^m one has A=B=1. At the first 1, B=z, A<=1+z and C<=1; at the first 0 after 1^k the polynomials are A=1, B=1+z^k. These are the original proof's boundary cases with weights.",
+          "On (010)^1, A=B=1+z and C=A. In the original witness induction append 010: the initial 0 preserves A,B and the 00 suffix property; the 1 gives A'=A+zB, B'=zB, C'=A; the final 0 then gives B''=zB+A and restores C''=A''. Consequently A=B=(1+z)^k on the witness. The unconditioned weight A+zB gives the upper bound and equality layer by layer."
+        ],
+        "reasoning": "Retaining weights in the earlier ending-letter induction proves exactly the graded theorem, without using the submitted new proof or requiring any additional structural lemma.",
+        "searches": [
+          "Resultary October 25 RESULT.md, Proof and sharpness (mirror offsets 0–6667); its cited Petković–Ćirić–Bogdanović Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 25 Resultary Finding quantifies over all k>=0 with unrestricted zero count, and defines minimal forbidden scattered subwords by exactly the same one-deletion test.",
+          "Kosche et al., Theorem 3.1 characterizes greedy embeddings of the proper prefixes and failure of the final letter."
+        ],
+        "reasoning": "Minimal forbidden scattered subwords and minimal absent subsequences are equivalent here, and swapping the symbols only changes which count is named. The general greedy characterization is related, not itself the extremal statement.",
+        "searches": [
+          "Resultary: binary minimal forbidden scattered subwords with fixed number of occurrences of one symbol",
+          "arXiv:2108.13968, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror's matching record explicitly gives 2^(k+1) and (010)^k for every k>=0, not merely for a tested range."
+        ],
+        "reasoning": "This is an exact formula match for the total, not a finite table or inference from numerics. Graded coverage comes from the same proof, not from a separate tabulation.",
+        "searches": [
+          "Resultary title/semantic match: Sharp minority-frequency bound for minimal forbidden scattered subwords"
+        ]
+      },
+      "rationale": "The earlier Resultary record explicitly gives the same total bound and the same witness under the identical definition and letter-count constraint. Although its Finding does not display the binomial layers, its binary append proof gives them by the direct operation of retaining the weight of each word in that very induction; see the coefficientwise derivation below. The submitted direct greedy encoding is a different proof, but the claimed extremal theorem is already covered and the record does not establish a distinct result about the encoding beyond this proof.",
+      "residual_risks": [
+        "Earlier priority for the graded consequence was not established beyond the inspected October proof and its cited recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers total explicitly and binomial profile by grading the existing recurrence",
+          "evidence": [
+            "Sharp bound 2^(k+1) for fixed number k of ones and (010)^k witness; word-by-word replacements by ending classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-minority-frequency-bound-for-minimal-forbidden-scattered-s--3e32143dea20/RESULT.md",
+          "material_read": "Finding, scope, proof including append and extremizer induction, comparison and references; local mirror offsets 0–8480 in relevant slices",
+          "method": "Local mirror statement and coefficientwise proof comparison",
+          "title": "Sharp minority-frequency bound for minimal forbidden scattered subwords",
+          "trigger": "Same constrained optimum and extremizer"
+        },
+        {
+          "assessment": "Characterization used for comparison; example is on a different alphabet and parameter",
+          "evidence": [
+            "Greedy positions and local alphabet conditions; exponential MAS example for fixed even alphabet size at least four."
+          ],
+          "identifier_or_url": "arXiv:2108.13968",
+          "material_read": "Theorem 3.1, Section 3 pp. 5–6; Proposition 3.6",
+          "method": "OA PDF inspection",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Greedy characterization and exponential examples"
+        },
+        {
+          "assessment": "Different count and constraint",
+          "evidence": [
+            "Counts all length-constrained absences at fixed universality index."
+          ],
+          "identifier_or_url": "arXiv:2407.18599",
+          "material_read": "Section 4, pp. 10–12",
+          "method": "OA PDF inspection",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Exact absent-subsequence extremizers"
+        },
+        {
+          "assessment": "No fixed-frequency theorem established by the material read; not a whole-document exclusion",
+          "evidence": [
+            "Optimal enumeration and longest-MAS computation."
+          ],
+          "identifier_or_url": "arXiv:2504.21471",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF abstract inspection",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Minimal absent subsequence results"
+        },
+        {
+          "assessment": "Primary access unresolved, not evidence of absence; the accessible later proof suffices for the coverage finding",
+          "evidence": [
+            "The October proof expressly cites the theorem and spells out its binary specialization."
+          ],
+          "identifier_or_url": "10.1016/j.ipl.2004.09.001; author copy https://www.academia.edu/2579981/Minimal_forbidden_subwords",
+          "material_read": "No primary full text from the attempted author copy; recurrence read as stated in October Resultary proof",
+          "method": "Lawful author-copy retrieval attempt and comparison of accessible later proof",
+          "title": "Minimal forbidden subwords",
+          "trigger": "Underlying append recurrence cited as Theorem 4.1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp all-k distribution by a source-frequency parameter is a useful structural statement about the minimal-absence set, with a single extremizer family for all layers. The greedy proof gives an explicit injection, not a numeric table. This mathematical value does not make the already-covered theorem a new finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

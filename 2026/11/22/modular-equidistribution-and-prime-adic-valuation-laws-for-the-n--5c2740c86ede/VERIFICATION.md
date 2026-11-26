@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check.py` (Python 3 standard library). The test script constructs coefficients in the original basis of \(\mathbb Z[\sqrt2]\) independently of the digit-state recurrence; verifies all 19,683 indices below \(3^9\) for 13 moduli; checks that the complete reachable digit orbit equals the proposed primitive parity-constrained set at every modulus \(2\le m\le48\); checks each residue marginal as an exact `Fraction`; and checks the finite parity-count formula for \(0\le L\le9\). The actual replay passed all stages.
+## correctness
 
-The symbolic proof, rather than any finite enumeration, establishes transitivity for all prime powers, independent CRT factors, finite-state convergence, and the limiting valuation law. The claim does not give an effective uniform mixing rate over growing moduli. Independent validation has not been performed.
+PASS
+
+The two parity-dependent digit matrix rows follow from the normalized Z[√2] recurrence; determinant one preserves primitivity. At even parity, digit 0 and digit 2 provide lower-by-2 and upper-by-1 transvections. At 2^k an upper, then lower, then upper word produces (t+s(2t+1),2t+1) from (0,1), giving every admissible pair since the second coordinate is a unit. At each odd prime power the transvections give the primitive orbit by elimination. Choose exponents by CRT to isolate any one local factor; negative powers are realizable by positive powers on the finite state space. Digit 1 carries the full even layer bijectively onto the odd layer. The three digit permutations give uniform stationarity, the orbit gives irreducibility, and the digit-0 loop at the seed gives aperiodicity. Aligned ternary suffix blocks give the power saving on ordinary prefixes (take an exponential contraction factor greater than 1/3 when summing the geometric errors). CRT and counting second coordinates yield the stated marginals, and differences of divisibility tails give the valuation laws and independence at finitely many primes. The mod-2 return probabilities follow from diagonal projections of weights 1/4,1/4,1/2 at eigenvalues 3,−1,1 of the digit-count matrix. Fresh independent checks matched 2187 digit states and all orbits at 2≤m≤12; exact parity counts through L=5 were 1,1,3,7,21,61.
+
+## originality
+
+PASS
+
+Credit the normalization's defining recurrence to Northshield, the reversal symmetry to Spiegelhofer, and the primitive-pair Markov-chain method and odd-prime-power marginal analogue to the literature on classical Stern. The supported new contribution is the normalized Northshield all-modulus state support and its law, notably the distinct 2-adic factor and exact complete-block parity count. The valuation formulas are consequences of the new joint law, not separate priority claims.
+
+## value
+
+PASS
+
+This is a complete, fixed-modulus distribution on a natural ternary rational-enumeration sequence. It identifies a systematic 2-adic bias that differs from the familiar binary model and recovers exact parity counts before taking limits. The orbit support and the bias, rather than the standard convergence argument, give the scientific value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

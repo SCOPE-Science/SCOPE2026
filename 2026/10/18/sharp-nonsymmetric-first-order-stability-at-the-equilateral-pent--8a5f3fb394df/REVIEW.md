@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Equilateral closure has a nonsingular two-angle Jacobian at the straight-angle trapezoid. Explicit differentiated coordinates give \(S=9+2\sqrt3+(\sqrt3/2)\delta+O(r^2)\). The three—and only three—active edge-support normals give \(w=\sqrt3/2+\max\{\delta,\alpha,\delta-\alpha\}/2+O(r^2)\). Quotient expansion and three-chamber inequality prove the stated strict local maximum and sharp coefficient. Finite vertex computations separately check values and quadratic error scaling; they do not replace proof. Potential pitfall: minimum width is nonsmooth; the proof retains all active normals.
+## correctness
 
-**Originality — PASS, with residual risk.** Audet–Ninin's original work and later numerical conjecture do not supply this local nonsymmetric law. The nearest published theorem proves a global statement **only under reflection symmetry** and explicitly leaves unrestricted pentagons out; its full proof has been examined. The present two-coordinate directional cusp and sharp linear stability are not consequences of that one-coordinate theorem. Perimeter-normalized pairwise-distance results address another invariant. Targeted searches for the exact law, equivalent tangent-cone statements, and stronger nonsymmetric coverage did not reveal coverage; search absence is not treated as proof of uniqueness. Unindexed older local calculations remain possible.
+PASS
 
-**Value — PASS.** The Audet–Ninin conjectured trapezoid is a natural boundary extremizer, with an unresolved global five-gon inequality. The exact three-normal switching law controls every nearby nonsymmetric perturbation, proves a sharp quantitative first-order barrier against local counterexamples, and identifies its weakest strict-convex approach direction. It supplies structural stability information beyond a numerical optimum or a symmetric special case, without claiming the global conjecture.
+At the specified marked trapezoid the closure Jacobian in the last two angles has determinant sin(pi/3), so the chart is smooth and locally covers all nearby shapes with the given marking. The chain remains simple near the reference, and the only turn whose sign can change is delta. Differentiating closure gives last-angle increments delta-alpha and alpha. The five varying diagonal distances have aggregate first variation h*delta, with h=sqrt(3)/2 and S(0)=9+2sqrt(3). An interior direction between edge normals cannot minimize the positive width, since the support pair is fixed and the width has second derivative minus itself. The two oblique edge-normal families have reference width 2h and drop out. For the other three, direct support projection gives width increments (delta+|delta-alpha|)/2, (delta+|alpha|)/2, and delta/2+max(0,-alpha,alpha-delta). Their minimum is max(delta,alpha,delta-alpha)/2 at first order, including chamber boundaries. Taylor errors remain uniformly quadratic under the finite minima and maxima. Division gives the claimed first variation; comparing the loss with delta+|alpha| in the three chambers gives equality of the linear bound only at alpha=delta>0. That ray stays in the strictly convex domain and proves sharpness. This proves a local result, not the unrestricted global inequality.
 
-**Scope and risk.** Only a local Euclidean, equilateral, five-marked-vertex theorem is proved. The angular \(\ell^1\) coefficient depends on the chart explicitly defined in the result; no global extremum or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest verified result has the same objective, reference geometry and extremal value, but only on a reflection-symmetric family. The accepted contribution is the first-order law in both independent shape directions, including the switching of supporting widths, and the sharp coordinate-dependent local loss; neither the common value nor the trapezoidal candidate is credited as new. On the statements inspected, no covering result was established.
+
+## value
+
+PASS
+
+For the distance/width extremal problem, the symmetric calculation leaves open asymmetric directions of improvement at the proposed optimizer. The result rules out all such nearby directions, identifies the three competing support families and gives the worst local loss in the declared coordinates. That is useful local information about the conjecture without pretending to prove the global bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

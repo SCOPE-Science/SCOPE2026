@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:04:48.237723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The area inequalities are equivalent to 0≤p_i<i and nondecreasing p_i; these parent-index conditions give a rooted tree whose children's blocks, traversed by queue in increasing parent order, yield exactly labels 0,…,n. Conversely breadth-first labelling yields those conditions and hence the unique area sequence. The earlier nonneighbors of i are exactly 1,…,p_i, so the maximum independent size ending at i is 1+max_{0≤j≤p_i} b_j, with b_0=0. The nested prefixes make b_i nondecreasing, giving b_i=1+b_{p_i} and equality with the breadth-first depth. The greedy partition starting each next block at the first vertex t with p_t≥ the previous start indeed has clique blocks; its starts form an independent set, giving a matching certificate of optimality without a connectedness assumption. The bounded-height plane-tree recurrence H_h=1/(1−zH_{h−1}), H_0=1, gives the stated continuants. For m=1,2,3, the positive-degree coefficients follow by recurrence/partial fractions, with the third denominator (1−z)(1−3z) and the second the odd Fibonacci recurrence. n=0 is used only as the height-zero generating-function seed. The height claim concerns the contour of the new tree, not the original area-sequence path or an unlabeled graph class. Own replay: python3 /workspace/review_replay.py 1, enumerating the area sequences from Dyck words, independently counting all consecutive cut choices and independent subsets, and checking that the image equals the separately enumerated plane trees through n=7. The supplied script and saved transcript through n=9 were inspected but not executed. Nonmaterial environment note: int.bit_count() requires Python ≥3.10, not 3.8 as stated in the frozen replay instructions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bacher's general bounded-excursion adjacency model covers the resulting bounded-height Dyck series.",
+          "Saitoh et al. count connected unlabeled graphs modulo isomorphism; the Resultary adjacency-traces result 03837b8f9fa5 instead concerns the number of neighborhood traces.",
+          "The same-day Dyck record 9f7efb2b387e concerns area and peaks; the tree-depth record ba566fae9851 gives a covariance law at depth h."
+        ],
+        "reasoning": "The broader excursion framework indeed implies the enumerator once the graph invariant has been transported. Neither quotient enumeration, adjacency traces, nor covariances answer the ordered graph height classification. General interval scheduling can account for greedy covers/independent sets but does not supply the specific Catalan statistic transfer as a graph enumeration.",
+        "searches": [
+          "Bacher arXiv:1303.2724v1 §2 equation (1)",
+          "Saitoh et al. §§2–4 canonical proper interval graphs",
+          "Resultary unit interval graph, Dyck statistic and plane tree depth matches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.38084v1",
+        "DOI 10.1587/transinf.E93.D.1816",
+        "arXiv:1303.2724v1",
+        "arXiv:2401.14668v2",
+        "Resultary 9f7efb2b387e",
+        "Resultary 03837b8f9fa5",
+        "Resultary ba566fae9851"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The m-Abelian partition definition does not ask for or supply the greedy optimum statistic as breadth-first height. The q,t-Catalan bounce definition identifies a path operation, without graph clique blocks/independence numbers.",
+          "Bacher directly covers the rational count on the target Dyck family, and Saitoh's family tree does not have depth measuring independence of a represented graph."
+        ],
+        "reasoning": "Even allowing the classical BFS encoding of plane trees by child lists and prior bounce length, one still needs to identify the optimal graph partition and independence number with the BFS layers; that is the extra asserted implication. The m=1 count and the continued-fraction enumerator need no new claim of priority, and the weighted questions from §7 are not solved here.",
+        "searches": [
+          "arXiv:2609.38084v1 §7 and §4",
+          "arXiv:1303.2724v1 Eq. (1)",
+          "arXiv:2401.14668v2 §2, Eq. (1)",
+          "Saitoh et al. Observation 1 and family tree discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexandersson–Leite §7 use the same consecutive-clique condition and §4 proves the Abelian (two-block) case.",
+          "Saitoh et al. encode interval endpoints by Dyck strings and use an enumeration tree on strings, not a rooted tree with graph vertices as the nonroot nodes.",
+          "The already defined bounce composition (arXiv:2401.14668v2, Eq. (1)) has parts b_j−b_{j−1} for the diagonal hits b_j."
+        ],
+        "reasoning": "There is a genuine alternate formulation: p_i is the horizontal coordinate of north step i in the original path. From diagonal contact b, the next bounce contact's coordinate is max{i:p_i≤b}. This is the update both for the last label at the next breadth-first depth (starting with root label 0) and for the end of the next greedy clique block (starting at b+1). Thus the original graph statistic is the number of positive bounce parts, not the weighted bounce sum or the height of the original path. The known bounce composition supplies the path statistic but no inspected source gives the graph interpretation and its resulting m-Abelian count.",
+        "searches": [
+          "arXiv:2609.38084v1 §4 and §7",
+          "DOI 10.1587/transinf.E93.D.1816 §§2–4",
+          "Dyck path Haglund bounce number of bounce steps height breadth first plane tree bijection vertical runs level tree Catalan breadth-first unary Dyck path",
+          "arXiv:2401.14668v2 bounce definition, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 4.2 explicitly gives 2^(n−1) in the m=1 case, while Table 1 treats positivity of listed peak/nesting polynomials and not counts for every m.",
+          "All the displayed coefficient sequences are classical bounded-Dyck numbers under the established mapping; the exact continuant enumerator is not novel."
+        ],
+        "reasoning": "Matching numerical sequences would not establish an equivalent graph result unless the prior knows which graph class the numbers count. The substantive claim is the invariant-preserving graph realization; no credit for new entries of a number table.",
+        "searches": [
+          "Alexandersson–Leite Table 1 and Proposition 4.2",
+          "Bacher Eq. (1), ordinary Dyck step-set specialization",
+          "Resultary ordered unit interval graph and bounded Dyck count matches"
+        ]
+      },
+      "rationale": "No credit is assigned to the Catalan/plane-tree bijection in isolation, the bounded-height enumerator, or the m=1 graph count. The distinct assertion in the original finding is that this explicit breadth-first construction transports two graph invariants to tree height and therefore gives uniform unweighted enumeration in Alexandersson–Leite's ordered m-Abelian classes. Neither the prior weighted bounce definition nor the inspected proper-interval/canonical Dyck encodings state that identity; the precise relation to bounce-composition length is recorded below.",
+      "residual_risks": [
+        "Historical proper-interval graph orderings and Catalan bounce/level encodings admit several synonyms. The checked passages do not certify absence of an earlier implicit graph interpretation, especially one formulated with bounce-composition length rather than breadth-first tree height."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines matching m-Abelian class and gives exact m=1 count; no inspected statement giving graph-to-tree statistic identification or uniform scalar count",
+          "evidence": [
+            "Two consecutive clique blocks in the Abelian case; 2^(n−1) total and 2^(n−1)−(n−1) connected. Section 7 asks about peak and peak-nesting polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.38084v1",
+          "material_read": "Printed p. 4 Table 1 (offset 14700), p. 15 §4 Lemma 4.1 and Proposition 4.2 (71450), p. 34 §7 (166950)",
+          "method": "Bounded lawful OA primary PDF passages",
+          "title": "Peaks and peak-nestings on unit interval graphs",
+          "trigger": "Source of the exact graph family and refinement questions"
+        },
+        {
+          "assessment": "Distinct connected isomorphism-class problem and distinct tree",
+          "evidence": [
+            "Observation 1 balanced parentheses/Dyck representation; reversal correction for connected unlabeled count; enumeration family tree nodes are strings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transinf.E93.D.1816",
+          "material_read": "J-STAGE PDF pp. 1817–18 §§2–3 (offsets 7700, 14000, 17000), §4 around p. 1820 (40500)",
+          "method": "Bounded lawful OA primary PDF passages",
+          "title": "Random Generation and Enumeration of Proper Interval Graphs",
+          "trigger": "Proper interval graph Dyck encoding and enumeration tree"
+        },
+        {
+          "assessment": "Prior coverage of the full Dyck enumerator, not the graph bijection",
+          "evidence": [
+            "E_k=F_k/F_{k+1} via bounded-step adjacency; standard two-step Dyck paths are a specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.2724v1",
+          "material_read": "Abstract p. 1, §2 p. 2 Eq. (1) (offsets 300 and 5000)",
+          "method": "Bounded lawful OA primary PDF passages",
+          "title": "Generalized Dyck paths of bounded height",
+          "trigger": "Exact bounded-height generating function"
+        },
+        {
+          "assessment": "Supplies a genuine equivalent path statistic via composition length, not the graph identity",
+          "evidence": [
+            "North to the east step, then east to the diagonal; composition parts are consecutive bounce-point differences. The weighted bounce sum is a different statistic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.14668v2",
+          "material_read": "pp. 2–3, text offsets 7650–9404, bounce path, points, composition and Eq. (1)",
+          "method": "Lawful OA literal locate then exact passage inspection",
+          "title": "An area-bounce exchanging bijection on a subset of Dyck paths",
+          "trigger": "Possible equivalent statistic for depth or greedy clique cuts"
+        },
+        {
+          "assessment": "No equivalent graph statistic or exact class count in the checked claim",
+          "evidence": [
+            "Covariance of peaks with step-start-height area in uniform Dyck excursions and a regression slope."
+          ],
+          "identifier_or_url": "Resultary record 9f7efb2b387e",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Negative peak–area covariance and a square-root regression slope",
+          "trigger": "Same-day Dyck-statistic result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Open and closed adjacency trace maxima, not enumerating graphs by independence or clique partition."
+          ],
+          "identifier_or_url": "Resultary record 03837b8f9fa5",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Sharp open-adjacency type growth in unit interval graphs",
+          "trigger": "Same graph class and exact parametric formula"
+        },
+        {
+          "assessment": "Different statistic and setting",
+          "evidence": [
+            "Covariance of root degree with generation size."
+          ],
+          "identifier_or_url": "Resultary record ba566fae9851",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "A sharp depth crossover for root branching in uniform plane trees",
+          "trigger": "Plane-tree depth overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the unweighted cardinality of a recently defined ordered graph family for all m and identifies exactly which graph invariant becomes height under the map. The equality with optimal consecutive clique partition also supplies an explicit witness, not merely a count. It recovers a known boundary case and makes the unweighted count accessible to standard height methods, without claiming progress on the weighted peak questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

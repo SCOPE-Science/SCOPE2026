@@ -1,9 +1,10 @@
-# First integral two-homology and dihedral action in cycle general-position complexes
+# Integral homology through twelve vertices and dihedral symmetry at nine vertices for cycle general-position complexes
 
 ## Finding
-For every integer \(3\le n\le12\), let \(C_n\) be the cycle on vertices \(0,\ldots,n-1\), and let \(\mathrm{GP}(C_n)\) be the simplicial complex of all vertex subsets such that no three selected vertices lie on any common shortest path of \(C_n\). Its **complete reduced integral homology** is torsion-free and is concentrated in dimensions \(1\) and \(2\), with ranks in this table (zero denotes the zero group):
 
-| \(n\) | Number of two-faces | \(\operatorname{rank}\widetilde H_1\) | \(\operatorname{rank}\widetilde H_2\) |
+Let \(\mathrm{GP}(C_n)\) consist of the vertex subsets of the ordinary cycle \(C_n\) with no three selected vertices lying on a common shortest path. Its reduced integral homology for \(3\le n\le12\) is torsion-free and vanishes outside degrees 1 and 2. The nonzero groups, if any, are free of the ranks below.
+
+| \(n\) | Number of triangles | \(\operatorname{rank}\widetilde H_1\) | \(\operatorname{rank}\widetilde H_2\) |
 |---:|---:|---:|---:|
 | 3 | 1 | 0 | 0 |
 | 4 | 0 | 3 | 0 |
@@ -16,42 +17,45 @@ For every integer \(3\le n\le12\), let \(C_n\) be the cycle on vertices \(0,\ldo
 | 11 | 55 | 1 | 11 |
 | 12 | 40 | 19 | 4 |
 
-Consequently, \(C_9\) is the first cycle whose general-position complex has nonzero integral second homology, and \(C_{12}\) is the first *even* cycle with this property. For \(C_9\), rotation \(r(i)=i+1\pmod9\) has order three on its rank-three integral second homology, while reflection \(s(i)=-i\pmod9\) has trace \(1\). The reduced rational homology of the ordinary dihedral quotient is
-\[
-\widetilde H_j\bigl(|\mathrm{GP}(C_9)|/D_9;\mathbb Q\bigr)\cong
-\begin{cases}\mathbb Q,&j=2,\\0,&j\ne2.\end{cases}
-\]
-The claim is about **homology**, not a wedge-of-spheres homotopy equivalence.
+At \(n=9\) the integral second homology is a permutation module on three explicitly oriented octahedral cycles. Rotation cycles all three basis elements and reflection fixes one and interchanges the other two. On integral first homology, rotation acts as the identity and reflection acts by \(-1\). The ordinary dihedral orbit space has reduced rational homology \(\mathbb Q\) in degree 2 and zero in every other degree. This does not assert that the orbit space is homotopy equivalent to a sphere.
 
 ## Assumptions and scope
-Graphs are simple and unweighted; a shortest path is an ordinary graph geodesic. The full graph-geodesic definition is used, including *all* equally short paths in even cycles. A subset is a face precisely when every triple of its vertices avoids geodesic collinearity. The finite statement covers every labelled cycle of size \(3\) through \(12\) and makes no assertion about later orders. The quotient is the ordinary topological orbit space of the geometric realization, not a homotopy quotient. All homology is unreduced in degree zero and reduced otherwise; since these complexes are connected, \(\widetilde H_0=0\).
+
+Cycles are simple and unweighted, with vertices \(\mathbb Z/n\mathbb Z\). All shortest paths count, including both antipodal paths when the order is even. The action on \(|\mathrm{GP}(C_9)|\) is induced by \(r(i)=i+1\) and \(s(i)=-i\) modulo 9. The quotient is the ordinary orbit space, not a homotopy quotient. Tables and torsion assertions are only for orders 3–12.
 
 ## Proof
-Order each three-set as \(a<b<c\) and set its cyclic gaps to \(b-a\), \(c-b\), and \(n-c+a\). This triple is in graph-geodesic general position **if and only if** each gap is strictly less than \(n/2\): a gap of at least half the circle makes the other two gaps together a shortest or tied-shortest route between the bounding vertices and puts the remaining vertex on that route. Conversely, if a selected vertex lies on a shortest path between the other two, the complementary cyclic gap has length at least half the circle. The attached verifier checks this equivalence independently using all three shortest-path distance equations for each labelled triple. For every \(3\le n\le12\), an exhaustive four-subset check shows no four-set is a face. Every vertex and pair is a face; thus the complex has chain groups \(C_0=\mathbb Z^n\), \(C_1=\mathbb Z^{\binom n2}\), and \(C_2=\mathbb Z^{f_2}\), with no higher cells.
 
-Using lexicographic orders for vertices, edges and admissible triples, build the signed boundary matrix \(B_n=\partial_2\) whose column for \((a,b,c)\) is \([b,c]-[a,c]+[a,b]\). In each of the ten cases, exact integral elementary row/column operations, using only pivots \(\pm1\), reduce \(B_n\) to \(\operatorname{diag}(I_{r_n},0)\). The ranks \(r_n\), in increasing \(n\), are \(1,0,5,2,14,8,27,20,44,36\). This is a unimodular reduction, so every nonzero Smith invariant factor is one, not just a rational or mod-two rank calculation. In particular \(\operatorname{im}\partial_2\) is primitive in \(C_1\), and the first integral homology has no torsion. The complete one-skeleton gives \(\operatorname{rank}\ker\partial_1=\binom{n-1}{2}\). Therefore
-\[
-\widetilde H_1\cong\mathbb Z^{\binom{n-1}{2}-r_n},\qquad
-\widetilde H_2\cong\mathbb Z^{f_2-r_n}.
-\]
-The exhaustive face and Smith computations, including zero residual matrices and boundary signs, are independently reconstructible from `verify.py`. Finite enumeration is a complete proof **for the explicitly bounded ten orders only**.
+**Faces and integral boundary.** A circularly ordered triple \(a<b<c\) has consecutive gaps \(b-a,c-b,n-c+a\). It is admissible exactly when each gap is strictly shorter than half the circle. If a gap is at least that large, the other two gaps form a shortest path between its endpoints containing the third point. Conversely any shortest path containing all three leaves a gap of length at least half the circle. For four circularly ordered vertices, two complementary two-gap arcs between opposite selected vertices have total length \(n\); a shorter one (either if tied) is geodesic and contains a third selected vertex. Thus no four-set is a face. All pairs are edges, so \(\partial_1\) has rank \(n-1\), \(\ker\partial_1\) has rank \(\binom{n-1}{2}\), and the complex is connected.
 
-For \(n=9\), \(B_9\) has \(30\) columns, rank \(27\), and a three-dimensional integral kernel. In the canonical integral kernel basis obtained by row reduction with lexicographic free triangle-column positions \(14,23,28\) (zero-indexed), the induced maps on \(H_2\) are
+Use increasing labels for simplex orientations. The triangle boundary matrix \(B_n\) has column \([b,c]-[a,c]+[a,b]\) for every admissible \((a,b,c)\). Integer row and column operations using unit pivots reduce it to \(\operatorname{diag}(I_{r_n},0)\), with
 \[
-R=\begin{pmatrix}-1&-1&0\\1&0&0\\0&-1&1\end{pmatrix},\qquad
-S=\begin{pmatrix}0&-1&0\\-1&0&0\\-1&-1&1\end{pmatrix}.
+(r_3,r_4,\ldots,r_{12})=(1,0,5,2,14,8,27,20,44,36).
 \]
-Direct multiplication gives \(R^3=I\), \(S^2=I\), and \(SRS=R^{-1}\). The common \(R\)- and \(S\)-fixed rational subspace is exactly one-dimensional. For reflection the oriented simplicial chain traces in degrees \(0,1,2\) are \(1,-4,-2\), yielding Lefschetz number \(3\). Since its trace on \(H_0\) is \(1\) and on \(H_2\) is \(1\), its trace on the rank-one \(H_1\) must be \(-1\). The order-nine rotation acts as \(+1\) on the rank-one integral \(H_1\). Consequently the full dihedral action has no rational invariants on \(H_1\) and exactly one on \(H_2\). Rational transfer for finite-group actions on simplicial realizations, after barycentric subdivision if necessary, identifies quotient rational homology with these invariant spaces. The construction and matrices are independently reconstructed by `verify_equiv.py` using exact fractions.
+For a reproducible finite procedure, choose the first \(\pm1\) in the unused matrix in row-major order, swap its row and column into the pivot position and normalize its sign, clear its column by integral row additions, and then clear its row by integral column additions. Repeat until no unused unit is available. The residual block is all zeros in every order listed. Every operation is unimodular, so \(C_1/\operatorname{im}\partial_2\) is torsion-free, as is its subgroup \(H_1\). Subtracting \(r_n\) from \(\binom{n-1}{2}\) and from the triangle count gives the two ranks. There is no \(C_3\), so \(H_2=\ker\partial_2\) is free.
+
+**Integral symmetry module for the nine-cycle.** In cyclic vertex notation define
+\[
+Z_i=\sum_{e_0,e_1,e_2\in\{0,1\}}(-1)^{e_0+e_1+e_2}
+[i+e_0,\ i+3+e_1,\ i+6+e_2],\qquad i\in\mathbb Z/9.
+\]
+The gaps are 2, 3, or 4, so these are triangles. Cancelling the two terms differing only in the omitted vertex proves that \(\partial Z_i=0\). This is the join of the three oriented differences of the two vertices in each adjacent pair; geometrically it is an octahedral fundamental cycle. Moving the first factor past the other two is even, hence \(Z_{i+3}=Z_i\). For each \(i=0,1,2\), the ordered triangle \([i,i+3,i+7]\) has coefficient \(-1\) in \(Z_i\) and zero in the other two: it uses both residues \(i\) and \(i+1\) modulo 3, whereas each of the other cycles allows a different residue pair. These three coordinate evaluations give a unimodular diagonal minor. The rank-three calculation above then proves that \(Z_0,Z_1,Z_2\) are an integral basis, because the coordinates of any integral class in their rational span are integral under these evaluations.
+
+Rotation sends \(Z_i\) to \(Z_{i+1}\). Reflection maps the three pairs to those for \(Z_{-i-1}\), reversing the two vertices in each pair and transposing the last two factors. The three reversals and the one transposition give total sign \(+1\). Thus \(sZ_i=Z_{-i-1}\). In particular rotation has order exactly three on \(H_2\), reflection has trace one, and the fixed rational subspace is the line generated by \(Z_0+Z_1+Z_2\).
+
+Reflection has traces \(1,-4,-2\) on \(C_0,C_1,C_2\): its only fixed vertex is zero, its four invariant edges are the pairs \(\{a,-a\}\) with orientation reversed, and the invariant admissible triangles are \(\{0,3,6\}\) and \(\{0,4,5\}\), also with orientation reversed. The alternating chain trace is therefore 3. The alternating homology trace is \(1-\operatorname{tr}(s|H_1)+1\), giving \(\operatorname{tr}(s|H_1)=-1\). Since \(H_1\cong\mathbb Z\), the order-nine rotation acts there as \(+1\).
+
+**The ordinary quotient.** In the barycentric subdivision, each simplex is a chain of faces with strictly increasing dimensions. An element stabilizing a chain fixes its vertices individually. Oriented cellular chains of the quotient are therefore the coinvariants of the subdivided chains, with face signs determined by the chain order. Over \(\mathbb Q\) averaging identifies coinvariants with invariants and makes taking invariants exact, so the quotient homology has the invariant ranks computed above. In particular there is no invariant one-class but the sum of the three octahedral classes is invariant.
 
 ## Verification
-Run `python3 verify.py` and `python3 verify_equiv.py` in the same directory; both use only the Python standard library. The first independently evaluates shortest-path and cyclic-gap predicates on all labelled triples, rejects all four-faces, constructs every signed boundary matrix, and proves the stated unit Smith reductions by exact integer operations. The second constructs integral two-cycle generators from an exact rational nullspace whose entries turn out to be integers with unit free coordinates, and checks the dihedral matrices, relations, traces, and invariant dimensions. Both scripts were run successfully from their actual packaged paths before acceptance.
+
+The accompanying unchanged `verify.py` uses only standard-library Python and reconstructs the complete signed boundaries, checks the face and metric conditions, and checks the unit-pivot ranks and zero residual matrices at all ten orders. `verify_equiv.py` computes the same dihedral action in an integral free-column cycle basis and checks the rational invariant dimensions. The geometrically specified octahedral basis above follows directly from cancellation and the three coordinate evaluations, and in that basis the group acts by the stated permutations.
 
 ## Relationship to prior work
-Klavžar, Rall and Yero (first public preprint \(2020\)-05-16, arXiv:2005.08095), especially their cycle section, determine general \(d\)-position *numbers*, not the integral chain homology of the simplicial complex of *all* general-position subsets. Cody and Moore (arXiv:2409.05644, \(2024\)-09-09), especially their cycle theorem, determine generalized maximum cardinalities and maximally even extremizers, not the Smith factors or the dihedral homology of this complex. Related graph-general-position complexes for ladder graphs concern \(P_m\square K_2\), not the ordinary cycles here. These distinctions concern statements and implications, not title similarities.
+
+The distinct record [*Sharp integral second-homology onset for general-position complexes of cycle graphs*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-integral-second-homology-onset-for-general-position-comple--e7f60ee4c19d/RESULT.md) gives the same all-geodesics gap condition, the all-order nonvanishing criterion, and one primitive octahedral class in each nonvanishing case. In particular the nonvanishing thresholds are already covered and are not a contribution claimed here. The assertion here is the exact integral table including \(H_1\) and torsion, together with the integral permutation basis at nine and the resulting action and rational orbit-space homology. The single class construction is credited to the onset result; the rank calculation and coordinate evaluations are what allow the three translates to be promoted to a basis. The two notes share a catalogue date, from which relative priority cannot be inferred.
+
+Klavžar, Rall and Yero, [*General d-position sets*](https://arxiv.org/abs/2005.08095), Proposition 3.3, and Cody and Moore, [*The k-general d-position problem for graphs*](https://arxiv.org/abs/2409.05644), Theorem 4.6, study extremal cardinalities. Bounding the size of faces does not give the ranks of their signed boundaries or the symmetry action on their kernels.
 
 ## Limitations
-Only the finite range \(3\le n\le12\) is established. No general formula, shellability, fundamental-group classification, higher-order persistence, or integral quotient homology is claimed. A torsion-free homology calculation does **not** determine the homotopy type. The external literature comparison is necessarily subject to the possibility of unindexed equivalent work; the computational argument makes no claim of independent validation.
 
-## References
-1. S. Klavžar, D. F. Rall, I. G. Yero, *General d-position sets*, arXiv:2005.08095 (first posted \(2020\)-05-16), https://arxiv.org/abs/2005.08095; author-hosted full text https://users.fmf.uni-lj.si/klavzar/preprints/2384-11213.pdf.
-2. B. Cody, G. Moore, *The k-general d-position problem for graphs*, arXiv:2409.05644 (first posted \(2024\)-09-09), https://arxiv.org/abs/2409.05644.
+There is no general Betti-number formula here, nor a homotopy-type or integral orbit-space classification. The symmetry calculation is only for the nine-cycle. Comparisons are bounded to the records and literature discussed, not a bibliographic priority claim.

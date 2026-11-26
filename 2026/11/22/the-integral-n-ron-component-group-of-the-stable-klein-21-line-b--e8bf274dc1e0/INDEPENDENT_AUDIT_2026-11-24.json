@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:14.859462Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; verify_klein_boundary.py, CHECKS.txt and VERIFICATION.md",
+        "Independent exact replay: /tmp/opencode/frozen_audit_exact.py 3",
+        "Bauer et al., arXiv:1407.2966 §4.1; Amini–Baker–Brugallé–Rabinoff §8 Theorem 8.2"
+      ],
+      "rationale": "I independently reconstructed all concurrent line triples using 3-by-3 determinants in Z[a]/(a^2+a+2), then assembled the maximal incidence sets. They give precisely 28 triples and 21 quadruples, four of each type on each line. Blowing up separates distinct tangent directions at each multiple point; every exceptional-line intersection is a node and strict lines are disjoint. The connected graph has 70 rational-component vertices, 168 edges and first Betti number 99; every valence is at least three. I recomputed the quadruple-adjacency characteristic polynomial and a full Laplacian minor determinant by exact elimination, obtaining 2^26 3^23 7^5 719^6. Independent prime-power elimination on the 69-by-69 minor gave 60 unit factors followed by 4, 72, 216, 155304 and five factors 1087128. The shipped local step can use row clearing only: after clearing the column below a minimal-valuation pivot, clearing its row by column shears leaves the trailing block unchanged. The Schur determinant separately follows by weights 4 for triple adjacencies and 3 for quadruple adjacencies. In the specified regular semistable unit-thickness setting the graph is already the one used by Raynaud's theorem, so the same critical group describes the geometric Néron component group.",
+      "residual_risks": [
+        "The Néron assertion is for the reduced special fiber and unit-thickness regular model over C[[t]], not arbitrary weights or smoothings of the original plane union."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seceleanu studies the 49-point ideal and symbolic powers. The blowup in Bauer et al. is directly relevant but the inspected discussion concerns negative curves on the surface.",
+          "Raynaud's theorem supplies a general identification with a graph Jacobian. It does not assert the invariant factors of this incidence graph."
+        ],
+        "reasoning": "The same ambient surface and the same general functor do not supply the exact Smith factors. A tree count would supply only the order; the invariant-factor computations are essential.",
+        "searches": [
+          "Seceleanu arXiv:1410.0312 pp. 2–3; Bauer et al. arXiv:1609.08648 p. 2",
+          "Amini–Baker–Brugallé–Rabinoff §8 Theorem 8.2; local search for full incidence blowup and graph critical-group formulas"
+        ]
+      },
+      "checked_sources": [
+        "Local published records e8bf274dc1e0, e49b5f236b21, f5f69caa3f6c",
+        "Bauer et al. arXiv:1407.2966 and arXiv:1609.08648",
+        "Seceleanu arXiv:1410.0312, Gévay–Pokora arXiv:2211.15309, Janasz–Pokora–Zieliński arXiv:2308.16514, Amini–Baker–Brugallé–Rabinoff §8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two 84-edge subgraphs share all 21 line vertices. Gluing along those vertices combines their rational Schur forms on one common space and is not a one-vertex wedge with a direct sum of critical groups.",
+          "The prime 719 is absent from each smaller group and arises in the full calculation from 71^2−8 = 7·719. The finite group for the full graph is not recoverable simply by collecting subgraph invariant factors."
+        ],
+        "reasoning": "The general theorem determines what must be computed, and the configurations determine the input matrix; neither mechanically specializes to the complete claimed integral list without further calculation.",
+        "searches": [
+          "Statement-level comparison of e49b5f236b21 and f5f69caa3f6c with the full-block Laplacian",
+          "Amini–Baker–Brugallé–Rabinoff Theorem 8.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the 70-vertex, 168-edge full Levi graph, unchanged by swapping incidence sides. The published Klein quadruple configuration has 42 vertices and the triple-only Klein/bitangent alias has 49 vertices, each with 84 edges.",
+          "The known incidence counts and the dual bitangent formulation do not identify either subgraph with the full boundary."
+        ],
+        "reasoning": "An alias based on only one exceptional-point type loses 84 incidences and changes the graph. A general graph result for the full two-valency point side would be relevant; a result on one point type cannot be applied by renaming.",
+        "searches": [
+          "Local Resultary: Klein all-49 singular-point incidence, full Levi graph, boundary after all ordinary point blowups, component group",
+          "Bauer et al. arXiv:1407.2966 §4.1; Gévay–Pokora arXiv:2211.15309 p. 1; Janasz–Pokora–Zieliński arXiv:2308.16514 Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8bf274dc1e0 is the identical frozen finding, not independent prior evidence.",
+          "e49b5f236b21 is the triple-only group (2^4, 18, 54, 108, 756^5 as multiplicities of cyclic factors). f5f69caa3f6c is the quadruple-only group (2^10, 6, 138, 966^4, 1932). Neither gives the full group with six elementary 719 factors."
+        ],
+        "reasoning": "Precisely matching the object and Smith list matters. This bounded comparison found distinct lists for smaller graphs, not an independent exact full-graph table entry. It does not establish exhaustive priority.",
+        "searches": [
+          "Local Resultary: 70 vertices, 168 edges/nodes, Smith factors 155304 and 1087128, prime 719",
+          "Compare exact indexed records e8bf274dc1e0, e49b5f236b21 and f5f69caa3f6c"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct supported contribution is the exact integral group of the full 21-line/49-point incidence boundary. The arrangement, this ambient blowup, and the graph component-group theorem are not new. The same-day exact subgraph computations are genuine related claims but neither contains the integral calculation for the full graph. The identical mirrored record is not independent evidence of earlier coverage.",
+      "residual_risks": [
+        "Full texts of Jeurissen–van Os–Steenbrink (1994) and Innamorati (2024) were not available in the bounded retrieval attempts.",
+        "An earlier unindexed exact graph calculation or an unknown equivalent alias could affect originality; no ordering is inferred from shared record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical target, not an independent source of prior coverage",
+          "evidence": "Same 70 vertices, 168 nodes, regular smoothing and invariant factors.",
+          "identifier_or_url": "e8bf274dc1e0",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local published-record mirror and frozen input comparison",
+          "title": "The integral Néron component group of the stable Klein 21-line boundary",
+          "trigger": "Exact match to the full graph and group"
+        },
+        {
+          "assessment": "Substantial same-arrangement overlap, proper subgraph",
+          "evidence": "21 lines and 28 triple points (or the dual bitangent alias), 49 vertices, 84 edges, different group.",
+          "identifier_or_url": "e49b5f236b21",
+          "material_read": "RESULT.md offsets 0 and 5900",
+          "method": "Local published-record mirror",
+          "title": "The integral graph Jacobian of the Klein 28–21 bitangent incidence configuration",
+          "trigger": "Closest triple-only graph and bitangent alias"
+        },
+        {
+          "assessment": "Substantial same-arrangement overlap, proper subgraph",
+          "evidence": "21 lines and 21 quadruple points, 42 vertices and 84 edges; excludes triple points.",
+          "identifier_or_url": "f5f69caa3f6c",
+          "material_read": "RESULT.md offsets 0 and 5700",
+          "method": "Local published-record mirror",
+          "title": "Integral graph Jacobian of the Klein (21_4) quadruple-point configuration",
+          "trigger": "Closest quadruple-only graph with exact Smith data"
+        },
+        {
+          "assessment": "Geometry, not a full boundary Smith computation in this passage",
+          "evidence": "Four triple and four quadruple points per line; 28 and 21 points of the two types.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2966",
+          "material_read": "§4.1, p. 10, offset about 34600",
+          "method": "Read located OA full text",
+          "title": "Bounded Negativity and Arrangements of Lines",
+          "trigger": "Primary complete singularity census"
+        },
+        {
+          "assessment": "Same points, different invariant",
+          "evidence": "Defining point ideal and symbolic-power questions.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.0312",
+          "material_read": "pp. 2–3, offset about 9108",
+          "method": "Read located OA full text",
+          "title": "A homological criterion for the containment between symbolic and ordinary powers of some ideals of points in P^2",
+          "trigger": "Exact 49-point singular locus"
+        },
+        {
+          "assessment": "Same blowup, not an integral component-group passage",
+          "evidence": "Blowup of the 49 Klein points and negative self-intersection curves.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.08648",
+          "material_read": "p. 2, offset about 6378",
+          "method": "Read located OA full text",
+          "title": "Negative curves on symmetric blowups of the projective plane, resurgences and Waldschmidt constants",
+          "trigger": "Exact full blowup surface"
+        },
+        {
+          "assessment": "Covers the interpretation, not the graph's Smith list",
+          "evidence": "Raynaud identifies the geometric component group with the Jacobian of the regularized graph.",
+          "identifier_or_url": "https://www.math.ens.psl.eu/~amini/Publications/hmmcI.pdf",
+          "material_read": "§8 Theorem 8.2, p. 49, offset about 223961",
+          "method": "Read located OA full text",
+          "title": "Lifting harmonic morphisms I",
+          "trigger": "General component-group theorem that might subsume the interpretation"
+        },
+        {
+          "assessment": "Distinguishes the smaller symmetric quadruple configuration",
+          "evidence": "The symmetric (21_4) configuration uses 21 lines and their 21 quadruple points.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15309",
+          "material_read": "p. 1, offset about 2182",
+          "method": "Read located OA full text",
+          "title": "Klein's arrangements of lines and conics",
+          "trigger": "Named symmetric Klein configuration and point-type aliases"
+        },
+        {
+          "assessment": "Classical bitangent arrangement, not the full boundary",
+          "evidence": "28 Klein bitangents have 252 double points and 21 quadruple crossings.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16514",
+          "material_read": "§3 Proposition 3.1, p. 4, offset about 13681",
+          "method": "Read located OA full text",
+          "title": "On arrangements of smooth plane quartics and their bitangents",
+          "trigger": "Klein bitangent incidence alias for a smaller graph"
+        },
+        {
+          "assessment": "Inaccessible full text; no inference of coverage or noncoverage",
+          "evidence": "Known to concern Klein bitangent configuration; full graph-invariant treatment not checked.",
+          "identifier_or_url": "10.1016/0012-365X(94)90233-X",
+          "material_read": "Bibliographic/abstract material only; no lawful repository copy located",
+          "method": "Bounded OA lookup",
+          "title": "The configuration of bitangents of the Klein curve",
+          "trigger": "Klein incidence alias covering some constituent geometry"
+        },
+        {
+          "assessment": "Inaccessible full text; no inference of coverage or noncoverage",
+          "evidence": "No decisive passage obtained.",
+          "identifier_or_url": "10.3390/axioms13050321",
+          "material_read": "Bibliographic/landing material only; no readable full text via checked PDF/HTML routes",
+          "method": "Bounded lawful publisher-page attempts",
+          "title": "Quasi-Configurations Derived by Special Arrangements of Lines",
+          "trigger": "Potential alternate terminology for a Klein incidence construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact independently computed group",
+        "Raynaud identification in Amini–Baker–Brugallé–Rabinoff §8",
+        "Related exact subgraphs e49b5f236b21 and f5f69caa3f6c"
+      ],
+      "rationale": "The graph comes from the canonical complete normal-crossings resolution of the classical Klein arrangement, not an arbitrary graph slice. Its invariant factors identify exactly the component group of a unit-thickness smoothing and distinguish cyclic structure that genus and determinant alone do not. The six 719-primary factors are genuinely new information relative to the two point-type-only computations and relevant to integral degenerations with this central fiber.",
+      "residual_risks": [
+        "This is one natural exact boundary invariant, not a classification of other arrangements, nonunit smoothings or surface Picard groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

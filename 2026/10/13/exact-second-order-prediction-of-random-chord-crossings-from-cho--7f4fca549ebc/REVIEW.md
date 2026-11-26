@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the geometric crossing count of \(n\ge2\) independently and uniformly sampled endpoint-paired chords in a unit circle. A short-arc fraction is determined by each chord's Euclidean length. Rotation of the second chord against a fixed first chord gives conditional crossing probability \(2\min(r,s)\) by a symmetric-difference arc calculation. Distinct crossing indicators, even when sharing one chord, are pairwise independent once the complete chord-length vector is fixed, because conditional success probabilities do not depend on the shared chord's rotation. This justifies the exact conditional variance as a sum of Bernoulli variances. Independent short-arc fractions have density \(2\); four explicit integrals and a count of overlapping pairs give the unconditional variance decomposition. The attached script verifies identities symbolically and provides independent geometric simulations; the universal proof is analytic and does not rely on finite testing.
+PASS
 
-## Originality — PASS, with residual historical uncertainty
+For each chord the minor-arc start is uniform independent of its minor-arc length, by uniform translation of the two endpoints. Chords therefore have independent uniform rotations given their lengths, using the natural regular conditional version; repeated endpoint and diameter exceptions are null. For short arcs of fractions r,s≤1/2, the intersection of an interval of length r and its translate by s has length (r−s)_+ (no wraparound contributes positive length). Their symmetric difference has length 2min(r,s), exactly the endpoint-alternation event. Distinct crossing indicators on disjoint chord pairs use independent rotations. For pairs sharing a chord, fixing its rotation leaves the two other rotations independent with crossing probabilities constant in the fixed rotation, so the indicators are pairwise independent given the lengths. This suffices to sum the Bernoulli variances, not to assert mutual independence. For a moment replay, set W_i=2r_i, iid Uniform(0,1); g=min(W_i,W_j) has density 2(1−g) and moments 1/3 and 1/6. Its one-chord average is w−w²/2, with mean 1/3 and second moment 2/15, hence variance 1/45. There are three unordered pairs of edges sharing one endpoint per index triple; counting both covariance orders yields Var(M_n)=binom(n,2)/18+6 binom(n,3)/45. The integrated conditional variance is binom(n,2)/6. Their sum gives the quoted total variance, and their ratio gives the explained fraction, also at n=2. The L² projection property gives uniqueness up to almost-sure equality. The analytic argument proves the finite-n formulas. The frozen symbolic code and simulation record were inspected, not rerun; sampling is corroboration only.
 
-Acan (arXiv:1501.01489v1), Flajolet and Noy (INRIA RR-3914), Bortolotto and Souza (arXiv:2504.12866v1), and Bortolotto and Ramos (DOI 10.1112/mtk.70024) were compared at the level of objects, hypotheses, and conclusions. Flajolet and Noy explicitly establish the unconditional crossing mean and variance; these are *not* claimed as original. Acan's chord length is a discrete number of intervening endpoints, rather than the Euclidean length produced by random endpoint spacing. The geometric papers treat intersection positions or one-pair probabilities, not an exact formula for \(\mathbb E[X_n\mid L_1,\dots,L_n]\), its conditional variance, or the sharp full-vector explained fraction. Targeted public and mathematical-record searches found no same-statement coverage, although that does not prove absolute priority. A direct older short-arc intersection identity, or a combination of general conditional \(U\)-statistic projection principles, could imply a part of the result and remains an explicit residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The crossing count records the topology of a full circular arrangement, whereas measured chord lengths provide purely geometric information. The result establishes the *optimal* predictor from all lengths and its exact, nonasymptotic residual mean-square error, then shows length information explains a fraction tending to 100% of the entire \(O(n^3)\) crossing-count variance. The sharp formula \((4n-3)/(4n+12)\) is a natural dimensionless measure of how much random orientation still matters at each sample size; the residual conditional variance is only \(O(n^2)\). This is stronger and more structurally motivated than a small numerical gain or a single marginal moment.
+Marginal crossing-count moments are prior and explicitly excluded from the novelty claim. The supported distinct contribution is the full Euclidean-length-vector conditional mean and variance and the sharp decomposition of prediction risk, not the complete conditional distribution. The closest catalogue comparison uses only the additive one-chord projection, and the primary literature inspected does not supply the full geometric conditioning calculation.
 
-## Source and proof limitations
+## value
 
-The result applies only to independent uniform endpoint chords, not other Bertrand models. Pairwise conditional independence does not yield mutual independence or a conditional distribution. Prior literature contains the unconditional crossing-count moments, and may contain an unlocated implication of the conditional identity. All computations in `verify.py` are corroborative, not substitutes for the displayed argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural prediction problem asks how much of a topological count can be recovered from metric observations. The exact full-vector optimal risk separates the O(n²) residual rotation effect from O(n³) total variance, and the conditional variances apply even for fixed inhomogeneous length profiles. The exact residual also distinguishes conditioning on all lengths from the simpler additive one-chord predictor. No significance is claimed for other chord models or for conditional tail laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

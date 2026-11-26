@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:43:23.989703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; CHECK.py (inspected, not executed)",
+        "/workspace/review_checks.py: python3 review_checks.py 3; exact rational slopes and independent numerical checks by substitution of the positive-predator nullcline",
+        "Govindan–Singh DOI 10.1371/journal.pone.0360316, model p. 5 and prey-only stability condition p. 14"
+      ],
+      "rationale": "H decreases strictly from r to 0 on (0,K) when qK<=1, including qK=1 away from x=0. At a prey-only equilibrium f_x=xH'/(1+qx)<0, and the other eigenvalue is G. Its numerator is -vBx²+(A-v-dB)x-d; there is a positive interval iff the quadratic has two distinct positive roots, equivalently A>(sqrt(v)+sqrt(dB))². Intersecting (x_-,x_+) with (0,K) and applying the decreasing H gives every stated root/capacity case, with the equality cases excluded from strict invasion. At in-range simple thresholds, solve f=0 as x=phi(y,h) with phi(0,h)=x_h and phi_y=-R. The positive equilibrium relation G(phi)-my=0 then has y-derivative Q=-m-G'R and h-derivative lambda'=G'/H'. When Q!=0, IFT gives slope -lambda'/Q. On the positive branch the dynamical Jacobian has negative trace sufficiently near collision and determinant y f_x[-m-G'(x)f_y/f_x]; thus Q>0 makes a saddle and Q<0 a sink. At x_+, lambda'>0 and Q=m_crit-m; at x_-, lambda'<0 and Q<0. This proves the branch-side and stability claims without relying on a numerical center manifold. The example gives exact H(3)=26/25, H(1)=44/25, m_crit=299/5500 and slopes -125/61 and -125/118, with nearby finite-state determinant signs independently checked.",
+      "residual_risks": [
+        "The claim concerns the classical autonomous ODE, strictly positive invasion exponents and nearby branches at simple in-range thresholds. A zero exponent alone does not classify nonlinear stability. Degenerate equality m=m_crit and global replacement, persistence or extinction are not settled."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional parent model contains the matching integer-order system, plus local equilibrium criteria. Qin–Dong's accessible equations include impulsive controls, not this smooth harvest branch. The other named ecology papers were not accessible as full text on the attempted lawful routes."
+        ],
+        "reasoning": "An exact sign or bifurcation diagram for the parent model could dominate the claimed restriction, but the inspected parent theorem is a pointwise stability criterion, not the model-specific cutoff for local coexistence. Impulsive periodic-orbit statements do not specialize to these smooth local thresholds as stated. No assessment of full-paper noncoverage is made for inaccessible works.",
+        "searches": [
+          "Govindan–Singh model p. 5, equilibria p. 11 and Theorem 7 p. 14; Qin–Dong DOI 10.1186/s13662-024-03804-9, model pp. 3–4",
+          "Govindan–Singh related literature and references: Ojha et al. DOI 10.1016/j.chaos.2025.116409, Haque–Sarwardi DOI 10.1142/S0218127418300409, Umrao et al. DOI 10.1002/mma.10431"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and available mirrors",
+        "DOI 10.1371/journal.pone.0360316",
+        "DOI 10.1186/s13662-024-03804-9",
+        "Bibliographic comparisons DOI 10.1016/j.chaos.2025.116409, 10.1142/S0218127418300409 and 10.1002/mma.10431"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known C5 plus H monotonicity and a quadratic discriminant give the strict invasion window directly. The coexistence cutoff needs the interaction between prey displacement from the prey nullcline and predator growth, including the sign change of G' across the two roots and the effect of the explicit self-limitation term."
+        ],
+        "reasoning": "The pointwise test and use of the standard transcritical calculation are credited to existing results/methods; the test alone contains no m in G(x_h) and cannot decide coexistence criticality. The explicit sign asymmetry and sharp low-threshold cutoff for this model are not supplied by the inspected results.",
+        "searches": [
+          "Govindan–Singh Theorem 7, C5; model p. 5; standard implicit steady-branch reduction applied to these equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source equations at alpha=1 match the model, and Theorem 7 condition C5 is the sign of G(x_h); thereby it covers the pointwise invasion criterion. Indexed age-structured reentrance 09e4b1a89451 and mirrored counterattack 068869ecfe94 concern a maturation mechanism and a discrete prey two-cycle, respectively."
+        ],
+        "reasoning": "Describing crossings by prey density rather than harvest is equivalent only on a specified monotone branch. Rephrasing C5 does not by itself classify both transcritical branches. A juvenile/adult invasion operator or invasion on a resident cycle is not the scalar equilibrium exponent in this model.",
+        "searches": [
+          "Govindan–Singh PLOS ONE e0360316 prey-only equilibrium and condition C5 at alpha=1",
+          "Local Resultary for reentrant predator invasion, anti-predator retaliation and prey harvest"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is an index self-match. The strongest distinct reentrance analogue is 09e4b1a89451, age-structured smooth maturation (indexed statement only; mirror unavailable). Mirrored 068869ecfe94 shows a counterattack threshold over a prey two-cycle in a discrete juvenile/adult model."
+        ],
+        "reasoning": "No checked distinct entry provides the exact H(x_+), H(x_-) plus m_crit classification for the given ODE. Without the age-structured record's full text the comparison is limited to the indexed claim.",
+        "searches": [
+          "Local Resultary for two harvest thresholds, reentrant invasion, retaliation cutoff and backward transcritical coexistence"
+        ]
+      },
+      "rationale": "The model and invasion eigenvalue are existing results, and the window follows by elementary algebra from that eigenvalue. The supported distinct claim is the combined sharp model-specific two-harvest-crossing and criticality classification, including the positive m cutoff at one end and exclusion of backward entry at the other; it is not a new general bifurcation mechanism or method.",
+      "residual_risks": [
+        "Named older works on anti-predator behavior, fear and harvesting leave an equation-level priority risk due to bounded access. The nearest accessible passages and comparisons are not a systematic priority survey. Reentrant invasion and backward transcritical bifurcations are not claimed new in ecology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model at alpha=1 and equivalent pointwise invasion criterion; inspected material does not supply the joint branch cutoff",
+          "evidence": "Harvest hx/(1+qx), counterattack -vxy and self-limitation -my² appear together; C5 tests G(x_h).",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0360316",
+          "material_read": "Model p. 5 (OA offsets 19350–24342), prey-only equilibrium p. 11 (43280), Theorem 7 p. 14 (59400), introduction and references pp. 2, 55",
+          "method": "OA PLOS primary text, targeted passages",
+          "title": "Dynamics and optimal harvesting of a fractional predator–prey system with fear and anti-predator mechanisms",
+          "trigger": "Exact parent model and possible dominating stability/bifurcation theorem"
+        },
+        {
+          "assessment": "Different control and dynamics",
+          "evidence": "State-dependent pesticide pulses and natural-enemy releases, with order-k periodic solutions.",
+          "identifier_or_url": "https://doi.org/10.1186/s13662-024-03804-9",
+          "material_read": "Abstract and model pp. 3–4 (OA offsets 0 and 9002–17943)",
+          "method": "OA primary text, targeted passages",
+          "title": "The impact of resource limitation on the pest-natural enemy ecosystem with anti-predator behavior and fear effect",
+          "trigger": "Anti-predator harvesting/control analogue"
+        },
+        {
+          "assessment": "Equation overlap unresolved",
+          "evidence": "The listing concerns anti-predator behavior, refuge and additional food; it does not establish whether the same harvest law and criticality classification are present.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2025.116409",
+          "material_read": "Accessible bibliographic listing; no full model or theorem passages",
+          "method": "Lawful OA retrieval attempt; publisher returned 403",
+          "title": "Predator–prey dynamics in autonomous and nonautonomous settings: Impacts of anti-predator behavior, refuge, and additional food",
+          "trigger": "Possible older anti-predator model with overlapping bifurcations"
+        },
+        {
+          "assessment": "Equation overlap unresolved",
+          "evidence": "The citation establishes harvesting and refuge context, not the dynamics of the counterattack term or criticality.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127418300409",
+          "material_read": "Citation in Govindan–Singh p. 55, no full-text passages",
+          "method": "Reference trail and lawful full-text attempt; publisher returned 403",
+          "title": "Dynamics of a harvested prey–predator model with prey refuge dependent on both species",
+          "trigger": "Older cited harvested/refuge model"
+        },
+        {
+          "assessment": "Equation overlap unresolved",
+          "evidence": "Title indicates plausible related bifurcation context; no matching threshold can be confirmed or excluded.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.10431",
+          "material_read": "Citation in Govindan–Singh p. 55, no full-text passages",
+          "method": "Reference trail and lawful full-text attempt; publisher returned 403",
+          "title": "Nonlinear dynamics in a fear-driven predator–prey system: Bistability, bifurcations, hydra effect, and optimal harvesting",
+          "trigger": "Earlier fear/harvesting bifurcation work"
+        },
+        {
+          "assessment": "Relevant analogues with different resident state/structure; no priority inferred",
+          "evidence": "The former uses age-structured maturation and an intermediate-prey interval; the latter uses a discrete juvenile/adult predator on a prey cycle.",
+          "identifier_or_url": "Resultary 09e4b1a89451 and 068869ecfe94",
+          "material_read": "Indexed claim (09e4b1a89451; mirror unavailable) and mirrored RESULT.md Finding (068869ecfe94)",
+          "method": "Local Resultary and mirror",
+          "title": "High-resource invasion limits under smooth maturation and a counterattack threshold over a prey two-cycle",
+          "trigger": "Closest indexed reentrant and counterattack thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Govindan–Singh model equations and local stability condition C5"
+      ],
+      "rationale": "Harvesting a prey can improve rare-predator growth by lowering prey counterattack and then make growth worse by limiting food. The exact capacity and harvest thresholds distinguish that regime from monotone or absent invasion. Even on the non-invasion side of the lower threshold, weak predator self-limitation allows a nearby positive saddle, while the upper threshold cannot have that backward entry in this model. This makes the cutoff useful for interpreting equilibrium diagrams rather than a mere reformulation of the invasion eigenvalue.",
+      "residual_risks": [
+        "The local saddle does not establish bistability between two attractors, a global hysteresis loop or management advice. The classification is not asserted for fractional memory dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

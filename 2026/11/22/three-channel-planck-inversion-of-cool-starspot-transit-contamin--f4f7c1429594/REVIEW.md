@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Planck ratios cancel their wavelength prefactors and factor exactly into \((s^k-1)/(t^k-1)\); the two contrast differences yield \(R=(s+1)(s+t)/(1+t^2)\). Its derivative is strictly negative throughout \(t>s>1\), with exact endpoint range \((0,2s(s+1)/(1+s^2))\). The quadratic branch, affine inversion, physical-domain sufficiency and open two-channel ambiguity are reconstructed in RESULT.md. An exact rational witness and fixed-seed numerical checks corroborate the algebra; the proof does not depend on finite testing. Assumptions include three precisely harmonically related monochromatic wavelengths, an achromatic transit and known stellar temperature.
+## correctness
 
-**Originality — PASS on inspected evidence.** The established unocculted-spot forward contamination equation is explicitly credited to Rackham, Apai and Giampapa; Saba et al. study the observational retrieval challenge; Rosich et al. (2020) explicitly note the general ability of three photometric activity bands to determine three activity parameters, but those are rotational modulation observables, not achromatic single-epoch transit depths. Thompson et al. and Chakraborty et al. include additional physical components. The particular strictly monotone three-channel Planck ratio, full data-realizability inequalities and local two-channel obstruction were not found in inspected statements. Earlier blackbody-mixture results about spectral pivot wavelengths concern forward spectral signs, not this inverse; an earlier multi-epoch theorem assumes known band contrasts and identifies many time-dependent fill fractions, not an unknown spot temperature at one epoch. Residual risk: an uninspected general theorem on finite Planck-mixture inversion could subsume these special formulas, so historical priority is not independently certified.
+PASS
 
-**Value — PASS.** The object is a natural identifiability question in exoplanet stellar-contamination inference: what number and configuration of independent channels suffice, and which observed data are even compatible with the ideal model? Three equidilated wavelengths give a closed-form global inverse, an exact falsifiability test and a sharp minimal channel count; the result differentiates structural nonidentifiability from near-boundary numerical instability. This is a mathematically interpretable benchmark, not a claim of instrument-ready estimation or broad-band applicability.
+Reconstructed RESULT.md lines 34–70. Planck prefactors cancel at each wavelength, giving r_j=(s^k−1)/(t^k−1), k=4,2,1. For t>s>1, r_2/r_3=(s+1)/(t+1)<1 and r_1/r_2=(s²+1)/(t²+1)<1, so reciprocal depths order strictly when β>0. Factoring the two differences gives F_s(t)=(s+1)(s+t)/(1+t²); differentiation and endpoints give the strictly decreasing bijection onto (0,2s(s+1)/(1+s²)). In this interval R<s(s+1), so the quadratic has negative constant and positive leading coefficient: the plus radical is the only positive root, and the range calculation ensures t>s. Recovering β from the last two reciprocals and α from either of them matches the first via the same ratio. The equations f=β/(α+β), δ=1/(α+β) give the exact interior constraints β>0 and α>1; strict ordering already gives β>0. With any two distinct channels the two affine coefficients vary continuously as t varies, retaining the strict inequalities in a neighborhood, so the ambiguity is indeed local at every interior point. Even for arbitrary distinct monochromatic wavelengths the contrasts differ: with κ=T_star/T_c>1, log((e^x−1)/(e^(κx)−1)) has derivative [g(x)−g(κx)]/x<0, g(x)=x/(1−e^(−x)) increasing for x>0. Achromatic endpoints lose the spot information as stated. The s=2,t=3 example gives differences 75/16 and 25/8, R=3/2 and (α,β)=(75,25). I inspected checker.py without executing it; the synthetic runs reported by the record are not a proof of its all-parameter claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the globally exact inverse and sharp physical data range at the three specified monochromatic wavelengths, together with the exact minimal channel count in that model. The transit-light-source forward formula, the use of multicolour information, and the broader principle of breaking spot degeneracies with another band are not credited as new. No inspected exact theorem settles this prescribed inverse and its image.
+
+## value
+
+PASS
+
+This gives one simple exact model in which observers can distinguish structural two-band ambiguity from an invertible three-band diagnostic. The geometric wavelengths give a factorization that proves global rather than local identification and make rejection of incompatible positive triples possible. The strict α bound has the physical meaning that the planet is smaller than the available photospheric area. Value is as a noiseless identifiability and feasibility benchmark, not an instrument-ready estimator or an assertion about arbitrary wavelength triples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

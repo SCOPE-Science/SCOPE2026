@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:01.240785Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57 and VERIFICATION.md line 19",
+        "Frozen verify.py lines 6–34, inspected only",
+        "Independent replay: python /tmp/opencode/frozen_math_replay.py 1"
+      ],
+      "rationale": "On the invariant square an endemic equilibrium has 0<M<1. Substituting both equilibrium coordinates into the weighted mean and multiplying positive denominators gives a bijection to physical roots of the stated quartic. I recomputed the five witness signs by evaluating the fixed-point residual directly in exact fractions and reconstructing the polynomial values. The four disjoint sign changes exhaust the quartic and force simple roots. For the diagonal-plus-rank-one Jacobian the determinant is −D1 D2 times the slope of the fixed-point residual. This gives saddles at crossings of positive residual slope, while at negative slope the two nonnegative normalized diagonal corrections sum to less than one, giving negative trace and positive determinant. The disease-free Jacobian is −I. The four interior simple roots and their hyperbolic types persist for nearby positive parameters within the model, and the quartic cap precludes an additional endemic equilibrium. In the equal-susceptibility case the positive fixed-point condition reduces to a quadratic.",
+      "residual_risks": [
+        "Perturbation is within the displayed model, and stability is local. The proof does not describe global basins, stochastic dynamics or empirical epidemic parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Multi-group higher-order SIS regimes give threshold, existence and stability results but do not exhaust the space in the inspected theorem. The opinion-coupled model has an extra dynamical variable and both pairwise and higher-order terms.",
+          "The all-order scalar mean-field model has at most two endemic roots in the homogeneous pure-triad case and allows two stable endemic states at higher orders. Yang–Zhang's accessible abstract addresses backward bifurcation for mixed node–hyperedge dynamics."
+        ],
+        "reasoning": "An overarching equation class is not a classification, and a homogeneous construction using more orders is not a construction in the fixed two-class pure-triad class. The Yang–Zhang abstract does not settle coverage of the census; no stronger result was inferred from it.",
+        "searches": [
+          "arXiv:2005.11404v3 Theorem 4.2",
+          "arXiv:2608.31032v1 equations (3)–(4) and conclusion",
+          "arXiv:2309.12752v1 equation (II.31) and bifurcation analysis",
+          "Yang–Zhang DOI:10.1016/j.aml.2025.109620"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1e1ec14295d0, 05e1cb0684bf, 52adade0259d",
+        "arXiv:2006.15453v2, 2005.11404v3, 2608.31032v1, 2309.12752v1",
+        "DOI:10.1007/s00285-025-02247-4 and DOI:10.1016/j.aml.2025.109620 (latter abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the cited two-population parameterization the pairwise term is present; the description of three-body interactions as sufficient refers to maximum interaction order, not exclusion of pairwise terms.",
+          "A heterogeneous pure-triad two-class statement is neither the one-population pure-triad quadratic case nor the one-population higher-order multiple-sink result."
+        ],
+        "reasoning": "No inspected theorem yields both the upper bound for every positive two-class parameter tuple and an attaining pairwise-free tuple with two distinct attracting endemic equilibria. Credit earlier multistability phenomena without claiming their equivalence to this restriction.",
+        "searches": [
+          "Kiss–Bick–Simon DOI:10.1007/s00285-025-02247-4 equations (2.8), (4.2) and conclusion",
+          "Kiss–Iacopini–Simon–Georgiou arXiv:2309.12752v1 equation (II.31) and bifurcations",
+          "Cisneros-Velarde–Bullo arXiv:2005.11404v3 Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-one formulation is a specialization of general heterogeneous collective-contagion equations, but the general formulation gives no sharp count in the inspected sections.",
+          "Kiss–Bick–Simon report multiple stable states in two groups, but use within-group triadic terms and cross-group pairwise terms, rather than a single pooled square."
+        ],
+        "reasoning": "Formulating the problem as a prevalence fixed point, a separable quadratic incidence tensor, or a two-susceptibility population leaves the essential structural restriction unchanged. Generic multistability is not the claim.",
+        "searches": [
+          "Resultary exact title and two-class pure-triadic pooled-prevalence formulations",
+          "Web lookup for heterogeneous higher-order multi-group SIS; follow-up exact PII S0893965925001703",
+          "arXiv:2006.15453v2 §III; DOI:10.1007/s00285-025-02247-4 §2.3 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pure-triad hub-of-triangles record gives exponentially many equilibria in the number of triangles but only one locally stable fully active endemic state.",
+          "The other two exact counts/designs use homogeneous higher-order incidence with multiple active group sizes."
+        ],
+        "reasoning": "Related equilibrium counts are indexed, but they count a different state space or a different incidence law. No indexed table classifying four roots of the present fixed-point quartic was found.",
+        "searches": [
+          "Resultary pure-triad equilibrium and stability census 1e1ec14295d0",
+          "Resultary sharp endemic attractor capacity 05e1cb0684bf",
+          "Resultary maximal endemic multiplicity inverse design 52adade0259d"
+        ]
+      },
+      "rationale": "Heterogeneous high-order SIS incidence and multiple attracting endemic states in other high-order systems are established ideas. The supported distinct result is the sharp census and two endemic sinks in the fully pooled, rank-one, pairwise-free two-class equations. The closest located model overlap and the closest located stability overlap do not imply that census.",
+      "residual_risks": [
+        "Yang–Zhang full text remained unavailable and an earlier equivalent specialized calculation cannot be ruled out. No claim of novelty for the general model class or higher-order multistability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model-class overlap",
+          "evidence": "Collective contagion products and hyperdegree mean-field terms cover the general architecture, but the read analysis does not give the sharp equilibrium census.",
+          "identifier_or_url": "arXiv:2006.15453v2; DOI:10.1063/5.0020034",
+          "material_read": "pp. 1–4, especially §III, Eqs. (2)–(4), offsets 0, 17212, 21159",
+          "method": "OA primary PDF text",
+          "title": "The effect of heterogeneity on hypergraph contagion models",
+          "trigger": "Closest general heterogeneous collective-incidence formulation"
+        },
+        {
+          "assessment": "Not a complete multiplicity theorem",
+          "evidence": "The examined regime theorem treats disease-free/endemic/bistable behavior; its conditions do not exhaust parameter space.",
+          "identifier_or_url": "arXiv:2005.11404v3",
+          "material_read": "Abstract, description on pp. 3–4, Theorem 4.2 on p. 7, offsets 0, 12672, 27077",
+          "method": "OA primary PDF text",
+          "title": "Multi-group SIS Epidemics with Simplicial and Higher-Order Interactions",
+          "trigger": "Potential general multigroup theorem subsuming the claim"
+        },
+        {
+          "assessment": "Substantive prior multistability in a distinct architecture",
+          "evidence": "Reports up to four stable states with interactions up to order three; the displayed two-population SIS parameterization includes pairwise transmission and within-group quadratic terms, not the pooled squared mean.",
+          "identifier_or_url": "DOI:10.1007/s00285-025-02247-4",
+          "material_read": "Abstract, §2.3 Eq. (2.8), §4.1 Eq. (4.2), pp. 18–21 and p. 25 conclusion",
+          "method": "OA primary full-text passage review",
+          "title": "Decoding how higher-order network interactions shape contagion dynamics",
+          "trigger": "Prior multiple stable states in a polynomial two-population contagion model"
+        },
+        {
+          "assessment": "Different additional coupling and claim",
+          "evidence": "Opinion-dependent rates enter alongside pairwise and quadratic terms; the homogeneous discussion includes healthy–endemic bistability, not the sharp pure-triad census.",
+          "identifier_or_url": "arXiv:2608.31032v1",
+          "material_read": "pp. 1–2, Eqs. (3)–(4) and p. 8 conclusion, offsets 5419, 12249, 56500",
+          "method": "OA primary PDF text",
+          "title": "A Networked SIS Epidemic–Opinion Model with Higher-Order Interactions",
+          "trigger": "Recent higher-order multi-component SIS result"
+        },
+        {
+          "assessment": "Relevant lower and higher-order precedents, not the claimed class",
+          "evidence": "The homogeneous pure-triad specialization has at most two positive roots; two stable nontrivial states can occur with four-body interactions.",
+          "identifier_or_url": "arXiv:2309.12752v1",
+          "material_read": "Abstract, Eq. (II.31) on p. 7 and bifurcation analysis pp. 8–10, offsets 0, 35368, 46204",
+          "method": "OA primary PDF text",
+          "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+          "trigger": "Stepwise homogeneous multiplicity across interaction orders"
+        },
+        {
+          "assessment": "Full-text overlap cannot be ruled out",
+          "evidence": "The abstract states a mixed node–hyperedge mean-field model and a backward bifurcation, not a sharp four-equilibrium statement.",
+          "identifier_or_url": "DOI:10.1016/j.aml.2025.109620; PII S0893965925001703",
+          "material_read": "Bibliographic and abstract text in accessible mirror; full text unavailable after publisher and DOI attempts",
+          "method": "Directed literature lookup, OA retrieval and alternate abstract",
+          "title": "The existence of backward bifurcation of an SIS epidemic model on facet-heterogeneous higher-order networks",
+          "trigger": "Closely related heterogeneous higher-order bifurcation"
+        },
+        {
+          "assessment": "Different interaction architecture and stability census",
+          "evidence": "On a hub of m triangles the census is 2^(m+1)−1 at λ>4, with only one locally stable endemic state.",
+          "identifier_or_url": "Resultary 2026/10/25, 1e1ec14295d0",
+          "material_read": "Finding, assumptions and scalar-count proof",
+          "method": "Published Resultary local mirror",
+          "title": "Equilibrium proliferation and sharp stability thresholds in pure triadic contagion",
+          "trigger": "Closest exact pure-triad equilibrium census in index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–14 and 16–63",
+        "Homogeneous reduction and stepwise comparison with arXiv:2309.12752v1"
+      ],
+      "rationale": "The homogeneous quadratic comparison motivates the minimally heterogeneous case. The result pairs a universal exact cap with an open region attaining it and separates two qualitatively distinct equilibrium scenarios by showing that two local endemic attractors need not rely on simultaneous interaction orders. This is a mathematical result about the specified deterministic equations, with no appeal to numerical simulation or empirical interpretation.",
+      "residual_risks": [
+        "The witness is not empirical; the theorem neither gives the full phase diagram nor generalizes to unpooled, stochastic or larger models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The starting hitting law is exactly Yoshida's finite scale formula [1, Theorem 1]. A uniform Riemann-sum argument on compact heights at every fixed interior parameter identifies the strictly convex potential \(F\) and its unique zero, and geometric domination gives the exact subcritical scale-function limit \(p/(2p-1)\). Bounded convergence over the uniform environment delivers the joint weak limit and the marked conditional law. A separate singular integral expansion proves the logarithmic endpoint coefficient. Finite rational recurrence checks (684 assertions) and finite-attenuation quadrature supplement the analytical proof; finite checks are not substituted for limiting proofs.
+## correctness
 
-**Originality — PASS, with historical uncertainty.** Yoshida [1, Sections 2–3, including Theorems 1 and 9] establishes the finite-height distribution but does not state the simultaneous weak-attenuation/macroscopic-height limit, the environment-dependent two-point law, its compact-support profile, or the logarithmic endpoint. Barrera–Bertoncini–Fernández [2] covers other birth-and-death asymptotic escape settings and does not directly imply the uniform resampled-parameter profile without additional nonuniform analysis. Targeted records and scientific literature queries for renewal-per-excursion height limits, dilogarithmic cutoff and spatially decaying gambler's ruin identified no equivalent complete statement. A general scale-function large-deviation or metastability theorem may imply portions of this result, and not all historical literature has been exhaustively reviewed. The finite height identity is expressly prior mathematics.
+PASS
 
-**Mathematical value — PASS.** Yoshida's model includes qualitatively different fixed-attenuation and no-attenuation regimes. The exact macroscopic maximum law resolves the natural singular boundary between them: it identifies when an excursion escapes to distance of order inverse attenuation, describes the survivals and the environment under conditioning, and shows an unusual finite-height boundary with logarithmic rather than power-law decay. It is more than a numerical refinement or a relabeling of a fixed-parameter hitting formula.
+Solving the two-boundary difference equation gives H=p/Σ_i T_i, including the probability p of taking the initial step. For fixed p in (0,1), ε log T_floor(u/ε) converges uniformly on compact u-intervals to F(p,u). Its strictly increasing u-derivative gives the stated sign split. When F(p,t)>0 the final term, even at index floor(t/ε)−1, grows exponentially. When F(p,t)<0, the early terms are uniformly geometrically bounded and converge termwise, and the remaining O(1/ε) terms are exponentially small by uniform negativity away from zero. Thus the positive exceedance limit is 2p−1 below t_c(p) and zero above it. This proves conditional weak convergence at its continuity points for each fixed p and hence joint convergence by integrating bounded test functions; replacing a floor by a ceiling at a fixed positive continuity threshold gives the same limits. Strict decrease of F in p and continuity at p=1 (integrable log singularity at u=0) give the unique increasing inverse p_t. Integration gives p_t(1−p_t), the 3/4 atom, absence of an atom at the upper endpoint, and the marked density by normalization. At the upper edge, on a fixed small u-interval, 1/u−1/(e^u−1) is bounded; the difference between the two corresponding log(1+δ·) integrals is therefore O(δ). The model integral gives δ log(1/δ)+O(δ) uniformly near t_*, and the positive derivative in t at t_* yields the stated edge constant by inversion. Independent numerical integration gives t_*=1.7054281548003088645…; this is corroboration, not proof. The provided checker and recorded output were inspected without running the supplied script.
 
-**Limitations.** The law is for one complete excursion with uniform parameter and geometric attenuation. It does not address general environments, long-time maxima, or finite-size rates. Bibliographic novelty is qualified pending independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-References: [1] https://arxiv.org/html/2604.22644v1; [2] https://arxiv.org/abs/0903.1832.
+Yoshida's exact finite-scale law and resampled excursion model are directly credited. The distinct result is the singular joint limit for that model, its uniformly mixed law, and the logarithmic endpoint with an explicit constant. Neither the exact-model source nor the strongest inspected analogous sources give that package. This judgment does not establish priority.
+
+## value
+
+PASS
+
+This extracts an explicit single-excursion scaling law from an exact but ε-dependent hitting formula. The phase boundary separates microscopic from macroscopic excursions conditional on p, and the mixed law predicts both the bias of environments seen in tall excursions and a logarithmically thinned upper edge, which cannot be read from a support bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

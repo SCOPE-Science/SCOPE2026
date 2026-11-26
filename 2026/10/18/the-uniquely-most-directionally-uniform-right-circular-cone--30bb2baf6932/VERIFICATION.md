@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The attached `verify.py` is a complete Python standard-library program. Run `python3 verify.py` from a directory containing the script. Its recorded execution returned `VERIFY_OK 1533` together with the minimizing parameter \(1.7090130666055141\), squared coefficient of variation \(0.0016869660783161\), and worst-direction minimizer \(1.7320508075688772\).
+## correctness
 
-The code numerically integrates the **pointwise support formula** without using the closed moments as a quadrature input, tests the independently derived closed moments at 16 nondegenerate aspect ratios, checks the exact derivative formula of the critical function at 499 points, verifies rational polynomial sign cases at 99 test points, and checks the derivative of the normalized variance at 400 further points. It also brackets and bisects the unique stationary equation and tests that the two anisotropy objectives select different cones.
+PASS
 
-For the **all-real-parameter** theorem, the relevant logical evidence is the analytic proof: the exact support-function reduction, the evaluated integrals, the positive-factor derivative identity, the two exhaustive sign cases for the polynomial-radical derivative on \((0,3]\), and the separate upper bound for every \(t\ge3\). The checker is corroborative only. Finite quadratures are not proofs of the displayed integral identities, and finite sign samples are not proofs of monotonicity. No exhaustive computational or external certification is claimed.
+For a Haar direction in dimension three, |u_z| is uniform on [0,1]. Taking the forward and reverse supports of the filled-base cone yields W/r=√(1−z²)+max(√(1−z²),tz), split at z=(1+t²)^(−1/2). Integrating on the two intervals gives exactly a/2 and b/3 for the first and second normalized moments. I independently differentiated 4b/(3a²)−1 and the reduced T symbolically; the positive-factor derivative and the P,Q radical identity in equations (4) and (5) both hold. On 0<t≤3 the numerator is strictly negative, bounded by P−Q when P≤0 and by 4P−Q otherwise. For t≥3 the stated root and Bernoulli bounds yield T<π/2+3/2<π: the required polynomial t³+t²−19t/2−4 is positive at 3 and strictly increasing thereafter. At the other end T~16/(5t). Thus the derivative sign changes exactly once, from negative to positive. At √3, T=π/3+6√3/5<π, putting the unique root strictly below √3. The width extremes themselves follow by testing the branch junction, the endpoint values t and 2, and the concave second branch maximum √(1+t²) if its stationary point lies on the branch: they give the stated two-piece worst-ratio profile and unique minimizer √3. Continuity on the sphere identifies extrema with essential extrema. Independent 70-digit arithmetic gave t*=1.70901306660551564276 and squared CV 0.00168696607831620408958. The frozen finite checker was inspected but not run; only the analytic inequalities justify global uniqueness.
+
+## originality
+
+PASS
+
+The retained distinct claim is the exact global cone CV optimization and its strict separation from the known worst-width optimum. The earlier full cone-width density is stronger for distributional questions, so the elementary moment formulas and the worst-ratio result do not receive independent originality credit. Neither that prior nor the same-day squared-CV optimization for another family supplies the cone minimizer or its global uniqueness reasoning in the inspected evidence.
+
+## value
+
+PASS
+
+Squared relative variation is an intrinsic scale-free loss for uniform directions. Finding the exact unique aspect ratio over the whole natural solid-cone family, and showing it differs strictly from the cone minimizing worst-direction variation, reveals an objective-dependent choice of shape that cannot be inferred merely from the old width-range optimum. The global comparison rather than the decimal approximation is the substantial content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

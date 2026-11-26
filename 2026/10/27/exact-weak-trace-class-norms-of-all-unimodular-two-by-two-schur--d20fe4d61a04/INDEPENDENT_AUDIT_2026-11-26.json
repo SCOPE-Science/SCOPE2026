@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:52.662074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–64, determinant identities, ellipse and explicit norming input",
+        "VERIFICATION.md and CHECK.py, inspected without execution"
+      ],
+      "rationale": "Row/column unitary factors and conjugation reduce the symbol to the stated angle with no change of ratio. With F the squared Frobenius norm and u,v the absolute normalized input/output determinants, the identities in (1) follow from the sum and product of the squared singular values. Solving for the two normalized products gives the sum-of-distances constraint with foci uc±iuh (c=cos(δ/2), h=sin(δ/2)); AM–GM ensures every matrix satisfies the constraint. The boundary modulus squared is a concave quadratic in cos φ. Its vertex is feasible exactly for u≥c (apart from the harmless degenerate endpoints), giving v_max=1 there and v_max=uc+h√(1−u²) below. Substitution into the 2s₂ branch yields a nondecreasing bound below c (the derivative numerator is c(1+u)/√(1−u²)+h−1≥0) and the decreasing square bound 2/(1+u) above. The s₁ branch is at most one by Frobenius invariance. The witness has F=4, u=c and v=1, so it gives exactly sec(δ/4), including δ=π where c=0. The δ=0 map preserves singular values and rank one gives equality. Cross-ratio one is exactly row-times-column phase factorization; Taylor expansion gives 1+δ²/32+O(δ⁴).",
+      "residual_risks": [
+        "The supplied NumPy samples are only finite evidence. The analytic proof is on scalar, complex 2×2 matrices and does not justify amplification or a different weak-quasinorm normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian compares the exact weak norm W to an approximation criterion D only by W/2≤D≤2W, also in the amplified setting.",
+          "The indexed S₄ theorem addresses ordinary and completely bounded norms in that exponent, not a broader family of exact weak endpoint laws."
+        ],
+        "reasoning": "Size or amplification generality is not dominance of the exact weak-target statement when the estimates have slack or the target changes.",
+        "searches": [
+          "Tian, arXiv:2610.20339, Definition (1.3), Theorem 1.2",
+          "Resultary 07c79d85df8d, amplification and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 07c79d85df8d finding, scope and related work",
+        "Tian Theorem 1.2",
+        "Davidson–Donsig access lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No sharp weak-norm constant follows by substituting the symbol in Tian’s two-sided comparison.",
+          "The related-work note in 07c79d85df8d explicitly distinguishes norms but provides no source for the weak law. Davidson–Donsig is a strong operator-norm lead, with the relevant full-text retrieval not completed."
+        ],
+        "reasoning": "To obtain the exact weak answer one must control the 2s₂ branch, including when the multiplier balances the output singular values. Neither strong duality nor the general weak-type comparison determines that optimization. The uncited note alone does not provide a checkable earlier implication.",
+        "searches": [
+          "Tian Theorem 1.2",
+          "07c79d85df8d, proof, small-phase expansion and references",
+          "Davidson–Donsig, Norms of Schur Multipliers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "07c79d85df8d shares the phase reduction, but states an S₄→S₄ law, with value 2^(1/4) at δ=π, where the weak-target value is √2. The respective norming inputs there are the Hadamard sign matrix and the all-ones matrix.",
+          "Strong trace duality exchanges S₁→S₁ and S∞→S∞ for the adjoint symbol, not S₁→S₁,∞."
+        ],
+        "reasoning": "Cross-ratio reparametrization or conjugation preserves the target; neither turns the strong Schatten expression into the weak quasinorm or transfers its sharp witnesses.",
+        "searches": [
+          "Resultary: unimodular two-by-two Schur phase laws, weak trace-class endpoint, gauge-equivalent symbols",
+          "Resultary 07c79d85df8d",
+          "Davidson–Donsig, arXiv:math/0506073"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved indexed exact phase calculation gives an S₄ formula and a linear small-phase correction δ/(8√2), not a weak-target table or formula.",
+          "The same record mentions a weak phase formula without giving its value, source or convention. No separate matching formula was identified by the focused lookup."
+        ],
+        "reasoning": "The phase varies continuously, so finite values or examples cannot cover the exact functional identity without an interpolation theorem; even at the endpoint the indexed S₄ value is different.",
+        "searches": [
+          "Resultary exact weak trace-class Schur phase law for 2×2 unimodular masks",
+          "07c79d85df8d, exact formula, endpoints and related-work passage"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact weak-target law on unimodular 2×2 symbols with a sharp witness, not the gauge reduction, boundedness or a strong Schatten norm. The strongest identified nearby indexed theorem is for S₄, and the cited broad weak-type theorem does not give exact weak norms. An uncited mention of a weak phase formula is a material priority risk, but does not identify a separate exact result or establish coverage.",
+      "residual_risks": [
+        "The uncited weak endpoint reference could indicate an equivalent source not identified by the focused comparisons, including a different normalization that would need conversion.",
+        "Historical priority beyond the inspected sources is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different target; uncited weak-endpoint reference not sufficient to establish duplicate coverage",
+          "evidence": [
+            "S₄ small-phase loss is linear; weak-target loss here is quadratic.",
+            "The note says an existing weak trace-class formula has a different norm, but provides no identification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-phase-law-and-extremizers-for-two-by-two-unimodular-schatt--07c79d85df8d/RESULT.md",
+          "material_read": "Opening finding and scope, endpoint calculation and relationship to prior work, including offset 6690 onward",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact phase law and extremizers for two-by-two unimodular Schatten-four Schur multipliers",
+          "trigger": "Closest indexed match and uncited weak-endpoint reference"
+        },
+        {
+          "assessment": "Boundedness/comparability result, not exact weak norm",
+          "evidence": [
+            "D(m) and W(m) are equivalent within factors, not asserted equal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.20339",
+          "material_read": "OA PDF p. 3, Theorem 1.2, around extracted offset 8872",
+          "method": "Primary passage inspection",
+          "title": "Weak (1,1) Shur multipliers and the Hörmander–Mikhlin–Schur theorem",
+          "trigger": "Same weak target, broader Schur multiplier theory"
+        },
+        {
+          "assessment": "No whole-document determination from the available evidence",
+          "evidence": [
+            "The relevant cited setting is operator norm; strong duality does not replace a weak-target theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+          "material_read": "Bibliographic and search-result information only; full-text retrieval timed out",
+          "method": "Search and attempted OA PDF retrieval",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "Exact strong multiplier norms and potential dual formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding, sharp witness and phase expansion; Tian’s comparison; indexed S₄ phase law"
+      ],
+      "rationale": "The smallest dimension with a nonfactorable phase symbol is a natural complete endpoint test. A sharp functional law and explicit witnesses distinguish quadratic weak-endpoint sensitivity from the linear strong-norm behavior, which cannot be read from a boundedness theorem or a single sign example. This gives a concrete benchmark for proposed sharp endpoint or amplified estimates.",
+      "residual_risks": [
+        "No inference for higher-dimensional or amplified weak norms is warranted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

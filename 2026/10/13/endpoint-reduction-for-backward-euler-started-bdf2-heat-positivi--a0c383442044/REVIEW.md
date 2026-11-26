@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the first post-start BDF2 transfer matrix exactly, uses the explicit Dirichlet resolvent kernel, and proves that the endpoint diagonal minimizes the relevant resolvent ratio. The semi-infinite algebra and the two-point witness are independently replayable with exact arithmetic.
+## correctness
 
-## Originality
-PASS. Direct comparison against general BDF2 positivity/monotonicity theory, starting-procedure multistep theory, a highly related BDF2 maximum-principle paper, and the closest published heat-positivity database result found no statement implying the exact first-post-start endpoint reduction or the constant \(180-102\sqrt3\). The principal residual risk is older literature with different terminology or inaccessible theorem text.
+PASS
 
-## Value
-PASS. The finding gives an exact structural answer for a standard BDF2 startup on the canonical Dirichlet heat discretization: a full matrix positivity question reduces to one boundary entry, and the boundary limit has a closed form. This distinguishes the first post-start positivity window from conservative all-time sufficient bounds.
+Multiplication by 3I+2sT_n recovers 4R_n(s)-I from the claimed transfer. The stated Green function solves the second-order resolvent recurrence, with zero values at 0 and n+1 and the unit jump at the source; both resolvents are strictly positive. For t=2s/3 the ratio for i<=j is (2/3)h_i h_{n+1-j}/(h_1 h_{n+1}). The function log(h_x) is strictly decreasing and concave: y*coth(xy) increases in y and y/sinh(xy) decreases. Replacing i by j reduces the product, and the concave sum at complementary indices j,n+1-j is minimized at j=1 or n. The endpoint ratio must be >=3/4, yielding the stated 9/8 inequality, including the singleton n=1 case. For fixed i,j the finite Green functions converge to the decaying half-line resolvent satisfying the same recurrence and left boundary; the endpoint dominance therefore passes to every half-line entry. Writing a=1-q_s and b=1-q_t gives endpoint values a^2 and b^2; zero transfer there forces b=2a/sqrt(3), and t=2s/3 then gives the unique admissible a=1/(6sqrt(3)-8). The sign starts positive and becomes negative since a^2/b^2 tends to 2/3, giving s<=180-102sqrt(3). For the two-point witness direct 2-by-2 inversion gives R_11(s)=24/119, R_12(s)=10/119, R_11(t)=13/48 and R_12(t)=5/48, reproducing (-11,45)/1904 in the first row. The endpoint numerator is a positive multiple of -4s^3+5s^2+8s+3, equal to -33/4 at the witness. The frozen script and log were read; the witness was recomputed without running that script. No claim about later BDF2 iterates is inferred.
 
-## Closest literature and limitations
-Hundsdorfer's BDF2 work is the closest historical source because it explicitly discusses positivity and an implicit-Euler starter. Its general sufficient conditions do not supply the finite-path endpoint criterion here. The result is deliberately limited to the first BDF2 value on a uniform one-dimensional Dirichlet heat matrix.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established BDF2 recurrence and BE startup and their elementary resolvent rearrangement. The supported distinct claim is sharp endpoint dominance for the first BE-started BDF2 value on the centered Dirichlet path, and the resulting exact half-line frontier. The strongest inspected general result is sufficient and addresses a different iterate quantifier; the nearest lattice and indexed BDF2 findings use different kernels, starters, or observables.
+
+## value
+
+PASS
+
+For a standard spatial heat model and multistep starter, this replaces a matrix-wide entrywise sign test by a sharp scalar boundary test valid for every grid length. It resolves a boundary-limited positivity effect not captured by stability or by the positive starter alone, gives a usable half-line step cutoff, and supplies a small exact sign-loss witness. The value is the sharp first-value theorem, not a claim of all-iterate monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

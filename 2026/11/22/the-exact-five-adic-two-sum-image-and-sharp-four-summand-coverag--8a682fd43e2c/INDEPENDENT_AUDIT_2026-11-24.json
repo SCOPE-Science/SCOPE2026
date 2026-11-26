@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:55:16.818365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Burns explicitly quotes the four Deutsch–Sagan zero-index families. Moving the shifts to the left, n+1 has unit 2 at odd valuation or 4 at positive even valuation in two families, and −(n+2) satisfies the same rule in the other two. Nonnegative progression parameters meet every finite cylinder of each shell; the only extra limit points are −1 and −2. The disjoint partition X=A ⊔ B ⊔ 25X has A=10+25Z_5 and B=100+125Z_5. Adding shell pairs gives full cosets at 10,20 mod 25 and 75,100 mod 125, plus 25P⊂125Z_5; differences are exactly the three mod-25 cosets 0,10,15, since A−A fills 25Z_5. The translated P,D,−P branches are disjoint modulo five. With p_1=1,p_2=3, the recursion p_k=2·5^{k−2}+2·5^{k−3}+p_{k−2} gives p_k=(5^{k−1}+1)/2; D has one class at depth one and 3·5^{k−2} thereafter. Hence the sum support has size 3 and then 8·5^{k−2}+1. The decreasing cylinder unions give Haar measure 8/25, and the X partition gives measure 1/20 for X and 1/10 for the two-branch closure. For any four signs, selecting signed A slots (or signed B slots) gives five consecutive integer net coefficients, one per mod-five residue. A nonzero leading target chooses at least one slot, whose full coset supplies all higher digits. Divide by 25 for valuations ≥3 and take zeros for zero. The five branch totals −8+r exhaust the mod-five residues and three terms miss residue 3. Projection commutes with closure here because finite residue cylinders are open and closed, so this gives congruences with actual nonnegative indices, not exact integer equalities. Inspected verify_motzkin_sumsets.py and VERIFICATION.md without running uploaded code: the finite support checks extend through 5^6, and the finite signed check tests every nonzero multiple of five modulo 125 (zero follows from four zero inputs). The all-depth argument does not depend on that replay. No formal or expert attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mousavi gives automata for addition in positional integer bases, including least-significant-digit order, and a general automatic theorem-proving framework.",
+          "Burns uses finite-state methods for modular Motzkin values and their asymptotics."
+        ],
+        "reasoning": "Automata furnish a general route to construct sum recognizers and to decide support/coverage after expressing finite digit projections. The inspected statements do not evaluate this input or furnish an arithmetic closed form or a digit lift for every sign pattern. The general automatic construction, by itself, is not the claimed specialized analysis.",
+        "searches": [
+          "arXiv:1603.06017 pp. 4–6 (addition relation; least-significant-digit systems)",
+          "arXiv:1612.08146 (automata for Motzkin numbers)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_motzkin_sumsets.py",
+        "arXiv:math/0407326v1",
+        "arXiv:1611.04910",
+        "arXiv:1612.08146",
+        "arXiv:2403.00149",
+        "arXiv:1603.06017",
+        "OEIS A338220",
+        "Resultary consecutive-residue finding listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four published progressions directly give the two valuation/parity branches after shifts and closure, and Burns derives ordinary density 1/10.",
+          "Generic automatic arithmetic gives a computation method, not the evaluated first-digit shell recursion and signed saturation in this setting."
+        ],
+        "reasoning": "Credit the input families, their immediate translation into X, and the earlier density of indices. The sharp order and exact cardinalities require analyzing interactions of the two low-valuation shells, deeper recursion, and availability of every net coefficient in a four-slot sign pattern; neither the index criterion nor its density states these consequences.",
+        "searches": [
+          "arXiv:1611.04910 §4",
+          "arXiv:1612.08146 §2 quoting Deutsch–Sagan journal Theorem 5.4",
+          "arXiv:1603.06017 pp. 4–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burns quotes the four zero-index families and gives automata for residues of Motzkin values.",
+          "Kohen Corollary 8 gives uniform recurrence of the sequence of Motzkin values modulo p.",
+          "Resultary 2026/11/2/SCOPE-complete-consecutive-residue-law-for-motzkin-numbers-modulo-five--7159a644b09a classifies adjacent residue pairs, including the exclusion of adjacent zero values."
+        ],
+        "reasoning": "Neither recurrence of values nor exclusion of adjacent zero values describes n+m modulo 5^k with two independently chosen zero indices. The 5-adic sumset and all-depth congruences with actual indices are equivalent for this closed image, and neither equivalent form appears in those inspected results.",
+        "searches": [
+          "Resultary: mod-five Motzkin zero indices, p-adic sums/coverage",
+          "arXiv:1612.08146 §2",
+          "arXiv:2403.00149 Corollary 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A338220 lists individual qualifying indices and the four defining progression families, and links a finite table of those indices.",
+          "The exact two-sum and covering result in the catalogue is the assigned record itself; the closest distinct mod-five entry gives adjacent value-pair statistics."
+        ],
+        "reasoning": "An exact database definition of the summand set is antecedent evidence, not a table of all additive images of that set. The inspected table concerns n satisfying 5|M_n, not its twofold support or the least additive order.",
+        "searches": [
+          "OEIS A338220",
+          "Resultary: five-adic Motzkin sumsets and consecutive residue law"
+        ]
+      },
+      "rationale": "The published zero-index set and its ordinary density are prior. The supported distinction is the full compact two-sum image (including membership in exceptional congruence cylinders), all-depth support formula, and sharp four-term coverage by a signed valuation lift. No equivalent exact additive assertion was identified in the inspected sources.",
+      "residual_risks": [
+        "The final Deutsch–Sagan text was unavailable; its index criterion was independently corroborated by Burns's quotation, not inferred from the discrepant early preprint.",
+        "An unlocated exact evaluation via automatic addition may overlap; the bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Premise corroborated as prior; final journal full text not read. The 2004 v1 numbering differs, with Conjecture 5.4 about modulo four.",
+          "evidence": [
+            "Burns arXiv:1612.08146 §2 at offset 6652 gives the four formulas and attributes them to Theorem 5.4 of the final journal paper, identified in its bibliography at offset 35678."
+          ],
+          "identifier_or_url": "arXiv:math/0407326v1; Journal of Number Theory 117 (2006), 191–215",
+          "material_read": "2004 preprint at offset about 39000; 2006 journal theorem accessed indirectly through Burns's explicit quotation",
+          "method": "OA preprint and attempted lawful author PDF and arXiv v2 retrieval",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Primary source of the exact zero-index premise"
+        },
+        {
+          "assessment": "Directly quotes the published summand-set criterion, not the reviewed additive invariants",
+          "evidence": [
+            "The four zero families with offsets −1 or −2 and odd/even powers of five."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.08146",
+          "material_read": "§2 zero criterion offset 6652; bibliography offset 35678",
+          "method": "OA PDF passages",
+          "title": "Structure and asymptotics for Motzkin numbers modulo small primes using automata",
+          "trigger": "Same zeros and automata methods for modular values"
+        },
+        {
+          "assessment": "Owns density of the indices, not the density of their two-sum support",
+          "evidence": [
+            "Same families and density 1/10 for Motzkin zeros modulo five."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.04910",
+          "material_read": "§4 offset 7500",
+          "method": "OA PDF passage",
+          "title": "Asymptotic density of Motzkin numbers modulo small primes",
+          "trigger": "Prior density of exact same index set"
+        },
+        {
+          "assessment": "A generic technique for additive recognizers, not a specific evaluation of the Motzkin index sumsets",
+          "evidence": [
+            "Equal-length word addition relation; simple automata for addition in msd_n and lsd_n, n≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.06017",
+          "material_read": "pp. 4–6, offsets 20198–23494, digit encoding and addition-automaton passages",
+          "method": "OA PDF",
+          "title": "Automatic Theorem Proving in Walnut",
+          "trigger": "Plausible broader automatic addition and decision framework"
+        },
+        {
+          "assessment": "Recurrence of modular values, not additive support of positions",
+          "evidence": [
+            "Uniform recurrence of Motzkin values modulo p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.00149",
+          "material_read": "Corollary 8, PDF p. 8, offset 25146",
+          "method": "OA PDF passage",
+          "title": "Uniform recurrence in the Motzkin numbers and related sequences mod p",
+          "trigger": "Structural result for modular Motzkin sequence"
+        },
+        {
+          "assessment": "Known input set and density; not the sum-image invariant",
+          "evidence": [
+            "One-index condition and four parametrizations; finite table for n=1 through 10000."
+          ],
+          "identifier_or_url": "https://oeis.org/A338220",
+          "material_read": "Definition, terms, comments and table link",
+          "method": "OA website entry",
+          "title": "Indices of Motzkin numbers divisible by five",
+          "trigger": "Exact database for the summands"
+        },
+        {
+          "assessment": "Adjacent-value law; different questions and statistics",
+          "evidence": [
+            "Limiting law of adjacent Motzkin residues; no consecutive pair of zero values."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-consecutive-residue-law-for-motzkin-numbers-modulo-five--7159a644b09a",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete consecutive residue law for Motzkin numbers modulo five",
+          "trigger": "Closest separate local catalogue finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical modular zero-index set, knowing density or a recognizer does not tell which congruence classes sums reach, whether an exact representation exists at every depth, or the sharp covering order. The explicit self-similar obstruction for pairs and uniform signed lift for four give direct membership and representation tools for this natural, fixed prime case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

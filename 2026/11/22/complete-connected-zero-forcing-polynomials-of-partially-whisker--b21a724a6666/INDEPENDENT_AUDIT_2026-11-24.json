@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:32:32.353049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–53",
+        "VERIFICATION.md lines 19–31 and verify.py (inspected, not executed)",
+        "/workspace/branches/157c5f49-9480-417f-9737-3ae9ab0ee14b/check_seven_cycle.py (independent finite replay)"
+      ],
+      "rationale": "For at least two initial blue cycle vertices, connectedness forces a unique proper cyclic interval (or the whole cycle) and forbids a blue leaf with a white parent. A single leaf can at most supply its parent, which still has two white cycle neighbors. A boundary can enter the gap exactly when its private leaf is absent or blue. Its front reaches the first decorated gap vertex, but cannot proceed beyond it while the farther cycle neighbor is white: the private leaf of the stalled vertex must also be white. If the two reach lengths leave a middle interval, a first force into it is therefore impossible, including an inactive initial boundary as a zero-length front. Otherwise the fronts cover the gap, after which parents force all unselected leaves. This includes a one-vertex gap and the triangle. Optional interior leaves have independent factors 1+z; boundary weights encode initial leaf selection exactly and proper intervals are counted once. New exhaustive subset code reproduced both n=7 coefficient vectors, 1023 nonempty subsets each. The universal statement follows from the proof, not the finite checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mukherjee–Ray's polynomial is for finite trees.",
+          "The corona proposition uses isolate-free attachments and at least two vertices in the attached graph; it excludes a private K1.",
+          "The cycle-spider record 2026/11/22/SCOPE-connected-zero-forcing-polynomials-of-cycle-spiders-and-a-sharp--eb162260c6ac has several paths at one hub, not several selected supports.",
+          "Brimkov's general unicyclic result optimizes size, rather than counting by size."
+        ],
+        "reasoning": "None of the inspected broader frameworks contains the arbitrary-dispersed-support all-weight enumerator as a specialization.",
+        "searches": [
+          "arXiv:2611.10985v1",
+          "arXiv:2507.11194 §6.3",
+          "arXiv:1607.00658 §5.1",
+          "Resultary: all-weight connected forcing on unicyclic graphs and cycle spiders"
+        ]
+      },
+      "checked_sources": [
+        "Brimkov arXiv:1607.00658",
+        "Mukherjee–Ray arXiv:2611.10985v1",
+        "Brimkov–Davila–Schuerger arXiv:2507.11194",
+        "Resultary sunlet, one-leaf unicyclic and cycle-spider findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum algorithm finds an optimal omitted segment; the known sunlet identity fixes all supports, while the one-path result has just one support."
+        ],
+        "reasoning": "Neither an optimal segment nor the endpoint polynomials determine the distribution over all decorated gaps and boundary leaf choices. The grading by cardinality requires counting optional seeds and the interaction of two gap reaches.",
+        "searches": [
+          "arXiv:1607.00658 §5.1 Lemmas 3–5",
+          "Resultary sunlet and one-leaf RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brimkov describes feasible omitted cycle segments in Lemmas 3–5, pp. 11–13.",
+          "The singleton-support family is t=1 of Resultary record 2026/11/22/SCOPE-connected-zero-forcing-polynomials-of-one-leaf-unicyclic-graphs--70cd56b3b772."
+        ],
+        "reasoning": "The minimum problem and its gap interpretation overlap structurally, but do not give the weighted count for every choice of boundary flags. One attached path does not address several separate decorated supports. Catalogue date alone does not establish order for the singleton overlap.",
+        "searches": [
+          "Resultary: connected (zero) forcing polynomial for whiskered cycles, sunlets, pendant paths and unicyclic graphs",
+          "arXiv:1607.00658 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/13/SCOPE-cardinality-enumerator-of-connected-forcing-sets-of-sunlet-graph--a54ae5ebc761 gives the exact fully whiskered polynomial, with a separate triangle case.",
+          "2026/11/22/SCOPE-connected-zero-forcing-polynomials-of-one-leaf-unicyclic-graphs--70cd56b3b772 covers singleton support at t=1."
+        ],
+        "reasoning": "Exact endpoint and singleton coverage were credited, not mistaken for a table or identity for arbitrary A or the two three-leaf placements.",
+        "searches": [
+          "Resultary: sunlet and partially whiskered cycle connected-forcing cardinality enumerators"
+        ]
+      },
+      "rationale": "The distinct claim is the all-cardinality formula for an arbitrary cyclic subset of supports together with the full placement-sensitive distributions. The minimum-only unicyclic framework is substantial prior structure. The already enumerated all-whiskered endpoint and the overlapping single-leaf special case are not independent originality claims.",
+      "residual_risks": [
+        "Focused literature web search was unavailable; the determination rests on the inspected OA texts and local Resultary comparisons, not a negative inference from the outage.",
+        "Unindexed equivalent all-size formulas remain possible. Same-day catalogue listing does not settle singleton-case priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural overlap, minimum only",
+          "evidence": [
+            "Largest feasible omitted segment yields a minimum connected forcing set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00658",
+          "material_read": "§5.1, pp. 11–13, Lemmas 3–5",
+          "method": "OA PDF passage, offsets 32500–42254",
+          "title": "Complexity and Computation of Connected Zero Forcing",
+          "trigger": "General unicyclic and omitted-segment results"
+        },
+        {
+          "assessment": "Covers A equal to the entire cycle",
+          "evidence": [
+            "All-weight formula for full sunlets, including a separate triangle case."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-cardinality-enumerator-of-connected-forcing-sets-of-sunlet-graph--a54ae5ebc761",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror, offset 0",
+          "title": "Cardinality enumerator of connected forcing sets of sunlet graphs",
+          "trigger": "Exact special-case polynomial"
+        },
+        {
+          "assessment": "Singleton overlap, same-day priority not resolved",
+          "evidence": [
+            "The parameter t=1 in the one-attached-path enumerator is exactly the singleton A case."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-connected-zero-forcing-polynomials-of-one-leaf-unicyclic-graphs--70cd56b3b772",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror, offset 0",
+          "title": "Connected zero-forcing polynomials of one-leaf unicyclic graphs",
+          "trigger": "Potential exact arbitrary-placement overlap"
+        },
+        {
+          "assessment": "Different attachment pattern",
+          "evidence": [
+            "At least two paths attach at a single hub."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-connected-zero-forcing-polynomials-of-cycle-spiders-and-a-sharp--eb162260c6ac",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror, offset 0",
+          "title": "Connected zero-forcing polynomials of cycle spiders and a sharp bound",
+          "trigger": "Possible multiple-attachment theorem"
+        },
+        {
+          "assessment": "Tree scope does not include cycles",
+          "evidence": [
+            "Formula for finite trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10985",
+          "material_read": "p. 1 abstract and scope statement",
+          "method": "OA PDF, offset 0",
+          "title": "On the connected zero forcing polynomial of finite trees",
+          "trigger": "Prior all-size enumerator"
+        },
+        {
+          "assessment": "The inspected corona result excludes private-leaf attachments",
+          "evidence": [
+            "Attachment graph must be isolate-free and have order at least two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.11194",
+          "material_read": "§6.3, p. 19",
+          "method": "OA PDF passage, offset 51400",
+          "title": "Connected forcing density and related problems",
+          "trigger": "Corona enumeration could include whiskered cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 21–37 and 43–53",
+        "Brimkov §5.1, for comparison with the already known scalar optimization"
+      ],
+      "rationale": "The formula gives the whole labelled connected-forcing size distribution without enumerating subsets of vertices, on a natural intermediate family between bare cycles and sunlets. The explicit equal-degree-sequence examples prove that the minimum and the rest of the distribution can genuinely depend on placement, illustrating the need for a cyclic-pattern statistic.",
+      "residual_risks": [
+        "No extension to multiple leaves per support or attached branched trees is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

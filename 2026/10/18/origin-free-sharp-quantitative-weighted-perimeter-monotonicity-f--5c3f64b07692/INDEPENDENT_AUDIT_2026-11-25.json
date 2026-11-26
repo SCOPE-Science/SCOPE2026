@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:30:19.898890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The spherical parametrization gives the displayed log-energy formula, with m(z) the tilted first-coordinate mean (zero at zero, strictly between zero and one for z>0). Differentiating the Bessel formula gives m'=1-m²-(d-1)m/z. At contact with g=1-c/z for z>c=d-1≥1, m'-g'=c(z-1)/z²>0; m(c)>0 rules out downward crossing. The radial derivative minus the center-radius derivative is c/r-2λ(s-r)(1-m); this is at least c/r for s≤r, and at least c/s for s>r by the bound (the zero-center and zero-parameter cases use the continuous angular formula). In the affine interpolation of centers and radii, |s'|≤R-r a.e., the center-radius derivative is nonnegative, and max{s_t,r_t}≤M. Integration gives the stated gap, including internal tangency or passage through the origin. Tonelli preserves the common multiplicative factor; the moment assumption gives finite positive energies. At zero parameter and zero centers the ratio reduces to log(R/r), giving uniform sharpness as r approaches R. For negative λ the concentric log derivative is c/r+2λr, eventually negative. Inspected RESULT.md §§1–5 and checker.py: angular quadrature and barrier tests are finite floating-point checks, reported but not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Csató–Giovagnoli give monotonicity of increasing radial weighted perimeter for convex bodies containing the radial origin and exhibit a non-origin-containing example where convex-body monotonicity fails.",
+          "Saracco–Stefani show that inclusion monotonicity on all convex bodies forces the ambient weight to be constant almost everywhere."
+        ],
+        "reasoning": "The former covers origin-containing balls qualitatively, not the shifted-ball gap. The latter is an obstruction in a bigger body class rather than a stronger positive theorem.",
+        "searches": [
+          "Csató–Giovagnoli arXiv:2610.11677, Theorem 1.3 and §3",
+          "Saracco–Stefani arXiv:2306.07770, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11677",
+        "arXiv:2306.07770",
+        "Segura DOI 10.1007/s00025-021-01531-1",
+        "Resultary 82bd7e188c4f, a7dba9412443, f628e9f7823f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponential power series and positivity could transfer qualitative planar nesting from nonnegative power weights, but that gives no fixed lower logarithmic factor for each term and does not handle higher dimensions with moving centers.",
+          "Segura supplies an analytic ingredient. It does not state a perimeter comparison, and the proof needs the comparison of two different geometric derivatives, interpolation under nestedness, and the sharp λ=0 limit."
+        ],
+        "reasoning": "Neither applying an origin-containing inclusion theorem nor using the Bessel bound alone is an exact specialization to the supported geometric result. The estimate is sharp uniformly, not asserted to be optimal at an individual λ>0.",
+        "searches": [
+          "Segura §2 and Theorem 1, Eq. (9)",
+          "Nested planar disk power threshold 82bd7e188c4f, Finding and moving-center proof",
+          "Csató–Giovagnoli Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Segura Theorem 1(1a), with Eq. (9), index η=d/2 and a→−1 from below, bounds I_(η−1)/I_η above. Its reciprocal gives m≥z/(η+sqrt(η²+z²))≥1−η/z≥1−(d−1)/z.",
+          "The geometric logarithmic estimate is equivalently a uniform multiplicative perimeter estimate. Integrating such a factor over λ is valid; neither the Bessel bound itself nor the observation that these mixtures are log-convex in |x|² is the new geometric statement."
+        ],
+        "reasoning": "The derivative argument converting a one-variable ratio bound to the moving-center inequality is the substantive comparison, not a new special-function barrier. Planar qualitative nesting alone does not give the uniform factor.",
+        "searches": [
+          "Bessel ratio I_(ν+1)/I_ν and Riccati nullclines; Segura DOI 10.1007/s00025-021-01531-1",
+          "Resultary radial power inclusion for shifted nested disks, 82bd7e188c4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "82bd7e188c4f gives a power-weight monotonicity threshold for nested planar disks; a7dba9412443 gives sharp Hausdorff Lipschitz bounds and outer-parallel increments for origin-containing convex bodies; f628e9f7823f concerns radius changes at fixed centers."
+        ],
+        "reasoning": "No inspected indexed result supplies the exact all-dimensional sharp lower gap for exponential weights along inclusion with moving centers. This is not a priority inference from record dates.",
+        "searches": [
+          "Resultary radial power thresholds and weighted perimeter nesting, 82bd7e188c4f, a7dba9412443, f628e9f7823f"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp quantitative log-energy comparison for moving centers without an origin-containment condition, in every d≥2, and its positive-mixture form. The Bessel barrier is not new, mixture closure is a corollary, and several nearby qualitative statements are already known. None of the compared geometric results gives the required combination of gap, unrestricted nested-ball centers and dimension.",
+      "residual_risks": [
+        "An older ball-specific equivalent quantitative comparison under another name was not excluded; the comparison was bounded. No individual sharp constant for a fixed positive λ is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap with an origin restriction",
+          "evidence": "The positive comparison assumes 0 lies in the smaller body. A nested triangle and square give the reverse comparison for the square weight without that restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11677",
+          "material_read": "Theorem 1.3 p. 3 (offset 9367); §3 pp. 10–11 (offset 33202)",
+          "method": "OA PDF passages",
+          "title": "Continuity and monotonicity of weighted perimeters of convex bodies",
+          "trigger": "Radial inclusion monotonicity"
+        },
+        {
+          "assessment": "Different quantifier on body class",
+          "evidence": "Universal inclusion monotonicity forces constant density a.e.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07770",
+          "material_read": "Theorem 1.1, p. 2 (offset 4416)",
+          "method": "OA PDF passage",
+          "title": "On the monotonicity of weighted perimeters of convex bodies",
+          "trigger": "Obstruction for arbitrary convex bodies"
+        },
+        {
+          "assessment": "Covers the special-function ingredient, not the geometric claim",
+          "evidence": "With η=d/2 and a>1, (1a) gives I_(η−1)/I_η > λ⁺_(a,η). Taking a→1+ in (9) gives (η−1+sqrt((η−1)²+z²))/z, which is a lower bound on the inverse ratio, not the desired direction. For a<−1 the inequality is reversed; taking a→−1− gives the upper bound (η+sqrt(η²+z²))/z and hence the desired reciprocal lower bound.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01531-1",
+          "material_read": "§2 Eq. (9), Theorem 1 pp. 4–5 (offsets 9320–13717) and Theorem 6 p. 16",
+          "method": "OA PDF, theorem located and relevant bounded pages read",
+          "title": "Monotonicity Properties for Ratios and Products of Modified Bessel Functions and Sharp Trigonometric Bounds",
+          "trigger": "Ratio bound underlying the proof"
+        },
+        {
+          "assessment": "Qualitative planar power-weight overlap",
+          "evidence": "For p>−1 global disk nesting monotonicity holds exactly for p≥0. No exponential all-dimensional log gap is stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-radial-power-inclusion-threshold-for-nested-euclidean-disk--82bd7e188c4f/RESULT.md",
+          "material_read": "Finding offset 0 and moving-center proof §4 offset 3922",
+          "method": "Resultary and local mirror",
+          "title": "Sharp radial power inclusion threshold for nested Euclidean disks",
+          "trigger": "Origin-free nesting of disks with radial weights"
+        },
+        {
+          "assessment": "Different estimate and origin-containing regime",
+          "evidence": "Outer-parallel increments and Hausdorff upper modulus, not lower inclusion gap for arbitrary ball centers.",
+          "identifier_or_url": "a7dba9412443",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp Hausdorff Lipschitz constants for radial subharmonic weighted perimeters",
+          "trigger": "Sharp radial weighted perimeter change"
+        },
+        {
+          "assessment": "Fixed center only",
+          "evidence": "Radius monotonicity and cusp for power weights at a fixed center do not compare arbitrary nested centers.",
+          "identifier_or_url": "f628e9f7823f",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp radial power threshold and universal cusp for expanding spheres",
+          "trigger": "Weighted monotonicity in all dimensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Origin-free inclusion is false in the ambient class of arbitrary convex bodies. This identifies a natural subfamily with an explicit, uniformly optimal strict gap, controls simultaneous center motion and radius growth, and distinguishes precisely the permissible exponential signs. The gap is not just qualitative monotonicity or a concentric special case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

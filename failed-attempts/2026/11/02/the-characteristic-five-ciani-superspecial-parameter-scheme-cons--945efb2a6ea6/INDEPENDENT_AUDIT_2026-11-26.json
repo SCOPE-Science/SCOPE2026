@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:32:34.312973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–69",
+        "VERIFICATION.md lines 19–25, source verify.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: /workspace/branches/ciani_saturation_replay.py"
+      ],
+      "rationale": "Independent extraction of all nine coefficients from F^4 gives the displayed diagonal and six zero off-diagonal entries. The smoothness factors are obtained by applying the gradient equations to the squared nonzero coordinates, with a 2-by-2 minor for each two-coordinate support and the 3-by-3 determinant for full support. On this open set the Hasse differences force a^2=b^2=c^2=s as equations in the coordinate ring, not just at geometric points. The remaining equation is abc=s^2+2; (abc)^2=s^3 gives (s+1)^2(s^2+2s-1)=0. Since s+1 is a unit, s^2+2s-1=0, so s is invertible. Then r=abc/s has r^2=s and r=3s+4, equivalently r^2-2r-2=0. The three ratios a/r,b/r,c/r square to 1 with product 1, and conversely these relations give all the equations with every smoothness factor invertible. This gives the claimed scheme isomorphism directly over F5: four sign choices and the separable irreducible quadratic of discriminant 2. Each degree-two closed point contributes (1-T^2)^(-1). An independent Gröbner calculation using the inverse variable w=1/Delta additionally gives w+2c^2+2, a+bc^3-bc, b^2-c^2, c^4+2c^2-1, yielding the same reduced ring and degree.",
+      "residual_risks": [
+        "This is the marked normalized coefficient scheme on the smooth open set, not a moduli quotient or a count of curve isomorphism classes. The finite sample in the frozen record alone could not establish geometric completeness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4f47b96584ec §5 derives all triple Hasse zeros inside a broader exact enumeration of the four p-rank strata for every extension.",
+          "Ohashi Theorem 1.1 gives a quadratic-field bound and maximal/minimal dichotomy; Lercier et al. Theorems 3.1 and 3.3 distinguish the Ciani family for p>=5 from representative-family results for p=0 or p>=7."
+        ],
+        "reasoning": "The catalogue's broader p-rank census contains this exact locus as its rank-zero stratum (the three individual Hasse conditions all vanish). The literature field bound and family descriptions alone do not give these points or transversality.",
+        "searches": [
+          "Resultary 4f47b96584ec, exact parity-dependent p-rank strata",
+          "Ohashi arXiv:2201.12996v1",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling arXiv:1403.0562",
+          "Primary search for characteristic-five Ciani superspecial quartics and Kudo–Harashita"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Prior work",
+        "Local Resultary 4f47b96584ec, 38e95fbca73c",
+        "arXiv:2201.12996v1",
+        "arXiv:1403.0562"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known sign branches reduce the triple intersection to t^4-t^3+2=(t-2)^2(t^2-2t-2); t=2 is excluded by smoothness. The two difference equations have independent linear parts transversal to each signed diagonal, and the remaining restriction is simple. The second record explicitly performs this differential argument."
+        ],
+        "reasoning": "After excluding the singular factor this is a transverse finite scheme. Frobenius interchanges the two roots for each F5-defined sign branch, giving four copies of Spec F25. Even just the established point counts give (1-T^2)^(-4) from the zeta definition. The explicit scheme packaging adds no independent invariant.",
+        "searches": [
+          "Read Resultary 4f47b96584ec §5 and 38e95fbca73c §§1,3–4 in the local mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 38e95fbca73c, Finding and §1, gives the same three equations after swapping its b,c coefficient labels and reordering them; §3 (offset 4500) proves independent differentials at the eight zeros."
+        ],
+        "reasoning": "Three independently vanishing differentials give a reduced zero-dimensional intersection. With the identical defining equations on the same smooth open set this is the same scheme, not just an isomorphic family of curves or a coincident point count. Within-day ordering is not inferred.",
+        "searches": [
+          "Local Resultary: characteristic-five Ciani, marked superspecial parameters, Hasse invariants, low p-rank and rational component intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 4f47b96584ec §5 gives the quadratic a^2-2a-2 with four even-sign choices per root on the smooth open set. Its §6 gives N_0=4(1+(-1)^n); 38e95fbca73c §§3–4 independently gives the same solutions and parity counts."
+        ],
+        "reasoning": "The exact eight marked solutions and their all-extension counts are already indexed. This comparison is not based on a table of genus-three isomorphism classes.",
+        "searches": [
+          "Local Resultary rank-zero counts N_0, superspecial eight triples, and degree-two closed points"
+        ]
+      },
+      "rationale": "The earlier Resultary characteristic-five p-rank strata result already derives exactly the same marked superspecial triples and all-extension counts from the equal-square and diagonal-polynomial equations. A distinct same-day record gives the same three Hasse polynomials after relabeling and proves independent differentials at all eight triple zeros, covering the very scheme structure singled out here. Disjoint quadratic points and the zeta function then follow directly. The verdict rests on established mathematical coverage, not on an assumption about order within the same UTC day or on the inaccessible Brock dissertation.",
+      "residual_risks": [
+        "Brock's dissertation was not inspected. Within-day ordering of the two November 2 records is unresolved. Neither uncertainty is needed for the verdict on mathematical overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage of marked locus and extension counts",
+          "evidence": "Equal squares, a^4-a^3+2 factorization, four sign choices per quadratic root, N_0=4(1+(-1)^n).",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-parity-dependent-p-rank-strata-of-characteristic-five-cian--4f47b96584ec",
+          "material_read": "Finding, proof §§5–6; decisive §5 near offset 4900",
+          "method": "Local Resultary mirror RESULT.md",
+          "title": "Exact parity-dependent p-rank strata of characteristic-five Ciani quartics",
+          "trigger": "Earlier catalogue result on the identical marked family"
+        },
+        {
+          "assessment": "Covers identical reduced triple intersection; no within-day priority assigned",
+          "evidence": "After exchanging b,c labels the defining polynomials match. The differences and restricted derivative prove all eight crossings transverse.",
+          "identifier_or_url": "2026/11/2/SCOPE-six-rational-low-5-rank-curves-in-the-characteristic-five-ciani--38e95fbca73c",
+          "material_read": "Finding and §1 offsets 0–3199, §§3–4 offsets 4500–7050",
+          "method": "Local Resultary mirror RESULT.md",
+          "title": "Six rational low-5-rank curves in the characteristic-five Ciani family",
+          "trigger": "Potential equivalence of same-day low-rank divisor intersections and the Hasse–Witt zero scheme"
+        },
+        {
+          "assessment": "General field bound and arithmetic criterion, not exact marked scheme in these passages",
+          "evidence": "Superspecial parameters in F_(p^2); square criterion for maximality; introduction refers to Brock Theorem 3.15.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12996",
+          "material_read": "Introduction and §2, Theorem 1.1 (PDF p. 6), Corollary 4.6 (p. 9)",
+          "method": "Original OA PDF passages",
+          "title": "On the maximality of genus-3 nonhyperelliptic curves of Ciani type",
+          "trigger": "Superspecial Ciani parameters and earlier Brock enumeration"
+        },
+        {
+          "assessment": "Family and symmetries covered; the inspected representative-family theorem does not evaluate the characteristic-five superspecial scheme",
+          "evidence": "The family appears for p>=5, with representative families only for p=0 or p>=7 in Theorem 3.3.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0562",
+          "material_read": "Theorems 3.1 and 3.3 (PDF pp. 4–5), §5 (p. 7)",
+          "method": "Original OA PDF passages",
+          "title": "Parametrizing the moduli space of curves and applications to smooth plane quartics over finite fields",
+          "trigger": "Normalized Ciani family and parameter symmetries"
+        },
+        {
+          "assessment": "Unresolved external coverage, immaterial to the established catalogue overlap",
+          "evidence": "Ohashi identifies Brock's theorem as concerning superspeciality and Ciani enumerations; its exact characteristic-five statement was not confirmed.",
+          "identifier_or_url": "B. W. Brock, 1993 dissertation, Theorem 3.15 cited by Ohashi",
+          "material_read": "Secondary citation in Ohashi's introduction and frozen bibliography; dissertation not inspected",
+          "method": "Citation comparison; no original passage available in the sources inspected",
+          "title": "Superspecial Curves of Genera Two and Three",
+          "trigger": "Potential exact earlier Ciani enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24 and 63–69",
+        "Earlier 4f47b96584ec §5 and distinct 38e95fbca73c §§3–4"
+      ],
+      "rationale": "The transverse marked superspecial intersection is a natural geometric object, but the frozen result does not add a useful new invariant to the exact points, transverse equations, and parity counts already available. The decomposition and Euler product simply repackage that evidence, and the explicit Jacobian scalar is a choice-dependent check, not a new geometric result.",
+      "residual_risks": [
+        "This judgment does not deny the value of the broader p-rank stratification or of working on marked loci rather than moduli quotients; it addresses this repeated exact slice."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

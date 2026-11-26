@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:24.831551Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–40 and 44–94",
+        "Frozen VERIFICATION.md, lines 19–25, and verify.py, inspected as evidence; not executed",
+        "Independent scalar stage solve, star-contrast calculation and exact polynomial sign argument in this review"
+      ],
+      "rationale": "The stiffly accurate last stage of the two-stage Radau IIA tableau gives r(z)=(1-z/3)/(1+2z/3+z²/6) for the negative-real scalar equation. For the star, use conservation of the total, decay of the hub-minus-leaf-mean contrast by r((m+1)h), and decay of the leaf differences by r(h). This gives the four entry orbits independently of multiplying the displayed projectors. With N=m+1 and g(z)=(1-r(z))/z=(z+6)/(z²+4z+6), the off-diagonals are h g(Nh) and h[g(h)-g(Nh)]/m, both positive since g is positive and strictly decreasing. Subtracting m hub-to-leaf entries from one gives Q_m/D_b; adding r(h) to the distinct-leaf entry gives P_m/(D_a D_b) with the stated coefficients. For h≤3 the leaf diagonal is positive from r(h)≥0 and r(Nh)>-1. For h>3 the quartic is concave in m, so only m=2,10 require checking in the small range. The m=2 coefficients are positive; independently, P_10=h²(11h-82)(h-8)+252h+36, and the quadratic factor is negative only within (82/11,8), where it is bounded below by -9/11. This proves strict positivity there too. For m≥11 the discriminant of Q_m is positive, its roots are positive with sum <2, and P_m(8)=-4(160m²-1392m-2593)<0. Descartes' rule and the positive signs at 3 and infinity give exactly two simple positive leaf roots, in (3,8) and (8,infinity). The sign windows and boundary identities follow including T(0)=I. The small hub root follows from the root product and the large hub limit; testing P_m at fixed h>3 and at h=tm with t bracketing 2 proves the two leaf limits.",
+      "residual_risks": [
+        "The proof pertains only to the completed endpoint for unnormalized unit-edge stars, not internal stages or other generators. No formal proof certification or external attestation was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Method-wide absolute-monotonicity radii and diagonal Padé positivity results address different scopes. The Resultary comparison gives large-m expansions stronger than the frozen four threshold limits."
+        ],
+        "reasoning": "The general method results inspected do not supply the star-specific thresholds, but the same-object catalogue result covers the core claim and implies the asymptotics.",
+        "searches": [
+          "Lóczi–Ketcheson arXiv:1303.6651v1, Introduction",
+          "Zappavigna et al., Essentially Negative News About Positive Systems, abstract and Introduction",
+          "Comparison Resultary record 17146a0a41df, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 17146a0a41df",
+        "arXiv:1303.6651v1",
+        "Maynooth repository item 3761",
+        "Bounded primary-literature search on Radau IIA positivity for star Laplacians"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record directly states the three components of the nonnegative-step set, the diagonal types that fail, and the identical cutoff and threshold equations; its threshold expansions yield the limits."
+        ],
+        "reasoning": "Renaming thresholds and weakening expansions leave no distinct principal result; a different proof of the same result is not the frozen claim.",
+        "searches": [
+          "Compare frozen RESULT.md lines 5–40 with record 17146a0a41df, Finding and Assumptions and scope",
+          "Web search: \"Radau IIA\" positivity star graph Laplacian entrywise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison record's Finding and Assumptions and scope give cutoff m≤10, the same two disjoint hub and leaf failure intervals for m≥11, and the same quartic. Its h_m^± equal the frozen alpha_m^±; its quartic roots alpha_m,beta_m equal the frozen beta_m^-,beta_m^+."
+        ],
+        "reasoning": "The underlying matrix, all quantifiers, intervals, and sign interpretation are the same, not just the method name or some example parameter.",
+        "searches": [
+          "Resultary: Radau IIA positivity unnormalized star graph K1,m completed two-stage order-three positivity windows thresholds",
+          "2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed text gives the whole classification parametrically, including the m=11 windows; it is not merely a finite table of sample steps."
+        ],
+        "reasoning": "There is exact catalogue coverage for the entire integer family.",
+        "searches": [
+          "Resultary catalogue search above",
+          "Resultary 17146a0a41df, Finding and Assumptions and scope"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states the same all-size, all-step classification for the same generator and same completed method, with identical threshold polynomials and stronger asymptotics. The frozen finding is substantively covered; this does not require assigning priority from catalogue dates or claiming anything about provenance.",
+      "residual_risks": [
+        "Dates embedded in catalogue paths are not authenticated publication or priority timestamps. The decision rests on demonstrable equivalence between distinct records, not chronology inferred from those paths.",
+        "The literature comparison was bounded; the exact catalogue match suffices for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct substantive coverage",
+          "evidence": "Same K1,m and endpoint, m≤10 cutoff, hub roots and leaf quartic, and m=11 intervals; stronger threshold expansions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, extracted offsets 0–4866",
+          "method": "Local indexed mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on stars",
+          "trigger": "High-relevance Resultary result on the same scheme and graph family"
+        },
+        {
+          "assessment": "Different scope in passages read",
+          "evidence": "The inspected discussion concerns absolute-monotonicity radii of rational stability functions rather than the exact star endpoint entrywise sign set.",
+          "identifier_or_url": "https://arxiv.org/html/1303.6651v1",
+          "material_read": "Introduction around extracted offset 1440; additional Radau IIA term lookup",
+          "method": "Lawful OA primary-text inspection",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Plausible method-wide stronger inequality"
+        },
+        {
+          "assessment": "Different method in passages read",
+          "evidence": "Diagonal Padé discretizations of positive systems, not the two-stage Radau IIA star classification.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Abstract p. 1 and Introduction p. 2, offsets 515 and 2744–2918",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Potential positive-system time-discretization comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Resultary 17146a0a41df, exact classification and asymptotics"
+      ],
+      "rationale": "The phenomenon itself is well motivated: entrywise positivity can fail and return as a stable implicit diffusion step increases, and the two negative diagonal types are informative. But the submitted classification adds no scientific content to the existing exact classification of that same phenomenon, which also gives stronger limits. Neither an illustrative example already in the comparison nor weaker restatement of its asymptotics is an independently useful new contribution.",
+      "residual_risks": [
+        "No judgment on other star weights, other time integrators, or a separately formulated proof-method contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

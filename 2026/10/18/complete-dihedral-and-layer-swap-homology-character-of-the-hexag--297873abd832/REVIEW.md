@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is for the perfect-matching subcomplex of the hexagonal prism, not the ordinary matching complex. Exact recursive enumeration yields twenty perfect matchings and 822 faces including the empty face. The accompanying executable checks the integer augmented chain identities and exactly 408 unit-pivot cancellations, leaving six free degree-two generators and no differential. Signed fixed-face Lefschetz sums then determine all 24 traces. They agree with the claimed sum of four rational irreducible representations (two lines and two planes). No finite experiment is substituted for an infinite claim: this is a finite graph, completely enumerated.
+## correctness
 
-**Originality: PASS, with limitations.** Agarwal and Basak's arXiv:2608.30601v2 Theorem 25 gives the non-equivariant wedge \(\bigvee^6 S^2\) for the same graph. Its proof provides no equivariant character, and the rank-six result alone does not imply the action. The closest published related symmetry records address circular-ladder independence complexes, a hexagonal-prism total three-cut complex, a linear six-rung ordinary matching complex, or Möbius-ladder perfect-matching complexes; none is a logically equivalent theorem. Source summaries are not whole-document novelty certification; unindexed literature and inaccessible full texts remain residual risks.
+PASS
 
-**Mathematical value: PASS.** The hexagonal prism is the first circular-ladder case with the extra four-sphere homology contribution. The full natural action separates a layer-even frequency-one two-plane from a layer-odd frequency-two two-plane, besides two distinct one-dimensional dihedral characters. It distinguishes a combined symmetry of trace \(-4\) from all nontrivial rotations of trace zero, supplying exact structural information the known Betti numbers do not determine.
+I enumerated every six-edge subset of the eighteen graph edges and accepted exactly those covering all twelve vertices, giving 20 perfect matchings and 822 augmented faces. An independent unit-pivot order split off 408 contractible integral pairs, leaving six free degree-two generators and zero differential. For each group element I generated the complex of its edge-orbits whose unions lie inside perfect matchings. A setwise-fixed simplex of k edges formed from j orbits has permutation sign (−1)^(k−j), so its signed Lefschetz contribution is (−1)^(j−1); the empty face contributes −1. The four orbit-complex reduced Euler rows were (6,0,0,0,0,0), (2,2,2,−4,2,2), and two copies of (0,−2,0,−2,0,−2), reproducing all 24 traces without using the supplied fixed-face parity calculation. The rational planes can each be realized on Q(ζ₆), with multiplication by ζ₆^j and conjugation as the generators; their characters and those of the lines give exactly the proposed decomposition. Semisimplicity and equality of characters in characteristic zero identify the rational module. Replay: python3 /workspace/branches/audit-2.py.
 
-**Scope and limits.** The representation is over \(\mathbb Q\) and is not a statement about an integral group-ring module or a general formula at other prism lengths. The full text of the closest 2026 preprint was inspected; related published-record excerpts and older abstracts were considered according to available access.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Accept the complete joint character, not the nonequivariant rank and not the isolated cyclic or layer-swap restrictions already covered by exact indexed claims. The closest broader equivariant record omits n=6 for a material degree-separation reason. Neither the already known rotation character nor the separately known layer-swap trace determines which frequency plane is layer-odd, still less the reflection characters of the residual lines. The combined action including the half-turn times layer swap is genuine exact information absent from these inspected results.
+
+## value
+
+PASS
+
+The perfect-matching complex and its full geometric symmetry action are natural before choosing a computation. Six rungs are the meaningful boundary where the two homological contributions of the circular-ladder theorem merge in one degree. The result identifies both layer orientations of the frequency planes and the reflection-sensitive lines, information needed to analyze invariant subspaces or compare symmetry-respecting reductions. It is not just the known rank or a single numerical trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

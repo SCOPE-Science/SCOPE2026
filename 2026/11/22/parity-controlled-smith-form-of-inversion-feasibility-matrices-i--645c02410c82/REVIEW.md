@@ -1,15 +1,21 @@
-# Review of the inversion-feasibility Smith classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses specify two independent dense linear orders, individually named parameters, complete nonalgebraic one-point types indexed by both insertion gaps, and *existential* inversion feasibility for two distinct realizations. A direct finite-order argument gives entry \(\mathbf1_{\{(i-k)(j-\ell)\le0\}}\). The proof gives an integer-unimodular replacement of all \((n+1)^2\) column relations by mixed and boundary differences. The mixed relations eliminate interior generators with unit coefficients. Subsequent boundary elimination leaves either \(n-1\) independent relations of order two and one free generator (odd \(n\)), or one primitive order-two relation and \(n-1\) free generators (even \(n\)). Thus the complete square-matrix Smith form follows, not only its rational rank. Exact independent finite checks corroborate the formulas for \(n\le9\), and exhaustive two-point insertion checks cover all 33 named-base permutations for \(1\le n\le4\). Finite checks are supplementary, not a proof for arbitrary \(n\).
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Cameron's 2002 primary article supplies finite permutation amalgamation but not a Smith-form theorem. Linman–Pinsker (2014) classify reducts and symmetries, not the integer kernel of existential inversion feasibility. The closest retrieved published result on *inversion indicator covariance* for uniformly random finite permutations has different rows, entries and implications. Searches under grid comparability, permutation-graph adjacency, relative one-type compatibility, and integral cokernel aliases found no inspected stronger formula; negative searches alone do not prove priority. A different name for this grid kernel is a concrete residual risk.
+PASS
 
-## Mathematical value — PASS
-The object is the finite-parameter feasibility kernel of a fundamental binary relation in the generic two-order structure. Its nonzero integral factors, characteristic-dependent ranks, and sharp parity transition are determined for every base length, despite a quadratic number of types. The parity reversal between free nullity and independent order-two torsion is structurally motivated by two competing diagonal finite-difference relations, rather than an arbitrary finite table. No new general Smith algorithm is claimed.
+Independent finite extension of the two linear orders realizes every pair of insertion gaps. When both gaps differ, their differences force each orientation; when a gap is shared the two new points can be put in either order within it. Thus the formula includes equality and diagonal ones. For the integral presentation, take successive differences on both axes of the column relations. The mixed difference is -e_{k-1,l-1}-e_{kl}; the two boundary difference lists are the row/column tail sums, and the corner relation may be taken at (n,0), where it is the total sum. The change is reversible by summation. The mixed differences eliminate all interior variables with unit pivots, leaving alternating signs on each diagonal. Consecutive tail-sum differences then identify v_{n-k}=(-1)^k u_k for 1<=k<n; the other list yields (1-(-1)^n)u_k=0. One last row sum eliminates the shared diagonal variable u_0 and the total sum eliminates v_n, leaving u_n free. The last opposite tail sum imposes sum_{1<=k<n} [(-1)^n-(-1)^k]u_k=0. This is redundant modulo 2u_k for odd n and is twice a primitive linear form for even n, since then n>=2 and u_1 has coefficient 2. At n=1 the inner lists are empty and just one generator remains free. The stated cokernels, unit counts, and field ranks follow without using a rank comparison to infer the integral torsion exponent.
 
-## Closest literature and limitations
-Cameron (2002), DOI 10.37236/1674, pp. 1–4; Linman and Pinsker (2014), arXiv:1405.4297, introduction and model of the random permutation; published "Incidence precision law for all inversion indicators of a random permutation" (2026), full RESULT.md. General combinatorial Smith theory is background (Stanley, arXiv:1602.00166). Only inversion feasibility for pairs of one-point types is classified, not higher-point compatibility or the full real spectrum. An independent mathematical audit is necessary for certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed advance is the all-order integer Smith classification of a natural grid kernel, not the classical existence of the homogeneous permutation or the finite-extension derivation of its entries. Comparison under coordinate reversal and the grid-zeta formulation found no demonstrated prior coverage. Distinct catalogue analogues with unavailable full passages are retained as bounded comparison risks.
+
+## value
+
+PASS
+
+The matrix is motivated by extension feasibility, and independently is a natural comparability matrix of a square grid. A complete integral presentation distinguishes parity-dependent free rank from genuine 2-torsion and rules out higher prime powers, neither of which follows from a characteristic-two rank table. The result gives exact working invariants for related gap-kernel and order-feasibility calculations, not merely a few small spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

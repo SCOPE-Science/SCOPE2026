@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly two leaders on a unit clique with one private unit leaf per core, and the unscaled grounded inverse-square trace. Every leader pair is in one of four automorphism orbits. The leaf Schur-complement identity (1) gives a determinant for each orbit, and two logarithmic derivatives yield the exact cost expressions (4). The four rational differences (5), including the explicit strictly positive quartic certificate, prove all pair comparisons with sharp boundary \(n=3/4\). The packaged exact checker symbolically reconstructs the formulas and independently evaluates all relevant finite grounded matrices. Finite checks are corroborative, not the all-size proof.
+PASS
 
-## Originality — PASS on examined statements, with residual priority risk
+The graph uses the full follower principal Laplacian, with degrees n and 1. Core–leaf index permutations give exactly four possible placement types. Eliminating the unit leaf diagonal leaves a core matrix A=diag(d_i)-11^T, with d_i=n for a core with a follower leaf and n+1 otherwise; the determinant version at t!=0 gives the four factorizations in the proof. Independently, at zero, H=A^{-1} has entries delta_ij/d_i+(1/d_i)(1/d_j)/(1-sum_i 1/d_i), while block inversion gives follower inverse blocks H, HT^T, TH, I+THT^T for the leaf-to-core incidence T. This directly gives tr(L_FF^{-2}) as the squared Frobenius norm, with exact agreement for the four rational costs and comparisons. The critical difference CC minus CL_d is -(3n^2-4n-16)/(n+2)^2, positive at n=3 and negative for all n>=4. CL_s and LL both exceed CC, the latter by a quartic whose coefficients in n-3 are all positive. Hence there are exactly six minimizers at n=3, cost 124/25, and exactly binom(n,2) at every n>=4. Also independently obtained exact J1 gaps relative to CL_d: 2/(n+2), 4(n+1)/[n(n+2)] and (n^3-4n-2)/[(n+1)(n+2)] for CC, CL_s and LL respectively; all are positive for n>=3. Exact direct inversion of all 245 pairs for n=3,...,7 agreed (at n=4, J2 minimum 27/4, J1 minimum 31/6). Finite checks corroborate, while the symbolic signs prove the infinite claim. Uploaded verifier inspected, not executed. Independent replay: python3 /workspace/evidence/corona_exact.py (SymPy).
 
-The closest same-graph first-power full theorem classifies \(\operatorname{tr}(L_{FF}^{-1})\) for all leader budgets but predicts core–different-leaf pairs at budget two for every \(n\ge3\); it does not imply the squared-inverse optimum at \(n\ge4\). A separate same-graph finite-gain theorem is first-power and concerns a different pinned operator; neither its finite-gain optimum nor a strong-gain limit is the second derivative required here. The full texts of Lin–Fardad–Jovanović (arXiv:1302.0450v2), Patterson–Bamieh (arXiv:1310.2592v1), and Du et al. (DOI:10.3389/fphy.2022.948247) establish related formulations or ungrounded coherence, not this four-orbit squared-inverse classification. Targeted searches for equivalent formulations, exact graphs, and stronger theorems found no decisive coverage. An unindexed equivalent or more general theorem remains possible; this review does not certify priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves every optimizer and its multiplicity for an infinite, natural core–pendant family and exposes a sharp small-core boundary. More importantly, it proves that the first and second inverse-power performance criteria prescribe disjoint leader placements on the same graph for every size \(n\ge4\). This is a structural control-design distinction, not only a new rational trace or a routine instance of the older first-power theorem.
+Best of available evidence: the ground graph and leader problem are known for other noise models, and the reciprocal-square functional itself is established. The exact global four-core switch for the squared inverse on these grounded clique coronas was not found in the inspected earlier statements or implied by them.
 
-## Limits
+## value
 
-Only unit clique coronas, exactly two perfect leaders, and the explicitly normalized grounded spectral objective are covered. Matrix tests do not substitute for the all-size proof. Uninspected equivalents and source-index gaps remain originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A symmetric graph with one private leaf per core is a minimal model in which pinning a leaf and pinning its core are genuinely different. An exact all-size reversal relative to the usual inverse trace, with all optimizers and costs, makes the given moment distinction an actionable design boundary and provides a benchmark for grounded spectral optimization. This does not claim generalization to other graphs, leader counts, weights or inverse powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

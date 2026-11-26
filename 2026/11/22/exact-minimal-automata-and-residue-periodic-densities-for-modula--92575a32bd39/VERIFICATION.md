@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-parameter proof is in `RESULT.md`. Its crucial nonstandard step is the **left** stabilizer calculation for the Boolean accepting set; a right stabilizer would not by itself prove Myhill–Nerode minimality. The group law, commutators and period are checked algebraically in the proof.
+# Independent mathematical audit
 
-Run `python3 check_group.py` to enumerate the actual counting DFA and minimize it through partition refinement for seven small parameter pairs, then compare direct word enumeration through length eight. Run `python3 check_stabilizer.py` to compute the full left accepting-set stabilizer by finite group multiplication. Run `python3 check_asymptotics.py` to propagate exact counts of accepted words to length forty and display the prime-modulus density convergence. These programs require Python 3 and the standard library, and their recorded outputs are embedded beside them.
+## correctness
 
-Finite tests do not establish the claim for arbitrary alphabet sizes or moduli, nor do numerical proportions establish a limit. Those assertions rely on the general proof and standard finite periodic Markov-chain convergence. No independent external audit has been conducted.
+PASS
+
+The group law follows by counting crossings of a word concatenation and the cocycle is bilinear over Z/mZ. Each letter generator has order m and positive powers give its inverse. The commutator for i<j gives the single central (i,j) coordinate generator, so every possible tuple is reached even for composite m. For a pair of different letters the two counts sum to the product of the corresponding letter counts, so acceptance requires exactly the stated zero pair coordinates and pairwise-zero products. Since every suffix image is available, indistinguishability of g,g′ is equivalent to equality of g^(-1)F and g′^(-1)F, i.e. stabilization of F on the left by h=g′g^(-1). Such an h belongs to F and has zero pair part. Testing h times the last letter forces the first q−1 letter coordinates of h to vanish by the (i,q) pair counts, and testing h times the first letter forces the final coordinate to vanish by the reverse-count product condition. Nothing requires cancellation by arbitrary residues, and the argument includes q=2. The faithful regular action gives the stated transition group (up to the right-action convention). For the uniform-letter random walk, every step increments total residue by one, all states communicate, and the m-fold power of one letter gives a return of length m; the period is therefore exactly m. Each probability block for the m-step walk on a length fiber is finite, irreducible and aperiodic, with uniform stationary law from double stochasticity. It converges exponentially. Every fiber has m^(d−1) elements, with exactly E_s accepting points, and over a prime field these have at most one nonzero letter coordinate, giving the two distinct limits. Frozen finite tests and outputs were inspected, not executed; they are not the basis for the general claims.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for this exact simultaneous directed modular predicate's minimal DFA and its length-residue density. The class-two mechanism has published structural antecedents and nearby catalog analogues; the full recognition/minimality statement and accepting-fiber counts are distinct.
+
+## value
+
+PASS
+
+The simultaneous two-orientation test is a natural uniform modular subsequence constraint. The result resolves whether the whole finite counting group is needed when only a single Boolean signal is observed, including all composite moduli where zero divisors change the accepting set. It also gives the exact long-word acceptance profile and shows that prime modulus yields genuinely different limiting densities rather than a single frequency. Together these are a structural and quantitative description for the whole parameter family, not a catalog of small automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

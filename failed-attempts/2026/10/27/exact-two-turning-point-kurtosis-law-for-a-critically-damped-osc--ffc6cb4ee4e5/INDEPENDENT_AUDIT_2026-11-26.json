@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:34.316296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two-sided reset Brownian walls have finite moments; stable convolution constructs the stationary state. Coupling at each wall's first reset and stability of the remaining homogeneous oscillator difference give uniqueness. Independently set y=x+u for a normalized single wall: x'=y-x and y'=z-y. For E[x^a y^b z^c], the triangular generator recursion has denominator a+b+r times the indicator of c>0 in the reset term, i.e. a+b+r·1_{c>0}; its numerator is a E[x^{a-1}y^{b+1}z^c]+b E[x^a y^{b-1}z^{c+1}]+c(c-1) E[x^a y^b z^{c-2}]. Expanding u=y-x reproduced both stationary moments, the two-wall excess (half the single-wall excess by cumulant additivity) and the derivative in RESULT.md. Exact P evaluations at 1/4, 2, 10 were 1490189781/262144, -3326712 and 87766512936; two Descartes variations give two simple roots and the stated sign sequence. Both numerical extrema and both limiting coefficients agree. Smoothness near damping 2 follows by local invertibility of the degree-two/four moment systems (and positivity of variance); the simple roots persist by the implicit function theorem. This is a mathematical check, not the frozen script's Monte Carlo or external/formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2dfaaea2518a, Finding and Proof: every stiffness and damping, exactly two simple rates with the same monotonicity and low/high-rate asymptotics.",
+          "d0ea0b36a797 concerns strict fourth-cumulant positivity, which does not constrain the number of turning points."
+        ],
+        "reasoning": "Choosing γ=2 gives critical damping and choosing any γ near 2 covers the nearby-damping conclusion, in fact with an exact count. A general positivity theorem alone would not suffice.",
+        "searches": [
+          "Resultary: universal two-turning-point kurtosis for a reset-driven harmonic oscillator",
+          "Resultary: strict non-Gaussian velocity fluctuations at every site of a resetting chain"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2dfaaea2518a, 46e2d64f01a2 and d0ea0b36a797",
+        "Sarkar and Roy arXiv:2307.06127v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 paper's exact second-order results plus numerical excess kurtosis do not determine an exact fourth-order rate law.",
+          "The indexed all-damping record supplies a variance 2/(a+R+R²) for a normalized one-wall response. Undoing the time/force normalization and summing the two independent walls gives physical variance 4k²Dm/[γ³(a+R+R²)], reducing to D/[2(1+r)²]. Its specialized K and strict extrema imply the numerical rates and limit coefficients."
+        ],
+        "reasoning": "Neither shared methods nor matching moments of order two establish coverage. The exact specialization does, including both moments and turning-point claims.",
+        "searches": [
+          "arXiv:2307.06127v3 Secs. 2–4 and conclusion",
+          "Resultary 2dfaaea2518a Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The universal oscillator record uses m x''+γ x'+2kx=k(Z_L+Z_R), hence m=1 and k=1/2 bind the same physical velocity and wall inputs.",
+          "Sarkar–Roy's excess kurtosis is also the standardized fourth cumulant, but their finite-size comparison varies chain length rather than reset rate and includes boundary Langevin baths."
+        ],
+        "reasoning": "The physical equations and normalization of the later exact theorem agree; the chain-size scaling and a spatial trough are not rate-direction equivalents.",
+        "searches": [
+          "Resultary: reset-driven harmonic oscillator stationary velocity excess kurtosis two turning points",
+          "arXiv:2307.06127v3, Eqs. (1), (16), (17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed record 2dfaaea2518a, RESULT.md; local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4. Direct exact symbolic substitution a=1/4 and normalized rate R=r/2 into its N and Q reproduces the frozen numerator B coefficient for coefficient and exactly its denominator."
+        ],
+        "reasoning": "The appropriate lookup is the exact indexed rational law for this continuum invariant, not a table of floating-point critical rates. The identical frozen entry is not counted as evidence of overlap.",
+        "searches": [
+          "Resultary: reset wall Brownian oscillator excess kurtosis rate extrema, exact rational law"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the exact same function and turning-point structure under specialization and strictly strengthens the nearby-damping clause. This is verified existing coverage as of the audit, not a finding of earlier priority: the covering record is dated November 2 UTC, after this frozen record's October 27 UTC; the latter's date and evidence are preserved. The motivating 2023 article does not supply that coverage.",
+      "residual_risks": [
+        "The explicit overlap does not resolve first discovery or independent derivation; priority beyond the dated records and bounded sources is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING; later dated, no earlier priority inferred",
+          "evidence": "Exact N/Q, single-wall variance, two simple rates for all a>0, and endpoint asymptotics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-universal-two-turning-point-kurtosis-for-a-reset-driven-harmonic--2dfaaea2518a/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Proof, offsets 0–5771",
+          "method": "Local mirrored record and direct symbolic specialization",
+          "title": "Universal two-turning-point kurtosis for a reset-driven harmonic oscillator",
+          "trigger": "Direct indexed generalization of the same oscillator"
+        },
+        {
+          "assessment": "Related mechanism and statistic; inspected results do not give the exact rate theorem",
+          "evidence": "Eq. (1) includes Langevin baths; Eqs. (16)–(17) define velocity excess kurtosis and report numerical size scaling.",
+          "identifier_or_url": "https://arxiv.org/html/2307.06127v3",
+          "material_read": "Section 2 Eq. (1); Section 3.2 Eqs. (16)–(17) and finite-size results; conclusion",
+          "method": "Primary HTML passages",
+          "title": "Stationary state of harmonic chains driven by boundary resetting",
+          "trigger": "Motivating reset-wall primary paper"
+        },
+        {
+          "assessment": "Not the same invariant or parameter direction",
+          "evidence": "Position excess kurtosis varies across sites in the low-reset-rate limit, not velocity kurtosis across positive reset rates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-random-affine-laplace-profiles-and-a-sharp-kurtosis-trough-in-sl--46e2d64f01a2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirrored statement",
+          "title": "Random affine Laplace profiles and a sharp kurtosis trough in slow resetting",
+          "trigger": "Closest earlier indexed trough alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The verified nonmonotonic fluctuation observable despite monotonically falling kinetic variance is a physically motivated structural phenomenon, and the critical case supplies precise benchmarks and a robustness result. This is an assessment of the scientific content rather than an assertion of independent added contribution after the broader indexed coverage; there is no demonstrated distinct valuable remainder to repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

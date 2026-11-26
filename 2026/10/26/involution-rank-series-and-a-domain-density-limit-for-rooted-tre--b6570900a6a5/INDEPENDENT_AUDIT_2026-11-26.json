@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:35.691645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ 1–4, base case, increment inequalities and fixed-frontier argument",
+        "Frozen VERIFICATION.md and verify_tree_involutions.py (inspected, not run)",
+        "Independent /workspace/audit_evidence/reproduce.py, check4(): literal source-target word maps and inversion at heights 0–3; all polynomial coefficients agree. Exact H=8 rational center rounded to 0.7080759505880446707780185874733271786927393; its certified truncation bound is <8.34e-46 before rounding."
+      ],
+      "rationale": "A partial map is uniquely determined by the partial injection on children and its nonempty sections. A self-inverse map pairs distinct active children in transpositions with mutually inverse sections of equal rank, and uses self-inverse sections on fixed children. Counting these injections and involutions gives the two general-d recurrences and base case t, including the root. In the binary case every nonempty partial injection has a unique completion to S_2; at empty sections, the two permutations distinguish the root-only map from the extra point. Inversion sends each section inverse to the inverse child permutation's section, so the recursive bijection is inversion-equivariant. The differentiated binary recurrences imply q_h=(1-B_h)q_{h-1}+(1-1/U_h)2^(-h)+2M_{h-1}/(2^h U_h). The last term is at most 2B_h and q_{h-1}<2, giving the stated summable error against the increments 2^(-h). U_1=6 and U_h>=U_{h-1}^2 yield the given doubly exponential bound for B_h. The normalized expectations converge to alpha; fixing the first L levels has probability tending to one for fixed L by the root type probabilities and the product decomposition. Conditional on this event the 2^L frontier maps are independent uniform self-inverses, with conditional variance of the normalized sum at most 1/(4*2^L); first h, then L tending to infinity proves convergence in probability.",
+      "residual_risks": [
+        "Branched rank recurrence is general; limit and inversion bijection are binary only. Not a claim for unrestricted uniform partial maps, rank preservation by the bijection, or multiplication preservation. No expert or formal verification inferred from frozen status."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2007 partial wreath paper identifies the structural model and enumerates order, idempotents and D-classes; the 2020 Theorem 3.1 analyzes a spectral statistic on the unrestricted random model."
+        ],
+        "reasoning": "The monoid decomposition supplies tools but not the weighted fixed-by-inversion census. An unrestricted spectral statistic neither equals rank for general partial maps nor gives a conditional law on the much smaller fixed-by-inversion family.",
+        "searches": [
+          "Resultary: Kochubinska partial wreath power self-inverse partial automorphism rooted tree enumeration",
+          "Kochubinska (2007), pp. 49–51; Kochubinska arXiv:2006.15558 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Kochubinska (2007, 2018, arXiv:2006.15558)",
+        "Kochubinska–Oliynyk (2024)",
+        "OEIS A332757",
+        "Resultary 2b5b0d3783a1 and 8670f30aedd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2018 and 2020 results concern fractions of nonzero eigenvalues in the unrestricted model; 2024 considers generation of free inverse semigroups. The OEIS unrefined identity controls neither coefficientwise derivatives nor conditional fluctuations."
+        ],
+        "reasoning": "A constraint on an unrestricted law is not a theorem for the inversion-fixed law. Even matching unrefined counts and their growth cannot supply the rank limit; the weighted pairing of sections and the fixed-frontier concentration are additional arguments.",
+        "searches": [
+          "Kochubinska (2018), pp. 280–281; arXiv:2006.15558 p. 1 and Theorem 3.1; OEIS A332757; Kochubinska–Oliynyk 2024 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest rank-polynomial records count self-inverse maps on alternating fences or restrictions of dihedral cycle symmetries, respectively."
+        ],
+        "reasoning": "They share the statistic but neither having an alternating order nor restricting a dihedral action encodes the recursively independent partial sections on a regular rooted tree. Neither inspected finding gives the rank result or binary limit under a change of notation.",
+        "searches": [
+          "Resultary: self-inverse partial automorphisms rooted trees domain rank enumerator involution polynomial",
+          "Resultary: typical domain size domain density uniform involution partial rooted tree maps limit",
+          "Resultary 2b5b0d3783a1 and 8670f30aedd1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A332757 gives the involution counts including identity for iterated binary wreath products, with a(n)=a(n-1)^2+2^(2^(n-1)-1), matching U_h after the index shift."
+        ],
+        "reasoning": "Exact overlap at t=1 is credited, as is known growth. The table does not provide the coefficientwise rank statistic, a specified inversion-compatible map for partial objects, or the derivative limit.",
+        "searches": [
+          "Resultary: partial automorphisms regular rooted trees involutions OEIS A332757 wreath product binary tree",
+          "OEIS A332757 at offset 380"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the self-inverse rank refinement, explicit binary inversion bijection, and typical domain fraction. Unrefined counts, growth of those counts, and partial wreath products are expressly not the contribution.",
+      "residual_risks": [
+        "Equivalent involution refinements in the literature on inverse semigroups or wreath products may not be indexed under the searched descriptions. This is bounded comparison, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural prior art, not the stated rank or density result",
+          "evidence": "Order, idempotents and D-classes are enumerated in the partial-wreath model.",
+          "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/download/834/365",
+          "material_read": "pp. 49–51, offset 1700, decomposition and stated enumerative scope",
+          "method": "Primary OA PDF passage",
+          "title": "Combinatorics of partial wreath power of finite inverse symmetric semigroup",
+          "trigger": "Same monoid structure and counting"
+        },
+        {
+          "assessment": "Different law and statistic",
+          "evidence": "Spectral measure of uniformly chosen unrestricted partial automorphisms.",
+          "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/download/532/pdf",
+          "material_read": "pp. 280–281, abstract and introduction, offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "Spectral properties of partial automorphisms of a binary rooted tree",
+          "trigger": "Same binary random partial maps"
+        },
+        {
+          "assessment": "Different quantitative observable, no conditioned domain result",
+          "evidence": "Theorem 3.1 examines the proportion of nonzero eigenvalues of the random operator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.15558",
+          "material_read": "p. 1 and Theorem 3.1 on p. 5, offsets 0 and 8500",
+          "method": "Primary OA PDF passages",
+          "title": "Spectrum of partial automorphisms of regular rooted tree",
+          "trigger": "General branching random law"
+        },
+        {
+          "assessment": "Free generation, not finite-height inversion-conditioned ranks in the inspected statements",
+          "evidence": "Criteria related to monogenic free inverse semigroups and extensions.",
+          "identifier_or_url": "https://matstud.org.ua/ojs/index.php/matstud/article/download/476/226/",
+          "material_read": "p. 3, abstract and introduction, offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "Monogenic free inverse semigroups and partial automorphisms of regular rooted trees",
+          "trigger": "Same type of maps"
+        },
+        {
+          "assessment": "Unrefined counts genuinely known",
+          "evidence": "a(0)=1 and a(n)=a(n-1)^2+2^(2^(n-1)-1).",
+          "identifier_or_url": "https://oeis.org/A332757",
+          "material_read": "Definition, tree interpretation and recurrence at offset 380",
+          "method": "OEIS public page passage",
+          "title": "Number of involutions (including identity) in an iterated wreath product of C_2",
+          "trigger": "Exact count sequence"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Cycle/rank polynomial for alternating fences, not complete rooted trees.",
+          "identifier_or_url": "2026/10/18/SCOPE-cycle-type-enumeration-of-self-inverse-partial-automorphisms-of--2b5b0d3783a1",
+          "material_read": "RESULT.md at offsets 0 and 1400",
+          "method": "Local catalogue mirror",
+          "title": "Cycle-type enumeration of self-inverse partial automorphisms of alternating fences",
+          "trigger": "Same involution-rank statistic under a different presentation"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Parity-dependent polynomials for restrictions of dihedral symmetries of a cycle.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local catalogue mirror",
+          "title": "The domain-rank involution polynomial of the dihedral inverse monoid",
+          "trigger": "Same rank refinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ 1–4; OEIS A332757; published unrestricted spectral comparisons"
+      ],
+      "rationale": "The result identifies which portion of a large binary tree a typical self-inverse partial symmetry occupies, with effective evaluation and an actual concentration law, not just the known size of the population. The general rank enumerator records exact distribution data and identifies the distinct fixed-child and paired-child mechanisms behind the conditioned model.",
+      "residual_risks": [
+        "No implication for growing branching, nonbinary limits, or rank fluctuations beyond convergence in probability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

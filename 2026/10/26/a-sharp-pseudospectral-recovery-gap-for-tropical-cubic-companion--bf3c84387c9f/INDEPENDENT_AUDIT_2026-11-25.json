@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:57:17.660380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97, VERIFICATION.md and check.py",
+        "Pérez arXiv:2610.20285v1 §§4, 5.1"
+      ],
+      "rationale": "The tropical max has dominant index 0 below e, 1 between e and U, and 3 above U; index 2 only ties at U. The midpoint is 1. Pérez §4 and §5.1 give direct-chart recovery blocks d−j and 1 and include 1≤|t|≤U_j, so the actual direct chart at j=1,d=3 gives the displayed S_U and blocks 2 and 1, including t=1 (shared with the reversed half). The displayed diagonal row and column scalings give exactly S_U from the Frobenius companion; a constant unit minor on its last two rows and the first two columns gives the two unit Smith factors, and in the reversal the last two rows and last two columns give a unit minor. Thus linearization is strong, and det S_U=−eQ_U. For t>0 the weighted sum of coefficient magnitudes is Q_U(t); the backward error is at least 1 by the triangle inequality and equals 1 by perturbing each coefficient by its negative. At e=0, the two nonzero singular values are φ and φ⁻¹, so their product is 1. Singular-value perturbation gives product 1+O(e), while |det S_U|=et+O(e²) and W_U=φ+O(e), uniformly for t in compact positive sets. Hence the least normalized residual is t/(φU)+O(U⁻²). The isolated null eigenvectors of the limiting right and left Gramians can be expanded with positive third component; the first-order singular equations give z'=−e₂ and w'=e₁−e₂ at t=1. The normalized recovered error ratio therefore tends to φU in the sense of asymptotic equivalence, with both recovery coordinates nonzero for large enough U. Zero recovery is a stronger constraint: the indicated column/row restrictions have exactly the specified traces and determinants, and their least Gram eigenvalues give attained thresholds. Using λ_min=D/λ_max with λ_max→T at e=0 gives Uδ_R→√(3/2)/φ and Uδ_L→√2/φ. Both limits exceed the unconstrained constant 1/φ at t=1, so for sufficiently large U the two singular modes indeed lie below the respective thresholds. Determinant, first-order singular equations, and Gram invariants were independently checked with `python /workspace/independent_reproduction.py`; the frozen check.py was inspected, not executed.",
+      "residual_risks": [
+        "The equality η_Q=1 is for t>0 and nonzero recovered scalars. Compact-t asymptotics are not uniform across the entire growing upper-half interval. These are unstructured pencil backward errors, not a guarantee of failure for a particular eigensolver or the reversed chart."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pérez bounds recovery for exact eigenvectors and explicitly notes the missing computed-vector control. Higham–Li–Tisseur give general right/left residual-transfer bounds with recovery norm ratios. Yang et al. is a plausible broader comparator, but only bibliographic identification was independently recovered; the frozen audit reports abstract-level evidence on tropical scaling."
+        ],
+        "reasoning": "The verified general bounds explain the mechanism but do not force the exact cubic's simultaneous asymptotics or the attained thresholds. Whether specialized parts of Yang et al. give stronger coverage is unresolved, not negative evidence.",
+        "searches": [
+          "Pérez introduction and §§4, 5.1; Higham–Li–Tisseur author manuscript pp. 1221–1222",
+          "Yang et al. DOI 10.1007/s40314-025-03168-0, Springer article/PDF and OA search"
+        ]
+      },
+      "checked_sources": [
+        "Pérez arXiv:2610.20285v1",
+        "Higham–Li–Tisseur doi:10.1137/060663738",
+        "Yang et al. doi:10.1007/s40314-025-03168-0 (bibliographic comparison and access attempts)",
+        "Resultary searches and 6e9f82141f87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matrix itself and choice of coordinate are obtained by specializing Pérez. Positivity plus the standard formula gives η_Q=1, but the prior bounds do not give a lower or attained worst-case pencil-to-polynomial gap for these vectors. The specific determinant and kernel perturbation, followed by two Gram restrictions, supply those facts."
+        ],
+        "reasoning": "Recognize the chart specialization and known error-transfer mechanism as prior. The quantitative obstruction and recovery thresholds do not follow by simply substituting into the verified exact-eigenvector or upper-bound statements.",
+        "searches": [
+          "Pérez §5.1 and introduction; Higham–Li–Tisseur Eqs. (2.2), (2.14), (2.18); scope of Yang et al. bibliographic identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The supplied pencil is exactly the direct upper half at d=3,j=1. The right and left blocks are the second and first coordinates. The familiar polynomial backward-error formula and the residual-transfer bounds feature those types of recovery norm ratios."
+        ],
+        "reasoning": "Treating the failure as transfer between norms, or as a constrained singular-value/pseudospectrum problem, does not make the general transfer bound an attained example. Here t=1 is an allowed chart point but no exact polynomial or pencil eigenvalue, so the exact-eigenvector guarantees do not preclude the loss.",
+        "searches": [
+          "Pérez arXiv:2610.20285v1 §§4 and 5.1; Higham–Li–Tisseur DOI 10.1137/060663738 Eqs. (2.2), (2.14), (2.18)",
+          "Resultary: tropical companion exact normwise pseudospectral separation and coordinate-zero thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four targeted semantic checks and an exact-title search produced no matching claim in the inspected rankings. Same-day 6e9f82141f87 concerns randomly pivoted LU error tails on unitary matrices rather than polynomial pencils."
+        ],
+        "reasoning": "The same-day hit differs by mathematical object and observable, not excluded by time. The analytic example is not an exact lookup of an existing companion table in the inspected evidence; the bounded search is not a proof of absence.",
+        "searches": [
+          "Resultary: minimum normalized residual, simultaneous right/left recovery loss, exact coordinate-zero thresholds, Yang and exact-title terms"
+        ]
+      },
+      "rationale": "Unstructured pencil backward stability versus coefficientwise polynomial backward stability and the recovery-factor mechanism are established prior work. The supported distinct result is a concrete source-prescribed tropical companion with two distinct tropical roots, its sharp least residual asymptotic, simultaneous left/right recovery loss, and its exact constrained thresholds. The closest inspected source provides the chart but explicitly leaves control of computed recovery ratios unresolved; the evidence does not certify historical priority.",
+      "residual_risks": [
+        "Yang et al.'s specialized theorems were not accessible through the inspected OA routes. Bounded catalogue and literature evidence cannot establish universal priority or exclude other counterexamples under different formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives this chart, exact-eigenvector recovery and not the asserted approximate-vector obstruction in inspected passages.",
+          "evidence": "Direct upper half 1≤|t|≤U_j, right block d−j, left block 1; computed recovery ratios remain uncontrolled by the exact-vector theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.20285v1",
+          "material_read": "Introduction and §§4, 4.1, 5.1; OA HTML offsets around 6000, 52000, 60800",
+          "method": "Primary chart passage inspection and parameter substitution",
+          "title": "Scaled Companion Linearizations for Coefficientwise Backward Stability",
+          "trigger": "Exact chart normalization, assignment and recovery-block provenance"
+        },
+        {
+          "assessment": "General transfer mechanism covered, exact source-specific quantitative obstruction not given by these equations.",
+          "evidence": "Polynomial coefficientwise error formula and right/left transfer bounds using recovery norm ratios.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/996/1/hlt07.pdf",
+          "material_read": "Author manuscript pp. 1221–1222, Eqs. (2.2), (2.14), (2.18)",
+          "method": "Primary PDF equation comparison",
+          "title": "Backward Error of Polynomial Eigenproblems Solved by Linearization",
+          "trigger": "Prior polynomial error and recovery factor mechanism"
+        },
+        {
+          "assessment": "Specialized coverage unresolved; not grounds for a claim about the whole paper.",
+          "evidence": "No specialized primary passage available in this review; comparisons involving absence are not drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-025-03168-0",
+          "material_read": "Bibliographic title confirmed; Springer full text/PDF not recovered; frozen record describes its own abstract inspection",
+          "method": "Lawful OA Springer routes and bibliographic search",
+          "title": "Global bounds of backward errors of polynomial eigenvalue problem solved by a companion linearization",
+          "trigger": "Closest prior global bounds for scaled companion approximate eigenpairs"
+        },
+        {
+          "assessment": "No matching companion pencil claim in the displayed statement.",
+          "evidence": "LU residual-error tails on unitary inputs, not left/right blocks of polynomial companions.",
+          "identifier_or_url": "Resultary 6e9f82141f87",
+          "material_read": "Indexed mathematical description",
+          "method": "Resultary statement comparison",
+          "title": "Exact high-threshold error tails of randomly pivoted LU on unitary matrices",
+          "trigger": "Same-day error-analysis search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations; Pérez introduction and §5.1; Higham–Li–Tisseur transfer bounds"
+      ],
+      "rationale": "This is a motivated residual-acceptance obstruction for a prescribed scaling chart, not a generic ill-conditioned matrix example. Even passing a strict threshold that rules out zero recovery cannot bound the recovered polynomial error: the left and right scalar recoveries are nonzero but both errors are 1 while the least unstructured pencil residual tends to zero. Exact constants and attained thresholds separate these requirements quantitatively. That is useful for distinguishing guarantees one could reasonably seek from an eigensolver from those a normwise residual test can provide on its own.",
+      "residual_risks": [
+        "Does not show an implemented algorithm produces these approximate eigenpairs, or that other charts or structured perturbation tests have the same obstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

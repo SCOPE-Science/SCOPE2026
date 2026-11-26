@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Banach-algebra logarithmic expansion gives an \(\ell^1\)-controlled \(O_C(n^{-2})\) remainder. Standard Bessel generating and recurrence relations convert it into individual Fourier coefficient expansions. Simplicity and disjointness of positive-order Bessel zeros yield isolated cusp centers; the analytic implicit function theorem yields the two signed root positions and exact separation. The \(\ell^1\) directional derivative yields the entire local two-kink boundary layer. Finite numerical checks evaluate coefficients independently and support, but do not prove, the infinite theorem.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The two closest primary full texts are Auxemery–Borichev–Zarouf (2026), which uses the same Malmquist function only for fixed \(\lambda\ge1/2\) and selects Dirichlet polynomials below that regime, and Szehr–Zarouf (2017), which analyzes Blaschke powers for fixed positive \(\lambda\). Their results do not state or directly imply the regime \(\lambda=c/n\) with signed mode root displacements. Classical Bessel facts are cited. Targeted published-literature and research-record searches for double scaling, Fourier coefficient zero crossings and Bessel cusp collisions found no directly covering entry; incomplete indexing remains a real priority risk.
+PASS
 
-## Value — PASS
-The quantifiable shift from fixed-pole asymptotics to a bounded Bessel norm is a natural transition for a canonical rational witness. The precise splitting of each positive-order Bessel cusp into distinct signed Fourier coefficient root crossings, plus a complete local norm profile, gives nontrivial structural information rather than a single numerical special case. It does not claim a new globally sharp rational embedding constant.
+Reassessed repairs/1/RESULT.md. Centering preserves absolute sums, and the two convergent Wiener-algebra logarithms have combined tail O_C(n^-2) after the quadratic terms. Bessel coefficient extraction and the recurrence give the first-order term c(k-1)J'_k(2c), with an ell^1 remainder. Simplicity and Bourget nonintersection leave only the indicated zero modes, with fixed signs of sufficiently large orders by the factorial series estimate. At c=c_0+s/n, the coordinatewise norm directional derivative is dominated by the summable direction, and Lipschitz dependence on s gives compact-uniform convergence. In every nonvanishing plus/minus pair the term odd in k cancels; the two vanishing modes give the maximum formula, with the separate single-mode formula at m=0. The frozen root shifts themselves are correct. The frozen novelty claim that no existing result implies them is corrected, not passed as written. The frozen FFT checker was inspected, not executed; it checks finite sample Wiener corrections and root locations, not the full cusp profile.
 
-## Scope and verification limits
-The estimates are for bounded \(c\) and the named rational family. No uniformity as \(c\to\infty\), no extremality over rational classes, and no independence or external mathematical certification are claimed. Historical priority requires continued conventional review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only for the repaired norm-level claim: the uniform absolute-sum expansion and the resulting centered, tilted plateau between the two kinks. The original presentation understated prior implication for individual zero displacements. Once the signed coefficients are recognized as Jacobi polynomials, those displacements follow directly from the classical endpoint-zero asymptotic, now explicitly credited. The inspected fixed-pole theorems and Jacobi zero formulas do not supply the norm-level correction and boundary layer.
+
+## value
+
+PASS
+
+The repaired statement identifies what is lost in the limit when two finite-mode crossings merge: on the 1/n scale the norm has an explicit central interval on which the kink contribution is constant, and an exact drift from all the other modes. The profile is for a known rational Wiener test family in a coalescing regime where the fixed-pole estimates are not uniform. This is useful beyond tabulating the individual zero shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

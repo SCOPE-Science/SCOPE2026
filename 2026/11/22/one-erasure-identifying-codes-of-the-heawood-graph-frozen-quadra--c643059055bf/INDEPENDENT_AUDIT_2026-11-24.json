@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:51:28.549034Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, signature criterion, geometric classification and exact mobility, lines 3–35",
+        "Frozen VERIFICATION.md, code/check_fano.py and code/check_hamiltonian.cpp (inspected, not executed)",
+        "Resultary 821f7bebe27a, Finding and assumptions: exact catalogue input",
+        "Independent replay: python3 /workspace/branches/257b5441-dc56-4872-b2aa-849af34aed82/reproduce_heawood.py and companion reproduction-summary.json",
+        "Complete narrowed result and checked code in /workspace/repairs/5; replay: python3 /workspace/repairs/5/check_exchange.py"
+      ],
+      "rationale": "The repair proves only the exchange theorem and uses the separately established optimum catalogue. Index negation matches the two cyclic Fano conventions. The catalogue is exactly the union of shore complements of lines or dual pencils and pairs of points plus pairs of lines inducing a 2-edge matching. For equal-size omissions, adjacency for exact r corresponds to intersection size 4−r, independently of host edges. Quadrangles cannot share three vertices with any other optimum omission. In a matching the only one-vertex substitutions keep the shore and choose the unique alternative line through the retained matched point but not the other point, or the dual alternative point. The repair independently constructs all 98 four-sets, tests all unordered pairs for each exact exchange size, and computes BFS from every vertex including isolates. The shell sums force a single 84-vertex matching component for r=1 and a single 98-vertex component for r=2; the last nonzero shell indices give the eccentricities and the first positive shell indices yield the stated degrees and edge counts. I executed the new check_exchange.py and recovered each complete shell multiplicity and 168 and 1134 edges. A separate exact replay on all 16,384 detector masks verified the original feasibility criterion against explicit single-detector removal and agreed on the geometric catalogue, polynomial and all exchange data. Neither script replaces a symbolic statement about any other graph.",
+      "residual_risks": [
+        "The certificate asserts the full finite exchange metrics for the given Heawood catalogue and exact move; it is not a theorem about larger Fano-type geometries or vertex deletion from the host."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jean–Seo's cubic lower bound is 4/7 of the vertex count, which yields 8 for this graph; it does not resolve even the optimum 10 or its exchange geometry.",
+          "The vertex-corruption convention in Honkala–Karpovsky–Levitin imposes a signature-distance threshold of 3 rather than the one-erasure threshold of 2; edge faults are also a different model."
+        ],
+        "reasoning": "The standard RED:IC characterization is prior and used as such. The inspected general bounds or related failure and move models do not contain a metric theorem that specializes to the repaired exchange graphs.",
+        "searches": [
+          "Jean–Seo arXiv:2112.01685, RED:IC characterization and cubic bound",
+          "Honkala–Karpovsky–Levitin, On Robust and Dynamic Identifying Codes, failure models",
+          "Heawood RED:IC and generalized token jumping literature query"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary lookup and mirror statements for 821f7bebe27a, f9533412f5d1 and 15f94095f8d3",
+        "arXiv:2112.01685 and arXiv:1407.7263",
+        "Honkala–Karpovsky–Levitin primary PDF",
+        "Targeted Heawood RED:IC exchange reconfiguration/alias lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deletion theorem gives the full vertex set and two orbits but no distance or connectivity facts about edges joining precise intersection sizes on four-sets.",
+          "One-step isolation follows quickly from the shore balance, but the connectivity and exact distance layers for each exchange size require examining the actual intersections and paths. The repaired proof checks those layers from every start without assuming connectedness or using an existing metric table."
+        ],
+        "reasoning": "The minimum and count are directly covered; the repaired claim does not rely on their novelty. Its exact connectivity transition, all eccentricities and shells are neither a relabelled prior result nor a direct specialization of the cubic bound or the other matching and code moves.",
+        "searches": [
+          "821f7bebe27a Finding and deletion proof; arXiv:2112.01685 §2 and Theorem 11; 15f94095f8d3 exact exchange geometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 821f7bebe27a the four-element deletion sets are exactly the one-shore quadrangles and mixed perfect matchings on two points and two lines, with the same polynomial and minimum 10; index negation matches the coordinate choices.",
+          "The matching exchange record 15f94095f8d3 gives a six-regular 84-vertex graph of radius 4, unlike the four-regular matching component of radius 5 here."
+        ],
+        "reasoning": "The first equivalence is exact for the catalogue and is repaired by explicit credit. Complementing codes gives the relevant intersection graphs on four-sets, but does not identify these with the earlier matching exchange graph or ordinary token-slide graph. Same cardinality or diameter is not equivalence.",
+        "searches": [
+          "Resultary same-object and alternate titles: redundant identifying codes, Fano deletion, Heawood minimum-code exchanges",
+          "Heawood Fano redundant identifying code one detector erasure exchange reconfiguration minimum token jumping 98 quadrangles Jean Seo"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding in 821f7bebe27a gives the exact enumerator and all code classes, and also the two minimum-code automorphism orbits, but its stated results do not supply these exchange tables.",
+          "The stated ordinary token-slide graph has 268 vertices; the maximum induced matching exchange record gives 252 edges and a different metric on its 84 vertices."
+        ],
+        "reasoning": "Credit the exact redundant-code census; it is not independent evidence of novelty. The neighboring exact exchange tables do not encode the same vertices and relations; neither yields the four shell multiplicities checked for the repair.",
+        "searches": [
+          "Local Resultary for labelled Heawood minimum fault-tolerant code polynomial, deletion classification and exchange graph",
+          "Local Resultary f9533412f5d1, 15f94095f8d3 and 821f7bebe27a"
+        ]
+      },
+      "rationale": "This verdict concerns the repaired mobility-only statement, not the original omnibus Finding. The same-object deletion classification is explicitly cited as an input and no claim to its catalogue, minimum or polynomial remains. The checked closest exchange results use either ordinary identifying codes and token slides, or maximum induced three-edge matchings and whole-edge exchanges. Neither covers this optimum family with these exact one- and two-detector moves.",
+      "residual_risks": [
+        "The ordering between the two same-date exact catalogue records is unresolved; the repair does not need that ordering.",
+        "An unindexed result for token jumping on minimum redundant identifying codes or the equivalent intersection graph of Fano four-sets remains a possible priority risk. No nonexistence inference is drawn from search omissions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of frozen optimum and polynomial; catalogue credited in repair. The same record date does not establish priority order.",
+          "evidence": [
+            "Four omissions are exactly one-shore quadrangles or two points/two lines inducing a perfect matching; no ≥5 omissions; displayed polynomial is identical.",
+            "The theorem also specifies all permitted triple omissions and the two optimum orbits, not the exact exchange metric."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-redundant-identifying-codes-of-the-heawood-graph-the-fano-deleti--821f7bebe27a",
+          "material_read": "Finding, assumptions and decisive deletion proof passages, local mirror offsets 0 and 4886",
+          "method": "Bounded local mirror body inspection and comparison of cyclic incidence and face conditions",
+          "title": "Redundant identifying codes of the Heawood graph: the Fano deletion classification",
+          "trigger": "Strongest distinct exact same-object and same-model match"
+        },
+        {
+          "assessment": "Different optimum family and host-adjacency move",
+          "evidence": [
+            "Its vertices are 268 ordinary size-7 identifying codes with adjacency-restricted token slides."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-token-slide-graph-of-minimum-identifying-codes-of-the-heawoo--f9533412f5d1",
+          "material_read": "Finding and move scope, local mirror",
+          "method": "Bounded local mirror inspection",
+          "title": "The token-slide graph of minimum identifying codes of the Heawood graph",
+          "trigger": "Same host and identifying-code reconfiguration"
+        },
+        {
+          "assessment": "Not the same configurations or graph, even up to isomorphism",
+          "evidence": [
+            "Vertices are induced 3-edge matchings; whole matching edges are moved. The resulting graph is 6-regular with 252 edges and radius 4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-fano-induced-matching-exchange-graph-tripartite-triangles-an--15f94095f8d3",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Bounded local mirror inspection compared with exact degrees and moves",
+          "title": "The Fano induced-matching exchange graph: a tripartite triangle geometry with diameter five",
+          "trigger": "Same host, 84 matchings and diameter 5 create plausible disguised overlap"
+        },
+        {
+          "assessment": "Applicable model and general lower bound, no exact exchange result in the checked passages",
+          "evidence": [
+            "The thresholds are 2-domination and 2-distinction; cubic density at least 4/7 gives a lower bound of 8 here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.01685",
+          "material_read": "§2, p. 2, OA offset about 3900; §4.4 Theorem 11, p. 11, offset 37393",
+          "method": "Bounded primary PDF inspection",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Exact same RED:IC feasibility model; possible broader cubic theorem"
+        },
+        {
+          "assessment": "Related but not the specified one-selected-detector erasure model",
+          "evidence": [
+            "Its one-vertex corruption approach requires distance at least 3 and distinguishes graph-edge faults."
+          ],
+          "identifier_or_url": "https://sites.bu.edu/mark/files/2018/02/169.pdf",
+          "material_read": "pp. 1–2, OA offsets 0–7473",
+          "method": "Bounded primary PDF inspection with comparison of failure conventions",
+          "title": "On Robust and Dynamic Identifying Codes",
+          "trigger": "Alternative robust-code terminology could conceal equivalent codes"
+        },
+        {
+          "assessment": "Different code invariant, not robustness or exchange",
+          "evidence": [
+            "The locating-domination number of Heawood is 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.7263",
+          "material_read": "Proposition 24, p. 14, OA offset 45400",
+          "method": "Bounded primary PDF inspection",
+          "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+          "trigger": "Exact code parameter on the Heawood graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof of the exact exchange model",
+        "Repaired full shell table and replay",
+        "Resultary catalogue input and neighboring exchange graphs"
+      ],
+      "rationale": "For a canonical small cubic incidence graph, this measures an operational property of a natural optimum family: how many selected detectors must be exchanged per move to reconfigure without losing minimum one-erasure robustness at the endpoints. Exact one-at-a-time moves fail by isolating a geometric class, while exact two-at-a-time moves give diameter two. The complete shell vectors quantify mobility beyond a yes/no path question and expose the two code types in the exchange geometry. The separate deletion census alone does not give these distances; the finite proof and precise boundary are useful without a broader family theorem.",
+      "residual_risks": [
+        "These conclusions are specific to exact exchanges between optimal endpoints on one host; they say nothing about routes with valid intermediate individual replacements or codes on larger projective planes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

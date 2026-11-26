@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:26:34.709487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Off edge normals the chord spline is continuous with second derivative a finite signed mass, grouping coincident abscissae. Its Fourier transform is minus r^-2 times the finite exponential sum; the mean square of the latter is the sum of squared jumps. At p=4 the diagonal integral diverges logarithmically and the off-diagonal oscillatory integrals are bounded by integration by parts; the same separation gives the displayed p-up-to-4 residue. At a normal the nonzero endpoint jumps instead yield an r^-1 leading term with positive mean square, giving divergence from p=2. Uniform boundary decay O(1/r) proves boundedness and continuity below 2; above 4 divergence persists by comparison on r>=1. Writing alpha=4-p, expansion of the chord-spline energy using sum c=0 gives the fractional cosine identity, whose constant follows by Laplace representation and the beta integral. At alpha=2 the quadratic term vanishes since sum c*s=0; cancellation of the pole gives the stated logarithmic energy. For the horn, the diagonal edge contribution is 2 cos(theta)^2/sin(theta)^2 times the integral of (1-cos(r ell sin(theta))) r^(p-5). This yields exactly the stated coefficient after multiplying by p/A. For opposite parallel edges only their projection difference must be nonzero (individual projections may vanish by translation); after rescaling by |sin(theta)|, the product of the sinc factors times the weighted kernel is integrable, and the separated-edge cross term vanishes by oscillation. Nonparallel edges are uniformly O(r^-2); splitting at 1/|sin(theta)| makes their cross terms lower order. At p=2, below that split replacing the sinc products by 1 costs O(1), the separated-edge cosine integral against dr/r is bounded, and the tails above the split are O(1). Thus the diagonal logarithmic coefficient is correct. The power of the angular singularity in the radial square is less than one for 2<p<4; at 2 the logarithm is integrable and polar coordinates plus Plancherel give 4π². Positivity follows from uniform small-frequency positivity. The supplied example checker was inspected, not run, and is not needed for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad convex-body theorem concerns p equal to the dimension, and the cube Fourier index in Thm. 8 does not give the finite-area range for all planar polygons.",
+          "Brandolini–Rigoli–Travaglini treat angular Fourier L^p averages at fixed radius."
+        ],
+        "reasoning": "The latter integrals are not the target, which first integrates the squared transform along each ray and then integrates a nonlinear power of it over angle. Fixed-sphere decay bounds do not by themselves give the sharp directional threshold and horn constants.",
+        "searches": [
+          "arXiv:2601.20117v1 §1.3.1 Prop. 6 and Thm. 8",
+          "doi:10.4171/RMI/244 pp. 520–522"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 957463eb428d, a7d140566df1, 9e341c4e60ef",
+        "arXiv:2601.20117v1",
+        "arXiv:1703.00255v1",
+        "doi:10.4171/RMI/244"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wuttke gives a polygon edge Fourier sum, not the weighted radial integral or its angular blow-up coefficients.",
+          "The cusp proof already exploits separated opposing parallel edges below 2."
+        ],
+        "reasoning": "The boundary transform and parallel-edge decomposition are prior methods. Full area and horn statements require control in the singular angular limit, including the disappearance of interference and a positive nonnormal mean square at p=4. The checked formulas do not state those conclusions or make the full claim a parameter substitution.",
+        "searches": [
+          "arXiv:1703.00255v1 §3 Prop. 10 eq. (18)",
+          "Resultary 957463eb428d proof offsets 3200–5652"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 957463eb428d states unboundedness for every planar convex polygon from p=2 and a parallel-edge-weighted cusp for 1<p<2, with the opposite-facet case in its proof.",
+          "Prop. 6 of Langharst–Manui–Zvavitch gives the p=2 area for all planar convex bodies."
+        ],
+        "reasoning": "Unboundedness at p>=2 is genuine equivalent coverage of a component, not evidence of chronology. A cusp describing a finite radial deficit below 2 is not equivalent to the divergent horn with explicit coefficients above or at 2 and does not control its integrability.",
+        "searches": [
+          "Resultary semantic search comparing convex polygon Fourier-mean ray divergence, area phases and edge-normal cusp/horn statements",
+          "arXiv:2601.20117v1 §1.3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cube formula gives p<2k for k nonzero coordinates, hence sharp square-ray thresholds 2 and 4 including the two-dimensional special case.",
+          "The quartic disk has different thresholds 5/2 and 3 for a single nonpolygonal body."
+        ],
+        "reasoning": "There is no finite table of the polygon shapes at issue; these exact datasets are meaningful benchmarks/special cases, not arbitrary-polygon classification or a generic chord-jump formula.",
+        "searches": [
+          "Resultary a7d140566df1 (cube coordinate strata)",
+          "Resultary 9e341c4e60ef (quartic disk)"
+        ]
+      },
+      "rationale": "Distinct contribution: the full all-polygon finite-area range above two, the exact all-direction threshold at four, the supercritical-to-two and logarithmic horn coefficients, and the explicit chord-jump energies and directional residue. No originality credit for the known p=2 area, square thresholds already computed elsewhere, or the polygon-wide unboundedness at p>=2 also stated in a distinct same-day finding.",
+      "residual_risks": [
+        "Bounded comparisons; equivalent angular asymptotics may appear in other Fourier-geometry literature.",
+        "Same-day component overlap is established, but not its publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material component and method overlap, not the full result; same-day order unknown",
+          "evidence": "Universal p>=2 unboundedness and a length-weighted cusp below 2, as opposed to the area and divergent-horn laws under review.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-facet-cusps-and-sharp-convexity-loss-for-planar-fourie--957463eb428d",
+          "material_read": "Finding at offset 0 and proof offsets 3200–5652",
+          "method": "Local mirror RESULT.md",
+          "title": "Universal facet cusps and sharp convexity loss for planar Fourier mean bodies",
+          "trigger": "Same polygon class, critical exponent and parallel-edge geometry"
+        },
+        {
+          "assessment": "Known endpoint area and cube index",
+          "evidence": "Vol_n(F_n K)=(2π)^n; p([-1,1]^n)=2.",
+          "identifier_or_url": "https://arxiv.org/html/2601.20117v1",
+          "material_read": "§1.3.1 Proposition 6 (near 15796), Theorem 8 (near 18500)",
+          "method": "OA HTML passages",
+          "title": "On the Fourier Mean Bodies of a Convex Body",
+          "trigger": "Definition and established endpoint and cube bounds"
+        },
+        {
+          "assessment": "Covers square ray thresholds",
+          "evidence": "Finiteness iff p<2k for directions with k nonzero coordinates.",
+          "identifier_or_url": "2026/11/8/SCOPE-coordinate-stratified-divergence-and-sharp-resonance-residues-of--a7d140566df1",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Coordinate-stratified divergence and sharp resonance residues of Fourier mean bodies of cubes",
+          "trigger": "Potential exact square special-case coverage"
+        },
+        {
+          "assessment": "Precedent for one smooth model body, different thresholds",
+          "evidence": "Thresholds 5/2 and 3 rather than 2 and 4.",
+          "identifier_or_url": "2026/11/1/SCOPE-three-fourier-mean-phases-and-an-exact-logarithmic-horn-constant--9e341c4e60ef",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Three Fourier-mean phases and an exact logarithmic horn constant for the quartic disk",
+          "trigger": "Same type of area and horn conclusions"
+        },
+        {
+          "assessment": "Different order and type of averaging",
+          "evidence": "Studies angular averages at fixed radius.",
+          "identifier_or_url": "doi:10.4171/RMI/244",
+          "material_read": "pp. 520–522, equations (1.1), (1.3)–(1.5), extracted offsets 2768–5869",
+          "method": "OA PDF passages",
+          "title": "Average decay of Fourier transforms and geometry of convex sets",
+          "trigger": "Possibly dominating Fourier decay estimates"
+        },
+        {
+          "assessment": "Transform groundwork, not the integrated result",
+          "evidence": "Finite edge sum for the polygon transform.",
+          "identifier_or_url": "https://arxiv.org/html/1703.00255v1",
+          "material_read": "§3 Proposition 10 equation (18), near offset 16200",
+          "method": "OA HTML passage",
+          "title": "Form factor (Fourier shape transform) of polygon and polyhedron",
+          "trigger": "Exact transform could cover finite radial energy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal division among compactness, finite area with infinite rays, and complete divergence is useful for understanding Fourier mean sets just beyond the known critical-area identity. It requires distinguishing radial divergence from angular integrability and quantifies the effect of parallel supporting edges rather than just testing a few shapes. The finite chord-spline formula also permits directional evaluation without oscillatory quadrature.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

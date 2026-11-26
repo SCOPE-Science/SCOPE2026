@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:45.212013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33 and 35–95",
+        "Frozen VERIFICATION.md lines 3–13, 20–24; checks/check_parabolic_circumradii.py lines 12–75, inspected, not executed",
+        "Replay: python3 /workspace/review_evidence/4_endpoint_replay.py"
+      ],
+      "rationale": "For distinct parameters the product of chord lengths cancels the absolute Vandermonde in four times the area, giving the continuous pair-sum product in RESULT.md (1). Its factors give the unique minimum and the two same-sign maximizing corners. The continuous image of the cube is an interval, all its support values have positive-probability neighborhoods even after discarding the diagonals, and each level has volume zero (the squared radius is a polynomial nonconstant in u1 for fixed u2,u3). Independently, use s=(u1+u2,u1+u3,u2+u3), absolute determinant 2, then s_i=sgn(x_i)sqrt(exp(x_i^2)-1). The lower event is a ball of squared radius q=2 log(1+2 epsilon) in the x coordinates and has u-volume (2 pi/3)q^(3/2)+(3 pi/10)q^(5/2)+O(q^(7/2)): the Jacobian is (1/2)(1+3||x||^2/4+O(||x||^4)). Expansion gives 16 pi/3 and 8 pi/5 before dividing by 8a^3. The rescaled u sublevel sets converge in volume to the quadratic ellipsoid with matrix I+11^T, hence in total variation for the normalized conditional densities. At either maximizing corner, the inward loss is c_a sum d_i + O_a(||d||^2), with c_a=2a sqrt(1+4a^2)>0. Compact localization and this linear bound force d=O_a(epsilon); the scaled simplex can be sandwiched between sum cutoffs 1±O_a(epsilon). Two corner factors, simplex volume 1/6 and cube volume 8a^3 give the asserted upper coefficient and remainder. Reflection gives an exactly fair sign and matching reflected shapes once localized, hence the joint conditional limit. Independent replay at a=0.7 gave 165 exact determinant-distance checks; at epsilon=1e-5 the lower volume correction and upper probability coefficient were 5.026500974 and 0.008693108 against 5.026548246 and 0.008693066.",
+      "residual_risks": [
+        "The replay numerically corroborates only bounded cases; the analytic sublevel arguments establish the asymptotics. Constants depend on fixed a>0. Uniform arclength and the minimum enclosing disk are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hull-area record covers horizontal-coordinate-uniform parabolic samples for all n>=3, including this exact sample at n=3, but gives the distribution of area. The tangent-triangle result deals with intersections of tangents, area and beta–Jacobi sampling."
+        ],
+        "reasoning": "Broader sample-size coverage on a different observable does not dominate the claim. The known area law loses the side-length product needed for the radius.",
+        "searches": [
+          "Resultary: endpoint tails; parabolic contact triangles",
+          "2026/11/2 parabolic hull-area record 77a979074148",
+          "2026/11/17 tangent-triangle record 13a781607ec0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches; published-record local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, exact record plus 77a979074148, 2e6c3c85982f and 13a781607ec0",
+        "Primary OA PDFs arXiv:1401.4751, arXiv:1404.2969, arXiv:1007.0261"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The long-chord finding is for two points and tail behavior at the diameter; Finch p. 1 treats side/perimeter quantities from independent points in a disk; the primary parabola-area papers use a different invariant."
+        ],
+        "reasoning": "A marginal chord-length tail neither supplies the joint chord and area quantities nor resolves the near-degeneracies where the circumradius remains finite. Standard smooth sublevel expansions explain the mechanism, but do not provide the frozen coefficients or conditional laws without the radius-specific derivation.",
+        "searches": [
+          "2026/11/22 long-chord record 2e6c3c85982f",
+          "Finch arXiv:1007.0261",
+          "Kim–Shim arXiv:1401.4751"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary abstracts on p. 1 concern areas of contact/tangent triangles and area characterizations of parabolas. The pair-sum product for this radius does not turn those area relations into its endpoint laws."
+        ],
+        "reasoning": "Interpreting a triangle as a contact-point triangle does not make the area a radius statistic. The upper and lower configurations here are extrema of the radius product, with shapes set by its distinct local derivatives.",
+        "searches": [
+          "Resultary: circumradius on a parabola; uniform-parameter pair-sum formulas",
+          "Kim–Shim arXiv:1401.4751; Kim et al. arXiv:1404.2969"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit cbedc9fbaebb is this frozen finding, not independent coverage. A distinct same-day hit 2e6c3c85982f gives long-chord tails, not this entry."
+        ],
+        "reasoning": "No separate exact endpoint-law entry was established by the inspected records. Shared date is not evidence of ordering or a reason to discard a match.",
+        "searches": [
+          "Resultary: circumradius on a parabola; endpoint tails; parabolic contact triangles; uniform-parameter pair-sum formulas"
+        ]
+      },
+      "rationale": "The closest inspected same-sampling result concerns the area of the parabolic hull, not the circumradius. The same-day long-chord result is materially related but governs a two-point observable, not this three-point radius. Neither supplies the explicit two endpoints and their conditional laws. The classical radius identity is not original; distinctness attaches to the probabilistic package for this sampling law, not the elementary identity or a priority guarantee.",
+      "residual_risks": [
+        "Bounded comparison does not establish absolute priority or rule out an unindexed radius result. Same-day chronology was not inferred. The inspected primary literature passages establish their stated focus, not a universal negative about their full contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent evidence",
+          "evidence": "Same probability coefficients and conditional scalings.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-distinct-endpoint-laws-for-circumradii-of-random-parabolic-t--cbedc9fbaebb",
+          "material_read": "Finding",
+          "method": "Published-record local mirror compared with frozen Finding",
+          "title": "Two distinct endpoint laws for circumradii of random parabolic triangles",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Same sample at n=3, different observable",
+          "evidence": "Exact area distribution identities for the convex hull for n>=3.",
+          "identifier_or_url": "2026/11/2/SCOPE-endpoint-driven-gamma-and-interior-gaussian-fluctuations-for-ran--77a979074148",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Endpoint-driven Gamma and interior Gaussian fluctuations for random parabolic hulls",
+          "trigger": "Earlier record on the same parameter-uniform sampling"
+        },
+        {
+          "assessment": "Compare on content, not inferred date order; radius law not established there",
+          "evidence": "Two-point chord length near the diameter and corresponding conditional limits.",
+          "identifier_or_url": "2026/11/22/SCOPE-golden-ratio-diameter-bifurcation-and-sharp-long-chord-tails-on--2e6c3c85982f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Golden-ratio diameter bifurcation and sharp long-chord tails on a truncated parabola",
+          "trigger": "Distinct same-day record with same curve and sampling coordinate"
+        },
+        {
+          "assessment": "Different random object and invariant",
+          "evidence": "Upper-tail area of a triangle formed from sampled tangents with beta–Jacobi parameters.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-two-parameter-endpoint-midpoint-phase-law-for-random-parabolic--13a781607ec0",
+          "material_read": "Finding",
+          "method": "Published-record local mirror",
+          "title": "A two-parameter endpoint-midpoint phase law for random parabolic tangent triangles",
+          "trigger": "Possible equivalence via a different parabolic triangle"
+        },
+        {
+          "assessment": "Area-focused scope; no corresponding endpoint-law implication established",
+          "evidence": "The inspected abstracts describe tangent/contact areas and characterization of parabolas, not radius laws. The separate keyword misses were not used as exclusion evidence.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.4751 ; https://arxiv.org/abs/1404.2969",
+          "material_read": "Primary PDFs p. 1, offsets 372 and 383, respectively",
+          "method": "OA PDF passages",
+          "title": "Area of triangles associated with a curve; Area of triangles associated with a curve II",
+          "trigger": "Primary work on parabolic contact geometry"
+        },
+        {
+          "assessment": "Different sampling support and statistics",
+          "evidence": "Three independent uniform points in the disk with side and perimeter quantities.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.0261",
+          "material_read": "Primary PDF p. 1, offsets 381 and 1041",
+          "method": "OA PDF passages",
+          "title": "Perimeter Variance of Uniform Random Triangles",
+          "trigger": "Comparison with explicit random-triangle laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33 and 51–95; comparison with the same-sampling hull-area and long-chord findings"
+      ],
+      "rationale": "For a natural uniform-coordinate sampling model on a curved graph, the radius does not diverge at degenerate limiting triangles. The result distinguishes two quantitatively different coalescence mechanisms, gives a non-leading volume correction and the two conditional shapes. These are useful benchmarks for endpoint probability and geometry rather than just recalculating the classical radius identity.",
+      "residual_risks": [
+        "Narrow fixed-arc model, not a full CDF, an arclength-sampling result, or a general theorem on planar curves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

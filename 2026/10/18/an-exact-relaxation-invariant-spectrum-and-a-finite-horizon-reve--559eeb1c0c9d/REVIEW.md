@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The normalized pair operator is conjugate by rotations of angle \(\pi/m\). The triangular identity \(L_0Q=\begin{psmallmatrix}c&0\\(1-\lambda)s&\lambda c\end{psmallmatrix}\), the telescope \(M=-K^m\), and the exact triangular power compute both eigenvalues and every finite power. Because \(0<c<1\), the full affine map has a unique fixed point for any offsets and all initial errors decay. At \(\lambda<1\), the explicit image of \(e_1\) proves strict finite-horizon norm inflation. Independent finite projector-product and affine checks passed (5528 assertions); the universal statement follows from proof.
+## correctness
 
-**Originality: PASS on the inspected evidence, subject to residual bibliographic risk.** The originating 2025 preprint/2026 open-access paper defines the algorithm and proves fixed-point and local convergence results for more general sets, but its original Sections 3–4 do not evaluate a regular \(m\)-line fan, its two exact eigenvalues, or a sharp across-relaxation finite-horizon comparison. Borwein–Tam covers the unrelaxed cyclic algorithm and convergence for affine subspaces; Bauschke–Moursi treats two affine subspaces. Those established statements do not imply the complete all-parameter spectrum or exact simultaneous finite-horizon optimizer without the additional rotation/telescoping calculation. A prior specialized angle-product calculation remains a genuine risk.
+PASS
 
-**Value: PASS.** The sharp fully parameterized benchmark separates spectral linear convergence from nonnormal finite-horizon amplification in a natural symmetric affine feasibility instance, including inconsistent instances. It establishes a precise setting in which relaxation cannot improve the spectral rate and the Douglas–Rachford endpoint uniquely minimizes all finite-horizon operator norms. It is not a generic observation that projections converge: it identifies the exact effect of the relaxation parameter on every cycle and distinguishes rate claims from location of fixed points.
+For the ordered pair (reflection first in the second line), use the frame at each line. If Q is rotation by pi/m, the first pair's linear part multiplied on the right by Q is K=[[c,0],[(1-lambda)sin(pi/m),lambda*c]]. Conjugation by Q^j includes the wrap-around because Q^m=-I, giving M=-K^m. The off-diagonal geometric sum for K^r is c^r tan(pi/m)(1-lambda^r), also valid at 0 and 1. This proves both eigenvalues and the exact power law. The affine offsets affect only the constant term; rho(M)=c^m<1 gives the unique globally attracting fixed point, and (1,tan(pi/m)) attains the asymptotic rate. At lambda=1 the power is scalar; for lambda<1 its first column has norm strictly greater than c^(mk) for every k>=1. This is a comparison relative to each method's own fixed point, including inconsistent lines. Independent replay: python3 /workspace/branches/replay_exact_audit.py 3 symbolically multiplies the original pairs at m=3,4,6 with indeterminate relaxation and compares the first two powers exactly. The frozen checker was inspected, not run; its reported finite trials are not the universal proof.
 
-**Closest literature and scientific limits.** Dinh–Jansen–Luke (arXiv:2502.12285, DOI 10.1007/s10957-026-02996-2) is the defining method and primary comparison. Borwein–Tam (arXiv:1303.1859) is the original cyclic endpoint; Bauschke–Moursi (arXiv:1504.03721) and Nguyen Hieu Thao (DOI 10.1007/s10589-018-9989-y) concern two-set affine or relaxation behavior. A 2018 Luke–Martins–Tam workshop manuscript on relaxed cyclic DR was identified but not available in full during this inspection; its specialized contents remain a bibliographic risk. The finding concerns only regular angular increments \(\pi/m\), common \(\lambda\), and relative fixed-point errors. Translated lines generally shift the fixed point; neither optimal feasibility objective nor arbitrary line arrangements are asserted. No independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence: the identifiable distinct claim is the joint all-relaxation spectrum and strict all-positive-horizon optimum for the specified cyclic fan, not the algorithm, local convergence in general, or the separate projection and unrelaxed endpoints. No equivalent or dominating theorem was established in the checked sources.
+
+## value
+
+PASS
+
+This canonical symmetric affine test includes inconsistent instances and separates a spectral factor from the worst achievable error after any prescribed number of cycles. Knowing the common spectral radius alone gives no preference among relaxation weights, while the exact power law supplies a strict preference on the finite-cycle operator norm. This is a useful benchmark for tuning and for testing claims that relaxation improves cyclic DR; it does not compare feasibility residuals or different fixed points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

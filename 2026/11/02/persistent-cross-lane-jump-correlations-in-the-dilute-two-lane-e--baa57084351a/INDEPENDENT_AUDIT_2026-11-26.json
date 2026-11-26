@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:26:04.041230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct application of the endpoint occupancy rule gives the two directed rates c_d and c_{d+1} in the relative coordinate, with c_0=c_1=p+a/2 and all other edges p. Reverse rates match across each relative edge, and the two-position in- and out-rates balance for uniform product initialization. The total-count Poisson corrector has flux differences J_d-J_{d+1}=c_d+c_{d+1}-2(p+a/N) and the zero-circulation condition sum J_d/c_d=0. Substitution verifies the stated fluxes, including the symmetry-paired special edges and the single ordinary edge at N=3. The total-count martingale bracket averages to 2(p+a/N)+2E_N: linear terms cancel by stationarity and the gradient squares contribute twice per undirected edge. The signed lift corrected increments are N/(R_N c) on each forward edge, so its bracket average is 2N/R_N. The endpoint corrections are bounded for fixed N and do not change linear variance growth. Taking one quarter of the difference gives C_N; strict arithmetic–harmonic mean inequality gives positivity unless a=0, and E_N tends to a^2/(3p). For the reverse limits, bound the integrated first-disagreement intensity by |a| times the occupation of {0,1,N-1} by the unconditional stationary baseline walk, whose expectation is 3t/N; no uniformity conditional on agreement is needed. Bounded-rate Poisson domination makes all fixed-degree mixed moments uniformly integrable. Thus the two limits differ for a nonzero coupling, without extending to t growing jointly with N. Independently reproduced exact values by the per-lane mixed martingale bracket (15 cases across N=3,4,5,9,17, both signs and zero coupling); e.g. 11/420 for N=3, p=1, a=-3/4. Replay: python3 -B /workspace/branches/frozen_review_replay.py 3. Frozen script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multilane induction gives the affine rate condition and current-density formula; the hydrodynamics paper relates density fluctuation scaling to currents and compressibility. The ring cumulants reference explains tilted generators and solves SSEP total activity."
+        ],
+        "reasoning": "Static/product and density-current data do not fix finite-sector time-integrated count correlations. The standard tilted-generator and Poisson-equation frameworks require solving the relative-chain calculation for these rates, and the fixed-time reverse limit needs a separate coupling bound.",
+        "searches": [
+          "arXiv:2605.06949 Eqs. (7)–(11); arXiv:1505.04461 Eqs. (8)–(9); arXiv:0804.2590 Sec. II.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:cond-mat/0211659, 2605.06949, 1505.04461 and 0804.2590",
+        "Resultary ef4ea58edfd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two results identify stationarity and mean currents. A one-field activity eigenvalue in the third has a second derivative for Var(S), but the stated mixed covariance requires the difference Var(S)-Var(D), or a two-field mixed derivative, for a different generator."
+        ],
+        "reasoning": "The probability that coupling is active is small at a stationary time but that alone does not prove the long-time variance limit. The explicit Green/Poisson term retains a nonzero large-N limit, while clock coupling controls the reverse order; neither is a parameter substitution into the inspected prior results.",
+        "searches": [
+          "Popkov–Schütz Section II Eqs. (3)–(5), Popkov 2026 Eqs. (7)–(11), and Appert-Rolland et al. Eqs. (1)–(4), (11)–(12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rescale the rates in Popkov–Schütz by p, with beta=1+a/p: the two-neighbor mixed rates agree exactly. The target mixed count can be expressed as one quarter of total activity variance minus signed lift variance. The nearest two-particle SSEP comparison has one reflecting relative gap and counts only total activity."
+        ],
+        "reasoning": "Equivalence of the exclusion models' rate conventions is credited where present. The relative walk here is periodic with both special edges strictly positive; the reflecting SSEP example is not a change of coordinates that supplies both variance terms. Fixed-bond rather than total-lane counts would also change the normalization.",
+        "searches": [
+          "Focused primary-literature search for dilute two-lane ring current/count covariance; arXiv:cond-mat/0211659 and 0804.2590; Resultary ef4ea58edfd5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ef4ea58edfd5 gives a finite-time one-lane SSEP activity variance and crossover; its two-particle long-time Fano ratio 1+(L-3)/(3(L-1)) is already in the SSEP paper by substitution."
+        ],
+        "reasoning": "This quantitative overlap is for accepted hops in both directions in one lane, not the two separately recorded forward-only counts. No inspected exact entry gives C_N for the stated two-lane sector.",
+        "searches": [
+          "Local Resultary search on two-particle ring covariance/activity and dilute time-size limits; arXiv:0804.2590 Eq. (12)"
+        ]
+      },
+      "rationale": "The rate family, product law and stationary mean currents are already known. The checked papers and catalogue entries do not give or directly imply the stated finite-sector two-count mixed cumulant and its order-of-limits boundary. No claim of exhaustive priority is made.",
+      "residual_risks": [
+        "The focused websearch was low-yield; an unlocated marked reversible-walk or current-cumulant result could subsume the covariance. No absence claim follows from the lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior rate family, product law and mean current",
+          "evidence": "Right-moving alpha=1 and gamma=epsilon=(1+beta)/2, then current expression.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0211659",
+          "material_read": "Section II, Eqs. (3)–(5), HTML up to offset 10881",
+          "method": "OA full-text bounded passages",
+          "title": "Shocks and excitation dynamics in a driven diffusive two-channel system",
+          "trigger": "Exact model and equilibrium law"
+        },
+        {
+          "assessment": "Broader stationary data, not the mixed cumulant",
+          "evidence": "Affine dependence on adjacent lane occupation yields j_1=rho_1(1-rho_1)(A+a rho_2).",
+          "identifier_or_url": "https://arxiv.org/html/2605.06949",
+          "material_read": "Eqs. (7)–(11), HTML near offset 5800",
+          "method": "OA bounded passage",
+          "title": "Multilane ASEP with stationary Bernoulli measure",
+          "trigger": "Possible generalization dominating the two-lane result"
+        },
+        {
+          "assessment": "Hydrodynamic and static comparison, not finite-sector count law",
+          "evidence": "Scaling from current-density relations and compressibility; diagonal static compressibility.",
+          "identifier_or_url": "https://arxiv.org/html/1505.04461",
+          "material_read": "Introduction and Eqs. (8)–(9), HTML near offsets 0 and 19650",
+          "method": "OA bounded passages",
+          "title": "Fibonacci family of dynamical universality classes",
+          "trigger": "Dynamics and fluctuations of neighboring two-lane models"
+        },
+        {
+          "assessment": "Exact neighboring cumulant, different dynamics and marks",
+          "evidence": "SSEP total accepted-hop activity yields the two-particle Fano ratio 1+(L-3)/(3(L-1)).",
+          "identifier_or_url": "https://arxiv.org/html/0804.2590v1",
+          "material_read": "Sec. II.1, Eqs. (1)–(4), (11)–(12), HTML near offsets 6499 and 12994",
+          "method": "OA bounded passages and two-particle substitution",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Exact cumulants on a ring and potentially equivalent dilute sector"
+        },
+        {
+          "assessment": "One-lane reflecting relative gap and total activity, not cross-lane covariance",
+          "evidence": "Finite-time activity variance and crossover; credits published SSEP long-time limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-diffusive-time-theta-crossover-for-two-particle-exclusion-acti--ef4ea58edfd5/RESULT.md",
+          "material_read": "Finding and limitations/proof vicinity, offsets 0 and 7400",
+          "method": "Local mirror bounded text comparison",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Closest catalogue result involving dilute ring activity and time-size limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a minimal canonical sector that cleanly distinguishes independent stationary positions from dynamically correlated integrated counts. The exact size-dependent law identifies a persistent covariance from a vanishing fraction of interaction states, with a different fixed-time limit. That boundary matters for dilution arguments and gives a reproducible fluctuation benchmark without assuming finite-density or crossover-scale results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

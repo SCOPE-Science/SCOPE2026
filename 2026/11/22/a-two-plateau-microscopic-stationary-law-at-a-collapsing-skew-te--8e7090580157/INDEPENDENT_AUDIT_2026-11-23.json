@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:57:25.394769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The images of the proposed bands are exactly each other: the left segment of the lower band already covers the upper band, the lower-band right endpoint maps within it, and the upper-to-lower passage is the decreasing affine bijection. Thus each band has mass one-half; the upper conditional law is the reflection of the lower one. Composing in the proposed coordinates gives R_s with slopes -2s and s² and turning point a_s=1/(2s). Two right visits give R_s²≤1341/4096<4/9≤a_s, so the inducing and uniform bounded-return assertion holds. The branch that vanishes as s→1 requires care: bounded distortion alone does not justify uniform BV estimates. Independently, rescale the induced base to [0,1]. Its two full decreasing branches have domain lengths p1=1/(2s), p2=1/(2s³), and its leftmost short branch has length σ=1-p1-p2, inverse slope p3=1/(2s⁵) and image [0,d] with d=σ/p3. For s close to 1, σ<d<σ+p2. The twice-iterated induced transfer operator has the sum of restrictions' interior variations bounded by (1/4)Var(f), since all inverse slopes for two steps are at most 1/4. There are four additional endpoint contributions from non-full images: one at an input trace near each of 1/2 and 1, and two near 0. Indeed each full branch pulls back the short branch once, and the short branch's image cuts only itself and the middle branch. Estimate these traces by Var on three disjoint fixed neighborhoods of 0, 1/2 and 1 plus the L1 average on each neighborhood. The maximal multiplicity is two, giving Var(P_s² f)≤(3/4)Var(f)+C||f||_1 uniformly near 1. Iterating and using L1-contractive approximation by BV functions bounds the variation of all invariant densities. On continuous test densities the two full inverse maps converge uniformly and the short-domain contribution tends to zero in L1; L1 contraction extends this operator convergence to all L1. BV compactness and the two onto slope-2 branches of the limit identify the unique normalized limit (constant on the induced base). The bounded-return lift converges in L1 by its finite affine pushforward formula (the disappearing branch has vanishing mass). In unrescaled base coordinates its normalized first-return law is density 2 and the return-time mean is 3/2; the stationary lower density is 4/3 on the first half and 2/3 on the second. Its mean is 5/12. Substituting both affine coordinates into the balanced band means gives 3/4-ε/2+2ε²m_s exactly and hence coefficient 5/6. At ε=0 every positive orbit enters the involution interval; its empirical law is that of its individual one- or two-cycle, and each such orbit law has only countably many initial points. The exceptional point 0 also has zero-measure basin. This verifies the boundary assertion independently of the expanding argument. I inspected VERIFICATION.md and verify.py as finite rational diagnostics, not as a proof of the stability step.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Palmer classify skew-tent band attractors and their collapse; the inspected result is geometric and dynamical, not a stationary response formula. Alves–Etubi's density theorem is for piecewise expanding families satisfying uniformity and branch closeness; the main map here loses expansion at the boundary before inducing. The adjacent-interval exchange record's explicit densities are for its threshold curve, where the intervals meet; these trapping bands are separated for ε>0."
+        ],
+        "reasoning": "These sources give broader objects or standard sufficient tools but not a validated stability estimate for this normalized perturbation. The family-specific inducing and control of the shrinking domain are material, as is the exact relation of the microscopic moment to the original stationary mean.",
+        "searches": [
+          "arXiv:1710.10880, Theorem 4.1",
+          "arXiv:2409.18805, condition (U) and Theorem A",
+          "Resultary 71914a4764b2 (band exchange and threshold density)",
+          "Moysis MOCAST and Symmetry DOIs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.10880",
+        "arXiv:2409.18805",
+        "Resultary 898171b8464a",
+        "Resultary 71914a4764b2",
+        "Resultary 8e7090580157 (identical record)",
+        "Moysis et al. doi:10.3390/sym15122138 (abstract only)",
+        "doi:10.1109/MOCAST57943.2023.10176612 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest known density is already available at the limiting return map, and standard perturbation methods provide a general framework. To apply it one needs to exhibit the rescaled iterate in fixed coordinates, rule out failure of uniform compactness at the vanishing branch, lift the conditional laws, and identify the exact stationary-mean cancellation. The known band endpoints alone would give the weak two-atom limit without giving any of these microscopic statistics."
+        ],
+        "reasoning": "Knowing a candidate density or weak unscaled collapse is insufficient to imply the rescaled L1 limit, and standard stability alone on a fixed domain is not a result about the original neutral map. This is a justified degeneration-specific application, not a new general stability theorem.",
+        "searches": [
+          "Cheng–Palmer Theorem 4.1",
+          "898171b8464a, invariant-density proof",
+          "Alves–Etubi, Theorem A and condition (U)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map y=2x-1 puts the frozen family in Cheng–Palmer's slopes r=2 and k=1+2ε. For the stationary-law comparison, reflection conjugates the t=1/2 static Markov map in 898171b8464a to the exact R_1, not to the ε>0 perturbed R_s."
+        ],
+        "reasoning": "The first identification credits the known band geometry. The second credits the limiting two-height density as a static law; it does not compare stationary measures along the collapsing parameter family.",
+        "searches": [
+          "Resultary: skew tent collapsing bands, two-level invariant density, statistical mean",
+          "Cheng–Palmer arXiv:1710.10880, equation (2) and §4",
+          "Resultary 898171b8464a (Markov skew tent family)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact stationary density listed in 898171b8464a at t=1/2 is (2/3,4/3) on successive halves. Reflection gives the exact pair of heights (4/3,2/3) appearing here. 8e7090580157 is the same finding and was excluded as independent evidence."
+        ],
+        "reasoning": "This is exact coverage of the static density, not a table for convergence along a different family or for the 5/6 coefficient. No distinct inspected record supplies the latter limits.",
+        "searches": [
+          "Resultary 898171b8464a and 71914a4764b2, compare exact density formulas",
+          "Resultary 8e7090580157 (identical result)"
+        ]
+      },
+      "rationale": "Pass is for the microscopic invariant measures along the collapsing band pair and the consequent second-order mean asymptotic. The underlying band geometry and the stationary density of the reflected static limiting return map are covered and are not independent originality claims. The decisive further step concerns a parameter-dependent normalized return system with a disappearing branch; the stronger looking band classifications and static Markov laws do not supply it.",
+      "residual_risks": [
+        "Full Moysis journal and conference texts were not inspected; a more specific result on this parameter slice cannot be excluded.",
+        "Broader explicit invariant-density formulas for skew-tent maps might also yield the limiting moments after a further parameter analysis. This bounded originality check establishes no historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers parameter convention and the band-geometry degeneration, not a statement of the microscopic stationary law",
+          "evidence": "Equation (2) has affine slopes r and -k; Theorem 4.1 describes chaotic band attractors and their endpoint collapse as k→1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.10880",
+          "material_read": "Eq. (2) and Lemma 2.2, PDF p. 3, offset 5200; §4 Theorem 4.1, PDF p. 8, offset 17869",
+          "method": "Lawful OA original PDF passages",
+          "title": "On the dynamics of skew tent maps",
+          "trigger": "Same skew-tent family in affine coordinates and same band-collapse regime"
+        },
+        {
+          "assessment": "Exact static overlap after reflection, but no parameter-dependent statistical stability of this return family",
+          "evidence": "At t=1/2 the branches are y↦1/2+y and y↦2(1-y). Conjugating by y↦1-y gives R_1, with the two stated density values interchanged.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-covariance-resonance-and-fluctuation-optimal-tuning-in-a-m--898171b8464a/RESULT.md",
+          "material_read": "Finding, scope, and invariant-density proof, mirror offsets 0–4786",
+          "method": "Bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact covariance resonance and fluctuation-optimal tuning in a Markov skew tent family",
+          "trigger": "Exact stationary density for a map that may be conjugate to the limiting return map"
+        },
+        {
+          "assessment": "Adjacent-band exact statement, not an equivalent microscopic limit",
+          "evidence": "Its exact density calculation lies on an adjacent-interval exchange threshold, not on the present separated pair off that curve.",
+          "identifier_or_url": "Resultary 71914a4764b2, 2026/11/1",
+          "material_read": "RESULT.md, Finding, mirror offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Sharp band-exchange threshold and exact alternating correlations",
+          "trigger": "Band exchange and explicit invariant statistics on a related critical slice"
+        },
+        {
+          "assessment": "General perturbation ingredients requiring quantitative hypotheses; no microscopic skew-tent statement in these passages",
+          "evidence": "Theorem A assumes uniform expanding and geometric controls and branch-image closeness. Verifying a comparable uniform inequality at the vanishing branch is essential here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.18805",
+          "material_read": "Condition (U), Theorem A, and beginning of examples, PDF pp. 4–5, offsets 12250–18532",
+          "method": "Lawful OA original PDF passages",
+          "title": "Hölder continuity of invariant density and entropy for piecewise expanding maps",
+          "trigger": "Potential stronger general stability result"
+        },
+        {
+          "assessment": "Abstract identifies the map family and tuning objective; detailed calculations for this slice remain unverified",
+          "evidence": "The available abstract describes a three-parameter piecewise-affine family and statistical-mean tuning. Specific claims about its simulation parameters are not relied on here.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15122138",
+          "material_read": "Publisher abstract/landing material only, not the full text",
+          "method": "Lawful OA landing, PDF and alternate XML route checks; identified external PDF was inaccessible",
+          "title": "Chaotic Maps with Tunable Mean Value—Application to a UAV Surveillance Mission",
+          "trigger": "Same tunable-mean endpoint-interpolated family; possible matching parameter slice"
+        },
+        {
+          "assessment": "Inaccessible, retained as a residual risk",
+          "evidence": "No coverage or noncoverage judgment is made from the unavailable precursor text.",
+          "identifier_or_url": "https://doi.org/10.1109/MOCAST57943.2023.10176612",
+          "material_read": "No original full-text passage reached",
+          "method": "Lawful publisher/DOI availability attempt",
+          "title": "Construction of Piecewise Chaotic Maps With Tunable Statistical Mean",
+          "trigger": "Earlier precursor focused on the mean"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This addresses a genuine singular stationary-law question: two bands collapse onto neutral period-two data, while the limiting map has no physical law selecting that orbit. The microscopic density separates stationary mass across the two halves in a way the support endpoints do not determine, and yields the first nontrivial stationary-mean coefficient beyond the geometric first-order term. The value is in that selection and quantitative correction, not the known static plateau solution alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

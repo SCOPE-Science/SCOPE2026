@@ -1,119 +1,82 @@
-# Root–leaf covariance in degree-proportional attachment trees
+# Closed form and finite-size correction for root–leaf covariance in an attachment tree
 
 ## Finding
 
-Start with the single edge on vertices \(1,2\). For each \(n\ge2\), construct the \((n+1)\)-vertex tree by attaching vertex \(n+1\) to an old vertex, choosing old vertex \(v\) with probability \(\deg(v)/(2(n-1))\). Let \(D_n\) be the degree of vertex \(1\), and let \(L_n\) be the total number of degree-one vertices (leaves). Put
+Start with the single edge on vertices \(1,2\). For each \(n\ge2\), attach vertex \(n+1\) to an old vertex \(v\) with probability \(\deg(v)/(2(n-1))\). Let \(D_n\) be the degree of vertex 1 and \(L_n\) the number of leaves (vertices of undirected degree one). Put
 \[
-p_n=\frac{1}{4^{n-2}}\binom{2n-4}{n-2}.
+p_n=4^{-(n-2)}\binom{2n-4}{n-2}.
 \]
-Then for **every integer \(n\ge2\)**,
+The exact covariance sum previously given for this model [1] reduces to the following expression with no sum over tree sizes, valid for every \(n\ge2\):
 \[
-\boxed{\operatorname{Cov}(D_n,L_n)
- =\frac{2p_n}{3}\bigl[n-2(2n-3)p_n\bigr].}
+\boxed{\operatorname{Cov}(D_n,L_n)=\frac{2p_n}{3}\bigl[n-2(2n-3)p_n\bigr].}
 \]
-The covariance vanishes for \(n=2,3\), is strictly positive for every \(n\ge4\), and satisfies
+In particular the explicit constant correction to the known leading square-root term is
 \[
-\operatorname{Cov}(D_n,L_n)
-=\frac{2}{3\sqrt\pi}\sqrt n-\frac{8}{3\pi}+O(n^{-1/2}).
+\operatorname{Cov}(D_n,L_n)=\frac{2}{3\sqrt\pi}\sqrt n-\frac{8}{3\pi}+O(n^{-1/2}).
 \]
-For the nondegenerate correlations (\(n\ge4\)),
+The covariance vanishes for \(n=2,3\), and its strict positivity for \(n\ge4\) is known from [1]. The variance normalization gives
 \[
-\boxed{\sqrt n\,\operatorname{Corr}(D_n,L_n)
- \longrightarrow\sqrt{\frac{2}{\pi-2}}.}
+\boxed{\sqrt n\,\operatorname{Corr}(D_n,L_n)\longrightarrow\sqrt{\frac{2}{\pi-2}}.}
 \]
-In particular the covariance grows like \(\sqrt n\), but the correlation decays like \(n^{-1/2}\).
+Thus the unnormalized dependence grows with \(n\), whereas the correlation decays. The contribution is the summation-free evaluation and the explicit constant correction; the normalization is included to interpret the size of the effect.
 
 ## Assumptions and scope
 
-The graph is a labeled **tree**, with exactly one new edge per arrival and **attachment probability proportional to the current undirected degree**, with no self-loops. Both initial vertices have degree one. The vertex whose degree is counted is one particular **initial vertex**; the leaf count includes **all** vertices, including the root when its degree remains one. These conventions matter: the uniform recursive-tree model and the plane-oriented recursive-tree model use different attachment weights.
-
-The asymptotic constant concerns the limit \(n\to\infty\) of this exact process, not a continuum or mean-field approximation. At \(n=2,3\), \(L_n\) is deterministic, so correlation is undefined although covariance is zero.
+Weights are undirected degrees throughout; the seed is one edge between two initially equivalent vertices. The leaf count includes both initial vertices whenever their undirected degree remains one. The result does not concern a uniform recursive tree. Rooted plane-oriented descriptions require care about the seed, initial root weight, and whether a root can count as a leaf. In the conventional rooted insertion rule with weight one plus outdegree, the root has an extra unit relative to its undirected degree in a tree on at least two vertices; nonroot weights then agree. The name of a model alone is not enough to distinguish it from the edge-seeded process here. The correlation is undefined at \(n=2,3\) because \(L_n\) is deterministic.
 
 ## Proof
 
-**1. Initial-vertex survival and means.** The event \(\{D_n=1\}\) occurs precisely when vertex \(1\) has never been chosen as an attachment endpoint after the initial edge. On this event its selection probability at tree size \(j\) is \(1/(2(j-1))\). Thus, with the empty product equal to one,
-\[
-\mathbb P(D_n=1)
-=\prod_{j=2}^{n-1}\frac{2j-3}{2j-2}
-=\frac{1}{4^{n-2}}\binom{2n-4}{n-2}=p_n,
-\qquad
-\frac{p_{n+1}}{p_n}=\frac{2n-3}{2n-2}.
-\]
-Write \(d_n=\mathbb ED_n\) and \(\ell_n=\mathbb EL_n\). An arriving vertex increases the root degree with conditional probability \(D_n/(2(n-1))\), and increases the leaf count by one unless it attaches to an old leaf, which occurs conditionally with probability \(L_n/(2(n-1))\). Consequently
-\[
-d_{n+1}=\left(1+\frac1{2(n-1)}\right)d_n,
-\qquad
-\ell_{n+1}=\left(1-\frac1{2(n-1)}\right)\ell_n+1.
-\]
-With \(d_2=1\) and \(\ell_2=2\), direct substitution using the recurrence for \(p_n\) gives
-\[
-\boxed{d_n=(2n-3)p_n,\qquad
-\ell_n=\frac{2(n-1)+4p_n}{3}.}
-\]
+While the tagged vertex remains a leaf, its selection probability at size \(j\) is \(1/(2(j-1))\). Hence \(p_n=\Pr(D_n=1)\) by multiplying the successive avoidance probabilities. In particular \(p_2=1\) and \(p_{n+1}/p_n=(2n-3)/(2n-2)\).
 
-**2. The exact mixed moment.** Let \(I_n\) indicate an attachment to vertex \(1\) at step \(n+1\), and let \(J_n\) indicate an attachment to any old leaf. We have \(D_{n+1}=D_n+I_n\) and \(L_{n+1}=L_n+1-J_n\). Conditional on the current tree \(T_n\),
+Write \(d_n=\mathbb ED_n\), \(\ell_n=\mathbb EL_n\), \(m_n=2(n-1)\). Let \(I_n\) indicate selection of vertex 1 and \(J_n\) selection of any leaf in the step from size \(n\) to size \(n+1\). Then \(D_{n+1}=D_n+I_n\) and \(L_{n+1}=L_n+1-J_n\). Conditionally on the tree, the means of \(I_n,J_n,I_nJ_n\) are \(D_n/m_n,L_n/m_n,\mathbf 1_{\{D_n=1\}}/m_n\), respectively. Thus
 \[
-\mathbb E(I_n\mid T_n)=\frac{D_n}{2(n-1)},\quad
-\mathbb E(J_n\mid T_n)=\frac{L_n}{2(n-1)},\quad
-\mathbb E(I_nJ_n\mid T_n)=\frac{\mathbf1_{\{D_n=1\}}}{2(n-1)}.
+d_{n+1}=(1+1/m_n)d_n,\qquad \ell_{n+1}=(1-1/m_n)\ell_n+1.
 \]
-The two terms involving \(D_nL_n/[2(n-1)]\) cancel when expanding \((D_n+I_n)(L_n+1-J_n)\). Hence, writing \(c_n=\mathbb E[D_nL_n]\),
-\[
-c_{n+1}=c_n+d_n+\frac{d_n-p_n}{2(n-1)}
-=c_n+d_{n+1}-\frac{p_n}{2(n-1)}.
-\]
-As \(c_2=2\), the candidate
-\[
-\boxed{c_n=\frac{2n-1}{3}d_n+p_n}
-\]
-satisfies the recurrence exactly: its successive difference is \(d_{n+1}+p_{n+1}-p_n\). Subtracting \(d_n\ell_n\) yields the stated covariance.
+Using \(d_2=1\), \(\ell_2=2\) and the recursion for \(p_n\) gives the known means \(d_n=(2n-3)p_n\), \(\ell_n=[2(n-1)+4p_n]/3\).
 
-**3. Sign of the covariance.** Define \(q_n=2(2n-3)p_n/n\). One has \(q_3=1\) and, for each integer \(n\ge3\),
+For completeness, the two conditional contributions \(I_nL_n\) and \(-D_nJ_n\) to the mixed product cancel in expectation. The resulting increment of \(\mathbb E[D_nL_n]\) is \(d_{n+1}-p_n/m_n\). Subtracting the increment of \(d_n\ell_n\) gives the known covariance increment [1, Eq. (3)]
 \[
-\frac{q_{n+1}}{q_n}
-=\frac{n(2n-1)}{(n+1)(2n-2)}<1,
+\operatorname{Cov}(D_{n+1},L_{n+1})-\operatorname{Cov}(D_n,L_n)
+=\frac{(n-3)p_n}{3(n-1)}+\frac{(2n-3)p_n^2}{3(n-1)^2}.
 \]
-since the denominator minus numerator equals \(n-2>0\). Thus \(q_n<1\) for \(n\ge4\), proving strict positivity. Substitution gives the zero values at \(n=2,3\).
+To telescope the two summands, the survival ratio gives
+\[
+(n+1)p_{n+1}-np_n=\frac{(n-3)p_n}{2(n-1)},\quad
+(2n-1)p_{n+1}^2-(2n-3)p_n^2=-\frac{(2n-3)p_n^2}{4(n-1)^2}.
+\]
+Both the covariance and \(2np_n/3-4(2n-3)p_n^2/3\) vanish at \(n=2\). Matching their increments proves the formula. The increment is zero at \(n=2\) and positive for \(n\ge3\), recovering the prior sign result.
 
-**4. Variance normalization and sharp asymptotics.** The same one-step Bernoulli computations, with initial values at \(n=2\), give
+For the variance of \(D_n\), write \(H_n=\mathbb E[D_n(D_n+1)]\). Conditional selection increases the product by \(2(D_n+1)\) with probability \(D_n/m_n\). Thus \(H_{n+1}=(1+2/m_n)H_n\); since \(H_2=2\), this gives \(H_n=2(n-1)\), and
 \[
-\operatorname{Var}(D_n)=2(n-1)-d_n-d_n^2,
-\qquad
-\operatorname{Var}(L_n)=\frac{n-1+4p_n-16p_n^2}{9}.
+\operatorname{Var}(D_n)=2(n-1)-d_n-d_n^2\qquad(n\ge2).
 \]
-For completeness, the first identity follows from
-\(\mathbb E[D_{n+1}^2]=(1+1/(n-1))\mathbb E[D_n^2]+d_n/(2(n-1))\),
-while the second follows from
+For \(V_n=\operatorname{Var}(L_n)\), \(\operatorname{Cov}(L_n,J_n)=V_n/m_n\) by conditioning and \(J_n\) is Bernoulli with mean \(\ell_n/m_n\). Therefore
 \[
-\operatorname{Var}(L_{n+1})
-=\left(1-\frac1{n-1}\right)\operatorname{Var}(L_n)
-+\frac{\ell_n}{2(n-1)}-\frac{\ell_n^2}{4(n-1)^2}.
+V_{n+1}=\left(1-\frac{2}{m_n}\right)V_n+\frac{\ell_n}{m_n}-\left(\frac{\ell_n}{m_n}\right)^2.
 \]
-The displayed solutions satisfy these recurrences and their initial conditions.
-Stirling's formula for the central binomial coefficient gives \(p_n=1/\sqrt{\pi n}+O(n^{-3/2})\). It follows that
+Here \(V_2=0\). At \(n=3\) there are always two leaves, so \(V_3=0\). Substituting the means and the recursion for \(p_n\) shows that
 \[
-\operatorname{Var}(D_n)=(2-4/\pi)n+O(\sqrt n),\qquad
-\operatorname{Var}(L_n)=n/9+O(1).
+\operatorname{Var}(L_n)=\frac{n-1+4p_n-16p_n^2}{9}\qquad(n\ge3),
 \]
-Substitution into the exact covariance and variance identities yields both displayed limits, including the constant \(\sqrt{2/(\pi-2)}\). No infinite assertion relies on numerical enumeration.
+which has the required initial value at \(n=3\) and satisfies the variance recursion for all \(n\ge3\). The displayed expression for the leaf variance is not valid at the edge seed \(n=2\).
+
+Stirling's formula gives \(p_n=(\pi n)^{-1/2}+O(n^{-3/2})\). In the telescoped covariance the term \(2np_n/3\) gives the leading square root with an \(O(n^{-1/2})\) error, and \(-4(2n-3)p_n^2/3\) gives \(-8/(3\pi)+O(n^{-1})\). The variances are \((2-4/\pi)n+O(\sqrt n)\) and \(n/9+O(1)\). Their leading terms in the denominator of the correlation yield the stated limit. The two variances are positive when \(n\ge4\) because the covariance is nonzero there.
 
 ## Verification
 
-A standalone Python 3 program, `verify.py`, enumerates the **complete degree-vector distribution** at every size from \(n=2\) through \(n=10\), using exact rational transition probabilities. Across these sizes it sums 6,917 states and checks the root mean, leaf mean, mixed moment, both variances, covariance, and strict sign. An independent exact-rational recurrence comparison checks 2,993 identities across \(n=2,\ldots,500\). Three large-size numerical tests check asymptotic convergence; those tests are illustrative, not infinite certificates. Run `python3 verify.py` without third-party dependencies.
+The accompanying `verify.py` uses only the Python 3 standard library. The verification enumerates the exact masses of the possible degree vectors at sizes 2 through 10 and compares the means, mixed moment, variances, covariance and signs. It handles the seed leaf variance separately. Exact rational recurrence tests are carried out through size 500; the leaf-variance recurrence comparison is included from size 3. Large-size numerical comparisons illustrate the asymptotics; the exact identities and limits follow from the argument above, not from finite experiments.
 
 ## Relationship to prior work
 
-Brightwell and Łuczak (2010, arXiv:1012.5550) study the degree profile and high-degree concentration for the **same degree-proportional attachment tree**. Their degree-count results do not state the mixed covariance between one aged initial vertex and the total leaf count. Peköz, Röllin, and Ross (2014, arXiv:1402.4686) establish joint laws of a fixed set of early-vertex degrees; that finite-dimensional statement does not include the growing global sum of leaf indicators. Hartle and Krapivsky (2026, arXiv:2602.01021) analyze leafdegree distributions and covariances of **global degree-count categories**, not the tagged initial vertex and the global leaf count.
-
-Mahmoud, Smythe, and Szymański (1993, doi:10.1002/rsa.3240040204) study a related **plane-oriented recursive tree**, whose attachment rule weights each vertex by one plus its outdegree. That model differs from the present undirected-degree weighting, notably at the initial vertex. A previously recorded exact root-degree/leaf-count covariance for **uniform** random recursive trees likewise concerns attachment uniformly over existing vertices, rather than proportionally to degree. Neither model's identity implies the present formula by a parameter substitution.
+The earlier exact increment, sum, strict sign and leading square-root asymptotic [1] concern precisely the same model and the same two random variables, with \(q_n=p_n\). The covariance itself was therefore already known as a finite sum. The two telescoping identities give a shorter exact representation and evaluate the constant term beyond the leading square root. Brightwell and Łuczak [2] study degree counts for this attachment rule and note its treatment under plane-oriented recursive-tree terminology. Peköz, Röllin and Ross [3] treat degrees of fixed early vertices jointly; Hartle and Krapivsky [4] consider covariance of aggregate degree or leafdegree categories. Neither distinction changes the direct same-model overlap with [1].
 
 ## Limitations
 
-The result gives exact second-order dependence and its sign, not the joint distribution of \((D_n,L_n)\), independence, or a stochastic ordering. Unindexed historical literature could contain an equivalent identity; inspection of the closest known published results does not establish historical priority. Independent mathematical audit has not been performed.
+The result is for the specified one-edge seed and one tagged endpoint. It gives a second-order statistic, not a joint law, independence, or a stochastic ordering. The constant correction and closed form are compared to the inspected exact prior results, not asserted to establish exhaustive historical priority.
 
 ## References
 
-1. G. Brightwell and M. J. Łuczak, *Vertices of high degree in the preferential attachment tree*, arXiv:1012.5550 (first submitted 2010-12-26).
-2. E. Peköz, A. Röllin, and N. Ross, *Joint degree distributions of preferential attachment random graphs*, arXiv:1402.4686 (first submitted 2014).
-3. H. Hartle and P. L. Krapivsky, *Leaves of preferential attachment trees*, arXiv:2602.01021 (2026).
-4. H. Mahmoud, R. T. Smythe, and J. Szymański, *On the Structure of Random Plane-Oriented Recursive Trees and Their Branches*, *Random Structures & Algorithms* 4 (1993), 151–176, doi:10.1002/rsa.3240040204.
+1. *Oldest-hub degree has positive square-root covariance with leaf abundance*, Resultary record `2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19`, Eqs. (1)–(6), (14), (15).
+2. G. Brightwell and M. J. Łuczak, *Vertices of high degree in the preferential attachment tree*, arXiv:1012.5550, §1.
+3. E. Peköz, A. Röllin, and N. Ross, *Joint degree distributions of preferential attachment random graphs*, arXiv:1402.4686.
+4. H. Hartle and P. L. Krapivsky, *Leaves of preferential attachment trees*, arXiv:2602.01021.

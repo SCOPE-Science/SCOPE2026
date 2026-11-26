@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact rational stability map, the upper-bidiagonal transient Jordan block, mass conservation, and the generating-function factorization reconstruct all entries. The distinct sign laws for nearest-neighbor transient coefficients and absorbing-column tails give necessary **and sufficient** inequalities, yielding the full all-length classification. The proof covers zero step, all endpoints, and the exceptional single-step n=13 case. The embedded independent Fraction solver verifies 27,584 exact assertions at twelve rational timesteps for each of n=2 through n=18. The all-n conclusion is analytic; the finite verifier is supplementary.
+PASS
 
-## Originality — PASS, with residual literature risk
+The poles 3±i√3 are excluded by the spectrum {-h,0}, and Q times the all-ones vector is zero, so the endpoint exists and has row sums one. For h>0 substitute the transient shift into R(h(x−1)). With D0=h²+6h+12, rho=h/√D0 and theta=arctan(√3/(h+3)), the denominator is (D0/12)(1−2rho cos(theta)x+rho²x²); its inverse has coefficient a_j=(12/D0)rho^j sin((j+1)theta)/sin(theta). The transient coefficients are c0=((h−3)²+3)/D0 and c_j=h(a_(j−1)−a_j), and the absorption entry in row i is h a_(n−i−1) by telescoping the row sum. Using rho=cos(theta)−√3 sin(theta), the addition formula gives sign(c_j)=sign(sin((j+1)theta−pi/6)) for j≥1. For n≥3 the first-neighbor condition is theta≥pi/12, hence h≤2√3. Simultaneous absorption signs require (n−1)theta≤pi: if this fails the first sampled multiple strictly greater than pi lies below 2pi and has negative sine, even if a previous multiple equals pi. Together the two conditions put every transient angle in [0,5pi/6], so they are sufficient. For positive h, theta decreases strictly from pi/6 to zero. Thus n≤7 (with n≥3) has no positive lower threshold, n=8 through 13 has the stated lower endpoints, at n=13 the two bounds coincide, and n≥14 has none. At n=2 there is no c1 constraint, and h=0 is the identity for all n. Fresh exact matrix solves at n=13 verified all signs and row sums at h=2√3, with entries (1,2) and (1,13) exactly zero (one-based); at h=3 entry (1,13) was −5577374880/23298085122481, and at h=7/2 entry (1,2) was −168/32761. These are checks of selected instances, not the proof of the classification.
 
-Zappavigna–Colaneri–Kirkland–Shorten (2012), Section 4, show small-step negativity for an eight-dimensional nilpotent/Metzler system, not the entire stochastic absorbing-chain step classification. Lóczi–Ketcheson (2013 preprint) give the general zero absolute-monotonicity radius of the [2/2] map, which does not imply the sharp positive-step existence cutoff. The published published-finding corpus eight-state pure-birth record proves the exact n=8 interval and the seven-state local guarantee. Both are openly acknowledged as prior coverage, rather than presented as new. The present theorem additionally proves all dimensions, the maximum n=13, the isolated n=13 feasible step, and impossibility for every n>=14. Searches for equivalent Chebyshev/Padé/Markov-tail formulations found no stronger exact classification, but search incompleteness and the abstract-only check of the 2026 Itkin–Kazbek paper are residual originality risks.
+## originality
 
-## Value — PASS
+PASS
 
-A finite-state threshold for existence of **any** stochastic Gauss–Legendre step is a natural structural invariant of a basic absorbing Markov generator. The unexpected abrupt loss after thirteen states and the exact dimension-dependent recovery windows are relevant to selecting or rejecting a time integrator on longer one-way chains. This resolves a motivated classification question rather than supplying an arbitrary isolated numerical value.
+The eight-state window and the general seven-state small-step positivity guarantee are already covered, and the underlying Padé polynomial/derivative mechanism is not new. The distinction supported by the comparisons is the complete simultaneous classification for the unit-rate absorbing chain at every length, including positive recovery for 9≤n≤12, the isolated positive step at n=13, and impossibility at all positive steps for n≥14. No checked statement or immediate specialization supplied those conclusions. This assessment is bounded and not an absolute priority assertion.
 
-## Scientific limits
+## value
 
-The theorem concerns exactly the unmodified fourth-order Padé endpoint, uniform unit-rate absorbing pure-birth chains, and exact entrywise signs. No claims about arbitrary generators, unequal rates, internal stages, numerical accuracy at coarse steps, or independent validation. Exact-rational tests of finite instances cannot establish the all-length theorem without the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural absorbing chain isolates two opposed sign mechanisms for a standard fourth-order integrator: small steps can lose mass nonnegativity in the absorption column, while steps above 2√3 fail in the transient nearest-neighbor entry. Their competition yields the nontrivial recovered windows and a sharp maximal length with an isolated step; knowing a universal monotonicity radius is zero does not tell a numerical analyst these domains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

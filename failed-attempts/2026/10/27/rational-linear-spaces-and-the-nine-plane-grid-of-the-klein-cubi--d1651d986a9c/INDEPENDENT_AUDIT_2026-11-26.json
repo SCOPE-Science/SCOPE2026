@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:08.149807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof and all stated incidences",
+        "VERIFICATION.md and supplied verify.py (inspected, not used as independent computation)",
+        "reproductions/audit_klein_f2.py"
+      ],
+      "rationale": "The partials are x_(j−1)^2, giving smoothness. On a rational subspace the ordered coefficients of the cubic restriction in t_a^2 t_b are precisely B(b_a,b_b); binary point containment alone would not suffice. The orthogonal splitting T⊕E yields six Q-null two-spaces in E, three in each of two disjoint-nonzero-vector partitions, so no Q-null three-space exists (each nonzero vector lies on two, rather than three, null two-spaces). The graphs over the six spaces, and the subspaces meeting T in a line of vector dimension one, give 75 lines and nine planes. For the point degrees, a nonzero t in T lies on nine vertical lines; at a nonzero pure e in E there are three vertical and four graph lines; at t+e with both components nonzero there are one vertical, two rank-one graph, and two isomorphism graph lines. An independent RREF enumeration of 63, 651 and 1395 candidate spaces evaluated the original cubic on every candidate over F4, not just the nine positives. This is exact by interpolation since the restriction has individual degrees ≤3<4. It matched 39,75,9, all four histograms, and a common point for each row triple and a common line for each column triple, with each row and column meeting in exactly one plane. Replay: python3 /workspace/reproductions/audit_klein_f2.py.",
+      "residual_risks": [
+        "No count over proper extensions or over the algebraic closure is made. F4 evaluation here certifies only the restriction of the cubic on subspaces defined over F2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 census enumerates all 3,718,649 F2-projective classes and computes complete line and plane sets on every class. The older DLR zeta formula and oddness result for rational lines are broader but do not alone give the individual data."
+        ],
+        "reasoning": "The later complete census within the prior literature has exactly this base field, degree and projective dimension. The smooth cyclic model must have a representative in it, and all incidence quantities are invariant under projective coordinate changes.",
+        "searches": [
+          "Complete census database of cubic fourfolds over F2 with points, lines, and planes",
+          "Auel–Kulkarni–Petok–Weinbaum, Theorem 1 and §§3.3–3.4",
+          "Debarre–Laface–Roulleau, Thm. 5.1 and Prop. 5.5"
+        ]
+      },
+      "checked_sources": [
+        "Auel–Kulkarni–Petok–Weinbaum paper, author bibliography and code documentation",
+        "González-Aguilera–Liendo",
+        "Debarre–Laface–Roulleau",
+        "Related Resultary entries 988c51dcee32 and 6d9643cf3a9d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the complete plane list, the dimensions of pairwise and triple intersections and same-row/same-column groups follow by elementary subspace intersections. With the complete line list one counts containments by the same elementary operations. Points can be obtained by evaluating on 63 vectors, and here the nine planes already cover all 39 points."
+        ],
+        "reasoning": "The new grid language records the intersection pattern of previously enumerated geometric objects, not additional arithmetic input. The list determines the full grid relation (not only the intersection dimension frequencies); finding the two partitions is a small calculation on nine known planes.",
+        "searches": [
+          "Auel–Kulkarni–Petok–Weinbaum pp. 13–14, including Computation 3.10",
+          "Compare intersection relations and incidences of the enumerated rational subspaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard Klein model at dimension four has six coordinates, not five as in the Klein threefold. The Fermat fourfold in the compared section has 31 binary points versus 39 here, precluding F2-projective equivalence. The ordered-isotropic form counts the same geometric subspaces as direct polynomial containment."
+        ],
+        "reasoning": "Neither the different twists/models nor related Resultary threefold configurations establish matching data, but changing from polynomial restrictions to ordered bilinear containment does not change the catalogue object.",
+        "searches": [
+          "Resultary: Klein cubic fourfold over F2, isotropic subspaces for the ordered cyclic form, nine-plane grid",
+          "González-Aguilera–Liendo arXiv:1002.4136 Def. 1.9; Debarre–Laface–Roulleau arXiv:1510.05803 §§4.5.2 and 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The census states explicitly that it computed the full set of lines on each cubic and the complete set of planes on every cubic, and counts classes with pairs of disjoint planes. The public repository documents scripts for finding the sets of lines and planes through the chosen orbit representatives. Related Resultary records concern the singular Segre cubic or the five-coordinate Klein threefold."
+        ],
+        "reasoning": "A printed line dedicated to the Klein isomorphism class is not necessary for coverage: a complete subspace catalogue determines the individual data after identifying its representative. The individual record was not extracted, and availability of each stored set as a separate public file is not asserted.",
+        "searches": [
+          "A Census of Cubic Fourfolds over F2, database and accompanying code, linear_space_calculations",
+          "Resultary rational linear-space and incidence records"
+        ]
+      },
+      "rationale": "Auel–Kulkarni–Petok–Weinbaum, Math. Comp. 94 (2025), §§3.3–3.4, compute the complete sets of F2-lines and F2-planes for every F2-isomorphism class of cubic fourfolds, including this smooth cyclic fourfold. These are subspaces with coordinates, not merely aggregate counts. The exact sizes, intersection grid, and line/point incidence degrees are determined by intersecting or testing containment among the already enumerated spaces. The short bilinear proof and naming of grid rows and columns do not make the census or its incidence data an uncovered mathematical claim.",
+      "residual_risks": [
+        "No exact row labelled Klein was retrieved in the published catalogue; coverage is by the stronger complete set computation, not a claim that the term nine-plane grid occurs in print."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage of the linear-space sets and mechanical implication of the incidence census",
+          "evidence": "§3.3 states that the full line set on each cubic was computed; §3.4 states that the complete plane set on every cubic was computed. Computation 3.10 already makes a catalogue-wide disjointness calculation.",
+          "identifier_or_url": "https://math.dartmouth.edu/~auel/papers/docs/AKPW_cubic_fourfold_census.pdf",
+          "material_read": "Abstract and Theorem 1; end of §3.3, §3.4, Computation 3.10 and start of §4.1 (offsets 44400–49749); volume/year verified at author bibliography https://math.dartmouth.edu/~auel/papers/",
+          "method": "Author-hosted open full-text passages",
+          "title": "A census of cubic fourfolds over F2",
+          "trigger": "Complete enumeration, exact field and dimension"
+        },
+        {
+          "assessment": "Computes sets, not just totals; no scripts executed",
+          "evidence": "linear_space_calculations contains scripts to determine lines and planes through the chosen orbit representatives.",
+          "identifier_or_url": "https://github.com/JonahWeinbaum/cubic-fourfolds",
+          "material_read": "README, data-generation table and repository contents item 6",
+          "method": "Public documentation",
+          "title": "Accompanying code to A census of cubic fourfolds over F2",
+          "trigger": "Confirms nature of catalogue data"
+        },
+        {
+          "assessment": "Same model definition, different contribution",
+          "evidence": "Cyclic sum defines the Klein n-fold; this is not a characteristic-two census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.4136",
+          "material_read": "Definition 1.9 p. 4",
+          "method": "Open-access text passage",
+          "title": "Automorphisms of prime order of smooth cubic n-folds",
+          "trigger": "Standard Klein equation"
+        },
+        {
+          "assessment": "General formulas and nonmatching examples; not decisive prior coverage by itself",
+          "evidence": "Klein threefold has five rational lines in their example; the fourfold formula requires specific cohomological data and does not compute the plane grid.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.05803",
+          "material_read": "Theorem 5.1 p. 22, Prop. 5.5 p. 24, §§4.5.2 and 5.4",
+          "method": "Open-access full-text passages",
+          "title": "Lines on cubic hypersurfaces over finite fields",
+          "trigger": "Fourfold Fano counts and possible equivalent examples"
+        },
+        {
+          "assessment": "Nonmatching varieties and fields",
+          "evidence": "One concerns a singular characteristic-two Segre cubic, the other lines over F9 on the Klein cubic threefold.",
+          "identifier_or_url": "Resultary 988c51dcee32 and 6d9643cf3a9d (2026-10-26)",
+          "material_read": "Both Findings at offset 0",
+          "method": "Published record passages",
+          "title": "Related Resultary characteristic-two and Klein incidence findings",
+          "trigger": "Adjacent plane census and Klein line-incidence records"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen census and grid theorem",
+        "Prior catalogue §§3.3–3.4 and its subspace-program documentation"
+      ],
+      "rationale": "The arithmetic configuration is natural and the orthogonal-splitting proof is a useful way to explain it, but the frozen finding is a census and elementary incidence extraction for one form from an existing complete geometric census. It does not establish a distinct nonmechanical invariant, beyond this extraction, to sustain the claimed contribution.",
+      "residual_risks": [
+        "This is a value judgment on this frozen claim, not on potential new results about twists or bilinear geometries beyond this catalogue."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

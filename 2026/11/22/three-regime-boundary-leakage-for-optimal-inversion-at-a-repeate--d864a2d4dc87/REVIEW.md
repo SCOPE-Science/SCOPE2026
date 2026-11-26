@@ -1,21 +1,21 @@
-# Scientific assessment: three-regime boundary leakage at a repeated root
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result quantifies the residual of the unique minimum-norm polynomial in a fixed finite codimension subspace. The coefficient representation and finite moment system are exact and taken from an explicitly credited prior theorem. After diagonal scaling, the inverse weighted Hilbert matrix is well defined and converges entrywise by fixed-dimensional Gram positivity; rational interpolation determines both first and last coefficient limits with signs and constants. The proof gives separate uniform estimates: an Abel two-step difference bound when the coefficient weight is nondecreasing, and Dirichlet uniform convergence plus a bounded-variation estimate for positive weight. The interior profile follows from absolute convergence. Explicit nonzero endpoint constants establish sharp orders. `verify.py` reconstructs the source Gram matrices and tests finite cases, but is not used to justify the infinite limit.
+PASS
 
-**Risk/limits:** The asymptotics are fixed-parameter and exclude the boundary root itself. The estimates do not control a boundary layer whose distance to the root shrinks with degree. No effective finite-degree threshold is stated.
+In the replacement, the minimum-norm residual is characterized by its Euler jets at 1 (equivalent to the ordinary jets by a triangular change of basis). Gram positivity and the fixed-dimensional Riemann-sum limit give L^(beta+j) A_(j,L) -> a_j. The interpolating rational function with poles -beta-j and zeros 1 through m-1 gives P(1)=C and P(0)=D from its leading term at infinity and its residue at -beta. On interior compacts the remaining powers k^j are summably dominated after geometric decay. For 0<alpha<1, Dirichlet convergence is uniform since every geometric partial sum is bounded by 2/|1-z|. The frozen proof incorrectly multiplied O(L^(j-alpha)) by O(L^-j) to obtain O(L^-1); the corrected bound O(L^-alpha)=o(1) suffices for every fixed alpha>0. For alpha<=0, multiply by z-1 to isolate the endpoint terms; Abel summation bounds the remaining first-difference series by endpoint first differences and total second variation. Each monomial contributes O(L^(-beta-j) sum_(k=1)^L (k+1)^(beta+j-3)), plus endpoint bounds O(L^(-beta-j)+L^-2). All are o(1/L) for beta+j>1; the beta=1,j=0 term has exactly zero differences. At |z|=1, z!=1 the negative-weight oscillation has nonzero constant modulus after scaling; at -1 the positive-weight coefficient has positive alternating sum, and at alpha=0 the reverse triangle inequality gives m^2-m>0. No numerical certificate is needed; the supplied finite diagnostic was inspected, not run. The corrected proof is replayable in repairs/4/RESULT.md. The limits require fixed m, alpha, and positive separation from z=1 for closed-disk estimates.
 
-## Originality — PASS, best-knowledge
+## originality
 
-The closest article is Bénéteau–Manolaki–Seco, arXiv:1901.00694 (first public 2019-01-03). Its Theorem 7.1 gives the exact coefficients, Theorem 7.3 the squared residual norm, and its discussion following Corollary 7.4 expressly leaves uniform closed-disk convergence for higher multiplicity for later study. The 2022 Acuaviva–Seco theorem on uniform off-zero convergence assumes distinct simple zeros; a repeated zero is not a special case. The published mixed-multiplicity Hardy research record (2026-10-18) gives a uniform coefficient profile at weight zero; that covers or implies some of the Hardy endpoint algebra, **which is credited and not separately claimed as novel**. It does not cover the two non-Hardy boundary regimes or their weight transition. The new joint theorem supplies these along with the sharp interior-to-boundary comparison. Searches of the accessible historical collection and relevant research index identified no statement with stronger weighted repeated-zero boundary coverage.
+PASS
 
-**Risk/limits:** A published older treatment in confluent Christoffel-kernel or Fourier endpoint language may state equivalent formulas under another normalization. The checked published index is not an exhaustive originality guarantee. One 2021 background article on generalized inner functions was inspected at the abstract and bibliographic level only; its subject differs, but this limited material is not represented as full-text coverage.
+Best-of-knowledge pass for the three-regime off-root asymptotics, not the finite moment formula, the initial coefficient constant, or Legendre endpoint identities in the Hardy setting. The precise uniform non-Hardy limits require oscillatory-sum estimates not supplied by known norm or moment asymptotics.
 
-## Value — PASS
+## value
 
-The result addresses an explicitly identified missing case in the main motivating paper: norm convergence for a repeated unit-circle zero does not alone determine closed-disk boundary convergence. The complete regime distinction shows that the leading error changes mechanism at the Hardy exponent. The sharp constants capture a terminal oscillatory coefficient for negative weights and the Dirichlet-series coefficient tail for positive weights; the all-multiplicity classification provides exact pointwise rates and a stronger interior profile. The sharp distinction is meaningful for uniform approximation by polynomial inverse filters in Bergman and Dirichlet-type spaces, not just for an isolated finite computation.
+PASS
 
-**Risk/limits:** This does not solve general polynomials with multiple distinct boundary zeros, nor any moving-weight or moving-root problem. No downstream theorem or independent external validation is claimed.
+This resolves a stated off-root boundary-uniformity gap for a canonical repeated-root factor, quantifying the dominant endpoint and sharp decay order. Comparing boundary leakage with faster interior decay at negative weights and isolating the Hardy transition provide information missing from norm convergence. No general multiple-root-location or moving-parameter conclusion is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

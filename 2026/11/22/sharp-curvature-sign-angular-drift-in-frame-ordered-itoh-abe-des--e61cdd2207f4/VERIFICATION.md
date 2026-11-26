@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-`RESULT.md` contains the analytic proof, definitions and fixed-time limits. Execute `python3 verify.py` with Python 3, NumPy, SciPy and SymPy. The standalone test includes exact symbolic reductions of the Hessian transverse term and primitive, plus four mesh refinements of spherical/hyperbolic/Euclidean implicit steps, order-averaging checks and bisector radial recursion. The finite tests provide regression diagnostics only; the uniform error estimate is justified by the smooth Taylor expansion on a compact annulus and standard finite-time discrete Gronwall argument in `RESULT.md`.
+## correctness
 
-The signed asymptotic law is proved for constant-curvature surfaces in the smooth squared-distance ball; its global uniqueness for arbitrary timesteps and extension to other objectives are not established. Both the base Itoh–Abe construction and its established fixed-center symmetrization are credited to the cited original literature. No external formal proof certificate or independent audit exists.
+PASS
+
+In normal coordinates the Hessian of half the squared distance has radial and transverse eigenvalues 1 and q=rS'_K/S_K. Expanding the coordinate quotients gives G=g+Bu+O(‖u‖²) with B=H/2 plus the skew term (H_12/2)J, J taking E_1 to E_2. The local implicit displacement is −hg+h²Bg+O(h³). Since g=−r e_r is an eigenvector of H and H_12=(q−1)sinθ cosθ, the inward-to-azimuthal skew term is exactly r(1−q)sin(2θ)/4. A radial exponential displacement changes no azimuth, so the leading angular increment is the transverse displacement divided by S_K, with error O(h³). The recurrence r_{j+1}=r_j−hr_j+O(h²) on a compact annulus slightly larger than [r_0 exp(−T),r_0], still in the smooth region, gives a uniform O(h) deviation by bootstrap and discrete Gronwall. Summing angular increments and dividing by h gives the integral in (10); (r/S_K)'=(1−q)/S_K and r'=-r give exactly (1). The opposite strict monotonicities of r/S_K in the two curved cases, and its constant value in the flat case, give the exact signs and maximizing angles. Reversing the coordinate order negates the skew term, proving O(h²) fixed-time angular error for the average. At θ=π/4 the intermediate exponential images for a radial candidate are radial-meridian reflections, with equal objective values, and the two components telescope to the radial secant −r+δ/2. Solving δ=h(r−δ/2) gives (2), with 0<δ<r for 0<h<2 and agreement with the locally unique small-h branch.
+
+## originality
+
+PASS
+
+Credit both the Riemannian ordered Itoh–Abe construction and its same-center symmetrization, including the known general order context. The supported distinct content is the explicit sharp signed, frame-relative fixed-time angular coefficient for the specified radial objective and the exact finite-step bisector radial branch. The examined primary passages and published index did not establish these specializations; this is a bounded coverage assessment, not a priority certificate.
+
+## value
+
+PASS
+
+Even on a canonical objective whose exact trajectory has no angular motion, the ordered dissipative scheme can accumulate a signed first-order azimuth bias, reversed by curvature and by frame order. Its sharp coefficient measures an error invisible in radial dissipation or a generic convergence order. The exact bisector identity is a useful separate benchmark for the established symmetric variant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

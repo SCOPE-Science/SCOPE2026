@@ -1,15 +1,21 @@
-# Review of the adjacent central-binomial valuation theorem
+# Independent mathematical audit
 
-## Correctness (PASS)
-The five reachable simultaneous carry states are derived by explicit digit updates, not inferred from a few examples. In particular the terminal adding-one carry cannot produce another doubling carry at odd prime because the remaining high digit is one. The displayed matrix therefore counts every pair at every depth without lost boundary terms. The coefficient ratio gives the exact signed jump distribution by disjoint simple roots modulo all powers of the prime. Kummer's carry Markov transition proves the mean and variance and, via the cyclic squared-difference identity, the covariance. The strict sign phase is verified analytically using a positive depth increment and the exact first three ternary cases. All quantifiers include the smallest depth and smallest allowed prime. The independent exact checker passes the full joint tables and moments at 19 parameter pairs, 2,891 indices; this is corroboration, not the infinite proof.
+## correctness
 
-## Originality (PASS with residual historical risk)
-The earliest primary source in the designated period, Ford–Konyagin (arXiv:1909.03903, 9 September 2019), studies index-divisibility densities rather than ordered adjacent valuation pairs. Straub–Moll–Amdeberhan's (2008) full text explains Kummer valuations and the coefficient recurrence, making the elementary jump identity an acknowledged deduction, **not** the standalone novelty. The 2026 Carry–Run manuscript gives single-index marginal generating functions and moment plots, which do not themselves specify adjacency. The complete published research notes on fixed-suffix index–value closures, sparse fixed-lower-index binomial shifts, and joint valuations of two different binomial families were inspected through their full result/proof sections. Their statements do not imply the five-state neighbor-pair enumerator or the sign phase by parameter specialization. Broad earlier digital-transducer frameworks could implicitly contain the same paired law; priority is therefore qualified, and novelty is not certified externally.
+PASS
 
-## Mathematical value (PASS)
-This is a natural local-fluctuation invariant attached to the central binomial coefficients, not an arbitrary finite slice. It gives the full exact two-variable distribution across every prime-power block (and therefore all its mixed moments), a universal signed jump law, and a sharp phase boundary where local anti-correlation at the smallest ternary depths reverses. The distinction between single-index marginal distributions and adjacent joint laws is mathematically substantive: a marginal law alone cannot determine correlation. A fixed-size carry representation provides a reusable finite arithmetic mechanism. No new general limit theorem or arbitrary-shift statement is claimed.
+The digit update for the three carries (doubling n, incrementing n, doubling n+1), split at a=m−1,m,2m for p=2m+1 and with separate incoming states, gives the stated weighted rows on the five reachable states. If a terminal increment remains, the terminal state is A or B and the doubling carry for n+1 is zero, so the additional leading 1 contributes no weight even at p=3. The other leading-zero cases also add no carry. The recurrence B_(n+1)/B_n=2(2n+1)/(n+1) expresses the jump as a difference of valuations on disjoint residue classes. There are exactly (p−1)p^(k−j−1) representatives on each signed level j<k and exactly one on each signed level k; p≥3 prevents higher levels. The one-carry expectations and covariances follow from the Bernoulli chain with conditional-expectation contraction 1/p. Summing gives the stated mean and W_k−W_(k−1)=(p+1)(1−p^(−k))²/[4(p−1)], hence the closed W_k. The endpoints have equal zero valuation, so equal marginals and the jump tail give K_k=W_k−∑(2j−1)p^(−j). For k≥1 the increase in W strictly exceeds (2k+1)p^(−k−1): lower and upper bounds are 32/81 versus 1/3 at p=3 and 144/625 versus 3/25 at p≥5. The k=1 sign, K_(3,2)=−4/81 and K_(3,3)=167/729 then establish the phase. The infinite jump correction (p+1)/(p−1)² and W_k's linear coefficient give the Pearson expansion. An independently written integer/rational reproduction, `python /workspace/branches/audit_arithmetic_reproduction.py 3`, matched joint counts, jumps and moments on eight prime-depth pairs including both negative cases and the sign transition. Submitted verification code was inspected, not executed; finite checks do not establish the unrestricted statement.
 
-## Closest literature and limits
-The most relevant full texts are Ford–Konyagin (2019), Straub–Moll–Amdeberhan (2008), the 2026 marginal carry-count preprint, and published result/proof files for fixed-suffix central-binomial images and nearby two-family joint valuations. Their objects and implications were compared directly. Finite enumeration does not establish infinite statements; source availability and historical-priority uncertainties do not amount to independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known one-index Kummer valuation and elementary coefficient recurrence are not counted as new. The checked sources do not state or mechanically supply the complete finite-block pair distribution for adjacent central coefficients across odd primes, nor its exact covariance sign phase.
+
+## value
+
+PASS
+
+The pair is the natural unit shift of a classical valuation word, and its ordered joint counts are not recovered from the known single-index histogram. The law isolates a bounded jump discrepancy even as the variance grows, and exhibits an exact finite-depth change of covariance sign with two exceptional blocks. Those are usable structural invariants beyond the routine carry formula or a claim of asymptotic correlation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

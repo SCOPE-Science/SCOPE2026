@@ -1,11 +1,21 @@
-# Review of the circular-palindrome classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reconstructs the parity interleaving of the finite substitution iterates. It separately excludes all even palindromes of length at least four, classifies both parity classes of odd palindrome centers, and checks that each lifted word fits within a single circular traversal. Injectivity, disjointness, exceptional factors, count, and lengthwise recurrence are established. A standalone exhaustive checker confirms full set equality through rank nine, but it is not used as an infinite proof.
+## correctness
 
-**Originality (PASS, with explicit historical risk).** The inspected full text of Allouche–Baake–Cassaigne–Damanik addresses palindromes of the infinite period-doubling sequence, and Schaeffer–Shallit addresses automatic-sequence palindromic predicates and richness; neither provides the finite circular language recursion in the inspected material. The inspected cyclic-complexity paper concerns rotational equivalence classes, not crossing-boundary palindromes. Simpson's available abstract proves a global circular-palindrome upper bound rather than this family-specific exact spectrum, but its complete article was inaccessible. Earlier records on finite period-doubling bispecials and on the infinite word's cyclic conjugacy classes do not imply the present statement. Novelty cannot be established absolutely by negative search alone.
+PASS
 
-**Value (PASS).** An exact classification of all circular palindromes at every rank and length is a natural word-combinatorial invariant. The family supplies explicit circles with \((3/2)N-1\) distinct palindromes—close to Simpson's general upper bound of \(5N/3\)—and explains that density structurally through substitution parity, rather than isolated tables or routine parameter substitution.
+The cyclic parity relation P_k[2j]=0 and P_k[2j+1]=1-P_(k-1)[j] is well-defined modulo the even circumference. It rules out 11 and, because two consecutive odd-position zeros would require a lower-level 11, also rules out 0000. The remaining length-four palindromes require either 11 or ones at opposite parities, so no longer even palindrome can exist by its central four letters. The 00 factor exists for k>=2. Directly P_2=0100 gives {0,1,00,000,010}. For odd centers on odd positions, the reflection forces equality exactly on the sampled lower-level odd palindrome; mandatory zeros yield the two lifts. An odd lower-level length m is at most 2^(k-1)-1, so both lifts fit within one traversal. They are injective and separated by lengths 1 and 3 modulo 4. For an even-position center, agreement of its two adjacent odd-position letters requires adjacent lower-level zeros (11 is absent), giving 101 and its forced zero-extension 01010. Length seven would need a lower-level four-letter palindrome; both shorter exceptions occur because lower-level 00 exists. Neither exception can match the fixed-zero positions of the same-length odd-center lifts; the even-center singleton 0 is already a lift. Thus h_k=3+2(h_(k-1)-1), and the two lift lengths and exceptional lengths give precisely the asserted histogram recurrences including zero above the cap. The frozen checker and its rank-2–9 scope were inspected, not executed; the unrestricted conclusion follows by parity and induction.
 
-**Scope and risks.** No arbitrary-prefix or longer-than-one-traversal claim is made. The original journal full texts of Simpson (2014) and Damanik (2000) remain an historical-priority risk; independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the rank-by-rank binary finite cyclic language with a one-traversal cap, not the morphic lift operators, the ban on long even palindromes, or the infinite palindromic complexity. Indeed the known transforms removing the first 0 of mu(v) and appending a 0 to mu(v) are exactly Phi and Psi; even the two odd exceptions are these transforms applied to 00. What is not supplied by the inspected earlier results is the sharp correspondence between occurrences on adjacent finite circles, with exact cap and all finite ranks. Infinite occurrence does not determine occurrence at a given finite rank. The strongest accessible finite-factor work is assessed on its actual linear or infinite-word statements, and the catalogue comparisons on their actual word families and statistics. Pass is qualified by the stated access limits.
+
+## value
+
+PASS
+
+Complete substitution iterates and their circular seams are canonical finite objects. The exact finite-rank occurrence recursion and spectrum answer more than a count and locate the effect of the finite period at every length; the infinite-word recurrence alone cannot answer this even for a factor shorter than the circumference. The total (3/2)N−1 also gives a concrete infinite family close to the general circular bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

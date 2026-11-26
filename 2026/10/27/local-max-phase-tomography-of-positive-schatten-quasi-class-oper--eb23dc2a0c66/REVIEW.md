@@ -1,12 +1,21 @@
-# Scientific review: local max-phase tomography
+# Independent mathematical audit
 
-## Correctness — PASS
-For positive injective Schatten quasi-class \(A\) and unit \(v\in\operatorname{Ran}A^{1/2}\), the fractional resolvent representation and rank-one Sherman–Morrison identity give an absolutely controlled positive integral for the one-sided trace increment. Monotone convergence calculates its derivative as \(p\langle v,A^{p-1}v\rangle\). The form bound \(P_v\le\|A^{-1/2}v\|^2A\) makes the negative perturbation positive for sufficiently small parameters, so operator monotonicity selects the positive max branch. Under two-sided Loewner comparability, Douglas range inclusion gives a common square-root range; negative fractional form comparisons and spectral truncation make it a common core. Polarization and uniqueness of the closed form prove the equality of the operators. This treats unbounded inverse powers without assuming finite spectral rank. The accompanying numerical checker passed 1,332 finite assertions; these are not infinite-dimensional proofs.
+## correctness
 
-## Originality — PASS, subject to independent priority verification
-The full text of Zhang and Liu (arXiv:2610.13271v1, Theorem 2.11, Theorem 3.4 and Section 4) gives finite-dimensional max-profile uniqueness and infinite-dimensional classification only on the finite-rank ideal absent continuity, explicitly identifying unbounded negative powers as an obstacle. It does not establish uniqueness from local positive projection probes of arbitrary infinite-rank operators comparable in Loewner order. Huang and Zhu's full-distance Schatten sphere-isometry work has stronger measurements and a different conclusion, and Dobosevych–Hryniv's rank-one perturbation inverse spectral results concern known unperturbed operators and full spectral data. Searches of published mathematical records under rank-one probe, fractional trace derivative, operator-order domination and max-profile aliases did not find the same implication. Research-record matches concerning crossed-Heinz operators, trace-class positive cone Wigner maps and rank-one perturbations of sequence-space embeddings do not dominate the claim. Residual risk: a historical form-tomography or fractional spectral-shift result may give an equivalent assertion. Negative search results do not certify priority.
+PASS
 
-## Mathematical value — PASS
-This supplies a genuinely infinite-rank, potentially noncommuting positive class for which the recent finite-rank max-profile obstruction can be bypassed, replacing all rank-one partial-isometry profiles by only local positive projection responses. The sharp analytical feature is the unbounded inverse-fractional quadratic-form recovery on a dense common core; the comparability condition is substantive. The result addresses a natural partial extension of the explicitly open max-profile problem, not a mere finite-matrix restatement. No assertion is made for arbitrary noncomparable or nonpositive operators.
+For positive injective compact A in S_p and 0<p<1, the fractional-power integral gives a positive resolvent-difference trace formula; rank-one addition stays in S_p. Sherman–Morrison gives the trace integrand t s^p⟨v,(A+sI)^(−2)v⟩/(1+t⟨v,(A+sI)^(−1)v⟩), times sin(pi p)/pi. After division by t, monotone convergence and the scalar beta integral give p times the inverse-power quadratic form, possibly infinite for the positive branch alone. If v=A^(1/2)w is a unit vector, P_v≤||w||²A makes A−tP_v nonnegative for t small enough, so Loewner–Heinz selects the plus branch. On this range the derivative is finite by the spectral theorem. The p-power trace quasi-triangle inequality gives the same baseline trace at t=0 from equal profiles. Two-sided comparability gives equality of square-root ranges by the operator range criterion. Loewner–Heinz and inverse order (obtainable by shifted inverses and monotone form limits) give equivalent form norms for A^(p−1) and B^(p−1). Eigenvalue truncation for A makes their common square-root range a core in either form norm. Equality of responses on normalized core vectors, then homogeneity and polarization, identifies the closed forms and therefore the operators by spectral calculus. The branch threshold may depend on v; uniformity in v is not needed. The extension of the plus-branch derivative by itself does not establish behavior of the max outside the stated range. The frozen finite checker was read, not run, and its reported 1,332 checks are not evidence of common-core completeness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected results already supply the finite-dimensional trace differential and much broader finite-dimensional rigidity under a larger measurement set. The distinct contribution is local positive-projection tomography even for infinite-rank positive injective pairs in one order-comparability class, via a common form core despite unbounded negative powers. Neither the resolvent technique nor finite-dimensional directional differentiation is a standalone novelty claim. This is a best-of-knowledge assessment, not a priority certification.
+
+## value
+
+PASS
+
+The theorem gives a meaningful reduction in required measurements: nearby positive rank-one projection tests and scalar p-power traces suffice for noncommuting positive operators in an order-comparability class, even without a spectral gap at zero. Identifying an actual common core addresses a substantive infinite-rank obstruction and is not just extrapolation of a finite-matrix formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

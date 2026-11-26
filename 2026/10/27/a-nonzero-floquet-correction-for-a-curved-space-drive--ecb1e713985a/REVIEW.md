@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The nested-commutator coefficient follows from the cosine Fourier harmonics. The principal coefficient is exactly \(8(2(g'')^2-g'g''')\). If it vanished identically, the periodic ODE argument forces \(g\) to be constant; for every nonconstant profile the formal correction is therefore a genuine second-order differential term somewhere on the circle. The review does not claim convergence or a continuum propagator error bound.
+PASS
 
-## Originality
+The frozen differential calculation and stated van Vleck term are correct in that convention. The repair names the convention in the Finding and makes the comparison to the cited stroboscopic statement in its own gauge. Independent re-audit: the two first harmonics εB/2 contribute exactly ε²[B,[A,B]]/(4ω²); the ±2 harmonics and the three-nonzero-harmonic sum cannot contribute at this amplitude degree. On the common smooth core the principal part of [A,B] is 4g''D², and commuting bD with aD² gives ba'−2ab' at order two. This yields a₂=8(2(g'')²−g'g'''); integrating gives 24∫(g'')², so real smooth periodic profiles have identically zero a₂ only if constant. At cosine phase zero the order-ω^(−1) micromotion vanishes. Its next term at phase zero is iε[A,B]/ω²+iε²[A,C]/(8ω²), found by integrating i[K₁,A], since all other order-ω^(−1) oscillations have amplitude degree at least three. Conjugation then adds −ε[A,[A,B]]/ω²−ε²[A,[A,C]]/(8ω²), also independently reproduced by evaluating the triple Magnus integrals over one cosine period. The extra quadratic principal coefficient is −C''/2; the total is 5(g'')²−g'g''' and integrates to 6∫(g'')². In either convention the obstruction is formal only. No propagator-level convergence, bound, or invalidation of the exact geometric mapping is inferred.
 
-**PASS.** The primary target source discards higher-order Magnus terms after observing time-symmetry cancellation. General high-frequency expansion literature supplies the method but does not, in the inspected sources, classify the periodic profiles for which this correction's principal coefficient vanishes identically. published-finding corpus searches returned no matching claim; the closest records concerned unrelated Floquet ODEs or spectral problems. This is a targeted structural correction, not a claim that the general Floquet expansion is new.
+## originality
 
-## Value
+PASS
 
-**PASS.** The classification identifies the only periodic profile class for which the principal kinetic correction vanishes identically at this order: constant profiles, which make \(B_g=0\). For any nonconstant periodic profile the moment-only operator omits a genuine frequency-dependent kinetic term, materially limiting an asserted exact stroboscopic geometry.
+Neither the general high-frequency formula nor the gauge change is new. The supported distinct result is the all-profile nonvanishing obstruction for the transformed cosine model, computed in both conventions so the specific time-symmetry truncation claim can be tested in its own convention.
 
-## Closest literature and limitations
+## value
 
-Alperin (2025), Eckardt–Anisimovas (2015), and Burgarth et al. (2026) are the closest inspected sources. The result is a formal high-frequency coefficient on a smooth core; rigorous control of the full unbounded, potentially non-self-adjoint propagator remains open here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The value is a motivated obstruction to an exactness assertion in the same transformed drive, not merely a worked example of the known expansion. Distinguishing gauges and proving that not even a special nonconstant real periodic profile cancels the quadratic principal correction answers a natural question about when the simplification could hold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

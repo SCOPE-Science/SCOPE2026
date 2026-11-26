@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:07.850104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 22–49; frozen verification and checker (inspected as evidence)",
+        "Kyselov arXiv:2610.25443v1, Proposition 4.1 and Theorems 1.1 and 4.3",
+        "Independent direct replay: python3 /workspace/review-evidence/exception73.py; output: sum_one_tuples 151220665295; singletons 72 pairs 2628 distinct 2700"
+      ],
+      "rationale": "The distinctness, degree and count assertions are correct. Kyselov Proposition 4.1 permits p=73 (4 divides 72) and imposes no nonvanishing condition at index 2; all indices used are below h=18. Independently expanding the logarithm with its alternating power series gives coefficients (18,0,49,25,52,56) at indices 1 through 6 modulo 73. Equal first and third power traces recover the norm via Tr(x^3)=u^3-3uN when the common trace u is nonzero. On the nonzero trace-zero line, the fourth and sixth traces determine the scalar modulo sign, and sign is Frobenius there. Inversion commutes with Frobenius; Frobenius substitution gives the reverse implication. Theorem 1.1 covers the remaining primes since D_4=-3650. Scaling variables by a^{-1} gives the stated cyclotomic action. The scalar conjugacies in the base field are only 1 for nonzero trace, and plus or minus 1 for zero trace (a scalar relating b to b^p must square to 1). Counting fourth-power preimages gives the degree formulas. The 72 fixed and 2628 two-element orbits at p=73 give 2700. The 'genuinely new' framing fails originality, not these mathematical assertions.",
+      "residual_risks": [
+        "The direct replay is for p=73 only. It compares integer trace histograms modulo the constant histogram (the relation Phi_73), not floating-point values; all other primes use the stated theorem. The proof does not rederive the cited p-adic results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 excludes p dividing D_d, but the general block criterion requires only d dividing p-1 and a nonzero block of length 2r ending strictly below h=(p-1)/d. With starting offset 2 and r=2 the block ends at 6<18 and its residues are 49,25,52,56."
+        ],
+        "reasoning": "The two prior theorems together cover every prime in the frozen range; exclusion from the first criterion is not exclusion from the stronger test.",
+        "searches": [
+          "Kyselov arXiv:2610.25443v1, Theorem 1.1, Theorem 4.3 condition (2), Remark 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Kyselov arXiv:2610.25443v1",
+        "Local Resultary search",
+        "Frozen RESULT.md, lines 13–20 and 23–46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted proof selects indices 1,3,4,6 from Proposition 4.1. Theorem 4.3 instead uses 3,4,5,6 and has the very same distinctness conclusion. Proposition 5.1 specializes to the claimed degrees; counting Frobenius orbits gives the number of values."
+        ],
+        "reasoning": "This is an alternate argument for a covered case, not a new classification. Neither changing the four-index selection nor evaluating the immediate numerical consequences removes the prior implication.",
+        "searches": [
+          "Kyselov arXiv:2610.25443v1, Proposition 4.1, Theorem 4.3 and Proposition 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem equates equality of the same inverted sums on F_(p^r)^* with Frobenius conjugacy. r=2 and d=4 give exactly the two-parameter equivalence in the Finding."
+        ],
+        "reasoning": "The equality is cyclotomic equality and the sums have four variables with the same reciprocal-of-sum phase. No change to normalization or parameter equivalence is needed.",
+        "searches": [
+          "Kyselov arXiv:2610.25443v1, Theorem 4.3 and Eq. (1.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching additional catalogue entry was surfaced. The affirmative match is Theorem 4.3 in the primary source, not a tabulated value."
+        ],
+        "reasoning": "A catalogue miss does not offset prior theorem coverage; neither 2700 nor an explicit listing of p=73 is needed to identify that coverage.",
+        "searches": [
+          "Local Resultary catalogue: focused inverted Kloosterman distinctness and exceptional-prime comparison"
+        ]
+      },
+      "rationale": "Existing coverage is established. The exceptional-prime result is an immediate application of condition (2) in Kyselov's Theorem 4.3, in the very paper cited for the apparent exception. Its window is indices 3 through 6; all four values are nonzero in the record's own calculation. Theorem 1.1 excludes this prime, but the paper does not leave it unresolved.",
+      "residual_risks": [
+        "Earlier independent sources were not comprehensively assessed; they cannot undo the demonstrated coverage in the cited paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Theorem 4.3 condition (2) applies with r=2, d=4, p=73 and offset 2; Proposition 5.1 gives the corresponding degrees. Remark 6.2 calls the D_d condition sufficient, not necessary.",
+          "identifier_or_url": "https://arxiv.org/html/2610.25443v1",
+          "material_read": "Theorem 1.1 (offset 3872); Eq. (4.1) and Proposition 4.1 (15952); Theorem 4.3 and Proposition 5.1 (22098 onward); Remark 6.2 (29387)",
+          "method": "Lawful OA full text, bounded statement and proof passages; check hypotheses by exact modular arithmetic",
+          "title": "Distinctness and algebraic degrees of inverted Kloosterman sums",
+          "trigger": "Cited theorem supposedly omits the main new characteristic; other criteria in the same paper could cover it"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Kyselov Theorem 4.3 and Proposition 5.1"
+      ],
+      "rationale": "A genuinely uncovered exceptional prime in a natural classification would be valuable. Here the advertised gap does not survive: the same coefficients give an immediately applicable prior block, and the alternate trace recovery yields no stronger criterion stated in the Finding. The degrees and number of values are routine consequences of the prior classification. The independent replay verifies the mathematics but does not supply a new scientific finding.",
+      "residual_risks": [
+        "No materially new scope for the selected-index method is demonstrated in the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

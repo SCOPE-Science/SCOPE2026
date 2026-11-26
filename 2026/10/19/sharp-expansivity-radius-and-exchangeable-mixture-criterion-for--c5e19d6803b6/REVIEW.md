@@ -1,15 +1,21 @@
-# Review: Sharp expansivity radius and exchangeable-mixture criterion for the Hilbert-cube shift
+# Independent mathematical audit
 
-## Correctness — PASS
-Fixing the exact weighted metric is essential: its total coordinate weight is \(3\). The constant-center target gives full Bowen-ball mass at radius \(3D(\nu)/2\); the opposite direction uses independent disjoint blocks approximating support endpoints, yielding a strict separation for all targets at smaller radius. De Finetti plus a finite midpoint cover proves the necessity and sufficiency for exchangeable mixtures. The algebraic checker passed; infinite assertions rest on the proof, not sampling.
+## correctness
 
-## Originality — PASS (self-review)
-Lacerda [1] proves expansivity of product Lebesgue with a nonoptimal sufficient radius; it does not classify exchangeable mixtures. The nearest published published-finding corpus [2] theorem addresses independent-coordinate products and its own limitations explicitly exclude dependent laws. Lee–Morales–Shin [3, Lemma 3.2] proves fixed-radius convexity, and does not cover countably many components with radii converging to zero. Searches for exchangeability, de Finetti mixtures, sharp radii and convexity found no statement implying the entire new claim. Classical symbolic-dynamics literature not identified through those searches remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete natural geometric criterion (essential minimum of the support diameters) and a sharp numerical radius for an invariant nonproduct-measure class. The full-support nonexpansive mixture of individually mixing and expansive ergodic components isolates a substantive new boundary of measure-expansivity under ergodic decomposition.
+The midpoint target bounds each coordinate difference by D/2 on a full-measure product box; the bilateral weight sum 3 proves failure at and above 3D/2 in the iid case, including the Dirac case. For each fixed arbitrary target separately, choose the farther support endpoint in each coordinate. Both endpoint neighborhoods have positive marginal mass, so disjoint translates of a fixed finite block have independent chances bounded below to contribute more than any r<3D/2. This proves nullity by Borel–Cantelli without an uncountable union over targets. De Finetti then integrates null masses below (3/2) ess inf D. Above it, slack permits covering the midpoints of a positive-measure sublevel of D by finitely many neighborhoods; one common constant target captures positive mass from the corresponding components. In the explicit mixture the weights sum to one, the positive Lebesgue-product part gives full support, and all components are atomless and mixing, with positive radii tending to zero. A mixture boundary assertion is not needed for the supremum: at d_*>0 an atomic midpoint among D=d_* components gives failure, whereas if that restricted midpoint law has no atoms then any fixed target can have positive critical-window mass for at most one midpoint: infinitely many coordinates separated from a component midpoint would provide infinitely many disjoint blocks with an extra positive center discrepancy and force escape by the same endpoint argument. This confirms that the frozen statement did not silently assume a boundary convention for mixtures. The frozen finite arithmetic checker was inspected, not run; neither it nor its recorded examples substitutes for the proof.
 
-## Closest literature and limitations
-[1] G. Lacerda, arXiv:2610.09482v1, Section 2, full text inspected; [2] published independent-coordinate product concentration criterion, 2026-10-11, full RESULT inspected; [3] Lee–Morales–Shin, 2018, Lemma 3.2, inspected. The theorem excludes general stationary nonexchangeable measures and does not decide critical-radius attainment for an arbitrary exchangeable mixture. The sharp radius depends on the chosen metric. A prior equivalent form could exist outside searched sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The product Lebesgue example, qualitative iid criterion, de Finetti representation, and common-radius mixture argument are prior or elementary. The distinct result is the sharp metric-dependent radius, including the Bernoulli equality case and the matching upper bound across dependent exchangeable mixtures, with a nonatomic full-support obstruction to expansivity.
+
+## value
+
+PASS
+
+A natural metric invariant is computed exactly across the full exchangeable class. The example answers a meaningful inheritance question: full support and nonatomicity do not rescue expansivity when individually expansive ergodic components admit no common positive radius. The value is in sharp constants and a structural obstruction, not the existence of an iid expansivity constant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the exponential-weight Poisson Stein endpoint theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact Poisson moment calculations establish the nuisance-adjusted influence variance. Under the explicit mean-preserving ZIP perturbation, a triangular-array CLT gives the displayed local normal shift. Analytic differentiation proves all optimizers interior, a uniform small-intensity expansion identifies the unique limiting quadratic maximizer, and a two-interval exponential bound plus stationary equation proves the large-intensity law. The packaged verifier separately reproduces critical algebra and runs 96 finite sanity checks. The result does not purport to prove uniqueness at each finite intensity or a joint growing-mean/sample-size theorem.
+## correctness
 
-## Originality
-PASS, with a defined priority risk. The closest full-text primary article by Weiß, Puig and Aleksandrov already establishes Stein identities, general alternative power, and numerical exponential-weight tuning, so those contributions are explicitly excluded. Its inspected Sections 2–3, Tables 2–3, conclusion, and appendix do not state the two rigorous, mean-extreme optimizer limits or the corresponding local envelope. Aleksandrov et al. already recommend a fixed exponential weight; Baringhaus–Henze cover integrated generating-function tests; later Weiß–Nik derive grid statistic covariances. Their materially inspected statements do not imply the proved endpoint asymptotics as stated. An unlocated specialization of earlier general Poisson local testing results remains plausible; bibliographic originality has not been independently certified.
+PASS
 
-## Value
-PASS. Choosing the exponential Stein weight affects detection of excess zeros, and the original work motivates its numerical optimization. These exact mean-extreme laws turn a numerical tuning question into two distinct interpretable regimes, specifying the constant low-intensity weight and inverse-mean high-intensity scale for local power, with both optimal-value limits. The nontrivial boundary-layer argument and nuisance-fitting correction make this more than a change of notation or a single substitution.
+With a=e^(λ(u−1)), the differential of the fitted mean product gives ψ(X)=(X−λu)u^X−ua(X−λ). For H=(X−λu)u^X, the Poisson generating function gives E H=0, E[XH]=λua and E[H²]=λu²(1+λ(1−u)²)e^(λ(u²−1)). Subtracting the projection on X gives the stated strictly positive variance on 0<u<1. For the mean-preserving ZIP mixture the exact residual is λuω[e^(λ(u−1)/(1−ω))−1]; a triangular-array CLT with uniformly bounded moments near ω=0, the fitted-mean differential and Slutsky give the negative Gaussian shift. Contiguity also holds: if r_μ is the Poi(μ)/Poi(λ) likelihood ratio then E_λ[(r_μ−1)²]=expm1((μ−λ)²/λ); the structural-zero ratio has finite squared moment, so the mixture has one-observation χ² distance O(ω²), and the product likelihood ratios have bounded second moments for ω=h/√n. The reverse bound follows from the mixture ratio being bounded below by (1−ω)e^(−(μ−λ)) near zero. The statistic's exceptional zero-denominator event vanishes. For the optimization I checked the sign factor G: it equals λ²t³+O_λ(t⁴) near t=0, and G(1)=(1+λ)e^(−λ)−1<0. The uniform small-mean expansion follows by extending the two analytic quotients (e^x−1)/x and [(1+y)e^y−1]/(2y) at zero, giving first correction t−3t²/4 and optimum 2/3. For large λ, the bounds on [0,1/3] and [1/3,1−δ] are o(e^λ) whereas F(1)∼e^λ, so every maximizing t tends to 1. At an interior stationary point the exact equation gives λt²(1−t)=2t−1+o(1), hence λ(1−t)→1. In F the exponential is e^(λ−λ(1−t)²), and the prefactor is asymptotic to 1 at such t. These steps give both maximal values and do not suppose uniqueness.
 
-## Literature and scope
-Principal source: Weiß, Puig and Aleksandrov, Biometrical Journal, DOI 10.1002/bimj.202200073 (online 2022-09-27). Additional comparisons: Aleksandrov et al., DOI 10.1111/stan.12252; Baringhaus–Henze, DOI 10.1016/0167-7152(92)90033-2; Weiß–Nik, DOI 10.1080/00949655.2025.2604785. Full publisher text of the first paper was materially inspected. Some older full texts were unavailable; this is retained as an explicit risk. Results are for one weighted Stein statistic, contiguous mean-preserving ZIP, fixed mean in the local-sample limit, and subsequent intensity limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the rigorous optimization theorem for the specified local experiment, especially the two endpoint scales and optimal values. The fitted exponential Stein statistic, delta-method machinery and weight tuning are prior; the ZIP noncentrality formula is a model-specific substitution and simplification, not a separate novelty basis. No known matching endpoint theorem was established by the inspected statements. The primary article most likely to contain one could not be independently read in full; the decision is not a whole-paper noncoverage claim.
+
+## value
+
+PASS
+
+Weight tuning for an existing goodness-of-fit test is a natural optimization problem. The two limiting choices—a nonzero constant at very small means and inverse mean at very large means—give mathematically and practically different prescriptions and quantify the maximum achievable local noncentrality within the test family. The first-order tie breaking and large-mean stationary balance are the contribution, not reuse of the statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

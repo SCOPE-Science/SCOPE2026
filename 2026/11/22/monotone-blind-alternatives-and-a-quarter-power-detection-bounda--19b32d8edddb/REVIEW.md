@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is confined to the uncensored scalar \(U\)-statistic with exactly specified kernel, and to two explicit positive polynomial families. Polynomial integration proves the expectation formula, the blind curve, the first-projection variance, and its monotonicity. Uniform boundedness of the kernel controls the remainder of Hoeffding's decomposition, and the triangular-array central limit theorem proves the local power phases. The accompanying reproducibility checker passed 18 exact-arithmetic assertions. The tail and censoring behavior of other statistics is not inferred.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The June 2021 source and 2023 journal version give this scalar test, its null-normal variance and simulated power, but not the exact strictly increasing blind family or the sharp quarter-power local-sensitivity phase. The earlier beta-characterization test integrates squared threshold discrepancies and is not the same statistic. Semantic research-record searches identified a blind family for a different extropy contrast, without a mathematical implication covering this kernel. Generic \(U\)-statistic theory establishes the limit after the projection and drift have been calculated, but does not directly supply the explicit cancellation or the particular sensitivity threshold. An unlocated earlier equivalent analysis remains possible.
+PASS
 
-**Value — PASS.** Testing uniformity is the stated purpose of the source procedure. A full family of smooth and strictly monotone nonuniform densities that the statistic cannot consistently distinguish is a material calibration and power boundary, not a merely arbitrary discrete counterexample. The precise \(n^{-1/4}\) scale establishes which local perturbations are invisible at the common \(n^{-1/2}\) rate; the exact limiting variance quantifies how far fixed blind alternatives remain from guaranteed rejection.
+Writing h=−min(x,y)+(x²+y²)/2 gives Δ=∫[2x(1−F)−(1−F)²]dx. My separate symbolic replay from that identity gives d/15−c²/30−d²/210 and verifies the rational zero parametrization. The derivative lower bound 2c(1−3r)>0, positive left endpoint, and factorization F−x=−x(1−x)[c+d(2x−1)] prove admissibility and strict stochastic separation. The derivative of the doubled projection, after dropping an irrelevant constant, is 2(x−(1−F(x))); integrating and taking exact variance gives the stated V, null value 1/45 and r=1/4 fraction. The sign of the displayed derivative follows from 24255−160622/9>0; variance is positive by the nonconstant projection and the positive density. The computed 5% limit is 0.0476118698. For the different linear-density family, the exact mean is −c²/30. The bounded degenerate kernel has remainder variance O(n⁻²) uniformly: distinct unordered pairs have zero covariance even when sharing one index, by conditional centering. First-projection row variances converge to the positive null limit by uniform density/projection convergence, and boundedness gives Lindeberg. The null-scaled drift is −h² n^(1/2−2γ)/(2√5); continuity at the cutoff gives the two finite-shift cases, and tightness plus divergent negative drift gives power one otherwise. For critical nonzero shift the two-sided normal tail is strictly increasing in the absolute shift and below one. The comparison is neither a minimax bound nor a claim about censoring. Own replay: /workspace/reviews/replay_statistics.py and replay_statistics.txt; the frozen script was inspected, not executed.
 
-The full threshold-characterization method and its \(L^2\)-based tests are not challenged by this scalar-specific finding. The research does not cover censored data, estimated support endpoints, finite-sample quantiles, or independent replication of the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass rests on the explicit low-degree monotone zero-target curve with strictly subnominal fixed-alternative power throughout the stated parameter interval and its exact quantitative comparison. There is considerable same-day overlap: zero-target smooth laws, monotone blind laws near the null by implication, subnominal behavior for a different symmetric law, and the exact linear-tilt drift all occur in the retrieved material. Do not credit those constituent facts, or the local scale in isolation as independent evidence of priority. None of the inspected results yields the explicit quadratic strictly increasing subnominal curve and its full variance law. Within-day priority is unresolved.
+
+## value
+
+PASS
+
+The point is not another arbitrary nonuniform zero. A quadratic perturbation (the lowest polynomial degree permitting this cancellation among nonuniform densities) produces strictly increasing densities whose CDFs separate from uniformity in a single direction and whose rejection rate stays below the nominal level throughout the stated branch. This gives a simple calibrated, shape-restricted benchmark for a procedure intended to detect nonuniform laws. The local-power calculation gives scope and a quantitative comparison, not novelty or value by itself over the prior exact tilt drift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

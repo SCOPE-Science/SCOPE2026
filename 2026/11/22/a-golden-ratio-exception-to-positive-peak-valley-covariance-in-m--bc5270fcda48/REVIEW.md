@@ -1,11 +1,21 @@
-# Scientific review: golden-ratio peak–valley boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** Strictly interior extrema are defined without endpoint sentinels. Weak dissociation restricts the covariance to three local overlaps. Independent complete weighted enumeration of each rank pattern in windows of sizes three, four and five yields the exact universal rational coefficients. A standalone program verifies their polynomial identities and checks 26 fully enumerated permutation/parameter cases. The all-size positivity is proved algebraically: writing \(u=(q-1)^2/q\ge0\), the two critical reciprocal polynomials become polynomials with strictly positive coefficients. This is stronger than numerical evidence. The endpoint-telescoping identity gives the correlation correction. Risk: transcription mistakes in the displayed formulas; reduced by symbolic cross-multiplication and independent enumeration.
+## correctness
 
-**Originality — PASS with historical-priority qualification.** The closest established source is Crane–DeSalvo–Elizalde (2016), which proves local homogeneity/dissociation and a variance formula for a *single* pattern. Pan–Zeng (2019), reproduced in Dong–Lin–Pan (2024), supplies an inversion-refined joint generating function for peaks, valleys, and related classes, so the underlying enumerator and derivable mixed moments are already available; they are **not** claimed as new. The specific all-size positivity boundary at five letters, four-letter reciprocal golden-ratio exception, and sharp correlation loss were not identified in the inspected statements. A published Mallows peak/double-ascent covariance transition is a different claim and does not logically give the valley result without further work. Direct full-text access to the original Pan–Zeng paper failed; it remains the main priority risk, not a declaration of uniqueness.
+PASS
 
-**Value — PASS.** Peaks and valleys are natural paired turning-point counts in biased rankings. The universal strict positive covariance at all lengths five and above, the anomalous *negative* covariance band at four, and its exact golden-ratio thresholds give a complete and unexpectedly sharp finite-sample dependence classification. The limit of perfect correlation at fixed bias, despite the short-sample sign reversal, characterizes how boundary effects disappear. These boundary facts are the mathematical purpose of the calculation; the algebraic moment formula alone is not asserted to constitute the value.
+Conditioning on the label sets of disjoint consecutive blocks leaves the cross-inversion weight fixed, so each standardized block is Mallows and disjoint blocks are independent. Thus the peak–valley covariance consists of lags 0, 1 and 2 only and is affine in n from n=4 onward. Independently enumerating whole permutations in lengths 3, 4 and 5 as exact inversion polynomials reproduces the three base covariances; the n=5 minus n=4 difference gives qT/(S₃²S₅). The two positive-coefficient certificates in u=(q−1)²/q follow by exact polynomial identity and give strict positivity including q=1. The n=4 factors have positive roots φ in q²−q−1 and φ⁻¹ in q²+q−1, so the displayed sign table is correct; the word 'respectively' in the proof's last sentence of Step 2 swaps their attribution but not the zeros or sign statement. Descent differences telescope to P−V, the endpoint descents are independent for n≥4, and reverse-complement exchanges P and V, yielding the constant variance gap and the fixed-q sharp correlation expansion.
 
-The scientific scope does not include stochastic positive dependence, distributional independence, other boundary conventions, or other ranking laws. The original 2019 generating-function paper and the literature may contain overlooked equivalent inequalities; independent historical and mathematical verification remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inversion-refined joint enumerator and local Mallows dependence properties are prior work, so generic coefficient/moment extraction is not new. The supported distinction is the all-real-q strict sign classification, its four-letter exception, and the explicit first-order correlation loss. Available statements encode or facilitate the moments, but do not give the positive-polynomial inequality or the sharp overlap-plus-endpoint analysis as stated.
+
+## value
+
+PASS
+
+For two basic local shape counts in the Mallows model, the result gives an exact all-size boundary: a genuinely exceptional four-letter sign profile gives way to uniform positive covariance. It also quantifies the near-perfect dependence rather than merely observing the bounded difference between the counts. This is useful for interpreting finite or asymptotic joint extrema statistics; it is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

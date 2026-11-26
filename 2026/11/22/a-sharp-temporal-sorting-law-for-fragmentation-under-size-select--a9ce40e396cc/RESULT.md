@@ -14,7 +14,7 @@ In particular, **when finer fragments suffer more loss, later (rather than earli
 
 ## Assumptions and scope
 
-The class index counts *equal-mass halving generations*, not necessarily physical sieve diameters: a fragmentation event turns one parent into two daughters whose combined mass equals the parent's mass. Work with expected *mass*, not expected particle number; class \(j\) can represent \(2^j\) equal daughters. There are \(J+1\) classes with a hard lower fragmentation cutoff at \(J\). All classes use the same annual fragmentation probability \(p\) except the absorbing smallest class; the probability may differ between years. Survival is multiplicative and stationary across intervals, and occurs **after** fragmentation in each interval. There is no aggregation, immigration, exchange between ocean regions, or size-dependent variation in the fragmentation probability within a given interval. Surviving mass fractions \(s_j\) are strictly positive. The theorem concerns the algebraic model, not a claim that oceanic size-selective loss is universally monotone.
+The class index counts *equal-mass halving generations*, not necessarily physical sieve diameters: a fragmentation event turns one parent into two daughters whose combined mass equals the parent's mass. The state variables below are expected *mass*. If generation-zero particles have a common mass \(m_0>0\), every generation-\(j\) particle has mass \(m_0 2^{-j}\), and the corresponding expected count is \(2^j x_j/m_0\). This fixed positive classwise rescaling preserves the entire componentwise theorem. There are \(J+1\) classes with a hard lower fragmentation cutoff at \(J\). All classes use the same interval fragmentation probability \(p\) except the absorbing smallest class; the probability may differ between intervals. Survival is multiplicative and stationary across intervals, and occurs **after** fragmentation in each interval. There is no aggregation, immigration, exchange between ocean regions, or size-dependent variation in the fragmentation probability within a given interval. Surviving mass fractions \(s_j\) are strictly positive. The theorem concerns the algebraic model, not a claim that oceanic size-selective loss is universally monotone.
 
 For a column vector \(x\in\mathbb R_{\ge0}^{J+1}\), define the capped forward shift by \(Ue_j=e_{j+1}\) for \(0\le j<J\), and \(Ue_J=e_J\). Set \(B=U-I\), \(D=\operatorname{diag}(s_0,\ldots,s_J)\), and
 \[
@@ -24,13 +24,13 @@ For chronological fractions \(p_1,\ldots,p_N\), surviving class masses are \(x_N
 
 ## Proof
 
-Every \(T(p)\) is entrywise nonnegative: for \(j<J\), its only nonzero entries in column \(j\) are \(s_j(1-p)\) in row \(j\), and \(s_{j+1}p\) in row \(j+1\); the final column has \(s_J\) at row \(J\). Thus multiplying a coordinatewise inequality by a common prefix or suffix of such matrices preserves its direction.
+Every \(T(p)\) is entrywise nonnegative: for \(j<J\), its only possibly nonzero entries in column \(j\) are \(s_j(1-p)\) in row \(j\), and \(s_{j+1}p\) in row \(j+1\); the final column has \(s_J\) at row \(J\). Thus multiplying a coordinatewise inequality by a common prefix or suffix of such matrices preserves its direction.
 
 Fix \(p>q\). Since \(T(p)=D+pDB\), exact multiplication gives
 \[
 T(p)T(q)-T(q)T(p)=(p-q)(DBD-D^2B).
 \]
-The matrix on the right has *no nonzero entries except* on the first subdiagonal, with
+The matrix on the right has no nonzero entries except possibly on the first subdiagonal, with
 \[
 [DBD-D^2B]_{j+1,j}=s_{j+1}(s_j-s_{j+1}),\qquad 0\le j<J.
 \]
@@ -44,7 +44,7 @@ For the sharp converse, if \(s_j<s_{j+1}\) at any index, choose \(x_0=e_j\) and 
 
 ## Verification
 
-The standalone `verify.py` uses only Python's standard-library `fractions` and `itertools` to check the exact commutator coefficient for \(J+1=2,\ldots,7\), thousands of rational random inputs, and all distinct permutations of random four-interval schedules. It also checks two opposite survival orderings. Running `python verify.py` produces `PASS: 28153 exact-rational coefficient and permutation assertions`. These finite checks corroborate, but do not replace, the all-parameter symbolic proof above.
+The standalone `verify.py` uses only Python's standard-library `fractions` and `itertools` for the exact rational arithmetic and permutation tests. It checks the exact commutator coefficient for \(J+1=2,\ldots,7\), sampled rational inputs, and all distinct permutations of sampled four-interval schedules, with explicit examples for both survival directions. These finite checks corroborate, but do not replace, the all-parameter symbolic proof above.
 
 For an exact illustration, take \(J=3\), \((s_0,s_1,s_2,s_3)=(1,3/4,1/2,1/4)\), \((q,p)=(1/4,3/4)\), and \(x_0=e_0\). Small-then-large fragmentation yields surviving masses
 \[
@@ -58,13 +58,13 @@ The precise gain in class one is \(3/32\), with all other classes unchanged afte
 
 ## Relationship to prior work
 
-George, Nallet and Fabre (arXiv:2307.04162, initially public July 9, 2023) investigate deterministic and stochastic fragmentation, a small-size cutoff and growing environmental plastic input. Their published preprint text includes size-class recurrences and discusses sinking as an alternative explanation for small-particle depletion, but the inspected model does not derive a temporal ordering theorem for a fixed batch subject to both fragmentation and class-dependent survival. Kaandorp and colleagues (2022) model marine fragmentation together with size-dependent transport; Lobelle and colleagues (2021) analyze size-dependent sinking. Neither accessible statement supplies the universal coordinatewise schedule classification or its necessity.
+George, Nallet and Fabre (arXiv:2307.04162, initially public July 9, 2023) investigate deterministic and stochastic fragmentation, a small-size cutoff and growing environmental plastic input. Their preprint includes size-class recurrences and discusses sinking as an alternative explanation for small-particle depletion, but its inspected model does not derive a temporal ordering theorem for a fixed batch subject to both fragmentation and class-dependent survival. Kaandorp and colleagues (2022) model marine fragmentation together with size-dependent transport; Lobelle and colleagues (2021) study the size-dependent sinking context.
 
-The algebraic adjacent-swap method is related to general rearrangement and stochastic scheduling ideas (Chang and Yao, 1993), and to stochastic ordering for birth–death processes with killing (Hsiau, Chen and Yao, 2021). These are acknowledged mathematical precedents. The specific if-and-only-if size-resolved capped-cascade theorem is the narrow proposed contribution, not a claim of inventing interchange proofs or fragmentation matrices. Full historical priority is not independently certified.
+The algebraic adjacent-swap method is related to general rearrangement and stochastic scheduling ideas (Chang and Yao, 1993). Hsiau, Chen and Yao (2021), Theorems 1–2, give stochastic ordering of the killing time with respect to the initial state in birth–death processes, not ordering of chronological transition schedules for a common initial state. The specific if-and-only-if size-resolved capped-cascade theorem is the narrow contribution, not a claim of inventing interchange proofs or fragmentation matrices. Historical priority is not certified.
 
 ## Limitations
 
-The result is conditional on an idealized stationary *survival-by-fragment-class* profile, the same fragmentation fraction at every nonterminal class per interval, one-step generation transitions, strictly positive survival, and a batch with no further source input. Real sinking can depend nonmonotonically on size, density, biofouling, turbulence, geography and time; separate sources may enter in different years. Counts of particles need not obey the componentwise mass ordering because a class's expected count scales as \(2^j\), although a fixed class-wise positive rescaling preserves the componentwise inequalities. The theorem compares final retained masses, not ecological harm, toxicity or real-world management objectives. No field-data calibration or experimental confirmation is claimed.
+The result is conditional on an idealized stationary *survival-by-fragment-class* profile, the same fragmentation fraction at every nonterminal class per interval, one-step generation transitions, strictly positive survival, and a batch with no further source input. Real sinking can depend nonmonotonically on size, density, biofouling, turbulence, geography and time; separate sources may enter in different years. The count conversion requires a fixed particle mass per bin as specified above; it does not justify an inference about counts in sieve bins with variable mass per particle. The theorem compares final retained mass by generation, not ecological harm, toxicity or real-world management objectives. No field-data calibration or experimental confirmation is claimed.
 
 ## References
 

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:36:24.796051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All four integral homotopy types are correct. I inspected the frozen proof, verification notes, verifier and expected transcript, without executing the submitted code. A separately written exact check (`python3 -B /workspace/branches/review3_check.py`) used cycle-order edges followed by antipodals, forbidden-star bit masks, and Kahn traversal of the oriented covers. The ordinary critical cells after unmatching the empty-face pair are {0:1,3:1}, {0:1,5:2,6:1}, {0:1,6:1,7:2}, and {0:1,8:3}; the two nonzero signed gradient matrices in this ordering are [-1,-1] and [2,-1]^T. The bases differ from the frozen verifier, but the primitive rank-one maps give the claimed cancellations over Z. In both two-degree cases the d-skeleton is a wedge of d-spheres and the attaching maps are classified by degrees (Hurewicz for d>=2). Unimodular changes are realized by equivalences of these wedges; the cofiber of a unit attachment cancels the corresponding wedge summand, so the calculation proves homotopy, not just homology. The separate duality argument below confirms all four cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Main Theorem 1(a) gives the independence-complex types for all Möbius ladders, including exactly these dimensions and multiplicities before the shift.",
+          "Vega's inspected calculations treat other bounded-degree complexes; Main Theorem 1(b,c)'s perfect-matching complex is a different object and is not needed."
+        ],
+        "reasoning": "The earlier all-n independence theorem provides the precise earlier invariant needed by the elementary nerve/duality transfer to the current complexes.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601, Main Theorems 1–2",
+          "Vega arXiv:1909.10406v2, clawed cycles and wheels"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verifier and expected_verification.txt",
+        "Agarwal–Basak arXiv:2608.30601",
+        "Vega arXiv:1909.10406",
+        "Configured Resultary Wagner, cube and matching-complex comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dual of X is covered by the complements of the cubic stars; the nerve is Ind(G)*. Integral double duality yields the shifted groups. Every missing triangle loop bounds a three-triangle disk via an outside edge.",
+          "The earlier formula and Hurewicz–Whitehead recover the integral wedge types, not just their Betti numbers; the independent signed calculation agrees."
+        ],
+        "reasoning": "The foundational nerve theorem, combinatorial Alexander duality and simply connected wedge criterion make the four calculations a direct consequence of the earlier formula. The cubical comparison is already documented. Changed proofs or different sign matrices add no distinct homotopy claim.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601 p. 3, Main Theorem 1(a), checked against frozen graph definition and forbidden stars",
+          "Resultary --8b60336becc4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vega uses precisely the degree-at-most-two edge-set definition. Ordinary matching is Ind(L(G)), not X.",
+          "For triangle-free G, X is also the three-clique-free complex of L(G). More decisively, the nonincident-edge relation identifies the nerve of X* with Ind(G)* as detailed above."
+        ],
+        "reasoning": "The two Alexander duals use different ground sets, hence the dimension shift |E|-|V|. The reduction uses cubic stars and the complement of a vertex cover, not an identification with the ordinary matching complex.",
+        "searches": [
+          "Resultary: Wagner/cubic/2-matching Möbius ladders",
+          "Resultary: cubic graph two matching complex Alexander dual nerve edge independence shifted homology degree-two bounded graph degree",
+          "Vega arXiv:1909.10406v2 pp. 1–2,7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary --8b60336becc4, Finding: the same M_8 degree-two complex is S^5, with further D_8-action and quotient-homology statements.",
+          "Resultary --0c97a14379cb gives the earlier, correctly credited Q_3 comparator. Resultary --918c45635d4f treats ordinary and perfect matching of the ten-vertex ladder, not degree two.",
+          "Main Theorem 1(a) of Agarwal–Basak explicitly evaluates the whole required comparison family; separate literal matching entries for M_6, M_10 and M_12 were not located."
+        ],
+        "reasoning": "Do not infer time order from the same-day catalogue hit. Its overlap is exact for one case; the prior all-size theorem plus transfer is decisive for every case.",
+        "searches": [
+          "Resultary: two-matching homotopy of Wagner graph and Möbius ladders; K_3,3 aliases; cubical graph",
+          "Resultary: ordinary and perfect matching of M_10"
+        ]
+      },
+      "rationale": "The exact four integral homotopy types are mechanically implied by the earlier Möbius-ladder independence-complex theorem, not merely similar results for different complexes. Here is the reduction. For a simple cubic graph G, let X=M_2(G) on E. Its minimal nonfaces are the stars at graph vertices. Its combinatorial Alexander dual on E is the union of simplices on E minus star(v). Each nonempty intersection is a simplex; a set J of star indices belongs to the nerve iff some graph edge has both endpoints outside J. Thus the nerve is exactly the combinatorial Alexander dual of Ind(G) on V. The nerve theorem and two applications of integral combinatorial Alexander duality give reduced H_i(X) isomorphic to reduced H_(i+|V|-|E|)(Ind(G)), with no field or Euler-characteristic reduction. Also X has complete one-skeleton, and each missing triangle (a star) bounds the cone on its loop using any outside edge: two different edges of the star have exactly one common vertex, so no cone triangle is a forbidden star. Consequently X is simply connected, since all triangle loops in the complete graph bound. When homology is free and concentrated in one positive degree d>=2, successive Hurewicz applications realize its basis by d-spheres, and the homology Whitehead theorem gives the wedge equivalence. Agarwal–Basak Main Theorem 1(a) gives S^0, S^1, S^2, and a wedge of three S^2 for n=3,4,5,6. In the cubic ladders |E|-|V|=n; shifting by n therefore proves exactly the frozen types. The same-day Wagner record moreover states the M_8 outcome verbatim with added equivariant information, although its order relative to this record is not established. This is a finding of prior implication, not a finding that the computations are wrong or that all four literal statements occur in the earlier paper.",
+      "residual_risks": [
+        "No within-day ordering established for the two Wagner statements.",
+        "No claim that the precise double-dual reduction is explicitly written in the inspected primary publication; its mathematical implication is independently checked here.",
+        "Wachs full text not inspected; it could supply additional coverage, not undo the existing implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication via the nerve and duality reduction",
+          "evidence": [
+            "Main Theorem 1(a) gives Ind(M_(2n)) as S^(2k-1) for n=4k, a wedge of three S^(2k) for n=4k+2, and S^(2k) for n=4k+1 or 4k+3.",
+            "The original definition of perfect-matching complex is not needed in the reduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "pp. 2–3, definitions and Main Theorems 1–2; Main Theorem 1 at offset 10600",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same ladders; plausible prior implication via duality"
+        },
+        {
+          "assessment": "Same invariant; inspected families are different",
+          "evidence": [
+            "Edges form faces at selected degree at most two; the ordinary line-graph independence identity concerns degree one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.10406",
+          "material_read": "v2 pp. 1–2, 7–9, Theorem 5.4 on p. 17",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "2-Matching Complexes",
+          "trigger": "Primary source for bounded incident degree"
+        },
+        {
+          "assessment": "Same homotopy assertion plus equivariant information; within-day priority unresolved",
+          "evidence": [
+            "Cycle plus antipodals, max selected degree two, |X| homotopy equivalent to S^5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-dihedral-five-sphere-in-the-two-matching-complex-of-the-wagner--8b60336becc4/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Configured local mirror",
+          "title": "A dihedral five-sphere in the two-matching complex of the Wagner graph",
+          "trigger": "Direct exact M_8 overlap"
+        },
+        {
+          "assessment": "Exact comparator only",
+          "evidence": [
+            "Cubical degree-two complex is a wedge of three five-spheres."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Three five-spheres in the two-matching complex of the cubical graph",
+          "trigger": "Previously credited Q_3 comparison"
+        },
+        {
+          "assessment": "Unresolved; not used as negative or decisive evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/s00012-003-1825-1",
+          "material_read": "Bibliographic and DOI identification only, not full text",
+          "method": "Bounded lawful DOI/repository retrieval attempt",
+          "title": "Topology of matching, chessboard, and general bounded degree graph complexes",
+          "trigger": "Potential broad reduction or classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The homotopy comparison is a natural invariant and the computations reproduce, but the first-four slice supplies no extra phenomenon beyond the all-size prior independence pattern transferred by elementary duality. The finite computation, including different Morse certificates, gives no additional claimed invariant. The same-size cube contrast is already documented on the cubical side and is not sufficient to rescue the mechanically implied four-case claim. No supported distinct remainder is identified for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

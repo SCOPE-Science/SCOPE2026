@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact induced-subset cut identity reduces every one of the \(2^{18}\) configurations to its subset size and induced edge count. The self-contained verifier visits every subset independently by direct edge summation and by an incremental least-bit recurrence; all 20 minimum/count pairs, exact energy envelopes and 82/2495/2473 critical counts agree. Spin reversal and the nonnegative-field restriction close the remaining configurations. Computation is exhaustive finite evidence, not a claimed infinite proof.
+## correctness
 
-## Originality
-PASS on the examined literature, with historical priority provisional. The 2004 primary graph paper identifies the two snarks, and the 2015 full-text Ising-polyhedra paper supplies the general induced-graph method; neither examined material tabulates the two Blanuša snarks' magnetic profiles. The closest published mathematical records located by semantic search concern nonisomorphic graphs or different Hamiltonians. The inaccessible full graph paper and possible unindexed exact tables are specific residual risks; a search failure is not a uniqueness proof.
+PASS
 
-## Mathematical value
-PASS. The two smallest original 18-site snarks share regularity, size, girth and edge-chromatic obstruction, yet their magnetic response separates at infinitesimal and finite fields. Their different zero-field frustration and sharply different degeneracy spikes provide a motivated structural comparison for frustrated finite spin clusters, rather than an arbitrary graph-specific statistic.
+For a size-r down-spin set, cut=3r−2e(S), M=18−2r and H/J=27−2 cut−(h/J)M. Independently reproduced the complete cut-size by magnetization histograms by traversing all 262144 spin assignments per graph in Gray order, updating the cut from the three neighbors of each flipped vertex. The resulting minima and multiplicities match all 20 displayed entries; checking every rational line intersection and every intervening interval (including the unbounded tail) gives exposed (M, intercept) pairs (2,−21),(18,27) and (0,−19),(4,−15),(18,27). The only positive changes are h/J=3 and h/J=1,3 respectively. At zero the first has one state at each of M=−2 and 2, and the second four at M=0. At 1 the second has counts 4,42,36 at M=0,2,4. At 3 the histograms give every listed sector and totals 2495 and 2473. Cubicity also gives H/J=−27+4e(S) at h/J=3 for every spin assignment, so these are precisely the independent-set totals. Graph identities independently checked via edge-preserving relabelings to the 2004 primary facial walks and agreement of automorphism group orders 8 and 4 with Sage's documented convention. Sage's first is the genus-two graph called the 'Blanuša double' by Orbanić et al.; Sage's second is their genus-one 'Blanuša snark'. This naming distinction does not change the frozen result, which specifies Sage order and exact edges.
 
-## Scope and limitations
-Finite classical zero-temperature Ising model only; no thermodynamic-limit, quantum, or finite-temperature claims. Reproducible exhaustive enumeration replaces a closed symbolic graph-family formula. No external scientific validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The induced-subgraph energy method and the regular-degree saturation mechanism are not new. The supported distinct claim is the evaluated exact two-graph contrast: the zero-field minimizers, positive-field envelopes and sector degeneracies for these two original Blanuša snarks. Actual primary and catalogue comparisons found no distinct source that supplies those data, with the limitations below.
+
+## value
+
+PASS
+
+The original 18-vertex cubic snark pair is a canonical same-order comparison with common degree, girth and edge-coloring obstruction. Their qualitatively different zero-field magnetization and finite-field onset give a specific separation on frustrated finite graphs, and the full magnetization-resolved degeneracy census is an exact benchmark beyond just identifying the last critical field. This value is graph-specific, not a claim to have invented the method or found a thermodynamic phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:11:11.735684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Steps 1–5",
+        "Frozen VERIFICATION.md and verify_sampling.py (inspected, not executed)"
+      ],
+      "rationale": "The Pythagorean identity gives the exact conditional progress eigenvalue; boundary weights give zero while interior weights give positive progress. For the reciprocal objective F=λ_max(Σ_i v_i v_iᵀ/p_i) with v_i the columns of U⁻¹, the top-eigenspace subgradient at an interior minimizer is represented by a PSD trace-one Z. The Lagrange multiplier is F(p*) after summing the stationarity equations against p_i*, so v_iᵀZv_i=F(p*)p_i*²>0. Testing with this Z and using strict Cauchy–Schwarz in Σ_i(v_iᵀZv_i)/p_i proves unrestricted uniqueness, hence exchangeability. For ordinary weights (1−p)/m the transverse mode is t(1−p), t=(1−c)/m, and the core block has diagonal p,a(1−p) and off-diagonal r√(p(1−p)). The discriminant quadratic Q=Ap²+Bp+C satisfies 4AC−B²=16r²(a−r²)>0, giving strict concavity of the lower core root. Substitution at p_s=(a+r)/(1+a+2r) gives λ_s=(a−r²)/(1+a+2r) as the lower root (the two shifted diagonal entries are positive), with zero derivative. There the core minus transverse gap is Θ/[m(1+a+2r)]. If positive, the increasing core crosses the decreasing transverse line first; the determinant at t(1−p) is (1−p)[(c−r²)p−ct(1−p)], yielding the displayed crossing and its value. At Θ=0 both branches coincide. Uniformity follows because p_s>1/(m+1), while p_c equals that value iff r=c, which is in the crossing branch. In the singular family the core branch applies; mΛ_unif tends to the smaller root (2+α−√(α²+4β²))/2, below the transverse limit 1. Rationalizing yields the stated ratio and its divergence across families with β²=α+1/2.",
+      "residual_risks": [
+        "Sharp one-step conditional coefficient only; not an annealed random-product exponent, adaptive selection result, or timing comparison. The stated Gram range is understood within positive c,r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both Kaczmarz sources give the general simplex-constrained SDP without evaluating the one-outlier branch transition.",
+          "The decisive older saturated-design text was not recovered readably via the author PDF, Project Euclid, or the identified institutional copy; the other design paper was likewise unavailable in full text."
+        ],
+        "reasoning": "A framework for solving the optimization does not give a plug-in answer for the crossing regime. Inaccessible work remains a real literature risk, not affirmative evidence of either coverage or absence.",
+        "searches": [
+          "Gower–Richtárik §5.1, Eqs. (5.3)–(5.4)",
+          "Dai–Soltanalian–Pelckmans Eq. (18)",
+          "Pukelsheim–Torsney DOI 10.1214/aos/1176348265 and Martinez–Wegman DOI 10.1016/S0167-7152(99)00173-X"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.03296",
+        "arXiv:1402.2863",
+        "DOI 10.1214/aos/1176348265 and DOI 10.1016/S0167-7152(99)00173-X (access limited)",
+        "Resultary:82c9d23eb995, 809fa13c87b2, 6e183c9f201f",
+        "Frozen METADATA.json, publication_date"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the inverse of the row Gram, exceptional-to-ordinary entries are negative; the ordinary off-diagonal entries have sign sign(r²−c), by the Schur complement (1−c)I+(c−r²)11ᵀ. Flipping the exceptional row makes the entire inverse nonnegative exactly for r²≥c. Any sign switch making all exceptional entries nonnegative must give the ordinary rows a common sign, so cannot fix negative ordinary off-diagonals when r²<c.",
+          "For r²≥c, the all-ones inverse formula in the switched Gram gives p_s and λ_s. The singular scaling lies in that slice and follows from it plus the elementary uniform Gram eigenvalue. The positive-Θ crossing necessarily has r²<c."
+        ],
+        "reasoning": "The frozen comparison with inverse positivity needs the sign-switch qualification. Older exact coverage is partial, not an evaluation of the full threshold or of the branch in which the optimizing eigenvalue has both core and transverse directions.",
+        "searches": [
+          "Resultary:82c9d23eb995 Main theorem, applied to sign-switched row Gram; 809fa13c87b2 Finding and Proof 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical objective is the smallest eigenvalue of the E-optimal information matrix UᵀPU, equivalently of the weighted row Gram.",
+          "Diagonal sign conjugation of the row Gram leaves every weighted eigenvalue invariant and reflects the fact that changing a row and its right-hand-side sign leaves its projection unchanged."
+        ],
+        "reasoning": "The problem is not an independent alternative to saturated E-optimal design; sign-equivalent prior theorems must count even though the positive-correlation Gram itself does not satisfy their premise.",
+        "searches": [
+          "Saturated E-optimal design on linearly independent support vectors",
+          "arXiv:1506.03296 §5.1 and arXiv:1402.2863 Eq. (18)",
+          "Resultary:82c9d23eb995 Main theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "809fa13c87b2 gives the same formulas, threshold and unrestricted uniqueness after setting its α=c and β=r. Its formulas imply the singular gain as well. The mirrored publication metadata records 2026-10-26 versus the frozen package's 2026-10-18 publication date.",
+          "6e183c9f201f assumes at least two rows in both clusters and does not specialize directly to a singleton outlier. 82c9d23eb995 is earlier and covers an important slice up to sign conjugation."
+        ],
+        "reasoning": "809fa13c87b2 is full mathematical coverage by a distinct record, not just a similar title or a partial parameter overlap. Its documented later publication does not establish an earlier priority claim against the frozen publication. The earlier sign-equivalent overlap does not reach the crossing branch.",
+        "searches": [
+          "Resultary one-outlier equicorrelation exact Kaczmarz sampling; inverse-positive sampling; two correlated clusters"
+        ]
+      },
+      "rationale": "The supported distinct contribution at the frozen publication date is the full E-optimal two-regime classification, in particular the transverse/core crossing regime and its boundary. The SDP and the inverse-positive slice (including the singular example after row sign switching) are covered and are not separately credited. A later documented catalogue publication gives an exact matching classification; this overlap is acknowledged without a claim about authorship or historical dependence.",
+      "residual_risks": [
+        "Older saturated E-optimal or diagonal-scaling equivalences may cover the remaining regime; the inaccessible named works leave this open. Catalogue publication ordering is not proof of first discovery or independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same SDP in broader settings; inspected passages do not give the one-outlier closed form.",
+          "evidence": [
+            "Optimization over fixed simplex weights of a smallest eigenvalue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296; https://arxiv.org/abs/1402.2863",
+          "material_read": "Gower–Richtárik §5.1 pp. 16–17 Eqs. (5.3)–(5.4); Dai–Soltanalian–Pelckmans p. 7 Eq. (18)",
+          "method": "Primary PDF statement and objective comparison",
+          "title": "Randomized Iterative Methods for Linear Systems; On the Randomized Kaczmarz Algorithm",
+          "trigger": "Same integrated fixed-probability objective"
+        },
+        {
+          "assessment": "Unresolved coverage in these particular sources; not used as negative evidence.",
+          "evidence": [
+            "Author PDF had no extractable text, Project Euclid denied access, institutional alternate timed out; Martinez–Wegman full text also inaccessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176348265; https://doi.org/10.1016/S0167-7152(99)00173-X",
+          "material_read": "Bibliographic results only; no decisive full-text theorem read",
+          "method": "Lawful OA retrieval including author site, Project Euclid and identified institutional alternate for Pukelsheim–Torsney",
+          "title": "Optimal weights for experimental designs on linearly independent support points; Martinez–Wegman optimal design paper",
+          "trigger": "Possible closed solutions in saturated design"
+        },
+        {
+          "assessment": "Covers the r²≥c slice including the unbounded-ratio example by sign conjugation, not the transverse/core crossing.",
+          "evidence": [
+            "For inverse-positive normalized Gram C, uses q=C⁻¹1, p=q/(1ᵀq), and optimum 1/(1ᵀq)."
+          ],
+          "identifier_or_url": "Resultary:82c9d23eb995",
+          "material_read": "Mirrored RESULT.md Main theorem and proof, offsets 0–3898",
+          "method": "Exact formula comparison and Schur-complement sign check",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Earlier known closed form and sign invariance"
+        },
+        {
+          "assessment": "Mathematically covers the entire frozen theorem; documented later catalogue publication.",
+          "evidence": [
+            "Its threshold m(α−β²)=(1−α)β and both probability/value branches coincide, and its all-m formula yields the scaling."
+          ],
+          "identifier_or_url": "Resultary:809fa13c87b2",
+          "material_read": "Mirrored RESULT.md Finding and Proof 4 (offsets 0 and 5924), and publication metadata",
+          "method": "Parameter, branch, uniqueness and asymptotic comparison",
+          "title": "Exact optimal Kaczmarz sampling for an equicorrelated block with one outlier",
+          "trigger": "Direct exact overlap"
+        },
+        {
+          "assessment": "Close generalization in geometry but does not allow a cluster of size one.",
+          "evidence": [
+            "Each cluster is required to have at least two members."
+          ],
+          "identifier_or_url": "Resultary:6e183c9f201f",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Assumptions and mechanism comparison",
+          "title": "Three-phase optimal sampling for two-cluster correlated Kaczmarz",
+          "trigger": "Plausible broader two-cluster coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 2–5",
+        "Gower–Richtárik §5.1",
+        "Resultary:82c9d23eb995"
+      ],
+      "rationale": "The complete branch boundary is a meaningful exact benchmark for choosing fixed sampling among correlated equations with one outlier. It tells when a simple core design stops controlling worst-direction progress and when the transverse cluster mode determines the optimum, with global rather than assumed-symmetric uniqueness. This value does not depend on claiming the sign-switch-covered asymptotic example as new.",
+      "residual_risks": [
+        "No claimed relationship to multi-step-optimal weights or wall-clock savings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

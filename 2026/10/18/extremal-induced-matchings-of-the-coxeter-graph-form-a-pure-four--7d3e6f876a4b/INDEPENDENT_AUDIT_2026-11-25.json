@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:43.179623Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the 28-vertex, 42-edge cubic Fano-triple model and independently enumerated induced matchings by vertex deletion: a chosen pivot is either unused, or paired with a unique surviving neighbor, in which case both closed neighborhoods are removed. This partitions the matchings without assuming a size bound. The histogram is (1,42,609,3808,10374,11172,4242,84), and all 84 maximum edge masks match the frozen certificate exactly. On these masks, pivoted Bron–Kerbosch gives 2478 maximal cliques, all of size four; taking all subcliques gives (1,84,1092,3528,2478). All degrees are 26. Independently extending all 168 images of a noncollinear ordered basis gives 168 distinct collineations and an orbit equal to the maximum-matching set. The seven-color classes partition the 42 edges and lie in the independently enumerated matching set. Six classes would all have size seven, impossible by the packing bound. Replay: python /workspace/reproduce_frozen.py 5. This certifies the fixed graph only; the source scripts and recorded outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orel identifies the Fano-plane-related SGL3(F2) model with the Coxeter graph; the inspected treatment concerns graph generalizations and invariants.",
+          "The 30-vertex Tutte–Coxeter graph classification in 77e518bdee45 has ten maxima of size nine, on a different graph.",
+          "Resultary 8047370d8cd2 explicitly gives all optima as F_v union {vw}, where F_v is induced by the distance-three sphere."
+        ],
+        "reasoning": "The later arc-indexed classification already determines the optimum set and its natural symmetry. In the Fano model collineations act transitively on directed graph edges: fix a noncollinear triple as a basis; permutations of the basis act transitively on the three disjoint noncollinear triples in its complement. Thus the equivariant arc-indexed formula also implies transitivity and, with its pair count, regularity. The later record does not report the higher clique census or purity.",
+        "searches": [
+          "Orel, DOI:10.37236/3759",
+          "Resultary 8047370d8cd2 and 77e518bdee45"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.20976v2",
+        "DOI:10.37236/3759",
+        "Resultary 8047370d8cd2, 14c1abfea76d and 77e518bdee45",
+        "Symmetry 17 (2025), 133 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026-11-02 Resultary record explicitly enumerates the same 84 optima and 1092 disjoint pairs; its date is later than the frozen record.",
+          "The earlier strong index seven rules out six classes, but not five disjoint maximum classes or nonextendable triples."
+        ],
+        "reasoning": "Credit the prior index and the later partial overlap. The later explicit description is sufficient input for a new clique computation, not an already reported purity or higher clique result. Nothing inspected establishes earlier statement-level coverage of the retained classification.",
+        "searches": [
+          "arXiv:2506.20976v2, Coxeter row and coloring definitions",
+          "Resultary 8047370d8cd2, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abiad–Reijnders p. 1 and Table 1 identify distance-2 edge coloring with the relevant strong coloring and give index seven.",
+          "Resultary 8047370d8cd2, Finding, defines exact exchange by |M\\N|; its k=7 case is exactly edge-disjointness, whereas its principal k=4 exchange graph is not."
+        ],
+        "reasoning": "Independent sets in the squared line graph are induced matchings. An exact chromatic number of the squared line graph does not specify its maximum independent-set packings. Perfect matchings of the original graph have fourteen edges and are not these seven-edge induced matchings.",
+        "searches": [
+          "Local Resultary: Coxeter maximum induced matching, exchange and disjointness graphs, perfect matching",
+          "arXiv:2506.20976v2, distance-2 edge coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Coxeter row gives exact strong index seven, with a lower estimate six.",
+          "The later exact-exchange histogram includes 1092 pairs at k=7; the later perfect-matching record counts 84 fourteen-edge objects.",
+          "Access to the Symmetry matching-polynomial table was denied; its entries were not used as negative evidence."
+        ],
+        "reasoning": "The earlier coloring table covers the contextual index. The later histogram covers exactly the disjoint-pair count, not the triple or four-clique counts or the saturation assertion.",
+        "searches": [
+          "arXiv:2506.20976v2 Appendix Table 1",
+          "Local Resultary 8047370d8cd2 and 14c1abfea76d",
+          "Symmetry 17 (2025), 133"
+        ]
+      },
+      "rationale": "The certified contribution is the exact induced-matching and edge-disjoint packing geometry, not the already tabulated strong chromatic index. The strongest distinct catalogue overlap is a later, explicit classification of the identical 84 objects and their disjoint-pair count; it does not establish antecedent coverage of the packing-purity and clique census. No stronger earlier covering result was found in the inspected material.",
+      "residual_risks": [
+        "Additional unindexed or supplementary enumerations could cover the same finite geometry.",
+        "The cited Symmetry table was not inspected directly.",
+        "Later overlap is substantive for the classification and pair count; no absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing coverage of the index only",
+          "evidence": "The exact-value column gives χ′₂=7; the row does not give the optima or disjoint families.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.20976",
+          "material_read": "v2 p. 1 definitions and Appendix Table 1 p. 28, Coxeter row",
+          "method": "OA PDF passages",
+          "title": "Eigenvalue bounds for distance-edge colourings",
+          "trigger": "Same graph and prior strong chromatic index"
+        },
+        {
+          "assessment": "Material later overlap, not antecedent coverage",
+          "evidence": "F_v is the induced matching on the distance-three sphere; all 84 arc-labelled sets are distinct; 1092 pairs have replacement count seven. The isomorphism with the Klein line graph concerns replacement count four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-klein-graph-inside-maximum-induced-matchings-of-the-coxeter--8047370d8cd2/RESULT.md",
+          "material_read": "Finding and graph assumptions, mirror offsets 0–3134",
+          "method": "Local catalogue and mirrored original result",
+          "title": "The Klein graph inside maximum induced-matchings of the Coxeter graph",
+          "trigger": "Same maximum induced matchings and exchange geometry"
+        },
+        {
+          "assessment": "Graph-model background",
+          "evidence": "Identifies the model with the Coxeter graph; inspected passages do not classify induced-matching packings.",
+          "identifier_or_url": "https://doi.org/10.37236/3759",
+          "material_read": "Abstract and p. 4 identification of SGL3(F2)",
+          "method": "OA PDF passages",
+          "title": "On generalizations of the Petersen graph and the Coxeter graph",
+          "trigger": "Primary Coxeter graph representation and symmetry"
+        },
+        {
+          "assessment": "Access limitation; not used to exclude coverage",
+          "evidence": "Access denied. Fourteen-edge perfect matchings and seven-edge induced matchings are different objects regardless.",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/17/1/133",
+          "material_read": "Table not read",
+          "method": "Lawful OA page and PDF access attempted",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Numerical coincidence with a perfect-matching count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Enumerating natural extremal color classes on a canonical symmetric cubic graph resolves more than the numerical strong-coloring threshold: all small packings extend to the same size and no near-partition of five maximum classes exists. The orbit and complete pure clique census make this a reusable description of the obstruction to saturating the edge-count bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

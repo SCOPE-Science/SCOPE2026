@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:04:27.893108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The common Poisson clock supplies a stationary Exp(r) age and couples at the first future reset; conditional on the age the log values are independent normals of mean at and variance σ²t. The one-coordinate rational transform gives the stated asymmetric exponential survival, including c_1. Independently scaling time by y gives the phase rz+n(1−az)²/(2σ²z), with unique strict minimum at z=1/s_n and curvature ns_n³/σ². The Mills integral displayed with 0 to infinity should be read as the compact saddle-neighborhood contribution specified in its surrounding sentence, with both sides restricted accordingly; it is not a global integrable Mills replacement for a>0. On the rest of the Mills region the Gaussian Chernoff bound and strict phase gap apply (small and large cutoffs use phase divergence or the reset weight). The a>0 non-Mills region costs at least r/a>2r/(s_n+a)=k_n. Multiplying the local amplitude s_n^(n/2)/(s_n−a)^n by the Gaussian saddle factor, age density and Mills prefactors gives the printed C_n, including C_1=c_1. The quantile substitution, 1<α_n<n, derivative 1/Δ−1/s_n<0, monotonicity in n, slowly varying log factor and three limiting regimes follow from the two equivalent expressions for α_n. Independent normalization checks at r=.7, σ=1.1, n=2,4, multiple y and all drift signs were diagnostic only; the n=4 ratio at a=1.25 is still about .467 at y=80, consistent with slow convergence. See branches/6166fad2-2c5b-4f00-9d2a-b485c740f2d6/ordinal-4-drift-extremes-check.md. Uploaded code was inspected, not executed. No error bound or simultaneous growing-n limit follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stojkoski et al. Eq. (11), on substituting a=μ−σ²/2, gives k_1, not a joint prefactor for a shared clock. Their sample averaging is across independent copies.",
+          "The Eltoft–Kim–Lee paper is a close broader distribution reference. The DOI metadata and Opitz's citation were accessible; the full article was not inspected. Starting with the symmetric Laplace density and the exact exponential tilt, the diagonal rate follows from the corner gradient of the tilted radial exponent; the leading finite-n integral also requires controlling orthant excesses."
+        ],
+        "reasoning": "The sharp constant is the focus rather than an assertion of novelty for the distribution or generic exponential-rate methods. A known broader orthant asymptotic for variance–mean mixtures with an explicit prefactor would need to be compared directly.",
+        "searches": [
+          "Eltoft, Kim and Lee, doi:10.1109/LSP.2006.870353",
+          "arXiv:1507.02537v2 §3 Propositions 1–2 and references to Hashorva and Nolde",
+          "arXiv:2104.01571v3 §III.2 and Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and supporting verification, audit, metadata, review, slogan, requirements and source code",
+        "Stojkoski et al. arXiv:2104.01571v3",
+        "Opitz arXiv:1507.02537v2",
+        "Eltoft et al. doi:10.1109/LSP.2006.870353 (bibliographic)",
+        "Resultary related published summaries and scoped primary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The univariate upper tail and the neutral α_n benchmark are already covered. In the nonzero-drift law the ratio α_n=(Δ+a)/(s_n+a) involves the shared-age variance and mean jointly. Replacing n independent reset clocks by one common one keeps marginals but not the orthant law.",
+          "The noncentered rate can be recovered from the general density by optimization. The prefactor in the supplied theorem requires the local scale of n overshoots (or an age saddle together with n Mills factors), which is not provided by those antecedent rate statements."
+        ],
+        "reasoning": "Neither the centered residual coefficient nor the marginal-reset result mechanically yields the noncentered sharp survival statement; the bounded, square-root and linear hierarchy is an elementary consequence once its noncentered exact rate is derived, not a separate priority claim untethered from it.",
+        "searches": [
+          "arXiv:1507.02537v2 Prop. 1–2",
+          "arXiv:2104.01571v3 Eq. (11) and §V",
+          "Resultary shared batch and asymmetric Brownian comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In log coordinates this is an equal-coordinate upper orthant tail of a multivariate asymmetric Laplace law, equivalently survival of the minimum; the common-age mixture is not a new distribution. Completing the Gaussian square changes the centered reset rate to r'=r+na²/(2σ²) and multiplies the centered density by (r/r') exp(a∑x_j/σ²).",
+          "Opitz's Prop. 1 with identity dispersion gives the neutral benchmark α_n=√n. Its centered residual coefficient is not an exponential-tilt identity for the off-center orthant probability."
+        ],
+        "reasoning": "A relabeling in terms of GBM would not suffice. The tilted orthant integral must still be evaluated with its varying exponential weight; neither the normalized centered exponent nor a centered survival probability can simply be multiplied by the tilt at the lower corner without modifying the prefactor.",
+        "searches": [
+          "Resultary: geometric Brownian motion common simultaneous stochastic resetting joint exceedance large deviations stationary tail dependence",
+          "websearch: On the multivariate Laplace distribution Eltoft Kim Lee 300 303 author pdf equation exponential mixing 870353",
+          "arXiv:1507.02537v2 §3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic hit is the assigned record. Other retrieved prefactors are for centered Brownian positions with a pair and partial batch marks, or first-passage resets with power-type tails; the shared/individual Brownian anisotropic comparison addresses exponential rates in a different centered model."
+        ],
+        "reasoning": "The claimed equivalent is a continuous-parameter formula unlikely to be checked by an integer table; these closest result abstracts are tested for the same diagonal survival asymptotic, not title similarity.",
+        "searches": [
+          "Resultary: geometric Brownian motion common simultaneous stochastic resetting joint exceedance large deviations stationary tail dependence",
+          "Resultary: Sharp pair-exceedance prefactor and singular tail dependence under batch resetting; anisotropic joint-excursion rates under asymmetric shared and individual Brownian resetting"
+        ]
+      },
+      "rationale": "Qualified PASS for the nonzero-log-drift, arbitrary-fixed-n sharp orthant equivalent and the resulting explicitly normalized exponent hierarchy. The marginal law, centered residual exponent and law of the log vector as a distribution family are not new. The closest broader density formulas can be used as a starting point for another proof, but the inspected results do not state a sharp noncentered orthant theorem that evaluates this equivalent by substitution alone.",
+      "residual_risks": [
+        "A broad sharp tail theorem for asymmetric Laplace or generalized hyperbolic mixtures could cover this constant and hence the derived hierarchy. A broad mixed-terminology search was unavailable; this is not negative evidence. The exact full-text comparison to Eltoft–Kim–Lee remains limited and no authorized Oxford access tool was exposed.",
+        "The closest shared-reset papers in the published comparison include verified overlap at zero drift; no priority is assigned to that benchmark or to the distribution family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the marginal rate, not the common-clock joint prefactor in the passages inspected",
+          "evidence": [
+            "Eq. (11) is k_1; Eq. (22) and its surrounding text use independent copies, not one backward age shared between all coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.01571",
+          "material_read": "§II.1 last-reset solution, §III.2 Eq. (8)–(11), §IV–V independent-copy discussion",
+          "method": "Open arXiv HTML, translated μ to logarithmic drift a",
+          "title": "Geometric Brownian Motion under Stochastic Resetting: A Stationary yet Non-ergodic Process",
+          "trigger": "Same one-particle reset model and stationary tail"
+        },
+        {
+          "assessment": "Known centered residual exponent and scaling, not an off-center sharp prefactor",
+          "evidence": [
+            "The definition is a centered Gaussian multiplied by a positive independent scale. Prop. 1 yields residual coefficient 1/√n for Σ=I; aT is not such a centered scale term."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1507.02537v2",
+          "material_read": "§2.4, §3.1 distribution and density Eq. (12), §3.2 Prop. 1 and 2",
+          "method": "Open arXiv HTML and substitution of identity dispersion",
+          "title": "Modeling asymptotically independent spatial extremes based on Laplace random fields",
+          "trigger": "Exact overlap in centered orthant rate and close distribution family"
+        },
+        {
+          "assessment": "Acknowledged broader distribution antecedent, exact prefactor coverage not excluded by bibliographic access",
+          "evidence": [
+            "Directly relevant to the classical Laplace law comparison; the tilt relation in this review follows independently by square completion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/LSP.2006.870353",
+          "material_read": "DOI bibliographic record and citation in Opitz §3.1; not full text",
+          "method": "DOI fetch and targeted lawful OA lookup",
+          "title": "On the multivariate Laplace distribution",
+          "trigger": "Known Gaussian variance–mean mixture class that could imply the orthant result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-n coefficient and rate predict collective risk that cannot be read from identical marginal Pareto laws. Saturation versus square-root versus linear growth separates drift signs at the level of iterated exponents, while the logarithmic correction quantifies how slowly one enters that regime. This is meaningful for a shared-shock model without claiming uniform control, field prediction or a new class of distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

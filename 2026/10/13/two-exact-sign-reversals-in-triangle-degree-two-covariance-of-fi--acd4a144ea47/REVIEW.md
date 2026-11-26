@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Condition on one vertex having exactly two neighbors. Among the other vertices, the remaining graph is a uniform fixed-edge graph. Only one triangle can contain the conditioned vertex; its conditional probability is the residual edge density. Triangles avoiding it have the standard hypergeometric expectation. Their sum minus the unconditional triangle mean proves the exact covariance. The explicit quadratic's leading coefficient is positive and its values at the three specified test points are positive, negative, positive; the factored polynomial numerators are positive for every integer \(n\ge6\), proving precisely two roots and every stated sign. Hypergeometric-to-Poisson convergence together with a coefficient limit establishes the sparse scaling. A reproducible exhaustive exact check covers all labeled simple graphs with at most six vertices, not a proof of the infinite parameter case.
+PASS
 
-## Originality — PASS, with a substantial comparison caveat
+Conditioning on degree two and its two neighbors leaves a uniform (m−2)-edge sample among B nonincident edges. The conditional triangle mean is the sum of a single closure probability (m−2)/B and the ordinary triangle mean in this residual graph. Subtracting the unconditional mean and multiplying by n times the hypergeometric degree probability gives the stated covariance with a strictly positive prefactor in the nondegenerate range. For m<3, T=0; for m>B+2, V₂=0. Independent symbolic factorization reproduces Q_n(3), Q_n(n), Q_n(B+2) and the positive leading coefficient; the shifted numerator polynomials at n=6 have positive coefficients as claimed. Thus the covariance on the integer grid exhibits a positive, then negative, then positive regime: m=3,n,B+2 have these respective signs. The two interior real roots are boundaries, not necessarily integer zeros. For m/n→c>0, the degree-two probability equals B(m)_2/(N)_2 times the probability of excluding the other n−3 incident edges after two specified edges are included. The first factor tends to 2c² and the logarithm of the exclusion probability tends to −2c. The coefficients of n²Q_n(cn) tend to those of 4c²−8c+2, whose roots are simple, yielding both the limit and the scaled thresholds. In G(n,p) the nonincident graph is unaffected, so the conditional-minus-unconditional mean is p−Bp³; this confirms the comparator.
 
-A previous independent-edge mixed degree-count/motif formula mathematically determines the fixed-edge *mixed moments* by Bernstein coefficient extraction. This observation is acknowledged, not disguised. The present claim's original component is the **all-parameter two-root sign theorem** and the explicit limiting threshold pair, rather than the coefficient-extraction technique or a new marginal moment. A nearby fixed-edge result for degree-one vertices does not yield this classification because a degree-two vertex can itself belong to a triangle. Full texts of Goldstein (arXiv:1005.4390), Gilmer–Kopparty (arXiv:1412.0257), Stark–Wormald (arXiv:1608.05193), and Goldschmidt–Griffiths–Scott (arXiv:1902.06830) were consulted at their principal statements and pertinent sections. They treat marginal degree counts, triangle local limits, subgraph-cluster expansions, and subgraph-count deviations, respectively, but do not state the two-transition covariance classification. General generating-function identities might already imply the phase description upon further analysis; historical novelty is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The degree-two class is the first positive-degree class that can participate in a triangle. Its covariance with triangle abundance measures how local wedge/triangle closure competes with fixing the total edge count. The theorem identifies an unexpected positive–negative–positive pattern, proves exactly two transitions for every graph size in scope, and gives their two universal linear-size locations. The comparison with the single transition of \(G(n,p)\) makes the ensemble-conditioning effect mathematically explicit. This is a structural sign classification, not only a re-expression of a covariance.
+The distinct result is the global two-root sign classification at fixed degree two as the edge budget varies, with both sparse thresholds. Conditioning and extracting mixed moments are not claimed new. The strongest inspected overlapping result has the same statistic pair only at m=n−1, and studies variation of the degree instead of the edge count. No inspected statement gives the full fixed-degree edge-budget classification.
 
-## Closest literature and limits
+## value
 
-The named primary papers and the coefficient-extraction implication are recorded above and in the structured scientific comparison. The claim is confined to \(n\ge6\), the degree-two statistic and triangle count. The limiting covariance vanishes at the critical constants without controlling subleading signed terms. No independent validation or historical priority certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Degree two is the first degree that permits the conditioned vertex to lie in a triangle. The exact positive–negative–positive pattern for every n≥6 shows how a local closure term and conditioning on the global edge budget interact. This distinguishes the fixed-edge and independent-edge ensembles on a natural mixed statistic. The two limiting edge densities quantify the difference, rather than simply tabulating the moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

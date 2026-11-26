@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:08.360584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact expected cover time is correct, and the proof establishes the natural optimal rule of choosing the offered neighbor closest to the unvisited set. The Finding's literal distance-to-an-end-of-the-visited-arc policy is not correct without an explicit unvisited-first exception: with two visited vertices, the other visited vertex is itself an arc end (distance zero), whereas the offered unvisited neighbor is at distance one from the arc. Choosing the other visited vertex when both directions are offered gives mean phase duration 4 rather than 4/3, contradicting the Finding's simultaneous instruction to take the unvisited offer. This is a policy wording failure, not a counterexample to the value formula. To check the value, conditional on any discovery history the visited set is a single interval with the walker at an end, and fresh offers are independent. For k≥2 identify its two absorbing outside directions with the target on C_(k+1); the offered transitions up to that absorption have exactly the same law, with target distance j+1. For k=1 the next step is forced to discover a vertex, independent of the chosen offer. Each policy has a uniformly geometric absorption bound because a run of k identical double-direction offers forces an exit. Bellman verification thus bounds every history-dependent controller and gives equality for the closest-to-unvisited policy, including ties in continuation values. The phase means 2−2·3^(-m) and 2−3^(-m) for k=2m and k=2m+1 sum to the two stated parity formulas. A fresh exact-rational diagnostic checked k=1,...,6 by solving the absorbing linear system with probabilities 3/4 and 1/4 for every left/right policy and comparing all starting states (663 assertions including Bellman checks); n=7 gives 259/27. This is finite corroboration, not proof. The frozen checker.py and VERIFICATION.md were inspected, not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 of the published GHSS article gives Θ(n) choice cover time on finite fixed-dimension tori, hence on cycles; the frozen citation Theorem 5.3 is not the theorem number in the inspected versions.",
+          "The ITCS extended abstract gives general cover and hitting results and a history-dependent with-replacement model. The same-day indexed 497a68eed5a9 gives exact cover on paths, not cycles."
+        ],
+        "reasoning": "The tori theorem covers the object at order level but gives neither the exact constant nor the policy; the path theorem is a neighboring geometry with endpoint effects, not a direct cycle theorem. Neither negates the exact reduction to the stronger hitting data.",
+        "searches": [
+          "arXiv:1911.05170 and doi:10.1017/S0963548321000183, Theorem 1.3",
+          "doi:10.4230/LIPIcs.ITCS.2020.76",
+          "Resultary 497a68eed5a9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b80e6e972489",
+        "Resultary 497a68eed5a9",
+        "doi:10.1017/S0963548321000183",
+        "arXiv:1911.05170",
+        "doi:10.4230/LIPIcs.ITCS.2020.76",
+        "GHSS related-work account of Avin–Krishnamachari and of Orenshtein–Shinkar"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use the indexed exact value h(k+1,1) at each discovery phase; fresh offers and the connected visited arc ensure it is the conditional optimum regardless of history, with equality attainable phasewise.",
+          "GHSS's order proof uses neighbor hitting and a Hamilton path rather than this exact calculation."
+        ],
+        "reasoning": "Linearity and conditional optimality give 1+sum_{k=2}^{n−1} h(k+1,1), then two geometric sums give the exact correction. The continuation equivalence is just relabeling the unvisited absorbing directions as one vertex. No new state analysis or independent invariant remains in the cover computation once these exact hitting values are known.",
+        "searches": [
+          "Resultary b80e6e972489, arXiv:1911.05170 Theorem 1.3 and its proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed target-hitting result states h(N,d)=2d+A_N(3^d−1) for the same simple-cycle, independent offers with replacement, all adaptive controllers, and minimum expectation. Closest-to-target is optimal.",
+          "For k≥2 an interval containing k visited vertices with absorption on either end exit is C_(k+1) with its remaining vertex as the target, up to absorption."
+        ],
+        "reasoning": "Under this identification d=min(i+1,k−i) and the indexed A_(k+1) is −3^(−m) for k=2m and −1/(2·3^m) for k=2m+1. This reproduces the frozen h_k pointwise, not just its order. The singleton phase is exactly one step.",
+        "searches": [
+          "Resultary: exact with-replacement two-choice cover and target-hitting times on cycles",
+          "Mirrored RESULT.md b80e6e972489, Finding and proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-size indexed hitting formula specifies the exact mean and optimal action for every d, including d=1, the phase entrance distance. A bounded ranked lookup did not directly locate a second statement of the closed cover expression."
+        ],
+        "reasoning": "This is exact available formula-level evidence for the terms of the cover sum, not merely a table of small sizes. A direct-match miss cannot establish novelty and does not counter the exact implication.",
+        "searches": [
+          "Resultary: exact optimal two-choice cover time on cycles and hitting-time fluctuations",
+          "Resultary 2026/10/18/SCOPE-exact-optimal-hitting-time-fluctuations-for-a-two-choice-walk-on--b80e6e972489"
+        ]
+      },
+      "rationale": "An earlier distinct indexed exact target-hitting theorem in the same model determines every nontrivial cover phase and its optimal policy by a direct state identification. The only remaining operation is to sum its distance-one means. No independently stated earlier exact cycle-cover formula is needed for this implication. The journal source on tori genuinely gives only order bounds; that distinction does not undo the stronger exact indexed overlap.",
+      "residual_risks": [
+        "Avin–Krishnamachari full text was not retrieved, and the greedy-walk paper of Orenshtein–Shinkar was seen only in GHSS's related-work description. These access limits are not the basis of the decision.",
+        "The comparison proves direct mathematical implication, not comprehensive historical priority or a claim that the exact cover expression was previously printed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication for every nontrivial cover phase",
+          "evidence": "First moment 2d+A_N(3^d−1), with the stated parity constants, and closest-to-target mean-optimal for adaptive controllers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-optimal-hitting-time-fluctuations-for-a-two-choice-walk-on--b80e6e972489/RESULT.md",
+          "material_read": "Finding, assumptions, proof §1, mirror offsets 0–4796 at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and targeted local primary record mirror",
+          "title": "Exact optimal hitting-time fluctuations for a two-choice walk on a cycle",
+          "trigger": "Exact same-model optimal fixed-target formula"
+        },
+        {
+          "assessment": "Same with-replacement model and sharp growth order, not an exact cycle formula",
+          "evidence": "Theorem 1.3 yields Θ(n); its argument uses constant neighbor-hitting time and a Hamilton path.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548321000183",
+          "material_read": "Warwick OA journal PDF pp. 1 and 12, offsets 3112 and 58037; arXiv version Theorem 1.3 at offset 42911; related-work discussion p. 2 offset 6084",
+          "method": "Open journal manuscript via lawful university repository and arXiv passages",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Direct same-model cover-time theorem on tori"
+        },
+        {
+          "assessment": "Model and general precursor, no exact cycle result established by these passages",
+          "evidence": "The model allows repeated offers and use of history; the abstract states general bounds and hardness.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+          "material_read": "Abstract p. 1 and model p. 3, offsets 1000 and 10083",
+          "method": "Dagstuhl open primary PDF passages",
+          "title": "Choice and Bias in Random Walks",
+          "trigger": "Open preliminary paper in the same model"
+        },
+        {
+          "assessment": "Same general method, different path geometry and no exact cycle theorem",
+          "evidence": "Exact expected cover times and a nearer-endpoint policy for paths.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-two-choice-cover-times-on-paths-and-the-first-failure-of-u--497a68eed5a9",
+          "material_read": "Mirrored exact path-cover finding and interval-exit proof comparison",
+          "method": "Resultary index and local primary record text",
+          "title": "Exact two-choice cover times on paths and the first failure of unvisited-first control",
+          "trigger": "Same-date close match on a neighboring graph family"
+        },
+        {
+          "assessment": "Insufficient to characterize the whole article; described rule is not the Bellman policy here",
+          "evidence": "GHSS describe preferring the neighbor with fewer previous visits and breaking ties randomly, with mainly empirical results.",
+          "identifier_or_url": "doi:10.1145/1164717.1164757 (conference version)",
+          "material_read": "Full article unavailable via tried ACM routes; only description in GHSS journal related-work passage p. 2",
+          "method": "Lawful full-text attempts and inspected secondary account, not primary full-text inspection",
+          "title": "The power of choice in random walks: An empirical study",
+          "trigger": "Possible earlier empirical two-choice policy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimal constant for the canonical cycle case would be a useful exact refinement of a linear growth theorem in isolation. Here the optimal phase value and policy are exact existing results after absorption relabeling. The remaining geometric series is a routine consequence, so neither the constant nor a wording-only policy repair leaves a distinct valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

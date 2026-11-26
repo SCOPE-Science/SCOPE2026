@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted package. The script enumerates exactly 280 four-letter boundary assignments and verifies the upper integer coefficient profile \((20,36,36)\), the twelve attaining templates and the construction's profile \((0,8,20,8,0)\). It checks all even lengths from four to twenty-six by exact arithmetic and compares the coefficient formulas with independently constructed actual word sets at lengths four and six.
+## correctness
 
-The infinite-length conclusion does not follow from finite word enumeration. It follows from the stated three boundary coefficient inequalities, the binomial ratios, and the analytic inequality \(0\le r_2\le r_1<1\). The 280-case certificate is exhaustive because all combinations of two disjoint first/last symbol sets and every assignment of their shared two-letter pairs are considered. The package requires only the Python 3 standard library; no network data or external solver is necessary to replay it.
+PASS
 
-No external or independent mathematical audit has been performed. Literature priority remains subject to further primary-source access and independent comparison.
+For any active prefix set P, the largest compatible suffix set comprises all pairs not in P whose final symbol is not a first symbol of P. Saturating with balanced completions preserves both forbidden overlaps. An independent exact enumeration over all nonempty subsets of the 16 prefix pairs, taking this maximal suffix set, gave maxima (20,36,36) for f₂, f₁+f₂+f₃ and sum f_j. Exactly twelve choices attain f₂=20, all of profile (0,8,20,8,0); their four-symbol codebooks are distinct and all their boundary pairs occur at length four. This directly addresses n=4, where only the f₂ bound constrains equality. For L=n−4, a boundary with j class symbols has 2^L binom(L,n/2−j) completions. Dividing by 2^L binom(L,L/2) yields a nonnegative weighted sum of the three bounded statistics with weights 1−r₁, r₁−r₂ and r₂, r₁=L/(L+2), r₂=L(L−2)/((L+2)(L+4)), with out-of-range binomials zero. Since 1−r₁>0, every maximizer is among the twelve enumerated sets. Every allowed boundary of these sets is completable for n≥6, so distinctness persists. This establishes the formula and census at all lengths, not by extrapolation. The central-binomial ratio tends to 1/16, and including 2^(n−4)/2^n gives density 36/256=9/64.
+
+## originality
+
+PASS
+
+Pass applies to the all-even exact-composition formula and optimizer census extending beyond length four. The n=4 value and equality cases are materially covered by the earlier length-four full-non-overlap census, and the unbalanced optimum and restricted-boundary reduction are prior ingredients. The closest exact-composition article could not be read in full; the available evidence does not establish that it covers the all-length theorem.
+
+## value
+
+PASS
+
+Exact composition and two forbidden overlaps are natural simultaneous constraints of finite-word extremal combinatorics. The result identifies a sharp capacity at every length in this setting and shows that conditioning on composition selects the same twelve boundary patterns rather than changing the optimizers with length. That all-length dependence and equality information go beyond the known short instance and an unrestricted bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:27.133565Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The forced tridiagonal spline system has diagonal 2(h_{i-1}+h_i), off-diagonals h_{i-1},h_i and right-hand side −6 only at i=1. The homogeneous two-root solution with right boundary zero extends to fictitious value 6 at i=0, so replacing it with the actual left boundary value zero gives exactly the forcing −6. The roots are −a and −b with a/b=q∈(0,1); strict diagonal dominance gives uniqueness. On cell zero M_1<0 and |M_1|<6a<3, making its derivative strictly positive. On each later cell k_i=−M_{i+1}/M_i∈[0,a], the bracket is ≥1−2a>0, and the derivative of the excursion polynomial is positive at t=0 and negative at t=1. Its quadratic has exactly one root in (0,1), the displayed smaller root. Doubling the extremal excursion gives h_i²|M_i|F(k_i), with exactly the factor of 6 in the global sum. β is strictly increasing since D=1+R+√(R²+R+1) has D′<2 and D>R; at R*=(3+√5)/2, R*²=3R*−1 gives D=R*². At β<1 bound by a geometric series for fixed i; at β=1 the Lipschitz error of F and the endpoint weight are O(q^{N−i−1}) before dividing by 1−q^N, and Nq^N is bounded; at β>1 reverse the sum via j=N−i and dominate by β^{−j}. The limiting supercritical sum is strictly positive. This covers all R>0 at fixed R, including shrinking widths. Exact replay at N=2 gives M_1=−3/(1+R), F(0)=2/(9√3), and TV=1+2R²/[3√3(1+R)]. Independent numerical replay using tridiagonal elimination and cubic derivative roots also matched seven cases spanning R=.125 to 8; e.g. at R=R*, N=40, TV≈27.1887245197602, and at R=3 the rescaled TV approaches 3.75142608529279. For replication use the above system, integrate each cubic via differences at endpoints and derivative roots; finite results corroborate normalization but are not the proof. The frozen CHECK.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dermoune–Preda use natural-spline basis coordinates and a banded curvature system for noisy-data estimation.",
+          "De Boor's not-a-knot convergence report starts with C² interpolands and a maximum mesh width tending to zero, under different end conditions; Beatson's available abstract is about approximation error of derivative-free schemes and smoothness/local-mesh dependence."
+        ],
+        "reasoning": "General spline system and convergence theorems supply relevant classical tools but the inspected statements do not give the boundary-forced geometric step response, its total-variation phases or constants. Abstract-only sources cannot be excluded wholesale.",
+        "searches": [
+          "cubic spline interpolation geometric mesh ratio 2.618 instability de Boor Beatson checkerboard total variation spline projection L1 exponential decay negative characteristic roots natural spline",
+          "On the Convergence of Some Cubic Spline Interpolation Schemes Beatson 1986 full pdf mesh ratio geometric",
+          "arXiv:1403.1388 and de Boor, Convergence of cubic spline interpolation with the not-a-knot condition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.1388",
+        "de Boor not-a-knot report (open PDF)",
+        "Beatson DOI 10.1137/0723058 (abstract)",
+        "Resultary three-knot defect and four-knot TV results (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N=2 the third-knot cell excursion magnitude is R²/[3√3(1+R)], matching the R² orientation in the known three-knot defect, and variation adds twice that excursion.",
+          "The four-knot norm uses a finite matrix and arbitrary nodal data; this result fixes the first step, and its β^i amplification depends on propagating the forced curvature through arbitrarily many cells."
+        ],
+        "reasoning": "The N=2 specialization is prior-covered. Neither that case nor a short-grid norm implies the critical and off-critical TV asymptotics. No claim is made for an arbitrary-data sharp norm.",
+        "searches": [
+          "Resultary: natural cubic step interpolation exactly geometric graded knots total variation golden ratio instability positivity defect; compare three-knot positivity defect and first coupled natural cubic spline",
+          "natural cubic spline interpolation geometrically spacing unbounded de Boor mesh ratios Lebesgue numerical analysis stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen invariant is the L1 norm of the spline derivative, i.e. the sum of twice the cell excursions after the first cell. It is not equivalent to a sup-norm interpolation error: at criticality the individual excursions are uniformly bounded but their sum grows linearly.",
+          "The indexed three-knot result measures a largest one-cell undershoot over bounded data; the two settings agree on the size of the overshoot for the selected two-cell step when that orientation dominates, not on a long-run propagation law."
+        ],
+        "reasoning": "A theorem bounding local or uniform point excursions would not by itself identify the global TV at the critical grading. Changing the spline end conditions also changes the forced response.",
+        "searches": [
+          "natural cubic spline interpolant step data geometric knots total variation unbounded stability geometric mesh ratio golden ratio de Boor Hall Beatson graded mesh L1 derivative",
+          "de Boor cubic spline interpolation geometric mesh ratio (3+sqrt(5))/2 divergence geometric grid natural cubic spline graded knots instability",
+          "Resultary: natural cubic step interpolation exactly geometric graded knots total variation golden ratio instability positivity defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Excluding the assigned record itself, Resultary returned the three-knot positivity defect and exact uniform/symmetric four-knot total-variation results, including the sharp uniform four-knot value 1+8/(9√3) for a central step.",
+          "The competing indexed exact values are for bounded knot counts or different operators, not the all-N fixed-grading phase table."
+        ],
+        "reasoning": "These finite results cannot supply the critical slope or exponential normalization without solving the arbitrary-length propagation and summation. No matching exact table was located; non-detection is not evidence of universal priority.",
+        "searches": [
+          "Resultary: natural cubic step interpolation exactly geometric graded knots total variation golden ratio instability positivity defect",
+          "cubic spline 2.618 stability mesh ratio interpolation natural convergence"
+        ]
+      },
+      "rationale": "Standard natural-spline equations and the three-knot overshoot are not new. The surviving claim is the exact variation law for this step at arbitrary lengths of one geometric mesh and the sharp bounded/linear/exponential alternatives, with a critical slope and supercritical coefficient. No inspected result was found that subsumes this combination; the conclusion is provisional because relevant old spline literature is not exhaustively accessible.",
+      "residual_risks": [
+        "Older literature on geometric-mesh response may use error, Lebesgue-function or Green-function terminology. Hall DOI 10.1137/0710088 and full Beatson text were not accessible by the tested open routes; older de Boor odd-degree convergence full text was not obtained either.",
+        "Only the prescribed step, exactly geometric mesh and natural boundaries are classified, at fixed R."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established spline machinery, different statistic and no phase law in inspected sections",
+          "evidence": [
+            "The article constructs sparse natural-basis coordinates and uses them to analyze and estimate splines from noisy values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.1388",
+          "material_read": "Abstract and opening model/basis development in the primary PDF",
+          "method": "Compare conditions and functional using open PDF",
+          "title": "Estimation of noisy cubic spline using a natural basis",
+          "trigger": "Same natural spline and curvature/basis representation"
+        },
+        {
+          "assessment": "Not-a-knot smooth-interpoland convergence does not imply this natural-ends TV boundary",
+          "evidence": [
+            "The stated convergence is to any C² interpoland as mesh size goes to zero, with no mesh-ratio restriction."
+          ],
+          "identifier_or_url": "https://ftp.cs.wisc.edu/Approx/notaknot.pdf",
+          "material_read": "Open technical-report abstract and interpolation/convergence setup",
+          "method": "Open PDF; compare endpoint conditions and limits",
+          "title": "Convergence of cubic spline interpolation with the not-a-knot condition",
+          "trigger": "Classical potential mesh-ratio and convergence theorem"
+        },
+        {
+          "assessment": "Covers the corresponding overshoot, not the arbitrary-N graded-grid theorem on the available evidence",
+          "evidence": [
+            "The sharp defect is M max{R^{−1},R²}/[3√3(1+R)] across three bounded nodal values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+          "material_read": "Indexed mathematical summary only; mirrored result text was unavailable",
+          "method": "Resultary search; compare formula against a direct N=2 solution",
+          "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+          "trigger": "Closest natural-spline exact overshoot on nonuniform knots"
+        },
+        {
+          "assessment": "Available abstract concerns order of approximation and local mesh ratios; whole-paper coverage unresolved",
+          "evidence": [
+            "The abstract describes estimates for derivative-free schemes and local mesh-ratio effects on C¹ but not C² functions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0723058",
+          "material_read": "Publisher-indexed abstract, not full text (open DOI retrieval denied)",
+          "method": "Literature search and exact-DOI OA attempt",
+          "title": "On the Convergence of Some Cubic Spline Interpolation Schemes",
+          "trigger": "Older local-mesh-ratio bounds for cubic methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural C² interpolant of a monotone step exposes a sharp stability failure controlled by a single local width ratio. Critical linear variation arises despite bounded excursions, a distinction not captured by pointwise overshoot, and the prefactors permit quantitative comparison just within the specified family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

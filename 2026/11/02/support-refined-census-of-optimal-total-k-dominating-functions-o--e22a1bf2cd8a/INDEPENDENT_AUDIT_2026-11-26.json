@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:48:08.151147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding at lines 14–19 is false as printed: for C_3, k=3 the permutations of (1,2,2) are precisely the three minimum-weight (weight 5) functions, all of support 3, contrary to u^3. The frozen count sentence, proof at line 39, and verifier's support_formula already give the correct n·u^n branch for odd n and odd k. The full corrected RESULT.md is under /workspace/repairs/3/, with the original preserved. To verify the repaired claim, join labels at cyclic difference 2. This is one length-n cycle for odd n or two independent length-n/2 chains for even n, counting the repeated constraint harmlessly at n=4. Summing constraints gives the lower bound mk/2 per component. With even mk it is attained exactly by all-tight alternating pairs (k+1 choices on even m; only k/2 throughout for odd m). With odd mk, the rounded bound is attained by putting the high label (k+1)/2 at both ends of any one edge and alternating (k±1)/2 along the other edges; conversely the total slack is exactly one, forcing one such choice. Each choice is distinct. Thus for 4|n each component contributes 2u^(n/4)+(k−1)u^(n/2) and the factors multiply; other cases have full support for k≥2, with multiplicities n for odd-odd, (n/2)^2 for n≡2 mod 4 and odd k, and one otherwise. The integer lower bound and all minima establish the weight and support transition. Independently enumerated six cases of the original neighbor inequalities, including the C_3 witness and n=4,6,8; replay python3 /tmp/opencode/nov02-independent-checks.py 3. The attached verifier was inspected, not executed; its 18 and 112-case results are recorded finite checks and not proof of the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Escalante et al. introduction (open text offset 5900 onward) cites the earlier total {k}-domination number for cycles and develops the caterpillar case.",
+          "The 2018 primary abstract describes determination of total {k}-domination numbers; the full theorem was not recovered in this review."
+        ],
+        "reasoning": "Optimization of the minimum value or a caterpillar algorithm does not supply the cycle equality-case support counts. The exact content of the unavailable earlier proof remains a qualification.",
+        "searches": [
+          "arXiv:2610.27181; cycles and scope in introduction",
+          "DOI:10.3934/mfc.2018011, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d0150eece616",
+        "DOI:10.3934/mfc.2018011 (abstract-level)",
+        "arXiv:2610.27181",
+        "OEIS:A302653"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported 2018 optimum weight implies tight or one-unit slack at the lower bound, but not alone the number or support profile of all compatible assignments.",
+          "The path paper uses end constraints f_2=f_(n−1)=k and simplex parametrizations instead of the closed-chain slack pattern."
+        ],
+        "reasoning": "The repair classifies every equality case and separates endpoint label choices from interior choices, yielding information not in the compared value/count statements. The refinement is elementary and an independently documented prior equality characterization would change this assessment.",
+        "searches": [
+          "Tan–Liu–Liang, DOI:10.3934/mfc.2018011",
+          "d0150eece616 Finding and parity decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cycle problem is exactly minimum integer k-vertex cover on the step-two graph; an optimal label cannot exceed k because it could be truncated.",
+          "Resultary d0150eece616 enumerates path optimizers with end conditions, not covers of closed cyclic components."
+        ],
+        "reasoning": "The natural covering alias is exact; unlike a path, closing the constraints creates a parity obstruction and one-slack-edge positions, so the inspected path enumerator does not give this census.",
+        "searches": [
+          "Resultary: cycle total {k}-domination all optimum functions and support",
+          "integer k-vertex cover on cyclic components, x_i+x_(i+1)≥k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A302653 entry heading and terms enumerate minimum total dominating sets on cycles, e.g. terms 3,4,5,9 at n=3,4,5,6.",
+          "d0150eece616 gives a residue-class formula on paths, not a cycle table."
+        ],
+        "reasoning": "Binary set counts correspond to k=1 and cannot tabulate the growing (k+1)^2 count or variable support sizes for k≥2. Numerical agreement of particular coefficients is not full coverage.",
+        "searches": [
+          "OEIS A302653",
+          "Resultary d0150eece616"
+        ]
+      },
+      "rationale": "The corrected claim is the complete labelled all-optima support polynomial and zero-support phase distinction, not the already known optimum weight or the binary census. The directly compared same-day path theorem uses different endpoint constraints, and the public k=1 sequence is not the multilevel support enumerator. No equivalent complete cycle census was established in the evidence reviewed, with the close 2018 source-access risk below.",
+      "residual_risks": [
+        "The complete 2018 proof was not independently accessible; an older explicit equality characterization, especially under cyclic integer-cover terminology, would require reassessment.",
+        "No worldwide priority claim; the refinement is a close equality-case extension of the known optimum calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent, not a cycle enumeration; same-day date does not decide order",
+          "evidence": [
+            "The path forces its second and penultimate labels to k and has independent open parity chains."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-minimum-function-enumeration-for-total-k-domination-on--d0150eece616/RESULT.md",
+          "material_read": "Opening count, assumptions and parity decomposition, offsets 0–2394",
+          "method": "Read the exact local mirror record at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete minimum-function enumeration for total {k}-domination on paths",
+          "trigger": "Same objective and labelled complete optimal census; separate indexed record"
+        },
+        {
+          "assessment": "Credits established optimum-weight scope; does not claim a full-text exclusion of all-minimizer results",
+          "evidence": [
+            "The abstract describes total {k}-domination numbers for cycles and other special graphs; the later specialized paper cites it in precisely that context."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mfc.2018011",
+          "material_read": "Accessible bibliographic/abstract description only; Theorem 2.1 not retrieved independently",
+          "method": "Lawful AIMS OA direct/VPN and DOI repository recovery attempted; compared the indexed description and the 2610.27181 introduction's characterization",
+          "title": "Total {k}-Domination in Special Graphs",
+          "trigger": "Primary work on the same cycles and integer map"
+        },
+        {
+          "assessment": "Caterpillar-focused; confirms known basic-family optimization background",
+          "evidence": [
+            "The introduction defines the problem as determining the total {k}-domination number and identifies cycles among Tan et al.'s basic graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27181",
+          "material_read": "Introduction, offsets 5900–8099",
+          "method": "Locate cycles and read bounded OA text by offset",
+          "title": "Total {k}-domination in caterpillars: Structural properties and exact results",
+          "trigger": "Recent structural optimization and corroboration of cycle prior scope"
+        },
+        {
+          "assessment": "Binary k=1 only; useful boundary check outside the claim",
+          "evidence": [
+            "The sequence counts sets rather than multilevel integer functions."
+          ],
+          "identifier_or_url": "https://oeis.org/A302653",
+          "material_read": "Sequence title and listed terms, around offset 429",
+          "method": "Inspected displayed public entry passage",
+          "title": "Number of minimum total dominating sets in the n-cycle graph",
+          "trigger": "Exact enumeration database under the ordinary total domination alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected theorem gives a complete, labelled support census over all n≥3, k≥2 for a standard optimum problem. The exact criterion 4|n for any sparse optimum, the four smallest-support extremizers in that regime, and multiplicities of all support sizes distinguish structurally different optimizers despite equal optimum weights. This is more informative than the already known weights or isolated small enumerations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

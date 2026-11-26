@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:36.959984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md and verify.py. Identities and equality cases checked algebraically; the frozen Gaussian-integer script was inspected, not executed. Its bounded grid is not used as a continuum certificate."
+      ],
+      "rationale": "K is Hermitian with K²=3I and trace zero; the resulting C_t is a correlation matrix throughout the stated interval. Each basis projector is fixed, so its expectation in each perpendicular basis vector is zero termwise in any positive-weight unitary ensemble. Consequently all constituent unitaries are diagonal. For phases z=(1,e^(iθ),e^(i(φ+h)),e^(i(φ−h))), the six entry pairs give half the witness as cos θ+sin(2h)+2 Re[e^(iφ)(cos h−e^(−iθ)sin h)]. The last term is at most 2 sqrt(1−xy) for x=cos θ, y=sin(2h). Subtracting 4(1−xy) from (3−x−y)² gives (x+y−1)²+4(1−x)(1−y), with 3−x−y positive. Equality requires (x,y)=(1,0) or (0,1). In the first case θ=0 and h is a multiple of π/2; phase alignment gives the all-ones vector or (1,1,−i,i). In the second case h=π/4 mod π and θ=±π/2; alignment gives the other two listed vectors. Thus the continuum bound is 6 with exactly four projective maximizers. The trace of K against C_t is 4√3(1−t), giving necessity. The columns of Z=I+K are exactly the four vectors; ZZ†/4=I+K/2, giving sufficiency at the edge, and interpolation with the Fourier dephasing twirl covers the entire remaining interval. Z is invertible, so Z diag(w) Z†=ZZ†/4 forces w=(1/4,…,1/4). The full rank also forces a minimum of four terms. Uniqueness is of the ensemble after merging identical conjugations.",
+      "residual_risks": [
+        "No claim for full depolarization, intermediate mixture rank, or for general rank-two correlation matrices is validated here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakai–Iwata bounds the ℓ_(1/2) quasinorm for every probability vector of fixed ℓ_2 norm, by v_n(s)=(1−(n−1)s,s,…,s). With n=4 and ||p||²_2=1/3 one obtains s=1/6 and ||v_4(s)||_(1/2)=(sqrt(1/2)+3 sqrt(1/6))²=2+√3. This extremizer is attainable for the tetrahedral SIC by taking u=f_j; its outcome probabilities are (1/2,1/6,1/6,1/6) up to ordering."
+        ],
+        "reasoning": "The stronger probability theorem yields the exact phase witness 6 without a new continuous optimization in this four-dimensional family. The more general Schur mixed-unitarity characterization and rank-two sufficient dilution t=1/2 are relevant but do not themselves give sharpness.",
+        "searches": [
+          "Sakai–Iwata, Sharp Bounds Between Two Rényi Entropies of Distinct Positive Orders, arXiv:1605.00019, Definition 1 and Theorem 1 (246); Harris et al. Theorem 2.2; Kribs et al. Corollary 34"
+        ]
+      },
+      "checked_sources": [
+        "Sakai–Iwata arXiv:1605.00019 Section II; Słomczyński–Szymusiak arXiv:1402.0375v3 Section 8.1 and Remarks 1–2; primary channel and SIC references above; inspected Resultary records including same-date purity and phase-twirl findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equality lift can be checked with the standard Hermite argument: p_j lies in [0,1/2], and the quadratic interpolant to sqrt(x) matching its value and derivative at 1/6 and its value at 1/2 majorizes it, strictly except at the nodes. This follows from the positive third derivative and remainder sign (x−1/6)²(x−1/2), extended at zero by continuity and the positive lower bound of the third derivative on (0,1/2]. The sum of that quadratic over p_j is fixed by the first and second moments. Equality has one component 1/2 and three 1/6, forcing u=f_j projectively. Phase alignment then gives column j of I+K. The average of their outer products is (I+K)²/4=I+K/2, inversion gives equal weights, and the witness trace and interpolation with complete basis dephasing recover the entire claimed threshold."
+        ],
+        "reasoning": "This derives the value, attainment in the restricted frame set, exhaustive boundary support and weights; it is not a comparison based on tetrahedral geometry alone. The prior entropy-minimizer result by itself treats the opposite optimization direction. The exact upper bound here comes from Sakai–Iwata, with the elementary strict interpolation check and phase lift supplying equality in this family.",
+        "searches": [
+          "Sakai–Iwata Theorem 1 (244)–(246); Słomczyński–Szymusiak Sections 8.1 and Remarks 1–2; Harris et al. Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let V have qubit frame columns f_j with V†V=C_0, so VV†=2I. Exchanging the two maxima gives max over phases z of ||Vz||² = max over unit u of (sum_j |(V†u)_j|)². For the tetrahedral SIC probabilities p_j=|(V†u)_j|²/2 this is 2 max ||p||_(1/2). Pure inputs have sum p_j²=1/3, by the regular tetrahedron second-moment identity."
+        ],
+        "reasoning": "The quadratic phase objective is √3(||Vz||²−4), so this is an equality of optimization problems, not a similarity of vocabulary. At the optimum the compatible relative phases are fixed by u because all four coordinates of V†u are nonzero.",
+        "searches": [
+          "Tetrahedral qubit SIC, maximum Rényi entropy order 1/2, and sum of square roots; arXiv:1605.00019 Theorem 1; Resultary searches for tetrahedral phase damping and mixed-unitary dephasing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected indexed results concerned 2×2 Schatten-four multipliers, a 2-to-2 error under an iterated dephasing budget, or purity/imaginarity of quantum states. None is an exact table of mixed-unitary membership for the displayed path. The decisive exact coverage is instead the symbolic bound (246) evaluated at the tetrahedral coincidence index."
+        ],
+        "reasoning": "The continuous parametric statement is not inferable from the frozen fourth-root grid or from a finite index search; the all-distribution formula supplies the needed exact value.",
+        "searches": [
+          "Resultary searches for the exact threshold, phase extremizers, norm analogs and nearby same-date findings; prior exact symbolic norm bound (246)"
+        ]
+      },
+      "rationale": "The exact witness optimization is a specialization of the sharp finite-distribution Rényi norm bounds, under standard phase/norm duality for the tetrahedral SIC frame. The threshold and full minimal ensemble then follow from the phase columns of the same Gram matrix and K²=3I. The direct trigonometric proof is sound, but the submitted exact finding is mechanically implied by the prior bound and this linear algebra. No publication that states this exact Schur-channel parametrization was identified in the bounded comparison.",
+      "residual_risks": [
+        "The bounded searches do not resolve whether the exact channel statement appears elsewhere explicitly. The decision is based on the proved implication, not on the search miss or on publication-order assumptions about any indexed record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General exact bound specializes to the relevant tetrahedral witness",
+          "evidence": "With α=2, β=1/2, (246) gives the upper ℓ_β bound at v_n(p_v); p_v is fixed by equality of ℓ_α norms as in (244).",
+          "identifier_or_url": "https://arxiv.org/html/1605.00019",
+          "material_read": "Definition 1 neighborhood; Section II Lemma 2 opening and Theorem 1 (244)–(246), main theorem text offsets 96620–99620",
+          "method": "OA HTML primary text",
+          "title": "Sharp Bounds Between Two Rényi Entropies of Distinct Positive Orders",
+          "trigger": "Sharp general order-1/2 extremum at fixed coincidence index"
+        },
+        {
+          "assessment": "Standard Hermite and fixed-index framework; the stated Rényi extension concerns minima, not the needed maximum",
+          "evidence": "The paper discusses Hermite interpolation and gives index of coincidence 2d/(k(d+1)) for pure inputs to a tight informationally complete POVM; d=2, k=4 gives 1/3.",
+          "identifier_or_url": "https://arxiv.org/html/1402.0375v3",
+          "material_read": "Section 8.1 opening and Remarks 1–2, around offsets 100000 and 134100–136099",
+          "method": "OA HTML primary text",
+          "title": "Highly symmetric POVMs and their informational power",
+          "trigger": "Same tetrahedral SIC and Rényi entropy comparison"
+        },
+        {
+          "assessment": "Geometry covered, not the claimed channel boundary in the inspected passages",
+          "evidence": "The four equiangular qubit states correspond to a regular Bloch tetrahedron.",
+          "identifier_or_url": "https://arxiv.org/html/quant-ph/0310075",
+          "material_read": "Abstract and d=2 construction, around offset 26634",
+          "method": "OA HTML primary text",
+          "title": "Symmetric Informationally Complete Quantum Measurements",
+          "trigger": "Tetrahedral qubit SIC geometry"
+        },
+        {
+          "assessment": "General equivalence used in the implication",
+          "evidence": "Membership is exactly membership of the phase rank-one correlation convex hull.",
+          "identifier_or_url": "https://arxiv.org/html/1807.06491v2",
+          "material_read": "Theorem 2.2, around offset 9632",
+          "method": "OA HTML primary text",
+          "title": "Schur multipliers and mixed unitary maps",
+          "trigger": "Mixed-unitary correlation criterion"
+        },
+        {
+          "assessment": "Nonsharp here",
+          "evidence": "Rank r gives C/r+(r−1)I/r; for rank two this guarantees t=1/2 and the remark notes possible nonoptimality.",
+          "identifier_or_url": "https://arxiv.org/html/2306.04077v1",
+          "material_read": "Corollary 34 and Remark 35, around offsets 82835 and 83616",
+          "method": "OA HTML primary text",
+          "title": "Operator Algebra Generalization of a Theorem of Watrous and Mixed Unitary Quantum Channels",
+          "trigger": "General dephasing dilution threshold"
+        },
+        {
+          "assessment": "Relevant physical precedent; inspected passages do not establish the exact boundary",
+          "evidence": "The phase-damping construction relates non-random-unitarity and the volume of the environmental Bloch tetrahedron.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.5364v1",
+          "material_read": "Environmental Bloch-vector passages, pp. 2–4",
+          "method": "OA PDF primary text offsets about 15300, 18958, 24047, 30397",
+          "title": "Quantum Decoherence of Two Qubits",
+          "trigger": "Non-random-unitary two-qubit phase damping with tetrahedral environment"
+        },
+        {
+          "assessment": "Different dimension and norm invariant",
+          "evidence": "This is a Schatten-four/CB norm problem for 2×2 unimodular Schur symbols.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-phase-law-and-extremizers-for-two-by-two-unimodular-schatt--07c79d85df8d",
+          "material_read": "Finding around offset 0",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact phase law and extremizers for two-by-two unimodular Schatten-four Schur multipliers",
+          "trigger": "Closest indexed sharp Schur phase-optimization hit"
+        },
+        {
+          "assessment": "Different channel path and objective",
+          "evidence": "The statistic is Hilbert–Schmidt mixing error under iteration, not membership of the random-unitary set.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-singular-spectrum-and-optimal-two-parity-dephasing-budget--af36f7621f27",
+          "material_read": "Finding around offset 0",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact singular spectrum and optimal two-parity dephasing budget for Fourier-type quantum channels",
+          "trigger": "Closest indexed sharp channel-dephasing budget hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Sakai–Iwata Theorem 1; the explicit norm and phase lift above"
+      ],
+      "rationale": "This is a motivated sharp boundary, and the elementary proof is useful exposition. However, the full numerical threshold and boundary ensemble are a direct lift of the known norm extremum for this tight frame. The record does not establish a further independent consequence or a new exact invariant beyond that specialization.",
+      "residual_risks": [
+        "The decision does not rule out value of a broader theorem on dephasing thresholds for other Gram geometries, which is not claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

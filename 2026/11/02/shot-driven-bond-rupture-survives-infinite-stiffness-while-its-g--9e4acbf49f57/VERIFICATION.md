@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` with SymPy and mpmath installed. The checker verifies exactly (symbolically) the two-monomer relative eigenmode, jump and diffusion second-moment rates, stationary fourth cumulant, and the backward differential identity for the Gaussian mean first-exit function. Its 50-digit quadrature checks the Gaussian integral and endpoint leading coefficient at four restoring rates. A seeded 10,000-path, jump-time-exact simulation at zero thermal diffusion compares samplewise rupture times at four restoring rates and checks the pathwise domination by a first jump larger than twice the threshold.
+## correctness
 
-This program is a reproducibility aid and does not independently certify the scientific theorem. The all-parameter almost-sure coupling, moment convergence, and comparison limit are proved analytically in `RESULT.md`; the experiments are finite and cannot replace them. The main proof also holds at nonzero thermal diffusion, although its event-driven simulation deliberately uses the zero-diffusion subcase. Scientific priority is not independently validated.
+PASS
+
+The relative coordinate has drift −(λ+2k)R, diffusion amplitude √(4D), and a superposed rate-2ω compound Poisson driver with centered Gaussian marks of fixed scale σ. Thinning gives the stated rate q_L. The pathwise integration-by-parts formula gives a simultaneous continuous-in-parameter version of the Brownian convolution. Its supremum on an integer horizon tends to zero by the Brownian modulus of continuity, on one event for all integer horizons. Up to and including the finite first mark above L there are finitely many separated jump times, no mark has magnitude exactly L, and all their distances in magnitude from L have positive minimum. Interjump remnants decay; pre-jump remnants converge to zero at all those times. This yields literal equality of exit times for all sufficiently large real k on the same noise path. At any first jump of magnitude >2L, either exit already occurred or the pre-jump modulus is ≤L, which suffices to force exit: this gives an exponential dominator for every positive real power. For the variance-rate-matched Brownian model, the generator is Θ∂²−ax∂, with Θ=2D+ωσ². Integrating the symmetric backward solution and applying Gaussian saturation and endpoint Laplace asymptotics gives the stated prefactor and rate.
+
+## originality
+
+PASS
+
+The OU exit integral, thinning, and the general single-jump exit idea are not new. The supported distinct claim is eventual equality with a specified common-noise jump at fixed physical mark law and increasing stiffness, with convergence of all positive moments and the explicit variance-matched contrast for relative bond rupture. The strongest inspected results change the observable, the scaling, or the strength of the exit conclusion.
+
+## value
+
+PASS
+
+For a natural relative-extension threshold, the theorem identifies precisely a failure of second-moment matching for an exit observable: the shot-driven mean has a finite limit while the matched diffusion mean grows exponentially with known prefactor. The stronger common-noise equality and all-moments conclusion distinguish this from a simulation observation or informal single-jump heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

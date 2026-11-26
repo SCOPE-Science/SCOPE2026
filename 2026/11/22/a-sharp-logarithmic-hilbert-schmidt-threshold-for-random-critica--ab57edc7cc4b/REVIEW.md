@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The factorial-moment identity yields the exact positive expectation integral. The kernel has boundary singularity \(\sqrt\pi(1-q)^{-1/2}\); its squared normalized angular average contributes \(\pi^{-1}\log(1/(t+s))\), leading after logarithmic coordinates to a double integral with exact value \(2U^{3-2b}/[(b-1)(2b-3)]\). The remainder is locally uniformly integrable near \(b=3/2\), establishing both the iff threshold and the coefficient \(2/\pi\). Almost-sure finiteness yields a bounded Gram matrix and separation; the 2017 complete Pick interpolation criterion then applies. The finite checker is supplemental, not an infinite proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-Hartmann–Massaneda's 2022 preprint explicitly studies the same Poisson model and discusses the unresolved borderline weighted Dirichlet exponent, but its results do not formulate or compute this normalized-kernel Gram second moment or its \(2/\pi\) residue. Aleman–Hartz–McCarthy–Richter establish the general separated-plus-Carleson implication, but have no logarithmic Poisson threshold. The 2023 Chalmoukis–Dayan–Hartz work distinguishes interpolation notions but does not give this stochastic calculation. Index and literature searches found no statement implying the new exact Gram moment criterion. Historical priority remains provisional.
+PASS
 
-## Value — PASS
-The critical exponent \(\mathcal D_{1/2}\) is singled out by an explicit gap in the motivating literature. The theorem identifies a sharp logarithmic second-moment boundary, its singular strength, and a reproducible sufficient condition for almost-sure multiplier interpolation. The invariant is the full normalized kernel Gram energy, directly controlling Bessel/Carleson and separation properties; it is not an arbitrary numerical slice.
+Independent reduction: the ordered-pair factorial-moment integral has no factor 1/2. Angular Parseval directly gives the unnormalized mean squared kernel as sum_{n>=0} ((1-t)(1-s))^n/(n+1) = -log(t+s-ts)/((1-t)(1-s)), with continuous interpretation at zero radius. The real diagonal sum is sqrt(pi)t^(-1/2)+O(1), by comparison of the decreasing summand x^(-1/2)exp(-x[-log(1-t)]) with its integral. After normalizing and multiplying by the two intensities, the boundary square in coordinates u=log(1/t), v=log(1/s) has main integrand min(u,v)u^(-b)v^(-b)/pi. Bounded-log errors, shifts from u to 1+u, and the diagonal profile errors are uniformly integrable near 3/2: errors proportional to exp(-u/2)min(u,v) are bounded by u exp(-u/2), with the other variable integrable for b>1, and likewise for v. Regions with one radial variable in a compact subdisk have finite integral for b>1. The exact main integral is 2U^(3-2b)/(pi(b-1)(2b-3)), giving residue 2/pi. Comparable dyadic squares contribute at least a positive multiple of R^(3-2b) and prove divergence for every b<=3/2. Finite expectation yields a bounded Gram operator and separation since only finitely many correlations exceed any positive fixed cut and distinct point kernels are not collinear. The log-convex coefficient ratios ensure 1-1/K has nonnegative power-series coefficients by the Kaluza recursion, so the normalized kernel is irreducible complete Pick; Theorem 1.1 of Aleman–Hartz–McCarthy–Richter applies to yield multiplier and Hilbert-space interpolation. Equivalent norms preserve the normalized evaluation range. Divergence of expectation alone says nothing about almost-sure divergence or noninterpolation. Read VERIFICATION.md and check.py without executing the uploaded code; the Parseval argument is independently replayable and verifies the constants without numerics.
 
-## Risks and limits
-Divergence of the expected Gram energy does not establish almost-sure divergence or failure of interpolation for smaller \(b\). The result is for one exact radial Poisson model; no generalization of the threshold is asserted. A separate independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior statement or implication supplies the expected Hilbert–Schmidt threshold and exact residue on this radial critical line. Known separation and one-box criteria do not answer the Hilbert-space or Hilbert–Schmidt question. The verdict is relative to the checked evidence, not certification of priority.
+
+## value
+
+PASS
+
+At a previously identified critical Dirichlet exponent, the result gives both the exact integrability boundary and quantitative blow-up of a natural spectral-energy statistic for an established Poisson model. It supplies an independently useful distinction between Hilbert–Schmidt control and weaker separation or one-box estimates, and a concrete sufficient interpolation regime without claiming its optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

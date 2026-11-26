@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:26:11.569789Z",
+  "axes": {
+    "correctness": {
+      "independent_structural_check": "Over Z localized at p, eliminate the invertible degree block: for p≠3 the remaining block, up to units, is the Johnson J(6,2) Laplacian 12I−BBᵗ; for p=3 it is the Johnson J(6,3) Laplacian 12I−BᵗB. Over F₃ the inclusion B has rank 14 by Wilson (diagonal entries 3,2,1 of multiplicities 1,5,9); ker(Bᵗ) is the constant line, which lies in im(B) since the left side has size 15. Thus BᵗB has rank 13. This implies six positive 3-adic valuations after removing the free zero factor. Complement pairs split J(6,3) into symmetric and antisymmetric summands at 3; the symmetric quotient is K₁₀ (one neighbour in each other pair), with no 3-torsion. On the antisymmetric summand the Laplacian eigenvalues are 6 and 12, so L(18I−L)=72I there and all 3-valuations are at most two. Their sum is 10 by the determinant, giving two 3s and four 9s. This cross-check does not rely on substituting n=6 into a formula stated only for n≥7.",
+      "rationale": "Boben–Gévay–Pisanski Lemma 4.5 identifies this incidence configuration with the part of the fourfold/triple hyperplane construction containing one distinguished index. Removing that index leaves exactly containment of a 2-set in a 3-set. I constructed the graph by masks: sets of weights 2 and 3 joined when their XOR has weight 1. The degrees are 4(15),3(20) with 60 edges, and the exact Laplacian characteristic polynomial agrees with the claimed simple zero and all remaining eigenvalues. The exact integer cofactor determinant and Smith form give 377913600000000 and 1(24),2(2),10(2),30(2),180(4), respectively. The dual graph has first Betti number 26; for a connected special fibre with rational components this is the arithmetic genus, and all vertices have valency at least three. For a regular unit-thickness split smoothing, the component intersection matrix is −L and its multidegree quotient in the sum-zero lattice is the geometric Néron component group, as claimed conditionally.",
+      "replay": [
+        "python3 /workspace/audit_recompute.py 4 (python-flint and SymPy)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wilson covers the rectangular inclusion B. The 2310.09227 same-rank Johnson results apply to J(6,2) (Theorem 4.5) and give the 2/5 parts after local Schur reduction, but its exhibited J(n,3) result (Theorem 4.6) requires n≥7 and its general diagonalization theorem (Theorem 3.4) requires n≥3k−1. The 1707.09115 theorem concerns single-rank disjointness, not this bipartite graph."
+        ],
+        "reasoning": "This compares an actual transfer rather than only matrix dimensions. The p=3 Schur presentation is the excluded J(6,3) boundary. The transfer and rank-plus-exponent argument in correctness complete that part; it is not a parameter substitution into either quoted theorem.",
+        "searches": [
+          "arXiv:2310.09227 Definition 1, Theorems 3.4, 4.1, 4.5, 4.6",
+          "arXiv:1707.09115 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.1067 §§2,4",
+        "arXiv:2310.09227 §§3–4",
+        "arXiv:1707.09115 Theorem 4.1",
+        "Resultary df83889b5b24 (self), 7b9b9c94ccc1, bd666500e930"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p≠3 the Schur block is J(6,2), whose n=6 diagonal has nonzero entries 10(4),60(4),2(2),1(4), hence the target 2- and 5-primary parts. At 3 that elimination is illegal: the other block must be used. Wilson's inclusion result gives rank data but not the required exponent bound; the antisymmetric Johnson calculation supplies it. The prior 105-vertex comparison mentioned in the frozen record is uncited and its source was not resolved."
+        ],
+        "reasoning": "The published reductions checked give genuine partial coverage, but not the entire target Smith form without additional integral reasoning. A related Pascal or Reye grouping, or an unverified mention of a 105-vertex graph, does not establish the missing case.",
+        "searches": [
+          "arXiv:2310.09227 Theorem 4.5 (Johnson graph J(6,2)) and Theorem 4.6 (J(n,3))",
+          "Resultary 7b9b9c94ccc1 and bd666500e930 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair/triple containment graph is the same graph as the dual Cayley–Salmon configuration and generalized Reye in BGP's terminology; BGP identifies Potočnik table entry {35,2}. The classical Reye record bd666500e930 instead has 12 points and 16 lines."
+        ],
+        "reasoning": "Duality just exchanges colour classes. The result on the classical 28-vertex Reye graph does not transfer; a generalized quadrangle of the corresponding order would have 28 points and 21 lines, so that proposed alias does not fit either.",
+        "searches": [
+          "arXiv:1301.1067 §2 and §4 Lemma 4.5",
+          "Resultary: Steiner–Plücker / Cayley–Salmon Levi graph / generalized Reye graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "df83889b5b24 is the assigned result itself. The strongest distinct indexed Pascal arithmetic result 7b9b9c94ccc1 concerns a graph on 60 Pascals with 240 edges, not the 35-vertex incidence graph. The Potočnik graph ID {35,2} was read in BGP's report of that table, not the original table."
+        ],
+        "reasoning": "The graph ID shows the graph is catalogued; it does not show its Smith group is catalogued. Neither the self-match nor the distinct Pascal graph establishes exact overlap. The table lookup did not give usable original-table evidence.",
+        "searches": [
+          "Local Resultary search for Steiner–Plücker graph and exact Smith group",
+          "arXiv:1301.1067 PDF p. 14, graph catalogue reference",
+          "Focused literature lookup of Potočnik's locally arc-transitive graph table"
+        ]
+      },
+      "rationale": "The configuration and even its graph catalogue identification are known. The 2- and 5-primary factors are covered by the known Johnson J(6,2) result after a Schur reduction. At 3 the required Schur reduction is instead to J(6,3); the inspected general diagonal-form and k=3 Johnson theorems do not include that boundary parameter, and the Wilson rectangular result alone gives no full Smith group. The surviving statement is the complete integral group (including the additional 3-primary argument), not the geometry or disjoint claims to the two already covered primary parts.",
+      "residual_risks": [
+        "Potočnik's original Table 2 was not directly inspected; the identification is supported by BGP's report. A focused lookup for J(6,3) returned provider unavailability, which is not evidence of absence. The 105-vertex comparison lacks an identified source. An unlocated table or stronger theorem covering the exact boundary could change the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph geometrically; no critical group in the passages inspected",
+          "evidence": "Seven hyperplanes with one fixed index give the point/line containments. The text names the generalized Reye configuration and dual Cayley–Salmon, and reports Potočnik's ID {35,2}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1067",
+          "material_read": "§2, PDF pp. 4–5 (offset 10200); §4 Lemma 4.5 and graph discussion, pp. 12–14 (offsets 29569,33880)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Danzer's configuration revisited",
+          "trigger": "Primary labelled bridge and exact graph table alias"
+        },
+        {
+          "assessment": "Partial coverage via J(6,2); inspected stated ranges do not give the full critical group",
+          "evidence": "The paper credits Wilson for inclusion. Theorem 4.5 includes n=6 for J(n,2). Theorem 4.6 declares n≥7 for J(n,3), and Theorem 3.4 declares n≥3k−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.09227",
+          "material_read": "Definition 1 and introduction (offset 4400); Theorem 3.4 and Corollary 3.7 (offsets 62788,65500); Theorems 4.1, 4.5 and 4.6 (offsets 67450,73150,75970)",
+          "method": "Lawful OA PDF passage inspection and exact local Schur comparison",
+          "title": "Integer diagonal forms for subset intersection relations",
+          "trigger": "Plausible broader coverage by Smith forms of subset incidence and Johnson graphs"
+        },
+        {
+          "assessment": "Not the incidence graph or its local Schur block",
+          "evidence": "The graph uses disjoint pair vertices and at n=6 is 15-vertex, 6-regular; Theorem 4.1 gives those Kneser critical groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.09115",
+          "material_read": "Introduction p. 1, offset 0; Theorem 4.1, p. 13, offset 28052",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The critical group of the Kneser graph on 2-subsets of an n-element set",
+          "trigger": "Plausible related subset graph critical-group theorem"
+        },
+        {
+          "assessment": "Different adjacency and group",
+          "evidence": "It has 60 Pascal-line vertices and 240 edges defined by shared Steiner/Kirkman points, with exponent 5280.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-pascal-line-steiner-kirkman-concu--7b9b9c94ccc1",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Integral critical group of the Pascal-line Steiner–Kirkman concurrence graph",
+          "trigger": "Closest distinct indexed result sharing Steiner geometry"
+        },
+        {
+          "assessment": "Classical Reye, not generalized Reye/Steiner–Plücker",
+          "evidence": "12 point-vertices and 16 line-vertices, with 48 incidences, rather than 20 and 15 with 60.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-integral-component-group-of-the-reye-point-line-incidence-de--bd666500e930",
+          "material_read": "Finding summary returned by the local index",
+          "method": "Local Resultary statement comparison; no assessment beyond the stated configuration",
+          "title": "The integral component group of the Reye point–line incidence degeneration",
+          "trigger": "Catalogue hit for the generalized Reye alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Steiner–Plücker Levi graph and its dual are classical motivated projective configurations. The complete primary decomposition, including the 3-primary part not supplied by the checked J(6,2) corollary, is a reusable exact invariant. It also gives the precise component group for unit-thickness regular split genus-26 smoothings with this dual graph. Neither the geometric classification, the existing partial primary calculation, nor the spectrum alone gives this complete invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

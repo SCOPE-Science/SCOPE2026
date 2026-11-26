@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eigenvalue of the alternating Fourier mode is exactly \(4m^2\), and all resolvent terms commute. The shifted hyperbolic-secant representation follows by direct algebra; its Fourier coefficients follow from the classical Fourier transform of \(\operatorname{sech}\). The exponentially summable Fourier series has alternating coefficients at the two selected phases. The resolvents are strictly positive inverse \(M\)-matrices, yielding strict positivity of all off-diagonal transition entries; a quantified spectral upper bound supplies the diagonal positivity and the conservative CFL margin. A geometric tail bound justifies replacing the finite quadrature by the infinite periodic multiplier. The two explicit integer subsequences generate the required phases. The standalone checker corroborates 98 local identities and finite tests. Risk: numerical constants are approximations of exact infinite series; none is needed as a proof premise.
+PASS
 
-## Originality — PASS, qualified
+Divide the scalar resolvent sum F_m(λ) by √λ; each term becomes (4/π)sech((8ℓ−log λ)/2). The infinite lattice sum is periodic in log λ with period 8. The angular Fourier transform of sech(u/2)/(2π) is sech(πω), by the beta integral with substitution t=e^u, so its periodization has exactly the stated Fourier coefficients. The positive and alternating series give R_+>1>R_->0. All phases and finite truncations are bounded above by C*=1+4/(e^(π²/4)−1)<√2. The resolvent equals the positive Neumann series for an inverse of (2m²+t)I−m²(S+Sᵀ); every pair is linked by a walk, so each resolvent has strictly positive entries. This makes the off-diagonal B_m entries negative. B_m annihilates constants, and its diagonal is bounded by F_m(4m²)≤2mC*<4m by spectral positivity and monotonicity of F_m. This proves strict stochasticity. The CFL uses the nodal diagonal 2m², not the maximal eigenvalue 4m²; F_m(2m²)/(4m)≤(√2/4)C*<1/2 agrees with the cited pure-diffusion restriction. The Nyquist eigenvalue is 4m², and the sinc truncation error there is O(m e^(−4m)); rounding the two mesh sequences preserves limiting phases 0 and 4. Thus m_j^+ gives 0.31588529… and m_j^− gives 0.65514027…, versus the target forward-Euler multiplier 1/2. The printed numerical pair follows the order R_−,R_+, not m_j^+,m_j^−; the displayed equations give the correct correspondence. Inspection of checker.py and a separate bounded calculation of the sums and j=1,…,6 support the constants, not the all-mesh proof. The result is not an inconsistency claim for fixed smooth data or for refined quadrature.
 
-The central representational and consistency ingredients have antecedents. The 2026 Bonito–Guermond–Nazarov paper supplies the sinc and CFL method, and the 2015/2017 Bonito–Pasciak literature establishes exponential quadrature error estimates. The novelty asserted here is narrower: an exact two-subsequence *opposite-bias* spectral limit on a naturally refined periodic lumped finite-element grid while the whole step remains entrywise positive and meets the paper's conservative CFL. Direct comparisons of the inspected main results and sinc-error sections do not show that combination. Separate searches for aliases and Mellin/Poisson equivalents were conducted; an earlier unindexed exact treatment of the same periodic multiplier remains a priority risk. The use of Poisson summation alone is not claimed as novel.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by the practical distinction between monotonicity and high-frequency spectral fidelity in positive fractional diffusion solvers. It exposes a precise log-spacing obstruction with two computable signed constants, while preserving positivity, mass conservation and the explicit sufficient CFL. The sharp negative result identifies why a mesh-independent logarithmic spacing cannot be justified by monotonicity alone. The example is not asserted to characterize typical convergent quadrature choices: its intentionally fixed \(k=8\) makes the effect substantial.
+The resolvent scheme, sufficient maximum-principle restriction and general sinc accuracy estimates are prior work. The distinct assertion is the witness within that restriction: one fixed-spacing positive periodic discretization with explicit meshes converging to opposite Nyquist damping biases. The closest checked aliasing records analyze other operators or sampling mechanisms.
 
-## Closest literature and limitations
+## value
 
-Bonito–Guermond–Nazarov, arXiv:2611.20833v1, Sections 2.2–2.3 and 3.3–3.4; Bonito–Lei–Pasciak, arXiv:1709.06619, Section 3; Bonito–Pasciak, arXiv:1508.05869, Section 7. Their error bounds inform the need to refine the quadrature spacing but do not establish the two explicit CFL-admissible subsequence constants. The theorem is for one-dimensional periodic lumped linear elements, pure diffusion, fixed log spacing and the Nyquist mode. It is not an adverse claim about the appropriately refined high-order scheme.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This supplies a useful numerical benchmark with a clear distinction: a strict maximum principle and mass conservation can coexist with a mesh-persistent high-frequency accuracy defect of either sign. The standard periodic linear-element setting and explicit signed damping constants permit a direct test of a positivity-preserving discretization. It is not a claim against methods that refine their quadrature spacing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

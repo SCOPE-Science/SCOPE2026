@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proposed clock and clipping rule uniquely specify a normalized causal kernel. Its exact finite-dimensional memory embedding follows by convolution differentiation and yields the stated eigenvalues. Weighted dissipativity proves strict stability; a sharp discriminant inequality proves the global rate ceiling and its complete equality case. Noncancellation of the dominant coherence mode and an exact matched-rate modulus derivative prove the actual observable rate, the exceptional-point signal, and CP-divisibility. The embedded `verify.py` passed 270 RK4-to-exact comparisons plus spectral, monotonicity and EP checks. Numerical tests are supporting regressions, not infinite proofs.
+## correctness
 
-## Originality (PASS, qualified)
-The closest primary source [1] analyzes uniform sampling of all previous times, in which coherence decays algebraically, and explicitly leaves nonuniform kernels open. The classical general-kernel source [2] does not imply quantum Bohr-frequency decay and the CP-divisibility theorem. The more recent non-Markovian exceptional-point source [3] treats colored Gaussian quantum baths, not reset-to-past trajectories; its readout considerations are explicitly addressed by the noncancellation proof. Targeted mathematical index comparisons cover power-biased quantum history kernels, uniformly history-reset qubits, and an exponential-memory dichotomous bath. None of the inspected statements implies the clipped exponential-age qubit's sharp, globally rate-optimal dephasing ceiling and no-backflow exceptional point. A generic unindexed 2x2 memory-embedding result might nevertheless subsume part of the claim; publication priority requires independent checking.
+PASS
 
-## Value (PASS)
-The object is a natural, normalized finite-memory alternative to the recently studied uniformly history-reset qubit. The sharp equality locus furnishes a physically interpretable optimal matching principle rather than only a formula. The exceptional point proves that defective relaxation modes need not cause distinguishability revivals, separating two often conflated temporal signatures. The restriction to clipped exponential sampling and one qubit is material and explicitly disclosed.
+Conditioning on a fresh independent reset mark gives the normalized average M=e^(−γt)ρ₀+γ∫₀ᵗexp(−γ(t−s))ρ(s)ds; the initial atom is indispensable. Differentiating closes the averaged dynamics, with coherence vector initially (1,1) and derivatives (−iω,0). The characteristic discriminant is the stated Δ. Any single-mode f would force −iω as an eigenvalue, excluded by det(A+iωI)=−irω, so the mode with strictly larger real part cannot cancel. At matched rates above the critical gap the modulus after removing e^(−rt) is strictly positive and periodic (its imaginary sine term and real cosine cannot vanish together); at equality it is the modulus of a nonvanishing linear polynomial times the exponential. These give the full log limit, not merely an envelope. The positive quadratic γ|f|²+r|h|² has derivative −2rγ|f−h|², and f=h is not an eigenline for ω≠0, giving strict spectral stability. For γ<r the trace bound is strict; for d=γ−r>0, |Δ|²−(2d²−Re Δ)²=16rγd²>0 forces Re √Δ>d. At γ=r the bound is saturated exactly for |ω|≥2r. At the critical gap the nonzero off-diagonal of the repeated-root matrix guarantees a nontrivial Jordan block and the initial state gives a nonzero linear term in the observed coherence. Direct differentiation yields the stated nonpositive derivative, with only isolated zeros in the oscillatory regime and the negative critical limit for t>0. All matched-rate f are nonzero for finite times, so f(t)/f(s) defines a CPTP dephasing map; trace-distance monotonicity follows also by shrinking transverse differences while leaving diagonal differences fixed. Independently compared 21 high-precision matrix-series evaluations and checked matched-rate monotonicity there: python3 /workspace/reproductions/check_frozen_math.py 1. No uploaded checker executed.
 
-## Boundaries and literature
-Arbitrary Hamiltonians with many different gaps, renormalized truncated exponential kernels, and nonexponential memory are not covered. Related literature is itemized in RESULT.md and originality comparisons in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the sharp age-rate ceiling with unique equality locus at fixed forward reset rate, proved for the clipped preferential-return protocol, together with the characterization at saturation. Do not assign independent novelty to diagonalizing a two-state fluctuator, to its coalescence, or to re-expressing its scalar coherence. The exact telegraph alias is material: it can give the same channel conclusions in a rotating frame, but an initialized scalar solution or a result at symmetric switching does not itself assert the sharp optimization over the other switching rate. No verified earlier statement of that optimization was located. The primary telegraph literature comparison remains access-limited.
+
+## value
+
+PASS
+
+The age scale is a tunable parameter of a normalized memory-reset protocol. The sharp ceiling and its unique maximal-gap tuning give a concrete limit on how much changing that scale can accelerate coherence decay. The matched-rate channel shows that visible Jordan behavior and saturation of the long-time exponent do not require trace-distance revivals. The motivation is the exact reset rate/age rate tradeoff, not a new name for two-state coalescence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

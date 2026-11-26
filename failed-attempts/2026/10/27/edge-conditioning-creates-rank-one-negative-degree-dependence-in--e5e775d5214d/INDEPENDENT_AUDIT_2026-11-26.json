@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:54.701387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted Laplacian cofactor Schur complement gives the product degree enumerator. The unit-current equations give R_uv=1/(x_uY)+1/(y_vX)-1/(XY); multiplying by x_u y_v and the total degree polynomial splits the weighted tree sum by membership. After shifting the degrees by one and normalizing the two positive event masses, both PGFs and the three-atom coupling follow, valid also when either binomial has zero trials. Conditional on the atoms U,V, the independent binomial noises eliminate conditional cross-covariance and the two conditional means are affine in U and V. Their slopes are the asserted expected differences; Cov(U,V)=-(a-1)(b-1)/(a+b-1)^2. Every increment has positive binomial weight, proving strict sign for nonconstant nondecreasing functions on the full support. For a=b=r the binomial variance tends to 1, the binary increment variance to 1/4, and the covariance to -1/4, giving correlation -1/5. Independent bounded replay (python3 /workspace/branches/reproduction/tree.py) separately computes full and deleted weighted Laplacian cofactors by fraction-free elimination and verifies both normalized PGFs at 64 rational evaluations; the exact algebra, not finite testing, proves the laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferrers Theorem 2.1, original arXiv HTML offsets 3950–7536, gives the weighted sum with exact vertex-degree exponents and both row and column factors. Proposition 2.2 there also gives the weight ratio after adding a missing Ferrers corner.",
+          "Dong–Ge's forest-containment counts reconstruct generating expansions indirectly; Rapoport explicitly inserts edge-presence or absence observables for joint endpoint degrees; Sanmartín et al. give moments and a one-vertex degree polynomial."
+        ],
+        "reasoning": "The generic forest and transfer-current formulas do not print the three-atom factorization. Unlike a generic numerical recipe, the Ferrers theorem gives the same factored degree polynomials directly by substituting the complete or corner-deleted row and column lengths.",
+        "searches": [
+          "Ehrenborg van Willigenburg Enumerative properties of Ferrers graphs weighted spanning tree degree generating function theorem arXiv",
+          "Dong–Ge arXiv:2103.05294 Theorem 4 Eq. (1)",
+          "Rapoport arXiv:2312.14992 §4 neighboring vertices",
+          "Sanmartín–Schnörr–Hamprecht arXiv:2409.13472v2 Theorem 4.1 and Remark 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_edge_degree.py",
+        "DOI:10.1007/s00454-004-1135-1 / arXiv:0706.2918v1 §2",
+        "Resultary 67820a932340",
+        "arXiv:2103.05294",
+        "arXiv:2312.14992",
+        "arXiv:2409.13472v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using X=a-1+s and Y=b-1+t, the Ferrers degree-marked sums for the full and deleted graphs are st X^(b-1)Y^(a-1) and st X^(b-2)Y^(a-2)(a-1)(b-1), respectively. Their difference factors as st X^(b-2)Y^(a-2)[(b-1)s+(a-1)t+st]. Division by st and each mass at s=t=1 gives the precise conditional PGFs.",
+          "The same full polynomial and the earlier distance-one law also give the deletion factor by subtracting the unnormalized present law. Nonlinear covariance needs only affine conditional means of tests of a binomial plus a binary increment. The limits then reduce to elementary Bernoulli and binomial moments."
+        ],
+        "reasoning": "All claimed structural consequences mechanically follow from the prior factored polynomials. The change from distance-one law to membership and the change from degree PGF to an independent-summand description introduce no new mathematical remainder that could be accepted as a repair.",
+        "searches": [
+          "arXiv:0706.2918v1 Theorem 2.1, weighted degree formula",
+          "Resultary 67820a932340, dimensionless centered conditional PGF and distance law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For opposite marked vertices in a tree, the designated cross-edge is present if and only if their distance is 1.",
+          "A spanning tree conditioned to omit e is uniform on trees of K_{a,b} minus e. Ordering the marked vertices last gives a Ferrers diagram with precisely the final corner missing; K_{a,b} itself gives the entire rectangle."
+        ],
+        "reasoning": "These equivalences preserve the same degree markers and uniform law, not merely the event count. In the weighted sums, full minus deleted counts exactly the edge-present trees.",
+        "searches": [
+          "Resultary 67820a932340 RESULT.md Finding (distance-conditioned PGF)",
+          "Ehrenborg–van Willigenburg arXiv:0706.2918v1 §2 Theorem 2.1 and Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue record 67820a932340 (2026/10/26 UTC catalogue path), original offsets 0–3992, gives the complete PGF at every attainable odd distance and the probability of each distance. At index t=1 its centered factor becomes 1+(ab/(a+b-1))(h+k+hk), h=(z-1)/a and k=(w-1)/b, which equals [(b-1)z+(a-1)w+zw]/(a+b-1). The same record gives the exact conditional linear covariance at this distance."
+        ],
+        "reasoning": "The matching object is an all-parameter law in the catalogue, not an isolated numerical table. Its edge-present specialization is exactly the claimed factored PGF; the complementary mixture is also specified by the earlier law.",
+        "searches": [
+          "Resultary search for path- or edge-conditioned endpoint degree laws in complete bipartite uniform spanning trees",
+          "Read 2026/10/26/SCOPE-two-endpoint-degree-dependence-along-conditioned-paths-in-bipart--67820a932340/RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The complete edge-present degree law is an exact distance-one specialization of the earlier Resultary path-conditioned law. Both factored edge-condition laws also follow immediately from the 2004 weighted Ferrers tree enumerator applied to the complete rectangle and the same rectangle with its final corner removed. Reading the three coefficients of the residual binary PGF gives the coupling, and conditional covariance with independent noises and binary increments gives the nonlinear rank-one identity by an affine two-point calculation. The failure is demonstrated prior coverage and direct implication, not incorrectness or an inaccessible-paper concern.",
+      "residual_risks": [
+        "The explicitly worded rank-one covariance may not have been printed in these earlier sources; the demonstrated implication, not a claim about first use of the wording, is decisive.",
+        "Additional antecedents are possible and immaterial to this rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general theorem covers both weight enumerators by substitution; journal publication in 2004",
+          "evidence": [
+            "Offsets 3950–7536: definition of σ(T) as a product of degree powers; Σ(G) is the common vertex monomial times the row/column partial sums; adding an allowed corner changes exactly the two corresponding factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0706.2918v1 (journal DOI:10.1007/s00454-004-1135-1)",
+          "material_read": "§2 degree-monomial definition, Theorem 2.1 and Proposition 2.2",
+          "method": "Focused literature lookup, literal theorem location and bounded original HTML reading",
+          "title": "Enumerative properties of Ferrers graphs",
+          "trigger": "Deleting a marked cross-edge gives a corner-deleted Ferrers diagram"
+        },
+        {
+          "assessment": "Directly covers the edge-present PGF and scalar covariance as t=1, and specifies the complementary mixture",
+          "evidence": [
+            "RESULT.md offsets 0–3992: exact mass at each odd distance, PGFs and scalar covariance, same host and degree conventions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-endpoint-degree-dependence-along-conditioned-paths-in-bipart--67820a932340/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of proof",
+          "method": "Configured catalogue search followed by original local-mirror passage inspection",
+          "title": "Conditional endpoint-degree dependence along paths in bipartite uniform spanning trees",
+          "trigger": "Same uniform bipartite host, marked opposite vertices, exact conditional PGF"
+        },
+        {
+          "assessment": "General unweighted forest counts, indirect exact route to degree laws",
+          "evidence": [
+            "P. 2, Eq. (1), offset 5200: containment count in terms of part sizes in forest components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.05294",
+          "material_read": "Introduction and Theorem 4",
+          "method": "Bounded original OA PDF comparison",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Same graph and edge-containment counting"
+        },
+        {
+          "assessment": "General exact joint probability machinery, not the explicit bipartite factorization in inspected passages",
+          "evidence": [
+            "P. 9 Eq. (3.6) concerns non-neighboring degrees; p. 12, offsets 40500–43000, adds edge membership and absence indicators to handle neighbors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.14992",
+          "material_read": "Theorem 3.7 and §4 neighboring-vertex passage",
+          "method": "Bounded original OA PDF comparison",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "General constrained joint degree laws"
+        },
+        {
+          "assessment": "Covers general moments and a one-vertex degree law, not the target two-condition factorization as a statement",
+          "evidence": [
+            "Pp. 9–12, offsets 32000 and 41200: degree moments and single-degree determinant coefficients; p. 18, offset 62000: moments of unconditioned edge-additive observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.13472v2",
+          "material_read": "Theorem 4.1, Remark 4.2 and Appendix B",
+          "method": "Bounded original OA PDF comparison",
+          "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+          "trigger": "General degree distributions and covariance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditional independence switch and nonzero limiting conditional correlation are interpretable, but the claimed precise invariant is already determined by the earlier weighted Ferrers formulas and path law. The binary coupling, arbitrary-function covariance and balanced limit add routine coefficient and moment calculations, not a distinct structural lemma, boundary or useful new invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

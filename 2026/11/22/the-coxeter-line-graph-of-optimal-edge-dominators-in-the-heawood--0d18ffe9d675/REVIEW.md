@@ -1,15 +1,21 @@
-# Scientific review of the Heawood edge-domination census and exchange geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fano incidence-free obstruction proves that no four edges dominate. Two unused points determine precisely two unused lines, forcing each five-edge optimum to be a matching. An explicit residual matching argument gives exactly two completions per unused point pair, hence \(42\) optima. The complete inclusion-minimal and maximal-matching polynomials are certified by exact exhaustive mask recurrences over all \(2^{21}\) flag subsets, with independent binary-vector and cyclic Fano formulations. The \(28\)-triangle exchange quotient, its explicit permutation onto the standard Coxeter graph, and all \(28^2\) adjacency checks establish the line-graph isomorphism. All three standalone verifier programs ran successfully from the supplied files. Limits: this proves only the named finite graph, not a general incidence-graph formula.
+PASS
 
-## Originality — PASS, provisional
+In RESULT.md lines 34–40, the unused points and unused lines of an edge dominator must be incidence-free. Three points meet at least six lines, which rules out size at most four and forces exactly two unused vertices per shore at size five. Thus each optimum is a matching. An unused point pair determines the unused lines, and the remaining induced graph has a forced edge followed by an eight-cycle for the displayed binary pair; transitivity gives 21 times 2 optima. I inspected the census and quotient logic in RESULT.md and the frozen support. An independent exhaustive run over 2^21 subsets confirmed all 17 all-dominator coefficients, the inclusion-minimal polynomial 42z^5+1246z^6+24z^7, and the maximal-matching polynomial 42z^5+168z^6+24z^7. The 28 exchange triangles each contribute a vertex of the quotient, and every original state yields an edge between its two containing triangles; the pairwise check verifies that the edges meet exactly for exchange-adjacent states. An independent isomorphism search checked every pair against the Fano disjointness graph, without assuming the displayed permutation. No one-edge replacement occurs; all roots have shells (1,4,8,16,12,1). The supplied programs were inspected, not executed.
 
-The full accessible text of Spiro–Adriaensen–Mattheus, *Incidence-free sets and edge domination in incidence graphs* (arXiv:2211.14339; first public 2022-11-25), motivates the invariant and provides a general incidence-free interpretation but not these inclusion-minimal coefficients or exchange geometry. The previously known Coxeter–Heawood six-cycle disjointness construction (Dejter, arXiv:1002.1960) is credited and not presented as novel. In the closest published scientific records, a Möbius–Kantor result concerns another host, while a Heawood result concerns maximum *induced* three-edge matchings rather than minimum *maximal ordinary* five-edge matchings; both full scientific claims were inspected. Literal and semantic searches for minimum maximal matchings, Fano flags, full edge-domination enumerators, and Coxeter exchange graphs found no implication covering this exact combined theorem. The main residual risk is an earlier unindexed table or an implicit matching/hexagon bijection in older literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is more than a scalar minimum: it determines every inclusion-minimal cardinality and count on a canonical highly symmetric graph, distinguishes maximal matchings from inclusion-minimal nonmatching dominators, and gives a structural Coxeter line-graph identification of the entire optimal solution space. The sharp two-edge mobility threshold and uniform distance spectrum are natural questions in combinatorial reconfiguration. The fixed finite nature is explicit and not used to assert an infinite family.
+Pass the supported distinct contribution: the full labelled dominance censuses and the exact two-edge exchange identification, not the existing Coxeter model, the standard edge-domination reduction, or the numerical minimum as a standalone claim. The strongest related comparisons do not give both the optimizer family and this adjacency rule; access limitations qualify this judgment.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This resolves a natural optimizer-mobility question on the smallest projective-plane incidence graph: no single-edge exchange is possible, while two suffice and have a classical quotient geometry. The labelled minimal census independently separates optimal matchings from a large class of nonmatching minimal guards; these exact facts are useful benchmarks for incidence-graph domination and reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

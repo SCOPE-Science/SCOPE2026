@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:41:12.614414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finding retains the all-m≥4 cutoff. For t=m−2, u=b−a=tn+1 and e=c−a=2u+t, gcd(u,e)=1 proves the triple gcd is one. Substituting the generators into the two polynomial identities gives adjacent pair gcds dividing t−1 and endpoint gcd dividing M=m(3m−8). For t,n≥2 verify a≥tn²/4 and e≤3tn. The strict cutoff gives e/a<1/M and e>M, so a<b<c<2a and all three are minimal. Symmetric gluing would give dr=xp+yq, with d≤M and x,y≥0. The bounds d/(1+e/a)≤x+y≤d(1+e/a) force the integer x+y=d. Thus r lies between the other two generators, so r=b; subtracting da yields du=ye, contrary to e dividing d and e>M. The known three-generator equivalence then excludes complete intersection and cyclotomicity. No conclusion is inferred at or below the cutoff. The frozen triangular formulas are correct, but now presented as known boundary context. The frozen checker was inspected, not executed: it performs 690 outer-loop evaluations, not 930, and 152 nontriangular Apéry evaluations, not 160; none reaches the guarded nonsymmetry assertion. The replacement verification notes and script remove those claims. An independent arithmetic calculation checked all 644 sampled nontriangular triples specified in the replacement; an independent shortest-path calculation in the residue graph modulo a gave (F,g)=(17990103,9011712) and (14677843,7343724) for m=4 at n=193,194. Replay with edges adding b and c and use F=max(Apéry)−a, g=Σ_r(Apéry[r]−r)/a. Both examples violate 2g=F+1. The replacement Python script is a replay path, not a claimed Python execution; bounded checks only corroborate the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hashuga–Herbine–Jensen treat y_j=ja+binom(j,2)b with all j≥0 included as generators; the conclusion leaves finite generator sets for future work. Ordinary polygonal sequences correspond to a=1,b=m−2, but the full sequence then even contains 1.",
+          "Ciolan–García-Sánchez–Moree provide the general three-generator gluing structure and equivalence of symmetry, complete intersection and cyclotomicity; not a bound on polygonal triples."
+        ],
+        "reasoning": "Neither membership of a triple in the list of terms of an infinite sequence nor the general gluing theorem bounds the gluing obstruction over the variable-side family without the pair-gcd and near-equal-generator estimates.",
+        "searches": [
+          "Primary literature search for all-m ordinary polygonal triples or broader consecutive quadratic-polynomial symmetry classifications",
+          "arXiv:2009.01981 §§3–4 and conclusion",
+          "arXiv:1409.5614 Lemma 7 and §5.1 Example 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1706.04378v2, 2206.13054v2, 2009.01981, 1409.5614, 1608.08693",
+        "Resultary e2d53bad3bc7, dc407cdf1d83, 5449523f59ed, 9e42d6f17cf0 and 9f277eab5c15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2018 Frobenius expression floor(n/2)(T_n+T_{n+1}+T_{n+2}−1)−1 reduces by n=2k or n=2k+1 to the two frozen expressions; telescopic/free implies symmetry and hence the genus identity. Thus even the unstated genus corollary is covered.",
+          "The uniform cutoff is obtained by an n-independent pair gcd bound and squeezing the total gluing multiplicity. Fixed-m classifications do not control these quantities over all m, and a full-sequence semigroup has a different generating set."
+        ],
+        "reasoning": "The repair removes the known triangular conclusions from the contribution and acknowledges stronger results on individual slices. It preserves the all-m≥4 cutoff rather than passing the frozen statement as wholly distinct.",
+        "searches": [
+          "arXiv:1706.04378v2 Propositions 5–6 and §4",
+          "arXiv:2009.01981 §3 and conclusion",
+          "Resultary e2d53bad3bc7 and dc407cdf1d83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For m=3 the variable j gives the same triangular numbers as Robles-Pérez–Rosales, whose telescopic and parity-specific Frobenius formulas yield precisely the frozen triangular claims.",
+          "The consecutive squares in Fel are exactly the m=4 slice after shifting from the center index to the first index. Centered odd-gonal record 9f277eab5c15 instead uses 1+m j(j−1)/2; it is not equivalent to the ordinary polygonal generators, and additive shifts do not preserve the generated semigroup."
+        ],
+        "reasoning": "Credit equivalence after reindexing and standard symmetry implications on the actual same generators. The repaired statement claims neither a new triangular result nor a new square-slice theorem.",
+        "searches": [
+          "Resultary semantic lookup on ordinary polygonal consecutive triples and symmetry",
+          "arXiv:1706.04378v2 Propositions 5–6",
+          "arXiv:1608.08693 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed pentagonal exceptions are n=2,3,5,40 and hexagonal exceptions n=2,3,6,7,8,18. These are stronger than the repaired cutoff on those slices. Komatsu's p=0 formula is already exact on the triangular slice. The OEIS entry could not be inspected on this attempt."
+        ],
+        "reasoning": "These are real fixed-slice coverage, not a variable-m table or a uniform theorem. The failed OEIS retrieval carries no evidence of absence.",
+        "searches": [
+          "Resultary ordinary pentagonal e2d53bad3bc7 and hexagonal dc407cdf1d83, related repeat records 5449523f59ed and 9e42d6f17cf0",
+          "OEIS A069758 consecutive hexagonal Frobenius numbers, attempted full entry",
+          "arXiv:2206.13054v2 Theorem 1 at p=0"
+        ]
+      },
+      "rationale": "Pass for the repaired finding only: explicitly credit the earlier triangular telescopic classification and exact Frobenius formulas, and stronger fixed-side classifications. The scientifically distinct remainder is the explicit uniform finite cutoff for all ordinary m≥4 with minimality and nonsymmetry above it. No inspected source has a statement covering that variable-side conclusion; the strongest quadratic-sequence result uses infinitely many terms, not a window of three.",
+      "residual_risks": [
+        "Bounded search for all-m or broader finite quadratic-triple results; no inference of global priority. OEIS A069758 could not be retrieved for direct inspection; the exact hexagonal classification was checked separately. No sharpness claim survives or is needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full triangular boundary even with the low-index nonminimal case",
+          "evidence": [
+            "Consecutive triangular triples are telescopic; the Frobenius formulas and telescopic implication give the frozen F and g."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.04378v2; DOI 10.1016/j.jnt.2017.10.014",
+          "material_read": "Propositions 5–6 pp. 4–5 and §4 pp. 9–10",
+          "method": "OA author PDF passages",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "Exact triangular formulas and symmetry might be covered"
+        },
+        {
+          "assessment": "Reproduces the ordinary formulas at p=0 and credits the 2018 source",
+          "evidence": [
+            "Komatsu's g(A) denotes Frobenius number, not genus; p=0 gives the existing ordinary Frobenius result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.13054v2",
+          "material_read": "Abstract and pp. 2, 5–6, Theorem 1; bibliography [14] p. 26",
+          "method": "OA PDF passages",
+          "title": "Numerical semigroups generated by three consecutive triangular numbers",
+          "trigger": "Cited triangular setting may contain the exact boundary formulas"
+        },
+        {
+          "assessment": "Infinite-generator sequence result, not a three-consecutive-values classification",
+          "evidence": [
+            "The semigroup is generated by the entire sequence starting at 0; finite sets of generators are left for future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.01981",
+          "material_read": "Abstract, §§3–4 pp. 3–4 and conclusion p. 35",
+          "method": "OA PDF passages",
+          "title": "Numerical Semigroups Generated by Quadratic Sequences",
+          "trigger": "Potential broader quadratic theorem covering polygonal triples"
+        },
+        {
+          "assessment": "Supplies standard structural tools, not the family cutoff",
+          "evidence": [
+            "Symmetry, complete intersection and cyclotomicity are equivalent in embedding dimension at most three; Example 6 gives the symmetric gluing structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.5614",
+          "material_read": "Lemma 7 p. 6, §5.1 Example 6 p. 8",
+          "method": "OA PDF passages",
+          "title": "Cyclotomic Numerical Semigroups",
+          "trigger": "General gluing and equivalence hypotheses used in the proof"
+        },
+        {
+          "assessment": "Exact square slice, not ordinary polygonal triples for variable m",
+          "evidence": [
+            "Square symmetry is restricted to center indices 3,4,5; the other cases concern powers three and four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.08693",
+          "material_read": "§1 pp. 1–2, OA text offset near 5100",
+          "method": "OA PDF passages",
+          "title": "Numerical semigroups generated by squares, cubes and quartics of three consecutive integers",
+          "trigger": "Exact polynomial-triple symmetry classifications"
+        },
+        {
+          "assessment": "Stronger exact m=5 slice",
+          "evidence": [
+            "Symmetric precisely at 2,3,5,40."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12, e2d53bad3bc7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete symmetry classification for consecutive pentagonal triples",
+          "trigger": "Dominating cutoff on an overlapping side count"
+        },
+        {
+          "assessment": "Stronger exact m=6 slice",
+          "evidence": [
+            "Symmetric precisely at 2,3,6,7,8,18."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12, dc407cdf1d83",
+          "material_read": "RESULT.md Finding, offset 292",
+          "method": "Local mirror",
+          "title": "Exactly six symmetric semigroups from consecutive hexagonal triples",
+          "trigger": "Dominating cutoff on an overlapping side count"
+        },
+        {
+          "assessment": "Different family despite similar side-count and symmetry statements",
+          "evidence": [
+            "Uses 1+m j(j−1)/2 rather than the ordinary polygonal generators."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 9f277eab5c15",
+          "material_read": "RESULT.md Finding and centered-generator definition",
+          "method": "Local mirror",
+          "title": "Symmetric semigroups of three consecutive centered odd-gonal numbers",
+          "trigger": "All-odd-m competing polygonal criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform explicit upper bound reduces an unbounded start-index question to a finite search for every nontriangular ordinary polygonal family, even when no fixed-m classification is known. The combination of bounded pair gcd and narrow generator spread explains structurally why a symmetric gluing becomes impossible. This is useful independently of the known triangular case, and is not presented as an improvement over the exact known low-side slices or as an optimal cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

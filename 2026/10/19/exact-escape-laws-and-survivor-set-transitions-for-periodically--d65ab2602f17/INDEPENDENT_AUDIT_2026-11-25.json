@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:18:53.916361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89; VERIFICATION.md; inspected verify.py lines 9–91 (not executed). Independent symbolic derivation given above."
+      ],
+      "rationale": "Away from dyadics, reflect every odd iterate to fold the phased restrictions to E=(h,1) for F(x)=(-2x) mod 1. This preserves the initial coordinate, changes finite measures on no positive-measure set, and loses no infinite survivors: every original dyadic orbit hits 0 at an even time, and every dyadic orbit of the folded map with this mod-1 convention hits 0. The upper inverse branch g(t)=1-t/2 maps all of E back to E for h≤1/2. The lower inverse branch b(t)=(1-t)/2 returns to E precisely on I=(h,1-2h) when h<1/3 and nowhere otherwise. In the two-branch regime b(I)⊆I and g(E) is disjoint from I. If m_n is the measure surviving n observations and i_n the part in I, then m_{n+1}=(m_n+i_n)/2 and i_{n+1}=i_n/2, with m_1=1-h and i_1=1-3h. This yields the linear factor. The 2×2 recurrence and its square have a genuine Jordan block; equivalently the frozen pair map’s open transfer operator on functions constant on each of L_h,R_h has matrix [[1,2],[0,1]]/4. For 1/3≤h≤1/2 only g survives and each step halves length. For 1/2<h<2/3, g is admissible exactly on (h,2-2h) and maps this interval into itself, giving length (2-3h)/2 after two observations and a factor 1/2 for each later one. For h≥2/3 strict exclusions leave no admissible point for the second observation. In the low regime, an infinite survivor visiting the lower branch must thereafter stay in I (the image of I has upper endpoint 1-2h), which by contraction of b forces the fixed point 1/3 upon entry. Its only surviving upper prehistories are g^m(1/3)=2/3+(-1)^(m+1)/(3·2^m); the forever-upper orbit is the fixed point 2/3. This latter point is the unique survivor from h=1/3 through h<2/3. The formula is continuous at 1/3, 1/2 and 2/3, and its nonzero asymptotic rates are log 2. Two minor proof-text corrections do not change the finding: x=1/2 passes the first pair when h<1/2 (but never survives infinitely), and the Step 2 power describes the intersection over all intermediate pair constraints, not merely the intersection of initial and kth pair constraints.",
+      "residual_risks": [
+        "Endpoint conventions matter for individual finite orbit membership. Do not identify pointwise survivors with a reflected map that fixes an adjoined endpoint at 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Livorati boundary formulas allow midpoint 1/2, mean width h, oscillation amplitude (1-h)/2, in-phase motions and period two, choosing the first hole to be left. This is precisely the protocol up to endpoint conventions; inspected analyses give escape-rate methods and numerical values, not the evaluated finite-time law.",
+          "Glendinning–Sidorov and Sidorov concern static single holes in the positive-slope map. The negative-map inspection identifies symbolic and entropy/dimension results for interior straddling holes."
+        ],
+        "reasoning": "Inclusion in a model class or a generic computational method does not by itself evaluate the parameter-dependent finite-time and orbit phase diagram. The fixed positive-slope interval problem is not the folded model.",
+        "searches": [
+          "Livorati et al. arXiv:1312.7030 pp. 1–4 Eq. (5)–(6) and Ulam analysis; arXiv:1302.2486 and arXiv:1204.1920 abstracts; Ding–Steiner–Sun arXiv:2610.03327v1 Sec. 4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons above",
+        "arXiv:1312.7030",
+        "arXiv:2610.03327v1",
+        "arXiv:1302.2486 and 1204.1920 abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parameter substitution in Livorati recovers the model, not the branch counts or Jordan coefficient. Ding–Steiner–Sun’s stated survivor-space family excludes a hole with one endpoint 0 and reports different target quantities. The later quarter-hole match gives no dependence on h."
+        ],
+        "reasoning": "An evaluated recurrence with a changing number of admissible inverse branches and a complete orbit classification is required. The inspected prior statements do not yield these by substituting the oscillation parameters or by merely reflecting the map.",
+        "searches": [
+          "Compare Livorati et al. Eqs. (5)–(6) and Ulam sections, Ding–Steiner–Sun Sec. 4, and the two Resultary Findings with frozen S_n and K_h"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflecting every other iterate gives the static endpoint-hole formulation for the negative doubling map away from dyadic boundary orbits. The same infinite survivors hold for the mod-1 version that fixes 0, after explicitly excluding dyadics in both models.",
+          "Ding–Steiner–Sun study the negative doubling map with 0<a≤1/2≤b<1 and open hole (a,b); a=0 endpoint holes, especially h<1/2, are outside their stated family."
+        ],
+        "reasoning": "The stationary problem on the negative-slope map is an actual equivalent finite-measure formulation; one must inspect the prior hole range and cannot equate the separate interior-hole diagram with the asserted one.",
+        "searches": [
+          "Local Resultary and literature lookup for reflected/negative doubling with endpoint holes, alternating endpoint holes and exact transients; arXiv:2610.03327v1 abstract and Sec. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd gives (n+2)/2^(n+1) and a countable survivor for alternating quarter holes with a half-open left convention. This exactly equals the frozen h=1/4 measure law. The one endpoint convention changes only whether dyadics can pass individual checks, not the infinite set in this case, because those orbits eventually hit the even-time hole.",
+          "Resultary 2026/10/26 SCOPE-exact-escape-time-phase-transition-for-symmetric-negative-doubli--ca3ad35b54de has an exact linear-prefactor transition for a central symmetric hole, not an endpoint hole. Both records are later-dated and neither supplies the full frozen parameter diagram."
+        ],
+        "reasoning": "Record the exact quarter-endpoint overlap, not just a vague similarity; it is one parameter and not evidence of an earlier source for the entire family. The other law concerns a different hole and measure domain.",
+        "searches": [
+          "Local Resultary search for alternating-holes all-time escape laws, countable survivor phase and negative-doubling polynomial prefactor; closest records’ Findings inspected"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact finite-time and endpoint-sensitive infinite-time phase diagram for the entire h range. The alternating protocol is a boundary-touching special case of a preexisting oscillating-hole model; the model itself is not new. Folding to a negative doubling map reveals a close negative-map literature, but the inspected primary results concern interior holes crossing the discontinuity, not this stationary endpoint-hole problem. Neither comparison supplies the statement or a direct evaluation of its measures and survivor sets.",
+      "residual_risks": [
+        "An unlocated analysis phrased directly as a stationary endpoint hole for negative doubling could overlap; the inspected sources do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and escape-rate methodology; no exact all-time diagram in the inspected passages",
+          "evidence": [
+            "In-phase boundary oscillation preserves width. Period-two motion at the boundary-touching amplitude gives both prescribed endpoint intervals up to endpoint conventions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.7030",
+          "material_read": "Abstract p. 1; p. 2 Eqs. (5)–(6); Ulam and escape-rate passages pp. 3–4",
+          "method": "Targeted lawful OA primary-text inspection",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same map and oscillating-hole family encompassing the protocol"
+        },
+        {
+          "assessment": "Same underlying folded map, but different hole assumptions and stated outputs",
+          "evidence": [
+            "0<a≤1/2≤b<1; symbolic survivor-space and dimension/entropy results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03327",
+          "material_read": "v1 abstract p. 1 and Sec. 4 p. 23 including hole range and endpoint conventions",
+          "method": "Targeted lawful OA primary-text inspection",
+          "title": "Ding–Steiner–Sun study of the negative doubling map with a hole",
+          "trigger": "Negative-doubling equivalence of the folded model"
+        },
+        {
+          "assessment": "Different static positive-slope problem, not a full-text exclusion of all internal overlap",
+          "evidence": [
+            "Avoidance of a fixed interior interval in the positive doubling map."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.2486 and https://arxiv.org/abs/1204.1920",
+          "material_read": "Both abstracts p. 1, particularly the static-hole and survivor definitions",
+          "method": "Targeted lawful OA inspection",
+          "title": "The doubling map with asymmetrical holes; Supercritical holes for the doubling map",
+          "trigger": "Possible correspondence to a known static-hole phase diagram"
+        },
+        {
+          "assessment": "Later exact one-parameter overlap, not a full-family antecedent",
+          "evidence": [
+            "Alternating [0,1/4) and [3/4,1) give (n+2)/2^(n+1) and a countable survivor."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp moving-hole escape envelopes and a zero-entropy alternating protocol",
+          "trigger": "Exact quarter-hole finite-time match"
+        },
+        {
+          "assessment": "Related later calculation for a distinct hole and ensemble",
+          "evidence": [
+            "Central hole (a,1-a) with measure 2^(-n)[2a+2n(3a-1)_+] over its stated range."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-exact-escape-time-phase-transition-for-symmetric-negative-doubli--ca3ad35b54de",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Exact escape-time phase transition for symmetric negative doubling holes",
+          "trigger": "Same map after folding and linear-prefactor transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope; arXiv:1312.7030 pp. 1–4; independent folded-map derivation"
+      ],
+      "rationale": "This is an exactly solvable boundary protocol within a motivated moving-hole family. It separates two effects that an escape exponent alone misses: disappearance of a countable family of survivors and loss of a positive linear-in-time factor while the exponential rate remains constant. The sharp complete h and n diagram provides a benchmark for transfer-operator and numerical escape-rate analyses and specifies open/closed boundary effects on survival.",
+      "residual_risks": [
+        "No extension to other schedules, h<1/4, or invariant physical measures is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

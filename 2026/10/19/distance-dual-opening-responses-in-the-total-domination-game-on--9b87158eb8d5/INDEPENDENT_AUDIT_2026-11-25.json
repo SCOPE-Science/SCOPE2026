@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:51.335111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Open-neighborhood union is the only needed history: any previously played vertex has no new neighbor, and at any nonterminal state some undominated vertex has a neighbor that can cover it. Thus taking the min/max over strictly increasing dominated sets is exact. I independently solved the equivalent deadline game on uncovered sets by testing whether Dominator can ensure completion in h further moves: at his turn one legal successor must suffice, at Staller's every successor must suffice. The terminal state is successful and a nonempty state with more than 3h uncovered vertices fails. With interleaved Petersen labels and Floyd–Warshall distances, the independent computation checks all 380 distinct ordered opening pairs per graph, each second move's legality and every first move under both conventions. It gives (11,10) and (10,10); by distance 1 through 5 the dodecahedron yields (10,11),(11,11),(10,11),(10,11),(10,10), and the Desargues graph gives (10,10) throughout. The common distance-shell sizes are (1,3,6,6,3,1). Taking the appropriate extremum proves exactly the stated optimal reply sets. The frozen programs use two graph constructions with fixed isomorphisms and have byte-identical recorded outputs. Independent replay: python3 /workspace/branches/independent_game.py. This establishes only the stated two graphs and rules.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henning–Rall p. 1 give a 3n/4 bound for minimum degree at least two; p. 2 describes known exact path/cycle values at that time.",
+          "Lawful retrieval of the cited founding paper and exact path/cycle paper did not yield their full text in this review."
+        ],
+        "reasoning": "A bound of 15 on these graphs does not determine lengths 10 or 11, let alone forced opening outcomes. The path and cycle cases discussed in the accessible text do not include either cubic graph.",
+        "searches": [
+          "arXiv:1512.02916, abstract and introduction; minimum-degree bound and discussion of exact values",
+          "DOI 10.1016/j.dam.2016.03.014; DOI 10.1007/s00373-014-1470-9 (OA attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary df543f8ddc1f",
+        "Resultary f42713ee9731",
+        "arXiv:1512.02916 (specified PDF passages)",
+        "Cited DOI retrieval attempts as documented"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the dodecahedron the ordinary-game optimum Staller replies have distances 1 or 5 under a Dominator start, and the ordinary-game optimum Dominator replies have distance 3 under a Staller start.",
+          "For ordinary-game Desargues only four Staller replies are optimal under a Dominator start, although all legal Dominator replies are optimal under a Staller start.",
+          "The Zhao et al. candidate’s full text was not obtained; its title is not used to exclude coverage."
+        ],
+        "reasoning": "The closest same-graph findings neither specialize nor imply a total-game solution: including the chosen vertex changes both legality and the descendant states. Similarly, even exact unconditional lengths would not determine every conditional second response.",
+        "searches": [
+          "Resultary df543f8ddc1f and f42713ee9731, actual Findings and stated rules",
+          "arXiv:1512.02916 pp. 1–2",
+          "DOI 10.1155/2020/5473675 (OA retrieval attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph published domination-game findings df543f8ddc1f and f42713ee9731 explicitly use N[v], not N(v).",
+          "Henning–Rall define total domination by adjacency and give only general bounds in the inspected passages. The targeted literature query failed at retrieval, not as a negative search."
+        ],
+        "reasoning": "An equivalent formulation is to hit previously unhit edges of the open-neighborhood hypergraph by choosing vertices; in an undirected graph these newly hit edges are indexed by newly dominated neighbors. The closed-neighborhood tables concern a different hypergraph and cannot count as matches. No exact open-neighborhood or equivalent hypergraph statement was identified in the inspected material.",
+        "searches": [
+          "Resultary: dodecahedron/Desargues game minimax and second-response geometry",
+          "Web: \"total domination game\" dodecahedron Desargues graph \"GP(10,2)\"",
+          "arXiv:1512.02916, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary df543f8ddc1f tables ordinary-game values (9,8) on the dodecahedron and different optimal shells; f42713ee9731 gives ordinary-game values (9,9) for Desargues and a nonuniform D-first reply set.",
+          "The external query was unavailable; no inference is drawn about tables outside the retrievable comparisons."
+        ],
+        "reasoning": "The closest exact tables answer a different game; they neither give the frozen game values nor its opening response table.",
+        "searches": [
+          "Resultary: exact game domination distance tables for generalized Petersen graphs including dodecahedron and Desargues",
+          "Web: \"total domination game\" dodecahedron Desargues graph \"GP(10,2)\""
+        ]
+      },
+      "rationale": "The closest inspected Resultary findings use closed neighborhoods and give different values and second-response geometry, even on the same graphs. Inspected primary material gives general total-game bounds and exact-results context, not the forced-pair shell table. The distinct comparison is supported to best current knowledge, with explicit limits on external retrieval and on possible coverage under the equivalent hypergraph game.",
+      "residual_risks": [
+        "Unindexed or inaccessible computations may contain the game values or full reply geometry, possibly under the transversal-game formulation.",
+        "The external search was unavailable on this query; its failure was given no evidentiary weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closed neighborhoods, not the total game; later dated record is an overlap comparison, not earlier priority evidence.",
+          "evidence": [
+            "Values 9,8; best reply distances 1 or 5 for Staller and 3 for Dominator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-antipodal-reply-geometry-in-the-dodecahedral-domination-game--df543f8ddc1f",
+          "material_read": "RESULT.md Finding and Assumptions and scope, beginning at offset 0",
+          "method": "Actual text in local publication mirror",
+          "title": "Antipodal reply geometry in the dodecahedral domination game",
+          "trigger": "Exact same graph and distance classification"
+        },
+        {
+          "assessment": "Closed neighborhoods; D-first replies are not all optimal. Later dated overlap comparison.",
+          "evidence": [
+            "Desargues values 9,9 and four optimal replies for Staller under a Dominator start."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-game-domination-minimax-and-second-response-geometry-on-four-exc--f42713ee9731",
+          "material_read": "RESULT.md Finding and game convention, beginning at offset 0",
+          "method": "Actual text in local publication mirror",
+          "title": "Game-domination minimax and second-response geometry on four exceptional cubic graphs of girth six",
+          "trigger": "Exact same response statistic for Desargues"
+        },
+        {
+          "assessment": "Establishes a general bound and describes then-known exact cases; no graph-specific evidence of the opening result.",
+          "evidence": [
+            "Adjacency-only total domination; 3n/4 minimum-degree bound; exact paths/cycles discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02916",
+          "material_read": "PDF pp. 1–2, around character offsets 1200 and 5500",
+          "method": "Open primary full text, located and read passages",
+          "title": "Progress Towards the Total Domination Game 3/4-Conjecture",
+          "trigger": "Actual total game; possibility of broad covering bounds or exact graph families"
+        },
+        {
+          "assessment": "Access gap, not a noncoverage finding.",
+          "evidence": [
+            "These attempts did not produce full text; the Zhao et al. publisher PDF returned HTTP 403."
+          ],
+          "identifier_or_url": "DOI 10.1007/s00373-014-1470-9; DOI 10.1016/j.dam.2016.03.014; DOI 10.1155/2020/5473675",
+          "material_read": "Bibliographic identifiers and frozen citations only; no usable primary full text recovered",
+          "method": "OA retrieval attempts by DOI; also publisher PDF for the Zhao et al. candidate",
+          "title": "Total Version of the Domination Game; Game total domination for cycles and paths; The Numerical Invariants concerning the Total Domination for Generalized Petersen Graphs",
+          "trigger": "Same game or graph family; possible detail in uninspected tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching distance-shell cardinalities, sizes and degrees make these two canonical graphs a controlled comparison. The exact opening classification shows that those shell sizes do not determine the strategy: one graph distinguishes sharply between distance two and the antipode depending on who starts, while the other is completely indifferent at move two. This is an independently useful exact strategic invariant, not just an isolated optimum or a claim about static total dominating sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

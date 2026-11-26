@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:28:34.034199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With nonempty neighboring-disjoint subsets, a cell cannot be invariant under any nontrivial 7-cycle rotation: all seven coordinates would have to agree. A fixed point would force just such an invariant open cell. The actual ordinary quotient therefore has one cell per free orbit; rotations induce the Koszul sign on the oriented product factors. I independently generated orbit representatives using a different canonical order, checked the full chain squares, and reduced the integral boundary by degree-descending sparse unimodular unit-pivot cancellation. The cell counts are (312,1452,2640,2340,1008,168); the different pivot order gives 3958 cancellations, leaving ranks (1,1,1,1,0,0) and the sole nonzero boundary [−14] in degree 2. This gives the claimed integral groups. The cover one-skeleton is connected by single-coordinate changes through all 2184 proper colorings. In the quotient, a spanning tree leaves 1141 generators, with actual triangle and square words having the correct exponent sums on all 2640 two-cells. A different tree and Tietze order gave 1140 single-occurrence eliminations and one generator, with 42 nonzero relators of length 14. With a single generator, a cyclically reduced length-14 relator is g^14 or g^(−14). The difference from 46 in the frozen transcript reflects the choice of reduction, not a difference in presented groups. The connected regular seven-fold cover gives kernel the unique index-seven subgroup C₂ of C₁₄. Replay: python /workspace/checks/hom.py (helper words.py; transcript /workspace/checks/hom.txt). No CW chain calculation was taken to determine higher homotopy or a manifold model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozlov computes integral cohomology of the source Hom(C_m,K_n); the frozen record cites Theorem 7.2 for H²(X;Z)=Z/2 and H³(X;Z)=Z, with no other positive cohomology.",
+          "Babson–Kozlov arXiv:math/0402395v3 p. 1 explicitly use reflection-induced involutions for the odd-colour characteristic-class obstruction, not the sevenfold rotation action.",
+          "Schultz arXiv:math/0510535v2 p. 1 gives a Stiefel identification for Hom(C5,K_(n+2)); the stated scope of the manifold identification is a five-cycle."
+        ],
+        "reasoning": "Neither the reflection results nor the pentagon Stiefel homeomorphism, by themselves, give a seven-cycle fundamental group or a sevenfold rotation-equivariant model. The unquotiented cohomology leaves the higher group relations undetermined but does supply the homological part by the implication below.",
+        "searches": [
+          "arXiv:math/0507117 Theorem 7.2",
+          "arXiv:math/0402395",
+          "Schultz arXiv:math/0510535v2 (odd-cycle model comparison)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507117v4 p. 1 and §7.2 as cited in the frozen record; arXiv:math/0402395v3 p. 1; arXiv:math/0510535v2 p. 1",
+        "Resultary d57eddbf16e9, 8f4b951d82c7, 18f09b6fe130, 50b8be4e4c8f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pentagon quotient proof uses an equivariant model for a chosen reflection, not a claimed model equivariant for all rotations of all odd cycles.",
+          "The finite seven-cycle group presentation is stronger than the C₁₄ abelianization. The quotient homology, conversely, is implied by known cohomology of X and freeness."
+        ],
+        "reasoning": "With the cited integral cohomology of X, the C7 action on it is trivial (odd-order action on the free rank-one top group, and trivial automorphism group of C2). Localizing away from 7, transfer gives the quotient cohomology as the invariants. At 7 the cohomological Cartan–Leray sequence has only the q=0 and q=3 rows, each over H*(C7;Z_(7)). The degree-3 generator must transgress onto the generator in degree 4: otherwise by the module property all d4 maps vanish, contradicting the finite dimension of the quotient and nonzero classes in arbitrarily high even degrees. Hence the two rows cancel in high degrees, leaving only H⁰ and H³ free of rank one and H² of order seven at 7. Recombining with the away-from-7 result and using universal coefficients gives exactly the homology table. This implication does not prove the fundamental group of either space; that is the distinct computed claim.",
+        "searches": [
+          "Frozen citation Kozlov arXiv:math/0507117 Theorem 7.2; apply ordinary Cartan–Leray spectral sequence",
+          "Resultary d57eddbf16e9 and arXiv:math/0510535v2 Stiefel model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozlov arXiv:math/0507117v4 p. 1 defines the same prodsimplicial spaces of colorings of cycles.",
+          "Resultary 18f09b6fe130 treats a cyclic action by target-colour relabeling on Hom(C5,K5), and 50b8be4e4c8f treats Ind(C7×K4)."
+        ],
+        "reasoning": "The space is a Hom/multicoloring space, not the independent sets of the categorical product; and the generator permutes the seven source positions, not colours. A known fundamental-group theorem giving C₂ for the unquotiented complex would imply the quotient group too: the order-14 extension with a C₂ kernel is central, and a central extension of a cyclic group is abelian, hence this group is cyclic. Merely knowing H₁(X)=C₂ is not equivalent to that theorem.",
+        "searches": [
+          "Resultary: seven-cycle four-colour Lovász Hom, source-position rotation and fundamental group",
+          "Web: Hom(C7,K4) fundamental group homotopy RP3 seven odd cycles Schultz Kozlov Hom(C_7,K_4) dihedral equivariant",
+          "Web: Carsten Schultz graph colouring manifolds Hom C5 Kn odd cycles distinguish fundamental group odd cycle graph Hom complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match dcca336a0ff9 was the submitted record itself.",
+          "The closest distinct pentagon record d57eddbf16e9 gives Hom(C5,K4)/D5 a closed orientable 3-manifold with π₁=Dic₅, H₁=Z/4 and H₃=Z.",
+          "The same-day record 8f4b951d82c7 gives π₁=C₂₁ for the ordinary C7 rotation quotient of the matching complex of K7."
+        ],
+        "reasoning": "The dihedral pentagon and cyclic matching-complex conclusions concern different spaces or actions, even where geometric quotient and finite-group methods are similar. The matching-complex finding is not excluded by date but by its different predicate. No independent exact same-action fundamental-group computation surfaced.",
+        "searches": [
+          "Resultary: seven-cycle four-colour Hom and C7 rotation quotient C14",
+          "Resultary: cyclic quotients of graph complexes with explicit finite fundamental group"
+        ]
+      },
+      "rationale": "Pass is for the exact fundamental groups of the cover and rotation quotient, with an explicit finite presentation rather than a calculation of its abelianization alone. The quotient homology itself follows from Kozlov's cited covering-space cohomology computation by standard covering spectral-sequence arguments; it is not an independently novel invariant here. The related pentagon result has a different source cycle and uses a different action, and the strongest inspected general sources do not show the requisite fundamental group of the seven-cycle cover.",
+      "residual_risks": [
+        "Independent primary inspection of some cited works was limited to opening passages. An uninspected general theorem or specific seven-cycle source computation of π₁ could cover the remaining novelty; this is not ruled out by search failure.",
+        "No priority is claimed for the already implied homology groups or from a catalogue date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cited theorem is positive prior coverage for the unquotiented cohomology; together with freeness it implies the homology part only.",
+          "evidence": "Integral and mod-2 cohomology of the unquotiented prodsimplicial Hom(C_m,K_n) spaces; stated specialized cohomology in frozen RESULT.md line 41.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507117",
+          "material_read": "v4 p. 1 abstract and setup; frozen quotation/specialization of Theorem 7.2, decisive primary passage not retrieved independently",
+          "method": "OA passage attempt and open primary PDF preview",
+          "title": "Cohomology of colorings of cycles",
+          "trigger": "General result on exactly the cover family"
+        },
+        {
+          "assessment": "Confirms that the equivariant characteristic-class strategy in the abstract is for reflections; not an exclusion of every result in the paper.",
+          "evidence": "Odd-cycle Hom analysis uses torsion for even colour numbers, and characteristic classes of the reflection-involutive complex for odd numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0402395",
+          "material_read": "v3 p. 1 abstract and opening",
+          "method": "OA passage attempt and open primary PDF preview",
+          "title": "Proof of the Lovász Conjecture",
+          "trigger": "Family-level topology and possible source-action implications"
+        },
+        {
+          "assessment": "The Stiefel identification asserted there is for C5, not C7.",
+          "evidence": "Hom(C5,K_(n+2)) is homeomorphic to the unit tangent-vector manifold of S^n; an equivariant version for the pentagon is proved up to homotopy.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0510535v2",
+          "material_read": "v2 p. 1 abstract and introduction",
+          "method": "Focused primary literature search and open primary PDF preview",
+          "title": "Small models of graph colouring manifolds and the Stiefel manifolds Hom(C5,Kn)",
+          "trigger": "A broader model establishing π₁ of the source would imply both fundamental groups"
+        },
+        {
+          "assessment": "Substantial motivation, different source cycle and symmetry; no seven-cycle group implication.",
+          "evidence": "Five-source D5 quotient, Dic₅ of order 20; the cited equivariant identification is for one reflection exchanging Stiefel coordinates.",
+          "identifier_or_url": "Resultary 2026/11/1 d57eddbf16e9",
+          "material_read": "Finding and reflection-model portion of proof",
+          "method": "Resultary and exact record comparison",
+          "title": "Dicyclic fundamental group of the four-colour pentagon quotient",
+          "trigger": "Closest source-symmetry quotient of an odd-cycle four-colour Hom complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The passage from the pentagon benchmark to seven source vertices gives a natural next orbit-space case. Knowing that the actual group is cyclic, not just that the abelianization has order fourteen, determines the fundamental-group extension and the fundamental group of its natural covering space. This topology is not read off from cohomology and is useful in comparing combinatorial cycle-colouring spaces and their symmetry quotients. The homology replay is supporting context; the value does not rest on recomputing that already implied table or claiming a lens-space homotopy type.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

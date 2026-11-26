@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete-bipartite update rule gives explicit evolution of three local count classes. The two alternating activity channels cannot reactivate after they fall below threshold. An exhaustive symbolic split of the initial gate types proves that, by the third step, all gates have stopped, permanently alternated or both remained high. Clearing after stoppage takes at most two more steps; the alternating local composites enter two-state swaps within two steps; constant high activity rotates every state modulo three. This proves the global bound \(F^{17}=F^5\). The periodic-state formula follows from phase classes of size at least \(k\), and a concrete initial pattern attains preperiod five. Ten full small-graph enumerations agree with the claim. The finite tests are not mistaken for a proof for infinitely many graph sizes.
+## correctness
 
-## Originality — PASS, with bounded coverage
-Historical threshold-range literature focuses on spatial lattice propagation, rather than exact complete-bipartite periodic-state counts. Earlier exact complete-bipartite formulas at a *single excited neighbour* do not entail the results for changed threshold operators \(k\ge2\). published-finding corpus semantic searches for equivalent statements, stronger multi-threshold coverage and exact tables returned no decisive covering source. A specifically similar binary complete-multipartite parity result is inapplicable, and an earlier historical source could not be inspected in full. Search silence does not establish universal uniqueness.
+PASS
 
-## Value — PASS
-This is a complete attractor census over three freely varying integer graph/model parameters, not a fixed-size experiment. It reveals a sharp change from extinction-only dynamics to refractory four-cycles at \(\min(a,b)=2k\), a second onset of three-cycles at \(3k\), and an exact uniform cutoff at five steps, attained for every pair of sufficiently large parts. The proof exposes the underlying two-channel non-restart mechanism, which gives structural meaning to both the bifurcations and convergence time. No extension beyond the stated synchronous complete-bipartite model is asserted.
+The count update on either shore with opposite gate g is (r,e,q)↦(q+(1−g)r,gr,e), so a dead alternating-time channel cannot restart. Starting from gates (0,1), the next three tests are a₀≥k, b₀+b₂≥k, and a₁+a₂≥k; if all pass the two cohorts on each shore already repeat from time two with alternating gates. For dual initial activity, if the first step leaves one gate on, the next needed refractory-cohort test either fails or leaves permanent alternation, because the original excited cohorts were already large enough. If both gates persist to time one, the initial refractory cohorts are tested at time two; a unilateral survivor then alternates permanently, while continued dual activity certifies all three cohorts on each shore. Thus by time three activity has ceased, alternates permanently, or is permanently dual. Zero gates clear both shores within two more steps. The alternating two-step vertex composites map to two-state images on which they swap states, so the labelled state is periodic within two more steps with exact period four. Dual activity gives exact period three, and only all-rest is fixed. Those two recurrent modes require respectively all two or all three phase cohorts on each shore to have size at least k, yielding the stated counts and onsets. For sharpness, a single refractory A vertex, other A vertices resting, and k excited B vertices produce gates (0,1),(1,0),(0,1),(0,0) when a,b≥2k and k≥2. At time three one A vertex is excited; it becomes refractory at four and clears at five, its orbit's first periodic state. The identity follows since 12 is a common multiple of the only nontrivial periods.
 
-## Closest literature and risks
-Greenberg–Hastings, 1978 (foundational rule); Durrett–Griffeath, public 1993 record (lattice asymptotics, full text unavailable); Fisch–Gravner–Griffeath, public 1993 source (full text read, lattice threshold-range results). An unindexed equivalent calculation or omitted historical appendix remains a residual possibility, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest earlier same-graph results are for threshold one and do not establish this all-k≥2 classification. Two later dated catalogue records directly overlap at k=2; one also gives basin counts. Neither covers arbitrary k≥2. The supported distinct claim combines the full multi-neighbor parameter range, exact recurrent census, and universal five-step bound with sharpness on every graph in the stated range.
+
+## value
+
+PASS
+
+It determines exact recurrence on an unbounded graph and threshold family and supplies a sharp entrance time independent of graph size. The subthreshold last-excitation witness explains why the cutoff differs from threshold one, while the two- versus three-cohort census locates the two distinct survival onsets. These are exact dynamical features, not just substitutions in a small count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

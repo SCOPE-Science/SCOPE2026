@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:48:54.121857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If N>D, the squared weights decrease strictly to one, violating the weighted-shift hyponormality necessary for subnormality. The diagonal has Berger measure delta_1. For N<D, contractive subnormal Schur powers have Hausdorff moment sequence gamma_n^s, where gamma_n is the product of squared weights. Divide the order-r+1 Hausdorff inequality by s and let s decrease to zero: the constant term vanishes and Delta log gamma_n=-h_n, yielding (-1)^r Delta^r h_n>=0. The log series gives h_n as moments of the finite signed measure sum c_k delta_(q^k), with |c_k|<=2rho^k/k for rho=max(|N|,|D|)<1. Polynomials are dense on [0,1], so this finite signed measure is the unique one with those moments and must be positive. For any real q=1/p in (0,1) its atoms are distinct, so c_2=(N^2-D^2)/2>=0 forces N<0 and N<D<=-N. There all even coefficients are nonnegative by absolute-value comparison, all odd ones positive by order of the parameters; at equality precisely the even coefficients vanish. The b_k=c_k/(1-q^k) are summable by 1-q^k>=1-q, and summing h_j over j<n gives log gamma_n=-sum b_k(1-q^(kn)). Independent Poisson counts of means sb_k have finite total count almost surely; evaluating their generating function at z=q^n gives exactly gamma_n^s. The Berger criterion and Hausdorff determinacy prove existence and uniqueness, and the constant coefficient is e^(-sB). Independent replay: python3 -I -B /workspace/reproduce.py 2 tested three rational bases, 84 fractional-power moments from a generating-function coefficient recursion with a bounded numerical truncation used as corroboration, and six exact nonpositivity certificates by rational tail bounds on t^30(t-q)^2. The uploaded checker was inspected only. The arguments above, not these examples, handle the real parameter range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original GRWS article covers arbitrary p>1 and proves the positive sectors, while leaving the all-sector-III exclusion as a conjecture.",
+          "The 2024 paper's safe regions are for quotients of two shifts; §7 treats choices that give MID quotients relative to a Sector III base. The signed-charge paper's Theorem 3.7 treats conditional positive definiteness for a separate non-subnormal third-quadrant subsector."
+        ],
+        "reasoning": "Treating two parameter pairs is not itself proof of a stronger theorem covering every single-shift exclusion, and the identified safe and rescaled regions do not give the all-power measure formula.",
+        "searches": [
+          "arXiv:2309.05888 Theorem 1.2 and Conjecture 1.3",
+          "arXiv:2312.06390 Theorems 2.4–2.5 and §7",
+          "DOI:10.1007/s00025-025-02574-4 Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.05888",
+        "arXiv:2312.06390",
+        "DOI:10.1007/s00025-025-02574-4",
+        "arXiv:1710.10683",
+        "arXiv:2009.07797",
+        "Resultary 54f96220ed0f",
+        "Resultary b24688f80948",
+        "Resultary self-hit fd5a8a41754b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2 proves Sectors I and II MID and Sector III subnormal, with a non-MID example in III; Conjecture 1.3(2) asks for exclusion throughout III except the II boundary.",
+          "The ordinary signed representations have positive weights in I–III and therefore cannot decide the distinction between MID and ordinary subnormality. The reviewed calculation enforces positivity of a different, uniquely determined measure with second atom proportional to N^2-D^2."
+        ],
+        "reasoning": "The exact boundary is more than an example or a direct parameter substitution in an earlier exclusion. The all-s representation extends the known ordinary measure, not a claim to rediscover the s=1 law.",
+        "searches": [
+          "arXiv:2309.05888 Theorem 1.2(2)–(4) and Conjecture 1.3(2); arXiv:2312.06390 §7; DOI:10.1007/s00025-025-02574-4 GRWS signed densities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MID is characterized for contractive shifts by log-complete-alternating squared weights, equivalently log-complete-monotone moments under the relevant hypotheses.",
+          "The signed Berger-type coefficients for ordinary moments in the GRWS charge paper are not coefficients of the logarithmic deficit or Poisson jump intensities. Positivity of the ordinary measure does not exclude negative logarithmic atoms."
+        ],
+        "reasoning": "The known equivalent criteria do apply to the family. They still require a complete parameter calculation and do not specify the atomic masses of arbitrary powered shifts. Ordinary representing measures on the same support must agree where both formulations apply, by determinacy.",
+        "searches": [
+          "arXiv:1710.10683 Theorem 3.1 and arXiv:2009.07797 Theorem 3.4; MID as log complete alternation and complete monotonicity",
+          "DOI:10.1007/s00025-025-02574-4: signed Berger charges for GRWS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit fd5a8a41754b is the assigned record. Same-day 54f96220ed0f studies a finite hyperexpansivity cutoff near a GRWS ray; b24688f80948 gives a Hankel-block certificate and Bessel threshold for separated signed supports.",
+          "The GRWS signed-charge paper gives ordinary atom weights in closed form, a verified s=1 exact-formula overlap."
+        ],
+        "reasoning": "The related exact local classifications concern other invariants. The ordinary weights are not a table of the Schur-exponent family, and the identical record is not a predecessor.",
+        "searches": [
+          "Resultary: complete MID boundary for geometrically regular shifts, Sector III, compound-Poisson Berger measures, logarithmic signed moments"
+        ]
+      },
+      "rationale": "The general logarithmic criterion, MID sufficiency in Sectors I and II, ordinary subnormality in Sector III and the ordinary (s=1) Berger measure are prior coverage. The remaining result gives the conjectured full nontrivial MID boundary for individual shifts and an explicit compound-Poisson description for all positive Schur exponents. In particular the entire forbidden portion is excluded without restrictions on p. Inspected later quotient and signed-charge passages treat different criteria and do not settle those statements. This is a bounded comparison, not a historical priority guarantee.",
+      "residual_risks": [
+        "Primary passages and local records were inspected; broad public search did not complete. An equivalent boundary or all-positive-power law may appear in work outside the inspected record, including under multiplicative convolution terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified positive sectors and prior conjecture, not a full exclusion theorem",
+          "evidence": [
+            "Sectors I and II are MID; III is subnormal, and no further MID shifts in III is posed as a conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.05888",
+          "material_read": "Theorem 1.2(2)–(4), Conjecture 1.3(2), printed pp. 6–7, offsets 18310 and 19659–24435",
+          "method": "OA PDF passages",
+          "title": "Geometrically regular weighted shifts",
+          "trigger": "Original family and conjectured exclusion"
+        },
+        {
+          "assessment": "A quotient theorem, not the audited complete single-shift result",
+          "evidence": [
+            "MID and subnormal safe zones concern quotients; Section 7 gives MID quotient families from a Sector III base point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06390",
+          "material_read": "Abstract, Theorems 2.4–2.5 and §7, pp. 1, 5–7, 17, offsets 0, 8000–12800, 39800",
+          "method": "OA PDF passages",
+          "title": "MID and subnormal safe quotients for geometrically regular weighted shifts",
+          "trigger": "Strong follow-up candidate for all-sector necessity"
+        },
+        {
+          "assessment": "Verified ordinary-measure overlap and distinct conditional-positivity result",
+          "evidence": [
+            "The GRWS charge has explicit product coefficients on p^(-i) and is positive in Sectors I, II and III. Theorem 3.7 concerns conditional positive definiteness under rescaling in a third-quadrant subsector, not the general MID boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-025-02574-4",
+          "material_read": "GRWS charge formulas and sector signs, pp. 4–7; Theorem 3.7, pp. 18–19; offsets about 9600, 11800, 48000",
+          "method": "OA paper passages",
+          "title": "Signed Representing Measures (Berger-Type Charges) in Subnormality and Related Properties of Weighted Shifts",
+          "trigger": "Explicit discrete atomic measures in exactly this family"
+        },
+        {
+          "assessment": "Known criterion credited",
+          "evidence": [
+            "For contractive shifts, MID iff squared weights are log completely alternating."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.10683",
+          "material_read": "Theorem 3.1, p. 6, offset about 14000",
+          "method": "OA PDF passage",
+          "title": "Moment infinitely divisible weighted shifts",
+          "trigger": "General equivalent logarithmic-weight criterion"
+        },
+        {
+          "assessment": "Known general criterion; no family-specific atom coefficients",
+          "evidence": [
+            "Log complete monotonicity of the moment sequence characterizes MID in the contractive case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.07797",
+          "material_read": "Theorem 3.4, p. 8, offset about 19600",
+          "method": "OA PDF passage",
+          "title": "Moment Infinite Divisibility of Weighted Shifts: Sequence Conditions",
+          "trigger": "Equivalent characterization on ordinary moments"
+        },
+        {
+          "assessment": "Different finite-order invariant",
+          "evidence": [
+            "Finite-order hyperexpansivity along a ray and a cutoff asymptotic."
+          ],
+          "identifier_or_url": "Resultary 54f96220ed0f",
+          "material_read": "RESULT.md Finding and Relationship to prior work",
+          "method": "Local mirror",
+          "title": "A log-log finite hyperexpansivity cutoff beyond the geometric-shift boundary",
+          "trigger": "Same-day exact weighted-shift boundary result"
+        },
+        {
+          "assessment": "Different hypotheses and finite-order invariant",
+          "evidence": [
+            "A finite-order hyponormality certificate for signed moment representations with separated supports and an interval-model threshold."
+          ],
+          "identifier_or_url": "Resultary b24688f80948",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "A one-Hankel certificate and Bessel-edge phase law for separated signed supports",
+          "trigger": "Same-day signed moment certificate possibly covering the proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem settles an explicit boundary question within a standard weighted-shift family: ordinary subnormality and divisibility of the moment sequence separate throughout the full adjoining sector. A single signed logarithmic atom detects the separation uniformly in the base. The constructive all-power law supplies normalized masses, the atom at one and the boundary jump parity, rather than just an existence statement or a finite positivity test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

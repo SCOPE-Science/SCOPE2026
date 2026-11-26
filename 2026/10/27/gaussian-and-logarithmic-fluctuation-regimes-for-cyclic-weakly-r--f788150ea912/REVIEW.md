@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge intensities are derived from the Poisson construction; the derivative is the symmetric cycle Laplacian multiple J with Fourier eigenvalues alpha sin^2(pi k/d). Qin's almost-sure homogenization provides localization. A killed-quadratic Lyapunov estimate yields E||N(t)/t-1||^2 on high-probability localization events bounded by O(t^(-1+epsilon)) at and below criticality, and the quadratic Taylor residual is negligible under both scalings. The compensated martingale has asymptotically identity predictable bracket and bounded jumps, allowing the multivariate martingale CLT. A 315-check standalone program independently reconstructs the finite-dimensional drift and covariance formulas; it is not used to substitute for the infinite-time proof.
+## correctness
 
-## Originality
-PASS subject to priority uncertainty. The closest full-text source, Qin, arXiv:2610.11780 (October 8, 2026), proves homogenization and states the compensated equation, not Gaussian or logarithmic limit distributions. Couzinie–Hirsch (2021) proves positivity/homogenization. Benaim–Benjamini–Chen–Lima (2015) studies a closely related graph-based urn with synchronous per-edge reinforcement, establishes a first-order limit, and does not state a fluctuation or critical covariance law. A 2026 Angel–Hermon–Yao preprint cited by Qin could not be inspected; no definitive noncoverage claim is made about it. General stochastic-approximation martingale CLTs are prior theory; the explicit cycle formula and parity-rank critical law are the assessed result.
+PASS
 
-## Value
-PASS. This is a natural second-order question after the recently proved all-parameter homogenization theorem. The exact parameter threshold, full multivariate covariance, singular logarithmic direction count, and odd/even spectral distinction describe measurable sampling variability invisible to the first-order result, including a distinct rank-two anomaly on odd cycles.
+The process and positive deterministic initial weights fit Qin's LLN, with regular-graph edge rate 2/2=1. A vertex ring changes exactly one edge, so the compensated jump noise has diagonal predictable variation, with instantaneous diagonal tending to I. Differentiating the two endpoint probabilities gives the stated circulant J. Its Fourier spectrum is alpha sin^2(pi k/d); maximizing over integer k gives the stated threshold and odd/even ranks. For z=N/t-1 the localized normalized drift is (J-I)z/t+O(||z||^2/t). Killing at exit adds a nonpositive contribution to the squared-norm estimate. With beta_max<=1/2 its integrated expectation is O(t^(-1+epsilon)) for any small epsilon>0, and the probability of any exit after T goes to zero by the LLN. The resulting localized quadratic drift error in mode beta<1/2 is bounded after rescaling by a constant times t^(beta-1/2) times the integral of s^(-beta-1+epsilon); this vanishes including the borderline logarithm beta=epsilon. At beta=1/2 the corresponding integral is finite and the prefactor is (log t)^(-1/2). The finite-time random initial term also vanishes with these scalings. The stochastic convolution has integrable normalized bracket weights: their scalar masses tend to (1-2 beta)^(-1) or 1, and the mass on each fixed finite time interval vanishes. Off-block brackets tend to zero using orthogonal projections and the limiting identity bracket; a mixed critical/noncritical term has an additional (log t)^(-1/2) bound. Uniformly vanishing jumps give the multivariate martingale CLT and independent Gaussian blocks. The variance one for the total-count mode means projection onto the unit vector 1/sqrt(d); the unnormalized count sum has variance rate d, as expected from the Poisson clocks. The critical inverse is only on the complement. Frozen verify.py was inspected but not executed; its recorded 315 tests concern finite inputs. The independent bounded complex-step/eigenspectrum replay in python /workspace/reproductions/reproduce.py confirms critical multiplicities for d=3,4,7,8 and does not test or prove infinite-time convergence.
 
-## Limitations and nearest sources
-Finite fixed simple cycles, equal unit firing rates, deterministic strictly positive weights, and only exponents up to and including alpha_c(d). No path-space, growing-cycle, or supercritical fluctuation law is claimed. Generality of classical stochastic-approximation limit theorems and an unavailable same mathematical model preprint remain priority risks. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the explicit cycle covariance and joint critical split with different log-enhanced ranks for the two cycle parities. Homogenization, generic stochastic approximation methods, and the occurrence of a log-enhanced critical mode on a different WARM graph are not new here.
+
+## value
+
+PASS
+
+The cycle has a simple equilibrium but exhibits a geometry-sensitive fluctuation threshold that the LLN cannot resolve. The exact covariance and critical rank distinguish the two parities and separate the log-enhanced modes from the ordinary ones. This is a finite-cycle distributional benchmark, not a supercritical or growing-graph result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

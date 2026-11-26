@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(c\ne0\) and \(\chi(-v)=-1\), the resultant reduces exactly to \(c^2+v^3\), which cannot vanish. The quadratic indicator and inversion identity give the signed bias formula (1). When the cube map is bijective, the bias is \((\chi(-1)-1)/2\). Otherwise, an order-three character gives formula (2), with Jacobi-sum magnitude exactly \(\sqrt q\). The resulting inequalities exclude all field sizes except \(3,7,13,19\), and direct complete character sums on representative cube classes decide the remaining cases. The standalone verifier independently checks the small decisions and extensive other fields; finite checks are not used in place of the all-field bound.
+## correctness
 
-## Originality — PASS (self-review, qualified)
-The classical Jacobsthal and Jacobi formulas in Berndt--Evans (1979) directly cover the constituent complete character sums; their formulas are acknowledged and not re-claimed. The new assessed mathematical statement is the exact *global unanimity classification* after restricting to all irreducible trace-zero quadratic test factors, proving the sharp field-size cutoff and the cube-class conditions at the exceptional fields. The June 2012 finite-field stability paper develops resultant-character arguments for iterates, not this extremal criterion. Direct searches by resultant, trace-zero quadratic, Jacobi/Jacobsthal, and exceptional field sizes found no equivalent complete classification. Residual risk: a published cyclotomic or Jacobsthal corollary might already imply or explicitly record the same extrema, even without using resultant terminology. Absence from a search is not proof of historical priority.
+PASS
 
-## Mathematical value — PASS
-Unanimity asks a natural extremal question about whether an entire arithmetic family of irreducible test polynomials can have a constant resultant square class. The classification produces a sharp universal finite cutoff, with a non-obvious final exception \(q=19\), and identifies precisely which cubic classes realize the phenomenon. This is structural all-field information, not a small numerical example, arbitrary coefficient slice, or code-only computation.
+The resultant is the norm of c-vα for α²=-v, namely c²+v³; a zero would make -v a square. For e=χ(-1), expand the nonzero-v mask (1-eχ(v))/2 and invert v in the weighted sum to get 2D=H-e(K-1)-1. If cubing permutes the field, H=K=0 and only q=3 can give |D|=(q-1)/2. Otherwise the cube-root multiplicity 1+ψ+ψ̄, with the order-three character zero at zero, gives H=wJ+w̄J̄ and K=w̄J+wJ̄ for w=ψ(c²). The Gauss/Jacobi quotient gives |J|=√q. For q≡1 (mod 12) cubes give D=0 and noncubes require q≤7+4√3, leaving 13. For q≡7 (mod 12) the cube bound is 2√q+1 and the noncube bound is √q+1, leaving 7 and 19 for cubes and 7 for noncubes. These ranges exhaust odd prime powers, including characteristic three. Direct prime-field arithmetic at c=1,2,4 gives (3,-3,-3), (0,6,-6), (-9,3,3) for q=7,13,19; these are representatives of the three cube classes in each case. All signs are nonzero, so a nonunanimous signature must contain both signs. Independent bounded replay: /workspace/branches/replay_3.js, using the square-residue set and all c for 3,5,7,11,13,17,19,23,31. Extension fields are covered by the proof, not by this replay. The frozen verification files are diagnostic and were inspected, not executed.
 
-## Limitations and comparison
-The scope is pure cubics and trace-zero irreducible quadratic tests, not general resultant distributions. The \(q=3\) exception is vacuous in the sense of one test object. Berndt--Evans (1979) already evaluate the classical ingredient sums, which is the strongest historical-overlap risk. Review is not independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The old Jacobi/Jacobsthal machinery covers the constituent sums; the supported distinct result is the exact extremal exception classification over all odd prime powers for this restricted resultant family. No inspected theorem or exact indexed row already supplies or directly specializes to that classification.
+
+## value
+
+PASS
+
+Trace-zero irreducibles are a canonical test family in odd characteristic, and square-class unanimity is exactly failure of that entire family to distinguish the two nonzero classes. A sharp cutoff and complete exceptional cube classes settle that failure uniformly, including a last exception at 19 not apparent from the individual classical sum identities. The value is the extremal classification, not the one-test case at q=3 or a bounded residue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

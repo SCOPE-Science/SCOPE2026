@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The theorem was checked by direct reconstruction of its hypotheses and analytical proof. The critical identity is
-\[
-\operatorname{Re}\delta_J(e^{i\theta})=C_J\left|P_J(-e^{i\theta})\right|^2,
-\]
-where \(P_J(w)=(1+w)^2\sum_{j=0}^{J-1}\sin((j+1)\pi/(J+1))w^j\) has strictly positive real coefficients. Its autocorrelation coefficients give the strict alternating signs of the entire real polynomial \(\delta_J\). Complex triangle equality and a finite sine sum then give exact norm and uniqueness; the proof is not a finite enumeration.
+## correctness
 
-The standalone `verify.py` was executed from the actual new artifact directory. It independently reconstructs the coefficients using the published inverse-binomial formula, checks coefficient identities through \(J=30\) at 110-digit precision, checks positivity of each predicted alternating coefficient, computes the exact unit-circle endpoint formula, and samples contours at four radii. Execution result: `VERIFY_OK 5394`. Python 3 with `mpmath` is required to rerun this optional diagnostic; no other file is needed.
+PASS
 
-The paper's explicitly conjectured bound is the unit-disk case, and the present proof covers every positive radius. The test is a finite, approximate sanity check; it is neither an infinite proof nor independent mathematical auditing. This result does not verify an operator-valued CQ convergence or perturbation estimate.
+Let x=pi/(J+1) and set q_j=sin((j+1)x) with support 0 through J-1. For lag k<J, product-to-sum gives the sine-vector correlation: the sum of cos((2j+k+2)x) has central angle (J+1)x=pi and is -sin((J-k)x)/sin x. This gives precisely Ferrari's Eq. (30) after multiplying by 2(-1)^k and dividing by S=(J+1)/2. Lag one gives S cos x and agrees with -4c_2^J/(4-2c_2^J); Eq. (30) is vacuous at J=2, so the constant and first cosine coefficients already suffice there. Multiplying the spectral factor by (1-z)^2 with the normalization sin^4(theta/2)=|1-z|^4/16 yields C_J=1/[2(J+1)(1+cos x)]. The new factor P_J has strictly positive coefficients at every index 0 through J+1, including the two endpoints. Comparing the real-part cosine coefficients of the real analytic symbol with the autocorrelations proves strict alternation. Triangle equality against the positive constant and negative linear term forces z=-r on every disk of positive radius. At r=1, C_J(4 cot(x/2))^2 is the stated value. The optional mpmath script was inspected, not run; its sampled contours and finite orders do not establish the theorem. No operator-valued or general A-stable-family assertion was verified.
+
+## originality
+
+PASS
+
+The distinct result is the all-order strict sign property of ordinary symbol coefficients and the exact unique maximizer at every radius. The parent paper supplies the optimized family and enough Fourier data to derive it, but leaves the unit-disk supremum explicitly open outside J=2 through 6. The autocorrelation argument closes that gap, not a separate claim on the already known endpoint value.
+
+## value
+
+PASS
+
+Resolves the explicitly posed unit-disk extremum problem and gives a stronger ordinary-coefficient theorem and unique extremum on every circular contour. These are precise scalar symbol bounds for the optimized family, not claims about CQ operator convergence or numerical stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

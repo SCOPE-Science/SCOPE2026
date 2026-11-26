@@ -12,7 +12,7 @@ Then for **every** integer \(d\ge0\) and \(n\ge1\),
 \[
 \boxed{\widetilde H_d(X_n;\mathbb Z)\cong\bigoplus_{s=1}^{\min(d,n-1)}A_{d,s}(G)^{\oplus\binom{n-1}{s}}.}
 \]
-The summands correspond to named subsets of nonbase colors. Inclusions \(X_m\hookrightarrow X_n\) for \(m\le n\) respect these summands and induce split injections over \(\mathbb Z\). Consequently \(\widetilde H_d(X_{d+1};\mathbb Z)\) determines the groups in degree \(d\) at **every** palette size, including all integral torsion. In particular, degree-\(d\) torsion is absent at every palette size if and only if it is absent at \(d+1\) colors. The rational degree-\(d\) Betti numbers satisfy
+The summands correspond to named subsets of nonbase colors. Inclusions \(X_m\hookrightarrow X_n\) for \(m\le n\) respect these summands and induce split injections over \(\mathbb Z\). Consequently \(\widetilde H_d(X_{d+1};\mathbb Z)\), **together with its named color-merger endomorphisms**, determines the groups in degree \(d\) at **every** palette size, including all integral torsion. The presence or absence of torsion requires only the abstract group at this stage: degree-\(d\) torsion is absent at every palette size if and only if it is absent at \(d+1\) colors. The rational degree-\(d\) Betti numbers satisfy
 \[
 \widetilde\beta_d(X_n)=\sum_{s=1}^{d}\operatorname{rank}_{\mathbb Z} A_{d,s}(G)\binom{n-1}{s},
 \]

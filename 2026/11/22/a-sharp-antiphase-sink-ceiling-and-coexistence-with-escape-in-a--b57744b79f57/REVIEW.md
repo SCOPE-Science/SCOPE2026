@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-On the invariant anti-diagonal the nonzero fixed-point equation is \((1-u)e^{-u}=(1+2b)/a\) with \(u>0\); differentiation gives the complete 0/2/4 census including boundary cases. The full-plane Jacobian diagonalizes along normal/tangent directions, with multipliers \(a e^{-u}(1-5u+2u^2)\) and \(1+2au(u-2)e^{-u}\). Below \(a=e^2\) a neighborhood of the nondegenerate \(u=2\) fold on its inner side has both multipliers strictly within the unit disk. At or above the threshold, the mutually exhaustive regions \(u\in(0,3/20]\), \([3/20,1]\), \([1,2)\), and \([2,\infty)\) give at least one multiplier outside the open disk. The \(b<-1/2\) escaping region follows from a uniform bounded-nonlinearity inequality. The fold square-root coefficient follows from the exact second derivative. The included checker reconstructs the two-by-two Jacobians and checks 102 numerical/branch conditions, not infinitely many cases. No unproved nonlinear classification at neutral multipliers is claimed.
+## correctness
 
-## Originality — PASS within inspected evidence
-The original full-text article by Soula et al. (2023, DOI 10.3390/math11061517) describes the map, numerical bifurcations and invariant subspaces without establishing this full antiphase census or sharp necessary-and-sufficient \(a<e^2\) gain ceiling. The closest indexed same-map RESULT.md, *A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map* (2026), proves global absorbing/escape bounds but explicitly leaves finite-attractor classification open. Its escape theorem overlaps the coexistence proof's escape half; it does not imply the existence, exact number or stability of antiphase equilibria or the gain ceiling. Other indexed symmetric-coupling stability results concern different response maps, and none checked dominates the present claim. Unindexed exact antiphase calculations and older inaccessible literature are publication-priority risks. Absence of hits is not treated as uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-A sharp, dimensionless gain threshold separates the presence and impossibility of stable antiphase equilibria under any coupling. The continuous fold-to-sink bifurcation at \(a<e^2\) meets a second multiplier boundary at \(a=e^2\), where the critical pair is \((1,-1)\). On a nonempty open coupling interval, two attracting antiphase equilibria coexist with an open set of geometrically escaping trajectories. This is a structural multistability/escape boundary in the same natural coupled-map model, not a parameter substitution or a numerical diagram restatement.
+On the invariant anti-diagonal, g(u)=(1-u)e^{-u}, u=s²>0, decreases from 1 to -e^{-2} at u=2 and increases to 0 from below, giving all 0/2/4 counts, including the exclusion of u=0 and the single radius at c=0. Differentiating the actual two-coordinate map yields the normal multiplier a e^{-u}(1-5u+2u²) and the tangent multiplier 1+2au(u-2)e^{-u}. At u=2 the tangent multiplier is 1; the outer branch is expanding. For a<e² the inner branch approaches a normal multiplier strictly inside (-1,1), and its tangent multiplier approaches 1 from below. For a≥e² the normal multiplier is at most -1 for 1≤u<2 since (5u-2u²-1)e^{-u} decreases there to e^{-2}; on 0<u≤3/20 it is at least e^{37/20}/4>1. On [3/20,1], u(2-u)e^{-u} has just one interior maximum and its two endpoint values exceed e^{-2}; hence the tangent multiplier is below -1. The fold curvature g''(2)=e^{-2} gives the stated splitting with coefficient 2e/√a. The half-difference outside M_a/(2|b|-1) grows geometrically in excess of that bound, proving an open escaping set in the same parameter interval as the two local sink basins. No nonlinear stability at (1,-1) or claim about all finite attractors follows. The frozen verify.py implements sampled radius/Jacobian diagnostics, not the continuum proof; it was inspected, not executed.
 
-## Closest sources and limits
-[1] Y. Soula et al., *Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps*, Mathematics 11 (2023), 1517, https://doi.org/10.3390/math11061517. Inspected full openly accessible article including equations, discussions and figures.
+## originality
 
-[2] *A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map* (2026), https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52/RESULT.md. Inspected complete RESULT.md with explicit equations, proof and limitations.
+PASS
 
-The theorem does not classify off-antidiagonal equilibria, all finite attractors, basin boundaries, or nonlinear neutral behavior. No publication-priority certification or external validation is claimed.
+The identical map, numerical stability diagrams and an analytic escape region predate this result. The checked work does not furnish the exact all-coupling obstruction a≥e² or the inner-branch hyperbolic attainment and resulting coexistence for all a<e². Priority is assessed only against the inspected material.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The precisely motivated invariant is the gain range for stable nonzero antiphase equilibria in the original full-plane map. It turns numerical evidence into a sharp obstruction across every coupling and proves that bounded attractors can persist on an entire open coupling interval where open sets escape. The critical (1,-1) linear spectrum marks where the near-fold sink mechanism ceases to work, without claiming a nonlinear codimension-two classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

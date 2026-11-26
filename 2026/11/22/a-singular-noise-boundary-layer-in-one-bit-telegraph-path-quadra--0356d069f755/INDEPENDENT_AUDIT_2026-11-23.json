@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:31:15.912641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent Poisson increments give the covariance kernel e^(−a|s−u|)−e^(−a(s+u)) in normalized time. Integrating it once gives D(z)/a and twice gives (2a−3+4p−p²)/a². An independent flip scales covariances by c; because the bit has two values, its conditional mean estimator is exactly affine, so the variance reduction is c²D²/[a²(1−c²z²)], not a linear-estimator bound. At c=0 it vanishes; at c=1,z=1 the deterministic bit gives the prior variance, also the continuous limit since D vanishes linearly at z=1. In the informative interior D>0. The derivative numerator for D²/(1−c²z²) has sign S=p/z²−(2−p)+2c²(z−p). S''=6p/z⁴>0, S(p)=(1−p)²/p>0, and S(1)=−2(1−p)(1−c²). For c<1 these give one crossing with strictly negative slope. When c=1, z²S=(z−1)(2z²−pz−p), and the positive quadratic root is interior with the same derivative sign. The implicit root increases with c², hence the optimal normalized time decreases with reliability. For rare switches, with δ=1−c², the uniform expansion has leading terms −2aδ(1−u)+a²[3u²−2u−δ(u²−1)] and remainder O(a³). At fixed δ>0 this gives 1−u∼a/(2δ); with δ/a→κ<∞ the limiting equation is 3u²−2u=2κ(1−u), and the perfect-bit lower bound u→2/3 excludes the zero root at κ=0. With δ/a→∞ the same expansion forces u→1. For fast switching, the uniform bracket √p/2<z_*<√p gives p/z_*²=2+O(√p) by the exact equation and hence the stated uniform log-time expansion. Replay: RESULT.md §§1–5; VERIFICATION.md, requirements.txt and verify.py were inspected, not executed. This is an exact known-start, known-rate, one-predetermined-bit result; the numerical grids and simulation are supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäuerle et al. consider the same symmetric integrated telegraph signal and derive densities, but use noisy observations of integrals to filter the switching state.",
+          "Pozdnyakov et al. develop multi-state occupation-time distributions and likelihoods. Bogachev–Ratanov study the distribution of time that a one-dimensional telegraph position spends in the positive half-line."
+        ],
+        "reasoning": "A marginal occupation law does not give a one-bit design: the covariance between the target and the bit and its time-dependent variance must both enter. An estimator of instantaneous state from noisy integrated observations does not furnish the reversed, noisy-bit integral-target Bayes risk or its optimal time.",
+        "searches": [
+          "Bäuerle–Gilitschenski–Hanebeck arXiv:1411.0849 §3.1 and conclusion",
+          "Pozdnyakov et al. arXiv:1806.00849 §§2–3; Bogachev–Ratanov arXiv:1007.3139"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and verify.py",
+        "Resultary self hit 0356d069f755 and distinct 39109e244f65 and ec7f7a8efc6a",
+        "arXiv:1411.0849, arXiv:1806.00849, Michel's primary manuscript, arXiv:1007.3139 and arXiv:math/0612784"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Michel optimizes sampling for unknown transition-rate inference with repeated or adaptive observations. Iacus–Yoshida observe at n+1 equidistant times and estimate the unknown switching rate in a growing-horizon limit.",
+          "The general conditional-variance identity gives a design criterion once the binary-state covariance is derived, but does not state this optimizer or its rare-switching limit. The focused search surfaced occupation distributions, parameter inference and generic estimation rather than a covering design."
+        ],
+        "reasoning": "Changing the objective from parameter information to estimation of one realized integral, fixing the rate and restricting to one noisy bit changes the statistical problem. A generic risk identity does not certify the required global sign analysis and boundary-layer limit. The search outcome is bounded, not evidence of historical absence.",
+        "searches": [
+          "Primary literature: known-start telegraph occupation integral estimated from a single noisy binary observation, optimal observation time and Bayes MSE",
+          "Michel DOI 10.1080/07474938.2019.1701808; Iacus–Yoshida arXiv:math/0612784"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct 39109e244f65 gives one-bit quadrature of a Poisson counting-path area with any binary count encoder and a high-rate 2/3 timing law. The distinct ec7f7a8efc6a gives optimal noisy sign-bit timing for Brownian positive occupation."
+        ],
+        "reasoning": "The telegraph integral uses parity before integrating, not the count integral followed by an encoder; its flip-noise channel is prescribed. Brownian sign sampling has a different covariance law and observation noise. Similarity of design objectives or a limiting number does not give equivalent problems.",
+        "searches": [
+          "Resultary: one-bit telegraph-path quadrature, single noisy binary state reading and rare-switching optimum",
+          "Resultary: one-bit Poisson counting-path and Brownian occupation estimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0356d069f755 is an identical echo of the frozen record. The two distinct same-day one-bit designs 39109e244f65 and ec7f7a8efc6a have different Findings and assumptions."
+        ],
+        "reasoning": "No inspected separate entry supplies the cubic or the boundary layer in this model. The identical echo is not prior evidence, and date alone does not establish precedence for the distinct results.",
+        "searches": [
+          "Resultary: exact cubic optimizer and (1−c²)/a boundary layer for one-bit telegraph-path quadrature"
+        ]
+      },
+      "rationale": "The distinct scope is the exact globally unique design time and singular noisy-channel rare-switching law for estimating a signed occupation integral from one corrupted state bit. The telegraph integral, parity covariance, and binary conditional-mean identity are prior ingredients. Inspected nearby results concern different stochastic processes, different encoding classes, or a different direction of inference and do not imply the optimizer and crossover here. No exclusive priority claim is made.",
+      "residual_risks": [
+        "An earlier equivalent result could be indexed under stochastic integration, one-bit sensing, or reliability-dependent experimental design rather than telegraph occupation.",
+        "Selected relevant primary passages and targeted catalogue and literature searches cannot certify exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different target and encoding",
+          "evidence": "One count encoded by an optimized threshold for count-path area, not a noisy parity bit for a signed path integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-one-bit-quadrature-of-a-poisson-counting-path-exact-thre--39109e244f65",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Optimal one-bit quadrature of a Poisson counting path",
+          "trigger": "Closest one-bit Poisson-path design"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Uses one Gaussian-noisy Brownian sign bit for positive occupation time, rather than a symmetric telegraph state with independent flips.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-bit-optimal-sampling-for-brownian-occupation-under-rel--ec7f7a8efc6a",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Exact one-bit optimal sampling for Brownian occupation",
+          "trigger": "Closest noisy one-bit occupation-time design"
+        },
+        {
+          "assessment": "Covers integrated telegraph signal, reversed inference problem",
+          "evidence": "Defines I_t=∫₀ᵗ(−1)^{N_s}ds but filters the underlying CTMC using discretely observed noisy integrals.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0849",
+          "material_read": "§3.1 p. 4 (offset 15750), abstract and conclusion pp. 1, 13 (offsets 820 and 44500)",
+          "method": "OA primary PDF",
+          "title": "Exact and Approximate Hidden Markov Chain Filters Based on Discrete Observations",
+          "trigger": "Same integrated telegraph signal and measurement noise"
+        },
+        {
+          "assessment": "Different chain and inferential target",
+          "evidence": "Three-state movement model uses occupation distributions and likelihood; no known-rate single noisy-bit timing problem in the relevant passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.00849",
+          "material_read": "Abstract p. 1 and §§2–3 pp. 3–5 (offsets 400, 6900, 10500, 12200)",
+          "method": "OA primary PDF",
+          "title": "On estimation for Brownian motion governed by telegraph process with multiple off states",
+          "trigger": "Telegraph occupation inference and discrete observations"
+        },
+        {
+          "assessment": "Different optimization objective and design space",
+          "evidence": "Optimizes observation intervals for unknown parameter inference, not known-rate recovery of a single path's time integral.",
+          "identifier_or_url": "https://doi.org/10.1080/07474938.2019.1701808",
+          "material_read": "2018 manuscript abstract and introduction pp. 1–2 (offsets 0, 1700)",
+          "method": "Lawful primary manuscript PDF",
+          "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+          "trigger": "Same symmetric chain and optimal observation design"
+        },
+        {
+          "assessment": "Different functional and question in the inspected statement",
+          "evidence": "The paper concerns occupation of the positive half-line by telegraph position and its long-time distribution, not estimation of signed velocity occupation from a noisy state bit.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.3139",
+          "material_read": "PDF p. 1 abstract and opening definitions, offset 0",
+          "method": "OA primary PDF, phrase locate followed by paging",
+          "title": "Occupation time distributions for the telegraph process",
+          "trigger": "Focused primary lookup, possible full occupation distribution coverage"
+        },
+        {
+          "assessment": "Different inferential objective in stated scope",
+          "evidence": "Unknown rate inference from many equispaced observations, with Δ_n→0 and nΔ_n→∞.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0612784",
+          "material_read": "PDF p. 1 abstract and start of introduction, offset 0",
+          "method": "OA primary PDF",
+          "title": "Estimation for the discretely observed telegraph process",
+          "trigger": "Focused primary lookup, possible competing observation design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Timing a single constrained observation to estimate an accumulated duration is a natural design problem. In the rare-switching regime, the physical randomness in the observed state is of order a while the independent flip contributes variance of order 1−c²; their competition creates an explicit nonuniform crossover. The move from limiting time 2/3 to the endpoint and the quantitative layer between them are structural effects, not a numerical adjustment to a single design point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

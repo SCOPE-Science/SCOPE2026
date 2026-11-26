@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:44:33.387505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the graph of §4.2, an x/y step changes gap height by ±1 and an a-jump preserves it. By Definition 5.1, two distinct grid heights visited force a crossing: select successive different visited grid heights, and the last visit to the first before the first visit to the other. Without a crossing, the height window has width at most 2n−2 (the interval between neighboring excluded grid heights on either side of the sole allowed grid height, truncated at a boundary; an interval with no grid is no wider). Lemma 5.2's proof bounds a path in a width-R window by 2L_R. Independently, within a nonzero bottom-height window the path cannot pass beyond the two siblings whose parent is below the allowed window, and their height-R truncations have word lengths L_R; a path edge cannot exceed that count, since truncated leaves can only be jumped or left untraversed. At bottom height zero only the root truncation is needed. For N≥2n divisible by n, take a vertex at depth N−2n. Between its opening and closing symbols traverse both child subtrees, with unit x/y steps above depth N−1 and one a-jump at each depth-N−1 vertex. The two truncated child words are exactly ℓ_(2n−2), so the length is 2L_(2n−2). The visited heights lie in [N−2n+1,N−1], containing only grid height N−n; for n=1 the path consists of two jumps at that grid height. Hence the forced-crossing threshold is 2L_(2n−2)+1 in the stated range. Section 6 gives at least e edges per contributing path and requires a first crossing to invoke the same vanishing boundary block; choosing e equal to the new sufficient threshold works even when N=n. This does not prove a sharp index of T_S(f). Inspected frozen verify.py and verification_output.txt without executing: the recorded DP is a bounded sanity check (N=2n for n=1–6, N=3n for n=1–4), not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source bounds all crossing-free paths in the relevant divisible-height regime, but only in the sufficient direction. Theorem 6.2 establishes nilpotence under the same boundary hypotheses, with a coarser stated exponent."
+        ],
+        "reasoning": "A uniform sufficient bound is not a sharp maximum, even at the same parameter values. The algebra theorem, which establishes no graph extremizer or least index, does not supply the missing lower direction.",
+        "searches": [
+          "arXiv:2610.05384v1, §§4.2, 5 and 6",
+          "Resultary: Gubarev/crossing-free paths"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05384v1 §§4.2, 5, 6",
+        "Resultary 2026/10/13 item 71e36c231504",
+        "Resultary 2026/10/26 item 50939acd9f27"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 5.2's proof uses a window of width 2n−2; Section 6 uses the size of e to force a first crossing of each contributing path."
+        ],
+        "reasoning": "Prior proof implies 2L_(2n−2)+1 suffices, including for the nilpotency deduction. To make the threshold exact requires also realizing both length bounds simultaneously: two full truncated sibling traversals within a single permitted grid-height window. The original source passages do not supply that attaining construction.",
+        "searches": [
+          "arXiv:2610.05384v1, Lemma 5.2, Lemma 6.1 and Theorem 6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 5.2 gives a sufficient threshold, and its proof upper-bounds the length of crossing-free paths. Neither statement exhibits a crossing-free path at that upper bound.",
+          "Resultary hits 71e36c231504 and 50939acd9f27 refer respectively to 2-WL on path graphs and marked-distance comparisons in spanning trees."
+        ],
+        "reasoning": "Compared both the largest crossing-free length and its equivalent least forced-crossing cutoff in this same graph. The indexed vocabulary neighbors have different objects and crossing predicates.",
+        "searches": [
+          "Resultary: arXiv:2610.05384",
+          "Resultary: Gubarev crossing-free paths and exact threshold",
+          "arXiv:2610.05384v1, Definition 5.1 and Lemma 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching graph-extremum entry was surfaced in the bounded Resultary comparison. The number 2L_(2n−2) is already present as an upper bound in the source proof."
+        ],
+        "reasoning": "A matching value in an inequality is not a table or theorem of exact maxima. The record's own finite run supplies examples, not prior all-parameter coverage.",
+        "searches": [
+          "Resultary: arXiv:2610.05384 and the threshold 2L_(2n−2)",
+          "arXiv:2610.05384v1, Lemma 5.2"
+        ]
+      },
+      "rationale": "The noncovered finding is the matching crossing-free path and the resulting exact cutoff, not the height-window upper bound or the availability of that smaller sufficient exponent. The frozen record itself credits the upper bound to the proof of Lemma 5.2. The first-crossing algebraic consequence is routine from that upper bound and is not separately credited as novel.",
+      "residual_risks": [
+        "Bounded exact-object and indexed comparisons do not rule out an earlier informal observation or subsequent independent sharpness calculation. Nothing here asserts novelty for the sufficient upper bound alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definitions and direct prior sufficiency; no matching attaining construction in the compared sections",
+          "evidence": [
+            "ℓ₀=a and ℓ_(h+1)=xℓ_hℓ_hy; jumps preserve gap height.",
+            "Lemma 5.2's proof yields the exact-form upper bound but states a larger sufficient cutoff.",
+            "An e-factor contributing word has at least e edges; after its first crossing is found, the middle block vanishes by Definition 5.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05384v1",
+          "material_read": "§4.2 pp. 3–4 (offsets 8200–11342); Def. 5.1 and Lemma 5.2 p. 5 (around 14908); Def. 5.4 p. 7 (around 20766); first-crossing expansion and Lemma 6.1 pp. 7–9 (offset 22000 onward); Thm. 6.2 p. 9 (around 26532)",
+          "method": "Lawful open arXiv PDF passage inspection by offsets",
+          "title": "A simple construction of a simple nil ring",
+          "trigger": "Exact graph, upper-bound lemma and application to nilpotency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum crossing-free length determines the sharp stopping point for a specific graph argument underlying nilpotency, not merely a slightly different upper estimate. The family of extremizers shows that a smaller exponent cannot be certified solely by universally forcing the first crossing in graphs of the asserted heights. This is useful even though the tightness of the nilpotency index itself is not resolved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

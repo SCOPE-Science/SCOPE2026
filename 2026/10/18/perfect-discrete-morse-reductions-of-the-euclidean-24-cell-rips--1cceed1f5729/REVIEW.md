@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete finite combinatorial statement about the 24 specified root points. Exact integer squared distances yield multiplicities 96, 72, 96, 12. Full clique enumeration gives 216 and 1,584 nonempty faces. The certificate replay establishes that each of 96 and 791 pair deletions is an elementary free-face removal, every critical deletion is maximal, and all original faces are consumed. The remaining critical cells are exactly \((1,0,23)\) and \((1,0,0,1)\) by dimension. The standard acyclic-Morse correspondence and zero attaching maps with no lower positive-dimensional cells prove \(\bigvee^{23}S^2\) and \(S^3\). The antipodal-pair join proves the last nontrivial stage \(S^{11}\). Reproducible checker and finite data are included.
+PASS
 
-## Originality — PASS with residual bibliographic uncertainty
+Fresh code independently generated the D₄ roots and integer adjacency, enumerated cliques by cardinality, replayed the frozen JSON, and topologically sorted each matching-oriented face poset. At squared cutoff 2 it verified (24,96,96), 96 pairs and critical vector (1,0,23), with 480 Hasse incidences checked. At squared cutoff 4 it verified (24,168,480,600,288,24), 791 pairs and critical vector (1,0,0,1,0,0), with 5760 incidences checked. Every nonempty face was consumed once. Replay: /workspace/branches/5b366b35-9eed-4007-88ed-31741e526210/independent_replay.py and replay-full.json in that directory. The uploaded verifier was read, not executed. In either sequence, the deletion time strictly increases along unmatched downward covers and is constant along matched upward covers, so the operation check proves acyclicity. One critical vertex and only top-dimensional critical cells yield the stated integral homotopy types at both scales. The distance histogram (96,72,96,12) at squared distances (2,4,6,8) gives the other stages, including the join of twelve antipodal pairs at cutoff 6. For the narrower repair all 23 critical triangles are maximal in the original first-scale complex and disjoint from the pairs, so they may be deleted first; retaining the unmatched vertex cannot add a coface of any nonempty face. The same 96 pairs then give the claimed spanning collapse without any changed certificate data.
 
-Saleh (2023), §4.2 p. 73, reports exactly the corresponding integral homology groups, but does not supply the perfect two-scale Morse matchings; p. 75 explicitly calls for the homotopy types of four-polytopes. That pre-existing numerical conclusion is credited. The present perfect-Morse certificate is stronger than homology and cannot be deduced from Betti numbers alone: integral homology does not imply the existence of perfect discrete-Morse functions. The general Euclidean-Rips reconstruction conditions of Attali–Lieutier–Salinas (2011) do not state this exact finite property. Comparisons against indexed exact same-object and related-parameter records produced no covering perfect-Morse result. Risks include equivalent unindexed calculations and possible coverage in uninspected later extensions of the inspected 2011 proceedings extended abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The regular four-dimensional 24-cell is a canonical highly symmetric finite metric space, and the perfect discrete-Morse reduction gives a sharp combinatorial explanation of its previously tabulated homology. It settles the concrete homotopy-classification question for this named four-polytope, replacing a numeric Betti table by complete integral homotopy types and independently checkable elementary simplifications at the two difficult thresholds. The stronger perfect-Morse conclusion cannot be obtained merely by repeating a known homology table. No broader classification is claimed.
+Pass is for the repaired exact first-scale matching and spanning-collapse witness on the unsubdivided faces, not for the full filtration or perfectness at the second scale. The close 24-cell result 6421d0ac1ad1 gives the identical filtration types and a stronger marked collapse at radius 2, which already yields a perfect matching there. At radius √2 its wedge proof uses the two-skeleton and homological Whitehead theorem, not a matching on the 216 original faces. The thesis reports homology ranks, not the actual spanning subcomplex or reduction. No inspected source provided the first-scale witness retained here; this is a bounded conclusion, not a priority assertion.
 
-## Relationship and limits
+## value
 
-The distinction between Euclidean and 24-cell graph metrics is essential. The certified calculations are finite and exhaustive at the claimed scales; no extrapolation to other polytopes, equivariant matching, or functorial equivalences is established. Search completeness is limited to inspected primary sources and indexed search results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The retained datum is a complete optimal reduction of a natural geometric complex without subdivision, specifying exactly how to select top facets to leave a collapsible spanning subcomplex. A researcher can use the actual pairs or retained subcomplex to study explicit cells and attaching data, rather than working only from Betti numbers or an abstract wedge equivalence. The independent exact replay confirms the intended original-face structure; neither second-scale duplication nor the already covered homotopy types are credited as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

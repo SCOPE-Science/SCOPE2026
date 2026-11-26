@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:49:36.775543Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal translation kills all frequencies but the q³ with total character zero. For the remaining ones, sum over all equality partitions with Möbius weights (+1,−1,+2,+1,−6) for block-size types 1111,211,31,22,4. A block contributes q iff its character sum is zero, so four zero coordinates give the injective count, two give −q(q−2)(q−3), one gives 2q(q−3) and no zeros give q²P−6q for P opposite perfect pairings. The zero-coordinate multiplicities are 1, 6(q−1) and 4(q−1)(q−2). Among nonzero balanced tuples, the total q³−4q²+6q−3 follows by inclusion–exclusion. Three pairings mean four copies of a nonzero involution; exactly two mean permutations of (a,a,−a,−a) with a≠−a, counted as 6(q−t)/2. Counting incidences of the three patterns yields M₁=3(q−1)²−2M₂−3M₃ and M₀ by subtraction, which are exactly the claimed polynomials. Only P=1 can introduce a balanced zero, at q=6; the abelian group of order six is cyclic, t=2, so there are 48 such zeros, rank 168. The full rank on the translation-invariant subspace elsewhere gives the range equality. For q>4, 3q(q−2) is distinct from every other level, and at q=4 it also includes the trivial character, giving multiplicity t instead of t−1. The sign convention merely inverts frequencies. I read both uploaded verifiers without executing them and made an independent direct, exact finite check, replay python3 /workspace/evidence/direct_injection_characters.py. Reduce roots of unity to a finite field containing an element of the group's exponent order, with prime >2q(q−1)(q−2)(q−3), so each integer coefficient proved above is uniquely recovered without rounding. Nine groups of orders 4 through 9 tested, including the signed q=6 balanced histogram (−72:30, −36:44, 0:48, 36:92, 72:1, 360:1) and differing group laws at orders 4 and 8. These tests check instances; the proof is valid for all finite abelian groups of order at least four with unnormalized counting convolution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalog ec6a74264cf8 treats unicyclic graphs, with extra-zero criterion c≡1 mod q, and a682d457a14a treats cactus graphs. Goodall §4.4 relates proper colourings to nowhere-zero tensions and weight enumerators."
+        ],
+        "reasoning": "K4 is neither unicyclic nor a cactus (its cycles overlap in edges); their palette-uniform spectra do not include the torsion-sensitive K4 example. Goodall's broader graph formalism is relevant but the aggregate invariants are not the signed character-by-character spectrum.",
+        "searches": [
+          "signed spectrum of proper colorings unicyclic graphs and cactus graphs",
+          "Goodall finite Fourier graph polynomials and weight enumerators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0806.4848v1 and Goodall's longer account §3",
+        "Li–Wan 10.1007/s11425-010-3121-9",
+        "Resultary ec6a74264cf8, a682d457a14a, cb0189ebbdf4, 7eb1b49cbfc7, 052b4d54ff5c, and self-hit 7c1595d27969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On setting the sieve weight to the product of four characters, the variables are identified on permutation cycles. Grouping permutations by cycle supports produces precisely the same Möbius factors and orthogonality reduces to the opposite-pair tests. Goodall's longer account gives flow/tension Hamming-weight enumerators."
+        ],
+        "reasoning": "Credit the mechanical implication for the multiplier identity. Extracting the disjoint multiplicities requires classifying repeated pairing incidences, isolating nonzero involutions and counting all remaining balanced tuples. The signed spectrum, its torsion identifiability, and hence the full order-six nullity are the distinct supported census, not a new Fourier or sieve theorem.",
+        "searches": [
+          "Li–Wan A new sieve for distinct coordinate counting §2 Theorem 2.6",
+          "Goodall §4.1–4.4 and longer account §3 Eqs. (19)–(20)",
+          "K4 signed multiplicities finite abelian palette two-torsion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goodall §4 gives Fourier/convolution and tension tools; Li–Wan Thm. 2.6 gives the signed weighted distinct-coordinate sieve. The signed census is equivalently a fourth-order product-of-characters statistic under sampling ordered points without replacement."
+        ],
+        "reasoning": "An individual weighted sum can be written by the older sieve, but the distribution over all frequency quadruples uses the group-law-dependent incidence counts and cannot be recovered from the ordinary proper-colouring count or aggregate tension weights.",
+        "searches": [
+          "signed Fourier census for the injective four-tuple indicator finite abelian palette K4",
+          "Li Wan new sieve distinct coordinate counting weighted character sums theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7c1595d27969 is the assigned self-hit. 052b4d54ff5c counts restrictions of 4×4 Fourier minors at order 16. cb0189ebbdf4 gives absolute multiplier distributions for a triangular prism at q=4, and 7eb1b49cbfc7 treats signed ternary surjection spectra."
+        ],
+        "reasoning": "Absolute spectra lose sign and the prism is a different graph. Restriction-matrix ranks and variable-length surjection Fourier statistics have different operators or supports; none tabulates this finding. Same-day entries are distinguished by their actual scope, not their datestamp.",
+        "searches": [
+          "injective four-tuple six-colour rank 168 48 balanced null modes",
+          "proper-coloring Fourier spectrum triangular prism order four",
+          "fourth-order Fourier restriction rank tables finite abelian groups"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit disjoint signed multiplicity classification and the exact rank and torsion consequences. The partition-lattice identity and its general character-sum specialization are not new: Li–Wan's weighted sieve directly gives the individual-frequency multiplier after orthogonality. Neither that theorem nor Goodall nor the stronger-looking graph-family catalog results supplies the multiplicity classification and order-six behavior of K4 without the separate analysis of zero-coordinate and opposite-pair types.",
+      "residual_risks": [
+        "The elementary incidence classification could exist in a differently indexed character-moment tabulation. The searches and read passages are bounded, not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem directly covers the multiplier formula but not the signed multiplicity classification",
+          "evidence": [
+            "F=∑_{τ∈S_k} sign(τ) F_τ, with F_τ weighted over coordinate equalities on cycles of τ."
+          ],
+          "identifier_or_url": "https://www.math.uci.edu/~dwan/sieve.pdf",
+          "material_read": "§2 weighted definitions and Thm. 2.6, printed p.2356, Eqs. (12)–(13), offsets 21900–24195",
+          "method": "Read author-hosted primary PDF passage and substituted the character-product weight",
+          "title": "A new sieve for distinct coordinate counting",
+          "trigger": "Stronger exact weighted injection sum for arbitrary word length"
+        },
+        {
+          "assessment": "Character and tension formulas, not a signed K4 census",
+          "evidence": [
+            "The flow/tension formulas are Hamming-weight enumerators and the colouring Fourier framework supplies orthogonality rather than the sought distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0806.4848v1",
+          "material_read": "§2 (offset 2600), §§4.1–4.2 (22100), §4.4 (33717); associated extended account at https://iuuk.mff.cuni.cz/~andrew/dwajgApr06.pdf §3 pp.11–12 Eqs. (19)–(20)",
+          "method": "Read primary expository and formula passages and compared operator and hypotheses",
+          "title": "Graph polynomials and Tutte-Grothendieck invariants: an application of elementary finite Fourier analysis",
+          "trigger": "Most direct general graphical Fourier framework"
+        },
+        {
+          "assessment": "Methodologically adjacent but excludes K4",
+          "evidence": [
+            "Criterion c≡1 mod q and palette-law invariance are stated for the unicyclic family, not graphs with overlapping cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-palette-uniform-fourier-nullspaces-for-proper-colorings-of-unicy--ec6a74264cf8",
+          "material_read": "Mirrored RESULT.md Finding, unicyclic spectrum and extra-nullity criteria",
+          "method": "Compared exact graph family, parameters and spectrum claims",
+          "title": "Palette-uniform Fourier nullspaces for proper colorings of unicyclic graphs",
+          "trigger": "Closest distinct complete signed proper-colouring multiplier and rank statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete census for the first four-vertex clique gives an exact invertibility obstruction on a naturally invariant space, isolated at one palette size. Its signed levels and multiplicities also quantify which information about the palette law survives even though the injective colouring count depends only on cardinality. This is a useful natural exact classification, not a table of isolated group examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unrestricted optimization reduces to two edge rates because the largest Laplacian eigenvalue is convex and the first positive eigenvalue is concave. The corona block spectrum yields the exact quotient \(F(sx)F(\ell x)/(sx)\). Its logarithmic derivative is strictly increasing and vanishes only at \(x=2/\sqrt{s\ell}\), via the reciprocal identity for \(F\). For cycles, equality in orbit averaging puts both first-frequency real vectors in the actual Fiedler eigenspace, forcing individual leaf and rim rates to coincide. The exact budget equality prevents scaling degeneracy. A standalone Jacobi verifier passed 1522 checks over full matrices, symmetric competitors and asymmetric competitors. Numerics are supplementary; proof covers all eligible sizes.
+PASS
 
-## Originality — PASS on inspected material
+Averaging uses the minimum Rayleigh quotient on the mean-zero complement and the largest Rayleigh quotient to improve the ratio in the asserted directions, preserving the priced equality. The leaf/core block gives determinant a^2 z and trace a(z+2), hence f_-(sx) and f_+(ell x) give the two relevant eigenvalues after division by a. The strictly increasing elasticity of F=f_+ and F(4/z)=2F(z)/z give one stationary point x=2/sqrt(s ell) and a strict global minimum; the budget fixes scale and substitution gives the stated minimum. For a cyclic optimizer equality in both averaging bounds holds, since neither inequality can strictly improve the ratio at an optimum. The complex first Fourier mode, with corresponding leaf amplitudes, has constant squared edge differences on each orbit and thus the original Fiedler Rayleigh energy even under any other optimizer. Equality in the Rayleigh minimum makes it an eigenvector; the leaf equation fixes each leaf weight and the imaginary part of the core equation forces equality of consecutive rim weights, since sin(2 pi/n) is nonzero for n>=3. Independently, maximizing f_-(sx)/(1+x) for the unit-price gap gives y=f_-(sx) with s=y^2/(1-y)^2 using sx=y+y/(1-y); this gives the cited gap ratio. With Lambda=sqrt(ell/s), x=c x_* and c bounded away from zero and infinity, expansion gives R(x)=2 Lambda^2+Lambda(c+c^-1)+O(1). Thus c=1 gives the stated optimal expansion and c=2+O(1/n) gives the n/(2 pi) gap-allocation regret. Inspected RESULT.md, VERIFICATION.md and verify.py; the supplied finite tests were not run and are not needed for these conclusions.
 
-The closest prior published sunlet and transitive-corona theorems optimize absolute spectral gap, not spectral eigenratio; their optimal ratios differ from the claim, so neither implies it. Earlier weighted-corona coherence papers optimize inverse Laplacian moments rather than the eigenratio. Kempton–Herrmann–di Bernardo's full-text work supplies a broad method of eigenratio optimization but no exact transitive-corona formula or cyclic rigidity comparison. Prior corona spectral identities are background, not claimed as new. The complete paper of Barik–Pati–Sarma was not accessible beyond its abstract and remains an acknowledged overlap risk, along with unindexed equivalent results.
+## originality
 
-## Value — PASS
+PASS
 
-The result is an exact infinite-family global optimization law, not a mere numerical bound. It simultaneously establishes an explicit allocation for every transitive core, a structural rigidity theorem for every cyclic core, and a quantitative large-sunlet disagreement with the previously established spectral-gap optimizer. The eigenratio directly controls the condition number on the mean-zero space and the best contraction factor of a single optimally tuned linear consensus step, while its physical synchronizability interpretation is model-dependent.
+The exact same-host priced spectral-gap solutions and the general eigenratio setup are prior. Same-day wheel eigenratio optimization is a different graph family. No inspected theorem covers the one-leaf-corona reciprocal optimizer and cyclic rigidity for the unconstrained positive Laplacian eigenratio.
 
-## Limits
+## value
 
-Only orbit-constant prices and an equality budget are covered. Unrestricted uniqueness is proved for cycles, not all transitive cores. Publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact unrestricted conditioning optimum compresses a many-edge allocation into the two spectral edges of the core, while proving cycle rigidity rather than presuming symmetry of all optima. Exact placement and the order-n gap-design penalty distinguish two plausible network objectives on a natural infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

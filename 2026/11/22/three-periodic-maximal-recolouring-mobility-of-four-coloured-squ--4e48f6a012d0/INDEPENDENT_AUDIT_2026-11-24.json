@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:53:17.121109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–77, VERIFICATION.md, verify.py inspected without execution",
+        "Independent replay: cd /workspace && python3 audit-replay/square_cycles.py; checks gap enumeration and matches the full direct and control-word degree distributions for n=6..15"
+      ],
+      "rationale": "Each consecutive triple has three distinct letters. The next letter either returns to the oldest or switches to the fourth, giving exactly the stated tuple operations. An indexed bit word closes iff its position permutation is the identity; then there are 24 possible initial tuples. At a vertex only the fourth alternative to the two neighbor colors and current color can work, and the four neighbors use just two colors iff the two relevant moves were both returns. Closed walks with the previous bit in state therefore implement the degree count exactly, with no factor for rotation. A mixed word with k switches and r positive zero gaps has degree n−k−r. S is odd and R is even, so identity forces k even. Positive gaps may be reduced to 1,2,3 preserving closure, residue and r; independent finite multiplication reproduced the relevant 2-, 4- and 6-switch cases and the displayed table. The residue-1 optimum uses a run of four switches; the residue-2 optima use four isolated switches or two runs of three with every positive gap 1 modulo 3. Marking a switch in the former family, or a run in the latter, gives n·binomial(h+1,3)/4 and n(h−1)/2 distinct control words. The extra all-switch word maximizes only at n=8, and the all-return word uniquely maximizes when 3 divides n. This covers the boundary orders n=6,7,8 and all three residues.",
+      "residual_risks": [
+        "The bounded distribution replay alone cannot justify larger n; the finite gap reduction and weighted closed-walk bijection supply that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "One-vertex reconfiguration is standard in the first two works; their inspected statements concern connectivity/diameter or reachability with permitted color changes.",
+          "The cycle-power fall-color construction in Lemma 4 uses the Δ+1 palette (five colors here)."
+        ],
+        "reasoning": "Neither reachability nor a five-color fall construction specializes to count locally movable sites and exact maximizing maps on the four-available-color state space.",
+        "searches": [
+          "Belavadi–Cameron–Merkel, arXiv:2206.09268v3, abstract and §1; Fujii et al., ISAAC 2022, p. 2; Kumar–Nicholas–Somasundaram DOI 10.5539/jmr.v3n4p152, Lemma 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Resultary 6fa05fffdf4b and 7187d34b8852; arXiv:2206.09268v3; DOI 10.4230/LIPIcs.ISAAC.2022.4 and 10.5539/jmr.v3n4p152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every proper three-color period-three word has all vertices movable with a fourth color, yielding degree n; full mobility forces that word pattern.",
+          "The earlier fall transfer enforces all four colors in every five-window, omitting the transitions responsible for positive degree."
+        ],
+        "reasoning": "The periodic case follows from existing three-class structure, and the earlier filtered transfer is a special case of the current weighting, not conversely. The small-defect identity products needed for the positive mobility extrema in the nonzero residues do not follow from counts of walks avoiding double returns.",
+        "searches": [
+          "Resultary 6fa05fffdf4b, Finding and proof of its triple/five-window transfer; Resultary 7187d34b8852, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary fall record 6fa05fffdf4b, Four classes and the transfer, offsets 2780–5730; Resultary ternary record 7187d34b8852, Finding"
+        ],
+        "reasoning": "The 48 proper four-letter states in the fall record correspond bijectively to the last triple plus missing color and the previous return/switch bit. A legal continuation uses only three letters in the five-window precisely when both moves are returns. Deleting those edges is the t=0 specialization of the degree-weighted transfer. The ternary result is on C_n rather than C_n².",
+        "searches": [
+          "Resultary: squared cycle, maximum local recoloring degree, frozen/fall colorings and colored-cycle spectra",
+          "Primary-literature query: \"Fall-coloring spectrum and complete color-class enumerator of squared cycles\" frozen colourings C_n^2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fall record counts seven four-class partitions at n=8, yielding 168 named frozen maps; when 3 divides n the three-class partition is unique (where the prior theorem applies).",
+          "The same-day ordinary-cycle record gives a full degree spectrum for C_n with three named colors."
+        ],
+        "reasoning": "The two exact profiles are either restricted to frozen or three-class counts on the square, or concern another graph and palette. Neither supplies the nonzero coefficients or all the extremizer counts of the frozen square-cycle claim.",
+        "searches": [
+          "Resultary fall-coloring spectrum 6fa05fffdf4b; Resultary ternary cycle degree spectrum 7187d34b8852"
+        ]
+      },
+      "rationale": "The strongest match on the same graph is a frozen-coloring transfer which is exactly the zero-degree specialization in different state coordinates. Its three-class result also implies the residue-zero extremum by the elementary mobility criterion, and its eight-site fall count overlaps this audit's degenerate n=8 subcase. The distinct result is the sharp maximum and multiplicity beyond the known periodic/frozen cases, and the complete weighting beyond degree zero, not the state construction itself.",
+      "residual_risks": [
+        "The targeted primary-literature query yielded no substantive additional match, which does not establish absence under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap for degree zero, degree n periodicity and the eight-site frozen subcase",
+          "evidence": "Its admissible four-tuples are exactly the proper length-four windows. The shift appends a color only if all four colors occur in the five-window; the trace counts only frozen four-palette maps.",
+          "identifier_or_url": "Resultary 2026/10/13/6fa05fffdf4b",
+          "material_read": "Finding and Proof; Four classes and the transfer, offsets 2780–5730",
+          "method": "Local mirror bounded passages",
+          "title": "Fall-coloring spectrum and complete color-class enumerator of squared cycles",
+          "trigger": "Same family, same four-palette states, exact counts"
+        },
+        {
+          "assessment": "Different graph and palette, no ordering inferred",
+          "evidence": "The theorem counts degrees and maximizers on the ordinary indexed cycle with three named colors.",
+          "identifier_or_url": "Resultary 2026/11/22/7187d34b8852",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete recolouring degree spectrum of proper ternary cycle colourings",
+          "trigger": "Same-day exact recoloring spectrum"
+        },
+        {
+          "assessment": "General framework, not the mobility census",
+          "evidence": "Defines one-vertex adjacency and addresses connectivity and diameter for forbidden-subgraph classes.",
+          "identifier_or_url": "https://arxiv.org/html/2206.09268v3",
+          "material_read": "Abstract and §1, offsets 716 and 2989",
+          "method": "OA primary text",
+          "title": "Reconfiguration of Vertex Colouring and Forbidden Induced Subgraphs",
+          "trigger": "Broader recoloring graph framework"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Addresses reachability under restrictions on permitted changes, not the degree spectrum.",
+          "identifier_or_url": "10.4230/LIPIcs.ISAAC.2022.4",
+          "material_read": "p. 2, PDF offset 3500",
+          "method": "OA primary PDF text",
+          "title": "Algorithms for Coloring Reconfiguration Under Recolorability Digraphs",
+          "trigger": "Related reconfiguration work"
+        },
+        {
+          "assessment": "Different palette and objective",
+          "evidence": "The Δ+1-cycle-power result uses divisibility by 2k+1, hence the five-color regime for the square.",
+          "identifier_or_url": "10.5539/jmr.v3n4p152",
+          "material_read": "p. 2, offset 5999, including Lemma 4",
+          "method": "OA primary passages",
+          "title": "Kumar, Nicholas and Somasundaram on fall colorings of cycle powers",
+          "trigger": "Broader cycle-power fall color results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 2–4; Resultary fall record 6fa05fffdf4b"
+      ],
+      "rationale": "The number of movable vertices is a natural local measure in a recoloring state space. The period-three obstruction and its two inequivalent defect patterns reveal how near-perfect mobility first becomes possible and how many indexed colorings realize it. The exact weighted enumerator also makes the rest of the degree spectrum accessible beyond prior frozen-state counts.",
+      "residual_risks": [
+        "The degree invariant gives no connectivity or mixing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

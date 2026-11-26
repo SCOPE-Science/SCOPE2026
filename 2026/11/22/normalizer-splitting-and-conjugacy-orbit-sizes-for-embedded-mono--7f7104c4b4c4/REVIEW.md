@@ -1,9 +1,21 @@
-# Review of the split-normalizer theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** For a partial injection with a nontrivial chain, the rank of a word forces any inverse generator to equal the map or its inverse; for a cycle-only partial injection, generators are exactly unit powers. This converts normalizing a generated inverse submonoid into conjugating its generator within a precise finite fiber. Cycle/chain decomposition gives the entire centralizer, and explicit uniform chain reversals and cycle multipliers construct genuine splitting sections. Orbit-stabilizer completes the classification, including isolated undefined vertices, identity maps and empty maps. Exact independent finite conjugation-orbit enumeration through five points agrees with every predicted stabilizer index. Finite testing alone is not taken as a proof.
+## correctness
 
-**Originality (PASS, subject to priority risk).** The 2018 conjugacy paper already supplies bipartition-labelled conjugacy classes of partial injections, and two publicly available 2026 papers supply generator fibers, embedded-submonoid totals and profile counts. These facts are credited as inputs. The narrower new claim is the full *normalizer isomorphism*, its uniform-power semidirect action, and the stabilizer order of every embedded monogenic inverse submonoid. Direct inspection of the relevant sections of the 2018 and 2023 primary papers and the complete two published embedded-submonoid treatments found no such group-structure theorem. Semantic searches for conjugacy, aliases, normalizers and centralizers found no equivalent statement; this cannot exclude an older result in general wreath-product/permutation-normalizer literature.
+PASS
 
-**Mathematical value (PASS).** The normalizer is a natural structural invariant of an embedded inverse submonoid, controlling its symmetry and exact conjugacy-class size. The answer classifies *all* normalizers in an infinite family with two distinct regimes and explicit actions, rather than reporting a small case or a renamed parameter. The group-action splitting is needed for the actual symmetry structure and is not supplied by the previously known orbit counts alone.
+The repaired claim in repairs/5/RESULT.md concerns f with at least one directed chain of length ≥2 and includes the ambient identity. A word in f and f⁻¹ acts by signed displacement on each chain wherever defined, and by the same exponent modulo each cycle length on cycles. Exponent zero is idempotent, an exponent of absolute value ≥2 strictly loses rank on a genuine chain, and exponents ±1 with full generator rank force f or f⁻¹. Each generator of the same embedded inverse submonoid has the same rank and the ambient identity is not a generator here. Hence the normalizer acts on this two-element fiber with kernel C_{S_n}(f). Centralizing permutations preserve directed components, with independent phase translations on cycles and position-preserving chain matches, yielding the stated kernel. The displayed reflection squares to 1 and conjugates f to the distinct generator f⁻¹, including the endpoints and undefined positions on chains. Negating cyclic phases negates each translation; reflection independent of component index commutes with index permutations of both types. This proves the split action globally, also with no cycles, trivial rotation factors, or singleton chains. Independent replay `python /workspace/branches/independent_math.py normalizer` checked generating-fiber and stabilizer sizes by finite enumeration through n=5 and evaluated the involution, rotation inversion and index-permutation action for a mixed example with repeated cycles and chains. The examples are not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+This is a fresh decision on the narrowed repair, not an originality pass for all the frozen claims. The source's assertion that the available generator-fiber and element-conjugacy results do not supply orbit sizes is incorrect: conjugation realizes each generator image, and the fibers all have the same size, so exact sizes follow with the component-centralizer order. Also credit the established single-cycle multiplier splitting. The repair removes the numerical classification and no-chain-arrows splitting from the affected Finding and isolates the genuine-chain involutory section and its simultaneous-inversion action. The inspected exact antecedents give the order or the regular cyclic case, but not this section and action for partial bijections with chain arrows.
+
+## value
+
+PASS
+
+The surviving statement determines the actual stabilizer group and how its complement acts on independent cycle symmetries, not merely how many conjugates exist. In the genuine-chain case, reversing one chain alone does not realize a generator image; a single global reversal realizes the entire quotient and controls the cyclic rotation factors at the same time. This is a natural structural invariant for these embedded objects, not a new presentation of a known census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact object is the **ordinary**, nonperfect graph matching complex of the circular ladder, for the eight specified values only. Complete face generation uses each graph edge exactly once as a possible addition, so it enumerates precisely all pairwise disjoint edge subsets. The stipulated element-toggle pairing is an actual matching on the full face poset. Its directed Hasse graph is constructed and exhaustively topologically sorted for all eight cases; the maximal case has 117732 faces and 714010 covering relations. Signed gradient-path recursion gives the **integer** Morse differential, independently of mod-two homology. For the exceptional sizes, the critical boundary is zero at \(n=5\), of rank one with unit Smith factor at \(n=8\), and of rank two with two unit factors at \(n=9\). Lower positive-dimensional critical cells have dimensions at least two in these cases, so Hurewicz classification of the attaching maps and elementary cell cancellations yield the asserted wedges. Independently assembled mod-two simplicial boundary matrices agree for all eight sizes. A finite certificate establishes these **eight** cases and does not establish a general recurrence.
+PASS
 
-## Originality (PASS, with risk)
+I rebuilt the rim/rung graph and independently enumerated matchings by treating the lowest available graph vertex as either unmatched or joined to one available neighbor. The repaired toggling rule gives 117732 faces including the empty face, 714010 nonempty-poset cover incidences, 58845 matched pairs, and only one critical vertex and forty six-cells at n=10. In a directed cycle the disjoint matching forces alternation of up and down steps. The earliest used toggle must be undone by a downward step whose two faces were both available at that stage; that cover would instead have been matched. Thus the repaired proof supplies a direct acyclicity argument. Discrete Morse theory gives a one-point skeleton below dimension six, so the six-cells each attach trivially and the space is a wedge of forty S^6. This is 5-connected but not 6-connected; the covered smaller cases have nonzero reduced integral homology in some degree at most five. As a check on the frozen table I also reduced integral incidence relations in topological order, obtaining the zero 2x2 matrix at n=5, the identical nonzero rows (1,0,−1,0,0,0,0,0) at n=8 and an identity minor in rows 3 and 14 at n=9. Unit pivots cancel corresponding sphere–cell pairs: attaching maps to the lower d-sphere wedge are determined by degrees via Hurewicz (d≥2), and unimodular basis changes are realized by wedge homotopy equivalences of source and target. This substantiates the integral homotopy claims, not just the reported mod-two homology. No recurrence is inferred.
 
-The closest full primary comparisons cover ordinary matching complexes of paths, cycles and Dutch windmills (Donovan–Scoville), polygonal **line** tilings (Bayer et al.), and outerplanar graphs (which do not include cubic prism graphs). The 2026 circular-ladder paper computes **independence** and **perfect matching** complexes and singles out the **ordinary matching complex** in Problem 26 as a further direction. Its theorem is not a stronger version of the present claim; the underlying simplicial complexes differ. Small-grid matching complexes for nonclosed ladders, and Morse complexes of graph gradient vector fields, are likewise not the same objects. Multiple mathematical record and literature searches found no equivalent eight-case homotopy table. This is evidence of an unfilled gap, not a proof of uniqueness: an unindexed equivalent calculation remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The precise mathematical question is explicitly motivated by a recent primary paper's stated future direction. The answer classifies **eight natural finite graphs in one symmetric family**, not arbitrary slices or numeric curiosities. The mixed-dimensional wedge phenomena for \(n=5\) and \(n=8\) demonstrate structural variation invisible to an assumption of single-degree homology, while the nonzero integral Morse differentials at \(n=8,9\) show why raw counts or Euler characteristics alone would be inadequate. The table supplies a substantive test bed for future periodicity/recurrence hypotheses without claiming those unproved extensions.
+The narrowed contribution is the exact n=10 type and its place as the first 5-connected case. Exact earlier-range types are explicitly credited. The named open classification problem, closest exact tables and relevant neighboring complexes do not imply the ten-rung certificate.
 
-## Closest literature and limitations
+## value
 
-Primary sources: arXiv:2207.13780v1 (matching complexes of paths, cycles and Dutch windmills), arXiv:2211.12559v2 (polygonal line tilings), arXiv:2411.04601v2 (outerplanar graph matching complexes), arXiv:2403.15298v2 (categorical product of paths), arXiv:2608.30601v2 (independence and perfect matching complexes of circular ladders, Problem 26). Additional open-ladder context: Braun–Hough, *Matching and independence complexes related to small grids* (2017). No claim beyond \(n\le10\), no general formula, no symmetries or all-parameter statements, no independent external audit, and residual risk of an unindexed equivalent computation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary circular-ladder problem is identified before the computation. Ten follows the covered consecutive range, exhibits a new first connectivity threshold, and supplies an exact compact-certificate checkpoint for conjectures in a family whose smaller cases alternate between pure and mixed sphere dimensions. The claim is not a palette change, an arbitrary parameter slice, or a mod-two table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

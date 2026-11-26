@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:45:13.756430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md and verify.py (inspected)",
+        "Independent replay: python /workspace/replay_math.py 2",
+        "arXiv:2610.13279v1 Proposition 5.5 proof, Case 2"
+      ],
+      "rationale": "The rational function has just the poles 0,1,infinity of orders 1,1,2. An additive coboundary h^3-h can only have pole orders divisible by 3, even after extending the constant field, so the cover is geometrically connected. These prime-to-3 orders yield full ramification and different exponents (3-1)(order+1). Riemann–Hurwitz gives 2g-2=8, and Deuring–Shafarevich yields 3-rank 4. The three branch points each contribute one rational point over every extension. Elsewhere the map y to y^3-y has kernel of size three and image the trace-zero hyperplane. As an independent recheck, I used separately selected irreducible field moduli and evaluated the equation after multiplying by x(x-1), directly counting all affine (x,y) outside the two finite poles, with no traces or inversions; the totals are 6,18,24,66,291. Expanding exp(sum_(n=1)^5 (N_n-3^n-1)T^n/n) gives the first half (1,2,6,8,10,15); the genus-five functional equation gives the remaining (30,72,162,162,243). The sum is 711=9*79. Independent factorization over F_5 returned one factor of degree ten, the monic T^10-T^9-T^8-T^7+T^3+2T^2-T+2, times the unit -2. The original polynomial is primitive with leading coefficient not divisible by 5, so this establishes rational irreducibility, also for its reciprocal Frobenius characteristic polynomial. A proper nonzero abelian subvariety over F_3 would give a proper characteristic factor via the rational Tate module; thus the Jacobian is F_3-simple. The minimal geometric automorphism assertion used as background is the same model and parameters in the originating Proposition 5.5, Case 2.",
+      "residual_risks": [
+        "The frozen irreducibility argument establishes base-field simplicity only; no geometric simplicity proof or endomorphism ring determination is claimed by it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kudo–Harashita's exact trigonal maximizer table lists eight F_9-isomorphism classes with 30 points over F_9 and their Weil polynomials; the frozen model has 18 points over F_9. LMFDB describes the relevant abstract class data as complete through dimension five over F_3, but its class page does not give this Jacobian realization."
+        ],
+        "reasoning": "An exhaustive classification of underlying isogeny classes does cover the abstract class, without identifying every explicit curve or even proving existence of a Jacobian in each listed class. The maximal-point census does not cover the 18-point curve. The distinct Resultary records compute invariants of different models, not a family result including this one.",
+        "searches": [
+          "arXiv:2204.06805 Introduction and Theorem 1.2",
+          "LMFDB exact dimension-five F_3 class search",
+          "Resultary 1980d77075e0 and acdc94febbbc"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13279v1, arXiv:2204.06805",
+        "LMFDB exact search and 5.3.c_g_i_k_p",
+        "Resultary 1980d77075e0 and acdc94febbbc and bounded model/Weil searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The originating construction supplies genus, rank and automorphism constraints but not the extension-field counts or a Frobenius identity. Once the model is identified with 5.3.c_g_i_k_p, the order and simplicity also follow from the database. Before identification, the class entry does not imply the given model's arithmetic; it expressly does not give a non-hyperelliptic Jacobian.",
+          "The proved link uses complete exact counts to fix the polynomial. The originating automorphism result C_3 also rules out hyperellipticity, since a genus-five hyperelliptic curve in characteristic 3 has its geometric involution."
+        ],
+        "reasoning": "The distinct step is selecting the correct class for this independently motivated curve, not converting a known class polynomial into its order and counts. The inspected rank and automorphism assertions do not fix the polynomial. Only after the exact finite arithmetic does the model supply a concrete non-hyperelliptic realization for the known class.",
+        "searches": [
+          "arXiv:2610.13279v1 Proposition 5.5, Case 2 and article comparison for the count/coefficient vectors",
+          "LMFDB 5.3.c_g_i_k_p class entry and its Jacobian section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical equation occurs in Proposition 5.5, Case 2 with p=3, r=2 and m=1. The identical reciprocal Weil polynomial and count vector occur in the matched abstract LMFDB class. Neither of those examined records identifies this concrete curve with that class.",
+          "The closest same-characteristic Artin–Schreier finder hit has 3-rank 2 rather than 4; the analogous simple Jacobian hit is a genus-six model over F_5."
+        ],
+        "reasoning": "An equation presentation and an abstract Frobenius class are distinct kinds of identification. Matching a virtual curve count vector inside a class database is genuine overlap of those arithmetic values but does not link the model to that class. The catalogue analogues differ in geometric/base-field invariants and are not equivalent equations over F_3.",
+        "searches": [
+          "Resultary: genus-five Artin–Schreier curve equation x^2+x+1/x+1/(x-1), counts 6,18,24,66,291, Weil polynomial and simple Jacobian",
+          "arXiv:2610.13279v1 §5; LMFDB 5.3.c_g_i_k_p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficient query returns a unique row 5.3.c_g_i_k_p with the entire L-polynomial, virtual counts 6,18,24,66,291, order 711, simple and geometrically simple flags and 3-rank 4. The class page reports no hyperelliptic Jacobian and says a non-hyperelliptic Jacobian is unknown. Kudo–Harashita list Weil polynomials for their maximal-point cases, not this curve."
+        ],
+        "reasoning": "The existing class table exactly covers the model-independent data; no novelty is assigned to recomputing the class entry. A virtual-curve count is the count predicted if a curve has this polynomial, not an identified curve or a certificate that one is in the class. The inspected database leaves this concrete realization open.",
+        "searches": [
+          "https://www.lmfdb.org/Variety/Abelian/Fq/?q=3&p=3&g=5&initial_coefficients=%5B2%2C6%2C8%2C10%2C15%5D",
+          "https://www.lmfdb.org/Variety/Abelian/Fq/5/3/c_g_i_k_p",
+          "arXiv:2204.06805 Theorem 1.2"
+        ]
+      },
+      "rationale": "The distinct result is the realized curve-to-class association: the exact curve of Tafazolian–Kazemifard has Jacobian in the already catalogued isogeny class 5.3.c_g_i_k_p. The original paper provides the model and geometric automorphism result. LMFDB gives the identical abstract numerator, class properties, and virtual point counts, but does not identify this model and specifically says a non-hyperelliptic Jacobian was unknown there. Neither discovery of a new abstract class, nor novelty of the class's simple flag or arithmetic data separated from this model, is credited.",
+      "residual_risks": [
+        "An unlocated census could identify a projectively or arithmetically equivalent curve with this class. The LMFDB page's unknown status is an observation about that entry, not proof of historical priority or an assertion that no other known realization exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and geometric automorphisms prior; no curve-to-class association in the compared passages",
+          "evidence": [
+            "Case 2 gives x^2+x+1/x+1/(x-1). At p=3,r=2,m=1 the genus and 3-rank are five and four, and the automorphism group is C_3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13279v1",
+          "material_read": "§5 Proposition 5.5 proof, Case 2, HTML offsets 64800–70798; coefficient and count-vector comparison",
+          "method": "Read decisive original HTML passage and checked literal vectors",
+          "title": "Artin–Schreier Curves of Prescribed p-Rank Without Extra Automorphisms",
+          "trigger": "Originating minimal-automorphism model"
+        },
+        {
+          "assessment": "Exact abstract class and arithmetic data prior; curve realization not identified there",
+          "evidence": [
+            "Unique exact result; order 711, same numerator and virtual counts; simple and geometrically simple; no hyperelliptic Jacobian and unknown non-hyperelliptic Jacobian as recorded by the page."
+          ],
+          "identifier_or_url": "https://www.lmfdb.org/Variety/Abelian/Fq/5/3/c_g_i_k_p",
+          "material_read": "Exact query result and completeness description; class page invariants, virtual curve counts and Jacobian status, HTML offsets 540–2440",
+          "method": "Exact initial-coefficient query and read the returned class page",
+          "title": "LMFDB abelian-variety isogeny class 5.3.c_g_i_k_p",
+          "trigger": "Exact Weil polynomial and potential preexisting curve identification"
+        },
+        {
+          "assessment": "High-point thesis of the census is not covering for this model",
+          "evidence": [
+            "Eight F_9-isomorphism classes attain 30 F_9 points and have listed Weil polynomials; the reviewed model has 18 points there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.06805",
+          "material_read": "Introduction and Theorem 1.2, offsets 5200–7795",
+          "method": "Read primary HTML on the scope and exact high-point table",
+          "title": "Genus-five hyperelliptic or trigonal curves with many rational points in characteristic three",
+          "trigger": "Potential exact model and Weil-polynomial census"
+        },
+        {
+          "assessment": "Different rank and invariant",
+          "evidence": [
+            "The result concerns 3-rank 2 models and their automorphisms/a-numbers, not the given rank-4 model or its zeta function."
+          ],
+          "identifier_or_url": "Resultary 1980d77075e0",
+          "material_read": "Relevant RESULT.md claim in local mirror",
+          "method": "Read bounded local mirror passage after semantic match",
+          "title": "The Cartier jump and minimal automorphisms of characteristic-three Artin–Schreier curves",
+          "trigger": "Same genus and characteristic; possible invariant coverage"
+        },
+        {
+          "assessment": "Different field, genus and polynomial",
+          "evidence": [
+            "The model is a genus-six curve over F_5, not a realization of this class over F_3."
+          ],
+          "identifier_or_url": "Resultary acdc94febbbc",
+          "material_read": "Relevant RESULT.md claim in local mirror",
+          "method": "Read bounded local mirror passage after semantic match",
+          "title": "A simple nonordinary Jacobian from a minimal-automorphism Artin–Schreier curve",
+          "trigger": "Same-day indexed simple Jacobian analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Originating Proposition 5.5 Case 2; LMFDB matched class's Jacobian section; independent exact count and factorization"
+      ],
+      "rationale": "The curve is a singled-out exact example from a minimal-automorphism construction, not an arbitrary equation picked for tabulation. Identifying its entire zeta function supplies a concrete Jacobian realization of a known class where the inspected database lacked a non-hyperelliptic example (the curve has no geometric involution). This arithmetic realization, independently certified by finite counts and the functional equation, has value beyond recomputing the table's abstract class invariants.",
+      "residual_risks": [
+        "One realization only; no census of all curves in the class or new abstract class is proposed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

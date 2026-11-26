@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible finite and structural verification
+# Independent mathematical audit
 
-Run `python3 verify_arcs.py` with Python 3.10+ from the directory containing the package files. The program constructs rational projective points, lines and four-arcs without importing outside data; computes the 4,641 two-conic concepts; checks all 8,192 supports; and evaluates all 1,594,323 ternary partial assignments. It writes a deterministic `online_tree.json` and separately verifies that all 256 leaves of this depth-eight tree admit compatible concepts with no repeated query along a path. It also checks exactly 78 two-line nonbases and the mod-two top boundary rank 924.
+## correctness
 
-Independently compile and run `c++ -std=c++17 -O2 verify_quadrics.cpp -o verify_quadrics && ./verify_quadrics`. This uses geometrically smooth homogeneous quadratic forms selected by nonzero Hessian determinant instead of the Python four-arc construction. Its separate support trace and ternary-state DP reproduce Littlestone dimension eight, the face polynomial, and the reduced Euler characteristic 714.
+PASS
 
-The decisive finite bounds are **exact**, not simulation: a partial-assignment state is a word in `*`, `0`, `1`; the two children assign one unqueried point absent/present. The recurrence maximizes one plus the minimum of both child depths, with branches having no compatible concept excluded. The terminal case is depth zero. Induction on unassigned point count proves correctness; exhaustive evaluation of all states proves no depth-nine tree exists. The supplied witness proves depth eight.
+For the specified 13 rational points, normalization gives the projective plane; a four-arc defines a quadrangle whose pencil over F3 has the three line-pair quadrics and one smooth member. Counting unions is by distinct Boolean memberships, not by conic pairs. A separate exact reconstruction reproduced 234 arcs, 4,641 concepts and the whole face vector (1,13,78,286,715,1287,1716,1638) over 8,192 supports, including exactly the 78 two-line forbidden seven-sets. In the online recursion, all feasible first queries are considered; each costs one level and thereafter the shorter child depth is binding. Empty branches cannot support a root query and a repeated query cannot split. Exact backward evaluation of 1,594,323 states (1,520,013 nonempty) gives depth 8, excluding 9. The supplied tree was checked as data: 511 nodes, 256 distinct branches of depth 8 with matching nonzero leaf counts and no repeated path query. Replay and output: /workspace/branches/548ce169-3110-49e6-8a32-35f468de46b1/independent_verify.py and independent_check.json. Neither supplied script was executed. For the structural claim, two forbidden sevens share at most five points; basis exchange follows since at most one replacement can be forbidden and the sole-candidate case is the other base. Each six-set extends to a base. Each forbidden seven is a circuit and its extension by any outside point has rank seven, hence it is a hyperplane. Complements of forbidden sevens meet pairwise in at most four points, so dual bases similarly give paving, proving sparse paving. Shellability of the pure six-dimensional independence complex gives the integral sphere wedge, with multiplicity 714 from reduced Euler characteristic; independent binary boundary rank 924 corroborates but does not prove the integral statement. The decisive static and adaptive conclusions use full support/state enumeration, not the auxiliary orbit table.
 
-For the structural claim, any two unions of two distinct projective lines in this plane share at most five points. Thus the other seven-subsets form bases of a rank-seven sparse-paving matroid by basis exchange. Its independence complex is precisely the shattered-support complex. Classical shellability then implies integral homotopy equivalent to a wedge of six-spheres; the reduced Euler characteristic 714 fixes the multiplicity. The binary boundary calculation is a secondary check, not proof of integral torsion-freeness.
+## originality
 
-Scope limits: field exactly three; two distinct smooth conic components; query domain all thirteen rational points; no uniform larger-field conclusion. These self-review have not been independently expert-audited. The complete static-support census was known prior to this new adaptive/topological analysis.
+PASS
+
+Pass for the independently substantive new adaptive invariant, Ldim=8 on the exact two-conic membership class. The distinct same-day static record gives the entire VC classification and the specific missing seven-sets; both are credited, not new. The sparse-paving and integral homotopy conclusion is a correct structural companion, obtained from that full support classification by the two-line intersection observation and standard matroid theory, not an independent novelty basis. The date does not settle relative priority.
+
+## value
+
+PASS
+
+The exact adaptive depth answers whether adaptation gains anything over the known static dimension on a canonical finite geometric class. The explicit witness and upper certificate make the one-level gain and its limit verifiable; the static face census alone gives neither. The companion matroid interpretation explains the organization of the static obstructions, but the value pass does not rest on recomputing them or reapplying shellability. No larger-field inference is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:19:24.457183Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73; VERIFICATION.md and the Python and C++ verifiers inspected",
+        "/workspace/branches/153cd108-4c10-4528-880f-ce0615884ba7/reproduce.py and full.log"
+      ],
+      "rationale": "For a fixed support T of twos, precisely the vertices outside T with one neighbor in T are eligible zeros; choosing their labels independently gives z^(14+|T|-|U|)(1+z)^|U|, with a unique lightest labeling. On the Fano bipartition the counts of uniquely incident vertices on the two sides add, followed by subtraction of selected vertices that already have one selected neighbor. All 12 small-support maxima and attaining counts in the frozen table were independently reproduced. Supports of size >=6 weigh at least 12; the table for smaller supports gives minimum 10 only at (1,1),(1,2),(2,1),(2,2). At those sizes equality requires no selected vertex of induced degree one. A nonempty incidence graph on at most two selected points and two selected lines has a degree-one vertex because a four-cycle would give two lines through the same pair of points. Thus equality requires no incidences. There are four lines not incident with a fixed point (and dually), and two distinct lines omit exactly two points, giving 28,42,42,21 labeled supports. Independent exact enumeration by both the 16384 defender subsets and the original adjacency rule on all 4782969 ternary labelings gives all 19 stated nonzero coefficients, total 249827, and checks the full minimum classification and 133 optima, including absence of selected incidences.",
+      "residual_risks": [
+        "Only the fixed labeled Heawood graph, all PRDFs with no extra constraints at positive labels; enumeration is not a statement for other incidence graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen AUDIT.json records Henning–Klostermeyer Theorem 7, cubic upper bound 3n/4; retrieval attempts did not independently obtain that passage. Fernau–Mann's accessible algorithmic statements provide polynomial-delay enumeration and class-specific optimization, not Heawood coefficients."
+        ],
+        "reasoning": "The reported upper bound gives at most floor(3*14/4)=10, but does not give at least 10 or any optimum class or coefficient. General enumerability is not an exact precomputed classification, and Heawood is neither a crown graph nor a complete multipartite graph.",
+        "searches": [
+          "Henning–Klostermeyer DOI 10.2298/AADM1801143H, journal PDF and lawful alternate publisher routes",
+          "Fernau–Mann enumeration/complexity results; indexed crown and multipartite exact formulas"
+        ]
+      },
+      "checked_sources": [
+        "Fernau–Mann primary passages; Henning–Klostermeyer retrieval and frozen provenance",
+        "Local Resultary same-record hit and distinct comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polynomial counts every labeling, not only optimal or pointwise-minimal ones. The reviewed finding additionally explains why each optimal support is nonincident and why the only four types have their stated multiplicities."
+        ],
+        "reasoning": "Neither a one-sided cubic bound nor a generic algorithm gives the matching minimum, the structural equality cases or the coefficient list by specialization or direct table lookup. This distinction relies on the graph-specific Fano incidence calculation and exhaustive weighted count, not the mere use of a different label for the invariant.",
+        "searches": [
+          "Worded comparison of the regular-graph upper bound, primary enumeration results and indexed findings against RESULT.md lines 5–19 and 39–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernau–Mann §1.2 defines the same rule at zeros; unique-response domination gives additional restrictions at positive labels. The Heawood graph is equivalently the Fano point–line incidence graph here."
+        ],
+        "reasoning": "The Fano/Heawood alias preserves the graph and polynomial. Replacing exactly one 2-neighbor by at least one, or imposing further positive-vertex restrictions, changes which labelings count and is not an equivalent enumeration.",
+        "searches": [
+          "Local Resultary: Heawood/Fano perfect Roman weight census, 133 optima, exactly-one defender condition",
+          "Fernau–Mann arXiv:2309.07018v1 §1.2 and §1.5; primary search on perfect Roman domination in regular graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact index and mirror hit ending dd07ffcf5e12 is the assigned result. Different records ending 0d0302466963, e57b781e4a71 and fe03532a3f23 concern the triangular-graph matching classification, crown-graph minima and complete-multipartite weight enumeration respectively."
+        ],
+        "reasoning": "The self-hit is not an independent exact table. Same-date triangular graphs are excluded by graph and optimizer structure, not by their date. The other verified titles/findings and summaries concern other graphs. No independently indexed exact Heawood census was identified.",
+        "searches": [
+          "Local Resultary: Heawood PRDF polynomial, Heawood perfect Roman minimum, Fano nonincident defender configurations and 133"
+        ]
+      },
+      "rationale": "The general perfect Roman definition, defender-set method, and available generic enumeration framework do not give the Heawood-specific lower bound, complete nonincidence classification, or weight census. The closest cubic result is reported to give the upper bound only for this comparison; the exact paper was not independently accessible. Indexed parallels under the same rule concern different graphs. The supported distinct claim is the Fano-geometric classification and exact polynomial, rather than generic enumeration or an unconditional claim of priority for the scalar value.",
+      "residual_risks": [
+        "The primary Henning–Klostermeyer text and the complete-multipartite mirror body were not obtained independently. Unindexed small-cubic-graph tables may already compute part of the census; failed access is not noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The reported cubic bound overlaps the upper-bound direction; a fuller Heawood comparison with this paper remains unresolved",
+          "evidence": [
+            "Frozen AUDIT.json lines 89–98 reports cubic Theorem 7 with proof on pp. 143–148, yielding gamma_R^p(H)<=10. Independent access attempts timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/AADM1801143H",
+          "material_read": "Publisher PDF listing and frozen provenance for Theorem 7, no newly retrieved primary full text",
+          "method": "Primary literature lookup, lawful journal PDF, article and DOI attempts; inspected frozen extraction notes",
+          "title": "Perfect Roman Domination in Regular Graphs",
+          "trigger": "Same invariant, broader class containing the Heawood graph"
+        },
+        {
+          "assessment": "Same constraint, different algorithmic findings; not the stated Heawood census in the inspected passages",
+          "evidence": [
+            "Exactly one 2-neighbor for zeros; unique response is stronger. Section 1.5 gives enumeration/complexity results including polynomial-delay algorithms and split/cobipartite optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.07018",
+          "material_read": "v1 §1.2 p. 2 at PDF offset 4639; abstract and §1.5 at offset 10020",
+          "method": "Open primary PDF extraction",
+          "title": "Perfect Roman Domination and Unique Response Roman Domination",
+          "trigger": "Exact definition and general enumeration methods"
+        },
+        {
+          "assessment": "Different graph and optimum structure",
+          "evidence": [
+            "Classifies optimum twos on L(K_n) using root matchings, not Heawood nonincident point and line sets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-matching-rigidity-of-perfect-roman-domination-on-triangular-grap--0d0302466963",
+          "material_read": "Indexed summary and corresponding mirrored RESULT.md finding/assumptions in the triangular-graph comparison",
+          "method": "Local Resultary and mirrored source",
+          "title": "Matching rigidity of perfect Roman domination on triangular graphs",
+          "trigger": "Same-date perfect Roman structural classification"
+        },
+        {
+          "assessment": "Crown graphs only",
+          "evidence": [
+            "Minimum 4 and n optima for the stated crown family. The cubic crown has 8 vertices; the 14-vertex crown has degree 6, not the Heawood degree 3."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71",
+          "material_read": "Mirrored RESULT.md finding, offset 487",
+          "method": "Local Resultary and mirrored source",
+          "title": "Perfect Roman domination of crown graphs",
+          "trigger": "Same invariant and exact classifications on a bipartite graph family"
+        },
+        {
+          "assessment": "Complete multipartite hypothesis does not include the Heawood graph",
+          "evidence": [
+            "A connected bipartite complete multipartite graph is complete bipartite; the Fano incidence bipartition omits four of seven lines at each point."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-perfect-roman-domination-polynomial-of-complete-multipartite-graphs--fe03532a3f23",
+          "material_read": "Indexed title and summary, no mirror body obtained",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Perfect Roman domination polynomial of complete multipartite graphs",
+          "trigger": "Exact same weight-polynomial invariant on a broad graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19, 39–73; independent census and regular-graph bound comparison"
+      ],
+      "rationale": "The Heawood graph is a canonical cubic incidence graph and the exact weight polynomial is a natural, reproducible benchmark for algorithms counting perfect Roman functions. Its geometric classification gives a reason for equality in the integer cubic upper bound, and identifies all optimal supports with explicit Fano nonincidence types, beyond a single computed number.",
+      "residual_risks": [
+        "The result is specific to Heawood; it is neither a general cubic extremal classification nor a formula for all projective-plane incidence graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

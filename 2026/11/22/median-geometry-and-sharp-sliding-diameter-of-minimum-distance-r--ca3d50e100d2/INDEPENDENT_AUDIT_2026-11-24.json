@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:21:01.343526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each selected vertex covers at most 2r+1 vertices, so size is at least k. For any k positions, the gaps must be nonnegative and at most r at the two ends and 2r between successive positions; these conditions are necessary and sufficient on an integer path. The deficits from those capacities sum to d∈[0,2r], so interior bounds are automatic, and an admissible tuple exists by putting min(d,r) at the left end and the remainder at the right end. Reconstructing centers from gaps is unique. A right slide of token i transfers one deficit from slot i−1 to i; feasibility ensures the destination is in the path and not occupied. Sorted deficit lists allow no more than r zeros and r entries k, precisely the coordinate bounds L=(0^{min(d,r)},1^{(d−r)_+}) and R=((k−1)^{(d−r)_+},k^{min(d,r)}). On reversing rows these describe the ideals between I(L) and I(R) in the rectangular product poset; difference with I(L) identifies ideals in the induced difference poset. One legal transfer adds/deletes one box, and all one-box moves are realized. Deleting maximal extra boxes and adding minimal missing boxes realizes the symmetric-difference lower bound; majority of three ideals is an ideal and is the unique median for this Hamming metric. The number of available boxes is kd−2(d−r)_+, also the attained L–R distance, so the same value is both diameter and optimal isometric hypercube dimension. Subtracting the two disjoint endpoint violations from all weak compositions gives the stated binomial formula. These arguments include d=0, k=1, and n=1 (the last is a singleton even with d>0). Inspected the frozen checker without executing it. Replay: python3 -B /workspace/review_evidence/independent_checks.py 3; independently built legal slides for 135 path/radius cases, checked 547,440 ordered-pair distances against ordered-token matching, counts and diameters and 10,538 tested median memberships. The equality with the deficit metric can also be seen by counting unit crossings: for each cut i between slots, the number of ordered deficit matches crossing it is the absolute difference of the prefix deficit counts; these prefix differences equal the negatives of the corresponding token-position differences. Finite checks only corroborate the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 of Křišťan–Svoboda gives the optimal token-matching cost on trees for subtree hitting sets, stated for multiset configurations.",
+          "Banerjee–Hoang's conclusion leaves TS on trees open in their general distance-r setting; DeVos et al. address realizability of γ_d graphs under one-element exchanges."
+        ],
+        "reasoning": "Domination is hitting all radius-r balls, which are subtrees on a path. The multiset wording causes no gap at the minimum k: if any intermediate hitting multiset repeated a vertex, its distinct support would be a hitting set of cardinality <k. Sorted matching on the line minimizes absolute transport cost; thus this is exact coverage of the distance subclaim. It does not provide the endpoint-clipped grid ideal, state count or extremal diameter of the set of configurations.",
+        "searches": [
+          "arXiv:2307.10847v1 §2 and §4.1 Theorem 4; arXiv:2310.00241 abstract and conclusion; arXiv:1810.01583 objective, construction and application scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.10847v1",
+        "arXiv:2310.00241",
+        "arXiv:1810.01583",
+        "Resultary edbf2b8cafb9",
+        "Resultary b3cdccfc018b",
+        "Resultary 763e1575fe9a",
+        "DOI 10.7155/jgaa.00517 (stated scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shortest matching cost depends on two supplied states, not the full feasible set. Ordinary minimum domination on trees at radius one, as in the stated scope of Lemańska–Żyliński, is not a minimum radius-r path result for r≥2."
+        ],
+        "reasoning": "The new argument has to identify the feasible set as an endpoint-bounded grid interval and find its extremal states. Neither calculating the distance for a pair nor realizing an abstract γ_d graph enumerates those states or fixes that interval and its dimension for original-path moves.",
+        "searches": [
+          "Comparison of arXiv:2307.10847v1 Theorem 4, arXiv:1810.01583 Definition 1.3 and objective (1), and DOI 10.7155/jgaa.00517 stated scope with the interval and diameter claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In DeVos–Dyck–Jedwab–Simon Definition 1.3, labels are the same kind of minimum sets, but adjacency only requires intersection of size γ_d−1. The text expressly excludes the alternate definition with extra edge restriction.",
+          "Banerjee–Hoang studies distinct TS and TJ rules for radius-r domination."
+        ],
+        "reasoning": "DeVos et al. use token jumps, not original-path slides: on P₂ at r≥2 either rule connects the two singleton states, but on P₃ at r≥2 the jump graph is K₃ and the slide graph P₃. Ordinary domination on P_n^r gives the same vertices but edge slides in that power also change the move graph.",
+        "searches": [
+          "Resultary: minimum distance-r path domination, bounded gaps, token sliding and median graph; arXiv:1810.01583 Defs. 1.1–1.3 and Fig. 1; arXiv:2310.00241"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "edbf2b8cafb9 treats bounded gaps on cycles, not a path with two distinguished endpoint caps. b3cdccfc018b studies independent domination on ladders, and 763e1575fe9a a VC dimension for inclusion-minimal ordinary path domination. The exact assigned Resultary hit is the same record, not precedent."
+        ],
+        "reasoning": "These counts or invariants refer to different geometry or domination classes. No compared table or exact record gives the stated all-(n,r) census, diameter and dimension.",
+        "searches": [
+          "Resultary path radius-r minimum domination count, sliding distance, endpoint deficits; comparison to published circular bounded-gap graph edbf2b8cafb9 and same-day records b3cdccfc018b / 763e1575fe9a; web lookup for DeVos et al. DOI 10.1007/s00373-020-02174-9"
+        ]
+      },
+      "rationale": "The exact median interval and its state count, sharp diameter and dimension are the supported distinct content for the specified original-path slides at minimum cardinality. The exact transport-distance principle is already implied by the tree subtree-hitting framework, not a separate novelty ground.",
+      "residual_risks": [
+        "An unindexed powered-path, interval-cover or path γ-graph formulation may cover the same structure. Lemańska–Żyliński was not compared beyond its visible scope for ordinary domination. No whole-literature priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum-size shortest transport after the ball-hitting reduction; not the structural/path count claim",
+          "evidence": [
+            "Tree subtree-hitting multiset configurations and minimum matching cost; minimum cardinality rules out duplicates in this application."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.10847v1",
+          "material_read": "§2 definitions about offsets 6500–9500; §4.1 Thm. 4 about offset 21900 and proof about offset 24500",
+          "method": "Lawful OA HTML passages",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "General tree transport theorem potentially subsumes shortest-distance assertion"
+        },
+        {
+          "assessment": "Framework and broader complexity; matching path structure not stated in the inspected results",
+          "evidence": [
+            "Adjacent nonmember TS and tree TS listed among open questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.00241",
+          "material_read": "Abstract p. 1, γ_r attribution p. 3, and conclusion p. 25 of retrieved PDF",
+          "method": "Lawful OA PDF passages",
+          "title": "The Complexity of Distance-r Dominating Set Reconfiguration",
+          "trigger": "Same coverage predicate and original-graph token slides"
+        },
+        {
+          "assessment": "Same minimum state class, different edge semantics and realizability objective",
+          "evidence": [
+            "Adjacency iff intersection size γ_d(G)−1; alternative graph with edge restriction explicitly not studied."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.01583 ; DOI 10.1007/s00373-020-02174-9",
+          "material_read": "ArXiv text pp. 1–3, Defs. 1.1–1.3, Fig. 1 and objective (1), offset 3000–7757; p. 5 construction passage located at offset 13814",
+          "method": "Identified lawful arXiv copy after journal retrieval difficulties",
+          "title": "Which graphs occur as γ-graphs?",
+          "trigger": "Primary introduction of γ_d graphs on the same minimum distance-d sets"
+        },
+        {
+          "assessment": "Cyclic transport, not endpoint-bounded path classification",
+          "evidence": [
+            "Cycles have no two distinguished endpoint caps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9",
+          "material_read": "Finding and move scope in local mirror passage",
+          "method": "Resultary search and local mirror read",
+          "title": "Circular bounded-gap token systems have transport-optimal sliding",
+          "trigger": "Potential exact gap-coordinate equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum placements of fixed-radius service vertices along a path are a natural state space. Its full geometry, exact size and minimum binary representation are useful beyond the known shortest-route metric. The sharp reduction in diameter once d exceeds r distinguishes two actual endpoint-capacity regimes and gives the worst reconfiguration cost exactly, rather than fitting finite cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

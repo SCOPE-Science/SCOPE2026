@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The exact claim concerns the incidence graph defined by `y == m*x+b (mod 3)` on nine point and nine line vertices. No external numerical data files or third-party Python packages are required.
+# Independent mathematical audit
 
-Run `python verification/verify_incidence.py` to construct and exhaustively scan all balanced two-, four-, six- and eight-vertex selections and their induced perfect matchings. It checks exactly 9 feasible six-vertex states, 216 eight-vertex states, nine eight-vertex components each of size 24, 648 exchange edges overall, uniform degree 6 and component diameter 3. It also verifies the minimum layer is edgeless.
+## correctness
 
-Run `python verification/verify_geometry.py` for a separate coordinate-based exhaustive enumeration. It tests perfect matchings by enumerating all bijections, checks all possible four-point/four-line selections against the explicit nine-core/24-extension construction, verifies the forbidden twelve-cycle and identifies each exchange component as a line graph with 72 edges and diameter 3. It rules out all between-core jumps.
+PASS
 
-Run `python verification/verify_orbits.py` to check the stated action of 108 affine transformations on four-point selections. Its four orbits have sizes 18, 27, 54, 27 and compatible four-line choice counts 12, 0, 0, 0, respectively. This proves the finite classification lemma with a second, symmetry-reduced coverage check.
+The graph is cubic, so at least five closed neighborhoods are needed, and a perfect matching forces even cardinality and balance between the two sides. Each proposed point-column and line-slope pair dominates and induces three disjoint edges. I independently enumerated disjoint subsets of edges of the original 27-edge graph, took their endpoints and tested closed-neighborhood coverage, deduplicating the endpoint sets. This domain is exhaustive because every feasible set of size k has a k/2-edge perfect matching in the original graph. It confirms exactly the nine stated cores at size six and 216 size-eight states with unique contained cores. The direct/crossed alternatives in RESULT.md are exhaustive: if the two new vertices do not match each other, each has only one incident partner in the core, and those two core vertices must have been partners. At c=m=0 the excluded edges satisfy b=y+ux; the displayed walk has all twelve distinct vertices before closing, and the forbidden graph has degree two. A jump cannot change the full triple on either side; after a change at most five distinct vertices could occur in the union on that side, not the six needed for two disjoint triples. Within a core a jump is exactly an edge adjacency in the extension graph's line graph. The four-neighbors-in-six property gives paths of length at most three; both crossed incidences of the displayed pair of edges are forbidden, so the diameter is exactly three. Independent enumeration also verified all 9 forbidden cycles and all component sizes (24), edge counts (72), degree (6), diameters (3), and the edgeless minimum layer.
 
-The three recorded output files are included under `verification/`; they are observational records, not substitutes for the supplied proofs or scripts. These finite checks exhaust the stated 18-vertex object. No claim is made for larger biaffine planes. The literature comparison is not a machine-verifiable certificate of global priority. Independent scientific evaluation has not been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the full structural classification of the size-eight token-jump paired-domination layer and its relation to the frozen minimum cores. None of the inspected closest statements provides it or implies it. This does not certify priority for a standalone minimum-number computation or for the underlying graph model.
+
+## value
+
+PASS
+
+The first feasible augmentation of minimum paired domination is a motivated finite layer on a canonical cubic bipartite incidence graph. Its nine recoverable cores explain a sharp mobility/connectivity split: 216 states are locally mobile but confined to nine sectors, each with an exact line-graph structure and diameter. This goes beyond an arbitrary finite count and gives concrete reachability information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

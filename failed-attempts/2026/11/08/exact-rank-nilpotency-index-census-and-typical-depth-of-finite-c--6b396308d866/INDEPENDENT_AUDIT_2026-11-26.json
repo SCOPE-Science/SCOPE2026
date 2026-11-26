@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:41:06.748710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two specified distinct domain points determine a unique signed affine extension; rank-one nonfixed maps are counted only as translations and the empty map only once. For shift d>0 the n-d domain positions split into b_d residue strings of length a_d and d-b_d of length a_d-1. A k-arrow path exists exactly at a selected k-run, and concatenating zero-terminated blocks and a final run yields the rational forbidden-run series. A nilpotent reflection omits fixed points and uses at most one point of each transposed pair, so each nonempty such restriction has index two. Its polynomial removes ranks zero and one to avoid duplication. The pair-count levels below floor(n/2) occur four times each for positive levels, with multiplicities one or three at the top; summing the binomial coefficients gives the stated parity formulas (n=1 directly gives only zero as nilpotent). The ambient order gives a limiting density, not an exact density, of 1/3. The non-translation contribution is O(3^(n/2)) while nonzero translations number 2^(n+1)-2n-2. Within translations the absolute shift has a uniformly geometric tail. At each fixed shift, a union bound over at most n starts rules out runs longer than (1+epsilon)log_2 n with high probability; at least n/(2r) disjoint length-r windows for r=floor((1-epsilon)log_2 n) make a shorter maximum improbable. Conditioning on nonempty domains does not affect this limit, and the index is one plus the maximum run. Independent bounded literal composition checked the joint counts, closed counts and ambient order through n=9. Replay: python3 /workspace/branches/87e35433-f3e4-0fba-83d6bdce1f8a/independent_census_check.py 9. Those checks do not establish the asymptotic claim on their own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The order-preserving record gives the sharper lattice-scale law and explicitly proves tightness of index minus log_2 n, hence the ratio limit. The ambient monoid order is Theorem 3.16; ordinary fixed-point-free counts differ because of reflection 2-cycles. The retrievable Ali–Jada–Zubairu paper gives an order-preserving nilpotent total and a nilpotent-generated subsemigroup result."
+        ],
+        "reasoning": "The order-preserving model is smaller in objects but has the asymptotically equivalent sampling law and stronger conclusion. The fixed-point and generating-rank statistics themselves are not the nilpotency-index census.",
+        "searches": [
+          "Resultary 3383014bbd25, lattice extreme law and its subsequence/tightness proof",
+          "Kehinde–Umar arXiv:1101.0049v1, Theorem 3.16 and fixed-point counts",
+          "Ali–Jada–Zubairu doi:10.22124/jart.2019.10875.1109, Proposition 2.5 and Theorem 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (support inspected, not executed)",
+        "Resultary 9fb2eb7e1694 and 3383014bbd25",
+        "arXiv:1101.0049v1",
+        "doi:10.22124/jart.2019.10875.1109"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full ensemble adds precisely the rank-at-least-two nilpotent reflection restrictions to the uniform order-preserving support. Their number is bounded by (2n-1)3^floor(n/2)=o(2^n), whereas the known order-preserving count is 2^(n+1)-2n-1."
+        ],
+        "reasoning": "For nested finite supports, the total variation distance of their uniform laws is the fraction of elements outside the smaller support. It tends to zero here, and the same index map is used on both supports. Thus the prior ratio limit, and even the corresponding sharp law along lattice subsequences, transfers without a new limit theorem. Retelling the longest-run proof does not create an uncovered contribution.",
+        "searches": [
+          "3383014bbd25, Mixing displacements and tightness",
+          "9fb2eb7e1694, exact total and reflection contribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For each shift d the prior lengths floor((n-j)/d), 1<=j<=d, are b_d copies of a_d and d-b_d copies of a_d-1. Its B counts the same forbidden words as A. The prior global correction n(n-1)u equals sum_c 2p_c u because each ordered pair of unequal points defines a unique reflection exchanging them."
+        ],
+        "reasoning": "The prior k=1 case already counts only zero. For k>=2, collecting equal factors and moving the linear subtraction inside the sum recovers the frozen cumulative polynomial exactly. The rational series for the binary-run factors is also printed in 3383014bbd25.",
+        "searches": [
+          "Resultary: finite-chain partial isometries, joint rank/index distribution, run polynomial and typical nilpotency depth",
+          "Resultary 9fb2eb7e1694, Finding and translation/reflection proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier full-monoid finding gives the entire coefficient array, the same rank polynomial coefficients and parity totals, and the same 1/3 limiting density, for the very same chain distance and nilpotency convention."
+        ],
+        "reasoning": "These exact statements subsume every cell, not just the finite verifier sizes. Switching symbols or changing the placement of rank-one duplicate removal does not add a statistic.",
+        "searches": [
+          "Resultary 9fb2eb7e1694, exact rank and index counts and parity formulas",
+          "Resultary 3383014bbd25, exact translation rank/index polynomial"
+        ]
+      },
+      "rationale": "A distinct Resultary record contains the equivalent joint census, parity rank counts, totals and limiting density in the full monoid. The remaining leading depth law is implied by an earlier sharper order-preserving result: the additional nilpotent reflections have vanishing weight, so the order-preserving law transfers in total variation. No substantive part of the finding survives these comparisons.",
+      "residual_risks": [
+        "The sources establish statement and implication coverage, not authorship or comprehensive historical publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full-monoid census, rank/total counts and density",
+          "evidence": "H_n,k uses the same run polynomials with floor progression lengths and global singleton subtraction; the parity rank and total equations then agree literally.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-joint-rank-and-nilpotency-index-distribution-of-partial-isometri--9fb2eb7e1694/RESULT.md",
+          "material_read": "Finding and scope, then translation/reflection proof and closed-rank derivation, local-mirror offsets 0 and 3525",
+          "method": "OA local-mirror passage and algebraic comparison",
+          "title": "Joint rank and nilpotency-index distribution of partial isometries of a finite chain",
+          "trigger": "Apparent exact full-monoid census and density"
+        },
+        {
+          "assessment": "Covers the rational run series and implies the full model's depth limit",
+          "evidence": "Gives the same rational series, the exact smaller-ensemble size and tightness about log_2 n via a sharper lattice law interpreted on subsequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nilpotency-height-rank-profiles-and-a-lattice-extreme-law-for-or--3383014bbd25/RESULT.md",
+          "material_read": "Finding, scope, run-polynomial proof, fixed-displacement and displacement mixture limits and tightness proof, local-mirror offsets 0 and 4215",
+          "method": "OA local-mirror passages and total-variation transfer",
+          "title": "Nilpotency-height rank profiles and a lattice extreme law for order-preserving partial isometries",
+          "trigger": "Stronger limit with a smaller potentially equivalent sampling ensemble"
+        },
+        {
+          "assessment": "Ambient size established; different fixed-point statistic",
+          "evidence": "The order is 3*2^(n+1)-(n+2)^2-1. Absence of fixed points does not exclude a reflected two-cycle.",
+          "identifier_or_url": "arXiv:1101.0049v1",
+          "material_read": "pp. 9–10, Theorem 3.16 and fixed-point counts, PDF offsets 22676–26822",
+          "method": "OA PDF passage",
+          "title": "On the semigroup of partial isometries of a finite chain",
+          "trigger": "Underlying partial-isometry count and possible fixed-point equivalence"
+        },
+        {
+          "assessment": "Order-preserving total and generation, not the full joint census in the passages read",
+          "evidence": "Proposition count matches the zero-inclusive translation total, with surrounding zero convention to be handled carefully; Theorem 2.6 studies nilpotent generation.",
+          "identifier_or_url": "doi:10.22124/jart.2019.10875.1109",
+          "material_read": "p. 18, Proposition 2.5 and Theorem 2.6, OA offset 6353",
+          "method": "Lawful OA DOI retrieval and passage comparison",
+          "title": "On the ranks of certain semigroups of order-preserving partial isometries of a finite chain",
+          "trigger": "Frozen record flagged as inaccessible and potentially covering nilpotent counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A rank-index census and a typical-depth theorem are meaningful for this monoid, but the census is already available and the depth statement is a weaker consequence of the stronger translation limit and the negligible reflection mass. No additional structural or quantitative result beyond the available claims is shown.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

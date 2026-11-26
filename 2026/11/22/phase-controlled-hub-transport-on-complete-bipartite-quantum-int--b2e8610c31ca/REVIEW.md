@@ -1,21 +1,21 @@
-# Scientific review: phase-controlled hub transport
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation uses the exact Hermitian hub–leaf block, its two-by-two Gram matrix, the matrix-cosine formula and elementary spectral projectors. Thus the transition amplitude is valid for every integer \(m\ge2\) and every unit-phase vector, with singular cases \(s=0\) and \(s=m\) handled separately. Equality in the cosine triangle inequality establishes the necessary and sufficient rational opposite-parity condition; irrational frequency ratio gives dense continuous-time torus flow, and rational both-odd ratio gives a compact periodic orbit avoiding the required phase pair. The \(3:1\) maximum is an exact one-variable calculus problem, not a numerical inference. Dense and full-measure phase conclusions follow from the continuous nonconstant analytic phasor-resultant map. Exact symbolic tests and 264 separate full-matrix exponentiations agree with the proof; these finite checks are only supporting evidence.
+## correctness
 
-## Originality — PASS on examined evidence
-Christandl et al. establish state-transfer motivation and different network constructions [1]. Fan and Godsil derive frequency-arithmetic state-transfer behavior on real double-star trees, which neither have the same two-hub bipartite cycles nor unit-modulus magnetic phases [2]. Cameron et al. provide a general framework for Hermitian graph transport and universal transfer, but the inspected results address different graph families and a stronger, all-pairs transport property [3]. Closely related publicly indexed quantum-network studies have rational-parity mechanisms; a frequency-parity observation alone is **not** claimed as new. The claim here is the complete arbitrary-phase \(K_{2,m}\) classification by one gauge-invariant phasor resultant, the interlaced dense complete/near-complete/imperfect regimes, and the exact \(3:1\) ceiling. Searches did not show a direct published equivalent, but there is meaningful historical-priority risk from unindexed specialized magnetic interferometer calculations and broad spectral classification theorems; some closest indexed research was accessible only as title and abstract, not full text.
+PASS
 
-## Mathematical value — PASS
-Fixing every edge coupling magnitude while varying loop phases is a natural coherent transport-control problem. The countably dense perfect-transfer resonances, countably dense strict non-transfer resonances, and full-measure pretty good transfer are a nontrivial and operationally relevant separation on **the same** graph and with **the same** absolute couplings. The explicit \(16/27\) maximum proves a substantial transport gap at a sharp accessible resonance. It is an all-size exact theorem, not a tiny gain or a numerical census. Extremely long irrational-recurrence times and absence of noise are important limitations.
+With hubs first the even powers of H restrict on the hubs to powers of BB*, and the odd powers contribute zero there. BB* has diagonal m and (v,u) entry S, with spectral values m±s. For s>0 the (v,u) entries of the two projectors are ±S/(2s), fixing the conjugation and normalization in the cosine difference. At s=0 it is a scalar Gram matrix; at s=m one frequency is zero and t=π/√(2m) gives unit magnitude. In the interior, unit magnitude requires opposite cosine extrema. Reducing the ratio of the corresponding positive integer multiples of π preserves opposite parity; conversely reduced opposite parity gives the displayed time. A reduced both-odd ratio is periodic with no such time, so its maximum is strictly below one. For irrational R, take t=(2k+1)π/√(m−s); the other argument runs over a dense irrational rotation modulo 2π, so one can approach the pair of extrema at positive times. At R=3 the probability is 4y(1−y)² for y=cos²(t√(m−s)), giving the attained maximum 16/27 at y=1/3. The increasing radius map is a bijection onto the interior; rationals of both parity types densely approximate every R by large denominators of prescribed parity, with reduction preserving the type. The connected phase torus attains s=0 via roots of unity and s=m via alignment, and therefore all radii. Its analytic s² is globally nonconstant and hence nonconstant in every open box. Each such box contains a connected smaller box with a nontrivial range of s², so every dense radius class pulls back densely. Individual level sets of nonconstant analytic s² have measure zero; the countably many excluded radii thus leave full measure for the irrational-ratio phase class. The result concerns the ideal fixed closed Hamiltonian, not transfer in a bounded observation window.
 
-## Sources and limitations
-[1] M. Christandl et al., *Perfect state transfer in quantum spin networks*, https://arxiv.org/abs/quant-ph/0309131 (first posted 2003-09-17).
+## originality
 
-[2] X. Fan and C. Godsil, *Pretty good state transfer on double stars*, https://arxiv.org/html/1206.0082v3 (first posted 2012-06-01).
+PASS
 
-[3] S. Cameron et al., *Universal State Transfer on Graphs*, https://arxiv.org/abs/1310.3885 (first posted 2013-10-15).
+The established parts are the two-frequency mechanism, the Hermitian phase-matching criteria, and even the coherent magnetic-square amplitude as an immediate consequence of an earlier square block decomposition. The surviving claim is their exact realization and classification over the arbitrary unit-phase assignments of the entire K_{2,m} family: all loop-phase dependence on this marked hub pair is compressed into its phasor resultant (up to the output phase), with a full phase-space classification. The inspected statements do not supply that network-specific reduction and pullback; neither the arithmetic technique nor the 3:1 two-mode maximization is credited as a new technique or independent phenomenon.
 
-This self-review does not establish historical priority against all unpublished, unindexed or inaccessible literature. The result does not cover arbitrary edge magnitudes, noise, many-body effects or finite-time recurrence bounds. No independent audit has been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For a natural multi-path network this replaces all independent magnetic phases for the marked transport problem by one measurable interference parameter, while keeping coupling magnitudes fixed. It gives an exact design and obstruction criterion rather than a single calibrated example: phase-only tuning has dense but null exact-transfer and blocked classes, alongside almost-everywhere arbitrarily good transfer that need not be exact. The all-phase statement and its strong distinction between topology and measure are useful for analyzing coherent phase sensitivity; the elementary resonance maximum alone would not meet this value standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,66 +1,50 @@
-# Wild-edge connectivity of coordinate-coloured cubes through five dimensions
+# Exact wild number of the coordinate-coloured four-cube and a bound for the five-cube
 
 ## Finding
 
-Give the binary hypercube \(Q_d\) its standard proper edge-colouring by coordinate: an edge has colour \(i\in\{0,\ldots,d-1\}\) when its endpoints differ in coordinate \(i\). For each colour \(i\), upgrading a set \(W\) of edges means that every edge in \(W\) can also be used as colour \(i\). A set \(W\) is *colour-connecting* when its union with every monochromatic edge class induces a connected spanning graph. Let \(w_d\) be the minimum size of such a set. Then
-
+In the binary cube \(Q_d\), colour the edge \(\{u,u\oplus 2^i\}\) by \(i\). Let \(w_d\) be the smallest size of a set \(W\) of cube edges such that \(W\) together with each coordinate matching is connected and spans the cube. Then
 \[
-\boxed{(w_2,w_3,w_4)=(2,5,10),\qquad 19\le w_5\le20.}
+ w_4=10,\qquad 19\le w_5\le20.
 \]
-
-In particular, the four-dimensional cube admits a ten-edge set simultaneously connecting all four coordinate colour classes, and no nine-edge set can do so. An explicit twenty-edge set gives a one-edge interval for the first five-dimensional case. These statements concern only the specified coordinate colouring, not arbitrary minimum proper edge-colourings of the cube.
+The constructive claims are explicit witnesses of size 10 and 20 respectively. The interval does not determine \(w_5\). The previously covered values \(w_2=2\) and \(w_3=5\) are included in the certificate file only as checks on the small cases.
 
 ## Assumptions and scope
 
-For \(d\in\{2,3,4,5\}\), identify \(V(Q_d)\) with \(\{0,1,\ldots,2^d-1\}\), interpreted as \(d\)-bit vectors. Its edges are the unordered pairs \(\{u,u\oplus2^i\}\) for \(0\le i<d\), where \(\oplus\) denotes bitwise exclusive OR; the corresponding colour is \(i\). There are \(2^{d-1}\) edges in each colour class, forming a perfect matching. No other graph products or edge colourings are asserted to satisfy the table.
+Vertices are the integers from \(0\) to \(2^d-1\); \(\oplus\) means bitwise exclusive OR. Edges are unordered simple pairs, and the connectivity requirement is for the standard coordinate colouring only. No claim is made for different proper colourings of the same cube.
 
 ## Proof
 
-**Lower bound.** Fix any colour-connecting set \(W\) of \(w\) edges, and let \(w_i\) be the number of its edges originally coloured \(i\). Contract all \(2^{d-1}\) monochromatic \(i\)-edges, which form a perfect matching. The resulting graph has \(2^{d-1}\) contracted vertices; edges of \(W\) originally coloured \(i\) become loops and do not aid connectivity. Thus the other \(w-w_i\) edges must connect these vertices, requiring \(w-w_i\ge 2^{d-1}-1\). Summing over all \(d\) colours yields
+If \(W\) has \(w_i\) edges of colour \(i\) and \(w\) edges in total, contract the colour-\(i\) perfect matching to get \(2^{d-1}\) vertices. The \(w_i\) edges of that colour in \(W\) are now loops. The remaining \(w-w_i\) edges must connect all quotient vertices, so \(w-w_i\ge 2^{d-1}-1\). Summing gives the specialization of the known general lower bound \(w\ge\lceil d(2^{d-1}-1)/(d-1)\rceil\), which is 10 for \(d=4\) and 19 for \(d=5\).
 
+For \(d=4\), list the edges of \(W\) in the order
 \[
-(d-1)w\ge d(2^{d-1}-1),\qquad
-w_d\ge\left\lceil\frac{d(2^{d-1}-1)}{d-1}\right\rceil.
+(4,5),(8,9),(5,7),(9,11),(12,14),(1,5),(2,6),(9,13),(5,13),(6,14).
 \]
+After matching contraction, spanning trees are given by the following one-based edge indices:
 
-The lower bounds for dimensions \(2,3,4,5\) are respectively \(2,5,10,19\). This bound is a specialization of the known general ceiling lower bound for wild numbers; it is **not** claimed as a new independent bound.
+| Colour contracted | Indices |
+| --- | --- |
+| 0 | 3,4,5,6,7,8,9 |
+| 1 | 1,2,6,7,8,9,10 |
+| 2 | 1,2,3,4,5,9,10 |
+| 3 | 1,2,3,4,5,6,7 |
 
-**Upper bounds.** `certificate.json` lists actual unordered edge pairs for dimensions two through five, with cardinalities respectively \(2,5,10,20\). The vertices are labelled by the bit-mask convention above. For clarity, the ten-edge certificate in dimension four is
+The listed seven edges per row span the eight quotient vertices: clear bit \(i\) in both ends to obtain the quotient pairs and traverse from vertex zero. Thus the lower bound for the four-cube is attained.
 
+For \(d=5\), use the edges
 \[
-\begin{aligned}
-W_4=\{&\{4,5\},\{8,9\},\{5,7\},\{9,11\},\{12,14\},\\
-&\{1,5\},\{2,6\},\{9,13\},\{5,13\},\{6,14\}\}.
-\end{aligned}
+\begin{gathered}
+(6,7),(12,13),(26,27),(0,2),(9,11),(12,14),(20,22),(29,31),\\
+(0,4),(9,13),(17,21),(24,28),(6,14),(16,24),(19,27),(21,29),(22,30),\\
+(1,17),(10,26),(12,28).
+\end{gathered}
 \]
+Each pair is a distinct coordinate edge. After clearing bit \(i\) from each endpoint, a traversal starting at zero reaches all 16 quotient vertices for each \(i=0,1,2,3,4\). Equivalently, the full matching together with these edges reaches all 32 cube vertices for each \(i\). Hence the displayed set is a 20-edge witness.
 
-For every coordinate \(i\), contract all colour-\(i\) matching edges. In each dimension the remaining edges from the listed \(W_d\) contain a spanning tree on the \(2^{d-1}\) quotient vertices. For dimension four, a spanning-tree selection for the four respective colours is, in the above displayed edge order and with one-based indices,
+## Reproducibility
 
-\[
-\begin{array}{c|l}
- i &\text{selected certificate-edge indices}\\\hline
-0&3,4,5,6,7,8,9\\
-1&1,2,6,7,8,9,10\\
-2&1,2,3,4,5,9,10\\
-3&1,2,3,4,5,6,7
-\end{array}
-\]
-
-Each selected set has seven edges and connects all eight contracted vertices. This is a directly checkable finite certificate; `verify.py` reconstructs and checks these trees without numerical optimization or external packages. The same program checks all other dimensions and requires exactly \(2^{d-1}-1\) successful merging edges after each contraction. Thus \(w_d\le2,5,10,20\) for the stated dimensions. Combining with the lower bounds proves the displayed claim.
-
-## Verification
-
-Run `python3 verify.py` in the same directory as `certificate.json`. It reconstructs the cube from the bit-mask definition, rejects duplicated or invalid certificate edges, contracts each coordinate matching using a disjoint-set structure, and checks that the remaining certificate edges join every quotient component. It checks the certificate lengths, the explicit lower-bound arithmetic, and the size of every computed spanning tree. The recorded output is in `verification_output.txt`, ending in `VERIFY_OK`. The proof of the lower bound is algebraic and does not depend on the program.
+The two lists are the entries `4` and `5` in `certificate.json`. `verify.py` uses integer labels and union-find to check the monochromatic quotient connectivity of all embedded lists. `verification_output.txt` records the certificate check. The lower bound is mathematical; neither the certificate nor its checker rules out a 19-edge five-cube solution.
 
 ## Relationship to prior work
 
-Anders, Foster-Greenwood, Garcia and Krawzik introduced the wild number and proved a ceiling lower bound in Proposition 5.4 of their 2025 preprint. Dawkins, Nappo, Tong and Zimbizi revisited this bound and investigated minimum proper colourings of complete and complete bipartite graphs, obtaining lower bounds on Cartesian products in Section 5 of their October 2026 preprint. Their statements supply the general counting principle, not the explicit colour-connecting edge sets and exact four-cube value here. The objects, colouring, and tested claims were compared against both primary texts and targeted mathematical-record searches, with no equivalent exact four-cube result identified.
-
-## Limitations
-
-The five-cube is bounded between nineteen and twenty; this result **does not** decide which value is correct. No claim is made for dimensions at least six, for different edge-colourings of hypercubes, or for minimum wild sets beyond the exhibited witnesses. Bibliographic priority and mathematical correctness have not been independently audited. The existence checks are finite and exact; they are not an exhaustive enumeration of all candidate wild sets.
-
-## References
-
-- K. Anders, B. Foster-Greenwood, R. Garcia, N. Krawzik, *The wild number of an edge-colored graph*, arXiv:2508.06711v1 (first public 8 August 2025), especially Proposition 5.4. https://arxiv.org/abs/2508.06711
-- A. Dawkins, A. Nappo, J. Tong, C. Zimbizi, *Wild number for spanning trees in complete and complete bipartite graphs*, arXiv:2610.22142v1 (first public 15 October 2026), especially Section 5. https://arxiv.org/abs/2610.22142
+Anders et al., arXiv:2508.06711v1, Proposition 5.4, establish the general lower bound; their Theorem 6.4(2) already gives \(w_2=2\) from the exact two-colour identity. Dawkins et al., arXiv:2610.22142v1, Theorem 4.4, also gives the square case; their Section 5 treats product lower bounds, not the upper witnesses here. The [complete-bipartite prism theorem](https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-wild-number-of-properly-colored-complete-bipartite-prisms--1118d48ed828) gives \(w_3=5\): its \(K_{2,2}\square K_2\) instance includes the coordinate colouring. The contribution here is the four-cube ceiling attainment and the five-cube upper witness, not the smaller exact values or the general lower bound. The cited earlier material does not supply those two witnesses; differently indexed prior coverage is not ruled out.

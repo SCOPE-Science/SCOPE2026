@@ -1,19 +1,21 @@
-# Scientific review: destination-marked stationary-observation hitting times
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An explicit Markov-renewal construction with independent visits and finite second moments defines the equilibrium aged law. The first-return physical-time normalization establishes source-independent entrance Kemeny sums. A separate stationary marked-interval size bias gives residual mean \(u_i/(2m_i)\) and next-mark probability \(b_{ik}/m_i\). Subtracting first-step equations yields the stated exact correction. In the three-state Gamma/exponential example, exact-rational calculations produce the two opposite stationary-observation sums \(15/7\) and \(17/7\), both compared with entrance \(16/7\). The minimality statement follows because a no-self-jump two-state chain has deterministic next destinations. The provided verifier reproduces the witness and finite algebraic cross-checks. Finite tests do not prove the theorem; the complete argument is in RESULT.md.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+For the zero-at-target entrance hitting column H_j, first-step analysis gives (I−P)H_j=m off the target. Multiplying by the embedded invariant row nu forces the exceptional component to be m_j−(nu·m)/nu_j. Weighting columns by pi_j=nu_j*m_j/(nu·m) therefore gives a harmonic vector, constant by irreducibility. Conditioning on the initial stationary interval biases the joint duration–mark law by w/m_i; averaging the residual length and the destination gives r_i=u_i/(2m_i) and q_ik=b_ik/m_i. After the next jump the process starts on a fresh entry. In the target-weighted difference the sum over j other than i is K−pi_i*H_ki, so the row-sum-zero difference q_i−P_i yields the stated negative sign on the marked term. For the star witness the conditional Gamma second moments are 8/5 and 72/5, giving mixture second moment 8. The common H rows are (0,6,5),(1,0,6),(2,8,0), with pi=(4,1,2)/7. Swapping the Gamma marks changes q_12 from 1/4 to 3/4, so the state-1 defect is respectively −1/7 and +1/7 while the other defects vanish. Two states without self jumps offer no alternative exit mark; with marginal SCV one the residual term also vanishes. This proves exactly the stated minimality.
 
-Hunter's 2018 Markov-renewal Kemeny theorem and Voits's 2026 graph-theoretic counterpart concern fresh-entrance initialization. Their constancy is incorporated, not contradicted. Khorshidian and Fathizadeh (2022) already give age-conditioned first-passage machinery; the residual-life first-step identity is not novel in isolation. A related mathematical result already characterizes equality of fresh-entrance second hitting-time moments with a pseudo-rate Markov chain by the same first/second holding moments and a three-state witness. The mathematical implication comparison is: it does not state stationary-observation Kemeny values or construct two kernels sharing the **entire unmarked** laws and entrance first-passage matrix with **oppositely directed** aged Kemeny defects; the new witness has deliberately nonzero marked-duration discrepancy, unlike the earlier second-moment-matching witness. The assessed contribution is the exact destination-marked correction as a means to expose the minimal three-state opposite-defect **nonidentifiability** under equal full unmarked sojourn laws, embedded transitions, stationary state laws and entire entrance first-passage matrix. Relevant primary full texts and scientific claim searches did not identify that specific structural implication. The 2025 follow-up on conditional hitting-time/state-dependent measures could not be inspected fully and remains a material, explicitly unresolved priority risk; there is no claim of exhaustive historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Network hitting-time summaries are routinely computed from transition probabilities and per-state holding laws. The exact pair demonstrates an unexpected limit of those reductions when measurement begins at an arbitrary physical-time observation rather than on entry: a hidden duration/next-destination association changes the weighted passage time, even for marginal hold distributions with unit squared coefficient of variation. The minimal-three-state obstruction provides a natural boundary and the general correction identifies the missing marked statistic. No classification for other kernels is claimed.
+The entrance constancy and general residual-life first-step machinery are established. The distinct supported result is nonidentifiability at a stationary observation from identical entire unmarked holding laws, transition matrix, stationary occupancy and entrance mean hitting matrix, with an explicit minimal, unit-SCV pair and opposite signed defects. No inspected statement establishes this matched-observables obstruction.
 
-## Scope and references
+## value
 
-Finite irreducible Markov-renewal networks with positive sojourns and finite second moments; no embedded self-jumps; zero at already-reached target. Main sources: arXiv:2610.13505v1 (2026), arXiv:1802.08330 (2018), DOI:10.21203/rs.3.rs-2184300/v1 (2022), and uninspected later DOI:10.1080/03610926.2025.2483291 (2025). Independent mathematics review and historical priority checking remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pair tests whether quantities available without linking each holding interval to its destination determine a natural network hitting summary. It gives failure even when full unmarked holding laws, not merely their moments, agree, and removes the usual mean-residual-life explanation by matching unit SCV. The sign reversal and two-state boundary identify precisely why that reduction fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

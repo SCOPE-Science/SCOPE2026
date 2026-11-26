@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:08:58.807493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both original mathematical assertions are true. A fresh exact check in /workspace/branches/check_grid_independent.py uses bipartiteness and König's theorem: at most four vertices per color are allowed, and alpha equals face cardinality minus maximum matching size. This reproduces the eight-entry f-vector and 72,568 nonempty faces. The pivot matching gives 36,039 pairs; a separate complete directed DFS traverses 446,610 covers with no cycles and leaves one vertex and 489 seven-cells. An independent orbit-subset computation gives fixed-face counts (72568,252,444,212) and Lefschetz sums (−488,−30,−12,−14). In degree seven, traces are one minus those sums. For a fixed nonempty face using b orbits the orientation sign times simplicial parity is (−1)^(b−1), so the trace test correctly includes inversions. The four multiplicities are (137,123,114,115). The narrowed claim is reproduced by /workspace/repairs/2/check_grid_reflections.py, including its dual support check. Quotient ranks 260, 251, 252 and 137 follow by rational invariants after barycentric subdivision; these are ordinary orbit spaces. The verification checks no other grid, no integral lattice splitting, and no equivariant homotopy equivalence. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filakovský's proved arbitrary-rectangle cases are k=2,3; arbitrary k applies with edge-only attachments. A four-by-five grid contains interior lattice vertices incident to four unit squares and cannot be grown with just edge-only attachments; at the first step bringing all four squares together the remaining square meets more than one edge or there has already been a corner overlap. The wedge prediction of Conjecture 5 gives neither proof nor reflections.",
+          "Chandrakar et al. give total cut classifications on 2×n and on 3×n for k=3, not the present case. The general acyclic element-matching theorem applies nonequivariantly and calculates no character."
+        ],
+        "reasoning": "The proved wider results do not specify the indicated reflection action. The matching method is relevant and gives the ordinary homotopy implication when applied to the tabulated case, not any equivariant model.",
+        "searches": [
+          "arXiv:2602.11365, Theorems 1–2, Corollary 3 and Conjecture 5",
+          "arXiv:2408.07646v3, Theorem 1.1",
+          "arXiv:2209.13503, Appendix Theorems 7.2 and 7.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.13503 §5 Table 3 and Appendix Theorems 7.2 and 7.5",
+        "arXiv:2602.11365 Theorems 1–2, Corollary 3 and Conjecture 5",
+        "arXiv:2408.07646v3 Theorem 1.1",
+        "a723a1190e9a",
+        "ad24e6739c28",
+        "695baded869f",
+        "39d3a3f8c30c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The article gives Betti data rather than stating a homotopy classification for the selected case. However, enumerating all facets from independent five-sets and all their subfaces gives 976007 faces including empty. The article's specified successive element matching leaves exactly 489 dimension-ten faces, with the empty face matched to a vertex. Both row- and column-major conventional lexicographic orders give this result. The appendix guarantees acyclicity and the one-vertex, one-positive-degree wedge conclusion.",
+          "Alexander duality shifts degree 10 to 7 on the robust complex. Its full three-skeleton guarantees simple connectivity. Hurewicz and homology Whitehead then imply the ordinary wedge, with no torsion or separate unstable ambiguity. None of this determines fixed-simplex traces; the independent character check requires the actual orbit enumeration."
+        ],
+        "reasoning": "The homotopy conclusion was mechanically recoverable from the published procedure and its theorems, not from a ranked table alone. The remaining reflection character is not an invariant of the ordinary wedge alone, and no inspected source computes or implies the exact action without additional symmetry-specific work.",
+        "searches": [
+          "arXiv:2209.13503 §5 p. 21–22, standard lexicographic order",
+          "arXiv:2209.13503 Appendix Theorems 7.2 and 7.5",
+          "exact reproduction /workspace/branches/check_grid_prior_matching.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The facets of the Alexander dual are the complements of the independent five-subsets, so Bayer et al. work with the very same data under ordinary combinatorial Alexander duality.",
+          "Equivariant duality could transform an actual dual representation (with the ambient orientation sign), but the inspected dual statement only gives ranks and a nonequivariant computation."
+        ],
+        "reasoning": "The duality is a covering transformation for nonequivariant homological support, but does not turn a dimension or pivot matching without symmetry into a character table.",
+        "searches": [
+          "Resultary: five-robust clique P4 square P5 seventh homotopy and Klein-four reflection character",
+          "arXiv:2209.13503 §1 and §5, total five-cut complex",
+          "Alexander-dual complexes on the same 20 labelled vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 gives β_10=489 and no reflection character. The exact assigned record returned by the index is itself, not a distinct prior.",
+          "a723a1190e9a covers the 4×5 graph at k=4 and gives character data for square grids; ad24e6739c28 includes k=5 but on the 4×4 graph. 695baded869f treats 3×5 and 3×6. 39d3a3f8c30c treats graphs from five squares, not the twelve-square rectangle."
+        ],
+        "reasoning": "Neither the exact rank match nor the close graph and threshold mismatches furnish the requested representation.",
+        "searches": [
+          "Bayer et al. Table 3, G(4,5) and k=5",
+          "Resultary: exact trace tuple 489 31 13 15, five-robust grid",
+          "a723a1190e9a, ad24e6739c28, 695baded869f, 39d3a3f8c30c"
+        ]
+      },
+      "rationale": "PASS for the repaired rational reflection character only. The original inclusion of the integral wedge as a novel result is not supported: the older publication names this exact case in Table 3 and specifies the lexicographic element matching, whose replay has critical cells only in dimension ten aside from the base vertex. The wedge for the robust complex then follows mechanically. The freeze is mathematically correct, but the original novelty scope is not passed. The complete corrected scientific files in /workspace/repairs/2 narrow the finding to the actual rational action and its quotient ranks; the known rank and mechanical wedge implication are background only.",
+      "residual_risks": [
+        "A bounded search and the absence of a pertinent character in these passages do not exclude unindexed computations or source files giving the same traces.",
+        "The repair does not claim originality for the degree, rank, or ordinary wedge, nor an action over the integers up to isomorphism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known rank and mechanically implied nonequivariant wedge; no corresponding reflection character in the relevant arguments",
+          "evidence": [
+            "p. 21 specifies standard lexicographic Morse element matchings; p. 22 Table 3 gives β_10=489.",
+            "Theorem 7.5 gives acyclicity of the successive element matchings. Replay of this instance shows the concentrated critical spectrum needed for Theorem 7.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+          "material_read": "§1 p. 2; §5 pp. 21–22 including Table 3 (offset 68300 onward); Appendix Theorems 7.2 and 7.5, p. 23",
+          "method": "Open-access bounded PDF reading; exact replay of the published lexicographic matching with independent enumeration",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Exact same grid and threshold after duality, with a published matching recipe"
+        },
+        {
+          "assessment": "All rectangles at k=2,3, or all k only with edge-only square sequences; relevant broader wedge conjecture is nonequivariant",
+          "evidence": [
+            "Conjecture 5 proposes spheres of dimension 2k−3, no reflection character."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.11365",
+          "material_read": "§1 Theorems 1–2, Corollary 3, Conjecture 5, HTML offsets approximately 4120–8447",
+          "method": "Open-access bounded HTML passages",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Same graph complex and possible all-threshold wedge theorem"
+        },
+        {
+          "assessment": "Covers lower row counts or other k, not this representation",
+          "evidence": [
+            "Total-cut assertions concern two rows for arbitrary k and three rows at k=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.07646v3",
+          "material_read": "Theorem 1.1, HTML offsets approximately 5800–8100",
+          "method": "Open-access bounded HTML passage",
+          "title": "Topology of Total Cut Complexes and Cut Complexes of Grid Graphs",
+          "trigger": "Same dual construction on other rectangular grids"
+        },
+        {
+          "assessment": "Nearby cases, not the five-robust reflection character of this rectangle",
+          "evidence": [
+            "Same graph at k=4 gives a wedge of 220 five-spheres; k=5 on 4×4 gives 122 seven-spheres; the other families cover width three or five-square sequences."
+          ],
+          "identifier_or_url": "a723a1190e9a; ad24e6739c28; 695baded869f; 39d3a3f8c30c",
+          "material_read": "Relevant Finding sections and grid/threshold scopes",
+          "method": "Local indexed search and bounded statements via local mirror",
+          "title": "Four-robust clique homotopy on the first two-dimensional grid range and its square-symmetry characters; Integral homotopy classification of robust clique complexes on the 4×4 grid; Sharp binomial breakdown in the robust-clique homotopy of two width-three grids; The five-robust clique complexes of all five-square sequences",
+          "trigger": "Closest indexed robust-clique homotopy and character findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single finite grid is a natural unresolved symmetry instance of the robust-clique problem, and row and column reversal form its natural full rectangular symmetry. The exact rational action distinguishes which cycles are invariant under each reflection and the half-turn; it also determines exact rational Betti ranks of the ordinary symmetry quotients. These concrete invariants are not available from the prior ordinary homotopy or rank, and are independently useful without a general-width theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:49:29.657881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The given both-sign entrance law integrates to √(2/π)ℓ^(-1/2), so the interval-lifetime intensity is ρ(2π)^(-1/2) db ℓ^(-3/2)dℓ. Overlap integration for s≤t gives κ(√t-√(t-s)); at t=0 the count is almost surely zero. Dilation by T multiplies the pushed-forward lifetime intensity by √T. In rescaled time, a finite combination of count indicators and occupation kernels is multiplied by T^(-1/4); its L² intensity is invariant and its bounded supremum tends to zero. The centered Poisson characteristic function then has a vanishing cubic remainder. This verifies even joint finite-dimensional testing of the two observables, with cross covariance between the count at s and its integrated limit at t equal to ∫_0^t K(s,v)dv. Tonelli makes the integrated path continuous, and its uniform second-moment increment bound κ√L|t-s|² gives tightness. Integrating K on [0,s]×[0,t] yields the stated covariance, including variance 4κt^(5/2)/15. The Gaussian count increment bound 2κ√|t-s| gives continuity by higher Gaussian moments; scaling of K gives self-similarity, and equal-length increment variances depend on their starting point. At positive t_0 the square-root-of-maximum term changes by O(ε) in the centered increment covariance; the distance term leaves κ(√u+√v-√|u-v|), giving the exact fBm tangent. The origin is governed by self-similarity instead. The dense exceptional set is consistent with the proof: the union of the interiors of intervals of length less than 1/j is open dense almost surely for each j (infinitely many such births in each rational open interval), and Baire's theorem gives densely many times belonging to infinitely many intervals. No raw-count D- or C-valued convergence is asserted. The frozen finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iksanov–Jedidi–Bouzeffour Theorem 1.2 permits regularly varying service survival index -β with 0≤β<1 and renewal interarrivals with a finite moment of order r>2/(1-β). Exponential interarrivals meet this at β=1/2. It gives deterministic centering and Skorokhod J₁ convergence to the Gaussian process (1.3).",
+          "Kou Theorem 1.5 instead gives a one-time positive spatial-power CLT, excluding the count endpoint; §4 Lemma 4.1 still concerns powers. The same model and dense exceptional times are background, not this source of the prior Gaussian limit.",
+          "The exact Pang–Taqqu theorem text was unavailable in the attempted lawful routes; no noncoverage conclusion is inferred from that."
+        ],
+        "reasoning": "The stronger functional theorem is for a broader renewal/infinite-server model, and its hypotheses can be met exactly by the long lifetime component. Showing that the small-lifetime component is negligible at the asserted scales is enough, even though the full count does not live in Skorokhod space.",
+        "searches": [
+          "arXiv:1610.08662 §1, Theorems 1.1 and 1.2 and covariance (1.3)",
+          "\"Singular Birth-Death model\" Kou Theorem 1.5 population count Gaussian multitime integrated counts Poisson",
+          "\"Nonstationary self-similar Gaussian processes as scaling limits\" Pang Taqqu 2019 pdf theorem 2.1 shot noise"
+        ]
+      },
+      "checked_sources": [
+        "Iksanov–Jedidi–Bouzeffour arXiv:1610.08662",
+        "Kou arXiv:2611.19362v1",
+        "Pang–Taqqu DOI 10.1002/hf2.10028 (limited access)",
+        "Resultary 660e6bc3aeb5, 388998d8ea12, 33c0e5be340f (last is assigned self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write N=N_long+N_short at lifetime 1. The long component is the theorem's M/G/∞ specialization: the extra customer at S_0=0 in the theorem alters the count by at most one and rescales away. Its centering is λ∫_0^t min(1,s^(-1/2))ds, and the theorem's normalizer is asymptotic to √κ T^(1/4). The long Gaussian limit is therefore √κ V_(1/2). Since this limit has continuous paths, J₁ convergence proves its time integral converges in uniform topology.",
+          "For all t, E N_short(t)≤ρ(2π)^(-1/2)∫_0^1 ℓ⋅ℓ^(-3/2)dℓ=λ. The centered short component thus vanishes in count FDD in L¹ at rate O(T^(-1/4)). Its centered integral has expected supremum on [0,L] at most 2λ L T^(-1/4). Exact means add to κ√t. This transfers both limits to the full singular population.",
+          "The interior tangent follows by the two Gaussian increment covariance differences in (1.3), and the origin and variance claims follow by homogeneity and integration. Dense infinities persist in the unscaled short component and are already part of Kou's model, but do not prevent this transfer."
+        ],
+        "reasoning": "This is a direct implication of an existing stronger theorem plus a uniform first-moment truncation, not just a generic proof technique or a covariate-name match. The small-lifetime singularity does not create a distinct asymptotic mechanism at the scales posed in the frozen claim.",
+        "searches": [
+          "Iksanov–Jedidi–Bouzeffour arXiv:1610.08662, Theorem 1.2 (1.5), center and covariance (1.3)",
+          "Kou arXiv:2611.19362v1 Definition 1.1, Theorem 1.5 and Lemma 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projection of the excursions to birth–lifetime intervals is a Poisson infinite-server occupancy process. Restricting to ℓ≥1 gives ordinary Poisson arrivals of rate λ=κ/2 and service survival min(1,t^(-1/2)).",
+          "Iksanov–Jedidi–Bouzeffour use the same alive-interval indicators in §1 and give exactly the covariance u^(1-β)-(u-s)^(1-β) for s≤u in (1.3).",
+          "The exact 33c0e5be340f Resultary match is the frozen record itself. Distinct mirrors 660e6bc3aeb5 and 388998d8ea12 treat marked spatial extremes and a different neutral-occupation integral, respectively."
+        ],
+        "reasoning": "The prior infinite-server alias genuinely matches the part of the count that determines the limiting law, and identifies the Gaussian kernel exactly rather than by similarity of Hurst exponents. The Resultary neighbors do not themselves cover it.",
+        "searches": [
+          "Gaussian population fluctuations continuous integrated limit Brownian excursion Poisson count kernel K multitime limit tangent fractional Brownian (Resultary)",
+          "Brownian excursion birth death population counts finite-dimensional Gaussian limit integrated count functional convergence lifetime Poisson (Resultary)",
+          "empty initial infinite server queue Poisson arrivals infinite mean regularly varying service tail index less than one Gaussian functional limit occupancy and integrated occupation max covariance sqrt nonstationary M/G/infinity",
+          "Iksanov Marynych Rashytov functional limit theorems G/G/infinite server queue infinite mean service times Poisson Gaussian covariance regularly varying response random immigration centered shot noise infinite source queue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact object is a Gaussian covariance kernel, not a finite numerical table. The prior explicit formula (1.3) at β=1/2 is K/κ, including at zero by continuity.",
+          "Integrating that kernel twice gives the frozen closed form and its diagonal 4κt^(5/2)/15. The exact catalogue self-hit supplies no independent evidence."
+        ],
+        "reasoning": "The prior analytic formula determines the full Gaussian law and its integral. Absence of the specialized coefficient 4/15 from an inspected table would not make this a separate result.",
+        "searches": [
+          "arXiv:1610.08662, (1.3) and (1.5)",
+          "Resultary exact excursion occupancy kernel queries above"
+        ]
+      },
+      "rationale": "Theorem 1.2 of Iksanov–Jedidi–Bouzeffour, arXiv:1610.08662, gives a stronger busy-server process functional limit with covariance (1.3) exactly equal to K/κ at lifetime-tail index 1/2. Although their finite-rate hypotheses do not contain the dense singular count paths literally, splitting the given Poisson population at lifetime 1 shows that their theorem implies both frozen large-time convergence statements; the interior tangent and integrated covariance are direct computations from their known kernel. The failure is demonstrated prior implication, not unavailable literature or a mathematical error.",
+      "residual_risks": [
+        "Earlier or additional queue and shot-noise sources may document even more overlap. The failed originality verdict rests on the verified Iksanov–Jedidi–Bouzeffour implication, not on unresolved access or claimed exhaustive historical precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmatively covers the limiting count and its integrated version after the explicit Poisson long-lifetime specialization and bounded-remainder estimate.",
+          "evidence": [
+            "Zero-delayed renewal arrivals and alive interval indicators; regularly varying service tail condition (1.1); covariance (1.3); deterministically centered J₁ theorem (1.5)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.08662",
+          "material_read": "Title and abstract offsets 0–1358; §1 process definition, Theorem 1.1 and (1.3), pp. 1–3 offsets 1400–9396; Theorem 1.2 and surrounding implications p. 3 offsets 9410–11853",
+          "method": "OA primary PDF text and direct parameter and truncation comparison",
+          "title": "Functional limit theorems for the number of busy servers in a G/G/∞ queue",
+          "trigger": "Potential dominating nonstationary infinite-server functional limit with heavy-tailed services"
+        },
+        {
+          "assessment": "Prior model and exceptional-time background; the inspected power-sum CLT and transform are not the frozen population limit.",
+          "evidence": [
+            "Live count N_t versus powers 0<α<1; one-time CLT and increment MGF for the latter"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.19362v1",
+          "material_read": "§1.2 Definition 1.1 offsets 14300–18783, Theorem 1.5 offsets 18396–24393 and §4 Lemma 4.1 (34) offsets 114000–118989",
+          "method": "OA primary HTML passages",
+          "title": "Singular Birth-Death model",
+          "trigger": "Same singular excursion model and potential count/weighted-count overlap"
+        },
+        {
+          "assessment": "Unresolved for exact additional coverage and not the basis of the decision.",
+          "evidence": [
+            "Available description identifies power-law shot-noise Gaussian scaling limits; no independently inspected exact hypotheses"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/hf2.10028",
+          "material_read": "Bibliographic/abstract description only; exact theorem unavailable via DOI, Boston University repository link or Rice author PDF",
+          "method": "Lawful opening and alternate-copy attempts; no full-text inference",
+          "title": "Nonstationary self-similar Gaussian processes as scaling limits of power-law shot noise processes and generalizations of fractional Brownian motion",
+          "trigger": "Potential broader shot-noise theorem"
+        },
+        {
+          "assessment": "Same model, different observable and limit mechanism.",
+          "evidence": [
+            "Poisson process of large positive positions and their exponential birth-time marks"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exponential-founding-time-marks-for-gumbel-extremes-in-a-singula--660e6bc3aeb5/RESULT.md",
+          "material_read": "Finding, offsets 0–3346",
+          "method": "Resultary local mirror",
+          "title": "Exponential founding-time marks for Gumbel extremes in a singular birth–death model",
+          "trigger": "Closest distinct indexed same-excursion-model result"
+        },
+        {
+          "assessment": "Different occupation response and asymptotic regimes.",
+          "evidence": [
+            "Gaussian, logarithmic and stable limits of a neutral-occupation integral rather than Brownian lifetime occupancy"
+          ],
+          "identifier_or_url": "Resultary 388998d8ea12",
+          "material_read": "Mirrored Finding, offsets 0–4412",
+          "method": "Resultary local mirror",
+          "title": "Gaussian, logarithmic and Lévy fluctuations of the neutral occupation",
+          "trigger": "Indexed high-intensity Poisson occupation limits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Integrated population-time is a meaningful observable in an excursion system with densely many infinite counts. But once the established busy-server functional limit is applied to lifetimes at least 1, the singular correction needs only a uniform first-moment estimate at the scales claimed. The exact covariance, variance, and tangent are direct integrations and local differences of the known Gaussian kernel. No separate scientifically valuable unknown remainder was established at these scales, such as fluctuations on a scale that retains the short-excursion component. No repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

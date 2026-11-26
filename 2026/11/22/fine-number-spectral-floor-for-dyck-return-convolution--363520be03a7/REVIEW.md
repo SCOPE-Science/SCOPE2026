@@ -1,19 +1,21 @@
-# Scientific assessment: Fine-number spectral floor for Dyck-return convolution
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every semilength, a unique primitive-excursion decomposition establishes the signed character polynomial. Splitting at a chosen interior return makes each coordinate derivative a product of shorter signed polynomials. The all-negative generating equation has coefficients 1, 0, then strictly positive; induction yields every Walsh multiplier at least the corresponding Fine number. The upper bound is the Catalan total, and a square-root singularity gives the asymptotic condition number nine. The independent integer verifier completed 69,432 assertions through the stated finite ranges. Exhaustive tests do not replace the analytic proof.
+PASS
 
-## Originality — PASS under bounded comparison
+A primitive excursion of semilength r contributes C_(r−1) choices. Multiplying these weights and inserting the sign at each proper partial sum gives exactly the unnormalized Walsh transform of the multiplicity kernel. Selecting paths that return at j and deleting the sign at j gives the product Z_j Z_(n−j), since concatenation across that specified return is a bijection. At all-negative signs the signed excursion sum is H=W/(1+W)=zF(z), and z=W(1−W) gives H=z+zH^2/(1−2H). Coefficient induction gives m_1=1, m_2=0, and m_n≥2^(n−3) for n≥3 from z·2^(n−3)H^(n−1). With these base values, the factored sign differences and induction on n show coordinate monotonicity and hence the asserted full-support minimizer, without claiming uniqueness. The trivial character attains the Catalan maximum by the triangle inequality. The n=1 operator has one eigenvalue 1; at n=2 the spectrum is (2,0), and all other cases are positive definite. Standard square-root transfer from H=1/3−(2/9)sqrt(1−4z)+O(1−4z) at its sole dominant singularity gives m_n/C_n→1/9, proving the stated conditioning limits and the effect of probability normalization. A separate step-by-step census and full character sum through n=10 gave the minima 1,0,1,2,6,18,57,186,622,2120, with full support always a minimizer and multiple minima for several n.
 
-The classical Fine-number values and Catalan excursion decomposition are credited to Deutsch–Shapiro and Cameron–McLeod. Aggregate return/hill generating functions do not yield time-resolved signed Fourier positivity. The fully inspected published height-three Dyck step-vector Fourier result concerns an entirely different coding and modulo-three zero phenomenon. Searches for return-set convolution, Fine extrema, and signed excursion composition did not find a covering theorem; absence of matches is not a uniqueness proof. The Fine-number survey's full text was not inspected, and historical priority remains conditional on unindexed sources.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a global, sharp, strictly positive Fourier floor and exact deconvolution stability for a natural distribution with dependent return positions. Unlike the known all-negative Fine enumeration alone, it controls every sign pattern, proving invertibility throughout an infinite family except one explicitly classified order.
+The Catalan and Fine generating functions and the signed coefficient at full support are not the original contribution. The supported distinct statement is position-resolved simultaneous nonnegativity and extremality of that full-support character, yielding the exact spectral floor and condition number. The inspected comparisons do not establish this extremum.
 
-## Limitations
+## value
 
-Only unrestricted Dyck paths, with interior ground-level returns recorded with multiplicity, are covered. No analogous result for bounded-height excursions is asserted. This is a self-review, not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimizing over all return-position characters, not just evaluating the signed return-count statistic, resolves singularity and supplies a sharp stability guarantee for inversion of the natural counting and probability convolution operators. The uniform positive spectral gap for normalized kernels as n grows is meaningful beyond the finite numerical checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:28:51.429281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–47 and 53–95",
+        "VERIFICATION.md and verify_cubic_gcd.py; supplied tests are not an independent audit and uploaded code was not executed"
+      ],
+      "rationale": "Factoring in (x,s=x+y) separates odd primes p>=5 into s=0,-2,-1 with discriminant square class -3 and nonzero common Jacobian determinants; each of the six roots at a split prime lifts uniquely, and p=3 is excluded by the two different linear sum conditions. At 2 exactly one of the two same-parity pairs is odd-odd, so its sum is the necessary and sufficient zero condition through modulus 8 (the even-even cubes vanish there). A root mod 16 would force the even-even sum to have valuation 1 and its quadratic factor valuation 2, a contradiction. CRT gives the finite laws; the three branches bound p by 2X+2 and their box counts by 6(2X/p+1)(X/p+1). After summation the limiting large-prime error is at most 12/M, so finite-prime exact-valuation limits give actual exact-value densities and full convergence. The split-prime moment factors are summable in excess over one for 0<t<1 and equal 1+6/p at t=1, where the reciprocal-prime sum diverges. Independent full residue enumeration matched 22 moduli (2^1..2^5, 3^1..3^3, and p,p^2 for p=5,7,11,13,17,19,23); replay by precomputing cubes mod each modulus and testing every ordered pair for both shifts. An independent product through 10^7 was 0.4059864631292707, with absolute omitted tail less than 3/10^7, confirming 0.406.",
+      "residual_risks": [
+        "The moment threshold is for the limiting random variable, not an asymptotic or uniform-integrability claim for finite boxes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Marynych's abstract explicitly states limiting GCD convergence for polynomial evaluations at uniform integer box points under hypotheses.",
+          "Bodin–Dèbes Theorem 1.5 states the coprimality density product with factors 1-c_p/p^r, where c_p is a simultaneous root count modulo p."
+        ],
+        "reasoning": "Neither abstract convergence nor the unevaluated product states the all-depth six-root and dyadic laws. General convergence and the product form are expressly not credited as new.",
+        "searches": [
+          "arXiv:2311.05369v1",
+          "arXiv:2105.13883, Theorem 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and two catalogue records identified in source_inspections",
+        "Bodin–Dèbes, Theorem 1.5",
+        "Kabluchko–Marynych, arXiv abstract",
+        "Bounded primary keyword search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the independently proved R_{p,1} into Theorem 1.5 does give the stated coprimality density. It supplies neither R_{p,k} at k>1 nor the needed size and frequency of the nontrivial local moment factors."
+        ],
+        "reasoning": "Credit that direct general-theorem implication conditional on the new local evaluation. The evaluated law requires the specific odd-prime Hensel and dyadic analyses and summing over split primes, not just rewriting the general theorem.",
+        "searches": [
+          "Bodin–Dèbes, Theorem 1.5",
+          "Kabluchko–Marynych, arXiv:2311.05369v1",
+          "Frozen result factorization, dyadic obstruction and product moment proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cube collision record concerns x^3+y^3 as a single map; the translated cusp record uses x^2+y^3 and (x+1)^2+(y+1)^3."
+        ],
+        "reasoning": "Equal-output fibres of one cubic map do not enforce the shifted simultaneous zeros. The cusp input changes the degree in x and does not give the three sum branches or this dyadic cutoff by relabeling.",
+        "searches": [
+          "Resultary semantic search on translated sums of two cubes, prime-power intersections and limiting GCD",
+          "2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+          "2026/11/22/SCOPE-exact-prime-power-intersections-of-two-translated-cusps-and-the--c7a54eb31e4e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The specific catalogue matches returned were the single-map cube collisions and the translated cusp pair, not a local-count table for this diagonal pair. The primary keyword lookup yielded no useful matching table."
+        ],
+        "reasoning": "There is a meaningful exact-count comparison here (prime-power root tables); the available matched entries have other indexing problems. This is a bounded negative check, not an exhaustive database claim.",
+        "searches": [
+          "Resultary: translated cubic common-root counts and exact support",
+          "Primary web lookup for the diagonal-cubic pair and its shift"
+        ]
+      },
+      "rationale": "Credit the known general limiting-GCD framework and the Ekedahl–Poonen Euler-factor formula. The supported distinct claim is the evaluated all-depth local law for these two diagonal cubic sums, its exact positive-density support and its limiting moment threshold. The closest indexed translated-polynomial analogue uses a different pair with different reductions. No checked prior statement supplies this explicit local law or computes its moment threshold.",
+      "residual_risks": [
+        "The two indexed records' exact mirror passages and Kabluchko–Marynych's theorem text were not retrieved. Unindexed explicit local computations in related literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers product framework, not its evaluated factors",
+          "evidence": "The theorem defines c_p as the common mod-p root count; positivity paragraph assumes no fixed prime divisor.",
+          "identifier_or_url": "https://arxiv.org/html/2105.13883",
+          "material_read": "Theorem 1.5 and following positivity paragraph",
+          "method": "Bounded official arXiv HTML passage after OA reader timeout",
+          "title": "Coprime values of polynomials in several variables",
+          "trigger": "General coprimality density could cover the product claim"
+        },
+        {
+          "assessment": "Known general convergence context; exact hypothesis comparison not verified from this abstract",
+          "evidence": "The abstract states convergence to a.s. finite random variables under mild polynomial hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.05369",
+          "material_read": "Abstract in PDF text preview; decisive theorem not retrieved in bounded attempts",
+          "method": "Official arXiv PDF preview after OA and HTML attempts",
+          "title": "Divisibility properties of polynomial expressions of random integers",
+          "trigger": "General polynomial GCD convergence"
+        },
+        {
+          "assessment": "Available statement differs in the counted event",
+          "evidence": "Single-map collision moments and fibre densities versus simultaneous divisibility of two different maps.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+          "material_read": "Local catalogue summary; mirror exact-passage retrieval timed out",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "Exact finite-level collision moments and p-adic fibres for sums of two cubes",
+          "trigger": "Same unshifted polynomial and p-adic terminology"
+        },
+        {
+          "assessment": "Structural analogue, with different polynomials; no priority inference from same-day index",
+          "evidence": "Available statement pertains to x^2+y^3 and its translate, not x^3+y^3 and its translate.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-prime-power-intersections-of-two-translated-cusps-and-the--c7a54eb31e4e",
+          "material_read": "Local catalogue summary; mirror exact-passage retrieval timed out",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "Exact prime-power intersections of two translated cusps and the GCD law",
+          "trigger": "Close analogue of prime-power counts and infinite mean"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and limitations"
+      ],
+      "rationale": "Simultaneous unit translation is a natural first dependence test for the diagonal two-cube form. All-depth local counts distinguish a sharp dyadic obstruction from unbounded split-prime exponents and give the exact support of an almost-surely finite but infinite-mean law. The prime-by-prime law and exact-value densities are usable in a way that an unevaluated general density product is not.",
+      "residual_risks": [
+        "No general shift family, finite-box moment result, or broader universality is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

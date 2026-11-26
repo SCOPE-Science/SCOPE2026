@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument reduces every operation obeying the first four axioms to one constant row, the identity top row, and two two-valued atomic rows. The fifth axiom reduces exactly to the two conditions on each atomic row, proving necessity and sufficiency, not simply confirming a count. Direct checks independently evaluate all five universally quantified lattice inequalities on all 144 candidate parameter tuples and establish exact equivalence with the displayed symbolic conditions. They count 41 valid tables, 24 automorphism orbits, 25 precomplementation-induced tables, 16 noninduced tables, four T-operations, and two F-operations. Burnside's lemma and the antitone precomplementation parameter count independently recover the two main structural refinements. The proof of the sharp small-cardinality T/F separation uses the fact that every bounded lattice with at most three points is a chain. No computation is used as a substitute for proving the normal form.
+PASS
 
-## Originality — PASS, subject to the stated risks
+P3 and P4 make each row factor through meet with its antecedent. P1–P2 fix the top row; the bottom row is constant. P5 is automatic on these two rows. In an atom row the inner antecedent is either 0 or the atom, giving exactly the tests at t, u_r and v_r (the test at v_r is automatic). The row count for the four t values is 4,6,6,25. The atom swap has 7 fixed tables, 5 induced. Antitone precomplementations are counted by 1+4+4+16, and the representing negation is unique by evaluation at consequent 0. For T, t and v_r must be top and each u_r is independently 0 or the other atom; inflation selects only the paired choices for F. On a smaller bounded lattice (a chain), T forces nu(0)=1 and nu(x)=0 for x>0, so inflation holds. On the diamond the asymmetric choice gives an explicit violation. Independent exact replay from all 4^4 possible single rows, filtered by the original axioms, gives 144 candidates and the labeled/orbit pairs (41,24),(25,15),(16,9),(4,3),(2,2).
 
-The closest accessible prior work is Holliday's formulation of the axioms and precomplementation construction (arXiv:2402.02296) and Chen's K/T/F algebraic semantics (arXiv:2607.20221v1). These furnish the framework but do not state the complete four-element Boolean classification or the 41-operator / 24-orbit census. Previously reported factorial results concern chains, on which no branching atomic rows exist. A previous result involving eight-element Boolean F-conditionals already identifies exactly two F-conditionals on the four-element Boolean lattice, and Holliday supplies a non-Heyting four-element example. Neither previous fact entails the full K normal form, the 41/24 count, the 25/16 representation divide, or the four-operator T subclass. Those previously established facts are not asserted to be new. Research discovery and textual checks did not reveal a stronger encompassing theorem; possible unindexed equivalent finite-algebra computations are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The four-element Boolean lattice is the least non-chain bounded lattice and hence the first naturally motivated carrier on which chain classifications cease to apply. Knowing exactly which of its 41 conditional expansions satisfy the axioms, how 24 symmetry classes arise, and which 16 lie outside the established precomplementation construction is a complete natural finite structural invariant. The sharp T/F separation on this first branching lattice makes the distinction between two recently axiomatized logical classes concrete without pretending that the known F subcount is new. This is a motivated complete classification, not an arbitrary numerical slice.
+Pass for the integrated spectrum, particularly the automorphism-orbit census by subclass and the T-versus-F separation at the least lattice size. Do not credit standalone novelty to the earlier two-F count or treat the complete labeled K census as distinct from the rank-two overlap. The same-day rank-two record acknowledges the k=2 values as previously recorded and does not compute isomorphism classes. Its date does not establish priority. The later atom-criterion record overlaps the T/F refinement, not the full K orbit split.
 
-## Limits and relevant literature
+## value
 
-Only the four-element Boolean lattice is classified; no larger-lattice count is inferred. Literature may contain a differently phrased or unindexed equivalent finite table. The numerical verification is exhaustive only because the normal-form reduction proves every possible table lies among its 144 candidates. Sources: Holliday, *Preconditionals*, arXiv:2402.02296 (Definition 1, Proposition 2, Figure 2); Chen, *Fundamental Propositional Logic with Preconditional*, arXiv:2607.20221v1 (Sections 3.1–3.3).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first branching Boolean lattice is a natural test case for the axiom hierarchy. The classification distinguishes 24 symmetry types and the induced/noninduced orbit split, data not recovered from the labeled total alone. It also gives an explicit smallest bounded-lattice separation of T and F, explaining what is absent on smaller lattices rather than merely reporting a search hit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

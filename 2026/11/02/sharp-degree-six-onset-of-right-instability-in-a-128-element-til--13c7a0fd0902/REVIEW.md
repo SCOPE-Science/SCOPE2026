@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ring and right-evaluation normalization are explicit. A necessary 24-by-24 evaluation-and-parity certificate has determinant \(2^{12}\) and mod-two rank 12; its Smith invariants force every coefficient entry even for all degree-at-most-five null polynomials. The symbolic lower-triangular reduction proves right stability for every entrywise-even null polynomial in arbitrary degree. A degree-six witness is checked on all 128 ring elements and has an explicitly nonzero right multiple. The executable checker independently reconstructs and validates all finite certificates. No numerical approximation, sampling, or extrapolation is used.
+PASS
 
-## Originality — PASS with historical-priority limitation
+Reconstructed the 24 necessary constraints for right evaluation through degree five, including 2b_2=2b_3=0. The independently authored replay reviews/evidence/review1_certificate.py (Python 3 with SymPy) returned det=4096 and Smith diagonal consisting of twelve 1s and twelve 2s. Unimodular column transformations are invertible modulo four and preserve entrywise evenness, so the kernel modulo four of the necessary constraints has only even coordinates. For F=2G, the reduction of G may have arbitrary matrix coefficients, but test inputs and right multipliers reduce to lower triangular matrices. In each coefficient row (u,v), triangular evaluation imposes point vanishing of both scalar polynomials at 0 and 1 plus vanishing of the divided-difference sums for v. Multiplication by a lower triangular constant maps (u,v) to (alpha u+gamma v, delta v), preserving all these conditions (also when the diagonal entries of the test input coincide). Central powers preserve nullity by multiplying the evaluation on the right by the same input power. This handles every polynomial multiplier. The independent replay checked the displayed sextic at all 128 inputs and returned the nonzero value 2E21 for the right multiple at the displayed r. The lower bound is exhaustive by the constraint argument, not a search over a sample of polynomials. The supplied checker and its recorded output were inspected, not executed.
 
-Wu (arXiv:2609.01150, Section 5) already constructs this ring and a sextic witness. **Neither its ring nor the sextic existence is a new claim.** The novelty claim is the sharp impossibility of any lower-degree witness, the coefficient-parity obstruction through degree five, and the all-degree right-stability lemma for entrywise-even null coefficients. Wu's full text was compared at the theorem and example level. Havlovec's characteristic-two counterexample (arXiv:2608.13251) and Werner's radical criterion (arXiv:2608.25853) do not establish these statements for Wu's characteristic-four ring. Targeted broader mathematical-record searches did not identify an equivalent result; this is not proof of global priority. A general polynomial-function identity or an earlier unpublished degree analysis could still imply the result.
+## originality
 
-## Value — PASS
+PASS
 
-The first degree of failure is a natural structural invariant for a minimal-order finite counterexample to a formerly conjectured two-sidedness property. The theorem replaces an isolated degree-six construction by a sharp threshold, rules out **every** lower degree at once, and explains this cutoff through a coefficient-parity phenomenon that forces right stability in every degree. The exact small integer certificate makes the boundary independently reproducible. The claim is deliberately specific: it does not assert a universal degree threshold or a classification of all rings.
+Credit the exact first instability degree, via a new coefficient-parity obstruction through degree five and stability for entrywise-even null polynomials in all degrees, not the same-ring construction or the sextic upper bound already given by Wu. No inspected source covers this lower-bound assertion.
 
-## Research limitations and relationship
+## value
 
-The source ring is due to Wu, and prior work already establishes that some null-polynomial right multiple is not null. The result is a low-degree optimality and structural-stability refinement. Historical priority requires further independent literature assessment; correctness does not depend on a novelty search. The symbolic proof covers the entire low-degree class; the exhaustive witness enumeration covers only this finite ring.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ring is motivated by a known small counterexample distinguishing one-sided from two-sided behavior. Determining the earliest degree of that failure answers a natural exact sharpness question; the parity obstruction additionally explains why no smaller witness can work. This value does not depend on treating the sextic as new or extrapolating the cutoff to other rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

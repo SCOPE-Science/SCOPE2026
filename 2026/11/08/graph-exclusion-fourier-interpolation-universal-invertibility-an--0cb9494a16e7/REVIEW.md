@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The single-coordinate Fourier character table factors through an invertible nonzero-character Schur block; restriction to a downward-closed family preserves the factorization. Explicit Möbius inversion, summed character orthogonality and the independent-set generating function give every inverse entry. The rational-root argument excludes hidden cancellations for alphabets of size at least three. The path recurrence at the binary parameter yields exactly the mod-four zero condition. Fourteen exact cyclotomic matrix checks corroborate, but do not replace, the general proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** The preceding Hamming-ball inverse addresses cardinality-constrained supports, and does not state graph-independent-support inversion or its binary path-zero criterion. Knill's simplicial counting matrix has a different kernel; Gluesing-Luerssen's poset Fourier duality concerns partition enumerators, not this inverse. Levit--Mandrescu supply the classical independence polynomial and recurrence, not a Fourier interpolation matrix. Related Fourier-Kronecker rank-deficiency literature by Delvaux--Van Barel was accessible only as abstract and poses a residual historical-priority risk. No directly implying result emerged from the recorded semantic research searches; this does not prove absolute novelty.
+PASS
 
-**Value — PASS.** The sampling configuration is the natural hard-core (nearest-neighbor exclusion) Fourier aperture. The full inverse, graph-independent invertibility, explicit determinant, and complete alphabet-dependent zero classification answer exact recoverability and inverse sparsity questions. Binary mod-four cancellation is an unexpected geometric/arithmetic boundary rather than a minor numerical gain. The proof does not claim a general graph spectral condition-number estimate or a binary classification beyond paths.
+Reconstructed the unnormalized calculation: W inverse is q^(-1) conjugate W by symmetry and perfect character orthogonality; its nonidentity corner inverts the Schur complement K=B−J. The restriction-order zeta matrix is unitriangular. Expanding the product over subsets of the common support gives H=ZDZᵀ with D blocks K tensor-powered by the support size. The singular values of W give |det K|=q^(q/2); the blocks contribute the derivative exponent, with empty support contributing zero to it. Boolean Möbius inversion and one-sided character summation give q^(-1) conjugate b(x_v,y_v) at a prescribed coordinate (also when only one label is prescribed), and −(q−1)/q at each added coordinate. Possible added supports for independent U are exactly the independent subsets of the residual graph G−N[U]; if U is not independent there is no block. This gives the exact entry formula, including empty V. The rational-root theorem rules out residual-polynomial cancellation for q>=3 since the numerator q−1 is coprime to q and would have to divide 1. On paths the recurrence at −1/2 has roots (1±i)/2 and values 2^(−m/2)sin((m+2)π/4), starting at 1 and 1/2. Multiplicativity gives the mod-four law for every compatible union, including an empty residual graph. The frozen checker’s line 78 omitted the test that the predecessor also belongs to U, so its extras predicate only admitted U contained in the first vertex, undercounting (e.g. the union consisting of the second vertex of P5). This did not affect its exact multiplication test or the theorem. The repaired checker separately compares every entry against a consecutive-occupancy and residual-run test. The repair and replay path repairs/3/path_fourier_checker.py were inspected, not executed; no numerical success is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The repaired contribution is the graph-specific inverse zero pattern, uniformly across nonbinary alphabets and with the full independent-union binary path law. The original factorization and entrywise computation substantially overlap the distinct same-day Hamming-ball record: all local block calculations and Möbius sums are already there and adapt directly to other downsets. They and the determinant identity are retained as mathematical support, not advertised as a new method or independent contribution. The checked comparisons do not give the graph-wide zero pattern or translate binary cancellations into the lengths of uncovered path components. Same-day catalogue dates were not used to dismiss the overlap or infer priority.
+
+## value
+
+PASS
+
+For natural local Fourier restrictions, the zero pattern determines which inverse coefficients influence which coordinate configurations. Compatibility completely determines this pattern for every nonbinary alphabet, whereas even independent unions have an additional binary obstruction; for paths the precise obstruction is a residual run of a given length modulo four, not merely the global path order. These exact graph-dependent alternatives are useful independently of whether the supporting factorization is new, and go beyond a finite small-order calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

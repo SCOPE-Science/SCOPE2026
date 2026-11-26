@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:49:57.683182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated known-parameter zero-start Gaussian process, conditioning gives an integrated risk reduction J=G/(q+η), with q=Var(X_t) and G=∫Cov(X_s,X_t)²ds. Splitting the covariance integral at t recovers the displayed G. Its derivative has the sign of F_a; F_a(0)=0, its derivative has one switch at 1/2, and F_a(1)=2e^{2a}(2a−sinh(2a))<0. Thus G increases up to T_a and decreases thereafter. Differentiating G'/q' yields the asserted one-switch identity (q'=e^{−2at}). The response E=Gq'/G'−q falls before 1/2, rises on (1/2,T_a), behaves as −t/2 near zero, and diverges at T_a; J' has the sign of η−E before T_a and is negative after it. This proves uniqueness and strict noise ordering. Put z=1/η in G'(t)(1+zq(t))−zG(t)q'(t)=0: the t derivative at (T_a,0) is G''(T_a)<0, giving the stated leading displacement with an O_a(z²) remainder. Uniform covariance convergence at fixed η>0 reduces the Brownian design to t²(1−2t/3)/(t+η) with a single interior maximum and the displayed quadratic root. The high-noise root also obeys 2a(T_a−1)+log(sinh(2aT_a)/(2aT_a))=0; expansion gives 1−a/3+O(a²). The support files were inspected, not executed; these are analytic checks. No claim of noise or rate uniformity is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Müller supply the general integrated trajectory design objective, not the stated OU comparison in the inspected equations. Sikolya–Baran use a stationary complex OU model and ordinary Kriging. The two other closely related publications were not available in full text."
+        ],
+        "reasoning": "Stationary models do not share the zero-start covariance; the exact coverage here rests instead on the stronger indexed result, which even permits noiseless observations.",
+        "searches": [
+          "Ji–Müller arXiv:1604.05375v1, Eqs. (1), (5), (6)",
+          "Sikolya–Baran arXiv:1808.03444v1, §3",
+          "Baran–Sikolya–Stehlík DOI 10.1016/j.spl.2013.03.003",
+          "Baldi Antognini–Zagoraiou DOI 10.1016/j.jspi.2010.03.027"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 7c5064a2bb85 and cbf9c855a342 local mirrors",
+        "Ji–Müller arXiv:1604.05375v1",
+        "Sikolya–Baran arXiv:1808.03444v1",
+        "Baran–Sikolya–Stehlík and Baldi Antognini–Zagoraiou bibliographic/access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its D=H'/V' and stationarity equation (V+η)D−H=0 give this record's E_a(t)=η. It states 4at=e^{−2a}(e^{4at}−1), exactly the present limit equation, and the same Brownian optimizer. The simple limiting root makes the η⁻¹ coefficient a direct implicit derivative."
+        ],
+        "reasoning": "The core theorem is an exact consequence of the same argmax; replacing the risk identity and adding elementary expansions does not establish distinct originality.",
+        "searches": [
+          "7c5064a2bb85, Finding and proof: one-crossing derivative, high-noise limit and Brownian comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7c5064a2bb85 defines H=∫K²=G and V=q; the conditional energy variance reduction is 2(H/(V+η))². For t∈[0,1], J≥0 and x↦2x² is strictly increasing for x≥0.",
+          "cbf9c855a342 estimates ∫X_s ds with gain (∫K ds)²/(V+η), not J or the same monotone transformation; its Brownian limiting optimizer is different."
+        ],
+        "reasoning": "Different losses and estimands do not prevent exact equivalence of their optimizing designs; only the quadratic-energy result supplies the equivalence.",
+        "searches": [
+          "Resultary: zero-start OU single noisy observation, integrated variance and quadratic energy",
+          "7c5064a2bb85 and cbf9c855a342, local-mirror RESULT.md files"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed quadratic-energy result gives the explicit stationary and high-noise root equations for precisely these parameters. The external focused lookup surfaced no additional pertinent exact source."
+        ],
+        "reasoning": "An identical parametric root equation, with matching unique-root interpretation, is already an exact optimizer specification; absence of other hits has no evidentiary weight.",
+        "searches": [
+          "Resultary parameter-specific zero-start OU single-site design lookup",
+          "Web: zero-initialized Ornstein–Uhlenbeck integrated posterior variance one noisy observation optimal time"
+        ]
+      },
+      "rationale": "The main observation-time theorem is covered by a distinct indexed result on quadratic-energy estimation for the identical process, measurement and parameters. Its gain is exactly 2J², so it has the identical argmax for all parameters, including the same characterization, uniqueness, strict increase, high-noise root and Brownian limit. The added first-order coefficient and small-a root expansion are direct local expansions of known equations, not a materially distinct design theorem. This is demonstrable mathematical coverage, not an inference of chronological priority from the same date.",
+      "residual_risks": [
+        "The uninspected OU-sheet and 2010 Kriging full texts could contain further relevant comparisons; the rejection does not depend on them.",
+        "Both exact-optimizer records have the same UTC publication date in the index; no within-day priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage of core design theorem",
+          "evidence": "Risk reduction 2(H/(V+η))², same H=G and V=q, same stationary and limit roots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-noise-calibrated-sensing-time-for-ornstein-uhlenbeck-quad--7c5064a2bb85/RESULT.md",
+          "material_read": "Finding, assumptions, Gaussian covariance and energy conditioning, one-crossing derivative and limit passages",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, beginning at offset 0",
+          "title": "Unique noise-calibrated sensing time for Ornstein–Uhlenbeck quadratic energy",
+          "trigger": "Same zero-start noisy OU optimal-time classification"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "The gain squares the integral of the covariance before dividing by observation variance; Brownian optimizer differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-noisy-one-site-design-for-a-zero-start-ornstein-uhlenbeck--cbf9c855a342/RESULT.md",
+          "material_read": "Finding and scalar integral objective, offset 0",
+          "method": "Local mirror",
+          "title": "Unique noisy one-site design for a zero-start Ornstein–Uhlenbeck process",
+          "trigger": "Same process, sensor and monotonicity claims"
+        },
+        {
+          "assessment": "General objective is prior",
+          "evidence": "Independent observation errors, best linear trajectory predictor and integrated MISE.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05375",
+          "material_read": "PDF pp. 4–5, Eqs. (1), (5), (6), around offset 9314",
+          "method": "Primary OA text",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "Noisy Gaussian trajectory design objective"
+        },
+        {
+          "assessment": "Different model and objective setup",
+          "evidence": "Stationary complex process and BLUE/ordinary Kriging; appendix cites Baldi Antognini–Zagoraiou for factorization.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+          "material_read": "PDF p. 2 Eqs. (2.1)–(2.4), pp. 4–5 Theorem 3.1 and Eq. (3.2); Appendix A.2 p. 12",
+          "method": "Primary OA text",
+          "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+          "trigger": "OU integrated prediction risk and exact designs"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "OU sheet on monotonic sets; no exact restricted theorem verified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2013.03.003",
+          "material_read": "Bibliographic and abstract material only",
+          "method": "Lawful DOI/publisher access attempts",
+          "title": "On the optimal designs for the prediction of Ornstein–Uhlenbeck sheets",
+          "trigger": "OU-family prediction design"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "The citation supplies a factorization technique, not an equivalent one-observation result.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+          "material_read": "Bibliographic material and Sikolya–Baran Appendix A.2 citation",
+          "method": "DOI/publisher attempts and OA citing text",
+          "title": "Exact optimal designs for computer experiments via Kriging metamodelling",
+          "trigger": "Exact exponential-covariance Kriging designs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Choosing a single noisy measurement time for trajectory reconstruction is a meaningful design problem, but the submitted contribution supplies no materially new design decision beyond the exactly equivalent energy-design optimizer. The risk function change is a Gaussian conditioning exercise for this shared ratio, and the two new local expansion terms follow directly from its explicit limiting equation and a simple root. The record offers no additional regime or comparison giving those expansions independent substantive value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:31:33.047693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summability of the Hausdorff moments gives the continuous Fourier expansion with coefficients a_|n|+(b/2)(a_|n−k|+a_|n+k|). The ratio of the shifted sum to a_n is strictly smaller than at k for 0≤n<k by decrease and log-convexity. For n≥k it is the expectation of the decreasing function r^(−k)+r^k under the r^n tilt, decreasing strictly in n except for a point mass. This proves the sharp bound and exact vanishing patterns. Consecutive positive high frequencies imply full rank on every set of distinct sites by Vandermonde; the pure critical kernel instead has the 2k−1 consecutive frequencies |n|<k. For n>k, multiply the critical coefficient by a_0+a_2k: the result is the integral over r<s against dμ(r)dμ(s) of (s^k−r^k)(1−(rs)^k)(s^(n−k)−r^(n−k)), by symmetrizing the product of moments. This yields exactly the stated two-rate identity, with a_0=1 by normalization. The supplied exact-rational script was inspected, not run; the decision uses the all-measure proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d53f1b363054 permits arbitrary signed harmonic masks and classifies which knots can vanish. It assumes non-point mixtures with compact support strictly inside (0,1), so it does not literally assert the full mixing range or the pure case.",
+          "Its Stieltjes representation extends to the present measures. The function F is in the Wiener algebra by the present summability assumption and is strictly positive (even bounded below by ∫(1−r)/(1+r) dμ>0). Wiener's lemma gives 1/F in the same algebra in place of the other proof's analytic-support argument. Its reciprocal-Stieltjes representation still has Fourier coefficients strictly negative off zero for non-point mixtures: the positive integral term contributes a strictly negative coefficient at every nonzero frequency, and a missing integral term would make the reciprocal affine, forcing one scale by Stieltjes uniqueness. The Fourier integral exchange is bounded by min(1,4/t) for the complete-Bernstein integrand y/(y+t), 0≤y≤4. The coarse mixture r↦r^k satisfies the same summability and non-point hypotheses, so both maximum-principle steps of the broader proof remain valid.",
+          "Emonds–Führ and Buhmann–Jäger characterize strictness from support; neither is the source of the cutoff calculation."
+        ],
+        "reasoning": "The apparent enlargement to measures approaching an endpoint needs only the standard Wiener inverse in exactly the role formerly played by analyticity. The recurrence-free inverse-convolution argument still classifies the mask, not just an approximation that might lose strictness at the boundary.",
+        "searches": [
+          "d53f1b363054, RESULT.md Finding and Proof Steps 1–3 (offsets 0–8208)",
+          "2dc7842600c0, RESULT.md Finding (offsets 0–3231)",
+          "arXiv:1002.3017 §2, Thm. 2.2; arXiv:2105.02586 §5, Thms. 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d53f1b363054, 2dc7842600c0, e14b214a4013",
+        "arXiv:1002.3017",
+        "arXiv:2105.02586"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coarse- and fine-lattice maximum principles apply with d=1 without a change to either boundary argument. On the one-harmonic line the knots are u_1=a_k+b(a_0+a_2k)/2 and u_0=a_0+b a_k. At the unique zero of u_1 the second knot is positive by a_k²≤a_0 a_2k and a_2k<a_0. Thus the single cutoff and loss of only ±k follow. In the pure cone the same zero knot eliminates the full tail, by its stated geometric tail rule.",
+          "At positive two-radius weights the all-mask proof already yields reopening. The exact coefficient is a factorization of a_n−a_k(a_(n−k)+a_(n+k))/(a_0+a_2k); its same-radius terms cancel identically."
+        ],
+        "reasoning": "The noncompact case follows on adapting the stated proof at its sole regularity step, not on assuming the other theorem states it. The other cases are direct specializations; the pair formula and alternate proof do not constitute an uncovered structural claim.",
+        "searches": [
+          "d53f1b363054, RESULT.md Steps 1–3",
+          "2dc7842600c0, RESULT.md interpolation and first-knot ray"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed PSD criterion is the intersection of a signed-mask cone with the affine line c_0=1, c_1=b/2, c_j=0 for j≥2. The all-mask theorem takes arbitrary real coefficients including zeros, so d=2 permits exactly this mask.",
+          "The e14b214a4013 fractional-power result already exhibits the same one-harmonic cutoff for 0<α≤1 and the two types of support. Subordination represents its coefficients e^(−t n^α) as Poisson moments in that range; this alone would not cover arbitrary mixtures.",
+          "The pure critical support and rank are exactly the first-knot ray in the single-radius theorem, including d=1."
+        ],
+        "reasoning": "These are the same stationary difference-coordinate kernel and Fourier convention, not a nonstationary sum-coordinate modulation. Finite-site strictness is the same assertion in the two records.",
+        "searches": [
+          "Resultary meaning search for signed harmonic modulation of Poisson mixtures, cutoff and spectral reopening",
+          "Resultary d53f1b363054, 2dc7842600c0, e14b214a4013"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives exact functional coverage, rather than a numerical table: the two-radius mixture is already inside the all-mask compact-support theorem, and the pure rank is explicitly listed by 2dc7842600c0. No tabulation is needed to recover the two-radius coefficients."
+        ],
+        "reasoning": "For a two-point mixture, insertion of the two radii into the Fourier rule at the known cutoff gives the exact displayed product after expanding two cross terms. A lack of a stored number or identically worded formula does not distinguish this claim.",
+        "searches": [
+          "Resultary e14b214a4013, d53f1b363054 and 2dc7842600c0 RESULT.md findings"
+        ]
+      },
+      "rationale": "Distinct catalogue records cover the underlying support and positivity problem in substance: d53f1b363054 gives an all-mask theorem and proof for non-point Poisson mixtures and 2dc7842600c0 gives the corresponding single-radius cone and ranks. The only additional support range here is handled by the same inverse-convolution proof through Wiener's lemma, as detailed below; the two-rate expression is direct moment expansion in a case already covered. The short moment proof is valid, but the claimed theorem and reopening are not established as a distinct mathematical finding. This is a statement/implication decision, not an assertion of chronological priority among same-date records.",
+      "residual_risks": [
+        "The same-date catalogue evidence shows coverage and a routine proof extension, not temporal order or an independent historical priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader in masks, directly covers compact non-point one-harmonic case and extends by a standard inverse-algebra argument",
+          "evidence": [
+            "Theorem: PSD iff all knots are nonnegative; possible zeros of a nonzero admissible mask are exactly its zero knots. Step 1 uses analytic compact support for the absolutely summable inverse; Steps 2–3 are the coarse and fine maximum principles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-finite-knot-positivity-and-all-mode-reopening-for-signed-poisson--d53f1b363054",
+          "material_read": "RESULT.md Finding, assumptions and Proof Steps 1–4, limitations; offsets 0–10465",
+          "method": "Resultary identification, local-mirror statement and proof inspection",
+          "title": "Finite-knot positivity and all-mode reopening for signed Poisson-mixture covariances",
+          "trigger": "Broader signed Poisson-mixture cutoff and exact Fourier zeros"
+        },
+        {
+          "assessment": "Directly covers pure radius case",
+          "evidence": [
+            "The explicit tail is r^(n−dk)u_d; the first-knot ray has support |n|<k and rank 2k−1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-finite-knot-positivity-cones-for-signed-periodic-poisson-covaria--2dc7842600c0",
+          "material_read": "RESULT.md Finding, assumptions and opening proof, offsets 0–3231",
+          "method": "Local-mirror primary passage",
+          "title": "Finite knot positivity cones for signed periodic Poisson covariances",
+          "trigger": "Pure Poisson cutoff and finite rank"
+        },
+        {
+          "assessment": "Direct specialization for 0<α≤1, not general mixtures",
+          "evidence": [
+            "Cutoff and support are explicit for e^(−t|n|^α); α=1 is pure and 0<α<1 is mixed. Its α>1 part is outside this Poisson-mixture theorem."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sign-cone-and-spectral-collapse-for-cosine-modulated-fract--e14b214a4013",
+          "material_read": "RESULT.md offsets 0–9254",
+          "method": "Resultary and local-mirror primary passages",
+          "title": "Sharp sign cone and spectral collapse for cosine-modulated fractional circle kernels",
+          "trigger": "Prior comparison for fractional Poisson mixture subfamily"
+        },
+        {
+          "assessment": "Standard support-to-strictness criterion, not an explicit cutoff",
+          "evidence": [
+            "Strictness is characterized in terms of the support in the dual group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.3017",
+          "material_read": "PDF pp. 2–3, §2, Theorem 2.2",
+          "method": "Lawful OA primary passage",
+          "title": "Strictly positive definite functions on compact abelian groups",
+          "trigger": "Fourier-support criterion for finite-set strictness"
+        },
+        {
+          "assessment": "General support criterion, not the moment cutoff",
+          "evidence": [
+            "Arithmetic progression conditions recognize strictness after support is known."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.02586",
+          "material_read": "PDF p. 19, §5, Theorems 5–6",
+          "method": "Lawful OA primary passage",
+          "title": "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres",
+          "trigger": "Arithmetic-progression support for circle kernels"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank transition is a meaningful structural question, but the separate contribution left after the all-mask and pure-radius comparisons is an alternate short proof, a routine loss of a compact-support restriction under Wiener summability, and the factored two-rate coefficient in a covered case. The residue does not establish a distinct structural or independently needed exact finding beyond those results.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

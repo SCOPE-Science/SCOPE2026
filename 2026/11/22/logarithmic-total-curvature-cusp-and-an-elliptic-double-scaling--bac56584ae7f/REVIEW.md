@@ -1,11 +1,21 @@
-# Review of the torus-knot total-curvature finding
+# Independent mathematical audit
 
-**Correctness (PASS).** The cylindrical-frame derivative formulas are exact. The numerator \(\|\gamma'\times\gamma''\|\) has a nondegenerate two-parameter zero at the previously identified critical radius; the orthogonal local derivatives produce the logarithmic coefficient \(C_{p,q}\). The error estimates used in the high-winding limit are uniform through the critical value \(\lambda=1\). Elliptic-integral algebra and positive curvature of the limiting profile establish its strict monotonicity and singular second derivative. The independent arithmetic identity in the coefficient and the numerical checker replay were verified. Finite diagnostics support but do not replace the analytic proof.
+## correctness
 
-**Originality (PASS, provisional).** Fuller (1998) exactly establishes the curvature-vanishing radius and number of zeroes, and that fact is not claimed as novel. Oberti–Ricca (2016) state the full total-curvature integral and plot fixed-radius winding examples, while Gerlach–Reiter–von der Mosel (2015) treat fixed-winding bending energy for the same parametrized curves. The new material is the sharp radial total-curvature log cusp and the **uniform** small-tube/high-meridian elliptic profile. No equivalence or stronger implication was identified in the inspected primary material. Unexamined historical material remains a priority risk.
+PASS
 
-**Value (PASS).** The theorem translates local inflection geometry into a sharp loss of regularity for integrated curvature, and explains the noncommuting high-frequency/small-radius regime with an invertible quantitative profile. The transition scale is forced by the underlying curve rather than chosen as an arbitrary parameter slice.
+At u=qt the radial component of W=v×a is −prq² sin(u)(1−r cos(u)), so only u=0 or π can give a zero; the radial acceleration there selects (r*,π). The squared speed never vanishes. The q periods cancel dt=du/q, so there is no extra q in the local coefficient. At the zero, set D=p²+q², V=|v(r*,π)|, x=u−π and δ=r−r*. The first derivatives of W are orthogonal, of lengths A=DV and B=p r* q²(1+r*). The squared norm is even in x and has exact local form a(δ)²δ²+x²b(x,δ), with a(δ)=D|v(r*+δ,π)|, a(0)=A, and b analytic, even in x and b(0,0)=B². Change variables to y=x√b/B. Parameter-dependent limits can be replaced by symmetric fixed limits up to an analytic contribution. The even weight, including inverse squared speed and Jacobian, is its value at y=0 (V⁻²+O(δ)) plus O(y²); the latter term has bounded integrated second derivative, by the bound O(1/√(y²+δ²)) for two radial derivatives of the square root. Integrating the constant-in-y term explicitly gives A²/(BV²)=D⁴/[p³q²(2p²+q²)] as the δ² log coefficient and a second derivative diverging to +∞. Dominated differentiation gives C¹; off the critical radius the integrand is analytic uniformly on compact radial intervals. The scaling r=λp²/q² gives a uniform O(q⁻¹) density error by the norm Lipschitz inequality, even at λ=1 and at the continuous λ=0 endpoint. Factoring the profile radicand gives the stated E modulus; the complementary modulus |λ−1|/(1+λ) yields the cusp by DLMF. A positive second derivative away from 1 and continuous first derivative through 1 imply strict convexity and, since F′(0)=0, strict increase. The frozen checker was inspected but not run; its finite diagnostics are not needed for these conclusions.
 
-**Limitations.** Fixed longitudinal winding for the asymptotic, standard circular torus, and no claim of minimum curvature in knot isotopy classes. The known inflection theorem is duly credited. Historical-priority assessment is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct assertions are the integrated fixed-winding singularity with exact coefficient and the uniform bounded-λ geometric scaling law. Fuller's local zero classification and the classical elliptic endpoint expansion are established inputs, not separately credited as new. The strongest cited potential overlap was not fully accessible; the inference here is a best-of-knowledge comparison, not a priority certificate.
+
+## value
+
+PASS
+
+The exact logarithmic coefficient describes how a local inflection affects a global knot observable and distinguishes C¹ from C². The uniform high-winding law resolves the transition through the zero and provides an invertible geometric radius profile, not merely a re-evaluation of a special function or a known inflection count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

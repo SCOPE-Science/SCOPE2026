@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_kummer.py` from this directory. Python 3.8 or newer suffices; there are no external dependencies and no network calls. The program constructs the 24 graph vertices and 32 edges from the displayed product incidence rule, deletes the fixed root \(C_{00}\), computes the reduced Laplacian, determines each of the nine Frobenius orbit partitions, and calculates exact integer determinant and two-primary elementary divisors using its own arithmetic implementations. It verifies independently the square orbit-cokernel and rectangular \([R\mid P-I]\) presentations. It also checks \(Rx=32e_{H_0}\) with \(x_{H_0}=23\) and the four-generator full-invariant quotient. All nine checks and the final marker must succeed.
+## correctness
 
-Exact outputs: ordinary critical group \(C_2^4\oplus C_8^4\oplus C_{32}\); nine case orders \(2^{21},2^{16},2^{11},2^{16},2^{13},2^8,2^{11},2^8,2^7\) in lexicographic \(I,T,C\) order; entire label group fixed \(C_{32}\). The module computes only finite integral presentations; the proof explains their equivalence to the graph group and group invariants. There is no assertion about geometric liftability of individual smoothing thicknesses or a full classification of all twists of Kummer K3 surfaces.
+PASS
+
+In odd characteristic, at a two-torsion pair one may use anti-invariant local parameters u,v and the invariant cone with coordinates u²,uv,v². The resolution separates the two coordinate-axis branches into transverse intersections at distinct points of the exceptional conic. Away from those points parallel coordinate curves are disjoint and opposite ones cannot meet. The eight coordinate quotients and sixteen exceptional components are rational; the connected full 1-subdivision of K4,4 gives 24 vertices, 32 nodes and genus 9. Arithmetic and geometric Frobenius are inverse permutations and have the same fixed subgroup; each fixes both identity labels. Independently computed through the cycle lattice: orient each subdivided path from its H-vertex to its V-vertex. The nine fundamental cycles indexed by nonzero (i,j) traverse edges indexed (i,j),(0,0) positively and (i,0),(0,j) negatively, with both halves of each original edge used. Their Gram matrix is 2(I3+J3)⊗(I3+J3), where J3 is all ones. Restriction of the edge lattice to its pairing with cycles identifies its quotient by the integral cut lattice with the dual of the integral cycle lattice; further quotient by cycles gives the graph critical group. The label group permutes this basis, so adjoining P−I to the Gram matrix and taking integer Smith forms gives the coinvariants. The invariant perfect discriminant pairing yields the fixed groups by duality. Recovered all nine rows and the determinant 2^21; these are nine ordered cases, not nine pairwise non-isomorphic groups. In the full-group coinvariants the transitive basis collapses to one generator, with relation 32 by the constant Gram row sum. The separate grounded-potential calculation for H0−C00 gives endpoint potentials 23/32,15/32,9/32,17/32 in the classes H0,Hi,V0,Vj, with each nongrounded subdivision vertex taking the average of its endpoints. The exact denominator and the fixed labels verify that this class generates the full fixed C32.
+
+## originality
+
+PASS
+
+The 24-curve configuration is classical and the identity-action row is covered by the established all-edge subdivision rule for ordinary critical groups. The supported distinct part is the 2-primary invariant-factor classification for nontrivial two-torsion label actions and the common full-label-group fixed generator. The inspected harmonic-dihedral theory, ordinary subdivision theorem and distinct genus-two node–trope records do not provide that equivariant computation.
+
+## value
+
+PASS
+
+The labelled genus-nine dual graph is a natural equivariant arithmetic object. Its ordinary group does not predict which torsion survives each Frobenius action; the table resolves the 2-primary structure, including cases with even action order. The uniform exact-order divisor difference ties the fixed groups together geometrically, identifies the full symmetry-fixed subgroup, and is useful even when the ordinary graph group is already known. The significance is in this equivariant information, not in counting the classical components or restating the matrix-tree order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:52:13.760354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The series for E_n reduces modulo 2 to (1+t)^(n-1), whose interior coefficients all vanish exactly for a power-of-two exponent. In those cases for n>=5, A(n,1)=2^n-n-1 is 2 mod 4. If an odd prime l divides the content, evaluating E_n(t) = 1+t^(n-1) modulo l at t=1 forces l>n. For the cumulant step, the nth derivative of e^z/(1-e^z) has just the leading pole (-1)^(n+1)n!/z^(n+1) and an analytic remainder. Thus after multiplying by (1-e^z)^(n+1)e^(-z)/n!, the remainder cannot affect the first four log coefficients. The variance and fourth cumulant compare modulo l with those of the equally weighted endpoint law; the needed denominators are units for l>n>=5. They yield (3n-1)(n-2)=0 and 5(n-1)^2=1 modulo l. Hence l=11 and n=4 mod 11, incompatible with 5<=n<11. The n=3,4 rows give 4 and 11 directly. Independently written exact replay agreed on all 238 tested row contents for n=3..240, checked inclusion-exclusion through row 48 and cumulants for rows 4..20 (1,462 checks in total); it is finite corroboration, not the unbounded proof. The supplied check_eulerian.py was inspected, not executed. Replay: python3 /workspace/branches/a4c7b1a7-5e57-44a6-b5f3-e3c22efa582a/audit_eulerian_independent.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source describes Cao–Pan as bounding valuation of progression sums, Nymann–Sáenz as giving a congruence for a prime-indexed row modulo its index, and Iijima et al. as treating related polynomial congruences. Primary passages were not retrieved."
+        ],
+        "reasoning": "The compared scopes do not specify simultaneous divisibility by a prime greater than the row index, which is the key remaining obstruction; a result about one modulus or sums of selected entries is not the exact content.",
+        "searches": [
+          "Cao–Pan, arXiv:math/0608564, Theorem 1.1",
+          "Nymann–Sáenz, Fibonacci Quarterly 37 (1999), Theorem 4.1",
+          "Iijima–Sasaki–Takahashi–Yoshinaga, arXiv:1611.10147"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_eulerian.py",
+        "Resultary indexed finding efeba646acc1 (self-match) and summaries 5a8d38410e6e, 0b100cd06a37",
+        "Cao–Pan, Nymann–Sáenz and Iijima et al. as described in the frozen comparison",
+        "OEIS A008292 and Luschny RowGcd retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generating series supplies parity and the usual cumulants. The odd-prime exclusion needs both the conditional endpoint-only law at a hypothetical divisor and a comparison of two cumulants in a field where n! is invertible."
+        ],
+        "reasoning": "The distribution ingredients are classical, but their statements do not mechanically give the arithmetic classification; the modular obstruction above is additional.",
+        "searches": [
+          "Classical Eulerian generating identity and descent cumulants",
+          "Nymann–Sáenz Theorem 4.1 (scope in frozen comparison)",
+          "Resultary fixed-column dyadic Eulerian residues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent congruence question is: for which integer moduli d does E_n(t) reduce to 1+t^(n-1)? These d are exactly the divisors of the claimed content.",
+          "Resultary returned the frozen finding itself and distinct results about interior Narayana rows and a fixed Eulerian column; neither indexed statement claims this classification."
+        ],
+        "reasoning": "Neither a different triangle nor one column, and neither a finite gcd list nor the full row including unit endpoints, is equivalent to the all-index interior content.",
+        "searches": [
+          "Resultary: Eulerian interior row gcd/content",
+          "OEIS A008292",
+          "Luschny Eulerian.html RowGcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen comparison cites the Eulerian triangle and a finite indexed RowGcd table; the underlying pages did not load for independent inspection. Reproduced initial interior gcds for n=3..9 are 4,11,2,1,1,1,2."
+        ],
+        "reasoning": "Finite values and a tabulated coefficient triangle are not evidence of an exact published rule; an uninspected formula on a database page remains a risk.",
+        "searches": [
+          "OEIS A008292",
+          "https://luschny.de/math/oeis/Eulerian.html (RowGcd)",
+          "Resultary Eulerian row-content and neighboring findings"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-index integer-content classification, in particular the exclusion of every odd prime outside the exceptional row. Standard Eulerian parity, moments, and finite values are not new. No equivalent prior classification was established by the available comparisons; this is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "The closest Eulerian congruence papers and database pages did not yield direct passages during this review; an unindexed or inaccessible equivalent all-index theorem is possible.",
+        "Finite recomputation proves neither priority nor the theorem at untested indices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The universal proof and finite evidence have different roles; prior-source scope is reported there, not independently authenticated by the proof",
+          "evidence": "The two cumulant comparisons isolate p=11 and n=4 modulo 11.",
+          "identifier_or_url": "RESULT.md, lines 23–94 in the frozen package",
+          "material_read": "Proof, finite verification description and prior-work and limitations sections",
+          "method": "Original frozen text, mathematical reconstruction and independent exact replay",
+          "title": "The exact content of every interior Eulerian row",
+          "trigger": "Exact claim, proof and closest cited prior results"
+        },
+        {
+          "assessment": "Open access risk; the described progression sums do not state the interior-content theorem",
+          "evidence": "Frozen RESULT.md line 90 distinguishes arithmetic-progression sums from common divisibility.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0608564",
+          "material_read": "Theorem 1.1 scope as reported in the frozen comparison; no original passage retrieved",
+          "method": "OA retrieval attempted",
+          "title": "Congruences on Stirling numbers and Eulerian numbers",
+          "trigger": "Possibly broader p-adic Eulerian congruences"
+        },
+        {
+          "assessment": "Prime-indexed-row congruence as described does not address primes above arbitrary indices; full-text coverage remains unconfirmed",
+          "evidence": "Claimed congruence A(p,k)=1 modulo p has a different relation between row and prime.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/37-2/nymann.pdf",
+          "material_read": "Theorem 4.1 scope as reported in the frozen comparison; no original passage retrieved",
+          "method": "OA retrieval attempted",
+          "title": "Eulerian Numbers: Inversion Formulas and Congruences Modulo a Prime",
+          "trigger": "Possible prime-divisor exclusion theorem"
+        },
+        {
+          "assessment": "Finite agreement only, not evidence that an online formula is absent",
+          "evidence": "The independently computed initial row contents match the frozen finite comparisons.",
+          "identifier_or_url": "OEIS A008292; https://luschny.de/math/oeis/Eulerian.html",
+          "material_read": "Frozen citations and independently calculated small row values; pages not retrieved",
+          "method": "Targeted page retrieval attempted and bounded independent arithmetic",
+          "title": "Eulerian triangle and Eulerian RowGcd table",
+          "trigger": "Potential exact database formula or matching finite table"
+        },
+        {
+          "assessment": "The visible claims address different arrays or a fixed column, not this all-interior-row invariant",
+          "evidence": "Narayana row content and two-descent Eulerian column distribution have different quantified inputs.",
+          "identifier_or_url": "Published records 5a8d38410e6e and 0b100cd06a37",
+          "material_read": "Indexed summaries; originals did not load",
+          "method": "Local Resultary comparison",
+          "title": "Complete interior Narayana row gcds; uniform dyadic residues in the two-descent Eulerian column",
+          "trigger": "Near matches in the publication index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing the unit endpoints selects all and only the coefficients on which an Eulerian-row congruence can be nontrivial. The content determines every modulus for which the entire row reduces to the two endpoints, for every index, and identifies the unique odd obstruction. That is a useful arithmetic invariant of a standard triangle rather than an arbitrary column choice or a recomputation of a finite list.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

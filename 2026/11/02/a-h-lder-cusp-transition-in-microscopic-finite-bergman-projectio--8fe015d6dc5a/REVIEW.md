@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The norm is explicitly defined with \(dA/\pi\), positive radial weight \(1+c(1-r)^\alpha+d(1-r)\), degree cutoff \(N-1\), and half-plane microscopic arguments. Orthogonality makes the monomial kernel exact. The beta moment formula and gamma-ratio expansion give an inverse moment with cusp, cusp-square and linear-slope terms. Uniform Riemann sums and the right-endpoint Euler--Maclaurin boundary term produce the coefficients and all three error exponents. The proof uses an infinite-dimensional limit, not the finite checker. A standalone 210-assertion checker corroborates normalization, moments, complex-argument symmetry and the three regimes. Its numerical comparisons do not validate a general asymptotic theorem.
+PASS
 
-## Originality — PASS under inspected evidence
+For the stated positive radial weight the monomials are orthogonal and the inverse squared norms are j−Cα j^(1−α)+Cα² j^(1−2α)−D with error O(j^(1−3α)+j^(−α)+j^(−1)). The gamma-ratio contribution to that error is O(j^(−α)), already included; the explanatory sentence at RESULT.md:80 should not be read to bound it individually by O(j^(−1)). Right-endpoint summation on j/N and the j−1 shift yield G(s)=sF1(s)+e^(−s)/2=F0(s)−e^(−s)/2. The cusp powers have bounded-variation Riemann-sum control where needed; for α>1/2 the second cusp power is integrably singular and its sum is O(N^(−2α)) after scaling. The sum of the reciprocal errors is O(N^(−3α)) for 3α<2, O(N^(−2)log N) at equality and O(N^(−2)) for that term above equality; the other errors preserve each stated remainder. These estimates are uniform on the claimed compact coordinate sets, including boundary evaluation for polynomials. The N^(−1) profiles cannot vanish identically, although their diagonal values can vanish. VERIFICATION.md and check.py are supplementary frozen numerical evidence; no script execution or formal proof check was used.
 
-The 2026 Hübner paper studies weighted Bergman polynomials of finite regularity and provides the relevant recent motivation, but its inspected statements do not provide the explicit two-point finite-projection crossover. Lubinsky's full universality theorem supplies only the leading microscopic kernel; its generality does not imply subleading coefficients. The full infinite radial Bergman kernel estimates of Pennanen and colleagues and the full kernel/zero questions of Zeytuncu do not cover the polynomial cutoff. The analytic-weight expansion of Hedenmalm and Wennman does not cover a fractional Hölder boundary cusp. Direct published mathematical record comparisons on radial weighted kernels, their zeros and their norms yielded different objects or parameters. Main residual risk: equivalent calculations in older asymptotic literature could exist without matching the searched terminology; no exhaustive novelty guarantee is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The first kernel coefficient measures the effects of the boundary cusp, while the second measures the competition between its nonlinear square and the universal \(N^{-1}\) finite-projection discretization and smooth radial slope. The sharp transition at \(\alpha=1/2\) is a natural boundary regularity threshold, and both coefficient functions are explicit uniformly for complex two-point boundary scaling. This distinguishes weights sharing the same leading hard-edge universality profile and identifies exactly when the smooth correction first becomes visible; it is not a renaming or a single numerical example.
+The exact finite two-point coefficients and compact-uniform remainder trichotomy for the fixed cusp-plus-linear radial family were not found in the inspected sources. The leading kernel limit and the radial reciprocal-moment technique are not new. The assessment is restricted to the subleading expansion, not a new general universality or summation principle.
 
-## Closest literature and limitations
+## value
 
-Relevant sources: Hübner, arXiv:2610.24693 (2026-10-17); Lubinsky, *Universality Type Limits for Bergman Orthogonal Polynomials* (2009), full-text statement and proof inspected; Hedenmalm–Wennman, arXiv:2008.02682; Pennanen–Rättyä–Wang–Wu, arXiv:2607.19959 (2026-07-22), main result inspected; Zeytuncu, arXiv:1009.2806, main theorems and proofs read. The result assumes a fixed positive radial cusp-plus-linear weight and compact microscopic coordinates; it is not a general finite-regularity expansion. Older unindexed equivalences remain possible. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives an explicit positive radial model separating the nonlinear cusp correction from the smooth slope and discretization, including a reproducible crossover at α=1/2 and off-diagonal profiles that remain meaningful when a diagonal coefficient cancels. It is a useful quantitative test of higher-order boundary limits, not a claim about arbitrary rough weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

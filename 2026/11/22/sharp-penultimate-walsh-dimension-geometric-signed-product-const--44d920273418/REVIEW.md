@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real integer \(n\ge4\), the sign-collision argument yields a universal finite-cube bound with no probabilistic or numerical assumptions. Complementary nonempty sign blocks bound the colliding pair by the square of the total input radius minus its smallest radius. Cauchy–Schwarz reduces the quotient to one scalar parameter, whose derivative has one zero on the specified compact interval. The explicit \(2^{n-1}-1\)-coordinate construction realizes the exact bound for all \(n\). A separate norm-equality argument proves the sharp saturation threshold. The asymptotic follows by a controlled small-\(q\) expansion. The packaged standard-library program checked 595 diagnostic assertions in cases \(4\le n\le8\), including the complete equality constructions. Numerical checks are not the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest eligible primary source, Li et al. (2025, DOI: 10.3934/math.2025296), develops a different constrained three-vector Zbăganu-type constant and does not imply the exact higher-order product invariant. The directly relevant later paper by Ifronika et al. (arXiv:2611.24308v1, 18 November 2026) establishes general inequalities and values for other Banach spaces, not the \(2^{n-1}-1\) finite-cube theorem; it is only comparison literature, not the qualifying earlier source. The older higher-order von Neumann–Jordan literature concerns arithmetic means and cannot supply the sharp geometric product without additional equality analysis. Targeted published-index searches found an earlier exact **three-vector** finite-cube calculation, which is explicitly excluded by restricting this theorem to \(n\ge4\). No directly covering general-order finding was recovered. Bibliographic noncoverage is qualified rather than claimed exhaustive.
+PASS
 
-## Mathematical value — PASS
-The new exact value sits at a structurally canonical transition: one fewer dimension than the \(2^{n-1}\) sign classes required for full saturation. The collision forces a quantitatively optimal deficit, whose leading size is exponentially small in vector order. This yields an infinite family of exact values, an all-dimensional equality threshold, a sharp asymptotic law and explicit extremizers, beyond an isolated small-dimensional computation.
+Normalize nonzero inputs by the sum of squared radii. For d=N−1 assign to each of the N sign rows a norming coordinate; two rows collide. Both the agree and disagree sets of signs are nonempty, so the two scalar sums A±B satisfy |A+B||A−B|=|A²−B²|≤(R−t)² with R the sum and t the minimum radius. All other factors are ≤R. Cauchy–Schwarz on the remaining m radii with sum S yields exactly F_n(z)=m^q(m+z)^(2−q)/(m+z²), z=mt/S∈[0,1]. Its derivative has the sign of (2−q)m−2mz−qz², strictly decreasing with opposite endpoint signs, giving the claimed z_n. For the witness, keep one full signed coordinate for each row except a pair differing only in the last sign, and give that pair a shared coordinate omitting the last component. For either omitted row at each other coordinate the first m sign products match at index one and disagree at least once, so their absolute sum is ≤m−2; adding z_n≤1 cannot exceed m. Thus the omitted norms are m and all other norms m+z_n. Saturation is attained with one coordinate per row, and conversely compactness gives an attaining tuple; equality in Cauchy–Schwarz and the scalar triangle inequality forces equal positive radii and a different norming coordinate for each row modulo global reversal. The root equation gives 1−z_n=O(q); near 1 the log derivative at 1 is O(q/n) and its derivative O(1/n), yielding F_n(z_n)−F_n(1)=O(q²). Now F_n(1)=n(1−1/n)^q and n log(n/(n−1))→1, proving the deficit asymptotic. Independent decimal evaluation of the n=4 witness gives 3.532200615298932666… .
 
-## Risks and limits
-Other lower-dimensional exact values, maximizer uniqueness, and complex analogues are unresolved here. Undiscovered equivalent formulations may exist. The 2025 motivating constant is not identical to the invariant computed here; the post-anchor 2026 work confirms current relevance but supplies no pre-anchor source date. Exact-vs-rounded diagnostic agreement cannot certify the universal theorem independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The functional itself is exactly the published higher-order Zbăganu functional. The saturation-side dimension scale overlaps the arithmetic theory, and a distinct indexed same-day result gives the exact order-three dimension sequence using the same one-collision proof idea. The supported distinct claim is the all-orders n≥4 penultimate evaluation and deficit; neither checked theorem supplies it. No publication ordering is inferred for the two indexed records.
+
+## value
+
+PASS
+
+The last dimension before saturation is selected by the sign-cube geometry, not by numerical convenience. Quantifying the exact cost of losing one norming coordinate for every order and showing the deficit is asymptotic to 4/N provide a usable benchmark for comparing geometric versus arithmetic signed-sum invariants. The simple shared-coordinate construction explains why a tailored unequal-radius witness is needed instead of an equal-radius estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:46.098574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–41",
+        "VERIFICATION.md and verify_hasse_h1.py (inspected, not executed)"
+      ],
+      "rationale": "In degree two every shortcut crossed by deleting the middle vertex is a non-arrow distinct from loops, by the rank cycle V→E→F→V. The coefficients must sum to zero separately for each ordered endpoint pair; subtracting a reference path in each group gives a basis over the integers. Thus a cocycle equates all two-path weight sums with common endpoints. Normalize all return weights from one reference facet to zero by vertex potentials. Comparing its two paths to an edge identifies its two vertex-to-edge weights as a_e. Doing the same for any facet, and using one-skeleton connectedness, makes all returns from that facet have one weight t_f. The two choices of intermediate edge for a vertex of a triangle force e→f weights to be q_f−a_e. Comparing e→f→v with e→g→v for facets on the same edge gives q_f+t_f=q_g+t_g. Potentials −a_e on edges and t_f on facets kill nonzero weights outside the e→f arcs and leave exactly these component constants. Conversely the constants satisfy all three types of relation; a coboundary preserving zero on the other two arc types has constant potential, proving uniqueness. The construction uses no division and is natural in A. The integral complex is free in each degree and H_0=Z by weak connectedness. Universal coefficients now give Hom(H_1,A)=A^c; taking A=Q fixes rank c, and taking A=Z/p excludes every primary torsion summand. The r-triangle example contracts to the common vertex while its facet graph has r isolated vertices, giving the claimed separation.",
+      "residual_risks": [
+        "Recorded modular checks are only supplementary and were not rerun; even if rerun they would not establish integral freeness. The proof needs all return arcs and one-skeleton connectedness; it makes no higher-degree assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanov–Zhang Theorem 6.3 computes a graded algebra over a field for finite ranked posets whose dg-ideals form a Poincare-duality pair. Corollary 6.4 covers connected oriented closed manifolds with regular CW structure. Theorem 5.3 gives a sufficient criterion involving top-degree interval cohomology and a base Poincare-duality algebra.",
+          "Chaplin supplies general two-path relations and studies Betti numbers of random digraphs."
+        ],
+        "reasoning": "For closed connected oriented triangulated surfaces c=1; the degree-one field-coefficient case follows from the cited corollary. For connected pure nonmanifold complexes one cannot presume the Poincare-duality pair. In particular a vertex wedge has no degree-two top class, and the upper interval over the shared vertex for r>1 is disconnected below the top interval degree. The general chain generators do not themselves compute the quotient in terms of facet components.",
+        "searches": [
+          "arXiv:2611.19813v1, Definition 5.1, Theorem 5.3, Theorem 6.3 and Corollary 6.4",
+          "Chaplin, DOI:10.1007/s41468-022-00108-3, Proposition 3.17 and Corollary 3.19"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.19813v1",
+        "DOI:10.1007/s41468-022-00108-3",
+        "Local Resultary records fcc550dec7ea, cfc41da54f34 and 3e49d0d1555f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic Hasse algebra computation in §7 uses a normalized top-degree cocycle and basis dual under the Poincare-duality pairing. The manifold corollary inherits that hypothesis via a separate verification. The vertex wedge in this Finding is contractible and has no such orientation class.",
+          "The general two-path relations determine the presentation; the component normalization requires the specific all-return and connectedness hypotheses."
+        ],
+        "reasoning": "One cannot reduce to closed surfaces on the individual facet components: those components need not be closed manifolds, and the required graph includes returns to all original vertices. The theorem over a field does not alone give the integral group or the all-abelian-coefficient canonical description. The checked normalization supplies the missing inference for the wider class.",
+        "searches": [
+          "arXiv:2611.19813v1, Theorem 6.3 and §7 opening of its proof",
+          "arXiv:2611.19813v1, Definition 5.1 and Theorem 5.3",
+          "Chaplin, Propositions on two-path relations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary definition uses upward Hasse covers and a return arrow from every maximal element to every distinct minimal element. On the nonempty face poset of a pure two-complex these are exactly the frozen arrows.",
+          "The closest wording analogue fcc550dec7ea counts some components for the kernel of regularization in the symmetric orientation of an undirected graph."
+        ],
+        "reasoning": "The cyclic Hasse object is genuinely the same as the prior construction; relabeling ranks does not yield novelty. The regularization kernel in symmetric digraphs is not the absolute first regular group of these nonsymmetric digraphs. The identical indexed record is excluded as a self-match.",
+        "searches": [
+          "Local Resultary: cyclic Hasse first integral path homology, triangle-adjacency components, vertex-wedged triangles, related path-homology component formulas",
+          "Ivanov–Zhang arXiv:2611.19813v1, Definitions 3.6 and 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fcc550dec7ea gives an exact kernel count for edge-containing triangle-free connected components. cfc41da54f34 realizes a spectrum of integral groups Z^k on forward DAGs on 4m vertices with fixed reachability topology. The multipath friendship result 3e49d0d1555f gives an exact wedge-of-spheres homotopy type. The primary Corollary 6.4 gives the connected closed oriented manifold degree-one field case."
+        ],
+        "reasoning": "There is known exact overlap in the closed orientable surface subcase. The other exact values are for different chains, maps, or index sets. No separate table for the stated circular face-poset construction on arbitrary pure two-complexes was established by the comparisons.",
+        "searches": [
+          "Local Resultary exact component-count and wedge comparisons: fcc550dec7ea, cfc41da54f34, 3e49d0d1555f",
+          "arXiv:2611.19813v1, Corollary 6.4"
+        ]
+      },
+      "rationale": "The digraph construction is established, and the field-coefficient result for connected closed oriented surfaces is covered by Ivanov–Zhang. The supported distinct result is the component-indexed computation for arbitrary connected pure two-complexes with all returns, over arbitrary abelian coefficients in degree one and integrally in homology. The best matching primary theorem has a duality hypothesis which fails for the contractible vertex wedges. The component-count analogues in the index use different digraph classes or compute a different group. This is a limited comparison of inspected statements, not a priority claim.",
+      "residual_risks": [
+        "This is a bounded comparison; an unindexed extension of cyclic Hasse degree-one calculations could overlap. The external keyword search's lack of results does not strengthen the noncoverage evidence. No relative priority is inferred from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact digraph construction and the closed oriented manifold degree-one field case, not the arbitrary pure two-complex result under the inspected hypotheses",
+          "evidence": "Theorem 6.3 assumes a Poincare-duality pair; §7 uses that pairing and a normalized top cocycle. Its hypotheses do not apply to the contractible wedge example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19813v1",
+          "material_read": "Definition 3.6 (p. 7, offset 26800); Definition 5.1 and Theorem 5.3 (pp. 10–11, offsets 37900–42723); Definition 6.1, Theorem 6.3, Corollary 6.4 (p. 16, offsets 57750–63272); targeted §7 opening and orientation setup (pp. 17–18)",
+          "method": "Lawful OA versioned primary PDF, bounded passages and targeted return-arrow lookup",
+          "title": "Cyclic Hasse diagrams of manifolds and noncommutative path cohomology",
+          "trigger": "Exact graph construction and potentially dominating higher-degree theorem"
+        },
+        {
+          "assessment": "Chain-level background, not the component formula",
+          "evidence": "General length-two generators; Betti-number analysis for random digraphs.",
+          "identifier_or_url": "https://doi.org/10.1007/s41468-022-00108-3",
+          "material_read": "Theorem 1.4 (p. 4, offset 10400); Proposition 3.17 and Corollary 3.19 (p. 15, offset 47000)",
+          "method": "Lawful OA primary passages",
+          "title": "First Betti number of the path homology of random directed graphs",
+          "trigger": "General first-path-homology calculations and two-path generator structure"
+        },
+        {
+          "assessment": "Parallel integral count but different digraph and group",
+          "evidence": "The kernel from nonregular to regular H_1 of a symmetric orientation has one generator per edge-containing triangle-free component.",
+          "identifier_or_url": "2026/11/22/SCOPE-triangle-free-components-control-the-integral-regularization-gap--fcc550dec7ea/RESULT.md",
+          "material_read": "Local mirror Finding at offset 0",
+          "method": "Local Resultary and mirror statement read",
+          "title": "Triangle-free components control the integral regularization gap in first path homology",
+          "trigger": "Strongest distinct same-day component-count match"
+        },
+        {
+          "assessment": "Realization phenomenon on a different class, not this computation",
+          "evidence": "Forward DAGs on 4m vertices realize varying Z^k while retaining fixed reachability topology.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-integral-path-homology-spectrum-under-one-fixed-tota--cfc41da54f34/RESULT.md",
+          "material_read": "Local mirror Finding at offset 0",
+          "method": "Local Resultary and mirror statement read",
+          "title": "A quadratic integral path-homology spectrum under one fixed total reachability type",
+          "trigger": "Nearby integral graph-homology versus topology separation"
+        },
+        {
+          "assessment": "Wedge result for the distinct multipath construction and bidirected friendship graph",
+          "evidence": "The directed-linear-forest complex has type S^(n−1) wedged with 2n copies of S^n; neither its input graph nor chains are those of the Finding.",
+          "identifier_or_url": "2026/10/18/SCOPE-mixed-dimensional-sphere-wedges-for-bidirected-friendship-multip--3e49d0d1555f/RESULT.md",
+          "material_read": "Local mirror Finding at offset 0",
+          "method": "Local Resultary and mirror statement read",
+          "title": "Mixed-dimensional sphere wedges for bidirected friendship multipath complexes",
+          "trigger": "Closest vertex-wedge graph analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Ivanov–Zhang arXiv:2611.19813v1, Theorem 6.3 and Corollary 6.4"
+      ],
+      "rationale": "This answers a natural extension of the cyclic Hasse manifold calculation without assuming duality. It identifies the invariant controlling the entire first-degree group, not just a bound on Betti number, and shows that path homology can have unbounded rank in a natural family with contractible simplicial realizations. The arbitrary-coefficient normalization explains both the relevant adjacency notion and the absence of integral torsion.",
+      "residual_risks": [
+        "The result concerns only degrees zero and one in this all-return cyclic construction, not algebra structure or a topological invariant of the realization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

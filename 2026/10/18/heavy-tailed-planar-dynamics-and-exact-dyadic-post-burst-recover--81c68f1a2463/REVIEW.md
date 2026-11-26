@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rational map sends the positive wedge to a graph in one step; its graph coordinate is exactly logistic. At the excluded critical endpoint the angle doubling representation gives a unique natural physical law for typical wedge initial conditions. Beta integration gives the stationary tail and the moment threshold. Conditional uniformity of the short angle, together with monotone doubling before the critical-half threshold, proves the complete finite-threshold first-passage survival and expected return formulas. The sharpness and exceptional finite-pole sets are explicit. The standalone rational checker returns `VERIFY_OK`; finite checks are not infinite proofs.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Sedaghat, arXiv:1406.6721, gives the logistic fold and the very same invariant graph; those are explicitly acknowledged as prior work. His bounded-orbit theorem assumes \(0<b<4\), whereas the present endpoint has an unbounded singular vertical observable. Freitas–Freitas–Todd, arXiv:0804.2887, give general rare-target hitting and extreme-value results but not the exact law of a return to a fixed macroscopic set after conditioning on an extreme value. Lazaryan–Sedaghat, arXiv:1405.3124, consider a different semilinear rational planar system. Searches of published mathematical records, including concept/alias checks for logistic, rational planar, and dyadic passage, identified no equivalent combined theorem. Classical conjugacy and arcsine density alone do not state the exact conditioned passage formula; specialist literature could still conceal equivalent results.
+PASS
 
-**Mathematical value — PASS.** The singular threshold is natural and source-motivated: the first coordinate remains bounded while the second acquires nonintegrable moments, and the logistic critical point specifies a canonical recovery target. The result determines the entire rare-event conditioned delay law, its exact mean and its log-periodic order-one variation, rather than only a mean invariant density or routine local stability sign.
+On the stated positive wedge, the first image has 0<x'<b/c and y'=alpha/(b-cx'); projecting the graph gives t'=bt(1-t). Its maximum b/4 gives the sharp bound at n=2 by taking t_1=1/2 when b<4; when b=4 the denominator vanishes precisely at the critical point, so the exceptional set is its countable preimage tree. In coordinates (t_1,y_0) the planar initial measure is absolutely continuous on the wedge; the ergodic arcsine law of the circle doubling factor gives a full-measure basin. Simultaneous bounded continuous empirical averages follow from a countable dense test family on [0,1] and cutoff at the endpoints of zero arcsine mass before taking the graph lift. Positive mass in each neighborhood of the pole gives infinite limsup. The one-time tail is the length ratio of a uniform angle and the gamma moment is the beta integral at exponent 1/2-s. Given Y_0>R>alpha/2, the distance angle phi from t=1 is uniform on (0,beta_R), and after one iterate the logistic coordinate is sin²(2 phi). Each doubling stays below pi/4 until the first crossing, which cannot jump beyond pi/2. This gives the ceiling formula and its exact survival, with q_R2^(-n) after n>L_R. Tail summation gives L_R+1+rho_R; the continuous range of q_R realizes each interior phase and allows approach to phase 2, with distinct tails at k=1. Independent replay `python /workspace/branches/independent_audit_replay.py` partitions the conjugate tent map into exact rational cells for 27 small finite conditional checks; it is not used for an infinite-time conclusion.
 
-The analysis is restricted to the positive wedge and the critical endpoint; the measure is singular in planar area and pole preimages are excluded. Independent historical-priority review is still necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving distinct claim is the exact finite-height conditional recovery law and height-to-phase map for the stationary vertical observable at this rational-map endpoint. The graph, logistic fold, and arcsine background are known, and the limiting law family is not novel as an abstract distribution. The strongest comparable excursion record has the same type of rounded-log law, with literal distributional overlap after reflection and parameter matching, but does not establish this endpoint or its finite-height dynamical law.
+
+## value
+
+PASS
+
+The singular endpoint is precisely the boundary excluded by the source boundedness theorem. The natural half-coordinate recovery target is the critical half and corresponds to twice the lower endpoint of vertical observations. The model-specific exact finite-threshold law resolves not just logarithmic growth but the height-dependent order-one delay and all phase limits. That information is usable for conditioning on a burst in this system; the one-time arcsine transformations and the abstract geometric shape would not by themselves carry this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

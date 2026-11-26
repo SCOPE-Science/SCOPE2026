@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd shift, each odd prime is followed by an even composite, and each composite immediately by a prime. Thus a periodic orbit not meeting 2 alternates and has even length. All odd-length primitive orbits therefore contain 2 and cannot be distinct for the same deterministic map. A primitive five-cycle must follow the forced five states \(2,k+2,2k+2,P^+(k+1),k+P^+(k+1)\), yielding the exact three arithmetic conditions. Conversely they give five distinct states and the return arrow. The accompanying Python 3 regression independently checks all \(100001\) odd shifts up to \(200001\) by direct iteration and arithmetic tests; this computation is not used to prove the universal statement.
+## correctness
 
-## Originality — PASS on inspected evidence
-Das (arXiv:2312.06629v1, December 2023) defines the map and proves eventual periodicity but does not present the all-odd-shift period-five criterion. Dubickas (*Axioms*, 2024) establishes broad boundedness rather than this local five-state classification. The public short-period classification (8 November 2026) exhausts periods one through four; the separately inspected 36-loop census is finite and has only even cycles at its highlighted parameter. Multiple targeted semantic, mathematical-formulation and title searches returned no equal or stronger period-five theorem. The possibility of an unindexed equivalent remains.
+PASS
 
-## Value — PASS
-The theorem determines the first odd primitive period beyond the published period-three classification and completely resolves its existence and uniqueness for every odd shift, including a structural global restriction of at most one odd-period cycle. Its prime, largest-prime-factor and power-of-two conditions are explicit and easily testable, while the infinitude of qualifying shifts remains open. The result is not merely a list of small computations.
+For positive odd k, every composite maps to a prime and every odd prime maps to an even composite. A cyclic itinerary avoiding 2 therefore alternates and has even length. More generally any odd cycle needs a prime-to-prime step, necessarily 2→k+2; determinism gives uniqueness. Continuing the five-step itinerary forces 2k+2, then q=P⁺(k+1), then k+q. If q=2 the return was at step three; otherwise k+q≥4 is composite and maps to 2 exactly when it is a power of two. Conversely the stated conditions close the itinerary, and primeness, q>2, and q≤k+1<k+2 keep all five states distinct, including the two composites. The independent direct replay from 2 and largest-prime-factor arithmetic test agreed for all 100001 odd shifts through 200001, yielding exactly [5,21,51,59,1365,16271,87381].
 
-## Source comparison and limitations
-The original uncompressed map, not prime-compressed return dynamics, is classified. The theorem makes no statement for even shifts or longer odd primitive periods. Prime-shift source: https://arxiv.org/html/2312.06629v1. Broad boundedness source: https://doi.org/10.3390/axioms13020107. Prior short-period result: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The map and the elementary odd-prime to even-composite transition are established ingredients. The nearest exact classification for actual states stops at four, and the inspected period-occurrence data are finite. The supported distinct result is the complete period-five arithmetic criterion with its unique ordered itinerary for all positive odd shifts, not a new map or novelty of its parity observation in isolation.
+
+## value
+
+PASS
+
+Period five is the next unclassified primitive period in the same-map short-period program, not a selected numerical slice. The criterion replaces a cycle search with one primality test, one largest-prime-factor evaluation and one power test, produces the unique orbit, and explains why odd periods are exceptional. The finite scan is supplemental, not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-## Analytic checks
+## correctness
 
-The bivariate recurrence is an identity of finite formal probability-generating polynomials, with no analytic continuation or unproved cancellation. The covariance formula uses orthogonality of conditional-mean-zero innovations, and strict positivity follows from two available parent depths at every vertex \(i\ge3\). In the total-variation upper bound, the independent Bernoulli sum has a unimodal convolution mass function, and Fourier inversion yields the explicit \(V^{-1/2}\) maximum-mass bound. In the lower bound, Fourier domination and a third-moment estimate prove a uniform local central limit theorem at finitely many central lattice offsets. The threshold test is in \([0,1]\), so its covariance discrepancy is a valid total-variation lower bound. The power-weight boundary follows from explicit Bernoulli-parameter sums.
+PASS
 
-## Standalone finite certificate
+Conditioning on the independent parent choice for m>i gives the weighted joint PGF recurrence with the old depth marker retained. Updating the weighted sum from m−1 to m multiplies the joint PGF for the next label by 1−p_m+p_m z, giving exactly the independent convolution in the younger coordinate, including the empty sum. The weighted depth mean increments by p_m(1+xi_m) and the innovations are orthogonal; common terms in the two centered depths give the displayed covariance. Parent depths 0 and 1 both have strictly positive conditional probabilities, proving strictness for i≥3. For the upper bound, Bernoulli convolution is log-concave and hence unimodal, so unit-shift TV is its maximum mass; shift telescoping and then averaging over the coupled fibers give the factor E|Y−Y'|. Fourier inversion with |phi(t)|≤exp(−2V sin²(t/2)) gives the stated constant. For the lower bound, the summed centered absolute third moments are at most V and the same Fourier bound dominates the rescaled inversion integral. This proves the central local limit for each bounded offset, giving a threshold-test discrepancy C_i/((i−1)sqrt(2πV)) in absolute value to first order. The [0,1] test is admissible for the specified TV convention. Power sums give V asymptotic to (alpha+1)log j or log log j. In the summable power case the Bernoulli tail probability gives TV convergence; finite second moments and positive limiting covariance force strictly positive limiting TV. No finite simulation is used for any infinite assertion.
 
-Run `python3 verify_depth_dependence.py` using Python 3 and its standard library. The program enumerates all parent maps for seven-vertex trees with four different strictly positive weight vectors. For all applicable labeled vertex pairs, it independently constructs the exact rational bivariate law and the predicted Bernoulli convolution, verifies covariance invariance, and verifies normalization. An actual execution completed successfully: `PASS: 120 exact rational assertions across 4 weight cases`.
+## originality
 
-## Scope of verification
+PASS
 
-The exact finite checks do not certify the infinite local central limit theorem, asymptotic total-variation rate, or novelty; those depend on the supplied mathematical arguments and literature comparisons. No independent external validation has been performed. The first public source date was checked against the arXiv initial submission record of 2026-09-30, rather than a later revision or document date.
+The repaired claim credits the martingale covariance and one-vertex variance regimes as prior consequences. Inspected earlier statements do not supply the exact fixed-label bivariate law and two-sided TV order to the product law or the persistent-dependence power regime. The rate transfers from standard smoothing estimates only after identifying this specific joint signal and giving a nonzero matching lower bound.
+
+## value
+
+PASS
+
+Even with strictly persistent covariance, the repaired theorem shows sharp asymptotic independence in total variation whenever younger-label noise grows, and identifies when dependence instead persists in the natural power family. The lower bound makes the answer quantitative rather than qualitative, and the exact joint-law factorization explains why noise masks but does not erase the covariance. This is useful beyond reciting the known one-depth phase boundary or measuring correlation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

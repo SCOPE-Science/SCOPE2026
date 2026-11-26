@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:10:50.970583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT, VERIFICATION.md, SPECTRUM.tsv, verify_fast.cpp, verify_independent.py (both inspected, not run)",
+        "branches/check_binary.py; chunk logs check_binary_0_1.log, check_binary_1_3.log, check_binary_3_6.log; aggregate check_binary.log"
+      ],
+      "rationale": "The 14 right/left rotation orbits are vertex-disjoint directed cycles, including the two loops. Any minimum set must delete at least one vertex per orbit. Independently tested the given 14-vertex witness, so the minimum cardinality is exactly 14. I enumerated all 181,398,528 labeled one-per-orbit transversals with no partial-graph pruning. In each full survivor set A I iterated A <- A intersect N+(A), with N+ the outgoing-neighbor union. A vertex surviving t rounds is the endpoint of a residual walk of t edges; a nonempty fixed point means a directed cycle, and on a DAG the round giving the empty set is the longest path in vertices. The exact count and all 14 histogram bins agreed. Complement is a digraph automorphism and reversal an orientation-reversing isomorphism; both preserve the vertex length. On the 408 minimizers, exhaustive independent action evaluation gives fixed counts 408,0,0,4 for identity/complement/reversal/reverse-complement. Burnside gives 103 orbits, two of size two (both canonical masks match) and 101 of size four. The 48-at-26 endpoint and optimizer percentage also agree.",
+      "residual_risks": [
+        "Exact for the labeled binary order-six digraph and the vertex-count convention only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper enumerates the same parameter among a range of sizes and gives exact totals and extrema, including per-component extrema. The other catalogued censuses cover a ternary order-three digraph and a restricted binary order-five family."
+        ],
+        "reasoning": "Merely specializing the earlier parameter ranges supplies the endpoints and total, not the full order-six distribution or orbit census. Neither different digraph covers this binary D_6 case.",
+        "searches": [
+          "arXiv:2311.03592v1 Tables 1–2 and Section 5.3/Fig. 3",
+          "Resultary: ternary 3-mer decycling census; strand-symmetric binary five-mer equality classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.03592v1",
+        "Resultary IDs 0d6eb2eaa895, d6390cf3cc11 and the exact catalogue self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior work used enumeration and longest-path evaluation, and exact extrema can be read from its tables. Neither totals nor extrema record how many sets achieve each length, and per-component extrema do not specify the counts and stabilizers of individual minimizers."
+        ],
+        "reasoning": "The underlying enumeration makes further computations possible but these particular numerical outputs require a full aggregation and symmetry test, not substituting a parameter into the stated results.",
+        "searches": [
+          "arXiv:2311.03592v1 section on enumeration and Section 5.3/Fig. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum decycling sets are minimum vertex feedback sets in the stipulated directed graph. Table 2 uses the remaining path in vertices, so the 13 and 26 are exactly the same endpoints, not shifted by one. The exact matched catalogue result is the frozen record itself."
+        ],
+        "reasoning": "Alternate terms and normalizations do not make the existing total or endpoints new; the difference is the finer labeled-set and group-action distribution.",
+        "searches": [
+          "Resultary: binary order-six minimum decycling or feedback vertex sets, 68,288, longest remaining paths and reverse/complement classes",
+          "Marçais–DeBlasio–Kingsford, arXiv:2311.03592v1, introductory digraph formulation and Tables 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record is an exact catalogue self-match. Table 1 of the primary paper explicitly gives 68,288 from an exhaustive list; Table 2 gives 13 and 26; Fig. 3 plots component extrema, not counts of all sets at each L. Inspected passages did not state the histogram, optimizer count or optimizer orbit table."
+        ],
+        "reasoning": "The exact known cells are credited. No distinct explicit matching evaluation was found in the material read; archival data or supplements beyond the inspected material remain a concrete risk.",
+        "searches": [
+          "Resultary: D_6 path histogram 13 to 26; 408 optimizers, 103 symmetry classes; complete binary six-mer residual-path distribution",
+          "arXiv:2311.03592v1 exact tables, p. 9 and pp. 11–13"
+        ]
+      },
+      "rationale": "The supported contribution is the complete frequency distribution and optimizer count/orbit classification for the labeled binary order-six digraph, not its already-published minimum-set total, extremal path lengths, or generic enumeration methods. The frozen record already makes this distinction expressly in its proof and prior-work section.",
+      "residual_risks": [
+        "An unindexed supplement or archived per-set path dataset could contain the full distribution or enough tabulated data to make it an immediate aggregation; none was established in the inspected material.",
+        "Broader web lookup was limited; the verdict is a bounded positive comparison to the accessible primary text and catalogue, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact positive coverage of total and extrema; not a statement of the full histogram or stabilizers in these passages",
+          "evidence": "The exact binary order-six row gives 68,288 and endpoints 13/26. Fig. 3 caption specifies that each point represents one connected component and plots its minimum and maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.03592v1; journal DOI 10.1089/cmb.2024.0544",
+          "material_read": "arXiv full PDF accessible; Table 1 p. 9 (offsets 29800–31906), Table 2 pp. 11–12 (40000–44958), Section 5 discussion and Fig. 3 p. 13 (44700 onward); journal text not separately inspected",
+          "method": "OA PDF passage comparison",
+          "title": "Sketching methods with small window guarantee using minimum decycling sets",
+          "trigger": "Strong primary same-graph, same-parameter result"
+        },
+        {
+          "assessment": "Different alphabet and order",
+          "evidence": "84 minima; residual lengths 6 and 7 with frequencies 60 and 24; seven symmetry orbits.",
+          "identifier_or_url": "Resultary 2026/10/25, ID 0d6eb2eaa895",
+          "material_read": "RESULT Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete ternary three-mer minimum decycling set census and sharp optimization",
+          "trigger": "Parallel census and orbit invariant"
+        },
+        {
+          "assessment": "Different order and admissible family; not excluded by date",
+          "evidence": "Ten size-12 reverse-complement-invariant binary order-five sets; histogram 6:4, 8:4, 10:2.",
+          "identifier_or_url": "Resultary 2026/11/22, ID d6390cf3cc11",
+          "material_read": "RESULT Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete equality classification of strand-symmetric binary five-mer sets",
+          "trigger": "Closest binary reverse-complement optimization hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "arXiv:2311.03592v1 Tables 1–2 and Fig. 3"
+      ],
+      "rationale": "The graph and optimization measure are motivated by the earlier study of exact residual-path guarantees over all minimum decycling sets. The known total and extrema hide how rare either endpoint is. The exact frequency and stabilizer census resolve that gap at a size with tens of thousands of admissible sets, giving reference data for exact graph algorithms and optimizer enumeration; the symmetry result also states which involution accounts for the exceptional smaller orbits. This is not a recomputation offered as new of the known endpoints.",
+      "residual_risks": [
+        "No performance conclusion for other graph orders or contexts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

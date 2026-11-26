@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:41:18.506119Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Remove the closing base edge, leaving n-2 wrap lifts w_j=(0,j)--(j,n-1) outside the path token graph. The path Q_j first decreases the smaller coordinate from j to j-1 on column n-1, then decreases the larger from n-1 to j on row j-1, then decreases the smaller to zero on column j. These runs meet only at consecutive endpoints and have 1+(n-1-j)+(j-1)=n-1 edges. Every larger-coordinate edge in row a belongs to Q_{a+1}; each smaller-coordinate edge in column b<n-1 belongs to Q_b; in column n-1 the edge between smaller coordinates a,a+1 starts Q_{a+1}. All indicated indices are legal and the three classes cover path-token edges exactly once. Appending w_j closes each path into a simple n-cycle; for n=3 the construction is just the token triangle. Each n-cycle costs at least one uncut edge when n is odd. The even-index token parity colors exactly the path-edge lifts bichromatically, plus the wrap lifts precisely when n is even. Each base edge contributes n-2 lifts, with no duplicate because the symmetric difference determines the base edge. The cut reaches the cycle upper bound, and deleting the complement of a maximum cut is equivalent to optimal edge bipartization. The standalone verify.py is the replay path for finite checks through n=150 and cut exhaustion through n=7; inspected, not executed and not needed for this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bound m(F_k(G))>=binom(|V(G)|-2,k-1)m(G) is tight for bipartite G. The paper shows it can be strict on F_2(K5).",
+          "Resultary cdcce5aaaf0a counts shortest odd cycles for broader k."
+        ],
+        "reasoning": "For odd C_n, the hypotheses of the exact bipartite result fail. Counting shortest odd cycles, even when all have the desired length, does not assert a family of edge-disjoint cycles that covers every edge.",
+        "searches": [
+          "arXiv:2611.25153v1, §2 exactness and k scope",
+          "Resultary: Eulerian number census of shortest odd cycles in token graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.25153v1, 2609.31991, 2611.22830v1 and 2506.03441",
+        "DOI:10.1007/s00373-025-02953-2",
+        "Resultary entries cdcce5aaaf0a, c46a125db54b, 9c686d18a910 and 0af7af369270"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general lower bound specializes to the displayed numbers, but does not bound the cut from above for odd n. Rivera's abstracts concern packing and maximum independent vertex sets, and the Hamiltonian paper's displayed Max-Cut definition is for its base graph."
+        ],
+        "reasoning": "The missing upper bound needs a certificate such as the frozen partition. The terminal vertex arrangements used for packing or independence do not yield the edge-disjoint odd-cycle certificate in the inspected statements.",
+        "searches": [
+          "Alejandro-Soto et al. §2 Eq. (1)",
+          "Rivera arXiv:2609.31991 and arXiv:2611.22830v1",
+          "arXiv:2506.03441v1 Max-Cut definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alejandro-Soto et al., §2 Eq. (1) gives the parity lift. Aberle et al., abstract and introduction, gives equal-length decompositions of Cartesian tori, not two-token cycles."
+        ],
+        "reasoning": "The token graph uses unordered pairs of distinct cycle vertices, so it is not the Cartesian torus with ordered unrestricted pairs. An edge-bipartization equality is equivalent to the cut formula, not a separate novelty. No inspected decomposition theorem supplies the exact token partition via this reduction.",
+        "searches": [
+          "Resultary: two-token cycle equal-length cycle edge decompositions, exact maximum cut, edge bipartization",
+          "Primary literature: Max-Cut on Token Graphs F_2(C_n) cycle exact maximum cut cycle decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit c46a125db54b is the frozen record itself. Entry 9c686d18a910 is for two-token split graphs; entry 0af7af369270 is for the domatic number of the two-token cycle."
+        ],
+        "reasoning": "A self match is not independent evidence. The split bases and the cycle domatic invariant are different; the latter does not determine the cut.",
+        "searches": [
+          "Resultary: equal-length cycle decomposition maximum cut of two-token cycle graphs",
+          "Resultary: exact maximum cut for two-token graphs"
+        ]
+      },
+      "rationale": "The parity-lift lower bound and its exactness for bipartite bases already cover the even case and predict the odd value only from below. The edge-disjoint simple-cycle partition and the resulting sharp odd upper bound are the surviving distinct claims under the comparisons made.",
+      "residual_risks": [
+        "The checked comparisons are bounded, not a priority guarantee against older differently phrased token-graph decompositions.",
+        "No priority ordering is asserted for same-day records; the shortest odd-cycle census and the partition solve different problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even cycles and the odd lower bound only",
+          "evidence": "Parity lift is general; explicit tightness for bipartite bases and strictness example for F_2(K5).",
+          "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+          "material_read": "§2, Eq. (1), HTML offsets approximately 6500–10097",
+          "method": "OA HTML passage reading",
+          "title": "Max-Cut on Token Graphs",
+          "trigger": "Direct theorem about the same objective on token graphs"
+        },
+        {
+          "assessment": "Counts cycles, not an edge partition",
+          "evidence": "Shortest odd-cycle census does not state simultaneous edge-disjointness or cut optimality.",
+          "identifier_or_url": "2026/11/22/SCOPE-eulerian-number-census-of-shortest-odd-cycles-in-token-graphs--cdcce5aaaf0a",
+          "material_read": "Finding and proof setup, offsets 0–4414",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Eulerian number census of shortest odd cycles in token graphs",
+          "trigger": "Same odd cycles and broader k"
+        },
+        {
+          "assessment": "Vertex packing rather than packing or partitioning cycle edges",
+          "evidence": "The advertised bound concerns the vertex-packing number of F_2(C_n).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31991",
+          "material_read": "PDF p.1 abstract",
+          "method": "OA PDF passage reading",
+          "title": "An improved lower bound for the packing number of the 2-token graph of the cycle",
+          "trigger": "Same object and packing terminology"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The king-graph correspondence is used to study maximum independent vertex sets.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22830v1",
+          "material_read": "Abstract, HTML offset 0",
+          "method": "OA HTML passage reading",
+          "title": "Independent sets in the 2-token graph of a cycle and kings on the torus",
+          "trigger": "Same object and torus representation"
+        },
+        {
+          "assessment": "Different host and decomposition parameters",
+          "evidence": "The stated equal-length decompositions concern C_m square C_n.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02953-2",
+          "material_read": "PDF pp.1–2, abstract and introduction",
+          "method": "OA passage reading",
+          "title": "Cycle Decompositions of Cartesian Products of Two Cycles",
+          "trigger": "Potential equal-length cycle decomposition antecedent"
+        },
+        {
+          "assessment": "No token-cycle maximum cut in the inspected comparison",
+          "evidence": "C(G) is the cut of the base graph G; token-graph quantities there concern Hamiltonians and spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.03441",
+          "material_read": "Abstract and cut definition, HTML offsets 0 and approximately 15900",
+          "method": "OA passage reading",
+          "title": "Conjectured Bounds for 2-Local Hamiltonians via Token Graphs",
+          "trigger": "Primary search hit linking token graphs and Max-Cut"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle is a basic nonbipartite test of whether the natural token parity lift is sharp. The explicit partition answers the missing odd upper bound by providing the exact transversal cost, and gives more structural information than the cut number alone: each cycle uses exactly one lift of every base edge. Thus the result has a concrete use independent of the already known even case and lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

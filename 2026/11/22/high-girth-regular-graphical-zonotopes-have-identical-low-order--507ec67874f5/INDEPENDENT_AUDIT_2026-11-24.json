@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:36:34.845048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6); VERIFICATION.md and verify.py (inspected)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 1"
+      ],
+      "rationale": "Full width is the sum of absolute edge differences, with no factor of two. The centered isotropic Gaussian in the (n−1)-dimensional hyperplane has independent χ_(n−1) radius and Haar direction, so moments reduce by the same positive radius moment in both graphs. For a forest F with e≤k edges and c components, hom(F,G)=n^c d^e. The partition by identified vertices has zero contributions for looped quotients and for cyclic quotients (the simplified quotient has at most e edges, strictly below girth). The remaining proper quotients are smaller forests and give an induction for universal injective counts, including disconnected supports. In the moment expansion each ordered edge tuple is a surjection onto its edge support; summing over such orderings with repeats depends only on the abstract forest by Gaussian exchangeability. For the witness I reconstructed the two graphs as GP(10,2) and GP(10,3): edge-deletion shortest paths give girths 5 and 6, canonical forest encodings give identical census through four edges, and exact rational reduced-Laplacian elimination gives spanning-tree counts 5184000 and 6144000. Reduced tree incidence matrices after any one row deletion have determinant ±1, hence by Cauchy–Binet each independent generator set contributes √20 to volume. The volume ratio is 32/27.",
+      "residual_risks": [
+        "Does not assert equality at the shorter girth, equality of the full distributions, or that the witness first differs at a specified higher order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The width result is an asymptotic Gaussian law; the forest paper's high-girth cubic result is an asymptotic total count."
+        ],
+        "reasoning": "Neither limiting statement determines exact moments for fixed graphs of equal order and degree; total-forest growth also does not determine all universal finite forest-support counts with arbitrary edge multiplicities.",
+        "searches": [
+          "Resultary 7b346228232c, bounded-degree random-width universality",
+          "Borbényi–Csikvári–Luo, DOI:10.1007/s00373-021-02382-x, abstract and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 49a1005c0e97, 7b346228232c, ef26a883e1ab (findings)",
+        "ArXiv:2111.12422",
+        "DOI:10.1007/s00373-021-02382-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle formula directly implies equality through order three in the triangle-free case; the tree volume identity gives neither width nor a collision."
+        ],
+        "reasoning": "The additional reasoning is the all-order reduction to finite forest-quotient counts and the summation over edge multiplicities. It extends beyond the previously established moment orders and is not inferred from the CLT.",
+        "searches": [
+          "Resultary 49a1005c0e97, Finding; arXiv:2111.12422, introduction; DOI:10.1007/s00373-021-02382-x, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 49a1005c0e97 establishes the first two orders and expresses the third-order differences by triangle counts.",
+          "Resultary ef26a883e1ab studies intrinsic volume V4 and four-cycles, not the fourth power of random width."
+        ],
+        "reasoning": "Prior width equalities include the low-order subcase through order three. Intrinsic volumes are not an equivalent formulation of spherical width moments, even when both calculations involve small subgraphs.",
+        "searches": [
+          "Resultary: spherical/angular/directional projection-width moments of regular graphical zonotopes, girth and forest motifs",
+          "ArXiv:2111.12422, graphical-zonotope metric and volume context"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared exact width formula is cubic, while the exact quartic intrinsic-volume formula measures a different invariant. The volume relation determines each witness volume once its tree count is known."
+        ],
+        "reasoning": "Even a table of both spanning-tree counts would cover only the volume arithmetic, not joint matching of the first four spherical moments with this gap. No matching joint invariant table or general exact width formula was verified.",
+        "searches": [
+          "Resultary comparisons 49a1005c0e97, 6bc059dff8f9, ef26a883e1ab, and 7b346228232c",
+          "Borbényi–Csikvári–Luo, Theorem 1.2; Padrol–Pilaud–Poullot, volume relation"
+        ]
+      },
+      "rationale": "Credit prior first-through-third width moments, high-girth forest counting and the spanning-tree volume identity. The supported distinction is exact finite-dimensional universality at every order strictly below girth, including a four-moment collision despite unequal volume, not novelty of any standard ingredient.",
+      "residual_risks": [
+        "Bounded literature coverage; priority against an unindexed application of forest counts is not established.",
+        "Exact mirror unavailable for cited cubic motif record 6bc059dff8f9. The primary search did not surface a relevant additional source; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct low-order overlap only",
+          "evidence": "First and second moments agree for fixed n,d; third difference is proportional to triangle-count difference.",
+          "identifier_or_url": "Resultary 49a1005c0e97",
+          "material_read": "Mirrored RESULT.md, Finding (offset 0)",
+          "method": "Configured local mirror",
+          "title": "Third angular-width moments of regular graphical zonotopes recover graph triangles",
+          "trigger": "Same regular-graph width observable"
+        },
+        {
+          "assessment": "Detailed comparison unresolved; not treated as negative evidence",
+          "evidence": "The citation identifies a cubic-width result; no actual passage from this source verified.",
+          "identifier_or_url": "Resultary 6bc059dff8f9",
+          "material_read": "Frozen citation only; exact mirrored record unavailable",
+          "method": "Local mirror retrieval attempt",
+          "title": "Three-edge motifs determine the cubic projection-width moment of graphical zonotopes",
+          "trigger": "Cited exact motif precedent"
+        },
+        {
+          "assessment": "Asymptotic rather than finite identity",
+          "evidence": "Gaussian limit with variance from edge and incident-edge-pair densities.",
+          "identifier_or_url": "Resultary 7b346228232c",
+          "material_read": "Mirrored RESULT.md, Finding (offset 0)",
+          "method": "Configured local mirror",
+          "title": "Gaussian universality for random widths of bounded-degree graphical zonotopes",
+          "trigger": "Potential broader universality"
+        },
+        {
+          "assessment": "Different invariant; no priority inferred from same-day date",
+          "evidence": "Fourth intrinsic volume detects four-cycles in triangle-free regular graphs.",
+          "identifier_or_url": "Resultary ef26a883e1ab",
+          "material_read": "Mirrored RESULT.md, Finding (offset 0)",
+          "method": "Configured local mirror",
+          "title": "Fourth intrinsic volume detects quadrilaterals in triangle-free regular graphical zonotopes",
+          "trigger": "Related fourth-order theorem on the same objects"
+        },
+        {
+          "assessment": "Asymptotic combinatorial antecedent",
+          "evidence": "The theorem gives asymptotic total-forest counts for cubic high-girth sequences.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-021-02382-x",
+          "material_read": "Abstract and Theorem 1.2, pp. 2656–57",
+          "method": "Lawful OA paper text",
+          "title": "On the Number of Forests and Connected Spanning Subgraphs",
+          "trigger": "Possible broader high-girth forest result"
+        },
+        {
+          "assessment": "Standard volume and structural setting, not a checked width hierarchy",
+          "evidence": "Graphical-zonotope construction and relation to spanning trees.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Introduction, p. 1, offsets 1583–2772",
+          "method": "Lawful OA paper text",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Same bodies and conventional volume formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equations (1)–(2); independent graph witness"
+      ],
+      "rationale": "The theorem supplies an exact geometric invariant shared by all regular graphs in the stated girth regime, not just a low-order formula or limiting distribution. The explicit same-dimension, same-degree collision shows why four measurable width moments cannot recover intrinsic Euclidean volume even in a natural class.",
+      "residual_risks": [
+        "Value is in the hierarchy and joint witness, not in recomputing graph tree counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

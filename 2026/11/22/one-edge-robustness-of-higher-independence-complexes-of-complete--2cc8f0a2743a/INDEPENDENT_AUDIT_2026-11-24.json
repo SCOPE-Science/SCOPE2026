@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:41:12.717317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Steps 1–5, lines 22–48",
+        "Frozen VERIFICATION.md and verify_output.txt (recorded 1,111 cases; not a fresh run)",
+        "Deshpande–Singh, arXiv:2001.05448, Theorem 3.5 for the intact baseline; also derived from the collapse count"
+      ],
+      "rationale": "Every mixed induced subgraph of the intact graph is connected. On a mixed set containing u and v, a vertex in any third part keeps the graph connected after deletion; with just the first two parts present and at least two vertices in each, an alternate length-three path also keeps it connected. In the remaining cases deleting uv isolates the endpoint alone in its part. Thus the only new faces are the listed sets of size r+1, exactly t_r in number. Each has an explicit mixed r-set facet with just that one proper coface: it omits the endpoint in the shore with the additional vertices, and cannot lie in a pure-part coface or in a second new face. The word 'unique' in Step 2 need not mean that a new simplex has no other free facet (a newly allowed triangle on the whole vertex set can have three); the required and used property is uniqueness of the coface of the chosen facet. These collapses followed by anchoring the pure parts leave dimension at most r−1. Both originals contain the full (r−1)-skeleton, giving (r−2)-connectivity; the dimension bound yields wedges by the connected-graph case or Hurewicz and Whitehead. For the intact complex the collapse from the skeleton count removes exactly C(m_i−1,r) faces of dimension r−1 in each part. The modified complex removes t_r additional such faces, giving the stated rank by Pascal's identity. The relative chain complex has only the t_r new r-simplices, so the reduced long exact sequence gives a short exact sequence of free abelian groups in the claimed degrees; freeness of the target yields the integral splitting and primitivity. For r≥N the complexes are simplices and all binomial ranks are zero. This verifies the map, not just the two ranks.",
+      "residual_risks": [
+        "The recorded bounded computation tests mod-two ranks and collapse pairs; integral topology and the split map are justified by the proof, not inferred from that output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 of arXiv:2001.06775 gives wedge-or-contractible conclusions for chordal inputs. The defective family need not be chordal: in K_{3,3}−uv the two untouched vertices of each part span an induced 4-cycle.",
+          "In arXiv:2106.10863 the tree/caterpillar and chordal conclusions are about shellability or vertex decomposability and not this relative map.",
+          "Theorem 3.5 of arXiv:2001.05448 assumes the intact multipartite graph."
+        ],
+        "reasoning": "Neither the intact specialization nor the chordal statements cover the defective family and inclusion uniformly. Even where the host is chordal, an abstract wedge conclusion does not determine the map on top homology.",
+        "searches": [
+          "arXiv:2001.06775, Theorem 3",
+          "arXiv:2106.10863, chordal higher-independence structural results",
+          "arXiv:2001.05448, Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and inspected records 2bd77c01e25f and 09db84a872cd",
+        "arXiv:2001.05448, 2001.06775, 2106.10863",
+        "Frozen references and text for 223b7506ca23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact result supplies the source homology exactly. It does not give which cells are gained on removing uv.",
+          "The matched-defect clique-free result concerns two degrees q−2 and q−1, while the intact homology lattice concerns a single host without an edge map."
+        ],
+        "reasoning": "The explicit enumeration of gained faces and the free-facet argument establishing vanishing of higher homology in the target are the extra facts needed for the relative integral map, not a parameter substitution in the prior statements.",
+        "searches": [
+          "arXiv:2001.05448 Theorem 3.5 plus frozen changed-face and relative-chain steps",
+          "Resultary 2bd77c01e25f and 09db84a872cd Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 2bd77c01e25f deletes a matching in a multipartite graph and proves split persistence for the clique-free complex CF_q, q≥4, with singleton shores.",
+          "A connected star on r+1 vertices has no q-clique for any q≥3 but is forbidden in Ind_r, so the component-size and clique-cutoff tests are not equivalent."
+        ],
+        "reasoning": "Deletion and persistence are common features, but matching parameters or passing to the neighbouring clique-size convention does not identify the complexes or maps.",
+        "searches": [
+          "Resultary higher independence and split persistence under multipartite matching defects",
+          "Primary literature on r-independence and deleted edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 09db84a872cd and Theorem 3.5 give the exact intact rank, not the rank after removing uv or its kernel.",
+          "The frozen citation assigns the s=2,r=2 specialization to 223b7506ca23; its exact text did not resolve in the local mirror or catalogue search."
+        ],
+        "reasoning": "Credit the intact exact formula and do not assert novelty of the attributed special case. No independent exact table covering the general punctured graph and its inclusion was located by the targeted checks.",
+        "searches": [
+          "Resultary intact higher-independence homology and multipartite matching defects",
+          "Cited local predecessor 223b7506ca23 for second independence after deleting a bipartite matching",
+          "Deshpande–Singh Theorem 3.5"
+        ]
+      },
+      "rationale": "The intact ranks and wedge theorem are prior; no originality is assigned to them or to the cited bipartite r=2 baseline. The all-r one-edge comparison for arbitrary multipartitions and its kernel on integral homology survive the closest checked comparisons. In particular the nearest matching-defect persistence record uses a different complex.",
+      "residual_risks": [
+        "The cited bipartite predecessor could not be read directly; a more general matching-defect theorem or an unindexed co-chordal treatment remains a priority risk. No absence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior intact baseline only",
+          "evidence": [
+            "Multiplicity C(N−1,r)−sum_i C(m_i−1,r); hypothesis is the complete multipartite host."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Theorem 3.5 and proof, PDF pp. 5–6, OA offsets 16392–21858",
+          "method": "Bounded primary full-text inspection",
+          "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+          "trigger": "Exact intact complete-multipartite wedge theorem"
+        },
+        {
+          "assessment": "Wedge-or-contractible theorem for chordal graphs, not general defective family or map",
+          "evidence": [
+            "The theorem requires a chordal input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.06775",
+          "material_read": "Theorem 3, PDF p. 3, OA offset 7170",
+          "method": "Bounded primary full-text inspection",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "Potential stronger graph-class theorem"
+        },
+        {
+          "assessment": "Different graph hypotheses and structural assertions",
+          "evidence": [
+            "The inspected passages concern shellability of trees, vertex decomposability of caterpillars and chordal counterexamples for sequential Cohen–Macaulayness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.10863",
+          "material_read": "Abstract and results, pp. 1 and 3, OA offsets 1257 and 9324–13287",
+          "method": "Bounded primary full-text inspection",
+          "title": "Chordal Graphs, Higher Independence and Vertex Decomposable Complexes",
+          "trigger": "Potential structural reduction through chordal graphs"
+        },
+        {
+          "assessment": "Related graph edit but different invariant",
+          "evidence": [
+            "The face criterion is absence of a q-clique, not a bound on connected component size."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-two-degree-homotopy-and-split-persistence-under-multipartite-mat--2bd77c01e25f",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror bounded read",
+          "title": "Two-degree homotopy and split persistence under multipartite matching defects",
+          "trigger": "Strong distinct matching-defect catalogue hit"
+        },
+        {
+          "assessment": "Intact top homology only for this comparison",
+          "evidence": [
+            "Gives a quotient lattice with the intact rank; does not treat the deleted-edge inclusion."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-integral-equivariant-homology-and-rational-symmetry-quotients-of--09db84a872cd",
+          "material_read": "Finding",
+          "method": "Local mirror bounded read",
+          "title": "Integral equivariant homology and rational symmetry quotients of higher independence complexes of complete multipartite graphs",
+          "trigger": "Exact prior intact homology lattice"
+        },
+        {
+          "assessment": "Exact boundaries of prior specialized overlap could not be verified",
+          "evidence": [
+            "The frozen text explicitly cedes the second-independence bipartite matching special case."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-homotopy-of-second-independence-complexes-after-deleting-a-bipar--223b7506ca23",
+          "material_read": "Citation and scope attribution in frozen RESULT.md, lines 54–66; underlying result unavailable",
+          "method": "Local mirror path and local Resultary search attempted",
+          "title": "Homotopy of Second Independence Complexes After Deleting a Bipartite Matching",
+          "trigger": "Plausible exact prior s=2,r=2 subcase cited by frozen text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and the changed-face, collapse and relative-chain arguments",
+        "Intact Deshpande–Singh baseline"
+      ],
+      "rationale": "For a natural family the theorem precisely quantifies the topology killed by one local edit across all thresholds, and identifies an integral split quotient rather than merely giving Betti numbers before and after. The classification of changed faces and the integral ranks make this a useful test case for persistence under graph edits.",
+      "residual_risks": [
+        "The result treats only a single deleted edge and makes no canonical or equivariant splitting claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

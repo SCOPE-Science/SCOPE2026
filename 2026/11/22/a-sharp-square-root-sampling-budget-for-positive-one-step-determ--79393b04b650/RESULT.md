@@ -2,128 +2,87 @@
 
 ## Finding
 
-A symmetric positive-definite matrix of condition number exactly \(K>1\) can produce a **negative** one-step deterministically sketched Rayleigh–Ritz (dsRR) eigenvalue even when Q-DEIM selects a full-rank sketch of the genuine two-dimensional Krylov space. On a natural permutation-symmetric rank-one family, the exact smallest and largest sketched Ritz values are
-
+For the rank-one SPD family below, the sharp lower and upper endpoints (infimum and supremum) of the one-step deterministically sketched Rayleigh–Ritz (dsRR) scalar at condition number \(K>1\) are
 \[
-\boxed{\quad \theta_{\min,\max}=\frac{K+1}{2}\mp\frac{K-1}{2}\sqrt{1+\frac{(n-s)^2}{s^2(n-1)}}\quad}
+ \theta_{\inf,\sup}=\frac{K+1}{2}\mp\frac{K-1}{2}\sqrt{1+\frac{(n-s)^2}{s^2(n-1)}}.
 \]
-
-for \(n\ge3\), \(2\le s\le n\), and every full-rank \(s\)-row coordinate selector on that space. When \(s<n\), both bounds are attained by a nondegenerate Krylov start. The minimum remains strictly positive for **every** nondegenerate member of the family if and only if
-
+This holds for every full-rank, unweighted coordinate sketch with \(s\) distinct rows, \(2\le s\le n\), in dimension \(n\ge3\). For \(s<n\) both endpoints are attained by nondegenerate Krylov starts; for \(s=n\) the attainable interval is \((1,K)\). Strict positivity for every nondegenerate member holds exactly when
 \[
-\boxed{\quad s>\frac{n}{1+2\sqrt{K(n-1)}/(K-1)}.\quad}
+ s>\frac{n}{1+2\sqrt{K(n-1)}/(K-1)}.
 \]
+Equality admits zero and a row count strictly below this threshold admits a negative value. At fixed \(K\), the smallest uniformly sign-safe integer count is asymptotic to \((K-1)\sqrt n/(2\sqrt K)\); at fixed \(s\), the lowest scalar behaves as \(-(K-1)\sqrt n/(2s)+O(1)\).
 
-Equality in this strict inequality allows a zero Ritz value, and smaller budgets allow a negative value. For fixed \(K>1\), the first uniformly sign-safe integer row budget in this family is asymptotic to \(\frac{K-1}{2\sqrt K}\sqrt n\); any fixed row count permits a negative Ritz value diverging in magnitude like \(\frac{K-1}{2s}\sqrt n\).
-
-For \(K=2\) and the minimally permitted \(s=2\), dimension \(n=35\) is the **first** dimension permitting a negative Ritz value. At \(n=37\), an exactly rational matrix with spectrum \(\{1,2\}\) yields the sharp Q-DEIM-selected scalar \(\theta=-1/24\), although its ordinary Rayleigh quotient is \(99/74\). Adding a third sampled row eliminates negative Ritz values for every member of this \(n=37,K=2\) family.
+For \(K=2,s=2\), the first negative dimension is \(35\) **in this family**; a rational matrix example there gives \(-3/4898\). The dimension-\(37\) rational example gives \(-1/24\) and, unlike the dimension-\(35\) example, attains its dimension's sharp lower endpoint. A third row makes the scalar positive for every nondegenerate member with \(n=37,K=2\).
 
 ## Assumptions and scope
 
-All statements concern real exact arithmetic, unweighted sampling of distinct coordinate rows, one retained trial vector, and row selection based on **both** Krylov vectors as in the one-step case of dsRR. Let \(n\ge3\), \(K>1\), and let \(\mathbf1\in\mathbb R^n\) denote the all-ones vector. Define two orthonormal vectors
-
+The claim is in real exact arithmetic. Put
 \[
-v=\frac{\mathbf1}{\sqrt n},\qquad
-w=\frac{(-(n-1),1,\ldots,1)^\mathsf T}{\sqrt{n(n-1)}}.
+ v=\frac{\mathbf1}{\sqrt n},\qquad
+ w=\frac{(-(n-1),1,\ldots,1)^{\mathsf T}}{\sqrt{n(n-1)}},\quad
+ u_\phi=\cos\phi\,v+\sin\phi\,w,\quad
+ A_\phi=I+(K-1)u_\phi u_\phi^{\mathsf T}.
 \]
-
-For an angle \(\phi\) with \(\sin\phi\cos\phi\ne0\), put
-
+Here \(\sin\phi\cos\phi\ne0\), \(b=v\), and the two-vector basis used for sampling is \(V_2=[v,w]\). Only the first vector is retained in the projection. The selector \(S\) extracts \(s\) distinct coordinate rows and satisfies \(\operatorname{rank}(SV_2)=2\). The scalar is
 \[
-u_\phi=\cos\phi\,v+\sin\phi\,w,\qquad
-A_\phi=I_n+(K-1)u_\phi u_\phi^\mathsf T.
+ \theta(S,\phi)=\frac{(Sv)^{\mathsf T}(SA_\phi v)}{\|Sv\|_2^2}.
 \]
-
-The matrix \(A_\phi\) is SPD with eigenvalues \(K\) once and \(1\) with multiplicity \(n-1\), and the starting vector is \(b=v\). Its genuine two-step Krylov space is \(\mathcal K_2(A_\phi,v)=\operatorname{span}\{v,w\}\). Form the basis \(V_2=[v,w]\). A selector \(S\in\mathbb R^{s\times n}\) extracts \(s\) distinct standard-coordinate rows with \(2\le s\le n\), and is required to satisfy \(\operatorname{rank}(SV_2)=2\). The one-step dsRR scalar, equivalently the exact one-vector whitened sketched Rayleigh quotient, is
-
-\[
-\theta(S,\phi)=\frac{(Sv)^\mathsf T(SA_\phi v)}{\|Sv\|_2^2}.
-\]
-
-Q-DEIM initializes a full-rank two-row selector using pivoted QR on \(V_2^\mathsf T\); an oversampling procedure may add other distinct rows. The theorem applies to **every** full-rank selector of the displayed size, so it includes any such extension of that initialization. It does not assert a universal guarantee over arbitrary SPD matrices or a particular oversampling heuristic's efficacy outside this family.
+This normalization is unchanged by scaling the start vector or by applying a common nonzero scalar factor to the coordinate selector. Q-DEIM initializes the row set by pivoted QR on \(V_2^{\mathsf T}\); oversampling may append distinct rows. The result is uniform over all full-rank selectors of the indicated size in this family, not over general SPD inputs or weighted selectors.
 
 ## Proof
 
-**1. Spectrum and exact Krylov space.** Since \(v\perp w\) and both have norm one, \(u_\phi\) is unit. The rank-one update \(A_\phi\) has spectrum \(\{1,K\}\), hence its condition number is \(K\). Direct multiplication gives
-
+**1. Positive spectrum and genuine Krylov space.** The vectors \(v,w\) are orthonormal, so \(u_\phi\) is a unit vector and the eigenvalues of \(A_\phi\) are \(K\) once and \(1\) with multiplicity \(n-1\). Moreover,
 \[
-A_\phi v=[1+(K-1)\cos^2\phi]v+(K-1)\sin\phi\cos\phi\,w.
+ A_\phi v=\bigl[1+(K-1)\cos^2\phi\bigr]v
+ +(K-1)\sin\phi\cos\phi\,w.
 \]
+The last coefficient is nonzero, proving \(\mathcal K_2(A_\phi,v)=\operatorname{span}\{v,w\}\).
 
-The assumed nonzero product makes \(v,A_\phi v\) linearly independent, proving the asserted two-dimensional Krylov space and its basis.
+**2. Forced exceptional row.** Rows \(2,\ldots,n\) of \(V_2\) are identical, and the first row and a single ordinary row are linearly independent. Hence every full-rank sample includes row 1 and \(s-1\) arbitrary ordinary rows. Row 1 has squared norm 1; each ordinary row has squared norm \(1/(n-1)\). Q-DEIM selects row 1 in the first pivot, and any ordinary row in the second. A change of orthonormal basis of the same space preserves row lengths and projection residuals of the pivot procedure. Choice of ordinary rows and ordering of a full-rank sample do not affect the scalar.
 
-**2. Row selection and Q-DEIM.** All ordinary rows \(j=2,\ldots,n\) of \(V_2\) are the same, while row \(1\) is different. Thus omitting row \(1\) makes \(SV_2\) rank at most one. Every full-rank selector must contain that exceptional row and \(s-1\) arbitrary ordinary rows. Conversely each such selector has rank two. The squared row norm of \(V_2\) is \(1\) at row \(1\) and \(1/(n-1)\) at any other row. Pivoted QR on \(V_2^\mathsf T\) therefore selects row \(1\) first and necessarily an ordinary row second. All admissible \(s\)-row selectors give the **same** scalar, so no tie breaking or choice of remaining rows affects the answer.
-
-**3. Exact scalar.** Since all sampled entries of \(v\) equal \(1/\sqrt n\),
-
+**3. Exact endpoints.** For every admissible sample the quotient of cross term and squared norm is
 \[
-\frac{(Sv)^\mathsf T(Sw)}{\|Sv\|_2^2}
-=\frac{\sqrt n}{s}\sum_{j\in S}w_j
-=-\frac{n-s}{s\sqrt{n-1}}=:-d_{n,s}.
+ \frac{(Sv)^{\mathsf T}(Sw)}{\|Sv\|_2^2}
+ =\frac{\sqrt n}{s}\sum_{j\text{ sampled}}w_j
+ =-\frac{n-s}{s\sqrt{n-1}}=:-d.
 \]
-
-Substitution of Step 1 into the sketched quotient yields
-
+Substituting Step 1 gives
 \[
-\theta(S,\phi)=1+(K-1)(\cos^2\phi-d_{n,s}\sin\phi\cos\phi)
-=\frac{K+1}{2}+\frac{K-1}{2}(\cos2\phi-d_{n,s}\sin2\phi).
+ \theta=1+(K-1)(\cos^2\phi-d\sin\phi\cos\phi)
+ =\frac{K+1}{2}+\frac{K-1}{2}(\cos2\phi-d\sin2\phi).
 \]
+The last trigonometric expression in parentheses takes values between \(-\sqrt{1+d^2}\) and \(\sqrt{1+d^2}\). If \(d>0\), its extremizers have \(\sin2\phi\ne0\), so the displayed sharp endpoints are attained. When \(d=0\), the quotient is \(1+(K-1)\cos^2\phi\) and nondegeneracy excludes \(1,K\), although both can be approached.
 
-The final sinusoid has exact range \([ -\sqrt{1+d_{n,s}^2},\sqrt{1+d_{n,s}^2}]\), proving both sharp endpoints. For \(s<n\), \(d_{n,s}>0\), so extremizing angles satisfy the nondegeneracy condition. For \(s=n\), the endpoints \(1,K\) are only limits as the Krylov start approaches an eigenvector; for all allowed nondegenerate starts the quotient lies strictly between them.
-
-**4. Necessary and sufficient positivity budget.** The smallest scalar is strictly positive exactly when
-
+**4. Sign-safe budget.** Positivity of the lower endpoint is equivalent to \(\sqrt{1+d^2}<(K+1)/(K-1)\), hence to \(d<2\sqrt K/(K-1)\). Solving for \(s\) gives the asserted inequality. Any equality or strict failure has \(s<n\), so its nonpositive lower endpoint is attained. The sharp integer count is
 \[
-\sqrt{1+d_{n,s}^2}<\frac{K+1}{K-1}
-\iff d_{n,s}<\frac{2\sqrt K}{K-1}
-\iff s>\frac{n}{1+2\sqrt{K(n-1)}/(K-1)}.
+ s_{\min}=\max\left\{2,\left\lfloor\frac{n}{1+2\sqrt{K(n-1)}/(K-1)}\right\rfloor+1\right\}.
 \]
+Dividing the threshold by \(\sqrt n\) gives its stated asymptotic, and at fixed \(s\), \(d=\sqrt n/s+O(n^{-1/2})\) gives the asymptotic lower endpoint.
 
-At equality the attained lower endpoint is zero, and if the inequality fails strictly its attained lower endpoint is negative. Thus the sharp *integer* budget protecting every nondegenerate member is
+**5. Exact examples.** For \(K=2,s=2\), negativity is equivalent to \((n-2)^2>32(n-1)\), or \(n^2-36n+36>0\). Since the roots are \(18\pm12\sqrt2\), the first permissible integer \(n\ge3\) with negativity is \(35\).
 
-\[
-s_{\min}(n,K)=\max\left\{2,\left\lfloor\frac{n}{1+2\sqrt{K(n-1)}/(K-1)}\right\rfloor+1\right\}.
-\]
+At \(n=35\) let \(z=(-35,6,\ldots,6)^{\mathsf T}\) and \(A=I+zz^{\mathsf T}/2449\). The squared norm of \(z\) is \(2449\) and its sum is \(169\); \(z\) belongs to \(\operatorname{span}\{v,w\}\) and its projections onto both axes are nonzero (its sum is nonzero and its entries are not constant). Thus this is a nondegenerate family member. The exceptional and ordinary row sums are \(-3466/2449\) and \(3463/2449\), respectively, and their average is the two-row scalar \(-3/4898\). This is a rational failure witness at the first negative dimension, not an attaining lower-endpoint example.
 
-The asymptotic row budget follows by dividing the threshold by \(\sqrt n\) at fixed \(K\). At fixed \(s\), \(d_{n,s}\sim\sqrt n/s\), whence \(\theta_{\min}=-(K-1)\sqrt n/(2s)+O(1)\).
-
-**5. First negative dimension and exact attaining rational witness.** At \(K=2,s=2\), negativity occurs precisely when \((n-2)^2>32(n-1)\), equivalent to \(n^2-36n+36>0\). This fails for integers \(3\le n\le34\) and holds from \(n=35\) onward. At \(n=37\), set
-
-\[
-t=(-6,1,\ldots,1)^\mathsf T\in\mathbb Z^{37},\quad
-A=I_{37}+\frac{tt^\mathsf T}{72},\quad b=\frac{\mathbf1}{\sqrt{37}}.
-\]
-
-Then \(\|t\|_2^2=72\), so \(A\) has the stated eigenvalues. The first row sum of \(A\) is \(-3/2\); each of the other 36 row sums is \(17/12\). Q-DEIM on the exact two-vector Krylov space selects row 1 and any other row; its one-step dsRR scalar is the mean of these two sums,
-
-\[
-\theta=\tfrac12(-\tfrac32+\tfrac{17}{12})=-\tfrac1{24}.
-\]
-
-The all-coordinate Rayleigh quotient is \(37^{-1}(-3/2+36\cdot17/12)=99/74\). Here \(d_{37,2}=35/12\) and \(\sqrt{1+d_{37,2}^2}=37/12\); hence the attained scalar equals the sharp lower bound \((3-37/12)/2=-1/24\). For three rows the family-wide positivity threshold is satisfied, and the displayed fixed matrix gives \(\theta=4/9\). Every identity above is exact.
+At \(n=37\) let \(t=(-6,1,\ldots,1)^{\mathsf T}\) and \(A=I+tt^{\mathsf T}/72\). The norm square of \(t\) is 72, and the same projection argument applies. The exceptional and ordinary row sums are \(-3/2\) and \(17/12\). Their mean gives the Q-DEIM scalar \(-1/24\), whereas the mean of all row sums, the ordinary Rayleigh quotient, is \(99/74\). Here \(d=35/12\) and \(\sqrt{1+d^2}=37/12\), so the negative scalar attains the lower endpoint. At \(s=3\), \(d=34/18<2\sqrt2\), which protects the whole dimension-37 condition-two family, and the same example yields \(4/9\).
 
 ## Verification
 
-Run the embedded standalone `verify.py` with Python 3, NumPy and SciPy. It independently evaluates 37-dimensional exact-rational row sums and sketched quotients; runs pivoted QR of the actual two-column Krylov basis at nine dimensions; and constructs the rank-one SPD examples at numerous sizes, contrasts, sketch counts and angles, comparing the computed scalar with the analytic formula and its extrema. The script completed `VERIFY_OK 2596` (2,596 assertions). Finite tests corroborate the formulas; the all-dimension and all-parameter conclusions follow solely from the proof above.
+The exact identities in the proof establish the all-parameter conclusions. The supplied `verify.py` can separately check the rational dimension-37 example and compare finite QR and quotient computations with the formulas. The dimension-35 example is verified by the exact arithmetic in Step 5, not by that script. Finite checks are not substitutes for the proof.
 
 ## Relationship to prior work
 
-Bergermann [1], Sections 4–5 and Algorithm 6, defines dsRR, its two-vector sketch-building stage, Q-DEIM/DEIM initialization, and the prescribed options for oversampling. Drmač and Gugercin [2] introduce the pivoted-QR selection mechanism. Nakatsukasa and Tropp [3] show that sketching can spoil symmetric Ritz spectral behavior; spurious Ritz values are **not** a new qualitative observation.
-
-The published study *Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems* [4] already establishes a universal extremal scalar interval in terms of **given subspace-embedding distortion**. That earlier general inequality is consistent with the present result and provides relevant machinery, but it does not specify the Q-DEIM-constrained row sets or imply this exact dimension-dependent row budget without the new construction and row analysis. The published result *Optimal two-row sketches can produce nonreal Ritz values for condition-two SPD systems* [5] concerns two **retained** Krylov vectors and a nonreal eigenvalue pair; the present result retains one vector, samples the second for pivoting, and quantifies oversampling to protect positivity. The published row-selection distortion separation [6] concerns a distinct condition-number objective, and the coordinate-sampled GMRES residual threshold [7] concerns least-squares residuals rather than a sketched Ritz eigenvalue. These precise prior claims are acknowledged, not retested or amended.
-
-The new assessed claim is the **entire explicit Q-DEIM-compatible rank-one family** with its exact sharp Ritz range, necessary-and-sufficient within-family sign-safe sketch size, and minimal-dimension rational failure witness. It is not a new general warning that nonnormal projections might yield spurious spectral values. The literature comparison cannot certify exhaustive historical priority.
+Bergermann [1] defines dsRR with a sketch-building stage that uses the next Krylov vector, and Q-DEIM [2] defines the pivoted-QR initialization. Sketch-induced spectral pollution is already known [3]. The earlier sharp one-vector envelope in terms of subspace-embedding distortion [4] applies to the same scalar but allows arbitrary admissible sketch metrics and start directions. It does not classify row counts for this family: the rescaled embedding bound uses only the two extremal eigenvalues of the sampled Gram matrix, whereas the present scalar depends on the fixed start direction relative to their eigenspaces. The exact row budget uses the forced sample pattern and the attainable directional envelope. Prior coordinate sketches with two retained vectors and nonreal Ritz values [5], row selection distortion gaps [6], and one-step GMRES residual failures [7] concern different targets. The contribution is the exact row-count classification for this algorithm-compatible family, not the qualitative possibility of a negative sketched Ritz value or an assertion of historical priority.
 
 ## Limitations
 
-All sharp thresholds are specific to the stated structured rank-one SPD family and distinct, **unweighted** coordinate selectors. Although all full-rank row subsets in this family are covered, the positivity budget is not a universal sufficient condition for arbitrary matrices, Krylov directions, sketch matrices, or higher retained Krylov dimension. No finite-precision behavior, approximate eigenvector convergence, numerical cost advantage, or behavior of similarity-restored variants is claimed. The preceding literature may contain equivalent specialized examples not indexed by the searches. Independent validation has not been performed.
+The thresholds apply only to this structured rank-one family with one retained Krylov vector, a nondegenerate two-vector space for selecting distinct unweighted rows, and exact arithmetic. They do not establish a general sign-safe budget for all SPD problems, finite-precision behavior, a convergence rate, or a runtime advantage.
 
 ## References
 
-1. K. Bergermann, *Deterministic sketching for Krylov subspace methods*, arXiv:2604.07158v1 (first publicly posted 2026-04-08), especially §§4–5 and Algorithm 6; https://arxiv.org/abs/2604.07158 ; https://arxiv.org/html/2604.07158v2 .
-2. Z. Drmač and S. Gugercin, *A New Selection Operator for the Discrete Empirical Interpolation Method*, arXiv:1505.00370 (2015); https://arxiv.org/abs/1505.00370 .
-3. Y. Nakatsukasa and J. A. Tropp, *Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems*, arXiv:2111.00113 (first posted 2021-10-29), §6.8; https://arxiv.org/abs/2111.00113 .
-4. *Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems*, mathematical result dated 2026-10-26; https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-one-vector-sketching-envelope-and-positive-stability-thres--64c030573be9 .
-5. *Optimal two-row sketches can produce nonreal Ritz values for condition-two SPD systems*, mathematical result dated 2026-10-25; https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-optimal-two-row-sketches-can-produce-nonreal-ritz-values-for-con--15c0a9d20140 .
-6. *Unbounded distortion gap for minimum-singular-value row selection on well-conditioned Krylov spaces*, mathematical result dated 2026-11-08; https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-unbounded-distortion-gap-for-minimum-singular-value-row-selectio--f48cbf6a3e92 .
-7. *Sharp coordinate-sampling threshold and unbounded one-step sketched GMRES residual on near-identity SPD systems*, mathematical result dated 2026-11-02; https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-coordinate-sampling-threshold-and-unbounded-one-step-sketc--46affa6189d7 .
+1. K. Bergermann, *Deterministic sketching for Krylov subspace methods*, arXiv:2604.07158v2, Eq. (2.18), Algorithms 4.2 and 5.3. https://arxiv.org/abs/2604.07158
+2. Z. Drmač and S. Gugercin, *A New Selection Operator for the Discrete Empirical Interpolation Method*, arXiv:1505.00370. https://arxiv.org/abs/1505.00370
+3. Y. Nakatsukasa and J. A. Tropp, *Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems*, arXiv:2111.00113, §6.8. https://arxiv.org/abs/2111.00113
+4. *Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems*, Resultary record 64c030573be9 (2026-10-26).
+5. *Optimal two-row sketches can produce nonreal Ritz values for condition-two SPD systems*, Resultary record 15c0a9d20140 (2026-10-25).
+6. *Unbounded distortion gap for minimum-singular-value row selection on well-conditioned Krylov spaces*, Resultary record f48cbf6a3e92 (2026-11-08).
+7. *Sharp coordinate-sampling threshold and unbounded one-step sketched GMRES residual on near-identity SPD systems*, Resultary record 46affa6189d7 (2026-11-02).

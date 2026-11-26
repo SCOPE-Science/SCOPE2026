@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:05.798712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking the ratio of the two boundary-law equations gives a/c=t^k. Writing H=1+λ2, the definition of t then gives c=H/(t+⋯+t^{k−1}) for t≠1, and either equation gives the stated λ(t). At t=1 its limit is λ_c and a=c=H/(k−1); uniqueness still holds exactly at λ_c, with the additional pair only strictly above. Reciprocal symmetry makes L(s)=log(λ(e^s)/λ_c) even. The three exponent-set variances are k²/4, k(k−2)/12, (k²−1)/12, so L''(0)=k(2k²−k+3)/12>0 also at k=2. For fixed k, δ=λ/λ_c−1 is analytic in s² with positive first derivative in that variable, hence the positive root has the stated expansion through remainder O(δ^(3/2)). Substituting M=tanh(ks/2) and log(a/c)=ks gives both coefficients; normalization cancels H and the first coefficient is asymptotic to √(3/k). These are statements about the q=4 spin-index-periodic translation-invariant branch, not thermodynamic stability. Verification caveat: contrary to the verification prose, frozen verify.py, lines 34–49, checks boundary-equation residuals and the contrast identity at two s values, not convergence of M/√δ or the stated remainder. The coefficient and remainder are justified by the analytic calculation, not that finite script; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint treats the full k≥2, λ2>0 symmetric slice, with one solution for 0<λ≤λ_c and three for λ>λ_c. The 2022 source has thresholds 2, 8/27 and 1/24 at λ2=1 for k=2,3,4."
+        ],
+        "reasoning": "The earlier special cases alone do not cover all parameters. The cited preprint's exact full-family treatment does not need any extrapolation in k or λ2.",
+        "searches": [
+          "arXiv:2307.03432v1 Proposition 1 and Theorem 2, Remark 3",
+          "DOI 10.4213/tmf10302 explicit k=2,3,4 cases"
+        ]
+      },
+      "checked_sources": [
+        "Rozikov–Khakimov–Makhammadaliev arXiv:2307.03432v1",
+        "Khakimov–Makhammadaliev DOI 10.4213/tmf10302",
+        "Resultary 59ef7f58eb69 and f0b1042ed90f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed derivative has denominator t²(t^k−1)(t^{k−1}−1)²(1+t+⋯+t^{k−1})^k and numerator (λ2+1)(t^k+1)^{k−1}θ(t,k). The coefficient of (t−1)^4 in θ is already evaluated in the preprint, with all lower coefficients zero."
+        ],
+        "reasoning": "The denominator has leading term k(k−1)² k^k (t−1)^3. Dividing the leading terms and normalizing by λ_c gives λ'(t)/λ_c = k(2k²−k+3)(t−1)/12 + O((t−1)^2). Evenness in s=log t then fixes δ=k(2k²−k+3)s²/24+O(s⁴). Inverting through the exact formula M=tanh(ks/2) gives the claimed square-root coefficient and O(δ^(3/2)) remainder without a new model-specific estimate.",
+        "searches": [
+          "arXiv:2307.03432v1 pp. 6–7, offsets 20986 and 25360, λ'(t) and θ(t,k)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint uses t=(1+λ2+a)/(1+λ2+c), so M=tanh((k/2)log t), log(a/c)=k log t and reciprocal t corresponds to the swapped pair. Indexed amplitude hits instead concern continuous-spin and SOS models."
+        ],
+        "reasoning": "The two reported onset laws are different coordinates for the same source parameterization; other tree models with a square-root law do not have this branch or its coefficient.",
+        "searches": [
+          "arXiv:2307.03432v1 system (9), parametrization (13), and Proposition 1",
+          "Resultary 59ef7f58eb69 and f0b1042ed90f Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed entries are amplitudes in other models. In the actual hard-core preprint the exact coefficient of (t−1)^4 in the derivative numerator polynomial is k²(k−1)(2k²−k+3)/6."
+        ],
+        "reasoning": "No identical amplitude table was identified in the checked entries; the prior coefficient for this model nonetheless determines the claimed invariant exactly, not via numerical extrapolation.",
+        "searches": [
+          "Resultary 59ef7f58eb69 and f0b1042ed90f",
+          "arXiv:2307.03432v1 p. 7 derivative numerator expansion"
+        ]
+      },
+      "rationale": "The same-branch primary source supplies the exact analytic parameterization, reciprocal symmetry and, in its monotonicity proof, the exact first nonzero numerator coefficient of the displayed derivative. These data give the normalized quadratic coefficient by taking the leading term of the supplied derivative, and analytic inversion plus the exact ratio a/c=t^k gives precisely the reported amplitude and remainder. This is prior implication coverage on the full parameter class, although the source does not expressly phrase the contrast expansion.",
+      "residual_risks": [
+        "Whether an earlier source explicitly printed the same normalized amplitude is not settled; the decision rests on the demonstrated implication in an inspected full-text source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the full claimed expansion, not explicitly stated in the contrast variable",
+          "evidence": [
+            "Exact positive t-branch with a/c=t^k and λ(t)=λ(1/t).",
+            "The proof evaluates the fourth-order numerator coefficient k²(k−1)(2k²−k+3)/6 and gives a third-order vanishing derivative denominator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03432v1",
+          "material_read": "System (9); Proposition 1; eq. (13), reciprocal symmetry, displayed derivative and quartic coefficient pp. 6–7; Theorem 2 and Remark 3",
+          "method": "Bounded OA PDF passage inspection, including offsets 20986 and 25360",
+          "title": "Gibbs measures for a Hard-Core model with a countable set of states",
+          "trigger": "Exact model, exact branch and existing leading derivative coefficient"
+        },
+        {
+          "assessment": "Same normalized branch in three cases only",
+          "evidence": [
+            "Thresholds 2, 8/27 and 1/24, with explicit branch formulas or parametrizations."
+          ],
+          "identifier_or_url": "https://doi.org/10.4213/tmf10302",
+          "material_read": "Case calculations for k=2,3,4 at λ2=1, pp. 7–9 of the OA PDF, offsets 18022, 21505, 25453",
+          "method": "Bounded MathNet OA PDF passage inspection",
+          "title": "Nonprobability Gibbs measures for the HC model with a countable set of spin values for a ‘wand’-type graph on a Cayley tree",
+          "trigger": "Earlier cases cited by Remark 3"
+        },
+        {
+          "assessment": "Different continuous-spin model",
+          "evidence": [
+            "The parameter z_0(θ) belongs to the Botirov–Jahnel [0,1]-spin model."
+          ],
+          "identifier_or_url": "Resultary 59ef7f58eb69",
+          "material_read": "Finding and scope, offsets 0–3062",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact square-root amplitude at the uncountable-spin Cayley-tree bifurcation",
+          "trigger": "Potential same-day exact amplitude overlap"
+        },
+        {
+          "assessment": "Different SOS height-periodic branch",
+          "evidence": [
+            "Uses an SOS threshold and log-ratio order parameter, not the countable-spin hard-core equations under review."
+          ],
+          "identifier_or_url": "Resultary f0b1042ed90f",
+          "material_read": "Finding and scope, offsets 0–3188",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Sharp all-degree threshold for a 4-periodic alternating magnetism branch",
+          "trigger": "Potential four-periodic amplitude overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The symmetry-breaking contrast is a natural observable. The variance computation is a tidy alternative derivation, but as an exact finding the coefficient and remainder reduce to the existing leading derivative coefficient, reciprocal symmetry, analytic inversion at a nondegenerate minimum, and a change of observable. No distinct boundary-law regime or additional mathematical invariant is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

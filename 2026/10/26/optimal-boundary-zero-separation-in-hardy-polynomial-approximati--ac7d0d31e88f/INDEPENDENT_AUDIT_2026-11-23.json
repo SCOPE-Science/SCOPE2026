@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:16:23.102498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the residual problem: 1-r is divisible by the quadratic exactly when r has the two required evaluations, or the value and zero derivative at the double root. The residual degree bound N-1 then gives an admissible quotient of degree at most n. Inverting the two evaluation rows gives the stated formula with numerator 2(N-Re S_N); at the double root the Gram rows are 1 and k, giving 2(2N-1)/(N(N+1)). Dividing both expectation expressions by c^2 makes their integrands jointly continuous at c=0. The limiting divided denominator is strictly positive on any bounded c-interval (at zero it is Var(U)=1/12 and for c>0 the continuous uniform characteristic function has modulus less than one), so Riemann sums really give locally uniform convergence including collision. The geometric-sum estimate uses the shorter angle in [0,pi] and forces scaled cost 2 along unbounded-scale subsequences. The sign of F-2 is the negative of the sign of 4 sin(t)(t cos(t)-sin(t)), t=c/2: on (m*pi,m*pi+pi/2) tan(t)-t crosses from negative to positive exactly once for m>=1, while on the latter half the bracket stays negative. Direct differentiation gives F'/2=W/D^2 and W'=c^3 sin(c)-4(1-cos(c))^2. On (2pi,3pi), the ratio of the two positive terms is strictly increasing when the second is divided by the first: its log derivative is 3 cot(t)/2+tan(t)/2-3/c>0 by AM–GM. Thus W first increases and then decreases, and its opposite endpoint signs force exactly one zero. Later windows have F>=2-8pi/(16pi^2-4), strictly larger than F(5pi/2) by the displayed rational difference (the cubic numerator is positive from 3 onward). The escape estimate and compact-uniform convergence then force every minimizing angle sequence to converge in scaled units to the unique global optimum. Fresh local replay used modified Gram–Schmidt on the coefficient columns z^j f_theta and orthogonal projection of 1, testing n=0..11 at theta=0,1/16,7/16,1,2,pi: 72 comparisons, maximum absolute discrepancy 3.51e-14. Solving the derivative numerically at 55-digit working precision with seeds 7,8 gave 7.5403141895947861456 and error 1.7912691607609162356, not a root certificate. The package checker was inspected, not executed; the continuum conclusions rest on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inverse-Gram expression v E^{-1} v^T for squared distance is already a stronger general simple-root interpolation theorem. The follow-up analyzes residual-zero equidistribution along subsequences for a fixed polynomial and explicitly treats the two-root inverse matrix."
+        ],
+        "reasoning": "Inserting moving roots into the exact finite theorem gives the finite problem and a short route to the sinc limit at any fixed positive scale, but it does not prove which critical scale is globally best or exclude every later oscillatory window. A theorem for each fixed distinct configuration cannot alone establish uniform comparisons as it degenerates.",
+        "searches": [
+          "arXiv:1901.00694 Theorem 1.1, Corollary 1.2 and introduction on higher multiplicity",
+          "arXiv:2110.06788v1 Theorems 1.3–1.5, Lemma 2.1 and Example 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.00694",
+        "arXiv:2110.06788v1",
+        "Resultary 5397a5ef85ee (index triage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 1.2 already covers the exact simple-root residual distance; Example 3.2 inverts the conjugate-node matrix and examines a leading coefficient of the residual along a subsequence at fixed angle."
+        ],
+        "reasoning": "These implications cover the algebraic starting point and fit the finite formulas directly; the derivative sign and tail exclusion that select a unique global minimum over moving configurations are additional, as are the rigidity and strict sub-baseline window statements.",
+        "searches": [
+          "https://arxiv.org/pdf/1901.00694 Thm. 1.1 and Cor. 1.2",
+          "https://ar5iv.labs.arxiv.org/html/2110.06788 Example 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acuaviva–Seco's conjugate nodes exp(±i*theta) are equivalent after a rotation to the frozen pair at separation 2*theta. Their displayed inverse Gram matrix is the same two-point calculation in the unweighted specialization. The literature lookup was unavailable and is not a no-match."
+        ],
+        "reasoning": "A degree-dependent two-boundary-node minimum-norm interpolation problem is the same object as the residual problem. The fixed-node asymptotics and the optimization over choices of nodes at each degree have different quantifiers.",
+        "searches": [
+          "Hardy optimal polynomial approximants two unit circle roots optimal angular separation coalescing boundary zeros sinc Kac kernel 7.540314",
+          "Resultary: Hardy optimal polynomial approximants coalescing two unit circle roots sinc optimal separation varying zeros degree",
+          "Acuaviva–Seco arXiv:2110.06788v1 Lemma 2.1, Example 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed multiplicity entry, Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants (5397a5ef85ee), describes fixed distinct nodes with prescribed multiplicities, not moving separations. Indexed summaries did not supply an exact table of this variational invariant."
+        ],
+        "reasoning": "For fixed double and fixed distinct roots the baseline scaled errors are 4 and 2; neither yields the value strictly below 2 or the optimizer. A numerical coincidence from another kernel extremum would require equivalence of the full objective, including the phase in Re(s), not just an appearance of sinc.",
+        "searches": [
+          "Hardy optimal polynomial approximants two unit circle roots optimal angular separation coalescing boundary zeros sinc Kac kernel 7.540314",
+          "Resultary: Hardy optimal polynomial approximants coalescing two unit circle roots sinc optimal separation varying zeros degree"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the global limiting optimum, unique placement scale, and window analysis. The exact finite two-point Gram formula and repeated-root starting point are not new claims.",
+      "residual_risks": [
+        "An equivalent optimal interpolation design or phase-sensitive two-exponential projection may be indexed under different terminology. The general literature lookup failed; primary passages and successful Resultary lookup do not amount to exhaustive priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite simple-node reduction, not the global placement claim",
+          "evidence": "Equations (3)–(4) and Corollary 1.2 give the residual and squared distance via E^{-1}; the introduction identifies a separate single-zero higher-multiplicity analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.00694",
+          "material_read": "PDF abstract, introduction, Theorem 1.1, Corollary 1.2 and adjoining remarks",
+          "method": "Primary paper PDF text; substituted v=(1,1) and unweighted Hardy kernel into the precise norm formula",
+          "title": "Boundary behavior of optimal polynomial approximants",
+          "trigger": "Direct general implication for the residual norm and repeated zeros"
+        },
+        {
+          "assessment": "High overlap for finite formulas; different optimization and limit",
+          "evidence": "Theorem 1.3 takes a fixed critical polynomial with simple zeros. Example 3.2 uses nodes e^(±i theta), inverts their matrix, and studies the leading residual coefficient for each fixed theta.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.06788v1 ; https://ar5iv.labs.arxiv.org/html/2110.06788",
+          "material_read": "PDF Theorems 1.3–1.5 and Lemma 2.1; Example 3.2 inverse matrix, exact coefficients and beginning of fixed-angle subsequence argument in full-text HTML rendering",
+          "method": "Matched the conjugate-node parametrization and inspected the 2-by-2 inversion in primary text",
+          "title": "Equidistribution of zeros of some polynomials related to cyclic functions",
+          "trigger": "Explicit example with exactly two unit-circle nodes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The angle is a natural design variable rather than an arbitrary parameter slice. Separating the two fixed-node baselines from the smaller optimized cost shows that neither collision nor macroscopic separation is asymptotically best. The global proof locates the single relevant scale despite infinitely many competing windows and controls all optimal sequences, not just selected numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:51.525681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the homogeneous ring the 10 and 01 bond counts agree, giving equal incoming/outgoing rates and hence the uniform stationary law in the fixed-charge sector. Stationary flux into the vacant sector has weight a=pX+qY, with X,Y the clockwise and counterclockwise occupations next to the probe; killing has rate c=qX+pY, a different quantity unless rates agree. Palm entrance is the mixture of uniform conditional laws given X=1 or Y=1, with weights p/(p+q), q/(p+q). For the subgenerator Q keeping the full negative diagonal, Q1=-c and differentiating survival gives h(0)=E_Palm c and h'(0)=h(0)^2+E_Palm Qc. Independently evaluating by this mixture gives E_Palm c=[2pq+(p²+q²)alpha]/(p+q), E_Palm c²=pq+(p²+pq+q²)alpha, and E_Palm G_int c=pq(alpha-1)+(p-q)²(alpha-beta). Here the conditional first and second moments on distinct remaining sites are alpha and beta; the two second-nearest sites coincide at L=4 but are never multiplied together. Subtracting c² gives the claimed slope. Putting m=L-2, s=p²+q² and u=pq, multiplying the slope by (p+q)² gives [alpha(1-alpha)/(m-1)](s²-4mu²)-2(1-alpha)us. This yields exactly the sign polynomial in z=s/u, with negative F(2), negative constant term and exactly one positive root; monotonicity of r+1/r for r>1 gives the unique positive-magnitude threshold and reciprocal. N=1 leaves a negative term; N=L-1 leaves a single vacancy state with exponential survival. For N/L→rho in (0,1), the positive root and r* are both asymptotic to 2L/rho. As a rational check, L=4,N=2,p=6,q=1 gives h(0)=61/14 and h'(0)=193/196. For reversibility, write A=-Q in the stationary weighted inner product; detailed balance gives entrance density proportional to A1 and survival spectral weights proportional to lambda times the squared spectral coefficients of 1. Thus the age derivative of the reversible hazard is minus the tilted variance. This proof is local in age for the driven model and does not infer reversibility from a negative slope. Inspected VERIFICATION.md and check_hazard.py; did not execute the frozen checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The percolation papers study a tagged particle in a branch, including branch waiting and same-position persistence, not a local empty-probe exit in a fixed-charge homogeneous ring.",
+          "Tracy–Widom treats infinite-lattice Bernoulli initial data, one-time occupancy, correlations and flux. The reversible MMPP result gives a positive exponential mixture for a time-stationary interarrival."
+        ],
+        "reasoning": "A general killed-generator formula specifies a method, not the entrance distribution contractions and root in this biased geometry. The reversible analogue addresses a mechanism deliberately not claimed as new.",
+        "searches": [
+          "arXiv:2312.15508 (tagged waiting laws in directed exclusion)",
+          "arXiv:2609.32314 (symmetric exclusion waiting and persistence)",
+          "doi:10.1007/s10955-010-0013-x (exact ASEP formulas)",
+          "64050a1b9ecf (reversible modulation)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted fixed-site spell and reversible waiting-time searches",
+        "64050a1b9ecf",
+        "arXiv:2607.06689",
+        "arXiv:2312.15508",
+        "arXiv:2609.32314",
+        "10.1007/s10955-010-0013-x",
+        "occupation-time primary access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the proposed calculation a=pX+qY and c=qX+pY need not agree. Detailed balance permits a spectral proof of a nonincreasing hazard, but cannot characterize the sign in an irreversible ring.",
+          "The earlier tagged and current observables use different initializations, state spaces or events."
+        ],
+        "reasoning": "The new determination requires both the joint Palm entrance/killing algebra under fixed-charge hypergeometric moments and its unique sign boundary. None of the inspected earlier statements supplies this determination by substitution; the general reversible-side witness alone would not be new.",
+        "searches": [
+          "64050a1b9ecf exact mirror RESULT.md offsets 0 and 1027",
+          "arXiv:2312.15508v3 p. 1 and introduction",
+          "doi:10.1007/s10955-010-0013-x PDF p. 619"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After a vacancy-creating event, the spell is a killed-process first exit, not a forward recurrence time from a randomly sampled vacancy.",
+          "Local Markov Order and Global Inference studies site records of discrete-time symmetric exclusion via conditional mutual information. The fixed-site occupation-time lead did not yield readable primary text."
+        ],
+        "reasoning": "Occupation time accumulates visits and can include returns; a whole-spell survival forbids any return before its horizon and uses a flux-weighted entrance. Neither object can be identified with a one-time occupancy statistic.",
+        "searches": [
+          "Resultary: finite cyclic ASEP vacancy-spell first-exit hazard, stationary departure-Palm site persistence and reversible subset exits",
+          "arXiv:2607.06689",
+          "Fluctuations in the occupation time of a site in the asymmetric simple exclusion process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "33a02eaf5dae is the assigned record itself. The related prior 64050a1b9ecf treats reversible finite Markov-modulated Poisson interarrivals, comparing time-stationary with event-stationary initializations."
+        ],
+        "reasoning": "The closest retrieved earlier result has analytic overlap in the spectral mixture but does not classify h'(0) as a function of L,N,p,q or calculate a finite-ring threshold. The database is not exhaustive.",
+        "searches": [
+          "Resultary: cyclic ASEP local vacancy hazard and departure-Palm threshold",
+          "64050a1b9ecf RESULT.md Finding and structural passage"
+        ]
+      },
+      "rationale": "The exact result that survives comparison is the sign threshold and density scaling for the departure-Palm empty spell on a finite homogeneous ASEP ring. The reversible spectral-mixture mechanism is standard; a related Resultary result establishes it for a different time-stationary observable. Neither fixed-site occupation-time/correlation work as inspected nor stationary tagged-branch waiting laws supply the finite-sector derivative and threshold. This is a best-of-knowledge decision on the available statements; access to an occupation-time lead remained unresolved.",
+      "residual_risks": [
+        "Unindexed or inaccessible fixed-site persistence and time-series waiting papers might contain an equivalent derivative or threshold; no universal priority claim.",
+        "No novelty is claimed for the abstract reversibility mixture argument, and only limited pages were inspected in some sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic and discrete symmetric dynamics",
+          "evidence": [
+            "The single-site observer analyzes temporal conditional mutual information in symmetric discrete-time exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.06689",
+          "material_read": "Introduction/site-observation passage around HTML offset 3440",
+          "method": "OA primary passage",
+          "title": "Local Markov Order and Global Inference in Many-Body Dynamics",
+          "trigger": "Local site record on exclusion"
+        },
+        {
+          "assessment": "Related generator setting but not this stopping observable",
+          "evidence": [
+            "The time of interest is a marked particle's branch residence relative to the backbone. The v3 title page includes Singh; the earlier v1 author list differs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.15508",
+          "material_read": "Title page/abstract, introduction around offset 2842; latest v3 title page checked",
+          "method": "OA PDF passages",
+          "title": "Asymmetric simple exclusion process on the percolation cluster: Waiting time distribution in side-branches",
+          "trigger": "Steady-state waiting under directed ASEP"
+        },
+        {
+          "assessment": "Different graph, observable and symmetry",
+          "evidence": [
+            "Branch residence is timed since latest backbone visit and particle persistence follows a tag."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32314",
+          "material_read": "Abstract and introduction, offsets 841 and 3277",
+          "method": "OA primary passages",
+          "title": "Continuously varying exponents in the distribution of waiting times in the symmetric exclusion process on a percolation cluster",
+          "trigger": "Exclusion waiting and persistence"
+        },
+        {
+          "assessment": "Not an exact Palm whole-spell formula in inspected statement",
+          "evidence": [
+            "One-site occupancy, site–initial-site correlation and total flux are computed on the integer lattice."
+          ],
+          "identifier_or_url": "10.1007/s10955-010-0013-x",
+          "material_read": "PDF first page p. 619, offset 0, abstract",
+          "method": "OA PDF passage",
+          "title": "Formulas for ASEP with Two-Sided Bernoulli Initial Condition",
+          "trigger": "Exact ASEP site correlations and flux"
+        },
+        {
+          "assessment": "Genuine overlap on mixture method, but a different observable and scope",
+          "evidence": [
+            "The positive finite exponential mixture describes a time-stationary interarrival of a reversible finite MMPP, not a departure-Palm vacancy spell on a driven exclusion ring."
+          ],
+          "identifier_or_url": "64050a1b9ecf",
+          "material_read": "RESULT.md offsets 0 and 1027, Finding and structure proof",
+          "method": "Published finding local mirror",
+          "title": "Reversible modulation resolves the stationary interarrival order",
+          "trigger": "Closest prior spectral-mixture mechanism"
+        },
+        {
+          "assessment": "Unresolved literature lead, no claim of noncoverage",
+          "evidence": [
+            "The inspected title names occupation time; it does not establish the treatment or absence of Palm spells."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/38351867_Fluctuations_in_the_occupation_time_of_a_site_in_the_asymmetric_simple_exclusion_process",
+          "material_read": "Title/search metadata only; paper unavailable",
+          "method": "Primary-access attempts returned HTTP 403",
+          "title": "Fluctuations in the occupation time of a site in the asymmetric simple exclusion process",
+          "trigger": "Possibly overlapping fixed-site ASEP functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This quantifies when a single site's vacancy-age record can witness failure of detailed balance without measuring any spatial current. The exact sign boundary is not an arbitrarily selected rate example: it separates all biases in each interior fixed-charge sector, distinguishes both boundary sectors, and requires bias of order L at positive limiting density. It is a one-sided theoretical diagnostic and does not claim full-age monotonicity, necessity, or finite-sample detectability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

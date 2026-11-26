@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:58.226762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In split Fourier coordinates with dual S and B=I−S, the product is û(Sχ)v̂(Bχ). Right multiplication has one nonzero row per χ with v̂(Bχ)≠0, with distinct pivot columns; left multiplication has disjoint column supports indexed by the fibers of B. Thus the two exponents count nonzero points on H=im B and occupied cosets of K=ker B, respectively. Each coset meeting H contains j=|H∩K|=p^d such points, in precisely p^(h−d) cosets. Counting zero assignments separately gives both displayed factors, both marginals and the coefficient p^h(q−1)q^(t−j), strictly distinguishing d at fixed p,m,h,q. The ranks of B and B² equal their primal counterparts; rank-nullity on H and the eigenvalue-one Jordan chains give the claimed interpretations. For h=0 there is one coset and one observed point; for h=m each coset is a singleton meeting H. The binary examples give (h,d)=(2,1) and (2,0), hence 8 and 24. The source's binary F3 census is recorded finite evidence only, and its scripts were inspected, not executed. Independent replay: python /workspace/reproductions/frozen_checks.py; the fifth check compared original-basis matrix ranks for every one of the 512 support shapes for p=3,q=7,h=d=1. No claim is made for nonsplit/modular fields or non-elementary groups.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frobenius-orbit record ed116a5096e4 covers finite abelian groups and nonsplitting nonmodular fields, but its enumerators are univariate; 9b7bd8f34375 states separate rank censuses in a modular cyclic Sylow regime. Zhang Proposition 2.1 gives the transported product, not a rank census."
+        ],
+        "reasoning": "Singleton Frobenius orbits in the split case recover both previous marginals, not the joint enumerator. The target's narrower field and group assumptions do not make the joint law a parameter specialization of either prior census.",
+        "searches": [
+          "Resultary: Alexander quandle algebra joint two-sided distribution of left and right multiplication ranks simultaneous annihilator census kernel image intersection rank of square finite fields Fourier",
+          "Resultary ed116a5096e4, 9b7bd8f34375",
+          "Zhang arXiv:2610.08204v1 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_joint_ranks.py, check_joint_ranks.out, REVIEW.md and AUDIT.json",
+        "Resultary ed116a5096e4, 9b7bd8f34375, 41d844a58011",
+        "arXiv:2610.08204v1",
+        "arXiv:2609.03799v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Resultary proof gives the same per-element row and column formulas separately. Its output is indexed by Frobenius-orbit sizes and the kernel size, not the incidence of the right-rank support with the left-rank fibers."
+        ],
+        "reasoning": "The old pointwise formulas are a direct starting point; they are credited in full. Evaluating their product weight needs a coupled count: identify exactly which fibers meet H, calculate the common intersection j, keep their zero assignment separate, and extract an identifying joint coefficient. No prior formula inspected counts this incidence or identifies d from the same-element spectrum. The two marginals alone provably cannot imply it.",
+        "searches": [
+          "Resultary ed116a5096e4, RESULT.md Proof §§1–4, offsets 3101–6606",
+          "Zhang arXiv:2610.08204v1 Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact indexed match ending 56b1b9d1e9e0 is the frozen record itself. Zhang §5.3 Theorem 5.5 is a right Peirce eigenvalue set for nonzero idempotents of odd-order complex core-quandle algebras. Elhamdadi–Ta–Virgin's inspected introduction concerns idempotents."
+        ],
+        "reasoning": "Simultaneous left/right annihilator dimensions are equivalent by rank-nullity, but paired ranks of the same unrestricted element cannot be identified with one right multiplication spectrum of an idempotent.",
+        "searches": [
+          "Resultary: Alexander quandle algebra joint two-sided distribution of left and right multiplication ranks simultaneous annihilator census kernel image intersection rank of square finite fields Fourier",
+          "arXiv:2610.08204v1",
+          "arXiv:2609.03799v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue result ed116a5096e4 supplies separate rank polynomials and Z(E), a sum of q raised to left nullities. The modular catalogue entry 9b7bd8f34375 has the same one-sided distinction. The commutant entry 41d844a58011 is about commuting centralizers of split Latin algebras, not paired multiplication ranks."
+        ],
+        "reasoning": "Neither the exact one-sided census nor the zero-product count encodes the needed coupling; in particular the two binary examples have the same values of all those one-sided invariants. No inspected table supplies the claimed full joint counts.",
+        "searches": [
+          "Resultary: Alexander quandle algebra joint two-sided distribution of left and right multiplication ranks simultaneous annihilator census kernel image intersection rank of square finite fields Fourier"
+        ]
+      },
+      "rationale": "Credit the earlier pointwise Fourier rank formulas and the entire marginal census. The supported distinct claim is the evaluated same-element joint distribution and its separation by the kernel–image incidence, not novelty of Fourier methods, one-sided ranks or zero-product totals.",
+      "residual_risks": [
+        "This is a best-knowledge comparison, not a priority guarantee; an antecedent could use simultaneous annihilator dimensions or weighted Fourier-support enumeration. The calculation is a short extension of the prior pointwise rank formulas, whose overlap is material. Only the identified passages, not every plausible quandle paper, were compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pointwise formulas and both marginals, not the evaluated coupling",
+          "evidence": "Proof §§2–3 count nonzero disjoint columns for L and nonzero single-pivot rows for R; §4 sums q^(N−rank L) for ordered zero products.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-frobenius-orbit-rank-spectra-of-finite-alexander-quandle-algebra--ed116a5096e4/RESULT.md",
+          "material_read": "Finding and Proof §§1–5; pointwise rank and zero-product formulas at offsets 3101–6606",
+          "method": "Resultary search and bounded original text in local mirror",
+          "title": "Frobenius-orbit rank spectra of finite Alexander quandle algebras",
+          "trigger": "Closest prior same objects and exact rank formulas"
+        },
+        {
+          "assessment": "Separate distributions in a different coefficient regime",
+          "evidence": "Requires coefficient characteristic p and a nontrivial cyclic p-Sylow of the displacement subgroup; displays two univariate sums.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-modular-multiplication-rank-distributions-in-finite-alexander-qu--9b7bd8f34375/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2000",
+          "method": "Local mirror",
+          "title": "Modular multiplication-rank distributions in finite Alexander quandle algebras with cyclic displacement Sylow subgroup",
+          "trigger": "Catalogue rank census on the same family"
+        },
+        {
+          "assessment": "Provides an underlying factorization, but the inspected spectrum is for idempotents in a different setting",
+          "evidence": "u⋆v=α(u)β(v); right Peirce spectrum {0,1,−1} for nonzero idempotents of complex odd-order core-quandle algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08204v1",
+          "material_read": "PDF §2.1 Proposition 2.1, p. 3; §5.3 Theorem 5.5, pp. 9–10",
+          "method": "OA primary PDF excerpts",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Earlier structural Fourier factorization and a multiplication spectrum"
+        },
+        {
+          "assessment": "Idempotent questions in the inspected passage, not an all-element joint rank census",
+          "evidence": "The introduction describes Fourier methods directed at idempotents and associated conjectures.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03799v1",
+          "material_read": "Introduction, PDF pp. 1–2",
+          "method": "OA primary PDF excerpt",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Fourier methods for closely related algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same-element joint rank spectrum measures how the two annihilator dimensions interact and is a natural refinement of separate zero-divisor counts. It does not merely report another field or numerical stratum: it yields an infinite-family classification by a kernel–image invariant independently visible in a single joint coefficient. The equal-marginal eight-dimensional examples explicitly show the precise information lost by all one-sided counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

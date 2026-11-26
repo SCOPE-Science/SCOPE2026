@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global Roman zero condition requires separate wheel and complement two-neighbors. The wheel's universal hub must be positive because it is isolated in the complement. The proof partitions exactly by that positive label and the number of rim-two vertices. For hub one, the unconstrained cycle-Roman transfer counts every case with at least three rim twos and the zero-two case, while precisely replacing one- and two-two cases. For hub two, ordinary wheel domination is automatic, and zero, one, two, and at least three rim twos are separately exhaustive. Every factor records both weight and two-count, and the nine-state transfer is a bijection. The all-order minimum classification follows from strict lower bounds; boundary orders are handled by exact relative-position cases. Exhaustive implementations with independent approaches agree through rim length twelve, including the entire bivariate polynomial through nine. Finite checks do not replace the proof.
+PASS
 
-## Originality — PASS with historical-priority risk
+The hub is isolated in the complement so it cannot be zero. With hub one, the trace of the ordered-pair transfer matrix counts cyclic Roman words once for each labeled word with its fixed start. A zero needs both a selected rim neighbor and a selected rim nonneighbor. For zero rim twos only the all-one rim is possible; for one there can be no zeros, giving the first replacement; for two only the exactly-one-neighbor positions are free, giving F_{n,|X_S|} in place of F_{n,|U_S|}. With three or more twos the complement condition is automatic since a zero has only two rim neighbors. With hub two there is no wheel constraint on rim zeros: zero twos gives all ones, one two forces its two neighbors to one, two twos force just their common neighbors to one, and three or more allows every nonselected position to be free. This yields the frozen polynomial, including n=3 and the four-cycle with two common neighbors for opposite vertices. For n≥8 hub-one weight is at least n−1 in the two-support case and exceeds six in all other cases. Hub-two weight six is attained by the n one-support labelings and exactly those pairs without a common rim neighbor, of which there are (n choose 2)−n. Independent full labeled-graph enumeration through n=9 and a separate minima check through n=12 reproduce the small-order table and optimizer types. The supplied C++ file prints rather than asserts its minima; the independent enumeration and the symbolic case proof substantiate them.
 
-The previously studied scalar global Roman domination number for wheels is explicitly excluded from the new claim. The arXiv:2601.09167v1 full text concerns computational complexity and graph-class algorithms, not an all-weight bivariate wheel enumerator. The 2016 foundational work is known for minimum numbers on wheels, not demonstrated to have the present all-weight formula; its full text was not accessible for conclusive comparison. Semantic searches of related mathematical records found only ordinary, signed, total, and other Roman polynomial variants, or global Roman optimal counts on cycles. Their statements neither explicitly imply nor cover the present bivariate identity. This is a best-knowledge originality assessment, not a claim that searches prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Wheel graphs are a canonical infinite family with a universal vertex and sparse rim. The full coefficient distribution and two-label refinement sharply distinguish ordinary Roman domination from simultaneous domination in the complement, while an all-order classification reveals the exact \(\binom n2\) minimum multiplicity beyond the exceptional small orders. These are natural complete enumeration invariants, not reassertions of an already-known scalar optimum.
+The distinct supported claim is the bivariate wheel census and its wheel-specific hub-two/extremal counts, not a new scalar minimum, ordinary cycle Roman polynomial, or the hub-one minimum types when previously classified on cycles. The closest accessible statements do not supply the two marked wheel enumerators or their complement corrections.
 
-## Limitations and sources
+## value
 
-Specific historical-priority uncertainty remains for the inaccessible full text of Pushpam–Sampath (2016). The bound and census are about wheel graphs only, and external mathematical verification has not occurred.
+PASS
 
-References: https://arxiv.org/html/2601.09167v1 ; https://doi.org/10.1016/j.dam.2015.07.014 ; https://doi.org/10.6040/j.issn.1671-9352.0.2023.301 .
+The ordinary cycle polynomial and known wheel minima do not determine the full labeled joint distribution by weight and number of rim defenders. The formula identifies exactly where the complement changes the ordinary count and provides all coefficients uniformly. The resulting eventual a priori optimizer count and split into the two hub-two families are a useful extremal consequence, not a claim that the known scalar minimum is new.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

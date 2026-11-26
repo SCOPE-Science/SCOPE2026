@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 
-# Verification evidence and limits
+# Reproducible checks
 
-Run `python3 check_modular_cusps.py` using Python 3 and the standard library. The checker uses exact integer arithmetic to test the polynomial factorization defining the two elliptic branch points; compares the classical eta-product and Rogers–Ramanujan identity after multiplication by \(q\), through degree \(15\) of their power series; and exhaustively enumerates the \(42\) divisors of \(4800\) using Euler's totient function. It asserts that the base has \(144\) geometric cusps, that the covering cusp-orbit degrees have counts \((16,16,24,10,4)\) in degrees \((1,2,4,8,16)\), and that the cover has \(70\) closed and \(288\) geometric cusps. It reports `PASS` when all assertions hold.
+Run `python3 check_modular_cusps.py` with SymPy. It computes the invariants of the ordinary marked-point Tate form, checks the identities for the radicand and \(j=1728\), evaluates the two cusp residual constants, and enumerates the lifts of all 42 base cusp denominators. It specifically tests the two rational lifts at \(d=1\) and the single quadratic lift at \(d=25\); the aggregate degree spectrum alone would not distinguish the two twists. The expected last line is `PASS: canonical square class 5, denominator-wise cusp lifts, and degree spectrum`.
 
-The finite formal-series test cannot establish an identity of full modular functions. The proof instead invokes the classical infinite modular identity in the cited literature; the isomorphism of modular covers, local ramification and cyclotomic residue-field arguments are mathematical deductions recorded in `RESULT.md`. The code is a reproducibility check, not an exhaustive algorithm for all rational points, a proof of publication priority, or independent certification.
+The modular interpretation identifying the canonical double cover, local ramification and nonzero divisor class are mathematical arguments in RESULT.md, not consequences of a finite computation. The verification does not certify priority or the full rational torsion of the Jacobian.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The regular-degree first-force argument forces the complete list of optimal configurations and independently proves its lower bound. Comparing actual symmetric differences gives two cones over the crown line graph for unrestricted exchange and two line graphs plus two isolated full-layer configurations for edge sliding. A complete two-coordinate bridge test proves the distance formula; explicit geodesic classification proves the precise \(2(n-2)\) antipodal route count. Finite exhaustive original-graph and independently constructed abstract-graph programs completed without exceptions. The all-length proof does not depend on their finite cutoffs.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+In the n-regular complete prism a first force needs the forcing vertex and n−1 of its neighbors, so no set smaller than n works. At equality this determines the full layer or a mixed set indexed by a missing layer index a and an included opposite index b, with a≠b. In the latter case A_b first fills A_a; a full layer forces across the matching. One exchange within a mixed family changes exactly one index; the difference of at least two in layer occupancies forbids an exchange between the two families for n≥4. The full layer jumps to all mixed states on its side but cannot slide to any, since that exchange replaces A_a with B_b for a≠b. Within a mixed family both kinds of coordinate changes are slides inside a clique. In its line graph, disjoint coordinate pairs have an intermediate state formed by a cross-coordinate pair unless the target reverses both indices. For reversals any shortest path alternates coordinate changes across three steps, with two choices of first coordinate and n−2 spare indices. This gives degree 2(n−2), one antipode, distance-two shell (n−1)(n−2), and by halving ordered pairs gives the stated totals and polynomial. The two cones are noncomplete and have a hub, hence radius one and diameter two. This proof does not depend on finite experiments.
 
-The precise configuration isomorphisms, slide obstructions and antipodal path multiplicities were not found in the targeted source comparison. The 2020 zero-forcing reconfiguration paper addresses generic machinery and different families. A prior complete minimum-set classification of this exact graph **does cover the count and structural set list**, but not these derived reconfiguration isomorphisms and their metric. That previous membership theorem makes the present proof shorter; it does not state or imply the complete relocation geometry without the new edge-analysis. The 2025 PSD/skew paper provides related general principles but not a stronger direct result for this standard-forcing family. Priority could be affected by unindexed reports or unexamined literature.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical matched-clique graph exhibits a sharp and nontrivial operational distinction: under unrestricted relocation each full clique layer is a universal hub of an entire optimal-state component, while under the physical-edge rule the same placement is completely immobile. The entire remaining state graph is identified as a familiar crown line graph, yielding an exact low-diameter mobility law and a unique antipode with factorial-free route multiplicity at every order. These are natural, exact, reusable invariants of optimal network forcing, not an arbitrary isolated count. The already-known number of optimum states is explicitly excluded from novelty.
+The minimum-state classification and general move rules are prior. The checked prior statements do not give the exact contrasting reconfiguration graphs or the antipodal metric on this host. The classification is used here with the host-edge constraint and an incidence and shortest-route argument; it is not a new claim about the number of minimum sets.
 
-## Limits and closest work
+## value
 
-The statement is restricted to \(n\ge4\), standard forcing, and minimum-cardinality sets. Geneson–Haas–Hogben (arXiv:2009.00220, 2020) established the exchange-graph framework. A published matched-clique result supplies all minimum configurations and therefore part of this theorem's starting classification. Bong et al. (arXiv:2501.03642, 2025) focuses on different zero-forcing variants. Independently audited novelty and verification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the same minimum-state space, replacing jumps by actual host-edge slides sends each universal hub to an isolated state and gives an exact, uniform routing obstruction inside the remaining components. This provides reachability and optimal route counts for a natural forcing model, information not furnished by static enumeration; the component edge counts alone are routine consequences and not the reason for passing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

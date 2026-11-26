@@ -1,61 +1,53 @@
-# The thirteen-site characteristic-sequence frontier: extremal rigidity and its first stability shell
+# The two largest characteristic sums of thirteen-site cycles
 
 ## Finding
 
-Let \(\pi\) be a permutation of \(\{1,\ldots,13\}\) consisting of one cycle of length \(13\). For each \(i=1,\ldots,12\), let \(A_i=\{i,i+1\}\). Define \(T_\pi(S)\) as the integer convex hull of \(\pi(S)\), and define
+Let \(\pi\) be a single cycle on the ordered set \(\{1,\ldots,13\}\). Set \(A_i=\{i,i+1\}\) for \(1\le i\le12\), let \(T_\pi(S)\) be the integer convex hull of \(\pi(S)\), and define the positive return characteristics and their sum by
 \[
- c_i(\pi)=\min\{\ell\ge1:T_\pi^\ell(A_i)\supseteq A_i\}.
+c_i(\pi)=\min\{\ell\ge1:T_\pi^\ell(A_i)\supseteq A_i\},\qquad S(\pi)=\sum_{i=1}^{12}c_i(\pi).
 \]
-Write \(c'_1\le\cdots\le c'_{12}\) for the sorted characteristic numbers, and \(S(\pi)=\sum_{i=1}^{12}c_i(\pi)\). Then:
-
-1. Every such \(13\)-cycle satisfies \(c'_k\le k\) for all \(1\le k\le12\). Thus Wang's characteristic-sequence conjecture holds for the new order \(13\).
-2. One has \(S(\pi)\le78\). Equality occurs **precisely** for the twelve modular translations \(\pi(j)=1+((j-1+q)\bmod 13)\), with \(1\le q\le12\).
-3. Among the remaining permutations, \(S(\pi)\le77\), with equality for **exactly two** permutations, given in one-line notation by
+The cycles with \(S(\pi)=78\) are **exactly** the twelve nonzero modular translations
 \[
- (3,4,5,6,7,8,9,10,11,13,12,2,1)
- \quad\text{and}\quad
- (13,12,2,1,3,4,5,6,7,8,9,10,11).
+\pi(j)=1+((j-1+q)\bmod13),\qquad 1\le q\le12.
 \]
-Both have the sorted characteristic sequence \((1,2,3,4,5,6,6,8,9,10,11,12)\). In particular, the first non-maximal shell is exactly two points, not an arbitrary collection of near-maximizers.
+Among the remaining cycles the largest sum is \(77\), attained by **exactly two** permutations. In one-line notation they are
+\[
+(3,4,5,6,7,8,9,10,11,13,12,2,1),\qquad
+(13,12,2,1,3,4,5,6,7,8,9,10,11).
+\]
+Each has sorted profile \((1,2,3,4,5,6,6,8,9,10,11,12)\). Every other nontranslation has sum at most \(76\).
 
 ## Assumptions and scope
 
-The site set is ordered and finite, the permutation is a **single** \(13\)-cycle, and convexification is performed after **every** application of the permutation. The statement concerns the specific finite order \(13\). It neither assumes nor establishes Wang's conjecture at larger orders. The symbol \(S(\pi)\) is the sum of **all twelve** return characteristics, not the sum of ordinary permutation cycle lengths.
+The sites are ordered and labeled; the count is over all single cycles, not over representatives modulo conjugacy. Convexification is performed **after each** application of the permutation; the sum uses all twelve adjacent-pair returns, not permutation cycle lengths. The extremal classification is for order thirteen only.
 
 ## Proof
 
-**The interval graph.** Associate to \(\pi\) a digraph on vertices \(\{1,\ldots,12\}\), with an edge \(i\to j\) exactly when
+**Known upper bound and attaining examples.** Wang's *On Periodic Points in Covering Systems*, Lemma 1.6, proves \(c'_k\le k\) for the sorted characteristics of **every** cyclic permutation, with the same definition of integer convexification. Thus \(S(\pi)\le78\), and equality requires the entire profile \((1,2,\ldots,12)\). Wang's Example 3.6(1) already gives this profile for every modular shift coprime to the order. These facts do not classify equality among all thirteen-cycles or determine the next-largest level.
+
+**Interval graph.** On vertices \(1,\ldots,12\), put an arrow \(i\to j\) when
 \[
- \min\{\pi(i),\pi(i+1)\}\le j<\max\{\pi(i),\pi(i+1)\}.
+\min\{\pi(i),\pi(i+1)\}\le j<\max\{\pi(i),\pi(i+1)\}.
 \]
-For any consecutive integer block \([a,b]\cap\mathbb Z\), the intervals joining successive images \(\pi(j),\pi(j+1)\), for \(a\le j<b\), form a connected union. Their union is the entire real interval from \(\min_{a\le j\le b}\pi(j)\) to \(\max_{a\le j\le b}\pi(j)\). Therefore the adjacent-cell graph obtained from the integer convex-hull iteration agrees, step for step, with reachability in the directed graph. The first return of \(A_i\) is the length of the shortest positive closed directed walk starting at \(i\), as in Wang's Proposition 3.5. A shortest positive closed walk is a directed simple cycle, of length at most twelve.
+For \([a,b]\cap\mathbb Z\) with \(a<b\), the real closed intervals joining consecutive images \(\pi(j),\pi(j+1)\), \(a\le j<b\), overlap at consecutive endpoints. Their union is the interval between the least and greatest image of an integer in \([a,b]\). All endpoints are integers. It follows by induction that the unit cells covered by \(T_\pi^\ell(A_i)\) are exactly those at the ends of walks of length \(\ell\) from \(i\). In particular \(c_i\) is the length of a shortest positive closed walk rooted at \(i\). Such a walk exists since \(T_\pi^{13}(A_i)\supseteq\pi^{13}(A_i)=A_i\); a shortest one is simple, so has length at most twelve. This correspondence is the graph interpretation in Wang's work.
 
-**Complete finite enumeration.** Every permutation consisting of a single thirteen-cycle has a unique orbit encoding beginning with site \(1\). Fix its successor \(a+1\), with \(a\in\{1,\ldots,12\}\); the other eleven sites can appear in the orbit in any order, producing exactly \(11!=39,916,800\) distinct cycles for that \(a\). These twelve disjoint blocks exhaust \(12!=479,001,600\) cycles.
+**Exhaustive count.** Use zero-based labels for the computation. A cyclic orbit sequence starting with \(0\) determines the permutation uniquely. For each successor \(q\in\{1,\ldots,12\}\), generate all \(11!\) orderings of the remaining sites; append the closing arrow to \(0\). In `verify_characteristic13.cpp`, build the twelve adjacency masks from the formula above. For each graph vertex \(i\), start with its out-neighbors at distance one; check for \(i\) before dropping previously expanded vertices, and form the next layer by taking the union of out-neighbors of the newly reached vertices. Skipping previously expanded vertices other than the checked return does not affect shortest return distances: a shortest positive closed walk has no repeated interior vertex, and a shorter path to an interior vertex would give a shorter return. Sort the twelve return lengths and count maximal profiles and the least positive deficit \(78-S(\pi)\) with its multiplicity in each block.
 
-In `verify_characteristic13.cpp` the sites are zero-based. For each block the code constructs the unique mapping of each cyclic ordering, builds its twelve graph adjacency masks exactly by integer interval arithmetic, and uses bitset breadth-first search to determine the shortest positive closed walk through each graph vertex. The breadth-first search maintains successive exact-length reachable sets and omits previously expanded vertices; such omission cannot eliminate a shortest return, because a shortest path has no repeated interior vertex. The code sorts the twelve return lengths and checks every inequality \(c'_k\le k\).
-
-The exhaustive outputs in `census.tsv` give, **for each** fixed successor, \(39,916,800\) checked cycles, zero inequality violations, exactly one case with the entire profile \((1,2,\ldots,12)\), and zero such cases outside the modular translation \(j\mapsto j+a\pmod {13}\). Hence the first claim and the extremal classification are established. Since \(\sum_{k=1}^{12}k=78\), equality in the sum is possible exactly when every individual bound is sharp.
-
-The same enumeration calculates the least strictly positive value of \(78-S(\pi)\) and its frequency within each fixed-successor block. Exactly the two blocks with successor \(3\) or \(13\) (one-based labels) have minimum positive deficit \(1\), each attained exactly once. All other blocks have larger positive deficits. Thus exactly the two displayed one-line permutations attain \(S=77\), and every other nontranslation has \(S\le76\). Direct convex-hull iteration independently verifies their displayed characteristic sequences.
-
-All integer arithmetic in the census is exact. The proof depends on the full finite enumeration, not on a random sample or a heuristic numerical extrapolation.
+The exact outputs in `census.tsv` report \(39{,}916{,}800\) cycles in each block and one and only one maximal profile in each, always the modular translation. The least positive deficit is \(1\) only in the blocks \(q=2\) and \(q=12\), and has multiplicity one in each. The one-based representatives are the two permutations displayed above. Their profiles also follow by direct convexification, independently of the graph interpretation. The enumeration exhausts \(12!=479{,}001{,}600\) cycles and proves the two classifications.
 
 ## Verification
 
-Compile `verify_characteristic13.cpp` using a conforming C++17 compiler and run the executable for each integer first-successor argument from \(1\) through \(12\). It checks a total of \(479,001,600\) cycles and produces the twelve rows reported in `census.tsv`. Each row has zero violations, exactly one maximal profile, and no non-modular maximal profile. The minimum strictly positive deficit is \(1\) with total multiplicity \(2\).
-
-The separate `check_direct.py` uses literal repeated convexification of all integer images rather than the directed-graph breadth-first search. It compares the two algorithms for **all** single-cycle permutations on \(3\) through \(8\) symbols, and for \(10,000\) reproducibly selected thirteen-cycles: \(15,912\) independent objectwise comparisons. It also directly checks the two near-maximal representatives and the twelve modular translations. No external data or nonstandard libraries are needed.
+Compile `verify_characteristic13.cpp` with a GCC-compatible C++17 compiler, for example `g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify_characteristic13.cpp -o verify_characteristic13`. Run `./verify_characteristic13 "$q"` for each integer \(q=1,\ldots,12\). The output can be compared with the accompanying `census.tsv` (the first-successor and witness columns use zero-based labels). `check_direct.py` separately compares repeated integer convexification with the graph method for all cycles of orders 3 through 8 and 10,000 seeded thirteen-site samples; it also checks both witnesses and all twelve translations. Those sampled comparisons check the two implementations; they are not the source of the exhaustive exclusion.
 
 ## Relationship to prior work
 
-Yihan Wang (2022) formulated the characteristic-sequence conjecture in Definition 1.6 and Conjecture 1.7, established the equivalence with a covering-interval conjecture (Theorem 1.8), and recorded exhaustive computational verification for orders through \(12\) in Example 3.7. Wang also calculated the profile of a distinguished cyclic translation. The present result addresses the **first order beyond that reported finite range**, establishing the complete first and second extremal tiers at order \(13\). Known modular-shift profiles alone do not imply either that all thirteen-cycles obey the inequalities or that no other thirteen-cycle is extremal.
+Wang's 2022 manuscript defines the characteristic sequence, states the sorted inequality as Conjecture 1.7 and reports computation through order twelve in Example 3.7. The subsequent 2023 paper proves the all-order inequality (Lemma 1.6 and §4), proves the covering-system result (Theorem 1.2), and states the coprime modular-shift profiles (Example 3.6(1)). Consequently neither the order-thirteen inequality nor the attainment of \(78\) by the translations is a new theorem here. The distinct contribution is the exhaustive **exclusion of every other maximizer** at order thirteen and the explicit, complete description of the next level.
 
 ## Limitations
 
-The result is exact but finite. It does **not** prove the conjecture for general \(n\), settle the continuous covering-system conjecture for arbitrary numbers of intervals, or classify near-maximizers at arbitrary order. The exhaustive proof relies on correct implementation of the transparent finite checker; an independent formal or human proof has not been supplied. Broader publication-priority verification is still open.
+This is a finite computer-assisted classification for thirteen sites. It does not give a general rigidity or stability theorem for equality or near equality in Wang's bound. An equivalent classification in other sources is not ruled out by the comparisons above.
 
 ## References
 
-Yihan Wang, *On an existence problem of periodic points in intervals whose images cover themselves*, arXiv:2205.07225v1, first publicly posted 2022-05-15. https://arxiv.org/abs/2205.07225 . See Definition 1.6, Conjecture 1.7, Proposition 3.5, Theorem 1.8, and Example 3.7.
-
-Uhland Burkart, *Interval mapping graphs and periodic points of continuous functions*, Journal of Combinatorial Theory, Series B 32(1) (1982), 57–68. Cited here for the established graph interpretation; the complete article was not inspected.
+1. Yihan Wang, *On an existence problem of periodic points in intervals whose images cover themselves*, [arXiv:2205.07225v1](https://arxiv.org/abs/2205.07225), 2022, Definition 1.6, Conjecture 1.7, Proposition 3.5, Example 3.7.
+2. Yihan Wang, *On Periodic Points in Covering Systems*, [arXiv:2306.10523v1](https://arxiv.org/abs/2306.10523), 2023, Theorem 1.2, Definition 1.4, Lemma 1.6, Proposition 3.4, Example 3.6(1), and §4.

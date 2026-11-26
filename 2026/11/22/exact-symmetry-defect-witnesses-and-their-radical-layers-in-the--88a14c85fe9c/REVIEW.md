@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns a fixed, fully specified \(256\)-element ring, so an exhaustive finite certificate can prove the numerical assertions. The explicit \(Q_8\) cocycle derived from the group presentation fixes all structure constants, while bit-vector bilinear extension fixes every ring product. The finite-field rank-nullity identity counts the \(a\)-fibers for all ordered \((b,c)\). A separate complete all-triples loop confirms the full radical-valuation distribution. Both methods yield \(147456\), and the rank-pair frequencies sum to all \(65536\) ordered pairs. The radical filtration is independently computed as dimensions \((7,5,3,1,0)\). Actual execution of `CHECKER.py` returned `QUATERNION_SYMMETRY_DEFECT_OK`. No infinite-field or unverified asymptotic claim is present.
+PASS
 
-## Originality — PASS, with limited historical-priority confidence
+The normal form and multiplication follow from moving j past i (central z factor) and reducing i² and j² to z. The even-augmentation ideal has successive power dimensions 7,5,3,1,0; nilpotence and the quotient F₂ identify it with the Jacobson radical. For each ordered (b,c), the witness count is the size of ker ρ_bc minus the intersection with ker ρ_cb, namely 2^(8−r)−2^(8−s). I independently built Q₈ as the eight signed 2-by-2 complex quaternion matrices, used their multiplication to construct the binary ring, computed ideal powers by explicit spans and ranks as log₂ of image cardinalities, and tested the second product directly on the zero set of the first for every ordered pair. This matched all eight rank frequencies, yielding 98,304 and 49,152 witnesses from the only two contributing rank pairs. It found exactly 49,152 at each stated valuation vector and verified the displayed witness has products zero and the nonzero all-group sum. The total is 147,456 and division by 256³ gives 9/1024. The rank table certifies the total via rank-nullity, not by itself the layer counts; the separate valuation census supplies those. Replay: python3 /workspace/audit_replay/quaternion.py; output at /workspace/audit_replay/quaternion.txt.
 
-The recent primary classification arXiv:2611.19962v1, whose relevant full-text sections and tables were inspected, classifies minimal reversible nonsymmetric rings and checks the existence of nonsymmetric triples, but does not report the **numbers** of these triples, their three radical-valuation strata, or the joint regular-multiplication ranks of \(bc\) and \(cb\). Earlier Marks–Szabo work establishes the examples, the minimum order, and the known radical-power structure; the full publicly accessible Szabo preprint does not state the proposed exact quantitative census. A published research record on single-element multiplication ranks of \(\mathbb F_2[Q_8]\) is adjacent but not a joint correlation census. Searches found no exact equivalent or stronger covering statement. The full content of that particular published research record and the original Marks 2002 article was not accessible for comprehensive comparison; priority is consequently provisional rather than certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Symmetry is a defining ring-theoretic zero-product identity; the binary quaternion group ring is the canonical smallest reversible counterexample. Quantifying the entire failure set, showing that all its witnesses occur in three **equally populated intrinsic radical-layer configurations**, and determining exactly which two rank jumps account for the defect strengthens the qualitative example in a way not implied by the existence proof or the inventory of minimal rings. The statistic is a well-defined comparison benchmark for the newly classified \(186\) minimal isomorphism types. The result deliberately asserts neither a classification of those types by defect nor a broad theorem for all finite fields, and its utility is confined to this justified benchmark.
+The strongest same-ring literature supplies existence of witnesses, radical generators and the ring's place in a prior finite classification, not the reported witness counts or joint rank census in the decisive inspected sections. The nearest distinct Resultary comparison supplies a single-element multiplication-rank spectrum for the quaternion block, not the correlation of the products bc and cb or the simultaneous-kernel dimensions. The Pass is restricted to the quantitative joint and layer-refined facts; neither nonsymmetry, minimality nor having an explicit witness is novel.
 
-## Closest literature and limits
+## value
 
-- Grau Ribas–Oller-Marcén, *All unital reversible nonsymmetric rings of order 256*, arXiv:2611.19962v1, Sections 1, 2, 7, 8 and appendices: qualitative classification and identity checks, not quantitative witness/valuation and joint-rank censuses.
-- Szabo, *Minimal reversible nonsymmetric rings*, J. Pure Appl. Algebra 223 (2019), 4583–4591: the \(256\)-element minimality statement and examples. Full 2017 arXiv preprint, Sections 1–4 and Example 4.2, inspected; it does not provide the claimed counts.
-- Published *Quaternionic square-zero collapse and rank spectra of odd-index dicyclic group algebras*: single-element ranks and square-zero counts, based on the available research-record summary; possible uninspected stronger details remain a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This algebra is a canonical smallest reversible nonsymmetric ring. Counting the actual failures of symmetry and locating every one in three equally occupied radical-layer configurations characterizes the defect much more precisely than finding a witness. The joint ranks measure a natural correlation of zero-product conditions and give a reusable exact benchmark for comparing this algebra with other minimal nonsymmetric rings. The restriction to one standard algebra is motivated by its role in the classification, not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

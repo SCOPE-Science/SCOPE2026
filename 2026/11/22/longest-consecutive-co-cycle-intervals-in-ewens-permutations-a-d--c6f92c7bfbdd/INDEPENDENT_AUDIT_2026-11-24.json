@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:39:45.242509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the coherent Ewens cycle-partition coupling, the ranked paintbox gives iid labels conditional on the masses, so the statistic is exactly the longest constant-color interval in numerical label order. The largest atom exists and is below 1; a continuous GEM stick-breaking factor rules out equality with any earlier atom, simultaneously for all countably many pairs. With p the largest mass, the upper bound n*sum_j P_j^k <= n p^(k-1) controls the whole countable alphabet. Disjoint all-top-color windows give the complementary exponential lower-tail bound. Both are summable on dyadic n at thresholds (1 plus or minus epsilon) log n/(-log p); monotonicity interpolates. Top-color run starts count each maximal run once and have mean p^k+(n-k)(1-p)p^k. Their windows are independent beyond distance k and distinct starts within distance k are incompatible. The dependency-graph bound is therefore O((k+1)n p^(2k)), tending to zero at the stated critical thresholds. If q<p is the second-largest mass, all other colors contribute probability at most n q^(k-1)=o(1). The critical-limit conclusion is meaningful along suitable subsequences, as the finding qualifies: for a fixed p an all-n integer threshold with positive finite limiting intensity is impossible, since the ratios of successive intensities would force k_(n+1)-k_n=0 eventually. At theta=1, uniform stick breaking gives P_* =d max(U,(1-U)P_*') with independent U uniform and P_*' a copy. For R(u)=Pr(P_*<=1/u) this gives uR(u)=integral_(u-1)^u R(v)dv for u>1, with R=1 on [0,1], hence the Dickman equation. Substituting u=exp(1/t) verifies the CDF with the correct direction. The frozen checker was inspected, not executed; its finite color-equivalence checks do not verify these limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong gives general finite categorical run distributions conditional on prescribed composition, with multinomial averaging for independent words. Pitman supplies the paintbox and Ewens EPPF. Arratia–Barbour–Tavaré give PD(1) limits for cycle-size proportions.",
+          "The retrieved prior fixed-p asymptotic uses n(1-p) exponential extremes, matching the lattice scale and intensity underlying the one-color maximum. It does not address coherent Ewens coupling or the dominance of the unique largest atom over infinitely many competing colors."
+        ],
+        "reasoning": "General exact finite enumerators, convergence of masses, and univariate fixed-p extreme values are separate antecedents. None of the read statements gives the target a.s. countable-color trajectory limit or its conditional threshold equivalence. The general web lookup was unavailable and supplies no negative evidence.",
+        "searches": [
+          "arXiv:2405.01747, abstract and fixed-composition passage",
+          "Pitman, Secs. 2.1 and 2.2.7",
+          "Arratia–Barbour–Tavaré, A Tale of Three Couplings, pp. 1-2",
+          "Ewens longest run same cycle consecutive labels or paintbox exchangeable longest run (literature lookup)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, checker.py",
+        "Gordon–Schilling–Waterman DOI 10.1007/BF00699107",
+        "Kong arXiv:2405.01747",
+        "Pitman, Combinatorial Stochastic Processes",
+        "Arratia–Barbour–Tavaré, A Tale of Three Couplings",
+        "Resultary c6f92c7bfbdd, 1382410ecf67, 6c5efa9ae94d, f3a425560b6e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting CDF is a monotone transform of the known largest PD(1) atom law once the all-color strong limit is established; it gets no separate originality credit.",
+          "One-color head-run results give the dominant candidate and its fixed-p asymptotics. The full statistic additionally needs sum_j P_j^k <= p^(k-1) for the a.s. upper bound, and sum_{j not top} P_j^k <= q^(k-1) with q<p at critical lengths. Fixed-small-boundary asymptotics give neither of these typical-regime controls."
+        ],
+        "reasoning": "The useful uncaptured result concerns a specific correlated permutation observable whose full countable-color conditional reduction and dominance argument identify its random a.s. scale. A classical one-color run count or the PD CDF in isolation does not make the full result an exact prior match.",
+        "searches": [
+          "DOI 10.1007/BF00699107, pp. 279-280",
+          "Resultary 1382410ecf67, Finding, assumptions and run-composition proof",
+          "Pitman, Sec. 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalence is to a longest constant-color run in an iid categorical word conditional on a random ranked paintbox, not to a longest monotone one-line permutation run.",
+          "For the largest atom alone, the color indicator is exactly an iid Bernoulli sequence, so the fixed-p extreme-value result of Gordon–Schilling–Waterman applies to that one color. It does not by itself maximize over the random countable alphabet."
+        ],
+        "reasoning": "The single-color comparison is direct; the full co-cycle maximum equals the maximum over every paintbox color. The summable full-alphabet upper bound and competing-color exclusion are needed to pass from one to the other.",
+        "searches": [
+          "Resultary: longest consecutive co-cycle interval, Ewens paintbox, nearby cycle cohesion",
+          "Pitman, Combinatorial Stochastic Processes, Secs. 2.1 and 2.2.7",
+          "DOI 10.1007/BF00699107"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit c6f92c7bfbdd is this record itself. The older 1382410ecf67 proof enumerates each tuple of maximal run lengths plus its cycle-equality partition; putting an upper cap on all run lengths and summing over run counts gives the exact finite theta=1 longest-run distribution.",
+          "The indexed records 6c5efa9ae94d and f3a425560b6e concern long head starts in coupled fair-bit words or monotone one-line windows, respectively."
+        ],
+        "reasoning": "No finite invariant table is required for this asymptotic. The closest index hit covers the finite uniform-permutation distribution by a direct restriction of its enumeration, but its fixed-boundary-count asymptotics are not the logarithmic-maximum regime and do not furnish a quenched law.",
+        "searches": [
+          "Resultary: c6f92c7bfbdd and 1382410ecf67, cycle-cohesive interval and boundary counts",
+          "Resultary: 6c5efa9ae94d and f3a425560b6e, Poisson limits for runs"
+        ]
+      },
+      "rationale": "The classical fixed-probability longest-head-run law, the top-color Bernoulli approximation and the PD/Dickman identity are not separate originality credits. The distinct claim is their use for the maximum over all colors of the coherent Ewens partition, yielding a nondegenerate PD-dependent almost-sure scale and a linked quenched threshold law. The stronger checked run or cycle sources do not supply that combined asymptotic for this statistic.",
+      "residual_risks": [
+        "The literature lookup was unavailable, and a substantially broader exchangeable-word extreme theorem could remain unlocated. The scope of the pass excludes the known ingredients and the finite uniform-permutation run law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct one-color extreme-value antecedent",
+          "evidence": "Uses independent coin tosses and the integer part of the maximum of approximately n(1-p) iid exponentials.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00699107",
+          "material_read": "pp. 279-280, summary and introduction, PDF offset 0 through 3929",
+          "method": "OA publisher PDF passages",
+          "title": "An Extreme Value Theory for Long Head Runs",
+          "trigger": "Same top-color maximum after conditioning at fixed p"
+        },
+        {
+          "assessment": "Finite pooled and letter-specific distributions, not the coherent Ewens asymptotics",
+          "evidence": "Conditions on the counts of each letter and permits multinomial averaging.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.01747",
+          "material_read": "pp. 2 and 7, offsets 850 and 9563",
+          "method": "OA author manuscript passages",
+          "title": "The m-th longest runs of multivariate random sequences",
+          "trigger": "Broader finite categorical longest-run calculations"
+        },
+        {
+          "assessment": "Classical representation, not a run-asymptotic theorem",
+          "evidence": "Gives the exchangeable paintbox and Ewens EPPF.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-Exch/Papers/pitman_CSP.pdf",
+          "material_read": "Secs. 2.1 and 2.2.7, pp. 39 and 47, offsets 97807 and 123177",
+          "method": "OA primary text passages",
+          "title": "Combinatorial Stochastic Processes",
+          "trigger": "Conditional iid reduction and Ewens law"
+        },
+        {
+          "assessment": "Classical cycle-size limit, no co-cycle interval result in checked material",
+          "evidence": "Ranked uniform-permutation cycle proportions converge to PD(1).",
+          "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT06.pdf",
+          "material_read": "pp. 1-2, offset 1348",
+          "method": "OA primary PDF passage",
+          "title": "A Tale of Three Couplings: Poisson–Dirichlet and GEM Approximations for Random Permutations",
+          "trigger": "Ranked cycle proportions and largest mass at theta=1"
+        },
+        {
+          "assessment": "Finite distribution coverage by restricting the compositions, not the typical maximum asymptotic",
+          "evidence": "The sum lists maximal run lengths and cycle-identifier partitions, with asymptotics stated for a fixed number of boundaries.",
+          "identifier_or_url": "2026/10/25/SCOPE-parity-separated-near-complete-cycle-cohesion-tails-in-uniform-p--1382410ecf67",
+          "material_read": "RESULT.md offset 0 through 3443, Finding, run composition and exact enumeration proof",
+          "method": "Resultary local-mirror text",
+          "title": "Parity-separated near-complete cycle-cohesion tails in uniform permutations",
+          "trigger": "Same cycle-cohesion run data in an older indexed record"
+        },
+        {
+          "assessment": "Different dependence model and marks",
+          "evidence": "Head-run starts in two coupled fair-bit sequences, not an exchangeable partition.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-shared-run-poisson-transition-under-independent-bit-refr--6c5efa9ae94d",
+          "material_read": "RESULT.md offset 0 through 3161",
+          "method": "Resultary local-mirror text",
+          "title": "A sharp shared-run Poisson transition under independent bit refresh",
+          "trigger": "Poisson long-run onset in adjacent indexed claim"
+        },
+        {
+          "assessment": "Precise example coverage not resolved from the source",
+          "evidence": "No usable full-text passage on rare-run counts was obtained. The single-color Poisson approximation is standard machinery and not credited separately.",
+          "identifier_or_url": "https://doi.org/10.1214/ss/1177012015",
+          "material_read": "Landing material only; no primary proof passages obtained",
+          "method": "Lawful publisher OA PDF and full-text route attempts",
+          "title": "Poisson Approximation and the Chen–Stein Method",
+          "trigger": "Potential already stated single-color Poisson count example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle cohesion along consecutive labels probes spatial organization not identified by the cycle size counts alone. The all-color result shows a realization-dependent leading logarithmic scale, rules out a deterministic Bernoulli parameter for that scale, and connects the same dominant atom to the quenched lattice threshold. The Dickman transformation makes the scale explicit in the uniform case. The value is in that conclusion for a natural exchangeable cycle statistic, not in repeating a finite enumeration or a fixed-p run theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

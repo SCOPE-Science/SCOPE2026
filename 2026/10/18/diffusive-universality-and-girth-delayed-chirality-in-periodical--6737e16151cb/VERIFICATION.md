@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,8 @@
 
 # Mathematical verification
 
-The proof in `RESULT.md` gives a uniform factorial winding-tail estimate with constant \(B_xT_n+T_n^2\), a Fourier inversion/dominated-convergence argument for the full circle heat-kernel total-variation profile, and the path-interference computation at odd girth. They imply the infinite-size and all-time conclusions; a finite computation would not suffice.
+The proof in `RESULT.md` establishes the one-step winding-tail estimate, telescopes it for the full transition law, and proves the scaling limit via Fourier inversion with summable domination. These analytic arguments, not any finite run, prove the uniform comparison and the heat profile.
 
-The standalone script `verify.py` requires NumPy and SciPy, as specified by `requirements.txt`. Run from the extracted directory with `python verify.py`. It directly constructs \(H\) and \(e^{-i\tau H}\) for multiple sizes, fluxes, and time intervals; reconstructs the Bessel periodization; checks the coarse analytic error inequalities and parity; tests the leading odd-girth coefficient; and compares selected diffusive-time distances to a numerical circle heat-kernel integral. Observed output: `VERIFY_OK 702 finite identities and mixing comparisons`.
+The original `verify.py` uses NumPy and SciPy (see `requirements.txt`). From the extracted source package its replay command is `python verify.py`. It constructs the finite Hamiltonian and matrix exponential directly, checks stochasticity and translation invariance, and compares the Bessel estimates and selected diffusive-time distances against numerical circle heat-kernel integrals. Its recorded output `VERIFY_OK 702 finite identities and mixing comparisons` is for the original checker as a whole, including ancillary parity tests not part of the present theorem. It is not a fresh rerun or a count of narrowed-claim-only checks.
 
-These are finitely many floating-point checks, not formal or exhaustive certificates, and they make no claim to verify all fluxes, all sizes, or the infinitely long mixing limit. The scientific priority judgment is similarly not an independent audit. No claim is made about experimental validation.
+The numerical comparisons are finite floating-point checks and do not certify the limit, all fluxes or all sizes. No experimental or formal certification is claimed.

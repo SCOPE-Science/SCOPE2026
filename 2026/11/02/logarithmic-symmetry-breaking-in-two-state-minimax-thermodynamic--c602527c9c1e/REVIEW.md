@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary channel transition probabilities and exact entropy functional follow directly from the two-state generator. An independent minimax argument uses the KL contraction identity, nonnegative conditional entropy and the unique interior entropy maximizer. Strict concavity is proved from total variance. The fixed-rate \(1/\log(1/t)\) optimizer is bracketed by the signs of the exact derivative, and a uniform local entropy expansion establishes the full \(o(t)\) error in the optimum. The balanced formula is exact; the variable-rate crossover uses uniform compact expansions and a unique limiting maximizer. A high-precision verifier evaluating both joint-distribution and channel expressions passed 76 checks. Numerics do not establish the infinite limits.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+The two-state semigroup gives off-diagonals u and v and output probability z=u+(1-u-v)q. The entropy chain rule and conditional variance decomposition prove the objective and its strict concavity; positivity of the channel gives an interior optimizer. The gradient of the homogeneous conditional entropy in positive input weights is the vector of point-mass mismatch costs, and the point-mass maximum and KL data processing give the minimax equality. In the fixed gap regime, at q=c/L the term h'(q)−h'(z) is asymptotic to atL/c, the extra factor (1−k)h'(z) is O(t log L), and h(v)−h(u) contributes −ΔtL. Thus concavity brackets q* at a/(ΔL). On that bracket the entropy Taylor error is O(t²/q)=o(t). The term −Δq*log(1/t) cancels the constant +a, while −a log(1/q*) converts a log(1/t)−a log a to a(L−log L). At equal rates the symmetric optimizer is exactly 1/2. In the varying-rate family the compact-interior first-order objective and derivative limits give the stated g_η; its strictly negative second derivative and derivative sign brackets localize the finite-time maximizer away from either endpoint before evaluating the value. The large-η slope equation has leading term κ/Q_η, as claimed. The varying-rate expansion is pointwise at fixed κ>0, η≥0, not uniform near a moving boundary. Inspected but did not execute verification/minimax_verifier.py; its recorded 76 checks are finite diagnostics, not the proof.
 
-The closest source, Yousef–Ansbacher–Wolpert, arXiv:2610.03478 (2026), contains the same minimax objective, the established leading maximum-escape-rate coefficient, and convergence of optimal priors toward the fastest state. Its main derivation and the continuous-time supplemental Section SX were inspected. They do not supply the negative logarithm-of-logarithm correction, the sharp optimal prior scale, or the near-degenerate rate crossover. Khouzani–Malacaria (2018) treat optimization of channels for a given input prior, rather than optimization over input priors of a fixed Markov channel. Dedicated record and literature searches did not surface a dominating exact two-state small-time result. Absence from search results is not proof of global novelty. Binary-channel formulas are longstanding and explicitly credited.
+## originality
 
-## Value — PASS
+PASS
 
-The source's leading short-time estimate cannot determine how fast the optimal design prior approaches its singular limit or quantify the first correction to the robust thermodynamic penalty. This result supplies both a parameter-dependent mass law and a universal logarithm-of-logarithm cost penalty, and resolves the practically motivated near-symmetry boundary layer where the fixed-gap expansion ceases to be informative. The change from a uniform prior at equal rates to a slowly vanishing minority mass under fixed rate imbalance is a structural singular perturbation, not merely an isolated parameter evaluation.
+The minimax identity and the leading law and qualitative concentration for fixed rates are established prior results. The supported refinement is the sharp two-state rate/cost expansion and, particularly, the explicit crossover between fixed imbalance and symmetry. There is a verified exact match to the fixed-unequal and balanced formulas in a separate archive entry dated Nov. 8; it has no varying-rate theorem. That entry's relationship to the frozen work is not established by date alone and no priority is inferred from it. The full stated result, including the crossover, is distinct from the inspected matches.
 
-## Limits and priority risks
+## value
 
-A two-state chain is reversible at stationarity, so this does not describe nonzero housekeeping entropy production; the object is thermodynamic *mismatch*. The source provides the minimax identity and leading behavior. Independent review is needed to rule out equivalent binary-channel asymptotics in older information-theory work. The cited 2018 channel-design paper does not dominate the statement, but the general topic of optimal posterior entropy has a longer history. No uniform crossover for growing perturbation parameter is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximization is singular at fixed asymmetry and regular at symmetry. The optimizer scale and the negative log-log term quantify the singularity, and the varying-rate theorem identifies the transition window in which neither fixed-rate formula can be used uniformly. Resolving the order-t value and the optimizer in that window is useful beyond recomputing a binary-channel leading coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

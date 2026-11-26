@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:21.376455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted one-test objective is a positive factor times ((1+τ(a+σb))α_next−α)^2. Off its pole the unique minimizer nulls the measured residual; at the pole the objective is constant in α_next for the singular test and does not specify an update. Independence gives E|α_n|²=|α_0|²H^n; for |b|≤a the multiplier squares are both at most one and one is strictly less. Otherwise q>d>0, H(0)=1, H′(0)=-2a and H is strictly convex on the left of the pole with limit infinity. On the right both terms are strictly decreasing from an infinite total to zero. This gives exactly two positive crossings and the stated endpoint behavior. Maximizing (L−m)t/(m+Lt²), t=|tan φ|, gives (L−m)/(2√(mL)), including t=0 and the vertical line by its limit. Thus the half-angle formula is inclusive, including equal eigenvalues (all permitted rotations safe); θ=θ_c can make one stiffness vanish but the other remains positive. At either crossing the two positive squared multipliers cannot be equal: before the pole their denominators have unequal positive magnitudes at positive τ, and after the pole 1+qτ>dτ−1. Strict log concavity and the iid strong law then give a negative sample exponent at each crossing and on an adjacent unstable interval by continuity. Independent exact rational reconstruction at m=1, L=9 gives multipliers 25/319, −25/17, their squared average 31890625/29408929 and product magnitude 625/5423. The seeded checks in the source are only finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Muñoz-Matute–Rojas use a complementary residual for directions omitted by the finite test space.",
+          "The DPG heat result uses optimal test functions, backward Euler, and stepwise deterministic stability.",
+          "Mollet's open dissertation supplies a positive discrete inf–sup criterion for step minimization and quasi-optimality."
+        ],
+        "reasoning": "The complementary-residual reliability theorem is not refuted by this zero measured residual. The deterministic stability hypotheses do not model the iid two-valued sampled test compatibility and do not classify second moments under it.",
+        "searches": [
+          "arXiv:2609.27548, Sections 1 and 4",
+          "arXiv:1607.00301, abstract and introduction",
+          "Mollet, Parabolic PDEs in Space-Time Formulations, discrete inf–sup and MinRes theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "arXiv:2609.27548 and arXiv:1607.00301",
+        "Mollet 2016 dissertation; Higham–Mao–Yuan doi:10.1137/060658138",
+        "Gustafson doi:10.1002/nla.289, bibliographic only",
+        "Resultary b467b674b3e7 and 0e06af2251b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General iid criteria leave H(τ) and the logarithmic growth as functions to be evaluated; the two components, inclusive uniform cutoff and gap require the signs, pole structure and the strictness at the boundaries for this payoff.",
+          "Deterministic finite-test reliability with a complementary residual does not imply absence or presence of the moment instability for this uncorrected one-test rule."
+        ],
+        "reasoning": "No inspected stronger theorem already gives the configuration's full classification. It follows by an exact model-specific analysis using classical tools, not by crediting the generic criteria or angle identity as new.",
+        "searches": [
+          "arXiv:2609.27548 Section 4 combined with scalar product criteria in doi:10.1137/060658138",
+          "arXiv:1607.00301, optimal-test heat stepping",
+          "Resultary b467b674b3e7, independent switching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-test MinRes step reduces to scalar iid reciprocal affine multipliers. Independent scalar random product criteria describe the associated average squared multiplier and average logarithm.",
+          "The angular maximization is the normalized orthogonal component of Av, equivalent to the classical positive-operator turning-angle calculation."
+        ],
+        "reasoning": "These equivalences identify the familiar mechanisms but do not identify the full scalar parameter geometry of two independently resampled residual tests with exact zero measured loss. The angular fact by itself is not original.",
+        "searches": [
+          "arXiv:2609.27548, finite-dimensional MinRes",
+          "Higham–Mao–Yuan, doi:10.1137/060658138, scalar random products",
+          "Gustafson, doi:10.1002/nla.289, operator turning angles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b467b674b3e7 gives reentrant mean-square instability of random damped-shear splitting and decay of the expected state, not almost-sure decay for randomized test orientations.",
+          "Resultary 0e06af2251b3 concerns stationary error-optimal component sampling in forced scalar backward Euler, not randomizing the test direction."
+        ],
+        "reasoning": "The reentrant bands are a genuine nearby match in behavior but the evolution operators and observables differ. Neither finding gives the angle threshold or exact zero-test-loss mechanism here.",
+        "searches": [
+          "Resultary: randomized finite-test residual heat backward Euler reentrant mean-square stability",
+          "Resultary: randomized backward-Euler sampling and stationary moment thresholds"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp joint angular and timestep classification and its pathwise versus second-moment counterexample for this particular residual-testing method. The finite-test loss, antieigenvalue/turning-angle optimization and iid multiplier criteria are known inputs; no priority is credited for them. The strongest inspected claims do not state or furnish this phase diagram as an already-evaluated case.",
+      "residual_risks": [
+        "The retrieved Gustafson and Mollet article references did not permit decisive full-text inspection of those articles; the known deterministic angle and inf–sup mechanisms are already excluded from originality credit.",
+        "Older random Petrov–Galerkin or random integrator examples could contain a closer specialized comparison; the review is bounded, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite-test loss and complementary residual, not the iid two-orientation classification in those passages.",
+          "evidence": [
+            "Finite-dimensional MinRes uses a restricted test-space dual norm; reliability also accounts for omitted components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27548",
+          "material_read": "Abstract/introduction pp. 1, 3; Section 4 pp. 8–9, OA offsets 2090, 12314, 44057, 48115",
+          "method": "Primary OA PDF passages",
+          "title": "Stable time-stepping via residual minimization: finite-element and neural-network approximations for transient parabolic problems",
+          "trigger": "Motivating finite-test residual formulation"
+        },
+        {
+          "assessment": "Uses optimal tests, not independently resampled oblique tests.",
+          "evidence": [
+            "Backward Euler, stepwise stability and a Céa-type estimate are the mathematical overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00301",
+          "material_read": "Abstract and introduction pp. 1–2, offsets 571 and 6259",
+          "method": "Primary OA PDF passages",
+          "title": "A time-stepping DPG scheme for the heat equation",
+          "trigger": "Deterministic Petrov–Galerkin backward Euler stability comparator"
+        },
+        {
+          "assessment": "Dissertation provides general deterministic discrete inf–sup uniqueness and quasi-optimality.",
+          "evidence": [
+            "A positive discrete inf–sup bound is required for the corresponding deterministic stability, not an iid-moment result."
+          ],
+          "identifier_or_url": "doi:10.1515/cmam-2014-0001; C. Mollet, open 2016 dissertation",
+          "material_read": "Article unavailable in attempted lawful routes; dissertation title page, pp. 9 and 58, offsets 12235, 156845–157912",
+          "method": "Primary OA dissertation comparison; no full-text claim on the separate article",
+          "title": "Stability of Petrov–Galerkin Discretizations: Application to the Space-Time Weak Formulation for Parabolic Evolution Problems; Parabolic PDEs in Space-Time Formulations",
+          "trigger": "General discretization stability and unique MinRes optimizer"
+        },
+        {
+          "assessment": "Exact paper coverage not decided; the angular maximization is treated as known mechanism.",
+          "evidence": [
+            "No whole-paper noncoverage inference made."
+          ],
+          "identifier_or_url": "doi:10.1002/nla.289",
+          "material_read": "Bibliographic identification only; full text not retrieved lawfully",
+          "method": "DOI and lawful-copy attempts; angular bound independently derived, not attributed as new",
+          "title": "Operator trigonometry of preconditioning, domain decomposition, sparse approximate inverses, successive overrelaxation, minimum residual schemes",
+          "trigger": "Potential coverage of sharp turning-angle constant"
+        },
+        {
+          "assessment": "Scalar multiplicative numerical SDE setting; methodology overlaps.",
+          "evidence": [
+            "Independent multiplier products and the strong law give almost-sure exponents, separate from moment exponents."
+          ],
+          "identifier_or_url": "doi:10.1137/060658138",
+          "material_read": "OA repository version, Theorem 4.1 and Euler–Maruyama discussion, p. 4 offset 13850",
+          "method": "Primary OA repository passages",
+          "title": "Almost sure and moment exponential stability in the numerical simulation of stochastic differential equations",
+          "trigger": "General distinction between samples and moments in scalar random-product schemes"
+        },
+        {
+          "assessment": "Different splitting and a mean-state decay comparison, not the exact scalar test update.",
+          "evidence": [
+            "Independent switching between damped shears has a reentrant instability band."
+          ],
+          "identifier_or_url": "Resultary b467b674b3e7",
+          "material_read": "Finding in the local mirror",
+          "method": "Resultary search and local-mirror read",
+          "title": "Sharp reentrant mean-square stability of randomized damped-shear splitting",
+          "trigger": "Strong reentrant stability catalogue match"
+        },
+        {
+          "assessment": "Different randomized object and stationary observable.",
+          "evidence": [
+            "Random component sampling for a forced affine equation, not independently resampled residual-test lines."
+          ],
+          "identifier_or_url": "Resultary 0e06af2251b3",
+          "material_read": "Finding in the local mirror",
+          "method": "Resultary search and local-mirror read",
+          "title": "A sharp nonattainment threshold for stationary-error-optimal randomized sampling",
+          "trigger": "Scalar random backward-Euler comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A zero minimized measurement can mask a genuine instability even with a positive heat operator and no optimization error. The exact inclusive safety angle and nonmonotone timestep range quantify when that diagnostic fails; the pathwise/moment separation explains why inspecting typical trajectories would miss it. This is a motivated sharp counterexample and classification for a minimal model, not a reliability theorem for arbitrary trial/test spaces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

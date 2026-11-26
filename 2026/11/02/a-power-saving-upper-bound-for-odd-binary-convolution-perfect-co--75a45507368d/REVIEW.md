@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope is all positive real \(X\) asymptotically and all odd BCT-perfect **composites**. For each such integer select a nontrivial odd factor pair. The case split \(t\leq B/2\) versus \(t>B/2\) covers all factor bit-length pairs. In the first case, the two guaranteed support positions \(0,t\) of the odd smaller factor forbid adjacent occupied vertices along difference-\(t\) paths in the larger factor; a disjoint matching yields the exact factor \((3/4)^{B/4}\) and exponent \(1-\log_2(4/3)/6\). In the second case, one-bit convolution implies the product of Hamming weights is at most the total number of possible sums, \(k+1\), so at least one factor is sparse; counting all sparse bitstrings yields at most \(2^{2k/3+O(\sqrt{k}\log k)}\) pairs. The strict gap \(1-\log_2(4/3)/6>2/3\) allows absorption into the same exponential exponent. Summing over dyadic lengths gives the claimed logarithmic factor. A standalone verifier checks the matching bound and finite examples. No experiment is used as an infinite argument.
+## correctness
 
-## Originality — PASS with residual priority risk
-The source's Question 9.5.2 explicitly asks for a quantitative upper bound; its theorem statements and Table 3 establish identities and finite counts but no proved power-saving census. Four focused semantic searches of existing research records, broader searches of literature for carry-free multiplication and binary orthogonality counts, and statement-level checks against related mathematical findings found no already stated or dominating general upper bound for this counting function. The closest binary-weight product result concerns a finite family of weight patterns, and a previous carry-depth bound concerns a different invariant. Searches cannot prove priority. A classical implicit upper count in additive combinatorics or digit-constrained integer multiplication remains conceivable.
+PASS
 
-## Mathematical value — PASS
-This is an infinite quantitative answer to a freshly and explicitly posed problem, not an arbitrary census or a formal substitution. The exponent below \(1\) rules out positive density and is driven by a structural graph-matching constraint for unbalanced factor lengths and a sumset/Hamming-weight constraint for balanced lengths. It does not purport to give sharp asymptotics or a bound for all BCT-perfect integers.
+Every eligible odd composite supplies an odd nontrivial factor pair with injective one-bit sums, so counting even the larger set of all such pairs is an upper bound. Assign highest bit indices t≤B and k=t+B≤floor(log₂ X). If t≤B/2, the mandatory bits 0 and t in a forbid two bits of b at distance t. The graph of that restriction on 0,…,B is a disjoint union of t paths. Matching within each path gives at least (B+1−t)/2≥B/4 disjoint edges, so at most 2^(B+1)(3/4)^(B/4) strings survive. Multiplying by at most 2^t candidates for a and using B≥2k/3 gives O(2^(ϑk)) with ϑ=1−log₂(4/3)/6. If t>B/2, B<2k/3, and injectivity into the k+1 positions implies that one factor has weight at most √(k+1). This costs only 2^O(√k log(k+2)) choices for that factor, while the other has at most 2^(B+1) choices. The resulting exponent is below ϑk for large k; finitely many small cases are absorbed with an absolute constant. There are at most k+1 splits for each k, and the sum grows geometrically up to a linear factor in floor(log₂ X). The bound and the density conclusion follow without the finite counts.
 
-## Closest literature and access limitations
-M. Iizumi, *Binary convolution height: Structural invariants of integer factorisations* (September 11, 2026), Definitions 5–6, Theorems 1–2, Section 9.5.2. Substantive publicly rendered original HTML sections were read, including the definitions, relevant theorems and exact open question. The separately downloadable publisher PDF was inaccessible. Closest additional research-record finding: *Exact (3,2,3) binary-weight product classification*, which does not address the same counting function or imply the present theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the actual evidence, pass the distinct quantitative bound on the odd composite class. Prior binary-convolution terminology, the collision equivalence and the underlying counting motivation are not the claimed additions. The closest examined catalogue statements classify fixed low binary weights, not arbitrary bit-length orthogonal pairs. The cited parent article remained inaccessible after lawful retrieval attempts, so the exact wording and open status of its question are not certified. This is a best-of-knowledge decision on the proved bound, not a priority claim or an assertion about the article's entire scope.
+
+## value
+
+PASS
+
+A power saving for a natural binary-factorization property is materially stronger than a finite table or a qualitative density observation. The proof covers all odd composite sizes and explains why orthogonality forces a saving across both bit-length regimes without assumptions on primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

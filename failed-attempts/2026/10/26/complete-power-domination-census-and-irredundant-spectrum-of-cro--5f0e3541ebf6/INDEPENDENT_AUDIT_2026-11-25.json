@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:14.199032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a mixed pair with different indices the only initially missed vertices are the opposite matched partners; an observed third-index vertex on each side can force the respective missing vertex. A pure set of size at least two observes the entire opposite side, where the fewest unobserved neighbors of an observed vertex is w−1 for w initially missed vertices. Thus w≥3 is stalled, w≤2 finishes, and a singleton is stalled for n≥4. Taking the minimal successful choices yields all formulas, including merging the two size-2 contributions at n=4. Independent set-based sequential forcing and deletion checks exhaust all 87,296 subsets for 4≤n≤8 and match the entire bivariate tables; replay from /workspace: python3 branches/replay_3_4_5.py 4. The all-n result follows from the argument, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finding and Assumptions, RESULT.md offset 0: for all n≥3 and k≥1 the mixed selections succeed and the pure side threshold is max(1,n−k−1)."
+        ],
+        "reasoning": "Taking k=1 gives precisely n−2 throughout the claimed n≥4 domain, including n=4.",
+        "searches": [
+          "Resultary 2026/10/13, exact generalized power-domination profile of crown graphs, bee65d36f8ec"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bee65d36f8ec and 6949b15f6548",
+        "arXiv:1603.07243v1 and arXiv:1805.10984v1",
+        "Chandrasekaran–Sulthana (2019), publisher link and indexed material only",
+        "Frozen RESULT.md and verification/crown_power_domination_check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighting each eligible pair of side occupancies by binomial products gives P_n. Every mixed successful set contains a mixed pair; no singleton succeeds; pure sets are minimal exactly at n−2. Counting these by their side occupancies gives M_n and hence size gap n−4."
+        ],
+        "reasoning": "No new forcing analysis or structural lemma is required beyond the earlier theorem. The explicitly stated minimal spectrum and gaps are routine implications.",
+        "searches": [
+          "Resultary bee65d36f8ec, Finding and first proof steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k=1, the rule allowing an observed vertex with at most one white neighbor to observe them all is identical to unique-white-neighbor forcing; applying the rule when it has zero adds nothing."
+        ],
+        "reasoning": "The generalized source uses the same deleted perfect matching, closed-neighborhood initialization and forcing at k=1, not a different propagation model.",
+        "searches": [
+          "Resultary: crown graph power domination classification and minimal spectrum",
+          "Dorbec–Varghese–Vijayakumar, arXiv:1603.07243v1, Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October entry explicitly prints the same diagonal cardinality polynomial at k=1. The November entry gives both diagonal polynomials and the size spectrum, but is a later comparison, not evidence of earlier priority. Brimkov et al. cover the cycle case Cr_3, outside the claimed range."
+        ],
+        "reasoning": "No printed side-refined table is needed for coverage: the earlier labeled classification distinguishes each side already.",
+        "searches": [
+          "Resultary bee65d36f8ec",
+          "Resultary 2026/11/8 crown graph power domination and nonmonotone reconfiguration, 6949b15f6548",
+          "Brimkov et al., arXiv:1805.10984v1, Proposition 20"
+        ]
+      },
+      "rationale": "The earlier generalized crown-graph record supplies the same labeled eligibility criterion at k=1 and explicitly supplies the ordinary enumerator. The bivariate and irredundant refinements are mechanical consequences of that criterion, so there is no distinct mathematical remainder. The unavailable 2019 article is not the basis for failure.",
+      "residual_risks": [
+        "Exact contents of the 2019 article remain unresolved. This cannot undo the explicit generalized theorem in the earlier catalogue record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader coverage",
+          "evidence": "Explicit h=max(1,n−k−1), necessary-and-sufficient side criterion, and polynomial for all k≥1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-generalized-power-domination-profile-of-crown-graphs--bee65d36f8ec/RESULT.md",
+          "material_read": "Finding, assumptions, and mixed and pure side proof, offset 0–3640",
+          "method": "Local mirror statement and scope inspection",
+          "title": "Exact generalized power-domination profile of crown graphs",
+          "trigger": "Same graph class and potentially stronger parameter theorem"
+        },
+        {
+          "assessment": "Direct later overlap, not used for earlier priority",
+          "evidence": "The criterion, both one-variable polynomials, and the minimal-size gap are explicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-crown-graph-power-domination-and-nonmonotone-reconfiguration-thr--6949b15f6548/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Crown graph power domination and nonmonotone reconfiguration",
+          "trigger": "Near-exact catalogue match"
+        },
+        {
+          "assessment": "Prior scalar result in the matching example, not the enumerator in inspected passages",
+          "evidence": "γ_(P,k)=2 for K_(k+3,k+3) minus a perfect matching; for k=1 this concerns Cr_4.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.07243",
+          "material_read": "Definition 1 and crown examples, PDF pp. 2, 4, 8",
+          "method": "OA passage inspection",
+          "title": "Heredity for generalized power domination",
+          "trigger": "Published crown graph with matching deletion"
+        },
+        {
+          "assessment": "Earlier cycle case outside range",
+          "evidence": "P(C_m;x)=(1+x)^m−1; Cr_3=C_6.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "Proposition 20, PDF p. 11",
+          "method": "OA passage inspection",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Possible containing polynomial theorem"
+        },
+        {
+          "assessment": "Unresolved coverage, not treated as a negative finding",
+          "evidence": "No verified article theorem or forcing convention from full text.",
+          "identifier_or_url": "https://www.ripublication.com/ijaer19/ijaerv14n13_11.pdf",
+          "material_read": "Bibliographic identification and indexed scalar characterization reported by the earlier record; article text unavailable",
+          "method": "Lawful publisher retrieval attempted; HTTP 401 after timeouts",
+          "title": "k-Power Domination of Crown Graph",
+          "trigger": "Exact-object 2019 primary paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The gap illustrates that minimum and inclusion-minimal power domination can be far apart, but in this submission it follows by inspecting the minimal elements of a previously classified family. Side weighting and deleting higher occupancies add no independently useful unknown fact. No substantive surviving claim was found to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

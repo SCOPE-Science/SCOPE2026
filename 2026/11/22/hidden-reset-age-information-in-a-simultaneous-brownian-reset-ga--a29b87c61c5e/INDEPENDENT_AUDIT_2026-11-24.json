@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:44:28.833802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, model and proofs 1–4, especially the likelihood overlap and the entropy subtraction",
+        "VERIFICATION.md",
+        "code/verify.py and code/requirements.txt, inspected as finite quadrature support"
+      ],
+      "rationale": "At stationary common Poisson resets U=rT is unit exponential. Given U, the radius squared in units 4D/r is UB with B independent unit-rate Gamma(k), k=N/2; Gaussian angles are independent of U given the radius, including the sign at N=1. The Mellin product integral gives the stated Bessel-K density, with the extra Jacobian e^v for its log. Entropies are finite by the Bessel tails (the log-left tail at k=1 can carry a polynomial factor). Taking logs gives the difference of the output entropy and h(log B)=log Gamma(k)-k psi(k)+k, with all r,D scaling removed. The posterior density of U given any existing finite snapshot of nonzero radius is positive on (0,infinity), and the distinct conditional normal variances exclude conditional independence of the next coordinate and U. The information chain rule gives strict increase. The scalar Laplace marginal with scale sqrt(D/r) and E log U=-EulerGamma give the displayed I_1. For the delicate entropy correction, independently expanded the exact relative-entropy argument: f(w)=exp(w-e^w), Z=log B-psi(k), and for p=f*law(Z), h(p)-h(f)=E exp(Z)-1-D(p||f). On |Z|<=delta<log 2, write a=e^{-Z}-1 and a' for an independent retained shift. The likelihood overlap minus 1 is aa'/(1+a+a'), uniformly away from a zero denominator. Expanding the reciprocal as 1-(a+a')+(a+a')^2/(1+a+a') bounds the retained chi-square by O(k^{-2}), since Ea=O(k^{-1}), Ea^2=O(k^{-1}), E|a|^3=O(k^{-3/2}), and E|a|=O(k^{-1/2}). These follow from the centered second and fourth Gamma-log moments plus exponentially small truncation of the mean. Gamma Chernoff bounds give exponential tails for the omitted mass, and the exponentiated shift tail is bounded by the same estimate for a shape k+1 tilted Gamma law. Cauchy–Schwarz controls the omitted log moment. Convexity of relative entropy and the exact single-shift divergence exp(Z)-1-Z then give D(p||f)=O(k^{-2}) plus exponentially small terms. Digamma gives E exp(Z)-1=1/(2k)+O(k^{-2}); Stirling and digamma give h(log B)=0.5 log(2 pi e/k)+1/(6k)+O(k^{-2}). This verifies the positive difference 1/(3k)=2/(3N), with the stated leading constant and remainder.",
+      "residual_risks": [
+        "No quadrature result is needed for the proof of strictness or the asymptotic. The conclusion concerns exact common-reset snapshots, not separate clocks, other priors, observation noise, or an inference algorithm's risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clarke–Barron's leading half-log law is credited. An identified Yale author copy could not be retrieved through the lawful reader; no whole-paper exclusion is made.",
+          "Rioul gives the first derivative at t=0 of h(X+sqrt(t) Z) for fixed independent noise Z, determined by its covariance and the signal's Fisher information. This already explains the general form of the entropy increase. In the audit Z would be the standardized log-Gamma fluctuation, whose law varies with k; the fixed-noise o(t) expansion as stated is not a uniform guarantee for t=psi_1(k) along that sequence.",
+          "Komaki compares fixed-parameter predictive KL risks of alternative priors up to order N^{-2}. The next-sample conditional mutual information equals the proper prior's averaged predictive risk. Moving from that pointwise comparison to the audited prior-averaged information requires control of the integrated remainder on the unbounded log-variance domain and evaluation of an absolute reference risk, not just a risk difference."
+        ],
+        "reasoning": "The general methods and leading mechanisms are already in the literature. Neither inspected statement establishes the needed changing-noise or prior-averaged remainder directly, and these technical requirements are established independently by the explicit likelihood-overlap calculation.",
+        "searches": [
+          "Web: Bayesian mutual information Bayes redundancy second order 1/n asymptotic expansion expected KL normal variance prior log gamma Clarke Barron Komaki Laplace",
+          "Web: general non-Gaussian small-noise de Bruijn identity, Rioul",
+          "arXiv:0704.1751 Proposition 7 and Corollary 1; arXiv:1503.07643 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.00563",
+        "arXiv:2205.01613",
+        "doi:10.1109/18.54897 (limited material)",
+        "arXiv:0704.1751",
+        "arXiv:1503.07643",
+        "Resultary 2ff29ec8b9fe and 75de5df4737b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the joint and marginal laws implies the entropy identity by standard information manipulations, and strictness follows from posterior nondegeneracy. These are not counted as independent methodological breakthroughs.",
+          "Komaki's risk comparison is genuinely consistent with the coefficient: formally in log variance the Fisher metric is 1/2, the reference prior is flat, and integrating the formula's leading risk difference against f gives 4 times the integral of sqrt(f) times its second derivative, equal to -J(f)=-1. The flat-log reference has exact one-step risk h(log Gamma(k))-h(log Gamma(k+1/2)), giving 1/(2N)+1/(12N^2)+higher orders. If prior-averaging the pointwise remainder were justified, subtracting 1/N^2 in the increment and summing would recover the displayed 2/(3N). The pointwise theorem itself does not furnish that averaging step here.",
+          "The same finite-size coefficient cannot be deduced from the switching harmonic record's o(1) control, or from a Gaussian-only de Bruijn identity. The frozen proof supplies a triangular-array entropy estimate using the actual prior and noise."
+        ],
+        "reasoning": "A directly applicable stronger theorem would count as coverage. Here the stated general entropy and predictive-risk results are not a verified implication of the full model-specific controlled expansion, even though they explain its terms; the closest indexed statement is materially weaker in order and different in its input law.",
+        "searches": [
+          "arXiv:2211.00563 Eqs. (4)–(5)",
+          "arXiv:0704.1751, Proposition 7 Eq. (36a) and Corollary 1",
+          "arXiv:1503.07643, §3 Eq. (10)",
+          "Resultary 2ff29ec8b9fe mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al. gives the same common-age distributional model and stationary Bessel-K law; the information calculation is a functional of that known model, not a new mixture or distribution. Maso-Puigdellosas et al. gives the scalar backward-age posterior, another direct ingredient at N=1.",
+          "The entirely equivalent Bayesian experiment observes iid centered normals with exponential variance prior, or log age as a location input with independent log-Gamma noise after radial sufficiency. The indexed switching harmonic gas uses the same type of log-chi-square location noise, but a different prior and main observable."
+        ],
+        "reasoning": "The antecedents give exact ingredients and reformulations. No inspected same-model source evaluates the whole age–snapshot information law or its first finite-size correction.",
+        "searches": [
+          "arXiv:2211.00563 Eqs. (4)-(5), common reset Gaussian scale mixture",
+          "arXiv:2205.01613 Eqs. (43)-(46), conditional backward age",
+          "Resultary: exact reset-age entropy information, normal exponential-variance prior, log-Gamma noise and first finite-size correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match a29b87c61c5e was the assigned record and was excluded. In the strongest distinct match 2ff29ec8b9fe, the same type of entropy difference occurs for switching-harmonic-gas log-variance and is evaluated through a leading law with o(1), not to order 1/N for exponential age.",
+          "The same-day reset-age discrimination result 75de5df4737b gives a binary discrimination error and its logarithmic horizon in a confined model, not this mutual information, exact population benchmark or coefficient."
+        ],
+        "reasoning": "The exact matches to parts of the model or a sufficient-statistic formula are credited, but not a duplicate table or dominating claim. Same-day publication date does not resolve ordering.",
+        "searches": [
+          "Resultary: exact hidden reset age mutual information Bessel K entropy normal exponential variance log Gamma 2/(3N)",
+          "Resultary distinct IDs 2ff29ec8b9fe and 75de5df4737b"
+        ]
+      },
+      "rationale": "Credit the already known mixture, Bessel-K input, generic log-noise reformulation and leading information order; strict monotonicity uses the standard information chain rule and is not a standalone general innovation. The supported distinct contribution is the evaluated age–snapshot information, especially its explicit first correction with a justified remainder for the changing log-Gamma perturbation. General results come close, but the inspected statements do not directly supply this correction with controlled remainder for this prior and triangular array.",
+      "residual_risks": [
+        "Full text access to the original 1990 Clarke–Barron paper was not achieved. A theorem with an adequately uniform non-Gaussian small-noise remainder or prior-integrated predictive-risk asymptotics could give another specialization; no direct coverage was established in the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and Bessel-K law; inspected observables do not state the information correction",
+          "evidence": [
+            "Product Gaussian density averaged over one exponential age; Bessel-K stationary law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "PDF pp. 2–3, Eqs. (4)–(5) and stated targets",
+          "method": "Primary OA PDF at offsets about 9800–18595",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Exact same common-reset model"
+        },
+        {
+          "assessment": "Covers conditioned scalar age, not the claimed population expansion",
+          "evidence": [
+            "Stationary conditional backward-age density for one Brownian coordinate under exponential resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.01613",
+          "material_read": "PDF p. 7, Eqs. (43)–(46)",
+          "method": "Primary OA PDF offsets about 42000–45706",
+          "title": "Conditioned backward and forward times of diffusion with stochastic resetting",
+          "trigger": "Earlier scalar reset-age inference"
+        },
+        {
+          "assessment": "Credit leading Bayes asymptotics; second-order content not decided from this access",
+          "evidence": [
+            "Bayes joint density formed by integrating iid likelihood against the prior."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.54897",
+          "material_read": "Bibliographic and abstract material, no primary full text",
+          "method": "Lawful DOI and alternate archive attempts; HTTPS Yale copy identified but certificate validation failed; ResearchGate alternate returned HTTP 403",
+          "title": "Information-Theoretic Asymptotics of Bayes Methods",
+          "trigger": "Possible general excess-information coverage"
+        },
+        {
+          "assessment": "Covers a fixed-noise derivative and its covariance form; no demonstrated k-uniform remainder for the present substitution",
+          "evidence": [
+            "h(X+theta Z)-h(X) has leading theta^2 times one-half the Fisher/covariance contraction for independent fixed X,Z."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0704.1751",
+          "material_read": "PDF pp. 14 and 17–18, Proposition 7, Eqs. (36a) and (37), Corollary 1",
+          "method": "Primary OA PDF offsets 52870 and 68120",
+          "title": "Information Theoretic Proofs of Entropy Power Inequalities",
+          "trigger": "Potential stronger non-Gaussian small-noise entropy expansion"
+        },
+        {
+          "assessment": "Close pointwise risk-difference mechanism, not directly a prior-averaged information expansion with the needed controlled error",
+          "evidence": [
+            "N^2-scaled predictive risk difference between two priors; predictive-metric Laplacian of the square root of the prior ratio relative to its reference prior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.07643",
+          "material_read": "Risk definition, Theorems 1 and 2, Eq. (10)",
+          "method": "Primary OA PDF offsets 3200, 15680 and 22700",
+          "title": "Asymptotic Properties of Bayesian Predictive Densities When the Distributions of Data and Target Variables are Different",
+          "trigger": "Corollary risk at the order that yields the first information correction upon summation"
+        },
+        {
+          "assessment": "Generic channel representation matched; different prior, main information target and precision",
+          "evidence": [
+            "F_k = h(W+Z_k)-h(Z_k) with Z_k=log(chi-square_k/k), leading order with an o(1) remainder."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-information-sharing-and-the-weak-contrast-threshold-in-a-switchi--2ff29ec8b9fe",
+          "material_read": "RESULT.md offsets 0–9254",
+          "method": "Local Resultary mirror",
+          "title": "Information sharing and the weak-contrast threshold in a switching harmonic gas",
+          "trigger": "Indexed equivalent additive log-Gamma channel"
+        },
+        {
+          "assessment": "Different observable and process; no same coefficient implication",
+          "evidence": [
+            "Binary age discrimination and logarithmic time horizon under confinement."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-reset-age-discrimination-horizon-in-a-confined-bro--75de5df4737b",
+          "material_read": "RESULT.md finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic reset-age discrimination horizon in a confined Brownian gas",
+          "trigger": "Indexed common-reset snapshot and age information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, stationary observation model, exact entropy and first correction",
+        "arXiv:2211.00563, nearby distributional observables"
+      ],
+      "rationale": "For a synchronous reset gas the latent time since reset is a physically meaningful common cause, and the full-snapshot information distinguishes recoverability of that variable from ordinary position or square-position correlations. The exact integral and finite-size term provide an information benchmark beyond the universal leading order, with a tail argument that matters for this non-Gaussian observation experiment. This motivates the precise coefficient without relying on a downstream theorem or a claim about an estimator.",
+      "residual_risks": [
+        "The benchmark quantifies information in an ideal snapshot; it is not a practical reconstruction or measurement protocol."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

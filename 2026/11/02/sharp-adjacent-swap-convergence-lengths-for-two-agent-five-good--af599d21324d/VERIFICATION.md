@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Compile and run in the directory containing all bundled files:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 -Wall -Wextra verify.cpp -o verify
-./verify
-python3 crosscheck.py
-```
+PASS
 
-The first standalone program generates all 120 strict rankings, their adjacent swaps, the exact alternating-round-robin allocation mask for each of 14,400 report profiles, and the possible profitable directed transitions for all 120 choices of the second agent's true ranking after fixing the first ranking by good relabeling. It checks the one-item exchange lemma for every candidate and uses depth-first cycle detection and longest-path recursion for every graph. Its main output includes:
+The displayed constants are maxima over the specified starts and preferences, not assertions that each profile attains both. Relabeling fixes the first truthful order and preserves adjacency, picking, and gains. An independent replay of all 14,400 report pairs and their eight directed adjacent changes per state found 88,800 unchanged allocations and 26,400 one-for-one exchanges. This proves independence of cardinal magnitudes because the deviator's strict gain is exactly the rank comparison of the two exchanged goods. Topological elimination exhausted all 14,400 states for each of the 120 remaining true orders; longest-path recursion counted arcs, giving 1,584,000 improving arcs in total, no cycles, and maxima 18 and 6. Both are attained: for true orders (01234,01234) one witness starts at (23410,43210), and for true orders (01234,31240) a six-move witness starts at that truthful pair. Each step was checked under the positive utility 5 minus zero-based rank. Exhaustion proves the bounds only for the stated five-good move rule; only maximal sequences terminate at a local equilibrium.
 
-```
-N=14400 transitions_zero=88800 transitions_one_swap=26400 transitions_multiple=0
-true_ranking_profiles=120 cycles=0 best_all=18 best_from_truth=6 sum_longest_truth=117 active_edges_total=1584000
-```
+## originality
 
-The second implementation independently replays all pick sequences, reconstructs gains and losses, and uses Kahn's topological-order algorithm and longest-path dynamic programming. Its output is:
+PASS
 
-```
-VERIFY_INDEPENDENT 14400 120 18 6 1584000
-WITNESSES_OK 18 6
-```
+The supported distinction is the exact five-good ordinal census of every strictly improving adjacent edge and the two sharp path bounds. The closest same-mechanism source proves a four-item convergence result and conjectures a continuation to at least five; it does not give the census or the two constants.
 
-`WITNESSES.json` contains every reported-ranking pair and first-agent bundle mask along each sharpness path. `crosscheck.py` verifies their masks, that exactly one adjacent transposition occurs at every step, and that the changed agent's gained good is strictly preferred to the lost good according to the stated true ranking. These are direct integer checks, not numerical approximations. The certificate does not use Monte Carlo, random seeds, optimization solvers, external datasets, or a timeout interpreted as nonexistence.
+## value
 
-**Limits:** These checks cover the entire **five-good** finite state space under the stated preference and action assumptions, not six or more goods. The utilities are assumed strictly rank-consistent and additive; the reduction to ordinal comparisons relies on the verified one-item exchange property. The published-source comparison is an originality assessment and not independent publication-priority certification. The independent audit status is unperformed.
+PASS
+
+Five is the first number of goods beyond the published four-item positive boundary. Proving termination for every improving edge and measuring the exact cost in moves from arbitrary and truthful initialization give meaningful, different benchmarks for this local dynamics; the cardinal-independence check makes them robust across all admissible additive values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

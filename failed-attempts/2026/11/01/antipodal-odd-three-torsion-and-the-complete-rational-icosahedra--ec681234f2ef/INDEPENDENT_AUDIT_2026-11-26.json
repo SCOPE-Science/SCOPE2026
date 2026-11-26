@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:38.760743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54",
+        "Frozen VERIFICATION.md lines 18–24, verification_output.txt lines 1–7 and verify_equivariant_icosahedron.py lines 1–320; supplied code inspected, not run",
+        "Independent replay: python3 /tmp/opencode/icosa_review.py, using FLINT for integral Smith form and mod-3 ranks. For the two-ring graph labeled upper 0–4, lower 5–9, poles 10 and 11, the cancellation pivot order was [3,1,13,19,10,20,8,17,23,22,15,2,26,9,24,7,28,27,0,21,18,25,11,16,5,29,4,6,14,12] on sorted edges."
+      ],
+      "rationale": "An independent two-pole/two-pentagon graph construction gave all 5,888 augmented faces, and propagation of all oriented triangle images yielded all 120 automorphisms, classified by the boundary orientation. An independently chosen acyclic Morse matching has 121 critical 3-cells and 57 critical 4-cells only; its integral boundary by signed forward elimination has Smith factors 56 units and 3, proving H3=Z^64⊕Z/3 and integral H4=0. On the original simplicial face set the negative augmented signed Lefschetz sum is the H3 character. For rotational orders 1,2,3,5 I found (64,0,−2,−1) for rotations and (16,0,−2,1) for antipodal multiples, constant on all the corresponding elements even when the order-5 class splits. The even and odd A5 rows are (40,0,−2,0,0) and (24,0,0,−1,−1). Inner products with V4=(4,0,1,−1,−1), V5=(5,1,−1,0,0), and the V6 sum row (6,−2,0,1,1), dividing the V6 inner product by two, give exactly (2,4,2) and (2,2,1), without trivial constituents. Independently of the Morse matching I split the original signed mod-3 chain spaces into antipodal ± eigenbases, taking signed orbit sums and differences. In each parity dim C4=741; for + the ranks of ∂4,∂5 are 686,55 and for − they are 670,70. Hence the unique H4(F3) line is odd. Natural UCT with integral H4=0 identifies it with Tor(H3(Z),F3); antipodal inversion is −1 on the integral order-three subgroup. The rotational action is necessarily trivial because A5 is perfect and Aut(Z/3) is abelian.",
+      "residual_risks": [
+        "The independent checks determine the rational representation and the characteristic torsion subgroup, not the integral free lattice or an equivariant homotopy model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer–Jelić Milutinović–Vega p. 6, offset 11350, gives a wedge or contractibility result for its polygonal-chain family; Mondal–Mukherjee–Saha p. 1, offsets 909 and 3215, address complete graphs.",
+          "28565ad1ea1a determines the nonequivariant wedge with an order-three Moore space. a6e971d0c6fd states the antipodal splitting 40/24 and the odd three-torsion action."
+        ],
+        "reasoning": "The general topology papers concern other families; the nonequivariant predecessor alone cannot imply the group action. The October equivariant result covers the torsion and splitting, though not the full rotation constituents.",
+        "searches": [
+          "arXiv:2211.12559 and arXiv:2305.02973, matching-complex Morse classifications",
+          "Resultary 28565ad1ea1a and a6e971d0c6fd (same graph, increasingly equivariant conclusions)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 56–68",
+        "Resultary c6e25fb3b56b, 3648a78d0e9d, a6e971d0c6fd, 28565ad1ea1a",
+        "arXiv:2211.12559 and arXiv:2305.02973"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Oct. 18 statement says rotations fix the torsion, inversion negates it and rational eigen-dimensions are 40 and 24. The same-day c6e25fb3b56b explicitly adds the identical full rational decomposition: (2V4+4V5+2V6)^+ and (2V4+2V5+V6)^−."
+        ],
+        "reasoning": "It is true, as the frozen record says, that the known abstract wedge does not determine an action. But the exact torsion character is already stated earlier, and the whole proposed equivariant claim is stated in a distinct indexed record. A different finite verification is not a claim about a new representation or an integral lattice.",
+        "searches": [
+          "Frozen RESULT.md lines 16–18, 56–62 versus Resultary c6e25fb3b56b, 3648a78d0e9d, a6e971d0c6fd, and 28565ad1ea1a Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c6e25fb3b56b uses the same canonical 12-vertex graph and its ordinary matching complex; its V_i^± means exactly V_i tensored with the central sign indicated in the frozen claim.",
+          "3648a78d0e9d gives the same rational decomposition under all graph symmetries but not the torsion sign."
+        ],
+        "reasoning": "Identical signed constituent multiplicities over Q and the same action on the characteristic integral Z/3 are substantive equivalent coverage, not a title or parameter match. The same-day dates do not determine order.",
+        "searches": [
+          "Resultary icosahedral ordinary matching-complex symmetry, rational character and antipodal torsion comparisons",
+          "c6e25fb3b56b and 3648a78d0e9d Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c6e25fb3b56b tabulates (64,0,−2,−1) and (16,0,−2,1) for central exponents 0 and 1 across rotation orders 1,2,3,5, and states the antipodal torsion sign immediately after the table."
+        ],
+        "reasoning": "These values apply to every symmetry and to both order-five classes, so the table determines the rational character, not just the dimension or inversion trace. It is accompanied by the integral torsion conclusion.",
+        "searches": [
+          "Resultary c6e25fb3b56b exact character table, opening Finding; 3648a78d0e9d parallel rational computation"
+        ]
+      },
+      "rationale": "There is a distinct indexed record c6e25fb3b56b with the same graph, action, full rational decomposition and exact torsion sign, and another same-day 3648a78d0e9d gives the same rational character alone. No priority or independence inference is made from their same-day dates. In addition a clearly earlier record, a6e971d0c6fd (Oct. 18), already states the torsion action and both rational eigenspace dimensions. The frozen discussion credits only the nonequivariant wedge and does not establish new content beyond these overlapping results.",
+      "residual_risks": [
+        "Exact equivalent content is established, but relative order and independence of the Nov. 1 records are not. No conclusion about authorship or priority follows from this judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage for the entire Finding, with date-level priority unresolved",
+          "evidence": "Same six signed multiplicities, class character table, only nonzero reduced rational degree 3, and odd Z/3 under inversion with trivial rotations.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-icosahedral-matching-homology-its-complete-rational-character-an--c6e25fb3b56b",
+          "material_read": "Finding offset 0–1741; prior-work discussion near offset 8300",
+          "method": "Resultary search and local-mirror RESULT.md",
+          "title": "Icosahedral matching homology: its complete rational character and antipodal three-torsion",
+          "trigger": "Exact-match full group, graph and invariants"
+        },
+        {
+          "assessment": "Same-day exact overlap for the rational part",
+          "evidence": "Identical rational A5×C2 decomposition; does not state torsion action.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-full-icosahedral-symmetry-of-matching-complex-rational-homology--3648a78d0e9d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror RESULT.md",
+          "title": "Full icosahedral symmetry of matching-complex rational homology",
+          "trigger": "Same group and same rational character"
+        },
+        {
+          "assessment": "Earlier exact overlap on torsion and inversion dimensions",
+          "evidence": "Z/3 is fixed by rotations and negated under inversion; rational inversion eigendimensions 40 and 24.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-antipodal-symmetry-distinguishes-the-free-and-three-torsion-homo--a6e971d0c6fd",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror RESULT.md",
+          "title": "Antipodal symmetry distinguishes the free and three-torsion homology",
+          "trigger": "Same graph and explicit earlier torsion sign"
+        },
+        {
+          "assessment": "Covered nonequivariant precursor, not itself the equivariant result",
+          "evidence": "Wedge of 64 S³ and M(Z/3,3); no symmetry action given.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror RESULT.md",
+          "title": "Three-torsion in the icosahedral matching complex: a planar counterexample",
+          "trigger": "Cited underlying integral calculation"
+        },
+        {
+          "assessment": "Different class of graphs",
+          "evidence": "Wedge or contractibility conclusion for a specified extended polygonal-line-tiling family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12559",
+          "material_read": "p. 6, offset 11350",
+          "method": "OA primary PDF passage",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Matching-complex discrete Morse and homotopy theorems"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "The graphs are complete graphs, not the icosahedral graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.02973",
+          "material_read": "p. 1, offsets 909 and 3215",
+          "method": "OA primary PDF passages",
+          "title": "Topology of matching complexes of complete graphs via discrete Morse theory",
+          "trigger": "Matching-complex Morse method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Resultary c6e25fb3b56b exact full equivariant assertion and a6e971d0c6fd earlier torsion action"
+      ],
+      "rationale": "The full symmetry action on the planar three-torsion example is a natural and useful exact invariant, and the independent calculations corroborate it. As a submitted narrow invariant, however, the entire claimed datum is already available in an equivalent indexed record, with the torsion sign also in a demonstrably earlier result. This submission does not give a distinct mathematical result such as an integral free-lattice description or an equivariant homotopy theorem; its finite certificate is not offered as a new general method.",
+      "residual_risks": [
+        "The negative judgment is about the contribution beyond existing coverage, not the intrinsic usefulness of knowing the invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

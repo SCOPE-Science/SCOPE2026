@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:49:37.224802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions–Proof and VERIFICATION.md",
+        "Repaired RESULT.md, all-branches, generating-function pole and determinant proofs",
+        "Liu–Tang–Hong (2022), §§2,3.1, especially Theorem 1 and Eq. (10)"
+      ],
+      "rationale": "The fixed-point equations give the complete integer sine preimages, with distinct branches for c>1. Their Jacobian has trace -1 and determinant D=2 pi c x y cos(pi y), of magnitude 2 pi sqrt(c-1)|y|. The frozen proof's endpoint statement for the radial bound is incorrect at order one (the bound tends to zero, not a positive limit), and an if-only citation is not sufficient to infer necessity for decay or exclude boundary points. The repaired proof uses the actual shifted Caputo-delta recurrence to obtain the generating matrix (1-z)^(nu-1)[(1-z)^nu I-zM]^(-1). When the denominator is zero-free on the closed disk, this has integrable radial boundary data, since |t|^(nu-1) is integrable, and its coefficients vanish by Riemann–Lebesgue, including a repeated eigenvalue. An interior denominator root is incompatible with decay on an eigendirection; a boundary root away from 1 is simple and gives a nonzero Abel limit after multiplication by 1-rho, which again excludes decay. A zero eigenvalue admits a constant mode. On each relevant ray the unit-circle boundary map has exactly one crossing; small radii on a strict angle ray are root-free, large radii have a root by Rouché, and crossing can only occur on that boundary. Positive real eigenvalues have an interior real root. Thus the determinant interval is exactly 0<D<d_nu, with the limiting radial behavior corrected and d_1=1. The positive-determinant states occur exactly in pairs at |y|=n+arctan(sqrt(c-1))/pi, n>=0. Counting strict inequality at the threshold with a ceiling yields the stated asymptotic and uniformly bounded rounding error near c=1. No reported numerical samples were needed or independently reproduced.",
+      "residual_risks": [
+        "The repair treats the constant-coefficient variational equation with a common Caputo-delta order, not nonlinear stability or other fractional conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 text reproduces a strict sufficient sector for constant-coefficient commensurate delta systems; the later catalogue entry cites a general necessary-and-sufficient result. The older map of Bi et al. is order one.",
+          "Resultary 83f0e50e0fe3 is stronger than the frozen finding in describing the transition-parameter accumulation as well as the exact census."
+        ],
+        "reasoning": "The general stability tools do not classify the real sine branches or convert the determinant restriction into an asymptotic count. The older order-one object does not cover order-dependent constants. The later Resultary theorem does cover the census mathematically; that is distinct from demonstrating earlier coverage.",
+        "searches": [
+          "Čermák–Győri–Nechvátal doi:10.1515/fca-2015-0040",
+          "Liu–Tang–Hong Theorem 1 Eqs. (6)–(7)",
+          "Busłowicz–Ruszewski doi:10.2478/bpasts-2013-0084 as cited by Resultary 83f0e50e0fe3",
+          "Bi et al. doi:10.7498/aps.62.240503"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Tang–Hong (2022) primary passages",
+        "Bi et al. (2013) identification",
+        "Čermák–Győri–Nechvátal (2015) criterion via 2022 reproduction",
+        "Resultary 83f0e50e0fe3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the published map the angle condition is automatic for complex trace-minus-one eigenpairs; the radial bound nevertheless requires a determinant-dependent crossing. The leading count additionally depends on the parity and reflection pattern among the full periodic branches.",
+          "The later exact staircase does imply the Nov. 2 asymptotic. Its prior-work paragraph cites the 2013 integer map, 2022 fractional map, and general linear criterion, not an earlier all-order census."
+        ],
+        "reasoning": "The published general spectral tests and equations are credited premises, not direct prior statements of the count. The later exact result covers it by a bounded ceiling error; that mathematical implication is acknowledged without using catalogue order as proof of independent priority.",
+        "searches": [
+          "Liu–Tang–Hong (2022) Theorem 1 and §3.2",
+          "Resultary 83f0e50e0fe3, Proof §§3–4 and prior-work paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Tang–Hong Eq. (10) is the same commensurate fractional system; §3.2 lists the origin and two principal-arcsine points, not the full real sine preimages.",
+          "The Nov. 22 catalogue Finding uses order alpha and threshold D_alpha for the same model and obtains exactly the order-dependent count, with the arcsine offset rewritten as an arctangent."
+        ],
+        "reasoning": "Identifying alpha=nu, D_alpha=d_nu and arcsin(sqrt(1-1/c))=arctan(sqrt(c-1)) makes the later count and leading coefficient mathematically equivalent. The 2022 finite list at the stationary branches is not an equivalent real-state census.",
+        "searches": [
+          "Liu–Tang–Hong doi:10.3390/e24030320 §§2–3.2",
+          "Resultary 83f0e50e0fe3, Finding and Proof §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later exact formula is 2 max(0,ceil(D_alpha/(2 pi sqrt(c-1))-arctan(sqrt(c-1))/pi)), whose leading term is exactly the one audited.",
+          "The 2022 enumerated fixed points are not a stability count across all integer translates."
+        ],
+        "reasoning": "This analytic staircase is the exact-data counterpart of a table and is a direct match, not just a parameter hit. Its catalogue date and stronger content are recorded. No matching earlier exact count is established by the inspected primary passages.",
+        "searches": [
+          "Resultary 83f0e50e0fe3, exact stability staircase and branch count",
+          "Liu–Tang–Hong (2022) §3.2"
+        ]
+      },
+      "rationale": "The pass is for the full real-state, order-dependent equilibrium census of the frozen Nov. 2 finding, not its model, the general spectral sector, the integer-order predecessor, or a claim that the census is absent from the present catalogue. A separate Nov. 22 Resultary entry demonstrably contains the same all-order census and more: an exact ceiling formula and inverse-square transition accumulation. Its listing follows the frozen record and gives no evidence of an earlier version supplying this full claim. The comparison establishes equivalent coverage in that later entry, not who originated the result. Earlier accessible material gives the criterion and the map but does not substantiate this all-order stable-branch law. The repair makes the overlap explicit and does not claim its proof clarification or ceiling formula as a separate novelty.",
+      "residual_risks": [
+        "The exact later match prevents claiming uniqueness in the current corpus. Independent authorship and priority are not established.",
+        "The 2013 and 2015 original full texts were not inspected; possible order-one overlap and unindexed earlier all-order analyses remain open. The proof of the repaired variational claim does not depend on confirming a missing necessity clause in the 2015 text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining system and sufficient stability test, but principal branches only in the fixed-point section",
+          "evidence": [
+            "Eq. (10) uses the shifted Caputo-delta state argument as assumed in the proof. Theorem 1 is phrased as a sufficient strict stability test. Section 3.2 lists no integer lattice at c=1 and only the principal pair when c>1."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e24030320",
+          "material_read": "OA PDF p. 3 §2 Theorem 1, Eqs. (6)–(7); pp. 3–4 §§3.1–3.2, Eqs. (8)–(10) and fixed-point list; pp. 13–14 refs. 37,42",
+          "method": "Open publisher PDF passage comparison",
+          "title": "A Fractional-Order Sinusoidal Discrete Map",
+          "trigger": "Same fractional equation, precise discretization and published stability/fixed-point statements"
+        },
+        {
+          "assessment": "Cannot independently exclude order-one overlap; the order-one setting does not by itself give the order-dependent fractional law",
+          "evidence": [
+            "Liu–Tang–Hong §3.1 attributes the integer map in Eqs. (8)–(9) to refs. 37–38, including this 2013 article."
+          ],
+          "identifier_or_url": "https://doi.org/10.7498/aps.62.240503",
+          "material_read": "Bibliographic identification and attribution in the 2022 primary text; original full text unavailable",
+          "method": "Primary citation lookup and bounded lawful publisher/alternate retrieval attempts",
+          "title": "Bifurcation and attractor of two-dimensional sinusoidal discrete map",
+          "trigger": "Same-map integer-order predecessor, potential earlier branch enumeration"
+        },
+        {
+          "assessment": "General prior stability theory; the repaired necessity argument does not rely on unseen material",
+          "evidence": [
+            "The 2022 Theorem 1 radial and angular inequalities apply to the same linear shifted equation; its wording alone does not give an if-and-only-if."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/fca-2015-0040",
+          "material_read": "Identification and theorem as reproduced in Liu–Tang–Hong p. 3; original full text not retrieved",
+          "method": "Lawful DOI/publisher attempts plus inspection of the reproduced sufficient statement",
+          "title": "On explicit stability conditions for a linear fractional difference system",
+          "trigger": "Cited general stability theorem and missing necessity at its boundary"
+        },
+        {
+          "assessment": "Direct equivalent coverage of the count and asymptotic in a separate later-listed stronger finding",
+          "evidence": [
+            "Same four branches, same determinant threshold for all commensurate orders and same exact ceiling count. Also establishes inverse-square accumulation. Its stated general stability source is Busłowicz–Ruszewski Theorem 4 and Eq. (42); that primary paper was not independently retrieved by DOI. The entry does not document an earlier all-order branch census."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/83f0e50e0fe3",
+          "material_read": "RESULT.md Finding and Proof §§3–4; prior work, limitations and references at offset 6363; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and local-mirror passage comparison",
+          "title": "Fractional-memory stability staircase and inverse-square accumulation",
+          "trigger": "Exact same-model determinant threshold and census in the configured index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof",
+        "Liu–Tang–Hong (2022) §3.2",
+        "Resultary 83f0e50e0fe3 for distinct later transition-accumulation content"
+      ],
+      "rationale": "The full unbounded state space changes a natural equilibrium and local-stability invariant of the published map: the same few principal equilibria do not describe its stable branches, and the number of linearly stable nonzero states diverges at a specified order-dependent rate. The strict count includes exact boundary exclusions and clarifies that this is a variational result, not a conclusion about actual basins or nonlinear sinks. This is a motivated full model census, not a general stability theorem or a plotting-window artifact.",
+      "residual_risks": [
+        "No nonlinear attraction, basin sizes, or incommensurate-order stability claimed. The count diverges by including equilibria at increasing |y|, not by asserting infinitely many stable equilibria in a bounded region at fixed c."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

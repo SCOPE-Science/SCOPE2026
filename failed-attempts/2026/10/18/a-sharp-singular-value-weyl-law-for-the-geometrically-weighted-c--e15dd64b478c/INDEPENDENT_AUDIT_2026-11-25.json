@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:25:05.559186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<r<1 the weight-conjugation gives D(I−sqrt(r)S)^(-1) exactly; the Neumann factor is bounded and D is compact. In the frozen finite-band proof, head rows contribute at most δ/λ to the counting error and tail rows perturb the threshold by λ times O(1/M). The first and last retained block boundaries as well as internal boundaries have only bounded-rank coupling, since the polynomial has fixed bandwidth. Entrywise removal of those couplings leaves independent blocks. Multiplication by the restricted D sandwiches each block singular value between its two endpoint scalings; the Toeplitz-to-circulant replacement has bounded rank. The Fourier grid distribution therefore gives upper/lower Darboux sums for the symbol's level distribution. One-sided envelopes suffice at jumps (including a constant-modulus symbol). Sending mesh size and head cutoff to zero and tail cutoff to infinity gives the layer-cake coefficient. Polynomial truncation at B has error singular values at most t^(B+1)/[(1−t)n] for t=sqrt(r), by the ideal inequality; the count inequalities with thresholds (1±γ)λ give the claimed limit as truncation and γ are taken to zero. Count inversion and harmonic summation give the exact Schatten and Dixmier trace statements. The constant is strictly greater than 1 because the analytic symbol has mean 1 and nonconstant phase. For nonzero eigenvalues, the first nonzero coordinate forces λ=1/m; writing y=(I−tS)^(-1)x produces y_n proportional to binom(n,m)t^(n−m) for n≥m and zero earlier, an ℓ² eigenvector after applying I−tS. The first m rows exclude a generalized vector solving (A−λ)z=x for that eigenvector, so the eigenvalues are simple. RESULT.md, VERIFICATION.md and the numerical verifier were inspected; the verifier was not executed and finite sections are not used to certify the law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ponge's Theorem 6.4 explicitly applies to every order −d classical pseudodifferential operator P on a closed d-dimensional manifold; Eq. (6.2) gives lim j μ_j(P) as (2π)^(-d)/d times the cosphere integral of the absolute principal symbol, and gives strong measurability of |P|. Eq. (1.7) states the general singular-value law without selfadjointness.",
+          "P_+ is a classical order-zero Fourier multiplier with principal symbol 1 on the positive cotangent ray and 0 on the negative ray. D_+ is classical of order −1: its smooth frequency extension is (ξ+1)^(-1) for ξ≥0 and zero for ξ≤−1/2, smoothly interpolated, and has leading term ξ^(-1) on the positive ray. Consequently B is classical of order −1 on the closed circle, without ellipticity or positivity being required for the singular-value law.",
+          "Widom's inspected result is for empirical distributions of finite Toeplitz sections, not the infinite compact product."
+        ],
+        "reasoning": "The relevant general theorem is the negative-order pseudodifferential Weyl law, not the finite-section Toeplitz distribution, Hilbert–Schmidt formula or compactness criterion. The theorem covers symbols zero on an entire cotangent sheet, so the one-sided Fourier projection is no obstruction.",
+        "searches": [
+          "arXiv:2107.01242, Theorems 6.1 and 6.4, pp. 20–21; Eq. (1.7), p. 3",
+          "arXiv:2107.13605, §2.3 Proposition 2.9 and Eq. (2.9), p. 7",
+          "Widom, On the Singular Values of Toeplitz Matrices, p. 221, Eq. (2), DOI:10.4171/ZAA/350"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Ponge arXiv:2107.01242 and arXiv:2107.13605, cited theorem passages",
+        "Rhaly 1984; Albanese–Bonet–Ricker 2015; Widom 1989, identified primary passages",
+        "Two exact matching Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The principal symbol of B on S* S¹ is f(θ) at ξ=+1 and zero at ξ=−1. For d=1 the Weyl coefficient is exactly (2π)^(-1)·∫_0^(2π)|f(θ)|dθ, with no extra factor of two. This is the frozen coefficient at t=sqrt(r). Applying the order −d theorem also gives measurability of |B|.",
+          "The exact Schatten cutoff and ordinary logarithmic limit follow by comparing the same singular values to the harmonic sequence; c>1 follows from the mean-one symbol with nonconstant phase. The 1984 Rhaly theorem only gives a Hilbert–Schmidt formula, and the 2015 weighted-space corollary includes geometric weights as a compact case, not an individual singular-value formula."
+        ],
+        "reasoning": "The general Weyl theorem gives precisely the claimed sharp constant after the explicit Fourier identification, and all its featured ideal and trace conclusions follow. The frozen result includes no additional quantitative or structural theorem that escapes this implication.",
+        "searches": [
+          "arXiv:2107.01242, Eq. (1.7) and Eq. (6.2)",
+          "DOI:10.1017/S1446788715000221, Corollary 4.3",
+          "DOI:10.4153/CMB-1984-064-5, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted operator is unitarily D(I−tS)^(-1), t=sqrt(r), the geometric generalized Cesàro matrix. On the Hardy subspace of L² of the circle, with basis e^(ikθ), k≥0, this is diagonal multiplication of Fourier coefficients by 1/(k+1) after multiplication by f(θ)=(1−t e^(iθ))^(-1).",
+          "Write P_+ for the projection onto modes k≥0 and D_+ for the multiplier (k+1)^(-1) there and zero otherwise. The zero extension of the Hardy-space operator to the full circle is B=D_+ M_f P_+. Its nonzero singular values are exactly the original ones."
+        ],
+        "reasoning": "The Hardy representation is exact because the smooth analytic symbol f has only nonnegative Fourier modes. The zero extension enables use of the closed-manifold theorem on the full circle without assuming a separate Hardy-space Weyl theorem.",
+        "searches": [
+          "Ponge, Connes’ Integration and Weyl’s Laws, arXiv:2107.01242, Eq. (1.7) and §6.1",
+          "Rhaly, Generalized Cesàro Matrices (1984), Theorem 1, DOI:10.4153/CMB-1984-064-5",
+          "Resultary 2026/11/22/SCOPE-exterior-power-ordering-and-an-elliptic-singular-value-law-for-c--9192576eedcf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first Finding states the same angular coefficient, Schatten cutoff and logarithmic mean with an additional asserted O_q(n^(-3/2) log n) remainder. The Hilbert weight q^j differs from q^(j−1) only by an overall factor.",
+          "The second Finding gives the same coefficient, cutoff and logarithmic mean for the exact unitarily conjugate C_t, and also asserts exterior-power ordering."
+        ],
+        "reasoning": "These are material exact indexed overlaps after normalization and parameter matching, not just similar results or self hits. Their later catalogue dates do not resolve priority or prove independent derivation. The failure is established by the older general Weyl theorem, without having to decide those issues or to validate the stronger claims in the indexed findings.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-elliptic-weyl-coefficient-and-quantitative-singular-decay-of-geo--de465e616ced",
+          "Resultary 2026/11/22/SCOPE-exterior-power-ordering-and-an-elliptic-singular-value-law-for-c--9192576eedcf"
+        ]
+      },
+      "rationale": "The exact leading law, including its trace constant, is a direct specialization of the classical Birman–Solomyak singular-value Weyl law for negative-order classical pseudodifferential operators on closed manifolds. The applicability is constructive, not a possible overlap inferred from a title or from unavailable literature. The standalone block proof is correct but does not change this statement-level coverage.",
+      "residual_risks": [
+        "Rhaly's 1982 full text was not obtained in the bounded lawful DOI/archive attempts; whether an operator-specific formulation predates the other catalogue entries is unresolved and immaterial to the demonstrated general implication.",
+        "The priority and provenance relationships between the distinct later-dated catalogue entries are unresolved; the originality failure does not rely on a catalogue date or missed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader coverage, exact order and dimension specialization",
+          "evidence": "Eq. (1.7) is the no-selfadjointness singular-value formula; Theorem 6.4 explicitly treats order −d, including Weyl singular values, strong measurability, and Eq. (6.2) for the modulus with the cosphere coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.01242",
+          "material_read": "Eq. (1.7), p. 3 (OA offset 12550); §6.1 Theorems 6.1 and 6.4, pp. 20–21 (offset 82500)",
+          "method": "Lawful OA primary PDF of the Weyl-law proof",
+          "title": "Connes’ Integration and Weyl’s Laws",
+          "trigger": "Potential direct singular-value Weyl coverage on a closed circle after zero extension"
+        },
+        {
+          "assessment": "Independent statement in another work by Ponge; leads to the directly applicable 2107.01242 result",
+          "evidence": "Eq. (2.9) is the singular-value law for negative-order classical operators; the remark traces the closed-manifold version to Birman–Solomyak and points to Ponge's proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.13605",
+          "material_read": "§2.3 Proposition 2.9 and Remark 2.10, p. 7 (OA offset 28800)",
+          "method": "Lawful OA primary PDF",
+          "title": "Weyl’s Laws and Connes’ Integration Formulas for Matrix-Valued LlogL-Orlicz Potentials",
+          "trigger": "Closed-manifold singular-number theorem and reference to direct proof"
+        },
+        {
+          "assessment": "Earlier same operator and norm formula, not the individual s_n asymptotic there",
+          "evidence": "Gives the Hilbert–Schmidt norm formula for the family.",
+          "identifier_or_url": "DOI:10.4153/CMB-1984-064-5",
+          "material_read": "Theorem 1, p. 417 (Cambridge PDF offset 500)",
+          "method": "Lawful archival PDF",
+          "title": "Generalized Cesàro Matrices",
+          "trigger": "Same geometric triangular matrix family"
+        },
+        {
+          "assessment": "Compactness precedent, not the basis of the originality failure",
+          "evidence": "The compactness criterion covers geometric successive-weight ratio <1.",
+          "identifier_or_url": "DOI:10.1017/S1446788715000221",
+          "material_read": "§1, p. 288 (offset 3986); §4 Corollary 4.3, p. 309 (offset 108450)",
+          "method": "Lawful OA extracted PDF passages",
+          "title": "Spectrum and compactness of the Cesàro operator on weighted ℓ_p spaces",
+          "trigger": "Same weighted Cesàro formulation and geometric weight case"
+        },
+        {
+          "assessment": "Finite distribution law alone is not the graded infinite-product Weyl theorem",
+          "evidence": "Gives the finite-section empirical singular-value distribution.",
+          "identifier_or_url": "DOI:10.4171/ZAA/350",
+          "material_read": "p. 221, Eq. (2) (PDF offset 2800)",
+          "method": "Lawful OA primary PDF",
+          "title": "On the Singular Values of Toeplitz Matrices",
+          "trigger": "Theory underlying the finite-block comparison"
+        },
+        {
+          "assessment": "Material exact catalogue overlap, priority not inferred",
+          "evidence": "After q=r or t=sqrt(r), both state the same leading coefficient, cutoff and logarithmic mean.",
+          "identifier_or_url": "2026/11/22/SCOPE-elliptic-weyl-coefficient-and-quantitative-singular-decay-of-geo--de465e616ced; 2026/11/22/SCOPE-exterior-power-ordering-and-an-elliptic-singular-value-law-for-c--9192576eedcf",
+          "material_read": "First RESULT.md Finding and conjugation proof (offsets 0, 2471); second RESULT.md Finding (offset 600)",
+          "method": "Published Resultary mirror",
+          "title": "Elliptic Weyl coefficient and quantitative singular decay of geometrically weighted Cesàro averaging; Exterior-power ordering and an elliptic singular-value law for compact generalized Cesàro operators",
+          "trigger": "Exact indexed weighted and unweighted-matrix versions of the coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometric weighting is natural and the elementary block argument is a useful presentation. But the sole sharp invariant and associated trace/Schatten distinctions asserted here are mechanically obtained from the standard symbol law by the exact Hardy identification. The stated result does not add a remainder, new parameter regime, obstruction, or new useful lemma outside that coverage. The alternate proof is not a distinct new scientific claim at the required bar; no surviving repaired claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

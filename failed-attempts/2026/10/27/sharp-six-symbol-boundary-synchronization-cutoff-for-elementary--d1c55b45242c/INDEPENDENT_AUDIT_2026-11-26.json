@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:25.534516Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each predecessor of a word of length n is exactly a path of n edges labeled by that word, starting from any of the four input pairs, and its last vertex is the target pair. All such finite inputs extend bi-infinitely with the observation unchanged. Successor support is correctly computed by union over each current pair and either next input bit. Empty support is not a witness and stays empty. Shortest-path search in the closed graph of at most 15 reachable nonempty supports gives exact minima; absence of a singleton in the closure proves impossibility at all lengths. A separate set-based replay reproduced the counts (24,90,72,12,4,4,50), the four extremizers, their witnesses (100101 for 37 and 164; 010010 for 91 and 218), and all 256 rows including shortest-word multiplicities and reachable-support counts. The original --csv option writes a regenerated CSV rather than checking an already packaged file in place; the independent comparison checked the actual packaged rows. This is exact finite verification, not formal certification.",
+      "replay_paths": [
+        "/workspace/branches/39d42ec6-1c4e-4126-9d34-d3b989120106/review_check.py",
+        "/workspace/branches/39d42ec6-1c4e-4126-9d34-d3b989120106/reviewer_catalog.csv"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "218bfa54da8f classifies both entire-block and boundary identifiability, not just entire-predecessor uniqueness as the headline might suggest.",
+          "The Jeras–Dobnikar passages implement path counting and Boolean support propagation for preimages/language, supplying precedents for the method. The other abstracts describe block-probability/local-structure maps and images of Markov measures, not this table in the material read."
+        ],
+        "reasoning": "Methodological breadth alone does not provide the minimum-length counts. The broader joint catalogue actually evaluates the relevant exact invariant for all rules.",
+        "searches": [
+          "Matched joint full-preimage/boundary catalogue 218bfa54da8f",
+          "Jeras and Dobnikar preimage-counting, subset diagrams and Garden-of-Eden automata; arXiv:1304.8035 and 2102.05539 indexed abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 218bfa54da8f and its actual CSV",
+        "DOI 10.3217/jucs-008-02-0270",
+        "arXiv:1203.2822v1",
+        "Jeras and Dobnikar preimage papers",
+        "arXiv:1304.8035v2 and 2102.05539v1 abstracts",
+        "DOI 10.1007/s11047-023-09962-1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking a maximum over finite entries of the earlier b_r column gives six, extracting its maximizers gives Rules 37, 91, 164, 218, and counting each value yields the stated histogram. The witness column supplies the same words.",
+          "The indexed 2023 article describes synchronization and state estimation in its abstract. The inaccessible full text supplies no evidence either way about claim equivalence."
+        ],
+        "reasoning": "The exact existing catalogue implies the headline statement with no new theorem or search through the automata. The verdict does not depend on any unavailable source.",
+        "searches": [
+          "Resultary 218bfa54da8f Finding, assumptions and paired CSV columns",
+          "DOI 10.1007/s11047-023-09962-1, similar-title article on ECA synchronization (full-text retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier catalogue defines b_r by obtainable output forcing a singleton final input pair, even when the entire predecessor is not unique. Its finding separately identifies 42 rules that force only the boundary in this sense.",
+          "The inspected deterministic reset definitions send every state to one state. Here output transitions may have no successors or multiple successors from a given pair, and only their total final support must be a nonempty singleton."
+        ],
+        "reasoning": "Right-boundary identifiability in the matched catalogue is exactly the alleged synchronizing property; deterministic reset is a related name but not the equivalent definition. Resolving or Welch-index equivalences were not established.",
+        "searches": [
+          "Configured Resultary lookup of finite preimage identifiability and right-boundary synchronization; actual match 218bfa54da8f",
+          "Kari (2002) and Kisielewicz–Kowalski–Szykuła arXiv:1203.2822v1, synchronization/reset definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two prior columns agree in 256/256 cases. Length six occurs for the same four rules, with the same words; -1 cases and the remaining lengths also agree.",
+          "The prior reachable_count_states column is for a different whole-preimage count automaton, not the new reachable Boolean-support count. The prior right-boundary columns do not give the number of shortest witnesses."
+        ],
+        "reasoning": "This is exact existing data coverage of the main invariant, not a similar title or a table of another definition. The histogram is a direct frequency count of the earlier length column.",
+        "searches": [
+          "Resultary 218bfa54da8f classification.csv, columns right_boundary_length and right_boundary_witness; reviewed catalog comparison against those columns"
+        ]
+      },
+      "rationale": "The earlier dated Resultary record 218bfa54da8f explicitly defines exactly this right-boundary minimum and publishes both it and a witness for each of the 256 rules. The columns were compared rule by rule and match exactly. Consequently the headline sharp cutoff, extremizers, all length and witness classifications, and derived length histogram are already covered. This is a statement- and data-level match, not a conjecture from availability or a priority inference based on date alone. Two incidental statistics in the new CSV are not in those earlier columns; their presence does not make the headline finding original.",
+      "residual_risks": [
+        "The full text of the 2023 ECA synchronization article and the 2004 Seck Tuoh Mora et al. ancestor paper was not available after lawful retrieval attempts. Historical priority beyond the demonstrated equivalence of the earlier dated catalogue was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main finding and implies the advertised aggregate classification",
+          "evidence": "Defines b_r by singleton final input pair and records right_boundary_length and right_boundary_witness for all 256. Both columns agree in the reproduced computation for every rule.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-finite-preimage-identifiability-for-all-elementary-cellula--218bfa54da8f",
+          "material_read": "RESULT.md Finding and assumptions (offsets 0–3712); classification.csv columns and all-rule comparison (including inspected offsets 0 and 2989)",
+          "method": "Configured local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4; exact column comparison",
+          "title": "Exact finite preimage identifiability for all elementary cellular automata",
+          "trigger": "Direct ECA boundary-identifiability overlap"
+        },
+        {
+          "assessment": "Deterministic reset, not this nondeterministic support problem",
+          "evidence": "A word takes all states of a complete deterministic automaton to the same state.",
+          "identifier_or_url": "https://doi.org/10.3217/jucs-008-02-0270",
+          "material_read": "Opening definition, PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "Synchronization and Stability of Finite Automata",
+          "trigger": "Synchronization terminology and possible general theorem"
+        },
+        {
+          "assessment": "Methodological comparison, not an ECA census",
+          "evidence": "Reset words act on states of a deterministic automaton, not a partially defined output-labeled predecessor relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2822v1",
+          "material_read": "Definition, PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "A Fast Algorithm Finding the Shortest Reset Words",
+          "trigger": "Shortest-word invariants in subset machines"
+        },
+        {
+          "assessment": "Precedent for overlap graphs and support automata; no matching minimum table in passages read",
+          "evidence": "Uses boundary-state paths to count preimages; later passages describe subset diagrams and finite automata for Garden-of-Eden configurations.",
+          "identifier_or_url": "Jeras and Dobnikar, conference PDF",
+          "material_read": "PDF pp. 5–7 (offsets 10774, 13800); later preimages work pp. 2, 28 (offsets 3321, 60676)",
+          "method": "OA PDF passages",
+          "title": "Cellular Automata Preimages: Count and List Algorithm",
+          "trigger": "Earlier preimage overlap-state method"
+        },
+        {
+          "assessment": "Exact overlap unresolved; not negative evidence",
+          "evidence": "Abstract describes ECA synchronization and state estimation; no accessible defining passage or table was verified.",
+          "identifier_or_url": "https://doi.org/10.1007/s11047-023-09962-1",
+          "material_read": "Indexed abstract only",
+          "method": "Primary lookup followed by publisher and alternate repository retrieval attempts",
+          "title": "Synchronization of elementary cellular automata",
+          "trigger": "Same rule family, potentially synonymous synchronization notion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact endpoint-inference cutoff and all-rule census would be a useful gap if unknown, but here the cutoff, extremizers and all length/witness data come directly from the matched existing catalogue. The additional reachable-support sizes and counts of shortest words are correct catalog fields, but the frozen result does not motivate a separate precise question about either or show why either addition is mathematically useful beyond the already-known classification. The method and replay are useful verification, not a new valuable finding as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

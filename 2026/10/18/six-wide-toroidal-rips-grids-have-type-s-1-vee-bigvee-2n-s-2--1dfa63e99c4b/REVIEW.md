@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge7\), the metric-clique classification identifies the complex as a torus-collapse base plus exactly \(2n\) parity triangles. Explicit ordered elementary free-face pairs collapse the base to the canonical triangulated torus, with \(54n\) pairs. Each triangle is attached along a unit-winding meridian. The CW calculation gives the integral homotopy equivalence to a circle wedged with \(2n\) two-spheres. Exact, independent finite clique, free-pair, intersection and mod-two homology checks for \(7\le n\le11\) passed. The symbolic argument, not the finite tests, establishes the quantifier over all \(n\ge7\).
+PASS
 
-## Originality — PASS (remaining risks stated)
+The proof is uniform for all n≥7. After choosing two projected columns at distance two, the intersection of their closed cyclic radius-two neighborhoods is just the three-column interval. If the extreme columns are occupied, each must have the same single row and the possible middle vertices lie within one row step, giving a diamond. For two adjacent columns, a singleton yields a diamond; with at least two distinct rows in one column, their closed radius-one row neighborhoods have at least two common points only for an adjacent row pair, and then the intersection is precisely that pair. Applying the constraint in both directions gives a square. One column contributes the octahedral clique complex C6 squared, whose eight triangles consist of six consecutive ones and the two stated parity triangles. On the diamond/square base, an opposite arm pair has a unique midpoint and lies in no other generator. Matching its remaining cofaces with or without the center in descending cardinality proves freeness: four pairs for N–S and another three for W–E, after discarding cofaces already paired through N–S. The diamond remnants are faces of squares. Each square's two removals are then free because a chosen square diagonal lies in no other square, leaving the periodic diagonal triangulation of the torus. There are 54n pairs, all protecting nearest-neighbor meridian edges. Every parity triangle meets the base exactly along its boundary; replacing each length-two jump by two unit edges through its consecutive diamond triangle proves a single primitive meridional winding. After transporting these attachments along the base equivalence, choose the torus CW model and attach all 2n disks along its meridian edge. The meridian plus its first new disk is a contractible CW subcomplex; its quotient is a homotopy equivalence, leaves the other circle, and makes the old commutator cell and the remaining 2n−1 cells attach trivially. This proves the integral homotopy claim, not just the homology ranks. The inspected frozen verifier and verification_output.txt concern n=7,…,11 only; the local free-face and meridian arguments, not those finite checks, certify the infinite range. No other width, scale or continuum-torus model is implied.
 
-The full-text 2025 square-torus classification treats \(C_q\square C_q\) and does not imply a six-wide rectangular family with arbitrarily long second factor. The 2011 graph-powers paper classifies powers of individual cycles; it does not calculate the full two-factor product. Closest published comparisons concern four-wide rectangular torus grids, complete-graph fibers, a five-wide earlier classification, and different neighborhood or cut constructions. The existing five-wide result is excluded rather than repeated: the six-wide proof attaches two parity triangles instead of one column simplex. Actual targeted published-finding corpus and literature searches found no stronger covering six-wide claim. Unindexed equivalent work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines a complete infinite family of integral homotopy types at the first nontrivial graph-distance scale in a natural thin-torus regime. It exhibits two distinct, essential two-cells per column, explaining the \(2n\) sphere count and the survival of precisely one circle. The qualitative transition from the exceptional square-six torus computation to six-by-long rectangles is not a routine finite extrapolation or an arbitrary slice.
+Best-of-knowledge pass assessed for the frozen finding, not a claim that this result is absent from the present catalogue. The same theorem is now explicitly covered by a separately dated October 25 record and is also implied by a broader October 25 phase diagram. Neither inspected record demonstrates pre-existing coverage of the October 18 finding; independence, derivation, and priority beyond those displayed catalogue dates are not established. The strongest retrieved prior public sources treat squares or individual cycle factors, not this rectangular regime.
 
-## Closest sources and scope limits
+## value
 
-Adams et al., *Vietoris--Rips complexes of torus grids* (arXiv:2502.07134) gives square-grid results and nearby homotopy attachment techniques; Adamaszek, *Clique complexes and graph powers* (arXiv:1104.0433) covers powers of single cycles. A related prior five-wide result does not supply six-wide parity-face attachments. The theorem excludes \(n<7\), other widths and scales. Neither full independence nor a universal literature novelty certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the first nontrivial graph-metric scale, width six is the last cycle width with nonconsecutive planar clique attachments. The structural proof explains why two exceptional triangles per column kill one of the two torus circles while making 2n two-spheres, a qualitative and integral statement not obtained from the nearest square case, factor alone, or computed Betti numbers. This is a natural infinite transition family with a reusable local description, not an isolated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

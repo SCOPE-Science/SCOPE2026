@@ -1,11 +1,21 @@
-# Scientific review: a sharp spectral-gap allocation crossover
+# Independent mathematical audit
 
-**Correctness — PASS.** The Laplacian block spectrum follows from the two side-permutation orbits and the even/odd constant-coordinate decomposition. The Schur complement of the explicit odd block reduces the unit-gap semidefinite condition to two scalar lower bounds. A complete convex scalar analysis proves the piecewise global optimum, including equality cases and the branch transition. Concavity and group averaging lift the two-orbit result to every nonsymmetric feasible allocation. The matrix spectrum and algebraic identities have been checked against the separately assembled exact/finite program. Numerical tests are corroborating only, not an all-parameter proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The continuous-time formulation and symmetry averaging are general ideas from Sun–Boyd–Xiao–Diaconis (2006); no inspected portion of that full text yields the specific optimal allocation for a balanced complete bipartite graph after deleting one edge. The later discrete-time fastest-mixing result on this same graph is an especially close comparison, but it minimizes a two-sided stochastic spectral modulus under local holding constraints, not a single Laplacian gap under a global edge-conductance budget. The optimal ratios differ already for three vertices per side (\(4/3\) versus \(6/5\)); thus the present statement is not an immediate restatement or corollary. A broader graph minimax result from 1993 could not be inspected beyond bibliographic material and remains a material but nondispositive coverage risk.
+PASS
 
-**Value — PASS.** Removing a single link from an otherwise homogeneous bipartite network forces a nontrivial optimization of resources. The exact continuous-time rate and optimal conductances exhibit a sharp all-family boundary, plus an independent eigenspace-multiplicity jump at one smaller graph size. These provide interpretable robust network-design benchmarks and clarify what can and cannot be transferred from discrete-time chain optimization.
+For the budget counting each undirected edge once, concavity of the Rayleigh minimum on the space orthogonal to constants allows averaging all feasible allocations over the graph automorphism group. With m=n-1, the reduced Laplacian has ordinary zero-sum modes of eigenvalue ma+b, the positive even mode (m+1)b, and the odd block with diagonals mb and 2ma+b and off-diagonal of magnitude sqrt(m)b. Normalizing to unit gap forces mb>1 and a at least the larger of (1-b)/m and ((m+1)b-1)/(2m(mb-1)). The odd-bound budget is minimized at mb=3/2 and meets the internal constraint exactly for m<=6. For m>=7 the difference of the bounds has the sign of 2(mb)^2-(m+1)(mb)+m, positive at mb=1, negative at 3/2, and positive beyond the larger root. The odd budget decreases up to the lower crossing and the internal budget then increases; the far odd branch also increases. This proves the radical branch and the scaling B/D_n. The even and upper odd modes remain above one, so multiplicity changes at n=7, one size before the formula changes. Fresh full-Laplacian checks at n=3,6,7,8 gave multiplicities 1,1,11,13 and respective D_n values 11/2, 7, 15/2, 9-sqrt(2)/2.
 
-Scientific limits: only the stated graph family and conductance budget; no classification of all asymmetric maximizers. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact continuous-time, budget-normalized solution and its mode collision, not the fastest-mixing framework or the part-size-eight change for the closely related discrete-time problem. No inspected result covers the full continuous-time statement.
+
+## value
+
+PASS
+
+A single forbidden edge is a natural perturbation of a standard network-design benchmark. The solution exposes which modes limit the optimal continuous-time rate, and separates the first multiplicity collision from the change in allocation formula. The optimizer and normalization are usable in this design problem and cannot in general be recovered by scaling the known discrete-time design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:32:51.537799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; VERIFICATION.md; verify_clebsch.py and crosscheck_sympy.py (inspected as text)",
+        "/workspace/independent_checks.py (del_pezzo) and /workspace/independent_checks.log",
+        "Jahnel–Schindler, arXiv:1712.04745, §2"
+      ],
+      "rationale": "Computing with marked Picard classes independently identifies intersection one with distance four on the odd five-bit words. The even translation subgroup acts regularly. On its character basis, indexed by coordinate subsets modulo complement, the distance-four translations give eigenvalues 5, −3 and 1 for representatives of sizes 0, 1 and 2. The character matrix is invertible over Z[1/2]; the determinant is odd, so it gives the full geometric 3- and 5-primary structure: five elementary 3 factors and one elementary 5 factor, or Smith diagonal 1^11,3^4,15. The 3-primary representation is the signed action on the five singleton characters and the 5-primary action is trivial on constants. Each signed cycle has a one-dimensional coinvariant over F3 exactly when positive, including cycles of length divisible by 3. Thus C_F is (Z/3)^p plus Z/5 with p the number of positive signed cycles. Independently, orbit matrices constructed from Picard pairings for all 1920 elements give these ranks, all eighteen class sizes, and the sets p={0,1,2} and p={1,2,3} at the equal line-orbit profiles (4^4) and (2^8), respectively. This is a conditional classification on abstract Weyl actions; no fieldwise realization is inferred. The support scripts use int.bit_count, so the claimed Python 3.9 compatibility should read 3.10 or newer; the independent exact calculation used Python 3.12.",
+      "residual_risks": [
+        "The operator is the 5-regular adjacency matrix, not the 10-regular complement or a Laplacian. The abstract same-orbit examples need not all occur in a prescribed finite field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jahnel–Schindler gives the Weyl action and line geometry in service of open-Picard cohomology. Darwin computes a quadratically enriched line count. The Hasse-principle full text was not obtained in this review."
+        ],
+        "reasoning": "The verified general geometric and arithmetic results are about different modules, not the signed action on the modular adjacency cokernel. No negative finding is based on the inaccessible text.",
+        "searches": [
+          "Jahnel–Schindler arXiv:1712.04745, pp. 1, 5–6; Darwin arXiv:2205.04456, Thm. 1.2; Jahnel–Loughran doi:10.1093/imrn/rnv073, sought §3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary graph and Weyl-type searches",
+        "Primary literature, graph reference and exact same-configuration mirror comparisons listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known folded-cube spectrum supplies the ordinary eigenvalues and multiplicities; the known Weyl action preserves the operator. The source passages do not identify which representation survives modulo 3, and the boundary torus instead has a rank-25 graph cycle lattice."
+        ],
+        "reasoning": "The result follows once the modular cokernel is explicitly identified as the signed singleton-character space. A short equivariant Fourier proof does this, but it is not a substitution in the known numerical Smith or spectral table. Separate line-orbit counts likewise cannot substitute for the modular computation: two profiles each support multiple distinct 3-ranks.",
+        "searches": [
+          "Brouwer Clebsch graph spectrum and construction; Jahnel–Schindler §2; Resultary line boundary rational-point groups RESULT.md Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brouwer calls the 10-regular halved cube Clebsch and its 5-regular complement the folded cube; alternative literature reverses the naming. The frozen operator matches the folded-cube spectrum 5,−3^5,1^10, not the 10-regular spectrum 10,2^5,(−2)^10."
+        ],
+        "reasoning": "The aliases were checked via the actual adjacency operator, not the name. Complementing alters the modular kernel and is not an integral equivalence of the asserted cokernel.",
+        "searches": [
+          "Resultary: sixteen-line intersection graph integral adjacency coinvariants; Clebsch and folded five-cube Smith and spectral comparisons",
+          "Brouwer, Clebsch graph page, Name and Constructions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit e25e99cc1b34 is the frozen record. The nearby record abfdc25baaee computes rational-point groups of a boundary Picard torus for seven permutation types, and the frozen record 6eecb2c62f8f computes a fixed-lattice conic support table."
+        ],
+        "reasoning": "The seven-type table uses a connected Picard scheme and a smaller action regime; the support table uses a different domain and invariants rather than coinvariants. Neither is equivalent coverage, regardless of same-day ordering.",
+        "searches": [
+          "Resultary: exact 18 Weyl signed-cycle type adjacency cokernels; quartic del Pezzo boundary line graph and same-configuration arithmetic invariants"
+        ]
+      },
+      "rationale": "The line geometry, the group of automorphisms, the spectrum and, consequently by elementary Fourier calculation, the unactioned Smith form do not supply a distinct novelty claim. The supported contribution is the Weyl-equivariant arithmetic adjacency quotient and its exact dependence on signed cycles, including the failure of the line-orbit spectrum to determine it. No inspected source gives the relevant modular signed cokernel or its equivalent coinvariant classification.",
+      "residual_risks": [
+        "An equivariant folded-cube eigenspace or integral module treatment in unindexed sources could cover the claim. The inaccessible Hasse-principle paper leaves limited comparison risk. Empty or deferred queries were not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric input, different cohomology groups",
+          "evidence": "Gives the sixteen line classes and Weyl group, then studies H^1 of open Picard lattices, not the adjacency operator.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.04745",
+          "material_read": "p. 1 and §2, pp. 5–6, offsets 2098–4153 and 15045–17607",
+          "method": "OA PDF",
+          "title": "On the algebraic Brauer classes on open degree four del Pezzo surfaces",
+          "trigger": "Same lines and full Weyl action, with integral arithmetic lattice computations"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "A quadratically enriched count of lines, not integral adjacency coinvariants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.04456",
+          "material_read": "Abstract and Thm. 1.2, p. 8, offset 24199",
+          "method": "OA PDF",
+          "title": "A quadratically enriched count of lines on a degree 4 del Pezzo surface",
+          "trigger": "Natural arithmetic invariant of the same sixteen lines"
+        },
+        {
+          "assessment": "Unavailable text, not used to exclude overlap",
+          "evidence": "Only the citation and its relevance to line-orbit arithmetic were established here.",
+          "identifier_or_url": "https://doi.org/10.1093/imrn/rnv073",
+          "material_read": "No full-text passage obtained; §3.7 sought",
+          "method": "Lawful full-text retrieval with access denied; title search for an OA copy returned no identified alternative",
+          "title": "The Hasse Principle for Lines on del Pezzo Surfaces",
+          "trigger": "Possible prior arithmetic line-orbit classification"
+        },
+        {
+          "assessment": "Covers graph, spectrum and automorphism group",
+          "evidence": "The selected 5-regular graph is described as the folded 5-cube and has eigenvalues 5, 1 and −3. The 10-regular halved cube is its complement.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Clebsch.html",
+          "material_read": "Spectrum, Name and Constructions, offsets 0–3863",
+          "method": "OA website",
+          "title": "Clebsch graph, A. E. Brouwer",
+          "trigger": "Exact graph alias, standard spectrum and possible equivalent calculation"
+        },
+        {
+          "assessment": "Different torus invariant and Frobenius range",
+          "evidence": "Gives T(F_q) for the boundary Picard torus using seven permutations of blow-up points, plus its 16-vertex, 40-edge graph description.",
+          "identifier_or_url": "SCOPE-seven-integral-rational-point-groups-of-the-quartic-del-pezzo-si--abfdc25baaee",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2942",
+          "method": "Published-record mirror",
+          "title": "Seven integral rational-point groups of the quartic del Pezzo sixteen-curve boundary",
+          "trigger": "Same curve graph and integral Frobenius arithmetic"
+        },
+        {
+          "assessment": "Different operator and functor",
+          "evidence": "Fixed integer lattices for the pencil-to-line support map, not coinvariants of the line-to-line adjacency cokernel.",
+          "identifier_or_url": "SCOPE-integral-frobenius-conic-support-lattices-for-quartic-del-pezzo--6eecb2c62f8f",
+          "material_read": "Frozen RESULT.md Finding and Proof",
+          "method": "Frozen source and published-record comparison",
+          "title": "Integral Frobenius conic-support lattices for quartic del Pezzo surfaces",
+          "trigger": "Same Weyl types and line marking in an integral classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Independent Fourier and orbit-quotient calculations",
+        "Brouwer's standard spectrum and related sixteen-curve arithmetic sources"
+      ],
+      "rationale": "The unsigned adjacency operator is intrinsic to the geometric intersection configuration. The arithmetic quotient measures how Frobenius acts on that finite relation module beyond the splitting spectrum of the sixteen lines. The classification produces concrete coincident orbit profiles with three distinct groups each and separates the arithmetic signed-cycle dependence from the known geometric eigenvalues. This is a natural finite invariant with explicit witnesses, not merely a new table of the sphere sizes or adjacency spectrum.",
+      "residual_risks": [
+        "The invariant is formal; potential geometric applications and fieldwise realizability of the equal-profile witnesses are not established by the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

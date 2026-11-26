@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:38.610650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Idempotency gives a=1/2 and Q(u)=1/4 for any nontrivial idempotent. Such an idempotent cannot split into two nonzero orthogonal idempotents: nontrivial summands each have scalar part 1/2, and 1 cannot be an orthogonal summand of a proper idempotent. Writing u=w+z, v=w−z gives b(w,z)=0 and Q(z)=c−Q(w) and fixes the scalar part of the product at 2Q(w). Thus ordered pairs are counted once by z. For Q(w)≠0 the determinant of w-perp is Δ/Q(w); for nonzero isotropic w take a partner of pairing one and subtract Q(partner)w/2 to split off a determinant −1 hyperbolic plane. The orthogonal complement then has radical spanned by w, giving q lifts of each vector of a quotient of determinant −Δ. Diagonal Gauss sums with G²=χ(−1)q give the four parity/value subcases in the record; in odd rank the extra sum at nonzero t is χ(−t)G, fixing the sign. The counts are positive in rank ≥2; in the ternary isotropic case the rank-one count is 1+χ(−Δ), and the number of nonzero isotropic w is q²−1. Independent bounded replay (python3 /workspace/branches/independent_replays.py, function spin) checked constancy by norm and the missing locus in ten configurations, including both determinant classes in dimensions 3 and 4 over F9. VERIFICATION.md's description of an ‘anisotropic ternary case’ is imprecise: it is the rank-one quotient level c that fails, not absence of isotropic vectors in the ambient ternary form. This does not affect the stated or checked theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 gives the entire eigenmatrix P for every odd q and Euclidean dimension d≥2, indexing both the zero-distance and diagonal relations for d≥3. The paper's p. 2 restricts its explicit presentation to the dot product and distinguishes the nonsquare-determinant form.",
+          "In odd dimension multiplication of the standard form by a nonsquare changes determinant class, with a simple relabeling of every nonzero radius/distance. The prior table is for all radii, not just square radii.",
+          "Gogić–Tomašević already establish the product graph relation over quadratically closed fields."
+        ],
+        "reasoning": "The prior data are strictly more general in the two radii. They cover all d in the square class and both classes in odd d. The even nonsquare class is not claimed verbatim from Theorem 5.1: the remaining form change leaves the intersection reduction intact and only inserts χ(Δ) into the diagonalized Gauss product; no extra type-dependent structure other than standard quadratic representation numbers was established.",
+        "searches": [
+          "10.4153/S0008414X24000518: quadratic form, §2 and Theorem 5.1",
+          "Bannai Shimabukuro Tanaka Finite Euclidean graphs and Ramanujan graphs nonsquare quadratic form affine orthogonal association scheme P matrix nonsplit character table PDF",
+          "arXiv:2609.23581v1 §3 Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Brittenham–Pakianathan, DOI 10.4153/S0008414X24000518",
+        "Gogić–Tomašević arXiv:2609.23581v1",
+        "Rowen–Segev arXiv:1609.04899v1",
+        "Resultary 9a702bd71277 and 35aa39b14d50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the common eigenspaces, the vector of eigenvalues of A_c² is (P_{s,c}²)_s. Multiplying by P^{-1} gives its expansion coefficients p^k_{c,c}. Thus the standard-form fibers are mechanically obtained from the published tables.",
+          "For nonsquare Δ in d=3, pick a nonsquare scalar η and a basis identifying Q with η times the standard form, and use radius c/η and distance 4Q(w)/η in the same table. The zero-isotropic fiber and the resulting missing count are therefore both determined, not merely bounded, in both ternary determinant classes.",
+          "Rowen–Segev concerns generated algebras, a different statistic."
+        ],
+        "reasoning": "The exact ternary headline is already implied by relabeling the stronger scheme result; rewriting the standard counts in terms of orthogonal complements and adding the usual Gauss determinant sign for even nonsquare forms do not supply a materially different enumerative theorem.",
+        "searches": [
+          "Brittenham–Pakianathan §2 adjacency algebra, Theorem 5.1 eigenmatrix and p. 2 form scope",
+          "arXiv:2609.23581v1 Lemma 3.1",
+          "arXiv:1609.04899v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brittenham–Pakianathan §2 defines p^k_{i,j} by simultaneous distances i,j from two endpoints in relation k and gives A_i A_j=Σ_k p^k_{i,j} A_k.",
+          "The bound count is p^k_{c,c} for endpoints 0,2w, with k=4Q(w) when w≠0 (including zero distance in the isotropic relation), and k=the diagonal relation when w=0."
+        ],
+        "reasoning": "This is an exact equality of counts, not a shared method or parameter resemblance. A point of the sphere intersection gives exactly one ordered pair; there is no factor of two, change of radius convention or loss of the isotropic case.",
+        "searches": [
+          "Resultary: exact two-idempotent fibers finite-field spin factor quadratic form orthogonal sphere intersections",
+          "10.4153/S0008414X24000518 §§2 and 5, sphere intersection numbers and eigenmatrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9a702bd71277 states the same count and sharp threshold in a different normalization with additional d=2 coverage, but is indexed 2026/11/22, later than this original. The record's relationship to the original is not established.",
+          "Same-day Resultary 35aa39b14d50 counts associating tuples, not ordered product fibers.",
+          "The prior Euclidean eigenmatrix gives all p^k_{i,j}; in particular it covers the lightlike endpoint that cannot be read from the diagonal sphere-size row."
+        ],
+        "reasoning": "The later matching record is material catalogue overlap but not evidence of earlier priority. The pre-existing numerical/structural table relevant to the verdict is the published eigenmatrix and its product rule; it determines the desired entries without an entry labeled Jordan product.",
+        "searches": [
+          "Resultary: exact two-idempotent fibers finite-field spin factor quadratic form orthogonal sphere intersections",
+          "10.4153/S0008414X24000518 Theorem 5.1 and formal diagonal relation"
+        ]
+      },
+      "rationale": "The frozen claim does not establish a distinct new enumerative result. Its entire square-determinant fiber profile and its headline ternary obstruction in both determinant classes are already determined by the published finite Euclidean association-scheme intersection data. The standard other determinant case in even dimension uses the very same intersection calculation with a determinant-character factor. The Jordan product interpretation is useful but is not a new enumeration: the exact translation is z in S_c(0)∩S_c(2w) paired with the unique partner 2w−z. This is a coverage/implication failure for the central claim, not a claim that a prior paper prints the complete Jordan-formatted table, and not a decision based on inaccessible literature or the later Resultary record.",
+      "residual_risks": [
+        "The first publication giving exactly the Jordan-format table for both determinant classes was not determined. The coverage judgment does not resolve the relation between the two Resultary records.",
+        "An additional sphere-intersection text was unavailable via lawful OA. No inference about its contents was made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication in the Euclidean class and both classes in odd dimension; explicit nonsquare even scope not asserted",
+          "evidence": "A_i A_j=Σ p^k_{i,j} A_k and Theorem 5.1 supplies P, including separate diagonal and nonzero isotropic relations. The text expressly uses the standard dot product for brevity.",
+          "identifier_or_url": "https://doi.org/10.4153/S0008414X24000518",
+          "material_read": "PDF pp. 1–2 near offsets 3256–5100; §2 at offsets 14600–18405; Theorem 5.1 and surrounding derivation at offsets 45000–50251",
+          "method": "OA publisher PDF, located form definition and read the intersection and eigenmatrix passages",
+          "title": "Random walks and the ‘Euclidean’ association scheme in finite vector spaces",
+          "trigger": "Exact sphere-intersection equivalent and published table"
+        },
+        {
+          "assessment": "Graph relation prior; does not enumerate finite-field fibers on its own",
+          "evidence": "Two-idempotent products are characterized by the quadratic graph under quadratic closure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23581v1",
+          "material_read": "§3 Lemma 3.1, PDF p. 7, offset 28612",
+          "method": "OA primary PDF",
+          "title": "Idempotent words in finite-dimensional simple Jordan algebras",
+          "trigger": "Prior Jordan graph relation"
+        },
+        {
+          "assessment": "Substantial mathematical match, later indexed date, no independent priority finding",
+          "evidence": "Same ordered fibers and χ(−D) ternary obstruction after normalization, with d≥2 instead of d≥3.",
+          "identifier_or_url": "Resultary 2026/11/22 9a702bd71277",
+          "material_read": "Mirrored RESULT.md, offsets 0–4086 and 2264",
+          "method": "Resultary local search and mirror text",
+          "title": "Exact primitive-idempotent Jordan product fibers and a sharp dimension threshold",
+          "trigger": "Directly matching indexed result, with d=2 added"
+        },
+        {
+          "assessment": "Different statistic irrespective of same-day order",
+          "evidence": "Counts tuples generating associative subalgebras in even dimension and gives a span criterion.",
+          "identifier_or_url": "Resultary 2026/10/18 35aa39b14d50",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary and mirror text",
+          "title": "Associating tuples of finite spin factors recover Witt type",
+          "trigger": "Same-day, same mathematical objects"
+        },
+        {
+          "assessment": "Generation not product enumeration",
+          "evidence": "Concerns structure of the algebra generated by the two idempotents.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.04899v1",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA primary PDF",
+          "title": "Associative and Jordan algebras generated by two idempotents",
+          "trigger": "Two-idempotent literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The spin-factor restatement is explanatory but does not add a worthwhile exact invariant beyond the already determined equal-radius intersection numbers. In particular the apparently new, useful ternary saturation boundary is a forced entry/zero pattern in prior data after odd-dimensional rescaling. The only gap left by that particular published eigenmatrix's scope is the other even-dimensional determinant class; its computation is a standard determinant-sign substitution with no new obstruction. A narrowed claim of that substitution alone would not be a valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

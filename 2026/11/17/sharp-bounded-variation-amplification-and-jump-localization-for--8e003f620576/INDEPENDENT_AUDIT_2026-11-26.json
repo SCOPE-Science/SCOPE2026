@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:27:17.838590Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–33 and 35–94",
+        "VERIFICATION.md and verify_quadratic_bv.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/branches/reproduce_345.py 4"
+      ],
+      "rationale": "Adjacent differences identify the quotient by constants with ℓ¹, with tail steps as the coordinate vectors. The sampled orthogonal basis 1, u, u²−mean(u²) gives the exact signed differences in (1); taking absolute column sums gives the attained norm. Independently formed D X(XᵀX)⁻¹Xᵀ H in rational arithmetic for n=3,…,22 (230 jump columns); all entries and the displayed small norms agreed. Directly from (1), at t=k/n the columns converge uniformly to 6t(1−t) times the integral on [0,1] of |1+5(2t−1)(2x−1)|: the absolute-value integrands are uniformly Lipschitz and the discrete factors differ uniformly by O(1/n). For a=5|2t−1| this integral is 1 if a≤1 and (a+1/a)/2 otherwise. On the latter branch put z=|2t−1|; the stationary equation is 75z⁴−24z²+1=0. The two interior roots, branch endpoints, and the test t=1/4 give the unique maximizing pair. Density and the strict maximum gap away from this pair establish localization of every maximizing index sequence. n=3 is the identity case.",
+      "residual_risks": [
+        "Computational checks are finite; the general result and argmax passage use the analytic argument. No formal certification or claim about all non-step finite-grid extremizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0c312599056c includes every symmetric continuous Jacobi parameter α>−1",
+          "2026/11/22/SCOPE-sharp-bounded-variation-norm-and-off-centre-rigidity-of-quadrati--6e9c47c76f09 (indexed statement; all integrable symmetric shapes, continuous jump rigidity)"
+        ],
+        "reasoning": "The broader weight domains contain the uniform continuous model, not empirical finite equal weights on atomic grids. The later-dated summary is corroborating overlap, not evidence of earlier priority.",
+        "searches": [
+          "Resultary: quadratic least-squares projection total variation exact norm equispaced grid jump extremizer",
+          "Primary search: total variation operator norm continuous L2 orthogonal projection quadratic polynomials step function exact maximum discrete least squares equispaced grid"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(4)",
+        "Resultary 0c312599056c, 6e9c47c76f09, 68d5f845db4a, 90f86b115858 indexed statements",
+        "One primary web search; no relevant theorem passage recovered"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 0c312599056c index states exact sharp continuous total-variation gain at every symmetric α, attained by two off-center jumps",
+          "90f86b115858 describes equally spaced quadratic endpoint sensitivity; 68d5f845db4a describes the uniform-Jacobi pointwise range violation"
+        ],
+        "reasoning": "Exact continuous characterization covers the invariant used as Λ, even without the same displayed radical, subject to the indexed statement accurately describing the theorem. One still needs the discrete signed response, control of all columns uniformly, and transfer of the strict maximum to grid maximizing sequences. A single endpoint functional does not give the TV of a quadratic with a turning point.",
+        "searches": [
+          "0c312599056c, 6e9c47c76f09, 68d5f845db4a, 90f86b115858",
+          "Targeted local mirror attempt at 0c312599056c/RESULT.md for the uniform specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17/SCOPE-exact-jacobi-weighted-quadratic-projection-gain-in-total-variati--0c312599056c (indexed statement)",
+          "2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a (indexed statement)"
+        ],
+        "reasoning": "Uniform continuous projection is the α=0 Jacobi case, whereas the range envelope optimizes pointwise overshoot on monotone inputs. Neither equivalent continuous normalization nor pointwise gain is an identity for adjacent differences of an empirical fit.",
+        "searches": [
+          "Resultary: continuous L2 projection onto quadratic polynomials total variation norm step function exact",
+          "Resultary: quadratic projection endpoint amplification monotone range envelope localization jump"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed discrete result with explicit coefficients: 2026/10/18/SCOPE-arithmetic-second-order-boundary-amplification-in-discrete-quadr--90f86b115858"
+        ],
+        "reasoning": "Its discrete table/formula concerns a boundary-response functional, not the sum of absolute adjacent changes. No covering table for the finite-grid variation sequence was identified in these results.",
+        "searches": [
+          "Resultary: discrete least squares projection adjacent variation amplification finite-grid exact",
+          "Resultary: SCOPE-exact-jacobi-weighted-quadratic-projection-gain-in-total-variati--0c312599056c exact Jacobi weighted quadratic projection gain"
+        ]
+      },
+      "rationale": "Pass for the discrete theorem: the exact finite-grid adjacent-variation norm and its convergence and maximizing-index localization. Do not credit the continuous norm as a separate distinct finding. A same-day symmetric Jacobi indexed theorem describes the continuous operator at α=0 (after affine rescaling); that parameter specialization necessarily concerns the same continuous invariant, not the discrete sequence. The available evidence does not settle priority or show that the Jacobi result also treats the finite-grid theorem.",
+      "residual_risks": [
+        "Exact full text of the same-day Jacobi record was not recovered; neither relative priority nor its complete scope is resolved. Older unindexed discrete TV results are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Continuous overlap; finite-grid coverage not established by available text",
+          "evidence": "Summary states exact sharp TV gain for every symmetric α>−1, attained at two off-center jumps.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-jacobi-weighted-quadratic-projection-gain-in-total-variati--0c312599056c",
+          "material_read": "Indexed summary; targeted RESULT.md retrieval timed out",
+          "method": "Resultary and local full-text mirror attempt",
+          "title": "Exact Jacobi-weighted quadratic projection gain in total variation",
+          "trigger": "Direct continuous-norm overlap"
+        },
+        {
+          "assessment": "Continuous overlap; later date does not establish priority",
+          "evidence": "Summary gives unique off-centre jump up to reflection at every integrable symmetric Jacobi shape.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-bounded-variation-norm-and-off-centre-rigidity-of-quadrati--6e9c47c76f09",
+          "material_read": "Indexed summary",
+          "method": "Resultary",
+          "title": "Sharp bounded-variation norm and off-centre rigidity of quadratic Jacobi projection",
+          "trigger": "Maximizer rigidity"
+        },
+        {
+          "assessment": "Different output functional in the available statement",
+          "evidence": "Pointwise range bound with uniform coefficient (27+3√6)/25.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+          "material_read": "Indexed summary",
+          "method": "Resultary",
+          "title": "Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection",
+          "trigger": "Same continuous uniform projector and step extrema"
+        },
+        {
+          "assessment": "Different output functional in the available statement",
+          "evidence": "Boundary-response sensitivity with finite-grid Bernoulli-root formula.",
+          "identifier_or_url": "2026/10/18/SCOPE-arithmetic-second-order-boundary-amplification-in-discrete-quadr--90f86b115858",
+          "material_read": "Indexed summary",
+          "method": "Resultary",
+          "title": "Arithmetic second-order boundary amplification in discrete quadratic least squares",
+          "trigger": "Same empirical projector, exact coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md (1)–(4); independent rational column check and limiting argument"
+      ],
+      "rationale": "An exact sharp stability coefficient at every sample size for the usual quadratic smoother quantifies amplification invisible to Euclidean stability. Interior asymptotic maximizing jumps explain how the smoother amplifies variation and distinguish the result from endpoint sensitivity. The finite-grid sequence is itself reusable, even granting the overlapping continuous invariant.",
+      "residual_risks": [
+        "No general degree, nonuniform-design, or statistical-risk consequence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(n\ge3\), local fixed-point constraints are exactly encoded by a finite, explicitly defined rung transfer, with ordinary and Möbius closures given by ordinary and rail-swap traces. The 36-dimensional antisymmetric characteristic polynomial is verified by the fully reconstructed symbolic integer matrix in `verify.py`; its quartic Newton sums yield the exact infinite family of seam differences. The golden-ratio angular roots and Rouché bound prove the ten-residue signs for all lengths, with exact finite boundary cases. An independent direct graph implementation exhaustively tests all initial opinions for lengths three through six. Scope and lower bound of verification are stated in `VERIFICATION.md`.
+PASS
 
-## Originality — PASS, with residual historical risk
+A legal transfer from (u,v) to (v,w) enforces the two stationary neighbor tests precisely at v. The n transitions anchored at the labelled rungs are in bijection with fixed configurations; for a twist, extending the rungs by rail swap at i+n checks both sides of the seam, giving trace(JT^n) rather than an orbit quotient. The rung-swap commutes with T; the stationary count difference is twice the trace of the 36-dimensional odd sector. An independent exact reconstruction certified the stated antisymmetric polynomial, its Newton sums, and small direct graph counts (15,39) and (93,135). The ancillary 45-dimensional even polynomial was separately checked by summing transitions into each rail orbit, computing traces of powers through 45 and applying Newton identities modulo nine distinct primes near 10^6. Their product exceeds 10^54, above the bound on any coefficient discrepancy: each true coefficient is bounded by 10^45 from eigenvalue modulus ≤9 and the displayed polynomial has coefficient l1 norm below 10^6. The second quartic factors as (z²−φ²z+φ²)(z²−φ⁻²z+φ⁻²), yielding arguments ±π/5 and ±2π/5. The other quartic has all roots strictly inside radius 3/2 by Rouché. Using the positive exact margin at n=16 and the decreasing relative error thereafter certifies the leading-cosine sign. The exact integer recurrence covers n=3–15 with no zero and reproduces the required signs.
 
-An exact binary-majority prism/Möbius recurrence exists, but it is not equivalent to the ternary unique-plurality stationary problem and does not yield the mod-ten sign law. Existing randomized plurality consensus work studies different update rules. The fixed states are also exactly pure Nash equilibria of a unit-weight three-color coordination game on these cubic graphs, but the inspected general equilibrium literature does not supply this exact all-length prism/Möbius enumeration or its twist sign law. An earlier finite pentagonal-prism computation already obtains the single length-five prism count, which is credited rather than reclaimed. Specific public-source claim comparisons and remaining historical risks appear in `AUDIT.json`. No directly covering all-length ternary seam formula was identified by the documented searches, but exhaustive world-literature priority is not established.
+## originality
 
-## Value — PASS
+PASS
 
-A prism and Möbius ladder differ by only the manner in which the two rails are closed. The exact stationary-state difference is a natural topology-response invariant in a three-opinion local coordination model. Its positive/negative direction reverses with ten distinct length residues, an effect not apparent from either the graph degree profile or the binary two-cycle seam response. The full all-length recurrence and proven sign rule make the result useful as an exact baseline for studying how boundary topology controls multistable local opinion systems, without requiring a downstream theorem about basins.
+There is demonstrable exact overlap at the pentagonal prism count 219, which the original credits and does not claim separately. The distinct result is the paired all-length enumerations and in particular the Möbius seam correction and strict ten-residue sign law, not the local rule, the concept of a twist, or the isolated n=5 number. No examined comparator covers that distinct claim.
 
-## Limits and close literature
+## value
 
-The theorem enumerates fixed states, not complete recurrent periods or attraction probabilities. Relevant comparisons include Becchetti et al., arXiv:1310.2858; Benjamini et al., arXiv:1405.2486; Apt et al., arXiv:1501.07388; and the public binary-majority prism/Möbius seam census cited in `RESULT.md`. The 2021 two-choice anti-coordination Nash-equilibrium enumeration on circular ladders was separately inspected; it does not cover the named three-choice coordination equilibrium or its Möbius comparison. Further independently indexed equivalent formulas remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single natural boundary twist produces both signs of the stationary-state difference in an exact ten-residue pattern for all lengths, with a golden-ratio spectral correction. This is a non-obvious comparison on canonical cubic graphs, useful also as a labelled pure-equilibrium enumeration; it is stronger than a small case check or the generic transfer construction. The analytic sign certificate matters because finite counts alone cannot exclude later sign deviations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

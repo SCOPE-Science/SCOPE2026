@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:06:47.748987Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 55–185; VERIFICATION.md; artifacts/verify.py (inspected, not executed)",
+        "Eremenko–Gabrielov, arXiv:math/0108133, Thm. A, pp. 6–7 and Thm. 1",
+        "/tmp/opencode/frozen-independent-checks.py, wronski"
+      ],
+      "rationale": "The two factorial formulas agree with Eremenko–Gabrielov for a≥b≥2 of opposite parity, using absolute real degree. Put M=ab/2, L=(a−b+1)/2 and U=(a+b−1)/2. In the quotient of degrees the leftover denominator combines the consecutive full factorial block with its odd-argument factorials canceled, leaving the factors (2t)!/t! for L≤t≤U. Each has valuation t by extracting the even terms; (2M)!/M! likewise has valuation M. There are b terms with endpoint sum a, so the difference is zero. Legendre's F(k)=k−s₂(k) gives the common binary expression after the linear terms cancel. For b=2 the source's Catalan specialization applies to every odd a≥3; modulo orientation sign the comparison is well-defined only in the stated nonzero branch. Independent finite replay `python3 /tmp/opencode/frozen-independent-checks.py wronski` verified the complex hook and real ratio calculations for opposite-parity pairs through a=45, and checked the real formula against a signed-tableau corner recurrence through a=12 (also checking vanishing on the complementary branch in that range). The valuation cancellation, not the range check, proves the theorem.",
+      "residual_risks": [
+        "This comparison is about the source's real Wronski degree, not arbitrary real projections, and makes no claim for odd-prime valuations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometric primary source supplies exact degrees, not just parity or bounds. It credits White for the shifted-tableau enumeration of rectangular sign imbalance.",
+          "The inspected Sjöstrand passages concern domino/chess tableaux and signed sums, not a valuation theorem for these two fixed-rectangle degrees."
+        ],
+        "reasoning": "The stronger exact pair of formulas is decisive. A generic hook-length formula for ordinary tableaux or an unsigned domino count does not by itself give the real degree.",
+        "searches": [
+          "Eremenko–Gabrielov Thm. A and real-degree Theorem 1, with explicit factorial formulas",
+          "Sjöstrand arXiv:math/0309231 Prop. 3.2 and pp. 5, 12",
+          "White, Sign-Balanced Posets, DOI 10.1006/jcta.2000.3146"
+        ]
+      },
+      "checked_sources": [
+        "Eremenko–Gabrielov arXiv:math/0108133",
+        "Sjöstrand arXiv:math/0309231",
+        "White cited result via Eremenko–Gabrielov",
+        "Resultary symplectic Plücker valuation catalogue hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd a+b their formulas give D_C/D_R = [(2M)!/M!]/∏_{t=L}^U[(2t)!/t!]. Extracting evens from (2k)! leaves 2^k times an odd integer after division by k!.",
+          "The exponent M−∑_{t=L}^U t is zero; standard Legendre conversion of their first factorial quotient gives the stated digit count."
+        ],
+        "reasoning": "This merely extracts the prime-two part of the exact existing results; no further enumerative or arithmetic theorem is needed. It is stronger than a parity comparison but still follows directly from the published formulas.",
+        "searches": [
+          "Statement-level factor comparison of Eremenko–Gabrielov Theorem A, p. 6 product formula, and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eremenko–Gabrielov identify D_C with the size of the rectangular standard-tableau set and D_R with its absolute sign imbalance; for odd a+b the imbalance equals a shifted-tableau count of strict consecutive shape.",
+          "Their p. 7 gives I(a,2)=d((a−1)/2,2) for odd a."
+        ],
+        "reasoning": "The Grassmannian and rectangular-tableau wordings compare the same two numbers in the same nonzero branch. The known Catalan specialization is not an independent new claim.",
+        "searches": [
+          "Resultary comparisons for two-adic Plücker degree and real Wronski sign imbalance",
+          "arXiv:math/0108133, pp. 2–3 and 6–7",
+          "arXiv:math/0309231, sign imbalance and tableau methods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Eremenko–Gabrielov table lists sample real degrees; its associated product formula applies to all parameters.",
+          "Resultary 2026/10/13/SCOPE-exact-two-adic-valuation-of-pluecker-degrees-of-symplectic-grass--b5d816d534f9 describes a related symplectic valuation claim. Exact mirror retrieval was unavailable; only the catalogue statement was compared, not its manuscript."
+        ],
+        "reasoning": "The sample table alone cannot prove uniform equality. The described symplectic setting does not on its face assert the real-versus-complex type-A identity, and is not used to establish coverage. The published exact factorial formulas do establish coverage.",
+        "searches": [
+          "Resultary searches for binary valuations of Plücker degrees, Catalan specializations and real Wronski degree",
+          "Eremenko–Gabrielov p. 6 table of I(m,p)"
+        ]
+      },
+      "rationale": "The exact values for both degrees throughout the identical parameter range already occur together in Eremenko–Gabrielov. The audited identity is a direct arithmetic corollary of these stronger formulas: strip the even factors from (2k)!/k!, and the remaining power of 2 in the ratio is M minus the sum of b consecutive integers with mean a/2, identically zero. The digit sum is Legendre's formula on the published complex degree. This is an implication finding, not a claim that the equality is printed verbatim or that the claim is false.",
+      "residual_risks": [
+        "White's article was not read in full and the separately cited skew-shape article was not evaluated; earlier explicit statements of the equality are not excluded. The decision rests on the positively demonstrated formula implication, not on access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior implication in exactly the target regime",
+          "evidence": [
+            "The paper gives the complex factorial quotient, the real shifted-tableau factorial quotient for odd m+p, and orientation sign ±I(m,p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0108133",
+          "material_read": "Thm. A and tableau interpretation pp. 2–3; pp. 6–7 product, table, Catalan specialization and Thm. 1 (offsets near 5000 and 12900–16754)",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Degrees of real Wronski maps",
+          "trigger": "Same Grassmannian and both Wronski degrees"
+        },
+        {
+          "assessment": "Related methods, rather than direct stronger coverage of these two degrees",
+          "evidence": [
+            "Prop. 3.2 is a weighted sum over hook shapes, not the rectangular hook valuation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0309231",
+          "material_read": "Prop. 3.2; domino/chess passage p. 5; concluding general-formula question p. 12",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "On the sign-imbalance of partition shapes",
+          "trigger": "Domino and sign-imbalance comparisons"
+        },
+        {
+          "assessment": "Credited input to the exact real formula; no claim about uninspected contents",
+          "evidence": [
+            "The quoted result is the nonzero-branch equality of imbalance with a shifted-tableau cardinality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jcta.2000.3146",
+          "material_read": "Attribution, theorem description and explicit consequence in Eremenko–Gabrielov p. 6; no lawful primary full text obtained in this check",
+          "method": "DOI access attempt and OA citation passage",
+          "title": "Sign-Balanced Posets",
+          "trigger": "Original rectangular imbalance theorem cited by the degree paper"
+        },
+        {
+          "assessment": "Potential adjacency, not treated as proof of or against coverage",
+          "evidence": [
+            "Catalogue description covers symplectic degree valuations with Catalan and Lagrangian cases, not a stated real Wronski comparison."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-two-adic-valuation-of-pluecker-degrees-of-symplectic-grass--b5d816d534f9",
+          "material_read": "Catalogue statement; exact local mirror unavailable",
+          "method": "Resultary search and exact local mirror lookup",
+          "title": "Exact two-adic valuation of Pluecker degrees of symplectic Grassmannians",
+          "trigger": "Adjacent catalogue result on prime-two Plücker valuations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Eremenko–Gabrielov Thm. A and pp. 6–7"
+      ],
+      "rationale": "The real-versus-complex comparison is natural and can be useful as a concise observation. As the submitted standalone exact finding it mechanically extracts the valuation of the two existing factorial products over their existing range, and then rewrites it by Legendre's formula. No unexplained new exact count, boundary case, or strengthened geometric conclusion survives that extraction as a distinct result.",
+      "residual_risks": [
+        "This judgment concerns the incremental finding, not the value of the underlying Wronski degree theorems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

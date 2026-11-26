@@ -1,19 +1,21 @@
-# Scientific review: quadratic separatrix curvature onset
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact rank-collapse calculation gives \(x_1y_1=bd\). The resulting scalar map has exactly one positive fixed point for \(b>A\), and the sign of its displacement yields the entire line of convergent initial points and the two escape regions. The equilibrium Jacobian has stable eigenvalue zero and unstable eigenvalue \((2b-A)/b>1\). Smooth hyperbolic stable-manifold dependence, followed by the implicit-function theorem applied to its one-step preimage, constructs the stable graph uniformly on each compact interval. The exact graph invariance equation determines the two displayed Taylor coefficients uniquely. Symbolic differentiation yields the strictly negative quadratic curvature coefficient; the standalone checker verifies all polynomial/rational identities and additional sample shooting tests. These computations do not replace the smooth-manifold argument; no global-in-\(y\) remainder is asserted.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+At zero detuning the one-step product is bd; the scalar iterate has g(x)-x=x((b-A)x-bd)/(Ax+bd). Monotonicity of each orbit and the unique positive fixed point give the full stable line and both escape limits, including initial y=0. For small detuning the equilibrium has an eigenvalue near zero and an expanding eigenvalue near B/b. The forward local stable-manifold theorem with smooth parameter dependence applies also at the endomorphism parameter: the unstable block is invertible, and no inverse of the stable block is needed. The stable tangent has nonzero y component. Its one-step pullback has x derivative B/(A+y) on the unperturbed graph, uniformly positive on each prescribed compact. Local constructions can use slightly larger open intervals, including a small extension at y=0; the map is smooth there. For uniqueness even among eventual entrants, write the map in (x,-y) coordinates. It is strictly order preserving and the equilibrium derivative has positive entries and a positive left Perron vector for the expanding eigenvalue. In a convex neighborhood of the equilibrium the left-vector weighted gap of comparable points increases by a uniform factor greater than one, by integrating the derivative on their joining segment. Two distinct points with the same y and both converging would contradict this after entering the neighborhood. Joint smoothness with at least three parameter and two ordinate derivatives gives the compact C² remainder. Separate exact-symbolic substitution into the graph identity gave zero first- and second-order residuals, with u(q)=1/q and v(q)=0; differentiation gives v''=-2bq/[d B³(A+y)³]. This coefficient is bounded away from zero in magnitude on each compact, not along the full unbounded curve. The supplied verify.py was inspected, not run; its finite shooting is not evidence of global uniqueness or the compact-uniform remainder. The decisive symbolic calculation is replayable by expanding (d(A+y)+ε)/(s0+εu+ε²v) to order two and comparing the two sides of RESULT.md lines 72–96.
 
-The principal source is Camouzis–Kulenović–Ladas–Merino (2009), DOI `10.1080/10236190802125264`. Garić-Demirović–Kulenović–Nurkanović (2009), DOI `10.1155/2009/153058`, gives the general global-basin theorem for the nondegenerate case and **explicitly states the degenerate scalar reduction in Remark 2.4**. Neither inspected source states the parameter-Taylor expansion of the stable curve or the quadratic negative curvature formula. The cited competitive-map invariant-manifold theory ensures qualitative existence of a monotone curve but does not supply its parameter response. The claim is therefore the explicit second-order unfolding, not a new reduction or a new proof of the known qualitative trichotomy. Targeted equivalence, domination, and coefficient searches did not identify a previously published formula. An unindexed exact calculation remains possible; lack of a search hit is not proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The degenerate surface separates noninvertible one-step collapse from invertible competitive dynamics, for which the 2009 global theorem supplies a curved but implicitly defined basin separator. The derived expansion measures *how* that separator emerges from a straight line: affine first-order motion hides an unavoidable second-order concavity of the same sign under both positive and negative detuning. This is a natural, quantitatively sharp geometric invariant of the published dynamical family, not an arbitrary finite instance or a routine restatement of the existence theorem. Its scope is compact segments and small detunings; global curvature behavior is not decided.
+Pass for the explicit compact-C² unfolding in the original coordinates, especially the first nonzero curvature coefficient on both detuning sides. The singular scalar reduction and nondegenerate qualitative separation are credited as prior, and the singular stable line is an immediate consequence of the reduction, not a separate novelty. Available statements do not supply the mixed ordinate/parameter derivatives.
 
-## Source comparison and limits
+## value
 
-The 2009 qualitative stable-manifold and scalar reduction are credited in full. The perturbation result assumes fixed positive \(A,d\), \(b>A\), state coordinates as printed, and a small parameter preserving positivity. It relies on standard smooth stable-manifold theory but its rational coefficients are worked out and verified here. The derivative calculation is not independent review and absolute historical priority remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a previously studied competitive system this resolves a specific geometric question not answered by a basin split: the first displacement is purely affine, but a nonzero quadratic effect bends the actual separator to the same side for either sign of detuning. The compact-uniform C² estimate makes that sign a conclusion about a true stable graph, rather than a formal curve or a few numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

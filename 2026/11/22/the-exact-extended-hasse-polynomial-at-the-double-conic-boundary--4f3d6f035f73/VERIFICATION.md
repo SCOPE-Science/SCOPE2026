@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and limits
 
-Run `python3 verify_extended_hasse.py` with Python 3 standard library in the same directory. It produces `EXTENDED_CIANI_HASSE_OK` and checks three independently computed degree-\(p-1\) coefficient vectors modulo each prime in \(\{5,7,11,13,17,19,23,29\}\): expansion of the quartic in six monomial types, the transformed classical Deuring coefficient, and expansion of the genus-one quotient's square-completed quartic. This command was executed successfully against the included file.
+The unchanged companion `verify_extended_hasse.py` is a Python 3 standard-library checker. Run `python3 verify_extended_hasse.py` in the directory containing it. The expected final line is `EXTENDED_CIANI_HASSE_OK`. The script checks equality of the vectors from three coefficient computations at the primes \(5,7,11,13,17,19,23,29\): the original plane quartic, the transformed Deuring polynomial, and the square-completed genus-one equation. The original accompanying notes report a successful run. These checks concern normalization in an explicit finite test set, not an independent proof of the uniform claim.
 
-The finite computations do not establish the universal identity; the mathematical proof derives divisibility at the double-conic parameter, shows degree and leading coefficient, classifies the zeros on smooth fibers by the elliptic quotient, excludes extraneous roots at the two other singular parameters, and uses degree to force the exact boundary multiplicity. Root simplicity and degree-\(2\) extension splitting are classical properties of the Legendre–Deuring polynomial. The argument is confined to prime characteristics at least five and to the displayed natural coefficient extension. There has been no independent mathematical audit.
+The all-prime argument in `RESULT.md` uses the central coefficient of a monic quadratic to extract the discriminant power and then applies two binomial identities over \(\mathbb F_p[a]\). It does not infer the last root from a comparison of root sets on the smooth locus. After the polynomial identity is established, the classical simplicity and field of definition of the Legendre–Deuring roots imply the exact multiplicity and the smooth root count.

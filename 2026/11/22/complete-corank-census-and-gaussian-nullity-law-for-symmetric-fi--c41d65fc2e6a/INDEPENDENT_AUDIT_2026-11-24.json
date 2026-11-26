@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:40:23.176923Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–130",
+        "Frozen VERIFICATION.md, check_tridiagonal.py and check_output.txt (inspected, not executed)",
+        "arXiv:2509.17719 §2.1, Theorem 2.1 and its end-pivot proof",
+        "/workspace/repairs/4/RESULT.md and VERIFICATION.md"
+      ],
+      "rationale": "The repaired finding is the fixed-q Gaussian law with explicit linear mean and variance. The supporting finite formula is correct: each zero offdiagonal splits the matrix, and a block with nonzero internal offdiagonals has kernel dimension at most one by forward substitution. If S and T are the positive-dimension generating series for invertible and all matrices with constant term 1, respectively, then 1/S=1−B0 and 1/T=1−B0−B1 for the two block types. Hence the repaired series is 1/((1−t)/S+t/T). Inserting the inspected recurrence for S and T=(1−q(q−1)z)/(1−q²z) gives the original rational polynomial. Independently, the three end-pivot cases give the same recurrence: a nonzero end diagonal gives q(q−1) smaller problems with unchanged nullity; a zero end diagonal and zero joining edge gives one free kernel coordinate; a zero diagonal and nonzero joining edge yields an invertible 2-by-2 pivot with inverse entry zero at the vertex connecting to the rest, in q²(q−1) ways for n>=3. At n=2 the extra joining edge is absent. In the repaired proof the two-root expansion is explicitly restricted to n>=1, since a constant part of the rational function affects n=0. Near t=1 the dominant root q² is separated from −(q−1) and its coefficient is 1/q at t=1. The uniform analytic remainder permits termwise first and second derivatives of the log moment generating function. The logarithmic t-derivatives of the dominant root are 1/D(t) and −a(t)/D(t)^3; the t=exp(s) chain rule gives the two asserted coefficients, and a centered characteristic-function expansion proves the normalized limit. The variance is strictly positive for q>=2. Recorded finite rank checks are not a proof of the limit.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman–Goldstein Theorem 4.1 gives a tight limiting corank law for full symmetric matrices, not banded ones.",
+          "Martínez-Moro–Rodnit–Jitman §§2.1–2.2 gives invertibility and determinant fibers; no Gaussian nullity law is stated in the inspected results.",
+          "Resultary 1bb563e423d9 gives a general tridiagonal corank polynomial with independent upper and lower entries; 2a40cd6a7961 gives a different split-graph pattern and critical-window law."
+        ],
+        "reasoning": "A uniform dense distribution, an aggregate count with independent upper and lower entries, and a split-graph law do not specialize by setting the offdiagonals equal in an already aggregated histogram. The same-ensemble invertible census is the important implication check, not a difference in ensemble.",
+        "searches": [
+          "arXiv:1211.0504 §4",
+          "arXiv:2509.17719 §§2.1–2.2",
+          "DOI 10.1515/spma-2023-0114",
+          "Resultary: finite-field ladders with tridiagonal matrices and Gaussian limits for other symmetric zero patterns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.17719, 2509.10332v1 and 1211.0504 as located above",
+        "Resultary 1bb563e423d9, 2a40cd6a7961 and c41d65fc2e6a self-hit",
+        "DOI 10.1515/spma-2023-0114 retrieval attempts",
+        "Repaired RESULT.md proof and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published invertible recurrence gives S(z); T(z) follows by counting all free entries. Blocks have only coranks 0 and 1, so direct inversion gives the marked census as 1/((1−t)/S(z)+t/T(z)).",
+          "At q=2 one may instead compose the connected-path counts (2^(n+1)+(−1)^n)/3 and (2^n+(−1)^(n+1))/3 at each possible zero offdiagonal."
+        ],
+        "reasoning": "Both are real prior implications for finite counting; the repaired statement explicitly credits them and does not treat the generating function as separately novel. The stated Gaussian law with the model-specific variance and slope requires analysis of the parameter-dependent dominant root, its analytic separation and its derivatives. That is not a specialization of either cited counting theorem or the dense limiting distribution. Standard dominant-root asymptotics are a method, not an originality claim.",
+        "searches": [
+          "arXiv:2509.17719 Theorem 2.1 and proof",
+          "arXiv:2509.10332v1 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Safarji–O'Brien–Quinlan Theorem 2.2 gives both rank counts of binary all-nonzero-offdiagonal paths, from which the unrestricted binary census can be composed.",
+          "Martínez-Moro–Rodnit–Jitman Theorem 2.1 gives the exact invertible recurrence for the same unrestricted symmetric ensemble and all prime powers."
+        ],
+        "reasoning": "Corank is n minus rank; the connected binary block law is exactly the two-valued nullity block law at q=2, rather than the law of the whole unrestricted matrix. The repaired law treats the unrestricted model for all fixed prime powers and computes its fluctuation scale.",
+        "searches": [
+          "Resultary: symmetric finite-field tridiagonal rank distribution, path blocks, nullity census and Gaussian law",
+          "arXiv:2509.10332v1 §2",
+          "arXiv:2509.17719 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c41d65fc2e6a is the assigned record itself.",
+          "Resultary 2026/11/8/SCOPE-four-state-ladder-character-degree-transfer-over-finite-fields--1bb563e423d9 gives a complete corank polynomial in a related nonsymmetric model.",
+          "Resultary 2026/11/22/SCOPE-complete-nullity-census-and-a-gaussian-invertibility-threshold-f--2a40cd6a7961 gives a different sample space with a positive-part Gaussian limit."
+        ],
+        "reasoning": "These are material analogues in rank enumeration and nullity limits, but not exact matches for the fixed-q tridiagonal fluctuation law. Same-day indexing by itself gives no priority inference.",
+        "searches": [
+          "Resultary: exact symmetric finite-field tridiagonal corank polynomial, Gaussian nullity and rank transfer"
+        ]
+      },
+      "rationale": "This passes only the repaired asymptotic finding, not the frozen presentation of the finite corank census as a separate original claim. The frozen prior-implication comparison was materially wrong: the published invertible census implies the full marked census by elementary block decomposition and formal series inversion, even though determinant-zero fibers alone do not distinguish coranks. The repair makes that implication explicit. The inspected earlier sources do not give the fixed-field Gaussian law and both explicit slopes for this sparse symmetric ensemble. It takes an additional asymptotic argument beyond the invertible counts or block compositions.",
+      "residual_risks": [
+        "The Jitman–Sricharoen paper was not readable through the attempted OA routes. Other earlier ensemble-specific Gaussian analyses could exist; no priority conclusion is based on an unavailable source.",
+        "The Gaussian result uses a standard analytic method once the marked census is available; novelty is limited to this ensemble-specific law and its coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact invertible recurrence and determinant fibers, with full corank census implied through block inversion",
+          "evidence": [
+            "Initial invertible counts q−1 and q²(q−1); recurrence coefficients q(q−1) and q²(q−1) for n>=3 and every prime power.",
+            "The proof pivots on the end diagonal and counts the invertible cases. No Gaussian law is provided in the compared passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.17719",
+          "material_read": "§2.1 Theorems 2.1–2.2 and initial proof of 2.1, §2.2 Theorems 2.12–2.14",
+          "method": "OA full-text passages, offsets 13636, 19154 and 41268 onward",
+          "title": "On the enumeration of symmetric tridiagonal matrices with prescribed determinant over commutative finite chain rings",
+          "trigger": "Same unrestricted ensemble and potential implication for every corank"
+        },
+        {
+          "assessment": "Direct connected binary block result, implying the binary marked census by compositions",
+          "evidence": [
+            "Offdiagonal path entries are one and the diagonal is free; the only ranks are n and n−1, with explicit counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.10332v1",
+          "material_read": "§2 definition of P_n matrix and Theorem 2.2, offsets 18569 and 20361",
+          "method": "OA full-text passages",
+          "title": "The rank distribution of matrices representing graphs with a long induced path over the field of two elements",
+          "trigger": "Exact connected path rank law as a component of the binary ensemble"
+        },
+        {
+          "assessment": "Dense comparison only",
+          "evidence": [
+            "Full uniform symmetric matrices have total-variation convergence of their finite-size corank distributions to a limiting law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0504",
+          "material_read": "§4 Theorem 4.1, PDF p. 13, offset 34457",
+          "method": "OA PDF passage",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Classical symmetric finite-field nullity laws"
+        },
+        {
+          "assessment": "Nonsymmetric analogue, not the symmetric ensemble",
+          "evidence": [
+            "Upper and lower entries are independent rather than equated."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-four-state-ladder-character-degree-transfer-over-finite-fields--1bb563e423d9",
+          "material_read": "RESULT.md Finding, Assumptions and proof Step 1",
+          "method": "Configured local Resultary mirror",
+          "title": "Four-state ladder character-degree transfer over finite fields",
+          "trigger": "All-field exact tridiagonal corank census"
+        },
+        {
+          "assessment": "Different zero pattern and limiting regime",
+          "evidence": [
+            "A complete split-graph pattern has a positive-part Gaussian critical-window limit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-complete-nullity-census-and-a-gaussian-invertibility-threshold-f--2a40cd6a7961",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Configured local Resultary mirror",
+          "title": "Complete nullity census and a Gaussian invertibility threshold for a split-graph pattern",
+          "trigger": "Potential overlap with Gaussian nullity for symmetric sparse matrices"
+        },
+        {
+          "assessment": "Coverage unresolved, no negative inference",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1515/spma-2023-0114",
+          "material_read": "Bibliographic identification only; no readable primary passage retrieved",
+          "method": "Lawful publisher HTML, DOI and PDF attempts",
+          "title": "Determinants of tridiagonal matrices over some commutative finite chain rings",
+          "trigger": "Possible earlier determinant or rank coverage for tridiagonal families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and asymptotic proof",
+        "Fulman–Goldstein §4",
+        "Safarji–O'Brien–Quinlan §2"
+      ],
+      "rationale": "For a natural sparse symmetric finite-field ensemble, the remaining theorem exhibits positive linear nullity with an explicit density and variance, sharply distinguishing it from the tight dense model and the bounded nullity of a connected block. It characterizes the fluctuations for every fixed field size, rather than just providing an extra finite count or a numerical fit. The corrected exact census serves the proof, not the value argument on its own.",
+      "residual_risks": [
+        "There is no claim for simultaneous q and n growth, varying zero-edge probability, or other bands."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

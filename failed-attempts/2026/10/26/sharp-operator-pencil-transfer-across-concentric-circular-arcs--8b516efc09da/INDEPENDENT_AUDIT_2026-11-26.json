@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:52:56.347561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–53",
+        "Frozen VERIFICATION.md and verify_arc_transfer.py, inspected, not executed",
+        "Resultary 71dc11a952c3, proof §§1–2"
+      ],
+      "rationale": "The frozen scalar profile follows by writing |a+be^(it)|^2 as (|a|-|b|)^2 plus 4|a||b| times the squared half-angle sine measured from the opposite-phase point. The greatest circular distance is min(pi,d+psi), and the ratio of the two squared sines decreases strictly until the denominator saturates. Independently, interpolate the affine pencil from the two nodes z_+=e^(i theta), z_-=e^(-i theta). For theta<|t|<=phi the sum of the moduli of the two interpolation coefficients is [sin((|t|+theta)/2)+sin((|t|-theta)/2)]/sin(theta)=sin(|t|/2)/sin(theta/2); for |t|<=theta the inner arc bound applies directly. This proves the same upper bound for values in any complex normed space, hence operators and all matrix levels. The pencil A=-B attains it. For a nonzero scalar pair a maximum attaining the bound must occur at |t|=phi by strict sine monotonicity; both interpolation coefficients there are nonzero. Equality forces equal endpoint moduli and phase alignment of the two weighted values. At t=phi the coefficient ratio has phase -e^(i theta) for the negative-node coefficient divided by the positive-node coefficient, so p(z_+)=-e^(i theta)p(z_-), equivalently (1+e^(i theta))(a+b)=0. The negative endpoint is symmetric by conjugation. Thus for nonzero pairs exactly a=-b gives equality. Restriction is contractive at every matrix level and fixes constants, so the reverse norm and cb norm are one. The result concerns only the marked map.",
+      "residual_risks": [
+        "The frozen angular-grid tests do not certify arbitrary angles or matrix levels; the analytic interpolation argument does. No general operator equality classification or unrestricted Banach–Mazur distance follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older Lebesgue function handles arbitrary two-node interpolation at each point of a containing arc. The symmetric sampling record identifies the exterior sine-ratio term and the matrix scalarization argument.",
+          "Ray treats these same planes and their isometry classification; the examined statement does not compute the marked map. The inspected arc Bernstein results estimate derivatives, not this supremum ratio."
+        ],
+        "reasoning": "The arbitrary-node pointwise theorem is the stronger relevant estimate. Its exterior part specializes exactly even though the larger-arc operator norm of full interpolation can also involve a distinct interior secant term. The marked-map input additionally controls the entire inner arc, removing that term.",
+        "searches": [
+          "Resultary 71dc11a952c3, formula (2) for arbitrary nodes and outer arc; 993d6ac7ac17, proof §§1–4",
+          "Ray, arXiv:2610.04608v1",
+          "Kalmykov–Nagy arXiv:1408.1601 and Borwein–Erdélyi DOI:10.1112/S0025579300011876"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71dc11a952c3, 993d6ac7ac17, c1c0ee781ccd and 476676e0ab99",
+        "arXiv:1809.09726v2",
+        "arXiv:2610.04608v1",
+        "arXiv:1408.1601",
+        "DOI:10.1112/S0025579300011876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set the outer arc half-angle to phi and the interpolation nodes to ±theta in (2), giving the exterior ratio identically. In §§2–3 of the symmetric sampling result the phase antipode produces exactly the ratio and the balanced pencil 1-z attains it.",
+          "The affine interpolation formula is a linear identity with scalar weights, so the same pointwise bound holds in the operator norm and at each matrix level. At the outer endpoint equality in that identity fixes the two node values up to a scalar, hence yields a=-b."
+        ],
+        "reasoning": "This is a concrete corollary of already published exact formulas, not an inferred noncoverage from titles or a speculative possibility of a classical result. The equality addendum and reverse map do not supply a substantive independent remainder.",
+        "searches": [
+          "Resultary 71dc11a952c3, Proof §§1–2 (mirror offset 1995)",
+          "Resultary 993d6ac7ac17, Proof §§2–4 (mirror offset 1845)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In pointwise interpolation terms the crucial part is the exterior symmetric Lebesgue function, already evaluated in 71dc11a952c3 §§1–2. The smaller-arc supremum controls its two input values.",
+          "Sharp Remez for algebraic polynomials of degree one gives the whole-circle endpoint csc(theta/2) and the 1-z witness; it does not by itself give intermediate phi."
+        ],
+        "reasoning": "It is the exact earlier pointwise formula, rather than the optimized sampling constant or the full-circle Remez theorem alone, that implies the intermediate-arc comparison. Recasting the sharp bound as a marked-map norm is equivalent.",
+        "searches": [
+          "Resultary circular-arc function planes, exact two-point Lebesgue constants and nested arc transfer; 71dc11a952c3 and 993d6ac7ac17",
+          "Tikhonov–Yuditskii, arXiv:1809.09726v2, sharp circle Remez inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published entry 71dc11a952c3, mirror offset 1995, gives the exact three-interval Lebesgue function. Entry 993d6ac7ac17, mirror offset 1845, computes the sine-ratio exterior value and gives 1-z as witness. The Hilbertian metric and finite sampling entries optimize different quantities."
+        ],
+        "reasoning": "Even without a ranked title naming the two-arc map, the required exact pointwise constant is in the indexed result itself. Different exact invariants are credited only for what they cover.",
+        "searches": [
+          "Resultary 71dc11a952c3, 993d6ac7ac17, c1c0ee781ccd and 476676e0ab99"
+        ]
+      },
+      "rationale": "Although the direct marked-map wording was not found, the exact sharp coefficient is a corollary of the earlier Resultary Lebesgue-function formula, not merely of a neighboring optimized sampling norm. In 71dc11a952c3 equation (2), use outer half-width phi, midpoint m=0 and half-separation parameter d=theta/2. Its exterior branch is exactly sin(|t|/2)/sin(theta/2) for theta<=|t|<=phi. Every affine polynomial is its own interpolant. Bound the node data by the smaller arc norm and bound the remaining interior interval directly by that same norm. This immediately gives the claimed transfer and the standard 1-z witness (also identified for the exterior term in 993d6ac7ac17). The same interpolation identity is vector-valued with the same bound, and reverse restriction is trivial. Scalar equality adds just equality in the two-term interpolation triangle inequality.",
+      "residual_risks": [
+        "Other older arc-Remez results may contain exact equivalent formulations, but the affirmative corollary in the inspected published Resultary formula is already enough for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct corollary coverage despite a different primary optimization problem",
+          "evidence": [
+            "Equation (2) gives sin((t-m)/2)/sin(d) on the right exterior interval and its reflection on the left. Setting m=0 and d=theta/2 gives the exact transfer estimate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-two-point-lebesgue-constants-and-inward-optimal-nodes-on-c--71dc11a952c3/RESULT.md",
+          "material_read": "Finding and proof §§1–4, mirror offset 1995",
+          "method": "Published result via local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp two-point Lebesgue constants and inward optimal nodes on circular arcs",
+          "trigger": "Exact pointwise interpolation on the same affine arc space"
+        },
+        {
+          "assessment": "Identifies the sine ratio, its witness, and the matrix transfer as ingredients of a sampling problem",
+          "evidence": [
+            "In the exterior phase interval Q(pi)=sin(outer half-angle/2)/sin(node half-angle/2); 1-z witnesses this term. Proof §4 passes to matrices by scalarization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-optimal-symmetric-two-point-sampling-of-circular-arc-function-pl--993d6ac7ac17/RESULT.md",
+          "material_read": "Finding and proof §§1–4, mirror offset 1845",
+          "method": "Published result via local mirror",
+          "title": "Optimal symmetric two-point sampling of circular-arc function planes",
+          "trigger": "Same symmetric nodes and cb norm"
+        },
+        {
+          "assessment": "Exact full-circle endpoint overlap; not the decisive intermediate-arc implication",
+          "evidence": [
+            "For |E|>=2pi-s the polynomial norm on the whole circle is bounded by T_n(sec(s/4)); n=1 and s=2pi-2theta give csc(theta/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1809.09726v2",
+          "material_read": "Abstract algebraic-polynomial statement and comparison to Theorem 1.1, offset 5011",
+          "method": "OA primary HTML",
+          "title": "Sharp Remez inequality",
+          "trigger": "Potential degree-one nested-arc or endpoint inequality"
+        },
+        {
+          "assessment": "Same spaces, different stated invariant; no document-wide negative assertion is needed",
+          "evidence": [
+            "The stated results give uniqueness of the operator-space structure and non-isometry of planes with distinct half-angles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04608v1",
+          "material_read": "Abstract and its stated operator-space/isometry results",
+          "method": "OA primary HTML",
+          "title": "Unique operator space structures on a family of two dimensional Banach spaces",
+          "trigger": "Same marked arc planes"
+        },
+        {
+          "assessment": "Inspected estimates are derivative estimates",
+          "evidence": [
+            "The former bounds the polynomial derivative asymptotically by a norm times a normal derivative of a Green function; the latter gives sharp Bernstein-type rational derivative inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1408.1601; https://people.tamu.edu/~terdelyi/papers-online/mathematika.pdf",
+          "material_read": "Kalmykov–Nagy abstract, introduction and Theorem 1; Borwein–Erdélyi abstract, pp. 1–2",
+          "method": "OA primary HTML and lawful author-hosted PDF",
+          "title": "Polynomial and rational inequalities on analytic Jordan arcs and domains; Sharp extensions of Bernstein’s inequality to rational spaces",
+          "trigger": "Potential broad polynomial constraints on arcs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 71dc11a952c3 equation (2)",
+        "Resultary 993d6ac7ac17 Proof §§2–4",
+        "Frozen RESULT.md, Proof §§1–4"
+      ],
+      "rationale": "A quantitative comparison of marked arc planes is a natural question, but this coefficient is already obtained by plugging the two endpoints of the inner arc into a prior pointwise interpolation formula on the outer arc. The sharp witness, operator-space step and equality condition require only the affine identity, triangle equality, or restriction. No new optimization or useful unknown sharp fact remains beyond that mechanically implied result.",
+      "residual_risks": [
+        "This decision does not address the separate unrestricted isomorphism distortion problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

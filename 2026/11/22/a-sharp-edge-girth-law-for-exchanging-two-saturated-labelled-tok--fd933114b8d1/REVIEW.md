@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower bound separates excursions outside the two initially full endpoints into crossing excursions, which cost at least the alternate-path length, and return excursions. If all excursions return, the initial saturation forces one excursion; if this were the only excursion, the returning token would remain at its original endpoint with both ends saturated again and the target unreachable. Hence at least two return excursions are necessary, adding at least four moves. Two fully explicit legal move sequences attain the minimum of the crossing cost and the two-return cost, for every connected host with at least three vertices and every capacity at least two. The embedded verifier independently checks forty-six finite cases, including the bridge boundary and all five cost regimes.
+PASS
 
-## Originality — PASS, with residual priority risk
+Each of the 2s tokens must make at least one move. Read an external excursion as a segment of a token's walk between consecutive visits to {u,v} with at least one interior vertex outside it (exclude a direct uv move). If any such segment joins opposite endpoints, it has length at least dist_{G−uv}(u,v)=g_G(uv)−1, which charges at least g_G(uv)−2 above that token's baseline. Otherwise every token must cross uv directly. At least one token must leave the saturated pair before any direct move is legal. If its return were the only excursion, both endpoints would then be full again and that token still on the wrong side, so the sequence could neither finish there nor continue without another departure. Two return excursions each cost at least two non-uv moves. For the upper bound, the buffer algorithm uses an exterior neighbor of one endpoint; after parking its first token and the other endpoint's first token, both endpoints have one vacancy and the outer site holds exactly two tokens. All subsequent direct pairs preserve the vacancies until the three final moves fill them, giving 2s+4. For a finite alternate path of length ℓ, parking one token at its penultimate vertex vacates one place; the 2s−1 alternating direct moves then leave a place at the other endpoint for the final detour move. This gives 2s+ℓ−1 and yields the minimum including bridges. Capacity s≥2 and at least three vertices are essential to the given construction. The definition of excursion in the frozen prose should be read as above; direct uv steps are not excursions. Frozen verify.py was inspected, not executed; its finite BFS is corroboration, not a proof over all graphs.
 
-The model itself comes from Song et al. (arXiv:2604.04845); its 2026 follow-up by Cai et al. (arXiv:2611.06275), sections 4.1–4.4, gives whole-configuration diameters in other regimes and a complete-host shortest-path theorem. The triangle case of this new formula is already contained in the complete-host theorem, but the local edge-cycle-length law for all host graphs is not implied by that special case or their star/odd-cycle diameter statements. Searches for saturated-stack exchanges, distinguishable capacity-two token swaps and edge-girth shortcuts identified no stronger applicable theorem. A prior equivalent result not indexed in those sources remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The statement determines a natural exact metric of capacity-constrained labelled rearrangement on **every** connected host graph. The sharp cycle-length threshold and capacity-independent congestion surcharge explain when a detour around an edge beats two temporary buffer excursions. It provides structural local-distance information complementary to existing global-diameter work, not a fixed arbitrary small enumeration. It neither asserts a new complete-host subcase nor claims to resolve the unsolved odd-cycle diameter formula.
+The complete-host metric already yields the triangle branch by a K₃ restriction and the first-move lower bound. The star-proof estimate in Cai et al. also gives the universal 2s+4 upper bound via a three-vertex star subgraph, though not the pairwise lower bound. The surviving contribution is the exact edge-local law on arbitrary hosts, including when an alternate path beats that uniform upper bound, and its matching lower bounds. No inspected source dominates that claim; priority remains provisional.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Shortest paths between these highly congested labelled states constitute a natural local metric not determined by the known diameters. The exact upper/lower threshold identifies which short detours beat two temporary displacements, uniformly over all valid capacities and graphs. It provides genuinely new structural information beyond a known triangle computation or a uniform star upper bound; it does not settle odd-cycle diameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

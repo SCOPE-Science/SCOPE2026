@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:27:25.860019Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At zero the factors all equal one; for 0<gamma<1, log(1+q/j^gamma) is bounded below by a positive multiple of j^(-gamma), giving stretched exponential decay. The linear endpoint telescopes to one. Where 3^gamma-1<1, the geometric lower bound exceeds one. In the middle range the factor increases in its numerator j^gamma with q fixed and decreases in q; hence the lower powers at each left endpoint and the upper q at its right endpoint give a lower enclosure throughout the interval. For the near-linear range I checked the log derivative d_j and the beta integral giving the tail of u_k. For termwise differentiation and rearrangement the dominating series obtained from (2 log j+3 log 3)/j^0.99 times the B_j majorant is summable; the endpoint derivative is from the left. The negative numerator bound for the first five terms uses an upper denominator and a lower B_j, with the sign accounted for. Positive terms use a lower denominator and upper B_j. Gamma-moment Jensen with exponent 49/25 and log-convexity of Gamma between 2 and 3 give the claimed power tail, and the integral bound 3213/45125 is less than 0.08. The frozen directed-decimal code and its rounding directions were inspected but not executed. In /workspace/renewal_replay.py, independently certified powers by integer comparisons, logs by a rational atanh series with a geometric bound on its tail, and all enclosures by exact fixed-point arithmetic. It covers the middle range in 14 intervals with smallest certified lower bound 1.001106449194 and gives derivative upper pieces -1.479575503580, 0.801177356182 and 3213/45125. These rigorously imply the claimed -0.58 bound and hence the full strict inequality. The application is a sufficient condition for the one-community theorem, not a necessary condition and not a two-community result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rudas–Tóth–Valkó give almost-sure convergence of degree frequencies for broad weighted recursive-tree models, to a probability law; on countable degrees this gives total-variation convergence.",
+          "The cited preprint treats a separate multi-community setup but its condition (2) here is for p=1, q_A=0. Its initial-range and near-endpoint arguments do not certify the intervening range."
+        ],
+        "reasoning": "The stronger applicability of older branching-process convergence is not a theorem that its models satisfy this newer sufficient inequality. No inspected broader analytic inequality yields the required comparison to 3^gamma-1 throughout the domain.",
+        "searches": [
+          "arXiv:math/0503728v2 condition (M) and Theorem 2",
+          "arXiv:2611.06904v1 pp. 4–5 and pp. 25–27"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06904v1",
+        "arXiv:math/0503728v2",
+        "Resultary/SCOPE identical record f62be42d0b6e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target preprint proves a conditional theorem, and its endpoint result gives only a local consequence, leaving the full condition open.",
+          "The older method gives degree-frequency convergence under its own hypotheses; that conclusion does not imply a different sufficient condition for convergence."
+        ],
+        "reasoning": "Credit the prior convergence machinery and the prior partial inequality. The continuum certificate and quantitative endpoint range address the unevaluated condition, not a renaming of the convergence theorem.",
+        "searches": [
+          "arXiv:2611.06904v1 Theorem 2 and Remark 8",
+          "arXiv:math/0503728v2 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 14 equates the condition at the one-community growth parameter to the strict inequality of this product series. Theorem 2 uses the series explicitly.",
+          "Remark 8 bounds the endpoint derivative and gives an unspecified interval to its left, not the all-sublinear statement or the uniform derivative bound down to 0.99."
+        ],
+        "reasoning": "Compared both the explicit product series and its condition in the growth-rate formulation. Their identity exposes the exact antecedent problem rather than an independent mathematical reformulation of a solved result.",
+        "searches": [
+          "arXiv:2611.06904v1 conditions (2) and (22), Theorem 2, Lemma 14 and Remark 8",
+          "Resultary/SCOPE full sublinear threshold and renewal series"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed hit is the identical frozen record f62be42d0b6e, verified against its RESULT.md in the local mirror.",
+          "Remark 8 gives an endpoint estimate and suggests a mesh proof, but supplies no table or enclosures proving the continuum claim."
+        ],
+        "reasoning": "No distinct covering exact record appeared in the relevant results. A list of pointwise numerical values, even if above one, would not cover a real-interval assertion without certified error/enclosure control.",
+        "searches": [
+          "Resultary/SCOPE sublinear threshold and preferential-attachment renewal series",
+          "arXiv:2611.06904v1 Remark 8"
+        ]
+      },
+      "rationale": "The specific sufficient-condition inequality for every strictly sublinear exponent, and the explicit uniform derivative bound, go beyond the actual statement of the target preprint. Older degree convergence via a branching-process method overlaps the consequence, not the sufficient condition itself.",
+      "residual_risks": [
+        "This bounded comparison does not rule out an independently published estimate of the equivalent growth-rate bound; the targeted public search returned unrelated material.",
+        "Exact correspondence to older probabilistic models can depend on seed and degree conventions; no claim of new degree-convergence priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the same inequality as a condition, proves partial coverage, and leaves full coverage open",
+          "evidence": "(2) and (22) give the product-series condition, and Remark 8 obtains a qualitative left neighborhood using an endpoint bound by pi²/3−3 log 3.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.06904v1",
+          "material_read": "Theorem 2 p. 3, discussion pp. 4–5, Lemma 14 pp. 25–26 and Remark 8 pp. 26–27",
+          "method": "OA primary PDF text inspection",
+          "title": "Sublinear multi-type preferential attachment",
+          "trigger": "Exact motivating condition and earlier attempted proof"
+        },
+        {
+          "assessment": "Overlaps convergence consequence, not the exact series condition",
+          "evidence": "Uses weighted recursive trees and general branching processes to identify almost-sure limiting degree frequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503728v2",
+          "material_read": "Condition (M) and Theorem 2, PDF pp. 6–8",
+          "method": "OA primary PDF text inspection",
+          "title": "Random trees and general branching processes",
+          "trigger": "Potential earlier broader convergence theorem"
+        },
+        {
+          "assessment": "Same record, not independent coverage",
+          "evidence": "Same full strictly sublinear range, equality at one and near-linear derivative certificate.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-full-sublinear-threshold-for-a-preferential-attachment-renew--f62be42d0b6e",
+          "material_read": "RESULT.md Finding, offset 80",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The full sublinear threshold for a preferential-attachment renewal series",
+          "trigger": "Exact strongest catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It closes an explicitly isolated gap in the domain of a recent coupling theorem by proving its exact sufficient condition on the whole sublinear range, and adds a reproducible quantitative derivative bound. Value does not depend on claiming first degree-distribution convergence or solving a multi-community problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

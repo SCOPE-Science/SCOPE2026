@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The primary geometric sources identify the eighty Rosenhain tetrads with all affine nonisotropic two-planes of \(\mathbb F_2^4\). A quadratic refinement has parity one over each such plane, giving the displayed kernel inclusion. The five-coordinate homomorphism is surjective with target of order \(128\). Sixteen explicitly listed incidence vectors have exact determinant \(+128\), forcing equality of the span and kernel. A standalone exact-integer checker reconstructs every tetrad and reproduces the determinant and congruences. No numeric extrapolation is used.
+PASS
 
-## Originality
+For the usual geometric Rosenhain tetrads in characteristic not two, the enumeration is complete: of the 35 binary two-dimensional linear subspaces, 15 are isotropic, and each of the other 20 has four cosets. The four coordinate sums vanish modulo two on every affine plane, while the second difference of the displayed quadratic refinement equals the symplectic pairing, hence has sum one on each nonisotropic plane. This proves inclusion in the stated mod-eight and parity kernel. The zero node and the four differences of coordinate nodes from zero generate the target of order 128. I independently filtered all 1,820 four-subsets by zero XOR and nonisotropic direction, obtained all 80 rows (matching the CSV including its selected rows), computed the signed minor +128 and obtained the full integer Smith list 1^11, 2^4, 8. Inclusion and the equality of indices prove the exact criterion. The first coordinate of each basis image is odd, giving order eight for every node. The claim concerns formal coefficients, not a quotient of divisor classes.
 
-**PASS with residual priority risk.** Keum (1997) and Dolgachev (arXiv:2302.13101, 2023) provide the geometry, but do not give the integral Rosenhain incidence lattice, its eightfold congruence or Smith type. The published Göpel-tetrad lattice handles the distinct isotropic incidence family and has exponent four, not eight. Cullinane's projective-binary visualization describes the same 80 combinatorial tetrads, not an integral Smith calculation. Equivalent code-theoretic tables may exist under different terminology.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Formal integral reconstruction of node weights from geometrically distinguished tetrads is natural and distinct from rational spanning. The exact order-eight obstruction, contrasted with order four for Göpel tetrads despite the equal index \(128\), captures an integral distinction between complementary Kummer configurations. It gives a complete membership criterion rather than a sampled numerical invariant. It does not identify this quotient with a Picard or Chow quotient.
+Best of current knowledge, the supported distinct claim is the integral span and coupled order-eight obstruction of the 80 nonisotropic tetrads. The underlying configuration is classical. The strongest indexed analog uses complementary, isotropic directions and has exponent four; the matching index is not matching lattice information.
 
-## Scope and evidence
+## value
 
-The finite determinant and parity identities are checkable from `verify_rosenhain.py` and `rosenhain_80.csv`. Historical sources are cited in `RESULT.md`. The only classification is for the reduced two-torsion of genus-two Jacobians in characteristic different from two. Historical priority is qualified, and no independent audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 80 generators are the complete canonical nonisotropic incidence family on the Kummer node set. Researchers using integral combinations can now decide membership by five explicit moments and know the optimal coefficient for reconstructing any node. Rank, binary parity and even knowledge of the index alone would miss the coupled order-eight obstruction, and the complementary Göpel lattice of the same index has a genuinely different exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

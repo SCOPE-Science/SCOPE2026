@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:11:05.563350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rotations only, a cyclic word determines one Euler circuit on the labelled k-bit arcs, hence one successor permutation with one full cycle. At each (k−1)-bit suffix v, a local bit selects between the two bijections from 0v,1v to v0,v1; two cycles get two common (k+1)-factors or none at v according to equality of this bit. The constant k-bit states cannot succeed themselves, so the two constant suffix bits are forced and contribute four common factors for k≥2. Single-cycle permutations have the same sign, while each changed bit transposes two successor values. Therefore the number of differing bits is even and I=2^k−2d_H is divisible by four, including the identical-cycle case. Separate reproduction in /workspace/branches/55e54dc1-2e5b-48f1-a1e9-1eeb84cbb9d6/reproduce_order5.py exhausted the 16384 admissible masks, selected exactly 2048 by single-orbit testing, and counted all 2096128 unordered distinct pairs by both mask distance and literal circular factors. Counts at overlaps 4,8,12,16,20,24,28 are respectively 368,27104,254800,710976,758800,305376,38704. The two stated witness words each have 32 distinct circular five-factors, and their six-factor intersection is exactly {000001,011111,100000,111110}, with masks 0x80af and 0xff51. The complement of the 14 free bits is the only possible overlap-four partner; it is valid for 736 cycles. The frozen verifier was inspected, not executed. The computation proves only the order-five census; the universal assertion is analytic and does not claim overlap four is attainable for every order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alhakim gives connectivity for the regular de Bruijn cycles and defines a cross-join as two successor interchanges at conjugate pairs; the binary result also predates that generalization. Chen et al. formulate orthogonality as no repeated (k+1)-word between collection members, via compatible Euler circuits. Lin et al. could not be inspected in full."
+        ],
+        "reasoning": "Orthogonality as a zero-overlap condition is not the finite nonzero-overlap spectrum. In contrast, the general connectivity theorem applies to the same binary cycles at every order and directly enforces the parity obstruction through the local switch rule.",
+        "searches": [
+          "Alhakim arXiv:1805.12059, abstract, introduction and cross-join definition",
+          "Chen, Sima and Milenkovic arXiv:2501.12921v1, orthogonality and compatible circuits",
+          "Lin, Ward, Jain and Skiena DOI 10.1007/978-3-642-22300-6_50, lawful OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "Two exact order-five Resultary cross-join records listed above",
+        "Alhakim arXiv:1805.12059",
+        "Chen–Sima–Milenkovic arXiv:2501.12921v1",
+        "Spinsante–Andrenacci–Gambi DOI 10.1186/1687-1499-2011-4",
+        "Lin et al. and Jiang–Lin, access limits as noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In binary, a conjugate pair consists of 0v and 1v, so switching its successors flips one suffix bit. Connectivity under double switches forces even Hamming distance between any two valid masks. A circuit must enter and leave each constant state via the non-loop transition, giving four forced factors. The indexed order-five census explicitly supplies the distribution of half that Hamming distance."
+        ],
+        "reasoning": "The overlap identity converts the published switch invariant to the all-order mod-four assertion and the tabulated mask distances to the full order-five spectrum. A different proof via permutation signs does not add a separate finding. The Jiang–Lin title concerns longest common subsequences; its full relevance remains unchecked and is not needed for the coverage conclusion.",
+        "searches": [
+          "Alhakim arXiv:1805.12059 pp. 1, 5–6 and 8–9",
+          "Local mirror cross-join census Step 3 and independent BFS Step 4",
+          "Jiang and Lin DOI 10.1007/s10623-020-00759-2, bounded OA attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Step 3 counts precisely the same 2048 one-orbit feedback masks with the same two fixed bits, and tabulates d=wt(F xor G)/2. This gives I=32−4d. It also shows an opposite must be the mask xor 0x7ffe and finds 736 such masks."
+        ],
+        "reasoning": "The map is exact for each pair: two six-factors agree at a suffix if and only if its bit agrees. Reversing classes 1 through 7 gives exactly the seven overlap counts, and the antipodal membership test is exactly the partner test. No equivalence is inferred merely from numerically matching tables.",
+        "searches": [
+          "Resultary lookups on order-five binary overlap, cross-join and Hamming-distance spectra",
+          "Local mirror SCOPE-shortest-path-spectrum-and-center-of-the-fifth-order-binary-de-b--6f799825b999, proof Step 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two separate Nov. 2 Resultary records, SCOPE-shortest-path-spectrum-and-center-of-the-fifth-order-binary-de-b--6f799825b999 and SCOPE-exact-cross-join-graph-distances-among-binary-order-five-de-brui--71f06b9fb706, give the distance counts (38704,305376,758800,710976,254800,27104,368). The first directly tabulates half-Hamming distance and the 736 antipodal masks; both report the shortest-path histogram. Spinsante et al. Table 4 measures shifted bit-correlation statistics."
+        ],
+        "reasoning": "The indexed half-Hamming enumeration supplies the requested exact table under a fixed affine change of statistic, whereas a table of extrema of bit correlation alone does not. The dates document provenance, not priority.",
+        "searches": [
+          "Resultary order-five cross-join spectrum and antipode lookups",
+          "Spinsante, Andrenacci and Gambi DOI 10.1186/1687-1499-2011-4, order-five Table 4"
+        ]
+      },
+      "rationale": "The principal exact census is already present in the indexed catalogue in equivalent half-Hamming and cross-join distance coordinates, including the unique opposite partner for the same 736 cycles. The universal congruence is an immediate consequence of the established connected binary cross-join graph (each step toggles two suffix choices), and the four common factors come directly from the unavoidable entrance and exit of the constant states. The sign argument is a concise independent derivation, but does not leave a distinct scientific result for repair. The indexed copies have later path dates; exact mathematical coverage is established, not chronological priority.",
+      "residual_risks": [
+        "The Lin et al. and Jiang–Lin full texts were not obtained; the verdict rests on affirmative equivalent coverage from other verified sources.",
+        "The provenance relationship among the catalogue records and the frozen record is not established; dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact census and extremal partner result",
+          "evidence": "Step 3 directly tabulates wt(F xor G)/2, fixed bits 0 and 15, and 736 valid opposite masks; the BFS supplies the same distribution independently.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shortest-path-spectrum-and-center-of-the-fifth-order-binary-de-b--6f799825b999/RESULT.md",
+          "material_read": "Finding at offset 0 and proof Steps 3–4, offsets 4100–6791, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading and exact factor-to-mask comparison",
+          "title": "Shortest-path spectrum and center of the fifth-order binary de Bruijn cross-join graph",
+          "trigger": "All-pairs distance spectrum and unique antipodes on identical cycle census"
+        },
+        {
+          "assessment": "Matching shortest-path census with same mask representation",
+          "evidence": "Cycles identified modulo rotation only, with the same feedback encoding and the same seven exact class counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cross-join-graph-distances-among-binary-order-five-de-brui--71f06b9fb706/RESULT.md",
+          "material_read": "Finding, assumptions, and first proof step, offsets 0–3192, same local mirror snapshot",
+          "method": "Bounded local mirror reading",
+          "title": "Exact cross-join graph distances among binary order-five de Bruijn cycles",
+          "trigger": "Second catalogue distance census on the same family"
+        },
+        {
+          "assessment": "Connectivity and two-switch definition imply the parity result; the paper's common-initial-path metric is distinct",
+          "evidence": "Abstract states reachability by cross-joins for regular cycles and credits earlier binary connectivity; operation is two successive conjugate-pair successor interchanges.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.12059",
+          "material_read": "PDF p. 1 near offsets 1100–4357; pp. 5–6 offsets 16930–18725; pp. 8–9 near offsets 23500–26267",
+          "method": "Bounded primary PDF reading",
+          "title": "On the cross-join operation for de Bruijn cycles",
+          "trigger": "General cross-join operations and possible parity or distance coverage"
+        },
+        {
+          "assessment": "Related orthogonality definitions, not the inspected source of the finite spectrum",
+          "evidence": "Orthogonal collections share no (k+1)-words, with compatibility characterized by Euler circuits.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.12921v1",
+          "material_read": "PDF p. 1 near offset 1100 and p. 2 near offset 14500",
+          "method": "Bounded primary PDF reading",
+          "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+          "trigger": "Same factor statistic in the zero-overlap case"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Computes shifted bit-level correlation r_ab(τ) and its extrema, not incidence overlap of six-factor types.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "OA PDF p. 4 near offset 22800 and p. 8 Table 4 offsets 41200–46170",
+          "method": "Bounded primary PDF reading",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Order-five table for pairwise comparison of binary cycles"
+        },
+        {
+          "assessment": "Unresolved; not evidence of noncoverage",
+          "evidence": "The chapter's precise binary assertion was not verified in full.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-22300-6_50",
+          "material_read": "No full-text passage retrieved",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Constructing Orthogonal de Bruijn Sequences",
+          "trigger": "Foundational orthogonality reference and potential binary obstruction"
+        },
+        {
+          "assessment": "Unresolved; not evidence of noncoverage",
+          "evidence": "The description mentions longest common subsequences and cross-join-pair diameter, not a verified six-factor table.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-020-00759-2",
+          "material_read": "Search result description only, no OA full text retrieved",
+          "method": "Literature lookup and bounded OA retrieval attempt",
+          "title": "Longest subsequences shared by two de Bruijn sequences",
+          "trigger": "Potential equivalence through cross-join distance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Six-factor overlap is a natural finite statistic, but the exact order-five fact and best-partner census are an affine relabeling of an available complete table. The general bound and congruence extract a local consequence of the established switch structure without adding a new extremal range or classification. The self-contained formulation is useful exposition, but the submission as a distinct result adds no independently useful unknown invariant or structural fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

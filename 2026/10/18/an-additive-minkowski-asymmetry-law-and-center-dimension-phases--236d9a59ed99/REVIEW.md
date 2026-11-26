@@ -1,15 +1,21 @@
-# Scientific review: generalized Pitman–Stanley multichain asymmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The sharp support minima of all defining nonnegativity, prefix-difference and upper-prefix halfspaces were reconstructed from explicit feasible extremizers. The general halfspace-reflection identity converts containment into the exact linear system for scaled centers. Summing its bounds proves the lower asymmetry bound, and the displayed column-layer center attains it. The affine rank of the forced equality system is counted in triangular coordinates; an explicit small-perturbation relative-interior witness proves that no additional affine equations occur. Positivity, index boundaries, and the distinction between finite verification and infinite proof were checked. Exact-rational enumeration of ten representative instances passed every supporting-extremum and reflected-containment check.
+## correctness
 
-## Originality — PASS, with documented priority risk
-The primary multichain paper (arXiv:2307.09925, especially sections 1, 3, 4, 7 and appendices) develops combinatorial, face, vertex, and flow descriptions; the inspected text does not state a reflection-asymmetry or center-dimension theorem. The one-column Pitman–Stanley family and its polymatroid viewpoint lie outside the novelty claim. A Euclidean inradius formula for a multichain family does not imply this affine-invariant asymmetry result. Ordinary order-polytope asymmetry formulas cannot imply the present classification by affine equivalence in general: the example \(n=m=2\), \(\mathbf a=(1,1)\) has nonintegral asymmetry \(5/2\). Published comparison on marked posets concerns, among other topics, Minkowski addition rather than reflection containment. Residual risk: an unlocated general theorem on marked order/flow polytopes could cover the multichain formula implicitly.
+PASS
 
-## Value — PASS
-A natural multi-parameter family of graph-flow and plane-partition polytopes receives a complete exact affine-invariant asymmetry formula and full optimal-center locus, with an additive dependence on the number of dominance columns. The maximizing-prefix phase set controls center-locus dimension, and two explicit positive weight vectors realize the same asymmetry with different center dimensions. These statements describe structural geometry rather than a generic facet enumeration or a fixed small instance.
+For a defining form f(x)≤b with min f=h, reflected containment at scale s is equivalent to f((s+1)c)≤sb+h. Independently checked the minima: a single nonzero row k supported on the first j columns at level A_k attains the coordinate and prefix-gap extrema, and zero attains the top-prefix minimum. With y=(s+1)c, use slack coordinates z_k=y_(k,m)−A_k and w_(i,j)=Y_(i,j)−Y_(i,j+1)−A_i. They give an invertible affine coordinate change and are nonnegative. The top inequalities become sum_(k≤i)z_k + sum_(j<m)w_(i,j) ≤ (s−m+1−r_i)A_i. Thus s≥m−1+ρ; z=w=0 attains it and yields the stated center, which is interior. At equality in the scale, exactly the z_k with k≤L and w_(i,j) with i∈T are forced to zero. Set all remaining slacks equal to one sufficiently small positive constant: the non-tight top inequalities have positive margins and the other floors, in columns j<m, have original slack (m−j)a_k>0. This proves no other affine equations and gives the center dimension. All members of the scaled feasible set are interior by positive floors, positive gaps and the strict top margin after rescaling. Uniform weights, n=1, and both examples at n=3,m=2 agree; the latter have r_3=3/2 and 103/100 respectively.
 
-## Limits
-The hypotheses require \(m\ge2\), \(a_k>0\), and zero lower dominance data. The verifier is finite. Priority under unsearched equivalent descriptions remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The multichain family itself is prior, including for m≥2. The distinct claim is its weighted asymmetry law and its tight-prefix classification of the full center locus. The closest unweighted center theorems cannot cover the whole family even up to affine equivalence: they have integer asymmetry, whereas the verified straight shape (n,m,a)=(2,2,(1,1)) has asymmetry 5/2.
+
+## value
+
+PASS
+
+This is an exact invariant and center-locus classification of an established polytope family across continuous weight data. It replaces an optimization over vertices or centers by explicit prefix statistics and identifies ties that change the affine dimension even at the same optimal scale. That distinction is useful when the freedom in choosing a center matters, unlike merely applying a generic linear feasibility test to one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

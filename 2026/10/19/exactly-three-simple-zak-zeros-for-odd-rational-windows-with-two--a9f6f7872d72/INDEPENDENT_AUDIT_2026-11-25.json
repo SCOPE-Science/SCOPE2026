@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:29:53.075306Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Partial fractions give the difference of signed exponential Fourier transforms divided by b²−a². Poisson summation with the same positive Zak phase gives the common phase exp(i theta xi) and the difference of the two stated hyperbolic kernels. Taking the divided difference as b→a gives the stated i pi²/a prefactor times the lambda derivative. Away from sin(theta)=0 and xi=1/2, a zero requires simultaneous cancellation of both real coefficients. Their ratio has nonvanishing derivative of sign 1−2xi, excluding both equality at distinct poles and simultaneous derivative cancellation at a repeated pole. At xi=1/2 the common coefficient cosh(lambda/2)/(cosh(lambda)−cos(theta)) decreases with strictly negative derivative. On theta=0 and pi the respective sinh and cosh ratios have strictly signed lambda derivatives except at the stated interior zero, by strict increase of s coth(lambda s) and s tanh(lambda s). At xi=0 the kernel is 1+i sin(theta)/(cosh(lambda)−cos(theta)); cancellation leaves zeros exactly at theta=0 and pi. The defining series is C¹ in both variables by summable bounds on g', k g and g, so boundary derivatives can be taken from the interior. At (theta,xi)=(0,0),(pi,0),(0,1/2) respectively, the theta derivatives of the kernel are i/(cosh(lambda)−1), −i/(cosh(lambda)+1), and i cosh(lambda/2)/(cosh(lambda)−1); the xi derivatives are −lambda coth(lambda/2), −lambda tanh(lambda/2), and −lambda/sinh(lambda/2). Every displayed scalar factor has strictly signed derivative: for the last factors this follows from sinh x cosh x>x, positivity of tanh x+x sech² x, and x cosh x>sinh x, respectively. Taking differences or lambda derivatives therefore leaves two nonzero perpendicular derivatives at every zero. The nonzero common complex prefactor and theta=2 pi t preserve nonsingularity. The proof covers all positive parameters; the reported grid and numerical Jacobian checks are only corroborative and the frozen script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kloos proves exactly one zero for totally positive functions of finite type n≥2, using a class linked to exponential B-splines. Ghosh develops a unit-circle polynomial and finite-matrix rank criteria for integer-pole rational windows at rational Gabor densities."
+        ],
+        "reasoning": "Total positivity requires nonnegativity, which the odd rational window lacks. The integer-pole class and frame rank equivalence do not quantify independent real poles including coincident poles; frame obstructions are not an exact zero-set classification.",
+        "searches": [
+          "arXiv:1411.1539v1 §§2–3, including Theorem 3.6",
+          "arXiv:2608.10568v1 §§1–3",
+          "Rational Zak zeros, odd windows and exponential splines"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_zak.py (text)",
+        "arXiv:2608.10568v1",
+        "DOI 10.1007/s43670-025-00112-5",
+        "arXiv:1411.1539v1",
+        "Resultary d1d5c707922d and c62a57cef13d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For g_1, Proposition 2.1 restricts unit-circle roots to z=±1 on the first half of the frequency cell; Proposition 2.3 and Remark 2.2 transfer root constraints to the Zak transform, and reality gives the other frequency half. Evaluating Q at z=±1 reduces to differences of the two scalar sinh/cosh ratios at lambda=2 pi and 4 pi, so the (1,2) classification is a short consequence of the prior representation and restriction. A sentence following Theorem 3.1 suggests vanishing at every z for xi=1/2, but Remark 2.1 actually gives reciprocity or anti-reciprocity, not that identity. At z=−1 and xi=1/2 the difference of 1/cosh(pi) and 1/cosh(2 pi) is nonzero in the same representation.",
+          "The ray comparator supplies derivative information at (0,0) and (1/2,0), but not every simplicity test or a complete arbitrary-ratio classification."
+        ],
+        "reasoning": "Do not count the fixed-pair two-fiber restriction or the forced zeros as new. Extending a fixed unit-period window to an arbitrary pole ratio cannot be done by scale substitution, which preserves the pole ratio and changes the period. Coalescence and transversality also do not follow from a distinct-pole count by continuity. The uniform strict derivative and ratio arguments establish the surviving claim.",
+        "searches": [
+          "arXiv:2608.10568v1 §2 Eq. (2.7), Propositions 2.1 and 2.3, Remarks 2.1 and 2.2; §3 Theorem 3.1 discussion",
+          "Resultary d1d5c707922d, Finding and derivative proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faulhuber gives Z_f(k,l)=Z_f(k+1/2,l)=Z_f(k,l+1/2)=0 for suitable odd f and explicitly notes that further zeros may exist. The conjecture there concerns generalized first Hermite windows. Ghosh uses exactly g_(1,2) as g_1 and relates its unit-period transform to Q(e^(2 pi i t),xi)."
+        ],
+        "reasoning": "The forced points and fixed-pair transform are prior. The distinct assertion is that these are all the zeros and are transverse uniformly for independent positive a,b, not merely an odd-window vanishing criterion.",
+        "searches": [
+          "Resultary: rational-window and exact three-Zak-zero formulations",
+          "Faulhuber §2 Eq. (2.7) and §4 Conjecture 4.1",
+          "Ghosh arXiv:2608.10568v1 §1 Eq. (1.2), §2 Propositions 2.1 and 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record d1d5c707922d uses g(t/beta)=beta³g_(beta,2beta)(t) and gives a two-channel energy zero and nonzero first derivatives at the two xi=0 symmetry zeros along that ray. Record c62a57cef13d gives the same three-point set for the Gaussian-weighted first Hermite family. No table for the continuous rational two-pole problem was established."
+        ],
+        "reasoning": "The first record is a material overlap for the pole ratio two, but a curvature or channel-energy result on one ray is not a catalog of single-Zak zeros for every pair. The second uses a different function, not a parameter change of the rational window.",
+        "searches": [
+          "Resultary: three Zak zeros rational and first-Hermite windows",
+          "Resultary d1d5c707922d and c62a57cef13d",
+          "arXiv:2608.10568v1, table locator and exact polynomial-root statements"
+        ]
+      },
+      "rationale": "Parity-forced locations, the two-fiber reduction for the fixed pair (1,2), and existing Zak formula and frame methods must be credited. The demonstrated distinct content is the complete classification with nonsingular real Jacobians for independent positive poles, including coincident poles. The closest inspected primary text and catalog entries do not imply that result in that parameter domain.",
+      "residual_risks": [
+        "Earlier equivalent calculations may appear under a rational or Fourier-dual window formulation. The bounded comparison establishes the recorded overlaps but does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct fixed-pair overlap in formula and the restriction of zeros to two fibers, not continuous independent-pole coverage or the three uniform Jacobian tests.",
+          "evidence": [
+            "The n=1 g_n is x/((x²+1)(x²+4)).",
+            "Proposition 2.1 restricts unit-circle roots to ±1 for odd n; Proposition 2.3 gives Z=−2 pi i exp(2 pi i xi t) Q in the interior."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.10568v1",
+          "material_read": "§1 Eq. (1.2) and Theorems 1.2–1.4; §2 Eq. (2.7), Remark 2.1, Propositions 2.1 and 2.3, Remark 2.2; §3 passage around Theorem 3.1",
+          "method": "Open full-text HTML, bounded passages",
+          "title": "Gabor Frames for Rational Windows with Symmetric Poles",
+          "trigger": "Contains the exact (1,2) window and Zak polynomial results"
+        },
+        {
+          "assessment": "The points are prior as symmetry zeros; completeness is not established there for rational windows.",
+          "evidence": [
+            "Eq. (2.7) lists the three points modulo integers. Fig. 1 notes that further zeros may exist."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43670-025-00112-5",
+          "material_read": "§2 Eq. (2.7) and Fig. 1 caption; §4 Conjecture 4.1",
+          "method": "Open primary PDF text, bounded passages",
+          "title": "Gabor systems with Hermite functions of order N and oversampling greater than N+1 which are not frames",
+          "trigger": "Three parity-forced zeros of odd windows"
+        },
+        {
+          "assessment": "Not applicable to the sign-changing rational window.",
+          "evidence": [
+            "Exactly one zero at frequency 1/2 for the specified totally positive class."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1411.1539v1",
+          "material_read": "§2 on exponential B-splines; §3 Theorem 3.6",
+          "method": "Open primary HTML, bounded passages",
+          "title": "Zeros of the Zak Transform of Totally Positive Functions",
+          "trigger": "Possible broader zero-classification theorem"
+        },
+        {
+          "assessment": "Partial coverage of conditions at the xi=0 symmetry zeros on the ratio-two ray; not the complete claim.",
+          "evidence": [
+            "The dilated windows are scalar multiples of g_(beta,2beta); the main invariant is a two-channel quadratic energy and its curvature."
+          ],
+          "identifier_or_url": "d1d5c707922d",
+          "material_read": "RESULT.md, Finding and derivative proof",
+          "method": "Local published-record mirror",
+          "title": "A unique curvature crossover at a rational Gabor half-density obstruction",
+          "trigger": "Same rational window along a scaling ray"
+        },
+        {
+          "assessment": "Different window, no implication to the two-pole problem.",
+          "evidence": [
+            "The classification concerns t exp(−beta t²)."
+          ],
+          "identifier_or_url": "c62a57cef13d",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Exactly three Zak zeros for every unchirped dilate of the first Hermite window",
+          "trigger": "Exact same zero locations for another window family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For odd windows symmetry alone leaves open both extra zeros and tangential zeros. Resolving both questions for a natural two-pole family, including the repeated-pole degeneration, gives a useful exact invariant for analyses involving Zak zeros and local stability. Its relevance does not depend on claiming a complete Gabor frame-set theorem, which the result does not give.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

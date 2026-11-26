@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:46:49.614559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof steps 1–5; VERIFICATION.md; verify.py (inspected, not run)",
+        "Independent numerical cross-check using mpmath at 45 digits: solve 400(sin(u)/u)^2+20 sin(u)/u-3u^2=0 with starting pair (2.55,2.65), then substitute into all three field components"
+      ],
+      "rationale": "Eliminating y for x nonzero forces z to satisfy cz^2-dz-(ag/k)x^2=0; the sign of sin(x)/x selects exactly one quadratic root on each half-wave. At x=0 only (0,0,d/c) remains; nonzero multiples of pi cannot occur. For N=u|z|, uN'/N is 2+d/s on the negative branch and 2-d/s on the positive branch. On the first lobe u cot(u)<1; on later lobes the derivative of u cot(u) minus the elasticity is at most 1/2-u+1/u<0. This gives one interior nondegenerate minimum before each midpoint, with no duplication other than the stated reflection pair and the correct count at equality. The transverse minor is k(2cz-d) and is nonzero; reduced derivatives in u and b give a quadratic equilibrium fold and a singular full Jacobian, without a dynamical saddle-node assertion. Writing u=L-delta yields u tan(delta)=2+O(1/u), hence delta=2/L+O(L^-2). Expanding u|z| and 1/|sin(u)| gives the alternately signed linear threshold term; T_m=A pi^2 m^2+O(m) confines all count uncertainty, including equalities, to a bounded window. For the baseline, u>=7/2 on negative sine lobes is excluded by N_+ >= A u^2 + D u>10, and pi<u<7/2 by |sin(u)|<1/2; u>=2pi on positive lobes is excluded by N_- >= A u^2 - D u>10. Independently solving the baseline equation after substituting z=-10 sin(u)/u into the quadratic gave u=2.593336204649302275, y=-0.967775202592809262, z=-2.009766470845745569.",
+      "residual_risks": [
+        "The decimal check is illustrative. No simplicity of the zero eigenvalue, ordering of thresholds by half-wave index, or nonlinear dynamical stability is required by the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved conservative-limit result supplies a local fold wedge and local pair counts, not a classification that includes all positive coefficients. Ramar's abstract establishes the relevant general topic but contains no checkable global theorem."
+        ],
+        "reasoning": "Classical reduction and fold criteria apply broadly, but do not by themselves prove uniqueness of each threshold, exclude all other equilibria, or yield the parity-dependent threshold term.",
+        "searches": [
+          "Resultary: sine-controlled equilibrium branches, all-positive thresholds, and global sqrt(b) census",
+          "Ramar DOI 10.51537/chaos.1223766, indexed abstract and available copies"
+        ]
+      },
+      "checked_sources": [
+        "Ramar indexed abstract and access routes",
+        "Resultary --7f02cab030c4 and --cbd81854ccbe",
+        "Frozen RESULT.md scope and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conservative limiting record explicitly does not give a global census. The Ye–He equation has one sinusoidal scalar profile, rather than the sign-selected square-root profiles in the frozen theorem."
+        ],
+        "reasoning": "The inspected source statements do not imply the all-half-wave derivative inequality, threshold-equality count and signed large-lobe expansion. The absence of Ramar's retrievable text cannot be used as negative evidence.",
+        "searches": [
+          "Resultary --7f02cab030c4 and --cbd81854ccbe, actual FINDING and assumptions",
+          "Ramar DOI 10.51537/chaos.1223766"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ramar's indexed abstract lists equilibrium and stability analysis; the frozen record attributes the exact vector field and baseline parameters to Eq. (2). Resultary --7f02cab030c4 has the same motivating family but in the degenerate a=c=d=0 limit."
+        ],
+        "reasoning": "The degenerate local equation near a cylinder pole is not equivalent to the positive-parameter census: the reduction and parameter domain differ, and it yields no thresholds in every half-wave. The source attribution is retained without asserting independent inspection of Ramar's actual equilibrium derivation.",
+        "searches": [
+          "Ramar 2023 'Design of a New Chaotic System with Sine Function' equilibrium equation (2) exact equilibria branches sine amplitude fold",
+          "Resultary: sine-driven equilibrium census and fold wedge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 SCOPE-exact-equilibrium-census-and-unstable-index-split-for-a-sine-con--cbd81854ccbe states a fixed count of 53 and scalar equation t+(231898/2735) sin(t)=0 for the Ye–He field. Resultary 2026/11/22 --7f02cab030c4 supplies a local result at a=c=d=0."
+        ],
+        "reasoning": "Neither exact result tabulates thresholds of this positive-parameter Ramar flow or yields its amplitude-dependent count; their parameter and scalar equations rule out direct identification.",
+        "searches": [
+          "Resultary: exact equilibrium census for sine systems, fold wedge and threshold sequence"
+        ]
+      },
+      "rationale": "The audited distinct claim is the global all-positive-parameter branch classification, not the vector field or scalar fold calculus. The related conservative-limit fold concerns a boundary where three parameters vanish, and the most similar exact sine census is for a different vector field. Neither gives the positive-parameter infinite fold count or its asymptotics. Ramar's inaccessible full text remains a specific limitation of this best-of-knowledge decision.",
+      "residual_risks": [
+        "Ramar's actual equilibrium section and equation were not independently accessible, and an unindexed treatment under a parameter change remains possible. No priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same subject, specific theorem coverage unresolved",
+          "evidence": "The abstract states an equilibrium/stability analysis. The equation, starting parameters and characterization of its equilibrium treatment are attributed by the frozen record, not verified from retrieved primary text.",
+          "identifier_or_url": "https://doi.org/10.51537/chaos.1223766",
+          "material_read": "indexed abstract only; exact Eq. (2) and its discussion not independently read",
+          "method": "primary literature lookup; DergiPark landing and English and Turkish PDF routes timed out; ResearchGate alternate returned 403",
+          "title": "Design of a New Chaotic System with Sine Function: Dynamic Analysis and Offset Boosting Control",
+          "trigger": "originating exact vector field and baseline equilibrium discussion"
+        },
+        {
+          "assessment": "related local fold in a distinct limiting regime",
+          "evidence": "a=c=d=0 and off-axis classification near a cylinder pole, not all-positive coefficients or a global count.",
+          "identifier_or_url": "2026/11/22/SCOPE-fourth-root-equilibrium-onset-and-a-fold-wedge-on-the-conservati--7f02cab030c4",
+          "material_read": "RESULT.md Finding and Assumptions at beginning",
+          "method": "Resultary search and local mirror",
+          "title": "Fourth-root equilibrium onset and a fold wedge on the conservative limit",
+          "trigger": "closest related equilibrium-fold result"
+        },
+        {
+          "assessment": "different vector field and exact fixed-parameter result",
+          "evidence": "Ye–He scalar equation and 53-equilibrium claim; no Ramar threshold sequence.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-equilibrium-census-and-unstable-index-split-for-a-sine-con--cbd81854ccbe",
+          "material_read": "RESULT.md Finding at beginning",
+          "method": "Resultary search and local mirror",
+          "title": "Exact equilibrium census and unstable index split for a sine-controlled flow",
+          "trigger": "closest exact sine equilibrium census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof steps 2–5, and Limitations",
+        "Resultary conservative-limit comparison --7f02cab030c4"
+      ],
+      "rationale": "The count is for all of R^3 and all positive forcing amplitudes, with exact handling of threshold equality, not a search window or a single fixed-parameter root tally. The one-fold-per-lobe mechanism, asymptotic threshold spacing and unbounded sqrt(b) census provide a reusable classification of a motivated nonlinear system. The exact baseline count tests a specific literature parameter set without attributing any claim about attractors or stability to the census.",
+      "residual_risks": [
+        "This is a result about equilibria, not about chaotic trajectories or basin structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

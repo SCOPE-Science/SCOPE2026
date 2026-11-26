@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,15 +20,15 @@
 ---
 # Reproduction
 
-Run using Python 3 and SymPy in the same directory:
+Use Python 3 and SymPy. Run in a writable copy of the record directory; the census writes the orbit table to that directory. Use the portable version of `base_reduced.py` that decodes the generator pairs from the finding rather than relying on another installation.
 
-```
+```sh
 python3 enumerate_tf_pencils.py
 python3 verify_tf_smooth.py
 python3 check_nets.py
 python3 base_reduced.py
 ```
 
-The first is an exhaustive integer-base-three vector and finite projective-group census. Expected scientific totals are 29,524 normalized equations, 3,744 tangent-filling equations, 22,464 tangent-filling pencils, four projective orbits of size 5,616, and member-point profiles occurring 11,232 / 5,616 / 5,616 times. The second independently certifies geometric smoothness on all three charts and full projective orbit coverage. The third enumerates all candidate third generators of a tangent-filling net and obtains zero. The fourth certifies unit Jacobian-minor ideals on each affine chart for each representative pair, implying nine reduced geometric base points in every class. The reproducible orbit table is `tf_pencil_orbits.csv`.
+The census exhausts all 29,524 normalized nonzero cubic equations. The expected outputs are 3,744 equations passing the tangent-coverage test, 22,464 pencils, four orbits of size 5,616, and the three member profiles occurring 11,232, 5,616 and 5,616 times. The orbit table is `tf_pencil_orbits.csv`. The smoothness verifier checks the chart ideals of the thirteen distinct codes in the table and verifies orbit coverage. The net verifier checks 3,740 candidate third generators for each representative pencil and finds no extension. The base verifier decodes the four displayed generator pairs independently, tests three chart ideals per pair, and fails if any one ideal is not the unit ideal. This certifies transversality for the displayed pairs; the degree-nine and all-orbit conclusions also use Bézout and the orbit census.
 
-**Limits:** Algebraic closure smoothness uses the Jacobian criterion and exact Gröbner bases, not enumeration of points over a bounded collection of extension fields. The code tests all finite rational members, not every member over the algebraic closure. External or independent mathematical audit has not been performed.
+**Scope:** The geometric smoothness and reducedness checks use exact Gröbner bases over \(\mathbb F_3\), not sampling over a finite collection of extension fields. Only the four rational parameter members of each pencil are required to be smooth and tangent-filling.

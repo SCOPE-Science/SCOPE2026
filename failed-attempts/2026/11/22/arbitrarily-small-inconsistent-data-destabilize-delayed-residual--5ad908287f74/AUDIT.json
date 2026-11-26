@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For every nonzero real column and every nonzero orthogonal data-noise component, direct residual decomposition proves alpha_R(k)=lambda^{-1}(1+q/e_k^2), warm error e_1=-q/e_0 and the nonvanishing delayed error recurrence e_(k+1)=-q e_k/e_(k-1)^2. Taking logarithms gives an exactly solved linear recurrence with modulus-sqrt(2) complex characteristic roots. The angle is irrational relative to pi because 2cos(theta)=1/sqrt(2) is not an algebraic integer, so phase density gives both positive- and negative-infinite subsequences except at balanced u_0=0, where signs alternate with fixed magnitude. RD uses difference r_1-r_0=-a(e_1-e_0), thus its second scalar step equals 1/lambda and e_2=0. No zero denominator occurs before termination; the z=0 consistency boundary solves on step one. Every quantifier is within the one-unknown exact-arithmetic stated domain. `verify.py` additionally passed 1457 exact-rational assertions; finite checks do not prove the infinite limsup/liminf.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a (RESULT.md: exact undelayed relaxed surrogate-hyperplane map on inconsistent data)",
+        "https://arxiv.org/html/2611.02743v1 (consistent-only theorem with positive singular values)",
+        "https://doi.org/10.12286/jssx.j2025-1306 (extended corrective normal-equation scheme, publication abstract inspected)"
+      ],
+      "reasoning": "The previous unextended map uses a fresh residual quotient and has a bounded involutive error at unit relaxation; the claimed delayed quotient uses the previous residual and has the second-order nonzero recurrence with generic arbitrarily large excursion. Extended methods add correction stages, so their guarantees do not dominate this literal unextended variant. The source requires consistency; setting a singular value to zero while keeping nonzero data noise is outside the analyzed theorem. No stronger inspected theorem covers the exact boundary.",
+      "searches": [
+        "surrogate hyperplane Kaczmarz inconsistent system delayed BB1 residual difference BB2 instability exact single column",
+        "Xin Xu 2611.02743 inconsistent right hand side DR RD failure convergence",
+        "\"surrogate hyperplane Kaczmarz\" \"inconsistent\" \"two cycle\"",
+        "\"delayed residual\" \"inconsistent\" \"unbounded\" \"Kaczmarz\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.02743v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+      "https://doi.org/10.12286/jssx.j2025-1306",
+      "https://doi.org/10.1016/j.aml.2023.108704"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2611.02743v1 (Eq. 25 and Lemmas 3.2-3.4 give characteristic roots and dense rotation for consistent two-positive-mode ratios)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a (undelayed period-two identity versus delayed second-order dynamics)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a (known log-periodic envelope for BB1 consistent two-mode quadratics)"
+      ],
+      "reasoning": "If Xu's log-ratio recurrence is extended algebraically to a zero singular mode, it does yield the characteristic equation here; this step is expressly treated as prior/easy. Xu's results do not imply the absolute-error limsup infinity in an actual inconsistent least-squares problem without the new zero-mode observation and scalar error identification, and do not formulate the sharp RD two-step contrast with a common noisy warm start. The undelayed prior result has e_(k+1)=-q/e_k, hence period two for all starts, whereas the new lagged recurrence is e_(k+1)=-q e_k/e_(k-1)^2, with generic explosive subsequences. These two statements neither imply nor subsume one another.",
+      "searches": [
+        "Barzilai Borwein delayed residual inconsistent linear systems zero-dimensional null component 2-cycle blow-up step size",
+        "surrogate hyperplane Kaczmarz inconsistent system delayed BB1 residual difference BB2 instability exact single column",
+        "\"delayed\" \"residual\" \"inconsistent\" \"Kaczmarz\"",
+        "\"Barzilai Borwein\" \"inconsistent\" \"residual\" \"convergence\" linear systems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2611.02743v1 (Sec. 3.1, Eq. 14: DR and RD definitions; Sec. 3.2, Eq. 25 and Lemmas 3.2-3.4: known logarithmic recurrence)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a (RESULT.md: previously derived two-positive-eigenvalue logarithmic dynamics)"
+      ],
+      "reasoning": "The recurrence and irrational-density arguments are acknowledged prior work. A familiar BB1/RSHK alias alone does not imply the noisy claim, because under inconsistency the full-residual DR quotient contains a nonvanishing orthogonal noise energy; the true BB secant quotient does not. RD is the BB2 secant quotient and cancels this constant. No inspected equivalent formulation asserts their distinct exact noisy long-time outcomes.",
+      "searches": [
+        "delayed residual step size DR Barzilai Borwein1 inconsistent least squares scalar nonzero residual divergent unbounded errors versus RD residual difference finite termination",
+        "Barzilai Borwein delayed residual inconsistent linear systems zero-dimensional null component 2-cycle blow-up step size",
+        "\"delayed residual\" \"inconsistent\" \"BB\" Kaczmarz divergence",
+        "\"delayed\" \"residual\" \"inconsistent\" \"gradient\" \"Kaczmarz\" BB1 RD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2611.02743v1 (analytical formulae rather than exhaustive database; nonzero-noise branch not tabulated)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a (published exact different recurrence)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a (known different two-eigenvalue rate)"
+      ],
+      "reasoning": "This is an all-real-data dynamical statement, not a finite tabulated object. Searches of research records and bibliographic results located no exact database, theorem table, or previously catalogued scalar noisy delayed-residual instability with a paired RD endpoint classification. Search failure alone is not treated as a novelty guarantee.",
+      "searches": [
+        "delayed residual step size DR Barzilai Borwein1 inconsistent least squares scalar nonzero residual divergent unbounded errors versus RD residual difference finite termination",
+        "Xin Xu 2611.02743 inconsistent right hand side DR RD failure convergence",
+        "\"two-point residual step size gradient methods\" \"inconsistent\"",
+        "\"residual\" \"delayed\" \"inconsistent\" \"two cycle\" \"least squares\" descent"
+      ]
+    },
+    "rationale": "The claimed effect is not the known recurrence u_(k+1)=u_k-2u_(k-1), the known irrational phase, nor the known one-step false cycle. The source manuscript derives that recurrence only for two positive singular modes under consistent Ax=b. For a fixed nullspace-of-transpose residual it does not address the singular-mode boundary: the entire least-squares error has nonzero bounded two-cycle or unbounded excursions rather than convergence, while the matching residual-difference update cancels this residual and terminates on step two. An earlier published one-step undelayed inconsistent map has a bounded false cycle, mathematically different from this delayed all-time classification; published consistent two-mode DR/RD finite-step comparisons do not imply the noisy scalar result. Accessible exact mathematical records and full text establish no dominating result; older unindexed coverage remains possible.",
+    "residual_risks": [
+      "The recurrence, its characteristic roots, and irrational rotation are explicitly derived in Xin Xu (2026); extension to a zero singular mode may be independently familiar to specialists and historical priority is not certain.",
+      "A relevant extended-normal-equation paper and an older surrogate-hyperplane paper were accessible only through abstracts/metadata; a hidden equivalent statement in their full text cannot be excluded.",
+      "Some older unindexed analyses of lagged surrogate steps on inconsistent data may cover the same exact scalar result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact DR/RD definitions and irrational-angle recurrence already established; study assumes consistent Ax=b and positive singular modes and does not give the noisy single-column absolute-error instability and RD cancellation contrast.",
+        "evidence": [
+          "https://arxiv.org/html/2611.02743v1#S3",
+          "arxiv:2611.02743v1, Eq. (14), Eq. (25), Lemmas 3.2-3.4, Theorem 3.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.02743v1",
+        "material_read": "Full accessible HTML: introduction, Sections 2–5, especially (14), (25)–(27), Lemmas 3.2–3.4, Theorem 3.5, and numerical initialization.",
+        "method": "Read original full HTML and compare actual formulas, consistency hypotheses and recurrence implications.",
+        "title": "Two-point residual step size gradient methods for linear systems",
+        "trigger": "Defines the two precise step sizes and analyzes positive two-singular-value DR dynamics, making it the nearest primary comparator."
+      },
+      {
+        "assessment": "Uses undelayed residual with e_(k+1)=-q/e_k at unit relaxation, giving bounded 2-cycle; new delayed quotient gives different second-order recurrence and generic unbounded subsequences. Not a covering theorem.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a",
+        "material_read": "Full accessible RESULT.md: assumptions, exact vector/radius recurrence, proof, comparison and limits.",
+        "method": "Read the full primary published research note and compare the maps as implications.",
+        "title": "Relaxation bifurcation and false two-cycles of residual surrogate-hyperplane projection",
+        "trigger": "Very close inconsistent full-residual surrogate iteration, so possible stronger coverage."
+      },
+      {
+        "assessment": "Strongly overlaps the elementary dynamical lemma, which is credited, but does not analyze the orthogonal fixed-noise scalar instability nor the matching RD termination.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+        "material_read": "Full accessible RESULT.md including theorem, recurrence, proof and prior-knowledge discussion.",
+        "method": "Read full published research note; compare its true BB1 secant step on two-positive-eigenvalue consistent quadratic to the full-residual lagged quotient on inconsistent scalar least squares.",
+        "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+        "trigger": "Highest-ranked published record for the same log-recurrence and characteristic roots."
+      },
+      {
+        "assessment": "The extended algorithms use different correction stages; no demonstrated covering implication from abstract; unresolved full-text priority risk recorded.",
+        "evidence": [
+          "https://doi.org/10.12286/jssx.j2025-1306"
+        ],
+        "identifier_or_url": "https://doi.org/10.12286/jssx.j2025-1306",
+        "material_read": "Public title, bibliographic metadata and abstract only; full manuscript not accessed.",
+        "method": "Compared method description and normal-equation extension to the exact unextended DR formula.",
+        "title": "Residual-based surrogate hyperplane double and triple Kaczmarz algorithms for solving extended normal equations",
+        "trigger": "Inconsistent linear-equation treatment by related residual method."
+      },
+      {
+        "assessment": "Original residual surrogate method under consistency; a full-text comparison was not possible. This is a real residual uncertainty, not a claimed whole-paper negative finding.",
+        "evidence": [
+          "https://doi.org/10.1016/j.aml.2023.108704"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.aml.2023.108704",
+        "material_read": "Public title, abstract and bibliographic record, not complete article.",
+        "method": "Compared stated consistent-system scope to the fixed inconsistent model.",
+        "title": "A surrogate hyperplane Kaczmarz method for solving consistent linear equations",
+        "trigger": "Foundational original surrogate-hyperplane algorithm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ad90828-7f74-4a88-aa0f-d81e0f33cae8",
+  "value": {
+    "rationale": "The question is the first noise-contaminated boundary of a newly proposed practical residual-gradient stepsize pair, not an arbitrary example. The exact one-column full-column-rank case is the smallest dimension that permits nonzero inconsistent data while retaining a unique least-squares minimizer. The result classifies every initialization and noise magnitude into a nonoptimal two-cycle versus recurrent arbitrarily large errors, and at the same initial point the competing residual-difference formula cancels orthogonal noise and terminates exactly. This supplies a meaningful, severe distinction between residual-norm-delayed scaling and secant-difference scaling that is invisible in consistent-system convergence theorems. No recommendation is made for actual floating-point or safeguarded solvers.",
+    "status": "PASS"
+  }
+}

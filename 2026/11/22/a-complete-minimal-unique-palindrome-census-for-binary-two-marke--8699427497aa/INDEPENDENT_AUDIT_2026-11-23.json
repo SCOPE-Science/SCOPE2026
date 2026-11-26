@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:42:30.035684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT, AUDIT, REVIEW, METADATA, SLOGAN, VERIFICATION and both checkers with their recorded outputs"
+      ],
+      "rationale": "For positive a,b,c every nonempty palindrome uses zero, one or two ones. The unique unary factor must be the unique longest run (its length-two trim is empty or repeats). At a marker the allowed radii are 0 through min(a,b) or min(b,c); the first radius absent at the other marker is the only minimal unique one. The two-marker palindrome is always unique, but positive padding leaves both markers in its trim; with zero padding the central zero run repeats iff an outer run is at least as long. These give the three indicators and the four cases b≤a, a<b<c, b=c, b>c for a<c (reversal handles a>c). Equality a=c yields one, and the minimum sum for a strict ordering is 1+2+3, giving length eight. Positive-composition summation gives all three series and the six strict order chambers have equal counts, with O(n) ties amongst Θ(n²) words. The condition on the central trim agrees with the standard MUPS definition, including overlapping occurrences and nonunique empty trim. The independent bounded literal replay matched every string/interval for 3,375 triples and every coefficient for 17,296 triples at lengths 5–50, including exactly the two claimed length-eight witnesses. At n=50 the counts were (23,720,338).",
+      "replay_paths": [
+        "/workspace/branches/03a91e69-84a7-4973-96e9-b3e642498994/replay_mups_check.py",
+        "/workspace/branches/03a91e69-84a7-4973-96e9-b3e642498994/replay_mups_check_output.txt"
+      ],
+      "residual_risks": [
+        "Finite replay does not establish the universal statement; that follows from the shape proof. No extension to zero gaps or more markers is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Watanabe et al. arXiv:1903.06290 Lemma 4 and Corollary 1 imply at most five MUPSs before a two-marker-specific comparison, and give a general per-word algorithm.",
+          "Mieno–Funakoshi Thm. 2 bounds aggregate lengths by O(n); Thm. 1 bounds interval-SUPS answer count by four. Mieno (CPM 2026) indexes maximal radii and internal longest-palindrome answers."
+        ],
+        "reasoning": "An algorithm evaluating each input can check any individual instance but has no result identifying the run-length order regions or summing over an unbounded set of compositions. The general bounds do not yield the sharp three, equality cases or rational counting series.",
+        "searches": [
+          "Shortest unique palindromic / run-length encoded Watanabe MUPS",
+          "arXiv:2204.07327v2 §§2–4",
+          "DOI 10.4230/LIPIcs.CPM.2026.4 Theorems 4,12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.07327v2",
+        "arXiv:1903.06290v2",
+        "DOI 10.4230/LIPIcs.CPM.2026.4",
+        "Resultary record 82dd9adea10e and search results for two-marker MUPS"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The RLE rule localizes centers, while the proof must still compare two marker radii, test whether the central unary block repeats outside and classify all positive triples. Theorem 1's query count and Theorem 2's length sum have different outputs."
+        ],
+        "reasoning": "The stated prior results do not imply the combined extremal witness, equality classification and enumeration without a new family-specific comparison. The classification is an elementary refinement, not a new indexing result.",
+        "searches": [
+          "arXiv:1903.06290v2 §3.1",
+          "arXiv:2204.07327v2 §§2.1,3,4.1,4.2",
+          "Resultary record 82dd9adea10e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A same-family Resultary hit (2026/10/26, record 82dd9adea10e) classifies ordinary minimal unique contiguous factors. On (1,2,3) the palindrome 00100 centered at the second marker is a MUPS, but its proper prefix 0010 is unique because the first marker has only one zero to its left; thus it is not an ordinary MUS.",
+          "Watanabe et al. use the same central trim definition and give at most one MUPS per run center."
+        ],
+        "reasoning": "The same-family ordinary MUS census counts a different predicate; an ordinary MUS can be nonpalindromic and MUPS minimality tests only palindromic factors. Run-center parametrization is shared but not an equivalent census.",
+        "searches": [
+          "Resultary: complete minimal unique palindrome census binary two marker words MUPS three zero runs exact spectrum minimal unique factors",
+          "Watanabe et al. arXiv:1903.06290 §2.2, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the frozen finding itself and different ordinary MUS/census records; the inspected combinatorial sections give bounds and examples, not length-indexed MUPS counts across positive triples. The initial targeted public search was unavailable and supplies no negative evidence."
+        ],
+        "reasoning": "An earlier exact table or rational series for the same predicate would cover the count result; none appeared in the actual inspected evidence. The three-mer multiplicity table concerns reconstruction, not globally minimal unique palindromes.",
+        "searches": [
+          "Resultary MUPS/three zero runs/exact spectrum search above",
+          "arXiv:2204.07327v2 §4",
+          "arXiv:1903.06290v2 §3.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the parameterized identity/census and length statistics, not for the MUPS predicate, run-based candidate reduction or ability to compute MUPSs of a given word. The open author version of the 2024 paper was accessible and its relevant sections were inspected, closing the specific access limitation recorded in the frozen self-review at the preprint level. The general RLE antecedent is closer than the maximal-palindrome index and should be cited in a future exposition.",
+      "residual_risks": [
+        "Earlier explicit sparse-word identities outside the inspected records may exist; this is not exhaustive priority certification.",
+        "For corpus records consulted by summary the result comparison is limited to the stated summary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and general bounds, not the stated census",
+          "evidence": [
+            "§2.1 uses central trim; Theorems 1 and 2 concern query output and total lengths respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.07327v2",
+          "material_read": "Open author version, §§2.1,3,4.1–4.2, including theorem statements, proofs and extremal query example",
+          "method": "Full-text HTML and matching PDF definition check",
+          "title": "Data Structures for Computing Unique Palindromes in Static and Non-Static Strings",
+          "trigger": "Same MUPS predicate; originally inaccessible comparison"
+        },
+        {
+          "assessment": "Algorithmic and candidate-center antecedent; no implication of the class census from the inspected claims",
+          "evidence": [
+            "Lemma 4 aligns any MUPS center to a run; Corollary 1 bounds the number by the run count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.06290",
+          "material_read": "Accessible author PDF abstract, §§2.2–2.4 and §3.1, start of §3.2",
+          "method": "PDF text and comparison of Lemma 4/Corollary 1 with five-run setting",
+          "title": "Fast Algorithms for the Shortest Unique Palindromic Substring Problem on Run-Length Encoded Strings",
+          "trigger": "Run-centered MUPS antecedent"
+        },
+        {
+          "assessment": "Different output: maximal radius and internal longest palindromes",
+          "evidence": [
+            "Theorems 4 and 12 concern space and query time, not sparse-family minimal uniqueness."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.4",
+          "material_read": "Published HTML abstract, §§1–5 and Appendix A claims",
+          "method": "Full-text HTML comparison",
+          "title": "Compact Representation of Maximal Palindromes",
+          "trigger": "Frozen starting reference"
+        },
+        {
+          "assessment": "Summary concerns ordinary MUS, not this MUPS census; no whole-text claim",
+          "evidence": [
+            "At most four ordinary factors, with a different strict-order criterion."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 record 82dd9adea10e",
+          "material_read": "Indexed theorem summary only",
+          "method": "Compare stated predicates and extremal conditions",
+          "title": "Minimal unique factors of binary words with two marked symbols: exact spectrum",
+          "trigger": "Same family; plausible related exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT; direct comparison with the RLE candidate reduction and interval-SUPS bounds"
+      ],
+      "rationale": "A canonical sparse test family for MUPS indexing now has exact positional witnesses and output counts at all lengths. The limit distribution distinguishes this palindrome-specific statistic from both ordinary uniqueness and a single query's SUPS multiplicity. The contribution is modest but reusable as a sharp exact benchmark, not a claimed speedup.",
+      "residual_risks": [
+        "No algorithmic performance or empirical significance follows from this census alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

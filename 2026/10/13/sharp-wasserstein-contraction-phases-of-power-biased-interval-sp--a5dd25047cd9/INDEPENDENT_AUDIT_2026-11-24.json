@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:14:13.388498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each compact interior state segment the CDF at each threshold is continuous and piecewise C^1 in the state, with a uniformly bounded derivative. Integrating its absolute derivative gives the global upper bound by the supremal local L1 speed, and dominated convergence gives the reverse bound via infinitesimal pairs. Independently, let q=x^p/(x^p+(1-x)^p). Twice the speed is |xq'-q|+|1-q-(1-x)q'|. For p>1 and x<=1/2, q<=x and xq'/q=p(1-q)/(1-x)>1. When the second signed term is nonnegative the speed doubled is 1-2q-(1-2x)q'<=1; otherwise it is q'-1. With x=(1+tanh u)/2, q=(1+tanh(pu))/2, hence q'=p cosh^2(u)/cosh^2(pu)<=p. Reflection covers the other half. The left-end limit is 1/2 and the center speed is (p-1)/2. For 0<p<1, q'~p x^(p-1), which forces unbounded speed at the left endpoint. For p=0 and p=1 direct substitution gives 1/2 and 0. This proves the exact constants, including p=2 and p=3, with no need for endpoint states or numerical extrapolation. The frozen check_w1.py is a finite regression check, not the proof; it was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 treats stationary laws and Doeblin convergence for all p>0. Resultary's normalized Laplace coefficient is 1-z/(exp(z)-1) for a different, exponentially weighted kernel. The external lookup yielded no usable direct comparison."
+        ],
+        "reasoning": "Neither statement controls the optimal one-step quotient for this kernel. The infinite coefficient at 0<p<1 despite Doeblin convergence distinguishes the assertions particularly clearly.",
+        "searches": [
+          "Shah–Winstein Theorem 3.2, arXiv:2605.03206v3",
+          "Resultary: sharp W1 Lipschitz contraction of interval kernels",
+          "focused external search on the power-biased split and W1 contraction"
+        ]
+      },
+      "checked_sources": [
+        "Shah and Winstein, arXiv:2605.03206v3",
+        "Resultary interval-normalized Laplace result 742cfa015d10 and same-day records 85d52b61f53a, 9b4b27eb4fcc, 66643b178a6f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The density trivially implies C_1=0. Away from that case the branch analysis of the CDF speed and matching limiting or central slopes is needed. The Laplace theorem does not apply to the two-step-density-in-threshold form of the power-biased law."
+        ],
+        "reasoning": "Credit the defining kernel, mixing theorem and trivial uniform case to the source. The sharp global bound, singular range and endpoint-to-center crossover do not follow by parameter specialization of those conclusions.",
+        "searches": [
+          "Shah–Winstein Eq. (10) and Theorem 3.2",
+          "Resultary 2026/11/22/SCOPE-sharp-lipschitz-contraction-of-interval-normalized-laplace-local--742cfa015d10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (10) defines precisely the same left/right piecewise constant density, with p=1 giving a uniform state-independent law. Remark 4 is a change in the shape of the stationary density, not a contraction threshold."
+        ],
+        "reasoning": "Neither rephrasing the coefficient as the supremal speed of the transition CDF in L1 nor replacing it with a stationary density classification gives equivalent prior coverage of the full theorem. The p=1 equivalence is acknowledged.",
+        "searches": [
+          "Resultary: power-biased interval split kernel; one-step W1 interval-splitting Lipschitz coefficient; sharp contraction phases",
+          "Shah–Winstein arXiv:2605.03206v3, §3, Eq. (10) and Remark 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact interval-coefficient result is for the normalized Laplace kernel, not a table of C_p. The inspected same-day Wasserstein optimization, conditional midrange and occupancy records compute different quantities."
+        ],
+        "reasoning": "An exact formula in the same interval geometry is not a lookup for C_p unless the kernels agree. A finite grid is also not a substitute for the real-parameter coefficient.",
+        "searches": [
+          "Resultary: sharp W1 contraction phases, interval normalization, stationary/Doeblin split; same-day matched records",
+          "arXiv:2605.03206v3, Eq. (10), Theorem 3.2 and Remark 4"
+        ]
+      },
+      "rationale": "The distinct contribution is the full sharp one-step Euclidean W1 coefficient and its contraction thresholds for the existing kernel. The p=1 case is already immediate from the defining density; neither that case nor the prior stationary-law theorem is credited as new.",
+      "residual_risks": [
+        "Ranked index searches are not exhaustive; the external search did not yield an inspectable direct match, which is not evidence of absence. An unindexed equivalent local transport analysis remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel and immediate p=1 case; not the sharp one-step coefficient",
+          "evidence": [
+            "Offsets 17200, 22002 and 27686: transition density, stationary density and Doeblin proof, stationary-density transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.03206v3",
+          "material_read": "§3 Eq. (10), PDF p. 4; Theorem 3.2, p. 5; Remark 4, p. 6",
+          "method": "Bounded OA full-text inspection",
+          "title": "The Maximum-Entropy Median-Martingale",
+          "trigger": "Exact kernel and potential broader theorem"
+        },
+        {
+          "assessment": "Different transition, not equivalent or broader coverage",
+          "evidence": [
+            "Exponentially distance-weighted law on a closed interval; sharp coefficient 1-z/(exp(z)-1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-lipschitz-contraction-of-interval-normalized-laplace-local--742cfa015d10",
+          "material_read": "RESULT.md finding specifying kernel and coefficient",
+          "method": "Local mirror",
+          "title": "Sharp Lipschitz contraction of interval-normalized Laplace kernels",
+          "trigger": "Closest exact W1 interval-kernel result"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "Expected-energy versus almost-sure interacting coordinate descent; characterization by affine conditional midrange; two-state-chain occupancy probabilities. None gives a transport coefficient for this kernel."
+          ],
+          "identifier_or_url": "85d52b61f53a; 9b4b27eb4fcc; 66643b178a6f",
+          "material_read": "Actual findings in the three RESULT.md files",
+          "method": "Local mirror",
+          "title": "Same-day Resultary comparison records",
+          "trigger": "Same-day hits involving Wasserstein, power-quantile or Markov parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp coefficient is a natural invariant of an existing Markov family and tells when a one-step Euclidean coupling argument can work. It gives both the exact loss of strict contraction at p=3 and a uniformly mixing phase with no finite one-step Wasserstein Lipschitz bound, neither of which the prior mixing theorem supplies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

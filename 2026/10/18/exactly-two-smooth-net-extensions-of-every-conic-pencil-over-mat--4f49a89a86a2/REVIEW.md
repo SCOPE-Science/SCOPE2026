@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Geometric smoothness is the exact nonzero determinant of a symmetric gradient matrix in characteristic three. An exhaustive unique-row-reduced-subspace enumeration counts all pencils and nets and directly computes their incidence. A second algorithm uses the quotient by one fixed pencil, tests forty possible containing nets, and computes a complete projective orbit to show its two smooth extensions occur uniformly for every pencil. This is an exhaustive finite proof, with independent enumeration methods and no finite-extension extrapolation.
+## correctness
 
-## Originality — PASS, qualified by priority risk
-Lavrauw, Popiel and Sheekey (arXiv:2010.00177) classify incidence invariants for rank-one nets containing a double line, not for all-smooth nets. Dickson's pencil-orbit work is acknowledged. Asgarli and Ghioca (arXiv:2203.07169) address existence of all-smooth pencils, not this universal extension multiplicity or the two different smooth-net orbit types. Actual database and literature searches did not locate exact equivalent coverage. An unindexed historical complete net classification might imply the theorem; the negative search alone is not conclusive.
+PASS
 
-## Value — PASS
-The two-net extension theorem is a sharp, intrinsic incidence statement, not just another count. It determines the entire smooth pencil versus smooth net bipartite degree pattern and shows that the two extensions have distinct geometric projective types. It answers a natural existence-and-uniqueness question raised by smooth linear systems over small fields.
+The requirement is that every F3-rational member of the pencil/net be geometrically smooth, not that every member after extension of the parameter space be smooth. The gradient matrix M(Q) is symmetric; Euler's identity in characteristic three identifies singular projective points with its nonzero kernel vectors. Rank does not change over the algebraic closure. The independent replay `python3 /workspace/conic_census.py` uses projective point sets, tests the kernel condition on the 13 projective coordinate points (sufficient by rank invariance), and constructs a pencil from every pair of distinct projective form points u,v as {u,v,[u+v],[u−v]}. It returned (364 projective forms, 234 smooth forms, 11011 total pencils, 1872 smooth pencils). For the displayed F,G, adjoining a projective form w outside the pencil gives the 13 points of the pencil, [w], and the eight [u±w] for u a normalized pencil point. Exhausting all w gave 40 distinct candidates, and exactly the two smooth extensions specified by H_1,H_2. Unlike the frozen generator-orbit scripts, the replay directly visits every ordered independent coordinate frame with normalized first column, exactly one representative per scalar coset (13·24·18=5616), acting by congruence. The orbit of the representative pencil equals the full enumerated set of 1872; the representative extensions have two disjoint 144-element orbits. Conjugating the two-extension result therefore covers all pencils; every smooth net contains at least one such pencil, so no net is missing. The number of pencils in a net is the number of hyperplanes in F3³, namely 13; degrees and incidence total follow. The packaged scripts and expected outputs were inspected, not executed.
 
-## Limitations
-Specific to the six-dimensional quadratic system over the ternary field; independent external mathematical audit and historical priority certification are not supplied. The complete finite computation is reproducible from the attached standalone programs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the two smooth extensions of every F3 conic pencil and their partition into two different PGL net types, with an exact census and representatives. The comparable rank-one net classification excludes all-smooth nets, existence/classification of pencils alone is insufficient, and the strongest inspected Resultary incidence comparisons differ in field, degree or extension object. This is not a priority claim for odd-field pencil classification. A full prior all-smooth net orbit census, combined with pencil transitivity, would cover the essential incidence result by immediate double counting; that coverage was not established in the inspected evidence.
+
+## value
+
+PASS
+
+The incidence asks a natural extension question for all-smooth linear systems, motivated by existence and the unique-extension conic case over F2. Over F3 uniform degree two is not a count guessed from isolated examples; the two extensions are genuinely inequivalent as nets and the census is exact. This supplies a reusable finite-geometric invariant and representative systems, without asserting that the incidence graph is classified beyond the stated orbits and degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

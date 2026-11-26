@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:18.056252Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof §§1–4",
+        "VERIFICATION.md and verify.py (inspected, not run; 848 finite test teams reported)"
+      ],
+      "rationale": "For a chosen row u and exact column v in each fiber, the doubly excluded assignments E must be deleted by the approximate side, and assignments H off u but on v can be put solely on the exact side. The canonical lax cover keeps every row-u assignment on the approximate side, including its overlap with the chosen column. For any other witness with those retained row and exact column values, h assignments of H on the approximate side cost at least h extra deletions and increase its possible size by at most h; from e+h≤p(N−b+h) one obtains e≤p(N−b) for p∈[0,1]. This works also for empty sides and gives the stated independent max per fiber. With c=1−p=s/(rs−r+1) the mean score over the rs crosses is exactly cN_a in each fiber, so the criterion holds; full rectangles give exactly the stated positive deletion ratio for every choice. For saturation all occupied fibers must have constant scores (otherwise the strict score surplus persists for slightly smaller p). Comparing two columns and summing over r rows forces equal column sums, then constant row entries across columns. Equality across rows forces them all full in an occupied fiber since the score changes by s−c between a full and an empty row. The hypotheses of distinct triples and r,s≥2 enter this argument. The finite rational candidate set and the score computation give the stated polynomial algorithms; empty teams satisfy all p, and a singleton dependent alphabet gives universal threshold zero.",
+      "residual_risks": [
+        "No assertion for multisets, hidden tuple coordinates, two approximate atoms or distinct determinants. The finite enumeration is not the all-size proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relative-deletion semantics agree with Definition 2.1. Theorem 5.1 proves NP-complete model checking of a fixed threshold 3/13 for distinct determinant variables.",
+          "Resultary ae79ed7c96eb determines deletions for joint dependence given marginal errors, not a lax split."
+        ],
+        "reasoning": "General relative-dependence syntax does not make a complexity theorem for a different fixed formula a classification of this common-determinant case. Repairing both coordinates on one retained team is a different operation from choosing two covering witnesses with a relative budget on one side.",
+        "searches": [
+          "arXiv:2608.16570v1, Definition 2.1 and Theorem 5.1",
+          "Resultary: The complete integer joint-error spectrum of two bounded-alphabet functional dependencies common determinant deletion error"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e22bc6a91416, 5b6689bad5fa and ae79ed7c96eb",
+        "arXiv:2508.16146v1 and 2608.16570v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Four-coherence bounds the size of an exact false subteam; the older enumerator handles exact crosses. The mixed relative theorem changes the determinant variables."
+        ],
+        "reasoning": "The exact criteria certify the zero-error boundary but do not quantify the allowable deletions relative to the size of a split side. The positive score with coefficient 1−p and its averaging equality condition require the relative-budget calculation; they are not corollaries of the checked prior statements.",
+        "searches": [
+          "arXiv:2508.16146v1, Theorem 21",
+          "arXiv:2608.16570v1, Theorem 5.1",
+          "Resultary e22bc6a91416, Finding and Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e22bc6a91416 gives the exact row–column cross-coverability test; this is precisely p=0.",
+          "Resultary 5b6689bad5fa classifies six minimal false exact teams in the same bipartite representation."
+        ],
+        "reasoning": "A fiber identified with its bipartite incidence graph makes the graph and team formulations equivalent at p=0. With positive error, coverage of the cross alone no longer decides truth; the ratio uses the size of the approximate side, including its retained overlap.",
+        "searches": [
+          "Resultary: Exact size enumerator for a two-dependence-atom disjunction published finding 2026-10-18",
+          "Resultary: Six minimal forbidden bipartite patterns common-determinant dependence split exact formula same-day 2026-11-22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The enumerator gives the product count F_{m,r,s}=H_{r,s}^m for exact-satisfying teams; the minimal-pattern result supplies the six exact falsifiers. The primary paper classifies the exact formula as 4-coherent."
+        ],
+        "reasoning": "These are exact indexed products, patterns and cutoffs, but all are at p=0. They do not give a list of least positive tolerances or the universal optimum and its equality cases.",
+        "searches": [
+          "Resultary e22bc6a91416 and 5b6689bad5fa",
+          "arXiv:2508.16146v1, Table 1 and Theorem 21"
+        ]
+      },
+      "rationale": "The zero-error cross-coverability criterion was already present in the exact size enumerator, and the same exact split has established four-coherence and a close minimal-obstruction classification. The supported distinct result is the positive relative-error criterion with its sharp bound and full extremizer classification. The closest relative-error primary theorem concerns distinct determinants and does not subsume it.",
+      "residual_risks": [
+        "An unlocated equivalent bipartite ratio/cover theorem could subsume the positive-error statement; the checked evidence does not certify priority. The audit credits the exact-split specialization as covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct p=0 coverage, not a positive-error criterion",
+          "evidence": "Cross-coverability for the exact split and factorized count of satisfying teams.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416",
+          "material_read": "RESULT.md Finding and Step 1, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact size enumerator for a two-dependence-atom disjunction",
+          "trigger": "Exact same determinants and alphabets at p=0"
+        },
+        {
+          "assessment": "Exact-split obstruction bound",
+          "evidence": "The exact split is 4-coherent: every failing team has a failing subteam of size at most four. This locator is for v1.",
+          "identifier_or_url": "https://arxiv.org/html/2508.16146v1",
+          "material_read": "Coherence definition and Table 1 (offset 13818), Theorem 21 (offset 69426)",
+          "method": "Bounded OA primary HTML inspection",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Primary exact common-determinant classification"
+        },
+        {
+          "assessment": "Relative semantics overlap; theorem has distinct determinants",
+          "evidence": "NP-complete model checking of =_{3/13}(u,v) or =_0(x,y), with determinants u and x distinct.",
+          "identifier_or_url": "https://arxiv.org/html/2608.16570v1",
+          "material_read": "Definition 2.1 (offset 6746), Theorem 5.1 (offset 18881)",
+          "method": "Bounded OA primary HTML inspection",
+          "title": "Approximate Functional Dependencies—Implication Problem Revisited",
+          "trigger": "Same relative semantics and approximate/exact mixed disjunction"
+        },
+        {
+          "assessment": "Same-day exact-boundary result, not a priority determination or positive-error result",
+          "evidence": "Six minimal false teams in one fiber, of three or four assignments.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-minimal-forbidden-bipartite-patterns-for-a-common-determinan--5b6689bad5fa",
+          "material_read": "RESULT.md Finding (offset 0) and relationship passage (offset 7900)",
+          "method": "Local Resultary mirror",
+          "title": "Six minimal forbidden bipartite patterns for a common-determinant dependence split",
+          "trigger": "Same formula without relative error"
+        },
+        {
+          "assessment": "Different observable and witness semantics",
+          "evidence": "Exact integer spectrum for joint dependence of both outputs conditional on marginal deletion errors.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-integer-joint-error-spectrum-of-two-bounded-alphabe--ae79ed7c96eb",
+          "material_read": "RESULT.md Finding (offset 0) and Limitations (offset 7600)",
+          "method": "Local Resultary mirror",
+          "title": "The complete integer joint-error spectrum of two bounded-alphabet functional dependencies",
+          "trigger": "Bounded alphabets, shared determinant and deletion error"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact finite-team criterion and equality classification",
+        "Resultary e22bc6a91416 and arXiv:2608.16570v1 for the contrasting exact and distinct-determinant questions"
+      ],
+      "rationale": "The relative budget makes a lax split genuinely different from exact cross-coverability or approximate satisfaction on the whole team. For a natural common-determinant fragment the result simultaneously gives exact model checking, the worst-case tolerance that works uniformly over named alphabets, and a complete description of the hard inputs. The asymmetry and denominator of the threshold are explained by the canonical witness rather than by a finite table.",
+      "residual_risks": [
+        "The contribution is for a specific natural formula; it is not a general model-checking dichotomy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

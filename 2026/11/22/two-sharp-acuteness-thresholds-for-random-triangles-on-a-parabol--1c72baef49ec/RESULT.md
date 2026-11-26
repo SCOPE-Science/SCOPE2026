@@ -15,7 +15,7 @@ For \(a>\sqrt2\), the exact probability is
 p(a)=\frac{S(a)^3+3S(a)-3a\operatorname{arcosh}(a)
 -R(a)^3-6R(a)+6a\operatorname{arcosh}(a/\sqrt2)}{a^3}.
 \]
-The two cutoffs have different geometric meanings: \(a=1\) is the first arc length parameter at which any strictly acute inscribed triangle is possible; \(a=\sqrt2\) is the first at which a triangle with an obtuse angle at its leftmost or rightmost parameter vertex is possible. Both transitions are sharp, with nonanalytic exponent \(5/2\). Explicitly,
+The two cutoffs have different geometric meanings. A strictly acute inscribed triangle is possible exactly for horizontal half-widths \(a>1\). A triangle with an obtuse angle at its leftmost or rightmost parameter vertex is possible exactly for \(a>\sqrt2\). Neither strict event is possible at its own cutoff. Both transitions are sharp, with nonanalytic exponent \(5/2\). Explicitly,
 \[
 p(1+\delta)=\frac{8\sqrt2}{5}\,\delta^{5/2}+O(\delta^{7/2})
 \quad(\delta\downarrow0),
@@ -36,7 +36,7 @@ A joint conditional shape law also holds at the first transition. For ordered pa
 \[
 (X,Z,Y)=\left(\frac{U+a}{2\delta},\frac{V}{\sqrt{2\delta}},\frac{a-W}{2\delta}\right).
 \]
-As \(a\downarrow1\), this triple converges weakly, indeed in total variation after identifying its continuously varying density, to the uniform probability law on
+As \(a\downarrow1\), this triple converges in total variation to the uniform probability law on
 \[
 \mathcal D=\{(x,z,y):x\ge0,\ y\ge0,\ x+y+z^2<1\},
 \qquad\operatorname{vol}(\mathcal D)=\frac8{15}.
@@ -68,7 +68,7 @@ I_m(a)-2I_e(a),
 \quad I_m(a)=\int_{-a}^a H(a^2-v^2)\,dv,
 \quad I_e(a)=\int_0^a H(2v(a-v))\,dv.
 \]
-Since \(a^2-v^2\le a^2\), the first integral is positive if and only if \(a>1\). The second is positive if and only if \(a>\sqrt2\), since \(\max_{0\le v\le a}2v(a-v)=a^2/2\).
+Since \(a^2-v^2\le a^2\), the first integral is positive if and only if \(a>1\), and no middle-acute triple exists at \(a=1\). For any \(a>1\), the ordered parameters \((-b,0,b)\) with \(1<b<a\) give a strictly acute triangle and hence have an open acute neighborhood. The second integral is positive if and only if \(a>\sqrt2\), since \(\max_{0\le v\le a}2v(a-v)=a^2/2\).
 
 **4. Endpoint-angle exclusion and the second threshold.** Suppose the angle at \(u\) is obtuse. Necessarily \(u=-p<0\), \(u+v<0\), and \(u+w>0\). Define \(s=-(u+v)\) and \(t=u+w\). For fixed \(p\in(0,a)\), the geometric ordering gives exactly \(0<s<2p\) and \(0<t<a-p\); the obtuseness inequality is \(st>1\). Its volume is precisely \(I_e(a)\). By the reflection symmetry \(t\mapsto-t\), the angle at \(w\) has the same obtuse-event volume. The two endpoint-obtuse events cannot overlap and both lie within the middle-acute event, since a nondegenerate Euclidean triangle has at most one nonacute angle. It follows that the volume of all-acute ordered triples is **exactly**
 \[
@@ -89,7 +89,9 @@ I_e(a)=\int_{(a-r_0)/2}^{(a+r_0)/2}
 \]
 Multiplying \(I_m-4I_e\) by \(3/(4a^3)\) gives the stated piecewise probability formula.
 
-**6. Critical and long-arc behavior.** Put \(a=1+\delta\). Then the volume of middle-acute triples is concentrated near \(u=-a\), \(v=0\), \(w=a\), and the endpoint exclusions vanish for sufficiently small \(\delta>0\). In the scaled coordinates in the finding, the inequality \(-(u+v)(v+w)>1\) becomes \(X+Y+Z^2<1+o(1)\) uniformly on a bounded region; all endpoint-angle inequalities tend strictly positive. Dominated convergence gives the conditional uniform limit. Since \(\operatorname{vol}\mathcal D=\int_{-1}^1(1-z^2)^2/2\,dz=8/15\), multiplication by the Jacobian \((2\delta)^{5/2}\) and ordered density \(3/(4a^3)\) gives the coefficient \(8\sqrt2/5\). The scaled support domains have uniformly bounded extent, and their indicators converge outside a measure-zero algebraic boundary, so the corresponding normalized densities actually converge in \(L^1\), yielding total variation.
+**6. Critical and long-arc behavior.** Put \(a=1+\delta\). On the middle-acute event, \(a^2-v^2>1\), so \(|v|<S(a)=O(\sqrt\delta)\). Also \((a-v-(u+a))(a+v)>1\) and \((a-v)(a+v-(a-w))>1\), since the two actual positive factors of the middle-angle product are bounded by \(a-v\) and \(a+v\). These inequalities force \(u+a=O(\delta)\) and \(a-w=O(\delta)\). In the scaled coordinates, expanding \((a-v-2\delta X)(a+v-2\delta Y)-1\) and dividing by \(2\delta\) gives \(1-X-Y-Z^2+o(1)\) uniformly on bounded sets. Ordering and the endpoint-angle inequalities hold for all sufficiently small \(\delta\) on bounded scaled sets with \(X,Y\ge0\). The scaled support domains have uniformly bounded extent, and their indicators converge outside a measure-zero boundary. Their normalized uniform densities thus converge in \(L^1\) by dominated convergence. The limiting volume is \(\operatorname{vol}\mathcal D=\int_{-1}^1(1-z^2)^2/2\,dz=8/15\).
+
+For the stated quantitative probability remainder, the endpoint and ordering exclusions are zero near \(a=1\). Use \(H(1+q)=q^2/2+O(q^3)\) in \(I_m\) with \(q=S(a)^2-v^2\) on \([-S(a),S(a)]\). Integrating gives \(I_m(a)=8S(a)^5/15+O(S(a)^7)\). Multiplication by \(3/(4a^3)\), with \(S(a)^2=2\delta+\delta^2\), yields \(8\sqrt2\,\delta^{5/2}/5+O(\delta^{7/2})\).
 
 At \(a=\sqrt2+\delta\), the newly nonzero endpoint exclusion \(I_e\) has local form \(\int_0^{r_0}[(r_0^2-z^2)^2/8+O(r_0^6)]\,dz=r_0^5/15+O(r_0^7)\), where \(r_0^2=a^2-2\). Hence \(3I_e/a^3=(4\,2^{1/4}/5)\delta^{5/2}+O(\delta^{7/2})\). Finally, Taylor expansion of the radicals and \(\operatorname{arcosh}(a)=\log(a+\sqrt{a^2-1})\) in the exact formula gives \((3\log a-3/2)/a^2+9/(8a^4)+O(a^{-6})\).
 
@@ -99,11 +101,11 @@ A standalone Python standard-library checker is supplied in `check_parabolic_acu
 
 ## Relationship to prior work
 
-Kim–Kim–Kim–Park (2014), *Area of triangles associated with a curve II*, studies local areas and tangent-triangle identities characterizing parabolas; its triangle object and conic geometry motivate the setting, but its main theorems concern area ratios rather than random inscribed-triangle angles. Edelman–Strang (2015), *Random Triangle Theory with Geometry and Applications*, develops the probability of acuteness under Gaussian vertex/shape-space sampling, not three independent uniform parameters on a parabolic arc. The dated texts and the public comparison records listed below do not imply the exact two-threshold law. A separate public result on arclength-uniform triangles on ellipses uses a closed curve and a different sampling law; it does not transfer by Euclidean similarity or affine equivalence, since acuteness is not affine invariant. Searches cannot establish absolute priority, and older unindexed treatments of parabola-inscribed triangles remain a material risk.
+Kim–Kim–Kim–Park (2014), *Area of triangles associated with a curve II*, studies local areas and tangent-triangle identities characterizing parabolas; its triangle object and conic geometry motivate the setting, but its main theorems concern area ratios rather than random inscribed-triangle angles. Edelman–Strang (2015), *Random Triangle Theory with Geometry and Applications*, develops the probability of acuteness under Gaussian vertex/shape-space sampling, not three independent uniform parameters on a parabolic arc. The dated texts and the public comparison records listed below do not imply the exact two-threshold law. The separate affine-uniform ellipse result samples uniformly in eccentric anomaly on a closed curve. It does not give this parabolic law, and acuteness is not invariant under a general affine map. The same parabolic sampling model also appears in a study of circumradius tails, rather than of acute-angle events. Searches cannot establish absolute priority, and older unindexed treatments of parabola-inscribed triangles remain a material risk.
 
 ## Limitations
 
-The law is Euclidean and uses independent uniform horizontal parameters. It is not an arclength-uniform result, does not cover higher polynomial graphs or arbitrary convex curves, and does not determine a maximizing arc size explicitly. The conditional limit is proved only at the onset \(a\downarrow1\), not at all transition windows. Independent mathematical validation and exhaustive historical priority assessment have not been performed.
+The law is Euclidean and uses independent uniform horizontal parameters. It is not an arclength-uniform result, does not cover higher polynomial graphs or arbitrary convex curves, and does not determine a maximizing arc size explicitly. The conditional limit is proved only at the onset \(a\downarrow1\), not at all transition windows. The supplied numerical tests are not a formal proof certificate, and the literature comparison is not exhaustive.
 
 ## References
 
@@ -111,3 +113,4 @@ The law is Euclidean and uses independent uniform horizontal parameters. It is n
 2. A. Edelman, G. Strang, *Random Triangle Theory with Geometry and Applications*, arXiv:1501.03053v1, first public 2015-01-09. https://arxiv.org/abs/1501.03053
 3. Public comparison finding, *Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles*, identifier `2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92`. Distinct curve, not a coverage claim.
 4. Public comparison finding, *Endpoint-driven Gamma and interior Gaussian fluctuations for random parabolic hulls*, identifier `2026/11/2/SCOPE-endpoint-driven-gamma-and-interior-gaussian-fluctuations-for-ran--77a979074148`. Distinct invariant.
+5. [Two distinct endpoint laws for circumradii of random parabolic triangles](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-distinct-endpoint-laws-for-circumradii-of-random-parabolic-t--cbedc9fbaebb/RESULT.md).

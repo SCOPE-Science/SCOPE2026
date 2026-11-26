@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The companion `verify_pav.py` is self-contained Python 3 code, relying only on the standard library. Run `python3 verify_pav.py` in a directory containing this file. It independently computes twice the global harmonic PAV score from each of the seven nonempty ballot types and also the first- and second-round greedy scores. It enumerates **every anonymous profile** with between one and twelve voters: exactly 50,387 integer vectors (stars-and-bars enumeration, omitting the empty electorate).
+## correctness
 
-Observed counts of profiles with a **unique most-approved candidate excluded from the unique globally optimal pair**, by electorate size \(n=1,\ldots,12\), were \((0,0,0,0,0,0,0,0,0,3,3,9)\). The corresponding counts with a **strict second greedy choice** were \((0,0,0,0,0,0,0,0,0,0,0,6)\). Exact assertions check the profile with twelve voters, its three two-seat scores, and both greedy marginal scores. Execution completed with `VERIFICATION PASSED`.
+PASS
 
-The **infinite-family** claim and all-profile necessity of at least twelve voters rest instead on the complete algebraic proof in `RESULT.md`, including its integer identity and second-round difference. The finite test independently corroborates its first boundary; it does not substitute for the proof or for independent literature-priority verification.
+For any strict disagreement label the unique first greedy choice A. Since the marginal comparison is exactly the comparison of the two complete pair scores containing A, the unique global optimum has to be BC. Let a,z,w count ballots A, BC, ABC, let d_B,d_C be the positive approval deficits relative to A, and write 2(P(BC)−P(AB))=1+u, 2(P(BC)−P(AC))=1+v. Pair scores are sums of approval totals minus half their shared approvals. Solving these integer equations gives AB=z+2d_C+1+u, AC=z+2d_B+1+v, B=a+d_B+1+v and C=a+d_C+1+u. Hence n=10+3(a+z+d_B−1+d_C−1)+2(u+v)+w. The remaining marginal difference is (v−u)/2, so strictness costs at least two voters. Equality forces u+v=1 and all other excess terms zero. The two assignments of u,v are exchanged by B↔C and represent distinct count vectors; the three choices of A give six profiles. The given profile's pair scores are (11,23/2,12), and the two second-round marginals are (4,9/2). Adding all-approval ballots preserves all score differences. Thus the argument covers all n, not only the enumeration range.
+
+## originality
+
+PASS
+
+The best-supported distinct claim is the exact tie-free threshold and equality classification for three candidates, not the existence of PAV/seq-PAV differences or the 10-voter committee-monotonicity example. No inspected antecedent covers both unique greedy rounds and the sharp classification in this size regime.
+
+## value
+
+PASS
+
+The smallest candidate/seat setting in which a greedy pair can disagree with the global pair yields a sharp minimal electorate under a substantive uniqueness constraint. The orbit classification supplies a canonical test profile and isolates the two-voter cost of removing the known second-round tie. This is a usable boundary, not merely another disagreement example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

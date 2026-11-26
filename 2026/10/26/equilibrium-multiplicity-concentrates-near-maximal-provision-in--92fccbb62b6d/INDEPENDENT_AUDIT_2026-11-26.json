@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:40.347838Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–56",
+        "Frozen verify_equilibrium_count.py and VERIFICATION.md (read only)"
+      ],
+      "rationale": "At 0<c<1, any served buyer can profitably drop out and any unserved nonbuyer can profitably buy. The reverse also holds: with no nominations to buyers and all nonbuyers served, changes of the nominations of a continuing buyer do not raise that buyer's payoff, and neither changing buy to abstain nor the reverse benefits the deviator. Thus fixing q nonbuyers leaves an ordered (by purchaser labels) list of k-subsets covering the nonbuyers. The necessary q≥k and k(n−q)≥q are sufficient by the cyclic assignment, also when only one purchaser fits the model. Inclusion–exclusion over omitted nonbuyers with the factor C(n,q) counts precisely these profiles. Independently, write L=log n and B=kn log n−kn log L−n log(k!). At q0=floor(n/L), the probability of a missed recipient is at most q0 exp(−k(n−q0)/q0)=O(n^(1−k)/L), which tends to zero even at k=1. The logarithm of C(n,q0) is o(n), and log C(q0,k)=k log q0−log(k!)+O(1/q0); together these give log N(q0)=B−kn+o(n). The relaxed upper bound g_n at a n/L for fixed a>0 is B+kn(log a−a)+o(n). Its strictly decreasing derivative, positive at a=1−ε and negative at a=1+ε for large n, places every exterior value below the larger endpoint bound. Relative to q0 the endpoints lose kn(a−1−log a)+o(n), a positive linear loss; summing over at most n counts proves convergence in probability. Equilibrium coverage and the extremal feasible counts give both cost ratios. A covering optimum uses at least ceil(n/(k+1)) buyers and the cyclic construction attains it; dropping coverage cannot improve the welfare optimum when an unserved player can instead buy for c<1.",
+      "residual_risks": [
+        "The concentration proof is for fixed k and for the uniform measure over labelled nomination profiles. The supporting finite enumeration concerns only the exact count and equilibrium characterization, not the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 studies the same game and attains the pure price of anarchy on complete directed graphs; the path result counts stable profiles of a continuous-contribution game and proves concentration near active fraction 0.55694.",
+          "The DLMF points to asymptotic estimates for second-kind Stirling numbers uniform in their two indices, a route to testing the k=1 weighted distribution."
+        ],
+        "reasoning": "Extremal counts do not determine the relative multiplicities of interior counts. The path law has a different strategy space, graph sequence and stability criterion. Stirling asymptotics do not count fixed row-weight incidences for k>1; no independent novelty is asserted for the k=1 limit considered alone.",
+        "searches": [
+          "arXiv:2511.11475v1, Theorem 10 and proof",
+          "NIST DLMF §26.8(vii), references to Temme, Moser–Wyman, and Bleick–Wang",
+          "Resultary 2026/10/25/SCOPE-the-active-population-large-deviation-law-for-stable-public-good--0f80d50ebd08"
+        ]
+      },
+      "checked_sources": [
+        "Deligkas et al., arXiv:2511.11475v1, specified passages",
+        "NIST DLMF §26.8(i), §26.8(vii)",
+        "Focused Resultary hits 4e96225c1db3, 0f80d50ebd08, and 6579ff0ec939"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof exhibits the n−k buyer equilibrium and identifies efficient buyer scale ceil(n/(k+1)). The frozen calculation additionally uses a coverage probability under independent nomination choices, then proves an order-n logarithmic gap away from q≈n/log n."
+        ],
+        "reasoning": "The same model characterization gives the elementary occupancy reduction. The prior extremal argument does not give the exponential comparison or imply that typical equilibrium cost approaches worst-equilibrium cost. That concentration, rather than a restatement of the known extremal ratio, is the distinct result.",
+        "searches": [
+          "arXiv:2511.11475v1, complete-graph argument for Theorem 10, versus frozen RESULT.md lines 23–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k=1, the census is exactly C(n,q) q! S(n−q,q) by the classic Stirling onto-map identity. For k>1, the counted objects are bipartite incidence lists with every purchaser row of weight k and every recipient column positive, disallowing repetitions within each row."
+        ],
+        "reasoning": "A prior enumeration and concentration for these weighted bipartite lists under the same sampling would count as coverage. The known onto-map count covers the one-choice combinatorial slice, not the arbitrary fixed row-weight asymptotic.",
+        "searches": [
+          "NIST DLMF §26.8(i), Eq. 26.8.6; occupancy/surjection and partitions comparisons",
+          "Resultary lookup for complete public-goods equilibrium counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The balanced bipartite record describes which equilibrium purchaser cardinalities occur on K_(n,n). It does not give the multiplicities at each count on a complete digraph. The classical Stirling identity gives exactly the k=1 list factor; no full fixed-k match was found in the bounded results."
+        ],
+        "reasoning": "A spectrum of feasible sizes is a support, not the profile histogram. The same-day date gives no priority information and is not a reason to omit the comparison.",
+        "searches": [
+          "Resultary focused labelled nomination-list census search",
+          "Resultary 2026/10/26/SCOPE-complete-purchaser-count-spectrum-for-uniform-sharing-on-balance--4e96225c1db3",
+          "DLMF Eq. 26.8.6 (exact k=1 count)"
+        ]
+      },
+      "rationale": "The best-response structure and extremal welfare calculation are antecedents, as is the Stirling/surjection form of the count when k=1. The inclusion–exclusion itself is standard. The supported increment is the specified full labelled PNE census together with concentration at n/log n nonbuyers for general fixed k, not a new price-of-anarchy result or novelty for the classical k=1 combinatorics. The strongest model and asymptotic analogues do not give that distribution.",
+      "residual_risks": [
+        "The Stirling asymptotic papers referenced by DLMF were not individually inspected for the binomially weighted k=1 limit, and no originality judgment on that isolated slice is needed.",
+        "Ranked catalogue and primary-literature comparisons cannot exclude a result on the full incidence-list distribution under another parametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior extremal efficiency result, not a label-weighted PNE distribution in the comparison passages",
+          "evidence": "Worst example has n−k buyers nominating the same k nonbuyers, and efficient buyer count is ceil(n/(k+1)); Theorem 10 gives pure price of anarchy k+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.11475v1",
+          "material_read": "Abstract, PDF p. 1; Theorem 10 and complete-digraph part of proof, PDF p. 9",
+          "method": "Direct primary PDF passage inspection",
+          "title": "Public Goods Games in Directed Networks with Constraints on Sharing",
+          "trigger": "Identical capacity-constrained nomination game and complete-digraph example"
+        },
+        {
+          "assessment": "Exact count for onto assignments and material prior asymptotic machinery; no weighted equilibrium-profile limit in the inspected passages",
+          "evidence": "A partition of the labelled buyers into q nonempty blocks gives q! labelled-recipient maps; the asymptotic section points to uniform Stirling estimates.",
+          "identifier_or_url": "https://dlmf.nist.gov/26.8",
+          "material_read": "§26.8(i), Eq. 26.8.6, and overview in §26.8(vii)",
+          "method": "Bounded public-source passage inspection",
+          "title": "NIST Digital Library of Mathematical Functions: Set Partitions: Stirling Numbers",
+          "trigger": "Exact occupancy equivalence at k=1 and possible asymptotic overlap"
+        },
+        {
+          "assessment": "Shared model on a different graph and a support classification rather than a profile census",
+          "evidence": "The result classifies attainable equilibrium purchaser numbers on K_(n,n).",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-purchaser-count-spectrum-for-uniform-sharing-on-balance--4e96225c1db3",
+          "material_read": "Finding and Assumptions passages",
+          "method": "Configured Resultary search and record statement comparison",
+          "title": "Complete purchaser-count spectrum for uniform sharing on balanced complete bipartite networks",
+          "trigger": "Strongest same-model Resultary hit"
+        },
+        {
+          "assessment": "Uniform sampling but different continuous path model and different asymptotic observable",
+          "evidence": "A stable-profile large-deviation law for a path game yields active fraction near 0.55694, not a nomination-based nonbuyer count.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-active-population-large-deviation-law-for-stable-public-good--0f80d50ebd08",
+          "material_read": "Finding and Assumptions passages",
+          "method": "Configured Resultary search and record statement comparison",
+          "title": "The active-population large-deviation law for stable public goods equilibria on paths",
+          "trigger": "Strongest uniform-equilibrium asymptotic catalogue analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–15, 33–52, 60–64",
+        "arXiv:2511.11475v1, Theorem 10 and proof"
+      ],
+      "rationale": "Knowing which equilibrium sizes exist or that an inefficient equilibrium exists does not tell whether inefficiency is exceptional under the stated counting measure. The result shows that uniformly counted profiles typically incur almost the worst cost for that n and identifies the sublinear scale of the missing purchases. This supplies a quantitative multiplicity result distinct from extremal inefficiency, without treating the uniform measure as a behavioral prediction.",
+      "residual_risks": [
+        "No equilibrium selection mechanism is modeled, and the probability statement does not extend directly to increasing k or different network families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

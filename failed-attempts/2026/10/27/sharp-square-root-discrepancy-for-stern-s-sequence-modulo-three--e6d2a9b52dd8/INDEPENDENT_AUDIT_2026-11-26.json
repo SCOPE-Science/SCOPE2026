@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:14:12.970098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary updates preserve nonzero pairs modulo three and also descend to four projective states: the two axes, the equal-coordinate class E and the mixed class M. An axis sends one child to itself and one to E; E sends both to M; M sends one to each axis. On axis-symmetric state observables the operator is (a,e,m) -> (a+e,2m,2a). For the centered observable 4*1_{first coordinate zero}-1 its symmetric part is (1,-1,-1), annihilated by P^2+P+2I, and its axis-antisymmetric part is an eigenfunction of eigenvalue 1 vanishing at E. The dyadic row starts from E, so d_0=-1, d_1=-2 and the announced recurrence follows; its generating numerator is -1-3z. For any aligned block the initial state can be arbitrary, giving uniform O(2^(r/2)) for block length 2^r using the quadratic roots of modulus sqrt(2) and the bounded antisymmetric contribution. The binary decomposition proves the bound for all prefixes, including n=0. A nonzero initial recurrence vector under a conjugated sqrt(2)-dilation yields a positive normalized limsup along dyadic level counts; differencing adjacent dyadic prefix discrepancies transfers this to the asserted prefix limsup. The separate exact integer replay (reproductions/frozen_checks.py, argument 3) reproduces the frozen eight-state characteristic polynomial and squarefree annihilator.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick (5.9) states for arbitrary N the same estimate for residue zero modulo 3 and analogous estimates for residues 1 and 2. Corollary 5.4 gives the exact dyadic prefix error, stronger than the positive normalized limsup.",
+          "The later Deshouillers–Schinzel primitive-residue automaton and density theorem independently cover the density, but the inspected theorem does not state the sharp error term."
+        ],
+        "reasoning": "Reznick's arbitrary-prefix result has the same cutoff convention and covers all residues. In contrast the qualitative general automaton theorem alone would not imply the quantitative claims.",
+        "searches": [
+          "arXiv:math/0610601v1 Corollary 4.8 and §5, (5.9), Corollary 5.4",
+          "Deshouillers–Schinzel DOI 10.4064/bc118-3, Theorems 1.1 and 2.2 and Corollary 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Bruce Reznick, arXiv:math/0610601v1",
+        "Deshouillers–Schinzel, DOI 10.4064/bc118-3",
+        "OEIS A122946 and A002487",
+        "Resultary 0c8182a44070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(5.9) directly states the frozen prefix upper bound; (5.18) explicitly establishes best possible square-root error for T(N;3,0) and gives 2^r/4 + c*mu^r + conjugate(c*mu^r) + 1/2 with c nonzero and |mu|=sqrt(2).",
+          "(5.17) immediately gives d_r as just the two nonzero conjugate modes and hence its initial conditions and generated rational function."
+        ],
+        "reasoning": "The two phases of consecutive exponentials are linearly independent over the reals because mu is nonreal, so the normalized cosine contribution stays away from zero infinitely often; equivalently use the explicit dyadic formula and best-possible claim. The entire frozen finding is implied, not just similar to a qualitative density result.",
+        "searches": [
+          "arXiv:math/0610601v1 pp. 13–14, (5.9), (5.14)–(5.18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick defines T(N;d,i) using [0,N), and a_r as T(2^(r+1);3,0)-T(2^r;3,0), exactly H_r. The numerator of s(n)/s(n+1) is zero mod 3 precisely in the corresponding projective zero class.",
+          "Lemma 5.2 gives a_r=a_(r-1)+4a_(r-3) with the same initial level counts; Theorem 5.3 gives the leading term 2^r/4 and a conjugate pair at (-1 ± i sqrt(7))/2."
+        ],
+        "reasoning": "The exact closed form after multiplying by four and subtracting 2^r satisfies the frozen order-two recurrence. These are equivalent centered versus uncentered descriptions of the same integer sequence, not a new fluctuation calculation.",
+        "searches": [
+          "Stern diatomic sequence mod 3, Calkin–Wilf projective class counts and dyadic recurrence",
+          "arXiv:math/0610601v1 Eq. (1.11), Lemma 5.2, Eqs. (5.14)–(5.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A122946 provides H_r's zero-indexed values and recurrence signature (1,0,4), with a comment pointing to Reznick's Lemma 5.2, which proves their Stern interpretation. A002487 alone is not the relevant exact entry.",
+          "The distinct Resultary Calkin–Wilf record gives the same class-zero row generating function 2z^2/(1-z-4z^3) and sharp dyadic square-root oscillations in its Finding and Proof."
+        ],
+        "reasoning": "The exact OEIS entry is a directly linked match rather than agreement of a few numerical terms. The catalog's projective formulation matches the dyadic portion, but its later path date is not used to assert priority or to derive the arbitrary-prefix result.",
+        "searches": [
+          "OEIS exact initial level counts 0,0,2,2,2,10,18",
+          "https://oeis.org/A122946",
+          "2026/11/22/SCOPE-sharp-square-root-residue-oscillations-in-the-ternary-and-quinar--0c8182a44070"
+        ]
+      },
+      "rationale": "Dispositive earlier coverage: Bruce Reznick's public arXiv:math/0610601v1 gives exactly the same level counts and equivalent exact recurrence, the uniform O(sqrt(N)) estimate for the same prefix count, and its optimality via an exact oscillatory dyadic formula. Removing the geometric leading term yields the frozen order-two recurrence and rational generating function without any new counting result. The later Resultary comparison is recorded separately and is not needed to establish prior coverage.",
+      "residual_risks": [
+        "Journal-publication status of Reznick's work was not established here; its earlier publicly accessible primary text is enough for coverage. The chronology of the later Resultary comparison is not used as priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit all-prefix estimate and exact dyadic count formulas imply all claimed quantitative additions",
+          "evidence": [
+            "arXiv first version posted 19 Oct 2006 UTC date; (5.9) T(N;3,0)=N/4+O(sqrt(N)); (5.16) a_r=a_(r-1)+4a_(r-3); (5.18) exact dyadic count with nonzero oscillatory error and best-possible estimate"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601v1",
+          "material_read": "Definition (1.11); §5, p. 13 at (5.9), pp. 13–14 at (5.14)–(5.18), including Lemma 5.2 proof, Theorem 5.3 and Corollary 5.4",
+          "method": "Read bounded primary PDF passages at (5.9) and extracted offsets 37800–41093; match half-open intervals and subtract the leading term from the level formula",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Earlier exact Stern residue counts, dyadic spectral recurrence and quantitative convergence"
+        },
+        {
+          "assessment": "Same finite-state objects and density; does not supply the sharp error in inspected passages",
+          "evidence": [
+            "Corollary 1.3, zero mod 3 density 1/4; finite-state maps (a,b)->(a,a+b),(a+b,b)"
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/publication/transaction/download/product/113097",
+          "material_read": "Theorems 1.1 and 2.2, Corollary 1.3 and transitions/proofs on pp. 38–43",
+          "method": "Read the primary automaton and density statements and compare with prefix discrepancy",
+          "title": "The modular distribution of Stern's sequence",
+          "trigger": "Published Stern residue automaton and density"
+        },
+        {
+          "assessment": "Exact uncentered count entry, not by itself a prefix discrepancy proof",
+          "evidence": [
+            "Offset 0; comment cites Lemma 5.2; signature (1,0,4)"
+          ],
+          "identifier_or_url": "https://oeis.org/A122946",
+          "material_read": "Offset, sequence, comments and links",
+          "method": "Read OEIS text and verify the interpretation through its link to Reznick",
+          "title": "OEIS A122946",
+          "trigger": "Exact row-count term and recurrence lookup"
+        },
+        {
+          "assessment": "Direct dyadic overlap; not the priority basis and does not replace Reznick's arbitrary-prefix comparison",
+          "evidence": [
+            "Mod-3 class zero row generating function 2z^2/(1-z-4z^3) and sharp oscillations"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-square-root-residue-oscillations-in-the-ternary-and-quinar--0c8182a44070",
+          "material_read": "Local mirror RESULT.md Finding and count proof",
+          "method": "Identify the zero projective class and compare its row generating function",
+          "title": "Sharp square-root residue oscillations in the ternary and quinary Calkin–Wilf residue walks",
+          "trigger": "Same dyadic rational-enumeration residue count under a projective alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The precise discrepancy is intrinsically a natural statistic, but as a proposed new finding this recomputes an already available exact result. Centering the known dyadic count and deriving its generating function are routine transformations, and the separate eight-state check supplies corroboration rather than a distinct demonstrated scientific advance. No surviving independent claim is established by this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

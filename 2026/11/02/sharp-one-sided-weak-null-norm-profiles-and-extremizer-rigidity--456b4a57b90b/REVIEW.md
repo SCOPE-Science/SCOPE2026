@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The exact nonnegative polynomial identity bounds every normalized weak-null perturbation after the \(x^3\)-pairing vanishes. The coefficient identities are algebraically verified from \(2q=d(d+3)\) and \(t^4=q(d^2+q)\). Independent two-level centered multipliers exist on every atomless weighted measure \(|x|^4\mu\), and their weak nullity in \(L^4\) follows from the uniform boundedness and pairwise orthogonality of the multipliers. The zero-deficit product controls \(L^4\) proximity to the two levels, and the weak pairing determines their weighted masses. LimSup-only maximizers yield subsequential rigidity, not full-sequence rigidity.
+## correctness
 
-## Originality
-The motivating Rodríguez–Rueda Zoca paper proves weak almost squareness in \(L^1\) via symmetric sign sequences, not a one-sided maximum in \(L^4\). The nearest reported weak-null \(L_p\) profile concerns a symmetric *minimum* and cannot directly imply the strictly larger asymmetric supremum. Exact skewness and kurtosis inequalities account for the classical scalar moment background; the present weak-null realization and all-scale structural rigidity are additional conclusions. A further review of pertinent Banach-space asymptotic moduli remains desirable.
+PASS
 
-## Value
-A one-sided perturbation is geometrically different from the two-sided weak-almost-square condition. The exact universal profile, strict improvement over Rademacher perturbations at unit scale, and rigid two-level structure turn a qualitative weak-null mechanism into a quantitative and reproducible characterization for a natural, infinite-dimensional function space.
+The scalar parameter is unique by strict increase on d>0; q=d(d+3)/2 gives q(d^2+q)=t^4 and a-b=d, ab=q. Expanding (u-as)(u+bs)=u^2-dsu-qs^2 verifies all five coefficients of the quartic identity, including the coefficient -6 of s^2u^2 on both sides. Inserting s=x and u=ty_n, both fourth norms are fixed and the linear pairing against x^3 tends to zero. Hence the integrated defect bounds the limsup. For equality, the probability |x|^4 mu is atomless, and recursive subdivisions in the proportions b/(a+b), a/(a+b) produce independent two-valued multipliers Z_n of mean zero and fourth moment t^4. Orthogonality gives weak convergence against L^2(|x|^4 mu) tests and uniform boundedness extends it to L^1 tests. For any g in L^(4/3)(mu), gx/|x|^4 on {x!=0} is such an L^1 test, so xZ_n/t is weakly null on the original space and realizes equality at every index. Near equality forces the integral of the squared product of the two level distances to zero; the fourth power of their minimum is bounded by that product. Choosing the nearer level therefore gives the asserted L^4 approximation, and testing by x^3 fixes the weighted mass. For a maximizing limsup choose a subsequence attaining it; at t=0 the claimed continuous extension also follows from the triangle inequality. This is an analytic check for nonseparability allowed, atomless real L^4 and exactly unit perturbations; it does not attest another exponent, complex scalars, or two-sided minimization.
 
-## Limitations and literature
-Only real atomless \(L^4\) and normalized weakly null sequences are proved; the claim is not extended to atomic measures, complex fields, other exponents, or nets. The closest semantic-search comparison was available as a record summary and not inspected in full, leaving residual coverage risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected evidence the supported distinct claim is the exact pointwise weak-null supremum at every unit basepoint, with exact attainment by a normalized weakly null sequence and L^4 stability of asymptotic extremizers. The scalar moment envelope alone is a consequence of Pearson/Cauchy and is not credited as a new inequality. The strongest inspected geometric and catalogue comparators do not supply the one-sided fixed-radius profile together with this attainment and rigidity statement; this is a bounded best-of-knowledge finding, not a priority assertion.
+
+## value
+
+PASS
+
+The weak-null perturbation profile is a natural geometric invariant beyond the power-type order of smoothness. Exact one-sided behavior distinguishes biased extremizers from the familiar symmetric signs; the weighted two-level rigidity gives usable information about arbitrary asymptotically optimal sequences, not just a constructed example. Exact attainment and independence of the chosen basepoint make the bound applicable throughout real atomless L^4, without separability assumptions. The scalar inequality by itself would not justify this value assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

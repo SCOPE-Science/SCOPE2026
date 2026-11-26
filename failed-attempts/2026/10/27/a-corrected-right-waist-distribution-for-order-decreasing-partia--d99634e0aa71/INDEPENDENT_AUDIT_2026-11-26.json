@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:30.027022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let m=n−k. Fixing the unique input mapped to k gives m+1 choices. On inputs 1 through k−1 the rank-r recurrence is a(t,r)=a(t−1,r)+(t−r+1)a(t−1,r−1), with a(0,0)=1; hence a(t,r)=S(t+1,t+1−r). The remaining m inputs may use any s of the k−1−r unused image labels, with precisely binom(m,s)(k−1−r) falling s choices. These steps give a reversible count including k=1 and k=n; the empty map supplies waist zero. At k=3 this is (m+1)(m²+4m+5), whose excess over 5 binom(n,3) is binom(n−2,3). Independent direct enumeration through n=5, using an omit-or-assign recursion with unused y≤x, gave rows (1,1), (1,2,2), (1,3,6,5), (1,4,12,20,15), (1,5,20,51,74,52); thus the first failure is at n=5 and the least failing k there is 3. Umar's printed p. 121 states precisely the contradicted positive-waist conjecture. The uploaded script was inspected, not run. The all-size result is analytical, not certified by the finite rows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4.1 determines all placement counts r_j on any Ferrers board via sum_j r_j x falling (n−j) = product_i (x+b_i−i+1). For the capped staircase the right side is (x+1)^k times x falling m, m=n−k."
+        ],
+        "reasoning": "The arbitrary Ferrers theorem covers the whole capped board for each k and retains rank, substantially more than the uncapped Staircase/Stirling subcount acknowledged in the frozen record.",
+        "searches": [
+          "https://math.mit.edu/~rstan/ec/ec1.pdf, Theorem 2.4.1 and Corollary 2.4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary right-waist and order-decreasing partial-map lookup",
+        "Umar (2010), printed pp. 117 and 121",
+        "Stanley, Enumerative Combinatorics I, §2.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtract the product for cap k−1, (x+1)^(k−1) times x falling (m+1), from that for cap k. The exact-waist rank polynomial in the falling basis is (m+1)(x+1)^(k−1) times x falling m. Expand (x+1)^(k−1) = sum_j S(k,j+1) x falling j; the product of falling factorials of degrees m and j expands with coefficient binom(m,s)(j falling s) at degree m+j−s."
+        ],
+        "reasoning": "Summing the resulting coefficients and setting j=k−1−r reproduces the displayed double sum term for term. At k=3 the same specialization gives the waist-three polynomial and initial counterexample without a new enumeration theorem. The concrete counterexample may be differently presented, but the counts are mechanically implied.",
+        "searches": [
+          "Stanley, Enumerative Combinatorics I, Theorem 2.4.1",
+          "Umar 2010, Conjecture 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A map of rank j and waist at most k is a placement of j nonattacking rooks on the Ferrers board with column heights b_i=min(i,k), i=1,…,n. Exact waist k is the difference of placements on the k and k−1 boards. No material matching finding surfaced in two Resultary topic searches."
+        ],
+        "reasoning": "This is a direct equivalence of the same unrestricted labeled maps, not a comparison with order-preserving or orientation-restricted maps.",
+        "searches": [
+          "Resultary right-waist distribution and order-decreasing partial injection searches",
+          "Stanley, Enumerative Combinatorics I, §2.4, Theorem 2.4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original source supplies the conjectured Bell-binomial formula, which predicts 50 at n=5,k=3, not the true 51. Independent enumeration checked the true small rows; no exact corrected table was identified in the bounded index lookups."
+        ],
+        "reasoning": "A published conjectural value is not independent coverage of its correct replacement; the decisive coverage is the general rank-sensitive formula instead.",
+        "searches": [
+          "Umar 2010, p. 117 definitions, p. 121 Conjecture 4.2",
+          "Resultary right-waist/enumeration lookups"
+        ]
+      },
+      "rationale": "The exact corrected distribution, including each rank-refined waist count, is a direct specialization and subtraction of the classical factorial rook factorization for Ferrers boards. This is stronger coverage of the mathematical claim, not an assertion that Umar or the textbook explicitly wrote down the discrepancy. The correction is true, but the claim as submitted does not clear the stated originality standard.",
+      "residual_risks": [
+        "The 1993 Umar paper and the 1975 Goldman–Joichi–White paper were not recovered in readable original full text. The coverage finding rests on the exact theorem read in Stanley, not on presumed content of the unavailable papers. Whether the counterexample has previously been stated explicitly remains unestablished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The conjecture is quoted correctly and is false for n=5,k=3. Proposition 4.1 counts a different statistic.",
+          "evidence": [
+            "The right waist is max Im α; ID_n imposes xα≤x; Conjecture 4.2 gives F(n;k)=binom(n,k)B_k."
+          ],
+          "identifier_or_url": "https://adm.luguniv.edu.ua/downloads/issues/2010/N2/adm-n2-9.pdf",
+          "material_read": "Printed pp. 117, 121, including §4, Proposition 4.1 and Conjecture 4.2 (OA extraction around offsets 4253 and 20700)",
+          "method": "Original OA PDF text and direct comparison to the frozen definitions",
+          "title": "Some combinatorial problems in the theory of symmetric inverse semigroups",
+          "trigger": "Exact asserted conjecture and definition of right waist"
+        },
+        {
+          "assessment": "Provides a stronger published enumerative theorem implying the full frozen distribution.",
+          "evidence": [
+            "The theorem allows arbitrary nondecreasing column heights including zeros, and gives each rook count as a coefficient in a falling-factorial basis. Corollary 2.4.2 covers the staircase subcount."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~rstan/ec/ec1.pdf",
+          "material_read": "§2.4, printed pp. 235–236, Theorem 2.4.1, proof and Corollary 2.4.2, extracted offset 705960; references and notes identifying Goldman–Joichi–White",
+          "method": "Read author-hosted OA textbook and specialize the displayed product and its falling-factorial coefficient identity",
+          "title": "Enumerative Combinatorics, Volume 1 (Richard P. Stanley)",
+          "trigger": "Classical factorization for rank-refined rook counts on arbitrary Ferrers boards"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit documented correction to a published conjecture about the same semigroup and statistic is useful to readers of that literature. The first failure and the all-size waist-three error diagnose the incorrect formula rather than just supplying an unexplained small table. This value attaches to the correction, not to the known Ferrers counting mechanism as a new technique.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

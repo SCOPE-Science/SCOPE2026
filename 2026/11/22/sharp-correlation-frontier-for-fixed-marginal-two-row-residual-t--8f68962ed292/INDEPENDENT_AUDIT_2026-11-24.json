@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:21.508622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result concerns iid pre-update cached residual tracking on A=(1,1)^T, fixed positive unnormalized h and arbitrary finite deterministic starts. The update gives conditional mean estimator 2e and each tracker is replaced with probability 1/2, independent of the past. A separate symbolic reconstruction from the update verified the four state maps, the moment operator on (E e²,2E et,E t²,E d²), det(I−T)=−hF with F=3h²+3uh+u−1, and the conditional energy drift 2F e². It also checked the (e,t) principal-minor identities: the bracket in the determinant is concave in h and strictly positive at 0 and h_*, and a is positive there in the stated limiting sense. The energy is nonnegative even at u=1/2, when the d coefficient vanishes. Below the root summability forces E e²→0, and E z_i,next²=(E e²+E z_i²)/2 gives joint convergence. At equality det(I−T)=0; above, the monic characteristic polynomial is negative at 1 and positive for sufficiently large argument, giving a real eigenvalue λ>1. A real left eigenvector defines a nonzero quadratic functional on initial states (the four coordinate monomials are linearly independent); choose a deterministic start with nonzero value. Its expectation scales by λ^k while its absolute value in expectation is bounded by a constant times E(e²+t²+d²). This proves failure at λ=1 and a uniform exponential lower bound for the chosen start at λ>1. Implicit differentiation and exact substitutions verify the threshold ordering and three constants, including the fixed-marginal endpoints. Replay: independent_check.py and independent_check.txt under /workspace/branches/8e414a4a-bf90-404e-9757-14a39b7bc5bd/; the frozen verify.py was inspected, not executed. Recorded 709 checks are ancillary and no Lean or expert certification is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Qi–Han pp. 11–13 defines the matching arbitrary-sampling method and gives sufficient convergence conditions. Qian et al. treats arbitrary proper subset sampling with sufficient stepsize/complexity results.",
+          "Same-day 9551f778b77b explicitly obtains exact exchangeable-batch-law thresholds, but for the memoryless n-dimensional coordinate iteration (I−ηDH)x on an equicorrelation quadratic."
+        ],
+        "reasoning": "General sufficient rates do not classify the exact spectral crossing; the coordinate iteration has a different state space and does not implement the cached pre-update tracker. Fixed expected batch size alone does not identify these dynamical laws.",
+        "searches": [
+          "Xie–Qi–Han arXiv:2610.39537, §3.3 and Thm. 3.2",
+          "Qian–Qu–Richtárik arXiv:1901.08669, §3.1",
+          "Resultary: residual-tracking Kaczmarz all-or-none sampling correlation fixed expected batch size sharp stepsize"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39537",
+        "arXiv:1901.08669",
+        "Resultary 8163c39ed9e1, aa3a11255837, 9551f778b77b, and self hit 8f68962ed292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact near predecessors only vary m or singleton probabilities; the general matching estimator paper establishes sufficiency. The same-day exchangeable criterion concerns coordinate masks without tracker state."
+        ],
+        "reasoning": "None of those implications determines where the tracker covariance ceases to decay at every u. The reduced determinant and nonnegative drift certificate (including u=1/2) are needed to conclude the sharp frontier. No date priority is inferred from same-day indexing.",
+        "searches": [
+          "Xie–Qi–Han §3.3, Thm. 3.2; Resultary 8163c39ed9e1, aa3a11255837, 9551f778b77b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unequal-probability singleton frontier 8163c39ed9e1 has an exact cubic for a law with only the two singleton draws. The uniform-singleton m-row note aa3a11255837 gives 1/√3 for m=2. Both expressly cover the u=0 endpoint.",
+          "SAGA-style cached residuals and covariance recurrences are known; Xie–Qi–Han §3.3 supplies the matching subset estimator."
+        ],
+        "reasoning": "Changing the singleton probabilities changes marginal inclusion and uses singleton-only dynamics; it cannot realize empty and full draws. Changing the stepsize normalization also cannot replace these maps by the singleton maps.",
+        "searches": [
+          "Resultary: two-row residual tracking exact mean-square stability stepsize frontier arbitrary sampling subset correlation inclusion probabilities",
+          "Resultary: two-row residual tracking correlated subset sampling empty full batch exact mean-square threshold fixed marginals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact all-u match 8f68962ed292 is the frozen record itself. The earlier records 8163c39ed9e1 and aa3a11255837 match the 1/√3 entry at the singleton endpoint, not the remaining entries or continuous family."
+        ],
+        "reasoning": "The already tabulated endpoint is credited; no independent exact all-u entry was established.",
+        "searches": [
+          "Resultary: fixed-marginal two-row residual-tracking empty/full sharp threshold"
+        ]
+      },
+      "rationale": "The distinct claim is the exact all-u stability frontier at common marginals and common expected row count, including a witnessed loss of stability, not invention of the arbitrary-sampling tracker, covariance method or the uniform-singleton ceiling.",
+      "residual_risks": [
+        "An earlier specialized exact second-moment classification under a SAGA or JacSketch reformulation may be unindexed. The inspected primary theorems do not resolve historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method covered; exact correlation ceiling not supplied by the sufficient theorem",
+          "evidence": [
+            "Subset importance weights and residual memory; sufficient convergence stepsize."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39537",
+          "material_read": "§3.3 and Thm. 3.2, PDF pp. 11–13, offsets 33958, 36307 and 38418",
+          "method": "Primary PDF passages",
+          "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+          "trigger": "Matching arbitrary-sampling method"
+        },
+        {
+          "assessment": "General sufficient conditions, not exact necessity for this tracker",
+          "evidence": [
+            "Arbitrary proper sampling; smooth strongly convex stepsize and complexity bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.08669",
+          "material_read": "§3.1, offsets 31581 and 36814",
+          "method": "Primary PDF passages",
+          "title": "SAGA with Arbitrary Sampling",
+          "trigger": "General arbitrary-sampling finite-sum convergence"
+        },
+        {
+          "assessment": "Covers u=0 only in the assigned family",
+          "evidence": [
+            "Unequal-probability singleton-only law, cubic in p(1−p)."
+          ],
+          "identifier_or_url": "2026/11/8 Resultary 8163c39ed9e1",
+          "material_read": "Finding and sampling specification",
+          "method": "Local Resultary mirror",
+          "title": "Sharp sampling-imbalance frontier for two-row residual-tracking Kaczmarz",
+          "trigger": "Exact two-row residual-tracking threshold"
+        },
+        {
+          "assessment": "Covers u=0 at m=2",
+          "evidence": [
+            "Uniform singleton law on m identical rows."
+          ],
+          "identifier_or_url": "2026/11/8 Resultary aa3a11255837",
+          "material_read": "Finding and sampling specification",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mean-square stability frontier for rank-one residual-tracking Kaczmarz",
+          "trigger": "Exact identical-row result"
+        },
+        {
+          "assessment": "Exactness and batch-law comparison shared; different recursion and frontier",
+          "evidence": [
+            "Synchronous coordinate descent x⁺=(I−ηDH)x on an equicorrelation quadratic."
+          ],
+          "identifier_or_url": "2026/11/22 Resultary 9551f778b77b",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mean-square stepsizes and optimal exchangeable minibatch laws",
+          "trigger": "Material same-day exact fixed-work exchangeable-mask result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Holding both per-row marginals and expected batch size fixed isolates the effect of co-inclusion in a minimal cached estimator. The exact decreasing ceiling and existence of unstable starts quantify a failure of marginal information to determine stability; this is useful as a benchmark for arbitrary-sampling stepsize bounds, not as a rate or runtime optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

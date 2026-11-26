@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:24:06.424436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–61",
+        "VERIFICATION.md, verify_exhaustive.py, verify_orbits.py and their two frozen output files (inspected, not executed)",
+        "/workspace/branches/small_exact_checks.py (independent bounded reproduction)"
+      ],
+      "rationale": "All leaves at v copy the same current bit of v, so the image of every state has uniform leaf blocks. On the block-uniform set, the strict inequality m_v>d_H(v) makes the majority at v equal to its leaf-block bit regardless of core neighbors; leaves simultaneously copy the old core bit. Thus the map swaps the two words on this set, maps it bijectively onto itself, and has F³=F on the entire state space. All and only the block-uniform states recur; m_v≥1 ensures their 2^(2k) encodings are distinct, including for isolated vertices. The diagonal has 2^k fixed states and all off-diagonal states pair into two-cycles. The entry-time populations follow because no nonuniform state lies in the image; at minimum mantle size M=k+2|E| by the degree sum. For a fixed initial core word a, the neighbor contribution at v consists of s_v(a) plus the number j of its leaf ones, and equality of the two vote totals retains a_v. Each j has binomial multiplicity, and the leaf choices are independent across v in this count, so W(a,b) counts exactly F⁻¹(z(b,a)). Swapped phase fibres are disjoint, and assigning the target blocks uniformly shows every fibre is nonempty. The path on four vertices in the threshold example fails F³=F as claimed. An independently written direct six-vertex majority enumeration reproduces the double-star fixed basin sizes 1,1,9,9 and two-cycle basin sizes 2,6,6,6,6,18 (python3 /workspace/branches/small_exact_checks.py).",
+      "residual_risks": [
+        "Sharpness means strict surplus guarantees domination, with a boundary failure example; it is not a claim of failure at every smaller mantle. The finite reproductions do not replace the arbitrary-core argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected threshold-dynamics discussion gives eventual period at most two, not a time-one cutoff. The degree-two corona has F⁴=F², and the clique corona uses one private leaf per core, with a parity split."
+        ],
+        "reasoning": "A broader topology range for an eventual period bound does not dominate a time-one theorem with basin formulas; F⁴=F² does not imply F³=F. Single-leaf clique mantles do not meet the strict threshold for clique order at least two.",
+        "searches": [
+          "DOI 10.1016/0012-365X(80)90121-1",
+          "arXiv:1405.2486v1",
+          "Local Resultary records 830f30f39271 and 40e5470e6eb4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.04714",
+        "arXiv:1405.2486v1",
+        "DOI 10.1016/0012-365X(80)90121-1 (full text inaccessible)",
+        "Local Resultary 830f30f39271, 40e5470e6eb4, 7d65ef6efacf and the identical 7dd01f49bd84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree theorem's 0-stationary passivity covers the earlier local mechanism; the published crown-like examples use one leaf per site or a mantle at one hub. Neither gives products of binomial fibres conditional on the whole old core word."
+        ],
+        "reasoning": "The local rule is not credited as new, and the tree restriction is genuine. Extending the implication to all cores requires the lead-in image argument, and exact individual basins require a separate product count with the old-core-dependent tie condition.",
+        "searches": [
+          "arXiv:2507.04714 §3.1",
+          "Local Resultary records 830f30f39271, 40e5470e6eb4 and 7d65ef6efacf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact target returned by the local search is the assigned record, not another source. The finite-tree paper states passive vertices are 0-stationary, overlapping the local two-step behavior. The closest local corona and pineapple findings treat other mantle placements or a later stabilization cutoff."
+        ],
+        "reasoning": "Equivalence here would require both the uniform-block recurrent set with its one-update image and the complete labelled preimage counts, not merely eventual period dividing two. Passive-vertex stability supplies part of the mechanism but not that combined claim.",
+        "searches": [
+          "Local Resultary: leaf-supported majority, block-swap recurrence, corona and exact basins",
+          "arXiv:2507.04714 §3.1",
+          "arXiv:1405.2486v1 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact counts are orbit and first-entry populations for clique coronas and for a clique with all pendant leaves at one hub, including a leaf-dominant regime on that hub."
+        ],
+        "reasoning": "These exact counts are credited for their graph families; they do not tabulate or yield the individual fibres for arbitrary simple core and surplus at every vertex. A finite orbit table would not establish the uniform factorization.",
+        "searches": [
+          "Local Resultary exact majority basins, coronas and pineapples; records 7d65ef6efacf, 830f30f39271 and 40e5470e6eb4"
+        ]
+      },
+      "rationale": "The eventual period bound and the passive-vertex mechanism on odd-degree trees are prior. The supported distinct finding is the complete one-step recurrent-set and individual-basin classification for arbitrary cores with strict private-leaf surplus at every vertex. Closely related published corona and pineapple results do not state or imply that full claim under inspected assumptions.",
+      "residual_risks": [
+        "Goles–Olivos full text was not retrieved. A bounded catalogue and literature comparison cannot exclude an unindexed equivalent in symmetric threshold dynamics; pass is limited to the full distinct claim relative to examined evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the passive-vertex mechanism in finite odd-degree trees; not the arbitrary-core orbit/basin theorem.",
+          "evidence": "Section 3.1 defines passive vertices and proves they are 0-stationary, a coordinate-level two-step stability statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.04714",
+          "material_read": "PDF p. 1 (offset 0) and §3.1 p. 5 (15567–19517)",
+          "method": "Lawful OA primary PDF, bounded text inspection",
+          "title": "Majority Dynamics on Finite Trees",
+          "trigger": "Closest primary result on the pendant-majority mechanism"
+        },
+        {
+          "assessment": "Covers eventual period-two behavior, not this exact cutoff and census.",
+          "evidence": "Theorem 1 gives almost-sure eventual period at most two under the invariant law assumption on unimodular transitive graphs; p. 4 credits the finite-graph result to Goles and Olivos.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486v1",
+          "material_read": "PDF pp. 3–4, Theorem 1 and finite-graph attribution, offsets 7680 and 8920",
+          "method": "Lawful OA primary PDF, bounded text inspection",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General majority periodicity"
+        },
+        {
+          "assessment": "Credit eventual period at most two; whole-paper exclusion is not justified.",
+          "evidence": "The accessible literature attributes the eventual finite symmetric-threshold periodicity bound to this work.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Landing material only; exact full text unresolved; also inspected the finite-graph attribution in arXiv:1405.2486v1 p. 4",
+          "method": "Direct and alternate lawful routes attempted; no primary full text obtained",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Historical finite symmetric threshold periodicity"
+        },
+        {
+          "assessment": "Comparable cutoff problem, technically different regime and bound.",
+          "evidence": "F⁴=F² for one leaf per vertex of a degree-at-most-two core; not the strict-surplus assumption here.",
+          "identifier_or_url": "2026/11/2/SCOPE-uniform-two-step-periodicity-for-majority-dynamics-on-degree-two--830f30f39271",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Uniform two-step periodicity for majority dynamics on degree-two leaf coronas",
+          "trigger": "Closest fixed-time synchronous corona bound"
+        },
+        {
+          "assessment": "Exact recurrence and entry counts for a different threshold regime.",
+          "evidence": "Clique cores with one leaf per vertex have parity-dependent formulas and a three-step bound.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-parity-split-recurrence-and-three-step-stabilization-on-cl--40e5470e6eb4",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact parity-split recurrence and three-step stabilization on clique coronas",
+          "trigger": "Exact recurrent classification on related leaf corona graphs"
+        },
+        {
+          "assessment": "Overlaps in counting and strict leaf dominance, not the full-core product.",
+          "evidence": "The graph has all pendant leaves at a single clique vertex; exact orbit and entry counts include the leaf-dominant regime.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-pendant-degree-thresholds-and-exact-majority-basins-on-pinea--7d65ef6efacf",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two pendant degree thresholds and exact majority basins on pineapple graphs",
+          "trigger": "Closest exact count in a leaf-dominant regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, boundary example and double-star example",
+        "arXiv:2507.04714 §3.1 and related Resultary corona/pineapple statements"
+      ],
+      "rationale": "This is a natural structured family of finite majority networks where a general period bound leaves both the exact entry populations and all attractor weights open. It separates recurrence, independent of topology at fixed core order, from basin sizes that depend on topology even at fixed mantle. For example, with two core vertices and m_v=2, the fixed attractor with core word 01 has basin size 1 with a core edge, and 9 with no core edge (now each degree-two neighborhood tie retains its core bit). The factorization gives reusable access to every labelled basin without enumerating the entire state space to answer a single query. The meaningful contribution is the combined classification, not the observation that leaves copy their neighbor.",
+      "residual_risks": [
+        "Listing every basin still has an exponential output size. No usefulness claim is made for asynchronous or insufficient-mantle dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

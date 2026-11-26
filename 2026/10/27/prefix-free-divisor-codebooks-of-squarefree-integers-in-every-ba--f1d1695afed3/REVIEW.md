@@ -1,18 +1,21 @@
-# Scientific review: prefix-free divisor codebooks
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed integer base \(b\ge2\) and prime-support size \(r\ge1\), choose an odd prime \(\ell\) not dividing the gcd of the exponents in the prime decomposition of \(b\). Every nonempty subset sum of \(\ell^{-1},\ldots,\ell^{-r}\) is distinct and lies strictly between zero and one. Its associated mantissa \(b^{t_S}\) is irrational, because a prime exponent of \(b\) not divisible by \(\ell\) would otherwise give a nonintegral rational valuation. Thus the finite set of subset products belongs to separate interior digit cylinders of some common depth. A fixed neighborhood of the individual mantissas preserves that separation. Primes in scaled copies of those neighborhoods then give squarefree integers for which no two nonunit-divisor words share the same leading digit block. The prime number theorem supplies \(\gg_{b,r} (b^L/L)^r\) such integers per scale, and choosing \(L\) from \(X\) proves the asserted counting bound. Boundaries \(r=1\), perfect-power bases, and arbitrary large real \(X\) are accounted for. The included executable checks explicit families, not the general theorem.
+## correctness
 
-## Originality — PASS under the inspected evidence
-OEIS A090335 and A088862 explicitly ask for existence for each prime-factor count; A090332 defines the underlying property. Their inspected records do not state a general existence proof or the quantitative all-base result. Ahlswede, Khachatrian and Sárközy (2000) consider a mathematically different notion of an integer prefix involving lists of prime factors rather than leading base-\(b\) digits of divisors. Generic existence of prefix codes with selected word lengths is not sufficient to force the actual divisor strings to be prefix-free. Targeted searches for the two sequence IDs, their aliases, strong quantitative all-base equivalents, and relevant research records found no statement implying the present theorem. Priority remains provisional because unindexed or inaccessible stronger results could exist.
+PASS
 
-## Value — PASS
-The two 2003 conjectures ask whether the admissible sets are nonempty at each prescribed prime-factor count. The result supplies infinitely many squarefree examples in each layer, a nontrivial quantitative lower bound of \(X/(\log X)^r\), and the additional entire family of integer bases. The proof identifies a structural explanation—separation of finitely many subset-product mantissas into disjoint digit cylinders—that applies uniformly to arbitrary fixed support size. This is a natural resolution of explicitly posed arithmetic questions, not an isolated numerical witness or routine code-word renaming.
+Finite zero/one base-ℓ subset sums are distinct and strictly between zero and one. A nonempty sum with last nonzero digit at j has reduced denominator ℓ^j; choosing ℓ not to divide the gcd of the exponents of b makes its b-power irrational by an integer-valuation contradiction. The finitely many mantissas therefore lie in interiors of distinct sufficiently fine base-b cylinders. A common positive radius preserves every subset product within its cylinder, including singletons, and can make the prime intervals disjoint. Scaling by b^{L|S|} gives the same leading K digits for the divisor as for its assigned mantissa, and every divisor has at least K digits; different first K digits rule out a prefix relation. The prime number theorem in fixed proportional intervals supplies ≫ b^L/L primes per interval, and unique factorization gives distinct squarefree products bounded by Cb^{rL}. Taking L=floor(log_b(X/C)/r) gives b^{rL}>X/(Cb^r) and L comparable to log X, proving the bound for every sufficiently large real X at each fixed b,r. This works for perfect power bases and r=1. The OEIS existence conclusions use ω=Ω=r, not an identification of minima. The original verifier was inspected, not executed; python3 reproductions/frozen_math_checks.py independently confirmed primality and 127 distinct binary 13-bit prefixes for the seven-prime witness by integer division and shifts. This is only a finite witness.
 
-## Closest literature and remaining limitations
-- OEIS A090335 and A088862 (November 26, 2003): finite-value tables and the unresolved existence questions. https://oeis.org/A090335 and https://oeis.org/A088862.
-- OEIS A090332 (November 26, 2003): ambient binary-divisor prefix condition. https://oeis.org/A090332.
-- Ahlswede, Khachatrian and Sárközy (2000), *On prefix-free and suffix-free sequences of integers*: a different, ordered prime-list notion of prefix, not the present digit-string relation. https://www.math.uni-bielefeld.de/ahlswede/homepage/public/151.pdf.
-- The constants are not optimized. The least admissible integer and a full asymptotic for all qualifying integers are open in this argument. The proof uses the standard prime number theorem. Unseen stronger priority coverage cannot be excluded. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected binary entries pose all-index existence; the proof supplies a construction in every integer base and a uniform-in-X lower bound for each fixed pair (b,r). Neither the finite OEIS tables nor literature using other prefix relations implies this construction or rate. This is a bounded assessment, not proof of historical priority.
+
+## value
+
+PASS
+
+It settles two explicit binary existence conjectures, and its stable digit-cylinder argument explains how to enforce all divisor constraints at once in any base. The stated exponent is not sharp by this method: for r>1 one can fix r−1 primes in their stable mantissa windows at an initial scale and vary the last prime at a growing scale, as the first K digits of each divisor still depend only on the product of mantissas. That observation does not diminish the constructive solution of the all-index existence question or the valid lower bound actually asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

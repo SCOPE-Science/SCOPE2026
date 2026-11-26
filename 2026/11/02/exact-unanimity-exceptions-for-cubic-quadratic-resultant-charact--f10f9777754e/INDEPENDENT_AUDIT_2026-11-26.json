@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:38.669094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The resultant is the norm of c-vα for α²=-v, namely c²+v³; a zero would make -v a square. For e=χ(-1), expand the nonzero-v mask (1-eχ(v))/2 and invert v in the weighted sum to get 2D=H-e(K-1)-1. If cubing permutes the field, H=K=0 and only q=3 can give |D|=(q-1)/2. Otherwise the cube-root multiplicity 1+ψ+ψ̄, with the order-three character zero at zero, gives H=wJ+w̄J̄ and K=w̄J+wJ̄ for w=ψ(c²). The Gauss/Jacobi quotient gives |J|=√q. For q≡1 (mod 12) cubes give D=0 and noncubes require q≤7+4√3, leaving 13. For q≡7 (mod 12) the cube bound is 2√q+1 and the noncube bound is √q+1, leaving 7 and 19 for cubes and 7 for noncubes. These ranges exhaust odd prime powers, including characteristic three. Direct prime-field arithmetic at c=1,2,4 gives (3,-3,-3), (0,6,-6), (-9,3,3) for q=7,13,19; these are representatives of the three cube classes in each case. All signs are nonzero, so a nonunanimous signature must contain both signs. Independent bounded replay: /workspace/branches/replay_3.js, using the square-residue set and all c for 3,5,7,11,13,17,19,23,31. Extension fields are covered by the proof, not by this replay. The frozen verification files are diagnostic and were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berndt–Evans §2, Theorems 2.2, 2.6–2.8, supplies Jacobi-sum identities and general Jacobsthal machinery; §6 opening distinguishes quadratic-extension evaluations and refers to Storer for other evaluations.",
+          "Gómez-Pérez et al. Theorem 4.3 is a reducible-iterate obstruction over F_3, even where its cubic family includes X³+c."
+        ],
+        "reasoning": "General sum evaluation can give a bias for a specified input field and parameter. The material read does not classify saturation over all fields; the exact uniform cutoff and exceptional classes still require cancellation, bounds and the small-field decisions. The dynamical theorem does not control signs on the trace-zero quadratic family.",
+        "searches": [
+          "https://mathweb.ucsd.edu/~revans/Brewer.pdf",
+          "https://arxiv.org/abs/1206.4979v1"
+        ]
+      },
+      "checked_sources": [
+        "Berndt–Evans (1979), doi:10.1215/ijm/1256048104, author copy",
+        "Gómez-Pérez–Nicolás–Ostafe–Sadornil, arXiv:1206.4979v1",
+        "Resultary c963070ce3ea, exact Finding; 8d5bcff11c80, indexed neighbor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square-root bound alone is insensitive to the sign-mask and to the cube class. The restricted identity enables extra cancellation for q≡1 (mod 12) and distinguishes cubes from noncubes for q≡7 (mod 12).",
+          "The sign-triple record treats a fixed cyclotomic polynomial and does not supply twists by all c² or the count on cube-class-dependent cosets."
+        ],
+        "reasoning": "Neither a matching ingredient, a matching small field size, nor the characteristic-three subcase implies the exact stated classification by specialization.",
+        "searches": [
+          "Berndt–Evans §2 and §6 opening",
+          "Gómez-Pérez et al. Theorem 4.3",
+          "Resultary c963070ce3ea Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berndt–Evans §2, p. 376, defines the two Jacobsthal sums underlying H and the weighted part of the restriction.",
+          "For 6 | q-1, put u=-v. The arguments u³/c² with χ(u)=-1 form a coset of sixth powers inside the nonsquares, and χ(c²+v³)=χ(1-u³/c²). Thus the condition is vanishing of one sign count on that coset, not the evaluation of a single unrestricted sum."
+        ],
+        "reasoning": "The classical sums express the bias, but the extremal restriction combines them and asks for equality to an exact cardinality, with different conditions in the two residue classes modulo 12. Dynamical irreducibility of iterates quantifies over different test objects.",
+        "searches": [
+          "doi:10.1215/ijm/1256048104",
+          "arXiv:1206.4979v1",
+          "Resultary semantic searches on cubic–quadratic resultant unanimity and equivalent character-sum conditions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c963070ce3ea RESULT.md Finding counts triples χ(x),χ(x+1),χ(x²+x+1), with an all-eight-pattern cutoff and no cubic coefficient parameter.",
+          "Resultary neighbor 8d5bcff11c80 concerns simultaneous irreducibility of characteristic-three cubic translates, rather than unanimity of pairwise resultants."
+        ],
+        "reasoning": "Two ranked searches found related arithmetic families but no exact all-field table for the test family here. The neighboring cutoff based on sign triples is a different invariant, even though some small field sizes are shared.",
+        "searches": [
+          "Resultary: cubic quadratic resultant signature, pure cubics, irreducible trace-zero quadratics",
+          "Resultary: unanimous finite-field character signs, cyclotomic exceptions, q=19"
+        ]
+      },
+      "rationale": "The old Jacobi/Jacobsthal machinery covers the constituent sums; the supported distinct result is the exact extremal exception classification over all odd prime powers for this restricted resultant family. No inspected theorem or exact indexed row already supplies or directly specializes to that classification.",
+      "residual_risks": [
+        "Older cyclotomic-number tables or extremal results for sixth-power cosets, including references named in the Berndt–Evans chapter, were not exhaustively reviewed and could contain an equivalent vanishing criterion.",
+        "Search results do not certify priority or uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in complete-sum machinery; no classification of the restricted resultant exceptions in the inspected passages.",
+          "evidence": [
+            "§2 defines Jacobsthal sums and relates them to Jacobi sums over finite fields.",
+            "§6 is headed Jacobsthal sums over GF(p²) and gives parameter-dependent evaluations."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~revans/Brewer.pdf",
+          "material_read": "Published pp. 375–377, especially §2 Theorems 2.2 and 2.6–2.8 and the intervening definitions (extraction offset 4800); pp. 419–420 §6 opening (offset 88450).",
+          "method": "Read bounded passages in the author's lawful copy, located via the author bibliography after the DOI route did not return the paper.",
+          "title": "Sums of Gauss, Eisenstein, Jacobi, Jacobsthal, and Brewer",
+          "trigger": "General Jacobsthal sums could encode the same restricted bias and its extremal cases."
+        },
+        {
+          "assessment": "Theorem concerns irreducibility of polynomial iterates, not characters against the entire trace-zero quadratic test family.",
+          "evidence": [
+            "Theorem 4.3 requires one of the first three iterates of the specified cubic over F_3 to be reducible."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.4979v1",
+          "material_read": "Abstract and introduction, PDF p. 1; Theorem 4.3, PDF p. 8, extraction offsets about 20334–22519.",
+          "method": "Read the original OA preprint passages.",
+          "title": "Stable Polynomials over Finite Fields",
+          "trigger": "Resultant character methods and low-degree cubics."
+        },
+        {
+          "assessment": "Different sign tuple, threshold and quantifiers; no coverage of the twisted resultant family.",
+          "evidence": [
+            "Characteristic-at-least-five universality concerns all eight triples for x, x+1, x²+x+1, independent of any c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-one-elliptic-trace-controls-cyclotomic-quadratic-sign-triples-an--c963070ce3ea/RESULT.md",
+          "material_read": "Finding and Assumptions, extraction offset 109 onward.",
+          "method": "Read the exact indexed statement through the local mirror.",
+          "title": "One elliptic trace controls cyclotomic quadratic-sign triples and their sharp prime-power threshold",
+          "trigger": "Indexed classification of missing quadratic sign patterns across prime powers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Trace-zero irreducibles are a canonical test family in odd characteristic, and square-class unanimity is exactly failure of that entire family to distinguish the two nonzero classes. A sharp cutoff and complete exceptional cube classes settle that failure uniformly, including a last exception at 19 not apparent from the individual classical sum identities. The value is the extremal classification, not the one-test case at q=3 or a bounded residue table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:18.532073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed total of n coins cancels the constant shift from b^i to b^i−1. For n≥3 the lower n−2 denominations must represent W=L+sP, with P=b^(n−2), L=1+⋯+b^(n−3) and s≥0. Normalize by carrying below the largest available lower denomination. The terminal coefficients are one at each lower position other than the largest, whose coefficient is 1+bs. Thus the minimum coin count is n−2+bs, which exceeds n for s≥1. When s=0 the canonical representation leaves two upper coins; their scaled target differences are 0 and ±(b−1). To spend the two extra coins below requires b=3 and exactly one reverse carry, because each reverse carry costs b−1 coins. It can split any of the n−3 eligible lower coins, leaves both upper positions empty, and has scaled difference −4. These classes are disjoint and count indexed vectors even if residues coincide. At n=2 the same three upper allocations are the whole problem, including M=1. A separate exact corroboration used the series product of (1−z x^(b^i))^−1 truncated to z-degree n: start H[0,0]=1, and for each denomination v iterate k upward from 1 through n and increment H[k,s+v] by H[k−1,s]. Filter the degree-n coefficients by the target congruence. All 2,625 cases with b in {3,4,5,7,12}, 2≤n≤8 and 1≤q≤75 agreed. This check is finite; the carry argument proves the full claim. The frozen checker source and recorded 1,911-case output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full companion text supplies a general DFT exactness characterization; the all-ones-matrix test sums multinomial weights, not one per indexed multiplicity vector.",
+          "The catalogue record's length-2n twice-each ternary target and least valid modulus are not the length-n all-ones target or its count across the family of moduli."
+        ],
+        "reasoning": "The broader transform criterion specifies when isolation is needed, and the closely related ternary work shares the carrying setting, but neither theorem resolves this fiber count.",
+        "searches": [
+          "arXiv:2607.09949v2 §§1, Proposition 4–5",
+          "Resultary record 2026/11/8/SCOPE-the-exact-least-modulus-for-a-twice-each-ternary-multiset-sum--8a7a2a8322d6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.08366v2",
+        "arXiv:2607.09949v2",
+        "Resultary 2026/11/8/SCOPE-the-exact-least-modulus-for-a-twice-each-ternary-multiset-sum--8a7a2a8322d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary result has carry cost one and optimizes over moduli. The frozen theorem uses carry cost b−1 and a two-coin slack; a split fits exactly at b=3 and contributes an unweighted count proportional to n−3.",
+          "The companion validity test does not evaluate residue fibers, and the twice-each ternary theorem imposes twice as many coins and a different target."
+        ],
+        "reasoning": "The budget rigidity and its one-split classification supply the missing specialization, not a direct parameter substitution or readout of the prior claims.",
+        "searches": [
+          "arXiv:2607.08366v2 §§3–4 balanced-power and digit-sum results",
+          "arXiv:2607.09949v2 Propositions 4–5",
+          "Resultary twice-each ternary record, Finding and prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same criterion is single-target modular multiset uniqueness or isolation of the all-ones multiplicity vector in cyclic coefficient extraction. The new quantity is the unweighted size of that fiber, not the transform coefficient with multinomial weights.",
+          "The least-modulus paper studies the binary geometric exponent set, not b≥3."
+        ],
+        "reasoning": "Even perfect equivalence at the level of the Boolean validity predicate does not identify the sizes of non-singleton fibers. No equivalent exact count was identified in the retrieved matches.",
+        "searches": [
+          "Resultary: geometric multiset targets, cyclic coefficient isolation, digit-sum and carry formulations of q b^(n−2) collision counts",
+          "arXiv:2607.08366v2 §§1–4",
+          "arXiv:2607.09949v2 §1 and Propositions 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest closely related catalogue hit provides a ternary least modulus for a different target. The binary source's least modulus is 2^n−2^floor(log2 n), not a tabulation of unweighted collisions by b,n,q."
+        ],
+        "reasoning": "Neither changing the target nor tabulating one extremal modulus determines the exact count. No matching table was identified in this bounded comparison.",
+        "searches": [
+          "Resultary: exact nonbinary geometric target-collision count, ternary split and two-top-digit modulus",
+          "arXiv:2607.08366v2 main theorem and binary numerical comparison"
+        ]
+      },
+      "rationale": "The modular uniqueness framework and positional carrying are prior. Within the checked material the complete unweighted nonbinary fiber count, including its ternary one-split term, is a distinct claim. Neither the binary optimization theorem, the twice-each ternary theorem, nor the general cyclic exactness criterion evaluates this fiber.",
+      "residual_risks": [
+        "The catalogue search was ranked and bounded; an unindexed equivalent carry computation or alternate coefficient-filter formulation may exist. The decisive companion propositions were accessible; no claim of document-wide exclusion or absolute historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and binary theorem; not the nonbinary count",
+          "evidence": "The optimized binary least modulus is 2^n−2^floor(log2 n); the digit-sum step is binary.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.08366v2",
+          "material_read": "Full-text passages at PDF pp. 1–4, including condition, main theorem, reduction and digit-sum lemma (text offsets 619, 6957, 12491)",
+          "method": "Open primary preprint passage inspection and comparison of target, base and invariant",
+          "title": "Minimum modulus for the unique multiset-sum problem",
+          "trigger": "Identical uniqueness framework and geometric exponents"
+        },
+        {
+          "assessment": "Related exactness criterion; no covering fiber computation in the inspected results",
+          "evidence": "Proposition 5 uses multinomial weights; exactness is equivalent to uniqueness, not a formula for general fiber size.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.09949v2",
+          "material_read": "§1 and Propositions 4–5, PDF pp. 1–2 and 8 (text offsets 1504 and 29761)",
+          "method": "Open primary preprint passage inspection and weight comparison",
+          "title": "Ryser, Glynn, and the discrete Fourier transform: orthogonal schemes for the permanent",
+          "trigger": "Potentially dominating cyclic coefficient filter"
+        },
+        {
+          "assessment": "Material method overlap, different target and conclusion",
+          "evidence": "The record optimizes a modulus for the twice-each length-2n target, not the all-ones length-n fiber or its multiplicities.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-least-modulus-for-a-twice-each-ternary-multiset-sum--8a7a2a8322d6",
+          "material_read": "RESULT.md Finding and prior-work discussion (text offsets 0 and 5700)",
+          "method": "Local published-record mirror and statement-level comparison",
+          "title": "The exact least modulus for a twice-each ternary multiset sum",
+          "trigger": "Same ternary powers and carry method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-ones isolation is the natural invariant in the cyclic extraction problem. The modulus family preserves all lower digits and leaves exactly two upper allocations to analyze, so the two-coin budget and exceptional ternary splitting are structural rather than an arbitrary parameter sample. The result computes every fiber in that family, not just Boolean validity, and makes no claim about unrestricted least moduli or transform speed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

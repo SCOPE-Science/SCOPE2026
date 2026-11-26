@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:06.984605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each finite L the purified beam-splitter output gives a symmetric photon-count pair (k,l), with weight p_(k+l)^(L) binom(k+l,k) 2^(−k−l) when k+l≤L. The pure-state Schmidt identity replaces log ω_RB acting on the purification by log ω_E. The relative entropy is zero, and the variance is the expected square of log s_k^(L)−log s_l^(L). Binomial thinning gives limiting marginals (1−r)r^j with r=q/(2−q). Fatou applies to the nonnegative finite-state summands extended by zero; also s_j^(L)≥(1−q)(q/2)^j for j≤L and p_m^(L)≤q^m, so a geometrically summable quadratic bound in m proves actual convergence. The conditional variance of k−l given m=k+l is m, hence the limit is q/(1−q) (log r)^2. Reparametrizing by x=−log r gives 2x²/(exp(x)−1), tending to zero at both ends with derivative sign that of (2−x)exp(x)−2. The latter rises on (0,1) and falls after 1, giving the unique maximizing root in (1,2). Tensor-product variance adds, and support is at most nL. My separate Decimal computation (/workspace/independent_checks.py, thermal) gave C*=1.29522047578382971929… and V_20=1.29522047574529945072…. No optimizing infinite-support state is needed as a witness and no global optimality is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equations (36)–(45) give zero relative entropy, the variance identity, and V≤4n on precisely the finite-support domain. The discussion (PDF p. 21) leaves improvement of the constant open."
+        ],
+        "reasoning": "The broad upper result does not give a lower obstruction; using the identity needs an input family and a calculation of its attained variance.",
+        "searches": [
+          "arXiv:2609.16608v1, Lemma 2 and discussion of the constant in the uniform variance estimate"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.16608v1",
+        "arXiv:1408.5328v1",
+        "Resultary returned results for the balanced coefficient and thermal-purification witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The latter computes the entropy variance of one marginal, not the joint observable log σ_B−log σ_E. The former gives a general norm identity and no lower witness approaching the number claimed."
+        ],
+        "reasoning": "Even an infinite-support thermal calculation alone is outside the quantified domain. The cutoff variance, the limiting lower estimate on actual admissible witnesses, and scalar optimization are needed for the stated obstruction. No matching stronger implication was found in the inspected material.",
+        "searches": [
+          "arXiv:2609.16608v1, Lemma 2 cutoff assumptions and receiver/environment identity",
+          "arXiv:1408.5328v1, equations (6.5)–(6.9) and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary hit is the assigned record.",
+          "The same-state balanced conditional variance is 2N_B [log(1+1/N_B)]² in the thermal limit, whereas the marginal thermal formula has N_B(N_B+1) in place of 2N_B."
+        ],
+        "reasoning": "These are not equivalent dispersion quantities. The two-output photon-count correlation matters in the conditional variance and is absent from the marginal formula.",
+        "searches": [
+          "Resultary: balanced pure-loss variance lower barrier with geometric/thermal purification and finite support",
+          "arXiv:1408.5328v1, thermal entropy variance after pure loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit 2026/10/4/SCOPE-thermal-purifications-force-a-1-295220-lower-barrier-for-balance--b33f42fbf2f1 is this finding. No distinct material match was identified among the returned hits."
+        ],
+        "reasoning": "The hit cannot count as an independent prior exact bound; catalogue results are bounded, not a proof of priority.",
+        "searches": [
+          "Resultary: balanced-loss relative-entropy variance, geometric truncations and coefficient 1.295220"
+        ]
+      },
+      "rationale": "The searched alternatives distinguish a Gaussian conditional variance from a thermal marginal entropy variance. Wilde's balanced-loss lemma supplies the starting identity and upper bound, not the optimized finite-support lower obstruction. The indexed exact hit is this same finding, not independent coverage.",
+      "residual_risks": [
+        "The checks do not exclude an unindexed treatment of the conditional variance or an independently obtained finite-support lower bound.",
+        "The exact best coefficient is not determined; this is a barrier to improvement below C*, not an equality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identity, hypotheses and upper coefficient, not matching lower obstruction",
+          "evidence": [
+            "Finite-dimensional reference and finite total-photon-number support; D=0 and V≤4n.",
+            "Discussion asks whether the constant in the uniform variance estimate can be improved."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16608v1",
+          "material_read": "PDF p. 10, Lemma 2 and Eqs. (36)–(45), passage around extraction offset 36300; discussion of uniform constant on p. 21",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Strong converse for the quantum capacity of the pure-loss bosonic channel",
+          "trigger": "Exact lemma, channel and coefficient under comparison"
+        },
+        {
+          "assessment": "Thermal marginal formula, not the conditional variance of this joint state",
+          "evidence": [
+            "v(N)=N(N+1)[log(N+1)−log N]²; the receiver marginal for loss uses N→ηN."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.5328v1",
+          "material_read": "PDF p. 10, Eqs. (6.5)–(6.9); p. 15, Appendix A (around offsets 35600 and 53100)",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Second-order coding rates for pure-loss bosonic channels",
+          "trigger": "Plausible thermal-output variance equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient concerns an explicitly identified open sharpening of a uniform fluctuation estimate. The finite-support witness shows that one cannot take the coefficient arbitrarily small, or replace the linear mode dependence by a uniform sublinear estimate. Optimizing this natural thermal family gives a quantitative obstruction without assuming a dimension-dependent continuity bound or claiming the optimal universal constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

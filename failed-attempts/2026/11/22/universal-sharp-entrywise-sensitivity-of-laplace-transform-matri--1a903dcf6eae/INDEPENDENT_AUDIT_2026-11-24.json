@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:07.849600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 25–75. For a positive contraction, the off-diagonal squared row norm is at most q(1-q), where q is its diagonal element, since B^2<=B. Cauchy–Schwarz and scalar maximization give the sharp row sum C_n=(1+sqrt(n))/2; the stated rank-one orthogonal projector attains it. Applying the row and column bounds to the symmetric exponential factors in two-input Duhamel gives the upper bound C_n^2 m_mu on the full closed cone. For the lower bound, A=-(mu+delta)I-M(I-P) has strict slack delta; adding h times the all-ones matrix is admissible for |h|<delta/n and the direction has max-entry norm one. For t>0 and interior integration parameters both exponential factors converge to scaled P as M tends to infinity. The derivative integrands are dominated by C_n^2 t exp(-(mu+delta)t); the t=0 atom contributes zero. The first diagonal entry of PJP is C_n^2. Taking delta down to zero via monotone convergence recovers the sharp two-input supremum. This includes n=1, a constant filter and mu=0 with finite first moment. The three specializations follow from the delta measure and the gamma integral. CHECK.py was inspected, not run; the frozen file records no independent, expert or Lean verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2a72590f2caf covers every nonnegative-coefficient analytic power series with radius>b and gives an exact coefficient on each finite window, not just an upper bound. Crouzeix–Kressner gives spectral-norm estimates; Kandolf et al. gives low-rank approximation and Euclidean-norm error analysis."
+        ],
+        "reasoning": "The finite-window theorem dominates the claimed coefficient for this translated subfamily by exhaustion, detailed below. In contrast, the spectral-norm bound m_mu available for this class via Duhamel only gives n*m_mu by elementary max-entry norm conversion, not the sharp number for n>1.",
+        "searches": [
+          "2a72590f2caf, exact positive-interval theorem",
+          "arXiv:2007.09784, Theorem 3.1",
+          "arXiv:2008.12926, pp. 2–3 and 10–11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 1a903dcf6eae, 2a72590f2caf, 054e541508a5",
+        "arXiv:2007.09784",
+        "arXiv:2008.12926",
+        "DOI 10.1137/16M1077969 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's coefficient a_1+sum_{k>=2} a_k b^(k-1)[2C_n+(k-2)C_n^2] equals C_n^2 f_M'(b)+2C_n(1-C_n)(f_M(b)-a_0)/b+(1-C_n)^2 a_1. Here f_M'(b)=m_sigma, f_M(b) and a_0 are bounded by nu([0,infinity)), and a_1=m_M tends to zero by dominated convergence as M tends to infinity. Therefore the finite-window coefficients tend to C_n^2 m_sigma. As sigma decreases strictly to mu, m_sigma increases to m_mu. For boundary pairs, translating both inputs inward by delta I in the negative direction preserves their difference, and their outputs converge by dominated convergence, since nu is finite and the exponentials have norm at most one."
+        ],
+        "reasoning": "The exact global supremum on the closed cone equals the supremum over the interior and all finite windows: every interior pair lies in some window and every boundary pair is a limit of interior pairs with the same nonzero denominator. This recovers the exact upper and lower coefficients, not just an estimate or agreement in overlapping parameters. The comparator's note that a half-line bound does not give sharp finite-interval coefficients describes the other direction and does not prevent this implication.",
+        "searches": [
+          "2a72590f2caf, Finding and radius > b hypothesis, offset 0; Relationship to prior work, offset about 4450 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the finite window -MI<=A<=-sigma I, put X=A+MI and b=M-sigma, where M>sigma>0. Then Phi_g(A)=f_M(X), where f_M(x)=integral exp(-(M-x)t) dnu(t) has Taylor coefficients a_k=integral exp(-Mt)t^k/k! dnu(t)>=0. Its radius is at least M, hence strictly larger than b. Translation leaves input differences unchanged. The constraints and max-entry norms are exactly those of 2a72590f2caf."
+        ],
+        "reasoning": "The functions need not be absolutely monotone in the original coordinates. They meet that hypothesis in the translated positive coordinate on each finite window, and the same norm is used on both sides.",
+        "searches": [
+          "Resultary: exact Laplace-transform max-entry Lipschitz sensitivity; maximum-entry Frechet derivative of the exponential; shifted resolvent; heat and rank-one sharpness",
+          "2a72590f2caf, Finding, Assumptions and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1a903dcf6eae is a self-match and supplies no independent coverage. The distinct 2a72590f2caf gives the exact coefficient for each finite spectral interval in a class containing all of the translated filters. The PSD projection entry 054e541508a5 concerns a different map and gives a boundary-class witness, not the required unrestricted modulus."
+        ],
+        "reasoning": "The exact formula indexed under positive spectral intervals is stronger evidence than a literal table of heat or resolvent values. It gives the exact sharp coefficient at each stage of a nested exhaustion, so the specializations are covered as well.",
+        "searches": [
+          "Resultary exact max-entry heat, resolvent and Laplace filters: 1a903dcf6eae, 2a72590f2caf, 054e541508a5"
+        ]
+      },
+      "rationale": "The exact coefficient is mechanically implied by the distinct indexed Resultary theorem 2a72590f2caf on bounded positive spectral intervals, not just analogous to it. Affine translation, nonnegative Taylor coefficients and exhaustion of the negative cone give the exact claimed constant, including the endpoint with no analyticity across zero. Both records have the same displayed date. The finding is a correct self-contained proof, but a distinct mathematical result relative to that theorem is not established; this assessment does not assign priority, allege copying or identify the unnamed negative-half-line reference in the comparator.",
+      "residual_risks": [
+        "The comparison establishes mathematical coverage, not publication order or authorship. The positive-interval entry mentions an unnamed negative-half-line result; it is not attributed here without evidence.",
+        "The Kandolf–Relton cited paper was not available in a lawful full-text copy from the bounded attempt. Additional historical literature was not exhaustively searched; failure rests on the exact formula and implication above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by translation and exhaustion, regardless of unestablished chronology",
+          "evidence": "Exact coefficient a_1+sum_{k>=2}a_k b^(k-1)(2C_n+(k-2)C_n^2) for max-entry input/output on [0,b], with a nonnegative Taylor series of radius>b. The same row lemma and positive rank-one witness are stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf/RESULT.md",
+          "material_read": "Finding, assumptions, proof of row lemma and derivative method from offset 0; verification, prior work and limitations from offset 4100",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp maximum-entry sensitivity of absolutely monotone matrix functions on positive spectral intervals",
+          "trigger": "Exact max-entry matrix filter sensitivity with same sharp row bound and rank-one witness"
+        },
+        {
+          "assessment": "Different norm; no exact same-norm max-entry coefficient from the inspected theorem",
+          "evidence": "The bivariate theorem gives a generic factor (1+sqrt(2))^2; its derivative application is spectral-norm specific.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.09784",
+          "material_read": "Introduction, pp. 1–2, and Theorem 3.1, p. 5, offset about 11600",
+          "method": "OA primary PDF",
+          "title": "A bivariate extension of the Crouzeix–Palencia result with an application to Fréchet derivatives of matrix functions",
+          "trigger": "Possible stronger general derivative theorem"
+        },
+        {
+          "assessment": "Algorithm and different estimates, not the exact max-entry result",
+          "evidence": "Cauchy-integral and Stieltjes representations used in low-rank Krylov approximation with Euclidean-norm error control.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12926",
+          "material_read": "Integral representations pp. 2–3, around offset 9300; Euclidean error estimates pp. 10–11, around offset 46600",
+          "method": "OA primary PDF after journal route was inaccessible",
+          "title": "Computing low-rank approximations of the Fréchet derivative of a matrix function using Krylov subspace methods",
+          "trigger": "Matrix-function derivatives including Stieltjes functions"
+        },
+        {
+          "assessment": "Detailed comparison unresolved; not used as evidence for failure",
+          "evidence": "DOI route returned 403.",
+          "identifier_or_url": "https://doi.org/10.1137/16M1077969",
+          "material_read": "No readable full text from the attempted DOI recovery",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Kandolf–Relton matrix-function derivative work",
+          "trigger": "Cited derivative application and possible norm bounds"
+        },
+        {
+          "assessment": "Different map and objective",
+          "evidence": "Sharp restricted boundary-class bound for cone projection, not spectral Laplace filters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-rank-one-boundary-diagonal-sensitivity-and-dimension-linea--054e541508a5",
+          "material_read": "Finding and Limitations, local offsets 0 and 7800",
+          "method": "Local mirror",
+          "title": "Sharp rank-one-boundary diagonal sensitivity and dimension-linear PSD projection sensitivity",
+          "trigger": "Rank-one, entrywise sharp sensitivity analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp coefficient is useful; the direct Duhamel proof also gives a clear witness. But as a proposed distinct exact result, the claimed half-line classification and the displayed heat and resolvent constants are all routine consequences of the indexed exact finite-window formula. No further non-implied mathematical claim of sufficient value is established in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

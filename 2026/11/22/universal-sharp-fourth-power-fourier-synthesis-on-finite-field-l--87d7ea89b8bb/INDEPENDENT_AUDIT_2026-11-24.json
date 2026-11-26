@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:15.672705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–57 and :65; VERIFICATION.md; check_line_pencils.py (inspected, not executed). Replay path: direct normalized variational and character-orthogonality calculation above; frozen checker uses direct finite Fourier evaluations with exhaustive subsets only in small orders."
+      ],
+      "rationale": "Fix the unnormalized zero coefficient to 1 after modulation and scaling. The fourth moment is coercive and strictly convex on the real affine space of complex signals because the Fourier map is injective and the function |w|^4 is strictly convex. Scalar multiplication of the field acts on each punctured line transitively, so uniqueness forces a constant there. For u_j=q*b_j and U=sum u_j, character orthogonality gives F=1-U+u_j on the punctured perpendicular line and 1-U elsewhere off zero. This uses the fact that a nonzero pairing with a line attains every field value, also for extension fields. Every such perpendicular branch has q-1 frequencies. The reduced fourth moment is invariant under any permutation of the u_j and conjugation, so uniqueness forces a common real value x. The derivative factors to (k-1)(1-(k-1)x)^3+(q+1-k)(1-k*x)^3=0. The stated solution gives levels s/d and -1/d and weighted moment 1+(q-1)*s^3/d^3. At k=1 the minimum is q on a modulated line indicator; at k=q+1 only the zero frequency remains at the optimum. The candidates actually attain the desired ratio (their other frequency levels have modulus at most 1), and strict convexity and undoing modulation classify all extremizers. The unitary scaling cancels in the ratio. The center/arm ratio follows from normalization and changes sign exactly as stated, including q=7 and q=8 for k=3. For fixed k>=2, d is asymptotic to k*s, giving the stated large-q constant. The blanket nontransitivity assertion in the prior-work discussion has an exception at q=2,k=2: the affine stabilizer of the omitted point permutes the other three. This is not an exception to the mathematical finding, which here correctly gives an indicator extremizer.",
+      "residual_risks": [
+        "The frozen finite optimizer and random-signal counts were not independently replayed; they do not certify the infinite family or equality classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-exponent coordinate-subgroup crosses specialize to equal additive F_q groups and exponent four, but have only two arms. Affine-transitive supports have scalar modulations of the indicator as their exact equality class; q=2,k=2 is one such case."
+        ],
+        "reasoning": "Neither hypothesis covers arbitrary proper higher pencils. General pencils can require a nonconstant, even negative, central weight; the more general support bound does not resolve the sharp value.",
+        "searches": [
+          "Resultary all-exponent cross record 1ea2ed8ea56b",
+          "arXiv:2609.25404 Thm. 4.1",
+          "arXiv:2508.12194v2 Thm. 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror records 65d29718d8f1, 7a6ef40a5e60, 1ea2ed8ea56b and 8a0af04feab6; arXiv:2609.25404 and arXiv:2508.12194v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-arm and transitive cases are exactly implied and credited. For higher pencils the frozen proof forces coefficient permutations by symmetry of the exact reduced moment rather than requiring geometric transitivity."
+        ],
+        "reasoning": "The equality and direction independence for arbitrary k do not result by substituting higher k into a two-subgroup theorem, nor by replacing a nonnegative min-max criterion by a complex fourth moment. The analytic reduction is a distinct step beyond available general indicator estimates.",
+        "searches": [
+          "Local mirror results for the cross and bias-balancing records",
+          "arXiv:2609.25404 Thm. 4.1",
+          "arXiv:2508.12194v2 Thm. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two exact coordinate-cross records give (1+(q-1)^2/(1+2*(q-1)^(1/3))^3)^(-1/4) and the same center/arm ratio. Any two F_q-lines are a coordinate cross after an invertible linear change of basis."
+        ],
+        "reasoning": "A common scalar change of extremizer is irrelevant. Also an inverse Fourier reformulation exchanges signal and spectral support, with at most reflection here; the general indicator-based bound under that reformulation is not an exact optimizer theorem.",
+        "searches": [
+          "Resultary: sharp L-infinity/L-fourth spectral synthesis finite-field pencils and coordinate crosses",
+          "arXiv:2508.12194v2 Thm. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two exact fourth-power cross classifications and one all-exponent cross classification cover k=2. The exact arbitrary-pencil bias-balancing record minimizes the maximum nontrivial Fourier coefficient for a nonnegative probability measure."
+        ],
+        "reasoning": "Bias balancing is on the same geometries but uses a different objective and feasible set, excluding the negative centers that are necessary in some fourth-moment optima. It is not an exact database of the present constants.",
+        "searches": [
+          "Resultary exact formula and line-pencil hit records 65d29718d8f1, 7a6ef40a5e60, 1ea2ed8ea56b, 8a0af04feab6"
+        ]
+      },
+      "rationale": "The two-line formula and equality class are demonstrably covered, including by a distinct all-exponent cross theorem; the record does not claim them independently. The supported distinct claim is the direction-free classification for arbitrary pencils with three or more lines, outside the known affine-transitive and full-plane cases. The same-day records establish overlap, not publication order.",
+      "residual_risks": [
+        "No chronology inferred among distinct same-day matches. A bounded search does not exclude unindexed equivalent higher-pencil optimizations or a broader theorem not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact k=2 coverage",
+          "evidence": "Both sharp constants and center/arm ratios match upon setting s=(q-1)^(1/3); linear equivalence gives all two-line choices.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fourth-power-fourier-synthesis-on-finite-field-coordinate--65d29718d8f1; 2026/11/22/SCOPE-sharp-fourth-power-spectral-synthesis-constant-for-a-finite-fiel--7a6ef40a5e60",
+          "material_read": "Local mirror RESULT.md statements and equality formulas for both",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Sharp fourth-power Fourier synthesis on finite-field coordinate crosses; Sharp fourth-power spectral synthesis constant for a finite-field cross",
+          "trigger": "Exact same-day overlaps for coordinate crosses"
+        },
+        {
+          "assessment": "Broader exponents and groups, limited to two arms",
+          "evidence": "Equal additive groups and exponent four give the exact cross case; no arbitrary set of field directions is allowed.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-exponent-fourier-synthesis-on-unequal-finite-abelian-c--1ea2ed8ea56b",
+          "material_read": "Local mirror RESULT.md, theorem and extremizer",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Sharp all-exponent Fourier synthesis on unequal finite abelian crosses",
+          "trigger": "Stronger synthesis result with exact specialization"
+        },
+        {
+          "assessment": "Different exact optimization",
+          "evidence": "Nonnegative probability measures minimize the maximum nontrivial mode, rather than complex signals minimizing a fourth moment with one mode fixed.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fourier-bias-balancing-on-incomplete-finite-field-line-pen--8a0af04feab6",
+          "material_read": "Local mirror RESULT.md, optimization problem and scope",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Sharp Fourier bias balancing on incomplete finite-field line pencils",
+          "trigger": "Same arbitrary-pencil support and direction independence"
+        },
+        {
+          "assessment": "Exact for affine-transitive supports only",
+          "evidence": "The theorem gives the indicator constant and scalar-modulated indicator extremizers for 1<r<infinity under affine transitivity.",
+          "identifier_or_url": "https://arxiv.org/html/2609.25404",
+          "material_read": "Sec. 4, especially Thm. 4.1; OA offsets 37200 and 38277–40456",
+          "method": "Lawful OA HTML passages",
+          "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+          "trigger": "Exact evaluation norm and equality classification"
+        },
+        {
+          "assessment": "Indicator-based bound, not exact pencil classification",
+          "evidence": "The inequality uses a Fourier-indicator p'-norm for a support-constrained Fourier transform; no all-pencil equality optimizer is given there.",
+          "identifier_or_url": "https://arxiv.org/html/2508.12194v2",
+          "material_read": "Thm. 5, OA offsets 13023–15210",
+          "method": "Lawful OA HTML passages",
+          "title": "On spectral synthesis in Z_N^d",
+          "trigger": "General synthesis estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen formula, equality and center-sign claims; exact coordinate-cross and affine-transitive comparisons"
+      ],
+      "rationale": "A sharp evaluation norm and all its extremizers are natural invariants of this simple family of synthesis supports. Proving that direction choices do not matter even when the supports need not be linearly equivalent, and exactly locating when an extremizer needs a negative central coefficient, adds content beyond solving the coordinate cross or testing indicators.",
+      "residual_risks": [
+        "The result concerns concurrent linear pencils in two dimensions, not general line arrangements or restriction estimates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

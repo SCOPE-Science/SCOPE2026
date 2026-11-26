@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproduction
 
-The attached `verify.py` requires Python 3 and `mpmath` (tested at high arbitrary precision). Run `python verify.py` in a directory containing the file. The script checks the exact analytic formula for the Stieltjes-jet entries through evaluations of shifted generalized Stieltjes constants, strict positivity of the determinant in eight parameter cases, orientations of eight real sample-value determinant matrices, reconstruction of known coefficient vectors by linear solves, and one nontrivial sharp three-zero interpolation for period five. The recorded output is `verification_output.txt`.
+# Independent mathematical audit
 
-The universal assertions do not follow from those tests. They follow from the explicit factorization, Mellin integral, Andréief determinant identity, and elementary generalized-Rolle argument presented in `RESULT.md`. No interval-arithmetic rounding enclosure or independent external audit is claimed. Very large periods or extreme shifts may be ill-conditioned; the code tests invertibility only on the displayed finite cases.
+## correctness
+
+PASS
+
+Zero mean makes the numerator P divisible by 1−z, leaving exactly q−1 free coefficients of R. Since (1−z^q)/(1−z)=D_q, the Mellin kernel for the ith adjacent difference is t^(s−1)exp(−(x+i)t)/D_q(t). Compact subsets with Re s>0 admit integrable logarithmic derivative bounds at zero and exponential bounds at infinity. On the ordered integration simplex, the evaluation or confluent determinant factors into a positive generalized exponential or log Vandermonde and an exponential determinant of sign (−1)^(m(m−1)/2), the latter from decreasing exponents −(x+i). Andréief gives that strict sign because the weights are positive and the product is integrable; multiplying the basis by Γ(s)>0 contributes only the positive factor Γ(s)^m to each Wronskian. Nonvanishing prefix Wronskians imply the multiplicity bound by generalized Rolle: divide by the first positive basis function and differentiate; the Wronskians of the derived system are the corresponding old Wronskians divided by positive powers of the first function. A nonzero real or imaginary coefficient component preserves at least the multiplicity of every real zero of the complex series. Thus q−1 samples are identifying, as is the jet of orders 0 through q−2 at any positive s (the meaning of derivatives used by the proof). The q^(−s) Leibniz rule gives the displayed matrix, whose row signs (−1)^k cancel the Wronskian orientation. Rank-nullity gives minimal complex scalar measurement count; evaluation minors give a one-dimensional real nullspace for any q−2 distinct positive nodes. Excluding zero, this line realizes those nodes simply and has no others. At q=2 the node set is empty and positivity of H₀ suffices. The mpmath script and its output were read, not executed; solving against Jv tests numerical inversion, not an independent evaluation of jet entries.
+
+## originality
+
+PASS
+
+The supported distinction is the strictly oriented adjacent-difference Stieltjes-jet determinant and the identifying family it yields for every known period and positive shift. The periodic Hurwitz expansion and interpretation of its coefficients as derivatives are established. The positive-axis zero-count mechanism is classical: after mean-zero cancellation, the Mellin numerator has only finitely many sign changes, and the generalized Descartes proof extends to this bilateral transform. That mechanism is not itself new. The strongest inspected arithmetic sources do not give the signed determinant or identify the entire adjacent-periodic basis as a family with strict evaluation and confluent minor signs. The bounded pass is for this explicit arithmetic specialization with its recovery certificate, not an invention of total positivity, finite-dimensional interpolation, or generalized Descartes theory.
+
+## value
+
+PASS
+
+The strict, oriented matrix gives an exact invertibility test across every positive shift and every period, complementing the known forward coefficient formulas with a practical finite inverse. The same positive-kernel structure constrains permissible real zeros and supports exact interpolation at any maximal set of positive nodes. This is a useful structural result for a natural periodic coefficient space, not just a short numerical determinant table or a lower bound from dimension counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

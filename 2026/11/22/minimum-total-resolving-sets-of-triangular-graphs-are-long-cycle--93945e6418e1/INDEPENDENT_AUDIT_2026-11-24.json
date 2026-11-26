@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:08:28.912158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–43",
+        "VERIFICATION.md, lines 19–25",
+        "verify.cpp and count.py inspected without running",
+        "Independent replay: python3 /workspace/branches/bounded_replay.py triangular"
+      ],
+      "rationale": "For intersecting targets {a,b} and {a,c}, an external distinguishing edge must contain one of b,c and exit {a,b,c}. For disjoint targets with union X, an external edge distinguishes exactly when it crosses the four-set cut: edges internal to X other than the targets meet each target once. These criteria are necessary and sufficient. The triple criterion rules out two isolates and a two-vertex tree component. In a larger tree, either there is a leaf at a degree-two neighbor, or every leaf attaches to a vertex of degree at least three. In the latter case the degree sum gives more leaves than degree-at-least-three vertices and hence sibling leaves. Both possibilities violate the triple criterion. Thus all nonisolated components have at least as many edges as vertices, giving the n−1 lower bound. Equality forces one isolate and no leaves, since a leaf, its neighbor, and the isolate violate the triple criterion. The edge count now makes every nonisolated vertex degree two; a triangle violates the triple criterion and a four-cycle violates the cut criterion. Conversely, two degree-two vertices having all their neighbors in a three-set would form a triangle there (and an isolate cannot be one of a cyclic vertex's neighbors); no four-set is a union of components in the proposed family. For n≥6 one can always use a single (n−1)-cycle. The undirected cycle factor is 1/(2ℓ), and the isolate factor z gives n! times the stated coefficient. At n=11 the two component types contribute 1,995,840 and 199,584. The independently written exact check exhausts subsets of size at most n−1 for n=4–7 using adjacency symmetric differences with both target bits removed. It reproduces the optimum counts 72 and 420 for n=6,7 and finds no successes at size ≤n−1 for n=4,5. The proof, not finite checking, gives the all-order result.",
+      "residual_risks": [
+        "The bounded replay does not certify higher-rank Johnson graphs or the infinite theorem independently of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2020 results cover paths, cycles, grids, Q3 and Petersen; its Petersen dimension 5 is the n=5 boundary, outside the theorem. Casel et al.'s models are weak-total (including product results), not this all-pairs external predicate. Resolving number is a universal ordinary-resolution threshold rather than the minimum here."
+        ],
+        "reasoning": "An exact result for a boundary order or a weaker predicate does not determine this minimum or characterize the minimizers. The Cartesian-product results do not apply as triangular-family third-party classifications.",
+        "searches": [
+          "Hedetniemi–Laskar–Mulder graph-family results",
+          "Casel et al. title, abstract and scope of the weak-total results",
+          "Resultary minimum total resolving sets and Johnson-graph resolving numbers"
+        ]
+      },
+      "checked_sources": [
+        "2020 OA total metric dimension article",
+        "2016 OA weak total resolvability article",
+        "2012 strong-total source attempted",
+        "Resultary IDs above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fort record classifies nonspanning cycles or spanning star forests without isolates as inclusion-minimal forts. The domination record has minimum ceil(2(n−1)/3), concerning adjacency coverage rather than pairwise witnesses."
+        ],
+        "reasoning": "An isolate plus a union of long cycles is not the fort classification: for example the n=11 two-five-cycle solution is not a single nonspanning cycle or a spanning star forest. Neither adjacency coverage nor a forcing obstruction gives the intersecting-target triple and disjoint-target four-cut requirements.",
+        "searches": [
+          "Resultary: 8cde40182533 minimal forts and 089ab809679e minimum total dominating sets on triangular graphs",
+          "Hedetniemi–Laskar–Mulder total resolving definition and family results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2020 paper defines an external third vertex, matching the frozen predicate. Casel et al.'s abstract gives the same definition of total resolution but distinguishes its weaker cross-pair condition."
+        ],
+        "reasoning": "Two arbitrary metric witnesses are not equivalent to one external witness: two selected targets can themselves count as two arbitrary witnesses, and if neither target is selected, one external witness already suffices here. The strong-total terminology remains a legitimate 2012 lead; the complete text was unavailable in this review.",
+        "searches": [
+          "Triangular graph J(n,2), line graph L(K_n), third-party total resolving and strong total resolvability",
+          "Hedetniemi–Laskar–Mulder DOI 10.1016/j.akcej.2019.12.021",
+          "Javaid–Iftikhar–Salman DOI 10.5829/IDOSI.MEJSR.2012.11.12.1750",
+          "Casel et al. DOI 10.7151/dmgt.1853"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 93945e6418e1 is the assigned record itself. The independent Q4 catalogue entry 57e484926093 reports a different exact graph instance (dimension 6 and 1,600 sets). The older primary paper supplies the Petersen value 5 but no matching n≥6 census in the inspected passages."
+        ],
+        "reasoning": "Neither the different-graph census nor J(5,2) covers the claimed n−1 law, cycle types, or labelled sequence. There is no independent matching census among the retrieved claims.",
+        "searches": [
+          "Resultary: minimum total resolving sets of triangular graphs and labelled all-bases census",
+          "2020 paper Proposition 20",
+          "Resultary: total metric bases and optimum exchanges in the binary four-cube"
+        ]
+      },
+      "rationale": "The definition and a boundary value are established earlier; the strongest inspected sources on the identical invariant do not give the n≥6 triangular-family minimum, structure, or labelled count. Related triangular classifications concern different predicates. Unavailable older material leaves a priority risk, not a negative finding about its contents.",
+      "residual_risks": [
+        "The 2012 paper's full text was not available; this does not settle its coverage.",
+        "Unindexed equivalents and exact censuses remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition and boundary J(5,2) value, not the inspected claim for n≥6",
+          "evidence": [
+            "Totally resolved by a third vertex in S; Proposition 20 gives total metric dimension 5 for Petersen."
+          ],
+          "identifier_or_url": "https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+          "material_read": "Definitions on PDF p. 2, offset 1660; graph-family scope and Proposition 20, offset 40333",
+          "method": "Primary OA PDF statement comparison",
+          "title": "New resolvability parameters of graphs",
+          "trigger": "Identical third-party metric invariant; possible triangular-family result"
+        },
+        {
+          "assessment": "Definition matches when called total, but the contributions described are weak total; no inspected triangular-family implication",
+          "evidence": [
+            "Their weak total definition asks only x outside W and y inside W, while total asks for every pair."
+          ],
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/31341108.pdf",
+          "material_read": "Journal pp. 185–186, including abstract and introduction, offsets 0–4666; literal Johnson query",
+          "method": "OA copy identified from the Mathdoc route, definition and stated scope inspected",
+          "title": "Weak Total Resolvability in Graphs",
+          "trigger": "Closest weak/strong variants and potentially a graph product theorem"
+        },
+        {
+          "assessment": "Contents and coverage unresolved",
+          "evidence": [
+            "DOI/publisher requests did not retrieve it; the attempted alternate copy was inaccessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.5829/IDOSI.MEJSR.2012.11.12.1750",
+          "material_read": "No primary full text retrieved in this review; terminology is a lead from the frozen references",
+          "method": "Attempted DOI, publisher and identified lawful alternate routes",
+          "title": "Total Resolvability in Graphs",
+          "trigger": "Earlier strong-total terminology cited by the finding"
+        },
+        {
+          "assessment": "No covering statement among these findings",
+          "evidence": [
+            "The first two use different predicates; the last uses the same invariant on Q4, not J(n,2)."
+          ],
+          "identifier_or_url": "Resultary 8cde40182533, 089ab809679e, 57e484926093",
+          "material_read": "Retrieved catalogue statements for their respective predicates and families",
+          "method": "Resultary lookup and mathematical comparison",
+          "title": "Minimal forts of triangular graphs; All minimum total dominating sets of triangular graphs; Total metric bases and optimum exchanges in the binary four-cube",
+          "trigger": "Same graph with structural cycle hit, or same invariant on a related graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact witness criterion and enumeration",
+        "2020 total metric dimension paper",
+        "Related triangular Resultary classifications above"
+      ],
+      "rationale": "The distinction from ordinary metric dimension is substantive: forbidding self-witnesses yields an exact unbounded-family minimum and a rigid cycle-packing structure for all optimizers. The structure gives labelled counts and separates the first multi-cycle optimum at n=11 from the single-cycle regime. The reusable triple/four-cut criterion is useful beyond computing the minimum.",
+      "residual_risks": [
+        "No higher-rank or all-inclusion-minimal classification follows from this argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

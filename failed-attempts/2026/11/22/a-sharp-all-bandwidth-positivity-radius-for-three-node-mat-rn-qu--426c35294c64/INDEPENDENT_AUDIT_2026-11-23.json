@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:46.484078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof lines 4–73",
+        "Frozen VERIFICATION.md and matern32_three_node_checker.py (read, not executed)",
+        "Replay: expand the entire H in frozen lines 43–45 and use the two explicit highest coefficients recorded above. The accompanying checker is finite and is not used for the all-degree inference."
+      ],
+      "rationale": "The even Gram reduction gives the stated two numerators and denominator Δ=e^(−2at)(e^(2at)−1−2at−2a²t²)>0. After multiplying the outer integrand by its positive exponential, its second derivative on 0<xt<at is 4(at−xt)e^(2xt)>0, and beyond at its slope is e^(2at)−1−2at>0. For the center the exact exponential numerator has no terms before t⁴; the degree-four bracket is −a²+12a−6. For degrees five and six the brackets increase in a and are already positive at 1/2, below the root. For j≥7 the highest two coefficients are 2^(j−2)(j²+3j)−4j² and 2^(j−2)(8+3j−j²)−4(j+1). They have opposite signs and positive sum since 2^(j−2)≥4j, so together contribute positively for 0<a≤1. Keeping just the degree-two and degree-four terms suffices because a_*²>1/4 while 4/[(j−2)(j−3)]≤1/5. This proves strict positivity at the cutoff even though the leading t⁴ term vanishes there. Below it the leading term is negative, whereas c,d→0 and b₀∼4/t gives eventual central positivity. The endpoint a=1 has b_a∼2/t and causes no exception.",
+      "residual_risks": [
+        "No assertion about the number of crossings for a<a_* is proved or needed; weights are exact and unregularized, not their finite-precision estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karvonen–Kanagawa–Särkkä's positivity theorem requires hypotheses such as C∞ and total positivity of order 2 and locally optimal sites; their numerical Matérn example does not prove all-scale positivity. The directly matching record goes further than the frozen result by giving explicit limits for both outer and center weights."
+        ],
+        "reasoning": "The broad quadrature literature cited does not imply the cutoff; the distinct exact published theorem does. It covers even the borderline positive finite-scale behavior when the center flat limit is zero.",
+        "searches": [
+          "arXiv:1812.08509, Corollary 1 and §4.5",
+          "03a67fa70ba7, theorem and flat limits"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03a67fa70ba7 and bf59562e8e52",
+        "arXiv:1812.08509",
+        "Frozen theorem and kernel-weight assumptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both theorems state unconditional outer positivity, all-bandwidth positivity iff a≥6−√30, and opposite central signs at small and large t below the threshold, without claiming uniqueness of crossing. The matching source further states that the flat center weight at the boundary vanishes."
+        ],
+        "reasoning": "Every asserted part is covered after scaling; a different algebraic proof is not a new sign classification or a distinct narrower result.",
+        "searches": [
+          "Direct comparison of 03a67fa70ba7 RESULT.md, offsets 0 and 3960, with frozen Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "03a67fa70ba7 uses I(f)=∫f(x)dx/2, exactly k=(1+t|x−y|)e^(−t|x−y|), and sites (−a,0,a) with 0<a≤1. Its w solves the same Gram system with half the right hand side."
+        ],
+        "reasoning": "Scaling the kernel means by 2 carries every stated sign, boundary case and inverse-length-scale quantifier from 03a67fa70ba7 to the reviewed result. Changing conventions to ℓ=√3/t is also bijective on positive scales.",
+        "searches": [
+          "Resultary exact threshold 6−√30 and symmetric Matérn quadrature all positive scales",
+          "Resultary unregularized Matérn weights and Gaussian-versus-Matérn cutoff",
+          "03a67fa70ba7, Finding and exact Gram reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem of 03a67fa70ba7 supplies the exact threshold 6−√30 including equality and both signs below it. It has a distinct record ID.",
+          "The earlier Gaussian entry bf59562e8e52 has a different kernel and cutoff 1/√3, and a unique subcritical crossing."
+        ],
+        "reasoning": "This is an affirmative exact source match, not just an index title or a Gaussian analogy. The corresponding same-day dates do not order the two records.",
+        "searches": [
+          "Resultary exact cutoff and all inverse length scales",
+          "Resultary local-mirror records 03a67fa70ba7 and bf59562e8e52"
+        ]
+      },
+      "rationale": "A separate published catalogue entry gives the same full sign theorem and also provides the exact flat limits of all weights. The sole convention change for the theorem is dx/2 instead of dx, which multiplies the weights by the positive factor 1/2 without changing signs or the cutoff. The demonstrated equivalent coverage blocks validation; it does not establish within-day priority, authorship, or dependence.",
+      "residual_risks": [
+        "The available same-day evidence does not establish which record was first. No conclusion of copying or misconduct is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the entire theorem, and further gives exact flat limits.",
+          "evidence": "The opening theorem explicitly states strict positivity at each finite inverse scale iff a≥6−√30; the measure is dx/2 and no nugget, augmentation or projection is used.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-lengthscale-uniform-positivity-frontier-for-three-node-m--03a67fa70ba7/RESULT.md",
+          "material_read": "Finding, scope and exact formulas at offset 0; proof continuation and flat limits at offset 3960, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded read through the Resultary local mirror",
+          "title": "A sharp lengthscale-uniform positivity frontier for three-node Matérn quadrature",
+          "trigger": "Distinct same-day exact cutoff, same kernel/sites and unregularized method"
+        },
+        {
+          "assessment": "Relevant background, not a theorem implying the cutoff.",
+          "evidence": "The paper says its theory does not explain the Matérn examples and reports a numerical example at a single lengthscale.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "Primary p. 9 Corollary 1 and p. 15 §4.5, offsets 67600 and 117500–120500",
+          "method": "Bounded OA PDF reading",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "General kernel-weight positivity and same Matérn smoothness example"
+        },
+        {
+          "assessment": "Not equivalent: squared-exponential covariance rather than Matérn-3/2.",
+          "evidence": "The Gaussian theorem has cutoff 1/√3 and proves a single crossing below it.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52",
+          "material_read": "Original Finding in local-mirror RESULT.md, offset 0",
+          "method": "Resultary semantic retrieval and bounded mirror read",
+          "title": "A one-crossing positivity diagram for symmetric three-node Gaussian quadrature",
+          "trigger": "Earlier three-node all-bandwidth cutoff"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and central coefficient proof",
+        "Resultary 03a67fa70ba7, Finding and flat limits"
+      ],
+      "rationale": "The sharp sign frontier would be useful for designing positive kernel quadrature at arbitrary bandwidth. But the frozen contribution is that exact frontier and its two limiting signs, all already available from a distinct theorem by rescaling. The alternative coefficient argument does not establish a separate scientific claim, wider applicability, or a new crossing result.",
+      "residual_risks": [
+        "This judgment concerns the frozen contribution, not the underlying cutoff's practical relevance or the relative priority of publication."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

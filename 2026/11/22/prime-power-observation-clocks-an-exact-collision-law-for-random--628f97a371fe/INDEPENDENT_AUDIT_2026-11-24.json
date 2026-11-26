@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:37:03.382675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frobenius splits F^(ℓb) into b independent order-ℓ differences along residue classes. The kernel on each class has ℓ initial values, with Pascal basis degrees 0 through ℓ−1 and unit leading coefficients since ℓ≤p. Evaluation on the distinct sampled residues in F_p therefore has rank min(c_r,ℓ). The bilateral inhomogeneous recurrence is onto because both extreme coefficients are units. The antecedent traces are cosets of the kernel trace; if that trace space is proper, choose a trace outside the coset of the prescribed v, extend it to a full configuration and apply F^(ℓb) to obtain a missed target. Consequently success at clock ℓb is equivalent to max c_r≤ℓ, and first sampled success is equivalent to max c_r=ℓ, as in the displayed theorem; the opening sentence conflates the two. Neither an unsampled first iterate nor a joint multilevel Poisson law is asserted by the formulas. The two coefficient formulas count choices within disjoint buckets. For s=ℓ+1, the binomial ratio in the k-th factorial moment is (m)_(sk)(pb−m)_(k(p−s))/(pb)_(pk), giving the stated intensity. Larger bucket counts vanish in the critical window, the lower and upper neighboring clocks give the two-point limit, and first moment plus prefix coupling gives subcritical and supercritical limits, including ℓ=1 and ℓ=p−1. The independent recurrence-matrix replay at `/workspace/branches/689d15cc-71ec-4827-af26-ca4d4d8e9e37/replay_record3.py` checked all 126 supports of size 4 for p=b=3 at each of the three clocks; CDF numerators were 0, 108, 126 and the directly enumerated deficiency histograms agree with the coefficient formula. This finite test does not establish the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.4 gives open and locally eventually onto behavior under sufficient hypotheses. The catalogue results cover all times but only on one arithmetic progression or two separated blocks."
+        ],
+        "reasoning": "Neither qualitative eventual coverage nor a stronger time range for a special geometry supplies the arbitrary-support rank and its stochastic law.",
+        "searches": [
+          "Haugland et al., arXiv:2610.33131v1, Theorem 5.4",
+          "Resultary SCOPE-a-sharp-prime-adic-sparse-cylinder-hitting-time-law-for-binomial--eff551c94343 and SCOPE-frobenius-plateaux-in-finite-time-cylinder-covering-for-additive--ac149331eeb0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cylinder.py",
+        "Local Resultary catalogue and the two matching geometry records",
+        "Haugland et al. arXiv:2610.33131v1",
+        "arXiv:2402.02853",
+        "Henze DOI/KIT landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The progression rank with stride b at ℓb agrees with min(m,ℓ) on a single bucket. The general Reed–Solomon rank also directly gives the rank of each bucket once the Frobenius decomposition and observation map are identified."
+        ],
+        "reasoning": "Do not count the special-case rank or the MDS property as new. The compared results do not identify the exact distribution of sampled covering clocks and deficiencies across all supports, including the fixed-capacity intensity and sharp neighboring-clock behavior. Same-day dating does not establish priority.",
+        "searches": [
+          "Progression and two-block Resultary findings, theorem and proof",
+          "Haugland et al., Theorem 5.4",
+          "Repeated-root cyclic code literature, arXiv:2402.02853, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A bucket trace is a [p,ℓ] Reed–Solomon evaluation code: any c_r positions have rank min(c_r,ℓ). For ordinary iid occupancy the analogous Poisson intensity is c^s/s! rather than binom(p,s)(c/p)^s here."
+        ],
+        "reasoning": "The equivalent restriction and occupancy language identifies substantial standard content. The arbitrary-support clock rank uses b independent blocks, and iid occupancy lacks the fixed-capacity correction (p)_s/p^s and the without-replacement exact law.",
+        "searches": [
+          "Literature: primary literature arbitrary-subset restriction rank of repeated-root cyclic codes Pascal matrix finite fields binomial evaluation matrix rank min subset dimension",
+          "arXiv:2402.02853, full-text page 2 and targeted Pascal/binomial/restriction queries",
+          "Henze, DOI:10.1016/S0167-7152(98)00076-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched catalogue formulas resolve fixed geometric supports. Neither statement gives a coefficient count over uniform m-subsets; the expected deficiency polynomial here weights each j-subset of a p-site class by u^max(j−ℓ,0)."
+        ],
+        "reasoning": "The exact arrays to match are functions of m and the deficiency, not numerical outputs for deterministic supports; the checked prior statements give no such counts.",
+        "searches": [
+          "Local Resultary search for exact Frobenius cylinder covering ranks and observation clocks; compared the arithmetic progression and two separated blocks hits",
+          "Record 3's exact deficiency coefficients versus the occupancy model described by Henze's abstract and citation"
+        ]
+      },
+      "rationale": "At the sampled clocks the individual residue-block rank is standard polynomial evaluation, and multiple occupancy with Poisson asymptotics is a standard mechanism. The supported distinction is the arbitrary-support cellular-automaton covering-clock identification coupled to the exact fixed-capacity, without-replacement deficiency law and its level-dependent thresholds. The nearest related catalogue results cover specific geometries, not that combined claim.",
+      "residual_risks": [
+        "Henze's exact theorem was not available in the consulted lawful copies. Equivalent fixed-capacity distribution results or equivalent trace-rank formulations under other coding-theory terminology remain possible; no claim of priority is made for their ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact single-bucket overlap, not an arbitrary support law",
+          "evidence": [
+            "On a progression of stride b at t=ℓb the rank specializes to min(m,ℓ) for m≤p."
+          ],
+          "identifier_or_url": "SCOPE-a-sharp-prime-adic-sparse-cylinder-hitting-time-law-for-binomial--eff551c94343",
+          "material_read": "RESULT.md finding and theorem (offset 0), proof offsets 3000–7240",
+          "method": "Local catalogue and mirror inspection",
+          "title": "A sharp prime-adic sparse-cylinder hitting-time law for binomial cellular automata",
+          "trigger": "Closest exact rank on the same CA"
+        },
+        {
+          "assessment": "Geometrically restricted overlap",
+          "evidence": [
+            "The restriction-rank theorem concerns two specified blocks separated by p^a."
+          ],
+          "identifier_or_url": "SCOPE-frobenius-plateaux-in-finite-time-cylinder-covering-for-additive--ac149331eeb0",
+          "material_read": "RESULT.md finding and proof beginning at offset 0",
+          "method": "Local catalogue and mirror inspection",
+          "title": "Frobenius plateaux in finite-time cylinder covering for additive cellular automata",
+          "trigger": "Same rule and exact Frobenius times"
+        },
+        {
+          "assessment": "Qualitative implication, not an exact finite-time image law",
+          "evidence": [
+            "Block-regularity, cylinder-contractivity and a short-cylinder condition imply openness and local eventual surjectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.33131",
+          "material_read": "Theorem 5.4, PDF p. 22, extracted offset 73335",
+          "method": "Open primary PDF extraction and bounded theorem inspection",
+          "title": "Locally eventually onto cellular automata",
+          "trigger": "Primary CA source and possible broader coverage"
+        },
+        {
+          "assessment": "Confirms standard MDS ingredient; keyword misses do not classify the remainder of the paper",
+          "evidence": [
+            "The read passage identifies Reed–Solomon codes as MDS."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.02853",
+          "material_read": "PDF p. 2 (offset 5301); targeted Pascal, binomial-matrix and restriction-rank queries",
+          "method": "Bounded open primary PDF inspection",
+          "title": "Repeated-root cyclic code paper arXiv:2402.02853",
+          "trigger": "Possible Pascal/code formulation of the rank"
+        },
+        {
+          "assessment": "Classical probabilistic mechanism credited; exact theorem scope not fully inspected",
+          "evidence": [
+            "The comparison concerns multiple occupancy; the present calculation depends on explicitly excluding unsampled sites in fixed-size finite buckets, rather than just iid placements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(98)00076-5",
+          "material_read": "Landing/abstract material only, via DOI and KIT",
+          "method": "Identified lawful access attempts; theorem text not obtained",
+          "title": "A Poisson limit law for a generalized birthday problem",
+          "trigger": "Cited standard multiple-occupancy comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard linear automaton the result converts a deterministic extension problem with arbitrary missing coordinates into a computable law of randomly sampled observations. The full deficiency counts, symbol independence, distinct level scales and explicit intensities answer a quantitative question not settled by qualitative eventual surjectivity. The scientific contribution is the connection and exact consequences in the sampled model, not a new Poisson mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

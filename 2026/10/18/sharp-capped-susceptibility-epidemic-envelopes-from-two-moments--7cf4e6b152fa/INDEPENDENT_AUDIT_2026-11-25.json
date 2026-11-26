@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:05:42.067730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 49–94",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "Izyumtseva et al., arXiv:2608.22122v1, Theorem 1, Section 3"
+      ],
+      "rationale": "The strict variance range places 0<c<m<b<L. For a two-point law at ℓ,h with mean m, the variance is (m−ℓ)(h−m); the mean fixes both weights. The two displayed laws therefore have the required moments. For a>0 the negative third derivative of exp(−ax) makes the quadratic Hermite interpolant at 0,b,b an upper bound and that at c,c,L a lower bound, with strictness off their nodes by the interpolation remainder on the full interval. Integrating quadratics uses only the common moments. The two transform bounds reverse for the pressure vector fields. Every field starts strictly positive, is strictly concave and eventually negative, so its unique positive root is strictly crossed and the solution increases to it. For strict finite-time comparisons, subtract the two ODEs and use an integrating factor: the forcing term is the positive pointwise difference of fields evaluated along the lower positive solution, and the divided-difference coefficient is bounded. At the smaller root the larger field is still positive, giving strict terminal comparison. Mixtures keep both moments, order the fields strictly at positive pressure and vary continuously at finite time and at the strictly crossed root, giving the full attainable intervals. The third centered moment for a two-point law is v(ℓ+h−2m); taking the difference gives Δ₃=vL(1−v/[m(L−m)]). As A(t)=τi₀t+O(t²), the first field-coefficient difference is τs₀Δ₃A³/6; integration gives exactly τ⁴s₀i₀³Δ₃t⁴/24+O(t⁵). The affine removed-proportion map preserves strict order. Jensen is strict for positive variance at positive pressure, and as L grows, the upper endpoint transform tends uniformly on bounded pressures to exp(−ma) because its interior atom tends to m and its remote atom has vanishing mass; solution and root continuity prove the uncapped comparison limit.",
+      "residual_risks": [
+        "The finite verifier illustrations are not an all-time or all-laws proof. Endpoint uniqueness is for strictly positive initial infectives and interior variance; no stochastic finite-population, transmission-network, or peak ordering is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The interval's two principal moment representations are exactly the given node pairs; applying the classical extremality principle to exp(−ax) yields both pointwise Laplace extrema, as verified independently by the signed Hermite argument. A specific theorem passage in the monograph was not retrieved.",
+          "The primary fluid model contains arbitrary initial susceptibility distributions. The frozen record credits Katriel for the sharp zero-and-positive atom lower final-size law and the no-cap upper obstruction; the exact Katriel passages could not be checked."
+        ],
+        "reasoning": "Covered generic moment-order inputs and known final-size background are not independent contributions. Combining the moment bounds and the scalar ODE gives the envelope ordering, but the inspected general results don't evaluate the complete attainable intervals and their explicit fourth-order width in this setting.",
+        "searches": [
+          "Classical fixed-moment extremality, Karlin–Studden (1966), and the signed interpolation proof at frozen RESULT.md lines 49–70",
+          "arXiv:2608.22122v1 Proposition 3",
+          "Katriel DOI 10.1007/s00285-011-0460-2, cited Theorems 3 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 08ae64d66561 and 365a6e47d6bf",
+        "arXiv:2608.22122v1 Theorem 1 and Proposition 3",
+        "arXiv:2606.08693v1 abstract",
+        "Frozen explicit classical moment argument in RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the source model, pressure orders by the scalar fields, so known moment order implies non-strict endpoint trajectory comparison.",
+          "Matched gamma and lognormal distributions in the Mohammed paper exhibit distinct SEIR dynamics but are not extremal laws over a capped moment class."
+        ],
+        "reasoning": "Monotone endpoint mixtures establish attainment at each time and the equilibrium; the explicit onset coefficient comes from identifying the differing third moments and transferring the coefficient through the nonlinear scalar ODE. Neither the arbitrary-law semigroup comparison nor final-size statements supply that time-dependent evaluation. The Kolmogorov-style moment comparison itself is not claimed as novel.",
+        "searches": [
+          "arXiv:2608.22122v1 Theorem 1 and Proposition 3",
+          "Katriel 10.1007/s00285-011-0460-2; focused lawful full-text lookup, publisher PDF and PubMed 21830057",
+          "Mohammed et al. arXiv:2606.08693v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1's pressure equation uses 1−r₀−s₀G(A), exactly i₀+s₀(1−G(A)) under the initial-sum condition.",
+          "Proposition 3 orders an arbitrary law against the same-mean homogeneous benchmark at every finite time."
+        ],
+        "reasoning": "The underlying dynamical equation is equivalent, and the homogeneous comparison is prior. The compared statements do not restrict the law to a common compact support and exact positive variance, give two unique attained endpoints, or evaluate the first nonzero time separation.",
+        "searches": [
+          "Resultary semantic lookups for capped two-moment susceptibility, attack size and epidemic-pressure envelopes",
+          "Izyumtseva et al., arXiv:2608.22122v1, Theorem 1 and Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "08ae64d66561 sandwiches terminal total infections under frozen versus temporally fluctuating risk and homogeneous mean risk.",
+          "365a6e47d6bf gives unbounded-support all-integer-moment aliases with identical onset derivatives but distinct terminal attacks."
+        ],
+        "reasoning": "Neither exact catalogue statement has the fixed capped support, two fixed moments, sharp attainable all-time interval, or fourth-order opening. Ordering temporal turnover and exhibiting unbounded moment aliases are different mathematical questions.",
+        "searches": [
+          "Resultary capped two-moment and epidemic final-size searches; exact findings of 08ae64d66561 and 365a6e47d6bf"
+        ]
+      },
+      "rationale": "The principal two-point moment laws and their Laplace order are classical bounded moment extremality. The scalar pressure model, homogeneous Jensen comparison, and unbounded two-moment final-size background are prior inputs; no novelty is credited to those. The supported distinct claim is the complete attainable interval in this fixed-cap, initially seeded scalar epidemic at every observation time and at infinity, including uniqueness and explicit sharp fourth-order opening. The cited model and moment theory combine to give weak envelope ordering, but the inspected statements do not give the full time-resolved attainment and onset coefficient. The strongest retrieved catalogue comparisons have different hypotheses and endpoints.",
+      "residual_risks": [
+        "Katriel’s primary Theorems 3 and 6 and a precise passage in Karlin–Studden were not independently retrieved. An uninspected application of principal representations to exactly this seeded capped trajectory problem may materially bear on novelty; the verdict is limited to current evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and same-mean benchmark prior; no capped interval or onset coefficient in decisive passages",
+          "evidence": "Pressure transform formula, affine removals identity, and Jensen-based all-time homogeneous order.",
+          "identifier_or_url": "https://arxiv.org/html/2608.22122v1",
+          "material_read": "Theorem 1 Section 3, offsets 16250 and 16510; Proposition 3 Section 3.4 and proof, offsets 24150 and 24415",
+          "method": "OA primary HTML",
+          "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+          "trigger": "Exact same scalar model and closest arbitrary-law comparison"
+        },
+        {
+          "assessment": "Exact primary theorem scope remains unresolved; no negative inference from access failure",
+          "evidence": "Frozen RESULT.md credits the sharp lower final-size law and impossibility of improving the homogeneous upper bound without a cap; these were not counted as new.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-011-0460-2",
+          "material_read": "Bibliographic identification only; Theorems 3 and 6 not independently retrieved",
+          "method": "Bounded DOI, publisher article/PDF, repository recovery and alternate public PubMed retrieval attempts",
+          "title": "The size of epidemics in populations with heterogeneous susceptibility",
+          "trigger": "Closest historical two-moment final-size source"
+        },
+        {
+          "assessment": "Classical principle covers the capped endpoint laws and pointwise extremality, not by itself the epidemic interval",
+          "evidence": "Moment matching fixes integration of the two quadratic supporting interpolants; remainder signs determine both extremal laws.",
+          "identifier_or_url": "Karlin and Studden, Interscience (1966)",
+          "material_read": "Citation only; specific page not retrieved; frozen Step 1 read in full",
+          "method": "Statement-level mathematical comparison via the explicit Hermite proof",
+          "title": "Tchebycheff Systems: With Applications in Analysis and Statistics",
+          "trigger": "Principal representations for the fixed moment class"
+        },
+        {
+          "assessment": "Related motivation, not a comparable theorem in the read passage",
+          "evidence": "Contrasting simulations for gamma and lognormal laws with common mean and coefficient of variation.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.08693",
+          "material_read": "Abstract, PDF p. 1, offset 2052",
+          "method": "OA preprint PDF text",
+          "title": "An exploration into how susceptibility distribution misspecifications impact epidemic forecasting",
+          "trigger": "Matched-moment epidemic trajectory comparison"
+        },
+        {
+          "assessment": "Terminal temporal-risk effects, not a fixed compact moment uncertainty class",
+          "evidence": "Frozen versus fluctuating risk and homogeneous mean risk under stationary one-time marginals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-universal-final-size-sandwich-for-epidemics-with-fluctuating-i--08ae64d66561/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal final-size sandwich for epidemics with fluctuating individual risk",
+          "trigger": "Closest related catalogue final-size bounds"
+        },
+        {
+          "assessment": "Unbounded-support identifiability counterexample, not capped sharp envelopes",
+          "evidence": "Equal all-order moments and initial derivatives can coexist with distinct terminal attack sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-order-susceptibility-moment-aliases-with-separated-epidemic--365a6e47d6bf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-order susceptibility moment aliases with separated epidemic final sizes",
+          "trigger": "Close terminology: susceptibility moments, onset, and terminal sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2608.22122v1 Proposition 3"
+      ],
+      "rationale": "The capped-model conclusion turns an identifiability gap under two measured moments into an exact attainable observation-time interval, with common endpoint distributions and a quantitative order-of-onset separation. The fourth-order coefficient makes explicit when heterogeneity beyond the first two moments can affect pressure, and the cap limit quantifies the role of a hard support assumption. These are meaningful deterministic model comparisons, not claims about intervention or pathogen design.",
+      "residual_risks": [
+        "The practical interpretation depends on a valid support cap and common model parameters. It is not a guarantee for finite stochastic outbreaks, uncertain initial conditions, or peaks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

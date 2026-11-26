@@ -6,14 +6,12 @@ The exact ideal classification is complete because every normalized ideal lies b
 
 ## Originality — PASS, qualified
 
-The symmetric one-gap assertion is known (Campochiaro–D’Anna–García-Sánchez, Proposition 52). Their inspected reflexive-ideal framework and Apéry formulas do not state the explicit two-terminal-gap enumeration and zero-run rule. Spirito's star-operation enumeration is of a different invariant. A multiplicity-three normalized-ideal paper was checked at title/abstract level only. An unindexed equivalent formula remains a residual bibliographic risk; novelty is not inferred from the absence of search hits alone.
+The symmetric reflexivity assertion is known (Campochiaro–D’Anna–García-Sánchez, Proposition 52). The count of binary words with no isolated zero is OEIS A005251 after shifting; the window quotient calculation in Resultary 62b4b8c42504 also specializes to length two, even though the indexed theorem states the range \(r\ge3\). Neither the reflexive numerator nor the binary run identification is claimed as a new theorem here. The distinct contribution is the census of all normalized ideals, including the exceptional four proper enlargements missing one terminal gap, and its application as the exact denominator for the fraction of ideals that are reflexive. The compared window theorem describes the reflexive subfamily and does not give this full census. An unindexed equivalent census remains possible.
 
 ## Value — PASS
 
-The exact enumeration reveals a sharp and interpretable transition in an infinite family of numerical semigroups: a one-hole symmetric case in which every normalized ideal is reflexive versus a two-hole family with exponentially rare reflexivity. The local closure rule determines the full reflexive set, not just its cardinality.
+The full census supplies the exact size and membership of the ambient normalized-ideal family rather than only the reflexive subposet. It identifies the exceptional ideals outside the freely selectable low-gap family, and quantifies how sparse reflexive ideals are within the whole family after deleting a second terminal member: all ideals are reflexive in the symmetric case, whereas the proportion in the two-gap case decays exponentially.
 
 ## Scope and limitations
 
-The object is normalized numerical-semigroup ideals; no classification of arbitrary fractional-ideal translations, other conductor families or associated ring modules is asserted. Independent audit is outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The object is normalized numerical-semigroup ideals; no classification of arbitrary fractional-ideal translations, other conductor families or associated ring modules is asserted. The literature comparison does not certify global historical priority.

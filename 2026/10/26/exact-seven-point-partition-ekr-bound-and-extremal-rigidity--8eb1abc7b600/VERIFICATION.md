@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-From the directory containing this file, run `python3 verify.py` with the Python 3 standard library. The complete exact output is embedded in `verification_output.txt` and ends with `VERIFY_OK`.
+## correctness
 
-The program: (i) uniquely enumerates 350 restricted-growth representations of unlabelled four-block partitions on seven points; (ii) confirms the independent profile census 35+210+105; (iii) computes all 350 adjacency masks based on common within-block unordered pairs; (iv) proves absence of cliques of cardinality at least 66 using a full branch search with a proper-greedy-colouring upper bound; (v) enumerates all size-65 cliques and compares them to the 21 independently generated prescribed-pair stars.
+PASS
 
-A separately implemented C++ clique search is provided as `maxclique.cpp`. Compile with `g++ -O2 -std=c++17 maxclique.cpp -o maxclique` and execute `./maxclique 7 3`; its exact saved output begins `MAX_CLIQUE 65 nodes 86` and the diagnostic output reports 350 vertices. The independent implementation is a useful cross-check of the bound, while the Python verifier additionally exhausts all equality cases.
+A family with a prescribed pair has S(6,4)=65 members by contracting that pair, and the 21 such families are distinct. The frozen Python search uses the exact shared-pair adjacency; its reverse colour ordering means each remaining prefix inherits a proper colouring with at most the recorded number of colours. Its neighbour intersection and deletion therefore enumerate threshold cliques without duplication or unsound pruning. A separate exact reproduction (/workspace/audit_replay_4.py) generated partitions by peeling off the block of the least remaining point, obtaining 350 partitions, and used include/exclude branching with clique covers of the incompatibility graph. Fixing one anchor in each of the three block-size types suffices by permutation symmetry. There were respectively 6, 4, 3 families of size 65 through the three anchors, all exactly the pair-stars through the anchor, and no family of size 66 in any anchored search. This proves the complete equality statement for the stated finite parameters. The saved C++ output concerns the maximum alone, not its equality classification.
 
-The two exact recursion-node counts are 396 (target 66) and 1827 (target 65). The exhaustive proof applies to this finite graph. A failure, unexpected runtime interruption or a partial enumeration would not establish the theorem. The mathematical pruning bound and its connection to partitions are explained in `RESULT.md`; do not treat a log alone as a proof. No general theorem beyond the specified parameters has been checked. Independent audit has not been performed.
+## originality
+
+PASS
+
+The bound is explicitly conjectured in older literature, not proved there; the inspected broader EKR and Hilton–Milner theorems do not include seven points at rank three. No independent exact proof or equality enumeration at these parameters was identified in the inspected material.
+
+## value
+
+PASS
+
+Seven points are singled out by the conjectured boundary for four blocks. At that boundary a sharp proof and the full rigidity statement fill a motivated case not reached by the large-ground-set results, and give an exact benchmark for prospective general arguments. The claim is finite and says nothing about the full conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

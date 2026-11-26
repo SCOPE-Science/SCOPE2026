@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The `verify.py` script runs with Python 3 and SymPy and prints `VERIFY_OK` and `GENERAL_CUBIC_VERIFY_OK` when exact symbolic checks pass. It reconstructs the equilibrium equation, parameterization, fold, quadratic contact, center drift coefficient, Jacobian signs, and a rational two-equilibrium witness. The coefficient positivity and infinite root count follow from the documented analytical proof; finite code checks are not exhaustive certification. Independent validation has not been performed.
+Run `python3 verify.py` with SymPy. Success prints `PHYSICAL_FOLD_ALGEBRA_OK`. The checks concern the normalized nullcline equation, its stationary branches, the exact fold width and expansion, the critical-boundary quadratic term and the algebraic two-equilibrium witness. The analytical proof in `RESULT.md` proves the physical range, uniqueness of the admissible fold, the complete count, and the stability of its branches. These computations do not constitute formal proof certification.

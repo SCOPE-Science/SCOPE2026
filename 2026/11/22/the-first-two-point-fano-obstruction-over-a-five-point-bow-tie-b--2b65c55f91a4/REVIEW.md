@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The forbidden configuration has seven vertices and exactly two triples on any designated old five-set; those two lines intersect once. The two completions of the minimal five-point bow tie are explicitly exhibited, and the pair-covering property proves they exhaust all possibilities. Their five-new-triple conditions intersect in the central triple only. Inclusion-exclusion gives the claimed exact total and conditional coefficient polynomial. A separate exact-cover enumeration of all 30 labeled Fano planes and a direct 20-bit enumeration check the finite assertions. Uniform type sampling is over finitely many complete ordered pair types, not vertices of a finite host.
+## correctness
 
-## Originality
-PASS on presently checked sources, with priority provisional. Conant gives the Fraïssé framework for forbidden 2-irreducible hypergraphs; Heinlein and Östergård record the Fano design's combinatorics; Füredi and Simonovits address large-order edge extremality. A recorded exact probability for unconstrained seven-vertex Fano containment gives one global aggregate, not the conditional distribution over a fixed old bow tie. Previously published work on tetrahedron-free hypergraph types treats a different forbidden system. The full known labeled Fano design family is credited rather than presented as new. A preexisting multivariate enumeration or model-theoretic type table could subsume the result and remains a residual priority risk.
+PASS
 
-## Mathematical value
-PASS. The theorem identifies the first exact point at which pairwise logical amalgamation ceases to be free in a natural homogeneous structure, and classifies every minimal old two-edge witness. Its conditional law exhibits a one-coordinate Bernoulli perturbation, showing a sharp distinction between the unrestricted one-point type spectrum and the restricted two-point spectrum. This includes a full distribution and explicit distance, rather than just the obvious seven-vertex size bound.
+A free amalgam introduces no mixed triples across the two exclusive sides; a Fano copy cannot straddle them because every pair of Fano vertices is in a line. The Fraïssé extension property realizes every legal finite diagram over the individually named base, and homogeneity identifies diagrams with complete ordered injective pair types. Free copies give infinitely many realizations. With up to four old points and two new points, or five old points and one new point, there are fewer than seven vertices, hence no restriction. With five old and two new points every Fano copy spans them; deleting the two new points removes 3+3-1=5 distinct lines, leaving two lines meeting in one old point. Conversely that bow tie extends, so on named sets the 15 bow ties are all minimal obstructions and form one isomorphism type. For exactly those two old lines, the line through their common vertex and the two new points is forced. The four other new lines must use opposite arms, with each arm vertex seeing each new point once. They are precisely the two alternating colorings of a 2x2 array. The two five-bit completion requirements intersect in exactly the central mutual bit (their union uses nine bits); after fixing it on, the four-bit requirements are disjoint and their union uses eight bits. This verifies the intended count despite the informal word 'overlap' in the conditional proof. The valid-diagram count is 2^25-2*2^20+2^16=31522816. Given the five mutual bits, the link count is 2^12 times 256 when the center bit is off and 225 when on, independent of the four other bits. Thus K is the sum of an independent Binomial(4,1/2) and Bernoulli(225/481). Its total variation from Binomial(5,1/2) is |225/481-1/2|*max_k binom(4,k)/16=93/7696 by telescoping the variation of the unimodal four-bit mass. An independent exact relabelling enumeration from the binary projective plane gives 30 designs, 15 old restrictions each with two completions, and the critical-bit counts 256 and 225. Replay: python3 /workspace/reproduce_reviews.py 1.
 
-## Scope and remaining limits
-The nontrivial closed count applies to a five-point bow-tie base with exactly two old triples; it does not provide a formula for all dense five-point old hypergraphs or for higher new-tuple arities. An exact formula is proved from combinatorial design geometry; the finite checker is supplementary. An independent mathematical audit and exhaustive historical-priority determination are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the first ordered-pair obstruction with its exact conditioned type and mutual-link distributions. General free amalgamation, the seven-point Fano plane, and its 30 relabellings are known. Neither the available global reliability count nor the inspected one-point or tetrahedron-free analogues give the conditioned law. The strongest possible stronger overlap would be a multivariate Fano reliability specialization, not a global scalar probability.
+
+## value
+
+PASS
+
+Five is not an arbitrary truncation: it is exactly the earliest base size where two-point restrictions can coexist with completely unrestricted one-point extensions. A single minimal old-edge configuration explains the onset, together with the sharp and nonobvious localization of the mutual-link bias to just one bit while the others remain fair and independent. The value is that structural boundary and law, not the standalone count of known Fano relabellings or the arithmetic for total variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

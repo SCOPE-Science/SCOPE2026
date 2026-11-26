@@ -1,15 +1,21 @@
-# Scientific review: spectral-order leader placement on complete split networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses an exhaustive three-orbit reduction under the automorphism group of the complete split graph, exact grounded-matrix spectral decomposition, and explicit inequalities for every sorted reciprocal-eigenvalue prefix sum. In all ordinary regimes those inequalities yield weak submajorization, hence a global comparison for all real inverse powers \(r\ge1\). The exceptional \(K_2\vee\overline{K_3}\) case reduces to a strictly convex exponential equation with a unique crossing after \(r=1\). The endpoint equality cases are resolved from the complete inverse-trace differences; they are not inferred from sampling. The standalone checker reconstructed 378 exact matrix/spectrum identities, 126 complete three-orbit minimizer comparisons, and 50,454 additional finite prefix checks. These are corroboration, not a proof of the infinite case.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-The closest publicly available exact complete-split leader-placement result, *A square-root migration law for optimal noise-free leaders on balanced split networks*, solves an inverse-first-power objective on balanced split graphs for growing budgets. Its complete RESULT.md was inspected. The present theorem treats unbalanced as well as balanced graphs, and all real spectral orders \(r\ge1\), with spectral weak-majorization and a unique fractional-order switch, none of which follows from the earlier scalar inverse-first-power formula. Fitch and Leonard (arXiv:1407.1569, sections II–V and special-case discussions) give a general leader-set joint-centrality framework and path/cycle cases; Patterson and Bamieh (arXiv:1310.2592, sections II and IV) derive first/second-order ungrounded network coherence for fractal graphs. Neither inspected manuscript provides this split-graph all-order optimizer classification. Targeted published-finding corpus searches for complete split spectral powers, alias formulations, and the exceptional numerical transition returned related but different results. The claim is not asserted to be independently validated or exhaustively novel; independently published equivalent work may exist under other terminology.
+PASS
 
-## Mathematical value — PASS
-The natural graph class is an infinite two-parameter complete split family, and the natural objective continuously interpolates standard inverse-Laplacian spectral moments. A single weak-majorization certificate proves optimality simultaneously for every real \(r\ge1\) in almost the entire family, rather than a list of pointwise computations. The exact \(K_2\vee\overline{K_3}\) exceptional crossover demonstrates that such order-robustness cannot be asserted indiscriminately; first-order boundary ties disappear immediately above order one. The complete classification and optimizer counts are relevant to objective sensitivity in grounded-network leader choice.
+From the grounded block matrix the two class-constant eigenvalues (when both blocks remain) have sum p+q+a and product 2p+a(q−2+a); contrast eigenvalues are p and p+q. Handling the empty blocks separately gives the same stated orbit spectra in their proper form. The mixed-minus-clique reciprocal prefix gaps are positive for k≤q−1 and have sign p−2 thereafter. Independent-minus-clique gaps for q≥3 are positive through k=q−1 and thereafter equal (q−4)/(2p)+1/(p+q); the sole negative full-sum case is (2,3), and equality only at (3,3). At q=2 independent leaders dominate both alternatives in weak submajorization with strict full-sum comparisons. Strict power comparison for r>1 follows from integrating the upper-tail sums (x−t)_+, which have nonnegative differences and are strictly ordered on an interval for the distinct reciprocal vectors. For (2,3) the mixed orbit never wins, and the difference between independent and clique orbits has sign given by the strictly convex function f(r)=2^r+2^(−r)+(2/5)^r−3, with f(0)=0, f(1)<0<f(2). This proves the unique crossing and the listed ties. The quoted approximate decimal is off by about 1.2×10^(−16); the exact defining equation and all classifications are unaffected.
 
-## Sources and limitations
-The verified public first-posting date used for the archival focal literature is 2013-10-09 (Patterson–Bamieh, arXiv:1310.2592). The related general leader-selection literature includes Fitch–Leonard, first posted 2014-07-07 (arXiv:1407.1569), and the published balanced split-network inverse-first-power theorem at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-square-root-migration-law-for-optimal-noise-free-leaders-on-ba--fe1c9ab36e72. Validity is limited to two perfectly grounded leaders, unit edge weights and \(r\ge1\). Primary full texts or equivalent unindexed theorems not located could alter publication-priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the complete split-graph classification for exactly two leaders and all real r≥1, in particular the isolated fractional switch and first-order ties. Neither the known grounded inverse-trace framework nor the previously studied balanced first-order slice is claimed as new.
+
+## value
+
+PASS
+
+The natural objective interpolates between aggregate noise sensitivity and emphasis on the smallest grounded eigenvalues. The exact transition on the five-vertex graph and exhaustive ties distinguish genuine order-dependence from size- or weight-driven changes. The prefix result also yields convex spectral robustness in the regimes of domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

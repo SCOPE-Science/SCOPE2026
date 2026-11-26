@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses only the Python 3 standard library and no network or external input. Run `python3 verify.py`. The same exact source was executed successfully with all assertions enabled. Expected terminal markers: `FANO_GEODESIC_CRITERION_OK`, `FACES [1, 14, 91, 322, 651, 728, 392, 58] TOTAL 2257`, `FACETS {6: 70, 7: 58}`, `AUTOMORPHISMS 336`, `VERIFY_OK`.
+## correctness
 
-The program first builds the 14-vertex Fano incidence graph and all breadth-first-search distances, enumerates all shortest-path internal-vertex masks, and compares this graph-level definition against a separately implemented incidence-geometric predicate for every one of the \(16384\) vertex subsets. It counts every admissible size, tests every unselected single-bit extension for maximality, builds all 168 point collineations from seven-factorial candidate permutations, constructs a valid polarity to obtain 336 automorphisms, and verifies all four maximal-set orbits.
+PASS
 
-No statistical sampling or extrapolation is involved. The result concerns this single specified 14-vertex graph; the certificate does not imply analogous formulas for other projective planes. These are finite integer calculations and program-level assertions, not an independent mathematical audit. The proof explaining why the certificate tests the correct mathematical definition appears in `RESULT.md`.
+The Fano incidence criterion exhausts the pair types. Same-shore pairs have a unique geodesic of length two; a nonincident point and line have exactly the three length-three routes indexed by the lines through the point. Each route must avoid selected internal vertices. A separate shortest-path enumeration tested all 16,384 labelled subsets and recovered (1,14,91,322,651,728,392,58) and 70 size-six plus 58 size-seven facets. One-vertex extension is sufficient by heredity. The 168 Fano collineations and their translates by the part-swapping polarity exhaust the automorphisms because the connected graph has a unique bipartition up to swap. The independent census verified each stated representative and the orbit sizes 28, 42, 2 and 56. Thus the complex is nonpure, with the asserted extrema and totals.
+
+## originality
+
+PASS
+
+The supported contribution is the exact labelled face and facet census with the full facet-orbit decomposition for ordinary mutual visibility of the Fano incidence graph. The definition, lower-number parameter and generic polynomial method are antecedents, not contributions. No independent equivalent statement or applicable stronger evaluated classification was established in the inspected sources.
+
+## value
+
+PASS
+
+The Heawood graph is the canonical Fano incidence graph. The exact ordinary visibility complex answers how many configurations extend to optimum and what kinds of maximal obstructions remain: in particular, there are 70 maximal suboptima in two distinct symmetry types, not merely a maximum of seven. The labelled census and full-group reduction are useful as an exact benchmark for visibility-complex and symmetry calculations on incidence graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

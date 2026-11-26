@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:46:36.186177Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each single exchange, a teaching sample must hit the two coordinates that change. Conversely if a different tree T′ agrees on the sample, take e∈T minus T′ and an f∈T′ crossing the cut of T−e. Such an f is outside T; both changing edges are unqueried, and they form an exchange. Thus the vertex-cover criterion is exact for every sample. König gives the cardinality result. For weights place query costs on source-to-tree and cotree-to-sink arcs and use a capacity above the sum of all costs on each directed tree-to-cotree exchange arc; finite optimal cuts give precisely minimum-cost covers. Hall on F⊂T counts |F| tree and |N(F)| cotree edges crossing the components of T−F. Tree packing gives the Hall inequalities; for the converse, refine any partition into its induced connected components without changing the crossing count and choose T connected within each refined part, so the corresponding F gives the required partition bound. On the other side, taking F=N(Y) for cotree edges Y implies F∪Y has the same components as forest F, so under the two-forest bound |Y|≤|F|. Conversely a violating induced connected subgraph admits an internal tree extended to T, and its internal cotree edges violate Hall. The K_{p,q} cases are exhaustive: a singleton shore is a tree; two stars cover a two-vertex shore; the listed K_{3,3} remaining four edges form a path; the two disjoint K_{3,4} trees extend by two separately assigned edges at each new vertex. At K_{3,4}, r=c and both characterizations apply. The bridged K5 example has an isolated bridge coordinate in the exchange graph and a core with two disjoint spanning trees, so it gives 4 versus bounds 5 and 6. An independent replay, python3 /workspace/checks/05_cover_certificate.py, exhaustively compared every sample with all-tree and single-exchange consistency for 3,494 target/sample pairs over 43 connected graphs through four vertices (135 targets), and checked the K_{3,4} packing. Larger frozen verification counts are recorded evidence, not a fresh run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edmonds–Fulkerson give the broader rank inequalities for partition into independent sets or into spanning sets; at k=2 these contain the two graph packing/forest conditions.",
+          "Strong basis exchange generalizes the local cut proof to all matroid bases, while Merino–Soto query unknown numerical weights to find an optimal basis."
+        ],
+        "reasoning": "The two graph-side conditions are not themselves new. The broader rank theorems imply the all-target extrema once the bridge from local exchange to teaching has been established, but do not assert that bridge. The optimal-weights oracle changes both the information supplied and the goal.",
+        "searches": [
+          "Fundamental bipartite graph of a basis, maximum matching, matroid union and vertex cover",
+          "Edmonds–Fulkerson, Transversals and Matroid Partition, Theorems 1–2",
+          "Merino–Soto arXiv:1904.11668 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_spanning_tree_teaching.py and self-review",
+        "Edmonds–Fulkerson (1965)",
+        "Simon arXiv:2205.02792; Simon–Telle matching-based parameters",
+        "Merino–Soto arXiv:1904.11668; Mansouri et al. arXiv:1910.10944 §3.1",
+        "Resultary November 2 matroid-basis shattering records and November 8 spanning-tree shattering result",
+        "Mihail–Sudan report landing page and access attempts for cited packing/decomposition papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cotree Hall deficiency for a fixed basis B is max over F⊂B of |cl(F)|−2|F|: the union of supports of the fundamental circuits of Y is the smallest such F spanning Y, and cl(F) intersects B exactly in F. Varying B realizes generating independent sets for all flats; hence min_B td(B)=min_A (|E minus A|+2r(A)−r(E)).",
+          "The rank formula for common independence in M and its dual has that same minimum by the dual-rank identity. The analogous all-target connection and exact weighted cover depend on the fixed-target teaching argument.",
+          "The complete-bipartite classification additionally uses graph packing/forest cases, including the sharp K_{3,4} threshold."
+        ],
+        "reasoning": "The global minimum coincides with the known shattering-rank expression, not merely by a coincidental match of numbers, but this comparison independently uses the new teaching-to-exchange step. Shattering, Hall/union theory and the known graph packing conditions do not by themselves give the local identification theorem. No stronger source covering the per-target teaching predicate was verified.",
+        "searches": [
+          "Edmonds–Fulkerson §§1–2; matroid-basis VC/Littlestone Resultary results; complete bipartite shattering Resultary result",
+          "Web: exact classical teaching via fundamental exchange or specification/certificate complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Resultary matches state VC/Littlestone common-independence formulas, not fixed-target sample characterizations.",
+          "Simon's classical definition is the same predicate; his no-clash setting is different. Simon–Telle's matchings associate concepts to labeled samples and serve MAP/MLE, Greedy or antichain teaching models, not query coordinates to queries for one target.",
+          "The reduction also makes sense as a certificate: delete negatively labeled edges and contract positively labeled ones; the surviving target must be the unique basis of the minor."
+        ],
+        "reasoning": "The minor reformulation does not turn the VC, no-clash, or uncertain-weight results into the exact cover criterion. The target-dependent exchange graph differs from a graph of concepts versus samples.",
+        "searches": [
+          "Resultary: matroid-basis teaching and fundamental exchange teaching",
+          "Web: classical teaching dimension or specifying set/certificate for matroid bases and spanning trees",
+          "Simon arXiv:2205.02792 §2; Simon–Telle matching parameters p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 spanning-tree shattering record gives VCdim(T(K_{3,n}))=min(n+2,2n−2), the same number as this formula at p=3, but has a shattered-support characterization and no pointwise teaching formula."
+        ],
+        "reasoning": "This is a substantive numerical overlap, not an exact table of per-target teaching values. For general matroid bases the minimum teaching number in fact equals the common-independent-set rank, but values for individual targets can exceed the minimum and the shattering formula does not establish the teaching bridge.",
+        "searches": [
+          "Resultary: exact spanning-tree shattering, complete bipartite K_{3,n}, tree membership teaching"
+        ]
+      },
+      "rationale": "The supported distinct result identifies exactly which samples teach each fixed target via its fundamental-exchange graph, including weighted sampling. It connects the all-target teaching extrema to classical matroid packing/partition criteria and yields the complete-bipartite formula. Credit the graph conditions and shattering ranks to prior work; the pointwise teaching reduction is not given by those results or by the inspected alternative teaching models.",
+      "residual_risks": [
+        "A covering fixed-basis theorem may have appeared under certificate, specifying-set or related terminology not captured in the bounded searches.",
+        "The Mihail–Sudan report was only available as a landing page; the classic graph packing and decomposition DOI attempts did not yield readable primary passages there. The covering matroid partition and spanning-set results were checked in Edmonds–Fulkerson instead.",
+        "Same-day titles and dates are not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers matroid partition and packing inputs, not pointwise teaching",
+          "evidence": "Theorems state the independent-set and spanning-set partition criteria using r(A) and r(E)−r(A).",
+          "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn3p147_A1b.pdf",
+          "material_read": "PDF p. 2, Theorems 1 and 2, OA offset 14580",
+          "method": "Lawful OA PDF, literal locate and bounded passage",
+          "title": "Transversals and Matroid Partition",
+          "trigger": "Broader theorem underlying both all-target thresholds"
+        },
+        {
+          "assessment": "Same global rank expression after independent teaching reduction; different predicate",
+          "evidence": "VCdim=Ldim is the maximum common independent set in M and M*, e.g. a forest whose complement is connected in the graphic case.",
+          "identifier_or_url": "2026/11/2/SCOPE-matroid-basis-classes-have-equal-vc-and-littlestone-dimensions--5d55086c86b7",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Matroid basis classes have equal VC and Littlestone dimensions",
+          "trigger": "Same-day matroid-basis concept dimension"
+        },
+        {
+          "assessment": "Shattering and optimal-root-query result, not a fixed-target teaching criterion",
+          "evidence": "Same common-independence rank formula for the shattering dimensions.",
+          "identifier_or_url": "2026/11/2/SCOPE-matroid-basis-concepts-have-equal-static-and-adaptive-shattering--dd07b0e752eb",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary and mirror",
+          "title": "Matroid basis concepts have equal static and adaptive shattering dimensions",
+          "trigger": "Another same-day basis learning invariant"
+        },
+        {
+          "assessment": "Numerical overlap under different invariant",
+          "evidence": "Shattered-support characterization and VCdim=min(n+2,2n−2), not a statement of every target's certificate size.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shattering-polynomial-and-a-matroid-boundary-for-spanning--0c288e04bf53",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary and mirror",
+          "title": "Exact shattering polynomial and a matroid boundary for spanning-tree classes",
+          "trigger": "Exact same number in the K_{3,n} specialization"
+        },
+        {
+          "assessment": "Classical definition known; graph-specific results use different teaching model",
+          "evidence": "Ordinary pointwise teaching is defined, while the no-clash results concern tournaments and Johnson graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.02792",
+          "material_read": "PDF p. 1 and §2 p. 3, offsets 4200 and 11180",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Tournaments, Johnson Graphs and NC-Teaching",
+          "trigger": "Closest cited graph-theoretic teaching definitions"
+        },
+        {
+          "assessment": "Different oracle and optimization objective",
+          "evidence": "Queries reveal numerical weights of elements to find an optimal basis, not membership of a target.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11668",
+          "material_read": "§1, PDF pp. 1–2, offset 3000",
+          "method": "Lawful OA primary PDF passage",
+          "title": "The Minimum Cost Query Problem on Matroids with Uncertainty Areas",
+          "trigger": "Possible equivalent weighted-basis query optimization"
+        },
+        {
+          "assessment": "Other matching-based teaching models and different graph vertices",
+          "evidence": "Matches concepts to examples sets, linking to MAP/MLE, Greedy and antichain teaching; not an exchange matching at a fixed matroid basis.",
+          "identifier_or_url": "https://xai.w.uib.no/files/2026/05/Simon_Telle-Matching-based_Parameters.pdf",
+          "material_read": "PDF p. 2, offset 4380 through the comparison of SMN, GMN, AMN",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Matching-based Parameters in Machine Teaching: a Unified Framework",
+          "trigger": "Potential matching formula for teaching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Testing sample uniqueness against all spanning trees could involve exponentially many hypotheses. The exact criterion reduces all those constraints to one bipartite instance determined by fundamental paths, and supports minimum-cost teaching even when positive and negative edges have different costs. The graph-wide extremal statements characterize when one of the two obvious samples is optimal for all targets, and give an exact uniform value for a canonical graph family. The value is the teaching application and local-to-global bridge, not a new proof of bipartite matching duality or matroid union.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

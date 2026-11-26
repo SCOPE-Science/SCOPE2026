@@ -1,15 +1,21 @@
-# Scientific review of the finite-budget beta product theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The singular-value reduction is exact: the Rayleigh quotient is a constant plus a positive multiple of squared projection onto a fixed spike direction. The optimizer in an augmented subspace is the normalized projection of that spike direction. Its gap ratio is the orthogonal complement of a Haar-subspace projection, yielding a conditional beta law independent of the current state; iteration gives true iid multipliers, not merely matching marginal distributions. The gamma moments, almost-sure logarithmic rate, strict budget-merging inequality and two high-dimensional limits are established without relying on simulation. The embedded script replayed 837 finite checks. Domain exclusions (exactly orthogonal starting vector, repeated lower singular space and full-block termination) are explicit.
+PASS
 
-## Originality — PASS, with priority risk
+In the one-spike model the restricted maximizer in K=span(v,W) is ±P_K e/||P_K e|| because the objective on the unit sphere is λ_-+(λ_+−λ_-)|eᵀz|² and the starting overlap is nonzero. Write e=cv+sqrt(1−c²)w with w unit in the tangent space. Orthogonality gives exactly Δ_new/Δ_old=1−||P_Ww||². With a Haar s-plane in dimension m, the complement projection has the law X/(X+Y), for independent X~χ²_(m−s) and Y~χ²_s. For s<m this keeps the gap positive almost surely at each finite step, and overlap cannot vanish. Conditional on the whole past, each ratio law depends only on the chosen deterministic size, proving independence (and identical laws for constant s). The beta integral gives the stated gamma ratio on p>−(m−s)/2; its derivative at zero is the integrable mean log-ratio, so the strong law gives the digamma rate. For s=m the span is all space and the gap vanishes on that step; no ratios are needed after termination. The reduced Gram matrix uses only cached Av and the new forward images, and the next cached image is their linear combination. Therefore the counted cost is exactly Σs_j and expected factors multiply. Replacing a split a,b by a+b removes the positive ab/m² term; all other factors of a genuine split are positive when the total is ≤m. This gives strict uniqueness for a genuine split and the full-budget zero gap. The one-block mean and variance give its proportional-size concentration. As an independent check of the serial limit, the first two moments of a single-direction factor are (m−1)/m and (m−1)(m+1)/(m(m+2)); raising them to s powers for s/m→θ gives e^(−θ) and e^(−2θ), hence L² convergence of the serial product. For s=m−1, the chi-square representation and (X+Y)/m→1 give the stated χ²_1 limit and the serial mean comparison is asymptotic to e/m. The frozen verifier was inspected, not executed; its bounded numerical checks do not supply the universal assertions.
 
-The central numerical method is *not* new: arXiv:2410.08297 supplies the one-direction randomized exact line search, while Section 8.6 of arXiv:2512.05520 already introduces and evaluates a multi-vector Rayleigh–Ritz version. Haar projection beta distributions and randomized subspace error laws are known. The claimed distinct result is the exact independent beta **trajectory** for an adaptive two-level operator problem, together with exact moment/lyapunov formulas and a strict optimizer over every allocation of a fixed forward-evaluation budget. The compared works give general almost-sure/sublinear theory, a block algorithm with experiments, or geometric projection distributions; the inspected portions do not state the entire implication. Targeted mathematical-record queries and comparisons with previously published mathematical claims did not surface a complete equivalent. Equivalent specialist randomized eigenmethod calculations remain possible, so publication priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, sharp stochastic-runtime benchmark on the natural rank-one spectral spike family, specifically motivated by adjoint-free operator norm search. It converts a broad convergence guarantee into the full finite-time law, exact expected residual, sample-path exponential rate and a quantitative forward-evaluation cost tradeoff. Near a full tangent budget the expected gap under one block is \(1/(d-1)\) of its initial value, versus asymptotic \(e^{-1}\) under the same count of sequential single-direction steps, a dimension-order separation. The comparison does not predict total computational runtime because Rayleigh–Ritz subproblems become more costly with block size.
+Credit the exact all-block adaptive product law with the strict all-partition forward-product comparison, not the already published block algorithm or the standard Haar projection distribution. Prior observations about iteration and runtime performance concern a different cost comparison; the strongest exact catalog match treats a single direction and is later. No inspected earlier source gives the exact state-independent adaptive gap law for every block size and the resulting optimal allocation under this budget.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Forward applications are a natural cost when the adjoint is unavailable and applying the forward operator is expensive. The result compares all deterministic groupings of a fixed number of such calls in the benchmark one-spike model, not just a simulation against another method. Strict finite-budget dominance and the order-1/m versus order-one gap near a full block give a concrete, interpretable resource separation. The full product laws quantify variability as well as the mean, without assuming a wall-clock advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

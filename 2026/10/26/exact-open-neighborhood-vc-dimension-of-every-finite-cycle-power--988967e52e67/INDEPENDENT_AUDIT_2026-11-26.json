@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:24:53.805035Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63 and VERIFICATION.md, lines 19–28",
+        "/workspace/branches/9ab00cd9-1546-4857-8fff-306ad81d6339/fresh_cycle_neighborhood_replay.py",
+        "/workspace/branches/9ab00cd9-1546-4857-8fff-306ad81d6339/fresh_cycle_neighborhood_replay.log"
+      ],
+      "rationale": "The five cases hold with open neighborhoods and the whole cyclic vertex set as both sample ground set and center set, including radii above the diameter. In the complete case a two-point set cannot have an empty trace; at n=2r+2 an empty trace would require an antipodal pair, which has no singleton trace. At n=2r+3, multiplication by the inverse of r+1 converts complements to consecutive triples: a full three-point trace would require one such triple and its endpoints cannot occur without its midpoint. For n>=2r+3 the pair {0,r+1} has all four traces. In the four-point obstruction each membership bit has four change positions, with the two center-hole transitions consecutive. Sixteen different traces would force sixteen runs with precisely one changed bit at each boundary; the consecutive flips undo each other and repeat a trace in separate runs. At r=2, n>=9, requiring the full trace reduces the candidate triple to a subset of {-2,-1,1,2}; the witnesses for joint inclusion of the designated pair are confined to center 0, where the third vertex is also included. The wrap-around distances in the two uniform witness tables give their eight stated traces up to and including n=3r+2 and starting at n=3r+3, respectively; the C8 square witness checks directly. The fresh replay matched 297 pairs (3<=n<=24, 1<=r<=n) and the eight-trace witnesses on 295 pairs (3<=r<=12, 2r+4<=n<=5r+10). This is finite corroboration of the symbolic proof, not its basis.",
+      "residual_risks": [
+        "No general assertion for closed neighborhoods or arbitrary circulants; bounded replay does not certify those or establish the unrestricted result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler–Benediktsson–Macpherson treat Johnson/Hamming families. Coudert et al. give algorithms for graph VC dimension and note applicability to open ranges, not this formula. The stable-cycle record computes topology, for n>=4k+1."
+        ],
+        "reasoning": "The graph families and invariants in these exact results do not dominate the two-parameter open-range problem. A general calculation algorithm does not assert the classification or its exceptional cases.",
+        "searches": [
+          "arXiv:2007.16042",
+          "arXiv:2405.07588",
+          "Resultary stable cycle power neighborhood complex comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.16042",
+        "arXiv:2405.07588",
+        "Resultary da8d9213216f, a2339801b688 and 8b0b7f77dba1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hamming upper bound of three does not transport to arbitrary cycle powers and cannot yield the dense transitions or the isolated square exception. Neighborhood-complex faces only encode whether a set is contained in some neighborhood; shattering requires all exact traces."
+        ],
+        "reasoning": "Neither a shared upper bound nor a homotopy theorem provides the disappearing radius-two witness or the full piecewise dimension.",
+        "searches": [
+          "arXiv:2007.16042, abstract",
+          "arXiv:2405.07588, abstract and conclusion",
+          "Resultary a2339801b688 and da8d9213216f, RESULT.md offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The translate by v of the centered radius-r arc with its center removed is exactly N(v). Its complement is not generally a vertex ball. The matched ball catalogue record uses closed balls of all radii <=R and threshold ceil(n/4)."
+        ],
+        "reasoning": "Translation and complementation preserve the trace comparison in the stated ways, but allowing multiple radii and including the center changes the set family; neither reversal of ranges nor a radius renaming yields the claimed classifier.",
+        "searches": [
+          "Literature: open neighborhood VC dimension powers of cycles circulant graphs cycle square exact formula",
+          "Resultary semantic comparisons for open-neighborhood VC dimension and cycle shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue matches were radius-filtered graph balls da8d9213216f and stable-cycle-power complexes a2339801b688; same-day 8b0b7f77dba1 uses maximal independent sets through C16. None is a table for these fixed open ranges."
+        ],
+        "reasoning": "Matching cycle parameters do not give the same rows or even the same samples/ranges. No matching exact table was identified in this bounded search.",
+        "searches": [
+          "Resultary semantic searches for cycle power, neighborhoods and VC shattering, including distinct same-day results",
+          "Literature query on cycle powers and cycle squares"
+        ]
+      },
+      "rationale": "No equivalent or dominating result was found in the inspected sources. The assessment credits only the exact fixed-radius open-neighborhood classification, not publication priority.",
+      "residual_risks": [
+        "On the Number of Cycles of Graphs and VC-Dimension was not accessible as full text. Unindexed work on punctured circular arcs or translates might give coverage; the searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph families",
+          "evidence": [
+            "The results concern Johnson and Hamming graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract, PDF p. 1, extracted offset 1574",
+          "method": "OA PDF passage",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Open-neighborhood shattering with an upper bound of three"
+        },
+        {
+          "assessment": "Algorithmic framework, not the exact classifier",
+          "evidence": [
+            "Closed neighborhoods are used in the main definition; the conclusion also notes applicability to open ranges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "Abstract p. 1, offset 0; conclusion p. 16, offset 48956",
+          "method": "OA PDF passages",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Potential broader graph theorem"
+        },
+        {
+          "assessment": "Different range family",
+          "evidence": [
+            "Closed balls with radii at most R; threshold ceil(n/4)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-radius-filtered-graph-balls-on-cycles-exact-shattering-polynomia--da8d9213216f",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Radius-filtered graph balls on cycles: exact shattering polynomial",
+          "trigger": "Same cycle object and exact shattering terminology"
+        },
+        {
+          "assessment": "Topological classification does not compute exact traces",
+          "evidence": [
+            "Homotopy type of the open Lovász neighborhood complex for n>=4k+1."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sphere-mapping-tori-in-neighborhood-complexes-of-every-stable-cy--a2339801b688",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sphere mapping tori in neighborhood complexes of every stable cycle power",
+          "trigger": "Same open neighborhoods of cycle powers"
+        },
+        {
+          "assessment": "Different set system and finite regime",
+          "evidence": [
+            "Ranges are maximal independent sets, analyzed through C16."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "First online versus static shattering gaps for maximal independent sets",
+          "trigger": "Distinct same-day exact cycle shattering record"
+        },
+        {
+          "assessment": "Full statement unverified; not counted as negative evidence",
+          "evidence": [
+            "Snippet refers to cycle hypergraphs, but the exact range family was not verified."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/364076572_ON_THE_NUMBER_OF_CYCLES_OF_GRAPHS_AND_VC-DIMENSION",
+          "material_read": "Search-index snippet only",
+          "method": "Search followed by direct and VPN OA attempts, both HTTP 403",
+          "title": "On the Number of Cycles of Graphs and VC-Dimension",
+          "trigger": "Cycle and VC terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and witness tables, lines 24–63"
+      ],
+      "rationale": "A canonical graph family gives a complete exact benchmark for the effect of removing the center from a circular ball. In particular the square changes from three to two between n=8 and n=9, unlike the stable higher-radius regime. The center-hole argument explains an obstruction that the generic transition budget alone does not, and the exact witnesses distinguish every boundary without a cutoff.",
+      "residual_risks": [
+        "The value is the exact classification for this family, not a claim about general graph learning bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

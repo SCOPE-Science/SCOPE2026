@@ -1,118 +1,70 @@
-# Global oscillation threshold and critical algebraic synchronization in a three-gene logistic cycle
+# Global oscillation threshold and exact critical relaxation in a three-node logistic cycle
 
 ## Finding
-Consider the three-component signed weighted-sum logistic network
+Consider the autonomous real ODE
 \[
- \dot x_i=\sigma\bigl(4(x_i-x_{i-1})\bigr)-v x_i,
- \qquad i\in\mathbb Z/3\mathbb Z,\qquad
- \sigma(s)=\frac{1}{1+e^{-s}},\qquad v\ge1.
+\dot x_i=\sigma\bigl(4(x_i-x_{i-1})\bigr)-v x_i,\qquad
+\sigma(s)=\frac{1}{1+e^{-s}},\qquad i\in\mathbb Z/3\mathbb Z,\quad v\ge1.
 \]
-The cyclic indexing convention is \(x_0=x_3\). The interaction consists of self-activation and inhibition from one predecessor at equal magnitude, with zero activation thresholds and equal degradation rates. This is a natural symmetric three-node instance of the signed weighted-sum logistic regulatory class described and compared by Belgacem (2026).
+The predecessor of coordinate 1 is coordinate 3. Every real initial state has a bounded global forward solution, and the only equilibrium is \((1/(2v),1/(2v),1/(2v))\). Put \(d_i=x_i-x_{i-1}\) and \(R=\sum_i d_i^2\). Exactly synchronous solutions stay synchronous and converge exponentially for every \(v\ge1\). For every nonsynchronous start the following statements hold:
 
-For every real initial state, the system has a global forward solution. Put
-\[
- d_i=x_i-x_{i-1},\qquad R(t)=d_1(t)^2+d_2(t)^2+d_3(t)^2.
-\]
-Its only equilibrium for \(v\ge1\) is \((1/(2v),1/(2v),1/(2v))\). The following sharp trichotomy holds for every nonsynchronous initial state (equivalently, \(R(0)>0\)):
+1. For \(v>3/2\), the solution converges to equilibrium and \(e^{2(v-3/2)t}R(t)\) has a finite, strictly positive limit depending on the initial state and \(v\).
+2. At \(v=3/2\), the solution converges to equilibrium and \(\lim_{t\to\infty}tR(t)=1/2\).
+3. For \(1\le v<3/2\), the distance from the solution to some nonconstant periodic orbit tends to zero. No uniqueness, hyperbolicity, or asymptotic phase is asserted.
 
-1. If \(v>3/2\), the state converges to that equilibrium. Moreover, for a positive constant depending on the initial state,
-\[
- \lim_{t\to\infty}e^{2(v-3/2)t}R(t)=C(x(0),v)\in(0,\infty).
-\]
-2. If \(v=3/2\), the state converges to the equilibrium with the universal critical law
-\[
- \boxed{\lim_{t\to\infty}tR(t)=\tfrac12.}
-\]
-3. If \(1\le v<3/2\), the distance from the trajectory to some nonconstant periodic orbit tends to zero. In particular, at least one periodic orbit exists, and no nonsynchronous trajectory tends to an equilibrium. This is not a uniqueness or hyperbolicity claim for the periodic orbit.
-
-Every initially synchronous solution remains synchronous and converges exponentially to equilibrium, including below the transverse threshold. Thus the global transition is in the transverse dynamics, and the boundary rate is explicitly algebraic.
+The distinct contribution is the exact global transition in this one-parameter family, in particular the all-nonsynchronous orbit conclusion in the oscillatory range and the exact inverse-time law on the marginal boundary. Supercritical attraction itself follows from older general secant theory after passage to differences; the exact \(v=1\) example and numerical evidence of an attracting cycle were already given by Pokutnyi and Sadyrbaev. See below for the comparisons.
 
 ## Assumptions and scope
-The state variables are real and indexed modulo three, \(v\) is a fixed real parameter with \(v\ge1\), and solutions are classical. The biologically natural nonnegative cube is forward invariant for nonnegative initial states; the conclusions also hold for arbitrary real initial data. The logistic gain is fixed to four, giving unit maximal derivative in each signed regulatory input. No delay, noise, other graph, or unequal parameter is included. Convergence to a periodic orbit refers to distance to its compact trajectory, without claiming a unique asymptotic phase.
+Time in the limits is the time in the displayed ODE, and \(v\) is fixed. The cube \([0,1/v]^3\) and the nonnegative orthant are each invariant for initial states in them; the conclusions quantify over all real initial states. The theorem concerns this exact signed, gain-four mathematical model, with identical node parameters and zero offsets.
 
 ## Proof
-### Boundedness and the exact transverse planar subsystem
-Since \(0<\sigma(s)<1\) and \(v>0\), comparison with \(\dot u=-vu\) and \(\dot u=1-vu\) bounds every coordinate forward for any initial state. The vector field is smooth and globally Lipschitz, so solutions exist for all positive times; \([0,1/v]^3\) is forward invariant.
+**Bounds and exact reduction.** The logistic forcing lies between 0 and 1, so integrating the scalar linear damping bounds each coordinate for all forward times and gives the invariance assertions. The vector field is globally Lipschitz. With \(\phi(s)=\sigma(4s)-1/2=\tfrac12\tanh(2s)\), subtracting consecutive equations gives
+\[
+\dot d_i=-v d_i+\phi(d_i)-\phi(d_{i-1}),\qquad \sum_i d_i=0.\tag{1}
+\]
+This is an autonomous planar reduction. The mean \(m=\tfrac13\sum_i x_i\) obeys \(\dot m=-vm+g(d)\), where \(g(d)=\tfrac13\sum_i\sigma(4d_i)\). For \(d=0\) this is \(\dot m=-vm+1/2\), which proves the assertion for synchronous starts.
 
-Write
-\[
- \phi(s)=\sigma(4s)-\tfrac12=\tfrac12\tanh(2s).
-\]
-Then \(\phi\) is smooth, odd, bounded, and \(0<\phi(s)<s\) for \(s>0\); its derivative is \(\phi'(s)=\operatorname{sech}^2(2s)\le1\). Subtract consecutive equations to obtain the autonomous difference system
-\[
- \dot d_i=-v d_i+\phi(d_i)-\phi(d_{i-1}),\qquad
- d_1+d_2+d_3=0.\tag{1}
-\]
-Thus all transverse motion lies on a two-dimensional invariant plane. If \(d\equiv0\), every coordinate obeys \(\dot x=1/2-vx\).
+**Unique equilibrium.** For \(s\ne0\), \(\phi(s)\) has the sign of \(s\) and \(|\phi(s)|<|s|\). Therefore \(vs-\phi(s)\) also has that sign when \(v\ge1\). At equilibrium of (1), \(v d_i-\phi(d_i)=-\phi(d_{i-1})\). A zero entry forces all entries to be zero; otherwise nonzero signs must alternate around a three-cycle, which is impossible. The mean equation at \(d=0\) now gives the unique full equilibrium.
 
-### Uniqueness of equilibrium for \(v\ge1\)
-At a difference equilibrium, equation (1) becomes
+**Exact radial identity.** Set \(\psi(s)=s-\phi(s)\), which is strictly increasing since \(\psi'(s)=\tanh^2(2s)\). Define
 \[
- v d_i-\phi(d_i)=-\phi(d_{i-1}).\tag{2}
+T(d)=\sum_i d_i\psi(d_i)-\sum_i d_i\psi(d_{i-1}).
 \]
-For \(v\ge1\), the function \(s\mapsto vs-\phi(s)\) vanishes only at zero and has the same strict sign as \(s\) elsewhere. If one \(d_i\) vanishes, equation (2) forces every \(d_i\) to vanish. Otherwise, equation (2) requires the signs of every two cyclic neighbors to alternate. This is impossible around an odd cycle of length three. Therefore \(d=0\). At equilibrium the synchronous coordinate must be \(1/(2v)\), proving uniqueness.
+The rearrangement inequality gives \(T\ge0\): pairing two strictly similarly ordered lists maximizes their sum of products. Equality for a cyclic shift requires that the shift preserve each value class, since any inverted unequal pair would strictly increase the sum upon uncrossing. A three-cycle preserves the value classes only when the triple is constant; in the plane this means \(d=0\). Using \(\sum_i d_id_{i-1}=-R/2\) on the plane, (1) yields
+\[
+\tfrac12\dot R=(\tfrac32-v)R-T(d).\tag{2}
+\]
+Nonsynchronous solutions have \(R>0\) at each finite time by uniqueness.
 
-### Rearrangement dissipation
-Define \(\psi(s)=s-\phi(s)\). Its derivative is \(\psi'(s)=\tanh^2(2s)\), so \(\psi\) is strictly increasing. For any real triple, the rearrangement inequality (strict unless all three entries coincide) implies
+**Above threshold.** For \(a=v-3/2>0\), (2) gives \(R(t)\le R(0)e^{-2at}\). Since \(\psi(s)=O(s^3)\) near zero, \(T(d)/R=O(R)\) there. Thus the integral of \(T/R\) over forward time is finite, and
 \[
- T(d):=\sum_i d_i\psi(d_i)-\sum_i d_i\psi(d_{i-1})\ge0,
+\frac{d}{dt}\log(e^{2at}R(t))=-2T(d(t))/R(t)
 \]
-with equality on \(\sum_i d_i=0\) only at \(d=0\). Since \(\sum_i d_id_{i-1}=-R/2\) whenever \(\sum d_i=0\), equation (1) yields the *exact* balance
-\[
- \boxed{\tfrac12\dot R=(\tfrac32-v)R-T(d).}\tag{3}
-\]
-This is a strict global Lyapunov law at and above the critical value.
+gives the finite positive limit. The mean equation converges to \(m=1/(2v)\) by variation of constants as its forcing tends to \(1/2\).
 
-### Supercritical convergence and the exact decay exponent
-For \(v>3/2\), put \(\alpha=v-3/2>0\). Equation (3) gives \(0<R(t)\le R(0)e^{-2\alpha t}\) for all nonsynchronous trajectories (uniqueness prohibits their reaching \(R=0\) at finite time). Because \(\psi(s)=O(s^3)\) as \(s\to0\), one has \(0\le T(d)/R=O(R)\) near the origin, and \(\int_0^\infty T(d(t))/R(t)\,dt<\infty\). Integration of
+**At threshold.** Equation (2) is strictly dissipative off zero when \(v=3/2\). A positive limiting \(R\) would confine the solution to a compact annulus in the difference plane on which \(T\) has a positive minimum, contradicting (2). Thus \(R\to0\). The Taylor coefficient is \(\psi(s)=4s^3/3+O(s^5)\). To compute its contribution without any directional averaging, note that the three entries of \(d\) are roots of
 \[
- \frac d{dt}\log\bigl(e^{2\alpha t}R(t)\bigr)=-2T(d(t))/R(t)
+u^3-(R/2)u-d_1d_2d_3=0,
 \]
-proves convergence of \(e^{2\alpha t}R(t)\) to a finite *positive* constant. The mean coordinate \(m=\frac13\sum_i x_i\) obeys \(\dot m=-vm+\frac13\sum_i\sigma(4d_i)\); since \(d\to0\), it follows that \(m\to1/(2v)\) and hence \(x\to(1/(2v),1/(2v),1/(2v))\).
+since their sum is zero and their pairwise products sum to \(-R/2\). Hence \(d_i^3=(R/2)d_i+d_1d_2d_3\). Substituting into \(\sum_i d_i(d_i^3-d_{i-1}^3)\) gives exactly \(3R^2/4\). Consequently \(T(d)=R^2+O(R^3)\) uniformly as \(d\to0\), and \((1/R)'=2+O(R)\). Averaging in time yields \(tR\to1/2\), with convergence of the mean as above.
 
-### Critical constant
-At \(v=3/2\), (3) gives \(\dot R=-2T(d)<0\) away from synchronization. Boundedness and compactness imply \(R(t)\to0\): any positive limiting value would give a compact positive-distance invariant set on which \(\dot R<0\), impossible. Near zero, the Taylor expansion is
-\[
- \psi(s)=\frac43s^3+O(s^5).
-\]
-For \(d_1=a\), \(d_2=b\), \(d_3=-a-b\), direct polynomial expansion yields the exact identity
-\[
- \sum_i\bigl(d_i^4-d_id_{i-1}^3\bigr)
- =3(a^2+ab+b^2)^2=\frac34 R^2.\tag{4}
-\]
-Combining (4) with \(\psi(s)=\frac43s^3+O(s^5)\), uniformly in direction as \(d\to0\), gives
-\[
- T(d)=R^2+O(R^3),\qquad
- \dot R=-2R^2+O(R^3).
-\]
-For every nonsynchronous trajectory, \(R>0\), so \(\frac d{dt}(1/R)=2+O(R)\to2\). Integration and division by \(t\) prove \(1/(tR(t))\to2\), equivalently \(tR(t)\to1/2\). Convergence of the full state follows from the same stable mean equation.
+**Below threshold.** The linearization of (1) is \((1-v)I-P\) with \((Pd)_i=d_{i-1}\). Restricted to the plane, the eigenvalues of \(P\) are the two nontrivial cube roots of unity, so the eigenvalues of the flow linearization are \(3/2-v\pm i\sqrt3/2\). For \(v<3/2\), (2) and \(T=O(R^2)\) give \(\dot R\ge(3/2-v)R\) in a sufficiently small punctured disk. A nonsynchronous orbit exits that disk if started within it and cannot enter through its outward-pointing boundary. Thus its planar omega-limit set does not contain zero. It is compact and nonempty by boundedness, and there are no other equilibria. Poincaré–Bendixson gives a periodic orbit as the entire planar omega-limit set.
 
-### Subcritical periodicity
-For \(1\le v<3/2\), the planar linearization of (1) at \(d=0\) has the complex-conjugate eigenvalues
-\[
- \lambda_\pm=\frac32-v\pm i\frac{\sqrt3}{2}.
-\]
-Thus zero is a hyperbolic repeller in the difference plane. Equation (1) has bounded forward orbits, because \(\phi\) is bounded. There is no other difference equilibrium by the preceding sign argument. A nonsynchronous planar orbit cannot approach, or have in its omega limit, the hyperbolic source. Its nonempty compact omega-limit set therefore contains no equilibria. The Poincaré–Bendixson theorem implies that the omega limit is a periodic orbit. In particular such periodic orbits exist and the distance to one of them tends to zero.
-
-For the full three-dimensional system, reconstruct the mean coordinate \(m=(x_1+x_2+x_3)/3\) from the differences: it is driven linearly by \(g(d)=\frac13\sum_i\sigma(4d_i)\) and exponentially damped at rate \(v\). For any periodic difference orbit, this scalar forced equation has exactly one periodic response of the same period. The omega limit of the bounded full trajectory projects onto that difference orbit. Every bounded *entire* solution of the scalar driven mean equation above a periodic difference orbit is necessarily its unique periodic solution (variation of constants backwards, using exponential decay forwards). Therefore the full omega limit is contained in the corresponding compact periodic lift, and the distance to that lift tends to zero. The lifted orbit is nonconstant because its differences are nonconstant. This completes the trichotomy.
+For a periodic difference trajectory of period \(P_0\), the stable scalar mean equation has a unique bounded entire solution, obtained by convolving its forcing with the kernel \(e^{-vs}\) on \(s\ge0\). This response is \(P_0\)-periodic; two distinct mean responses to the same forcing cannot both be bounded backwards because their difference is a nonzero multiple of \(e^{-vt}\). The full omega-limit set is compact and invariant in both time directions and projects onto the planar periodic orbit. Each of its entire trajectories must have that unique mean response over its difference trajectory. Hence the full omega-limit is contained in the periodic lift, and the distance to that lift tends to zero. This does not require selection of a phase.
 
 ## Verification
-The standalone `verify.py` checks the polynomial identity (4) exactly using integer arithmetic, evaluates strict finite-sample rearrangement inequalities, reproduces the predicted linear eigenvalues, and integrates representative trajectories on both sides of the boundary and at criticality. In the critical test it checks that the observable approaches the proven coefficient \(1/2\). These finite checks are independent diagnostics, not substitutes for the infinite-time argument above. The only analytical ingredients not reducible to finite computation are the rearrangement inequality, the strict Lyapunov/compactness argument, and Poincaré–Bendixson on the difference plane.
+The proof computes the linearization and gives the polynomial identity for every triple of sum zero. The original standard-library `verify.py` supplies exact rational **grid** checks of the identity, sampled dissipation inequalities, and finite-time runs in three example regimes. Its linear-eigenvalue snippet inserts a formula rather than computing eigenvalues independently. These diagnostics neither certify the polynomial identity by themselves nor prove the limiting laws or periodicity.
 
 ## Relationship to prior work
-Belgacem, *A Bias-Corrected Weighted Logistic Model for Gene Regulatory Networks* (first public version June 3, 2026, arXiv:2606.04709v1), develops and compares general logistic genetic regulatory laws, explicitly including the signed weighted-sum class of the present system (its §1.1 and §2). Its contraction criterion gives useful sufficient stability regions for related models, and its two-gene example exhibits a Hopf bifurcation, but the inspected text does not give the exact global three-node threshold, the all-initial-condition planar periodicity statement, or the inverse-time critical constant proved here. This result concerns the *uncorrected signed weighted-sum* formulation, not Belgacem's separate bias-corrected formulation; no equivalence between those two formulations is asserted.
+Belgacem [1, §§2.3, 3.3, eqs. (9), (23)] treats the uncorrected signed weighted-sum logistic node response as well as a distinct bias-corrected formulation. The ODE here is in the uncorrected model class. Pokutnyi and Sadyrbaev [2, §3.2, eq. (21), Fig. 2] display exactly the present ODE at \(v=1\) by choosing \(k=1\) and zero thresholds; they report an attractive limit cycle numerically. Their subsequent \(v_3\)-variation fixes the other rates at 1 and adjusts thresholds, so it is not the common-rate transition considered here. The single-parameter example is credited as prior coverage, without a claim about a separate eligibility date.
 
-A later source, Pokutnyi and Sadyrbaev, *The influence of decay in dynamic models of gene regulatory networks* (arXiv:2610.18261v1, publicly posted October 13, 2026, after the present eligibility anchor), studies the same signed \(3\)-cycle weight matrix at logistic gain four and reports linear eigenvalues and numerical attracting periodic orbits at particular decay rates. Its relevant full-text sections (§2, §3.1 and conclusions) do not supply the global sharp threshold, uniqueness-of-equilibrium argument, or critical inverse-time constant. It is comparative supporting literature, **not** the earlier eligible source used to date this result.
-
-Arcak and Sontag, *A Passivity-Based Stability Criterion for a Class of Interconnected Systems and Applications to Biochemical Reaction Networks* (2007, arXiv:0705.3188), derive nonlinear passivity/secant sufficient stability conditions for cyclic feedback networks and explicitly caution that local stability need not preclude cycles. Their displayed monotone cyclic model has additive scalar input/output components, unlike the mixed state difference within each sigmoid here. Even where a general small-gain theorem could imply a stable subrange, such a sufficient criterion does not entail our sharp oscillatory side or universal critical relaxation amplitude. Poincaré–Bendixson is classical and supplies the final periodic-orbit implication after our model-specific planar reduction and equilibrium exclusion.
-
-Searches of publicly indexed mathematical records, close network variants, and the accessible private claim history yielded no directly covering global trichotomy. As with any literature-limited novelty check, equivalent statements in other network terminology remain a residual risk.
+Arcak and Sontag [3, §5, Corollary 3] give strict nonlinear secant stability on real state space. In (1) change the sign of \(d_2\) to put the loop into their one-negative-link form with self term \(a(s)=v s-\phi(s)\) and link term \(b(s)=\phi(s)\). For \(v>1\), \(\sup_{s\ne0} b(s)/a(s)=1/(v-1)\); the required sign conditions hold and the integral of \(b\) from zero is proper, since \(b(s)\to\pm1/2\) at the two ends. The strict three-node secant inequality is precisely \([1/(v-1)]^3<8\), or \(v>3/2\). Thus global attraction on the strict stable side is a specialization of that theorem, not an independent novelty claim. At equality the strict secant hypothesis fails; the criterion does not give the marginal amplitude or the oscillatory conclusion. Related passivity results are discussed in [4]. The present proof uses a specialized planar energy law to obtain the marginal coefficient and quantifiers on both sides of that boundary.
 
 ## Limitations
-The finding is an exact mathematical result for three identical signed logistic nodes, a fixed logistic slope four, and decay \(v\ge1\). The physical interpretation of a zero-threshold inhibitory edge is not validated experimentally. Oscillatory trajectories converge in distance to a periodic orbit but its uniqueness, attraction rate, waveform and period are not classified. Other choices of weights, thresholds, graph sizes, delays or stochastic perturbations are not covered. The independence of the mathematics is not externally certified and the originality comparison is limited to sources actually inspected.
+No result is stated for \(v<1\), other graph sizes or weights, delays or noise. The period, waveform, number, and hyperbolicity of the attracting periodic orbits are not classified. The result is a mathematical statement, not an experimental or physical validation. The prior-work comparison is limited to the passages inspected and does not certify historical priority.
 
 ## References
-1. Ismail Belgacem, *A Bias-Corrected Weighted Logistic Model for Gene Regulatory Networks: Functional Equivalence with the Product-of-Logistics and Comparison with Weighted-Sum Formulations*, arXiv:2606.04709v1, first posted 2026-06-03. https://arxiv.org/abs/2606.04709
-2. Oleksandr Pokutnyi and Felix Sadyrbaev, *The influence of decay in dynamic models of gene regulatory networks*, arXiv:2610.18261v1, posted 2026-10-13. https://arxiv.org/html/2610.18261v1
-3. Murat Arcak and Eduardo D. Sontag, *A Passivity-Based Stability Criterion for a Class of Interconnected Systems and Applications to Biochemical Reaction Networks*, arXiv:0705.3188v1, 2007-05-22. https://arxiv.org/html/0705.3188v1
-4. Classical rearrangement inequality and the Poincaré–Bendixson theorem (used in their standard planar forms).
+1. I. Belgacem, *A Bias-Corrected Weighted Logistic Model for Gene Regulatory Networks: Functional Equivalence with the Product-of-Logistics and Comparison with Weighted-Sum Formulations*, arXiv:2606.04709v1.
+2. O. Pokutnyi and F. Sadyrbaev, *The influence of decay in dynamic models of gene regulatory networks*, arXiv:2610.18261v1, first posted October 13, 2026.
+3. M. Arcak and E. D. Sontag, *Diagonal stability of a class of cyclic systems and its connection with the secant criterion*, Automatica 42 (2006), 1531–1537, DOI:10.1016/j.automatica.2006.04.009.
+4. M. Arcak and E. D. Sontag, *A Passivity-Based Stability Criterion for a Class of Interconnected Systems and Applications to Biochemical Reaction Networks*, arXiv:0705.3188v1.

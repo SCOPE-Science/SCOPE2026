@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical and reproducibility verification
+# Independent mathematical audit
 
-The unrestricted assertion is proved symbolically in `RESULT.md`. Its essential equivalence is
-\[
-x\notin D_{\omega}(A)\quad\Longleftrightarrow\quad X\setminus A\in\mathcal F_x
-\]
-for every point \(x\) with all neighbourhoods infinite, followed by the ultrafilter complement law. Neither finite enumeration nor any external computer certificate proves the unrestricted theorem.
+## correctness
 
-Execute `python3 verify.py` with Python 3 and no third-party packages. The script enumerates all proper filters on finite labelled carrier sets of sizes one through five; on a finite carrier every such filter has a unique nonempty generating kernel. For each filter it tests all ordered pairs of subsets for additivity of the positive-set predicate and the equivalence between meet preservation and singleton generation. Expected aggregate: 57 filters, 36,084 ordered-pair tests, PASS. These finite filters are *abstract analogues*, not finite models with nonempty \(\omega\)-accumulation (there are none).
+PASS
 
-The first-countability failure is checked by a purely mathematical selection of two disjoint sequences through a nested neighbourhood base; the countable Hausdorff example depends on a free ultrafilter, whose existence is assumed in ZFC. Verify the Hausdorff and clopen-neighbourhood conditions directly as displayed in the proof. There is no claim of independent certification or of a finite computational proof of the free ultrafilter's existence.
+At an active point every neighbourhood is infinite. The sets that contain a neighbourhood modulo finite error form a proper filter by intersecting the two witnessing neighbourhoods, and contain all cofinite sets, hence form a free filter. Nonmembership of x in D_omega(A) is exactly membership of X\A in that filter. For any A, at least one of A and its complement accumulates at x, since intersecting witnesses of two failures would give a finite neighbourhood. Meet preservation makes the two alternatives mutually exclusive, giving ultrafilter dichotomy; conversely an ultrafilter makes positivity exactly filter membership, which preserves meets as well as unions, complements and bounds in the power set of S. In a decreasing countable local base at an active point, select two fresh points in each infinite member. The two disjoint selections each meet every neighbourhood infinitely and disprove the equality. If S is empty all outputs are empty. For the free-ultrafilter extension of N, all natural numbers are isolated and the ultrafilter point is active; the basic neighbourhoods are clopen and separate it from each natural number. An input accumulates at that point exactly when its trace on N is in the ultrafilter. This verifies the counterexample under the stated choice assumption, with no separation condition needed for the obstruction.
+
+## originality
+
+PASS
+
+The accumulation operator, filter/grill mechanism and one-free-ultrafilter topology are standard or previously supplied. The supported distinct result is the combined all-valuations characterization for this operator with its sharp topological obstruction and simultaneous Hausdorff, countable and zero-dimensional witness. The strongest inspected same-operator comparisons study disjunction, the logic of a particular nonexample, or closure of the image family rather than this law.
+
+## value
+
+PASS
+
+It gives an exact validity criterion for a natural conjunctive law of the halo operator, not merely a filter construction: local countable bases rule it out everywhere any accumulation is possible, whereas countability of the whole space plus strong separation still allows a nontrivial model. That contrast distinguishes the relevant topological hypothesis and gives an explicit test and witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

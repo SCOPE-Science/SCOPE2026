@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:24.793999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rank cannot increase under composition. A rank-(n−1) map e_(i,j) has the collapsed pair {i,i+1} and omitted j; its monotone nonfixed run has maximal time to reach a fixed point i+1−j for j≤i, or j−i for j≥i+1. Strict quasi-idempotence is exactly maximal time 2, giving the two stated candidates. Every lower-rank map factors through a top-rank map collapsing an adjacent repeated value: delete one occurrence from its value list and insert a missing value into the shortened list in sorted order to obtain the second factor of rank one higher. Iterate to generate all lower ranks. For top-rank products, appending e_(i,j) preserves rank iff the current omitted index belongs to {i,i+1}, and then changes the omitted index to j. Rows and columns must be covered. A prefix cut k without a right crossing traps the initial generators of row k−1 in the prefix (k≥2, and k=1 is forced by row 1); without a left crossing row k+1 is trapped on the right (with the other endpoint forced). Conversely, in the directed graph on omitted indices a closed sink component cannot have an interior hole: if a belongs and a+1 does not, the right crossing at a forces r_a and a+2 in the component (r_(a−1) would go from a to a+1). But then neither possible way to cover column a+1 is allowed: r_(a−1) and l_(a+2) would send a component vertex to a+1. A proper interval is not closed either, since a crossing of its adjacent cut includes an arc out of its boundary vertex. The graph is strongly connected, so all omitted indices are reachable for each covered first row. Column coverage and consecutive cut tests give precisely the three stated transition predicates, initial r_1=1 and terminal l_(n−1)=1, r_(n−3)=r_(n−2)=1. Direct expansion of all five-step transition words verified the symbolic anchor update and all terminal polynomials, including their costs; the eight cost offsets are constant apart from 6j, so no hidden j-dependent ties are possible. A fresh direct composition check through n=8 agreed with the graph criterion and yielded (minimum size, count)=(4,1),(6,1),(6,1),(8,3),(9,2). Replay: /workspace/branches/semigroup_replay.py. The all-n proof is the graph equivalence and polynomial induction, not the small-n enumeration. Lower-rank generators cannot supplement a minimum set because its top-rank part already generates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 Corollary 1 and start of §3 give the corank-one classifications and its abstract states a cardinality upper bound. The 2026 JSTA abstract and §3 discuss the rank ideals and lengths of products, not the number of globally optimum generating sets; the problem of minimum product length concerns a single element. The indexed October exact-rank record gives floor(6n/5)−1_(n≡1 mod 5)."
+        ],
+        "reasoning": "Broader-rank characterization and factorization results have different outputs. Knowing the optimal cardinality and the admissibility criterion is not a theorem counting the minimizing subsets, which requires tracking multiplicities over tied optimum paths.",
+        "searches": [
+          "Imam et al., DOI:10.12958/adm1846, §§2–3 and abstract",
+          "Imam–Bayero–Idris JSTA 2026:2 DOI:10.28919/jsta/9723, introductory definitions and main result statements",
+          "Resultary: Exact quasi-idempotent generating rank of the singular order-preserving transformation semigroup (October 2026)"
+        ]
+      },
+      "checked_sources": [
+        "Imam–Ibrahim–Garba–Usman–Idris DOI:10.12958/adm1846",
+        "Imam–Bayero–Idris DOI:10.28919/jsta/9723",
+        "Resultary October exact-rank predecessor and nearest indexed transformation results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the rank only locates the optimum; even at equal minimum size n=5 and n=6 there is no mechanism in the cardinality formula to derive the coefficient vector. The five-step update for the fixed-offset anchor propagates a genuinely new cubic count in residue zero and a constant count of one in residue one. The finite legality criterion supplies the input to this calculation, not the polynomial identities."
+        ],
+        "reasoning": "The method and input are credited. The evaluated tie multiplicities and uniqueness are a quantitative refinement, not a restatement or direct special case of the upper bound/exact rank.",
+        "searches": [
+          "Resultary exact-rank predecessor and frozen RESULT.md §§Proof, Relationship to prior work",
+          "DOI:10.12958/adm1846, Corollary 1 and §3; DOI:10.28919/jsta/9723, Abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count is of unordered generating subsets of the full singular isotone monoid stratum/semigroup, not ordered factorizations or inclusion-minimal sets. Equivalently it counts minimum-size row-and-column covers of the restricted incidence graph with both directions across each prefix cut. Reversing the chain conjugates maps and exchanges left and right choices, but the record does not quotient by that symmetry."
+        ],
+        "reasoning": "These are bijections/encoding of the same objective, and they distinguish the problem from ordinary idempotent rank, arbitrary decreasing or partial maps, and factorization-length formulas. No inspected predecessor was found counting the optimizers in this equivalent constrained-graph problem.",
+        "searches": [
+          "Resultary: minimum strict quasi-idempotent generating subsets singular order-preserving transformations exact rank multiplicity five periodic transfer incidence",
+          "Primary search: exact quasi-idempotent generating rank singular order-preserving transformations Imam Ibrahim Garba Usman Idris adm1846 number minimum generating sets strict quasi-idempotents chain graph enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The near-match exact-rank record indexes cardinalities, not an all-length count table; the frozen comparison specifically identifies its total minimum-set multiplicity as left open. Other indexed classifications for rooted singular maps or inverse-neighborhood counts use different semigroups or statistics."
+        ],
+        "reasoning": "The cardinality table cannot substitute for the exact number of subsets at the optimum. No independent matching table or all-length count was identified.",
+        "searches": [
+          "Resultary query above for cubic quasipolynomial and minimum strict generating subset counts",
+          "Primary source comparison DOI:10.12958/adm1846 and DOI:10.28919/jsta/9723"
+        ]
+      },
+      "rationale": "The corank-one characterization, generation criteria, and optimum cardinality are predecessors, not new findings here. The earlier rank alone does not count how many choices attain that rank. The weighted transfer calculation determines those ties in each residue, including an infinite uniqueness class. Bounded comparison found no earlier enumeration that entails that result.",
+      "residual_risks": [
+        "The October predecessor's full text was not independently indexed in the local search output; the frozen record attributes the incidence criterion and explicitly leaves its own novelty to multiplicities. A differently indexed generating-set or constrained binary-string enumeration could cover the counts. Priority is only best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same semigroup and top-rank candidates; establishes the earlier generation/cardinality baseline.",
+          "evidence": [
+            "Corollary 1 says exactly two moved points at height n−1, and §3 gives the two omitted-index positions. The aim stated in the abstract is an upper bound ceil(3(n−2)/2), not a multiplicity census."
+          ],
+          "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/download/1846/pdf",
+          "material_read": "Open paper abstract, §2 including Corollary 1, and start of §3",
+          "method": "Read the publisher's OA PDF text",
+          "title": "Quasi-idempotents in finite semigroup of full order-preserving transformations",
+          "trigger": "Original characterization, semigroup and generation comparison"
+        },
+        {
+          "assessment": "The stated contribution covers generation of rank ideals and factorization lengths; these do not provide this invariant.",
+          "evidence": [
+            "The Introduction defines qrank as a minimum size and cites the 2023 upper bound for the full singular case. The Abstract states the new length problem for factorizations and §3 includes Theorem 5 citing top-rank generation."
+          ],
+          "identifier_or_url": "https://scik.org/jsta/article/2026-2/jsta-2026-2.pdf",
+          "material_read": "Open paper abstract, §§1–2, and opening of §3 through the main generation theorem statement",
+          "method": "Read publisher OA PDF text",
+          "title": "Quasi-idempotents in finite semigroup of full order-preserving transformations",
+          "trigger": "Same title, recent journal paper and same mathematical object"
+        },
+        {
+          "assessment": "Gives the same optimum rank; its cited criterion was also reconstructed independently. No multiplicity theorem appears in the indexed statement.",
+          "evidence": [
+            "The summary states floor(6n/5)−1_(n≡1 mod 5) and the n=9 improvement, instead of a count of all optimum subsets."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-exact-quasi-idempotent-generating-rank-of-the-singular-order-pre--da3148498843",
+          "material_read": "Local indexed theorem summary and frozen record's explicit attribution/limitation comparison; not an independent full-text reading",
+          "method": "Local Resultary search and evidence comparison",
+          "title": "Exact quasi-idempotent generating rank of the singular order-preserving transformation semigroup",
+          "trigger": "Closest exact cardinality and incidence predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural restricted rank of a classical transformation semigroup, the number of optimal generating systems is a useful equality-case invariant, not determined by the rank. The exact result distinguishes one infinite family with a unique optimizer from other residues with linear, quadratic, or cubic multiplicity. The proof simultaneously yields a practical exact model for checking equality cases without trying all transformation subsets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

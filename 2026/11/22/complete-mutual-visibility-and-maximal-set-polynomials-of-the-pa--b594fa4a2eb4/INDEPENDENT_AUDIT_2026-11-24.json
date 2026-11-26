@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:35:17.431238Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–95",
+        "Frozen VERIFICATION.md and verification/visibility_paths.cpp, visibility_bfs.cpp, count_automorphisms.py, symmetry_orbits.py, and their four recorded transcripts",
+        "Independent /workspace/pappus_review_check.py: exhaustive layer and adjacency-bijection searches"
+      ],
+      "rationale": "The given F₃ incidences specify the cubic, 18-vertex Pappus graph (points and lines, not the point-collinearity graph). In an independent exhaustive Python check, for each of all 262,144 masks and each selected source I propagated bitset distance layers through unselected vertices only, testing selected targets as terminal vertices against their original distance shells. This checks exactly the required original geodesics. Every one-vertex extension was tested for maximality, sufficient since deleting selections preserves every surviving witness. The counts by size 0–8 are 1,18,153,762,2340,4374,4605,1998,36 (total 14,287); only sizes 6–8 have facets, in counts 63,1710,36 (total 1,809). A separate exhaustive search for adjacency- and nonadjacency-preserving bijections finds 216 automorphisms; their action gives size-6 orbits 9,54, size-7 orbits 18×2,54×1,108×3,216×6, and the sole size-8 orbit of length 36. Thus μ=8, μ⁻=6, and the complex is nonpure. The recorded checker sources and transcripts are consistent with these results. The matching 64-bit checksum (035086ad4bd0f946, frozen convention) is a cross-check, not a proof of bytewise equality. Replay independent calculation with python3 /workspace/pappus_review_check.py.",
+      "residual_risks": [
+        "Finite computation applies only to the specified 18-vertex graph and ordinary, selected-pair visibility. Uploaded programs were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kneser and Johnson study concerns its stated families and distinct total/ordinary quantifiers. The triangle-free study includes the μ=3 boundary, not a rank-refined arbitrary cubic-graph enumeration. The Heawood record gives 128 facets in four orbits for its own Levi graph."
+        ],
+        "reasoning": "None of the compared statements gives an all-graph or family enumerator specializing to the Pappus visibilities and facet symmetries. The Heawood graph has 14 vertices and the common description as a cubic Levi graph does not transfer its result.",
+        "searches": [
+          "Resultary: stronger all-subset and maximal-set orbit enumerations for Pappus",
+          "arXiv:2403.15645v1; arXiv:2112.13024v2",
+          "Resultary:d06e4ce1cb54"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Pappus/Levi aliases, exact counts and stronger census searches; mirror b594fa4a2eb4 (same target), d06e4ce1cb54 (Heawood)",
+        "arXiv:2307.02951v2, 2403.15645v1, 2112.13024v2",
+        "MathWorld Pappus Graph; Wolfram GraphData",
+        "One general literature query produced no usable stronger comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar μ or μ⁻ records only a support endpoint. A labeled face polynomial gives counts by size, not the flags needed to test inclusion-maximality, and even facet counts do not determine group orbit sizes."
+        ],
+        "reasoning": "The inspected definitions, family results and generic repository examples lack the Pappus-specific subset and group-action information. A general exact subset decision method still has to be evaluated for this graph; the actual independent evaluation supplies all facets and orbits, rather than repeating an inspected table.",
+        "searches": [
+          "Resultary:b594fa4a2eb4 and d06e4ce1cb54, labeled enumerators and orbits",
+          "arXiv:2307.02951v2; arXiv:2403.15645v1; arXiv:2112.13024v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pappus is the cubic Levi graph of the Pappus configuration, also called the Bouwer graph and honeycomb toroidal graph in MathWorld. Brešar–Yero's lower invariant is exactly the minimum size over inclusion-maximal sets. Ordinary visibility tests selected endpoint pairs, unlike total visibility."
+        ],
+        "reasoning": "The graph aliases and standard lower invariant refer to the same problem, but the inspected definition and graph descriptions do not evaluate the two Pappus polynomials or their extrema. Results with total endpoints or on the nine-vertex collinearity graph cannot be substituted.",
+        "searches": [
+          "Resultary: Pappus mutual visibility; Levi or incidence-graph aliases",
+          "arXiv:2307.02951v2, definition of the lower invariant",
+          "MathWorld Pappus Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b594fa4a2eb4 displays the exact same frozen result. GraphData documentation shows PappusGraph as a graph name and demonstrates the ordinary VisibilityPolynomial property for other graphs, including comparison with TesseractGraph MutualVisibilityNumber. No Pappus-specific evaluated polynomial, facet, or orbit table was seen in the inspected passages. The House of Graphs retrieval was unusable, not negative evidence."
+        ],
+        "reasoning": "The mirror of the same finding is not a separate source of coverage. Public software exposing a graph property is not evidence of a particular historically published Pappus evaluation or its maximal-face refinement; any precomputed entry or output from a live kernel remains unverified.",
+        "searches": [
+          "Resultary: exact counts 4605, 1710 and polynomial/orbit census",
+          "Wolfram GraphData documentation, PappusGraph and VisibilityPolynomial examples",
+          "House of Graphs, attempted homepage inspection"
+        ]
+      },
+      "rationale": "The full labeled ordinary-visibility census together with maximal-set sizes and the orbit refinement was not matched by a distinct inspected source. The exact database hit is the frozen result itself. Same-day work on the Heawood graph is a parallel enumeration for a different graph. The ordinary face polynomial has generic database functionality as a realistic priority risk, but the documentation does not display the Pappus value or establish the layered facet and orbit census.",
+      "residual_risks": [
+        "Unindexed or live-generated Pappus visibility values (including GraphData) and additional databases may cover individual parameters. No worldwide priority claim or negative finding on the inaccessible House of Graphs page."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant and states class-specific results; no Pappus evaluation established in these passages.",
+          "evidence": [
+            "Minimum cardinality of a maximal mutually visible set; Cartesian product examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951v2",
+          "material_read": "PDF pp. 1, 4, abstract and introductory scope",
+          "method": "Bounded primary text inspection; literal Pappus locator",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Same lower invariant"
+        },
+        {
+          "assessment": "Different graph families and in part a stronger endpoint quantifier rather than this ordinary census.",
+          "evidence": [
+            "Kneser, bipartite Kneser and Johnson families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.15645v1",
+          "material_read": "Abstract and stated family scope",
+          "method": "Open-access passage comparison",
+          "title": "Mutual-visibility problems in Kneser and Johnson graphs",
+          "trigger": "Similar highly symmetric graphs and visibility"
+        },
+        {
+          "assessment": "No result in the inspected scope implying the full census.",
+          "evidence": [
+            "The triangle-free boundary addressed in §4 is μ=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024v2",
+          "material_read": "PDF pp. 1, 9, abstract and §4",
+          "method": "Bounded primary text inspection; literal Pappus locator",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Potential general triangle-free result"
+        },
+        {
+          "assessment": "Analogous method and invariants on the Heawood graph; does not cover Pappus.",
+          "evidence": [
+            "128 maximal sets and four orbits for Heawood."
+          ],
+          "identifier_or_url": "Resultary:d06e4ce1cb54",
+          "material_read": "Mirrored RESULT.md Finding around offset 500",
+          "method": "Compared exact graph and the stated enumerators",
+          "title": "Mutual-visibility faces and four symmetry orbits of maximal configurations on the Heawood graph",
+          "trigger": "Closest same-day facet and orbit census"
+        },
+        {
+          "assessment": "Established generic ordinary visibility functionality, not a Pappus-specific value or facet/group table.",
+          "evidence": [
+            "Pappus graph embeddings; TesseractGraph degree of VisibilityPolynomial and Path[6] evaluation at 1."
+          ],
+          "identifier_or_url": "https://reference.wolfram.com/language/ref/GraphData.html",
+          "material_read": "PappusGraph examples around offsets 51747–52122 and ordinary visibility examples around offset 198570",
+          "method": "Located documentation examples and inspected visibility passage",
+          "title": "GraphData",
+          "trigger": "Possible graph-specific precomputed table"
+        },
+        {
+          "assessment": "Confirms the graph identity rather than proving visibility counts.",
+          "evidence": [
+            "18-vertex cubic symmetric distance-regular Levi graph."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+          "material_read": "Opening description at offset 0–750",
+          "method": "Located Levi and opened original passage",
+          "title": "Pappus Graph",
+          "trigger": "Graph identity and aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent exhaustive counts",
+        "Brešar–Yero arXiv:2307.02951v2, lower visibility invariant",
+        "MathWorld Pappus Graph"
+      ],
+      "rationale": "A standard small symmetric incidence graph and the established lower visibility invariant give a motivated test of the gap between worst inclusion-maximal placement and optimal placement, here 6 versus 8. The complete nonpure facet profile quantifies all maximal outcomes, while the orbit calculation shows all 36 optima are symmetry-equivalent and distinguishes the maximal outcomes of smaller sizes. These exact facts can be used in comparisons of visibility complexes on symmetric graphs even without a general-family theorem.",
+      "residual_risks": [
+        "Value is instance-specific; no general topological or larger-affine-plane result follows from the census alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

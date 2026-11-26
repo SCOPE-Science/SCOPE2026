@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The stationary nine-state generator is irreducible for \(k,u>0\). Exact Markov counting perturbation reduces the Fano factor to a normalized Poisson equation. Symbolic reconstruction independently yields the numerator and denominator, the comparison polynomial, all coefficients, and both singular limits; the algebraic coefficient pattern has exactly two sign changes. At \(k=u^2\), exact positivity supplies two actual crossings and Descartes bounds the total to two. The nonescaping-maximizer bounds justify the global small-unpausing optimization; no infinite theorem is inferred from the finite tests.
+## correctness
 
-**Originality (PASS, qualified).** The closest 2026 pausing-exclusion noise manuscript establishes a macroscopic-chain nonmonotone Fano phenomenon, but its analyzed lengths and approximate pause-number peak do not entail the exact one-site/two-site *two-crossing* classification with the \(u^2\) and \(u\) scales. The 2024 finite-size study concentrates on average current and the pausing/defect mapping. Older pause-TASEP models supply microscopic dynamics rather than this exact shot-noise comparison. Research-record searches did not locate an implication-matching statement, but lack of a match is not an originality guarantee. Possible coverage by broader exact Markov-counting identities or an unlocated finite-chain supplement remains a material priority risk.
+PASS
 
-**Value (PASS).** Counting noise rather than mean flux is a central observable of intermittent blocked transport. The minimal interacting length gives a sharp analytic benchmark, identifies two different slow-switching crossover scales and shows that adding just one exclusion site may both suppress and amplify relative exit fluctuations, depending on pause rate. This is a structural noise-ordering statement rather than a numerical peak calculation or arbitrary coefficient exercise.
+Rebuilt the nine-state generator and independently expanded det(xI-Q-yB) through total degree two, with y=e^s-1. Implicit differentiation gives the printed stationary current and two-site Fano rational function coefficientwise. For one site the independent inter-exit times consist of an exponential entry wait plus exponential active time interrupted by a Poisson number of exponential pauses; their variance divided by squared mean gives F1. An exact positive-variable substitution u=v/[10(1+v)] certifies all eleven comparison coefficient signs and strict positivity at k=u^2, including the u=1/10 endpoint checked separately. Descartes plus the two negative end signs gives exactly two simple positive crossings. Compact rescaling and sign brackets give the u^2 and u scales. After k=ut the rational numerator and denominator give the uniform tail bounds O(t+u) and O(t^-1+u); hence the unique interior maximum of the limiting profile controls every global maximizer for sufficiently small u. The independent replay reproduces both quartics and constants. This neither proves nor requires finite-u maximizer uniqueness.
 
-**Limits and closest literature.** Only unit boundary and hop rates, sizes one and two, and the stated unpausing window are covered. Finite-\(u\) maximizer uniqueness, larger sizes and priority beyond inspected literature are unresolved. Primary sources: Thommen (2026), arXiv:2608.08074; Keisers et al. (2024), arXiv:2406.16569; Wang et al. (2014), arXiv:1411.4978. Algebraic self-verification is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact two-crossing comparison of length two against length one, including its two distinct singular scales. The model, exit-count observable and qualitative noise peak are known; uniqueness/threshold work on the isolated two-site peak is also a significant catalogue overlap, so this is not a separate priority clearance of the optimizer component.
+
+## value
+
+PASS
+
+At the smallest chain lengths admitting exclusion and blocking, adding one site can either suppress or amplify output noise as pausing is varied. The universal two-reversal pattern and the separation between rare-pause and balanced-pause scales are not routine consequences of a nonmonotone curve. The exact global profile further quantifies the strongest amplification in the slow-unpausing regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

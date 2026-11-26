@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:07:22.323454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 1–4",
+        "Frozen VERIFICATION.md and verify_pnull.py (inspected, not executed)",
+        "/workspace/repairs/2/RESULT.md",
+        "/workspace/review_evidence/reproduce.py, nullcone()"
+      ],
+      "rationale": "For the repaired claim, length-p increasing paths only use first-superdiagonal steps or one second-superdiagonal step. Both first-superdiagonal products must vanish. Any two nonadjacent zero positions force the remaining entry to vanish. A single zero must be interior; factoring the top entry leaves precisely the indicated determinant. Two adjacent zeros leave a nonzero coefficient times b_i, and either interior zero index gives the corresponding Q_k when b_i=0. The converse follows by the same factorization without dividing by any entries. Each determinant is irreducible over any extension (e.g. primitive linear in one variable with coprime coefficients), and its degree-one vanishing ideal is spanned by a_k. This distinguishes the equidimensional Q_k from each other and the P_ij, proves maximality, and gives the linear and nonlinear counts. The smaller-size assertions follow directly from path length. Independent replay `python3 /workspace/review_evidence/reproduce.py 2` compared powers applied to all basis vectors with component membership on all 59,049 full matrices for p=q=3, giving 22,113 points; the p=q=2 boundary check gives 28 of 64. The old point formula is correct as well, but the repaired document explains why it is prior-derived.",
+      "residual_risks": [
+        "Bounded numerical checks are not a proof for every field. The result concerns the reduced locus, not reducedness or scheme-theoretic primary decomposition of the power ideal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yip gives counts for every strictly upper-triangular Jordan type by recurrence. Fuchs–Kirillov gives the removable-cell recurrence for the same point counts and records the total over all partitions."
+        ],
+        "reasoning": "The earlier formulas dominate the point count after summing types, so it is excluded from the repaired contribution. The enumerative formulas count matrices or describe polynomial degrees/leading coefficients, not the prime ideals of individual components.",
+        "searches": [
+          "Finite-field triangular Jordan-type counting and orbital-variety decompositions",
+          "Yip arXiv:1703.00057 Theorem 2.8",
+          "Fuchs–Kirillov arXiv:2204.00066 Proposition 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Yip arXiv:1703.00057",
+        "Fuchs–Kirillov arXiv:2204.00066",
+        "Melnikov arXiv:math/0312290; Boos–Reineke arXiv:1004.1996; Boos arXiv:1205.5197",
+        "Local Resultary f5d834a0af02",
+        "/workspace/repairs/2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only (n) and (n−1,1) with n=p+2 are excluded. For their counts A_n and B_n, Proposition 3.1 yields A_n=q^(n−2)(q−1)A_(n−1) and B_n=q^(n−2)((q−1)B_(n−1)+A_(n−1)) for n≥4. A_3=q(q−1)² and the worked example gives B_3=(q−1)(2q+1)."
+        ],
+        "reasoning": "Thus B_n/A_n=((n−1)q+1)/(q(q−1)), and A_n+B_n=q^((n−1)(n−2)/2−1)(q−1)^(n−2)(q²+(n−2)q+1). Its subtraction gives the frozen polynomial verbatim. No comparable implication for the explicit geometric P/Q stratification was found.",
+        "searches": [
+          "Fuchs–Kirillov arXiv:2204.00066, Proposition 3.1 and worked (2,1) example",
+          "Yip arXiv:1703.00057, Theorem 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The largest allowed Jordan block is p, so classically the locus is the nilradical intersection with the orbit closure for (p,2). The familiar tableau count comes from the classical framework. Melnikov and the inspected Boos and Boos–Reineke descriptions treat explicit square-zero orbit closures over the complex numbers."
+        ],
+        "reasoning": "The orbit-closure reformulation and numerical count are background. The count and the abstract orbit/stratum description do not by themselves identify which coordinate hyperplanes carry which quadratic equations. The square-zero statements are outside the family p≥3.",
+        "searches": [
+          "Local Resultary: near-top power fibers and strictly upper-triangular nullcones",
+          "arXiv:1703.00057, fixed-Jordan-type geometry",
+          "arXiv:math/0312290, 1004.1996, 1205.5197"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-near-top-matrix-power-fibers-and-concentration-in-niltri--f5d834a0af02 states the zero-fiber count q^K[q^(m+2)-(q-1)^m(q²+mq+1)] for m≥2 and all finite fields and gives the near-top coordinate equations. The inspected Finding and power-path passage do not give the irreducible P/Q decomposition."
+        ],
+        "reasoning": "The substitution m=p gives exactly the frozen count, but this Resultary record is later-dated and does not establish earlier priority. It is a direct comparison to the near-top equations; it does not subsume the repaired component classification.",
+        "searches": [
+          "Local Resultary: X^r=0, near-top power and dimension r+2, coordinate and determinantal components"
+        ]
+      },
+      "rationale": "PASS for the narrowed geometric claim only. The frozen originality assessment fails in its treatment of the finite-field count as a contribution: the compact expression follows mechanically from the published Fuchs–Kirillov recurrence on just two partitions. The corrected Finding drops that novelty claim and credits the specialization as a consistency check. No verified earlier result in this search supplies the complete explicit coordinate and determinantal component equations for the stated family.",
+      "residual_risks": [
+        "Undetected explicit orbital-variety equations for the (p,2) closure could reproduce the repaired geometry, including in formulations not using restricted Lie terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proven mechanical coverage of the frozen point count, not the repaired geometric decomposition",
+          "evidence": "Removable-cell recurrence and explicit base case P_(2,1)=(q−1)(2q+1); two-term specialization shown above.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.00066",
+          "material_read": "§1 total and §3 Proposition 3.1, PDF pp. 5–6, OA offset 27950 onward",
+          "method": "OA paper full text",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "General strictly triangular Jordan-type counts could subsume the claimed expression"
+        },
+        {
+          "assessment": "General counts and known component-count context",
+          "evidence": "F_lambda counts each Jordan type by recurrence; the introduction describes the Springer tableau component count.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.00057",
+          "material_read": "Abstract, introduction pp. 1–2, Theorem 2.8 p. 6 (offset about 19400)",
+          "method": "OA paper full text",
+          "title": "Rook Placements and Jordan Forms of Upper-Triangular Nilpotent Matrices",
+          "trigger": "Prior enumerative and fixed-type geometric coverage"
+        },
+        {
+          "assessment": "Inspected explicit results concern the complex square-zero case",
+          "evidence": "The exact closure analyses identified specialize to order 2, not p≥3; more general orbit machinery is not itself the displayed equations.",
+          "identifier_or_url": "arXiv:math/0312290; arXiv:1004.1996; arXiv:1205.5197",
+          "material_read": "Abstracts and scope statements in introductions",
+          "method": "OA original arXiv texts",
+          "title": "Description of B-orbit closures of order 2 in upper-triangular matrices; B-orbits of 2-nilpotent matrices and generalizations; Conjugation on varieties of nilpotent matrices",
+          "trigger": "Potential explicit nilpotent orbit-closure equations"
+        },
+        {
+          "assessment": "Exact later overlap of count and defining power coordinates, not the inspected component list",
+          "evidence": "The zero-fiber formula for m≥2 specializes to the frozen count at m=p, while the inspected passages give fiber counting rather than irreducible components.",
+          "identifier_or_url": "2026/11/22/SCOPE-near-top-matrix-power-fibers-and-concentration-in-niltri--f5d834a0af02",
+          "material_read": "Finding and near-top power coordinates in Proof",
+          "method": "Local Resultary mirror via OA paper",
+          "title": "Near-top matrix-power fibers and concentration in niltriangular matrices",
+          "trigger": "Indexed same near-top power and exact zero-fiber count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md, Finding and Proof",
+        "Yip arXiv:1703.00057, geometric context"
+      ],
+      "rationale": "The repaired claim identifies the exact first nonlinear geometry in a natural restricted-nullcone family. The numerical tableau count alone does not distinguish linear coordinate components from determinantal cones or locate them in the original matrix coordinates; the result supplies those components and their defining constraints uniformly. Value is not assigned to the prior-derived point count or to the numerical component count alone.",
+      "residual_risks": [
+        "No claim of a full scheme-theoretic analysis or geometric classification at larger dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

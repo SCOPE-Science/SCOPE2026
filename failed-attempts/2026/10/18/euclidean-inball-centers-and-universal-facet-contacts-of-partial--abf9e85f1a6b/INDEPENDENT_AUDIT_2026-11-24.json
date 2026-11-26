@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:13:43.454186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A length-k prefix has Frobenius normal length sqrt(k), so intersecting the shifted halfspaces characterizes every radius-r center. For m<=n, the n first-row entry lower bounds and the first-row total upper bound give (n+sqrt(n))r<=1. The constant matrix attains equality; equality forces the whole first row and, when square, the first column. The explicit perturbations in RESULT.md lines 50–52 give strict slack in every genuinely unforced inequality, proving the affine dimensions and showing that the listed universal contacts are the only contacts at every relative-interior center. At the constant center only length-one lowers and length-max(m,n) uppers can tie. Deduplicating the top-left lower constraint and checking the distinct facets gives the claimed counts. The wording about uniqueness in line 32 means that the optimal center is not unique, not that an individual ball lacks a unique geometric center.",
+      "reproduction": "python3 /workspace/review-evidence/frozen_math_crosschecks.py 4. Exact rational squared-distance tests, independent sparse perturbations and contact-foot checks for (2,4), (4,2), (4,4), (3,9), (9,3), (9,9) gave constant/interior counts 7/5, 7/5, 15/9, 14/10, 14/10, 35/19. Finite corroboration only; the supplied decimal script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "That record treats PASM together with the partial-permutation polytope, including the shared insphere and the PASM affine-center classification."
+        ],
+        "reasoning": "The PASM part covers the structural conclusions at the same m,n>=2. The comparison with a second polytope imposes no restriction on the PASM formula.",
+        "searches": [
+          "Resultary a7aa307ea2ec, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and check_pasm_incenters.py",
+        "Resultary a7aa307ea2ec",
+        "Heuer–Striker arXiv:2012.09901, Theorems 4.6 and 4.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the constant center, length-k prefixes equal k rho, so lower and upper support-plane distances are k rho/sqrt(k) and (1-k rho)/sqrt(k).",
+          "Theorem 4.8 contains all distinct length-one lower facets along the first row or column and all full-length upper facets in the longer direction."
+        ],
+        "reasoning": "Equality of these distances to rho yields m+n-1 lower contacts plus m row totals if m<n, n column totals if m>n, and 2n totals if square. The additional counts and the shifted containment inequalities are therefore direct consequences of the matching radius and the existing facet description.",
+        "searches": [
+          "arXiv:2012.09901, Theorems 4.6 and 4.8",
+          "Resultary a7aa307ea2ec, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary Finding uses the same ambient Frobenius geometry and asserts rho=1/(L+sqrt(L)), the forced boundary entries and the same dimension change at m=n."
+        ],
+        "reasoning": "Shift by rho times each prefix-normal length to translate without loss between a largest-ball description and the coordinate center polytope. These are the same PASM object and invariant, not just corresponding parameters.",
+        "searches": [
+          "Resultary: PASM Frobenius Euclidean inradius / incenter dimension and facet contacts; matching record a7aa307ea2ec",
+          "arXiv:2012.09901, Theorem 4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives exact relative-interior contact counts; the prior equations explicitly list the nonnegativity and boundary total facets.",
+          "No exact constant-center contact table was identified."
+        ],
+        "reasoning": "The catalogued formulas are geometric coverage; the Heuer–Striker list is instead combinatorial input. The two first-prefix labels at (1,1) represent one geometric facet.",
+        "searches": [
+          "Resultary indexed PASM inball claims; a7aa307ea2ec",
+          "Heuer–Striker arXiv:2012.09901, Theorem 4.8 and (4.4)–(4.7)"
+        ]
+      },
+      "rationale": "A distinct indexed PASM/partial-permutation comparison gives the same PASM radius, forced entries, affine-dimension law and relative-interior contacts. It is catalogued later, so this is established coverage in the examined evidence, not evidence that someone published the claim earlier or a conclusion about discovery priority. The full shifted description is exactly the ordinary erosion of Heuer–Striker's known prefix system at the already stated radius. The extra constant-center counts then follow mechanically from that system: a lower is tight iff k=1 and an upper iff k=L; the facet list makes the count immediate. No distinct substantive remainder is established by those counts.",
+      "residual_risks": [
+        "The wider literature lookup was inconclusive; no assertion about first discovery or exhaustive literature coverage is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage; later catalogue date does not establish earlier priority.",
+          "evidence": "Same PASM radius, forced entries, affine dimension, and generic contact counts; additionally compares with partial-permutation polytopes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-shared-insphere-and-a-sharp-incenter-dimension-jump-for-partia--a7aa307ea2ec/RESULT.md",
+          "material_read": "Finding; discussion of equivalent metric formulas",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A shared insphere and a sharp incenter dimension jump for partial matrix polytopes",
+          "trigger": "Closest indexed Frobenius incenter comparison"
+        },
+        {
+          "assessment": "Exact halfspace and irredundant facet crosswalk; not by itself a stated inradius theorem.",
+          "evidence": "Theorem 4.6 imposes all initial sums in [0,1]. Theorem 4.8 distinguishes the first-row and first-column coordinate lower facets and the first-row and first-column total upper facets in (4.4)–(4.7).",
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "Section 4.1, Theorem 4.6 PDF p. 8, offset 29750–35165; Theorem 4.8 and proof, pp. 10–12, offsets 36700–46460",
+          "method": "Lawful OA PDF, bounded extracted passages",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Primary halfspace and facet theorems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete PASM incenter geometry is a useful classification: it captures nonuniqueness, the square-versus-rectangle change in the affine hull, and the distinction between forced and movable facet contacts in the original metric. This assessment concerns the mathematical content of the whole claim. The extra constant-matrix count alone does not justify a repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:46:06.272796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Hankel outputs for distinct monomials have distinct angular frequencies. Gaussian radial moments give A_n, and analytic projection takes only the coefficient at degree n±m, vanishing for the minus symbol when n<m. This gives exactly B_{n,±} and the squared singular channels by Pythagoras. At finite β the residuals are nonzero because their radial factor is not the analytic monomial factor. Both are bounded, with a polynomial times exponentially decaying channel majorant; the binomial generating function and the reindexing n=m+k for the minus projection sum yield the stated common Hilbert–Schmidt square. With u=nβ→u_0>0, β^m A_n→u_0^m exp(-2u_0). The plus loss logarithm is (n+m+1)d_β, d_β=log(1+β²/(1+2β)); divided by β it tends to u_0. The minus loss logarithm adds the factorial term m²/n+O_m(n^-2) and subtracts m log(1+2β), so after division by β its limit is u_0+m²/u_0-2m=(u_0-m)²/u_0, including at the notch. The loss is 1-exp(-log loss) in each channel, where log loss denotes the nonnegative negative log of B/A. The envelope with v=β(n+1) bounds the minus spectrum by a constant times (v^(m-1)+v^(m+1))exp(-cv), and the plus by v^(m+1)exp(-cv). This follows from 1-exp(-x)≤x and the factorial logarithm bound O_m(1/(n-m+1)), treating n<m directly. It gives zero endpoints at u=0 except minus m=1: there fixed n gives 1 directly, and when n→∞, nβ→0 implies n times the minus logarithm tends to 1 and A_n/n→1. These sequential limits give compact-uniform convergence on the grid; the exponential bounds control Riemann-sum tails for every fixed p>0 and the suprema. For m=1 the two trace integrals are 1 and 2/e and the maxima 1/e and 1, giving the strict reversal. The frozen numerical checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asghari–Hu–Virtanen Theorem 1.4 gives bounded-symbol Hilbert–Schmidt membership equivalence and comparison; Theorem 5.4 gives an unregulated nonconstant entire-symbol obstruction for the conjugate.",
+          "Hu–Virtanen give general norm comparison for 1<p<∞ and discuss the Xia trace-class counterexample; Fan–Wang–Zeng characterize singular-value behavior by rearrangement estimates, up to comparison constants.",
+          "Bauer's stated Lebesgue-L² equality covers equal Hilbert–Schmidt norms here (abstract/secondary evidence; accessible preprints verify related comparisons)."
+        ],
+        "reasoning": "The strongest applicable known inclusion/equality conclusions are credited. Comparability does not evaluate either leading coefficient or locate a notch where one channel profile vanishes and the other is strictly positive.",
+        "searches": [
+          "Berger Coburn equality Hilbert Schmidt norms analytic anti-analytic Hankel operators Fock (Resultary)",
+          "arXiv:2312.06656 Theorems 1.4 and 5.4",
+          "arXiv:2304.09716 pp. 6–7",
+          "arXiv:2410.20082 pp. 4–6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.06656",
+        "arXiv:2304.09716",
+        "arXiv:2410.20082",
+        "Bauer DOI 10.1090/S0002-9939-04-07264-8 (limited access)",
+        "Resultary 9b772b00d2fc, 65135c3d59d8, 9571dbf98645, e6f124794c36 (last is assigned self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xia's exterior symbol shows asymmetry of trace-class membership; both audited Hankels are in every S_p for every positive β, while their trace-norm and operator-norm orderings disagree.",
+          "Unregulated holomorphic monomials or fixed cutoff tail laws do not provide the critical coupled window nβ≈m, where the conjugate first-order deficit cancels.",
+          "Known Hilbert–Schmidt equality gives no ordering of trace and operator norms."
+        ],
+        "reasoning": "The explicit sharp p-mass, maximum and notch laws leave a distinct conclusion beyond the credited statements. Inaccessible older primary papers were not treated as noncoverage evidence.",
+        "searches": [
+          "arXiv:2304.09716 Xia discussion",
+          "arXiv:2312.06656 unregulated monomial discussion and Theorem 5.4",
+          "arXiv:2410.20082 rearrangement results",
+          "Resultary exterior, disk-truncated and Gaussian integral-projection finding passages above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized Fock weight απ^-1 exp(-α|z|²)dA is unitarily equivalent to the stated convention by w=√α z, which multiplies H by α^(-m/2) and replaces β by β/α. Thus an identical profile under that convention would count as equivalent.",
+          "The mirrored e6f124794c36 exact hit is the frozen record itself. Other explicit diagonal results located treat a hard disk cutoff or exterior inverse powers, not the same radial multiplication under rescaling."
+        ],
+        "reasoning": "Conjugation or Gaussian weight changes do not make novelty; the test was for the same spectral model after rescaling. Hard cutoff and reciprocal Laurent symbols are not such rescalings.",
+        "searches": [
+          "Gaussian-regulated monomial Fock big Hankel exact singular value spectrum anti-analytic spectral notch Schatten trace operator norm reversal (Resultary)",
+          "Fock space Hankel operators z^m exp(-beta |z|^2) diagonal singular values Gaussian cutoff (Resultary)",
+          "equivalent exponential symbols z^m e^{-a|z|^2} Gaussian Fock Hankel operator same spectral profiles exact formulas (Resultary)",
+          "\"z^m\" \"Segal-Bargmann\" Hankel operator Gaussian symbol singular values exponential Fock exact spectra Berger Coburn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b772b00d2fc gives exact exterior Laurent channel analysis and fixed-cutoff inverse-power tails; 65135c3d59d8 gives exact disk-cutoff anti-analytic channels and a Poisson bulk-edge transition.",
+          "9571dbf98645 gives exact Gaussian projection spectra and norm reversal, but they are analytic and maximal integral operators, not the conjugate Hankel pair."
+        ],
+        "reasoning": "These are exact examples with substantial method/phenomenon overlap, but none yields the paired spectrum and regulator-scale constants. The two same-day examples were distinguished by their claims, not by date.",
+        "searches": [
+          "Gaussian-regulated monomial paired spectrum/reversal (Resultary searches above)",
+          "Resultary 9b772b00d2fc, 65135c3d59d8, and 9571dbf98645 Finding passages"
+        ]
+      },
+      "rationale": "Credit existing Fock Hankel ideal criteria, the known equality of Hilbert–Schmidt norms for this Lebesgue-square-integrable symbol, and prior diagonal methods. The supported distinct result is the sharp paired Gaussian-regulator profiles and their contrasting Schatten/maximum consequences, not ideal membership or equality at p=2.",
+      "residual_risks": [
+        "An older explicit Gaussian-monomial spectral calculation could overlap under another convention. Full Bauer and the 2022 Hu–Virtanen DOI 10.1090/tran/8638 texts were not accessible in the attempted routes; Schneider's unregulated monomial comparison was read only through the cited later source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General comparison and unregulated results; no sharp regulator-profile implication.",
+          "evidence": [
+            "S₂ comparison of bounded conjugate symbols; H_{conj f} outside S₂ for nonconstant entire f"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06656",
+          "material_read": "p. 4 near offsets 13615, 14020; p. 22 near 83961; Theorems 1.4 and 5.4",
+          "method": "OA primary PDF passages",
+          "title": "Schatten class Hankel operators on doubling Fock spaces and the Berger–Coburn phenomenon",
+          "trigger": "Closest general paired Hankel results and unregulated monomials"
+        },
+        {
+          "assessment": "General p-comparison and exterior-symbol membership failure; distinct from sharp paired norms inside all ideals.",
+          "evidence": [
+            "1<p<∞ norm comparison; bounded exterior inverse-power example with opposite trace-class membership"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.09716",
+          "material_read": "pp. 6–7 near offset 12800, including Xia example",
+          "method": "OA primary PDF passage",
+          "title": "Hu–Virtanen preprint on the Berger–Coburn phenomenon",
+          "trigger": "Conjugation and trace-class asymmetry"
+        },
+        {
+          "assessment": "Rearrangement comparability and weak-ideal descriptions, not exact Gaussian-regulator channels.",
+          "evidence": [
+            "Singular-value and IDA rearrangement estimates"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.20082",
+          "material_read": "pp. 4–6, offsets 14500–20376",
+          "method": "OA primary PDF passages",
+          "title": "IDA function and asymptotic behavior of singular values of Hankel operators on weighted Bergman spaces",
+          "trigger": "Potential general sharp spectral laws"
+        },
+        {
+          "assessment": "Credit equality for symbols square-integrable in unweighted Lebesgue measure; no claim about the rest of Bauer's full paper.",
+          "evidence": [
+            "Reported equality for Lebesgue-L² symbols applies to z^m exp(-β|z|²)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-04-07264-8",
+          "material_read": "Bibliographic abstract statement and Asghari–Hu–Virtanen discussion; Bauer full text not accessible via DOI/AMS PDF",
+          "method": "Bibliographic and secondary passage comparison; lawful retrieval attempts",
+          "title": "Hilbert–Schmidt Hankel operators on the Segal–Bargmann space",
+          "trigger": "Known equal-norm subclaim"
+        },
+        {
+          "assessment": "Exterior inverse powers, fixed spatial cutoff, large index; not β↓0.",
+          "evidence": [
+            "Inverse-power exterior symbol and fixed-operator power-law tail"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-weak-schatten-tails-for-exterior-laurent-hankel-operators--9b772b00d2fc/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–5686",
+          "method": "Resultary local mirror",
+          "title": "Sharp weak-Schatten tails for exterior Laurent Hankel operators on Gaussian Fock space",
+          "trigger": "Earlier concrete diagonal Fock Hankel law"
+        },
+        {
+          "assessment": "Hard disk cutoff and Poisson edge; no paired Gaussian profile.",
+          "evidence": [
+            "Symbol conjugate z times indicator(|z|²≤T); Poisson bulk-edge law"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-bulk-edge-schatten-transition-for-a-disk-truncated-fock-hankel--65135c3d59d8/RESULT.md",
+          "material_read": "Opening Finding and Proof passages",
+          "method": "Resultary local mirror",
+          "title": "A bulk-edge Schatten transition for a disk-truncated Fock Hankel operator",
+          "trigger": "Cutoff-dependent exact Hankel spectrum"
+        },
+        {
+          "assessment": "Different Gaussian operators and geometric/Mehler spectra; not the audited Hankels.",
+          "evidence": [
+            "Equal trace and Hilbert–Schmidt norms for the integral-operator pair and reversal in other Schatten orders"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-schatten-order-reversal-between-analytic-and-maximal-ga--9571dbf98645/RESULT.md",
+          "material_read": "Opening Finding",
+          "method": "Resultary local mirror",
+          "title": "An exact Schatten-order reversal between analytic and maximal Gaussian integral operators",
+          "trigger": "Strong structural norm reversal analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A Gaussian regulator turns a natural unbounded monomial pair into bounded all-Schatten test symbols. The exact notch and norm-ranking reversal exhibit how conjugation redistributes singular mass while preserving its Hilbert–Schmidt total. Sharp profiles across every fixed p and at the maximum make this a useful quantitative example beyond qualitative membership or constant-factor comparison; it is not a general solution of Berger–Coburn questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

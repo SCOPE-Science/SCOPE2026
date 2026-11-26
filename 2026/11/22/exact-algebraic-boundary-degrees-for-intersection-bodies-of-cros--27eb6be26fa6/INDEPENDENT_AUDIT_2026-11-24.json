@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:35:18.730619Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53; replay by projection density, partial-fraction pair residue, primitive homogenization and the radial derivative test.",
+        "Independent n=4 expansion of the alternant against Δ_4(e_2e_3−e_1e_4), and normalization along (1,t,2t,3t) approaching a coordinate axis.",
+        "Frozen VERIFICATION.md and verify.py inspected without execution; the recorded finite checks do not certify the all-dimensional theorem."
+      ],
+      "rationale": "Reconstructed the Euclidean section normalization: for unit u the density of the Laplace projection at zero is the section integral of exp(−||y||₁)/2^n, giving (n−1)!/2^n times the section volume. Fourier inversion and partial fractions give c_n times the stated rational sum. On the unit sphere the integrand is dominated by (1+t²/n)^−1, so the section formula has a continuous positive extension to coordinate-wall directions; this does not require evaluating a possible zero-over-zero rational expression there. The common-denominator numerator is alternating, so division by the monic linear Vandermonde factors is exact over the integers. At a generic a_j=−a_i≠0, only terms i,j contribute a pole. Written over a_i²−a_j² their numerator has limit 2a_i^(2n−3)/∏_{k≠i,j}(a_i²−a_k²), which is nonzero. Thus no pair-sum factor cancels and the homogenized linear polynomial in z is primitive and irreducible over C. A dehomogenized factorization would homogenize and contradict this. On each open orthant, the polynomial vanishes at the radial boundary point, and its derivative in the radial scaling direction there equals the nonzero D_n of the signed point. Hence the patch is relatively open and smooth, and Zariski dense in that irreducible hypersurface. Continuity and density of open orthants in the topological boundary account for the remaining points. Any differing pair-sign products distinguish the top-degree factor sets, while simultaneous sign reversal changes the relative parity of the two nonzero homogeneous parts. This proves the exact component count and the sum of degrees. Independent dimension-four checks recover P_4=e_2e_3−e_1e_4 and the axis-limit normalization 4/3.",
+      "residual_risks": [
+        "The real zero sets can have points outside the physical boundary. The component count is algebraic, not a statement about the number of connected real patches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berlow et al., Corollary 5.7 gives a component-degree bound by half the section vertex count in the centered symmetric case. The generic section has n(n−1) vertices here, giving at most binom(n,2), not exact degree.",
+          "Brazitikos–Pandis equation (2.3) supplies the Fourier-integral identity; their inspected result addresses section volume. Brandenburg–Meroni's inspected introduction addresses translations, arrangement and convexity."
+        ],
+        "reasoning": "Generic attainment of a bound under vertex choices does not prove attainment for this particular symmetric realization. A section formula is an antecedent for the numerator but does not establish the reduced denominator or distinct irreducible algebraic equations.",
+        "searches": [
+          "arXiv:2110.05996 §5; DOI 10.1007/s10801-024-01328-9; arXiv:2606.07163 cross-polytope section-volume formulas; focused literature lookup on cross-polytope intersection-body degree"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.05996, DOI 10.1007/s10801-024-01328-9, arXiv:2606.07163, Resultary b50c728bd854, 3796680a6e45, cdbba821c592."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Attaining the bound on this realization relies on persistent poles at the complex pair-sum hyperplanes, irreducibility of the resulting homogenization, and sign-specific factor-set comparisons. The exact dimension-three calculation supplies none of those claims in n≥4."
+        ],
+        "reasoning": "These are substantive steps beyond evaluating an existing degree formula or substituting a dimension into a stronger classification. No inspected statement or combination gives the exact conclusion without establishing these new steps.",
+        "searches": [
+          "Compare arXiv:2110.05996 §5, arXiv:2606.07163 equation (2.3) and Resultary b50c728bd854 with frozen RESULT.md proof §§2–4."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b50c728bd854 gives eight distinct irreducible cubic hypersurfaces and total degree 24 for the three-dimensional octahedron, explicitly not the higher-dimensional cross-polytope."
+        ],
+        "reasoning": "The octahedron is B₁³ and is an exact matching specialization, not a distinct higher-dimensional family giving the claimed n≥4 result. Same publication date is not evidence of ordering.",
+        "searches": [
+          "Resultary: cross-polytope intersection body exact algebraic boundary degree branches irreducible; octahedral intersection body and Cayley cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b50c728bd854 covers B₁³; 3796680a6e45 covers the centered right square pyramid; cdbba821c592 covers cubes with 2d linear components. The exact record ending 27eb6be26fa6 is the assigned finding itself."
+        ],
+        "reasoning": "An exact count for a cube or a pyramid is not a table of cross-polytope counts, and the exact three-dimensional cross-polytope entry does not determine the higher-dimensional count. No separate exact n≥4 classification was established from the compared entries.",
+        "searches": [
+          "Local Resultary semantic query ‘cross-polytope intersection body exact algebraic boundary degree branches irreducible’, limit 50; inspected exact dimension-three, square-pyramid and cube statement hits."
+        ]
+      },
+      "rationale": "The strongest examined results give an upper bound for symmetric polytopes, a section-volume representation on the same family, or the exact dimension-three classification expressly outside the new claim. They do not establish denominator noncancellation, absolute irreducibility and exact mutually distinct components for n≥4. The assessment is bounded and does not certify priority.",
+      "residual_risks": [
+        "The bounded literature and indexed searches cannot exclude unindexed identities or another equivalent proof; comparison of same-day records establishes overlap only where their statements match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound and general framework, not exact all-dimensional cross-polytope count",
+          "evidence": "Half the generic section vertex count gives binom(n,2) as upper bound for this family; generic attainment does not imply this realization attains it.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.05996",
+          "material_read": "§5, Proposition 5.5, Theorem 5.6, Corollary 5.7; printed pp. 9–12, text offsets 28200–43976",
+          "method": "OA primary PDF text",
+          "title": "Intersection Bodies of Polytopes",
+          "trigger": "General algebraic-boundary degree results for centrally symmetric polytopes"
+        },
+        {
+          "assessment": "Inspected passages concern translation and convexity, not the exact claimed family count",
+          "evidence": "Describes the affine arrangement for translated polytopes and dimension-two convexity classification.",
+          "identifier_or_url": "10.1007/s10801-024-01328-9",
+          "material_read": "Abstract and introduction, printed p. 127, PDF p. 1, text offset 0",
+          "method": "OA primary PDF text",
+          "title": "Intersection bodies of polytopes: translations and convexity",
+          "trigger": "Closely related algebraic geometry of intersection bodies"
+        },
+        {
+          "assessment": "Credits prior Fourier representation; the inspected results do not classify the algebraic boundary",
+          "evidence": "Gives the cross-polytope Fourier section integral and studies extremal restricted volumes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.07163",
+          "material_read": "Abstract at offset 0; equation (2.3) near offset 22300, printed p. 6",
+          "method": "OA primary PDF text",
+          "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+          "trigger": "Section-volume formulas for the very same cross-polytope"
+        },
+        {
+          "assessment": "Exact excluded specialization, relative priority unresolved",
+          "evidence": "Eight distinct irreducible cubics of total degree 24; expressly no higher-dimensional claim.",
+          "identifier_or_url": "Resultary 2026/11/22 b50c728bd854",
+          "material_read": "RESULT.md Finding and its dimension scope, local text near offset 750",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Eight Cayley cubic components of the octahedral intersection-body boundary",
+          "trigger": "Exact algebraic-boundary classification for the same family in dimension three"
+        },
+        {
+          "assessment": "Different centered polytope",
+          "evidence": "The count is for a vertex-barycenter-centered right square pyramid.",
+          "identifier_or_url": "Resultary 2026/11/22 3796680a6e45",
+          "material_read": "Local-mirror RESULT.md Finding near offset 545",
+          "method": "Local Resultary statement inspection",
+          "title": "Eighteen cubic, quartic and quintic intersection-body components",
+          "trigger": "Exact component count for a related polytope"
+        },
+        {
+          "assessment": "Different family and degrees",
+          "evidence": "Its sections are those of cubes and its components are linear, not cross-polytope hypersurfaces.",
+          "identifier_or_url": "Resultary 2026/11/22 cdbba821c592",
+          "material_read": "Local-mirror RESULT.md Finding near offset 655",
+          "method": "Local Resultary statement inspection",
+          "title": "Exactly 2d linear boundary components for intersection bodies of cubes",
+          "trigger": "Exact all-dimensional component count for another natural symmetric family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–4; arXiv:2110.05996 §5; dimension-three indexed comparison."
+      ],
+      "rationale": "Determining whether the general degree bound is attained for the standard cross-polytope, and which irreducible equations account for its boundary, is a motivated metric-algebraic classification problem. The result settles sharpness, component multiplicity and explicit equations uniformly in dimension; this is more informative than an isolated small-dimensional check or a new expression for an already known section volume.",
+      "residual_risks": [
+        "No claim of exact degrees for other symmetric families, translated polytopes, or detailed real-topological classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

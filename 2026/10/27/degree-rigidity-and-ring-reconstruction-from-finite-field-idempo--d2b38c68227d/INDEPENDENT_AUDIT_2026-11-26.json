@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:33.789578Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59",
+        "Frozen VERIFICATION.md lines 3–25",
+        "Frozen check_matrix_idempotent_annihilation.py",
+        "Frozen check_matrix_idempotent_annihilation.out lines 1–8"
+      ],
+      "rationale": "A rank-s idempotent is a projection onto an s-plane W along a complement L, of which there are q^{s(n−s)} for each W. Fix E with image U and kernel T. EF=0 requires W within T. FE=0 requires U within L; counting (n−r−s)-planes L/U in V/U gives the same Gaussian coefficient, and again q^{s(n−s)} complements. Their intersection consists exactly of projections that are zero on U and restrict to rank-s idempotents on T, yielding the subtraction term. Neither direction is possible if s>n−r. Self-adjacency does not occur because E²=E≠0. For nested coordinate projections, every neighbor of E_r is also a neighbor of E_(r−1); the projection onto ker(E_(r−1)) along im(E_(r−1)) has rank n−r+1 and witnesses strict inclusion (it is a vertex for 2≤r≤n−1 and cannot neighbor E_r by the rank constraint). The only minimum-degree rank is n−1, also when n=2 where there is only one rank. Substituting r=n−1 gives δ=2q^{n−1}−1 and M=q^{n−1}(1+q+⋯+q^{n−1}). Therefore Q=(δ+1)/2 and A=M/Q satisfy q(A−Q)=A−1 with A−Q>0. This uniquely determines q and then n, and isomorphic fields give the converse graph isomorphism. The example parameters and the frozen log's case count agree with the displayed formulas. The uploaded checker was inspected, not rerun; no computation is needed for the universal proof.",
+      "residual_risks": [
+        "The proof uses full matrix rings over finite fields, n≥2, excluding zero and identity, with OR rather than mutual-annihilation adjacency. The 699372 logged ordered pairs are finite support only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The left-ideal and generator theorems give the rank-r vertex counts exactly. The census covers arbitrary rank of EF but counts only the directed product. The earlier OR zero-divisor graph relates degree to matrix rank and square-zero type on all nonzero singular matrices."
+        ],
+        "reasoning": "Changing to idempotent vertices changes the neighbors and degrees, even in an induced subgraph, so degree detection for the larger vertex set does not supply it. A marginal distribution of rank EF does not give the simultaneous event EF=FE=0 needed for the union.",
+        "searches": [
+          "arXiv:1711.09289v1 Theorems 2.4 and 3.3",
+          "Resultary 2026/10/13 degree strata on matrix zero divisors and 2026/10/25 three-rank idempotent-pair census"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.11256v1",
+        "arXiv:1711.09289v1",
+        "Three expanded Resultary entries above",
+        "DOI:10.1142/S0219498813500035 (secondary description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-sided intersection count is reducible to the known idempotent count in a smaller matrix algebra and is not independent novelty. Combining this with the directed counts supplies the OR formula by inclusion–exclusion. The directed triangle source mentioned in the frozen text is not specifically identified and was not located."
+        ],
+        "reasoning": "Counting ingredients are classical or materially covered. Identification of the minimum-degree stratum requires the graph-theoretic strict rank argument, and recovery of q and n uses both degree and multiplicity; neither is a specialisation of the inspected published n=2 theorem or of the indexed marginal census.",
+        "searches": [
+          "arXiv:2402.11256v1 §3 Theorem 3.8",
+          "arXiv:1711.09289v1 Theorems 2.4, 3.3",
+          "Resultary 2026/10/25 three-rank census at rank(EF)=0",
+          "Targeted primary search for a directed idempotent triangle count with PQ=QR=RP=0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patil et al. use exactly EF=0 or FE=0 with nontrivial idempotents in dimension two, and prove degree 2q−1.",
+          "Patil et al.'s introduction attributes the mutually zero predicate EF=FE=0 to Akbari et al.; the primary full text of that older paper was not accessible."
+        ],
+        "reasoning": "The same-graph dimension-two result is credited, including that known degree's identification of q in fixed dimension. Transpose exchanges the two ordered conditions but does not make their union coincide with their intersection; the latter cannot substitute for the OR graph.",
+        "searches": [
+          "Patil–Momale–Jadhav arXiv:2402.11256v1, adjacency definition and Theorem 3.8",
+          "Akbari et al. DOI:10.1142/S0219498813500035",
+          "Resultary: OR-idempotent annihilation, degree strata and ring reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-rank census specializes at rank(EF)=0 to the exact one-direction rank-resolved coefficient in the proof. The later five-residue record gives asymptotic reverse-product behavior conditioned on EF=0. The published n=2 regularity is an exact special case."
+        ],
+        "reasoning": "These are real mathematical overlaps, not exact coverage of all OR strata or reconstruction. Catalogue dating and the three-rank census's inconsistent date metadata do not establish external publication priority.",
+        "searches": [
+          "Resultary: exact rank-neighbor counts and zero-product idempotent pairs; expanded records dated 2026/10/13, 2026/10/25 and 2026/11/22",
+          "Patil–Momale–Jadhav Theorem 3.8"
+        ]
+      },
+      "rationale": "At the level of the claim, the distinct contribution supported by the evidence is all-rank OR-degree stratification, strict rank separation in higher dimensions, and reconstruction of the full finite matrix ring from two unlabeled degree statistics for n≥2. The rank multiplicities, the one-direction zero-product counts, and the dimension-two OR graph degree are credited as existing pieces, not novel results. No inspected statement recovers the higher-dimensional OR degree multiset or its reconstruction conclusion.",
+      "residual_risks": [
+        "The unidentified directed-triangle count has not been verified and the older AND paper's full text was unavailable. Neither is used as negative evidence or as a premise for correctness. Obscure exact higher-dimensional OR graph work outside the inspected sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph in dimension two only",
+          "evidence": "Nontrivial idempotent vertices; OR adjacency; regular of degree 2q−1 there.",
+          "identifier_or_url": "https://arxiv.org/html/2402.11256v1",
+          "material_read": "Abstract and adjacency offsets 0 and 928; Introduction on Akbari offset 2954; field notation offset 4199; §3 Theorem 3.8 offset 45591",
+          "method": "OA HTML",
+          "title": "On the Idempotent Graph of Matrix Ring",
+          "trigger": "Strongest published equivalent adjacency and overlap on degree"
+        },
+        {
+          "assessment": "Covers rank multiplicities, not graph rigidity",
+          "evidence": "Gaussian count of rank-k left ideals with q^{k(n−k)} idempotent generators per ideal.",
+          "identifier_or_url": "https://arxiv.org/html/1711.09289v1",
+          "material_read": "Theorem 2.4 offset 5645 and Theorem 3.3 offset 15778",
+          "method": "OA HTML",
+          "title": "Left ideals in matrix rings over finite fields",
+          "trigger": "Prior Gaussian rank counts and smaller-algebra intersection ingredient"
+        },
+        {
+          "assessment": "Accessible secondary evidence distinguishes AND from OR; claims of the unavailable full text are not assessed wholesale",
+          "evidence": "The cited older adjacency is hk=kh=0, a different predicate.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219498813500035",
+          "material_read": "No primary full text obtained; secondary description in Patil et al. Introduction offset 2954",
+          "method": "Lawful OA attempts unsuccessful; OA secondary passage inspected",
+          "title": "On the Idempotent Graph of a Ring",
+          "trigger": "Older potentially equivalent graph definition"
+        },
+        {
+          "assessment": "Covers a constituent directed count, not the OR graph theorem",
+          "evidence": "Counts EF=0 as Gaussian(n−r,s) times q^{s(n−s)} for fixed rank of E, but does not count the simultaneous reverse-zero condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-three-rank-census-of-idempotent-matrix-pairs-with-idemp--0caa4d1d1d52/RESULT.md",
+          "material_read": "RESULT.md Finding and specialization at rank(EF)=0",
+          "method": "Local Resultary mirror",
+          "title": "Complete three-rank census of idempotent matrix pairs with idempotent ranks and product rank",
+          "trigger": "Closest exact rank-count overlap"
+        },
+        {
+          "assessment": "The degrees are taken in a different vertex set",
+          "evidence": "Ranks and square-zero type detected by degrees among all nonzero singular matrices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-degree-strata-recover-rank-and-square-zero-type-in-matrix-zero-d--bcab65bc9423/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Degree strata recover rank and square-zero type in matrix zero-divisor graphs",
+          "trigger": "Earlier OR-adjacency degree/rank theorem on a larger matrix class"
+        },
+        {
+          "assessment": "Postdated, asymptotic and not the finite OR graph computation",
+          "evidence": "Conditional rank/reverse-product laws given EF=0; no exact rank-degree reconstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-five-residue-joint-rank-defect-law-for-one-sided-annihilating--eb89da364cb8/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A five-residue joint rank defect law for one-sided annihilating idempotents",
+          "trigger": "Potential reverse-product overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–33 and 43–59",
+        "arXiv:2402.11256v1 Theorem 3.8",
+        "Resultary three-rank census Finding"
+      ],
+      "rationale": "The graph is a natural invariant built from one-sided vanishing of products, and the theorem recovers the algebraic rank of every vertex and the entire ring isomorphism type from graph degrees. Recovering the two ring parameters from just the smallest degree and its multiplicity, without labels or the full adjacency matrix, makes the invariant useful beyond a finite count or a restatement of the two-dimensional result.",
+      "residual_risks": [
+        "There is no asserted reconstruction across arbitrary finite rings, or from minimum degree alone when dimension is not given."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

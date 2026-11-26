@@ -1,15 +1,21 @@
-# Mathematical review: nonsemisimple Alexander-quandle retractions
+# Independent mathematical audit
 
-## Correctness — PASS
-All set-map quandle homomorphisms are forced affine by invertibility of the two operator coefficients; the proof does not assume linearity. A projective summand of a free module over the truncated polynomial local ring is free. These facts yield complete idempotent ranks and a single automorphism orbit in each rank; orbit-stabilizer counts its size. Exact block-diagonal commutation and translation constraints give the full centralizer formula. The distinctness factor is an odd nonzero integer; the mixed-block collision is verified from module-linear centralizer dimensions. The included checker directly enumerates small cases and confirms the boundary. The theorem is proved for all stated parameters by algebra, not by extrapolation from computations.
+## correctness
 
-## Originality — PASS relative to the checked record
-The closest full published retraction classification concerns semisimple Alexander quandles and explicitly excludes the Jordan-block case treated here. Taniguchi's 2023 good-involution classification provides an automorphism-related starting point but not idempotent endomorphism strata. Singh's 2023 profinite endomorphism work does not address the finite counts; the 2019 general linear-centralizer study supplies a classical building block but not the complete quandle conjugacy invariant. Exact claim comparisons and record searches are in AUDIT.json. The possibility of an older implicit general-module theorem is a residual historical-priority risk.
+PASS
 
-## Value — PASS
-The full endomorphism-centralizer size, not image size alone, is proved to classify automorphism orbits for a meaningful nonsemisimple quandle family, with full orbit multiplicities. The four-dimensional mixed-Jordan obstruction explains why this rigidity is special, and the formulas give an explicit commuting-pair census for arbitrary block size and multiplicity. These are natural finite-algebra structural invariants rather than arbitrary parameter slices.
+For T=lambda+epsilon with lambda different from 0 and 1, both T and 1-T are units. For a zero-fixing quandle homomorphism, the identities from x*0 and 0*y therefore give additivity by writing any sum as Tx+(1-T)y. Linearity over F_p and commutation with T then give R-linearity. An affine map (A,b) is idempotent exactly when A is a projection and b belongs to its kernel. Its two summands are free over the local ring, so change of basis and translation conjugate it to P_r. The projection count is the ratio of the three GL orders; reduction modulo epsilon contributes p^((2d-2)r(m-r)), the field orbit contributes p^(r(m-r)) times the Gaussian binomial, and translations contribute p^(d(m-r)). A map commuting with P_r has arbitrary block-diagonal linear part and translation in its image, giving the asserted Z_r. Equality of two exponents implies (r-t)(2(r+t)-2m+1)=0, forcing r=t. This also covers the extreme ranks. In the mixed example, the two images are distinguished by the rank of epsilon but each centralizer has p^6 linear parts and p^2 translations. The ordered-pair formula sums disjoint strata. VERIFICATION.md and verify.py are finite corroboration, not the proof; the frozen script was inspected, not executed.
 
-## Limitations
-The positive theorem requires one repeated Jordan block length, prime fields of odd characteristic, and both \(T\) and \(1-T\) invertible. Exhaustive computations cover finitely many small examples and do not replace the proof. Historical priority is provisional; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full endomorphism-centralizer invariant of retraction conjugacy in the equal-length nonsemisimple family, with exact multiplicities and a mixed-length collision. Affineness, orbit-counting identities and ordinary linear centralizers are not new. The closest retraction and endomorphism censuses inspected do not cover the combined invariant.
+
+## value
+
+PASS
+
+The full endomorphism centralizer is an intrinsic, countable invariant that distinguishes every retraction conjugacy class of a connected nonsemisimple family. The translation factor breaks the rank-complement symmetry of the linear problem, and the equal-image-size mixed-block example shows a genuine obstruction rather than a mere size difference. The complete multiplicities support exact commuting counts; value rests on the rigidity and its boundary, not on the Gaussian count by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

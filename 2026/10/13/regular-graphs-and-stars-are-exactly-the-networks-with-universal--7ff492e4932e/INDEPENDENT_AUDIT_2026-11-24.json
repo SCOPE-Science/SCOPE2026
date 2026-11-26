@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:53:35.238166Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–73",
+        "Frozen VERIFICATION.md, lines 18–28",
+        "Frozen verify_moran_geary.py, lines 9–99 (read, not executed)"
+      ],
+      "rationale": "Centering and positive common rescaling allow comparison on the unit sphere of 1⊥; adding a sufficiently large common constant realizes any pair as positive profiles with equal means and variances. For nonscalar centered adjacency, a putative Geary disparity at equal Moran level can be perturbed to strict discordance: increase the Moran quotient on the higher-Geary vector unless the level is maximal (then lower it on the other vector). Gradient perturbation works off stationary points; at an eigenvector mix with a strictly higher or lower eigenspace as needed. Thus Geary is constant on each Moran level. Testing normalized e_i−e_j then makes degree sums constant separately on edges and on nonedges (adjacency and Laplacian quadratic numerators are −2A_ij and d_i+d_j+2A_ij). Constant edge degree sum makes a connected graph regular or bipartite biregular; in an irregular biregular graph, the nonedge condition forbids both parts having at least two vertices, so it is a star. Scalar centered adjacency makes all off-diagonal A_ij equal, hence the graph is complete. The submitted stronger affine-form lemma also follows as stated by diagonalizing and comparing equal-level mixtures of the extremal eigenvectors. For regular graphs use L=dI−A; for stars, if p is the center then zᵀAz=−2z_p² and zᵀLz=||z||²+n z_p², giving the two frozen affine laws including K₂. The P₄ profiles center to (−1,−1,2,0) and (−1,0,−1,2); squared norms 6, adjacency numerators −2 and −4, and edge energies 13 and 11 reproduce the stated strict reversal. At orders 2 and 3 only regular graphs and stars are connected.",
+      "residual_risks": [
+        "The packaged census tests an exact centered-form condition through order six, not all-order ordering; the independent analytic checks do not rely on it. The theorem is for raw globally normalized adjacency, not row normalization or changing weight conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada represents Geary's c spectrally; the available de Jong–Sprenger–van Veen description concerns extrema on a fixed network. The checked Dines discussion treats convexity of a different joint range. Full-text comparison of the cited de Jong and Bavaud articles was unavailable."
+        ],
+        "reasoning": "Spectral representation, separate extrema, and general convexity results are not themselves the all-profile pairwise ordering classification. A general matrix characterization could be relevant if it implied the exact degree constraints under this normalization; none of the inspected statements establishes that implication.",
+        "searches": [
+          "DOI:10.1111/j.1538-4632.1984.tb00797.x",
+          "DOI:10.1111/gean.12390",
+          "DOI:10.3390/math11204228",
+          "arXiv:2503.01225"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b8dc85ef301b",
+        "Luo–Griffith–Wu open 2015 comparison paper",
+        "Yamada DOI:10.3390/math11204228",
+        "arXiv:2503.01225"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A constant degree-weighted term gives the regular law immediately. That term is not constant on star profiles; rather it is affine in the Moran quotient. The binary counterexamples do not characterize the real quotient range."
+        ],
+        "reasoning": "Prior components explain the regular direction and motivate the comparison, but do not force stratum-wise constancy or the edge/nonedge degree-sum conditions that yield the graph classification. Conversely the all-real theorem does not resolve the exact prior binary census.",
+        "searches": [
+          "Luo–Griffith–Wu §2 Eq. (4)",
+          "Resultary b8dc85ef301b",
+          "Yamada DOI:10.3390/math11204228"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Geary degree-weighted second moment minus a Moran multiple identity is in Luo–Griffith–Wu Eq. (4), attributed there to Griffith (1987).",
+          "The Resultary binary-profile theorem also uses the degree-weighted relation. Dines' joint range concerns homogeneous pairs of forms, not the two quotients on a common centered unit sphere."
+        ],
+        "reasoning": "The centered Rayleigh-quotient and spatial-statistics formulations agree under the explicit normalization. The known decomposition is a starting identity, not a necessary-and-sufficient condition on graph topology for universal anti-ordering.",
+        "searches": [
+          "Local Resultary: Moran–Geary strict discordance and graph classification; b8dc85ef301b",
+          "Luo–Griffith–Wu open 2015 text §2 Eq. (4)",
+          "arXiv:2503.01225, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked exact binary classification gives minimum order five, with 11 of 21 connected order-five graph classes and a P₅ witness, and states the real regular-graph law."
+        ],
+        "reasoning": "The exact finite census is for a narrower attribute set and cannot settle the universal real-valued quantifier, exclude all other nonregular graphs, or give the order-four real witness. The record date alone was not used to resolve priority.",
+        "searches": [
+          "Local Resultary b8dc85ef301b: first strict Moran–Geary reversal on five spatial units",
+          "Bounded primary lookup for Moran/Geary graph topology and ordering"
+        ]
+      },
+      "rationale": "The degree-weighted identity and the regular case are established. The distinct result is the all-real-profile topology classification (including the irregular star exception), witnesses at fixed mean and variance, and the exact order-four boundary. The strongest inspected same-day finding is a genuinely overlapping binary-profile result with a different quantifier and boundary, not a statement of the real-profile classification. The conclusion is search-bounded.",
+      "residual_risks": [
+        "The full cited de Jong–Sprenger–van Veen and Bavaud papers, and the 2017 Luo–Griffith–Wu chapter, were unavailable in the bounded comparison. A stronger result in spatial statistics or joint-quadratic-form literature remains possible; the known degree-weighted identity is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the regular identity, degree-weighted relation, and a binary small-order classification, not the all-real graph classification",
+          "evidence": "Binary reversal first at order five; P₅ example and 11/21 connected graph classes at order five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-moran-and-geary-first-strictly-reverse-on-five-spatial-units--b8dc85ef301b",
+          "material_read": "Local mirror RESULT.md, offset 0, finding and assumptions",
+          "method": "Published-finding mirror",
+          "title": "Moran and Geary first strictly reverse on five spatial units",
+          "trigger": "Strongest exact-catalogue and same-date overlap"
+        },
+        {
+          "assessment": "Covers the reduction, not the topology classification in the inspected passage",
+          "evidence": "Geary equals the scaled degree-weighted centered moment minus (n−1)I/n; Eq. (4) is attributed to Griffith (1987, p. 44).",
+          "identifier_or_url": "https://www.geocomputation.org/2015/papers/GC15_14.pdf",
+          "material_read": "Open conference version, abstract and §2 Eq. (4), PDF p. 2, text offset about 4280",
+          "method": "Open primary PDF; cited 2017 chapter was unavailable",
+          "title": "The Moran Coefficient and the Geary Ratio: Some Mathematical and Numerical Comparisons",
+          "trigger": "Foundational exact algebraic relation"
+        },
+        {
+          "assessment": "Spectral representation; not evidence of the claimed graph classification",
+          "evidence": "States a representation of Geary's c complementary to Laplacian/Fourier formulations.",
+          "identifier_or_url": "DOI:10.3390/math11204228",
+          "material_read": "Primary PDF p. 1, offset 0, abstract and introductory framing",
+          "method": "Open PDF text",
+          "title": "Geary’s c and Spectral Graph Theory: A Complement",
+          "trigger": "Possible related spectral graph characterization"
+        },
+        {
+          "assessment": "Discusses homogeneous joint numerical ranges, not the stated ordering criterion",
+          "evidence": "Background on Dines' convexity theorem for a pair of homogeneous forms.",
+          "identifier_or_url": "arXiv:2503.01225",
+          "material_read": "PDF p. 1, offsets 0–1539, abstract and introduction",
+          "method": "Open PDF text",
+          "title": "Joint-range convexity paper by Nguyen, Chu and Sheu",
+          "trigger": "Potential broader matrix implication"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "Available description concerns extrema of the statistics on a given network.",
+          "identifier_or_url": "DOI:10.1111/j.1538-4632.1984.tb00797.x",
+          "material_read": "Bibliographic/search description only; no decisive primary passage recovered",
+          "method": "Lawful primary/repository retrieval attempt",
+          "title": "On Extreme Values of Moran's I and Geary's c",
+          "trigger": "Close earlier spectral/extremal work"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No stronger statement for raw unweighted adjacency and uniform node weights was available to inspect.",
+          "identifier_or_url": "DOI:10.1111/gean.12390",
+          "material_read": "No decisive full-text passage recovered",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Measuring and Testing Multivariate Spatial Autocorrelation in a Weighted Setting: A Kernel Approach",
+          "trigger": "Possible broader result under compatible weight conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–65",
+        "Luo–Griffith–Wu §2 Eq. (4)",
+        "Resultary b8dc85ef301b"
+      ],
+      "rationale": "The theorem identifies exactly when two widely used global summaries give universally compatible rankings, and exposes a nonregular exception that a degree-regularity argument would miss. Matched-mean and matched-variance profiles isolate the difference to how the graph interacts with the centered pattern, and the exact four-vertex witness is directly usable. This is a structural classification and a sharp boundary with a clear comparison target.",
+      "residual_risks": [
+        "Does not rank the indices by statistical power, significance or practical suitability; the binary and row-normalized problems differ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:36:18.676835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=3 the cyclic unit group has a cubing kernel of size 3, and the unit image is exactly the two full mod-9 cosets of +1 and -1. The nonunit image is injectively embedded as 27C_{k-3}. The disjoint ordered-summand cases give h_k or 2h_k from the same- or opposite-sign unit cosets, 2s_{k-3} from the mixed pairs, and the quotient fiber exactly on 27-multiples. This includes diagonal value pairs and uses the correct bases k=0,1,2. Squaring the fibers gives 2h_k^3+4h_k^3, the mixed contribution 8h_ks_{k-3}^2, the zero-class cross term 4h_ks_{k-3}^2, and the smaller energy. The normalized recurrence has multiplier 27^(-3) and constant 38/4563 up to errors tending to zero in all three subsequences. Its limit and the ratio after division by (3/13)^4 are both correct. Independent ordered-pair enumeration through k=6 matched all 1080 target fibers at k=3..6 and the cardinalities and energies (for example, E_6=3236473); it is not the all-depth proof. Frozen verify.py was inspected, not run: its mismatch diagnostic has an undefined name at line 47, but this does not affect the proved result or the separate enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kerr et al. use polynomial image sets and treat intervals of consecutive inputs; the monic cubic and a complete residue system fit the general setup. Their Theorem 1.2 gives energy upper bounds, not an exact fiber law or an energy constant for the ternary tower.",
+          "Schipani–Elia study finite-field multiplicative-character cosets, not the recursive nonunit image of the prime-power ring."
+        ],
+        "reasoning": "A general bound on energy is not an exact formula, and the input-bound comparison over prime moduli does not eliminate valuation-dependent root weights over 3^k. The finite-field results do not specialize to all ternary prime-power moduli.",
+        "searches": [
+          "Targeted primary search for unweighted cube-image-set pair-sum fibers or energies over powers of 3 and general polynomial image-energy theorems",
+          "Kerr–Mohammadi–Shparlinski arXiv:2306.10677, §1.2 Theorem 1.2 and the discussion of input collision counts",
+          "Schipani–Elia arXiv:1107.1364"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:math/0604465v3, 2306.10677 and 1107.1364 (materials specified above)",
+        "Published records 876b3ebf3861, dd802b0bb880, a5c1df557fdd and 1bbc7ea862f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "876b3ebf3861 already derives uniform convolution on the same five mod-9 classes and a both-nonunit branch scaled by 27. Its input-sampling mixture weights are 1/3, 1/3, 1/3.",
+          "From the known image decomposition, the uniform distinct-value mixture weights are h_k/s_k, h_k/s_k, s_{k-3}/s_k. Reusing the published coset-convolution argument with those weights yields the audited recurrence and constants, without deriving them by a direct rescaling of the earlier final formulas."
+        ],
+        "reasoning": "The published input-weighted formula is not a stronger exact theorem covering the distinct-value formula. Nevertheless the substantive proof mechanism already works for these component measures: only their mixture weights change. This close, concrete mechanical derivation limits value even though the final numerical statements differ.",
+        "searches": [
+          "Read 876b3ebf3861 Proof Steps 1–2 and compare the same-day Dickson image-set decomposition a5c1df557fdd with Finch–Sebah §1.9",
+          "Compare the exact weighted recursions of 876b3ebf3861 and dd802b0bb880 with the distinct-value case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "876b3ebf3861 counts ordered inputs and yields normalized collision limit 3; dd802b0bb880 also counts ordered inputs and proves the same support criterion at moduli 3^k.",
+          "1bbc7ea862f6 counts pairs of graph points (x,x^3) in a two-dimensional ring."
+        ],
+        "reasoning": "The audited law counts ordered pairs of values, including equality, with weight one per value. Root multiplicity is not constant across the image; e.g. at k=3, zero has nine roots and a unit cube three. Neither rescaling the input-weighted answer by a global factor nor marginalizing the graph fibers gives the same law.",
+        "searches": [
+          "Published-result search for ternary cube-value additive fibers, collision moments, and cubic graph pair sums",
+          "Read the Finding and Proof Steps 1–2 of 876b3ebf3861 and the Finding and unit/nonunit proof of dd802b0bb880"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch–Sebah §1.9 gives the same three-periodic cardinality law.",
+          "Same-day record a5c1df557fdd includes the a=0 cubic in its exact image decomposition and counts; the other exact fiber entries inspected count inputs or graph points instead."
+        ],
+        "reasoning": "The cardinality, underlying image and mod-9 support receive no originality credit. The inspected tables and formulas are not exact distinct-value fiber or energy tables. The same-day comparison is material coverage of the set, not a claim about which record was first.",
+        "searches": [
+          "Finch–Sebah arXiv:math/0604465v3 §1.9, cube-image counts for powers of three",
+          "Published-result search for cube-image cardinality and exact ternary energy or fiber tables"
+        ]
+      },
+      "rationale": "The precise distinct-value formulas and constants are different from the inspected input-weighted results, and no inspected exact covering theorem states them. The decomposition, counts, support and convolution case split are established material, not credited as new. Whether evaluating the same convolution with different weights clears the scientific-value bar is a separate issue, assessed below.",
+      "residual_risks": [
+        "An exact distinct-value statement in uninspected work remains possible; bounded searches do not establish historical priority.",
+        "Older Dickson-polynomial value-set work is not ruled out, and image decomposition and cardinality have already been credited to prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same cube-image cardinality; no additive identity in the inspected passage",
+          "evidence": "The p=3 formula gives (3^(k+1)+c_{k mod 3})/13.",
+          "identifier_or_url": "https://arxiv.org/html/math/0604465v3",
+          "material_read": "§1.9, offset 38056",
+          "method": "Lawful OA HTML",
+          "title": "Squares and Cubes Modulo n",
+          "trigger": "Exact known cardinality and a possible stronger image result"
+        },
+        {
+          "assessment": "Genuine broader energy bounds, not a stronger exact evaluation",
+          "evidence": "Polynomial image energies for intervals are bounded; the separate T count uses input quadruples and the stated comparison of orders is for prime moduli.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.10677",
+          "material_read": "Abstract, offset 0; input count discussion, offset 3050; §1.2 Theorem 1.2, offset 4514",
+          "method": "Lawful OA article passages",
+          "title": "Additive Energy of Polynomial Images",
+          "trigger": "General theorem on the exact same unweighted energy invariant"
+        },
+        {
+          "assessment": "Different sampling law; same split and convolution mechanism",
+          "evidence": "Uniform sign cosets conditional on unit input, with recursive scaled nonunits; explicitly treats matching signs, opposite signs, a single unit and two nonunits. Input-weighted normalized collision limit is 3.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861",
+          "material_read": "RESULT.md, Finding, assumptions and Proof Steps 1–2, offsets 0–4315",
+          "method": "Published-record mirror",
+          "title": "Exact ternary fibre law and collision moments for two cubes",
+          "trigger": "Closest matching recursion and published convolution derivation"
+        },
+        {
+          "assessment": "Exact input counts and prior mod-9 support",
+          "evidence": "The recursion has factors from three unit roots and nine lifts per nonunit input, unlike the distinct-value weights.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880",
+          "material_read": "RESULT.md, Finding and unit/nonunit proof, offsets 0–4551",
+          "method": "Published-record mirror",
+          "title": "Exact representation counts for two cubes modulo powers of three",
+          "trigger": "Possible exact all-target overlap"
+        },
+        {
+          "assessment": "Exact set-theoretic overlap at a=0; no distinct-value convolution formula in the relevant passages",
+          "evidence": "For F_a(X)=X^3-3aX the a=0 branch gives the same pair of projected unit cosets and 27-scaled recursive nonunit values, counts, and density.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-image-and-density-phases-of-nonunit-cubic-dickson--a5c1df557fdd",
+          "material_read": "RESULT.md offsets 0 and 6383",
+          "method": "Published-record mirror",
+          "title": "Exact ternary image and density phases of nonunit cubic Dickson parameters",
+          "trigger": "Same image set within a broader family"
+        },
+        {
+          "assessment": "Different additive set",
+          "evidence": "Each input labels a graph point; summing the graph counts along the first coordinate retains the individual input multiplicities.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "Complete pair-sum fibers of the cubic graph over odd residue rings",
+          "trigger": "Potential projection of a general complete fiber formula"
+        },
+        {
+          "assessment": "Explicit finite-field setting, not a full-text noncoverage determination",
+          "evidence": "The abstract's finite-field character setting does not include the nested nonunits at ternary prime powers.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.1364",
+          "material_read": "Abstract, offset 0",
+          "method": "Lawful OA abstract",
+          "title": "Additive decompositions induced by multiplicative characters over finite fields",
+          "trigger": "Similar convolution of multiplicative cosets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube set and collision energy are natural, but here the exact remainder is a mechanical reweighting of an existing convolution calculation. Let h=h_k, s=s_{k-3} and let T embed the smaller fiber vector by 27. The known decomposition and the published coset-convolution cases give h times the indicators of the two +/-2 classes, 2h on the zero class, and 2s on the two +/-1 classes; the both-nonunit term is exactly T r_{k-3}. These coefficients follow by substituting the known component sizes for the earlier input-sampling weights; there is no new counting step for any target. The squared norm of the fixed terms is 6h^3+8hs^2. Their inner product with the embedded term is 2h times its known mass s^2, and T preserves the smaller squared norm. Hence the asserted energy recurrence is forced, and normalizing it evaluates a geometric series and then divides by the known limiting density to the fourth power. The different constants are correct and are not claimed to have been tabulated before, but their precision here does not supply a structural fact independent of the established decomposition and convolution. No nonmechanical surviving claim was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

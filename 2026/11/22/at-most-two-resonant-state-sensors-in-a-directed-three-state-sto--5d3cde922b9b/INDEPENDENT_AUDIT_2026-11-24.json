@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:31:20.673548Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "/workspace/review-evidence/reproduce.py (ordinal 4)"
+      ],
+      "rationale": "Flux balance gives pi_i r_i=abc/P. Independently, for Re(s)>0 the transform of the return probability to i is [1/(s+r_i)]/[1−product_j r_j/(s+r_j)], by exponential holding and renewal after each full clockwise trip. Centering subtracts pi_i/s from the return transform; multiplying by pi_i and taking twice the real part gives the stated two-sided normalization (the covariance is even). Exponential decay gives the value at zero by continuity. Symbolic simplification recovers the exact numerator, with coefficient 2abc/P, and denominator ω⁴+Lω²+P². As a function of z=ω², the derivative's numerator is Δ_i−2H_i z−z², so it has one strictly positive zero iff Δ_i>0; if Δ_i=0 the leading spectral decrement is −(2abc/P)H_i ω⁴/P⁴. The sum of the three discriminants is (P−L)(3P+2L)≤0, and H_i−H_j=(r_j−r_i)(a+b+c). Hence resonance is a suffix ordered by exit rate, with ties respected. At every z>0 the normalized profile is strictly decreasing in H_i; if the better sensor has a positive-frequency maximum, comparing at the worse sensor's positive maximizer, or comparing against its zero-only gain 1, proves the claimed strict ranking for unequal rates. The Δ factors at (t,1,1) are (t−1)(t+5) and two copies of −(t−1)(t³+2t²+t−1). The cubic is strictly increasing for positive t, and the relaxation discriminant t(t−4) is negative throughout 0<t≤theta. Replay: `python /workspace/review-evidence/reproduce.py 4` reconstructs the full Fourier rational identity from renewal and checks the exact factorizations.",
+      "residual_risks": [
+        "Ordering is weak if neither sensor resonates or rates tie. The classification does not apply to arbitrary linear combinations, nonstationary recordings, or cycles with additional edges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jia proves the universal three-state efficiency ceiling 1/4 over observables; a ceiling is not a joint resonance condition for a fixed detector set.",
+          "The frozen package describes Chen (2007) as giving general fluctuation-spectrum formulas and a criterion about real observables. Bounded independent OA requests for the two cited 2007 articles did not yield full text; no whole-paper exclusion is made."
+        ],
+        "reasoning": "A general formula can supply the individual spectra by specialization and may reduce the algebra. To obtain the joint bound and ordering nevertheless requires comparing the three thresholds, unless that comparison is already explicit or immediately implied in a verified prior passage. The accessible evidence does not establish that coverage.",
+        "searches": [
+          "arXiv:2610.23310v1 Eqs. (1)–(2), (12)–(13)",
+          "doi:10.1142/S0219477507003830",
+          "doi:10.1063/1.2747615"
+        ]
+      },
+      "checked_sources": [
+        "Jia arXiv:2610.23310v1",
+        "Frozen literature notes on the two 2007 papers",
+        "Focused Resultary searches and cited comparison Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jia exhibits real relaxation eigenvalues for epsilon<1/9 with a positive-frequency peak for the one indicator. This is an already-covered distinction between eigenvalues and spectra.",
+          "The reviewed theorem establishes the opposite phenomenon simultaneously for all three occupancy readouts on 0<t≤theta, and the two-sensor wedge theta<t<1, neither of which is asserted by that one-variable fast-indicator example."
+        ],
+        "reasoning": "A theorem that some observable can resonate with real eigenvalues does not determine whether any of the three prescribed observables resonates with nonreal eigenvalues. The joint obstruction and relative rankings rely on three-indicator comparisons.",
+        "searches": [
+          "Jia PDF pp. 7–8, End Matter, Eqs. (48)–(53)",
+          "Relevant Resultary entries, local-mirror RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jia's directed example has rates (r,r,s), s=1, r=2 epsilon/(1−epsilon) and f=(-epsilon,-epsilon,1−epsilon), exactly the centered indicator of state 3. Eqs. (51)–(53) give its spectrum, peak and efficiency.",
+          "The general location/count question is equivalent here to the signs of three state-specific zero-frequency slope numerators in z=ω², not to complex eigenvalues."
+        ],
+        "reasoning": "After common rate rescaling and cyclic relabeling, Jia's resonant example is in the one-fast branch and gives one sensor there. It provides neither the remaining channel comparisons nor the binary phase census when the unequal rate is slower than the two equal rates.",
+        "searches": [
+          "Resultary: clockwise three-state cycle exact indicator covariance spectrum, peak census, rate ranking and (t,1,1) phase diagram",
+          "arXiv:2610.23310v1 Eqs. (48)–(53)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first-ranked exact catalogue hit was the frozen record itself. The distinct three-state spectrum result is reversible frequency exchange and uses a Feynman–Kac frequency observable.",
+          "The two binary-observation results study time reversal of observed paths, not occupancy-covariance peaks."
+        ],
+        "reasoning": "The exact object is a joint positive-slope census and phase classification, not a table of eigenfrequencies, time-reversal witnesses or an algebraic constant. None of the examined distinct catalogue statements gives that census.",
+        "searches": [
+          "Resultary: simultaneous three-state occupancy census, exact sensor spectrum, exit-rate ordering, cubic two-equal-rate diagram",
+          "SCOPE-two-exact-spectral-coalescence-thresholds-in-symmetric-three-sta--5659a83fdb9d",
+          "SCOPE-a-six-state-visibility-threshold-for-binary-observation-of-irrev--741ee1f18a68",
+          "SCOPE-a-minimal-four-state-arrow-of-time-in-a-binary-stochastic-sensor--f857859a6452"
+        ]
+      },
+      "rationale": "General fluctuation spectral methods and a prior one-indicator, one-fast-rate formula are credited. The supported distinction is the simultaneous census at arbitrary positive exit rates, the exact relative ranking of the three fixed sensors, and the full two-equal-rate count including the zero/two transition on the slow-rate side. One sensor's spectrum, an all-observable efficiency bound, or existence of some nonmonotone observable is not that joint classification.",
+      "residual_risks": [
+        "Chen (2007), DOI 10.1142/S0219477507003830, is a genuine unresolved stronger-coverage risk because general exact fluctuation formulas may lead to easy specializations.",
+        "Bounded indexed search and targeted passages are not a certification of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines efficiency, proves a general ceiling and directly covers the indicated state in a one-fast subfamily; not the joint census in the inspected passages",
+          "evidence": "A directed (r,r,1) chain and f=(-epsilon,-epsilon,1−epsilon) with r=2 epsilon/(1−epsilon); Eq. (51) is the one state spectrum and Eqs. (52)–(53) its peak/efficiency.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23310",
+          "material_read": "PDF p. 2, Eqs. (1)–(2), (12)–(13); End Matter pp. 7–8, Eqs. (48)–(53), OA offsets roughly 63000–69966",
+          "method": "Lawful arXiv PDF, targeted equations and example",
+          "title": "Fundamental Bounds on the Oscillation Efficiency of Markov Networks",
+          "trigger": "Same efficiency, three-state cycle and exact indicator example"
+        },
+        {
+          "assessment": "Material unresolved coverage risk, not negative evidence",
+          "evidence": "The frozen summary describes formulas for three-state spectra and a criterion concerning a general real observable, not a quoted three-binary-indicator theorem.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219477507003830",
+          "material_read": "Frozen package's account of the abstract only; no independently retrieved theorem passage",
+          "method": "Bounded lawful OA attempts at DOI/publisher, access refused",
+          "title": "On the Monotonicity of Fluctuation Spectra for Three-State Markov Processes",
+          "trigger": "Potentially dominating older spectral and monotonicity classification"
+        },
+        {
+          "assessment": "Exact implications not resolved from material available",
+          "evidence": "No statement-level assertion of noncoverage is made for this paper.",
+          "identifier_or_url": "https://doi.org/10.1063/1.2747615",
+          "material_read": "Citation in frozen RESULT.md; no independently retrieved theorem passage",
+          "method": "Bounded lawful OA attempt returned HTTP 403",
+          "title": "Irreversibility implies the occurrence of nonmonotonic power spectra",
+          "trigger": "Possible general theorem on nonmonotone stationary spectra"
+        },
+        {
+          "assessment": "Different model, observable, and mode count",
+          "evidence": "Reversible nearest-neighbor frequency exchange with a Feynman–Kac frequency observable; not three indicator-covariance spectra on a clockwise-only cycle.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-exact-spectral-coalescence-thresholds-in-symmetric-three-sta--5659a83fdb9d",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "Two exact spectral coalescence thresholds in symmetric three-state frequency exchange",
+          "trigger": "Exact count transition of peaks in three-state chain"
+        },
+        {
+          "assessment": "Related sensing theme, different mathematics",
+          "evidence": "Tests visible time-asymmetry in binary path laws, not state occupancy spectral resonance.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-six-state-visibility-threshold-for-binary-observation-of-irrev--741ee1f18a68; 2026/11/22/SCOPE-a-minimal-four-state-arrow-of-time-in-a-binary-stochastic-sensor--f857859a6452",
+          "material_read": "Local-mirror RESULT.md statements",
+          "method": "Resultary and local mirror",
+          "title": "Binary time-reversal and arrow-of-time visibility results",
+          "trigger": "Same-day related binary sensor statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, phase diagram and limitations",
+        "Jia arXiv:2610.23310v1, End Matter, Eqs. (48)–(53)"
+      ],
+      "rationale": "An experiment measuring just one occupation indicator need not have access to an optimized real observable. The joint all-rate bound, rate ordering and reentrant phase determine which of the actual binary channels can show a peak. The nonreal relaxation regime without any binary peak is a clear obstruction to reading spectral modality off the eigenvalues. This is a useful all-rate structural classification rather than the previously known one-sensor calculation.",
+      "residual_risks": [
+        "No estimate for finite/noisy observations or reversible chemical mechanisms; scope is stationary state readouts of the strictly directed cycle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

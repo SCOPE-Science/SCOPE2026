@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:33:47.653092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md Steps 1–5 over the integers. Degree constraints permit at most one incoming and one outgoing hub arc and a matching of at most two middle arcs. Any cycle uses the hub and is exactly a directed triangle, so the missing middle vertex in each cone base is exactly v_ij. The crown graph and each single-vertex deletion are connected (left-side pairs have a common neighbor, and every opposite vertex still has a neighbor). An induced cycle has at most three vertices per shore, since each left vertex has only one available nonneighbor; any induced hexagon uses three common labels and is tiled by three squares meeting at an extra left vertex off those labels. Chord splitting and these disks yield integral cycle generation and normal generation by squares. In each L_i every square is coned over an unused label on shore i, killing π₁. K₀ is the union of cones on a connected graph; attaching both u_i cones along connected bases keeps X simply connected. For H₂(K₀;ℤ), the boundary of the w_j-cone over z_j gives the separate ∂z_j constraints and the common sum constraint Σz_j=0. There are no 3-boundaries in either base. Generating by (e_j−e_k) times a square and routing a mixed-shore pair via an unused fifth label gives integral surjectivity from the sum of the two bases. Relative homology then gives H₂(X;ℤ)=0. Direct face counting gives reduced Euler characteristic −n³+6n²−8n+1; top homology is free as a subgroup of the dimension-three chains. Hurewicz in degrees two and three and the simply connected homological Whitehead theorem give the wedge. The recorded checker output was inspected without executing the uploaded code. Independent replay `python3 /workspace/branches/30dab567-ed4f-416a-a806-e53af33d78d6/independent_n4_boundary.py` checks all 2^14 arc subsets for n=4: f=(14,68,128,72), mod-two boundary ranks (13,55,71), and ordinary Betti vector (1,0,2,1). This proves the stated mod-two obstruction, not a smaller-n homotopy classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.7 gives the Euler characteristic of the one-way-oriented complete bipartite case, not an integral wedge classification here; Theorem 5.1 covers transitive tournaments.",
+          "The bidirected K₂,q theorem has q≥6 and a quartic multiplicity q⁴−8q³+19q²−14q+1, with both arc directions across the two shores."
+        ],
+        "reasoning": "None is a broader theorem for cyclic complete tripartite orientations; the two hub cone bases and the triangle exclusion are not part of those complexes.",
+        "searches": [
+          "arXiv:2208.04656 Theorems 3.7 and 5.1",
+          "Resultary e774dfc692d7 and 491b1ba2db2e: bidirected complete bipartite multipath wedges"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.04656",
+        "arXiv:2110.11206",
+        "Resultary d0f1a9009c55, ccd14f0c6098, e774dfc692d7, 491b1ba2db2e, 1f84401a7952"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The blow-up theorem applies to the target digraph as a blow-up of C₃, but explicitly gives its path homology.",
+          "A finite homology or Euler-characteristic computation is weaker than integer H₂-killing followed by 2-connectivity and a homological equivalence with a wedge."
+        ],
+        "reasoning": "The inspected results do not provide the square-swap surjectivity of the two cone bases at a fifth label, which is the essential step in the frozen classification. No valid reduction of the claimed homotopy type to the inspected statements was found.",
+        "searches": [
+          "arXiv:2208.04656 Euler-characteristic and homotopy results",
+          "Resultary 1f84401a7952 complete blow-ups of directed cycles",
+          "Resultary d0f1a9009c55 fixed cyclic-tripartite case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An alternating orientation is exactly the case of equality with the ordinary matching complex; the directed triangles here preclude alternating orientation.",
+          "The path poset orders multipaths by subgraph inclusion, but the inspected theory gives multipath cohomology computations, not this homotopy type.",
+          "Path homology of the directed three-cycle blow-up gives H₁=ℤ and zero higher degrees, for a different invariant."
+        ],
+        "reasoning": "The crown graph is a matching complex for the middle arcs only. The cones at the hub and the directed-triangle exclusion change the full complex. Neither changing to path homology nor forgetting orientation yields an equivalent statement.",
+        "searches": [
+          "arXiv:2208.04656 Definition 2.7 and Proposition 2.8: multipath complex and ordinary matching complex",
+          "arXiv:2110.11206 Definition 2.7: path posets",
+          "Resultary 1f84401a7952: directed-cycle blow-up path homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day distinct record classifies only (2,2,4) and gives three 3-spheres, twenty-eight 4-spheres and M(ℤ/2,3). It explicitly makes no assertion for other shore cardinalities.",
+          "The octahedral record concerns (2,2,2), with H₂=ℤ and H₃=H₄=ℤ⁴, not the attaching maps or homotopy type."
+        ],
+        "reasoning": "A common cyclic orientation and a shore of size four are not enough: neither case is (1,2,4), and neither determines an infinite-family theorem for (1,2,n). Same-date indexing neither excludes overlap nor resolves priority.",
+        "searches": [
+          "Resultary: cyclically oriented complete tripartite multipath complexes, shores (1,2,n)",
+          "Resultary d0f1a9009c55 and ccd14f0c6098: cyclic (2,2,4) and (2,2,2) multipath complexes"
+        ]
+      },
+      "rationale": "The inspected multipath literature studies the same functor, and the catalogue contains close cyclic tripartite and bipartite wedge results. None of these statements covers the integral homotopy type for cyclic shores (1,2,n), its rank formula, or the n=4 boundary. The exact blow-up comparison uses path homology instead and is not equivalent. This is a best-of-knowledge comparison, not a priority claim.",
+      "residual_risks": [
+        "Bounded literature comparison cannot rule out an unindexed equivalent classification; one scholarly search was deferred. No priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same functor; non-covering families/statements",
+          "evidence": [
+            "Matching-complex reduction iff alternating; one-way complete bipartite Euler characteristic; transitive-tournament wedge results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Abstract; p. 4 Def. 2.7/Prop. 2.8; p. 7 Thm. 3.7; p. 15 Thm. 5.1 (OA offsets 0, 16600, 29500, 68500)",
+          "method": "Selected passages of OA PDF full text",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Same complex; potential stronger graph-family classification"
+        },
+        {
+          "assessment": "Poset model and different cohomological results; no applicable homotopy classification in inspected statements",
+          "evidence": [
+            "Multipaths ordered by subgraph inclusion; abstract describes computations for oriented linear graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.11206",
+          "material_read": "Abstract and p. 5 Def. 2.7 (OA offsets 0, 18350)",
+          "method": "Selected passages of OA PDF full text",
+          "title": "Combinatorial and topological aspects of path posets, and multipath cohomology",
+          "trigger": "Possibly equivalent poset model"
+        },
+        {
+          "assessment": "Different shore sizes; no implication of target theorem",
+          "evidence": [
+            "Gives 3 S³, 28 S⁴ and M(ℤ/2,3) as wedge summands for (2,2,4) only."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-torsion-moore-summand-in-the-cyclic-2-2-4-multipath-comple--d0f1a9009c55",
+          "material_read": "RESULT.md Finding and scope, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A two-torsion Moore summand in the cyclic (2,2,4) multipath complex",
+          "trigger": "Closest same-date cyclic-tripartite homotopy result"
+        },
+        {
+          "assessment": "Fixed (2,2,2) complex and homology, not the bound homotopy type",
+          "evidence": [
+            "H₂=ℤ and H₃=H₄=ℤ⁴; explicitly does not determine attaching maps or homotopy type."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-integral-homology-of-the-cyclically-oriented-octahedral-multipat--ccd14f0c6098",
+          "material_read": "RESULT.md Finding and scope, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Integral homology of the cyclically oriented octahedral multipath complex",
+          "trigger": "Close cyclic orientation"
+        },
+        {
+          "assessment": "Different digraph and arc set",
+          "evidence": [
+            "Fully bidirected K₂,q with q≥6 and a quartic wedge multiplicity."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-six-column-stability-for-bidirected-complete-bipartite-multipath--e774dfc692d7",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Six-column stability for bidirected complete bipartite multipath complexes",
+          "trigger": "Very similar wedge strength and small shore size"
+        },
+        {
+          "assessment": "Applicable to path homology of D_n, not to the multipath complex",
+          "evidence": [
+            "For directed-cycle blow-ups: H₀=H₁=ℤ and higher path homology is zero."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-forward-shift-blow-ups-preserve-digraph-homotopy-type--1f84401a7952",
+          "material_read": "RESULT.md Finding and cycle consequence, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Forward-shift blow-ups preserve digraph homotopy type",
+          "trigger": "Target is a complete blow-up of a directed cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the integral homotopy type for a natural strongly cyclic infinite family under an established functor, and settles when the sphere-only pattern begins, rather than furnishing just ranks at several n. The fifth-label argument explains why the two independent cone attachments jointly kill the entire integral second homology and identifies a meaningful threshold. The mod-two boundary is a substantive contrast, not claimed to be a classification in its own right.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

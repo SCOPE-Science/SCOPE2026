@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:38:01.951631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The second-derivative determinant gives -54 times the displayed sextic, a nonzero factor both in characteristic zero and modulo 29. The quartic is geometrically smooth in both: if one coordinate is zero the vanishing gradient equations force all to be zero, while for all coordinates nonzero their product would imply 1=-27. Thus it is geometrically irreducible. At [1:0:0] the two gradients are the y and z coordinate covectors, so the quartic cannot divide the sextic. Independently written and run on 2026-11-24 UTC, reproduce_mod29.py enumerated the 871 disjoint-chart representatives, verified rank two at the 24 common zeros, and found 24 distinct normalized gradients and 276 different cross-products each incident with exactly two lines. The degree-24 Bézout count exhausts the geometric special fiber, not merely its rational points; transversality makes each point simple. The 24 rational points lift uniquely to distinct sections over the henselian DVR by the Jacobian criterion and Hensel, and Bézout in the generic fiber excludes extra points. The ordinary flex property holds in characteristic zero (also established by Elkies; simple Hessian intersections have flex weight one). Tangent gradients have nonzero reduction and reduce compatibly. Equal generic lines would reduce to equal lines; a zero determinant for three distinct generic tangent coefficient vectors would yield a zero determinant at 29. The finite census excludes both. Intersections of distinct transverse projective lines with just two branches are nodes, so the total is 276 and each line meets the other 23 at different points. Replay and full certificate: /workspace/branches/5443abbe-f88d-4871-869f-7708e11eed27/reproduce_mod29.py and mod29_census.json; canonical payload SHA-256 8b0be8fcc165b144f32b80618e1ae12bdbb761f57efb56dccb42d3b29eade6e1. The frozen scripts were inspected, not executed. The argument does not classify positive-characteristic arrangements at arbitrary primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkies gives 24 weight-one Weierstrass points, all ordinary flexes. Pacini–Testa gives a general bound of at most eight inflection lines through a point counted with multiplicity.",
+          "Dimca et al. state the only-double property for the twelve inflection tangents of C_3 in the Ciani pencil, but the Klein representatives correspond to the roots of a different parameter equation."
+        ],
+        "reasoning": "Neither the general bound nor the degree and reducedness of the flex or dual scheme forces the maximum incidence to be two; the C_3 calculation is not a calculation for another member by equivalence.",
+        "searches": [
+          "Elkies, The Klein Quartic in Number Theory, §2",
+          "Pacini–Testa arXiv:1711.05776v2 Proposition 3.6 and Example 1.9",
+          "Dimca–Ilardi–Pokora–Sticlaru DOI 10.1007/s00025-023-02036-9 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.05776v2",
+        "Elkies §2",
+        "arXiv:math/0508174",
+        "DOI 10.1007/s00025-023-02036-9",
+        "Resultary 07295989c49b, 1b8d3c6d03f9, 3c19cc0fc0c4, 0548018b5548 and self-match 11970fce21b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scheme in the dual plane can be computed from the prior two equations, but one must still exclude all collinear triples or prove equivalent determinant nonvanishing. The degree-24 count alone does not test that condition.",
+          "The eight residual flex triples address a different quantified claim; the positional classification for C_3 is not transported to the Klein quartic by the cited results."
+        ],
+        "reasoning": "Once no triple is proved, 276 is the immediate binomial count and has no independent novelty. The no-triple condition itself is not a parameter substitution into the prior bounds or formulas; the proof supplies additional arithmetic and good-reduction reasoning.",
+        "searches": [
+          "Pacini–Testa Example 1.9 and Proposition 3.6",
+          "Poonen–Schaefer–Stoll arXiv:math/0508174 §11.1",
+          "Dimca et al. §5 Remark 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A triple concurrence of the primal lines is a collinear triple among the 24 dual coefficient points. Pacini–Testa expressly gives the scheme of these points as a complete intersection of the harmonic quartic and sextic contravariant, with explicit equations for this Klein model.",
+          "Poonen–Schaefer–Stoll's noncollinearity of eight particular triples concerns the residual tangent map on the flex points. It is not noncollinearity of every triple of dual points, even with the explicit Klein-form equations in dual coordinates.",
+          "Resultary 07295989c49b and 1b8d3c6d03f9 treat the flex scheme and its splitting, not the full line incidence; 11970fce21b6 is the same record."
+        ],
+        "reasoning": "The exact dual geometric object is prior, not just a comparison example. A complete intersection description, or information about only the residual orbit triples, does not give the universal no-collinear-triple property of that point set.",
+        "searches": [
+          "Local Resultary: Klein quartic inflection tangents, residual flex cycles, bitangent arrangements, no triple concurrence",
+          "Public literature lookup for Klein quartic inflection-line concurrence and Pacini–Testa's inflection-line reconstruction article",
+          "Pacini–Testa arXiv:1711.05776v2 Example 1.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 276-node Resultary hit is the reviewed entry. The Ciani bitangent and characteristic-three Klein bitangent findings 3c19cc0fc0c4 and 0548018b5548 concern 28 bitangents, not 24 inflection tangents.",
+          "Pacini–Testa supplies exact equations for the dual scheme; the inspected passages do not evaluate the pair incidence. The published only-double table comparison in Dimca et al. is for C_3, not the Klein parameter."
+        ],
+        "reasoning": "The exact symbolic specification of the dual scheme is significant existing coverage, but is not a table of its secants or the primal double points. No independent incidence table matching the setting was established by the bounded searches.",
+        "searches": [
+          "Resultary: Klein exact flex incidence, Ciani and Klein bitangent concurrence, 276 nodes",
+          "Public query for Klein inflection lines with concurrence or 276, followed by primary PDF comparison"
+        ]
+      },
+      "rationale": "The supported new content is the full pair-incidence classification, or equivalently the absence of collinear triples in the 24 dual inflection-line points. The classical flex count and explicit equations for that dual scheme are already known, and neither is credited as novel. In particular Pacini–Testa is a same-object antecedent beyond the citations in the frozen source.",
+      "residual_risks": [
+        "The arithmetic or combinatorics of the explicitly known dual flex scheme may have an unindexed exact incidence evaluation. The bounded audit does not establish historical first priority.",
+        "The no-triple property is in characteristic zero by specialization at a single good prime; exceptional positive characteristics are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same dual scheme described by equations; general bound does not evaluate its pair incidences",
+          "evidence": "H(q)=3(u^3v+v^3w+w^3u) and K(q)=27(u^5w+v^5u+w^5v-5u^2v^2w^2), giving the complete intersection of degree 24. Proposition 3.6 bounds concurrence by eight with multiplicity, not two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.05776v2",
+          "material_read": "Example 1.9 p. 6, offset near 27022; Proposition 3.6 and Remark 3.7 p. 14, offset near 64010",
+          "method": "OA arXiv PDF, locate and bounded reads",
+          "title": "Reconstructing general plane quartics from their inflection lines",
+          "trigger": "Strong same-object dual inflection-line description"
+        },
+        {
+          "assessment": "Prior ordinary flex count",
+          "evidence": "24 Weierstrass points of weight one, all ordinary flexes.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "§2 Proposition (i), pp. 64–65, OA offsets 41400–47885",
+          "method": "OA PDF",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Classical flex census for the same curve"
+        },
+        {
+          "assessment": "Residual flex-tangent triples, not intersections of all tangent lines",
+          "evidence": "The tangent at W_i meets the curve again at W_(i+1), and the eight such triples of points are noncollinear.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0508174",
+          "material_read": "§11.1 p. 26, OA offsets 77800–83954",
+          "method": "OA primary paper",
+          "title": "Twists of X(7) and primitive solutions to x^2+y^3=z^7",
+          "trigger": "Same tangent geometry and noncollinear triple terminology"
+        },
+        {
+          "assessment": "Only-double result on different quartic",
+          "evidence": "The twelve-line assertion is for parameter 3; Klein models occur at roots of lambda^2+3lambda+18.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-023-02036-9",
+          "material_read": "§5 and Remark 5.1, pp. 19–20, OA offsets 45800–51397",
+          "method": "OA primary PDF",
+          "title": "Construction of Free Curves by Adding Lines to a Given Curve",
+          "trigger": "Exact only-double analogy within the Ciani pencil containing Klein members"
+        },
+        {
+          "assessment": "Flex point splitting/residual dynamics or distinct bitangent arrangements",
+          "evidence": "The splitting findings do not classify all intersections of the 24 lines; the 28-line findings are about bitangents.",
+          "identifier_or_url": "Resultary 07295989c49b, 1b8d3c6d03f9, 3c19cc0fc0c4, 0548018b5548",
+          "material_read": "Mirrored RESULT.md findings at offset 0",
+          "method": "Local mirror",
+          "title": "Klein flex-scheme Frobenius and nearby quartic bitangent records",
+          "trigger": "Catalogue exact flex counts and line-arrangement overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 24 inflection tangents of the classical highly symmetric Klein quartic are an intrinsic arrangement. Whether their incidence has special multiple points is a natural question not settled by smoothness, ordinary flexes, a scheme equation in the dual plane, or the incidence behavior of a general quartic. The result gives the complete incidence type needed in arrangement calculations, while cleanly separating these lines from the Klein bitangents and other highly concurrent Klein configurations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

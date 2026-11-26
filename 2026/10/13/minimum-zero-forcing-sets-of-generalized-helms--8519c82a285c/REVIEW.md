@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The pendant-bundle obstruction forces at least \(s-1\) initially blue leaves at every spoke. The exact baseline of \(m(s-1)\) leaves stalls with the center and one leaf per bundle white, so a minimum set has exactly one additional vertex. Exhausting the three possible locations of that vertex proves the two-family classification: the center works in two steps, one additional pendant leaf saturates a single bundle and works in three steps, and a spoke fails because the center and its omitted pendant remain simultaneously white neighbors. The counting formulas then follow by independent omitted-leaf choices. Exhaustive verification agrees on \(969{,}903\) candidate minimum subsets in ten parameter profiles.
+## correctness
 
-## Originality
-**PASS.** The closest same-object source, Anderton et al., proves \(Z(H(m,s))=m(s-1)+1\), the mandatory pendant-bundle lower bound, one center-type witness, and the graph propagation time \(2\). Those consequences are treated as prior work. Its inspected generalized-helm theorem does not classify all minimum sets, count them, or identify which minima have propagation time \(2\) versus \(3\). The broader zero forcing polynomial source defines the relevant minimum-set coefficient but contains no helm occurrence in full-text search. Equivalent-notation, broader-twin, and efficient-set searches did not locate a dominating statement; unindexed literature remains a residual risk.
+PASS
 
-## Value
-**PASS.** This is a natural completion of a published exact minimum-value theorem on the same infinite graph family. It identifies every optimal placement, gives the exact number \(s^{m-1}(s+m)\), and separates the \(s^m\) efficient minima from the \(m s^{m-1}\) slower minima. The result exposes the structural role of the unique unit of slack above the pendant-twin lower bound and is not an arbitrary finite census.
+For m≥3 and s≥2, two omitted leaves at the same spoke can never be forced, so s−1 leaves per bundle are mandatory. With just those leaves, the process stops after the spokes turn blue. At the next cardinality there is one extra vertex: a spoke still leaves the hub and one leaf at each spoke white, whereas the hub and an extra leaf give exactly the two claimed classes. In the hub class, round 1 colors the spokes and round 2 the omissions. In the saturated class, no spoke is initially blue; round 1 colors all spokes, only the saturated spoke can force in round 2 (it forces the hub), and round 3 colors the remaining leaves. There are s^m and m s^(m−1) sets, respectively, by independent choices of omissions. This also proves the efficient-set statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The prior zero forcing number and graph propagation time are explicitly excluded from the distinct contribution. The checked prior proof supplies the bundle obstruction and a hub-containing witness, not the alternatives at minimum size, the coefficient, or the per-set time distribution. No equivalent same-domain classification surfaced in the bounded comparisons.
+
+## value
+
+PASS
+
+This is the complete ordinary minimum-set layer of a natural graph family. The scalar optimum does not identify/count the optimal sets or show that another minimum family takes an extra parallel round. The two-family description and multiplicities supply the first coefficient of the zero forcing polynomial and the time distribution within that coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

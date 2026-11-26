@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:56.058156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–3 and VERIFICATION.md; frozen verify.py inspected, not executed",
+        "Own replay: python3 /workspace/review_checks.py; cat() checks 3,281 distinct exact signed pair sums with zero padding from the first 40 frequencies"
+      ],
+      "rationale": "For fixed 0<ε<1, the odd analytic graph transform is a contraction on a small sup-norm ball and its linearized graph equation I−qC_(A^-1), q=(1−ε)/(1+ε), is invertible by a Neumann series. Thus the small graph is attracting, analytic and odd in μ; ergodicity gives the exponent in one iterate of the original map. Independently, project the integer frequency vectors onto the expanding eigendirection of A^-T: their nonzero projections are proportional to powers of λ=(3+√5)/2. After pair cancellations, a largest term can occur only once in a signed sum of at most four, and reaching it requires three positive lower powers. Three copies of the preceding power overshoot; two leave a residual strictly between the two preceding powers, since 1/λ<λ−2<1; at most one undershoots since 1/λ+2/λ²<1. This validates the all-index moment reduction, not just a finite scan. With κ=1−q², the derivative is q/(1−κ sin²(πx)); its cubic map coefficient is qκπ²/3 and its log-derivative coefficients are κπ² and π⁴(κ²/2−κ/3). The first graph response has second moment 1/(2κ) and fourth moment 3/(4κ²)−3/(8(1−q⁴)). Its cross moment with the cubic graph response is q²π²/3 times that fourth moment, by splitting off the first j kicks against the backward shift. Substitution gives π²/2 and π⁴(1+3q²)/(16κ), the latter exactly the frozen quartic coefficient. Analytic evenness controls the remainder for each fixed ε; no endpoint uniformity is assumed.",
+      "residual_risks": [
+        "The finite diagnostic does not prove the all-index resonance assertion; the power comparison does. The expansion is local at fixed ε and does not control ε approaching 0 or 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-drift model paper reports numerical Lyapunov behavior; the degree-five phase-memory calculation is at ε=0 and concerns phase moments"
+        ],
+        "reasoning": "A larger family with a numerical study does not imply these exact zero-drift asymptotics; the unit-multiplier slice ε=0 does not contain the fixed 0<ε<1 contraction regime.",
+        "searches": [
+          "arXiv:2305.18172v1 (family with general drift)",
+          "Resultary d2435767399d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.18172v1",
+        "Resultary 635311935d95 (self), d2435767399d, a4e0daaff45e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior log-derivative integrand directly gives the unforced constant; first-order spatial regularity and fifth-order phase memory do not evaluate the integrated cubic graph response"
+        ],
+        "reasoning": "The quartic term requires the fourth graph moment and the linear/cubic cross moment; neither follows by evaluating the prior integrand at the unforced graph or by substituting into the reported first-response regularity statement.",
+        "searches": [
+          "arXiv:2305.18172v1 §III.2",
+          "Resultary a4e0daaff45e and d2435767399d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eqs. (1a–c) coincide after setting drift c=0; §III.2 identifies the same averaged log derivative"
+        ],
+        "reasoning": "Changing the description from conditional exponent to attractor-averaged fiber log derivative does not create novelty, but neither description in the model paper supplies these response coefficients.",
+        "searches": [
+          "Local Resultary deterministic cat-driven Möbius Lyapunov response comparison",
+          "arXiv:2305.18172v1 §§II, III.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula match 635311935d95 is the assigned record itself; the primary source excerpt computes Lyapunov exponents numerically"
+        ],
+        "reasoning": "There is no applicable finite table lookup for these identities for every ε and phase. The indexed close matches and available exact-family Lyapunov section did not yield an independent exact-formula match.",
+        "searches": [
+          "Local Resultary: 635311935d95, d2435767399d, a4e0daaff45e",
+          "arXiv:2305.18172v1 §III.2"
+        ]
+      },
+      "rationale": "The model, derivative and unforced exponent are antecedent. The inspected exact-family and nearby results do not furnish the two nonlinear response coefficients or a stronger theorem giving them. The distinct claim is the exact deterministic quadratic and quartic expansion on the attracting graph, not the base family or the use of Fourier dissociation itself.",
+      "residual_risks": [
+        "The comparison used targeted available primary passages and indexed results; it does not settle historical priority or rule out a harder-to-locate expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and exponent integrand already known; no matching expansion in the assessed passages",
+          "evidence": "§III.2 averages log[(1−ε²)/(1+2ε cos(2πx)+ε²)] and discusses numerical Lyapunov calculations.",
+          "identifier_or_url": "https://arxiv.org/html/2305.18172v1",
+          "material_read": "§II Eqs. (1a–c) and §III.2, offsets 5000 and 11800",
+          "method": "OA primary full-text passages",
+          "title": "Attractor–repeller collision and the heterodimensional dynamics",
+          "trigger": "Exact original Möbius family, drift included"
+        },
+        {
+          "assessment": "Different invariant and parameter slice",
+          "evidence": "Degree-five resonance for phase-increment moments with ε=0, not the transverse coefficients with contraction.",
+          "identifier_or_url": "Resultary d2435767399d",
+          "material_read": "RESULT.md offsets 0 and 8000",
+          "method": "Local published-record mirror",
+          "title": "Fifth-order phase-memory resonance in a cat-driven circle map",
+          "trigger": "Same cat forcing and possible short Fourier resonance antecedents"
+        },
+        {
+          "assessment": "First-order response antecedent, not the integrated exponent expansion",
+          "evidence": "Spatial regularity and gradient susceptibility of the first graph response.",
+          "identifier_or_url": "Resultary a4e0daaff45e",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp smoothness staircase and gradient susceptibility of a cat-driven Möbius response",
+          "trigger": "Same small-forcing graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Assumptions and scope; arXiv:2305.18172v1 §III.2"
+      ],
+      "rationale": "The transverse exponent is a stability observable of an independently studied deterministic collision model. The exact curvature is a parameter-universal benchmark, whereas fourth order quantifies how contraction first changes that response without phase dependence. This provides analytic information beyond the unforced value and numerics without claiming a global basin or collision threshold.",
+      "residual_risks": [
+        "The benchmark is for one small attracting graph in a local forcing regime, not the repelling graph or its collision with the attractor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

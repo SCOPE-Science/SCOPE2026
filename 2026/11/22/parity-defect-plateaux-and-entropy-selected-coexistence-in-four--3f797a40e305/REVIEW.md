@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives a sharp cycle-pair lower bound, reduces every possible favored-apex count to a finite table of affine functions, compares its lower envelope across every field region, and supplies explicit nonfavored-color assignments attaining every optimal sector. It counts equality states without assuming all nonfavored vertices have different spins. Odd-rim values at \(H/J=1\), both parity values at \(H/J=2\), and the field-scaled apex coexistence at \(H/J=n\) were checked against independent full-state enumeration for four rim sizes. The exact entropy follows from the two-eigenvalue independence transfer, not from numerical extrapolation. The enum tests are supplementary; their finite extent does not establish the all-size theorem.
+PASS
 
-## Originality — PASS on examined evidence
+For k favored rim spins and t favored apices, the forced bond cost is at least max(0,2k-n)+tk. The k-breakpoints are 0, floor(n/2), ceil(n/2), n; for 0<x<=2 the mixed or all-favored apex lines at the positive breakpoints cost t(k-x) more than the nonfavored-apex line, and k=0 cannot beat -x floor(n/2) since floor(n/2)>=3. For 2<=x<=n the line n(1-x) bounds all competing lines by their endpoint gaps, with only k=n at x=n; that is a three-sector apex tie, and the greatest slope in magnitude takes over beyond n. The rim equality patterns have no extraneous nonfavored bond costs when counted as proper colorings after excluding the apex colors. On the odd rim at x=1, the two boundary k-sectors add, while at x=2 all independent nonfavored rim sets contribute 3*2^|R|+6. The cyclic independence transfer eigenvalues give both terms of D_n; near activity 2 the top eigenvalue gives density 1/3 for R and variance O(n), so the limiting favored fraction is 2/3. At x=0 proper colorings are counted by whether apices coincide; x=n gives 4^2 apex choices. No unsupported finite-temperature inference is needed.
 
-The closest fully inspected sources are Chang–Shrock (arXiv:0908.2375), especially the wheel and chromatic sections; Shrock–Xu (arXiv:1009.1182), especially the \(K_p\vee C_n\) weighted-coloring treatment; and Deng et al. (arXiv:1108.1743) on Eulerian triangulation Potts physics. The closest published published-finding corpus comparator is the one-hub three-color wheel magnetic theorem. The present two apices are **nonadjacent**, the finite exchange permits frustration at positive field, and the odd parity-specific \(H/J=1\) crossing, exact \(D_n\) degeneracy, and critical-site density are not consequences of those particular stated results. The general partition-function methods and wheel phenomenon remain acknowledged as prior art. Equivalent unpublished or unindexed analyses remain possible; this is not a certificate of worldwide novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The bipyramid is a canonical finite planar triangulation, and its even-degree and odd-degree families expose a concrete parity defect in a physically natural four-state field model. The result is a natural complete all-length classification with a genuinely additional odd-parity plateau, an exact weighted-independent-set coexistence census, and a calculable entropy-selected critical occupation between the neighboring macrostates. The field threshold linear in rim size clarifies the finite-size versus thermodynamic distinction. No large-scale universality claim is made.
+The strongest inspected comparators establish overlapping wheel mechanisms or solve other Potts models. They do not cover the full finite-exchange four-color two-nonadjacent-apex family, the odd-rim J crossing or the activity-2 entropy selection.
 
-## Scientific limitations
+## value
 
-All results are for uniform coupling, nonnegative field, four colors, and \(n\ge6\). The closest literature uses differing topology, coupling limit, or bulk-infinite setting. Historical priority requires independent bibliographic confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This completes a natural graph-family classification and separates three phenomena quantitatively: a parity defect creates an extra field interval, local freedom at coexistence produces a third macroscopic favored density, and the final saturation threshold scales with apex degree. Knowing the full labeled degeneracy matters to uniform ground-state sampling; the energy envelope alone cannot predict the 2/3 density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

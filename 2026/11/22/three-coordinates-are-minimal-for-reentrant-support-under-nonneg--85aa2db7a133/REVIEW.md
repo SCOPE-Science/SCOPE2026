@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(n\le2\), KKT reduction to the sole inactive-coordinate test \(c\max(b_2,0)/(d+t)-b_1\ge0\) proves an endpoint interval because its derivative has constant sign. In the three-dimensional example, positive leading minors prove strict convexity; the exact inverse has first component \((t-1/2)(t-1)/D(t)\) and the remaining two components stay positive. On the interval where the first coordinate vanishes, the explicit boundary solution has nonnegative reduced gradient and satisfies complementary slackness. A separate exact symbolic script reconstructs the algebra and enumerates all supports at nine rational parameters. Finite computations do not substitute for these analytic arguments. The strict signs at three parameter values also prove robustness, while the spectral eigenvalue formula proves strict condition-number improvement.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 nonnegative conjugate-gradients work solves fixed-parameter nonnegative quadratics and analyzes spectral regularization, but it does not classify coordinate support through a ridge parameter sweep. The 2002 and 2004 nonnegative Tikhonov papers supply numerical methods without the two-versus-three coordinate phase boundary. Nearby mathematical-record results concern ridge sketch preconditioning, fixed-step Gauss–Newton contraction, or transient active-face identification, none of which implies this constrained optimizer support statement. Conventional \(\ell_1\)-path entry/exit results use a different penalty. Searches cannot exclude unindexed examples, unpublished observations, or equivalent formulas hidden in broader complementarity literature.
+PASS
 
-## Value — PASS
-A dimension-minimal, robust loss-and-regain counterexample is a concrete obstruction to reusing a supposedly nested active set during nonnegative ridge continuation. The phenomenon survives positive forcing and occurs during strictly improving spectral conditioning; the two-dimensional theorem identifies exactly when nesting really is guaranteed. The complete finite-dimensional classification and closed rational transition values are more informative than a single numerical warning.
+In one dimension the sign is independent of t after truncating at zero. In two dimensions, the face x_1=0 has unique optimum x_2=max(b_2,0)/(d+t). The missing KKT condition is precisely c max(b_2,0)/(d+t)-b_1 >= 0, including equality. This function is monotone, and for b_1>0 has strictly negative limit, excluding a terminal zero set except the empty set. Repeat for coordinate 2. In the witness, the minors 3, 2 and 23/4 certify SPD. Eliminating coordinates 2 and 3 gives numerator q=(t-1/2)(t-1) and denominator D=(t+3)(t+1)(t+4)-(t+4)-(9/4)(t+1) for the first unconstrained coordinate. All coefficients of D±q are positive, bounding that coordinate between -1 and 1 and making the other two positive via their stationary equations. On the missing-coordinate face the outward gradient in coordinate 1 is -q/[(t+1)(t+4)]; this is nonnegative on exactly [1/2,1]. The KKT proof thus includes the tie endpoints. The eigenvalues shift by t; the distinct extremal eigenvalues imply strictly decreasing condition number. Strict KKT inequalities at 0, 3/4 and 2 persist by continuity of the relevant restricted inverses and gradients, proving robustness of reentry, not fixed transition locations.
 
-## Scope and residual risks
-No all-dimensional classification is claimed, and the problem's mixed-sign off-diagonal matrix may not represent every application-specific positivity structure. A literature-index search and substantial comparisons cannot establish priority conclusively; independent validation has not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the sharp dimension obstruction for arbitrary b, the monotone two-dimensional positive-b corollary, and the positive-b minimal robust witness. Nonnegative Tikhonov solution methods concern a genuinely overlapping model, but the passages inspected do not give these support-path conclusions. The Resultary matches about loss of positivity or boundary capture involve different quantities or parameters.
+
+## value
+
+PASS
+
+The theorem rules out support reentry in the smallest dimensions and gives a sharp, exact, open-set counterexample to nested supports for positive data in dimension three. Improving conditioning does not rescue support monotonicity even along the standard isotropic path. The explicit thresholds and persistent strict signs make it useful as a minimal test for support-tracking methods, without making a claim about their runtime or individual iterates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

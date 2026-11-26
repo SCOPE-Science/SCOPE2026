@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:04.922694Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the collision criterion and counted all maximizing site sets; reassessed the corrected RESULT.md and SLOGAN.txt. Deletions at i<j coincide exactly when the intervening comparison gives period two on positions i+2 through j+3. The adjacent equal inner letters of the palindrome at j join the two parity classes, and the palindrome at i extends the equality to i and i+1. So precisely the consecutive runs of sites index parents. The packing bound is tight by the unequal-letter period-four word. If the site path has odd length, all its alternating even sites must be legal, which forces the entire period-four word. If the site path has 2t positions, t≥2, a doubleton would use all slack: another run starts at i−2 or i+3 relative to the doubleton i,i+1. Those equalities force the missing separator legal and merge runs. With singleton runs only, the spare position is an extra end space or one double separator, giving exactly the displayed S_j. Each end choice has q²(q−1) words, with the unused site ruled out by its unequal middle pair. At the junction xuuxvvx both omitted sites require x=u=v, and a block with at least two sites requires its two block letters distinct. This gives q³−q for the sole interior j when t=2, two interior choices of q²(q−1) and t−3 choices of q(q−1)² for t≥3. Both sums give the claimed odd census; at N=4 and N=5 the separate counts follow by direct palindrome counting or inclusion–exclusion. Counting legal sites minus adjacent legal pairs proves the incidence formula for all N≥4. The supplied checker and saved output were inspected but not executed; the correctness decision is based on the complete symbolic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zabokritskiy gives n−k+1 parents for parent length n and duplication length k, hence N−3 at k=2.",
+          "Lenz et al. give the zero-column-run bound for all alphabets and block lengths.",
+          "Resultary 47e8202dd4ba gives the exact maximum for general block length; s_2=2 in its formula, so the maximum is directly covered."
+        ],
+        "reasoning": "A general inverse-degree upper bound, even an exact extremal degree formula, does not supply the number of attaining words. The earlier run bound and periodic example already essentially give the threshold, which is not credited as original.",
+        "searches": [
+          "arXiv:2609.00779v4, §6 Lemma 6.1",
+          "arXiv:1712.09345, Lemma 15",
+          "Resultary: maximum for a single palindromic duplication at general block length"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and CHECK_RESULTS.txt",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "arXiv:1707.00052; arXiv:1712.09345; arXiv:2609.00779v4",
+        "Resultary 890e7708ebeb and 47e8202dd4ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are N−3 columns at block length two, and the run bound gives at most ceil((N−3)/2) runs, attained by period four.",
+          "The aggregate follows by summing the run identity. The two later catalogue records agree exactly on the maximum by specialization or directly.",
+          "In the odd case, run packing alone allows one doubleton; ruling it out requires the overlapping palindrome equalities. Counting the allowed sets further requires the omitted-site tests at a junction."
+        ],
+        "reasoning": "The maximum and incidence are background to the repaired finding. Mechanical substitution does not give the odd census. The separate doubleton exclusion and free-letter count are supported distinct content; even rigidity is a short consequence of extremal run packing and is not relied on alone for novelty.",
+        "searches": [
+          "arXiv:1712.09345 Lemma 15 and Appendix B",
+          "890e7708ebeb Finding and Proof offsets 0–4683",
+          "47e8202dd4ba Finding, Proof and Relationship offsets 0–10032"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-step inverse lists equal single palindromic-deletion spheres with the unchanged word excluded when that convention is used.",
+          "In Lemma 15 of arXiv:1712.09345, runs of zero columns are precisely runs of legal starts at duplication length two; Appendix B states exact collision conditions.",
+          "Resultary 890e7708ebeb states a per-word marked-run formula for the same invariant."
+        ],
+        "reasoning": "The general collision and per-word formulas cover the reduction, but specifying a function on words is not yet enumerating all words at its maximum. The equality patterns and junction compatibility complete that distinct step.",
+        "searches": [
+          "Resultary: exact inverse lists for single length-two palindromic duplication; extremizer count and aggregate incidences",
+          "arXiv:1712.09345, Appendix B, equations (12a–c)",
+          "arXiv:1707.00052, §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "890e7708ebeb gives q^(N−4)((N−3)q(q−1)+q+(N−4)(q−1)), which is exactly (N−3)q^(N−2)−(N−4)q^(N−4). It and 47e8202dd4ba also give the same sharp maximum at length two.",
+          "The compared deletion-sphere formulas are per word and do not display the number attaining the maximum."
+        ],
+        "reasoning": "There is demonstrable catalogue overlap on the maximum and aggregate, independent of priority. Neither matching record's compared statement is an exact census of maximizers, and no matching census table was verified.",
+        "searches": [
+          "Resultary: exact q-ary extrema and total inverse-list incidences",
+          "Resultary 890e7708ebeb and 47e8202dd4ba Findings",
+          "arXiv:1707.00052 and arXiv:1712.09345 exact deletion-sphere statements"
+        ]
+      },
+      "rationale": "For the corrected extremizer census, particularly the odd-length count and its junction constraints. The frozen broad novelty framing included an exact maximum which is a direct packing specialization of prior work plus a witness, and stated an aggregate incidence also appearing verbatim in an equivalent later indexed result. The corrected finding credits and separates both, as well as the collision lemma. Neither inspected primary text nor either later catalogue match supplies the nontrivial odd-site rigidity and parity-dependent maximizing-word census. The possible derivation from an exact per-word formula still needs that separate combinatorial classification, not merely parameter substitution.",
+      "residual_risks": [
+        "The bounded catalogue and primary comparisons do not exclude an unindexed equivalent extremizer census.",
+        "The 2026 preprint was read in the identified revised version; that inspection alone does not establish wording in the first version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive prior coverage of the local collision and upper-bound ingredients only",
+          "evidence": [
+            "Lemma 14 gives the exact binary count; Lemma 15 bounds by zero-column runs; (12a–c) impose two palindrome conditions plus the periodic intervening comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.09345",
+          "material_read": "PDF p. 22 Lemmas 14–15; p. 23 Appendix B, equations (12a–c), offsets about 66000–74983",
+          "method": "Targeted OA primary PDF",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "General-alphabet one-deletion run bound and exact collisions"
+        },
+        {
+          "assessment": "Exact binary per-word formula including unchanged word, not a q-ary extremizer census",
+          "evidence": [
+            "The unchanged word accounts for the +1 in the binary sphere formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.00052",
+          "material_read": "§3.4 Lemmas 5–6, PDF pp. 6–7 around offsets 17750 and 20726",
+          "method": "Targeted OA primary PDF",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Earlier binary deletion-sphere identity and general run bound"
+        },
+        {
+          "assessment": "The inspected version gives the looser N−3 bound at length two and uses it for multi-error code estimates",
+          "evidence": [
+            "The p. 17 lemma bounds the inverse multiplicity by n−k+1 for received length n+k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779v4",
+          "material_read": "Version stamped 2026-11-09, PDF p. 17, §6 Lemma 6.1 around offset 58500",
+          "method": "Targeted OA primary PDF",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Closest motivating PAL-k inverse bound"
+        },
+        {
+          "assessment": "Exact overlap on maximum and aggregate; not the extremizer census in inspected passages. Separate later-dated record; no conclusion about priority.",
+          "evidence": [
+            "Exact marked-run per-word formula and same N,q incidence polynomial."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-inverse-lists-for-a-single-length-two-palindromic-duplicat--890e7708ebeb/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–4683",
+          "method": "Resultary search and direct local mirror comparison",
+          "title": "Exact inverse lists for a single length-two palindromic duplication",
+          "trigger": "Same object, maximum and aggregate"
+        },
+        {
+          "assessment": "Specializes to exact maximum, but does not give the complete extremizer census; later catalogue comparison",
+          "evidence": [
+            "1+floor((m−2k)/s_k) with s_2=2 equals the frozen maximum at k=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-inverse-list-maximum-for-a-single-palindromic-duplication--47e8202dd4ba/RESULT.md",
+          "material_read": "Finding, Proof and Relationship, offsets 0–10032",
+          "method": "Resultary search and direct local mirror comparison",
+          "title": "Sharp inverse-list maximum for a single palindromic duplication",
+          "trigger": "Dominating maximum at arbitrary duplication lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size of the worst inverse list alone does not tell how rare the worst received words are. The census answers that directly for every alphabet and received length, with a natural parity contrast and exact junction constraints. It is valuable as a distributional extremal invariant of this channel, without requiring a new code construction or counting the known upper bound as a gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

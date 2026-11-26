@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:28:49.029521Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The limiting line exists almost surely by the simple leading positive eigenvalue and independent continuous starting vector. The projection residual 1+(kappa²-1)u_2² increases with absolute slope. Conditional on the proxy, the initial slope is |Cauchy|/kappa, yielding exact deterioration probability E[(2/pi) atan(kappa |v_2/v_1|)]. With Delta=kappa²-1, the event that the diagonal difference is below Delta*ell/2 has probability O(1/ell) by its explicit chi-square variance, negligible after sqrt(ell) scaling. On the complementary event, the leading slope is 2|b|/(a-d+sqrt((a-d)²+4b²)); scalar CLT and LLN give scaled slope kappa|Z|/Delta in the limit. Its scaled arctangent is bounded in L² by the estimate using off-diagonal T with E[T²]=ell. This supplies uniform integrability and hence the exact constant via E|Z|=sqrt(2/pi). The midpoint event has sign V>kappa² U, an independent chi-square comparison. Beta integral maximum bounds on shrinking fixed neighborhoods of the two maxima give the stated exponential root. Independent original diagnostics included the exact 13/125 example, 1,000 projector sign checks and finite beta budget inversions; /workspace/branches/50628757-609d-4d17-93aa-2a2e8dffb247/independent-check.md. The bundled verifier was inspected, not executed; it does not establish the repaired rate. The repair is analytic and uses fixed kappa and independent starting sketch, not a simultaneous gap limit or a monotone-in-depth claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.3 gives both fixed-gap Gaussian eigenvector fluctuation and a stronger contiguity-scale joint eigenvector limit. Centering a Gaussian sample of size ell+1 gives the same Wishart eigenlines with ell degrees of freedom.",
+          "The sketched-power bounds in Chenakkod–Dereziński use a regularized spectral approximation, not the independent start-versus-limit comparison. Standard Wishart density formulas determine the proxy law, not a comparison of reconstruction errors."
+        ],
+        "reasoning": "Prior PCA can supply weak convergence of the rescaled limiting angle. It does not alone give the asymptotic expectation of the rescaled conditional starting-error tail; rare angular outliers require separate control.",
+        "searches": [
+          "Paindaveine–Remy–Verdebout arXiv:1710.05291 Lemma 2.3",
+          "Chenakkod–Dereziński arXiv:2605.09755 Theorem 3.5 and Algorithm 1",
+          "Springer chapter DOI 10.1007/978-3-030-95864-0_8 §8.1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2603.26298v1",
+        "arXiv:1710.05291",
+        "arXiv:2605.09755v1",
+        "Springer chapter DOI 10.1007/978-3-030-95864-0_8",
+        "Resultary 2ff5b4a49a7b, 01df0b03e02b, 23a3fc6123ad and f67f8a256b4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At local gap kappa=1+epsilon with ell*epsilon²→c, the contiguity law gives top eigenline of GOE plus diag(2sqrt(c),0); the orientation comparison becomes the sign of a normal diagonal difference with mean 2sqrt(c) and variance 4. This gives Phi(-sqrt(c)) and budget inversion, not a novel local PCA result.",
+          "The fixed-gap eigenvector CLT describes a typical slope but leaves possible contributions from rare large slopes to a sqrt(ell)-scaled expectation. The independent Cauchy comparison, a separate O(1/ell) exception estimate, and a truncated L² bound identify the repaired constant.",
+          "Exact ordinary-power residual laws using AA^T have the deterministic leading singular line; they do not imply the random fixed-proxy limit's relative-to-start rate."
+        ],
+        "reasoning": "The repaired statement uses a separate joint risk calculation and expectation control which the stronger PCA weak-limit statement does not directly provide.",
+        "searches": [
+          "arXiv:1710.05291 Lemma 2.3(i),(iii) compared to original gap laws and repaired Cauchy expectation",
+          "arXiv:2603.26298v1 Eq. (1.1) and §7; Resultary f67f8a256b4c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The limiting line is the leading sample PC for ell Gaussian observations with covariance diag(kappa²,1). Its midpoint event is independent variance reversal.",
+          "The repaired event differs from a fixed angular tail: it compares the absolute sample-PC slope with an independent Gaussian range-vector slope. The latter is a scaled folded Cauchy variable.",
+          "Resultary 2ff5b4a49a7b and f67f8a256b4c instead power with the population matrix and analyze uniform-angle or absolute residuals."
+        ],
+        "reasoning": "The Wishart/PCA representation is exact, but a relative-to-independent-start comparison is not just an angular exceedance at prescribed angle.",
+        "searches": [
+          "Fixed proxy sketch-power arXiv:2603.26298v1 §1 and §7",
+          "Gaussian PCA, real Wishart sample eigenvectors and two-mode leading orientation",
+          "Resultary initial projected Frobenius error versus fully powered fixed Gaussian proxy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact adjacent Resultary results concern ordinary population-matrix powering, Rademacher orientation, or a conditional co-range residual law, not the repaired comparison.",
+          "The midpoint exact number is an ordinary beta-table entry after reduction; it is included only as the benchmark."
+        ],
+        "reasoning": "No exact table of the independent starting-error deterioration risk appears in the inspected entries. A table of midpoint tails cannot determine how frequently a random starting sketch does better than the limiting line.",
+        "searches": [
+          "Local Resultary search: one-column fixed Gaussian sketch power iteration independence initial projected Frobenius approximation becomes worse than unpowered starting range probability width asymptotic inverse square root",
+          "Chang–Yang §7 limits; classical F and beta tails"
+        ]
+      },
+      "rationale": "Pass the repaired relative-to-start risk law and its sharp inverse-square-root constant, not a new limit-eigenspace theorem, chi-square distribution, eigenvector CLT or isolated confidence-budget inversion.",
+      "residual_risks": [
+        "Classical exact planar Wishart angular laws may give alternate finite-sample expressions; novelty is not claimed for a bare angular tail. Bounded comparison cannot rule out a prior equivalent independent-start risk or moment calculation.",
+        "The sequential limits are q to infinity at each width, then ell to infinity at fixed kappa; there is no joint finite-power guarantee or assertion about the full oversampled reconstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the powered line and prior limiting subspace, not the repaired joint error law",
+          "evidence": "Defines powered sample (ZZ^T)^qY with sketches Z and Y, and explicitly identifies high-power recovery of the leading subspace of Z.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.26298v1",
+          "material_read": "§1 eq. (1.1), PDF p. 2, offset 6100; §7, p. 39, offset 144170",
+          "method": "Original OA PDF passages",
+          "title": "Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations",
+          "trigger": "Motivating algorithm and exact fixed-proxy limit"
+        },
+        {
+          "assessment": "Covers fixed-gap weak fluctuation and implies original merging-gap orientation tail; not the repaired relative risk expectation",
+          "evidence": "The fixed-gap part gives asymptotic normal transverse coordinate and the contiguity part gives the eigenvectors of a Gaussian symmetric matrix plus a fixed rank-one spike.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.05291",
+          "material_read": "Sample covariance definition around offset 8132 and Lemma 2.3, PDF pp. 8–9, offsets 27150–29412",
+          "method": "Original OA PDF passages and Gaussian Wishart degree-of-freedom comparison",
+          "title": "Testing for principal component directions under weak identifiability",
+          "trigger": "Stronger exact asymptotic Gaussian sample-eigenvector theorem"
+        },
+        {
+          "assessment": "Different setup and guarantee",
+          "evidence": "Provides approximation guarantees under a regularized spectral approximation assumption, not the fixed-Wishart start-relative event.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09755v1",
+          "material_read": "Algorithm 1 at offset 10700, Theorem 3.5 at 24360",
+          "method": "Original OA PDF passages",
+          "title": "Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation",
+          "trigger": "Broader guarantees for related power methods"
+        },
+        {
+          "assessment": "The passages establish classical matrix density and transformations; no claim of exhaustive inspection of finite-sample angular law literature",
+          "evidence": "Contains real Wishart matrix density with arbitrary positive definite scale and whitening to scale identity.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-95864-0_8",
+          "material_read": "§8.1.2 real Wishart density and whitening passages, around offsets 11492–14681",
+          "method": "Publisher OA PDF passage inspection",
+          "title": "The Distributions of Eigenvalues and Eigenvectors",
+          "trigger": "Classical real Wishart and potential exact eigenorientation coverage"
+        },
+        {
+          "assessment": "Different random experiment",
+          "evidence": "Takes a single input ray and worst residual over a family of rotated matrices, powers with A itself, and has an atom unrelated to the Wishart-proxy risk.",
+          "identifier_or_url": "2ff5b4a49a7b",
+          "material_read": "Finding, mirror offsets 0–2311",
+          "method": "Local Resultary search and mirror text",
+          "title": "Exact angular risk law for a fixed one-column rangefinder on rotating positive-definite matrices",
+          "trigger": "Exact local angular-risk match"
+        },
+        {
+          "assessment": "Different matrix multiplication and discrete probe law",
+          "evidence": "Persistent errors result from Rademacher probes all in a trailing sign line; compares expected Frobenius error with ordinary population-matrix powers.",
+          "identifier_or_url": "01df0b03e02b",
+          "material_read": "Finding, mirror offsets 0–2225",
+          "method": "Local mirror text",
+          "title": "A sharp orientation law for Rademacher subspace iteration on two-by-two matrices",
+          "trigger": "Same-day exact two-mode orientation and powering failure"
+        },
+        {
+          "assessment": "Different phase of the algorithm and residual",
+          "evidence": "Given a fixed span Q, models an independent Gaussian co-range fit and derives spectral mixing; it does not power a fixed noisy proxy to choose Q.",
+          "identifier_or_url": "23a3fc6123ad",
+          "material_read": "Finding and beginning of assumptions, mirror offsets 0–1690",
+          "method": "Local mirror text",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Same-day Gaussian sketch risk and F law"
+        },
+        {
+          "assessment": "Population powers and strong spike, not noisy fixed-proxy large width",
+          "evidence": "Uses (AA^T)^q A Omega and takes kappa to infinity; obtains absolute error distribution with no comparison against an independent fixed-proxy leading line.",
+          "identifier_or_url": "f67f8a256b4c",
+          "material_read": "Finding, mirror offsets 0–2238",
+          "method": "Local mirror text",
+          "title": "A three-regime Gaussian sketch risk law for one-spike matrices",
+          "trigger": "Closest exact Gaussian population-power-law residual result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability of harm relative to the very same unpowered starting draw is a direct question about whether fixed-proxy powering helps. Its algebraic decay despite exponentially rare midpoint errors shows that the two confidence metrics are not interchangeable, even at a fixed spectral gap. The theorem quantifies frequency, not size, of deterioration and does not assert that iterations should always be avoided.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

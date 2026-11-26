@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:39:37.847962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A negative answer replaces one gap of length m by the two positive lengths among a and m-a-1; the empty hypothesis persists. A positive answer forces the interval to contain the query, leaving independent threshold classes with a+1 and m-a endpoint choices. Balanced threshold splits and the cardinality bound give their floor-log ranks, and disjoint query domains make the product ranks additive (concatenate shattered trees for the lower bound, use separate optimal learners for the upper bound). Taking the best two-sided split proves the recurrence, including rank zero for the empty chain. Each split reduces total gap length, and there are at most sum_{s<=n} p(s) states with polynomial work per state. A fresh integer memoization of the recurrence over n=0..55, using sorted gap multisets and integer bit lengths for the floor logs, visited 526823 states and gave the ten cutoffs 1, 2, 4, 6, 9, 13, 19, 27, 39, 55. Zero-extension makes ranks nondecreasing. The frozen verification script and captured output were inspected, not executed; finite checks support the table, not the general recurrence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed structural recurrence allows any block multiset, including a new singleton. Attias–Hanneke–Ramaswami give an O(k log T) mistake bound in their transductive setting; the general closure bounds do not themselves supply exact finite-chain ranks."
+        ],
+        "reasoning": "The arbitrary-block theorem covers the empty-concept convention by the exact dummy-block reduction, whereas the broader published learning bounds are not decisive for the finite table.",
+        "searches": [
+          "Resultary da5ce6428f51, structural recurrence for arbitrary disjoint blocks",
+          "arXiv:2506.00135 §4.6",
+          "PMLR 132, Ghazi et al., closure bounds"
+        ]
+      },
+      "checked_sources": [
+        "Resultary da5ce6428f51",
+        "arXiv:2108.05569",
+        "PMLR 132:ghazi21a",
+        "arXiv:2506.00135"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem proves the same independent left/right endpoint factorization and negative gap split; its rule excludes an empty negative branch, unlike the frozen version. Malliaris–Moran give the mistake-tree setting, not this calculation."
+        ],
+        "reasoning": "In the indexed class augmented with the dummy block, a query in an original block never gives an empty negative branch. The two branch ranks are precisely the frozen ones. A query in the dummy block contributes at most one and is redundant whenever the old domain is nonempty. The recurrence, complexity estimate, and finite ranks then follow without a new scientific step.",
+        "searches": [
+          "Resultary da5ce6428f51, Positive-state and Zero-state lemmas",
+          "arXiv:2108.05569 p. 5",
+          "arXiv:2506.00135 §4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result defines D(S) for nonempty intervals distributed over arbitrary disjoint blocks and gives exactly the same split after reindexing j=a+1."
+        ],
+        "reasoning": "Put one new singleton block beside the blocks of lengths lambda. Restrict the nonempty concepts to the old query domain; the singleton concept becomes the empty interval. Conversely a tree that queries the new point at an internal node can have remaining depth at most one there because its positive branch is a singleton. Replace any such last-level query by an old point where some surviving old interval is positive; the singleton is negative at that point. This preserves shattering. For lambda empty, both ranks are zero. Thus R(lambda)=D(lambda plus one singleton block).",
+        "searches": [
+          "Resultary comparison for exact finite-chain interval Littlestone ranks and gap partitions",
+          "Resultary 2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51, Finding and Zero-state lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed nonempty-interval table is 2, 3, 4, 6, 9, 13, 19, 27, 39, 55. Eight entries are identical, and its all-block recurrence evaluates the empty-concept table using D({n,1})."
+        ],
+        "reasoning": "The exact printed sequences are not identical; the different first two entries reflect the empty concept. The table under the frozen convention is a direct computation from the covered recurrence, not independent exact data requiring a new method.",
+        "searches": [
+          "Resultary da5ce6428f51, Finding and Finite cutoff calculation"
+        ]
+      },
+      "rationale": "The closest indexed Resultary record treats nonempty intervals but proves the same all-partition recurrence for arbitrary disjoint blocks. A dummy singleton block realizes the empty interval and gives an exact reduction for all states, so the difference in convention does not leave an uncovered structural result or independent cutoff calculation. This is a finding of equivalent coverage, not a conclusion about which record was discovered first.",
+      "residual_risks": [
+        "Historical priority is not adjudicated. The primary comparison is limited to the inspected published passages; a wider bibliography could contain more overlap, without changing the decisive indexed equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage after adjoining a singleton block; dates do not settle priority",
+          "evidence": "D(S) is proved for any multiset of positive block lengths; the positive term is floor log2(j)+floor log2(s-j+1); the zero step inserts j-1,s-j if positive. The nonempty thresholds are 2,3,4,6,9,13,19,27,39,55.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and proof through the finite cutoff calculation (offset 0–5619)",
+          "method": "Resultary lookup and same-file local mirror",
+          "title": "Exact initial online-shattering thresholds for finite-chain intervals",
+          "trigger": "Exact rank, method and tabulation match"
+        },
+        {
+          "assessment": "Background; no matching exact computation in the inspected passage",
+          "evidence": "Defines Littlestone dimension by complete binary mistake trees.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+          "material_read": "p. 5, PDF text offset 16468",
+          "method": "Open-access PDF passage",
+          "title": "Model Theory and Agnostic Online Learning via Excellent Sets",
+          "trigger": "Cited model-theoretic background"
+        },
+        {
+          "assessment": "General bounds, not the exact specialization in the inspected statement",
+          "evidence": "Bounds dimension for Boolean aggregations of concept classes.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "material_read": "p. 2, PDF text offset 3574",
+          "method": "Open-access PDF passage",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Potential coverage through closure operations"
+        },
+        {
+          "assessment": "Different guarantee, not a source for the exact dimension table",
+          "evidence": "Uses weak consistency oracles and gives a randomized transductive O(k log T) mistake bound for k-intervals.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.00135",
+          "material_read": "§4.6, pp. 9–10, PDF text offset 39095",
+          "method": "Open-access PDF passage",
+          "title": "Tradeoffs between Mistakes and ERM Oracle Calls in Online and Transductive Online Learning",
+          "trigger": "Cited online interval algorithm"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Compressing online interval-rank calculations to gap partitions is useful, but that compression is already available. The additional empty concept is simulated by a singleton block; the unchanged eight cutoffs and two elementary base-case shifts do not constitute a separately motivated improvement. The verification is useful corroboration, not a new mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

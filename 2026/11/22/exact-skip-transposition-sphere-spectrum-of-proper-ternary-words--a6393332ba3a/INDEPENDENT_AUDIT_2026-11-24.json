@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:18:39.049672Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions and Proof 1–6",
+        "VERIFICATION.md",
+        "checker.py"
+      ],
+      "rationale": "A word is specified by its first symbol and its +/-1 differences in Z/3. The endpoints of a candidate triple are distinct exactly when its two signs have a common value e, in which case the triple contains all three symbols. The swap leaves its two internal adjacencies proper; an existing outside neighbor clashes with the new endpoint exactly when its original outside sign was e, since 3e=0. Thus the swap starts at exactly a maximal two-run, including runs at either boundary. Distinct swaps change distinct two-element sets of positions, so counting legal indices counts distinct outputs. Given a composition of m into run lengths, there are six words, and each part of size two contributes one to degree. This proves the series, filling all degrees with ones and twos, and shows the top coefficients by placing the unique leftover one when m is odd. The derivatives at u=1 give E[D]=(m+1)/8 and E[D(D-1)]=(m-2)(m+3)/64 in the specified ranges, hence the variance and the edge count by handshaking. Interior indicators of -++- or +--+ have mean 1/8; joint probabilities at lags 1,2,3 are respectively 0,1/32,1/64, so the positive long-run variance is 7/64. The bounded 3-dependent CLT and at most two boundary contributions yield the normalized limit. At u=0 the reciprocal cubic has one root in (1,2); its two stationary values are negative and the complex roots have modulus lambda^(-1/2). The simple positive dominant pole is not canceled, proving the frozen fraction rate. The attached checker was inspected, not executed.",
+      "residual_risks": [
+        "The theorem is for paths and labeled ternary words, with nonidentity distance-two swaps only. It gives degrees, not graph components or multi-swap distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Madden treats arbitrary run length, and relates fixed-length one-symbol runs to all-symbol runs of the next length in Proposition 1.2. Holst–Konstantopoulos Theorem 3 and Corollary 10 concern the success-run vector. The inspected graph formulations use either arbitrary transpositions without the adjacency restriction or preservation of properness under swaps of consecutive path positions."
+        ],
+        "reasoning": "The broad run enumeration theorem subsumes the probability distribution after encoding. A general unrestricted permutation graph or adjacent proper-color move set does not supply the run characterization for distance-two swaps in the induced proper-word graph.",
+        "searches": [
+          "Adamson et al. arXiv:2307.01648",
+          "Fuchs et al. arXiv:2511.06473",
+          "Holst–Konstantopoulos DOI:10.1239/jap/1445543844",
+          "Madden arXiv:1707.04351, Theorem 1.1 and Proposition 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Madden arXiv:1707.04351",
+        "OEIS A005251",
+        "Holst–Konstantopoulos",
+        "Resultary adjacent-swap, star-swap and fixed-composition run records",
+        "Adamson et al. and Fuchs et al. (abstracts)",
+        "On Success Runs of a Fixed Length in Bernoulli Sequences: Exact and Asymptotic Results (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior run formula yields all fixed-k counts once the reduction is supplied, so its coefficients and standard composition consequences must not be credited a second time. The adjacent-swap law even has a different degree support: at length 4 its maximum is 3, while the distance-two maximum is 1. The word 0120 attains adjacent degree 3 and skip degree 0."
+        ],
+        "reasoning": "Neither prior theorem identifies which candidate skip move preserves properness. This requires the modulo-three endpoint test and the two exterior-neighbor conditions, including boundary cases. That exact correspondence, not merely relabeling a prior count, is the supported graph result.",
+        "searches": [
+          "Madden arXiv:1707.04351, Theorem 1.1",
+          "SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Madden, Theorem 1.1, applies to all maximal runs of specified length, including both symbols. With r=2 its fixed-k series is z^(2k) [(1-z)/(1-2z+z^2-z^3)]^(k+1). Complement symmetry supplies the second starting sign."
+        ],
+        "reasoning": "Summing over k with marker u and using the six choices from the graph encoding reproduces the frozen enumerator exactly for m>=1. This is genuine equivalence of the counting step, but the alphabet reduction and the characterization of legal graph moves are additional statements.",
+        "searches": [
+          "Resultary: proper ternary skip-transposition neighborhoods and maximal two-runs",
+          "Compositions enumerated by number of size-two parts; both-symbol maximal length-two runs",
+          "Madden, A Generating Function for the Distribution of Runs in Binary Words, arXiv:1707.04351"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005251 explicitly gives a(n+1) as the number of compositions of n avoiding part 2, so the frozen counts at m are 6a(m+1). The distinct same-day Resultary tables treat adjacent swaps or swaps with the first position, not fixed distance two."
+        ],
+        "reasoning": "The rescaled numerical frozen table is known; only its realization as this graph's isolation count is supplied by the move-by-move reduction. The same-day graph results were compared without inferring their publication order.",
+        "searches": [
+          "Madden arXiv:1707.04351, Remark 3.2 and Lemma 3.3",
+          "OEIS A005251 internal entry",
+          "Resultary: exact admissible-swap spectrum of homopolymer-free words and frozen proper words"
+        ]
+      },
+      "rationale": "The exact maximal-run distribution is already known, including the two-sign rather than just the success-run version. Credit is specifically for the graph-theoretic characterization of all admissible distance-two swaps as maximal two-runs of ternary differences, and hence for the degree law as a graph invariant. The graph conversion is not provided by the exact run theorem or by the adjacent- and star-swap results. No independent originality is credited to the run enumerator, frozen sequence, or routine deductions from them as binary/composition results.",
+      "residual_risks": [
+        "The bounded search does not eliminate earlier graph encodings under coloring or restricted-transposition terminology. The one-sided fixed-length-runs full text was unavailable (HTTP 403 and alternate copies not retrieved); this is not evidence of absence, and the exact two-sided counting precedent has already been established independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit exact coverage of the binary run law, no proper-ternary graph move in these results",
+          "evidence": [
+            "Theorem 1.1 enumerates words starting with 0 containing k maximal runs of length r.",
+            "Choosing r=2 gives the fixed-k coefficients of the frozen bivariate series after the independently needed graph characterization.",
+            "Remark 3.2 identifies the zero-run sequence with a shift of A005251."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.04351",
+          "material_read": "OA PDF pp. 1–2, offsets 1700–5279, definitions, Theorem 1.1 and Proposition 1.2; p. 3, offset 8085, Remark 3.2 and Lemma 3.3",
+          "method": "OA PDF",
+          "title": "A Generating Function for the Distribution of Runs in Binary Words",
+          "trigger": "Exact distribution of maximal length-two runs of either symbol"
+        },
+        {
+          "assessment": "Exact table for the corresponding uncolored compositions",
+          "evidence": [
+            "The comment dated 2014-07-13 gives a(n+1) as the number of compositions of n avoiding part 2."
+          ],
+          "identifier_or_url": "https://oeis.org/A005251/internal",
+          "material_read": "Internal entry comments, at offset 480",
+          "method": "OA public page",
+          "title": "OEIS A005251",
+          "trigger": "Exact zero-degree numerical sequence"
+        },
+        {
+          "assessment": "Adjacent swaps on proper words; different graph and support",
+          "evidence": [
+            "The move interchanges consecutive letters; it has maximum n-1 and excludes n-2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact degree spectrum of homopolymer-free words under admissible adjacent swaps",
+          "trigger": "Exact degree law on the same proper-word vertex set"
+        },
+        {
+          "assessment": "Exact success-run vector recursions; Madden is the directly matching two-symbol antecedent",
+          "evidence": [
+            "A success interval consists of one designated symbol; the displayed recursion is for functions of that count vector."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1445543844",
+          "material_read": "PDF pp. 752–754 and 761–762, definitions, Theorem 3 and Corollary 10",
+          "method": "OA PDF",
+          "title": "Runs in Coin Tossing: A General Approach for Deriving Distributions for Functionals",
+          "trigger": "General run-vector recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof 1–3",
+        "Madden Theorem 1.1",
+        "Resultary adjacent-swap comparison"
+      ],
+      "rationale": "The useful content is the local characterization of every one-move output in this natural proper-coloring graph. It directly decides isolation, possible degree, and the set of valid initial swap positions without generating or testing neighbor words, and identifies which classical exact distribution governs that graph. The run counts by themselves, including the database sequence, are not a separate mathematical gain.",
+      "residual_risks": [
+        "This is a one-move structural result, not a general reconfiguration or error-correction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

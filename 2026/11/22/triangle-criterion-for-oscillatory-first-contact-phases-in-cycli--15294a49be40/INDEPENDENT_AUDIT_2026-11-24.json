@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:51:19.275875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The time change s=∫D_(J_t)dt gives a Brownian motion with generator ∂² in its own clock; conditional on the original chain the time-changed Brownian law does not depend on the chain. The chain in that clock jumps at rates a_i=γ/D_i, and its stationary distribution is proportional to 1/a_i, so the hitting mark is governed by the clock-changed generator, not the uniform law of J_t. Averaging its semigroup over Brownian hitting time gives H=e^(−x√L) by the Laplace transform, with the decaying branch for the two transient modes and a constant projection Π=1ρᵀ. The characteristic polynomial is z(z²−Sz+P), and the transient square root has real part u and imaginary parts ±v exactly when Δ<0. Each entry of H−Π then has a nonzero cosine coefficient at x=0, δ_ij−ρ_j, hence its sinusoidal zeros are simple and spaced π/v. For positive Δ the two modes are distinct real exponentials; at Δ=0 they give a degree-at-most-one polynomial times a decaying exponential. Nontriviality at x=0 excludes an identically zero entry in either case and gives the at-most-one-positive-zero result. Factoring Δ in the square roots of the rates gives the strict triangle inequalities, including the correct degenerate boundary. With sides 1,1,√c, the cutoff is 4; differentiating v² gives the unique maximum c=3/2 with γ/(8D), and v²∼γ(4−c)/(12D) yields the claimed divergence of spacing. Zero spacing is understood between consecutive roots; interval counts at exact root endpoints depend on endpoint convention. The frozen verifier was inspected, not executed. Its finite numerical comparisons cannot establish the infinite-sign or boundary assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Breuer p. 2 Eq. (1) defines the joint boundary phase and killing transform; at zero killing it is the target observable for any starting phase. Eq. (2), p. 3, gives the general matrix-exponential distance law for fully diffusive phases, and reflection exchanges the direction of passage.",
+          "Grebenkov treats first-passage-time laws by integrated diffusivity and gives state-resolved propagators; the located passages do not analyze phase-at-hit spatial zeros. Guéneau–Touzo's inspected opening addresses scalar exit probabilities and duality."
+        ],
+        "reasoning": "The broad theorem already determines H, so neither its existence nor the transform representation is new. The contribution assessed here is extracting an entrywise zero theorem, including ruling out exceptions by δ_ij−ρ_j≠0, treating coincident modes, and analyzing the spatial square-root frequency.",
+        "searches": [
+          "Breuer, Occupation Times for Markov-Modulated Brownian Motion §2.1 Eqs. (1)–(2)",
+          "Grebenkov arXiv:1812.07249 Eqs. (1)–(4), (45)–(48)",
+          "Guéneau–Touzo arXiv:2404.10537 opening scope"
+        ]
+      },
+      "checked_sources": [
+        "Breuer DOI 10.1239/jap/1339878804",
+        "arXiv:1701.05848 Appendix A",
+        "arXiv:1812.07249",
+        "arXiv:2404.10537",
+        "Resultary 43f499fd9c91, 5fb4df709da8, 5d3cde922b9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Breuer's transform gives the same family of phase matrices; Barato–Seifert's discriminant yields the same onset of a complex pair after the clock change. Their combination already supplies the transform and the regime's spectral input.",
+          "Neither located passage classifies spatial zeros relative to the biased arrival law entry by entry or analyzes Im√μ for the one-defect family. In particular the exact frequency optimum at c=3/2 concerns the square-root mode, not the temporal imaginary part or coherence ratio optimized in the cycle paper."
+        ],
+        "reasoning": "The general transform encodes the entries, but the real versus repeated versus complex modes, absence of cancellations for every marked entry, and the spatial regime optimization are the supported specialized analysis. Credit the prior implications for the narrower spectral and representation claims.",
+        "searches": [
+          "Breuer §§2.1–2.2 marked phase transform and Barato–Seifert App. A spectral formulas versus frozen Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barato–Seifert give the three-state cycle coherence ratio from 4C₁/C₂²−1. With backward rates set to zero and forward rates a_i, C₁=P and C₂=S, making their temporal complex-mode criterion precisely Δ<0. This covers the spectral threshold in equivalent variables.",
+          "The same-day circulant positivity-time result in 5fb4df709da8 is about entrywise negativity of a time semigroup which need not be Markov. Here H itself is nonnegative; oscillation is in H−Π as initial distance varies."
+        ],
+        "reasoning": "The temporal generator discriminant is the same one after the diffusivity clock change; its temporal frequency or coherence ratio is not the imaginary part of the square-root mode governing spatial distance. The entrywise boundary and optimal physical parameter statements require that additional analysis.",
+        "searches": [
+          "Resultary searches on three cyclic switching diffusivities, first-hit phases, spectral sign reversals and the inverse-diffusivity triangle",
+          "Barato–Seifert arXiv:1701.05848 Appendix A, Eqs. (A1)–(A4)",
+          "Primary-literature search on unidirectional three-state Markov cycles, discriminants and marked spatial first passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index for 43f499fd9c91 describes an exponentially damped oscillatory difference of two reset protocols' mean times, with distance crossings; it does not establish the marked H_ij threshold. The exact local mirror was not available.",
+          "The mirrored 5fb4df709da8 finding concerns entrywise negativity windows of a three-state circulant semigroup. The index for 5d3cde922b9b concerns temporal spectral peaks of state sensors, with its exact mirror unavailable."
+        ],
+        "reasoning": "These are substantive analogues, especially the reset protocol, not evidence of an exact prior table of phase zeros and thresholds. A same-day date is not used to decide priority.",
+        "searches": [
+          "Resultary same-day comparisons 43f499fd9c91, 5fb4df709da8, 5d3cde922b9b; local mirrors where available"
+        ]
+      },
+      "rationale": "The general first-passage phase transform is established prior art, and the three-state generator's spectral discriminant is known in the temporal oscillation literature. The supported distinct contribution is the classification of the spatial zeros of all nine centered Brownian first-hit marks, including the real-mode and degenerate boundary cases, exact spacing, and the one-defect optimum and critical divergence for spatial frequency. The elementary triangle factorization re-expresses the known spectral discriminant; it is not a claim of a new generator-spectrum theorem. The checked primary results do not themselves state the entrywise marked spatial law or optimize its spatial oscillation frequency. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "Exact local mirrors were not available for the close reset-protocol analogue and the indexed sensor record; their summaries are not full-text exclusions.",
+        "Asmussen's earlier zero-killing phase formula cited by Breuer was not inspected. The transform is credited rather than claimed as new regardless.",
+        "A prior specialization under subordinated chains or phase first-passage terminology might print the same zero law; the bounded literature comparison is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Observable and matrix-exponential representation covered, not the stated spatial sign or frequency classification in the passages read",
+          "evidence": [
+            "Set the state-dependent killing to zero in Eq. (1); the exponential block in Eq. (2) is the entire transform when all states are diffusive. The paper also credits earlier work for the zero-killing case."
+          ],
+          "identifier_or_url": "https://www.kent.ac.uk/smsas/personal/lb209/files/occupation.pdf",
+          "material_read": "Author's PDF §2.1, pp. 2–3, Eqs. (1)–(2)",
+          "method": "Lawful author-hosted full text, bounded relevant passages",
+          "title": "Occupation Times for Markov-Modulated Brownian Motion",
+          "trigger": "General matrix-valued phase-at-hit transform may cover the observable"
+        },
+        {
+          "assessment": "Equivalent temporal spectral discriminant; not a spatial hitting-mark analysis",
+          "evidence": [
+            "The three-state ratio is √(4C₁/C₂²−1), with C₁ and C₂ explicit in cycle rates. No oscillations in temporal correlations when 4C₁<C₂²; the optimization discussed is for this ratio at fixed affinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.05848",
+          "material_read": "Appendix A, p. 5 in extracted PDF, offset 37850, Eqs. (A1)–(A5)",
+          "method": "Primary PDF, literal appendix lookup and bounded passage",
+          "title": "Coherence of biochemical oscillations is bounded by driving force and network topology",
+          "trigger": "Possible stronger three-state spectral threshold and frequency optimum"
+        },
+        {
+          "assessment": "Selected first-passage-time and propagator results are different from the phase-mark zero theorem",
+          "evidence": [
+            "Operational time is integrated diffusivity; switching propagators include state resolution before averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07249",
+          "material_read": "pp. 3, 10–11, Eqs. (1)–(4), (45)–(48)",
+          "method": "Primary PDF theorem and formula passages",
+          "title": "A unifying approach to first-passage time distributions in diffusing diffusivity and switching diffusion models",
+          "trigger": "Same physical setting and integrated-diffusivity method"
+        },
+        {
+          "assessment": "Inspected statement addresses scalar exit and duality, not phase-marked crossings",
+          "evidence": [
+            "Links exit probabilities and stationary statistics via duality for systems driven by an equilibrium process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.10537",
+          "material_read": "Abstract and opening, p. 1",
+          "method": "Primary PDF opening passage",
+          "title": "Siegmund duality for physicists",
+          "trigger": "Related switching exit observable"
+        },
+        {
+          "assessment": "No exact equivalence established; reset comparison remains a relevant access risk",
+          "evidence": [
+            "Reset mean-time differences, time semigroup positivity, and temporal occupancy sensor spectra are observables distinct from a centered arrival-state probability on the inspected material."
+          ],
+          "identifier_or_url": "Resultary 43f499fd9c91; 5fb4df709da8; 5d3cde922b9b",
+          "material_read": "Exact mirrored finding and assumptions for 5fb4df709da8; index summaries only for the other two",
+          "method": "Local Resultary search and mirror access",
+          "title": "Infinitely many reset-protocol reversals for a cyclic three-conformation Brownian gate; A sharp positivity-time staircase for three-state circulant semigroups; At most two resonant state sensors in a directed three-state stochastic cycle",
+          "trigger": "Closest indexed same-day reversal, positivity and spectral results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A marked first passage can identify state preferences invisible to unmarked Brownian hitting probabilities. The exact sign boundary tells whether every centered mark reverses indefinitely or at most once, including on the repeated-mode boundary, without requiring numerical evaluation at large distance. The one-defect maximum at a nonuniform diffusivity and the diverging crossover spacing give meaningful spatial predictions beyond the known matrix transform. The magnitude is exponentially damped, so infinite mathematical reversals do not imply experimental observability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

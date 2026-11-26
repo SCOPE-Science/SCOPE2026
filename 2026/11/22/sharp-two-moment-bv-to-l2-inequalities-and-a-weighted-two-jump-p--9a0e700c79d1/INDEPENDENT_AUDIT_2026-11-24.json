@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:51.161413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A mean-zero scalar BV class is the integral of centered tail indicators v_s against its interior derivative μ. Integrating x v_s gives h(s), a positive covariance because the conditional mean above each interior s is strictly higher than the one below it. First-moment cancellation therefore puts equal positive h-mass B on the two Jordan parts of nonzero μ. Couple the probability measures h μ⁺/B and h μ⁻/B by their product. With weight B(1/h(s)+1/h(t)), the profile U=(h(t)v_s−h(s)v_t)/(h(s)+h(t)) integrates to the original function by cancellation of the coefficients upon taking each marginal; the weight integrates to |μ|. Each distinct-site pair is admissible with variation exactly one, using the opposite coefficient signs. The positive mixture bounds the full norm by the supremum of these profile norms, which each attain their own ratio. Covariance of nested tail indicators gives exactly the stated K. In the open diagonal limit v_s−v_t→0 in L² and h stays positive; at a side away from the corners one indicator norm vanishes and the coefficient on the other also vanishes; at all three corners both indicator norms vanish and coefficients are bounded. Thus K extends continuously by zero to the compact triangle and reaches a positive maximum in its interior. For the uniform law I verified by integrating the three constant levels that K=H(s)H(t)d(1−d)/(H(s)+H(t))². The exact deficit splits into the two displayed nonnegative squares and vanishes only at (1/4,3/4). Equality in the sharp bound forces the product coupling to concentrate on that unordered pair by equality in the integrated norm upper bound. The Jordan parts are mutually singular, so the derivative is a scalar multiple of the difference of its two atoms. Mean subtraction yields precisely the centered middle-half plateau, and its ratio is (|c|/2)/(2|c|)=1/4. Replay: python3 /workspace/reproductions/review_03_bv.py (SymPy, scalar integrals and deficit); the frozen exact-rational checker was read, not run, and counts finite test cases, not independent general assertions. Valid for interior distributional variation and the stated real-valued BV classes and positive continuous densities. The deficit is for the pair kernel, not arbitrary BV functions; equality for a general density is not classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general atomicity result cited for Pinelis is germane: encode the derivative using a positive probability on (s, sign) with one signed h constraint. Two scalar constraints (including mass) account for at most two atoms in the general extreme-measure approach. This provides a known route to sparse candidates, not their explicit norm, maximizing sites or deficit.",
+          "The available Bouchez–Van Schaftingen description has a higher-dimensional Sobolev quotient and one nonlinear mean condition, not this pair of linear constraints. Primary documents were not retrieved."
+        ],
+        "reasoning": "Credit generic moment geometry and finite support rather than treating a two-point reduction in isolation as a new convex-geometric principle. The exact kernel and sharp equality problem still require calculating and maximizing the norms of the corresponding signed profiles.",
+        "searches": [
+          "arXiv:1204.0249 Pinelis extreme points of moment sets",
+          "arXiv:1001.4651 Bouchez–Van Schaftingen BV Poincaré–Sobolev extrema",
+          "Resultary: two moment derivative sparsity and exact BV constants"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/checker.py",
+        "Resultary 57a70e7bfcf9, c47cace4ff37, 7e1e7b451f74 (summaries)",
+        "arXiv:1001.4651, arXiv:1204.0249 and Horta–Montenegro DOI (attempted primary retrieval, available descriptions as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a single jump after subtracting its mean, the x-moment equals h(s)>0, so it is never an admissible nonzero input for this problem. Projecting away x subtracts a linear function and changes variation. The broader moment method supplies a support bound, not the particular maximal pair yielding both squares in the deficit.",
+          "Nothing available of the Horta–Montenegro citation verified its hypotheses or an implication in either direction."
+        ],
+        "reasoning": "Neither the unconstrained approximation constant nor the generic atomic support bound, even when applicable after reformulation, mechanically yields these numerical and sharp equality conclusions. Remaining literature risk is explicit rather than treated as negative evidence.",
+        "searches": [
+          "Resultary 57a70e7bfcf9 and frozen RESULT.md lines 36–76, 82–94; Pinelis arXiv:1204.0249; cited Horta–Montenegro DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary summary, 57a70e7bfcf9, optimizes the L² error of approximation by span{1,x^q} over unconstrained BV, with one worst step except for a symmetric tie at q=1. At q=1 the squared residual of a unit jump at s is H(s)−3H(s)²: subtract the squared correlation (H(s)/2)² divided by Var(x)=1/12 from H(s). Its maximum is 1/12 at H=1/6, not 1/16. A projection-norm inequality at this constant would bound the constrained problem but is strictly weaker.",
+          "The Horta–Montenegro title/DOI supplied in the frozen original could not be independently matched to primary theorem text. 'Affine' in a title alone does not establish orthogonality against both 1 and x."
+        ],
+        "reasoning": "The target restricts the input derivative via first-moment cancellation and measures its unprojected variation; a one-jump BV input projected to an affine residual is a different optimization, with the strict discrepancy above even on the uniform interval. Rewriting as an operator norm on a zero-moment signed-measure subspace does not remove the constraint.",
+        "searches": [
+          "Resultary: weighted two-affine-moment sharp BV L² kernel; uniform constant 1/4 and middle-half plateau",
+          "Resultary 57a70e7bfcf9 sharp two-mode Müntz projection",
+          "10.1016/j.na.2024.113673 Nonlinear Analysis affine BV Horta Montenegro DOI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local match was the assignment itself. Besides 57a70e7bfcf9, hits included c47cace4ff37 (cubic-exact quadrature minimizing Jordan-variation error) and 7e1e7b451f74 (four-moment signed-measure recovery). Neither available statement gives the evaluated kernel or optimal constant and equality class."
+        ],
+        "reasoning": "Compare closed formulas, norms, measure constraints and extremizer sets, not just the presence of BV or moment matching. The catalogue comparison is bounded and does not rule out a known earlier constant in a different formulation.",
+        "searches": [
+          "Resultary: sharp BV L² with two zero affine moments, weighted pair kernel, uniform one-quarter constant, centered middle-half plateau and exact deficit"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated weighted covariance kernel and attained sharp maximum, with the uniform 1/4 value, complete plateau class and two-jump deficit. General moment sparsity and optimizing projected Heaviside norms are related methods, not credited as new here.",
+      "residual_risks": [
+        "Horta–Montenegro citation and theorem remained unverified and related source full texts were not recovered.",
+        "A classical or unindexed weighted sharp inequality or a corollary of an earlier exact operator-norm calculation could cover part of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive near match; described approximation result alone has a different best constant and different feasible set. Full paper not excluded.",
+          "evidence": [
+            "Projection onto span{1,x} gives optimal squared single-jump residual 1/12, whereas the moment-constrained squared constant is 1/16."
+          ],
+          "identifier_or_url": "Resultary 57a70e7bfcf9",
+          "material_read": "Resultary summary with objective, span and worst-step/symmetric-knot conclusion; mirror retrieval timed out",
+          "method": "Statement comparison plus independent residual calculation at q=1",
+          "title": "Sharp worst-jump switching for two-mode Müntz projection",
+          "trigger": "Closest matching interval, BV norm, and L² loss under affine projection"
+        },
+        {
+          "assessment": "Credit prior sparsity method; described theorem does not evaluate the sharp constant or deficit",
+          "evidence": [
+            "Finite-atom support is the natural general implication of bounding the number of moment constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.0249",
+          "material_read": "Frozen RESULT.md lines 82–94 and AUDIT.json theorem/corollary locators; independent primary retrieval timed out",
+          "method": "Compare the cited generic moment geometry, including the signed-sheet reduction",
+          "title": "On the extreme points of moments sets",
+          "trigger": "Broader finite-atomicity principle"
+        },
+        {
+          "assessment": "Available description is a different variational problem",
+          "evidence": [
+            "One nonlinear mean in a critical Sobolev setting, rather than orthogonality to 1 and x in L² of a weighted interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.4651",
+          "material_read": "Frozen RESULT.md lines 82–94 and frozen description of nonlinear condition; primary lookup timed out",
+          "method": "Compare dimension, norm and constraints as described",
+          "title": "Extremal functions in Poincaré–Sobolev inequalities for functions of bounded variation",
+          "trigger": "Foundational BV inequality with a mean restriction"
+        },
+        {
+          "assessment": "Unresolved full-statement comparison; DOI mismatch not established",
+          "evidence": [
+            "No independent theorem passage available for comparing the two linear cancellations or the extremizers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.na.2024.113673",
+          "material_read": "Frozen RESULT.md line 94 only; attempted exact-identifier/title lookup and DOI retrieval did not establish either the bibliographic match or the theorem",
+          "method": "Bounded lawful access attempts",
+          "title": "Asymmetric affine Poincaré–Sobolev–Wirtinger inequalities on BV and characteristic one-dimensional extremizers (as cited)",
+          "trigger": "Plausibly close BV and one-dimensional extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Controlling the L² energy of an interval signal orthogonal to constant and linear trends by its interior variation is a natural sharp interpolation problem. The weighted result converts that infinite-dimensional norm problem to an attained two-site calculation, and the uniform result determines both amplitude efficiency and exact jump locations. The strict difference from the affine approximation norm shows why the additional structure is useful rather than a reformulation of a standard projection inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

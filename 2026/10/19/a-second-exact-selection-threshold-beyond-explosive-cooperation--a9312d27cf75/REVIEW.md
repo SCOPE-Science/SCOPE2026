@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for a precisely specified continuous-time birth–death process at fixed payoff parameters and \(\mu_N=N^{-2}\). The deterministic fold follows from the two-root concave quadratic, while the stationary switch is the unique crossing of the potential height of the upper root and the defection boundary. Detailed balance gives a uniform exponential-in-\(N\) potential approximation with a boundary-sensitive polynomial prefactor. The crucial equal-height case is treated separately, showing that the total nonzero-state mass relative to state zero tends to zero. Exact rational proof-identity checks and finite-size stationary reconstructions are supplementary evidence, not substitutes for asymptotic arguments. No claim is made for the original finite hypergraph Markov process.
+PASS
 
-## Originality — PASS, residual risks
+For interior x the deterministic zero equation is C=A/x+B/(1−x), whose minimum is the stated fold; the quadratic sign gives stability of r+. Integrating the factored quadratic to r+ gives Ψ(r+)/w=C r+²(r+−3r−)/6. The height is negative at the fold, rises strictly because ∂C D=x(1−x), and becomes positive as r+ tends to 1 and the C term dominates the integral. The root-ratio condition and Vieta give the larger stated solution for √C. At stationarity, q+(0)=μ and q−(N)=μ. In the interior write q+=x(1−x)σ(wD)[1+μ/(x σ(wD))] and similarly q− with 1−x and σ(−wD); summing the logarithmic corrections gives O(μ N log N). Telescoping the x(1−x) factors and the one-step logistic arguments gives π(k)/π(0) comparable uniformly to μ exp(N Ψ(k/N))/[x(1−x)], including the O(1) Riemann error for fixed parameters. The far endpoint has at most an extra O(N) relative to its nearest interior state and a strict exponential deficit against the maximum. At equal height a boundary layer next to zero contributes O(μ N), and the interior quadratic maximum contributes O(μ √N), both relative to π(0), with exponentially small remainder. These vanish for μ=N⁻² and prove boundary selection, not just the large-deviation tie. Away from the tie the unique potential maximum wins exponentially. The symmetric example follows by substitution. The limitations' wording about needing exactly N⁻² should be read as identifying the scale of the theorem, not as a necessity result: for example the same comparison at N⁻³ also selects zero. The frozen finite diagnostics were inspected, not run or treated as proof.
 
-The 2023 preprint source establishes the nonlinear payoff and a deterministic saddle-node threshold; a second threshold for rare-mutation global stationary selection, with its equality-point boundary bias, was not found in the inspected paper or other searched sources. The 2018 mean-potential paper describes broader methods, but the population process and explicit two-threshold higher-order payoff comparison differ. The available abstract of the broader evolutionary-game large-deviation paper does not settle the precise claim. A potentially more general published theorem may imply this result as a special case, and database coverage is incomplete; this remains a publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem sharply separates existence of a stable cooperative branch from selection of cooperation in a finite-population stationary regime. This distinction changes interpretation of observed explosive-cooperation onset, gives exact physically interpretable thresholds, and shows why equal exponential potential height is insufficient to infer equal stationary populations in a rare-mutation model. The benchmark \(\delta=1/3\) versus \(4/9\) provides a concrete measurable gap, while the general \(A,B\) formula identifies the asymmetry dependence.
+The payoff, deterministic onset and use of an integrated log-rate potential are prior. The supported distinct claim is the closed threshold for the separately defined irreducible stationary closure and its endpoint preference at exact equality with polynomially small exploration. The closest fixation theorem does not give that invariant law, even where the Maxwell algebra is the same. No direct earlier coverage was established in the bounded comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two thresholds answer different natural questions in a payoff family already used to model explosive cooperation. Their exact separation gives a nonempty interval, when accessible, in which deterministic cooperative attraction fails to predict the large-population stationary outcome. Resolving equal heights by finite-weight asymptotics distinguishes this from a routine computation of the deterministic roots or a bare large-deviation maximizer. The conclusion is for the specified closure, not evidence for a hypergraph process it does not model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium support identity follows exactly from positivity of each hyperedge coefficient. A half-density subsolution and monotone fixed-point iteration construct equilibria on every Boolean fixed support at the same explicit rate. The decreasing peeling sequence bounds every empty-core trajectory with a rigorous polynomial-times-exponential envelope. Invariance and step-size boundaries are checked. The finite checker is supplementary, not an infinite proof.
+## correctness
 
-## Originality
-PASS, with residual literature risk. The primary full-text arXiv versions of Liang–Cui–Liu (2024, Sections 2, 3, 6, 9.8) and Cui et al. (2023, Theorems 3 and 8) describe related tensor SIS models but use spectral transmission thresholds, irreducibility or positive entire-state equilibria. The present necessary-and-sufficient rate-independent *hyperedge support-core* criterion for arbitrary reducible directed networks and the simultaneous realization of all exact supports are not implications of those stated conditions. Indexed research records and topical literature searches found epidemic-threshold and support-adjacent studies but no covering theorem. The final 2026 journal version and wider monotone Boolean network literature remain possible risks.
+PASS
 
-## Value
-PASS. Deciding whether any infection can persist at any rate is a natural network-intervention task, fundamentally distinct from estimating a reproduction number at one rate. The theorem gives a combinatorial exact criterion, a finite pruning algorithm independent of unknown rates, an explicit sufficiency scale for every possible endemic support, and a global extinction bound when the core vanishes. All parts follow from a single structural proof rather than isolated parameter cases.
+For the final files, the Euler update is nonnegative and bounded by the interpolation between 1-h*delta_i and h*tau*L_i, both at most one. At equilibrium the response ratio is zero precisely when the input polynomial vanishes; nonnegative terms with positive coefficients give exactly the Boolean support condition. The response from half-density dominates half-density on every fixed support when tau>=tau_* and is zero off it; monotone iteration gives a limit with exactly that support. The Boolean iterates descend and contain all fixed supports. With empty core, the first deleted layer has no input, and every input monomial on the next deleted layer contains a coordinate from an earlier layer. Unrolling the one-step decay recurrence gives the claimed bound with the stated C_k and rho (strictly between zero and one). A nonempty core itself is a fixed support, so a nonzero equilibrium at a large common scale contradicts extinction at every scale. The original assertion that excluding dyadic terms is essential was unsupported and false as a necessity assertion: no step uses the lower bound two, rather than one, on parent-set size. The corrected statement keeps the original purely higher-order model. The original test included a duplicate terminal empty set and so used a weaker envelope than claimed, and its printed equilibrium wording exceeded what was computed. The replacement tests Boolean supports and subsolutions, and indexes the bound by the true layers. An independent in-memory implementation checked 4096 patterns (6753 fixed supports, 1439 empty cores), and verified the individual layer bounds for masks [31,27,24,0] at every time 0 through 100. No submitted script was executed.
 
-## Limits and closest work
-The model intentionally excludes pairwise infection; small pairwise terms can change the criterion. The high-rate bound is not sharp. The work proves existence but not attraction of endemic equilibria. The mean-field conclusions do not directly transfer to stochastic extinction times. Relevant original results are Liang, Cui and Liu (2024), Proposition 8 and Proposition 9; Cui et al. (2023), Theorems 3 and 8; Higham and de Kergorlay (2021), spectral extinction thresholds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim does not take credit for generic greatest-fixed-point iteration. The inspected model and graph-family precedents do not give the simultaneous partial-support classification together with the all-scale extinction equivalence and explicit layer-wise trajectory estimate. This passes on the checked statement-level evidence, not on an inference from sparse search returns.
+
+## value
+
+PASS
+
+In this deterministic model a finite Boolean computation settles a universal-in-scale extinction question, where a rate-specific spectral condition does not suffice. It also separates which partial equilibrium supports are topologically possible from the small-scale quantitative question, and quantifies decay via the removal depth. This is a structural classification, not merely a sufficient bound from enumerated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

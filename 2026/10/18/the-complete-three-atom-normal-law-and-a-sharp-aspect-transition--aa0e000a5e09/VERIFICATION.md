@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-Run `python3 check_normals.py` with a standard Python 3 interpreter; it has no third-party dependencies.
+## correctness
 
-The checker uses `fractions.Fraction` to clip each of the sixteen possible strict-sign chambers from the unit square against all four side-foot inequalities. It computes chamber areas with a rational shoelace formula and normal multiplicities using geometric vertex-cone tests. Across 87 rational angle/aspect pairs (including orthogonal, skew and exact transition cases), every probability equals the theorem's exact rational expression. Four further cases verify phase-boundary and extremal identities.
+PASS
 
-A separate numerical routine constructs the actual Euclidean side vectors and tests normal feet by orthogonal projection plus normal cones by dot products. It agrees with the chamber model at 1,250 deterministic interior samples over five geometries. Expected output:
+In affine coordinates over the two edges the area measure becomes uniform on the unit square. The side tests are k<x+ky<1 and ell<y+ell x<1 when testing both parallel feet, with each endpoint inequality separately testing one foot. For generic interior points, a corner is a normal base exactly when it is a strict local maximum of squared distance on the boundary: the vector to the point has positive dot products with both outgoing edges. There are no vertex minima, since the vector to the point is a positive combination of the outgoing edges and has positive squared length. Side interiors contribute only minima, so there are equally many feet and corner bases, with at least two of each from the two automatic opposite corner maxima. In the eight-normal event the four tests give a rectangle in the transformed (x+ky,y+ell x) plane. Its inverse corners lie in the unit square for ell<1 and its Jacobian is 1-k ell; the rectangle is empty when ell>=1. Separately the per-foot area is 1-z/2 for z<=1 and 1/(2z) for z>=1, at z=k or ell. This gives the claimed mean and, together with the eight-normal area, solves the three probabilities. At ell=1 the common probabilities are (c^2,1-c^2,0); c=0 gives (0,0,1). For fixed c>0, q+1/q strictly increases from q=1; in the first regime p4 and p8 decrease and p6 increases, whereas beyond the threshold p6 is proportional to 1/q and p4 increases. The mean is continuous and strictly decreases to 4. These checks establish the law and extrema without relying on the finite checker.
 
-```
-PARALLELOGRAM_NORMAL_EXACT_OK rational_chambers=87 phase_extrema=4
-EUCLIDEAN_NORMAL_POINTWISE_OK cases=1250
-```
+## originality
 
-These are finite checks and do not establish validity for all real side ratios or angles. The analytical proof in `RESULT.md` handles the infinite parameter domain, the boundary and equality cases. Historical originality has only a self-review and has not been independently audited.
+PASS
+
+The supported increment is the exact area-uniform three-mass law for all parallelograms and its aspect-dependent threshold and extrema, not an Euler identity, mean-count bound or general maximal-normal count. The strongest inspected Resultary match is for cyclic centrally symmetric hexagons; it does not cover nonrectangular parallelograms. This is a bounded comparison, not a priority certificate.
+
+## value
+
+PASS
+
+For a fundamental centrally symmetric polygon family this determines the entire random normal-count statistic, not merely its mean or maximal possible value. The aspect threshold separates positive-area and impossible eight-normal regimes, and the six-normal mode is maximized there rather than at the mean-maximizing rhombus. These structural and quantitative facts give a useful benchmark for chamber/active-region descriptions on more general polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

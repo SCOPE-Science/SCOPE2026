@@ -1,11 +1,21 @@
-# Review of the complete Otto-conjugacy classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The algebraic proof directly expands both witness equations in the antichain monoid and solves all four possibilities for whether each diagonal scalar equals one. Independent columns give both necessary and sufficient simultaneous witnesses; no missing interaction arises from the incidence zeros. Counting finite-field line vectors and collapsed scalar fibers gives the exact class sizes. An exhaustive direct-multiplication checker over \(\mathbf F_2\), \(\mathbf F_3\), and \(\mathbf F_4\) tests all pairwise witnesses in ten finite examples and confirms the idempotent characterization. This finite testing supports, but is not used as, a universal proof.
+## correctness
 
-**Originality — PASS within examined literature.** Can–Casimiro–Malheiro, arXiv:2208.01073v1, Sections 6–7, give the antichain monoid and the primary-conjugacy problem; Proposition 7.4 proves only that all idempotents are mutually Otto-conjugate. Their Open Problem 7.5 explicitly asks for the full Otto classes and whether the idempotent set is exactly one whole class. The present columnwise projective classification resolves precisely that question (and gives a negative answer over \(\mathbf C\)) while extending to arbitrary height-two incidence patterns. Araújo–Kinyon–Konieczny–Malheiro, arXiv:1503.00915, studies the abstract notion but does not classify these monoids. The partition/Brauer semigroup conjugacy analysis arXiv:2301.04252 studies different monoids and does not imply the result. Searches for variants in algebraic monoids, incidence-monoid conjugacy, and projective-line fiber enumerations found no equivalent full classification; absence is not a mathematical novelty proof. Residual risk: an unindexed or later independent solution may exist. The original manuscript and the relevant parts of these comparators were inspected; no claim of a definitive priority determination is made.
+PASS
 
-**Value — PASS.** A published, explicit Otto-conjugacy question concerning a natural family of completely regular algebraic monoids is settled, not merely sampled. The result gives an exact partition into projective and collapsed fibers over any field and, over finite fields, complete class numbers, each class size, and a characteristic-two boundary for the idempotent-containing class. It also reveals that only the degrees of the maximal vertices enter the Otto spectrum, a structural invariant across all height-two incidence patterns.
+Column products decouple. For inputs (t,b) and (s,c), the witness equations are (t-s)u=0, (1-s)z=c-bu and (t-s)v=0, (1-t)w=b-cv. When neither scalar is 1, take u=v=0 and solve by division. When both are 1, the equations require reciprocal scalar multiples, equivalent to equal nonzero lines or two zero vectors. In the mixed case the diagonal-1 vector must vanish, which is also sufficient. All choices assemble into allowed witnesses. Thus the one-column star and line fibers have sizes 1+(q-1)q^d and q-1 respectively; line count is (q^d-1)/(q-1), and products give every class multiplicity. Squaring yields precisely t=0 with arbitrary b or (t,b)=(1,0) as idempotents. For q=2 this equals the star fiber; over any larger field diag(I,aI) for a not 0 or 1 disproves equality. As a bounded cross-check from actual block multiplication, K_{1,1} over F_3 has a seven-element star class (six t≠1 plus the identity) and one two-element class, with four idempotents. The counterexample X(0,2) and the identity are mutually intertwined by X(0,0). This check is additional to the universal algebraic argument; uploaded code was inspected but not executed.
 
-**Limitations.** This is a statement about witnesses inside the specified maximal-antichain monoid. It does not extend automatically to the full incidence monoid or resolve other primary/trace/norm conjugacies. Finite verification is bounded, and independent external mathematical review remains absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact prior question and three strong nearby formulations were compared against the all-column partition with restricted witnesses. The evidence supports the specific star/projective-line classification and the idempotent-class answer for the stated family, not priority for Otto conjugacy itself or a solution of the other questions in Open Problem 7.5.
+
+## value
+
+PASS
+
+The open problem asks for more than idempotents being mutually conjugate: the result identifies their full containing class, produces a counterexample over the original complex base, distinguishes the F_2 exception, and gives a uniform classification with class sizes for noncomplete as well as complete bipartite graphs. Dependence on the witness monoid makes this useful beyond a conjugacy calculation by units.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

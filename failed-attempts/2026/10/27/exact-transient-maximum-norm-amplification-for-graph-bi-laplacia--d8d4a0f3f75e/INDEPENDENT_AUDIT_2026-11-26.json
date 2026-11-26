@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:38:09.813977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed RESULT.md:30–67 for the unnormalized Laplacian. A²=(k−μ)I−μA+μJ gives the r,s levels on the orthogonal complement of constants; connectedness gives r<k, and s<0<r. Interpolate e^(−tL²)=αI+βA+γJ. The α coefficient is a convex combination of two positive exponentials and β>0 for t>0; β+γ=[1−α+(v−k)β]/v>0, and diagonal entries are positive by positive definiteness. The nonedge coefficient is (1−h)/v. Each row sums to one, so its absolute sum adds twice the negative mass, exactly the claimed expression; choosing signs of any row attains it, including at t=0 and the threshold. With x=k−r and y=k−s, h′ is a positive factor times (y/x)e^{−(y²−x²)t}−1, proving the unique peak at the displayed time. Since h starts at one and tends to zero, there is exactly one subsequent crossing of one. The nonedge derivative of the kernel is −μ at zero, so h′(0)=vμ and the norm slope is 2(v−k−1)μ=2k(k−1). The inspected supplied script tests three graphs, with exact adjacency checks and floating-point time samples; no execution of that script or formal verification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two exact records treat all connected noncomplete strongly regular graphs and fractional exponents, not just triangle-free SRGs or the squared Laplacian.",
+          "Gregorio–Mugnolo Proposition 2.3 treats qualitative whole-semigroup failure of positivity and ℓ∞ contractivity for noncomplete graphs."
+        ],
+        "reasoning": "The Resultary formulas cover the full claimed parameter slice. The qualitative primary-literature criterion does not by itself compute the transient law or give the norm at fixed times.",
+        "searches": [
+          "Resultary 042f947af3d0 and d37f7dd78e94 Findings and spectral reductions",
+          "Gregorio–Mugnolo arXiv:1712.07370v3 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 042f947af3d0",
+        "Resultary d37f7dd78e94",
+        "Resultary e4f9c89a420f",
+        "Resultary 621e2ef18776",
+        "Resultary da21753d4271",
+        "arXiv:1712.07370v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact fractional-law specialization gives the peak value by evaluation and slope 2(v−k−1)xy/v by differentiation. Here xy=μv and (v−k−1)μ=k(k−1). The sign-row extremizer is the same.",
+          "The frozen citation ID da21753d4271 resolves in the mirror to a different three-level semigroup result on ℓ², with positive-operator times {0}, not the attributed cutoff result."
+        ],
+        "reasoning": "No separately original initial-slope, threshold or attainment claim survives the exact coverage. The bad citation identification is a related-work issue, not a gap in correctness and not the basis of the originality failure.",
+        "searches": [
+          "042f947af3d0 Finding item 3 and spectral reduction",
+          "d37f7dd78e94 Finding and proof equations (1)–(3)",
+          "da21753d4271 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "042f947af3d0 Finding item 3 gives the exact positive-part formula for S_α=e^(−t L^α), with gap y−x in the prefactor and bracket y exp(−x^α t)−x exp(−y^α t)−(y−x). It gives the peak at (α−1)log(y/x)/(y^α−x^α).",
+          "d37f7dd78e94 gives the exact norm and positivity recovery with strictly negative nonedges before the root for α>1."
+        ],
+        "reasoning": "Set α=2, x=k−r and y=k−s. Then x²=a, y²=b, y−x=δ. The norm bracket becomes δ(h−1) and the peak is exactly the frozen formula since xb/(ya)=y/x.",
+        "searches": [
+          "Resultary 042f947af3d0",
+          "Resultary d37f7dd78e94"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d37f7dd78e94 and 042f947af3d0 provide exact closed formulas, not just sampled graphs or leading behavior.",
+          "The earlier e4f9c89a420f and 621e2ef18776 entries concern respectively complete multipartite graphs and rook graphs."
+        ],
+        "reasoning": "The earlier restricted examples do not cover the target class (their triangle-free SRG endpoints are excluded), while the two later indexed formulas do.",
+        "searches": [
+          "Resultary d37f7dd78e94, 042f947af3d0, e4f9c89a420f and 621e2ef18776"
+        ]
+      },
+      "rationale": "The full sharp transient law, not just eventual positivity, has demonstrable existing coverage. Two distinct broader Resultary records give exactly this norm, peak and sign pattern at fractional exponent 2. The height and degree-only slope require only substitution and differentiation of those statements. Both broader records are cataloged later than the frozen item; this is a judgment of mathematical coverage at review, not an assertion of earlier priority, chronology of discovery, or dependence.",
+      "residual_risks": [
+        "Whether an earlier equivalent exact formula exists under other terminology is unresolved. The demonstrable matches establish coverage, not historical priority.",
+        "The general three-level title cited in the frozen text was not validated via its given identifier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by specialization",
+          "evidence": [
+            "Sets d=v−k−1 and uses nonzero Laplacian levels x,y in the fractional norm and peak formulas; α=2 gives the frozen expressions."
+          ],
+          "identifier_or_url": "042f947af3d0",
+          "material_read": "RESULT.md Finding item 3 and spectral reduction, from offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "A unique worst fractional heat exponent on strongly regular graphs",
+          "trigger": "Exact norm and maximum on a larger family"
+        },
+        {
+          "assessment": "Covers the threshold, sign regimes, and exact norm",
+          "evidence": [
+            "For α>1 the uniform nonedge coefficient is negative until its unique positive root, then positive; the other entry types remain positive."
+          ],
+          "identifier_or_url": "d37f7dd78e94",
+          "material_read": "RESULT.md Finding, proof equations (1)–(3), and norm proof around offset 4736",
+          "method": "Resultary lookup and local mirror",
+          "title": "Sharp positivity recovery for fractional heat on all connected strongly regular graphs",
+          "trigger": "Exact negativity, cutoff and recovery conditions"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "Triangle-free complete multipartite SRGs have μ=k, which the frozen claim excludes."
+          ],
+          "identifier_or_url": "e4f9c89a420f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Earlier exact cutoff and norm for graph bi-Laplacians"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "Square rook graphs have λ>0 except C₄, which has μ=k."
+          ],
+          "identifier_or_url": "621e2ef18776",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat on rook graphs",
+          "trigger": "Earlier exact peak and cutoff"
+        },
+        {
+          "assessment": "Qualitative semigroup criterion only in the compared proposition",
+          "evidence": [
+            "Positivity or ℓ∞ contractivity of the entire semigroup is equivalent to completeness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.07370v3",
+          "material_read": "§2, p. 8, Proposition 2.3, text near offset 26400",
+          "method": "Targeted original OA PDF text",
+          "title": "Bi-Laplacians on Graphs and Networks",
+          "trigger": "Primary graph biharmonic heat literature in the same norm"
+        },
+        {
+          "assessment": "Identifier does not substantiate the citation as written",
+          "evidence": [
+            "The positive-operator time set in the actual indexed Finding is {0}."
+          ],
+          "identifier_or_url": "da21753d4271",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A bounded three-level self-adjoint semigroup with no positive operator time on ℓ²",
+          "trigger": "Identifier cited at RESULT.md:81 for an asserted general one-cutoff predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The precise bounded-input amplification, peak and time of positivity recovery are naturally motivated quantitative data. But as a separate exact-invariant contribution, this slice supplies no additional mathematical result beyond evaluating the broader norm and cutoff at exponent two and differentiating; the apparent degree-only specialization takes just the standard SRG identities. This is not a finding that the broader transient analysis lacks scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

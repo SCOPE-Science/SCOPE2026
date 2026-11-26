@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:21:23.911356Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–60, including direct review of the rotation and section conditions",
+        "Frozen VERIFICATION.md lines 19–23 and verify_cycle_q.py inspected, not executed",
+        "arXiv:2505.14584, Definition 6.7, equation (9), Notation 6.16 and Theorem 6.17, checked against the explicit F₇ lift"
+      ],
+      "rationale": "Invertibility of the target square list makes the images of distinct natural basis vectors have disjoint supports. Thus the matrix is monomial and its permutation is a rotation. For the diagonal basis-change recursion the last exponent ranges over a coset of the image of multiplication by 2^n−1 modulo Q, so the weighted sum modulo g is complete; rotations multiply it by powers of 2. At additive order d the orbit length is h, and the lifts of a rotation by k solve (2^n−1)u₀=a(1−2^k) modulo Q, with exactly g lifts if h divides k and zero otherwise. For h<n, taking the (n/h)-th power of a lift of rotation by h gives first exponent Su₀+a, S=(2^n−1)/(2^h−1). Vanishing suffices for the whole diagonal map and implies the lift congruence. Since gcd(Q,S) divides g, solvability is equivalent to gcd(Q,S) dividing gcd(g,a)=g/d. The trivial quotient h=n and g=1 cases agree. The cycle also makes any ideal containing a nonzero vector contain a basis vector by multiplying at a nonzero coordinate, then all basis vectors by squaring. In the disputed six-cycle over F₇ with last weight 3, writing 3 as generator, a lift of shift 2 must have odd first exponent u. Its cube then has first exponent 21u+1=4 mod 6, so no lift of that generator has order three. For example the exponents (1,2,4,2,5,4) give an explicit lift whose cube scales e₀ by 4. This check uses the actual rotation image, not extension-field points.",
+      "residual_risks": [
+        "Finite congruence sweeps in the frozen verification are illustrative; the result rests on the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elduque–Labra give the general diagonal-by-graph sequence as a sequence of group schemes; their cube condition concerns lifting the full graph symmetry over the base field",
+          "Cabrera Casado et al. encode scale tuples as part of weighted-graph arrows; at the claimed splitting they describe p by the permutation and use G as a section"
+        ],
+        "reasoning": "The group-scheme quotient need not be the finite-field image. In dimension two a rotation which fails to lift does not yield a nonsplit extension of the actual rational image: that image is trivial. In the 2LI discussion the weighted group retaining the scale tuple is not the permutation quotient; for the latter a section would give an order-three lift in the verified F₇ counterexample. Neither supplies an earlier valid all-n rational splitting criterion.",
+        "searches": [
+          "arXiv:1902.02191 Theorem 3.2, Corollary 3.4 and Example 3.5",
+          "arXiv:2505.14584 Definition 6.7, Proposition 6.10, equation (9), Notation 6.16, Theorem 6.17, Corollary 6.19"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1902.02191, 2310.12368, 2505.14584, and 2610.22248 at the statement locations above",
+        "Resultary weighted-cycle F₄ and arbitrary-q records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Survey Proposition 21 exhibits an earlier cyclic-group nonsplit extension on a six-dimensional example whose graph is not a directed cycle; Question 33 asks for criteria",
+          "For the canonical F₇ cycle with last weight 3 the exact quotient C₃ has only order-nine lifts of shift 2"
+        ],
+        "reasoning": "Prior nonsplitting examples establish the phenomenon, not an all-cycle arithmetic criterion. In the weighted-graph framework p∘ι being setwise the identity does not prove that ι is a group homomorphism for the actual rotation image.",
+        "searches": [
+          "arXiv:2610.22248 Proposition 21 and Question 33",
+          "arXiv:2505.14584 equation (9) and Theorem 6.17; direct comparison at q=7,n=6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F₄ record 2026/10/26/SCOPE-a-complete-splitting-trichotomy-for-weighted-cycle-evolution-alg--68b762be11e4, Finding and Proof §§1–4",
+          "Wei–Zou Corollary 1.1 uses symmetric-group/torus orbits on GL_n"
+        ],
+        "reasoning": "The GL_n representation is a broader framework, not the cycle-specific closed formulas. The F₄ balanced/unbalanced case is exactly the case g=1 or 3, and its nonzero class at n=2m splits precisely when 3 does not divide m, matching the frozen test.",
+        "searches": [
+          "Resultary: finite field weighted cyclic evolution algebras, arithmetic doubling orbits, splitting automorphisms",
+          "arXiv:2310.12368 Corollary 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cyclic-evolution-algebras--e8db04aa8932 gives the same arbitrary-q orbit and order formulas without the splitting test in its Finding",
+          "Wei–Zou give aggregate counts in dimensions two through four for idempotent evolution algebras"
+        ],
+        "reasoning": "The next-day catalogue overlap is real but is not earlier evidence and omits the splitting criterion. Aggregate counts for a much larger class do not separately enumerate weighted cycles by invariant order or section behavior.",
+        "searches": [
+          "Resultary: arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras; weighted cycle splitting trichotomy",
+          "arXiv:2310.12368 Corollary 1.1 and abstract"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary-field-size, all-n arithmetic classification with a classwise splitting test for the actual finite-field rotation image. Prior monomial and group-scheme structures and low-dimensional cases are credited. The same-day F₄ classification gives exact narrower overlap, without a same-day priority inference. A next-day arbitrary-q record duplicates the orbit and order formulas but does not give the splitting test. The apparent broader splitting assertion in arXiv:2505.14584 does not imply the test: if graph arrows include the scale tuple, the weighted graph automorphism group already includes diagonal maps; if one forgets the tuple to obtain the actual permutation image in Notation 6.16, choosing a lift is not a homomorphism. The explicit nonsplit F₇ example distinguishes the interpretations.",
+      "residual_risks": [
+        "Ranked catalogue inspection is not exhaustive worldwide priority. Same-day relative priority in the F₄ case was not established.",
+        "The objection to the 2LI splitting assertion is limited to the sequence onto the actual permutation image; it is not a judgment about unrelated results in that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Group scheme, not the sequence onto the actual rational image",
+          "evidence": [
+            "Surjectivity in Example 3.5 is shown over an algebraic closure; the section is defined over the ground field iff the weight is a cube"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.02191",
+          "material_read": "Theorem 3.2 around offset 23585; Corollary 3.4 and Example 3.5 pp. 9–10 around offsets 25300 and 25969",
+          "method": "OA PDF passages",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Structural exact sequence and two-cycle splitting example"
+        },
+        {
+          "assessment": "General monomial orbit description and aggregate small-dimension counts, not closed cycle and section formulas",
+          "evidence": [
+            "Symmetric group and torus act on invertible structure matrices"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "Abstract; Corollary 1.1 pp. 3–4, offset 7241",
+          "method": "OA PDF passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Broader prior finite-field classification method"
+        },
+        {
+          "assessment": "Real apparent conflict, not prior coverage of the valid rational splitting criterion. Distinguish tuple-bearing graph morphisms from permutations; the claimed split for the latter fails in the explicit example.",
+          "evidence": [
+            "Definition 6.7 uses morphisms θ_v with a tuple v of nonzero scalars; Proposition 6.10 identifies their automorphism group with monomial algebra maps",
+            "Equation (9) is the scale recurrence used in the frozen proof; Notation 6.16 defines p from the permutation; the purported section cannot take shift 2 to an order-three element in the F₇ example"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.14584",
+          "material_read": "Theorem 5.3; Definition 6.7 and Proposition 6.10 pp. 18–19, offsets 55700 and 60600; equation (9), Notation 6.16, Theorem 6.17 and Corollary 6.19 pp. 20–22, offset 65000 onward",
+          "method": "OA PDF passages and exact six-cycle calculation",
+          "title": "Solenoids in automorphism groups of evolution algebras",
+          "trigger": "Apparent general split theorem under 2LI/invertibility"
+        },
+        {
+          "assessment": "Non-cycle nonsplitting example and general question; no frozen formula in these statements",
+          "evidence": [
+            "Nonsplit C₃→C₉→C₃ example is a different directed graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "Proposition 21 p. 18, offset 66670; Question 33 p. 24, offset 86171",
+          "method": "OA PDF passages",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Prior nonsplitting and open splitting question"
+        },
+        {
+          "assessment": "Exact F₄ specialization, including the splitting boundary; same-day order not inferred",
+          "evidence": [
+            "Unbalanced even cycle n=2m splits iff 3 does not divide m"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-complete-splitting-trichotomy-for-weighted-cycle-evolution-alg--68b762be11e4",
+          "material_read": "RESULT.md Finding and Proof §§1–4, offsets 0 and 5850",
+          "method": "Resultary and local mirror",
+          "title": "A complete splitting trichotomy for weighted-cycle evolution algebras",
+          "trigger": "Strong same-day literal cycle overlap"
+        },
+        {
+          "assessment": "Later overlap for the first three claims; splitting test not in the Finding",
+          "evidence": [
+            "Doubling orbits and automorphism order gn/r_d for arbitrary q"
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cyclic-evolution-algebras--e8db04aa8932",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras",
+          "trigger": "Strong arbitrary-q record overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–28 and 50–71",
+        "arXiv:2610.22248 Question 33"
+      ],
+      "rationale": "A uniform classification of all finite-field forms of an oriented cycle makes the dependence on both the field and weights explicit. The arithmetic section test gives information beyond both the order and graph symmetry; order-three rotation images in the F₇ and F₁₉ six-cycle examples exhibit different extension behavior. The criterion answers a natural concrete instance of a general splitting question without claiming to settle that question for all perfect evolution algebras.",
+      "residual_risks": [
+        "Only a single oriented cycle and rational linear automorphisms are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

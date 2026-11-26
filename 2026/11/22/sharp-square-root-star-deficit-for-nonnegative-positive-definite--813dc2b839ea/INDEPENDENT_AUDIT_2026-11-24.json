@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:16.764677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–102",
+        "VERIFICATION.md lines 19–23",
+        "CHECKER.py lines 10–58"
+      ],
+      "rationale": "For any admissible kernel, the norm squared of the sum of the leaf Gram vectors is d+T, where T is the ordered sum of nonnegative off-diagonal leaf entries. Cauchy–Schwarz against the unit center vector gives S≤√(d+T). Thus the form is at least d+1+T−2√(d+T)≥d+1−2√d. For the upper bound X=√d−c_d with 2<c_d≤6 exists by the half-open length-four congruence window, r=(d−X)/2 is even and ε=−κ₂/(1−κ₂) lies in (0,1) for large d. The nonnegative Fourier weights of the cosine products give positive definiteness. At a Boolean vertex the layer average is κ_v by counting intersections of a uniform r-subset with the v minus signs; complement symmetry follows from even r. The sampling identities yield κ₁=X/d, κ₂=(X²−d)/(d(d−1)), and κ₃=X(X²−3d+2)/(d(d−1)(d−2)). Hence κ₃−κ₂=2(c_d−1)d^(−3/2)+O(d^(−2))>0 uniformly. The degree-r average has squared L² norm 1/binom(d,r) by Walsh orthogonality. Stirling gives binom(d,r)≳2^d/√d, so for 4≤v≤d−4, binom(d,v)≥binom(d,4) implies |κ_v|=O(d^(−7/4))=o(|κ₂|). The low weights and their complements are thereby all checked and κ₂ is the minimum. Cube interpolation proves global pointwise nonnegativity, not just positivity on the sampled star. The leaf pairs give zero and the center–leaf value is (κ₁−κ₂)/(1−κ₂)=(X+1)/(d+X), so d(X+1)/(d+X)=√d+O(1). The comparison benchmark differs from d+1 by 4d/(d+1), yielding the second limit.",
+      "residual_risks": [
+        "No independent script replay. The frozen checker is finite exact rational corroboration of the cube identities in twelve dimensions from 64 to 400. The uniform analytic argument, not those tests, proves positivity for all sufficiently large dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md line 110 describes the Schur-square result for kernels |g|² and the prior general symmetric multiaffine LP family. Direct retrieval did not supply the decisive primary passages."
+        ],
+        "reasoning": "Schur-square hypotheses restrict kernels and do not yield this extremal deficit. An LP formulation specifies feasible inequalities; it would cover the sharp asymptotic only if it supplied a solution or theorem bounding the optimum at the required scale. The available description does not show that.",
+        "searches": [
+          "Vybíral 2020, A variant of Schur's product theorem and its applications",
+          "arXiv:2609.21733"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 108–120",
+        "Primary published-search summary for the conjecture",
+        "Resultary c0b9c43edbd2, 6c4e2ef6b84c, 07d43773068e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "While the lower bound is ordinary Gram geometry, the upper bound requires verifying all Krawtchouk weights in unbounded dimension. The prior finite example is described as having d=7."
+        ],
+        "reasoning": "Zeroing weight two is not enough for global nonnegativity; the even-layer complement symmetry and the estimates on every other weight are what certify admissibility at the desired scale. A fixed-dimensional violation or general positivity method alone does not imply this calculation.",
+        "searches": [
+          "Hinrichs–Vybíral 2011 conjecture source and arXiv:2609.21733 (finite violation and dimension-dependent construction)",
+          "RESULT.md lines 29–102 and 108–114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=d+1 the proposed Gram bound against 11ᵀ/n specializes exactly to (d−1)²/(d+1), since the signed coefficient sum is d−1. RESULT.md lines 108–110 reports the 2026 finite counterexample and LP framework."
+        ],
+        "reasoning": "A counterexample to that matrix inequality is equivalent to one negative quadratic-form gap somewhere, not to its optimal order and coefficient at the fixed one-negative star as d grows.",
+        "searches": [
+          "Primary-literature search: Hinrichs–Vybíral counterexample and symmetric multiaffine Krawtchouk star",
+          "Resultary: signed Fourier-kernel bounds on coordinate-simplex nodes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day result c0b9c43edbd2 has an indexed exact 12/7 minimum on the corresponding eight seven-torus sites, but with two negative coefficients and six positive. Other indexed results 6c4e2ef6b84c and 07d43773068e concern a one-circle compression and three sites respectively."
+        ],
+        "reasoning": "The nearest exact indexed bound differs in the signs and treats one dimension. Sign multiplicity cannot be changed by permuting nodes or reversing all signs, and its exact optimum is not an asymptotic table for this star.",
+        "searches": [
+          "Resultary: coordinate-simplex nonnegative positive-definite signed star, exact seven-dimensional optima"
+        ]
+      },
+      "rationale": "Credit the former Loewner conjecture, the finite seven-dimensional violation and the symmetric multiaffine positive-Fourier construction framework. The supported distinct contribution is sharp first-order optimization over all admissible kernels at the one-negative star, using an explicit family of globally nonnegative near-central layers that achieves the unrestricted Gram bound to O(1). The material compared does not establish equivalent coverage of this asymptotic.",
+      "residual_risks": [
+        "The 2026 counterexample manuscript’s exact LP and any general asymptotic implications could not be independently checked in full text. The 2011 and 2020 primary passages and closest indexed finite optimum were also unavailable. No absence of coverage is inferred from retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the finite violation and LP framework as reported; remaining overlap on unbounded dimensions cannot be excluded by unavailable text",
+          "evidence": [
+            "Line 110 attributes a seven-dimensional violation and LP family to this source."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21733",
+          "material_read": "Frozen comparison and bibliography, RESULT.md lines 108–120; primary passage unavailable",
+          "method": "Attempted lawful OA passage lookup and identified arXiv HTML copy",
+          "title": "An explicit counterexample to the Hinrichs–Vybiral conjecture",
+          "trigger": "Same motivating conjecture; reported related dimension-parametrized multiaffine family"
+        },
+        {
+          "assessment": "The benchmark is credited, not the sharp extent of its violation",
+          "evidence": [
+            "The proposed bound takes the form G≽11ᵀ/n, giving the benchmark tested here."
+          ],
+          "identifier_or_url": "https://people.fjfi.cvut.cz/vybirja2/publ/Vybiral19.pdf",
+          "material_read": "Frozen comparison and published-search summary of matrix inequality; full text unavailable",
+          "method": "Legal OA passage attempt and statement comparison",
+          "title": "On positive positive-definite functions and Bochner's theorem",
+          "trigger": "Original proposed bound"
+        },
+        {
+          "assessment": "Related exact finite result with different signs; date does not resolve priority",
+          "evidence": [
+            "Indexed statement concerns the two-negative/six-positive contrast and value 12/7."
+          ],
+          "identifier_or_url": "Resultary c0b9c43edbd2",
+          "material_read": "Indexed scientific summary; matching source passage unavailable",
+          "method": "Local catalogue lookup and attempted mirror passage lookup",
+          "title": "A sharp two-negative Fourier-kernel bound on the seven-dimensional coordinate simplex",
+          "trigger": "Closest distinct indexed signed bound on the same seven-dimensional sites"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–23 and 29–102"
+      ],
+      "rationale": "The fixed signed star is a natural test of the historical lower bound. The result determines the largest violation at that star to leading order and separates a universal Gram obstruction from the real extension problem of constructing a globally admissible Fourier kernel. An explicit layer reaches the leading coefficient in unbounded dimension, rather than providing just another isolated counterexample.",
+      "residual_risks": [
+        "No exact finite optimum, second-order constant or worst-case comparison across different point configurations is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

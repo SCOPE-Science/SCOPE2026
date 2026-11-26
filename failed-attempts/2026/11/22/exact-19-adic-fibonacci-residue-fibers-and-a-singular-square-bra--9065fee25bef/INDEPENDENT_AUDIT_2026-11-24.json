@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:18:44.586229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–96",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen CHECK.py, inspected but not executed"
+      ],
+      "rationale": "The matrix identity A^18=I+19B has B nonzero mod 19; the first binomial term is strict lowest valuation on successive 19-power lifts. Reduction modulo 19 and the Fibonacci state (F_n,F_{n+1}) therefore give the exact least period. For the regular branches the linear coefficient after division by 19 is 3F_{r+1}+8F_r mod 19, vanishing only for r=9. The remaining higher terms are 19 times integral 1-Lipschitz functions, so each regular branch contributes one index per lift of its base target. For r=9, tr(A^9)=76 and tr(A^9B)≡8 mod 19 give an isometric Lucas coordinate. The odd-index Lucas identity and rationalization give f_9=c+19²(c/8)x² in an isometric coordinate; the square-root units differ by a multiple of 19²(x−x′), so the change of coordinate is bijective modulo every power. The root modulus is 19^{k−2} but the index-coordinate modulus is 19^{k−1}, giving the factor 19 even at k=2. The 11 regular residue classes exclude 15. For d=k−2, nonzero square targets of valuation 2s have 2·19^s roots and zero has 19^{floor(d/2)}; this gives both parity cases of the maximum, including the off-center odd-k maxima. The independent recurrence replay agreed on every target and returned at the asserted least periods 18, 342, 6498.",
+      "replay_paths": [
+        "/workspace/branches/3007da7a-d764-4ebd-89b2-eaeb31cbe40a/replay_small.txt"
+      ],
+      "residual_risks": [
+        "The independent replay stops at k=3. The source's all-k proof establishes the remaining levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bragman–Rowland's Lemma 20 proof and Proposition 24 give the explicit exponential coordinate and its full ball for every split prime p≡1,4 mod 5; 19 is in that regime. Proposition 27 treats the singular branch by its quadratic equation.",
+          "Bundschuh–Bundschuh give complete shortest-period frequency formulas at 3; Rowland–Yassawi give interpolation and image density at 11."
+        ],
+        "reasoning": "The frequency results at other primes are precedents, not coverage of the prime 19. The split-prime branch formulas do apply at 19 with valuation exponent e=1, since the matrix lift is nontrivial modulo 19² and the split eigenvalues are units with unit difference.",
+        "searches": [
+          "arXiv:2202.00704, Lemma 20, Proposition 24 and Proposition 27",
+          "Bundschuh–Bundschuh, Theorems 1.1–1.2",
+          "arXiv:1602.00176, Theorems 15 and 20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.00704",
+        "arXiv:1602.00176",
+        "Bundschuh–Bundschuh, Fibonacci Quarterly 49 (2011), Theorems 1.1–1.2",
+        "Resultary e48f16530325",
+        "L. Somer (1990), chapter citation only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior coordinate is Y=ζ exp(θu), with θ of valuation e=1 at 19 and ζ the branch Teichmüller unit. For n=i+18t the change in the argument is 18(t−t′), with 18 a unit, and the exponential is isometric on 19Z_19. Hence indices t mod 19^{k−1} enumerate precisely the lifts Y≡ζ mod 19 in Z/19^k.",
+          "The earlier equation for target y is Y²−√5 yY−(−1)^i=0. Its derivative at ζ is nonzero on regular branches, so these give the baseline by uniqueness of Hensel lifts. For i=9 the equation is Y²−√5 yY+1=0 and ζ²=1. Put Z=2Y−√5 y. For y≡c=2ζ/√5 mod 19 this is the bijective affine change from Y≡ζ to Z≡0 mod 19, with equation Z²=5y²−4. Thus a solution requires y≡c mod 19². Substituting Z=19x and reducing yields a root count modulo 19^{k−2} with 19 lifts. The coefficient 5(y+c) is (8/c) times a unit congruent to 1 mod 19, hence times a square. This gives exactly the frozen target-dependent formula. Ordinary square-root counts then give the maxima."
+        ],
+        "reasoning": "The deduction is completion of a square in the prior explicit interpolation coordinates, not an inference from density or solvability alone. Even the existence of an isometric square parameter follows directly from the same coordinate: for Y=ζ+19v, g_9(Y)−c=(Y−ζ)²/(√5Y), so multiplying v by the square root of ζ/Y absorbs the unit isometrically; a factor 2 in the parameter gives the c/8 normalization. The Lucas-coordinate proof is a valid alternative derivation, but it does not remove prior coverage of the mathematical claim.",
+        "searches": [
+          "arXiv:2202.00704, Lemma 20 (offset 42850), Proposition 24 (offset 48000) and Proposition 27 (offset 55950)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bragman–Rowland Example 3 treats the identical prime, branch period 18, singular index 9, set of 11 regular residues and exceptional residue 15.",
+          "The nearest distinct indexed record e48f16530325 gives the same kind of regular baseline plus square-root-count term at prime 11, not at prime 19."
+        ],
+        "reasoning": "Image cardinality and finite least-period multiplicity are not equivalent in general; the strong prior coverage comes instead from the explicit coordinate and branch equation. The indexed 11 analogue is substantively close, but a theorem stated only at 11 cannot be specialized to 19, and its same-day date does not establish priority.",
+        "searches": [
+          "Resultary: exact Fibonacci residue multiplicities / least periods / prime-power frequencies",
+          "arXiv:2202.00704, p. 3 Example 3 and pp. 14–17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 3 lists 12,210,3981,75621 as image sizes and 441/760 as the limit. It lists the regular target classes, not their multiplicities.",
+          "The indexed exact root-count formula is for modulus powers of 11. No checked table prints the exact 19-adic fiber array."
+        ],
+        "reasoning": "Image counts and density are already covered; their equality with the frozen values is a consistency check. Their lack of weights does not negate the implication from the earlier proof.",
+        "searches": [
+          "arXiv:2202.00704, Example 3 (offset 7978)",
+          "Resultary e48f16530325, RESULT.md finding and proof"
+        ]
+      },
+      "rationale": "No inspected antecedent was found to print the identical 19-adic weighted table, but the exact law is mechanically implied by the already-published split-prime interpolation and quadratic congruence, not just suggested by the known image counts. The decisive implication is given below. This is prior coverage by deduction, not a claim that the identical wording was published.",
+      "residual_risks": [
+        "Somer full text not inspected; absolute priority or earlier explicit weighted tables were not established. The demonstrated implication does not depend on that chapter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication from explicit split-prime coordinates and quadratic relation; image sizes and density already explicit",
+          "evidence": "Lemma 20 gives the exponential coordinate with valued logarithm; Proposition 24 gives the branch-specific quadratic equation; Proposition 27 analyzes its discriminant at the singular branch; Example 3 supplies the 19-specific phase data.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00704",
+          "material_read": "Example 3, p. 3 offset 7978; Lemma 20 p. 13 offset 42850; Proposition 24 pp. 14–15 offset 48000; Proposition 27 pp. 16–17 offset 55950",
+          "method": "OA PDF passages",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Same prime and precise branch structure; possible weighted implication"
+        },
+        {
+          "assessment": "Earlier complete frequencies at 3, not coverage at 19",
+          "evidence": "Defines frequencies in a shortest period and describes both sequences completely modulo powers of 3.",
+          "identifier_or_url": "https://fq.math.ca/Papers1/49-3/Bundschuh2.pdf",
+          "material_read": "Introduction p. 1 and Theorems 1.1–1.2 p. 2, offsets 0 and 4222",
+          "method": "OA PDF passages",
+          "title": "Distribution of Fibonacci and Lucas Numbers Modulo 3^k",
+          "trigger": "Exact same invariant at another prime"
+        },
+        {
+          "assessment": "Interpolation antecedent; not a 19-adic weighted statement",
+          "evidence": "Twisted Fibonacci interpolation and density 145/264 at powers of 11.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00176",
+          "material_read": "Theorem 15 p. 11 and Theorem 20 p. 15, offsets 32661 and 49841",
+          "method": "OA PDF passages",
+          "title": "p-adic asymptotic properties of constant-recursive sequences",
+          "trigger": "Earlier Fibonacci interpolation and singular behavior"
+        },
+        {
+          "assessment": "Same-day different-prime analogue; no priority inferred",
+          "evidence": "Regular baseline plus 11 times a square-root count and growing singular fibers at p=11.",
+          "identifier_or_url": "e48f16530325",
+          "material_read": "RESULT.md finding and proof, offsets 0 and 4184–6422",
+          "method": "Resultary and local mirror",
+          "title": "Exact residue multiplicities of Fibonacci numbers modulo powers of 11",
+          "trigger": "Nearest distinct indexed record with the same type of exact formula"
+        },
+        {
+          "assessment": "No theorem-level comparison made",
+          "evidence": "Inaccessible passage is not treated as evidence of coverage or noncoverage.",
+          "identifier_or_url": "L. Somer, Applications of Fibonacci Numbers (1990), pp. 311–320, chapter citation",
+          "material_read": "Bibliographic scope only; chapter and PDF retrieval redirects did not deliver full text",
+          "method": "Lawful OA attempts",
+          "title": "Distribution of Residues of Certain Second-Order Linear Recurrences Modulo P",
+          "trigger": "Earlier recurrence frequency literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–43 and 72–96",
+        "arXiv:2202.00704, Example 3, Lemma 20 and Propositions 24 and 27"
+      ],
+      "rationale": "Least-period multiplicity is a natural invariant and the formulas are useful to state, but the specific exact 19-adic refinement is a direct congruence-counting readout of the existing split-prime coordinate and quadratic equation. The density and initial image sizes are already published, the peak counts are elementary consequences of the same root counts, and the alternate coordinate is not shown to solve a distinct mathematical gap. The narrow exact claim therefore does not clear the independent scientific-value threshold.",
+      "residual_risks": [
+        "This judgment is on the submitted prime-19 invariant, not on possible non-routine frequency theorems at other primes or for general recurrences."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

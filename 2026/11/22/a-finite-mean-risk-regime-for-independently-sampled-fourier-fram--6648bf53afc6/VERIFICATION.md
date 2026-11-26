@@ -5,21 +5,24 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
-
 # Verification
 
-The proof's probability claims are established analytically: the exact normalized binomial coefficient vector, independent uniform-circle event measure, Lagrange inverse, conditional chord CDF, stochastic comparison with exponentials, gamma tail and positive-Gram matrix inequality give the two inverse moment regimes. Only fixed \(N,m,k\) are covered. No unproved endpoint at \(p=k/2\) is asserted.
+## Proof and replay
 
-To reproduce supplementary finite checks, install NumPy and run `python CHECK.py` in the extracted directory. The checker has been executed successfully (`CHECK_OK assertions= 5715 dimensions=3..8`). It tests exact binomial and chord inequalities, Vandermonde interpolation, spectral superadditivity, and the gamma survival expression; it does not verify continuum probabilities or prove any infinite assertion.
+The fixed-size probability law and moment cutoff follow analytically from a multiple-root polynomial test, the conditional product of reciprocal chords in an inverse square Vandermonde matrix, and iterated Hölder applied to a cyclic family of subframes sharing one conditioned node. The full proof is in `RESULT.md`; neither simulation nor any claim of verified software is needed. Replay the crucial exponent by counting the \(m-1\) windows and the \(N-1\) factors involving each residual variable. Each window supplies a square-tail exponent \(1/2\); conditional Hölder gives \((m-1)/(2(N-1))\), exactly the collision exponent. The proof separately treats the critical inverse moment with the lower, not the upper, estimate.
 
-No independent mathematical audit has been performed. Earlier equivalent literature and the exact transition within \(2N\le m<3N\) remain unverified or unresolved.
+Run `python3 CHECK.py` for a finite exact consistency check of the incidence counts, inverse-moment threshold arithmetic, coefficient normalization, and the design-column identity. The check does not estimate the limiting tail or prove a continuous or infinitely quantified statement. No formal verification or expert attestation is claimed.

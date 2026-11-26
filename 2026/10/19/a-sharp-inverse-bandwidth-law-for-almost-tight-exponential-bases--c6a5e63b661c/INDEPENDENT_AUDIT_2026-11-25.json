@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:33:12.979157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Horizontal Fourier series split synthesis into identical three-dimensional fibers, so the squared Riesz ratio is the ratio of extremal Gram eigenvalues in every nonsingular case. The vertical Fourier factor has no real zero: vanishing would require t and sqrt(2)*t to be the complementary third-integer residues. Thus orthogonal frequencies occupy distinct channels of one translated integer lattice, leaving a complement within each occupied three-dimensional fiber. For the global lower bound, F(u,v)=1+e^(2pi i u)+e^(2pi i v) has just the two torus zeros and determinant magnitude 2pi^2 sqrt(3) there. Compactness and the local smooth inverse therefore put (3t,3sqrt(2)t) within O(delta) of complementary residues (q,p) when delta=kappa-1 is small, since average Gram eigenvalue one implies ||G-I||<=delta. The integer norm |p^2-2q^2|>=1 forces delta>=c/(1+R); large delta and singular instances satisfy that lower bound too. Multiplication by 17+12sqrt(2) preserves Pell norm 2, switches the complementary nonzero residues, and keeps q_(j+1)<=41q_j. Taking the last admissible denominator yields the required all-large-R upper estimate, not just a subsequence. As an independent check of the coefficient, at t_j=q_j/3 the first two rows are orthogonal. In the row Gram the centered spectrum is exactly -s,0,s, with s^2=2[(1-cos theta)^2+3sin^2 theta]/9, theta=2pi*(sqrt(2)q_j-p_j)/3, for either residue orientation. Thus kappa-1=2s/(1-s) and q_j*|theta| tends to 2pi/(3sqrt(2)), giving 4pi/(3sqrt(3)). The uploaded VERIFY.py was inspected, not executed. Its line 52 subtracts the absolute error when printing the last scaled coefficient and so is not a reliable signed diagnostic: evaluating the independent row-Gram identity at j=6 gives about 2.418399153889, above the limit 2.418399152312. The unsigned error assertions and analytic theorem are unaffected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Product spectrality of [0,1]^d times a compactly supported finite measure is equivalent to spectrality of that finite measure; the three-atom factor has no nontrivial orthogonal pair.",
+          "The two-segment classification and finite parallel common-density necessity do not decide this quantitative issue. The finite-group near-tightness examples allow ratios greater than one tending to one but give no real-flow bandwidth law."
+        ],
+        "reasoning": "Qualitative product coverage is substantive. Neither orthogonal-set growth nor finite-group near-tightness supplies the simultaneous complementary-residue lower bound with bounded real bandwidth and the particular Pell upper construction.",
+        "searches": [
+          "arXiv:2607.01500v1 Cor. 1.4",
+          "arXiv:2609.27364v1 Thm. 3 and Cor. 2",
+          "arXiv:2512.19872v1 Thm. 6",
+          "arXiv:1904.04487v6 Thm. 1.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.01500v1",
+        "arXiv:2609.27364v1",
+        "arXiv:2512.19872v1",
+        "arXiv:1904.04487v6",
+        "Resultary --1200745c9cae, --c9a6f8a9b1bc, --a0b1e6f9ca2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By the product result and the atomic zero test, every orthogonal product exponential family is incomplete. That is an implication even though the exact three heights are not called out in the source.",
+          "None of those results yields upper and lower orders for this fixed vertical family: lower control needs the torus-to-residue estimate plus Pell norm obstruction, upper control needs admissible bounded-ratio denominators, and the limit needs the row-Gram perturbation."
+        ],
+        "reasoning": "Credit the stronger qualitative source separately from the supported quantitative result. The Pell coefficient is along the specified sequence, not an optimum leading coefficient over all t or even all admissible Pell approximations.",
+        "searches": [
+          "arXiv:2607.01500v1 Cor. 1.4 p. 4",
+          "arXiv:1904.04487v6 Thm. 1.4 p. 7",
+          "arXiv:2512.19872v1 Thm. 6 p. 5; compare frozen Proof and the stated Pell sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The changing condition number here is the extremal eigenvalue ratio of a 3-by-3 Vandermonde Gram along t -> (t,sqrt(2)t) modulo one; near identity it is governed by proximity to complementary third-integer phases.",
+          "Determinant design on different interval-union fibers and unconstrained finite-cycle frequency choices do not specify that one-parameter Gram ratio."
+        ],
+        "reasoning": "The searches include the Diophantine/cube-root and condition-ratio versions of the claim. Off-target returns carry no negative weight on their own; the closest actual statements use different admissible sets or objectives.",
+        "searches": [
+          "Resultary: nonspectral product interval and three point measure {0,1,sqrt(2)}; optimal Gram condition ratio for exponential Riesz bases with vertical cosets {0,t,2t}, inverse bandwidth 1/R and Pell leading constant 4pi/(3sqrt(3)",
+          "Resultary: Pell subsequence sharp Gram condition ratio near tight three-coset exponential basis irrational parallel segments inverse bandwidth",
+          "Web: \"4π/(3√3)\" Pell Gram \"Riesz basis\" exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--1200745c9cae optimizes squared Riesz ratio for the spatial triple {0,1,2} in a finite cycle over three-element frequency sets.",
+          "--c9a6f8a9b1bc and --a0b1e6f9ca2a optimize determinant objectives in three-coset bases on interval unions. The latter has a determinant gap 6pi^2/m^2+O(m^-3) from 27 in two residues."
+        ],
+        "reasoning": "The finite-cycle ratio has different fiber nodes and no sqrt(2) bandwidth arithmetic; determinants do not specify extreme eigenvalue ratios and the interval-union models are different. This is a bounded catalogue check, not a priority proof.",
+        "searches": [
+          "The Resultary condition-ratio and Pell searches above",
+          "Resultary: three parallel segments at heights 0, 1, square root of 2; interval product; no orthogonal exponentials; three vertical frequency cosets Riesz basis conditioning"
+        ]
+      },
+      "rationale": "The distinct claim is quantitative: the sharp inverse vertical-bandwidth order in the fixed equally spaced three-coset family and the exact Pell-sequence leading coefficient. Qualitative nonspectrality is covered as a corollary of the interval-factor spectrality result plus the elementary atom obstruction, and is not independently credited. None of the inspected quantitative analogues determines this bandwidth law or coefficient. No claim is made for unrestricted frequency design or for the exact limit of R*(K(R)-1).",
+      "residual_risks": [
+        "Bounded search may miss related Diophantine Fourier-conditioning results. An–He–He DOI 10.1016/j.jfa.2018.10.017 was not available as lawful full text in the targeted attempt; no negative coverage inference rests on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct qualitative prior implication; not a Riesz bandwidth estimate.",
+          "evidence": [
+            "Lebesgue cube factor times compactly supported finite nu is spectral if and only if nu is spectral."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.01500v1",
+          "material_read": "Corollary 1.4, PDF p. 4, OA offset 10472",
+          "method": "Open PDF passage inspection",
+          "title": "Spectrality of factors of product spectral measures",
+          "trigger": "General result including interval times the exact compactly supported atomic-measure class"
+        },
+        {
+          "assessment": "Two-segment classification and finite-family necessary density condition; not a condition ratio.",
+          "evidence": [
+            "The three segments here satisfy the necessary common-density condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27364v1",
+          "material_read": "Theorem 3 p. 5 offset 19853, Corollary 2 p. 12 offset 47641",
+          "method": "Open PDF passage inspection",
+          "title": "Spectrality of Weighted Measures on Two Line Segments",
+          "trigger": "Parallel-segment classification and density rigidity"
+        },
+        {
+          "assessment": "Orthogonal-set growth does not control Riesz near-tightness on this product.",
+          "evidence": [
+            "Thm. 6 bounds cardinalities of orthogonal frequencies in growing windows by O(R) for finite curve unions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.19872v1",
+          "material_read": "Abstract p. 1 and Thm. 6 p. 5 offset 17590",
+          "method": "Open PDF passage inspection",
+          "title": "Spectra for finite unions of line segments",
+          "trigger": "Three-or-more segment spectral examples and quantitative orthogonality"
+        },
+        {
+          "assessment": "Finite-group conditioning examples, not the irrational-flow graph or Pell coefficient.",
+          "evidence": [
+            "Theorem 1.4 gives finite examples with 1<rho(E_n) tending to 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.04487v6",
+          "material_read": "Abstract and Thm. 1.4, PDF p. 7, offset 20391",
+          "method": "Open PDF passage inspection",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Direct near-tightness analogue in another domain"
+        },
+        {
+          "assessment": "Distinct finite spatial triple and frequency design.",
+          "evidence": [
+            "Optimizes frequency triples for {0,1,2} in Z_N."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Nearby exact 3-by-3 ratio optimization"
+        },
+        {
+          "assessment": "Different interval-union setting and determinant invariant.",
+          "evidence": [
+            "Worst-fiber determinant optimum and asymptotic determinant gap, not a bound on max/min eigenvalues for the frozen three heights."
+          ],
+          "identifier_or_url": "Resultary --c9a6f8a9b1bc and --a0b1e6f9ca2a",
+          "material_read": "Both RESULT.md statements and assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Quantitative three-coset determinant designs",
+          "trigger": "Plausible arithmetic competitors with equally spaced cosets"
+        },
+        {
+          "assessment": "Not assessed for precise implications; no inference of noncoverage from access failure.",
+          "evidence": [
+            "Three-element digit sets and Riesz product measures are named in the title."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2018.10.017",
+          "material_read": "Title and bibliographic information only; no full passage recovered",
+          "method": "Web lead; attempted lawful OA via publisher/DOI and MaRDI",
+          "title": "Spectrality and non-spectrality of the Riesz product measures with three elements in digit sets",
+          "trigger": "Plausible three-element nonspectral product lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example quantifies the cost of approaching tightness on a nonspectral product for a natural frequency family: increasing vertical bandwidth can make the basis almost tight, but cannot beat inverse bandwidth in that family. The constructive denominators work at every large bandwidth and the exact subsequence coefficient calibrates their performance. This is a genuine sharp obstruction together with a matching construction, not just a finite Gram-matrix example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

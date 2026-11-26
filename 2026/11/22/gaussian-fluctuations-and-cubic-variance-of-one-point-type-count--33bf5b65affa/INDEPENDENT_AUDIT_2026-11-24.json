@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:52:21.421827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–81 and corrected RESULT.md, Steps 1–3, especially the coefficients and pole orders of the explicit marked-block moments",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py inspected as recorded finite evidence, not executed",
+        "Independent bounded reproduction: recursively list all positive compositions at n=8,12,16,18, accumulate the totals of w, wT and wT^2 with integer weight w=n!/prod k_i! and T=1+2 sum b_i+sum_{i<j} b_i b_j, and normalize by sum w. At n=18 the mean and variance ratios to the leading terms are 0.98443070 and 0.50244082."
+      ],
+      "rationale": "The sharp variance needs moment convergence in addition to the CLT. The frozen proof abbreviates the required pole argument and assigns the positive variance derivative to the log pole location despite formal marking by exp(uB); with that marking the positive derivative is for minus log of the location. The corrected proof replaces this shortcut with explicit finitely marked block generating functions. For the type formula a nonempty downset has a latest level with a freely chosen nonempty subset and contains the earlier levels; an upset has the dual description. If both are nonempty their boundary levels must be strictly ordered. These comparisons specify the type over individual names by homogeneity and the one-point extension property. The labelled composition weights n!/prod k_i! agree with products of p_k=rho^k/k! conditional on an exact renewal at n. For B=2^K-1 and Y=B-K/rho the means E K=2rho and E B=2 give E Y=0, and E K^2=2rho+2rho^2, E KB=6rho and E B^2=10 give E Y^2=2/rho. The real characteristic perturbation of the renewal denominator is twice differentiable in t uniformly on fixed z-disks by factorial decay. Its unique nearby simple zero is 1+t^2/(2rho^2)+o(t^2), so the residue ratio at t/sqrt(n) proves the reward CLT. In the corrected moment argument C_j marks the j-th power of Y, W is the renewal series, W has simple pole coefficient 1/E K, and C_1(1)=0. The first conditional centered-at-n/rho moment is O(1); C_2 W^2+2 C_1^2 W^3 gives second moment n/rho^2+O(1). In the fourth moment the ordered marked blocks have multiplicity patterns 4, 1+3/2+2, 1+1+2, and 1+1+1+1 with coefficients 1, 8/6, 36 and 24. Each contribution has pole order at most three because of the C_1 zero; thus the fourth moment is O(n^2). Marking B^2 gives E Q_n^2=O(n^2) as well. These fixed-order estimates make the remainder after extracting (n/rho)(S_n-n/rho) from T_n of L^2 size O(n). Slutsky and Cauchy–Schwarz now give respectively the unit-normal scaling and Var(T_n)~n^3/rho^4, without any analytic positive exponential moment assumption.",
+      "residual_risks": [
+        "The finite enumeration checks weights and moments of the deterministic formula and does not establish the asymptotics. The proof uses uniform labelled weak orders and pointwise nonalgebraic types; a different random base measure would require new analysis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patch–Nazarathy–Taimre discuss an ordinary time-indexed renewal-reward CLT; their Theorem 2 on covariance uses a spread-out interarrival law. At zero potential, Zamparo's constrained pinning model is the exact-hit measure, but the inspected statement and setup concern large deviations."
+        ],
+        "reasoning": "Neither the usual fixed-time reward CLT nor known exact-hit framework plus large deviations furnishes the shrinking-scale CLT and fourth-moment bounds for this reward. Framework and the generic variance formula are not attributed to the new finding.",
+        "searches": [
+          "Resultary: exact-sum conditioned renewal reward lattice central limit theorem finite moments non-exponential reward",
+          "Patch–Nazarathy–Taimre arXiv:1408.1530; primary search for a constrained discrete-time exact-hit CLT; Zamparo arXiv:1903.03527"
+        ]
+      },
+      "checked_sources": [
+        "The four Resultary query themes above and the actual prior statements in the cited passages; compared against the corrected proof and its unchanged type-count claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing E T_n, or T for each level sequence, lacks the exact-hit fluctuation analysis. Discrete renewal times are not spread-out in the sense used by Patch–Nazarathy–Taimre. The reward B has no positive exponential moment; reduction to a bivariate analytic moment-generating function near zero is not valid here."
+        ],
+        "reasoning": "The audited special case uses a real characteristic-function perturbation and centered block marking to control precisely the moments needed by the quadratic type transform. The inspected prior statements are not sufficient to supply those conclusions.",
+        "searches": [
+          "a2d26ced4e39 Finding and Limitations; Elder et al. Theorem 3.3; Patch–Nazarathy–Taimre CLT passage and Theorem 2; Zamparo constrained model setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact hit with both CLT and variance is the audited record itself (33bf5b65affa). The older a2d26ced4e39 has the same random model and deterministic type statistic but gives its expectation.",
+          "Representing labelled weak orders by weighted compositions and conditioning renewal rewards on an exact hit reproduces the same measure, not an unconditioned fixed-time renewal process."
+        ],
+        "reasoning": "The deterministic statistic and its mean are not novel. The random statistic can be translated to sums of block rewards, but the first-moment result does not give its second-order behavior.",
+        "searches": [
+          "Resultary: Gaussian fluctuations cubic variance one-point type counts uniform labelled weak orders",
+          "Resultary: random finite weak orders one-point types exact finite-base formula expectation variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a2d26ced4e39 gives finite-base and exact expectation information. Distinct same-day d00cf6e5e308 instead describes an expected graded type spectrum in a random-permutation model with two orders. Elder et al. supplies a related exact interval-closed-set count, not random weak-order type fluctuations."
+        ],
+        "reasoning": "No exact indexed table or theorem found for the sharp variance and CLT over this particular labelled weak-order measure; the compared expected spectrum would not determine it.",
+        "searches": [
+          "Resultary: random finite weak orders one-point types exact finite-base formula expectation variance; conditional renewal composition CLT additive rewards exact renewal hit logarithm two cubic variance"
+        ]
+      },
+      "rationale": "The closest indexed result gives the same finite formula, random measure and first moment, and expressly withholds fluctuation statements. The corrected finding claims only the sharp cubic variance and the Gaussian limit for the type count. Ordinary renewal-reward asymptotics and the constrained pinning framework are known; the inspected results do not yield the stated fluctuation-and-moment result for this exact-hit reward and quadratic observable as formulated.",
+      "residual_risks": [
+        "An unlocated general exact-hit conditioned lattice renewal theorem or an unindexed weak-order specialization could affect priority. A literal retrieval attempt did not isolate the Dolinka–Mašulović lemma; it was not used to infer originality or correctness of the new fluctuation result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for type count and expectation but expressly not variance or law",
+          "evidence": [
+            "Same labelled model and E T_n=n^2/(2rho^2)+O(n); excludes concentration, variance and limiting distribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-quadratic-average-one-point-type-growth-over-random-finite-weak--a2d26ced4e39/RESULT.md",
+          "material_read": "Finding and Limitations, the latter near offset 6867",
+          "method": "Local published-record mirror",
+          "title": "Quadratic average one-point type growth over random finite weak orders",
+          "trigger": "Exact earlier statistic and model"
+        },
+        {
+          "assessment": "Related renewal results, not direct exact-hit lattice coverage",
+          "evidence": [
+            "CLT for R(t), and covariance expansion under a spread-out hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.1530",
+          "material_read": "p. 2 near offset 6800 (ordinary reward CLT); pp. 2–3 near offsets 9800–12100 (definitions and Theorem 2)",
+          "method": "OA PDF bounded passages",
+          "title": "A correction term for the covariance of renewal-reward processes with multivariate rewards",
+          "trigger": "Potential general reward CLT and covariance theorem"
+        },
+        {
+          "assessment": "Covers probabilistic framework, not the fluctuation statement by its inspected results",
+          "evidence": [
+            "The density is U_t exp(H_t)/Z_t^c with U_t the renewal indicator; at H_t=0 this is conditioning on t being a renewal. The stated results concern large deviations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.03527",
+          "material_read": "Abstract and constrained model definition pp. 1–3, offsets 0–1753 and 8660–11057",
+          "method": "OA PDF literal passage location and bounded pages",
+          "title": "Large Deviations in Discrete-Time Renewal Theory",
+          "trigger": "General exact-hit reward formulation in a constrained renewal model"
+        },
+        {
+          "assessment": "Not the same random base or observable",
+          "evidence": [
+            "Expected graded spectrum in a random two-linear-orders model; not the total over weak orders."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-gaussian-smoothed-logarithmic-spike-in-two-order-one-point-typ--d00cf6e5e308",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A Gaussian-smoothed logarithmic spike in two-order one-point type spectra",
+          "trigger": "Nearby exact indexed Gaussian type-spectrum record"
+        },
+        {
+          "assessment": "Related deterministic count only",
+          "evidence": [
+            "Counts interval-closed sets in ordinal sums of antichains, not a limit law for weak-order type counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08520",
+          "material_read": "Theorem 3.3, p. 12, offset 53947",
+          "method": "OA PDF bounded passage",
+          "title": "Toggling, rowmotion, and homomesy on interval-closed sets",
+          "trigger": "Possible coverage of deterministic ordinal-sum count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and proof; a2d26ced4e39 Finding and Limitations"
+      ],
+      "rationale": "The previously known average does not show whether it is representative. This result quantifies the full leading random fluctuation of a natural model-theoretic statistic, with explicit cubic variance and normal scaling, and handles a nonlinear transform and a block reward for which an analytic positive moment generating function is unavailable.",
+      "residual_risks": [
+        "The result is not a Gaussian theorem for unrestricted random posets or for other weak-order measures, nor a rate or local limit theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

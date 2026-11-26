@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:37.812209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–48 and 52–104",
+        "VERIFICATION.md, check.py, and check_output.txt (recorded exact checks, not rerun)"
+      ],
+      "rationale": "On probability S³ a Gaussian's radial moments are 24 and 322560 at orders 4 and 12. For a trace-free symmetric matrix the quadratic Gaussian cumulants are 2^(j−1)(j−1)!p_j; the sixth moment uses partitions 6, 4+2, 3+3, 2+2+2. Newton gives p₆=(3/4)p₂p₄+p₃²/3−p₂³/8. Thus ∥Y∥₂²=p₂/12 and the ratio is −27/14+(162/7)p₄/p₂²+(72/7)p₃²/p₂³. As an independent check of the endpoints, write the four eigenvalues as r+s+t, r−s−t, −r+s−t, −r−s+t and put D=r²+s²+t². Then p₂=4D, p₃=24rst, and p₄/p₂²=3/4−(r⁴+s⁴+t⁴)/(2D²). The last term gives bounds 1/4 and 7/12; AM–GM gives p₃²/p₂³≤1/3. Lower equality is one nonzero coordinate (two plus and two minus eigenvalues), and the upper bounds are jointly saturated exactly when |r|=|s|=|t| (one-versus-three). The unit sphere of trace-free real matrices is connected, so the full real interval is attained. For Y=U+iV the angular mean of |Re(e^(−iθ)Y)|⁶ is (5/16)|Y|⁶. If the real component Gram matrix has trace L=a+b and determinant d=ab−c², the angular mean of ∥Re(e^(−iθ)Y)∥₂⁶ is (5/16)L³−(3/4)Ld by diagonalizing the Gram matrix. The real inequality then yields deficit at least 36Ld. Zero determinant forces constant phase; real upper equality then forces the zonal profile. Conversely each stated extremizer gives equality. There is no claimed lower bound for general complex harmonics.",
+      "residual_risks": [
+        "No optimality claim for coefficient 36 or assertion of a complex lower endpoint. The supplied exact sample tests are not the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lacunary spherical-polynomial bounds impose a restricted exponent and degree-gap regime; the reverse Hölder abstract concerns degree asymptotics, not the fixed sixth endpoint.",
+          "Case–Tyrrell Thm. 1.1 in dimension four already has the two sharp trace upper bounds 7/12 and 1/3, with the same extremal multiplicity. d4106097159f applies the quartic trace bound to degree-two harmonic fourth moments."
+        ],
+        "reasoning": "The upper spectral ingredients are covered, but not the quantitative phase deficit for complexification of the spherical sixth moment. A sixth-moment identity and phase-sensitive estimate are separate from sharp trace bounds.",
+        "searches": [
+          "Resultary: fixed-degree spherical harmonics sharp L2 to L6 norm exact constants extremizers degree two",
+          "arXiv:1905.00323, Thm. 1; arXiv:1408.1877, abstract; arXiv:2305.03861v2, Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and mirrored ae7779ab9a93, d4106097159f, 65a6da5d0745, 77d50fb1fc76, 7e52ed02a14e",
+        "arXiv:2305.03861v2, 1905.00323v1 and 1408.1877; targeted literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The simple Minkowski argument from the S² proof transfers to any space with the real upper bound and so recovers the qualitative complex upper bound on S³ from its real result; proportional squares of real quadratics also give constant phase there.",
+          "That argument supplies no stated Gram-rank deficit. The frozen proof uses a sharp angular average of ∥Re(e^(−iθ)Y)∥₂⁶, retaining its determinant term rather than discarding phase information."
+        ],
+        "reasoning": "Do not count the real endpoints or their qualitative complexification as distinct from all compared coverage. The established distinct quantitative layer is the explicit all-complex phase-rank loss in the sharp inequality; no retrieved stronger estimate subsumes it.",
+        "searches": [
+          "ae7779ab9a93, Finding, scope and Limitations; 65a6da5d0745, Proof §§4–5; Case–Tyrrell Thm. 1.1 and §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ae7779ab9a93 also formulates the theorem for real SO(3) matrix coefficients. Newton's identity p₄=p₂²/2−4det(A) converts its displayed formula and both real defects exactly into the frozen expressions.",
+          "The same record explicitly limits itself to real matrices and functions and excludes complex quadratic harmonics in its Limitations."
+        ],
+        "reasoning": "The real part is exactly equivalent, not merely a numerical match or same-technique analogy. The alternate coordinate formulation adds no independent real novelty and does not contain the quantitative complex conclusion.",
+        "searches": [
+          "Resultary: exact sixth moment L6/L2 of degree two quadratic spherical harmonics on S^3 sharp constants 27/7 15 equality cases",
+          "Literature: \"27/7\" \"15\" sixth moment quadratic spherical harmonics S^3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ae7779ab9a93 gives precisely [27/7,15] and the split and zonal real equality spectra, with both exact real defects.",
+          "The distinct same-date 65a6da5d0745 gives all even moments on S² with a sixth-moment shape deficit and sharp complex zonal equality. Its sixth constants are 5625/1001 and 6625/1001. Other same-date hits 77d50fb1fc76 and 7e52ed02a14e concern torus cross-polytopes and hemispherical localization, respectively."
+        ],
+        "reasoning": "The later-dated real match is demonstrable coverage, not a priority finding. The strongest same-date conceptually similar record changes the dimension and the real spectral invariants; none of these states the coefficient-36 control on S³.",
+        "searches": [
+          "Resultary: 2026-10-26 distinct findings sixth moments spherical harmonics sharp bounds all degrees",
+          "Resultary: exact trace inequalities tr(A^4), tr(A^3)^2 for traceless symmetric 4x4 matrices sixth moment spherical quadratic"
+        ]
+      },
+      "rationale": "The exact real interval, equality cases, invariant formula and both real defects have equivalent coverage in distinct record ae7779ab9a93. The checklist does not credit those as an uncovered result in the current corpus, or infer priority or derivation from dates. The distinction supported for the frozen finding is the quantitative complex phase estimate on S³, with sharp complex upper classification. Qualitative complexification follows from the real upper bound by a standard triangle inequality, but the explicit Gram determinant control is not furnished by that argument or any inspected stronger theorem. The real inputs, already known trace bounds, and later equivalent real statement should be distinguished from this quantitative conclusion.",
+      "residual_risks": [
+        "The relationship and provenance of the two real S³ statements are not established by catalogue dates. An earlier sharp quantitative complexification inequality or older equivalent trace-based stability result might not have surfaced in bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "demonstrably equivalent real coverage only, no priority inference",
+          "evidence": "The determinant formula, real endpoints, equality spectra and both exact defects match after p₄=p₂²/2−4det(A); its scope explicitly excludes complex harmonics.",
+          "identifier_or_url": "ae7779ab9a93",
+          "material_read": "Mirrored RESULT.md offsets 0–3244 and Limitations around offset 9808",
+          "method": "local mirror",
+          "title": "Sharp sixth moments and spectral defects for real quadratic harmonics on the three-sphere",
+          "trigger": "exact real match including an equivalent group formulation"
+        },
+        {
+          "assessment": "covers both sharp upper trace inputs",
+          "evidence": "In dimension four the stated fourth- and third-trace estimates reduce to 7/12 and 1/3, respectively; they are estimates on matrices, not spherical sixth phase defects.",
+          "identifier_or_url": "arXiv:2305.03861v2",
+          "material_read": "Thm. 1.1 and §2 (HTML offsets 0 and 8550)",
+          "method": "OA primary text",
+          "title": "A sharp inequality for trace-free matrices with applications to hypersurfaces",
+          "trigger": "same sharp trace inequalities"
+        },
+        {
+          "assessment": "quartic analog and spectral overlap",
+          "evidence": "Exact complex fourth-moment result and sharp tr(A⁴)/(tr(A²))² in general dimension, yielding 7/12 in dimension four.",
+          "identifier_or_url": "d4106097159f",
+          "material_read": "Mirrored Finding (offset 0)",
+          "method": "local mirror",
+          "title": "Sharp L4/L2 norm and extremizers for degree-two spherical harmonics",
+          "trigger": "same degree, fixed exact norm and extremizers"
+        },
+        {
+          "assessment": "method and shape analogy, different domain and no quantitative complex Gram term",
+          "evidence": "The real sixth deficit on S² depends on a cubic trace parameter; the complex proof uses strict Minkowski and proportionality, yielding equality but no phase-rank coefficient.",
+          "identifier_or_url": "65a6da5d0745",
+          "material_read": "Mirrored Finding (offset 0) and Proof §§4–5 (offset 5270)",
+          "method": "local mirror",
+          "title": "All even-moment rigidity for quadratic spherical harmonics on the two-sphere",
+          "trigger": "same-date all-even and complex rigidity theorem"
+        },
+        {
+          "assessment": "does not supply fixed-degree-six sharp norm problem",
+          "evidence": "Degree-packet and exponent conditions of the lacunary theorem are not the (2,6) exact norm problem here.",
+          "identifier_or_url": "arXiv:1905.00323v1",
+          "material_read": "Abstract and Theorem 1",
+          "method": "OA primary text",
+          "title": "Nikolskii inequality for lacunary spherical polynomials",
+          "trigger": "general spherical norm bounds"
+        },
+        {
+          "assessment": "retrieved statement concerns degree asymptotics; no whole-paper exclusion inferred",
+          "evidence": "The abstract describes asymptotic estimates as degree tends to infinity.",
+          "identifier_or_url": "arXiv:1408.1877",
+          "material_read": "Abstract (offset 0)",
+          "method": "OA text",
+          "title": "Reverse Hölder’s inequality for spherical harmonics",
+          "trigger": "potential sharper fixed-degree norm estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, quantitative phase estimate and Proof §3",
+        "ae7779ab9a93 and 65a6da5d0745 for the comparison with real spectral or qualitative complex rigidity"
+      ],
+      "rationale": "S³ degree two is a natural fixed harmonic eigenspace, and the quantitative phase conclusion adds information to a qualitative equality classification. In fact the determinant is the product of the squared L² lengths of the phase-rotated perpendicular components; the phase loss forces the smaller one to vanish at equality and controls it for near extremizers, not just on the zonal orbit. The exact real norm range is useful context for the complex estimate but is not counted again as a new result relative to the equivalent real record.",
+      "residual_risks": [
+        "The phase coefficient is a quantitative lower bound on the loss, not a claimed best stability constant or description of the full complex attainable interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

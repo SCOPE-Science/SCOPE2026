@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:22:58.513163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently replayed all four prisms with `python /workspace/replay/combinatorial.py prism <frozen-dir>/prism6_certificate.json`. Recursive matching generation pairs the least uncovered vertex with each available neighbor, giving each perfect matching exactly once. A support is extended only if its every trace cell splits nontrivially on the new edge; heredity and ordered extension make this a complete enumeration, giving (1,9,3,0,0), (1,12,42,0,0), (1,15,60,5,0), and (1,18,117,138,0). For adaptive depth d>0 the replay checks whether some edge has two restricted concept sets both realizable to depth d-1; fewer than 2^d concepts makes this impossible. The matching counts are 4,9,11,20, and the resulting (VC,Littlestone) pairs (2,2),(2,2),(3,3),(3,4). I also checked all 20 specified masks, and the distinct witnesses at all sixteen depth-four leaves against every label on their paths. The structural VC upper bound is valid: with rungs present, the remaining path segments require synchronized pairs of rail edges, and with no rungs the even cycles give the two synchronized and two staggered choices. Each rail edge of P6 appears in at most six matchings, below the eight needed on any positive branch of a shattered quadruple, so all four would be rungs. A consecutive triple is obstructed by 1,0,1; otherwise the rungs have pattern {0,1,3,4} up to rotation, with the stated obstruction forcing both vertices of column one into column two and leaving column three blocked. For connectivity, two deletions in one rail leave the other cycle intact and every surviving vertex on the damaged rail linked to it; one deletion per rail leaves two paths joined by surviving rungs. Bipartiteness follows by taking alternating colors on each even rail with opposite phases, and every edge is in a matching by the all-rung or one paired-cut construction. This verifies the first gap within the family only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier records prove (2,3) for a five-column open ladder and (2m,3m) for chains of those open blocks.",
+          "Lekshmi–West count perfect matchings for all cycle prisms, giving the same four cardinalities."
+        ],
+        "reasoning": "Closing a ladder changes both edge queries and possible matchings; an open-rail gap cannot imply the four exact cyclic dimensions. The prism counting formula has no trace/split information; cardinalities alone yield only bounds.",
+        "searches": [
+          "Resultary c420d89cdd55 and 94247ccc912f, earlier edge-query adaptive gaps",
+          "Lekshmi–West arXiv:2003.09602, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, prism6_certificate.json and verifier",
+        "Lekshmi–West arXiv:2003.09602",
+        "Agarwal–Basak arXiv:2608.30601v2",
+        "Guingona et al. arXiv:2109.04805",
+        "Resultary local index and pertinent records c420d89cdd55, 94247ccc912f, f4b168b1a4ef, 8b29803cf944 and 71e9ef356cdb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited homotopy result concerns the perfect-matching complex of the same circular ladder, not projections to all labelings.",
+          "Published prism cardinalities and ladder trace formulas are prior."
+        ],
+        "reasoning": "The existing results supply inputs or comparisons but not the exact cyclic trace/branch structure, nor a theorem mechanically yielding the in-family first strict gap and its face vector.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601v2, Theorem 25",
+          "Resultary f4b168b1a4ef and c420d89cdd55, Findings",
+          "Lekshmi–West arXiv:2003.09602, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed support is shattered exactly when its coordinate projection of the perfect-matching polytope is the full Boolean cube: a projected convex hull of 0-1 points contains each corner only if that corner is a projected incidence vector.",
+          "The zero-set theorem assumes all zero-sets of nontrivial linear combinations of a fixed list of independent functions; it is not a classification of constrained matching-incidence functions."
+        ],
+        "reasoning": "The static cube-projection statement is equivalent; perfect-matching extendibility alone tests just the all-ones corner. The adaptive dimension also tests successive restricted families, not an invariant supplied by the matching complex or the zero-set theorem.",
+        "searches": [
+          "Resultary local search: perfect matching edge-query shattering, circular ladder, cycle prism, open ladder",
+          "Guingona et al. arXiv:2109.04805, Theorem 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day record f4b168b1a4ef computes the open-ladder shattering polynomial. Hexagonal-prism records 8b29803cf944 and 71e9ef356cdb study extendible partial matchings and arbitrary partial matchings, respectively, rather than shattered supports."
+        ],
+        "reasoning": "These tables refer either to a different graph family or a different invariant on the same graph. No distinct exact matching table surfaced in the focused results; same-day listing does not establish ordering.",
+        "searches": [
+          "Resultary local index: cycle prism, hexagonal prism, perfect-matching shattering polynomial and adaptive dimension"
+        ]
+      },
+      "rationale": "Credit the prior perfect-matching counts and earlier adaptive gaps in open ladders and their bridge chains. The supported distinct claim is the adaptive vs. static comparison in circular prisms, including the exact first gap and its edge-query support census, not an assertion that no earlier graph exhibits an adaptive gap.",
+      "residual_risks": [
+        "The bounded index comparison cannot rule out other treatments of the dimensions or their cube-projection equivalent. An additional primary-literature search service was unavailable; the assessment rests on the inspected open texts and catalogue records, not on that unavailable search.",
+        "No priority ordering follows from same-day publication dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cardinalities, not dimensions.",
+          "evidence": [
+            "F_(n-1)+F_(n+1) plus 2 for even n gives 4,9,11,20."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.09602",
+          "material_read": "Theorem 3, v1 p. 3, text near offset 8746.",
+          "method": "Lawful open primary text.",
+          "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+          "trigger": "Exact same prisms and enumerated cardinalities."
+        },
+        {
+          "assessment": "Direct earlier gap but on open ladders, not cycle prisms.",
+          "evidence": [
+            "VC dimension floor(n/2) and n=5 adaptive dimension 3; every edge occurs in a perfect matching."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-vc-dimension-and-linear-online-shattering-gap-for-matching--c420d89cdd55",
+          "material_read": "Finding and recurrence passage near offset 5400.",
+          "method": "Resultary published local mirror.",
+          "title": "Exact VC dimension and linear online shattering gap for matching-covered ladders",
+          "trigger": "Same concept class on the nearest related graph family."
+        },
+        {
+          "assessment": "Covers different, bridge-joined graphs.",
+          "evidence": [
+            "The (2m,3m) construction uses open five-column ladder blocks and bridges that never appear in a perfect matching."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-linear-static-adaptive-shattering-gap-for-matching--94247ccc912f",
+          "material_read": "Finding, proof and limitations.",
+          "method": "Resultary published local mirror.",
+          "title": "A linear static–adaptive shattering gap for perfect matchings in connected subcubic planar graphs",
+          "trigger": "Earlier planar subcubic matching-edge gap."
+        },
+        {
+          "assessment": "Exact static face-count family is for open ladders, not the circular support census.",
+          "evidence": [
+            "Gives the open-ladder shattering polynomial and VC dimension floor(n/2)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-full-edge-query-shattering-polynomial-of-ladder-perfect-matc--f4b168b1a4ef",
+          "material_read": "Finding and assumptions.",
+          "method": "Resultary published local mirror.",
+          "title": "The full edge-query shattering polynomial of ladder perfect matchings",
+          "trigger": "Same-day face-count and support theorem."
+        },
+        {
+          "assessment": "Different face predicate.",
+          "evidence": [
+            "The extendibility complex of the six-column circular ladder is a wedge of six 2-spheres; its faces need only extend to a perfect matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "v2 abstract and Theorem 25, p. 16, near offset 59400.",
+          "method": "Lawful open primary text.",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Exact hexagonal prism and a matching-related face complex."
+        },
+        {
+          "assessment": "Hypotheses are not established for matching incidence functions.",
+          "evidence": [
+            "Both dimensions equal d-1 for the specified family of zero-sets of linear combinations of d independent functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Theorem 3.10, p. 9, near offset 22000.",
+          "method": "Lawful open primary text.",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Possible general theorem about both dimensions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first gap in a canonical circular family replaces open, lower-connectivity or bridge-bearing examples with a highly symmetric, three-connected, cubic, bipartite planar graph whose every edge is usable. It gives an explicit compact adaptive witness, a structural static obstruction and the precise threshold; the exact support face counts locate how common static shattering is before the obstruction. This motivates the finite domain without any unsupported global-minimality claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

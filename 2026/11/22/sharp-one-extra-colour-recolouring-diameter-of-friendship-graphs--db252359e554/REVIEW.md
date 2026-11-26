@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated theorem is proved for each integer \(t\ge1\), with fixed named colours and distinguished base vertices. The fixed-hub graph is the Cartesian power of the six-cycle. The two common gateways for any change of hub colour are antipodal in both six-cycles, forcing a per-petal route of length at most three. The lower-bound witness requires three recolourings per petal to exchange its endpoint colours and at least one hub recolouring, reaching \(3t+1\). State, hub-eligibility and edge counts follow from disjoint hub layers and unique permitted hub changes. Supplementary executable exhaustive tests passed for \(t=1,2,3,4,5\), but are not used to justify the infinite theorem.
+PASS
 
-## Originality — PASS (with historical-priority risk)
+With three named colours every triangle is frozen and each fixed-hub petal has two states. With four named colours the ordered pairs in a fixed-hub petal form a C6, so the fixed-hub graph is its t-fold Cartesian product. Each of the six unordered hub-colour pairs contributes 2^t edges, and every enabled state has exactly one hub move. This gives 4·6^t states, 4t·6^t+6·2^t edges and 12·2^t hub-enabled states. For two distinct hub colours, the two common ordered pairs are antipodal in each local C6, so the costs via the two gateways add to six, and each petal can independently choose a cost at most three. A path with one hub move then gives 3t+1, while equal hub colours cost at most 3t. Exchanging both endpoint colours in each petal takes at least three moves per petal even if the hub moves, and the witness also has distinct hub colours. This proves the exact diameter, including t=1, without requiring the finite checks. The supplied script was inspected, not executed; its t=1 through 5 output is recorded evidence only.
 
-The closest inspected source is Biedl–Lubiw–Merkel, arXiv:2003.01818, whose OAT framework covers clique attachment and provides connectivity and polynomial diameter bounds. Belavadi–Cameron–Merkel, arXiv:2206.09268, supplies an existing general linear upper bound for \(P_4\)-free recolouring graphs. Belavadi–Cameron–Sintiari, arXiv:2405.06446, principally proves connectivity via modular decomposition. No checked result implies the exact bound \(3t+1\) or the claimed layer-and-gateway metric witness. Searches under the graph's alternate names and publicly indexed mathematical claims did not locate equivalent statements. Search failure is not proof of priority, and an unindexed earlier exact calculation is a genuine remaining risk.
+## originality
 
-## Value — PASS
+PASS
 
-The difference between a frozen optimal-palette reconfiguration and a connected one-extra-colour reconfiguration is a natural question in graph-colouring algorithms. The theorem gives an exact linear worst-case bound for an unbounded 3-chromatic chordal family, strengthens broad existing bounds, describes the bottleneck imposed by the shared hub, and derives the complete vertex and edge counts. The counting and worst-case witness are connected parts of a coherent reconfiguration classification rather than arbitrary small-instance statistics.
+The verified general OAT result covers connectivity, not this sharp distance. No inspected available claim matches or implies the all-t exact diameter on the friendship graph under the same palette and move rule. The size and hub counts are supporting facts, not the basis of the originality decision.
 
-## Limitations
+## value
 
-The claim does not classify all pair distances or prove self-centeredness for arbitrary size. The finite verifier is a check, not an infinite certificate. Source comparison is bounded and an independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family has an unbounded number of interacting petals at the minimum palette permitting moves. The invariant distinguishes frozen three-colour states from a connected four-colour space and quantifies its worst-case distance exactly. Counting hub-change gateways and proving that one hub move suffices for the sharp bound explain why a general connectivity result does not give the answer. This is a useful benchmark for sharp recolouring bounds on clique attachments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

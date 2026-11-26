@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:45:24.295553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the unit S³ the degree-ℓ harmonic sign is that of the integral against sinθ sin((ℓ+1)θ). The base cosine integral is I_k=a(1−(−1)^k exp(−πa))/(a²+k²); its difference gives the positive base coefficient J_ℓ=(I_ℓ−I_(ℓ+2))/2. Multiplying by cos2θ shifts the sine modes by ±2. The negative sine index at ℓ=0 gives slope (t−8)/(t+16), and the zero sine index at ℓ=1 gives slope (t+1)/(t+25); thus only degree zero can bound b from above, only for t<8. For ℓ≥2 the two shifted coefficients are positive and the common parity factor cancels, giving R_m with m=ℓ+1. The denominator increases in m²≥9 and is positive at 9; R_m>0, is less than 1 for m²>t+5, and tends to 1, so its minimum is positive, below 1, and attained. The derivative in y=m² changes sign just once for y≥9, at μ(t)², giving the floor/ceiling test. The exact adjacent difference has positive factor times C_m−(2m²+2m+11)t−3t²; C_(3+u)=u⁴+14u³+63u²+98u+28>0. Its unique switch occurs between μ=m and μ=m+1 (with t=0 interpreted by continuity for m=3), proving strict ordering, no skips, and no triple minimum. For candidates m=√(3t)+O(1), the numerator of 1−R_m is 48t+O(√t), denominator 16t²+O(t^(3/2)), giving the claimed asymptotic. All sufficiently high degrees have positive coefficients, so both parities occur and even boundary kernels are strictly positive definite on distinct points. For uniform density, the integral of a kernel section against a harmonic of present degree recovers a nonzero scalar times that harmonic; finite sums approximate this integral uniformly. Harmonic polynomials are dense, whereas a missing degree is detected by a nonzero continuous linear functional. This proves the universality and exact absent-degree assertions. A separate symbolic replay (`python3 /workspace/independent_checks.py 5`) confirmed the ratio, adjacent difference and degree-zero slope; the supplied checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting PDF p. 7 gives the strict even/odd criterion; Corollary 4(a), PDF p. 11, requires b₂,₁≤2b₀,₁ and b_(n+2),₁≤b_(n,1) for the circle-to-S³ dimension walk. The pure-wave integer threshold a²+4≥3ω² gives a²≥8 for ω=2."
+        ],
+        "reasoning": "The general results cover the harmonic tests and the boundary strictness mechanism. The pure-wave threshold identifies when the entire nonnegative b ray is permitted by addition to the base exponential, but does not evaluate its finite upper endpoint for t<8 or the magnitude competition in the negative b region.",
+        "searches": [
+          "Gneiting arXiv:1111.7077 Theorem 1 and Corollary 4(a)",
+          "Schoenberg spherical coefficient sign conditions",
+          "2026/10/26/SCOPE-sharp-damping-thresholds-and-a-finite-schoenberg-test-for-geodes--543d6b941b9f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and accompanying metadata and self-audit",
+        "Gneiting arXiv:1111.7077 PDF",
+        "Resultary circle 027cc81ac50f and pure-wave 543d6b941b9f mirror passages",
+        "S² records 509c2a9eeeb8, 48ddeabbb4c7 and 6cdf07e0f672 (catalogue)",
+        "Said et al. arXiv:2608.00010 (attribution and attempted access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circle classification controls nonnegative Fourier coefficients, while Corollary 4(a) requires their ordered differences. This distinction changes the first obstruction to degree zero and changes every rational ratio for the negative frontier. A pure-wave sign classification does not specify the ratios to the positive base across all degrees or minimize them."
+        ],
+        "reasoning": "Linearity and the existing dimension walk supply the coefficients or a route to them. They do not obviate the global ratio minimization, adjacent-crossing proof, or evaluated boundary gaps. The universality criterion is general; the missing harmonic degrees are consequences of the new evaluated boundary, not a new general RKHS theorem.",
+        "searches": [
+          "Gneiting arXiv:1111.7077, Corollary 4(a)",
+          "Circle RESULT.md 027cc81ac50f, Finding",
+          "S³ pure-wave RESULT.md 543d6b941b9f, Finding",
+          "Said et al. arXiv:2608.00010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror circle Finding gives b≥−r(t), no finite upper constraint, a different rational ratio, and an active frequency asymptotic √(5/3) a, not √3 a. The mirror pure-wave S³ Finding uses exp(−aθ)cos(ωθ), not the signed sum."
+        ],
+        "reasoning": "A great circle embeds into S³ and supplies a necessary restriction test, but it is not sufficient. In particular, for t<8, even positive b above U(t) passes the circle test and fails on S³. The same publication date gives no order; the observed distinction is mathematical.",
+        "searches": [
+          "Resultary: intrinsic S³ signed cos(2θ) geodesic exponential, two-sided positivity and active harmonics",
+          "2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "2026/10/26/SCOPE-sharp-damping-thresholds-and-a-finite-schoenberg-test-for-geodes--543d6b941b9f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is the exact S³ catalogue hit; the inspected circle Finding's transition begins with coefficient 5 on t_n², not 3. The retrieved S² second-harmonic catalogue entries are dated later and use Legendre coefficients. The targeted primary search did not yield a matching evaluated S³ table."
+        ],
+        "reasoning": "Related exact tables or transitions in other dimensions do not tabulate the S³ coefficient differences. This check reports observed material, not a proof that no table exists.",
+        "searches": [
+          "Resultary: exact two-sided S³ cutoff, R_m and every-mode transition; compare 027cc81ac50f, 48ddeabbb4c7 and 6cdf07e0f672",
+          "Primary-literature query: positive definite spherical geodesic exponential cos(2θ) Schoenberg three-sphere signed modulation Gegenbauer"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the sharp signed S³ region and its consecutive active-degree law. The two strongest mirror matches were checked: the S³ pure-wave theorem determines signs for the unmodulated and pure-wave components, and the same-day circle theorem proves a comparably structured staircase, but neither gives the evaluated signed S³ lower envelope. The general harmonic tests and the strictness criterion are prior inputs, not new results here.",
+      "residual_risks": [
+        "An earlier exact signed S³ computation under different terminology could be missing from the search. Not all related mirror proofs and cited universality texts were independently retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General sign/difference and parity conditions, not an evaluation of this envelope",
+          "evidence": [
+            "b₂,₁≤2b₀,₁ and b_(n+2),₁≤b_(n,1) for n≥1; strictness in infinitely many even and odd indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "PDF p. 7 and p. 11, Corollary 4(a)",
+          "method": "Primary PDF location and bounded passage inspection",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Prior three-sphere dimension walk and strictness"
+        },
+        {
+          "assessment": "Same function, distinct domain and exact region",
+          "evidence": [
+            "On the unit circle PSD iff b≥−r(a²), with candidate near √(5/3)a at large damping; no finite upper endpoint."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "material_read": "Mirrored Finding and start of assumptions, offsets 0–2450",
+          "method": "Resultary followed by local mirror passage inspection",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential circle covariances",
+          "trigger": "Same kernel function and same-day every-mode result"
+        },
+        {
+          "assessment": "Exact pure-wave classification, not signed mixture",
+          "evidence": [
+            "Integer-frequency pure wave PSD iff a²+4≥3m²."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-damping-thresholds-and-a-finite-schoenberg-test-for-geodes--543d6b941b9f",
+          "material_read": "Mirrored Finding, offsets 0–1997",
+          "method": "Resultary followed by local mirror passage inspection",
+          "title": "Sharp damping thresholds and a finite Schoenberg test for geodesic waves on the three-sphere",
+          "trigger": "Same sphere and pure doubled-frequency input"
+        },
+        {
+          "assessment": "No whole-paper novelty exclusion inferred",
+          "evidence": [
+            "Frozen RESULT.md lines 85–95 credits the general compact-sphere spectral condition; the review verifies the specialization directly."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.00010",
+          "material_read": "Frozen attribution; primary text not obtained in bounded retrieval",
+          "method": "Attempted OA reading; independently checked harmonic-density argument",
+          "title": "Universality of kernels on Riemannian symmetric spaces",
+          "trigger": "Possible general universality coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full two-parameter region is a useful design criterion for geodesic covariances. Its finite upper cutoff and unbounded sequence of active lower modes explain distinct mechanisms for losing positivity, while the two-candidate test is exact regardless of damping. The spectral zeros separate finite interpolation from uniform approximation even on the admissible boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

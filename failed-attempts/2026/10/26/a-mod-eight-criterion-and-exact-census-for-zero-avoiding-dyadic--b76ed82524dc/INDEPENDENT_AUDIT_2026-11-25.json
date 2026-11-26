@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:00:27.840740Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent check: /workspace/branches/cc35a083-894d-4402-81d1-d7de76323e18/independent_check.py and independent_check.log"
+      ],
+      "rationale": "Reduction by the common power of two is injective on its depth stratum and preserves periods and zero events. The primitive mod-two three-cycle forces any return index to be a multiple of three. Writing that index as 3·2^r times an odd integer, the displacement matrix divided by 2^{r+1} is invertible mod two: the base cases are M³−I=2M and M⁶−I=4M³, and further squaring preserves invertibility. Thus the primitive period is 3·2^{h−1}. The coefficient of M in M⁶ is 8; in each subsequent square its valuation rises by one since the scalar coefficient remains odd. Odd powers preserve that coefficient valuation, and mod eight the Fibonacci zeros occur precisely at multiples of six. Therefore the projective zero-bearing orbit has length 3·2^{h−2} for h≥3, and for h=1,2 its length is the full projective cardinality. At h=3 the norm is odd, changes sign under T and is unchanged by odd scaling; the six projective directions with norm ±1 are exactly the six on the zero-bearing orbit. At larger h, every zero-bearing direction reduces to this orbit, and equality of orbit size with the number of its lifts gives the exact iff. Each safe direction has 2^{h−1} representatives, giving 3·2^{2h−3} safe states and 2^{h−2} cycles at that depth, and summing gives the stated k≥3 counts. The zero pair and k=1,2 are excluded appropriately. Independent cycle enumeration at k=3 and k=8 corroborated 24 and 32760 safe states and 2 and 126 cycles, with the criterion and every safe period tested.",
+      "residual_risks": [
+        "The bounded replay does not establish the infinite-modulus result; that follows from the matrix and lifting proof. The total formula is not asserted for k<3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary proof covers all positive moduli and every gcd stratum. Its exact theorem gives φ(d) points at each finite first-hit time 0≤j<z(d), and its construction identifies which points those are. This is stronger than an aggregate count.",
+          "Sedaghat and Aoki–Sakai treat prime moduli; their distinctions between zero and nonunits do not supply the dyadic statement. Renault's full text and Riddlesden's attachment were not recovered despite targeted lawful attempts."
+        ],
+        "reasoning": "The all-moduli theorem applies directly at d=2^h and strictly dominates the dyadic census and orbit description prior to taking unit classes. No correspondence between avoiding literal zero and avoiding even residues is required.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-exact-first-zero-waiting-time-law-for-modular-fibonacci-like-rec--33aa1b098cfc, exact theorem and Proof §§1–3",
+          "Sedaghat Fibonacci Quarterly 52 (2014) pp. 39–45",
+          "Aoki–Sakai Journal of Integer Sequences 19 (2016), Theorem 5",
+          "Renault DOI:10.4169/math.mag.86.5.372; Riddlesden Rose-Hulman 21(2)"
+        ]
+      },
+      "checked_sources": [
+        "2026-10-25 Resultary exact first-zero waiting-time law",
+        "OEIS A232357 and A232656",
+        "Sedaghat 2014, Aoki–Sakai 2016",
+        "Renault and Riddlesden lawful retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At h≥3 the prior primitive hit list has size φ(2^h)z(2^h)=24·4^{h−3}, using the dyadic Fibonacci rank z(2^h)=3·2^{h−2}. Reduction into primitive mod-eight hits is necessary, and the full preimage of the 24 primitive mod-eight hits has the same size. Thus equality of sets gives the fixed modulus-eight reduction directly from the prior theorem.",
+          "For primitive v mod eight, q(v) is odd; invariance up to sign forces all hitters into q=±1, and checking the twelve projective representatives shows exactly six such directions, hence exactly 24 states. This gives the asserted norm labelling of the pullback.",
+          "For any primitive v at 2^h, det(v,Mv) is odd. If M^n fixes v, it also fixes Mv, so n is a period of the entire matrix; there is no separate least-period exception to classify. Dividing the complementary state count by the Fibonacci matrix period gives the stated cycle census."
+        ],
+        "reasoning": "The norm rule and cycle formulas are useful presentations but do not survive as independently established novel claims: the former consists of the full-preimage consequence of the earlier exact theorem followed by a determinant check at mod eight, the latter of standard period normalization. No substantive repair is made.",
+        "searches": [
+          "Local Resultary exact first-zero record offset 370–4167, theorem and Proof §§1–3",
+          "OEIS A232357/A232656 Formula and complement",
+          "Frozen proof of dyadic rank and primitive period"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact prior primitive first-hit set is the union of U^{−j}(0,c) for units c and 0≤j<z(d), in Proof §§2–3 of the 2026-10-25 first-zero record. On quotienting by odd units at d=2^h this is the same zero-coordinate projective orbit.",
+          "The tested polynomial q(v) is both N(A+Bφ) and det(v,Mv). The determinant identity gives q(Mv)=−q(v) and q(cv)=q(v) mod eight for odd c."
+        ],
+        "reasoning": "The prior record describes the same set of initial ordered pairs (not a unit-only sequence problem); the norm is a convenient coordinate on membership in that set after reduction.",
+        "searches": [
+          "Local Resultary: modular Fibonacci first zero, primitive gcd strata, literal zero avoidance",
+          "Websearch: generalized Fibonacci mod 2^k zero avoiding Fibonacci modulo powers of 2 norm a^2+ab-b^2 mod 8 projective PGL Cassini zero-free sequences classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A232357 defines the same aggregate for all moduli n; its entries for n=8,16,32 are 24,120,504 and its complement is A232656. The A232656 formula section records the divisor sum Σ_{d|n} φ(d)A001177(d), as an equality in its 2021 contribution.",
+          "The earlier Resultary theorem proves the divisor sum and refines it by first-hit times and gcd strata; its worked modulus-eight count is 24 safe pairs."
+        ],
+        "reasoning": "The aggregate is exactly the power-of-two subsequence of an existing database invariant, and the stronger record proves the formula. Substituting the dyadic ranks of apparition yields the closed form, not merely agreement at a few indices.",
+        "searches": [
+          "OEIS A232357 (zero-avoiding pairs)",
+          "OEIS A232656 (zero-hitting pairs), formula with A001177",
+          "Local Resultary exact first-zero waiting-time law"
+        ]
+      },
+      "rationale": "The dyadic census is already implied by a preceding stronger Resultary first-hit theorem, and the exact aggregate object is recorded in OEIS. The prior theorem not only counts hits but lists the actual primitive hit set at every modulus. The remaining mod-eight recognition rule is a concise reformulation of that set: reduction and equality of cardinalities identify the hit set with a full pullback, and the sign-changing determinant evaluates the fixed twelve projective directions. The cycle counts add the usual primitive period to the already implied state counts. This is a direct deduction, not a rejection based on inaccessible papers or a claim that the norm-test wording previously appeared verbatim.",
+      "residual_risks": [
+        "The earlier papers might supply further independent overlap. O fails from demonstrated stronger coverage, not from not being able to check them. The exact three-bit norm wording was not located in the inspected earlier sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage for the census and the primitive hit set",
+          "evidence": "The primitive hit states are exactly P_{j,c}=U^{−j}(0,c), each unit c and first-hit j between 0 and z(d)−1; the theorem counts by gcd stratum and gives the divisor sum.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-first-zero-waiting-time-law-for-modular-fibonacci-like-rec--33aa1b098cfc",
+          "material_read": "Theorem and Proof §§1–3, local RESULT.md offsets 370–4167; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror, read the exact first-hit construction",
+          "title": "Exact first-zero waiting-time law for modular Fibonacci-like recurrences",
+          "trigger": "Same recurrence, same ordered initial states, general modulus and exact first-hit law"
+        },
+        {
+          "assessment": "Exact prior aggregate table and divisor-sum formula, not by itself a checked proof",
+          "evidence": "Earlier entries define the exact count, complementary identity, and φ(d)A001177(d) divisor sum. Using d=2^h and the Fibonacci rank gives Z(k).",
+          "identifier_or_url": "https://oeis.org/A232357 ; https://oeis.org/A232656",
+          "material_read": "Sequence definitions, initial values, complements and A232656 formula/comments, offsets 0–1800 across the two entries",
+          "method": "Lawful public page passage inspection",
+          "title": "OEIS A232357 and A232656",
+          "trigger": "Exact database counts of avoiding or reaching zero"
+        },
+        {
+          "assessment": "Related literal zero avoidance, more restrictive moduli",
+          "evidence": "Defines recurrence over Z_p and studies primes supporting nonzero sequences, not all powers of two with nonunit nonzeros.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/52-1/Sedaghat.pdf",
+          "material_read": "p. 1, definition and theorem setup, offset about 1386",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime",
+          "trigger": "Same avoidance question, but prime moduli"
+        },
+        {
+          "assessment": "Prime-modulus classification, not the needed composite case",
+          "evidence": "The theorem counts equivalence classes under p∤G_n for all n with p prime.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL19/Aoki/aoki4.pdf",
+          "material_read": "pp. 1–2, setting and Theorem 5",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "On Equivalence Classes of Generalized Fibonacci Sequences",
+          "trigger": "Equivalent sequence/orbit classification"
+        },
+        {
+          "assessment": "Full text unresolved; not relied on for the verdict",
+          "evidence": "The abstract uses a,b as recurrence coefficients and defines rank of the (0,1) start; exact passages not verified.",
+          "identifier_or_url": "https://doi.org/10.4169/math.mag.86.5.372",
+          "material_read": "Bibliographic entry and abstract description only; author PDF timed out and DOI and identified ResearchGate copy returned 403",
+          "method": "Targeted lawful OA attempts including identified alternate same paper",
+          "title": "The Period, Rank, and Order of the (a,b)-Fibonacci Sequence Mod m",
+          "trigger": "Potential stronger general rank and period formulas"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not used as a negative comparison",
+          "evidence": "The abstract studies distinct generalized sequences for a given modulus but does not itself state a norm test or zero-free census.",
+          "identifier_or_url": "https://scholar.rose-hulman.edu/rhumj/vol21/iss1/10/",
+          "material_read": "Landing-page abstract; PDF and source attachment access failed",
+          "method": "Lawful article-page inspection and attachment retrieval attempts",
+          "title": "Generalised Fibonacci Sequences under Modular Arithmetic",
+          "trigger": "Potential general orbit classification across arbitrary starts and moduli"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen mod-eight test, ranks and count proof",
+        "Earlier exact first-zero set construction and OEIS complementary counts"
+      ],
+      "rationale": "Fast membership recognition for arbitrary dyadic seeds is a naturally motivated exact question, and the local norm rule is convenient. However, the prior theorem already enumerates the same set comprehensively; the uniform localization is a direct pullback/cardinality deduction and its norm label is a twelve-direction calculation. The aggregate is already recorded and the cycle count is obtained by dividing by the standard primitive period. The frozen record therefore does not supply an independently needed new exact invariant beyond a compact implementation of already implied information.",
+      "residual_risks": [
+        "This judgment does not question the mathematical correctness or pedagogical usefulness of the criterion, nor address new local invariants for other recurrences."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

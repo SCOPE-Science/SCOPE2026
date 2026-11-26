@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:16.970634Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–111, VERIFICATION.md lines 19–28",
+        "Independent replay: python3 /workspace/audit-evidence/reproduce.py 4 (scalar extremum checks and high-precision exact-form Hilbert witness evaluations)"
+      ],
+      "rationale": "For fixed complex ℓ_p^d, normalize the first coordinate s≥0 and put t=||y||_p for the tail. The circled states e^{iθ}j_p(x)⊗x norm the operator space; by finite-dimensional polarity their convex hull is the full dual ball. For a pure state its deficit is δ=t^p+s^p(1−cosθ), so zero deficit forces the unique state F₀. Fourier averaging of conjugation by diag(e^{iϕ},1,…,1) extracts the off-diagonal first row or column with norm at most one. On each extracted rank-one subspace Hölder's equality and the scalar maximization of s^{p−1}(1−s^p)^{1/p} (or its transposed expression) give the exact dual norms ||y||_p/c_p and ||h||_q/c_p, with c_p=(p−1)^{(p−1)/p}/p. Expand the state about F₀: the phase/diagonal term is O(√δ), the tail block O(δ), and the row/column terms have sizes s^{p−1}t/c_p and st^{p−1}/c_p. Away from p=2 exactly the larger term survives at power 1/max(p,q); setting θ=0, t=ε^{1/p} and testing the corresponding single matrix unit realizes its coefficient. At p=2 the combined off-diagonal term has norm 2t by subtracting the two states at (e₁±y/t)/√2 and testing the swap. The leading bound |θ|+2t divided by √(t²+θ²/2) is ≤√6; with θ=t the block [[−i,1],[1,i]] has numerical radius 1 since (|z₂|²−|z₁|²)²+4Re(conj(z₁)z₂)²≤1 on its unit Hilbert sphere. It adds the phase and off-diagonal terms in phase to yield 3t+O(t²). Its deficit is 3t²/2+O(t⁴), and it can be chosen at any sufficiently small prescribed deficit by local monotonicity. Finally average the small-state estimates by concavity; the weight of states with deficit above fixed r>0 is at most ε/r, and their total norm error at most 2ε/r=o(ε^α). This establishes the sharp bound on the entire slice rather than merely on pure states. Fixed d and p are essential for the stated limiting argument; the leading coefficient has the asserted jump.",
+      "residual_risks": [
+        "Replay is illustrative; analytic upper and lower bounds establish sharpness. No uniform remainder as p→2 or d→∞ is proved. The whole-ball claim concerns the sharp slice supremum, not a matching lower bound for every particular state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal et al. characterize extreme and exposed rank-one states under broader smoothness/strict-convexity hypotheses. Martín et al. use numerical-radius norming states for orthogonality and smoothness. The indexed shift and triangular-operator results address specific radii or numerical-range symmetry defects."
+        ],
+        "reasoning": "These broader structural statements furnish the correct dual geometry to start from, not constants of quantitative exposure. The specific ℓ_p tail/phase competition and the Hilbert witness are additional calculations.",
+        "searches": [
+          "Pal–Roy–Sain arXiv:2604.03690v1, §2 Theorems 2.16 and 2.20",
+          "Martín–Merí–Quero–Roy–Sain arXiv:2306.02638v3, §3.6",
+          "Resultary c0a614ea9a58 and 5f2bca0c2bfc"
+        ]
+      },
+      "checked_sources": [
+        "Pal–Roy–Sain 2604.03690v1; Martín et al. 2306.02638v3; Resultary c0a614ea9a58, 5f2bca0c2bfc and related 49f67572a816"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.20 specializes qualitatively to projection exposure. The norming-state structure supplies convex hull evidence, not a sharp rate. The row/column scalar maximum accounts for the off-Hilbert coefficient as a candidate, but at p=2 those terms have the same order as phase and cannot be maximized separately."
+        ],
+        "reasoning": "Getting the exact whole-ball coefficient requires bounding and realizing the Hilbert joint perturbation, then propagating the local extremal scale through convex mixtures; the compared statements do not mechanically provide that result.",
+        "searches": [
+          "2604.03690v1, the construction in Theorem 2.20",
+          "2306.02638v3, §3.6 and Proposition 3.20",
+          "Rank-one weighted-shift analogue compared with Frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal–Roy–Sain Theorems 2.16 and 2.20 address the same numerical-radius dual and identify/expose the extreme states. The indexed 49f67572a816 item concerns the real ℓ_p² numerical index; 5f2bca0c2bfc treats the geometry of numerical ranges of triangular operators."
+        ],
+        "reasoning": "A qualitative exposure statement yields convergence of the slice radius to zero in finite dimensions but supplies neither the rate nor coefficient. A scalar operator numerical range or numerical index is not the dual-ball distance at fixed deficit.",
+        "searches": [
+          "Resultary: sharp asymptotic exposed dual slice numerical radius operator ell_p complex coordinate state",
+          "Resultary: exact dual slice diameter modulus of exposure for numerical radius",
+          "Resultary: numerical radius exposed coordinate functional complex dual slice sharp modulus of exposure square root six sqrt(6) phase and amplitude distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected shift and triangular-range entries have different invariants; no exact slice formula was obtained in those checks. The literature lookup led to general numerical-radius inequalities and a Kronecker-product radius/norm article, without a matching statement inspected there."
+        ],
+        "reasoning": "Even an exact table for numerical radii of two-coordinate shifts would address one scalar input, not the joint phase/amplitude optimizer and convexified slice. Negative searches and inaccessible text are not evidence that no modulus theorem exists.",
+        "searches": [
+          "Resultary: two-link weighted shift numerical radius ell_p formula two coordinates",
+          "Resultary: rank-one off-diagonal numerical radius on complex ell_p c_p",
+          "Literature lookup: numerical radius norm dual ball sharp exposed slice modulus coordinate projection ℓp complex numerical radius dual coordinate vector state square root sharp constant"
+        ]
+      },
+      "rationale": "Credit the quantitative full-ball local asymptotic at the coordinate-exposed state, including the competing phase/spatial effects and the exceptional √6 coefficient at p=2. The accessible closest original statements identify extreme states, one-norming families and qualitative exposure, but do not evaluate the sharp slice distance as a function of deficit. The two-link scalar norm computation and the convex-hull representation are ingredients, not independently credited here. The strongest inspected indexed matches address radii/ranges of specific operators, not quantitative operator-dual exposure. This is a scoped best-of-knowledge decision.",
+      "residual_risks": [
+        "Exact literature provenance of the frozen unspecific two-link weighted-shift attribution was not resolved. A Kronecker-product article relevant to that input was inaccessible in full text. Those facts are limitations on the search, not reasons for or against manuscript priority.",
+        "An earlier equivalent local numerical-radius dual-modulus formulation outside the inspected passages is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative and structural overlap, not the sharp asymptotic",
+          "evidence": "Extreme points are norming rank-one states; smooth strictly convex finite-dimensional spaces expose these points. No sharp quantitative slice law in these propositions.",
+          "identifier_or_url": "https://arxiv.org/html/2604.03690v1",
+          "material_read": "§2 Theorem 2.16 from offset 37150 and Theorem 2.20 from offset 47750",
+          "method": "OA HTML passage reading",
+          "title": "A characterization of Banach spaces with numerical index one",
+          "trigger": "Same numerical-radius dual extreme and exposed states"
+        },
+        {
+          "assessment": "Related norming-set and orthogonality framework",
+          "evidence": "One-norming sets and numerical-radius smoothness criteria are distinct from a distance-vs-deficit estimate in the dual slice.",
+          "identifier_or_url": "https://arxiv.org/html/2306.02638v3",
+          "material_read": "§3.6, including Proposition 3.20, around HTML offset 73723",
+          "method": "OA HTML passage reading",
+          "title": "A numerical range approach to Birkhoff–James orthogonality with applications",
+          "trigger": "Numerical-radius norming states and smoothness"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Forward/backward unilateral shifts with rank-one boundary potential give quadratic onset for operator radii, not distances in the dual unit ball.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-orientation-dependent-boundary-thresholds-for-the-spatial-numeri--c0a614ea9a58/RESULT.md",
+          "material_read": "RESULT.md, exact numerical-radius and onset statements",
+          "method": "Local mirror reading",
+          "title": "Orientation-dependent boundary thresholds for the spatial numerical radius",
+          "trigger": "Strong nearby rank-one perturbation and sharp numerical-radius indexed result"
+        },
+        {
+          "assessment": "Same underlying complex space in dimension two, different geometry",
+          "evidence": "The quantitative invariant measures central symmetry defect of numerical ranges of triangular matrices, not the exposed slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-cubic-asymmetry-and-ellipticity-rigidity-of-triangular-num--5f2bca0c2bfc/RESULT.md",
+          "material_read": "RESULT.md, triangular numerical-range asymmetry statement",
+          "method": "Local mirror reading",
+          "title": "Sharp cubic asymmetry and ellipticity rigidity of triangular numerical ranges",
+          "trigger": "Close two-coordinate complex ℓ_p range geometry"
+        },
+        {
+          "assessment": "Unresolved at statement level; not used as evidence of absence",
+          "evidence": "The advertised topic is radius and operator norm bounds; no source passage was available for comparison.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379526000054",
+          "material_read": "No full text; only bibliographic/search description",
+          "method": "Configured lawful OA routes returned HTTP 403; no identified alternate open copy",
+          "title": "Numerical radius and ℓp operator norm of Kronecker products",
+          "trigger": "Literature hit possibly relevant to exact rank-one input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof Steps 2–4; Pal–Roy–Sain Theorems 2.16, 2.20"
+      ],
+      "rationale": "A coordinate projection is a natural exposure probe. The result gives a sharp quantitative guarantee on how far an approximately norming functional can be from the unique coordinate normer, including for mixtures. Dimension-independent leading constants and the noncontinuous sharp Hilbert coefficient show why qualitative exposure or off-Hilbert estimates do not capture this geometry. The result needs no claim about all exposed points or a dimension-uniform finite-depth error.",
+      "residual_risks": [
+        "No extension to real scalars, p=1 or ∞, arbitrary norming operators, or uniformity in simultaneous limits is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

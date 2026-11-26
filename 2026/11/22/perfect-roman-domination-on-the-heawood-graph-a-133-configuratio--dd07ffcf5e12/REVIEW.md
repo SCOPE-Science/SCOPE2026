@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defender-set identity is a bijective enumeration of all perfect Roman functions. The Fano incidence table and equality cases establish the complete optimum classification and exclude all smaller weights. The complete polynomial follows from a finite exact 16,384-support sum. An algorithm built around the original definition independently exhausts 4,782,969 ternary assignments and matches every coefficient. The graph construction verifies each pair of Fano points occurs in precisely one line. The claims concern this graph only.
+## correctness
 
-## Originality — PASS (subject to historical-priority limitations)
-The 2018 regular-graph theorem yields only the upper bound ten after integer rounding, not the matching lower bound or the exact configuration counts. The 2023 enumeration paper studies algorithmic enumeration and the precise definition, but its inspected results do not provide a Heawood census. Searches for Heawood/Fano perfect Roman weight polynomials, aliases, 133 optimum functions and the coefficient sequence did not identify a covering result in the accessible mathematical research index or public literature. Other Heawood enumerations concern different invariants. Residual risk: an unindexed article, table or thesis could contain overlapping finite calculations.
+PASS
 
-## Mathematical value — PASS
-The fourteen-vertex Heawood graph is a distinguished cubic incidence graph, and its attainment of the integer-rounded universal cubic perfect Roman bound is not automatic from that bound. Classifying all 133 optimum configurations by Fano nonincidences explains why the lower bound is sharp. The complete weight census meaningfully refines the scalar optimum and offers a reproducible benchmark for perfect Roman enumeration algorithms, rather than an arbitrary graph slice.
+For a fixed support T of twos, precisely the vertices outside T with one neighbor in T are eligible zeros; choosing their labels independently gives z^(14+|T|-|U|)(1+z)^|U|, with a unique lightest labeling. On the Fano bipartition the counts of uniquely incident vertices on the two sides add, followed by subtraction of selected vertices that already have one selected neighbor. All 12 small-support maxima and attaining counts in the frozen table were independently reproduced. Supports of size >=6 weigh at least 12; the table for smaller supports gives minimum 10 only at (1,1),(1,2),(2,1),(2,2). At those sizes equality requires no selected vertex of induced degree one. A nonempty incidence graph on at most two selected points and two selected lines has a degree-one vertex because a four-cycle would give two lines through the same pair of points. Thus equality requires no incidences. There are four lines not incident with a fixed point (and dually), and two distinct lines omit exactly two points, giving 28,42,42,21 labeled supports. Independent exact enumeration by both the 16384 defender subsets and the original adjacency rule on all 4782969 ternary labelings gives all 19 stated nonzero coefficients, total 249827, and checks the full minimum classification and 133 optima, including absence of selected incidences.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The general perfect Roman definition, defender-set method, and available generic enumeration framework do not give the Heawood-specific lower bound, complete nonincidence classification, or weight census. The closest cubic result is reported to give the upper bound only for this comparison; the exact paper was not independently accessible. Indexed parallels under the same rule concern different graphs. The supported distinct claim is the Fano-geometric classification and exact polynomial, rather than generic enumeration or an unconditional claim of priority for the scalar value.
+
+## value
+
+PASS
+
+The Heawood graph is a canonical cubic incidence graph and the exact weight polynomial is a natural, reproducible benchmark for algorithms counting perfect Roman functions. Its geometric classification gives a reason for equality in the integer cubic upper bound, and identifies all optimal supports with explicit Fano nonincidence types, beyond a single computed number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

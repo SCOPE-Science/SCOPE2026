@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:16:13.042687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, backward hierarchy, harmonic projection and Bessel classification",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent independent_quadrupole_check.py: positive power series for I_2 and its derivative, bisection of the derivative-ratio equation, evaluate scaled height"
+      ],
+      "rationale": "For D,R,q>0 and a fully absorbing disk, the backward Dirichlet inverse at v=0 maps first-derivative forcing to a higher Sobolev regularity class, so the drift is a bounded perturbation after inversion and the small-v expansion is justified. The passive time gives first-order forcing rho/(2D). Substituting F=(R I_1(k rho)/I_1(kR)-rho)/(2Dq) into the second harmonic gives forcing -(F'-F/rho)/2=-Rk I_2(k rho)/(4Dq I_1(kR)); the angular Laplacian contributes -4q. Applying the radial operator to I_2(k rho) and I_2(2k rho) yields the particular solution and the regular homogeneous correction, respectively. With L=kR, z=k rho, c=I_2(L)/I_2(2L), positivity follows from strict increase of I_2(2z)/I_2(z); strictness of the derivative follows from the positive-coefficient ratio covariance with j and 4^j. The same argument on I_2'(z)/z gives strict decrease of I_2'(z)/(2I_2'(2z)) from 1/4 to below c at z=L; thus exactly one strict interior maximum. Taylor expansion gives k^4 rho²(R²-rho²)/32 for the leading Bessel bracket, with uniform remainder over the closed disk, and hence the stated H-limit and peak at R/sqrt(2). For large L, at z=L-s the derivative ratio divided by c tends to e^s/2 uniformly on bounded s; testing fixed s below and above log 2 brackets the unique root. The normalized profile e^(-s)-e^(-2s) then gives peak height R/(48D^(3/2)q^(3/2)). Independent Bessel series and bisection at R=D=1 support both regimes, including wall distances 0.7101802, 0.7040833 and 0.6990514 at L=10,20,40.",
+      "residual_risks": [
+        "Finite tests are diagnostic, not the source of the all-q result.",
+        "The Taylor expansion is at fixed positive D,R,q; the q-endpoint results apply to the coefficient, not to finite swimming speed or angle-averaged mean time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The disk propagator uses an activity-order recursion and its survival/FPT results can be integrated to access MFPT.",
+          "All-speed Laplace ordering averages both release position and heading. The distinct annulus boundary-layer result averages heading and uses a different layer scaling.",
+          "The 2025 PRE source describes small-Péclet first-passage statistics in its indexed preview; full text was not obtained from the identified APS and ResearchGate copies."
+        ],
+        "reasoning": "A broader method for computing the MFPT is not itself a radial classification of a particular Fourier projection. Averaging in the comparison results removes the information needed; the inaccessible source remains an unresolved overlap risk.",
+        "searches": [
+          "arXiv:2306.12702, pp. 6–7",
+          "Resultary 082b68e82590 and 02233086b6e8",
+          "Phys. Rev. E 111, 054113 (2025)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f5fac49b48a8 (self), b7fecaf47750, 082b68e82590, 02233086b6e8",
+        "arXiv:2506.15813v2",
+        "arXiv:2306.12702",
+        "10.1103/PhysRevE.111.054113 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deriving H from a propagator requires integration and second Fourier projection or the equivalent forced ODE.",
+          "Even given that coefficient, strict ratio monotonicity and derivative-root bracketing are needed to control the global peak and the asymptotic constants."
+        ],
+        "reasoning": "The checked prior results do not imply the classified peak by a specialization or normalization change; the closest implicit coverage is the propagator for the unclassified coefficient.",
+        "searches": [
+          "arXiv:2306.12702, activity recursion, survival and conclusion",
+          "arXiv:2506.15813v2, Eqs. 13–17",
+          "Resultary b7fecaf47750, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under s=rho/R, p=vR/D, g=qR²/D, the earlier orientation average is −p² C_g(s) in dimensionless time. This is G_q=−R⁴C_g/D³, not H_q, since projection onto the constant angular mode annihilates cos(2psi).",
+          "The earlier disk Bessel amplitude A_1 is the first angular harmonic at order Pe_s, not the present order and mode."
+        ],
+        "reasoning": "Nondimensionalization or reversing the relative-angle sign preserves the quadrupole; neither converts a constant or first angular mode to the quadrupole. The exact mirror match is the frozen result itself.",
+        "searches": [
+          "Resultary: absorbing active-Brownian disk, weak activity and second angular harmonic; f5fac49b48a8 and b7fecaf47750",
+          "arXiv:2506.15813v2, Eqs. 13–17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the same title, finding and formula under the frozen suffix. The closest distinct mathematical hit is the earlier zero-harmonic result b7fecaf47750."
+        ],
+        "reasoning": "Classical Bessel tables supply individual special functions and identities, not an exact table of the forced exit-time harmonic or of its parameter-dependent maximizer. The catalogue results were compared by harmonic, domain and averaging rather than by title or date.",
+        "searches": [
+          "Resultary mirror f5fac49b48a8, b7fecaf47750, 082b68e82590 and 02233086b6e8"
+        ]
+      },
+      "rationale": "The disk model, weak-swimming backward equation and first harmonic are established, and a distinct indexed finding gives the second-order orientation average. The supported contribution is the explicit nonzero second-harmonic coefficient together with its positive single-peak classification at every q>0 and the sharp peak asymptotics. Earlier perturbative propagator methods are substantially overlapping machinery, but the inspected recursion does not give the sign, uniqueness or peak limits without additional analysis. No claim of priority for the model, radial susceptibility or perturbation scheme is supported.",
+      "residual_risks": [
+        "An explicit equivalent second-harmonic calculation in the inaccessible 2025 paper or another source may exist.",
+        "The prior disk propagator can in principle encode the coefficient; this audit does not establish historical priority for extraction of the coefficient, and the main distinction is its classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First harmonic and setup covered; second harmonic not given in the inspected calculation",
+          "evidence": "T=T_0+Pe_s T_1+O(Pe_s²), with T_1=A_1(r) cos(phi) from I_1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.15813v2",
+          "material_read": "PDF pp. 7–8, Eqs. 13–17 (text offsets 22700–26843)",
+          "method": "OA PDF passage inspection",
+          "title": "Mean first passage time of active Brownian particles in two dimensions",
+          "trigger": "Same absorbing disk MFPT and weak swimming expansion"
+        },
+        {
+          "assessment": "Substantive broader method, no matched peak classification in inspected passages",
+          "evidence": "The conclusion identifies the mean first-passage time as computable from the propagator, but the recursion does not state the H_q formula and global peak theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.12702",
+          "material_read": "Abstract and PDF pp. 6–7, recursion/survival/FPT and conclusion (text offsets 45000–52734 and 58850)",
+          "method": "OA PDF passage inspection",
+          "title": "Active Brownian Particles in a Circular Disk with an Absorbing Boundary",
+          "trigger": "Exact model and arbitrary activity-order propagator"
+        },
+        {
+          "assessment": "Exact coverage of a different harmonic",
+          "evidence": "C_g is the negative orientation-averaged second-order term with complete monotonicity in g; averaging cancels H_q cos(2psi).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-completely-monotone-weak-activity-escape-susceptibility-for-an-a--b7fecaf47750",
+          "material_read": "Finding and proof, offsets 0–5150 and 4900–7632",
+          "method": "Resultary and local mirror full-text passages",
+          "title": "Completely monotone weak-activity escape susceptibility for an absorbing active-Brownian disk",
+          "trigger": "Matching weak-swimming order and geometry"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Its law averages both position and orientation, not the fixed-radius directional response.",
+          "identifier_or_url": "Resultary 082b68e82590",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror statement",
+          "title": "All-speed Laplace ordering for uniformly released active Brownian particles",
+          "trigger": "Same-day absorbing active-Brownian comparison"
+        },
+        {
+          "assessment": "Different domain and mode",
+          "evidence": "An orientation-averaged annular susceptibility has a different layer scaling; the frozen domain is a disk.",
+          "identifier_or_url": "Resultary 02233086b6e8",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror statement",
+          "title": "A sharp outer-wall slowdown layer in active Brownian annular escape",
+          "trigger": "Peak boundary-layer terminology"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "The preview concerns perturbative survival and first-passage statistics; the matching second-order disk harmonic is not established from it.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.054113",
+          "material_read": "Indexed preview only; decisive full-text geometry and coefficients not read",
+          "method": "Literature lookup and attempted lawful APS and alternate ResearchGate access",
+          "title": "First-passage-time statistics of active Brownian particles: A perturbative approach",
+          "trigger": "Small-Péclet perturbative first-passage predictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all-q peak and two endpoint regimes",
+        "arXiv:2506.15813v2, first-order disk calculation",
+        "Resultary b7fecaf47750, orientation-average result"
+      ],
+      "rationale": "The second harmonic resolves directional variation that disappears in the known orientation average. The theorem identifies the unique radius of strongest quadratic directional response at every rotational diffusivity and distinguishes a true interior optimum at slow rotation from a shrinking wall layer at fast rotation, with explicit location and height constants. These are concrete checks for numerical first-passage calculations and are not obtainable from the zero-harmonic result.",
+      "residual_risks": [
+        "A coefficient maximum is not a radial optimum of the full finite-speed mean first-exit time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

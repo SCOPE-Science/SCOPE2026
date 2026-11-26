@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:49:25.526877Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and Assumptions; VERIFICATION.md; verify.py; requirements.txt",
+        "Independent replay from the workspace: python3 reproductions/four-person-absorption.py (SymPy 1.14.0); exact endpoint, derivative and Descartes coefficient checks and rational root isolation passed"
+      ],
+      "rationale": "An independent symbolic four-labelled-person absorption calculation, starting from masks (susceptible, infected)=(14,1) and using payoff 4 minus the susceptible count at absorption, reproduces both endpoint values and derivatives for symbolic b, the full rational G_4, the eight-degree derivative numerator, all nine transformed coefficients, and the exact positive difference 295591073/32512225144680. The quartic has one sign change and takes opposite signs at 3 and 4. The denominator of G_b'(1) is positive and the numerator is minus b times this quartic, so adding within-patch contact (decreasing epsilon from 1) has the reported signs. Also G_b'(0)>0; for b>b_* neither endpoint maximizes the continuous mean. At b=4 the substitution t=epsilon/(1-epsilon) gives exactly one coefficient sign change and opposite signs at zero and infinity. With the original positive denominator this gives exactly one strict global maximum, not just one located critical point. In the equal one-person-per-patch case the only potential secondary infection competes directly with the seed recovery, giving the strictly increasing function in the record. The row sums fix the nominal disease-free next-generation spectral radius at b throughout.",
+      "residual_risks": [
+        "The next-generation radius is the defined disease-free linearized quantity, not a realized secondary case count. At b=b_* only the first derivative is shown to vanish. The unique global maximizer is proved at b=4, not for general b>b_*. No inference beyond this stylized four-person model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ueki et al.'s outbreak-size calculation is approximate, using weak coupling and large subpopulations. The older two-level-mixing titles provide relevant frameworks; their applicable full-text formulas could not be confirmed."
+        ],
+        "reasoning": "Model-level antecedence is credited. The inspected approximation does not settle exact signs at epsilon=1 for N_c=2. No claim of first discovering that mixing matters is made.",
+        "searches": [
+          "Ueki et al. §3.2 and Appendix S2 Eqs. (23)–(28)",
+          "Ball, Mollison and Scalia-Tomba (1997), DOI 10.1214/aoap/1034625252",
+          "Ball and Neal (2002), DOI 10.1016/S0025-5560(02)00125-6"
+        ]
+      },
+      "checked_sources": [
+        "Ueki–Thompson–Banaji; Ball–Mollison–Scalia-Tomba; Ball–Neal; Leibenzon–Assaf; Resultary --65eda42f764d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ueki et al. give a qualified often-increasing trend in their regimes. Leibenzon–Assaf study a mean-field effect of degree heterogeneity without demographic stochasticity."
+        ],
+        "reasoning": "Neither result gives the contact-tradeoff derivative or uniqueness theorem here. The finite transition law supplies an algorithm, but the exact threshold and required global sign analysis are not stated or mechanically obtained from the published approximation or trend.",
+        "searches": [
+          "Ueki et al. §1.2, §3.2, Appendix S2",
+          "Leibenzon–Assaf arXiv:2306.09024 abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ueki et al. use propensities beta epsilon_ij I_i S_j/N_c and gamma I_i; with N_c=2 and n=2 the symmetric matrix reduces to the same model after normalization.",
+          "The closest four-site catalogue reversal instead compares independent-bond outbreaks on a star and a path across g=1/4."
+        ],
+        "reasoning": "The common population size and word 'reversal' do not match the epidemic process or its observable: the claimed derivative is of one Markov SIR model at fixed radius, not a ranking of trees.",
+        "searches": [
+          "Resultary: finite four-person epidemic mixing reversal and exact final size",
+          "Ueki–Thompson–Banaji arXiv:2601.13730v2 §2.1 and Appendix S2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 SCOPE-a-universal-one-quarter-mixing-reversal-and-a-two-moment-alias-i--65eda42f764d, RESULT.md Finding: independent-bond star/path reversal at g=1/4."
+        ],
+        "reasoning": "The retrieved exact four-site result does not tabulate these equilibrated contact rates, the Markovian recovery dependence, the quartic, or the b=4 optimum.",
+        "searches": [
+          "Resultary: four-site epidemic spread, mixing reversal, and exact SIR final-size optimizer"
+        ]
+      },
+      "rationale": "The exact finite endpoint threshold and b=4 global uniqueness remain distinct in the inspected material. The closest source contains the underlying epidemic model; its large-subpopulation weak-coupling approximation neither evaluates the finite endpoint nor supplies a global derivative sign certificate. The closest catalogue reversal has a different stochastic law and a different comparison.",
+      "residual_risks": [
+        "The two older two-level-mixing full texts were not accessible as usable passages. An earlier finite exact formula or equivalent endpoint classification may exist; no priority guarantee follows from the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same propensities, approximate final sizes in a different regime",
+          "evidence": "Appendix S2 uses small leak and large subpopulations rather than analyzing the fully cross-only endpoint for size two.",
+          "identifier_or_url": "https://arxiv.org/html/2601.13730v2",
+          "material_read": "§1.2; §2.1 Eq. (1); §3.2; Appendix S2 Eqs. (23)–(28)",
+          "method": "bounded OA HTML passages",
+          "title": "Outbreak dynamics and population vulnerability in stochastic epidemic models on networks",
+          "trigger": "identical model family and comparison of mixing effects"
+        },
+        {
+          "assessment": "related framework; coverage unresolved",
+          "evidence": "Abstract treats global/local mixing and conditions and sizes of large outbreaks.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1034625252",
+          "material_read": "publisher abstract; full text not successfully extracted",
+          "method": "publisher and identified public PDF access attempts",
+          "title": "Epidemics with two levels of mixing",
+          "trigger": "plausible exact finite outbreak-size antecedent"
+        },
+        {
+          "assessment": "full-text implications unresolved",
+          "evidence": "The retrieved page did not provide a theorem to compare.",
+          "identifier_or_url": "https://doi.org/10.1016/S0025-5560(02)00125-6",
+          "material_read": "landing page only",
+          "method": "OA retrieval and copy lookup",
+          "title": "A general model for stochastic SIR epidemics with two levels of mixing",
+          "trigger": "plausible exact finite mixing formula"
+        },
+        {
+          "assessment": "different model and mechanism",
+          "evidence": "Change in degree heterogeneity in a mean-field network treatment, not a finite constant-radius patch tradeoff.",
+          "identifier_or_url": "https://arxiv.org/html/2306.09024",
+          "material_read": "abstract and introduction",
+          "method": "bounded OA HTML passages",
+          "title": "Heterogeneity can markedly increase final outbreak size in the SIR model of epidemics",
+          "trigger": "related direction-of-effect result"
+        },
+        {
+          "assessment": "not equivalent",
+          "evidence": "Independent-bond star/path ranking threshold g=1/4, not the finite SIR Markovian varying-contact optimum.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-one-quarter-mixing-reversal-and-a-two-moment-alias-i--65eda42f764d",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "A universal one-quarter mixing reversal and a two-moment alias in four-site epidemic spread",
+          "trigger": "closest exact four-site mixing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Ueki–Thompson–Banaji §1.2 and Appendix S2"
+      ],
+      "rationale": "A fixed-radius reversal is a meaningful counterexample to a mixing monotonicity heuristic. The exact transmission threshold identifies when this reversal is possible at the endpoint; the degree-eight uniqueness certificate and minimal equal-patch population put analytic, not merely numerical, limits on the example. The gain in mean size is tiny, but its mathematical value is the strict sign and provable threshold, not a claimed practical improvement.",
+      "residual_risks": [
+        "Not an empirical travel, contact, or larger-population recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

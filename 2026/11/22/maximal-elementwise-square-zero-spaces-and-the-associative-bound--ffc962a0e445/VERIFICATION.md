@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical statement is derived from an explicit split quadratic form on the augmentation ideal of an exterior algebra, together with exact classification by \((U,\beta)\). Its algebraic product criterion is verified symbolically in the proof and does not depend on finite tests.
+## correctness
 
-To reproduce the finite-field checks, run `python3 artifacts/check.py` with standard Python 3 from the extracted package root, and compare stdout to `artifacts/check_output.txt`. The tests reconstruct the explicit \((U,\beta)\) families, check individual squares and mixed polarizations, calculate product ranks and closure, and exhaustively compare intersections. The \(\mathbb F_3\) experiment separately loops over all 33,880 three-dimensional subspaces of the six-dimensional hyperbolic ambient space, recovering precisely the 80 predicted maximal isotropic subspaces; the \(\mathbb F_5\) experiment constructs all predicted spaces but does not exhaust every ambient three-subspace.
+PASS
 
-No finite experiment is offered as an infinite proof, and no external independent audit has been performed. The classical Klein-quadric geometry and the existing Grassmann-algebra literature are explicitly acknowledged in the result.
+Scalar parts of square-zero elements vanish. Squaring a+b+c in the augmentation ideal gives 2a∧b; top degree is radical. Projection to U in degree one forces the pure degree-two part to be U^perp by polarization and maximality. Its dimension 3-r, and the perfect pairing then gives exactly one maximal space for each alternating form on U with values in the top-degree line. Mixed cubic products cancel; hence W²=∧²U and closure is equivalent to ∧³U=0. The characteristic filtration preserves r, while GL(V) moves U and conjugation by 1+a adds the restrictions of -2a∧u∧v; these exhaust the form parameters. For an intersection of two quotient spaces the pure degree-two kernel is (U+U')^perp; its projected image is the radical of the difference of forms restricted to U∩U'. This gives all stated dimensions and the point/hyperplane equations using a common volume identification. Witt extension gives uniform incidence for the nonzero isotropic vectors; dividing the count of space–vector incidences gives 2(q+1). Independent bitmask multiplication over F_3 exhausted 33,880 candidate quotient 3-spaces, found all 80 with the stated product ranks and intersection totals, and checked 780 noncentral square-zero elements, each in eight spaces. The symbolic proof covers the general field, not extrapolation from this test.
+
+## originality
+
+PASS
+
+The abstract polar geometry, generator counts and incidence of the Klein quadric are not novel. Credit the classification in the ungraded algebra with its actual exterior multiplication and its intrinsic four automorphism orbits; this is not a classification under the full split orthogonal group or of pairwise-annihilating spaces.
+
+## value
+
+PASS
+
+The minimal nontrivial exterior rank for this square equation exhibits elementwise-zero spaces that are annihilating, closed but noncommutative, and not subalgebras. The classification and intrinsic orbit decomposition turn this distinction into precise reusable structure, beyond recomputing the classical graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify_generalized_petersen.py` and `python3 verify_cover_independent.py` with Python 3.9+ from the extracted file directory. Both use only Python standard libraries, print the same sorted JSON (recorded in their corresponding `.out` files), and finish `VERIFY_OK`. The former explores all matching edge subsets and tests every replacement and graph distance; the latter resolves uncovered vertices, tests unmatched-vertex independence, and constructs exchanges from common retained partial matchings. Exact output gives size counts 5, 120, 1620, 1120, 60; layer-edge counts 0, 120, 3360, 2160, 0; component-size distributions 5 singletons, 30 four-vertex components, one 1620-vertex component, one 1120-vertex component, and 60 singletons. Exact connected-component diameters are 2 for the thirty 4-cycles, 14 at size eight, and 12 at size nine. Independent enumerators use structurally different encodings of the Desargues graph.
+## correctness
 
-This verifies a finite exact statement only. Termination and exhaustive search logic, rather than statistical samples or a timed cutoff, establish completeness. Originality is assessed against inspected literature and indexed results and does not constitute independent certification.
+PASS
+
+A matching is maximal iff its uncovered set is independent. Independently enumerated all independent uncovered sets of size 20−2k in GP(10,3), then all perfect matchings of their induced complements, for every 0≤k≤10. Pairing the least remaining vertex with each available neighbour finds each such perfect matching once, and distinct uncovered sets cannot duplicate a state. The check used pairwise XOR of edge masks with popcount two for adjacency and bitset breadth-first frontiers from every state for component sizes and diameters. Run: python3 /workspace/independent_checks/desargues_exchange.py. It returned only layers 6–10, with state counts (5,120,1620,1120,60), edge counts (0,120,3360,2160,0), component sizes 5×1, 30×4, 1×1620, 1×1120, 60×1 and corresponding diameters (0,2,14,12,0). Size-seven states all have degree two, establishing the 30 cycles. The state sum is 2925. At size ten a one-edge replacement would have to join the very same two endpoints, impossible with a different edge in this simple graph. Both recorded outputs agree, but the independent enumeration, not the recorded outputs, is the fresh finite check.
+
+## originality
+
+PASS
+
+The substantive claim is the maximal-only exchange structure across sizes, particularly the 30 four-cycles and the exact connectivity and diameters of both middle layers. Prior same-graph matching counts and local-pooling evidence, and general matching reconfiguration results, do not supply those facts. The known minimum size, known perfect-matching count and elementary perfect-layer isolation are not credited as original individually.
+
+## value
+
+PASS
+
+On a canonical cubic bipartite graph already used to study maximal matchings, the size-preserving move gives distinct behaviours: rigid saturated minima, small cyclic components, two connected intermediate layers with exact path-length bounds, and rigid perfect states. This supplies an exact benchmark for reconfiguration with maximality imposed, where ordinary matching-complex data or unconstrained reconfiguration are not enough. It is a useful finite invariant, not a generalized Petersen family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

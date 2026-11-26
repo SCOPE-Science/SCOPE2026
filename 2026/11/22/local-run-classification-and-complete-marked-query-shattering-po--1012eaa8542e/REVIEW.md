@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim reviewed.** The local-run iff classification of all shattered marked vertex-colour tests in the proper-three-colouring class of every simple cycle \(C_n\), \(n\ge3\), together with the complete coefficient formula and equivalent logarithmic extraction expression.
+## correctness
 
-## Correctness: PASS
-A properly coloured selected proper subset extends through each uncoloured cyclic gap. Consecutive marked tests must have distinct targets; a run of three requires alternating targets, and every run of four has a failed trace. All binary traces on permitted runs of lengths one, two and three are explicitly realized, so independent gap extension proves the iff statement. The rooted cyclic run-gap composition argument gives the precise \(n/r\) factor; the binomial expansion gives an independently checkable formula. The attached direct-trace enumerator checks all marked supports through cycle order eight. The full cycle and triangle edge cases are handled explicitly; no finite search is promoted to an all-size proof.
+PASS
 
-## Originality: PASS, with priority risk
-The fully inspected previously published cycle result *Exact VC and Littlestone ranks for proper three-colourings of finite cycles* computes two scalar dimensions and explicitly states it does not classify individual shattered supports. The related fully inspected path result gives a four-run obstruction but not marked-run multiplicities or cyclic enumeration. Primary work on colour-structure learning, zero-set VC dimension and tree-shattering bounds does not imply this exact polynomial. Actual research-record, alias, equivalence and published-result searches are documented in the structured audit. Unindexed equivalent results remain possible; absolute priority is not certified.
+For a fixed marked equality-query support, two positive answers at one vertex are incompatible; an all-positive trace forces different targets across selected edges. A 101 trace forces equal outer targets on a selected triple: if all three targets are distinct, the middle must be the very colour it is forbidden to use. Overlap makes four consecutive targets alternate, and 1001 forces equal adjacent middle colours. The fully selected triangle has only six colourings and cannot realize eight traces. Conversely, the displayed path traces for the allowed runs all work, and each nonempty gap can be filled greedily until its final interior vertex, which has at most two forbidden colours, even when the two boundary positions refer to the same selected vertex. The empty support extends by any proper colouring. Counting ordered marked-run/positive-gap lists with a distinguished run start gives exactly n/r, also for periodic patterns; expanding yields both coefficient formulas. For n at least 4 a selected triple induces two edges in n cases and exactly one edge in n(n-4) cases, giving the stated cubic coefficient. Blocks of three selected plus one gap, with at most one shorter block in the remainder, attain the rank bound. For even cycles of order at least six, a one-query extension in an alternating gap exists precisely when its two selected endpoint targets agree, giving twice the number of proper ternary colourings of the auxiliary cycle. An independent trace-bitset implementation agrees for all one-query-per-vertex supports through n=9 and directly verifies alternating facets at n=6,8,10,12 (12,36,60,132). The multi-query obstruction and all-n classification rest on the proof, not finite tests.
 
-## Value: PASS
-This theorem answers the natural coefficientwise completion of an already studied learning invariant on a standard graph family, using a new full support-level classification and an all-order closed form. It is neither a numerical example nor a renamed dimension bound; the counts retain information about all target-colour choices lost under rank alone. The theorem also supplies an exact family of inclusion-maximal low-rank faces proving persistent nonpurity on even cycles.
+## originality
 
-## Limitations
-Exactly three named colours on simple cycles and fixed binary vertex-colour tests. No extension to other palettes or graphs is claimed. The checker is exhaustive only to the stated finite cycle sizes. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior same-family scalar VC rank and four-consecutive-query obstruction are credited and excluded from the originality decision. The full iff criterion for marked supports, its coefficientwise enumerator, and the alternating nonpurity count are distinct on the inspected evidence.
+
+## value
+
+PASS
+
+The known rank answers only how large a shattered support can be. The iff characterization decides every concrete marked support, the polynomial records exact frequencies by size, and nonpurity exhibits systematically smaller inclusion-maximal supports. These are natural structural questions for the same learning concept, not arbitrary finite examples or a recomputation of the rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

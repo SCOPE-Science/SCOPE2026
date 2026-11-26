@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new claim specifies the full admissible class, fixed \(\beta\ge0\), and the original \(2\sqrt n\) probabilistic normalization. The bounded variable \(y=1-e^{-e^{-\beta t}u}\) converts the functional to \(\int\sqrt b\) with BV identity \(dy=(b-\beta g(y))dt+d\nu\), where \(\nu\ge0\) is singular. The root \(C_\beta\) exists and is unique by the strict shooting integral. Along the constructed curve, \(p'=\beta pg'\) and both square-root and \(g\) tangent inequalities reduce every competitor's deficit to three nonpositive boundary/singular terms. Equality implies the same ODE and thus the identical curve. The endpoint expansions follow by the implicit-function theorem and a direct inequality. The 249 passing numerical assertions test calculations but do not substitute for the argument. A priori reliance on the underlying established probabilistic LIS variational theorem is explicit.
+PASS
 
-## Originality — PASS with historical qualification
+The Luce normalization and admissible class agree with Theorem 3.13 and Lemma 3.14; the common scaling of the discrete weights is irrelevant. For y=1-exp(-exp(-βt)u), the time derivative has density b−βg(y), and the singular part is nonnegative (jumps increase y, and the diffuse singular derivative of u is multiplied by a positive coefficient). This is a global BV decomposition: integrating on compact subintervals bounds ∫b and total singular mass together by 1+β/e. At C>sqrt(β/e), let f(y)=1/[2(C+d_C(y))]. The pointwise tangent bound sqrt(b) ≤ C+f(y)(b−βg(y)) is exact only at b=(C+d_C)^2. Integration against time and the BV chain rule for a primitive of f give A≤C+∫_0^1 f: the endpoint range is at most [0,1], and the singular contribution to that primitive is nonnegative, strictly positive for nonzero singular variation. Equality forces y(0)=0, y(1−)=1, no singular variation and y′=2d_C(C+d_C); separation uniquely determines the path. This independently verifies the calibration in RESULT.md, including arbitrary jumps, singular-continuous parts and β=0 (y=t, K=1). The shooting time is strictly decreasing in C, tends to zero at infinity and diverges logarithmically at the critical C by the quadratic maximum of g. Time substitution gives both quadratures. Expanding with ∫g=1/4 gives C=1/2+3β/16+O(β²), K=1+β/8+O(β²). At large β, any fixed positive gap C²/β−1/e makes the time O(1/β), and K−C≤1/(2C), proving the stated limit. An independent quadrature replay obtained K(1)=1.127588768729963685062, K(4)=1.500518216474186096033 and (K(0.001)−1)/0.001≈0.12500376038.
 
-Borga–Dubach (arXiv:2610.30382v1, full HTML, §3.4) give the variational principle and expressly say existence, uniqueness, and a plausible maximizing formula are unresolved; they do not calculate an exact value for exponential weights. Their bound for the same \(f_\beta\) is not equivalent to an optimizer or upper bound. Borga–Chatterjee–Diaconis (arXiv:2509.07729) obtain Luce permuton and statistical limits but not the solved variational problem. Deuschel–Zeitouni (arXiv:math/9803035) address generic i.i.d. increasing subsequences and large deviations, not this specialized calibration. Semantic mathematical-record searches for Luce optimal paths, exponential-weight LIS constants and quadrature found no equivalent theorem; checked earlier claims also lacked one. An unlocated abstract optimal-control result may overlap with the method, and independent publication priority remains unverified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves a natural concrete subcase of a problem explicitly stated open in a recent primary paper. It identifies the optimizer uniquely **within the original unrestricted class**, computes the actual LIS constant with a scalar integral, and gives sharp small- and large-parameter information for naturally arising Mallows-like exponential weights. Its importance does not depend on claiming a general-weight solution or finite-LIS geodesic concentration.
+The probabilistic theorem and functional are prior. No examined statement gives the exact exponential-Luce shooting quadrature and optimizer in the full admissible class. Credit the indexed result on strict geodesic concavity for its at-most-one conclusion on a narrower path class and broader profile family; this material overlap does not give existence, the path, its constant, or a singular-path equality case.
 
-## Boundaries and residual risks
+## value
 
-The proof is rigorous only for fixed exponential weights with nonnegative exponent. The global calibration and BV singular-measure term must both be retained; solving only Euler–Lagrange equations would not establish global uniqueness. The primary recent manuscript was inspected in full through its lawful open HTML rendering. Other historical variational-optimal-control frameworks may share ingredients and deserve specialist priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles a concrete instance explicitly left open by the Luce LIS limit paper. It turns an infinite-dimensional variational problem into a uniquely solvable scalar equation and determines the optimizer even when the admissible class allows jumps or a singular-continuous part. Those equality cases and the all-β scale are not routine evaluations of the variational formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,150 +1,69 @@
-# Sharp quadratic envelope for distinct palindromic subsequences of three-marker binary words
+# Sharp extremal envelope and rigidity for scattered palindromes in binary words with three ones
 
 ## Finding
 
-For every quadruple of nonnegative integers \(a,b,c,d\), let
+Let \(P(w)\) count distinct nonempty palindromic subsequence strings of \(w\). Write \(w=0^a1\,0^b1\,0^c1\,0^d\), where the gaps are nonnegative integers, and set \(z=a+b+c+d\). If \(M(z)\) is the maximum of \(P(w)\) over all these words with \(z\) zeros, then
 \[
-w=0^a1\,0^b1\,0^c1\,0^d,\qquad z=a+b+c+d.
+ M(z)=\frac{3}{16}z^2+O(z).
 \]
-Let \(P(w)\) be the number of **distinct nonempty palindromic scattered subsequences** of \(w\), with each resulting binary word counted once regardless of how many embeddings it has. Put
-\[
-H=\max\{\min(a,b+c+d),\min(a+b,c+d),\min(a+b+c,d)\}
-\]
-and define
-\[
-T=\begin{cases}
-(a+1)(b+c+1)+\min(b,d-a)(c+1),&a\le d,\\
-(d+1)(b+c+1)+\min(c,a-d)(b+1),&a\ge d.
-\end{cases}
-\]
-The two definitions of \(T\) coincide when \(a=d\). Then the **complete all-gap enumeration** is
-\[
-\boxed{P(w)=z+H+1+T+(\min(a,d)+1)(\min(b,c)+1).}
-\tag{1}
-\]
-Further, for every integer \(z\ge0\),
-\[
-\boxed{\max_{a+b+c+d=z}P(0^a1\,0^b1\,0^c1\,0^d)
-=\frac{3}{16}z^2+O(z).}
-\tag{2}
-\]
-The implied constant is absolute. In fact every such word satisfies
-\[
-P(w)\le\frac{3}{16}z^2+3z+3,
-\tag{3}
-\]
-while \(P(0^t1\,0^t1\,0^t1\,0^t)=3t^2+11t+3\) for every \(t\ge0\). **Asymptotic rigidity:** if \((a_z,b_z,c_z,d_z)\) is any maximizing quadruple with sum \(z\), then
-\[
-\frac{a_z}{z},\frac{b_z}{z},\frac{c_z}{z},\frac{d_z}{z}\longrightarrow\frac14
-\quad(z\to\infty).
-\tag{4}
-\]
-Equation (1) also gives an explicit description of the entire palindrome-subsequence spectrum by the number of ones, as detailed in the proof.
+In fact every such word satisfies \(P(w)\le 3z^2/16+3z+3\). Every sequence of maximizing gap quadruples, divided by \(z\), converges to \((1/4,1/4,1/4,1/4)\) as \(z\to\infty\). This is an unrestricted statement within the exactly-three-ones class: the source need not itself be a palindrome.
 
 ## Assumptions and scope
 
-The alphabet is \(\{0,1\}\); the source has **exactly three** occurrences of \(1\); the four zero gaps may vanish. Subsequence means deletion without reordering, rather than a contiguous factor or cyclic factor. The empty word is excluded. Formula (1) holds including \(z=0\), when \(w=111\) and \(P(w)=3\). Equations (2)–(4) concern the maximum over **all labeled linear words** of length \(z+3\) with three ones, not over rotations or dihedral classes.
+The source is a linear binary word with exactly three ones. A subsequence is obtained by deleting positions without reordering the rest. Distinct embeddings of the same string are counted once. The empty string is excluded. The bound holds also at \(z=0\), and the asymptotic constant in \(O(z)\) is absolute.
 
 ## Proof
 
-### Classification and exact counting
+### Counting input
 
-Every palindromic scattered subsequence contains zero, one, two, or three ones. These four sets are disjoint.
-
-With no ones the possibilities are exactly \(0^j\), \(1\le j\le z\), giving \(z\) words. With one one they have the form \(0^i1 0^i\). If the one is the first, second, or third marked position, the largest feasible \(i\) is, respectively,
+The exact four-gap count appears in [1] (with the empty string included) and [2] (without it). We give the short derivation to specify the objective in the extremal problem. By reversal assume \(a\le d\), and write
 \[
-\min(a,b+c+d),\quad\min(a+b,c+d),\quad\min(a+b+c,d).
+ h=d-a,\qquad p=b+c,\qquad m=\min(b,c),\qquad t=\min(b,h).
 \]
-Their union therefore consists of exactly \(H+1\) words.
-
-With two ones each palindrome is uniquely represented as \(0^i1 0^j1 0^i\), where \(i,j\ge0\). Selecting the first and second ones permits
+There are \(z\) palindromes using no one. A palindrome using one one has the form \(0^i1 0^i\); its feasible \(i\)'s are the union of three initial intervals from the three source ones. This contributes \(H+1\), where
 \[
-0\le i\le\min(a,c+d),\quad0\le j\le b;
+ H=\max\{\min(a,b+c+d),\min(a+b,c+d),\min(a+b+c,d)\}.
 \]
-selecting the first and third permits
+With two ones, the form is \(0^i1 0^j1 0^i\). The first/third pair realizes all \(0\le i\le a\) and \(0\le j\le p\), including every possibility from the first/second pair. The second/third pair adds precisely \(a<i\le \min(a+b,d)\), \(0\le j\le c\). Thus the two-one count is \((a+1)(p+1)+t(c+1)\). The three-one form \(0^i1 0^j1 0^j1 0^i\) has \(0\le i\le a,\ 0\le j\le m\), contributing \((a+1)(m+1)\). In particular,
 \[
-0\le i\le\min(a,d),\quad0\le j\le b+c;
+ P(w)=Q+z+H+2a+p+m+t+3,
+ \qquad Q=a(p+m)+tc,
+ \qquad z=2a+p+h.
 \]
-and selecting the second and third permits
+Since \(H,m\le z/2\) and \(2a+p+t\le z\), the nonquadratic part is between zero and \(3z+3\).
+
+### Unrestricted extremal inequality
+
+Optimize \(Q\) over nonnegative real gaps. If \(h\ge b\), then \(t=b\). At fixed \(z,b,c\), decreasing \(h\) to \(b\) increases \(a\) and cannot decrease \(Q\), so it suffices in this case to bound \(Q\) at \(h=b\). If \(b\le c\), put \(u=a+b\); then \(z=2u+c\) and
 \[
-0\le i\le\min(a+b,d),\quad0\le j\le c.
+ Q=2ab+uc\le \tfrac12u^2+uc=zu-\tfrac32u^2\le z^2/6.
 \]
-These three rectangles specify the **complete two-one spectrum**. If \(a\le d\), the first \(a+1\) rows \(0\le i\le a\) are supplied fully by the first/third pair, with \(b+c+1\) possible \(j\)'s per row. Beyond \(i=a\), only the second/third pair can contribute. It supplies \(\min(b,d-a)\) further rows, each of width \(c+1\). Their total is precisely the first case of \(T\). If \(a\ge d\), reverse the word, interchanging \((a,b,c,d)\) with \((d,c,b,a)\), to obtain the second case.
-
-With three ones every palindrome has the unique form
+If \(b\ge c\), put \(e=b-c\). Using \(h=b\) and expanding gives
 \[
-0^i1\,0^j1\,0^j1\,0^i
+ 3z^2-16Q=12(a-c/2)^2+8c^2+8ae+20ce+12e^2>0\quad(z>0).
 \]
-with independent ranges \(0\le i\le\min(a,d)\) and \(0\le j\le\min(b,c)\). This contributes \((\min(a,d)+1)(\min(b,c)+1)\) words. Adding the four disjoint counts proves (1), including every zero-gap boundary.
 
-### Sharp quadratic extremal coefficient
+If \(0\le h\le b\), put \(a=(z-b-c-h)/2\) and hold \(z,b,c\) fixed. When \(b\ge c\), \(Q=a(b+2c)+hc\) has slope \(-b/2\) as a function of \(h\); hence its maximum occurs at \(h=0\). When \(b\le c\), \(Q=a(2b+c)+hc\) has slope \(c/2-b\). A nonpositive slope again makes \(h=0\) a maximum. For positive slope the maximum is at \(h=\min(b,z-b-c)\). If \(h=b\) the preceding estimates apply, and otherwise \(a=0\), so \(Q=hc\le h(z-2h)\le z^2/8\), using \(h\le b\).
 
-Reversal does not alter \(P\), so assume \(a\le d\) and write \(h=d-a\ge0\), \(p=b+c\), \(m=\min(b,c)\), and \(t=\min(b,h)\). The degree-two part of (1) is
+At \(h=0\) one has \(Q=a(p+m)\le(3/2)ap\le 3z^2/16\), since \(m\le p/2\) and \(2a+p=z\). Equality for \(z>0\) in this last bound requires \(b=c>0\) and \(2a=p=z/2\). When \(b=c>0\) the slope in the preceding reduction is strictly negative, so equality indeed requires \(h=0\). Together with the strict bounds in the other cases this proves
 \[
-Q=a(b+c+m)+tc,\qquad z=2a+b+c+h.
-\tag{5}
+ Q\le 3z^2/16,
+ \qquad\text{with equality for }z>0\text{ exactly at }a=b=c=d=z/4.
 \]
-We prove the **homogeneous sharp inequality**
-\[
-Q\le\frac{3}{16}z^2,
-\tag{6}
-\]
-with equality for \(z>0\) only at \(a=b=c=d=z/4\). It is enough to optimize over nonnegative real gap lengths, since the integer domain is contained therein.
 
-If \(h\ge b\), the expression in (5) is independent of \(h\), except through \(a\) under fixed \(z,b,c\). Decreasing \(h\) to \(b\) and increasing \(a\) by \((h-b)/2\) cannot decrease \(Q\). It thus suffices to examine \(h=b\). If \(b\le c\), then \(z=2a+2b+c\) and
-\[
-Q=2ab+(a+b)c\le\frac12(a+b)^2+(a+b)c
-\le\frac16 z^2.
-\]
-The last inequality follows by setting \(u=a+b\), \(c=z-2u\) and maximizing \(zu-3u^2/2\).
+The counting input now gives the claimed upper bound on \(P\). In the exactly balanced word with gaps \(k,k,k,k\), it gives \(P=3k^2+11k+3\). Taking \(k=\lfloor z/4\rfloor\) and appending the leftover zeros cannot destroy a subsequence, giving \(M(z)\ge3z^2/16-O(z)\). For any maximizing sequence the uniform bound on \(P-Q\) thus gives \(Q/z^2\to3/16\). The normalized gaps lie in a compact simplex, and \(Q/z^2\) is a continuous function of them (write the reversed formula when \(a>d\); the expressions coincide on \(a=d\)). Every subsequential limit must therefore attain equality in the homogeneous inequality. Its sole equality point is the claimed limit.
 
-If instead \(h=b\ge c\), set \(e=b-c\ge0\). Here \(Q=a(b+2c)+bc\) and direct expansion gives the nonnegative certificate
-\[
-3z^2-16Q
-=12(a-c/2)^2+8c^2+8ae+20ce+12e^2.
-\tag{7}
-\]
-This is strictly positive whenever \(z>0\), so the case \(h\ge b\) does not attain the upper bound.
+## Reproducibility and relation to other results
 
-Now assume \(0\le h\le b\). Fix \(z,b,c\) and substitute \(a=(z-b-c-h)/2\) into (5). If \(b\ge c\), then
-\[
-Q=a(b+2c)+hc
-\]
-is nonincreasing in \(h\), with slope \(-b/2\). Its maximum occurs at \(h=0\); writing \(a'=(z-b-c)/2\), the inequalities \(b+2c\le3(b+c)/2\) and \(2a'+b+c=z\) yield
-\[
-Q\le\frac32a'(b+c)\le\frac3{16}z^2.
-\]
-If \(b\le c\), then \(Q=a(2b+c)+hc\) is affine in \(h\), with slope \(c/2-b\). For a nonpositive slope its maximum is again at \(h=0\) and follows from \(2b+c\le3(b+c)/2\). For positive slope, the maximum occurs at the opposite endpoint of \(0\le h\le\min\{b,z-b-c\}\). Either \(h=b\), already bounded above by \(z^2/6\), or \(a=0\). In the latter case \(Q=hc\) and \(h\le b\) implies \(c\le z-2h\); hence
-\[
-Q\le h(z-2h)\le z^2/8.
-\]
-All cases prove (6). Equality in the only potentially sharp case requires \(h=0\), \(b=c\), and \(2a=b+c=z/2\), giving \(a=b=c=d=z/4\).
+The companion `verify.py` contains finite comparisons of the counting input with interval dynamic programming and literal subsequence sets, and finite scans for extremal counts. The proof above establishes the all-size bound and rigidity without extrapolation from those checks.
 
-The exact formula yields
-\[
-P=Q+z+H+2a+p+m+t+3.
-\]
-Since \(H\le z/2\), \(m\le z/2\), and \(2a+p+t\le z\), we obtain (3). At \(a=b=c=d=t\), direct substitution into (1) gives \(3t^2+11t+3\). For arbitrary \(z\), take \(t=\lfloor z/4\rfloor\) and append the remaining zero symbols to this balanced word. Appending symbols never removes a scattered subsequence, so this supplies the lower bound \(3z^2/16-O(z)\). Equation (2) follows.
+The counting identity is used here as an input, not claimed as a distinct enumeration result from [1] or [2]. The exact optimum among palindromic source words in [1] does not bound nonpalindromic sources; the uniform random-word limit of [2] does not locate the global maximizing gaps. The run-bounded theorem in [3] optimizes over all words with a fixed bound on runs. At seven runs its leading term is quartic. Its lower-run remainder bound does not determine the quadratic leading term when three of the run lengths are constrained to singleton ones. Counting the contributions from both two-one and three-one palindromes and controlling asymmetric gaps are essential to the extremal result here. General scattered-palindrome bounds in [4] do not use the fixed count of ones. These comparisons concern theorem coverage, not the chronology of discovery.
 
-Finally, normalized quadruples belong to the compact simplex of nonnegative reals with sum one. The bound \(0\le P-Q\le3z+3\) is uniform. A maximizing quadruple must therefore satisfy \(Q/z^2\to3/16\). Every convergent subsequence of normalized maximizing quadruples attains equality in (6), whose only maximizer is the all-quarter point. This proves (4).
-
-## Verification
-
-The companion `verify.py` reconstructs every word with \(0\le z\le17\) and exactly three ones, compares (1) to an independent interval dynamic program for **distinct palindromic subsequences**, and additionally forms literal subsequence sets for \(0\le z\le8\). It also checks 300 randomly chosen larger gap quadruples and enumerates the finite extremal counts for \(0\le z<75\). The reported result is `VERIFY_OK exhaustive_gap_tuples=5985 raw_subsequence_cases=495 random_cases=300 envelope_scans=75`. These finite computations corroborate (1); the infinite statements (1)–(4) are justified by the preceding proof, not by extrapolation.
-
-To reproduce: run `python verify.py` using a standard Python 3 interpreter; no nonstandard packages or external datasets are required.
-
-## Relationship to prior work
-
-Chowdhury, Hasan, Iqbal, and Rahman (2011) introduced algorithms for *longest common palindromic subsequences* of two strings. General dynamic programming also permits counting all distinct palindromic subsequences of an arbitrary fixed word. Neither fact gives, by itself, the uniform all-gap classification (1), the sharp sparse-class extremal coefficient (2), or the rigidity law (4). General palindromic-*factor* complexity counts contiguous substrings, a different invariant from the scattered subsequences counted here.
-
-The structural contribution is the exact union-of-three-rectangles representation for the two-one layer and the sharp four-gap continuous extremal inequality (6). Broad algorithmic computability, the ordinary palindrome definition, and any existing general dynamic-programming recurrences are not claimed as new.
-
-## Limitations
-
-No exact finite-length formula for the global maximum or complete finite-length extremizer list is claimed. The error term in (2) is not optimized, and (4) does not provide a finite-length stability constant. Higher fixed numbers of ones, arbitrary alphabets, palindromic *factors*, and cyclic sources are not classified. Exhaustive finite checks cannot certify the absence of an equivalent theorem in unindexed literature; independent validation has not been performed.
+No exact finite formula for \(M(z)\) or complete list of finite-size maximizers is asserted. The theorem does not concern contiguous palindromic factors or alphabets with additional symbols.
 
 ## References
 
-1. S. R. Chowdhury, M. M. Hasan, S. Iqbal, and M. S. Rahman, *Computing a Longest Common Palindromic Subsequence*, arXiv:1110.5296v1, first posted 2011-10-24; full text at https://arxiv.org/html/1110.5296v1 .
-2. *Count Different Palindromic Subsequences*, general dynamic-programming problem and solution, https://leetcode.doocs.org/en/lc/730/ ; consulted as algorithmic background, not as a dated research priority claim.
+1. [A closed palindromic-subsequence count for three-one binary words](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-closed-palindromic-subsequence-count-for-three-one-binary-word--3fb9dc585778/RESULT.md), Finding and Proof.
+2. [Exact scattered-palindrome complexity and limit law for binary words with three ones](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scattered-palindrome-complexity-and-limit-law-for-binary-w--bc05508b94e7/RESULT.md), Finding and Proof.
+3. [Universal run-bounded asymptotics and rigidity for scattered palindromes](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9/RESULT.md), Finding and Proof.
+4. K. Mahalingam and P. Pandoh, [Counting scattered palindromes in a finite word](https://arxiv.org/abs/2108.02729), Theorem 4.2 and Section 5.

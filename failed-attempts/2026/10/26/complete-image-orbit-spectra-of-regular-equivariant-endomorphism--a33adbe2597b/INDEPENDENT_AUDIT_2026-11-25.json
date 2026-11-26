@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:15:46.893909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an equivariant map f, the relation fgf=f is equivalent to having an equivariant section on the image: restrict g to the image in one direction, and extend a section by identity on orbits outside the image in the other. On a transitive image orbit the section must be an isomorphism onto a source orbit, so an equal-stabilizer source orbit is necessary and sufficient. For an abelian group, the image of a chosen representative of G/H can be any of the w_K points in each admissible G/K (H contained in K). After choosing the target orbits, the selected targets of type H must all be hit by sources of type H. Excluding specified same-type targets removes w_H choices per target, while strict-supergroup choices stay available. This gives the displayed inclusion–exclusion factor independently for each source type and leaves no unselected orbit in the image. The empty set gives 1, the trivial group specializes to counting ordinary transformations by image size, and profiles with no available target for a nonempty source type give zero. For C_p, condition on the r fixed targets hit by fixed sources: all free targets have only free antecedents, so there are (r+pb)^b unrestricted choices within those r fixed targets and the b free targets. Dividing by the total and using b log((r+pb)/(a+pb)) -> (r-a)/p yields the claimed limit, including the stated example. The bundled checker was inspected, not executed; its recorded four cases (3,253 maps; 1,793 regular) are corroboration only. The proof independently establishes the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary census uses a_ij = |(G/H_j)^{H_i}|, for all finite groups and all finite nonempty G-sets.",
+          "The relative generating rank in the 2022 paper and the total cardinality in the 2025 paper do not stratify the regular maps by image profile."
+        ],
+        "reasoning": "The indexed formula passes directly to abelian G, where a_ij equals w_j if H_i is contained in H_j and is zero otherwise. The empty set adds a vacuous identity map, not a substantive extension.",
+        "searches": [
+          "Resultary rank census 5c12e7f8630c, Finding and Proof Step 2",
+          "arXiv:2203.12158, Theorem 1",
+          "arXiv:2503.03772, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_regular_gsets.py and verify_output.txt",
+        "Resultary 5c12e7f8630c",
+        "arXiv:1701.02692",
+        "arXiv:2203.12158",
+        "arXiv:2503.03772"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For abelian G, b_i = B_H+w_H r_H and a_ii=w_H for H=H_i; taking j=r_H-u gives the frozen coefficient exactly.",
+          "The regularity criterion and total cardinality alone are not a numerical census. For C_p the broader census permits summing over free target profiles, since every free image orbit already has a free antecedent."
+        ],
+        "reasoning": "The profile is covered by a proved statement, not merely analogous methodology. The C_p count results by allowing all b free targets with p phases each after conditioning on the fixed image; the stated fixed-p,a limit then follows by the elementary exponential limit.",
+        "searches": [
+          "Resultary 5c12e7f8630c, Rank-census theorem and Proof Step 2",
+          "arXiv:1701.02692 Theorem 3 and arXiv:2503.03772 Theorem 5 compared with the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 of arXiv:1701.02692 uses an equal-stabilizer antecedent for each image point of a finite full shift.",
+          "Resultary 2026/11/22/SCOPE-regular-equivariant-endomorphisms-of-finite-g-sets-exact-rank-ce--5c12e7f8630c, Proof Steps 1–2, expresses the same regularity criterion as a section and explicitly counts assignments with a fixed image-orbit profile."
+        ],
+        "reasoning": "An equivariant section on the image exists exactly when each image orbit has an isomorphic source orbit over it. A rank polynomial would not in general determine the multivariate profile, but the stronger record retains and identifies the profile summands before specializing to cardinality.",
+        "searches": [
+          "Resultary subject search: regular equivariant endomorphisms of finite G-sets, rank and image-orbit census",
+          "arXiv:1701.02692, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-profile factor in the indexed record is binom(m_i,s_i) times the sum over u of (-1)^u binom(s_i,u)(b_i-u a_ii)^{m_i}."
+        ],
+        "reasoning": "There is exact formula-level database coverage, not just a numerical match on examples. The bundled finite histogram is not external evidence of novelty.",
+        "searches": [
+          "Resultary indexed formula in 5c12e7f8630c, local mirror RESULT.md offset 0, including Proof Step 2"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the exact census summand by stabilizer profile for arbitrary finite groups. The abelian product here is that summand with the abelian table of marks and a reversed inclusion–exclusion index. The indexed work also proves that each summand counts the fixed profile, so the use of separate formal variables here does not avoid coverage. The recorded dates do not establish historical priority or dependence. The C_p total and limit are an explicit specialization and an elementary limiting calculation; they do not make the frozen central enumeration a distinct result.",
+      "residual_risks": [
+        "Historical priority, derivation and earlier fiber-refined literature are not established; the indexed overlap is decisive without those inferences.",
+        "The public literature search was bounded; no absence of an earlier equivalent enumeration is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of the central census; broader in group scope",
+          "evidence": "Step 2 explicitly selects s_j labelled target orbits of each type, then counts the assignments hitting every equal-type target by inclusion–exclusion. Restricting the marks and changing the summation variable gives the frozen formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-regular-equivariant-endomorphisms-of-finite-g-sets-exact-rank-ce--5c12e7f8630c/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Steps 1–2, offset 0 through 5324",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Regular equivariant endomorphisms of finite G-sets: exact rank census and monoid criterion",
+          "trigger": "Direct indexed match for profile counting with broader group scope"
+        },
+        {
+          "assessment": "Covers the lemma for finite full shifts, not evidence on its own of profile-count coverage",
+          "evidence": "The theorem characterizes regularity by an antecedent with the same stabilizer for every point in the image.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.02692",
+          "material_read": "Theorem 3, PDF p. 6, text offset 18435",
+          "method": "Open-access theorem passage inspection",
+          "title": "Von Neumann Regular Cellular Automata",
+          "trigger": "Equal-stabilizer regularity criterion"
+        },
+        {
+          "assessment": "Different rank invariant",
+          "evidence": "The relative generating rank concerns generators in addition to the units, not image-cardinality or orbit-profile coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12158",
+          "material_read": "Theorem 1, p. 2, text offset 4775",
+          "method": "Open-access theorem passage inspection",
+          "title": "The relative rank of the endomorphism monoid of a finite G-set",
+          "trigger": "Counting or rank for the same equivariant monoids"
+        },
+        {
+          "assessment": "The inspected result counts the total monoid, not regular-image strata",
+          "evidence": "The total count includes all equivariant endomorphisms, regardless of whether each image orbit has an equal-type antecedent.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.03772",
+          "material_read": "Theorem 5, p. 6, text offset 12199",
+          "method": "Open-access theorem passage inspection",
+          "title": "Cardinalities in finite monoids of G-equivariant functions",
+          "trigger": "Potentially stronger enumeration of equivariant maps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete profile census is a meaningful invariant of equivariant monoids: it distinguishes regular strata with the same cardinality of the image but different stabilizer types, and yields both rank distributions and regularity proportions. That mathematical use is separate from whether the frozen version is distinct from the broader indexed census. The prime-cyclic example illustrates the distribution but does not rescue the overlapping central claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

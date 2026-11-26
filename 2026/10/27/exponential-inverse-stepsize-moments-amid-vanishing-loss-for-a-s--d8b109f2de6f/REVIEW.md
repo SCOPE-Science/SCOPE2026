@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact substitution of the source's oracle formula gives \(\alpha=x^2/(1+x^2)\) and the two maps \(T_{\pm}\). Conditional expectation gives \(\mathbb E[x_{n+1}^2\mid x_n]=x_n^2/(1+x_n^2)\), so Jensen yields the stated finite-time bound; bounded supermartingale convergence yields almost-sure convergence. On the exact rare word of probability \(2^{-n}\), the all-positive branch has a summable gap from one. Hence its rescaled gap has a positive finite infinite-product limit, and the final negative observation yields \(2^n x_n\to D>0\). This proves the inverse-moment liminf for every real \(p>1\). Eight-depth exact binary enumeration and the separate recurrence verifier corroborate these identities; they are not infinite proofs.
+PASS
 
-## Originality — PASS, best-knowledge assessment
+The population mean and second moment of the component gradient are x and 1+x², so the pre-sample oracle step gives the maps T±(x)=x(1±x)/(1+x²). For x∈(0,1), T₋(x) is positive and below x while x<T₊(x)<1, using 1−T₊(x)=(1−x)/(1+x²). The conditional second moment is x²/(1+x²). Thus x_n² is a bounded nonnegative supermartingale and Jensen gives 1/E[x_(n+1)²]≥1/E[x_n²]+1. The expected objective gap is half the second moment; dominated convergence then identifies the almost-sure limit as zero. On n−1 plus draws then one minus, with probability 2^(−n), the plus orbit y_k has deficits δ_k=1−y_k with δ_(k+1)=δ_k/(1+y_k²)≤δ_k/(1+x_0²). Hence Σδ_k<∞, and the factors 2/(1+y_k²) differ from one by at most 2δ_k. This proves 2^kδ_k→D(x_0)∈(0,∞). The last minus map gives 2^n x_n=2^n y_(n−1)δ_(n−1)/(1+y_(n−1)²)→D on those varying words. Restricting E[(1+x_n^(−2))^(p/2)] to the word proves exactly the stated scaled liminf for every fixed p>1. This is a lower moment bound, not an upper rate or a pathwise assertion about the rare words. The supplied finite rational tests are corroborative; the infinite claim is analytic.
 
-The motivating source's equation (3.2), Theorem 3.4, discussion of the stochasticity ratio and Appendix B were inspected in full-text HTML. The source proves the mean objective rate but does not present this rare-word exponential lower bound on inverse-step moments. The related randomized-learning-rate tail paper was read in full-text HTML through the algorithm model, main comparisons and pertinent technical sections: its step schedules are external, and its target is stationary **iterate** tails, so it does not subsume the new claim. Targeted published-record searches identified results on stochastic OSGM feedback, constant-template STORM covariance, random SARAH residuals and adaptive step pathologies, none giving the same source-defined oracle recursion or inverse moment inequality. Accessible local claim records were searched for the source names, step aliases, gradient signal-to-noise terms and reciprocal-learning-rate phrases, with no matching implication. A failed search alone is not proof of novelty.
+## originality
 
-Residual risk: equivalence to a general result about nonstationary nonlinear Markov recursions or unexamined versions of the later journal article cannot be excluded. Independent priority verification remains outstanding.
+PASS
 
-## Value — PASS
+The ideal rule and an O(1/n) expected objective bound are prior work; the supported distinct claim is the exponential inverse-moment lower bound coexisting with convergence in the specific true-moment oracle recursion. The closest inspected primary and indexed comparisons use different random variables or dynamics and do not imply that lower bound.
 
-The statistic \(1/\alpha\) is the inverse effective gain, a natural proxy for local conditioning and step-scale diagnostics. The coexistence of vanishing objective loss with exponentially amplified mean reciprocal gain is a substantive intermittency phenomenon even though the gradient oracle is exact. It gives a concrete warning against replacing a typical inverse step by its expectation, with an open interval of initial conditions and a whole family of inverse moments rather than one tuned example. It does not rely on a proposed downstream theorem or on claims of practical-algorithm failure.
+## value
 
-## Scope
+PASS
 
-Only the ideal equation-(3.2) oracle, fair two-point scalar quadratic sampling, exact arithmetic and initialization strictly between zero and one are covered. The actual estimated-and-safeguarded practical algorithm is not analyzed. No stationary law, exact inverse-moment upper asymptotic, or broader multivariate statement is established.
+The example gives a motivated counterexample to treating expected-loss convergence as evidence of stable inverse ideal gains. It works without moment-estimation noise in two strongly convex quadratic samples and gives a quantitative rare-history mechanism and a range of divergent moments. It does not claim practical safeguarded SGD instability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

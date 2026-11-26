@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:30:23.004179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, state encoding and absorption argument; VERIFICATION.md; verify.py",
+        "/workspace/reproductions/binary16_logistic.py"
+      ],
+      "rationale": "The support graph exactly represents the stipulated single stochastic rounding: an exact binary16 output has probability 1, otherwise both bracketing states have strictly positive probability. Independently enumerating scaled integers in units 2^-24 and finding the bracket by the local binary16 spacing reproduces all 15,361 states and 30,623 arcs and the transition SHA-256 94b900c38f4dfb6e88c690e7cdead1540bce5d3836c0daa46b0534d0b89c2917. The forward/backward reachability intersection at code 0x3a01 is one 1,746-state SCC; deleting it and ignoring singleton self-loops leaves an acyclic graph by a topological elimination, giving 13,616 SCCs total. This large SCC has an exit, and the only closed singleton classes are 0 and 3/4. Reverse walks give reachability sizes 15,359 and 46 with intersection 44, and only 1/4 and 3/4 reach 3/4 alone. The maximum shortest distance is 23 at seven states. An independent exact rational Tarjan computation agreed. To infer finite-time absorption, every start has a path of at most 23 arcs to a sink, so the smallest positive transition probability gives a uniform positive chance of absorption in each 23-step block, conditional on the start of the block. Every reachable absorber has positive hitting probability, giving the claimed partition. Replay: python3 /workspace/reproductions/binary16_logistic.py. The supplied verify.py was inspected, not run.",
+      "residual_risks": [
+        "Exact for the nonuniform binary16 mesh including subnormals, signed zeros merged and 1 included. Intermediate rounding, other parameters/formats or finite pseudorandom implementations need not have this graph.",
+        "A positive path of length at most 23 is not a bound on the random hitting time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uniform-grid classification covers G_N={j/N:0<=j<=N} for 2<=N<=65536, allowing the second class iff 4 divides N. Its limitations expressly exclude an IEEE half-precision inference.",
+          "The 2023 article's Bernoulli-map collapse concerns a different map; its logistic results concern numerical bifurcation behavior."
+        ],
+        "reasoning": "A range of denominators is not a range of floating-point state sets. Taking a nonuniform subset of a uniform grid changes the available adjacent outputs and can change its recurrent classes. A real conjugacy to doubling does not identify rounded transitions.",
+        "searches": [
+          "Resultary dec78d4aa53f, exact absorbing-class phase diagram on 16-bit uniform grids; its cited IEICE DOI 10.1587/transfun.E94.A.1817",
+          "Klöwer et al. 2023 generalized Bernoulli model and logistic experiments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Klöwer et al. 2023, DOI 10.1038/s41598-023-37004-4",
+        "Resultary dec78d4aa53f and 35a3ca4a276d full-result passages",
+        "IEICE DOI 10.1587/transfun.E94.A.1817, reference and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearest rounding selects one of the positive-support outputs, so its cycles need not be closed in the stochastic graph. Even endpoints that are common fixed points do not exclude other recurrent classes.",
+          "The uniform-grid support is given by floor and ceiling of Ny, which are not the bracket calculation on a variable binary16 mesh."
+        ],
+        "reasoning": "Finite-chain absorption is standard given reachability, but the earlier computations do not supply the necessary reachability for this support or the exact outcome classes.",
+        "searches": [
+          "Read Findings/Assumptions and compare graph definitions in Results dec78d4aa53f, 35a3ca4a276d; Klöwer et al. pp. 3–4 and Bernoulli collapse discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected original article gives the distance-weighted rule and a logistic-map study with this polynomial (general r), with Figure 1 showing numerical bifurcations and improvements with stochastic rounding.",
+          "The inspected Resultary deterministic binary16 record explicitly uses round-to-nearest, ties-to-even."
+        ],
+        "reasoning": "Positive support is a one- or two-target relation, not the nearest-rounding functional graph. Similar finite-run behavior and the same rounding distribution per operation do not imply identical infinite-horizon classes under a stipulated operation order.",
+        "searches": [
+          "Resultary searches for binary16 logistic stochastic rounding and absorbing classes; exact-real polynomial followed by one unbiased rounding",
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4, Eq. (3), Eq. (4) and logistic bifurcations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "35a3ca4a276d uses the same 15,361 values and 4x(1-x), but the nearest-rounded single-final evaluation has periods 1,1,5 and different basin counts.",
+          "dec78d4aa53f uses the same stochastic convention with different grids, and classifies sinks and stationary laws there, not the binary16 census."
+        ],
+        "reasoning": "Neither inspected exact entry has the matching state set AND transition rule. Neither provides the frozen reachability partition or SCC counts.",
+        "searches": [
+          "Resultary binary16 stochastic logistic r=4 recurrent classes and exact graph census",
+          "Resultary 35a3ca4a276d and dec78d4aa53f Findings and scopes"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exhaustive recurrent-class and basin-reachability classification of the nonuniform IEEE binary16 chain with exact polynomial evaluation then ideal stochastic rounding once. Inspected logistic-map experiments, the uniform-grid stochastic classification, and the deterministic binary16 census do not give this classification. This is an assessment on the checked evidence, not a claim of priority or a general theorem about stochastic rounding.",
+      "residual_risks": [
+        "2011 integer-map full text was not available via the attempted lawful route; the 2022 Research Square preprint URL looped and was not used independently of the inspected journal version.",
+        "Equivalent unindexed graph computations or a stronger general result may exist; inspection does not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivating finite-run measurements; no matching graph theorem in inspected logistic results",
+          "evidence": "The article describes denser simulated bifurcation diagrams under stochastic rounding; the explicit collapse discussion concerns the Bernoulli map. It does not establish the infinite-horizon classes of the frozen arithmetic model.",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-023-37004-4",
+          "material_read": "pp. 3–4, offsets 17100–25047, stochastic rounding Eq. (3), logistic Eq. (4), Figure 1 and discussion, generalized Bernoulli definition; collapse passages located on pp. 4–5",
+          "method": "OA PDF literal location followed by bounded passage reading",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Same logistic polynomial with low-precision stochastic rounding"
+        },
+        {
+          "assessment": "Related but not covering; uniform rational mesh",
+          "evidence": "G_N consists of all j/N; it is explicitly not IEEE half precision and makes no inference about it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-absorbing-class-phase-diagram-for-stochastically-rounde--dec78d4aa53f/RESULT.md",
+          "material_read": "Finding, assumptions and support formula (offsets 0–2316), comparison and limitations (6739–8339), reference [3] (8325 onward)",
+          "method": "Resultary search and local-mirror primary passage reading",
+          "title": "An exact absorbing-class phase diagram for stochastically rounded logistic dynamics on 16-bit uniform grids",
+          "trigger": "Same exact r=4 stochastic step and absorbing class question"
+        },
+        {
+          "assessment": "Different transition graph; deterministic R, not ideal stochastic rounding",
+          "evidence": "Its one-step exact evaluation F selects only the nearest value and has a 5-cycle in addition to both fixed points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d/RESULT.md",
+          "material_read": "Finding, arithmetic assumptions and encoding (offsets 0–2207)",
+          "method": "Resultary search and local-mirror primary passage reading",
+          "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation",
+          "trigger": "Same state set and logistic polynomial, exact graph census"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of either coverage or noncoverage",
+          "evidence": "Bibliographic information identifies logistic maps over integers; the precise rounding and scope were not established from the text.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.E94.A.1817",
+          "material_read": "Bibliographic title and reference only; no primary full-text passage retrieved",
+          "method": "Followed identified J-STAGE route; PDF request led to a login page, which was not bypassed",
+          "title": "Rounding logistic maps over integers and the properties of the generated sequences",
+          "trigger": "Relevant 2011 reference found in the uniform-grid record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact graph certificate",
+        "Klöwer et al. 2023, logistic bifurcation results and Figure 1"
+      ],
+      "rationale": "This is a complete natural-format support census motivated by the distinction between numerical recovery of finite-time chaotic behavior and the true infinite-horizon law. The two sinks and the exact mixed-outcome partition quantify that failure of indefinite nonperiodicity, even without deterministic rounding or a finite random-number period. They also distinguish near-universal certain fixation at zero from the blanket claim that every start fixes at zero.",
+      "residual_risks": [
+        "No informative practical hitting-time scale or individual mixed-state probabilities were computed; no implication for the exact experimental software or other precision levels is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

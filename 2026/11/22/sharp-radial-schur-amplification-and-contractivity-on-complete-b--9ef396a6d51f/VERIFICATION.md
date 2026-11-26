@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The main proof consists of two matching certificates. In the supercritical regime, \(z=2(abT^2-1)/(2abT+a+b)\) gives positive matrices \(P\pm M\), with the nontrivial determinant reduced identically to zero; this proves the operator and completely bounded upper bound \(1+z\). The unit vector with partwise coordinate squares \(\alpha=(bT+1)/(2abT+a+b)\) and \(\beta=(aT+1)/(2abT+a+b)\) yields a two-dimensional residual discriminant exactly \(T^2\), and hence an attained trace-norm lower bound \(1+z\). These are exhaustive algebraic and operator arguments for all dimensions and all real \(t\).
+## correctness
 
-The standalone standard-library script `VERIFY.py` passed with output:
+PASS
 
-```
-BICLIQUE_EXACT_IDENTITIES_OK 909454
-```
+Sign change is postcomposition by the diagonal unitary conjugation. PSD of the Hermitian symbol is equivalent to T√(ab)≤1 on the two normalized part means; the other eigenvalues are one. A PSD symbol gives a unital CP map; the strict supercritical lower bound proves noncontractivity, and positivity itself would require a PSD symbol by testing the all-ones positive matrix. For z=2(abT²−1)/D, D=2abT+a+b, the positive difference is zww* and the plus certificate determinant is 4−4abT²+2Dz=0, with positive diagonal. Their CP norms add to 1+z. The stated α,β satisfy aα+bβ=1. Multiplying the witness discriminant by D² reduces the identity to D²=(a−b)²+4ab(bT+1)(aT+1). The two remaining eigenvalues have opposite signs and sum of magnitudes T. Thus the trace norm is 1+T−α−β=1+z, attained on the sign contraction. For two infinite parts, diagonal expectation plus t/2 times the difference of identity and the part-sign conjugation gives a normal cb upper bound 1+T, and increasing balanced finite corners give the ordinary lower bound tending to 1+T. This includes T=0. The frozen rational code was inspected, not executed; these identities prove all dimensions and real weights.
 
-The script checks rational positive-order, normalization, discriminant, witness, idempotent-boundary and supplementary parameter identities over explicit finite ranges. The countably infinite conclusion is proved analytically by a diagonal conditional expectation and a pair of unitary conjugation maps, together with finite-corner exhaustion; no extrapolation from the script is used.
+## originality
 
-Literature comparison covers the established unweighted projection \(T=1\), the singleton-class weighted star, and the general positive-order Schur multiplier theorem. It does not certify global priority against every possible older equivalent matrix-norm formula. No independent audit has been performed.
+PASS
+
+The supported distinct finding is the supercritical sharp closed-form evaluation with two unequal finite parts of size at least two and variable real weight. The known T=1 projection, the singleton family, and general Schur norm principles are not original claims. The balanced case and two-infinite-parts corollary also admit immediate symmetry calculations and carry no separate novelty credit.
+
+## value
+
+PASS
+
+For a natural diagonal-preserving bipartite filter with unequal parts, the exact operator-space amplification tells how attenuation above the positivity threshold propagates under arbitrary matrix amplification. The equality between the attainable ordinary witness and cb upper bound across the unequal-size regime is not a fixed endpoint evaluation or a transitive trace formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

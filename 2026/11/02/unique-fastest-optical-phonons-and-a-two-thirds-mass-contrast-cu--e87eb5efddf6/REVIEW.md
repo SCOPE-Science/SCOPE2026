@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact diagonalization of the diatomic mass-weighted Bloch matrix and the identity \((4|v_+|/(a\Omega))^2=(1-u)(1-c^2/u^2)\) reduce global optimization to one strictly monotone cubic numerator. The endpoint signs, sound-speed comparison, and an implicit-function expansion yield uniqueness, the strict bound, and the two-thirds cusp for every specified contrast. The companion script gives 523 diagnostics; no numerical finite sample substitutes for the proof.
+## correctness
 
-**Originality: PASS on examined evidence, with residual historical-priority uncertainty.** Standard diatomic dispersion and group-velocity differentiation are antecedents. The full 2008 Dhar–Saito preprint concerns current scaling, and does not derive a maximizer or singular mass-contrast law. Qin's 2015 abstract concerns nonlinear wave-train existence, and Faver–Wright's inspected opening sections concern solitary waves. Targeted indexed-record and public-literature searches did not find an equivalent theorem; they do not prove absence from all sources. Qin's original text and other archived phonon references remain uninspected priority risks.
+PASS
 
-**Value: PASS.** The maximizer is a natural, physically interpretable spectral transport scale. The exact cubic, uniqueness, sharp acoustic normalization, and unexpectedly fractional-power singularity quantify the interaction of an optical band edge with the vanishing band gap. These global and asymptotic statements are more informative than the familiar formula for two dispersion branches, without claiming thermal-conduction consequences.
+The uniqueness is on the reduced half-zone [0, π] and is for the speed magnitude, not its signed value. Diagonalizing the mass-weighted Bloch matrix gives ω₊²=Ω²(1+u). Eliminating q from its derivative gives (4|v₊|/(aΩ))²=(1−u)(1−c²/u²), with u decreasing bijectively from 1 to c. Its derivative has the sign of 2c²−c²u−u³, strictly decreasing from positive to negative at the endpoints. This proves the unique interior optimum and its formulas. The acoustic slope is aΩ√(1−c²)/(2√2), and (1−u)(1−c²/u²)<1−c² proves the strict ratio bound. With t=c^(2/3), the cubic becomes y³+ty=2 for y=u/t. The edge shift is 2u+O(t²) and the speed deficit is (u+c²/u²)/2+O(t²), giving all stated coefficients and sharpness of the limiting ratio. A fresh numerical check, replayable by bisecting the cubic on [c,1] and computing the edge shift as 2 asin(√((u²−c²)/(1−c²))), gives scaled values 1.259921038, 2.519842038 and 0.944940790 at c=10⁻¹¹. That check is corroboration, not the uniqueness proof.
 
-**Limitations:** Infinite, homogeneous-spring, unpinned harmonic lattice; unequal positive masses. No claims for nonlinearity, damping, finite samples or experimental heat flow; no proof of absolute historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit standard diatomic dispersion and group velocity as existing input. The supported distinct contribution is the global optical-speed optimizer together with its singular equal-mass asymptotics and sharp acoustic-normalized bound. The closest inspected transport, phase-resonance and defect-mode results do not give this combination. This is a bounded best-of-knowledge comparison, not a historical-priority determination.
+
+## value
+
+PASS
+
+The meaningful result is not a rederivation of the standard dispersion or just a stationary cubic. It resolves how the fastest optical mode approaches the band-folding degeneracy, quantifying both the wavenumber boundary scale and the speed deficit with leading coefficients. The comparison to sound speed provides a sharp scale independent of mass contrast for this natural propagation observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

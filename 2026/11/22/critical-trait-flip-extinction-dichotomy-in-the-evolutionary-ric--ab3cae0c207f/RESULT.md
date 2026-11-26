@@ -14,11 +14,11 @@ For every \(0<s<2\), all such trajectories satisfy
 \]
 Here and below, \(C\in\mathbb R\) depends on the initial state and parameters.
 
-At the exact boundary \(s=2\), the (conditionally convergent) alternating amplitude
+At the exact boundary \(s=2\), the alternating amplitude
 \[
 A=y_0-2\sum_{j=0}^{\infty}(-1)^j x_j \tag{3}
 \]
-exists for **every** real initial trait. There are exactly two alternatives:
+exists for **every** real initial trait. Its defining series is absolutely convergent when \(A\ne0\) and conditionally convergent when \(A=0\). There are exactly two alternatives:
 
 * If \(A\ne0\), then \((-1)^n y_n\to A\) and a constant \(K\in(0,\infty)\) exists such that
 \[
@@ -90,11 +90,11 @@ Since \(x_n\asymp1/n\), (9) implies \(p_n=O(1/n)\), so \(y_n=x_n+O(x_n^2)\). In 
 \[
 b_n=-2x_n^2+O(x_n^3). \tag{10}
 \]
-The asymptotic sum \(\sum_{j\ge0}(n+2j)^{-3}\sim1/(4n^2)\) in (9) therefore yields \(np_n\to1/2\), equivalently \(n^2(y_n-x_n)\to1/2\). Finally \(y_n=x_n+O(x_n^2)\) reproduces exactly the summable reciprocal increment of Step 2, proving the finite logarithmically renormalized limit in (5). This completes all alternatives. \(\square\)
+The asymptotic sum \(\sum_{j\ge0}(n+2j)^{-3}\sim1/(4n^2)\) in (9) therefore yields \(np_n\to1/2\), equivalently \(n^2(y_n-x_n)\to1/2\). Finally \(y_n=x_n+O(x_n^2)\) reproduces exactly the summable reciprocal increment of Step 2, proving the finite logarithmically renormalized limit in (5). In this branch \(x_n\sim1/n\), so the alternating amplitude series converges only conditionally. In the nonzero-amplitude branch its absolute convergence follows from the geometric bound in Step 4. \(\square\)
 
 ## Verification
 
-The accompanying `check.py` verifies finite-step identities and reciprocal estimates with independently generated trajectories, checks the two-step mismatch equation (8), and tests the strict alternating bounds and amplitude sign bracket. It is a diagnostic only; the infinite-time proof is in the preceding analytical steps. The exact symbolic transformations in (6)–(10), summability estimates and intermediate-value argument provide the mathematical justification.
+The accompanying `check.py` tests finite-step identities and reciprocal estimates on sample trajectories, including the two-step mismatch equation (8) and a finite-time approximation of the amplitude sign bracket. It is a diagnostic only. The strict alternating-tail bounds and infinite-time conclusions follow from the analytical argument above.
 
 ## Relationship to prior work
 

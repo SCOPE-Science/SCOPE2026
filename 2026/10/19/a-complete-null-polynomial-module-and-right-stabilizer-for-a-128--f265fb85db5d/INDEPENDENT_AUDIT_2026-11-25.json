@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:55.079414Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Exact rank and algebraic arguments, not formal proof-assistant verification. The result classifies constant right multipliers, not the full polynomial right idealizer.",
+      "rationale": "The seven displayed relations evaluate to zero by the pair multiplication law and the identities for t(r), t(r)^2, t(r)^3. Their distinct leading-coefficient directions give a free basis for their span and reduce arbitrary degrees to the stated thirty normal monomials. The specified 30 by 30 minor was reconstructed using explicit binary matrices and has exact F2-rank 30. There is also a short independent check: write any normal form as F(t)+xH(t), using the monic basis t^j, x t^j for central polynomials. Comparing evaluation at r and r+1 separates F from H since t(r+1)=t(r). For either separated part, r=0 kills its constant coefficient; r=(0,I) kills the triangular part of its t coefficient; r=(E12,0) kills the remaining t coefficient, which is supported in the first column of the upper-right block; r=(E12,E21) has t(r)^2=(0,I), so kills the remaining t^2 coefficient, supported in the triangular block. The two coupled relations have entry gcd t^2 and determinant t^6, giving factors t^2,t^4; the other five relations are diagonal. The resulting exponents sum to 15 and deg(t)=2, giving 2^30 functions. The first six generators stay null after any constant right multiplier. The seventh, g, has product class (a+d)U11 t^3 for a multiplier with diagonal entries a,d; U11 t^3 represents the nonzero normal form U12 t^2. This gives 64 stabilizing constants. Degree at most five uses only the four low-degree generators, which are stable under constants and hence, by centrality, under arbitrary polynomials. g U11 supplies the failure in degree six.",
+      "replay_paths": [
+        "/workspace/branches/e86c8536-8291-4c38-b3ba-d2819937d5d1/rank_repro.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Structural rings are defined by allowed matrix positions; Remark 2.2 explains that equal diagonal blocks are not a structural matrix-ring constraint."
+        ],
+        "reasoning": "The positive ideal theorem for structural matrix rings does not specialize to this equality-constrained block ring. The finite-ring conjecture discussed in the counterexample paper also supplies no quantitative invariants.",
+        "searches": [
+          "arXiv:2608.13242, abstract and structural ring definition",
+          "arXiv:2608.13251, introduction and Remark 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bounded searches on the example, invariants and stabilizer",
+        "arXiv:2608.13251",
+        "arXiv:2608.13242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper gives g and one failing right multiplier P, which gives an upper bound of six on the least failure degree, not a lower bound."
+        ],
+        "reasoning": "One witness cannot imply that all smaller null polynomials are right-stable, characterize every multiplier, or give the invariant factors of the evaluation kernel. Those require the additional completeness and product calculations.",
+        "searches": [
+          "arXiv:2608.13251, Theorem 2.1 proof and explicit failure evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the same pair ring, Havlovec's P and Q are U11 and U12. His Qx^2+Px^3+(P+Q)x^4+Px^5+Px^6 is exactly U12 t^2+U11 t^3 in characteristic two."
+        ],
+        "reasoning": "Change of notation eliminates any apparent novelty in the witness or the example. The original result does not specify a presentation of the kernel or an exact right-stabilizer.",
+        "searches": [
+          "Resultary: exact title and 128-element binary block ring",
+          "arXiv:2608.13251, Theorem 2.1 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither bounded catalogue query surfaced an exact module, invariant-factor list, function count or stabilizer for this ring. The exact example located in arXiv:2608.13251 has no such table in the inspected material."
+        ],
+        "reasoning": "A catalogue miss is not evidence of absence. No exact table coverage was established by the available comparison.",
+        "searches": [
+          "Resultary: exact ring, null-polynomial module and invariant factors",
+          "Resultary: right-stabilizer and degree threshold"
+        ]
+      },
+      "rationale": "The ring, failure of the right-ideal property and degree-six witness are already in Havlovec and receive no novelty credit. The complete module, invariant factors and exact function count, constant right-stabilizer, and exclusion of all smaller failure degrees are supported distinct additions on the evidence inspected.",
+      "residual_risks": [
+        "The primary search attempt did not start; the literature comparison rests on targeted full text and bounded catalogue searches, not an exhaustive search for independently computed invariants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage: same ring, polynomial and failure; not the supported additions",
+          "evidence": "Main proof offsets 4073–7533 give the identical expanded polynomial; failure evaluation from offset 8200; Remark 2.2 from offset 8941 states why the ring is not structural.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13251",
+          "material_read": "Introduction p. 1; Theorem 2.1 and proof pp. 2–4; Remark 2.2 p. 4",
+          "method": "OA full-text passages located and read by offset",
+          "title": "Null polynomials over a finite ring need not form a two-sided ideal",
+          "trigger": "Same ring and alleged antecedent of the degree-six obstruction"
+        },
+        {
+          "assessment": "Definition excludes constraints equating diagonal blocks",
+          "evidence": "Offsets 770–929 and 6025–9165: theorem context and permitted-position definition.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13242",
+          "material_read": "Abstract p. 1 and structural matrix-ring definitions p. 2",
+          "method": "OA full-text passages",
+          "title": "Integer-valued polynomials over structural matrix rings",
+          "trigger": "Possible broader positive theorem for patterned matrix algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the motivated counterexample ring from a finite-ring null-polynomial problem. Its full evaluation kernel gives an exact basis and function count in all polynomial degrees; the stabilizer identifies precisely which constants preserve it, and the least degree distinguishes the known witness from all lower-degree possibilities. These strengthen understanding of the counterexample rather than merely replaying it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

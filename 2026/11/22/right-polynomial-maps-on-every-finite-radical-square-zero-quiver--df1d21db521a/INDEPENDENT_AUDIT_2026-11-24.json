@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:45:49.065253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–53,69",
+        "VERIFICATION.md:19–28",
+        "CHECKER.py:9–119"
+      ],
+      "rationale": "In b^d at most one radical factor survives. On arrow a:i→j this yields y_a times the geometric sum in its two endpoint values, which evaluates the divided difference for the source polynomial, including f_i' when the endpoint values coincide. An arrow coefficient on the left is multiplied only by the target diagonal. Thus zero-arrow inputs force all vertex and arrow value functions to vanish; varying a single arrow with equal endpoint values forces the source derivative to vanish at every field element. Unequal-value differences already vanish. Since H=X^q−X is split with simple roots (H'=−1), the stated H or H² divisibilities are necessary and sufficient. Peirce multiplication preserves the resulting two-sided ideal. Hermite interpolation at all field elements gives independent value and emitting-vertex derivative functions and independent target offsets, proving the function count over every prime power. A bijection induces a bijection on the equal-size diagonal fibers, and on each fiber it is diagonal affine on the arrows. Once every vertex value function is a permutation, unequal endpoint differences are nonzero automatically; the remaining requirement is precisely nonzero emitting-vertex derivatives. This gives the permutation formula. For a nonloop, (e_i b)^2 has source value s² and arrow multiplier s at b=se_i+te_j+ya, inconsistent with the required multiplier s+t at (s,t)=(0,1) as y varies. Hence it is not any right-polynomial function. All-loop algebras are commutative and ordinary substitution proves closure. This concerns the full function set, not a universal closure statement for the bijections. The supplied checker was inspected, not run; its prime-field examples do not replace the argument.",
+      "residual_risks": [
+        "No assumption about characteristic or vertex connectedness was needed. The proof uses radical square zero and does not address arbitrary finite rings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Werner gives two-sidedness of the null ideal already when radical nilpotency is at most three. Frisch gives right-null criteria for full triangular matrix algebras. Al-Maktry–El-Deken give null and permutation criteria for central square-zero variables."
+        ],
+        "reasoning": "The stronger Werner result directly covers two-sidedness. Triangular- and central-component conditions can be used on quotients, but the checked prior permutation theorem for central variables does not directly apply to a noncentral arrow. The frozen census needs the actual simultaneous effect of all the arrow conditions.",
+        "searches": [
+          "Werner arXiv:2608.25853, abstract/introduction",
+          "Frisch arXiv:1605.06027v2, Remark 1.6, Theorems 4.2 and 5.2",
+          "Al-Maktry–El-Deken arXiv:2409.10208, §§2,4,5"
+        ]
+      },
+      "checked_sources": [
+        "Frisch arXiv:1605.06027v2",
+        "Werner arXiv:2608.25853",
+        "Al-Maktry–El-Deken arXiv:2409.10208",
+        "Resultary df1d21db521a, 24446a4eca8e, 43a9e317850f, 55470d91a5dd, adcd520f51ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For UT_2(k), Frisch's right-null matrix uses the scalar null polynomials on UT_2(k) for the first diagonal and scalar null polynomials on k for the second diagonal and off-diagonal. These scalar null ideals are (H²) and (H) respectively, as is seen from scalar and two-by-two Jordan inputs and split degree-two characteristic polynomials. The same one-loop null test is covered by the central extension results. Remark 2.9 uses f(x)=x², g(x)=ax with a diagonal matrix unit and the same type of input in M_2(F_2), but only shows that the natural formal composite does not represent the function."
+        ],
+        "reasoning": "Pulling back the component null conditions and intersecting reproduces the exact all-quiver kernel and hence its function-space cardinality. The prior mismatch of formal substitution and function composition does not show that the composite is outside the full polynomial-function set; that requires ruling out every polynomial via the endpoint multiplier constraint, which also holds in characteristic two. Checking bijections on separating finite quotient maps is legitimate (surjectivity descends, joint injectivity ascends), but counting them requires enforcing compatible source permutations and independently nonzero diagonal derivative data. The checked stated central-component permutation result does not perform this test for the noncentral arrow quotients or give the resulting common-source census.",
+        "searches": [
+          "Frisch arXiv:1605.06027v2, Remark 1.6, right-evaluation matrix of conditions",
+          "Al-Maktry–El-Deken arXiv:2409.10208, Remark 2.9 at offset 25830 and Theorem 5.4",
+          "Werner arXiv:2608.25853, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A nonloop arrow gives the quotient retaining its two endpoint diagonals and its arrow, isomorphic to UT_2(k); a loop gives a dual-number quotient, and uncovered vertices give fields. These maps separate elements. In the all-loop case the ring is actually a direct product of centrally adjoined square-zero loop components and fields."
+        ],
+        "reasoning": "For null evaluation the inverse images of the quotient null conditions can be intersected exactly. For counts of functions and permutations a subdirect embedding is not a product decomposition: vertex values and derivatives appearing in several quotient tests must come from the same polynomial data. The all-loop direct-product case is already covered by multiplying the component counts.",
+        "searches": [
+          "Frisch arXiv:1605.06027v2, Remark 1.6 and Theorem 5.2",
+          "Al-Maktry–El-Deken arXiv:2409.10208, Theorems 4.4 and 5.4",
+          "RESULT.md:29–53, tested against elementary arrow quotients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first hit is the identical frozen statement, not separate coverage. The other radical-square-zero quiver records count annihilator dimensions, principal-ideal dimensions, or ordered annihilating ideal pairs. The same-day cubic-jet record counts algebra endomorphisms with a substitution constraint."
+        ],
+        "reasoning": "These are different exact invariants or different maps. Neither having the same algebras nor having square-zero conditions makes their associated counts equivalent to functions obtained by left-coefficient right evaluation.",
+        "searches": [
+          "Resultary local mirror df1d21db521a, 24446a4eca8e, 43a9e317850f, 55470d91a5dd, adcd520f51ed"
+        ]
+      },
+      "rationale": "The two-sidedness theorem and componentwise dual-number classification already cover substantial parts. The triangular null criteria also recover the global kernel by intersecting inverse images under elementary arrow quotients, and the total map count then follows, so these are not independent novelty claims. The distinct whole-quiver contribution is the simultaneous bijection criterion and census with shared vertex data, and the sharp nonrepresentability boundary for compositions of actual functions. The strongest checked composition predecessor uses the same ansatz for a different and weaker conclusion, not nonrepresentability by every polynomial. No checked statement or mechanical specialization supplies the complete classification with these conclusions.",
+      "residual_risks": [
+        "The separate 2023 dual-number primary text was not inspected; the 2024 paper already suffices to credit the all-loop case. Literature coverage is bounded, not an exclusive priority assertion. Kernel extraction from prior triangular and central criteria is a genuine prior implication, not just similarity in wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage of two-sidedness",
+          "evidence": [
+            "Uses right evaluation and gives a two-sided null ideal when the Jacobson radical has nilpotency at most three."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.25853",
+          "material_read": "p. 1 abstract and introduction, offsets approximately 650–2915",
+          "method": "OA full-text passage",
+          "title": "Some Results on Null Ideals of Finite Rings",
+          "trigger": "Prior null-ideal statement for low radical nilpotency"
+        },
+        {
+          "assessment": "Triangular kernel criteria and a mechanical route to the frozen null ideal; not the full census and composition result",
+          "evidence": [
+            "Remark 1.6 lists the right-evaluation matrix of scalar entry conditions, whose first diagonal at n=2 is the triangular-matrix scalar null criterion; the other two entries use the base ring. Theorem 5.2 states two-sidedness for triangular null ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.06027v2",
+          "material_read": "Abstract/introduction, pp. 1–2; Remark 1.6 on p. 4 at offset 10250, and Theorem 5.2 at offset 38832",
+          "method": "OA full-text passages",
+          "title": "Polynomial Functions on Upper Triangular Matrix Algebras",
+          "trigger": "Each nonloop arrow yields an exact full triangular quotient"
+        },
+        {
+          "assessment": "All-loop special case covered; composition witness overlap but weaker conclusion",
+          "evidence": [
+            "Extension generators in the null and permutation theorems are central. Remark 2.9 gives an M_2(F_2) example where formal substitution fails to express the function composition, without proving that no alternative polynomial can express it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.10208",
+          "material_read": "p. 1 abstract, Remark 2.9 at offset 25830, Theorem 4.4, Corollaries 4.7–4.8 and Proposition 4.10, Theorem 5.4, and earlier-work discussion at offset about 11000",
+          "method": "OA full-text passages",
+          "title": "Polynomial Functions on a Class of Finite Non-Commutative Rings",
+          "trigger": "Right evaluation on square-zero extensions and adjacent composition result"
+        },
+        {
+          "assessment": "Relevant all-loop overlap; precise earlier wording not assessed",
+          "evidence": [
+            "Follow-up compares its Theorems 4.4 and 5.4 with Theorems 3.4 and 4.1 of this paper, involving f and its formal derivative."
+          ],
+          "identifier_or_url": "J. Algebra Appl. 22(11) (2023), 2350231",
+          "material_read": "Indirect: arXiv:2409.10208, p. 3 near offset 11000 and its reference [3] near offset 126000; 2023 primary text not read",
+          "method": "Explicit theorem-to-theorem comparison in the accessible follow-up",
+          "title": "Polynomial Functions over Dual Numbers of Several Variables",
+          "trigger": "Earlier derivative-based polynomial-permutation theory for dual numbers"
+        },
+        {
+          "assessment": "Different exact counted objects",
+          "evidence": [
+            "These classify right-annihilator dimensions, left/right principal-ideal dimensions, or pairs of ideals with zero product, respectively."
+          ],
+          "identifier_or_url": "Resultary 24446a4eca8e, 43a9e317850f, 55470d91a5dd",
+          "material_read": "RESULT.md Finding offsets approximately 350, 300, 250, respectively",
+          "method": "Local Resultary mirror",
+          "title": "Right-annihilator spectra; joint principal-ideal dimension spectrum; ordered annihilating ideal-pair census",
+          "trigger": "Exact finite-field censuses on the same quiver algebras"
+        },
+        {
+          "assessment": "Different algebra and type of map",
+          "evidence": [
+            "The objects are unital algebra endomorphisms of a cubic-jet algebra with a condition on a square, not right-polynomial functions on quiver algebras."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/adcd520f51ed",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Rank Gaps and Finite-Field Spectra of Square-Zero Cubic-Jet Substitutions",
+          "trigger": "Same-day square-zero polynomial/substitution terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:19–25,29–53,59–69",
+        "Al-Maktry–El-Deken arXiv:2409.10208, Remark 2.9 and Theorem 5.4"
+      ],
+      "rationale": "The classifier makes the effect of arrow orientation and shared sources on otherwise noncommutative polynomial functions explicit. In particular, the exact permutation criterion handles parallel arrows, loops and cycles simultaneously, and the function-level nonclosure test is strictly stronger than failure of the naive law for composing formal polynomials. Both are useful across a natural class; they are not obtained by just multiplying independent per-arrow counts. The known two-sidedness and the kernel-derived total count alone would not establish this value.",
+      "residual_risks": [
+        "The sharp closure theorem is for all right-polynomial functions, not a classification of when the bijective subset forms a group."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

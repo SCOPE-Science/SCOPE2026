@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:13:49.768719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63; VERIFICATION.md, the supplied checks and both CSV tables inspected as evidence without executing uploaded code",
+        "Independent exhaustive replay: /workspace/branches/4b0107ef-c620-41e0-b3c9-b7f3fb67dfec/independent_replay.py and replay.txt; all 131,072 graph/white-set cases and all 632 labeled minimal-fort rows"
+      ],
+      "rationale": "A nonempty terminal white set is a skew fort. Conversely no vertex of a fort can be the first forced within that fort, since any witness adjacent to it has at least two neighbors there while it remains white. Thus the obstruction test is equivalent to failure even for arbitrary legal forcing order. Simultaneously detected distinct targets can be removed sequentially: removing a different white vertex cannot destroy a previously unique white neighbor, and the color of its witness is unrestricted. The independent replay checked all 65,536 white subsets of each independently constructed graph, confirmed degree six and two common neighbors for each distinct pair, and matched all coefficients, the forcing/containment equivalence, and every supplied labeled minimal-fort row. Both graphs give 4032,3648,1760,560,120,16,1 in blue degrees 10–16 and zero below. Both have 60 minimal forts of size four, 256 of size six and none of other sizes. The four-vertex induced degree signatures are uniquely those of 4K₁, C₄ and K₃ plus an isolate; the respective counts are (16,12,32) for Shrikhande and (24,36,0) for rook. The distinction is induced geometry, not a claim about abstract isomorphism of fort hypergraphs.",
+      "residual_risks": [
+        "The exhaustive check establishes the two finite cases; it is not a general strongly regular graph theorem and it does not classify the induced types of the six-vertex forts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Substituting p=q=4 in the rectangular-rook formula pq−p−q+2−1_{q=p+1} proves only Z⁻(R)=10 for this finding. The broader 406ca8b4ece6 classification explicitly imposes the fort condition only on vertices outside F."
+        ],
+        "reasoning": "The ordinary classification includes minimal forts with internal degree one: for example its spanning-star-forest family on the incidence board includes (0,0),(0,1),(1,2),(2,2),(3,3), two disjoint induced edges and an isolate in the rook graph. That is inadmissible as a skew fort. Ordinary inclusion-minimality therefore cannot be substituted for the skew classification.",
+        "searches": [
+          "Resultary 13948cc3f404, Grundy total domination of rectangular rook graphs",
+          "Resultary 406ca8b4ece6, general minimal forts of rook graphs",
+          "Brešar et al., arXiv:1712.08780v1, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Abiad et al. Proposition 3.6",
+        "Brešar et al. arXiv:1712.08780v1, pp. 1,3",
+        "Five Resultary entries identified above; unresolved ordinary cross-reference and inaccessible early skew sources not treated as negative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general identity γ_gr^t=|V|−Z⁻ plus the rook theorem already determines the rook optimum. Neither that optimum nor the same parameters (16,6,2,2) state the coefficients, and the prior ordinary/PSD comparisons have different outcomes under their own rules."
+        ],
+        "reasoning": "Knowing the first occupied degree does not determine even its coefficient, let alone all coefficients or the minimal obstructions and their induced types. The full coefficient equality and opposing geometry are a distinct inference from the exhaustive set-level computation.",
+        "searches": [
+          "Brešar et al., arXiv:1712.08780v1, complement identity for the extremal quantities",
+          "Abiad et al., Proposition 3.6",
+          "Resultary 13948cc3f404 and 406ca8b4ece6 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match is the assigned record. Abiad et al. give PSD numbers 10 for rook and 9 for Shrikhande, not skew coefficients; the exact ordinary coefficients in degrees 10 and 11 also differ by independent replay.",
+          "The obstruction characterization gives an equivalent enumeration by complements avoiding inclusion-minimal skew forts."
+        ],
+        "reasoning": "Skew witnesses may have either color and the fort test applies to every vertex. Ordinary and PSD rules produce different invariants. Optimizing the equivalent Grundy parameter gives only the first nonzero degree, not the distribution over all set sizes or induced geometry.",
+        "searches": [
+          "Resultary: skew zero forcing polynomial, minimal skew forts in the rook/lattice and Shrikhande graphs",
+          "Abiad et al., §3 Proposition 3.6; Brešar et al. arXiv:1712.08780v1, Grundy total domination identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct cited catalogue tables deal with ordinary forcing or ordinary forts. Their exact definitions were checked. The assigned result's brief earlier ordinary-census identifier could not be resolved independently; the replay separately reproduced the reported ordinary tenth- and eleventh-degree numbers."
+        ],
+        "reasoning": "No independent exact skew table is established by the checked passages; an unavailable query is not evidence against the existence of one. The same indexed record does not establish prior coverage.",
+        "searches": [
+          "Resultary c06bb7289e67 exact comparison, dd424d573692 ordinary rook polynomial, 10cceec37c9c ordinary rook fort polynomial and 406ca8b4ece6 ordinary minimal-fort table",
+          "Focused primary-literature query for full skew polynomial and smallest skew-fort geometry (provider lookup unavailable)"
+        ]
+      },
+      "rationale": "Pass for the common full skew polynomial and the precise comparison of minimal skew obstructions. The rook minimum is already a consequence of prior Grundy total domination and is not credited as new. Exact same-pair PSD work and ordinary rook-graph tables use different rules; inspected results do not give the stated skew comparison.",
+      "residual_risks": [
+        "The focused primary search was unavailable; the original skew-rule and failed-skew full texts were not inspected. An earlier exact computation outside the inspected passages or index cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same pair, different forcing rule and invariant",
+          "evidence": "Gives PSD numbers 10 for the lattice/rook graph and 9 for Shrikhande.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/6737/5787/11861",
+          "material_read": "§3, Proposition 3.6, PDF p. 5, offset 18872",
+          "method": "Lawful open primary PDF passage",
+          "title": "Constructions of cospectral graphs with different zero forcing numbers",
+          "trigger": "Exact Shrikhande and rook pair under a plausible alternate forcing invariant"
+        },
+        {
+          "assessment": "Credits equivalence for the optimum, not full polynomials or fort geometry",
+          "evidence": "γ_gr^t(G)=|V(G)|−Z⁻(G); the abstract treats Cartesian-product bounds for path and cycle factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.08780v1",
+          "material_read": "Abstract p. 1 and complement identity p. 3, offset 7984",
+          "method": "Lawful open primary PDF passages",
+          "title": "Grundy total domination and zero forcing in graphs",
+          "trigger": "General equivalent extremal formulation could imply part of the finding"
+        },
+        {
+          "assessment": "Rook extremal number already covered; full skew census is not the cited output",
+          "evidence": "The formula yields 16−4−4+2=10 at p=q=4.",
+          "identifier_or_url": "2026/10/25/SCOPE-grundy-total-domination-of-rectangular-rook-graphs-via-incidence--13948cc3f404",
+          "material_read": "Mirrored RESULT.md offsets 0 and 6257",
+          "method": "Local Resultary index and mirror",
+          "title": "Grundy total domination of rectangular rook graphs via incidence",
+          "trigger": "Broader family whose specialization covers the rook optimum"
+        },
+        {
+          "assessment": "Ordinary fort comparison, not an implication for skew forts",
+          "evidence": "The definition expressly quantifies only over vertices outside F; the positive classification labels ordinary inclusion-minimal forts of R_m,n and their generating function.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-forts-of-rook-graphs-star-covers-contracted-forests-and--406ca8b4ece6",
+          "material_read": "Exact mirrored RESULT.md, offsets 0–3136, Finding and assumptions",
+          "method": "Resolved exact indexed identifier and read mirror",
+          "title": "Minimal forts of rook graphs: star covers, contracted forests, and nonspanning cycles",
+          "trigger": "Closest distinct broader minimal-fort classification"
+        },
+        {
+          "assessment": "Ordinary coefficients only",
+          "evidence": "The rule restricts witnesses to blue vertices.",
+          "identifier_or_url": "2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+          "material_read": "Mirrored RESULT.md opening, exact formula and assumptions",
+          "method": "Local Resultary index and mirror",
+          "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+          "trigger": "Possible exact rook coefficient table"
+        },
+        {
+          "assessment": "Ordinary forts, not the skew minimal-obstruction classification",
+          "evidence": "The predicate applies only outside F.",
+          "identifier_or_url": "2026/10/12/SCOPE-fort-polynomial-of-rook-graphs-and-its-degree-five-gap--10cceec37c9c",
+          "material_read": "Mirrored RESULT.md opening and definition",
+          "method": "Local Resultary index and mirror",
+          "title": "Fort polynomial of rook graphs and its degree-five gap",
+          "trigger": "Possible exact obstruction table"
+        },
+        {
+          "assessment": "Same record, no independent priority evidence",
+          "evidence": "Identical coefficients and minimal-fort geometry for the same two graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-identical-skew-zero-forcing-polynomials-different-minimal-fort-g--c06bb7289e67",
+          "material_read": "Indexed Finding checked against the bound original",
+          "method": "Local Resultary index and exact frozen RESULT.md comparison",
+          "title": "Identical skew-zero-forcing polynomials, different minimal-fort geometry for two strongly regular graphs",
+          "trigger": "Exact semantic hit"
+        },
+        {
+          "assessment": "No inference of whole-document noncoverage",
+          "evidence": "The frozen interpretation credits these works for the rule and obstruction context; there is no independently inspected claim in these sources of the present exact census.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2009.10.001 ; https://www.academia.edu/58516479/Failed_skew_zero_forcing_on_a_graph",
+          "material_read": "Bibliographic information and frozen source comparison; relevant full-text passages not independently retrieved",
+          "method": "Bounded lawful source attempts did not return readable full text",
+          "title": "Minimum rank of skew-symmetric matrices described by a graph; Failed skew zero forcing on a graph",
+          "trigger": "Foundational skew rule and failed-skew obstruction sources"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26, 39–55 and 65–73",
+        "Independent coefficient census and labeled-fort comparison",
+        "Abiad et al. Proposition 3.6 and prior rook optimum for comparison"
+      ],
+      "rationale": "These are the canonical same-parameter nonisomorphic (16,6,2,2) graphs, already used to compare forcing variants. The common rank-generating polynomial now demonstrably loses induced minimal-obstruction geometry even when counts at all sizes agree; the triangle-plus-isolate obstructions furnish a specific separation, not just a pair of unexplained coefficient vectors. Full coefficients and labeled forts provide reusable exact benchmarks for skew forcing and fort enumeration, beyond the known rook optimum.",
+      "residual_risks": [
+        "The example does not establish how often this phenomenon occurs among other graph pairs or claim a new general extremal result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

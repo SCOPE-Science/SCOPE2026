@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:30:15.898360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For parabolic-longest idempotents, support of a Demazure product is the union, so if the idempotents commute their product is the parabolic-longest idempotent of the union. If a union component contains both an I-only and a J-only vertex, take a Coxeter element spelled with a path from the J-only vertex to the I-only vertex in that order. Its reduced expressions are connected by commutations alone, since every generator occurs only once and a braid of length at least 3 cannot apply. The oriented path therefore forces the J-only vertex before the I-only vertex. The reduced subword retained in scanning the two longest words would, by the Bruhat subword property, yield an expression for that Coxeter element with the opposite order, a contradiction. Conversely, a component wholly in either subset is absorbed by its own longest element, and distinct components commute. For fixed union, two choices of containing subset give 2·2^|C|−1 assignments per component. The rooted four-state recurrence counts vacant roots, occupied all-common roots, and root components with exactly one exclusive color present. In the path variables u,v with t=2v−u it reduces to (u,v)↦(2v,4v−u), so t has characteristic polynomial x²−4x+2. The branch-addition identities follow by the same recurrence in the second branch size, with bases b=0 and b=1 using (t₁,u₁,v₁)=(4,2,3). Root at a leaf to ensure at most two children in a subcubic tree. This establishes shape invariance, not merely a finite-rank check. Conditioning on the center of K₁,₄ gives 4⁴+4·3⁴−2⁴=564. Classification of the finite irreducible diagrams and direct-product multiplicativity give all stated types and the reducible formula. Frozen verify.py and VERIFICATION.md were inspected without running uploaded code. A fresh bounded check of right-Demazure multiplication in types A₁–A₅ matched every ordered pair, and a Prüfer enumeration matched all labelled subcubic trees through seven vertices; the latter totals by size were 4,14,48,164,560,1912,6528. No independent replay file was supplied for those supplementary finite checks; the frozen replay entry point is python3 verify.py in the record directory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "v3 includes general Coxeter Hecke monoids with finite parabolics and extends the graph-count connection beyond finite type. Its Proposition 3.37(b) gives the frozen graph result verbatim in rank recurrence form.",
+          "The two earlier versions state commutation when supports are nested or weakly orthogonal, then say 'We expect that this exhausts all pairs of commuting idempotents.' The foundational papers give parabolic-longest classification/Demazure formalism, not the pair count."
+        ],
+        "reasoning": "Version timing changes the comparison: exact current coverage must be credited, but the cited earlier versions do not give that broader theorem. Their sufficient cases do not even exhaust commuting pairs: in a five-vertex path, I={1,2,4} and J={2,4,5} are neither nested nor weakly orthogonal because the exclusive vertices neighbor a common vertex, yet each occupied component is contained in one subset.",
+        "searches": [
+          "arXiv:2605.09761v1 and v2 pre-Example 3.5 text",
+          "arXiv:2605.09761v3 Proposition 3.37(b)–(d)",
+          "arXiv:1006.0316 Lemma 4; arXiv:1012.1361 §1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2605.09761v1, v2 and v3; 1006.0316; 1012.1361",
+        "OEIS A007070; Resultary 06ff39bf0d33, 1bd10f020d19 and 9c539e50bc8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier v1/v2 partial criteria and the Catalan path count do not yield the two-branch addition identity. From the later v3 theorem both the exact graph count and the finite irreducible count follow directly, by the equivalence above and its proposition defining c(Γ).",
+          "The frozen proof uses a Bruhat/Coxeter-element obstruction and a two-message recurrence; the v3 proof of the criterion uses parabolic projections and a length criterion. Different proof routes do not make the later statements inequivalent."
+        ],
+        "reasoning": "Separate source chronology from implication. Treat the v3 theorem as exact later coverage, v1/v2's expectation as partial earlier context, and the chain formula as a known special case. The distinct frozen contribution relative to checked earlier sources is the finite diagram criterion and shape invariance across branching trees, not a new closed form for A007070.",
+        "searches": [
+          "arXiv:2605.09761v1/v2 p. 16 before Example 3.5; v3 pp. 19–22 Propositions 3.33 and 3.37",
+          "Resultary 06ff39bf0d33 Finding",
+          "OEIS A007070 entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.33(d) asks that each I-component and J-component be nested or orthogonal. If each union component lies within one side, that side contains the whole component and the other side's components in it are nested. Conversely, take maximal members among the connected I- and J-components. Distinct maximal members of the same side are separated and distinct maximal members across sides must be orthogonal; together they cover the union, hence are its components.",
+          "Resultary 06ff39bf0d33 studies the Catalan quotient using a chain-gap criterion, with equal pair counts at the type-A rank indexing and additional fixed-product fibers."
+        ],
+        "reasoning": "The later Coxeter formulation fully covers the frozen structural criterion. The Catalan formulation is a substantial type-A specialization rather than a different label for the general tree result; same-day indexing does not order those records.",
+        "searches": [
+          "Local Resultary: commuting idempotents in finite Coxeter zero-Hecke and Catalan monoids",
+          "arXiv:2605.09761v3 Proposition 3.33",
+          "External: \"commuting idempotents\" \"Hecke monoids\" Coxeter trees degree three A007070 parabolic longest enumeration before November 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007070 gives a₀=1, a₁=4, aₙ=4aₙ₋₁−2aₙ₋₂ and the listed integers. The Catalan records identify the same recurrence in the shifted chain indexing. The later type-D triple record notes the rank-four paired total 164 but counts triples as its own finding."
+        ],
+        "reasoning": "No credit for the numbers, the recurrence by itself or its use in the known type-A count. The exact-search comparison turns on whether the counting interpretation extends to every subcubic tree and finite irreducible Coxeter type.",
+        "searches": [
+          "OEIS A007070 exact recurrence and values",
+          "Local Resultary Catalan fixed-point/gap records 06ff39bf0d33 and 1bd10f020d19; type-D triple record 9c539e50bc8b"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass as an assessment of prior coverage of the frozen result. There is an exact later match, not merely a similar title or integer sequence: Berenstein–Greenstein–Li arXiv:2605.09761v3 Propositions 3.33 and 3.37 contain the criterion (in an equivalent component language), the subcubic invariant, and its Coxeter consequence. That version is dated 18 November 2026 UTC. The inspected public v1 and v2 before the frozen record give partial sufficient cases and an expectation, not this theorem. No inference about independent discovery or authorship is made from chronology; this is version-specific evidence about what was publicly stated. The same-day Catalan specialization and the preexisting sequence receive no originality credit.",
+      "residual_risks": [
+        "The exact later concordance is strong but says nothing by itself about when either proof was discovered; this comparison uses dated public versions only. Another earlier preprint, draft or equivalent tree-model theorem could change priority.",
+        "Same-day ordering of the Catalan record is unresolved and not used to grant priority. The targeted external lookup yielded no material result and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier sufficient cases, not exact criterion or enumeration",
+          "evidence": [
+            "May 10 and July 6 versions say 'We expect that this exhausts all pairs' after nested and weakly orthogonal sufficient conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.09761",
+          "material_read": "v1 PDF p. 16 offset about 57950, passage at 58362; v2 PDF p. 16 offset 57800 onwards, up to Example 3.5 and Theorem 3.6 opening",
+          "method": "version-pinned open-access PDF text",
+          "title": "Hecke monoids, their homomorphisms and parabolicity (v1 and v2)",
+          "trigger": "Pre-freeze versions of the paper now containing the exact theorem"
+        },
+        {
+          "assessment": "Exact equivalent coverage in a later public version",
+          "evidence": [
+            "Header: 'arXiv:2605.09761v3 [math.RT] 18 Nov 2026'. Proposition 3.33 gives nested-or-orthogonal components, Proposition 3.37(b) gives the same subcubic recurrence and (c)–(d) the Coxeter interpretation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09761v3",
+          "material_read": "PDF p. 1 version header/abstract, pp. 19–20 around offset 92220 Proposition 3.33 and its proof, pp. 21–22 around offset 100000 Proposition 3.37(b)–(d)",
+          "method": "version-pinned open-access PDF text",
+          "title": "Hecke monoids, their homomorphisms and parabolicity (v3)",
+          "trigger": "Exact plausibly broader structural and enumerative overlap"
+        },
+        {
+          "assessment": "Prior idempotent classification, not the commuting criterion or enumeration",
+          "evidence": [
+            "Classifies idempotents as longest elements of parabolic submonoids in the simply-laced setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.0316",
+          "material_read": "PDF p. 5, Lemma 4 near offset 12380",
+          "method": "open-access PDF text",
+          "title": "On Kiselman quotients of 0-Hecke monoids",
+          "trigger": "Foundations and overlap in simply-laced zero-Hecke monoids"
+        },
+        {
+          "assessment": "Structural background",
+          "evidence": [
+            "Defines the Demazure framework and parabolic longest elements used by the frozen proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.1361",
+          "material_read": "PDF p. 5 §1.2, offset about 16300",
+          "method": "open-access PDF text",
+          "title": "The biHecke monoid of a finite Coxeter group and its representations",
+          "trigger": "General finite-Coxeter Demazure formalism"
+        },
+        {
+          "assessment": "Prior numerical sequence, not evidence of the claimed structural interpretation in the inspected material",
+          "evidence": [
+            "Matches the recurrence, initial conditions and terms exactly."
+          ],
+          "identifier_or_url": "https://oeis.org/A007070",
+          "material_read": "Entry offsets about 250–504",
+          "method": "open-access sequence entry",
+          "title": "A007070",
+          "trigger": "Exact sequence match"
+        },
+        {
+          "assessment": "Substantial path/Catalan overlap only",
+          "evidence": [
+            "Gap criterion for predecessor projections, exact fixed-product fibers, and pair totals 1,4,14,48,164,560,… ."
+          ],
+          "identifier_or_url": "Resultary 06ff39bf0d33",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "local Resultary mirror",
+          "title": "Common fixed-point compatibility and product-fiber factorization",
+          "trigger": "Closest same-date Catalan-monoid count"
+        },
+        {
+          "assessment": "Later Catalan specialization",
+          "evidence": [
+            "Gap criterion and same counting sequence for the chain model."
+          ],
+          "identifier_or_url": "Resultary 1bd10f020d19",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "local Resultary mirror",
+          "title": "Commuting idempotents of Catalan monoids",
+          "trigger": "Local exact pair-count comparison"
+        },
+        {
+          "assessment": "Triple result with corroborating pair-count context, not earlier coverage",
+          "evidence": [
+            "States the rank-four pair count 164 in both A and D and cites Berenstein–Greenstein–Li; its main statement is about triples."
+          ],
+          "identifier_or_url": "Resultary 9c539e50bc8b",
+          "material_read": "RESULT.md Finding and Relationship to prior work",
+          "method": "local Resultary mirror",
+          "title": "A type-D triple commutation law for 0-Hecke idempotents",
+          "trigger": "Later local non-path Coxeter comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-independent commutation count is a natural invariant of a standard monoid. A uniform positive criterion reduces it to the unlabelled diagram, and the subcubic tree theorem explains why genuine branching and edge labels disappear from the answer. The degree-four witness delineates that explanation. The known numerical sequence or a few type-A computations alone would not have this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

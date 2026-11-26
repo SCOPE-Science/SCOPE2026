@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has an exact canonical-digit parametrization, so no leading-zero or parity cases are omitted. For every digit coefficient \(w_{m,j}\), the elementary lifting-the-exponent identity proves the exact valuation \(\nu_3(w_{m,j})=\nu_3(2m-1-2j)\). The modulo-nine expansion and three-frequency Fourier inversion yield all three exact counts, including the small-boundary cases. For higher lifts the two distinct indices corresponding to distances \(3^\ell\) and \(5\cdot3^\ell\) are free at each level, have valuation exactly \(\ell\), and independently adjust the next ternary digit to any prescribed value. An exhaustive 131071-palindrome first-lift test and 1092 explicit constructive higher-power witnesses corroborate the deductions. The standalone checker reports PASS but is not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Compared by implication, Harminc–Soták (1998) gives general arithmetic-progression existence but not a fixed-even-length all-level spectrum or exact length-by-length frequencies. Tuxanidy–Panario (2023) develops distribution under coprimality restrictions, while Onphaeng et al. (2024) treat congruences in bases \(b\equiv0,1\pmod q\); the present base-two modulus-nine and higher-power cases lie outside those hypotheses. The October 2026 result on moduli dividing \(b+1\) gives the classical modulo-three even-length zero congruence, not the modulo-nine frequency formula or all higher lifts. Targeted research-database and literature searches did not identify an equivalent theorem. An implicit consequence of more general constructions or other unindexed work is not ruled out.
+PASS
 
-**Value — PASS.** Classical even binary palindromes have a forced factor three. Whether this congruence exhausts their three-adic obstructions at exact even lengths is a natural arithmetic question not resolved by the classical divisibility statement. The theorem gives a constructive bound that works simultaneously for *every* sufficiently large exact even length at every prime-power modulus, and identifies a nonuniform, sharply oscillating count already at the first nontrivial lift. It is neither a finite census nor an arbitrarily chosen residue slice. The bound is not optimal at higher powers, and no general higher-power frequency theorem is claimed.
+For a canonical 2m-digit palindrome the outer bit is fixed and the paired exponents have opposite parity, so 3 divides P. For odd d=2m−1−2j, lifting the exponent gives v₃((2^d+1)/3)=v₃(d); the quotient weight is congruent to (−1)^j d mod 3. On increasing m by 3 the old free weights retain their residues and the three new ones (distances 5,3,1) supply one of each residue. The bases m=1,2,3 therefore give the claimed counts of zero weights and the three possible imbalances of unit weights. Independently of the Fourier calculation, pairing a +1 and a −1 gives the residue multiplicity vector (2,1,1), a uniform count plus one extra at zero. Applying the leftover unit, when present, and translating by the fixed outer weight gives the asserted three count formulas and discrepancy. Directly the smallest three lengths miss a class and all counts are positive from m=4. At level ℓ the odd distances 3^ℓ and 5·3^ℓ are distinct and at most 2m−3 under the stated bound; their two unit contributions cover all three next digits without changing the previous digits. This gives every target at every permitted length, hence density in precisely the closed ideal 3ℤ₃ of Haar measure 1/3. The bound is claimed sharp only at k=2. Reviewed RESULT.md, VERIFICATION.md and verify.py as text. The script's finite cases are corroboration and were not rerun.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected prior results cover classical divisibility, general palindrome existence or exact counts under different modulus conditions. None establishes the exact mod-nine histogram for canonical even binary palindromes or the explicit all-sufficient-length lifting statement. This is a bounded, best-of-knowledge judgment, not a priority assertion.
+
+## value
+
+PASS
+
+This is the first modulus at which the forced ternary divisibility of an even binary palindrome leaves a nontrivial distribution. The formulas quantify a persisting, sign-changing discrepancy rather than merely identifying allowed residues. The all-depth statement gives a usable exact-length construction and a quantitative threshold in a modulus family excluded from the standard coprime distribution results inspected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

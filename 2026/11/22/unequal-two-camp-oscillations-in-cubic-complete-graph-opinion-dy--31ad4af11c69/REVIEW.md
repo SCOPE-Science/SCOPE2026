@@ -1,23 +1,21 @@
-# Scientific review: unequal two-camp cubic opinion cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is established for each integer \(N\ge3\), each nonempty bipartition, and each positive nonlinearity and reactivity parameter. The exact two-variable reduction gives the antipodal cycle and its nonzero gap without appeal to simulation. Differentiating the full \(N\)-dimensional map yields one neutral uniform-translation mode, one interblock mode and two within-block splitting modes; their explicit eigenvalues give the stated necessary-and-sufficient *strict Schur* region. Summability of mean increments transfers quotient contraction to attraction to some translated cycle, not to an individual isolated orbit. A rational five-agent example and 65 exact finite checks independently corroborate the algebra. They are not replacements for the proof. At equality boundaries the result intentionally makes no nonlinear stability assertion.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+PASS applies to repairs/2/RESULT.md, not the original unrestricted assertion about strict instability beyond the upper bound. In the original Finding (line 25), take N=3, blocks (1,2), β=3/4. Then β>β_c=2/3 but the only within-block quotient multiplier of the one-step Jacobian is −1, and the difference multiplier is 1/2. The two-step quotient spectrum {1,1/4} has no unstable multiplier. The repair supplies the exact boundary classification. Independent reconstruction: F(v)=v−νPv+k(Pv)^∘3 with the uniform projection removed by P; block deviations are (ℓ/N)d and −(m/N)d. Their cubic difference has coefficient k(m³+ℓ³)/N³=kD/N²; their contribution to mean drift is kmℓ(ℓ−m)d³/N³. Sign reversal forces kd²D/N²=β and the initial drift sets the unique antipodal mean to −H/2. The two phase Jacobians coincide by evenness of the squared deviations. The within-block zero-sum modes and the difference mode diagonalize the quotient, yielding the squared return multipliers from −1+βN(2ℓ−m)/D, −1+βN(2m−ℓ)/D and −1+2β, with absent singleton modes removed. Writing M and q for larger and smaller block sizes, the M-mode forbids strict contraction at M≥2q and is unstable if M>2q. For M<2q both within-block modes are present and the q-mode first hits +1 at β_c≤1; equality is nonhyperbolic and β>β_c unstable there. For M=2q the M-mode stays at −1; the q-mode, if present, hits +1 at 2/3, and if absent the difference mode first hits +1 at 1. In the stable region contraction on the quotient makes the smooth two-step mean drift summable, giving a common translate. Direct rational substitution gives the five-agent orbit and the stated spectrum, with N=3 ruled out for strict attraction. The frozen checker was inspected but not run; its 65 partitions use β=1/4, so the recorded PASS does not test the instability boundary counterexample. The correction preserves the strict-attraction theorem and proof witnesses.
 
-The initiating 2026 paper proves a balanced two-block result on complete undirected graphs, and treats asymmetric polarization through directed-weight perturbations. It does not in its inspected theorems provide the discrete unequal-size complete-graph criterion, neutral-translation formulation or smallest odd-size witness. The earlier literature on globally coupled quadratic local maps contains cluster-size effects and general transverse-stability tools; it is not a direct statement of the cubic-deviation stability window. A 2001/2002-era general nonlinear-coupling treatment deserves further independent historical-priority examination because its abstract formulation can specialize to a cubic correction. An indexed finding on skewness-driven consensus addresses local consensus selection, while another on two-cluster discrete Kuramoto cycles gives a superficially similar size fraction but governs a different phase map and cannot imply this result. Full priority beyond the inspected materials is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-Unequal population groups and odd network sizes are natural structural features absent from a strictly balanced even-size analysis. The exact one-third barrier and size-sensitive upper reactivity bound answer whether a two-camp oscillation survives perturbations that split agents within their own camps; two-block reduction alone cannot answer that question. The example shows a stable alternating pattern on the smallest permitted odd network with bounded phase values, while the neutral mode prevents an overstatement of attraction. No global basin, universal empirical parameter regime, or nonlinear dynamics on neutral boundaries is claimed.
+The repaired contribution is the exact unequal-size attraction criterion at fixed uniform complete-graph weights, including the odd-size witness and the correct scope of boundary instability. The known balanced interval and general block linearization techniques are not credited as new. No inspected matching primary theorem establishes the unequal-size frontier. The nearest unavailable manuscript remains a scope risk, not negative evidence.
 
-## Closest literature and limitations
+## value
 
-- R. Kumar and N. Yao (2026), *Analysis and Consensus Control of Emergent Dynamic Polarization in Minimally-Nonlinear Opinion Dynamics*, arXiv:2608.09724v1, https://arxiv.org/abs/2608.09724
-- M. G. Cosenza and A. Parravano (2001), *Dynamics of Coupling Functions in Globally Coupled Maps: Size, Periodicity and Stability of Clusters*, https://arxiv.org/abs/nlin/0107046
-- P. Glendinning, *Stability of Asymmetric Cluster States in Globally Coupled Maps*, https://personalpages.manchester.ac.uk/staff/paul.glendinning/preprints/clust.pdf
+PASS
 
-The claim is confined to the explicit two-camp antipodal family and strict transverse linear exponential stability. All-frequency, global-attraction and historical-priority claims are excluded. Access to one older manuscript was limited to text extraction rather than an inspected page rendering.
+The strict stability barrier translates population imbalance into a quantified loss of attraction under perturbations that split a homogeneous camp. It resolves the first odd population size in the original uniform model rather than in a perturbed graph and correctly identifies the neutral mean and singleton exception. This is an exact local structural classification, not extrapolation from the five-agent example or a balanced-parameter substitution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

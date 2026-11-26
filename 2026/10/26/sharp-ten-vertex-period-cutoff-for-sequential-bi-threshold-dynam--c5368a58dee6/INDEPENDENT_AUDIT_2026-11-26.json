@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:36.033064Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54 and VERIFICATION.md",
+        "Frozen verify.py lines 12–125",
+        "Independent replay script: /workspace/branches/fb7bca10-bc85-48da-84d2-b7125e18a1e7/independent_census.py, especially lines 15–101 and 146–208",
+        "Kuhlman et al., arXiv:1108.2974v2 §4.2"
+      ],
+      "rationale": "With old state x_v and s_v active neighbors outside v, the closed-count rule is exactly s_v≥x_v+1. To check the order reduction independently, orient each edge by its endpoint order. Schedules for one orientation are linear extensions and differ by adjacent swaps of incomparable, nonadjacent vertices, whose local updates commute. A source-to-sink flip cyclically shifts an update at the start to the end; writing the two global maps as BA and AB, A intertwines them and is bijective on their periodic states (injectivity from BA being a permutation there, surjectivity via AB on its periodic states and the intertwiner B). All orientations of a tree are connected by such flips and their inverses: delete a leaf, realize the flips on the smaller tree, flipping the leaf first if it blocks its parent's scheduled source flip, and then adjust the final leaf edge. Thus lengths and cycle multiplicities are schedule-independent, not necessarily transient graphs. A fresh exhaustive implementation generates rooted trees by multisets of smaller rooted types and deduplicates free trees by the least complete rooted code over all roots; this covers every class because each free tree has a rooting. It evaluates all 2^n states for each representative and counts each cycle once by marking completed traces. It reproduced 1,1,1,2,3,6,11,23,47,106 free trees; maxima 1,1,1,1,2,3,6,10,14,22; and maximizing-class counts 1,1,1,2,1,1,2,1,1,1. It found exactly two period-22 cycles in the unique extremal class, checked that the displayed labelled tree belongs to that class, and verified all 22 pairwise-distinct witness states and transitions, including 267→2. These maxima are ≤2n for every n<10 and 22>20. Replay: python3 /workspace/branches/fb7bca10-bc85-48da-84d2-b7125e18a1e7/independent_census.py, which printed INDEPENDENT_CENSUS_OK. The frozen verify.py was inspected, not run; contrary to the prose, it prints but does not assert all maximizing-tree counts, and checks its computed cycle rather than explicitly reading the printed tuple in RESULT.md. The fresh calculation checks both directly.",
+      "residual_risks": [
+        "The enumeration uses fixed permutation rounds, finite simple trees, and the (1,3) closed-neighborhood rule; it does not assert a formula for n>10 or for varying schedules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuhlman et al. §5.2 constructs long cycles but says sampling had not firmly resolved minimal orders.",
+          "9e5a9ef7f73d extends the same complete tree problem to n=14; the 2014 'Limit cycle structure for dynamic bi-threshold systems' abstract/search metadata concerns a more general rule, but its paper was not retrieved."
+        ],
+        "reasoning": "Realizing a desired period in a family does not furnish an order-sharp upper bound or uniqueness over all shapes. The later full census does dominate the numerical claim; the unavailable 2014 paper cannot be assessed beyond its visible scope.",
+        "searches": [
+          "sequential bi-threshold tree maximum period 22 ten vertices closed neighborhood (1,3) exhaustive enumeration minimal vertex count cycles Murrugarra Mortveit GDSCalc",
+          "Kuhlman et al. arXiv:1108.2974v2 §5.2; later 9e5a9ef7f73d RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.2974v2 §§4.2 and 5.2",
+        "PLOS ONE 10(8), e0133660, p. 9",
+        "9e5a9ef7f73d RESULT.md and cpp_certificate.txt",
+        "2014 ScienceDirect PII S0304397514005088 search metadata only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older tree orientation theorem proves schedule independence only; the older construction and figure do not exhaust tree shapes.",
+          "The later certificate implies all n≤10 numerical claims and the upper/lower cutoff by comparing the same maxima to 2n."
+        ],
+        "reasoning": "The order theorem and earlier explicit families leave the exhaustive classification as genuine work; neither upper bounds the periods of any remaining shapes. The later stronger statement mechanically covers the frozen theorem but is not earlier evidence against it.",
+        "searches": [
+          "arXiv:1108.2974v2 §§4.2, 5.2",
+          "PLOS ONE 10(8), e0133660, p. 9 and Figure 3 discussion",
+          "9e5a9ef7f73d RESULT.md and cpp_certificate.txt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuhlman et al. give a single cycle-equivalence class on trees, and the PLOS paper uses that same reduction.",
+          "The PLOS section and Figure 3 concern the same closed-neighborhood (1,3) sequential sweeps on selected H-, Y-, and X-trees."
+        ],
+        "reasoning": "Largest primitive period and maximum limit-cycle length are the same invariant for a fixed sweep. Neither changing the label order within the single tree class nor analyzing a selected family represents a maximum over all unlabelled shapes.",
+        "searches": [
+          "unlabelled tree sweep closed-neighborhood (1,3) period maxima order ten 22 census unique extremizer",
+          "Kuhlman et al., arXiv:1108.2974v2 §4.2; Elmeligy Abdelhamid et al. 'Tree Structures and Limit Cycle Sizes for Sequential and Synchronous Update'"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9e5a9ef7f73d, cpp_certificate.txt, records all n≤10 class counts, maxima and maximizing-class counts and n=10 classes=106 max=22 maximizer_classes=1 extremal_orbits=2; the witness seed is 2.",
+          "The certificate's vertex labels 0–9 map to the frozen order-(0,1,2,7,3,8,4,6,5,9). This carries each edge to a frozen edge with identical before/after orientation and preserves seed 2."
+        ],
+        "reasoning": "This is exact overlap, not just matching parameters. The relabeling preserves the sweep map since nonadjacent order differences commute, so the seed in the later witness also generates the frozen trace after relabeling. The catalogue match is dated 2026-11-02, rather than the frozen record's 2026-10-26; the evidence establishes agreement, not earlier knowledge or dependence.",
+        "searches": [
+          "exact exhaustive census unlabelled trees sequential bi-threshold dynamics thresholds (1,3) period 22 ten vertices extremizer multiplicity",
+          "unlabelled tree sweep closed-neighborhood (1,3) period maxima order ten 22 census unique extremizer",
+          "9e5a9ef7f73d cpp_certificate.txt literal query 'n=10', then offset 0"
+        ]
+      },
+      "rationale": "The earlier literature supplies both the order-equivalence reduction and long-cycle constructions, but the inspected results neither classify all trees of these sizes nor settle the first violation of 2n. The later-dated 9e5a9ef7f73d is a genuine stronger exact overlap: its certificate repeats every stated maximum and maximizer count, and the ten-vertex witness and multiplicity agree. It is not evidence that the census was already known when the frozen record was dated; no claim of priority over every possible source or of novelty relative to that later census is made. The inaccessible 2014 lead is a residual risk, not a ground for either scientific rejection or a finding of noncoverage.",
+      "residual_risks": [
+        "Full text of the 2014 dynamic bi-threshold paper was unavailable. Older unindexed or supplementary computational data may contain overlap not resolved here.",
+        "The exact later catalogue overlap is verified; the review does not establish intellectual priority or independence between the dated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established reduction and special-family constructions, not exact census",
+          "evidence": "One cycle-equivalence class on trees; sampling did not yield firm minimality results.",
+          "identifier_or_url": "https://arxiv.org/html/1108.2974v2",
+          "material_read": "§4.2 'Trees' and §5.2, HTML offsets 27850–30443 and 48800–52300",
+          "method": "OA full-text passages",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Same threshold model, tree cycle equivalence and explicit long cycles"
+        },
+        {
+          "assessment": "Selected tree families and equivalence, not a global classification",
+          "evidence": "Discusses H, Y and X families and compares their maximum cycle lengths; not enumeration of all free trees.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0133660",
+          "material_read": "PLOS full-text PDF p. 9, offsets 42100–45986, 'Tree Structures and Limit Cycle Sizes for Sequential and Synchronous Update'",
+          "method": "OA publisher PDF",
+          "title": "GDSCalc: A Web-Based Application for Evaluating Discrete Graph Dynamical Systems",
+          "trigger": "Same (1,3) tree sweep and prior computations"
+        },
+        {
+          "assessment": "Later exact encompassing census, including the extremal class and seed",
+          "evidence": "The n=10 certificate lists max=22, maximizer_classes=1 and extremal_orbits=2; its edges and seed agree after the orientation-preserving relabeling above.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d",
+          "material_read": "RESULT.md Finding and prior-work section, then cpp_certificate.txt offsets 0–1049",
+          "method": "Read-only local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp primitive-period maxima through fourteen vertices",
+          "trigger": "Direct exact stronger index match"
+        },
+        {
+          "assessment": "Plausible related paper; coverage not determined",
+          "evidence": "Visible description mentions generalization of bi-threshold functions and synchronous/sequential limit-cycle structures, but no exact census is established by that description.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0304397514005088",
+          "material_read": "Search title and snippets only; no full text",
+          "method": "Configured OA attempts on publisher and identified ResearchGate entry returned HTTP 403",
+          "title": "Limit cycle structure for dynamic bi-threshold systems",
+          "trigger": "2014 primary lead with related limit-cycle invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and complete table",
+        "Independent census for n=1 through 10",
+        "Kuhlman et al. §5.2; 9e5a9ef7f73d later census"
+      ],
+      "rationale": "The order range is motivated by the first strict period-versus-size crossing, not chosen as an arbitrary census cap. The exact maximum 22 on ten vertices and upper bounds for every smaller tree establish a minimal-order witness that long-cycle existence theorems and selected examples do not give. Uniqueness of the witnessing class and the two-cycle multiplicity are useful exact checks for subsequent structural or enumeration work. A later extension corroborates the finite result without making the earlier mathematical gap arbitrary.",
+      "residual_risks": [
+        "Only the exact first crossing and the stated finite table are established; no extrapolation to a growth law is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

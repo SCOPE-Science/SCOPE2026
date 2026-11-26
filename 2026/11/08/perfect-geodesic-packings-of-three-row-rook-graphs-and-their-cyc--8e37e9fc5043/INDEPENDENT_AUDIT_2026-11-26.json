@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:33:30.845956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 the diameter is two and any edge extends to a distance-two path by changing the other coordinate. Every maximal geodesic is therefore a three-vertex L. The vertex bound is n; in any packing attaining it, each column supports at most one two-cell pivot and hence exactly one. Its residual cell must be a wing, forcing the wing mapping to be a derangement. If f(i) is the wing row at i, the path pivoted at i has center row f(pi(i)) and must avoid f(i). Conversely inequality of those colors specifies the center, the unique other pivot row and the wing, occupying every cell exactly once. No orientation or ordering factor occurs. A properly colored n-cycle proves attainment. The three-color adjacency matrix has eigenvalues 2,-1,-1, so the trace of its ell-th power gives 2^ell+2(-1)^ell including ell=1,2. The labelled cycle exponential formula gives the stated EGF; extracting coefficients by partial fractions yields the scalar count. Independently checked all displayed distributions by recursively choosing the labelled cycle containing column 1, weighting its j possible positions by the factor (j-1)!(2^j+2(-1)^j) for a selected j-set. This check is supplementary to the all-n bijection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5d79b7fec594 proves gpack(K_m square K_n)=floor(mn/3) for m,n>=2 by local bricks. 276ea65fd05c also gives that size and enumerates all packings for two rows. Lemma 2.3 of the primary paper gives the general cardinality upper bound, and its square-rook Proposition 2.6 instead treats transversals."
+        ],
+        "reasoning": "The rectangle theorem implies g_n=n exactly, but neither the brick existence proof nor the two-row enumerator establishes the three-row cycle-refined bijection. Transversal sets have a different invariant.",
+        "searches": [
+          "Resultary 5d79b7fec594 and 276ea65fd05c Findings",
+          "arXiv:2210.15325 Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "OEIS A137946",
+        "arXiv:2210.15325",
+        "Resultary 5d79b7fec594 and 276ea65fd05c",
+        "General Position Polynomials, Section 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier size theorem and exact array even when combined do not specify which path families occur or define the statistic on those families. An additional pivot/wing reconstruction gives a canonical permutation and its color labels."
+        ],
+        "reasoning": "Equality of coefficients does not supply an inverse construction nor identify each maximum packing's cycles. With the new bijection in hand, the EGF derivation is standard and is not itself a separate original claim.",
+        "searches": [
+          "5d79b7fec594 rectangular packing construction",
+          "276ea65fd05c scope: two-row polynomial",
+          "OEIS A137946 Sheffer-series formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rook L-shapes are three-corner rectangles (equivalently, length-three edge paths in the complete bipartite graph whose line graph is the rook graph). The inspected sources give upper bounds, constructions of optima, or the numerical array but do not identify all three-row optima with row-colored column cycles."
+        ],
+        "reasoning": "The additional assertion is the canonical identification of the geometry, not a second formula for known coefficients.",
+        "searches": [
+          "Resultary three-row rook maximum geodesic packing, L-shaped perfect packings, colored derangements and cycles",
+          "Manuel–Brešar–Klavžar Section 2",
+          "OEIS A137946 interpretations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rows including (12), (108,108), (7920,11160,3240) and their totals coincide. In the entry's Sheffer-series expression, 2t^3+3t^2-1 factors as (2t-1)(1+t)^2, giving the same generating series with the entry's sign convention."
+        ],
+        "reasoning": "The whole array and equivalent bivariate generating function, not just the observed terms, are preexisting. The inspected entry is a K_3 graph-matrix/Sheffer construction, not a geodesic packing classification.",
+        "searches": [
+          "OEIS A137946 entry, formula and displayed triangle"
+        ]
+      },
+      "rationale": "Pass applies to the canonical graph-geodesic bijection and cycle refinement of every optimizer, not to the already known maximum cardinality, coefficient array, bivariate EGF or row sums. The strongest inspected indexed cardinality and polynomial results do not identify the three-row optimizers with properly colored derangements. Historical priority is provisional.",
+      "residual_risks": [
+        "Another description under three-vertex path tiling or rainbow edge-path decompositions of bipartite graphs could contain the graph interpretation; the checked evidence does not prove exhaustive priority.",
+        "Same-day dates alone establish no order. Only the distinct indexed claim's mathematical coverage is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ENUMERATION_NOT_BIJECTION",
+          "evidence": "Equivalent EGF, matching triangle, and no packing interpretation in the inspected entry.",
+          "identifier_or_url": "https://oeis.org/A137946",
+          "material_read": "Entry description, formula, displayed rows and row sums (offset 201); contributor/date at offset 2484",
+          "method": "Original open entry",
+          "title": "A137946: Triangle of coefficients associated with the expansion of the K_3 graph matrix characteristic polynomial as a Sheffer sequence",
+          "trigger": "Exact triangle and generating series"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_BIJECTION",
+          "evidence": "General size upper bound; square-rook proposition is about geodesic transversals.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15325",
+          "material_read": "PDF Section 2, pp. 4–5, Lemma 2.3 and Proposition 2.6, offsets 9411 and 10817–13437",
+          "method": "OA preprint passages",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Original packing problem and rook case"
+        },
+        {
+          "assessment": "COVERS_SIZE_NOT_BIJECTION",
+          "evidence": "The formula floor(mn/3) covers g_n=n, but no classification of all three-row optimizers is in the Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-geodesic-packing-of-rectangular-rook-graphs-by-six-local-b--5d79b7fec594/RESULT.md",
+          "material_read": "Finding in the indexed original",
+          "method": "Resultary and original local mirror",
+          "title": "Sharp geodesic packing of rectangular rook graphs by six local bricks",
+          "trigger": "Earlier exact size for the same family and general rectangles"
+        },
+        {
+          "assessment": "COVERS_SIZE_ONLY_IN_THREE_ROWS",
+          "evidence": "Rectangular size formula is shared; packing polynomial is for two rows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-rook-geodesic-packings-and-complete-two-row-packing-polyno--276ea65fd05c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and original local mirror",
+          "title": "Sharp rook geodesic packings and complete two-row packing polynomials",
+          "trigger": "Distinct same-day rectangular packing result with full polynomial in a nearby regime"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Counts general-position vertex sets under graph operations, not vertex-disjoint maximal geodesic path families.",
+          "identifier_or_url": "10.1007/s00025-024-02133-3",
+          "material_read": "Section 3, OA offset 13330",
+          "method": "OA article passage",
+          "title": "General Position Polynomials",
+          "trigger": "Cartesian products and related graph-metric enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies every optimizer and gives a canonical graph interpretation and refinement of a preexisting triangle, rather than recomputing a tabulated number. The sharp size alone is already covered, but the all-n pivot/wing inverse construction allows one to generate and distinguish all maximum packings in the natural three-row family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

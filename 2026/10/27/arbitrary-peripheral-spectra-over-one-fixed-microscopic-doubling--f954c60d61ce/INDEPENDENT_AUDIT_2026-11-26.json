@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:12.348213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Assumptions and Proof 1–4, lines 11–36",
+        "VERIFICATION.md lines 3–25; verify.py lines 32–78",
+        "/workspace/audit-work/independent_checks.py, case 3"
+      ],
+      "rationale": "The uniform density has M(1)=0 and is fixed by doubling; the p-dependent neighborhood makes both inverse branches expanding. Taylor expansion of their Jacobians has a C¹ error O(M²); composing the perturbation with the displaced inverse branches costs O(|M|‖η‖C²) in C¹. This gives the claimed strong-to-weaker expansion and the bounded operator P−(Pg_p)'M, not differentiability of the C¹ self-map. On the doubled cosine chain the observable picks out e₀, and the exact normalization gives (Pg_p)'=Σ c_j e_{j−1}. Thus the shift with replaced first column has characteristic polynomial p. The quotient by this invariant finite block has powers bounded by those of P, which are O(2^(−n)) on mean-zero C¹ by differentiation and the mean-zero oscillation estimate. The exterior resolvent and all exterior generalized eigenspaces therefore reduce to the companion block. Unforced arbitrarily high dyadic modes retained for n steps attain norm ratios bounded below by a constant times 2^(−n); this proves the floor even when all roots are small or zero. Independently computed all nine strong-response matrix pairings for a triple root at 3/4 (python3 /workspace/audit-work/independent_checks.py 3). Repeated/complex modes and exterior multiplicities are covered analytically; checks are corroborative only. The frozen checker was inspected, not run.",
+      "residual_risks": [
+        "No full inner-disk classification, C¹ self-map Fréchet claim, or nonlinear/finite-population stability conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The differential lemma establishes a sum of frozen transfer and variation terms under functional hypotheses. The graphon record treats stationary-density response, not spectral realization."
+        ],
+        "reasoning": "Neither gives an assignment theorem under the constraint of a common uniform doubling equilibrium.",
+        "searches": [
+          "arXiv:2407.09314v1, PDF p. 6, Lemma 3, (9)–(10)",
+          "Resultary: 2026/11/17/SCOPE-convergent-all-order-graphon-response-for-analytic-expanding-cir--ca1f2a8f1ed0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 43–54",
+        "Resultary mirror 3ccc7c7409d3 and indexed ca1f2a8f1ed0",
+        "Castorrini–Galatolo–Tanzi arXiv:2407.09314v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting d=2 and ε=c_j/(π2^(j−1)) recovers exactly the single-coefficient cases. Linearity of the derivative is standard; the new use is the shared-chain realization and outer resolvent/algebraic-multiplicity argument."
+        ],
+        "reasoning": "The earlier result is a close special case, not a stronger assignment theorem. The general differential and abstract companion algebra are ingredients, not a preexisting theorem classifying the exterior spectrum of these constrained models.",
+        "searches": [
+          "Resultary: 3ccc7c7409d3, proof §§2–4 (mirror offsets 2393–6132)",
+          "arXiv:2407.09314v1, Lemma 3 (offset 16572)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier rank-one response and harmonic-return equation reduce one forcing mode to one delay. The equivalent pole-placement formulation here uses arbitrary coefficients of several delays fed into the same chain."
+        ],
+        "reasoning": "The finite companion is familiar, but a direct sum of binomial blocks is not the multiharmonic operator: the same observable feeds all coordinates together. General differentiation does not implement those coordinates or control the exterior quotient.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-arithmetic-resonance-and-exact-linear-response-radius-for-mean-f--3ccc7c7409d3",
+          "arXiv:2407.09314v1, Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For k=d^j the indexed result gives exactly λ^j+πεd^(j−1) on its resonant block; outside the resonance it gives the uncoupled radius."
+        ],
+        "reasoning": "This is a genuine exact-formula overlap and is credited as such. A binomial has only the constant term available at each degree; it does not catalog unconstrained multisets. Numerical tables could not settle the arbitrary real coefficients and degrees.",
+        "searches": [
+          "Resultary mirror: 2026/10/11/SCOPE-arithmetic-resonance-and-exact-linear-response-radius-for-mean-f--3ccc7c7409d3/RESULT.md, §§3–4"
+        ]
+      },
+      "rationale": "Pass for arbitrary real-polynomial exterior spectral assignment in this fixed microscopic model, not for discovering the self-consistent differential, companion-matrix algebra, or single-harmonic resonance. The strongest indexed predecessor was read in the mirror: its one harmonic supplies a binomial block and exact radius, whereas this proof assembles a shared multiharmonic shift chain and identifies the entire outside spectral multiset.",
+      "residual_risks": [
+        "Closely related work on mean-field spectral design or abstract pole assignment may use different terminology. Reviewed comparisons are not an exhaustive historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed overlapping binomial cases and prior response/radius technique; not arbitrary polynomial assignment",
+          "evidence": "§3 calculates one harmonic return; §4 displays λ^j+πεd^(j−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arithmetic-resonance-and-exact-linear-response-radius-for-mean-f--3ccc7c7409d3/RESULT.md",
+          "material_read": "Finding and assumptions; proof §§1–4, through offset 6132",
+          "method": "Resultary semantic search and local-mirror bounded reading",
+          "title": "Arithmetic resonance and exact linear-response radius for mean-field expanding circle maps",
+          "trigger": "Same observable, equilibrium map at d=2, dyadic return and exact response radius"
+        },
+        {
+          "assessment": "Supplies a differential framework, not the spectral design claim",
+          "evidence": "The lemma identifies dL as L+∂L with norm bounds, without choosing a forcing or prescribing eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.09314v1",
+          "material_read": "PDF p. 6, assumption (f), Lemma 3, equations (9)–(10), offset 16572",
+          "method": "Lawful OA PDF, locate then read",
+          "title": "The differential of self-consistent transfer operators and the local convergence to equilibrium of mean field strongly coupled dynamical systems",
+          "trigger": "General theorem for linear response and spectra in the same framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§2–4",
+        "Resultary 3ccc7c7409d3, single-harmonic comparison"
+      ],
+      "rationale": "Keeping the microscopic equilibrium dynamics and Lyapunov exponent fixed while choosing the macroscopic modes, including oscillations, repeated unstable roots or fast decay, is a precise separation useful for interpreting collective stability. The radius floor and exclusion of spurious outer modes make this a usable test family rather than a finite matrix illustration.",
+      "residual_risks": [
+        "Value is at linear response only; no nonlinear prediction or globally expanding realization is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

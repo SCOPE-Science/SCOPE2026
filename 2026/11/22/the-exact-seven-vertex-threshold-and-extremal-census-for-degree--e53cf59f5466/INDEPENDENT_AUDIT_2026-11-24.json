@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:48:06.424858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.cpp and representatives.tsv",
+        "Independent complement enumeration and permutation census"
+      ],
+      "rationale": "Independently enumerated complements with 8 and 7 edges (203490 and 116280 masks). For smaller shore size k=1,2,3, test each vertex's missing cross-degree against the opposite shore's size minus 2. These are all possible cut sizes, including singleton cuts. Zero immune graphs at 13 present edges also excludes fewer edges since adding edges preserves immunity. Exactly 15015 graphs at 14 present edges passed. Independently transformed the ten TSV edge sets under all 5040 permutations: the disjoint orbits exhaust those 15015 graphs, with sizes 105,2520,2520,1260,2520,1260,630,2520,1260,420. The redundant graph6, degree and automorphism columns also agree. Replay: /workspace/review-check-3.py (Python/NumPy); frozen C++ inspected, not executed.",
+      "residual_risks": [
+        "Finite order seven only; no extrapolation to other orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The abstract proves every simple n-vertex graph with at most 2n−2 edges has a 2-cut."
+        ],
+        "reasoning": "The broader theorem covers through 12 edges at n=7; it leaves the entire 13-edge layer undecided and says nothing about the census of 14-edge graphs.",
+        "searches": [
+          "arXiv:2611.26556v1, abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.26556v1 p. 1",
+        "Resultary exact-number hit e53cf59f5466",
+        "Frozen RESULT.md, Finding and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The premise of the general theorem is m≤12 when n=7, whereas the new nonexistence assertion is at m=13 and the classified locus is m=14."
+        ],
+        "reasoning": "The frozen census requires a new decision on the relevant edge layers; it is not a specialization of the verified evidence.",
+        "searches": [
+          "Compare the p. 1 theorem of arXiv:2611.26556v1 against frozen RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neopryatnaya–Verdenko–Voronov p. 1, introduction: the same d-cut and d-immunity definitions, for finite simple undirected graphs."
+        ],
+        "reasoning": "The bounded cross-degree convention is identical, not a cut-size constraint. Ordinary matching cuts are d=1 and do not classify d=2 extremizers. The order-seven target is also equivalent to testing complement lower cross-degrees, not to a different family of graphs.",
+        "searches": [
+          "arXiv:2611.26556v1, Introduction",
+          "Gomes–Sau, DOI 10.4230/LIPIcs.IPEC.2019.19 (identified in the frozen references)",
+          "Resultary: seven-vertex degree-two cut immunity / bounded-degree cut extremal census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-the-exact-seven-vertex-threshold-and-extremal-census-for-degree--e53cf59f5466 is this exact record, not an antecedent. No distinct classified table appeared in the returned hits; later preprint material was not retrieved for inspection."
+        ],
+        "reasoning": "An all-graphs catalogue can supply inputs but is not itself a table classifying 2-cut immune graphs. The exact equal-size orbit census is not established by the identified abstract.",
+        "searches": [
+          "Resultary: seven-vertex 2-cut immunity, 14 edges, 15015 labelled extremizers",
+          "arXiv:2611.26556v1 PDF, targeted later-page lookup"
+        ]
+      },
+      "rationale": "The directly verified closest preprint has the same invariant but only a weaker general lower bound at order seven. No inspected independent exact census claims or determines the 13-edge obstruction and 14-edge extremizer inventory. This is a best-of-knowledge decision, not publication priority.",
+      "residual_risks": [
+        "Uninspected later pages and unpublished/unindexed tables may contain comparable results. The first-page excerpt does not establish an absence claim about the whole preprint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified cited bound is weaker; later-page overlap not resolved directly",
+          "evidence": [
+            "The theorem at 2n−2 gives only μ₂(7)≥13; the graph and cut definitions agree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.26556",
+          "material_read": "PDF p. 1 title, abstract and Introduction, especially extracted lines 13–15 and 19–29; later tables not accessible in targeted retrieval",
+          "method": "Original lawful OA PDF excerpt; attempted exact later-passage OA and HTML retrieval",
+          "title": "Edge cuts of bounded degree in sparse graphs",
+          "trigger": "Same extremal parameter and very close lower bound"
+        },
+        {
+          "assessment": "Identical record, no separate coverage",
+          "evidence": [
+            "Same threshold 14, ten classes and 15015 labelled graphs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-seven-vertex-threshold-and-extremal-census-for-degree--e53cf59f5466",
+          "material_read": "Indexed statement and assigned frozen finding",
+          "method": "Resultary and frozen text",
+          "title": "The exact seven-vertex threshold and extremal census for degree-two cut immunity",
+          "trigger": "Closest exact-number hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md threshold and scope",
+        "arXiv:2611.26556v1 abstract",
+        "Independently verified representative orbits"
+      ],
+      "rationale": "This natural small order resolves whether the general 2n−2 sufficient edge bound for existence of a 2-cut can be sharpened there. The ten-way extremal census and orbit sizes provide concrete witnesses and benchmarks for structural conjectures, beyond a single threshold calculation.",
+      "residual_risks": [
+        "Value rests on this exact finite boundary and its minimizers, not on an asymptotic bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

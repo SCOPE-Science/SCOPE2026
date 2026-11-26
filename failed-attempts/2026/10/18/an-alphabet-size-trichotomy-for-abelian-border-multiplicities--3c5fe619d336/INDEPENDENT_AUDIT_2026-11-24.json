@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:21:38.022050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Border length j pairs with length n-j by cancellation of the central overlap. The independent outer pairs yield a lazy walk in dimension q-1, with all its positive returns through m=floor(n/2) counted twice except a return at the even midpoint. The exact expectation follows by linearity, and the excursion-plus-surviving-tail decomposition gives the formal return-count PGF with v=u² at odd length. The Fourier integrand is the squared modulus of the average of q phases, with unique maximum one on the torus; its quadratic matrix is diag(1/q) minus the all-ones matrix divided by q², with eigenvalues 1/q (multiplicity q-2) and 1/q². Scaling the neighborhood by sqrt(k), the fourth-order local remainder integrates to a relative O(1/k) correction against a Gaussian, giving the stated p_q. For q=2 the return-count factorial moments sum products over a time simplex; summable domination near each face by the k^-1/2 bound justifies the Dirichlet integral. The normalized moments r!/Gamma(1+r/2) give sqrt(2)|Z| on the m scale, hence 2|Z| on the stated border n scale. In q=3 the factorial moments are squeezed using time cutoffs m/r and m, giving moments r! of the normalized exponential and border scale factor 2c_3. For q≥4 the positive-return renewal is defective, giving the asserted geometric count. Under continuation of the same path the finite border count differs from twice that count only if a return occurs at or after m (including the even midpoint), so the tail sum gives the stated TV rate. The no-border probability is first-return survival; the binary Green function, monotone logarithmic Tauberian estimate at q=3, and total escape probability at q≥4 give the displayed calibrations. All statements use fixed q and iid uniform letters, not independence across lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erdős–Taylor §3 Eq. (3.1) gives the transient geometric return count; Theorem 1 treats the planar exponential local-time scale. The retrieved planar formulation is for the classical walk, not literally this lazy difference walk.",
+          "Richmond–Shallit Theorem 4 gives the leading asymptotic q^(2j+q/2)(4πj)^((1-q)/2) for the square count, and the remark explicitly normalizes it to a probability."
+        ],
+        "reasoning": "One must not identify the nearest-neighbor walk with the lazy root-lattice walk. The local-time proof depends on the return sequence instead: the known asymptotic provides exactly the needed recurrent factorial-moment sums or transient summability. Strong Markov at a return gives the geometric parameter for any such walk.",
+        "searches": [
+          "Resultary: random walk local time at origin recurrent transient dimensions geometric exponential half normal",
+          "Erdős–Taylor 1960 §§3–4; Lygkonis–Zygouras arXiv:2202.08145 p. 1",
+          "Web: Richmond Shallit Counting Abelian squares asymptotic k alphabet (4 pi n) theorem multinomial pdf arxiv"
+        ]
+      },
+      "checked_sources": [
+        "Goč et al. 2014, DOI 10.1142/S0129054114400267",
+        "Richmond–Shallit arXiv:0807.5028",
+        "Blanchet-Sadri et al. arXiv:1708.06461",
+        "Erdős–Taylor 1960; Lygkonis–Zygouras arXiv:2202.08145",
+        "Resultary 05628a83255c and 0c0ce0d4d33d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the known exact return process, the event of at least r returns by m is that the sum of r iid possibly defective first-return times is ≤m. Its generating function in m is F_q(z)^r/(1-z). Subtracting the r+1 case gives the generic count PGF (1-F_q)/((1-z)(1-vF_q)); the known kernel fixes F_q=1-1/G_q. Taking v=u² at odd length implements the complement pairing.",
+          "For q≥4 the known p_q(j)=Θ_q(j^(-(q-1)/2)) makes the tail bound O_q(n^(-(q-3)/2)); for q=3 the known leading constant sets the logarithmic scale directly. The relative remainder in p_q is stronger than the inspected leading-asymptotic theorem, but unnecessary for the headline limit laws and TV rate."
+        ],
+        "reasoning": "The formal PGF, leading constants, distributional regimes and TV rate are recovered by direct operations on previously specified objects, rather than by a new combinatorial identity about multiplicities. The sharper summable error used for the O(1) expectation remainder is a routine local Gaussian refinement, not attributed to a source that only states an asymptotic equivalence.",
+        "searches": [
+          "Goč et al. Proposition 15 and p. 11 constant term; Richmond–Shallit Theorem 4 and §4 remark; Erdős–Taylor Eq. (3.1) and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goč et al. Proposition 15's proof identifies a zero of each paired Parikh-vector difference with a return at that index. The paper counts avoidance of any return, but the identification is at the level of the whole path, not just the single zero-border probability.",
+          "Richmond–Shallit counts words made of two equal-histogram blocks, exactly q^(2j) p_q(j) for length 2j."
+        ],
+        "reasoning": "The exact nonbinary walk is not a newly found model. The already identified return times determine the multiplicities after complement pairing, and the equal-histogram alias exposes prior coverage of their exact marginal kernel.",
+        "searches": [
+          "Resultary: Abelian border multiplicity distribution random words renewal generating function multiple alphabet",
+          "Goč–Rampersad–Rigo–Salimov DOI 10.1142/S0129054114400267, Propositions 15–16",
+          "Abelian squares / i.i.d. equal Parikh vectors, Richmond–Shallit arXiv:0807.5028"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Goč et al. tabulate ternary zero-border counts 3,6,18,48,144,402,1206,3438,10314,29754 and give arbitrary-alphabet return and no-return coefficient constructions. Blanchet-Sadri et al. give the entire binary count by number of distinct border lengths in both parities, not just a finite table.",
+          "Same-day Resultary 05628a83255c counts longest-border arrays through n=16 and their fibers, a different statistic. Later 0c0ce0d4d33d gives composition-conditioned binary zero-border results only."
+        ],
+        "reasoning": "The binary distribution and ternary zero-count anchors are known. The array census is not a database for whole-word multiplicity, and no distinct direct nonbinary full-PGF entry was identified. The failure is supported by reduction/implication, not by calling adjacent tables duplicates.",
+        "searches": [
+          "Resultary: binary Abelian borders complete distribution theorem; ternary unbordered paths and border arrays",
+          "Goč et al. Remark 17/Table 1",
+          "Blanchet-Sadri–Chen–Hawes arXiv:1708.06461 Theorem 3"
+        ]
+      },
+      "rationale": "The main package is a direct consequence of the previously explicit arbitrary-alphabet paired path and return problem, the exact Abelian-square count and its already published leading asymptotic, and generic local-time renewal identities. The binary full law is previously explicit. The nonbinary PGF need not have appeared with Abelian-border notation: putting u² into the law of the number of completed excursions is a mechanical corollary of the exact model already given by Goč et al. Richmond–Shallit provides the claim's allegedly model-specific leading constant at every q. The relative error improvement for the return kernel follows from the next order of the same Gaussian calculation; the transient TV estimate is the generic sum of remaining return probabilities, with the same already-known kernel tail. No claim is made that a prior paper explicitly printed every sharpened estimate or the full aggregation as a single theorem.",
+      "residual_risks": [
+        "No explicit nonbinary border-multiplicity PGF statement was located; the verdict concerns mathematical implication and not a claim of verbatim duplication.",
+        "The inspected Abelian-square theorem gives the leading equivalent, not the relative O(1/j) error.",
+        "Searches were bounded and do not determine complete priority for every finer estimate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact paired path already prior, including the indexwise interpretation; zero-count specialization explicit",
+          "evidence": [
+            "The proof identifies a return precisely when the paired Parikh-vector difference at the corresponding length is zero.",
+            "The path-step polynomial constant term enumerates returns; Table 1 enumerates ternary unbordered words."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+          "material_read": "PDF p. 7 Propositions 15–16, offsets 21788–24249; p. 8 Remark 17/Table 1; p. 11 constant-term formula near offset 33600",
+          "method": "Lawful author-copy OA PDF text",
+          "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+          "trigger": "Prior arbitrary-alphabet walk reduction and exact ternary benchmarks"
+        },
+        {
+          "assessment": "Exact same leading return-kernel asymptotic for every fixed q",
+          "evidence": [
+            "Theorem 4 gives f_k(n) ∼ k^(2n+k/2)(4πn)^((1-k)/2). The remark explicitly gives f_k(n)/k^(2n) ∼ k^(k/2)(4πn)^((1-k)/2), the claimed return probability asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0807.5028",
+          "material_read": "p. 7, Theorem 4 and §4, offsets 20850–22120",
+          "method": "Lawful OA PDF, located theorem then read the bounded passage",
+          "title": "Counting Abelian Squares",
+          "trigger": "Exact alias for the return kernel and constants"
+        },
+        {
+          "assessment": "Full binary distribution already specified",
+          "evidence": [
+            "Theorem counts binary words by each possible number of distinct proper Abelian borders in all parity cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+          "material_read": "Theorem 3, HTML offsets 39000–41297",
+          "method": "Lawful OA passage",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Complete binary law precursor"
+        },
+        {
+          "assessment": "Classical distributional regimes, not a verbatim theorem for this lazy walk",
+          "evidence": [
+            "The number of returns has a geometric law in the transient case; the planar limit is exponential on logarithmic scale.",
+            "The one-dimensional historical remark was partly OCR-damaged and is not relied on as an exact formula."
+          ],
+          "identifier_or_url": "https://users.renyi.hu/~p_erdos/1960-17.pdf",
+          "material_read": "§3 Eq. (3.1) p. 5, offset 11712; Theorem 1 p. 7, offset 17100; p. 8 remark",
+          "method": "Lawful OA primary PDF text",
+          "title": "Some Problems Concerning the Structure of Random Walk Paths",
+          "trigger": "Classical local-time and transient return laws"
+        },
+        {
+          "assessment": "Different statistic for the same-day record and restricted zero-event overlap for the later record",
+          "evidence": [
+            "Arrays store longest border of each prefix; the binary fixed-composition result concerns no borders, not total multiplicity."
+          ],
+          "identifier_or_url": "Resultary 05628a83255c and 0c0ce0d4d33d",
+          "material_read": "Findings, including longest-border array definition and fixed-composition scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Ternary Abelian border-array census and binary fixed-composition law",
+          "trigger": "Closest indexed exact Abelian border results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The statistic itself is natural and the synthesis is useful exposition, but the frozen package does not resolve a mathematical gap beyond direct application of renewal counting and known Abelian-square asymptotics to the known paired path. The all-q constant and the regimes do not require a new kernel analysis, and the remaining relative-error and variation-rate refinements are routine Gaussian and return-tail estimates, with no separate motivated precision problem or new mechanism established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an unselected edge \(uv\), perfect edge domination is equivalent to \(\deg_F(u)+\deg_F(v)=1\). The degree trichotomy is exhaustive. Every yellow–yellow selected edge contradicts a coordinate square; every black–black selected edge forces all vertices black by square propagation and connectivity. Consequently each nontrivial PEDS alternates the yellow vertices with black/white vertices along the cube's parity partition. Each yellow vertex has exactly one black neighbor, forcing \(d\lvert B\rvert=2^{d-1}\), and hence \(d\) a power of two. The syndrome-code construction gives an exact converse, and counting each selected black–yellow edge from its yellow end fixes the minimum size. The standalone verifier checks all PEDS candidates in dimensions two and three and code configurations in dimension four, and constructs valid sets in dimensions two, four and eight. Finite tests do not substitute for the unrestricted square argument.
+PASS
 
-## Originality — PASS, with specified risks
+For an unchosen edge the two selected endpoint degrees sum to one. Thus any vertex with selected degree at least two has degree d in F. If a chosen edge joins two degree-one vertices, close it and another incident edge into a coordinate square; the two nonendpoints must have selected degree zero, yet their connecting edge would then be undominated. If two degree-d vertices are adjacent, a degree-one neighbor of either one gives a square whose fourth vertex would simultaneously have selected degree zero and be adjacent to a degree-d vertex. Hence the degree-d adjacency forces all neighbors to have degree d, and this propagates by connectivity to the full edge set. Otherwise there is a degree-d vertex (the empty set cannot dominate and degree-one pairs cannot form chosen edges). The degree-one vertices are independent, and the vertices of degrees zero and d together are independent. Connectivity identifies the two classes with the two parities. Each vertex in the degree-one class has exactly one selected neighbor of degree d, giving d|B|=2^(d−1) and |F|=2^(d−1). Thus d is a power of two. Conversely a single-parity center set with exact opposite cover gives precisely one selected incident edge at the opposite endpoint of each unchosen edge and none at its same-parity endpoint. The center set is recoverable as the degree-d vertices, because d≥2, and it is nonempty, so the parity choice is recoverable too. Existence follows by labeling coordinates with the elements of F₂^r: for every odd vertex its syndrome specifies exactly one bit flip to the even zero-syndrome code. This construction is nontrivial since |F| is strictly below the full-edge cardinality. In d=2 these are the four two-edge stars; d=1 is excluded. The supplied check was inspected, not executed; its Q4 loop tests parity-center candidates, not all edge sets.
 
-The closest full-text primary source is Lin–Lozin–Moyano–Szwarcfiter (2017): its page-four black/yellow/white characterization applies to arbitrary graphs, but it does not supply the cube-specific parity rigidity or the divisibility condition and converse construction. The recent Grippo–Lin–Moyano–Vera (2026) paper studies extremal counting on trees, forests and chordal graphs and algorithms on generalized series-parallel and chordal graphs, not this cube-classification theorem in its accessible abstract. Do Forte–Hanafi–Lucena (2023) studies integer-programming formulations with possible finite hypercube computational comparisons; the restricted abstract does not establish the theorem. The 2022 neighborhood-star-free theory is triangle-based and does not cover triangle-free cubes. Dedicated record queries compared hypercube domination, efficient edge domination, codes and perfect edge domination, with no statement found that logically implies the power-of-two theorem. The full 2026 and 2023 manuscripts could not be inspected exhaustively, so a remaining priority risk is explicitly acknowledged, not concealed.
+## originality
 
-## Value — PASS
+PASS
 
-The existence of any nontrivial solution changes sharply at precisely the power-of-two dimensions. When existence fails, the only possible solution contains *every* edge; when it succeeds, the optimum abruptly drops to \(2^{d-1}\). The equivalence with one-sided perfect binary codes gives a structural characterization and a concrete construction, linking edge domination to coding theory on a natural, highly symmetric infinite graph family. It is neither a tiny finite-table increment nor a bare reformulation of the general three-coloring observation.
+The supported distinct claim is the square-forced classification of every non-full PEDS of the Boolean cube, yielding the exact power-of-two obstruction and minimum. It is not the general selected-degree coloring, the construction of Hamming codes, or the use of same-parity induced stars. Closest indexed PEDS results concern other graph families; the same-day Hamming-star lower bound concerns weaker open packing, not a rigidity/converse theorem for all cube PEDSs. Bounded comparison supports this distinction, not absolute priority.
 
-## Limits
+## value
 
-The theorem does not enumerate all code solutions at high dimensions, and complete source-level priority is not certified where full text was inaccessible. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perfect edge domination is a natural graph invariant distinct from perfect vertex coding or efficient edge domination. The rigidity unifies its existence, exact minimum, and all non-full configurations for an infinite graph family, and reduces any remaining configuration or enumeration problem to a familiar class of perfect codes. The parity rigidity and the uniqueness of the full set in every inadmissible dimension are useful even though the existence construction is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:50:59.346299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof; VERIFICATION.md and checker.py, inspected only",
+        "Independent replay: /workspace/branches/658031a9-e0bc-4cca-ade5-7ea72b7d5fdb/independent_chain_enumeration.py"
+      ],
+      "rationale": "A nilpotent partial injection is a disjoint union of chains; index n forces one chain through all n vertices. For the preserving calculation put m=n−1, b=g(0), d=g⁻¹(0), a=g⁻¹(m). The successor recurrence increments by one except at i=a or i=d−1. If d−1<a, then g(d−1)=b+d−1 but the deletion of 0 forces b=g(d−1)+1, impossible. Thus a≤d−1 and g(a)=m=b+a, giving b+d>m. From d onward g(i)=i−d, and if the middle interval is nonempty, the recurrence starts it at g(m)+1=m−d+1. This proves the three branches; substituting verifies the converse. Their rotation first-return description is valid because an overshoot into (m,b+d) returns to [0,m] on the next step; every gcd(b,d) residue class meets [0,m]. Thus one cycle means coprimality and precisely a Farey gap. For reversal, any reversing partial bijection between the two circle subsets extends over their gaps to a reversing circle homeomorphism. Its decreasing lift yields exactly two fixed points and it exchanges the intervening open arcs. The even subsequence is a strictly monotone orbit of its increasing square in the first arc, and the odd subsequence runs in opposite order in the second. These give exactly the two displayed words, both satisfying anti-order after deletion. All rotations give n distinct labeled placements; preserving and reversing are disjoint on a domain of size at least three. The summatory-totient estimate gives the stated asymptotics. Independently enumerated preserving/reversing/union results at n=4,…,8: (16,8,24), (30,10,40), (60,12,72), (84,14,98), (144,16,160).",
+      "residual_risks": [
+        "Finite path enumeration only covers n=4,…,8 under the claimed range; the general proof does not rely on extrapolation. The disjoint count is not claimed for n≤3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The adjacent Resultary theorem concerns POPI endpoint attainability and a 2nφ(n−1) subfamily with neighboring endpoints, not the full counts in POPI and PORI. Inspected semigroup abstracts address endomorphism counts or Green/regularity structure.",
+          "The earlier Fernandes paper's full text was not accessible after bounded retrieval."
+        ],
+        "reasoning": "A marginal count on adjacent endpoints does not determine the full count unless all other fiber counts are given. Nor can it enumerate reversing chains. Scope statements in accessible abstracts do not rule out undiscovered implications elsewhere.",
+        "searches": [
+          "arXiv:2207.12823v1 and arXiv:1806.08440v2",
+          "Resultary: longest nilpotent chains / oriented partial permutation monoid; 1cda766d1c6b",
+          "doi:10.1080/00927870008827033"
+        ]
+      },
+      "checked_sources": [
+        "Sós Permutations §§2–3",
+        "OEIS A330503 and A002088",
+        "Resultary 1cda766d1c6b",
+        "arXiv:2207.12823v1 and arXiv:1806.08440v2 abstracts",
+        "Fernandes earlier monoid paper, retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path-to-circular-time-order reduction takes the preserving problem to the known Sós class. The adjacent endpoint theorem has neither a formula for all endpoint fibers nor a reversing order converse in its statement."
+        ],
+        "reasoning": "The preserving count follows from the known enumeration once the reduction is made and the asymptotic is classical. The exact separate anti-order words and full PORI census remain distinct in the compared evidence.",
+        "searches": [
+          "arXiv:2007.01132v1 §2, Farey sequences and Sós's recurrence",
+          "Resultary 1cda766d1c6b, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Surányi's bijection identifies Farey intervals with the Sós orders at β=0. Sós's recurrence on successors is the same three-branch update after convention matching. Labeled circular placement multiplies by n.",
+          "The reversing orbit classification concerns an order reversal, not the increasing irrational-rotation successor."
+        ],
+        "reasoning": "Credit exact equivalence of the preserving combinatorial class and count; the combined theorem has the additional reversal contribution and disjointness argument.",
+        "searches": [
+          "Sós permutations Farey partial injections nilpotent cyclic order orientation preserving",
+          "arXiv:2007.01132v1, Theorems 2–3",
+          "Resultary 1cda766d1c6b, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A330503 gives (m+1)Σ_{k=1}^m φ(k) and values 2,6,16,30,60,84,144,…; m=n−1 is the frozen preserving count. A002088 is the corresponding factor with no labeled rotation."
+        ],
+        "reasoning": "The preserving table is known and cannot by itself support an originality pass. Adding the reversing term is not a database observation; it is justified by the distinct anti-cyclic classification.",
+        "searches": [
+          "OEIS A330503, Sós permutations",
+          "OEIS A002088, summatory Euler totient"
+        ]
+      },
+      "rationale": "Pass is for the semigroup classification including the reversing branch and full oriented maximal-index census, not the preserving numerical sequence or the Sós recurrence. Those are explicitly credited and exactly match older Sós/Farey combinatorics. The inspected closest same-monoid Resultary theorem restricts its counts to adjacent endpoints and has no reversing branch. The two cyclic parity words and exactly 2n extra maps are not consequences of the inspected Sós classification of increasing order or of the endpoint result. This is a bounded assessment of the distinct claim, not a priority certificate.",
+      "residual_risks": [
+        "Full text of the earlier Fernandes paper was unavailable. The comparison is not exhaustive of earlier semigroup or circle-dynamics terminology.",
+        "No independent novelty is assigned to the preserving sequence, recurrence or asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for the preserving combinatorial enumeration",
+          "evidence": "Farey gap count Σφ, Surányi bijection and corresponding denominators in the three-branch recurrence.",
+          "identifier_or_url": "arXiv:2007.01132v1",
+          "material_read": "§2 Farey sequences, offset 14500; Theorem 2 and Theorem 3, offset 20430",
+          "method": "OA primary text",
+          "title": "Sós Permutations",
+          "trigger": "Equivalent recurrence and enumeration"
+        },
+        {
+          "assessment": "Exact shifted match for preserving only",
+          "evidence": "a(m)=(m+1)Σφ; m=n−1.",
+          "identifier_or_url": "https://oeis.org/A330503",
+          "material_read": "Formula and initial coefficients",
+          "method": "Public OEIS entry",
+          "title": "Number of Sós permutations of {0,1,...,m}",
+          "trigger": "Exact preserving table match"
+        },
+        {
+          "assessment": "Overlapping objects, different conclusion; no coverage of the reversing branch",
+          "evidence": "Endpoint existence plus φ(n−1) maps per adjacent oriented pair, not all fibers; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-parity-reachability-and-totient-fibres-of-longest-nilpotent-chai--1cda766d1c6b/RESULT.md",
+          "material_read": "Finding, assumptions and normal form, offset 0–3314",
+          "method": "Local Resultary mirror",
+          "title": "Parity reachability and totient fibres of longest nilpotent chains in orientation-preserving partial permutation monoids",
+          "trigger": "Same maximal-index semigroup layer"
+        },
+        {
+          "assessment": "Different stated goal; not a whole-paper negative conclusion",
+          "evidence": "Focuses on endomorphisms of the semigroups and their enumeration.",
+          "identifier_or_url": "arXiv:2207.12823v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA primary text",
+          "title": "Endomorphisms of semigroups of oriented transformations",
+          "trigger": "Same preserving and oriented transformation families"
+        },
+        {
+          "assessment": "Inaccessible in the bounded check; not negative evidence",
+          "evidence": "Publisher returned HTTP 403; no lawful repository full text identified.",
+          "identifier_or_url": "doi:10.1080/00927870008827033",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful repository lookup and publisher access attempt",
+          "title": "On the monoid of all orientation-preserving partial one-to-one transformations on a finite chain",
+          "trigger": "Early same-monoid source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, maximal-index reduction and classification",
+        "Sós/Farey antecedent and matched endpoint-count result"
+      ],
+      "rationale": "Maximum nilpotency index selects a canonical extremal layer of the two monoids. The exact classification up to rotation explains why a substantial Farey family is possible for one orientation but only two parity orders for the other, and fully determines the oriented count. The useful increment is this structural distinction, not the already tabulated preserving numbers or the standard totient asymptotic.",
+      "residual_risks": [
+        "No census of lower indices or ranks, and no complete distribution by ordered endpoints is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

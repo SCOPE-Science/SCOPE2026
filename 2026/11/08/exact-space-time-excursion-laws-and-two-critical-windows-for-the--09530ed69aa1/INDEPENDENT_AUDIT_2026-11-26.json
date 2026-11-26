@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:41:44.645722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional uniformity on each affine itinerary yields transition cutoff levels 1,1,1,2,j-1 for j>=5. The normalized four-level weights give the stated departure probability alpha and a geometric initial height H given departure. The outside steps have iid increments K-1 with K geometric on the nonnegative integers. Strong Markov at each downcrossing gives r^h and r=z(1-lambda)/(1-lambda r); the unconditional defective PGF simplifies to (1-alpha)z+alpha r^2. For n>=2 Lagrange inversion gives alpha (2/n) binom(2n-3,n-2)(1-lambda)^n lambda^(n-2), verifying the critical formula; r(1)=min(1,q) gives escape alpha(1-q^2) when q<1, and r'(1) gives the subcritical mean. For maximum height the harmonic q^h and memoryless exit overshoot with E q^overshoot=q yield (q^h-1)/(q^(L+1)-1) for starts below L. Exit is a.s. for fixed L (a block of L downward steps suffices), with integrable upper-exit overshoot; the initial geometric H also has the same overshoot conditional on H>=L. Averaging gives numerator E q^H-1=q^2-1; q=1 is the continuous limit. Positive-drift escape is unbounded by the law of large numbers, and the other phases return a.s. At lambda_N, the finite masses divided by their critical values equal (alpha_lambda/alpha_1/2)(2lambda)^(-2)[4lambda(1-lambda)]^n for n>=2. Critical masses are bounded by a constant times n^(-3/2), justifying the temporal Riemann sum on n>N with truncation error O(R^(-1/2)) beyond RN. Its limit is alpha_1/2/pi^(1/2) times the integral over [1,infinity) of t^(-3/2) exp(-4u^2 t); the scaled escape atom adds 8 alpha_1/2 max(u,0). Evaluating the integral gives the advertised erfc crossover. The height crossover follows from log q=-4u/L+O(L^(-2)) and the critical formula at u=0. Ran python3 /workspace/review_replay.py (section 2) for exact independent affine-image return masses through step 18 at three rational parameters and escape algebra; that bounded check does not establish either limiting law. Inspected the original verifier without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Ma give exactly the same auxiliary map and transition structure, and expressly distinguish it from the induced map by lack of semiconjugacy.",
+          "The general skip-free hitting-time framework gives the branching interpretation and the h/m first-hit factor."
+        ],
+        "reasoning": "This covers the chain and its first-passage mechanism, not the mixed initial law, geometric overshoot height formula or comparison of the two crossover observables. No result for the original dynamical map can be inferred from the auxiliary law here.",
+        "searches": [
+          "Ji–Ma DOI 10.3934/math.2023424, §5.1",
+          "Vilkas arXiv:2407.06903 p. 2, left-continuous random-walk hitting times"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_excursions.py",
+        "Ji–Ma §5.1",
+        "Vilkas arXiv:2407.06903",
+        "Resultary 9c2fa9f11f90 and 7834cb009215"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier bulk r and transition rows directly underlie the present time PGF once the four-level departure probability is evaluated; the branch point and earlier mass crossover already identify the N^(-1/2) time window. The survival crossover additionally integrates the long-return mass and retains escape, giving a different function including the asymmetric positive-drift term.",
+          "The all-parameter spatial result uses a separate geometric overshoot calculation, and its nontrivial limit is governed by q^(L+1), not by the return PGF singularity."
+        ],
+        "reasoning": "Do not credit novelty for the time method, known scale, or a mere base substitution. The strong overlap does not cover the all-parameter height calculation and the resulting distinct height window under the stated sampling, or already state the combined comparison including defective survival.",
+        "searches": [
+          "9c2fa9f11f90 local RESULT.md, 'Bulk descent and the exceptional fourth cell' and Finding",
+          "7834cb009215 local RESULT.md, critical first-passage and height formulas",
+          "Frozen RESULT.md proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9c2fa9f11f90 uses the identical affine branches, but B=V1 union V2 union V3; its exact return generating function uses the exceptional V4 return factor z(1-lambda^2)/(1-lambda^2 r), while the audited B absorbs V4 and has the simpler excursion term alpha r^2.",
+          "7834cb009215 gives the critical return and height laws from V5, a fixed height-one start, and a different roof clock. Its critical height calculation overlaps a constituent of this theorem."
+        ],
+        "reasoning": "The return-time differences are not merely terminology: including V4 removes a possible further return delay and replaces the entrance weights. Both statements use the same bulk r. A critical single-start law does not give the complete lambda-dependent height law with a mixed start.",
+        "searches": [
+          "Resultary 9c2fa9f11f90, exact first returns and critical crossover for a Fibonacci bimodal Markov map",
+          "Resultary 7834cb009215, physical-clock excursion tail at the critical point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first finding gives all-parameter return mass formulas and the mass crossover. The second has a critical height/return result but for a fixed V5 start and accompanied by a physical-clock analysis."
+        ],
+        "reasoning": "Neither actual indexed statement gives both crossovers or the four-base mixed height law across parameters. Same-day dating of the second item is not used to resolve priority.",
+        "searches": [
+          "Resultary semantic searches on this auxiliary map, return/maximum excursions, and near-critical crossovers; matched entries 9c2fa9f11f90 and 7834cb009215"
+        ]
+      },
+      "rationale": "Distinct contribution on current evidence is the all-parameter height distribution for the four-level Lebesgue return experiment and the explicit joint presentation of its L^(-1) height window and the defective time-tail crossover. Substantial prior coverage applies to the time kernel, time-scale width, and critical height component, and the return-law contribution is an explicit change of base using known bulk PGFs, not a new skip-free theorem.",
+      "residual_risks": [
+        "General two-barrier formulas or equivalent parameter-window asymptotics for geometric skip-free walks may remain unlocated. The literature comparison is not a priority certificate.",
+        "Same-day priority between distinct indexed critical calculations cannot be inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same auxiliary map and transition matrix; no matching laws in the inspected passage",
+          "evidence": [
+            "The map and induced map are not semiconjugate; the stated transition structure is the basis for the phase analysis."
+          ],
+          "identifier_or_url": "DOI:10.3934/math.2023424",
+          "material_read": "§5.1, pp. 8423–8424 (PDF extraction offsets 89000–97297)",
+          "method": "Primary OA passage inspection",
+          "title": "Phase transition for piecewise linear fibonacci bimodal map",
+          "trigger": "Same auxiliary map and Markov phases"
+        },
+        {
+          "assessment": "Strong time-law and time-width coverage, but distinct initial base and observable in the crossover; no space-time comparison in these passages",
+          "evidence": [
+            "The stated time-tail constant at criticality is 1/(6 sqrt(pi)) for B=(lambda^3,1], versus 2/(15 sqrt(pi)) for the audited base."
+          ],
+          "identifier_or_url": "Resultary 9c2fa9f11f90",
+          "material_read": "Local mirror RESULT.md Finding, assumptions, Markov coding and descent/exceptional-cell proof (offsets 0–5714; later return asymptotic in Finding)",
+          "method": "Read exact prior statement and inspect base change against current proof",
+          "title": "Exact first returns and critical crossover for a Fibonacci bimodal Markov map",
+          "trigger": "Same branches, exact return PGF and critical crossover"
+        },
+        {
+          "assessment": "Critical fixed-start overlap only for these observables; chronology is unresolved",
+          "evidence": [
+            "Starts from V5 and also studies a different roof clock."
+          ],
+          "identifier_or_url": "Resultary 7834cb009215",
+          "material_read": "Local mirror RESULT.md offsets 0–5984, critical starting cell and clock definitions",
+          "method": "Compare exact assumptions and claimed distributions",
+          "title": "A sharp inverse-logarithmic physical-clock excursion tail at the critical point",
+          "trigger": "Exact critical return and maximum law on same partition"
+        },
+        {
+          "assessment": "Covers general first-passage machinery, not these mixed space/time laws",
+          "evidence": [
+            "Hitting-time and branching correspondence with the h/m factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.06903",
+          "material_read": "p. 2, OA text near offset 4500",
+          "method": "Primary formula/setting comparison",
+          "title": "Left-continuous random walk on Z and the parity of its hitting times",
+          "trigger": "Potential general skip-free coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Time and maximum height are natural observables on the same explicitly sampled excursion. The exact spatial formula, including the escaping mass, and the contrast between L^(-1) and N^(-1/2) windows offer a quantitative benchmark beyond detecting a conservative/dissipative phase change. The critical and off-critical comparisons tell a researcher how to scale two competing finite thresholds, without confusing this clock or map with that of the original dynamical family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

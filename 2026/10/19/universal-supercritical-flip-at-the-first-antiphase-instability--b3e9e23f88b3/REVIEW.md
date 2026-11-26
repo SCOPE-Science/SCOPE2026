@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The incidence signs can be chosen uniformly at each vertex because trees are bipartite. The resulting weighted edge matrix is irreducible nonnegative and similar to a positive-definite symmetric matrix; its Perron mode is simple and strictly positive. The exact odd sine expansion and left-eigenvector projection give a positive cubic coefficient \(\kappa=\sum a_ev_e^4/3\). Lyapunov--Schmidt reduction establishes an antipodal two-cycle for positive detuning only, and perturbation of its Jacobian gives the strict attracting multiplier. The finite checks in `verify_flip.py` are diagnostics, not an infinite proof.
+## correctness
 
-**Originality (PASS, with residual priority risk).** The nearest source, Buescu--D'Aniello--Oliveira arXiv:2610.10993v1, proves an antiphase sink below the step threshold and loss of sink stability beyond it; this does not determine the sign of the period-doubling cubic coefficient or existence of stable successors. Its relevant full Sections 3 and 5 and conclusions were checked for postcritical two-cycles; none is reported. The generic period-doubling normal form is known but does not establish strict supercriticality for arbitrary positive weighted trees, or the explicit graph eigenvector formula. Earlier network-bifurcation literature may contain an equivalent instance or theorem not located by the searches.
+PASS
 
-**Value (PASS).** At the source's sharp loss-of-descent threshold, the theorem gives the dynamical object replacing the antiphase attractor: a stable alternating phase pattern, with sharp square-root amplitude, graph-dependent Perron geometry and first Floquet correction. The universal sign is a structural result for any tree or positive weights, not a handpicked scalar example. This resolves a natural postthreshold behavior that mere spectral loss of stability cannot decide.
+In the bipartite orientation K is positive definite (tree incidence has full column rank), with off-diagonal adjacency equal to that of the connected line graph. Thus A^(1/2)KA^(1/2) has a simple positive top mode and every transverse fixed-point multiplier at h=2/Lambda is in (-1,1). The weighted left vector is Av. Independently, any local two-cycle x,y must satisfy M(sin x+sin y)=0 by adding the two map equations; M is invertible and componentwise sine is injective in a small real chart, so y=-x. This gives exact antipodality and reduces uniqueness to the displayed Lyapunov–Schmidt equation, without relying on generic center-manifold uniqueness. The analytic transverse component starts at cubic order because the linear splitting is invariant for all h and the map is odd. The projected equation is -delta u + [(2+delta)/6] sum(a_e v_e^4) u^3 + O(u^5); after division by u the implicit equation in u^2 gives one nonzero pair for small positive delta, none for small negative delta. The even Jacobian at the pair gives the square for the return derivative. The simple critical eigenvalue perturbation adds (h Lambda/2) sum(a_e v_e^4) u^2 = 3 delta + O(delta^2) to -1-delta, giving the stated multipliers; the transverse spectral gap persists. This includes the one-edge tree and makes no equality or global claim. Replay: RESULT.md lines 16–49; verify_flip.py and VERIFICATION.md were inspected, not executed. The numerical checks are illustrations rather than a proof or a uniqueness certificate.
 
-**Limits.** Bifurcation neighborhood not uniform over graphs; no global basin description, equality-case attractor statement or higher-order cascade classification. Priority remains conditional on further external review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is restricted to the automatic sign, full local attraction and explicit weighted-mode profile for the entire positive weighted-tree class after the known stability threshold. Neither generic flip theory, the one-edge sine oscillator, nor the exact unit-path specialization is itself credited as new. No inspected stronger result established the all-tree claim.
+
+## value
+
+PASS
+
+The known stability edge leaves open whether its first nonlinear successor on a weighted tree is attracting or repelling, and whether transverse directions spoil attraction. The result settles both locally without generic-weight assumptions, and the explicit Perron-weighted branch gives a graph-dependent spatial prediction and a return-rate coefficient immediately above the edge. The scalar and unit-path cases alone would not provide that class-wide conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

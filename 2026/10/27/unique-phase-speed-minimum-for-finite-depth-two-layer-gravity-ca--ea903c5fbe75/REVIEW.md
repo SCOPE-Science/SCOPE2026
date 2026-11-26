@@ -1,20 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to \(0<\rho_u<\rho_l\), \(h_u,h_l,g,T>0\), two rigid lids, and the standard linear interfacial dispersion relation. The proof derives the partial-fraction representation from Euler's product, establishes \(D'>0\), \(D''<0\), and \(H=D-yD'>0\), and then proves strict decrease of \(R=A D'/H\). The derivative identity \(F'=H(T-R)/D^2\) gives the complete sign classification. The asymptotic \(F(k^2)\to\infty\) for \(k\to\infty\) confirms that the single stationary point below threshold is a global minimum.
+PASS
 
-## Originality — PASS on best-knowledge comparison
+The check uses the positive-frequency phase speed with finite positive depths, strictly stable density ordering, quiescent layers, rigid lids and positive tension. In y=k² the denominator D has a constant term D0=Σρ_j/h_j plus positive multiples of y/(h_j² y+π²n²), by logarithmic differentiation of the sinh product. The differentiated series are uniformly dominated by summable n^-2 and n^-4 bounds, so D'>0, D''<0 and D'(0)=Σρ_j h_j/3. Dominated convergence gives D'(∞)=0. The quantity H=D-yD' starts positive at D0 and increases, hence R=A D'/H strictly decreases from Tc to zero. The exact derivative F'=H(T−R)/D² fixes the sign on the entire positive axis, including the critical case, and gives one strict minimum below threshold. Taking the positive square root preserves the classification. At k=0 the extension has zero first derivative for every T, not just Tc; the critical case is distinguished by vanishing quadratic coefficient in k, and has no positive-wavenumber stationary point. This clarifies the endpoint wording. The frozen supporting verification is analytic; no scan, nonlinear-wave result, or bounded-range surrogate is used.
 
-The threshold itself is prior work. The 2026 finite-depth interfacial-wave article gives the critical Bond number and discusses a nonzero-wavenumber minimum below threshold; the inspected passages do not supply a proof that the minimum is globally unique for all positive densities and finite layer depths. The 1993 Sun–Shen article treats the same rigid-boundary two-layer setting and a critical surface-tension regime, but only its abstract and issue metadata were accessible in this run; its full text remains a residual risk. No matching result surfaced in the published-finding corpus searches or in the accessible current-week claim ledger.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum phase speed is the critical speed for resonance with a translating forcing and is a natural organizing quantity in capillary-gravity wave theory. An exact uniqueness theorem rules out multiple competing positive-wavenumber minima and gives a complete parameter split: one finite minimizer below the explicit threshold, none above it. This is a global structural result, not a numerical recomputation of the known threshold.
+The supported distinct result is the global exclusion of extra stationary points in the subcritical regime for general unequal finite depths. The same dispersion, exact threshold, existence of the positive minimum below threshold, and an equivalent stationarity equation are all in Kadari et al. Appendix A also states that the stationary factor can vanish at positive wavenumber only below threshold; combined with its positive prefactor and the positive large-k derivative this already implies strict increase in the complementary regime. The added theorem is the analytic one-crossing proof across all positive wavenumbers below threshold, not a new threshold or a new derivative factorization. The closest inspected indexed theorem is for a different, single-layer shear model.
 
-## Closest literature and limitations
+## value
 
-- Sun and Shen (1993), DOI 10.1137/0524054: same finite-depth two-layer rigid-boundary context and critical surface-tension regimes. Only the publisher abstract was readable; full-text retrieval was unavailable, so an unindexed or embedded uniqueness argument cannot be excluded.
-- The 2026 finite-depth interfacial-wave article, arXiv:2605.12254v1, §2: relevant finite-depth phase-speed formula and exact critical Bond threshold. The inspected passages state the threshold and the existence of a nonzero-wavenumber minimum in the subcritical regime, but do not provide the global uniqueness proof asserted here. This later paper is used as a comparison source, not as the archive date source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A local change in curvature does not settle which wavenumber realizes a minimal interfacial propagation speed. The result rules out additional stationary candidates at arbitrary finite depth ratios and selects one branch by a strictly monotone scalar equation. That is a natural and useful global classification of the linear dispersion, with no claim about existence or stability of nonlinear waves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

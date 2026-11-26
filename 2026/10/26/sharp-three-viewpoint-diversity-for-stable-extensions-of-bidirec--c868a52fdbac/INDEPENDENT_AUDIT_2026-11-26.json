@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:05.984800Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66",
+        "Frozen VERIFICATION.md and checker.py",
+        "/workspace/independent_checks.py, paths()"
+      ],
+      "rationale": "Bidirectionality identifies stable extensions with maximal independent sets. Such nonempty path sets have first and last selections within one vertex of the ends and successive gaps 2 or 3. Each membership column contributes at most two to the sum of three pair distances, giving the stated upper bound. The six bases satisfy independence and domination; inserting the three singleton columns adds two to every distance. In the order-nine family the first A,BC replacement leaves A,C at the anchor; subsequent steps use the A,C rule with the same inserted block and the unchanged fourth column B. The complete order-six gap list gives the five-cycle at distance at least four; a triple attains three. Orders one to three have counts 1,2,2. Independent gap enumeration and forward-bitset triangle detection reproduce the exact optima for orders 4–20 (python /workspace/independent_checks.py 1); this finite check is separate from the insertion proof.",
+      "residual_risks": [
+        "No claim for directed paths of different orientation, larger packings, or a classification of optimal triples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "507cf5e0d7fc gives an exact weighted three-bin makespan formula for attack graphs of indegree and outdegree at most one with at least two even directed cycles."
+        ],
+        "reasoning": "Internal vertices of the bidirected path have both degrees two; the exact makespan formula does not specialize to this graph. No chronological inference is made from the same date.",
+        "searches": [
+          "Resultary 507cf5e0d7fc",
+          "Matsuoka and Ito, PMLR v222"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 507cf5e0d7fc and b542a4289c17",
+        "arXiv:2605.13332, 1909.05121, 1808.07369",
+        "PMLR v222 Matsuoka and Ito"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fichte et al. optimize between two extensions. The exact triple result in the other record is on degree-one attack digraphs."
+        ],
+        "reasoning": "A largest pairwise distance does not give an optimal three-way minimum. The new attainment construction and the path-six obstruction are not supplied by the compared statements.",
+        "searches": [
+          "arXiv:2605.13332, diversity definitions and problems; Resultary 507cf5e0d7fc and b542a4289c17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Idomatic families require disjoint sets; independent-domination polynomials count sizes; the Hamming problem includes the objective as a general template."
+        ],
+        "reasoning": "The path-code formulation is maximally independent/dominating words with gaps 2 or 3. Neither disjointness, the size polynomial, nor a generic problem formulation gives the three-word packing distance.",
+        "searches": [
+          "Resultary: three-viewpoint stable-extension diversity and bidirected paths",
+          "arXiv:1909.05121; arXiv:1808.07369; PMLR v222 Matsuoka–Ito Problem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later Resultary entry gives the ordered-pair distance polynomial on bidirected paths; the independent-domination polynomial counts individual sets by size."
+        ],
+        "reasoning": "Neither statistic identifies triangles in the distance-threshold graph. Even knowing the number of threshold edges is not knowing whether they form a triangle.",
+        "searches": [
+          "Resultary b542a4289c17; arXiv:1808.07369"
+        ]
+      },
+      "rationale": "The supported distinction is the exact bidirected-path invariant and order-six exception, not invention of maximin Hamming diversity. Closest same-day three-extension record concerns a disjoint domain; the closest exact path enumeration only gives a pair statistic.",
+      "residual_risks": [
+        "Finite literature coverage; an equivalent path-code result under other terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, different graph domain",
+          "evidence": "The formula is W minus minimum maximum load among three bins of cycle lengths; internal path vertices violate the degree condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-three-viewpoint-stable-extension-diversity-for-degree-one--507cf5e0d7fc",
+          "material_read": "Finding, offsets 0–3538",
+          "method": "Local Resultary mirror read",
+          "title": "Exact three-viewpoint stable-extension diversity for degree-one attack graphs",
+          "trigger": "Same date and objective"
+        },
+        {
+          "assessment": "Exact pair distribution, not triple packing",
+          "evidence": "The polynomial sums pair distances; the relationship section distinguishes it from the degree-one triple result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-ordered-stable-extension-diversity-polynomial-of-bidirected--b542a4289c17",
+          "material_read": "Finding offsets 0–3250; relationship section offsets 7366–9764",
+          "method": "Local Resultary mirror read",
+          "title": "The ordered stable-extension diversity polynomial of bidirected paths",
+          "trigger": "Exact same objects and Hamming distances"
+        },
+        {
+          "assessment": "Pairwise objective",
+          "evidence": "Symmetric difference between two extensions; no triple path formula in the compared statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.13332",
+          "material_read": "Page 5, offsets 15500–18450",
+          "method": "OA primary text",
+          "title": "Diversity of Extensions in Abstract Argumentation",
+          "trigger": "Nearest argumentation diversity literature"
+        },
+        {
+          "assessment": "Contains the optimization template, not the exact invariant",
+          "evidence": "Maximizes minimum weighted Hamming distance of k members of a set family.",
+          "identifier_or_url": "https://proceedings.mlr.press/v222/matsuoka24a/matsuoka24a.pdf",
+          "material_read": "Page 3 Problem 1, offsets 6819–9039",
+          "method": "OA primary text",
+          "title": "Maximization of Minimum Weighted Hamming Distance between Set Pairs",
+          "trigger": "General Hamming packing formulation"
+        },
+        {
+          "assessment": "Different family statistic",
+          "evidence": "Pairwise-disjoint independent dominating sets in the idomatic number; path orientations discussed.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.05121",
+          "material_read": "Page 3, offsets 8208–11185",
+          "method": "OA primary text",
+          "title": "Independent Domination in Directed Graphs",
+          "trigger": "Equivalent-object terminology"
+        },
+        {
+          "assessment": "Counts sets, not distances",
+          "evidence": "Definition weights independent dominating sets by cardinality.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "Page 2, offsets 4891–6746",
+          "method": "OA primary text",
+          "title": "On the Independent Domination Polynomial of a Graph",
+          "trigger": "Plausible path counting coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, upper bound, insertions and threshold graph",
+        "Fichte et al., pair-diversity formulation"
+      ],
+      "rationale": "Three viewpoints are the first case where a maximally distant pair does not solve the packing problem. Knowing exactly when stability imposes a loss relative to the unrestricted binary bound gives a complete natural benchmark, and the unique exception is analytically explained rather than tabulated.",
+      "residual_risks": [
+        "The result does not give a general diversity algorithm or cover larger numbers of viewpoints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

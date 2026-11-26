@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Phase-overlap normalization is derived for continuous uniform orbital phase and nonoverlapping windows; the first-repeat restriction eliminates higher aliases. Differentiating the exact triangular overlap gives a signed derivative on the full interior and a strictly decreasing derivative on the applicable edge interval. Thus the global optimizer is unique or an exactly characterized plateau, including equality boundaries. The analytic equations yield the two stated closed forms; `CHECK.py` independently tests integral values, derivatives, and grid dominance with 55,922 assertions. Finite tests do not replace the analytic proof.
+## correctness
 
-**Originality — PASS relative to checked material; residual priority risk remains.** The inspected 2007 and 2009 window-function studies examine detection probability at given periods using simulation, detection-noise models and survey strategies, and the 2014 study develops hypergeometric approximations. Their statements do not imply the exact sharp reweighted-prior slope transition and one-orbit edge-anchored optimum under the present design constraint. The related published three-window weather-reliability phase threshold applies to a fixed period and random observation success, not period-prior integration with two deterministic windows. Generic convolution unimodality gives qualitative background but, alone, does not supply the stated exoplanet-period weighting, edge localization or closed forms. An equivalent older scheduling result could exist; the comparison is not independent priority certification.
+PASS
 
-**Value — PASS.** Sparse-window scheduling under uncertain period is a genuine survey-design question, and the distinction between an ordinary period prior and the phase-weighted prior matters: it makes the best revisit lag anchor at an extreme rather than at the midpoint. The full three-regime classification and explicit boundary lags are exact benchmarks for testing cadence calculations. It is not an operational survey prescription because the model neglects noise, finite duration, red noise, weather, multiple aliases and realistic priors.
+The constraints imply 4w<a and 0<L−w≤L+w<2P for every admissible P. Each window can contain at most one center; only one-period transit pairs can contribute. The possible first-center times are [0,w]∩[L−P,L−P+w], of length (w−|L−P|)_+; divide by P and integrate against π. Dominated differentiation gives the clipped right mass minus the clipped left mass. For decreasing h, on the full-support interval the right mass is smaller by pointwise translated comparison. For b−w≤L≤b it is still strictly smaller: the right interval is shorter than or equal to the left, and compared to the same-length initial part of the left interval its integrand is smaller (at L=b the right mass is zero). This fills a sign step omitted from the frozen proof. At the left edge the derivative decreases strictly, with slope h(L+w)−2h(L)<0 and opposite signs at a and a+w; beyond [a,b] the signs point inward. Reflection proves the increasing case. Constant h gives equality precisely on [a+w,b−w], possibly a singleton. Integrating 1/P and P in the edge equations gives the two stated quadratics; substituting (3,4,0.2) independently gives 3.188194301613414 and 3.809987531152684. The theorem is exact in the model, not an empirical calibration. The supporting SLOGAN overstates discontinuity: that description of the power-law optimal lag requires b>a+2w; the actual Finding does not assert a jump when the plateau is a singleton.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+What survives comparison is the sharp lag design law for a period prior and ideal separated, equal windows, not the familiar phase-window function or the triangular overlap identity. The strongest inspected source for period-prior weighting uses fixed baselines; the strongest indexed transit-center alias comparison varies orbital period at a fixed daily schedule. Neither yields the edge placement, exact neutral plateau or the critical exponent for the lag optimization.
+
+## value
+
+PASS
+
+The physically motivated design question asks whether a sparse follow-up should target the middle of the uncertain-period range or one edge. The theorem gives a sharp answer, including an exact flat regime, and supplies boundary equations and closed-form test cases for survey-cadence calculations. The useful invariant is the optimizer of the physically reweighted prior, not another statement of cumulative transit probability. Its benchmark value does not depend on realism outside the stated idealization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

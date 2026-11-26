@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The edge-level definition is applied only to edges outside the chosen set. The local zero-bit conditions distinguish the three incident edges at each branch vertex from degree-two interior edges, including two-edge paths. The four-state matrix counts all admissible sequences with no overcounting. Its exact identity \(T^4=T^3+T\) gives a length recurrence for every coordinate at least six. The cycle comparison obeys the same recurrence; twenty finite initial triples are checked both algebraically and by independent exhaustive edge-subset enumeration. Induction establishes nonnegative gaps for all parameters and isolates \(\Theta(2,2,2)\) as the only equality case.
+PASS
 
-## Originality
+An interior zero edge needs its predecessor and successor bits to sum to one; a terminal zero instead adds the number of selected edges at its degree-three endpoint to its one interior neighbor. These give exactly the displayed pair transfer and endpoint tests. At length two the identity matrix forces (f,h)=(p,g), so the same boundary formula neither misses nor duplicates any bit words. For a labeled cycle the trace counts each cyclic bit assignment at its fixed starting index once. Direct multiplication yields T^4=T^3+T, hence the same recurrence for the theta count and the comparator as any length at least six is reduced by one or three. A separate endpoint-sharing subset enumeration reproduced all twenty unordered base rows and the corresponding cycles. The only zero difference in the base is 222 (6 vs 6); neither predecessor outside the base can be 222, so strong induction gives strict positivity elsewhere.
 
-PASS, with historical priority subject to independent verification. The nearest source is Grippo–Lin–Moyano–Vera (arXiv:2607.03894v1), which conjectures the cycle bound for connected graphs and supplies algorithms covering generalized series-parallel graphs. An algorithm for each input graph does not by itself establish the universal theta extremal inequality or its equality classification. Web literature searches, relevant published research-record comparisons, and accessible prior claims did not find an equivalent infinite-family inequality. The 2002 generalized series-parallel algorithm paper and the 2025 counting work remain possible earlier implicit algorithmic coverage; original specific-theta theorem priority cannot be guaranteed.
+## originality
 
-## Value
+PASS
 
-PASS. Three-path theta graphs are the fundamental non-cactus, two-cycle series-parallel family. Proving the proposed extremal cycle bound for **all** subdivisions of \(K_{2,3}\), including the sharp equality boundary, is a meaningful structural infinite-family advance over finite counting or routine numerical tables. The recurrence reduction to twenty small graphs and explicit exact counting transfer supply independently useful tools.
+The literature inspected already supplies the cycle counts, and existing generalized series-parallel algorithms compute the individual theta counts. The same local transfer recurrence was previously used for lollipops. Neither comparison gives the all-length theta-versus-cycle bound with its K2,3 equality case; originality credit is for that family-specific comparison and the two-terminal specialization, not for the matrix, cycle sequence, or existence of a counting algorithm.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Settles a natural infinite bicyclic family in the connected-graph cycle-comparator conjecture and identifies an exceptional equality missed by a generic counting algorithm. The shared recurrence gives a structural explanation for why a finite comparison establishes the full family, rather than a collection of numerical instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

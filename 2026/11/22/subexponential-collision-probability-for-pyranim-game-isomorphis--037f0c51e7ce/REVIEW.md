@@ -1,21 +1,21 @@
-# Review: Subexponential collision probability for Pyranim game isomorphism
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stable-position definition and game/graph equivalence are reproduced from the first public source. The exact connected-type formula comes from the 2010 counting theorem. The block construction makes all \(r!\) states legal, different and isomorphic. The central-binomial bound gives enough pairwise nonisomorphic connected components, and Stirling turns the resulting class mass into an all-size asymptotic bound. A standalone program corroborates small cases; no finite experiment is treated as an infinite proof.
+PASS
 
-## Originality
+Sampling is independent uniform on individual ideals, so the collision probability is the sum of squared class masses, not the reciprocal of the number of types. Put each distinct connected m-vertex type on a contiguous block in an umbrella ordering. Every edge interval forces precisely its subinterval chips; no cross-block chip is included, and unused bottom positions are absent. Permuting r blocks makes r! different ideals because the types are distinct. The block relabeling preserves the disjoint containment structures and the game, consistent with the cited graph criterion. Independently, one can establish the needed supply even without the exact connected-type formula: connected ordered umbrella graphs are specified by nondecreasing right endpoints R_i≥i+1 (i<m), R_m=m. Subtracting 1 from the first m−1 endpoints gives the Catalan sequences i≤R_i−1≤m−1, hence C_{m−1} patterns. For a fixed graph and a specified first vertex, BFS layers are contiguous cliques (their right endpoints are obtained by iterating R). Within each layer, preceding-layer neighbor sets are nested decreasing and following-layer sets nested increasing in any umbrella order. Sort by decreasing preceding degree and then increasing following degree; ties have identical neighbor sets by nesting and are interchangeable. Thus each first vertex produces at most one adjacency pattern, yielding c_m≥C_{m−1}/m, which already gives c_m≥n/m with the frozen m since (log n)^4 dominates m². Likewise, any ideal is coded by nondecreasing rightmost included endpoints R_i, with R_i=i−1 for an empty row; shifting by one and appending n+1 gives the Catalan sequences of length n+1. For m=ceil(log₄ n+4 log₄ log n), r=floor(n/m), Stirling gives log(r!)=n log 4−O(n log log n/log n), including an O(log n) flooring cost. Using C_{n+1}≤4^{n+1} and squaring the mass of this single class proves the asserted all-large-integer lower bound; p_n≤1 gives the root limit. It does not prove p_n tends to zero or give a sharp decay scale.
 
-**PASS (provisional historical priority).** Binyamin and Kniffen explicitly pose the limit in section 5.3, question 4. Saitoh and coauthors count connected proper interval types, not collision probabilities for uniform Pyranim positions. published-finding corpus and literature comparisons examined aliases involving Dyck paths, proper interval graphs, entropy/collision probability and component permutations. The new connection is a factorial-size fiber at nearly Catalan exponential scale. An undiscovered equivalent theorem remains possible. The exact connected-type formula itself is prior art.
+## originality
 
-## Value
+PASS
 
-**PASS.** An explicit new paper asks for this precise limiting value; the proof gives an unconditional answer and a subexponential lower bound for a natural combinatorial probability. It identifies a structural mechanism rather than computing an isolated example. The actual asymptotic decay and whether the probability tends to zero remain unresolved by this claim.
+Credit the established game/graph correspondence and the connected-type enumeration. The distinct large class construction controls the weighted collision probability for uniform positions; neither the enumerated number of graph types nor the connected-type supply alone gives that lower bound. No demonstrated equivalent coverage beyond the identical target record was found in the bounded comparison.
 
-## Sources and limits
+## value
 
-- Binyamin and Kniffen, *Enumerating Pyranim Isomorphisms*, arXiv:2611.16153v1 (2026-11-12), sections 2–5, https://arxiv.org/abs/2611.16153 .
-- Saitoh et al., *Random Generation and Enumeration of Proper Interval Graphs*, IEICE Transactions on Information and Systems (2010), Theorem 1, https://doi.org/10.1587/transinf.E93.D.1816 .
-- OEIS A005217, https://oeis.org/A005217 , type-count database rather than collision law.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining the exponential rate for this natural collision experiment identifies a pronounced effect of the nonuniform class masses. A constructive single-class lower bound resolves the root-limit question as formulated in the frozen source, with an effective subexponential form rather than an extrapolation from counts at small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

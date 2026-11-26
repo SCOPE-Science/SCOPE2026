@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:41.522702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique greedy leftmost embedding is a bijection between outputs and canonical deletion masks. Nonadjacent deletions must each be run ends; adjacent internal deletions are canonical iff the next retained symbol differs from both, and the terminal pair is always canonical. Counting these cases gives choose(R,2)+H−T, including m=2. For uniform input, adjacent equality indicators of the underlying letters are iid Bernoulli(1/q): any chosen subset of neighboring equality constraints on a path has probability q to the negative size of that subset. Each read-repeat indicator C_i is the product of ell such consecutive bits, giving the exact joint probabilities and dependence range. H and T have the same interior expectations by counting the constant or period-two input windows, with only the initial repeat term p left over. Thus the pair expansion of choose(m−sum C_i,2) gives the stated exact mean. The bounded finite-dependence CLT applies to sum C_i with limiting variance v; expanding the quadratic gives coefficient −(m−(m−1)p−1/2). In the fourth moment of the centered indicator sum, separated singleton components vanish, leaving O(m²) nonzero terms for fixed ell. H−T has O(m) variance by locality. This establishes L² control of the normalized remainder, hence both the Gaussian and variance limits. Fresh direct enumeration independently checked both deterministic formulas and the mean at (q,ell,n)=(2,2,3),(2,2,4),(3,2,4),(4,2,4),(2,3,4), covering 377 words; means were 1, 19/8, 73/27, 181/64, 1. The attached script was inspected but not executed; its larger recorded enumeration does not prove the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Chen use overlapping reads but protect adapter-related endpoints and study code constructions and redundancy.",
+          "The catalogue result gives exact mean and variance across all alphabet sizes for independent read symbols."
+        ],
+        "reasoning": "The overlapping-read coding result has a different statistic and hypotheses; the independent-word result has a stronger type of variance formula but for a different input law. The deterministic general-alphabet identity covers all read sequences, but does not give moments without computing their joint distribution.",
+        "searches": [
+          "arXiv:2601.21236v3 PDF pp. 1–3",
+          "Resultary 2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify_window_two_deletion.py",
+        "Resultary 1cbd5a76d8bf and 6c9fe70986cc",
+        "arXiv:2601.21236v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=4 and ell=2, independently uniform 16-symbol reads yield normalized variance 3375/65536. The same repeat marginal under overlapping reads gives 4725/65536 once the short-lag covariance is included."
+        ],
+        "reasoning": "The covariance corrections cannot be obtained by substituting q^ell into the independent-word law. The exact cancellation of the local mean corrections and the moment control for this dependent statistic supply the new specialization; the attached exact values are not merely parameters of the known iid result.",
+        "searches": [
+          "Resultary 1cbd5a76d8bf, Finding and Assumptions",
+          "arXiv:2601.21236v3 pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 1cbd5a76d8bf gives choose(K,2)+m−1−J for a general read word, with K unequal neighbors and J distance-two equalities.",
+          "The frozen expression is choose(R,2)+H−T."
+        ],
+        "reasoning": "K=R−1, and each constant run of length r contributes r−1 to m−R and 1_{r≥2}+max(r−2,0) to H+J−T. Hence m−R=H+J−T and the identities coincide. This equivalence applies to the deterministic expression, not to the laws of random inputs.",
+        "searches": [
+          "Resultary: exact two-deletion distinct-output count, mean and variance, runs and distance-two repetitions; records 1cbd5a76d8bf and 6c9fe70986cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored Findings match exact ordinary-word deletion statistics. The latter gives (n−1)(n−2)(2n−3)/32 for iid binary words, not sliding reads."
+        ],
+        "reasoning": "Matching the number of deletes or increasing the alphabet to q^ell does not equate the sampled read lists. The database overlap is exact for the deterministic identity but does not cover the exact correlated-read moments.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf; 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc"
+        ]
+      },
+      "rationale": "The arbitrary-sequence double-deletion identity is already covered, even by an algebraically equivalent exact Resultary formula. The exact expectation and fluctuation law for the dependent, unguarded overlapping-read list are the distinct contribution. Neither the known independent-word formulas nor the inspected overlapping-read code theorems supply that law.",
+      "residual_risks": [
+        "The deterministic deletion identity is not credited as novel here; the literature and catalogue search is not an exhaustive priority determination for dependent deletion-sphere laws.",
+        "The finite replay tests identities and arithmetic only, and does not assert a rate of convergence or finite-length variance formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic identity; exact moment results use iid read symbols.",
+          "evidence": [
+            "States choose(K,2)+m−1−J for general words, with exact mean and variance for uniform q-ary words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and exact formula/model comparison",
+          "title": "Exact q-ary two-deletion variance and a two-scale Poisson ambiguity result",
+          "trigger": "Closest exact double-deletion count and moment result"
+        },
+        {
+          "assessment": "Ordinary iid binary-word variance, not the sliding-read law.",
+          "evidence": [
+            "The variance is (n−1)(n−2)(2n−3)/32 for a uniformly random binary word."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and statement comparison",
+          "title": "Exact variance of binary two-deletion sphere size",
+          "trigger": "Exact variance for two deletions"
+        },
+        {
+          "assessment": "Does not give the frozen unguarded random-center output law in those results.",
+          "evidence": [
+            "Known adapters protect endpoint reads; the paper studies code redundancy and correction, rather than the number of distinct two-deletion outputs of an unguarded uniform center."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.21236v3",
+          "material_read": "Version 3 PDF pp. 1–3, scope, model and stated results",
+          "method": "OA primary PDF statement/model comparison",
+          "title": "First-order optimal codes for an adversarial nanopore channel",
+          "trigger": "Same sliding-window read channel and deletion errors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The overlapping read list is a natural constrained random sequence. Its repeat marginal agrees with the iid model on q^ell symbols, but its leading output-volume variance does not. The exact finite mean and explicit positive covariance correction quantify this distinction and give an analytic check for any proposed approximation of the abstract read-output count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

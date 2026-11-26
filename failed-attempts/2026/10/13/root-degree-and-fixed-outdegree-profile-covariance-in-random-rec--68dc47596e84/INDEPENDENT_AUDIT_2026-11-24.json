@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:22.464988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditionally on the tree, B increases by 1+(z−1)z^{degree(parent)} and D increases by the root-selection indicator. Total covariance gives the stated multiplicative update and forcing (z−1)(b_n/n−a_n/n²). Substituting a_n=[n+(1−z)b_n]/(2−z) cancels the constant forcing after centering at 1/(2−z). On |z|≤ρ<1, each product factor from j≥2 has absolute value at most 1−(1−ρ)/j. The centered forcing is O_ρ(n^{−1−(1−ρ)}); the transition product gives the stated harmonic logarithm. Cauchy's formula yields each fixed-class limit, and B_n(1)=n gives the complementary covariance. As a finite cross-check only, `python3 -B /workspace/review_work/check_record5.py` independently compared 36 exact covariance evaluations using independent parent draws with full enumeration of sizes 1–9, and checked eight leaf evaluations. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sign-reversal record proves an additional exact all-n threshold at n=22 for k=1. Addario-Berry–Eslava, pp. 1–2, distinguish global profile moments and high-degree tails; they cite Janson's global degree count covariance."
+        ],
+        "reasoning": "Global count–count covariances and tail frequencies do not supply the distinguished-root mixed covariance. The sign-reversal result instead works with exactly the same root-marked object and already proves the qualitative asymptotic conclusions.",
+        "searches": [
+          "Resultary: root degree outdegree covariance random recursive trees global degree counts",
+          "Resultary: Janson asymptotic degree distribution random recursive trees root degree covariance",
+          "arXiv:1507.05981v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Sign-reversal and root–leaf Resultary records",
+        "Addario-Berry–Eslava arXiv:1507.05981v2",
+        "Janson DOI 10.1002/rsa.20046 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equations (1)–(2) have A_n=h_n, ρ_n=b_n and μ_n=a_n exactly. Equation (7) then proves the identical coefficient limits by Cesàro convergence."
+        ],
+        "reasoning": "Subtracting 1/(2−z) from equation (1) with equation (2) substituted leaves an O_ρ(b_n/n) forcing. Both b_n and transition factors have the same 1−(1−ρ)/j bound from the displayed product. One iteration gives n^{−(1−ρ)} times a harmonic sum, including the rate not separately stated by the comparison record.",
+        "searches": [
+          "2026/11/2/SCOPE-a-twenty-two-vertex-sign-reversal-and-geometric-root-degree-prof--14337d651546/RESULT.md, equations (1)–(2) and (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The twenty-two-vertex sign-reversal record's Finding gives exactly 2^{−k−1} for the root-degree covariance with the number of all vertices of outdegree k and exactly 1−2^{−K−1} for the fixed cutoff. Its Limitations give the same compensation by growing classes."
+        ],
+        "reasoning": "It includes the root in the profile, uses the same uniform parent law and the same outdegree, and covers every fixed k, not only leaves or k=1. The complementary limit is the negative of the cutoff limit by deterministic profile total n.",
+        "searches": [
+          "Resultary: random recursive tree Cov(root degree, number vertices of outdegree k)",
+          "Resultary: fixed outdegree profile covariance mass escape random recursive tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The root–leaf record states the exact (n−2)/(2(n−1)) identity; the sign-reversal record gives exact equations (1)–(2) with initial values, not just tabulated samples."
+        ],
+        "reasoning": "Any finite numerical table is insufficient for the disk theorem, but the comparable exact, all-size polynomial description already covers the finite statistics. The leaf identity is explicitly excluded from the new content.",
+        "searches": [
+          "Resultary: random recursive tree Cov(root degree, number vertices of outdegree k)"
+        ]
+      },
+      "rationale": "A distinct indexed result proves the same fixed-class limits, finite-cutoff limit and covariance escape, and gives the identical exact polynomial recurrence and first-moment solution. The remaining disk estimate follows directly from that exact prior coverage by the elementary product bound and harmonic sum, not a new covariance calculation. This is a comparison of mathematical coverage, not an assertion of historical priority from directory dates.",
+      "residual_risks": [
+        "Janson full text unavailable; it might contain a distinguished-root identity. This does not determine the verdict.",
+        "Index path dates do not establish publication order or independent historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent fixed-class and cutoff claims; exact all-n recurrences imply the residual uniform estimate.",
+          "evidence": "Proof equations (1)–(2) are identities for the full covariance polynomial, with the same initial data.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-twenty-two-vertex-sign-reversal-and-geometric-root-degree-prof--14337d651546/RESULT.md",
+          "material_read": "Finding, Proof (equations 1–7), Limitations",
+          "method": "Local mirror, openings from offsets 350, 1900 and 6200",
+          "title": "A twenty-two-vertex sign reversal and geometric root–degree-profile covariance in random recursive trees",
+          "trigger": "Exact match to the random object and covariance"
+        },
+        {
+          "assessment": "Covers the expressly known leaf case only.",
+          "evidence": "Cov(D_n,L_n)=(n−2)/(2(n−1)).",
+          "identifier_or_url": "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "material_read": "Finding around offsets 583–1190",
+          "method": "Local mirror",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Exact finite k=0 benchmark"
+        },
+        {
+          "assessment": "Not the root–profile covariance in the passages read.",
+          "evidence": "Global degree frequencies and high-degree distribution, not moments paired with the labeled root.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05981",
+          "material_read": "v2 pp. 1–2, definitions and scope",
+          "method": "OA literal queries and bounded reading",
+          "title": "High degrees of random recursive trees",
+          "trigger": "Recursive-tree degree profile and tail counts"
+        },
+        {
+          "assessment": "Unresolved; not used as negative evidence.",
+          "evidence": "Publisher denied access and tested author-copy routes did not resolve to readable text.",
+          "identifier_or_url": "10.1002/rsa.20046",
+          "material_read": "No full text; global-count scope described in Addario-Berry–Eslava",
+          "method": "Lawful OA DOI, publisher and author-manuscript attempts",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Global degree covariance theory could contain a root refinement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mixed covariance and mass-escape phenomenon are meaningful. Once their exact polynomial recurrence and the fixed-class limits are accounted for, the leftover uniform bound is a routine closed-disk estimate on the known recurrence. The finding does not use it for a new near-boundary or growing-degree theorem or otherwise establish a substantive remaining contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

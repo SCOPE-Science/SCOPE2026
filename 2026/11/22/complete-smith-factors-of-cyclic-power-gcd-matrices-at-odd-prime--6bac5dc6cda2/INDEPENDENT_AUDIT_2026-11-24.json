@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:27.558588Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(9) and proof of the local-to-global step; VERIFICATION.md; check.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 2 (direct gcd matrices and SymPy over ZZ)"
+      ],
+      "rationale": "Grouping the full residue set modulo p gives uI+v(I_p⊗J_p)+J_{p²}; the three rational eigenvalues u, α, β with multiplicities p(p−1), p−1, 1 give a nonzero determinant. Away from p, the corresponding averaging projections are integral over each local ring, so the eigenvalues give the local Smith valuations there. At p, the distinguished p×p block P reduces to J_p−I_p. Its square modulo p is I_p−2J_p but more directly (J_p−I_p)(−I_p−J_p)=I_p since J_p²=0 modulo p; the stated invertibility is valid even though constants and the sum-zero subspace do not give a direct sum in this field. With R the remaining incidence matrix and W=vI+J, block elimination gives the Schur complement u(I+RWP⁻¹Rᵗ). The bracket reduces to p copies of I_{p−1}+J_{p−1}, each of rank p−2 over the residue field. There are therefore p unit factors, p(p−2) factors of valuation a and p factors of valuation at least a+1. For all odd p, including a=1, both α and β have valuation one; the determinant forces the last p valuations to be exactly a+1. This proves the rank and p-primary assertions. At every other prime dividing β, v and c are units since β−vc=p²; at primes not dividing β the displayed factors have one zero valuation, p(p−1) valuations of v and p−1 of vc. These multisets match the local splittings. The positive factors form a divisibility chain (in particular p divides c and the last ratio is β/p), so the local comparisons identify the full integral form. Independently computed integer Smith diagonals for (3,1), (3,6), (5,1), (5,3) agree.",
+      "residual_risks": [
+        "The examples do not prove the all-parameter theorem; the prime-local argument does. Neither even p nor deeper prime powers are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-power report covers all depths for the unpowered kernel and uses nested layers and a rational inverse to obtain largest factor and rank modulo p, not every intermediate factor.",
+          "The tensor-product census covers squarefree moduli and excludes p². Noferini–Williams Theorem 3.15 gives the number of nonunit factors rather than their values."
+        ],
+        "reasoning": "Neither larger depth for the unpowered kernel nor squarefree tensorization dominates the present powered non-squarefree Smith problem. General methods do not supply the residue characteristic valuations without additional analysis.",
+        "searches": [
+          "SCOPE-the-exact-cokernel-exponent-of-prime-power-cyclic-gcd-matrices--47e5f01be76b",
+          "SCOPE-complete-integral-smith-invariants-of-cyclic-gcd-difference-matr--2dd8584629f4",
+          "arXiv:2408.08662v1 Theorem 3.15"
+        ]
+      },
+      "checked_sources": [
+        "Resultary lookup and the two distinct same-day records identified above",
+        "arXiv:1908.07331v2 and arXiv:2408.08662v1",
+        "Frozen RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2,a=1 the same-day exponent/rank result concerns exactly the same matrix. In that special case, combining the rank, the largest p-adic valuation two, and the determinant determines how many valuations one and two occur.",
+          "For general a, the full list uses a unit-pivot Schur reduction and a rank calculation after division by p^a, and then local-to-global sorting at all other primes. Common-factor splitting, resultants, rank, or an exponent alone do not in general encode that list."
+        ],
+        "reasoning": "Credit the special-case overlap (without inferring order from a shared date) and the general Smith methods. The inspected results give no already-evaluated analogue determining the full powered family.",
+        "searches": [
+          "47e5f01be76b RESULT.md nested projection, inverse and exponent results",
+          "arXiv:1908.07331v2 Theorem A / Corollary B",
+          "arXiv:2408.08662v1 Theorem 3.15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-residue difference kernel is a circulant, hence multiplication by its first-column polynomial in Z[t]/(t^(p²)−1). Theorem A is a reduction by a common polynomial divisor; here the circulant is nonsingular, so no such nonconstant divisor gives the listed local factors.",
+          "The classical gcd/LCM works are cited for entrywise gcd of two elements of an integer set, not gcd of their difference with a fixed modulus; full texts were not independently inspected."
+        ],
+        "reasoning": "The companion-ring encoding is genuinely equivalent, but the inspected general reduction does not solve the nonsingular factor problem. Similarity of the positive-integer GCD-matrix terminology is not itself a reduction.",
+        "searches": [
+          "Resultary search for complete cyclic gcd-difference Smith factors and prime-power cokernels",
+          "arXiv:1908.07331v2 Theorem A and Corollary B",
+          "10.1155/IJMMS.2005.925",
+          "Hong, Linear Algebra Appl. 428 (2008), 1001–1008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed row is not independent evidence; a distinct record lists the largest factor 252 for the matching 9×9 unpowered example but not its entire diagonal.",
+          "The squarefree invariant-factor census is a different domain."
+        ],
+        "reasoning": "Matching a single Smith entry in a matching example is real overlap but not a complete table. No prior matching full table was identified in these direct lookups.",
+        "searches": [
+          "Resultary search for cyclic power-GCD integral Smith factors",
+          "47e5f01be76b RESULT.md Finding/example",
+          "2dd8584629f4 RESULT.md Finding"
+        ]
+      },
+      "rationale": "There is exact overlap with the largest-factor and mod-p rank claims for a=1 in a distinct same-day record. The supported distinct contribution is the complete ordered integral Smith family for all a≥1. Neither the inspected nonsingular companion-ring tools nor the indexed filtrations and tensor-product forms give that family mechanically. This is not a claim of priority for the unpowered exponent or mod-p rank.",
+      "residual_risks": [
+        "The repository copy of Telloni–Williams and the two classical-paper full texts were not independently readable in the attempted routes.",
+        "A stronger uninspected general Smith theorem or an unindexed prime-square table could change the priority assessment; same-day index matches establish overlap, not chronological order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage",
+          "evidence": "Largest factor and mod-p rank for every depth, including 252 at p=3,k=2; explicitly omits all intermediate factors.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-the-exact-cokernel-exponent-of-prime-power-cyclic-gcd-matrices--47e5f01be76b",
+          "material_read": "Local RESULT.md Finding, proof, example and Limitations (mirror offset 0)",
+          "method": "Local mirror passage comparison",
+          "title": "The exact cokernel exponent of prime-power cyclic GCD matrices",
+          "trigger": "Identical cyclic matrix in the unpowered depth-two case"
+        },
+        {
+          "assessment": "Does not apply at p²",
+          "evidence": "Full tensor recipe assumes squarefree modulus, excluding repeated prime factors.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-complete-integral-smith-invariants-of-cyclic-gcd-difference-matr--2dd8584629f4",
+          "material_read": "Local RESULT.md Finding and domain",
+          "method": "Local mirror passage comparison",
+          "title": "Complete integral Smith invariants of cyclic gcd-difference matrices at squarefree modulus",
+          "trigger": "Same kernel class and full Smith invariant"
+        },
+        {
+          "assessment": "Related method, no mechanical full-factor implication from these statements",
+          "evidence": "Common-divisor splitting and resultant relationship do not resolve all integral factors of the nonsingular p² circulant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.07331v2",
+          "material_read": "p. 2, Theorem A and Corollary B (offset 4480 onward)",
+          "method": "Bounded open full text",
+          "title": "Matrices in companion rings, Smith forms, and the homology of 3-dimensional Brieskorn manifolds",
+          "trigger": "General integral Smith tools for the same companion-ring encoding"
+        },
+        {
+          "assessment": "Inspected theorem yields a count, not the complete values",
+          "evidence": "Theorem 3.15 determines the number of nonunit Smith factors; even an evaluated count would not identify their valuations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.08662v1",
+          "material_read": "pp. 1–2 introduction and p. 14 Theorem 3.15 (offset 44397)",
+          "method": "Bounded open full text",
+          "title": "The Smith form of a matrix in a companion ring",
+          "trigger": "Primary search hit, potentially stronger companion-ring Smith results"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not negative evidence",
+          "evidence": "The frozen comparison describes certain polynomial matrices; the absence of a specialization was not independently checked against the paper.",
+          "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+          "material_read": "No primary passages retrieved; cited scope in frozen Related Work only",
+          "method": "Attempted university repository OA retrieval via both available routes; certificate error",
+          "title": "Smith forms of circulant polynomial matrices",
+          "trigger": "Cited circulant Smith-form work"
+        },
+        {
+          "assessment": "Limited independent access; no whole-document exclusion asserted",
+          "evidence": "The contrast between gcd(x_i,x_j)^a and the cyclic difference kernel is the frozen comparison, not a verified claim about all contents of those papers.",
+          "identifier_or_url": "10.1155/IJMMS.2005.925; Linear Algebra Appl. 428 (2008), 1001–1008",
+          "material_read": "Frozen Related Work and Hong landing metadata only; no decisive paper passages",
+          "method": "DOI/publisher retrieval: Haukkanen–Korkee 403; Hong landing/abstract only",
+          "title": "Notes on the divisibility of GCD and LCM matrices; Divisibility properties of power GCD matrices and power LCM matrices",
+          "trigger": "Classical GCD and power-GCD matrix alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and full positive diagonal",
+        "47e5f01be76b exponent-only comparison",
+        "2dd8584629f4 squarefree comparison"
+      ],
+      "rationale": "The prime square is the first cyclic order with an intermediate residue layer and no squarefree product reduction. For this natural integer kernel the entire finite cokernel gives torsion multiplicities at the defining prime and elsewhere, information not captured by rational eigenvalues or the largest factor. The powered family is uniform rather than a handpicked example, and the integral Schur calculation supplies exactly the local information unavailable by averaging at p.",
+      "residual_risks": [
+        "Value is the exact full cokernel for the stated family, not a general classification at higher prime powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

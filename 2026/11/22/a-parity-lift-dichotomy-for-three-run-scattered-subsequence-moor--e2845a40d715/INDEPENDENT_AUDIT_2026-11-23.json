@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:54:33.975607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The target is the parity of positional embeddings after every binary prefix, including the empty input. Lucas gives P=2^(1+floor(log₂a)) as a period of f(z)=binom(z,a) mod 2. A smaller period would give a proper period dividing P, hence also period P/2, contradicted by f(a)=1 and f(a−P/2)=0. Updating the prefix counts uses only old coordinates. On phase zero, the action on the middle counters is M=I+N; shifting to phase a for the one-letter update and shifting back adds e₁ to M. The actions are finite permutations, so inverse powers are realizable by words. Composing and conjugating gives translations by M^t e₁, whose first b columns form the invertible triangular Pascal basis. Thus every base state occurs. For a≥2,b≥2, the stem 0^a1^(b−1)0^(P−a) gives B_(b−1)=1 and f(P+1)+f(P)=binom(P,a−1)=0; swapping the last two letters therefore holds the base fixed and flips C. For a=1,b≥2, with r the least power of two at least b, the displayed words have equal B_j because binom(r,j−1) vanishes for 1≤j−1<b≤r, and opposite C because binom(r−1,b) is odd for b<r and zero for b=r, while binom(r+1,b) does the reverse. For b=1,a even, the last-letter swap compares the odd binom(a+1,a) and binom(a,a) and changes C by one. Opposite lifts then propagate together by a common suffix to every base. In the exceptional case b=1,a odd, contributing one-positions see an odd number of preceding zeros by Lucas, so each final-zero factor is congruent to z−1, giving C=(z−1)B₁. Distinguishability is proved, not inferred from reachability: the empty suffix fixes C, the b+1 outputs after 1^t0 extract the middle coordinates and f(z) in triangular order, and the shifts 0^r1^b0 recover the rotation of f and thus z. The same triangular tests for B_b with the final 0 omitted distinguish base states when viewing the two-run counter by itself. No extrapolation is needed.",
+      "reproduction": {
+        "command": "python3 /workspace/reproduction/5.py",
+        "result": "A full prefix-state implementation (not the compressed phase machine) enumerated and Moore-minimized all 66 cases 1≤a≤11, 1≤b≤6 against the actual output bit, finding 26,604 reachable states total with no merges. Literal embeddings checked 65,520 word/pattern cases. Separate checks reproduced 4,914 witness pairs, 40 separating-signature cases on 7,148 states, and 877,440 invariant instances. The two frozen scripts were inspected, not run; none of these bounded checks certifies the infinite theorem, priority, or an external attestation."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-modulus two-run theorem gives m^b times the product of p^(e+floor(log_p a)) over p^e exactly dividing m, so at m=2 it supplies the full P·2^b base count. Its scope stops before the returning zero. The generalized Parikh-matrix theorem passages give homomorphism and matrix identities, not a calculated minimal output quotient.",
+          "The search located the historically plausible Modular and Threshold Subword Counting and Matrix Representations work, but no substantive passage from it was retrieved."
+        ],
+        "reasoning": "Representing a count by matrices or a weighted automaton does not evaluate the index of its observable-state stabilizer. The relevant stronger coverage would need either exact state indices for these patterns or a structural theorem that implies their lift. No such implication was established by the passages actually read.",
+        "searches": [
+          "Exact minimal modular subsequence counters for every binary two-run pattern, Finding and Limitations",
+          "arXiv:2407.04462v1 Theorems 3.1 and 5.2 and Conclusion",
+          "Web literature: binomial coefficients of words modulo prime scattered subwords p group languages minimal DFA syntactic group state index Eilenberg unitriangular counting pattern"
+        ]
+      },
+      "checked_sources": [
+        "Resultary alternating-triples result f8d46c1509db",
+        "Resultary all-two-run result 64015373a52c",
+        "Fazekas–Huang arXiv:2407.04462v1 in the cited passages",
+        "DOI 10.1142/S0129054111008817 and radicalshort2 only at access/index level"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The alternating-triple formula m³/gcd(m,2) directly implies the four-state case (a,b)=(1,1) only. The two-run formula gives the size of the base (z,B), but says nothing about whether C is a function of it. The inspected generalized-matrix passages establish a representation without an exact parity-state quotient."
+        ],
+        "reasoning": "Same-base/opposite-C word pairs, the odd-a and b=1 obstruction, and productive suffix tests supply a real new classification relative to these sources. The result neither republishes the base count as novelty nor takes the doubling for granted.",
+        "searches": [
+          "Alternating triples RESULT.md, Finding and Proof",
+          "Two-run RESULT.md, Finding, Relationship to prior work and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scattered binomial counts are positional subsequence counts, and exchanging the two letters preserves state complexity. At modulus two, a complete DFA recognizing either one of the two residues is in fact equivalent after output relabeling to the parity Moore machine; the manuscript merely declines to assert that consequence, not that the sizes differ.",
+          "The exact alternating-triple finding covers a=b=1 at modulus two and returns four states. An indexed all-alternating family also intersects 0^a1^b0 only at a=b=1."
+        ],
+        "reasoning": "The review considers those equivalent DFA/letter formulations; they do not enlarge the alternating intersection or turn the two-run target into a three-run target. The separate one-residue equivalence would not follow by the same binary relabeling for higher moduli.",
+        "searches": [
+          "Resultary: modular scattered subsequence parity state complexity Moore 0^a 1^b 0 binomial word",
+          "Resultary: minimum deterministic binary scattered subword occurrence automaton modulo 2 returning letter parity",
+          "Web literature: scattered subword counting modulo 2 binomial coefficients of words minimal automaton state complexity pattern counting Alazemi Cerny group automata three runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact family hit was the review target. Other exact returned formulas concern alternating triples, all-alternating words, the two-run family (including 0011), or mixed-pair residue tests."
+        ],
+        "reasoning": "These are real overlaps or different target words/output domains, not an existing table of the last-bit lift across the stipulated three-run family. Enumeration is corroborative and cannot by itself establish independence or the unique exceptional parameter condition.",
+        "searches": [
+          "Resultary: modular scattered subsequence parity state complexity Moore 0^a 1^b 0 binomial word",
+          "Resultary: minimum deterministic binary scattered subword occurrence automaton modulo 2 returning letter parity"
+        ]
+      },
+      "rationale": "The audited contribution is the exact parity lift on the family with two arbitrary initial runs and last run of length one. The entire two-run base count and the alternating-triple specialization are prior or contemporaneous overlapping results; they are not credited as new here. The inspected sources do not determine the exceptional last-bit relation for arbitrary a,b. Inaccessible plausible general works are left unresolved rather than classified as noncovering.",
+      "residual_risks": [
+        "Exact coverage by the inaccessible 2011 trie paper or the located modular-and-threshold counting paper is unresolved. Abstracts, access failures and search misses do not establish priority. An older general group-orbit calculation could change the originality comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equal state minimization model; covers precisely the alternating triple and complement, at more moduli.",
+          "evidence": [
+            "Count m³/gcd(m,2) for 010/101 gives four at modulus two; longer targets are excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db/RESULT.md",
+          "material_read": "Finding, Proof and Limitations",
+          "method": "Mirrored public primary result text",
+          "title": "Exact output-state complexity for modular alternating scattered triples",
+          "trigger": "Exact known overlap at (a,b)=(1,1)."
+        },
+        {
+          "assessment": "Gives the full P·2^b base at modulus two and covers all moduli for two runs; it does not include a returning run.",
+          "evidence": [
+            "Its exact theorem fixes target 0^a1^b; its limitations exclude more than two runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-minimal-modular-subsequence-counters-for-every-binary-two--64015373a52c/RESULT.md",
+          "material_read": "Finding, Relationship to prior work, and Limitations",
+          "method": "Mirrored public primary result text",
+          "title": "Exact minimal modular subsequence counters for every binary two-run pattern",
+          "trigger": "Potentially subsumes all base reachability/minimality."
+        },
+        {
+          "assessment": "The inspected generalizations give counting homomorphisms, determinants and subword-history identities; no exact state-count implication derived from those passages.",
+          "evidence": [
+            "The theorem passages concern homomorphism and determinant properties rather than reachable minimal deterministic state counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04462v1",
+          "material_read": "Abstract and Introduction, passages around Theorems 3.1 and 5.2, §6.1, Conclusion",
+          "method": "Targeted reading in lawful HTML full text",
+          "title": "Generalized Parikh Matrices For Tracking Subsequence Occurrences",
+          "trigger": "General subword-counting representation could subsume state analysis."
+        },
+        {
+          "assessment": "Unresolved; no theorem-level judgment from access failure.",
+          "evidence": [
+            "The DOI did not return full text, and the university repository returned only a landing page/abstract, not an open full-text copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+          "material_read": "Bibliographic/title-level search listings only in this review; no article full text",
+          "method": "Attempted lawful full-text retrieval at the DOI and checked university repository availability",
+          "title": "Counting Subwords Using a Trie Automaton",
+          "trigger": "Potential general positional-subword counting theorem."
+        },
+        {
+          "assessment": "Potential stronger source, exact coverage unconfirmed; no negative inference from the failed retrieval.",
+          "evidence": [
+            "The indexed description relates subword counting to algebraic language characterization; PDF access did not yield substantive text for state-minimality comparison."
+          ],
+          "identifier_or_url": "https://www.cmup.pt/cmup/jalmeida/preprints/radicalshort2.pdf",
+          "material_read": "Search index title and introductory snippet only; no theorem passages retrieved",
+          "method": "Primary literature lookup and lawful author-PDF retrieval attempt",
+          "title": "Modular and Threshold Subword Counting and Matrix Representations",
+          "trigger": "A general modular subword theory might imply the exact parity-state index."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies exact deterministic memory for a natural returning-letter extension of a two-run pattern. The full family classification identifies when a new output bit is genuinely independent and when a pointwise parity invariant removes it. Its Θ(a·2^b) states compared to a naive prefix bit for every pattern position, and its explicit necessary-and-sufficient boundary, describe a structural effect not captured by a list of examples. The result is limited to parity and a final run of length one.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

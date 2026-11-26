@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:34:41.716679Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof (1) and radial moment calculation",
+        "Frozen VERIFICATION.md, recorded diagnostics",
+        "Frozen verification/check_gaussian_oblique.py, inspected without execution"
+      ],
+      "rationale": "In the orthogonal frames the leakage has disjoint blocks −ACBᵀ, AC and CBᵀ, with independent A=G†K and B=J†M. For any fixed nonzero c the conditional law of Ac/||c|| is mean-zero Gaussian with covariance (GᵀG)⁻¹. Multiplying by the Wishart density raises the determinant power by 1/2; the positive-definite gamma integral gives det(I+xxᵀ)^{−(ℓ_L+1)/2}=(1+||x||²)^{−(ℓ_L+1)/2}. The polar beta integral gives the stated gamma quotient and diverges at q=ℓ_L−r+1 as well as above it. A nonzero column and row of C force the left and right necessary cutoffs and give nonzero leakage almost surely; for sufficiency finite entry moments and independence bound the moment of the product block. For finite second moments the radial second moment r/(ℓ−r−1), Gaussian column symmetry and side independence give the three coefficients α, β and αβ. Finite first moments and conditional centering give zero mean when both sketches have at least one extra row. The equal-size examples and positive-tolerance oversampling bound follow by rearrangement; zero tolerance is unattainable for the stipulated nonzero Z.",
+      "residual_risks": [
+        "The reported finite Monte Carlo and algebraic checks do not test all orders or prove divergence. Nothing here covers adaptive states or trajectory error."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-sided law applies to every fixed nonzero orthogonal residual and in fact gives a stronger spectral mixing law for that single lift. Carrel–Grigori supply the exact two-sided tangent projector and its complementary factorization by expansion. The Nyström and Runge–Kutta sources bound or compute errors for different reconstructions; their results alone are not the asserted equivalence."
+        ],
+        "reasoning": "Conditioning on the right sketch leaves a fixed input for the left prior theorem with unchanged normality relative to U. Thus the exact one-sided coverage can be applied twice, not just cited as qualitative analogy.",
+        "searches": [
+          "arXiv:2607.03402v1 Lemma 4.2 and Proposition 4.4",
+          "arXiv:0909.4061 Propositions 10.2 and 10.4",
+          "arXiv:2302.12761v4 Theorem 14; arXiv:2409.06384 Theorems 2–3",
+          "Resultary 23a3fc6123ad"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 23a3fc6123ad, 94943c586d73 and 359d8df14ce8",
+        "arXiv:2607.03402v1, 0909.4061, 2302.12761v4, 2409.06384"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every fixed D normal to U, the earlier exact mean is E||Q_LD||²=(1+α)||D||². Set D=ZQ_Rᵀ, which remains normal to U and is independent of Q_L. Apply on both sides to obtain (1+α)(1+β)||Z||² and subtract ||Z||². For divergence, orthogonal projection on the right onto V⊥ recovers Q_LZ from Q_LZQ_Rᵀ, and projection onto U⊥ on the left recovers ZQ_Rᵀ. The product norm therefore dominates each one-sided norm. For finiteness, bound the product norm by ||(Q_L U⊥)||_F ||Z||_F ||(Q_R V⊥)||_F, with U⊥,V⊥ orthonormal complement matrices. Each factor has the exact prior cutoff by applying the earlier theorem to that very complement as the fixed residual input, and the factors are independent. The earlier continuous nondegenerate one-column law and orthogonality give nonzero leakage almost surely; centering gives the finite mean and the remaining numerical corollaries are algebra."
+        ],
+        "reasoning": "The full sharp claim follows from ordinary factorization, projection contraction and conditioning using the exact same Gaussian-lift law. It does not require a new tangent-specific heavy-tail theorem, uniform input estimate, or evaluation of a new Gaussian integral.",
+        "searches": [
+          "Resultary 23a3fc6123ad, Finding, assumptions, and Proof §§1, 3",
+          "Carrel–Grigori, arXiv:2607.03402v1 Lemma 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing Q_L=I−H_L and Q_R=I−H_R gives Z−E=Q_L Z Q_Rᵀ. Since E is tangent and Z is normal, ||Q_L Z Q_Rᵀ||²=||Z||²+||E||². Thus the leakage is the excess squared norm of two complementary lifts.",
+          "Resultary 23a3fc6123ad uses exactly Q_L=I−U(ΘU)†Θ when its fixed input A is already normal to U. The right side is the transpose of the same experiment. Resultary 359d8df14ce8 symmetrizes a rank-one output; that is not an equivalence."
+        ],
+        "reasoning": "Translate one-sided squared-norm moment order t to unsquared order q=2t; the bounded additive constant ||Z||² neither creates nor removes a finite positive moment.",
+        "searches": [
+          "Gaussian oblique tangent projector, fixed perpendicular residual, Gaussian pseudoinverse oversampling moments",
+          "arXiv:2607.03402v1 Lemma 4.2 and Proposition 4.4",
+          "Resultary 23a3fc6123ad and 359d8df14ce8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23a3fc6123ad gives the exact one-sided normalized squared-error mean 1+r/(ℓ−r−1), cutoff t<(ℓ−r+1)/2 and a rank-one beta-prime law. The exact chi-square-ratio overlap in 94943c586d73 concerns a reduced least-squares observable. The exact table in 359d8df14ce8 is for symmetrized output; its independent equal-size rank-one mean-square coefficient is different."
+        ],
+        "reasoning": "No printed two-sided table is needed: the exact one-sided multipliers, not asymptotic tail bounds, multiply under conditioning and the squared norm of Z is then subtracted.",
+        "searches": [
+          "Resultary 23a3fc6123ad, 94943c586d73, 359d8df14ce8",
+          "arXiv:0909.4061 Proposition 10.2"
+        ]
+      },
+      "rationale": "The exact frontier and finite second moment for this two-sided leakage are direct consequences of the published exact one-sided law and the already-published complementary product form of this projector. The earlier law is for the same Gaussian oblique lift acting on a fixed orthogonal residual, not merely a similar heavy-tail model. Sequential conditioning applies it without a new estimate. This is demonstrated implication, not a claim that the exact formula was printed verbatim or that a same-day/later record establishes priority.",
+      "residual_risks": [
+        "The journal theorem numbering for the cited Kressner–Lam result was not verified. The finding of direct implication uses accessible distinct sources and does not depend on that numbering or on the historical order of same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE UNDER TWO-SIDED PRODUCT REDUCTION",
+          "evidence": "With A already orthogonal to its fixed basis Q, the older error is exactly (I−Q(YᵀQ)†Yᵀ)A. The theorem is uniform over the choice of fixed input in the sense needed here, including the complement as input; its normalization and q-to-q/2 conversion give both exact one-sided laws used in the reduction.",
+          "identifier_or_url": "Resultary 23a3fc6123ad",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1 and 3, local mirror from offset 0 through the density derivation",
+          "method": "Local mirror statement and proof inspection",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Exact prior moment frontier and mean for the identical one-sided Gaussian action"
+        },
+        {
+          "assessment": "EXACT PROJECTOR, NO GAUSSIAN MOMENT STATEMENT",
+          "evidence": "The left-plus-right-minus-product identity is already given; its complementary form supplies the deterministic part of the implication.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.03402",
+          "material_read": "Lemma 4.2 p. 9 near offset 37620; Proposition 4.4 p. 10 near 41700",
+          "method": "OA full-text passage inspection",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Identical tangent projector setting"
+        },
+        {
+          "assessment": "STANDARD ONE-SIDED INGREDIENTS",
+          "evidence": "Exact mean squared pseudoinverse norm and a polynomial upper tail, not itself the tangent experiment.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+          "material_read": "Propositions 10.2 and 10.4, Theorem 10.5, PDF pp. 55–57",
+          "method": "OA full-text passage inspection",
+          "title": "Finding structure with randomness",
+          "trigger": "Known Gaussian pseudoinverse moments and tails"
+        },
+        {
+          "assessment": "DIFFERENT RECONSTRUCTION; PREPRINT NUMBERING DIFFERS",
+          "evidence": "Expected squared generalized Nyström error appears at Theorem 14 in this preprint; Theorem 9 there is an HMT high-probability bound. Published numbering was not verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.12761v4",
+          "material_read": "Theorem 14 p. 16 near offset 48558; Theorem 9 p. 11 near 30946",
+          "method": "OA preprint passage inspection; journal copy unavailable",
+          "title": "Randomized low-rank approximation of parameter-dependent matrices",
+          "trigger": "Two-sketch exact expected-error comparison"
+        },
+        {
+          "assessment": "DIFFERENT ERROR AND MOMENT BOUND",
+          "evidence": "An L^q generalized Nyström error bound and randomized integrator result, not sharp tangent leakage.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06384",
+          "material_read": "Theorems 2–3, PDF pp. 5–6, near offset 18205",
+          "method": "OA full-text passage inspection",
+          "title": "Randomized Low-Rank Runge–Kutta Methods",
+          "trigger": "Related two-sketch moment and trajectory bounds"
+        },
+        {
+          "assessment": "SAME CUTOFF MECHANISM, DIFFERENT QUANTITY",
+          "evidence": "Chi-square ratios with ℓ−r+1 degrees of freedom for reduced least squares, not the tangent projector; same date does not establish priority.",
+          "identifier_or_url": "Resultary 94943c586d73",
+          "material_read": "RESULT.md Finding, local mirror from offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact nullspace inflation for Gaussian reduced least squares",
+          "trigger": "Distinct same-day exact cutoff"
+        },
+        {
+          "assessment": "LATER-DATED, SYMMETRIZED RANK-ONE EXPERIMENT",
+          "evidence": "Symmetrization changes the output and its finite mean-square coefficient. Not the coverage on which the decision rests.",
+          "identifier_or_url": "Resultary 359d8df14ce8",
+          "material_read": "RESULT.md Finding, local mirror from offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank projection",
+          "trigger": "Close projector-specific exact Gaussian moment result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof (1)",
+        "Carrel–Grigori Lemma 4.2",
+        "Resultary 23a3fc6123ad exact Gaussian lift law"
+      ],
+      "rationale": "Diagnosing infinite variance is useful for sketch design, but for this exact fixed-state diagnostic the cutoff, multiplier, and oversampling threshold follow mechanically once the previously known complementary lifts and exact single-lift law are applied. No distinct structural result, new probabilistic bound, or new regime survives that implication. The record does not establish a trajectory or adaptive-state conclusion that would require additional ideas.",
+      "residual_risks": [
+        "A distinct claim about dependent sketches or states, coupled trajectories, or a genuinely new distributional invariant would require its own proof and assessment; none is assessed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

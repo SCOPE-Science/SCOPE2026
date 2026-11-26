@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:42:45.213829Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97; VERIFICATION.md and verify.py (read only)",
+        "Replay: python3 /workspace/reproduction.py 1"
+      ],
+      "rationale": "The exact unsplit propagator is exp(−2at) times an orthogonal rotation. Nilpotency gives the two products of opposite shears, each with damping q=exp(−2ah). Applying the two orders to a generic vector gives the same exact averaged squared-length identity as the scalar Gram calculation. Fresh independent choices make this a conditional identity at every iterate, proving the all-n law and all three mean-square regimes. The fixed undamped products have trace 2−s² and determinant 1; the endpoint s=2 is a double root −1 and q<1 suppresses any Jordan growth. For s>2 the larger modulus is R(s) and Schur stability is precisely qR(s)<1. For x=s²>4 the sign of R²−(1+x²/2) is the sign of the difference of u+u^(−1) at those two strictly larger than one arguments. The difference is x(x³−8x²+4x−16)/(2(x²+2)). The cubic starts negative at x=4, first decreases and then increases strictly to positive values, so there is a unique reversal. For s≤2 the comparison is strict in the opposite direction from large s. The two strict damping witnesses check exactly, including 21√5>41 for the fixed-order instability at s=3. Independent symbolic checks reproduced both polynomial identities and a high-precision crossover x=7.75025958832555765… (last-place difference from the printed decimal only), s=2.78392880446421576….",
+      "residual_risks": [
+        "Statements are at fixed step size, with independent fair complete orders and mean-square stability; not a classification of almost-sure exponents or correlated orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Individual shear choices allow UU and LL in a two-draw block; the frozen block never does. Random-duration subflows randomize duration. The quantum paper selects the two complete orders uniformly but for unitary factors."
+        ],
+        "reasoning": "Their conclusions do not specialize to the frozen damped nonunitary step law with the second-moment versus deterministic-spectral comparison.",
+        "searches": [
+          "Sturman–Thiffeault arXiv:1706.03398; Agazzi–Mattingly–Melikechi arXiv:2201.06643; Childs–Ostrander–Su arXiv:1805.08385"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b467b674b3e7, d44a5f263a5b, 149fcb8a5c56, 976c0931eb60",
+        "arXiv:1706.03398, 2201.06643, 1805.08385, 2501.02310"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-order isospectral statement establishes only equality of the AB and BA fixed stability thresholds. The random pair law requires averaging squared lengths and comparing its rate to the square of the fixed radius."
+        ],
+        "reasoning": "Neither isospectrality nor a general second-moment criterion alone implies the scalar identity plus its single two-direction reversal. The exact later block reduction confirms overlap of the identity, not earlier coverage of the comparison.",
+        "searches": [
+          "Wei–Guenter–Spiteri arXiv:2501.02310 Introduction; Resultary same-system and coupled-order proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 8 record 149fcb8a5c56 uses orthogonally conjugate undamped pair matrices (conjugation by diag(1,−1), then swap labels). The Nov. 22 record 976c0931eb60 gives the exact block multiplier with half-step always-switch coupling."
+        ],
+        "reasoning": "These are actual overlaps of the multiplier in the stated regimes, not priority evidence preceding the frozen record or implications of its compared damping crossover.",
+        "searches": [
+          "Resultary: damped-shear order selection, alternating descent–ascent, repeat/switch couplings and stability preference"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October same-system catalogue entry gives 1+2(Kh)^2 for doubled single-generator sampling. The same-date four-step result gives deterministic Floquet crossover for UULL versus ULUL. Two later exact multiplier matches are separately credited."
+        ],
+        "reasoning": "None of the inspected earlier or same-date exact results gives the unique cubic comparing iid pair-order stability with either fixed complete order. No priority is inferred within the same date.",
+        "searches": [
+          "Resultary b467b674b3e7, d44a5f263a5b, 149fcb8a5c56, 976c0931eb60; claim-level primary search for reversed shear-pair moment stability"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp two-way comparison of iid reversed complete orders and the two fixed orders for the same damped system. Reversing complete pairs at random is not itself new. Later catalogue results explicitly overlap with the moment identity; the earlier same-system record changes the random step law and the same-date deterministic word comparison changes the stability question. No earlier matching complete comparison was identified.",
+      "residual_risks": [
+        "The primary search was nondiagnostic; another earlier paired-shear or numerical-splitting statement could cover the explicit comparison. Later exact overlaps are not ignored but do not establish prior publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different independent trial unit",
+          "evidence": "Each iid choice selects one of two shears, not one of two reversed products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03398",
+          "material_read": "p. 1 equation (1)",
+          "method": "OA PDF excerpt",
+          "title": "Lyapunov exponents for the random product of two shears",
+          "trigger": "Closest primary shear-product law"
+        },
+        {
+          "assessment": "Random durations, not reversed pairs",
+          "evidence": "Replaces the fixed subflow time h with mutually independent random durations of mean h.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06643",
+          "material_read": "§1.1 p. 2, offset about 8528",
+          "method": "OA PDF excerpt",
+          "title": "Random Splitting of Fluid Models: Ergodicity and Convergence",
+          "trigger": "Randomized subflow splitting"
+        },
+        {
+          "assessment": "Direct prior random-order protocol; distinct unitary accuracy claim",
+          "evidence": "Uniform draw of S_1 or its reversed order implements a channel; unitary step norm is preserved.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.08385",
+          "material_read": "§2 p. 4, equations (12)–(13), offset about 15500",
+          "method": "OA PDF excerpt",
+          "title": "Faster quantum simulation by randomization",
+          "trigger": "Exact reversed-pair draw law"
+        },
+        {
+          "assessment": "Fixed-order result",
+          "evidence": "Reversal leaves the fixed linear stability criterion unchanged; this does not compare interleaved orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02310",
+          "material_read": "Introduction p. 3, offset about 12200",
+          "method": "OA PDF excerpt",
+          "title": "Improving the stability and efficiency of high-order operator-splitting methods",
+          "trigger": "Order-independent Lie–Trotter stability"
+        },
+        {
+          "assessment": "Different sampling/periodic laws",
+          "evidence": "Doubled individual generator versus a pair of deterministic words, respectively.",
+          "identifier_or_url": "Resultary b467b674b3e7; d44a5f263a5b",
+          "material_read": "Mirrored Findings and exact-moment passage for b467b674b3e7",
+          "method": "Local mirror",
+          "title": "Sharp reentrant mean-square stability of randomized damped-shear time splitting; A minimal four-step reversal of stability preference for orthogonally similar damped shears",
+          "trigger": "Same system and crossover analogues"
+        },
+        {
+          "assessment": "Later catalogue overlaps; no matching earlier damping crossover shown",
+          "evidence": "Orthogonal conjugation recovers the undamped pair in the first; always-switch two-step coupling gives the full damped multiplier in the second.",
+          "identifier_or_url": "Resultary 149fcb8a5c56; 976c0931eb60",
+          "material_read": "Mirrored Findings and proofs' exact moment sections",
+          "method": "Local mirror",
+          "title": "Random-order instability of bounded alternating descent–ascent on a bilinear game; A sharp repeat-or-switch threshold for correlated damped-shear splitting",
+          "trigger": "Exact multiplier overlaps in different notation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47, 67–97"
+      ],
+      "rationale": "A single shear crossover with exact opposing witnesses shows why two isospectral stable fixed integrators need not stay stable under random interleaving and, conversely, why interleaving can stabilize in mean square. It cleanly separates three stability notions even for an exactly decaying underlying ODE.",
+      "residual_risks": [
+        "No conclusions about optimal randomized algorithms or nonlinear accuracy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Minkowski sum is equivalent to the simultaneous coordinate and pairwise-difference inequalities; this was also established in [R2]. Its support function gives an exact random width expression. The finite variance formula follows from two-coordinate sphere moments with a proved correlated-absolute-Gaussian identity. The joint central limit theorem and the Taylor expansion of the Gaussian radial denominator yield the stated independent normal-plus-half-normal limit, with variance \(1-3/\pi\) for the cube part. Uniform spherical concentration upgrades convergence in law to convergence of all fixed moments. The skew-normal density, positive cubic moment and unique variance-minimizing cant then follow directly. The packaged reproducibility code passed, but finite tests are not the proof of the infinite-dimensional statements.
+PASS
 
-## Originality: PASS, qualified
+The pairwise difference and coordinate constraints jointly make the one-dimensional intervals for the diagonal shift intersect, giving the stated box-plus-segment support width. Factor a standard Gaussian as radius times uniform direction: the absolute product expectation of two projections with unit normals of correlation r is g(r)/d, since the independent squared radius has mean d. Integrating the Gaussian sign-correlation formula from r=0 gives g. The squared box term uses r=0 and 1, and the mixed term uses r=1/sqrt(d); subtracting the squared means yields all three variance coefficients. The joint CLT for (|G|-mu,G^2-1,G) has Gaussian third coordinate independent of the first two by parity; normalizing the radius changes the box term to X−mu Y/2 with variance 1−3/pi, while the diagonal tends to |H|. The gamma ratio justifies exact centering, including for varying cant and at both limiting endpoints. The ell sqrt(d) Lipschitz bound paired with the dimension factor in spherical concentration gives uniformly bounded moments of any higher order, hence uniform integrability. The convolution and third-moment identity follow from the folded normal. Expanding c_d^2 and g near r=0 gives limiting variance coefficients 1−3/pi, 1−2/pi and 0, so the quadratic converges uniformly on the closed interval. Its unique minimizer is the stated strict interior point, which also yields the eventual interior finite minimizers. The simulation is not relied on.
 
-[R1] establishes the original polytopes and combinatorial structure, and [R2] explicitly gives the zonotope generator decomposition and volume; neither inspected source states the stochastic width law. [R3] treats face volumes and incidence and explicitly poses mean width as a question. A generic zonotope mean-width formula and generic multivariate Gaussian limit theorems are known; the new contribution is the object-specific joint fluctuation profile, exact finite second moment, nonvanishing asymmetry and asymptotically optimal cant. Published mathematical-record searches for isocanted cubes, cube-plus-diagonal zonotopes, Gaussian directional widths, skew-normal width limits and rank-one perturbations did not identify a covering statement. Relevant prior geometric classifications concern inballs, vertex shells and ellipsoids, not this width statistic. The checked range is finite and equivalently phrased prior results may exist.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Isocanted cubes have a fixed combinatorial type as the cant varies, while the entire centered directional-width law changes. The answer is sharper than the scalar mean width posed in [R3]: for every fixed nonzero cant the limiting law is skew-normal rather than Gaussian, its cubic moment identifies the cant, and there is a unique, explicit nonzero cant minimizing asymptotic width variability. This supplies a motivated metric optimization and a distributional distinction for an infinite polytope family. The sharp variance minimum is not a generic restatement of the central limit theorem; it depends on computing the spherical normalization correction and the two independent fluctuation components.
+Pass the object-specific finite variance, joint unscaled positive-cant limit and sharp limiting-variance optimizer to best checked knowledge, not the zonotope decomposition, the standard scalar identities or a cube-only fluctuation theorem. A later catalogue item duplicates substantial parts of the science and is recorded separately from priority.
 
-The conclusion is a self-review. Scientific novelty remains subject to additional bibliography and independent mathematical scrutiny.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The metric question is natural for a known constant-combinatorial-type deformation. Its non-Gaussian unscaled limit and strict positive optimal cant reveal effects that are invisible to mean width and to the cube endpoint; the coefficient information makes the optimization quantitative rather than a renamed CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:20.280817Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (full Markdown table and proof), VERIFICATION.md, verify_weyl_chambers.py and verify_orbit_union.py (inspected)",
+        "Independent replay: python /workspace/review_checks/chambers.py",
+        "Bauer–Funke–Neumann, arXiv:0912.0958, Proposition 1.1"
+      ],
+      "rationale": "The geometric chambers correspond to the empty set and skew-line subsets: any meeting pair of (-1)-curves has a singular principal block, and a pairwise-skew subset has matrix −I. A stable support B descends as a divisor; −K+B is nef, intersects B's components trivially, and has square 3+|B|, so −K+2B realizes the support over the ground field. Independently reconstructing incidence automorphisms from the images of an ordered skew sextuple gave 51,840 permutations, 25 classes and the stated 2,764 skew subsets. Computing the set action from this reconstruction agrees in every row with the frozen Markdown, including the fixed counts and Burnside sum 414,720. The equal line profile 3^9 does give distinct chamber profiles and counts 1 vs. 13. Over extensions they differ precisely when the degree is not divisible by three; both counts reach 2,764 at multiples of three. The cycle-power count and zeta formula follow from finite orbits.",
+      "residual_risks": [
+        "The table is conditional on the given geometric Weyl class, not a field-by-field realization theorem. The two 3^9 rows do not stay distinguishable in extension degrees divisible by three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Atkinson–van Willigenburg–Pfeiffer explicitly relate the coset action at arbitrary w to the mark indexed by its parabolic closure, and §4.4 uses the exceptional parabolic tables calculated in CHEVIE.",
+          "Rybakov–Trepalin tabulate the Weyl classes and eigenvalue types, including A2^3 and A2^2 for the two 3^9 line profiles. The TomLib definitions confirm that marks are coset fixed-point numbers; its sampled documentation alone was not used to infer a specific full group table."
+        ],
+        "reasoning": "The operative stronger result applies simultaneously to all eight constituent actions. The fully indexed conjugacy classes and powers specify its inputs; ordinary orbit inversion specifies the requested output. By contrast, the 27-line cycle table alone does not determine these inputs.",
+        "searches": [
+          "arXiv:0706.2908v1 §2 and §4.4",
+          "Rybakov–Trepalin arXiv:1611.02475 Appendix A Table 1",
+          "GAP TomLib manual §1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Atkinson–van Willigenburg–Pfeiffer arXiv:0706.2908v1, §2 and §4.4",
+        "Rybakov–Trepalin arXiv:1611.02475, Appendix A",
+        "GAP TomLib manual §1.1–1.3",
+        "Mirrored Resultary c536c9326761, 55ac05d63848 and a599a14f3844"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-class formula is Fix(g^n)=Σ_J β_{J,K(g^n)} for the eight constituents, with K(g^n) its parabolic closure. The requested number of d-cycles is (1/d)Σ_{e|d} Möbius(d/e)Fix(g^e). This transforms previously treated coset permutation characters directly to the claimed profiles.",
+          "The headline 1 vs. 13 can also be read from the same constituent actions: type A2^3 is elliptic and has no fixed cosets of proper parabolics. In type A2^2 (class size 480, centralizer size 108), only A5 and A2×A2×A1 among the proper stabilizers contain that class. They contain respectively 40 and 4 elements of that type, giving marks 108·40/720=6 and 108·4/72=6. The full-group constituent adds one."
+        ],
+        "reasoning": "The distinction between the two line-indistinguishable classes is real, but is itself a direct readout of known parabolic permutation data. This is a mathematically explicit implication, not an inference that unrelated configuration spectra must coincide or that prior wording is identical.",
+        "searches": [
+          "arXiv:0706.2908v1 Corollary 1; exceptional E6 computation in §4.4",
+          "arXiv:1611.02475 Appendix A for the two order-three eigenvalue types",
+          "Resultary c536c9326761 and a599a14f3844 exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a skew set S, its sum v_S has intersection −1 with precisely the members of S; all other line intersections with the sum are nonnegative. Thus Stab(S)=Stab(v_S). Subtract the canonical-class component of v_S to work in the real E6 reflection space; bringing that vector to a closed fundamental chamber identifies its stabilizer with a standard parabolic.",
+          "The eight support orbits have parabolic stabilizer types E6, D5, A4×A1, A2×A2×A1, A3×A1, A4, A4×A1, A5 (the two size-five orbits have stabilizer orders 120 and 240). All are among the exceptional parabolic rows treated in Table 1.",
+          "arXiv:0706.2908v1, HTML offsets 11700–13200: for parabolic W_J, the value of the coset permutation character at w equals β_JK when the parabolic closure of <w> is conjugate to W_K."
+        ],
+        "reasoning": "The action on each orbit is precisely W(E6)/W_J, not just of the same cardinality as a coset space. The total fixed-support count is a sum of those already treated mark values (including two copies for A4×A1).",
+        "searches": [
+          "E6 parabolic table of marks Coxeter group E6 Solomon descent matrix table fixed cosets parabolic subgroups character E6 Bergeron Howlett Taylor E6 descent algebra marks",
+          "arXiv:0706.2908v1, §2 Corollary 1, §4.4 Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Atkinson–van Willigenburg–Pfeiffer §4.4, HTML offsets 46000–48249, describes computation in CHEVIE and inspection of the parabolic marks; Table 1 lists E6 parabolic types and diagonal marks, not the full chamber table in this record's layout.",
+          "Same-day c536c9326761 gives a 40-Steiner-triplet action that distinguishes the 25 classes; 55ac05d63848 treats the action on 36 double-sixes; a599a14f3844 gives spectra for sixers and double-sixes for the eleven stable blowup types."
+        ],
+        "reasoning": "The neighboring configuration tables are not the same invariant, though the Steiner data recover a class and sixer data overlap the size-six stratum within their scope. The decisive tabular reduction instead uses known exceptional parabolic coset marks for the eight stabilizers, not a lookup in a line-splitting or cubic-surface frequency table.",
+        "searches": [
+          "arXiv:0706.2908v1 §4.4 Table 1, exceptional parabolic marks",
+          "Resultary: cubic surface Frobenius full chamber cycle spectra, Steiner triplets, sixers and double-sixes"
+        ]
+      },
+      "rationale": "The chamber permutation representation is an instance of the preexisting parabolic-coset mark calculation, not merely of an abstract algorithm for arbitrary finite actions. Here this reduction covers all rows, because the stabilizer of a skew subset is exactly the stabilizer of the sum of its line classes, and a vector stabilizer in the real Weyl reflection representation is parabolic. Atkinson–van Willigenburg–Pfeiffer's Corollary 1 gives each of these permutation character values directly as a parabolic mark, and their §4.4 explicitly uses the computed exceptional-type marks and identifies the E6 parabolic classes. Apply the formula to each power and use ordinary divisor inversion to recover all cycle multiplicities. The exact chamber table is not claimed to appear verbatim in that paper; the failure is mechanical prior implication through the very same coset actions. Reformatting them as Frobenius support zeta functions and the elementary descent argument do not supply a distinct core claim.",
+      "residual_risks": [
+        "No standalone copy of the full chamber table was identified in a prior source; the finding fails by explicit implication, not a claim of literal duplication, authorship, or priority among same-day records. One lookup became unavailable and did not enter the negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the all-class chamber spectra via the stabilizer identification",
+          "evidence": [
+            "Corollary 1 identifies χ_J(w) with β_JK using the parabolic closure of <w>.",
+            "§4.4 reports exceptional calculations using CHEVIE and explicitly invokes the parabolic marks; Table 1 lists the E6 parabolic types."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0706.2908v1",
+          "material_read": "§2 Corollary 1 (HTML offsets 11700–13200); §4.4 and Table 1 (46000–48249)",
+          "method": "OA original HTML passages by offset",
+          "title": "The p-Modular Descent Algebras",
+          "trigger": "Plausible stronger result: classwise parabolic coset character values and exceptional-type tables"
+        },
+        {
+          "assessment": "Known class inputs but not by itself a chamber permutation table",
+          "evidence": [
+            "The A2^3 and A2^2 rows supply the different root-representation types underlying identical line profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.02475",
+          "material_read": "Appendix A, Table 1, OA text offsets 81700–86157",
+          "method": "OA original table passages",
+          "title": "Minimal cubic surfaces over finite fields",
+          "trigger": "Full Frobenius class/eigenvalue table and check of the two 3^9 types"
+        },
+        {
+          "assessment": "Definitions confirmed; did not establish availability of the full W(E6) table in TomLib",
+          "evidence": [
+            "A mark is the number of fixed points of K on G/H. The sampled contents mention U4(2) and many automorphism groups, not a separately verified full W(E6) entry."
+          ],
+          "identifier_or_url": "https://gap-packages.github.io/tomlib/doc/chap1.html",
+          "material_read": "§1.1–1.3, HTML offset 0",
+          "method": "OA public manual passage",
+          "title": "GAP Table of Marks Library manual",
+          "trigger": "Potential exact library coverage for W(E6) or its unitary-group alias"
+        },
+        {
+          "assessment": "Class determination via a different action",
+          "evidence": [
+            "Steiner-triplet action distinguishes all classes and gives a nine-extension cutoff; it does not directly tabulate chamber cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-forty-steiner-triplets-determine-cubic-surface-frobenius--c536c9326761/RESULT.md",
+          "material_read": "Finding and Steps 4–5, mirrored offsets 0 and 4379",
+          "method": "Local Resultary source mirror",
+          "title": "The forty Steiner triplets determine cubic-surface Frobenius",
+          "trigger": "Material same-day overlap in 25-class Frobenius actions and extension counts"
+        },
+        {
+          "assessment": "Different action with one collision",
+          "evidence": [
+            "The double-six zeta distinguishes 24 of 25 classes; adjoining the rational-line count resolves the last pair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-near-rigidity-of-the-double-six-zeta-function-on-smooth-cubic-su--55ac05d63848/RESULT.md",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "Near-rigidity of the double-six zeta function on smooth cubic surfaces",
+          "trigger": "Same-day Frobenius configuration zeta analogue"
+        },
+        {
+          "assessment": "Partial exact overlap, narrower class scope",
+          "evidence": [
+            "The spectra on the 72 sixers are exactly the size-six chamber stratum, for eleven blowup cycle types only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-orbit-spectra-of-sixers-and-double-sixes-on-six-point--a599a14f3844/RESULT.md",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "Frobenius orbit spectra of sixers and double-sixes on six-point blowups",
+          "trigger": "Same-day exact overlap on the size-six skew subsets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, especially arithmetic descent and extension counts",
+        "Atkinson–van Willigenburg–Pfeiffer arXiv:0706.2908v1, §2 Corollary 1 and §4.4"
+      ],
+      "rationale": "Frobenius descent of chamber supports is a well-motivated invariant, and the reference table may be convenient, but its purported decisive new exact facts are direct readouts of existing parabolic coset marks. Neither assembling those fixed counts into cycles by divisor inversion nor realizing the fixed supports via the elementary nef divisor −K+B establishes a separate, independently needed unknown mathematical invariant. The negative assessment is of the computation as a research finding, not a claim that the table has no reference utility.",
+      "residual_risks": [
+        "No distinct surviving result is asserted for other surfaces, nonparabolic support sets, or field-by-field class realizability."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

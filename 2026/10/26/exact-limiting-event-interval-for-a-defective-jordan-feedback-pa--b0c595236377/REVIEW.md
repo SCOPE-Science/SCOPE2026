@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The held-input flow is exactly \(x(s)=(I+sJ)x\). On \(s<L^{-1}\), the trigger ratio is strictly increasing; the bounds \(\sigma/[L(1+\sigma)]\le\rho_\sigma(x)\le\sigma/(m-\sigma L)\) put every crossing below \(\delta\). The projective recurrence is proved for positive, negative, and vertical initial directions. It forces the direction to the unique eigenline, where the trigger equation gives \(\sigma/[a(1+\sigma)]\). The positive lower bound on event intervals excludes Zeno accumulation.
+## correctness
 
-## Originality (O) — PASS
-The full 2019 conference paper treats the semisimple repeated-eigenvalue case but explicitly leaves geometric multiplicity one untreated. The full 2023 time-regularized paper states the defective case as a conjecture. Neither gives the exact limit for the canonical held-input Jordan realization. The result is deliberately narrower than a theorem for all defective closed-loop matrices. Targeted literature and indexed-record comparisons found related stability and Jordan-block results, but no implication covering this inter-event-time limit.
+PASS
 
-## Value (V) — PASS
-The unresolved case is stated in the event-triggered-control literature itself. An exact interval limit gives a closed-form asymptotic communication period and resolves the second-order correction hidden by a generic \(O(\sigma^2)\) remainder. The shear-independence is structural, not merely a numerical observation, and is useful when estimating transmission rates in a defective closed loop.
+The frozen claim is true, but the proof's assertion at RESULT.md line 65 that every nonzero initial state eventually has positive slope is false on the nonzero eigenline, where the slope is always zero. The frozen conclusion therefore needed an explicit case repair, not a new hypothesis. In the complete corrected RESULT.md, the held flow is (I+sJ)x, the denominator is positive up to delta, and the positive derivative follows from x^T Jx >= -L||x||^2. The lower and upper comparison functions give a unique crossing in [c,s_+] with c=sigma/[L(1+sigma)]>0 and s_+=sigma/(m-sigma L)<delta. The wait gives exactly the maximum of T and that crossing. The sample map is invertible and has diagonal p_k=1-a tau_k in (0,1). Initial states on the eigenline remain there with constant event interval; otherwise the second coordinate never vanishes, and the reciprocal slope increases by gamma tau_k/p_k >= gamma c at every step, even across a vertical direction. Thus all directions converge projectively to the eigenline. Compactness of the crossing interval and uniqueness of the limiting root prove continuity at that line. The root is obtained from as=sigma(1-as). Uniform positive intervals and invertible updates establish infinitely many non-Zeno events; the geometric times polynomial bound on products proves the stated stability consequence. All hypotheses, the exact limit, and its scope are preserved.
 
-## Closest literature and limitations
-The closest sources are Postoyan–Sanfelice–Heemels (CDC 2019, DOI 10.1109/CDC40024.2019.9028888) and their time-regularized IEEE TAC extension (DOI 10.1109/TAC.2022.3147009). The theorem covers only the stated two-dimensional zero-order-hold realization under explicit sufficient parameter bounds; general defective plants remain open here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact affine held-flow crossing on the eigenline is elementary; the surviving distinct claim is that it is the exact limiting interval for every nonzero sample direction, with the wait and explicit domain included, for this defective realization. The closest inspected primary paper contains the very same type of trigger, but expressly leaves geometric multiplicity one untreated and gives only an approximate conjecture. The indexed related trigger results have different dynamics or conclusions. This is a bounded assessment, not a historical priority claim; the repair does not change the theorem compared.
+
+## value
+
+PASS
+
+The canonical integrator is a minimal realization of the defective case explicitly identified as open in prior event-time work. The result proves convergence rather than only calculating the crossing at an eigenvector. It gives a practically distinct sharp crossover under time regularization and determines the second-order correction and shear independence. This is valuable in the stated model without claiming to settle general defective closed loops.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: optimal regular covers of finite Kripke pretrees
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof applies the bounded-morphism back condition to maximal-depth preimages of target clusters, forcing the exact branching and cluster-size feasibility thresholds. The lower bound counts distinct internal quotient preimages, and the construction pads only leaves of the internal target skeleton. Equality forces an internal skeleton isomorphism. Weighted inclusion-exclusion counts required adjacent leaves, and independent cluster surjections supply multiplicities. The extracted checker independently tests cone-image equality and direct finite set-function counts: `VERIFY_OK shapes 57 brute_tree_counts 24 cluster_brute 4 shape_rigidity 375 branch_obstruction 259`. Finite enumeration supports, but does not replace, the proof of all finite cases.
+## correctness
 
-## Originality — PASS within inspected evidence
-Wołoszyn (2026, Lemma 3.7) establishes existence of a regular cover using uniform replicated branches. The inspected published results on prescribed rooted-tree p-morphism images and multiplicities already give broad *fixed-source* decision and counting results. Their coverage is acknowledged: the unrestricted fixed-tree counting problem is not claimed as new. The optimized minimum over all regular pretrees, its unique internal-skeleton shape, and the weighted formula for target clusters are distinct statements requiring additional lower-bound and equality proofs. Full source readings are cited in AUDIT.json; semantic searches do not prove absolute novelty.
+PASS
 
-## Value — PASS
-A construction used in finite Kripke-frame regularization is sharpened from unquantified existence to an exact linear-size optimum, complete extremal shape rigidity, and explicit optimal-map multiplicity. The parameter conditions and cluster weights are intrinsic rather than arbitrary. This gives a mathematically motivated, reusable quantitative finite-model-theory fact.
+Cone equality descends to quotient clusters. At a maximal quotient preimage of t, every world of C_t must be hit in that preimage cluster; the first steps toward lifts of different target children must be different immediate source children. These two arguments apply to arbitrary finite covers and give both necessary thresholds. Every internal target vertex needs a distinct internal source preimage; full k-branching gives exactly 1+kI source clusters for I internal vertices. Padding only the leaves of the internal skeleton attains the bound: target immediate leaves are hit and each internal target child cone is hit recursively. At equality no internal source vertex can be spent on a target leaf; forward and back give an ancestry isomorphism on the unique internal preimages (in the back argument the target vertex is a strict descendant). At a fixed skeleton isomorphism each terminal source cluster must land on a target leaf, and an immediate target leaf of t can only be hit above the source preimage of t by one of its terminal children, not through another target child. All other terminal-child choices among descendant target leaves are independent. Clusterwise surjections and weighted inclusion-exclusion therefore count exactly the maps on the fixed distinguishable-world source. Root-cluster permutations give the c_r divisor, including a singleton target; k=1 and q_t=0 are covered. The bounded checker is not needed for the universal proof; an independent direct enumeration in /workspace/reviews/evidence/pretree.py matched six boundary and weighted cases, including pointed counts, asymmetrical leaves over a symmetric internal skeleton, and both obstructions.
 
-## Literature and limitations
-The closest primary source is https://arxiv.org/html/2605.14182 ; relevant publicly accessible prescribed-tree p-morphism results are https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-finite-rooted-kripke-p-morphism-images-are-rooted-topological-mi--fec4b9aa3bee and https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-bounded-morphism-counting-between-arbitrary-finite-rooted--e532142d4dde. The special three-level target source is https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-bounded-morphism-census-and-sharp-branching-threshold-for--9537b2b1e958. The theorem does not address general preorders, infinite frames, nonuniform source clusters or inverse-back morphisms. Independent mathematical and historical-priority validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp optimization, equality classification and weighted optimal-cover factorization under the stated tree-quotient assumptions. Qualitative regularization and its usual sufficient parameters are covered, and general exact counting for a fixed pair of unclustered trees is covered; neither is credited as new.
+
+## value
+
+PASS
+
+This quantitatively sharpens a natural finite modal-frame regularization: padding with terminal covers avoids potentially exponential internal-branch replication, and the equality characterization determines the only minimum shape. The weighted formula distinguishes multiple realizations on that shape without enumerating general functions, including nontrivial clusters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

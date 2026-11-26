@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:04.617989Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For coprime a,b the rational expression is a polynomial (check zeros of the denominator, including order two at 1). Below ab each representable integer has at most one nonnegative representation, so the coefficients are the first differences of semigroup membership. A maximal missing run of length d gives a (-1,+1) coefficient pair at exponent distance d; reciprocity counts an equal number of (+1,-1) pairs. For b=ha+r the entry block of residue x is T_[ux]_a, with T_j=hj+floor(jr/a) strictly increasing. For 2<=D<a the two endpoints can precede all D-1 interior residues iff their insertion ranks are adjacent on the circle of P_D. Reflection v -> [uD-v]_a pairs the gap just before those first two ordered endpoints with the gap just after them. Thus there are H eligible cuts and each interval from the second endpoint to the first interior insertion has width H, starting at delta+s with 0<=s<H. Summing T_(delta+s+H)-T_(delta+s) and doubling proves the formula. For D=a the sole arc is the one at the initial singleton, giving 2h, also for a=2. For r=1 the thresholds are hj; for r=a-1 the noninitial threshold differences are h+1; both advertised specializations follow. The independent denominator recurrence agrees on all 1,853 coprime pairs with 2<=a<=40 and a<b<=100 (python3 /workspace/branches/independent_replay.py 3); the finite computation is not the proof. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclotomic prime-extension report 351556961373 overlaps on prime a and b and proves affine gap spectra there; not twice-square slopes for coprime composite a,b.",
+          "Bachman gives every admissible length for coprime composite or prime parameters, not its multiplicity.",
+          "Cafure–Cesaratto's coefficient-word algorithm describes all binary cyclotomic coefficients and therefore allows histogram extraction by expansion."
+        ],
+        "reasoning": "These are genuine coverage of support, full coefficient generation, or affine laws on overlapping domains. None of these statements evaluates the reflected insertion widths as the structural square law on the stated domain.",
+        "searches": [
+          "Resultary: complete binary cyclotomic gap spectra and affine cyclotomic prime extensions",
+          "arXiv:2109.07544 compact coefficient word theorem",
+          "arXiv:2605.17157 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 16981d7827be, 84be1e5dcc2a, 584c998005ae, 351556961373 (Finding passages)",
+        "arXiv:1507.07098",
+        "arXiv:2109.07544",
+        "arXiv:2507.19381",
+        "arXiv:2605.17157"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 16981d7827be substitute the frozen remainder for d, h for q, and exponent distance for ell, and double the resulting count. Its affine coefficients are uniquely determined by the histogram, but the slope is not evaluated to H²; that requires analyzing the ordered modular orbit.",
+          "Camburu et al. already give 2 floor(b/a) at maximal gap a-1 and characterize when all gaps occur; Cafure–Cesaratto give the special-residue frequency formulas."
+        ],
+        "reasoning": "No originality is assigned to consequences of these prior theorems or to the later matching affine histogram taken alone. The common width from the reflection and the resulting closed square formula supply and explain a further structural fact, not a substitution into a prior stated formula.",
+        "searches": [
+          "Resultary 16981d7827be, Finding and Proof Steps 1–3",
+          "arXiv:1507.07098 Theorem 3.6",
+          "arXiv:2507.19381 Theorems 1.1–1.2 and gap convention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Missing run length d corresponds to a gap D=d+1 between consecutive semigroup members and M_d=2H_d in the polynomial.",
+          "Resultary 16981d7827be Finding gives H_d by summing a modular-rank window threshold over starts."
+        ],
+        "reasoning": "The semigroup general-frequency theorem is mathematically equivalent as a histogram, even though the spelling and factor two differ. Its eligible starts satisfy U>V; the frozen result shows these are exactly H starts with (V,U)=(delta+s,delta+s+H). That equality uses the reflected rank configuration and is not asserted in the alternative formula.",
+        "searches": [
+          "Resultary: affine rigidity of the complete gap-run spectrum of two-generator numerical semigroups",
+          "arXiv:2605.17157, consecutive representable and nonrepresentable distances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 16981d7827be is an exact match to the entire histogram via the missing-run translation; reports 84be1e5dcc2a and 584c998005ae tabulate full histograms on strict subfamilies.",
+          "Cafure–Cesaratto give evaluated frequencies at r=±1, and the general second-largest gap with a multiplicity lower bound."
+        ],
+        "reasoning": "The verified exact histogram overlap is recorded rather than treated as a negative search. No inspected table or prior theorem establishes the full twice-square slope and compact modular-extremum evaluation. The bounded web lookup did not yield usable additional evidence.",
+        "searches": [
+          "Resultary: all-residue multiplicity of binary inclusion-exclusion coefficient gaps; exact binary semigroup run-length frequencies",
+          "arXiv:2507.19381 Theorems 1.1–1.2"
+        ]
+      },
+      "rationale": "The prior exact maximal-gap and ±1 laws and the prior general gap-support classification are covered and credited. A distinct later Resultary report computes the same entire histogram under semigroup translation and gives affine frequencies; it must not be counted as a different statistic or as evidence of an earlier publication. The specific equal-width insertion law, compact floor sum, and twice-square slope are distinct supported content: the later general formula is a sum of individually variable threshold differences and does not evaluate them as H equal contributions or prove their square sum. This is a statement-level assessment, not an exhaustive priority claim.",
+      "residual_risks": [
+        "A differently worded exact square law may occur in work on circular gap insertion or in a refinement of prior coefficient-word algorithms.",
+        "Catalog dates document the visible records, not independent verification of historical priority. No absence inference follows from the unusable web lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact histogram and affine-law overlap; later catalog date, no square evaluation in the inspected theorem",
+          "evidence": "A_ell=sum_{U>V}(U-V); B_ell=sum_{U>V}(floor(dU/a)-floor(dV/a)) over start residues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-affine-rigidity-of-the-complete-gap-run-spectrum-of-two-generato--16981d7827be/RESULT.md",
+          "material_read": "Finding, assumptions, and proof steps 1–3, mirror offset 0–5008",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Affine rigidity of the complete gap-run spectrum of two-generator numerical semigroups",
+          "trigger": "Same objects under semigroup translation"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": "Counts the maximal gap and describes when the gap set is full.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.07098",
+          "material_read": "Theorems 3.2 and 3.6, PDF pp. 15–16 and 19",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Cyclotomic coefficients: gaps and jumps",
+          "trigger": "Prior exact gap methods"
+        },
+        {
+          "assessment": "Coefficient encoding; not the slope evaluation",
+          "evidence": "Concatenates basic words controlled by p and q mod p and takes a prefix.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.07544",
+          "material_read": "Compact-representation theorem, PDF pp. 3–4",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Binary Cyclotomic Polynomials: Representation via Words and Algorithms",
+          "trigger": "Could implicitly supply all counts"
+        },
+        {
+          "assessment": "Special residues and general second-largest length, not all-residue multiplicities",
+          "evidence": "Computes exact frequencies at ±1 and counts a zero block of k as gap k+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.19381",
+          "material_read": "Theorems 1.1–1.2, PDF p. 2, and zero-block convention p. 18",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "Direct earlier frequency comparison"
+        },
+        {
+          "assessment": "General support coverage, not histogram",
+          "evidence": "S_Delta is a set of possible distances expressed in Euclidean remainders.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.17157",
+          "material_read": "Theorem 1 and gap-set definitions, PDF pp. 10–11",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Gaps of Binary Numerical Semigroups and of Binary Inclusion-Exclusion Polynomials",
+          "trigger": "Same general coprime parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all gap lengths was already motivated in binary cyclotomic work, including exact counts in special residue classes. The theorem supplies the analytic histogram without expanding the polynomial, includes coprime composites, and explains why its affine slope is twice a square by identifying the width and number of contributing insertion intervals. This structural refinement is useful even given the other complete threshold-sum algorithm; no extension to higher-generator semigroups is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

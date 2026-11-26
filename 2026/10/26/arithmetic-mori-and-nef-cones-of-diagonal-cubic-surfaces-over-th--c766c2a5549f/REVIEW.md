@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 27 explicitly indexed lines yield the usual cubic-surface intersection matrix and a unimodular seven-line geometric Picard basis. Frobenius permutes the lines according to explicit cube-class shifts, so the five coefficient patterns exhaust the family. Intersection signs and an exact six-trace decomposition prove the effective extremal counts. Exhaustive integer determinant enumeration of active dual inequalities proves the 99/1/1/21/6 nef-ray counts. Point-count enumeration verifies the Frobenius traces independently. Only rational cone generation is asserted, not integral Picard generation.
+## correctness
 
-**Originality — PASS, with a serious residual comparison risk.** Gouvêa–Yui's twisting formulas and Banwait–Fité–Loughran's complete Weyl-class tables provide substantial prior coverage of ranks and abstract Frobenius actions. The present contribution is the coefficientwise five-type assignment and effective/nef cone table, including an explicit non-extremal hyperplane-trace decomposition. Since the prior classification renders these counts computable, specialized older tables might already imply the numerical values directly. The general Weyl-class classification itself is not claimed as new.
+PASS
 
-**Value — PASS.** Effective and nef cone face structures are natural birational invariants governing rational divisor positivity. The complete diagonal coefficient classification shows concrete structural distinctions even between nonsplit cubic surfaces, and its rank-three non-extremal trace relation is a geometric explanation, not just a bare table.
+RESULT.md lines 4–28 correctly restrict the five forms to diagonal-coordinate equivalence. The three pairings yield 27 distinct lines after the indicated cubic twist; b_i^7/b_i=2^{m_i}, and a line's two exponents translate by the differences of the corresponding m_i. Picard descent over the finite field and averaging the geometric effective cone give exactly the orbit-sum cone: each sum is itself an effective divisor descended over the base field, and every invariant effective class is a nonnegative combination of such sums. Distinct line orbits have nonnegative mutual intersection, so a negative-square trace cannot be a nonnegative combination of the others or share their rays. In rank three the remaining three traces are H and the six negative traces sum to 6H; in rank one there is just the positive H-ray. The independent exhaustive finite calculation confirms all five rows including ranks, trace-class identities, rational lines, point counts and dual extreme rays. The dual count uses successive half-space intersections of a pointed cone; new rays come from opposite-sign adjacent rays, detected by the minimal common active face. This is independent of the supplied active-minor enumeration. The point count also follows from the order-three action with rational trace (3r-7)/2, giving 50+7(3r-7)/2.
 
-**Literature and limits.** See the two inspected primary documents in `RESULT.md`: Gouvêa–Yui (1994), Section 5, and Banwait–Fité–Loughran (2016), Sections 1 and 7. This is a coefficient-normal-form classification over the single base field, with a potentially consequential external priority risk. No integral invariant-lattice basis, full projective isomorphism classification or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the coefficient-resolved cone census, particularly the different rank-five and rank-three effective/nef behavior beyond rank and line-orbit data. No priority is asserted for the split line theorem, the fixed-space/Averaging method, rank-one duality, the Weyl classification, or arithmetic ranks and traces alone.
+
+## value
+
+PASS
+
+The family exhausts the diagonal coefficient-class space over the smallest odd finite field of characteristic different from 3 with nontrivial cube classes. It gives a natural finite test of how descent changes the cones: rank five retains every orbit sum as extremal, whereas rank three has no rational lines, six negative extremal traces, and three orbit sums collapsing to the interior hyperplane ray. The full dual counts resolve exact geometry not supplied by rank or number of line orbits. This is a bounded arithmetic classification, not a general theorem about all cubic surfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

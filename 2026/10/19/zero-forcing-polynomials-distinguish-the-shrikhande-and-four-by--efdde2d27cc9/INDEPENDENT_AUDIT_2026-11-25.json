@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:32:30.603099Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "scripts/verify_simulation.py, scripts/verify_forts.cpp, scripts/verify_orbits.py (inspected, not executed)",
+        "certificates/shrikhande_minimum_orbits.csv and certificates/forcing_truth_tables.bin (compared to independent complete replay)"
+      ],
+      "rationale": "Both given graphs have six neighbors per vertex and two common neighbors per distinct pair, verified for all labels. This gives A²=4I+2J, with constant eigenvalue 6 and trace-determined multiplicities 6 and 9 for 2 and −2. Their root neighborhoods are respectively C6 and two disjoint triangles. A nonempty fort contained in the whites cannot lose its first vertex and a nonempty white closure is itself a fort. The independent 65,536-mask scan per graph computes simultaneous forcing by dynamic recursion to strictly smaller white masks. It reproduces the exact labeled coefficients and both minimum/total counts, comparing all 131,072 decisions against the two binary blocks by explicit bit order. Superset marking of newly found minimal forts in increasing order gives least obstruction sizes without a zeta transform; it agrees with the closure decision for every mask and gives minimal fort counts (60,48,336) and (60,144,112) at sizes 4,5,6 only, as well as both full five- and six-white classifications. A successful set is inclusion-minimal iff no one-vertex removal succeeds, by monotonicity; these scans give only size-ten minimal sets. The round counts at size ten are 1312/2304 for Shrikhande and 864/2592 for rook. For the symmetry check, the root has six neighbors forming a six-cycle; the other nine vertices have distinct two-neighbor signatures in it. Enumerating all images of the root and cycle permutations and checking the unique extensions gives exactly 192 automorphisms. The resulting 23 orbits match every CSV field, with sizes 192×15, 96×7 and 64 once. The two polynomials differ only at degrees ten and eleven by 160 and 96; the higher-degree equality has independently checked nonzero coefficients, not just a shared zero-forcing number.",
+      "replay_paths": [
+        "/workspace/replay/reviews_4_5.py (run with Shrikhande Rook)"
+      ],
+      "residual_risks": [
+        "These labeled counts and times concern ordinary forcing and the stated synchronous convention only. They do not assert a relation between spectra and polynomials for all strongly regular graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite forest theorem covers every size of rook board: white-cell graph empty or an acyclic graph with an isolate on one side and a leaf on the other. At 4×4 the minimum formula gives 10 and 3456. The earlier fort polynomial counts all forts by cardinality; the later minimal-fort theorem classifies rook inclusion-minimal forts. Montazeri–Soltankhah's k=1 specialization gives the scalar mn−m−n+2."
+        ],
+        "reasoning": "These stronger rook-family results already determine the corresponding rook claims (not automatically the time counts). The Shrikhande graph is not a rook graph, as witnessed by the root neighborhood; no such specialization controls its ordinary counts or the pair comparison.",
+        "searches": [
+          "Resultary 2026/10/12/...--dd424d573692 and ...--10cceec37c9c",
+          "Resultary 2026/11/8/...--406ca8b4ece6",
+          "Montazeri–Soltankhah Thm. 2.1 and 2024 Cartesian-product reference"
+        ]
+      },
+      "checked_sources": [
+        "Boyer et al. and Abiad et al. primary passages",
+        "Montazeri–Soltankhah Thm. 2.1 p. 3",
+        "Strongest Resultary rook and same-pair matches",
+        "Targeted ordinary pair literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abiad et al.'s connected regular cospectral example has ordinary Z=6 versus 4; it uses a different pair and an unequal scalar. In the present pair, Proposition 3.6's proof gives unequal PSD scalars only. Full rook forcing is determined from the forest criterion; a known rook polynomial and PSD numbers do not imply the ordinary Shrikhande polynomial."
+        ],
+        "reasoning": "Generic existence of cospectral separation is prior, but the asserted separation retains equality of ordinary Z for this natural fixed pair, and pinpoints both coefficient and least-fort-order differences. No implication recovering the Shrikhande counts from the earlier comparisons was found.",
+        "searches": [
+          "Abiad et al. abstract, Fig. 1 discussion and Prop. 3.6",
+          "Boyer et al. 2018 Definition 1",
+          "10/12 rook bipartite forest formula",
+          "11/22 same-pair skew classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer et al. define the same generating function; fort avoidance is an equivalent count. Abiad et al. use the same graph pair under the name grid/lattice and Shrikhande, but use PSD at Proposition 3.6. A later Resultary record treats the same pair with equal skew forcing polynomials."
+        ],
+        "reasoning": "Graph aliases and white-set complementation do not change the ordinary object, whereas the PSD and skew rules do change the closure. Neither their equality nor their separation computes the ordinary count.",
+        "searches": [
+          "Resultary: Shrikhande versus the 4×4 rook, lattice or grid graph, ordinary zero forcing polynomial and minimum-set orbits",
+          "Shrikhande rook zero forcing polynomial ordinary 3616 3456 minimal forts cospectral",
+          "Abiad et al. Prop. 3.6; Boyer et al. Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rook formula is an exact source for all rook coefficients, even apart from printed term-by-term entries. The matched same-pair literature entries are Z+(R)=10 and Z+(S)=9, and the later catalog's equal skew polynomials; these are not the required exact ordinary Shrikhande counts."
+        ],
+        "reasoning": "There is substantive exact rook-side coverage; the inspected sources contain no exact ordinary Shrikhande polynomial table or recognized full minimum-set orbit census. The independent binary certificate is verification, not prior-art evidence.",
+        "searches": [
+          "Targeted ordinary Shrikhande and rook coefficient query, Resultary polynomial and fort records",
+          "Abiad et al. 2022 exact-pair entries"
+        ]
+      },
+      "rationale": "The rook-side forcing polynomial and minimum sets are already covered by a stronger all-rook formula and are an expressly identified benchmark, not an originality credit. A later general classification also covers rook minimal forts. Abiad et al. give ordinary Z separation for a different cospectral pair, and for these exact two graphs give a PSD, not ordinary, separation. The supported distinct finding is that the standard full polynomials separate this canonical pair despite the equal standard minimum, with the Shrikhande counts, orbit/time data and exact comparative obstruction geometry. No checked statement or implication supplies that finding in full.",
+      "residual_risks": [
+        "The 2024 Cartesian-product reference cited by the rook theorem was not recovered via the checked DOI route. That is not evidence of absence; the rook polynomial was independently identified as covered by the catalog theorem.",
+        "The audit does not establish historical priority, and an unindexed equivalent Shrikhande census or an alternative classification might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general ordinary examples and direct same-pair PSD comparison, not this ordinary census",
+          "evidence": "Figure 1 yields ordinary 6 and 4; Proposition 3.6 identifies cospectral nonisomorphic grid/Shrikhande and reports PSD 10 and 9, respectively.",
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/206533710/vol38_pp280_294.pdf",
+          "material_read": "Abstract; PSD definition and Fig. 1 journal p. 282; Proposition 3.6 proof pp. 284–285",
+          "method": "OA PDF passage comparison",
+          "title": "Constructions of cospectral graphs with different zero forcing numbers",
+          "trigger": "Same pair and cospectral separation claim"
+        },
+        {
+          "assessment": "Same invariant, no target graph census in the inspected material",
+          "evidence": "Coefficient counts forcing sets by cardinality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Definition 1, PDF p. 2",
+          "method": "OA primary passage",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "General polynomial and fort framework"
+        },
+        {
+          "assessment": "Direct rook-side subsumption",
+          "evidence": "Forest and first-force isolate/leaf characterization with explicit coefficient formula, specializing to the 4×4 polynomial; 3456 minimum sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692/RESULT.md",
+          "material_read": "Finding and necessity/sufficiency proof near offsets 742 and 4700–5300",
+          "method": "Resultary and local mirror",
+          "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+          "trigger": "Stronger all-parameter ordinary rook formula"
+        },
+        {
+          "assessment": "All forts, distinct from their inclusion-minimal subclass",
+          "evidence": "All-fort count by size for rook graphs.",
+          "identifier_or_url": "2026/10/12/SCOPE-fort-polynomial-of-rook-graphs-and-its-degree-five-gap--10cceec37c9c",
+          "material_read": "Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Fort polynomial of rook graphs and its degree-five gap",
+          "trigger": "Rook fort enumeration"
+        },
+        {
+          "assessment": "General rook-side coverage (later catalog date)",
+          "evidence": "Classifies inclusion-minimal rook forts for a general board, not Shrikhande forts.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-forts-of-rook-graphs-star-covers-contracted-forests-and--406ca8b4ece6",
+          "material_read": "Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Minimal forts of rook graphs: star covers, contracted forests, and nonspanning cycles",
+          "trigger": "Exact stronger rook minimal fort classification"
+        },
+        {
+          "assessment": "Same pair but fundamentally different rule",
+          "evidence": "Equal skew polynomials and skew fort differences do not give the ordinary polynomials.",
+          "identifier_or_url": "2026/11/22/SCOPE-identical-skew-zero-forcing-polynomials-different-minimal-fort-g--c06bb7289e67",
+          "material_read": "Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Identical skew-zero-forcing polynomials, different minimal-fort geometry for two strongly regular graphs",
+          "trigger": "Exact pair with alternative forcing rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and complete finite certificates",
+        "Prior rook, ordinary cospectral, and same-pair PSD comparisons"
+      ],
+      "rationale": "A canonical pair of nonisomorphic strongly regular graphs with the same spectrum and the same ordinary forcing number is a natural controlled test of the extra information in the ordinary polynomial. The precise difference and fort-size thresholds make the distinction interpretable, and the Shrikhande orbit/time data make the exceptional minimum configurations usable as a benchmark. Independent value lies in the distinction and the Shrikhande side, not in rediscovering the rook polynomial.",
+      "residual_risks": [
+        "The certified comparison is specific to these two graphs; it does not characterize the polynomial on cospectral graphs in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

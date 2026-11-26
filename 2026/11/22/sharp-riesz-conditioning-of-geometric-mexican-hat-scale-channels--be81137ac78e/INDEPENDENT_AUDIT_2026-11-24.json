@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:44.952282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Plancherel's radial integral has power r^(d+3), giving heat-inner product proportional to (t+s)^(−ν) and normalized overlap sech^ν((log t−log s)/2). The beta substitution u=e^x yields 2^ν|Γ(ν/2+iy)|²/Γ(ν); Poisson summation then has factor 1/h and all aliases strictly positive. By Euler's product the Gamma ratio is the Laplace transform at y² of a sum of independent exponentials with summable means, so Tonelli expresses the periodization as a positive mixture of wrapped Gaussians. In the Jacobi product the first angle factor strictly decreases from 0 to π, the others are nonincreasing, and the products converge to positive values; comparison thus gives strict decrease of each Gaussian periodization and of the mixture without differentiating under the expectation. The exact Toeplitz form and arbitrarily long one-sided Fejér packets prove sharpness even for indices j≥0. Multiplication of the Gram sequence by sech^δ convolves the symbol with a full-support positive normalized probability kernel; nonconstancy makes both improvements strict. Stirling gives one leading alias at 0 and two at π, the rest exponentially smaller, yielding A∼2^(ν+2)π^ν h⁻ν exp(−π²/h)/Γ(ν) and B∼2^ν Γ(ν/2)²/(h Γ(ν)). Their ratio and 1/(16π²) in d=2 check. Dense scale asymptotics are for fixed dimension.",
+      "reproduction": "python /tmp/opencode/frozen_independent_reproduction.py 5: radial quadrature independently reproduced the normalized overlap at d=3. At 95 digits, direct Fourier sums agreed to within 10⁻⁴⁸ relative with the Gamma sums at three angles for d=1,2,4 and h=0.31,0.12; the endpoint improvements were reproduced across those dimensions. At d=3,h=0.04 used the stable alias calculation for A≈4.06512219×10⁻¹⁰⁰ and (B/A)/(leading prediction)≈0.999911352. Finite checks are not extrema proofs or certified error bounds. Frozen CHECK.py inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Antezana–Carando–Scotti source account concerns integer dilations in L²(0,1) using Dirichlet series, whereas the present radial Euclidean channels are geometrically spaced.",
+          "The closest available Resultary claims address a causal difference-of-exponentials family (665865eb3d5b) and two interleaved geometric Laplace-exponential families (bba79d67f334)."
+        ],
+        "reasoning": "A general Riesz criterion based on Mellin aliases could imply positivity and reduce the question to the maximum and minimum of a symbol. That alone does not compute the extrema, strict dimensional comparisons or both sharp asymptotic constants. A broader result for periodized squared Gamma functions or all powers of the sech Gram kernel could imply stronger coverage; no such theorem was verified from the accessible statements.",
+        "searches": [
+          "Resultary: geometric dilation families Riesz condition Mellin symbol Gamma periodization Dirichlet series",
+          "arXiv:2110.07659; doi:10.1007/s00365-010-9098-3; arXiv:1008.3112"
+        ]
+      },
+      "checked_sources": [
+        "Resultary be81137ac78e (self-hit), 665865eb3d5b, bba79d67f334, b6b1d4d08ccf",
+        "doi:10.1186/s13660-017-1393-0; arXiv:2110.07659; doi:10.1007/s00365-010-9098-3 (cited comparisons, not independently verified full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The causal record describes a sech-related Mellin symbol and L²exp(π²/L)/64 conditioning for L=log c; overlapping exponential form and at d=2 the quadratic spacing power are not the same full kernel or coefficient.",
+          "The LoG claim uses ν=(d+4)/2, fixes the unique worst frequency at π and changes the two endpoints strictly when ν increases. Neither the available causal statement nor the two-coset collision statement supplies that result."
+        ],
+        "reasoning": "The geometric-dilation method and severe dense-spacing instability are precedented. A family-specific asymptotic with a different coefficient cannot certify the LoG constants or the exact monotonicity in ν, and Gaussian theta unimodality supplies a proof tool rather than the asserted LoG bounds alone. The pass is for these supported distinctions rather than historical priority of all ingredients.",
+        "searches": [
+          "665865eb3d5b, bba79d67f334 and b6b1d4d08ccf (Resultary indexed scientific statements)",
+          "doi:10.1186/s13660-017-1393-0, §4/Remark 4.1 from the frozen prior-work account"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fukuda–Kinoshita–Yoshino §4/Remark 4.1, as described by the source, uses the Mexican-hat profile for Fourier/CWT calculations; Bui–Laugesen's cited setting is frequency-scale frames.",
+          "Resultary b6b1d4d08ccf concerns Gaussian lattice theta curvature/unimodality; 665865eb3d5b concerns Mellin conditioning of another family of scale channels."
+        ],
+        "reasoning": "The normalized overlap also equals the scale-only normalized Gram overlap of heat kernels in dimension d+4, because those radial heat-inner products themselves scale as (t+s)^(−(d+4)/2). Thus an exact result for unshifted Gaussian scales in that effective dimension could cover the LoG family. Wavelet-transform continuity or full translated frame completeness is not the same as lower coefficient-synthesis conditioning at one center. Wrapped-Gaussian monotonicity is a classical ingredient, not automatically the general sech-power Gram assertion without the positive mixture representation.",
+        "searches": [
+          "Resultary: Mexican hat wavelet logarithmically spaced dilates Riesz sequence exact Gram bounds scale-only heat kernel Laplacian",
+          "Resultary: wrapped Gaussian theta function strict monotonicity minimum at pi positive Gaussian mixtures periodized Gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest target match be81137ac78e is the same assigned record. The strongest distinct analogue was 665865eb3d5b, together with distinct same-day bba79d67f334 and the theta-envelope b6b1d4d08ccf."
+        ],
+        "reasoning": "This is a continuum family, not a matched numerical table entry. The same-day summary concerns a 2×2 symbol and collapse at vanishing offset between cosets, not dimension improvement or the worst frequency of a single LoG family; no order or priority is inferred from the dates.",
+        "searches": [
+          "Resultary: Mexican hat wavelet logarithmically spaced dilates Riesz sequence exact Gram bounds scale-only heat kernel Laplacian",
+          "Resultary: causal exponential difference smoothing dilates Mellin Toeplitz dense spacing condition number Gamma constants"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit dimension-dependent sharp endpoint, dimension ordering and dense-spacing results for the scale-only LoG family, not for Mellin–Poisson dilation analysis, standard theta monotonicity or the general sharpness criterion for Toeplitz forms. Catalogue summaries were compared with the mathematical statements actually available; no full-text exclusion is inferred for inaccessible sources.",
+      "residual_risks": [
+        "Decisive primary passages for the Mexican-hat frame paper and the closest causal Resultary claim remained unavailable; deferred literature lookups returned no evidence and do not exclude prior coverage.",
+        "An earlier wrapped-Gaussian mixture result, a general outer statement for positive Gamma symbols or exact scale-only Gaussian Riesz theory could imply some of the specific claims. Verified comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method precedent; different kernel and theorem on available statement",
+          "evidence": "Causal difference-of-exponentials mother, every c>1 Riesz, asymptotic condition number L²exp(π²/L)/64.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-dense-scale-conditioning-of-causal-exponential-difference--665865eb3d5b",
+          "material_read": "Resultary indexed mathematical summary; decisive full source not retrievable",
+          "method": "Local Resultary search and attempted local mirror read",
+          "title": "Sharp dense-scale conditioning of causal exponential-difference dilates",
+          "trigger": "Geometric scale-only Riesz bounds with a Mellin/Toeplitz symbol and the same dense essential exponential"
+        },
+        {
+          "assessment": "Related geometric-scale operator, different statement",
+          "evidence": "Two interleaved families of normalized Laplace exponentials with a 2×2 Toeplitz symbol and lower-bound collapse as logarithmic offset vanishes.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-coset-riesz-bounds-and-exponentially-small-collision-s--bba79d67f334",
+          "material_read": "Indexed scientific summary only",
+          "method": "Local Resultary search",
+          "title": "Sharp two-coset Riesz bounds and exponentially small collision scale",
+          "trigger": "Distinct same-day geometric Riesz result"
+        },
+        {
+          "assessment": "Theta analogue; no direct LoG spectrum on available statement",
+          "evidence": "Rectangular Gaussian lattices, log-concavity modulus and strict theta-cumulant unimodality.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-theta-curvature-envelope-for-gaussian-lifts-of-rectangular--b6b1d4d08ccf",
+          "material_read": "Indexed summary; no independently retrieved primary passage",
+          "method": "Local Resultary search and attempted mirror read",
+          "title": "Sharp theta curvature envelope for Gaussian lifts of rectangular lattices",
+          "trigger": "Gaussian-theta strict monotonicity may provide a general argument"
+        },
+        {
+          "assessment": "Related Fourier/CWT construction; whole-document coverage unresolved",
+          "evidence": "The reported context is continuity of the wavelet transform rather than optimum unshifted scale-synthesis bounds.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-017-1393-0",
+          "material_read": "Frozen source account of §4 and Remark 4.1; no independent primary passage obtained",
+          "method": "Cited-section comparison and attempted OA retrieval",
+          "title": "Wavelet transforms on Gelfand–Shilov spaces and concrete examples",
+          "trigger": "Same Mexican-hat mother and Fourier formula"
+        },
+        {
+          "assessment": "Different dilation setting on cited account",
+          "evidence": "Integer dilations on L²(0,1), represented via Dirichlet series, rather than the geometric Euclidean scale-only bank.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.07659",
+          "material_read": "Frozen comparison in RESULT.md lines 121–135 and cited §§1–2, 4–5 locators; no primary passage obtained",
+          "method": "Cited scope and attempted arXiv passage retrieval",
+          "title": "Splitting the Riesz basis condition for systems of dilated functions through Dirichlet series",
+          "trigger": "Plausible general theorem for dilation Riesz bounds"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; scope differs on available account",
+          "evidence": "Analysis frame of a translated/dilated system is not the same operator as synthesis by unshifted heat-Laplacian scales.",
+          "identifier_or_url": "https://doi.org/10.1007/s00365-010-9098-3",
+          "material_read": "Frozen account based on abstract and talk; no independent decisive passage obtained",
+          "method": "Citation review and attempted OA retrieval",
+          "title": "Frequency-scale frames and the solution of the Mexican hat problem",
+          "trigger": "Highly relevant Mexican-hat frame analysis could include a scale-only special calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For one-centered normalized LoG scale synthesis, mere positivity of the Gram symbol cannot quantify how many nearby scales are stably resolvable as coefficients. The universal worst frequency, strict dimension improvement and sharp spacing cost including the leading factor address that natural stability question rather than giving a finite matrix experiment or a full-wavelet frame claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

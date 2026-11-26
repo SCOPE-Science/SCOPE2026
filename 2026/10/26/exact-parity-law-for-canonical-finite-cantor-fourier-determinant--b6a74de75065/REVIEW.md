@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact block decomposition uses only the two binary-digit recursions for sampling nodes and frequencies. The even-base phase operator is the identity; the odd-base phase operator flips the first spatial digit. Row elimination reduces the determinant to products of explicitly evaluated two-phase sums. The induction, normalization, and Gram-volume consequence have been checked, with direct finite-size numerical corroboration from `verify.py`.
+## correctness
 
-**Originality — PASS, qualified.** The relevant full-text sections of de Dios Pont–Liehr–Taylor (arXiv:2607.08656) explicitly discuss the closely related ternary frequency digits in an unsuccessful infinite-frame construction. They establish the absence of a Fourier frame on the limiting odd-base Cantor measure, not the exact determinants of the finite atomic sampling matrices studied here. Lai–Wang's almost-Parseval-frame tower work addresses sufficient conditions for infinite Fourier frames. The public finite even-base Cantor-spectrum census concerns a different invariant. Searches over available research records, equivalent formulations, and general literature found no direct statement or stronger result that supplies the displayed odd-base determinant. This is a best-knowledge priority assessment, not a proof of historical novelty.
+PASS
 
-**Value — PASS.** The same natural binary-digit Fourier design is exactly unitary at every even base yet has a closed-form exponentially decaying Gram-volume per mode at every odd base. This makes the parity obstruction quantitative at all finite resolutions and gives a reproducible benchmark for finite-stage Cantor Fourier interpolation. The precise invariant is motivated by frame stability; no unproved downstream theorem is needed.
+Split off the first spatial digit a and the lowest frequency digit d, so x=(2a+x')/b and lambda=(b/4)d+b lambda'. Multiplication in the exponent separates as phase (-1)^(ad), the diagonal spatial phase D=diag(exp(pi i x'/2)) when d=1, the shorter matrix F, and a column phase C=diag(exp(4 pi i lambda')) when a=1. Thus the unnormalized blocks are (F,DF;FC,-DFC). For even b, C=I; subtracting the top block row from the bottom makes the latter right block -2DF. For odd b, flipping the leading spatial digit shifts x' by plus or minus 2/b, giving phase (-1)^(sum of the shorter frequency digits), exactly C. If P is that flip, FC=PF, so permuting the lower block row by P and subtracting the upper yields lower-right block -(D+PDP)F. Each diagonal entry of D+PDP has modulus 2 cos(pi/(2b)). Dividing by the row normalization cancels the factors of 2. From the normalized depth-one Hadamard matrix, the recurrence multiplies the squared determinant modulus of the preceding depth by 1 or cos(pi/(2b))^(2^(n-1)), yielding the stated exponent. The determinant is nonzero, det(A* A)=|det A|^2 and the minimum Gram eigenvalue is bounded by the geometric mean. In the even case, unit column norms and equality in Hadamard's inequality imply unitarity.
 
-**Closest literature and limits.** arXiv:2607.08656 treats the limiting nonexistence theorem and discusses nearby candidate digit frequencies, making it the principal priority risk. The new formula neither generalizes that theorem nor follows from its mere conclusion. All statements concern a single finite frequency design. A complete historical priority determination and independent mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinctive result is the odd-base determinant for this finite atomic grid and the specified, generally noninteger frequencies. The even-base unitary endpoint uses a familiar Hadamard mechanism; for 4|b it also overlaps an exact integer-tower catalogue theorem. The strongest actual comparisons do not cover the odd-base formula or its finite Gram-volume rate. This is a bounded best-of-knowledge distinction, not a historical-priority or infinite-frame claim.
+
+## value
+
+PASS
+
+Fourier interpolation motivates the natural basis-size digit design and its volume: it is isometric at all depths for even bases but invertible with declining per-mode Gram volume for odd bases. The exact finite rate shows that no depth-uniform lower singular-value bound holds for this design and gives a benchmark against nearby frequency towers. That is a nontrivial finite quantitative conclusion, rather than a restatement of the limiting no-frame theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

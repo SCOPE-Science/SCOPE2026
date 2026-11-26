@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:35.306984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 1-indexed sequence, chronological permutation and left multiplication fix the sign of the result. Each A_i squares to zero and entry (1,3) is supplied only by A_1 A_2. In separate time steps this contributes once per ordered-in-time pair; within a step it contributes exactly when operator 2 occurs before 1. Thus the exact difference from T^2/2 is h^2 D(N)/2. The six decoder bins have signs -,-,+,+,-,+. On the consecutive intervals cut by 1/3,2/3,5/6, the four-point sum at (x+j)/4 for j=0..3 takes values -2,2,0,0, agreeing with f+g; the two half-scale g terms cancel exactly. Summing complete four-point blocks and removing the zero-index term leaves the odd-prefix increment. With m=2r+1 and x=phi_2(r), the remaining evaluations have cuts at 1/3 and 2/3, and on each of the three pieces the sum is -2. Dyadic inputs cannot hit those non-dyadic cuts. So D(4m+1)=D(m)-2, D(3)=-1, and N_1=3, N_(k+1)=4N_k+1, proving the exact formula on all k. Since log N_k=k log 4+O(1), the normalized entry has the claimed limit, and any fixed subordinate norm bounds its magnitude up to a constant. The proof is a subsequence lower bound for the specified decoder, not a lower bound at every N. The separate exact checker /workspace/branches/e92b8a34-d494-4399-8cf2-ad81ce59b209/independent_replay.py propagates the column U_N e_3 with rational arithmetic and confirms k=1 through 7 at T=7/5, through N=13653. Replay with python3 on that file. The frozen verification and script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 provides C tau^2(1+log N) for each fixed operator count under the bounded-linear assumptions.",
+          "Beretti treats geometrically shifted L2 discrepancy and reports Faure's explicit interval-discrepancy arithmetic; binary, non-dyadic intervals are therefore natural candidates for logarithmic growth."
+        ],
+        "reasoning": "An upper estimate neither forces saturation nor identifies the first matrix entry and coefficient. Growth or unboundedness in individual interval or shifted discrepancies cannot rule out cancellation in the signed decoder combination without a separate witness or arithmetic calculation.",
+        "searches": [
+          "Li–Liu–Wan v2, bounded-linear convergence Theorem 4.1 and Eqs. (4.10)–(4.12)",
+          "Beretti 2023, Sec. 1, fixed-interval geometrically shifted van der Corput discrepancy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–87, VERIFICATION.md and verify.py",
+        "Li–Liu–Wan arXiv:2603.27654v1 and v2",
+        "Beretti DOI 10.1007/s00013-022-01811-4",
+        "Resultary 0c50ba286e5e and fced8f0dbad8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The v2 theorem supplies the correct upper scale, not a saturating example for this decoder in the inspected statements.",
+          "The two-operator parity theorem does not cover the three-operator decoder. The change in permutation interval geometry prevents simply embedding its odd-radix counterexample in the base-two case.",
+          "Faure-type formulas can calculate discrepancy sums, but the inspected discrepancy statements do not furnish a basis of matrix generators and the exact subsequence bias for the lexicographic sign combination."
+        ],
+        "reasoning": "To prove that the logarithm is necessary, at least one admissible matrix problem must turn an uncancelled signed discrepancy into the error. Here the exact nilpotent reduction and odd-prefix recurrence establish that additional implication, whereas neither the general convergence bound nor an individual interval result does.",
+        "searches": [
+          "Compare Li–Liu–Wan v2 Theorem 4.1, indexed 0c50ba286e5e, and Beretti Sec. 1 to frozen RESULT.md lines 26–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Liu–Wan v2 uses lexicographic unranking of floor(p! z), z_{n+1} at step n=0,...,N-1, agreeing exactly at p=3 with the frozen decoder and sampling convention.",
+          "v1 instead uses a multi-point Fisher–Yates permutation shuffle, so its method is not the exact one at issue.",
+          "The matrix entry realizes a signed combination of interval discrepancies, not the discrepancy of a single interval in a shifted L2 norm."
+        ],
+        "reasoning": "The decoder match must include the sequence start, the interval bins and the product order, so the v2 upper estimate is genuinely for the scheme in question. The signed multibin arithmetic and the specific exact operator entry are extra claims, not simply a different name for conventional van der Corput discrepancy.",
+        "searches": [
+          "Resultary: quasi-random Lie splitting sharp logarithmic error, radix parity, binary radical inverse and lexicographic permutation decoding",
+          "Li–Liu–Wan arXiv:2603.27654v2 direct decoder Eq. (2.12), chromological indexing in the method",
+          "Beretti DOI 10.1007/s00013-022-01811-4, Sec. 1 and Faure fixed-interval discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-the-radix-parity-boundary-for-quasi-random-lie-splitting--0c50ba286e5e has a two-operator odd-radix logarithmic lower-bound witness and a two-operator even-radix O(tau^2) result.",
+          "Resultary 2026/11/2/SCOPE-exact-logarithmic-bias-for-a-triple-thue-morse-dilation-correlat--fced8f0dbad8 concerns a signed correlation at indices n,3n,5n of Thue–Morse, not radical-inverse decoding."
+        ],
+        "reasoning": "For two operators, the rank decoder uses dyadic halves and base two gives balanced ordering; increasing to three produces sixths with non-dyadic boundaries. Neither the two-operator odd-radix exact lower bound nor the separate Thue–Morse correlation enumerates the frozen signed sums or gives this witness. No exact indexed match for N_k and the matrix coefficient was identified.",
+        "searches": [
+          "Local Resultary for splitting logarithmic lower bounds and binary signed discrepancy subsequences"
+        ]
+      },
+      "rationale": "The supported distinct contribution is a matching logarithmic lower bound, with an exact signed error and coefficient along a concrete subsequence, for the three-operator base-two direct decoder. Neither the existing general upper bound nor fixed-interval van der Corput discrepancy theory is claimed as new. The closest indexed lower bound has two operators and an odd radix, not three operators and base two.",
+      "residual_risks": [
+        "A bounded priority review cannot exclude an earlier specific lower-bound witness or exact discrepancy computation outside the passages inspected. Classical interval arithmetic may provide alternative derivations of the bias.",
+        "The pass is for the particular binary direct decoder and explicit operator-splitting witness, not priority for the general logarithmic discrepancy scale."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same decoder and matching upper bound, not the claimed lower bound in the inspected sections",
+          "evidence": "Lexicographic rank floor(p! z) with first sequence point z_1; bounded-linear result of order tau^2(1+log N).",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.27654v2",
+          "material_read": "Title page; Sec. 2.2 Eqs. (2.5)–(2.12), pp. 4–6; Theorem 4.1 and Eqs. (4.10)–(4.12), p. 15",
+          "method": "OA PDF passage inspection",
+          "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation, version 2",
+          "trigger": "Potential direct coverage and exact convention for cited convergence bound"
+        },
+        {
+          "assessment": "Earlier different decoder",
+          "evidence": "Uses a Fisher–Yates shuffle driven by consecutive quasi-random samples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.27654v1",
+          "material_read": "Title page and Sec. 2.1, p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation, version 1",
+          "trigger": "Check for a change of sampling and permutation decoder across revisions"
+        },
+        {
+          "assessment": "Different discrepancy statement; no inferred whole-paper noncoverage from keyword misses",
+          "evidence": "Geometrically shifted L2 discrepancy boundedness is tied to a finite radix expansion of the interval length; the cited sequence includes index zero.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-022-01811-4",
+          "material_read": "Sec. 1, printed pp. 285–286, including Faure formulas and stated theorem",
+          "method": "OA PDF passage inspection",
+          "title": "On the distribution of the van der Corput sequences",
+          "trigger": "Strong primary comparator for non-dyadic interval discrepancy"
+        },
+        {
+          "assessment": "Materially related, not equivalent",
+          "evidence": "Two operators have an even-radix second-order result and an odd-radix logarithmic witness.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-radix-parity-boundary-for-quasi-random-lie-splitting--0c50ba286e5e",
+          "material_read": "Located Resultary statement of the parity theorem and witness",
+          "method": "Local Resultary statement comparison",
+          "title": "The radix parity boundary for quasi-random Lie splitting",
+          "trigger": "Closest indexed logarithmic lower bound for splitting"
+        },
+        {
+          "assessment": "Different sequence and observable",
+          "evidence": "The signed correlation is for Thue–Morse at n,3n,5n; there is no direct splitting-decoder statement in that finding.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-logarithmic-bias-for-a-triple-thue-morse-dilation-correlat--fced8f0dbad8",
+          "material_read": "Located Resultary finding statement",
+          "method": "Local Resultary statement comparison",
+          "title": "Exact logarithmic bias for a triple Thue–Morse dilation correlation",
+          "trigger": "Apparently similar indexed logarithmic bias for a dyadic sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete exact counterexample to dropping the logarithm resolves whether the loss in the bounded-linear upper estimate is an artifact of the proof for an important sampler and decoder. The construction isolates a single matrix entry, needs no numerical tolerances, and shows a distinction from binary two-operator ordering. It makes no assertion about different decoders, symmetrization, or typical-case error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

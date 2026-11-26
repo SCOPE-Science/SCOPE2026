@@ -1,15 +1,21 @@
-# Scientific review of the complementary fifteen-site majority basin census
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact domain is a pair of graphs on the same fifteen labelled two-subsets of a six-element set. The simultaneous majority rule uses open-neighbor counts and retains the incumbent bit precisely on a tie. The documented finite claim is established through complete enumeration of all \(2^{15}=32768\) states on each graph. The first checker tests \(F^5=F^3\) pointwise, establishes the least-entry-time histogram, and counts individual attractor basins. The second, implemented with different graph and phase-space representations, reconstructs all eventual cycles and every predecessor path. Both programs have been run successfully. Thus the tabulated result is a full finite proof, not a probabilistic experiment or an extrapolation to larger graphs.
+## correctness
 
-## Originality
-PASS with bounded historical-priority risk. The closest general theorem of Goles and Olivos constrains the eventual least period to one or two but does not count transient entrances or individual attraction basins. A related published line-graph half-factor result classifies recurrent states; it is not a published basin-multiplicity formula for the particular fifteen-site pair. Exact basin work on the Shrikhande–rook pair concerns different graphs and does not supply these populations. Searches for both exact counts and graph aliases found no covering table or equivalent graph-pair theorem. The line-graph work's full text was not accessible, so an unindexed supplementary basin census remains a priority risk. Historical research records were compared for recoverable claims and not reassessed.
+PASS
 
-## Value
-PASS. The two graphs are complementary, automorphism-rich, canonical configurations on exactly the same fifteen two-subsets. A full basin census measures where *all* opinions flow, information absent from the period-two theorem and from recurrent-state classification alone. Although both reach a periodic attractor after at most three updates, complementing adjacency multiplies the oscillation-basin probability by exactly \(76/15\). The full two-period-versus-fixed and small-versus-giant basin spectra reveal a strong distinction in a natural small, exactly reproducible test pair. The scope is deliberately finite; no general family or physical model is claimed.
+The frozen numerical results are correct. The repaired RESULT and SLOGAN restrict the new census to T(6) and use the Kneser numbers as prior comparison data. In an independent reproduction (branches/reproduce-majority-basins.py; matching .out), the votes for site ij were calculated from the root degrees d_i,d_j, the incumbent x_ij and the total number m of selected edges: closed-neighborhood vote totals d_i+d_j−x_ij for T(6) and m−d_i−d_j+2x_ij for KG(6,2), with thresholds 5 and 4. Indegree peeling in the full functional digraph removes precisely the transient states; remaining cycles of length one or two are labeled individually and the reversed peeling order gives the exact entrance depths and basin totals. All 32,768 states for each graph were included. The first-entry tables, orbit-basin spectra, both consensus basin sizes per graph, and the two sharpness trajectories reproduce exactly. In the repaired text, the root-degree formula and the iterate-equality and orbit-key enumeration are valid, and the comparison uses 9120/1800=76/15 with the same initial-state measure.
 
-## Closest literature and limits
-Goles–Olivos (1981) and Kuhlman–Mortveit–Murrugarra–Kumar (2011) establish background finite-threshold dynamics and permitted recurrent periods. The line-graph half-factor classification is relevant to recurring states; the Shrikhande–rook comparison is relevant to attraction-basin sensitivity but is about different graphs. This review cannot exclude an unidentified earlier exact table or supplementary material in an unavailable primary full text. The complete proof is exact finite-state enumeration rather than a closed-form parameter-uniform theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS applies only to the repaired triangular-graph transient and full basin census with a credited comparison. The frozen two-census originality assessment fails: the complete KG(6,2) slice, including its transient histogram, basin sizes and sharp depth, is directly established in an earlier same-rule record omitted from the original comparison. The repair removes it from the new finding, names that source as the baseline and does not claim the recurrent-state counts as a standalone advance. After checking the nearer line-graph and Johnson-graph result statements and the published Kneser comparison, no checked source supplies the individual transient basin sizes or full entry census for T(6).
+
+## value
+
+PASS
+
+The surviving claim is not a re-count of the published Kneser case or of known recurrent states. It determines the fate of every initial state on the canonical line graph of K6 and distinguishes the two complementary dynamics at the level of transient depth, consensus and oscillatory attraction, rather than only recurrent membership. This is an exact finite benchmark for a natural comparison: equal sharp depth does not predict even the fraction of configurations that end up oscillating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

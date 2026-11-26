@@ -1,15 +1,21 @@
-# Scientific review: exact one-sweep path Kaczmarz ordering
+# Independent mathematical audit
 
-## Correctness
-PASS. Every quantifier is restricted to \(n\ge2\), a permutation of all adjacent-difference projections, and isotropic covariance on the mean-zero subspace. The proof expands the tested row of each projection along two monotone predecessor chains, uses the tridiagonal edge Gram identity and telescopes the exact Frobenius-energy loss. The resulting run sum yields both bounds and their equality classes by strict monotonicity and strict superadditivity. There is no inference from finite data to arbitrary size. The embedded exact-rational checker was executed and passed 8200 cases.
+## correctness
 
-## Originality
-PASS on the inspected record, with publication-priority uncertainty. The closest inspected foundational paper, Oswald and Zhou (arXiv:1510.04727), treats error bounds for shuffled/preshuffled SOR and Kaczmarz, not a complete exact one-pass order-to-isotropic-error map for path incidence projections. Boyd et al. (2006) treat iid randomized gossip and long-run rate design, a different scheduling class. Dai et al. (2014) optimize iid row selection rather than a without-replacement permutation. Publicly indexed descriptions of Kazantsev–Matej–Lewitt (2005) and Herman–Meyer (1993) concern projection view orders in tomography; full text of these older comparisons was not available for direct inspection. Distinct titles or failed search alone do not prove novelty; the conclusion rests on the compared statements and the explicit residual access risk.
+PASS
 
-## Value
-PASS. In one full pass with exactly \(n-1\) pair contacts and an isotropic initial error, scheduling changes the exact squared disagreement by an asymptotically sharp factor of \(4/3\). Equation (1) evaluates every schedule solely from a binary precedence word; it identifies all optimal and worst ordering classes and quantifies penalties of monotone runs. This is a complete natural finite-budget scheduling classification, not a minor numerical improvement or merely one example.
+Independently reconstruct the sweep by letting U have columns equal to the chronologically ordered unit contact differences, and G=UᵀU=I+D+Dᵀ with D strictly lower triangular. The successive scalar residuals z obey (I+D)z=Uᵀx. Each projection loses exactly its squared scalar residual. Summing over a basis gives total squared Frobenius loss tr(BGBᵀ)=tr(B+Bᵀ−BBᵀ)=2m−||B||_F², with B=(I+D)^−1 and m=n−1. The constant vector is fixed, hence E=||B||_F²−m. In the finite expansion B=I−D+D²−⋯, off-diagonal entries correspond to directed paths in the oriented line of edge contacts. Distinct contacts at distance k on this line have a unique such route when all k intervening bits agree, and the coefficient is 2^−k; otherwise it is zero. Thus a run of length ℓ contributes sum over k=1,…,ℓ of (ℓ−k+1)4^−k, exactly the frozen run sum. Singleton runs minimize since S₁=1/4 and S_k>S₁ for k>1. The run cost is strictly superadditive since S_k is strictly increasing, so one constant run maximizes. All orientations are feasible (the line has no directed cycle); every alternating word is the matching red–black precedence class, whose linear extensions are linked by swaps of disjoint projections, whereas the constant words force literal monotone orders. Geometric summation recovers both extrema and the limit 4/3. At n=2 the loss is zero and at n=3 both orders give 1/4. Independent replay: python3 /workspace/evidence/path_sweeps.py tests every permutation for 2≤n≤8 with dyadic integer matrices against directed path counts, including both extrema. Normalization: the claimed expectation is for the stated mean-zero covariance I−J; E sums squared losses over a unit orthonormal basis of disagreement. A literal arithmetic average over those unscaled basis vectors would be E/(n−1), not E. The explicitly defined objective and extrema are unchanged by this clarification of loose basis-average wording.
 
-## Scientific limitations
-The theorem does not optimize worst-case fixed-error contraction, multi-epoch schedules, nonpath graphs, heterogeneous averaging coefficients, or adaptive policies. Closely relevant older tomography-ordering papers were available only in abstract/metadata form and remain a bibliographic uncertainty. No independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact all-permutation, all-path-length run law with sharp errors, including the worst case and equality classes. Related deterministic contact operations and the separately mentioned equal-strength optimum are not counted as independent originality. No read comparison contains a complete equivalent or dominating law; the optimizer announcement and inaccessible projection-ordering papers leave qualified priority risk.
+
+## value
+
+PASS
+
+The exact error can be obtained from path precedences without matrix products and gives complete schedule comparisons under a natural, fixed one-contact budget and isotropic initial error. It identifies precisely which monotone runs worsen loss and quantifies the sharp asymptotic 4/3 squared-error penalty. This is not a claim about worst-direction error, nonpath graphs, or repeated sweeps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

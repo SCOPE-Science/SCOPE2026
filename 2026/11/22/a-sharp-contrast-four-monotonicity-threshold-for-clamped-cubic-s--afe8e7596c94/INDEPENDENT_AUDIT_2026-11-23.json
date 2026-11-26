@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:26:54.703834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64; independent Hermite, lower-envelope and onset checks",
+        "Frozen VERIFICATION.md, verify.py and verify-output.txt (static inspection; replay path verify.py)"
+      ],
+      "rationale": "The clamped Hermite C² equations give m₁=(4a+3b−c)/5 and m₂=(−a+3b+4c)/5 on the unit mesh. The three derivative quadratics are linear in the increments. After normalization their pointwise lower envelopes on [1,4]³ are computed by the signs of their coefficients. On the first cell the minima are 3t² and t(24−21t)/5 on either side of 2/3; on the middle cell the outer lower-envelope quadratics have discriminant −8 after removal of the common positive factor, and the middle minimum is 3(2t−1)². Reflection handles the final cell. None of these cubics can be constant on a cell with positive increment, so nonnegative derivative also gives strict increase as a function. For (1,R,1) and (R,1,R) the common slope is 3(R+1)/5>3 when R>4; the first pattern has negative derivative just right of zero, and the second has midpoint derivative 3(4−R)/10. With gaps (h,1,h) and increments (r,1,r), the common slope 3(r/h+h)/(3h+2) must be at most both 3r/h and 3, giving h²/(3h+1)≤r≤2h(h+1). Covering [1/R,R] forces R below four for h≠1: the upper constraint increases in h, the reciprocal lower constraint decreases, and they intersect at four. Finally the exact endpoint minimum is −4re³/[27(1+e)²] for e=m/r−3; at r=1/4−ε this is −4096ε³/125+O(ε⁴). With d=m−3=3ε/5 at r=4+ε, integrating the central derivative between its zeros gives the drop (2d/3)√[d/(24+12d)] and hence the stated coefficient and exponent. No claims of optimality beyond reflection-symmetric grids were used.",
+      "residual_risks": [
+        "The packaged rational samples and reported count 316 were inspected but the script was not run. Neither finite derivative samples nor the output can certify the uniform cube.",
+        "Onset laws are vertical deviations for the two named perturbations, not a classification of all directions near the boundary. The mesh expression is a necessary ceiling for uniform robustness, not an asserted exact ceiling at every nonuniform h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved Hermite sufficient condition is cellwise. Proposition 4.2 in the adjustable-endpoint paper concerns odd n and sufficient conditions for an interior overshoot not removable by changing the end derivatives. The present n=4 theorem instead holds uniformly in a bounded contrast domain and the end derivatives are fixed.",
+          "The Fritsch–Carlson, Fritsch–Butland and Saeidian et al. DOI full texts were not available from the attempted OA routes; the comparison to a local Hermite sufficient criterion is anchored in the accessible primary paper."
+        ],
+        "reasoning": "A generic cell test is useful and part of the established method, but is not a dominating exact optimization over the constrained spline family. The endpoint-repair theorem has materially different hypotheses and conclusion.",
+        "searches": [
+          "Baeza–Yáñez arXiv:2402.01324, §4, Proposition 4.2",
+          "Aràndiga–Baeza–Yáñez arXiv:2102.11564, Theorem 1.2",
+          "DOIs 10.1137/0717021, 10.1137/0905021, 10.1155/2021/5925163, bounded OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 66a607d16afd and 4a9c25b174e4 and exact frozen hit",
+        "arXiv:2102.11564, Theorem 1.2",
+        "arXiv:2402.01324, Proposition 4.2",
+        "Frozen citations of Fritsch–Carlson, Fritsch–Butland and Saeidian et al.; DOI access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The value 3 in the Hermite derivative bounds is prior, and the clamped derivation uses it to make local failure witnesses. It does not alone prove which simultaneous raw increment cube works for the C² spline, or which h maximizes its worst-case contrast.",
+          "The natural formulas cannot be substituted into the problem because the equations fixing the interior slopes differ; the adjustable-endpoint result does not imply a guarantee for fixed zero slopes."
+        ],
+        "reasoning": "The unresolved object after applying standard interpolation machinery is the joint feasible region across the three cells and its optimization in the data and mesh. The exact boundary, the optimizing mesh and the drop/undershoot coefficients were not mechanically given by the compared prior conclusions.",
+        "searches": [
+          "arXiv:2102.11564 p. 2, normalized slopes",
+          "arXiv:2402.01324 §4, Proposition 4.2",
+          "Resultary 66a607d16afd and 4a9c25b174e4, stated assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a uniform grid, raw increments and cell secants have the same contrast. This ceases to hold on general (h,1,h) meshes. The closest indexed natural calculation imposes S″=0 instead of S′=0 at the ends and measures secants.",
+          "The single-cell sufficient slope box [0,3]² is in normalized derivative coordinates, not raw data ratios. Some admissible uniform-grid data have a middle-cell normalized slope outside that box (a,b,c)=(4,1,1) gives m₁/b=18/5)."
+        ],
+        "reasoning": "Changing to normalized Hermite slopes is the relevant alias, but turning a local Hermite criterion into an all-data certificate requires imposing both C² joins, the fixed clamps and the joint feasible slope set. Natural and clamped operators do not become the same after knot scaling.",
+        "searches": [
+          "Resultary lookup for four-knot clamped or flat-endpoint cubic monotonicity, increment contrast and mesh optimality",
+          "Aràndiga–Baeza–Yáñez arXiv:2102.11564, p. 2, Theorem 1.2",
+          "Baeza–Yáñez arXiv:2402.01324, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66a607d16afd states the sharp four-knot natural-spline secant-contrast threshold min(r+3,3+4/r) and unique symmetric-mesh optimum r=2, R=5.",
+          "4a9c25b174e4 gives 2+√3 as the all-finite-uniform-grid natural-spline contrast guarantee. Exact clamped title match in the search is the frozen record itself."
+        ],
+        "reasoning": "These are actual precise threshold records, closely comparable in kind. Neither uses the frozen boundary conditions, and neither yields the four-knot flat-clamped guarantee or its witness laws. Same-day indexing determines no ordering.",
+        "searches": [
+          "Resultary 66a607d16afd, local RESULT.md offsets 0 and 4800",
+          "Resultary 4a9c25b174e4, local RESULT.md opening"
+        ]
+      },
+      "rationale": "The interval Hermite criterion is prior machinery; the assessed contribution is its global robust counterpart for a fixed four-knot C² clamped construction with zero endpoint derivatives, plus the reflection-symmetric mesh optimum and distinct loss laws. Closest indexed robust-contrast results are for natural splines, with different end conditions and, on nonuniform grids, a different contrast measure. The accessible literature gives single-cell tests or a nonrepairability statement with different quantifiers, not the present exact robustness claims. This is a bounded assessment rather than a historical priority conclusion.",
+      "residual_risks": [
+        "The cited inaccessible full texts, and potential equivalent ratio bounds in spline monographs, remain limitations. Deferred broader lookup and ranked index misses are not evidence of absence.",
+        "The strongest inspected analogous exact records have distinct assumptions; no relative priority is inferred from their catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant local sufficient condition, not a global contrast criterion",
+          "evidence": "If both slopes normalized by the cell secant lie in [0,3], the cubic Hermite cell is monotone.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.11564",
+          "material_read": "p. 2, Theorem 1.2, OA offsets 5200–6772",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Aràndiga, Baeza and Yáñez, arXiv:2102.11564",
+          "trigger": "Standard cellwise normalized-slope monotonicity comparison"
+        },
+        {
+          "assessment": "Different hypotheses and question; not a threshold for fixed flat end slopes",
+          "evidence": "The proposition assumes odd n, monotone boundary cells and a specified sufficiently interior overshoot; changing endpoint derivatives cannot then eliminate all monotonicity violations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.01324",
+          "material_read": "p. 2 introduction and §4, Proposition 4.2 statement and conclusion, OA offsets 18000–22946",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Baeza and Yáñez, arXiv:2402.01324",
+          "trigger": "Endpoint-derivative changes in C² monotone data interpolation"
+        },
+        {
+          "assessment": "Strong structural overlap; different operator and contrast",
+          "evidence": "Natural endpoints, secant-slope contrast, threshold min(r+3,3+4/r) and optimal r=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-contrast-five-monotonicity-and-unique-optimal-symmetric-me--66a607d16afd",
+          "material_read": "Local RESULT.md, offsets 0 and 4800",
+          "method": "Resultary lookup and bounded local-mirror read",
+          "title": "Sharp contrast-five monotonicity and unique optimal symmetric mesh",
+          "trigger": "Same-day exact four-knot threshold and symmetric-mesh optimum"
+        },
+        {
+          "assessment": "Different endpoint conditions and scope over grid sizes",
+          "evidence": "Sharp all-finite-grid constant 2+√3 for the natural operator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-uniform-grid-monotonicity-contrast-for-unmodified-natural--4a9c25b174e4",
+          "material_read": "Local RESULT.md opening",
+          "method": "Resultary lookup and bounded local-mirror read",
+          "title": "Sharp uniform-grid monotonicity contrast for unmodified natural cubic splines",
+          "trigger": "Exact natural-spline uniform-grid contrast result"
+        },
+        {
+          "assessment": "Primary comparison limited; not ruled out on lack of access",
+          "evidence": "The accessible Aràndiga et al. paper supplies an independently read cellwise sufficient condition, not a substitute for inspecting Fritsch–Carlson in full.",
+          "identifier_or_url": "https://doi.org/10.1137/0717021",
+          "material_read": "Citation and comparison in frozen RESULT.md; no primary full text read",
+          "method": "Bounded OA DOI attempt, HTTP 403",
+          "title": "Monotone Piecewise Cubic Interpolation (Fritsch–Carlson)",
+          "trigger": "Classic exact Hermite interval conditions; potential specialization"
+        },
+        {
+          "assessment": "Unavailable comparison noted, not a negative search result",
+          "evidence": "No primary passage used to infer whole-document noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1137/0905021",
+          "material_read": "Citation only; no primary full text read",
+          "method": "Bounded OA DOI attempt, HTTP 403",
+          "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants (Fritsch–Butland)",
+          "trigger": "Related monotonicity-preserving cubic construction"
+        },
+        {
+          "assessment": "Possible related constrained interpolation; exact primary comparison limited",
+          "evidence": "No accessible passage from this paper was used to support noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/5925163",
+          "material_read": "Citation and comparison in frozen RESULT.md; no primary full text read",
+          "method": "Bounded OA DOI attempt, HTTP 403",
+          "title": "A New Approach of Constrained Interpolation Based on Cubic Hermite Splines (Saeidian et al.)",
+          "trigger": "Constrained C² Hermite interpolation and monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sharpness, mesh and loss-law statements",
+        "Resultary natural-spline contrast results and arXiv:2102.11564 Hermite criterion"
+      ],
+      "rationale": "Four knots give the smallest setting with separate boundary and central cells that can fail in distinct ways under the same fixed flat-endpoint rule. The exact raw-increment bound is actionable for using the prescribed C² interpolant, and the nonuniform comparison explains why an alternate symmetric knot placement cannot improve worst-case guarantees. The quantified losses distinguish an onset at the endpoint from an interior pocket rather than merely finding isolated examples.",
+      "residual_risks": [
+        "The result does not cover arbitrary asymmetric designs, other clamps, more than four knots, or shape-preserving methods that change the interpolant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

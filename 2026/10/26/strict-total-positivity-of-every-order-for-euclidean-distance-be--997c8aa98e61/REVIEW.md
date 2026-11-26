@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The beta monomial norms and gamma-product Andreief integral were rederived. Positive generalized Vandermonde minors imply positive coefficient minors. Finite Cauchy–Binet has a fixed positive ordinary-Vandermonde summand, so positivity survives passage to the infinite kernel, including at squared radius zero. The included finite checker corroborates selected cases but is not a universal certificate.
+## correctness
 
-**Originality — PASS (best available comparison, priority risk retained).** The full relevant kernel note supplies the same expansion and classifies fixed-parameter scalar complex zeros, but does not state positivity of the mixed parameter-radius minors. The 2026 motivating preprint proves parameter real-analyticity for broader domains, not this ordered-determinant sign. Full text and relevant mathematical-index searches were compared by mathematical implication, not by title. A broad earlier total-positivity theorem might imply this as an unlisted special case; unindexed prior art remains a risk.
+PASS
 
-**Value — PASS.** The determinant theorem establishes every order at once, rather than a small numerical inequality. It furnishes strict radial monotonicity of all two-weight evaluation ratios and an exact upper bound of \(k-1\) distinct intersections for arbitrary linear combinations of \(k\) weight profiles. These are natural interpolation-comparison consequences for a nonstandard boundary-distance Bergman family.
+Angular Parseval and the radial beta integral give the reciprocal squared monomial norms Γ(t+2n+3)/(2πΓ(t+1)Γ(2n+2)), with polynomial growth in n for fixed t. The coefficient determinant, up to positive row and column factors, is an Andréief integral of two generalized Vandermondes against the positive product weight x²e⁻ˣ dx. Both determinants have the same strict positive sign on the increasingly ordered chamber (exponential Chebyshev systems after log x); the integrals converge for t>−1. Finite Cauchy–Binet expresses each radial minor as a sum of nonnegative terms; continuity covers a radial node of zero, and the consecutive-power term is strictly positive and independent of the truncation. Entrywise convergence preserves that lower bound. The ratio inequality follows from the order-two minor, and the distinct-zero bound follows from invertibility of any k-node evaluation matrix.
 
-The scope is the disk, actual Euclidean boundary-distance weight, real ordered parameter and squared radius, with no claim of complex zero-freeness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content is strict positivity of the mixed parameter–squared-radius matrix on this full domain, with its consequences. The identical coefficient expansion is already indexed and is not a contribution here. The method is classical composition of totally positive kernels, not a new general total-positivity principle.
+
+## value
+
+PASS
+
+This compares radial evaluation across weights in the natural power-of-distance family. Beyond order-two monotonicity, it guarantees nonsingular interpolation matrices and a uniform distinct-zero bound for any finite mixture of the radial profiles. Those are structural facts not supplied by the exact scalar formula, its complex zeros, or parameter regularity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:15.421108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multinomial enumeration in /workspace/replay.py (four_modes, Python 3 + SymPy) independently verifies the 11 Laurent terms for normalized c0=c1=1, the radical substitution, and the exact strict nine-grid witness. In RESULT.md §§2–4 the paired cosines reduce to 112+288t²+12t(11+4t²)cos η. The minimum over η at each |t| is attained, and the strictly convex cubic in |t| has its sole interior minimizer at 2−√111/6. There |t| is nonzero, so η is locked modulo π and gives β=3α modulo 2π and cos α=−|t|. The second-difference phase distinguishes the two remaining orbits. Parseval on the probability-normalized circle and roots of unity gives exact quadrature at all N≥10 because deg(P³)=9; the only extra terms at N=9 are the endpoint lags ±9. The exact formula is correct; its decimal expansion is 96.2410815259315501…, differing from the printed decimal in the last few digits. No assertion is needed about N<9. The packaged checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary f3e238ebf219 gives the sixth-moment upper norm for unconstrained complex magnitudes.",
+          "Schmidt's abstract treats asymptotic fourth-moment flatness; Balister et al. Theorem 1.1 proves binary-coefficient uniform-modulus bounds in large degree."
+        ],
+        "reasoning": "Neither the opposite-direction sixth-moment theorem nor large-degree fourth-moment or sup-norm work is the relevant covering theorem; the direct four-tap result is.",
+        "searches": [
+          "Resultary f3e238ebf219; arXiv:1302.2766; arXiv:1907.09464"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification package",
+        "Resultary cd075328c111, 2b7f859e0b5c, f3e238ebf219",
+        "arXiv:1302.2766, arXiv:1907.09464"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differences of frequencies of P³ lie in [−9,9]; at N=9 the correction to the continuous moment is exactly 2 Re((c3 conjugate(c0))³)."
+        ],
+        "reasoning": "The covering theorem plus degree gives the whole N≥10 claim with identical equality. At N=9 every polynomial has alias correction at least −2, and rotating the variable of any continuous optimizer sets this correction to −2 via its ninth power, without changing the continuous moment. Thus even the stronger fact that the sampled minimum is the continuous minimum minus 2 follows immediately; the weaker explicit rational counterexample does not leave an independent substantive claim.",
+        "searches": [
+          "cd075328c111 Finding and Assumptions and scope; frozen RESULT.md §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator Finding gives λ(1,−wζ,−wζ²,ζ³), with Re w=2−√111/6 and the two conjugate w."
+        ],
+        "reasoning": "Set μ=−wζ and u=−1/w; then (−wζ)²u=−wζ² and (−wζ)³u³=ζ³. This identifies precisely the same two normalized orbits, not just the same numerical value.",
+        "searches": [
+          "Resultary: exact sixth-moment flatness, four unimodular Fourier taps",
+          "2026/11/2/SCOPE-exact-sixth-moment-flatness-of-four-unimodular-fourier-taps--cd075328c111"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cd075328c111 Finding has exactly 616−(148/3)√111 for the same support, exponent, objective and normalization, with an if-and-only-if equality list.",
+          "2b7f859e0b5c treats phase-only fourth powers for four-point supports in Z_p with p≥11, including value 19 for progressions."
+        ],
+        "reasoning": "The first result is a distinct indexed exact match; the second is a distinct lower-moment theorem, not a sixth-moment match.",
+        "searches": [
+          "Resultary cd075328c111 and 2b7f859e0b5c by exact claim and phase-only moment aliases"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record directly covers the central normalized continuous sharp minimum and both equality orbits, and proves additional phase-alphabet facts. Its displayed scope does not include root sampling, but both the claimed sampled persistence and sharpness of its onset are immediate consequences of its result and the one-term alias calculation. This is demonstrated scientific coverage, not a determination of historical priority from index dates.",
+      "residual_risks": [
+        "The separate exact comparator has a later catalogue date than the frozen file's path; neither date resolves provenance or historical priority. The finding is judged on demonstrable coverage.",
+        "The search does not exclude older specialized polyphase tables; this is not needed for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers central theorem exactly",
+          "evidence": "Probability Haar and modes 0,1,2,3; same radical minimum; λ(1,−wζ,−wζ²,ζ³), with the two conjugate w; scope expressly continuous.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sixth-moment-flatness-of-four-unimodular-fourier-taps--cd075328c111/RESULT.md",
+          "material_read": "Finding and start of Assumptions and scope; critical point/equality passage",
+          "method": "Local mirror statement read and change of variables",
+          "title": "Exact sixth-moment flatness of four unimodular Fourier taps",
+          "trigger": "Identical phase-only extremal problem"
+        },
+        {
+          "assessment": "Different exponent",
+          "evidence": "Minimum 19 for four-point arithmetic progressions in Z_p (p≥11), for the fourth power.",
+          "identifier_or_url": "Resultary 2b7f859e0b5c",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror",
+          "title": "Four-point support geometry quantizes the phase-only fourth Fourier moment",
+          "trigger": "Same phase-only optimization on progressions"
+        },
+        {
+          "assessment": "Unrestricted coefficient maximum; does not give phase-only minimum",
+          "evidence": "Upper moment bound normalized by coefficient energy, with nonuniform optimal magnitudes.",
+          "identifier_or_url": "Resultary f3e238ebf219",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror",
+          "title": "Sharp sixth-moment Fourier norm via four-term even-moment symmetrization",
+          "trigger": "Same support and exponent"
+        },
+        {
+          "assessment": "Not a competing statement in inspected passage",
+          "evidence": "Increasing-degree L⁴/correlation-energy behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.2766",
+          "material_read": "p. 1 abstract",
+          "method": "OA text",
+          "title": "On a problem due to Littlewood concerning polynomials with unimodular coefficients",
+          "trigger": "Classical unimodular flatness literature"
+        },
+        {
+          "assessment": "Does not imply the sharp four-tap result",
+          "evidence": "Upper and lower uniform-modulus bounds for binary polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09464",
+          "material_read": "p. 1 abstract and Theorem 1.1",
+          "method": "OA text",
+          "title": "Flat Littlewood Polynomials Exist",
+          "trigger": "Flatness for discrete signs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp continuous invariant and phase rigidity would be mathematically substantive in isolation, but are covered. The remaining degree cutoff and strict one-alias example are mechanically implied by that classification. They do not supply a surviving distinct valuable finding, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

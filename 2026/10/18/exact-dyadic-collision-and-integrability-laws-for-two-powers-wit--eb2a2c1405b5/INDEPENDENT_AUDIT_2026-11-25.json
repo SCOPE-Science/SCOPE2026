@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:23.807739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 50–83. Odd exponentiation by d/2 permutes each finite odd-unit 2-group. Odd squares have image 1 mod 8, and every such residue occurs: given an odd root modulo 2^n, n>=3, shifting it by 2^(n−1) toggles the 2^n bit of its square modulo 2^(n+1). Equal-size fibres of the homomorphism give uniformity. Exactly one odd input has probability 1/2 and gives a uniform additive coset 1 mod 8; two odd inputs have mass 1/4 on 2 mod 8. Both-even has mass 1/4 and rescales an independent copy by 2^d, in a disjoint coset. At iteration j the two masses are 4^(−j)/2 and 4^(−j)/4 on cylinders of measure 2^(−dj−3), and no atom remains at zero. At n=1 the fibre densities are (1,1), at n=2 they are (1,2,1,0), and at 3<=n<=d the both-even mass contributes only 2^(n−2) at zero. For n>d the scaled branch contributes multiplier 2^(d−2) in the density and a fraction 2^(−d) of the residue average. Iterating that recurrence at s=2 gives the stated collision constant and geometric factor, since the four-tuple count groups ordered pairs by common target. The cylinder moment sum is geometric and diverges at equality in the stated threshold. The finite densities are conditional expectations of the integrable density; martingale convergence and an L^u bound for max(1,s)<u<d/(d−2) give the stated convergence. Independent bounded replay counts the residues pow(x,d,2^n), cyclically convolves their integer histogram and checks every normalized fibre for d=6,n=1..7 and d=10,n=8..11. For example, at (6,6),(6,7), support counts are 17,34 and collisions are both 13/2. These checks include the change at n=d+1 but do not replace the proof. Frozen verify.py and VERIFICATION.md inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior subthreshold theorem includes every even exponent >=6 and t<2^(nu_2(d)+2) summands, covering the full support at t=2.",
+          "Mishra treats local solvability, including sufficient higher-variable results. The same-day odd-exponent theorems and p>=5 prime-power theorem are analogous weighted laws outside the frozen parameter domain."
+        ],
+        "reasoning": "Set membership and its cardinality, even with broader exponent and summand scopes, do not give a representation distribution. Odd-exponent or odd-prime recursions have different branches; equal critical exponents in analogous formulae are not equal hypotheses.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-exact-subthreshold-dyadic-images-of-even-power-sums--43f52adb715f",
+          "arXiv:2103.03439 Theorems 3.3 and 6.5",
+          "Resultary odd-power and wild-prime dyadic fibre analogues"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 43f52adb715f, 4a65caa0042e, 36f7d50cd6e9, acd9600cfc42, ca400aff510e",
+        "JIS 23.8.1 Prop. 26 and Table 1",
+        "arXiv:2103.03439 Theorems 3.3 and 6.5",
+        "arXiv:1306.6767 Theorem 1.2",
+        "arXiv:1812.11599 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior support proof proves each admissible coset is attained by varying a single summand, fixing the other odd summands to 1 and the remaining summands to 0. That witness construction furnishes no source mass assigned to an individual target.",
+          "The weighted proof needs uniform odd-power pushforward, conditioned parity weights and controlled scaling of source mass against target Haar measure."
+        ],
+        "reasoning": "The prior image result and elementary unit map are substantive antecedents; the support formula and its finite counts alone do not determine the conditional mass distribution or the collision and critical moment growth. No inspected earlier theorem provides this weighted upgrade.",
+        "searches": [
+          "Resultary 43f52adb715f Finding and Proof, Odd-power image lemma, Disjoint decomposition, Exact counts and The 2-adic set",
+          "JIS 23.8.1 Proposition 26; arXiv:2103.03439 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later even-exponent Resultary theorem specializes at h=nu_2(d)+2=3 to the exact weighted density and normalized finite fibres.",
+          "Browning's collision-type observable is the second moment of positive-integer representation counts rather than equality modulo 2^n."
+        ],
+        "reasoning": "The pushforward law and normalized all-target representation numbers are equivalent here by averaging over residue classes; the local squared moment counts congruent sums, not an integer equality in a size-bounded problem. The later mirror is a mathematical match, not evidence of prior coverage.",
+        "searches": [
+          "Resultary: 2-adic sum of two even powers fibres, representation density, local collision moments",
+          "Resultary 2026/11/2/SCOPE-full-2-adic-representation-laws-for-sums-of-two-even-powers--4a65caa0042e",
+          "arXiv:1306.6767 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table gives the exact dyadic support cardinality for x^6+y^6, with slope 16/63 and six periodic correction numerators. It tabulates the number of targets attained, not the number of ordered pairs hitting each target.",
+          "The later even-power record does explicitly determine all target fibres."
+        ],
+        "reasoning": "The earlier support count is recovered by counting the nonzero fibres, not conversely. The later record's exact specialization is acknowledged and is not a simultaneous or earlier match on the catalog evidence.",
+        "searches": [
+          "Arias–Borja–Anaya, JIS 26 (2023) 23.8.1 Proposition 26 and Table 1",
+          "Resultary 43f52adb715f exact counts and 4a65caa0042e finite-fibre law"
+        ]
+      },
+      "rationale": "Pass the weighted two-variable representation law, sharp integrability threshold and exact finite collision law for the stated even-exponent class. The shell support and its Haar size are already covered. The prior support theorem shares the power-image lemma and branch decomposition, but uses them for existence and does not count preimages or push input measure through each branch. The later even-exponent result provides exact weighted overlap; the close same-day results have different exponent or modulus hypotheses.",
+      "residual_risks": [
+        "A specialized target-dependent 2-adic local-density or zeta calculation could already contain an equivalent law; the bounded lookup recovered no usable primary passage ruling this in or out.",
+        "Same-day catalog dates do not establish within-day priority. The weighted same-day analogues inspected have different hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of support and Haar size, not fibre weights",
+          "evidence": "For h=nu_2(k)+2 the disjoint support modulo 2^a is the union of r mod 2^h, 1<=r<=t, and the scaled all-even branch. Proof obtains each coset using fixed witness values in all but one variable.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-subthreshold-dyadic-images-of-even-power-sums--43f52adb715f",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offsets 60–6106",
+          "method": "Local Resultary mirror",
+          "title": "Exact subthreshold dyadic images of even power sums",
+          "trigger": "Earlier same-variable, same-prime result for a broader family"
+        },
+        {
+          "assessment": "Exact support count for d=6 only, not multiplicities",
+          "evidence": "Alpha counts solvable targets; for x^6+y^6 it is (16*2^n+beta_i)/63 with i=n mod 6 and beta=(47,94,125,61,59,55).",
+          "identifier_or_url": "JIS 26 (2023), article 23.8.1",
+          "material_read": "Abstract p. 1; Proposition 14 p. 8; Proposition 26 and Table 1 p. 13, offset 33400",
+          "method": "OA primary PDF",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Published exact 2-adic two-sixth-power counts"
+        },
+        {
+          "assessment": "Exact later weighted coverage for the frozen class",
+          "evidence": "Specialize h=nu_2(d)+2 to 3 to recover the frozen density and finite fibres; moments follow from the law.",
+          "identifier_or_url": "2026/11/2/SCOPE-full-2-adic-representation-laws-for-sums-of-two-even-powers--4a65caa0042e",
+          "material_read": "RESULT.md offsets 0 and 4445, finite fibres and output law",
+          "method": "Local Resultary mirror",
+          "title": "Full 2-adic representation laws for sums of two even powers",
+          "trigger": "Broader result on the exact weighted input-output law"
+        },
+        {
+          "assessment": "Odd exponent only",
+          "evidence": "Finite collision recurrences and a sharp threshold for odd d>=3, not the even exponent case.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-dyadic-fibre-and-collision-laws-for-sums-of-two-odd-powers--36f7d50cd6e9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic fibre and collision laws for sums of two odd powers",
+          "trigger": "Same-day near-identical statistic and group"
+        },
+        {
+          "assessment": "Odd exponent only",
+          "evidence": "All fibres and threshold for odd exponents, whose unit maps and parity branches differ.",
+          "identifier_or_url": "2026/10/18/SCOPE-dyadic-representation-density-moments-for-sums-of-two-odd-powers--acd9600cfc42",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dyadic representation density moments for sums of two odd powers",
+          "trigger": "Same-day sharp L^s spectrum in an analogous problem"
+        },
+        {
+          "assessment": "Different prime and exponent",
+          "evidence": "The law concerns x^p+y^p on Z_p, p>=5.",
+          "identifier_or_url": "2026/10/18/SCOPE-wild-prime-fibre-laws-and-collision-growth-for-sums-of-two-prime--ca400aff510e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Wild-prime fibre laws and collision growth for sums of two prime powers",
+          "trigger": "Same-day prime-adic local collision analogue"
+        },
+        {
+          "assessment": "Local solvability rather than two-variable target multiplicities",
+          "evidence": "The even exponent sufficient-variable formula uses four variables at exponent six.",
+          "identifier_or_url": "arXiv:2103.03439",
+          "material_read": "Theorem 3.3 p. 4 offset about 13200; Section 6 Theorem 6.5 p. 10 offset about 35400",
+          "method": "OA primary PDF",
+          "title": "Intersective Polynomials Arising from Sums of Powers",
+          "trigger": "Local diagonal-power congruence criteria"
+        },
+        {
+          "assessment": "Global equal sums, not finite local fibres",
+          "evidence": "Asymptotic sum of r_f(n)^2 through a real size cutoff.",
+          "identifier_or_url": "arXiv:1306.6767",
+          "material_read": "Theorem 1.2 p. 3, offset about 6800",
+          "method": "OA primary PDF",
+          "title": "The Polynomial Sieve and Equal Sums of Like Polynomials",
+          "trigger": "Exact type of collision count but potentially different domain"
+        },
+        {
+          "assessment": "Image sizes, not weighted fibres",
+          "evidence": "Alpha measures the number of reached residue classes, with emphasis on sums and differences of squares.",
+          "identifier_or_url": "arXiv:1812.11599",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA primary PDF",
+          "title": "Counting Integers Representable as Images of Polynomials Modulo n",
+          "trigger": "General image-cardinality framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural two-term diagonal power-sum map, existence of a local representation does not quantify how uneven its counts are. The weighted law resolves the singular scaling quantitatively: it identifies the exact threshold for finite moments, explains the infinite limiting second moment, and predicts every normalized finite collision count including its dependence on precision modulo d. The earlier support law alone cannot supply these invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

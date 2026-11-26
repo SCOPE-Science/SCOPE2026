@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:08.400872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The common continuous null gives a uniform word with m ones and n zeros. Reversal preserves R and negates Q=U−mn/2, giving E[Q]=Cov(R,Q)=0. For each adjacency condition T_i=1, one position in the pair is chosen symmetrically and the remaining m−1 positions form a uniform subset of the N−2 other positions. The two choices are independent. With a_j=j−(N+1)/2, their pair sum s_i=2i−N has sum of squares N(N−1)(N−2)/3. Applying the first and second subset-inclusion probabilities to the remaining rank sum gives the mean over i of E[Q²|T_i=1]−E[Q²] as −(mn−1)/6. Multiplying by (N−1)P(T_i=1)=2mn/N gives the claimed covariance. At N=2, R=2 and Q²=1/4 are constant; at N=3, the singleton at an end gives (R,Q²)=(2,1) twice and in the middle gives (3,0) once, yielding −2/9. The Gaussian-binomial expansion using log(sinh(x/2)/(x/2)) supplies κ₂ and κ₄, and Var(Q²)=κ₄+2κ₂². Combining with Var(R), the correlation is negative for mn>1, undefined at m=n=1, and has the stated proportional-sample asymptotic. Separate exact finite corroboration propagated counts of states (m,n,last symbol,runs,inversions): appending a 0 adds m inversions and appending either symbol adds one run exactly when different from the previous symbol or when starting. The resulting moments agreed through N=21 for all 210 sample-size pairs, including both degenerate boundaries. The frozen checker and recorded 818 comparisons were inspected, not executed; the analytic argument, not the finite bound, establishes the full domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inversion/run recurrence in Theorem 2.1 is for a restricted permutation class and increasing runs.",
+          "Bhattacharya §1.1.1 gives R−1 as the number of unlike-label edges in an ordered path and places it in a graph-based two-sample framework. The inspected characterization and asymptotic statements give no mixed moment with the squared centered rank sum."
+        ],
+        "reasoning": "A broader asymptotic comparison or a joint recurrence on a genuinely different class does not specialize to the exact mixed moment. No same-model earlier joint law was established in the inspected passages.",
+        "searches": [
+          "arXiv:2609.28674v1 Introduction and Theorem 2.1",
+          "arXiv:1508.07530 §1.1.1 graph representation of pooled-label runs",
+          "DOI:10.1007/s11749-015-0463-1 and DOI:10.1093/biomet/asu045 runs papers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a",
+        "arXiv:2609.28674v1",
+        "arXiv:0908.2089",
+        "arXiv:1508.07530",
+        "DOI:10.1007/s11749-015-0463-1 (access attempt and frozen account)",
+        "DOI:10.1093/biomet/asu045 (access attempt and frozen account)",
+        "DOI:10.1016/j.jspi.2009.02.013 (frozen account only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian-binomial gives the variance and fourth cumulant of U but contains no run marker. The restricted-permutation recurrence is not about the null word distribution.",
+          "The matching later record's relationship section points to graph asymptotics and other bridge moments, not a located pre-existing joint law or earlier instance of the formula."
+        ],
+        "reasoning": "The earlier inspected mathematical inputs do not determine E[RQ²] without using the joint adjacency/rank structure. Treat the later equivalent result as established overlap, not as evidence of earlier priority.",
+        "searches": [
+          "Canfield–Janson–Zeilberger Eqs. (1.5)–(1.6) and Remark 1.1",
+          "Mansour–Nabawanda–Shattuck Theorem 2.1",
+          "Resultary 50b596d23f6a Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/11/2 Resultary finding ending 50b596d23f6a has exactly Cov(W²,R)=−ab(ab−1)/(3N). Here W is the centered rank sum and equals −Q under the frozen orientation.",
+          "A close earlier inversion/run paper studies maximal increasing runs in run-sorted permutations, not constant-symbol runs in binary words."
+        ],
+        "reasoning": "The catalogue overlap is exact for the central moment, but the inspected separate record bears a later date than the frozen October record and points to no earlier derivation. The permutation statistic is on a different sample space and is not an alternate name for this law.",
+        "searches": [
+          "Resultary: centered Wilcoxon/Mann–Whitney square and pooled-label runs covariance",
+          "Fixed-composition binary words: inversion number and constant-symbol run count joint generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed entry 50b596d23f6a is a later matching formula, not merely a numerical table; the match is credited.",
+          "The two-letter Gaussian-binomial gives exact inversion counts by U but no map from those counts to R, and the separately known runs distribution is also only marginal."
+        ],
+        "reasoning": "Earlier one-variable exact tables cannot recover the joint weighted sum. The exact later record prevents a claim of unique current coverage but does not demonstrate earlier coverage of the frozen version.",
+        "searches": [
+          "Resultary: exact squared rank sum and runs covariance",
+          "arXiv:0908.2089 §1 fixed-content inversion generating function",
+          "Runs-test source retrieval by published DOI"
+        ]
+      },
+      "rationale": "The distinct finite mixed moment under the tie-free two-sample null is supported relative to earlier checked sources. The exact central identity also appears in a distinct later catalogue record. The sign-convention comparison establishes mathematical equivalence; its later displayed date and inspected prior-work section do not establish earlier coverage or independent discovery. Novelty is not assigned to either marginal law or to the reversal symmetry alone.",
+      "residual_risks": [
+        "The two runs-test papers and the 2009 control-chart paper were not independently read in full; no negative conclusion is drawn from access limits.",
+        "An unindexed bivariate constant-symbol-run/inversion generating function or an earlier source for the exact later overlap could change the originality comparison. No absolute priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same central mixed moment in a later dated record; no earlier priority established",
+          "evidence": "W=−Q, N and compositions coincide, so the square moment and its normalization are unchanged.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a",
+          "material_read": "RESULT.md Finding and Relationship to prior work (offsets 0 and 3722)",
+          "method": "Local mirror and orientation/chronology comparison",
+          "title": "Exact squared rank-sum and runs covariance under the two-sample null",
+          "trigger": "Exact local catalogue match"
+        },
+        {
+          "assessment": "Different run statistic and class",
+          "evidence": "Runs are maximal increasing segments in run-sorted permutations, not runs of identical bits in uniform fixed-composition words.",
+          "identifier_or_url": "https://arxiv.org/html/2609.28674v1",
+          "material_read": "Introduction and §2 Theorem 2.1 (offsets 0, 10299)",
+          "method": "Open full-text comparison of sample space and run definition",
+          "title": "Distribution of the inversion statistic on run-sorted permutations",
+          "trigger": "Earlier joint inversion/run recurrence"
+        },
+        {
+          "assessment": "Exact marginal coverage only",
+          "evidence": "The q-binomial specializes correctly and provides the inversion marginal moments; no run argument enters that function.",
+          "identifier_or_url": "https://arxiv.org/html/0908.2089",
+          "material_read": "§1 Eqs. (1.5)–(1.6), Remark 1.1 (offsets 5393 and 7881)",
+          "method": "Open full-text inspection of the generating function",
+          "title": "The Mahonian probability distribution on words is asymptotically normal",
+          "trigger": "Same word model and inversion statistic"
+        },
+        {
+          "assessment": "Graph representation and runs-test marginal/asymptotic context in inspected passage",
+          "evidence": "R−1 equals the number of label changes along the ordered path; distribution-free and asymptotic properties are stated, not the mixed moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.07530",
+          "material_read": "§1.1.1, p. 3 (offset 11038)",
+          "method": "Inspect primary PDF definition and statements",
+          "title": "A General Asymptotic Framework for Distribution-Free Graph-Based Two-Sample Tests",
+          "trigger": "Related graph framework cited in the exact later match"
+        },
+        {
+          "assessment": "Residual full-text risk, not noncoverage evidence",
+          "evidence": "Frozen assessment reports single-test moments and analyses under fixed alternatives.",
+          "identifier_or_url": "DOI:10.1007/s11749-015-0463-1",
+          "material_read": "Bibliographic link and characterization in frozen RESULT.md lines 217–220, not primary full text",
+          "method": "Lawful DOI and repository attempts did not obtain the paper",
+          "title": "Revisiting the two-sample runs test",
+          "trigger": "Same runs test and finite null moments"
+        },
+        {
+          "assessment": "Residual full-text risk, not noncoverage evidence",
+          "evidence": "Frozen assessment reports the runs marginal distribution and a multivariate extension.",
+          "identifier_or_url": "DOI:10.1093/biomet/asu045",
+          "material_read": "Bibliographic link and characterization in frozen RESULT.md lines 217–220",
+          "method": "Lawful DOI attempt did not obtain the paper",
+          "title": "A distribution-free two-sample run test applicable to high-dimensional data",
+          "trigger": "Discusses both classical two-sample procedures according to the frozen record"
+        },
+        {
+          "assessment": "Residual access/title risk; no whole-document conclusion",
+          "evidence": "Available description in the package concerns monitoring and runs-type signaling rules, rather than a same-pooled-word joint statistic.",
+          "identifier_or_url": "DOI:10.1016/j.jspi.2009.02.013",
+          "material_read": "Frozen RESULT.md line 224 and AUDIT.json's abstract/downstream account; not primary full text",
+          "method": "Distinguish indicated signaling-rule application from the pooled-label-run invariant",
+          "title": "Nonparametric control charts based on runs and Wilcoxon-type rank-sum statistics",
+          "trigger": "Potentially confusing runs/rank-sum title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-order covariance vanishes by reflection, but the squared statistic is a natural two-sided measure and gives a nonzero exact dependence with pooled runs for every nontrivial composition. The formula and distinct limits of standardized covariance and correlation identify a real feature of two canonical statistics that is not available from their exact marginals. It does not establish joint rejection probabilities, a combined-test guarantee, or dependence under ties or alternatives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

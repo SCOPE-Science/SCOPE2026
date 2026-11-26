@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:30:39.781188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the zero-sum form, pendant contrasts contribute −a, the mean-zero parent sectors have diagonal (−1,(r−1)a−rb) and off-diagonal √r(1−a), and the remaining constant line has per-group value G=r[(n−3)+(n−1)(b−2a)]+(r−1)a, where b=a^(log₂3). Direct substitution gives G(2)=−2 and G(4)=2rn−4; G strictly increases for a≥2 since (log₂3)·3/2>2. The standard-block determinant F=r(b−a²+a−1)+a is strictly concave, positive at 2, and first zero at a_s≤4. For r>1, F(2+2/r)=[2b−a²−2]/(a−2)>0 there because the numerator is strictly concave and vanishes at 2 and 4. For r=1 the first zero is 4. Substitution at a_s yields G_{2,r}=a_s[r(a_s−2)−2]≥0 and G_{n,r}>G_{2,r} for n≥3 by 1+b−2a_s>0. Thus G crosses first, so the only critical mode is the global line with load −r on the core and +1 on the leaves; it violates above the root. Strict lower-exponent nesting and Gram rank give all embedding and kernel conclusions. The root moves strictly left as n or r increases: the increments at the previous root are positive by 1+b−2a>0 and G=rQ_n(a)−a with Q_n(a)=a/r>0. Expanding G at p=1, with derivative r(n−1)(3 ln 3−4 ln 2)+2(r−1)ln 2, or normalizing G by n or r and using implicit differentiation, gives both first-order terms and their separate fixed-parameter remainders; both limits are 1. At p=1 the larger eigenvalue of the standard block dominates −2 and −2/(r+1), since shifting the block by 2/(r+1) makes its determinant negative. Frozen support was inspected without execution; the independent `python /workspace/branches/independent_reproduction.py 4` passed 25 shortest-path Gram cases below, at, and above the threshold and checked sample parameter monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rooted-star-cluster formula with QEC(K_n)=−1 yields exactly (−r−3+√(r²+6r+1))/2; the regular-corona theorem is further ordinary QEC coverage.",
+          "Sánchez supplies a general powered-metric criterion and Robertson supplies nesting and the Hilbert equivalence."
+        ],
+        "reasoning": "These cover the p=1 comparator and general method, not the powered multi-leaf first crossing. For r>1 the intra-bundle distance and additional leaf contrast subspaces enter the calculation.",
+        "searches": [
+          "arXiv:2306.15589 Theorem 1.7(ii)",
+          "arXiv:2512.17258 Theorem 4.14",
+          "arXiv:1108.0451 Corollary 2.4 and arXiv:2309.16070 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.08059",
+        "arXiv:2306.15589",
+        "arXiv:2512.17258",
+        "arXiv:1108.0451",
+        "arXiv:2309.16070",
+        "Resultary cf77f16e4965 and 3a1e7d142b23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the pendant length to one mechanically recovers the full r=1 powered endpoint; setting the graph input to K_n and star order to r+1 mechanically recovers the unpowered constant.",
+          "For r>1 the assigned global equation has the extra contribution (1−1/r)a after division by r, and its proof needs the bounds involving F_r."
+        ],
+        "reasoning": "No distinct threshold credit for either exact specialization. The general finite-metric procedure does not establish the multi-leaf sector ordering, monotonicity or the leaf-bundle scaling by itself.",
+        "searches": [
+          "Weighted complete-graph corona Resultary finding, local offset 0",
+          "arXiv:2306.15589 Theorem 1.7(ii)",
+          "arXiv:1108.0451 Corollary 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fully bearded clique is the r=1 graph. A rooted-star cluster on a clique with star order r+1 is this family for all r.",
+          "The weighted complete-graph corona entry at pendant length one has threshold (n−1)(1+3^p−2·2^p)−2=0 and the same global line and rank drop."
+        ],
+        "reasoning": "At r=1 the assigned threshold expands to exactly the catalogue equation, with identical intrinsic metric. At r>1 a single weighted pendant vertex is not a bundle of r distinct leaves with positive intra-bundle distance. The rooted-star identification, on the other hand, is exact but the cited theorem concerns ordinary QEC.",
+        "searches": [
+          "Resultary: weighted complete-graph corona negative type",
+          "arXiv:1904.08059 §4.5; arXiv:2306.15589 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-a-logarithmic-collapse-law-for-negative-type-of-weighted-complet--cf77f16e4965 gives exact powered r=1 coverage.",
+          "2026/11/2/SCOPE-sharp-negative-type-of-pentagonal-leaf-coronas--3a1e7d142b23 uses a C5 rather than a clique core."
+        ],
+        "reasoning": "The first match is substantive exact coverage on its slice regardless of within-day priority; the second is a different graph metric. The inspected matches do not give the multi-leaf clique threshold.",
+        "searches": [
+          "Resultary: exact powered negative type of whiskered cliques and complete-graph coronas; weighted coronas; uniform leaf bundles"
+        ]
+      },
+      "rationale": "The ordinary QEC is already known for every r. A separately indexed exact weighted-corona theorem also covers the entire powered r=1 slice when the common pendant length equals one. Credit is restricted to the additional multi-leaf powered classification, the decisive dominance over the contrast/mean-zero sectors, and the two-parameter consequences; the exact r=1 overlap and QEC carry no originality credit.",
+      "residual_risks": [
+        "No within-day priority is inferred for the weighted-corona overlap. Unlocated graph-block or powered-corona formulations may have broader coverage; this bounded comparison is not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unpowered r=1 coverage",
+          "evidence": [
+            "Taking a leaf at every clique vertex gives QEC=−(2−√2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08059",
+          "material_read": "§4.5 pp. 20–21, offset 45988",
+          "method": "OA PDF passage inspection",
+          "title": "Determining Finite Connected Graphs Along the Quadratic Embedding Constants of Paths",
+          "trigger": "Alternate bearded-clique terminology"
+        },
+        {
+          "assessment": "Exact ordinary QEC for all parameters",
+          "evidence": [
+            "The r+1 vertex rooted-star construction gives precisely the graph; insertion of QEC(K_n)=−1 produces the displayed square-root formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.15589",
+          "material_read": "Def. 4.1 p. 9, Thm. 1.7(ii) p. 3, offsets 32472 and 10753",
+          "method": "OA PDF passage inspection",
+          "title": "Quadratic Embedding Constants of Graphs: Bounds and Distance Spectra",
+          "trigger": "General rooted-star-cluster formulas"
+        },
+        {
+          "assessment": "Broader unpowered comparison",
+          "evidence": [
+            "The theorem treats corona QEC for regular attached graphs under spectral conditions; the present core and attached graph are K_n and the edgeless graph on r vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.17258",
+          "material_read": "Theorem 4.14 p. 22, offset 55000",
+          "method": "OA PDF passage inspection",
+          "title": "Quadratic Embedding Constants of Corona Graphs",
+          "trigger": "Regular corona QEC theorem"
+        },
+        {
+          "assessment": "Identical r=1 specialization of a distinct indexed record",
+          "evidence": [
+            "One private pendant of arbitrary common length t per core vertex; at t=1 its root equation, equality line, range, and drop equal the present r=1 claims."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-logarithmic-collapse-law-for-negative-type-of-weighted-complet--cf77f16e4965",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A logarithmic collapse law for negative type of weighted complete-graph coronas",
+          "trigger": "Strong exact powered slice"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": [
+            "The core is C5, not a complete graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-negative-type-of-pentagonal-leaf-coronas--3a1e7d142b23",
+          "material_read": "Finding and graph construction",
+          "method": "Local catalogue mirror",
+          "title": "Sharp negative type of pentagonal leaf coronas",
+          "trigger": "Uniform leaf bundles with a different core"
+        },
+        {
+          "assessment": "General powered method; other exact family",
+          "evidence": [
+            "Finite-metric determinant criterion and explicit evaluation for complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "Cor. 2.4 p. 5 and Thm. 3.1 p. 7, offsets 17893 and 25717",
+          "method": "OA PDF passage inspection",
+          "title": "On the Supremal p-Negative Type of a Finite Metric Space",
+          "trigger": "General positive-type boundary method"
+        },
+        {
+          "assessment": "Classical equivalence and nesting recalled",
+          "evidence": [
+            "Negative type gives the corresponding Hilbert snowflake embedding and smaller powers are strict."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.16070",
+          "material_read": "Thm. 1.2 p. 2, offset 5403",
+          "method": "OA PDF passage inspection",
+          "title": "Negative Type and Bi-lipschitz Embeddings into Hilbert Space",
+          "trigger": "Hilbert and exponent nesting foundations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform private leaf bundles are natural clique coronas. The multi-leaf classification identifies a global critical mode, quantifies how either parameter moves the threshold and exhibits different first-order decay regimes despite equal limits. At every fixed r≥2 it gives a family with equal ordinary QEC but different sharp Hilbert thresholds, a substantive distinction from the prior QEC calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

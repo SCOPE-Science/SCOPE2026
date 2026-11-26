@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:21:34.653430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–77; frozen VERIFICATION.md and verify_degree_wheel.py, inspected but not executed",
+        "Independent exhaustive replay: python /workspace/branches/5f8c3d91-3f9e-4541-a8b6-d4b3535b1f1d/recheck_record1.py 6; output recheck_rim6.txt in the same directory. This enumerates tree subsets and computes both integer transforms, not the 128 determinant checks of the supplied script."
+      ],
+      "rationale": "For vertex character a each tree contributes the product of edge weights s_us_v with s_v=(−1)^a_v, including every tree even if several have the same parity mask. The signed matrix-tree formula therefore yields the stated cyclic minor. Global sign reversal preserves each edge weight, and cyclic and reflection symmetries of the rim preserve the minor; the thirteen orbits account for all 64 choices after fixing the hub sign. Independent exhaustive enumeration of all 924 six-edge sets found exactly 320 trees and returned spectrum {−52:12,−16:12,−4:40,0:38,12:12,16:12,320:2}, giving rank 90, nullity 38, least nonzero absolute value 4, Hilbert condition number 80 on the visible space and pseudoinverse norm 1/4. The inverse Walsh transform of the visibility indicator is the unique translation-invariant projection, with denominator 128 and replayed numerator counts {−38:1,−6:18,0:64,2:32,10:12,90:1}. Absolute column and row sums both equal 420/128=105/32, attained by a coordinate delta in ℓ¹ and aligned signs for a row in ℓ∞. Averaging conjugates of any projection over translations preserves its action as identity on the range and keeps its image in that range. The averaged map is necessarily Walsh diagonal and is the canonical projection; convexity proves its minimality over real and complex projections.",
+      "residual_risks": [
+        "No extrapolation to larger rims or the whole edge-sign space. The frozen instructions say Python 3.8, but the uploaded script uses int.bit_count, which requires Python 3.10 or later; this documentation issue does not affect the independently replayed mathematics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier wheel proofs allow every edge signing, give fourfold divisibility when 3 divides the rim, and supply a generic transfer determinant and the sharp full-edge Hilbert gap. Degree-weight enumeration is standard; the Ge–Yu theorem treats complete bipartite graphs and prescribes exact degrees."
+        ],
+        "reasoning": "The known all-edge divisibility supplies the same cut-slice lower bound, but attainment and the zero arrangement require a cut-slice analysis. For example the explicit earlier n=6 gap witness has every rim edge positive and mixed spokes, which is impossible with cut signs (positive rim edges force all rim vertex signs equal). The prior transfer identity computes individual coefficients, but does not solve the coupled sign classification or the ensuing projection evaluation.",
+        "searches": [
+          "2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-and-exact-hilbert-deconvolution-norms-fo--b466fdbcc4e8, Proof §§3–5",
+          "Aalipour et al. arXiv:1510.00033, Theorem 1.2; Ge–Yu arXiv:2602.13750, Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary searches including the self-entry and exact nearby records",
+        "Earlier wheel proof and checker output logic; direct OA passages in Benjamin–Yerger, Aalipour et al., Ge–Yu and Defant et al.",
+        "Focused primary search gave no additional usable match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transfer determinant works for each cut sign by substitution. The prior wheel count gives 320; triangle inequality supplies the spectral ceiling. The prior endpoint theorem gives the choice-independent norm expression, not the actual evaluated visibility Walsh distribution.",
+          "Applying prior general formulas still requires determining which of the constrained configurations survive and Fourier-transforming their resulting indicator on the vertex group. The frozen computation gives all thirteen rim orbits and the complete second Walsh distribution."
+        ],
+        "reasoning": "The old pointwise and projection formulas are algorithms or structural tools; the distinct claim is not a single substituted coefficient, arbitrary table lookup, or new proof of averaging. Two different visibility patterns can have the same number of zeros and same nonzero gap but different projection norms. No compared result evaluates or structurally fixes this mask for the natural degree-parity map without the additional classification.",
+        "searches": [
+          "Sharp dyadic Walsh gaps, Proof §§3–5 and checker main loop",
+          "Defant et al. arXiv:2302.00233, Theorem 3.1",
+          "Benjamin–Yerger, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pushforward of the edge-incidence tree kernel along the mod-2 vertex-edge incidence map is precisely the odd-vertex multiplicity kernel. Its dual edge signs are the 64 cut signs w_uv=s_us_v, each seen twice among the 128 vertex characters. Defant et al. give the general minimal projection constant as the mean absolute value of the Walsh sum for the chosen frequencies."
+        ],
+        "reasoning": "The edge-index coefficients restrict exactly onto cut signs, but full-edge rank or the count of zero coefficients does not identify those lying on the cut-character subset. The general projection formula only evaluates this constant once the particular visibility pattern is determined.",
+        "searches": [
+          "Resultary: degree-parity or odd-vertex wheel spanning-tree Walsh transform and endpoint recovery",
+          "Sharp dyadic Walsh gaps, Proof §3 and wheel_checker.py",
+          "Defant et al., arXiv:2302.00233, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact indexed vertex spectrum hit is the frozen entry. The earlier wheel verifier computes full edge arrays internally, checks extrema, parity and total zeros, samples determinant identities, and prints only full-edge aggregate data. The distinct same-day record explicitly gives an endpoint constant Φ(m)Φ(n) for K_(m,n)."
+        ],
+        "reasoning": "The earlier code offers raw sign evaluations that could be reused in a new cut-restriction calculation; it does not provide the evaluated cut visibility invariant or endpoint value. The complete-bipartite table/formula is for a different graph family (the six-rim wheel has triangles).",
+        "searches": [
+          "Resultary exact six-rim degree-parity spectrum and projection searches",
+          "Earlier sharp dyadic wheel checker, wheel_checker.py offsets 2850–4344",
+          "2026/11/22/SCOPE-sharp-endpoint-recovery-constants-for-odd-degree-profiles-of-bip--c3c80d086245"
+        ]
+      },
+      "rationale": "The weighted enumeration, the arbitrary-edge signed coefficient formula and the invariant projection principle are prior. The distinct evaluated content is the complete cut-character visibility and signed multiplicity classification of this wheel and the exact optimal endpoint norm of that degree-parity range. Neither prior wheel statement gives the cut profile, and the earlier exhaustive edge checker computes transient edge coefficients and reports aggregates on the full space, not a published precomputed table or endpoint norm for the degree-parity range. The same-day exact endpoint norm for complete bipartite graphs does not cover this wheel. This is a bounded conclusion about the distinct evaluated invariants, not a claim of originality for their general methods or historical priority over every source.",
+      "residual_risks": [
+        "An unindexed evaluation of the same cut visibility or an alternate presentation of the exact invariant could exist; no historical-priority conclusion is made. The earlier exhaustive edge-sign computation could be adapted to independently reproduce this result, but its reported invariants are not the ones passed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact pointwise method and edge aggregate results, not evaluated vertex projection",
+          "evidence": "The generic transfer determinant, full-edge sharpness witness with uniform rim signs and mixed spoke signs, and verifier printing only full-edge aggregates were inspected.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-and-exact-hilbert-deconvolution-norms-fo--b466fdbcc4e8",
+          "material_read": "RESULT.md Finding and Proof §§3–5, offsets 0 and 3600–7875; wheel_checker.py offsets 2850–4344",
+          "method": "Local published-record mirror",
+          "title": "Sharp dyadic Walsh gaps and exact Hilbert deconvolution norms for wheel spanning trees",
+          "trigger": "Same wheel, stronger character domain, same absolute gap for the full-edge transform"
+        },
+        {
+          "assessment": "Related full-edge theorem, supplies divisibility but not cut-profile multiplicities",
+          "evidence": "Studies independent edge signs and gives zero-free status and fourfold divisibility by rim length modulo three.",
+          "identifier_or_url": "2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "material_read": "RESULT.md offsets 0 and 3500",
+          "method": "Local published-record mirror",
+          "title": "Period-three Fourier singularity and fourfold divisibility for wheel spanning-tree kernels",
+          "trigger": "Closely related wheel Fourier theorem for divisible-by-three rims"
+        },
+        {
+          "assessment": "Explicit conceptual overlap but graph family excludes this wheel",
+          "evidence": "Gives multipliers and unrestricted endpoint constant Φ(m)Φ(n) for K_(m,n).",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-endpoint-recovery-constants-for-odd-degree-profiles-of-bip--c3c80d086245",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Sharp endpoint recovery constants for odd-degree profiles of bipartite spanning trees",
+          "trigger": "Same vertex observable and exact endpoint projection question"
+        },
+        {
+          "assessment": "Exact prior tree total, not parity enumeration",
+          "evidence": "The Lucas formula L_(2n)−2 gives 320 at rim length six.",
+          "identifier_or_url": "https://www.academia.edu/82497908/Combinatorial_interpretations_of_spanning_tree_identities",
+          "material_read": "Theorem 1.2, p. 1, OA offset 1445",
+          "method": "OA passage",
+          "title": "Combinatorial Interpretations of Spanning Tree Identities",
+          "trigger": "Exact wheel tree enumeration"
+        },
+        {
+          "assessment": "Prior enumerator machinery",
+          "evidence": "The degree-weighted enumerator machinery does not evaluate the cut sign pattern for this graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.00033",
+          "material_read": "Theorem 1.2, p. 3, offset 10100",
+          "method": "OA paper passage",
+          "title": "A weighted cellular matrix-tree theorem, with applications to complete colorful and cubical complexes",
+          "trigger": "Degree-weighted spanning-tree enumeration"
+        },
+        {
+          "assessment": "Graph hypothesis excludes the wheel",
+          "evidence": "The resolved formula prescribes exact degrees in complete bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.13750",
+          "material_read": "Theorem 3.2, p. 3, offset 10950",
+          "method": "OA paper passage",
+          "title": "Ge–Yu exact-degree spanning-tree enumeration",
+          "trigger": "Exact-degree counts could imply the parity distribution"
+        },
+        {
+          "assessment": "Covers exact projection principle; does not evaluate this frequency set",
+          "evidence": "The minimum projection norm is the mean absolute Walsh sum for a specified Boolean Fourier subspace.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+          "material_read": "Theorem 3.1, p. 9, offset 29100",
+          "method": "OA paper passage",
+          "title": "Defant et al., Boolean Fourier subspace projection constants",
+          "trigger": "General theorem could already supply endpoint optimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen spectrum, orbit certificate and projection proof; earlier period-three and sharp-gap wheel Findings; Boolean projection theorem"
+      ],
+      "rationale": "Degree parity is a natural coarsening of tree incidence, not an arbitrary choice of Fourier signs. Rim length six is the first noncomplete simple wheel in the period-three singular regime of the full edge model, making it a natural small case in which to ask whether the degree-parity observation retains singularity and what its recoverable range costs at endpoints. Rank and gap alone cannot answer the endpoint question. The whole parity spectrum and exact optimal constant 105/32 determine recoverability and the least possible endpoint projection amplification for this object, providing an independently usable exact benchmark without claiming a new general formula.",
+      "residual_risks": [
+        "The result is finite and the particular constant is not asserted for larger wheel sizes or for the edge-incidence observable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

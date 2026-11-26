@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:35.224462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An excursion has length T=L/max_i V_i and survival exactly F(L/a)^N, so the tail exponent is γ=Nα, including divergent mean at equality. Continuity makes the renewal law nonarithmetic. For any fixed H>0 the probability of an observation age at most H is bounded, for t>H, by the expected renewals in (t−H,t], which tends to zero by the infinite-mean Blackwell renewal theorem. To disintegrate, sum over candidate last renewals: the next speeds are fresh and last status at age a is exactly the product event V_i<L/a for all i. Thus the displaced fractions have independent truncated CDFs F(zL/a)/F(L/a); these tend to z^α as a→∞, including the endpoints. The conditional cloud consequently converges on bounded continuous tests, which yields the unconditional iid Beta(1,α) limit, and bounded position moments yield vanishing covariance. For 0<γ<1 the same conditional expectation argument against a bounded function of A_t/t factors the joint limit with the classical Dynkin–Lamperti Beta(1−γ,γ) age fraction. For γ=1 only divergence of the absolute age is needed. In the finite-mean exact power family, the equilibrium of the age-and-speeds process is normalized excursion occupation, with age density Pr(T>a)/ET; the renewal reward kernels for bounded continuous position tests are continuous and bounded by a multiple of the integrable decreasing survival, so the key renewal theorem gives the stated convergence. Z=min(A/L,1) then has density (γ−1)/γ on (0,1) and an atom of mass 1/γ at one. Conditional means are 1−αZ/(1+α) and conditional covariance is zero. Integrating Z,Z² gives (γ+1)/(2γ), (γ+2)/(3γ), and the stated positive covariance. This coefficient requires the exact power law; no infinite-mean augmented stationary probability is inferred. Read check.py and VERIFICATION.md; the uploaded checks and simulation were not executed, and are not theorem certificates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Brownian first-passage gas gives a collective-reset finite-mean threshold through erf(L/√(4Dt))^N and examines correlations, but has different motion and conditional position kernels. Blanchet–Glynn–Thorisson discuss classical age-to-observation-time convergence and prove an age-to-current-cycle-length limit of their own.",
+          "Das–Majumdar–Pal derive the finite-mean one-walker uniform law and identify multi-particle spatial correlations as a further direction."
+        ],
+        "reasoning": "Renewal-age theorems apply to the clock, but do not identify the conditional marks or their limiting joint law. The Brownian theorem does not cover bounded linear excursions with random constant speeds.",
+        "searches": [
+          "\"ballistic\" \"shared resetting\" multiple particles renewal age spatial correlations beta fastest particle reset",
+          "arXiv:2512.00440 abstract and Eqs. (2), (4)",
+          "arXiv:1503.08374 Theorem 1 and Remark 2",
+          "arXiv:2611.16733 single-particle result and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2504.13501, arXiv:2512.00440, arXiv:2611.16733, arXiv:1503.08374",
+        "Resultary local mirror 3073b5e6ac05, 273684c06d96, c03a80e1262c",
+        "Lawful Bingham–Goldie–Teugels locator attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biswas–Majumdar–Pal's exponential-speed survival formula and associated cutoff are a precedent, not priority for those ingredients. Dynkin–Lamperti already supplies the macroscopic age fraction. The exponential-speed finite-mean occupation method also precedes the present comparison.",
+          "The ballistic survival events here truncate independent speeds; regular variation of the individual truncated marks removes the common age from the unscaled conditional limit, including when age/t need not have the subcritical Beta law. Neither the lifetime marginal nor a Brownian age-scaled cloud supplies this conclusion."
+        ],
+        "reasoning": "The nontrivial observable is the joint spatial law across that clock boundary, not the passage tail, renewal theorem, or conditional product idea in isolation. The exact power covariance requires the separate stationary age integration under that speed law.",
+        "searches": [
+          "arXiv:2504.13501 Supplement Eqs. S94–S98",
+          "arXiv:1503.08374 Remark 2",
+          "3073b5e6ac05 Proof and Relationship to prior work",
+          "273684c06d96 Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3073b5e6ac05 uses the same fastest-arrival common cycle and iid exponential speeds. It describes a finite-mean stationary law with a uniform leftmost position and a random large-N bulk; exponential speeds have α=1 and never give γ≤1 for N≥2.",
+          "273684c06d96 concerns Brownian two-particle resetting with logarithmic aging and conditionally age-scaled Rayleigh positions; the physical distances retain positive correlation, unlike the unscaled ballistic limit."
+        ],
+        "reasoning": "Age scaling under a different motion law and a stationary extreme or bulk under a different speed law are not alternative parameterizations of the present fixed-N spatial-vector limit.",
+        "searches": [
+          "Resultary: shared resetting fastest arrival ballistic particles infinite mean renewal iid beta spatial positions correlations age Dynkin Lamperti",
+          "Resultary: N independent left-moving ballistic particles with common reset when first reaches target; low-speed power-law F(v) tail gives infinite-mean excursions, asymptotically independent Beta positions and age fraction; compare stationary covariance",
+          "2026/11/22/SCOPE-a-uniform-front-and-a-random-exponential-bulk-in-collective-ball--3073b5e6ac05"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed formulas are for an exponential-speed stationary ballistic gas, or Brownian threshold resetting (logarithmic age/Rayleigh or far-tail/Gamma observables), not the Beta cloud or the power-speed covariance coefficient."
+        ],
+        "reasoning": "These are analytic distributions, not tabulated values; indexed exact statements are the meaningful lookup.",
+        "searches": [
+          "Resultary: shared resetting fastest arrival ballistic particles infinite mean renewal iid beta spatial positions correlations age Dynkin Lamperti",
+          "Resultary records 3073b5e6ac05, 273684c06d96 and c03a80e1262c"
+        ]
+      },
+      "rationale": "The strongest same-model indexed work treats exponential speeds with finite mean cycle length for N≥2, while the strongest renewal-boundary matches are Brownian or only about passage times. The shared-renewal argument and age theorem are credited premises. The distinct claim is the full unscaled independent spatial cloud and its independence from the macroscopic age for general regularly varying low speeds, with a positive finite-mean exact-power counterpart. The same-day comparison is based on mathematical scope, not inferred priority.",
+      "residual_risks": [
+        "Earlier work on other marked renewal limits could contain an equivalent spatial implication not located in the bounded search.",
+        "The Dynkin–Lamperti primary book locator was not verified directly; its role and attribution were checked through the explicit renewal-paper discussion.",
+        "No relative chronology is inferred from the same-day catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same protocol; exponential-speed finite-mean stationary result, not this boundary",
+          "evidence": [
+            "Exponential-speed equilibrium for N≥2, uniform extreme and random large-N bulk; explicitly credits the target-search survival formula and general occupation method."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-uniform-front-and-a-random-exponential-bulk-in-collective-ball--3073b5e6ac05",
+          "material_read": "Local mirror Finding from offset 0 and Relationship to prior work, offsets 8650–12287",
+          "method": "Local mirror statement and scope comparison",
+          "title": "A uniform front and a random exponential bulk in collective ballistic threshold resetting",
+          "trigger": "Strongest indexed same-model comparison"
+        },
+        {
+          "assessment": "Material conditional-age mechanism overlap, distinct motion, scaling and limit",
+          "evidence": [
+            "Brownian two-particle survival proportional to 1/t, log age uniform, age-scaled independent Rayleigh marks and physical-distance correlation π/4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-logarithmic-aging-and-universal-two-particle-statistics-at-a-fir--273684c06d96",
+          "material_read": "Local mirror Finding from offset 0 and Proof from offset 3792",
+          "method": "Local mirror",
+          "title": "Logarithmic aging and universal two-particle statistics at a first-passage resetting boundary",
+          "trigger": "Plausible analogue at the critical renewal exponent"
+        },
+        {
+          "assessment": "Different regime and observables",
+          "evidence": [
+            "Stationary Brownian excursions, far-negative multivariate tails and a conditional Gamma age law."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c",
+          "material_read": "Local mirror Finding from offset 0",
+          "method": "Local mirror",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law",
+          "trigger": "Related indexed joint threshold-resetting position and age result"
+        },
+        {
+          "assessment": "Survival and mean-threshold precedent, not a spatial occupation limit",
+          "evidence": [
+            "Exponential-speed survival [1−exp(−L/t)]^N at the specified search boundary. The search ends on target arrival, with a separate reset boundary in the search model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.13501",
+          "material_read": "PDF main text pp. 1–2; Supplement p. 24, S94–S98, OA offset 134900",
+          "method": "Lawful OA PDF passages",
+          "title": "Target Search Optimization by Threshold Resetting",
+          "trigger": "Closest primary ballistic collective first-passage calculation"
+        },
+        {
+          "assessment": "Same first-to-arrive reset rule, Brownian rather than ballistic dynamics",
+          "evidence": [
+            "Latest-excursion survival erf(L/√(4Dt))^N, finite-mean stationary law for N>2, with correlations in that regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.00440",
+          "material_read": "PDF abstract and model pp. 1–3, Eqs. (2), (4)",
+          "method": "Lawful OA PDF passages",
+          "title": "First Passage Resetting Gas",
+          "trigger": "Strongest primary collective threshold resetting and correlation precedent"
+        },
+        {
+          "assessment": "Finite-mean single-particle uniform state, not joint infinite-mean limit",
+          "evidence": [
+            "Identifies studying simultaneously reset multiple ballistic particles and correlations as an extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16733",
+          "material_read": "Abstract p. 1; conclusion p. 10; §I HTML offset 5380–9172",
+          "method": "Lawful arXiv PDF and HTML passages",
+          "title": "Freezing transition and shock-like transients in ballistic random walks under threshold resetting",
+          "trigger": "Closest one-particle ballistic model"
+        },
+        {
+          "assessment": "Classical age-fraction ingredient, no ballistic marks",
+          "evidence": [
+            "The paper's own theorem divides age by total current cycle length; Remark 2 separately credits age and residual life divided by elapsed time to Dynkin–Lamperti and references Theorem 8.6.3 in Bingham–Goldie–Teugels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.08374",
+          "material_read": "PDF p. 1 Theorem 1 and p. 3 Remark 2",
+          "method": "Lawful OA PDF; Bingham–Goldie–Teugels publisher lookup yielded no original theorem passage",
+          "title": "On the Limiting Ratio of Current Age to Total Life for Null Recurrent Renewal Processes",
+          "trigger": "Classical renewal clock comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A shared first-arrival clock creates dependence even with conditionally independent particles. The theorem gives a sharp example where that source of dependence disappears entirely from unscaled positions while the clock still has a random macroscopic age, against a strictly positive equilibrium covariance in the natural exact-power family. The equality case and general low-speed robustness make the result more than a numerical or single-particle observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact coefficient decomposition counts subtrees by deleted vertices and includes all singleton boundary cases. The balanced logarithmic expansion is uniform for deleted-vertex counts at most a small power of the order, and the binomial second-moment identity cancels the order-one-over-size term against the prelimit Poisson parameter. For arbitrary proportional imbalanced sequences the first-order two-deletion residual has an explicit strictly negative limit. Leaf-extension double counting and a factorial tail make these local coefficient expansions into total-variation upper bounds; a Lipschitz three-mass witness yields the matching lower bounds. All quantifiers, normalizations and excluded extreme-imbalance cases are stated in the main result. The standalone checker passes 310 finite and asymptotic comparisons. This is an analytic proof, not an inference from tests.
+PASS
 
-## Originality (O): PASS, qualified
+The coefficient counts sum spanning trees on each retained vertex set (the singletons must be included), not equally weighted vertex sets. In the balanced case the log coefficient correction in units of 1/m is 3k/2-(i-j)^2: the two binomial falling factorials contribute -(i(i-1)+j(j-1))/2, and the retained-size powers contribute i(j+1)+j(i+1)-(i²+j²)/2. At fixed k the binomial weights average (i-j)^2 to k, leaving k/2, precisely the first-order correction of θ^k. The log remainders and exponentiation cost O((k+1)^4/m²) uniformly up to m^(1/9). The analogous proportional-size log remainder is O((k+1)^2/N) without a second-order match. Re-expanding the three balanced terms in R₂-θ²/2 gives second-order coefficients (-2/3,35/6,-2×5/6) in units e^(-2)/m², totaling 7/2. For unequal proportional sides let A and B be the two contributions to θ. The same-side terms divided by A²/2, B²/2 are respectively 1-N/a²+O(N^-2), 1-N/b²+O(N^-2); the cross term divided by AB is 1+N/(ab)+O(N^-2). This gives -N(A/a-B/b)^2/2 to first order and the claimed squared limiting constant; equality of the two limit terms would require log(a/b)+a/b-b/a=0 in the limit, possible only at balance. The extension/leaf-deletion double count gives factorial domination up to half the minimum degree; every smaller tree extends up to that cutoff, and a larger tree has at most one subtree per fixed subset of its vertices, giving a super-polynomial remaining tail. Summed coefficient error controls the normalization, and the Poisson-vanishing statistic p₂/p₀-(p₁/p₀)^2/2 supplies the matching lower bound since both zeroth masses stay bounded below. Replay: frozen RESULT.md lines 35–102 (all-scale estimates) and verify.py (inspected only; finite checks are not a proof of the TV orders). The result does not give a uniform transition for near-balanced unequal parts or extreme imbalance.
 
-Chin et al. (2018), Proposition 3.1, already prove the exact complete-bipartite subtree polynomial; Theorem 3.4 treats the leading balanced spanning probability. Wagner (2019) provides dense-graph subtree-counting techniques; Wagner and Wang (2026), Theorem 2, provide a general but substantially coarser Poisson approximation. None of the inspected material gives the sharp balance-sensitive rates or signed residual, and published mathematical-record searches yielded only distinct graph-polynomial and spanning-tree results. This original claim is precisely the asymptotic refinement, not the exact enumerator or a first Poisson limit. Unindexed equivalent analyses remain a priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The balanced versus fixed-proportion unbalanced dichotomy supplies an order-of-magnitude improvement in total-variation approximation and a computable signed certificate of its cause. It quantifies when a natural Poisson approximation is unusually accurate and identifies the precise symmetry responsible, strengthening a known dense-graph convergence theorem in a canonical nontrivial example. Neither a mere small-parameter experiment nor a repackaging of the original counting polynomial is asserted.
+The tree enumeration, spanning-probability limit and prelimit-parameter Poisson framework have prior coverage. The checked claims do not supply the sharp rates or the second-coefficient residuals, and the refinement is supported by model-specific higher-order cancellation and a lower bound.
 
-## Limitations
+## value
 
-Only proportional part sizes are treated; no claim covers extreme imbalance, the critical near-balanced transition, or other graph families. The comparison uses the exact finite-size mean intensity \(\theta=R_1\). The stated mathematical evidence has not been independently audited; historical priority is qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Improves an already established Poisson phenomenon in a natural structural family: balanced parts remove an entire leading order, unlike fixed unequal proportions, and a residual diagnostic gives real distribution-level sharpness and explains the sign change. This is more than recomputing limiting masses. The comparison specified is to θ=R₁, not a fixed limiting law or a claim of an exactly optimal TV parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

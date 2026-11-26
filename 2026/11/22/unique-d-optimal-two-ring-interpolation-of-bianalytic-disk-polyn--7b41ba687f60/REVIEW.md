@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient space has exactly \(2(N+1)\) independent basis functions, and the two sampling polygons together have that many nodes. Separate unitary cyclic Fourier transforms isolate \(N\) same-frequency two-by-two blocks and one Nyquist-alias block. Their determinants multiply to the normalization in equation (1). The radial scaling exponent is exactly \(2(N+1)^2\), so the outer radius reaches the boundary at any optimum. The angular factor has its unique maximum at a half-step. Strict negativity of the second derivative of \(\log F_N\) proves the uniquely selected radial root for every integer \(N\ge1\), including \(N=1\). The root equation yields the boundary-layer asymptotic by uniform bounds. The packaged checker independently forms finite complex evaluation matrices and agrees with the factorization.
+PASS
 
-## Originality — PASS (best-knowledge)
+Put M=N+1. The unitary row DFT at each radius groups z^j with bar(z) z^(j+1) for 0<=j<N, and groups z^N with bar(z) in the last residue. Each 2-by-2 determinant acquires M, and the first N unnormalized determinants are (rs)^j exp(ij phi)(s^2-r^2); the last modulus is rs times the displayed residual modulus. Squaring yields (1) and the exact N=1 rank exception. Scaling both radii by s multiplies the squared determinant by s^(2M^2); the shape factor is nonnegative, not strictly positive at N=1 with aligned diameters as one sentence of the frozen proof says. This harmless wording does not affect any claim: those shapes have zero determinant and the maximizer is positive; the rank exception is explicitly correct. The angular factor is strictly maximized by exp(iM phi)=-1. On this branch the log objective is strictly concave: its potentially positive last curvature term is at most 2b(b-1)/t^2 for b>1, less than a/t^2; for b<=1 it is nonpositive. The objective vanishes at 0 and 1, giving a unique interior root, with t_1=1/3. Equation (2) gives 2Nt/(1-t)=N^2/2+O(N), hence 1-t=4/N+O(N^-2). The open disk has the same supremum but no maximizer by scaling. Independent explicit matrices (18 determinant comparisons across N=1,2,3,4,8,16), aligned ranks for N=1,2, and direct log-determinant optimization agree; independently calculated t_2=0.3729574942374566 and t_8=0.6543792459132516. Replay: python /workspace/branches/reproduce_frozen.py (disks section). Inspected the frozen checker and verification notes without execution. This is not an unrestricted Fekete-node theorem.
 
-The inspected 2020 polyanalytic-disk article supplies spaces, polynomial bases and reproducing kernels, not a minimal two-regular-polygon interpolation determinant. The inspected full-text 2022 work on short-time Fourier transform sampling trajectories gives infinite concentric sampling/uniqueness, not the finite unisolvent design, determinant, or radius optimization. A 2023 paper addresses generic random unisolvency, not the stated symmetry-constrained optimum; only its abstract was accessible and that comparison is not decisive. Closest publicly indexed mathematical notes on two-ring Szegő and weighted Bergman kernel Gram determinants treat different analytic kernel Hilbert spaces; the half-step motif is acknowledged, not claimed as an independent novelty. The asserted original content is the combined bianalytic determinant, exact unique optimal radial design at every degree, exceptional first-degree alias obstruction and sharp large-degree scaling. A 2026 two-concentric-circle bianalytic approximation paper concerns placement of poles for rational approximation rather than degree-matched polynomial point evaluations. General Fekete designs and older polyanalytic interpolation literature remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The dimension-matched two-ring scheme is a natural minimal design for an order-two polyanalytic signal model, rather than an arbitrary finite slice. The theorem completely determines when such samples interpolate uniquely, identifies the best regular orbit placement under a standard determinant/volume criterion, and finds a degree-dependent radial boundary layer. These results are potentially useful for reproducible sampling geometry and uncertainty-volume control, without claiming a numerical-noise minimax theorem or unrestricted-node optimality.
+The best-supported distinction is the exact finite bianalytic evaluation factorization, non-generic rank classification and joint radius/phase solution for each degree. Half-step staggering of cyclic kernel orbits and general generic-rank theory are already known; the claim does not rest on those features alone.
 
-## Limits of assessment
+## value
 
-Finite diagnostics are not infinite proofs. The strict-concavity argument covers all degrees; no external formal certification is claimed. Originality is based on accessible documents and actual searches, with residual risk from older literature and equivalent determinant formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two equally populated rings are a natural minimal symmetry-restricted sampling design for radially and angularly structured disk data. The theorem supplies usable exact nodes for every degree, shows exactly when rank fails, and tells how close the rings must approach each other in squared radius at high degree. This is more than reusing a familiar staggered phase, though no claim is made about spectral conditioning or unrestricted nodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

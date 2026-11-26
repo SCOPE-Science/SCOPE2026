@@ -1,11 +1,21 @@
-# Review of the seven-preimage target area
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is the *area* and geometry of the regular seven-preimage locus of \(F(z)=z^3-\overline z^{\,2}\). The proof establishes the exact caustic, two clockwise polar turns, degree/valence identity, five transverse double points, selection of the five inner arcs, and Green's signed area integral. A separate polar quadrature check agrees within \(8\times10^{-7}\). The exact theorem rests on the analytic proof and not finite sampling.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The 2020 Brilleslyper–Brooks–Dorff–Howell–Schaubroeck and 2022 Brooks–Dorff–Hudson–Pitts–Whiffen–Woodall papers count zeros in related real- and complex-parameter harmonic trinomials and establish the winding mechanism. Neither inspected article states this fixed-map **target-area** invariant or the five-piece radial-minimum caustic boundary. Indexed work on positive harmonic cubics uses a distinct polynomial; work on close-to-convex harmonic image areas measures another invariant. Full access to the 2023 convex-combination article was unavailable and alternative caustic-area terminology may conceal earlier coverage.
+PASS
 
-**Value — PASS.** Seven solutions occur in an open target region; its exact planar area quantifies the measure and robustness of maximal valence, which discrete root counts cannot supply. The geometric boundary classification and exact coefficient scaling contribute an interpretable natural invariant, not a computational table lookup.
+The frozen finding is false as a topological statement: the critical value 0 is deleted, making the set non-star-shaped about any point and adding an isolated boundary point. The frozen proof also wrongly says the near-zero split has opposite signs; the two inner preimages both have negative Jacobian. The full corrected result in repairs/4/RESULT.md proves the punctured radial domain and preserves the exact area. Independently checked: the lifted caustic angle decreases by 4π, so a ray gives two radii; signed crossings give wind -2 precisely below both, and degree three plus negative disk degree gives seven preimages. Choosing h in (0,π/2] for a double point reduces its equation to |4 cos²h-1|=3 cos h; the only allowable solution cos h=1/4 gives five images and two explicitly nonparallel derivatives at each. Checking C(0) and C(π) selects the inner arc, with rotation giving all five. Green's theorem on the filled domain then gives the stated formula, and F_b(bu)=b³F(u) proves the scaling. Independent polar inversion by bisection and a periodic 4,000-ray midpoint grid yielded 0.0803254871 versus the closed form 0.0803255144; this numerical check is not the proof. Replay: repaired RESULT.md Proof and Reproducibility; frozen verify_area.py and VERIFICATION.md were inspected, not executed, and their finite checks do not establish the topology. Applies only to regular targets of this map and its positive rescalings.
 
-**Limitations.** Only the specified cubic and positive rescalings are treated. Excluded critical target values have zero planar measure. The third closely related article has partial rather than complete full-text inspection. No independent review, formal proof assistant, or exhaustive bibliographic certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, the distinct result supported by the inspected evidence is the exact unweighted target-plane area and its specific smaller radial envelope, not the use of harmonic degree or the existence of seven roots. The strongest available close comparisons concern zeros in other parameter spaces or harmonic interpolants and do not fix the selected arcs of this caustic. This is a bounded judgment, not a historical-priority assertion.
+
+## value
+
+PASS
+
+The maximum-regular-valence cell of a natural harmonic binomial is singled out by the map, not by arbitrary parameter sampling. Its unweighted area quantifies how large the seven-preimage ambiguity region is, which counts or signed total caustic area cannot supply. The exact double-point and envelope calculation explains the area and supplies a reproducible benchmark; the puncture correction makes the geometric claim precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

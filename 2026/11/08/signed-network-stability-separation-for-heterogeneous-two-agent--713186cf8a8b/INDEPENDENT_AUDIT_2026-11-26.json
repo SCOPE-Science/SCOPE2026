@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:50:17.490753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On consistent initialization y_c=x_c+ηx_d is preserved. Eliminating it in unscaled coordinates (x_c,x_d,y_d) independently gives det(zI−A)=(z−1+β)[(z−ν)^2+βν(z−1)]−β²η²ν(z−1), agreeing with the scaled matrix and all cubic coefficients. The cubic Schur reduction with |c|<1 gives the two endpoint signs and D=1−b+ac−c²>0. At ν=−1+δ, β=kδ, the leading terms of −Q(−1), 1+c and D are 4kδ, 2δ and (8−4k)δ, establishing sufficiency for fixed 0<k<2. To control the supremum, c<1 bounds all stable steps because 1−η²>0 is fixed. At ν=−1 the exact D is −β[h²β³−4hβ+4] with h=1−η²; the bracket is positive by min_{u≥0}(u³−4u)=−16/(3 sqrt(3)). Thus every stable step tends to zero as δ→0, and the Taylor remainder in D=8δ−4β+O((δ+β)²) can be absorbed uniformly to give limsup B_-/δ≤2. The verified prior positive exact formula gives lim B_+=2/(1+η), also obtained by the frozen limiting factorization with roots 1 and 1−β(1±η). Independent bounded SymPy algebra formed the Jacobian of (x_c−β(x_c+ηx_d),ν(x_d−βy_d),νy_d+η(x_c^+−x_c)+(x_d^+−x_d)) and confirmed the determinant, limiting D, directional derivative 8−4k and rational witnesses D=15759/10000 and −1161/10000. For the latter a real root r∈(0,1/100) leaves a conjugate pair with squared modulus 1/(100r)>1, and the no-root-mod-seven check plus rational initial vector excludes confinement to the real eigenspace. The repair also shows the initialization plane K satisfies K+AK=R³ and, for ν≠0, tracker recovery from consecutive positions. This justifies the all-initial-positions interpretation. The frozen verification report and source script were read but not run; the proof, not the finite replay, establishes the limit over the entire stability set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang gives the general reduced matrix and a sufficient majorant ρ(A)≤widehat ρ<1, with exact homogeneous and complete-mixing cases.",
+          "The distinct same-day 6253409ddf2e's generalized-eigenvalue threshold assumes the mixing matrix has positive spectrum; substituting W_σ yields the same positive limit but does not admit −σ.",
+          "The signed curvature-mixing frontier 4a839f6da62a fixes β=1; it is not a free-stepsize supremum near the negative spectral endpoint."
+        ],
+        "reasoning": "A sufficient bound, a positive-spectrum theorem and a single fixed-step slice do not exclude stable islands at larger negative-network steps or determine the sharp asymptotic coefficient. No same-day chronology is needed or asserted.",
+        "searches": [
+          "Wang et al., arXiv:2608.03548v1 eqs. (8), (29)–(30)",
+          "Resultary:6253409ddf2e, exact positive-spectrum threshold",
+          "Resultary:4a839f6da62a, fixed-step signed frontier"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:da4f13406cac",
+        "Resultary:0c9d73382913",
+        "Resultary:4a839f6da62a",
+        "Resultary:6253409ddf2e",
+        "Resultary:4bef30512fd6",
+        "arXiv:2608.03548v1",
+        "arXiv:2607.23601v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier β_*=4(1+σ)^2/[L+sqrt(L²−16σ(1−η²)(1+σ)^2)], L=σ²+6σ+1, directly gives 2/(1+η) as σ↑1; its proof already prints the same positive-side cubic and classical Schur conditions.",
+          "The determining constraint near ν=−1 is D, not the first root of −Q(−1) used at ν>0. Proving it is negative at every positive limiting β and then using its local first-order expansion is an additional all-steps argument."
+        ],
+        "reasoning": "The fixed η>0 near-bipartite result is not a parameter substitution into the earlier positive threshold or a continuity transfer from η=0. The repair credits the exactly implied branch and evaluates only the remaining sharp separation as distinct.",
+        "searches": [
+          "Resultary:da4f13406cac, RESULT.md Finding and cubic proof",
+          "Resultary:0c9d73382913 and 4a839f6da62a, Findings",
+          "Wang et al., arXiv:2608.03548v1 eqs. (29)–(30)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing β=α times mean curvature in da4f13406cac gives the exact same W_σ recurrence, A and cubic for positive disagreement eigenvalue.",
+          "Wang uses W y+HΔx as here. Tian et al.'s displayed AugDGM tracker instead uses W[y+HΔx], which adds W to the correction; the heterogeneous methods are not interchangeable."
+        ],
+        "reasoning": "Normalization and consensus/disagreement coordinates do not distinguish the positive prior. In contrast, applying a general worst-case result to a nonmatching tracker placement does not establish either fixed-instance ceiling.",
+        "searches": [
+          "Resultary: heterogeneous two-agent quadratic gradient tracking, signed spectra, constant-step stability frontier",
+          "Wang et al., arXiv:2608.03548v1 §§II–IV",
+          "Tian–Chai–Xu, arXiv:2607.23601v1 §I"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two November 2 claims da4f13406cac and 0c9d73382913 state exact positive disagreement-eigenvalue thresholds, not just the displayed positive endpoint limit.",
+          "The October 26 result treats signed ν at β=1. The October 4 signed tuning record provides exact homogeneous rate tuning at η=0."
+        ],
+        "reasoning": "Earlier exact positive data must be credited; no inspected database result matched the free-stepsize fixed η>0 near-negative limit together with its global upper bound. Scope matters: a single known unstable setting at β=1 does not bound all stable β.",
+        "searches": [
+          "Resultary: sharp heterogeneous two-agent stability, negative disagreement eigenvalue, Schur/Jury threshold",
+          "Resultary:da4f13406cac, 0c9d73382913, 4a839f6da62a, 6253409ddf2e, 4bef30512fd6"
+        ]
+      },
+      "rationale": "The frozen positive branch and its cubic/Jury specialization overlap exact earlier Resultary coverage, not merely a similar spectral-radius certificate. The corrected Finding explicitly narrows the contribution to the sharp fixed-heterogeneity near-negative-endpoint supremum and the resulting separation from the credited positive frontier. Neither the earlier fixed-step signed result, the homogeneous tuning result, nor the inspected general sufficient certificate gives a bound excluding all larger stable steps on the negative branch or its coefficient two. The finite pair illustrates the surviving claim rather than asserting priority for qualitative sign dependence.",
+      "residual_risks": [
+        "A general exact signed-network stability theorem that specializes to the negative branch could change priority; the bounded evidence does not establish exhaustive novelty.",
+        "Same-day order for the broader positive-spectrum statement remains unresolved and is immaterial to the credited positive frontier and surviving negative result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of positive exact interval and hence its asymptotic; no negative ν in scope.",
+          "evidence": "0<s<1, same x and y recurrence, explicit β_*(s,η), no larger stable β, and identical reduced matrix, cubic and Jury formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heterogeneous-two-agent-gradient-tracking-stability-fronti--da4f13406cac",
+          "material_read": "RESULT.md Finding, Assumptions and first Proof paragraphs (local-mirror offset 0)",
+          "method": "Bounded local Resultary mirror text",
+          "title": "Sharp heterogeneous two-agent gradient-tracking stability frontier",
+          "trigger": "Earlier exact same method and positive branch"
+        },
+        {
+          "assessment": "Positive regime and its limit covered; no negative disagreement frontier.",
+          "evidence": "Scope λ>0 with a stated positive threshold and limit.",
+          "identifier_or_url": "Resultary:0c9d73382913",
+          "material_read": "RESULT.md Finding and scope, local-mirror offset 0",
+          "method": "Bounded local Resultary mirror text",
+          "title": "Sharp stability frontier for heterogeneous two-agent gradient tracking",
+          "trigger": "Independent exact positive-side overlap"
+        },
+        {
+          "assessment": "Exact signed stability condition at a single fixed step, not near-bipartite variable-step ceiling.",
+          "evidence": "Normalizes stepsize to β=1 and varies signed disagreement eigenvalue and heterogeneous curvatures.",
+          "identifier_or_url": "Resultary:4a839f6da62a",
+          "material_read": "RESULT.md opening, local-mirror offset 0",
+          "method": "Bounded local Resultary mirror text",
+          "title": "A sharp curvature-mixing stability frontier for two-agent gradient tracking",
+          "trigger": "Earlier signed heterogeneous two-agent frontier"
+        },
+        {
+          "assessment": "Positive branch implied; negative eigenvalues excluded. No same-day priority inference.",
+          "evidence": "Curvature-normalized W^{-1}+2I+W threshold takes W→I to the positive limit, but assumes positive spectrum.",
+          "identifier_or_url": "Resultary:6253409ddf2e",
+          "material_read": "RESULT.md opening, local-mirror offset 0",
+          "method": "Bounded local Resultary mirror text",
+          "title": "A sharp generalized-eigenvalue step-size threshold for positive-spectrum gradient tracking",
+          "trigger": "Distinct same-day broader threshold"
+        },
+        {
+          "assessment": "Rate-optimal sign-aware tuning at η=0, not the fixed heterogeneous stepsize supremum.",
+          "evidence": "Homogeneous curvatures and contraction-rate optimization.",
+          "identifier_or_url": "Resultary:4bef30512fd6",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Bounded local Resultary mirror text",
+          "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+          "trigger": "Prior qualitative sign sensitivity in a nearby exact problem"
+        },
+        {
+          "assessment": "Exact reduction and sufficient certificate, not the necessary near-bipartite bound over all stable β.",
+          "evidence": "Tracks Wy+HΔx and bounds spectral radius from above for certified convergence; inspected exact special cases are complete mixing or homogeneous curvature.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.03548",
+          "material_read": "§II.A eqs. (2a–b), (4), offset 7000; eq. (8) and §III exact cases, offset 14956; §IV eqs. (29)–(30), offset 35100",
+          "method": "Bounded primary full-text passages",
+          "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+          "trigger": "Primary source of the same recurrence and reduced dynamics"
+        },
+        {
+          "assessment": "Different correction placement and worst-case setting.",
+          "evidence": "Displayed AugDGM puts the gradient difference inside the multiplication by W.",
+          "identifier_or_url": "https://arxiv.org/html/2607.23601v1",
+          "material_read": "§I eqs. (2)–(3), offset 2880",
+          "method": "Bounded primary full-text passage",
+          "title": "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods",
+          "trigger": "Possibly stronger exact convergence-rate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact order and leading coefficient for the largest negative-network step give a quantitative limitation on tuning from the unsigned descriptors; the positive ceiling stays bounded away from zero. Controlling all stable steps is essential because a small sufficient interval or one unstable example leaves room for distant stable intervals. This gives a sharp two-agent benchmark for stability safeguards under fixed heterogeneity, not a claim about general convergence rates or an exercise in re-deriving the known positive formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

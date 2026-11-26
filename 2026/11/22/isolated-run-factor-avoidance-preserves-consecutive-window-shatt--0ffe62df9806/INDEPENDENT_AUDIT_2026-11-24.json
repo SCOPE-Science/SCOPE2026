@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:54:22.859045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–56",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_review_replay_1to5.py 3"
+      ],
+      "rationale": "A fully queried length-m window can receive the forbidden trace, so cannot occur in a shattered support. Conversely set all free sites to one and inspect consecutive zeros. Every bad gap of distance m−1 has queried zero endpoints and some unqueried interior site, since its whole window is not queried. Inserting a zero there destroys just that bad gap and creates only smaller gaps. One can do this once per initially bad gap; no new bad gaps need to be considered. The cyclic argument includes gaps across the boundary, and there is no bad gap with at most one zero when n≥m. This proves shattering for every trace, including the empty path and n=m on the circle. Avoidance of 1^m gives the same support test by filling free sites with zero; this is not language equality. The bounded-run compositions on either side of path separators give the path coefficient and generating series. On the cycle, marking an unselected coordinate counts each size-k support n−k times, establishing the n/(n−k) factor without assuming rotation freeness. Minimum separator counts follow from disjoint blocks on the path and packing n−q selected sites into q runs of length ≤m−1 on the circle; both bounds are attained. Independent direct trace projections on 24 cases for r=2,3,4 agreed with the support tests and VC dimensions and reproduced both displayed n=9, r=2 coefficient lists.",
+      "residual_risks": [
+        "Replay is finite; the construction proves the arbitrary-length statement. No conclusion for n<m cyclically or for several simultaneous forbidden factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trigram theorem covers all eight length-three factors, including the excluded 010 line case. The length-four record studies 0011, not 0110; its support automaton and period differ. The partial-word publisher abstract describes avoidable binary patterns in partial words, not a stated arbitrary-coordinate completion criterion for this literal family."
+        ],
+        "reasoning": "Length-three coverage does not reach r≥2. Reversal and bit complementation preserve 0110's palindrome property and cannot give 0011; no longer-factor or cyclic covering theorem was identified in these statements.",
+        "searches": [
+          "Resultary single-forbidden-factor classifications; 2a4a7f458de3 and e74c4aaef4b5",
+          "DOI:10.1007/s00236-010-0129-0, partial-word pattern avoidability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a4a7f458de3, e74c4aaef4b5, de3d7262f980, a86c7bc37664",
+        "arXiv:2101.06490v2; DOI:10.4230/LIPIcs.CPM.2021.9; DOI:10.1007/s00236-010-0129-0 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 010 coincidence is a finite-pattern length-three result. The inspected de Bruijn existence formulation does not decide the closed form for every support. General bounded-run counts require a separate identification with extendability of arbitrary prescribed bits."
+        ],
+        "reasoning": "For longer isolated runs, the zero-gap repair is what excludes additional global obstructions in both boundary models. Neither the trigram result nor a generic existence algorithm gives the uniform closed criterion or its path/cycle comparison.",
+        "searches": [
+          "Resultary 2a4a7f458de3, e74c4aaef4b5, a86c7bc37664, Findings",
+          "Bernardini et al., §3 de Bruijn-graph completion problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson's masks query shifted subsequences of a single string; the present queries test fixed coordinates of all pattern-avoiding words. Bernardini et al. treat existence with prescribed prefix and suffix, rather than arbitrary hole positions and all traces."
+        ],
+        "reasoning": "The equivalent formulation here is whether every partial assignment on a fixed pattern of prescribed sites can be completed. Neither inspected query/extension model establishes that classification.",
+        "searches": [
+          "Resultary: forbidden isolated run, path/cycle coordinate shattering, partial-word extension with holes",
+          "Johnson arXiv:2101.06490v2; Bernardini et al. DOI:10.4230/LIPIcs.CPM.2021.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Linear 001 avoidance and linear joint 000/111 avoidance have full support polynomials but use different forbidden languages and support tests. The no-m-consecutive-ones support counts alone are classical."
+        ],
+        "reasoning": "An enumerator of no-run indicators is exact counting data for the target only after the replacement theorem; counts for the other forbidden languages do not imply it.",
+        "searches": [
+          "Resultary: full shattered-support polynomial and VC dimension for forbidden binary windows, including circular avoidance",
+          "Resultary de3d7262f980 and a86c7bc37664"
+        ]
+      },
+      "rationale": "The supported distinct claim is the replacement of a monochromatic run by the isolated-run factor at the level of the full shattering complex, uniformly for r≥2 on both path and circle. Credit the r=1 path case and the ordinary bounded-run enumeration as prior. The closest statements inspected address different words, boundary conditions, or query predicates.",
+      "residual_risks": [
+        "Some partial-word articles and the Mészáros–Rónyai primary full text were unavailable in the checked routes; no whole-document noncoverage conclusion is inferred.",
+        "Some related Resultary records share a date; no historical ordering is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap only at the excluded linear r=1 specialization.",
+          "evidence": [
+            "010 permits exactly supports without three consecutive queried sites."
+          ],
+          "identifier_or_url": "Resultary 2a4a7f458de3",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local-mirror statement",
+          "title": "Single forbidden trigram languages: two shattering types and a shattering classification",
+          "trigger": "Exact shortest isolated-run case"
+        },
+        {
+          "assessment": "Different forbidden word and different dimension/support law.",
+          "evidence": [
+            "The single forbidden factor is 0011; the stated support recognizer has seven states."
+          ],
+          "identifier_or_url": "Resultary e74c4aaef4b5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local-mirror statement",
+          "title": "A five-periodic VC law and complete shattering series for binary words",
+          "trigger": "Closest inspected length-four support law"
+        },
+        {
+          "assessment": "Related VC vocabulary, different concepts and query model.",
+          "evidence": [
+            "Masks use shifted subsequences for the predicate associated to a single string."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2101.06490v2",
+          "material_read": "Abstract and mask definition/proposition, offsets 0 and approximately 13412",
+          "method": "Open primary HTML passages",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Possible equivalent VC formulation"
+        },
+        {
+          "assessment": "The inspected existence results constrain prefixes and suffixes; they do not characterize supports for arbitrary interior prescribed bits.",
+          "evidence": [
+            "A de Bruijn-graph existence problem is given for the prescribed endpoints of a string."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2021.9",
+          "material_read": "Open conference PDF p. 1 and §3 p. 6 (offset 19669)",
+          "method": "Open primary PDF passage inspection",
+          "title": "Constructing Strings Avoiding Forbidden Substrings",
+          "trigger": "Plausible stronger completion theorem"
+        },
+        {
+          "assessment": "Unresolved access risk, not a covering statement in the material read.",
+          "evidence": [
+            "The abstract concerns classification of avoidable patterns in partial words; no statement of the target literal-factor completion criterion was established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00236-010-0129-0",
+          "material_read": "Publisher abstract; no full-text access via identified public routes",
+          "method": "Public landing page and lawful alternate-copy attempts",
+          "title": "Avoidable Binary Patterns in Partial Words",
+          "trigger": "May use a partial-word formulation of the relevant problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–36 and gap-splitting proof",
+        "Related linear trigram classification, Resultary 2a4a7f458de3"
+      ],
+      "rationale": "An unbounded family of nonmonochromatic obstructions has exactly the same coordinate-query complex as simple run avoidance, although the concept languages differ. The extension mechanism makes that equivalence explicit and yields a sharp one-rank loss from periodic boundaries at every nonmultiple, as well as all support counts. This is structural information about completion, not just a recounted bounded-run sequence.",
+      "residual_risks": [
+        "The proof is specific to a single isolated run; it does not establish a general palindromic-factor replacement law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

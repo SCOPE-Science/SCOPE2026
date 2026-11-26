@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:23:04.166789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57 and 61–132",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent endpoint bisection: root approximately 0.2611851732609853, residual at quoted value about −2.2×10⁻¹⁶ in binary floating point"
+      ],
+      "rationale": "The dimensionless Toeplitz matrix is positive definite by the integral of a squared trigonometric polynomial against the positive symbol. Integration by parts gives b>0 and pairing the two halves of the c₂ sine integral makes the sign of g the sign of α−1. The integral for b−g has positive integrand proportional to θ^(α−1) sinθ(1+cosθ), so 0<g<b and Δ>3g/2 for α>1. For α≤1 the shifted nonnegative generator has a positive path between any two sites, giving strictly positive entries at every positive time. In symmetric and antisymmetric outer-site coordinates the exponential leaves only entry 13 (and its transpose) able to change sign. It is one half of exp(−(a−g)τ) times H(τ), where H is the stated convex combination of exp((Δ−3g/2)τ) and exp(−(Δ+3g/2)τ), minus one. H has H(0)=0, H′(0)=−2g<0, H″>0 and diverges to +∞, proving exactly one positive crossing. For the asymptotics, g′(1)=Z/(4π) by integrating logθ against sin(2θ), and b(1)=2/π. The analytic continuation of P₁₃/τ to τ=0 is −g+(b²+2ag)τ/2+O(τ²). The implicit function theorem gives the positive root slope πZ/8 and the quadratic error. The analogous derivative equation gives the minimizing slope πZ/16; the negative interval shrinks to zero and the entry is strictly convex on it for α close to one. Substituting gives the dip coefficient −Z²/128. The stated h scaling and α=2 Fourier coefficients are consistent, and independent bisection of the endpoint equation agrees with 0.261185173260985 to its quoted precision.",
+      "residual_risks": [
+        "The endpoint check is numerical only. The recovery-time set and asymptotic coefficients follow from the analytic argument, not from the 461 recorded numerical check groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-dimensional eventual positivity is characterized by dominant spectral data by Daners et al.",
+          "Chen et al. use a signed-Laplacian setting; Huang–Oberman give the relevant stencil sign failure for α>1."
+        ],
+        "reasoning": "Spectral eventual positivity combined with the known short-time sign can give change of behavior, but does not give the exact first recovery equation, the absence of further zeros on the positive half-line or the coefficient of the entrywise dip.",
+        "searches": [
+          "Daners–Glück–Kennedy arXiv:1511.09020, §6.1 Theorem 6.1",
+          "Chen et al. arXiv:2009.03581, §VI Theorem 6",
+          "Huang–Oberman arXiv:1611.00164, §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8af258cef8b1 and nearby graph heat findings 4ec9967002dc, ce5887fa3988, 9d68e70a362b, d37f7dd78e94",
+        "arXiv:1611.00164, 2311.07814, 1511.09020, 2009.03581 and 2010.06509"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier stencil and general positivity theory account for positivity when the generator is Metzler and for qualitative eventual positivity under a dominant eigenvector condition.",
+          "The earlier graph equation relies on its graph power spectrum; it does not contain this τ equation or the cosine-integral derivative at order one."
+        ],
+        "reasoning": "The fixed three-site boundary calculation still requires proving b>g, resolving the endpoint entry in the two symmetry sectors and tracking its divided zero as α↓1. These steps yield the supported explicit onset and negative dip beyond the general theory.",
+        "searches": [
+          "arXiv:1611.00164 §4.1/§5.1; arXiv:1511.09020 Theorem 6.1; Resultary 8af258cef8b1 Finding and scope; DOI 10.1137/070693850 attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang–Oberman §4.1 uses |ξ|^α Fourier weights; Zhou–Zhang §2 uses the same semidiscrete symbol.",
+          "Resultary 8af258cef8b1 includes K_{1,2} but uses a spectral power of the combinatorial graph Laplacian."
+        ],
+        "reasoning": "At α>1 the exact-symbol restriction's outer and middle row sums differ by b+g>0. A spectral graph Laplacian power has zero row sums and retains constant row sums under uniform scaling and scalar shifts. The graph-path theorem cannot be identified with this principal restriction by time rescaling or removal of a scalar diagonal term.",
+        "searches": [
+          "Resultary: three-site fractional heat positivity, exact-symbol restriction, and recovery time; closest 8af258cef8b1",
+          "Huang–Oberman arXiv:1611.00164 and Zhou–Zhang arXiv:2311.07814"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October complete-multipartite result gives exact graph horizons and linear-delay/quadratic-norm-excess constants, indexed by graph part sizes.",
+          "The November graph hits use finite spectral graph powers, not the exact-symbol Toeplitz restriction."
+        ],
+        "reasoning": "The horizon is a continuous function of order, not a universal integer sequence. Direct comparison of operator, threshold equation and local coefficients is the relevant exact-database check. The graph path has analogous orders of vanishing, but its horizon equation is different, and norm excess is not an individual kernel entry for this restriction.",
+        "searches": [
+          "Resultary: exact positivity horizons on three-site operators, weighted stars, four-site paths and other small graphs; hits 8af258cef8b1, 4ec9967002dc, ce5887fa3988, 9d68e70a362b, d37f7dd78e94"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact entrywise recovery law and its two transition constants for the three-site principal restriction of the exact Fourier symbol. Neither the stencil/sign split nor the concept or qualitative conclusion of eventual positivity is credited as new. An earlier graph-heat result includes the three-vertex path but uses a provably different generator.",
+      "residual_risks": [
+        "Noutsos–Tsatsomeros, Reachability and Holdability of Nonnegative States (10.1137/070693850), could not be read in full after lawful attempts. An earlier specialized exact treatment of this restriction remains possible. The single uninformative primary-literature query was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in phenomenon but not generator or constants",
+          "evidence": [
+            "Its scalar H_i is u_i+q_i exp(−s)−exp(−q_i^α s) for dimensionless s=N^αt; it is built from spectral powers of a zero-row-sum graph Laplacian."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1/RESULT.md",
+          "material_read": "Full Finding and scope, offset 0 through 3526",
+          "method": "Primary local Resultary mirror",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Exact horizon, same three-vertex topology as a special case, and same asymptotic exponents"
+        },
+        {
+          "assessment": "Covers the exact-symbol coefficients and their sign behavior, not the stated finite-site horizon",
+          "evidence": [
+            "Uses M(ξ)=|ξ|^α and notes the sign change of even-index spectral weights above order one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.00164",
+          "material_read": "§4.1 pp. 10–11, equation (18), and §5.1 p. 16",
+          "method": "Primary OA PDF passages",
+          "title": "Finite difference methods for fractional Laplacians",
+          "trigger": "Exact Fourier stencil and sign facts"
+        },
+        {
+          "assessment": "Same symbol construction, different stated result",
+          "evidence": [
+            "Defines the semidiscrete Fourier method and applies |ξ|^α to obtain its exact discrete analogue."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.07814",
+          "material_read": "Abstract and §2 pp. 3–4",
+          "method": "Primary OA PDF passages",
+          "title": "A novel and simple spectral method for nonlocal PDEs with the fractional Laplacian",
+          "trigger": "Exact-symbol discretization alias"
+        },
+        {
+          "assessment": "Qualitative spectral characterization, no time formula supplied",
+          "evidence": [
+            "The finite-dimensional theorem characterizes eventual strong positivity spectrally."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.09020",
+          "material_read": "§6.1 Theorem 6.1, pp. 20–21",
+          "method": "Primary OA PDF passage",
+          "title": "Eventually Positive Semigroups of Linear Operators",
+          "trigger": "General theorem that may imply recovery"
+        },
+        {
+          "assessment": "Different matrix class",
+          "evidence": [
+            "The result relates exponential eventual positivity to positive semidefiniteness and corank one for signed graph Laplacians."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.03581",
+          "material_read": "§VI Definition 2 and Theorem 6, pp. 13–14",
+          "method": "Primary OA PDF passages",
+          "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+          "trigger": "Related general criterion for signed stencils"
+        },
+        {
+          "assessment": "Discretization context; no whole-paper exclusion inferred",
+          "evidence": [
+            "Studies sinc-basis approximation on bounded domains with exterior data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.06509",
+          "material_read": "Abstract and §1 p. 1",
+          "method": "Primary OA PDF passages",
+          "title": "Approximation of Integral Fractional Laplacian and Fractional PDEs via Sinc-Basis",
+          "trigger": "Nearby exterior-Dirichlet discretization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; Huang–Oberman §4.1 and §5.1; general eventual-positivity comparison"
+      ],
+      "rationale": "Three sites are the first principal restriction that includes the second-neighbor coefficient, which is responsible for the positivity loss. This is a natural minimal model where the distinction from a spectral graph power matters. The exact last negative interval and its shrinking duration and depth quantify a transient that the qualitative eventual-positivity theory does not resolve.",
+      "residual_risks": [
+        "No large-grid extension, mass conservation or reliable floating-point detectability of the small dip is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

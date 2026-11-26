@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:20.962304Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Ren–Chen, DOI 10.1017/S0004972713000178, definitions and Theorem 1.2",
+        "Ljunggren statement in Hasanalizade, DOI 10.1017/S0004972723000072, Theorem 2.8",
+        "/workspace/review-evidence/02-05-small-checks.js (finite divisor check only)"
+      ],
+      "rationale": "Ren–Chen Theorem 1.2 reduces exactly-two-distinct-prime near-perfect integers to the three listed families plus 40. For odd U, U>2g>c leaves only U=q or q². The square-repunit solutions (g,ℓ,root)=(7,4,20),(3,5,11) cannot supply a Mersenne prime; U=q leaves a digit larger than the permitted range in all three families. For odd g and ℓ=2m with odd m>1, U_m(g) and (g^m+1)/(g+1) are nontrivial coprime odd factors. For 4|ℓ, (g+1)Q divides U with Q=(g²+1)/2 odd, coprime to g+1 and >g; this forces g+1=2^s. The valuation gives odd part of U >2g^(ℓ−1)/((g+1)ℓ), greater than Q² for ℓ≥8 by checking ℓ=8 and monotonicity. This contradicts the odd exponent bound. At ℓ=4, the q² case conflicts with the required Type-A valuation; Q=q exceeds the digit and excludes Type A, and Type B gives q≤g<Q (the strict q<g written at this step can be weakened to ≤ without affecting the contradiction). For Type C the only possible valuations a are 2s−2,2s−1; the resulting difference 2^s−2 or 2^(2s−1)+2^s−2 cannot be the required power of two, with s=2 excluded from the first case by a≥s+1. Independent finite check of divisors U of 40 found only (g,ℓ,U)=(3,4,40); sigma(40)=90, so d=10. The frozen parameter scan is regression evidence only and was inspected, not run.",
+      "residual_risks": [
+        "Relies on the two cited theorems; the Ljunggren statement was checked through the modern full-text citation, not the original printing. No claims for two digits or larger prime support."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ren–Chen classify all eligible N as families plus 40 without a repdigit condition. The even-base record gives exactly-two-digit necessity whenever there are at least two digits. The Ω-bounded record includes 40 but does not classify its repdigit family for unbounded Ω."
+        ],
+        "reasoning": "The even-base subgroup is covered by stronger prior work. The all-N classification only gives families to analyze, and a bound on multiplicity Ω is not a bound on the claimed scope ω=2.",
+        "searches": [
+          "Ren–Chen DOI 10.1017/S0004972713000178, Theorem 1.2 and forms",
+          "Resultary 5e580ff645c3: even-base repdigit near-perfect numbers with two distinct prime factors",
+          "Resultary 70c4020a07b3: near-perfect integers with Ω(n)≤4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f1f9be8a70fa, 5e580ff645c3, 70c4020a07b3",
+        "Ren–Chen Theorem 1.2",
+        "Hasanalizade Theorems 1.3, 2.8 and base table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bounded odd-base proof needs c≤8 and g+1≤10, then enumerates 31 candidate N. Ljunggren rules out one odd-square-repunit case; it imposes no such restriction for the even repunits."
+        ],
+        "reasoning": "Combining the bounded and even-base results still leaves every odd base g≥11. Resolving these requires the new uniform parity, coprimality and valuation argument, not just taking a corollary of the cited classifications.",
+        "searches": [
+          "f1f9be8a70fa proof, offsets 2030–4566",
+          "5e580ff645c3 even-base theorem",
+          "Ren–Chen Theorem 1.2 and Hasanalizade Theorems 1.3, 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f1f9be8a70fa gives precisely that tuple for g=3,5,7,9. Hasanalizade is restricted to 2≤g≤10 and its base-3 conclusion is contradicted by U_4(3)=40."
+        ],
+        "reasoning": "Changing digit notation or spelling out the redundant divisor gives no novelty. Only the absence of solutions in all remaining odd bases is distinct from the exact bounded classification.",
+        "searches": [
+          "Resultary: odd-base two-prime near-perfect repdigits, same tuple (3,1,4,40,10), all bases",
+          "Hasanalizade, DOI 10.1017/S0004972723000072, Theorem 1.3 and base-by-base list"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f1f9be8a70fa has the exact four-base result; its length cutoff 19 and 2-adic exponent cutoff 9 use the restricted digit and base ranges. The low-Ω list records the example, not the exclusion."
+        ],
+        "reasoning": "A table for finitely many bases or prime-multiplicity patterns establishes no bound for the arbitrary-base assertion.",
+        "searches": [
+          "Resultary f1f9be8a70fa, Finding and finite parameter sieve",
+          "Hasanalizade, base list PDF p. 6",
+          "Resultary 70c4020a07b3, low-Ω near-perfect list"
+        ]
+      },
+      "rationale": "The tuple 40=(1111)_3 and the even-base exclusion both have exact prior coverage. The distinct claim is exclusion of every unbounded odd base, including odd bases above 9; the strongest bounded odd-base result does not imply that exclusion, and the general two-prime near-perfect classification does not impose the representation condition. The prior odd-base record should be credited explicitly in any account of the extension.",
+      "residual_risks": [
+        "The original Ljunggren printing was not inspected directly. An equivalent unbounded odd-base result in other or unindexed work remains possible. Directory dates do not in themselves establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in bounded odd bases only",
+          "evidence": "g∈{3,5,7,9}; derives 3≤ℓ≤19 and 1≤ν₂(N)≤9 using digit and base caps before checking 31 candidates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-unique-long-odd-base-two-prime-near-perfect-repdigit--f1f9be8a70fa/RESULT.md",
+          "material_read": "Finding; proof cutoff and finite sieve, offsets 2030–4566",
+          "method": "Bounded local-mirror full text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The unique long odd-base two-prime near-perfect repdigit",
+          "trigger": "Same tuple and near-identical claim in odd bases"
+        },
+        {
+          "assessment": "Covers all even bases and no odd ones",
+          "evidence": "Every such repdigit of at least two digits in an even base has exactly two digits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-even-base-repdigit-near-perfect-numbers-with-two-distinct-prime--5e580ff645c3",
+          "material_read": "Statement of the even-base classification",
+          "method": "Local-mirror statement comparison",
+          "title": "Even-base repdigit near-perfect numbers with two distinct prime factors",
+          "trigger": "Frozen record cites even-base complement"
+        },
+        {
+          "assessment": "Covers candidate forms and near-perfectness of 40, not its repdigit uniqueness",
+          "evidence": "Types 1–3 exhaust all two-prime N except 40, whose redundant divisor is 10.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972713000178",
+          "material_read": "Opening type definitions and Theorem 1.2 (PDF p. 2, offsets about 3700–6665)",
+          "method": "Lawful OA Cambridge PDF passages",
+          "title": "On near-perfect numbers with two distinct prime factors",
+          "trigger": "Exhaustive classification used as antecedent"
+        },
+        {
+          "assessment": "Bounded and misses valid base-3 exception; square-repunit theorem is an antecedent",
+          "evidence": "The digit-length result restricts g to 2 through 10; the list says no g=3 examples. The two exhaustive square-repunit solutions have roots 20 and 11.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972723000072",
+          "material_read": "Theorem 1.3 (PDF p. 2, offset 6400); Theorem 2.8 (p. 4, offset 10880); base list (p. 6, offset 19950)",
+          "method": "Lawful OA PDF passages",
+          "title": "On near-perfect numbers of special forms",
+          "trigger": "Plausibly covering near-perfect repdigit paper and a source for Ljunggren"
+        },
+        {
+          "assessment": "Exact statement available in the secondary source; not a broader near-perfect classification",
+          "evidence": "(7,4,20),(3,5,11) exhaust the nontrivial square-repunit cases in positive integer bases.",
+          "identifier_or_url": "Norsk Matematisk Tidsskrift 25 (1943), 17–20",
+          "material_read": "Theorem as quoted in Hasanalizade Theorem 2.8; no original pages retrieved",
+          "method": "Original lookup unsuccessful; compared exact secondary full-text theorem statement",
+          "title": "Ljunggren's 1943 square-repunit classification",
+          "trigger": "Antecedent to odd-U square exclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof, especially odd g with even length",
+        "f1f9be8a70fa",
+        "5e580ff645c3",
+        "Hasanalizade Theorem 1.3"
+      ],
+      "rationale": "The results for bounded odd bases and for all even bases leave a natural unbounded family open. Resolving it gives a complete representation classification within two-prime near-perfect numbers and explains why the known base-3 exception cannot recur at large odd bases. The contribution is that uniform exclusion, not rediscovery of 40.",
+      "residual_risks": [
+        "No claim about greater prime support or all short representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

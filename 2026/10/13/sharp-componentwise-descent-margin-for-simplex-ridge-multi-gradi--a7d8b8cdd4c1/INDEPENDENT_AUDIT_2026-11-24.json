@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:11.740230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact simplex minimizer, test its variational inequality at e_i to obtain g_i·v ≥ ||v||²−ρ(λ_i−||λ||²). Independently, λ_i−||λ||² = 1/4−||λ−e_i/2||²; the projection of e_i/2 onto the sum-one hyperplane adds 1/(2m) to every entry, is strictly feasible, and gives the deficit (m−1)/(4m). In the two-dimensional family of RESULT.md the given weights sum to one, weighted transverse components and weighted horizontal perturbations cancel, and Gᵀv+ρλ is constant, certifying the unique optimum. The determinant is −2msδ/(m−1), so the gradient segment excludes zero; with s² below, at, or above the cutoff, the worst component respectively ascends, is flat to first order, or descends. At m=2 the explicit quadratic example has changes 3/8 and −13/8 and an alternative direction with both derivatives −1. The strict cutoff is universal and sufficient, not necessary for descent in every instance. This is a pointwise exact unconstrained theorem; it does not extend the certificate to finite step lengths, projections or inexact multipliers. Read RESULT.md §§Proof–Verification, VERIFICATION.md and verify.py statically; the listed 27/196 increase is a different supplementary witness, not a conflict or a fresh run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Chen define precisely the frozen rule in the unconstrained specialization. Their broader projected inequality specializes to g_i·v ≥ ||v||²/2−ρ(m−1)/(2m)."
+        ],
+        "reasoning": "The projected guarantee is weaker in both coefficients and yields a four-times larger sufficient norm-squared cutoff. Its broader setting does not imply the sharper margin or its attainability.",
+        "searches": [
+          "arXiv:2609.02722v1 §3.1 Eq. (10), Lemma 4.1, Proof 4.2 and Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Configured Resultary index and d0e5a5995235",
+        "Li–Wang–Chen arXiv:2609.02722v1",
+        "Fernando et al. arXiv:2210.12624",
+        "Liu–Vicente arXiv:1907.04472v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ||v||²=ρ(m−1)/(4m) the prior projected estimate permits a negative g_i·v rather than giving the new zero lower bound; it also says nothing about a gradient family realizing that boundary.",
+          "The exact optimum of the simplex deficit must be realizable simultaneously with the multiplier KKT conditions; the frozen family proves this and has 0 outside the gradient hull."
+        ],
+        "reasoning": "Standard first-order conditions yield the nonoptimized deficit. The sharp universal obstruction with an available common descent direction is not given by a change of normalization or by the prior upper estimate.",
+        "searches": [
+          "arXiv:2609.02722v1 Lemma 4.1 and Proof 4.2, compared with frozen RESULT.md §§Proof–Relationship to prior work",
+          "Resultary record d0e5a5995235 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernando et al. use a ridge multiplier, with objective ||Gλ||²+(ρ/2)||λ||²; dividing by two changes the ridge normalization and the passage concerns uniqueness and regularity, not a sharp descent threshold.",
+          "Liu–Vicente Eq. (8) concerns unregularized minimum-norm simplex combinations.",
+          "The inspected Resultary summable-Tikhonov result gives an exact two-objective dynamical recurrence, not an equivalent extremal pointwise bound."
+        ],
+        "reasoning": "Identical or rescaled multiplier definitions do not amount to identical sharp certificates. Neither the asymptotic selection statement nor the zero-ridge case covers the positive-ridge worst-case witnesses.",
+        "searches": [
+          "Resultary: simplex ridge MGDA exact title, sharp coefficient, componentwise margin, projected regularized MGDA",
+          "arXiv:2210.12624 Eq. (9)",
+          "arXiv:1907.04472v3 Eq. (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed formula inspected is the summable-Tikhonov two-objective recurrence, in a fixed symmetric Pareto-interval problem.",
+          "Li–Wang–Chen Table 1 reports empirical timings and objective values, not extremal directional margins."
+        ],
+        "reasoning": "Neither is a database or table for the sharp all-m constant or its obstruction; absence of a returned equivalent is not proof of uniqueness.",
+        "searches": [
+          "Resultary queries keyed to rho(m−1)/(4m) and ridge-MGDA sharp componentwise margin",
+          "arXiv:2609.02722v1 Table 1"
+        ]
+      },
+      "rationale": "The rule and the variational-inequality method are known. The distinct result supported by the comparison is the jointly attainable best constant and necessary boundary for a universal strict-descent certificate in the stated exact unconstrained regime, including failure despite common descent being possible.",
+      "residual_risks": [
+        "Literature coverage is targeted to the most relevant known sources and indexed matches, not exhaustive; equivalent simplex-ridge results under other terminology may exist.",
+        "The frozen finite checks are not formal verification or external attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule and a weaker bound; not the sharp extremal statement",
+          "evidence": "Proof 4.2 gives −σ||p||²/2+ρ(m−1)/(2mσ) as the componentwise upper bound.",
+          "identifier_or_url": "https://arxiv.org/html/2609.02722v1",
+          "material_read": "§3.1 Eq. (10) and unconstrained specialization; Lemma 4.1, Proof 4.2, Theorem 4.5, Table 1",
+          "method": "Targeted primary OA HTML",
+          "title": "An Adaptive Projected-Gradient Algorithm for Sample-Average Approximations of Stochastic Multi-Objective Optimization",
+          "trigger": "Same exact ridge rule and closest descent estimate"
+        },
+        {
+          "assessment": "Overlapping regularization, different result",
+          "evidence": "Eq. (9) adds (ρ/2)||λ||² to the unhalved squared combination norm.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2210.12624",
+          "material_read": "§3.1, Eq. (9) and surrounding discussion",
+          "method": "Targeted OA HTML of same paper",
+          "title": "Mitigating Gradient Bias in Multi-objective Learning: A Provably Convergent Stochastic Approach",
+          "trigger": "Ridge-regularized MGDA with a different scaling"
+        },
+        {
+          "assessment": "Does not address positive ridge margins",
+          "evidence": "The minimization in Eq. (8) uses the unregularized squared norm.",
+          "identifier_or_url": "https://arxiv.org/html/1907.04472v3",
+          "material_read": "Eq. (8) and surrounding text",
+          "method": "Targeted primary OA HTML",
+          "title": "The stochastic multi-gradient algorithm for multi-objective optimization and its application to supervised machine learning",
+          "trigger": "Known unregularized minimum-norm descent direction"
+        },
+        {
+          "assessment": "Algorithm-level overlap only",
+          "evidence": "Exact two-objective recurrence under summable weights in a symmetric quadratic model gives asymptotic selection, not componentwise extremal descent.",
+          "identifier_or_url": "2026/10/4/SCOPE-summable-tikhonov-weights-do-not-select-the-center-of-a-symmetric-Pareto-interval--d0e5a5995235",
+          "material_read": "RESULT.md finding and recurrence, offsets 0–1881 and 5600–7120",
+          "method": "Configured local index and matching mirror",
+          "title": "Summable Tikhonov weights do not select the center of a symmetric Pareto interval",
+          "trigger": "Closest distinct indexed regularized multi-gradient finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ridge is used to stabilize the multiplier, but that can undermine common descent before Pareto stationarity. A fourfold tightening of the prior unconstrained norm-squared certificate, sharp at every objective count, tells exactly when the norm alone is a safe first-order diagnostic. The matching ascent of a strongly convex objective despite an alternative common descent direction demonstrates a real failure mode rather than only sharpening an inequality on paper.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

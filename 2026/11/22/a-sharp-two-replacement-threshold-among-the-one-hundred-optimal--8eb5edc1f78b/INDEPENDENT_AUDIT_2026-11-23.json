@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:58:05.194830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49; VERIFICATION.md, verify_incidence.py and verify_gp.cpp inspected without execution",
+        "Independent replay: python3 /workspace/branches/record-3-independent.py"
+      ],
+      "rationale": "If a dominating five-set selected l left and 5−l right vertices, the two shores would require l+3(5−l)≥10 and 5−l+3l≥10, forcing l≤2 and l≥3, respectively. Smaller dominating sets extend to size five, so none exist. I used an independent integer census, representing both shores by two-subsets after complementing each right label. Adjacency is disjointness across shores, and distinct vertices on the same shore are at distance two exactly when their labels intersect. The script finds a vertex isomorphism to GP(10,3) by a ten-cycle with distinct outside neighbors having the specified offset-three inner edges. It confirms 130 dominating six-sets, 100 semitotal with 3+3 vertices, all 4,950 pair comparisons (0 at distance one and 570 at distance two), and eccentricity four from all 100 states. It explicitly verifies the stated representatives and links each symmetry orbit to its induced-edge count, degree and shell vector, a crosswalk not explicitly asserted in the supplied code. For fullness of the symmetry group, a shore-preserving automorphism induces one of the line graph of K₅ on the left shore's distance-two graph; its only size-four cliques are the five stars. The stars determine the left labels, and each right vertex has a distinct left neighborhood. Thus the restriction is exactly S₅; the shore swap in the complemented model doubles it and commutes with S₅.",
+      "residual_risks": [
+        "The enumeration is exact only for this labeled 20-vertex graph and the given semitotal and simultaneous at-most-k exchange predicates. It does not classify paths through nonoptima."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known bound γₜ₂≥2n/(2Δ+1) yields at least six on this graph. The accessible Henning–Marcon abstract concerns inclusion-minimal semitotal sets and matching bounds.",
+          "The Pappus calculation obtains 297 minimum semitotal configurations with a mobile 288-state component under one-token moves."
+        ],
+        "reasoning": "The inequality constrains size but gives no state count or edge/distance data. The Pappus enumeration does not range over all cubic incidence graphs and has a different graph plus a one-token move, unlike the optimum-only two-jump geometry here.",
+        "searches": [
+          "Semitotal Domination in Graphs, Lemma 3",
+          "On matching and semitotal domination in graphs, doi:10.1016/j.disc.2014.01.021, abstract",
+          "Resultary optimum semitotal one-token exchanges in cubic incidence graphs"
+        ]
+      },
+      "checked_sources": [
+        "Goddard–Henning–McPillan, Utilitas Mathematica 94 (2014) 67–81",
+        "Henning–Marcon, Discrete Mathematics 324 (2014) 13–18 (abstract)",
+        "Resultary --d4faf2202a7f, --229c8647b6e8 and exact self-hit --8eb5edc1f78b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree bound applies, and full symmetry allows reduction into orbits. Neither determines which six-sets meet the predicate, whether one-jump neighbors exist, or which two-jump states are at distance four."
+        ],
+        "reasoning": "No inspected statement directly substitutes to the optimum exchange relation or implies the three orbit-labeled shells. Those require exact membership and adjacency checks; the new review confirmed them independently.",
+        "searches": [
+          "Goddard–Henning–McPillan, Lemma 3",
+          "Desargues locating record --d4faf2202a7f, original Finding",
+          "Pappus total/semitotal record --229c8647b6e8, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing triples by complementary pairs gives the bipartite disjointness model; an independent explicit GP(10,3) isomorphism transforms the selected-set and exchange tests without changing them. Exact search retrieved the assigned record."
+        ],
+        "reasoning": "The problem is invariant under the representation change. Exact retrieval at the identical ID does not establish distinct coverage. Ordinary domination, total domination and locating domination are not alternative names for the distance-two companion test.",
+        "searches": [
+          "Resultary: Desargues semitotal domination optimal exchange under aliases GP(10,3), H(5,2), bipartite Kneser graph",
+          "Resultary exact theorem match --8eb5edc1f78b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph table has 1,475 locating-dominating eight-sets in 13 orbits, not 100 semitotal six-sets in three orbits. The same-predicate Pappus table has 297 minima on a different graph."
+        ],
+        "reasoning": "A table of eight-sets selected by outside-neighborhood separation cannot recover the exchange edges among six-sets selected by a companion test; the Pappus table is also not a table for the assigned graph.",
+        "searches": [
+          "Resultary Desargues semitotal domination and two-replacement exact census searches under GP(10,3) and H(5,2)",
+          "Local mirror: Desargues locating census --d4faf2202a7f, Pappus semitotal census --229c8647b6e8 and exact self-hit --8eb5edc1f78b"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact optimum census, orbit structure and metric of its optimum-only exchange graph. The graph model, symmetry, terminology and size lower bound are established background. The strongest inspected comparisons share either the graph or the optimization predicate, but do not establish the census and exchange theorem together or via a direct specialization.",
+      "residual_risks": [
+        "Henning–Marcon full text was not available. Other graph tables under alternate graph names or unindexed works may contain exact coverage; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior parameters and lower bound only.",
+          "evidence": [
+            "Every selected vertex has a distinct distance-at-most-two companion; γₜ₂≥2n/(2Δ+1)."
+          ],
+          "identifier_or_url": "https://people.computing.clemson.edu/~goddard/papers/SemiTDomUtilitas.pdf",
+          "material_read": "Definition p. 1 and Lemma 3 p. 3",
+          "method": "OA author-hosted primary PDF, offsets 852 and 5420",
+          "title": "Semitotal Domination in Graphs",
+          "trigger": "Foundational definition and lower bound used in original."
+        },
+        {
+          "assessment": "Different optimum family and size.",
+          "evidence": [
+            "It requires separation of outside vertices by their selected neighbors and classifies 1,475 eight-sets."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+          "material_read": "Finding and predicate",
+          "method": "Local-mirror primary RESULT.md offset 0",
+          "title": "All 1,475 minimum locating-dominating sets of the Desargues graph",
+          "trigger": "Same graph and exact minimum-set enumeration."
+        },
+        {
+          "assessment": "The other graph and different move threshold do not cover the claim.",
+          "evidence": [
+            "It has 297 semitotal optima, nine frozen total codes and a 288-state one-token component."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-nine-frozen-total-codes-and-a-mobile-semitotal-domination-sector--229c8647b6e8",
+          "material_read": "Finding and mobility counts",
+          "method": "Local-mirror primary RESULT.md offset 428",
+          "title": "Nine frozen total codes and a mobile semitotal-domination sector of the Pappus graph",
+          "trigger": "Same semitotal predicate and reconfiguration subject."
+        },
+        {
+          "assessment": "Abstract gives no exact graph-specific coverage; full-text coverage unresolved.",
+          "evidence": [
+            "Characterization of minimal semitotal sets and bounds in terms of matchings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2014.01.021",
+          "material_read": "Accessible abstract only",
+          "method": "Lawful DOI/abstract access; primary full text not retrieved",
+          "title": "On matching and semitotal domination in graphs",
+          "trigger": "Possible stronger result for the parameter."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and distance-shell table",
+        "Independent integer census and all-sources BFS",
+        "Pappus Resultary comparison --229c8647b6e8"
+      ],
+      "rationale": "The Desargues graph is a standard symmetric cubic test graph, and minimum semitotal configurations are natural constrained placements. All 100 optima being frozen at one move but jointly connected at two is a sharp, nontrivial objective-specific benchmark, not merely rerunning a known number. The orbit-resolved shells characterize how different starting types access the rest of the solution space and can test exact graph reconfiguration methods.",
+      "residual_risks": [
+        "No family-level reconfiguration theorem or guarantee for nonoptimal transitions is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-For all \(n\ge4\), the selected odd moved supports \(3\le m<n\) are nonempty and yield positive rencontres entries. The odd-index derangement recurrence gives \(\nu_2(D_m)=\nu_2(m-1)\); the exact factorial identity gives each two-adic entry valuation. The \(m=3\) column attains the binary minimum. For any odd prime, Lucas's theorem supplies a unit column unless \(n\) is that prime's pure power; Kummer's carry formula supplies valuation exactly one in the exceptional case. Lucas at two counts all minimizers. The packaged `check.py` verifies 17648 finite assertions, but the infinite claim follows from these complete algebraic arguments. Boundary cases \(n=4\), odd prime indices and the excluded endpoint are treated explicitly.
+## correctness
 
-## Originality: PASS (qualified)
-The complete accessible Miska and Meštrović papers supply derangement and digit-congruence tools, not the weighted odd-moved rencontres-row gcd and minimum-column classification. The OEIS rencontres table supplies the entries, not an all-row gcd theorem. The inspected published *Exact logarithmic row counts for restricted binomial gcds* treats unweighted coefficients in rows with lower indices divisible by a fixed integer, and counts row events, whereas the present theorem weights the odd columns by derangements and determines their complete gcd and binary spectrum. *Universal row content of strong-divisibility binomial arrays* concerns unweighted generalized binomial coefficients. *Exact dyadic residue multiplicities of derangement numbers* concerns values of the derangement sequence alone. The present result is not an immediate implication of these results; the full products and odd-support restriction require their own proof. Search limitations remain: an unindexed previous theorem might supply an equivalent statement, so historical priority is not certified.
+PASS
 
-## Mathematical value: PASS
-Odd moved-support is a natural parity refinement of the fixed-point distribution of permutations, and exact content addresses the entire row rather than a selected value. The formula gives an unrestricted classification for every row, an unbounded two-adic component, sharply isolated odd-prime support, the exact valuation of each retained entry, and a nontrivial digital census of all minimizers. The binary spectrum and prime-power exceptions give structural information not present in the classical table of rencontres numbers. This is a complete intrinsic arithmetic invariant, not an arbitrary finite slice or isolated small numerical gain.
+The two-term derangement recurrence and alternating parity give v2(D_m)=v2(m-1) for odd m>=3. The factorial identity leaves only odd divisors m and m-2 in the denominator, proving the full binary formula; m=3 attains the minimum. With N=n-3, Lucas gives precisely the even submasks j<N of N. When N is odd they omit the low bit and are automatically proper; when N is even exclude only N. For an odd p<=n outside a pure p-power row, take m=p^j at a nonzero positive-position digit of n: both factors are p-units by Lucas and the derangement recurrence modulo p. Primes p>n are excluded by m=3. On n=p^a every selected binomial coefficient is divisible by p; the m=p^(a-1) coefficient has exactly one base-p carry and a p-unit weight for a>=2. This includes n=9, m=3: the proof's phrase 'strictly between 3 and n' is an endpoint slip, since 3 is admissible. For a=1, m=3 gives exactly exponent one. Independent inclusion–exclusion produced derangements and checked 1,675 exact assertions on n=4..80 (after a 43-assertion pilot), including each binary valuation and the minimizing columns.
 
-## Limits and closest sources
-The prime-adic spectrum is complete only at two; odd-prime results identify the gcd rather than all individual valuations. The sequence and classical Lucas/Kummer facts are established prior work. Finite diagnostic checking is not exhaustive proof, and the review does not establish global historical priority. See the references in `RESULT.md` for the accessible foundational and closest published sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The factorization, Lucas/Kummer inputs, and exact dyadic derangement valuation are prior art. The distinct contribution supported by the comparisons is their weighted odd-support row content and complete binary refinement, including the minimum count.
+
+## value
+
+PASS
+
+The odd moved-support slice has uniform dyadic structure in its derangement weights, while the positive-fixed-point cutoff is decisive for the prime-power obstruction. The result supplies the primitive row factor and exactly locates the least-divisible columns, information not provided by the classical entries or an unweighted binomial row gcd.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

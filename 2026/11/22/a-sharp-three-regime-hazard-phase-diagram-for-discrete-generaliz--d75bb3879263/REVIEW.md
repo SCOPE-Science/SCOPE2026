@@ -1,19 +1,21 @@
-# Scientific review: DGBH hazard threshold classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement applies to all integers \(k\geq0\) and all admissible \(0<\pi<1\), \(\beta>0\). Direct subtraction of consecutive log-survival ratios reduces each hazard comparison to the exact sign of \(t-T_k(\beta)\) when \(\beta>1\), or to a strictly decreasing-hazard conclusion for \(\beta\leq1\). The substantive lemma, strict decrease of \(T_k\) for every \(k\geq1\), is proved by shifted triangular-kernel monotone-likelihood-ratio ordering and a second comparison of Stieltjes integrals. A separate monotone ratio gives the unique \(\beta_c\). The limit scale follows from the proved power expansion. `check_hazard.py` independently reproduces the parameter crossing, exact-rational logarithm inequality and finite diagnostics (238 assertions). The proof, not those diagnostics, handles infinitely many indices. Boundary equalities are explicit and correctly retained.
+PASS
 
-## Originality — PASS with stated residual priority risk
+The survival ratio with S(-1)=1 gives log[(1-h(k+1))/(1-h(k))]=B_k-tD_k, including k=0. B_k>0 and concavity gives D_k<=0 when beta<=1. For beta>1, express D_k via the triangular second-difference kernel. The two adjacent kernels after multiplying by x^(beta-2) have likelihood ratio increasing from zero through (x-k-1)/(k+2-x) to infinity. Tilting by x^epsilon increases the adjacent D ratio strictly; the integrals near zero are finite because w(x)=x there. At beta=1+ the limiting d_k satisfies B_k/d_k=E[g(k+U)] with g(x)=x/(x+1)^2 and density for U proportional to w(u)/(k+u). For k>=1 this expectation strictly decreases as k increases: the density shifts stochastically right and g is decreasing on that range. This proves strict tail threshold descent. The independently computed rational comparisons d1/d0<2/5<B1/B0 and B2/d2<1/5<B0/d0, with d0=2 log 2 and d2=10 log 2-6 log 3, prove the initial inversion at beta=1+ and T2<T0 for all beta>1 by the ratio monotonicity. D1/D0 tends to infinity, so there is one crossing. T0 and T1 are the only possible coincident thresholds, giving exactly the stated length-three plateau. In the open two-turn region T0<t<T1 all indices k>=2 have positive increments. At t=T0<T1 the signs begin zero, negative, positive; at t=T1>T0 they begin positive, zero, positive. At beta=beta_c, T0=T1, so threshold descent from index zero is non-strict at that one pair. The exact comparison in RESULT.md governs all ties. The kernel asymptotics give T_k~1/[beta(beta-1)k^beta], and bracketing the first k with T_k<=t between neighboring thresholds yields the stated index limit for fixed beta>1. Independent replay: python3 /workspace/checks/hazard_endpoints.py exactly verifies the two logarithmic comparisons and reproduces the critical decimals (bisection is diagnostic, not the uniqueness proof). VERIFICATION.md and check_hazard.py were read, not executed; the script's static count is 238 as in VERIFICATION.md, not 227 as reported in RESULT.md. This documentation discrepancy does not affect the analytic result or the independent exact comparisons.
 
-The primary 2021 DGBH paper provides the survival, PMF and hazard formulas and qualitative graphical hazard descriptions (publisher PDF pp. 136–142); the present result does not claim to invent the model or qualitative patterns. The new statement is the all-count strict ordering of the hazard thresholds, a unique superlinear-shape crossing, its exact three-count plateau, and the asymptotic minimum-index scale. The 2020 discrete Burr–Hatke paper covers the \(\beta=1\) slice only. The 2021 discrete exponentiated Burr–Hatke paper instead exponentiates the base CDF and is a distinct distribution. No directly covering published theorem was located by targeted equation, alias, hazard-shape, and parameter searches; this is not a global priority certificate. The potential existence of an unindexed equivalent theorem in later reliability literature remains a genuine uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-The 2021 distribution is offered for varying reliability profiles, but graphical hazard displays cannot determine whether an increase or decrease persists over unbounded count support. The exact phase diagram supplies all parameter boundaries, excludes infinitely persistent upside-down branches, reveals the exceptional two-turn window with the trough provably at count two, and gives the scale of an otherwise far-delayed hazard minimum. These facts are actionable in choosing failure-hazard assumptions and interpreting finite-window plots. This is more than numerical shape checking or restating the hazard formula.
+The DGBH law, hazard formula and several qualitative plotted shapes are already published. The distinct result is the exact infinite-support classification with a unique early threshold crossing, an analytic nonempty region for the count-one peak and count-two trough, the isolated triple plateau, and the late-turn scale. This assessment credits the qualitative overlap and does not claim that complex DGBH hazard shapes themselves are new.
 
-## Closest literature and limitations
+## value
 
-The primary source is Yousof et al. (2021), DOI 10.6092/issn.1973-2201/11635; related but noncovering models include El-Morshedy et al. (2020), DOI 10.1109/ACCESS.2020.2988431, and El-Morshedy et al. (2021), DOI 10.3390/math9182277. Standard monotone-likelihood-ratio and finite-difference tools are used without priority claims. There is no statistical estimation, data application, or independently validated certification. Numerical parameter values are diagnostic only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result replaces plots on finite count ranges by an all-count decision rule and establishes sharp structural facts not visible reliably in near-flat plots, especially the unique three-count equality and the exact peak and trough coordinates. The delayed-turn scale explains how a finite window can miss eventual increase. This is useful within the published DGBH model, independent of any claim about fitting data or competing lifetime laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

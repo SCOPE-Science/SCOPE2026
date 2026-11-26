@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,6 @@
 }
 ---
 
-The standalone `verify.py` uses Python's standard library. It runs 48 exhaustive word-enumeration comparisons, 15,351 finite sign-pattern tests, and exact-rational checks of signs \(+,-,+,-\) at heterogeneous sample sizes \(3,4,9,10\). Run `python3 verify.py` from this directory. Computations corroborate but do not prove claims over unbounded parameter ranges, which follow from the algebraic ratio comparison and logarithmic expansion in `RESULT.md`.
+# Reproducing the four covariance checkpoints
+
+Run `python3 verify.py` using only the Python standard library. It sums integer weights over all ordered allocations at each of \(n=3,4,9,10\). It checks the total weight \(32^n\), the values of all four covariances as exact fractions, and their alternating nonzero signs. The summation over ordered allocations differs from the occupancy-triple calculation in `RESULT.md`. The two-box minimality argument for \(n\ge3\) is analytic.

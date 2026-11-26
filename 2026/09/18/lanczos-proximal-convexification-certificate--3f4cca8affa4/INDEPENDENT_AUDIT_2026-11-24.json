@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:20.812286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Chen–Lu §2.4 assumes Q+γ⁻¹I≻0; Eq. (11) specifies the 0.01 margin but calls the Lanczos output only an estimate. The frozen theorem explicitly conditions the counterexample on use of the ordinary smallest Ritz value, not on unverifiable implementation details. Scalar spectral translation gives exactly the error budget θ−λmin<δβ, which for negative λmin also implies γ>0. For every m, at the displayed start the m Krylov columns form an invertible scaled Vandermonde on the m distinct positive coordinates. Thus θ=δ/(m+1), and 0<s=mδ/(m+1)<1 for 0<δ<1. Positive and negative shifted eigenvalues coexist. Full column rank persists locally; K(KᵀK)^−1/2 is a continuous orthonormal basis there, hence the strict inequalities persist, also at nonzero components in the negative eigendirection. This gives positive failure probability for usual continuous random starts with full support, not for all possible distributions supported elsewhere. The sample m=4 gives s=1/125 and shifted minimum −124/125. Symmetry gives ‖Q‖₂≤β, so the shifted minimum is at least (δ−2)β and s≥(δ−1)β. The enclosure-only threshold really is strict: diag(−1,1) with its positive eigenspace witnesses 1<δ≤2, including singularity at 2; for 0<δ≤1 the stated diag(−1,0) works in the general class, or take diag(−1,δ/2) for a strictly indefinite witness. The Gershgorin lower bound and max-shift repair give margin ηβ in exact arithmetic; certified floating-point use must maintain a rigorous lower bound. The bundled rational examples were inspected, not run, and are not evidence for the continuum or all-m claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "QPALM explicitly accepts an underestimate when choosing the proximal weight and describes an eigenvalue routine returning λ_k−‖w_k‖₂ at its stopping test.",
+          "Wang–Xia's safeguarded Lanczos and residual certificate enter a projected-Hessian eigenvalue problem, not the PDNQP shift."
+        ],
+        "reasoning": "Existing lower-bound selection covers the general repair idea; it does not analyze what goes wrong for ordinary finite Ritz values used with Eq. (11) or determine its optimal unconditional δ. No claim is made here about the correctness of QPALM's separate eigenvalue routine.",
+        "searches": [
+          "Hermans–Themelis–Patrinos arXiv:2010.02653v2 §2.3 and §4.2",
+          "Wang–Xia arXiv:2609.18538 pp. 13–14",
+          "Classical extreme-eigenvalue Lanczos bounds DOI:10.1137/S0895479800366859"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; artifacts/verify_pdnqp_shift.py and artifacts/verified_output.txt (inspected only)",
+        "arXiv:2609.19557v1, arXiv:2010.02653v2, arXiv:2609.18538",
+        "DOI:10.1137/S0895479800366859 (retrieval limited)",
+        "Resultary records 3f4cca8affa4, dc23fa36a6e4 and a3a87ccd7379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The additive inequality follows immediately from scalar spectral translation.",
+          "A bad local residual or an inaccurate Ritz value alone need not leave s>0 while violating convexity for every finite budget.",
+          "The construction combines full Krylov rank, blindness to a negative block and strict inequalities, whereas sharp uniform safety requires endpoints of the norm enclosure and separate positive-denominator witnesses."
+        ],
+        "reasoning": "These scoped witnesses and the matching necessary and sufficient rule-class bound are not parameter substitutions in the checked prior claims.",
+        "searches": [
+          "Chen–Lu Eq. (11); QPALM §2.3; Resultary dc23fa36a6e4; Wang–Xia pp. 13–14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Lu supplies the rule and hypothesis, not an additive Ritz error condition or certificate in these passages.",
+          "Resultary dc23fa36a6e4 concerns vanishing local tests at a non-dominant feasible maximum-eigenpair candidate and an extremality bracket.",
+          "The extreme-Ritz misconvergence warning is classical; the cited SIAM paper's full text was unavailable."
+        ],
+        "reasoning": "Changing the sign to turn a maximum problem into a minimum problem does not give a finite-Krylov-budget open-set failure of a positive proximal denominator together with the rule's sharp δ boundary.",
+        "searches": [
+          "Chen–Lu arXiv:2609.19557v1 Eq. (11) and §2.4",
+          "Resultary search on Lanczos proximal shifts and projected eigenpair certification",
+          "van Dorsselaer–Hochstenbach–van der Vorst DOI:10.1137/S0895479800366859"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3f4cca8affa4 is the same bound record.",
+          "dc23fa36a6e4 has the separate PSM extremality counterexample.",
+          "a3a87ccd7379 studies inverse-penalty expansions and Hellmann–Feynman/Hermite extrapolation."
+        ],
+        "reasoning": "The self-match is not independent coverage; neither distinct checked result states the shift counterexample with both inequalities, an all-m open set, or the enclosure-only threshold.",
+        "searches": [
+          "Resultary exact Lanczos convexification match 3f4cca8affa4 and nearby results dc23fa36a6e4 and a3a87ccd7379"
+        ]
+      },
+      "rationale": "The fact that extreme Ritz values can miss an extreme eigenvalue and the use of spectral lower bounds are existing ideas. The distinct result supported here is the precise PDNQP Eq. (11) no-certificate analysis, especially the all-budget open-set witness with positive proximal denominator and the sharp enclosure-only boundary for that rule. The scalar-shift and Gershgorin formulas are not separate novelty claims.",
+      "residual_risks": [
+        "No conclusion about undocumented implementations or stopping criteria that specifically certify a lower bound.",
+        "The inaccessible classical Lanczos paper may contain closer finite-step antecedents; the keyword search supplied no material additional source, which is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms interface, not exact implementation of the Lanczos estimate.",
+          "evidence": "Requires a positive-definite shifted Hessian; uses Lanczos estimation and δγ=0.01 without an accompanying lower-bound condition in Eq. (11).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19557v1",
+          "material_read": "§2.4 and Eq. (11), PDF p. 9 and corresponding HTML passage",
+          "method": "OA PDF and HTML",
+          "title": "PDNQP: A GPU-based Factorization-free Method for Large-scale Nonconvex Quadratic Programming",
+          "trigger": "Exact shift and outer theory interface"
+        },
+        {
+          "assessment": "Relevant earlier lower-bound philosophy, not the stated Eq. (11) critique.",
+          "evidence": "An under-estimation can be substituted; the iterative routine reports λ_k−‖w_k‖₂ at a stopping test.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02653v2",
+          "material_read": "§2.3 p. 6 and §4.2 Algorithm 5 pp. 18–19",
+          "method": "OA full-text passages",
+          "title": "QPALM: A Proximal Augmented Lagrangian Method for Nonconvex Quadratic Programs",
+          "trigger": "Source of convergence argument and lower-spectral selection"
+        },
+        {
+          "assessment": "Possible antecedents to generic Ritz warnings remain unverified here.",
+          "evidence": "Publisher retrieval returned HTTP 403 and the alternate search yielded no usable full text; not evidence against coverage.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479800366859",
+          "material_read": "Bibliographic identification; decisive full text unavailable",
+          "method": "DOI OA attempt and lawful alternate-copy search",
+          "title": "Computing Probabilistic Bounds for Extreme Eigenvalues of Symmetric Matrices with the Lanczos Method",
+          "trigger": "Classical extreme-Ritz misconvergence precedent"
+        },
+        {
+          "assessment": "Conceptual overlap, different quantity and criterion.",
+          "evidence": "Non-dominant feasible maximum-eigenpair candidate passes local residual/stopping tests; proposed safeguard uses an extremality bracket.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4",
+          "material_read": "RESULT.md offsets 0 and 7900",
+          "method": "Resultary local mirror",
+          "title": "Projected eigenpair certification false positive",
+          "trigger": "Closest distinct result on failure of eigenpair certification"
+        },
+        {
+          "assessment": "No equivalent shift guarantee in the inspected material.",
+          "evidence": "Extrapolates an eigenvalue path, rather than bounding error of an ordinary Ritz input to Eq. (11).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-hellmann-feynman-hermite-penalty-extrapolation--a3a87ccd7379",
+          "material_read": "Indexed statement and original mirrored finding",
+          "method": "Resultary local mirror",
+          "title": "Hellmann–Feynman Hermite penalty extrapolation",
+          "trigger": "Distinct indexed penalty-eigenvalue result"
+        },
+        {
+          "assessment": "Different safeguard and certificate.",
+          "evidence": "Safeguarded Lanczos and residual certificate for the projected problem, not a margin or counterexample for Eq. (11).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18538",
+          "material_read": "PDF pp. 13–14",
+          "method": "OA full-text passages",
+          "title": "Wang–Xia, arXiv:2609.18538",
+          "trigger": "Primary source behind related penalty-eigenvalue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a concrete interface between a proposed factorization-free initialization and its solver's strong-convexity hypothesis. The witness distinguishes a seemingly admissible positive proximal parameter from actual convexification and persists under perturbation for every finite budget, while the sharp norm-only boundary explains why an a posteriori spectral lower bound is preferable to inflating the heuristic margin. It does not assert actual solver failure or divergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:47:40.470659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–59, VERIFICATION.md lines 19–23, verify.py lines 9–177 (inspected, not executed)",
+        "Independent full-census replay: python3 /workspace/branches/abe7404e-d647-405b-829f-27082094f5c7/reproduce_desargues_ts.py; full-census.log in the same directory",
+        "Final replacements: /workspace/repairs/2/RESULT.md, /workspace/repairs/2/VERIFICATION.md, /workspace/repairs/2/verify.py (executed with python3)"
+      ],
+      "rationale": "For the repaired finding, the explicit vertex permutation identifies the disjoint-pair host with GP(10,3); the ten spokes are a perfect matching, so no independent state has more than ten tokens. Direct enumeration inspects each subset of each stated size exactly once. Membership of a toggled host-edge mask in the same independent size layer is exactly a legal slide; a second pair-based test independently checks the slide counts. Traversal recovers the whole component partition and all-source BFS gives each component's minimum and maximum eccentricity. The original component census and all original metric entries reproduce. The original metric table described all nontrivial components but omitted occupancies 1–3, and the frozen verifier at lines 161–177 printed rather than asserted the metric values. The repaired table adds (order,radius,diameter) = (20,5,5), (160,5,7), (660,8,9) at k=1,2,3. The replacement checker confirms every census and metric entry and verifies equal metrics across components of each reported order and occupancy. Combinatorially, every slide target for a four-token star touches two star members, so the star stays frozen even with a fifth token. Its allowed fifth-token positions are precisely the six other same-side pairs avoiding the center and four opposite-side pairs containing it; the six vertices are distinct two-valent subdivisions of the six pairs of opposite-side vertices. The two different stars cannot occur in one five-set. Enumeration verifies no additional four-token isolates or ten-state five-token components, and checks the order-four claws at k=7 and 8. Both fresh computations agree, and the corrected checker completed with ALL_CHECKS_OK.",
+      "residual_risks": [
+        "This is a complete finite calculation for one graph, not a general reconfiguration theorem. Same order is not asserted to imply isomorphism outside the stated small components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Claw-free reconfiguration theory is not applicable: each neighborhood in the cubic bipartite host gives an induced claw with its center",
+          "Inspected general graph-class results and distinct indexed Desargues findings do not give the full occupancy and metric profiles"
+        ],
+        "reasoning": "Theorems for other graph classes or reachability questions are not full numerical enumerations of all slide components and lengths for this host.",
+        "searches": [
+          "Bonsma–Kamiński–Wrochna arXiv:1403.0359, pp. 2, 5",
+          "Avis–Hoang arXiv:2203.16861, p. 17",
+          "Resultary: Desargues full occupancy component profiles and distances"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e9aae0fc2563, cf69f6b23fb8, c9fe15cd9378",
+        "arXiv:1403.0359 and arXiv:2203.16861"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full TS_6 has 1320 states, not 100; all ten restricted isolated states have a move in the full slide graph, as independently checked",
+          "The independent-set face vector contains no slide adjacency or distance data"
+        ],
+        "reasoning": "Static state counts and one induced sublayer neither determine reachability in the full layers nor imply the shortest-path metrics. No exact distinct cover of the reviewed full census emerged from the inspected evidence.",
+        "searches": [
+          "e9aae0fc2563 Finding",
+          "cf69f6b23fb8 Finding offset 540",
+          "c9fe15cd9378 offsets 1174, 2357",
+          "arXiv:1403.0359 Corollary 5; arXiv:2203.16861 p. 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paired two-subset model is H(5,2) after taking complements on one side and is identified with GP(10,3) by the explicit graph map",
+          "cf69f6b23fb8 uses the same slide rule on minimum independent dominating states only; c9fe15cd9378 uses a different zero-forcing property"
+        ],
+        "reasoning": "Host aliases do not change the slide graph, but replacing the vertex-state predicate changes it. Independent domination and minimum zero forcing are not aliases for the whole independent layer.",
+        "searches": [
+          "Resultary: Desargues GP(10,3) / H(5,2) independent-set token slide census",
+          "arXiv:1403.0359, definition of reconfiguration by sliding",
+          "Resultary: Desargues independent domination and local zero-forcing mobility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e9aae0fc2563 gives exactly the independent-set counts and 6211 nonempty faces",
+          "cf69f6b23fb8 gives 10 isolated states and five order-18 components among 100 restricted minimum independent dominating 6-sets, not the full census",
+          "c9fe15cd9378 gives 13,520 minimum zero-forcing sets and immobility within that family"
+        ],
+        "reasoning": "The face vector is exact prior data for the state-count column. Neither smaller restricted census nor the zero-forcing census supplies the compared edge, component, shape or metric columns.",
+        "searches": [
+          "Resultary: Desargues independence complex face vector; Desargues slide graph census; minimum independent domination"
+        ]
+      },
+      "rationale": "The distinct final claim is the exact full component, exceptional geometry and distance census of the independent-set slide graph. The known face counts are only the state counts. A later indexed minimum-independent-domination calculation addresses a restricted induced subgraph of one layer and does not give the full component or metric data. The repaired rows use the same exhaustive scope and proof, not a new priority claim.",
+      "residual_risks": [
+        "External exact-instance searches were noisy and one targeted lookup was unavailable; neither is negative evidence. Unindexed or not-retrieved exact instance work may overlap; no publication priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact state-count overlap, not the move census",
+          "evidence": [
+            "6,211 nonempty faces and the complete matching size vector"
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-the-desargues-independence-complex-is-s-4-vee-bigvee-5-s-5--e9aae0fc2563",
+          "material_read": "RESULT.md Finding, offset 641",
+          "method": "Resultary local-mirror passage comparison",
+          "title": "The Desargues independence complex is S⁴ ∨ ⋁⁵ S⁵",
+          "trigger": "Exact counts on the same graph"
+        },
+        {
+          "assessment": "Restricted layer, not the full TS_6",
+          "evidence": [
+            "100 minimum independent dominating 6-sets; 10 K1 and five subdivisions with 18 vertices each; no restricted isolate is isolated in the full layer"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-minimum-independent-domination-on-the-desargues-graph-has-five-d--cf69f6b23fb8",
+          "material_read": "RESULT.md Finding, offset 540",
+          "method": "Resultary local-mirror passage and fresh restricted-state check",
+          "title": "Minimum independent domination on the Desargues graph",
+          "trigger": "Near match: slide graphs on independent sets of the same host"
+        },
+        {
+          "assessment": "Different state predicate",
+          "evidence": [
+            "All 13,520 minimum zero-forcing sets are isolated under its rule"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-local-zero-forcing-mobility-separates-the-pappus-and-desargues-i--c9fe15cd9378",
+          "material_read": "RESULT.md passages at offsets 1174 and 2357",
+          "method": "Resultary local-mirror statement comparison",
+          "title": "Local zero-forcing mobility separates the Pappus and Desargues instances",
+          "trigger": "Potential alternate redescription of immobile slides"
+        },
+        {
+          "assessment": "Different host class",
+          "evidence": [
+            "The claw-free hypothesis fails in the Desargues graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.0359",
+          "material_read": "p. 2; Corollary 5, p. 5",
+          "method": "OA PDF passage comparison",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Primary structural results with the same slide convention"
+        },
+        {
+          "assessment": "No exact instance coverage established by the inspected passage",
+          "evidence": [
+            "General graph-class statements, not the exact Desargues profile"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+          "material_read": "p. 17 general graph-class discussion",
+          "method": "OA PDF limited passage comparison",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Potential general theorem for token-slide components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55",
+        "Final /workspace/repairs/2/RESULT.md",
+        "Resultary e9aae0fc2563 and cf69f6b23fb8"
+      ],
+      "rationale": "The Desargues graph is a natural cubic bipartite benchmark outside the claw-free setting. Measuring how connectivity is lost over the full occupancy range gives actual barriers and path-length scales for multi-token reconfiguration, not just a static size vector or arbitrary slice. In particular the first isolated star states and their persistence as separate subdivided K4 components provide structural explanations for the first two disconnected layers, and the complete corrected metric table quantifies the distances inside components.",
+      "residual_risks": [
+        "Exact benchmark and structural witnesses only; no claim that the same transition or shapes govern larger bipartite Kneser graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

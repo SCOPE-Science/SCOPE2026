@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument uses the published exact Type-A single-deletion intersection criterion and proves that the sum of one-positions changes by a nonzero residue modulo semilength. The height-two Dyck/bit-string bijection is reversible; constant-block flips are exactly the allowed alternating intervals. The explicit \(n\)-clique proves tightness, and counts of degrees, edges, color-class sizes and an induced five-cycle have direct enumerative proofs. Independently written deck and bit-graph scripts passed over their stated finite ranges, including the direct descendant-set comparison through semilength eight.
+## correctness
 
-**Originality — PASS, with residual risk.** published-finding corpus semantic searches and materially inspected source statements distinguish published full-Dyck edge/max-degree work, unrestricted-alphabet clique/edge work, and general fixed-composition checksum coloring from the claimed height-two graph isomorphism and height-ceiling sharp coloring. The numerical edge formula matches an already published formula for a different graph and is explicitly not claimed as a new numerical identity. The new contribution is the structural reduction, sharp height-restricted coloring, exact class sizes and odd-hole boundary. Earlier equivalent graph models could exist but none was identified in searched sources.
+PASS
 
-**Value — PASS.** This natural nested-parenthesis source has an explicit finite-state encoding and a multi-read deletion ambiguity graph. A sharp all-length codebook partition into \(n\) classes, with exact binomial class sizes at height two, is a meaningful structural answer; the odd hole shows that the global coloring/clique equality does not come from graph perfection. The maximum individual code size is not supplied, nor asserted.
+In the strict ceiling two, odd prefix heights must be one; even heights can be zero or two. This corrects frozen line 37, which says the intervening heights are always one or two. The internal pairs are exactly 10 or 01. An edge in the Dyck graph differs on full pair blocks and is Type A exactly when a consecutive block of equal orientations flips. XOR by the alternating mask turns these into alternating-interval flips; intervals of length at least two give the unrestricted two-read deletion graph and singleton flips give the cube, disjointly. One can check the Type-A criterion directly in the equal-content case: if deletions are at different positions, their alignment is a left or right shift on the first-to-last mismatch interval, and each orientation determines at most one descendant by shifting the deletion within equal runs to those two endpoints. Both orientations are possible exactly when the mismatches alternate; they then give distinct descendants. Counting intervals gives the degrees and edges including the empty bit vector. Trimming fixed endpoints preserves all Type-A adjacencies and sends the clique to the standard fixed-weight clique; the component coloring comes from the number of 01 pairs. Independent deletion-bucket enumeration through semilength eight checked the checksum, clique, constant-run graph, direct shortened deletion decks plus cube, degree maximum, edge totals and induced five-cycle. The all-parameter isomorphism is proved, not extrapolated.
 
-**Closest literature and limits.** Sala et al. (2016) motivates exact synchronization-code reconstruction, Cai et al. (2020) supplies the alternating-interval lemma. Relevant published full-Dyck and unrestricted-word edge/clique results were inspected. The checksum technique and edge-count expression have published antecedents. Full bibliographic uniqueness remains subject to unindexed literature. Finite verifiers do not prove the universal formula, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the narrowed result only: the height-two identification with the edge-disjoint union of an unrestricted binary deletion graph and a cube is a structural correspondence, not a claim to rederive known checksum, clique, odd-hole, edge or degree results as independently new findings. The inspected circle of related exact records does not state this identification or mechanically provide the Dyck pairing and mask that realize it.
+
+## value
+
+PASS
+
+The remainder gives a complete edge-preserving reduction for the natural two-level Dyck channel. It replaces deletion-deck comparisons of length 2n by an unrestricted graph with n−1 coordinates and exactly one additional edge type; this determines every neighborhood and permits transfer of structural information, not just two known totals. Known color and degree identities illustrate the transfer rather than carrying the value assessment by themselves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

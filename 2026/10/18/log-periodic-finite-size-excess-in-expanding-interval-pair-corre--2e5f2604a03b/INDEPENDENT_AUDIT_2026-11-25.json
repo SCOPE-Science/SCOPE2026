@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:29.725177Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–94",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify_pair_correlation.py, lines 9–81"
+      ],
+      "rationale": "For the signed lag displacement D=(B-1)y-j on branch j, its positive density at x>0 away from branch breakpoints is (B-1-floor(Bx))/(B-1) on (0,1), by counting admissible j. The negative density is its reflection. Integrating to r gives [2(B-1-m)r+m(m+1)/B]/(B-1), m=floor(Br); substituting Br=m+v gives the asserted fractional-part expression. Stationarity and the 2(N-k) ordered pairs at lag k give the exact finite mean. After benchmark subtraction the scaled summand is exactly 1 for Br<=1. Above the threshold, subtracting F from the scaled summand yields r[u-v(1-v)-u^2]/[u^2(u-r)], bounded in magnitude by 2r/u for r<=1/2. With q=floor(log_b(1/r)), the geometric tail beyond q gives the phase, with total approximation error O_b(r+b^{-(N-q)}); the triangular weight costs q(q+1)/(2N)+O_b((q+1)/N). F is continuous including integers; on (m,m+1) it has derivative 2m(u-m-1)/u^3. This is O(u^-2) and tends to zero from the left at positive integers. The composed summands are globally Lipschitz on [0,1] with summable bounds 2b log(b)b^-j, validating their summed right derivative at phase zero; the endpoint match follows by reindexing and F(1)=1. Consequently the phase is continuous and nonconstant. The supplied checker was inspected, not run; the general identities and remainder were independently derived.",
+      "residual_risks": [
+        "Remainder constants are for fixed b and s; nothing here transfers the mean asymptotic to almost-sure second-order behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baker–Todd covers first-order almost-sure interval pair correlations, with a Gibbs–Markov corollary. The inspected statements give neither an exact finite-sample drift nor an expectation expansion through order N^-2."
+        ],
+        "reasoning": "The broader first-order result does not control a deterministic mean deviation vanishing at order N^-2 log N or its next-scale phase.",
+        "searches": [
+          "Primary literature: Baker–Todd arXiv:2606.17880, Introduction, Theorem B, Corollary 1.6",
+          "Resultary: log-periodic N^-2 annealed pair-correlation mean"
+        ]
+      },
+      "checked_sources": [
+        "Baker–Todd arXiv:2606.17880",
+        "Rudnick–Zaharescu arXiv:math/9912103",
+        "Resultary d5c688b954c6 full finding",
+        "Resultary 694f53b539f3 search description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular exact mean has no excess relative to its independent benchmark; the interval independent benchmark is instead (N-1)(2r-r^2). The same-orbit Euclidean result contains a fractional-part term depending on b^k r."
+        ],
+        "reasoning": "Subtracting a different iid benchmark from the known circular mean does not change the underlying observable or produce the lag-dependent endpoint correction; the first-order limit also leaves the fractional-part term and phase undetermined.",
+        "searches": [
+          "Resultary d5c688b954c6, exact mean and metric restriction",
+          "Baker–Todd Theorem B and Corollary 1.6",
+          "Rudnick–Zaharescu Theorems 1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substitution a(n)=b^n gives the same sequence of fractional parts in the lacunary formulation, but Theorem 1.2 defines its rescaled test by summing over integer translates.",
+          "Resultary d5c688b954c6 gives the exact circular mean 2s(1-1/N)."
+        ],
+        "reasoning": "Periodization includes collisions across the cut of the circle. The non-periodized interval collision excludes them, and neither the periodized test nor its exact mean recovers their lag-resolved contribution.",
+        "searches": [
+          "Resultary: exact lag probability for interval pair correlation",
+          "Resultary: lacunary pair correlation, Euclidean versus circular distance",
+          "Rudnick–Zaharescu arXiv:math/9912103, Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary d5c688b954c6 has circular mean 2s(1-1/N) and leading N Var=4s(b+1)/(b-1)+o(1). Adjacent Resultary 694f53b539f3 is described as a logarithmic correction for a two-orbit covariance, not a same-orbit Euclidean mean."
+        ],
+        "reasoning": "The exact comparison here is to indexed formulas, rather than a finite table of constants. The best matching exact catalog formula is for a different metric and does not include the sought bias.",
+        "searches": [
+          "Resultary: exact lag formula; log-periodic finite-N annealed mean; expanding circle-map variance"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact Euclidean one-orbit mean together with its logarithmic coefficient and nonconstant phase. The strongest actual catalog match treats the same expanding map but has exactly the independent mean in the circular metric and a nontrivial variance, not this mean. Relevant primary results for interval maps and periodized lacunary sequences are first-order and do not determine this endpoint correction.",
+      "residual_risks": [
+        "An earlier endpoint-sensitive expectation calculation under finite-size recurrence or lacunary terminology remains possible. The broad web search did not surface a usable comparison and does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A broader first-order result, not the sharp finite-N mean",
+          "evidence": "Theorem B is a first-order almost-sure limit; Corollary 1.6 is the Gibbs–Markov specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17880",
+          "material_read": "Introduction PDF p. 3; Theorem B p. 9 and Corollary 1.6 p. 10",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Pair correlation statistics for dynamical systems",
+          "trigger": "Same interval-distance orbit statistic and expanding-map setting"
+        },
+        {
+          "assessment": "First-order result for a periodicized observable",
+          "evidence": "The correlation uses F_N(y)=sum over integer vectors m of f(N(m+y)).",
+          "identifier_or_url": "https://arxiv.org/abs/math/9912103",
+          "material_read": "Theorems 1.1–1.2 and the periodized test definition, PDF pp. 2–3",
+          "method": "Bounded open PDF passage inspection",
+          "title": "The distribution of spacings between fractional parts of lacunary sequences",
+          "trigger": "Same orbit under geometric lacunarity"
+        },
+        {
+          "assessment": "Exact circular mean, nontrivial second moment, no matching Euclidean bias",
+          "evidence": "The result uses circular distance and states 2s(1-1/N) exactly for the mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6",
+          "material_read": "RESULT.md finding at offset 0 and metric/scope passage at offsets 1259–1606",
+          "method": "Bounded local catalog mirror inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Sharp second-moment inflation for expanding circle-map pair correlations",
+          "trigger": "Same map and exact expected pair-correlation formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–34, 52–94",
+        "Resultary d5c688b954c6"
+      ],
+      "rationale": "The exact iid benchmark separates the interval boundary effect from bulk first-order Poisson behavior. The dominant contribution comes from a logarithmically growing range of deterministic lags, while the next scale retains the phase of the lag threshold. That phase is a nonconstant observable mean correction, not a changed convention for pair ordering or the iid subtraction, and it distinguishes this interval model from its circular counterpart.",
+      "residual_risks": [
+        "The expected bias is smaller than typical random fluctuations; no pointwise detection or fluctuation improvement is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

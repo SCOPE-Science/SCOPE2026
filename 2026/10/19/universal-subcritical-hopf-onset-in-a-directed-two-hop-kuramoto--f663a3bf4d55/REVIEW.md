@@ -1,15 +1,21 @@
-# Mathematical review — universal subcritical Hopf onset
+# Independent mathematical audit
 
-## Correctness: PASS
-The critical Fourier pair is isolated in the phase-shift quotient; its imaginary frequency and strictly positive crossing derivative are given by exact trigonometric identities. The full cubic Taylor tensors are explicitly contracted in the Fourier basis, including the second-harmonic resolvent; the zero-mode term is eliminated legitimately by global phase invariance. A rational-function identity gives the strictly positive formula for the real cubic Hopf coefficient for the entire stated sector, so the standard Hopf theorem yields an unstable quotient periodic branch on the stable side. An independent six-node exact value and numeric checks of 612 parameter cases and three nonlinear drift cases reinforce the algebra. Finite checks are not treated as infinite proofs.
+## correctness
 
-## Originality: PASS, subject to stated residual bibliographic risk
-Sun–Wang–Dong's 2026 full text is concerned with asymmetrically coupled traveling equilibria and equal-strength forward-neighbor Fourier criteria. Sinha et al.'s full 2025 text already covers general circulant *linear* spectral stability and therefore overlaps the crossing location, which is not claimed as standalone novelty. Its linear criterion does not imply the sign of the cubic Hopf coefficient or the existence and instability of the modulated quotient cycles. Bick–Böhle–Kuehn's continuum/nonpairwise analysis and Bick–Böhle–Omel'chenko's nonpairwise Hopf paper have distinct interaction laws. A September 2026 coupling-weight paper remains material but full-text access was unavailable; equivalent results in that work or elsewhere cannot be excluded absolutely.
+PASS
 
-## Mathematical value: PASS
-The result settles the **criticality**, not merely the existence, of an entire natural family of finite-dimensional Hopf crossings in directed traveling-wave networks. The universal positive coefficient is a nontrivial nonlinear normal-form sign with a closed formula and direct consequences for finite-amplitude disturbances: unstable oscillations exist arbitrarily close to linearly stable traveling waves. No analogous sign conclusion follows from the general circulant Jacobian formula. The exact branch amplitude further quantifies the nonlinear transition.
+In the phase quotient the Fourier real parts are 2a s_k²[delta-(1+delta)s_k²], s_k=sin(pi k/N). At delta_H only modes ±1 are critical, Re lambda_1 crosses with positive slope, and Im lambda_1=a tan(pi/N). I recomputed the cubic from the sine Taylor tensors in RESULT.md:49–58. Write zeta=exp(2pi i/N), d=zeta-1, P=zeta+1, c=a², h=1-2c, kappa=2c/h. Then rho_H b/a=-zeta/P², 2i omega_H-lambda_2=a d³, and C_(1,1,-1)=-a d³. The quotient removes the constant Fourier output of B_(1,-1); inserting the two remaining B terms gives G21/a=-d³-((1-c)/c)(d/zeta)(1+kappa zeta)[P+kappa(zeta²+1)]. Its real part reduces to 2(1-u)(1+2u)(h+u)/h²; all factors have the asserted signs. At N=6, q=1 this same expression gives 4-3 sqrt(3)i for G21. The Hopf radial balance with coefficient Re G21/2 gives the stated amplitude and its unstable-cycle/stable-equilibrium directions, and reconstruction by the common rotation gives a relative-periodic lift. All these statements are local or at onset as claimed. The supporting verification is finite corroboration, not the proof for all N and q; the uploaded script was not run in this review.
 
-## Literature and limits
-The nearest covering general method is the circulant linear stability theory of arXiv:2504.06377; the nearest setting-specific source is arXiv:2608.29630. Results for nonpairwise oscillators have different multilinear tensors and do not automatically determine the current sign. See RESULT.md and AUDIT.json for the exact scope, comparisons and material-access limitation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit existing circulant linear stability, including the threshold obtainable by substitution, and the standard Hopf coefficient formula. The compared primary statements do not give the weighted directed finite-ring nonlinear coefficient, its strict sector-wide sign, or the consequent local branch. The closest catalogue hit shares six twisted sites but concerns the sink threshold of a different discrete one-link system. The judgment is bounded by the compared sources, especially the inaccessible 2026 item.
+
+## value
+
+PASS
+
+The linear loss of stability is not enough to distinguish a stable post-onset modulation from an unstable pre-onset relative-periodic branch. The exact cubic and its uniform sign settle that question for a natural minimal competing directed topology across all admissible windings and sizes; the amplitude law quantifies the nearby unstable branch in a fixed coordinate. This is a local bifurcation classification, not a global attractor or basin result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

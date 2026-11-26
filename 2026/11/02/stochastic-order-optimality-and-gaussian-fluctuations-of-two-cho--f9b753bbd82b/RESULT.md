@@ -15,7 +15,7 @@ Thus the same fixed policy minimizes *every* cover-time tail and every increasin
 \operatorname{Var}(T_n^{\pi_*})=6n-\frac{129}{4}+O\!\left(n3^{-n/2}\right),\qquad
 \frac{T_n^{\pi_*}-\mathbb ET_n^{\pi_*}}{\sqrt{6n}}\Longrightarrow N(0,1).
 \]
-The previously known exact mean is included for normalization but is **not claimed as new**:
+The exact mean is included for normalization and is **not claimed as new**:
 \[
 \mathbb ET_n^{\pi_*}=2n-\frac92+\frac{3}{2\cdot3^{\lceil(n-1)/2\rceil}}+\frac{1}{3^{\lfloor(n-1)/2\rfloor}}.
 \]
@@ -24,7 +24,7 @@ More explicitly, let \(X_L\) denote the time to expand a visited arc containing 
 \[
 T_n^{\pi_*}\stackrel d=\sum_{L=1}^{n-1}X_L.
 \]
-For every integer \(m\ge1\), their exact moments are
+For every integer \(m\ge1\), their exact moments are as follows. At \(L\ge2\), these are the known fixed-target moments [3] with initial distance one on \(C_{L+1}\); the formulas are included to make the cover-time conversion explicit.
 \[
 \begin{aligned}
 \mathbb EX_{2m-1}&=2-3^{1-m},&
@@ -67,7 +67,7 @@ Therefore \(u_t(j)\) is nondecreasing from either exterior boundary toward the m
 
 **3. From exits to the entire cover time.** Under the nearer-boundary policy, successive expansion durations \(X_L\) are independent by the strong Markov property of fresh offers and the arc symmetries. For a competing history-dependent policy, conditional on the history at the start of stage \(L\), that stage's duration stochastically dominates the fixed distribution of \(X_L\). A sequential conditional-quantile coupling makes each competing duration at least an independent draw from the corresponding \(X_L\) law. Summation preserves the pathwise inequality under this coupling, proving the theorem's all-tail stochastic order.
 
-**4. Exact moments.** Fold the arc around its midpoint. In distance-to-nearest-exterior states \(j=1,\ldots,m\), the optimal chain moves down with probability \(3/4\) and up with probability \(1/4\) for \(j<m\); reaching state zero ends the stage. For odd \(L=2m-1\), the middle state \(m\) moves deterministically to \(m-1\); for even \(L=2m\), it moves down with probability \(3/4\) and remains at \(m\) with probability \(1/4\).
+**4. Exact moments.** For \(L\ge2\), identify the two absorbing exterior labels. The killed path becomes the fixed-target walk on \(C_{L+1}\), started at a neighbor of its target. This identifies the stage moments with the distance-one specialization of [3]. For completeness, fold the arc around its midpoint. In distance-to-nearest-exterior states \(j=1,\ldots,m\), the optimal chain moves down with probability \(3/4\) and up with probability \(1/4\) for \(j<m\); reaching state zero ends the stage. For odd \(L=2m-1\), the middle state \(m\) moves deterministically to \(m-1\); for even \(L=2m\), it moves down with probability \(3/4\) and remains at \(m\) with probability \(1/4\).
 
 Writing \(e_j=\mathbb E_j X_L\), the interior recurrence is \(e_j=1+\tfrac34e_{j-1}+\tfrac14e_{j+1}\), with \(e_0=0\). At the middle, \(e_m-e_{m-1}=c\), with \(c=1\) for odd \(L\) and \(c=4/3\) for even \(L\). The unique solution is
 \[
@@ -96,7 +96,7 @@ Execute `python check.py` with Python 3 and only its standard library. It indepe
 
 ## Relationship to prior work
 
-Georgakopoulos, Haslegrave, Sauerwald and Sylvester introduced the choice random walk and established linear-order cover-time bounds for fixed-dimensional tori, including cycles, and general finite-state methods. Those bounds and methods do not themselves provide an all-horizons cycle strategy, its stochastic dominance over arbitrary history-dependent policies, or the sharp Gaussian variance constant here. An earlier exact computation of the **expected** optimal cycle cover time is treated as known and is not an originality claim; an expectation minimum does not logically imply stochastic-order minimality or the variance/CLT. The theorem addresses that stronger distributional question.
+Georgakopoulos, Haslegrave, Sauerwald and Sylvester introduced the choice random walk and established linear-order cover-time bounds for fixed-dimensional tori, including cycles, and general finite-state methods. The fixed-target result [3] establishes expected-time optimality and exact moments on the same cycle family. Under the stage reduction in step 4, its exact moments cover the displayed one-stage formulas. Its Gaussian limit takes the initial target distance to infinity, unlike the cover-time limit here, where the initial stage distance is always one. The main contribution here is the all-deadline cover-time optimality over arbitrary nonanticipative policies. The variance and Gaussian law for the total cover time quantify that policy through aggregation of the stage laws; no novelty is claimed for the individual stage moments or the exact cover mean. Neither a mean optimum nor a fixed-policy fluctuation law implies the all-tail comparison.
 
 ## Limitations
 
@@ -106,3 +106,4 @@ The stochastic-order result requires degree two, independent with-replacement ne
 
 1. A. Georgakopoulos, J. Haslegrave, T. Sauerwald, J. Sylvester, *The Power of Two Choices for Random Walks*, first publicly posted 2019-11-12, arXiv:1911.05170; *Combinatorics, Probability and Computing* **31** (2022), 73–100, DOI:10.1017/S0963548321000183. Full text: https://eprints.gla.ac.uk/250806/1/250806.pdf.
 2. A. Georgakopoulos, J. Haslegrave, T. Sauerwald, J. Sylvester, *Choice and Bias in Random Walks*, ITCS 2020, DOI:10.4230/LIPIcs.ITCS.2020.76.
+3. *Exact optimal hitting-time fluctuations for a two-choice walk on a cycle*, Resultary, 2026-10-18, Finding and proof steps 1–3. https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-optimal-hitting-time-fluctuations-for-a-two-choice-walk-on--b80e6e972489/RESULT.md

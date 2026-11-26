@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:15:39.621507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the claim under the stated closure definition and reassessed the corrected RESULT.md. The original finite-word admissibility sentence cannot stand as a sufficiency criterion: S={0,1} allows no 00, even though 00 contains no pair of consecutive ones. The repaired scope states the boundary extension requirement. Independently identify the full survivor as the closure of alternating positive zero runs in S and one runs of any positive length except k: for each finite survivor word its complete runs obey the constraints, its partial zero runs can be extended using its occurrence in X_S, and its partial one runs extend to allowed lengths; this works also for one-symbol words or words within one run. The two run generating functions then multiply to C_k(t)=P(t)((1−t)⁻¹−t^(k−1)); the background graph entropy theorem gives its unique root. Both C_k and G=P/(1−t) have nonnegative coefficients and increase strictly from 0 to infinity; C_k(q)=1−(1−q)q^(k−1) proves q_k>q, including k=2. Choose q<r<1 to bound q_k≤r eventually. The mean value theorem on [q,r] gives δ=q_k−q=O_S(r^(k−1)), hence kδ→0. Expanding q_k^(k−1) around q gives a second bound δ=O_S(q^(k−1)); applying G′(q)=(1+P′(q))/(1−q) and the root equation gives δ=(1−q)²q^(k−1)/(1+P′(q))+O_S(kq^(2k−2)). Expanding log(q_k/q) yields the claimed coefficient and remainder. Under the stationary renewal measure with p_s=q^(s+1), the mean spacing M=q(1+P′(q)) is finite and the entropy per symbol is H(p)/M=−log q. Each occurrence of the hole starts at the last zero of a positive gap and requires exactly k−1 zero gaps followed by a positive gap. Renewal intensity times independence gives P(q)²q^(k−1)/M and establishes the exact normalization. All expansion constants are for fixed S. The source numerical checker for finite gap sets was inspected but not executed; the analytic and graph arguments establish the unrestricted range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheriyath excludes words 0u0 with a 1 in u in the general S-gap theorem and treats modular S separately.",
+          "Haydarov et al. Proposition 7.2 supplies a bound of order μ_0(C)^2/(C_eff²||1_C||_θ²) for positive-measure cylinder avoidance.",
+          "Agarwal–Cheriyath–Tikekar Introduction treats Markov measures on SFTs, while Dillon gives a general fixed-system entropy equation."
+        ],
+        "reasoning": "The general positive entropy gap is already covered by the avoidance theorem; the fixed-hole value is covered by the graph theorem. Neither resolves the explicit varying-k asymptotic with coefficient equal to the cylinder mass and O_S(kq^(2k)) absolute error, and the finite-state results do not extend by a parameter choice to arbitrary nonsofic S.",
+        "searches": [
+          "arXiv:2506.20750v1 Theorem 1.3 and §4.1",
+          "arXiv:2606.17031 Theorem 1.1 and Proposition 7.2",
+          "arXiv:2401.05118, Introduction",
+          "Dillon arXiv:2010.06031 Theorem 1.1 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "arXiv:2010.06031, arXiv:2506.20750v1, arXiv:2606.17031, arXiv:2401.05118",
+        "Davis–Haydn–Yang Theorem A",
+        "Resultary 0881e8e9b148"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-state generating matrix has spectral radius equal to the square root of the product of the two run series. Dillon therefore gives the claimed exact root for each k, not just a method vaguely reminiscent of renewal.",
+          "Haydarov's lower bound cannot supply the upper bound or sharp linear coefficient; the Davis–Haydn–Yang hypotheses include nesting, which fails here; Cheriyath explicitly excludes the hole shape in the unrestricted theorem."
+        ],
+        "reasoning": "The supported distinction is the analytic extraction of the first-order root change with a controlled quadratic-scale error and its stationary-mass interpretation. Those steps are additional to the fixed-hole root prescription, not duplicate claims to a pressure formula or the existence of a gap.",
+        "searches": [
+          "Dillon arXiv:2010.06031, Theorem 1.1 (p. 2) and Theorem 4.13 (§4)",
+          "Haydarov et al. arXiv:2606.17031 Proposition 7.2 (pp. 18–19)",
+          "Davis–Haydn–Yang §2.1 Theorem A",
+          "Cheriyath arXiv:2506.20750v1 Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two alternating run series are Σ_{s∈S,s>0} t^s and Σ_{a≥1,a≠k} t^a, whose product is exactly the pressure equation in the frozen record.",
+          "Resultary 0881e8e9b148 uses renewal generating functions for Sturmian-decorated gap shifts and studies zeta rationality and nonsoficity, not hole entropy.",
+          "Davis–Haydn–Yang Theorem A is a measure escape-rate theorem for nested good neighborhoods under mixing and cluster hypotheses."
+        ],
+        "reasoning": "The entropy comparison can be formulated as the root change from deleting one permitted one-run length, so fixed-root equivalence with the graph theorem is affirmative. The nonnested cylinders do not directly satisfy the nested-neighborhood statement, and a result about a measure escape-rate limit alone would not automatically supply this quantified topological entropy result.",
+        "searches": [
+          "Resultary: S-gap shifts, renewal and nonsofic cylinder avoidance, 01^k0 entropy loss",
+          "Dillon arXiv:2010.06031 Theorem 1.1 and §4",
+          "Davis–Haydn–Yang Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed renewal formula, 0881e8e9b148, gives coefficients for periodic-point/zeta counts of a decorated shift rather than for entropy loss.",
+          "The inspected modular and general avoidance statements provide no exact table for this varying family in general S. The original verification data cover only five finite S examples."
+        ],
+        "reasoning": "No matching exact table or general closed coefficient was verified by these bounded comparisons. Finite numerical coverage or an exact root algorithm for each k is not evidence of priority for the uniform-in-k remainder.",
+        "searches": [
+          "Resultary ranked searches: renewal/gap shift 01^k0 entropy loss, exact root and large-hole-length coefficient",
+          "arXiv:2506.20750v1 Theorem 1.3 and §4.1",
+          "arXiv:2606.17031 §7 Proposition 7.2"
+        ]
+      },
+      "rationale": "For the corrected sharp entropy-loss and cylinder-normalization claim. Dillon's theorem already implies the exact fixed-hole root by a two-vertex alternating-run specialization; the corrected presentation explicitly credits it and uses it only as a starting point. Cheriyath's general theorem expressly excludes the zero-ended interior-one family, apart from the modular context discussed separately. The arbitrary-S cylinder-avoidance overlap in Haydarov et al. guarantees a positive quantitative gap but does not give the sharp linear mass coefficient and quantified remainder. No reviewed statement mechanically supplies those results across finite and infinite S under the stated assumptions.",
+      "residual_risks": [
+        "A broader nonnested-hole renewal theorem may imply a similar asymptotic; no such directly applicable statement was verified.",
+        "Ranked catalogue and literature comparisons do not establish exhaustive historical priority. No novelty is claimed for the graph-root equation alone or for the existence of positive entropy loss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-hole root is covered. Theorem 1.1 is the entropy-root statement; Theorem 1.2 instead concerns families of shifts of prescribed entropy.",
+          "evidence": [
+            "For generating matrix B(x), the unique positive solution of ρ(x)=1 gives the entropy; the two-run specialization above yields exactly C_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.06031",
+          "material_read": "PDF p. 2, Theorems 1.1–1.2, offset about 5941 to 6946; §4 Theorem 4.13, p. 11 about offset 43854",
+          "method": "Targeted lawful OA primary PDF and direct substitution",
+          "title": "Dynamics and entropy of S-graph shifts",
+          "trigger": "Strong candidate for exact fixed-hole coverage"
+        },
+        {
+          "assessment": "The general theorem excludes the present hole form; modular exception is a restricted overlap",
+          "evidence": [
+            "The excluded form is 0u0 with u containing a 1, hence includes u=1^k."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.20750v1",
+          "material_read": "Theorem 1.3 and surrounding introduction around HTML offset 5600; modular exception in §4.1",
+          "method": "Targeted lawful OA primary HTML",
+          "title": "A note on the perturbations of subshifts",
+          "trigger": "Same problem of entropy after forbidding a word in S-gap shifts"
+        },
+        {
+          "assessment": "Substantive prior arbitrary-S avoidance coverage, not the sharp quantified asymptotic",
+          "evidence": [
+            "Proposition 7.2 gives κ_C=μ_0(C)^2/(C_eff²||1_C||_θ²) as a lower bound for the entropy gap of avoiding C."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.17031",
+          "material_read": "Theorem 1.1 p. 3 around offset 8220; §7 Proposition 7.2 pp. 18–19 around offset 47000",
+          "method": "Targeted lawful OA primary PDF",
+          "title": "Effective intrinsic ergodicity for renewal-type potentials on S-gap shifts",
+          "trigger": "General cylinder-avoidance entropy gap including nonsofic domains"
+        },
+        {
+          "assessment": "Measure-level local theorem with nesting and mixing hypotheses, not directly applicable to these nonnested cylinders",
+          "evidence": [
+            "Nested good neighborhoods and return-cluster and polynomial φ-mixing hypotheses appear in the statement."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/nicolai-haydn/wp-content/uploads/sites/220/2023/06/EscapeNullSet08.pdf",
+          "material_read": "§2.1 Theorem A, PDF p. 4 around offset 8000",
+          "method": "Targeted lawful OA alternate primary PDF",
+          "title": "Escape Rate and Conditional Escape Rate from a Probabilistic Point of View",
+          "trigger": "General local escape law might imply linear normalization"
+        },
+        {
+          "assessment": "Finite-state and Markov scope does not by itself cover arbitrary nonsofic shifts",
+          "evidence": [
+            "The setting is Markov measures on SFTs and finite cylinder unions; the entropy identification is discussed in the Parry setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.05118",
+          "material_read": "Introduction at HTML offsets about 1100 and 4800",
+          "method": "Targeted lawful OA primary HTML",
+          "title": "On escape rate for subshift with Markov measure",
+          "trigger": "Potential implication by measure escape/entropy identities"
+        },
+        {
+          "assessment": "Methodological overlap on regeneration only",
+          "evidence": [
+            "Its invariant is the periodic zeta function 1/(1−F_S(z)), not entropy after forbidding a cylinder."
+          ],
+          "identifier_or_url": "Resultary 0881e8e9b148",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded Resultary search and indexed source comparison",
+          "title": "Periodic-zeta rationality versus Sturmian nonsoficity in decorated gap shifts",
+          "trigger": "Closest indexed renewal/nonsofic generating function formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected claim resolves a motivated subfamily of a previously excluded hole shape. It gives a sharp topological loss with the intrinsic cylinder probability as leading term and quantified error in a regime genuinely including nonsofic systems. This is informative beyond merely computing the already-covered pressure root for a fixed hole or giving an unspecified positive entropy gap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:35:48.770710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, derivation and kernel recurrence at lines 22–37",
+        "VERIFICATION.md, recorded finite-field results",
+        "verify.py, inspected Gaussian elimination, recurrence, and basis-identity test"
+      ],
+      "rationale": "The generator recursion gives the displayed triangular matrix and satisfies the identity on all basis products, including [e_n,e_1]=0. For a_1=0 the first nonzero shift J^r times an invertible polynomial in J has rank n−r. For a_1≠0 one can independently check the obstruction by representing D/a_1 as E+g on xF_q[x]/(x^{2p+1}), where E=x d/dx and g=Σ(a_{r+1}/a_1)x^r acts by multiplication. Conjugating by a unit h of degree <p with h(0)=1 adds Eh/h to g; degrees 1 to p−1 can be killed successively since each of those degrees is invertible. Factoring h into linear factors over an algebraic closure shows that the x^p coefficient of Eh/h is the pth power of its x coefficient, via the geometric series for each factor's logarithmic derivative. Thus the only coupling in the two zero-diagonal positions is the x^p coefficient a_{p+1}/a_1−(a_2/a_1)^p. In detail, rows below degree p force all earlier coordinates to zero, and the rows between p and 2p then have nonzero diagonal with no contribution from coordinate p. The kernel dimension is 2 exactly on the stated graph and 1 off it. The graph has (q−1)q^{2p−2} points and its complement in the open set (q−1)^2q^{2p−2}; adding the shift stratum gives exactly the census. In smaller dimensions the open stratum has zero or one zero-diagonal position, with constant rank. This works at p=2 as well as odd p and over characteristic-p extensions.",
+      "residual_risks": [
+        "The recorded finite tests are supporting evidence, not the proof for arbitrary p. No assertion is made here about the closed stratum's scheme structure or higher resonances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Frobenius test uses z=⌊n/p⌋, with nullity the first h<z with f_h^p≠f_{ph}, or z if there is none on a_1≠0.",
+          "The second earlier record gives a gauge criterion and complete nullity distribution for arbitrary n."
+        ],
+        "reasoning": "For z≤1 the open nullity is constant; at z=2 rank jumps with the single h=1 comparison and both outcomes are realized. Thus the earlier general result includes sharp first occurrence.",
+        "searches": [
+          "Resultary 2026/10/12 …--1d716bb02061",
+          "Resultary 2026/10/13 …--87504de3c11b"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary …--1d716bb02061 and …--87504de3c11b",
+        "Jumayeva Theorem 1",
+        "Adashev–Camacho–Omirov Theorem 2.3",
+        "Centrone–Zargeh Proposition 4.6",
+        "arXiv:2305.15339 Proposition 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The h=1 equation f_1^p=f_p reads a_{p+1}=a_2^p/a_1^{p−1}.",
+          "The related arXiv:2305.15339 algebra in the inspected proposition is associative, not the Leibniz algebra of the finding."
+        ],
+        "reasoning": "The displayed equation is already solved for one coefficient. Dropping that coordinate is an isomorphism with G_m×A^{2p−2}, yielding smoothness, rationality, irreducibility and point count immediately. Merely renaming this graph a rank-jump hypersurface does not add an independent result.",
+        "searches": [
+          "Resultary …--1d716bb02061, Finding and Proof",
+          "Resultary …--87504de3c11b, Finding and Proof",
+          "arXiv:2305.15339, Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier catalogue uses nullity n−rank and normalized coefficients f_h=a_{h+1}/a_1.",
+          "Jumayeva's derivation matrix describes the same multiplication model over characteristic zero."
+        ],
+        "reasoning": "Corank conversion and localization at a_1≠0 do not change the endomorphism being classified. The characteristic-zero formula is precedent for the normal form, not by itself a modular theorem.",
+        "searches": [
+          "Resultary: null-filiform Leibniz derivation finite-field rank/corank spectra and modular resonance",
+          "Jumayeva, DOI 10.55640/eijmrms-06-06-16, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both matches supply complete symbolic finite-field enumerators, not just low-dimensional samples.",
+          "The formula at n=2p and the separately described nilpotent-shift contribution yield N_0=1, N_k=(q−1)q^{k−1} for 1≤k≤2p−3, N_{2p−2}=(q−1)(q+1)q^{2p−3} and N_{2p−1}=(q−1)q^{2p−1}."
+        ],
+        "reasoning": "A general exact enumerator covers the proposed table even without a separate n=2p row.",
+        "searches": [
+          "Resultary exact finite-field corank spectra for null-filiform Leibniz derivations",
+          "Resultary modular rank distribution of derivations of null-filiform Leibniz algebras"
+        ]
+      },
+      "rationale": "Two earlier catalogue records give general finite-field nullity results. The earlier Frobenius-resonance equation specializes to the same hypersurface on a_1≠0 and immediately gives its graph geometry. The claimed sharp first dimension and complete rank census are likewise specializations, not a surviving distinct finding.",
+      "residual_risks": [
+        "No claim about external publication priority. The demonstrated mathematical coverage suffices regardless of further literature matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the rank stratum and implies its claimed geometry",
+          "evidence": "On a_1≠0 the first failed Frobenius comparison determines nullity; at n=2p there is exactly the f_1^p=f_p condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-field-corank-spectra-for-null-filiform-leibniz-deri--1d716bb02061",
+          "material_read": "RESULT.md Finding and Proof, text offsets 0–7268",
+          "method": "Local mirror, bounded passage comparison",
+          "title": "Exact finite-field corank spectra for null-filiform Leibniz derivations",
+          "trigger": "Stronger modular corank criterion and census"
+        },
+        {
+          "assessment": "Covers rank statistics and the modular criterion at n=2p",
+          "evidence": "The complete arbitrary-n enumerator and gauge recursion include each rank claimed in the finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-modular-rank-distribution-of-derivations-of-null-filiform-leibni--87504de3c11b",
+          "material_read": "RESULT.md Finding and Proof, text offsets 0–7151",
+          "method": "Local mirror, bounded passage comparison",
+          "title": "Modular rank distribution of derivations of null-filiform Leibniz algebras",
+          "trigger": "Same algebra and ranks over arbitrary finite fields"
+        },
+        {
+          "assessment": "Same matrix over complex scalars, not a modular census",
+          "evidence": "The diagonal i a_1 and the higher entries a_{j−i+1} match exactly.",
+          "identifier_or_url": "https://doi.org/10.55640/eijmrms-06-06-16",
+          "material_read": "Theorem 1 and characteristic-zero assumptions, PDF text offsets 9452–15331",
+          "method": "OA full-text passages",
+          "title": "Derivations, Automorphisms And Local Derivations of Null-Filiform Leibniz Algebras",
+          "trigger": "Same full derivation model"
+        },
+        {
+          "assessment": "Same algebra, different question",
+          "evidence": "[e_i,e_1]=e_{i+1}; the paper treats central extensions.",
+          "identifier_or_url": "arXiv:1511.07683",
+          "material_read": "Theorem 2.3, PDF text offset 7600",
+          "method": "OA full-text passage",
+          "title": "Central extensions of null-filiform and naturally graded filiform non-Lie Leibniz algebras",
+          "trigger": "Underlying multiplication and normalization"
+        },
+        {
+          "assessment": "Graded derivations in a Hopf-action setting",
+          "evidence": "The inspected proposition does not supply the modular rank locus.",
+          "identifier_or_url": "https://doi.org/10.1007/s10468-021-10105-2",
+          "material_read": "Proposition 4.6, printed p. 641",
+          "method": "OA full-text passage",
+          "title": "Varieties of Null-Filiform Leibniz Algebras Under the Action of Hopf Algebras",
+          "trigger": "Prior derivation work on the same algebra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Frobenius criterion in earlier Resultary …--1d716bb02061"
+      ],
+      "rationale": "The first nonconstant modular rank would be a natural boundary and the geometric interpretation is apt. Here the exact answer already follows by setting ⌊n/p⌋=2 in a known complete test, and the geometry is the immediate coordinate-graph description of one solved equation. There is no additional geometric invariant or rank result not mechanically implied.",
+      "residual_risks": [
+        "This verdict does not assess possible separate questions about larger dimensions or scheme structures outside the submitted locus."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

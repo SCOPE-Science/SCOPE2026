@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:14.809156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vector spells a linear word exactly via an Euler trail: each active vertex lies in one weak component, with balanced degrees or the unique +1,−1 pair. In the loopless graph every directed cycle uses both 01 and 10, and every edge touches at least one of these. Any separate balanced active component must have a cycle; a nonzero imbalance pair cannot be split across components because each component's total imbalance is zero. Thus the nonloop support is connected when nonempty. A loop may be added only at an incident vertex, except for the two one-vertex loop-only families. The degree equations, threshold f≥max(0,d−b−u), and loop boundary corrections then count each feasible vector once, with the empty vector included exactly once. In a separate exact algebra replay, grouping b and d by zero versus positive and summing on the signed difference of their excesses reproduces the full rational identity; an appended-bit suffix/profile DP also agrees through n=44. Replay: `python /workspace/independent_checks_1_4.py 3`. The pole at 1 gives (13/12)/4!=13/288, and choosing one word per profile proves the exact codebook bound. The finite DP is corroboration, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassaigne et al. count finite-word classes retaining all factor counts through length k. A289657 gives 60 at length six, against 52 for trigram-only. Resultary 7044900c1ee8 uses the same Euler criterion and a support inclusion–exclusion for the exact coarser class count."
+        ],
+        "reasoning": "A rational enumeration of the finer partition does not itself count the coarser partition. The direct same-object support argument, not that rationality theorem, is decisive exact coverage.",
+        "searches": [
+          "Cassaigne et al., DOI 10.3233/FI-2017-1553, lawful HAL submitted version, pp. 2–4",
+          "OEIS A289657 exact 3-abelian formula",
+          "Resultary: trigram-only exact and asymptotic capacity"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7044900c1ee8, 246b4cc4bcec, c5ea7e549c82, bcc1ebef8280",
+        "arXiv:0708.2310v1",
+        "OEIS A132298 and A289657",
+        "DOI 10.3233/FI-2017-1553 via HAL"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed result uses the same 13 degree-imbalance alternatives, one weak component and loop rules, then exact-support inclusion–exclusion to evaluate the same series."
+        ],
+        "reasoning": "Equality of the formal fractions implies equality of every length count and the leading coefficient; the same one-representative-per-profile observation implies the same codebook optimum. The simpler boundary grouping is a proof variation, not a new invariant, classification or mathematical consequence of the stated scope.",
+        "searches": [
+          "Resultary 7044900c1ee8 Finding, Scope and proof steps 1–3",
+          "arXiv:0708.2310v1 §VII-A, Figure 5",
+          "Resultary 246b4cc4bcec Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The third-order Markov types in Varshney–Goyal are exactly trigram multiplicity vectors. Resultary 7044900c1ee8 defines those same eight counts for overlapping reads of a linear word, with no endpoints or shorter factors."
+        ],
+        "reasoning": "Distinct labels name the same class partition, not merely asymptotically equinumerous objects. The exact matching record includes n=2 and the empty profile.",
+        "searches": [
+          "Resultary: exact count of binary contiguous three-gram multispectra, ordered trigram profiles, Markov type order 3",
+          "arXiv:0708.2310v1 §VII-A",
+          "OEIS A132298"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A132298 starts 8,15,28,52 at n=3, without an infinite generating function field. 7044900c1ee8 displays the identical numerator, denominator and z^(n−2) shift, and explicitly states the code optimum and 13/288 constant. 246b4cc4bcec independently states the same leading constant, not the exact fraction."
+        ],
+        "reasoning": "Finite table agreement alone does not cover an infinite identity. The indexed formula does; the earlier dated asymptotic covers a different, weaker part of the frozen claim.",
+        "searches": [
+          "OEIS A132298 and A289657, entries and offsets",
+          "Resultary 7044900c1ee8 and 246b4cc4bcec, Findings"
+        ]
+      },
+      "rationale": "The exact all-length formula and codebook interpretation are demonstrably covered by a distinct indexed finding on the identical observation, with the same word-length offset and fraction; the leading asymptotic is also covered by an earlier dated indexed finding. This is a coverage determination, not an inference of earlier priority for the exact fraction from the later dated catalogue entry. No independent surviving contribution is apparent in the alternative geometric summation for this small graph.",
+      "residual_risks": [
+        "The exact overlap establishes no order of discovery. The distinct exact records inspected are later dated than the frozen path; the earlier path matches only the asymptotic.",
+        "AlEisa et al., DOI 10.1155/2022/8077664, was not accessible in bounded DOI/PMC attempts; no claim about unseen material relies on that limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen exact identity and stated consequences; no priority finding",
+          "evidence": "Identical n≥2, z^(n−2) fraction, profile scope and optimal codebook statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-enumeration-of-binary-length-three-substring-multispectra--7044900c1ee8/RESULT.md",
+          "material_read": "Finding, assumptions, and Euler-trail and support arguments (mirror offsets 0–4967)",
+          "method": "Local mirror, direct mathematical comparison",
+          "title": "Exact enumeration of binary length-three substring multispectra",
+          "trigger": "Exact same-object and same-fraction match"
+        },
+        {
+          "assessment": "Covers the leading asymptotic, not the all-length fraction",
+          "evidence": "Same linear binary ordered-trigram histogram and 13n^4/288+O(n³).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-asymptotic-for-binary-trigram-multispectrum-capacity--246b4cc4bcec/RESULT.md",
+          "material_read": "Finding, starting at mirror offset 0",
+          "method": "Local mirror",
+          "title": "Sharp asymptotic for binary trigram multispectrum capacity",
+          "trigger": "Same model and leading coefficient"
+        },
+        {
+          "assessment": "Same invariant, numerical estimates rather than the exact formula",
+          "evidence": "Defines trigram multisets as Markov type classes and relates their cardinality to coding requirements.",
+          "identifier_or_url": "https://arxiv.org/html/0708.2310v1",
+          "material_read": "§VII-A, Table II and Figure 5 discussion, offsets 80340–88336",
+          "method": "OA HTML decisive passages",
+          "title": "Benefiting from Disorder: Source Coding for Unordered Data",
+          "trigger": "Original same-observation coding analysis"
+        },
+        {
+          "assessment": "Finer equivalence relation",
+          "evidence": "Counts every factor of length at most k, which is strictly more than the eight trigram bins.",
+          "identifier_or_url": "https://hal.science/hal-03566907/document",
+          "material_read": "Submitted PDF pp. 2–4, definitions and rationality statements",
+          "method": "Lawful HAL copy of the same paper",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Plausible rationality theorem for related profile counts"
+        },
+        {
+          "assessment": "Same-object finite terms in A132298, different-object rational enumeration in A289657",
+          "evidence": "At n=6 the counts are 52 and 60 respectively.",
+          "identifier_or_url": "https://oeis.org/A132298 ; https://oeis.org/A289657",
+          "material_read": "Entries, offsets and formula fields",
+          "method": "Public page passages",
+          "title": "OEIS A132298 and A289657",
+          "trigger": "Exact table and possible rational expression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Varshney–Goyal motivate this precise observable by source coding without read positions. An exact count of the observation alphabet pins down the optimal zero-error codebook for every blocklength and distinguishes support effects lost by mere degree counting. That is a substantive natural enumeration, even though the matching indexed result prevents a new-finding disposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

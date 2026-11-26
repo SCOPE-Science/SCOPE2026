@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central tuple is uniquely maximum-degree because each star has at least two leaves. Neighbours of the centre split into intrinsically recoverable factor blocks according to whether pairs have a second common neighbour. Every vertex is reconstructible from root-neighbours lying on geodesics, giving an exact automorphism orbit classification. A direct tensor-factor calculation gives a root-to-vertex exponential walk generating function. Nonvanishing coefficients in the analytic expansion of \(\log(\tanh\sqrt u/\sqrt u)\) imply that the first \(3k\) walk coefficients determine the multiset of active factor sizes by Newton identities. Root-colour refinement detects these counts after at most \(3k\) rounds, and unmarked refinement isolates the unique maximum-degree vertex in one round. No finite experiment is used in place of the infinite-parameter argument.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected full papers are Klavžar–Zhu (2005 online), on distinguishing labellings of Cartesian powers, and Kersting et al. (2014), on colour-refinement implementations and fractional symmetries. Neither treats the complete unmarked orbit partition of products of unequal stars with a factor-number-only bound. Related special-case results for grid and Hamming factor families do not imply branching-star products. Searches for ``Cartesian product of stars'' with ``colour refinement'', ``Weisfeiler'', or ``equitable partition'' found no exact-claim match. The inaccessible full text of some earlier graph-product work is a residual literature risk, not affirmative evidence of novelty.
+PASS
 
-## Mathematical value — PASS
-This is a complete orbit and stable-colour classification on an infinite, nonregular family, with exact multiplicities and a round bound independent of potentially arbitrarily large degrees. Simple degree and root-distance invariants collide already in the \((2,3,4,5)\)-star product; the walk-moment reconstruction resolves these collisions through a uniform proof. The result adds non-path, non-complete branching factors to established orbit-refinement examples and provides explicit equitable-partition data for graph products.
+The unique maximum-degree tuple identifies the all-center root; common-neighbor patterns on its neighbors identify the factor blocks. The orbit classification and formulas follow from leaf permutations and permutations of equal-size factors. In the frozen proof, root walk counts propagate one step per refinement; the tensor-product exponential and the nonzero log(tanh(sqrt(u))/sqrt(u)) coefficients give the required power sums after factoring out the lowest order. Newton identities complete the argument. An independent local proof gives an even stronger two-round bound: for each p, the number of neighbors whose degree exceeds the vertex's degree by p-1 equals its number j_p of leaf coordinates with p leaves. Degree and neighbor degree multiset are exactly the round-2 information. Profiles for sizes {2,3} and {4} in the (2,3,4) product tie in round 1, so the bound of two is attained.
 
-## Limits and closest sources
-The round bound need not be sharp, and factors \(K_{1,1}\) are excluded. The Klavžar–Zhu result concerns existence of symmetry-breaking vertex labels, not the unmarked counting-refinement process. Kersting et al. concern the general algorithm rather than this graph family. Existing Cartesian-product factorization is background, not an orbit-exact colour-refinement theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known orbit theory and general refinement supply background, and the all-P_3 subfamily overlaps the same-day path-power result. Neither the inspected published theorems nor the closest indexed records cover unmarked refinement recovering exact orbit profiles on arbitrary mixed star products with a size-independent round bound.
+
+## value
+
+PASS
+
+Unmarked orbit recovery is not automatic for Cartesian products or for 1-WL. Exact classes, their sizes, and bounded recovery for arbitrary unequal stars give a usable structural result: degree coincidences do not prevent precise recovery of the multiplicity profile. The factor-count bound in the frozen result should not be valued as sharp; the independent degree-signature proof clarifies that the genuine content is very local orbit recovery across all mixed factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

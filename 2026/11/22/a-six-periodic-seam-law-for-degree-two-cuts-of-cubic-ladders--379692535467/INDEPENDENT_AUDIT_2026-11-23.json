@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:24:13.912770Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 26–70 and verify.py inspected, not executed.",
+        "Independent exact and direct graph reproduction: /tmp/opencode/frozen-math-independent/r2r3.py (record 3 section)."
+      ],
+      "rationale": "On these simple cubic graphs, being on a side with no isolated vertex is exactly the cross-degree bound of two. For fixed labelled columns, a colouring determines one walk on ordered pairs of column symbols; the ordinary and crossed closures are respectively the endpoints s and Js, where J swaps both rows. Thus tr(U^n) and tr(U^nJ) count labelled ordered assignments, not cyclic orbits, with both seam vertices checked even at n=3. I reconstructed U, used exact nullspaces of J±I and an exact change of basis to check its two characteristic polynomials: x^4(x^2+2)(x^4−3x^3−x^2+2), x^4(x^2−x+1). Newton sums give the stated A,B,C initial values and recurrences; signs are +C for the prism, −C for Möbius. Removing two constant assignments and dividing by two for free global complement gives the stated counts. Direct vertex-colouring enumeration at n=3,4,5,6 gave (16,18),(58,59),(181,180),(581,579). In the structural proof, a simultaneous row swap from just after the last monochromatic rung to the seam moves the twist to that rung; its centers already have a same-colour partner, and its neighbours see identical entries across that interface. This also works if the monochromatic rung is the last column (the switch is vacuous). Only the all-mixed words contribute to the difference; their adjacent-bit transfer forbids a middle bit unequal to both neighbours, and the complement-odd block has polynomial x^2−x+1. This gives the exact period-six seam difference, whereas all-monochromatic-rung assignments already give at least 2^{n−1}−1 valid unordered nonempty cuts for each ladder. The matrix calculation and local bijection prove the all-order claim, not the finite graph samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The d-Cut paper supplies the general definition and algorithms; the cited chromatic paper gives a twisted closure for proper-colouring spectra.",
+          "The local predicate here allows the two constant assignments and forbids proper binary colourings on cubic graphs."
+        ],
+        "reasoning": "General decision/algorithmic techniques are not an exact eigenvalue and power-sum computation for these graphs. Proper-colouring transfer on the same ladder does not imply the no-isolate trace identity.",
+        "searches": [
+          "arXiv:1905.03134v1 d-Cut complexity and algorithms",
+          "arXiv:2611.00572v1 total dominance",
+          "DOI 10.3390/sym18071180 spectral traces for the same two ladder families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.03134v1",
+        "arXiv:2611.00572v1",
+        "DOI 10.3390/sym18071180",
+        "DOI 10.1016/S0012-365X(97)00086-1 (abstract only)",
+        "Resultary 69a75f8bbc7c, b9c77d1b74ba, 766f520bafef, aed2be8ddb52 and 5b52778bc432"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "69a75f8bbc7c explicitly gives the same Lucas-plus-period-six ingredient in its strict majority fixed-point counts but the prism/Möbius fixed-point difference is the constant two, and its primitive two-cycle seam term has Lucas scale.",
+          "For k=2, b9c77d1b74ba already counts cyclic words without singleton runs (a subproblem appearing here under the all-mixed reduction), but it does not count words with a mixture of mixed and monochromatic rungs or the complement boundary on the all-mixed words."
+        ],
+        "reasoning": "A shared cyclic one-dimensional subproblem or the row-swap trace device does not imply the cancellation over all monochromatic-containing words, the complement-odd-only seam difference, or the absolute counts. At n=3 the prism strict majority fixed-point ordered count is 4, whereas the ordered no-isolate count is 34.",
+        "searches": [
+          "Statement-level comparison of 69a75f8bbc7c and b9c77d1b74ba Findings, and the proper-colouring twist trace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gomes–Sau define d-cuts by the per-vertex cross-degree bound. On a cubic graph, a defensive alliance in the sense d_in+1≥d_out requires d_in≥1, so the same cuts are exactly partitions into two such alliances.",
+          "Kwon–Park–Sano require every vertex to have neighbours in both parts; b9c77d1b74ba requires a unique plurality of the vertex's own colour."
+        ],
+        "reasoning": "The two-alliance and no-isolate formulations really are equivalent; coupon colouring requires an additional opposite neighbour, and strict binary plurality requires at least two same-side neighbours. Neither of those cited stronger constraints counts all these cuts.",
+        "searches": [
+          "Local Resultary: degree-two cuts, binary colourings with a same-colour neighbour, bipartitions into isolate-free induced sides, circular and Möbius ladders",
+          "Primary search: defensive alliance partition enumeration, circular/prism and Möbius ladders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact cut-enumerator hit examined was the frozen record itself, not independent priority evidence. 766f520bafef counts three distinct colours in a neighbourhood; aed2be8ddb52 counts proper four-colour assignments with two neighbour colours; 5b52778bc432 imposes a binary exact-two public-goods update rule.",
+          "The McSorley abstract describes counts of many structures without identifying them; no specific theorem or table was retrieved."
+        ],
+        "reasoning": "The inspected tables concern other constrained colourings or dynamics and do not supply this pair of sequences. The older inaccessible paper cannot be ruled in or out from its abstract.",
+        "searches": [
+          "Local Resultary exact recurrence/census comparison on these graph families: 766f520bafef, aed2be8ddb52, 69a75f8bbc7c, 5b52778bc432, b9c77d1b74ba",
+          "McSorley, Counting Structures in the Möbius Ladder (1998), publisher and Michigan Tech records, lawful alternate routes"
+        ]
+      },
+      "rationale": "The distinct supported result is the exact census of binary no-isolate bipartitions for both cubic ladders and the bounded (not Lucas-sized) signed seam difference, explained by cancellation on every word with a monochromatic rung. The transfer/twist method itself is established, and comparable period-six factors occur for other local predicates. The plausible earlier Möbius-only enumerative paper remains an expressly bounded access risk, not evidence of priority or absence.",
+      "residual_risks": [
+        "McSorley 1998 could contain a related Möbius-ladder count; its methods and tables could not be compared from the available copies.",
+        "Older or differently indexed exact tables could exist; no exhaustive historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General cut terminology and algorithmic question, not an exact census in the inspected statements",
+          "evidence": [
+            "A d-cut is defined by a maximum of d neighbours across the partition for each vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.03134v1",
+          "material_read": "Abstract and definition of d-Cut, PDF p. 1 and introductory passages",
+          "method": "OA primary text, offsets 0 and 5060",
+          "title": "Finding Cuts of Bounded Degree: Complexity, FPT and Exact Algorithms, and Kernelization",
+          "trigger": "Exact cut definition and possible general coverage"
+        },
+        {
+          "assessment": "Requires both colours in every open neighbourhood, not the current own-colour condition",
+          "evidence": [
+            "Each of the two sets must totally dominate the entire graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00572v1",
+          "material_read": "Introduction, definitions of total domination and 2-coupon colouring",
+          "method": "OA primary text, p. 1, around offset 2200",
+          "title": "Total dominating sets and four-colorings of planar triangulations",
+          "trigger": "Plausibly equivalent binary local-colouring condition"
+        },
+        {
+          "assessment": "Method precedent, different local predicate and invariant",
+          "evidence": [
+            "The polynomial counts proper colourings; the Möbius closure changes amplitudes via a twisted transfer."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym18071180",
+          "material_read": "Definition of chromatic polynomial, ladder transfer and twisted closure discussion",
+          "method": "OA paper, PDF pp. 1,2,10, offsets 3305,6500,52000",
+          "title": "Quartic Equimodular Curves and Spectral Reductions in Prism-Derived Chromatic Polynomials",
+          "trigger": "Same geometric seam and exact spectral method"
+        },
+        {
+          "assessment": "Census of strict-majority fixed points and period-two orbits, not degree-two cuts",
+          "evidence": [
+            "f_P=R_n+2, f_M=R_n with R_n=L_n+2cos(nπ/3); primitive two-cycle twist response has order φ^n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2354",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A Lucas-number seam response in majority oscillations on prism and Möbius ladders",
+          "trigger": "Same pair of ladders, binary and period-six seam term"
+        },
+        {
+          "assessment": "Strict plurality, no twisted census; covers the no-singleton cyclic-word subproblem at k=2",
+          "evidence": [
+            "L_n(k)=T_n(k)+(k−1)2cos(nπ/3)+k(k−1), for a vertex's colour being the unique plurality in its neighbourhood."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba/RESULT.md",
+          "material_read": "Finding and structural classification, offsets 0–1867",
+          "method": "Local mirror",
+          "title": "Exact locally-optimal colouring polynomial of circular ladders",
+          "trigger": "Same prism and identical trigonometric factor"
+        },
+        {
+          "assessment": "Scope of the exact kinds of structure counted remains unresolved",
+          "evidence": [
+            "Abstract states a technique to count many different Möbius-ladder structures; it does not identify the target kind of cut."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(97)00086-1",
+          "material_read": "Abstract and bibliographic record, not full text, tables or appendices",
+          "method": "Publisher and checked Michigan Tech record (which points out to the full-text link); identified alternate indexed copy returned 403 and author's publication listing timed out",
+          "title": "Counting Structures in the Möbius Ladder",
+          "trigger": "Historical exact enumerations for the same cubic Möbius graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A cut constraint with a direct graph meaning is compared under the natural untwisted/twisted closures of the same strip; exact absolute counts are useful test cases and the difference stays uniformly bounded despite exponential growth. The seam switch gives a structural reason: every configuration with a protective monochromatic rung cancels, leaving only the odd spectrum of a four-state system. This is more than a different presentation of a known chromatic or majority count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

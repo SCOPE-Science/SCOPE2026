@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:18:32.841410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–77 and VERIFICATION.md; check.py source inspected",
+        "Independent replay: cd /workspace && python3 reproductions/scalar_checks.py ; recorded output reproductions/scalar_checks.txt"
+      ],
+      "rationale": "For p_n=K q^n P(n), P(x)=Ax^2+Bx+C, direct geometric generating functions give a normalized positive PMF. Cancelling the geometric factor from its curvature leaves (2An+B)^2-2AP(n)-A^2, increasing strictly for n>=0 with value 4L at n=1. The survival generating function is (1-zG(z))/(1-z) for PMF generating function G. Extracting its coefficients gives the survivor at n as K q^n U(n)/(1-q), with U(n)=P(n)+(2An+B)/theta+A(theta+2)/theta^2. Clearing positive denominators in the adjacent hazard difference yields the sign of (theta/4)[P(n+1)U(n)-P(n)U(n+1)], which expands to the frozen F(n). Its quadratic and linear terms are strictly positive, so the first hazard step alone decides IFR. When H<0 there is exactly one positive real root, one change from negative to positive steps, and a flat step only if the root is integral. When H=0, the only flat step is the first. The limit is 1-q. H-L=alpha+2 alpha^2 theta>0; both are positive for alpha>=1/3 and each is a downward-opening quadratic with positive constant term for 0<alpha<1/3, giving the two stated positive roots in strict order. Both rational witnesses and their boundary signs check. This proves the infinite-index claims, independently of any finite probes.",
+      "residual_risks": [
+        "This is discrete count aging for alpha,theta>0, not aging of the continuous mixing lifetime. A trough can comprise two consecutive tied ages when one hazard step is flat."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source inspection records a log-concavity theorem and an IFR corollary for the different binomial–natural discrete Lindley PMF. The indexed generalized Poisson–Lindley shape theorem uses a gamma-dependent coefficient rather than this quadratic-geometric count PMF."
+        ],
+        "reasoning": "The general implication from log-concavity to IFR explains one phase inclusion, but provides no converse, no distinct sharp IFR surface, and no trough classification. The same-named Lindley-derived models cannot be substituted without matching their laws.",
+        "searches": [
+          "doi:10.3390/mca27040062, Theorem 2 and Corollary 1",
+          "Resultary: 2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons cited above",
+        "Frozen RESULT.md lines 82–90 and AUDIT.json lines 25–97 for recorded primary passages; targeted literature lookup returned no decisive passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier probability and hazard formulas are inputs. To infer the classification, the signs must reduce to their respective first indices for every parameter pair, and the initial sign functions must separate by alpha+2 alpha^2 theta. The frozen analytic proof and exact witnesses show IFR without log-concavity and a genuinely decreasing initial hazard elsewhere."
+        ],
+        "reasoning": "Neither observing increasing hazards in plots nor invoking the generic sufficiency of log-concavity implies the necessary-and-sufficient threshold or number of turns. A reported general theorem would dominate only if it evaluated the same PMF and supplied those stronger sign conclusions.",
+        "searches": [
+          "PMCID:PMC11400954, equations (2)–(4) and Fig. 2",
+          "doi:10.3390/mca27040062, Corollary 1",
+          "Frozen RESULT.md lines 41–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen primary inspection matches the Poisson–Loai count PMF, survival and hazard to equations (2)–(4). The strict-tail hazard p_n/Pr(X>n) equals h_n/(1-h_n) for the inclusive-tail h_n. The discrete PMF also has a positive negative-binomial mixture expression: its polynomial is A(n+1)(n+2)+2(n+1)+2(1+theta), with common geometric factor, corresponding to shapes 3,2,1."
+        ],
+        "reasoning": "The hazard transformation is strictly increasing, so switching conventions cannot supply a distinct monotonicity theorem. A representation as a finite mixture is also just a model alias; its components' log-concavity or IFR does not establish either property for the mixture, which actually exhibits the failed regimes.",
+        "searches": [
+          "PMCID:PMC11400954, equations (2)–(4)",
+          "doi:10.1016/j.heliyon.2024.e36764",
+          "Poisson–Loai hazard/log-concavity phase boundary, Resultary comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned 0d8badb06a5f. The closest distinct indexed shape result is generalized Poisson–Lindley 9956997214ea, and d7a7540680dd studies thinning self-decomposability, not aging. The originating article's reported increasing-hazard plots are illustrations at selected parameters."
+        ],
+        "reasoning": "A self-hit does not count as independent coverage. Neither the separate invariant nor finite parameter examples give the two phase curves and the quantified off-IFR shape.",
+        "searches": [
+          "Resultary: exact Poisson–Loai count log-concavity and discrete aging boundaries",
+          "2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd",
+          "PMCID:PMC11400954, Fig. 2 and Section 2"
+        ]
+      },
+      "rationale": "The assessed increment is the exact pair of Poisson–Loai count phase boundaries and the one-turn non-IFR hazard shape. The 2024 source already gives the distribution and hazard expression; the reported examples and accessible statements do not cover this sharp classification. Related indexed work is on different PMFs or different properties. This limited positive conclusion does not certify priority.",
+      "residual_risks": [
+        "The decisive primary passages were not independently retrievable here. Additional same-family analyses, or a broader quadratic-geometric theorem stated in another form, remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the law and formula; the available evidence does not establish coverage of the count phase classifications",
+          "evidence": [
+            "Count mass, survival and hazard in (2)–(4); Section 2 and Fig. 2 exhibit increasing examples according to the frozen inspection."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11400954/",
+          "material_read": "Frozen AUDIT.json lines 74–85 describes Sections 1–3, equations (2)–(4) and Fig. 2; independent PMC, DOI, PDF and Europe PMC OA attempts timed out",
+          "method": "Compare the reported equations, hazard convention and plot claims; distinguish recorded inspection from independent retrieval",
+          "title": "A new two-parameter over-dispersed discrete distribution with mathematical properties, estimation, regression model and applications",
+          "trigger": "Originating same-family count mass and hazard formulas"
+        },
+        {
+          "assessment": "Different PMF; the reported implication does not provide both phase conditions here",
+          "evidence": [
+            "Theorem 2 for a linear-in-count BNDL mass prefactor; Corollary 1 deduces IFR from log-concavity."
+          ],
+          "identifier_or_url": "doi:10.3390/mca27040062",
+          "material_read": "Frozen AUDIT.json lines 86–97 identifies Theorem 2 and Corollary 1; new OA attempt timed out",
+          "method": "Compare model hypothesis and logical direction",
+          "title": "The Binomial–Natural Discrete Lindley Distribution: Properties and Application to Count Data",
+          "trigger": "Related count-law log-concavity and IFR theorem"
+        },
+        {
+          "assessment": "Different mass family and no Poisson–Loai hazard claim",
+          "evidence": [
+            "Generalized Poisson–Lindley shape threshold and exact nonadjacent tie, not Poisson–Loai count IFR."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-log-concavity-boundary-and-nonadjacent-modal-coexistence-i--9956997214ea",
+          "material_read": "Local indexed statement and the corresponding assigned frozen Finding and assumptions",
+          "method": "Compare both PMFs and asserted invariants",
+          "title": "Sharp log-concavity boundary and nonadjacent modal coexistence in generalized Poisson–Lindley counts",
+          "trigger": "Closest distinct indexed shape classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independently checked phase inequalities, turning rule and witnesses; frozen RESULT.md lines 15–27 and 51–77"
+      ],
+      "rationale": "The two exact boundaries resolve a genuine gap in interpreting the reliability behavior of a published count family: IFR can hold without log-concavity, and the hazard can truly be nonmonotone rather than merely failing an easy sufficiency test. The whole separation band and exact turning-age rule let a reader diagnose any admissible parameters instead of relying on selected plots or isolated counterexamples.",
+      "residual_risks": [
+        "No inferential or modeling-performance claim, nor a hazard theorem for a different mixing family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

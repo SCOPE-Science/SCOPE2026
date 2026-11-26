@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A strict-convexity proof gives global uniqueness for completely unrestricted nonnegative vertex gains. Automorphism invariance forces only the final optimizer to be orbit-constant. A direct invariant-subspace decomposition gives the exact objective, and derivatives establish the endpoint support test. A uniform positive lower bound rules out hub deletion for every integer \(2\le m\le8\); a quintic sign-variation argument and an exact negative witness prove precisely two transitions for every \(m\ge9\). Compact and macroscopic scaling limits prove the two budget asymptotics. The accompanying checker reproduces the nonstandard algebra and finite-matrix identities, but finite samples are not used as a universal proof.
+PASS
 
-## Originality — PASS with residual risk
+Connectedness and B>0 make the pinned Laplacian positive definite on the whole compact feasible simplex. Along each nonzero diagonal direction the second derivative is twice the squared Frobenius norm given in the proof, so existence, uniqueness and automorphism symmetry justify reducing all allocations to x=B-2my. The peripheral differences split into the two stated eigenfamilies, and the remaining block has off-diagonal -sqrt(2m). For k=2m, a=k+x and b=1+y, the derivative of its inverse trace along the budget line is [k(b^2+k)-(a^2+k)]/(ab-k)^2. This gives the strictly negative derivative at y=0 and, with the two peripheral terms, P_m(B/(2m))/B at the other endpoint. A zero endpoint derivative selects that endpoint uniquely. For m<=8, the first subtracted term is maximized at m=8 and the factor 2m/(2m+1+y)^2 is bounded by 1/[4(1+y)]; the positive Bernstein and shifted-power coefficients certify the resulting quartic on all y>=0. For m>=9 the cleared polynomial has two sign changes and P_m(m/3)<0, while P_m(0)>0 and P_m is eventually positive. This gives exactly two distinct roots and the stated closed interval. The witness separator m/3 identifies each root when bracketing near y=2/3 and near y/m=1 in the two respective limits, giving B_-/m -> 4/3 and B_+/m^2 -> 2.
 
-Lin–Fardad–Jovanović (arXiv:1302.0450) give the inverse-trace model and a convex relaxation for Boolean leader placement; Fitch–Leonard (arXiv:1407.1569) give finite-set leader centrality analysis. Neither inspected result states the continuous gain-budget optimum, universal-vertex support criterion, sharp \(m=9\) onset, or two different threshold growth rates on \(K_{1,m,m}\). A related result for continuously allocated gains on complete bipartite graphs cannot imply this result by changing parameters: the present graph is tripartite and contains triangles, while complete bipartite graphs do not. An equivalent unpublished or unindexed specialization of general A-optimal-design theory remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The size-nine boundary and the two different switching-budget scales answer a concrete resource-allocation question: a highest-degree universal vertex can optimally receive zero feedback at medium budgets, despite being useful for both low and high budgets. Beyond a numerical example, the theorem classifies support and all gains for an infinite family and quantifies how its exceptional interval widens with network size. The comparison with fixed-leader placement makes the difference between selecting leaders and optimizing gain strength explicit.
+The closest source on a nearly identical tripartite graph imposes a fixed pair of equal-gain leaders, while the closest statements on the same continuous objective concern different graphs and sign laws. The general inverse-trace design objective and selection tools are prior work. The evidence supports the specific K_{1,m,m} support criterion, exact m=9 onset and two distinct scales as the contribution, not novelty of reentrance in general.
 
-## Risks and limitations
+## value
 
-The uniform edge model and unconstrained divisible budget are essential. The strong novelty assessment is conditional on accessible indexing and literature, not a proof that no equivalent specialization appears elsewhere. The checker covers only finite selected dimensions; every infinite quantifier is justified analytically in the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unit-edge graph has a distinguished universal vertex, yet adding budget can make its optimal gain go from positive to zero before becoming positive again. The exact integer onset, closed switching interval and different linear and quadratic budget scales quantify this effect across a natural family, rather than recording a numerical exception or a routine optimality condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

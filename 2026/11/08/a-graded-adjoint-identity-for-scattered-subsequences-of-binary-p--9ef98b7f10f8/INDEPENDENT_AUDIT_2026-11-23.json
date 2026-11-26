@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:02:12.455235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The last-position bijection maps all distinct subsequences of x, including empty, bijectively to those of xc ending in c by appending c; the other ending class is unchanged. This gives precisely the two transfers. Both adjoint identities, det H=2t^2 and H e_3=t(1,1,0)^T give M(u^R)=H^{-1}M(u)^T H over Q(t). Inserting the identity or T_c between the two half transfers gives the two stated polynomials without specializing at t=0. Empty half gives P=0 for the empty host and P=t for either center. Exact symbolic multiplication and an explicit distinct-string oracle agreed coefficientwise on 381 hosts from all 127 halves of lengths 0–6. Replay with Python 3 and SymPy: /workspace/branches/db63b1c3-41e7-4fe0-be69-70be77ccef6a/adjoint_check.py. These finite checks corroborate the general proof; uploaded script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Flaxman–Harrow–Sorkin reference concerns unrestricted-host extremizers; the publisher PDF fetch did not yield readable text in this review.",
+          "Mahalingam–Pandoh §2 defines SP_t by length but only for palindromic outputs, and §4 bounds that statistic."
+        ],
+        "reasoning": "Extremal length counts do not enumerate a specified reflected host. An exact general graded concatenation theorem with the same pairing could subsume the claim; the accessible main comparator instead provides the numerical total.",
+        "searches": [
+          "Web: distinct subsequences length generating function binary graded concatenation ending symbol Żak palindrome bilinear dynamic programming polynomial",
+          "doi:10.37236/1761",
+          "arXiv:2108.02729"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.00342v1",
+        "arXiv:2108.02729v1",
+        "doi:10.37236/1761 (reference and access attempt)",
+        "Resultary 9ef98b7f10f8 (self-match), 1fcd9e1db0eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing A,B for ending counts of u at t=1 excluding empty, Żak gives P_{uu^R}(1)=2(1+A)(1+B)-2. Applying his theorem to (uc,u^R) also covers the odd total.",
+          "At general t the same-letter diagonal coefficients are t−1 in tP; replacing ungraded counts by polynomials in the scalar formula does not give the assertion (already for u=0)."
+        ],
+        "reasoning": "The known induction is a close methodological antecedent, but preservation of all length weights needs a new pairing with the diagonal correction, here established by the adjoint relation. No originality is assigned to either t=1 specialization.",
+        "searches": [
+          "arXiv:2210.00342v1 §2, §2.1 Definition 2 and Theorem 2 with proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Żak's scalar pairing is the t=1 formula, with the empty subsequence included in his counts.",
+          "The separate published Resultary reflection-decomposition record (1fcd9e1db0eb) counts only palindromic strings appearing as subsequences."
+        ],
+        "reasoning": "The reflection aliases distinguish a constraint on the host from a constraint on the enumerated subsequence. For 0110 the unrestricted profile (2,4,3,1) differs from the palindromic-only profile (2,2,1,1). The adjoint produces an unrestricted length polynomial, not an embedding statistic.",
+        "searches": [
+          "Resultary: distinct scattered subsequences binary words palindrome length-graded enumerator reflected half common adjoint concatenation",
+          "arXiv:2210.00342v1 §2.1 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match 9ef98b7f10f8 is the record under review, not an independent antecedent.",
+          "The adjacent reflection record and Mahalingam–Pandoh tables tabulate or enumerate a different, palindromic-output language."
+        ],
+        "reasoning": "Exact formula/table coverage is possible in this enumeration problem and was checked by observable; no separate anterior table or equivalent theorem was established in the inspected material.",
+        "searches": [
+          "Resultary: distinct scattered subsequences binary words palindrome length-graded enumerator reflected half common adjoint concatenation",
+          "arXiv:2108.02729 §4 Tables 1–2"
+        ]
+      },
+      "rationale": "Qualified to the explicit length-graded reflection identity and common adjoint for both parities. The ungraded case for either parity and the distinct-subsequence recurrence are prior background. The elementary length-weighted algebra can be viewed as an extension of the known concatenation method; no inspected prior theorem supplies the polynomial pairing or implies it merely by specializing an existing stronger graded formula.",
+      "residual_risks": [
+        "A general length-weighted concatenation formula or equivalent symmetrizer in unlocated combinatorics-on-words literature would take priority.",
+        "The unrestricted-host extremal primary PDF did not yield readable contents during this review. The record's date for Żak is the arXiv posting date, not a certification of the earliest public circulation of the paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage at t=1 for both parities; not a stated graded pairing.",
+          "evidence": [
+            "Theorem 2 multiplies starting and ending counts for opposite letters, with a scalar correction for empty."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.00342v1",
+          "material_read": "§2 definitions, §2.1 Theorem 2 and its induction, §3 extremal application",
+          "method": "Primary open arXiv HTML",
+          "title": "Finding binary words with a given number of subsequences",
+          "trigger": "Closest exact binary concatenation formula"
+        },
+        {
+          "assessment": "Different observable: only subsequences which themselves are palindromes.",
+          "evidence": [
+            "SP_t(w) is the number of scattered palindromic subwords of length t; Theorem 4.2 is a total upper bound for those strings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "§2 distinct-string definitions and examples; §4 bounds and tables",
+          "method": "Primary arXiv PDF text",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Length-graded scattered-subsequence terminology"
+        },
+        {
+          "assessment": "The indexed result restricts the counted strings to palindromes, so it does not enumerate the complementary nonpalindromic strings.",
+          "evidence": [
+            "Even length 2m and odd length 2m−1 counts refer to distinct scattered palindromes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reflection-decomposition-of-the-distinct-scattered-palindrome-sp--1fcd9e1db0eb",
+          "material_read": "Indexed statement of the even and odd reflection formulas",
+          "method": "Resultary published-record search",
+          "title": "Reflection decomposition of the distinct scattered-palindrome spectrum of any finite palindrome",
+          "trigger": "Same reflected hosts and half-word spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful fact is the explicit quadratic pairing that translates two half-word ending profiles to every length of an unrestricted subsequence spectrum, uniformly for no center or either center. It gives a direct reflection rule without propagating a second half through the dynamic program and exposes which graded statistics of the half enter. This is a modest structural enumeration result, not a claim of a new DP, faster general algorithm or new extremal theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

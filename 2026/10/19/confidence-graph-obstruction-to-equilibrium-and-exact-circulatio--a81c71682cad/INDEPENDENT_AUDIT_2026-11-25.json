@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:20:29.428669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–93",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/frozen_math_replay.py"
+      ],
+      "rationale": "A nonempty noncomplete undirected H has an opinion a with both a neighbor b and a nonneighbor c: otherwise any vertex incident to an edge would be universal, forcing every vertex incident and then H complete. Take all other vertices at opinion a and cycle the focal vertex through a,c,b,a. Only b→a has a conformity increment; unanimous a-neighbors occur with probability one for every allowed q. The forward/reverse rate-product ratio is (u+v)/u; positive reset rates ensure irreducibility. For q=1 on K_N the empty-confidence rates are symmetric, and the complete-confidence rates have the same ratio as the rising-factorial weight, including the subtraction of the changed vertex from the reverse target count. Uniform resampling at p=1 is separately reversible. On K₂ the count process is an exact lumping and its rates have the factor nᵢ for available changing vertices. The asserted masses sum to one and satisfy the balance equations, with opposite flows canceling outside the two oriented current triangles. Each triangle contributes J log((3−2p)/p); counting unordered edges prevents a factor-of-two error. Differentiating p(1−p) log((3−2p)/p) proves strict concavity on (0,1/2) and a negative derivative on [1/2,1), with zero endpoint limits. Independent replay, python3 /workspace/frozen_math_replay.py 3, reconstructs exact count flows by aggregating labeled transitions for four p values, then finds the peak p≈0.291984797141795 and rate ≈0.064719539702587. The bounded replay corroborates, not substitutes for, the symbolically valid reasoning.",
+      "residual_risks": [
+        "The entropy production asserted is count-chain entropy production at the specified timescale, not a general assertion about coarse-graining or other populations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Herrerías-Azcué and Galla use Tⱼ→ᵢ=nⱼ(rⱼᵢ nᵢ/N+εⱼᵢ): setting rⱼᵢ=N(1−p)1_{ij∈H}/(N−1), εⱼᵢ=p/m matches the complete-social q=1 count generator exactly. They analyze stationary marginals and switching, rather than the claimed compatibility criterion. Irisarri et al. give detailed-balance and entropy-production relations in a binary all-to-all model and a later extension with different rate structure."
+        ],
+        "reasoning": "Knowing a general generator includes the model, not the requested stationary flux calculation. The arbitrary-undirected-social-graph and arbitrary-q obstruction in particular is not a specialization of the mean-field q=1 count rates.",
+        "searches": [
+          "arXiv:1903.09198 §II.A eq. (3), homogeneous complete network and state-dependent imitation",
+          "DOI 10.1038/s41467-026-76212-0, equations 12, 25 and 36–37"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/e24070983",
+        "Radosz–Doniec 2021 OA PDF",
+        "arXiv:1903.09198",
+        "DOI 10.1038/s41467-026-76212-0",
+        "Resultary 235cd640600d and 65cacf89161b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bounded-confidence study works out mean-field stationary concentrations and bifurcations; the more general count model supplies rates but not these exact nonzero currents; current–affinity formulas evaluate entropy production only after the stationary flow is determined."
+        ],
+        "reasoning": "The selected focal-vertex cycle proves a uniform nonzero rate-product ratio without solving a stationary law. The K₂ rate normalization, six stationary masses, and noncanceling flows require the model-specific calculation, not substitution into a covered evaluated entropy-production theorem.",
+        "searches": [
+          "DOI 10.3390/e24070983, PDF pp. 3–4, 6 and 8",
+          "arXiv:1903.09198 §II.A",
+          "DOI 10.1038/s41467-026-76212-0, equations 12, 25 and 36–37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doniec–Lipiecki–Sznajd-Weron match the three-opinion confidence path, universal uniform independent choices and unanimous copying. Radosz–Doniec instead restrict the independent changes from extreme opinions. Neither inspected argument computes the microscopic cycle affinity or K₂ count current."
+        ],
+        "reasoning": "Equal probabilities for arbitrary independent recolorings are essential to the rate ratio. Adjacent-only independence is not a relabeling; in particular it lacks the direct extreme-to-extreme reset used in the witness.",
+        "searches": [
+          "Resultary semantic lookups: noisy q-voter partial confidence, Kolmogorov reversibility, multistate opinion current/entropy production",
+          "DOI 10.3390/e24070983, model and finite transition probabilities",
+          "ICCS 2021 Radosz–Doniec, Section 2 and Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "235cd640600d concerns stationary counts and modes for complete-social unanimity two; 65cacf89161b concerns a synchronous confirmation-bias map and linear conserved statistics. No exact table of the six masses/currents for this generator appeared in the inspected hits."
+        ],
+        "reasoning": "Neither result shares the partial confidence graph and correct rates for K₂ nor gives a matching Kolmogorov cycle. This is a bounded database check, not a global negative result.",
+        "searches": [
+          "Resultary ranked searches for the exact partial-confidence reversibility and two-person entropy-production chain",
+          "Resultary local-mirror entries 235cd640600d and 65cacf89161b"
+        ]
+      },
+      "rationale": "This assessment credits the known noisy copying generators, standard Kolmogorov and entropy-production principles, and the familiar reversible complete-confidence product weights as ingredients. What is distinct on the inspected evidence is the graph- and q-independent partial-confidence obstruction with its exact affinity, the resulting sharp confidence-graph classification in the q=1 complete-social subfamily, and the evaluated K₂ count circulation law and maximum. The available sources do not contain these evaluated conclusions.",
+      "residual_risks": [
+        "A more general published confidence-specific reversibility theorem could imply part of the conclusion; this limited comparison does not establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same three-state update rule; studied different conclusions",
+          "evidence": "Uniform independent choice over all three labels and bounded-confidence unanimity, analyzed for mean-field stationary and bifurcation behavior.",
+          "identifier_or_url": "https://doi.org/10.3390/e24070983",
+          "material_read": "Model/rates PDF pp. 3–4; results pp. 6 and 8",
+          "method": "OA full-paper passage inspection",
+          "title": "Consensus, Polarization and Hysteresis in the Three-State Noisy q-Voter Model with Bounded Confidence",
+          "trigger": "Exact three-state model predecessor"
+        },
+        {
+          "assessment": "Different independent noise",
+          "evidence": "An extreme opinion independently chooses middle or stay, not any opinion.",
+          "identifier_or_url": "https://www.iccs-meeting.org/archive/iccs2021/papers/127440285.pdf",
+          "material_read": "PDF pp. 2–3, model and Algorithm 1",
+          "method": "OA passage inspection",
+          "title": "Three-State Opinion Q-Voter Model with Bounded Confidence",
+          "trigger": "Early closely named predecessor"
+        },
+        {
+          "assessment": "Count-generator coverage for complete social q=1, not the evaluated obstruction or entropy production",
+          "evidence": "Equation (3) has independent mutation and state-dependent imitation rates; the stated results concern the stationary marginals and switching behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.09198",
+          "material_read": "Introduction and §II.A, pp. 1–2, equations (1)–(3), offsets 7600 and 12797",
+          "method": "Primary web search followed by OA passage inspection",
+          "title": "Consensus and diversity in multi-state noisy voter models",
+          "trigger": "General finite multistate noisy voter rates and possible stationary overlap"
+        },
+        {
+          "assessment": "Methodological precedent, not the evaluated count law",
+          "evidence": "Binary baseline and later multistate network extension with node-state-independent activity factor.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-026-76212-0",
+          "material_read": "PDF pp. 2, 4, 7 and 11–12, equations (12), (25), (36)–(37)",
+          "method": "OA passage inspection",
+          "title": "Stochastic thermodynamics of social imitation beyond energetics",
+          "trigger": "Strong general thermodynamic claim"
+        },
+        {
+          "assessment": "Related terms but different processes and statements",
+          "evidence": "Unanimity-two stationary counts and deterministic synchronous-map conserved statistics respectively.",
+          "identifier_or_url": "Resultary 235cd640600d; 65cacf89161b",
+          "material_read": "Indexed RESULT.md Finding passages",
+          "method": "Resultary semantic lookup and local mirror",
+          "title": "Related indexed noisy-voter and confirmation-bias results",
+          "trigger": "Apparent finite equilibrium and reversibility matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the cycle and stationary flows",
+        "Doniec–Lipiecki–Sznajd-Weron 2022 model"
+      ],
+      "rationale": "The result separates social topology and unanimity from compatibility: the smallest possible directed cycle already witnesses microscopic irreversibility uniformly in both social parameters. The exact q=1 boundary and two-person current give natural benchmarks for when stationary opinion circulation persists and how it depends on uniform reset noise.",
+      "residual_risks": [
+        "The sharp converse and explicit entropy rate apply only within their stated subfamilies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

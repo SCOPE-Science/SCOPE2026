@@ -1,15 +1,21 @@
-# Scientific review: sharp transition discrepancy in base-\(3/2\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for the two oriented transitions of the explicitly defined binary fixed word, with the prefix convention fully stated. The proof derives its own auxiliary word recurrence from the two-block rule, obtains exact formulas for signed pair sums and transition counts, and proves the upper logarithmic error by strict index contraction. A Chinese-remainder family produces a forced increment of two in the integer signed defect over each two-step inverse cycle, proving the matching logarithmic maximum lower bound. The finite verifier compares independent digit extraction and the recurrence, checks exact count identities, and validates witness chains; none of these finite checks substitutes for the proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2022 OEIS source and 2023 paper introduce the binary word and conjecture factor frequencies. The 2026 primary paper proves one-symbol equidistribution and discusses two-symbol frequencies without a sharp error estimate. The closest indexed published result, *All-order rational run statistics and the exact five-state run-transition law*, establishes rational limiting run statistics for the related half-scaled word, and therefore limits any novelty claim to the **quantitative sharp discrepancy**, not the eventual frequency itself. That result's full statement and proof do not contain an \(O(\log M)\) prefix bound or a matching lower family. A separate classical base-two Thue–Morse logarithmic discrepancy is about a different digit system. Priority beyond accessible sources is not independently determined.
+PASS
 
-## Mathematical value — PASS
-Determining the exact order of the transition-count error sharpens an expressly motivated local frequency problem for rational-base digit expansions. The result distinguishes an unusually small \(\log M\) error from the much larger order of the count itself, while proving that logarithmic oscillation cannot be eliminated. The matching lower bound is a structural arithmetic construction, not a table extrapolation. The theorem is limited to two naturally distinguished patterns; it does not claim all-factor frequency laws or new leading constants.
+In the stated convention n=∑d_j(3/2)^j, the units digit is n mod 3 and the remaining value is 2⌊n/3⌋, proving the fixed-word parity rule including w0=0. For t_j=w_{2j}, adjacent signs in one auxiliary triple are (1,−ε_{2m},−ε_{2m+1}), which gives the three displayed branches for D(N) with additive terms 0,4, or −2/8. Iteration shrinks the argument by at least the factor 2/3 for N>0. The t-to-w block map contributes one transition of each orientation inside every triple; boundary orientation imbalance telescopes to t_N−t_0. Thus Q_ab(3N)−6N/5 equals −D(N)/20 plus the signed, bounded endpoint term, and the other two residues change the error by O(1). For the lower bound, the congruences for m0 are compatible and give m0≤3·4^k; multiplication of 5m+6 by 9/4 preserves the requisite divisibility, ensuring all k steps are integral and all m_j are multiples of 3. At 2m_j the sign is +1; the two inverse steps visit 3m_j+2 and 3(3m_j+2)/2, giving net drift +2. Consequently one of the two endpoint defects has magnitude at least k at a prefix ≤30·9^k, yielding the lower bound for both orientations for every sufficiently large X by choosing k=⌊log_9(X/30)⌋. This is maximal prefix discrepancy, not a lower bound at every prefix. Independently checked 6,000 direct signed prefixes, the two transfers at 2,000 complete-block prefixes, and 16 exact CRT witnesses. Replay: python3 /workspace/branches/frozen_math_reproductions.py 4. These are finite corroboration; the proof supplies the quantifiers. The upload was inspected, not executed.
 
-## Closest sources and limitations
-OEIS A357448 (original approval 2022-09-30), Dekking (2023, arXiv:2301.13563), Cassaigne–Espinoza–Rigo–Stipulanti (2026, arXiv:2602.21895), and a published 2026-11-08 all-order run-statistics finding were compared at statement and implication level. The residual risk is a previously unindexed equivalent quantitative bound under rational-base substitution or Toeplitz-discrepancy terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The record itself limits novelty to the sharp order of maximal prefix error. Known symbol recurrences and a previous run-statistics theorem already supply the word and the limiting oriented densities, but the verified comparisons do not establish a quantitative theorem with a matching logarithmic lower bound for this word.
+
+## value
+
+PASS
+
+The exact error order quantifies convergence for a named, studied rational-base sequence whose transition frequencies were explicitly conjectured. The lower bound rules out bounded or sublogarithmic maximal error despite near-linear predictability of both counts, and the congruence construction explains the persistent drift rather than inferring it from a table. The limiting frequency alone is not counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

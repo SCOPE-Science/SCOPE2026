@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:22:00.043274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "JJ* and BB* have covariance kernels min(x,y) and min(x,y)−xy, the Green kernels for Dirichlet–Neumann and Dirichlet–Dirichlet boundary data. The reciprocal square roots of the differential eigenvalues give the claimed singular ladders, not eigenvalues of J or B. Hilbert-space tensoring and optimal rank truncation give s_k=1/(π²X_k) with ordered products counted with multiplicity; zero singular values from kernels do not intervene. An independent parity reduction verifies the counting constants: for D the ordinary ordered divisor sum, N_BB(X)=D(X), N_JB(X)=D(2X)−D(X), and N_JJ(X)=D(4X)−2D(2X)+D(X). The classical asymptotic gives exactly B_r and O(√X); ties are at most the divisor count of 4X_k and therefore O(√X_k). Hence k=X_k(log X_k+B_r)+O(√X_k) and X_k~k/log k. Setting w=k/X_k gives w+log w=log k+B_r+O(X_k^(−1/2)); the inverse has Lipschitz constant ≤1. This recovers the printed remainder and the elementary Lambert expansion gives both adjacent differences and the two-step limit. The frozen integer/rank checker was inspected, not run, and is not evidence for the infinite asymptotic without the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical formula D(Y)=Y log Y+(2γ−1)Y+O(√Y) is stated in §1 of arXiv:1209.0872; its Eq. (1.1) records a stronger exponent. In contrast the inspected general tensor theorems give leading-order equivalents or rates and do not recover the three constants by their leading terms alone."
+        ],
+        "reasoning": "Coverage rests on the stronger exact divisor main term and error transported by parity, not on generic logarithmic tensor leading asymptotics. Since the divisor remainder bounds the count on both sides of any jump, a stronger error also automatically bounds rank ties and improves the inverted error.",
+        "searches": [
+          "Dirichlet main term and stronger error, arXiv:1209.0872 p. 1 §1",
+          "Kühn–Sickel–Ullrich arXiv:1312.6386 Theorem 4.3",
+          "Nguyen–Sickel arXiv:1409.7565 Theorem 3.1",
+          "Krieg arXiv:1612.07680 Theorem 2 and Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.0872 §1",
+        "arXiv:1312.6386 Theorem 4.3",
+        "arXiv:1409.7565 Theorem 3.1",
+        "arXiv:1612.07680 Theorem 2 and Lemma 1",
+        "Tuan–Gorenflo DOI 10.1080/01630569608816704 (abstract-level only)",
+        "Resultary 7f2244fe2f31 and a3dd7557422c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct substitution of the Dirichlet two-term formula into the three parity identities gives the linear coefficients 2γ−1, 2γ−1+2log 2, and 2γ−1+4log 2 in pinned-to-anchored order. k=X_k(log X_k+B_r)+O(√X_k) immediately reduces to w+log w=log k+B_r+O(X_k^(−1/2)). The inverse derivative is ≤1 and the rank-scaled difference tends to the difference of the linear coefficients."
+        ],
+        "reasoning": "No new lattice count, spectral approximation, or inversion estimate is required beyond substitution, multiplicity handling, and scalar monotonicity. This includes the Lambert remainder, not just the first-order equivalent.",
+        "searches": [
+          "arXiv:1209.0872 §1 formula for Δ(x)",
+          "Resultary 7f2244fe2f31 univariate Volterra singular spectrum",
+          "Frozen RESULT.md lines 45–60, standard separated Green operators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tensor covariance eigenvalues are squared reciprocal products of the two standard ladders. Replacing j+1/2 by an odd positive integer divided by two makes the spectra exactly equivalent to ordered positive factor pairs with parity constraints. N_BB=D(X), N_JB=D(2X)−D(X), N_JJ=D(4X)−2D(2X)+D(X)."
+        ],
+        "reasoning": "Even-factor exclusions divide their thresholds by two and their intersection divides by four. These are exact finite-threshold identities, not approximate analogies.",
+        "searches": [
+          "Resultary: tensor anchored and pinned integration, half-integer and integer shifted products",
+          "Dirichlet divisor problem d(x) x log x 2 Euler gamma - 1 Huxley formula arXiv divisor summatory asymptotic",
+          "arXiv:1209.0872 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7f2244fe2f31 gives the univariate J ladder at power parameter 1, but not the bivariate constants. a3dd7557422c treats continuous product-kernel superlevel tails rather than discrete singular numbers. No direct tabulated triplet was identified in these comparisons."
+        ],
+        "reasoning": "The lack of a matching indexed triplet is not positive evidence of originality: the stronger exact divisor reduction decides the original claim.",
+        "searches": [
+          "Resultary: exact bivariate integration singular spectra, boundary constants and logarithmic product endpoints",
+          "Resultary 7f2244fe2f31 and a3dd7557422c Findings"
+        ]
+      },
+      "rationale": "The mathematical claim is correct but covered by a mechanical reduction to the established ordinary Dirichlet divisor summatory theorem on exact standard tensor spectral ladders. The all-integer, odd-by-integer, and odd-by-odd counts are three fixed inclusion–exclusion combinations of one classical function; its standard two-term formula already fixes every boundary constant. The Lambert remainder is a scalar inverse of that same count with its established error, not an independent new spectral estimate. The failure is demonstrated coverage by implication, not a claim that a paper was found that explicitly prints the triplet in these exact operator terms.",
+      "residual_risks": [
+        "Explicit priority for this combined approximation-number wording was not established. Equivalent odd-divisor or Brownian tensor-covariance count literature may state it directly.",
+        "The cited Tuan–Gorenflo full text could not be checked; the failure does not rely on that source or the absence of any indexed hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit report of the classical theorem with the precise second term and O(√x) error; stronger error also recorded",
+          "evidence": [
+            "Δ(x)=sum_(n≤x)d(n)−x log x−(2γ−1)x; Dirichlet proved Δ(x)=O(x^(1/2))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.0872",
+          "material_read": "PDF p. 1, §1, text offsets 700–2374, definition of Δ(x), Dirichlet bound and Eq. (1.1)",
+          "method": "OA PDF literal locator followed by bounded full-text reading",
+          "title": "On the Dirichlet divisor problem in short intervals",
+          "trigger": "Decisive classical two-term formula and remainder after exact parity reduction"
+        },
+        {
+          "assessment": "Leading equivalent in the periodic setting, not the frozen boundary coefficient",
+          "evidence": [
+            "Periodic mixed-Sobolev embedding approximation numbers, not the anchored/pinned product count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.6386",
+          "material_read": "p. 13 Theorem 4.3, offset about 44380",
+          "method": "OA theorem passage comparison",
+          "title": "Approximation of mixed order Sobolev functions on the d-torus—Asymptotics, preasymptotics and d-dependence",
+          "trigger": "Potential stronger mixed-Sobolev approximation-number theorem"
+        },
+        {
+          "assessment": "Rate theorem insufficient for an additive 1/k term",
+          "evidence": [
+            "The result is a two-sided order estimate for Weyl numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.7565",
+          "material_read": "p. 5 Theorem 3.1, offset about 14100",
+          "method": "OA theorem passage comparison",
+          "title": "Weyl Numbers of Embeddings of Tensor Product Besov Spaces",
+          "trigger": "Potential broader logarithmic tensor decay result"
+        },
+        {
+          "assessment": "Leading power/log equivalent; not the precise shift constant",
+          "evidence": [
+            "Leading product-count equivalent is r(log r)^(l−1)/(l−1)!."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.07680",
+          "material_read": "Theorem 2 p. 2 and Lemma 1 p. 6, offsets about 4200 and 16900",
+          "method": "OA theorem and counting lemma comparison",
+          "title": "Tensor power sequences and the approximation of tensor product operators",
+          "trigger": "Potential encompassing approximation-number theorem"
+        },
+        {
+          "assessment": "Univariate comparison incomplete; not used as evidence for the rejection",
+          "evidence": [
+            "The accessible comparison concerns one-factor Volterra singular asymptotics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01630569608816704",
+          "material_read": "Frozen abstract-level comparison only; no primary full text retrieved",
+          "method": "Lawful OA repository and publisher retrieval attempts",
+          "title": "Asymptotics of singular values of Volterra integral operators",
+          "trigger": "Relevant cited one-factor antecedent"
+        },
+        {
+          "assessment": "Univariate overlap for J in the first; continuous endpoint tail in the second",
+          "evidence": [
+            "Power parameter 1 specializes to s_n(J)=1/[π(n−1/2)]. Neither inspected Finding states the combined triplet."
+          ],
+          "identifier_or_url": "Resultary 7f2244fe2f31 and a3dd7557422c",
+          "material_read": "Local RESULT.md Finding at offset 0 in each case",
+          "method": "Indexed comparison and local-mirror passage inspection",
+          "title": "Bessel singular spectra and rank-one boundary laws; Exact logarithmic endpoint law for factorized smooth product kernels",
+          "trigger": "Likely exact indexed source for a spectral or logarithmic endpoint match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The boundary comparison is a useful exposition of two natural operators, but these two exact ladders turn every advertised correction and remainder into ordinary divisor asymptotics at X, 2X, and 4X followed by routine inversion. No independently unknown structural step, boundary classification, or nonmechanical spectral invariant remains in the frozen scope. Rewording the consequence would not repair that issue.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gram matrix for the origin and its signed coordinate orbits reduces rigorously to two linear equations with Schur complement \((1-s^2)^2>0\). The resulting outer weight is positive for the entire exact parameter domain; the central sign is controlled by \(dF_u(s)\). Strict monotonicity is proved analytically by comparing \(\beta/(1-e^{-\beta x})\) with \(2\coth x\). Correct endpoint behavior proves a unique crossing and exact boundary. Small-\(s\) expansion proves the dimension limit, and a separate flat-kernel expansion reproduces polynomial moment weights. The included independent full-matrix numerical solver and formula checks pass 3,774 assertions. NumPy checks are illustrative, not an infinite-domain proof.
+PASS
 
-## Originality — PASS (qualified)
+Gaussian convolution gives q₀=u^(d/2) and q_out/q₀=s^u. The unique full Gram solution is constant on each signed-permutation orbit; the outer row has affinities 1, s⁴, and 2(d−1) copies of s² within the outer orbit. Eliminating the center gives the strictly positive outer weight with denominator (1−s²)² and the stated center formula. As an independent sign check, define T(s)=2d s^(1+u)−1−2(d−1)s²−s⁴, so the center sign is the sign of −T. The derivative T′/(2s^u)=d(1+u)−2(d−1)s^(1−u)−2s^(3−u) decreases strictly from d(1+u)>0 to d(u−1)<0. Thus T rises from −1 to a positive maximum, then strictly falls to T(1)=0; the crossing in (0,1) is unique and the direction in radius reverses since s decreases with radius. With u fixed, the equation F_u(s*)=1/d forces s*→0, and F_u(s*)/(2s*^(1+u))→1, giving a*²/(2ℓ²)=log(2d)/(1+u)+o(1). At fixed a,τ,d with ℓ→∞, s^u−s∼a²τ²/(2ℓ⁴) and (1−s²)²∼a⁴/ℓ⁴, giving the two flat-kernel limits.
 
-The closest prior, Karvonen--Särkkä (2018), explicitly analyzes this exact symmetric node set with Gaussian kernel and standard Gaussian measure, provides a general two-orbit linear solve, and observes negative central weight in large dimension. Those facts are explicitly conceded. The present specific mathematical advance is a necessary-and-sufficient nonnegative-weight radius for all \(d,\ell,\tau\), unique sign transition without reentry, and dimension-asymptotic constant. The prior paper does not state or prove this explicit sharp phase diagram or asymptotic. Särkkä et al. (2015) treat related sigma-point rules and kernel quadrature without this sign cutoff; Karvonen et al. (2019) focus principally on one-dimensional positivity. Search of related abstracted research records returned a one-dimensional three-node uniform-target Gaussian-kernel result, not the multivariate Gaussian-target orbit result. The prior general matrix-inversion framework makes the weight formulas an accessible specialization; this narrows the novelty and remains a risk. Unindexed equivalent derivations could further limit priority.
+## originality
 
-## Value — PASS
+PASS
 
-The all-parameter classification resolves the exact design-scale needed to avoid a sign instability explicitly recognized in prior literature. The \(\sqrt{\log d}\) law supplies a quantitative high-dimensional design guideline, and the sharp zero boundary distinguishes truly nonnegative quadrature from negative-weight extrapolation. This is a natural complete positivity classification for an established sparse sigma-point architecture, not an arbitrary numeric slice. It does not assert optimal accuracy or improved conditioning.
+Credit the prior symmetric reduction, exact geometry, and large-d negative-center observation. The supported distinct claim is the all-radius, all-scale positivity iff with unique finite crossing and dimension-dependent sharp radius law. Prior general frameworks give the linear solve but do not give that classification or its dimension law. The exact indexed reentrant law is broader in mixtures and nuggets but is restricted to the one-dimensional three-node geometry.
 
-## Scientific limits and related work
+## value
 
-The conclusion assumes isotropic Gaussian measure and kernel, identical axis radius, no nugget and exact arithmetic. The strongest coverage risk is section 4.3 of the 2018 work, whose general orbit reduction directly supplies an implicit weight solve; the new claims are the rigorously unique positivity frontier and its asymptotic rather than first disclosure of the setup or negative weights. There is no independent validation and bibliographic priority remains subject to specialized external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The radius of a standard sigma-point design is a practical control parameter. A qualitative high-dimensional negative-weight phenomenon does not tell a designer whether an arbitrary radius is safe or how much to increase it. The exact one-sided sign threshold and sharp normalized squared-radius law answer those questions for this natural design. The finding does not claim that this radius minimizes quadrature error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

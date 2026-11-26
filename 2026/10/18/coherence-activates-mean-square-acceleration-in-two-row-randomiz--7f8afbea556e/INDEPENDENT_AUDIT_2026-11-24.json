@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:05.955945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–106",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, kaczmarz()"
+      ],
+      "rationale": "The two reflecting projections in bisector coordinates have diagonals q=(1−c)/2, r=(1+c)/2 and opposite off-diagonals. Independence gives the exact two-conjugation covariance average, splitting into even and odd symmetric dimensions six and four. I recomputed the symbolic blocks from conjugation of the symmetric basis, their full M=0 characteristic polynomials, both first derivatives and the exact even quadratic coefficient. For fixed c>0 the isolated leading even root L has the stated negative derivative; the zero-momentum initial projection is proportional to q e₁²+r e₂² and is bounded below on the unit circle, and the squared-error observable is positive on the leading right eigenmatrix. Thus the asymptotic root rate persists for every nonzero deterministic zero-velocity start for sufficiently small M. For orthogonal rows the scalar history cubic changes sign between t=1/2 and large t for every M>0. The brief observability argument in the frozen text can be made explicit: the normalized left eigenvector for a root t>1/2 pairs with the initial scalar history (1,1,1) as (t²−M²t+M³)/[t(t+M)]>0, since M⁴−4M³<0 on 0<M≤1; its right eigenvector has nonzero first component by the last two recurrence equations. Near (0,0) the even branch is analytic and strictly convex in M, with first derivative −2c²+O(c⁴) at zero and second-order coefficient 1+O(c²). The implicit-function critical point is c²+O(c⁴), giving gain c⁴+O(c⁶). There the odd branch is lower by c²+O(c⁴) and all other eigenvalues tend to zero. The strict orthogonal gap away from M=0 on compact subintervals of [0,1] confines all small-c global minimizers to the even convexity neighborhood. Since the radius is at least this branch and equals it at the critical point, the optimizer is unique globally. Replay: python /workspace/branches/independent_replay.py 4.",
+      "residual_risks": [
+        "The derivative and near-zero rate equality are pointwise in positive c; global optimality is asserted only near orthogonality. No higher-dimensional, smoothing, noisy-system or almost-sure generalization follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of arXiv:2211.06391 gives sufficient mean-square convergence under IID measurements and a small-momentum condition, so its model includes two unit rows. Its experiments report speedups on coherent length-50 random data.",
+          "Loizou–Richtárik give a sufficient general L₂ bound and an accelerated squared norm of the expected iterate; the stated L₂ bound is no better than its zero-momentum counterpart. Bollapragada–Chen–Ward give expected-norm batch-dependent guarantees, not an exact two-row rate."
+        ],
+        "reasoning": "Neither convergence under a sufficient condition nor an experimental or first-moment rate improvement dominates the exact two-row second-moment derivative and optimizing law.",
+        "searches": [
+          "arXiv:2211.06391 Theorem 1 and coherent-data experiments",
+          "arXiv:1712.09677 Theorems 1 and 4",
+          "arXiv:2206.07553 Theorems 1.3 and 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.06391",
+        "arXiv:2401.09415",
+        "arXiv:1712.09677",
+        "arXiv:2206.07553",
+        "Resultary e15c00248209, e894b5e60aeb and 8c9561013872"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient bound below unity for the same algorithm and a convergence experiment do not compare the actual rate to L(c), let alone determine its first derivative. The original KGSM directional formula is for the mean iterate.",
+          "The previously exact orthogonal stability frontier tests the radius against 1 at c=0, not its continuation away from the degenerate crossing at c=0 and M=0. The frozen result controls the even and odd branches there and proves the unique small-c global minimizer."
+        ],
+        "reasoning": "The exact rate derivative and global optimum do not follow by substitution or by a sharper reading of the inspected convergence and stability claims.",
+        "searches": [
+          "arXiv:2211.06391 Algorithm 1, coherent-data diagnostics and Theorem 1; arXiv:2401.09415 Theorem 1.1",
+          "Frozen RESULT.md lines 5–22, 67–106"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here y_k=e_k−e_{k−1}, so the update is the usual randomized heavy-ball Kaczmarz with displacement momentum M and e_{−1}=e₀; mRK and Algorithm 1 cover it under uniform sampling of two unit rows.",
+          "The signed error and squared signed-mean observables are distinct from expected squared Euclidean error."
+        ],
+        "reasoning": "The alias identifies genuine prior algorithmic overlap; the alternative observables do not provide the target exact second-moment rate.",
+        "searches": [
+          "Alderman–Luikart–Marshall arXiv:2401.09415 Eq. (9), smoothing β=0",
+          "Loizou–Richtárik arXiv:1712.09677 §6.1 and §7.1, mRK",
+          "Online Signal Recovery via Heavy Ball Kaczmarz arXiv:2211.06391, Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e15c00248209 gives the orthonormal unsmoothed stability boundary M=1/√2; e894b5e60aeb gives diagonal-system coordinatewise boundaries, including unequal sampling.",
+          "The later 8c9561013872 compares two row orientations at M=1 with smoothing 2/3 and differing mean-square stability, not the unsmoothed small-momentum rate."
+        ],
+        "reasoning": "The strongest published exact matches have c=0, diagonal rows or a different parameter regime and conclusion. They do not provide a table or formula for the reviewed derivative or minimizer.",
+        "searches": [
+          "Resultary KGSM covariance, orthonormal and diagonal stability, coherence and row mixing",
+          "Resultary e15c00248209, e894b5e60aeb and 8c9561013872"
+        ]
+      },
+      "rationale": "The supported novelty is the exact nonzero-coherence mean-square derivative, the resulting genuine small-momentum acceleration for every fixed positive overlap, and the unique global weak-overlap optimizer law. The algorithm and the idea that coherent data may benefit from momentum are both prior. In particular, Online Signal Recovery via Heavy Ball Kaczmarz (arXiv:2211.06391) is a material same-algorithm antecedent missing from the frozen bibliography. Its coherence experiments and sufficient mean-square convergence guarantee do not give the claimed exact comparison or optimizer. The pass is not a priority claim for the algorithm, qualitative acceleration idea or orthogonal stability frontier.",
+      "residual_risks": [
+        "The earlier heavy-ball Kaczmarz literature is directly relevant; an unlocated exact spectral analysis in that or random-matrix literature could cover the specialized law. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive prior overlap, but inspected statements do not imply the exact law",
+          "evidence": "The same unsmoothed update is used with IID measurements; experiments suggest coherence speedups, and the theorem guarantees convergence rather than an exact zero-momentum rate comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.06391",
+          "material_read": "Abstract p. 1 offset 1949; Algorithm 1 and coherent-data experiment p. 2 offsets 11000 and 14000; Theorem 1 p. 3 offset 25100",
+          "method": "Bounded open PDF passages",
+          "title": "Online Signal Recovery via Heavy Ball Kaczmarz",
+          "trigger": "Strongest earlier same-algorithm and qualitative-coherence overlap"
+        },
+        {
+          "assessment": "Covers the update and signed-mean analysis, not the exact mean-square law",
+          "evidence": "β=0 is the unsmoothed instance; the theorem measures the signed error in singular-vector directions.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.09415",
+          "material_read": "Eq. (9), p. 3 offset 9280 and Theorem 1.1, p. 5 offset 16000",
+          "method": "Bounded open PDF passages",
+          "title": "Randomized Kaczmarz with Geometrically Smoothed Momentum",
+          "trigger": "Motivating update and exact prior momentum formulas"
+        },
+        {
+          "assessment": "General convergence overlaps; no exact derivative or optimal-momentum implication",
+          "evidence": "Theorem 1 gives a sufficient L₂ upper bound, while Theorem 4 treats the squared norm of the mean.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.09677",
+          "material_read": "§6.1 p. 17 offset 60023, §7.1 pp. 19–21, §4.1 p. 12 offset 46500, §5 p. 14 offset 52946",
+          "method": "Bounded open PDF passages",
+          "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+          "trigger": "Equivalent randomized heavy-ball and mRK formulation"
+        },
+        {
+          "assessment": "Different guarantee in inspected statements",
+          "evidence": "Batch-one equivalence is discussed, but the inspected batch-size-dependent expected-norm guarantees do not yield this exact single-sample second-moment rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+          "material_read": "§1 pp. 3–4 offset 9000, Theorem 1.3 p. 4 offset 11700 and Theorem 3.2 p. 12 offset 43570",
+          "method": "Bounded open PDF passages",
+          "title": "On the Fast Convergence of Minibatch Heavy Ball Momentum",
+          "trigger": "Potential broader stochastic heavy-ball rate theorem"
+        },
+        {
+          "assessment": "Shared stability questions, no demonstrated coverage of the strict-coherence rate law",
+          "evidence": "The first two use orthogonal or diagonal rows; the later mixing result uses different smoothing and momentum and compares stability rather than rate optimality.",
+          "identifier_or_url": "Resultary:e15c00248209; Resultary:e894b5e60aeb; Resultary:8c9561013872",
+          "material_read": "Original Finding passages for all three, and diagonal-record Assumptions",
+          "method": "Local Resultary search and bounded local mirror reading",
+          "title": "Exact mean-square stability frontier and a signed-mean blind spot; Exact mean-square stability frontier for geometrically smoothed momentum; Orthogonal row mixing reverses mean-square stability",
+          "trigger": "Strongest exact published stability and geometry neighbors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 67–106",
+        "arXiv:2211.06391 coherence experiments and Theorem 1 as motivation and contrast"
+      ],
+      "rationale": "This resolves an exact mean-square rate benchmark in the smallest nonorthogonal full-rank system and distinguishes strict acceleration from mere stability or acceleration of the signed mean. Orthogonality and any fixed positive overlap have opposite small-momentum behavior. The fourth-order gain is meaningful because it quantifies the onset of a mechanism, and the global weak-overlap uniqueness and quadratic tuning law rule out a better remote momentum in that regime rather than giving a numerical local optimum.",
+      "residual_risks": [
+        "The exact optimal tuning is a small-coherence two-row theorem, not a prescription for arbitrary coherent systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

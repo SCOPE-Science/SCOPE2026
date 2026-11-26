@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the scalar almost-abelian decomposition \(L=Kt\ltimes V\), direct expansion of the defining identity is equivalent to exactly two coordinate-free equations,
-\[
-fA=-af,\qquad A^2=-u\otimes f.
-\]
-The finite-field proof splits into \(f=0\) and \(f\ne0\), counts every solution exactly once, and derives ranks without characteristic restrictions. The rank counts sum to \(q^5+q^4-q^2\). Exhaustive direct enumeration over \(\mathbf F_2\) and \(\mathbf F_3\) reproduces the formulas.
+PASS
 
-## Originality
+For R(s,x)=(as+f(x),su+Ax), the (t,v) identity gives f(A+aI)=0 and A²=−u⊗f. On V×V the t-component cancels and both V-components equal f(v)Aw−f(w)Av; the (t,t) identity is automatic. This reduction works in characteristic two. If f≠0, A preserves ker f and squares to zero there, hence vanishes there since ker f is a line. Thus A=w⊗f, f(w)=−a, u=aw, and R is the rank-one map (1,w)⊗(a,f). For every nonzero f there are q choices of a and q choices of w, giving q⁴−q² rank-one maps. For f=0 there are q² square-zero A, counting the nonzero ones by their common image/kernel line and a nonzero quotient-to-line map. For A=0 the free first column gives one zero and q³−1 rank-one maps; each nonzero A gives q rank-one maps (a=0 and u in the image) and q³−q rank-two maps. Summing yields the stated ranks and total, with rank three impossible by the same argument over every field. Substitution q→q^m in the counts and the defining exponential series give the zeta function. A separate basis-pair bracket enumeration of all 512 matrices over F₂ gave (1,25,18,0); the uploaded artifacts/verify.py was inspected, not run. This enumeration checks F₂ only, not the arbitrary-field identity or general count.
 
-PASS. The primary 2020 source completely classifies the same \(k=-1\) algebra over \(\mathbb C\) in fifty normalized matrix families, but it gives no finite-field census, rank distribution, noninvertibility theorem, or zeta function. The 2017 predecessor concerns a distinct three-dimensional Lie algebra. Searches across \(g_6\), scalar almost-abelian, semidirect-product, finite-field, rank, and exact-formula aliases found no covering result. A specialized unindexed computation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is the exceptional symmetry case of the final family needed in the published three-dimensional complex classification. The block criterion compresses a fifty-family list into two intrinsic equations, while the finite-field rank enumerator shows globally that invertible operators never occur and determines the arithmetic point-count zeta function.
+The surviving contribution is the finite-field census by rank in all characteristics (and its zeta function), not first classification of the complex algebra or novelty of the Rota–Baxter defining equations. The exact polynomial match found in the catalogue belongs to a different algebra. The strongest primary complex classification could not be inspected in full despite lawful alternate retrieval attempts; the decision reflects actual comparisons and leaves the risk of an equivalent parameterization explicit.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finite-field count resolves the natural exceptional scalar-action member of a studied Lie-algebra family without carrying over divisions or normalized complex families. The rank census separates the geometric constraint f≠0 forcing rank one from the entire rank-two locus and covers small characteristic as well as extension fields. It is a complete readily reusable invariant of the weight-zero operator variety, not a sporadic table entry or an isolated parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

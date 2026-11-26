@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Place `VERIFY.py` and `DUAL_CERTIFICATES.json` together and run `python3 VERIFY.py DUAL_CERTIFICATES.json` (Python 3, standard library only). The checker reconstructs each of the 1540 orbit representatives and the 63-row integer linear system, checks positive rational dual multipliers, unrestricted leaf-variable stationarity, nonnegative auxiliary-variable reduced gradients, and the bound `dual_objective <= 64` for all instances. A completed local execution returned `PASS: 1540 orbit-complete cases; all exact dual equalities and bounds; largest scaled upper bound 64.`
+## correctness
 
-The mathematical proof of exhaustiveness is the recursive count `4 -> 10 -> 55 -> 1540` of unordered rooted binary trees with four leaf colors. Every simultaneous pair of leaf-sign patterns belongs to one such orbit under swaps of equal-size siblings. Each dual inequality bounds every real leaf vector compatible with that pair, not only vectors sampled during computation. The input seminorm normalization, representation of absolute deviations, root objective, and descendant cases are explicit in `RESULT.md`.
+PASS
 
-The cited depth-four example, independently averaged with rational arithmetic, gives input BMO `5`, output BMO `41/8`, and quotient `41/40`. This serves as an external comparison, not as a new sharp depth-four result.
+For real depth-three leaf data with F_3(x) ≤ 1, fix folding signs ε and root mean-deviation signs s. The linear objective has coefficients ε_i(8s_i−Σs) and the maximum over s equals 64 times the folded root mean deviation. The 63 inequalities correctly encode the seven node bounds and the orthant, with eight free leaf variables and 24 nonnegative auxiliaries. For each certificate, nonnegative row multipliers give the required leaf coefficients, nonnegative auxiliary coefficients, and right-hand side at most 64, proving a bound for all real points in the sign region. Independent replay canonicalized all 4^8 colorings by subtree swaps and confirmed exact coverage by 1,540 supplied cases, and verified the multiplier identities, signs and bounds in rational arithmetic; maximum certified bound 64. The root bound also gives the four-leaf descendant bound by applying it to two identical copies of the four-leaf datum (no change in input tree BMO or folded root deviation). The two-leaf case follows from the reverse triangle inequality. Nonconstant nonnegative data give equality. Direct 16-leaf recomputation yielded F_4(x)=5 and F_4(|x|)=41/8, with only the folded root above 5.
 
-No infinite-depth computation, independent external audit, or proof of priority is claimed. The rational certificate and code are research artifacts for direct checking.
+## originality
+
+PASS
+
+Mohajer explicitly leaves the unrestricted rooted depth-three value and the least failing depth open; the earlier depth-four witness is not new. A separate Resultary record states the same theorem and uses the same cited example, with a materially different certificate formulation; it is listed on a later catalogue date. The mathematical overlap is established, but there is no evidence that this is prior coverage of the assigned result, or that either proof derives from the other. The distinct contribution relative to the verified prior literature is the depth-three bound resolving the threshold.
+
+## value
+
+PASS
+
+This is the exact missing case of a specifically posed extremal problem. The four-leaf scalar bound and the known depth-four failure do not settle the eight-leaf inequality. The result fixes the first failing depth and the sharp last contractive constant, not just a sampled or approximate bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

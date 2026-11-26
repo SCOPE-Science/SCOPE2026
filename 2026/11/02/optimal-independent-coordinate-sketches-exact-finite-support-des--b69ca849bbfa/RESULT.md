@@ -1,95 +1,51 @@
-# Optimal independent coordinate sketches: exact finite-support design and the \(\rho^\rho\) power-law loss
+# Sharp spectral cost of iid one-coordinate sketching for a summable power law
 
 ## Finding
 
-Let \(\rho>1\), and let \(A_\rho:\ell^2(\mathbb N)\to\ell^2(\mathbb N)\) be the diagonal Hilbert--Schmidt operator \(A_\rho e_j=j^{-\rho/2}e_j\). Among independent, identically distributed, **one-coordinate isotropic sketches** with \(L\ge2\) samples, the smallest expected squared Hilbert--Schmidt projection error is given exactly by a truncated power-law design. For its normalized infimum, the sharp large-budget inefficiency relative to an optimally chosen rank-\(L\) approximation is
+Fix \(\rho>1\). Let \(A_\rho e_j=j^{-\rho/2}e_j\) on real \(\ell^2(\mathbb N)\). Let \(Q_L\) be the orthogonal projector onto the span of the images under \(A_\rho\) of \(L\) independent, identically distributed one-coordinate isotropic sketch vectors with a common full-support law. Write \(\mathcal E_L^{\mathrm{iid}}\) for the infimum of the expected squared Hilbert–Schmidt residual over these laws. Then
 
 \[
-\lim_{L\to\infty}\frac{\inf_{\pi_j>0,\;\sum_j\pi_j=1}\mathbb E\|A_\rho-P_{\operatorname{ran}(A_\rho\Omega)}A_\rho\|_{\mathrm{HS}}^2}{\inf_{\operatorname{rank}B\le L}\|A_\rho-B\|_{\mathrm{HS}}^2}=\rho^\rho.
+\mathcal E_L^{\mathrm{iid}}\sim \frac{\rho^\rho}{\rho-1}L^{1-\rho},\qquad
+\lim_{L\to\infty}\frac{\mathcal E_L^{\mathrm{iid}}}
+{\inf_{\operatorname{rank} B\le L}\|A_\rho-B\|_{\mathrm{HS}}^2}=\rho^\rho.
 \]
 
-In the class with positive probability at every coordinate, the finite-\(L\) infimum is **not attained**. Its unique optimizer in the larger closed simplex places positive mass on finitely many coordinates; isotropic full-support laws can approach its error arbitrarily closely.
+Thus optimizing the law for each budget still leaves a sharp multiplicative error penalty relative to unrestricted rank \(L\). The infimum is approachable by full-support laws but is not attained for any finite \(L\ge2\). The finite-budget optimizer used in the proof is a power-law specialization of known weighted cache placement, not a new allocation rule.
 
 ## Assumptions and scope
 
-The Hilbert space is real \(\mathcal H=\ell^2(\mathbb N)\); \(\rho>1\) is fixed. For a distribution \(\pi=(\pi_j)_{j\ge1}\) with all \(\pi_j>0\), \(\sum\pi_j=1\), let \(J\sim\pi\) and let \(\xi\in\{-1,1\}\) be an independent equiprobable sign. One sketch is \(\omega=\xi\pi_J^{-1/2}e_J\). For every \(u,v\in\mathcal H\), \(\mathbb E\langle u,\omega\rangle\langle\omega,v\rangle=\langle u,v\rangle\); no finite expectation of \(\|\omega\|^2\) is assumed. Draw \(L\ge2\) independent sketches and put \(Q=P_{\operatorname{span}\{A_\rho\omega_1,\ldots,A_\rho\omega_L\}}\). The error is the squared Hilbert--Schmidt norm of \(A_\rho-QA_\rho\), rather than an operator norm or a truncated sample-space rank-\(k\) SVD.
-
-For any fixed integer \(L\ge2\), set \(\delta=\rho/(L-1)\). Let \(t=t_{\rho,L}>1\) be the unique solution of
-
-\[
-\sum_{1\le j<t}\bigl[1-(j/t)^\delta\bigr]=1.
-\]
-
-Write \(m=\lceil t\rceil-1\). The unique minimizing probability law in the *closed* simplex is
-
-\[
-\pi_j^*=\bigl[1-(j/t)^\delta\bigr]_+,
-\qquad
-\mathcal E_L^*=(m-1)t^{-\rho}+\sum_{j=m+1}^\infty j^{-\rho}.
-\]
-
-All infima over fully supported isotropic coordinate sketches in the finding equal \(\mathcal E_L^*\). More precisely, as \(L\to\infty\),
-
-\[
-t_{\rho,L}\sim m_{\rho,L}\sim L/\rho,\qquad
-\mathcal E_L^*\sim\frac{\rho^\rho}{\rho-1}L^{1-\rho}.
-\]
-
-For two sketches, \(m=2\), \(\pi_1^*=2^\rho/(1+2^\rho)\), \(\pi_2^*=1/(1+2^\rho)\), and
-
-\[
-\mathcal E_2^*=\sum_{j\ge3}j^{-\rho}+\frac1{1+2^\rho}.
-\]
+For a probability law \(\pi_j>0\), a sketch vector is \(\omega=\xi\pi_J^{-1/2}e_J\), where \(J\) has law \(\pi\) and \(\xi\) is an independent symmetric sign. It is isotropic in the sense that \(\mathbb E[\langle u,\omega\rangle\langle\omega,v\rangle]=\langle u,v\rangle\) for every \(u,v\in\ell^2\). The scalar product in this expectation is absolutely integrable by Cauchy–Schwarz. The sketch is finite in norm almost surely; its squared norm need not be integrable (in fact its expectation is infinite). Neither general sketches nor dependent coordinate selections are included. The budget counts draws, not distinct coordinates, and \(\rho\) is fixed as the budget increases.
 
 ## Proof
 
-**Exact expected projection error.** A nonzero sketch image is a scalar multiple of the basis vector \(e_J\), because \(A_\rho e_J=J^{-\rho/2}e_J\). Thus \(Q\) retains exactly the sampled coordinates. The probability that coordinate \(j\) is absent from all \(L\) independent samples is \((1-\pi_j)^L\). By Tonelli's theorem,
-
+**Reduction and known allocation rule.** A sketch image is a nonzero multiple of its sampled basis vector. Thus \(Q_L\) retains exactly the sampled coordinates. By nonnegativity and independence the error is
 \[
-\mathcal E_L(\pi)=\sum_{j\ge1}j^{-\rho}(1-\pi_j)^L.
+\mathcal E_L(\pi)=\mathbb E\|A_\rho-Q_L A_\rho\|_{\mathrm{HS}}^2
+=\sum_{j\ge1}j^{-\rho}(1-\pi_j)^L.
+\]
+Up to normalizing request weights, this is the weighted miss probability for one cache slot at each of \(L\) sites with independent, identical placements. Błaszczyszyn and Giovanidis give the finite-catalogue optimization for a general coverage count; take the count to be \(L\) with probability one and the per-site budget to be one. Ji, Caire and Molisch give the corresponding truncated rule for the fixed number of independent selections in their cluster. Here the objective extends to the closed probability simplex on \(\mathbb N\); we give the argument there to also justify nonattainment in the full-support class.
+
+Let \(L\ge2\), \(\delta=\rho/(L-1)\), and let \(t>1\) solve
+\[
+F(t):=\sum_{1\le j<t}[1-(j/t)^\delta]=1.
+\]
+The sum is continuous and strictly increasing for \(t>1\), starts at zero, and tends to infinity since each of the first \(\lfloor t/2\rfloor\) terms is at least \(1-2^{-\delta}\). Set \(m=\lceil t\rceil-1\) and \(\pi_j^*=[1-(j/t)^\delta]_+\). The summands \(f_j(p)=j^{-\rho}(1-p)^L\) are strictly convex on \([0,1]\). At positive \(\pi_j^*\), \(f_j'(\pi_j^*)=-Lt^{-\rho}\); for a zero coordinate \(f_j'(0)=-Lj^{-\rho}\ge-Lt^{-\rho}\). Hence summing the convex supporting-line inequalities gives \(\mathcal E_L(\pi)\ge\mathcal E_L(\pi^*)\) for every probability law. The derivative sums converge absolutely by \(|f'_j|\le L\) and \(\sum_j|\pi_j-\pi_j^*|\le2\). At any differing coordinate the supporting-line inequality is strict, so no full-support law attains this minimum. The full-support probabilities \((1-\eta)\pi^*+\eta(2^{-j})_{j\ge1}\) give its value in the limit \(\eta\downarrow0\) by dominated convergence. Using \(\sum_{j\le m}(j/t)^\delta=m-1\), substitution yields
+\[
+\mathcal E_L^{\mathrm{iid}}=(m-1)t^{-\rho}+\sum_{j>m}j^{-\rho}.
 \]
 
-**Optimality over all probability laws.** For \(L\ge2\), the summand \(f_j(p)=j^{-\rho}(1-p)^L\) is strictly convex on \([0,1)\). Define \(F(t)=\sum_{j<t}[1-(j/t)^\delta]\). It is continuous and strictly increasing for \(t>1\), with \(F(1)=0\) and \(F(t)\to\infty\). Its unique level-one root produces nonnegative \(\pi^*\) summing to one, supported on precisely \(1\le j\le m\). For the common multiplier \(\lambda=Lt^{-\rho}\), differentiation gives \(f_j'(\pi_j^*)=-\lambda\) on \(j\le m\), while \(f_j'(0)=-Lj^{-\rho}\ge-\lambda\) on \(j>m\). The supporting-hyperplane inequality for convex functions therefore implies, for any probability law \(\pi\),
-
+**Summable power-law asymptotic.** As \(L\to\infty\), the root \(t\to\infty\) since \(F(t)\to0\) on every bounded interval for \(\delta\downarrow0\). For \(0<\delta\le1\) the concavity bound \(1-(x/t)^\delta\ge\delta(1-x/t)\) on \([0,t]\) gives \(t=O(1/\delta)\) by summing up to \(t/2\). The decreasing function \(\phi_t(x)=[1-(x/t)^\delta]_+\) satisfies
 \[
-\mathcal E_L(\pi)-\mathcal E_L(\pi^*)
-\ge\sum_j f_j'(\pi_j^*)(\pi_j-\pi_j^*)\ge0.
+0\le \int_0^t\phi_t(x)\,dx-F(t)\le\int_0^1\phi_t(x)\,dx\le\delta(1+\log t)=o(1).
 \]
+The final bound follows from \(1-e^{-u}\le u\) applied with \(u=\delta\log(t/x)\). The integral is \(t\delta/(1+\delta)\), so \(t\delta\to1\) and \(m\sim t\sim L/\rho\). The contribution of the retained support to the optimum miss cost is asymptotic to \(t^{1-\rho}\); that of the unretained tail is asymptotic to \(t^{1-\rho}/(\rho-1)\). Thus the leading coefficient in physical budget \(L\) is \(\rho^\rho/(\rho-1)\). The deterministic rank-\(L\) optimum is the squared-singular-value tail \(\sum_{j>L}j^{-\rho}\), by the Hilbert–Schmidt best rank approximation theorem. Dividing by its asymptotic \(L^{1-\rho}/(\rho-1)\) proves the claim.
 
-The sums are justified because the derivatives are bounded in absolute value by \(L\) and the \(\ell^1\) distance between probability laws is at most two. Strict convexity on the coordinates where the designs can differ proves uniqueness: if \(\pi\ne\pi^*\), at least one coordinate has distinct probabilities and strictly positive curvature along its intervening segment, except possibly at the isolated endpoint \(1\), where strict convexity on \([0,1]\) still holds for \(L\ge2\). In particular no fully supported probability is an optimizer. Conversely \(\pi^{(\varepsilon)}=(1-\varepsilon)\pi^*+\varepsilon(2^{-j})_{j\ge1}\) is fully supported and isotropic; dominated convergence yields \(\mathcal E_L(\pi^{(\varepsilon)})\to\mathcal E_L^*\). Substitution into the exact error formula and \(\sum_{j\le m}(j/t)^\delta=m-1\) give the stated finite-\(L\) optimum.
+## Verification and limits
 
-**Sharp asymptotics.** Put \(\delta=\rho/(L-1)\to0\) and write \(\phi_t(x)=[1-(x/t)^\delta]_+\) for positive \(x\). For \(0<\delta\le1\), the tangent inequality to the concave function \(x^\delta\) at one gives \(1-(x/t)^\delta\ge\delta(1-x/t)\) for \(0<x\le t\). Because \(F(t)=1\), summing over integers \(j\le t/2\) shows \(t=O(\delta^{-1})\). Since \(F(t)\to0\) for every fixed \(t\) as \(\delta\to0\), necessarily \(t\to\infty\). The decreasing-function integral comparison yields
-
-\[
-0\le\int_0^t\phi_t(x)\,dx-F(t)
-\le\int_0^1\phi_t(x)\,dx
-\le\delta(1+\log t)=o(1),
-\]
-
-where the last inequality uses \(1-e^{-u}\le u\) and \(t=O(\delta^{-1})\). The integral equals \(t\delta/(1+\delta)\). Hence \(t\delta\to1\), so \(t\sim m\sim L/\rho\). By the ordinary integral test, \(\sum_{j>m}j^{-\rho}\sim m^{1-\rho}/(\rho-1)\). Also \((m-1)t^{-\rho}\sim t^{1-\rho}\). Therefore
-
-\[
-\mathcal E_L^*\sim\frac{\rho}{\rho-1}t^{1-\rho}
-\sim\frac{\rho^\rho}{\rho-1}L^{1-\rho}.
-\]
-
-Finally, the compact diagonal operator has decreasing singular values \(j^{-\rho/2}\), and the Eckart--Young--Mirsky theorem gives optimal rank-\(L\) squared Hilbert--Schmidt error \(\sum_{j>L}j^{-\rho}\sim L^{1-\rho}/(\rho-1)\). Dividing proves the limit. For \(L=2\), inserting support \(\{1,2\}\) gives \(t^\rho=1+2^\rho\); the strict inequality \(1+2^\rho<3^\rho\) ensures \(2<t<3\), and direct substitution yields the special case.
-
-## Verification
-
-`coupon_checker.py` is a self-contained Python 3 checker. It independently enumerates finite independent-sampling spaces to compare with the missing-coordinate formula, verifies the root normalization and first-order optimality relations over many \((\rho,L)\) pairs, and tests finite-budget values against the predicted large-sample ratio. It also checks the exact two-draw case. An execution passed 90 test families. These computations supplement, but do not establish, the infinite-dimensional uniqueness or asymptotic proof; the preceding arguments establish those claims.
+`coupon_checker.py` in the original package supplies bounded auxiliary diagnostics for the allocation rule and the large-budget behavior. The proof above, not the diagnostics, gives the infinite-simplex and limiting results. The comparison is to unrestricted rank \(L\), not to every randomized approximation algorithm; forcing distinct selected coordinates would give a different problem.
 
 ## Relationship to prior work
 
-Lynch-Davies and Webb's 2026 work supplies the motivating infinite-dimensional isotropic sketch framework and explicitly constructs an almost-surely finite **one-coordinate isotropic sketch**, but does not derive the optimal distribution for a particular spectral profile. Saibaba and Międlar study non-Gaussian randomized low-rank approximation and discuss coordinate-sampling/coupon-collector issues; their performance bounds do not give this specific spectral-design optimum or sharp power-law loss. Halko, Martinsson and Tropp's randomized low-rank methodology and its coupon-collector examples are foundational rather than a derivation of this optimized law. General optimal weighted-coupon-allocation or caching literature may contain mathematically equivalent finite-budget first-order conditions; historical priority is not certified. The new mathematical target is the combination of full-support isotropy, the exact finite-support limiting design and its quantified \(\rho^\rho\) loss.
-
-## Limitations
-
-The result is for diagonal operators with pure power-law squared singular values, independent identically distributed one-coordinate sketches, and squared Hilbert--Schmidt error. It does not characterize arbitrary sparse/sub-Gaussian/Gaussian sketches or general non-diagonal targets, nor imply an information-theoretic lower bound for unrestricted randomized algorithms. The optimal closed-simplex design is not itself full-support isotropic; only its infimum is accessible in the required class. This is a proof for the stated model, not a general algorithm benchmark. A possible equivalent earlier weighted-coverage allocation calculation remains a historical-priority risk; there has been no independent audit.
-
-## References
-
-1. Morgan Lynch-Davies and Marcus Webb, *Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD*, arXiv:2610.31333v1 (first public October 22, 2026), https://arxiv.org/abs/2610.31333, particularly Example 2.13 and the introductory algorithm and sampling discussion.
-2. Arvind K. Saibaba and A. Międlar, *Randomized low-rank approximations beyond Gaussian random matrices*, arXiv:2308.05814v1 (2023), https://arxiv.org/abs/2308.05814, particularly their coordinate-sampling and coupon-collector discussion.
-3. Nathan Halko, Per-Gunnar Martinsson and Joel A. Tropp, *Finding structure with randomness: probabilistic algorithms for constructing approximate matrix decompositions*, SIAM Review 53 (2011), https://arxiv.org/abs/0909.4061, particularly the randomized rangefinding paradigm and coupon-collector caveat.
-4. Michael B. Cohen, Cameron Musco and Christopher Musco, *Input sparsity time low-rank approximation via ridge leverage score sampling*, arXiv:1511.07263 (2015), https://arxiv.org/abs/1511.07263. This reference concerns different low-rank sampling guarantees rather than the exact iid one-coordinate design.
+- Lynch-Davies and Webb, *Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD*, [arXiv:2610.31333v1](https://arxiv.org/abs/2610.31333v1), Example 2.13, give the infinite-dimensional one-coordinate isotropic framework. Saibaba and Międlar, [arXiv:2308.05814](https://arxiv.org/abs/2308.05814), Section 3.4, discuss coordinate sampling and coupon-collector obstructions in randomized low-rank approximation.
+- Błaszczyszyn and Giovanidis, *Optimal Geographic Caching in Cellular Networks*, [arXiv:1409.7626](https://arxiv.org/abs/1409.7626), equations (3), (7), and (12)–(14), supply the equivalent weighted placement problem and finite-catalogue allocation with a general distribution for the number of caches. Ji, Caire and Molisch, [arXiv:1302.2168](https://arxiv.org/abs/1302.2168), Theorem 1, and [arXiv:1312.2637](https://arxiv.org/abs/1312.2637), Theorem 4, give the truncated law in independent cluster caching. Related constants of the form \(\gamma^\gamma\) appear for hit/outage scaling with a growing finite catalogue and nonsummable \(0<\gamma<1\), rather than the ratio here for fixed \(\rho>1\).
+- Lee, Ji and Molisch, [arXiv:2005.05149v2](https://arxiv.org/abs/2005.05149v2), Lemma 1 and Section V, study exponential miss costs and Zipf or shifted-Zipf network throughput–outage scaling, including \(\gamma>1\). The stated order estimates there are not the sharp Hilbert–Schmidt ratio for a fixed summable infinite spectrum. The contribution claimed here is the sharp summable-spectrum comparison, not historical priority for weighted coverage, its KKT solution, or its orderwise scaling.

@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact line minimizer yields the stated dimensionless progress formula. Whitening by the Hessian moves the problem to an angular Gaussian density; the density is derived by radial integration. The derivative of success probability with respect to start angle has a strictly positive sign between the covariance eigendirections for nonisotropic sampling, which **proves** the worst-orientation quantifier for all thresholds rather than guessing it from a plot. The Gaussian ratio gives the exact one-draw failure CDF; independence gives the batch power. Strict monotonicity in the transformed condition number yields uniqueness of the optimal covariance up to scalar. The square-root batch law follows from an explicit arctangent asymptotic expansion, with its leading coefficient and critical windows. A local standalone script passed 849 independent assertions including exact fractions and finite diagnostics, but the unbounded universal claims rest on the analytic proof. No claim is made for sequential line searches or joint-span minimizations.
+PASS
 
-## Originality (PASS, with residual publication-priority risk)
+Completing the square along one line gives the squared normalized energy-coordinate inner product. After rotating and scaling the energy covariance to diag(1,K), Gaussian radial integration gives the stated projective angular density with denominator K cos²φ + sin²φ. The success arc has radius r=arccos(sqrt(t)); differentiating its mass at the two endpoints gives the difference of reciprocal denominators with numerator (K−1) sin(2θ) sin(2r). This is strictly positive for interior θ from the small to large eigenaxis if K>1 and constant in angle when K=1. Thus the worst start is unique as a projective direction for each threshold if K>1. At that axis the squared alignment is 1/(1+K C²) for a standard Cauchy C, giving the stated CDF; there are no atoms at internal thresholds. Independence raises the CDF to the m-th power at the same fixed start. Strict increase in K gives the unique covariance ray proportional to H⁻¹. Taking logs gives the ceiling, and −sqrt(K) log F_K tends to (2/π)sqrt((1−t)/t), proving the coefficient and all three regimes. Partial fractions of the Cauchy integral give mean 1/(1+sqrt(K)), and setting the CDF to 1/2 gives median 1/(1+K). These conclusions do not describe sequential updates or minimization over the joint span.
 
-The inverse-Hessian covariance concept and general randomized line-search convergence/expected progress are pre-existing in arXiv:1210.5114 and arXiv:1111.0194. The later random-subspace analyses arXiv:2206.03371, arXiv:2211.09873, arXiv:2204.01275 and arXiv:2308.04734 provide general high-probability complexity, probabilistic descent or expectation comparisons, not the same exact plane-wide all-threshold minimax failure law or precise independent-best-of-batch threshold. A semantic literature comparison against relevant published records did not disclose a direct implication of the **full joint claim**. The exact angular/Cauchy integral and order-statistics steps are classical, not individually novel. Earlier specialized papers on batch directional random search or anisotropic Gaussian angular order statistics could overlap, and the published literature survey is not exhaustive.
+## originality
 
-## Value (PASS)
+PASS
 
-One-shot best-candidate selection provides an interpretable reliability budget: despite an expected gain of order \(\kappa^{-1/2}\), the median gain is only of order \(\kappa^{-1}\). A target gain and confidence thus require sharply \(\sqrt\kappa\) candidate trials for unpreconditioned planar quadratics; the inverse-Hessian covariance removes this degradation simultaneously for all thresholds. This distinguishes statistical reliability from a mean convergence rate and supplies a precise finite-oracle design benchmark. It is not a generic convergence theorem or an assertion that Gaussian direction generation is the most efficient algorithm overall.
+The distinct contribution supported by the comparison is the precise threshold-wise extremum over starts, with equality cases, for fixed-start independent Gaussian exact line candidates, and the resulting sharp batch law. Exact random line search, covariance adaptation including the inverse-Hessian design idea, standard direction distributions, and order statistics are prior or elementary ingredients.
 
-## Limitations and close comparisons
+## value
 
-- arXiv:1210.5114, Section 4, expected progress and covariance adaptation: covers the design philosophy but does not directly imply threshold-wise uniqueness or exact batch quantiles.
-- arXiv:2206.03371, Chapter 4; arXiv:2211.09873, Sections 3–5 and appendices: general sketched optimization, not this simultaneous-candidate angular law.
-- arXiv:2204.01275, probabilistic random-subspace polling; arXiv:2308.04734, expected decrease: the former uses polling/probabilistic descent and the latter expected decrease rather than exact quadratic-line minimization quantiles.
-- The provenance of relevant 2022 random-subspace material is anchored to the earlier arXiv thesis submission (2022-06-07), not the later overlapping November paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp quantile budget quantifies conditioning in a different way from expected decrease: at the bad axis the single-candidate mean and median scale differently, and a fixed reliability level requires order sqrt(κ) independent trials with an exact leading constant. This is a natural benchmark for parallel exact-line selection, not a claim about an optimizer's total runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

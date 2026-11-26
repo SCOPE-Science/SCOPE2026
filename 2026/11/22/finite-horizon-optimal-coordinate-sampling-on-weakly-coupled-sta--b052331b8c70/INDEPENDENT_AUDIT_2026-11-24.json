@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:36:42.153181Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–31 and 33–97",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen artifacts/verify_horizon.py, lines 20–58 (exact identities), 60–91 (scalar sweep), 92–116 (asymmetric test and tally)"
+      ],
+      "rationale": "In energy coordinates each update is an orthogonal projection, and independence gives the exact expected-energy operator Phi^T(I). At zero coupling the objective is (1-min_i p_i)^T; uniform O(epsilon) perturbation (epsilon=sqrt(delta)) and the zero-sum constraint imply that every optimizer is uniform plus epsilon times bounded z. At uniform sampling the first-order hub-to-leaf averaged entry satisfies h_(t+1)=s h_t+u r^t, h_0=0; other off-diagonal entries have zero derivative. The diagonal derivative is -T r^(T-1) z_i. A direct global check of the minimax step is to use the Rayleigh quotient of the normalized all-ones vector: on sum z_i=0 this gives the lower bound 2 sqrt(m) h_T/(m+1), independent of z. Equality forces constant row sums and uniquely determines z, with hub term (m-1)sqrt(m) h_T/((m+1) T r^(T-1)) and identical leaf terms -z_0/m. That vector of row sums is attained; the positive all-ones eigenvector is the top eigenvector by Perron after a diagonal shift. Uniform Taylor remainder on bounded z and subsequence comparison yield the stated expansions for every minimizer. The geometric-average factor strictly decreases with T, establishing the claimed separation only for fixed T at sufficiently weak coupling. An independent finite check summing all 256 projection words for m=3, T=4 and z=(0.37,-0.12,-0.08,-0.17) gives entrywise errors 8.84e-4 and 8.84e-5 in the scaled first derivative at epsilon=1e-3 and 1e-4. This is corroboration only.",
+      "residual_risks": [
+        "Fixed m,T only; no uniform-in-horizon asymptotic or arbitrary-coupling optimizer is established.",
+        "The checker was inspected, not executed. Its static tally is 290 before the asymmetric block plus 244 entries from that block, consistent with VERIFICATION.md's 534 for the attached version, not RESULT.md's 290 for the whole recorded run. The counts mix exact and numerical checks and neither certifies the theorem. This reporting discrepancy does not affect the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 82c9d23eb995 Main theorem: unique p proportional to C^{-1}1 for inverse-positive C, under the one-step criterion",
+          "arXiv:1506.03296 §5.1 equations (5.3)–(5.4): SDP for one-step decrease",
+          "arXiv:1310.3438 §4: optimizes convergence-complexity bounds"
+        ],
+        "reasoning": "The broader one-step theorem directly specializes to this star at T=1. Iterating a sharp per-step upper bound does not give its actual sharp T-step retention matrix. The general finite-horizon design framework is a formulation, not a broader evaluated formula that specializes to the star law.",
+        "searches": [
+          "Resultary: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "arXiv:2412.21068",
+          "arXiv:1506.03296",
+          "arXiv:1310.3438"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 82c9d23eb995 and e7d367ac86b3, exact statements",
+        "arXiv:2412.21068, 1310.3438, 1506.03296, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-positive result gives the same T=1 probabilities; the related block result gives strict separation for its own updates. Neither supplies the noncommuting multi-step star perturbation with off-diagonal coefficient r^T-s^T."
+        ],
+        "reasoning": "Direct specialization covers T=1 and the general phenomenon is shared. The projection recurrence, computation of its star perturbation, and asymptotic minimax argument are needed to get the explicit T-dependent law for this family.",
+        "searches": [
+          "Resultary 82c9d23eb995 RESULT.md, Main theorem and proof",
+          "Resultary e7d367ac86b3 RESULT.md, Finding and proof §§1–4",
+          "arXiv:2412.21068 §1.2",
+          "arXiv:1506.03296 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e7d367ac86b3, Finding and proof §§1–4: exact horizon-dependent optimizer and strict separation for all-but-one least-squares block updates on an isolated correlated pair",
+          "arXiv:2412.21068 §1.2: general worst-case finite-horizon design"
+        ],
+        "reasoning": "Expected energy and expected least-squares loss can both be expressed as moments of projection products. The block result nevertheless projects for different update maps and a different Gram structure; it neither contains the m>=2 star family nor gives its coefficient. No date ordering is assumed for the same-day records.",
+        "searches": [
+          "Resultary: finite-horizon iid worst-start retention",
+          "Web: “finite-horizon” randomized coordinate descent iid sampling sharp minimax worst-case expected objective after T updates coordinate projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared indexed results provide exact formulas for a block model at finite horizon and for the star as a specialization at one step, respectively."
+        ],
+        "reasoning": "This is a continuous minimax family indexed by m,T, not a standard finite census with a canonical table. The relevant exact-formula catalogue hits were checked at the parameter and objective level; the explicit finite-T coefficient for the star was not supplied by those entries.",
+        "searches": [
+          "Resultary: finite-horizon iid worst-start retention",
+          "Resultary: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit weak-coupling, full-simplex first-order solution for sharp finite-horizon iid single-coordinate descent on a star. The exact one-step optimizer is already covered, and horizon-dependent minimax sampling with strict one-step separation is demonstrably present in a different model. Neither is credited as novel on its own.",
+      "residual_risks": [
+        "Bounded search; a sharp multi-step design result under projection-product or experimental-design terminology could have been missed.",
+        "Same-day dating of the related block result does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS T=1",
+          "evidence": "Unique full-simplex inverse-positive one-step optimizer p proportional to C^{-1}1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "RESULT.md, Main theorem and proof",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Directly cited one-step theorem"
+        },
+        {
+          "assessment": "MATERIAL CONCEPTUAL OVERLAP, DIFFERENT MODEL",
+          "evidence": "Least-squares all-but-one block minimization with an isolated correlated pair; exact horizon dependence and one-step separation, but no single-coordinate star weak-coupling coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-horizon-dependent-minimax-sampling-for-a-correlated-pair-b--e7d367ac86b3",
+          "material_read": "RESULT.md, Finding and proof §§1–4",
+          "method": "Local mirror",
+          "title": "Exact horizon-dependent minimax sampling for a correlated pair",
+          "trigger": "Closest exact finite-horizon catalogue hit"
+        },
+        {
+          "assessment": "FRAMEWORK, NOT THE STAR SOLUTION",
+          "evidence": "General finite-horizon worst-case optimization with GD stepsize and LP primal-dual examples in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.21068",
+          "material_read": "§1.2, pp. 3–4, OA text offset 16900",
+          "method": "OA full-text passage",
+          "title": "Finite Horizon Optimization: Framework and Applications",
+          "trigger": "Potential broader sharp horizon optimization"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTIVE",
+          "evidence": "Optimizes a convergence-complexity bound rather than the exact T-step operator.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.3438",
+          "material_read": "§4, p. 4, OA text offset 14250",
+          "method": "OA full-text passage",
+          "title": "On Optimal Probabilities in Stochastic Coordinate Descent Methods",
+          "trigger": "Optimized coordinate probabilities"
+        },
+        {
+          "assessment": "ONE-STEP SPECTRAL DESIGN",
+          "evidence": "SDP maximizes the smallest eigenvalue of an expected-decrease matrix to obtain a geometric rate.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "§5.1, pp. 15–16, equations (5.3)–(5.4), OA text offset 52100",
+          "method": "OA full-text passage",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Closest one-step spectral sampling framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–28, 52–97",
+        "Resultary 82c9d23eb995 and e7d367ac86b3, closely related but different benchmarks"
+      ],
+      "rationale": "The coupled star is a natural controlled test of whether an optimal stationary one-step sampler remains optimal when its projection updates are composed. The exact leading bias and retention quantify the failure for every fixed T>=2, not just a numerical example or a weaker convergence bound, and the first-order minimax calculation eliminates a hidden equal-leaf assumption. The exact dependence on horizon is useful as a benchmark for finite-horizon sampling designs; it is not a wall-clock or large-T claim.",
+      "residual_risks": [
+        "Value is structural and asymptotic for this model; no practical speedup or exact optimal law at larger coupling is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

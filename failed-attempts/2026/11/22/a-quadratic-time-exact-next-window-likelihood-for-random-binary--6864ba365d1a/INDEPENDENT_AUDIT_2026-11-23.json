@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:00:59.886497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sample space is cyclic tours of the distinctly labeled arcs, with rotations but not binary complements identified. For s with different overlapping n-blocks, contracting their successive arcs into one distinguished arc is a bijection on the required tours. Outdegree remains two except at the middle vertex where it becomes one, so BEST has no extra factorial factors, even when endpoints coincide. If the balanced contracted graph disconnects, all vertices have positive degree and Euler-tour and arborescence counts are both zero. Equal overlapping n-blocks mean a constant s and are impossible on a tour. Subtracting the two arc Laplacian contributions and adding the shortcut gives (e_u−e_v)(e_v−e_w)^T, with both factors of sum zero; the determinant ratio with J added therefore uses only the inverse on the zero-sum subspace. Exact replacement of the m=n−1 initial symbols implies P^m=J, and for t<m an overlap fixes exactly one appended t-bit word, giving P^t(x,y)=2^(−t)H_t(x,y). This verifies the signs and all four terms in the formula, including wraparound, coincident vertices and n=2. The exact numerator can be obtained from a=1 by a←2a+δ_t for t=0,...,m−1, where δ_t is the signed four-indicator sum. Four direct comparisons and the accumulator cost O(n) bit operations per t and O(n) auxiliary bits overall. This is for the probability, not explicitly writing out the potentially exponentially long cycle count. As an independent corroboration, I anchored the binary cycle by its unique all-zero n-block, appended one bit at a time forbidding already seen n-blocks, kept only paths with 2^n visited blocks and last n−1 bits zero, then compared every cyclic window frequency by integer cross-multiplication. Orders 2–5 produced 1,2,16,2048 cycles with zero mismatches at each order. The frozen script was inspected, not run. The proof is for one prescribed window, not joint probabilities or general alphabets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rødland gives contracted-tree determinants for word counts under fixed word composition, including singleton expected counts. The local-selector article eliminates the exponentially sized matrix via the identical finite overlap kernel and gives one- and two-path formulas."
+        ],
+        "reasoning": "Expected singleton count equals event probability here because its first n-block appears exactly once. Rødland alone need not supply an efficient evaluation, but the local-selector specialization does.",
+        "searches": [
+          "Rødland DOI 10.1239/aap/1143936143, §§3–5 and Appendix B",
+          "SCOPE-the-first-positive-local-selector-correlation-in-binary-de-bruij--bc4f759bdb3f, RESULT.md §2"
+        ]
+      },
+      "checked_sources": [
+        "Local-selector correlation, next-order support and alphabet-threshold original records via Resultary and local mirror",
+        "Rødland (2006) original paper",
+        "Sawada–Gabrić (2025) original preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula supplies every overlap indicator explicitly, not merely a determinant to be constructed. Each t compares strings of length at most m and contributes a signed constant divided by 2^(t+1). The pair analysis assumes n≥5 and four distinct arcs. For one path no pairwise hypothesis is needed; distinctness of its two arcs holds except for constant windows."
+        ],
+        "reasoning": "A running numerator via doubling and adding the indicator difference uses O(n) bits and O(n²) bit operations with direct comparisons. The constant-word exception is immediate from the Euler circuit's unique use of each arc. The fixed small orders do not change the bound and are covered by the finite selector tables or the same singleton proof. Neither the explicit complexity label nor the small-order loop treatment makes a materially independent result.",
+        "searches": [
+          "Local-selector RESULTS §2, singleton-diagonal sentence immediately after M_ij expression, mirror offset range 4150–8250",
+          "Local-selector RESULTS §2, arc-distinctness and marginal passage, mirror offset range 2350–4149"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A local pairing that takes a given incoming arc to a given outgoing arc at vertex v is exactly occurrence of the corresponding next-order window. The indexed record explicitly gives the singleton contraction value 1+K(b,a)−K(b,b)−K(c,a)+K(c,b), with K=Σ_{t=0}^{m−1}2^(−t−1)H_t."
+        ],
+        "reasoning": "Substitution (a,b,c)=(u,v,w) gives the target formula literally. The binary pairing has only two options, so either selector value is a prescribed turn. Restricting attention to one event instead of two does not add a new probability formula.",
+        "searches": [
+          "Resultary: binary de Bruijn local selector, exact next-window probabilities, and overlap correlations",
+          "SCOPE-the-first-positive-local-selector-correlation-in-binary-de-bruij--bc4f759bdb3f, RESULT.md §2 offsets 2350–8250"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-18 UTC support record gives possible versus impossible motifs, not exact probabilities. The alphabet-threshold record treats length-three factors at order two and q≥3. The binary local-selector record gives finite selector tables for orders 2–4 plus the applicable exact singleton kernel."
+        ],
+        "reasoning": "Neither support nor the other alphabet's table yields this invariant; the exact implication is instead the indexed kernel, and the few small binary orders outside the joint theorem's range are already exhaustively tabulated by local pairings.",
+        "searches": [
+          "SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50",
+          "SCOPE-sharp-alphabet-threshold-for-correlations-of-three-letter-factor--24dbaf279086",
+          "Local-selector record finite tables and all-order kernel"
+        ]
+      },
+      "rationale": "The scoped contribution is the matrix-free four-overlap likelihood and the quadratic bit upper bound. The distinct indexed local-selector correlation record explicitly has the same shift-and-append kernel and the same one-contraction diagonal formula. Evaluating that entry by direct string comparisons with a dyadic accumulator already has the stated bit and space bounds. This is demonstrable mathematical coverage, not a judgment about calendar priority between the two 2026-11-22 UTC records.",
+      "residual_risks": [
+        "The distinct overlapping indexed record has the same date as the frozen finding; this review does not establish which came first or how either was derived.",
+        "The comparison is bounded to the stated singleton result. It does not determine priority of the indexed joint-correlation theorem or exhaust historical sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage of singleton likelihood and direct bound",
+          "evidence": "Defines P^m=J and K as the exact finite overlap sum; after displaying M_ij explicitly says that one contraction is its corresponding diagonal entry.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-positive-local-selector-correlation-in-binary-de-bruij--bc4f759bdb3f",
+          "material_read": "RESULT.md, finite cases and Proof §§2–3; mirror offsets 2350–4149 and 4150–8250",
+          "method": "Resultary and local mirror of original result",
+          "title": "The first positive local-selector correlation in binary de Bruijn cycles",
+          "trigger": "Potential dominating result with one- and two-motif probabilities"
+        },
+        {
+          "assessment": "Exact associated scalar count covered; these passages do not state the specialized quadratic implementation",
+          "evidence": "Euler path contraction counts motif occurrences; Theorem 1 gives expected counts via contracted trees and Appendix B gives determinant/generalized-inverse corrections.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1143936143",
+          "material_read": "Printed pp. 119–122, §§3–4 including Theorem 1; §5 Theorem 3; pp. 131–132, Appendix B",
+          "method": "Lawful open primary PDF",
+          "title": "Exact distribution of word counts in shuffled sequences",
+          "trigger": "General exact motif counting by path contraction"
+        },
+        {
+          "assessment": "Support only",
+          "evidence": "States which motifs occur in some cycle, distinguishes possibility from numerical probability.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50",
+          "material_read": "RESULT.md Finding and scope, offset 0–2059",
+          "method": "Resultary and local mirror",
+          "title": "Exact next-order factor support across de Bruijn cycles",
+          "trigger": "Exact next-window result on same ensemble"
+        },
+        {
+          "assessment": "Different parameter regime",
+          "evidence": "Covariances for selected length-three factors in order-two cycles over alphabets of size q≥3.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-alphabet-threshold-for-correlations-of-three-letter-factor--24dbaf279086",
+          "material_read": "RESULT.md Finding, offset 0–2379",
+          "method": "Resultary and local mirror",
+          "title": "Sharp alphabet threshold for correlations of three-letter factors",
+          "trigger": "Nearby explicit window probabilities and correlations"
+        },
+        {
+          "assessment": "Uniform sampler rather than per-window evaluation in inspected passages",
+          "evidence": "Sampling via arborescences, not the exact singleton overlap formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "Sections 2–3 around OA PDF text offsets 5200 and 10000",
+          "method": "Lawful open original preprint",
+          "title": "Random generation of universal cycles and de Bruijn sequences",
+          "trigger": "Uniform binary de Bruijn generation might provide efficient exact motif evaluation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact per-window probabilities are a natural and useful object. Nevertheless, the only proposed new gain is already achieved by the indexed singleton overlap entry using the same direct evaluation. The record makes that evaluation easier to find but contributes neither a new mathematical computation nor a stricter bound beyond the mechanically implied result. Treating the few small orders or the already-known total cycle count separately does not leave a substantive scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

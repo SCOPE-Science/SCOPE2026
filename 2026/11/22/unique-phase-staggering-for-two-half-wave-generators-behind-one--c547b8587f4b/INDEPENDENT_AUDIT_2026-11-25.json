@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:23:43.357666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the overlap the sum is 2 cos(a) cos(t); elsewhere no individual contribution exceeds the cap. The proposed clipping boundary u lies in the overlap by sin(2a)<=1, and clipping disappears exactly at and above pi/3. Integrating the overlap with the premium profile and subtracting the clipped excess gives the stated formula; the moving endpoints do not contribute because the excess vanishes there. In the clipped regime, U' has the sign of B_eta for a>0. Up to pi/4, B_eta>=sqrt(2)-pi/4>0; on [pi/4,pi/3), B_eta'<=-sqrt(2)+1/2<0 and its terminal value is -eta*pi/3. The uncapped branch decreases for eta>0, so the only root is the global maximum, including against both endpoints. At the root the coefficient of eta is negative, proving strict decrease by implicit differentiation. The root tends to pi/3 as eta falls to zero, 2u~eta*pi/3, and u^2~2sqrt(3)(pi/3-a), giving the stated quadratic coefficient. For eta=0, precisely the nonclipping plateau maximizes total output. The frozen checker was inspected, not executed; independent direct piecewise quadrature and a numerical derivative (`python /workspace/branches/review_recomputation.py`) give a*(1)=1.0254642013857601183 and full separation 117.50954156231511582 degrees, as diagnostics only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sinapis et al., abstract and Conclusions, compare string and module-level electronics outdoors under unshaded and partly shaded conditions. The Marcos smoothing article and Hummon–Denholm–Margolis price-orientation article could not be checked in full on the routes tried."
+        ],
+        "reasoning": "The inspected physical comparisons do not give a general mathematical optimizer specializing to the frozen objective. Price-orientation work is a plausible broader lead, but no theorem covering this objective was verified there.",
+        "searches": [
+          "DOI 10.1002/ese3.97",
+          "DOI 10.1002/pip.1127",
+          "DOI 10.1002/pip.2198"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c547b8587f4b",
+        "Staudacher §5 and introductory material",
+        "Sinapis et al. DOI 10.1002/ese3.97",
+        "Marcos et al. DOI 10.1002/pip.1127 (citation only)",
+        "Hummon et al. DOI 10.1002/pip.2198 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected engineering material addresses mismatch, performance and inverter choice; Hummon's full economic-orientation analysis remains uninspected."
+        ],
+        "reasoning": "Improved clipping from separating peaks alone predicts neither a unique positive-premium optimum nor its quadratic departure from the nonclipping plateau. Those statements require the marginal clipped loss and premium gain under the matching objective.",
+        "searches": [
+          "Staudacher §5; Sinapis et al., Conclusions, p. 517; Hummon–Denholm–Margolis DOI recovery"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Staudacher examines east–west arrays sharing one MPP tracker, including mismatch and inverter sizing with physical profiles. His inspected passages do not state the idealized phase problem."
+        ],
+        "reasoning": "Interpreting the model as a common-inverter dispatch or clipping-loss problem does not identify physical azimuth or actual profile changes with time translations of a rectified cosine. The weight, cap, and phase restrictions would have to match for the optimizer to transfer.",
+        "searches": [
+          "Resultary comparison of phase staggering and shared-inverter clipping with time-value weighting",
+          "Staudacher, Efficient East-West Orientated PV Systems with One MPP Tracker, abstract and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary hit c547b8587f4b is the assigned result itself. No distinct close model was returned in the bounded searches."
+        ],
+        "reasoning": "A self-match reproduces the root and asymptotic but is not independent coverage; none of the checked empirical passages tabulates a solution to the same normalized mathematical objective.",
+        "searches": [
+          "Resultary search for the unique two-half-wave shared-export-cap phase solution and quadratic clipping-boundary law"
+        ]
+      },
+      "rationale": "The contribution is the exact unique optimizer and quadratic transition for the explicit clipped-price model, not the prior engineering observation that separated output peaks can reduce losses or that energy price can affect orientation. No distinct inspected source establishes the mathematical claim; incomplete access to two papers limits historical priority.",
+      "residual_risks": [
+        "Full Hummon–Denholm–Margolis and Marcos articles were not obtained; exact related results there remain unverified.",
+        "No general historical priority over other shared-cap or price-orientation models is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-match",
+          "evidence": "Same phase equation, parameter range and clipping-boundary limit.",
+          "identifier_or_url": "Resultary: c547b8587f4b",
+          "material_read": "Indexed finding and frozen Finding/Assumptions",
+          "method": "Resultary comparison and frozen text",
+          "title": "Unique phase staggering for two half-wave generators behind one export cap",
+          "trigger": "Exact result hit"
+        },
+        {
+          "assessment": "Related engineering, different design",
+          "evidence": "Small measured mismatch and discussion of inverter sizing and cost, not a time-shifted capped integral optimization.",
+          "identifier_or_url": "https://www.energymatters.com.au/images/news/2013/east-west-solar-paper.pdf",
+          "material_read": "Abstract/introduction and §5 conclusion, OA text offsets 0 and 32078",
+          "method": "OA PDF passages",
+          "title": "Efficient East-West Orientated PV Systems with One MPP Tracker",
+          "trigger": "Staggered paired arrays sharing hardware"
+        },
+        {
+          "assessment": "Different design task",
+          "evidence": "Outdoor string versus module-level electronics comparison, not phase optimization.",
+          "identifier_or_url": "https://doi.org/10.1002/ese3.97",
+          "material_read": "Abstract p. 510 and Conclusions p. 517",
+          "method": "OA submitted-version PDF, TNO repository",
+          "title": "Outdoor characterization and comparison of string and MLPE under clear and partially shaded conditions",
+          "trigger": "Shared versus module electronics and shading performance"
+        },
+        {
+          "assessment": "Direct implication unresolved",
+          "evidence": "Topic confirmed from the citation; no decisive theorem inspected.",
+          "identifier_or_url": "https://doi.org/10.1002/pip.1127",
+          "material_read": "Citation-level information only",
+          "method": "DOI and lawful recovery attempts; no article passages obtained",
+          "title": "Smoothing of PV power fluctuations by geographical dispersion",
+          "trigger": "PV profile smoothing through separation"
+        },
+        {
+          "assessment": "Material access limitation",
+          "evidence": "Price-orientation objective suggested by the citation; exact model and any implication not verified.",
+          "identifier_or_url": "https://doi.org/10.1002/pip.2198",
+          "material_read": "Citation-level information only",
+          "method": "DOI/publisher and lawful repository recovery attempts; no readable article found",
+          "title": "Impact of photovoltaic orientation on its relative economic value in wholesale energy markets",
+          "trigger": "Closest price-weighted orientation lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-peak cap gives a natural boundary between clipping and no clipping. The theorem resolves which offset a small midday preference selects from a whole zero-premium plateau, on which side it lies, and the order and constant of the approach. This is substantive sensitivity information for the idealized capped design, not an installation recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

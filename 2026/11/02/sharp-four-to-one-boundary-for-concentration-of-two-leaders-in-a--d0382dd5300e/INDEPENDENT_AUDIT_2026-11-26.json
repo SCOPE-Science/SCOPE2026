@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:13:11.406543Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74 and 76–88; VERIFICATION.md, verify_weighted.py and verification_output.txt (recorded run inspected, not replayed)",
+        "/workspace/review_evidence/2.md (independent algebra and full phase-axis sign checks)"
+      ],
+      "rationale": "Independently reconstructed the grounded clique inverse, single-bridge rank-one split costs, and same-side diagonal inverse entries by unit-current injection and the cut-edge voltage drop. This exhausts all pair orbits; grounding both gateways is strictly worse than PP and omitting the occupied-side gateway in a colocated pair strictly increases cost. The exact SS−PG numerator over t(1+td_p) is q+(qd_p−α_p)t with α_p/d_p=(p+2)/4, which excludes SS even at p=4q−2. If p>4q−2, choose α_p>α_q and a sufficiently large finite bridge conductance: SS then beats PG and its limiting margin over PP, GP and TT is strictly positive. The example's PP–PG and PG–SS tie equations reduce respectively to 80−575t=0 and 3−15t/8=0; GP and TT cannot tie the optimum there. The stationary Brownian covariance follows from the positive definite grounded Lyapunov equation.",
+      "residual_risks": [
+        "The result uses uniform positive internal conductances and a single bridge; no noisy leader or multibridge extension. The finite supplemental test logs are not the proof of the inequalities for arbitrary sizes and weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin et al. give the general objective and algorithms. Fitch–Leonard give joint-centrality formulas and exact path/cycle cases. Patterson et al. use resistance methods with solved cases in paths, cycles and trees."
+        ],
+        "reasoning": "These results permit evaluating a prescribed placement, but they do not classify the minimizing clique orbits for independently weighted clique interiors or give the existential size boundary.",
+        "searches": [
+          "arXiv:1302.0450 noise-free leaders",
+          "arXiv:1407.1569 joint centrality",
+          "arXiv:1708.06873 resistance-distance leader selection"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirrors 0d41f722819e, 6f11a7095f0f and 82f6daf71fff",
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "arXiv:1708.06873"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unit-weight record has only a split-to-split change. The present result compares α_p to α_q and needs separate finite-t dominance of SS over PG after their limits coincide.",
+          "No identifier for the uncited order-two example was located, so no independent broader statement is attributed to it."
+        ],
+        "reasoning": "Changing the interior weight ratio yields colocated and three-regime solutions not implied by the known split specialization; generic per-pair evaluation does not supply the sharp global parameter classification.",
+        "searches": [
+          "0d41f722819e Finding and proof",
+          "arXiv:1708.06873 solved classes",
+          "frozen RESULT.md line 84 (uncited order-two construction)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leader-noise-free coherence is a grounded inverse trace up to the tracking variance factor of two. Effective resistance to the wired leader set expresses each grounded inverse diagonal.",
+          "The later unit-slice 0d41f722819e uses the same objective, bridge topology and split patterns."
+        ],
+        "reasoning": "The trace/resistance and factor-of-two formulations are equivalent and not counted as new. The exact clique costs agree with the unit-slice analysis there, but internal strength ratios cannot be removed by overall rescaling.",
+        "searches": [
+          "Resultary: two grounded leaders, bridge-connected cliques, barbell, weighted leader coherence",
+          "arXiv:1302.0450",
+          "arXiv:1708.06873"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0d41f722819e gives the exact unit-internal-weight PP→PG threshold p²(q+2)/[4(q−p)] for p<q, and PP for p=q, agreeing on the corresponding cost slice.",
+          "6f11a7095f0f concerns K_{2,q}; 82f6daf71fff concerns triangles sharing a hub."
+        ],
+        "reasoning": "These exact results do not give a five-orbit table or concentration cut for the independently weighted two-clique network.",
+        "searches": [
+          "Resultary:0d41f722819e",
+          "Resultary:6f11a7095f0f",
+          "Resultary:82f6daf71fff"
+        ]
+      },
+      "rationale": "The distinct result is the independently weighted five-pattern reduction with a sharp size-only concentration boundary, strict exclusion at equality, and a genuine two-transition example. The closest exact catalogue match shares the PP and PG costs only on the unit-conductance slice and does not supply the concentration result. The general grounded-inverse objective and resistance method are prior work.",
+      "residual_risks": [
+        "A bounded external lookup did not yield additional available sources; it is not evidence of no literature. The uncited earlier order-two construction was not identified. No absolute priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "explicit overlap at a=b=1, narrower regime and indexed later",
+          "evidence": "The exact unit-weight split costs match PP and PG; only the split-to-split threshold is stated, with orders at least three.",
+          "identifier_or_url": "Resultary:0d41f722819e",
+          "material_read": "RESULT.md offsets 0–4970 and 4970–9808",
+          "method": "local mirror bounded reading",
+          "title": "A sharp bridge-conductance transition in optimal two-leader placement",
+          "trigger": "strongest exact match on the two-clique topology"
+        },
+        {
+          "assessment": "different graph families",
+          "evidence": "The former treats K_{2,q} hub allocation, the latter weighted triangles sharing a hub.",
+          "identifier_or_url": "Resultary:6f11a7095f0f and Resultary:82f6daf71fff",
+          "material_read": "respectively RESULT.md offsets 0–4847 and 0–3974",
+          "method": "local mirror bounded reading",
+          "title": "Cubic hub allocation threshold; two-leader phase transitions on weighted friendship graphs",
+          "trigger": "related exact same-day leader-selection findings"
+        },
+        {
+          "assessment": "general objective and algorithms, not the structural threshold",
+          "evidence": "Noise-free objective uses tr(L_F⁻¹), with general bounds and algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "PDF pp. 5–6, offsets 14950–17501; conclusion p. 26, offset 65450",
+          "method": "open primary PDF",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "prior formulation of the exact objective"
+        },
+        {
+          "assessment": "joint centrality and special topologies",
+          "evidence": "Explicitly identifies exact path and cycle cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "PDF p. 3, offset 9000",
+          "method": "open primary PDF",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "related exact leader placement formulas"
+        },
+        {
+          "assessment": "method overlap, not bridged-clique phase result",
+          "evidence": "Describes resistance distances and lists paths, cycles and trees among solved classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+          "material_read": "PDF pp. 1–2, offsets 6500–9531 and 12900–16198",
+          "method": "open primary PDF",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "equivalent resistance method and solved topologies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–5",
+        "/workspace/review_evidence/2.md",
+        "Resultary:0d41f722819e unit-conductance comparison"
+      ],
+      "rationale": "The single-bridge network is a natural model of coupled communities. The formulas reduce all vertex pairs to five costs, and the strict four-to-one boundary is a parameter-independent obstruction differentiating bottleneck splitting from concentration. The ordered rational transitions show that supporting a same-clique optimum is not just a formal infinity-limit effect.",
+      "residual_risks": [
+        "No complete phase diagram over all weight ratios is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

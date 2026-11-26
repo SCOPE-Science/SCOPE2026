@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:17:14.116155Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent executable reproduction: python /workspace/review-evidence/5/replay.py. The graph is generated from the 20 prescribed edges. Restricted-growth words exhaust unlabeled proper partitions; all 520 require four colors, so expanding by every palette permutation gives 12,480 named states uniquely. Common one-coordinate deletion fibers give exactly the single-vertex edges; two-color bit-mask closures give exactly the Kempe switches, including singletons. The reproduction finds 45,240 and 87,120 undirected edges; the first graph splits into two 6,240-state components with minimum degree 5, the second is connected, and 37,440 edges cross the first graph's split. It tests the parity rule on all 299,520 state–permutation pairs. Shortest-path computations from one representative in each palette orbit (without using pentagon symmetries) determine the full census because a palette permutation preserves both move graphs and the within-component distances. Each recoloring component has 1,080, 5,100 and 60 states of eccentricity 15, 16 and 17 respectively; all 12,480 Kempe states have eccentricity 7. The displayed crossing witness is also a legal switch of the stated two-color component and has endpoints in different recoloring components. The supplied verifier and recorded output were inspected, not executed. No inference is drawn for other palettes or graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al. reproduce Las Vergnas–Meyniel: all k-colorings of a d-degenerate graph form one Kempe class for k≥d+1. Here delete the five degree-3 shadows first; the remaining pentagon and isolated apex give a 3-degeneracy order.",
+          "The frozen reference to the regular-graph theorem misses this different applicable lemma in the same paper."
+        ],
+        "reasoning": "The degeneracy argument proves the entire qualitative Kempe-connectivity subclaim at four colors, and should be credited. It gives neither the exact Kempe diameter and eccentricities nor the single-vertex split and the Kempe links across that split.",
+        "searches": [
+          "arXiv:1510.06964 p. 6, Lemma 2.1",
+          "Resultary: Groetzsch graph Kempe change graph exact distances and cross edges",
+          "arXiv:2003.05956; CDAM-2005-11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_recolorings.py and checker_output.txt",
+        "arXiv:1510.06964 p. 6",
+        "Matpic essay",
+        "Resultary --42ecfc11d759 and --9eab978a928b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general existence of Kempe paths follows mechanically from the 3-degeneracy order. The inspected single-vertex results contain no two-color path lengths or count of transitions between the two single-vertex components."
+        ],
+        "reasoning": "The two graphs have the same vertices and singleton switches give ordinary recolorings, but that inclusion and the known connectivity result do not determine sharp Kempe distances. The exact all-states eccentricity seven and the 37,440 cross edges need additional computation or new structural reasoning.",
+        "searches": [
+          "arXiv:1510.06964, Lemma 2.1",
+          "Resultary --42ecfc11d759, Finding; --9eab978a928b, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 and November 8 indexed records use Mycielski(C5), four named colors and exactly the same one-vertex move. Their counts, sign action or eccentricity census agree on the stated overlaps. The two-color-switch neighbor results retrieved for other graphs do not specialize to this graph."
+        ],
+        "reasoning": "Mycielski layer labels differ only by vertex notation. Unnamed color partitions are not the named-state move graph; an odd global renaming actually exchanges its two components. The two later indexed records are equivalent on their matching ordinary-recoloring assertions, but that is not equivalence of the complete pair of dynamics.",
+        "searches": [
+          "Resultary: Grötzsch Groetzsch Mycielski C5 optimal four-coloring reconfiguration, parity and eccentricity",
+          "Resultary: Las Vergnas Meyniel degeneracy, Grötzsch transition/components",
+          "External: Grötzsch Groetzsch Mycielski pentagon proper 4-colourings single vertex recolouring reconfiguration Kempe changes diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matpic explicitly gives the 12,480 named states and 520 unnamed partitions. The October 26 Finding lists 45,240 ordinary edges, two components, diameter 17, degree distribution and sign action. The November 8 Finding lists both components' radius/diameter and all three eccentricity multiplicities.",
+          "No matching table for the Kempe distance and edge data was identified in the bounded search."
+        ],
+        "reasoning": "The static count and the indexed ordinary transition tables are direct matches for those parts, not merely numerical coincidences. A count of colorings is not a count of legal switches, and the ordinary recoloring tables do not specify two-color components or switch distances.",
+        "searches": [
+          "Resultary: Grötzsch chromatic polynomial 12480 proper four colorings and 520 partitions",
+          "Resultary: Kempe diameter seven, 87120 edges, 37440 cross edges",
+          "Matpic: No triangle, and four colours",
+          "Resultary --42ecfc11d759 and --9eab978a928b"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact joint reconfiguration classification, especially the Kempe eccentricity, edge census and cross-component count. The known static count is not new. Kempe connectivity in isolation is also not novel: the Las Vergnas–Meyniel degeneracy lemma applies, even though the main regular-graph result cited in the frozen text does not. Two distinct later-dated Resultary records explicitly reproduce the frozen single-vertex component metrics and parity results between them; this is real overlap, not a title match or independent proof of release priority. Neither inspected record supplies the frozen Kempe census, distance profile or cross-component count, and the theorem establishing the contrast with disconnected single-vertex dynamics is not a direct corollary of the degeneracy lemma. The pass does not claim priority over every version of the overlapping recoloring-only evidence.",
+      "residual_risks": [
+        "The bounded search might miss an earlier exhaustive enumeration of the Kempe graph or a sharper specialized distance theorem under a variant graph name.",
+        "Indexed calendar dates and the static source's accessible text do not establish exact release or provenance for the overlapping material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Kempe connectivity alone by degeneracy, not the exact metrics",
+          "evidence": "Lemma 2.1 explicitly gives a unique Kempe class for a d-degenerate graph if k≥d+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06964",
+          "material_read": "PDF p. 6, Lemma 2.1 and its introduction, offsets 15510–16821",
+          "method": "OA PDF",
+          "title": "On a conjecture of Mohar concerning Kempe equivalence of regular graphs",
+          "trigger": "Strongest applicable general connectivity result"
+        },
+        {
+          "assessment": "Matches static state space; no first-release date established",
+          "evidence": "Reports 12,480 four-colorings, no three-coloring, and 520 partitions modulo color names.",
+          "identifier_or_url": "https://www.matpic.com/essays/no-triangle-and-four-colours/",
+          "material_read": "Twelve thousand ways, and none with three, offsets 3000–4146",
+          "method": "OA public-page inspection",
+          "title": "No triangle, and four colours",
+          "trigger": "Static count credited in the frozen record"
+        },
+        {
+          "assessment": "Later-dated exact ordinary-recoloring overlap, not the frozen joint theorem",
+          "evidence": "Same four named colors, 45,240 edges, two 6,240-state diameter-17 components, minimum degree 5, and precisely the same parity action.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759",
+          "material_read": "Finding and assumptions, offsets 0–2705",
+          "method": "Resultary local mirror",
+          "title": "Two recolouring chambers of the Grötzsch graph",
+          "trigger": "Exact ordinary component and parity match"
+        },
+        {
+          "assessment": "Later-dated ordinary metric overlap, not a Kempe result",
+          "evidence": "Radius 15, diameter 17 and multiplicities 1,080/5,100/60 per component, equivalent to the frozen total multiplicities.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-palette-recolouring-of-the-gr-tzsch-graph-two-component--9eab978a928b",
+          "material_read": "Finding and assumptions, offsets 0–2391",
+          "method": "Resultary local mirror",
+          "title": "Critical-palette recolouring of the Grötzsch graph: two components and sixty diametral pairs",
+          "trigger": "Exact ordinary eccentricity census match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Grötzsch graph is a canonical small triangle-free four-chromatic graph, and four colors is its critical palette. The comparison isolates a reachability obstruction despite every state admitting at least five local moves, classifies the symmetry of that obstruction, and quantifies exactly how Kempe moves bridge it and shorten distances. This is usable finite benchmark data for two natural reconfiguration rules, not merely a repeat of the static count or qualitative Kempe connectivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

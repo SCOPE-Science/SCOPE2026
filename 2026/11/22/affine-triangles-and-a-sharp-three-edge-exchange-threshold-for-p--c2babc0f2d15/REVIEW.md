@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the fixed eighteen-vertex, 27-edge Pappus incidence graph with three chosen affine directions. Maximality is equivalent to the absence of an edge between uncovered vertices. A counting inequality excludes any uncovered four-by-four coclique, so every smallest maximal matching has at least six edges. Exactly eighteen three-point triangles have three nonincident lines; each complementary induced graph has three forced matching edges and one six-cycle, giving two completions and 36 minima. Two independently constructed finite exhaustive verifiers prove the complete maximal-matching counts and exchange-graph invariants. The second verifier uses the Hamiltonian LCF construction rather than the affine incidence construction and independent uncovered-pair enumeration. Each program was executed from its current package path; no stale execution transcript is taken as an independent proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest searched mathematical findings cover the Heawood minimum-maximal matching exchange graph, Pappus induced-matching exchange, Pappus skew-zero-forcing and secure-domination, Pappus perfect-matching forcing and cycle-flip geometry, and general matching reconfiguration. Those predicates or graphs do not imply the fixed Pappus minimum-maximal matching exchange claim. The full 2023 incidence-free edge-domination article provides general related techniques but does not describe the Pappus three-edge exchange graph; the discussed large-block-size theorem is inapplicable at block size three. The 2009 Pappus–Desargues source concerns oriented six-cycle geometry. Databases might already encode isolated numerical matching counts, so originality attaches primarily to the triangle-and-remainder characterization and sharp three-edge exchange structure. Unindexed material remains a priority risk.
+PASS
 
-## Value — PASS
-Minimum maximal matchings represent smallest independent edge-monitoring placements. A three-edge simultaneous relocation threshold is operationally distinct from the previously available optimum size: replacing one or two observations cannot move between any optimal placements, while three moves connect all 36, with regularity, a uniform sharp four-step distance bound and exactly two optimum completions for each of eighteen incidence-free geometric cores. This is a natural, complete small highly symmetric graph classification, not an arbitrary choice of subset parameters. Its geometric and mobility statements are useful independently of possible prior computer-table entries for the numerical polynomial.
+An inclusion-maximal matching leaves independent uncovered shores. Four points have 12 incidences, with at most six repeated incidences because a point pair shares at most one chosen line; at most three lines avoid those four points, ruling out size <=5. For three points, at least six lines are met, and equality (required for size six) needs one distinct available line for each pair. They form a noncollinear triangle with precisely the three allowed directions. Its horizontal/vertical corner and nonzero horizontal displacement give a unique displayed T_{x,y,a}; the three avoided lines are forced. For the reference triangle, three point-to-line edges are forced, and the remaining six vertices form a 6-cycle with two perfect matchings. Translation and simultaneous negation cover the other triangles. An independent increasing-edge-index enumeration visits each matching once and tests maximality by inspecting every edge for an uncovered pair, yielding {6:36,7:567,8:648,9:42}. It reproduces the published 36 masks and 126 exchange edges exactly. Among the 630 unordered pairs the needed exchanges are 3,4,5,6 with counts 126,54,270,180; thus one- and two-edge moves are impossible. Independent graph traversal gives degree seven, 108 triangles, and the common shell profile (1,7,12,12,4), establishing connectedness and radius and diameter four. The 108 direction-preserving affine collineations give one orbit on the 36 states. An extra independent check groups the two completions for each uncovered triangle as adjacent true twins; their 18-vertex quotient is isomorphic to Pappus, so the computed exchange graph is also Pappus[K_2].
 
-## Checked literature and limitations
-Adriaensen–Mattheus–Spiro (2023), DOI 10.1002/jcd.21925, substantive full-text sections on incidence-free pairs and edge domination; Dejter (2009), arXiv:0904.1096, available full HTML text; Yannakakis–Gavril (1980), DOI 10.1137/0138030, accessible abstract and bibliographic information; Bonamy et al. (2019), DOI 10.4230/LIPIcs.MFCS.2019.80, accessible proceedings page and abstract; MathWorld's Pappus LCF entry. The 1980 full article was not accessible, and some matching-polynomial software tables could contain numeric coefficients; neither is treated as inspected. No claim of universal novelty certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard Pappus graph, edge-domination correspondence and use of incidence-free sets are prior. The same-day Pappus forcing record explicitly uses the 42 perfect matchings, so that top coefficient is not a distinct new fact here. The supported contribution is the affine classification and full census of the minimum maximal matchings, the lower-size maximal matching coefficients, and the exact three-edge exchange threshold and graph on the minima. The strongest other Pappus exchange statements act on different configurations; similar incidence-free exchange results on other graphs do not imply this exact census or mobility graph.
+
+## value
+
+PASS
+
+The Pappus incidence graph is canonical, and minimum maximal matchings model minimum edge domination on it. Describing all optima by complementary affine triangles explains their geometry rather than just outputting 36. The exact jump from every optimum isolated at budget two to a single connected transitive graph at budget three is a meaningful finite reconfiguration cutoff with a useful complete distance profile. It cannot be read off from the optimum cardinality or from the previously known perfect matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

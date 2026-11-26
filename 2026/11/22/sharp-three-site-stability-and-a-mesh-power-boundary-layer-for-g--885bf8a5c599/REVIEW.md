@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed generalized blending factors cancel to a positive two-line blend, giving three cardinal functions of which exactly one is negative on each open cell. The resulting exact Lebesgue expression is controlled by a strictly monotone one-dimensional stationarity ratio. Increasing-versus-decreasing envelope comparison proves the unique midpoint minimizer. The midpoint critical equation has a unique root; elementary compact-convergence and exponential-tail estimates prove both high-power limits. The packaged standard-library checker confirms exact rational blending identities and supplementary numerical cases. These tests are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Full HTML of Themistoclakis–Van Barel (2023, arXiv:2307.05345) and its 2024 arbitrary-node sequel was inspected, including definition, Lebesgue estimates, proof context, and approximation results. They establish general operator properties and coarse mesh-ratio bounds, not the claimed sharp three-site minimax constant, monotone-data equivalence, unique node, or moving-mesh power limit. The closest published mathematical findings on four-node classical Floater–Hormann shape defects and three-site Shepard variation were read in full; neither implies this theorem because the operators, data cardinality, and norms differ. The classical three-point polynomial limit is known and is not independently asserted as novel. An undiscovered three-site generalized-rational calculation remains possible.
+PASS
 
-**Value — PASS.** The source family was designed partly to control Lebesgue amplification, and the three-site case is the first with two overlapping degree-one local interpolants. The theorem solves its natural exact node-design problem and clarifies a misleading inference from general gamma-uniform bounds: increasing power can suppress amplification at balanced nodes but not on a fixed asymmetric mesh. The quantified \(1/\gamma\) mesh tolerance and noncommuting limiting regimes are useful stability information that the source's coarse estimates do not supply. This is a minimal exact model, not a many-node convergence or finite-precision guarantee.
+Cancelling the common signed factor makes the blend positive for every allowed parity. On each open cell there is exactly one negative cardinal weight, so the unrestricted norm equals 1+2 max(H_gamma(a),H_gamma(1-a)). For nondecreasing data the left cell lies at or below y_1 and the right at or above it, and the exact lower and upper defects are respectively H_gamma(a) for (0,0,1) and H_gamma(1-a) for (0,1,1); the common worst-sign bound is attained, not necessarily by both signs away from the midpoint. The interior maximum yields strict increase of H_gamma with a, hence unique minimax at 1/2. The midpoint derivative gives the stated unique t_gamma and strict decrease with gamma. Independent bisection at gamma=2 gave t=0.5436890126920764 and norm 1.134884497736246. The outer limit follows by splitting the weight at 1/2 +/- eta. In inner variables compact convergence is uniform; for z<=0, log((1+2z/gamma)/(1-2z/gamma))<=4z/gamma gives an exponential tail, and near z=beta the prefactor vanishes. The limiting maximum at 4(beta-z)=1+exp(4z), followed by reflection, gives the stated Lambert W formula and includes the centered limit.
 
-**Closest literature and limits.** The primary sources are arXiv:2307.05345 (July 11, 2023) and DOI:10.1007/s11075-024-01933-6 (September 17, 2024). Related records include the four-node degree-one Floater–Hormann monotone-range classification and the three-site Shepard variation result, both distinct. Only three distinct sites, degree-one blending, positive integer exponent and the real interpolation interval are covered; historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passed for the exact arbitrary-placement three-site optimization, including odd and even powers and the fixed/off-center and moving-mesh laws. The classical midpoint constant at gamma=1 is background, and the even-power midpoint monotone defect overlaps a distinct same-day Resultary finding; neither is given independent novelty credit. The available comparison does not establish coverage of arbitrary three-site placement or the coupled power/placement limit. No order is inferred from the shared date.
+
+## value
+
+PASS
+
+The smallest grid with extrapolatory local blending is a useful sharp model: the norm exactly measures worst-sign monotone range loss, and the midpoint high-power improvement is unstable at fixed off-center placement. The moving-mesh limit resolves which displacements retain O(1/gamma) amplification and gives its exact crossover coefficient on that scale, beyond the classical constant or the uniform-grid overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

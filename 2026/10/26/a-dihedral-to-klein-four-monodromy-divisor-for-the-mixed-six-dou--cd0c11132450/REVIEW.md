@@ -1,11 +1,21 @@
-# Review of the degree-four elliptic \(j\)-map monodromy claim
+# Independent mathematical audit
 
-**Correctness (PASS).** The originating normal form gives the factorization \(j=1728(1-27(Q/P)^2)\). The discriminant polynomial of \(Q-zP\) detects the two critical values and its middle coefficient is exactly twice the negative polar pairing. The quadratic function-field tower gives either the order-eight wreath/dihedral closure or the degree-four Klein-four normal extension. Simple roots enforce all stated branching partitions, and two exact examples demonstrate a proper jump locus. A symbolic checker corroborates critical identities.
+## correctness
 
-**Originality (PASS, priority risk retained).** The original paper's complete Section 4.1 and surrounding sections discuss six-fibre elliptic surfaces, quadratic normal forms and moduli but do not assert this \(j\)-map monodromy jump or its polar divisor. Targeted research-record and published searches found no equivalent or stronger claim for the exact pair \((4,2)\). Generic facts about quadratic-cover composition are known and not claimed. A 2026 general degree-four-map invariant-ring paper was accessible only as an abstract and remains a non-decisive residual source risk.
+PASS
 
-**Value (PASS).** The exact divisor distinguishes ordinary dihedral covers from regular Klein-four covers inside a natural two-dimensional elliptic-surface moduli family, and completely determines ramification passports on both strata. This is a geometrically motivated stratification of the \(j\)-map, not merely a reformulation of the Weierstrass equation.
+The Weierstrass formula cancels to h(Q/P), with h(z)=1728(1-27z²). The quadratic pencil Q-zP has discriminant disc(P)z²-2p(P,Q)z+disc(Q), also when a repeated root is at infinity in the t-line. The inner degree-two map has two distinct critical values, both finite and nonzero by simplicity of the zero and pole divisors. Their images under h coincide exactly when the linear coefficient is zero. Over C(z), the two square classes represented by Δ(z), Δ(-z) differ when their branch sets differ; in that case the Galois closure has degree eight and embeds in (hence fills) the degree-four block stabilizer D4. On the polar locus Δ is even, and z↦-z lifts fixing sqrt(Δ); together with the quadratic deck involution this gives V4. Ramification of the two successive maps gives two (2,2) and two (2,1,1) partitions in the first case and three (2,2) in the second. The examples satisfy the root hypotheses: for Q=t²+t+2 the discriminants of P±3√3 Q are -193∓36√3; the even example factors as P±3√3 Q with both constant and leading coefficients nonzero. Coprimality gives no overlap between these factors. The polarization scales by the square of the determinant under base coordinate changes. This is a proof for the stated open locus and for j-cover monodromy only. The frozen checker was inspected, not executed; its scope is algebraic consistency, not the function-field argument.
 
-**Limits.** This does not classify total-space automorphisms or cover degenerate \(P,Q\) and repeated-root cases. Independent evaluation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normal form and quadratic-cover theory are prior. The supported distinct contribution is the intrinsic equation for the jump within this open elliptic-surface family, including the exact j-branch partitions and realization of both strata. No equivalent coverage was found in the inspected sources.
+
+## value
+
+PASS
+
+The jump for a natural moduli family distinguishes non-Galois covers from Galois ones and identifies all ramification types on the given open locus. The coordinate-invariant equation and proven proper nonempty locus give a usable parameter test; the value is not the familiar observation that a composition of two quadratic maps is imprimitive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

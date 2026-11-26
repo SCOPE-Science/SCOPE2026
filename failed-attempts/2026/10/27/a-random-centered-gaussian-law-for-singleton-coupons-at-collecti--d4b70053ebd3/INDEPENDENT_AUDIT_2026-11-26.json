@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:30:54.142549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent rate-one clocks have independent Exp(1) first arrivals and an almost surely unique last first arrival. Conditional on its time t and index, the other counts are independent Poisson(t) conditioned positive; the last type contributes one singleton. Thus S_n | W_n=t has law 1+Bin(n−1,t/(e^t−1)). At t=log n+g the conditional mean is (log n)e^(−g)+O(1) and the conditional variance divided by log n tends to e^(−g), uniformly for g in a compact set. Expanding the centered binomial characteristic function, using tightness of W_n−log n and the explicit maximum distribution, gives the claimed joint mixed-Gaussian law. The variance of W_n−T_n/n is H_n/n from the label-independent Exp(n) gaps, so even (log n)|W_n−T_n/n| tends to zero in probability, and replacing the center preserves the Gaussian scale. Division by e^(−X_n/2) gives the independent standard normal pivot. For the covariance, under the singleton weighting S_n−1 the substitution u=e^(−W_n) yields Beta(2,n−1) integrals for −log u and its square; these give E[S_n]=H_n and Cov(W_n,S_n)=H_n^(2)−H_n. With Beta(3,n−2) one obtains the stated second factorial moment; the resulting Var(S_n)∼(log n)² gives the correlation limit. A separate exact rational recurrence reproduces Cov(T_n,S_n)=−1/2, −17/12, −95/36 for n=2,3,4, respectively (branches/306200d7-af4a-4194-94c4-09791336ff4d/independent_finite_check.py); these checks are finite, not a proof of the limit. Frozen verification support was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0d3ee5e36129 states joint limits for all fixed sibling indices 2≤j≤J, independence of all normal coordinates and the completion variable, and both studentized and mixed forms.",
+          "Ilienko's joint count limit covers the first-order shared Exp(1) scale; his model with the first younger brother gives exactly the singleton count."
+        ],
+        "reasoning": "The broader sibling-deficits catalogue theorem contains the whole second-order claim as a coordinate specialization. Ilienko alone covers the first-order claim, not the Gaussian residual.",
+        "searches": [
+          "Resultary 0d3ee5e36129, Finding and stopped Poisson proof",
+          "arXiv:2002.00650, Theorem 2.1, equation (2.5)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 0d3ee5e36129 and 30d62ac7ab73",
+        "Myers–Wilf arXiv:math/0304229",
+        "Ilienko arXiv:2002.00650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With t=K_n/n=log n+X_n, m_{n,2}(t)=1+(n−1)t/(e^t−1). The prior scaling v_{n,2}=(n−1)q_2(1−q_2); its mixed law directly uses sqrt(log n)."
+        ],
+        "reasoning": "Uniformly for bounded X_n, the prior center differs from (log n)e^(−X_n) by 1+X_n e^(−X_n)+O(log n/n), and v_{n,2}/((log n)e^(−X_n))→1. Tightness makes the difference negligible after normalization. Thus the j=2 coordinate, minus-log map and Slutsky imply both frozen joint limits without a new asymptotic theorem.",
+        "searches": [
+          "0d3ee5e36129, exact displayed laws, mirror offset 300",
+          "Frozen RESULT.md, Finding and equations (1)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0d3ee5e36129 uses n exp(−K_n/n) with an independent Gaussian residual; at j=2, U_{n,2} is the exact singleton count and K_n the same completion draw.",
+          "30d62ac7ab73 also states the same observable center (log n)e^(−X_n) and studentized independent limit, with an additional local uniform approximation; its later catalogue path is not used as a priority determination."
+        ],
+        "reasoning": "The first coordinate of 0d3ee5e36129 is exactly e^(−X_n), so applying minus log gives the Gumbel coordinate. The studentized and mixed limits are equivalent under the continuous positive scale on the limiting support.",
+        "searches": [
+          "Resultary semantic search for observable-centered completion-time singleton mixed normal and Gaussian pivot",
+          "0d3ee5e36129, Finding, mirror offset 300",
+          "30d62ac7ab73, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Myers–Wilf give the full finite joint law by counting arrangements with a specified last type, singleton types and positions, and partitions into blocks of size at least two.",
+          "The catalogue matches include an explicit conditional law under the Poisson embedding, not merely similar numerical data."
+        ],
+        "reasoning": "The underlying finite object is already exactly enumerated, including all mixed moments in principle. That table/formula alone does not prove the second-order limit; the stronger sibling-deficits theorem does.",
+        "searches": [
+          "arXiv:math/0304229, §4, formula (44)",
+          "Resultary semantic search, 0d3ee5e36129 and 30d62ac7ab73"
+        ]
+      },
+      "rationale": "The distinct Resultary sibling-deficits finding 0d3ee5e36129 states both second-order limits for every fixed J≥2 and directly implies the full proposed contribution at J=2. The different center, scale and first coordinate are asymptotically equivalent (or exactly related by a logarithm). This is established coverage, not an inference about authorship or publication chronology from a catalogue date. The ancillary covariance is not claimed as novel and does not remove the coverage of the main finding.",
+      "residual_risks": [
+        "Coverage is mathematical; the catalogue date does not itself certify an absolute history of discovery.",
+        "Other published antecedents are possible but cannot negate the exhibited implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full second-order finding as J=2",
+          "evidence": "Two displayed joint limits for W_n=n exp(−K_n/n) and the residuals with m_{n,j}, with v_{n,j} or a_{n,j} scaling, give independent Gaussians or sqrt(W)-mixed Gaussians.",
+          "identifier_or_url": "2026/10/12/SCOPE-observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129",
+          "material_read": "Finding, assumptions and beginning of Proof, offsets 300–3843",
+          "method": "Configured Resultary search and bounded local-mirror text inspection",
+          "title": "Observable-centered Gaussian fluctuations of coupon-collector sibling deficits",
+          "trigger": "Same stopped singleton model, normalization and pivot as one of a broader family"
+        },
+        {
+          "assessment": "Exact substantive overlap, not used to infer historical priority",
+          "evidence": "B_n=(log n)e^(−X_n) and the jointly independent studentized Gaussian/Gumbel limit.",
+          "identifier_or_url": "2026/11/2/SCOPE-studentized-gaussian-fluctuations-of-the-coupon-collector-s-term--30d62ac7ab73",
+          "material_read": "Mirrored Finding",
+          "method": "Configured Resultary search and bounded mirror inspection",
+          "title": "Studentized Gaussian fluctuations of the coupon collector's terminal singletons",
+          "trigger": "Identical statistic and observable center"
+        },
+        {
+          "assessment": "Direct finite-law coverage; no displayed second-order limit there",
+          "evidence": "f(n,j) is the joint probability of finishing at draw n with exactly j singletons; formula (44) uses restricted Stirling numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "§4, PDF pp. 18–19, formula (44) and derivation, offsets 59800–62104",
+          "method": "Read decisive primary OA PDF passages",
+          "title": "Some new aspects of the coupon-collector's problem",
+          "trigger": "Full finite law on the same two observables"
+        },
+        {
+          "assessment": "First-order overlap only",
+          "evidence": "U_1 is the singleton count, and r! U_r/(log n)^r converges jointly to the same Exp(1) random variable across r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.00650",
+          "material_read": "Introduction, definition of U_r; Theorem 2.1, equation (2.5), PDF pp. 1–4 at offsets near 0, 3920 and 15422",
+          "method": "Read decisive primary OA PDF passages",
+          "title": "Limit theorems in the extended coupon collector's problem",
+          "trigger": "Terminal first-order count limit for the same stopping model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A Gaussian pivot independent of the completion fluctuation is useful in the coupon model, but this submission's pivot is a coordinate of an existing broader theorem, changed by a routine recentering and continuous reparametrization. The supporting harmonic covariance follows by elementary beta differentiation of the finite law and is expressly not the claimed new contribution. No distinct valuable remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

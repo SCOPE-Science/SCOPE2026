@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:38.454940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonzero equilibrium and its characteristic polynomial follow by substitution and expansion. An independent check bypasses singular Routh rows: write the cubic as (z−r)(z²+uz+b/r), where r>0 exists by the sign of the constant term. The other two roots have positive product and the sign of their real parts is the opposite of the sign of u. With p=b−a and Δ=p(1−ab+2b/a)+b one has u=p+r and Δ=u(b/r−pr). Thus p≥0 gives index one, and for p<0 the index is three exactly for Δ<0, with only Δ=0 giving a neutral pair. Substitution of b=at gives Δ/a=a²t(1−t)+2t²−1; at neutrality the remaining quadratic is z²+t/(1−t). The derivative of b_H(t)² in RESULT.md lines 51–55 gives strict monotonicity on either side of its sole maximum, and b_H(t)²−1/2=−(2t−1)²(1+t)/(2(1−t)) also confirms genuine quadratic contact. At fixed b the map a=b/t is bijective, so the two crossings bound exactly the index-three interval; at tangency and on the rest of the neutral curve the strict-positive count is one. No nonlinear Hopf claim is needed. The frozen checker was inspected, not run; its finite samples are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The review passages cover the computer search for simple chaotic flows; the technical note considers many cases and gives two-parameter numerical plots."
+        ],
+        "reasoning": "The broader numerical survey does not supply a symbolic root count at all positive parameters. Routh counting is general but does not itself give the exceptional-locus geometry or fixed-b tangency.",
+        "searches": [
+          "Sprott–Linz, Algebraically Simple Chaotic Flows, PDF pp. 1–3",
+          "Sprott, Dynamic Regions in Simple Chaotic Flows, introduction and Case H"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55",
+        "Frozen VERIFICATION.md and sprott_h_checker.py, inspected without executing",
+        "Configured Resultary search",
+        "Sprott author note and fixed-parameter table",
+        "Sprott–Linz review pp. 1–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The technical note evaluates orbit types rather than the Jacobian of the nonzero equilibrium. The author’s model table gives only a fixed-parameter version. The original article full text could not be read."
+        ],
+        "reasoning": "The inspected orbit classifications and fixed-parameter formulas do not imply the exact spectral threshold; it requires solving the positive-parameter cubic boundary, distinguishing real-root degeneracies, and maximizing the neutral curve in the original parameter b.",
+        "searches": [
+          "Sprott, Dynamic Regions, introduction and Case H",
+          "Sprott, Some Simple Chaotic Flows, DOI 10.1103/PhysRevE.50.R647 and identified author PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The author note at offset 1848 gives exactly the frozen vector field; its introductory labels refer to attractor/trajectory outcomes."
+        ],
+        "reasoning": "The parameterizations coincide without rescaling, but a dynamical outcome from a random initial condition is not the number of unstable eigenvalues of the specified equilibrium.",
+        "searches": [
+          "Resultary search for Sprott H equilibrium index, imaginary-pair locus and tangency",
+          "Sprott author note ‘Dynamic Regions in Simple Chaotic Flows,’ Case H"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching indexed record was returned among ranked results; the author’s fixed-parameter table sets a=0.5 and b=1 for H."
+        ],
+        "reasoning": "An example with b=1, above the new cutoff, cannot determine the wedge or the sharp transition. The indexed search is not exhaustive.",
+        "searches": [
+          "Targeted Resultary search for Case H spectral wedge and cutoff",
+          "Sprott author page simplest.htm, Case H offset 1346"
+        ]
+      },
+      "rationale": "The inspected sources supply the precise Case H model and numerical two-parameter dynamical regions but not the exact unstable-index wedge, neutral spectrum and fixed-b coalescence theorem. This is a best-of-knowledge finding restricted to that local spectral claim.",
+      "residual_risks": [
+        "The 1994 article full text and the numerical graphics in the later technical note were not read or quantified.",
+        "An unindexed equivalent exact local analysis could exist. No claims about nonlinear Hopf bifurcation or attractor regions are certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material model overlap, but different classification",
+          "evidence": "The introduction classifies observed equilibria, cycles, chaotic attractors and unbounded orbits; Case H lists the same vector field.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Introduction at offset 0 and Case H around offset 1848",
+          "method": "Lawful author webpage, bounded text excerpts",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Same equations and two-parameter survey"
+        },
+        {
+          "assessment": "Fixed-parameter overlap only",
+          "evidence": "Case H is shown with a=0.5 and b=1.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/simplest.htm",
+          "material_read": "Case H at offset 1346",
+          "method": "Lawful author webpage, bounded text excerpt",
+          "title": "Simple Chaotic Flow, author’s table",
+          "trigger": "Case H introduction and tables"
+        },
+        {
+          "assessment": "Inspected passages did not give the exact spectral classification; no whole-document conclusion from a keyword miss",
+          "evidence": "These passages address finding simple chaotic flows, not the positive-quadrant neutral curve of Case H.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+          "material_read": "Opening and Computer Search, PDF pp. 1–3",
+          "method": "Lawful OA PDF, bounded text inspection",
+          "title": "Algebraically Simple Chaotic Flows",
+          "trigger": "Historical review cited by the finding"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not negative evidence",
+          "evidence": "The author table credits the original paper for the selected Case H parameters.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.R647",
+          "material_read": "No article full text read; fixed-parameter case via the separate author table only",
+          "method": "OA DOI retrieval unsuccessful; https://sprott.physics.wisc.edu/pubs/paper212.pdf had no extractable text via the paper reader",
+          "title": "Some Simple Chaotic Flows",
+          "trigger": "Original source for Case H"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact local benchmark for a canonical two-parameter chaotic-flow family: it tells users where an index-three equilibrium can exist, when two neutral parameters merge, and where that entire mechanism is excluded. The complete slice classification and exact cutoff add information beyond applying a cubic sign rule at a chosen sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

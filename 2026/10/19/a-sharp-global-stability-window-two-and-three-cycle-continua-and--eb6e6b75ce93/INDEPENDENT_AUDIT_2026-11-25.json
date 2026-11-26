@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:08.791859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62",
+        "Frozen VERIFICATION.md and verify.py, inspected rather than executed"
+      ],
+      "rationale": "Direct case analysis reduces every orbit to the positive x-axis or zero. For x≤0 the image is on the axis and a negative axis point goes positive next. For x>0 put s=y−bx. If s≤0 then F²=(−as−dx,0); if s>0 then F²=(−bs−dx,−ds) has strictly negative first coordinate and F³=((ab−d)s+adx,0). Thus entrance takes at most four steps, including b=0 and the switching line. From (r,0), F=(−br,−dr) and F²=((ab−d)r,0). This gives a positive return after 2 steps for d<ab, extinction after 2 for d=ab, and a positive return after 3 with multiplier a(d−ab) otherwise. Uniform bounds on the finitely many transient and within-return branch products turn return contraction into global exponential stability; an available contraction rate is κ^(1/ℓ) for 0<κ<1. The neutral multipliers give primitive cycles and every nonzero periodic point must visit the positive axis, so this list is exhaustive. The lower equality is allowed only at ab>1. A multiplier greater than one forces unbounded return radii unless the orbit reaches zero. At d=ab>0 the s>0 third iterate is already positive, shortening universal entrance to three; F⁵ is then zero. At z=(1,b/2), F²=(−ab/2,0), F³=(a²b/2,0), and F⁴=(−a²b²/2,−a³b/2) is nonzero. At (2,1,2) the right polynomial is λ²+λ+2 and the left spectrum is {−2,0}, confirming the example. Independent rational spot checks iterated the displayed piecewise rule on an integer grid for (2,1,2) and checked representative ray returns; the analytical argument supplies all quantifiers.",
+      "residual_risks": [
+        "Only the zero-offset, zero-left-determinant family with the stated trace signs and positive right determinant is assessed; the argument does not establish perturbation robustness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier sector theorem excludes zero determinants and treats δ_L>0, δ_R<0.",
+          "The 2026 return analysis uses a nonzero normalized positive offset and repelling-focus conditions."
+        ],
+        "reasoning": "General homogeneous stability methods are prior, but these explicit planar classifications cannot be specialized to the frozen regime. A generic contraction criterion still requires computing the uniform entrance and exact return.",
+        "searches": [
+          "Simpson arXiv:1612.02932 §6 and Theorem 6.4",
+          "Simpson arXiv:2606.08901 Eq. (1.2) and focus conditions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work section",
+        "arXiv:2408.04790, 1612.02932, 2606.08901",
+        "Resultary a76c8cea2c0d (statement), 6d691f86a1db and d674842218e1 (related results)",
+        "Bounded focused primary-literature query and local semantic comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The extinction theorem's complement only excludes global finite-time extinction; it does not distinguish contraction, neutral periodicity or unboundedness outside the resonance.",
+          "An off-border attracting orbit or a sector test on the opposite-sign determinant regime cannot imply the two homogeneous primitive-cycle continua."
+        ],
+        "reasoning": "The distinct result resolves the remaining nonresonant parameter space by exact return factors and proves exhaustive neutral and exterior behavior; it does not rely on novelty of the fifth-iterate identity.",
+        "searches": [
+          "arXiv:2408.04790 §4.1; arXiv:1612.02932 Theorem 6.4; Resultary a76c8cea2c0d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At (τ_L,τ_R,δ_R,μ)=(−a,−b,d,0), Simpson's map is exactly the frozen map, but §4.1 sets aside origin stability at μ=0.",
+          "The distinct five-step extinction record uses the opposite naming of the positive trace magnitudes; relabeling gives the same map and resonance."
+        ],
+        "reasoning": "This is actual mathematical overlap for the extinction subclaim, not merely title similarity. The exact same normal form in the other cited work does not establish the complete zero-offset classification.",
+        "searches": [
+          "Resultary search for zero-determinant border collision, homogeneous map, five-step extinction and stability window",
+          "Simpson arXiv:2408.04790 Eq. (1.2), §4.1; Resultary a76c8cea2c0d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored a76c8cea2c0d states the same sharp fifth iterate at resonance (and global extinction iff resonance), with no classification of the two stability endpoints or exterior.",
+          "Related catalogue entries 6d691f86a1db and d674842218e1 concern mixed traces or a nonzero offset; neither is a match of the stated parameter region and boundary behavior."
+        ],
+        "reasoning": "Partial exact duplication is credited, but no inspected exact table or catalogue result supplies the combined stability, periods and exterior cases.",
+        "searches": [
+          "Resultary searches for the exact return periods, stability interval and sharp deadbeat index"
+        ]
+      },
+      "rationale": "The support for distinctness is the full global classification in this homogeneous parameter cone, in particular the stability window and its two different primitive neutral boundaries plus the exterior behavior. The sharp five-step subclaim is substantively duplicated by a distinct indexed finding and is not credited as distinct on its own. No priority is inferred from catalogue order. Simpson provides the normal form and broader stability/return methods, not the examined cone's complete classification.",
+      "residual_risks": [
+        "Neither priority of the duplicated extinction assertion nor exhaustive bibliographic uniqueness has been established. An equivalent whole classification in other coordinates remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family; zero-offset stability explicitly set aside",
+          "evidence": "τL=−a, τR=−b, δR=d, μ=0. Subsequent stability/bifurcation sections treat μ<0 or μ>0.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.04790",
+          "material_read": "OA HTML Eq. (1.2) near offset 18500; §4.1 offsets 22200–25670",
+          "method": "Open HTML bounded passage reads",
+          "title": "The two-dimensional border-collision normal form with a zero determinant",
+          "trigger": "Identical normal form and strongest direct citation"
+        },
+        {
+          "assessment": "General methods relevant; explicit theorem outside this determinant cone",
+          "evidence": "The worked planar non-invertible case excludes zero branch determinants and proceeds with δL>0, δR<0.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.02932",
+          "material_read": "OA HTML §6 offsets 36062–40056; Theorem 6.4 offsets 40056–48039",
+          "method": "Open HTML bounded passage reads",
+          "title": "The stability of fixed points on switching manifolds of piecewise-smooth continuous maps",
+          "trigger": "Graphically exact criteria for homogeneous switching maps"
+        },
+        {
+          "assessment": "Different offset and return geometry",
+          "evidence": "Map uses normalized +1 offset; the focus conditions include δR>1 and δR>τR²/4.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.08901",
+          "material_read": "OA HTML Eq. (1.2) near offset 5200 and focus assumptions near 9339",
+          "method": "Open HTML bounded passage reads",
+          "title": "One-dimensional first return maps for the two-dimensional border-collision normal form with a zero determinant",
+          "trigger": "One-dimensional return reduction in the same normal-form family"
+        },
+        {
+          "assessment": "Covers extinction subclaim, not the full nonresonant classification; no date-based priority claim",
+          "evidence": "Same family after swapping a,b labels, global extinction iff d=ab and least uniform exponent five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–3087",
+          "method": "Configured local mirror bounded statement read",
+          "title": "Sharp five-step extinction resonance in the zero-determinant border collision",
+          "trigger": "Exact overlap under renaming of trace parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–18 and 34–62",
+        "Simpson arXiv:2408.04790 §4.1"
+      ],
+      "rationale": "The homogeneous singular case is natural because branch eigenvalues alone can be misleading and the related normal-form analysis singles out the switching-offset case. Exact entrance and return determine stability on the whole plane, distinguish the two primitive periods at neutral boundaries and identify unbounded behavior outside. The complete nonresonant classification is useful separately from the duplicated extinction assertion.",
+      "residual_risks": [
+        "This is a sharp normal-form classification, not a broader theorem on nonlinear or nonzero-offset switching systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

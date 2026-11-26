@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:45:07.181396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated unit-mass Itô system with positive springs and frictions, the positive definite mechanical energy dissipates as −g v₁²−h v₂²; the only invariant zero-dissipation trajectory is the origin. The linear drift is thus Hurwitz and the stationary Gaussian covariance is unique. Write K=(a,−k;−k,b), Γ=diag(g,h), S=E[xxᵀ], R=E[xvᵀ]=(0,C;−C,0), H=E[vvᵀ]. The stationary equations are H=SK+RΓ and ΓH+HΓ=RK−KR+2diag(gT₁,hT₂). The latter gives H₁₁=T₁−kC/g, H₂₂=T₂+kC/h, H₁₂=(b−a)C/G. Symmetry of S gives KH−HK=KRΓ+ΓRK. Its off-diagonal entry yields kΔT=C[(a−b)²/G+k²(1/g+1/h)+ah+bg]. The energy input current is kC; substituting g=Gp, h=G(1−p) yields the displayed formula. Its positive numerator is independent of p, and the denominator has second derivative 2k²[p^−3+(1−p)^−3]>0 and first derivative limits of opposite infinite signs. This proves the unique interior optimum and the side of 1/2 follows from F′(1/2)=G²(v−u). With unequal traps, the critical equation gives δ=min(p*,1−p*)→0 and Gδ→k/√|u−v|. The reciprocal term is then O(G), and the leading denominator is G²[min(u,v)+k], whereas balance gives G²[(u+v)/2+k]. For small G, the odd part of F′ about 1/2 has leading coefficient 32k² and cubic remainder; the shift is G²(u−v)/(32k²)+O(G⁶), which implies the stated O(G⁴). For equal traps balance holds exactly; the zero-temperature-difference degeneracy is not within scope.",
+      "status": "PASS",
+      "verification": "Independent replay: /workspace/branches/eea6ea72-1632-4ab4-9be6-324fa7130129/independent_covariance_check.py. Solving the full 16-variable covariance system numerically reproduced five currents, four allocation roots with comparison grids, and the strong-budget test u=7, v=2, k=1.5, G=100000, where the smaller friction is about 0.67082039. Frozen check_heat.py was inspected and not run; its recorded rational cases and grid checks are likewise finite. The symbolic covariance and convexity arguments, not grids, prove all-parameter equality and uniqueness."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henkel includes unequal baths and oscillators, general memory kernels and the classical limit; with λ=k, k′₁=a, k′₂=b, masses one, and ρ₁=g, ρ₂=h, his Eq. (42) is the stationary current integral of the frozen dynamics. The overdamped Ciliberto law has an affine denominator in resistances under a fixed sum."
+        ],
+        "reasoning": "The forward law is covered by specializing and evaluating the broader representation. Henkel's inspected section derives and illustrates the spectrum, not a fixed-total damping allocation or a singular large-budget optimizer. The overdamped law omits inertia and under its own fixed resistance sum cannot predict the asserted unique interior optimum.",
+        "searches": [
+          "Henkel arXiv:2102.13559 equations (13)–(23), §3.4",
+          "Ciliberto et al. arXiv:1301.4311 pp. 4–5",
+          "Resultary 08f0e2a69130, 24ca9ac95c81"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_heat.py",
+        "Henkel arXiv:2102.13559",
+        "Ciliberto et al. arXiv:1301.4311",
+        "Resultary 419e66f05b6b, 08f0e2a69130, 24ca9ac95c81 and 8e558034cb4c",
+        "Barton DOI 10.1088/0953-8984/27/21/214005 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Henkel gives the information necessary to evaluate a current at every split, but the displayed examples use equal damping and compare spectra. Neither the fixed pinning or mass optima in the three-site records nor the spectral optimum states a heat-current budget conclusion."
+        ],
+        "reasoning": "The new conclusion needs the allocation dependence of the classical denominator, strict convexity and the boundary scaling that balances its G² tilt against a singular inverse-contact penalty. Those steps establish the exact friction floor rather than merely restating the pre-existing spectral integral or substituting parameters in a known optimum.",
+        "searches": [
+          "Henkel §3.4, arXiv text offsets 37620–45810, and Ohmic/classical limit passages",
+          "Resultary spectral and three-site parameter optimization Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Henkel's stationary current is (λ/2)E[xẏ−ẋy], which is kC under λ=k and stationarity. Resultary 419e66f05b6b fixes the same kind of damping budget but optimizes spectral decay, not heat current."
+        ],
+        "reasoning": "Heat current, conductance, and the cross covariance are proportional in this linear classical model at fixed ΔT, so optimizing any of those is the same problem. Minimizing a deterministic decay time is not equivalent; the allocation in the frozen law changes with trap asymmetry and depends on the reciprocal contact terms.",
+        "searches": [
+          "Henkel arXiv:2102.13559, equations (12), (20)–(23), (40)–(42)",
+          "Resultary fixed total local damping and heat-current optimization searches",
+          "Ciliberto et al. arXiv:1301.4311 equations (3)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed fixed-total damping result concerns spectral decay for identical oscillators. Indexed exact thermal optima for three-site chains vary the middle pinning spring or impurity mass, not the endpoint friction allocation. No verified exact allocation law was recovered among the ranked lookups."
+        ],
+        "reasoning": "Parameter lists or balanced examples do not determine a fixed-budget argmax for unequal pinning or its strong-budget limit. The catalogue comparisons distinguish exact optimization results from coverage of this particular optimum; the bounded search does not exclude all other exact sources.",
+        "searches": [
+          "Resultary fixed total damping allocation harmonic dimer and thermal-conductance optimization searches",
+          "Resultary 419e66f05b6b, 08f0e2a69130, 24ca9ac95c81"
+        ]
+      },
+      "rationale": "Credit Henkel for the broader forward heat law: the classical white-noise, Ohmic, unit-mass specialization determines the current before doing the frozen covariance calculation. Do not credit the current model or the existence/direction of current as new. What survives comparison is the fixed-sum allocation theorem, including its exact unique optimizer, which oscillator gets more damping, the nonzero limiting smaller friction, and the enhancement factor. The inspected heat-current and damping-allocation comparisons optimize different variables or objectives, or use different dynamics. The conclusion is limited to the inspected sources, not a claim of priority.",
+      "residual_risks": [
+        "The Barton full text remained unavailable. A nonindexed optimal-allocation study or a classical transport treatment with an equivalent constrained optimization may have been missed.",
+        "The broad primary lookup did not provide another decisive match. The exact optimizer is a best-of-knowledge distinction; the forward law is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward-model coverage, not a fixed-budget allocation in the inspected results",
+          "evidence": "In the inspected preprint Eq. (42), not Eq. (44), is the heat-current integral; Eq. (44) there is an equilibrium fluctuation–dissipation relation. The current uses ρ₁ρ₂, the temperature-factor difference and |D|². Ohmic friction and constant classical temperature factors specialize it to the frozen model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.13559",
+          "material_read": "Memoryless friction and classical limit, offsets 15980–17766 and 20550–22306; susceptibility and determinant, offsets 22200–24454; §3.4 current equations and examples, offsets 37620–45810; arXiv Eq. (44), offset 48348",
+          "method": "Lawful arXiv copy recovered by exact-title query; OA PDF passages",
+          "title": "Heat Transfer and Entanglement – Non-Equilibrium Correlation Spectra of Two Quantum Oscillators",
+          "trigger": "Broader forward law with separate baths and unequal damping"
+        },
+        {
+          "assessment": "Different first-order forward law",
+          "evidence": "The mechanical analogy is explicitly overdamped and the printed denominator is affine in the two resistances.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.4311",
+          "material_read": "PDF pp. 4–5, offsets near 23500 and 27450; Eqs. (3)–(7)",
+          "method": "OA PDF passages",
+          "title": "On the heat flux and entropy produced by thermal fluctuations",
+          "trigger": "Two thermal reservoirs and a coupled Brownian pair"
+        },
+        {
+          "assessment": "Budgets coincide; objective and stiffness assumptions differ",
+          "evidence": "For two identical oscillators, the unique balanced optimizer is for spectral decay.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-balanced-local-damping-and-its-critical-spectral-cusp--419e66f05b6b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror source text",
+          "title": "Balanced local damping and its critical spectral cusp",
+          "trigger": "Two underdamped oscillators and fixed total damping"
+        },
+        {
+          "assessment": "Different control variable and chain size",
+          "evidence": "Optimizes middle pinning on a three-site chain with fixed endpoint bath parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-lorentzian-thermal-conductance-optimum-and-an-asymmetry-driven-p--08f0e2a69130",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror source text",
+          "title": "Lorentzian thermal-conductance optimum and an asymmetry-driven transition",
+          "trigger": "Classical harmonic-chain heat optimization"
+        },
+        {
+          "assessment": "Exact overlap not independently established",
+          "evidence": "The source package describes it as treating dynamically identical oscillators; no whole-document noncoverage is inferred from unavailable text.",
+          "identifier_or_url": "https://doi.org/10.1088/0953-8984/27/21/214005",
+          "material_read": "DOI metadata; no readable full text independently retrieved",
+          "method": "DOI/OA access attempt",
+          "title": "Classical van der Waals heat flow between oscillators and between half-spaces",
+          "trigger": "Plausible earlier classical oscillator forward law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed damping budget poses a natural design problem distinct from predicting current at given bath contacts. For detuned traps the allocation direction and the finite nonzero weak-contact limit quantify a singular optimum: increasing budget mainly strengthens the stiffer contact but must not turn off the other bath. The asymptotic improvement over balanced damping is explicit. Those conclusions, rather than the already-covered forward law or convexity in isolation, are independently useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

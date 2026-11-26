@@ -1,15 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
-The subject is the explicitly defined twelve-vertex Franklin graph with the standard deterministic ordinary zero-forcing rule, and the claim quantifies over all its minimum sets and exchanges. The parallel and serial implementations use independently constructed LCF and bipartite adjacency relations and exhaust all \(495\) size-four and \(792\) size-five candidates, finding the minimum size \(5\) and the exact \(324\)-set family. All \(52{,}326\) unordered configuration pairs are eligible for the complete jump/slide comparison. Independent all-source breadth-first searches agree on both connected reconfiguration graphs, edges, radii, diameters, eccentricity and pair-distance histograms, and on the maximal nine-slide detour for a one-jump pair. The third standalone checker enumerates the automorphisms and all nine orbits. The code was rerun from the packaged files and its printed results match the stored outputs. A finite census is an exact proof here because the full universe and checks are explicit and exhaustively bounded.
+## correctness
 
-## Originality — PASS with residual risk
-The closest foundational 2010 paper supplies zero-forcing definitions and minimum-rank context, not this graph-specific reconfiguration census. The 2020 Geneson–Haas–Hogben paper defines and analyzes the standard token-jump zero-forcing graph but its inspected sections concern paths, cycles, complete graphs, constructed families and forests. The 2025 Bong et al. paper treats exchange and slide rules chiefly for PSD and skew forcing; its displayed enumerations cover all graphs on at most ten vertices and sampled graphs of order twenty, not the twelve-vertex Franklin graph. Full-text sections and claims were compared, rather than relying only on title searches. The closest indexed mathematical-record findings on the Franklin graph concern paired domination and matching-complex topology, and do not imply the present counts. Searches using Franklin, six-crossed-prism and Knödel aliases, as well as the exact parameters, located no covering statement. An equivalent unindexed table, thesis, unpublished computation or obscure discussion remains a genuine priority risk.
+PASS
 
-## Value — PASS
-The Franklin graph is a canonical small vertex-transitive cubic bipartite graph related to the Klein bottle. A complete nine-orbit classification provides the entire optimum-placement configuration space. The contrast between shortest unrestricted jumps (diameter \(5\)) and adjacent-location slides (diameter \(13\)) is nontrivial, and the maximum nine-step slide detour to realize a single valid jump is a sharply witnessed obstruction to converting unconstrained reconfiguration into local movement. The fact is mathematically specific, motivated by optimal sensing/forcing reconfiguration, and not merely a repeated cardinality bound. Its scope is only this graph, without claims of general family behavior.
+On the specified labels, the bipartite edges A_rB_s for s=r,r−1,r+2 are exactly the two cycle edges at each even vertex and the added even-to-i+5 chord. If a legal force's target stays white as the blue set grows, its source still has only that white neighbor. This justifies parallel closure and monotonicity, so testing all four-sets excludes every smaller size. An independent exhaustive check, not a rerun of the frozen scripts, found zero forcing sets among 495 four-sets and 324 among 792 five-sets. It enumerated all 48 adjacency-preserving permutations and recovered the nine stated orbits with sizes 12,24,24,24,48,48,48,48,48 and the stated representative degrees and eccentricities. The one-replacement graphs and all-source shortest paths gave connected J/T with (edges,radius,diameter)=(2910,5,5)/(534,9,13), slide degree counts 3:276,4:24,6:24, and eccentricity counts 9:24,10:144,11:60,12:48,13:48. Comparing every jump edge against the slide distance matrix gave maximum 9, attained by the stated {0,2,5,6,11} to {0,5,6,9,11} pair; shortest paths rule out any smaller distance for that witness. The excess over the single jump is eight moves. Replay: /workspace/branches/f916f99d-38ec-42cb-a181-5e8c7bd1d5f8/independent_check.py and independent_output.json. The check is exhaustive for this ordinary-forcing graph only.
 
-## Sources and limitations
-Sources inspected include Barioli et al., arXiv:1003.2028 (2010); Geneson, Haas and Hogben, arXiv:2009.00220 (2020); Bong et al., arXiv:2501.03642 (2025); and the MathWorld Franklin/Knödel graph descriptions. The exact data is supported by three standalone, dependency-free verification programs, not by extrapolation. An independent external mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete Franklin ordinary minimum-set census and exact jump/slide geometry, particularly the sharp local sliding detour. Established definitions and graph aliases were credited. The inspected closest catalogue and literature treatments do not supply this combination of graph, feasibility condition, and distance statistic.
+
+## value
+
+PASS
+
+The Franklin graph is a canonical small cubic vertex-transitive host, rather than an arbitrary sampled case. Its complete minimum-set geometry is a useful exact benchmark: both move graphs stay connected, yet a single jump can require nine optimal slides and the slide eccentricities vary despite host symmetry. The census and shortest-path witness distinguish unrestricted and local movement in a way neither the scalar Z nor generic graph connectivity can.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

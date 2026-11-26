@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Miranda--Persson's primary classification gives the fiber types and trivial section groups; adjunction and \(K_X=-F\) exclude all other negative curves. The \(II^*\) fiber matrix has affine \(E_8\) radical; the section intersects its multiplicity-one tip. The explicit Schur-complement values isolate precisely one additional singular nine-curve support. A standalone two-method exhaustive integer/rational check verifies the complete ten-curve subset classification, but the general geometric argument—not the finite program—justifies completeness.
+## correctness
 
-**Originality — PASS, provisional priority.** The primary 1986 classification determines the surfaces, not their chamber stratification. The 2009 chamber-support theorem determines how to count once all negative curves and their intersection matrix are supplied; it does not state the three-exception result or either surface's chamber count. The 2012 counting paper studies different examples and gives no \(II^*\) census. Targeted mathematical-literature and published mathematical-result searches found no identical or stronger theorem. Unindexed specialist computations of affine \(E_8\) supports remain possible.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural classification for two classically distinguished extremal elliptic surfaces, not an arbitrary numerical slice. The result isolates three forbidden supports among \(1024\), determines the entire support-size distribution and maximal negative support, and shows the classification is shared by isotrivial and non-isotrivial extremal examples because only the marked affine \(E_8\) configuration matters. It supplies an exact benchmark for big-divisor Zariski decompositions on rational elliptic surfaces; it is not offered as a general classification of other fiber types.
+Over C, adjunction with K=-F gives C²=2p_a(C)-2+F·C. A negative horizontal irreducible curve therefore has degree one and is a (-1)-section; the two classified section groups have order one. The only reducible fiber is II*, so the nine (-2) components and the zero section exhaust the negative curves. The section meets the unique multiplicity-one tip. Independently, let Q be the negative of the fiber matrix and D the diagonal matrix of its multiplicities m. Then DQD is the weighted tree Laplacian with conductance m_u m_v on edge uv. This proves positive semidefiniteness with a one-dimensional radical and proves positivity of all proper fiber submatrices. Grounding one omitted node i, the inverse diagonal at F8 is the path resistance from F8 to i, because m_8=1; take 0 if i=8. Summing 1/(m_u m_v) along the unique path gives 5/6, 8/9, 7/8, 1, 4/5, 3/4, 2/3, 1/2, 0 in index order. Thus among supports with the section and eight fiber curves, only the one omitting F3 has zero Schur complement. Any support with the section omitting at least two fiber curves is a principal subset of a positive definite support obtained by omitting a single i other than 3. The full fiber is singular, both alone and as a principal obstruction in the ten-curve support. An independent exact enumeration using these path resistances gives excluded masks 511, 1015, 1023 with bit 9 for the section, and size counts (1,10,45,120,210,252,210,120,45,8,0). This also agrees with independent rational LDL on the 1,024 principal matrices. Bauer–Funke–Neumann Proposition 1.1 and the empty nef support finish the count. The proof and replay are confined to these surfaces and this support invariant; the finite calculation does not by itself establish the geometric inventory. The frozen artifacts/verify.py and artifacts/verification.log were inspected as supplied evidence, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct contribution supported by the comparison is the explicit three-forbidden-support classification and its size refinement for the two named surfaces. Neither the surface classification nor the general chamber-counting method yields this exact support structure without the marked affine E8 definiteness analysis. The matching published catalog entry is the assigned record itself. This is a best-of-knowledge result, not a priority guarantee.
+
+## value
+
+PASS
+
+Chamber supports are natural birational-geometric data controlling the possible negative parts of big divisors. For a classified pair of surfaces with different residual fibers, the marked E8 configuration yields the same full size refinement and an exact list of forbidden supports, not just an isolated count. In particular the nonsaturating nine-curve support is identified by the specific multiplicity-two tip and gives a useful criterion for recognizing all allowed negative parts on both surfaces. The contribution is bounded to this pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

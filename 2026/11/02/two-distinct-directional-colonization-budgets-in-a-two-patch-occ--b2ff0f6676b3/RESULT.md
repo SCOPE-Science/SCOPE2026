@@ -23,10 +23,10 @@ Then
 B_E=\frac{Cr}{1-r},\quad T=\delta(2C+g)-2jC,\qquad
 B_P=\frac{T+\sqrt{T^2+8(j-\delta)\delta C(C+g)}}{4(j-\delta)}.
 \]
-Both are finite and strictly positive. In particular, \(u_E=(B+(B+C)r)/2\) for \(B>B_E\), while the optimum \(u_P\) is the unique interior root specified in the proof when \(B>B_P\).
+Both are finite and strictly positive. In particular, \(u_E=(B+(B+C)r)/2\) for \(B>B_E\). For \(B>B_P\), \(u_P=B/2+t_P\), with \(t_P\) the unique root of \(W_P\) in \((0,B/2)\) defined below.
 
 ## Assumptions and scope
-The stochastic process is a continuous-time Markov chain on \(00,10,01,11\), where each bit denotes habitat occupancy. Its nonzero off-diagonal rates are \(00\to10: c\), \(00\to01:c\), \(10\to00:e\), \(10\to11:c+u\), \(01\to00:f\), \(01\to11:c+B-u\), \(11\to10:f\), and \(11\to01:e\). Rates \(c,e,f,B\) are arbitrary positive real numbers; \(e<f\), and the allocation \(u\) includes endpoints. No other transitions occur. Positive background colonization makes the finite chain irreducible, giving a unique stationary law. The theorem optimizes stationary occupancy, NOT quasi-stationary survival time in a closed metapopulation.
+The stochastic process is a continuous-time Markov chain on \(00,10,01,11\), where each bit denotes habitat occupancy. Its nonzero off-diagonal rates are \(00\to10: c\), \(00\to01:c\), \(10\to00:e\), \(10\to11:c+u\), \(01\to00:f\), \(01\to11:c+B-u\), \(11\to10:f\), and \(11\to01:e\). Rates \(c,e,f,B\) are arbitrary positive real numbers; \(e<f\), and the allocation \(u\) includes endpoints. No other transitions occur. Positive background colonization makes the finite chain irreducible, giving a unique stationary law. The theorem optimizes stationary occupancy, not quasi-stationary survival time in a closed metapopulation.
 
 ## Proof
 Write \(L=B+C\), \(t=u-B/2\), and \(a=(B+2c)L/2\). Let \(\tau_s\) be the cofactor of the negative generator with state \(s\)'s row and column deleted. The four-state Markov-chain tree identity, or direct substitution into \(\pi Q=0\), gives
@@ -39,47 +39,38 @@ Each cofactor is positive for \(-B/2\le t\le B/2\), and \(\pi_s=\tau_s/\sum\tau_
 b=L\left(\frac{B+2c}{2}+e+f+\frac{ef}{c}\right),\qquad
 D(t)=b-\delta t-2t^2>0,
 \]
-one obtains \(\sum\tau_s=cD(t)\) and, exactly,
+one obtains \(\sum\tau_s=cD(t)\) and
 \[
 E(t)=\frac{L^2-4t^2}{D(t)},\qquad
 P(t)=\frac{a+\delta t-2t^2}{D(t)}.
 \]
-Since \(\delta>0\), reflection about \(t=0\) strictly improves both objectives when \(t\) is changed from negative to positive (the numerators of \(E\) match, that of \(P\) increases, and both denominators decrease). All maxima lie in \([0,B/2]\).
+Since \(\delta>0\), reflecting a negative \(t\) to \(-t>0\) strictly improves both objectives: the numerator of \(E\) stays the same and that of \(P\) increases, while the common denominator decreases. All maxima lie in \([0,B/2]\).
 
-On this interval, the signs of \(E'(t)\) and \(P'(t)\) are, respectively, the signs of
+The derivatives of \(E(t)\) and \(P(t)\) have common positive denominator \(D(t)^2\) and respective numerators
 \[
 W_E(t)=\delta L^2-4Lh\,t+4\delta t^2,\qquad
 W_P(t)=\delta L(L+g)-4Lj\,t+4\delta t^2.
 \]
-The first expression is strictly decreasing on \(0\le t\le B/2\) because \(h>\delta\) and \(L>B\), starts positive, and vanishes uniquely at \(t_E=Lr/2\). The second starts positive and is strictly decreasing throughout \([0,B/2]\): its derivative is \(-4Lj+8\delta t\le -4Lj+4\delta B<0\), because \(j>\delta\) and \(L>B\). Hence each objective is strictly increasing until its first possible derivative zero, then strictly decreasing. The maximizer is its unconstrained positive root if that root is less than \(B/2\), and otherwise the endpoint \(t=B/2\).
+Both polynomials are positive at zero and strictly decreasing on \([0,L/2]\), since their derivatives there are at most \(-4L(h-\delta)\) and \(-4L(j-\delta)\), respectively. At \(L/2\) they are negative: \(W_E(L/2)=-2(h-\delta)L^2\), and \(W_P(L/2)=-2(j-\delta)L^2+\delta Lg<0\) because \(j-\delta=2e+g\) and \(\delta<L\). Denote the unique roots on \((0,L/2)\) by \(t_E=Lr/2\) and \(t_P\), respectively. Since \(B<L\), the derivative signs on the feasible interval give the optimizers \(u_E=B/2+\min(t_E,B/2)\) and \(u_P=B/2+\min(t_P,B/2)\).
 
 The condition \(t_E<B/2\) is equivalent to \(B>B_E=Cr/(1-r)\). Substituting \(t=B/2\) into \(W_P\) gives
 \[
 W_P(B/2)=-2(j-\delta)B^2+TB+\delta C(C+g).
 \]
-Its leading coefficient is negative and constant term positive, so it has exactly one positive zero, \(B_P\) as stated; \(P\) is interior-optimized precisely when \(B>B_P\).
+Its leading coefficient is negative and its constant term positive, so it has exactly one positive zero, \(B_P\) as stated. The \(P\) optimum is interior precisely when \(B>B_P\).
 
-To order the two optima, observe
-\[
-\frac{P(t)}{E(t)}=\frac{a+\delta t-2t^2}{L^2-4t^2}.
-\]
-At the free optimum \(t=t_E>0\), where \(\delta(L^2+4t_E^2)=4Lh\,t_E\), the numerator of the derivative of this ratio is
-\[
-\delta(L^2+4t_E^2)-4L(e+f)t_E
-=8Lg\,t_E>0.
-\]
-Because \(E'(t_E)=0\), this implies \(P'(t_E)>0\); the unique free optimizer of \(P\) therefore lies strictly to the right of \(t_E\). In particular \(B_P>B_E\) (at \(B=B_E\), \(P\) is still increasing at the upper endpoint). Clipping both free optima to the permitted interval gives all three claimed regimes, with all boundary inclusions. If \(e=f\), symmetry gives \(\delta=0\), and the derivative signs are strictly opposite to \(t\); both unique optima are \(t=0\).
+On \([0,L/2]\) the difference \(W_P(t)-W_E(t)=\delta Lg+4Lgt\) is strictly positive. Therefore \(W_P(t_E)>0\) and \(t_P>t_E\). In particular, at \(B=B_E\) we have \(W_P(B/2)>0\), so \(B_P>B_E\). Applying the feasible bounds to the two roots gives all three regimes and their endpoint inclusions. If \(e=f\), then \(\delta=0\), and both derivative signs are strictly opposite to that of \(t\) away from zero on the full feasible interval. Thus both unique optima are \(u=B/2\).
 
 ## Verification
-The accompanying standard-library program `verify.py` constructs the generator independently, solves the stationary linear system with exact rational Gaussian elimination, and checks the cofactor-derived formulas on 405 rational parameter/allocation tuples. It also tests strict separation of the objectives in an exact-parameter example. These tests support, but do not replace, the algebraic proof above. Run with `python verify.py`.
+Run `python verify.py` with the Python standard library. The program constructs the generator independently, solves the stationary linear system by exact rational Gaussian elimination, and checks both objective formulas at 405 rational parameter/allocation tuples. For \(c=e=B=1\) and \(f=3\) it checks the derivative signs separating the two optima, brackets the mean-occupancy optimizer by \(0.85<u_E<0.86\), and verifies the radical simplification for the exact optimizer, all by rational arithmetic. These finite checks corroborate the algebra rather than replace the parameter-uniform proof.
 
-For \(c=e=B=1\) and \(f=3\), the thresholds satisfy \(B_E\approx0.6742346142<1<B_P\approx1.553234064\). The mean-occupancy optimizer is \(u_E=18-7\sqrt6\approx0.853571801\), while simultaneous-occupancy probability is maximized at \(u_P=1\). This gives distinct conservation objectives even with only two patches.
+In this example \(B_E\approx0.6742346142<1<B_P\approx1.5532340636\). The mean-occupancy optimizer is \(u_E=18-7\sqrt6\approx0.8535718005\), while simultaneous-occupancy probability is maximized at \(u_P=1\).
 
 ## Relationship to prior work
-Levins' 1969 metapopulation framework introduced occupancy-based colonization–extinction dynamics. Etienne and Heesterbeek (2001) optimize persistence-related conservation interventions in a stochastic model; their accessible abstract describes extinction-time objectives and prioritizing links, but does not establish this externally recolonized stationary two-objective allocation law. Vuilleumier and Possingham (2006) analyze asymmetric colonization in a 100-patch simulation and mean-field setting, rather than this exact two-patch four-state optimization. Wu et al. (2020) analyze asymmetric dispersal for deterministic population densities with logistic source–sink dynamics. Neither mathematical objects nor objectives are interchangeable. The exact paired threshold and strict optimizer ordering above are not claimed to supersede these results.
+Levins' 1969 metapopulation framework introduced occupancy-based colonization–extinction dynamics. Etienne and Heesterbeek (2001) optimize persistence-related conservation interventions in a stochastic model; their accessible abstract describes extinction-time objectives and prioritizing links, but does not establish this externally recolonized stationary two-objective allocation law. Vuilleumier and Possingham (2006) analyze asymmetric colonization in a 100-patch simulation and mean-field setting, rather than this exact two-patch four-state optimization. Wu et al. (2020) analyze asymmetric dispersal for deterministic population densities with logistic source–sink dynamics. The distinct claim concerns the paired mean-count and joint-occupancy thresholds and the strict ordering of the allocations, not the joint-occupancy objective in isolation.
 
 ## Limitations
-The theorem models recolonization of empty patches; it does not model mortality reduction in occupied patches, migration costs, evolution, time-dependent decisions, demographic abundance, or a permanently extinct state. External immigration \(c>0\) is essential: with \(c=0\) the stationary occupancy vanishes and the question changes to quasi-stationarity. Results apply to two patches only. Historical priority is not independently established: the full 2001 Etienne–Heesterbeek article was not accessible, and a more general unpublished or published matrix-allocation theorem could subsume the formulas.
+The theorem models recolonization of empty patches; it does not model mortality reduction in occupied patches, migration costs, evolution, time-dependent decisions, demographic abundance, or a permanently extinct state. External immigration \(c>0\) is essential: with \(c=0\) the stationary occupancy vanishes and the question changes to quasi-stationarity. Results apply to two patches only. Historical priority is not established: the full 2001 Etienne–Heesterbeek article was not accessible, and a more general matrix-allocation theorem could subsume the formulas.
 
 ## References
 1. Levins, R. (1969), *Some Demographic and Genetic Consequences of Environmental Heterogeneity for Biological Control*, Bulletin of the Entomological Society of America 15:237–240. DOI 10.1093/besa/15.3.237.

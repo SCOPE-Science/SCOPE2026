@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim is proved analytically in `RESULT.md` by the Gaussian likelihood-ratio rule, a global Hellinger affinity inequality, the chi-square central limit theorem, dominated convergence and evaluation of a Gaussian half-moment. Each assumption, boundary, quantifier and distinction between calibrated tests and hidden-age testing is explicit.
+## correctness
 
-To replay finite checks, run `python3 verify.py` with SciPy and NumPy installed. The code independently integrates the two radial chi-square densities at their likelihood threshold for 12 cases, compares their exact misclassification total against the chi-square closed form, tests the Hellinger upper bound, compares critical-window error at population sizes 100–100000 and offsets spanning the window, and checks the stationary-reference-age integral and gamma-prefactor formula at three parameter choices. The current package's numerical verifier completed with `PASS`. Finite computations cannot establish infinite limits, independence of publications, or experimental viability.
+PASS
 
-The most material publication-priority limitation is the unavailable full primary manuscript (arXiv:2606.31634), whose abstract and public scientific synopsis were reviewed; two closest accessible complete result documents on the same Gaussian mixture were inspected. No independent audit was conducted.
+For the two centered product normal laws the log likelihood ratio is affine, increasing in squared radius. Its zero yields the younger and older chi-square cutoffs Nq log(q)/(q-1) and N log(q)/(q-1) respectively; at zero reference age the laws are mutually singular. Put z=exp(-2 kappa t) and c=1-exp(-2 kappa Delta). The single-coordinate affinity has fourth power 1-[cz/(2-(2-c)z)]^2; the product affinity bounds twice the Bayes error above by exp(-Nc^2z^2/16). This proves the high-signal limit and dominates the stationary average; in the low-signal limit the affinity tends to one and total variation tends to zero. In the finite-signal window the standardized chi-square cutoffs converge to +/-c eta/(2 sqrt(2)), giving the stated risk. For p=r/(2 kappa), the scaled reference variable u=sqrt(N)z has density p N^(-p/2) u^(p-1) on (0,sqrt(N)). Integrating the limiting profile against p u^(p-1) via the Gaussian positive-part moment gives 2^(2p-1) Gamma((p+1)/2)/(sqrt(pi)c^p). These are limits for the stated regimes, not convergence for arbitrary oscillating signals. The exact exponent p/2 can be an integer at particular fixed rate ratios; 'noninteger' in the introductory prose is a generic possibility, not an additional restriction or an always-noninteger conclusion.
+
+## originality
+
+PASS
+
+The stochastic model, sufficient energy statistic, Gaussian testing mechanism and closely analogous equilibrium-energy edge integral are established. The distinct contribution is the calibrated pair-of-ages experiment with sharp age resolution and averaged optimal error, not a new mixture model or new general testing method.
+
+## value
+
+PASS
+
+This gives a precise resolution limit for a motivated, fully specified inverse question about a canonical regenerative model. The finite optimal test, the temporal crossover profile and its averaged error jointly quantify information lost when OU relaxation nearly erases the elapsed time. The contribution is narrow and analytically close to the known stationary energy edge, but not a relabeling of an exceedance event; the experiment distinguishes the effects of the candidate offset, relaxation and reset rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

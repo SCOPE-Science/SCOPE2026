@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:53:54.315499Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize a nonzero trace-zero matrix by sign and scale so that a positive eigenvalue is 1 and the spectral norm is 1. If the total negative mass is m, then m >= 1. For 0 < p < 1 the negative side contributes at least m^p, with equality only for one negative eigenvalue, and equality in the full bound requires no other positive eigenvalues. For p > 1 and k negative eigenvalues it contributes at least k^(1-p)m^p >= (n-1)^(1-p); equality requires k=n-1 and equal negative eigenvalues. At p=1 the pth-norm power is 2m, with equality for one positive eigenvalue and any nonpositive remainder summing to -1, or the opposite sign. Thus the transition is between p<1 and p>1, with multiple possible ranks at p=1 and no rank change when n=2. Real trace pairing represents every hyperplane by a self-adjoint normal. An indefinite or singular normal admits a unit vector with zero quadratic form, hence an admissible rank-one projector of ratio 1. For a positive definite nonscalar normal, a minimum-eigenvector projector minus tI, t=lambda_min(A)/tr(A)<1/n, gives a larger ratio than trace zero for p>=1 because its spectral norm is 1-t and t/(1-t) is strictly increasing. For 0<p<1 the two extreme eigenvectors give a weighted difference of projectors with absolute eigenvalue ratio lambda_min(A)/lambda_max(A)<1, also strictly worse. A negative definite normal is handled by changing sign, and the full space has ratio 1. These arguments verify both real ambient-space cases and the codimension convention for all dimensions and exponents; the supplied unexecuted numerical diagnostic is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited theorems and estimates are on real full matrix Schatten spaces; the motivating Theorem A gives bounds up to constants on 0<p<=1, 2<=q<=infinity.",
+          "Every real full-matrix hyperplane contains a rank-one matrix uv^T: for any v!=0, choose u!=0 perpendicular to Av in the Frobenius pairing. Its restricted ratio for target infinity is 1."
+        ],
+        "reasoning": "Full-matrix c2=1 does not give the strict drop on the real self-adjoint space, whose definite-normal hyperplanes do not contain rank-one matrices. No inspected broader theorem gives the complete exact result in the stated setting.",
+        "searches": [
+          "arXiv:2611.08448v2, Theorem A",
+          "arXiv:2011.06554, Theorems A/B",
+          "arXiv:2103.13050, section 1.1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08448v2",
+        "arXiv:2011.06554",
+        "arXiv:2103.13050",
+        "SCOPE-exact-real-three-by-three-schatten-gelfand-spectrum-and-its-firs--5cfc577c963d",
+        "SCOPE-an-exact-complex-three-by-three-penultimate-schatten-gelfand-num--2ca95fe42120",
+        "SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The traceless five-plane in the first record is a hyperplane of Sym_3 and a codimension-four subspace of the full real matrices; its c5 theorem therefore specializes to the n=3, p<=1 value in the record under review.",
+          "The inspected full-space estimates do not extend that exact specialization to all self-adjoint spaces or identify every optimal hyperplane."
+        ],
+        "reasoning": "The new content is the uniform sharp width, strict uniqueness via the normal-matrix geometry, and equality-profile change across p=1; it is not the previously available five-plane bound. The two records' shared date does not establish an ordering.",
+        "searches": [
+          "SCOPE-exact-real-three-by-three-schatten-gelfand-spectrum-and-its-firs--5cfc577c963d/RESULT.md, statement and upper-bound witnesses",
+          "arXiv:2611.08448v2, pp. 1 and 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After diagonalizing any normal A, testing the diagonal part of its kernel is a vector hyperplane problem for the real l_p to l_infinity inclusion. No decisive citation for the exact vector-hyperplane theorem was identified in the bounded comparisons.",
+          "The Ky Fan record optimizes or computes a projection norm onto a fixed traceless space; it is not an optimization over the restricted inclusion norms of all kernels."
+        ],
+        "reasoning": "A sharp vector hyperplane theorem could give a lower bound by diagonal restriction, and an equality theorem there would merit comparison. That reduction by itself does not give the all-matrix spectral equality profiles or show strictness for indefinite normals with constant-modulus eigenvalues. A projection norm on the trace-zero space is not this restricted inclusion norm.",
+        "searches": [
+          "arXiv:2011.06554, Theorems A/B",
+          "arXiv:2103.13050, section 1.1.2",
+          "Resultary: SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The real spectrum record gives c5 through c8 equal to 2^(1/q-1/p) for full real 3-by-3 matrices, with the traceless symmetric five-plane an attaining c5 witness. Its fixed-plane bound at q=infinity matches the n=3, p<=1 trace-zero value.",
+          "The earlier complex record gives c8=2^(1/q-1/p) for full complex 3-by-3 matrices in its quasi-Banach range, attained by a complex two-plane."
+        ],
+        "reasoning": "The real result's codimension-four optimization can give an optimality bound for the included self-adjoint n=3 slice, so that slice is partial coverage, not novel by itself. Neither table gives the all-n all-p real self-adjoint optimum or the optimizer and its equality cases. A complex two-plane is not a real Hermitian hyperplane.",
+        "searches": [
+          "Resultary: exact real three-by-three Schatten Gelfand spectrum, SCOPE-exact-real-three-by-three-schatten-gelfand-spectrum-and-its-firs--5cfc577c963d",
+          "Resultary: exact complex three-by-three penultimate Schatten Gelfand number, SCOPE-an-exact-complex-three-by-three-penultimate-schatten-gelfand-num--2ca95fe42120"
+        ]
+      },
+      "rationale": "The searched full-matrix width theorems address a different domain and do not supply the exact self-adjoint result. The closest exact record reproduces the value on the traceless symmetric five-plane for n=3 and 0<p<=1, not the self-adjoint codimension-one optimum, its uniqueness, the p>1 formula, or the rank transition. Credit that partial overlap without inferring priority from the shared publication date.",
+      "residual_risks": [
+        "Classical exact vector widths or related optimization of hyperplane sections may subsume part of the numerical formula; the bounded comparison did not identify a decisive citation for such a reduction.",
+        "The same-day exact real 3-by-3 witness has unresolved ordering; partial coverage is credited independently of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full real matrices and estimates up to constants; not the exact self-adjoint hyperplane theorem",
+          "evidence": [
+            "Theorem A treats real N-by-N embeddings with 0<p<=1 and 2<=q<=infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08448 (v2)",
+          "material_read": "Abstract p. 1 and Theorem A p. 3",
+          "method": "Open-access PDF text, theorem and scope comparison",
+          "title": "Gelfand numbers of Schatten class embeddings in the quasi-Banach range",
+          "trigger": "Motivating Schatten width theorem"
+        },
+        {
+          "assessment": "Full-matrix estimates do not imply self-adjoint optimizer or exact values",
+          "evidence": [
+            "Theorems A and B concern real full-matrix embeddings and give order estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.06554",
+          "material_read": "Abstract and Theorems A/B, pp. 3–5",
+          "method": "Open-access PDF statements and hypotheses",
+          "title": "Gelfand numbers of embeddings of Schatten classes",
+          "trigger": "Potential general exact Gelfand bound"
+        },
+        {
+          "assessment": "Inspected passage covers full-matrix Gelfand estimate setting",
+          "evidence": [
+            "The relevant section summarizes full-matrix estimates rather than real self-adjoint norm restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.13050",
+          "material_read": "Section 1.1.2, p. 4",
+          "method": "Open-access PDF text",
+          "title": "Approximation, Gelfand, and Kolmogorov numbers of Schatten class embeddings",
+          "trigger": "Duality and width formulations"
+        },
+        {
+          "assessment": "Partial numerical and witness coverage, shared date without proven ordering",
+          "evidence": [
+            "Traceless symmetric five-plane attains c5=2^(1/q-1/p) on the full real 3-by-3 embedding when 0<p<=1 and 2<=q<=infinity."
+          ],
+          "identifier_or_url": "SCOPE-exact-real-three-by-three-schatten-gelfand-spectrum-and-its-firs--5cfc577c963d",
+          "material_read": "RESULT.md Finding, assumptions and proof of c5 upper bound",
+          "method": "Local published-record mirror, offsets 300–6038 and following",
+          "title": "Exact real three-by-three Schatten Gelfand spectrum",
+          "trigger": "Closest exact formula and trace-zero witness"
+        },
+        {
+          "assessment": "Different space and codimension",
+          "evidence": [
+            "Full complex 3-by-3 c8 is attained on a complex two-plane."
+          ],
+          "identifier_or_url": "SCOPE-an-exact-complex-three-by-three-penultimate-schatten-gelfand-num--2ca95fe42120",
+          "material_read": "RESULT.md statement and two-plane witness, offsets 0–5412",
+          "method": "Local published-record mirror",
+          "title": "An exact complex three-by-three penultimate Schatten Gelfand number",
+          "trigger": "Equivalent numerical Gelfand value in complex matrices"
+        },
+        {
+          "assessment": "Different operator whose norm is optimized",
+          "evidence": [
+            "Projection onto the trace-zero subspace under Ky Fan norms, not the Gelfand restriction norm."
+          ],
+          "identifier_or_url": "SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4",
+          "material_read": "RESULT.md objective and scope",
+          "method": "Local published-record mirror",
+          "title": "Sharp Ky Fan projection constants for traceless self-adjoint matrices",
+          "trigger": "Same traceless space and norms in a related optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-measurement problem is the first Gelfand index at which real self-adjointness can improve the uniform ratio; it cannot improve the corresponding full-matrix index. Strict identification of the trace as the only optimal measurement up to rescaling, together with the change from concentrated to spread-out extremal spectra, gives a usable sharp norm geometry not provided by the isolated n=3 witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

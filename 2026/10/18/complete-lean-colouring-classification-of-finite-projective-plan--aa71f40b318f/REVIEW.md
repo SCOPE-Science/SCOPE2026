@@ -1,19 +1,21 @@
-# Scientific review: complete lean-colouring classification of finite projective planes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new theorem is proved directly from projective-plane incidence axioms. The proof separately rules out two monochromatic lines, classifies colourings with zero or exactly one monochromatic line, constructs both families, and derives the exact falling-factorial palette count by disjoint cases. The degree comparison uses incidence degree \(q+1\), not the degree \(q^2+q\) of the two-section graph. The attached Python verifier independently reconstructs small prime-field planes, checks their axioms, checks all claimed constructive witnesses in four orders, and enumerates every set partition of the Fano plane's seven points. All these new checks passed. They are corroborative, not a substitute for the unbounded proof.
+PASS
 
-## Originality — PASS, with specified priority risk
+The proof works over the axioms, independently of any coordinatization. Two monochromatic lines have the same colour at the intersection. For each point outside their union, joining it to a point on the first line away from the intersection produces a line containing two points of the common colour, forcing the outside point to have that colour. With no monochromatic line, the unique line through any pair separates the colours. With one such line, any repetition off it forces a second monochromatic line, either by joining two off-line points with the same colour, or by joining an off-line point of the line colour to a point on the line. Conversely each other line meets the designated line once and is rainbow. Choosing the distinguished line and assigning colours injectively to the classes gives n(t)_(q²+1), which is the second displayed term including the empty palette; the injective type gives (t)_n. Thus the named and unnamed optimal counts and q−1 gaps follow. The incidence-degree counterexample is correct under the standard incidence meaning of vertex degree: q+1 versus q²+q in the complete two-section. The source corollary says greatest vertex degree, not literally incidence degree; its proof conflates the two, and the result does not refute the corrected two-section interpretation. The packaged finite checker was inspected, not replayed; the unrestricted incidence proof and counts were reconstructed directly.
 
-The 2026 initiating paper [1] was compared in its full accessible HTML sections defining lean colourings, connected-uniform bounds, wide-path and \(r\)-complete results, and two-section and degree bounds. Its valid general theorems do not imply the claimed value or full colouring classification for projective planes: distinct lines intersect once, and noncollinear triples prevent \(r\)-completeness. The incidence-degree bound asserted in its Corollary 4.3.1 is contradicted, with the invalid degree identification visible in its proof. The 2020/2021 rainbow-free projective-plane study [2] was inspected in full text and asks for opposite line constraints, so its chromatic objective and results do not cover the lean spectrum. Search comparisons also considered Fano-plane line colourings, mixed hypergraph colourings, and published mathematical research records; none yielded a statement implying this exact classification. Residual risk: an equivalent elementary fact under a less searchable name may exist.
+## originality
 
-## Value — PASS
+PASS
 
-Finite projective planes are canonical symmetric block designs. Their exact lean chromatic spectrum is an intrinsically motivated invariant of the new colouring concept, not an arbitrary parameter slice. The two-point spectrum with \(q-1\) missing feasible colour counts is a sharp structural phenomenon; the formula enumerates every colouring over any named palette. The family also pinpoints an unbounded failure of a recently proposed incidence-degree upper bound and distinguishes incidence degree from two-section degree. The infinite result holds even without Desarguesian assumptions.
+The supported contribution is the exact projective-plane classification and its consequences, not the lean-colouring definition or a rebuttal of a two-section degree bound. The nearest indexed result classifies affine planes; the strongest primary sources examined do not give the projective result under the same admissibility rule.
 
-## Closest work and limits
+## value
 
-[1] H. J. Piehowski, *The Lean Number of a Hypergraph*, arXiv:2607.14015 (July 15, 2026), especially sections 1, 3, 4. [2] Z. L. Blázsik et al., *On the balanced upper chromatic number of finite projective planes* (2020 preprint / 2021 publication). These are distinct constraints as explained above. The independent audit remains unperformed. An unindexed equivalent classification cannot be excluded by negative searches alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies all permitted partitions in a natural class of designs, showing a growing gap in the feasible spectrum rather than merely obtaining an optimal colouring. It provides exact named-palette counts and an unbounded counterexample ratio for the incidence reading of a specific asserted general upper bound, without a Desarguesian hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

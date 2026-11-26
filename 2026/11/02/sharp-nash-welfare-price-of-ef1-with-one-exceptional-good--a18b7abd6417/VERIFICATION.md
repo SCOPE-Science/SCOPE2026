@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The proof in RESULT.md covers all integer agent counts n >= 2, unit-good counts L >= n-1, and real exceptional-good values H >= 1. The following separately implemented checker enumerates integer compositions and evaluates EF1 directly, without relying on the theorem's interval test.
+## correctness
 
-Run `python3 verify_one_spike.py`. The verified output is `VERIFY_OK cases 228 n=2..5 L=n-1..11 H=1,1.5,2,3.5,10,1000; independent exhaustive count-composition enumeration`.
+PASS
 
-This verifies all compositions for those finite parameters only; it is not a numerical certificate of the infinite theorem. The crucial continuum step is the exact arithmetic comparison using floor(H) and real H >= 1; the proof handles this directly. The final universal constant is an infimum approached as H grows, so no finite enumeration proves optimal sharpness. No independent mathematical audit has been performed.
+If the special owner has s unit goods, EF1 forces the other counts to differ by at most one, to be at least s, and to be at most s+floor(H)+1. These independent comparisons are sufficient as well and, after balancing L-s goods, give exactly a<=s<=b. The interval is nonempty by taking s=b; all EF1 products are positive since L>=n-1. For fixed t, balancing the remaining counts maximizes their product, including the all-zero-product range; transfers strictly increase the affected pair's product, but only need to weakly increase the full product if another factor is zero. The positive successive ratios of B_k are nonincreasing, giving log-concavity also of F and its EF1 endpoint minimum. For t>s, EF1 bounds the largest light count by H+s+1, making the first step to the right nonincreasing; log-concavity handles later steps. For t<s, distributing the s-t freed items to currently smallest light bundles preserves balance. With every initial light count at least s, the AM–GM factor for their increase is at most (1+(s-t)/(ks))^k, k=n-1, while the special owner's utility falls. This proves the reported ratio and shows strictness at finite H. At L=n(n-1), equal unit counts n-1 give EF1, while placing all units on light owners gives light counts n and is optimal once H is large because any t>0 reduces the coefficient of H. The limiting ratio is the bound. Independent exact-rational enumeration of 294 instances checked the full admissible count set, both product extrema and the factor.
+
+## originality
+
+PASS
+
+The inspected prior results cover equal goods, the H=2 slice with a different scope, generic identical-valuation performance, or small items. They do not establish the exact interval and endpoint products or the sharp every-EF1 constant for arbitrary H in this family. The assessment credits the known uniform and two-value overlaps and concerns the supported distinct arbitrary-H claim, not standalone novelty of each specialization.
+
+## value
+
+PASS
+
+The one-large-item model isolates the obstruction that a large item can satisfy an EF1 comparison after removal while still absorbing too many unit goods in a poor allocation. The exact feasible interval and endpoint rule identify the worst EF1 allocations for each instance. The sharp n-dependent bound, with a regime outside small-item assumptions, distinguishes this natural model from both arbitrary identical valuations and algorithmic results for a chosen allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

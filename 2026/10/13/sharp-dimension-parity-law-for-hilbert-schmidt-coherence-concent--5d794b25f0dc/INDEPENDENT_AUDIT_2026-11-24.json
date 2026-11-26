@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:29:15.682246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, spectral lemma and channel construction; frozen VERIFICATION.md and verify.py inspected for reproducibility scope."
+      ],
+      "rationale": "For a qubit, the maximum expectation of an equatorial Pauli observable is twice the modulus of its off-diagonal entry, whereas its Hilbert–Schmidt coherence is √2 times that modulus. The adjoint of a trace-preserving positive map preserves the order interval [−I,I], and diagonal-state preservation makes the adjoint image H of each such observable zero on the diagonal. For the trace-zero Hermitian contraction H, let r be the sum of its positive eigenvalues, also the sum of the absolute negative eigenvalues. If their counts are p and q, then Tr(H²)≤2r≤2min(p,q)≤2 floor(d/2). Pairing with the input off-diagonal part by Hilbert–Schmidt Cauchy–Schwarz proves the claimed factor. For equality put m=floor(d/2) and use the pair-folding Kraus matrices and the singleton on odd dimensions. Their initial supports partition all basis vectors, giving trace preservation, and the row and column sparsity gives strict incoherence. The input I/d+εZ has unit trace and minimum eigenvalue 1/d−ε>0; its paired entries give coherences ε√(2m) at input and √2 mε at output. This gives exact equality for all d≥2, including d=2,3; input with zero coherence maps to zero coherence by hypothesis.",
+      "residual_risks": [
+        "The proof is algebraic for all dimensions; no uploaded script was executed. The constant is for the unsquared Hilbert–Schmidt off-diagonal norm, and the upper bound relies on qubit output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The qutrit Schatten record bounds higher even moments at fixed purity, not channel amplification. The steered-coherence record is ℓ₁ on a particular family under amplitude damping. The Werner–Holevo result is a maximal output Schatten-5 norm, not a state-to-output off-diagonal norm ratio."
+        ],
+        "reasoning": "The compared claims change either the optimized object, loss or admissible channels; none is a broader theorem whose qubit-output specialization yields the target. The trace-zero restriction in the target is what gives the odd-dimensional deficit from the unrestricted Hilbert–Schmidt contraction bound.",
+        "searches": [
+          "Resultary: off-diagonal Schatten norm bounds and channel coherence amplification; mirrored ce8451794c8c, 0b79e0ecec15 and a79775750e52",
+          "Targeted primary-literature search on Hilbert–Schmidt/ℓ₂ coherence under qubit-output incoherent operations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic and exact-claim comparisons with mirrored ce8451794c8c, 0b79e0ecec15, a79775750e52 and 874e387455d3; Rana–Parashar–Lewenstein arXiv:1511.01854 primary passages; Song–Tao and other channel-coherence retrieval attempts; frozen record and support."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For τ⊗I_m/m the incoherent ancilla removal mechanism produces a √m ℓ₂ amplification, also for full-rank τ. Appending an incoherent singleton and rescaling the old block leaves the ratio unchanged. The inspected older argument establishes examples and nonmonotonicity, not a sharp upper bound for every MIO."
+        ],
+        "reasoning": "The lower bound and its basic extensions need no new channel mechanism. The upper bound uses diagonal preservation to force every equatorial adjoint contraction into the trace-zero slice, rather than applying monotonicity or one tested channel. The resulting universal bound (including d=3) does not follow from the prior nonmonotonicity result.",
+        "searches": [
+          "Rana–Parashar–Lewenstein, arXiv:1511.01854 Sec. IV and Proposition 9; Song–Tao DOI 10.1007/s10773-019-04371-6 retrieval attempts; Resultary qubit/qutrit channel-bound aliases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The channel bound can be stated as an exact upper bound √(2 floor(d/2)) for the Hilbert–Schmidt norm of adjoint images of equatorial Pauli observables. The identified primary antecedent computes amplification for an incoherent ancilla-reset channel via the tensor-product ℓ₂ scaling."
+        ],
+        "reasoning": "For Hermitian zero-diagonal adjoint images, perturbations of I/d realize all sufficiently small Hermitian off-diagonal test directions; thus adjoint-norm and state-ratio formulations have the same worst-case information, not merely similar parameters. An ancilla example shows attainability of one ratio and does not control other adjoint images.",
+        "searches": [
+          "Resultary: sharp d-to-qubit MIO Hilbert–Schmidt coherence amplification, Schatten or entrywise ℓ₂ off-diagonal norm, and zero-diagonal adjoint qubit contractions",
+          "arXiv:1511.01854, Sec. IV and Proposition 9; Song–Tao DOI 10.1007/s10773-019-04371-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day hits address Werner–Holevo output norm or Haar-orbit coherence moments. Neither gives a formula for the sharp MIO amplification constants; exact even-dimensional lower witnesses are already available from the primary ancilla construction."
+        ],
+        "reasoning": "The target is an extremum over continuous channel and state families in every dimension, not a finite catalog census. The exact-formula and dimension-specific catalog checks address the meaningful table analogue; they do not establish exhaustive absence.",
+        "searches": [
+          "Resultary: √floor(d/2) parity law, sharp coherence concentration and d=3-to-qubit contractivity; same-day a79775750e52 and 874e387455d3 checked"
+        ]
+      },
+      "rationale": "The prior ancilla example already gives the amplification mechanism, including the even-dimensional lower bound and, with an unused basis state, the odd-dimensional lower mechanism. Neither that example nor the closest compared catalog records establishes the universal parity-sensitive upper bound for all diagonal-preserving d-to-qubit channels. Credit attaches to that exact class-wide bound and matching classification, not to nonmonotonicity, the even-dimensional witness in isolation, or the elementary trace-zero spectral inequality.",
+      "residual_risks": [
+        "Song–Tao and some possibly relevant channel-coherence papers were not independently available in full text. Equivalent operator-norm formulations may be indexed under other names; no exhaustive historical priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lower mechanism, not inspected evidence of the universal sharp upper bound",
+          "evidence": "An incoherent channel resets a maximally mixed incoherent ancilla, and C_ℓp(ρ⊗I/m)=m^(1/p−1)C_ℓp(ρ). At p=2 this supplies the √m amplification upon erasing the ancilla; the proposition establishes nonmonotonicity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.01854",
+          "material_read": "Sec. IV, PDF p. 6, OA offsets 45200–49600; Proposition 9 near offset 54861",
+          "method": "Open primary PDF, bounded passage comparison",
+          "title": "Trace-distance measure of coherence",
+          "trigger": "Prior nonmonotonicity for ℓ₂/Schatten norms and candidate extremizing construction"
+        },
+        {
+          "assessment": "Different norm orders and optimization domain",
+          "evidence": "Sharp fixed-purity qutrit S_{2m} bounds for m≥3, with no assertion of coherence monotonicity or channel amplification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-qutrit-even-schatten-off-diagonal-bounds-and-phase-holonom--ce8451794c8c",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Configured mirror bounded statement read",
+          "title": "Sharp qutrit even-Schatten off-diagonal bounds and phase holonomy",
+          "trigger": "Nearest indexed off-diagonal Schatten optimization in an odd dimension"
+        },
+        {
+          "assessment": "Different observable and channel class",
+          "evidence": "A maximal steered ℓ₁-coherence comparison under amplitude damping on a particular two-qubit family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-reentrant-amplification-window-for-maximal-steered-coheren--0b79e0ecec15",
+          "material_read": "Mirrored RESULT.md, Finding opening near offsets 0–400",
+          "method": "Configured mirror bounded statement read",
+          "title": "Exact reentrant amplification window for maximal steered coherence",
+          "trigger": "Nearest coherence amplification language"
+        },
+        {
+          "assessment": "Neither is the channel-amplification theorem under review",
+          "evidence": "The first optimizes output S₅ norms of the two-copy qutrit channel; the second covers Haar-orbit entry moments and mean ℓ₁ coherence.",
+          "identifier_or_url": "Resultary local mirror records a79775750e52 and 874e387455d3",
+          "material_read": "Each mirrored Finding opening at offset 0",
+          "method": "Configured mirror bounded statement reads",
+          "title": "Exact two-copy Schatten-5 optimizer at the Werner–Holevo endpoint; Dirichlet–Beta sampling of Haar-orbit coherence",
+          "trigger": "Same-day channel and dimension-related exact norm results"
+        },
+        {
+          "assessment": "Plausible prior overlap unresolved; not evidence of absence",
+          "evidence": "Full text was not retrievable on those routes, so no conclusion is made about its detailed upper bounds or dimensions.",
+          "identifier_or_url": "https://doi.org/10.1007/s10773-019-04371-6",
+          "material_read": "No decisive primary full-text passage independently obtained",
+          "method": "DOI/publisher routes and lawful repository recovery attempted",
+          "title": "Notes on l2 Norm of Coherence",
+          "trigger": "Plausibly identical norm and coherence monotonicity questions"
+        },
+        {
+          "assessment": "Scope hints only, no whole-document coverage conclusion",
+          "evidence": "The discovery summaries concern a Hilbert–Schmidt based channel quantifier and coherence generation, respectively; neither summary establishes or excludes the parity bound.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S037843712600366X ; https://doi.org/10.1103/PhysRevA.105.L060401",
+          "material_read": "Discovery summaries only; no decisive full-text passages obtained on attempted publisher routes",
+          "method": "Targeted literature discovery and lawful OA retrieval attempts",
+          "title": "Quantifying coherence of quantum channels via the Hilbert–Schmidt …; Creating and destroying coherence with quantum channels",
+          "trigger": "Possible channel-coherence formulations of related norm optimizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, universal bound and SIO equality construction; arXiv:1511.01854, Sec. IV for the contrast with known nonmonotonicity examples."
+      ],
+      "rationale": "Knowing that Hilbert–Schmidt coherence is not generally monotone does not quantify the maximum attainable increase. The universal sharp bound for a natural fixed qubit output gives a complete dimension classification, including exact contractivity in dimension three and an odd-dimensional improvement over the unrefined √(d/2) estimate. Full-rank SIO saturation shows that neither boundary inputs nor larger operation classes are needed to attain it.",
+      "residual_risks": [
+        "This is an exact norm distortion statement, not a guarantee of more operationally useful coherence or a bound for larger output dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

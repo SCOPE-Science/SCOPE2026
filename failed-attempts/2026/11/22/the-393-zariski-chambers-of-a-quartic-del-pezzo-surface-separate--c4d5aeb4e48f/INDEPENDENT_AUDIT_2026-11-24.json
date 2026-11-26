@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:21:13.084616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjunction and anticanonical ampleness force any geometric negative irreducible curve to be a (-1)-curve. The five-point blowup gives the stated 16 curves, with pairwise intersections 0 or 1. Negative definiteness is exactly disjointness. Conversely, contracting a disjoint set and taking a pullback of an ample class plus small positive multiples of those curves gives a big class with precisely that negative support, with a full-dimensional chamber by openness of ampleness on the contraction and of the positive coefficients. This argument uses no characteristic-zero restriction. The intersection graph is the folded cube: its five neighbors of zero determine the full automorphism group (the other ten vertices are determined by distinct pairs of neighbors), and the even translations and coordinate permutations realize all 1920 automorphisms. The Weyl action is faithful because the curve classes span the Picard group. Independently using F_2^5 modulo the all-ones vector, I enumerated conjugation orbits of the actual 16-vertex permutations, computed invariant supports on the conflict graph of curve cycles, and inverted fixed counts of powers to recover the chamber cycle multiplicities. It matches every column of all 18 rows of spectra.csv, including the 393 supports, 18 distinct chamber spectra, 12 distinct line spectra, ten rational counts, and both collision examples. Replay: python3 /workspace/audit_evidence/chambers.py <frozen spectra.csv>. Mobius inversion on extension counts gives exactly the finite etale zeta reconstruction, not reconstruction of X. Trepalin arXiv:1803.07421v1 Thm. 1.4 and §6/Table 4 were read: the stated exclusions are only over F_2 and F_3. Although his type is a cyclic subgroup conjugacy class, all generators of a given cyclic subgroup of W(D_5) are conjugate: a coprime power preserves the permutation cycle lengths and each negative cycle's parity (its signed order is even), and these signed types are the verified element classes. Thus realization of all 18 for q>=4 follows as written; the ten counts are the overall possible values, not a realization claim for each of q=2,3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauer–Funke–Neumann give the bijection with negative-definite reduced divisors, and their theorem gives 393 for the blowup in five points.",
+          "Trepalin classifies 18 W(D_5) conjugacy classes and gives their field realizations; the degree-four table gives Picard-side data.",
+          "The synopsis of f9f8dab52673 treats the nine-dimensional rational third homology representation of the Clebsch independence complex, not the permutation representation on its faces."
+        ],
+        "reasoning": "Geometry, Weyl-type classification and homology are different levels of information. None of those cited passages alone gives the full face cycle census. The exact matching catalogue statement, rather than these adjacent results, is decisive.",
+        "searches": [
+          "arXiv:0912.0958 Proposition 1.1 and main theorem",
+          "arXiv:1803.07421v1 Theorem 1.4 and Section 6 Table 4",
+          "Resultary: quartic del Pezzo Clebsch graph independent set homology chambers 393"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py (not executed), spectra.csv",
+        "Bauer–Funke–Neumann arXiv:0912.0958, theorem and Prop. 1.1",
+        "Trepalin arXiv:1803.07421v1, Thm. 1.4 and §6",
+        "Resultary 5213a9a0047f and f9f8dab52673 summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each length d, the profile supplies c_d, giving the Euler factor (1-T^d)^(-c_d); conversely the counts determine d c_d by subtracting the contribution of shorter divisors.",
+          "The ten count values are the distinct c_1 entries of the eighteen orbit profiles. The 2^8 and 4^4 examples follow by sorting the same profiles by the conventional line action's cycle types."
+        ],
+        "reasoning": "There is no stronger core theorem in renaming the exact orbit profiles as one zeta separating Weyl types. Pairing the classified profiles with line types is a use of those profiles, not an independently motivated distinct finding here.",
+        "searches": [
+          "Resultary 5213a9a0047f statement versus Finding and Proof §4",
+          "Trepalin §6/Table 4 and frozen standard affine 16-curve action versus chamber/line comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed 5213a9a0047f statement is: 'The 393 Zariski chambers of a smooth quartic del Pezzo surface have eighteen exact Frobenius orbit profiles, one for each signed W(D_5)-type, determining all arithmetic chamber counts over finite extensions. In the (3^+,1^-,1^-) type, two non-nef chambers descend even though no exceptional curve does.'",
+          "The folded five-cube / Clebsch graph independent faces are exactly the supports of the chambers, not just maximal supports."
+        ],
+        "reasoning": "A Frobenius cycle profile, a finite-etale zeta function and the entire extension count sequence determine one another. Eighteen profiles one per signed type is precisely the separation, not just agreement of the cardinality 393.",
+        "searches": [
+          "Resultary: quartic del Pezzo 393 Zariski chambers W(D5) Frobenius spectra",
+          "Resultary: quartic del Pezzo Clebsch graph independent set homology chambers 393",
+          "Literature: \"393\" Zariski chambers Frobenius spectra quartic del Pezzo W(D5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5213a9a0047f is a distinct record with the same complete all-types orbit classification, plus a numerical example of chamber descent without an exceptional curve defined over the base field.",
+          "The exact mirror request and local-path match did not yield the full table; no identity of row formatting or proof methods is established."
+        ],
+        "reasoning": "The available synopsis expressly claims all eighteen exact profiles, not an analogy or title match. This available statement establishes core coverage without asserting an unread table's literal contents.",
+        "searches": [
+          "Resultary: quartic del Pezzo 393 Zariski chambers W(D5) Frobenius spectra",
+          "Local mirror of 2026/11/22/SCOPE-frobenius-orbit-classification-of-all-393-zariski-chambers-of-a--5213a9a0047f/RESULT.md, query Frobenius orbit profiles"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary finding 5213a9a0047f explicitly covers all 393 chambers and eighteen exact Frobenius orbit profiles, one per signed W(D_5) type, with extension counts. The inverse-zeta phrasing is mathematically the same complete orbit invariant; the line-cycle comparisons are straightforward comparisons against this classification and the standard 16-curve action. The failure is substantive overlap of stated findings, not a claim about same-day priority, an exact match of proof text, or a conclusion based on inaccessible files.",
+      "residual_risks": [
+        "Priority between the two indexed same-day findings and differences between their proof methods and table annotations are not resolved.",
+        "The same-day coverage decision is limited to the explicit indexed statement and deductions from the stated orbit profiles, not a claim that the frozen source was copied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the core finding; date alone does not order the two records",
+          "evidence": "Eighteen exact profiles on 393 chambers, one per signed type, giving all extension counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-frobenius-orbit-classification-of-all-393-zariski-chambers-of-a--5213a9a0047f",
+          "material_read": "Indexed statement; full matching RESULT.md not retrievable via exact local mirror",
+          "method": "Statement and implication comparison, with targeted mirror request",
+          "title": "Frobenius orbit classification of all 393 Zariski chambers of a quartic del Pezzo surface",
+          "trigger": "Same geometric configuration, all signed Weyl types and exact orbit data"
+        },
+        {
+          "assessment": "Established geometry and absolute count, not the arithmetic refinement in those passages",
+          "evidence": "The r=5 column is 393, and negative-definite reduced divisors biject with non-nef chambers.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0958",
+          "material_read": "Primary PDF main theorem p. 2 and Prop. 1.1 p. 3",
+          "method": "Bounded official PDF passage after primary passage lookup was unavailable",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "Support correspondence and known count"
+        },
+        {
+          "assessment": "Gives the field-size conditions and classification, not the reported chamber profiles in those passages",
+          "evidence": "id, iota_ab, iota_abcd are excluded at q=2,3; (ab)(cd), (ab)(cd)iota_ac, (ab)(cd)iota_ae only at q=2. All others exist over every finite field.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.07421v1",
+          "material_read": "Primary PDF Introduction, Thm. 1.4 and §6, Prop. 6.1, Table 4 and concluding proof",
+          "method": "Bounded official PDF extraction after literal passage lookup timed out; element generator comparison independently verified",
+          "title": "Del Pezzo surfaces over finite fields",
+          "trigger": "All-q realization and Weyl element / cyclic-subgroup distinction"
+        },
+        {
+          "assessment": "Homology character is distinct from the complete face permutation invariant",
+          "evidence": "The synopsis concerns nine-dimensional rational third homology.",
+          "identifier_or_url": "Resultary f9f8dab52673",
+          "material_read": "Indexed summary; full local mirror not retrieved",
+          "method": "Representation-level comparison",
+          "title": "The full 2^4 semidirect S_5 homology character of the Clebsch independence complex",
+          "trigger": "Same graph, independent sets, and full group"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite-etale chamber invariant itself is natural and strictly refines the exceptional-line permutation data, so the underlying result is useful. However, the exact invariant and its separation are already covered by the distinct all-types classification, and the remaining line-zeta comparisons are derived from those data. The frozen record does not isolate a distinct scientifically useful gap beyond the covered result. No repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

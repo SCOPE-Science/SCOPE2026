@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof reduces unrestricted linear interpolation to a two-weight family through signed-permutation averaging and checks the exact finite transportation norms of each pair type.
+# Independent mathematical audit
 
-Run `python3 verify_crossfacet_stdlib.py` with Python 3 standard library. Actual execution passed all vertex--facet pairs (1,264) and all facet--facet pairs (2,660) in dimensions 3--6, checking every assignment matching in the latter pairs (68,364 assignment permutations across the four dimensions). A separate SciPy transportation-linear-program verifier, run on dimensions 3--5, also passed all target-point pairs.
+## correctness
 
-Finite checks cannot prove the all-dimensional theorem. The infinite statement relies on the explicit source--sink distance classification, the derangement matching for each \(k\ge2\), the two dual 1-Lipschitz witnesses, and the comparison \(B(0)\le A(0)\) for \(d\ge3\). Verification is not independent mathematical certification.
+PASS
+
+Averaging over signed permutations reduces every finite-norm extension, even a signed one, to incident and opposite weights a=1/d-b and b. The distance-to-an-incident-vertex test bounds the norm below by A(b)=sqrt(2(d-1)/d)+2b/r, and the two-level test on antipodal facets bounds it below by sqrt(d/2)|1-2db|. For d>=3 the increasing and decreasing affine bounds meet at a strictly positive b*<1/(2d), and their maximum bounds every real b from below by the intersection value. For these positive weights, the mixed pair with an opposite vertex is no worse than the incident pair: at b=0 the comparison is 1<=(2-sqrt(2))(d-1), and increasing b only improves it. For a k-coordinate sign change, cancel the equal masses. If k=1 the only transport costs 2(a-b); otherwise each remaining cross-distance is at least sqrt(2), attained in all k matches by a cyclic permutation of the changed coordinates. Thus the centroid-pair maximum is achieved at k=d, including comparison with k=1. Substitution gives the stated formula, which exceeds 1, is strictly below ordinary averaging, and tends to sqrt(2).
+
+## originality
+
+PASS
+
+No inspected source covered the exact signed-coordinate-vertex to all facet-centroid extension constant. The closest catalogue result has the same domain and an adjacent geometric target, but not the target metric or the antipodal-facet obstruction. The inspected general theory supplies tools, not this exact pairwise optimum.
+
+## value
+
+PASS
+
+Facet centroids give a canonical family in every dimension, with a genuinely simultaneous obstruction. Ordinary averaging on just the incident vertices is sufficient for a strictly smaller one-centroid norm, but treating every facet at once forces a competition with antipodal centroid differences. The exact result quantifies this cost and shows how strictly positive mass on all vertices improves the simultaneous norm from order sqrt(d) to a bounded constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:42:23.876041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coordinates of X need not be independent; only the unit-retention decisions and original copies are independent. The pgf is F(1+(z-1)/n)^n and the Hessian of log F at 1 is K=Cov(X)-diag(lambda). For S=sum |z_i-1| <= epsilon n, the logarithm branch at 1 gives an exponent error at most C S^2/n, so multiplying the pgf difference by n leaves growth at most C S^2 exp(C S). Outside that region, bounded support gives |F(1+(z-1)/n)|^n <= exp(B S), and n<=S/epsilon. This gives a bound uniform in n over complex z. Cauchy's formula with radii 1+k_i/(C+1) and k_i!<=k_i^k_i bounds the coefficients of the signed difference times n by a polynomial in |k| times A^|k|/prod k_i!. After division by the positive product-Poisson masses this yields a single L^2(Q) envelope. The pointwise density correction has diagonal Charlier-2 coefficients K_ii/(2 lambda_i^2) and off-diagonal products of Charlier-1 coefficients K_ij/(lambda_i lambda_j). These terms are orthogonal under Q, with Charlier-1 norm squared lambda_i and Charlier-2 norm squared 2 lambda_i^2. The bound 0<=u log u-u+1<=(u-1)^2, including u=0, and the quadratic Taylor coefficient 1/2 justify the entropy limit by dominated convergence. Subtracting the exact marginal entropy terms leaves precisely the off-diagonal total-correlation coefficient, also when some or all K entries vanish. In the example each marginal has mean and variance 1, while cross covariance is 1/n. The marginal log pgf expansion has zero quadratic term and starts its discrepancy at cubic order; inside S<=epsilon n, n^2 times the pgf error is therefore bounded by C S^3 exp(C S), and outside use n^2<=S^2/epsilon^2. The same coefficient argument and entropy bound give the claimed O(n^-4) marginal rate; equidispersion alone is not the proof of that bound. The frozen finite diagnostic and log were inspected, not executed or used to justify the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roos's 2017 primary text supplies total-variation and compound-Poisson approximation bounds; its generalized multinomial setup has mutually exclusive 0,e_i summands. The scalar Charlier–Parseval identity of Zacharovas–Hwang concerns a different norm and dimension."
+        ],
+        "reasoning": "An exclusive one-category summand is not a general cluster with simultaneous counts. Even in overlapping models, total variation and signed pgf approximation are not exact entropy asymptotics: relative-density tail control is required for the entropy Taylor expansion.",
+        "searches": [
+          "Roos (2017), doi:10.30757/ALEA.v14-19",
+          "Roos (1998/1999), doi:10.1137/S0040585X97976921",
+          "arXiv:0810.4756, Proposition 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and indexed scalar hierarchy",
+        "arXiv:0906.0690",
+        "arXiv:1601.04255",
+        "arXiv:2608.02927",
+        "arXiv:0810.4756",
+        "Roos (2017)",
+        "Roos generalized multinomial paper (access unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar results inspected are a chi-square asymptotic for a scalar semigroup, an entropy upper-limsup bound under ultra-boundedness, and a lower bound using the first nonzero Poisson–Charlier moment. The inspected multivariate results control total variation or related signed approximation."
+        ],
+        "reasoning": "The vector theorem requires a relative-density expansion dominated in L^2 of the product Poisson, then orthogonal cross-coordinate components and the entropy chain identity. The inspected scalar and total-variation tools do not by themselves furnish those hypotheses and coefficients for arbitrary bounded vector clusters.",
+        "searches": [
+          "arXiv:0906.0690, Theorem 28 and Corollary 32",
+          "arXiv:1601.04255, Theorem 22",
+          "Roos (2017), introduction and generalized multinomial section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scalar law-of-thin-numbers, Poisson–Föllmer and information-projection results control scalar entropy or chi-square. The vector first correction includes cross products of different coordinates' Charlier-1 polynomials even when every diagonal correction vanishes."
+        ],
+        "reasoning": "Projecting to a single count (or considering independent product inputs) does not recover relative entropy for the original joint law, and the cancellation of individual fit errors cannot detect shared counts from scalar rates alone.",
+        "searches": [
+          "Local Resultary: factorial cumulant entropy hierarchy and multitype thinning total correlation",
+          "arXiv:0906.0690",
+          "arXiv:1601.04255",
+          "arXiv:2608.02927"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed scalar hierarchy treats finite support and gives the stronger n^4 marginal limit 1/12 for the same equiprobable 0-or-2 variable. It does not state a joint coefficient or an asymptotic of total correlation."
+        ],
+        "reasoning": "Credit exact coverage of the marginal example but distinguish it from the leading dependence term. The later indexing date alone says nothing about priority. The theorem's vector coefficient is not a finite tabulation.",
+        "searches": [
+          "Local Resultary: 2026/11/2/SCOPE-exact-factorial-cumulant-entropy-hierarchy-for-finite-support-th--82c1cef7db34",
+          "Local Resultary: covariance multitype thinning, Poisson joint relative entropy and total correlation"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact vector KL coefficient and the resulting total-correlation law for arbitrary fixed bounded count vectors under independent unit thinning. Scalar Charlier/entropy antecedents and multivariate Poisson approximation are substantial background. The example's marginal rate has a stronger scalar indexed counterpart, so that piece is not credited as distinct.",
+      "residual_risks": [
+        "Earlier multivariate Charlier and second-order Poisson approximation literature, including older Roos texts not inspected in full, could have a more directly applicable weighted-norm expansion or information result.",
+        "The indexed coverage of the scalar witness is not a priority determination or a reason to credit the scalar rate as a distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar overlap, not vector coverage",
+          "evidence": "Gives the stronger marginal limit 1/12 in the same example and does not describe the dependence of its two retained counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-factorial-cumulant-entropy-hierarchy-for-finite-support-th--82c1cef7db34",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 6857",
+          "method": "Local mirror statement comparison",
+          "title": "Exact factorial-cumulant entropy hierarchy for finite-support thinning",
+          "trigger": "Closest indexed entropy asymptotic"
+        },
+        {
+          "assessment": "Scalar comparisons",
+          "evidence": "Exact scalar chi-square semigroup asymptotic and an ultra-bounded scalar entropy limsup; no joint total-correlation result in these statements.",
+          "identifier_or_url": "arXiv:0906.0690",
+          "material_read": "Theorem 28, p. 18, offset 59000; Corollary 32, p. 20, offset 67100",
+          "method": "Primary PDF passages",
+          "title": "Thinning, Entropy and the Law of Thin Numbers",
+          "trigger": "Scalar entropy and Charlier antecedent"
+        },
+        {
+          "assessment": "Scalar lower bound",
+          "evidence": "A bound in terms of the first nonzero Poisson–Charlier moment is not the claimed multivariate equality.",
+          "identifier_or_url": "arXiv:1601.04255",
+          "material_read": "Theorem 22, offset 60500",
+          "method": "Primary full-text passage",
+          "title": "Thinning and Information Projections",
+          "trigger": "Candidate lower/upper entropy coefficient"
+        },
+        {
+          "assessment": "Scalar model and rates",
+          "evidence": "Entropy bound for the scalar law of thin numbers, without a covariance-matrix coefficient for interacting types.",
+          "identifier_or_url": "arXiv:2608.02927",
+          "material_read": "p. 4, offset 8000",
+          "method": "Primary PDF passage",
+          "title": "Thinning Operation via the Poisson–Föllmer Process",
+          "trigger": "Recent entropy analysis for thinning"
+        },
+        {
+          "assessment": "Methodological antecedent",
+          "evidence": "Scalar Charlier–Parseval identity, not a vector KL/total-correlation limit.",
+          "identifier_or_url": "arXiv:0810.4756",
+          "material_read": "Proposition 2.2, p. 7, offset 23917",
+          "method": "Primary PDF passage",
+          "title": "A Charlier–Parseval approach to Poisson approximation and its applications",
+          "trigger": "Orthogonal Poisson error identity"
+        },
+        {
+          "assessment": "Related multivariate approximation in a different metric",
+          "evidence": "Uses the exclusive 0,e_i model in the generalized multinomial specialization and also studies more general convolutions; the inspected results are total-variation bounds.",
+          "identifier_or_url": "doi:10.30757/ALEA.v14-19",
+          "material_read": "p. 337 introduction, offset 0, and pp. 340–341 generalized multinomial setup, offset 13500",
+          "method": "Primary PDF passages",
+          "title": "Refined total variation bounds in the multivariate and compound Poisson approximation",
+          "trigger": "Potential general vector-cluster approximation theorem"
+        },
+        {
+          "assessment": "Full text unresolved",
+          "evidence": "No primary theorem passage was recovered, so absence of overlap is not inferred from retrieval failure.",
+          "identifier_or_url": "doi:10.1137/S0040585X97976921",
+          "material_read": "Bibliographic landing material only",
+          "method": "MathNet and DOI access attempts",
+          "title": "Metric Multivariate Poisson Approximation of the Generalized Multinomial Distribution",
+          "trigger": "Closest earlier multivariate Charlier expansion cited in the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint theorem quantifies the leading information left after independent unit thinning for a natural bounded cluster model. The exact cancellation separates marginal misfit from dependence; the equidispersed example has a genuine order-n^-2 joint signal invisible to that order in every marginal. This is a sharp effect for arbitrary fixed type covariances, not simply another metric bound or scalar normalizing calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

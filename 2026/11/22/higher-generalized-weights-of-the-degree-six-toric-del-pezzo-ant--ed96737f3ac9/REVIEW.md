@@ -1,15 +1,21 @@
-# Scientific review: higher generalized weights of the degree-six toric del Pezzo anticanonical code
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is the five higher generalized Hamming weights \(d_3\) through \(d_7\) for the seven-character hexagonal dense-torus code, over all prime powers \(q\ge5\). The common-gcd reduction has been reconstructed and its finite Newton lemma certified by all \(127\) subsets of the seven lattice points. The permitted segment case has four residual monomials forming a Segre quadric, so a three-dimensional residual system has at most one off-fiber zero; the triangle case has exactly three residual monomials and no extra zero. Generic coprime sections intersect in at most six points. For \(q=5\), all \(8,008\) six-point and \(4,368\) five-point evaluation submatrices have the necessary ranks. A fiber with one additional point and a fiber alone attain the first two new bounds. Any three distinct torus points impose independent conditions, giving the last three weights. The full exact verifier was run from its supplied path and its recorded output reproduced.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest available published result on the **same** polygon gives exactly \(d_2=(q-2)^2\); it explicitly leaves higher weights untreated. Little–Schenck (2005) and Soprunov–Soprunova (2008) address minimum distance using Minkowski methods, not the new triple- or quadruple-section base loci. The earlier full del Pezzo generalized-weight table concerns all rational points rather than the punctured torus; its full text was not retrieved, so this remains a named priority risk. Equivalent codimension-three linear sections, the full weight hierarchy, Newton factorization, and general interpolation sources were searched and compared by their implications. A failed literature search is not taken as proof of global uniqueness.
+PASS
 
-## Value — PASS
-The higher-weight tail is a natural finite invariant of the split degree-six del Pezzo anticanonical embedding, measuring how many torus coordinates can be simultaneously hidden by subcodes of each dimension. Its nontrivial part is the sharp geometric transition between three and four independent sections: a ruling fiber together with an isolated point is attainable in the former, but only the fiber in the latter. This is not determined by the known minimum or second generalized weight. Uniform formulas over all prime powers in scope, including the delicate field of five elements, make it a complete natural classification rather than an arbitrary finite sample.
+Evaluation is injective by distinct character residues modulo q−1. A gcd polygon Q leaves the residual translate set R(Q). Here is an independent classification: by the hexagon symmetries any width-two direction among x,y,x+y can be taken to be x. It fixes the x translation; to permit three distinct y translations in the width-two hexagon, Q would need zero widths in y and x+y, impossible. With all three widths at most one, translate the x,y minima to zero. The unit square allows only horizontal, vertical and anti-diagonal primitive segments and the two triangles not spanning both (0,0) and (1,1). The strip constraints directly give residual unit parallelograms or unit triangles respectively. The segment gcd vanishes on q−1 torus points and the residual Segre map is injective, so three residual sections have at most one further common zero and four have none. A triangle contributes q−2 points and its full residual space has no common zero. If there is no common Laurent factor, choose two generic combinations over the algebraic closure without a shared torus curve (a common geometric factor would descend by taking its conjugate orbit). The isolated-torus mixed-area bound is six, sufficient for q≥7; the alternative projective wording 'length six' should not be read literally if boundary components are fixed. For q=5 multiplication by a torus element scales evaluation columns and lets one normalize a point to (1,1). Independent column-space elimination gives minima four and five over all 1365 normalized five-point and 3003 normalized six-point sets. For sharpness, the whole residual space for x−a gives precisely the fiber; its kernel of evaluation at an off-fiber point gives that point and the fiber. For r≥5, any three distinct rows are independent via Vandermonde on distinct x or y, or the columns 1,x,y when precisely two x coordinates agree. Thus the five maxima and weights follow.
 
-## Closest literature and limitations
-Little–Schenck, *Toric surface codes and Minkowski sums* (2005); Soprunov–Soprunova, *Toric surface codes and Minkowski length of polygons* (2008); and *The second generalized weight of the anticanonical degree-six toric del Pezzo code* (published result, same seven-character polygon). This result is restricted to dense-torus evaluation and does not address nonsplit forms, other polygons, or fields with fewer than five elements. The original historical priority has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The meaningful new content is the sharp three- and four-section maxima for this seven-character code on the split torus, including q=5. Earlier d₂ is credited, and the last three weights follow by a simple independent-row argument. Matching numbers in other codes do not give these bounds.
+
+## value
+
+PASS
+
+The generalized weights describe linear-section incidence of a natural toric evaluation embedding. The sharp change from a fiber plus one point to a fiber alone is useful information beyond the ordinary distance and d₂, and the all-field result resolves the genuine small-field gap in the intersection bound. The elementary last three weights complete the remaining hierarchy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

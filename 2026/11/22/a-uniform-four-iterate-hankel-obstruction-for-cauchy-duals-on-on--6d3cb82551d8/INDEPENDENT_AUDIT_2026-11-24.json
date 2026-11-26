@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:22:06.228069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the normalized point basis the squared Cauchy-dual weight for an edge z→w is μ(w)/(μ(z)h(z)^2), with h(z)=μ(φ⁻¹{z})/μ(z). The first and second inverse-image masses of v_r are a_r+s and a_r+2s, also across the branching vertex; on a ray both equal c_i. This checks 2-isometry, boundedness and invertibility of C*C (h≥1). A descendant at a fixed depth has a unique ancestral path, so squared amplitudes add, also for countably many rays since their total mass is finite. With A=x+κ, D=A−1, B=A−2, the penultimate step has squared weight B/D and the next splits into xD/A² on the cycle and κD/A² on rays. The cycle continuation contributes factors 1, x/(x+1), x/(x+2) in γ₂,γ₃,γ₄. For κ=2 the last factor is still correct: the second post-return iterate uses the total squared weights at the branch, (x+1)/(x+2), not just its cycle edge. All later ray weights are one. Independent symbolic Schur-complement reproduction (/workspace/review-evidence/replay.py 4, output 4.txt) gives exactly the displayed factorization and the two positive earlier determinants. In particular the only potentially vanishing factor in the stated domain is κ−2. Negative determinant excludes a positive measure of squared radii for this vector and thus excludes subnormality for κ≥3. The order-four sharpness is for this vector's leading/shifted Hankel PSD tests, not all possible operator probes or other moment tests. Vanishing at κ=2 by itself establishes no classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buchała's criterion tests all circuit vertices through n=κ−1 against moments of a two-point measure with support κth root of D and 1. It already addresses the qualitative question in the broader bounded one-cycle model.",
+          "The one-circuit 2-isometric weight classification and positive one-vertex circuit case are credited to Jabłoński–Kośmider."
+        ],
+        "reasoning": "Classification of admissible masses and a qualitative test are inputs or comparators; they do not determine the uniform sign and value of this principal moment minor.",
+        "searches": [
+          "Buchała Theorem 6.2 and Example 6.4",
+          "Jabłoński–Kośmider arXiv:1907.09222, Theorem 3.5 and Theorem 4.6"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11785-024-01603-4, Theorem 6.2 and Example 6.4",
+        "arXiv:2003.04090",
+        "Resultary 6d3cb82551d8",
+        "arXiv:1907.09222 as cited classification background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prescribed two-point moment-fit test is obtained using a recurrence at lag κ, with a fixed measure depending on a whole circuit. Its failure, even at low order, need not make the observed partial sequence incompatible with every positive measure.",
+          "The assigned witness instead directly factors the 3×3 moment determinant and shows that it has a fixed sign on the full domain, the exceptional two-cycle included. Both earlier positive tests are part of the claim."
+        ],
+        "reasoning": "No inspected result locates or computes this low-order Hankel obstruction; the choice of probe and uniform inequality are not consequences of qualitative non-subnormality.",
+        "searches": [
+          "Buchała DOI 10.1007/s11785-024-01603-4, PDF pp. 29–30, Theorem 6.2",
+          "Anand et al., arXiv:2003.04090, Theorem 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this contractive operator a subnormal normal extension would give scalar Hausdorff moments, hence Stieltjes Hankel positivity. Buchała derives a specific two-atomic candidate from the full-cycle recurrence.",
+          "Anand et al. use alternating finite differences for Hausdorff moments in a different one-loop example. That matrix inequality is not the unshifted 3×3 Hankel determinant in the assigned model."
+        ],
+        "reasoning": "These reformulations explain why negativity is a valid obstruction; they do not establish that this negative determinant occurs at four iterates for every κ≥3.",
+        "searches": [
+          "Buchała DOI 10.1007/s11785-024-01603-4, Theorem 6.2 and eqs. (6.1)–(6.4)",
+          "arXiv:2003.04090, Theorem 3.3 and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary entry, 6d3cb82551d8, is the assigned record itself; no separate exact record was identified in the bounded catalogue checks.",
+          "Buchała's 3-cycle example is branched at every cycle vertex; Anand et al.'s order-five finite difference concerns a one-loop family near a parameter endpoint."
+        ],
+        "reasoning": "Neither example evaluates this probe for the one-branching model or provides a uniform finite-order certificate on its parameter domain.",
+        "searches": [
+          "Resultary: penultimate-cycle Cauchy dual four-iterate Hankel determinant",
+          "Buchała Example 6.4",
+          "arXiv:2003.04090 Example 4.1, Lemma 4.3 and Theorem 4.4"
+        ]
+      },
+      "rationale": "The weight model and qualitative subnormality machinery are known. The surviving distinct claim is the exact negative penultimate-vector Hankel determinant, with a uniform order-four cutoff and positivity of the two lower-order tests. The closest inspected general criterion is a moment-fit test with κ-dependent range and a prescribed measure, not a sign determination for this fixed low-order matrix. Finding a mismatch with that particular measure does not determine low-order Hankel positivity.",
+      "residual_risks": [
+        "An unindexed low-order local moment calculation for the same one-branching model may exist. This comparison does not claim novelty of qualitative non-subnormality, the cycle model, or the use of Hankel criteria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative question; no fixed order-four sign or rational determinant for this probe",
+          "evidence": "The theorem matches moments n=0,…,κ−1 at every cycle vertex to a candidate measure on {D^(1/κ),1}. Example 6.4 has one ray per cycle vertex, not one branching vertex.",
+          "identifier_or_url": "https://doi.org/10.1007/s11785-024-01603-4",
+          "material_read": "Theorem 6.2 and proof pp. 29–30, e.g. PDF extracted offset 82167–86336; Example 6.4 pp. 31–32",
+          "method": "Lawful publisher OA PDF, bounded passages",
+          "title": "m-Isometric Composition Operators on Discrete Spaces",
+          "trigger": "Stronger one-cycle subnormality criterion and counterexamples"
+        },
+        {
+          "assessment": "Related but different finite certificate",
+          "evidence": "Theorem 4.4 uses the negative fifth finite difference from the one-loop family, not a penultimate-circuit 3×3 Hankel minor for all mass ratios.",
+          "identifier_or_url": "arXiv:2003.04090",
+          "material_read": "Hausdorff test p. 2; Theorem 3.3 p. 8; Example 4.1 and Lemma 4.3; Theorem 4.4 pp. 12–13",
+          "method": "Open-access primary text",
+          "title": "The Cauchy Dual Subnormality Problem for Cyclic 2-Isometries",
+          "trigger": "Prior finite moment obstructions"
+        },
+        {
+          "assessment": "Identity of record, not independent overlap",
+          "evidence": "Exact model, penultimate vector, κ=2 zero case and negativity for κ≥3 match the frozen submission itself.",
+          "identifier_or_url": "Resultary:2026/11/22/6d3cb82551d8",
+          "material_read": "RESULT.md Finding and consecutive determinants, offsets 0 and 3548",
+          "method": "Local mirror",
+          "title": "A uniform four-iterate Hankel obstruction for Cauchy duals on one-circuit composition graphs",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit scalar obstruction with five directly computable norms avoids a length-dependent full-cycle comparison or constructing a candidate measure. It works even for arbitrarily long circuits and different ray-mass splits, is sharp in moment order for the specified Hankel tests, and distinguishes the two-cycle boundary. The finite cutoff and exact defect are useful independently of the already known qualitative criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

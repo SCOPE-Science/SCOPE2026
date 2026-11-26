@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:41:50.629664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an invertible generator matrix U, each face pair bounds one coordinate of U^−1x to [−1/2,1/2]. Its maximum possible ball radius is the corresponding half-width, and the centered ball simultaneously attains the smallest half-width. Thus 2R=1/sqrt(max_i (G^−1)_ii)=sqrt(Δ/(1−m)), where G=U^T U and the last equality uses its principal minors. The perpendicular component of each unit generator to the other two is at most one, with all equalities exactly for orthonormal triples. The Gram density has the claimed factor 1/(4π): two independent uniform polar cosines and the azimuthal cosine with its two branches give denominator sqrt((1−a²)(1−b²)−(c−ab)²)=sqrt(Δ), on the positive definite domain. This also verifies the exact integral. On the endpoint event each projection onto the other two generators' span has norm at most 2√ε, so every off-diagonal correlation is at most that large in absolute value. After dividing correlations by 2√ε, the expansion of (1−(2R)²)/(4ε) on the fixed cube is maximum pair-sum of squares plus a uniform O(√ε) error. Its level-one boundary has zero Lebesgue measure, and the Gram density is uniformly bounded there and tends to 1/(4π). Dominated convergence yields the mass and the L1 convergence of normalized conditional densities. In one of 48 signed ordered sectors the third coordinate ranges from 0 to the smaller of the two leading coordinates, giving integral 48·(1/3)·(1−1/√2)=8(2−√2). The Jacobian 8ε^(3/2) yields the coefficient 16(2−√2)/π. The ratio of endpoint tails at tε and ε gives the CDF t^(3/2) for 0≤t≤1 under conditioning. The minimum squared correlation uniquely labels the closest facet pair except on a density-zero tie set; permutation symmetry persists under endpoint conditioning. Degenerate frames have probability zero. The finite quadrature and simulation code was inspected, not run; neither is an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published abstracts concern p-content distributions; the volume observable alone is insufficient. In dimension three, the Gram triples (sqrt(13/125),0,0) and (1/5,1/5,1/5) both have determinant 112/125, but their inradii are respectively (1/2)sqrt(112/125) and (1/2)sqrt(14/15). Alonso-Gutiérrez et al. study mean outer radii of isotropic-body point hulls (arXiv:1211.2336v1, p. 1)."
+        ],
+        "reasoning": "Neither a marginal determinant law nor a mean outer radius supplies the joint correlations that control the minimum clearance or the conditional endpoint law. This is not a negative full-text conclusion about the two archival volume papers.",
+        "searches": [
+          "Resultary: The volume of an isotropic random parallelotope H Ruben 1979",
+          "Resultary: Random p-content of a p-parallelotope in Euclidean n-space AM Mathai 1999",
+          "DOI 10.2307/3213377 and 10.1239/aap/1029955138; author/publisher copy searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 8f35152ee2a4, 075ee740f4cf and 77b0eeb3cc1b",
+        "Beck–Janssen–Jochemko arXiv:2204.13036, Theorem 1.8 and Alonso-Gutiérrez et al. arXiv:1211.2336v1, abstract",
+        "Ruben DOI 10.2307/3213377 and Mathai DOI 10.1239/aap/1029955138 (abstract level and access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lattice maximizer and its underlying degree-two classification impose integer generators and an h*-degree restriction, not independent spherical unit columns. The fixed-parallelotope clipping statement uses least altitude in a different role (a cutoff for point-pair distances)."
+        ],
+        "reasoning": "Neither the lattice optimization nor fixed-body distance cutoff yields the local three-correlation density or the simultaneous quadratic constraints. These two ingredients are what connect the classical solid to the endpoint probability and total-variation law.",
+        "searches": [
+          "Resultary: degree-two lattice zonotope Euclidean inradius rhombohedron",
+          "Resultary lattice maximizer 77b0eeb3cc1b; Beck–Janssen–Jochemko arXiv:2204.13036, Theorem 1.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact inradius and inverse-Gram formulations retrieved the assigned record itself; it is excluded as independent evidence. The nearest least-altitude comparison, Resultary 8f35152ee2a4, involves point-pair distances in a fixed parallelotope."
+        ],
+        "reasoning": "The exact alias is maximum diagonal of G^−1 near its minimum, not distance clipping in a fixed polytope. The inspected clipping statement does not predict how random direction triples distribute across that event.",
+        "searches": [
+          "Resultary: random parallelotope inradius endpoint law independent spherical unit vectors",
+          "Resultary: maximum-diagonal inverse Gram endpoint law random parallelotope inradius",
+          "random parallelotope inradius distribution unit vectors endpoint tail Gram matrix inradius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue match gives a directional-width law of the fixed orthogonal tricylinder. The classical volume is the same constant 8(2−√2) used here; no separate matched catalogue entry gives the random-frame tail and conditional measure."
+        ],
+        "reasoning": "Even exact tables for the fixed body's volume or widths do not identify it as the rescaled Gram event, or give the normalizing density that multiplies its volume.",
+        "searches": [
+          "Resultary: Steinmetz tricylinder random directional width support function",
+          "Resultary tricylinder directional-width match 075ee740f4cf"
+        ]
+      },
+      "rationale": "The strongest inspected catalogue matches share either an inradius, a least altitude, or the tricylinder itself, but not this random-frame small-deficit event. The distinct result is the endpoint coefficient and uniform tricylinder conditional limit, not the separately classical cylinder volume or the general relation between facet altitude and the inverse Gram matrix. This is a bounded, best-knowledge decision with stated archival access risk.",
+      "residual_risks": [
+        "The archival Ruben and Mathai full texts were not retrievable in this review; an older joint-altitude or inverse-Gram theorem under other terminology could alter the historical comparison.",
+        "Searches and checked passages are bounded, and the priority of the classical tricylinder volume is not part of the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract describes p-content, not inradius; full-text scope unresolved",
+          "evidence": "The abstract gives product decompositions for p-content of a parallelotope generated by independent isotropic points.",
+          "identifier_or_url": "https://doi.org/10.2307/3213377",
+          "material_read": "Published abstract/bibliographic evidence only; full text not retrieved",
+          "method": "Publisher and lawful JSTOR retrieval attempts; identified PDF endpoint led to access challenge",
+          "title": "The volume of an isotropic random parallelotope",
+          "trigger": "Potentially broader prior result for the random generator model"
+        },
+        {
+          "assessment": "Observable described as p-content; no full-text noncoverage inference",
+          "evidence": "The visible abstract describes distributional aspects of p-content via matrix transformations. The frozen author reports reading an author-uploaded text; this review could not independently open it.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1029955138",
+          "material_read": "Bibliographic and visible abstract-level evidence only in this review; full text not retrieved",
+          "method": "Lawful Cambridge PDF and identified ResearchGate publication route (38349454) attempted",
+          "title": "Random p-content of a p-parallelotope in Euclidean n-space",
+          "trigger": "Potentially broader random parallelotope theorem and candidate author copy"
+        },
+        {
+          "assessment": "Same fixed body but different random observable",
+          "evidence": "This law randomizes the direction of a support/width measurement of the already-fixed body, rather than identifying the body as the support of a conditional frame law.",
+          "identifier_or_url": "Resultary 075ee740f4cf",
+          "material_read": "Finding and comparison, mirror offsets 0–2050 and 9144–10949",
+          "method": "Published record local mirror passages",
+          "title": "An exact directional-width quadrature and two contrasting tails (tricylinder)",
+          "trigger": "Exact same Steinmetz body and tail terminology"
+        },
+        {
+          "assessment": "Different ensemble and no endpoint probability",
+          "evidence": "Extremizer concerns a degree-restricted lattice class; it does not address what happens near orthogonality under spherical sampling.",
+          "identifier_or_url": "Resultary 77b0eeb3cc1b",
+          "material_read": "Finding and Relationship to prior work, mirror offsets 0–2100 and 7262–9024",
+          "method": "Published record local mirror passages",
+          "title": "A unique tangential rhombohedron maximizes the inradius of degree-two lattice zonotopes",
+          "trigger": "Nearest confirmed zonotope inradius optimization"
+        },
+        {
+          "assessment": "Different random model and observable in inspected passage",
+          "evidence": "Studies mean outer radii for convex hulls of points drawn from isotropic bodies.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.2336",
+          "material_read": "PDF p. 1, abstract and opening",
+          "method": "OA PDF passage",
+          "title": "On mean outer radii of random polytopes",
+          "trigger": "Cited random-polytope metric comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inradius measures the weakest of three competing clearances for a natural random frame, and a determinant distribution cannot recover it. The exact coefficient and nonellipsoidal conditional shape distinguish which joint angular perturbations permit a near-maximal inball; the beta deficit law describes the corresponding leading conditional scale. These are meaningful metric conclusions not captured by random volume or by classical Steinmetz geometry alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

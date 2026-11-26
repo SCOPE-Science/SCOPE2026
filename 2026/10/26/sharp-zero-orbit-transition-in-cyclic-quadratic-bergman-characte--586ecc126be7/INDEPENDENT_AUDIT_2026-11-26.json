@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:55:52.084523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–76",
+        "Frozen verify_cyclic_bergman.py, verification_cyclic_bergman.txt and VERIFICATION.md"
+      ],
+      "rationale": "The beta integral gives the reciprocal squared monomial norms binomial(n+3,3). Extracting the progression yields t^r P(t^q)/(6(1-t^q)^4); expansion confirms P(1)=6q^3 and the factored P(-1). The numerator recurrence gives alternating signs at old roots, a sign change before zero, and an extra root on the left when degree increases. Its degrees through m=0,1,2,3 are nondecreasing with unit increments or plateaus, including q-r-1=0,1,2 by the explicit coefficients. Thus all residual roots are simple and negative. Except at (2,1) the quadratic factor of P(-1) is positive. Endpoint-sign parity combined with the product of the root moduli rules out three interior s-roots below q=2r+4 and zero above it. At equality the reciprocal pair straddles -1 and the remaining root is -1. At (2,1) P(s)=24(1+s). Every s in (-1,0) lifts to one attainable orbit of q simple nonzero products; the boundary s=-1 does not lift to attainable products, and the forced t=0 zero is separate, including in the exception. The frozen script and output were inspected, not executed; the reported Sturm sweep to q=60 is corroboration only.",
+      "residual_risks": [
+        "The phrase 'only boundary numerator zeros' in the exception refers to the residual/nonzero numerator roots, not the explicitly excluded t=0 factor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jochemko covers rational subsequences with the present input numerator h=1 and denominator exponent 4; simple negative roots are a specialization.",
+          "Ross–Thomas §3 gives the cyclic-kernel averaging construction; Zeytuncu §2 constructs zeros for a different radial weight."
+        ],
+        "reasoning": "Broader tools cover some ingredients but not the endpoint sign and root-product inequalities which resolve the sector transition.",
+        "searches": [
+          "Jochemko arXiv:1602.09139v2, p. 3",
+          "Ross–Thomas arXiv:0907.5215, §3",
+          "Zeytuncu arXiv:1009.2806, §2"
+        ]
+      },
+      "checked_sources": [
+        "Jochemko Theorem 1.1",
+        "Ross–Thomas §3",
+        "Zeytuncu §2",
+        "Two related Resultary findings identified above",
+        "Frozen RESULT.md §§2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known root-sign and simplicity theorem cannot distinguish roots either side of -1. The exact factor q-2r-4 in P(-1) and comparison c3 versus c0 supply that missing distinction; the lone vanishing second factor produces the exception."
+        ],
+        "reasoning": "The orbit count is not an immediate specialization of the inspected broader theorem; it requires a separate family-specific magnitude analysis.",
+        "searches": [
+          "Jochemko Theorem 1.1 versus frozen RESULT.md §3",
+          "Ross–Thomas §3 versus the attainable products in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In s=t^q the exact equivalent is counting the roots of the residue-q subsequence numerator of (1-t)^(-4) in (-1,0), at residue r. Theorem 1.1 gives simple negative roots but no cutoff at -1.",
+          "The Resultary finite-holonomy collar law has q-fold fibres but in annulus bundles, not quadratic disk sectors."
+        ],
+        "reasoning": "Neither the negative-real-root statement nor the q-fold orbit description alone determines how many orbits are attainable.",
+        "searches": [
+          "Local Resultary search: cyclic quadratic Bergman character zero orbits and related radial/holonomy transitions",
+          "Literature query on cyclic Bergman and Veronese unit-disk root counts",
+          "Jochemko arXiv:1602.09139v2, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected records concern full spaces with an additional |z|^(2β) radial weight and finite-holonomy annulus bundles, respectively. Neither is a tabulation of the (q,r) subsequence numerators at the modulus-one cutoff. The literature query did not produce a relevant exact table."
+        ],
+        "reasoning": "No exact enumerating source was verified; this is a bounded check, not evidence that no such table exists.",
+        "searches": [
+          "Local Resultary ranked search on quadratic Bergman character kernels and zero-orbit transitions",
+          "Literature query on the root-count transition for cyclic weighted Bergman kernels"
+        ]
+      },
+      "rationale": "Prior work directly covers cyclic averaging and simple negative Veronese roots; the supported distinct claim is the exact count in the open unit disk with its boundary case and exception, not the averaging or sign-of-roots result. No inspected source established that count.",
+      "residual_risks": [
+        "The dedicated literature lookup did not surface a relevant result; a less visibly indexed subsequence-root classification or exact table remains possible. This is a best-of-knowledge assessment, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers real negativity and simplicity, not the interval count",
+          "evidence": "Apply the theorem to h=1, denominator exponent 4, extraction step q, residue r.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.09139v2",
+          "material_read": "p. 3, Theorem 1.1, near OA offset 9800",
+          "method": "Bounded OA full-text passage and specialization",
+          "title": "On the real-rootedness of the Veronese construction for rational formal power series",
+          "trigger": "Equivalent rational subsequence numerator and general root theorem"
+        },
+        {
+          "assessment": "Construction overlaps; zero-count classification not in the inspected passage",
+          "evidence": "Local cyclic-orbifold projection by character averaging.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.5215",
+          "material_read": "§3, equation (3.1) and Lemma 3.2, pp. 11–12, near OA offset 28000",
+          "method": "Bounded OA full-text passage",
+          "title": "Weighted Bergman kernels on orbifolds",
+          "trigger": "Cyclic character averaging"
+        },
+        {
+          "assessment": "Different radial-weight construction",
+          "evidence": "Existence of zeros for another radial weight, not progressions from the quadratic kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.2806",
+          "material_read": "§2, p. 3 onward, near OA offset 5850",
+          "method": "Bounded OA full-text passage",
+          "title": "Weighted Bergman Projections and Kernels: Lp Regularity and Zeros",
+          "trigger": "Weighted disk zeros"
+        },
+        {
+          "assessment": "Distinct spaces and parameter",
+          "evidence": "Full disk weight |z|^(2β)(1-|z|^2)^m; for m=4 two zeros for β>1, not a character-sector transition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69",
+          "material_read": "RESULT.md, Finding and Assumptions, from offset 0",
+          "method": "Local mirror passage",
+          "title": "Sharp first positive radial-power transition of analytic Bergman kernels",
+          "trigger": "Nearby exact disk zero transition indexed in Resultary"
+        },
+        {
+          "assessment": "Different ambient domain and invariant",
+          "evidence": "Rational finite holonomy of denominator q yields fibres on two circles in an annulus bundle over a punctured elliptic curve.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-boundary-collar-law-for-bergman-zeros-in-finite-holonomy-a--480c97551a74",
+          "material_read": "RESULT.md, Finding, from offset 0",
+          "method": "Local mirror passage",
+          "title": "Sharp boundary collar law for Bergman zeros in finite-holonomy annulus bundles",
+          "trigger": "Same-date indexed result with q-fold zero fibres"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §3",
+        "Jochemko Theorem 1.1"
+      ],
+      "rationale": "The exact magnitude cutoff distinguishes genuine zeros of a projected disk kernel from formal numerator roots. It locates the first two-orbit sector at each residue and separates both boundary escape and the exceptional sector. That information is usable for deciding which projections of the zero-free full-space kernel acquire nonzero zeros, and is not provided by negative real-rootedness alone.",
+      "residual_risks": [
+        "No claim for other weight exponents or other orbifold geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

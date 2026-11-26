@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact semigroup maximal norm
+# Independent mathematical audit
 
-The proof uses the identity \(\sup_{t\ge0}|P f+e^{-t}(I-P)f|=\max(|Pf|,|f|)\), event-selector linearization, conditional Cauchy--Schwarz, the two-dimensional singular-value polynomial \(z^2-(1+b)z+b^2\), an explicit conditional eigenvector profile, and the strict concavity of \(\Lambda\). The argument applies to arbitrary probability spaces and conditioning sub-\(\sigma\)-algebras. The finite-atom residue law follows from a proved deficit comparison, not enumeration.
+## correctness
 
-`verify.py` executes deterministic finite-state diagnostics. Run with `python3 verify.py`; it uses only the Python standard library. The tests verify the singular-value characteristic polynomial and equality profile for rational probabilities, nearest-index classification for 2 through 150 uniform atoms, and thousands of complex-valued input tests for simple conditional expectation partitions. Finite tests do not prove the universal claim.
+PASS
 
-The scientific status is self-reviewed, not independently audited. Potential equivalent formulations in earlier two-step martingale literature remain a publication-priority risk.
+The modulus of a real or complex line segment is bounded by the larger endpoint modulus, and the orbit includes or approaches both endpoints. This gives max(|f|,|Pf|) also for the discrete powers exactly in the stated range 0≤rho<1. Pasting Pf on an arbitrary E and f off E is an exact linearization, because the measurable comparison event realizes the pointwise maximum for each f. With b=P1_E and a=1-b, conditional Cauchy–Schwarz gives the matrix with rows (1,0) and (sqrt(ab),b) on the two conditional energy square roots. The Gram matrix has trace 1+b and determinant b², yielding Lambda(b). The vector from a function with value 1 off E and r_b=ab/(Lambda(b)-b²) on E lies in the top eigendirection on 0<b<1, and both conditional Cauchy–Schwarz inequalities are then equalities. The multiplier is measurable and bounded (Lambda≥1 gives r_b≤b/(1+b)). Localizing on a positive-measure set in the conditioning sigma-algebra near the essential supremum gives the lower bound without a disintegration assumption; when that supremum is 1, constants give equality. Strict concavity gives the unique maximizing mass 2/3 and the stated essential-range criterion for norm equality. For trivial conditioning, compactness of the mass set follows from summable atomic subsums plus a full interval of nonatomic masses, and r_(2/3)=1/4. On the uniform grid, only the two neighbors of 2/3 can maximize; in the deficit identity the denominator strictly decreases between 8/3 and 2/3, so offsets of magnitudes 1/(3n) and 2/(3n) are ordered by deficit despite the asymmetry. Taylor expansion gives the coefficient 1/9. The arbitrary-space result is analytic, not a finite extrapolation; frozen finite replay path verify.py was inspected, not run, and is not needed for the proof.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact norm for each fixed conditional expectation, as determined by the conditional event-mass profile, including its equality criterion and the sharp constant-projection and uniform-grid consequences. The bounded comparisons found broader martingale/semigroup inequalities and a different operator with the same sharp numerical constant, but no equivalent fixed-projection formula or stronger result implying it. Endpoint convexity, use of the complex modulus and the power extension are not treated as separate originality contributions. This is a best-of-knowledge decision, not a priority certificate.
+
+## value
+
+PASS
+
+The relaxation model isolates a natural maximal-norm question where generic bounds conceal the role of the underlying probability space. The exact conditional profile distinguishes universal sharpness from sharpness for a given projection and works without measurable-fiber hypotheses. Its finite uniform specialization resolves the asymmetric grid choice, determines exactly when universal equality holds and quantifies the deficit. This is a useful structural and quantitative result, not only the computation of a universal constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

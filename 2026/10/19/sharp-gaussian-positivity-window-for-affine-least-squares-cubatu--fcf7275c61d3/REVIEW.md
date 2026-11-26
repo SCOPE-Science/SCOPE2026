@@ -1,11 +1,21 @@
-# Scientific review: Gaussian affine least-squares cubature
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-dimensional distribution follows from the orthogonal projection formula for the minimum-norm affine-moment solution, Haar invariance of a Gaussian column space, and a beta/chi-square projection law. The extreme-value argument carefully retains the \(\log\log M\) and \(\log(4\pi)\) centering and controls both chi-square and sample-normalization errors at the required order. Wendel's exact theorem supplies the distinct existence event. All hypotheses, nondegeneracy and limiting regimes are explicit; seeded finite tests merely corroborate algebra.
+## correctness
 
-**Originality — PASS, with residual risk.** The original 2026 randomized least-squares quadrature paper provides broad sample-concentration and positive-weight existence theory and the existing least-squares construction, but does not state this exact chi-square/spherical joint law or the sharp constant and Gumbel transition for direct affine Gaussian sampling. The earlier randomized cubature paper treats induced weighted sampling and sufficient conditions, and Wendel characterizes convex-hull feasibility, not positivity of the minimum-norm solution. A search of mathematical research records and comparison with recoverable earlier claims found no dominating equivalent statement. Nonetheless, Gaussian random-projector literature is extensive, so an equivalent specialized result may have gone unidentified.
+PASS
 
-**Mathematical value — PASS.** Positivity guarantees numerical stability of cubature without cancellation. The exact \(2d\log M\) threshold and critical distribution quantify the cost of demanding positivity from an inexpensive, fixed least-squares construction, and the comparison with convex-hull existence proves a genuine logarithmic price versus positive-weight feasibility. These are natural method-design questions rather than an arbitrary finite calculation.
+I reconstructed the joint law from the minimum norm problem: let u be the normalized all-ones vector and z the projection of u onto ker Xᵀ. Then <u,z>=||z||²=T, so w=z/(√M T) is the unique minimum norm feasible vector. Haar invariance gives T=U/(U+V) in law with degrees M−d,d. The stabilizer of u forces the conditional direction of z−Tu to be uniform on the sphere in u⊥, independently of T, including the two-point sphere for M=2. A centered Gaussian represents that direction. Hence positivity is R_M²<U/V, where R_M is the maximum of the negated centered standardized Gaussians and is positive almost surely; strictness causes no issue because the independent ratio has a density. Independently checking the asymptotics, centering and rescaling perturb the squared maximum by O_P(log M/√M), and Mills' ratio at √(B_M+2t) gives exactly e^(−t)/M to first order. In the critical window both chi-squares concentrate and the scale of ratio fluctuations is O_P((log M)^(3/2)/√M)=o_P(1), small in the additive window; continuity of the extreme-value law gives exp(−exp(−t)). On either side, comparison after division by 2 log M yields the zero-one statement. At d/M→δ∈(0,1/2) the ratio stays finite and the Gaussian maximum diverges. Wendel's binomial tail gives feasibility with probability tending to one (the general-position hull has no boundary inclusion of 0 almost surely); assigning small positive masses to every node and using the shifted interior target gives strict positivity on all the nodes.
 
-**Closest literature and limits.** Bělík–Narayan–Turnage, arXiv:2609.09506v1, Sections 2.2, 2.6, 3.3 and 4; Migliorati–Nobile, arXiv:1812.07761, Section 3.2; Wendel (1962), DOI 10.7146/math.scand.a-10655. Exact Gaussian sampling and affine moment space are essential. No non-Gaussian generality, practical floating-point advantage, independent validation or uniform finite-sample Gumbel bound is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Haar beta radius, independent sphere direction, Gaussian extreme-value theorem and Wendel hull formula are standard ingredients and not claimed independently. The supported distinct statement is their exact identification with the selected affine weights and the resulting sharply centered growing-dimension Gumbel law and linear-vs-logarithmic separation for that particular estimator. Once the weight representation is in hand the asymptotic does follow by standard concentration and extreme-value theory; the relevant prior cubature guarantees and closest catalogue special cases do not supply that representation and event at growing dimension.
+
+## value
+
+PASS
+
+For random Gaussian affine integration the exact formula predicts when the cheap minimum-norm rule loses positivity even though positive moment matching remains feasible. The log–log correction and limiting probability distinguish sampling sequences having the same leading ratio, which a mere sufficient scale or the usual hull test cannot do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

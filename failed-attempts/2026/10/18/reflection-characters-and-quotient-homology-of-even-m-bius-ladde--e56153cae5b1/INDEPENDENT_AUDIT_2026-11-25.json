@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:06.251414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem checks with a small proof correction, but the frozen Step 3 makes a false graph identification. Deleting E_(n−j) only for 1≤j<m leaves E_n as well as E_0,…,E_m; at n=4 it leaves six vertices instead of the asserted five. The frozen program's survivor list already omits E_n, but its twin assertions skip j=0, so its log is not evidence for the literal written step. The missing justification is that rim incompatibility reduces to residues differing by ±1 modulo n, with spoke neighbors s_b,s_(b+1) depending only on the residue b. Thus E_j and E_(n−j) are nonadjacent false twins for 0≤j<m, including E_0,E_n; deleting one from each pair gives the path of triangles with tip {s_(-j),s_(j+1)} adjacent to the two successive path vertices. False-twin removal preserves I(−1), and summing over tips leaves exactly the two alternating path selections. The signed Lefschetz factor is (−1)^(d+1) times I(−1), yielding the stated edge trace. The vertex trace is zero because the fixed s_0 has no admissible incident rim orbit. Over Q, averaging the barycentrically subdivided quotient chains gives the invariant homology and the stated ranks. Independent bounded replay checked actual face traces at n=4,6,8,10 and all twin pairs and the corrected adjacency at even n=4,…,40: python3 /workspace/checks/frozen_review_checks.py reflection. The FAIL identifies the proof gap, not a counterexample to the theorem. No repair is submitted because the corrected result is covered.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The integral comparator gives matrices of the same rotation and vertex reflection on the rank-two lattice",
+          "Agarwal–Basak Theorem 18 gives the nonequivariant wedge only"
+        ],
+        "reasoning": "With m=n/2, the reflection matrix swaps coordinates with sign (−1)^(m(m−1)/2). Its product with the rotation is that sign times diag((−1)^(m−1),1), giving both the zero for even m and 2(−1)^k for m=2k+1. Passing to Q and to invariants is a special case of these matrices. The wedge alone does not determine signs.",
+        "searches": [
+          "Resultary 73628ced8e0e, Finding (integral dihedral lattice)",
+          "arXiv:2608.30601v1, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.30601v1",
+        "Resultary:3551187dd347",
+        "Resultary:317e26dcb314",
+        "Resultary:5d11c24249b1",
+        "Resultary:73628ced8e0e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When 4|n, the rotation square is −I and any reflection anticommutes with rotation, forcing trace zero",
+          "When n≡2 mod 4, the earlier rotation evidence alone allows independent mirror signs on two eigenlines; the exact comparator and the integral matrices settle those signs"
+        ],
+        "reasoning": "The frozen claim is right about what does not follow from rotation alone, but the distinct catalogue findings already cover those precise signs. No extra counting is needed to obtain the single-reflection quotient ranks by averaging.",
+        "searches": [
+          "3551187dd347, Finding and reflection scope",
+          "5d11c24249b1, Finding",
+          "73628ced8e0e, explicit action matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its s_a(i)=a−i equals the assigned r^at, with the same even-width extendible-matching complex and rational homology degree",
+          "Its edge trace 2(−1)^((n−2)/4) is exactly 2(−1)^k"
+        ],
+        "reasoning": "This is equality of the actions and character values after a relabeling, not a similarity of titles. The isolated-spoke and triangle-chain methods also match.",
+        "searches": [
+          "Resultary: even Möbius ladder perfect matching complex reflection characters by axis",
+          "Resultary 5d11c24249b1, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5d11c24249b1 gives all three entries of the claimed width/axis character table",
+          "3551187dd347 explicitly leaves reflections unclassified; 317e26dcb314 concerns the central rotation, not either reflection"
+        ],
+        "reasoning": "The decisive exact match is the complete reflection record, not a database extrapolation or the partial rotation or half-turn tables. The geometric reflection-quotient ranks follow numerically and homologically from those same characters.",
+        "searches": [
+          "Resultary 5d11c24249b1, exact character formula",
+          "Resultary 3551187dd347, one-step rotation",
+          "Resultary 317e26dcb314, antipodal half-turn"
+        ]
+      },
+      "rationale": "Distinct Resultary record 5d11c24249b1 contains both trace formulas in the same hypotheses and the orbit-graph triangle-chain proof. Record 73628ced8e0e gives a stronger integral action implying the same traces. The frozen quotient ranks add only the characteristic-zero involution invariant-dimension formula (2+tr)/2 to that coverage. Neither comparator is the assigned record. Their catalogue paths are later; this is a finding of demonstrated overlapping coverage and no distinct scientific remainder under review, not a claim that either historically preceded the frozen statement.",
+      "residual_risks": [
+        "No historical priority, derivation, or authorship relation between the overlapping records was established. The external search is not exhaustive; the decision uses exact inspected catalogue coverage, not absence of a paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports exact flag graph and rank-two wedge, no equivariant conclusion in these passages",
+          "evidence": [
+            "Minimal disjoint nonextendable pairs are the specified rim pairs; the homotopy dimension is (n−2)/2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601v1",
+          "material_read": "Section 4, Lemmas 13–15 (pp. 8–10), Lemma 17 and Theorem 18 (p. 11)",
+          "method": "Lawful OA primary PDF",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Critical flag and rank inputs"
+        },
+        {
+          "assessment": "Exact character coverage",
+          "evidence": [
+            "Boxed formula has the same axis and width cases under identical definitions; the corollary further gives the dihedral module"
+          ],
+          "identifier_or_url": "Resultary 5d11c24249b1",
+          "material_read": "Finding, assumptions and fixed-orbit/triangle-chain proof",
+          "method": "Local mirror, original RESULT.md",
+          "title": "Reflection characters of even Möbius-ladder perfect-matching homology",
+          "trigger": "Exact character and orbit-method match"
+        },
+        {
+          "assessment": "Stronger result implies rational trace and quotient ranks",
+          "evidence": [
+            "The basis matrices yield tr(s)=0 and tr(rs)=(−1)^(m(m−1)/2)(1+(−1)^(m−1))"
+          ],
+          "identifier_or_url": "Resultary 73628ced8e0e",
+          "material_read": "Finding, integral generator matrices and hypotheses",
+          "method": "Local mirror, original RESULT.md, offset 0",
+          "title": "The integral dihedral homology lattice of even Möbius-ladder perfect-matching complexes",
+          "trigger": "Stronger equivariant result on identical complex"
+        },
+        {
+          "assessment": "Partial implication, not full mirror coverage",
+          "evidence": [
+            "tr(r)=0, r²=(−1)^d I; central half-turn trivial for even n"
+          ],
+          "identifier_or_url": "Resultary 3551187dd347 and 317e26dcb314",
+          "material_read": "Action statements and rotation scope",
+          "method": "Local mirror, original findings",
+          "title": "One-step rotation and antipodal half-turn calculations",
+          "trigger": "Scope of original rotation-based novelty argument"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between the two axes and the mod-eight pattern are meaningful invariants. As an incremental contribution, however, the character and evaluation mechanism are covered, and the rational quotient ranks are mechanically recovered from the known character by averaging. The frozen result contributes neither an integral quotient invariant nor a distinct equivariant conclusion. Fixing the extra endpoint twin would not leave an independently valuable result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

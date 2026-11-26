@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact convolution of the positive two-exponential kernel yields the post-shutoff derivative as a difference of two exponentials with exactly one zero. The derivative of the analytic lag is strictly negative by monotonicity of \(y/(e^y-1)\). Endpoint expansions and the inverse-sensitivity law follow directly. A symbolic polynomial factorization gives exactly one crossover for the specified pairs. The supplementary code checks arithmetic but is not used as proof of the universal quantifiers.
+PASS
 
-## Originality
+For the zero-initial serial linear filters in RESULT.md, the response derivative is positive before and at shutoff. After shutoff it is proportional to (1−exp(−sL))exp(−sτ)−(1−exp(−rL))exp(−rτ); the ratio decreases from greater than one to zero. The equal-term equation gives precisely the stated lag. Differentiating verifies strict decrease since x/(exp(x)−1) strictly decreases; the logarithmic Taylor expansion gives the stated endpoints and direct differentiation at large L gives τ′∼−rτ, justifying the inverse-sensitivity law. The two strict endpoint comparisons imply at least one crossing for an open parameter family, not uniqueness in general. For the displayed pair, independently expanding the polynomial gives z(z³−z−1)(z³+z²−1); its second cubic is strictly increasing on (0,1) and the first is negative there. The unique root is z≈0.754877666246692760 and −log z≈0.2811995743229618465; decreasing z as L increases gives the stated signs. Replay: expand the two degree-eight products in RESULT.md lines 62–72 and bisect the monotone cubic (or compare it at 0 and 1 for exact existence and uniqueness). The frozen checker was read statically; no sampled result is used for a universal claim. The verification note’s description of a root bracket is loose: CHECK.py tests a floating residual, while the proof supplies the exact bracket and monotonicity.
 
-**PASS on inspected evidence; priority remains provisional.** The closest published mathematical result concerns a different two-impulse Bateman modality problem; the closest primary literature documents toxin transfer in mussels and delayed biopharmaceutical peaks. The standard serial response itself is not claimed as new. No inspected source establishes the combined finite-pulse inverse-conditioning statement and cross-system unique-crossover example. A complete literature survey is impossible, and a general kinetic theory may imply this as a special case.
+## originality
 
-## Value
+PASS
 
-**PASS.** The biologically motivated ordering question is not whether a response eventually peaks but whether a monitoring surrogate can consistently lead another as exposure duration varies. The explicit reversal disproves that presumed fixed ordering, and the inversion quantifies when peak timing identifies exposure duration and when inference becomes unstable. The result is mathematically informative without claiming that these ideal kinetic rates are calibrated to actual species.
+Qualified finding for the open-family two-response rank reversal and the exact one-crossing witness. The impulse response is classical, and single-response lag and inversion are elementary consequences; priority for those ingredients is not established by this review.
 
-## Limits and closest work
+## value
 
-The 2019 shellfish experiments [1] and 2017 infusion-delay work [2] provide physical motivation, not evidence validating the mathematical simplifications. Classical Bateman kinetics and the public two-input Bateman result [3] are direct related mathematical comparisons; priority for the exact cross-system phenomenon remains subject to uninspected sources. No inference about field toxicity, health thresholds or calibrated monitoring decisions is provided.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The robust ordering reversal bears on whether peak timing can give a fixed ordering of even two ideal linear responses. A single exact crossing gives a complete witness rather than an isolated computed example, and the inverse sensitivity states when timing loses resolving power. These are mathematical statements only, without field validation or practical exposure conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

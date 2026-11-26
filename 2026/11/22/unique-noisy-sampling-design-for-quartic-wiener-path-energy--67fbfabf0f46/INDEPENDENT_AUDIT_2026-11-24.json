@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:28.628091Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69; VERIFICATION.md; verify_quartic_design.py and requirements.txt inspected, not executed",
+        "Independent exact replay: python /workspace/branches/replay_frozen_math.py (PASS, record 4 section)"
+      ],
+      "rationale": "Conditioning on the standardized reading projects the fourth power onto the constant, second and fourth Hermite terms. Their squared norms give the two explained-variance components, and integrating the matching Hermite covariance over the time triangle gives total variance 38/5. I independently reproduced the stationary polynomial and its transformed signs: degrees 0 through 6 are nonnegative with degree 3 positive even at zero noise; degree 7 is strictly negative. Descartes plus the two endpoint signs proves one simple interior turning point and a global maximum of explained variance, with the zero-time gain defined as zero also at zero noise. The derivative of F/(x+eta) has the stated unique quadratic-energy maximizer, and both positive quotient derivatives force the quartic gain still to be increasing there. Scaling the derivative by eta^3 at x=1-c/eta gives 72c-9 at inverse noise zero; the simple root and uniqueness give the 1/(8 eta) correction. The zero-noise quartic and endpoint risk agree with the exact identities.",
+      "residual_risks": [
+        "One deterministic noisy Brownian reading and unconditional Bayes MSE only; the symbolic replay checks algebra, while the sign and implicit-function arguments prove the continuum statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal record spans p-fold integrated linear trajectories, not even powers. The OU and modality-switch records concern squares of different processes."
+        ],
+        "reasoning": "Varying the number of temporal integrations or substituting a Gaussian kernel does not produce the two-chaos quartic objective or the ordering theorem.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-a-universal-observation-noise-boundary-layer-for-integrated-wien--2fe7f897a316",
+          "2026/11/22/SCOPE-unique-noise-calibrated-sensing-time-for-ornstein-uhlenbeck-quad--7c5064a2bb85",
+          "2026/11/22/SCOPE-a-sharp-modality-switch-for-one-shot-integrated-wiener-quadratic--7ee779b752f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary IDs 67fbfabf0f46, 2fe7f897a316, 7c5064a2bb85, 7ee779b752f0",
+        "arXiv:1904.06998, 2304.07661, 1812.10708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional path projections and quadratic sensing do not supply the transformed quartic stationarity polynomial or signs of its two quotient derivatives at the quadratic optimum."
+        ],
+        "reasoning": "The gain identity uses standard Gaussian machinery; global root uniqueness and the comparison require additional inequalities on the specific Brownian quartic covariance integrals.",
+        "searches": [
+          "arXiv:1904.06998 PDF pp. 2, 10; arXiv:2304.07661 PDF pp. 1, 3–4; Resultary IDs 2fe7f897a316, 7c5064a2bb85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foster–Lyons–Oberhauser use endpoint and iterated-area information, not optimization of one noisy point.",
+          "Cui–Chronopoulou study state distortion; Kałuża–Morkisz–Przybyłowicz study noisy Itô integration."
+        ],
+        "reasoning": "In the equivalent explained-variance formulation the objective has distinct second and fourth chaos terms. Neither path reconstruction nor Itô-estimation error is that scalar risk.",
+        "searches": [
+          "Primary search: \"integrated fourth power\" Brownian motion noisy observation optimal sampling design conditional expectation",
+          "arXiv:1904.06998, arXiv:2304.07661, arXiv:1812.10708"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact quartic and ordering statement at ID 67fbfabf0f46 is the same frozen record, not an independent match. The closest distinct statements use other functionals."
+        ],
+        "reasoning": "Identity of the bound result is not separate coverage; the theorem concerns a continuum of noise levels, not a tabulated numeric root.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-unique-noisy-sampling-design-for-quartic-wiener-path-energy--67fbfabf0f46 and the three distinct Resultary IDs above"
+        ]
+      },
+      "rationale": "The quartic scalar-functional optimum and its strict all-finite-noise ordering relative to quadratic energy are distinct on the statements inspected. Neither Hermite projection as a method nor quadratic conditional estimation is claimed as new.",
+      "residual_risks": [
+        "Bounded searches cannot exclude older or unindexed equivalent even-moment design theorems or establish priority. Same-day dates alone establish no ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related conditioning, richer data and different target theorem",
+          "evidence": "Conditional polynomial projection from endpoint and iterated time-integral information.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+          "material_read": "PDF pp. 2, 10 (offsets 6474, 35750)",
+          "method": "OA PDF",
+          "title": "An Optimal Polynomial Approximation of Brownian Motion",
+          "trigger": "Conditional Brownian path polynomials and energy"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": "Aggregate squared state-reconstruction distortion, not squared error of integrated quartic energy.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.07661",
+          "material_read": "PDF pp. 1, 3–4",
+          "method": "OA PDF",
+          "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+          "trigger": "Optimal Brownian-family sampling"
+        },
+        {
+          "assessment": "Different target and decision problem",
+          "evidence": "Itô integration error bounds with noisy information.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.10708",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF",
+          "title": "Optimal Approximation of Stochastic Integrals in Analytic Noise Model",
+          "trigger": "Noisy integration analogue"
+        },
+        {
+          "assessment": "Not broader in the required direction",
+          "evidence": "Recovers a p-fold integrated trajectory, not a nonlinear power integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-observation-noise-boundary-layer-for-integrated-wien--2fe7f897a316",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A universal observation-noise boundary layer for integrated Wiener trajectories",
+          "trigger": "Might generalize one-site design"
+        },
+        {
+          "assessment": "Different quadratic targets; no quartic ordering",
+          "evidence": "Integrated OU square and integrated Wiener displacement square, respectively.",
+          "identifier_or_url": "Resultary IDs 7c5064a2bb85 and 7ee779b752f0",
+          "material_read": "Findings and available assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Related quadratic sensing records",
+          "trigger": "Could subsume the quadratic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17, 58–69; verified gain and ordering"
+      ],
+      "rationale": "A single reading must be moved later when the target changes from quadratic to quartic path energy, at every finite noise level. This is a meaningful structural comparison for nonlinear summaries of the same process under the same budget, with an exact unique design, risk, and sharp high-noise scale. It is not merely a numeric improvement at one noise value.",
+      "residual_risks": [
+        "No adaptive or multireading optimality, extension to arbitrary powers, or algorithmic integration rate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification notes
-The proof in RESULT.md establishes the infinite assertions; no finite enumeration is used as an infinite certificate. Run `python3 CHECK.py` using only the Python standard library. Its exact rational arithmetic checks the first five blocks of each of four representative nontrivial intervals, verifies the rounding brackets, and tests finite convergent examples, including endpoint densities. This confirms arithmetic examples but does not assert exhaustive verification of arbitrary real interval endpoints.
+# Independent mathematical audit
 
-Source comparisons were performed against the publicly accessible full text of the 2026 countable-dynamics paper and the 2016/2018 Ellis-semigroup preprint, plus the authors' omega-limit paper and Sigmund's published abstract. The latter full text was not accessed; a priority risk remains for equivalent sparse-run historical constructions.
+## correctness
+
+PASS
+
+Isolated points are dense in a countable compact metric space by Baire, and each is on the dense orbit. That orbit has no repetition. For y in X′, there are distinct isolated orbit points tending to y, whose images are distinct by nonrepetition; their limit Ty is therefore nonisolated. This suffices for derivative invariance, without needing to assume that the images are isolated. In fact each orbit point is isolated: the preimage under the corresponding iterate of any later isolated point is an open set meeting the dense orbit at only that earlier point. A lower-rank cycle Q would have a clopen neighborhood U with U∩X′=Q. Since Q maps into U, the set of points in U that map into its clopen complement is compact and disjoint from X′, hence finite. The dense nonrepeating orbit visits infinitely many isolated points on each side of U, requiring infinitely many distinct exits, a contradiction. Recurrence forces every positive atom of an invariant probability to be periodic, leaving exactly the simplex of mixtures of the two fixed Diracs. Empirical limits are invariant by telescoping, and compactness and vanishing successive jumps force a connected nonempty cluster set, hence a unique closed interval in the mixture parameter. In the construction for a<b, each new run crosses its interior target with error at most the final length reciprocal; the target gap is bounded away from zero, so each run's length tends to infinity. Hence the prefix zero frequency has liminf a and limsup b. The quadratic paired lengths give singleton frequencies, including 0 and 1 by using a linear minority run. Diverging runs imply that every limit of distinct shifts has at most one change, and each one-change sequence and each constant is obtained by choosing starting positions in late runs. A prefix with two changes appears only at finitely many positions; since there is no periodic tail, each such shift can be isolated by a longer prefix. This proves precisely the asserted derivatives, countability and ordinal type. The o(N) changes imply that outside o(N) starting positions, every fixed observation window is constant, giving the required weak-star comparison to the zero-frequency mixture. No surjectivity is needed.
+
+## originality
+
+PASS
+
+The distinctive claim is exact realization of every closed interval in a prescribed two-atom invariant probability simplex on the one countable compact type, together with the necessity statement under the fixed-top-point assumptions. Connected empirical cluster sets and periodicity restrictions are ingredients, not separate novelty claims.
+
+## value
+
+PASS
+
+The result isolates a natural statistical invariant of dense-orbit systems. It makes the possible variation exact on a fixed countable compact type while leaving the entire invariant probability simplex fixed. It includes genericity for either endpoint or any mixture, true interval-valued historic behavior, and the maximal interval, rather than only one example of nonconvergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

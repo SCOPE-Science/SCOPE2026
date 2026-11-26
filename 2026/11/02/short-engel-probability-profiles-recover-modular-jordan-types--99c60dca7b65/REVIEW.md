@@ -1,19 +1,21 @@
-# Scientific review of short Engel probability profiles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group-law commutator is calculated explicitly. Conditional uniformity is proved by identifying a surjective coefficient onto the appropriate \(N^kV\) with all remaining terms in that same image. The cases \((a,b)=(0,0)\), \(b=0\), \(b\ne0\), trivial action, and \(N^kV=0\) are all included. Jordan second differences reconstruct every block length, with the \(r_0=d\) and \(r_p=0\) boundaries specified. Nilpotency class distinguishes the exact sharpness pair. The two standalone verification programs check concrete group products and finite reconstruction instances.
+PASS
 
-## Originality — PASS, qualified
+Direct multiplication gives the commutator coordinate T^(-a-b)((1−T^b)u+(T^a−1)v), and each further step multiplies by T^(-b)−1. For a nonzero exponent c, T^c−1=NQ_c(N) with Q_c(0)=c, so Q_c(N) is invertible. Conditional on exponents, the first step is zero if both exponents vanish and uniform on NV otherwise. At k≥2 it is zero if b=0 and uniform on N^kV otherwise by the coefficient of u. This includes the trivial action and k≥p. Known order supplies r_0 and the bound N^p=0 supplies r_p; identity masses determine the intervening ranks, whose second differences give all multiplicities. For the partitions (p,p−2) and (p−1,p−1), the ranks coincide up to p−2 and differ at p−1. The nonzero stages of the lower central series are determined by N^jV, so the differing classes prove the witnesses are nonisomorphic. The p=3 case independently gives s_1=17/81 for both and s_2=5/9 versus 1.
 
-The full text of Putignano–Vannacci (arXiv:2610.23100) and accessible text on general word-map distribution and Frobenius Engel digraphs were compared by conclusions, not merely titles. They address comparison inequalities, general framework, or fixed-point-free coprime actions, respectively. The closest 2026 modular wreath-product paper by de las Heras–Toti–Vannacci (arXiv:2607.11605) was only abstract-accessible: it may contain stronger implications, a stated residual risk. An earlier involutive semidirect-product calculation has complement order two and does not cover the odd-prime unipotent action or sharp cutoffs. No equivalent complete pointwise law plus optimal finite Jordan reconstruction theorem was found. Exhaustive historical priority is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies a precise algebraic structure from a short finite set of natural probabilistic group-word measurements. The rank-recovery theorem is complete on an infinite family of modular semidirect products, while nonisomorphic examples show the length cutoff cannot be improved. Its pointwise distribution is useful beyond the identity probabilities and distinguishes it from one-off finite examples and textbook matrix-rank identities.
+There is real overlap with both modular wreath-product word-distribution bounds and exact laws for abelian-by-involution groups. The all-depth uniform-mixture law for arbitrary odd-prime unipotent block type together with reconstruction and the sharp truncation is distinct from the inspected claims. Rank differences and commutator identities alone are standard ingredients, not independent originality claims.
 
-## Residual limits
+## value
 
-The theorem applies to split elementary-abelian-by-prime-cyclic groups, with known order and prime, rather than all groups. The Frobenius and involutive cases are not extensions claimed here. The inaccessible relevant wreath-product full text remains an unexcluded priority risk. Computations corroborate but do not independently prove the infinite result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Word distributions give isomorphism invariants, and here a short prefix of identity masses specifies all ranks that govern a modular action. The uniform conditional law covers every individual value, while the explicit same-order counterexample isolates the last necessary observation; this gives a precise recognition threshold rather than a routine calculation of a single commutativity probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

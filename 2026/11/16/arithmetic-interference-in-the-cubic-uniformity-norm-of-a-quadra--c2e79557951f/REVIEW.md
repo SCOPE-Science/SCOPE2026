@@ -1,15 +1,21 @@
-# Scientific review — arithmetic interference in cubic uniformity
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim concerns the normalized eight-vertex Gowers cube of a real cosine of a nondegenerate diagonal quadratic form over an odd prime field. Expanding the eight cosine factors yields 256 quadratic signed-cube forms on four input variables. The standalone `check.py` exactly enumerates all 256 *integer* signed matrices, certifies each maximal principal minor, and proves the rank/discriminant table uniform in every odd characteristic because all nonzero maximal minors are powers of 2 up to sign. The standard quadratic Gauss sum identity, raised to the tensor-power dimension, yields the two displayed formulas. A strict cubic inequality proves the sign of the correction, including the destructive case. Direct complete cube averages over seven small prime-field settings agree with the formula. The finite direct experiments do not substitute for the rank certificate and analytic Gauss evaluation.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The closely relevant 2025 preprint and 2026 journal work of Candela, González-Sánchez and Szegedy establishes spectral and inverse theorems for higher-order Fourier analysis; its individual quadratic-character examples and approximate Parseval results do not state the signed-cube rank table or the exact norm of an equal-amplitude opposite-chirp sum in the inspected passages and article searches. Kuo's 2025 preprint and 2026 article gives algorithms for estimating higher Gowers norms, not the specific closed two-branch arithmetic evaluation. The 2008 Green–Tao inverse theorem addresses correlation with quadratic phases rather than this explicit mixed-norm calculation. Searches for equivalent formulations, broader dominating theorems, exact tables and implication to the claimed formula found no decisive coverage. The integral rank/discriminant table is a new explicit finite certificate but a differently indexed equivalent formula remains possible, including as an unstated consequence of older quadratic-bias computations. No independent audit or definitive novelty certification is asserted.
+PASS
 
-## Value — PASS
-Equal-amplitude mixtures of opposite quadratic Fourier characters are a canonical, motivated test of the nonlinear Gowers cube functional: unlike a single quadratic character, their mixed terms need not vanish. The exact formula reveals a sign-changing finite-field correction to the natural independent-phase baseline, including strict destructive interference for specific primes and dimensions. The all-odd-prime rank table and arithmetic sign criterion distinguish genuine higher-order interference from mere norm inequalities and provide exact benchmarks for finite-field uniformity calculations.
+In the normalized cube average all conjugations are immaterial for this real cosine. Expansion gives 256 signed forms on four cube inputs; the identical one-coordinate averages multiply across the n coordinates. An independent exact enumeration searched all integer minors to determine each rank and took the lexicographically first nonzero principal minor of that rank to represent its discriminant. It reproduced the entire table at RESULT.md:40–48, with only powers of two up to sign for nonzero determinants. Larger minors vanish over the integers, and a maximal nonzero principal minor survives reduction at every odd p, so both the rank and the representative used in the Gauss evaluation are justified. Completing squares on the nondegenerate quotient gives the normalized factor p^(−r/2) ε_p^r χ_p(Δ); summation gives even-rank contributions (44+24ν)/q and (26+32ν)/q², with the odd ranks cancelling for ν=−1 and contributing the stated η terms for ν=1. The two rank-zero terms give the baseline 1/128. In the negative branch the scaled correction is the cubic −16t³+68t²−112t+58 at t=√q>1, negative at t=1 with everywhere-negative derivative. The other branches are positive, and substitution verifies both small-field examples.
 
-## Scientific scope and closest literature
-The conclusion concerns only the specified real diagonal cosine chirp on prime-field vector spaces and does not evaluate arbitrary mixed quadratic forms, arbitrary coefficient weights, or other Gowers orders. Sources: Candela–González-Sánchez–Szegedy, arXiv:2501.12287v1; Kuo, arXiv:2508.01231; Green–Tao, *An inverse theorem for the Gowers U3(G) norm* (2008). The closest paper's full text was available as open HTML and relevant sections and term matches were inspected, but not every possible older formulation or reference was verified. An older equivalent Gaussian cubic-correlation formula remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the full mixed opposite-chirp cube evaluation and its strict arithmetic sign classification, not Gowers theory, chirp bias, or the quadratic Gauss-sum formula. No distinct matching statement or dominating prior formula was identified in the material available. Primary-text access limits make this a bounded judgment.
+
+## value
+
+PASS
+
+The real part of a quadratic character is a natural test of a nonlinear norm whose unit-norm behavior on a single quadratic character is elementary. The formula proves the departure from the rank-zero baseline can have either sign, and provides an exact family of finite-field benchmarks with every odd characteristic covered. The discriminant counts, rather than a small numerical example or a restatement of Gauss sums, are what make that comparison precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

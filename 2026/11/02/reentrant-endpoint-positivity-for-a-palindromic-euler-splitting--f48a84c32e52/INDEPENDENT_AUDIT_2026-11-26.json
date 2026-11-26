@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:05:46.418730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59; VERIFICATION.md lines 19–23; verify.py (symbolic identity and finite sign-grid checks)",
+        "Independent multiplication, endpoint criterion and quadratic analysis"
+      ],
+      "rationale": "Put x=ah/2, y=bh and z=y(1−x). Multiplication gives the lower row (z,1−z) and the upper row ((1−x)(1−x+xy), x(2−x−z)). The factors each preserve the constant column, so applying the endpoint to the two coordinate probability rows tests precisely entrywise nonnegativity. For h>0 the lower-left entry requires x≤1; h=0 gives the identity. With x≤1 the upper-left entry is nonnegative, and z≤1 both is necessary from the lower-right entry and gives x(2−x−z)≥x(1−x)≥0. Maximizing z=bh(1−ah/2) on [0,2/a] gives b/(2a) at h=1/a. For b>2a its two level-one roots are (1±√(1−2a/b))/a, and exactly their intervening open interval fails the test. At b=2a the coincident root does not create a gap; h=2/a gives both rows equal to (0,1). For a=1,b=4, h=1/2 has lower-right entry −1/2, whereas h=19/10 has both rows nonnegative and the middle factor has lower-right entry −33/5. The expansion through h² contains A²/4+(AB+BA)/2 rather than (A+B)²/2; this is first-order forward-Euler splitting, not second-order Strang with exact factors.",
+      "residual_risks": [
+        "Frozen grid code inspected, not executed; the all-real conclusion is analytic. The positivity is nonnegativity, not positivity of every entry or stage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bréhier–Cohen–Ulander's positivity at any timestep uses exactly integrated component equations of a stochastic heat equation. The Blanes–Casas–Murua example gives mass and positivity for an exact-flow splitting with second-order Strang."
+        ],
+        "reasoning": "Both preserve positivity by properties of their positive subflow maps, which cannot imply endpoint nonnegativity when the Euler middle factor itself has a negative diagonal.",
+        "searches": [
+          "arXiv:2304.11064v1, scheme (5) and equations (6)–(8)",
+          "arXiv:2401.01722, §9.2.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records above",
+        "Bréhier–Cohen–Ulander (2023)",
+        "Blanes–Casas–Murua (2024)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SSP-SDIRK2(2) has unconditional endpoint positivity in two states for [(I+hQ/4)(I−hQ/4)⁻¹]², a rational function of the unsplit generator. Within the palindromic Euler product, the lower-right entry instead changes sign with 1−bh(1−ah/2)."
+        ],
+        "reasoning": "Neither unconditional two-state positivity for a different map nor a sufficient stagewise CFL condition gives the sharp second branch where the middle Euler factor is not stochastic. The mechanism uses two separately applied one-way generators.",
+        "searches": [
+          "Local Resultary SSP-SDIRK2(2) two-state immunity theorem",
+          "Local Resultary exact positive three-factor split",
+          "arXiv:2401.01722, §9.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest three-factor two-state record uses exp(θhQ_A) exp(hQ_B) exp((1−θ)hQ_A) with h-dependent θ. Transposing switches column and row conventions but does not change exponential subflows to Euler steps."
+        ],
+        "reasoning": "The exact exponential factorization is not an alias for the fixed linear factors; it stays stochastic for all h, whereas the Euler product at h=2/a is absorbing and can have negative entries before reaching that endpoint.",
+        "searches": [
+          "Local Resultary search for palindromic three-factor Euler splitting, two-state endpoint positivity and reentrant timestep range",
+          "Primary web query for the same forward-Euler product and positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The RKL2 witness has intervals [0,(5−√5)/2] and [(5+√5)/2,15/4] on a three-state generator and expressly rules out reentry for that map on at most two states. The Radau IIA and Padé records give recoveries on six- and eight-state cycles respectively for rational maps."
+        ],
+        "reasoning": "Reentry has published comparators, but none is the exact two-rate interval table for this product. The RKL2 obstruction in two states is map-specific.",
+        "searches": [
+          "Local Resultary exact-positivity and reentrance comparisons: three-stage RKL2, two-stage Radau IIA, [2/2] Padé"
+        ]
+      },
+      "rationale": "The compared stronger positivity statements and prior reentrance witnesses concern different maps. No checked source supplies the exact same Euler-factor endpoint criterion or an implication that determines its two-state slice. The assessment concerns the fixed palindromic Euler map only, not priority for reentrant endpoint positivity in general.",
+      "residual_risks": [
+        "A bounded primary web query did not settle priority for the exact Euler-product criterion.",
+        "The Ferracina–Spijker SSP comparison reached a landing page/abstract only; it was not used to exclude coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different factor maps and step-dependent outer weights",
+          "evidence": [
+            "The exact formula has exponential factors, each a nonnegative column-stochastic matrix."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-positive-three-factor-split-for-two-state-markov-genera--9b0eeef7eade",
+          "material_read": "RESULT.md outset, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact positive three-factor split for two-state Markov generators",
+          "trigger": "Same dimension and three-factor pattern"
+        },
+        {
+          "assessment": "Different integrated substeps and model",
+          "evidence": [
+            "The components of the Lie–Trotter scheme are exactly or easily integrated and timestep positivity is unconditional for that scheme."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11064",
+          "material_read": "v1, p. 1 and pp. 3–4, scheme (5) and equations (6)–(8)",
+          "method": "Open-access primary paper",
+          "title": "Positivity-preserving schemes for some nonlinear stochastic PDEs",
+          "trigger": "Splitting positivity for all timesteps"
+        },
+        {
+          "assessment": "Exact-subflow Strang is not the Euler product",
+          "evidence": [
+            "The compared second-order outputs preserve mass and positivity with exponential subflows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01722",
+          "material_read": "§9.2.1, pp. 126–127",
+          "method": "Open-access primary text",
+          "title": "Splitting methods for differential equations",
+          "trigger": "Strang and Markov mass/positivity claims"
+        },
+        {
+          "assessment": "Unconditional theorem for a different rational map",
+          "evidence": [
+            "Endpoint is the square of an implicit-midpoint rational map for the unsplit generator."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+          "material_read": "RESULT.md, offset 0, endpoint map and two-state theorem",
+          "method": "Local Resultary mirror",
+          "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+          "trigger": "Two-state endpoint positivity with potentially nonpositive stages"
+        },
+        {
+          "assessment": "Same phenomenon on a distinct polynomial method; no implication for split Euler",
+          "evidence": [
+            "An exact two-interval three-state example and a proof of no reentry in that map on at most two states."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20",
+          "material_read": "RESULT.md, offset 0, window and lower-dimension exclusion",
+          "method": "Local Resultary mirror",
+          "title": "Reentrant endpoint positivity of three-stage RKL2 on a minimal Markov example",
+          "trigger": "Closest prior reentrant polynomial map and dimension obstruction"
+        },
+        {
+          "assessment": "Different rational map and generator class",
+          "evidence": [
+            "Six-state example recovers on [ρ,∞), with positivity also at h=0."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-six-state-recovery-of-markov-positivity-for-radau-iia-on-d--24a51aae20d9",
+          "material_read": "RESULT.md outset, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+          "trigger": "Exact endpoint recovery comparator"
+        },
+        {
+          "assessment": "Different rational map and eight-state witness",
+          "evidence": [
+            "Its positivity set is {0}∪[h₀,2√3] for the specified witness."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "RESULT.md offsets 57–1410",
+          "method": "Local Resultary mirror",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Exact recovery witness already cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–27, 43–55, 65–67",
+        "Local Resultary RKL2 and SSP-SDIRK2(2) comparators"
+      ],
+      "rationale": "A standard-looking palindromic split of the minimal irreducible Markov generator gives an exact, parameter-open counterexample to downward closure of endpoint admissibility in h. This is stronger than finding a single lucky endpoint or recomputing a stage CFL: it identifies when the second component exists, its full width and its absorbing upper endpoint even though one step late in that component can have a negative intermediate factor. This example separates stage positivity, endpoint positivity and accuracy, within a class not covered by the prior two-state obstruction for RKL2.",
+      "residual_risks": [
+        "No accuracy benefit, broader class of splittings or high-dimensional CFL statement follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

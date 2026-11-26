@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every assertion follows from the explicitly reconstructed radius-one Rule 110 overlap graph. All finite output blocks are exactly the labels of finite paths; the eight reachable deterministic subsets reduce to five live right-language classes, each verified with the displayed transition table. The accepted-word recurrence and rational generating function arise from a specific integer adjacency matrix. Its primitive nature proves the Perron entropy statement, and a uniform family of genuinely minimal forbidden words establishes non-finite-typeness without extrapolation. Independent exact finite-block checks corroborate, but are not substituted for, the unrestricted arguments.
+PASS
 
-## Originality — PASS under accessible evidence; priority risk remains
+The local table gives the stated two labeled edge sets, and every finite path corresponds to an extendable bilateral input block. Starting from all four vertices yields the listed eight subsets including the empty one; the two proposed identifications have equal transitions on classes, leaving five live states plus the sink. The empty suffix separates the sink; 0 separates E from the other live states, 10 separates D from A/B/C, 010 separates C from A/B, and 1010 separates A/B. Summing labeled paths from A gives the word count, since the presentation is deterministic. Eliminating the five continuation series yields A(z)=(1-z+z^2)/[(1-z)(1-2z+z^2-z^3-z^4)]. The live graph is strongly connected and has a self-loop; its Perron root exceeds one and is the largest root of the quartic, yielding the logarithmic spatial entropy. The independent enumeration of all binary inputs of length n+2 through n=13 gave the stated counts and then 5252, and numerical bisection gave root 1.8971794010653942 and log 0.6403682574172238. Every 010^m10 with m>=1 exits from E to the sink; its immediate prefix ends at E and its immediate suffix at D. Thus its proper factors are allowed, and arbitrarily long minimally forbidden words rule out finite type.
 
-Jen (1989), *Enumeration of Preimages in Cellular Automata*, develops generic elementary-automaton preimage methods and supplies particular image descriptions for other rules. Cook (2004), *Universality in Elementary Cellular Automata*, proves universality of the same local rule, rather than evaluating its one-step spatial image word growth. The evaluated five-state Rule-110 presentation, precise rational series, Perron entropy and minimal-forbidden-word family were not identified as explicit results in the material inspected. Exact preimage-automaton and Perron machinery is standard; no novelty is claimed for those general algorithms. An unindexed earlier Rule-110-specific table remains a material residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This computes the entire spatial word-complexity sequence and exact entropy of the one-step image of an especially well studied universal cellular automaton. The juxtaposition of a small rational presentation with infinitely many minimal forbidden words makes a substantive qualitative distinction between finite-type and strictly sofic images. These natural invariants concern a full shift image, not an arbitrarily selected output family. This statement is deliberately scoped to one-step spatial language; it is not a result about temporal computation or a long-time attractor.
+The generic de Bruijn/determinization method and the Rule 110 non-SFT conclusion already have coverage. The exact entropy also overlaps with the indexed spectrum and follows from the same-day periodic-point formula by the periodic growth identity for irreducible sofic shifts; no same-day priority order is assumed. The inspected sources do not give the evaluated minimal language automaton, its block-count generating function, or the exhibited minimal forbidden family. The pass credits these distinct exact language results, not generic methods or standalone novelty of the type classification.
 
-## Scientific limitations
+## value
 
-Finite exhaustive checks validate the concrete automaton and polynomial identities only. Absolute historical priority and independent audit remain unsettled; the result does not address later-time images or all elementary rules.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rule 110 is a canonical dynamical system and its spatial image is a natural constrained language. A minimal five-live-state description supplies exact recognition and all finite-block counts, while the explicit forbidden family gives a directly checkable obstruction pattern. These give usable language-level data beyond a type label or a periodic count, even though the deduction of the entropy from a compact presentation is standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

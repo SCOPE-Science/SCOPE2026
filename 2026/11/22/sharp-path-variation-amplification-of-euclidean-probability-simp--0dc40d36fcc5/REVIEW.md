@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The simplex KKT threshold yields all full-dimensional active faces, each with a centering Jacobian. Path variation has an exact one-jump generating basis; the largest Jacobian ratio therefore reduces to one jump. Binary selectors on opposite sides give the sharp transition count \(\min\{2a,2z+1\}\). The all-dimensional integer-deficit identity, and its two imbalance cases, prove the stated four-residue optimum. Explicit strict-cell perturbations attain each coefficient. The standalone exact-rational checks independently reconstruct the finite face reductions and actual pairs. No finite test is used as an infinite proof.
+PASS
 
-## Originality
+The threshold projection is invariant under common translation. Its active-set derivative J_F subtracts the active mean on F and vanishes elsewhere; each F occurs on a strict open cell. Segment integration gives the maximum of the local norms, and a one-jump step attains each local norm because the path-difference map identifies the quotient by constants with an l1 space. At a cut with a,b active positions on the two sides, the output is −b/(a+b) and a/(a+b) on those respective positions. The middle edge splits additively by sign. Appending a zero toward the cut on each side gives max transition count min(2a,2z+1) on a side with a ones and z zeros, attained by alternating runs. In the deficit formula, for a=b each side deficit is nonnegative and vanishes only for u,v in {−1,0}; this gives n=4a−2,4a−1,4a. If b>a and b≤3a, the minimum v-term is at v=−1 (possibly tied when b=3a) and the integer numerator of the deficit is at least d(2d−1) for d=b−a. Equality at one requires d=1,u=0,v=−1, hence n=2(a+b)−1; if b>3a the integer numerator is at least b²−ab+2a(a−1)>1. All larger numerators give a deficit at least 1/(a+b)>1/(n+1). The residue-specific selectors realize the claimed maxima, including n=2. Strict slack gives distinct arbitrarily close attaining inputs, and scalar clipping gives only the separate one-input variation bound. Positive mass scales out. Independent exact replay in branches/db9cfbef-f580-405f-ba1d-713faf127430/independent_check.py checked 851,867 active-support/cut cases through n=15, 72 boundary counts, and all integer maxima and strict witnesses through n=100. The universal result is analytical, not an extrapolation.
 
-PASS on the inspected claims, with residual bibliographic risk. The closest published result is the sharp **cyclic** total-variation modulus for the same simplex projection, but that norm includes an extra wraparound edge, uses two-boundary tests, and has asymptotic constant \(n/4\), not the open-path constant \(n/2\). Its stated theorem does not cover the open path. The full available Wang–Carreira-Perpiñán exposition gives KKT algorithms but no path-variation bound. The full Lellmann et al. treatment uses spatial image TV and simplex projection as separate subroutines, not variation along a simplex coordinate path. Unindexed historical work remains possible; a lack of a retrieved equivalent is not a proof of global novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A standard probability-calibration projection contracts individual ordered-data variation but exhibits sharp two-input instability. The theorem settles the all-dimensional path invariant, including the first expansive dimension, linear amplification growth, strict exceptional residue-class deficit, and concrete equality witnesses. A path versus cycle contrast changes the leading coefficient by a factor of two, so this is not a mere renaming of the existing cyclic theorem.
+Pass for the all-dimensional closed evaluation with its mod-4 defect. The earlier connected-graph theorem already supplies an exact finite maximum and nearby-pair attainment for this very path, as well as the positive-mass and one-input statements. Those are not new here. What remained to evaluate was the path-specific constrained boundary maximum uniformly in dimension; the exact integer gap is not a mechanical graph substitution or finite re-tabulation.
 
-## Scope and risks
+## value
 
-Only real Euclidean simplex projection with unit open-path edge weights is treated; other graph shapes or weights are not inferred. General proof and exact-rational executable checks are supplied. Potential pre-existing equivalent inequalities in older or unindexed literature remain the principal priority risk. The project has not received independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact closed expression makes the stability loss for ordered coordinates available without an exponential search over supports and cuts. It isolates an arithmetic obstruction with feasible attaining configurations and exposes strict pairwise expansion already at n=3 despite pointwise variation diminution. This value concerns the path evaluation, not the pre-existing general graph formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:31:40.007027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete corrected RESULT.md under repairs/4 gives the formulas for fixed d≥3. The coprime generators a and da+b ensure cofiniteness and the least positive generator is a. Vandermonde bounds the total represented binomial value by the binomial at the total index cost, proving the lower bound c_d n^(1/d). To check the upper bound independently, if k is the largest admissible index, the bounds for the binomial product put c_d n^(1/d) in [k−d+1,k+1). Pascal's identity bounds the remainder r by O_d((n+1)^((d−1)/d)), with r<n. Since (r+1)^(1/d)/(n+1)^(1/d)≤1/2 for all sufficiently large n, strong induction first gives a global bound A_d(n+1)^(1/d) (cover bounded n by the unit coin). Applying that bound only to the first remainder gives O_d((n+1)^η_d), including n=0. In residue br the binomial value has form r+ja with j≥0, by coprimality and nonnegativity; index below d only adds multiples of a. The least residue element is br+a times the index-cost envelope above br, i.e. w_r=br+a min_j(μ_d(r+ja)+bj). Every j gives the same required lower bound and j=0 gives the upper bound uniformly in b, whether or not it minimizes. Counting individual residue gaps gives the Apéry max-minus-a and sum identities. Taking r=a−1 for the lower maximum and bounding monotonically for the upper, and using integral comparison for the genus sum, gives both constants and O_d(a^(1+η_d)); all estimates include a≥2 and the residue r=0. The frozen script was inspected (it tests finite residue minima), not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang–Song fix the upper binomial index and vary the lower index in their generators. Robles-Pérez–Rosales instead study finite consecutive triangular or tetrahedral numbers with a fixed lower index and a telescopic sequence method.",
+          "Liu et al. work with generalized repunit affine/geometric coefficient patterns."
+        ],
+        "reasoning": "A fixed lower index by itself is not sufficient: none of these inspected parameterizations includes an independently varying linear term ai and multiplier b with residue classes modulo a across the mixed family. Their invariant formulas do not bound the index cost in those residues.",
+        "searches": [
+          "Hwang–Song arXiv:2412.17882, Introduction and Theorem 0.1",
+          "Robles-Pérez–Rosales arXiv:1706.04378v2 (lawful same-paper alternate for DOI 10.1016/j.jnt.2017.10.014)",
+          "Liu–Xin–Ye–Yin arXiv:2306.03459, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "repairs/4/RESULT.md",
+        "arXiv:2009.01981",
+        "arXiv:1706.04378",
+        "arXiv:2412.17882",
+        "arXiv:2306.03459",
+        "2026/10/26/SCOPE-complete-ap-ry-and-pseudo-frobenius-formulas-for-shifted-general--4fc5ef1c6bae",
+        "2026/10/26/SCOPE-an-exact-cubic-frobenius-number-for-a-four-generator-quadratic-f--9ce3eec5c780",
+        "2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For f(n)=(1+√(8n+1))/2, the quadratic cost is between f(n) and f(n)+3f((f(n)−2)/3) at positive n. Hence it is √(2n)+O((n+1)^(1/4)). Outside eight fixed exceptions, Theorem 8.1 takes the maximum of aμ_2(r)+br minus a for F and the sum of μ_2(r) plus (a−1)(b−1)/2 for genus.",
+          "The indexed greedy-Apéry theorem addresses a specific three-generator h-ary family, not optimal sums of fixed-degree binomial coins."
+        ],
+        "reasoning": "Evaluating the lower maximum at a−1 and taking a monotone upper envelope gives coefficient √2 and O(a^(5/4)); summing the cost and using an integral gives 2√2/3 and the same error. The fixed exceptions are absorbed, and the constants do not depend on b. Thus the degree-two refinement is already implied even though §8 explicitly reports only weaker asymptotic bounds. For d≥3 that inference has no corresponding prior cost estimate in the material inspected; the lower/upper binomial index bound and envelope allow unrestricted b without identifying the exact minimizing lift.",
+        "searches": [
+          "arXiv:2009.01981, Theorems 6.3, 6.6, 8.1 and Corollary 7.6; compare §8's weaker explicit order estimates",
+          "Resultary 2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier quadratic generator ai+b binom(i,2) is exactly the d=2 model, not a nearby quadratic sequence. Its minimum total index cost for n is the same μ_2.",
+          "The same-day focused search did not return an exact match; the nearest shifted generalized-Jacobsthal and four-generator quadratic records use different generator forms and numbers."
+        ],
+        "reasoning": "The quadratic overlap is mathematical identity. A quadratic four-generator family or a reduction to four shifted-Jacobsthal generators does not reparametrize the independent a,b and variable upper-index d≥3 family.",
+        "searches": [
+          "arXiv:2009.01981v1, §3, Theorems 6.3 and 6.6",
+          "Resultary binomial-polynomial numerical semigroup, Frobenius/genus, Apéry index-cost"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The quadratic source gives the full Apéry parametrization and explicit list of eight exceptional pairs, rather than merely numerical examples.",
+          "The tetrahedral/triangular paper discusses A069755 in connection with the Frobenius number of three successive triangular numbers; it is not a table for the two-parameter mixed family. Indexed exact shifted and four-generator analyses are for distinct families."
+        ],
+        "reasoning": "The exact quadratic formulas are decisively covering when combined with the stronger quadratic cost bound. No finite table was used as evidence of the higher-degree theorem; the checked exact indexed results have different generators.",
+        "searches": [
+          "arXiv:2009.01981, Corollary 7.6 and Theorem 8.1",
+          "Resultary exact Apéry and Frobenius records for quadratic families and shifted recurrences",
+          "arXiv:1706.04378v2, p. 2 (A069755 formulation)"
+        ]
+      },
+      "rationale": "The original's assertion of a new quadratic refinement is not passed: the precise degree-two powers and coefficients already follow from Hashuga–Herbine–Jensen's bounds and exact Apéry formulas. The repaired contribution is the uniform expansion for every fixed d≥3. The closest general coin, Apéry, and binomial Frobenius results inspected do not supply this higher-degree mixed-family statement.",
+      "residual_risks": [
+        "The ranked same-day search is not a date census. Indexed or unindexed binomial index-cost results could yield the d≥3 bound; no such equivalence was established in the inspected passages. The journal version of the triangular/tetrahedral paper was not accessible; the matching lawful arXiv version was read for its model and scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies both sharp quadratic expansions with the full error and uniformity, not a d≥3 theorem",
+          "evidence": "The combined bound uses the square root evaluated at a first remainder of order √n; the exact quadratic maximum and sum then give the expansions.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.01981",
+          "material_read": "§3 pp. 3–4; §§6–7, specifically Theorems 6.3, 6.6 and Corollary 7.6; Theorem 8.1 and pp. 23–25. Combined-bound proof at offsets 41000–45500, exact invariants 60870–62090 and asymptotic discussion at 64551–70475",
+          "method": "Lawful OA primary PDF, decisive formulas and proof read by offset",
+          "title": "Numerical Semigroups Generated by Quadratic Sequences",
+          "trigger": "Identical degree-two family; possible stronger prior cost bound"
+        },
+        {
+          "assessment": "Finite consecutive pure-binomial generator families, not the mixed family",
+          "evidence": "The stated target is triangular or tetrahedral consecutive tuples; the construction uses telescopic normalizations of successive gcds.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04378",
+          "material_read": "pp. 1–3, offsets 0, 3415, 6220: abstract, generator definitions and gcd/telescopic method",
+          "method": "Lawful arXiv v2 copy of the same paper after the journal version was not accessible",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "Plausible fixed-lower-index prior result, DOI 10.1016/j.jnt.2017.10.014"
+        },
+        {
+          "assessment": "Fixed upper index, distinct parameters",
+          "evidence": "Uses B_n={binom(n,1),…,binom(n,n−1)}; identifies the distinct earlier triangular/tetrahedral model.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.17882",
+          "material_read": "Introduction and Theorem 0.1, pp. 2–3 offsets 4918–7973; reference [16], p. 17",
+          "method": "Lawful OA primary PDF",
+          "title": "The Frobenius Problem for Numerical Semigroups Generated by Binomial Coefficients",
+          "trigger": "Natural candidate for a larger binomial semigroup result"
+        },
+        {
+          "assessment": "Different recurrence and coefficient assumptions",
+          "evidence": "Exact formulas for repunit-type finite tuples lack the fixed-degree mixed upper-index binomial regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459",
+          "material_read": "Abstract and §3 Theorem 3.1, pp. 10–11 offset 37033",
+          "method": "Lawful OA primary PDF",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Potential broader Apéry or greedy theorem"
+        },
+        {
+          "assessment": "Related, not higher-degree mixed-family coverage",
+          "evidence": "Shifted generalized-Jacobsthal generators reduce to four; the cubic-number formula is for a specific four-generator quadratic family; the greedy threshold is for three h-ary generators.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-ap-ry-and-pseudo-frobenius-formulas-for-shifted-general--4fc5ef1c6bae; 2026/10/26/SCOPE-an-exact-cubic-frobenius-number-for-a-four-generator-quadratic-f--9ce3eec5c780; 2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824",
+          "material_read": "Findings and scope in the mirrored RESULT.md files",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Nearest indexed numerical-semigroup comparisons",
+          "trigger": "Potential exact formula, dominating generator regime or earlier greedy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For higher degrees the quantitative binomial cost estimate and control of every residue lift establish explicit leading constants for two natural semigroup invariants, extending the quadratic problem and remaining informative after subtraction even when b grows without bound. This is not a new claim about the covered quadratic case or a table of small semigroups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

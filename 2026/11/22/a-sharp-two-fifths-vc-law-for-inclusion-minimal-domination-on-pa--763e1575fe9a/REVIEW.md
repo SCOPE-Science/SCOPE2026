@@ -1,15 +1,21 @@
-# Scientific review: exact path minimal-domination shattering
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of inclusion-minimal domination is equivalent to the private-neighbor characterization for every selected vertex. The finite-state construction checks centered length-five neighborhoods and boundary padding, then uses subset-family determinization to express all support labelings. The standalone checker reconstructs all 206 reachable states from first principles; its exhaustive max-plus state-vector identity at lengths 16 and 21, and propagation by the exact transition recurrence, proves the all-length two-fifths law. Direct, algorithmically independent bitmask enumeration through 13 vertices verifies every shattered-support coefficient. The polynomial and dimension claims have identical domains and hypotheses.
+## correctness
 
-## Originality — PASS, subject to the stated priority risks
-The closest inspected public path record identifies the first eleven-vertex online gap and determines static dimensions only through length 11. It expressly makes no larger connected-path formula claim. The current all-n sharp result and complete all-face finite-state transfer are not corollaries of that finite result. The closest full path theorem on minimum independent dominating sets imposes both minimum cardinality and independence, and its very different rank bound cannot dominate the broader family. Bonamy et al. and Mary study minimal domination/transversal enumeration rather than vertex-trace shattering; their VC parameter in Mary is attached to the input hypergraph, not to the minimal-transversal output family. The relevant primary manuscripts were inspected and aliases were searched. Exact search and implication evidence with source-level material appears in `AUDIT.json`. Literature priority cannot be certified outside these resources.
+PASS
 
-## Value — PASS
-The result resolves a natural infinite family of minimal graph-solution concepts, proving a sharp exact two-fifths static learning-capacity law and determining the complete shattering polynomial by an executable finite transfer. This gives both asymptotics and all face coefficients, extending far beyond the earlier small-order finite computation. Its 206-state certificate is substantive, and the two-fifths rate is distinct from that of independent dominating sets.
+For a dominating set, deleting a selected vertex destroys domination exactly if some genuine vertex is dominated uniquely by it; this gives the five-bit criterion around each selected center. The boundaries must exclude nonexistent private-neighbor candidates: for length zero there is no test, for length one both boundary exclusions apply to its sole center, and thereafter the leftmost and rightmost genuine centers get the appropriate exclusions. Appending support marks maintains one nonempty set of possible states per assignment class, universally over labels and existentially over the unset bits. Merging equal sets preserves future viability, and accepting requires each set to contain a terminal-valid state. Weighted path counting therefore gives the claimed formal series. An independent tuple-based regeneration using direct tests for the final two centers reproduced 206 reachable families, 140 terminal families, 79 rejected edges and graph SHA-256 745e40a73b2b4c98aa3dee965bd42ffe216cefd75c1ccb361d3d905f7650bd1d. It reproduced the dimensions through 20 and all 206 coordinates of w_(n+5)=w_n+2 at n=16,…,20, including the 78 minus-infinity coordinates at n=16. The fixed transition operation commutes with addition of 2 to a whole vector, so equality at lengths 16 and 21 guarantees it at the next pair and inductively at every later pair. The accepted maximum agrees with the stated floor on the base lengths and grows by 2 per five steps. Independent literal enumeration of dominating sets and selected-vertex deletion also matched every face count through length 13, including the displayed polynomials; this is corroboration, not the all-length step.
 
-## Closest literature, risks, and limits
-Closest: 2026 *First VC–Littlestone separation for minimal dominating sets of paths*, full `RESULT.md`; 2026 *A periodic shattering law for minimum independent dominating sets of paths*, full `RESULT.md`; Bonamy et al. arXiv:1810.00789; Mofidi arXiv:2212.04570; Mary arXiv:2407.00694; Guingona et al. arXiv:2109.04805. The exact optimal online dimension for larger connected paths is not claimed. Priority in unindexed literature and independent external validation remain open. The five-step equality is a checked integer certificate, not a purely handwritten structural classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest same-family connected-path calculation covers only n≤11, and the closest all-length shattering result concerns a strict subfamily. Neither determines the unrestricted all-length VC law or its shattered-support enumerator.
+
+## value
+
+PASS
+
+The path is a natural model where local feasibility and all simultaneous membership assignments can both be studied. The exact all-length law settles an open range of the connected-path computation and has a different growth rate from the maximal independent subclass. The weighted transfer also determines every shattered-support coefficient, not just the degree or an asymptotic estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

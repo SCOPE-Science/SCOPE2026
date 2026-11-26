@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:21:19.705309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Count zeros of LQ with L=x-y and Q=x^2+xy+y^2+c. For p>=5, completing the square gives #Q=p-chi_p(-3) since the constant is nonzero and the quadratic character sum follows by factoring a difference of two squares. The conic is smooth and meets the diagonal at I=1+chi_p(-c/3) points with Jacobian determinant 6a nonzero. Exactly one vanishing factor gives p^(k-1) lifts per point. At each crossing, Hensel via x at fixed u=x-y gives a bijection with u,v in the maximal ideal modulo p^k. Count u=0 separately; each valuation 1<=r<k contributes (p-1)p^(k-1), including the empty range for k=1. The smooth-only count is 2p-chi_p(-3)-2I, yielding the displayed formula and strictly opposite signs at k=1 and k>=2. At 3, the difference quotient on each source disk reduces to c, so injectivity modulo 3^k on that disk and equal cardinality give bijectivity onto its target disk. The reduction (1+c)x assigns either disjoint target disks or the same disk; squaring the fiber sizes yields 3^k or 3^(k+1). Independent replay: python3 /workspace/independent_checks.py 2 checks 240 direct ordered-pair counts across six odd primes, multiple exponents, all unit residues, and negative and positive lifts, up to modulus 125. These finite tests corroborate but do not replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DesJardins–Zieve analyzes polynomial dynamics and gives a lifting criterion for permutations; it does not give this second moment in the inspected passages.",
+          "Fang–Fernando–Wu studies reversed Dickson permutations, fixed points and cycles; the classical prime-power permutation criterion does not give arbitrary fiber collisions.",
+          "A normal-crossing framework can count the local uv contributions but still requires the finite-field stratum and intersection counts. Sun exact coverage at k=1 was not verified from full text."
+        ],
+        "reasoning": "The counting identity, class comparison and ternary split require information beyond permutation or cycle classifications. A hypothetical general zeta evaluation for this exact divisor was not established by the checked sources.",
+        "searches": [
+          "arXiv:math/0103046, p. 1 and section 10.3",
+          "arXiv:2307.06325, pp. 1, 4–5 and Theorem 3.11",
+          "Sun (2003), DOI 10.1016/S0022-314X(03)00067-2",
+          "Normal-crossing congruence and Igusa/Poincare-series formulation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 95be8e892285, 8251985a3185, 6a065e0bd9a3 and a4218d5c4f84",
+        "arXiv:math/0103046",
+        "arXiv:2307.06325",
+        "Sun DOI 10.1016/S0022-314X(03)00067-2 (partial access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reversal is caused by losing I finite-field points in the union but gaining an extra valuation contribution per crossing at deeper levels.",
+          "The quartic employs a closely analogous mechanism, but the cubic stratum count and reversal coefficient do not follow by substitution.",
+          "A sufficiently detailed prime-field fiber histogram could imply the k=1 claim, regardless of whether it calls it a collision count."
+        ],
+        "reasoning": "Credit the general mechanism and analogues; the claimed family-specific all-depth formula and its contrast at k>=2 remain distinct on the verified evidence.",
+        "searches": [
+          "Resultary 95be8e892285, Finding and Proof",
+          "Resultary a4218d5c4f84, Finding",
+          "DesJardins–Zieve section 10.3 and Sun DOI/abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordered count equals the second fiber moment and the finite-level zero count for the line times conic.",
+          "Resultary 95be8e892285 gives the same type of statistic for x^4+cx^2, with line factors x-y and x+y and a different conic."
+        ],
+        "reasoning": "The quartic has two line components and different crossing strata; it cannot be converted to the cubic law by the Dickson reparametrization or by identifying the observable. No priority between same-date records is inferred.",
+        "searches": [
+          "Resultary prime-power collision moments, collision zeta and first-lift reversal",
+          "Classical D_3 with a=-c/3; p-adic count for (x-y)(x^2+xy+y^2+c)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8251985a3185 gives second moments of solution counts for x^3+y^3 at a target, a four-variable collision problem.",
+          "6a065e0bd9a3 considers degree equal to the residue characteristic p>=5, not degree three.",
+          "a4218d5c4f84 evaluates fibers of x^3-3x modulo 3^k, with a nonunit linear coefficient."
+        ],
+        "reasoning": "These precise neighboring families differ in arity, degree or unit hypothesis. In particular a full histogram for one of those families would give its moment, not the moment claimed here.",
+        "searches": [
+          "Resultary cubic and quartic collision counts, prime-power Dickson value sets and ternary fiber laws"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit all-depth ordered collision law for the unit-perturbed cubic and its Legendre-class reversal, not the general lifting method, the use of character sums, or a new permutation criterion. There is close existing work on the same observable for a quartic, and distinct Dickson fiber theorems. None of the compared exact statements gives this parameter regime. This is a best-of-knowledge decision.",
+      "residual_risks": [
+        "A prior unindexed calculation of the local zeta function for this particular divisor could provide equivalent coverage.",
+        "Sun's full text was not accessed; no newness is claimed for the isolated prime-level character-sum evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest analogue, not equivalent",
+          "evidence": "The polynomial x^4+cx^2 yields a divisor with two line factors, unlike the present line and conic.",
+          "identifier_or_url": "2026/11/22/SCOPE-prime-power-collision-zeta-and-first-lift-reversal-for-unit-pert--95be8e892285",
+          "material_read": "Finding and Proof, local mirror offsets 0–4974",
+          "method": "Resultary search and local mirror text",
+          "title": "Prime-power collision zeta and first-lift reversal for unit-perturbed quartics",
+          "trigger": "Same statistic, reversal phenomenon and prime-power depth"
+        },
+        {
+          "assessment": "Different map and parameter dependence",
+          "evidence": "Studies x^3+y^3 and a three-periodic depth law, not an all-unit univariate cubic.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+          "material_read": "Finding, local mirror offsets 0–3592",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact finite-level collision moments and p-adic fibres for sums of cubes",
+          "trigger": "Earlier cubic collision-moment title"
+        },
+        {
+          "assessment": "Disjoint ternary coefficient hypothesis",
+          "evidence": "Its degree-three polynomial is D_3(X,1)=X^3-3X, whose linear coefficient is not a 3-adic unit.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-ternary-fiber-law-for-the-cubic-dickson-polynomial--a4218d5c4f84",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "The exact ternary fiber law for the cubic Dickson polynomial",
+          "trigger": "A stronger type of invariant in a closely named ternary regime"
+        },
+        {
+          "assessment": "Relevant lifting context; inspected claim is a permutation criterion, not this statistic",
+          "evidence": "The criterion uses the finite-field map and derivative.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0103046",
+          "material_read": "Abstract p. 1 offset about 80; section 10.3 p. 17 offset about 35500",
+          "method": "Targeted OA PDF passages",
+          "title": "On the Structure of Polynomial Mappings Modulo an Odd Prime Power",
+          "trigger": "Potential broader prime-power lifting theorem"
+        },
+        {
+          "assessment": "Studies different primary questions; no implication for the frozen second moment in the inspected passages",
+          "evidence": "Theorem 3.11 is a special cycle-type result; the relevant introduction treats classical and reversed Dickson polynomials and permutation properties.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.06325",
+          "material_read": "Abstract p. 1 offset about 230, introduction pp. 4–5 offset about 11180 and Theorem 3.11 p. 10 offset about 32119",
+          "method": "Targeted OA PDF passages",
+          "title": "Reversed Dickson polynomials",
+          "trigger": "Dickson-family literature with prime-power permutation criteria"
+        },
+        {
+          "assessment": "Potential k=1 overlap remains open; no full-text noncoverage conclusion",
+          "evidence": "The subject is roots modulo a prime, from which a sufficiently specific histogram could determine the k=1 moment.",
+          "identifier_or_url": "https://doi.org/10.1016/S0022-314X(03)00067-2",
+          "material_read": "Landing/abstract material only; no lawful full text retrieved and publisher route returned 403",
+          "method": "Lawful OA and publisher retrieval attempts",
+          "title": "Cubic and quartic congruences modulo a prime",
+          "trigger": "Plausible prime-level cubic fiber overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The second moment is the exact independent-input coincidence statistic for a basic cubic family. It detects a change in the ordering of collision probabilities missed by reduction modulo p, and distinguishes bounded from linearly growing normalized counts over every depth. The explicit class reversal and uniform law, not just application of Hensel lifting or a finite check, justify the claim's value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

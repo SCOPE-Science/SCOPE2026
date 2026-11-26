@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives every transition class from the exact spectral projectors of the four-site path Laplacian. All diagonal and adjacent transitions are positive for positive time. A generalized Descartes zero bound limits the distance-two exponential response to two zeros counting the origin and the endpoint-to-endpoint response to three zeros counting its double origin zero; negative near zero and positive at infinity force exactly one simple positive crossing in each. The small- and large-strength asymptotics follow from locally uniform rescaled expansions and uniqueness of the roots. The independent matrix exponential checker compares 400 operator entries against the formulas and verifies crossings on sampled parameters. The checker is corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS, with bounded historical risk
+The four distinct eigenvalues and Lagrange spectral projectors reproduce all four off-diagonal formulas in RESULT.md; the diagonal weights are nonnegative and include 1/4 from the constant vector. For t>0, 0<C<B<A<1 makes both adjacent classes strictly positive. Direct matrix powers give (L^2)02=1, (L^3)03=-1 and (L^4)03=-6. Thus G and F have respectively simple and double zeros at zero and are negative immediately to its right. With x=exp(-t), the ordered-power Descartes bound gives two and three real t-zeros counting multiplicities. For that bound, divide out the lowest power and induct by differentiating. If the first two signs agree, the derivative starts with the same sign as the function's constant limit at x=0; before the first function zero it must already have a zero by the mean-value theorem. This is the extra derivative zero in the same-sign case. The positive limits at infinity then force precisely one simple positive root each. This proves the inclusive maximum cutoff with t=0 separately and strict positivity beyond it. At t=eta*u the leading scaled polynomials are 2u(u-2) and (2/3)u^2(u-6), uniformly on compact u-sets. At s=eta*t, the squared-L rates have the same Descartes patterns and first nonzero small-s coefficients -4s and -12s^2. At s=1 use g<3/4, exp(-4)<1/16 for G>0, and 6-4sqrt(2)<0.35, g>0.7, exp(-a)>1-a for F<0. The roots converge by bracketing on both sides of simple crossings; this also gives continuity at finite eta, hence attainment of a positive maximum since the horizon goes to zero at both ends. Independent replay: python3 -B /workspace/branches/independent_replay.py 1 (SymPy and mpmath), with exact projector and joint Taylor checks and numerical strong-limit roots 0.2328189247758518 and 1.5526760566350351. The uploaded checker was read, not run; no sampled times were used for exhaustiveness.
 
-The related eventual-positivity theory of Daners–Glück–Kennedy describes qualitative long-time positive behavior and does not give the particular mixed four-site root equations. Gregorio–Mugnolo analyze the pure squared-Laplacian and general graphs, rather than the one-parameter mixed semigroup and its small-mixing transition. The closest published complete-multipartite squared-Laplacian cutoffs are on a different graph class; fourth-order Gauss–Legendre path claims concern rational time steps, not the exact exponential. Previously catalogued star-graph mixed-diffusion results likewise cannot imply the non-star four-path response formula. Priority against inaccessible or unindexed finite-matrix equivalent calculations is unresolved and remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The path with four vertices is the smallest unweighted path that is not a star, so this calculation isolates both distance-two and distance-three negative-mass channels in a canonical one-parameter higher-order graph diffusion. It yields a usable exact positivity-time characterization, distinct small-strength recovery scales, and a finite worst mixing regime. These are structural distinctions and not an arbitrary sampled coefficient.
+Pass the distinct result for the full P4 semigroup with finite positive mixing, including the weak-mixing crossing laws. The squared-L endpoint equation and its unique recovery at the order-two endpoint are shared with a distinct same-day record and should not be credited as a separate novel endpoint calculation. No inspected source covers the finite-mixing two-barrier theorem. This is not a priority ruling between same-day records.
 
-## Limits
+## value
 
-No root ordering or optimizer uniqueness is asserted for finite mixing strength; the result is specific to the unweighted four-site path. The large-mixing formula is a limit, not an all-parameter closed-form threshold. Unindexed or inaccessible historical equivalents remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+P4 is the smallest path on which both distance-two and distance-three channels can obstruct all-entry positivity. The exact time set and the distinct onset scales answer when a mixed generator whose semigroup is not all-time positive nevertheless becomes positive; the two scales cannot be obtained from a generic eventual-positivity theorem. Finite-mixing root ordering, uniqueness of the worst strength, and extensions to longer or weighted paths are not established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

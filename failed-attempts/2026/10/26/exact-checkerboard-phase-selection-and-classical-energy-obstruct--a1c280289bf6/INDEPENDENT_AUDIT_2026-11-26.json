@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:02:30.882775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–62; independent scalar composition and energy calculation",
+        "Frozen VERIFICATION.md, lines 19–23; verification_output.txt; verify.py, lines 11–107, inspected, not executed"
+      ],
+      "rationale": "Regular bipartiteness gives Ls=2rs, so on u=xs diffusion sends y=x^2 to exp(-2 delta t)y and reaction sends y to exp(2t)y/[1+(exp(2t)-1)y]. Composition gives numerator exp(2 alpha h)y and denominator 1+beta y, with beta=(exp(2h)-1)exp(-delta h) for DRD and (exp(h)-1)[1+exp((1-2 delta)h)] for RDR. The only positive fixed point is (exp(2 alpha h)-1)/beta; reciprocation gives an affine contraction of slope exp(-2 alpha h), and the amplitude sign is preserved. Factoring the exponentials gives the two stated sinh formulas. Strict increase of sinh(z)/z for z>0 gives the DRD bias and the RDR trichotomy, including exact preservation at delta=1/2. The graph energy restricted to the line is N[(y-alpha)^2+1-alpha^2]/4, so the classical energy strictly increases starting at the nonzero physical equilibrium exactly when the physical state is not fixed by the step. This argument covers each h>0, and attraction is confined to the invariant line. RDR at delta=1/2 is the explicit step-independent exception to the general step-size dependence.",
+      "residual_risks": [
+        "The stored output is a reported finite numerical check on one edge and even cycles, not an independent computation. The universal claims here are checked analytically, including the strict sign at arbitrarily small h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue theorem covers reaction u-u^(2p+1) for all integers p>=1, includes exact sign of RDR bias and equal scalar contraction rates, and gives the ratio of numerical stationary amplitudes.",
+          "The primary Allen–Cahn splitting works read either analyze periodic PDEs or a matrix variant and prove modified rather than original energy dissipation."
+        ],
+        "reasoning": "Changing p enlarges precisely the reaction family while keeping the graph, parameter normalization and split phases, so the catalogue statement strictly subsumes the frozen fixed-point and bias claims. Modified-energy results are related context, not contrary original-energy results.",
+        "searches": [
+          "Resultary 2026-11-02 sharp order-dependent Finding and assumptions",
+          "ArXiv:2610.14867, 2108.05214, 2508.03992, 2504.07520, original versus modified energy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-11-02 exact matching Finding",
+        "ArXiv:2610.14867, 2108.05214, 2508.03992, 2504.07520",
+        "Bösenhofer, DOI 10.1016/j.combustflame.2023.112881, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generalized statement identifies the only positive fixed point of each map and exactly when it equals sqrt(1-delta) for p=1.",
+          "Ls=2rs and |s_i|=1 give E(xs)=N[(x^2-(1-delta))^2+1-(1-delta)^2]/4, without extra assumptions."
+        ],
+        "reasoning": "The exact step from x_*>0 preserves sign and stays on the line. If x_* is not among the stated positive numerical fixed points, the step changes x^2 away from the unique scalar energy minimum. Thus the energy increase and the equality exception are direct consequences; no extra dynamic or energy estimate is required. No assertion of temporal priority follows from this implication.",
+        "searches": [
+          "Compare the 2026-11-02 generalized Finding against the frozen RESULT.md, lines 54–62, and the original/modified-energy passages of arXiv:2108.05214 and 2610.14867"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue theorem gives x_D^(2p)=sinh(p(1-lambda)tau)/sinh(p tau) and x_R^(2p)=sinh(p(1-lambda)tau)/[sinh(p(1-lambda)tau)+sinh(p lambda tau)] for the same regular bipartite graph class."
+        ],
+        "reasoning": "p=1, lambda=delta, tau=h, x^2=y is exact equivalence of both stationary laws. It also matches the attraction domain and the comparison to the physical stationary amplitude.",
+        "searches": [
+          "Resultary stationary-pattern bias, both Strang orientations, and checkerboard Allen–Cahn fixed points",
+          "Resultary 2026-11-02 sharp order-dependent Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct 2026-11-02 record states the exact fixed-point and bias formulas in its Finding (offsets 0–2429 in the local mirror). It is not the frozen record itself."
+        ],
+        "reasoning": "The match is at exact formula and invariant-manifold level, not title similarity. The read Finding has no original-energy counterexample; it is important to test that additional clause by implication rather than treating all clauses as explicitly stated.",
+        "searches": [
+          "Resultary semantic lookup: Allen–Cahn checkerboard phase selection, reaction and diffusion outside, and energy obstruction"
+        ]
+      },
+      "rationale": "There is direct present-day catalogue coverage by the stronger all-integer-p statement in Sharp order-dependent stationary-pattern bias for Strang splitting on bipartite reaction–diffusion graphs. Its p=1 case on the identical graph class gives both laws, the entire bias trichotomy and attraction. The frozen energy counterexample is not in that statement, but follows directly from its exact fixed-point classification and evaluation of the standard energy at u=xs, where the physical fixed point is the unique minimum in y. This is equivalent or immediately implied coverage, not a finding of pre-freeze priority: the matching catalogue record is dated 2026-11-02, later than this frozen record, and the comparison does not establish which work was derived independently or first. The earlier inspected primary papers' modified-energy results do not themselves establish the frozen claim.",
+      "residual_risks": [
+        "The catalogue comparison establishes mathematical coverage, not temporal priority or source dependence. The pre-freeze Bösenhofer comparison remains limited by full-text access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict generalization of amplitude and bias laws with the frozen energy result directly inferable for p=1; catalogue date not evidence of precedence",
+          "evidence": [
+            "For any integer p>=1 and every positive step: precisely three checkerboard fixed points, two explicit sinh laws, DRD negative bias, and RDR sign of 1-2lambda."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-order-dependent-stationary-pattern-bias-for-strang-splitti--5873e3c165f2/RESULT.md",
+          "material_read": "Original Finding, local text offsets 0–2429; checked for an original-energy statement",
+          "method": "Local mirror of original RESULT.md",
+          "title": "Sharp order-dependent stationary-pattern bias for Strang splitting on bipartite reaction–diffusion graphs",
+          "trigger": "Strongest direct formula and hypothesis match"
+        },
+        {
+          "assessment": "Modified-energy theorem; classical energy decreases in the specified numerical run, not in a universal assertion",
+          "evidence": [
+            "Fig. 3 concerns one 512x512 periodic run with epsilon=0.1 and time step 0.01."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14867",
+          "material_read": "Abstract, p. 1, offset 472; Fig. 3 discussion, p. 18, offset 65300",
+          "method": "Lawful OA PDF passages",
+          "title": "Stability and Error Estimates with Optimal epsilon-Dependence for Strang Splitting of the Allen–Cahn Equation",
+          "trigger": "Closest same-equation DRD reference and potential classical-energy claim"
+        },
+        {
+          "assessment": "Dissipated energy is modified and O(tau)-close to the standard energy, which does not imply standard energy dissipation",
+          "evidence": [
+            "The modified potential approaches the standard one as tau tends to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.05214",
+          "material_read": "§2.2, p. 7, offset 23500; §2.4, p. 9, offset 30800",
+          "method": "Lawful OA PDF passages",
+          "title": "Stability and convergence of Strang splitting. Part I: Scalar Allen-Cahn equation",
+          "trigger": "Primary scalar fixed-step dissipation result"
+        },
+        {
+          "assessment": "Matrix-valued model and modified functional, not the scalar checkerboard classical energy",
+          "evidence": [
+            "The abstract specifies an estimate of the double-well term in a modified energy functional."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.03992",
+          "material_read": "Abstract p. 1, offset 700",
+          "method": "Lawful OA PDF passage",
+          "title": "Unconditional energy dissipation of Strang splitting for the matrix-valued Allen-Cahn equation",
+          "trigger": "Potentially unconditional energy dissipation in related splitting"
+        },
+        {
+          "assessment": "The modified energy is step dependent; no inspected passage supplies the frozen result",
+          "evidence": [
+            "The Introduction discusses the uniform-step periodic modified energy as O(tau)-close to the original."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.07520",
+          "material_read": "Introduction p. 2, offset 9300; Remark 3.4 p. 7, offset 27100",
+          "method": "Lawful OA PDF passages",
+          "title": "Variable-time-step Allen–Cahn Strang splitting study by Quan, Tan and Wu",
+          "trigger": "Further relevant energy comparison"
+        },
+        {
+          "assessment": "Precise theorem overlap unresolved; not used as grounds for the decision",
+          "evidence": [
+            "The accessible material concerns steady-state preservation for splitting but does not furnish the exact nonlinear finite-graph equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.combustflame.2023.112881",
+          "material_read": "Landing page and abstract only; no identified lawful OA full text retrieved",
+          "method": "Bounded OA lookup",
+          "title": "Analysis and evaluation of steady-state and non-steady-state preserving operator splitting schemes for reaction-diffusion(-advection) problems",
+          "trigger": "Plausible antecedent on order-dependent steady-state splitting errors"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–71",
+        "ArXiv:2108.05214, §2.2 and §2.4; arXiv:2610.14867, modified-energy statement and Fig. 3"
+      ],
+      "rationale": "The exact split equilibria matter for long-time computations. In particular, starting at a genuine nonconstant equilibrium gives a sharp counterexample to unqualified classical-energy dissipation at every positive step, without contradicting decay of a modified energy. The exceptional RDR parameter distinguishes the two common Strang orientations with no asymptotic or floating-point qualification. This structural example is useful even though its mathematical content is covered by the catalogue comparison.",
+      "residual_risks": [
+        "No attraction in the full graph phase space, universal PDE obstruction, or failure of modified-energy decay is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

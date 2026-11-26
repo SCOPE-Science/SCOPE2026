@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:32.585474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and graph-state conventions",
+        "Frozen VERIFICATION.md, qudit_torus_check.py and qudit_torus_verification.log (inspection only)",
+        "Independent exact shift-orbit pairing calculation above"
+      ],
+      "rationale": "For h=mn/2, the graph-state coefficient array has entries p^{-h} ω^{uᵀDv}. Grouping u by the image of Dᵀ gives p^r orthogonal Fourier characters on B and orthogonal sums on A, each sum of p^{h−r} computational basis states. This gives the stated flat Schmidt spectrum and entropy. The full adjacency has rank 2r. The frozen local-algebra proof checks out: τ=x+x^{-1}+y+y^{-1} factors as (x+y)(1+xy)/(xy). After separating p-parts P,Q and prime-to-p parts M,N, there are 2gcd(M,N)−4 one-branch points of length min(P,Q), plus two crossings. At a crossing the module with s^P=0 is free on 1,t by the monic relation t²=s²(1+t)/(1+s). It has t^{2P}=0; for Q>P, Q≥3P makes t^Q redundant. For P=Q the additionally imposed t^P generates a one-dimensional socle ideal, as it is a unit times s^{P−1}t. The same reasoning includes P=Q=1 and symmetry covers Q<P. An independent proof of the all-size nullity avoids the local computation: up to a unit shift the adjacency is (I+S)(I+H), where S,H are the (1,−1) and (1,1) shifts. Conjugation by multiplication by (−1)^i gives A=I−S and B=I−H. Each shift has g orbits, labeled by i+j and i−j modulo g respectively. Nullity of AB equals g+dim(ker A ∩ im B). On ker A, testing im B amounts to pairing with the orbit indicators in ker Bᵀ. Two labeled orbits have intersection 0 for different parity and 2mn/g² for the same parity: the map (i,j)↦(i+j,i−j) mod g has a two-element kernel on residues and image the equal-parity pairs. Hence the test matrix has two constant blocks, of total rank 2 when p∤2mn/g² and rank 0 otherwise. For odd p this is precisely the equal-valuation dichotomy. Nullity of the full adjacency is 2g−2δ, yielding all stated example ranks and entropies without any large-size extrapolation.",
+      "residual_risks": [
+        "The recorded 420 modular grid comparisons (310 equal and 110 unequal valuations) and 15 local length checks are finite; they were not rerun and are not used to prove the all-size result. The proof applies to the specified simple toroidal grid with even side lengths at least four; changes to edge multiplicities or boundary conditions are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hein et al. give the binary cut-rank reduction, and the qudit sources give the controlled-phase/finite-field adjacency setting. Zaidenberg formulates periodic convolution kernel dimension and identifies harmonic characters via torsion points for periods coprime to p.",
+          "The 2004 σ-automata paper is plausibly relevant, but the abstract accessible in the search results does not settle its boundary model or rank formula. Its full text was not obtained from the DOI/publisher, the identified university site, or an accessible public alternate."
+        ],
+        "reasoning": "The inspected constructions and general semisimple character framework do not cover the necessary dimensions at repeated roots when p divides a period. No conclusion about the uninspected paper is inferred from its title or retrieval errors.",
+        "searches": [
+          "Hein–Eisert–Briegel Eq. (43); Looi et al. §II.B; Chen–Zhou §II.A",
+          "Zaidenberg arXiv:math-ph/0606070, introduction and Theorem 0.2(b)",
+          "Hunziker–Machiavelo–Park, Chebyshev polynomials over finite fields and reversibility of σ-automata on square grids, author PDF/periodic boundary lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary binary torus and nearby qudit entries listed above",
+        "Hein–Eisert–Briegel; Looi et al.; Chen–Zhou; Zaidenberg, stated passages",
+        "Indexed modular-grid and Smith-form candidates, with material actually read and limitations above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary result and graph-state machinery do not produce the odd-p correction. When evaluating the same factorization at arbitrary periods, one must compute either the crossing quotient lengths or the pairing of kernels of the two shift factors. In the latter calculation the two parity blocks have common scalar 2mn/g², which may vanish at an odd prime exactly when the valuations differ."
+        ],
+        "reasoning": "Standard cut rank supplies the interpretation, and semisimple torsion-point counting handles periods prime to p, but the exact arithmetic of the interaction is not supplied by these source statements. Counting zero characters alone would omit the nonsemisimple contribution. Thus only the valuation-sensitive all-period rank calculation and its spectral consequences are credited.",
+        "searches": [
+          "Resultary binary torus, local-mirror proof offsets 4400–6994",
+          "Zaidenberg Theorem 0.2(b), PDF offsets 25000–27982; Hein et al. Eq. (43)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The checkerboard relation rank(T)=2 rank(D) makes the frozen result equivalent to full adjacency nullity 2g−2δ. The same-day binary Resultary result gives 2g in characteristic two, exactly the noncorrected branch in that different characteristic.",
+          "The comparison also located an odd-prime generalized-Petersen valuation result and a qudit rook-graph block-cut result. Both differ in graph and cut/operator."
+        ],
+        "reasoning": "This tests both the quantum wording and purely algebraic rank. A formula for mod-two nullity does not determine modular ranks at odd primes, nor does a valuation-controlled rank result for a different adjacency matrix.",
+        "searches": [
+          "Resultary: checkerboard toroidal square-grid cut rank, commensurability deficit and p-adic entanglement",
+          "Primary literature: Cartesian product of two cycles C_m C_n toroidal grid adjacency matrix Smith normal form odd prime finite field rank 2 gcd modular adjacency nullity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-grid indexed formula is binary. The qudit indexed matches have different inputs and supply no table for this torus. The toroidal-rank search surfaced Smith forms for adjacency matrices of circulant graphs, but the paper's full text was unavailable and the hit supplies no verified all-even-pair toroidal elementary divisors."
+        ],
+        "reasoning": "An integral Smith form for this adjacency family could settle all modular ranks and would be covering, but none with the requisite graph and parameter range was verified. The supplied finite modular-check log is internal corroboration, not a preexisting database. Neither a ranked-search gap nor a blocked hit proves absence.",
+        "searches": [
+          "Resultary exact torus and neighboring modular graph ranks; indexed binary torus, qudit rook and generalized Petersen records below",
+          "Primary literature: toroidal modular adjacency rank/Smith normal form, to test exact tables of elementary divisors"
+        ]
+      },
+      "rationale": "The supported distinct content is the closed odd-prime toroidal adjacency nullity, equivalently exact checkerboard entanglement, and its one-dit valuation switch. The same-graph binary formula, the standard graph-state cut-rank reduction and characteristic-p convolution machinery are not new. No verified checked source covers the odd-prime switch for this graph and these side-length hypotheses, including inseparable periods. This is a bounded comparative judgment, not a priority certificate.",
+      "residual_risks": [
+        "No historical priority is inferred from same-day path dates or a search miss. The Hunziker–Machiavelo–Park full text and the surfaced circulant Smith-form article were not accessible in the bounded comparison. A specialized modular toroidal adjacency or integral Smith form result in uninspected literature could alter this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers characteristic two only",
+          "evidence": "For qubits on this torus it proves binary nullity 2g and entropy mn/2−g. The shared date does not determine order.",
+          "identifier_or_url": "2026/11/2/SCOPE-commensurability-deficit-and-single-bond-entanglement-gain-in-pe--bcc73b58c68a",
+          "material_read": "Local-mirror RESULT.md Finding offset 0 and proof offsets 4400–6994",
+          "method": "Compare field, full adjacency nullity, cut rank and hypotheses",
+          "title": "Commensurability deficit and single-bond entanglement gain in periodic checkerboard graph states",
+          "trigger": "Exact same graph and checkerboard bipartition"
+        },
+        {
+          "assessment": "Different graphs and partitions",
+          "evidence": "The formula concerns diagonal block cuts in rook graphs.",
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-entanglement-spectra-of-two-by-two-block-cuts-in-qudi--b005bdeeea04",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Statement-level graph and cut comparison",
+          "title": "Arithmetic entanglement spectra of two-by-two block cuts in qudit graphs",
+          "trigger": "Qu­dit cut rank with a small modular correction"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Its rank defects concern alternating cuts on generalized Petersen graphs.",
+          "identifier_or_url": "2026/11/2/SCOPE-cyclotomic-entanglement-resonances-in-generalized-petersen-qudit--2bc8f85cb693",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Statement-level graph/operator comparison",
+          "title": "Cyclotomic entanglement resonances in generalized Petersen qudit graph states",
+          "trigger": "Odd-prime p-adic valuation-controlled entanglement"
+        },
+        {
+          "assessment": "Binary framework, not the odd-p periodic rank",
+          "evidence": "Identifies entropy with binary cut rank and with half the bipartite adjacency rank.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+          "material_read": "HTML Eq. (43), offset 40500",
+          "method": "Read field and rank equivalence in the statement",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "Standard formula for cut rank and entropy"
+        },
+        {
+          "assessment": "Framework only in inspected passages",
+          "evidence": "Both give finite-field qudit graph-state constructions, not the torus rank evaluation.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.1979; https://arxiv.org/abs/1507.05386",
+          "material_read": "Looi et al. §II.B (offset 9700); Chen–Zhou abstract and §II.A (offset 5600)",
+          "method": "Compare adjacency and generalized controlled-gate conventions",
+          "title": "Quantum Error Correcting Codes Using Qudit Graph States; Graph states of prime-power dimension from generalized CNOT quantum circuit",
+          "trigger": "Prime-dimension graph-state formalism"
+        },
+        {
+          "assessment": "Relevant broader framework, not verified coverage of the inseparable valuation switch",
+          "evidence": "The inspected character theorem relates harmonic characters to torsion points with period vectors coprime to p.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0606070",
+          "material_read": "Introduction offsets 2450–5639, Theorem 0.2(b) offsets 25000–27982, bibliography offset 135157",
+          "method": "Inspect spectral hypotheses and compare torsion character count to repeated-root local lengths",
+          "title": "Convolution equations on lattices: periodic solutions with values in a prime characteristic field",
+          "trigger": "Periodic finite-characteristic harmonic kernel dimensions"
+        },
+        {
+          "assessment": "Unresolved plausible coverage; no negative inference",
+          "evidence": "The indexed abstract describes additive two-dimensional cellular automata on finite grids; the decisive boundary hypotheses and modular rank statements were unavailable.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.03.031",
+          "material_read": "Bibliographic entry and indexed abstract snippets only; no full text",
+          "method": "Publisher and DOI attempts plus identified university listing and publicly indexed alternate copies",
+          "title": "Chebyshev polynomials over finite fields and reversibility of σ-automata on square grids",
+          "trigger": "Specialized modular grid reversibility and rank"
+        },
+        {
+          "assessment": "No established match, not an exclusion",
+          "evidence": "Nothing inspected identifies the entire even-by-even Cartesian-product family and its ranks as a theorem of the article.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379513007039",
+          "material_read": "Indexed title only, publisher full text not accessed",
+          "method": "Targeted Smith-form search and bounded OA retrieval",
+          "title": "Smith forms for adjacency matrices of circulant graphs",
+          "trigger": "An exact invariant that could imply modular ranks if the same graphs are included"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary exact binary comparison and Zaidenberg character framework above"
+      ],
+      "rationale": "Checkerboard entropy is a natural invariant of the periodic grid state. The formula isolates the exact departure from the generic deficit at fixed geometry, distinguishes equal nonzero valuations from unequal ones, and explains why a semisimple character count is insufficient. It settles a complete arithmetic classification for this cut rather than a tabulation of examples or a repackaging of the usual cut-rank identity.",
+      "residual_risks": [
+        "The result measures pure-state entanglement and says nothing about robustness, preparation complexity, weighted graphs, or composite dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

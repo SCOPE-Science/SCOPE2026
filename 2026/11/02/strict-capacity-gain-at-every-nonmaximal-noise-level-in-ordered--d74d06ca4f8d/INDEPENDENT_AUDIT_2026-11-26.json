@@ -1,0 +1,79 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:52:49.465489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three rows have equal conditional entropy, so capacity maximizes output entropy. For t=1−2p>0 the two-bit transition matrix is invertible, so distinct input laws give distinct outputs; strict concavity and reverse-complement symmetry give the unique symmetric optimizer. The two endpoint slopes of the symmetric output entropy are t² ln((1+t²)/(1−t²))>0 and t ln((1−t)/(1+t))<0 for 0<t<1, proving full support and strict gain over the equiprobable restriction. At p=0 the respective alphabets have three and two distinguishable letters; at p=1/2 all rows coincide. Independently group outputs by whether their bits agree: put x=t², q=(1−x)/2+xβ, z=tβ/q. Output entropy in nats is ln 2+h(q)−q[(1+z)ln(1+z)+(1−z)ln(1−z)]/2. The analytic stationarity equation divided by t² has value −2β at t=0 and nonzero β derivative. Parity and the implicit-function theorem make B=β/x analytic near x=0. The grouped gain divided by x³ expands as 2B−B²−3xB²+x²(2B/3−B²+2B³)+O(x³). Stationarity gives B=1−3x+(34/3)x²+O(x³); substitution gives the gain coefficients 1, −3, 32/3 in nats, with the asserted bits conversion. The independent finite numerical checks corroborate these coefficients, not the all-noise result.",
+      "replay": "python3 /workspace/branches/frozen_review_replay.py 3; exact rational coefficient algebra and 80-digit stationary roots at t=0.0005, 0.001, 0.002. Inspected frozen verify.py, series_certificate.py and their recorded transcripts without executing uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader ordered-channel paper says capacity remains open in general and numerically optimizes the matching special model. Ordinary DMC capacity theory provides entropy maximization, not the optimizer-support or high-order coefficients for this channel."
+        ],
+        "reasoning": "No inspected stronger result covers the asymptotic cancellation; monotonicity under enlarging the input alphabet gives only non-strict improvement.",
+        "searches": [
+          "Primary literature search on ordered composite DNA capacity, binary substitution and repetition",
+          "arXiv:2509.26119v3 abstract, introduction, §VI"
+        ]
+      },
+      "checked_sources": [
+        "Dollma–Elishco–Yaakobi arXiv:2509.26119v3",
+        "Resultary 2026/10/25/SCOPE-a-resolution-tolerance-phase-law-for-probabilistic-two-position--0f0ae253db4e (ranked description)",
+        "Resultary 2026/11/8/SCOPE-sharp-inverse-list-size-for-simultaneous-deletions-in-ordered-co--74972889095b (ranked description)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The noiseless endpoint capacities and the numerical symmetric optimization are explicit in the prior paper; the opposite derivative signs, analytic continuation at maximal noise and sixth-order vanishing are not given there."
+        ],
+        "reasoning": "The strictness follows by a short derivative calculation once the known reduction is available; even granting that elementary step, neither numerical closeness nor the prior reduction states or directly yields the nontrivial matched optimizer and gain coefficients.",
+        "searches": [
+          "arXiv:2509.26119v3 §VI, p. 25, repeated-bit comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior input law (α,1−2α,α) is exactly the frozen law with β=1−2α. Its C₂ is exactly the endpoint-only 00,11 channel with both noisy reads retained."
+        ],
+        "reasoning": "The relabeling uncovers genuine overlap in setup and reduction, but the prior numerical treatment does not make the claimed uniform strictness or asymptotic statement.",
+        "searches": [
+          "Dollma–Elishco–Yaakobi, arXiv:2509.26119v3, §§II and VI",
+          "Resultary search on the ordered resolution-two binary BSC channel and repetition capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 7 reports numerical curves, with the capacities described as nearly identical for p>0.3, not exact coefficients. Nearby indexed results concern a probabilistic composite resolution–tolerance law or inverse lists under deletions, not the ordered-BSC Shannon gain."
+        ],
+        "reasoning": "The indexed comparisons and plotted values do not tabulate or certify the strict comparison, support or Taylor terms.",
+        "searches": [
+          "Resultary ranked search on ordered composite BSC capacity and high-noise comparison",
+          "arXiv:2509.26119v3 §VI, Fig. 7"
+        ]
+      },
+      "rationale": "The exact channel, symmetry reduction, and repetition baseline are known. The strongest exact-model prior gives a numerical comparison, not the strict all-noise conclusion and sharp high-noise expansion. Credit is limited to the strict/interior-optimizer analysis and the quantified cancellation, not the model or the optimization itself.",
+      "residual_risks": [
+        "Resultary and broader literature searches were bounded; an uncatalogued treatment of the same three-input subchannel or its Taylor series remains possible. This is not an absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and symmetric reduction, with partial numeric and endpoint overlap; not covering the sharp comparison",
+          "evidence": "The q=2,k=2 example uses P(0)=P(2)=α, compares numerically with C₂ for identical transmitted bits, and calls the capacities nearly identical for p>0.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.26119 (v3)",
+          "material_read": "Abstract and introduction; §II pp. 2–4 (text offsets 12626–25998); §VI p. 25 (offset 157325 onward, comparison at 159902–160167) and Fig. 7 discussion",
+          "method": "Lawful open-access PDF passage read and statement comparison",
+          "title": "Coding for Ordered Composite DNA Sequences",
+          "trigger": "Exact model, reduction, and strongest direct capacity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the exact fixed channel in which prior numerical curves were nearly indistinguishable, the result resolves whether there is a genuine advantage and shows why it is hard to see: the optimizing mixed-symbol weight is second order in t, and the advantage is sixth order. The explicit higher terms make this a quantitative explanation of a prior comparison, not just a positive but arbitrarily tiny numerical improvement or a claim about practical storage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

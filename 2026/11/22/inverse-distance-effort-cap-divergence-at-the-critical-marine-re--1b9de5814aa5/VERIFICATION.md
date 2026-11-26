@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the marine-reserve effort-cap law
+# Independent mathematical audit
 
-The main proof is analytical: the exact two-eigenvalue representation establishes the survival function, strict effort monotonicity, and a uniform asymptotic expansion. The result does not rely on finite numerical enumeration or an unproved convergence assumption.
+## correctness
 
-## Reproducible checks
+PASS
 
-Run `python3 verify.py` with Python 3.9+; it uses no third-party packages and does not connect to any network service. It independently reconstructs \(e^{AT}\) by a matrix Taylor series and compares that evaluation with the spectral formula for multiple ecological parameters, efforts, reserve fractions and season lengths. It then computes the reserve boundary via bisection and the unique finite effort threshold and checks convergence toward the proved inverse-gap coefficient for three parameter sets.
+For the repaired RESULT.md and SLOGAN.txt. The frozen headline called E_* a maximum sustainable effort, in contradiction with the strict persistence test. The replacement states that it is an unattained supremum and includes the all-finite-efforts conclusion at equality R=R_c. The actual end-of-season recurrence is verified against Kumar (4)–(5); reciprocation gives an attracting positive stock only for rF>1 and linear growth of reciprocal biomass at rF=1. The eigenvalues follow from trace and discriminant, with slow projection weight obtained from 1ᵀAv=−c−qE(1−R). Strict effort decrease follows by Duhamel differentiation and positivity of the first-patch mass under the flow. In the uniform expansion at h=qE→∞, the slow exponent correction is Tm²R(1−R)/h and the weight correction is 2mR(1−R)/h. Their sum after multiplication gives the stated C(R); the fast mode is exponentially small. The no-effort value and strict increase of f give the unique interior Lambert-W threshold; F(E,R_c)>f(R_c) for all finite E by strict decrease. Continuity rules out any bounded subsequence of cutoff efforts as R rises to R_c, so the uniform expansion at the moving root divided by (f(R_c)−f(R))/(R_c−R) gives C(R_c)/(q f′(R_c)). Independent illustrative replay: python3 /workspace/branches/fishery_replay.py, nonnegative Poisson uniformization and bisection, reproduces R_c=0.876756832620, coefficient 0.261680835745, and efforts 13.735591200, 52.636418975, 261.983722289 at the three gaps shown. The uploaded verifier was read, not run; these examples are not the proof.
 
-Observed run output starts with `PASS: 435 supplementary exact-formula, matrix-series, and asymptotic checks`; example \(c=m=1\), \(q=0.7\), \(T=0.5\), \(r=2\) returns \(R_c=0.876756832620\), coefficient \(0.261680835745\), and effort caps near the singular reserve boundary.
+## originality
 
-## Exact steps and limits
+PASS
 
-The checker's matrix-series implementation is separate from its closed-form spectral implementation, so the agreement tests independently exercise the matrix algebra. The proof derives the leading \(1/E\) coefficient uniformly for \(R\) in a neighborhood of \(R_c\) and obtains the cutoff limit with a moving root; numerical convergence alone does not establish that uniform step. The deterministic two-patch model, positive-parameter hypotheses and distinction between zero and positive population equilibria are part of the proof. No independent audit or physical-field validation is claimed.
+The distinct claim is the first-order uniform survival correction and the sharp limit for the moving finite effort cutoff. The originating model, exact F, strict positivity test, infinite-effort limit and its threshold equation are credited and not counted as new. No inspected result gives the sharp inverse-gap law.
+
+## value
+
+PASS
+
+The quantitative effort scale near a pre-existing reserve boundary is a natural unresolved question of the model, not another numerical root or a re-expression of R_c. The two finite-harvest mechanisms jointly determine a positive coefficient throughout the parameter domain, and the equality case distinguishes arbitrarily large finite effort from the neutral limiting map. This is a deterministic persistence result, not an empirical or optimal-effort recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

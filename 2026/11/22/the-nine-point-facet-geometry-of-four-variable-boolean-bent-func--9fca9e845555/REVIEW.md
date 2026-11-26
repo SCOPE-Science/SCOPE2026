@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The statement reduces every shattered support of size at least seven to the all-one trace of a weight-ten bent function; the size-ten boundary follows from 896<1024 concepts. The algebraic-rank enumeration gives all 896 bent truth tables (28 nonsingular alternating forms and 32 affine shifts). The explicit 512-trace certificate for one nine-point support, the complete 4480-element affine orbit, and the verified six-point covering cutoff prove sufficiency. A separately implemented Walsh-transform verifier tests all 65536 truth tables and every possible query support. Both standalone source files replayed successfully.
+## correctness
 
-**Originality: PASS within checked literature.** Polujan–Pott (2020) and Meidl–Polujan–Pott (2020) establish relevant bent designs and symmetry but not their complete VC-shattering complex. Hu–Weinberger–Shayevitz (2017) treat asymptotic code bounds, not this exact finite hypothesis class. A public Walsh census already counts the 896 bent functions. An earlier exact Walsh spectral-partner classification already supplies the geometric eight-set orbit partition and is explicitly credited; neither its statement nor proof implies shattering of the 4480 nine-point supports or the 512 required traces without additional results. Searches found no exact competing shattering theorem. Residual historical-priority risk remains, particularly for unindexed cryptographic-design enumeration literature; a search failure is not a proof of uniqueness.
+PASS
 
-**Value: PASS.** The exact complete concept shattering complex of a canonical highly nonlinear Boolean family connects affine quadratic designs, learning-theoretic projection patterns, and complementary translations. Its pure eight-dimensional complex with nine-point facets, one-orbit facets, and sharp realization bound are considerably more informative than the classical number 896 or weight distribution. The dimension-specific finite classification is a natural invariant, not an arbitrary parameter slice, because four variables are the first nontrivial bent case with distinct polar forms and 16 evaluation coordinates.
+The direct exact Walsh test is wt(f+u·x) ∈ {6,10} for each u, since W=16−2wt. An independent enumeration obtains 896 functions, 448 of each support size, and confirms by binary Möbius inversion and polar-radical tests that each is a nonsingular affine quadratic. For every support, the exact trace set is {S ∩ supp(f)}; its cardinality reaches 2^|S| precisely on the proper ten-block subfaces. Independent checks validate all 512 witness entries, the entire f-vector, the seven-/eight-point exclusions, and the affine orbits of sizes 4480 for the nine-faces and 30, 840, 1920 for the unshattered eights. Both dimensions equal nine: the nine-face supplies a fixed-order tree, and any depth-ten complete tree needs 1024 distinct concepts, one per leaf.
 
-**Limitations.** Finite checks certify the 16-point theorem only, without a general even-variable theorem. Exact primary mathematical comparison was performed for the cited open-access papers and the most similar public spectral record, but unrelated unindexed literature may contain equivalent statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the classification of surjective coordinate projections of the full bent-function class, not the 896-concept census or the eight-point geometric orbit partition in isolation. The prior spectral classification shares the geometry and counts, but no inspected source establishes that the partition classifies traces of bent functions or supplies the nine-facet complex and its complete shattering counts.
+
+## value
+
+PASS
+
+Four variables are a natural small setting for full-rank quadratic bent functions. The classification replaces all Boolean trace tests by an affine-block containment criterion, distinguishes two different small obstruction mechanisms, and explains why all maximal supports have one orbit even though many seven- and eight-supports fail. That is independently useful for studying projections of this canonical nonlinear code, beyond publishing a known concept count or a dimension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

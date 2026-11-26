@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal-play move reduction is exact: in the reversed walk an eligible suffix corresponds to a prefix consisting of complete excursions, whose first excursion is positive and last is negative. The mex induction over negative-excursion runs proves every attainable option value and excludes higher ones. An unambiguous run grammar proves the full formal generating function. Its even/odd identity and sharp maximum follow from even-length primitives and the four-letter cost of each negative run. The factorial-moment proof for zero returns together with the conditional independent excursion signs proves the mixed half-normal limit. Independent standalone exhaustive-mex and renewal-series checks agree. Their finite extent is acknowledged.
+## correctness
 
-## Originality — PASS against inspected sources, with priority risk
-The closest full primary text, Inoue–Inazu, *Word Subtraction Games*, arXiv:2611.09157 (2026), supplies the game framework but no result equating the nimber with an endpoint-constrained excursion-run statistic or yielding the stated two-variable series and limit law. Published results on full zero-sum suffix games and Dyck-suffix games impose different move languages, and their Grundy laws do not imply this endpoint-constrained result. Searches for balanced-endpoint suffix subtraction games, primitive-excursion runs and return-weighted Grundy distributions revealed no equivalent indexed theorem. Hetyei's older truncation-game paper was not fully accessible, so its possible unindexed special cases remain a residual risk. Novelty is not inferred from failed search alone.
+PASS
 
-## Value — PASS
-The game is a natural boundary-sensitive refinement of binary balanced-word subtraction: forbidding zero-sum suffixes with the wrong endpoints changes the mex from return counts to a nonlinear run statistic. The result gives a complete exact outcome distribution, a four-symbol sharp bound and, strikingly, an atom of mass one half combined with diffusive half-normal positive values. These distinctions are not mere restatements of standard random-walk return enumeration and supply a tractable model of nonregular word subtraction.
+Reversal sends a legal suffix to a prefix ending at a completed zero return. Its first step is a precisely when the initial excursion is P; its last step is a precisely when the final excursion of the prefix is N. The residual meander cannot affect any move. If the sign word starts P and has r negative runs, deleting inside a run leaves an initial N and hence value 0; deleting at the last letter of the j-th run leaves value r−j, including the empty or P-only case. This gives exactly the mex r. With E the one-sign Catalan first-return series and R=E/(1−E), the marked initial-P series is R(1+tR)/(1−tR²); the remaining sign words contribute 1+E/(1−2E). Multiplication by the meander series (1+2z)/sqrt(1−4z²) gives the claimed GF and parity doubling. Each qualifying run consumes at least four letters with its preceding P-run; (PN)^k plus a no-return tail attains each bound. The factorial-moment series for the return count has leading singularity r!2^(−r/2)(1−2z)^(−1−r/2); the singularity at −1/2 is one order weaker. After dividing coefficients by 2^n this yields the half-normal moments. Given the count, sign reflections make the sign sequence uniform; conditional on starting P, the run count is the PN transition count, with mean ell/4+O(1) and variance O(ell). This proves the stated half-atomic limit scaled by 1/4 through both parities.
 
-## Scientific limitations and closest literature
-The theorem assumes precisely the binary alphabet, full contiguous suffix deletion, equality of two letter counts and both endpoints \(a\); it does not cover broader endpoint or alphabet classes. Bibliographic priority could be affected by an unindexed equivalent or the inaccessible full text of arXiv:0912.0573. Numerical verification is finite, not an infinite certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact whole-word nimber for this nonregular endpoint-constrained language, together with its marked enumeration and scaling law. The generic game and excursion frameworks are antecedents, not novelty claims.
+
+## value
+
+PASS
+
+This is an exact distribution for a natural endpoint restriction on balanced suffix play. The endpoint test changes what mex counts, collapsing several legitimate moves into one option value and retaining an atom of probability one half even while the positive statistic has diffusive scale. The run rule and marked series give usable game and enumeration information beyond deciding winning positions or counting ordinary returns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

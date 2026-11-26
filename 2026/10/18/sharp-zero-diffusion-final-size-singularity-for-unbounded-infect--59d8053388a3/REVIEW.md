@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a statement about the full-real-line heat operator coupled to the SIR balance. The explicit characteristic formula for the moment generating function yields an exact variance split into an initial-data tilted variance and \(Dt\), so no Gaussian closure is assumed. Since initial infectivity support is nonnegative, the conditional mean stays nonnegative and nondecreasing. Boundedness of the compact initial support and the finite-time quadratic bound on mean infectivity rule out finite-time blowup. Total removed mass bounds the time integral of infection; if the susceptible limit were positive, the conditional mean would grow at least quadratically and force positive log-prevalence growth, contradicting bounded prevalence. With zero diffusion or a fixed cap, integrated force of infection has a finite upper bound. This establishes every stated quantifier and equality limit. The included standalone arithmetic checker verifies the characteristic identity and non-Gaussian variance formula but is not a substitute for the infinite-time proof.
+PASS
 
-## Originality — PASS (specific theorem; residual risk acknowledged)
+For prescribed continuous s, the transform with A′=ks satisfies the transport equation and initial condition. Dividing by the mass gives the exponential tilt of the initial probability convolved with a Gaussian of variance Dt and mean DJ, where J=∫₀ᵗ(A(t)−A(u))du; at D=0 the Gaussian factor is a point mass. This constructs a positive finite-time solution even for atomic data and justifies differentiation without assuming moment decay first. Append A′=ks and J′=kts to the compartment ODEs with m=K₀′(A)+DJ. The locally Lipschitz system preserves positive s and i by their exponential forms; A,J are nonnegative, so m≥0, and mass conservation and the bound J≤ks₀t²/2 give extension on every finite interval. This also gives finite-time continuity in D at zero. The exact derivative m′=ks(K₀″(A)+Dt) is nonnegative. The time integral of i is finite; monotonicity of s and r gives a limit for i, necessarily zero. For D>0 any positive s∞ forces quadratic growth in m and eventually a uniformly positive logarithmic growth of bounded i, a contradiction. With s∞=0, bounded m contradicts the susceptible exponential and integrability of i. At D=0, or under conservative bounded-support dynamics, m is bounded by the corresponding support cap and the survivor lower bound follows directly.
 
-Lamata-Otín et al. [1] analyze early-time and cutoff-dependent outbreaks, approximate diffusion-induced variance, and investigate the effect of finite interventions on attack rate. Their paper's no-cutoff active phase is not a theorem about exact terminal attack rate for arbitrary compact initial trait measures. The exact full-line moment transformation and sharp comparison with both \(D=0\) and capped trait mutation are the narrow new scope. Berestycki et al. [2, Proposition 4] proved a qualitatively similar complete-attack phenomenon for a different model in which *susceptibles*, not infectives, carry a diffusing exposure-risk trait; this result is explicitly acknowledged as established precedent, rather than claimed anew. Almeida et al. [3] assume bounded contact kernels for their general heterogeneous final-size treatment. Classical Gaussian trait propagators are also not novel. The remaining possibility of specialized subsumption is a genuine originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The source calls infectivity a probability while using an unbounded continuous diffusion approximation. The exact all-time jump in final size at zero mutation, and its elimination under every genuine hard cap, exposes a substantive long-time distinction between that approximation and a physically admissible infection-probability state space. The result helps separate source-supported early-time evolutionary effects from universal, but mathematically artificial, infinite-time full-attack predictions. The result is not merely a finite numerical counterexample, and it holds for every compactly supported initial infected-trait measure. It deliberately makes no claims about finite populations, biological certainty, or nonlinear interventions.
+Credit existing coverage of the qualitative discontinuity in a reflecting half-line problem and of the bounded-support comparison. The distinct contribution supported here is the theorem for the full-line Cauchy problem with compactly supported initial measures, including atoms, using the exact cumulant identities to control the sign and divergence of its conditional mean. Neither the reflecting model nor the related reduced social-diffusion model supplies that conclusion for this Cauchy problem.
 
-## Closest literature and scientific limitations
+## value
 
-The closest conceptual precedent is Berestycki et al. [2, Proposition 4], with susceptible-risk diffusion; the closest identical differential equation is Lamata-Otín et al. [1], whose supplementary material treats approximations and finite-horizon behavior. The strict limitation is full-line mutation with Gaussian tails outside the probability interval. Any bounded physical trait law has the opposite survivor lower bound. Existing results in broader mutator and epidemic literature may yet imply this special conclusion. All assumptions and remaining risks appear in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full-line interpretation of the bare diffusion operator permits negative values, making monotonicity and the final-size contrast nontrivial even given the reflecting result. The exact transform explains why the sign of the mean is nevertheless controlled and why this specific unbounded approximation fails at the terminal limit even with atomic initial data. The mathematical value is identifying the consequence of the domain assumption, not extrapolating it to actual transmission.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

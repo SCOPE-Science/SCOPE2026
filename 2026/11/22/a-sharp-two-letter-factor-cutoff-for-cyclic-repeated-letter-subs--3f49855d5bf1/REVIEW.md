@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument establishes a sharp bound on constant runs, classifies every complete first-level block in a two-letter factor, and bounds the two edge fragments. At most \(r+1\) equal complete blocks can occur, and equality at \((r+1)(r+2)\) uniquely forces the stated form. A two-fold substitution constructs every extremizer. All quantifiers are for \(q\ge3\), \(r\ge2\). The two supplied checks independently replay bounded cases; neither is misrepresented as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge).** The 2026 Allouche–Rampersad–Rigo–Shallit–Stipulanti study introduces the key ternary substitution and considers its binary abelian complexity, whereas the present invariant is the longest contiguous factor whose **support cardinality** is at most two, along with an all-alphabet count of maximizers. Inspected relevant articles and searched indexed studies do not imply the sharp cutoff or list of all maximizers. Indexed studies of larger-repeat cyclic morphisms treat abelian-complexity nonregularity, and periodic cyclic-run word results have different objects. An unindexed earlier theorem or implications in unavailable full texts cannot be completely excluded.
+PASS
 
-**Value — PASS.** The first mandatory three-symbol window length and all attaining factors are natural finite structural invariants of the original generalized morphism family. The exact quadratic cutoff, independence of alphabet size, and uniform enumeration of all maximizers are more informative than a sample, a computational table or a tautological substitution identity. They expose a genuine bounded-alphabet obstruction in an otherwise all-alphabet substitution shift.
+For the one-sided fixed point prolonged at zero and contiguous factors, any constant run lies in one substitution block or crosses only one boundary, since each entire block contains two distinct symbols. It has length at most r+1; the boundary in σ((a−1)a) attains it for every a (all symbols occur, and each consecutive pair needed occurs inside an image). Every factor with at most two symbols and a full block σ(a) uses exactly {a,a+1}. Since q≥3 that set uniquely identifies the source letter for every full aligned block. Hence the number k of full blocks is at most B=r+1. With k≤r the partial fringes have length at most r each, giving |u|≤rB+2r=L−2; with k=B, maximality of the source run means neither neighboring source letter is a, so the only permissible nonempty fringes are the terminal a from σ(a−1) and an initial (a+1)-run from σ(a+1). Their lengths are at most 1 and r. This proves the upper bound and forces the stated E_a at equality, including for q=3. Attainment follows because σ((a−1)a) contains (a−1)a^(r+1)(a+1), whose image supplies the extremal fringes and full blocks. Prefixes of the extremals and the constant-run bound give the complete stated ranges of m(n). All supplied scripts and saved outputs were inspected, not executed. The finite closure script computes 245 length/parameter sets but counts L−1 without an associated assertion (it asserts at the other four selected lengths); no part of the universal proof depends on that printed verification count.
 
-**Limits.** No statement is made about exact support cardinalities beyond three. The two-symbol alphabet requires a separate treatment; finite tests alone do not prove the theorem. Indexed-record summaries do not justify claims about uninspected entire documents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass concerns the exact support-cardinality cutoff and full list of extremal words for independent q≥3 and r≥2, not introduction of the morphisms, cyclic digit descriptions, elementary pair coverage, or binary Abelian complexity. The closest inspected same-family results do not give this cutoff or classify length-(r+1)(r+2) factors with exactly two symbols.
+
+## value
+
+PASS
+
+The first factor length forcing three letters is a natural local coverage invariant of this cyclic substitution family. The q-independent threshold and complete extremal words are useful beyond a sampled census: they specify exactly when local windows stop behaving as two-letter words and, for q=3, determine the largest gaps in sightings of each letter. A run estimate or general recurrence alone would not determine the unequal fringe contributions or the full extremal list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

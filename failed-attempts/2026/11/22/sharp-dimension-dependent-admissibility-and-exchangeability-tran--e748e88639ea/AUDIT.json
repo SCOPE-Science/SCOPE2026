@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For alpha>-1, an exact n-fold derivative factorization yields a positive prefactor multiplied by 1+alpha product_i u_i(2+alpha u_i). For alpha<0, every factor increases on [0,1], making the all-one corner exactly decisive; if negative there, a negative-density interior box disproves the copula. The unimodal function s(2-s)^n has exactly one subunit threshold root; this proves the complete range. Algebraic CDF factorization proves the positive two-component product mixture, and Hoeffding covariance plus nonnegative variances exclude infinite exchangeable negative-covariance margins. SymPy identities and rational/high-precision examples (51 assertions) support, but do not replace, the all-n proof. The alpha<=-1 pole/discontinuity is handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2006 Dolati–Úbeda-Flores full text, pp. 19, 22–24, supplies general positivity conditions for several FGM-like n-copula families; its first construction has independent lower margins, unlike GRP, and its general third construction does not explicitly instantiate the GRP rational kernel or the cutoff.",
+        "The 2004 Rodríguez-Lallena–Úbeda-Flores class supplies a general two-dimensional factorization criterion, acknowledged as stronger background for the n=2 form.",
+        "Chesneau 2023 Symmetry (25 April) introduces a different parameter-ratio scheme C=(b+1)uv/(b+phi(u,v)) and principally two-dimensional examples."
+      ],
+      "reasoning": "Generic density-positivity and perturbation criteria could be applied to the target after algebra; they do not, in the inspected material, give the exact root s_n, N(s), asymptotic dimension law, or two-component conditional-i.i.d. representation together. The bivariate case is not claimed to escape general existing theory.",
+      "searches": [
+        "web: Rodriguez Lallena Ubeda Flores 2004 new class of bivariate copulas C(u,v)=uv+f(u)g(v) pdf",
+        "web: multivariate copulas generalized FGM one factor mixture de Finetti exchangeable rank two perturbation",
+        "web: generalized ratio polynomial copula Chesneau strict negativity parameter 0.16 finite dimensional 2023 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/modelling4020008",
+      "https://doi.org/10.1016/j.spl.2003.09.010",
+      "https://www.m-hikari.com/imf-password/1-4-2006/ubeda-floresIMF1-4-2006.pdf",
+      "https://doi.org/10.3390/sym15050977",
+      "https://www.mdpi.com/2673-3951/4/2/8",
+      "https://www.mdpi.com/2073-8994/15/5/977",
+      "https://ideas.repec.org/a/eee/stapro/v66y2004i3p315-325.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Chesneau density identity does not by itself assert the exact admissible set; the article bounds the factor by 2^n and proves only alpha>=-2^-n.",
+        "The present proof independently optimizes the factor at the cube corner and handles the non-monotone q_n(s), then adds finite N(s) and binary latent/product representation and a covariance obstruction for infinite exchangeability.",
+        "Dolati and Úbeda-Flores 2006 discuss general multivariate copulas but do not state the GRP-specific sharp boundary."
+      ],
+      "reasoning": "Earlier formulas enable or simplify some proof steps; that logical dependence is acknowledged. The earlier sufficient theorem alone cannot imply every additional negative alpha is valid. The generic FGM criteria imply a method of checking positivity but do not identify these target-specific final statements without additional substitution and optimization.",
+      "searches": [
+        "web: \"Theoretical Advancements on a Few New Dependence Models\" preprint arxiv",
+        "web: \"Chesneau\" \"generalized RP\" copula negative parameter range 2024 2025 2026",
+        "published-finding corpus: two component exchangeable product distribution copula signed mixture admissible negative weights finite dimension sharp cutoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chesneau 2023 Proposition 6 states the exact rational CDF and its n-fold mixed density, with sufficient alpha>=-2^-n (Section 7, formula (10)).",
+        "Rodríguez-Lallena and Úbeda-Flores 2004 study C=uv+f(u)g(v), encompassing the bivariate algebraic rewriting C2=uv+alpha F_alpha(u)F_alpha(v), but not the n-variate rational formula.",
+        "Targeted published-finding corpus queries ranked unlike families such as Darwish–Shahbaz and asymmetric power copulas, with no exact GRP claim among retrieved hits."
+      ],
+      "reasoning": "The 2023 source gives the same objects, so its density is an important premise, not novelty. The bivariate exact boundary can be derived by specializing earlier generic separable-function positivity criteria; the proposed distinctive claim includes every dimension, exact negative-parameter cutoff and positive-phase latent mixture. None of the inspected sources states this combined classification.",
+      "searches": [
+        "published-finding corpus: Chesneau generalized ratio polynomial GRP n dimensional copula exact negative admissibility s(2-s)^n 1 and finite extendibility",
+        "published-finding corpus: multivariate ratio copula (1+a)^{n-1} (1+a product x_i) / product (1+a x_i) sharp parameter",
+        "web: \"generalized RP\" copula \"parameter\" admissible sharp",
+        "web: \"ratio-polynomial\" copula \"exchangeability\" mixture 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chesneau 2023 Table 7 explicitly gives the GRP parameter domain [-1/2^n,infinity); its Proposition 6 proves sufficiency and does not label it optimal.",
+        "For n=2 the exact new root is s2=(3-sqrt(5))/2, compared to source sufficient 1/4; for n=3 the new root is approximately 0.1607132448 versus source 1/8.",
+        "The targeted mathematical-record hits were different copulas and did not match the GRP formula or exact cutoff."
+      ],
+      "reasoning": "The published table is not an exact-domain table and is strictly narrower than the proved full range. Neither searched numeric roots nor the specified rational formula returned a matching existing exact classification.",
+      "searches": [
+        "web: \"ratio-polynomial copula\" \"sqrt(5)\" admissible",
+        "web: \"ratio-polynomial\" copula \"-0.381966\"",
+        "web: \"Chesneau\" \"ratio-polynomial\" \"admissible\" negative",
+        "published-finding corpus: ratio-polynomial RP copula lower parameter threshold root cubic 1+alpha(2+alpha)^2"
+      ]
+    },
+    "rationale": "Primary 2023 full text introduces the family and exact density, with only sufficient alpha>=-2^-n. The assessed target-specific completion adds the iff threshold s_n, exact finite GRP dimensional cutoff N(s), and the positive/negative infinite-exchangeability dichotomy. Broader bivariate/separable and generic multivariate classes are explicitly acknowledged; retrieved results do not state the combined target-specific conclusion. Historical priority remains qualified.",
+    "residual_risks": [
+      "Exact bivariate parameter boundary is a consequence of broad separable-copula criteria after substitution; no novelty is claimed for that criterion.",
+      "The target primary source already prints the precise density factor, facilitating its positivity optimization.",
+      "Publisher original of 2004 bivariate predecessor was not read in full; comparisons relied on abstract and accessible mathematical expositions.",
+      "Unindexed subsequent work may already optimize the GRP range or derive its latent representation; present database/literature search is not an exhaustive historical-priority guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides C and c and the sufficient alpha>=-2^-n, not the exact root/dimension threshold nor latent two-state construction",
+        "evidence": "Section 7 formulas (10), mixed derivative, inequality from replacing 2+alpha u_i by 2, Table 7",
+        "identifier_or_url": "https://doi.org/10.3390/modelling4020008",
+        "material_read": "Publisher open-access full-text Sections 1, 2.1–2.2, 7, 8 and summary Table 7",
+        "method": "HTML primary text, equations (4), (10), Proposition 1 and Proposition 6, mixed-density proof, table and final discussion",
+        "title": "Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form",
+        "trigger": "Exactly the same family, including the n-dimensional rational form and density"
+      },
+      {
+        "assessment": "Provides generic n-dimensional FGM-like positivity criteria and constructions; not the GRP rational formula or its exact n-dependent cutoff",
+        "evidence": "First family has independent proper margins; second family uses pairwise additive perturbations; third has general interaction coefficients",
+        "identifier_or_url": "https://www.m-hikari.com/imf-password/1-4-2006/ubeda-floresIMF1-4-2006.pdf",
+        "material_read": "Full text pp. 17–24, especially pp. 19, 22–24; PDF page images for pp. 19 and 22",
+        "method": "PDF text extraction and visually inspected relevant pages; compared marginal and joint density formulas",
+        "title": "Some new parametric families of multivariate copulas",
+        "trigger": "Plausible older general multivariate extension of separable copula classes"
+      },
+      {
+        "assessment": "Strong background covering the bivariate separable template; does not state the target higher-dimensional result; full-original priority uncertainty noted",
+        "evidence": "C(u,v)=uv+f(u)g(v), with derivative extrema determining parameter admissibility",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2003.09.010",
+        "material_read": "Original abstract and a full-text exposition of its criterion in the 2006 paper and in 2015 related literature; publisher original not fully accessible",
+        "method": "Publisher-index metadata, independent full-text secondary mathematical description, implication comparison",
+        "title": "A new class of bivariate copulas",
+        "trigger": "Broad bivariate separable-perturbation criterion likely covers the n=2 special case"
+      },
+      {
+        "assessment": "Distinct bivariate rational perturbation scheme, no stated n-dimensional GRP classification",
+        "evidence": "Construction C=(b+1)uv/(b+phi(u,v)); cites the prior GRP article as a separate paper",
+        "identifier_or_url": "https://doi.org/10.3390/sym15050977",
+        "material_read": "Open-access abstract, Introduction and summary/discussion, including parameter form",
+        "method": "Publisher HTML, inspected model equation and relation to cited Modelling paper",
+        "title": "A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme",
+        "trigger": "Same author and similar ratio terminology in 2023"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e748e886-39ea-451f-a4ac-0d5868e267df",
+  "value": {
+    "rationale": "Admissibility is foundational for actual probability applications of the published n-variate model. The exact complete parameter domain enlarges the permissible negative-dependence range; N(s) quantifies an otherwise hidden maximum dimension of the specified finite model. The nonnegative region has a constructive binary latent-factor interpretation usable at arbitrary dimension, whereas negative pairwise covariance precludes any infinite exchangeable extension. This is a natural exact classification with structural consequences, rather than an arbitrary finite check or a precision-only update.",
+    "status": "PASS"
+  }
+}

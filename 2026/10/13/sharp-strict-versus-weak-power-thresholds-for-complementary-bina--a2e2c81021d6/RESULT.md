@@ -1,53 +1,36 @@
-# Sharp strict-versus-weak power thresholds for complementary binary morphisms of lengths five and seven
+# The strict and weak 5/2 boundary for complementary binary morphisms of length seven
 
 ## Finding
-For a binary word \(v\), define the complementary uniform morphism \(h_v(0)=v\) and \(h_v(1)=\overline v\), where \(\overline v\) replaces every bit by its complement. A morphism is \(\alpha\)-free if it sends every word with critical exponent strictly less than \(\alpha\) to another such word; \(\alpha^{+}\)-free means the corresponding weak inequality holds on both input and output.
 
-**Theorem.** Among complementary binary morphisms of length \(5\), none is \(8/3\)-free, and precisely four are \((8/3)^{+}\)-free. Their images of zero are
+For a finite binary word \(w\), let \(\operatorname{ce}(w)\) be the maximum of \(|u|/\operatorname{per}(u)\) over its nonempty contiguous factors \(u\), with \(\operatorname{per}(u)\) the least positive period. Set the exponent of the empty word to zero. For \(|v|=7\), define \(h_v(0)=v\), \(h_v(1)=\bar v\), and extend by concatenation.
+
+No such morphism sends every finite word with \(\operatorname{ce}<5/2\) to one with \(\operatorname{ce}<5/2\). In fact `01` witnesses failure for every \(v\). The morphisms preserving \(\operatorname{ce}\le5/2\) on every finite word are exactly those with
 \[
-\{\mathtt{01001},\mathtt{01101},\mathtt{10110},\mathtt{10010}\}.
+v\in\{\mathtt{0100110},\mathtt{0110010},\mathtt{1011001},\mathtt{1001101}\}.
 \]
-Among complementary binary morphisms of length \(7\), none is \(5/2\)-free, and precisely four are \((5/2)^{+}\)-free. Their images of zero are
-\[
-\{\mathtt{0100110},\mathtt{0110010},\mathtt{1011001},\mathtt{1001101}\}.
-\]
-These are exact statements for every finite binary input word, not merely for a tested prefix or a fixed point.
-
-## Assumptions and scope
-For a nonempty word \(w\), a positive integer \(p\) is a period when \(w[i]=w[i+p]\) whenever both positions lie in the word. Its critical exponent \(\operatorname{ce}(w)\) is the maximum of \(|u|/\operatorname{per}(u)\) over all nonempty contiguous factors \(u\) of \(w\), where \(\operatorname{per}(u)\) is the least period. Equivalently, \(w\) is \(\alpha\)-free if no factor has exponent at least \(\alpha\), and it is \(\alpha^{+}\)-free if no factor has exponent strictly greater than \(\alpha\). The threshold at equality is part of the statement. No restriction is imposed on the length or recurrence of the input word.
-
-Complementing both images complements the entire output, so it preserves all factor exponents. Accordingly, only words \(v\) beginning with zero require direct enumeration: there are \(2^{4}=16\) at length five and \(2^{6}=64\) at length seven.
+For every other \(v\), `001` witnesses failure of weak preservation. The two input words have critical exponents 1 and 2, respectively.
 
 ## Proof
-**Finite obstruction and exhaustive classification.** For each length \(k\in\{5,7\}\), each normalized \(v\) beginning with zero, and the corresponding threshold \(\alpha\), enumerate every nonempty binary input \(x\) of length at most four whose critical exponent meets the selected strict or weak freeness condition. There are exactly 22 such inputs for either threshold and either inequality. Form \(h_v(x)\). Examine all factor starts, all factor lengths, and all possible periods; the exact integer inequalities \(3\ell\ge8p\) or \(3\ell>8p\), respectively, test the strict and weak \(8/3\) bounds, while \(2\ell\ge5p\) or \(2\ell>5p\) test the \(5/2\) bounds. A period is verified by all its required bit equalities. Thus a recorded violating factor is a finite proof that the proposed morphism fails globally.
 
-The complete enumeration in `verify.py` and `witnesses.tsv` gives the following exact numbers among the normalized images:
+Output complementation does not change exponents, so normalize \(v\) to start in zero. For any fixed period candidate \(p\) in a word \(y\), a consecutive run of \(r\) matches in the comparison \(y_i=y_{i+p}\) is equivalent to a corresponding factor of length \(p+r\) having period \(p\). The condition \(2(p+r)\ge5p\) therefore detects a factor of exponent at least \(5/2\); replacing \(\ge\) by \(>\) detects a factor above that bound. It suffices to test \(p<|y|\), since a factor admitting no shorter period has exponent 1. Testing a period that is not the least cannot give a false violation, since the least period is at most the tested one.
 
-| Image length | Threshold | Failing strict cases | Failing weak cases | Weak-freeness survivors |
-| --- | --- | ---: | ---: | --- |
-| \(5\) | \(8/3\) | 16 of 16 | 14 of 16 | `01001`, `01101` |
-| \(7\) | \(5/2\) | 64 of 64 | 62 of 64 | `0100110`, `0110010` |
+The following finite table uses every normalized \(v\), i.e. every six-bit suffix of the initial zero. The accompanying `verify_length7.js` computes each table entry by the distance comparisons just described.
 
-All 156 exclusions have an explicit source word and violating factor recorded in the certificate. The strict nonexistence and the absence of any other weakly free morphisms therefore follow without any extension of finite observations to infinite words.
+| Input | Condition on its image | Normalized images \(v\) that pass |
+|---|---|---|
+| `01` | critical exponent \(<5/2\) | none |
+| `001` | critical exponent \(\le5/2\) | `0100110`, `0110010` |
 
-**Proving global preservation for survivors.** Apply the sufficient criterion of Kobayashi, in the form stated as Theorem 4 by Shallit, Shur, and Zorcic [1]. For \(\alpha=(8/3)^{+}\) or \(\alpha=(5/2)^{+}\), this criterion says a \(k\)-uniform morphism is \(\alpha\)-free if (a) each single-letter image has exponent less than two; (b1,b2) distinct input letters have images with distinct initial and terminal letters; (b3) a prefix of any image of length at least \(k/2\) that is also a suffix of an image has the matching residual words prescribed by the criterion; and (c) every \(\alpha\)-free input of length at most \(\lceil\alpha\rceil+1=4\) has an \(\alpha\)-free image.
+The first row excludes all strict preservers, and the second excludes all other weak preservers. For the positive direction use Kobayashi's sufficient criterion, in [1, Theorem 4], at \((5/2)^+\). Both remaining normalized images and their complements have least period 6, hence exponent \(7/6<2\). The two images of each morphism start with distinct bits, and end with distinct bits. For every ordered pair of images, there is no equality of a prefix of the first image and a suffix of the second of lengths 4, 5, or 6, as the finite check confirms. Thus the long-overlap requirement of the criterion holds; length 7 cannot match distinct images, and full self-overlaps have empty residuals. Finally, the criterion tests each \((5/2)^+\)-free input of length at most \(\lceil5/2\rceil+1=4\). The empty word is automatic. There are 22 nonempty admissible inputs, and for each remaining normalized \(v\) all 22 outputs obey the weak bound, by the same exact distance comparison. The criterion yields preservation for inputs of every length. Taking output complements produces the displayed four maps.
 
-For all four normalized survivors the least period of each single-letter image is three at length five, and six at length seven, so (a) holds; complements share the same least period. Condition (b1,b2) holds by the bit complement. To check (b3), inspect all ordered pairs of images and all overlap lengths \(\lceil k/2\rceil\le r<k\). In these four cases no prefix of length \(r\) of either image equals a suffix of length \(r\) of either image. Thus the implication (b3) holds vacuously. Finally, the exhaustive factor-period check for all 22 admissible input words of lengths one through four verifies (c). Consequently the criterion establishes preservation for **all** weakly free input words, not just the tested finite ones. Output complementation gives the two additional morphisms at each length.
+## Scope and relationship to prior work
 
-This supplies both directions and completes the classification.
+The distinction is between forbidding equality and allowing equality at the same exponent, within complementary uniform binary morphisms of length seven. This is not an admissible-length theorem at arbitrary thresholds or a classification of noncomplementary maps. Shallit, Shur and Zorcic [1] give a classification up to \(7/3\), existence results below 3, and pose the wider transition problem in Section 4. Their construction for odd lengths in the proof of Theorem 9 gives \((3-1/k)^+\) for the selected length-\(k\) morphism; at \(k=7\) this does not give a \((5/2)^+\) classification. A public length-set announcement [2] covers the strict/weak distinction at length five and \(8/3\) and addresses the weak stability interval starting at \((8/3)^+\), not this length-seven classification at \(5/2\). Equivalent unpublished or unindexed results may exist.
 
-## Verification
-In the directory containing `verify.py` and `witnesses.tsv`, run `python3 verify.py` with Python 3 standard library only. The program rebuilds every certificate row and compares it byte-for-value after TSV parsing, reconstructs all 22 admissible inputs in each case, and checks Kobayashi conditions (a), (b1), (b2), (b3), and (c) for each surviving normalized image. Exact integer comparisons handle equality at the boundary; an independent fraction-based computation of each finite image's maximal exponent checks that the weak boundary is attained rather than merely bounded above.
+## Reproduction
 
-Successful completion reports `VERIFY_OK normalized_candidates=80 failed_strict=80 failed_plus=76 surviving_plus=4 finite_source_words=22 boundaries=8/3,5/2`. The finite verification is a rigorous certificate because the excluded cases each have a finite bad input and the positive cases invoke the published global sufficient criterion. A run of the code alone, without the criterion, would not prove the infinite statement.
+Run `node verify_length7.js` in this directory. The exact finite tests establish both rows of the table and the hypotheses of the cited criterion. The all-input positive conclusion is an application of that criterion, not an extrapolation from the finite computation.
 
-## Relationship to prior work
-Shallit, Shur, and Zorcic [1] study complementary power-free binary morphisms and explicitly ask for phase transitions between \((7/3)^{+}\) and \(3\), including a conjectured transition at \(8/3\). Their Theorem 9 proves that for lengths other than three and six there exists a complementary morphism preserving some exponent below three, but does not give the two exact short-length strict/weak classifications above. Their cited Kobayashi criterion is used here as a proof tool, not claimed as a new lemma. The theorem supplies two fully classified test lengths and exhibits the boundary distinction at each specified exponent. It does not assert a complete transition classification at arbitrary lengths.
+[1] J. Shallit, A. M. Shur and S. Zorcic, *Power-free Complementary Binary Morphisms*, J. Combin. Theory Ser. A 207 (2024), 105910; [arXiv:2310.15064v3](https://arxiv.org/html/2310.15064v3), Theorems 4, 5 and 9 and Section 4. Theorem 4 restates Y. Kobayashi, *Repetition-free words*, Theoret. Comput. Sci. 44 (1986), 175–197.
 
-## Limitations
-Only complementary morphisms of lengths five and seven, at the indicated exponents, are classified. No claim is made about arbitrary noncomplementary uniform morphisms, other exponents, other image lengths, or monotonicity of the full admissible-length spectrum. The argument relies on the published Kobayashi sufficient criterion for the positive direction. An unpublished or unindexed prior classification could affect historical priority, even though none was identified in the inspected literature.
-
-## References
-[1] Jeffrey Shallit, Arseny M. Shur, and Stefan Zorcic, *Power-free Complementary Binary Morphisms*, arXiv:2310.15064, first public version 23 October 2023; especially Theorems 4, 5, 9 and Section 4. https://arxiv.org/abs/2310.15064 ; https://arxiv.org/html/2310.15064v3 .
-
-[2] Y. Kobayashi, *Repetition-free words*, Theoretical Computer Science 44 (1986), 175–197; sufficient condition restated explicitly in [1, Theorem 4].
+[2] [*The 8/3-plus stability conjecture for power-free binary morphism lengths*](https://vibemathed.com/problem/the-8-3-plus-stability-conjecture-for-power-free-binary-morphism-lengths), public result announcement marked candidate/review pending.

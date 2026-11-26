@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to the specified screened path and two equal negative-conductance shortcuts. A four-terminal Schur complement is derived from the positive-definite tridiagonal interior block. Reflection yields exact even/odd positive-definiteness thresholds. The four distinct off-diagonal adjugate numerators then give a uniform sign proof: the opposite-endpoint numerator reaches zero first, while all other terminal inverse entries remain positive. The block inverse extends the sign classification to every interior vertex. The explicit continuant recurrence proves the large-path asymptotic, and the executable exact-arithmetic checker reproduces the Schur reduction and inverse signs for dimensions four through twelve. These finite tests are evidence, not a substitute for the analytic proof.
+## correctness
 
-## Originality — PASS, qualified
-The direct comparators are Haynes–Trummer–Kennedy (2007, rank-one and off-band perturbation bounds) and Huang–Haynes–Huang (2012, necessary-and-sufficient recursive conditions for many simultaneous nonnegative off-band perturbations). The second is especially close. Its general conditional framework does not itself state the closed two-antichord threshold with simultaneously decreasing terminal diagonals, the remote-first zero, or the exponential gap between inverse positivity and positive definiteness. Zelazo–Bürger (2014) treats signed-Laplacian definiteness rather than positivity of individual entries of the inverse. No searched published-index record expressly covers this theorem. The 2012 recursive criterion may provide an alternative deduction and unindexed specialized literature remains a priority risk; searching does not establish absolute novelty.
+PASS
 
-## Value — PASS
-This is a sharp maximum-principle failure boundary for an explicit family of screened diffusion operators perturbed by two antagonistic shortcuts. It proves the first failed inverse entry is not on either perturbed shortcut, gives a direct scalar test for all vertex counts, and quantifies an exponentially severe gap between positive definiteness and a positive inverse. That separation distinguishes a useful discrete comparison-principle constraint from mere spectral stability. The result is not claimed to solve a general signed-network design problem.
+Eliminating the fixed tridiagonal interior gives terminal coupling -1/D_m and diagonal b, including the no-interior case b=3,d=1. Reflection yields even/odd block determinants E=2(b-d)-1-(b-d)t and O=2(b+d)-1-(b+d+4)t. The positive leading diagonal and E>0 up to the first odd zero prove the exact definiteness range; O<=0 thereafter. Reconstructing the terminal inverse from the sum and difference of the two block inverses gives all four stated cofactor numerators. In particular N14(0)=d>0 and N14(d/4)<0, while the other three numerators are positive on [0,d/4]. Vieta puts the second root of N14 beyond 4/(d+2)>=4/3, so the endpoint witness remains negative for the rest of the positive-definite range. The two interior attachment columns are strictly positive even at the first zero; the positive interior Green function propagates strict positivity throughout the remaining full inverse. The continuant formula gives the exponent n-2 and both constants as stated. The classification does not extend beyond the SPD interval. Bounded replay of determinants, cofactors and limit: `python /workspace/branches/frozen_replay.py 4` (SymPy and Decimal); the argument, not the replay, covers arbitrary sizes and real strengths.
 
-## Closest literature and scope risk
-The 2007 paper and the complete 2012 paper both analyze perturbed tridiagonal monotonicity; the latter's Section 4 is a decisive comparator and includes a general recursive condition, but not this closed-parameter statement. The 2014 signed-edge paper addresses stability/inertia. Other finite-graph signed-inverse conditions might imply the theorem without matching its formulation. The proof requires equal shortcut weights, unit screening, unit path edges, and positive definiteness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the specialized closed threshold, isolated unperturbed endpoint pair and exponential separation together, not for Schur reduction, negative-weight definiteness or the general problem of inverse nonnegativity under off-band perturbations. There is positive evidence for a closely related existing decision framework, but not for the claimed analytic classification being supplied by it.
+
+## value
+
+PASS
+
+This is a concrete boundary for using definiteness as a proxy for a nonnegative response in a natural screened path: the first response that changes sign is not an entry supported on either modified edge, and the allowable strength for nonnegative response tends exponentially to zero despite a uniformly positive definiteness threshold. The exact all-size threshold and exclusive witness distinguish two natural stability notions, rather than just giving a numerical small-path example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

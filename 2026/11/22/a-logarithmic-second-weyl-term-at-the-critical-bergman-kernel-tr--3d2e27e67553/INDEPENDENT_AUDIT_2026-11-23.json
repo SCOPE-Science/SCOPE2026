@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:25.650607Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt and verify_count.py (inspected, not executed)",
+        "Ding §3, especially Lemma 3.11, Remark 3.12 and formula (3.9)",
+        "Independent strict integer check for gamma=1: compare direct partition enumeration with cubic row cutoff and sum of squares. Counts at tau=10^-4, 10^-6, 10^-8 are 97911, 11274627 and 1179434436, respectively."
+      ],
+      "rationale": "Ding's partition multiplier (alpha)_partition/(genus+gamma)_partition gives the positive factors a_m b_n with alpha=gamma+1, genus four and a/2=1. The U(2) highest weight (m,n) has dimension m-n+1, so the product type has squared multiplicity; the nonholomorphic complement is killed. With x=tau^(-1/3), h_n=(A_gamma b_n)^(1/3), the strict upper cutoff in m is the ceiling of the real cubic cutoff minus one, hence x h_n+O_gamma(1). The squared-multiplicity row sum differs from (x h_n-n)_+^3/3 by O_gamma((x h_n)^2+1) on the union of active rows, including possible mismatches close to the boundary. There are O_gamma(sqrt(x)) such rows and sum h_n^2 converges, giving O_gamma(x^2) total error. With Q=(A_gamma B_gamma)^(1/6) sqrt(x)+O_gamma(1), the cubic leading term can be extended to all n for O_gamma(x^2) error and sum b_n=(gamma+2)/2 by a telescoping difference of reciprocal quadratic products. Of the remaining cubic terms, only -x^2 sum_{n<=Q} n h_n^2 exceeds O_gamma(x^2): it is -(A_gamma B_gamma)^(2/3) x^2 log(x)/2+O_gamma(x^2). This gives the stated negative coefficient after log(x)=log(1/tau)/3. Ordinary monotone inversion gives s_j~C_gamma/j, and convergence of the ordinary logarithmic mean yields the stated Dixmier trace and Schatten assertions.",
+      "residual_risks": [
+        "Fixed gamma>0 and probability normalization are essential. The estimates do not resolve a third term or the gamma=0 degeneration. Finite arithmetic corroborates cutoffs, not the asymptotic remainder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding Theorem 3.2 and its classification give the full Schatten criterion; Lemma 3.11 and (3.9) give the general diagonal spectrum underlying the count.",
+          "Upmeier–Wang works on a quotient module associated to length-one partitions and traces sub-Toeplitz commutators, not this two-coordinate positive operator."
+        ],
+        "reasoning": "The stronger general diagonal formula is a starting point rather than an asymptotic ordering theorem. In particular keeping only a fixed finite number of rows cannot yield the harmonic sum to Q proportional to sqrt(x).",
+        "searches": [
+          "Ding arXiv:2009.09613 §§2–4",
+          "Web: matrix ball Bergman kernel spectral zeta Lijia Ding singular value counting logarithmic term symmetric domains Macaev I22",
+          "Upmeier–Wang arXiv:1508.04710"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and nearby Weyl finding",
+        "Ding 2009.09613",
+        "Ding–Fan 2004.13635",
+        "Upmeier–Wang 1508.04710"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Schatten proof determines summability using spectral and dimension comparability; comparability cannot retain the sign and sharp coefficient of a subleading ordered term. In this claim the exact m multiplicity sum, growing active-row count and cancellation with the extended leading sum need to be tracked."
+        ],
+        "reasoning": "There is a derivation from published eigenvalues but no substitution into a prior ordered asymptotic. Rank-one ideal membership or trace results and leading spectral comparability leave the logarithmic correction undetermined.",
+        "searches": [
+          "Ding §3 characteristic and proof of Schatten criterion",
+          "Ding–Fan trace theorem",
+          "Resultary exponential-weight Weyl proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In spectral arithmetic terms this is a triangular two-factor cutoff with multiplicity (m-n+1)^2. The indexed two-term exponential-weight Bergman result is a radial inclusion on an ordinary complex ball, with one degree index and counts polynomial in log(1/tau)."
+        ],
+        "reasoning": "The other indexed Weyl law does not transfer by relabeling: here the logarithm multiplies a nontrivial power of tau and arises from the cross term in triangular row counts.",
+        "searches": [
+          "Resultary: rank two type I 2 2 matrix ball critical weighted Bergman determinant kernel eigenvalue counting second Weyl logarithm Dixmier trace",
+          "Web: rank two matrix ball Bergman type integral determinant kernel Ding spectral eigenvalue distribution counting two term Weyl logarithmic Dixmier trace type I 2 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ding's classification table lists parameter ranges for ideal membership, not counts or trace values. Ding–Fan Proposition 4.10 is a Dixmier-trace computation on the ordinary unit ball in complex Euclidean norm. The related published local Weyl record has different eigenvalues, geometry and asymptotic orders."
+        ],
+        "reasoning": "A rank-one trace constant is not the table value for a rank-two matrix ball. No exact prior listing of the two displayed matrix-ball coefficients was located.",
+        "searches": [
+          "Resultary: rank two type I 2 2 matrix ball critical weighted Bergman determinant kernel eigenvalue counting second Weyl logarithm Dixmier trace",
+          "Ding–Fan arXiv:2004.13635 §4; Ding Example 3.3"
+        ]
+      },
+      "rationale": "The exact spectral characteristic and Schatten threshold are prior results. The additional result is a quantitative two-term ordered count, including an interaction of both partition coordinates, and its explicit weak trace; the inspected prior statements do not give those counting constants or remainder.",
+      "residual_risks": [
+        "A prior detailed spectral-zeta or weighted lattice-count calculation for this precise two-row spectrum could subsume the result; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact eigenvalues and Schatten boundary, not the two-term count",
+          "evidence": "Characteristic is a generalized Pochhammer ratio; the denominator shifts by the genus and weight. The classification describes p for summability rather than a counting remainder.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.09613",
+          "material_read": "§3 definition and classification theorem, diagonal reduction, equation (3.9), Lemma 3.11, Remark 3.12 and summability argument",
+          "method": "Open preprint PDF text",
+          "title": "Schatten class Bergman-type and Szegő-type operators on bounded symmetric domains",
+          "trigger": "Exact same operator family with general rank and weights"
+        },
+        {
+          "assessment": "Rank-one geometry",
+          "evidence": "B_d is the ordinary Euclidean complex unit ball; the decomposition into homogeneous degrees differs from the matrix-ball partition spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.13635",
+          "material_read": "Introduction, unit-ball definition and statement leading to Proposition 4.10",
+          "method": "Open preprint PDF text",
+          "title": "On the compactness of Bergman-type integral operators",
+          "trigger": "Closely related kernel and Dixmier trace formulas"
+        },
+        {
+          "assessment": "Different spectral object",
+          "evidence": "Uses a length-one partition quotient of a Hardy module and computes traces associated to sub-Toeplitz commutators.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.04710",
+          "material_read": "Abstract, introduction and quotient-module/commutator setup",
+          "method": "Open preprint PDF text",
+          "title": "Dixmier trace for Toeplitz operators on symmetric domains",
+          "trigger": "Dixmier traces on symmetric domains of higher rank"
+        },
+        {
+          "assessment": "Different operator and term structure",
+          "evidence": "A soft exponential weight change on a complex unit ball has eigenvalues exponential in the square root of degree, giving a polynomial count in log(1/tau).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-term-logarithmic-weyl-law-for-exponential-weight-bergm--bb2b1a2550b8/RESULT.md",
+          "material_read": "Finding, assumptions and counting reduction",
+          "method": "Local published-record mirror",
+          "title": "Sharp two-term logarithmic Weyl law for exponential-weight Bergman inclusions",
+          "trigger": "Nearest indexed Weyl-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Ding's general diagonal spectrum and Schatten classification"
+      ],
+      "rationale": "The trace boundary is canonical for this positive determinant kernel. An explicit weak-trace mass and a genuinely rank-two negative logarithmic correction distinguish a spectral ordering phenomenon invisible to the known membership criterion. The result explains the interaction through a borderline sum over the second partition coordinate rather than reporting a numerical cutoff or a new notation for the same criterion.",
+      "residual_risks": [
+        "No uniform gamma-to-zero limit or higher-rank generalization is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

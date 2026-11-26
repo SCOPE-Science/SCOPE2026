@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:58:10.433299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write q=(e_x-e_y)/sqrt(2) and v=(gamma(e_x+e_y)+sum_z w_z e_z)/sqrt(2). For every real diagonal F, [D,F]q=(f(x)-f(y))v, so ||[D,F]|| is at least sqrt(C) times the gap. For the gap-one potential supported on {x,y} with values +1/2 and -1/2 the entire commutator is vq^T-qv^T. It vanishes off span(q,v), and its two nonzero singular values when C>0 are both ||v||=sqrt(C). Scaling attains the bound. For C=0 both rows have no off-diagonal entries, and the same potential can be scaled arbitrarily. D's diagonal commutes with every F and does not enter. Substitution gamma=0 or 1 and sum w_z^2=k gives both unweighted cases and their ratio. Independent symbolic spot check: python3 -B /workspace/reproduce_frozen.py 2 verifies the two witness identities with arbitrary symbolic weights, diagonals on the pair, outside edge and potentials on a four-point space; the argument above proves all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Besnard identifies the same distance on the union of simple paths from x to y. Iochum–Krajewski–Martinetti compute complete and complete-minus-one-edge cases by explicit commutator norms. Clare et al. describe the general edge-removal question and solve the path problem."
+        ],
+        "reasoning": "Pruning can retain arbitrary outside edges—for example an edge between two common neighbors lies on a simple x-to-y path. It does not force the sharp local expression. Neither paths nor the uniformly weighted complete model accounts for variable signed weights or arbitrary outside blocks.",
+        "searches": [
+          "arXiv:2105.09056, Theorem 4",
+          "arXiv:2409.04146v1, Introduction",
+          "arXiv:hep-th/9912217v1, Section VI, Proposition 5 and Lemma 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:hep-th/9912217v1",
+        "arXiv:2105.09056",
+        "arXiv:2409.04146v1",
+        "SCOPE-20261102-ccac81bc329c",
+        "SCOPE-20261102-0ca556eebe1a",
+        "SCOPE-20261102-1e12db461c4b",
+        "SCOPE-20261102-a4fe6d1b00da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For uniform edge weight a, Proposition 5 states |a|^(-1)sqrt(2/n) and |a|^(-1)sqrt(2/(n-2)) before and after removing the distinguished edge. Thus the deletion factor is known for complete graphs. The other exact overlaps concern zero pair coupling and unit external weights."
+        ],
+        "reasoning": "The retained generalization is not a change in normalization: weighted pair and outside profiles now vary independently and one has exact independence from the outside graph even where pruning does not simplify it. There is no general edge-deletion claim.",
+        "searches": [
+          "arXiv:hep-th/9912217v1, Section VI, Proposition 5",
+          "arXiv:2105.09056, Theorem 4",
+          "SCOPE-20261102-ccac81bc329c",
+          "SCOPE-20261102-0ca556eebe1a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clare et al. use the same commutator distance for graph adjacency but the inspected explicit general-family formulas concern paths.",
+          "The triangular-graph record uses automorphism averaging and antisymmetry for adjacent pairs, not externally identical rows; the odd Boolean hypercube record uses coordinate symmetries for antipodes, whose outside profiles differ for odd dimension at least three."
+        ],
+        "reasoning": "The exact equivalent symmetry is the transposition of the two vertices after ignoring the diagonal of D, not symmetry of the rest of the graph. Indeed replacing f by (f-f composed with the transposition)/2 preserves its gap and does not increase the norm. This is the standard reason the variational problem reduces to a one-dimensional signed potential, but the graph-specific statements located do not present the resulting general closed formula.",
+        "searches": [
+          "Resultary semantic comparisons: equal external rows, twin vertices, adjacency-Dirac and antisymmetric potentials",
+          "arXiv:2409.04146v1, Introduction",
+          "SCOPE-20261102-1e12db461c4b",
+          "SCOPE-20261102-a4fe6d1b00da"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-bipartite record gives sqrt(2/q) and sqrt(2/p) for same-part pairs in K_(p,q). The cross-polytope record gives 1/sqrt(r-1) for antipodes in dimension r. Both are distinct same-day SCOPE records."
+        ],
+        "reasoning": "These match false twins with respectively q, p, and 2r-2 external common neighbors. They are exact overlap, not independent evidence for universal weighted coverage; the publication day alone does not order the records.",
+        "searches": [
+          "Resultary: adjacency-Dirac distances for true and false twins, exact common-neighbor count",
+          "SCOPE-20261102-ccac81bc329c",
+          "SCOPE-20261102-0ca556eebe1a"
+        ]
+      },
+      "rationale": "Exact complete-graph/deleted-link formulas and two same-day false-twin specializations are established coverage. The supported distinction is the sharp common-profile formula for arbitrary real weights (either zero or nonzero pair coupling), independent of the whole outside submatrix. The located sources and related records do not cover that statement. Antisymmetrization is a standard symmetry argument, not itself a new method here.",
+      "residual_risks": [
+        "Deferred literature search yielded no additional query evidence; the decision rests on inspected primary passages and the local record comparisons.",
+        "An equivalent result under point-swap symmetry in earlier finite spectral geometry remains possible; no absolute priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage, not a statement about arbitrary profiles",
+          "evidence": [
+            "The hypothesis is D_ij=a(1-delta_ij), or that matrix with just D_12 set to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/hep-th/9912217v1",
+          "material_read": "Section VI, definition of regular space, Proposition 5 and start of proof through Lemma 6 (offset 30800)",
+          "method": "Primary full-text HTML, bounded passage",
+          "title": "Distances in finite spaces from noncommutative geometry",
+          "trigger": "Exact finite adjacency commutator distance and single-link deletion"
+        },
+        {
+          "assessment": "Pruning uses a path-union subgraph, not the twin row criterion",
+          "evidence": [
+            "Theorem 4 equates d_D(x,y) with its distance in the (x,y)-pruning."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2105.09056",
+          "material_read": "Theorem 4 and pruning passage, offsets 27800–30399",
+          "method": "Primary full-text HTML",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "Potentially general graph-distance reduction"
+        },
+        {
+          "assessment": "Same distance and relevant context; no weighted twin formula in the inspected statements",
+          "evidence": [
+            "Graph adjacency commutator and exact path problem; broader edge removal posed separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.04146v1",
+          "material_read": "Introduction and measure of scope, offsets 3000–5958",
+          "method": "Primary full-text HTML",
+          "title": "Noncommutative Distances on Graphs: An Explicit Approach via Birkhoff-James Orthogonality",
+          "trigger": "Same metric and exact graph distance methods"
+        },
+        {
+          "assessment": "Exact false-twin instances; no arbitrary matrix claim in the findings",
+          "evidence": [
+            "Same-part distances sqrt(2/q), sqrt(2/p); antipodal distance 1/sqrt(r-1)."
+          ],
+          "identifier_or_url": "SCOPE-20261102-ccac81bc329c; SCOPE-20261102-0ca556eebe1a",
+          "material_read": "RESULT.md findings at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage comparison",
+          "title": "Complete-bipartite Connes distances from sharp operator–nuclear duality; Sharp adjacency–Dirac distances on cross-polytope graphs",
+          "trigger": "Potential full overlap with false-twin distances"
+        },
+        {
+          "assessment": "Different distance problems, in general without equal external profiles",
+          "evidence": [
+            "Triangular adjacent-pair variational prescription; odd-cube antipodal formula in terms of reciprocal binomial coefficients."
+          ],
+          "identifier_or_url": "SCOPE-20261102-1e12db461c4b; SCOPE-20261102-a4fe6d1b00da",
+          "material_read": "RESULT.md findings at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage comparison",
+          "title": "Exact adjacency–Dirac edge distance and its avoided-crossing asymptotics on triangular graphs; Exact antipodal adjacency-Dirac distances on odd Boolean hypercubes",
+          "trigger": "Alternative statement in symmetry-based distance work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The substantive result is exact ambient-independence for a natural class of vertex pairs, not the elementary averaging trick or the known complete-graph value. For a graph joined to two twin apices it determines their distance without solving the surrounding distance problem and gives an exact edge-deletion response independent of every internal edge of the base. It also covers signed weighted attachments, and provides a sharp norm certificate and optimizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

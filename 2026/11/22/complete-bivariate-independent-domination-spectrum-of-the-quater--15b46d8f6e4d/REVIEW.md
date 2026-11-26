@@ -1,15 +1,21 @@
-# Scientific review of the bivariate independent-domination census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete finding is a finite exact identity for the point–line incidence graph of \(\operatorname{PG}(2,4)\). Every maximal independent set is determined uniquely by its selected point set \(S\): it contains exactly all lines disjoint from \(S\), and maximality is equivalent to coverage of every omitted point by those lines. A proof of both directions is included in RESULT.md. The C++17 checker constructs 21 homogeneous point representatives and 21 distinct line masks, checks their incidence axioms, and evaluates all \(2^{21}\) point masks. An independently encoded affine-coordinate model with a line at infinity reproduces every bidegree and multiplicity using NumPy. Both checkers pass. The finite enumeration is exhaustive; no unproved extrapolation is made beyond the order-four plane.
+PASS
 
-## Originality — PASS, with explicit uncertainty
+A maximal independent set with point set S must select exactly the lines disjoint from S, and their union must cover the complement of S. I independently generated PG(2,4) lines as the five-point projective spans of pairs of homogeneous points, checking the incidence degrees and intersections. I enumerated distinct line unions by starting at zero and closing under adjoining any line. A union U yields exactly the maximal independent set with point set P minus U and with all lines contained in U; conversely U is recoverable from every maximal independent set. This calculation enumerated 25,237 distinct unions and reproduced every coefficient in the 17-entry TSV. The size histogram was 8:105, 10:16800, 11:5460, 12:2408, 14:420, 17:42, 21:2. The empty and full unions give the two pure-shore sets. This checks the labeled census without executing the supplied programs or relying on untested larger orders.
 
-Goldberg, Rajendraprasad and Mathew, arXiv:1405.3436v1, Theorem 5.2 and Section 6, establish the minimum size and discuss small examples, rather than the complete bivariate histogram. Héger and Nagy, arXiv:1603.02933, study small minimal dominating sets and explicitly pose a counting problem, without listing this order-four polynomial. Hauschild, Ortiz and Vega, arXiv:1408.2879, Lemma 1, give selected maximal-independent-set families sufficient for their well-covered-dimension theorem, not a full census. Searches of indexed mathematical results for this graph, polynomial, cardinalities, independent domination and point–line duality produced related but non-covering findings. The exact table could still have appeared in an unindexed historical computation; the indexed and accessible-literature check is not a proof of universal priority.
+## originality
 
-## Value — PASS
+PASS
 
-The projective plane of order four is a canonical 42-vertex finite-geometry incidence graph and the first square-order case after the Fano and ternary examples. The full bivariate polynomial distinguishes point-heavy from line-heavy independent dominating sets, exhibits unexpected missing cardinalities (notably 9), and provides an exact 25,237-set finite benchmark for the broader independent-domination counting question posed in the literature. Its complete and independently reproducible coverage is a mathematical fact beyond the previously known minimum cardinality. The result does not purport to settle asymptotic counting.
+The distinct claim on the examined evidence is the complete labeled bidegree distribution, not i(G)=8 or the closure reduction. The best matching catalog record is the frozen result itself; the distinct same-day order-four result counts total-dominating sequences rather than maximal independent sets. None of the inspected prior structural results supplies or mechanically determines all 17 coefficients.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The point–line bidegree is a natural refinement on the first square-order projective plane. The exact distribution exposes actual forbidden sizes and balanced versus skew maximal sets, and supplies a reproducible finite benchmark for independent-domination counting in planes. This is stronger than either the known minimum or the existence of a few canonical families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

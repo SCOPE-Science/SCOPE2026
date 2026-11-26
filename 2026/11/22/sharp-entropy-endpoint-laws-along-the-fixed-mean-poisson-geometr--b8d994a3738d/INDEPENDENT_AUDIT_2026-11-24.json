@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:12:20.833013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence fixes the mean at μ and gives variance μ+t². The identity ∂_t G_t=t(1−z)²G_t/[1+t(1−z)] verifies convex ordering independently of a growth-restricted test class: the derivative of E[(X_t−k)_+] for each integer k≥1 equals t times the mass at k−1 of X_t plus an independent geometric of mean t. It is positive on the interior. Any convex sequence on the nonnegative integers is its initial affine part plus a nonnegative combination of these stop-loss functions, so monotone summation extends the comparison to finite expectations and gives strictness for strictly convex tests, also between the endpoints. The displayed truncated-exponential identity gives strict log-concavity for 0<t<μ. Applying the coefficient derivative identity to −log p_n(t) at fixed t gives strict positive entropy derivative, since every second discrete difference is positive; local geometric bounds justify differentiation, and a uniform exponential tail gives endpoint continuity. Near zero p′_n(t)/t is bounded by C R^(−n) for some R>1 by coefficient extraction, while p_n(t) is bounded below by the no-geometric-jump Poisson term with mean at least μ/2. Hence h′(t)/t converges by domination to −Σ(π_n−2π_(n−1)+π_(n−2))log π_n = E log[(N+2)/(N+1)]. Integration gives half that value. At μ the entropy gap equals D(p||g) because −log g_n is affine and the mean is fixed. The endpoint score obtained from ∂_t G_μ is s_0=q_* and s_n=(n−1−2μ)/(μ(1+μ)) for n≥1; conditioning on N≥1 under g leaves N−1 geometric of mean μ and yields E_g[s²]=1/(1+μ). For rigor of the quadratic expansion, the formula for p_n(t)/g_n has a factor (q(t)/q_*)^n≤1 near μ and a bounded truncated exponential factor with bounded parameter derivatives, so the t derivative is at most C(n+1). Since 0≤x log x−x+1≤(x−1)², the quadratic KL quotient is dominated by C²(n+1)² against g, and termwise convergence gives 1/[2(1+μ)]. Both results are pointwise for each fixed μ>0; no uniform-in-μ conclusion is used. RESULT.md lines 41–116, VERIFICATION.md and verify.py were inspected. The code was not run; its finite checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia–Lv Theorem 1.1(2), following Yu, gives H(X)≤H(Y) for X≤cxY and a log-concave upper law. Once established for this path, these hypotheses give the weak qualitative entropy order.",
+          "The theorem does not prove convex ordering for this particular parameter slice or identify endpoint sensitivities; general local KL curvature supplies a score-squared functional, not its evaluation for this path."
+        ],
+        "reasoning": "Credit the general entropy implication and the generic KL Taylor step. The distinct claim requires specific parameter-dependent derivatives, with separate Poisson and geometric coefficients.",
+        "searches": [
+          "Xia–Lv DOI:10.1017/S0269964823000293 Theorem 1.1(2)",
+          "arXiv:0805.4112 compound-Poisson entropy",
+          "arXiv:2205.08293 log-concave entropy and convex order"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.01480v2 §§2, 3.8",
+        "DOI:10.1017/S0269964823000293 Theorem 1.1(2)",
+        "arXiv:0805.4112 abstract",
+        "Resultary records 82c1cef7db34 and 422e6a20a0da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed thinning theorem uses a different perturbation and computes D(thinned sum||Poisson) with a quadratic leading factorial-cumulant term; it does not evaluate the Poisson log-mass expectation in the frozen entropy increment.",
+          "At the geometric end, the generic KL formula needs the score of this convolution along the fixed-mean direction. The mean-matched identity removes the cross-entropy variation but does not supply the coefficient without that score computation."
+        ],
+        "reasoning": "Prior results conditionally give qualitative ordering or supply general tools. The two exact endpoint laws do not result by specializing the located count-family orders or the indexed thinning theorem.",
+        "searches": [
+          "arXiv:2301.01480v2 §3.8 and model definition",
+          "DOI:10.1017/S0269964823000293 Theorem 1.1(2)",
+          "Resultary 82c1cef7db34, Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same convolution is the PoiG model and a shape-one Delaporte slice. Nandi et al. §3.8 varies the Poisson mean at fixed geometric parameter for likelihood-ratio order; the frozen path varies the component means in opposite directions to keep their sum constant.",
+          "The geometric-endpoint entropy gap is exactly KL to the mean-matched geometric law, not to Poisson; the Poisson-endpoint claim is an entropy difference, not a KL gap to the Poisson reference."
+        ],
+        "reasoning": "Relabeling the family does not transfer a fixed-parameter stochastic-order theorem to a fixed-mean perturbation. Nor are the two endpoint claims interchangeable under KL language.",
+        "searches": [
+          "Resultary: fixed-mean Poisson-geometric entropy endpoint coefficients",
+          "PoiG / shape-one Delaporte stochastic order and entropy",
+          "arXiv:2301.01480v2 §§2, 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct indexed hit b8d994a3738d is the assigned record. The closest indexed record ending 82c1cef7db34 instead computes a thinned-sum KL asymptotic to Poisson for finite-support inputs, driven by factorial cumulants.",
+          "The distinct record ending 422e6a20a0da concerns entropy of maxima of iid Poisson counts as intensity changes, not a fixed-mean convolution. Generic Delaporte definitions did not provide a table of the asserted endpoint coefficients."
+        ],
+        "reasoning": "A shared Poisson reference, KL terminology, or asymptotic entropy is not a match for the exact path and coefficients. Search nonmatches are bounded evidence only.",
+        "searches": [
+          "Resultary: fixed-mean PoiG path, shape-one Delaporte entropy, Poisson-endpoint gain and geometric-endpoint deficit",
+          "Delaporte distribution and entropy endpoint lookup"
+        ]
+      },
+      "rationale": "The count family, calculus of local KL divergence, and qualitative entropy-order principle are preexisting. Supported distinct content is the actual fixed-mean ordering of this path and, in particular, its two explicit quadratic entropy coefficients taken together. In this check the full originating arXiv preprint was available, unlike the access situation recorded in the frozen package; it gives a different stochastic parameter comparison. No inspected prior theorem supplies both endpoint evaluations. The conclusion is bounded by the sources compared, not a priority certification.",
+      "residual_risks": [
+        "The journal version DOI:10.1080/03610918.2024.2329997 and potentially relevant arXiv:2205.08293 were not available as full text in this review; journal-only changes and differently indexed endpoint identities are not ruled out.",
+        "The literature comparison is not an exhaustive historical search; the general entropy theorem is credited via Xia–Lv rather than full-text inspection of Yu's original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the convolution but its inspected likelihood-ratio comparison holds the geometric parameter fixed. No frozen endpoint formula located in this preprint.",
+          "evidence": [
+            "§2 gives the independent convolution; §3.8 compares Poisson parameters at fixed θ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.01480v2",
+          "material_read": "Full preprint accessible; model §2, p. 3 near extraction offset 6000, and §3.8, p. 15 near offset 33690 examined for the decisive comparison.",
+          "method": "Targeted primary OA PDF read.",
+          "title": "A new over-dispersed count model",
+          "trigger": "Original PoiG count-family analysis, with potentially covering stochastic orders."
+        },
+        {
+          "assessment": "Covers the qualitative weak implication but is not an endpoint expansion.",
+          "evidence": [
+            "X≤cxY and log-concavity of Y imply H(X)≤H(Y). The statement credits Yu; the Yu original was not independently obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964823000293",
+          "material_read": "Theorem 1.1(2), printed p. 580, PDF p. 2, extraction offset near 6447.",
+          "method": "Targeted primary OA PDF read.",
+          "title": "Log-concavity and relative log-concave ordering of compound distributions",
+          "trigger": "General theorem implying entropy ordering under convex order."
+        },
+        {
+          "assessment": "Different statistic, perturbation regime and hypotheses; does not cover these entropy coefficients.",
+          "evidence": [
+            "Computes n^(2r−2)D(thinned sums||Poisson(λ)) in terms of the first nonzero higher factorial cumulant under finite-support assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-factorial-cumulant-entropy-hierarchy-for-finite-support-th--82c1cef7db34",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§1–2.",
+          "method": "Targeted statement-level local mirror comparison.",
+          "title": "Exact factorial-cumulant entropy hierarchy for finite-support thinning sums",
+          "trigger": "Strongest indexed non-self Poisson and KL asymptotic overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Holding the mean fixed gives a natural comparison of entropy under increasing overdispersion between two canonical count laws. The two curvatures locate precisely the endpoint sensitivity where the qualitative order and first derivatives alone provide no rate. They give useful distinct benchmarks for the same model, beyond restating a general entropy-order or maximum-entropy principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

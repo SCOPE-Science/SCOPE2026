@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:29:04.374908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coordinate multiplication gives precisely the stated class sizes and disjoint-support adjacency. Double whites in a class prevent a first force into the class. If any singleton class is white, its support lies entirely in binary coordinates; the complement of an inclusion-minimal such white support has a nonbinary coordinate, hence an available blue vertex. Its only white neighbor lies in the chosen support, since disjointness from the complement is exactly containment in the support. After all singleton whites are gone, the same minimal-support step works for every remaining white support. This proves the product, the minimum complements and their count. For rank, order supports by increasing size and columns by their complements in the same order. The quotient becomes triangular with unit diagonal, since its entry is now 1 precisely when the row support is contained in the column's uncomplemented label. The complement permutation is an odd number of transpositions, so the determinant is -1. The lift with full-column-rank incidence matrix gives rank h, while M <= Z is the matching bound. The root count fixes r; the root product recovers the full subset product. Add the empty and full products with their multiplicities, use the multiplicity of 1 to recover binary factors, then strip the products of recovered factors as multisets. The least unexplained positive product is the next factor greater than 1; existing collisions do not matter when counts are subtracted. Finite fields are unique by order. Independent replay: python /workspace/audit_checks.py 4 tests all initial vertex subsets by direct multiplication in four mixed products and the binary exclusion; for (2,2,3) it obtains {3:8,4:36,5:66,6:63,7:33,8:9,9:1} and checks every complement profile. The all-binary example gives 2u+u², not the claimed product.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "667ee6164e3a, Finding and proof, gives the factored polynomial, rank and reconstruction for local proper-ideal counts all at least two. No white singleton class can occur there.",
+          "Moconja–Petrović Theorem 2.4(1) gives a structural co-maximal blow-up, not the mixed-rank or forcing claim. Boyer et al. Definition 1 provides the counting invariant."
+        ],
+        "reasoning": "Generic type compression does not resolve the existence of a blue source in each step, nor invert the field orders. The larger family with all weights at least two cannot address the binary-coordinate exception.",
+        "searches": [
+          "minimum zero forcing sets weighted blow-up false twin classes support graph",
+          "Boolean disjointness graph on nonempty proper subsets determinant adjacency matrix minimum rank",
+          "Modular Compression of Leaky Forts and Leaky Forcing Polynomials false twins theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 4 and 5 and verification evidence",
+        "doi:10.26524/cm165",
+        "doi:10.1017/S0004972710001875",
+        "arXiv:1801.08910",
+        "Resultary 667ee6164e3a, 04b167ffae3f, d7ebe49b1929, 8912ea23ba6a, 37fc468c05c3, a0af528166ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-nonsingleton proof always uses a blue class representative and stops being directly applicable when a complementary class is a white singleton. The determining-set comparison supplies no propagation sequence.",
+          "Record 5 directly overlaps compatible weights at r=3 (including binary factors), using a triangle with pendant classes, but it gives no arbitrary-r mixed forcing theorem or all-r inversion."
+        ],
+        "reasoning": "Neither the general all-nonfield result nor the rank-three mixed co-maximal result implies success of every at-most-one-white profile for arbitrary r with binary factors. The two-stage forcing and multiset inversion together supply this implication.",
+        "searches": [
+          "667ee6164e3a local-mirror RESULT.md, Finding/Proof and reconstruction",
+          "04b167ffae3f local-mirror RESULT.md, Finding/Proof",
+          "Assigned record 5, RESULT.md proof and reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaded–Narayana Theorem 2.1 gives the exact vertex count, and Corollary 2.5 identifies the two-factor graph; for r=2 the forcing formula also reduces to the standard complete bipartite calculation.",
+          "d7ebe49b1929 gives support blow-ups and disjoint adjacency on the same mixed graph, but computes resolving domination. 04b167ffae3f has the same factors after reindexing zero sets by complement, but the polynomial counts determining sets for co-maximal, not zero-product, adjacency."
+        ],
+        "reasoning": "Boolean support encodings, weight multisets and numerical coincidences alone do not identify a propagation theorem. Zero forcing needs a blue complementary source; adjacency by generating the ring uses disjoint zero sets, not disjoint nonzero supports.",
+        "searches": [
+          "zero forcing polynomial zero divisor graph direct product finite fields support classes",
+          "mixed product of finite fields at least one F2 zero forcing polynomial product over support classes root recovery field orders",
+          "weighted disjointness graph independent support classes finite fields zero forcing theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked exact comparisons yielded d7ebe49b1929 on the same graph with a different invariant, 04b167ffae3f with a matching product for determining sets, and 8912ea23ba6a with five-term forcing and field recovery on a triangular-prism annihilator quotient, all q_i>=3.",
+          "37fc468c05c3 concerns the complementary Boolean adjacency of nonzero ideal intersection and has mr=r, not h."
+        ],
+        "reasoning": "There is genuine overlap at the level of inputs or outputs, but none is an exact table or formula for standard zero forcing and recovery on all the stated mixed products. A ranked query is not a proof of absence.",
+        "searches": [
+          "zero forcing polynomial of ordinary zero-divisor graph product of finite fields mixed binary factors",
+          "subset product multiset inverse reconstruction field orders support classes Boolean disjointness graph",
+          "mixed finite field product zero divisor resolving domination binary factors support class count"
+        ]
+      },
+      "rationale": "The material contribution is the exact standard forcing condition with both singleton and nonsingleton support classes, the resulting rank and the inverse from this polynomial. The class decomposition and exact graph order are prior. A catalogue theorem has the same symbolic polynomial, minimum-set count and rank on the all-nonsingleton side for co-maximal ideal graphs, but cannot be specialized to mixed supports. A same-day result has the same factor multiset for an automorphism-determining polynomial on a reduced co-maximal graph; this is not the standard zero forcing polynomial of the specified graph. Neither catalogue date decides priority. The multiple overlaps constrain distinctness but do not establish the full bound finding.",
+      "residual_risks": [
+        "The Ye–Wu–Liu–Yu weighted co-maximal blow-up paper (doi:10.1080/00927872.2012.762924) did not return lawful full text on the attempted routes; the novelty decision does not rely on assuming it lacks a statement.",
+        "A more general weighted Boolean forcing theorem allowing singleton supports would need direct comparison; current catalogue overlap does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior order and two-factor structure, not a verified mixed forcing statement.",
+          "evidence": "Theorem 2.1 is the order formula, and Corollary 2.5 is the complete bipartite graph description.",
+          "identifier_or_url": "https://www.shcpub.in/index.php/cm/article/download/312/160",
+          "material_read": "Abstract p. 1; Theorem 2.1 p. 2, offset 4000; Corollary 2.5 p. 3, offset 8000",
+          "method": "Lawful journal PDF passage comparison, DOI 10.26524/cm165",
+          "title": "On zero divisors graphs of direct product of finite fields",
+          "trigger": "Primary same-graph structural and invariant coverage"
+        },
+        {
+          "assessment": "Prior subset structural method for co-maximal graphs, not a forcing or rank calculation.",
+          "evidence": "Maximal-ideal membership subsets S and T define complete bipartite links iff disjoint.",
+          "identifier_or_url": "doi:10.1017/S0004972710001875",
+          "material_read": "Section 2, preceding passage and Theorem 2.4(1), pp. 14–15, offsets 9400–15533",
+          "method": "Open PDF source passages",
+          "title": "On the Structure of Comaximal Graphs of Commutative Rings with Identity",
+          "trigger": "Possible broader subset-disjointness reduction"
+        },
+        {
+          "assessment": "Exact graphic method on nonsingleton classes; excludes the frozen hypothesis of at least one singleton support factor.",
+          "evidence": "Each proper-ideal count is at least two, and the inverse recovers those counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-zero-forcing-polynomials-completely-recognize-fully-nonfield-co--667ee6164e3a/RESULT.md",
+          "material_read": "Mirror offsets 0–3309 and 5000–8103",
+          "method": "Indexed statement and bounded mirror reading",
+          "title": "Zero forcing polynomials completely recognize fully nonfield co-maximal ideal graphs",
+          "trigger": "Same factorization, inverse and rank at arbitrary r"
+        },
+        {
+          "assessment": "Real formula-level overlap, different invariant and graph; not discarded by date.",
+          "evidence": "At least one nonbinary factor, determining sets omit at most one per fiber; product factors for zero-set fibers have the same multiset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-determining-sets-of-reduced-comaximal-graphs-a-boolean-phase-tra--04b167ffae3f/RESULT.md",
+          "material_read": "Mirror Finding and Proof offsets 0–6089",
+          "method": "Indexed statement and bounded mirror reading",
+          "title": "Determining sets of reduced comaximal graphs: a Boolean phase transition",
+          "trigger": "Same-day formula and profile match"
+        },
+        {
+          "assessment": "Prior structure, different invariant.",
+          "evidence": "The theorem gives resolving domination N-h+t for r>=3 with t binary factors and describes the disjoint supports.",
+          "identifier_or_url": "Resultary d7ebe49b1929",
+          "material_read": "Mirror Finding/Proof beginning at offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Resolving domination of zero-divisor graphs for mixed products of finite fields",
+          "trigger": "Exact same mixed graph and singleton convention"
+        },
+        {
+          "assessment": "Different quotient and domain.",
+          "evidence": "Triangular-prism adjacency, fields of order at least 3, and a five-term polynomial.",
+          "identifier_or_url": "Resultary 8912ea23ba6a",
+          "material_read": "Mirror Finding offset 0 and comparison/limitations offsets 5300–8362",
+          "method": "Indexed statement comparison",
+          "title": "Zero forcing polynomials reconstruct three-field annihilator graphs",
+          "trigger": "Same enumerator and field-order reconstruction as goals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact propagation census and real minimum rank for a natural class in which some modules have no initial blue representative. The pure binary failure makes that distinction necessary, and root-multiplicity inversion is a concrete use of the full polynomial, retrieving the ring rather than just its order. The three-factor cross-overlap is real but leaves the arbitrary-factor classification and reconstruction useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

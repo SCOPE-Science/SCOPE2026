@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:04.182222Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Zeckendorf uniqueness makes the Fibonacci cutoff exactly a path of L available indices 2 through L+1. The ordered transfer product for a full period followed by the partial period has constant block P(0) idempotent of rank one, so the truncated inverse of det(I-tP)=1-t+O(y) has, in y-degree s, denominator dividing (1-t)^(s+1). This gives an eventual degree-at-most-s polynomial in q at each residue. In full blocks the unrestricted subset product has logarithm q(y A_s-y^2 B_s/2+O(y^3)); its repeated-index correction is -U_s q^(s-1)/(2(s-2)!). A marked edge has weight X^(F_i+F_(i+1))=X^F_(i+2), so the sum over edges is q A_s+O_s(1). Two distinct edges impose two independent adjacency requirements even if they overlap, hence all multiple-edge corrections are O_s(q^(s-2)); for s=2 there are no such configurations. Excluding the marked vertices from the other selections changes only this error. The resulting additional coefficient is -T_(s,s-1)/(s-2)! as stated. Appending a bounded partial period changes at most O_s(L^(s-1)) index subsets, so the density extends off full blocks. For s=2–5 the determinant of P vanishes in the truncation since h>s, and Cayley–Hamilton gives P^q=(tr P)^(q-1)P for q>=1, justifying exact polynomial interpolation. Replay /workspace/branches/054b2062-34e4-4a64-8913-f719ee2eb0c4/replay_record5.py matched direct greedy decompositions against an exact prefix recurrence at 52 (s,L) pairs (s=2–5, L=0–12), all 18 interpolation values against the printed polynomials, and all four cyclic coefficient tuples by counting ordered residue lists. This is finite verification of the arithmetic only; the proof covers the quantifiers. Frozen checking code was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner treats the same residue statistic in a broader numeration setting, but the displayed relative discrepancy is bounded by a factor depending on k and m, not tending to zero when k,m are fixed and the cutoff tends to infinity.",
+          "The later indexed theorem treats arbitrary modulus and residue and controls two asymptotic terms. It does not give exact eventual quasi-polynomial counting or all the lower-degree coefficients in the four polynomials."
+        ],
+        "reasoning": "The word 'well-distributed' in Wagner's Fibonacci remark refers to the enclosing quantitative bound; it is not a statement of asymptotic equality to 1/m at fixed weight. Broader parameters in a two-term asymptotic do not turn that asymptotic into an exact count.",
+        "searches": [
+          "Wagner, Numbers with fixed sum of digits in linear recurrent number systems, Theorem 12 and p. 17 remark",
+          "Resultary a376371772be, Finding and Proof §§2–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86 and VERIFICATION.md",
+        "Resultary 3be0fd61032a and a376371772be",
+        "Wagner Theorem 12, Eq. (19), p. 17 Remark",
+        "Lao et al. arXiv:2606.24006v1, introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the later two-term result the quantities P_(s,s)(0), Q_(s,s)(0), and P_(s-1,s)(0) become T_(s,s)/h^s, U_s/h^(s-1), and T_(s,s-1)/h^(s-1). Substitution and L=qh reproduce both displayed coefficients exactly.",
+          "Neither this implication nor the earlier relative discrepancy bound shows that every fixed residue class in length eventually has an exact polynomial; the exact low-weight identities require further control of the transfer matrix plus exact data."
+        ],
+        "reasoning": "The indexed general asymptotic mathematically covers its specialization regardless of relative dates. This is reported separately from priority and from the exact counting assertions, which are not consequences of the compared asymptotic bounds.",
+        "searches": [
+          "Resultary a376371772be, general two-term formula",
+          "Wagner Theorem 12, Eq. (19)",
+          "Lao et al. introduction and cited Ray–Cooper density comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Niven divisibility at fixed weight s is exactly the residue-zero class modulo s on the s-summand slice, not ordinary natural density over all integers.",
+          "Resultary 3be0fd61032a explicitly credits the aggregate two-summand fraction 5/9 as already known.",
+          "Resultary a376371772be gives identical constants under k=m=s, residue 0 and L=qh."
+        ],
+        "reasoning": "Credit exact equivalence in the overlap rather than interpreting the Niven name as a different statistic. The full eventual polynomial and explicit small-weight identities have additional exact content.",
+        "searches": [
+          "Resultary fixed-weight Zeckendorf residue distributions and Zeckendorf–Niven two-summand bias",
+          "Lao et al. arXiv:2606.24006v1, introduction",
+          "Ray–Cooper k-Zeckendorf Niven numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier dyadic result states specialized two-summand asymptotics and identifies the known 5/9 limit. The later record explicitly gives all four limits 5/9, 85/256, 7/27, 1/5 but does not give the four exact full-block polynomial identities in its Finding."
+        ],
+        "reasoning": "The known numerical limits are credited even though their formula is presented differently. Finite count tables or the first two asymptotic coefficients do not by themselves imply the exact polynomials for every q>=1.",
+        "searches": [
+          "Resultary 3be0fd61032a and a376371772be, Finding sections for low-weight counts and density examples"
+        ]
+      },
+      "rationale": "Credit the earlier two-summand density and the later indexed general-modulus theorem's exact coverage of the two-term law and the four density values. That two-term theorem does not imply the exact eventual polynomials on all Pisano residue classes or the four explicit full-block identities holding from the first block. The earlier literature inspected does not furnish the bias constants throughout the stated fixed-weight regime. The complete counting theorem is distinct from the compared statements; no separate priority claim is warranted for its overlapping asymptotic formulas.",
+      "residual_risks": [
+        "Ray–Cooper full text remains unread, so a fixed-slice theorem there cannot be ruled out from the access failure or from the title.",
+        "The later indexed paper is evidence of exact overlap, not a priority determination. An older equivalent general exact-count theorem outside the inspected material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier coverage of the limit at s=2, different dyadic refinement",
+          "evidence": [
+            "Defines the two-summand setting and explicitly identifies 5/9 as previously known."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-uniform-32-class-dyadic-bias-law-for-two-summand-zeckendorf-ni--3be0fd61032a",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A uniform 32-class dyadic bias law for two-summand Zeckendorf–Niven numbers",
+          "trigger": "Two-summand overlap"
+        },
+        {
+          "assessment": "Exact symbolic coverage of two-term law, including four densities; not the exact-polynomial claims",
+          "evidence": [
+            "Taking modulus and weight both s gives the same two convolution corrections after converting L into full periods."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-term-residue-distributions-on-fixed-weight-zeckendorf-slices--a376371772be",
+          "material_read": "RESULT.md Finding and Proof §§2–5, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Two-term residue distributions on fixed-weight Zeckendorf slices",
+          "trigger": "Potential exact and broader coverage of the main asymptotic"
+        },
+        {
+          "assessment": "Related discrepancy theorem; does not determine the stated fixed-weight limit or adjacency term",
+          "evidence": [
+            "The right-hand side of Eq. (19) is proportional to |V(k,N)| exp(-c k/log m)/m. The multiplier is fixed when k and m are fixed; the nearby remark supplies no additional cutoff-decaying bound."
+          ],
+          "identifier_or_url": "https://www.finanz.math.tugraz.at/~wagner/fixedsum.pdf",
+          "material_read": "Author manuscript pp. 11 and 17, Theorem 12 Eq. (19), Fibonacci remark, offsets 47471 and 74300",
+          "method": "OA author PDF passages",
+          "title": "Numbers with fixed sum of digits in linear recurrent number systems",
+          "trigger": "Older general result on the same fixed-weight residue statistic"
+        },
+        {
+          "assessment": "Confirms the divisibility statistic and addresses a different arithmetic-progression question",
+          "evidence": [
+            "Defines divisibility by the number of nonzero summands and credits Ray–Cooper for the notion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.24006v1",
+          "material_read": "Introduction pp. 1–2, offsets 0–9917",
+          "method": "OA PDF passages",
+          "title": "On Zeckendorf–Niven numbers and arithmetic progressions",
+          "trigger": "Direct Niven literature and attribution to Ray–Cooper"
+        },
+        {
+          "assessment": "Exact meaning and coverage not independently established",
+          "evidence": [],
+          "identifier_or_url": "https://www.researchgate.net/publication/265778462_On_the_natural_density_of_the_k-Zeckendorf_Niven_numbers",
+          "material_read": "No full-text passage available; cited endpoint returned 403 on direct and alternate configured routes",
+          "method": "Lawful full-text retrieval attempts; separate Lao introduction read for attribution only",
+          "title": "On the natural density of the k-Zeckendorf Niven numbers",
+          "trigger": "Title could plausibly use k for a weight parameter or a different numeration regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a natural conditional divisibility problem for sparse Fibonacci expansions, with limiting bias both above and below 1/s and an explicit finite-length correction that measures adjacency. The exact block counts determine more than the overlapping two-term asymptotic, and a generic transfer formalism on its own supplies neither the arithmetic coefficients nor the valid-from-first-block formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

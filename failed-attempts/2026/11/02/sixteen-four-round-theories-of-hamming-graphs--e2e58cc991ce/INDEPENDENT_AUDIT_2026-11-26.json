@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:49.995674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pure adjacency and equality encode distances capped at two. For ordered triples the five coordinate patterns capture exactly the possible next-symbol choices, and the corresponding capped distance vectors combine by associative capped addition. Pair orbits are indexed by Hamming distance, and vertex transitivity reduces the last recursion to the set of pair types from a fixed vertex. An independent implementation (`cd /workspace && python3 audit-evidence/hamming.py`) checked all 378 singleton-state transition identities and exhaustively compared the types in dimensions 1 through 14 for alphabets 2, 3, and 4. It recovered the sixteen classes, including all cross-alphabet inequalities. The infinite reduction is exact: truncating bin counts at positive caps preserves all profiles beyond the sum of the caps, since excess coordinates can be absorbed by a saturated bin. Pair profiles are thus clipped at (6,8) or (5,9), whose caps sum to 14, so all dimensions at least 14 realize the same set of clipped profiles. At most four distinct symbols per coordinate can be used in four rounds, giving the alphabet tail. These facts also establish sharpness of the 1024-vertex bound within the family; the independent check does not rely on the record's reported runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-Hamming product record is rank three; the variable-width record uses bounded variables but unbounded quantifier rank. The inspected Klavžar–Peterin results characterize embeddings, and the inspected survey passages give general game machinery."
+        ],
+        "reasoning": "Broader products in a different logic or rank, and embeddings instead of elementary equivalence, do not themselves determine this partition. Direct coverage comes from the exact rank-four record.",
+        "searches": [
+          "SCOPE-20261026-5c7b235b180b",
+          "SCOPE-20261102-808bb86c4b0b",
+          "Klavžar–Peterin 10.1002/jgt.20084",
+          "Pikhurko–Verbitsky arXiv:1003.4865"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both Hamming verifier scripts and their recorded outputs",
+        "SCOPE-20261026-63edf2a48369",
+        "SCOPE-20261102-886a35e28ec6",
+        "SCOPE-20261026-5c7b235b180b",
+        "SCOPE-20261102-808bb86c4b0b",
+        "Klavžar–Peterin, DOI 10.1002/jgt.20084",
+        "Pikhurko–Verbitsky, arXiv:1003.4865"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact two-part criterion counts 6+5+5 classes and forces d≥5 and alphabet≥4 in the last class."
+        ],
+        "reasoning": "Specializing the earlier criterion to nonbinary alphabets gives both proposed new rows, and applying the full criterion gives their comparison with binary and the minimum 4^5 in the largest class. No new mathematical remainder is identified.",
+        "searches": [
+          "SCOPE-20261026-63edf2a48369 RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record's Finding gives the same graph, signature and quantifier rank, the same clipped alphabet, and the dimension cutoffs 6 for binary and 5 for both nonbinary regimes."
+        ],
+        "reasoning": "The two equivalence criteria agree on all admissible parameters, not just the same number of classes.",
+        "searches": [
+          "Resultary: rank-four Hamming equivalence, SCOPE-20261026-63edf2a48369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October Finding states six binary, five ternary and five larger-alphabet classes, and the sharp H(5,4) representative. The separate November binary record gives equality of dimensions below six and one tail class from six."
+        ],
+        "reasoning": "The October record already fixes every class and representative bound. The binary record alone covers only a restriction; its same-day date does not imply order.",
+        "searches": [
+          "SCOPE-20261026-63edf2a48369",
+          "SCOPE-20261102-886a35e28ec6"
+        ]
+      },
+      "rationale": "A distinct catalogued finding dated 2026-10-26 states exactly the whole rank-four theorem, including the supposedly new nonbinary regimes, cross-regime distinctions, and sharp representative. This is demonstrable existing coverage, regardless of whether the records are related revisions or have common authorship. It is not a claim about authorship or external priority.",
+      "residual_risks": [
+        "Revision or common provenance of the two exact records is unresolved; this does not change coverage.",
+        "Bounded published-literature search is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage",
+          "evidence": "Same iff criterion on all d,e≥1 and q,r≥2, same sixteen classes and sharp H(5,4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sixteen-rank-four-theories-of-hamming-graphs-and-a-sharp-1024-ve--63edf2a48369/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; classification discussion §§4–6",
+          "method": "Local indexed search and bounded mirror text",
+          "title": "Sixteen rank-four theories of Hamming graphs and a sharp 1024-vertex representative",
+          "trigger": "Exact catalogued comparison"
+        },
+        {
+          "assessment": "Binary restriction only",
+          "evidence": "Q_d≡₄Q_e iff d=e<6 or both dimensions are at least six.",
+          "identifier_or_url": "SCOPE-20261102-886a35e28ec6",
+          "material_read": "Finding",
+          "method": "Local index and mirror",
+          "title": "Six sharp four-round theories of binary hypercube graphs",
+          "trigger": "Acknowledged binary restriction"
+        },
+        {
+          "assessment": "Different quantifier resource",
+          "evidence": "Mixed rank three and mixed finite-variable logic of unbounded rank, respectively.",
+          "identifier_or_url": "SCOPE-20261026-5c7b235b180b; SCOPE-20261102-808bb86c4b0b",
+          "material_read": "Statements and logic scope",
+          "method": "Local index comparison",
+          "title": "Mixed Hamming graph classifications",
+          "trigger": "Plausible broader product results"
+        },
+        {
+          "assessment": "Inspected theorems concern embeddings",
+          "evidence": "Subgraphs, induced subgraphs and partial Hamming graphs, not rank-four equivalence.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/20084-scan.pdf",
+          "material_read": "Abstract and Theorems 2.2, 3.3 and 4.1, pp. 302, 305, 308, 310",
+          "method": "Bounded author PDF passages",
+          "title": "Characterizing subgraphs of Hamming graphs",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "Background only in the inspected passages",
+          "evidence": "The game winning condition and logical depth are general; Hamming distance appears in a refinement discussion, not a theorem on these graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4865",
+          "material_read": "Introduction p. 6, §3 p. 12 and Hamming-related passage §4 p. 14",
+          "method": "Bounded PDF passages",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "General EF theory and Hamming terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite-rank cutoff and sharp representative are mathematically useful, but this frozen record adds neither a new class, scope nor independent structural consequence to the exact October finding. The validated replay is corroboration, not a separate scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

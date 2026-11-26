@@ -1,11 +1,21 @@
-# Scientific review: centralizer spectra of cubic substitution endomorphisms
+# Independent mathematical audit
 
-**Correctness — PASS.** Each field-linear unital endomorphism has a unique cubic jet. The defining commutation equations produce a six-stratum odd-characteristic and three-stratum even-characteristic count. All polynomial root counts and characteristic-dependent factors are proved in the result; exhaustive independent composition verifies every field element and every possible pair for \(q=2,3,4,5,7\), including one extension field. Finite checks support but do not replace the proof.
+## correctness
 
-**Originality — PASS within checked sources.** Enochs--Jenda--Ozbek classify which *support sets* of series form composition monoids; Tarizadeh gives general formal-power-series universal properties; Cohen gives the classical cubic composition coefficients but studies characteristic-zero invertible finite-order series; Byszewski--Cornelissen--Tijsma study invertible Nottingham torsion. Those full or substantially inspected primary sources do not provide the present all-endomorphism centralizer histogram. Nearby mathematical-record claims treat different structures and products. Residual risk: an equivalent computation may be hidden in unindexed low-degree jet semigroup literature; a database search cannot establish uniqueness.
+PASS
 
-**Value — PASS.** The result determines a complete natural semigroup invariant for all prime powers, including noninvertible endomorphisms, and distinguishes the exceptional centers at field orders two and three. The sharply commutative length-four example over the binary field fails at length five. The proof and field-dependent formulas give a reusable low-length benchmark for formal substitution monoids; no higher-length generalization is claimed.
+The image of t is nilpotent and therefore has zero constant term, and every such image defines a unital coefficient-field-fixing map. Subtracting the compositions gives the coefficients b(d²−d)+e(a−a²) and h(a−a³)+c(d³−d)+2be(d−a). Reversing the convention for map composition reverses the signs but not their common zero set. If a−a² and a−a³ are both nonzero there is exactly one (e,h) per d. At a=0,1, characteristic two leaves d unrestricted if b=c=0 and allows just 0,1 otherwise; both e,h are free. In odd characteristic the pure cubic if nonzero allows d=0,1,−1 and free e,h, while nonzero b permits only 0,1 with e free at d=a and zero at the other d. At a=−1 in odd characteristic, e=bd(d−1)/2, leaving (c+b²)d(d−1)(d+1)=0 and unrestricted h. This gives every displayed stratum and its multiplicity with no primality assumption on q. When q=2 the first two rows merge at q³; when q=3 the nonzero pure cubics merge with the q³ row, and the two a=−1 rows merge at 9. The center formula follows, and summing the row products gives the two pair-count polynomials with total population q³. In characteristic two the compositions of t+t² and t+t³ modulo t⁵ differ in t⁴, so the binary commutativity boundary is genuine. Independently implemented Horner composition exhaustively checked the complete prime-field histograms for q=2,3,5,7 and replayed the length-five counterexample.
 
-**Closest literature:** Enochs--Jenda--Ozbek (2015), arXiv:1510.05984; Tarizadeh (2017), arXiv:1709.01426; Cohen (2018), arXiv:1804.00059; Byszewski--Cornelissen--Tijsma (2020), arXiv:2008.04971. The first classifies support sets, the second provides formal-series foundations, Cohen supplies the established cubic composition law, and the fourth addresses an invertible torsion subgroup. They do not directly establish the stated finite commutant multiplicities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two distinct 2026-11-22 catalogue records give exact mathematical overlap in the spectrum and pair counts, not merely similar terminology. One also states a larger truncation commutativity classification. Both are dated over a month after this frozen 2026-10-19 finding. Their inspected original prior-work passages do not identify an earlier theorem giving this full census, and provenance among the matching records is unresolved. Bounded pass as of the frozen finding, not a claim of current catalogue uniqueness or proven historical priority. The classical cubic composition law is not credited as new.
+
+## value
+
+PASS
+
+Centralizer sizes are natural element statistics of this full substitution monoid, including maps outside any unit group. Cubic order is where both the characteristic-dependent factor of two and the additional multiplier resonance at −1 enter. The exhaustive all-field table quantifies these effects, explains the two exceptional centers, and provides an exact benchmark for investigations at longer length. The binary counterexample marks a genuine boundary, not a value claim based on a single recomputed small field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

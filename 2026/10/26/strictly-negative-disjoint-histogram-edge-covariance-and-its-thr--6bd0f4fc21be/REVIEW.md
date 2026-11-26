@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact within-pair binomial conditioning converts the covariance into that of two monotone folded-walk expectations of negatively associated binomial block totals. An independent-copy covariance identity and the positive probability of the two extreme block totals establish a *strict* finite-sample inequality even when the two blocks exhaust all categories. The four asymptotic formulas follow from fixed-bias exponential concentration, an unbiased central-binomial asymptotic, binomial fourth-moment Taylor bounds in \(L^2\), and the exact identity \(\operatorname{Cov}(K,L)=-Nuv\). The standard-library verification script supplied with this work passed 72 exact rational finite-size comparisons. These checks are illustrative, not exhaustive proof.
+## correctness
 
-## Originality — PASS (bounded literature assessment)
-The closest direct result is Banić–Elezović Part 2, arXiv:2610.17046v1, which proves \(-1/(\pi m)\) for the uniform multinomial law; this is the balanced special case of the present formula. Part 1 arXiv:2610.13366v1 supplies the known conditional-binomial mechanism. A 1985 general multinomial negative-dependence theorem concerns stochastic ordering of totals and does not provide the three folded-edge covariance orders and coefficients. Targeted comparisons against mathematical research records and recoverable previous claim statements found no direct statement of this full arbitrary-probability three-phase classification. The authors identify general-reference variance Part 4 as in preparation; its future content and implicit results elsewhere remain genuine coverage risks.
+PASS
 
-## Mathematical value — PASS
-Disjoint edge terms are the least visible contribution to the variance of ordered-histogram total variation. The uniform-null literature isolates a nonzero constant covariance despite zero raw-edge covariance. The result identifies what survives away from uniformity: strict finite-sample repulsion plus two additional fluctuation orders triggered by exact balance of individual cell pairs. These are structural boundaries for uncentered nonuniform histograms, useful in variance decompositions and in deciding when Gaussian approximations miss a surviving constant. The analysis is not a claim about the centered general-reference statistic or an arbitrary high-dimensional covariance matrix.
+Given block totals K,L, the two internal binomial splits are independent, so the covariance is that of their folded-walk means. The increment of a folded-walk mean is (2θ−1) times the expected sign plus the zero-return probability, hence nonnegative by monotone coupling to the fair walk. Conditional on K, the L mean is decreasing in K. The K=0 and K=N endpoints make the independent-copy covariance identity strict, including N=1 and the no-residual-mass case. For a biased pair the folded mean differs from its linear drift by an exponentially small L² error after averaging over its block count. For a balanced pair the central-binomial estimate and Taylor expansion give slope 1/√(2πNu) and O(N⁻¹ᐟ²) L² error, with an analogous slope for the other block. Multiplying the slopes by Cov(K,L)=−Nuv gives all four coefficients, and Cauchy–Schwarz controls the errors at their stated scales.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the fixed-profile uncentered three-regime theorem, particularly the mixed balanced/biased scaling and explicit coefficient with unrelated block masses. The sign theorem is demonstrably also indexed and the uniform asymptotic was published; neither is credited as a standalone novelty. The centered Part 4 shares the balanced statistic and the relevant cumulant contribution, but is not an equivalent for unbalanced pairs.
+
+## value
+
+PASS
+
+A variance calculation for histogram total variation needs the covariance of disjoint terms. For fixed unequal profiles a Gaussian or purely uniform heuristic can miss the leading contribution: balancing one edge reduces the scale to √N, and balancing both leaves a nonzero constant. The coefficient and the regime distinction are useful for deciding when disjoint contributions can be neglected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

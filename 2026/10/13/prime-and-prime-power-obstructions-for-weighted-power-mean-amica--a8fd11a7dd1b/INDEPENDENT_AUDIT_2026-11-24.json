@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:44:21.281485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive integers, subtracting a²+b² gives a s(a)+b s(b)=2ab. If a=1, s(b)=2 contradicts s(1)=0, s(prime)=1 and s(composite)≥3. If a=p is prime, b(2p−s(b))=p, and neither b=1 nor b=p is possible. For powers of the same prime, unequal exponents give 1≡0 modulo p after division by the smaller power; equal exponents would require s(p^r)=p^r, whereas the geometric sum is strictly smaller. For powers a,b of different primes, coprimality forces a|s(b) and b|s(a), giving a<b and b<a. This proves the support bound also for equal coordinates. The known witness (4,6) gives 4·7+6·12=100 and support 1+2. See RESULT.md lines 18–53. The recorded finite scan in verification_output.txt and verify.py is corroboration only: its main pair scan uses a<b, although the prime-power grid includes the diagonal. Independently enumerating divisors by divisor pairs through 500 and scanning a≤b found no violations, including diagonal solutions (6,6), (28,28), (496,496). No bundled code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general WPM(p) construction describes tuples of varying sizes and exponents but supplies no such obstruction. Its three-entry exponent-one examples even include an entry 1.",
+          "The adjacent harmonious-pair result is for x/σ(x)+y/σ(y)=1."
+        ],
+        "reasoning": "A broader definition is not a broader exclusion theorem, and the adjacent obstruction is on a different solution set.",
+        "searches": [
+          "arXiv:2408.07387v1, §7 and Table 4",
+          "Resultary: harmonious pair prime powers, record 6cb27a1e4870"
+        ]
+      },
+      "checked_sources": [
+        "Dimitrov arXiv:2408.07387v1 §7/Table 4",
+        "OEIS A383714",
+        "Resultary catalog and mirrored record 6cb27a1e4870"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The harmonious result excludes two prime-power entries on its own hypothesis. The WPM(1) solution (4,6) has 4/7+6/12=15/14, not 1. Conversely the perfect numbers 6 and 28 form a harmonious pair, but unequal perfect numbers cannot satisfy WPM(1), by (a−b)²>0."
+        ],
+        "reasoning": "Neither family includes the other; the analogous harmonious theorem does not apply just by substituting the WPM hypothesis. Same-day catalog dates establish no priority, and the statements are distinct independently of date.",
+        "searches": [
+          "Resultary record 6cb27a1e4870, No harmonious pair consists of two prime powers",
+          "arXiv:2408.07387v1, §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dimitrov §7 defines WPM(p) by the weighted-power-sum equality; k=2 and p=1 give exactly aσ(a)+bσ(b)=(a+b)².",
+          "The proper-divisor-sum form a s(a)+b s(b)=2ab is obtained by cancellation and is not the harmonious-pair condition."
+        ],
+        "reasoning": "The two algebraic forms define the same pairs. The matched definition and finite examples do not assert the exclusion of primes or of two prime powers; no separate equivalent statement was identified.",
+        "searches": [
+          "Resultary: WPM(1) prime-coordinate and two-prime-power obstructions",
+          "arXiv:2408.07387v1, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 already contains (4,6) among five selected two-entry WPM(1) examples.",
+          "A383714 uses exponent two, e.g. 7σ(7)²+21σ(21)²=(7+21)³."
+        ],
+        "reasoning": "The sharpness witness is credited prior work. The finite examples are not a complete census or an obstruction, and the OEIS table imposes another equation.",
+        "searches": [
+          "Dimitrov Table 4, k=2 and p=1",
+          "OEIS A383714"
+        ]
+      },
+      "rationale": "The distinct claim is the universal obstruction for the exponent-one weighted-power equation, not the example establishing sharpness. The closest definition and tables, the exponent-two sequence, and the related harmonious-pair theorem do not cover it on the inspected evidence.",
+      "residual_risks": [
+        "An equivalent observation under terminology other than WPM(1) could have escaped indexing. The cited 2015 harmonious-pair article's full text was not inspected (access denied at the DOI; alternate metadata lookup did not return); the accessible overlapping catalog theorem uses a different premise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and example coverage, not the obstruction",
+          "evidence": "The paper says several tuples are listed; the k=2, p=1 rows are (4,6), (10,16), (34,68), (60,81), (91,273).",
+          "identifier_or_url": "https://arxiv.org/abs/2408.07387v1",
+          "material_read": "§7, printed p. 8 (PDF text around offsets 20311 and 20982), definition and Table 4",
+          "method": "OA PDF passage lookup and bounded reading",
+          "title": "Generalizations of amicable numbers",
+          "trigger": "Original WPM definition and nearest exact table"
+        },
+        {
+          "assessment": "Different exponent",
+          "evidence": "The comments/example use squared σ and cubed coordinate sum.",
+          "identifier_or_url": "https://oeis.org/A383714",
+          "material_read": "Comments and example, text around offset 417",
+          "method": "Public database passage",
+          "title": "OEIS A383714",
+          "trigger": "Nearby WPM database entry"
+        },
+        {
+          "assessment": "Different defining equation; not equivalent",
+          "evidence": "Exclusion under x/σ(x)+y/σ(y)=1, not under WPM(1).",
+          "identifier_or_url": "2026/10/13/SCOPE-no-harmonious-pair-consists-of-two-prime-powers--6cb27a1e4870",
+          "material_read": "RESULT.md statement and prior-work discussion around offsets 0 and 3381",
+          "method": "Resultary search followed by local published mirror reading",
+          "title": "No harmonious pair consists of two prime powers",
+          "trigger": "Strongest adjacent catalog theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair condition is an independently introduced divisor-sum relation with published examples. The two-prime-power exclusion gives an unbounded structural restriction on its solutions and a sharp minimum of total prime support; it eliminates an entire family from classification even though one composite prime power is possible. The contribution is modest and uses elementary divisibility, but is not a recomputation of the known witness or a change of normalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

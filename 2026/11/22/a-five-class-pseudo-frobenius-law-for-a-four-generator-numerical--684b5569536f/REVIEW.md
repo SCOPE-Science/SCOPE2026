@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The weighted coin-cost inequality and constructive five-residue solution prove the Apéry formula for every parameter. Checking maximal Apéry elements under all three nonbase minimal generators proves the complete pseudo-Frobenius spectrum. The generator-wrap cases, all residues modulo five, and the symmetry criterion were checked algebraically. Independent finite enumeration supports the proof for the stated tested range but is not substituted for proof of the infinite family.
+## correctness
 
-**Originality: PASS on available evidence.** The closest primary literature contains general Apéry optimization and monotone-Apéry methods, not this full parameter-uniform pseudo-Frobenius set. The 2026 odd-right-end paper identifies an overlapping list of minimal generators in its complete even-multiplicity semigroup, but its object and complete invariants differ for even \(m>6\). The previously published small case \(m=6\) is credited. A public research index was searched for exact generators, aliases, weighted coin representation and period-five symmetry; the closest records concern different generator patterns. No source located a dominating theorem yielding this specific formula. Residual risk is an unindexed equivalent or overlooked specialization of broad formulas.
+PASS
 
-**Value: PASS.** The first four odd-step generators form a natural fixed-embedding-dimension truncation of an established closure construction (even parameters). Computing *every* pseudo-Frobenius gap and the five-class type, including an infinite symmetric congruence class, answers a structurally meaningful question beyond genus tabulation or mere known-algorithm evaluation. The result is independent of large computational tables and applies to all admissible parameters.
+For coin sizes 1,3,5 the costs 1,2,3 are each at least three fifths of size. Repeated size-five coins and residual constructions of costs 0,1,2,2,3 attain the rounded bound. Minimum cost h(t) is nondecreasing, so t=i is optimal among nonnegative t congruent to i, giving the Apéry formula. In residue i there are h(i) nonnegative gaps and the largest gap is w_(m-1)-m. The full blocks contribute 15k+8 in block k; a final r-term block contributes 3qr+c_r. If z is pseudo-Frobenius then z+m is Apéry; conversely for z=w_i-m it suffices to test z+g in the semigroup on the generators. In a wrapped transition this holds automatically; in an unwrapped one it is exactly h(i+t)<h(i)+c. For t=5 equality always holds, so only the last five indices remain. Nonwrapped t=3 allows only residue 2 modulo 5 and nonwrapped t=1 allows residues 2 and 4. Intersecting gives the displayed I_m and type vector. Type one gives symmetry. The proof's reference to four possible indices in Step 4 is a count typo: there are five candidates before screening, as used by the displayed index formula. A separate increasing-integer membership recurrence checked gaps and the generator definition of pseudo-Frobenius exactly for m=6..70.
 
-The supplied checker uses residue-graph shortest paths and exhaustive gap membership as cross-checks. It does not establish bibliographic uniqueness or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the complete, parameter-uniform PF spectrum and type/symmetry law for the truncation, supported by its explicit Apéry calculation. The standard Apéry/PF relation and the weighted coin approach are not new. The m=6 Frobenius and genus instance is already attributed to the full odd-right-end case and is not credited as new here. The checked primary results and indexed statements do not supply this truncation's PF formula or force its five-class law without the family-specific optimization and maximal-residue computation.
+
+## value
+
+PASS
+
+This is a natural fixed-generator truncation of the odd-step construction, with a direct arithmetic extension to all integers m>=6. The complete PF spectrum gives the exact maximal gaps under semigroup order, not just the largest gap, and its five-class type and symmetry law is useful without rerunning a residue search at each m. It demonstrates a parity-independent structure not inferable from the full even-m model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

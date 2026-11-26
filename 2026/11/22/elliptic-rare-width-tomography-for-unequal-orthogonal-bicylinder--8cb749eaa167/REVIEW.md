@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The analytic minimizer classification rests on radius-\(a\) ball containment and exact planar disk projection. A Lipschitz upper bound for the maximizing support point, together with the disk's strict quadratic support loss, yields a uniform first-variation formula. The uniform spherical-coordinate integral gives the sharp elliptic probability coefficient and the joint conditional limit. The coefficient is strictly decreasing in the larger radius, proving inverse uniqueness. The standalone checker supplies diagnostic finite computations but no infinite-dimensional certification.
+## correctness
 
-**Originality — PASS, provisional.** Checked geometry literature includes Hubbell's 1965 unequal-cylinder *volume* calculation, May's day-verified 2013 equal-cylinder *surface-unwrapping* analysis, and Vickers–Brown's 2001 *projected area/perimeter* distributions. Other compared findings address equal-radius width statistics, equal-radius central plane-section area, single finite-cylinder random width, and unequal-cylinder John/Löwner ellipsoids. These do not imply the specific strict-unequal-radius elliptic lower-edge distribution, angular marks or inverse reconstruction as stated. The equal-radius logarithmic tail is explicitly known and excluded from novelty. Historical priority and potential general local support theorems remain residual risks.
+PASS
 
-**Value — PASS.** Near-minimal random caliper measurements are geometrically natural, and a pair of directly measurable features (lower endpoint and finite edge slope) reconstructs both different cylinder radii. The elliptic angular bias and its singular approach to the equal-radius case explain an unexpected geometric sensitivity relevant to stereological discrimination.
+Central symmetry gives W=2h. The radius-a ball is included, and au for U_z≠0 strictly satisfies both cylinder inequalities, so all and only equatorial directions minimize. For (x,y) in the smaller disk, the z contribution is |s|sqrt(b²−y²). Its Lipschitz perturbation of the objective at the equatorial optimizer av is bounded by L|s||q−av|, against a support loss at least sqrt(1−s²)|q−av|²/(2a). Completing the square gives h=a+|s|g(θ)+O_{a,b}(s²) uniformly. Compact separation off the equator and min g>0 imply |s|=O(ε); the event and the strip |s|≤ε/(2g) differ in spherical measure by O(ε²). Integrating dθ ds/(4π) establishes the claimed slope; on that strip the mark change of variables gives the product law with azimuth proportional to 1/g. The slope is strictly decreasing from infinity to zero at fixed a by its positive integral expression, which also verifies the inverse. The stated equal-radius comparator agrees with maximizing (|u_x|+|u_z|)sqrt(a²−y²)+u_y y and the small-product log law localized near ±e_y.
 
-**Limitations.** Only the first nonzero term at the lower width endpoint is proved; the general full-width CDF, angularly nonuniform input, arbitrary crossing angles and uniform coalescence scaling are not addressed. No independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the fixed unequal-radii probability asymptotic with its elliptic coefficient, marked conditional limit, and recovery from endpoint and slope. Closest indexed laws concern the equal-radius degeneration or central chords, and the other inspected primary geometric formulas concern a different functional.
+
+## value
+
+PASS
+
+Random line projections are a natural way to observe the body without choosing its orientation. The degenerate minimum is a whole circle, so ordinary isolated-minimum approximations do not describe the marked localization. The exact finite slope distinguishes two radii from an endpoint alone and separates this regime from the singular equal-radius case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

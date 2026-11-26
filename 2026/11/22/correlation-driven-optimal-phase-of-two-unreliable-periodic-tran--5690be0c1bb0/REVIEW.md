@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For the specified independent-cycle, joint-Bernoulli operation law, the first-event recurrence gives \(V=(1-px)/(p+q-r)\) and integration over the two possible passenger-arrival phase intervals yields the exact mean-wait quadratic. Its curvature \(2pq/(p+q-r)>0\) verifies global uniqueness over the complete closed phase interval, including simultaneous-event endpoints. The exact example and finite rational diagnostics reproduce the claimed values. The proof does not infer infinite-family statements from simulation.
+PASS
 
-## Originality
+With T normalized to 1 and s=p+q−r, a next-opportunity recurrence gives the residual from the indexed cut after B_n as V=(1−px)/s. At x=1 that cut is before A_{n+1}, whose elapsed time is zero; a passenger arriving at the coincident instant has measure zero. Independently, between consecutive nonempty cycles the cross-cycle headway is G+F′−L, with G geometric on {1,2,…} of parameter s, F′ the next first offset and L the current last offset. The two nonempty-cycle marks are independent of each other and G; F′ equals x with probability (q−r)/s and L equals x with probability q/s. Within a nonempty cycle one adds a gap square x² with probability r/s. The mean uniform forward wait is s/2 times the total mean squared-gap reward per nonempty cycle. Using E G=1/s and E G²=(2−s)/s² gives the stated (2pq x²−2rx+2−s)/(2s). Zero-length gaps are harmless at both endpoints and the labels do not change, so both endpoints are covered by this derivation too. The curvature 2pq/s is positive, and r≥0, giving the unique projected minimizer min{1,r/(2pq)}, even at the transition equalities. For p=q=r=2/5 substitution confirms 7/5 versus 8/5 in normalized units.
 
-PASS relative to the checked evidence, with historical-priority risk. The source comparisons include exact residual-wait modeling, scheduling under stochastic running times, empirically based reliability evaluation, and two-line bus-bunching dynamics; none of the inspected full texts proves the joint-Bernoulli optimal phase \(\min\{1,r/(2pq)\}\) with its covariance and endpoint trichotomy. The closest general prior theory supplies inspection-paradox and renewal-reward ideas, but not an explicitly matching dependent-thinning calculation. Uninspected transportation and queueing literature could contain an equivalent special case. The evidence supports a provisional claim rather than an assertion of independent priority certification.
+## originality
 
-## Value
+PASS
 
-PASS. This exact classification tests a consequential assumption behind even-spacing heuristics: two services with identical marginal cancellation frequencies can require a different optimal relative phase because their failures are paired. The strict positive-curvature formula and endpoint threshold give an interpretable design boundary, and the rational example quantifies a change of \(T/5\) in mean passenger wait under unchanged marginal operating rates. The idealized dependence fixed to cycle labels and independent cycles limits direct field applicability.
+Pass the exact paired-Bernoulli phase law, dependence threshold and labeled-boundary distinction, not the residual-life method or the value of spacing reliable services evenly. The strongest inspected Resultary results use either additional guaranteed service and more optional departures, or independent cancellations and guaranteed service. The inspected two-route and unreliable long-headway papers involve propagation of delay or holding/schedule percentiles, not joint Bernoulli service suppression at fixed labeled opportunities.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model isolates a design effect not captured by reliability marginals: holding p and q fixed, co-failure dependence changes the optimal offset and can make coincidence optimal at either end under different labels. At p=q=2/5, for example, the feasible r range includes zero, independence, and the clipped endpoint regime. The exact formula shows why equal spacing is not a universal rule even when frequencies are fixed, and provides a usable benchmark for any fixed feasible p,q,r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:06:06.859554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–88. VERIFICATION.md, Python and C++ programs and both output records inspected; frozen programs not executed.",
+        "Independent BFS replay: /workspace/branches/bff61eea-caa1-4b97-a49e-276ce6f90b83/independent_bfs.py; independent_n7.out and independent_n8.out alongside it. At n=7 and n=8, checked all 595 and 1540 endpoint pairs, respectively, finding thresholds 16 and 43 and 21 and 420 distinct maxima, with 10 and 1 witness pairs per maximum."
+      ],
+      "rationale": "A nonresolving set is contained in a distance bisector, so the threshold is the largest bisector size plus one. At n=7 intersections of size 0,1,2,3 give distances 1,3,2,0. In the distance-three case with endpoints abc and ade and remaining points f,g, the path through def and bcg proves the upper bound, and no common disjoint triple exists. Equal distances then mean equal counts in the exclusive parts. For exclusive size k=3,2,1, the sum of binom(k,j)^2 binom(7−2k,3−2j) is 9,13,15 respectively. The 15-sets depend only on the pair of switched points, recoverable by their multiplicities 5 rather than 7. For n≥8 all nonadjacent distinct pairs have distance two. With q=binom(n−3,3) and c_r=binom(n−6+r,3), the number of distinguishers for overlap r is 2(q−c_r) plus two if r>0 (adjacent endpoints are already counted). This is strictly minimized at r=2, since c2>c1 and c2−c0>1, already at n=8. Its value is 2+2 binom(n−4,2). For overlap two, distinguishers are the two endpoints and the triples avoiding their shared pair K and choosing exactly one switch point in T. Ground-point frequencies on K, the complement of K∪T, and T are 2, 2(n−5), and 1+binom(n−4,2) in strictly increasing order, even at n=8. Thus both K and T are uniquely recoverable and the labelled census follows.",
+      "residual_risks": [
+        "The independent finite reproduction is limited to n=7,8. The proof, not the computations, validates the all-order result. Smaller inclusion-maximal nonresolving sets are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey et al. give the distance formula for general ranks and the n≥3k−1 diameter-two range. Bonato et al. treat ordinary dimension and localization. The Korivand et al. metadata verifies it is threshold work; the frozen source cites its Petersen case, not a rank-three result. No decisive passage was recovered from that article."
+        ],
+        "reasoning": "General rank-distance formulas supply inputs, not a minimization over pair types or a quotient of extremizing pairs by their identical supports. Petersen belongs to rank two. Unavailable threshold full text leaves a bounded priority risk, not evidence of either coverage or noncoverage.",
+        "searches": [
+          "Bailey et al., Resolving sets for Johnson and Kneser graphs; Bonato–Huggan–Marbach, The localization number and metric dimension of graphs of diameter 2; Korivand–Khashyarmanesh–Tavakoli, DOI 10.1155/2022/1838719"
+        ]
+      },
+      "checked_sources": [
+        "Bailey et al. arXiv:1203.2660; Bonato–Huggan–Marbach arXiv:2008.04896; available metadata for DOI 10.1155/2022/1838719",
+        "Resultary 290a05e93094 and 77cf9761bfc9, excluding the assigned self-hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distance dichotomy for large n and exceptional distance law for n=7 are already known; the abstract maximum-bisector reduction is elementary. The earlier rank-two result treats different supports."
+        ],
+        "reasoning": "Known distance patterns do not by themselves give either the minimizing orbit or distinct set count. Here the seven-point balanced-exclusive sum and the frequency reconstruction for larger n address different possible collisions of witnesses; the latter is not a mere substitution in the rank-two count.",
+        "searches": [
+          "Bailey et al., §1.1; Resultary 290a05e93094 Finding and Proof §§2–5; Korivand et al. threshold article metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The largest admissible k for k-metric dimension equals the minimum number of distinguishers over endpoint pairs; the threshold here is vertex count minus that minimum plus one. Ordinary metric dimension and localization instead optimize over selected resolving sets or strategies.",
+          "Bailey et al. give the odd-graph and general Kneser distance rules, not a census of equal-distance sets. Bonato et al. study different optimized invariants."
+        ],
+        "reasoning": "Odd graph O4 and KG(7,3) are the same distance case; phrasing it via the k-metric invariant exposes potential threshold equivalence, but the number of distinct maximizing bisectors also requires a separate collisions calculation. The alias lookup did not return a material exact source.",
+        "searches": [
+          "Kneser graph k-metric dimensional metric dimension threshold KG(n,3) odd graph minimum distinguishing resolving neighborhoods Korivand Khashyarmanesh Tavakoli full text 1838719",
+          "Bailey et al., arXiv:1203.2660, §1.1; Bonato–Huggan–Marbach arXiv:2008.04896 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b7e691bfae67 is the assigned self-match, not distinct priority evidence. 290a05e93094 gives thresholds and nonresolving-family results for triangular and two-subset Kneser graphs, with binom(n,2) maximum sets for KG(n,2), n≥6. 77cf9761bfc9 is a minimum distance-equalizer census for rank-two systems."
+        ],
+        "reasoning": "The rank-two analogue does not contain the rank-three graph family or determine the change from ten witnesses to one. A minimum equalizer census is not a largest-bisector census.",
+        "searches": [
+          "Resultary semantic lookup for rank-three Kneser thresholds, largest nonresolving families and the n=7 exception"
+        ]
+      },
+      "rationale": "The supported distinction is the rank-three minimum-distinguishing-neighbourhood calculation together with the labelled largest-bisector classification and the exact loss of witness uniqueness at n=7. Known Kneser distances, abstract threshold reductions and constructions of small resolving sets are not claimed as new.",
+      "residual_risks": [
+        "Uninspected full text of Korivand–Khashyarmanesh–Tavakoli and an unindexed equivalent k-metric or odd-graph computation remain priority risks. This is a bounded comparison, not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local distance input and resolving-set constructions",
+          "evidence": "Odd-graph intersection-distance rule, general distance formula and diameter-two regime are given.",
+          "identifier_or_url": "arXiv:1203.2660",
+          "material_read": "p. 1 / offset 929 and §1.1 p. 3 / offset 8034",
+          "method": "OA original PDF passage",
+          "title": "Resolving sets for Johnson and Kneser graphs",
+          "trigger": "General Kneser and odd-graph distance formulas"
+        },
+        {
+          "assessment": "Different metric invariants",
+          "evidence": "The passages describe localization and minimum resolving cardinality in diameter two.",
+          "identifier_or_url": "arXiv:2008.04896",
+          "material_read": "pp. 1–3 / offsets 467 and 8653",
+          "method": "OA original PDF passage",
+          "title": "The localization number and metric dimension of graphs of diameter 2",
+          "trigger": "Same Kneser graph family in diameter two"
+        },
+        {
+          "assessment": "Full-text scope not independently verified",
+          "evidence": "Title matches the invariant; the frozen record attributes the Petersen calculation and general definition to it.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/1838719",
+          "material_read": "Bibliographic identification and frozen attribution only",
+          "method": "DOI/Wiley and Hindawi OA attempts returned HTTP 403; title search returned the publisher landing page",
+          "title": "Metric Dimension Threshold of Graphs",
+          "trigger": "Closest exact invariant in published work"
+        },
+        {
+          "assessment": "Rank-two analogue and different extremum",
+          "evidence": "The largest sets of KG(n,2) have their own count and classification. The other record concerns minimum equalizers, not rank-three largest bisectors.",
+          "identifier_or_url": "Resultary 290a05e93094 and 77cf9761bfc9",
+          "material_read": "First RESULT.md Finding and Proof §§2–5; second record indexed comparison",
+          "method": "Local Resultary mirror and catalogue",
+          "title": "Maximum nonresolving landmark families of triangular and two-subset Kneser graphs; Complete minimum distance-equalizer census of triangular and two-subset systems",
+          "trigger": "Closest indexed prior exact family classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md quantitative claims and proof, especially the support reconstruction and the seven-point calculation; earlier rank-two analogue."
+      ],
+      "rationale": "For this natural connected Kneser family the universal landmark threshold is a worst-case guarantee not determined by ordinary metric dimension. The exact count and characterization also identify all obstructions at the sharp bound and explain why they merge tenfold only at the odd graph. This is a full natural rank family with a genuine exceptional order, rather than an isolated table entry.",
+      "residual_risks": [
+        "No higher-rank threshold or classification of smaller maximal obstructions is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

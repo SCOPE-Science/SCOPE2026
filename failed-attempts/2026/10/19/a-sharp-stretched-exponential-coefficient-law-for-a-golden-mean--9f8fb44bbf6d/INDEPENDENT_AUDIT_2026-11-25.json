@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:34:58.772868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main coefficient formula is correct after straightforward proof and wording corrections, but the frozen Finding explicitly calls B positive. In fact B/A=−ρN′(ρ)/N(ρ)+(ρ²+6ρ⁴)/p<0: the first ratio exceeds 3/2 since ρ>1/2, and the second is less than 7/6 since 0<ρ<1. Independent evaluation in /workspace/check_frozen_math.py gives B≈−1.1581858701 and recovers the stated positive leading coefficient 0.0898863185. The subgroup count gives a rotation contribution −(1/2)log P and a reflection contribution N/P. The even edge reflection at n=2 should be treated directly (its unique fixed word is 00), not as a path of m−2=−1 vertices using the empty-path convention; n=1 also directly fixes just 0. These counts agree with the formulas. At the positive pole of the exponent the square-root prefactor and exp(A/w+B) have the stated expansion. On |z|=ρr with r=1−δ and δ=√(A/n), the frozen uniform lower bound proportional to θ²/δ³ is not valid across a fixed positive-side neighborhood. The exact loss of real part for 1/(1−r exp(iθ)) is r(1+r)(1−cos θ)/[δ(δ²+2r(1−cos θ))], which is sufficient: outside the inner δ^(3/2)log(1/δ) arc it is at least a constant times log²(1/δ), and becomes order 1/δ away from the radius. On the inner scale θ=δ^(3/2)s, the order-δ^(1/2) terms are odd imaginary and integrate to zero; the order-δ integrated relative error is O(n^(−1/2)). The Gaussian width times the square-root prefactor gives 1/(2√(πpn)); r^(−n) produces exp(A/2), and the negative singularity is suppressed by the gap A−A_minus on this circle. Thus neither the wording error nor the nonuniform estimate disproves the boxed asymptotic. Frozen code and verification notes were inspected, not run.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2.2 and 3.2 give the general dihedral decomposition and matrix formulas for finite-type flip systems. The classical exponential singularity/Laguerre model gives coefficient growth for (1−z)^(−1/2) exp(A/(1−z))."
+        ],
+        "reasoning": "The underlying zeta function is not new; the standard exponential-pole calculation works here with a nonzero analytic prefactor at the stronger singularity. Equal moduli do not force parity effects because the positive residues differ.",
+        "searches": [
+          "Kim–Lee–Park Theorems 2.2 and 3.2",
+          "Ryu arXiv:1407.3988, PDF p.3",
+          "Flajolet–Sedgewick, Analytic Combinatorics, Theorem VIII.3 and p.707"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Independent /workspace/check_frozen_math.py golden_mean()",
+        "Resultary focused golden-mean flip queries",
+        "Kim–Lee–Park doi:10.2140/PJM.2003.209.289",
+        "Flajolet–Sedgewick Analytic Combinatorics",
+        "Ryu arXiv:1407.3988",
+        "Nordin–Md Noorani doi:10.3934/dcds.2021046 (OA attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At z=±ρ the exact residues in the scaled pole coordinates are (1±ρ)(1+ρ²)/p, so 0<A_minus<A. The standard local model coefficient is n^(−1/2) exp(2√(An)+A/2)/(2√π) with O(n^(−1/2)) relative error. The analytic factor supplies p^(−1/2)e^B and replacing z by z/ρ supplies ρ^(−n).",
+          "On the positive saddle's circle the entire negative arc has exponential factor at most exp(A_minus/δ+O(1)) against exp(A/δ+O(1)); this is smaller than the stated error by an exponential in √n. Away from the two real singularities the exponent remains bounded."
+        ],
+        "reasoning": "Checking the second singularity is necessary for the all-integer-n claim, but here reduces to an explicit residue inequality and the standard Cauchy-circle bound. It is not a new transfer result or a nonmechanical two-saddle cancellation.",
+        "searches": [
+          "Kim–Lee–Park matrix formulas and Flajolet–Sedgewick exponential-of-a-pole saddle analysis",
+          "Frozen RESULT.md §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The golden-mean shift is the two-symbol SFT for the matrix [[1,1],[1,0]], with symbol flip matrix I for natural reversal. In Kim–Lee–Park's notation the determinant equals 1−z²−z⁴ and their reflection terms combine to N/P.",
+          "The lagged reflection counts, Fibonacci paths and matrix formulation describe the same fixed-point contributions. Two focused local catalogue lookups yielded no directly relevant independent indexed statement."
+        ],
+        "reasoning": "Compare the full Lind coefficient zeta after identifying the flip, not merely the Artin–Mazur zeta or counts of primitive orbits. The specialized exact function is already covered by the matrix formula.",
+        "searches": [
+          "Resultary: golden-mean flip Lind zeta coefficient asymptotic; natural reversal dihedral Fibonacci-shift coefficient growth",
+          "Kim–Lee–Park, doi:10.2140/PJM.2003.209.289, Theorems 2.2 and 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked catalogue hits did not supply a directly relevant coefficient-law table or theorem. However the generating-function data are supplied exactly by the flip theorem and the singular model is the known generating function for e^A L_n^(−1/2)(−A)."
+        ],
+        "reasoning": "A finite coefficient listing would not decide an all-n asymptotic. Exact prior data plus the model transfer, rather than absence of an identical numeric constant in a table, decide coverage.",
+        "searches": [
+          "Resultary focused golden-mean flip-zeta coefficient comparisons (two queries, limit 50)",
+          "Kim–Lee–Park Theorem 3.2 exact fixed-point generating function",
+          "Analytic Combinatorics p.707 Laguerre passage"
+        ]
+      },
+      "rationale": "The exact zeta is a direct instance of the published flip matrix formula, and once it is specialized the all-n leading law with its constant and error is obtained by standard exponential-pole coefficient transfer and a comparison of two explicit positive residues. This is a failure of distinctness by implication, not evidence that an earlier paper printed the identical golden-mean formula or that any inaccessible source establishes priority.",
+      "residual_risks": [
+        "Whether an earlier source explicitly prints this exact coefficient law is unresolved. Nordin–Md Noorani full text was not obtained, and catalogue misses prove no absence. The originality failure instead rests on verified mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact zeta by implication",
+          "evidence": [
+            "General square-root/reflective-exponential decomposition and matrix reflection formulas specialize to the golden-mean adjacency and identity symbol flip."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/2003/209-2/pjm-v209-n2-p06-p.pdf",
+          "material_read": "Theorem 2.2 p.292 (offset 8500); Theorem 3.2 pp.297–298 (offset 25000)",
+          "method": "Bounded OA PDF passages and explicit matrix specialization",
+          "title": "A Zeta Function for Flip Systems",
+          "trigger": "Primary exact zeta formula for the same class and action"
+        },
+        {
+          "assessment": "Established saddle-point mechanism; constants reduce to its exponential-pole model",
+          "evidence": [
+            "Saddle analysis and the Laguerre model cover the form w^(−1/2) exp(A/w); the extra analytic constants and suppressed second arc introduce no new mechanism."
+          ],
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/AC.pdf",
+          "material_read": "Chapter VIII, Theorem VIII.3 p.553 (offset 2060000); exponential-pole and Laguerre passage p.707 (offset 2574000)",
+          "method": "Bounded OA PDF passages and comparison with the local form",
+          "title": "Analytic Combinatorics",
+          "trigger": "Classical coefficient law of the local singular model"
+        },
+        {
+          "assessment": "Relevant background, not a separately demonstrated match of the coefficient asymptotic",
+          "evidence": [
+            "Discusses the Lind zeta as an invariant and cites the earlier matrix formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3988",
+          "material_read": "PDF p.3, around offset 9000",
+          "method": "Bounded OA passage",
+          "title": "On Conjugacy Invariants of D-infinity Topological Markov Chains",
+          "trigger": "Lind zeta and dihedral conjugacy work"
+        },
+        {
+          "assessment": "No conclusion about additional coverage from this source",
+          "evidence": [
+            "The frozen source distinguishes finite-orbit counting from coefficient growth; that comparison was not independently settled from the full paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2021046",
+          "material_read": "Bibliographic identification in the frozen source; no primary full text obtained",
+          "method": "Lawful OA lookup did not retrieve text or a repository copy",
+          "title": "Counting finite orbits for the flip systems of shifts of finite type",
+          "trigger": "Plausible related dihedral asymptotic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The golden-mean flip and its Lind coefficients are natural objects, and separating coefficient growth from orbit growth is sensible. Here the exact zeta is already available by matrix substitution and the precise coefficient constant, all-n scope and relative error follow from the standard exponential-pole model once the two residues are compared. The frozen record does not supply a surviving nonmechanical invariant or useful new method beyond that routine specialization. Correcting B's sign wording or the contour proof estimate would not change this value decision.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

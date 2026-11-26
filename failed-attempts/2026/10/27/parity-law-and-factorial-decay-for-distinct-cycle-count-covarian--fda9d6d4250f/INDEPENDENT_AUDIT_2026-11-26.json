@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:26.985275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, exact-moment calculation, signed determinant lemma, asymptotic, and example at j=2,k=3",
+        "VERIFICATION.md and verify.py: finite exact arithmetic and exhaustive small-size cycle enumeration"
+      ],
+      "rationale": "Marking the j-cycle gives E[C_j]=s_(n-j)/(j s_n); marking the two different lengths leaves r labels and gives E[C_j C_k]=s_r/(jk s_n). The signed determinant required for covariance follows from strict opposite monotonicities of the even and odd partial-sum subsequences for mixed-parity offsets, and comparison to e^-1 when both offsets are odd. With both offsets even, the decrements d_t of u_t=s_(2t) satisfy d_t/d_(t+1)=(2t+1)(2t+4)>=4>u_(t+1)/u_(t+2), giving strict log-convexity. The positive increments c_t of v_t=s_(2t+1) decrease strictly, giving v_(t+1)^2-v_t v_(t+2)=v_(t+1)(c_t-c_(t+1))+c_t c_(t+1)>0. Products of adjacent ratios extend the resulting inequalities to arbitrary positive offsets, using ratios only at positive entries. The omitted endpoint explanation at v_0=s_1=0 is immediate: v_0 v_(h+l)=0<v_h v_l when h,l>0. This also explains why no logarithm at zero is required. The denominator is positive and the three sample fractions follow by substitution. Taylor's integral remainder has magnitude a_m=(m!)^-1 integral_0^1 exp(u-1)u^m du, asymptotic to 1/(m+1)!. For fixed j,k its r-indexed term dominates the three shifted remainders, giving the numerator's signed coefficient e^-1 and the covariance's coefficient e after division by s_n^2.",
+      "residual_risks": [
+        "The supplied script was read, not executed. The finite sign checks and independent enumeration only corroborate the argument. The asymptotic is assessed for fixed lengths; the result does not cover equal lengths or general Ewens weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general factorial-moment formula allows arbitrary factorial moment orders and Ewens weights. Arratia–Tavaré treat conditioned cycle-count approximations. The related Ewens catalogue result repeats the uniform case and analyzes nonuniform weights."
+        ],
+        "reasoning": "A general moment formula covers the covariance identity by specializing and subtracting, but the strict sign and sharp rate are covered directly by f219fce56fec; there is no need to infer them from approximations or from the date of the Ewens record.",
+        "searches": [
+          "da Silva–Jamshidpey–Tavaré, arXiv:2006.04840, section 2.1, equation (6)",
+          "Arratia–Tavaré, arXiv:1308.3279, sections 7.2.1 and 9",
+          "Resultary: 38e40b444e08"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and Relationship to prior work",
+        "Resultary f219fce56fec and 38e40b444e08",
+        "arXiv:2006.04840 and arXiv:1308.3279, passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In equation (6), set theta=1 and moment order one at j and k and zero elsewhere; subtract the two first moments. The catalogue record directly proves the all-positive-offset partial-sum determinant and applies it to precisely these covariances."
+        ],
+        "reasoning": "Both the classical covariance identity and the purported additions are covered. Reordering the distinct lengths or changing offset notation does not produce a new assertion. The conclusion does not depend on external publication chronology.",
+        "searches": [
+          "Resultary: f219fce56fec, Finding and determinant proof",
+          "arXiv:2006.04840, equation (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized derangement counts are the alternating partial sums of exp(-1). The determinant of the four offset partial sums is the mixed covariance times its positive normalizing denominator. The matching catalogue record states the covariance law and proves the determinant itself."
+        ],
+        "reasoning": "Relabeling the two offsets and the number of unused labels leaves the strict inequality unchanged. Uniform permutations conditioned on no fixed points are the theta=1 Ewens derangement case.",
+        "searches": [
+          "Resultary: alternating covariance of cycle classes in uniform derangements; singular covariance transition for cycle counts in Ewens derangements",
+          "Primary literature: arXiv:2006.04840, section 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match gives the sign (-1)^(n-j-k) strictly and the leading (-1)^(n-j-k)e/[jk(n-j-k+1)!] for fixed j,k. It also gives the same exact covariance formula."
+        ],
+        "reasoning": "The prior is an exact symbolic result for all allowed n,j,k, stronger than a tabulation of examples. The sample fractions are direct evaluations of that formula.",
+        "searches": [
+          "Resultary: SCOPE-alternating-covariance-of-cycle-classes-in-uniform-derangements--f219fce56fec, Finding and proof",
+          "Resultary: SCOPE-a-singular-covariance-transition-for-cycle-counts-in-ewens-deran--38e40b444e08"
+        ]
+      },
+      "rationale": "A distinct published Resultary record, SCOPE-alternating-covariance-of-cycle-classes-in-uniform-derangements--f219fce56fec, already contains the same strict sign over the same uniform-derangement domain, the same signed leading factorial coefficient, and the same all-positive-offset determinant inequality. This is demonstrated coverage, not a possible overlap inferred from a title or date. The exact covariance identity separately follows from published general factorial moments. No distinct theorem remains in the frozen Finding.",
+      "residual_risks": [
+        "No claim about earliest external priority or coverage in uninspected literature. That uncertainty does not change the exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of frozen contribution",
+          "evidence": "Same covariance formula, strict sign and fixed-length signed leading term; proof contains the same determinant for every pair of positive offsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-alternating-covariance-of-cycle-classes-in-uniform-derangements--f219fce56fec",
+          "material_read": "RESULT.md, Finding and signed determinant proof",
+          "method": "Published record through local mirror",
+          "title": "Alternating covariance of cycle classes in uniform derangements",
+          "trigger": "Apparent exact match on cycle covariance and alternation"
+        },
+        {
+          "assessment": "Includes the uniform law; not needed for the decisive comparison",
+          "evidence": "Repeats the theta=1 case and treats theta not equal to one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-singular-covariance-transition-for-cycle-counts-in-ewens-deran--38e40b444e08",
+          "material_read": "RESULT.md, Finding and uniform case",
+          "method": "Published record through local mirror",
+          "title": "A singular covariance transition for cycle counts in Ewens derangements",
+          "trigger": "Broader Ewens formulation of the same statistic"
+        },
+        {
+          "assessment": "Covers the moment identity, not the strict sign in the inspected passage",
+          "evidence": "Set theta=1 and take single orders at j and k for the mixed moment.",
+          "identifier_or_url": "arXiv:2006.04840",
+          "material_read": "Section 2.1, equation (6), page 2, offset 7246",
+          "method": "Open-access PDF",
+          "title": "Random derangements and the Ewens Sampling Formula",
+          "trigger": "Cited exact factorial moments in a larger model"
+        },
+        {
+          "assessment": "Related approximations, not evidence for an exact strict sign in the passages inspected",
+          "evidence": "Conditions independent cycle-count processes and describes derangement approximations.",
+          "identifier_or_url": "arXiv:1308.3279",
+          "material_read": "Section 7.2.1 and derangement discussion near section 9, pages 37–38, offsets 94203 and 94999",
+          "method": "Open-access PDF",
+          "title": "Independent Process Approximations for Random Combinatorial Structures",
+          "trigger": "Conditioned cycle counts and derangement asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary f219fce56fec, Finding and proof"
+      ],
+      "rationale": "The strict sign across all admissible sizes and the factorial-scale correction are meaningful for this natural conditioned permutation model. As a new result, however, this record repeats the same invariant, offset lemma and sharp correction already available in a distinct catalogue record. It does not identify a new regime, applicable extension, or materially different proof contribution; substituting a few small sizes in the known formula adds no scientific result.",
+      "residual_risks": [
+        "This is a judgment of incremental value of the frozen record, not a judgment that the original covariance law is uninteresting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

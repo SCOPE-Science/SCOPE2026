@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:58:37.125755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Back forces each source maximum to map to a target maximum. A leaf's principal filter has two worlds, too few to lift the target center's filter when s≥2, so surjectivity forces center to center. Forth then permits exactly the matched leaf or the matched maximum at each source leaf. Each target leaf must be hit, and lifting there forces its target maximum to be hit by the corresponding source edge; hence the center's entire filter is lifted. This supplies both directions of the word bijection and the missing-letter inclusion–exclusion. The center is the unique minimum with multiple strict successors, so the automorphisms are exactly arm permutations. After source permutations only the tagged multiplicities at each index matter; target permutations make these pairs unordered. There are n types of total size n, as required by the product. In independent Python enumeration I tested equality of principal-filter images for all onto functions and counted orbits by explicit multiplication by arm permutations. For (r,s)=(2,2),(2,3),(3,2),(3,3),(4,2), the pairs (maps,orbits) were (2,1),(0,0),(18,2),(6,1),(110,6). The frozen replay paths are artifacts/verify_star.py and artifacts/verification_output.txt. The uploaded sweep at lines 78–81 actually samples only s≤r, so those sweep assertions alone do not test nonexistence. Universal correctness follows from the proof, not these finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e5029a66a849 permits arbitrary positive numbers s_i and t_j of maximal successors per middle vertex; see Finding, offset 363, for its poset and A_ij. Its Proof also gives the general size-matching existence criterion.",
+          "Rooted-tree and starlike-chain results do not literally apply to S_r, which has several minima. The graph-incidence fan result uses the opposite ranking and does not require surjectivity."
+        ],
+        "reasoning": "The relevant generality is branch sizes in the equivalent map model, not an inclusion of incidence frames in the earlier source class. Taking each s_i=t_j=1 and identifying the maps covers the frozen parameter range.",
+        "searches": [
+          "Resultary e5029a66a849 Finding and Proof",
+          "Resultary e532142d4dde, 565a1d2f2d99 and 7a46dc995537"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e5029a66a849",
+        "Resultary 565a1d2f2d99",
+        "Resultary e532142d4dde",
+        "Resultary 7a46dc995537",
+        "Resultary a1c6249e7bcc",
+        "arXiv:math/0611156",
+        "Hodkinson–Hussain (2008) §2.2",
+        "arXiv:1202.3538 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior finding gives the subset sum with product over all source branches of L plus the selected A_ij values. Its proof beginning at offset 2690 fixes the root and specifies the actual choices per branch, including which target maximum is chosen in a collapsed branch."
+        ],
+        "reasoning": "At unit branch sizes the subset formula is sum over h of (-1)^(s-h) binom(s,h)(s+h)^r. Each index j provides one middle-to-middle letter and one collapse-to-maximum letter, with the former required at each index. The map-set correspondence intertwines both symmetric groups. Therefore the orbits are exactly the unordered lists of required/nonrequired letter multiplicities at each target index, with n choices at weight n, giving the same multiset product. The prior text did not have to print the orbit coefficient to give this direct implication.",
+        "searches": [
+          "Resultary e5029a66a849 RESULT.md, total formula and full branch proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e5029a66a849 Proof, ‘One source branch’ and ‘Independence and global back condition’: each middle vertex either maps to a maximal vertex (its leaves collapse to it), or maps to a target middle vertex (its leaves must be covered); every target middle vertex must be hit.",
+          "Barmak–Minian arXiv:math/0611156 §2 concerns the finite-space/poset correspondence. Hodkinson–Hussain §2.2 uses two-sorted incidence and parallelism."
+        ],
+        "reasoning": "Add center-to-leaf comparisons to S_r to obtain the rooted tree with one maximal successor per middle vertex. In the two models the center is forced to map to the center, the noncenter filters are unchanged, and surjectivity with lifting at matched leaves supplies every target maximum needed by back at the old center. Equivalently both normal forms are the same tagged words. The Alexandrov open-map reformulation alone does not enumerate them.",
+        "searches": [
+          "Resultary star-incidence bounded morphism / three-level rooted-tree branch enumeration",
+          "finite Alexandrov open maps and two-sorted incidence bounded morphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In e5029a66a849 specialize A_ij=1 and L=s to get the full exact labelled table, including N(3,2)=18 and N(4,2)=110, without those entries being printed.",
+          "The plane-partition search summary described a transformation-semigroup invariant, and the S4.3 census concerns linear preorders."
+        ],
+        "reasoning": "The generating function at u=1 matches the classical plane-partition product but does not establish an orbit correspondence by itself. Exact labelled comparison is from the earlier formula; exact two-sided comparisons are from its word-set identification.",
+        "searches": [
+          "Resultary e5029a66a849 labelled enumeration and coefficient formula",
+          "Resultary a1c6249e7bcc two-sided orbit multisets and 05f93685b217 plane-partition application"
+        ]
+      },
+      "rationale": "The prior Resultary branch-use theorem e5029a66a849 already gives the same normal form as a specialization, up to an equivariant identification of map sets. The frame orders are not isomorphic, but the labelled count, existence criterion and two-sided orbit census all follow from that same prior word model. This is demonstrated coverage, not an inference from a coincident product, a date or the absence of other papers.",
+      "residual_risks": [
+        "The primary MacMahon scan and direct text of the separate plane-partition application were unavailable; neither is relied on for coverage.",
+        "This is a targeted comparison, not an exhaustive historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers via unit-branch equivariant map correspondence",
+          "evidence": "‘No other branch configuration satisfies the local back conditions’; global surjectivity then requires every middle vertex to be hit. This determines the required word set before taking quotient orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-branch-use-polynomial-for-surjective-p-morphisms-of-three-level--e5029a66a849/RESULT.md",
+          "material_read": "Finding around offsets 134–2100; Proof offsets 2690–5431",
+          "method": "Published local mirror",
+          "title": "Branch-use polynomial for surjective p-morphisms of three-level rooted trees",
+          "trigger": "Closest specialized word sets and count"
+        },
+        {
+          "assessment": "Supplies a reformulation context, not the exact census",
+          "evidence": "Finite T0 spaces correspond to partial orders; continuity corresponds to order preservation.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611156",
+          "material_read": "§2, printed p. 3",
+          "method": "OA primary passage",
+          "title": "Minimal Finite Models",
+          "trigger": "Incidence finite posets and the open-map alias"
+        },
+        {
+          "assessment": "Different categories and counting question",
+          "evidence": "Preserves point/line sorts and imposes separate lifting conditions for incidence and parallelism.",
+          "identifier_or_url": "https://www.doc.ic.ac.uk/~imh/papers/affine.pdf",
+          "material_read": "§2.2, Definition 2.4, printed p. 942",
+          "method": "Author OA copy",
+          "title": "The Modal Logic of Affine Planes Is Not Finitely Axiomatisable",
+          "trigger": "Closest cited incidence morphism definition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Star incidence is a natural modal test case, but here the change of order leaves the known tagged map sets and their arm actions unchanged. The resulting existence, labelled count and orbit count are routine transfers; the orbit product uses only the immediate multiset quotient, not a new classification beyond the earlier word structure. No separate surviving substantial claim is established by the frozen package.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

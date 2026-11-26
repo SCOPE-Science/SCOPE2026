@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:43:09.078976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63 and accompanying verification materials",
+        "/workspace/branches/independent_graph_ideals.py"
+      ],
+      "rationale": "For the distinct-edge construction, the derived subspace is exactly Z. Abelian quotient kernels contain Z and are counted by the Gaussian coefficient. For any other codimension-three ideal I, write T=I∩Z and U for its projection in X. In the quotient the image of Z is exactly the one-dimensional derived subspace of a three-dimensional Heisenberg algebra. Thus T has codimension one and dim U=n−2. A nonzero functional λ on Z with kernel T defines the nonzero alternating form B=λ∘[ , ] on X, and the ideal condition is U⊆rad B; this forces rank exactly two and U=rad B. Conversely there are q^(n−2) choices of the graph of a linear map U→Z/T for each projective such form. Each rank-two form is pulled back from the determinant on F_q², and each projective form has |GL_2(F_q)| spanning vector presentations. Nonedges require proportional nonzero vectors, hence constant projective lines on each component of the induced complement on the support. Subtracting constant assignments on nonempty supports and excluding the empty support gives exactly Q(q−1,q+1)−(q+1)q^n+q. This bracket counts vector presentations; its stated prefactor converts to ideal counts. The argument uses alternating forms and works in characteristic two. A fresh enumerator tested directly for rank two on normalized edge forms on all labeled simple graphs on 2–4 vertices over F2, F3, F4, and F5 (296 cases). It reproduced the component count and the four-cycle example (15 abelian plus 36 nonabelian over F2). Empty graphs give the Gaussian term only; the two-vertex edge gives exactly one ideal, as asserted.",
+      "residual_risks": [
+        "The proof is specific to one independent bracket coordinate per edge, and counts all linear ideals in codimension three only; it does not cover repeated-edge labels or all codimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee supplies a general ideal-zeta computation framework and explicit families; the dimension-at-most-four result includes only small instances.",
+          "Godoy Molina–Lagos give a criterion for certain induced-subgraph ideals, not an ideal census.",
+          "Rossmann–Voll give all-graph conjugacy-class results, not ideal-zeta coefficients."
+        ],
+        "reasoning": "The existence of an algorithm and full counts for small dimensions are not an all-graph formula. A graph-defined ideal is only one kind of linear ideal, and a conjugacy class is not a normal subgroup or a Lie ideal.",
+        "searches": [
+          "arXiv:2010.02268 §1.2; arXiv:2602.07254 p. 1; arXiv:2308.00272 §3; arXiv:1908.09589v2 Corollaries B and 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.09589v2",
+        "arXiv:1807.05577",
+        "arXiv:2010.02268",
+        "arXiv:2602.07254",
+        "arXiv:2308.00272",
+        "arXiv:1310.3414",
+        "arXiv:0812.4147",
+        "Resultary f31f1793ea7b, d9fac9f305c0, 94064a91a0ee, 0a1963133942, 81ba4ac87b5b, 6e8bed3ac269"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The induced-subgraph component polynomial and the simple-graph Lie algebra are defined in prior work.",
+          "The complete-bipartite census implies this coefficient on that subfamily.",
+          "Rossmann–Voll explicitly describe their technique as oriented toward conjugacy classes rather than irreducible characters."
+        ],
+        "reasoning": "Outside the covered subfamilies, neither prior definition supplies the bridge from arbitrary codimension-three kernels to rank-two forms and projective components. The related group model makes a character-degree formula a genuine possible equivalent, but the inspected class-counting theorem does not establish that equivalent.",
+        "searches": [
+          "arXiv:0812.4147 §2.1; arXiv:1310.3414 pp. 1–2; arXiv:1908.09589v2 §8.5; Resultary f31f1793ea7b and d9fac9f305c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rossmann–Voll use edge-supported antisymmetric matrices for graphical groups and distinguish conjugacy classes from irreducible characters.",
+          "The two Resultary Findings count common centralizers of ordered tuples and projective commuting components, respectively.",
+          "General bivariate representation zeta functions count irreducible characters by degree."
+        ],
+        "reasoning": "In the matching odd-characteristic class-two group, the exact degree-q character count would be (q−1) times the nonabelian ideal count: rank-two scalar edge forms give the central characters with degree q, each with q^(n−2) choices on its radical. A class count, class-size count, or an average kernel size is not that degree coefficient. No matching degree-q enumeration was found in the inspected results; nor does an odd-characteristic orbit argument alone supply characteristic two.",
+        "searches": [
+          "arXiv:1908.09589v2 §§1.3,1.4,8.5",
+          "arXiv:1807.05577, p. 1",
+          "Resultary 81ba4ac87b5b, 6e8bed3ac269"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first three Findings give complete ideal-dimension polynomials for complete bipartite graphs or stars, so their dimension-dim(L_G)−3 coefficients cover this count in those cases.",
+          "The fourth gives an all-graph census of maximum-dimensional abelian ideals, not all ideals with abelian quotient or all ideals of a fixed codimension."
+        ],
+        "reasoning": "Bipartite overlap is exact for the complete bipartite subfamily, not the arbitrary simple graph coefficient; no priority order is inferred from the shared date of some records. For K_{a,b}, the complement is the union of two cliques: the nonabelian count reduces to q^(a+b−2)(q^a−1)(q^b−1)/(q−1)^2, confirming the restricted specialization being compared.",
+        "searches": [
+          "Resultary f31f1793ea7b, d9fac9f305c0, 94064a91a0ee, 0a1963133942"
+        ]
+      },
+      "rationale": "The component polynomial and graph-Lie construction are prior. The distinct supported result is the arbitrary-simple-graph identity for the exact codimension-three coefficient over every finite field. Complete bipartite graphs, hence stars, are already covered by stronger ideal-dimension censuses and are not independent contributions of this result. Related all-graph centralizer and class-counting formulas use the same or an adjacent model but not the fixed rank-two edge-form count required for this coefficient.",
+      "residual_risks": [
+        "An unindexed or more specialized uniform rank-two form count, character-degree formula, or graph-group normal-subgroup result could be equivalent. The bounded search is not a global priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching graph model, different enumerand",
+          "evidence": [
+            "Uses antisymmetric matrices supported on edges, but relates ask zeta functions to conjugacy classes.",
+            "Section 8.5 distinguishes ordinary irreducible character degrees and states that the methods are slanted toward counting conjugacy classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.09589v2",
+          "material_read": "§1.1 p. 3 offset 9000; §1.3 pp. 6–7 offset 21100; §1.4 p. 8 offset 25500; Corollaries B and 1.3 pp. 10–11 offset 34000; §8.5 p. 100 offset 340520",
+          "method": "Bounded primary arXiv PDF comparison",
+          "title": "Groups, graphs, and hypergraphs: average sizes of kernels of generic matrices with support constraints",
+          "trigger": "Matching graphical group and edge-form model; possible exact rank or representation count"
+        },
+        {
+          "assessment": "Relevant framework; inspected passage does not provide the graph-uniform degree-q count",
+          "evidence": [
+            "Conjugacy-class and representation zeta functions count different objects."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.05577",
+          "material_read": "p. 1 definitions/overview",
+          "method": "Bounded primary arXiv PDF comparison",
+          "title": "Bivariate representation and conjugacy class zeta functions associated to unipotent group schemes",
+          "trigger": "Framework that could distinguish classes from character degrees"
+        },
+        {
+          "assessment": "General framework and restricted examples or dimension bounds, not an all-graph formula in the inspected statements",
+          "evidence": [
+            "The normal-subgroup correspondence does not itself enumerate the subgroups.",
+            "The low-dimensional census restricts to Lie dimensions at most four."
+          ],
+          "identifier_or_url": "arXiv:2010.02268 and arXiv:2602.07254",
+          "material_read": "2010.02268 abstract p. 1 and §1.2 pp. 4–5 offset 12850; 2602.07254 abstract p. 1",
+          "method": "Primary arXiv texts, bounded passages",
+          "title": "Zeta functions of finite-field Lie algebras and finite groups; low-dimensional finite-field solvable Lie-algebra zeta functions",
+          "trigger": "Possible general counting framework or covering table"
+        },
+        {
+          "assessment": "Prior constructions or individual ideal criteria, not the bridge counting this quotient stratum",
+          "evidence": [
+            "The induced-subgraph component polynomial definition is prior.",
+            "The graph-ideal criterion does not enumerate all linear ideals."
+          ],
+          "identifier_or_url": "arXiv:2308.00272; arXiv:1310.3414; arXiv:0812.4147",
+          "material_read": "2308.00272 §3 Prop. 3.4 p. 4 offset 12100; 1310.3414 pp. 1–2 offsets 0 and 3400; 0812.4147 §2.1 p. 3 offset 12500",
+          "method": "Primary arXiv texts, bounded passages",
+          "title": "Lie algebras associated with labeled directed graphs; Graphs and two-step nilpotent Lie algebras; The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Prior graph-Lie ideal statements and component polynomial"
+        },
+        {
+          "assessment": "Definite exact coverage of the coefficient for the complete bipartite (including star) subfamily",
+          "evidence": [
+            "Each stated ideal-dimension census supplies codimension three by coefficient extraction. None is an all-simple-graph census."
+          ],
+          "identifier_or_url": "Resultary f31f1793ea7b; d9fac9f305c0; 94064a91a0ee",
+          "material_read": "RESULT.md Findings, offset 0 for each",
+          "method": "Resultary search and local source mirror",
+          "title": "Complete bipartite and star graph-Lie ideal census findings",
+          "trigger": "Stronger counts that may already include the exact coefficient"
+        },
+        {
+          "assessment": "Different statistics for the same or closely related model",
+          "evidence": [
+            "Counts maximal-dimensional abelian ideals, ordered-tuple centralizers, and commuting graph components respectively, rather than all Heisenberg-quotient kernels."
+          ],
+          "identifier_or_url": "Resultary 0a1963133942; 81ba4ac87b5b; 6e8bed3ac269",
+          "material_read": "RESULT.md Findings, offset 0 for each",
+          "method": "Resultary search and local source mirror",
+          "title": "Maximum abelian ideal, common centralizer, and projective commuting findings",
+          "trigger": "Graph-wide counts with related projective or component mechanisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55",
+        "Prior complete bipartite and star Findings",
+        "Independent rank-two reconstruction"
+      ],
+      "rationale": "Dimension three is the first possible nonabelian Lie quotient. The formula separates this entire stratum from the graph-independent abelian count and expresses it as an evaluation of a standard induced-subgraph invariant for an arbitrary graph. That is a uniform ideal-zeta coefficient with a structural explanation, not a numerical example or a recomputation of the already covered star and complete-bipartite coefficients.",
+      "residual_risks": [
+        "This first coefficient does not count higher-dimensional nonabelian quotients or determine the full ideal zeta function."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

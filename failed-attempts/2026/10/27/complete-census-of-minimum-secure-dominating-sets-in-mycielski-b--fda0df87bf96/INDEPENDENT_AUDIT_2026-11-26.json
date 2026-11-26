@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:47:11.929314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five independent twin classes form a complete-adjacency blow-up of the cyclic class graph in the stated order. Each nonsaturated class needs a selected neighbor class; each legal defense removes a selected vertex from an adjacent class and must restore that condition in all nonsaturated classes. These are exact tests because vertex choices within each class are interchangeable. For every profile of total at most five, including after a swap, saturation of a nonsingleton class of capacity at least five is possible only with five vertices all in that class. Such a profile fails domination because a class at distance two has no selected neighbor, so replacing the four capacities by six preserves domination and security on all profiles in question. Independently checked one explicit representative per occupancy using bitset domination and individual swaps: for sizes 0 through 5 the candidate/dominating/secure triples are (1,0,0), (5,0,0), (14,0,0), (30,6,0), (55,19,0), (91,41,6); the six profiles match exactly. The product of the five binomial factors counts each labelled profile without overlap. An additional exact check of all actual labelled subsets of sizes 0 through 5 at (5,5), (5,6), (6,6) confirmed the entire profile histograms and totals 2225, 3435, 5301. The all-parameter result relies on the capacity argument and exhaustive fixed profile census, not on the sample graphs.",
+      "replay": "python3 reproductions/finite_review.py 5; observed results in reproductions/finite_review.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9e4cf738522c covers a,b≥4; it adds the profile (3,0,1,0,1) in its order when a=4 and (1,0,3,0,1) when b=4.",
+          "0ae94d81bd3c covers complete multipartite graphs; the present graph contains an induced C5 and is not complete multipartite."
+        ],
+        "reasoning": "The former is dominant in parameters and conclusions; the latter does not cover this blow-up family.",
+        "searches": [
+          "Resultary 9e4cf738522c, Finding and Scope",
+          "Resultary 0ae94d81bd3c, secure domination polynomial of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.17897v1",
+        "Resultary 9e4cf738522c",
+        "Resultary 0ae94d81bd3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper states the minimum size five and exhibits the set with two original vertices on each side plus the apex; it says it omits necessity in that case and does not classify every minimum set.",
+          "At a,b≥5 both boundary indicator terms in the broader count vanish. The six universal profiles and their labelled interpretation remain unchanged."
+        ],
+        "reasoning": "The scalar theorem does not imply the census; the broader indexed classification and count directly imply it.",
+        "searches": [
+          "arXiv:2603.17897v1, Theorem 3.3 and proof",
+          "Resultary 9e4cf738522c, Finding and Proof step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9e4cf738522c Finding orders the coordinates (A,A',B,B',w). Its six always-present profiles, reordered by (p,q,r,s,z) → (p,r,q,z,s), are exactly the frozen six in (A,B,A',w,B'). Both definitions have the same single-guard exchange and the same labelled graph."
+        ],
+        "reasoning": "This is exactly the same classification in permuted coordinates, with two additional cases outside the frozen scope.",
+        "searches": [
+          "Resultary indexed minimum secure dominating sets in Mycielskians of complete bipartite graphs; record 9e4cf738522c",
+          "arXiv:2603.17897v1, §3.2, Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected biclique theorem gives a scalar minimum and a witness, not a census table. The broader indexed record explicitly gives N(5,5)=2225 and the symbolic polynomial across its full scope."
+        ],
+        "reasoning": "Coverage is established by the symbolic family and not inferred from a matching numerical entry.",
+        "searches": [
+          "arXiv:2603.17897v1, literal Table check and §3.2",
+          "Resultary 9e4cf738522c, exact counts in Finding"
+        ]
+      },
+      "rationale": "The audited six-profile characterization and entire labelled-count polynomial are a restriction of a distinct indexed theorem which also handles shore size four, not just a match of example values or the prior scalar domination number. This is a finding of complete coverage in the available record, not an assertion that the November-labelled record historically preceded the October-labelled frozen result. The frozen result has no surviving separate mathematical claim against that comparison.",
+      "residual_risks": [
+        "Catalogue dates alone do not establish independent discovery or actual chronological priority.",
+        "The table check was bounded; the disposition follows from an inspected exact theorem, not from the absence of other tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the minimum number; does not supply the minimum-set census in the examined theorem",
+          "evidence": [
+            "For m≤n and m≥4 the upper-bound set comprises two vertices from each original part and the apex; necessity is omitted for this case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.17897v1",
+          "material_read": "v1 PDF §3.2, Theorem 3.3 and proof, pp. 10–11",
+          "method": "Bounded reading of lawful open primary PDF",
+          "title": "On the Secure Domination of Mycielskian Graphs",
+          "trigger": "Same host family and secure-domination invariant"
+        },
+        {
+          "assessment": "Directly covers the entire audited theorem and has additional boundary cases",
+          "evidence": [
+            "The first four polynomial terms are the frozen count; the other terms are multiplied by indicators of shore size four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-minimum-secure-dominating-sets-in-mycielskians-of-complete--9e4cf738522c/RESULT.md",
+          "material_read": "Finding, Scope, proof reduction and Relationship to prior work; offsets 0–3168 and 7735–9149",
+          "method": "Bounded local indexed statement comparison",
+          "title": "Exact minimum secure dominating sets in Mycielskians of complete bipartite graphs",
+          "trigger": "Same graph and exact minimum-set classification"
+        },
+        {
+          "assessment": "No direct implication",
+          "evidence": [
+            "The polynomial uses a complete multipartite adjacency model, not the five-cycle quotient."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c",
+          "material_read": "Finding and scope, text offsets 0–4127",
+          "method": "Bounded local indexed statement comparison",
+          "title": "Secure domination polynomial of complete multipartite graphs",
+          "trigger": "Potential stronger all-cardinality enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete labelled minimum-set census is a natural refinement of the scalar secure domination number, and the finite certificate independently corroborates the counts. As an incremental finding, however, the frozen census is wholly implied by the broader indexed census, uses the same twin-class reduction, and has no additional boundary, invariant, or structural conclusion not already covered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

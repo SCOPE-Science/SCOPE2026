@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any connected unweighted \(d\)-regular graph, the two adjacency trace identities imply \(\operatorname{tr}(AL^+)\ge(N-3d)/(2d)\). Equality at \(N=3d\) is impossible by the first and second nonconstant adjacency moments. A strictly positive edge entry of \(L^+\) follows from \(\operatorname{tr}(AL^+)=2\sum_{uv\in E}(L^+)_{uv}\). The exact Padé expansion then forces a negative completed edge transition for all sufficiently large steps. The closed formulas on \(C_3\square C_3\) follow from its three eigenspaces and are manifestly positive. All steps including equality boundaries and the \(h=0\) case were checked. Exact-rational matrix computations independently check selected cases; they are not substitutes for the proof.
+PASS
 
-## Originality — PASS, subject to residual source risks
+On nonconstant eigenmodes, μ/(d−μ)=μ/d+μ²/[d(d−μ)]. For connected d-regular G the first sum is −1 after division by d; the second is at least (Nd−d²)/(2d²) since μ≥−d. This gives tr(AL⁺)≥(N−3d)/(2d). Equality at N=3d would require every nonconstant μ to be 0 or −d. The trace then forces a single −d, but the second moment requires a nonconstant squared sum of 2d², not d². Thus an actual edge has L⁺_uv>0 by the undirected edge trace sum. Completing the square in the scalar numerator gives positivity, the denominator is no smaller for h≥0, and the constant mode is fixed. Expansion on each positive Laplacian eigenmode gives T=I−12L⁺/h+O(h^(−2)), establishing negativity on the fixed edge for all sufficiently large finite h without instability. For C_3 square C_3 use the constant and orthogonal complement projectors of each K_3 factor: with A=3h²+3h+1 and B=3h²+6h+4 one gets R(3h)=1−12h/B and R(6h)=1−6h/A. The adjacent and nonadjacent coefficients give 4h(h+1)/(AB) and 2h²(3h+2)/(AB); subtracting four of each from 1 yields the claimed diagonal. The entries are strictly positive at h>0 and at h=0 the matrix is I. All other tori in the stated range have N≥12 and d=4, so fail unconditional positivity. The exact-rational support and recorded output were inspected but not executed; the all-graph result does not depend on the seven finite regressions.
 
-The cited monotonicity literature establishes general SSP restrictions but not the claimed degree–order obstruction for all connected regular graphs. Accessible full text for explicit multistep SSP methods treats different integrators. Previously recorded special cases cover complete multipartite graphs, cycles, cubes, and strongly regular graphs; especially, the nine-vertex rook graph has already been classified and is **not separately novel**. Those family-specific results do not imply the general \(N\ge3d\) obstruction or exhaust the entire torus family. Queries also checked pseudoinverse-edge sign, cycle product, Padé, and graph positivity aliases. No stronger prior implication was found in inspected material, although no search can establish uniqueness. Some potentially relevant publisher full texts could not be inspected; they are explicitly listed as residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fourth-order A-stable discretization is automatically spectrally contractive on graph diffusion, but entrywise positivity governs numerical preservation of probability and heat nonnegativity. The degree–order result supplies a broad and easily checkable structural no-go condition for this discrepancy and pins down an exact exception among an infinite, natural family of periodic grids. The positive-pseudoinverse-edge trace inequality provides a reusable mechanism, not merely another isolated example. The torus classification is complete and requires no numerical root solving.
+The supported distinct claims are the actual-edge obstruction for all connected simple regular graphs at the sufficient order–degree threshold and the resulting complete all-step cycle-product classification. The exceptional positive rook graph is covered by the earlier strongly regular classification as acknowledged. Prior distance-regular M-property bounds give the same ratio in a narrower graph class with a weaker off-diagonal witness; general absolute monotonicity does not classify these graphs. No priority claim is made for those inputs or the nine-vertex case.
 
-## Evidence boundaries
+## value
 
-The numeric regression spans seven test graphs and five steps each, not an exhaustive search. The unknown general sharpness of the order threshold and possible specialized historical prior formulations are not asserted resolved. The claim is about end-step entrywise nonnegativity, not internal-stage SSP.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinguishing preservation of nonnegative data from spectral stability matters for graph heat integration. The sufficient condition depends only on coarse graph structure and locates a failing transition on an existing edge without a graph-specific calculation. It also settles all cycle-product sizes in the stated range, rather than extrapolating from a few grids or claiming that all positive steps fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

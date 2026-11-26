@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:18:02.733233Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, payoff matrix, scope and Steps 1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "Use the stated row-player payoffs and sum over neighbors: with degree d and m cooperative neighbors the three payoffs are d(b-2c)+mc, mb, and d(b-c_I). With no cooperative neighbors I strictly wins, and if all neighbors cooperate D strictly wins. With d=2 and m=1, C beats D exactly for b>3c and beats I exactly for c_I>3c/2. With the two C ties excluded, C is never a best reply outside the simultaneous strict regime. A possible D–I tie at m=1 outside that regime does not occur in a Nash profile, since there are no cooperators. In the strict regime every C has exactly one C neighbor, and any adjacent noncooperator must be D; if it is interior it must have a second C neighbor. Induction on either side of a CC block therefore fills the whole component. This gives exactly the three labeled CCD phases on cycles with 3 dividing the order, or D(CCD)^k on paths of order 3k+1 with k>=1 because endpoints cannot be C. In either case the words satisfy the same strict local rules. No-cooperator profiles must be all I, and disjoint components contribute independent factors. The smallest allowed path and cycle respect these rules.",
+      "residual_risks": [
+        "The large-order assertions in the supplied script check the predictor's output sets, not an independent best-reply enumeration at those orders. The proof, not the script, excludes any other large-ring equilibrium.",
+        "The theorem leaves the stated payoff ties, isolated vertices and stochastic dynamics outside its scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The degree-k heuristic specializes to b>3c and c_I>3c/2 at k=2, and the simulations already include the one-dimensional k=2 case. The originating model covers multiple network types but the inspected material gives no all-length pure-Nash path classification.",
+          "The earlier Takesue appendix treats well-mixed replicator dynamics. Lee et al. use quasi-cooperation as a third strategy rather than the fixed-payoff individual solution."
+        ],
+        "reasoning": "The payoff-model breadth does not give a stronger theorem counting finite path equilibria; the other two dynamics or payoff structures do not have the same claim.",
+        "searches": [
+          "Takesue arXiv:2603.18128v1, local payoff table, degree-two heuristic and ring discussion",
+          "Takesue arXiv:2411.05543, appendix",
+          "Lee–Cleveland–Szolnoki arXiv:2307.02832v2, game description"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.18128v1",
+        "arXiv:2411.05543",
+        "arXiv:2307.02832v2",
+        "Resultary 038e1ba3f734 (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously described local CD motif on a cycle gives the period-three divisibility at once once it fills the ring. The thresholds explicitly come from the originating local estimates.",
+          "The frozen argument closes off all partially occupied alternatives and handles degree-one endpoint best replies, forcing D at both ends and shifting the allowable order to 1 modulo 3. There is no such endpoint conclusion in the periodic ring discussion."
+        ],
+        "reasoning": "Do not treat ring period three alone as a distinct result. Credit the complete finite-boundary classification and strict component census, not a new payoff rule, parameter threshold, or model.",
+        "searches": [
+          "arXiv:2603.18128v1 pp. 5–6, pp. 8–9 and Figure 8, compared with frozen RESULT.md Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takesue's degree-two ring discussion states that cooperators between C and D and defectors between two Cs achieve maximal payoffs in the CD configuration. This is the same period-three motif, whether expressed as adjacent cooperative pairs or as a CCD word.",
+          "The paper's stochastic equilibrium labels describe persistent strategy frequencies in a mutation-affected process. They do not denote all strict pure Nash words on a fixed finite graph."
+        ],
+        "reasoning": "The local ring configuration is actual prior overlap, not made distinct by a different abbreviation. A stochastic frequency observation is not equivalent to an exhaustive deterministic census or its endpoint residue.",
+        "searches": [
+          "Resultary semantic search for degree-two snowdrift individual-solution equilibria, CCD words on paths and cycles and period-three counts",
+          "Takesue arXiv:2603.18128v1, Table 1 and Figure 8(d,e)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly matching Resultary record is the identical assigned record, not another prior census.",
+          "The primary paper tabulates payoffs by cooperative-neighbor count and plots strategy frequencies; neither is a table of equilibrium sets by graph order."
+        ],
+        "reasoning": "The finite-size Nash counts are not read off a catalog of equilibria. This bounded lookup is not a claim about every possible unindexed source.",
+        "searches": [
+          "Resultary census lookup: same assignment ID 038e1ba3f734",
+          "Takesue arXiv:2603.18128v1 Table 1, Figures 5–8"
+        ]
+      },
+      "rationale": "The supported distinction is the exhaustive strict pure-Nash census with the open-path endpoint condition and component counts. The originating paper already supplies the game, threshold heuristic, and the degree-two ring motif. The cycle divisibility is a direct consequence of propagating that known local motif and is not a separately new pattern or threshold. The inspected paper does not state a pure equilibrium census for paths or open-versus-periodic finite components.",
+      "residual_risks": [
+        "No absolute priority claim; an unindexed exact pure equilibrium census could change the comparison. The ring arithmetic follows readily from the originating motif and the distinct portion is accordingly narrow."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the thresholds and local ring pattern, not the path/cycle census",
+          "evidence": "P. 5 identifies one-dimensional lattices as k=2, and Figures 5–6 give N=10^4 with positive mutation for these cross-topology simulations. Separately Figure 1 concerns an L=100 square lattice. On pp. 8–9 the description of the ring's CD configuration and mutation vulnerability is not a divisibility, path, or pure-Nash enumeration claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18128v1",
+          "material_read": "Methods pp. 2–3; Table 1 and local heuristic pp. 5–6 (offsets about 31000–38491); Figures 5–6 captions p. 7 (offset about 42250); ring discussion and Figure 8 pp. 8–9 (offsets about 47400–55300)",
+          "method": "Targeted lawful OA PDF inspection",
+          "title": "Myopic Best Response as a Double-Edged Mechanism in Networked Social Dilemmas with Individual Solutions",
+          "trigger": "Originating payoff model, motif, and 10,000-agent example"
+        },
+        {
+          "assessment": "Related payoff model but different equilibrium analysis",
+          "evidence": "The appendix concerns well-mixed replicator dynamics, not the deterministic path/cycle pure-profile problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.05543",
+          "material_read": "Appendix, p. 6 onward, offsets about 33700–40700",
+          "method": "Targeted lawful OA PDF inspection",
+          "title": "Evolution of cooperation in a three-strategy game combining snowdrift and stag hunt games",
+          "trigger": "Earlier same game and possible equilibrium coverage"
+        },
+        {
+          "assessment": "Different third strategy",
+          "evidence": "The third action is quasi-cooperation, not the constant-payoff individual solution considered here.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02832v2",
+          "material_read": "p. 1 model description",
+          "method": "Targeted lawful OA PDF inspection",
+          "title": "Restoring spatial cooperation with myopic agents in a three-strategy social dilemma",
+          "trigger": "Three-strategy networked game with myopic best response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact profiles and 9,999 versus 10,000 examples",
+        "Takesue arXiv:2603.18128v1 Figures 5–8 and local motif discussion"
+      ],
+      "rationale": "This natural finite-boundary question in an existing simulation model has an exact qualitative answer that local stability alone does not give: there may be no cooperative pure profile even where its local ingredients all strictly best-reply. Closing the ends changes both the order residue and the number of phases, for example P_4 has an extra profile and C_4 does not, while C_3 has three extras and P_3 none. The proof rules out hidden mixtures of separated cooperative blocks and all-individual domains. At the 10,000-agent scale used for the degree-two simulations, it distinguishes absence of a noiseless cooperative Nash state from the paper's stochastic persistence question; it does not purport to explain the positive-mutation law.",
+      "residual_risks": [
+        "The contribution is an analytically short deterministic boundary classification; it supplies no stationarity, mixing, or dynamic convergence result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

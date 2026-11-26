@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for a fixed simple graph \(H\) on \(k\ge3\) vertices and the canonical Euclidean graphical zonotope of its leaf corona. The argument verifies the graphical-arrangement normal fan, exact conditional leaf-comparison probability \(h(u,v)\), and exact integral (5). Its critical analytic step partitions each hub's pair of objective quantiles into two corners and bounds the complement exponentially; exponential majorants justify dominated convergence after \(n^{-1}\) rescaling. Agreement across core edges becomes agreement of independent exponential rankings on the two induced monochromatic subgraphs. The strict edge addition inequality follows from adjacent-order swaps, and the clique constant from Vandermonde's identity. The packaged exact checker independently verifies all core-edge additions through four vertices and four exact finite collision probabilities. Finite computations are corroboration only, not a replacement for the limiting proof.
+PASS
 
-## Originality — PASS, priority qualified
+For a generic objective each edge has a unique maximizing endpoint. A different sign pattern changes at least one endpoint and strictly lowers the original objective applied to the sum, so distinct patterns cannot give the same vertex. Intrinsic projection preserves signs even for a disconnected graph; the uniform quantiles used for localization are those of the ambient i.i.d. Gaussian representative. Conditioning on the two core coordinates gives each private leaf agreement probability h=uv+(1-u)(1-v). Off the two matched corner squares h is bounded by 1 minus a positive constant, hence the discarded integral times n^(2k) vanishes. Within either corner, n times the distance variables converge under the integrand to independent unit exponentials, dominated by exp(-(1-delta) times the sum of distances). Opposite-color edges always agree; same-color edges give two uniform orderings, independently across the two induced subgraphs. This proves the sector weight, total limit and conditional law by division by the positive total; using any smaller corner size also establishes localization for all 0<delta<1/2. Adjacent swapping of the endpoints of a new edge witnesses a strict loss on each sector with both endpoints on one side, including the all-zero sector. The edgeless and complete bounds and equality cases follow; the path has order-class sizes 1,1,2,2 and kappa=41/9, and the triangle has kappa=10/3. CHECK.py and VERIFICATION.md were inspected, not executed; their recorded bounded rank enumerations do not establish the asymptotic. The analytic replay is RESULT.md §§Proof, steps 1–5, with the endpoint injectivity argument above.
 
-Padrol–Pilaud–Poullot give the graphical fan and Iriarte gives the standard orientation/linear-extension/angular correspondence, not the high-leaf limit coefficient. The published double-star work already establishes \(k=2\), and the published star Rényi work already establishes \(k=1\); these are excluded from the new novelty claim. Comparison of the complete published double-star and star findings reveals no arbitrary fixed-core limit, induced-monochromatic-subgraph partition formula, or sharp strict extremal theorem. The broader geometry remains a possible source of unindexed equivalent derivations, so independent priority assessment is still needed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Gaussian normal-cone collision probabilities measure how many vertices of a polytope are effectively accessible to independently sampled directions, rather than uniformly counting its vertices. An arbitrary fixed core decorated with many leaves is a natural geometry in which the combinatorial vertex count grows exponentially while collision probability has a core-dependent polynomial scale. The exact finite-graph functional and strict edge monotonicity distinguish entire core families and provide a sharp invariant, not merely an additional small-case calculation. The three-core path coefficient \(41/9\) and triangle coefficient \(10/3\) illustrate the genuine structural effect.
+The verified distinction is the fixed arbitrary private-leaf core with k>=3, its induced-subgraph partition coefficient, conditional sector weights and strict edge extremality. Graphical chamber probabilities and the one- and two-hub laws are antecedents. The strongest split-graph and bipartite analogues have shared rather than private leaves and do not give this statement.
 
-## Closest sources and limitations
+## value
 
-* A. Padrol, V. Pilaud, G. Poullot, *Deformed Graphical Zonotopes*, arXiv:2111.12422, especially Section 1.3.
-* B. Iriarte, *Graph Orientations and Linear Extensions*, arXiv:1405.4880, particularly Sections 1 and 5.
-* *Gaussian angular collisions on double-star graphical zonotopes*, published 2026-10-18; its full result covers the two-core specialization.
-* *Two critical Rényi windows in the angular spectra of star-graph polytopes*, published 2026-10-18; its full result covers the one-core specialization.
+PASS
 
-Limitations are fixed core size, equal growing pendant groups, and the specified Euclidean metric. No convergence rate or bibliographic uniqueness claim is made.
+The coefficient distinguishes cores with the same number of hubs and pendant vertices (for example the path and triangle), the extremal law is strict under each edge addition, and the corner weights describe where collisions occur, none of which is supplied by merely counting zonotope vertices or orientations. The fixed core and prescribed metric make this a natural angular invariant rather than a selected finite case.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

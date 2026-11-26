@@ -1,19 +1,21 @@
-# Review: minimal projective-plane transversal shattering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite statement is supported by an exhaustive 8192-mask minimum-transversal test, the complete 3–6 query-support trace spectra, all 63 adaptive tree nodes and 64 distinct compatible leaf witnesses. A genuinely distinct affine-coordinate implementation reproduces the blocker census, spectra and recursive online rank. The all-positive path gives the upper bound of six. The product formulas follow from standard and explicitly proved disjoint-query additivity. No untested larger-plane claim is made.
+PASS
 
-## Originality
+The class consists of all inclusion-minimal hitting sets, including the lines. Hitting every line and giving each chosen point a line it hits alone are necessary and sufficient. A separately written checker reconstructs PG(2,3) from an affine plane with points at infinity, tests all 8192 subsets, and obtains 13 four-point lines and 234 six-point open-side triangles and no other blockers. For support sizes 3,4,5,6 it reproduces respectively {8:286}, {15:13,16:702}, {29:117,31:468,32:702}, and {56:468,57:78,60:936,61:234}. It compares the actual five-support sets, not just counts, with all triangle deletions and checks multiplicity two. No six-support is shattered, excluding all larger ones by restriction. Reconstructing incidence separately for certificate.json and following positive and negative branches verified all 63 internal nodes and 64 distinct terminal witnesses; a separate exact version-space recurrence also gave depth 6. No depth-seven tree is possible: along an all-positive path every query must be different (a repeated query has an inconsistent sibling), and maximum concept size is six. In the control PG(2,2) all seven blockers are lines and all 21 pairs are shattered; seven concepts rule out depth or cardinality three. Minimality factors over disjoint components. For VC, restriction to each component must shatter there, and component witnesses can be combined independently. For Littlestone, concatenate trees for the lower bound; for the upper bound, a query only splits one component and at least one child decreases that component rank for every nontrivial split. Iteration gives the sum bound. The disjoint unions are linear, four-uniform, four-regular and point-transitive by the projectivity action and component permutations. Independent finite replay: /workspace/branches/a13dbeae-9d2b-41bc-9a59-c82f6e10a7d4/check_record2.py (pass the frozen certificate.json path; see adjoining check_record2.out). Frozen scripts were read, not executed.
 
-PASS within accessible literature. The strongest close source, Coolsaet–Botteldoorn–Fack (2022), classifies the blocker objects; it is explicitly credited for that known classification. Its accessible abstract does not present query-shattering dimensions, geometric shattered-support spectra or point-transitive adaptive-gap amplification. Mary (2024) treats enumeration complexity for minimal-transversal families rather than their VC and Littlestone dimensions. Semantic searches for blocking-set shattering, dualized incidence hypergraphs and equivalent exact parameters returned no dominating published record. The primary 2022 full text was inaccessible, and historical priority cannot be certified from an abstract alone; this risk remains.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete, geometrically interpretable five-query shattering classification, a sharp depth-six adaptive witness and an unbounded gap on a natural class of highly symmetric linear uniform regular hypergraphs. This is richer than recomputing an existing blocker census. The nonconnected nature of the amplified family and the restriction to order-three planes are acknowledged.
+The supported distinct claim is the query-learning result for the entire minimal-blocker class, especially the exact trace spectra, characterization of which supports are shattered by blockers, and adaptive depth six versus static dimension five. The underlying small-plane blocker geometry is prior work. Moreover, a distinct earlier indexed exchange-graph record directly implies the two-completion property and the count of candidate five-sets, and a separate two-line-union theorem shatters precisely the same five-sets for a different concept class. Neither establishes their shattering by minimal blockers, the trace spectra, or the adaptive rank. The amplification is a direct product consequence of the new base gap, not a separate novel dimension-additivity theorem.
 
-## Limitations
+## value
 
-The verification is computational for the finite classification but exhaustive, with independently generated incidence data. No inference is made about all projective plane orders. Prior geometric classification is acknowledged, and a complete full-text historical priority comparison remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal transversals of a classical symmetric incidence structure give a natural test of how static and adaptive membership-query capacities differ. The trace spectra answer more than just the VC maximum, and the verifiable depth-six tree establishes a strict gap not implied by the geometric count or exchange graph. Repeating the plane makes the gap unbounded within a point-transitive linear uniform regular class; this construction makes no connected amplification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

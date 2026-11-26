@@ -1,11 +1,21 @@
-# Mathematical review: quadratic near-identity parameter cycle ensembles
+# Independent mathematical audit
 
-**Correctness — PASS.** The period-growth lemma is proved directly for integer polynomials congruent to the identity modulo an odd prime. The fixed-by-power counts are converted into primitive cycle counts without missing divisors. Hensel classification covers singular and zero parameters. A root-lift martingale and an exact pair count supply all covariance entries. The Haar limit separately establishes every atom and the infinite second moment. The standalone finite checker returned 2,606 direct cycle comparisons and 14 complete exact moment/type ensemble checks; none is used as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The Chebyshev prime-power literature uses different polynomial families, while the newer general time-one theorem already supplies every individual period for this near-identity family. Related published quadratic-root and random-polynomial records cover root-moment ingredients and selected levels. The evaluated new claim is specifically the full parameter-cycle histogram, the across-parameter covariance matrix with its strict sign separation, and the common heavy-tail limit. Published-record full texts on random monic congruences were not accessible; an implicit prior derivation remains a material priority risk.
+PASS
 
-**Mathematical value — PASS.** A complete classification in the simplest nonlinear near-identity shift ensemble connects quadratic local congruences to the collective distribution of polynomial cycles. The sharp covariance sign change and simultaneous heavy-tailed limit identify a nontrivial arithmetic dependence structure that ordinary pointwise cycle formulas cannot display. The result is limited to odd primes, uniform parameters and quadratic displacement.
+For g=X+pQ and nonzero displacement d of valuation v, the first p iterates differ from the starting point by id modulo p^{v+1}. Taylor expansion, divisibility of the sum of i by odd p, and 2v+1≥v+2 give g^p(x)-x=pd modulo p^{v+2}. The argument iterates, and a prime-to-p iterate does not raise the valuation. The quadratic map is bijective by its difference factor 1+p(x+y). Consequently the number fixed by the p^t-th power is p^{t+1}R_{L-t}; successive differences divided by p^t give the exact primitive-cycle counts. The valuation and simple unit-root lift give the stated strata; the first level beyond the smaller valuation distinguishes types, and the triangular map recovers the root-count vector, including at N=2. Conditional counting of possible lifts makes R_j a martingale. The invertible change (x−y,x+y) reduces the second moment to uv=0; each of the j nonzero-u valuation strata contributes (p−1)p^{j−1}, besides p^j for u=0. Thus the martingale increments have common variance b and are orthogonal. In the form C_t=(p−1)R_{L−t}−(R_{L−t+1}−R_{L−t}), these facts give precisely the variance, covariance and strict sign formulas, with C_0=pR_L. Haar root counts stabilize except at a=0, a null event; the square-unit strata provide the listed masses. The nonzero masses sum to p/(2(p+1)), their weighted first moment is p−1, and each contributes the same positive amount to the second moment.
 
-**Closest literature and limitations.** Panraksa–Tangboonduangjit (arXiv:2605.04417) supply the motivating exact-cycle context; Shen (arXiv:2608.06576) and Caruso (arXiv:2110.03942) address root statistics in different random-coefficient models. Terskii (arXiv:2611.24982) subsumes the local period theorem, not the displayed full parameter ensemble. Independent mathematical replication and broader priority evaluation have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the valuation-stratified distribution of cycle vectors, complete cross-parameter covariance and common stabilized law for this family. Individual periods, quadratic root lifting, and standard martingale identities are not new. The bounded statement-level comparisons do not establish priority, but identify no prior result covering the combined parameter statistics.
+
+## value
+
+PASS
+
+The natural quadratic near-identity family is fully classified across its shift parameter, not only along an individual orbit. In particular the strictly negative correlation with the longest length versus strictly positive shorter-length covariances is not implied by the marginal mean or by the deterministic local period law. The common Haar limit with infinite second moment explains the exact variance growth despite almost-sure stabilization, giving a useful benchmark for parameter ensembles and for distinguishing levels from limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

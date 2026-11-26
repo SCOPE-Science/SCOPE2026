@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite metric-basis classification
+# Independent mathematical audit
 
-Run `python3 verify_ordered_pairs.py` and `python3 verify_lcf.py` using any ordinary Python 3 interpreter. No nonstandard packages are required. Each run recomputes all claims and terminates only if its integral assertions pass. The two recorded JSON outputs are `check_ordered_pairs.json` and `check_lcf.json`.
+## correctness
 
-The first checker builds the truncated tetrahedral graph from directed edge-corners of a tetrahedron, computes all graph distances with breadth-first searches, and exhausts all ordered pairs, triples, symmetry orbits and bases. It builds the legal jump and slide graphs and performs all-source breadth-first searches on their 156 states. The second constructs the same graph from LCF \([2,6,-2]^4\), provides and verifies a vertex isomorphism with the ordered-edge model, uses integer bitmasks, and computes both ordinary and configuration distances with Floyd–Warshall. These are independent implementations of the enumerative steps, not separate analytic infinite proofs.
+PASS
 
-Specific checks: 220 triples in 13 symmetry orbits, 156 minimum bases in nine orbits, 1,446 jump edges and 450 slide edges, jump distances equal Johnson lower bounds for all 12,090 unordered distinct pairs, and the complete slide distance/penalty distributions. The latter include 36 pairs at diameter seven and 204 at maximum extra cost four. Failed matroid basis exchange is witnessed by two listed bases and their two unsuccessful replacements.
+Independent enumeration of ordered-pair graph vertices and distance signatures rules out all smaller resolving sets, recovers 156 resolving triples in nine S4-orbits, and recomputes connectivity, all 12,090 pair distances for both move rules, all histograms and the nonmatroid witness. The 1,446 jump edges give a jump metric equal to 3−|A∩B| on every pair, not just matching marginal counts. There are 450 slide edges, radius 6, diameter 7, an eccentricity split of 108/48, and exactly 204 pairs with maximum penalty 4. A separate targeted replay uses the closed base-graph distance: within a corner the distance is 0 or 1; between corners a and c it is 3 minus the number of endpoints already on the unique cross edge between those corners. It verifies both landmark orbit tables, representative slide degrees and eccentricities, and distance seven for the two stated pair representatives. Their S4-orbits are disjoint and have sizes 24 and 12; together they account for all 36 diametral pairs from the census. This replay also checks the displayed seven-slide geodesic. The failed matroid swap of element 4 gives exactly eleven signatures for each candidate replacement, even though some minimum-length jump route exists between the two bases.
 
-The finite search proves exact shortest distances because every legal configuration and every legal single-step transition is enumerated and the shortest-path algorithms exhaust the resulting finite graphs. An exhaustive finite calculation does not imply a theorem for larger graphs, and the matching computation outputs do not independently verify historical originality.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact jump and slide geometry, including the combination of Johnson isometry and failure of matroid exchange. The standard skeleton is known. The closest same-day metric-basis mobility result concerns a different graph, while same-graph studies located concerned different graph invariants.
+
+## value
+
+PASS
+
+The fixed graph is a canonical cubic polyhedral skeleton rather than a cutoff chosen just to generate another table. The two move rules ask natural global metric questions for minimal resolving sets. The instance is a concrete witness separating a global geodesic property from matroid exchange, and it quantifies how requiring local moves on the very same feasible sets destroys the Johnson distance, with a sharp penalty and classified diameter pairs. Those exact conclusions are useful for testing sufficient conditions for short reconfiguration paths; the value does not rest on the mere ability to enumerate triples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

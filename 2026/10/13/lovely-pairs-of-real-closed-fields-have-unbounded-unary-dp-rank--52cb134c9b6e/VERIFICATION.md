@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Fix an integer \(r\ge1\) and a proper lovely pair \(P\preccurlyeq R\) of real closed fields. Choose \(t\in R\setminus P\). Since \(P\) is real closed and elementary, \(t\) is transcendental over \(P\), so
-\[
-a_i=t^i\quad(0\le i<r)
-\]
-are \(P\)-linearly independent.
+# Independent mathematical audit
 
-For each \(i<r\), put
-\[
-H_i=\sum_{j\ne i}Pa_j.
-\]
-Membership in \(H_i\) is first-order definable in the pair language using the finitely many parameters \(a_j\). Choose distinct \(c_m\in P\), \(m<\omega\), and use the row
-\[
-x-c_ma_i\in H_i.
-\]
-Two formulas from one row are inconsistent because their difference would put a nonzero \(P\)-multiple of \(a_i\) in the span of the other \(a_j\). Every choice of one formula from each row is realized by
-\[
-x=\sum_{i<r}c_{m_i}a_i.
-\]
-Thus there is an inp-pattern of depth \(r\) in one object variable. As the dense-pair theory is NIP, burden and dp-rank agree, giving \(\operatorname{dp-rk}(x=x)\ge r\).
+## correctness
 
-For a fixed \(k\ge1\), RCF has unary dp-rank \(1\), while its lovely-pair theory has unary dp-rank exceeding \(k\). Kim Theorem 10.33 preserves every member of \(\mathfrak D^h_{n\text{-var}}\) between a geometric theory and its lovely-pair expansion. Therefore the class of complete NIP theories with \(\operatorname{dp-rk}(x=x)\le k\) is not a member of that framework.
+PASS
 
-## Limits
+Fix r and choose t outside the proper elementary subfield P. If t were algebraic over P, its minimal polynomial over P would have a root in P by elementarity, forcing it to be linear. Therefore 1,t,…,t^(r−1) are P-linearly independent. The map P^r→R that sends (p_i) to Σ_i p_i t^i is definable with parameters and injective. Requiring its unique i-th coefficient to equal a specified element of an infinite sequence in P gives the stated definable cosets, with row-disjointness and explicit simultaneous realization of every selection. In fact, row-disjointness also witnesses the negations required by a depth-r ICT pattern. Thus the finite unary lower bounds hold, without assuming any infinite-depth pattern or an infinite-rank complete type. RCF is o-minimal and geometric (in particular it eliminates ∃∞), and has unary dp-rank 1. For any k≥1 take r=k+1 in the pair, which is NIP by the established preservation result. RCF is then in C_k and its pair is not. Theorem 10.33 of Kim would preserve membership if C_k belonged to the larger indicated class, yielding the contradiction. The frozen verification was inspected; the audit is analytic.
 
-No infinite-depth inp-pattern is claimed. No failure of strong dependence is claimed. No computation or finite experiment is used.
+## originality
+
+PASS
+
+The supported distinction is the explicit obstruction at every fixed finite unary cutoff using the proper lovely RCF pair. Parameter coding by a finite set of field elements and Kim's preservation theorem are not claimed new. The inspected results do not establish this rank jump or these exclusions, nor did the broader finite-dp-rank field comparison locate a theorem already supplying the rank jump.
+
+## value
+
+PASS
+
+This is a motivated obstruction to preservation of an entire family of finite cutoffs, not a rank calculation for an arbitrary small example. It shows how adding a predicate can encode arbitrarily many independent coordinates into one variable while staying NIP, and supplies a uniform witness against placing bounded unary dp-rank among Kim's pair-preserved dividing lines. The result answers this boundary question even though the field-pair witness and the final preservation application are short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

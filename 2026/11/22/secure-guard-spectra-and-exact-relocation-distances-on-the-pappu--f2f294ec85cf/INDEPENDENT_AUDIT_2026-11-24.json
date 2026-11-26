@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:31:24.197233Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60, verify.py, independent_check.cpp and VERIFICATION.md (code inspection, not execution)",
+        "Independent replay: python3 /tmp/opencode/pappus_audit.py (review-authored, exhaustive)",
+        "Corrected RESULT.md and VERIFICATION.md in /workspace/repairs/2/; bundled verify.py and independent_check.cpp remain scientifically applicable"
+      ],
+      "rationale": "Independently enumerated every one of the 262144 masks using private closed-neighborhoods instead of cached/direct swapped-mask dominance. For a dominating mask the only vertices uncovered by deleting v are those privately covered by v, so a defender for u works exactly when that private mask is a subset of N[u]. The repaired statement explicitly requires the initial mask to dominate for this lemma. Adding selections preserves a defense witness for any vertex still outside, hence the secure family is upward closed and single-deletion testing is exact for inclusion-minimality. Computed counts for sizes 8–18 were 1755, 13088, 24624, 24948, 16899, 8316, 3042, 816, 153, 18, 1; no smaller secure masks, total 93660, and minimal counts 1755 and 3224 at sizes 8 and 9 only. Thus the repaired claim reproduces the original true spectra. Also independently reconstructed the ancillary move graphs by testing every unordered optimum pair for two differing bits (and adjacency for slides); all-source BFS gave edges 12798 and 4320, full reachability, and eccentricity histograms {8:1755} and {9:1539,10:216}. Exhausting all 9! point permutations and testing preservation of the nine distinct line triples yields 108 point-preserving automorphisms; since the graph is connected and bipartite, all others arise by composition with the checked incidence duality. The orbit histogram was {27:1,108:8,216:4}. These correct benchmark data are retained but separated from the narrowed claim.",
+      "residual_risks": [
+        "No generalization beyond the specified labelled graph; the exact finite certificate is not a formal-proof-assistant check. The uploaded C++ executable was not run during this audit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e85ac2992226 finds 2691 optimum functions including 936 with doubles; metrics there are for all 2691 or else explicitly the singleton comparison",
+          "Haythorpe–Newcombe inspect specified products and Möbius ladders; Křišťan–Svoboda treat ordinary dominating sets and tree/interval-graph slides"
+        ],
+        "reasoning": "The broader weighted space at the same optimum weight subsumes the size-eight sector, not the family of larger secure sets. Neither inspected background statement gives the higher-cardinality secure spectrum for Pappus.",
+        "searches": [
+          "Mixed-guard weak Roman Pappus optima, e85ac2992226 Finding/Assumptions",
+          "Haythorpe–Newcombe arXiv:2103.01406",
+          "Křišťan–Svoboda arXiv:2307.10847"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary target and distinct mixed-guard comparator",
+        "Haythorpe–Newcombe arXiv:2103.01406",
+        "Křišťan–Svoboda arXiv:2307.10847",
+        "Stokes lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted transfer graph restricted to singleton optima gives the secure move graphs, so all-source shortest-path metrics follow by direct computation on existing data",
+          "The repaired nine-sets are secure but contain no size-eight secure set, by inclusion-minimality"
+        ],
+        "reasoning": "Even though the companion's prior-work comparison does not print the induced graph's eccentricities, listing the feasible optima determines those graphs and distances mechanically. It does not determine larger minimal sets from upward closure of the minima; the surviving spectra need separate examination of masks outside the optimum-generated upward closure.",
+        "searches": [
+          "Resultary e85ac2992226 RESULT.md Finding, Assumptions and Relationship to prior work; original f2f294ec85cf Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For binary-valued weak Roman functions a guard transfer from selected neighbor to zero changes the support by exactly the adjacent secure-defense swap; the feasibility predicates coincide",
+          "The companion table gives 1755 all-singleton weight-eight functions and 13 orbits"
+        ],
+        "reasoning": "It is the same feasible minimum class, not just equal counts. Under the support bijection a unit transfer between two binary optima is exactly a jump, or a slide when the vertices are required adjacent. The weight-eight table cannot supply the classifications of size 9 or above.",
+        "searches": [
+          "Resultary Pappus incidence secure domination, minimum guard relocation, and weak Roman singleton optima",
+          "e85ac2992226 RESULT.md Assumptions and optimum table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full secure polynomial catalogue hit f2f294ec85cf is this assigned record",
+          "Distinct e85ac2992226 gives orbit sizes 27, eight 108, four 216 for the same all-singleton sector, and explicitly reports 12798 jump and 4320 slide edges in that sector"
+        ],
+        "reasoning": "The companion's same-day date and reference to a previous computation do not identify who first proved it. The table and support equivalence nevertheless establish exact overlap. The restricted optimum classification does not table the higher-size secure or inclusion-minimal coefficients.",
+        "searches": [
+          "Resultary full Pappus secure domination polynomial, inclusion-minimal counts, orbit and relocation data",
+          "e85ac2992226 optimum table, orbit split and prior-work paragraph"
+        ]
+      },
+      "rationale": "PASS for the revised all-cardinality and inclusion-minimal secure spectra, with novel content claimed only beyond the optimum sector. The unrevised package does not establish distinctness for the bundled optimum-orbit/relocation classification: there is demonstrable equivalent coverage of the minimum feasible class, full orbit split, and edge counts in a distinct same-day weak Roman record, whose complete optimum data mechanically determine the induced jump and slide metrics. This is overlap and implication, not proof of priority or an allegation that all the numbers were published first elsewhere. The repaired Finding and all dependent scientific descriptions move those quantities to supporting benchmarks. The restricted-coverage source does not enumerate larger secure sets; in particular 3224 inclusion-minimal nine-sets and the absence of larger minimal sets survive as a material, separately checked claim.",
+      "residual_risks": [
+        "No direction of historical priority is claimed for the shared optimum values or move data.",
+        "The absence of higher-cardinality spectra in the inspected comparisons does not rule out unindexed secure-domination tables or other records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact optimum-sector coverage and mechanical implication for induced metrics; not the higher-size census",
+          "evidence": "The table has 1755 singleton functions and 13 orbits; the discussion reports the existing edge counts 12798/4320 for secure optima. It explicitly claims novelty only for the extension with doubled vertices and its weighted metrics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-mixed-guard-weak-roman-optima-on-the-pappus-graph-twenty-symmetr--e85ac2992226",
+          "material_read": "RESULT.md local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding/Assumptions offsets 270–1889, orbit discussion offsets 4123–4974, Verification/Relationship offsets 5850–8702",
+          "method": "Local Resultary query and bounded mirror passage comparisons, including primary inspection of the decisive table and prior-work discussion",
+          "title": "Mixed-guard weak Roman optima on the Pappus graph",
+          "trigger": "Exact companion overlap on secure optima and their reconfiguration"
+        },
+        {
+          "assessment": "Different families and scalar problem",
+          "evidence": "Inspected scope is specified products with paths/cycles and Möbius ladders, not the Pappus higher-size spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01406",
+          "material_read": "Abstract p. 1 near text offset 377; p. 2 scope near offset 5000",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "The Secure Domination Number of Cartesian Products of Small Graphs with Paths and Cycles",
+          "trigger": "Same feasibility predicate, possible broader formula"
+        },
+        {
+          "assessment": "Different graph classes and feasibility predicate",
+          "evidence": "The stated procedures concern ordinary dominating sets on trees/interval graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.10847",
+          "material_read": "p. 1 near offsets 604 and 3010",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Potential general shortest slide coverage"
+        },
+        {
+          "assessment": "Graph identification is contextual; no negative full-text inference",
+          "evidence": "The census uses the explicitly given 18-point-and-line vertex relation, and full group order was recomputed without this reference.",
+          "identifier_or_url": "https://dlib.si/stream/URN%3ANBN%3ASI%3ADOC-OCBGMHAN/db7b0708-b365-4c1d-ad1e-eb6bd0f88a7b/PDF",
+          "material_read": "Section 4.2 sought; independent primary access timed out",
+          "method": "Lawful direct and VPN access attempts; incidence model verified from the explicit relation instead",
+          "title": "Irreducibility of configurations",
+          "trigger": "Graph identity and affine presentation cited in the original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and all-size proof in /workspace/repairs/2/RESULT.md",
+        "Independent counts and exact scope of companion's weight-eight classification"
+      ],
+      "rationale": "The natural complete labeled size spectrum on a canonical incidence graph describes the feasible-set family beyond a scalar domination number or its optimum relocation graph. In particular the 3224 size-nine inclusion-minimal sets do not contain any minimum set, and no larger inclusion-minimal sets are possible. Their census is not an arbitrary choice of a test slice or an orbit recount; the pair of complete spectra gives reusable exact feasible/minimal benchmarks, including a concrete separation between optimizing and generating all minimal guard configurations.",
+      "residual_risks": [
+        "Value is in these exact finite spectra for this graph, not in a general reconfiguration theorem or a new count of the known optimum class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

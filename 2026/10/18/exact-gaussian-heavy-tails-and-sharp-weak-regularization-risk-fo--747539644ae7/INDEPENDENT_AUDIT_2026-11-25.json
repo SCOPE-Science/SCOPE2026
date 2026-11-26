@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:04.594791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R=r1 and D=r0−r1 the two actual oracle calls give y1=1+D+2R and y0−y1=−R; the unrestricted minimizer yields Z=y1+R²/D. The affine noise transform has determinant one in absolute value. Its D variance is σ²B and regression gives R|D=0 with mean −δ(δ+2)/B and variance σ²/B. Independently, T P(|R²/D|>T) integrates T times the joint density over |d|<r²/T; domination follows from 2r² sup_d f(d,r)≤C r² f_R(r) by nondegenerate conditional Gaussianity. The linear Gaussian y1 is negligible by the tail sandwich at (1±ε)T. This gives 2hM₂ and the positive-moment cutoff from the tail integral. The two ridge minimizers give the singular terms R²D/(D²+aλ), a=1 or 2; squaring and setting d=√(aλ)u gives (π/2)hM₄/√a on the √λ scale since f_D(d)E[R⁴|D=d] is bounded and continuous. The rest has uniformly bounded L² norm, so mixed terms vanish by Cauchy–Schwarz. Both outputs are polynomially bounded for fixed λ>0. The σ=0 affine check gives Z=q²−q²=0. The frozen verifier was read, not run: it checks rational substitutions and finite quadrature, not the limiting claims, which follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6e96c99497d7 treats arbitrary dimension/depth moment thresholds p<d−m+1 under fixed affinely independent sites, expressly excluding adaptive sites. 30f28a658eb2 compares Gaussian couplings at prescribed fixed sites, without the ridge asymptotics. Scieur et al. bound a different extrapolant that uses input iterates."
+        ],
+        "reasoning": "Broader depth/dimension or covariance coverage with fixed sites does not give an adaptive result. Conditioning on x1=y0 to freeze that site also fixes ε0 and destroys the required two fresh normal evaluations conditional on the sites.",
+        "searches": [
+          "Resultary: Noisy depth-one Anderson acceleration from successive fresh additive Gaussian map calls x1 equals first noisy image; unrestricted mixing of map images, exact tail coefficient at residual-difference zero and one-parameter correction ridge plus symmetric sum-one ridge constants",
+          "Resultary 6e96c99497d7 and 30f28a658eb2; arXiv:1706.07270, pp. 2–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a3edc5dee7a, 6e96c99497d7, 30f28a658eb2",
+        "arXiv:2110.14813v1",
+        "arXiv:1706.07270",
+        "arXiv:2006.02559",
+        "arXiv:2211.12953v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lupo Pasini et al. motivate moving averaging by stochastic oscillations; Scieur et al. bound regularized input combinations; Ouyang et al. have an adaptive penalty and acceptance test; Pollock–Rebholz filter histories. The exact fixed-site coefficient uses d²m₂ for risk, not the conditional fourth moment here."
+        ],
+        "reasoning": "Neither the safeguards/bounds nor the fixed-site exact theorem computes the correlated numerator and denominator from taking the next noisy site along the iteration. The general pole argument and the change in the kernel scale between ridge normalizations are standard tools, not separate originality claims.",
+        "searches": [
+          "arXiv:2110.14813v1 pp. 1, 3; arXiv:1706.07270 pp. 2–4; arXiv:2006.02559 pp. 1, 3, 7; arXiv:2211.12953v2 pp. 1–2; Resultary 2a3edc5dee7a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2a3edc5dee7a has the same tail/risk powers for a different exact law: deterministic gap d and Gaussian midpoint residual W independent of the residual difference give a pole proportional to dW. It explicitly excludes noise-dependent sites. Its centered penalty equals the symmetric coefficient penalty up to a factor of 2 and an additive constant."
+        ],
+        "reasoning": "Converting the centered ridge normalization does not identify the variables: on D=0 the first-step image gap here is −R, not a deterministic d, and the pole coefficient is R².",
+        "searches": [
+          "Resultary: Exact Gaussian tail for depth-one Anderson acceleration with fresh noise, inverse first-moment tail, moment cutoff p<1, and weak-regularization ridge risk diverging as lambda^{-1/2}; image mixing versus input mixing",
+          "Web: \"Anderson acceleration\" Gaussian noise heavy tail regularization weak penalty exact tail",
+          "Resultary 2a3edc5dee7a, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed closed forms use a deterministic gap and midpoint and conditional second moments of the fixed-site pole numerator; they do not give hM₂ and hM₄ for the trajectory's squared pole numerator."
+        ],
+        "reasoning": "The invariant is a continuous-parametric exact law, not a sequence with a natural separate table. The catalogue formula comparison is directly applicable and found no exact adaptive-site match in the inspected records.",
+        "searches": [
+          "Resultary exact-tail and exact-ridge searches above; 2a3edc5dee7a, explicit pσ(0), m₂ and risk coefficient"
+        ]
+      },
+      "rationale": "Credit the existing Gaussian-pole mechanism, the centered ridge, and the closely related exact fixed-site tail and weak-ridge laws. The surviving distinction is the actual two-call Anderson trajectory (the second site is the first noisy image), with explicit conditional-square and conditional-fourth-moment constants for that adaptive trajectory and the two specified penalties. The strongest inspected fixed-site exact laws do not specialize to this setup.",
+      "residual_risks": [
+        "The ranked searches and inspected passages do not exclude a more general random-site Gaussian pole calculation or unindexed adaptive Aitken/Anderson results. The fixed-site papers and records are not being credited as establishing priority for the adaptive result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in powers and symmetric ridge, not the same stochastic trajectory or coefficient.",
+          "evidence": [
+            "Both sites explicitly deterministic; last scope sentence excludes noise-dependent sites. The centered ridge uses λ=2η for coefficient penalty η(w₀²+w₁²)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a/RESULT.md",
+          "material_read": "Finding, Assumptions and start of Proof, offsets 0–3357",
+          "method": "Resultary search and direct local mirror text comparison",
+          "title": "Sharp Gaussian ridge-risk law for two-point Anderson mixing",
+          "trigger": "Closest indexed exact tail and ridge constants"
+        },
+        {
+          "assessment": "Does not cover adaptively chosen sites; positive ridge restores moments but its precise risk limit is not the stated result.",
+          "evidence": [
+            "p<d−m+1 for fixed affinely independent evaluation points."
+          ],
+          "identifier_or_url": "Resultary 6e96c99497d7 (2026-10-26 UTC catalogue date)",
+          "material_read": "Finding and scope",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp Gaussian moment threshold for noisy Anderson extrapolation",
+          "trigger": "Potential stronger arbitrary-depth theorem"
+        },
+        {
+          "assessment": "Prescribed sites, varying coupling, no weak-ridge statement.",
+          "evidence": [
+            "Exact tail and p<1 outside exceptional coupling regimes at fixed sites."
+          ],
+          "identifier_or_url": "Resultary 30f28a658eb2 (2026-11-02 UTC catalogue date)",
+          "material_read": "Finding and scope",
+          "method": "Local mirror passage comparison",
+          "title": "Gaussian coupling phase diagram for depth-one Anderson extrapolation",
+          "trigger": "Potential equivalent exact correlated-Gaussian tail"
+        },
+        {
+          "assessment": "Oscillation and mitigation, not an exact Gaussian first-step law in the inspected analysis.",
+          "evidence": [
+            "Batch noise can create oscillations; proposed mitigation is adaptive moving averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14813v1",
+          "material_read": "pp. 1, 3; OA offsets 2000, 6850, 21200",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Stable Anderson Acceleration for Deep Learning",
+          "trigger": "Closest cited stochastic Anderson analysis"
+        },
+        {
+          "assessment": "Different output and noise bounds.",
+          "evidence": [
+            "Regularized combination of input iterates rather than the two noisy images here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.07270",
+          "material_read": "pp. 2–4; OA offsets 8500, 10257, 15400",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Nonlinear Acceleration of Stochastic Algorithms",
+          "trigger": "Regularized stochastic extrapolation comparator"
+        },
+        {
+          "assessment": "Different safeguarding and no inspected exact Gaussian constants.",
+          "evidence": [
+            "Adaptive quadratic regularization is combined with acceptance in a globalization method."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.02559",
+          "material_read": "pp. 1, 3, 7; OA offsets 1100, 7400, 21000",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Nonmonotone Globalization for Anderson Acceleration via Adaptive Regularization",
+          "trigger": "Could cover ridge normalization and stability"
+        },
+        {
+          "assessment": "Not the sharp stochastic law under consideration.",
+          "evidence": [
+            "History filtering controls conditioning; coefficient regularization is mentioned as a different approach."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12953v2",
+          "material_read": "pp. 1–2; OA offsets 450, 7000",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Filtering for Anderson acceleration",
+          "trigger": "Alternative least-squares conditioning intervention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first genuinely accelerated iterate of a strict affine contraction is a natural stability baseline, not a chosen rare path. Arbitrarily small fixed fresh noise changes exact deterministic recovery into a nonintegrable output, and explicit weak-ridge risks quantify how preservation of finite moments fails as ridge is removed. The constants are useful to compare precise penalty conventions; they are not an optimal tuning rule, joint zero-noise asymptotic, or long-run stability guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

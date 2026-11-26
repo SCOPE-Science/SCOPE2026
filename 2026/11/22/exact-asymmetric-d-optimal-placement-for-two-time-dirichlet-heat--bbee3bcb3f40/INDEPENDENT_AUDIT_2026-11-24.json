@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:30:11.921173Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof §§1–5 (lines 3–98)",
+        "Frozen VERIFICATION.md, CHECK.py, and CHECK_OUTPUT.txt",
+        "Independent physical-row grid and determinant ratio, with replay parameters in the rationale"
+      ],
+      "rationale": "The heat observation rows have modal factors (1,1) and (q,q^4); with two rows and independent noise, det I=(det M)^2/σ^4. Taking absolute cosines s,t gives the exact global reduction to (1-s²)(1-t²)(s+kt)², with equality for opposite signs at nonzero s,t. The unit edges and origin cannot maximize; along each remaining zero edge the inward first derivative is positive. Strict concavity of the log in the interior gives unique maximizing magnitudes. The stationarity identities 2s²+kst=1 and st+2kt²=k imply s²=(1-2w)/(2-3w), k²=w/[(1-2w)(2-3w)] with w=t². The increasing branch w∈(0,1/3) gives the stated quadratic root and exactly two reflected designs. Since s²-w=(1-w)(1-3w)/(2-3w)>0, the canonical pair has sum below one and the reflected pair has sum above one. Substitution yields the stated determinant. The sign of dw/dk gives both migration directions, w=2k²-14k⁴+O(k⁶) gives the large-time expansions, and dw/dk=1/6 at k=1 gives the equal short-time site velocities. At k=0 the reduced objective is 1/4 at the limit optimizer and 4/27 at the static equal-time pair, giving ratio 27/16. An independent bounded comparison at k=0.8, 0.2 and 0.001 evaluated the physical rows on the grid (i/160,j/160), 0≤i,j≤160, using q=k^(1/3); no grid value exceeded the formula and reflection agreed to floating-point precision. At q=10^(-4) the independently evaluated ratio was 1.6874999999966254. The frozen checker was inspected, not executed; the grid is only corroboration.",
+      "residual_risks": [
+        "Two unnormalized modes and one unconstrained location at each of two prescribed times only; the branch inequalities reverse under reflection. The large-time ratio is a limit of two decaying information determinants, not a nonzero information limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexanderian–Saibaba equations (17)–(19) use spatial sensor weights across measurement times and a prior-preconditioned log det(I+H); the likelihood determinant in the frozen model has no prior or additive identity.",
+          "The temperature-field PSPO paper arXiv:2409.18423 describes condition-number optimization by genetic algorithm, not the saturated Fisher determinant. The other cited abstract passages concern stable space-time reconstruction, covariance-plus-motion, or randomized graph recovery."
+        ],
+        "reasoning": "Even broad sensing and Bayesian design methods do not evaluate this continuum likelihood optimum by specialization of an inspected theorem. The condition number and determinant rank designs differently in general.",
+        "searches": [
+          "exact D-optimal sensor placement transient heat equation one measurement at each of two times first two Dirichlet sine modes determinant analytical locations",
+          "Alexanderian–Saibaba arXiv:1711.05878; Aldroubi et al. arXiv:2004.14032; Cheng–Paley arXiv:2111.01343; Huang–Needell–Tang arXiv:2109.14079"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE ranked results and mirrored Findings above",
+        "Weighted regression Theorem 1 and equation (1)",
+        "Alexanderian–Saibaba equations (17)–(19)",
+        "Thermal PSPO abstract and cited sensing paper passages",
+        "Frozen weighted determinant and unique-branch proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A common-weight support theorem, general numerical design method or exact finite-cycle determinant factorization does not evaluate the unequal row problem. The same-time symmetry only returns the w=1/3 endpoint; it does not decide the strict finite-time symmetry breaking or 27/16 gain.",
+          "The new evaluation requires accounting for two unequal row scalings, excluding boundary maximizers, and finding the global stationary branch and its reflection."
+        ],
+        "reasoning": "The explicit branch and sharp design consequences are not obtained by a mode-count or time substitution into the inspected prior results.",
+        "searches": [
+          "Single-weight design Theorem 1 versus two row-specific sine mode designs",
+          "PDE D-optimality equations (17)–(19) and finite-cycle raw-trajectory Finding",
+          "Frozen stationarity, uniqueness, asymmetry and limiting comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After cosine substitution and absorbing time scaling into a covariate, the two rows are sqrt(1-u²)(1,2u) and q sqrt(1-(r/k)²)(1,2r), with u∈[-1,1] and r∈[-k,k]. One row must come from each of these distinct weighted design sets.",
+          "The weighted-regression paper's Theorem 1 and equivalence condition (1), p. 5, use a single common w(z) and characterize support on a common design interval. The two heat weights at the same effective covariate are not the same for 0<k<1."
+        ],
+        "reasoning": "The exact polynomial reformulation makes the comparison testable. A two-support theorem for unrestricted designs from one weight neither enforces the early/late quota nor gives the unequal optimal magnitudes.",
+        "searches": [
+          "two point saturated D-optimal design weighted linear regression determinant (1-x^2) (1-y^2) asymmetric covariates different row weights optimal points",
+          "D-Optimal Designs for Binary and Weighted Linear Regression Models, Mathematics 11 (2023), 2075"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-topic indexed result is the assigned item itself. Same-day nearby Findings treat one fixed point in continuous time, two simultaneous measurements with correlated noise, or separate three-/four-mode energy channels; these optimize a minimum eigenvalue rather than the present determinant.",
+          "The finite-cycle raw-trajectory record --d1a88d067af2 is genuine determinant optimization, but uses multiple times at repeated sites, on cycles with a multi-mode determinant, not the two movable row-specific sites of the Dirichlet problem."
+        ],
+        "reasoning": "The distinct nearby records were compared on measurement structure, domain and objective, not on date alone. None of the inspected exact records supplies this two-time curve or its determinant gain.",
+        "searches": [
+          "Local Resultary: exact heat modal D-optimal placement and two-time/two-site determinants",
+          "Catalogued --0eea79458835, --87c590c2f437, --c2c061b2f74b and --d1a88d067af2"
+        ]
+      },
+      "rationale": "The supported contribution is the specific globally sharp two-time likelihood design: the closed parameter curve, exhaustion of equality cases, strict symmetry breaking, and time-dependent determinant and placement laws. Neither general D-optimality nor the standard two-by-two information identity is new. The closest inspected polynomial-design, heat-sampling and PDE-design results differ in their design spaces or objectives and do not imply the solved pair.",
+      "residual_risks": [
+        "Targeted searches and identified passages do not rule out an older equivalent exact thermal design or a specialized unequal-row optimal-design result. No historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related design theorem, not the row-constrained unequal-weight case",
+          "evidence": "A single continuous weight w on a design interval and the variance v(z)=w(z)(1,z)M^{-1}(1,z)^T are used to bound the number of support points.",
+          "identifier_or_url": "https://eprints.gla.ac.uk/297084/1/297084.pdf",
+          "material_read": "Theorem 1 and equivalence condition (1), p. 5, PDF text offset 22920",
+          "method": "Lawful OA institutional copy",
+          "title": "D-Optimal Designs for Binary and Weighted Linear Regression Models",
+          "trigger": "Closest general result for two weighted-linear supports"
+        },
+        {
+          "assessment": "Generic Bayesian objective and computational method, not the explicit design",
+          "evidence": "A sensor weight multiplies a block spanning times, and the objective is log det(I+H) for the prior-preconditioned data Hessian.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.05878",
+          "material_read": "Equations (17)–(19) and start of §4, text offset 33290",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Efficient D-optimal design of experiments for infinite-dimensional Bayesian linear inverse problems",
+          "trigger": "Broad PDE D-optimal sensor design"
+        },
+        {
+          "assessment": "Different criterion and output in inspected statement",
+          "evidence": "Reconstruction error bounds motivate using the condition number as the sensor criterion, optimized by genetic algorithm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.18423",
+          "material_read": "PDF p. 1 abstract, offset 1881",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A physics-driven sensor placement optimization methodology for temperature field reconstruction",
+          "trigger": "Closest thermal placement result from targeted literature search"
+        },
+        {
+          "assessment": "Exact but inequivalent design problem",
+          "evidence": "Finite-cycle, multi-time observations at repeated spatial sites and a multi-mode raw-trajectory determinant.",
+          "identifier_or_url": "2026/11/8/SCOPE-raw-trajectory-volume-factorization-and-optimal-two-sensor-gaps--d1a88d067af2",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-result mirror",
+          "title": "Raw trajectory volume factorization and optimal two-sensor gaps",
+          "trigger": "Exact two-sensor heat determinant optimization"
+        },
+        {
+          "assessment": "Different criterion and sampling regime",
+          "evidence": "Optimizes the smallest eigenvalue of continuous-time information from one fixed point, rather than the two-row Fisher determinant.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-worst-direction-one-point-sensing-of-the-first-two-heat-m--0eea79458835",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-result mirror",
+          "title": "Unique worst-direction one-point sensing of the first two heat modes",
+          "trigger": "Same first two modes and exact sensing locations"
+        },
+        {
+          "assessment": "Different noise, times, and design criterion",
+          "evidence": "Two simultaneous measurements with correlated noise, optimized in the smallest-information-eigenvalue criterion.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-square-root-sensor-collision-under-near-perfect-correlated-noi--87c590c2f437",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-result mirror",
+          "title": "A square-root sensor collision under near-perfect correlated noise",
+          "trigger": "Two independently placed sensors for the first two modes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–5",
+        "Independent grid and static-pair comparison",
+        "Related heat design objectives in inspected Findings"
+      ],
+      "rationale": "One observation at each fixed time underlies a natural minimal identifiable heat-reconstruction design. The precise optimizer tests and rejects the natural reflected-site constraint for every finite separation, gives the migration of both sites, and quantifies the asymptotic information cost of reusing the equal-time design. The value is the complete optimizer and quantitative comparison, not routine computation of the Fisher determinant.",
+      "residual_risks": [
+        "No guarantee is supplied for constrained motion, more modes, general noise, posterior design, or worst-direction reconstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

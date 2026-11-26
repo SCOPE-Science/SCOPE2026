@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:57:18.254066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shell transfer equations follow by the three inverse branches, including the missing halving inverse on I_0. The small formal kernel roots are t(z) and 2t(z); substitution into the numerator equations is legitimate since t(0)=0. Subtracting μ²/(1−z) removes the unit pole, and the remaining factors listed in the record do not vanish for |z|≤1 when p>1/2. Independently one can evaluate the sum without the shell resolvent: let r=q/p, K have invariant law (1−r)r^k, and U be independent uniform; X=2^(−K)U has the stated stationary density by mixing the uniforms on [0,2^(−k)]. Halving increases K; doubling decreases positive K, and at K=0 instead replaces U by 2U mod 1. These updates preserve the product stationary law on (K,U). Put δ(k)=2^(−k), m=Eδ, n=Eδ², b=2/(3p−1). For the reflected depth operator Q, (I−Q)H=δ−m with H(k)=−b(δ(k)+k). For R obtained by discounting the doubling-at-zero transition by 1/2, (I−R)L=δ with L=b(3−δ). Both identities follow by substitution also at k=0. Uniform doubling has lag-j centered covariance 2^(−j)/12, so C_l=Cov(δ(K_0),δ(K_l))/4+E[δ(K_0)(R^lδ)(K_0)]/12. Both terms are nonnegative: monotone coupling preserves depth order, and R is positive. Telescoping sums gives C(1)=E[(δ−m)H]/4+E[δL]/12: reflected chains driven by common choices coalesce when the larger depth first hits zero, with pre-coalescence distance bounded by initial distance, and the number of discounted doublings goes to infinity by the positive doubling-minus-halving drift. Thus the two remainder terms vanish by domination. Using m=2(2p−1)/(3p−1), n=4(2p−1)/(5p−1) and Cov(δ,K)=−2pq/(3p−1)² gives the recorded C(1) and the stated Γ=2C(1)−(n/3−m²/4). Numerical cross-check of this independent evaluation and the rational formula at six parameters including p=1, p=3/5 and p=0.500001 agreed within 7×10⁻¹⁵; the identities, not the grid, establish the theorem. The derivative cubic is positive at 1/2 and increasing, while Var(X_0)∼(8/9)(2p−1); at fixed N the variance per step is at most N Var(X_0), verifying both orders of limits with the separate critical atom. Frozen verify.py and VERIFICATION.md were inspected, not executed; the 24 exact-lag comparisons are recorded diagnostics only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yan et al. use stationarity but the explicit exact calculations are at lags 1, 2 and 3; their later commuting-map approximation is not exact. Monthus’s explicit all-time position transform is uniform-initial.",
+          "The matched later catalogue result is broader in lag resolution and gives spectral-edge regimes; the earlier indexed 00cc475a51a1 maximum-depth excursion result uses a start on [1/2,1) and a different statistic."
+        ],
+        "reasoning": "Universal dynamics tools can underlie a new evaluated invariant. Neither the verified earlier special lags nor the explicit uniform-initial transform dominate the stationary coordinate sum. The later same-law all-lag formula genuinely does.",
+        "searches": [
+          "Yan et al., arXiv:2308.09269, §III Eqs. (16)–(23)",
+          "Monthus arXiv:2409.19999, §VI.5 Eqs. (197)–(211)",
+          "Resultary stationary Pelikan applications and d19d3482d20b Eqs. (1)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and verify.py",
+        "arXiv:2308.09269 and arXiv:2409.19999",
+        "Resultary d19d3482d20b and 00cc475a51a1",
+        "Frozen audit's documented binomial-record lead 80bea00e-d0f4-4832-933b-109d3dbcfa1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a summable stationary all-lag transform, evaluating its removable value and subtracting C_0 directly gives the exact variance coefficient. The later indexed record therefore covers that quantity mathematically, regardless of phrasing.",
+          "A report of separate finite binomial expressions for each n gives individual stationary lags but does not itself supply a resummation, cancellation or an exact evaluated unit limit; the primary statement of the reported binomial item was not independently available."
+        ],
+        "reasoning": "Distinguish termwise computability from the closed summation that matters here. The explicit stationary sum and near-critical comparison are not obtained by substituting in the earlier inspected correlation results.",
+        "searches": [
+          "Yan and Monthus exact versus approximate correlations and initialization",
+          "d19d3482d20b removable unit pole and Γ=2C(1)−C_0",
+          "Frozen AUDIT.json source inspection for all-n binomial correlation 80bea00e-d0f4-4832-933b-109d3dbcfa1e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d19d3482d20b Eq. (1) uses exactly the same maps, invariant initial law and coordinate covariance C_l. Its kernel r(z) is (4q/p)t(z) in the frozen notation, and evaluation of the explicitly removable C(z) at z=1 yields the covariance sum.",
+          "Monthus Eq. (204) tends to μ/2 for the uniform-initial raw position correlation; the stationary raw product tends to μ². Merely subtracting the stationary squared mean from that uniform-initial transform is not the stationary claim."
+        ],
+        "reasoning": "Centered by the stationary mean and using its initial law is essential. A true exact stationary resolvent covers the fixed-p sum, not just an uncentered transform of another law.",
+        "searches": [
+          "Exact stationary Pelikan all-lag position covariance, Green–Kubo variance and critical discontinuity",
+          "Resultary d19d3482d20b Eq. (1); local search for 80bea00e-d0f4-4832-933b-109d3dbcfa1e exact stationary binomial correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026-11-08 UTC Resultary d19d3482d20b has the exact stationary generating function, including a removable pole at 1, and considers the previously known exact covariance sum in its relationship section (near offset 8520). It is later than the frozen 2026-10-19 publication. The semantic identifier lookup did not return the frozen audit’s distinct binomial-record ID. No earlier exact rational Green–Kubo entry was verified."
+        ],
+        "reasoning": "The indexed general transform must be credited as exact recoverable coverage. Neither inability to retrieve the other binomial item nor absence of an earlier explicit number in these bounded results proves priority.",
+        "searches": [
+          "Resultary stationary coordinate Green–Kubo Pelikan variance and all-lag covariance",
+          "Resultary exact earlier binomial-representation identifier 80bea00e-d0f4-4832-933b-109d3dbcfa1e"
+        ]
+      },
+      "rationale": "The supported distinct claim is the evaluated, invariant-initial infinite covariance sum and singular boundary behavior, not the map, its invariant law, the binary representation or exact finite lags. The earlier same-object article gives exact special lags and the later primary paper’s explicit full position transform initializes uniformly instead of stationarily. General binary-stack machinery makes stationary calculations possible but the inspected older statements do not give the needed stationary projection or infinite sum. A distinct Resultary record has a genuinely covering stationary covariance transform, with a removable unit pole; evaluation there mechanically gives the fixed-p invariant, even though the rational expression is not stated. That catalogue publication is later, so it does not establish an antecedent to the frozen finding. No absolute or unpublished priority is certified.",
+      "residual_risks": [
+        "The earlier separately described binomial item was not independently inspected in full. An unindexed stationary resolvent, evaluated covariance sum, or earlier specialization of the general binary dynamics is not excluded.",
+        "Lack of a verified earlier exact formula does not establish unique historical priority; the later exact transform demonstrably recovers the fixed-p coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary exact first lags, not exact integrated covariance",
+          "evidence": [
+            "Eq. (16) uses the invariant law, Eqs. (18)–(20) give exact lags 1–3, and general-k continuation uses a commuting-map approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.09269",
+          "material_read": "§III Eqs. (16)–(23), OA offsets 35400–48728",
+          "method": "Primary OA statement, formula and approximation comparison",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Same stationary coordinate and Green–Kubo motivation"
+        },
+        {
+          "assessment": "Explicit coordinate transform is nonstationary, not a stationary sum",
+          "evidence": [
+            "Eqs. (197)–(201) specify a uniform initial condition; Eq. (204) gives the product μ/2 rather than μ²."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19999",
+          "material_read": "Retrieved arXiv §VI.5, Eqs. (197)–(211), OA offsets 129000–136950; the frozen Section VII locator differs",
+          "method": "Primary OA term and initial-law comparison",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+          "trigger": "Exact all-time same-map coordinate transform and broader binary dynamics"
+        },
+        {
+          "assessment": "Later exact transform provision implies the sum; adds distinct lag asymptotics, not an earlier antecedent",
+          "evidence": [
+            "Eq. (1) is the centered stationary generating function with removable unit pole. The relationship section distinguishes the already-known exact stationary sum from the new lag asymptotics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-stationary-correlation-transform-and-spectral-edge-amplitu--d19d3482d20b/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(4), assumptions, Proof Eqs. (7)–(9), Relationship and Limitations near offset 8520",
+          "method": "Local mirror formula, hypothesis, and implication comparison",
+          "title": "Exact stationary correlation transform and spectral-edge amplitudes for the Pelikan random map",
+          "trigger": "Strongest indexed same-model/same-law comparison"
+        },
+        {
+          "assessment": "Reported coverage of every finite lag; no independent claim excluding a summable transform or evaluated sum in the unavailable item",
+          "evidence": [
+            "Frozen audit describes an all-n O(n²) binomial formula with dyadic weights, rather than an explicitly evaluated infinite sum."
+          ],
+          "identifier_or_url": "80bea00e-d0f4-4832-933b-109d3dbcfa1e",
+          "material_read": "Frozen AUDIT.json lines 100–109; underlying primary item not independently recovered",
+          "method": "Frozen description plus bounded local index identifier search; no primary-source inference from absence",
+          "title": "Earlier exact stationary finite-lag binomial representation for the Pelikan map",
+          "trigger": "Strong potential implication noted by the frozen review"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinate Green–Kubo intensity is a standard meaningful time-accumulation invariant in an established intermittent random map. An exact finite nonzero critical limit despite vanishing one-time variance gives a quantitative example of noncommuting long-time and parameter limits, with an explicit normalized-correlation-time blowup. Obtaining the exact infinite sum is more than reproducing finite lags or the known stationary density. No quenched result, uniform critical crossover or central limit theorem is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

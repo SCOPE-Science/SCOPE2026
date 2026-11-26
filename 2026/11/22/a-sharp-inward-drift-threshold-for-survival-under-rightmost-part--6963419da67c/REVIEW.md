@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-reset embedding is exact before absorption. Every cycle contributes the iid increment \(Y=-vT+\sqrt{2D}\max_jW_j(T)\), with mean \((v_c-v)/r\). Negative-mean and zero-mean cases are excluded by the strong law and centered finite-variance random-walk oscillation. For the positive-mean case, the present-cycle downward drawdown has finite exponential moment, so a union bound over previous cycle increments yields a finite exponential bound on capture from large launch positions; a positive-probability first-cycle route gives noncapture from all positive launch positions. Strong laws and within-cycle maximal control prove the conditional speed. The coefficient \(\sqrt{\pi Dr/2}\) is checked algebraically from the mean square root of an exponential clock. Numerical checks in `check.py` independently test the Gaussian maximum and mean cycle displacement; none are used as infinite-time proof. Limitations: continuous first-hitting, first group member only, Poisson clock, constant inward drift, independent Brownian coordinates.
+PASS
 
-## Originality — PASS, qualified
+In the unabsorbed coupling the cycle pairs (Y,H) are iid: Y is the rightmost final displacement and H the maximum downward excursion of any walker during that cycle. The mean is −v/r+sqrt(2D) m_N sqrt(π)/(2 sqrt(r))=(v_c−v)/r. Finite nonzero variance makes the centered walk oscillate to arbitrarily negative reset positions, and a negative mean gives such positions by the strong law. A nonpositive reset position forces a prior continuous hit; positive reset positions alone would not imply survival. In the positive-mean case both cycle displacements and maximal absolute excursions have exponential moments near zero: for standard Brownian motion the one-sided supremum up to independent Exp(r) has tail exp(−u sqrt(2r)) by the hitting-time Laplace transform, and a union bound and Cauchy–Schwarz combine the two signs, N walkers and |v|T. Hence E exp(−θY)<1 for some θ>0; the sum of the Markov bounds for H_i−sum_{j<i}Y_j gives the record's exponential upper bound on capture for large x. This factors the current mark from past increments only. From every x>0, Brownian path support/positive killed transition probabilities and a reset in a finite time window give a positive probability of safely reaching that large reset level. There is also positive probability of capture before the first reset. The strong law, Poisson reset frequency, and exponential-tail Borel–Cantelli control of every within-cycle excursion give the stated almost-sure speed on survival, for all j. The coupled Gaussian maxima give strict increase and the stated N=1,2 checks and large-N leading term. Replay: RESULT.md lines 32–64; VERIFICATION.md and check.py were inspected, not executed. Numerical endpoint diagnostics cannot certify continuous or infinite-horizon survival.
 
-The full HTML text of the April 2026 group-first-hitting paper and extracted sections and appendices of its 2026 theoretical precursor were inspected. The prior papers study a harmonic potential or stationary group-reset kernels rather than the full constant-drift noncapture/capture threshold. A full older arXiv article on one lattice walker returning to its **historical** maximum was inspected: its ballistic law does not identify the current-maximum Brownian group absorption threshold. The accessible prior ledger includes the zero-drift group-escape subcase; that special case is not represented as new. Actual search queries included `rightmost group reset Brownian particles drift absorbing boundary critical velocity`, `first-group-hitting Brownian extreme selection reset drift v critical`, `reset to maximum multi particle Brownian drift critical survival`, and `conditional noncapture ballistic speed in rightmost resetting Brownian group`. No stronger covering result was identified. Negative search results alone are not proof of priority; equivalent unindexed results remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp drift frontier distinguishes positive-probability permanent avoidance from almost-sure eventual first-hit, including the delicate critical equality, in the exact collective-reset protocol motivating current first-passage work. The frontier scales nontrivially like \(\sqrt{r\log N}\), yields an explicit two-particle threshold, and identifies the ballistic speed *conditioned on survival*. It determines the condition under which group selection can overcome a constant restoring force, rather than merely computing another stationary moment or a narrow arbitrary parameter table. The previously known zero-drift phenomenon is a boundary case, not the mathematical point of the extension.
+Best-of-knowledge pass for the whole constant-drift sharp threshold and the almost-sure speed of survivors. There is substantial known overlap in the resetting protocol, Gaussian extreme-value kernel, and the zero-drift case. Neither priority over the driftless observation nor novelty of the renewal/random-walk methods is claimed.
 
-## Closest literature and residual risks
+## value
 
-- Lee, Yang and Lizana (2026), arXiv:2604.24406: exact protocol, harmonic confinement and first-hitting observables, not the drift-controlled transience phase boundary.
-- Lee, Yang, Park and Lizana (2026), arXiv:2412.02524: general kernel and harmonic stationary observables, no exact first-hitting critical drift.
-- Majumdar, Sabhapandit and Schehr (2015), arXiv:1509.04516: historical-maximum lattice walker rather than synchronized resetting of multiple instantaneous Brownian positions.
-- Residual: unindexed equivalent threshold, or an extension of general renewal kernels not recognized as a prior theorem. Other drift forces and finite-time absorption statistics are not established here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question is whether cooperative resetting can offset actual inward drift when every walker is continuously exposed to absorption. The exact finite-N phase line, inclusion of critical capture, and linear speed on survival answer that question, with the contrast between reset-skeleton behavior and continuous survival made explicit. This is not an estimate extrapolated from finite-horizon observations, nor just the known zero-drift escape phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

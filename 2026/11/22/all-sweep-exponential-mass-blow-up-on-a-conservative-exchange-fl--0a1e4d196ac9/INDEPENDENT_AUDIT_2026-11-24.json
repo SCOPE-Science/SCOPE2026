@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:21:16.773444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pezzella's Eq. (3) gives the frozen-start exponential predictor and a two-node correction using the start and prior endpoint per-capita rates with weights 1/2. Subtracting the two component logs gives the stated recurrence. With fixed r≠1 the initial log ratio is asymptotically linear with the opposite sign to log r. At each fixed subsequent sweep, the larger of exp(L) and exp(-L) dominates the O(h) part of the new log ratio, reverses its sign, and is the leading term (times h/2) in the log of the dominant component; the other component's log is O(h). The log of the total differs from the larger log by at most log 2. At sweep zero one predictor exponent has a positive slope, and r=1 leaves both stages at the equilibrium for every h. The (1,2) expressions follow by R0=2exp(-3h/2). Positivity for finite h and exact-flow conservation hold directly. Supporting verify.py was inspected as finite consistency evidence, not run and not used to justify the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pezzella gives an update rule in more general systems, not the nonlinear exchange stiff-limit theorem. The exchange stability wall permits arbitrary positive rates but concerns a different conclusion; the logistic-flow flip record takes the sweep count to infinity at fixed step on a different field."
+        ],
+        "reasoning": "Specializing a method definition yields the recurrence, not the sign-and-dominance induction and evolution of the actual total. Neither theorem with a wider parameter range or a different order of limits covers this conclusion.",
+        "searches": [
+          "arXiv:2606.29523, Eq. (3), p. 3",
+          "Resultary f64f37a39bd2 and 90014a7600e9, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.29523 Eq. (3)",
+        "Resultary f64f37a39bd2",
+        "Resultary 90014a7600e9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit rates the earlier contraction wall is h<1. Unconditional positivity of components is compatible with either a bounded or an unbounded sum. The earlier logistic analysis quantifies infinitely many corrections first."
+        ],
+        "reasoning": "Even strongly unstable equilibrium derivatives do not determine the pointwise asymptotics of the total. The explicit asymptotic lower growth of one component and the bounded-if-and-only-if classification are distinct claims.",
+        "searches": [
+          "arXiv:2606.29523 Eq. (3)",
+          "Resultary f64f37a39bd2 Finding and scope; 90014a7600e9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary comparison surfaced the assigned statement itself and the distinct same-flow exchange-stability wall (f64f37a39bd2). Its Finding concerns the transverse derivative, with threshold h(a+b)<2."
+        ],
+        "reasoning": "Writing the growth as divergence of the component log ratio with a matching mass-log asymptotic makes the comparison insensitive to choice of component ordering. A local derivative at a varying h does not establish either claim for a fixed off-equilibrium input.",
+        "searches": [
+          "Resultary: two-node exponential positive deferred correction reversible exchange, stiff-limit mass and log-ratio divergence",
+          "Focused primary-literature search on Pezzella exchange, fixed-sweep stiff mass blow-up and exponential ratio growth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result concerns asymptotic laws for a continuum of starts and steps, analytically quantified over sweep counts. The named comparators give a method formula, a local threshold, and a scalar iterative limit respectively."
+        ],
+        "reasoning": "There is no finite table of objects asserted as new; the closed form for (1,2) is a witness, not a standalone table novelty claim.",
+        "searches": [
+          "Not applicable to a database census; inspected the formulas in arXiv:2606.29523 and the two Resultary comparators for exact expression overlap."
+        ]
+      },
+      "rationale": "No covering result was identified in the inspected comparisons. The same-model stability theorem is a derivative criterion at equilibrium; the distinct claim is a fixed-initial-state and fixed-finite-sweep nonlinear stiff limit with explicit tower asymptotics.",
+      "residual_risks": [
+        "A finite targeted search cannot exclude an independently circulated exchange calculation. The negative literature lookup is not evidence of priority.",
+        "No conclusion is drawn about unbounded sweep count, other quadrature nodes, or the nonlinear collocation solution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method source, not coverage of the exchange conclusion",
+          "evidence": [
+            "The predictor uses per-capita rates at the step start, and corrections quadrature-average prior-sweep stage rates. The stage with τ0=0 stays at the step start."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.29523",
+          "material_read": "p. 3, Eq. (3) and surrounding first-node text (approximately offsets 10900–15269)",
+          "method": "OA PDF passage, checked two-node specialization",
+          "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+          "trigger": "Defines the method and its sweep convention"
+        },
+        {
+          "assessment": "Covers local transverse stability, not fixed-input mass growth",
+          "evidence": [
+            "For rates a,b the theorem gives contraction when h(a+b)<2, which reduces to h<1 in the symmetric unit-rate model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-all-sweep-exchange-stability-wall-for-two-node-positive--f64f37a39bd2/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, opening at offset 0",
+          "method": "Local indexed record text; statement comparison",
+          "title": "A sharp all-sweep exchange-stability wall for two-node positive integral deferred correction",
+          "trigger": "Same method and same conservative flow"
+        },
+        {
+          "assessment": "Different vector field, limit and conclusion",
+          "evidence": [
+            "The scalar logistic result includes convergence to a two-cycle as the number of corrections tends to infinity at fixed h."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-correction-sweep-flip-boundary-for-two-node-positive-defer--90014a7600e9/RESULT.md",
+          "material_read": "Finding, opening at offset 0",
+          "method": "Local indexed record text; dynamics and quantifier comparison",
+          "title": "Sharp correction-sweep flip boundary for two-node positive deferred correction on logistic flow",
+          "trigger": "Closely related alternating correction dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A reversible exchange is a minimal, natural conservative coupled test for a method advertised as positive. The result distinguishes positivity and equilibrium preservation from stiff mass control and shows that no fixed finite number of corrections repairs even this test for any unequal positive start. The alternating tower law measures the failure, rather than merely giving an isolated unstable step or floating-point overflow example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

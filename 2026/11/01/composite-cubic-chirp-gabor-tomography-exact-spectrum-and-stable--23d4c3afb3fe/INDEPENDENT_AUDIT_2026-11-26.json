@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:25:45.845684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–116, independently checked by the global character sum, divisor counts and cycle reconstruction",
+        "Frozen VERIFICATION.md and cubic_chirp_check.py, inspected, not executed"
+      ],
+      "rationale": "An independent global calculation avoids relying on the claimed CRT spectrum: set D=gcd(u,N), including D=N for u=0, and write the ambiguity as a normalized quadratic character sum with coefficients 3au and 3au²-v, up to a unit phase. In the squared modulus take two summation variables whose difference is h. The sum over the remaining variable vanishes unless N divides 6au h, i.e. h is a multiple of N/D. On these h, all phase terms other than -vh vanish modulo N. Orthogonality on this subgroup yields |A(u,v)|²=D/N if D divides v, zero otherwise. The conjugation characters of the distinct Weyl modes are orthogonal over the N² measured shifts, giving a normal eigenvalue N|A|² for W/sqrt(N) and no cross terms. Thus D occurs (N/D)phi(N/D) times, counting the delays of gcd D and admissible v independently. Factoring this count recovers the claimed local multiplicities, ranks, nullspace and both printed examples. At prime N only nonidentity diagonal Weyls are missing; a proper prime divisor p gives a composite null mode at (p,1). Along the specified primorial sequence, divergence of the sum of 1/p and convergence of the sum of 1/p² give the rank-fraction limit. The u=1 modes have eigenvalue one and recover every cyclic adjacent product. Nonzero-coordinate ratios alternate between c and 1/conj(c), so odd length forces unit modulus and equal ratios. For flat signals, the ±1 Weyl diagonals give at least 2/N² times the cyclic sum of squared differences of the unit ratios; cycle Poincaré with gap 4 sin²(pi/N) bounds this below by (8/N) sin²(pi/N)(1-|mean ratio|²). This implies the claimed constant using squared phase distance 2(1-|mean ratio|). Equal data on the coordinate vectors confirms that no unrestricted retrieval is asserted.",
+      "residual_risks": [
+        "The stability constant is uniform over the stated pairs and unit cubic coefficients at each N, not a positive constant independent of N or a sharpness claim. The rank-fraction limit uses the specified prime sequence; merely having more distinct large prime factors would not suffice."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou give general diagonalization and exact prime Alltop data. Bojarovska–Flinth require all nonzero coefficients or nonvanishing at shifts 0 and 1, respectively. Li v1 gives the local vanishing direction and uses CRT and stability for regularized windows."
+        ],
+        "reasoning": "The diagonalization covers the spectral reduction, but not the specific nonvanishing sizes at nonunit delays. The unperturbed flat cubic window has zeros at shift 0, so the wider stability and all-nonzero-vector retrieval theorems inspected cannot be specialized directly to it.",
+        "searches": [
+          "arXiv:2106.01509 Theorem 2 and Proposition 4",
+          "arXiv:1503.05800 Theorems 2.3–2.4",
+          "arXiv:2609.09614v1 Proposition 5.1 and CRT/stability passages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.01509",
+        "arXiv:2609.09614v1",
+        "arXiv:1503.05800",
+        "Resultary 7cbef39ff46a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li's excluded congruence is v not congruent to -3u² modulo p^t, the same exclusion as p^t not dividing v; it is one-sided. The generic Gram theorem yields all eigenvalues once the ambiguity coefficients are known. The shift-0 hypothesis of the prior full-support theorem fails."
+        ],
+        "reasoning": "The tensor product and counts are routine from an exact local Gauss evaluation, but the one-sided earlier obstruction cannot supply the evaluation. The positive shift-one space and odd-cycle reconstruction overcome missing modes, and the frame lower bound for a fully nonzero ambiguity function does not yield the restricted stability estimate.",
+        "searches": [
+          "arXiv:2609.09614v1 Proposition 5.1",
+          "arXiv:2106.01509",
+          "arXiv:1503.05800 Theorems 2.3–2.4",
+          "Resultary 7cbef39ff46a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched catalogue record has the same local zeros, magnitudes and multiplicities for p≥5 and additionally covers p=3; its lifting passage lists singular values."
+        ],
+        "reasoning": "After adjusting normalization and squaring singular values, its p≥5 local classification is equivalent. Its later catalogue date is not evidence of prior coverage, and its statement lacks the distinct-prime spectrum/recovery combination.",
+        "searches": [
+          "Resultary: cubic-chirp ambiguity and exact Gabor lifting spectrum",
+          "2026/11/8/SCOPE-exact-prime-power-cubic-chirp-ambiguity-and-gabor-lifting-spectr--7cbef39ff46a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prime spectrum is already explicit in Proposition 4. The later indexed prime-power record has exact local multiplicity data for all local exponents, but no distinct-prime product or rank-fraction result."
+        ],
+        "reasoning": "The relevant exact spectrum lists were compared rather than treating this as a finite computational census; prime data are fully covered and the equivalent local list is acknowledged.",
+        "searches": [
+          "Resultary: exact prime-power cubic Gabor spectrum",
+          "arXiv:2106.01509 Proposition 4"
+        ]
+      },
+      "rationale": "The general projector diagonalization, the prime Alltop spectrum, a sufficient local vanishing condition, CRT tensorization and graph spectral estimates are not new ingredients. The supported distinct part is the exact composite classification, including the converse and nonzero magnitude at all valuations, paired with full-support uniqueness and explicit restricted stability despite this nullspace. The closest catalogue record duplicates the local prime-power portion up to normalization, but is dated later and does not supply the remaining claims.",
+      "residual_risks": [
+        "A broader public-literature query was deferred; this is a bounded statement and implication comparison, not a priority certification. Standard Gauss-sum, CRT and Poincaré machinery is explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general reduction and the prime rank/spectrum",
+          "evidence": [
+            "General ambiguity-to-Gram spectrum formula and rank criterion; prime Alltop rank d²-d+1 and ambiguity magnitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "PDF p. 2, offset 8197; Proposition 4, p. 14, offset 50466",
+          "method": "Targeted primary OA passages",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "General Gabor Gram spectrum and Alltop data"
+        },
+        {
+          "assessment": "Covers one-sided local vanishing; quantitative claims here are for regularized windows",
+          "evidence": [
+            "Proposition 5.1 assumes p≥5, p-power modulus, and t≥1, and gives zero when the congruence fails, not the converse magnitude."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v1",
+          "material_read": "PDF p. 1 offset 1478; p. 12 offset 38000; Proposition 5.1 p. 18 offset 63496",
+          "method": "Targeted primary OA passages, v1",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Cubic zero obstruction, CRT, and quantitative recovery"
+        },
+        {
+          "assessment": "Close theory but hypotheses not met by flat cubic windows",
+          "evidence": [
+            "Nonvanishing at both shifts 0 and 1 for all modulations in Theorem 2.4; full lifting lower bound requires positive ambiguity margin."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Theorems 2.3 and 2.4, PDF pp. 4–6, offsets 18698 and 25094",
+          "method": "Targeted primary OA passages",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Full-support uniqueness and conditioning from ambiguity data"
+        },
+        {
+          "assessment": "Equivalent prime-power portion, plus p=3, on a later catalogue date; not whole claim",
+          "evidence": [
+            "Exact zeros, magnitudes, multiplicities and lifting singular values for prime powers; no distinct-prime product, full-support uniqueness or flat bound in those statements."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-prime-power-cubic-chirp-ambiguity-and-gabor-lifting-spectr--7cbef39ff46a",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and lifting spectrum at offset 5317",
+          "method": "Resultary search and local-mirror claim comparison",
+          "title": "Exact prime-power cubic chirp ambiguity and Gabor lifting spectrum",
+          "trigger": "Strongest catalogue match for the claimed local spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35 and 94–116; compared prime and regularized-window results above"
+      ],
+      "rationale": "The informative conclusion is that a natural, fully sampled Gabor intensity family can lose almost all linear lifting rank along an explicit sequence yet retain nonlinear full-support injectivity and quantitative flat-signal conditioning at each dimension. The exact arithmetic kernel says which modes are missing and why complete adjacent products nevertheless survive. This is structurally useful even though the spectral computation uses classical tools and unrestricted phase retrieval fails.",
+      "residual_risks": [
+        "The result does not quantify stability for arbitrary full-support vectors and does not give a dimension-free bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

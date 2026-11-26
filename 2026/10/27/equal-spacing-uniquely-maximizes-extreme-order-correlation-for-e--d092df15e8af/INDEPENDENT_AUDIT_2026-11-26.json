@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:12:24.814155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, lines 15–65",
+        "Frozen VERIFICATION.md and checker.py (inspection only)"
+      ],
+      "rationale": "Normalize the support to 0,t,1. The minimum and maximum are linear combinations with weights t,1-t of two nested threshold indicators each. The four cross covariances are ab, b²−a, a², ab, giving D+Fw at w=t(1−t), where D=ab and F=(b−a)²−a. The variance product has coefficients AB, L=−4AB+2C(A+B), K=(A+B−2C)². Exact polynomial coefficient arithmetic confirmed the frozen identities for the derivative factor at 0 and 1/4. At 0 the factor after extracting 2ab(1−b) is at least 3b²/16. At 1/4 the frozen bound using a/b²≤9/16 gives a positive factor because 81b³−369b²+127b+80≥80−37b>0 when b≤4/9. The derivative factor is affine, so it is strictly positive throughout. F≥0 even at n=2, where F=0 and the covariance is still positive. The positive variances and w≤1/4 with equality only at t=1/2 prove the strict maximum. Evaluation there gives the stated formula and the values 8/19 and 1/4 at n=2 and 3.",
+      "residual_risks": [
+        "The supplied checker was not executed. The derivative identities were checked symbolically; finite examples are not the proof for unbounded n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 covers arbitrary finite equiprobable supports but only two draws. The cited Székely–Móri inequality bounds the correlation of the extremes by 1/n."
+        ],
+        "reasoning": "The former subsumes n=2. The latter applies for n≥3 but does not compare interior support locations or prove the sharper equality case.",
+        "searches": [
+          "arXiv:2205.14360v1, Introduction and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Papadatos, arXiv:2205.14360v1",
+        "Resultary records 1482021161b5, 92f0f4188ee4, 200fa86d60cb and 72e2dab2ac87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 4 boundary result finds a nonzero weight derivative at the uniform masses for n≥3 on equally spaced support. The other October 4 record exhibits correlation 81/319>1/4 with endpoint masses 3/10 for three draws."
+        ],
+        "reasoning": "The exact prior n=2 implication and the known midpoint value are credited. Improving correlation by changing the masses at the midpoint is compatible with strictly reducing it by changing the location at uniform masses; neither fact implies the latter.",
+        "searches": [
+          "Papadatos Theorem 1.2 and the Resultary October 4 boundary and counterexample findings; October 12 rare-endpoint finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Papadatos Theorem 1.2 at N=3 gives exactly the same n=2 bound and equality case.",
+          "Indexed three-point sharpness and nonextremality results vary masses on fixed support."
+        ],
+        "reasoning": "Support-location optimization is invariant under normalization and reflection, but neither operation trades movable support for movable probabilities. Credit the equivalent n=2 theorem, not a new result for that case.",
+        "searches": [
+          "Resultary: three-point min–max correlation, equal spacing, location versus weight optimization",
+          "Papadatos, arXiv:2205.14360v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-rare-endpoint-maximizers-of-three-state-extreme-order-correlatio--1482021161b5, Finding: the correlation formula on equally spaced support with symmetric endpoint masses t is ((ℓ+e)²−b₀)/(ℓ+3e−(ℓ+e)²), with ℓ=(1−t)^n, e=t^n, b₀=(1−2t)^n.",
+          "The September 20 indexed three-point weight result records 8/19 for two draws."
+        ],
+        "reasoning": "Setting t=1/3 recovers the entire midpoint value sequence. It does not give the comparison with unequal spacings; no matching location theorem was established in the indexed sources examined.",
+        "searches": [
+          "Local Resultary search: extreme-order correlation, three states, symmetric and uniform probabilities"
+        ]
+      },
+      "rationale": "The new content supported by the comparison is strict support-location optimality for n≥3, not the n=2 optimizer or the evaluation of the correlation at the midpoint. No available prior result inspected settles the n≥3 location optimization with equal masses.",
+      "residual_risks": [
+        "Focused statement comparisons do not settle historical priority beyond the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two-draw case; background bound insufficient for the strict all-n location optimum",
+          "evidence": "Theorem 1.2 bound (1−N⁻²)/(2+N⁻²), with equality for a discrete lattice; introduction cites the all-distribution order-statistic bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.14360",
+          "material_read": "v1 PDF, Introduction pp. 1–2 and Theorem 1.2 p. 3",
+          "method": "Open PDF passage inspection",
+          "title": "A discrete analogue of Terrell’s characterization of rectangular distributions",
+          "trigger": "Equiprobable finite-support correlation extremum"
+        },
+        {
+          "assessment": "Covers evaluation at equal spacing only",
+          "evidence": "The symmetric-mass formula specialized to 1/3 is the frozen value, but the support is fixed equally spaced.",
+          "identifier_or_url": "2026/10/12/SCOPE-rare-endpoint-maximizers-of-three-state-extreme-order-correlatio--1482021161b5",
+          "material_read": "RESULT.md opening finding and scope",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Rare endpoint maximizers of three-state extreme-order correlation",
+          "trigger": "Same three-state statistic at arbitrary sample size"
+        },
+        {
+          "assessment": "Weight version, two draws",
+          "evidence": "8/19 attained only at the uniform law on fixed {1,2,3}.",
+          "identifier_or_url": "2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4",
+          "material_read": "RESULT.md opening statement",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp min-max correlation over three-point probability weights",
+          "trigger": "Same optimum number for three atoms"
+        },
+        {
+          "assessment": "A different optimization dimension",
+          "evidence": "Derivative at the uniform weights is negative along symmetric weight perturbations for all n≥3 on {−1,0,1}.",
+          "identifier_or_url": "2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb",
+          "material_read": "RESULT.md opening statement",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sample size two is the exact boundary for three-point uniform-probability extremality",
+          "trigger": "Uniformity and a boundary at two draws"
+        },
+        {
+          "assessment": "Not a counterexample at fixed equal masses",
+          "evidence": "Endpoint masses 3/10 give correlation 81/319, exceeding the uniform-mass 1/4.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87",
+          "material_read": "RESULT.md statement and calculation",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A three-draw counterexample to uniform-probability extremality for discrete order-statistic correlation",
+          "trigger": "Apparent n=3 counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Papadatos Theorem 1.2",
+        "Frozen RESULT.md",
+        "Resultary records 1482021161b5 and 200fa86d60cb"
+      ],
+      "rationale": "The fixed-equal-mass problem is the natural location analogue of the two-draw discrete extremum. Three points are the first support with an adjustable gap ratio. Proving strict optimality at every sample size, including where changing masses can improve upon uniformity, resolves that first variable-gap problem and distinguishes the two optimization regimes. The value is in the global location comparison and equality criterion, not in reevaluating the known midpoint formula.",
+      "residual_risks": [
+        "No claim for arbitrary supports, unequal masses, or joint optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

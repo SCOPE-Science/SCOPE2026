@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:38:31.930410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/reset_reproduction.py (independent standard-library replay)"
+      ],
+      "rationale": "The stopping rule permits mu resets and kills at alarm mu+1, giving n=mu+1 attempts. One attempt survives until an alarm with probability q=1-exp(-z) and lasts q/r on average, yielding the stated sum for unconditional time. Its derivative has the sign of z(1-q)S'_n/S_n-2; the weighted index mean increases strictly on appending n+1, and the derivative test tends to 1 and 0 before subtracting 2 at the two endpoints. Independently reconstructed the global n=21 rational bound and all 116 positive coefficients via interval homographies, and reproduced the strict n=22 witness margin at q=6/7 exactly. The positive atanh tail gives the claimed upper and lower log bounds. This covers every r>0; the endpoint signs and the positive interior sign imply both types of extrema, without proving uniqueness.",
+      "residual_risks": [
+        "No conclusion about conditional absorption times or other stopping rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff describes a qualitative change in the same Brownian model. The indexed theorem quantifies over all positive distances, diffusivities and rates and all nonnegative integer allowances, and gives a strict local minimum followed by a strict local maximum for the nonmonotone regime."
+        ],
+        "reasoning": "The indexed theorem leaves no extra regime in the frozen claim. General resetting models are not needed to infer coverage.",
+        "searches": [
+          "Bressloff arXiv:2310.20502 section V.B",
+          "Resultary 2f98eb59a566 Finding and Proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.20502v1",
+        "Resultary 2026/11/2/SCOPE-exact-21-reset-threshold-for-nonmonotone-brownian-search-termina--2f98eb59a566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper supplies the function but does not give the sharp integer in the inspected section. The indexed proof bounds the same weighted-index test using a rational compact-interval cover with 80 leaves and uses a positive lower-bound calculation at q=6/7. The frozen proof instead uses four rational Bernstein certificates and a five-term lower bound."
+        ],
+        "reasoning": "The result is not obtained merely by quoting the earlier formula, but the indexed interval argument already establishes the same conclusions. No distinct theorem is claimed for the Bernstein approach.",
+        "searches": [
+          "Bressloff (5.37) and Fig. 4",
+          "Resultary 2f98eb59a566 Proof §§2–4 and Verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff's Fig. 4 caption identifies the unconditional time to absorption or reset number mu+1. Its mean (5.37) is (exp(z)-1)(1-q^(mu+1))/r.",
+          "The indexed record explicitly defines the observable, budget convention, z=a sqrt(r/D), and S_n(q) identically."
+        ],
+        "reasoning": "Exp(z)-1=q/(1-q), so the prior mean is the frozen geometric sum. The same budget is 21 allowed resets or 22 attempts, not 21 alarms including the fatal alarm. The comparison is not with conditioned first-passage time.",
+        "searches": [
+          "https://arxiv.org/pdf/2310.20502 (5.37)",
+          "Resultary record 2026/11/2/SCOPE-exact-21-reset-threshold-for-nonmonotone-brownian-search-termina--2f98eb59a566"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Finding: T'_mu<0 for every r>0 at 0<=mu<=20, T'_mu>0 at D(log 7)^2/a^2 for mu>=21, negative near both ends.",
+          "The paper's figure discussion only says 'For sufficiently small μ' decreasing, and 'as μ increases' a local minimum develops."
+        ],
+        "reasoning": "The primary paper passage is not an exact threshold table, but the distinct indexed full statement is an exact match.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-exact-21-reset-threshold-for-nonmonotone-brownian-search-termina--2f98eb59a566, local-mirror RESULT.md, offsets 0 and 4646",
+          "Bressloff arXiv:2310.20502 Fig. 4 and the prose after (5.37)"
+        ]
+      },
+      "rationale": "The exact theorem, including the sign for every rate and the same positive witness rate, is already covered by a distinct indexed record, not just suggested by the motivating paper. Its date is later than the frozen record's date; coverage at review does not establish who derived the theorem first. The certificates use different positivity arguments but the frozen mathematical claim is unchanged.",
+      "residual_risks": [
+        "Coverage does not adjudicate priority or the relationship between the derivations. A broader search could uncover earlier coverage; it would not undo the exact indexed match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mean and qualitative transition, not the exact boundary in the passage inspected",
+          "evidence": "Calls the quantity unconditional and says the (mu+1)-th resetting event can terminate the search; Eq. (5.37) is the geometric form of the same mean.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.20502",
+          "material_read": "Section V.B, Fig. 4 caption, Eq. (5.37), and nearby discussion, p. 10",
+          "method": "Open-access primary PDF, bounded text at offset 78750",
+          "title": "Truncated stochastically switching processes",
+          "trigger": "Identical physical observable and finite-budget model"
+        },
+        {
+          "assessment": "Covers the entire frozen theorem",
+          "evidence": "Both derivative regimes and witness rate agree, as do independence from D and a and the unconditional stopping convention. The indexed proof uses an interval subdivision rather than the frozen Bernstein coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-21-reset-threshold-for-nonmonotone-brownian-search-termina--2f98eb59a566/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof §§1–4, Verification and first prior-work paragraph (offsets 0–6973)",
+          "method": "Local mirror, section-level reading",
+          "title": "Exact 21-reset threshold for nonmonotone Brownian search termination times",
+          "trigger": "Distinct indexed exact-threshold hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 2f98eb59a566, Finding and Proof §§3–4"
+      ],
+      "rationale": "The first failure of monotonicity is a natural and useful boundary of finite-budget resetting. The frozen result adds no new boundary, parameter regime, derivative comparison, or reusable positivity theorem beyond the indexed exact result. Its different certificate is a valid verification of an already covered invariant, not a supported distinct scientific contribution.",
+      "residual_risks": [
+        "No assessment is made of whether a generalization of the Bernstein technique could yield new results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

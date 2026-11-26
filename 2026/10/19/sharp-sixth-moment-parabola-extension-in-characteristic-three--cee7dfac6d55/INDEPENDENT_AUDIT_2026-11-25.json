@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:37:45.459733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Character orthogonality gives q^(-4) times the squared triple-fiber norm with the stated counting measure, so the unnormalized coefficient is q+1−1/q. For each nonzero sum s there are q translation orbits of ordered triples and translating by h changes the square sum by −hs; each orbit contributes exactly once to every square sum. Thus the generic fibers have size q. At s=0, the unique ordered parametrization (a−d,a,a+d) gives square sum −d². The d=0 fiber has size q and the nonempty nonzero-square-sum fibers have size 2q; C_d=C_{−d} gives |C_0|²+2Σ_{d≠0}|C_d|². After spending one q-term Cauchy–Schwarz estimate per d against the exceptional contribution excluded from the generic estimate, the remainder is Σ_{d≠0}|C_d|². Cauchy–Schwarz against the central factor and the bijection (a,d)↦(a−d,a+d) bound this by F(F²−Σ|f|⁴). The last Cauchy–Schwarz bound is sharp only for constant modulus when F>0. Independently counting the flat moment gives q⁴+q³−q², yielding 99, 7209 and 550395 at q=3,9,27, respectively. Quadratic phases translate (X,Y), preserving the norm. There is no claim of a full equality-phase classification. The reviewed verify.py (arithmetic and fiber enumeration, lines 12–56; test chain, lines 58–104) and verify_output.txt corroborate the finite cases; the complex sample tests use tolerances, and neither they nor the recorded run are used as proof. Replay: python verify.py from the package; not executed as part of this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parabola theorem requires p>3, with the cited method split into q≡1 and 2 mod 3.",
+          "The general moment-curve endpoint L²→L^{2d} yields L²→L⁴ in degree two; degree three changes the curve and its p>d condition excludes characteristic three."
+        ],
+        "reasoning": "Neither another characteristic nor another output exponent dominates the frozen sharp L²→L⁶ claim.",
+        "searches": [
+          "arXiv:2405.16647v2 Theorem 1.3 and §6",
+          "arXiv:2508.08377 §1.2",
+          "arXiv:2609.29882 §1.1 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.16647v2",
+        "Resultary 52302cf3414e",
+        "Resultary 158763dab4f3",
+        "arXiv:2508.08377",
+        "arXiv:2609.29882"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Translation orbits change square sums linearly at nonzero s in characteristic three, while s=0 has progressions with 2q fibers.",
+          "A bound on inputs with at most three nonzeros or on a neighborhood of constants supplies no bound on an arbitrary input."
+        ],
+        "reasoning": "The cited statements do not imply either the global upper bound or the necessity of constant modulus for arbitrary nonzero maximizers on the extension fields in question.",
+        "searches": [
+          "arXiv:2405.16647v2 Theorem 1.3",
+          "Resultary 52302cf3414e and 158763dab4f3 full statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.3 uses the same normalized parabola extension and sixth power, not a different normalization.",
+          "The three-mode statement gives 11/9 for the full F_3 parabola; the local-stability statement examines the same unrestricted functional only near constants."
+        ],
+        "reasoning": "Compare both the restriction/extension formulation and the corresponding weighted triple-fiber problem. Agreement of the coefficient in the other characteristic regime does not prove the degenerate characteristic-three estimate.",
+        "searches": [
+          "arXiv:2405.16647v2",
+          "Resultary 52302cf3414e",
+          "Resultary 158763dab4f3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-mode database match includes all inputs only over F_3, not when q≥9.",
+          "The exact local sixth-moment analysis gives the second variation at constants, not the norm.",
+          "The flat-input moments are scalar fiber counts; they certify a lower bound, not the weighted supremum."
+        ],
+        "reasoning": "Credit the exact known small-field instance. A table of unweighted energy values alone could not cover the unrestricted sharp bound or the modulus condition.",
+        "searches": [
+          "Resultary 52302cf3414e",
+          "Resultary 158763dab4f3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the unrestricted characteristic-three theorem for extension fields q≥9. The q=3 case itself is covered by an earlier three-mode result, and the identical coefficient and necessary modulus condition are known in characteristic >3. The frozen text explicitly distinguishes both overlaps; no inspected result establishes the unrestricted theorem on the remaining fields.",
+      "residual_risks": [
+        "Best-of-knowledge coverage judgment; an unindexed characteristic-three sharp inequality or equivalent weighted-energy inequality could exist. A broad lookup without returned evidence does not exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem in a disjoint characteristic regime",
+          "evidence": "Explicit p>3; generic/critical calculation splits q≡1,2 mod 3.",
+          "identifier_or_url": "https://arxiv.org/html/2405.16647v2",
+          "material_read": "Introduction and Theorem 1.3, including the discussion of generic and critical fibers",
+          "method": "Bounded OA HTML passages",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Same parabola exponent and coefficient"
+        },
+        {
+          "assessment": "Covers q=3 exactly, not unrestricted extension fields",
+          "evidence": "Support of three modes spans all of F_3 but not F_{3^n} when n≥2.",
+          "identifier_or_url": "52302cf3414e",
+          "material_read": "Finding and limitations in RESULT.md, including scope near offsets 0 and 5893",
+          "method": "Resultary and local mirror",
+          "title": "Sharp sixth Fourier moments for three parabolic modes in every odd characteristic",
+          "trigger": "Same exponent and characteristic with a potential support reduction"
+        },
+        {
+          "assessment": "Local overlap only",
+          "evidence": "Exact second variation and strict local maximality, explicitly not a global inequality.",
+          "identifier_or_url": "158763dab4f3",
+          "material_read": "Finding and limitations in RESULT.md, including offsets 0 and 5990",
+          "method": "Resultary and local mirror",
+          "title": "Exact local sixth-moment stability of the parabola in characteristic three",
+          "trigger": "Same functional over all powers of three"
+        },
+        {
+          "assessment": "Different exponent for the parabola",
+          "evidence": "Degree d corresponds to L²→L^{2d}.",
+          "identifier_or_url": "https://arxiv.org/html/2508.08377",
+          "material_read": "§1.2 degree and endpoint setup",
+          "method": "Bounded OA HTML passage",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields",
+          "trigger": "Possible broader endpoint theorem"
+        },
+        {
+          "assessment": "Different exponent/characteristic assumptions",
+          "evidence": "The degree-dependent endpoint gives L⁴ for the parabola and uses p>d.",
+          "identifier_or_url": "https://arxiv.org/html/2609.29882",
+          "material_read": "§1.1 and Theorem 2",
+          "method": "Bounded OA HTML passages",
+          "title": "Finite-field moment-curve endpoint theorem",
+          "trigger": "Potential later coverage of the endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result fills the explicit exceptional-characteristic gap in a sharp parabola restriction problem, on arbitrarily large fields and for every complex input. It explains how to recover the sharp coefficient despite the factor-two critical fibers and gives necessary optimizer structure. This is materially stronger than tabulating the flat energy or testing local stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

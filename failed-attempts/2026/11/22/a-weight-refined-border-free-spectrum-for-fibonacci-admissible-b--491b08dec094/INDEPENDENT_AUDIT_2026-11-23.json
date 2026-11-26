@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:10.320478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shortest border is itself unbordered. If its length exceeded half the word length, two shifts by the corresponding period would give a shorter positive border; thus the two copies can be separated by a legal middle. For distinct endpoints exactly one of the two junctions forces a zero on a nonempty middle, giving M=1+zT=1/(1-z-tz²), and the empty middle is legal. For a singleton border 0 there is no extra constraint; for 1 the middle is nonempty with both ends 0 (the one-letter middle 0 serves both ends). These cases give (1) and induction gives uniqueness. The scalar recurrence, convolution and limit then follow by coefficient extraction and Binet. In the convolution the conjugate-root error summed with u_k≤phi^{k+1} is O(phi^{-n/2}), as is the omitted tail. Recomputing gives a K=10 lower bound about 0.13695 and the displayed density to double precision; the analytic enclosure in (4) controls further digits. Replay via RESULT.md (5)–(6) and the tail estimate; both checkers and VERIFICATION.md were inspected, not executed. The claim is about linear no-11 words and contiguous borders only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Perron record treats limiting closing-deficit laws and fixed-border probabilities in primitive finite-state shifts; the entropy-sharp record treats closing tails. Neither inspected result gives this Hamming-weight spectrum.",
+          "The unrestricted recurrence in Holub–Shallit is methodological background; the decisive coverage is the companion's same-language exact structural decomposition and stronger parity asymptotic."
+        ],
+        "reasoning": "General shift limit results are not being mistaken for the matching exact weighted enumeration. The same-language companion supplies enough word-level information to derive it without a further structural argument.",
+        "searches": [
+          "Resultary Perron border/periodic closing record 178df22e69e4 (RESULT.md offsets 0–8379)",
+          "Resultary entropy-sharp periodic cylinder record 22e18f2d92a1",
+          "Holub–Shallit, Periods and Borders of Random Words, §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary golden-mean Mahler record ce7ef1cd5963",
+        "Resultary Perron border and entropy-sharp closing records 178df22e69e4 and 22e18f2d92a1",
+        "OEIS A099766 and A003000",
+        "Holub–Shallit, Periods and Borders of Random Words, §4.1, p. 6 (OA offsets 16400–20390)",
+        "Harju–Nowotka DOI 10.1016/j.tcs.2005.03.040, full-text access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let B(z,t) count the companion's unbordered 01-oriented words. Its exact decomposition says that every bordered oriented word is uniquely v m v with unbordered oriented v and middle empty or starting in 0; the other junction is unrestricted. With D=1-z-tz² those middles have series 1/D, and all 01-oriented legal words have series tz²/D. Consequently D B(z,t)+B(z²,t²)=tz² by direct additive marking. Reversal and the singletons give U(z,t)=(1+t)z+2B(z,t), exactly (1).",
+          "The scalar transform identifies p with the companion's p_*; with q=1/phi and scalar oriented T, both are 2q(q²-T(q²)). The companion also gives the leading parity constants with an O(phi^{-3n/4}) residual."
+        ],
+        "reasoning": "The implication uses the published exact bijection, not substitution into a series whose coefficients lost the weight information. The only change is assigning multiplicative weights to the already specified factors. The explicit scalar truncation error is a geometric-tail bound on the same known probability, not an independently new invariant.",
+        "searches": [
+          "Mirrored ce7ef1cd5963 RESULT.md, shortest-border factorization and parity asymptotics, offsets 2500–7190",
+          "Frozen RESULT.md (1), (3), (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The companion proves that ordinary word period equals least admissible periodic continuation period, so its full-period event is exactly unborderedness for the same uniform linear language.",
+          "Reversal preserves Hamming weight and exchanges 01/10 endpoint orientations. Complementation gives the corresponding 00-avoidance formulation with U_n^{00}(t)=t^n U_n^{11}(1/t). The morphic Fibonacci word is a different domain."
+        ],
+        "reasoning": "The apparent period-versus-border distinction is an exact equivalence here, not just a shared numeric density. The companion counts one endpoint orientation; doubling recovers the frozen specialization at every n≥2.",
+        "searches": [
+          "Resultary: golden-mean periodic cylinders, unbordered no-11 words, Fibonacci language",
+          "Mirrored golden-mean Mahler record ce7ef1cd5963, proof steps 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A099766 and A003000 are unrestricted weight-refined counts and row sums; they already differ at length 3 and are not exact constrained matches.",
+          "The catalogue companion's full oriented scalar recurrence gives the exact constrained counts, beginning at n=2 with 1,1,1,2,2,4,5,9,12; these double to the frozen scalar sequence."
+        ],
+        "reasoning": "No exact printed constrained bivariate table is needed for the coverage finding. The constrained scalar recurrence is an exact match, whereas the known unrestricted triangle is not.",
+        "searches": [
+          "OEIS A099766 and A003000",
+          "Resultary: 2026/11/22/SCOPE-golden-mean-periodic-cylinders-a-mahler-law-and-a-sharp-parity-s--ce7ef1cd5963"
+        ]
+      },
+      "rationale": "Verified distinct same-date catalogue coverage, not an inference about chronological priority: the golden-mean periodic-cylinder record proves that full period n is precisely this unbordered event, gives the exact oriented scalar recurrence and the same positive density, and strengthens the convergence error to a signed parity expansion. Its proof gives the same exact sandwich decomposition of the oriented word sets, not merely scalar counts. Marking a 1 by t in that decomposition gives the whole proposed bivariate equation directly, as detailed below. The bivariate formula was not printed in the inspected companion passage, but is a mechanical consequence of its stronger word-level decomposition and the elementary regular-language weight series. The frozen claim thus does not establish a distinct result against this matching coverage.",
+      "residual_risks": [
+        "The same publication date does not establish the order of discovery or publication within the day. The older Harju–Nowotka full text remained inaccessible, and older constrained weight results may also exist. Neither uncertainty is the basis of the FAIL; it rests on demonstrable equivalent or mechanically implied coverage from the inspected companion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent scalar theorem with sharper asymptotics; its word-level decomposition mechanically implies the weighted theorem",
+          "evidence": "Exact period/border equivalence, oriented shortest-border v m v with fixed junction constraint, Mahler equation, and explicit p_* and parity expansion.",
+          "identifier_or_url": "2026/11/22/SCOPE-golden-mean-periodic-cylinders-a-mahler-law-and-a-sharp-parity-s--ce7ef1cd5963",
+          "material_read": "Mirrored RESULT.md, Finding and proof steps 1–5, offsets 0–7190, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local-mirror passage comparison",
+          "title": "Golden-mean periodic cylinders: a Mahler law and a sharp parity split",
+          "trigger": "Exact constrained-language and numerical-density overlap"
+        },
+        {
+          "assessment": "Coverage of limiting borders and closure distributions, not the exact Hamming-weight enumerator in the inspected results",
+          "evidence": "Uses Perron weighting of end distributions and fixed-border probabilities, not length-and-Hamming-weight generating variables.",
+          "identifier_or_url": "2026/11/22/SCOPE-perron-border-law-and-bounded-periodic-closing-fluctuations-for--178df22e69e4",
+          "material_read": "Mirrored RESULT.md offsets 0–4286 and 4286–8379; targeted weight passage locators",
+          "method": "Resultary and bounded mirror passages",
+          "title": "Perron border law and bounded periodic closing fluctuations",
+          "trigger": "Potential broader primitive-shift result"
+        },
+        {
+          "assessment": "Different language; no 11 constraint",
+          "evidence": "The unrestricted row sum at length 3 is 4 versus 2 in the frozen language.",
+          "identifier_or_url": "https://oeis.org/A099766 and https://oeis.org/A003000",
+          "material_read": "A099766 entry definition at offset 0; A003000 definition/values near offset 174",
+          "method": "Targeted public database reads",
+          "title": "Unrestricted binary unbordered words, by weight and by length",
+          "trigger": "Potential exact weight and length tables with classical fixed-weight precedent"
+        },
+        {
+          "assessment": "No whole-document exclusion; not needed for the positive coverage finding",
+          "evidence": "The inspected database describes an unrestricted triangle; it does not determine what additional claims the full paper might contain.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2005.03.040",
+          "material_read": "OEIS A099766's associated citation; journal full text not retrieved",
+          "method": "Cited publisher access attempted; HTTP 403, with lawful OEIS entry consulted",
+          "title": "Counting bordered and primitive words with a fixed weight",
+          "trigger": "Possible older fixed-weight enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The inventory is a natural useful quantity in isolation, but its scalar law and positive density are already available with a sharper asymptotic, and the proposed weight refinement is direct marking of an already explicit word-level decomposition. The frozen result does not supply a further nonmechanical invariant, weighted asymptotic, or independently motivated cutoff. Finite checks and the elementary tail enclosure do not remedy that gap. No surviving independently valuable claim was found that could be repaired merely by narrowing the scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

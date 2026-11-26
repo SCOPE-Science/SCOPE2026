@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:55.003309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65, including the scope on arbitrary received words",
+        "Frozen VERIFICATION.md and both supplied files in verify/, inspected without execution",
+        "Independent bounded enumeration of literal deletion outputs"
+      ],
+      "rationale": "For words x,y with matched deletions at p<r respectively, equality of the reads gives agreement outside [p,r] and y_k=x_(k+1) for p<=k<r. Restriction to the first/last disagreement interval [i,j] gives the same relation there and deleting i,j reproduces the common read; exchanging word order gives the other mode. Equal deletion positions give just i=j. For a one-position difference there are binom(q,2) unordered choices. For L>=2, choosing the x block and the final y symbol gives q(q-1)^L ordered left-shift choices; the first mismatch follows from the adjacent-unequal rule, and the last symbol is any of q-1 choices different from x_j. Both shifts are possible exactly for the two opposite phases of an alternating two-symbol block, so subtract q(q-1)/2 for each boundary extension. A nonempty common prefix or suffix must avoid two distinct endpoint letters at its inner end, giving C_t=(q-2)(q-1)^(t-1), independently. Multiplying by C_a C_b and summing via C(z)=(1-z)/(1-(q-1)z) gives the stated generating function and its polynomial-times-geometric coefficients. At n=1 the graph is complete, and q=2 has just the two alternating words joined by one edge for every n. Dividing twice the edge count by q(q-1)^(n-1) gives the stated degree; the independent-set lower bound follows by averaging 1/(degree+1) from a random vertex ordering and rounding up. Fresh direct deletion enumeration matched every cell and total/GF coefficient in 24 (q,n) cases, including the degenerate boundaries. Replay: python3 /workspace/branches/88fa4e85-19d0-4519-85dd-efb346f3094c/record3_check.py.",
+      "residual_risks": [
+        "The computation is finite. The conclusion counts unordered one-read edges, not shared-read multiplicity or optimal code sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cullina et al. define the unrestricted binary deletion-distance graph and bound average degree. Kulkarni–Kiyavash bound code sizes, including constrained sources. Resultary's q-ary two-read count 737fed325e91 and run-cap two-read result 4a3ef99abab1 concern pairs sharing two distinct outputs; the latter has r>=2. Cai et al. Type-B in the inspected result involves substitution balls."
+        ],
+        "reasoning": "An unrestricted graph aggregate or code-size upper bound cannot in general give the exact edges of the induced sublanguage. Even a broader alphabet/tighter run-cap theorem for overlap at least two does not count edges with exactly one common read.",
+        "searches": [
+          "arXiv:1211.4056 Definition 5 and Lemma 4",
+          "arXiv:1211.3128 constrained deletion codes",
+          "Resultary: single-deletion confusability graph exact edge count for restricted language one-read adjacent unequal words Type A Type B",
+          "arXiv:2001.01376 literal Type-A and Type-B"
+        ]
+      },
+      "checked_sources": [
+        "Three local Resultary queries and materially related record statements",
+        "Cai et al. and Cullina et al. original propositions/definitions; Kulkarni–Kiyavash original p. 1",
+        "One targeted primary literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Type-A structure gives the form of the double-count correction in larger spans. Other span>=2 pairs can share exactly one read, e.g. abc and bcd over four distinct symbols; the two-read law cannot count them. The degree bound does not give equality or boundary factors."
+        ],
+        "reasoning": "The prior classification is an ingredient, but exact edge counts require counting all endpoint-shift choices, including the singly represented ones, with admissible shared boundary extensions. No checked result supplied these counts by span and location or was shown to imply the whole finding.",
+        "searches": [
+          "arXiv:2001.01376 Definition 8/Proposition 9 and Definition 11/Proposition 12",
+          "arXiv:1211.4056 Definition 5 and Lemma 4",
+          "Resultary ec0ea145ed6d, 737fed325e91 and 4a3ef99abab1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical item e7209f45b6f7 is a self-match. The close same-day Fibonacci-language result ec0ea145ed6d counts one-read edges for binary words avoiding 11, allowing 00. Cai et al. Proposition 9 characterizes two-read Type-A alternating pairs, not every pair with nonempty overlap. The primary query was non-diagnostic."
+        ],
+        "reasoning": "The same deletion rule on two different constrained languages is not a statement of the same induced graph law; in particular the adjacent-unequal binary graph has only two vertices. 'Kautz' here describes the language, not the edge rule of a Kautz shift digraph.",
+        "searches": [
+          "Resultary: exact single-deletion confusability graph edge counts adjacent-unequal Kautz words changed-interval spectrum",
+          "Resultary: Type-A Type-B single-deletion confusability edge classification general edge count",
+          "Primary search: \"Type-A\" \"Type-B\" confusability graph single deletion exact edge count deletion channel constrained source"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned all-length formula for this precise statistic is the frozen self-match. Nearby exact generating functions were for the Fibonacci language or two-read edges. No independent exact table for the claimed cells or total was identified in these returned entries."
+        ],
+        "reasoning": "The table statistic would need unordered edges with overlap at least one in the run-cap-one language, with the same boundary indexing. Matching a deletion channel or alphabet without matching this statistic is not table coverage.",
+        "searches": [
+          "Resultary: exact single-deletion confusability graph edge counts adjacent-unequal Kautz words changed-interval spectrum",
+          "Resultary: single-deletion confusability graph exact edge count for restricted language one-read adjacent unequal words Type A Type B"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact location-resolved edge law, and hence exact total, for the adjacent-unequal linear language with nonempty one-deletion overlap. Prior work covers the graph framework and alternating double-overlap structure; the audit does not credit those as new. No inspected statement supplies the single-overlap portion and the whole span law in this language.",
+      "residual_risks": [
+        "The primary search was non-diagnostic. A stronger unindexed regular-language enumeration or an earlier Kautz-language result could contain implicit coverage. Same-day Resultary entries are not assigned a priority order by their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Alternating two-read subclass covered; not the one-read span count",
+          "evidence": "Proposition 9 distinguishes Hamming-distance-one and alternating two-read pairs. Type-B belongs to a mixed setting involving substitution balls.",
+          "identifier_or_url": "arXiv:2001.01376",
+          "material_read": "PDF pp. 7–8, Definition 8/Proposition 9 at offset 34380, Definition 11/Proposition 12 at 39620",
+          "method": "Lawful OA PDF passages",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Known Type-A/Type-B structural results"
+        },
+        {
+          "assessment": "Known graph framework and different aggregate bound",
+          "evidence": "All binary words, deletion distance, and an average-degree upper bound.",
+          "identifier_or_url": "arXiv:1211.4056",
+          "material_read": "PDF p. 3 Definition 5 near offset 15100; p. 6 Lemma 4 at 26700",
+          "method": "Lawful OA PDF passages",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Deletion graph and degree counting"
+        },
+        {
+          "assessment": "Different quantity in the inspected passage",
+          "evidence": "Upper bounds for code sizes, including run-length-restricted settings.",
+          "identifier_or_url": "arXiv:1211.3128",
+          "material_read": "PDF p. 1",
+          "method": "Lawful OA PDF passage",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Constrained-source deletion problem"
+        },
+        {
+          "assessment": "Materially related but different constraint",
+          "evidence": "All-length edge generating function for binary words avoiding 11, not the adjacent-unequal language.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-deletion-confusability-spectrum-of-fibonacci-constrained-b--ec0ea145ed6d",
+          "material_read": "RESULT.md offset 0, finding in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Exact deletion-confusability spectrum of Fibonacci-constrained binary words",
+          "trigger": "Closest exact one-read Resultary result"
+        },
+        {
+          "assessment": "Different threshold on common outputs",
+          "evidence": "At least two distinct common deletion outputs in the unrestricted q-ary and bounded-run r>=2 regimes respectively.",
+          "identifier_or_url": "Resultary 737fed325e91 and 4a3ef99abab1",
+          "material_read": "Retrieved scope and finding statements",
+          "method": "Local Resultary",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion graph; Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Exact deletion edge counts for nearby alphabet and source regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and boundary/counting proof",
+        "Prior two-read and constrained-code comparisons"
+      ],
+      "rationale": "The cap-one source is a natural constrained language, and single-deletion collisions are its actual pairwise decoding obstructions, unlike ordinary shift edges or two-read ambiguity. The location-resolved invariant reveals how boundary positions suppress collisions, quantifies graph density exactly, and yields an explicit code-size guarantee without claiming sharpness. Counting all locations and lengths with a structural overlap correction is more informative than a finite case count or the known alternating subclass alone.",
+      "residual_risks": [
+        "No maximum code-size or sharp packing claim; the average-degree guarantee may be weak."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

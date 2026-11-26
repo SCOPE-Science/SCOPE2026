@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed universe is exact: all \(2^{16}=65{,}536\) binary four-by-four matrices, restricted to the \(20{,}160\) invertible ones and the \(11{,}658\) with strongly connected associated digraph. The proof independently establishes that perfect evolution-algebra isomorphisms over \(\mathbb F_2\) are simultaneous coordinate permutations and that simplicity agrees with strong connectivity. The two supplied Python scripts run complete finite enumerations via distinct algorithms. They agree on all eight exact automorphism types and on the \(516\) classes; a third cycle-type Burnside sum gives \(516\). This is a finite exhaustive theorem, not a generalization from samples. No outside certificate is claimed.
+## correctness
 
-## Originality — PASS (with risk)
-Wei–Zou (2023), Theorem 6.1 and Example 6.1, cover all perfect binary dimension-four algebras, establishing \(908\) total classes, but not the simplicity-filtered automorphism spectrum. Kaygorodov–Martín González–Viruel (2026) motivate automorphism-realization and simplicity in graph constructions, not the present exact census in available material. The tensor-product classification concerns a restricted family. Semantic mathematical-record queries for the exact joint distribution, its graph equivalence and its numerical counts identified no dominating theorem; no absence claim is based merely on a title search. The 2026 survey's complete full text was unavailable and the 2018 classification of non-simple algebras could entail part of the total, so absolute historical priority remains open. The novelty claim is specifically the eight-type *refined spectrum*, not the known structural lemmas or total \(908\).
+PASS
 
-## Mathematical value — PASS
-An exact classification of automorphism groups and multiplicities for all simple perfect binary evolution algebras of a natural fixed dimension provides a tractable benchmark for the active realization/symmetry problem. It yields the sharp rigid-class share \(461/516\), all achievable abstract subgroup types except \(A_4\), and a nontrivial instance of symmetry enhancement to \(S_4\). This is not an arbitrary slice or a routine consequence of the aggregate count \(908\). It does not settle higher dimensions or larger fields.
+An isomorphism between perfect algebras has disjoint column supports because products of images of distinct basis elements vanish and the target squares are independent. Since there are four nonempty columns and four coordinates, each support is a singleton; over F2 each nonzero entry is 1. Respect for squares is precisely simultaneous index relabeling. For a singular algebra in this dimension the square span is a proper ideal if nonzero, and zero multiplication has proper ideals. For nonsingular A, a terminal strong component gives a proper ideal if the graph is not strongly connected; otherwise multiplying a nonzero ideal element by a basis vector supplies a square, and multiplying squares propagates along arrows to all four independent squares. For exhaustive replay I generated the ordered bases of F2^4 by extending the row span, not by testing every binary matrix, then tested Boolean transitive closure and removed complete relabeling orbits. This recovers 20,160 invertible matrices, 11,658 qualifying labelled matrices, 516 simple orbits and 392 other perfect orbits. Both group-by-group count vectors and the eight decimal representatives agree. The five fixed counts 11,658,72,62,9,6 give 516 by Burnside. Group order determines the S4 subgroup type here except at order four, where an element of order four distinguishes C4 from V4. The two-transitive action of A4 on ordered pairs has the same diagonal and off-diagonal orbits as S4, so exact A4 cannot occur. In fact the only qualifying S4-invariant matrix is I+J, with all off-diagonal entries 1 and all diagonal entries 0.
 
-## Closest sources and remaining limitations
-The all-perfect enumeration and its graph automorphism structure are established by Wei–Zou (2023); those are treated as existing inputs. The 2026 evolution-algebra survey was consulted via available abstract and indexed content; access to its full primary text was blocked. Cabrera Casado et al. (2023) address tensor products and do not classify all simple algebras in this family. An older classification of non-simple four-dimensional perfect evolution algebras may make the scalar \(516\) inferable, but not the full eight-type table on the evidence checked. Self-review cannot substitute for independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the joint simplicity and abstract full automorphism-group census in dimension four over F2, not the monomial change-of-basis theorem, the simplicity criterion, the known unrestricted total 908 or the existence of an S4 example by itself. The strongest exact comparisons inspected have different restrictions or different invariants. The current survey presents the arbitrary-field dimension-four simple classification as an open question; this does not establish priority for its finite-field slice, but the inspected material does not cover the table. The earlier nonsimple classification does not include this characteristic or the simple family.
+
+## value
+
+PASS
+
+The field and dimension are a natural bounded classification setting: four basis elements permit distinct commuting and cyclic stabilizers of order four, and the simple locus isolates algebras with no decomposition by a proper ideal. A classification or realization study in this family needs the actual cell counts, not just the maximum or an unrestricted number of orbits. The census supplies all labelled and unlabelled frequencies and explicit representatives, quantifies rigidity, and records a structural obstruction to exact A4. Its value is the previously unaccounted joint exact census, not the use of brute force or the known reductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Review of the Paley-\(27\) neighborhood-shattering classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite domain is exactly the 27 elements of \(\mathbb F_3[u]/(u^3-u+1)\); the irreducibility check and the nonzero-square convention are explicit. Exhaustive search over every support of cardinality 1–4 finds ordinary coefficients 27, 351, 2925, and 5967, and outside-center coefficients 27, 351, 2925, and zero. All larger supports are excluded because 32 independent label masks would require at least 32 concepts, but only 27 exist. Each of 22 four-support affine-semilinear orbits is fully covered and the orbit sizes sum to 17,550. The 351 unextended triples form one orbit and a 2-(27,3,3) design (checked independently by pair incidence). Exact binary simplex-boundary reductions give ranks 26, 325 and 2249, hence reduced Betti ranks 351 and 3718. The Python and C++17 source files use different irreducible field representations and different arithmetic constructions, and both are replayable. Source code, not the stored logs, is the evidence.
+PASS
 
-Risk: finite arithmetic or a shared misinterpretation of shattering could still escape self-review. No integral or infinite-field result follows from these finite checks.
+I recomputed the exact census with independent code. In the stated F_3 basis multiplication by u is the linear map (a,b,c)→(−c,a+c,b). The powers of u cycle through 26 nonzero elements; its even powers give Q. For each query vertex I constructed the bitset of positive centers. A support recursively partitions the full center set into the 2^k Boolean trace cells; ordinary shattering requires each cell be nonempty, and the off-support test clears the support bits in each cell first. Exhaustion through size four gave counts (1,27,351,2925,5967) and (1,27,351,2925,0), respectively. No support of size five or larger can be shattered since at most 27 distinct traces can occur. Orbit traversal by translations by 1,u,u², multiplication by u², and Frobenius generated all 22 four-support orbits with the recorded trace counts and representatives, including the seven ordinary orbits of sizes 1053 five times and 351 twice. I checked the listed witness centers and the unique in-support witness for mask 1. Deleting all triangles under the 5967 tetrahedra leaves exactly the orbit of (0,1,10), 351 triangles; each of 351 pairs occurs in exactly three of these. For homology I used coordinates for 2-cycles on just the triangles omitting 0: coefficients on triangles containing 0 are determined by the cycle equations on opposite edges, and the cone boundaries give a basis. Binary elimination in these 2600 cycle coordinates gives rank 2249. The full 2-skeleton has vanishing reduced homology below degree two, and there are no higher faces above degree three, so Betti numbers are 351 and 3718. Replay: python3 /workspace/reproductions/paley27.py.
 
-## Originality — PASS against inspected records
+## originality
 
-McDonald–Sahay–Wyman (2022, arXiv:2210.03789) study the same quadratic-residue translation class and prove general bounds, but their numerical experiments restrict to prime fields, so do not give the full GF(27) polynomial, orbits, maximal triples or homology. Their discussion of zero-character and center exclusions motivates the precise convention comparison. Pham–Senger–Tait–Nguyen (2023, arXiv:2303.07878) establish pseudorandom graph VC bounds, not this exact finite count.
+PASS
 
-The published published-finding corpus classification of four-variable deletion thresholds establishes that every 3-support has an outside-center extension at order 27; that **constituent is prior coverage** and is not claimed separately as original. The published rank-five genericity classification shows that not all 4-support patterns have outside-center witnesses at order 27, but this does not imply the new claim that **none** of the 4-supports are fully outside-center shattered. Published Paley-25 graph shattering is a different undirected field; Paley-23 out-neighborhood topology concerns the downward closure of positive neighborhoods, not the Boolean all-traces shattering complex. Published online learning bounds do not imply this static polynomial. Search by field, synonyms, support counts, orbits, aliases, and alternative complex definitions found no covering equivalent theorem. Actual searches and closest source IDs appear in AUDIT.json.
+The all-triples off-support constituent is covered by the exact prior outside-witness threshold. The supported distinct contribution is the quantified ordinary/off-support gap at size four, the exact ordinary census and orbits, and the associated nonpure incidence and mod-two homology. These are not implied by failure of universal four-query extension or by analogous computations at other fields.
 
-Risk: unindexed computational tables, an overlooked full-text passage, or an independently derived equivalent classification could establish earlier priority; literature search does not prove uniqueness. Additional relevant unpublished computations may remain undiscovered.
+## value
 
-## Value — PASS
+PASS
 
-The order-27 Paley tournament is the first nonprime field order congruent to three modulo four, a natural test of prime-field-only empirical VC observations. The full coefficientwise polynomial distinguishes ordinary and off-support concepts sharply at the extremal layer; the nonpure facet layer is a balanced 2-design, while the full mod-two homology has two adjacent nonzero degrees. These are mutually reinforcing finite combinatorial and topological invariants of a canonical quadratic-character incidence class, not a detached arbitrary slice or a small numerical tweak. A natural use is to test how arithmetic field extension, center-convention changes and shattering-complex topology interact in larger families.
+This is the first nonprime order congruent to three modulo four, a natural test for residue-translate VC phenomena outside prime fields. Exact enumeration gives a real change in extremal dimension upon excluding centers, and extreme ordinary supports leave a nonpure facet layer that is a balanced design. The mod-two ranks characterize the resulting finite complex beyond the dimension alone; this is a complete canonical incidence classification, not a handpicked support or another computation of the known triple threshold.
 
-Risk: the result has no all-field theorem and no independent priority review. It is valuable as an exact finite classification, not as evidence of an unproved universal pattern.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

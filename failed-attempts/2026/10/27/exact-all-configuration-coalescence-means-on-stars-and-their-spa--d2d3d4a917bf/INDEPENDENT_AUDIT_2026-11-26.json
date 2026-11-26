@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:22.096632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 25–76",
+        "VERIFICATION.md and verify.py (read only)",
+        "Independent rational check: /workspace/branches/056da6ad-33b0-4b95-b3ab-4673af497761/independent_rational_check.py and rational_m1_12.txt"
+      ],
+      "rationale": "With unit total continuous-time jump rate per walker, the vacant-hub holding time is 1/k in expectation and its next state is A_(k-1). From A_k the three rates are k to A_(k-1), k/m to B_k, and (m-k)/m to B_(k+1); at k=m the last term is absent and at k=1 both one-walker states are absorbing. These give a_1=(3m-1)/(2(m+1)) and a_k-a_(k-1)=(2m+1)/((m+1)k)-1/(k+1), reproducing the formula, the gap, and the saturation equality of means. Clique thinning gives merger rates j(j-1)/m and the telescoping sum m²/(m+1). Comparison follows from H_m≤1+(m-2)/2+1/m for m≥2, strictly below m-1+1/m for m>2; m=1 is checked directly. The harmonic asymptotic has the stated constant and error. A newly written Fraction test checked all 144 reduced classes for 1≤m≤12 as well as the clique sum; the frozen source's separate full-state test is recorded evidence, not a replay or attestation.",
+      "residual_risks": [
+        "Means only, with unit total rate per walker, not equal rate per edge or synchronous discrete-time jumps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equations (5)–(9) determine the duration law of each occupied-hub stage at r particles for fixed n, and the post-merger vacant-hub delay: Exp(r-1) with probability 1/(n+1) when r-1≥2. An initially vacant hub is reached after an Exp(k) wait starting with k occupied leaves, without a merger."
+        ],
+        "reasoning": "Begin the indexed strong-Markov construction at r=k+1 and retain only levels from there down to two. It requires only the count and hub state, not that a full-start trajectory preceded it. For a vacant hub add its initial waiting time at fixed k. Thus the stronger calculation applies to the exact all-configuration claim even though its headline is a full-start law.",
+        "searches": [
+          "Indexed star-law RESULT.md, equations (5)–(9), GitHub mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Oliveira, arXiv:1009.0664 pp. 1–2, 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary star-law record at the commit in source_inspections",
+        "Cooper et al., arXiv:1204.4106",
+        "Oliveira, arXiv:1009.0664",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From A_k, sum (r+1)/(r(r-1))-2/((n+1)(r-1)) over r=2,…,k+1 and 1/((n+1)r) over r=2,…,k. This equals n(H_k+1)/(n+1)-1/(k+1). From B_k add 1/k to a_(k-1).",
+          "Subtracting gives the saturated-hub equality and all other gaps; comparing the full-start value against the elementary clique merger rate proves the remaining inequalities."
+        ],
+        "reasoning": "The stronger result gives these specific means by truncation and first-step conditioning, not merely a generic algorithm for coalescence. The simple clique comparison leaves no new substantive component.",
+        "searches": [
+          "Indexed star-law RESULT.md, equations (7)–(9), occupied-hub stages and delay terms; frozen RESULT.md lines 25–29, 60–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed star-law record gives H_n+1-(H_n+2)/(n+1) for all n+1 sites occupied, exactly (nH_n+n-1)/(n+1).",
+          "Distinct-opinion continuous-time voter consensus is equivalent to full ancestral coalescence under matched rates. The star result in Cooper et al. instead gives logarithmic order in a lazy discrete-time model; Oliveira's general rate-one bounds do not yield these exact numbers."
+        ],
+        "reasoning": "Particle number r translates to k+1 with the hub occupied and k with the hub vacant. The indexed comparison uses the same rate normalization; the lazy-chain result and per-edge-rate alternative do not. Arbitrary voter initial opinions do not by themselves encode the subset means.",
+        "searches": [
+          "Resultary: exact all-configuration star means; hub occupied versus vacant",
+          "Cooper et al., arXiv:1204.4106; Oliveira, arXiv:1009.0664 (coalescing walks and voter duality)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-coalescence-time-law-and-a-non-gumbel-logarithmic-limit-on--60f19df4c0e2, Finding and equations (5)–(9): identical full-start formula plus the stage means needed for all initial states."
+        ],
+        "reasoning": "This is a distinct record with a stronger neighboring result, not the frozen item matching itself. The archive date is not evidence of the order of discovery.",
+        "searches": [
+          "Resultary searches for exact star coalescence means and hub-initialization formulas"
+        ]
+      },
+      "rationale": "A distinct indexed result contains the identical full-start mean and a level-by-level distributional construction that mechanically yields both initial-configuration formulas. The occupancy gap and exact constant then follow by subtraction or specialization, and the clique comparison adds only the standard death-rate sum and an elementary harmonic-number bound. This is a finding of extant equivalent coverage and implication, not a claim about which record has priority.",
+      "residual_risks": [
+        "No historical priority assigned. Literature coverage outside the inspected passages is bounded; the indexed implication is independently sufficient for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full-start mean explicitly and all other star means by direct implication",
+          "evidence": "At fixed n and r, the geometric attempt count, stage duration, and successful jump type depend only on hub state and particle count; equation (9) gives the stage mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-exact-coalescence-time-law-and-a-non-gumbel-logarithmic-limit-on--60f19df4c0e2/RESULT.md",
+          "material_read": "Finding and proof of phase decomposition and finite transforms, equations (5)–(9)",
+          "method": "Local mirror passage inspection and stage-sum reduction",
+          "title": "Exact coalescence-time law and a non-Gumbel logarithmic limit on the star",
+          "trigger": "Material Resultary match under identical rate normalization"
+        },
+        {
+          "assessment": "Asymptotic star order under different dynamics, not an identical constant",
+          "evidence": "P. 5 notes the lazy walk on the bipartite star and Θ(log n) coalescence; pp. 2–3 discuss distinct-opinion correspondence.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.4106",
+          "material_read": "OA PDF pp. 2–3 and p. 5 (text offsets 3900 and 11000)",
+          "method": "Bounded primary-paper passage inspection",
+          "title": "Coalescing random walks and voting on connected graphs",
+          "trigger": "Star and voter-model alias"
+        },
+        {
+          "assessment": "Model, bounds and duality are relevant; inspected statements do not evaluate the star formulas",
+          "evidence": "General hitting-time bounds and voter duality, with no matching evaluation in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.0664",
+          "material_read": "OA PDF pp. 1–2 and pp. 4–5 (text offsets 1800 and 10200)",
+          "method": "Bounded primary-paper passage inspection",
+          "title": "On the coalescence time of reversible random walks",
+          "trigger": "General continuous-time model and broader claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–29 and 60–66; indexed star-law proof equations (5)–(9)"
+      ],
+      "rationale": "An exact initial-configuration mean on a canonical graph and a rate-matched comparison are well motivated, but the stronger indexed stage formula already yields the exact quantities by summation. After crediting that coverage, the remaining star–clique comparison is an elementary death-process sum and harmonic bound, not a standalone valuable repaired result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

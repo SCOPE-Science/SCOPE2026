@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:00:46.957876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonroot vertex v starts a two-color urn with one descendant and v-1 complement vertices, so the beta-binomial weight applies exactly for 2<=v<=n-k+1. Given the membership history, only complement arrivals can attach to the root after v. Their denominator sequence is v-1 through n-k-1, independent of the order of subtree arrivals; including earlier arrivals and v's independent parent gives H_{n-k-1}+1/(v-1). The two binomial sums then give E F_{n,k}=n/[k(k+1)] and E[R_n F_{n,k}]=H_{n-k-1} n/[k(k+1)]+1/k. The crossing exists because b_{n,k} increases strictly from below 1 at k=1 to H_{n-1}>1 at k=n-1. Uniform expansion for k=O(sqrt n) gives Cov=1/[k(k+1)]-1/(2n)+O(k/n^2); the signs at (sqrt(2)±epsilon)sqrt n squeeze the crossing. The exact finite rank is kappa_n as defined, not sqrt(2n); covariance can be zero at the crossing, and k=1 gives the known leaf identity. In a separate finite replay all 5,913 parent vectors through n=8 were compared with exact rational means, covariances and monotonicity; summary /workspace/branches/bab8b9f6-a731-4da8-bbb1-6bfc68c648f9/independent-replay.md. The supplied CHECK.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson provides the same fringe marginal mean, a marginal square-root Poisson boundary, and exact covariance between two eligible fringe counts. Its degree-count theorem counts vertices across the tree, not the degree at its distinguished root.",
+          "Feng–Mahmoud's inspected theorem is a fixed fringe-shape marginal limit; Devroye–Janson treat protected-root probabilities. Complete Feng–Mahmoud–Panholzer 2008 text was not retrieved in bounded lawful attempts."
+        ],
+        "reasoning": "Marginal transitions and all-vertex count covariance do not identify covariance with an individual marked vertex's degree; the mixed root-specific moment is a separate target.",
+        "searches": [
+          "arXiv:1406.6883, Section 8.1, Theorems 1.4, 1.13 and 1.15 and Remark 1.6",
+          "Feng–Mahmoud 2010, doi:10.1239/jap/1269610825",
+          "Feng–Mahmoud–Panholzer 2008, doi:10.1137/060653950",
+          "Devroye–Janson, arXiv:1310.0665, Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; CHECK.py",
+        "Resultary ab0acf44833f, 4490954b5d10, 8a66b05b6f64, 11b91e7a1f21 and 7793f6ec3dc0",
+        "arXiv:1406.6883; arXiv:1310.0665; doi:10.1239/jap/1269610825; doi:10.1137/060653950 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional root-degree expectation at each fringe size, H_{n-k-1}+1/(v-1), is the key additional input. Neither the examined covariance with scalar descendant size nor the leaf law yields this family. The Poisson boundary fixes a marginal scale but cannot yield the signed mixed limit c^{-2}-1/2."
+        ],
+        "reasoning": "Checking n>k+m in the exact prior fringe-covariance theorem rules out taking one whole-tree shape of size n. The known major terms in the marginal and boundary formulas supply no root-conditioned expectation at other fringe sizes. The crossover location is a consequence of the new mixed family, not a separately inferred novelty from the marginal transition.",
+        "searches": [
+          "Holmgren–Janson, arXiv:1406.6883 pp. 4–8 and Section 8.1; Resultary 11b91e7a1f21, ab0acf44833f, 7793f6ec3dc0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 11b91e7a1f21 gives Cov(D_i,S_j) for scalar subtree size, not the mixed moment with each size indicator; 8a66b05b6f64 treats vertex-2 subtree size against the fringe profile.",
+          "The Holmgren–Janson exact fringe-shape covariance theorem requires n>k+m, so encoding root degree as a functional supported on full-size-n trees does not bring it within that theorem."
+        ],
+        "reasoning": "F_{n,k} is a sum of indicators 1{S_v=k}, not a sum of the S_v. Covariance with the latter gives only one weighted sum over k, not the individual covariance profile. The full-size encoding would violate the shape-size hypothesis.",
+        "searches": [
+          "Local Resultary: uniform recursive-tree root-degree/leaf covariance; direct degree–descendant size covariance; distinguished recursive-tree size/fringe-count dependence",
+          "Holmgren–Janson, arXiv:1406.6883, Theorems 1.13 and 1.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ab0acf44833f gives precisely the k=1 value (n-2)/(2(n-1)). Same-day 4490954b5d10 is about root children that are leaves against all leaves, giving 1/2 for its different pair.",
+          "8a66b05b6f64, 11b91e7a1f21 and 7793f6ec3dc0 respectively use vertex-2 subtree size, a degree/scalar-descendant-size moment, and counts of two-protected vertices."
+        ],
+        "reasoning": "The exact leaf-law boundary is covered and excluded from the novelty claim. The checked neighboring findings do not give the k>=2 formula with the assigned two variables. This conclusion rests on the statements, not their dates.",
+        "searches": [
+          "Local Resultary: exact root-degree and fringe-size covariance; exact root and leaf joint law; recursive-tree distinguished fringe dependence and degree–descendant kernel"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact distinguished-root degree/size-k fringe-count mixed moment for k>=2, with its covariance crossover and scaled limit. Neither the prior leaf boundary nor the marginal square-root transition is passed as new. The strongest accessible primary covariance theorem and closest catalogue findings do not establish equivalent coverage of the supported claim.",
+      "residual_risks": [
+        "The full 2008 Feng–Mahmoud–Panholzer paper was not obtained; an implicit mixed generating function or earlier equivalent calculation remains possible.",
+        "The exact leaf formula's catalogue coverage was confirmed, but no claim about its first publication is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal and different joint laws; exact fringe covariance hypotheses exclude the whole-tree encoding",
+          "evidence": [
+            "Eq. (1.2) is the same marginal mean, and the marginal boundary is at k of order sqrt(n). Both exact covariance theorems require n>k+m."
+          ],
+          "identifier_or_url": "arXiv:1406.6883",
+          "material_read": "Theorem 1.4, Remark 1.6, Theorems 1.13 and 1.15, Section 8.1 Theorem 8.3; PDF offsets 13612, 26680–31378 and 172500",
+          "method": "Bounded OA PDF passage reading and hypothesis comparison",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Closest primary exact fringe moments and asymptotic crossover"
+        },
+        {
+          "assessment": "Univariate limit for occurrences of a fixed fringe shape",
+          "evidence": [
+            "No distinguished-root mixed law in the inspected theorem."
+          ],
+          "identifier_or_url": "doi:10.1239/jap/1269610825",
+          "material_read": "Theorem 1, OA offset 10250",
+          "method": "Bounded primary passage reading",
+          "title": "On the Variety of Shapes on the Fringe of a Random Recursive Tree",
+          "trigger": "Fixed-shape analysis in the same model"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Yule representation and protected-root probabilities, not the root degree/size count pair."
+          ],
+          "identifier_or_url": "arXiv:1310.0665",
+          "material_read": "Section 7, pp. 9–10; OA offset 26500",
+          "method": "Bounded primary passage reading",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Root and fringe calculations in recursive trees"
+        },
+        {
+          "assessment": "Unresolved implicit stronger overlap; no negative inference",
+          "evidence": [
+            "Primary PDF inaccessible in the lawful attempts; no full-text coverage determination."
+          ],
+          "identifier_or_url": "doi:10.1137/060653950",
+          "material_read": "Publisher metadata and Holmgren–Janson bibliography, p. 55; full text not obtained",
+          "method": "Bounded OA DOI/publisher attempts and alternate discovery",
+          "title": "Phase Changes in Subtree Varieties in Random Recursive and Binary Search Trees",
+          "trigger": "Older same-model size-dependent fringe literature"
+        },
+        {
+          "assessment": "Exact leaf-boundary coverage, distinct for the proposed k>=2 family",
+          "evidence": [
+            "Only ab0acf44833f supplies the assigned variable pair at a stated k (k=1). The others change the distinguished statistic or the fringe functional."
+          ],
+          "identifier_or_url": "Resultary:ab0acf44833f; Resultary:4490954b5d10; Resultary:8a66b05b6f64; Resultary:11b91e7a1f21; Resultary:7793f6ec3dc0",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Local mirror passage reading and mathematical variable comparison",
+          "title": "Catalogue findings on root leaves, distinguished recursive-tree fringe dependence, and degree/descendant-size covariance",
+          "trigger": "Close or equivalent catalogue statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The root outdegree and the full descendant fringe profile are natural complementary tree statistics. The exact mixed profile is a finite-size benchmark and reveals that the direction of dependence changes with size, locating the normalized crossover and magnitude rather than merely identifying a marginal scale. This is useful for studies of joint root/fringe fluctuations even without proving any joint limit distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

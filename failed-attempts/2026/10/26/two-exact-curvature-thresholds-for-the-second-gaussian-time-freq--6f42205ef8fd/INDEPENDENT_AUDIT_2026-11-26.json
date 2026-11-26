@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:43:08.529855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33 and 35–74; VERIFICATION.md and verify_numerical.py lines 5–36 (finite-section diagnostic, not a proof)."
+      ],
+      "rationale": "The area constraint is exact in u=r². The disk spectrum is Λ_j=1−e^(−R)Σ_(ℓ=0)^j R^ℓ/ℓ!, so Λ₁ is simple, isolated and second in multiplicity-counted order. Trace-norm differentiability follows by integrating the normalized coherent-state projector, which is uniformly smooth in u on a compact annulus about R>0; rank-one trace-norm bounds follow from factorially convergent Fock series. C² differentiability suffices for the remainder; real analyticity can also be seen by continuing the radial matrix kernel using a common branch of √u and expanding the two rank-one factors separately. At ε=0 the first diagonal derivative is zero, the second diagonal derivative is e^(−R)(1−R) times the angular average of h², and the j,1 first derivative is e^(−R)R^((j+1)/2) ĥ_(1−j)/sqrt(j!). The two m=1 resolvent terms give −e^(−R) and e^(−R)R, cancelling the diagonal coefficient. For m≥2 the only coupling is j=m+1; the gap is e^(−R)Σ_(ℓ=2)^(m+1) R^ℓ/ℓ!, giving the stated ε² multiplier, not twice that multiplier. To compare terms, set t_k=R^k/k!, S_k=Σ_(j=2)^k t_j. The condition t_(k+1)/S_(k+1)<t_k/S_k is [R/(k+1)]S_(k−1)<S_k; the left side is Σ_(j=3)^k [j/(k+1)]t_j. The strict inequality, maximum q₂=(3−2R)/(R+3), and limit 1−R give all the sign regimes. At R=1 high modes exclude a uniform positive L² gap; the m=2 mode is neutral at R=3/2.",
+      "residual_risks": [
+        "The proof is a fixed-path second variation, not a uniform nonlinear stability or local-extremum theorem. Translation is a tangent degeneracy; the stated radial path is not itself an exact translated disk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed proof supplies the all-N exact angular Hessian from the disk spectral cluster. Its moving-endpoint trace-norm differentiation is valid for C² profiles, since it uses bounded h and smooth radial dependence at positive R; alternatively smooth profiles approximate C² ones uniformly and the derivative operators converge. The primary top-eigenvalue and radial optimization results do not have this broader angular-eigenvalue scope."
+        ],
+        "reasoning": "The all-N result subsumes the angular second-eigenvalue coefficient by subtraction. The stated C² rather than smooth profiles do not rescue scientific distinctness: the same operator derivatives and bounded quadratic sums extend immediately.",
+        "searches": [
+          "Resultary 2c9ed3c69c1b, Finding and Proof §§1–3",
+          "arXiv:2503.07069 Theorem 1.3 and Proposition 1.4; arXiv:2106.03423 Theorem 1.1; arXiv:2307.09304 Proposition 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c9ed3c69c1b exact Hessian derivation",
+        "Resultary 63e8f4bc2434 and 2cf7e162330b (different spectral targets)",
+        "Primary papers arXiv:2503.07069, 2307.09304, 2106.03423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The m=2 and limit expressions give e^(−R)(3−2R)/(R+3) and e^(−R)(1−R). From the subtracted array, ordering is just t_(k+1)=Rt_k/(k+1) and (R/(k+1))Σ_(j=2)^(k−1)t_j=Σ_(j=3)^k j t_j/(k+1)<Σ_(j=2)^k t_j."
+        ],
+        "reasoning": "Thus all regimes follow from explicit existing data by substitution and a positive-term inequality; no new shape problem or nontrivial auxiliary spectral input is needed. This is coverage, not a historical priority conclusion.",
+        "searches": [
+          "Substitute N=1,2 into 2c9ed3c69c1b, Finding; compare frozen RESULT.md lines 10–24 and 70–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed formula is for the deficit of Σ_N. Under z_frozen=√π z_indexed the disk radius parameter is s=R and the ĥ coefficients agree. Since λ₂=Σ₂−Σ₁, its ε² coefficient is κ_(1,m)−κ_(2,m), not the opposite sign."
+        ],
+        "reasoning": "For m≥2 the j=0 summand cancels exactly, leaving p₀−p₁+p₁ p_(m+1)/(Σ_(j=2)^(m+1) p_j), with p_j=e^(−R)R^j/j!. This equals e^(−R)q_m. Both translation terms vanish at m=1.",
+        "searches": [
+          "Resultary: second largest Gaussian Fock localization eigenvalue, fixed-area angular disk Hessian, rank-two and Ky Fan forms",
+          "Resultary 2c9ed3c69c1b, RESULT.md offsets 0–4931, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact array covers every angular frequency and lists κ_(N,2) and the large-m limit. Other hits cover the top eigenvalue or the rank-two sum alone."
+        ],
+        "reasoning": "The decisive exact-array match is the all-rank record, not either adjacent hit. Its entry-wise difference directly fixes q₂ and the limiting infimum once the elementary ordering is applied.",
+        "searches": [
+          "Resultary 2c9ed3c69c1b Finding: formula for κ_(N,m), exact κ_(N,2), and m→∞ limit",
+          "Related indexed records 63e8f4bc2434 and 2cf7e162330b"
+        ]
+      },
+      "rationale": "The indexed all-rank angular Ky Fan Hessian 2c9ed3c69c1b covers this disk, this fixed-area Fourier variation, and both spectral sums whose difference is λ₂. Its exact Fourier multipliers cancel to the frozen formula. The two thresholds and strict order are immediate exact consequences of the same published multiplier formula and elementary Poisson-weight comparison. No independent claim remains merely because the simplifications are not printed there; the analysis does not depend on the indexed record's asserted global optimization statement.",
+      "residual_risks": [
+        "Catalogue date order is not used to infer dependence or priority. The result concerns demonstrated mathematical coverage; the bounded search does not settle the chronology of the derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader Hessian covers the submission mechanically",
+          "evidence": "Explicit κ_(N,m), translation zero, closed m=2 and high-mode limit; trace-class cluster derivative proof independent of the asserted global inequality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-angular-hessian-of-gaussian-ky-fan-concentration-around-di--2c9ed3c69c1b/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–3, offsets 0–4931",
+          "method": "Local-mirror exact formula and proof comparison",
+          "title": "Exact angular Hessian of Gaussian Ky Fan concentration around disks",
+          "trigger": "Exact angular Hessian for all top-rank sums"
+        },
+        {
+          "assessment": "Radial annulus optimum and a nonradial comparison, not the angular disk Hessian",
+          "evidence": "Optimization among circularly symmetric sets and a small-area noncircular competitor, not all angular second derivatives at the disk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.07069",
+          "material_read": "p. 4 Theorem 1.3 and Proposition 1.4",
+          "method": "OA PDF statement comparison",
+          "title": "The Faber–Krahn inequality for partial sums of eigenvalues of Toeplitz operators",
+          "trigger": "Same λ₂, could contain angular shape analysis"
+        },
+        {
+          "assessment": "Distinct top-eigenvalue/function-based variation",
+          "evidence": "Stability and second variation in the function-optimization formulation, not a second-eigenvalue domain perturbation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09304",
+          "material_read": "pp. 3 and 26, Eqs. (1.9)–(1.10) and Proposition 5.3",
+          "method": "OA PDF functional and variation comparison",
+          "title": "Stability of the Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Related Gaussian shape Hessian"
+        },
+        {
+          "assessment": "Principal eigenvalue only",
+          "evidence": "Optimization of top concentration instead of the isolated second eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.03423",
+          "material_read": "Theorem 1.1, pp. 2–3",
+          "method": "OA PDF theorem comparison",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Exact Gaussian concentration disk theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–24, 70–74, 82–83; indexed 2c9ed3c69c1b exact multipliers and limiting forms."
+      ],
+      "rationale": "A change from positive to mixed to negative curvature for the second concentration eigenvalue is of intrinsic interest. But with the available exact all-rank Hessian, the submitted facts amount to an inexpensive difference of two tabulated multipliers and their immediate sign consequences. There is no additional meaningful cutoff, higher-order neutral-mode analysis, or nonlinear theorem in the submission to justify a distinct contribution.",
+      "residual_risks": [
+        "No judgment about the value of the underlying all-rank Hessian or about possible future nonlinear results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

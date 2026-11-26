@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:53:14.332220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the orthonormal shifted Legendre basis the endpoint constants in the antiderivative cancel at x=0, and for n>=m>=1 the only coefficients are a_n at n+1 and -a_(n-1) at n-1. The squared column norm is [1/(2n-1)-1/(2n+3)]/8, giving the full Hilbert–Schmidt identity by telescoping. The window Gram matrix is the compression to m<=n<=floor(Rm). For a fixed power j, only paths with steps 0 and +/-2 closing at n contribute to its trace. The scaled entries on each such path are uniformly those of the frozen coefficients at n/m up to o(1) away from O(j) boundary sites; integrating their Fourier symbol picks the closing paths. This gives the stated bulk symbol, including both parity sectors, with normalization 1/m. The shift norm bound makes continuous functional calculus by polynomial approximation valid on a common spectral interval. For p>1 the removed columns have Schatten norm O((Rm)^(1/p-1)); the triangle inequality for the rescaled norms followed by R to infinity justifies the global moment limit. The angular beta integral gives the gamma constant. For finite m, JP_<m has rank at most m and the classical unfiltered Volterra sequence and index interlacing squeeze the tail to 1/(pi j), proving the membership threshold. For the fixed-k edge, the two shift norms give limsup at most 1/2 and a nonnegative continuous function supported above any positive squared threshold below 1/4 detects linearly many window values there. Min–max transfers that lower bound to the full operator. Independent replay: python3 /workspace/review_checks.py 5 checks the first six values at three finite truncations against a separate Bessel-zero characterization, and the finite-window moments for real p=1.25, 2 and 3.7 at R=3. The check is corroboration only; the frozen checker and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GLT type principles address the finite-window lemma; the 2003 paper body was not available for an independent deeper comparison. Gutleb–Olver's abstract and introduction concern sparse Jacobi polynomial representations for Volterra equations.",
+          "Foster–Habermann's p. 1 abstract discusses polynomial Brownian-bridge expansions. This is a close HS alias: with white noise W over L2, T_m W is the remainder after removing Legendre noise modes below m from the integrated Brownian expansion, and its integrated mean-square error is exactly ||T_m||_HS^2. The original detailed truncation text was not retrieved; this alias flags possible partial coverage, not a full-text exclusion."
+        ],
+        "reasoning": "A finite spectral-distribution theorem can supply the local symbol law but does not by itself provide the sharp top spectral bound or control the removal of infinitely many columns. The Brownian reformulation specifically makes existing truncation-energy results relevant to the exact HS identity, not automatically to the full Schatten or fixed-rank laws.",
+        "searches": [
+          "Volterra Legendre projection and spectral distributions, doi:10.1016/S0024-3795(02)00504-9",
+          "arXiv:1906.03907, sparse orthogonal polynomial Volterra methods",
+          "Foster–Habermann arXiv:2102.10095v2, Brownian bridge polynomial expansion and truncation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.06308 §2",
+        "arXiv:1305.0228 §1",
+        "NIST DLMF §10.21(vii),(xiii)",
+        "arXiv:1809.05607 §§1, 2.2",
+        "arXiv:1906.03907 abstract, §1",
+        "arXiv:2102.10095v2 p. 1",
+        "doi:10.1016/S0024-3795(02)00504-9 (identified; not a full-text inspection)",
+        "SCOPE-20261018-7f2244fe2f31 and SCOPE-20261122-84dd5742ec0f (catalogue summaries)",
+        "SCOPE-20261122-ae9a2032d414 (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baricz–Nemes give a convergent large-order expansion of sum_k j_(nu,k)^(-2r), with coefficient Cat_(r-1)/4^r at order nu^(1-2r). With the independent exact union, their result implies precisely the frozen limit at p=2r, and individual fixed-index large-order Bessel-zero asymptotics give the edge after the same reduction.",
+          "Neither those sums nor unfiltered fixed-kernel Volterra singular-value asymptotics alone identify the moment-tail operator. The cited integer moments do not alone control an infinite mass for 1<p<2; the present proof supplies this with uniform Schatten-tail control."
+        ],
+        "reasoning": "The directly implied Bessel statements are credited, not treated as novel subclaims about special functions. The relevant unknown in the checked literature is their precise operator interpretation and the full all-real-p global result; the bulk and tail proof here avoids assuming the Bessel reduction.",
+        "searches": [
+          "Baricz–Nemes arXiv:2004.06308 §2 Lemma 1, equations (2.1)–(2.2)",
+          "NIST DLMF §10.21(vii), large order zeros; §10.21(xiii), Rayleigh function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Integration by parts identifies the high-moment input restriction isometrically via differentiation with H_0^1 constrained to have moments through degree m-2 zero, norm ||u'||_2; the nonzero singular values are those of its embedding into L2.",
+          "Independent stronger equivalence, not claimed in the frozen finding: split the input into the two parities, then gauge the signed shift coefficients. The two blocks are off-diagonal parts of compact symmetric half-line Jacobi matrices with off-diagonal a_n, on indices n>=N for N=m-1 and m, respectively. A block's singular values are the positive eigenvalues of its bipartite Jacobi matrix. At s=1/(2z) the square-summable recurrence solution is proportional to sqrt(2n+1) J_(n+1/2)(z) by the Bessel three-term recurrence and fixed-argument factorial decay; a constant Jacobi Wronskian tending to zero gives uniqueness. The first row leaves residual J_(N-1/2)(z)/(2 sqrt(2N+1)), hence the singular-value multiset is the union of the reciprocals 1/(2j_(m-3/2,k)) and 1/(2j_(m-1/2,k)).",
+          "Stenger and Gutleb–Olver passages concern integration identities or polynomial numerical approximation; the inspected passages do not state that tail equivalence."
+        ],
+        "reasoning": "The equivalent constrained Dirichlet problem and exact Jacobi reduction make prior Bessel spectra and zero sums materially relevant even if the words polynomial annihilator are absent. No inspected source identified these two adjacent orders with this orthogonal cutoff operator. The equivalence is used for comparison, not to enlarge the claim being reviewed.",
+        "searches": [
+          "Resultary: Legendre moment restriction of Volterra, constrained Dirichlet/Sobolev embedding, Bessel zeros and Schatten power sums",
+          "arXiv:1809.05607, §§1, 2.2",
+          "arXiv:1906.03907, abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match SCOPE-20261122-ae9a2032d414 is the assigned record itself. Distinct SCOPE-20261122-84dd5742ec0f concerns high integration order of a factorial-normalized operator, not high degree of an input projection. SCOPE-20261018-7f2244fe2f31 concerns power-substituted Volterra singular spectra in its catalogue summary, not this moment restriction.",
+          "The standard Rayleigh sum sigma_1(nu)=sum_k j_(nu,k)^(-2)=1/[4(nu+1)] in deLyra §1 is an exact match to the HS formula after the independently derived Bessel union; the fixed-order Bessel zero tables themselves do not state that operator union."
+        ],
+        "reasoning": "The HS expression is not new as a numerical Rayleigh-sum identity once the reduction is given. The neighbouring exact operator statements have different definitions in the available evidence, and exact zero tables are not operator spectra without an identification.",
+        "searches": [
+          "Resultary: polynomial-annihilated Volterra exact HS mass and fixed singular values; Volterra Bessel-zero spectra",
+          "NIST DLMF §10.21(vii),(xiii); arXiv:1305.0228 §1 equations (1)–(2)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the quantitative spectrum of the high-degree orthogonal input restriction, especially the global all-real-p mass and the fixed-rank edge for that family, not a new abstract spectral-distribution theorem. Classical Volterra, general finite-window symbol methods, and exact/even-power Bessel-zero identities already cover proof ingredients or numerical constants under a reduction; the old sources inspected do not provide the operator identification with those constants. Closest plausible partial coverage and access limits are recorded below.",
+      "residual_risks": [
+        "An earlier result for constrained Dirichlet spectra, Jacobi tails, or approximation numbers could already identify the same two Bessel orders and mechanically imply much of the operator theorem.",
+        "The original GLT paper, exact indexed power-substitution record, and the Brownian bridge truncation passages were not independently inspected in full. Partial coverage of the exact HS law in probability literature remains plausible.",
+        "The Bessel literature check identified exact and even-power sums and standard fixed-index asymptotics; it did not exhaust large-order asymptotics for non-integer Bessel zero sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit strong coverage of the even-moment numerical statement in Bessel variables after an additional operator equivalence; not the operator equivalence or the full real-p statement.",
+          "evidence": [
+            "Convergent expansion of sigma_r(nu) for nu>r; the recurrence gives sigma_0^(r)=Cat_(r-1)/4^r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.06308",
+          "material_read": "§2 Lemma 1 and (2.1)–(2.2) in an accessible ar5iv rendering.",
+          "method": "Compare the type of power, parameter range, leading coefficient and object after reducing the operator to two Bessel-order tails.",
+          "title": "Asymptotic expansions for the radii of starlikeness of normalised Bessel functions",
+          "trigger": "Potential direct coverage via large-order Rayleigh sums after exact Jacobi reduction."
+        },
+        {
+          "assessment": "Related operator and polynomial methods; no exact Legendre-tail spectral equivalence or limit in the passages inspected.",
+          "evidence": [
+            "The inspected construction concerns polynomial approximation of indefinite integration, not the two half-line Jacobi tails obtained by this projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.05607",
+          "material_read": "§§1 and 2.2 in accessible ar5iv rendering.",
+          "method": "Compare the actual integration identities, numerical range and polynomial approximation objects with the infinite orthogonal input restriction.",
+          "title": "Indefinite Integration Operator Identities and their Polynomial Approximations",
+          "trigger": "Potential equivalent high-degree restriction using polynomial representations of indefinite integration."
+        },
+        {
+          "assessment": "Related representation for Volterra integral equations, not the global mass and spectral edge in the inspected text.",
+          "evidence": [
+            "Sparse Jacobi basis on the triangle for solving Volterra equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.03907",
+          "material_read": "Abstract and §1 in accessible ar5iv rendering.",
+          "method": "Compare the operator and objective of the numerical construction with the high-cutoff asymptotic theorem.",
+          "title": "A sparse spectral method for Volterra integral equations using orthogonal polynomials on the triangle",
+          "trigger": "Sparse polynomial coefficient representations may imply the finite-window density or related spectral statements."
+        },
+        {
+          "assessment": "Plausible HS antecedent; the initial passage establishes polynomial expansion as part of the paper but does not establish or exclude the exact finite-m overlap.",
+          "evidence": [
+            "P. 1 explicitly discusses a polynomial expansion of the Brownian bridge and approximation fluctuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10095",
+          "material_read": "Original v2 PDF p. 1 abstract and introductory preview; specific truncation passage unavailable on bounded follow-up.",
+          "method": "Locate published polynomial bridge expansion and compare the mean-square quantity under integration of white noise.",
+          "title": "Brownian bridge expansions for Lévy area approximations and particular values of the Riemann zeta function",
+          "trigger": "Potential exact squared Hilbert–Schmidt overlap via polynomial Brownian approximation error."
+        },
+        {
+          "assessment": "Appears to concern a power substitution, not projection away from polynomial moments; stronger implication unresolved from summary access.",
+          "evidence": [
+            "Synopsis describes power-substituted integrations and rank-one boundary laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-singular-spectra-and-rank-one-boundary-laws-for-power-sub--7f2244fe2f31",
+          "material_read": "Local catalogue title and synopsis; matching mirrored content was not retrieved.",
+          "method": "Compare the indexed operator transformation and limiting parameter, with a bounded attempt to read the exact matching finding.",
+          "title": "Bessel singular spectra and rank-one boundary laws for power-substituted Volterra operators",
+          "trigger": "Closest indexed earlier Bessel/Volterra exact spectral form."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Polynomial orthogonality is a canonical spectral preprocessing choice distinct from best rank-m approximation. The sharp worst-case attenuation and all-real Schatten profile quantify both the extremal and distributed residual integration errors, and the exact square mass provides an all-cutoff normalization. The density plus separate outlier and infinite-tail controls address a substantive family of infinite operators, not a finite numerical table or routine reparameterization of the ordinary Volterra spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

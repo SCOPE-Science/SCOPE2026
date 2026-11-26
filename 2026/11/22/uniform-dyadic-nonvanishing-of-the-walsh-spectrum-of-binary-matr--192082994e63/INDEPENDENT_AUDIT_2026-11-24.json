@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:18.147731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 21–62",
+        "Frozen VERIFICATION.md and CHECKER.cpp, CHECKER.py, inspected but not executed"
+      ],
+      "rationale": "For the character on all matrices at C of rank r, invertibility can be imposed by subspace Möbius inversion of the kernel indicator. The inner sum over matrices annihilating U vanishes unless the row space of C lies in U, and otherwise is 2^{n(n−dim U)}. Summing over dimensions by the Gaussian binomial theorem gives the factor (−1)^r 2^{binom(n,2)}∏_{j=1}^{n−r}(2^j−1). Averaging the full transform over the n diagonal frequencies imposes zero diagonal, giving W=2^{n(n−3)/2}s_B for n≥3. For every fixed B, the parity of the number of invertible diagonal completions is the sum of the multilinear determinant over the Boolean cube, i.e. the coefficient of the full diagonal product, which is 1. The rank factor after removing 2^{binom(n,2)} is (−1)^{n−1} modulo 4 for all deficient ranks (only j=1 gives +1 modulo 4), and (−1)^n at full rank. Hence s_B≡2 mod 4. This yields the stated congruence even for negative Walsh values. At n=2 there is a single matrix, yielding ±1. Counting Walsh diagonalization gives all the rank, determinant and inverse-norm claims.",
+      "residual_risks": [
+        "The claimed bound for the inverse norm is not claimed to be optimal in every dimension. The proof is specific to the field of order two and the zero-diagonal condition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-space rank-character framework identifies the summands in the diagonal projection, not their valuation after cancellation. The Lewis and Salmond primary passages concern ranks/counts, not signed all-frequency cancellation.",
+          "The prescribed-diagonal Resultary finding varies the off-diagonal entries over a fixed diagonal, rather than fixes the off-diagonal entries and averages over the diagonal."
+        ],
+        "reasoning": "The restricted-matrix model is broader as a set of supports but the available results concern different observables. The full-matrix transform yields a signed projection formula, but the leading dyadic terms can cancel; determining that there is exactly one additional power of two uses the oddness of invertible completions.",
+        "searches": [
+          "Delsarte DOI 10.1016/0097-3165(78)90015-8, Appendix A2 retrieval",
+          "arXiv:1011.4539 restricted-matrix ranks",
+          "arXiv:1404.3250 prescribed zero patterns",
+          "Resultary prescribed-diagonal determinants 8f7997e101ea"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary entries 192082994e63, edb32b2267f0, 8f7997e101ea, cf11581f186f",
+        "arXiv:1011.4539, Prop. 2.2",
+        "arXiv:1404.3250, pp. 1–2",
+        "Delsarte DOI and ScienceDirect PII S016517652030313X (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For zero-diagonal restriction each projected Walsh value averages 2^n full-space transform values. Their common rank-factor residue modulo 4 depends on which completions are invertible. The parity of that number for every B is supplied by a separate full-monomial calculation."
+        ],
+        "reasoning": "The general Fourier identity plus orthogonality gives the average but does not imply an exact valuation just by substitution. The matrix-by-matrix odd completion argument does the additional work; none of the inspected counts varies the diagonal for every fixed off-diagonal B in the required way.",
+        "searches": [
+          "Full GL rank transform (frozen RESULT.md Eq. (1), comparison to Delsarte Appendix A2)",
+          "Resultary trace-slice and fixed-diagonal determinant Findings",
+          "Lewis et al. Prop. 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit 192082994e63 is this same record. The trace-parity record treats full matrix frequencies on two scalar-trace slices; the singleton-fibre record concerns maps [n]→[n] and includes weight-dependent valuations at even orders.",
+          "Lewis et al. count the zero-diagonal invertible matrices rather than evaluate the whole Boolean character family."
+        ],
+        "reasoning": "The equivalent forms are uniform exact valuation of signed sums and the corresponding mod-2-power spectrum. An unsigned cardinality is a single trivial character; mere convolution invertibility would also be strictly weaker than the claimed exact valuation. Trace parity fixes only one linear functional, not all diagonal coordinates.",
+        "searches": [
+          "Local Resultary: zero-diagonal binary invertible matrices, off-diagonal Walsh transform, exact dyadic valuations and additive convolution nonvanishing",
+          "Lewis et al. arXiv:1011.4539, Prop. 2.2",
+          "Resultary trace-parity slices edb32b2267f0 and singleton-fibre profiles cf11581f186f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact row is the frozen record itself. The formula in Prop. 2.2 gives W_n(0) at q=2; the neighboring trace/diagonal entries concern different observables or domains."
+        ],
+        "reasoning": "The work concerns all sizes and every character; neither one cardinality formula nor a small spectrum table gives that uniform valuation. The source's checks through n=5 are not independent prior coverage or an infinite classification.",
+        "searches": [
+          "Local Resultary zero-diagonal/all-frequency query and relevant determinant/trace slices",
+          "arXiv:1011.4539 Prop. 2.2 for the exact cardinality formula"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform exact two-adic valuation at all off-diagonal frequencies, not the unsigned count, the general rank transform, or the character projection technique. A fixed off-diagonal frequency and its entire affine family of diagonal completions are essential to the comparison.",
+      "residual_risks": [
+        "Delsarte Appendix A2 and the zero-diagonality paper were not available in full text. Equivalent prior use of diagonal completions in restricted-matrix or rank-metric work may have escaped the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not competing coverage",
+          "evidence": "Same identifier, domain and exact exponent.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 192082994e63",
+          "material_read": "Finding (mirrored text offset 356)",
+          "method": "Local Resultary and local source mirror, compared to frozen statement",
+          "title": "Uniform dyadic nonvanishing of the Walsh spectrum of binary matrix derangements",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Methodological overlap, different slice and spectrum",
+          "evidence": "Complete Fourier spectra and nullities for the two trace-parity slices at full-matrix frequencies.",
+          "identifier_or_url": "Resultary 2026/11/8, suffix edb32b2267f0",
+          "material_read": "Mirrored Finding (offset 0)",
+          "method": "Local Resultary and mirror",
+          "title": "Trace-parity slices of binary invertible matrices: complete Fourier spectra",
+          "trigger": "Binary GL Fourier formula and additive linear slicing"
+        },
+        {
+          "assessment": "Different fibers",
+          "evidence": "The diagonal is fixed and off-diagonal entries vary; the nonzero determinant value distinction is vacuous over F₂.",
+          "identifier_or_url": "Resultary 2026/11/2, suffix 8f7997e101ea",
+          "material_read": "Mirrored Finding (offset 0)",
+          "method": "Local Resultary and mirror",
+          "title": "A one-spike determinant law for prescribed diagonals over finite fields",
+          "trigger": "Prescribed-diagonal determinant distributions"
+        },
+        {
+          "assessment": "Distinct record with a different kernel and not equivalent",
+          "evidence": "Singleton-fibre profiles of maps [n]→[n], with frequency-weight effects at even orders; decision not based on date.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix cf11581f186f",
+          "material_read": "Mirrored Finding (offset 0)",
+          "method": "Local Resultary and mirror",
+          "title": "Dyadic Walsh rigidity for singleton-fibre profiles of finite maps",
+          "trigger": "Same-family spectral language and date"
+        },
+        {
+          "assessment": "Exact unsigned coefficient only for this comparison",
+          "evidence": "Prop. 2.2 evaluates the invertible zero-diagonal count, giving W_n(0) at q=2, not the other signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1011.4539",
+          "material_read": "PDF opening page and Prop. 2.2 (p. 4, text offset 13800)",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Matrices with restricted entries and q-analogues of permutations",
+          "trigger": "Same zero-diagonal invertibility count"
+        },
+        {
+          "assessment": "Prior methodological framework credited; no verdict on unavailable full text",
+          "evidence": "The rank-character formula was independently checked from Möbius inversion; OA reached no primary appendix.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(78)90015-8",
+          "material_read": "Landing page/abstract; Appendix A2 not retrieved",
+          "method": "Lawful OA and repository lookup",
+          "title": "Bilinear Forms over a Finite Field, with Applications to Coding Theory",
+          "trigger": "Full-matrix rank-transform precedent cited at Appendix A2"
+        },
+        {
+          "assessment": "Rank probabilities rather than Fourier valuations",
+          "evidence": "Studies full-rank probabilities for zero patterns, including the effect of adding fixed zeros.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3250",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "Bounded OA primary PDF reading",
+          "title": "On the rank of random matrices over finite fields",
+          "trigger": "Full rank with prescribed zero entries"
+        },
+        {
+          "assessment": "Unresolved access, no non-coverage inference",
+          "evidence": "Attempted retrieval routes returned HTTP 403.",
+          "identifier_or_url": "ScienceDirect PII S016517652030313X",
+          "material_read": "Search identification only, no relevant passage",
+          "method": "Lawful primary OA direct and alternate retrieval attempts",
+          "title": "Zero-diagonality as a linear structure",
+          "trigger": "Plausible title match in broader search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–13, 39–62",
+        "Lewis et al. Prop. 2.2 for the unsigned comparison"
+      ],
+      "rationale": "The exact invariant distinguishes all spectrum coefficients from zero in one theorem, including characters for which neither the zero-frequency count nor a common divisibility bound rules out cancellation. This proves invertibility of a natural additive convolution on a matrix restriction and determines the two-adic valuation of its whole determinant and a quantitative inverse norm bound.",
+      "residual_risks": [
+        "The absolute values and signs of individual multipliers are not determined; value does not rest on any claimed normalization-independent sharp norm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

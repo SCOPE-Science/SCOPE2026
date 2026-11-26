@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:14:40.767903Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof",
+        "Frozen verification.py, verification_output.txt and VERIFICATION.md",
+        "/workspace/evidence/proof_checks.md §5"
+      ],
+      "rationale": "Independently establish the unrestricted theorem using the Apéry set at m. If a tuple fails, its total belongs to the Apéry set, and each partial sum does too: subtracting m from a partial sum in S would give the same possibility at the total. From zero through the total these are m strictly increasing elements, exhausting the m residue representatives. All but the first positive partial sum are decomposable, so there is only one generator other than m (at least one by cofiniteness). Write S=<m,a>, a>m and gcd(m,a)=1. If any tuple member uses a copy of m, subtraction succeeds directly. Otherwise all entries are positive multiples of a; a total containing m or more copies of a admits replacing m of them by a copies of m. The only remaining tuple is the all-a tuple, whose defective sum is the greatest of the residue-class gaps ja−m, 0≤j<m, and hence is Frobenius. This independently gives the same exact witness as the frozen zero-sum and gap-reflection route. Inspection also confirms that the supplied Kunz checker is bounded (multiplicities 3–7, coordinates 1–4, recorded 2344 cases); it was not executed and was not needed for the universal proof.",
+      "residual_risks": [
+        "The definition requires all positive ordered tuples, allowing repeated entries; there is no conclusion for an all-distinct-tuples variant or arbitrary earlier hierarchy levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hierarchy and all-semigroup endpoint L_(m−1,m) are already given. The cyclic group result exactly covers zero-sum-free sequences of length m−1, not which semigroups or representatives fail.",
+          "The Apéry poset source identifies its positive minimal elements at m as the generators other than m. This is a substantial standard ingredient in an alternative proof, not itself an upper bound on the relevant ordered tuple length or its equality case. The second-level work is relevant to m=4; only the abstract was available for that paper."
+        ],
+        "reasoning": "The upper all-semigroup endpoint is weaker than a classification one step below. Residue extremality forces one generator residue, but by itself does not force that all entries are its least representative or that the ambient semigroup has no further generator.",
+        "searches": [
+          "Robles-Pérez–Rosales arXiv:2101.10724v2 Remark 3.13 and Example 3.14",
+          "Lee–Oh arXiv:2003.02511 §1",
+          "Llena–Rosales DOI 10.3390/math13040593",
+          "arXiv:2608.12531 Apéry poset"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b36e5e769f8f (same record)",
+        "Robles-Pérez–Rosales Remark 3.13–Example 3.14",
+        "Lee–Oh §1",
+        "Bryant–Hamblin pp. 2–3",
+        "arXiv:2608.12531 abstract",
+        "Veliche arXiv:1208.5625 p. 1",
+        "Bartels arXiv:2308.14932 pp. 1–2",
+        "Llena–Rosales indexed abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior extremal zero-sum fact controls only residues. The missing step is to show that a failure cannot survive any extra atom or any upward shift of an entry by m. It follows through the Apéry chain exhausting all m representatives and then the two-generator representation, or by the frozen use of two-generator gap reflection for a semigroup enlarged by a gap.",
+          "Ding's inequality as quoted by Veliche bounds Auslander's index in the Gorenstein setting; the relation to generalized Loewy length in Bartels is not a bound for the fixed monomial parameter in arbitrary semigroups."
+        ],
+        "reasoning": "The reviewed known bounds and examples do not mechanically yield the joint statement. The threshold uses an extremal length argument for the fixed parameter, and the witness classification tracks actual monomials rather than merely a nilpotency or index number.",
+        "searches": [
+          "Robles-Pérez–Rosales Remark 3.13 and Example 3.14",
+          "Lee–Oh §1",
+          "Bryant–Hamblin pp. 2–3",
+          "Veliche arXiv:1208.5625 p. 1; Bartels arXiv:2308.14932 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b36e5e769f8f is the assigned record itself.",
+          "The level condition is equivalent to saying no Apéry element is a sum of m−1 positive members, or that the (m−1)st maximal-ideal power dies in the monomial Artinian reduction by t^m. Maximal denumerant counts factorizations of maximal length rather than determining this strict length cutoff or the surviving monomial tuples. In the Loewy-length literature, generalized Loewy length minimizes over parameter choices, not the fixed reduction by t^m."
+        ],
+        "reasoning": "Neither a factorization-count invariant nor an inequality involving Auslander's index or a minimizing parameter can be equated without proof with this fixed-reduction tuple obstruction.",
+        "searches": [
+          "Resultary: penultimate level numerical semigroups, embedding dimension, longest Apéry sum",
+          "arXiv:1208.3167 Apéry and maximal denumerant",
+          "Apéry maximum order, embedding dimension, nilpotency and Loewy length for numerical semigroup rings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 3.14 explicitly shows <5,6> fails via 4·6−5=19, a genuine instance of the excluded family. It also gives an example of an included semigroup. The frozen census is bounded and is not external novelty evidence."
+        ],
+        "reasoning": "The prior examples are credited. Neither finite Kunz ranges nor special multiplicities can supply the unrestricted uniform classification or the unique witness for every coprime a.",
+        "searches": [
+          "Resultary penultimate level and embedding-dimension census",
+          "Robles-Pérez–Rosales Example 3.14",
+          "Llena–Rosales second-level algorithms; frozen bounded Kunz census"
+        ]
+      },
+      "rationale": "Restrict credit to the uniform penultimate-level classification paired with the exact unique ordered obstruction and its Frobenius value. Prior work defines the hierarchy, gives the endpoint and explicit m=5 examples, and supplies the zero-sum, two-generator and Apéry ingredients. The inspected sources did not give the resulting uniform equivalence with ordinary embedding dimension and unique witness. An Apéry exhaustion argument is short and natural, but the cited prior results are ingredients rather than a classification or a direct lookup of this last proper tier.",
+      "residual_risks": [
+        "Detailed second-level coverage, especially at m=4, remains unresolved for the inaccessible article.",
+        "An unindexed equivalent extremal theorem about this fixed Apéry length or the associated monomial Artinian quotient could narrow originality. The bounded search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers hierarchy, endpoint and examples; no uniform penultimate statement in these passages",
+          "evidence": "Strict chain through L_(m−1,m)=S_m and <5,6> witness 19 at level 3.",
+          "identifier_or_url": "https://arxiv.org/html/2101.10724v2",
+          "material_read": "§3 Remark 3.13–Example 3.14, OA offsets 41800–48800",
+          "method": "OA primary preprint text",
+          "title": "Modular Frobenius pseudo-varieties",
+          "trigger": "exact source of n-level hierarchy and possible penultimate theorem"
+        },
+        {
+          "assessment": "covers the exact residue lemma, not the semigroup witness",
+          "evidence": "Zero-sum-free length n−1 in C_n forces copies of the same generator.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.02511",
+          "material_read": "§1, OA offsets about 4200–7192",
+          "method": "OA primary preprint text",
+          "title": "On zero-sum free sequences contained in random subsets of finite cyclic groups",
+          "trigger": "same extremal cyclic residue step"
+        },
+        {
+          "assessment": "related definitions, different statistic",
+          "evidence": "Minimal residue representatives define Apéry set; maximal denumerant counts factorizations of maximal length.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.3167",
+          "material_read": "pp. 2–3, OA offsets about 4300–9744",
+          "method": "OA primary preprint passages",
+          "title": "The Maximal Denumerant of a Numerical Semigroup",
+          "trigger": "alternate Apéry/factorization formulation"
+        },
+        {
+          "assessment": "verifies the minimal-element ingredient; not used to exclude whole-paper coverage",
+          "evidence": "At multiplicity m, the positive Apéry minimal elements are the minimal generators other than m; the bound stated there concerns type.",
+          "identifier_or_url": "https://arxiv.org/html/2608.12531",
+          "material_read": "abstract passage around OA offsets 678–2265",
+          "method": "OA primary HTML passage",
+          "title": "An upper bound for the type of a numerical semigroup",
+          "trigger": "Apéry poset reformulation and generator bounds"
+        },
+        {
+          "assessment": "related quantities and additional hypotheses; no matching tuple classification in inspected statements",
+          "evidence": "Index inequality and generalized Loewy length concern an index or some parameter system, not necessarily the quotient by t^m.",
+          "identifier_or_url": "arXiv:1208.5625 and arXiv:2308.14932",
+          "material_read": "Veliche p. 1 Ding inequality, OA offsets 2960–6419; Bartels pp. 1–2 generalized Loewy definition and relation to index",
+          "method": "OA primary PDF passages",
+          "title": "The index of a numerical semigroup ring; Generalized Loewy length of Cohen–Macaulay local and graded rings",
+          "trigger": "potential stronger algebraic bound or index characterization"
+        },
+        {
+          "assessment": "relevant but detailed overlap unresolved, not negative evidence",
+          "evidence": "Abstract treats second-level algorithms and Frobenius calculations for a specified subfamily. No claim about the full paper is used in the verdict.",
+          "identifier_or_url": "https://doi.org/10.3390/math13040593",
+          "material_read": "indexed abstract; exact paper full text not retrieved",
+          "method": "configured OA DOI and identified publisher PDF/XML attempts, identified public text copy attempt",
+          "title": "Second-Level Numerical Semigroups",
+          "trigger": "possible earlier m=4 specialization or stronger embedding-dimension result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and hierarchy scope",
+        "Robles-Pérez–Rosales Remark 3.13 and Example 3.14",
+        "/workspace/evidence/proof_checks.md §5"
+      ],
+      "rationale": "The last proper level of an existing hierarchy is a natural uniform boundary, not an arbitrary finite slice. A simple invariant decides it for every multiplicity, and the theorem describes precisely which tuple fails and what gap it produces. This links hierarchy membership to an elementary generator test while explaining the entire extremal obstruction, beyond the previously exhibited examples or the all-semigroup endpoint.",
+      "residual_risks": [
+        "The result does not classify any earlier tier uniformly, and the underlying cyclic and two-generator theory is standard."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

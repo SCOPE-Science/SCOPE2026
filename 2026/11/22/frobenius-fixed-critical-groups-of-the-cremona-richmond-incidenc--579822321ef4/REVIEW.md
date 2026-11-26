@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence graph has fifteen duad and fifteen syntheme vertices; exact incidence gives \(BB^\mathsf T=3I+A_{KG(6,2)}\) and an independently computed tree number \(3^{10}5^8\). For each six-label cycle type, the divisor action on the integer degree-zero lattice is \(R\), with the fixed group abstractly dual to the quotient presented by \([Q\mid R-I]\). Two root choices and both direct Smith and column-Hermite-then-Smith procedures reproduce the eleven-row invariant-factor table. The replayed source script tests the graph automorphism action for every one of \(720\) permutations. No numerical approximation or finite-field extrapolation is used. Independent mathematical audit has not occurred.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The canonical duad–syntheme and Igusa singular-line configuration is classical and not claimed new. Prokhorov, arXiv:0707.1738, and Prażmowska–Prażmowski, arXiv:1404.7166, give the geometry. Previously published Igusa twist results compute the eleven zeta spectra and an integral toric character lattice from \(H_1\); neither gives this critical group nor its eleven fixed-subgroup invariant-factor lists. Ducey–Hill–Sin compute the Kneser graph instead of the thirty-vertex Levi graph. The major remaining risk is an unindexed equivariant Smith result for the Tutte–Coxeter graph or a broader theorem that specializes to it.
+PASS
 
-## Mathematical value — PASS
-The finite critical group is the natural integral divisor/chip-firing invariant of the canonical thirty-vertex geometric configuration. Its complete arithmetic fixed-subgroup spectra add information not determined by rational points of the singular boundary, by its zeta function, or by a character lattice of a connected Picard torus. The five-cycle's absence of rational incidence vertices despite a 225-element invariant divisor-class group illustrates the distinction. The result does not claim a new algebraic-surface Picard or Brauer invariant.
+After splitting E, write S2=sum x_i^2 on sum x_i=0. The constrained gradient condition says x_i^3-(S2/4)x_i is constant over the coordinates, so there are at most three distinct values. With three values a,b,c, their sum is zero and S2=2(a^2+b^2+c^2). The three moment equations for their multiplicities minus two form a nonsingular Vandermonde system, hence each value occurs twice (char >=7). With two values of multiplicities m,n and m+n=6, using ma+nb=0 and equating the gradient coordinates yields 18(mn-8)=0, forcing multiplicities two and four in the stated characteristics. The quartic equation follows from the constrained gradient by Euler's identity. Thus the reduced singular curve is exactly the union of the paired-coordinate lines; a (2,4) point is incident to the three matchings containing its distinguished pair, and a point with three distinct values is on exactly one line. This verifies the duad–syntheme geometry and its natural coordinate action. In a separately constructed graph I computed the connected reduced determinant 3^10*5^8, all eleven exact Hermite/Smith forms on the degree-zero lattice using successive differences, and all fixed vertex counts. They match every row, including the five-cycle with no fixed vertices but C5+C45. The equivariant perfect graph pairing transfers the coinvariant factors to fixed groups. All eleven coordinate types are realized by étale field-factor products; extra graph color-swapping automorphisms are not part of the claim.
 
-## Scope and caveats
-Characteristic at least seven, coordinate \(S_6\)-twists, and geometric graph divisor classes only. The graph invariant is not a model of the algebraic variety's Jacobian. Historical priority is not definitive; computations use exact normal-form software and are directly reproducible but not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same graph and all coordinate actions are antecedents; the inspected same-graph records give independence-complex homology, geometric spectra or a connected Picard torus rather than the finite graph critical group. Other graph-critical-group results treat different graphs. No equivalent table or stronger equivariant discriminant calculation was found in the material inspected.
+
+## value
+
+PASS
+
+This is the canonical incidence graph of the entire singular boundary, a natural setting for integral divisor equivalence. The complete coordinate-twist table refines its ordinary critical group. The five-cycle gives 225 fixed classes with no fixed geometric vertices, and the (5,1) and (4,2) actions have different fixed vertex counts but identical fixed class groups. These contrasts explain why the finite arithmetic invariant is worth knowing beyond zeta and torus data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

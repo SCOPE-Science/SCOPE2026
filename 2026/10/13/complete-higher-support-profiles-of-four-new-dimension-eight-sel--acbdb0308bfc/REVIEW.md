@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source matrices are reconstructed directly from arXiv:2511.05440. The proof uses the exact equivalence between inactive coordinates of \(UG\) and source columns in \(U^\perp\). The bundled verifier checks rank, self-orthogonality, the published ordinary minimum distances, all Gaussian-binomial subspace counts, direct support minima, dual column-section maxima, and every minimizer multiplicity. Both exhaustive routes agree.
+## correctness
 
-## Originality
-PASS. The primary source gives only the ordinary minimum-distance table and generators for these four new dimension-eight representatives. Searches using all four parameter sets and the aliases generalized Hamming weights, higher/support weights, weight hierarchy, and extremal-subcode multiplicities found no same-object statement. The closest self-orthogonal hierarchy paper treats different defining-set families; the closest broad exact generalized-weight table stops at binary dimension seven; the generic GHW algorithm does not supply these values. Residual risk remains that an unindexed computation contains equivalent data.
+PASS
 
-## Value
-PASS. These are exactly the four newly introduced dimension-eight self-orthogonal record codes that settle ordinary minimum-distance entries, so completing their entire support hierarchy is a natural structural extension. The minimizer counts additionally quantify the degeneracy of every extremal support level and are not implied by the hierarchy values alone.
+The four hexadecimal matrices agree with An et al. arXiv:2511.05440v1, Section 5, pp. 15–16, and with v2 pp. 21–23; verified zero-padding lengths are 1, 2, 2, 1 bits. Independent exact calculation checked rank 8, GG^T=0 and the ordinary distances. For an r-dimensional message space U, the unsupported columns are exactly those lying in U's annihilator; complementing dimensions gives a bijection with (8-r)-subspaces. The independent reproduction checked both direct encoded-basis support unions and maximal column-section masses, visiting the Gaussian totals (1,255,10795,97155,200787,97155,10795,255,1). At lengths 91,98,114,191 the hierarchy/minimizer pairs reproduced exactly: (42,64,75,81,84,87,89,91)/(54,982,872,334,5,12,1,1); (46,70,82,88,91,94,96,98)/(74,2337,6468,1481,19,12,1,1); (54,82,96,103,107,110,112,114)/(70,2016,4715,805,66,23,2,1); (94,142,166,178,184,187,189,191)/(94,4340,24800,25420,4774,125,2,1). Independent script and terminal output: branches/fd2afc81-a5f1-41a0-8c7d-d141dc8f52ae/reproduce_profiles.py and reproduction.txt. The frozen verifier was inspected, not executed. The result is for these exact representatives, with no generalized-weight optimality assertion.
 
-## Closest literature and limitations
-The closest literature is arXiv:2511.05440 for the four objects, DOI:10.3934/amc.2026016 for self-orthogonal weight hierarchies, DOI:10.15495/EPub_UBT_00008792 for broad exact generalized-weight data, and DOI:10.1145/3773284 for a generic computational algorithm. The result is restricted to the four displayed generator matrices and does not classify all codes sharing the same ordinary parameters or prove global optimality of their higher weights.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published generators, their construction and ordinary minima. The supported distinct claim gives four full hierarchies together with a census of the minimizing subcodes at every rank. Inspected stronger-looking parameter and algorithm sources do not evaluate these profiles for the four representatives.
+
+## value
+
+PASS
+
+The matrices are the four representatives used to close specific dimension-eight optimal self-orthogonal minimum-distance entries, not arbitrary length cutoffs. Higher-support minima describe how these same codes constrain sets of jointly active coordinates for subcodes, and counts distinguish rare from abundant extremizers. For example the length-91 example has only five minimizing five-dimensional subcodes, whereas the length-191 example has 4774. The exact profiles are useful benchmarks for comparing constructions or checking shortening behavior; they do not follow from d_1 or claim optimality in the new invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

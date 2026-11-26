@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:33:13.401133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=1−η, each batch sends x to qx+ηZ and the epoch multiplier is q^m. Given a frozen partition, the randomly ordered batch means sum to zero and have exchangeable covariance v_P on the diagonal and −v_P/(m−1) off it. Thus weighted epoch noise has conditional mean zero and variance η²v_PΓ_m(q); sampling without replacement gives E[v_P]=s²(n−b)/(b(n−1)) via the one- and two-label inclusion probabilities. Conditional zero means eliminate frozen cross-epoch covariances, even though unconditional independence can fail. The fresh process has the same marginal noise variance with independent epochs. Summing the weighted variances proves the stated all-horizon identity, also for q<0 and q=0 (empty sum at epoch zero). For (1,1,−1,−1), two of three pair partitions have zero noise; the third gives equiprobable ±η². Contraction yields the annealed fixed-partition mixture and the fresh iid three-digit series, with the stated variance and objective gap. The aligned sign component cannot reach zero for r≤1/3 by first-digit dominance. The fresh support images have gaps δ(1−3r)/(1−r) for r<1/3. Separation compares ball masses with cylinders at levels differing by bounded offsets, so the strong law gives the asserted local dimension; using equal weights gives the support dimension. At r=1/3 the intervals tile and the biased ternary digit frequencies give a Lebesgue-null set of full measure. For the local dimension there, consecutive depth-k ternary intervals have probability ratio 4 or 1/4: carries exchange trailing 2s with 0s of equal weight. Balls at radius 3^−k have mass comparable to the containing cylinder. A point has at most two addresses, proving no atoms. The bounded series permits cumulant addition, with digit κ4=0 and κ6=−2/9. The η=1 discrete exception is correctly excluded from continuous-law claims. Uniqueness in the frozen case is conditional on a partition, with its uniform marginal prescribed for the annealed mixture. The source's 'independent positions' in the without-replacement calculation means distinct labels; the displayed probabilities and proof do not assume independent inclusions. RESULT.md lines 54–111 and the bounded checks described in VERIFICATION.md and verify.py were inspected; the uploaded script was not executed and its finite tests cannot prove the law or priority.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar pp. 1, 7: the analysis needs a fixed partition and fresh partitions require a new analysis.",
+          "Ying et al. pp. 1–2: standard fresh permutation reshuffling and steady-state mean-square results.",
+          "Domingo-Enrich pp. 2–3: stationary variance under various shuffling policies in a zero-th-order noise model."
+        ],
+        "reasoning": "These sources cover baseline variance and reshuffling methods, not the two specified partition laws or their fixed-versus-fresh distinction under matched risk.",
+        "searches": [
+          "Kumar Optimization Online PDF, literal query: fresh partition",
+          "arXiv:1803.07964, model and quadratic performance",
+          "arXiv:2206.00632, Contributions"
+        ]
+      },
+      "checked_sources": [
+        "Kumar, Optimization Online minibatch_rr.pdf",
+        "arXiv:1803.07964",
+        "arXiv:2206.00632",
+        "1730aa3cce41",
+        "ec57811b8333",
+        "1bb9343a7e6c",
+        "2c9a109d45d2",
+        "8f32a9c46510"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kumar p. 7 expressly limits the reduction to fixed partitions.",
+          "ec57811b8333 Finding gives the symmetric two-sign series, which does apply to the aligned partition after rescaling, but not the fresh weights (1/6,2/3,1/6) or the frozen mixture.",
+          "1bb9343a7e6c Finding treats a six-symbol equal-order law; 8f32a9c46510 treats 3-adic convolution, not the real-valued digit law from random pair partitions."
+        ],
+        "reasoning": "The conditional two-sign series and dimension mechanism are not distinct prior contributions. The policy-dependent mixture, iid mixture digits, and all-horizon comparison require the partition construction and conditional covariance argument; they are not implied by the inspected moment or support statements.",
+        "searches": [
+          "Kumar Optimization Online PDF, literal query: fresh partition",
+          "Resultary: random reshuffling Cantor-to-interval stationary-support transition exact separation interval filling threshold three-sample Bernoulli digits",
+          "arXiv:1803.07964",
+          "arXiv:2206.00632"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1730aa3cce41, Finding: shuffle-once reuses the permutation, not just the unordered partition.",
+          "ec57811b8333 and 1bb9343a7e6c, Findings: unbatched two-sign and six-map recursions, respectively."
+        ],
+        "reasoning": "Varying the order of fixed batch means is distinct from reusing an order; rescaling a two-sign or six-order series does not identify both laws of the stipulated four-center model.",
+        "searches": [
+          "Resultary: fresh versus frozen minibatch random reshuffling partition each epoch unconditional second moments equal finite horizon",
+          "Resultary: random reshuffling Cantor-to-interval stationary-support transition exact separation interval filling threshold three-sample Bernoulli digits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record 4f4079e30938 is the assigned record itself. Nearby records 2c9a109d45d2 and 8f32a9c46510 were inspected: respectively a Gaussian mixture for two-coordinate updates and a full-support 3-adic convolution."
+        ],
+        "reasoning": "No separate exact indexed match was identified. The continuous-law theorem is not a numerical table problem; the named nearby exact examples use different transition laws or ambient spaces.",
+        "searches": [
+          "Resultary: fresh versus frozen minibatch random reshuffling partition each epoch unconditional second moments equal finite horizon",
+          "Resultary: random reshuffling Cantor-to-interval stationary-support transition exact separation interval filling threshold three-sample Bernoulli digits"
+        ]
+      },
+      "rationale": "To the best of the examined evidence, the distinct contribution is the comparison of these partition policies on the same scalar finite sum: equal all-epoch unconditional moments and a minimal explicit atomic versus singular-continuous example, including a full-support critical law with Gaussian fourth moment. Sampling variance, contraction, and biased ternary dimension themselves are known. Neither shuffle-once nor a known unbatched recursion gives this policy comparison. No priority is inferred from same-day dates or an exact self-hit.",
+      "residual_risks": [
+        "Indexed and primary passage checks do not establish exhaustive priority; an earlier equal-curvature fresh-versus-frozen calculation may exist.",
+        "The conditional sign law, digit entropy mechanism and finite-population correction should not be treated as new in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-partition baseline; no policy comparison implied",
+          "evidence": [
+            "The reduction needs a fixed partition; dominance for fresh partitions calls for new analysis."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/11/minibatch_rr.pdf",
+          "material_read": "pp. 1 and 7, extracted offsets 1750 and 23500",
+          "method": "Lawful primary PDF passage lookup",
+          "title": "Minibatch Random Reshuffling for Smooth Convex Optimization: Batch-Size Dependence, Finite-Population Variance, and Quadratic Growth",
+          "trigger": "Same minibatch scheme and finite-population variance"
+        },
+        {
+          "assessment": "Covers related mean-square performance, not these invariant-law comparisons",
+          "evidence": [
+            "Uses renewed single-sample permutations; gives a steady-state mean-square expression exact for quadratic risks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.07964",
+          "material_read": "Fresh permutation description and quadratic risk passages, offsets approximately 3600 and 14300",
+          "method": "Primary preprint passage inspection",
+          "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+          "trigger": "Exact quadratic mean-square performance"
+        },
+        {
+          "assessment": "Variance precedent, not evidence of these two partition laws",
+          "evidence": [
+            "Stationary covariance comparisons use a zero-th-order noise model and distinguish RR from shuffle-once."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.00632",
+          "material_read": "Contributions, pp. 2–3, offset 9000",
+          "method": "Primary preprint passage inspection",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Potential stronger stationary variance result"
+        },
+        {
+          "assessment": "Different frozen object",
+          "evidence": [
+            "Shuffle-once repeats one permutation; the finding compares convex order, not fresh batch orders given a fixed partition."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-convex-order-reversal-between-random-reshuffling-and-shuffle-onc--1730aa3cce41",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed search and local primary record inspection",
+          "title": "Convex-order reversal between random reshuffling and shuffle-once",
+          "trigger": "Closest reuse-versus-renewal policy record"
+        },
+        {
+          "assessment": "Covers the sign-series mechanism, not the combined claim",
+          "evidence": [
+            "Symmetric two-sign iid noise without batching; support threshold 1/2."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-random-reshuffling-has-a-cantor-to-interval-stationary-support-t--ec57811b8333",
+          "material_read": "Finding and relationship passage, offsets 0 and 7600",
+          "method": "Indexed search and local primary record inspection",
+          "title": "Random reshuffling has a Cantor-to-interval stationary-support transition",
+          "trigger": "Direct stationary support and sign-series precedent"
+        },
+        {
+          "assessment": "Related but different six-order model",
+          "evidence": [
+            "Three singleton losses at centers (−1,0,1), with six maps and separate separation and filling thresholds."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-separation-and-interval-filling-thresholds-for-three-sampl--1bb9343a7e6c",
+          "material_read": "Finding and relationship passage, offsets 0 and 7550",
+          "method": "Indexed search and local primary record inspection",
+          "title": "Exact separation and interval-filling thresholds for three-sample random reshuffling",
+          "trigger": "Closest multi-symbol reshuffling support law"
+        },
+        {
+          "assessment": "Different model and law",
+          "evidence": [
+            "Two-coordinate Gaussian noise and a nonzero mixed fourth cumulant, not scalar partition-driven digits."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-gaussian-marginals-a-two-gaussian-invariant-law-and-optimal-orde--2c9a109d45d2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed search and local primary record inspection",
+          "title": "Gaussian marginals, a two-Gaussian invariant law, and optimal order",
+          "trigger": "Same-day exact law and fourth cumulant"
+        },
+        {
+          "assessment": "Shared phenomenon, different law and ambient space",
+          "evidence": [
+            "Full 3-adic support for X+2Y; no optimization or fresh/frozen partition comparison."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-full-support-singular-ternary-cantor-convolution-with-an-exact--8f32a9c46510",
+          "material_read": "Finding and relationship passage, offsets 0 and 7300",
+          "method": "Indexed search and local primary record inspection",
+          "title": "A full-support singular ternary Cantor convolution with an exact dimension",
+          "trigger": "Same-day full-support biased ternary singularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a minimal controlled test of two natural implementations of minibatch reshuffling. The same observable objective risk at every horizon conceals a stationary point mass at the optimum under one implementation and a continuous singular law under the other. Full interval support and Gaussian fourth moment still do not diagnose the fresh law at the exact touching threshold. Four labels are the least allowing at least two batches of size at least two. This is a benchmark about what moment analyses miss, not a claim of general convergence-rate dominance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

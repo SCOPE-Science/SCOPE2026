@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:50:56.133488Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; full_direct_check.c; line_incidence_checker.py; verification_counts.txt (read, not executed)",
+        "Independent replay: python3 /workspace/independent_checks/check4.py; output /workspace/independent_checks/4.txt"
+      ],
+      "rationale": "The convolution is diagonalized by the group characters. For a nonzero character, cyclotomic irreducibility makes the multiplier zero exactly when the five affine fiber populations agree; the nontrivial frequencies vanish in packets of four. The constant frequency is nonzero except for the empty mask. For weight 5h, a pencil is balanced exactly when its within-fiber unordered collision count is the minimum 5 binom(h,2): transferring a point from a fiber at least two larger than another strictly decreases the collision count. I independently enumerated all 53,130 weight-five and 3,268,760 weight-ten supports by combinations, counting equal projections of point pairs rather than line populations. The histograms in order k=0,…,6 are (36000,15600,1500,0,0,30,0) and (2697000,545700,24000,2000,0,60,0). Complementation and the cyclotomic criterion handle all other weights; the global totals exactly match the frozen record. In the submitted proof, sharp three-transitivity implies transitivity on every set of directions by complementation, the 2-regular bipartite count splits into 10-cycles and disjoint 6- and 4-cycles, and binomial inversion gives the stated counts. The numerical check corroborates those identities, not their novelty.",
+      "residual_risks": [
+        "Ranks over C for binary masks only; no conditioning or general field-order claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At most two special directions force a union of parallel lines; this includes the no-two obstruction.",
+          "Exactly three special directions force the affine triangle or its complement, at the two stated weights.",
+          "The Meshulam and Biró–Lev results are Fourier support inequalities, not census tables."
+        ],
+        "reasoning": "Kiss–Somlai supplies all nontrivial high-balance classes, after which only three low-balance counts remain. General uncertainty inequalities are not the source of the decisive implication.",
+        "searches": [
+          "Kiss–Somlai Theorems 1.1 and 4.1; §2 and Proposition 3.1",
+          "Meshulam arXiv:math/0312407 Theorem 1.2; Biró–Lev arXiv:1808.07424 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Kiss–Somlai, doi:10.1007/s10623-024-01404-y, §§2–4 and §6 opening",
+        "arXiv:math/0312407, arXiv:1808.07424",
+        "Published catalog and record 714c880a0830",
+        "Explicit orbit and incidence-moment implication above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank-five and rank-thirteen populations come from the line unions and the affine triangle orbit; rank nine is absent.",
+          "The two moments and the sum over masks form a triangular system for the remaining k=2,1,0 populations. They also recover the purported key N_3 values 15 and 130 via the third moment."
+        ],
+        "reasoning": "Compared complete multiplicities, not just attainable ranks. Once prior structure is translated, the residual populations are forced by routine one- and two-pencil counts. No independently distinct exact claim survives inside the asserted census.",
+        "searches": [
+          "Kiss–Somlai §2 p.2589 and §4 pp.2591–2592, then rank conversion, triangle stabilizer and the first two incidence moments",
+          "Frozen RESULT.md, N_1 and N_2 counts and binomial moment identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For proper supports of weight divisible by five, a set with s special directions has convolution rank 1+4s.",
+          "Ranks 5,9,13 correspond to one, two and three special directions, respectively."
+        ],
+        "reasoning": "The finite-plane classification concerns precisely the support objects controlling the low-rank classes here, not only an analogous geometric notion.",
+        "searches": [
+          "Published catalog: F5² label-count mask rank, balanced affine pencils, special directions",
+          "Kiss–Somlai, Special directions on the finite affine plane, §§2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact direct hit is the audited record itself. The 714c880a0830 table counts ranks of four-row/four-column restrictions of the finite Fourier matrix, not convolutions.",
+          "Other related catalog hits concern rational equality cases with support eight or coefficients on a single parallelogram."
+        ],
+        "reasoning": "No distinct exact all-mask table was located in the inspected passages. The FAIL comes from a verified mathematical implication, not inference from a search miss or an assertion that a verbatim table was previously printed.",
+        "searches": [
+          "Exact joint rank/support-size table in the published catalog; records 714c880a0830, c5a964b89922 and 89ccb6512fb4"
+        ]
+      },
+      "rationale": "The complete table, not just its missing rank nine, follows mechanically from the published special-direction classification plus two elementary moments. Let F_k be the number of weight-w masks with k balanced pencils. The relation rank=25−4k identifies Kiss–Somlai special directions with the 6−k unbalanced pencils. Their §2 gives F_4=0 and F_5=6 binom(5,w/5). For a proper nonempty mask F_6=0 by Fourier inversion. Their Theorem 4.1 gives F_3=0 at weight five and one affine orbit at weight ten, with representative S={(a,b): b<a}. In affine coordinates u=b, v=4−a, t=a−b−1, this triangle is the triples of nonnegative representatives summing to 3, on u+v+t=3 over F5. The three coordinate pencils are exactly its special directions, with distinct fiber counts 4,3,2,1,0. Any stabilizer permutes these pencils; one fixing each must fix every line in each and hence is the identity. All six coordinate permutations are affine and preserve S, so the orbit size is 12000/6=2000. The known exceptional classes therefore determine all other entries: F_2=15N_2−3F_3−10F_5, F_1=6N_1−2F_2−3F_3−5F_5, F_0=binom(25,w)−F_1−F_2−F_3−F_5. Here N_1=binom(5,w/5)^5; N_2 is 5!=120 for w=5, and 5!4!/2+binom(5,2)^2·6=2040 for w=10 by the two cycle decompositions of a 2-regular bipartite graph. This yields every displayed entry, including the large rank-17, rank-21 and full-rank populations, without the submitted three-pencil enumeration. It also gives the two triple intersection counts from 20N_3=F_3+10F_5. Complementation and the basic cyclotomic criterion finish all weights. The exact table need not have appeared verbatim to be covered at this standard.",
+      "residual_risks": [
+        "An earlier verbatim exact table was not established; the existing structural coverage is decisive without one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by mechanical implication",
+          "evidence": "Line-union structure credited to Fallon et al.; the affine-orbit theorem gives S={(a,b):b<a} or its complement. The moments complete the table without classification of the remaining orbits.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-024-01404-y",
+          "material_read": "§2 p.2589, offsets 6320–7357; Proposition 3.1 and corollaries, offsets 12250–13667; §4, pp.2591–2592, offsets 13300–15426 and 15620–17449; §6 opening, offsets 21600–22799",
+          "method": "Primary published OA PDF, bounded passages; independent implication calculation",
+          "title": "Special directions on the finite affine plane",
+          "trigger": "Exact prior structure of masks with few unbalanced pencils"
+        },
+        {
+          "assessment": "Lower bound, not the decisive census coverage",
+          "evidence": "An inequality on support sizes for finite abelian groups, not multiplicities of labelled masks.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312407",
+          "material_read": "Theorem 1.2, p.2, near offset 3600",
+          "method": "Primary PDF passage",
+          "title": "An Uncertainty Inequality for Finite Abelian Groups",
+          "trigger": "Potential general Fourier support result implying the rank distribution"
+        },
+        {
+          "assessment": "Uncertainty bound, not the decisive census coverage",
+          "evidence": "Support inequality with a subgroup-coset-constant exception.",
+          "identifier_or_url": "https://arxiv.org/html/1808.07424",
+          "material_read": "Theorem 1, near HTML offset 10300",
+          "method": "Primary OA full-text passage",
+          "title": "Uncertainty in finite planes",
+          "trigger": "Potential stronger finite-plane bound with rational-valued masks"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Ranks of 4-by-4 submatrices of the 25-point Fourier matrix; 160,022,500 row/column-set pairs, not diagonal Fourier multipliers of binary convolutions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-rank-incidence-of-fourth-order-fourier-minors-on-mathbb--714c880a0830",
+          "material_read": "RESULT.md Finding, full statement of counted row/column pairs",
+          "method": "Local published-record mirror",
+          "title": "Complete rank incidence of fourth-order Fourier minors on the affine plane",
+          "trigger": "Similar parameter and exact rank-incidence table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md complete table and moment identity",
+        "Kiss–Somlai §§2 and 4",
+        "Orbit-stabilizer and elementary moment derivation in originality assessment"
+      ],
+      "rationale": "The rank-by-weight statistic is natural, and the manuscript is a useful exact reproduction. But under the value standard for a narrow invariant, it must supply a distinct fact beyond a routine consequence of existing work. Here the rare cells are forced by known structural theorems and the remainder by elementary one-/two-pencil counts. The triple-pencil enumeration merely recovers an already forced finite specialization. No separate valuable new claim is asserted that can be retained by narrowing.",
+      "residual_risks": [
+        "The review does not dismiss exact finite affine-plane ledgers generally; the failure is specific to this invariant and the demonstrated complete coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

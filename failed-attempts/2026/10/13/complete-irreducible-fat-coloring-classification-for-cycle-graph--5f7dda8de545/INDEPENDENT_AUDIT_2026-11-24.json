@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:31:32.104739Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, degree-two classification and refinement proof",
+        "VERIFICATION.md and artifacts/verify.py, inspected but not executed",
+        "Beers–Mulas arXiv:2510.18494v1 and v2, Example 5.12"
+      ],
+      "rationale": "On the connected 2-regular cycle, a nontrivial FAT partition has 2*alpha in {1,2} and beta+(k-1)*alpha=1. The alpha=1 case alternates, and with alpha=1/2 the only possibilities are two equally counted neighbor colors or the proper three colors. In the former case the same-color edges alternate with the different-color edges; closing the cycle also requires an even number of color changes, hence 4 divides n. The two choices of initial edge status give distinct indexed partitions even after forgetting palette names. The proper three-color rule forces period three and one unlabeled partition. Where periods two and three coexist, a class modulo three crosses parity. Where periods four and three coexist, a class modulo three crosses each paired bipartition (0 and 3 for 0011; 1 and 4 for 0110). Thus no nontrivial partition is strictly refined by another FAT partition. The trivial partition is maximal only when alone. This gives the count for all n>=3 and contradicts the explicit published count on C_4 already.",
+      "residual_risks": [
+        "The recorded finite replay is corroborative and was not rerun. Rotations and reflections are not identified, only palette names are forgotten."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 gives four families for arbitrary palette size on the path, including the fully distinct, reflected and repeated-end patterns.",
+          "Beers–Mulas determine the maximum FAT palette size on cycles, not the list by refinement. Shaebani explicitly considers and excludes the equal-neighbor binary case at n=6 only.",
+          "The Resultary hypercube result classifies feasibility, not individual colorings, and the degree-two prescribed-coloring result addresses proper class sizes rather than equitable neighborhood constraints."
+        ],
+        "reasoning": "The path-cover specialization of a complete perfect-coloring theorem is decisive. Neither the maximum-palette classification nor a result just for C6, just for proper colorings or for another graph family would suffice.",
+        "searches": [
+          "arXiv:1903.09444v2, infinite-path Proposition 3",
+          "arXiv:2510.18494v2, Example 2.17 and Theorem 2.18",
+          "arXiv:2606.22374v1, C6 analysis",
+          "Resultary d300acdcd715 and 9aaf81e2ad5d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.09444v2, Proposition 3",
+        "arXiv:2510.18494v1 and v2",
+        "arXiv:2606.22374v1",
+        "Resultary 6fa05fffdf4b, d300acdcd715, 9aaf81e2ad5d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary [212] has unequal diagonal and off-diagonal counts between the two colors and is not FAT; [12] and [2112] are FAT and descend for 2|n and 4|n, respectively. The former gives one indexed partition and the latter two phases modulo palette exchange.",
+          "With three classes FAT requires one neighbor in each other class, so only the fully distinct three-period survives. Higher palettes are ruled out by degree. A period-three class cannot refine a nonconstant palette of fundamental period two or four, since any coarsening encoded by period-three colors is itself 3-periodic."
+        ],
+        "reasoning": "Filter the known list by the FAT quotient constraint and the divisor condition, discard the one-color partition when refined, and count the remaining fixed-index phases. These direct implications recover the full claim, including its irreducible count.",
+        "searches": [
+          "arXiv:1903.09444v2, p. 5 Proposition 3 and adjoining k=2 statement",
+          "arXiv:2510.18494v2, Definitions 5.2 and 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parshina–Lisitsyna arXiv:1903.09444v2, Proposition 3, lists all perfect-coloring periods on the infinite path; for two colors it explicitly lists [12], [212], [2112].",
+          "Resultary 6fa05fffdf4b treats proper fall colorings of squared cycles, not the ordinary cycles in this claim."
+        ],
+        "reasoning": "A FAT coloring is a perfect/equitable coloring whose quotient matrix has common diagonal and common off-diagonal entries. Lifting along the path-to-cycle graph cover preserves these neighbor counts, and a coloring descends iff it is n-periodic. This identifies the frozen problem as a specified subfamily of the classified periodic colorings.",
+        "searches": [
+          "perfect colorings cycle graphs complete classification equitable partitions cycle C_n perfect 2 colorings 0011 Parshina infinite path quotient matrix",
+          "Resultary local search: cycle FAT irreducibles, equitable/perfect colorings and cycle color classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed FAT count was verified in the matched Resultary hits; the closest cycle hit uses squared cycles and fall colorings.",
+          "Example 5.12 says two irreducibles if 6 divides n and exactly one otherwise, which the binary period [2112] refutes whenever 4 divides n.",
+          "The earlier perfect-coloring period catalogue contains the patterns from which the exact count follows, without tabulating FAT irreducibles."
+        ],
+        "reasoning": "The exact published FAT count is an error rather than evidence of established correctness, but the stronger earlier period catalogue provides coverage independently of any table of counts.",
+        "searches": [
+          "Resultary local mirror: 6fa05fffdf4b, d300acdcd715, 9aaf81e2ad5d",
+          "Beers–Mulas Example 5.12, both v1 and v2",
+          "Parshina–Lisitsyna Proposition 3, list of binary periods"
+        ]
+      },
+      "rationale": "The correction of Beers–Mulas Example 5.12 is valid, but the mathematical classification is a direct restriction and finite-cycle descent of the earlier complete perfect-coloring theorem for the infinite path (Parshina–Lisitsyna, Proposition 3). That paper explicitly lists 2112 among the perfect binary periods. Selecting the constant diagonal/off-diagonal quotient parameters, counting allowable shifts and comparing the listed periods under refinement mechanically gives the asserted count. The later incorrect count does not erase that earlier mathematical coverage; this review does not assert that the earlier paper uses FAT terminology or already prints the correction as such.",
+      "residual_risks": [
+        "A related conference document was not retrievable. The consulted earlier paper states the complete path result and attributes its proof to its reference [13]; the earlier cited proof was not separately inspected. Absolute priority and the first explicit published FAT correction are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger perfect-coloring classification implying the frozen mathematical result under the FAT quotient restriction and finite-cycle descent",
+          "evidence": "Proposition 3 exhausts perfect k-colorings of the infinite path by four period types and explicitly gives binary periods [12], [212], [2112].",
+          "identifier_or_url": "https://arxiv.org/abs/1903.09444v2",
+          "material_read": "Period and finite-circulant setup p. 4; Proposition 3 and discussion p. 5, beginning around text offset 14550",
+          "method": "Direct lawful paper text, literal locators and the complete bounded proposition passage",
+          "title": "The perfect 2-colorings of infinite circulant graphs with a continuous set of odd distances",
+          "trigger": "Could cover cycle FAT patterns under equitable/perfect coloring of the covering path"
+        },
+        {
+          "assessment": "Verified miscount and verified maximal-refinement convention; the correct maximum-palette result is unaffected",
+          "evidence": "Example 5.12 explicitly asserts exactly one otherwise after the 6-divisible case, omitting the two nonproper binary partitions for 4-divisible orders.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.18494",
+          "material_read": "Example 5.12 p. 18 in v1 and v2; v2 Example 2.17 p. 7 and Definitions 5.2 and 5.5 and Theorem 5.1 p. 16",
+          "method": "Read bounded primary results in the two versions",
+          "title": "Fair and Tolerant (FAT) Graph Colorings",
+          "trigger": "Exact statement purportedly corrected and definitions of refinement"
+        },
+        {
+          "assessment": "Consistent special case, not the operative all-order overlap",
+          "evidence": "A 3-vertex class cannot have every vertex incident to its own-color matching; hence no equal-count binary coloring on C6.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22374v1",
+          "material_read": "C6 argument p. 4, near text offset 14300",
+          "method": "Read the bounded primary passage",
+          "title": "On The Number of Irreducible FAT Colorings",
+          "trigger": "Apparent same irreducible analysis for a cycle"
+        },
+        {
+          "assessment": "Different graph and coloring condition, not equivalent coverage",
+          "evidence": "The exact enumerator concerns proper fall colorings of C_n squared for n>=7.",
+          "identifier_or_url": "2026/10/13/SCOPE-fall-coloring-spectrum-and-complete-color-class-enumerator-of-sq--6fa05fffdf4b",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary finding comparison",
+          "title": "Fall coloring spectrum and complete color-class enumerator of squared cycles",
+          "trigger": "Strongest same-day cycle classification hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, C_4 witness and refinement argument",
+        "Beers–Mulas arXiv:2510.18494v1/v2, Example 5.12"
+      ],
+      "rationale": "The two additional maximal partitions give a concrete counterexample at C_4 and a sharp boundary for the failure of a published statement about all cycles. The correction matters because maximum palette size does not determine maximality under refinement. The value is in the explicit witness and its interpretation, not novelty of the period classification or merely recomputing a known exact invariant.",
+      "residual_risks": [
+        "The correction has no claimed effect on the already correct FAT chromatic numbers or on other graph classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

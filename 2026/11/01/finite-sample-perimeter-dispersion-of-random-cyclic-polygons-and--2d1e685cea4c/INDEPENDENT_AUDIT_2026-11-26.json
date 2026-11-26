@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:20:13.812857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both the frozen formula and the retained result are correct. After conditioning on, and rotating by, the angle of a labelled sample, independent uniform residual points become ordered uniform arguments and their differences have constant simplex density (n-1)!. The chord is 2 sin(pi x), even for a gap over a semicircle. The diagonal comes from the Beta(1,n-1) marginal and sin^2=(1-cos(2·))/2. At fixed two-gap sum z, integrating sin(pi x) sin(pi(z-x)) over x from 0 to z gives [sin(pi z)/pi-z cos(pi z)]/2; the two-gap density supplies (n-1)(n-2)(1-z)^(n-3). Replacing z(1-z)^(n-3) by the difference of successive powers gives exactly (s_n-r_n)/2. Counting ordered terms gives the asserted variance. The J expression follows from the integral exponential Taylor remainder with factor (ia)^(k+1)/k!. An independent symbolic replay, python3 /workspace/review_work/reproduce_4.py, verified the two small exact cases by direct simplex integration and the expansions of the power-sum covariances. The original higher-order variance is also correct: the cubic variance has coefficients (360,-6048,60552) at orders 5–7, the cubic–quintic covariance leads at 28800 n^-7, the quintic variance is O(n^-9), and the seventh-power remainder is O in L2 of n^-6, giving covariance with the centered cubic term O(n^-17/2). The revised files retain these coefficients only as a credited consequence, not as a separate finding. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper's introductions and appendix describe same-law central limits and third-/fifth-power spacing methods.",
+          "c0156d4b4464 step 2 gives Cov(S_k,S_l) for all integral k,l, with S_j=(2pi)^j T_j. This supplies the polynomial moments exactly."
+        ],
+        "reasoning": "Having all polynomial moments determines the nonpolynomial moment by an infinite series, but a generic series or a limit theorem is not the finite elementary evaluation. The latter uses the specific sine product integrated at fixed gap sum. Full texts of the two earlier Elsevier articles were unavailable, so this comparison does not treat those papers as evidence of noncoverage.",
+        "searches": [
+          "Wang–Li–Xu DOI:10.33993/jnaat522-1360 Dirichlet settings and exact/limit results",
+          "Bélisle DOI:10.1016/j.spl.2010.11.012 and Wang–Xu DOI:10.1016/j.spl.2018.05.007 same-law and broader Dirichlet settings",
+          "Resultary c0156d4b4464 all mixed spacing power covariances"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_random_cyclic_perimeter.py",
+        "Revised RESULT.md and accompanying corrected scientific files",
+        "Resultary 1c13b772d78d, c0156d4b4464, ad2f29c7484f",
+        "Wang–Li–Xu 2023 open PDF",
+        "Finch arXiv:1007.0261",
+        "Bélisle 2011 and Wang–Xu 2018 access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier steps 1 and 2 give P_n=2pi-S_3/24+S_5/1920+R_P with E[S_7^2]=O(n^-12), and exact Cov(S_k,S_l). Rescaling S_j=(2pi)^j T_j, then expanding the cases (3,3) and (3,5), gives the frozen n^-6 and n^-7 coefficients.",
+          "The conditional mixed sine product needed for the revised finite formula has a one-dimensional integral with factor sin(pi z)/pi-z cos(pi z); none of the compared statements evaluates it for all n."
+        ],
+        "reasoning": "The former is an immediate combination and expansion of prior exact expressions, so it is explicitly credited, not defended as novel just because the final coefficients were not printed. The finite resummation is a distinct exact evaluation; an exact fixed-four specialization cannot imply its parameter range.",
+        "searches": [
+          "Resultary c0156d4b4464 RESULT.md offsets 2300–4899 and 4800–end, Taylor expansion, exact covariances and leading variance",
+          "Wang–Li–Xu (2023) pp. 274–275 and 292–293"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is exactly the full sum of Euclidean chords in the uniform-spacing special case; multiplying semiperimeter by two multiplies its variance by four.",
+          "Finch arXiv:1007.0261 PDF p. 1 addresses points uniform inside a disk, not on the circumference. Its triangle perimeter variance is not a competing formula for this sample law."
+        ],
+        "reasoning": "Same-boundary semiperimeter results are equivalent after scaling; disk-interior points are not. The accessible same-law full text provided asymptotics and a monomial moment framework, not an evaluated nonpolynomial second moment for arbitrary finite n.",
+        "searches": [
+          "Resultary semantic lookup for iid uniform cyclic polygon perimeter and Dirichlet spacing second moments",
+          "Wang–Li–Xu 2023 uniform semiperimeter and Dirichlet spacing formulation",
+          "Finch arXiv:1007.0261, perimeter variance model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1c13b772d78d Finding gives exactly 8-444/pi^2+4608/pi^4-9216/pi^6. Its proof at offsets 2090–4202 has one-/two-gap marginal densities fixed at n=4 and evaluates the corresponding finite-four table.",
+          "c0156d4b4464 gives the leading variance and exact power-sum covariances rather than the finite chord-product evaluation. ad2f29c7484f treats an area–semiperimeter blend, not this exact law."
+        ],
+        "reasoning": "The overlap at n=4 is actual exact coverage and is now credited as a check. The entries do not give the finite J/r/s expression for general n.",
+        "searches": [
+          "Local Resultary exact perimeter–area second moments for cyclic polygons; compared records 1c13b772d78d, c0156d4b4464, ad2f29c7484f"
+        ]
+      },
+      "rationale": "PASS applies to the repaired finite-n formula only. The frozen originality claim cannot be accepted in full: the indexed earlier n=4 result is exact, and a distinct earlier record gives the actual perimeter Taylor polynomial, the exact mixed covariance for every two spacing powers, and the needed L2 bound. Inserting the cubic and quintic indices and expanding the earlier rising-factorial expressions directly gives both correction terms, even though they were not printed as two coefficients. The repair explicitly credits this coverage and removes the asymptotics and special cases from the contribution. The retained all-n evaluated nonpolynomial variance is not supplied by the compared finite-four formulas or the earlier truncated expansion.",
+      "residual_risks": [
+        "Earlier 2011 and 2018 full texts were not recovered. This decision is best-of-knowledge for the narrowed all-n finite expression and does not certify historical priority.",
+        "The focused web query did not yield a targeted exact-moment source; this is not evidence of no prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-four coverage, not arbitrary sample size",
+          "evidence": "Gives the same variance; densities and mixed moment table are explicitly for four gaps, not a theorem for unrestricted n.",
+          "identifier_or_url": "Resultary 2026/10/12/…1c13b772d78d/RESULT.md, mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding at offset 0 and proof offsets 2090–4202",
+          "method": "Local mirror and normalization comparison",
+          "title": "Exact perimeter–area second moments of a random cyclic quadrilateral",
+          "trigger": "Potential exact finite-perimeter overlap"
+        },
+        {
+          "assessment": "Implies the frozen corrections; no finite sine-moment evaluation in the relevant proof",
+          "evidence": "Same Taylor polynomial, arbitrary mixed monomial covariance, and the remainder bound are already present.",
+          "identifier_or_url": "Resultary 2026/10/25/…c0156d4b4464/RESULT.md, mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding, earlier Taylor and covariance proof steps, offsets 2300–4899; leading variance at 4800 onward",
+          "method": "Local mirror and direct term-by-term implication check",
+          "title": "Sharp area–perimeter regression and fourth-order decorrelation for random cyclic polygons",
+          "trigger": "Potential stronger same-model variance expansion"
+        },
+        {
+          "assessment": "Different blend, not a competing exact perimeter formula",
+          "evidence": "Targets the variance-optimal area–semiperimeter blend and uses Dirichlet polynomial moments.",
+          "identifier_or_url": "Resultary 2026/11/2/…ad2f29c7484f/RESULT.md",
+          "material_read": "Finding and method at offsets 0 and 4800",
+          "method": "Local mirror",
+          "title": "Second-order variance-optimal blending of random cyclic polygon area and semiperimeter",
+          "trigger": "Potential related higher-order variance result"
+        },
+        {
+          "assessment": "Same-law asymptotic results and mixed power methods, no finite evaluation in relevant inspected passages",
+          "evidence": "States prior semiperimeter central limits; appendix treats third- and fifth-power spacing methods.",
+          "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/download/1360/1449",
+          "material_read": "pp. 274–275 (offsets about 2500–7463) and pp. 292–293 (about 70000–74778)",
+          "method": "Primary open PDF passages",
+          "title": "Nonlinear Random Extrapolation Estimates of pi under Dirichlet Distributions",
+          "trigger": "Same polygon model in a broader Dirichlet framework"
+        },
+        {
+          "assessment": "Different sampling distribution",
+          "evidence": "Three independent uniform points in the disk, rather than uniform by arclength on its boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1007.0261",
+          "material_read": "Abstract and model statement on PDF p. 1",
+          "method": "Primary PDF scope passage",
+          "title": "Perimeter Variance of Uniform Random Triangles",
+          "trigger": "Near-exact title for the triangle case"
+        },
+        {
+          "assessment": "Unresolved historical risk",
+          "evidence": "The cited limit-law result supplies no evidence about whether an earlier exact finite formula appears in the full text.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2010.11.012",
+          "material_read": "No primary full text; cited in the accessible 2023 PDF",
+          "method": "Open retrieval attempted; no repository copy resolved",
+          "title": "On the polygon generated by n random points on a circle",
+          "trigger": "Early same-law perimeter results"
+        },
+        {
+          "assessment": "Unresolved historical risk",
+          "evidence": "Broader model by itself does not establish a finite second-moment evaluation.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2018.05.007",
+          "material_read": "No primary full text; cited in the accessible 2023 PDF",
+          "method": "Open retrieval attempted; no repository copy resolved",
+          "title": "Random cyclic polygons from Dirichlet distributions and approximations of pi",
+          "trigger": "Earlier broader same-law Dirichlet setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving finite formula gives the exact sampling uncertainty of the standard chord-sum estimator of circle length, at sample sizes where a leading asymptotic is only approximate. It captures dependence between different chords and replaces a simplex double integral or a power-series resummation by a number of elementary finite sums independent of the number of gap pairs. The value is the arbitrary-n variance evaluation, not the covered asymptotic correction or rederiving one already known small case. No numerical conditioning guarantee is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

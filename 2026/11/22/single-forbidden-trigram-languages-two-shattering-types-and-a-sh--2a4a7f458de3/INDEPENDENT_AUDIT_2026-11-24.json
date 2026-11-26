@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:08:28.309101Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97 and VERIFICATION.md; both supplied checkers and both logs inspected, not executed",
+        "Independent replay: python3 /workspace/replay/trigrams.py"
+      ],
+      "rationale": "A queried consecutive triple can be labelled with the forbidden factor. For 000 any other queried support extends by filling unqueried positions with ones. For 010, consider gaps between successive prescribed zeros. Fill unused positions with ones except for a single unused slot between neighboring prescribed zeros at distance two, which is filled with zero. A one-slot gap already prescribed to be one would give a queried consecutive triple. Thus every positive run of ones between zeros has length at least two and no 010 occurs. Complement gives the other Class A factors. For 100, the label 1 at a queried i preceding a queried zero pair at j,j+1 forces 100, by taking the last one before j. Conversely after the first prescribed one fill unused positions with one, and before it fill unused positions with zero. A forbidden occurrence would require two adjacent prescribed zeros after that first one. Reversal and complement provide all four Class B factors. Class A support masks avoid runs of three ones, giving the stated recurrence and the extremizer (110) repeated and truncated. For Class B, after fixing the least selected coordinate the later coordinates form an independent set on a path. Summing size-k counts over the least coordinate gives binom(n−k+2,k) for k≥2 and the stated dimension, with n=0 separate. Word counts equal support counts for 000/111 by complement of a support mask, and for Class B by counting the suffix after the first one versus independent later positions in a support. Independently, the longest-prefix-suffix three-state automaton for 010, with transitions 0->states (1,0), 1->(1,2), and 2->(forbidden,0) under the two input bits, gives (1+t²)/(1−2t+t²−t³). Subtracting from the Class A face series at z=1 yields the claimed defect. Each reciprocal denominator has positive coefficients at every degree (for the second use the geometric expansion in t³/(1−t)²), so strictness starts exactly at n=4. An independently written automaton enumerates extendibility of all partial assignments at n=0..9, verifies all support predicates and coefficients and reproduces defect values 0,0,0,0,1,3,7,16,35,74. This is a check, not the basis of the all-length proof.",
+      "residual_risks": [
+        "The C++ artifact checks each Class A support predicate but only explicitly checks polynomial coefficients against a separate formula for Class B (the Python artifact checks coefficients for both). Neither artifact proves extrapolation to infinite length; the proof supplies it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General binary-code shattering uses full coordinate projections and Sauer–Shelah; the inspected passages do not classify trigrams.",
+          "Autocorrelation gives ordinary single-factor word counts and the SFT work studies count and dynamical invariants, not the required assignment-extension predicates.",
+          "The no-monochromatic-triple and five-state shattering findings concern simultaneous exclusion of 000/111 and 000/101 respectively, both stricter than single-factor avoidance."
+        ],
+        "reasoning": "Shattering is monotone under enlarging the language, but a characterization for a smaller two-factor language does not determine which additional supports become shattered in the single-factor language. General count theory alone does not determine projection traces.",
+        "searches": [
+          "Hu–Weinberger–Shayevitz arXiv:1703.01586v2",
+          "Chandgotia et al. arXiv:2409.09024v1",
+          "Resultary a86c7bc37664 and b629e0b9b609"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a4a7f458de3, de3d7262f980, 8fc07c00f15e, a86c7bc37664, b629e0b9b609",
+        "arXiv:2409.09024, 1703.01586, 2101.06490; ISAIM 2020 paper; cited DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Class B support result counts its faces by least coordinate (after reversal), giving 1+sum F_{m+2}=F_{n+3}−1, so equality follows from that same-day claim and the earlier known word count.",
+          "For the constant factors the complementary support family is downward closed, so its shattered family is itself and equality follows immediately.",
+          "For 010/101, ordinary avoidance counts give the word side but not the face side of the defect. Once the alternating support predicate is proved, the defect series is a consequence of known-type avoidance enumeration, not a novel word-count formula."
+        ],
+        "reasoning": "The supported nontrivial step is the all-assignments completion theorem for the alternating factors, which enables the precise comparison with the constant-factor shattering complexes. No retrieved broader theory supplies that step.",
+        "searches": [
+          "de3d7262f980, Finding and limitations",
+          "8fc07c00f15e, unsigned count proof",
+          "Guibas–Odlyzko DOI 10.1016/0097-3165(81)90005-4 and arXiv:2409.09024v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de3d7262f980 gives the exact same terminal-pair predicate for 001, an equivalent polynomial using path-independent-set sums and the same VC dimension, and expressly includes reversal/complement images in its scope. Thus the overlap extends to all four Class B factors.",
+          "Johnson studies the translate/substring family of a single string; Kjos-Hanssen et al. use fixed-length strings as the items, with subsets realized by choosing automata. Neither is the fixed-language coordinate concept class.",
+          "The exact eight-factor Resultary hit 2a4a7f458de3 is the target itself."
+        ],
+        "reasoning": "Coordinate reversal and bit complementation are bijections that transfer all Class B support statements; alternate theories with strings rather than coordinates as the shattered items are not equivalent.",
+        "searches": [
+          "Resultary: all-length coordinate shattering, single forbidden binary trigram",
+          "Resultary de3d7262f980, exact 001 support theorem and limitations",
+          "Johnson arXiv:2101.06490 and Kjos-Hanssen et al. ISAIM 2020 definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "de3d7262f980 gives an all-length exact face polynomial and dimension for 001, equivalent after re-enumeration to B_n(z); for example both give 1+8z+28z²+35z³+15z⁴+z⁵ at n=8.",
+          "8fc07c00f15e gives |L_n(001)|=F_{n+3}−1 for all n in its proof. General single-factor avoidance enumeration is known.",
+          "No distinct exact alternating-factor support table or combined defect classification was identified in the retrieved comparisons."
+        ],
+        "reasoning": "Exact word counts and, for Class B, an exact overlapping support enumerator are covered. No inspected exact evidence determines the alternating-factor projection traces independently of the new extension argument.",
+        "searches": [
+          "Resultary: exact face polynomials and VC dimensions for single binary trigrams",
+          "Resultary de3d7262f980 and 8fc07c00f15e",
+          "arXiv:2409.09024v1 count scope"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the complete comparison of the eight factors, especially the nontrivial alternating-factor support characterization and the resulting same-support/different-extremality theorem. Class B's predicates, polynomials and VC dimensions are covered by the distinct same-day 001 result and reversal/complement, and its extremality is implied using the already-known word count. Do not give separate originality credit to those claims, ordinary avoidance counts or the immediate downward-closed constant-pattern cases. No shared-date order or unrestricted priority is inferred.",
+      "residual_risks": [
+        "Same-day priority for Class B remains unresolved; its statement-level coverage is clear.",
+        "The general extremality and classical overlap full texts were not available in the attempted retrievals; the literature comparison remains bounded and does not exclude unindexed equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent whole Class B support classification via the stated symmetries; not the alternating/constant comparison",
+          "evidence": [
+            "No selected i,i+1,j with j>i+1; path plus terminal-pair polynomial, floor(n/2)+1 dimension, and explicit complement/reversal scope."
+          ],
+          "identifier_or_url": "Resultary de3d7262f980",
+          "material_read": "RESULT.md Finding, exact face polynomial proof and scope at offsets 114–5349; prior work and limitations from 5349",
+          "method": "Local mirror",
+          "title": "Terminal-double shattering for binary words avoiding 001",
+          "trigger": "Distinct same-day exact overlap on an oriented-triple support classification"
+        },
+        {
+          "assessment": "Earlier exact avoidance count; focuses on Walsh multipliers rather than support shattering",
+          "evidence": [
+            "The unsigned automaton count in Proof is F_{n+3}−1 for all n≥0."
+          ],
+          "identifier_or_url": "Resultary 8fc07c00f15e",
+          "material_read": "Finding and Proof, offsets 0–3966",
+          "method": "Local mirror",
+          "title": "A three-phase sharp Walsh stability law for binary words avoiding 001",
+          "trigger": "Same concept family and exact ordinary word count"
+        },
+        {
+          "assessment": "Different concept classes, each excluding two trigrams",
+          "evidence": [
+            "The first simultaneously forbids 000 and 111, the second 000 and 101; neither is the single-factor problem."
+          ],
+          "identifier_or_url": "Resultary a86c7bc37664 and b629e0b9b609",
+          "material_read": "Findings at local offsets about 223 and 0 respectively",
+          "method": "Local mirror",
+          "title": "Two-factor shattering complexes: no monochromatic triple and a five-state shattering automaton",
+          "trigger": "Possible stronger shattering results involving the alternating or constant factors"
+        },
+        {
+          "assessment": "Word-count/autocorrelation framework and dynamical invariants; not evidence of shattering coverage",
+          "evidence": [
+            "Attributes the avoidance-count dependence on autocorrelation to Guibas–Odlyzko; concerns shifts of finite type."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.09024",
+          "material_read": "v1 p. 1, abstract and stated scope",
+          "method": "Primary OA PDF text",
+          "title": "Shifts of Finite Type Obtained by Forbidding a Single Pattern",
+          "trigger": "Exact single-pattern theory and prior count implications"
+        },
+        {
+          "assessment": "Same shattering definition, not the inspected source of the eight predicates",
+          "evidence": [
+            "Full coordinate projection is the shattering condition, and the general inequality is used for binary codes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.01586",
+          "material_read": "v2 pp. 1–2, coordinate projection and Sauer–Shelah, offsets about 1950 and 4260",
+          "method": "Primary OA PDF text",
+          "title": "On the VC-Dimension of Binary Codes",
+          "trigger": "Broader coordinate-shattering framework"
+        },
+        {
+          "assessment": "Different ground sets or concept families",
+          "evidence": [
+            "NFAs can label sets of whole strings; Johnson considers P(x+y) for a single string's unary predicate."
+          ],
+          "identifier_or_url": "Kjos-Hanssen et al., ISAIM 2020; https://arxiv.org/abs/2101.06490",
+          "material_read": "ISAIM p. 1 at offset about 2600; Johnson abstract, OA offset 0",
+          "method": "Primary OA PDF text",
+          "title": "VC-dimensions of nondeterministic finite automata for words of equal length; Binary strings of finite VC dimension",
+          "trigger": "Possible alternate VC formulation for finite words and substring families"
+        },
+        {
+          "assessment": "Access limitation, not whole-paper noncoverage; ordinary avoidance counts already credited",
+          "evidence": [
+            "arXiv:2409.09024v1 explicitly reports the Guibas–Odlyzko count result."
+          ],
+          "identifier_or_url": "DOI 10.1155/2013/126214; DOI 10.1016/0097-3165(81)90005-4",
+          "material_read": "Mészáros–Rónyai full text not obtained; Guibas–Odlyzko landing page/abstract only",
+          "method": "Bounded OA lookup, first access denied, second exposed no full text; later primary SFT source consulted for attribution",
+          "title": "Shattering-Extremal Set Systems of Small VC-Dimension; String overlaps, pattern matching, and nontransitive games",
+          "trigger": "Cited general extremality theory and single-word avoidance enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§A–C",
+        "Binary-code shattering framework and distinct Class B comparison de3d7262f980"
+      ],
+      "rationale": "The classification addresses a natural interaction between finite-word avoidance and coordinate VC shattering. It gives every admissible query support, not just global size or VC dimension, and shows that two factor-avoidance languages with identical full shattered-support complexes can behave differently in the equality case of Sauer–Shelah at every length from four onward. That structural comparison is useful independently of the already-known avoidance counts or Class B census.",
+      "residual_risks": [
+        "The result is for linear binary words with one forbidden contiguous trigram, not simultaneous avoidance, online VC variants or longer factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

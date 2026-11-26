@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The order-two solutions modulo powers of two and the classical unit-group decomposition establish that any noncyclic subgroup at modulus \(2^a\), \(a\ge4\), must contain a composite involution. All order-four roots are determined explicitly. If their common involution is prime, the exponent restriction \(a=2^t+1\) yields the mod-three and mod-five obstructions eliminating one entire order-four family and any order-eight subgroup. The remaining conditions are both necessary and sufficient. The standalone subgroup generator exhaustively confirms every qualifying subgroup at 15 moduli (33 groups in total). Finite verification is not taken as an all-exponents proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For odd x the valuations of x−1 and x+1 have one equal to 1 (with an infinite valuation allowed at zero). This gives exactly x=±1 mod 2^(a−1) for involutions, and exactly x=±1+2^(a−2) mod 2^(a−1) for x^2=1+2^(a−1) mod 2^a. The full involution subgroup has four elements; for a>=4 one of the two representatives 2^(a−1)±1 is divisible by 3 and larger than 3. A noncyclic abelian 2-subgroup would contain the full involution subgroup, so is impossible. The other two involutions are not squares modulo 4, hence the four displayed square roots of 1+2^(a−1) exhaust order four and split into the two stated cyclic groups. The plus group is excluded: a even makes its involution composite, while a odd makes 2^(a−2)+1 composite. The surviving group has both order-four representatives congruent to −1 mod 8 when a>=5, so it cannot be inside an order-eight subgroup, whose order-four generators are odd squares. At a=4 ambient exponent is 4. This leaves exactly the claimed order-two primality tests and one conditional order-four group, with disjoint contributions to the count; direct inspection gives the a=1,2,3 lists and trial division confirms the two displayed examples. RESULT.md line 51 has the factor phrasing reversed: if a−1 has an odd factor u>1, 2^((a−1)/u)+1 is a proper divisor of 2^(a−1)+1, not the other way around. Line 55 should say order one, not order zero. These do not affect the finding or the independent proof. The deposited finite generator was inspected, not executed; its bounded corroboration is not necessary to the all-exponents argument.
 
-The closest source, Li's arXiv:2611.01793v1, defines the same objects and supplies an interval restriction, a complete-group classification, a compact-group upper bound, and a prime-modulus order-three analysis. Its modulus-eight example is already covered and not claimed new. The present theorem is an infinite-modulus **all-subgroups** classification with a sharp order cutoff and explicit simultaneous primality criterion, rather than a deduction from Li's complete/compact statements. Searches of public mathematical records for exact objects, group order, prime roots, and Fermat/Mersenne aliases returned closest results concerning polynomial prime units and unrelated quartic subgroup sums, not this classification. As this is an elementary argument, implicit earlier coverage not captured by indexing is a real remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Classifying all such subgroups is a natural structural question following their definition. The theorem gives a complete, parameter-uniform reduction of a noncyclic dyadic unit-group problem to at most three involution tests and one triple prime test, including a sharp global order bound and examples at infinitely separated moduli. It explains why the subgroup obstruction at powers of two is unusually strong, while revealing a simultaneous Fermat/Mersenne-type primality condition for order four. This is a mathematical classification, not a general claim about all composite moduli.
+Li already uses precisely the standard-positive-prime representative condition and explicitly gives the small modulus-eight examples. Credit those and the classical structure of dyadic units. The new claim is the all-subgroups cutoff and exact surviving order-four criterion uniformly for a>=4; neither the general interval restriction nor the results for complete and compact groups supply those conclusions. Polynomial analogues compare at the methodological level, not as equivalent arithmetic classifications.
 
-## Limits and comparison
+## value
 
-Li's known complete examples at moduli 2, 4 and 8 appear in the small cases; no originality is asserted there. Neither the number nor infinitude of exponents attaining an order-four group is resolved. The original paper's Section 2 covers a narrower complete/compact predicate, so it does not imply this all-subgroups result. Exact prior mathematical record checks are documented in `AUDIT.json`; possibility of an earlier implicit elementary proof remains. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dyadic family is a natural infinite class of noncyclic ambient unit groups in Li's framework. Reducing all subgroups to three involution tests and one sharp conditional order-four candidate is more informative than checking a few moduli or identifying complete groups. It shows arithmetic restrictions that the ambient decomposition cannot, without turning the exact criterion into a conjecture about the frequency of its prime triples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

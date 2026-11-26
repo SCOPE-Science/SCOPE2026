@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:42:02.787094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cauchy's projection identity halves the facet sum and cancels that factor against opposite pairs, in units of one pentagonal face area. Independent signed-Gram counting with pair products +/-1/sqrt(5) gives the four norm levels and multiplicities 12,20,20,12; the 12 face normals have support value 1+sqrt(5) and their fivefold symmetry aligns the signed gradient, exhausting the top level. A positive spherical linear form is strictly concave along chamber arcs, including edges, so minima can occur only at crossings. Every triple of unit normals has positive Gram determinant 2/5 +/- 2/(5 sqrt(5)), so the crossings give 15 distinct antipodal pairs. Icosahedral symmetry (a fivefold stabilizer cycles the other axes) is transitive on pairs; at the representative e_x the value is 2(1+phi)/R and this axis goes through the edge midpoint (1/phi,0,0). Above the second-largest norm the upper event is precisely the union of the twelve face-normal caps. The squared radius-cosine at the stated gap is q_+^2/b_+^2>4/5, placing each cap inside its ten-sided chamber and below half the minimum separation; summing cap areas yields 6 epsilon/b_+ over the specified interval. The statement does not require that this interval exclude its endpoint: by continuity the law also holds there. Scaled cap coordinates have asymptotically constant density on the stated disk. Near a cross axis the exact tangent chart expression is b_- sqrt(1-r^2)+L(theta)r with L(theta)=(2/R) max(|cos theta|,phi |sin theta|). L is bounded below; the small sublevel radius is uniformly epsilon/L+b_- epsilon^2/(2 L^3)+O(epsilon^3). Spherical radial area is r^2/2+O(r^4), and integrating L^-4 over a quadrant, split at arctan(1/phi), gives (4/(3 (2/R)^4))(phi^-1+phi^-3). Multiplication by 4 times 30/(4 pi) gives the cubic coefficient; the leading rectangle has area sqrt(5). Compactness localizes to the 30 neighborhoods, with equal weights by symmetry and uniform limiting rectangle measure in the rescaled chart. A sign pattern contributes N=15-H silhouette edges, where H is the integer signed pair interaction, because adjacent signed facets disagree in front/back sign exactly for the two edge incidences per discordant pair of axes. At e_x the equal-sign choices on the two vanishing products yield 12 edges and the opposite-sign choices 10. The two sign lines cut equal triangles from the limiting rectangle, proving the split. Independent finite signed-Gram count and constants are replayable with python3 /workspace/review_checks/brightness.py. The frozen verifier was read, not run; its quadrature and finite orientation checks do not replace the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Platonic spectrum gives global second-moment coverage for the regular dodecahedron. The polar icosahedral section result counts 20 triangular and 12 pentagonal chambers and computes the unconditional silhouette type law. Glisse–Lazard define the front/back edge test and bound expected silhouette size."
+        ],
+        "reasoning": "Polarity and front/back counts apply to the global tessellation and its types but do not condition on areas. A global moment or unconditional polygon count does not give tail coefficients or the law of scaled viewing angles.",
+        "searches": [
+          "Resultary 76ed33fc3859, exact orientation-variance spectrum of Platonic shadow areas",
+          "Resultary 65970a533c4f, exact Haar polygon-type law for central icosahedron sections",
+          "Glisse and Lazard arXiv:cs/0702087, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_dodeca_brightness.py",
+        "Resultary 356880455323, dd8366e1b75c, 76ed33fc3859, 65970a533c4f, 367f06c19bf6, e735c228c1c2, b4ab86a8f54b",
+        "arXiv:1203.2464 and arXiv:cs/0702087"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest same-solid proof supplies the exact triangular chamber norm, corner brightness, and silhouette-edge incidence. This gives much of the geometric input for cap localization and local type calculation, and the audited work credits it. The older proof integrates linear forms and their squares over whole chambers, not the moving brightness sublevels. The other solids' tail laws cannot be specialized to the pentagonal-faced regular dodecahedron."
+        ],
+        "reasoning": "The maximum branch uses an additional localization and cap-containment comparison. At the minimum, equal corner values and incidence do not compute the shift of the moving sublevel boundary: the exact tangent expansion, its second-order radial inversion, and the spherical area normalization give the distinctive cubic constant and type-conditioned selection. Novelty is scoped to these probability results rather than their inputs.",
+        "searches": [
+          "Resultary dd8366e1b75c, equations for q, type count and chamber-corner value, mirror offset 3400 onward",
+          "Resultary 65970a533c4f, Finding and proof of marginal probabilities",
+          "Resultary e735c228c1c2 and b4ab86a8f54b, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brightness is the support function of the zonotope generated by the six facet-normal vectors with 1/R scaling. The prior regular-dodecahedron area-moment record uses exactly this support sum; it gives the ten/twelve chambers, the triangular linear form norm q_+, and the chamber-vertex brightness b_-. The regular-dodecahedron directional-width paper instead measures twice the support function of the dodecahedron itself, not the projection zonotope."
+        ],
+        "reasoning": "The numeral 1+sqrt(5) occurs in both the prior width transition and as maximum normalized brightness; the intervals and the measured observables differ. Exact cap and local rectangle-area calculations for the projection zonotope are the appropriate comparison for the claimed laws.",
+        "searches": [
+          "Resultary dd8366e1b75c, Proof sections 1–3",
+          "Resultary 367f06c19bf6, exact two-regime directional-width law",
+          "Finch arXiv:1203.2464"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned brightness entry is a self-match. In separate same-day results the regular icosahedron has a 20-cap linear upper law with hexagonal silhouettes, and the rhombic dodecahedron has analogous upper and lower endpoint phenomena for a different face configuration. The same regular dodecahedron's shadow moment report and width law are distinct findings, not exact tail tables for this brightness variable."
+        ],
+        "reasoning": "These exact catalogue results are compared by geometry and normalization, not date. There is substantive common methodology but no verified distinct identical brightness endpoint law for the solid and area under examination.",
+        "searches": [
+          "Resultary 356880455323 (identical record)",
+          "Resultary e735c228c1c2 (regular icosahedron)",
+          "Resultary b4ab86a8f54b (rhombic dodecahedron)",
+          "Resultary dd8366e1b75c (regular dodecahedron)",
+          "Resultary 367f06c19bf6 (directional width)"
+        ]
+      },
+      "rationale": "Best current evidence supports the endpoint probability analysis, particularly the cubic correction and joint local angular/silhouette conclusions. The exact cap interval is a close use of previously studied chamber geometry, not a new projection identity or novel endpoint brightness values. Distinct same-day analogues do not have the same solid/observable, and the same-solid prior moments do not supply the lower expansion, or the combined endpoint laws.",
+      "residual_risks": [
+        "An equivalent orientation-tail calculation could be expressed in projection-zonotope or stereological language in older uninspected literature.",
+        "No historical priority ordering is inferred for distinct same-day records; the shoulder of the brightness distribution outside the stated regime is not reviewed as a full distribution result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the normal sum, chamber types, triangular norm and chamber-vertex brightness, not endpoint expansion or conditional offset limits",
+          "evidence": "The proof states W=q dot u, |q|^2=6+6/sqrt(5) for the triangles and W(v)^2=4+8/sqrt(5) at their vertices; then integrates W and W squared over whole chambers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-conditional-projected-area-moments-of-ten-and-twelve-vertex-regu--dd8366e1b75c/RESULT.md",
+          "material_read": "Finding; Proof sections 1–3 and relationship to prior work, including offsets 3400–7706",
+          "method": "Bounded local Resultary mirror inspection",
+          "title": "Conditional projected-area moments of ten- and twelve-vertex regular-dodecahedron silhouettes",
+          "trigger": "Strongest same-observable same-solid comparison"
+        },
+        {
+          "assessment": "Global variance and unconditional type count, not endpoint distributions",
+          "evidence": "The variance uses the corresponding facet pair counts; the chamber law supplies the exact ten/twelve marginal by polarity without weighting by brightness.",
+          "identifier_or_url": "Resultary 76ed33fc3859 and 65970a533c4f",
+          "material_read": "Both Findings; proof passages at mirror offsets 3709 and 4189, respectively",
+          "method": "Bounded local Resultary mirror inspection and polarity comparison",
+          "title": "Exact orientation-variance spectrum of Platonic shadow areas; Exact Haar polygon-type law for central icosahedron sections",
+          "trigger": "Stronger global-geometry/brightness comparisons"
+        },
+        {
+          "assessment": "Non-equivalent observable",
+          "evidence": "The cap branch for twice the dodecahedron support function starts at 1+sqrt(5) and runs up to 2 sqrt(3), not the projected-area branch ending at 1+sqrt(5).",
+          "identifier_or_url": "Resultary 367f06c19bf6",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Bounded local Resultary mirror comparison",
+          "title": "The exact two-regime directional-width law of the regular dodecahedron",
+          "trigger": "Same solid, matching threshold numeral and linear endpoint branch"
+        },
+        {
+          "assessment": "Related and distinct; not earlier coverage established by date",
+          "evidence": "Twenty face-normal caps and hexagonal silhouettes for the icosahedron; different vertex/face and brightness geometry for the rhombic dodecahedron.",
+          "identifier_or_url": "Resultary e735c228c1c2 and b4ab86a8f54b",
+          "material_read": "Both Findings, mirror offset 0",
+          "method": "Bounded local Resultary mirror comparison",
+          "title": "An exact majority-mass upper brightness law for the regular icosahedron; Exact random-shadow law and first spherical-cap contact for the rhombic dodecahedron",
+          "trigger": "Strong exact cap-law and endpoint analogues"
+        },
+        {
+          "assessment": "Relevant probability and silhouette framework, not this endpoint theorem",
+          "evidence": "Finch treats cube, tetrahedron, and octahedron moments; Glisse–Lazard formulate front/back incidence and expected silhouette size bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2464 and https://arxiv.org/abs/cs/0702087",
+          "material_read": "Finch abstract, p. 1, Section 2.3 p. 5; Glisse–Lazard p. 3",
+          "method": "Bounded OA PDF statement comparison",
+          "title": "Planar Projections and Second Intrinsic Volume; An Upper Bound on the Average Size of Silhouettes",
+          "trigger": "Primary literature on random shadow area and silhouette geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard convex solid and an isotropic viewing distribution, the result quantitatively distinguishes rare dim and bright shadows: different exponents, an exact nonzero upper regime, a computable lower correction, and distinct limiting direction shapes and silhouette types. These are precise motivated conditional geometric invariants rather than new names for known extrema or a recalculation of a central moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

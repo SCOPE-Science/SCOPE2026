@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a \(C^2\) support function with strictly positive curvature radius, the tangent-intersection parametrization and Green's theorem give exactly the known forward formula of Michalska (2003), Eq. (1.1). Product-to-sum gives the cosine recurrence \(c_k=(k-2)q_{k-1}/2-(k+2)q_{k+1}/2\) for \(k\ge2\), with \(c_1=-2R^2-3q_2/2\). The even/odd subsequences telescope in opposite directions, and \(\sum m^4q_m<\infty\) justifies the limit and all reordering. The resulting inverse formulas recover each nontranslation Fourier power and the positive mean radius. The explicit pair has uniformly positive curvature and cannot be congruent since matching the second harmonic fixes rotation/reflection phases while the third-harmonic cosine/sine differ. The included checker passed exact coefficient tests and numerical Green-integral comparisons.
+## correctness
 
-## Originality — PASS, with documented priority risk
-The strongest direct source is M. Michalska (2003), *A sufficient condition for the convexity of the area of an isoptic curve of an oval*, whose displayed Eq. (1.9) already gives the **forward** dependence of the area function on squared support Fourier coefficients. This prior result is credited without claiming novelty. The specific converse assertion, all-coefficient inverse telescoping, positive mean-radius extraction and complete admissible phase ambiguity were not established in the inspected portion of that source. The geometrical inverse-isoptic paper of Á. Kurusa (2012) concerns the **whole isoptic curve**, rather than one enclosed-area scalar at every angle; the 2013 Csima–Szirmai conic paper and 2015 Michalska–Mozgawa paper address distinct object-level isoptic constructions. Targeted searches in mathematical literature and published mathematical-result records found no directly equivalent inverse theorem. Because this is a short nontrivial inversion of a known forward identity, an unindexed prior corollary remains a genuine residual risk.
+PASS
 
-## Mathematical value — PASS
-The motivating measurement is scalar enclosed area as a function of visual angle, much weaker than the full isoptic curves. This finding gives an exact complete inverse-invariant classification: the full Fourier power spectrum, perimeter and original area can all be reconstructed, and phase shifts are exactly the obstruction to shape uniqueness. Explicit parity-dependent reconstruction formulas and a noncongruent smooth isospectral example provide structural content rather than an arbitrary example or a numerical recomputation.
+The normal-gap convention is α=π−ω. After translating the origin inside K, the tangent-intersection curve has p>0 in its moving normal coordinate and thus winding +1; each exterior point on the locus has just the two supporting tangents, with a unique ordered gap α<π. The curve is regular since u−p′=∫₀^α sin(α−v)ρ(t+v)dv/sin α>0. Green's formula then uses ordinary area. Writing X=p n+uτ (the displayed ν is u), its determinant with X′ integrates to ∫(p²+u²−2up′), which gives (1) by substituting u=(p(t+α)−p cos α)/sin α. The harmonic cross-correlations give exactly (2) and (4); the first harmonic cancels. Parseval on p″ gives ∑m⁴q_m<∞. The weighted odd-index c recurrence telescopes from infinity because (4j²−1)q_{2j}→0, while the even-index c recurrence starts at j=1 with s₀=0. This proves both inverse formulas, absolute convergence of the tails, and recovery of R² using c₁. Perimeter and area follow from the standard support integrals. For the two displayed supports, curvature radius is at least 9 and preservation of cos 2t forces the rotation part of any congruence to be a multiple of π, so a third cosine cannot become a sine.
 
-## Scope and limitations
-Covers strictly convex plane ovals with twice-continuously differentiable support and positive curvature radius, and exact continuous area profiles. The inverse high-frequency coefficients may be unstable to noise; no finite-angle reconstruction or uniqueness up to congruence is claimed. The published forward area formula is prior work. Source availability and search coverage do not certify historical priority. Numerical experiments cannot replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The forward series (including its dependence on powers only) is classical, in Michalska and in Hurwitz's formula as reproduced by Cufí–Gallego–Reventós. There is also earlier isolation of even powers from weighted visual-angle integrals, which the full area profile determines. The distinct supported result is the explicit inverse on admissible sequences, including recovery of the odd powers from the same scalar datum and the full equality characterization. No inspected result supplies that full inverse; a forward expression as a series does not on its own establish uniqueness or give the needed boundary conditions.
+
+## value
+
+PASS
+
+The result identifies the exact information carried by a natural scalar geometric measurement: unlike full isoptic loci it cannot resolve phases, but despite this it recovers even and odd powers, perimeter and enclosed area. The parity-dependent inverses tell a user how to reconstruct all recoverable modes and exhibit the boundary condition required for uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

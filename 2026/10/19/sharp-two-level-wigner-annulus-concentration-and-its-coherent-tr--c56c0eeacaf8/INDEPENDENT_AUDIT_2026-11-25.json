@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:49:00.444650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Wigner normalization and proof",
+        "Frozen VERIFICATION.md and check_wigner_annulus.py (inspected only)"
+      ],
+      "rationale": "The stated Hermite functions are orthonormal under the stated Fourier convention. Differentiating the Gaussian Fourier transform in ξ gives the first two y-moments divided by the transform as −2iξ and 1/π−4ξ². This yields the cross-Wigner factor 4√π(x+iξ) and the diagonal h_1 factor 2(4πr²−1), both multiplying exp(−2πr²). Setting u=4πr² and b=|c|², the squared angular average divided by 4e^(−u) is (1−2b+bu)²+2ub(1−b); the phase disappears only after averaging. The polar measure du/4 then gives the asserted polynomial C+4Ub−(2U+V)b². At U≤0, the endpoint difference 2U−V=s²e^(−s)−t²e^(−t) is strictly negative, so neither an alternate endpoint nor an interior extremum ties b=0. At U>0,V≤0 the two endpoint derivatives are nonnegative and the polynomial increases to the unique maximum at 1. At U,V>0 the unique interior vertex improves on the endpoints by 4U²/(2U+V) and V²/(2U+V). The expansions U/δ→(s−1)e^(−s) and V/δ→(−s²+4s−2)e^(−s) yield the shell branches. At s=1 the first limit vanishes and the second is strictly positive, giving b_*→0; at s=2+√2 the second vanishes and the first is positive, giving b_*→1. These are radii in the dimensionless squared radial coordinate. The uniqueness is of the population, not of a phase representative. The all-annulus proof, not the reported finite quadrature, establishes these statements.",
+      "residual_risks": [
+        "The recorded quadrature and optimizer tests were not independently replayed; the exact integrals and all cases are independently checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stra–Svela–Trapasso prove existence of optimizers for unrestricted Wigner L^p localization on arbitrary positive finite-measure sets for 1≤p<∞."
+        ],
+        "reasoning": "The existence theorem includes p=2 and annuli in its domain but neither shows that its optimizer belongs to this two-level family nor identifies the restricted value and equality cases. Domain generality is not formula coverage.",
+        "searches": [
+          "arXiv:2510.18683, Theorem 1.1",
+          "Public literature lookup for first-two-Hermite squared Wigner annulus concentration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.18683",
+        "Resultary 57fcc645d909 and 60f08a58beae",
+        "Frozen RESULT.md exact functional and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angular averaging of the auto-Wigner square retains the interference contribution 2ub(1−b), whereas angular averaging of W_f itself makes the signed functional affine in b.",
+          "Neither the unrestricted existence theorem nor the fixed-window crossing theorem gives the two endpoint derivative signs of the auto-Wigner polynomial."
+        ],
+        "reasoning": "Known Hermite polynomials supply ingredients. Getting the three-region rule requires calculating the surviving quadratic term, treating convex and concave cases globally, and taking the limiting endpoint derivative signs. One cannot obtain these conclusions by substituting annular parameters into the inspected theorems.",
+        "searches": [
+          "arXiv:2510.18683, Theorem 1.1",
+          "57fcc645d909 fixed-window eigenvalue result",
+          "Frozen RESULT.md proof, angular elimination and optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "57fcc645d909 gives annular Hermite eigenvalues λ_n=(1/n!)∫_a^(a+w)e^(−u)u^n du for fixed Gaussian STFT energy.",
+          "60f08a58beae gives linear Fock-space disk concentration with an exactly degenerate maximizing eigenspace at x=1."
+        ],
+        "reasoning": "A fixed-window STFT annulus is a diagonal quadratic form in the input. The squared auto-Wigner norm instead varies both slots with f; even via a reflected-window STFT identity the window is not fixed. The interior vertex can beat both endpoints strictly, unlike a diagonal fixed-window energy on the same two-mode span. Linear Fock disk degeneracy does not give these two nonlinear shell thresholds.",
+        "searches": [
+          "Resultary: two-level Wigner annulus concentration, coherent Hermite populations and thin shells",
+          "57fcc645d909 RESULT.md, Finding",
+          "60f08a58beae RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed formulas tabulate or compare exact values for linear localization operators, not maxima of the squared auto-Wigner energy over coherent states.",
+          "The frozen verification gives the annular population and gain for one example, not an external table of the parametric invariant."
+        ],
+        "reasoning": "An exact solution for Hermite-mode energies alone cannot tell whether a relative superposition strictly beats both modes. No exact formula or table of the requested nonlinear optimum was identified in the inspected sources.",
+        "searches": [
+          "Resultary lookup for exact Hermite annulus maxima, eigenvalues, and shell thresholds",
+          "57fcc645d909 exact eigenvalue formula and 60f08a58beae exact eigenspace result"
+        ]
+      },
+      "rationale": "The verified distinct content is the exact all-annulus optimizer and coherent-state gain within the first two Hermite levels for the squared pure-state Wigner functional, including both thin-shell thresholds. The inspected unrestricted Wigner result gives existence, not the restricted coefficient optimization. The closest indexed exact annulus calculation is for a fixed Gaussian-window STFT, whose radial localization is linear in the populations; it does not have this nonlinear mechanism. Standard cross-Wigner polynomials and radial quadrature are not credited as new. This assessment is limited to inspected evidence, not a claim of priority.",
+      "residual_risks": [
+        "An unindexed calculation using a two-copy phase-space operator or a different Wigner normalization could contain an equivalent theorem.",
+        "The public query returned no useful matching result and provides no evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence coverage, not restricted sharp values or classified extremizers.",
+          "evidence": "The theorem supplies attainment on any positive finite-measure phase-space set for 1≤p<∞.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.18683",
+          "material_read": "Theorem 1.1, p. 2, offset 6645",
+          "method": "Targeted primary OA PDF passage",
+          "title": "On the existence of optimizers for nonlinear time-frequency concentration problems: the Wigner distribution",
+          "trigger": "General Wigner L^p result including this p and these masks"
+        },
+        {
+          "assessment": "Annular fixed Gaussian STFT energy, not a quadratic population optimization for squared auto-Wigner.",
+          "evidence": "The finding computes λ_n from an incomplete gamma integral and compares Hermite eigenmodes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Gaussian annulus eigenmode crossings and a Bernoulli second increment",
+          "trigger": "Strong indexed exact same-mask Hermite concentration match"
+        },
+        {
+          "assessment": "Linear disk localization, with different domain and optimizer mechanism.",
+          "evidence": "A three-dimensional maximizing eigenspace at x=1 does not imply a unique nontrivial optimizing population on a thin annulus.",
+          "identifier_or_url": "Resultary 2026/10/26/60f08a58beae",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp disk concentration and spectral-gap resonances in the first three Fock levels",
+          "trigger": "Related exact Hermite/Fock concentration mode degeneracy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and distinction from signed localization",
+        "arXiv:2510.18683 (general existence benchmark)",
+        "Resultary 57fcc645d909 (linear comparison)"
+      ],
+      "rationale": "The vacuum and the first excited level are the simplest centered oscillator span where a relative coherence is possible. A rotationally invariant mask removes the mean interference in the signed functional but not its squared contribution. The closed optimizer proves when coherent states are necessary and by exactly how much they beat both eigenstates, and its two nontrivial shell boundaries give a compact benchmark for nonlinear Wigner localization. This is more than a diagonal mode crossing, though it is not the unrestricted problem.",
+      "residual_risks": [
+        "The benchmark concerns only two unshifted, unsqueezed Hermite modes and concentric masks; it does not establish unrestricted localization or comparisons with arbitrary mixtures of density operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

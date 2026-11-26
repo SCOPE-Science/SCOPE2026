@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a primitive integer winding, exact arclength quadrature of every Fourier character in the three-dimensional hyperbolic cross is equivalent to the nonvanishing of all integer dot products \(m\cdot v\) for nonzero frequencies \(m\) in that cross. Hyperbolic-cross symmetry and the presence of coordinate unit vectors reduce possible minimum geodesics to sorted positive primitive integer triples. Each explicit winning triple establishes an upper bound \(C_t\). The finite certificate enumerates every sorted positive primitive vector with squared norm no greater than \(C_t\) and every hyperbolic-cross frequency; all excluded vectors are longer, and every nonwinning retained vector has a zero-dot-product witness. Consequently the complete finite table, including uniqueness, is proved exactly for strengths one to six. The code's ranges are exhaustive by a mathematical bound, rather than heuristic search.
+## correctness
 
-## Originality — PASS (best-knowledge, with historical risk)
-The hyperbolic cross, torus design geodesics, character-orthogonality test, and complete cubic baseline are not claimed as new. In the inspected primary text of Ehler (arXiv:2611.03362), Section 4, the complete sharp result is for dimension two, whereas in dimensions at least three Theorem 4.3 determines only optimal length order, not the exact finite first-six three-dimensional staircase or its equality rigidity. Gross–Iwen–Kämmerer–Volkmer (arXiv:2003.09753) optimizes the size of multiple rank-one lattices, not this geodesic-length classification. The candidate statement does not follow from the previously inspected rank-one reconstruction criterion without solving the complete constrained integer norm minimization. A classical table absent from accessible search remains a priority risk.
+PASS
 
-## Value — PASS
-This supplies an exact small-strength benchmark where existing multivariate hyperbolic-cross results are only asymptotically sharp. The two-step plateau at strengths four and five, followed by a jump at strength six, shows that acquisition length is a genuine non-smooth arithmetic resource: a stronger design criterion may impose no additional travel cost, then impose substantially more. Each value comes with complete uniqueness and a short independently executable finite proof, which can be used to test constructive and approximate geodesic design algorithms. No paper-sized general theorem is asserted.
+The winding is constant-speed, so its normalized arclength equals ds/(2π) in the stated parameter. The Fourier integral vanishes exactly when m·v≠0. Unit frequencies exclude zero coordinates; signed permutations preserve the cross, and division by a common factor preserves every nonvanishing dot product. Thus positive ordered primitive triples suffice. At each displayed cap any equally short or shorter triple is in the bounded search, which includes equality. An independent calculation solves m₃=−(a m₁+b m₂)/c by divisibility for |m₁|,|m₂|≤t; when m₁=m₂=0 there is no nonzero orthogonal frequency. It finds one survivor per cap with exactly the stated winding norms (21,65,101,133,133,314), primitive candidate counts (9,41,80,119,119,421), and cross cardinalities (27,81,135,225,279,405). Each survivor attains its cap and the physical length is 2π times its norm, proving minimality and the signed-permutation classification.
 
-## Closest source inspections and limits
-- Ehler, *Optimal bounds for design curves on the torus*, arXiv:2611.03362 (2026), primary PDF Sections 2 and 4, including Theorems 2.1, 4.2, 4.3: cube optimum, hyperbolic-cross exact results in dimension two, asymptotically sharp higher-dimensional bounds.
-- Gross, Iwen, Kämmerer, Volkmer, *A Deterministic Algorithm for Constructing Multiple Rank-1 Lattices of Near-Optimal Size*, arXiv:2003.09753 (2020), original introduction, definitions and Theorem 1.1: multiple discrete lattices, not finite hyperbolic-cross minimum geodesic length.
-- Kämmerer, Potts, Volkmer (2015), available manuscript Sections 2.1–2.3: established rank-one Fourier reconstruction and separation criterion.
-- Residual risk: unindexed design-curve or integer-geometry computations could already contain one or more table rows. The classification applies only to geodesics and only to the six listed strengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generic Fourier criterion, the cross itself and the t=1 cube answer are not new. The supported distinct result is the sharp finite three-dimensional classification at strengths 2 through 6, including equality cases; the strongest related theorems treat a different dimension or set of frequencies, weaker optimality, or a different objective.
+
+## value
+
+PASS
+
+For an independently motivated Fourier exact-design problem, the shortest primitive winding gives the exact cost of a single periodic trajectory. Beyond the known cube baseline, the first five nonbox cases locate a genuine plateau despite 54 added frequencies and then an exact jump from 133 to 314 in squared cost; in particular (3,−2,0) enters at strength six and obstructs the old optimum. This initial classification with rigidity provides precise feasible designs and benchmarks for sharpening higher-dimensional length bounds, not just examples at one selected parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

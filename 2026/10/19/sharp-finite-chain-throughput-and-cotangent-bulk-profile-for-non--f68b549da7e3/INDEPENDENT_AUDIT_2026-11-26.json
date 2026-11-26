@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:23:00.336944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal flux gives y_0=0, y_{n+1}=1, and y_{k+1}=J/(1-y_k^r) before the hit. At J<=J_* the lower fixed point bounds the iterates. At J=J_*+delta the increment is at least delta until the hit, so first hitting is finite; monotone shooting therefore gives J_n decreasing to J_*. Expansion at s gives drift a delta+b u^2+O(delta |u|+|u|^3), with a=(r+1)/r and b=(r+1)/(2s). For fixed small epsilon, monotonicity of the map bounds entry overshoot and exit undershoot at the window endpoints by O(epsilon^2+delta), leaving the crossing locations a distance comparable to epsilon from s. Exterior steps and endpoint integral errors are bounded for fixed epsilon. The derivative of the drift is O(epsilon+delta) inside the window; each complete discrete step contributes 1+O(epsilon+delta) to the reciprocal-drift integral. Taking n to infinity and then epsilon to zero gives total passage (n+1)sqrt(ab delta) -> pi; the integral stopped at k=floor(t(n+1)) similarly gives sqrt(ab delta) k = pi/2+arctan((y_k-s)sqrt(b/(a delta)))+o(1). This proves both the stated coefficient and the correctly oriented cotangent limit. This is a fixed-r, strict-interior result. The frozen verification is illustrative; the independent command `python /tmp/opencode/frozen_review_checks_3_4.py transport` checked r=2,3,5,8 at n=128,512,2048 and t=.2,.5,.8; at n=2048 current relative errors were below .0029 and profile absolute errors below .0055 at those points. The numerical check does not certify either limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The normal-form passage at x'=mu+x^2 has full delay pi/sqrt(mu), in a smooth vector-field setting."
+        ],
+        "reasoning": "The inverse-square-root scaling is classical; the proof still needs uniform control of the discrete step count, entry and exit, and a stopped transit integral at the required position.",
+        "searches": [
+          "Kuehn, arXiv:0807.1546v2 / DOI 10.1088/1751-8113/42/4/045101"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Zhou arXiv:2610.10602v1",
+        "Kuehn arXiv:0807.1546v2",
+        "Resultary 0876e9642df1 and 0b9a828b8058"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives the recurrence, the latter the ODE delay, and neither inspected counterpart proves uniform discrete comparison even for the partially completed passage."
+        ],
+        "reasoning": "The asymptotic stationary current alone would not determine the profile; the bound orbit and integration argument add a substantive implication beyond flux balance and known delay scaling.",
+        "searches": [
+          "Zhou equation (2.6) versus Kuehn's generic passage integral; Resultary records 0876e9642df1 and 0b9a828b8058"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou's equal stationary flux under unit rates is exactly the scalar reverse shooting recurrence with availability 1-x^r; the inspected equilibrium theorem gives no asymptotic current or density profile."
+        ],
+        "reasoning": "Transforming density equilibrium into a one-dimensional recurrence identifies the closest exact mathematical formulation, but does not supply the claimed orbit estimates.",
+        "searches": [
+          "Resultary: nonlinear steric ribosome flow finite-size current, cotangent bulk profile, discrete saddle-node recurrence",
+          "Zhou, arXiv:2610.10602v1, Theorem 2.2 and (2.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected records 0876e9642df1 and 0b9a828b8058 concern finite-horizon aperiodic throughput and two-site periodic gain, respectively."
+        ],
+        "reasoning": "They are index hits on the model, not tables of this stationary n->infinity coefficient or the continuous-fraction profile. A finite numerical table would not in itself establish the asymptotic limits.",
+        "searches": [
+          "Resultary: finite-chain nonlinear ribosome-flow throughput, sharp cotangent profile and n^-2 current correction"
+        ]
+      },
+      "rationale": "The model and steady-flux recurrence are prior, as is the generic bottleneck mechanism. The model-specific pair of exact coefficients and discrete stopped profile was not found or shown to follow directly from an inspected result. The key distinction is that a continuous-time full delay is not a discrete stopped passage theorem.",
+      "residual_risks": [
+        "A targeted literature follow-up was unavailable; preexisting exact discrete saddle-node stopped-passage theorems or equivalent nonlinear transport results outside inspected sources cannot be excluded.",
+        "No priority claim about other records is based on index dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD AND EQUILIBRIUM COVERAGE ONLY",
+          "evidence": "Theorem gives a unique globally attracting equilibrium; Eq. (2.6) states equal flux for arbitrary positive constant rates.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10602v1",
+          "material_read": "OA PDF pp. 2–3 (text offsets 6475–12920), p. 6 (offset 23132), Theorem 2.2 and Eq. (2.6)",
+          "method": "Read relevant primary OA PDF passages",
+          "title": "Gain of Entrainment in Ribosome Flow Models with Nonlinear Steric Hindrance: Global Rigidity and Dimension-Induced Gain",
+          "trigger": "Same nonlinear model and equilibrium"
+        },
+        {
+          "assessment": "GENERIC ODE MECHANISM, NOT THE DISCRETE STATIONARY CLAIM",
+          "evidence": "The quoted passage evaluates the full transit integral for a smooth vector field.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1546v2",
+          "material_read": "OA PDF pp. 1–2, text offsets 0 and 4722",
+          "method": "Read normal-form delay derivation",
+          "title": "Scaling of saddle-node bifurcations: degeneracies and rapid quantitative changes",
+          "trigger": "Broader saddle-node scaling potentially implying the current correction"
+        },
+        {
+          "assessment": "DISTINCT",
+          "evidence": "Time-varying quadratic hindrance; O(T^-1) transient horizon bound, not stationary length asymptotics.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-uniform-finite-horizon-throughput-budget-for-aperiodically-dri--0876e9642df1",
+          "material_read": "Mirrored indexed finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A uniform finite-horizon throughput budget for aperiodically driven transport",
+          "trigger": "Closest indexed same-model throughput result"
+        },
+        {
+          "assessment": "DISTINCT",
+          "evidence": "Periodic gain of entrainment, not long stationary chains.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-one-crossing-frequency-law-for-two-site-nonlinear-ribosome-flo--0b9a828b8058",
+          "material_read": "Mirrored indexed finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A one-crossing frequency law for two-site nonlinear ribosome flow",
+          "trigger": "Indexed same-family two-site result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact constant quantifies finite-length bias in a natural stationary observable; the stopped profile distinguishes a genuinely inhomogeneous bulk at first order from a spatially flat approximation. Both arise from a controlled discrete mechanism, not merely fitting the predicted exponent. The relevance is mathematical, not a claim of empirical calibration or applicability to heterogeneous chains.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

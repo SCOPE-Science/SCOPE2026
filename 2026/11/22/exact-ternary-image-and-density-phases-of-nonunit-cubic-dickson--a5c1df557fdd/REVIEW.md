@@ -1,11 +1,21 @@
-# Scientific review of the nonunit cubic Dickson image classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The decomposition follows from exact polynomial expansions and local inverse functions with unit derivatives, including the two distinct branches at parameter valuation one. For parameters divisible by nine the identity \(F_{9c}(3t)=27F_c(t)\) gives the complete recursive zero branch; explicit unit-parameter terminal formulas close it. The disjoint cylinder counts give the exact modulus-by-modulus results, and their measures give the density phase law. The embedded direct-enumeration checker passed 1,464 value-count tests and 488 full-image equalities. Its finite checks alone are not asserted to prove the result.
+## correctness
 
-**Originality (PASS on accessible evidence).** Shang (arXiv:2310.20226v1, first public 2023-10-31) proves upper bounds for nonpermutation polynomial value sets, not this exact nonunit cubic Dickson classification. Existing fixed-unit cubic results determine only a unit-parameter specialization. The main nonunit feature is the bifurcation at \(a=3b\), where the zero-image cylinder changes from \(81\mathbb Z_3\) to \(27\mathbb Z_3\), and its propagation through all higher-valuation strata. The 1991 paper of Bremser and Gomez-Calderon directly treats Dickson polynomials over Galois rings, and its abstract was checked; its full text was unavailable, so possible exact prior coverage remains a material priority risk. Lack of a matching search result is not treated as novelty proof.
+PASS
 
-**Mathematical value (PASS).** The natural invariant is the complete image of a low-degree Dickson polynomial over a complete discrete valuation ring and all of its finite quotients. The theorem gives an infinite-parameter exact phase diagram, including explicit local cylinders, every finite-depth count, the zero-parameter limit, and a sharp valuation-one discontinuity that general value-set bounds do not quantify. No general theorem beyond this motivated family is claimed.
+In the repaired proof, on each r=±1 input class the normalized expansion modulo 3 is t−(a/3)r with derivative 1 modulo 3, so Hensel gives each whole r+9 Z_3 cylinder. For a=3b the zero-input branch divided by 27 is t^3−bt with derivative −b modulo 3, taking precisely one residue when b=1 modulo 3 and every residue when b=−1. For a=9c direct rescaling gives 27 V_c. Iteration stops at v_3=0 or 1 as stated in the repair; for a=0 the residual nested sets have intersection {0}. For a unit ≡−1 the three normalized derivatives are units and give three disjoint cylinders mod 9. A unit ≡1 is a square and reduces by unit rescaling to F_1, whose positive class is −2+27t²(t+1); t=±1 mod 3 maps onto both attained classes of t²(t+1), giving the two mod-81 cylinders on this branch, their negatives on the other branch, and the distinct 9 Z_3 branch. Their reductions indeed give counts 3,3,5 and then 13·3^(k−4). Counting disjoint reductions and solving δ(9c)=2/9+δ(c)/27 gives the stated phase law with fixed point 3/13. The repaired decreasing-cylinder argument establishes the limiting density. Independent enumeration checked 72 complete finite image sets, at a=0,3,−3,9,18,27,54,81 and k=1…9, not all parameters or depths; the repaired stopping rule is in particular consistent with the checked odd valuations.
 
-**Scope and unresolved priority.** The result excludes unit parameters as new claims, and no fiber multiplicity or higher-degree classification is asserted. Full-text comparison with the 1991 article, and independent priority verification, remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the joint exact nonunit image classification, in particular the split at valuation one and its recursion across all nonunit parameters. The unit a=1 count is not new. A plausible earlier article directly treats Dickson polynomials over Galois rings; its coverage is unresolved, not negative evidence. No verified source here states this nonunit classification or supplies a stronger theorem from which it follows mechanically.
+
+## value
+
+PASS
+
+The theorem completely decides local solvability for a natural low-degree Dickson family at its wild prime, not merely sizes at selected precisions. It distinguishes the two valuation-one unit parts and transmits the resulting measures to arbitrarily large valuations, supplying exact phase limits and congruence counts that the unit case and general upper bounds do not give. These nonunit statements survive the correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

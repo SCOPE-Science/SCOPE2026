@@ -1,15 +1,21 @@
-# Review of the cuspidal rare-diameter theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The global chord identity proves that the two endpoints of a full cycloidal arch are its only diametral pair. In a general two-cusp arc satisfying the stated global and local assumptions, the chord deficit is the sum of inward cubic displacements with a uniform fourth-order remainder. Arclength sampling gives a product of linearly vanishing cusp-parameter densities. Integrating those densities over the cubic-deficit simplex proves the exact coefficient and the Dirichlet law; the cusp-curvature determinant provides the intrinsic simplification. The standalone checker verifies 3 finite-threshold quadratures, coefficient agreement, a conditional moment and a supplementary global grid, without substituting finite numerics for proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-Shiba and Umehara (arXiv:1102.4478v1, 2011) give the classical cusp invariant and explicitly calculate its cycloid value, not the random-pair diameter tail. Apostol and Mnatsakanian (2009) analyze cycloidal areas; only their abstract and repository record could be inspected. Published indexed rare-chord results for smooth convex bodies, \(\ell_p\) balls and Reuleaux triangles have different sampling or local contact geometry and do not imply the stated cusp theorem from the available statements. A broader unindexed result or inaccessible full article could affect priority; this is not an independent novelty certification.
+PASS
 
-## Mathematical value — PASS
-The identified 4/3 exponent, exact gamma-function constant and marked Dirichlet limit give a natural classification of near-diametral chords at singular curvature endpoints, with a complete classical cycloid example. The formula uses intrinsic Euclidean cuspidal curvature and recovers the product of the two absolute cusp invariants from a near-diameter observation at known arclength. It does not claim complete distance distributions or arbitrary cusp singularities.
+Compactness and the unique unordered diametral pair reduce the event to two disjoint ordered endpoint neighborhoods. In either one, horizontal displacement loses a_L t³+a_R s³+O(t⁴+s⁴); squaring the transverse difference adds only O(t⁴+s⁴), and the chord length is bounded away from zero there. Thus the leading deficit is uniformly comparable to t³+s³, even on the axes. Under cubic scaling, the exact domains lie in a fixed bounded set and converge off the simplex boundary, while the normalized arclength density is dominated by a multiple of u^(−1/3)v^(−1/3). Integration gives the stated beta integral and constant, including the factor two from the two orders. The actual slack differs uniformly from 1−u−v by o(1); hence the stated joint Dirichlet limit, Beta law for the sum and independent Beta law for the left fraction follow. The order variable is uniform and independent of the canonically left/right-labeled marks by exchangeability (the two complementary order events are not themselves independent). The determinant has magnitude 12 a_i |b_i| and the denominator is (2|b_i|)^(5/2), giving the intrinsic coefficient. For the cycloid, the exact chord identity bounds the norm by 2r(d+sin d), with equality at the global maximum possible only for d=π; the length is 8r and a_i=r/6, b_i=r/2. Reviewer-authored `python3 /workspace/independent_reproduction.py cusp` (SciPy 1.18.1) used direct integration in probability-mass coordinates, obtaining the coefficient 0.05830090078339615 and tail ratios 1.0262350114, 1.0112603267 and 1.0050207385 at the three listed thresholds. The last conditional first mark was 0.2868319033 versus 2/7. These are diagnostics, not certified bounds or an infinite-claim proof.
 
-## Limits
-The theorem assumes a compact arc, unique diametral cusps, nonzero inward cubic longitudinal terms, quadratic transverse terms and arclength-uniform independent sampling. Numerical tests are diagnostic. Some plausible prior sources were accessible only through abstracts or published scientific summaries. Priority is provisional, and no independent mathematical review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cycloid's cusp invariant is known, and the same-day phase-uniform trochoid result supplies enough local information for the ordinary cycloid specialization by reweighting. The 4/3 exponent and Dirichlet parameters are also shared by other geometric models. The distinct supported claim is a uniform intrinsic law for arbitrary compact endpoint-cusped plane arcs satisfying the precise local and global conditions, not priority of the cycloid diameter, the bare exponent, or the Dirichlet family.
+
+## value
+
+PASS
+
+The general theorem identifies a sampling-sensitive exponent and an intrinsic, quantitative relation between arclength tail probability and the product of the two absolute cusp curvatures. Its conditional law resolves both the distance deficit and the division of contributions between endpoints. Separating the global uniqueness condition from the local geometry distinguishes this class from smooth or multiply diametral settings. This reach, rather than the cycloid specialization on its own, supports value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

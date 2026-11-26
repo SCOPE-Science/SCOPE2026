@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The lottery polytope has exactly four vertices, obtained by explicit active-constraint enumeration in the proof. Concavity of the sum of variances puts a minimum on a vertex; exact comparisons eliminate two vertices. The optimizer uniqueness claim uses the variance mixture identity and different mean utility vectors. The phase function has opposite endpoint signs and strictly negative second derivative on the relevant interval. The bundled exact rational verifier independently enumerates all active-constraint combinations for 330 parameter pairs and reproduces the strict witness. Universal correctness rests on the analytic argument, not finite sampling.
+## correctness
 
-## Originality — PASS, with limitations
-The motivating arXiv:2601.16579v1 (Babaioff–Grofman, Sections 5 and Appendix B) proves existence of an ex-post-unfair variance-minimizing lottery in the two-by-two setting and analyzes a fixed numerical instance. Our classification is parameter-uniform, characterizes the exact unique phase boundary, and specifies optimizer identity and ties throughout the chamber. Related arXiv:2602.14668 seeks near-optimal best-of-both-worlds mechanisms, not this optimizer phase diagram. Targeted equivalent-formulation searches and mathematical-record comparisons did not reveal a stronger dominating classification; this does not prove exhaustive originality. Main residual risks are unindexed equivalent work, different fairness terminology, and results implicit in other optimization treatments.
+PASS
 
-## Value — PASS
-A known minimal counterexample does not describe how prevalent failure is or which preference inequalities determine it. The exact two-dimensional fair/unfair phase diagram fills that motivated gap, with an explicit analytic curve, unique choices in each region, and precise behavior at the boundary. The restriction to two agents and two goods is natural because it is already the smallest documented best-of-both-worlds obstruction. No claim about unrestricted numbers of agents or goods is made.
+The full feasible polytope can be verified directly. Adding the two proportionality surpluses gives (b−a)(d−c)≥0, so put h=d−c≥0. The separate constraints are y h≤f−e≤x h, where x=1−2a>y=1−2b>0. Thus p decomposes as 2c S + 2e Q plus a nonnegative residual supported on D,F with F/D ratio in [y,x]; the residual splits between H1 and H2 (and vanishes if h=0). This proves the four-vertex hull and supplies the corrected intermediate identity for the imprecise adding/subtracting sentence in RESULT.md line 22; it does not change the Finding. Direct variance evaluation gives Φ(Q)>Φ(S), Φ(H1)>Φ(H2)=Φ(R), and 4(Φ(R)−Φ(S))=g_x(y). The law of total variance adds a strictly positive between-mean term for any nontrivial mixture of the two tied candidates, whose first mean utilities differ. End signs g_x(0)<0<g_x(x) and strict concavity give one interior crossing. The two one-good-each allocations are EFX; in F, agent 1 has utility zero, fails EF1 and falls below its positive MMS. The exact witness values are 17/100 and 13/80 with t=5/6. These arguments apply on the stated open chamber, not its boundary. The frozen verifier and recorded 330 finite exact-rational checks were inspected, not executed; the universal conclusion is analytic.
 
-## Scientific limitations and inspection
-The full motivating open-access HTML was read in the sections addressing definition, optimality, the numerical counterexample, and its appendix. The related few-agent work was consulted at abstract level only, and no negative full-document assertion is made about it. Mathematical-record similarities in probabilistic serial and random-priority models concern other lottery objectives. Independent publication-priority and independent proof audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest prior source already gives the same failure mechanism and a unique R optimizer at a specific point in exactly this chamber. No originality is credited for existence of failure, that support mechanism, or reducing variance minimization to extreme points. The supported distinct result is the necessary-and-sufficient phase classification of all parameter pairs in the open chamber, including the single crossover and exact tie with no optimal mixtures.
+
+## value
+
+PASS
+
+The minimal setting in which the proposed fairness objective was known to fail lacked a boundary identifying when the objective actually loses ex-post fairness. The classification determines both sides and distinguishes coexistence of two optima from an optimal interpolation at equality. This is a motivated exact gap in understanding the objective, not a new numerical witness or a claim for larger allocation problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

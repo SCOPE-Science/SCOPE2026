@@ -1,19 +1,21 @@
-# Scientific review of the screened-star Nyström theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The result reduces exactly to two vertex-orbit types at every budget. The core identity \(G_{U,U}-G_{U,S}G_{S,S}^{-1}G_{S,U}=(\mu I+L)_{U,U}^{-1}\) is standard block inversion; the remaining star blocks are inverted explicitly. The resulting difference has strictly positive denominator and the claimed affine numerator. Complementary-minor determinants prove the D-optimal assertion. The append-only gap is a direct, sharp ratio of two exact residuals. The included exact checker reproduces 3557 symbolic and rational assertions without relying on floating point. No numerical experiment is used to claim a universal sign.
+PASS
 
-## Originality: PASS on accessible evidence, with residual risk
+For A=μI+L positive definite and G=A⁻¹, the only nonzero residual block is the Schur complement of G_SS in G, which equals A_UU⁻¹. Write q=μ+1, r=m−k and b=μ(μ+m+1)+k. When the hub is selected the unselected principal matrix is qI of size r+1, so E_H=(r+1)/q. When only leaves are selected the remaining hub has Schur complement b/q after eliminating r leaves. The inverse trace is r/q+q/b+r/(qb), with r=0 reducing to 1/(μ+m). Complementary principal minors give D_H/D_L=det A_{U_H,U_H}/det A_{U_L,U_L}=q²/b, also for r=0. As b−q²=(m−1)μ+k−1>0, determinant preference is always strict. Further, E_L−E_H=−∂_μ log(q²/b), since ∂_μ log det A_UU=tr(A_UU⁻¹); differentiating gives exactly [m+1−2k−(m−1)μ]/(qb). Its positive root exists precisely for k≤floor(m/2), and decrements by 2/(m−1) per added landmark. For larger k the numerator is strictly negative on μ>0, including the zero-numerator-at-μ=0 odd-m boundary. Leaf symmetry exhausts both types and gives the binomial counts and ties, and selecting all vertices leaves zero residual. At 0<μ<1 the singleton threshold forces the hub; at budget m keeping that hub leaves a diagonal leaf inverse 1/(μ+1) instead of the smaller hub inverse 1/(μ+m). This proves nonnesting and the exact conditional append-only ratio. Independent exact matrix enumeration confirms all small-m set types, tie counts and determinant comparisons, including every positive threshold tested and the full-budget endpoint.
 
-The closest mathematical coverage is a noise-free weighted-star leader-placement theorem, which has no positive uniform killing parameter; its documented criterion cannot be inserted into the positive-screening determinant/residual identities without new analysis. The 2024 Fornace–Lindsey manuscript explicitly discusses a star in the different stationary-state inverse-Laplacian setting, but does not classify screened all-budget optimum types or the growing final append-only gap. The 2013 Gittens–Mahoney and 2011 Farahat–Ghodsi–Kamel papers provide Nyström methodology and greedy motivation, not this star-specific positive-screening phase diagram. Prior all-budget unshifted results, general randomized error bounds, and nearby graph families were compared by mathematical scope rather than title alone. The inaccessible full text of the closest indexed weighted-star item is a priority risk, not proof of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This exact family-wide optimizer census establishes when increasing the landmark budget requires discarding the previously best hub, gives every sharp tie and the exact D-vs-A objective disagreement, and proves an **unbounded** approximation-ratio penalty for any append-only design initialized at the optimal singleton. The last fact supplies a concrete dimension-growing obstruction to simply extending a trace-optimal Nyström design, rather than a small isolated score improvement. It applies at every fixed positive screening parameter below one and every star size.
+Credit generic Schur-complement/grounded-leader methodology and the indexed all-budget weighted-star result at zero screening. The reviewed contribution is the exact positive-screening all-budget transition and determinant comparison with its growing near-full append-only penalty. The closest screened-cone result has a single-landmark theorem on connected noncomplete walk-regular bases; an unweighted star with at least two leaves has a disconnected edgeless base. No available stronger or equivalent statement covers this positive-screening all-budget combination. Priority remains qualified because the closest weighted-star full text and the Fornace–Lindsey star section were not independently retrievable.
 
-## Closest literature and limitations
+## value
 
-Gittens–Mahoney (arXiv:1303.1849, v1 March 7, 2013), Farahat et al. (AISTATS 2011), Fornace–Lindsey (arXiv:2407.01698, Section 6.1.2), and the publicly indexed weighted-star noise-free leader-placement result are the main comparators. The last item's complete manuscript was inaccessible. A future priority study should check alternative optimal-design language and any version of the weighted-star proof that treats uniform killing. The accepted mathematical statement itself is restricted to unweighted stars and exact unrescaled Nyström approximation; no claim is made about arbitrary weighted graphs or approximate matrix operations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical sparse graph gives a complete sharp A-type trace versus determinant comparison under a common physically and numerically natural shift. The all-budget result is useful even if only the objective conflict is needed. More importantly it furnishes an exact unbounded worst-case price for preserving a globally optimal first landmark as the budget grows, not just a numerical failure of a chosen greedy algorithm. The qualification that the sequence starts at the trace-optimal singleton is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

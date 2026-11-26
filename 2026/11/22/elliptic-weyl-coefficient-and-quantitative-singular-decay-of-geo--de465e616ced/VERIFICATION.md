@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Reproducibility and proof limits
 
-Run `python checker.py` after installing the versions of NumPy and SciPy specified in `requirements.txt`. The checker constructs principal triangular matrices, tests the exact inverse bidiagonal and tridiagonal Gram identities, compares independent SVD and tridiagonal eigensolutions, checks the proposed elliptic coefficient at three parameters, and checks the finite cutoff of the Hilbert–Schmidt identity. The completed checker passed 80 numerical assertions. Finite sections are corroboration only. The complete infinite singular-value asymptotic and its stated remainder follow from the block-counting and tail proof in `RESULT.md`; no independent audit is represented.
+`checker.py` uses NumPy and SciPy. It constructs finite triangular matrices, checks their inverse bidiagonal and tridiagonal Gram identities, compares SVD and tridiagonal eigensolutions, and runs finite tests concerning the leading elliptic coefficient and the Hilbert–Schmidt identity. The original verification record reports 80 numerical assertions. These checks do not establish the Fourier-mode decomposition for the infinite operator or validate the size or coefficient of the refined asymptotic. The infinite claims follow from the periodic form decomposition, the unitary Liouville change of variable, and the two-mode spectral estimate in `RESULT.md`.

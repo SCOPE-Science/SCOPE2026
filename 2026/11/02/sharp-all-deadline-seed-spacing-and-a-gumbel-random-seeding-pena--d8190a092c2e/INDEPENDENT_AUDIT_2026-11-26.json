@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:56.265447Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:22–67",
+        "VERIFICATION.md",
+        "check_cycle.py:12–110 (CTMC recurrence and product-Laplace, finite balancing and composition checks inspected, not executed)"
+      ],
+      "rationale": "While a nonempty gap persists, its susceptible interval has two distinct active boundary edges even for a one-vertex remainder or a single initial seed on a simple cycle. Memorylessness makes the successive waits Exp(2λ); disjoint edge sets give independent clearances conditional on the seed set. This yields the product of Gamma CDFs, with shape zero a point mass (including all vertices seeded and t=0). For z>0 the Poisson tail-to-mass ratio strictly decreases in the threshold, by termwise comparison of its factorial series. Hence Q_(m+1)/Q_m decreases strictly; a one-unit transfer between gaps differing by at least two strictly raises the product. Such transfers decrease the sum of squared gap sizes until every gap differs from any other by at most one. These balanced multisets have the same CDF and are realizable. Marking a uniformly chosen seed gives exactly N rooted realizations per ordered weak composition, so the uniform composition law and the exact inclusion–exclusion coefficient are valid without gap independence. For m=floor(d(log k+x))+1 and fixed j, the logarithm of the binomial ratio in the jth factorial moment is −j(log k+x)+O_j((log k)/d+(log k)^2/k+1/d). In particular the finite-population correction to the linear term is o(1); the source's informal linear-term wording means an additive o(1), not convergence to a fixed constant. The alternating Bonferroni bounds for no exceedance then converge to the Gumbel CDF. Conditional on max gap ≤2d log k, unit-exponential Chernoff tails at εd are bounded by 2 exp(−c_ε d/log k) per gap, since their shapes are at most 2d log k. A union bound is o(1) under the stated d/(log k)^2→∞; thus passage from gaps to scaled flooding time is valid at the Gumbel fluctuation scale. Balanced gaps are d+O(1) and the same bound gives concentration. After dividing the random time by d log k in rate-2λ units and the balanced time by d in the same units, both limits are 1, which proves the ratio under any coupling. These are analytic checks, not extrapolations from finite experiments.",
+      "residual_risks": [
+        "Only the homogeneous independent edge-clock process on a simple cycle is covered. The assumed sparse regime is sufficient, not shown necessary. Finite Laplace-transform checks at sampled arguments are not a proof of the general law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leskelä–Ngo have a random sparse graph sequence, limiting minimum degree at least three and a uniformly random single root.",
+          "Schlemm has maximum continuous circular spacings of independent uniform points, not the finite discrete clearance law.",
+          "The sequential activation paper studies a discrete cascade setting. The indexed biclique result treats another graph family and fixed-width-side seeding."
+        ],
+        "reasoning": "The available general FPP theorem excludes the deterministic degree-two setting. The continuous spacing theorem supplies a close asymptotic precedent but an independent bridge to discrete seeds and clearance, and the comparison to optimum, are required.",
+        "searches": [
+          "arXiv:1806.09568 Theorem 2.1 and graph hypotheses",
+          "arXiv:1405.6114 Theorem 2 and Corollary 1",
+          "arXiv:1809.06656 abstract",
+          "Resultary 090a4be49ef5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a284082074d, bb072e8b5145, 090a4be49ef5",
+        "arXiv:1405.6114",
+        "arXiv:1806.09568",
+        "arXiv:1809.06656 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schlemm centers the longest continuous gap on the same logarithmic scale; this verifies priority for that extreme-value phenomenon.",
+          "The frozen law additionally needs the discrete rooted-composition count and control of clearance-time fluctuations on the scale d. Its all-deadline strictness comes from log-concavity of the Poisson tails in the shape index."
+        ],
+        "reasoning": "A spacing limit does not by itself prove the stochastic placement optimum or justify replacing a discrete maximum of random Gamma sums by continuous spacings at the fluctuation scale. Conversely the sentinel or parallel-walk optimum does not imply this product law.",
+        "searches": [
+          "Schlemm arXiv:1405.6114 introduction and Corollary 1",
+          "Resultary bb072e8b5145 and 5a284082074d, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary bb072e8b5145 concerns balanced sentinel placement for first detection from one random initial case.",
+          "Resultary 5a284082074d studies independent synchronous walkers covering a directed complete cyclic multipartite graph; its objective is stochastic coverage but its dynamics and variable being balanced differ."
+        ],
+        "reasoning": "Exponential first-passage flooding is an equivalent language for the edge-clock process. But stopping at the first sentinel and requiring every vertex to be reached from a nonempty seed set are different extrema, and the walk model is not that first-passage system.",
+        "searches": [
+          "Resultary semantic searches for balanced SI cycle flooding, discrete spacing and stochastic coverage",
+          "Leskelä–Ngo arXiv:1806.09568 §2 (exponential first passage)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest returned results were 5a284082074d, bb072e8b5145 and 090a4be49ef5. None of the inspected Findings states the product of Erlang CDFs and its balanced spacing optimizer for this completion model."
+        ],
+        "reasoning": "No matching exact-law record was verified in the indexed results. A finite table of optimal placements would in any event not give the all-deadline characterization and the centered limit.",
+        "searches": [
+          "Resultary queries for the exact cycle CDF, strict balanced-gap optimizer, and Gumbel random-seeding penalty"
+        ]
+      },
+      "rationale": "The reviewed distinct claim is the exact finite completion law and strict all-deadline placement theorem for multiple simultaneous seeds on the simple cycle, together with the comparison to a uniform discrete seed set. The continuous maximum-spacing Gumbel law is established prior work and is not credited as a novelty. The closest catalogue balance theorem with the same graph and clock model optimizes first detection, not last clearance.",
+      "residual_risks": [
+        "The scoped literature and catalogue searches do not establish global priority. An older finite cycle-clearance identity or discrete uniform-spacing theorem in the broader first-passage or random allocation literature may exist.",
+        "A focused web-search result on a different ladder model is not evidence that no equivalent result exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct continuous-spacing precedent, not a finite or discrete clearance theorem",
+          "evidence": "n times the largest continuous uniform spacing minus log n converges to standard Gumbel.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.6114",
+          "material_read": "Introduction p. 1; Theorem 2 and Corollary 1 p. 5 (OA offsets about 650, 24200, 26800)",
+          "method": "OA PDF passage inspection",
+          "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+          "trigger": "Same centered Gumbel law for the largest circular gap"
+        },
+        {
+          "assessment": "Related but no dominating theorem in the inspected regime",
+          "evidence": "Uses a sparse random configuration sequence, minimum degree at least three, and a random root.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.09568",
+          "material_read": "Model and assumptions pp. 2–3; Theorem 2.1 p. 4 (around OA offsets 3200, 5700, 8700)",
+          "method": "OA PDF passage inspection",
+          "title": "First passage percolation in sparse random graphs with boundary weights",
+          "trigger": "Exponential FPP flooding"
+        },
+        {
+          "assessment": "Close analogue with a different random time and optimization object",
+          "evidence": "One uniformly chosen case and time to first arrival at any sentinel, rather than multiple initial sources and time until all vertices are reached.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Configured local mirror",
+          "title": "Uniform first-detection ranks and stochastic optimal sentinels on cycles",
+          "trigger": "Identical graph and stochastic balancing in the same process"
+        },
+        {
+          "assessment": "Different graph and propagation mechanism; no priority inferred",
+          "evidence": "Independent synchronous walkers on a directed cyclic multipartite graph; allocation across classes rather than simultaneous static seeds on a simple cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-balanced-cyclic-starts-optimize-parallel-walk-cover-times-on-dir--5a284082074d",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Configured local mirror",
+          "title": "Balanced cyclic starts optimize parallel walk cover times",
+          "trigger": "Same-day balance and all-time coverage analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strict placement theorem that simultaneously optimizes every deadline is stronger than optimizing a mean or a selected quantile. The exact law also links two natural benchmarks, balanced and uniform random placement, and quantifies their logarithmic separation rather than treating ordinary fluctuations and initial spacing as the same effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

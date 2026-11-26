@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The point-detector boundary equations are solved exactly with \(H=(p+q-pq)z+pq>0\) for \(p,q>0\), \(z\geq0\), and the derivative sign gives the unique optimum including the equality case. An independent symbolic manipulation of the two-boundary linear system verified the displayed rational and reciprocal forms with a zero algebraic remainder.
+# Independent mathematical audit
 
-Run `python check.py` with Python 3, NumPy and SciPy. The checker independently builds a two-direction finite-volume killed generator, solves its backward Poisson equation and compares the resulting mean against the exact continuum formula at three spatial resolutions for eight parameter sets; it also checks the exact global-optimum formula against a fixed grid of rates. During verification all checks succeeded. The finite-volume approximation converges as the step size shrinks; these finite tests are numerical consistency checks and do not prove the all-parameter assertion.
+## correctness
 
-A physical Monte Carlo event simulation is not required by the proof and was not used. Historical priority and independent external scientific audit remain unverified. This verification record does not certify those channels.
+PASS
+
+For any allowed finite reversal rate, each block of duration L/v has conditional probability at least exp(−λL/v) min(p,q) of absorption, giving a finite mean. The backward equations for dimensionless directional means give D'=−2 and S'=2zD, where D is their difference and S their sum. Writing D=1+c−2y and S=B+2z((1+c)y−y²), the transmitting survival boundaries at 0 and 1 reduce to pB+(p+2z)c=2−p and qB−[q+2(1−q)z]c=2−q. The determinant has nonzero magnitude 2H, H=pq+sz. Hence c=(q−p)/H and averaging S/2 gives B/2+z/6+zc/2, which simplifies to the stated mean. At z=0 this is (1/p+1/q−1)/2 as also obtained directly from the half-traversal mean plus repeated ballistic trials. Its derivative is 1/6−(p−q)²/(2H²). For unequal p,q the derivative strictly increases to 1/6; the minimum is interior exactly when the derivative at zero is negative, and is unique at zero at equality or below. At p=q the term with the squared difference is absent and the slope is strictly positive. The example gives z*=(3√3−1)/4 and T*=5/6+√3/4 with ballistic T=2. The positive p,q restriction is essential for the ballistic endpoint.
+
+## originality
+
+PASS
+
+The contribution supported here is the continuous circle's exact mean and sharp positivity boundary for a direction-dependent transparent detector. Telegraph transport, partial absorption, and persistence optimization have clear precedents. The closest discrete framework classifies internal-state-dependent traps and provides first-passage tools, but the inspected formulas do not give the stated continuous mean or threshold without evaluating a specific periodic two-state trap limit. The nearest indexed continuous threshold uses reflected failures and a fixed interior start.
+
+## value
+
+PASS
+
+The result separates a ballistic regime from a tumbling-assisted one for a natural transparent point trap, and identifies the exact balance between directional asymmetry and the reaction probabilities. The optimum and its transition are testable predictions; they show why asymmetry alone does not suffice and why results with reflection cannot automatically be used. This applies throughout the stated range of both reaction probabilities, not only at the illustrative parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

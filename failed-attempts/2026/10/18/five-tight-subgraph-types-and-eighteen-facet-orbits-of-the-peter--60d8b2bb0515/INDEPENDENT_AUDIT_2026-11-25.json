@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:58:11.380736Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Shortest-path molecules are convex combinations of edge molecules, and connectedness gives the nine-dimensional span. After quotienting constants in the polar, active edge differences span exactly when the tight subgraph is connected and spanning. A tight spanning tree forces integer coordinate differences and diameter two bounds normalized labels by 0,1,2. Every edge crossing parity is tight and the crossing graph is maximal bipartite when connected; conversely a connected spanning maximal bipartite subgraph contains all crossings of its bipartition and is realized by the indicator of one part. The five independent sets of size four are precisely the stars of the underlying five-set: a pairwise intersecting edge family without a common endpoint is at most a triangle. The stars and their pairwise intersections identify all graph automorphisms as S5. An independent replay at /workspace/branches/285169ca-5528-4168-9c66-ca026bf95a57/independent_petersen_replay.py tested all 511 nontrivial anchored cuts, all 32768 edge subsets and all 59049 ternary labelings. The logged output verifies all five subgraph rows and all 18 facet representatives and multiplicities, the fibers and histograms, and Burnside totals 600 and 4320. The frozen verify.py was inspected, not run; its cut loop actually tests 510 nontrivial cuts, omitting the singleton shore {0}. Its crossing graph is only a three-edge star with six isolated vertices, so the omission cannot affect the result, and the separate frozen edge-subset loop covers it as well.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higashitani–Jochemko–Michałek Theorem 3.1 gives integral unit-Lipschitz facet labelings with connected tight subgraphs. Chen–Davis–Korchevskaia Theorems 3 and 9 characterize facet subgraphs and parametrize their fibers. Braun–Bruegge Theorem 2.3 and Lemma 2.4 record the general criteria.",
+          "7e3c90bda400 gives the full symmetry census on the same object with an additional joint enumeration by distance and facet size, including 11 distance shells."
+        ],
+        "reasoning": "The general criteria alone are not the specific numeric census. The stronger graph-specific enumeration actually resolves the same facet orbits and adds geometric data.",
+        "searches": [
+          "Petersen graph symmetric edge polytope 1410 facets inradius contact facets",
+          "Petersen graph 135 connected spanning maximal bipartite subgraphs five S5 orbits",
+          "arXiv:1807.07678; arXiv:2107.12315; arXiv:2201.13303",
+          "Resultary 7e3c90bda400"
+        ]
+      },
+      "checked_sources": [
+        "Resultary af8a32ec1f59",
+        "Resultary 7e3c90bda400",
+        "arXiv:1807.07678",
+        "arXiv:2107.12315",
+        "arXiv:2201.13303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given a listed facet representative h, form T(h)={ij:ij is an edge and |h(i)−h(j)|=1}. This map is equivariant for S5 and reflection fixes each image. A facet orbit of size a maps onto exactly one mask orbit S5·T(h), say of size b, and contributes exactly a/b facets to each mask of that orbit.",
+          "Every connected spanning maximal bipartite subgraph occurs from its 0/1 indicator (also the facet-subgraph characterization in Theorem 3)."
+        ],
+        "reasoning": "Deduplicate the mask orbits obtained from the 18 images; sum their sizes for the 135 masks and sum a/b per mask across source orbits to get the fibers. This finite projection and histogram extraction requires no additional unknown case or search universe, so the subgraph and fiber census does not survive as a distinct remainder.",
+        "searches": [
+          "Resultary 7e3c90bda400, representatives and complete action",
+          "Chen–Davis–Korchevskaia arXiv:2107.12315, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original Finding of 7e3c90bda400 defines the same convex hull of Petersen edge differences in the zero-sum space. Its orbit decomposition uses the action of S5 and p ↦ max(p)−p, which is normalized central reflection.",
+          "The table encodes labels by their zero- and two-labeled pair sets in one-based coordinates. Subtracting one from ground-set labels and forming ten-coordinate words, the independent replay verified matching orbit sets and sizes for all 18 rows."
+        ],
+        "reasoning": "The transportation ball and the symmetric edge polytope coincide for the unit-edge shortest-path metric. Changing the alphabet or encoding a label vector by two sets does not distinguish the normal or its orbit.",
+        "searches": [
+          "Petersen symmetric edge polytope eighteen facet orbits S5 global reflection",
+          "Petersen graph symmetric edge polytope 1410 facets symmetry orbits maximal bipartite subgraphs",
+          "Resultary 7e3c90bda400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "af8a32ec1f59 records 1410 polar vertices and identifies 30 contact facets, not the entire orbit table. 7e3c90bda400 gives the 18 exact representatives and orbit sizes, with the tight-edge histogram 280,600,420,110 as facet sizes and further metric data."
+        ],
+        "reasoning": "The aggregate or the contact list would not determine the orbits. The second table supplies each complete orbit and its multiplicity rather than merely a total with matching parameters.",
+        "searches": [
+          "Petersen facets tight subgraphs fibers orbit sizes maximal bipartite cuts",
+          "Resultary af8a32ec1f59 Verification at offset 5800",
+          "Resultary 7e3c90bda400 Orbit decomposition at offset 4500"
+        ]
+      },
+      "rationale": "The original properly credits the known aggregate 1410. The stronger distinct Resultary record 7e3c90bda400 explicitly lists all eighteen symmetry orbits on the same polytope, with the same representatives up to relabeling and reflection, as well as an additional metric refinement. Its complete list mechanically yields the tight-subgraph and fiber tables by an equivariant projection. This is statement-level coverage, not a claim about discovery, priority or derivational dependence: the catalogue path dates differ, and they do not establish those matters by themselves.",
+      "residual_risks": [
+        "The review does not establish publication priority, authorship or whether one catalogue record was derived from the other.",
+        "Unindexed earlier coverage may exist; the conclusion relies on positive exact coverage, not on unsuccessful literature searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact facet-orbit coverage with further geometric information; implies the tight-subgraph census by projection",
+          "evidence": [
+            "Rows encode zero and two sets of each minimum-zero label under S5 and central negation. Every one of the 18 rows matches an entire frozen orbit."
+          ],
+          "identifier_or_url": "Resultary 7e3c90bda400",
+          "material_read": "Finding and its joint table at offsets 0–1839; Orbit decomposition and 18-row certificate at offsets 4500–7516",
+          "method": "Local Resultary mirrored RESULT.md and an independent conversion/comparison of its orbit table",
+          "title": "Complete facet-distance and face-size stratification of the Petersen symmetric edge polytope",
+          "trigger": "Same graph, polytope and full 18-orbit theorem"
+        },
+        {
+          "assessment": "Known aggregate and contact data; not an exact full classification in these passages",
+          "evidence": [
+            "Certifies 1410 polar vertices, equivalently facets, and identifies 30 tangent facets."
+          ],
+          "identifier_or_url": "Resultary af8a32ec1f59",
+          "material_read": "Finding and Verification passage at offset 5800",
+          "method": "Local Resultary mirrored RESULT.md",
+          "title": "Exact inradius and contact-facet rigidity of the Petersen symmetric edge polytope",
+          "trigger": "Petersen-specific aggregate and contact facets already cited in frozen record"
+        },
+        {
+          "assessment": "General facet normalization and characterization, not this evaluated census",
+          "evidence": [
+            "Integer-valued Lipschitz labels with connected tight edges give the facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "Theorem 3.1, p. 6, offset 21543",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Primary facet criterion for the same class of polytopes"
+        },
+        {
+          "assessment": "Supplies general projection and fiber tools; the exact facet list making projection direct is in 7e3c90bda400",
+          "evidence": [
+            "Theorem 3 identifies spanning maximal bipartite subgraphs; Theorem 9 parametrizes facets with a given subgraph using cut-set vectors and cycle equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Theorems 3 and 9, offsets 22200 and 36254",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Primary maximal-bipartite characterization and method for fibers"
+        },
+        {
+          "assessment": "General facet and bipartite-subgraph criteria in the passages compared",
+          "evidence": [
+            "Records the generic unit-difference criterion and maximal connected bipartite characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.13303",
+          "material_read": "Theorem 2.3 p. 3 and Lemma 2.4 p. 4",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Facets of Symmetric Edge Polytopes for Graphs with Few Edges",
+          "trigger": "Graph-family facet enumeration and potentially covering characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Petersen transportation ball is a natural benchmark and a genuinely unknown exact 18-orbit census would be useful. Given the inspected complete orbit list, however, the remaining tight-edge and fiber displays are immediate finite readouts of already classified data. Convenient alternative tables and the independent replay are useful documentation but do not leave an independently useful unknown invariant in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

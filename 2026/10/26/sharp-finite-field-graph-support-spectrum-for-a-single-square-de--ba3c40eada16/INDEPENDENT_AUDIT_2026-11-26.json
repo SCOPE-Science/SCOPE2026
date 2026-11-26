@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:27.571689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; verify_profiles.py (inspected, not executed)",
+        "Independent finite replay: python3 /workspace/reproductions/boundaries.py, finite_field(); direct F4 frame enumeration for each nonzero λ and every pair of projected source vectors, comparing unordered marked adjacency and row counts"
+      ],
+      "rationale": "Independence of the n−1 square representatives makes the product of distinct basis vectors vanish coefficientwise. In every singleton coordinate exactly one column is nonzero; the singleton rows must use distinct columns by invertibility. The other two columns span U and are B-orthogonal, so neither is isotropic and the nondegenerate B forces all remaining U-components to vanish. Perpendicularity is an involution of q+1 projective lines with exactly 2 or 0 fixed points in odd characteristic according to −λ, and exactly 1 in even characteristic by bijectivity of squaring. A nonzero v_i receives one target coordinate precisely on its own nonisotropic orbit; hit orbits are separated by their nonempty disjoint one-arrow index sets, while all unhit orbits coincide in support. The two sources in U have identical support and the singleton-target supports are fixed, so the count survives the common swap and is for the whole marked graph. Choosing u_1=e_1 and u_i=e_i+v_i on distinct remaining orbits makes t=min(n−1,N) with independence automatic. This proves the maximum, including N=1; the F5 example has the stated distinct outdegree multisets.",
+      "residual_risks": [
+        "The frozen checker covers only selected prime fields and extremal witnesses; the separate F4 check is finite. The proof, not these checks, gives every prime power and dimension. No classification of unmarked isomorphism classes or arbitrary corank-one dependencies is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boudi et al. give a general rank-one-square block structure, block basis changes and the bilinear form criterion for extending a natural family.",
+          "Alshatnawi et al. establish invariance of graph balance, allowing the associated graphs themselves to vary."
+        ],
+        "reasoning": "Neither theorem classifies the zero coordinates of all independent square representatives in varying orthogonal frames, or establishes the attainable number of distinct marked adjacency patterns.",
+        "searches": [
+          "arXiv:2006.14460, pp. 6–8",
+          "arXiv:2607.15154, Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.14460",
+        "arXiv:2610.22248",
+        "arXiv:2607.15154",
+        "Resultary 0462b1e51370, b82d0cd6a8f9, c81c76269fc1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known orthogonal moduli provide at most N basis choices, not a lower bound when many frames give identical graph support.",
+          "The two-dimensional count has no issue of selecting several independent square directions that simultaneously maximize orbit hits."
+        ],
+        "reasoning": "A sharp min(n,N) needs both the separation/collapse mechanism on the entire projection list and a realization satisfying independence; it is not the N bound specialized, nor the graph count for an isolated binary block applied independently to different sources.",
+        "searches": [
+          "arXiv:2006.14460, Corollary 2.13 and Proposition 2.16",
+          "Resultary ...b82d0cd6a8f9, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Natural-basis changes in this stratum reduce to orthogonal frames on one block, hence to projective perpendicular-line pairs after scaling and swapping.",
+          "Question 14 is about natural-basis classes, not their image in support patterns; Question 30 asks about simultaneous graph realization."
+        ],
+        "reasoning": "Basis classes and marked support classes are not equivalent: when two or more orbits are unhit they all have the same support. The hit/unhit quotient by the projected square lines, not just the parametrization, supplies the count.",
+        "searches": [
+          "arXiv:2006.14460, Theorem 2.11, Corollary 2.13, Proposition 2.16",
+          "arXiv:2610.22248, Questions 14 and 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 binary graph-spectrum finding assumes dim E²=1, not dim E²=n−1 for n≥3.",
+          "The November 2 all-field two-dimensional finding has the same isotropic-line mechanism but only one distinct source square and no singleton blocks; the other November 2 comparison is binary square-rank-one."
+        ],
+        "reasoning": "These are genuine adjacent graph-spectrum records, but none enumerates the aggregate support across independently marked sources in the assigned stratum. Later record dates are not evidence of earlier priority.",
+        "searches": [
+          "Local Resultary comparison: finite-field natural-basis graph spectra, square-dependence pair and orthogonal-basis counts",
+          "2026/10/25/...0462b1e51370; 2026/11/2/...b82d0cd6a8f9; 2026/11/2/...c81c76269fc1"
+        ]
+      },
+      "rationale": "The structural block theorem and orthogonal parametrization are prior results, and the projective basis count follows by a fixed-point calculation. The supported distinct claim is the marked graph-support spectrum for a sole square-dependence pair with independent representatives, and its sharp extremum over realizable algebras. The strongest inspected comparisons do not cover that classification.",
+      "residual_risks": [
+        "A bounded literature and catalogue comparison cannot rule out an unindexed equivalent graph-support enumeration. No priority claim is made for the orthogonal block parametrization or the projective fixed-point count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural input, not support quotient",
+          "evidence": [
+            "Unique rank-one-square block decomposition for nondegenerate algebras, with block form and nondegenerate symmetric form on each block."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.14460",
+          "material_read": "PDF pp. 6–8, Theorem 2.11, Corollary 2.13, Proposition 2.16",
+          "method": "OA primary PDF, located theorem passages",
+          "title": "Natural families in evolution algebras",
+          "trigger": "Underlying general basis-change theorem"
+        },
+        {
+          "assessment": "Relevant motivation; different scope",
+          "evidence": [
+            "Q14 asks for bases modulo scaling and permutation; Q30 asks when prescribed digraphs can be realized in one algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "PDF pp. 22 and 24, Questions 14 and 30",
+          "method": "OA primary PDF, exact questions",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Natural-basis moduli and graph realization motivation"
+        },
+        {
+          "assessment": "Balance rather than pattern enumeration",
+          "evidence": [
+            "Graph balance is unchanged under choice of natural basis even though the graphs can differ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.15154",
+          "material_read": "PDF p. 11, Theorem 6.1",
+          "method": "OA primary PDF, exact theorem passage",
+          "title": "On the Grothendieck ring of finite-dimensional non-degenerate evolution algebras",
+          "trigger": "Basis-independent graph invariant"
+        },
+        {
+          "assessment": "Different square-rank stratum",
+          "evidence": [
+            "Classifies natural-basis digraph isomorphism types for nondegenerate binary square-rank-one algebras."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-natural-basis-graph-spectra-of-binary-rank-one-evolution-a--0462b1e51370",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact natural-basis graph spectra of binary rank-one evolution algebras",
+          "trigger": "Closest earlier indexed graph-spectrum record"
+        },
+        {
+          "assessment": "Same binary block mechanism; dimension two, not the multi-source theorem",
+          "evidence": [
+            "Counts the two-dimensional basis classes and graph outcomes with no additional square directions projecting to the block."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-all-field-natural-basis-graph-counts-for-two-dimensional-rank-on--b82d0cd6a8f9",
+          "material_read": "RESULT.md finding for basis and graph class counts",
+          "method": "Local Resultary mirror",
+          "title": "All-field natural-basis graph counts for two-dimensional rank-one evolution algebras",
+          "trigger": "Closest orthogonal-moduli comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and examples; survey arXiv:2610.22248, Questions 14 and 30"
+      ],
+      "rationale": "The graph of an evolution algebra depends on its natural basis. On a minimal nontrivial dependence stratum, the invariant specifies exactly which basis moduli genuinely change the graph, including when different moduli collapse to one marked pattern. The attained bound limits simultaneous marked realizations by both dimension and field size, independently of the sizes of the basis-change groups. This is a useful complete classification in the direction of the survey questions, not a solution to unrestricted graph realization.",
+      "residual_risks": [
+        "Removing the marking can identify distinct patterns; no general unmarked count follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

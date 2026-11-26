@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:37:39.601803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the companion matrix A, A^4 is not I mod 13 and A^14 = −I mod 13, while A^28 = I mod 13; all proper divisors of 28 divide 4 or 14. Writing U=A^28=I+169B, the checked seed is B ≡ [[6,6],[6,7]] mod 13. For d>0, the coefficients of the higher terms of (U^d−I)/(169d) have valuation at least 2(j−1)−v_13(j)>0 for j>=2. Thus the unit test for a branch difference is (A^rB)_12 ≡ 6(P_(r+1)−P_r). Vanishing contradicts the Pell norm (P_(r+1)−P_r)^2−2P_r²=(−1)^r, since 6 and 7 are nonsquares mod 13. This proves exact valuation, for all r and for either order of u,v after swapping. Each branch is consequently bijective onto its seed coset at finite precision; the 28 seeds have four zeros and two of each other class. A scalar period forces P_T=0 and P_(T+1)=1 modulo the modulus, hence A^T=I; the matrix order mod 13 and the valuation at r=0 force the predicted divisor of T. The binomial bound also proves that this period works, including k=2. The all-level images give the closure and normalized measure 13/169, and periodicity gives infinitely many representatives. Independently, the recurrence-only replay in /workspace/branches/e657e1e7-49a8-41be-bfc9-eada841436a5/ recovered the seed mod 2197, all residue classes and counts at levels 2–6, return and prime-divisor reductions of the proposed period, and the valuation in 1120 bounded pairs. This replay did not use the frozen script and does not substitute for the proof at arbitrary precision.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 searchable abstract states complete characterization of the p-adic order of balancing numbers; the 2023 abstract asks for moduli giving complete residue systems in balancing and Lucas-balancing sequences.",
+          "The frozen comparison identifies Panda–Rout's 13 exception and OEIS A238736 (balancing-Wieferich primes); 13² divides P_14, as independently checked."
+        ],
+        "reasoning": "Period lifting explains the state order but not scalar collision counts. A valuation of a term is not by itself a distribution theorem. A complete-residue-system theorem cannot be assumed to classify the non-full images or to assign multiplicities. The two closest broader sources were not inspected at theorem level.",
+        "searches": [
+          "On the Periodicity of Lucas-Balancing Numbers and p-adic Orders of Balancing Numbers, doi:10.1007/s40995-020-00849-9",
+          "Complete residue systems in balancing and Lucas-balancing sequences, doi:10.1063/5.0137875",
+          "Periodicity of Balancing Numbers, doi:10.1007/s10474-014-0427-z"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work; VERIFICATION.md; verify_pell13.py",
+        "Resultary exact self-match …--f12ac19e6e2f and distinct …--5a09b024255a, …--3e874987f16b summaries",
+        "doi:10.1186/s13660-017-1599-1 pp. 1–2; limited material for doi:10.1007/s40995-020-00849-9, doi:10.1063/5.0137875, doi:10.1007/s10474-014-0427-z and OEIS A238736/A000129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=r+28u, m=r+28v, u>v, Binet gives P_n−P_m=P_(14(u−v)) Q_(r+14(u+v)), with Q_s=2(P_(s+1)−P_s). The norm argument makes Q_s a 13-unit for every s. Thus a standard valuation formula for B_(7(u−v)) immediately gives the claimed difference law once this factorization and unit test are made.",
+          "This reduction credits the known single-index theory and prevents attributing a new general lifting theorem to the record. The result uses unit behavior across all branches and resolves actual seed collisions, yielding a different scalar output than the known period and single-index laws alone."
+        ],
+        "reasoning": "The new content being credited is the scalar all-precision classification, not independent priority for ingredients or the abstract idea of p-adic lifting. The best accessible competing claims do not give an exact scalar-image or fiber theorem specialized here.",
+        "searches": [
+          "2020 p-adic orders of balancing numbers, exact same DOI lawful access attempt",
+          "2018 On Pell, Pell-Lucas, and balancing numbers, Binet formulas",
+          "2023 Complete residue systems in balancing and Lucas-balancing sequences, abstract and lawful copy attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karadeniz Gözeri, doi:10.1186/s13660-017-1599-1, p. 2, gives the balancing Binet formula with α=1+√2, β=1−√2 and exponent 2n; it identifies B_n=P_(2n)/2.",
+          "Resultary same-day …--5a09b024255a treats Pell–Lucas at 2, with different odd/even branches; …--3e874987f16b treats Pell at 7 with a nested critical branch. The exact indexed 13-adic hit is the assigned record itself."
+        ],
+        "reasoning": "Search equivalences include the Lucas sequence U_n(2,−1), the scalar projection rather than the period of a matrix state, and the balancing subsequence. Even-index balancing completeness alone does not give the scalar image of both parities or the fibers. Distinct 2-adic and 7-adic records do not imply this exceptional 13-adic classification.",
+        "searches": [
+          "Resultary: exact 13-adic Pell scalar residue spectrum, fibers, branch isometry, Pell–Lucas",
+          "Web: Pell 13 adic density residues sequence image p-adic closure Lucas sequences Pell 169 13 Wieferich Rowland scalar distribution balancing Patel Panda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the frozen record itself (…--f12ac19e6e2f). A238736 catalogues the exceptional primes, not the scalar residue fibers in the evidence reviewed; A000129 is the base sequence."
+        ],
+        "reasoning": "A table of exceptional primes or individual Pell terms can give the finite seed but does not encode stable covering and multiplicities through all powers. Neither isolated finite agreement nor the self-match is independent prior coverage.",
+        "searches": [
+          "Resultary 13-adic Pell image and fiber multiplicities exact seed classes",
+          "OEIS A238736 balancing Wieferich primes and A000129 Pell numbers"
+        ]
+      },
+      "rationale": "Pass for the exact scalar support, stable fiber counts and their uniform branch explanation at 13, not for the Pell–Wieferich anomaly, the single-index divisibility law, or the recurrence period alone. The strongest relevant comparisons include balancing valuation and completeness results since balancing numbers are half the even Pell subsequence. A single-index valuation law can shorten the branch proof via the Pell addition formulas, but the sources inspected do not establish the scalar distribution across the even and odd branches, or the resolved multiplicities. This is a best-of-knowledge assessment with explicit access risk.",
+      "residual_risks": [
+        "The 2020 valuation theorem and 2023 complete-residue-system theorem could not be checked in full. Their summaries are not negative evidence.",
+        "Prior Lucas sequence interpolation results may contain an equivalent scalar theorem; unchecked priority is not asserted. Familiar period and single-index valuation facts are not treated as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the subsequence reduction; inspected passage is not a residue-fiber classification",
+          "evidence": [
+            "B_n=(α^(2n)−β^(2n))/(4√2), with α=1+√2, β=1−√2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-017-1599-1",
+          "material_read": "pp. 1–2, definition of Pell–Lucas numbers and Binet formulas for balancing and Lucas-balancing",
+          "method": "OA publisher PDF, located passage at offset 5180–5845 on p. 2",
+          "title": "On Pell, Pell-Lucas, and balancing numbers",
+          "trigger": "Exact relation to potentially stronger balancing-sequence results"
+        },
+        {
+          "assessment": "Related valuation theory; no whole-document noncoverage verdict",
+          "evidence": [
+            "Abstract claims complete characterization of p-adic orders of balancing numbers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40995-020-00849-9",
+          "material_read": "Searchable abstract only; no full theorem retrieved",
+          "method": "Primary lookup, OA direct and VPN retrieval, DOI alternate-copy search",
+          "title": "On the Periodicity of Lucas-Balancing Numbers and p-adic Orders of Balancing Numbers",
+          "trigger": "Could imply the needed single-index step or contain a stronger congruence theorem"
+        },
+        {
+          "assessment": "No inspected theorem settles the 13-specific scalar image or fibers, but full overlap risk remains",
+          "evidence": [
+            "Abstract describes moduli for which balancing or Lucas-balancing sequences contain complete residue systems."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/5.0137875",
+          "material_read": "Searchable abstract only; full AIP paper unavailable in bounded lawful attempts",
+          "method": "Primary publication search and OA attempt",
+          "title": "Complete residue systems in balancing and Lucas-balancing sequences",
+          "trigger": "Closest title for scalar images under the even-index reduction"
+        },
+        {
+          "assessment": "Period-anomaly context is prior and not counted as new",
+          "evidence": [
+            "13 is a balancing-Wieferich prime; direct recurrence confirms P_14=13²·478."
+          ],
+          "identifier_or_url": "doi:10.1007/s10474-014-0427-z; https://oeis.org/A238736",
+          "material_read": "Frozen §Relationship to prior work and accessible search material; requested full Panda–Rout passage unavailable",
+          "method": "Citation cross-check and bounded OA attempts",
+          "title": "Periodicity of Balancing Numbers; Balancing Wieferich primes",
+          "trigger": "Prior phenomenon at exactly the same prime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "13 is the first Pell–Wieferich obstruction, not an arbitrary numerical example. At this prime period stabilization at the first two levels does not tell how much scalar coverage is lost, whether further lifts are full, or how many indices realize any specified value. The result gives exactly this reusable local information, including the exceptional fourfold zero-coset fiber, and identifies the uniform noncancellation that prevents any new loss at higher precision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

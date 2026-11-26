@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:14:33.916458Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A site is first covered at the earliest first-attempt time among its k incident starts, because that attempt must be accepted. A start can be accepted only once, and at its first attempt, exactly when it attains such a minimum for some site. This verifies the local-clock representation on the infinite lattice and the clock window [x-2k+2,x+k-1]. Sets separated by at least 3k-2 use disjoint independent coordinates. At 3k-3 the sole shared clock is U_{k-1}, fixed by reflection, so the covariance is the variance of the common conditional mean. Only start 0 on the left can see the shared clock. Given U_0=s≤t, switching the shared clock from earlier than s to later changes acceptance precisely when starts 1,…,k-2 are all later and start -1 is earlier: the latter covers all sites before k-1, whereas if it is later, site k-2 already certifies acceptance. Integration against e^{-s} yields g_k(min(u,t)) plus a constant. The derivative g'_k=e^{-(k-1)s}(1-e^{-s}) gives strict positivity even for arbitrarily small positive times. Multiplying g'_k and 2g_k g'_k by the exponential survival factor and integrating reproduces the two finite-time moments. Independent symbolic integration in the uniform variable e^{-U} (python /workspace/independent_checks.py 5) verifies the jammed simplification and k=2,3,4 values; the leading k^{-5} term follows from degrees. The conclusion on decay is about covariance, not a computed Pearson correlation coefficient. No uploaded verifier was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source records Krapivsky and Viot–Krapivsky results on one-site/aggregate quantities and reports that the latter identifies two-point correlations as a separate direction.",
+          "The indexed six-mer crossover f99dcea75b5f is a single/double-occupation and jammed one-site law."
+        ],
+        "reasoning": "No compared available statement gives a general pair-covariance law specializing to these coefficients. General disjoint-clock locality gives an upper bound on dependence, not sharpness or the outer covariance.",
+        "searches": [
+          "arXiv:2209.03992 and arXiv:2410.12373 (targeted OA attempts and recorded comparisons)",
+          "Resultary: all-length spatial correlations and finite-dependence cutoff"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and VERIFY.py",
+        "Resultary 5023e9240d95, 42c7745cb385, 27b43bfd218a and f99dcea75b5f",
+        "Recorded comparisons to arXiv:2209.03992 and arXiv:2410.12373; targeted OA attempts unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The site count is the sum of accepted-start indicators, not just time to first coverage. At the final lag, conditional independence leaves a shared-clock variance requiring the specific pivotal-event probability.",
+          "A one-site distribution does not determine this coupling; the dimer computation alone does not supply its dependence on k."
+        ],
+        "reasoning": "The known model, first-arrival representation and small-k analogues are inputs, not direct coverage of the all-k finite-time covariance or its sharp fifth-power decay.",
+        "searches": [
+          "Comparison to the indexed dimer profile, trimer indicator table, and documented published RSC one-site formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match ends 5023e9240d95 and is the assigned record.",
+          "The earlier trimer entry 27b43bfd218a has a six-step cutoff for the triple-coverage indicator at saturation, not for the total number retained at a site indexed by arbitrary k and t."
+        ],
+        "reasoning": "The indicator of multiplicity three cannot recover the two-site cross-moments needed for multiplicity itself; common first-arrival representations do not identify these statistics.",
+        "searches": [
+          "Resultary: random sequential covering multiplicity covariance, first arrivals, outermost dependence and dimers/trimers",
+          "Focused general literature search on k-mer covering and last-lag multiplicity covariance (returned unrelated hits)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The displayed all-time dimer profile 42c7745cb385 agrees on positive lag 3 and zero beyond it; the frozen theorem credits known jammed dimer 1/45 and does not claim k=2 novelty.",
+          "The trimer table 27b43bfd218a is for the triple indicator, not full multiplicity; k=3 and k=4 full-multiplicity values checked here are 17/5040 and 11/12600."
+        ],
+        "reasoning": "The strongest same-day distinct hit directly overlaps at k=2 only; its date does not establish priority and it does not cover the stated new range k≥3.",
+        "searches": [
+          "Resultary: exact last-lag covariance profiles, dimer and trimer numerical cases"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-k≥3 full-multiplicity last-lag covariance, including its finite-time strict positivity and jammed asymptotic. First-arrival locality, dimer results, trimer-indicator results and one-site laws are credited separately. The access limits below do not establish priority or absence.",
+      "residual_risks": [
+        "Primary and closest distinct mirror full texts were not independently accessible, so the statement comparison is bounded by summaries and frozen source locators.",
+        "An unindexed general local-minimum covariance formula could encode this last-lag coefficient.",
+        "The same-day date of the dimer overlap provides no priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits process and recorded single-site/aggregate results; unable to rule out additional material by full-text inspection",
+          "evidence": "Accepted-if-new-coverage model and documented scope of the quantities studied",
+          "identifier_or_url": "https://arxiv.org/abs/2209.03992",
+          "material_read": "Statement comparison recorded in frozen RESULT.md:87–98 and AUDIT.json; independent full text unavailable",
+          "method": "Targeted lawful OA retrieval attempted",
+          "title": "Random Sequential Covering",
+          "trigger": "Foundational same-model work"
+        },
+        {
+          "assessment": "Recorded one-site and finite-closure results do not give the submitted covariance; unavailable text not treated as exclusion",
+          "evidence": "Frozen comparison explicitly describes pair correlations as a separate direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.12373; DOI 10.1088/1742-5468/ad930b",
+          "material_read": "Frozen comparison at RESULT.md:87–98 and AUDIT.json (has the pair-correlation locator); independent HTML/PDF retrieval failed",
+          "method": "Targeted lawful OA retrieval of identified preprint and known preprint pages",
+          "title": "Random sequential covering of a one-dimensional lattice by k-mers",
+          "trigger": "Same lattice model for variable k; conceivable general two-point formula"
+        },
+        {
+          "assessment": "Covered k=2 case, outside the asserted new range",
+          "evidence": "Dimer multiplicity has positive lags 1 and 3, negative lag 2, zero beyond 3.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-alternating-coverage-correlations-in-sequential-dimer-d--42c7745cb385",
+          "material_read": "Indexed statement; requested mirror not accessible",
+          "method": "Resultary and targeted mirror retrieval",
+          "title": "All-time alternating coverage correlations in sequential dimer deposition",
+          "trigger": "Direct same-day special-case overlap"
+        },
+        {
+          "assessment": "The displayed theorem concerns the saturated triple indicator, not total multiplicity",
+          "evidence": "Sharp six-dependence and sign-changing pair correlations of the indicator, with a count CLT.",
+          "identifier_or_url": "2026/11/8/SCOPE-oscillating-spatial-correlations-and-exact-gaussian-fluctuations--27b43bfd218a",
+          "material_read": "Indexed statement and frozen full-text comparison; independent mirror not accessible",
+          "method": "Resultary and targeted mirror retrieval",
+          "title": "Oscillating spatial correlations and exact Gaussian fluctuations in trimer sequential covering",
+          "trigger": "Earlier identical lag at k=3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Locating the last possible dependence by clock windows is cheap; showing that this boundary is attained for every positive time and quantifying how weak that farthest coupling becomes is more informative. The explicit all-length covariance and fifth-power saturation scale distinguish an expanding interaction range from the fast falloff of its edge strength, and give an exact benchmark for two-point calculations beyond available one-site laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

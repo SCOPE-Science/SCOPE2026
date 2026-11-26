@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:48.264423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for repairs/4, not the frozen near-conjecture framing. The frozen numerical bounds are valid, but its assertion that the coefficient-one conjecture remains open and its alleged loss when counting period slots miss a stronger implication and a converse. For each root length p, shortened outputs at two square starts agree exactly when their intervening p-shift comparisons are all matches. This identifies the outputs with maximal p-match intervals of length at least p. Fine–Wilf forces the least period d of their factors to divide p, and a d-extension would be a p-extension, so these factors are runs. Conversely, on a d-run any p multiple of d with 2p<=|R| preserves the same boundary mismatches: each p-extension compares the same letter as the d-extension by periodicity inside the run. Thus every slot contributes exactly one output, with no cross-p collisions because output lengths differ. The prior disjoint-start inequality sum_R floor(e(R)-1)<=n-1 and floor(e(R)/2)<=floor(e(R)-1) for e(R)>=2 prove the repaired universal bound, also for n=1. The uploaded verifier was inspected and not run. The independent limited replay of the original proof checked 510 binary and 1,092 ternary words; the independently written repaired verifier checks exact equality and both bound steps on 4,094 binary and 3,279 ternary words (`python3 /workspace/repairs/4/verify.py`, verified CHECK_OK). The proof, not enumeration, supplies the unrestricted result. The corrected RESULT.md, VERIFICATION.md and verify.py are present; the original and its verification status front matter are preserved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai et al. already establish the stronger floor(e-1) charge bound. The frozen structural inequality itself, without the repaired converse, implies coefficient one by comparing the two integer charges.",
+          "Czarkowski proves the upper bounds 2.2n (binary) and 2.3n (general) for the sum of run exponents; multiplying by one half verifies the weaker numerical bounds in the frozen record."
+        ],
+        "reasoning": "The earlier runs theorem supplies the dominating run statistic, but its object is not a set of distinct square-contraction outputs. The corrected contribution is the link to that output set, stated as an exact equality and applied to the existing conjecture. It is not a new improvement of the sum of run exponents.",
+        "searches": [
+          "Bannai et al., arXiv:1406.0263 pp. 3–4, Lemma 8 and proof of Theorem 10",
+          "Czarkowski, doi:10.4230/LIPIcs.CPM.2026.23, Theorems 30–31",
+          "Targeted literature search on resolution of Grytczuk–Stankiewicz Conjecture 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py; repaired RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2011.12822; arXiv:1406.0263; arXiv:2204.10204; doi:10.4230/LIPIcs.CPM.2026.23",
+        "Gusfield–Stoye author-copy retrieval (limited); Resultary 4884ed822a73, 8616b2a98e55, 8856539f3341, e78ed24d338c, 0aca79ccebc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bannai's charged start positions are associated to runs, not to contraction outputs; the repaired bijection identifies output equivalence classes with precisely the allowed period labels. In particular, two occurrences of the same factor do not suffice to determine whether their outputs collide.",
+          "The floor(e-1) estimate and e/2<=e-1 give the n-1 bound directly once the link has been established. There is no novelty claim for that numerical implication conditional on the link."
+        ],
+        "reasoning": "The exact family and out-degree consequence are not mechanically obtained from a bound on distinct square factors or from the inspected statement of the run charge bound alone; the two-way equivalence is the additional input. The stronger bound is the appropriate consequence, rather than retaining only the frozen 1.15n and 1.10n estimates.",
+        "searches": [
+          "Compare arXiv:2011.12822 Conjecture 3; arXiv:1406.0263 Lemma 8 and Theorem 10 proof; arXiv:2204.10204 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each repaired class has a unique rightmost square occurrence at its root length p: its following character, if any, does not allow a unit right shift. This is the potentially equivalent right-branching formulation, and not the count of distinct square factors.",
+          "Grytczuk–Stankiewicz, pp. 9–10, explicitly distinguish square occurrences, square factors and shortened outputs; their Conjecture 3 is about the latter. Brlek–Li Theorem 1 concerns distinct square factors.",
+          "The identified stable author copy of Gusfield–Stoye was reached, but its text encoding was unusable for comparing the potentially equivalent representation. This is not a scientific comparison of that paper's full statement."
+        ],
+        "reasoning": "The word 00100 verifies that the reduced-word count need not equal the vocabulary of square factors. A prior explicit count or uniform n-1 bound for all nonshiftable rightmost tandem occurrences, including nonprimitive periods and end-of-word occurrences, could cover all or part of the repaired finding; counting only primitive roots or only distinct factors would not.",
+        "searches": [
+          "Local Resultary: distinct one-step square-reduction outputs, maximal match intervals and exact run-slot equality",
+          "Primary literature lookup: number of branching tandem repeats, right-branching squares, maximal periods and nonprimitive squares",
+          "Exact-title lookup for Gusfield–Stoye, Linear time algorithms for finding and representing all the tandem repeats in a string"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e78ed24d338c counts length-two insertions on binary words avoiding 11; 0aca79ccebc0 counts reverse-complement insertion descendants. Resultary 4884ed822a73 studies single-letter deletion witnesses at length 13; 8616b2a98e55 concerns the run-exponent sum with three 1s; 8856539f3341 counts distinct square factors on five-run binary words.",
+          "No inspected catalogue statement supplies the repaired exact out-degree formula or the conjecture bound. The distinct 4884ed822a73 record was checked despite the shared date."
+        ],
+        "reasoning": "Changing the operation (insertion, single-letter deletion, reverse complement), imposing a fixed composition, or counting a different object prevents these from covering the general square-reduction output invariant. The known conjecture is a target, not a tabulated or proved value.",
+        "searches": [
+          "Local Resultary: square-reduction outputs, run exponents, exact length-two tandem-duplication spectrum and one-step distinct descendants"
+        ]
+      },
+      "rationale": "The supported distinct claim in the repair is the exact correspondence for distinct one-step shortened words, together with its implication of Conjecture 3 (in fact the n-1 bound). The proof credits the entire Lyndon charge bound to Bannai et al. and does not claim the run theory or the distinct-squares bound as new. No equivalent result for the repaired out-degree claim was established in the inspected literature or matching catalogue records. The most plausible alternate tandem-repeat formulation remains a named, material literature risk, not proof for or against originality.",
+      "residual_risks": [
+        "The strongest possible alternate-formulation risk is an exact or stronger published count of right-branching tandem occurrences for all periods, including nonprimitive roots. The relevant Gusfield–Stoye publication could not be resolved at statement level by the bounded alternate-copy attempts.",
+        "The targeted conjecture-resolution and catalogue checks are not exhaustive and do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact proposed inequality, not proof in inspected passage",
+          "evidence": [
+            "States deg_k^+(n)<=n as a conjecture and distinguishes reductions from squares occurring at given locations."
+          ],
+          "identifier_or_url": "arXiv:2011.12822",
+          "material_read": "pp. 9–10, Conjecture 3, OA offsets 24843–26093",
+          "method": "Bounded OA PDF passage reading",
+          "title": "Square-free reducts of words",
+          "trigger": "Original definition of the reduction out-degree and its conjecture"
+        },
+        {
+          "assessment": "Proves the floor(e-1) bound; does not express it as a contraction-output bound in the inspected passage",
+          "evidence": [
+            "Each run has at least floor(e-1) selected starts, pairwise disjoint over runs and excluding position one. Their sum is at most n-1."
+          ],
+          "identifier_or_url": "arXiv:1406.0263; doi:10.1137/15M1011032",
+          "material_read": "pp. 3–4, Lemma 8 and proof of Theorem 10; OA offset range 12190–17530",
+          "method": "Bounded OA PDF reading of definitions and proof",
+          "title": "The ‘Runs’ Theorem",
+          "trigger": "Dominating run count that strengthens the frozen consequence"
+        },
+        {
+          "assessment": "Confirms the cited run-exponent estimates; not the better out-degree implication",
+          "evidence": [
+            "2.2n for binary words; 2.3n for general words. The source describes computer assistance, which was not reproduced or needed for the repair."
+          ],
+          "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2026.23",
+          "material_read": "p. 1 definitions and p. 12 Theorems 30–31; OA offsets 2228 and 39330",
+          "method": "Bounded OA PDF passage reading",
+          "title": "Improved Bounds on the Sum of Exponents of Runs in a String",
+          "trigger": "Check numerical constants in frozen record"
+        },
+        {
+          "assessment": "Different counting problem",
+          "evidence": [
+            "The theorem counts distinct square factors rather than distinct shortened words."
+          ],
+          "identifier_or_url": "arXiv:2204.10204; doi:10.5070/C65165014",
+          "material_read": "Theorem 1, p. 2, OA offset 2800",
+          "method": "Bounded OA PDF passage reading",
+          "title": "On the number of squares in a finite word",
+          "trigger": "Potentially confusable resolved linear square-count bound"
+        },
+        {
+          "assessment": "Plausible overlap unresolved, not classified as non-covering",
+          "evidence": [
+            "The author copy was found, but no decisive statement on all rightmost nonprimitive periods was recoverable by the bounded reading attempts."
+          ],
+          "identifier_or_url": "https://csiflabs.cs.ucdavis.edu/~gusfield/lineartime.pdf",
+          "material_read": "Author-copy locator and a bounded PDF text extraction; text unusable for statement comparison",
+          "method": "Bounded DOI/alternate-copy lookup and direct lawful OA retrieval; alternate PDF had corrupted extraction",
+          "title": "Linear time algorithms for finding and representing all the tandem repeats in a string",
+          "trigger": "Potential right-branching tandem-repeat equivalence"
+        },
+        {
+          "assessment": "Different operations, invariants or domains",
+          "evidence": [
+            "Single-letter deletion, fixed-composition exponent counts, five-run factor counts, tandem insertions or reverse-complement insertions, not all-length square contractions."
+          ],
+          "identifier_or_url": "Resultary:4884ed822a73; Resultary:8616b2a98e55; Resultary:8856539f3341; Resultary:e78ed24d338c; Resultary:0aca79ccebc0",
+          "material_read": "Mirrored Findings",
+          "method": "Local mirror reading and operation/assumption comparison",
+          "title": "Catalogue findings on deletion witnesses, run exponents and tandem descendants",
+          "trigger": "Closest indexed variants of the frozen and repaired claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired finding resolves the stated out-degree inequality on every alphabet and gives an exact per-word enumeration in terms of runs. In contrast to the frozen constants, the improvement removes a qualitative gap, and the equality explains precisely why two square occurrences can or cannot lead to the same shortened word. It is a structural reduction of a natural output-count problem, not a new name for the ordinary square vocabulary. No assertion that n-1 is the sharp extremal function is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

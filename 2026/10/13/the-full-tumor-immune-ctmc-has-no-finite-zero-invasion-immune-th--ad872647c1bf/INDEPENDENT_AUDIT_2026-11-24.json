@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:55:25.497220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Table 3 and the equations below it in Jang and Yen match the frozen six jump rates. Independently, for 1≤x<K one may keep y,z fixed and take exactly K−x consecutive tumor-birth jumps: the birth rate is positive and each total rate q is finite and positive along this route. For N=K−x>0, at each step the probability of the prescribed jump within T/N is (birth rate/q)(1−exp(−qT/N))>0. Their finite product guarantees the stated strict event before T and before x=0; x=K at time zero is immediate, including K=1. The frozen immune-death-then-birth path is valid too, since immune death is positive at y>0 and y=0 disables immune-mediated tumor death and immune regeneration. The argument requires no assumption about the fate of paths outside the finite chosen route. The paper's frozen branching threshold governs eventual branching extinction, not finite first passage; even the frozen linear chain with positive birth rate can hit a finite target below criticality. The 95% one-sided zero-count endpoint 0.000299528359776612… independently replays with /workspace/audit_evidence/replay.py (tumor); it bounds the sampled fixed-horizon law given independent identically distributed runs, not the exact CTMC via the tau-leaping data. The original package describes a bundled replay but the bound evidence includes no executable for this record; the proof and independent endpoint calculation do not rely on that script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard finite-path CTMC reachability supplies the method; Jang–Yen's broader branching criticality statement concerns the small-tumor frozen-environment approximation and gives certain eventual branching extinction when λT≤μT."
+        ],
+        "reasoning": "Credit the general reachability implication and the distinct branching theorem. The comparison being corrected is which probability vanishes for this coupled model, and the criticality theorem does not imply a zero finite hitting probability.",
+        "searches": [
+          "Resultary: finite state CTMC positive path reachability target probability positive on every finite time horizon source-specific correction",
+          "Jang–Yen Table 3 and pp. 15–16, Eqs. (20), (26), (28)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 1–171, 195–207 and VERIFICATION.md lines 18–50",
+        "Jang and Yen, publisher PDF passages above",
+        "Local Resultary searches and closest archived finding above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rate r x(1−x/K) in Table 3 is positive for all interior tumor levels. The Figure 10 caption says ‘stochastic invasion is no longer possible’ after crossing, while the p. 33 text says ‘extinction becomes certain’."
+        ],
+        "reasoning": "The correction is a direct implication of the printed transition graph, not a new general Markov-chain lemma. The paper did not state that implication; it explicitly inferred the opposite for its full chain. An assertion of subcritical eventual extinction, even if valid for the approximation, would not imply finite-target impossibility.",
+        "searches": [
+          "Direct comparison of Jang–Yen Table 3, pp. 15–16, §4.3 and Figure 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jang–Yen §4.3 defines invasion by hitting K before extinction and Tmax, whereas Fig. 10 and the adjacent text declare impossibility or certainty of extinction on crossing the threshold.",
+          "The closest same-day Resultary finding inspected is an SIR contact-threshold prefactor and stability reversal, not the same CTMC or a rephrasing of the reachability correction."
+        ],
+        "reasoning": "The claim is positivity of the exact chain's first passage probability, not a branching survival threshold or a disease-free stability threshold.",
+        "searches": [
+          "Resultary: Jang Yen Stochastic Invasion Immune Feedback Tumor Immune IL-4 Model no finite zero invasion immune threshold",
+          "Resultary: Jang Yen model exact CTMC positive probability invasion x=K before extinction for every finite immune count",
+          "Resultary: positive probability route immune death then tumor births CTMC no zero threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The article's summaries for 10⁴ reduced-scale paths give empirical zero counts at the two horizons; they are not exact probability computations. No matching exact reachability correction was returned by these focused index searches."
+        ],
+        "reasoning": "The empirical zero entries cannot be exact tabulation of the theorem's probability; a zero count has positive sampling probability at sufficiently small positive p.",
+        "searches": [
+          "Resultary: immune threshold crossing extinction certain simulation zero observed invasions tau-leaping 10^4; exact source slug and DOI",
+          "Jang–Yen §4.3, Eq. (43) and simulation summaries at Tmax=100 and 200"
+        ]
+      },
+      "rationale": "The supported contribution is a source-specific correction: the model as printed permits the very finite-horizon first passage declared impossible in its numerical interpretation. Finite positive-rate paths, extinction thresholds for linear branching, and zero-success confidence endpoints are standard ingredients, not independently original results. No earlier equivalent correction of this CTMC surfaced in the material checked.",
+      "residual_risks": [
+        "A source-specific comment, correction, or proof could exist outside the focused searches. No absolute priority conclusion is made.",
+        "The statistical calculation is not an estimate of the exact CTMC probability or a control on discretization error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rates, finite-horizon event, branching threshold, zero observed invasions, tau-leaping and stronger certainty language confirmed",
+          "evidence": "Table 3 states the six rates and state space. Eq. (20) freezes the environment in the linear approximation and (26), (28) give its criticality. §4.3 reports 10⁴ paths from (3,10,10), K=300 and no threshold hit; Fig. 10 and p. 33 transfer branching criticality to exact impossibility/certainty, which the rates do not support.",
+          "identifier_or_url": "https://doi.org/10.3390/math14132352",
+          "material_read": "PDF p. 14 Table 3 and rate equations (offsets 77500–80926); pp. 15–16 Eqs. (20), (26), (28); p. 27 methods; pp. 30–33 §4.3 and Fig. 10 caption",
+          "method": "Original PDF retrieved from the publisher's lawful static copy, https://mdpi-res.com/d_attachment/mathematics/mathematics-14-02352/article_deploy/mathematics-14-02352.pdf; bounded offset and literal passage reads",
+          "title": "Stochastic Invasion and Immune Feedback in a Tumor–Immune–IL-4 Model",
+          "trigger": "Exact model and the disputed zero-invasion interpretation"
+        },
+        {
+          "assessment": "Not equivalent on the inspected finding",
+          "evidence": "Corrects a degree-structured SIR contact threshold prefactor and local disease-free stability, not finite-horizon tumor CTMC first passage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-normalized-contact-invasion-threshold-reversal-in-an-age-struc--692d78cfc3ec",
+          "material_read": "Mirrored RESULT.md opening and finding at offset 0, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored full-text passage",
+          "title": "A normalized-contact invasion threshold reversal in an age-structured model",
+          "trigger": "Same-day indexed threshold-correction lookalike"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source explicitly interprets a suppressive trajectory as ruling out a finite-threshold event in the coupled CTMC. The review confirms a substantive distinction between impossible and unobserved, and between the actual first-passage event and eventual extinction of a different process. That matters when using the model to interpret threshold crossings or zero Monte Carlo counts. This is a narrow exact correction, not a quantitative claim about practical risk or a rejection of strong immune suppression in the model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

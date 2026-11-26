@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:24:31.749809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact generator rates and all claims",
+        "Frozen VERIFICATION.md and check.py, inspected without executing; the recorded 1296 rational checks are source-reported finite evidence",
+        "Independent telescoping backward equation and discounted boundary calculation (given above)"
+      ],
+      "rationale": "For a fixed absorbing threshold n, let T_k be the expected time from k and D_k=T_k−T_0. The backward equation for k<n is α(D_{k+1}−D_k)−r[(k+1)D_k−kD_{k−1}]=−1, with no downward term at zero. Summing from 0 through k telescopes to αD_{k+1}=−(k+1)+(k+1)rD_k. With D_0=0 and D_n=−M_n this proves the finite sum and recursion directly, without assuming the renewal identity. Independent reset trials have positive probability of n consecutive births, and trial durations are bounded in mean by 1/r, so the finite expectation is justified. Two falling-factorial differences give the stated positive coefficients and the uniform j=2 lower bound. Reindexing P_n(0) by n−j gives the partial exponential sum and the stated fixed-rate factorial asymptotic. For the transform, the direct discounted backward recurrence, after dividing all state values by the value at zero, has initial values W_0=1,W_1=1+s/α and recurrence W_{k+1}=[1+(s+(k+1)r)/α]W_k−krW_{k−1}/α−r/α. Substitution verifies W_k=(sP_k(s)+r)/(s+r); imposing the terminal value at n gives the stated transform, including s=0. The displayed means at α=2,r=1/2 agree with the recurrence.",
+      "residual_risks": [
+        "The equality between reset rate and individual death coefficient is essential to this telescoping formula.",
+        "No result for finite interacting-network degrees, continuously interpolated thresholds, or jointly varying parameters in the factorial asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available general binomial-catastrophe treatment covers transient and equilibrium distributions and factorial moments; total removal is a parameter limit.",
+          "The Chao–Zheng citation in that treatment attributes a transient probability generating function, not in itself an absorbing-boundary formula."
+        ],
+        "reasoning": "Unkilled transient/stationary laws or general renewal identities do not provide the claimed integer-threshold mean and ordinary curvature by parameter selection alone.",
+        "searches": [
+          "Kapodistria–Phung-Duc–Resing 2015 preprint pp. 1–4",
+          "Chao–Zheng 2003 DOI 10.1017/S0269964803171057; OA attempts and citation trail"
+        ]
+      },
+      "checked_sources": [
+        "Artime arXiv:2211.01869v1",
+        "Kapodistria–Phung-Duc–Resing preprint",
+        "Chao–Zheng DOI and secondary passage",
+        "Resultary record 2d57165165cb and focused primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset formula still needs the no-reset threshold transform; replacing it by an unkilled transition or stationary transform does not solve the absorbing problem.",
+          "The independent backward proof identifies the matched-rate telescoping identity and the positive falling-factorial expansion that resolves the discrete curvature question."
+        ],
+        "reasoning": "The Laplace renewal step uses a known mechanism and the sign is elementary once the exact coefficients are known. The exact absorbing calculation and the all-threshold curvature conclusion are not stated or directly specialized from the strongest inspected results.",
+        "searches": [
+          "Artime eqs. (17)–(19) and the subsequent Fokker–Planck analysis",
+          "General restart identity and immigration–death spectral/Charlier formulation as compared with the matched-rate killed backward problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same model is immigration–death with full batch removal and equal catastrophe and individual death rates; Artime's equations (17)–(19) give the absorbing problem, not its mean solution."
+        ],
+        "reasoning": "The terminology change from degree to queue length is not originality. The novel comparison concerns the threshold-index sequence and sign of its ordinary second difference.",
+        "searches": [
+          "Primary literature lookup on immigration–death first passage with total catastrophes and resetting",
+          "Artime arXiv:2211.01869v1 equations (1), (17)–(19)",
+          "Kapodistria–Phung-Duc–Resing total catastrophe specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed comparison found, 2d57165165cb, studies a stationary missing-coupon limit and a first hit of zero from stationarity, rather than upward passage from zero in a resetting chain.",
+          "No matching specialized profile or table was found in the inspected material."
+        ],
+        "reasoning": "A hit of zero from stationarity is neither the same boundary problem nor a table of the target-dependent mean being assessed.",
+        "searches": [
+          "Resultary immigration–death, resetting and threshold-hitting profiles",
+          "Claim-directed primary literature lookup"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the solved exact matched-rate degree-threshold mean and its uniform strict integer-target curvature for the process left to continuum approximation by Artime. Neither the catastrophe process nor the generic reset renewal identity is credited as new.",
+      "residual_risks": [
+        "Chao–Zheng full text could not be lawfully inspected; an equivalent queueing specialization remains possible. This is neither a priority certification nor evidence that the paper does not cover the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same discrete first-passage problem, not the solved profile",
+          "evidence": "The discrete equations are followed by a continuum Fokker–Planck approximation and a concave-to-convex expectation around α/r in that approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.01869",
+          "material_read": "arXiv v1 pp. 8–10, equations (17)–(19) and ensuing continuum discussion",
+          "method": "Lawful OA PDF bounded passage inspection",
+          "title": "Stochastic resetting in a networked multiparticle system with correlated transitions",
+          "trigger": "Same degree process, first passage, and apparent curvature transition"
+        },
+        {
+          "assessment": "Broader process, different reported observables",
+          "evidence": "Immigration and linear individual deaths accompany catastrophes; the inspected results concern transient/equilibrium laws and moments, and cite the total-catastrophe transient PGF.",
+          "identifier_or_url": "https://skapodis.win.tue.nl/notes/notes8b.pdf",
+          "material_read": "Abstract, p. 2 model and total-catastrophe limit, p. 4 discussion citing Chao–Zheng",
+          "method": "Lawful OA preprint bounded full-text passages",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "Stronger apparently covering family of catastrophe processes"
+        },
+        {
+          "assessment": "Coverage unresolved from available evidence, not treated as negative evidence",
+          "evidence": "The citing passage identifies a transient PGF. It is not a statement about a threshold mean or strict curvature.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964803171057",
+          "material_read": "Citation discussion in Kapodistria et al., p. 4; original full text not read",
+          "method": "Direct and VPN OA attempts; no identified lawful repository copy located",
+          "title": "Transient analysis of immigration birth-death processes with total catastrophes",
+          "trigger": "Exact catastrophe mechanism and plausible early overlap"
+        },
+        {
+          "assessment": "Noncovering: no full reset or variable upper threshold",
+          "evidence": "First hit of zero from a stationary missing-coupon limit differs in both transition dynamics and boundary conditions.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-stationary-immigration-death-limit-for-critical-expiring-coupo--2d57165165cb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed mirror",
+          "title": "A stationary immigration–death limit for critical expiring coupons",
+          "trigger": "Closest indexed immigration–death hitting claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, strict second difference and fixed-rate asymptotic",
+        "Artime arXiv:2211.01869v1, approximation and curvature discussion"
+      ],
+      "rationale": "The exact integer-target profile supplies both a finite computable mean and a definitive test of the continuum curvature interpretation in the model that prompted the question. The strict bound on ordinary second differences rules out a rate-dependent curvature transition for every integer target, not just low-degree examples or asymptotic data. The explicit matched-rate simplification and factorial growth also give useful benchmarks.",
+      "residual_risks": [
+        "The benchmark is for the raw mean sequence of the idealized discrete chain; it neither refutes the curvature of a continuum interpolation nor determines the curvature of log means."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

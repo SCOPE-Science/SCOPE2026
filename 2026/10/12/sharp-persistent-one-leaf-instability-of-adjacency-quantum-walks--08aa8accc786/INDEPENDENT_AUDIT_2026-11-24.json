@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:46:13.864232Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–99, independently reconstructed by block decomposition and eigenvector normalization",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "The zero-sum subspace on the unmarked clique vertices has eigenvalue −1. The complementary block in the hub, normalized unmarked sum, leaf basis has characteristic cubic x^3−(m−2)x^2−mx+(m−2). For m≥3 the sign-change intervals (−2,−1), (0,1), and (m−1,m) are disjoint and exhaust the roots. On bounded x the leading rescaled polynomial is −(x^2+x−1); both bounded roots are within O(1/m) of its simple zeros. Independently, an eigenvector with hub coordinate 1 has unmarked-sum coordinate sqrt(m−1)/(λ−m+2) and leaf coordinate 1/λ. Its normalized hub mass is the reciprocal of 1+(m−1)/(λ−m+2)^2+λ^(-2), giving (1±1/sqrt(5))/2+O(1/m) with the larger mass on the negative root. The remaining mass is O(1/m). The marked return modulus is bounded below for every real time by twice its largest mass minus one, whereas the bare clique return lies in [1−2/m,1]. At the fixed time π/sqrt(5) the limiting bounded modes oppose each other, proving a matching lower bound with O(1/m) error; the rapidly varying mode contributes only its small mass. For two unmarked vertices the dark −1 term cancels except for the difference of normalization weights, giving a complex-amplitude bound 1/(m−1)+1/m+1/[m(m−1)]=2/(m−1). A mixed hub/unmarked entry is bounded in difference by 1/sqrt(m−1)+2/m. These two bounds are eventually smaller than the marked fixed-time discrepancy, so the slower mixed-entry rate does not spoil the O(1/m) error of the supremum.",
+      "residual_risks": [
+        "The fixed time is an asymptotic witness, not a claimed optimizer at finite m; probabilities, Laplacians, and normalized adjacency are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirkland–Monterde Thm. 71 and Cors. 72–73 give a 2/m modulus bound and vanishing discrepancy for their regular join setup. Their §12 asks about extension to general induced subgraphs, explicitly including complete cores."
+        ],
+        "reasoning": "One added vertex in a join is adjacent to every core vertex, not to just the marked vertex. The inspected theorem is not a more general theorem applicable to this family.",
+        "searches": [
+          "Resultary: Kirkland Monterde Quantum walks on join graphs induced subgraph complete graph uniform-in-time modulus difference question Section 12",
+          "arXiv:2312.06906v1, OA search induced subgraph; §3, §11.2, §12"
+        ]
+      },
+      "checked_sources": [
+        "Kirkland–Monterde arXiv:2312.06906v1 §§3, 11.2, 12",
+        "Resultary 87e5c35e861c and 24021971174e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular join bound tends to zero, while the present family outside those hypotheses gives a positive limit tied to two marked spectral masses; §12 asks whether vanishing holds for merely induced cores.",
+          "The corona average is computed after averaging squared moduli in time; it neither specifies the marked-hub amplitudes in this perturbation nor optimizes their instantaneous discrepancy from the induced core."
+        ],
+        "reasoning": "The result offers a particular obstruction to a uniform vanishing bound in terms of complete core size alone, not a new statement of the join theorem or a general solution of the induced-subgraph questions. No inspected result supplied that obstruction with its sharp constant.",
+        "searches": [
+          "Kirkland–Monterde arXiv:2312.06906v1 §11.2 versus exact question at §12",
+          "Resultary 87e5c35e861c and 24021971174e, findings and scope passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching marked spectral measure would have bounded-mode weights (1±1/sqrt(5))/2 in the limit. Neither inspected pendant-graph Resultary finding provides that measure for a sole pendant at a clique hub."
+        ],
+        "reasoning": "Graph eigenvalues alone need not give entrywise weights or a modulus supremum. Matching this result requires the one-hub perturbation, an unnormalized adjacency walk, and the same-core comparison.",
+        "searches": [
+          "Resultary: one pendant vertex attached to a distinguished vertex of a complete graph K_m unnormalized adjacency quantum walk return amplitude spectral projector mass",
+          "Resultary: pineapple graph K_n with a single pendant vertex adjacency continuous-time quantum walk marked vertex spectral measure",
+          "Resultary: single leaf attached to clique adjacency quantum walk return amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 87e5c35e861c, RESULT.md offsets 0–4797, has exact Cesàro-average mixing for one leaf at every vertex, including clique bases.",
+          "Same-day Resultary 24021971174e, RESULT.md offsets 0–2126, treats exact average-mixing spectra for sunlets."
+        ],
+        "reasoning": "These are exact invariant results but neither has the single-leaf graph and pointwise-in-time supremum under comparison. The same-day hit was assessed on contents without inferring priority.",
+        "searches": [
+          "Resultary: induced-subgraph question quantum walks join graphs Kirkland Monterde marked spectral weight pendant complete graph",
+          "Resultary: single leaf attached to clique adjacency quantum walk return amplitude"
+        ]
+      },
+      "rationale": "The distinct contribution is a sharp nonvanishing uniform-in-time modulus discrepancy from attaching one leaf at one marked clique vertex, with localization and a fixed-time witness. The strongest inspected prior theorem controls regular joins and explicitly leaves the merely induced case open. The closest cataloged pendant-graph results concern corona constructions and average mixing, not this perturbation and observable.",
+      "residual_risks": [
+        "A marked-vertex spectral or walk computation for this graph under other terminology such as kite, lollipop, or pineapple could overlap; the bounded primary and catalog comparisons do not determine absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Regular-join result does not cover the pendant perturbation; question verified",
+          "evidence": "Cross edges join every vertex of the first factor to every vertex of the second. The later question explicitly asks about the time supremum for merely induced complete or empty cores.",
+          "identifier_or_url": "https://arxiv.org/html/2312.06906v1",
+          "material_read": "Abstract, §3, §11.2 Theorem 71 and Corollaries 72–73, §12; OA offsets 0, 11950, 129800, 135150, 136250, 141050–143036",
+          "method": "Primary OA HTML passage search and bounded offsets",
+          "title": "Quantum walks on join graphs",
+          "trigger": "Potentially covering theorem and motivating open induced-subgraph question"
+        },
+        {
+          "assessment": "Different perturbation and statistic",
+          "evidence": "One leaf per base vertex with uniform coupling g>0 and a Cesàro average-mixing matrix, not one distinguished pendant.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-rank-invariance-and-mode-damping-for-quantum-average-mixin--87e5c35e861c",
+          "material_read": "RESULT.md offsets 0–4797",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Exact rank invariance and mode damping for quantum average mixing",
+          "trigger": "Closest cataloged complete graph and pendant walk"
+        },
+        {
+          "assessment": "Different graph family and statistic",
+          "evidence": "Sunlets C_n corona K_1, with an average-mixing rank/spectrum transition rather than a discrepancy from an induced clique.",
+          "identifier_or_url": "2026/10/12/SCOPE-spectral-splitting-and-a-modulo-four-rank-transition-in-quantum--24021971174e",
+          "material_read": "RESULT.md offsets 0–2126",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Spectral splitting and a modulo-four rank transition in quantum average mixing",
+          "trigger": "Same-day spectral result with pendant vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kirkland–Monterde arXiv:2312.06906v1 §12",
+        "Frozen RESULT.md lines 5–18, 57–99"
+      ],
+      "rationale": "A single external edge already defeats a vanishing uniform-in-time modulus bound depending only on the size of a complete induced core, in a form directly responsive to the published join-versus-induced question. The constant, exceptional location, and fixed observation time distinguish persistent local dynamics from errors that require observation times diverging with graph size or affect the whole core.",
+      "residual_risks": [
+        "The obstruction is specific and does not classify which other attachments preserve induced-core dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

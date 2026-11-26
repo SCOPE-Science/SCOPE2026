@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:46:32.286230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each count vector the product of reinforcement factors is ∏x_i!, which cancels the sequence multinomial count and gives the uniform weak-composition law. Given X_j=r, the remaining d−1 parts uniformly compose n−r. Thus the conditional empty probability for i≠j is (d−2)/(n−r+d−2); subtract (d−1)/(n+d−1) and multiply by v_r to get (1). In the histogram covariance the d same-color terms each equal −uv_r, and the d(d−1) other terms equal (1); collecting gives the numerator d(r−1)−2(n−1). The common denominator is positive even at r=n; subtracting the two real cutoffs yields (d−2)(d+n−1)/(d(d−1)). The equality family satisfies n≥r and the three rational examples agree. At n=1, r=1 the aggregate is zero since the histograms are deterministic, while the distinct-color covariance is positive, as predicted. A separately written exact Fraction enumeration confirmed both covariances on 180 triples, d=3,…,7, n=1,…,8, all admissible r. The conditional counting proves all orders rather than extrapolating from the checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shuldiner–Oldford §4.4 gives joint emptiness and factorial moments of the number empty in the correct allocation law, not mixed positive-frequency moments. The October 13 doubleton theorem covers broader concentrations but only frequency 2. The November 8 positive-frequency covariance theorem explicitly excludes vacancy."
+        ],
+        "reasoning": "The candidate broader dimension of concentration does not cover the all-frequency parameter. A positive/positive frequency theorem omits the frozen zero-versus-positive case, where the diagonal exclusion is essential.",
+        "searches": [
+          "arXiv:2110.02363v2 §4.4, empty urns",
+          "7a16c6665669/RESULT.md, Finding and Joint probabilities",
+          "b21fff941275/RESULT.md, Finding"
+        ]
+      },
+      "checked_sources": [
+        "7a16c6665669",
+        "70169af507aa",
+        "arXiv:2110.02363v2 §4.4",
+        "93dddb2be813",
+        "b21fff941275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior doubleton proof records the full count-vector law and deletes same-category terms for r=2. That is a reusable method and the mixed joint event in the unit case needs only composition counting. For general r, the two sign numerators differ by the effect of all d same-category terms and normalize to two different linear cutoffs. The later local-only theorem does not make this comparison."
+        ],
+        "reasoning": "Known probability laws and the doubleton technique are credited; deriving a joint probability from them is not novelty in itself. The simultaneous classification, threshold ordering and scope of possible sign disagreements are the part not supplied by the compared statements.",
+        "searches": [
+          "7a16c6665669/RESULT.md, Proof first paragraph and mixed-event calculation",
+          "arXiv:2110.02363v2 §4.4",
+          "70169af507aa/RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A symmetric Dirichlet–multinomial sample with concentration 1 per category is the same count law. The October 26 finding gives a specified empty/positive-r joint ratio Q_n and a crossing n=r(m−1) at concentration 1, equivalent to the local expression and its sign rule. It explicitly omits aggregate counts. Independently placed balls instead induce multinomial weights; replacing richness K by d−K negates that covariance, but cannot change the sampling law."
+        ],
+        "reasoning": "The later local result represents genuine equivalent coverage after normalizing the parameters. It does not cover the aggregate cutoff or boundary separation and is not evidence of earlier priority. The independent-occupancy case is not equivalent even after the sign reversal.",
+        "searches": [
+          "Resultary: empty/rare occupancy counts, Pólya, uniform weak compositions and symmetric Dirichlet–multinomial covariance",
+          "70169af507aa/RESULT.md, Finding",
+          "93dddb2be813/RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact formula R−1=(k+2−2N)/(k(k+N−4)) multiplies k²uv in the aggregate covariance. Giving k=d and N=n exactly recovers (2) at r=2, including its equality threshold. The displayed joint event supplies (1) at r=2 after subtracting uv."
+        ],
+        "reasoning": "This is exact existing coverage, not merely a matching sample point; it applies to every admissible d,n with r=2. It does not give an earlier table or theorem for all distinct positive frequencies against emptiness.",
+        "searches": [
+          "Resultary: unseen–doubleton covariance and exact zeros",
+          "7a16c6665669/RESULT.md, unit-concentration formula"
+        ]
+      },
+      "rationale": "Credit classical uniform-composition and Dirichlet–multinomial laws, as well as antecedent exact unseen–doubleton aggregate coverage at r=2. The all-frequency local statement has strong equivalent overlap in a later indexed general-concentration theorem. The supported distinct result is the simultaneous all-r local/aggregate sign classification and strictly separated thresholds, not every individual ingredient or the doubleton case. No inspected antecedent states this general comparison or a stronger mixed-frequency theorem supplying it.",
+      "residual_risks": [
+        "External primary-literature search timed out. An older mixed-histogram formula, exact moment table, or sign analysis under other occupancy terminology could cover more. No missing search or source is taken as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for aggregate r=2; local r=2 an immediate consequence of its joint-event formula",
+          "evidence": [
+            "Cov(C₀,C₂)=k²uv(R−1); at a=1, R−1=(k+2−2N)/(k(k+N−4))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "material_read": "Finding, Assumptions and Joint probabilities, offsets 0–3899",
+          "method": "Resultary search and read-only mirror",
+          "title": "One sign transition and its finite-size shift for unseen–doubleton covariance",
+          "trigger": "Same histogram covariance for one r and broader concentration"
+        },
+        {
+          "assessment": "Equivalent local theorem at unit concentration in later indexed record, not aggregate comparison",
+          "evidence": [
+            "Normalized local joint ratio Q_n with crossing n=r(m−1) at unit concentration."
+          ],
+          "identifier_or_url": "70169af507aa",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and read-only mirror",
+          "title": "A universal one-crossing law for missing and rare categories",
+          "trigger": "Exact overlapping local crossing across all r"
+        },
+        {
+          "assessment": "Correct allocation model and known empty-only moments",
+          "evidence": [
+            "Joint emptiness across designated urns and empty-count factorial moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2110.02363v2",
+          "material_read": "§4.4, PDF p. 15, offsets 49229–51985",
+          "method": "Lawful OA passage lookup",
+          "title": "Bernoulli Sums: The only random variables that count",
+          "trigger": "Uniform indistinguishable-ball allocations and missing-category moments"
+        },
+        {
+          "assessment": "Different sampling law",
+          "evidence": [
+            "Independently and uniformly placed balls, not uniformly weighted weak compositions."
+          ],
+          "identifier_or_url": "93dddb2be813",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and read-only mirror",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Similar sign statement after replacing richness by vacancy"
+        },
+        {
+          "assessment": "No zero-frequency endpoint in its stated hypotheses",
+          "evidence": [
+            "Both occupancies positive; vacancy comparisons not asserted."
+          ],
+          "identifier_or_url": "b21fff941275",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and read-only mirror",
+          "title": "A single positive covariance island for positive occupancy frequencies",
+          "trigger": "Same composition law for general pairs of occupancy classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two signs answer different questions about unobserved categories under one natural reinforcement law. The exact separation and discordance (including attainable strict opposite signs and exact zeros) show why an inference from a pairwise indicator association to association between frequency counts fails. The result gives a finite-parameter test for every frequency, not just more numerical examples of the known doubleton effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

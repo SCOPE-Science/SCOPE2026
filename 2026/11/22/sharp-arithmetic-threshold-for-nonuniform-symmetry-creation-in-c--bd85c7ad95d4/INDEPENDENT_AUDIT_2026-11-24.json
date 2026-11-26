@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:12:13.947499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61; VERIFICATION.md; checker.py inspected without execution",
+        "Independent replay: python3 /workspace/audit-evidence/replay_4.py"
+      ],
+      "evidence": [
+        "Enumerated all linear d+2-bit candidate paths for every nonconstant target block and looked for nontrivial simple cycles in the four block states without transfer-matrix multiplication. For d=2,3,4,5, both loop and cycle defects were zero and the numbers of blocks with a loop were 2,0,6,20; maximum diagonal traces were 1,0,1,1. The analytic closed-walk argument extends the exact finite lemma to every repetition count."
+      ],
+      "rationale": "Uniform states are fixed, so immediately before the first nonuniform symmetry of an asymmetric orbit the input is still asymmetric. For a repeated d-letter output, paths on successive pairs of predecessor bits align with the indexed output by using the center of each triple; one d-step edge retains its full path multiplicity. A cyclic preimage corresponds exactly to a closed walk in this block multigraph. The 52-case lemma excludes both multi-vertex cycles and multiple loops at a vertex. Every closed walk therefore repeats the same concrete block lift, making its preimage d-periodic no matter how many output blocks are repeated. For d>=6, the repeated block 000 followed by d−3 ones is fixed and has least period d (one zero-run start per block). Swapping sites 2 and 3 in one copy changes only four centers, whose new triples 001, 010, 101, 011 give 0,0,1,1 as required. Every hypothetical period of the predecessor would be a period of the output by equivariance, hence a multiple of d; this would move the unique modified block, impossible. The largest proper divisor is n/p_min(n), including 1 for prime n. This accounts for n>=3, every eligible period, and all positive times.",
+      "residual_risks": [
+        "The source's additional finite ring and witness regression ranges were inspected but not rerun; the general witness is checked directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banda et al. Thm. 8.1 establishes inclusion of stabilizers for all equivariant maps, which does not control their strict increase for this rule.",
+          "Jen studies counts of preimages for strings on an infinite lattice and gives Rule-232-specific formulas. The inspected passages do not impose the indexed cyclic closure comparing lifts across repeated blocks.",
+          "Powley–Stepney's publisher abstract restricts its count to homogeneous target configurations, excluded here."
+        ],
+        "reasoning": "General preimage and equivariance methods apply but do not in their inspected statements exclude new nonuniform symmetries for every repeat of output blocks of length at most five or give witnesses above that boundary.",
+        "searches": [
+          "Banda–Caughman–Lehman arXiv:2611.15751v1 §8",
+          "Nakar–Ron arXiv:2205.08972 §§1.2–1.4",
+          "Jen 1989 §4 Case e and Rule-232 appendix"
+        ]
+      },
+      "checked_sources": [
+        "Jen (1989) §4 Case e and Rule-232 appendix",
+        "arXiv:2611.15751v1 §8",
+        "arXiv:2205.08972 §§1.2–1.4",
+        "Resultary da4a182e6a5a, b9fa18b7332d, f202f7cfb72e",
+        "Powley–Stepney publisher abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An open length-d preimage path need not close over one block or any prescribed number of repeats. One needs the recurrent block graph and uniqueness of available block loops, or another argument with the same cyclic force.",
+          "The witness output is a nonuniform fixed state, not a primitive temporal two-cycle; knowing temporal convergence does not imply its least rotation period or the predecessor's lack of rotations."
+        ],
+        "reasoning": "No checked claim substitutes directly for the unbounded closure argument and sharp witness. Older per-pattern preimage machinery may provide an alternate derivation of part of the conclusion, a residual risk rather than established coverage.",
+        "searches": [
+          "Jen (1989) §4 Case e and Rule-232 appendix compared with frozen RESULT.md lines 27–59",
+          "Nakar–Ron §§1.2–1.4 and local corpus singleton spectrum compared with the one-update witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day AND erosion record f202f7cfb72e classifies the identical spatial event for a different rule, with proper divisors >=5 rather than >=6; in particular the rules disagree on n=10.",
+          "Nakar–Ron explicitly distinguish spatial from temporal period; their temporal convergence classification is not a formulation of the spatial lift problem."
+        ],
+        "reasoning": "On a ring, an asymmetric cyclic lift of a repeated nonconstant block is the equivalent one-step problem, not an open-string preimage or temporal-cycle entry. The exact assigned record's local index hit is not separate coverage.",
+        "searches": [
+          "Local Resultary: Rule 232 majority cellular automaton asymmetric input nonconstant spatial period preimage symmetry creation threshold ring length",
+          "Web: Rule 232 cellular automaton preimage enumeration Jen 1989 majority automata spatial period symmetry preimages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "da4a182e6a5a counts all distinct cyclic one-update targets; b9fa18b7332d counts cyclic targets with exactly one immediate predecessor, not counts by target spatial period. The latter is a distinct same-day record, not evidence of priority in either direction.",
+          "Jen's pattern-specific string counts are stronger than a global count, but concern an open word rather than the cyclic closed-walk rigidity test."
+        ],
+        "reasoning": "Unstratified image and singleton spectra discard the spatial period information needed to test whether all preimages of one periodic target inherit that period. The present 52-block tally is a proof certificate, not historical evidence.",
+        "searches": [
+          "Local Resultary Rule 232 preimage and image counts; da4a182e6a5a and b9fa18b7332d",
+          "Jen §4 Case e, Rule-232 appendix"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp nonconstant spatial symmetry threshold for Rule 232 and the accompanying all-repetitions short-period rigidity and one-step constructions. Neither generic equivariance, temporal classification, aggregate cyclic preimage spectra, nor the inspected prior string-count formulas supply this joint spatial classification. The pair-graph method itself is prior.",
+      "residual_risks": [
+        "Implicit consequences of historical per-pattern preimage counts after cyclic adaptation were not exhaustively excluded; priority is bounded to available comparative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method overlap; no demonstrated cyclic theorem or reduction covering the claim",
+          "evidence": [
+            "Rule-232 counts of preimages of strings are given with an infinite-lattice setup; the inspected passages do not state the proper-divisor threshold."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Abstract/introduction; §4 Case e pp. 441–442, text offsets 44000–46500; Rule-232 appendix around offset 77900",
+          "method": "Primary open PDF, targeted passages",
+          "title": "Enumeration of preimages in cellular automata",
+          "trigger": "Exact prior Rule-232 preimage enumeration, potentially enough to infer rigidity"
+        },
+        {
+          "assessment": "Covers irreversibility, not rule-specific symmetry creation",
+          "evidence": [
+            "The output stabilizer contains the input stabilizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15751",
+          "material_read": "Thm. 8.1 p. 14, around offset 51400",
+          "method": "Open primary text, targeted theorem",
+          "title": "Shift-Symmetric Configurations in d-Dimensional Cellular Automata: Enumeration, Bounds, Irreversibility, and Detection",
+          "trigger": "General persistence of the same rotational invariant"
+        },
+        {
+          "assessment": "Temporal classifications do not certify spatial lifts",
+          "evidence": [
+            "The paper distinguishes temporal cycles/transients from spatial periods and includes radius one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "§§1.2–1.4, pp. 4–6, offsets 8100–16000",
+          "method": "Open primary text, targeted passages",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "One-dimensional majority orbit classifications"
+        },
+        {
+          "assessment": "Aggregate cyclic image counts, not period-stratified lifts",
+          "evidence": [
+            "Counts all indexed outputs with one or more predecessors."
+          ],
+          "identifier_or_url": "Resultary da4a182e6a5a",
+          "material_read": "Mirrored RESULT.md offsets 0–5579",
+          "method": "Local result index and mirror",
+          "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+          "trigger": "Same map, cyclic outputs, and preimage method"
+        },
+        {
+          "assessment": "Exact but different invariant; date does not order claims",
+          "evidence": [
+            "Counts target words with exactly one predecessor, without short least-period restriction."
+          ],
+          "identifier_or_url": "Resultary b9fa18b7332d",
+          "material_read": "Mirrored Finding and prior-work passage, offsets 0–8401",
+          "method": "Local result index and mirror",
+          "title": "Exact singleton-predecessor spectrum of cyclic binary majority Rule 232",
+          "trigger": "Same-day record on cyclic Rule-232 preimage multiplicity"
+        },
+        {
+          "assessment": "Abstract is limited to a disjoint class of targets; no assessment of unseen material",
+          "evidence": [
+            "Homogeneous means constant, which the frozen theorem excludes."
+          ],
+          "identifier_or_url": "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-5-number-4-5-2010/jca-5-4-5-p-353-381/",
+          "material_read": "Publisher abstract; full text not obtained",
+          "method": "Publisher page and lawful direct/VPN access attempts",
+          "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+          "trigger": "Older possible preimage-count overlap"
+        },
+        {
+          "assessment": "Same spatial-event framing but neither equivalent nor generalizing majority",
+          "evidence": [
+            "One-sided AND has cutoff d>=5, not d>=6."
+          ],
+          "identifier_or_url": "Resultary f202f7cfb72e",
+          "material_read": "Frozen RESULT.md lines 6–28",
+          "method": "Direct frozen source inspection",
+          "title": "Sharp arithmetic onset and exact first-passage clocks of rotational symmetry in cyclic Boolean erosion",
+          "trigger": "Same sharp arithmetic question on cyclic binary words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–17, 25–61 and 67–75; arXiv:2205.08972 §§1.2–1.4; Resultary da4a182e6a5a and b9fa18b7332d"
+      ],
+      "rationale": "The canonical spatial stabilizer and standard majority dynamics give a natural existence problem at all finite ring lengths. The sharp obstruction distinguishes composite lengths that sometimes permit symmetry birth from composite lengths that do not; it gives a reusable rigidity criterion for short-period targets on arbitrarily long rings and an explicit predecessor for every longer eligible period. This is not merely a temporal settling or image count.",
+      "residual_risks": [
+        "No classification of constant targets, every individual trajectory, or general majority radii is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review: integral critical group of the Burkhardt node–Jacobi-plane graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined geometrically on the 45 nodes and 40 Jacobi planes of the symmetric complex Burkhardt quartic. The classical node and plane coordinate lists are reconstructed as the explicit 15 two-support points, 30 three-colour points, and 40 oriented triples. Direct substitution proves the incidence rule, degree sequences 8 and 9, and 360 edges. The independent coordinate check in the verifier uses the split primitive cube root in characteristic 7 and agrees on every incidence. Exact enumeration confirms the Gram identity, and its eigenvalue multiplicities yield the independent matrix-tree group order \(2^{108}3^{54}5^{23}\). Prime-local Smith operations over \(\mathbb Z/p^{12}\) for \(p=2,3,5\), all with valuation below 12, yield all 84 factors; their valuations sum to the tree exponents. Two vertex deletions agree. The claim concerns this finite graph only; no infinite extrapolation is used.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The 2016 primary source establishes the quartic node and Jacobi-plane geometry, but not the 85-vertex graph's integral critical group. The closest publicly indexed integral incidence result computes the rectangular 45-by-40 matrix Smith factors \(1^{15},2^{10}\), not the 84-by-84 reduced graph Laplacian. A rectangular matrix's Smith invariants and its rational Gram spectrum do not by themselves determine the Laplacian's full integral Smith factors, so the new calculation is not that result restated. The 2017 arithmetic paper, 2024 equivariant geometry treatment, and 2026 Pascal construction address different invariants; the related passages were inspected. General graph critical-group results for other graphs also do not give these exact factors. Residual risks: unindexed prior calculations under design-theory names, and unavailable full text of the 1990 foundational paper. These do not prove global historical priority.
+PASS
 
-## Mathematical value — PASS
-The node-plane graph is a canonical complete incidence configuration of a classical cubic threefold moduli-related geometry. The critical group is a natural complete integral chip-firing divisor-class invariant. Its 44 nontrivial factors, simultaneous 2-, 3- and 5-primary torsion and exponent 2160 distinguish it from the rectangular incidence cokernel, the rational spectrum and the spanning-tree count, none of which determines its cyclic factor structure. The precise result is useful as a reference baseline for equivariant chip firing and arithmetic twists, without claiming those further theorems.
+The original concerns the ordinary unweighted bipartite graph of complex geometric nodes and Jacobi planes. To check the node list, on the hyperplane σ1=0, Newton's identity gives σ4=p2²/8−p4/4, where pj is the j-th power sum. At a singular point all x_i satisfy the same cubic x_i³−(p2/2)x_i=constant. Two distinct values of multiplicities m and 6−m would require m(6−m)=6, which is impossible, and one value gives the zero vector. For three distinct values a,b,c one has a+b+c=0 and Σ(m_i−1)a_i²=0. The partitions (4,1,1), (3,2,1), (2,2,2) give respectively the two-support nodes, no solution, and the three-colour nodes. In both admissible cases the restricted quartic Hessian has only the radial kernel on the hyperplane: solve (3x_i²−p2/2)v_i−x_i(x·v)=c with Σv_i=0. The forty classical Jacobi planes have the stated equations; the product of the three factors on the selected coordinates is 1+u³z³ in the elementary-symmetric generating polynomial, so σ4=0 on each plane. I rebuilt every incidence by exact arithmetic in Z[ω], with no reduction to characteristic seven. Degrees 8 and 9, 360 incidences, and direct integral Smith and determinant computations with FLINT on two 84-by-84 cofactors give 1^40,2^14,4,12^6,60^3,120^5,360,720^4,2160^10 and determinant 2^108 * 3^54 * 5^23, confirming connectedness and exponent 2160. The submitted reference to an embedding into F7 is shorthand for specialization of Eisenstein integers, not a field embedding of Q(ω); the direct characteristic-zero incidence proof makes this immaterial.
 
-## Reproducibility and limitations
-Execute `python3 burkhardt_critical_verify.py` in the extracted package. The script uses only Python standard-library integer arithmetic, prints the exact invariant factors for two reduced Laplacians, and ends in `BURKHARDT_85_CRITICAL_GROUP_VERIFIED_OK`. The result is a calculation on one finite canonical graph; it is not a formula for every incidence graph or any surface Picard discriminant group. No independent mathematical validation has been performed. The complete 1990 source was inaccessible, so historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest distinct indexed result computes a rectangular incidence map, whereas this result computes the torsion of the block graph Laplacian. No covering result was established in the inspected material; the geometry and the rational spectral route are not the asserted novelty.
+
+## value
+
+PASS
+
+The complete bipartite incidence joins two intrinsic families on a classical singular quartic. Its graph Jacobian measures integral chip-firing equivalence and supplies the exact primary and exponent data needed to study divisor classes on this finite graph. The simultaneous 2-, 3-, and 5-primary structure and 44 nonunit factors go beyond the earlier rectangular defect and are not determined by spanning-tree order. This is useful as exact reference data, not a claim about geometric class groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

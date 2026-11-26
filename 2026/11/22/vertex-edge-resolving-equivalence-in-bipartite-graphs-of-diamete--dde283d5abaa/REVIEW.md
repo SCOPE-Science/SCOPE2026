@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equivalence is proved by two explicit separation-set lemmas. Every same-shore vertex-pair mask equals the edge mask of two edges with a common endpoint, and every edge-pair mask contains a same-shore vertex-pair mask. Bipartite distance parity makes opposite-shore vertex constraints redundant. These are inclusions of actual sets of distinguishing landmarks, not merely inequalities between minimum dimensions; therefore they transfer all cardinality thresholds and fractional nonnegative inequalities. A seven-vertex diameter-four counterexample is verified by displaying seven different edge signatures and a repeated vertex signature. The accompanying verifier checks 8,701 small bipartite instances; its finite scope is not confused with the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+In a connected bipartite graph of diameter at most 3, distinct same-shore vertices are distance 2 and share a neighbor; opposite-shore distances are 1 for neighbors and 3 otherwise. Independently one can see the stronger identity D_E(ab,a′b′)=D_V(a,a′)∪D_V(b,b′) (use the empty mask for an unchanged endpoint). For a sensor on A, if it is a differing A-endpoint the edge containing it is uniquely at distance 0; if it is a common endpoint both edge distances are 0 and both B-endpoints are adjacent. Otherwise both A-endpoint distances are 2 and each edge distance is 1 or 2 according to B-endpoint adjacency, so the vertex-mask union matches. The B-sensor argument is the reflection. Thus each edge mask contains at least one actual same-shore vertex mask, and every same-shore vertex mask is realized by two edges through a common neighbor. Cross-shore vertex masks are all of V and hence redundant for nonnegative weights because at least one same-shore pair exists (n≥3); K₂ is correctly excluded. This proves every threshold and the full nonnegative fractional equivalence by monotonicity. Independent witness replay in python3 /workspace/independent_checks.py (section 5) gives diameter 4, the seven distinct edge signatures (0,1),(1,0),(1,1),(2,1),(2,0),(1,2),(0,2), and vertices 3 and 6 both at (2,2). This disproves a larger universal bound for equivalence of sets, not necessarily of scalar dimensions.
 
-The foundational edge metric paper establishes equal scalar parameters for specific graph families, but not the all-graph equivalence of the underlying constraint hypergraphs. The complete inspected crown-graph and matching-deleted-biclique results are restricted families: they are consequences or useful inputs after transfer, not stronger general results. The Pappus census exhibits a diameter-four difference, not coverage at diameter three. Inspected incidence-graph work addresses ordinary vertex resolving. Searches covered the names edge resolving, edge metric, bipartite diameter three, matching-deleted bicliques, incidence graphs and separator masks. A distinct earlier general theorem under different terminology may exist; indexed retrieval and accessible primary literature cannot certify worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is not merely equality of two numbers: a structural equality of entire separation systems transfers **every** resolving-set polynomial, fault-tolerance threshold, fractional optimizer and minimum basis on a broad natural graph class. It unifies independent vertex and edge localization questions for symmetric designs, projective planes and matching-deleted complete bipartite graphs, and the diameter-four counterexample pinpoints the general boundary.
+Qualified pass for the full diameter-at-most-three class, in particular the transfer for incomplete bipartite graphs of diameter three. The specialized mask and fractional-polytope reduction on complete bipartite graphs are already covered, as are scalar dimension equality there and edge-resolving enumerators for some restricted families. None of the inspected broader-looking statements supplies the two directions of all-mask constraint domination on the actual class.
 
-## Closest prior art and boundaries
+## value
 
-Kelenc–Tratnik–Yero (arXiv:1602.00291v1) gives the definitions and some special-family scalar equalities. Bailey (arXiv:1707.02899) treats vertex metric dimension in incidence graphs. Existing published mathematical results provide crown-graph and matching-deletion calculations and a Pappus edge census, but no inspected source gives the two universal separation-mask lemmas. The result does not determine explicit metric dimensions for arbitrary instances, and the priority comparison is necessarily nonexhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equality of every nonnegative separation constraint system, rather than just two optimum counts, transfers all resolving sets, optimal weighted/fractional solutions, enumerators and multiple-separation thresholds across a natural class including nontrivial design incidence graphs. The verified diameter-four example delimits that transfer. It is neither a scalar coincidence nor a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

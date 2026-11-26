@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:32.416620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each same-part pair gives one uniform midpoint on the opposite part. The two sets of draws are disjoint, and opposite-part paths cover no nonterminals. Inclusion–exclusion on the fixed nonterminal targets gives the exact product for all a,b, including zero draws. At the window the floor error in the number of draws is O(sqrt(N log N))=o(N); the r-th falling factorial moment on each shore tends to exp(-cr). Independence gives the joint Poisson limit; the zero event is a continuity cell by using half-integer boundaries. Off window the expected miss count is N^(1-lambda^2+o(1)); distinct miss indicators have nonpositive covariance, so Var(U)<=E(U), providing the below-threshold bound, and Markov handles the above-threshold case. A deterministic assignment exists exactly when the available pairs can be assigned injectively to the N-a required midpoints on each shore. The reliable random budget is a first-order comparison, not a claim of probability tending to one at the center of the window. Independently checked the examples 1/9 at (3,2,2) and (37/64)^2 at (4,3,3). VERIFICATION.md lines 19–23 record 47 bounded cases, N=2–4, via verify_random_routes.py; that upload was inspected, not run, and the finite checks do not prove either asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iršič gives both midpoint-capacity inequalities for unequal terminal counts and part sizes. The random-walk catalogue hit studies walk cover/last-vertex laws, not independent paths for fixed terminal pairs."
+        ],
+        "reasoning": "The balanced deterministic optimum is an immediate equal-size, equal-count restriction of the inequalities. Random-walk coverage is not itself prior coverage of the path-choice model.",
+        "searches": [
+          "Iršič arXiv:1708.02416v1, §2",
+          "Resultary 2026/11/2/SCOPE-last-vertex-laws-on-complete-bipartite-random-walks-exact-ties-a--45da9f177f4a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54 and VERIFICATION.md lines 19–23",
+        "arXiv:1708.02416v1",
+        "Resultary 45da9f177f4a, 055ff1a6d591, 19a81b4f67a5",
+        "doi:10.1080/15326349708807412 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At criticality, the probability any of the a excluded terminal types remains unhit is bounded by a(1-1/N)^m=o(1), so even the ordinary full-target Poisson window transfers unchanged. The two copies are independent. Iršič's bound specializes to a(a+1)>=2N."
+        ],
+        "reasoning": "After the direct midpoint bijection, the exact reliability, threshold and price of randomization require no additional structural result. The comparator is the balanced optimum, not the conventional possibly unbalanced strong geodetic number.",
+        "searches": [
+          "Iršič arXiv:1708.02416v1, §2 and Theorem 2.1",
+          "classical uniform coupon occupancy; Boneh–Hofri doi:10.1080/15326349708807412"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each shortest path between two fixed same-part terminals has exactly one free coordinate, its uniformly sampled midpoint. Nonterminal coverage is the event that all designated coupon types occur."
+        ],
+        "reasoning": "This is an exact bijection of the random experiments, not a comparison to an approximation or to a random walk.",
+        "searches": [
+          "Resultary random geodesic coverage, bipartite cover times and strong geodetic routing",
+          "Boneh–Hofri doi:10.1080/15326349708807412"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strong-upper-geodetic catalogue item maximizes the size of a minimal strong geodetic set, a different invariant. No exact random path-assignment entry surfaced; the finite examples are evaluations of targeted occupancy rather than a new census."
+        ],
+        "reasoning": "The finite formula needs no graph-specific numerical table beyond the standard inclusion–exclusion calculation. The search miss is not positive evidence of priority.",
+        "searches": [
+          "Resultary fixed-terminal random shortest-path coverage and complete-bipartite strong geodetic counts",
+          "2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5"
+        ]
+      },
+      "rationale": "No exact prior statement of the randomized biclique theorem was located, but the full random law is a direct reparameterization of two independent ordinary targeted occupancy experiments, and the balanced deterministic threshold is a specialization of the prior capacity criterion. There is no surviving distinct mathematical result in the frozen finding beyond these applications; this is a coverage-by-implication decision, not a claim of a verbatim duplicate.",
+      "residual_risks": [
+        "The bounded search cannot determine the first graph-specific articulation. The survey was not accessible in full, but that does not affect the direct implication or the inspected deterministic prior result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic balanced threshold by specialization; theorem on conventional sg allows unbalanced terminals.",
+          "evidence": [
+            "binom(s2,2)>=n1-s1 and binom(s1,2)>=n2-s2; at N=7 conventional sg=7, while balanced needs eight terminals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02416v1",
+          "material_read": "§2, PDF pp. 3–4, offsets 4700 and 9681, including Theorem 2.1",
+          "method": "OA full-text passages",
+          "title": "Strong geodetic number of complete bipartite graphs and of graphs with specified diameter",
+          "trigger": "Same graph and optimized geodesic coverage"
+        },
+        {
+          "assessment": "Not used as proof of its exact wording; occupancy identity and implication checked directly.",
+          "evidence": [
+            "Targeted miss moments follow by counting ordered distinct required types and excluding their N-uniform draws."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/15326349708807412",
+          "material_read": "Bibliographic citation only; alternate full text not recovered",
+          "method": "DOI/OA lookup",
+          "title": "The coupon-collector problem revisited: a survey of engineering problems and computational methods",
+          "trigger": "Classical occupancy antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimized-versus-random comparison is a clear illustration of coupon collection, but the sqrt(log N) factor just converts known draw budgets N and N log N into balanced counts of pairs. Neither the exact product nor the asymptotic window needs a graph-specific estimate after the single free midpoint is named. No independently valuable nonroutine remainder was established; no repair is offered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

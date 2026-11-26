@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The update reduces for positive theta to a nonnegative Stieltjes resolvent minus a diagonal scalar. A complete-graph comparison in Loewner order gives the optimal bound; the positive-semidefinite equality test is exact and identifies precisely saturated universal vertices. Strict resolvent-diagonal monotonicity proves crossing of the sharp boundary. The theta-zero endpoint is checked directly using weighted degrees. Exact rational finite calculations independently exercise boundaries; they are not substituted for the general proof. Main risks are a mistaken matrix-order direction or improper equality characterization; both are explicitly resolved in the proof by positive-definite inversion and a quadratic edge-energy identity.
+## correctness
 
-## Originality
-**PASS, subject to unindexed literature.** The directly adjacent published Crank–Nicolson record gives the single-generator diagonal return test and the complete graph value, which are acknowledged as prior work. Its full RESULT.md was read. Schatz–Thomée–Wahlbin address parabolic positivity conditions, while Kovács–Li–Lubich address maximal parabolic regularity. The new statement is the sharp *uniform edge-cap extremal theorem and full equality class* across all theta schemes and all weighted graph orders. That family extremal characterization is not asserted in the inspected adjacent sources, though an equivalent in unindexed positivity-preserving literature remains a credible risk.
+PASS
 
-## Value
-**PASS.** Stability of an implicit theta scheme does not alone guarantee a discrete maximum principle. The theorem gives a precise robust timestep for a large network class and identifies *all* topologies that saturate it. That full equality class distinguishes structurally many noncomplete networks from intuitive complete-graph worst cases, and the order-dependent theta cutoff pinpoints unconditional positivity in the fixed-order setting.
+For θ>0, T=(R−(1−θ)I)/θ with R=(I+tL)⁻¹, t=θh. The inverse is entrywise nonnegative: factor out 1+t times the maximum weighted degree (with the factor understood as 1+t d_max), and expand the resulting inverse as a Neumann series in the nonnegative matrix t(d_max I−L)/(1+t d_max), whose row sums are <1. Only the diagonal can obstruct positivity. On the orthogonal complement of the constant vector all eigenvalues of L are positive by connectedness and at most nw by the edge-energy comparison to the capped complete graph. Consequently R_ii decreases strictly to 1/n and is at least (1+tw)/(1+ntw). At t>0 equality requires every spectral component of e_i−1/n·1 to have eigenvalue nw, i.e. L e_i=nw(e_i−1/n·1). Comparing off-diagonal entries in this column gives exactly c_ij=w for each j≠i, with no constraint on peripheral edges. Solving the diagonal condition gives the displayed H and the θ cutoff. Strict monotonicity and the endpoint limit give the exact horizon behavior; for θ=0 it follows directly from 1−h d_i. The introductory phrase ‘row-stochastic … although it need not be entrywise nonnegative’ should be read as ‘has unit row sums’; under the usual nonnegative convention it is stochastic only in the positivity region. This wording does not alter the explicit theorem or proof.
 
-## Closest literature and limitations
-The fixed-chain resolvent test and complete graph threshold are established by the referenced published mathematical record. The graph-family extremizer classification is a different implication. The theorem does not classify the exact horizons of other individual graphs or internal stages, and independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defensible contribution is the exact weighted capped-graph comparison with identification of all equality graphs across the full θ interval. The prior spectral/diagonal criterion and complete-graph comparison already contain the numerical Crank–Nicolson bound when combined with the elementary capped spectral estimate, and the all-θ scalar comparison is a short extension. Do not credit those ingredients as stand-alone new claims. The checked earlier work does not supply the exact graph-family equality classification for arbitrary capped conductances and θ.
+
+## value
+
+PASS
+
+An exact step-size guarantee and a complete extremizer classification answer a motivated numerical-positivity question. In particular, one saturated vertex rather than a complete graph suffices, and adding, removing or reweighting peripheral edges cannot improve the worst horizon in that case. This specifies when the bound can and cannot be improved for a graph, unlike a norm/CFL guarantee alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

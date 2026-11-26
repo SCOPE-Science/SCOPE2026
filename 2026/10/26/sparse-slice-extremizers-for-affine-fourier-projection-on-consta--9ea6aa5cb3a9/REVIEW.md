@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(n\ge2\) and \(1\le k<n\), the covariance calculation derives the kernel with its exact normalization. The absolute row sum is attained by a sign input; complementation gives layer symmetry. Uniform integrability follows from \(\mathbb E K^2=n\). The three regimes are justified by a vanishing-mean estimate, factorial-moment Poisson convergence, and a hypergeometric Gaussian local-ratio argument. The Poisson mean-absolute-deviation identity and a strictly decreasing sequence of interval maxima establish the unique optimizer. Compactness of the extended positive half-line yields the assertion for **every** maximizing sequence. Exact-rational standalone checks returned `EXACT_VERIFY_OK assertions=44094`. These finite computations do not establish any asymptotic claim by themselves.
+## correctness
 
-## Originality — PASS within checked literature
-The inspected Johnson degree-two primitive projection computes a different spectral idempotent and only fixed-density growth, not the present degree-zero-plus-one sum nor its sparse cross-layer optimization. Filmus's full Johnson harmonic-decomposition discussion identifies the invariant subspaces without comparing sharp endpoint norms across layer sizes. First Grassmann Fourier norms concern finite-field subspaces, rather than ordinary subsets. The hypergeometric mean-absolute-deviation source of Elezović is relevant to a building-block identity, but only its abstract and secondary exposition could be read; the full text is an explicit residual originality risk. Searches for aliases including first Johnson spherical idempotent, affine least-squares projection, low-pass slice Fourier projection, hypergeometric mean absolute deviation, and Poisson sparse optimum returned no covering result. Absence in searches is not uniqueness proof. Historical priority remains provisional.
+PASS
 
-## Value — PASS
-The Johnson slice is a standard finite homogeneous-space model for harmonic approximation. Orthogonal projection onto constants and coordinate statistics is the first nontrivial low-pass operation; its worst-case bounded-input amplification controls stability of affine least-squares fits. The theorem demonstrates a counterintuitive structural difference: optimizing over sampling density is asymptotically governed by a **sparse Poisson** overlap with unique optimal cardinality scale, rather than the familiar fixed-density Gaussian regime. The exact sharp leading coefficient and optimizer answer a naturally defined, parameter-uniform stability question; neither is an arbitrary low-dimensional datum.
+The frozen kernel, exact row norm, equality of endpoints, complement symmetry, and asymptotic results check out. The centered-coordinate covariance is scalar on the sum-zero subspace; the absolute row sum attains the infinity norm by choosing that row's signs. Normalized kernel second moment is one, so hypergeometric weak limits pass to absolute moments. Below the sqrt(n) scale the first absolute centered moment is at most 2k^2/n; on that scale factorial moments give the Poisson limit; above it all expected hypergeometric cells diverge and the normal limit applies. Poisson peaks at consecutive half-integers decrease by the strict midpoint integral comparison, so the unique leading peak localizes all smaller maximizing widths. The repaired theorem proves the exact eventual optimizer, not asserted in the original. Within the localization window k(k-1)/(n-1) is strictly between 0 and 1, so only disjoint pairs contribute to the negative part. Dividing the two neighboring positive binomial factors gives the sign polynomial n^2-(2k^2+2k+1)n+3k^3+2k^2+k. Its discriminant 4k^4-4k^3+1 lies strictly between the squares of 2k^2-k-1 and 2k^2-k for k>=2. The smaller root is below n in the window; the larger has floor 2k^2+floor(k/2) and is never an integer, yielding a unique turning layer and excluding ties. This crossing lies inside the window for large n and leads exactly to ceil((sqrt(32n+1)-1)/8). Ran python3 /workspace/repairs/2/check_eventual_width.py: 143 exact full smaller-width scans and 48 exact adjacent transition pairs passed. Independent row-matrix and spot checks also agree with the frozen non-asymptotic formula.
 
-## Closest literature and limits
-Y. Filmus, *Orthogonal basis for functions over a slice of the Boolean hypercube*, arXiv:1406.0142 (full text of v2 read, first public version 2014-06-01); Krebs–Shaheen, *On the spectra of Johnson graphs* (published abstract and bibliographic data); *Exact endpoint norm of the second Johnson spherical projector* (full published result read); N. Elezović, arXiv:2608.06232 (abstract and secondary exposition only; full text inaccessible). No claim of new hypergeometric probability mass functions or Poisson absolute-deviation identities. Finite-cardinality exact maximizers, second-order corrections, and nonuniform weights remain open in this statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the repaired exact eventual lattice threshold and finite no-ties law. The frozen leading-scale result does not survive as a distinct claim: the first-harmonic record gives all width regimes and the same unique peak, and adding the constant projector changes every norm by at most one. This is demonstrable equivalent asymptotic coverage, not a claim about which record was first. The unoptimized finite affine row expression is standard kernel evaluation and is not credited by itself. The repaired exact threshold instead uses the affine shift to get a different finite adjacent-layer comparison, whose discriminant locates precisely the step relative to integers.
+
+## value
+
+PASS
+
+The finite maximizing cardinality is a natural extremal parameter already motivated by the frozen problem, which explicitly left the discrete optimizer open. The repair turns its scale into a unique exact rounding law and gives the largest norm without an all-width scan. This identifies both sides of every sufficiently large transition and answers when two neighboring smaller widths can tie, information neither the limiting constant nor finite tabulation gives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

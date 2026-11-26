@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:47:20.152881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed backward equation on the isolated side network has positive-definite B (its quadratic form is the sum of internal edge energies and positive death-plus-target-rate diagonal terms). Solving the updated equation and taking the gateway coordinate gives q_1=(z+alpha*R*p)/(1+alpha*R), where R=(B^-1)_11>0 and z is the isolated gateway success probability. The source equation then makes p a strict convex mixture of P_0 and z with weight beta/(d+kappa+beta)>0 on z, beta=alpha/(1+alpha*R). This verifies the sign and equality cases, arbitrary positive entry rate, and the single-gateway extension under its stated assumptions. The isolated path recurrence has reflecting condition z_0=z_1 and prescribed target z_(n+1)=1; the stated ratio of coshes satisfies both and the interior equation, including n=1. With time rescaling, Z_n(g)=E exp(-kappa*tau_n/g) for an a.s. finite and strictly positive unit-rate hitting time, giving strictly increasing continuity and the two endpoint limits. Z_(n+1)<Z_n pointwise and hence g_c increases strictly. In the critical cosh equation the left side is at least cosh(n*theta_n), so theta_n<=arcosh(1+kappa/d)/n, and the equation then gives the asserted limit of (n+1/2)*theta_n. Using 2(cosh(theta_n)-1)~theta_n^2 gives the sharp coefficient. Series-parallel conductance uses n links of rate g after the entry edge and is strictly increased independently of mortality. An independent n=2 backward solve returned (3/7,2/7,3/7) for the all-unit adverse example and gave detached success g^2/(g^2+3g+1) for kappa=1, hence the stated threshold for d=1. The supplied verify_corridor.py was inspected, not run; its path computations do not verify arbitrary side networks, for which the exact proof suffices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mortal-walk paper's first-page abstract studies self-similar trapping and scaling, not the comparison with a base edge. The voltage and landscape-occupancy papers were located bibliographically; their original passages were not accessible."
+        ],
+        "reasoning": "A general representability result via a killed Dirichlet system is not itself a solved sign comparison. Coverage would require a general result implying the single-gateway law or a formula already implying the threshold coefficient; no such implication was shown by the available statements.",
+        "searches": [
+          "arXiv:1901.10226",
+          "https://doi.org/10.1155/2014/852481",
+          "https://doi.org/10.1111/2041-210X.14418"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches for the single-gateway law, parallel corridor threshold and exact scaling coefficient",
+        "arXiv:1901.10226 and arXiv:2303.02146 abstracts",
+        "Resultary local-mirror Findings …d437ebce6f5e and …29df00c87775",
+        "Indexed …4d124dc381af",
+        "Frozen RESULT.md §§ Relationship to prior work and References plus lawful OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gounaris and Katifori's abstract uses mean first-passage time under regular diffusion. The matched-investment finding concerns two directed stages under a traversal-rate budget with distinct loss hazards; the fish-passage entry compares exponential and Erlang passage under deadlines and common mortality."
+        ],
+        "reasoning": "Mean hitting time does not determine its discounted success: only the derivative at zero discount is fixed by the mean, when finite. The serial optimization and deadline comparisons cannot imply an all-alpha law for networks with backtracking. The comparisons are made by assumptions, not same-day dates.",
+        "searches": [
+          "arXiv:2303.02146",
+          "2026/11/22/SCOPE-mortality-matched-investment-for-serial-habitat-passage-under-ar--29df00c87775",
+          "2026/11/22/SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent exponential death gives a Laplace transform of the first-hitting time.",
+          "The Balakrishnan et al. abstract obtains mortal trap-hitting probabilities by iterating a function of single-step survival on hierarchical graphs. The indexed two-deadline stepping-stone source models one direct exponential clock and serial stages with route-specific viability and a fixed deadline."
+        ],
+        "reasoning": "A Laplace transform is an exact reformulation of the objective, but a serial passage model has no live returns to the source and does not represent the single-gateway augmentation or its conductance comparison.",
+        "searches": [
+          "Resultary: mortality-limited parallel corridor, independent-entry-rate sign threshold, and discounted first passage",
+          "arXiv:1901.10226",
+          "2026/11/22/SCOPE-two-deadline-reversals-for-serial-stepping-stone-dispersal-exact--d437ebce6f5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact result surfaced in the bounded catalogue comparison. The closest distinct entries report stage-rate thresholds, serial rate allocation, and deadline reversal counts rather than this coefficient."
+        ],
+        "reasoning": "Those are not numerical instances of a reflecting symmetric path with a competing source-target edge. A matched numeric rate without matching the discount objective and returning dynamics would not establish coverage.",
+        "searches": [
+          "Resultary: homogeneous killed parallel detour, threshold independent of alpha and kappa/arcosh(1+kappa/d)^2",
+          "Resultary: finite side network mortality gateway sign law"
+        ]
+      },
+      "rationale": "The supported contribution is the coupled all-entry-rate conductance/success comparison and exact homogeneous threshold, including its asymptotic coefficient. First-passage discounting, rank-one inverse updates and electrical monotonicity are standard ingredients, not separate claims of novelty. The closest available results treat different passage models or objectives; priority is not certified.",
+      "residual_risks": [
+        "Relevant original passages beyond the two accessible primary abstracts were not extracted; especially the landscape-occupancy and voltage papers remain unconfirmed at the theorem level.",
+        "A general killed-walk resolvent, discount comparison theorem, or earlier corridor classification not surfaced by the bounded search may imply parts of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior methodology, not verified coverage of the installed-route comparison",
+          "evidence": "Trap-hitting probabilities on hierarchical graphs are obtained by iterates of a scaling function of survival q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.10226",
+          "material_read": "Primary PDF abstract, p. 1",
+          "method": "Lawful arXiv PDF; targeted OA passage lookup timed out",
+          "title": "First-passage properties of mortal random walks: Ballistic behavior, effective reduction of dimensionality, and scaling functions for hierarchical graphs",
+          "trigger": "Discounted hitting and killed walks"
+        },
+        {
+          "assessment": "Similar paradox with a different objective",
+          "evidence": "Overall search efficiency is evaluated by mean first-passage time under regular diffusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.02146",
+          "material_read": "Primary PDF abstract, p. 1",
+          "method": "Lawful arXiv PDF; targeted OA passage lookup timed out",
+          "title": "A Braess' paradox analog in physical networks of optimal exploration",
+          "trigger": "An added connection can worsen a first-passage objective"
+        },
+        {
+          "assessment": "Real adjacent threshold result but different dynamics and objective",
+          "evidence": "Direct exponential completion versus k sequential exponential stages with route-specific terminal viabilities and a fixed deadline; zero, one or two crossings.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-deadline-reversals-for-serial-stepping-stone-dispersal-exact--d437ebce6f5e",
+          "material_read": "Bound Finding in RESULT.md",
+          "method": "Resultary and original local mirror",
+          "title": "Two deadline reversals for serial stepping-stone dispersal",
+          "trigger": "Parallel route preference and exact rate thresholds"
+        },
+        {
+          "assessment": "Different directed serial allocation model",
+          "evidence": "Two sequential connections with separate mortality hazards and a fixed traversal-rate budget, with deadline and discounted rewards.",
+          "identifier_or_url": "2026/11/22/SCOPE-mortality-matched-investment-for-serial-habitat-passage-under-ar--29df00c87775",
+          "material_read": "Bound Finding in RESULT.md",
+          "method": "Resultary and original local mirror",
+          "title": "Mortality-matched investment for serial habitat passage",
+          "trigger": "Mortality-discounted habitat route optimization"
+        },
+        {
+          "assessment": "No primary-text implication verified",
+          "evidence": "Frozen RESULT.md § Relationship to prior work describes a commute-time circuit distance inside a spatial occupancy model.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.14418",
+          "material_read": "Bibliographic metadata and frozen comparison; original passages not extracted",
+          "method": "Lawful OA and DOI access attempts",
+          "title": "Bringing circuit theory into spatial occupancy models to assess landscape connectivity",
+          "trigger": "Habitat connectivity and electrical comparisons"
+        },
+        {
+          "assessment": "Unconfirmed scope, not evidence of noncoverage",
+          "evidence": "Title and citation identify an electric-network treatment of hitting times but establish no discount or gateway theorem.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/852481",
+          "material_read": "Bibliographic metadata; original theorem unavailable",
+          "method": "Lawful OA and publisher PDF access attempts",
+          "title": "Hitting Times of Walks on Graphs through Voltages",
+          "trigger": "Potential broader voltage and stochastic-passage theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Electrical conductance and success before independent death are natural but different connectivity objectives. The model exhibits a strict, exactly quantified failure of the former to track the latter; entry-rate independence and the sharp length-squared scale are informative for comparing possible detours, beyond the existence of one adverse example. The single-gateway sign criterion also applies to non-path side networks. This is an idealized stochastic-network statement, not a calibrated ecological prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

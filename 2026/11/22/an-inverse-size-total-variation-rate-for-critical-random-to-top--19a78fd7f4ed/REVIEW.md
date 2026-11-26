@@ -1,15 +1,21 @@
-# Scientific review: inverse-size fixed-point approximation
+# Independent mathematical audit
 
-## Correctness — PASS
-The shuffle model is specified by uniform label-selection with replacement from the identity, with exactly \(\lfloor cn\rfloor\) moves for fixed \(c>0\). The proof uses an exact conditional selected-prefix representation, a uniform factorial-moment Poisson inequality for partial injections, a stepwise geometric survival coupling, and an \(\ell^1\)-Taylor expansion of the Poisson–geometric family. The occupancy parameter fluctuates on the \(n^{-1/2}\) scale, but the *averaged signed* linear term depends only on the \(O(n^{-1})\) bias of the occupancy mean, yielding the claimed rate. All edge events, including full selection, are accounted for. The checker separately reconstructs finite conditional and full shuffle laws; those finite checks corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS subject to residual historical risk
-Clay's *On the statistics of random-to-top shuffles* (arXiv:2603.09008v1; first public 2026-03-09) establishes the same Poisson–geometric weak limit and in Section 8 specifically calls for convergence rates. Its exact finite-prefix decomposition is credited. The closely relevant published joint fixed-point/descents result, *Four-way rare–Gaussian factorization and a hidden covariance in random-to-top shuffling*, was examined at full statement-and-proof level: it establishes factorized weak convergence but explicitly does not give a quantitative rate. Another published random-to-top descent/inversion result has different observables. The available descriptions of older Pehlivan and Diaconis–Fill–Pitman works do not assert the inverse-size fixed-point-statistic bound. The record does not exclude unindexed general theorems or a result implicit in an inaccessible thesis; independent historical verification remains necessary.
+PASS
 
-## Value — PASS
-A quantitative total-variation version of a nontrivial critical-window limit is a natural and explicitly identified research question. The inverse-size bound is materially stronger than the weak limit and stronger than a naive \(n^{-1/2}\) parameter-stability estimate; its cancellation mechanism can help guide quantitative analysis of mixtures of occupancy-driven discrete laws. The result is not presented as a sharp asymptotic constant or an all-regimes theory.
+Conditional on K=k moved labels, the ordered prefix is a uniform injection and the fixed suffix consists exactly of the labels above its maximum M. For M>k, condition also on the position of M: the k−1 other positions form a uniform injection into [M−1], and the k−1 distinct target labels are in [M−1]. A common relabeling of the targets and alphabet identifies its fixed-count law with the stated partial-injection law. At M=k the prefix is a full permutation. For a t-entry injection into [m], the factorial moments are (t)_s/(m)_s; termwise product comparison with (t/m)^s and absolutely summable factorial-moment inversion yield the e²/t bound. The geometric hazard comparison includes the last survival test j=n−k, at which survival is zero. Replacing the conditional Poisson parameter by k/n costs at most (j+2)/n, and the endpoint M=k costs at most 1/n for k<n. For k=n the full-permutation bound applies directly. The occupancy mean differs from a by O_c(n⁻¹) and its variance is O(n⁻¹) by nonpositive indicator covariances. The uniformly bounded second ℓ¹ derivative of the convolution on [a/2,1], the signed average of the linear term, and Chebyshev on k<an/2 give the claimed rate for fixed c>0. The nested checker and output were inspected, not run; the proof does not use the finite data.
 
-## Verification and limits
-The exact-data checker in `checks/verify.py` completed 1,712 assertions including full small-shuffle histories, exact partial-injection combinatorics, and numerical total-variation comparisons. The analytic proof covers all sufficiently large dimensions for every fixed positive shuffle ratio, beyond those tests. Primary-paper comparisons were based on inspected mathematical statements; historical originality is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact conditional representation and qualitative limit were known. The strongest inspected comparisons do not state or imply the inverse-size rate for the marginal fixed-point law; summable conditional errors and a second-order occupancy-mixture estimate are additional arguments.
+
+## value
+
+PASS
+
+The estimate quantifies an explicitly identified convergence-rate question for a natural critical-time statistic. It improves on simply conditioning and bounding deviations absolutely by showing why fluctuations of order n⁻¹/² contribute only order n⁻¹ to this distribution. This yields a finite-size error guarantee for all fixed-point events, not just selected moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:41.279699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each aaa forces aa into the code; those diagonal pairs also cover all words with repeated letters. Taking the complement on off-diagonal ordered pairs converts every remaining forbidden uncovered word abc into the non-induced transitive triangle a→b, a→c, b→c, with opposite arcs allowed. In a feasible digraph, endpoints of any arc have disjoint out-neighborhoods and disjoint in-neighborhoods. Summing the degree bounds on arcs gives Σ_v d(v)^2≤2qE; Cauchy–Schwarz gives 4E²/q≤Σ_v d(v)^2. The bidirected balanced bipartite construction attains floor(q²/2) arcs. At even q, equality packs the out-neighborhoods across each arc into all q vertices, forcing the reverse arc, after which Mantel equality gives the balanced bipartition. At odd q=2m+1, an extremizer has some vertex of total degree at most 2m; removing it and applying the even bound forces degree exactly 2m and an even extremizer on the other vertices. Each of the deleted vertex's in- and out-neighborhoods must be one whole side of that K_{m,m}, as both are independent and their sizes sum to 2m. They must be the same side, since different sides yield a transitive triangle through the deleted vertex. This establishes exactly the stated codebooks including q=2 and q=3. The labeled count follows by choosing the smaller part, or halving for equal parts; all are conjugate under relabeling. Independently, `python3 /workspace/branches/independent_math_replay.py 2` used direct set-cover recursion on ordered distinct-letter words for q=2..5; it returned (size, count)=(2,1),(5,3),(8,3),(13,10) and found only the asserted partitions. This finite check is not the all-q argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4.1 applies to all finite k and n and 3/2<a≤2. Forbidding T_{k+1} gives a times the k-partite Turán number and unique extremizer DT_k(n). At a=2 the weighted edge count counts ordinary arcs. The covering-density result separately already gives the scalar optimum for r=2."
+        ],
+        "reasoning": "The broad exact directed theorem, not the asymptotic covering-density statement, is what covers all optimal ordered codebooks. There is no asymptotic or small-order exception to resolve.",
+        "searches": [
+          "arXiv:1404.6178v2 §4 Lemma 4.1",
+          "DOI:10.1109/TIT.2025.3557393 Eq. (1), Theorem 3 and r=2 example",
+          "arXiv:2606.15379v1 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.6178v2",
+        "DOI:10.1109/TIT.2025.3557393",
+        "arXiv:2606.15379v1",
+        "Resultary/SCOPE e5967ceb46e7 and 6d8ac156470a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=2,n=q,a=2 the unique extremal digraph has both arcs along each edge of K_{floor(q/2),ceil(q/2)} and no other arcs. Complementing gives exactly A²∪B², with size q²-floor(q²/2). Labeling gives binom(q,floor(q/2)) possibilities divided by two exactly when the parts are equal; there is one relabeling orbit."
+        ],
+        "reasoning": "The full frozen Finding, including exclusion of asymmetric codebooks and exact labeled count, follows by that parameter specialization, complementation, and unordered bipartition counting. The fact that the code papers did not explicitly state the classification does not restore distinctness.",
+        "searches": [
+          "arXiv:1404.6178v2, Lemma 4.1, p. 7 (OA offset 25150 onward)",
+          "Cited Brown–Harary directed Turán theorem in the same lemma and reference list"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Once aa is forced for each symbol, the complement map is a bijection between all feasible codebooks and T_3-free loopless digraphs; it reverses size by q². Here T_3 is forbidden as a subgraph, not an induced subgraph, and opposite arcs are permitted."
+        ],
+        "reasoning": "These are exactly the digraphs of the prior theorem, not the smaller class of oriented graphs or of graphs obtained only from reversal-symmetric codebooks. The bijection carries all extremizers in both directions.",
+        "searches": [
+          "Directed Turán extremizers for forbidden transitive tournaments allowing opposite arcs",
+          "arXiv:1404.6178v2, digraph and weighting definitions and Lemma 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match e5967ceb46e7 is the assigned record itself. The nearby 6d8ac156470a concerns statistics of orientations over bipartite bases rather than this directed extremal classification."
+        ],
+        "reasoning": "No distinct exact table is needed: the independently retrieved 2015 theorem gives the closed finite classification for every alphabet size via the complement bijection. The self-match is not used as prior evidence.",
+        "searches": [
+          "Resultary: all optimal length-two single-insertion covers; transitive triangle free digraph extremizers"
+        ]
+      },
+      "rationale": "The finite directed Turán classification already gives the full codebook rigidity, not just the scalar bound. Lemma 4.1 of Kühn–Osthus–Townsend–Zhao applies exactly to the complement model at (k,n,a)=(2,q,2) and proves uniqueness of the bidirected balanced bipartition. The labeled count then follows by counting the placements of that unique extremizer. Their proof explicitly credits the a=2 case to Brown–Harary (1970).",
+      "residual_risks": [
+        "The original Brown–Harary chapter was not independently retrieved; its attribution was read in the 2015 paper. The accessible 2015 statement and proof establish coverage regardless of the original attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire extremal-digraph classification used by the frozen record via k=2 and a=2.",
+          "evidence": [
+            "The lemma states that for 3/2<a≤2 and k,n natural, DT_k(n) is the unique extremal T_{k+1}-free digraph, with ea=a·t_k(n). The preceding text credits the a=2 case to Brown and Harary."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6178v2",
+          "material_read": "Definitions on pp. 1 and 5 (OA offsets 0 and 20400); §4, pp. 7–8, Lemma 4.1 and proof (offset 25150 onward); reference to Brown–Harary (offset 122353).",
+          "method": "Primary OA PDF; matched the forbidden subgraph, arc weight, full range and uniqueness condition to the cover complement.",
+          "title": "On the structure of oriented graphs and digraphs with forbidden tournaments or cycles",
+          "trigger": "Exact directed Turán classification for a forbidden transitive tournament with opposite arcs allowed"
+        },
+        {
+          "assessment": "Independently supplies the finite scalar optimum and balanced witness; no all-optima classification in the cited results.",
+          "evidence": [
+            "The normalized finite minimum is bounded below by the asymptotic density; that density is 1/2 for length-two centers and a matching two-part upper-bound construction is given."
+          ],
+          "identifier_or_url": "https://pikhurko.github.io/E/PikhurkoVerbitskyZhukovskii25tit.pdf",
+          "material_read": "Eq. (1), Theorem 3 and r=2 specialization (OA offsets 0, 21700 and 38600).",
+          "method": "Primary OA PDF statement and parameter comparison.",
+          "title": "New Bounds for the Optimal Density of Covering Single-Insertion Codes via the Turán Density",
+          "trigger": "Same covering model, scalar threshold and balanced construction"
+        },
+        {
+          "assessment": "Inspected passages discuss bounds and constructions, not the finite all-optima classification; not decisive for the verdict.",
+          "evidence": [
+            "The compared statements concern large-alphabet bounds and constructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.15379v1",
+          "material_read": "Model and bounds on pp. 2–3 (OA offsets 9050 and 13000).",
+          "method": "Primary OA PDF parameter comparison.",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Later covering-code bounds in the same channel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Classifying arbitrary optimizers rather than just giving their cardinality is a natural question. Here, however, the claimed classification is a direct transfer of an existing exact extremal theorem; its label count and one-orbit assertion are simple consequences. The elementary proof is useful exposition but the record does not establish an additional nonmechanical scientific claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

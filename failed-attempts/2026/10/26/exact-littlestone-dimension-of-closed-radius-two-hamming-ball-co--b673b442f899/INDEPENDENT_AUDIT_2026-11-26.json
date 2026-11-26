@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:18:02.598138Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The replay certifies the finite witnesses, not the universal upper bound or the padding argument. Those were checked analytically.",
+      "rationale": "For any query the positive branch in the full class is a translate of the centers of weight at most two. Within that branch, weights zero and above four are constant and weights three and four have at most six positive centers. For an intersection with a second ball centered at weight one, parameterize the centers by a free distinguished bit and at most one outsider. Queries with two or three outsiders have five or three positive centers; queries with one outsider have a negative branch in a translated star. For a second ball centered at weight two, the centers are arbitrary subsets of the two distinguished bits with no outsider, or exactly one distinguished bit with one outsider. Queries with zero or two distinguished bits have at most five positives when they split, while queries with one distinguished bit and zero or one outsider have star negative branches; with two or three outsiders they have at most three positives. A splitting query on a star has at most three positives, so stars have dimension at most two. These bounds yield depths at most three on the double intersections, four on a ball, and five on the full class. In d=3 and d=4 the negative root branch has 1 and 5 centers; in d=5 the 16-center positive root branch admits no 8/8 cut (intersection sizes 16,10,10,6,6,0). Independent verification checked all 58 certificate paths for depths 1,3,4,5 in dimensions 3,4,5,6; zero-padding proves all larger lower bounds. Distinctness and label consistency were both checked.",
+      "replay_command": "python3 /workspace/branches/independent_math_checks.py 4",
+      "replay_path": "/workspace/branches/independent_math_checks.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later joint classification establishes both dimensions and their first separation in dimension six. Adler–Benediktsson–Macpherson study adjacency neighborhoods and VC bounds; the other Resultary neighborhood record treats radius one."
+        ],
+        "reasoning": "The combined exact classification is stronger; VC bounds on radius-one adjacency neighborhoods are not a substitute. No separate all-radii formula was established by the inspected sources.",
+        "searches": [
+          "Resultary 31d57fbe632c",
+          "arXiv:2007.16042, p. 1",
+          "Resultary 09da1f15171b (closed radius-one neighborhoods)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, witnesses.json, verification_output.txt",
+        "Resultary 31d57fbe632c, a9528fa90607, 6e49ec510332, 7499a8b054ac, 09da1f15171b",
+        "arXiv:2007.16042",
+        "arXiv:2609.21445"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint table implies the exact adaptive mistake bound via the usual realizable mistake-tree characterization; its proof forms the same two intersection families H1 and H2 with star exceptions.",
+          "The inspected VC neighborhood result provides neither the required shattered adaptive trees nor the universal adaptive upper bound."
+        ],
+        "reasoning": "No new restriction or mathematical term is needed to derive the submitted theorem and mistake interpretation from the stronger indexed entry. This is a statement-level implication irrespective of unresolved relative priority.",
+        "searches": [
+          "Resultary 31d57fbe632c, Finding and Proof §2",
+          "arXiv:2007.16042, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "31d57fbe632c uses arbitrary cube queries with a positive label for distances 0, 1, 2. 6e49ec510332 instead tests distance exactly 2; 7499a8b054ac tests x_i+x_j modulo 2.",
+          "The d-Hamming spheres in arXiv:2609.21445 §5 are point subsets of tagged blocks, not closed metric balls on the full cube."
+        ],
+        "reasoning": "The closed ball is precisely the closed neighborhood in the square of the binary hypercube. Complementing all labels preserves shattering, and the complement of a closed radius-two ball is a closed radius-(d-3) ball about the antipode for d>=3. Neither the exact shell nor parity gives this equivalence. The exact match instead comes from the same metric-radius convention.",
+        "searches": [
+          "Resultary 31d57fbe632c (closed metric radius two)",
+          "Resultary 6e49ec510332 (exact-distance-two shell)",
+          "Resultary 7499a8b054ac (two-coordinate parity)",
+          "arXiv:2609.21445, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "31d57fbe632c gives the table (0,0),(1,1),(3,3),(4,4),(4,5) for d=1–2,3,4,5,>=6. a9528fa90607 gives the VC invariant for the same balls, not the online invariant."
+        ],
+        "reasoning": "The exact second column agrees at every dimension; the matching table is from a distinct record, not a mirror of this frozen item.",
+        "searches": [
+          "Resultary 31d57fbe632c, Finding",
+          "Resultary a9528fa90607, Finding"
+        ]
+      },
+      "rationale": "The entire submitted invariant is demonstrably covered by a distinct indexed classification, Resultary 31d57fbe632c: projecting its exact VC/Littlestone table to the Littlestone coordinate gives precisely this theorem on the same class in every dimension. Its proof also uses the same double-intersection and translated-star upper-bound structure. The indexed comparison has a later record date; this establishes equivalent existing coverage and lack of distinct theorem content against the current catalogue, not that the frozen finding was predated, copied, or that either entry has proved historical priority.",
+      "residual_risks": [
+        "The joint entry is dated later than the frozen entry; independent derivation, reuse, and historical priority were not established.",
+        "Older equivalent graph-power or complement formulations may exist; no negative priority claim rests on an unsuccessful lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the adaptive theorem; stronger joint conclusion; record date later, historical relationship unresolved",
+          "evidence": "Closed distance <=2, arbitrary cube queries, same Littlestone column and structural bound through H1 and H2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-first-static-adaptive-shattering-gap-for-boolean-hamming-rad--31d57fbe632c/RESULT.md",
+          "material_read": "Finding 0–1543; universal Littlestone upper bound 3101–6262; relationship/limitations 8350–10044",
+          "method": "Resultary and bounded local-mirror passages",
+          "title": "The first static–adaptive shattering gap for Boolean Hamming radius-two balls",
+          "trigger": "Possible exact metric class overlap and stronger invariant"
+        },
+        {
+          "assessment": "Same class, different invariant",
+          "evidence": "Computes static VC dimension, not Littlestone dimension.",
+          "identifier_or_url": "Resultary a9528fa90607",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Exact VC dimension of radius-two balls in every Boolean Hamming cube",
+          "trigger": "Same object and dimensions"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": "Positive labels only at distance exactly two.",
+          "identifier_or_url": "Resultary 6e49ec510332",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Exact Littlestone dimension of distance-two Boolean hypercube neighborhoods",
+          "trigger": "Same radius and invariant terminology"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": "Hypotheses are x_i+x_j modulo two.",
+          "identifier_or_url": "Resultary 7499a8b054ac",
+          "material_read": "Finding at offset 36",
+          "method": "Resultary and local-mirror passage",
+          "title": "Static and adaptive shattering of two-coordinate parity hypotheses",
+          "trigger": "Sparse XOR alternative"
+        },
+        {
+          "assessment": "Different radius",
+          "evidence": "Treats the closed radius-one relation.",
+          "identifier_or_url": "Resultary 09da1f15171b",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Exact static and adaptive shattering of closed Hamming neighborhoods",
+          "trigger": "Closed-neighborhood phrasing"
+        },
+        {
+          "assessment": "No implication from the inspected results",
+          "evidence": "Neighborhoods for the adjacency relation and VC statements, not the radius-two adaptive table.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "p. 1, relation and stated VC bounds",
+          "method": "OA passage inspection",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Prior Hamming graph neighborhood bounds"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": "Hypotheses indicate a tagged block and its selected coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21445",
+          "material_read": "§5, p. 13; offset 39433",
+          "method": "OA passage inspection",
+          "title": "Hamming sphere construction, §5",
+          "trigger": "Hamming sphere terminology in online learning"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "On its mathematical merits this is an exact adaptive-learning classification of a natural metric class, not just a finite table: it identifies where five mistakes first become necessary and why no larger ambient cube increases the bound. The dimension-free upper bound via stars and the sharp finite witnesses are useful structural facts. Whether the submission contributes distinct content against the catalogue is the separate failed originality assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

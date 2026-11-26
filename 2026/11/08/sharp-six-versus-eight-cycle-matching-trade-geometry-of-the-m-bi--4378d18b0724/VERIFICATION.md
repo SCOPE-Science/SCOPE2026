@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and finite limits
+# Independent mathematical audit
 
-Run the two included scripts from any Python 3 environment with the standard library:
+## correctness
 
-```
-python3 verification/verify_gp.py
-python3 verification/verify_permutations.py
-```
+PASS
 
-The first script builds the 16-vertex edge list explicitly, recursively enumerates all matchings, enumerates all simple six- and eight-cycles by DFS, applies legal cycle exchanges and performs exact all-source shortest-path searches. The second script builds the same graph independently as a bipartite adjacency matrix, checks all 40,320 bijections, and detects legal exchanges from relative permutation cycles rather than explicit graph-cycle enumeration. Both assert the number of matchings, every component size, degree type, all-pairs distance histogram, and octagon-only structural model.
+An independent exhaustive edge-subset check used all 8-subsets of the 24 displayed edges, retaining just the 33 disjoint covers. For each pair of covers the symmetric difference is 2-regular on its support; the move test therefore requires cardinality 6 or 8 and one connected component. Floyd–Warshall then gave component sizes (1,1,1,30), (33), (33); distance counts by increasing positive distance (96,216,120,3), (36,198,54,240), (132,342,54); and eccentricity counts 24 at 3 and 6 at 4 in the nontrivial six-only component, 3 at 3 and 30 at 4 for eight-only, and all 33 at 3 for the union. The exact joint counts by complementary type and degrees agree with the claim, including three (8,8) types of degrees (0,12,12). Every octagon-only neighbor of a nonhub is a hub; each hub has eight leaves and there are exactly two length-two paths, via different degree-two states, for each hub pair. The base graph is bipartite by the displayed parts; counting simple 4-, 6- and 8-edge cycles gave 0,24,30, proving girth six and the connectivity cutoff of eight. The included permutation checker has a human-readable 'THREE_COMPONENTS' marker, but its assertion specifies four components (three isolates and one large component), which is what the independent check obtained.
 
-Expected facts: 33 matchings; complementary two-factor types with multiplicities 3, 6, 24; 96 hexagon edges, 36 octagon edges, 132 combined edges. Hexagon-only components: 30, 1, 1, 1, with connected-component radius 3 and diameter 4. Octagon-only graph: connected, radius 3 and diameter 4, explicitly a subdivided doubled triangle with eight leaves per hub. Both move types: connected, every eccentricity 3. Pair-distance counts: hexagon-only nontrivial component [96,216,120,3]; octagon-only [36,198,54,240]; combined [132,342,54].
+## originality
 
-The result applies only to all simple 6- or 8-cycles in GP(8,3), not to an embedded face-only subset. Finite exhaustion here proves this finite theorem, not an all-order statement, a complexity claim, a mixing-time estimate, or a claim of literature-wide uniqueness.
+PASS
+
+The number of matchings and counts of complementary two-factor types are covered and not credited as new. The closely related coloring/Kempe graphs use different states and are not statements of the length-sensitive matching-trade geometry. The claim's distinct content is the two single-length graphs, their union's geometry, and the exact threshold.
+
+## value
+
+PASS
+
+This is a test case of bounded cycle exchanges where hexagons strand entire matching types, octagons already connect all matchings via an identifiable small core, and both together shorten the diameter and eliminate eccentricity differences. The exact state space and move geometry are useful beyond a recomputation of the known matching census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

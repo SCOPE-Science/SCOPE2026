@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:45.592750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 38–122",
+        "VERIFICATION.md and verify_acc_sinkhorn.py (scope and recorded diagnostics)",
+        "Xu–Chen arXiv:2605.30267v1, pp. 5–6, Algorithm 1"
+      ],
+      "rationale": "Xu–Chen v1 Algorithm 1 gives exactly the stated fixed-parameter, two-state recurrence. At balance the row and column logarithmic corrections differentiate to -diag(a)^(-1)Pi and -diag(b)^(-1)Pi^T, yielding J up to gauge on their composition. J is similar to a positive semidefinite Gram matrix; it is positive row-stochastic, with the simple Perron eigenvalue removed by the quotient. Rank at most m forces nongauge zero modes. With d=1+alpha the modal derivative has determinant lambda/d^2 and trace ((alpha+3)lambda+alpha^2+alpha-1)/d^2. Direct substitution gives 1-tr+det=(alpha+2)(1-lambda)/d^2 and 1+tr+det=(2alpha^2+3alpha+(alpha+4)lambda)/d^2, all strictly positive along with 1-det; smooth local exponential attraction follows in an equivalent norm. Scaling the quadratic Schur test to a disk of radius r>0 gives three affine inequalities in lambda, so only 0 and L matter. For t=sqrt(L)<1/2, the balance alpha_B satisfies alpha^2+alpha-1=t(1+alpha). It has alpha_B<1, so (alpha_B+3)t<1+alpha_B by the identity (1+alpha)^2-(alpha+3)(alpha^2+alpha-1)=(1-alpha)(alpha+2)^2. The top roots there are complex of modulus t/d and the zero root of largest modulus has that same modulus. The product bound excludes smaller parameters and the strictly increasing positive zero-mode root excludes larger ones. At L=0 the nilpotent derivative occurs at the unique positive zero of alpha^2+alpha-1. For t>=1/2 the critical equation increases strictly in alpha with derivative 2alpha+(1-t)^2; it has the asserted root alpha_C<=1. At that root the zero mode is admissible since 1<=(alpha_C+3)t/(1+alpha_C)<3, so its normalized signed root 2-(alpha_C+3)t/(1+alpha_C) has modulus at most one. Below alpha_C the determinant bound is strict; above it d^2 p(r_C) is negative because at alpha_C it vanishes with derivative -r_C[2alpha_C+(1-t)^2]<0 and is strictly concave. This forces a real root above r_C. The threshold comparison follows from t(1+alpha_B)<1 below the quarter and, above it, t(1+alpha_C)-1=s(1-s)(3-s^2)/(2-s)>0 for s=sqrt(1-alpha_C). The explicit 2 by 4 plan has weighted Gram eigenvalues 1,t^2,0,0 by constant and contrast directions. At L=0.04, independent substitution gives alpha_B=0.766190379 and R=0.113238076, versus R=0.170761146 at the single-mode alpha_C. Replay the analytic steps in RESULT.md §§1–6; verify_acc_sinkhorn.py was inspected but not run, and finite grids cannot prove uniqueness.",
+      "residual_risks": [
+        "Local linearized state factor only: repeated or defective eigenvalues can cause polynomial transients; this is not a global or finite-horizon rate.",
+        "The comparison is to v1 Algorithm 1. Later versions add a restart/acceptance test, and the result is not a tuning theorem for that full restarted method.",
+        "Having a nongauge zero mode is the relevant condition; n>=m+2 suffices but is not necessary (n=m+1 also forces a zero mode)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Chen use the same map but their checked convergence theorem concerns an outer homotopy/objective bound. Gao's preconditioned acceleration and Thibault's extrapolation/relaxation use different iterations."
+        ],
+        "reasoning": "Neither a homotopy objective estimate nor local convergence analysis for another recurrence determines the exact spectral minimizer of this two-state Jacobian.",
+        "searches": [
+          "Xu–Chen arXiv:2605.30267v1, Algorithms 1 and 2, Theorem 1",
+          "Gao et al. arXiv:2608.11760v1 §4.5",
+          "Thibault et al. arXiv:1711.01851 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.30267v1",
+        "arXiv:2608.11760v1",
+        "arXiv:1711.01851",
+        "Resultary e038ddd65b39",
+        "Resultary 875039633e84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior 2 by 2 result minimizes rho(M_alpha,L) alone and uses the repeated positive root. A rectangular plan with L=0.04 has R approximately 0.170761 at that parameter versus 0.113238 at the simultaneous-endpoint optimizer."
+        ],
+        "reasoning": "The example rules out substituting the old tuning as an equivalent result. One needs both a uniform endpoint argument and the competition with the zero mode; these are not implications of the one-mode optimum alone.",
+        "searches": [
+          "Resultary e038ddd65b39, same-map one-mode theorem",
+          "Xu–Chen arXiv:2605.30267v1 pp. 5–6, recurrence and theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed e038ddd65b39 finding uses the same v1 recurrence but a single positive quotient eigenvalue s^2 for a symmetric 2 by 2 plan.",
+          "Indexed Sinkhorn resonance result 875039633e84 changes kernel affinity for ordinary Sinkhorn, not the acceleration parameter for the two-state map."
+        ],
+        "reasoning": "Neither the single-mode optimization nor a kernel-affinity tuning problem is equivalent to a minimax over modes 0 and L for the fixed accelerated recurrence.",
+        "searches": [
+          "Resultary: Acc-Sinkhorn exact fixed-parameter local spectral tuning and rectangular zero modes",
+          "Xu–Chen arXiv:2605.30267v1 Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e038ddd65b39 gives an exact one-positive-mode optimizer and the same quarter crossover; the one-mode limit at L=0 agrees with the frozen formula. The other indexed finding treats ordinary Sinkhorn on a different family."
+        ],
+        "reasoning": "The indexed exact formula is not a table or theorem for a spectrum including both zero and positive modes; it overlaps materially on the critical-damping branch, but cannot produce the new below-quarter branch.",
+        "searches": [
+          "Resultary record e038ddd65b39, Finding and Proof Steps 1–4",
+          "Resultary record 875039633e84, Finding"
+        ]
+      },
+      "rationale": "The v1 update, single-mode critical damping, and quarter threshold are prior. The supported distinct claim is the two-endpoint spectral minimax with a competing zero mode, including its strictly different below-quarter optimal parameter. The closest indexed same-map analysis is a genuine overlap on the single-mode family, not a result for simultaneous zero and positive modes.",
+      "residual_risks": [
+        "This targeted comparison does not exclude a mathematically equivalent general stationary-iteration minimax theorem not retrieved. No novelty is assigned to the prior same-map single-mode result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the recurrence and supplies homotopy results, not the stated rectangular fixed-parameter minimax in the inspected material",
+          "evidence": [
+            "Algorithm 1 takes w=alpha y and alpha=sqrt(2 mu), with precisely the frozen two-state steps",
+            "Theorem 1 concerns the homotopy objective analysis; revised Algorithm 3.1 adds acceptance/restarts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.30267v1",
+          "material_read": "Version 1 pp. 5–6, normalization, Algorithm 1, Algorithm 2 and Theorem 1; revised algorithm for version distinction",
+          "method": "Targeted open-access PDF inspection and algebraic comparison",
+          "title": "Accelerating Sinkhorn for Entropy-Regularized Optimal Transport",
+          "trigger": "Primary definition of the exact algorithm; possible same-algorithm tuning theorem"
+        },
+        {
+          "assessment": "Covers the existing critical formula and crossover, not the competing simultaneous zero/positive-mode problem",
+          "evidence": [
+            "Positive symmetric 2 by 2 plans with one nongauge eigenvalue s^2 in (0,1)",
+            "Optimum at a positive repeated root; quarter transition versus ordinary Sinkhorn"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-fixed-parameter-local-rate-and-the-one-quarter-transition--e038ddd65b39",
+          "material_read": "Finding and Proof Steps 1–4",
+          "method": "Resultary search and local mirror full statement and proof-step comparison",
+          "title": "Sharp fixed-parameter local rate and the one-quarter transition",
+          "trigger": "Exact same-map single-mode optimum"
+        },
+        {
+          "assessment": "Different method",
+          "evidence": [
+            "§4.5 develops preconditioned accelerated gradient descent, not the Xu–Chen v1 state update"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11760v1",
+          "material_read": "Section 4.5, PDF p. 9",
+          "method": "Targeted open-access PDF comparison of update",
+          "title": "Tight Nonasymptotic Local Convergence of Sinkhorn-Knopp",
+          "trigger": "Closest recent related local acceleration analysis"
+        },
+        {
+          "assessment": "Different acceleration and relaxation rules",
+          "evidence": [
+            "§3.1 discusses regularized nonlinear acceleration and relaxation based on local convergence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.01851",
+          "material_read": "Section 3.1, PDF p. 4",
+          "method": "Targeted open-access PDF comparison of method",
+          "title": "Overrelaxed Sinkhorn–Knopp Algorithm for Regularized Optimal Transport",
+          "trigger": "Related local spectral optimization for Sinkhorn acceleration"
+        },
+        {
+          "assessment": "Not equivalent: different iteration and control variable",
+          "evidence": [
+            "Ordinary row–column Sinkhorn for hub–clique kernels tunes affinity"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-finite-termination-resonances-and-an-exact-three-phase-sinkh--875039633e84",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Two finite-termination resonances and an exact three-phase Sinkhorn analysis",
+          "trigger": "Nearby indexed exact spectral tuning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, endpoint minimax, comparisons and realizable plan",
+        "Resultary e038ddd65b39, established single-mode benchmark"
+      ],
+      "rationale": "Rectangular transport gives a natural full-spectrum problem rather than a hand-picked mode. Exact endpoint control diagnoses when the known single-mode rule gives the wrong tuning, and the positive realization at L=0.04 quantifies a substantial rate penalty. This is useful precisely for choosing or assessing the fixed inner iteration; the value does not rest on asserting an advantage over ordinary Sinkhorn below the quarter, where the exact result shows a disadvantage.",
+      "residual_risks": [
+        "The finding gives no global basin, finite-time guarantee, or speedup claim for the restarted homotopy method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

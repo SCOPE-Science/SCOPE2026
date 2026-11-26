@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:07.684782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The product is the alternating determinant of the first two coordinates times z, including in characteristic two. The Rota–Baxter defect is alternating by direct evaluation on equal inputs, not by dividing by two. The three independent basis pairs give exactly the displayed ideal. The equations h²=j²=0 force h,j into the radical and leave f=det X−k(k+lambda). After the shift this is primitive linear in X22, with coprime coefficients over every field extension; it is geometrically prime and the reduction has dimension six. The Jacobian forces X=0 at a singular geometric point, and there k(k+lambda)=0 and 2k+lambda=0 give only the zero-weight plane, also in characteristic two. For the motivic formula one can split by whether the first column is zero: over nonzero first columns and arbitrary k, the second-column equation gives an affine-line bundle, locally trivial on the two nonzero-coordinate charts; a zero first column allows either one or two distinct k values and an arbitrary second column. Multiplication by the class of the two free central coordinates gives the two stated classes, and hence counts over all finite extensions and the zeta functions. At the nonzero-weight base point the full Jacobian has the two independent entries −lambda in the a direction and lambda in the h direction; the reduced Jacobian adds the j constraint. At weight zero the origin has full and reduced tangent dimensions 9 and 7. The exhibited j=t solution modulo t² satisfies every generator and cannot lift modulo t³ because j²=t² there, regardless of other second-order coefficients.",
+      "replay": "python3 /workspace/review_checks/exact_checks.py 5; exact defects over Z[lambda], characteristic-uniform tangent rank checks, obstruction and bounded determinant-fiber counts. The independent proof, not the counts, covers arbitrary fields and full scheme structure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benito–Gubarev–Pozhidaev study the full unital Grassmann algebra. Das–Mishra give general cohomological deformation machinery. The Heisenberg record removes r and p by passing from their square equations to the variables vanishing over a field."
+        ],
+        "reasoning": "A result about unital extensions need not describe every operator on the augmentation ideal. General deformation machinery is not the concrete computation. The strongest same-object field-valued coverage discards exactly the directions whose nonzero residue and obstruction are established here.",
+        "searches": [
+          "arXiv:1801.07037, §§4.4 and 5.2",
+          "arXiv:2008.11076, deformation framework",
+          "Resultary c77f6ea4e079, proof and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c77f6ea4e079 and 6ed2dc859a4a",
+        "doi:10.2478/cm-2021-0020",
+        "arXiv:1801.07037",
+        "arXiv:2008.11076",
+        "doi:10.11568/kjm.2018.26.1.53 and doi:10.12988/pms.2018.81012 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Heisenberg proof prints r²=p²=0 and then r=p=0 for field-valued solutions. To prove nonreducedness one must also show that at least one variable is nonzero in the scheme ring; j=t modulo t² does just that. The square equation then proves its nonliftability modulo t³. The reduced equation alone gives the smoothness calculation and, with the prior stratification, the reduced classes."
+        ],
+        "reasoning": "The known field-point result and its square relations are substantial coverage but do not establish the existence of a surviving nilpotent coordinate. The exact dual-number point and full ideal supply the missing test-ring information.",
+        "searches": [
+          "Resultary c77f6ea4e079, Finding, Assumptions and Proof",
+          "OA primary A3 classification and inspected deformation passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the frozen algebra set [v,w]=vw. It is alternating and central-valued, so Jacobi is automatic; [e1,e2]=z gives precisely Heisenberg. This uses neither the associative commutator nor division by two. Moving the weight term in c77f6ea4e079 to the right gives lambda_Lie=−lambda_assoc. Relabeling (x,y,u,v,z) in its matrix as (k,a,b,c,d) gives the same determinant equation.",
+          "The 2021 primary tables classify the same associative A3 over C at weights 0 and 1."
+        ],
+        "reasoning": "The Heisenberg identification is exact even in characteristic two; the distinction is what is proved over general coefficient rings, not the label of the underlying algebra. Ordinary C-point tables cannot distinguish the two functors.",
+        "searches": [
+          "Resultary: Heisenberg Rota–Baxter operator counts and equations; exterior augmentation ideal and scheme",
+          "doi:10.2478/cm-2021-0020, A3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c77f6ea4e079 prints the identical counts for every finite field and the identical reduced constraint. Its proof splits y≠x and y=x with uv prescribed. Resultary 6ed2dc859a4a counts 80 weight-zero operators on the distinct unital four-dimensional algebra over F2."
+        ],
+        "reasoning": "The all-field count match in the Heisenberg record is genuine exact coverage; the 80 in the unital example is not. Field counts, even over all extensions, are insensitive to nilpotent coordinates.",
+        "searches": [
+          "Resultary: q^6 and q^6+q^4 Rota–Baxter counts",
+          "doi:10.2478/cm-2021-0020, pp. 232–233"
+        ]
+      },
+      "rationale": "Pass is for the full representing scheme and its explicit infinitesimal behavior relative to the reduction, not for the field-point classification, determinant locus or point-count transition in isolation. There is stronger overlap than the frozen discussion acknowledges: Resultary c77f6ea4e079 is exactly the same operator identity after changing the weight sign and using the associative product itself as an alternating Heisenberg Lie bracket. This equivalence works in every characteristic, over test algebras as well as fields. That record supplies the reduced equation, point counts, and the square equations as steps in a field-point proof; it does not prove that either of those coordinates is a nonzero nilpotent or analyze second-order lifts. Its explicit stratification also yields the motivic formulas by the same affine coordinate elimination, and the reduced smoothness calculation is a direct Jacobian computation from the known hypersurface. The genuine added result is that the full defining equations retain obstructed nilpotent directions even at a smooth reduction, with exact arbitrary-field proofs. No priority is inferred from the shared date of the records.",
+      "residual_risks": [
+        "The earlier Heisenberg full texts were unavailable, and the general deformation paper was not exhaustively checked for examples. An equivalent calculation of the full scheme may be indexed under Lie algebras or another label. No novelty credit is assigned to the field counts or restatement of the equation, even at characteristic two."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_FIELD_COUNT_AND_REDUCED_EQUATION_OVERLAP; SQUARE_RELATIONS_KNOWN; OBSTRUCTED_DIRECTION_NOT_SHOWN",
+          "evidence": [
+            "[e,f]=c in all characteristics; central coordinate equation yz−uv+lambda x=x(y+z); uses r²=0 then r=0 and similarly for p in its field argument."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-finite-field-census-of-heisenberg-rota-baxter-operators--c77f6ea4e079/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and Proof, beginning at offset 0; square-equation step at offset 1802",
+          "method": "Identify the product as the Lie bracket, reverse the weight convention, relabel the matrix and compare field and test-ring deductions.",
+          "title": "Exact finite-field census of Heisenberg Rota–Baxter operators",
+          "trigger": "Exact matching equation and all-finite-field counts"
+        },
+        {
+          "assessment": "COMPLEX_FIELD_POINT_COVERAGE",
+          "evidence": [
+            "The A3 products match and the weight tables supply ordinary complex operators, not a test-ring analysis."
+          ],
+          "identifier_or_url": "https://cm.episciences.org/9539/pdf",
+          "material_read": "pp. 227–228 identity, weight scaling and A3 products; pp. 232–233 weight-zero and weight-one tables",
+          "method": "Compare field, weights, algebra and matrices; distinguish classifications of ordinary operators from nonreduced functors.",
+          "title": "Rota-type operators on 3-dimensional nilpotent associative algebras",
+          "trigger": "Primary classification of the exact A3 algebra"
+        },
+        {
+          "assessment": "RELATED_UNITAL_PROBLEM",
+          "evidence": [
+            "Nonzero-weight splitting and weight-zero conjugacy results in the inspected sections concern the full unital algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07037",
+          "material_read": "§4.4 p. 15 and §5.2 p. 18",
+          "method": "Compare ambient algebras and weight-dependent claims.",
+          "title": "Rota–Baxter Operators on Quadratic Algebras",
+          "trigger": "Possible coverage through the unital Grassmann algebra and its augmentation ideal"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_INSPECTED; NO_EXPLICIT_EXAMPLE_ESTABLISHED",
+          "evidence": [
+            "The inspected passage sets up a general deformation theory, not the particular j=t calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.11076",
+          "material_read": "Abstract and opening framework, p. 1",
+          "method": "Compare general deformation formalism with the fixed-algebra test-ring point and explicit obstruction.",
+          "title": "The L-infinity-deformations of associative Rota–Baxter algebras and homotopy Rota–Baxter operators",
+          "trigger": "General cover for infinitesimal and obstruction assertions"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT",
+          "evidence": [
+            "The cited count 80 is for weight zero on the unital algebra, not the three-dimensional augmentation ideal at weight zero."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 6ed2dc859a4a",
+          "material_read": "Finding, scope and proof passages from offsets 0 and 4403",
+          "method": "Compare dimension, unit, weight and count.",
+          "title": "Weight-zero Rota–Baxter operators on the four-dimensional exterior algebra",
+          "trigger": "Exact-looking exterior-algebra count over F2"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "No primary passage was available to judge whether the field calculations there retain the ideal or discuss infinitesimal lifts."
+          ],
+          "identifier_or_url": "doi:10.11568/kjm.2018.26.1.53; doi:10.12988/pms.2018.81012",
+          "material_read": "Bibliographic references only; no primary full text recovered",
+          "method": "Attempt lawful OA; distinguish the independently read Resultary statement from summaries of these papers.",
+          "title": "Heisenberg Rota–Baxter papers cited as Ji–Hua and Zhu–Wu",
+          "trigger": "Plausible earlier same-object calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete nonliftable first-order point answers a natural question that the field-point classification cannot answer: whether the smooth nonzero-weight reduction also describes the deformation problem. The full ideal and weight-uniform example provide a usable test case in arbitrary characteristic. The exact reduced geometry explains the contrast, but its routine count is not the basis for this value judgment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

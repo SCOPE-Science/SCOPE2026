@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:29:22.108953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An equilateral centrally symmetric polygon is the sum of one equal-length segment per unoriented side direction. Width adds under this sum. Between adjacent side normals the directional width is a positive sinusoid (second derivative equals minus the width), so the minimum is attained at a side normal and its exact candidates are ℓ times the sums of sines of the forward angle differences. For each k the k-step differences sum to kπ; strict Jensen in the mean of the candidate widths yields the bound by the regular sine sum, with equality only when the k=1 gaps are all equal. At regularity all candidates are active, so for any given first-order angle perturbation the one-sided derivative is the minimum of the candidate derivatives. The circulant output has zero sum; writing each cosine as two exponentials gives terms with base r satisfying r^m=−1 and sum from k=1 to m−1 equal to (1+r)/(1−r). The cotangent numerator is proportional to sin(2πq/m), with nonzero denominator, so only rotation and (for even m) alternation are neutral. For the alternating path the positive gaps are π/m±2t; even offsets are unchanged and the odd-offset cosine terms cancel in pairs. The odd-offset sine sum is csc(π/m), giving the exact decrement and hence the stated pathwise quadratic coefficient, including m=2. An independent check builds actual polygon vertices by cumulative edges and evaluates support spans, testing 90 first variations and 18 alternating cases, including near the admissible endpoint. Replay: python3 /workspace/reproductions/frozen_math_checks.py 5; output /workspace/reproductions/record-5.txt. This is not a universal second-order result along arbitrary curves sharing the neutral tangent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted N-gon width/perimeter ceiling is cot(π/(2N))/(2N), while the audited class attains cot(π/N)/N; the former is strictly larger, by the half-angle identity.",
+          "The survey discusses octagons at fixed diameter and near-optimal unrestricted families. Audet–Ninin's fixed-unit-width perimeter, diameter and area maximization is unbounded in even side counts, an optimization in the opposite sense from the present claim."
+        ],
+        "reasoning": "The broader polygon-width theorem gives a valid ceiling but not the sharp restricted maximum. None of these results determines first-order directional stability under the simultaneous central symmetry and equal-side constraints.",
+        "searches": [
+          "Audet–Hansen–Messine, Isoperimetric Polygons of Maximum Width, Theorem 1 p. 47",
+          "Fejes Tóth arXiv:2202.09920v1 width discussion, offsets 10800–12500",
+          "Audet–Ninin, Maximal perimeter, diameter and area of equilateral unit-width convex polygons, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Audet–Hansen–Messine 10.1007/s00454-008-9103-9",
+        "Fejes Tóth arXiv:2202.09920v1",
+        "Audet–Ninin GERAD preprint",
+        "Resultary dd6fcbc2a54c and 5e01ff137083"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest width stability theorem assumes a fixed regular normal grid even when perturbing support numbers, so it cannot be applied to side-angle perturbations away from that grid.",
+          "The general perimeter theorem supplies no derivative operator. The area result supplies no minimization over support directions and no linear parts of its active constraints."
+        ],
+        "reasoning": "The global Jensen proof is not the contribution being credited. Identifying all active normal derivatives, computing the kernel and evaluating the entire neutral path require the exact variable-angle width formula; those are not substitutions in the inspected theorems.",
+        "searches": [
+          "Audet–Hansen–Messine Theorem 1 versus exact regular-zonogon bound and stability",
+          "Equiangular width and radial-grid area records, original Find­ings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited class is a Minkowski sum of equal-length segments whose directions may vary. The equiangular predecessor fixes the normal directions and allows support-number variations, bounding pointwise width deviations by a Wigner-corrected deficit.",
+          "The radial-grid predecessor fixes vertex rays and classifies alternating radii and area; it does not prescribe the tangent to minimum width in the full equal-side zonogon class."
+        ],
+        "reasoning": "The same words ‘width’, ‘parity’ or ‘alternating’ refer to different observables or independent coordinates. Euclidean widths and fixed equal side lengths are not generally preserved by transformations interchanging those constraints.",
+        "searches": [
+          "Resultary: zonogon direction perturbation and minimum-width first variation",
+          "Resultary: equiangular parallel-opposite polygon pointwise width stability",
+          "Resultary original dd6fcbc2a54c and 5e01ff137083 Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target record itself is not separate coverage. The distinct nearest Resultary records concern equiangular widths and radial-grid area, not the exact normal-angle spectrum or alternating width decrement.",
+          "The general maximum-width paper compares restricted side counts and has different unrestricted optimizing shapes/constants; its exact or numerical width cases are not tables of this equal-side tangent spectrum."
+        ],
+        "reasoning": "No inspected exact record supplies this kernel or loss function on the stated domain. Nearby exact tables and classifications do not imply a negative catalog finding beyond the bounded comparisons.",
+        "searches": [
+          "Resultary: parity dependent neutral mode of regular equilateral zonogon minimum width",
+          "Resultary: global maximum width regular fixed perimeter centrally symmetric equilateral polygon",
+          "Resultary: zonogon direction perturbation Fourier kernel"
+        ]
+      },
+      "rationale": "The supported distinction is the nonsmooth minimum-width first variation for fixed equal segment lengths, its exact parity-dependent kernel, and the explicit nonlinear loss of the alternating family. The global sine/Jensen argument is elementary and not credited in isolation. The strongest inspected maximum-width theorem has a strictly looser general constant for this class and does not address variations. The closest indexed Fourier width result keeps the normal grid fixed, and the closest indexed alternating family keeps vertex rays fixed and studies area. Neither supplies this angle-variable equal-side tangent classification. This judgment is bounded by the inspected material.",
+      "residual_risks": [
+        "An older unindexed theorem in equal-generator zonotope or normal-angle perturbation terminology could contain an equivalent classification.",
+        "The judgment neither establishes historical priority for the global bound nor addresses unrestricted equilateral polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted ceiling differs and does not imply this tangent theorem",
+          "evidence": [
+            "Theorem 1 bounds width at unit perimeter by cot(π/(2N))/(2N)."
+          ],
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s00454-008-9103-9.pdf",
+          "material_read": "Original theorem and optimizer discussion, especially Theorem 1 p. 47",
+          "method": "Lawful original article PDF",
+          "title": "Isoperimetric Polygons of Maximum Width",
+          "trigger": "Same minimum-width objective under a perimeter constraint"
+        },
+        {
+          "assessment": "Scope distinguishes known results; no priority proof",
+          "evidence": [
+            "Reports an equilateral octagon result under fixed diameter and discusses near-optimal certain power-of-two families."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.09920v1",
+          "material_read": "Width discussion at HTML offsets 10800–12500",
+          "method": "Original public arXiv HTML",
+          "title": "Finite variations on the isoperimetric problem",
+          "trigger": "Survey of fixed-perimeter and equilateral polygonal width problems"
+        },
+        {
+          "assessment": "Different perimeter/diameter/area-at-unit-width objective",
+          "evidence": [
+            "Even side counts have unbounded perimeter, diameter and area in that setup."
+          ],
+          "identifier_or_url": "https://www.gerad.ca/Charles.Audet/PUB/largeur_GERAD.pdf",
+          "material_read": "Original pp. 1–2",
+          "method": "Lawful author-hosted PDF",
+          "title": "Maximal perimeter, diameter and area of equilateral unit-width convex polygons",
+          "trigger": "Related equilateral width optimization"
+        },
+        {
+          "assessment": "Fixed normals and Wigner-deficit width control, not the present active-angle minimum derivative",
+          "evidence": [
+            "Width deviations are evaluated at prescribed facet normals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c",
+          "material_read": "Original RESULT.md Finding and assumptions, local mirror offset zero",
+          "method": "Resultary lookup and local mirror",
+          "title": "Sharp pointwise width stability for equiangular polygons with parallel opposite sides",
+          "trigger": "Exact Fourier width stability on a related polygon family"
+        },
+        {
+          "assessment": "Fixed vertex rays and area, not minimum-width first variation",
+          "evidence": [
+            "Alternating radii under fixed equally spaced rays, with a sharp area range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-rigidity-and-sharp-area-bounds-for-equilateral-polygons-o--5e01ff137083",
+          "material_read": "Original RESULT.md Finding and assumptions, local mirror offset zero",
+          "method": "Resultary lookup and local mirror",
+          "title": "Parity rigidity and sharp area bounds for equilateral polygons on a regular radial grid",
+          "trigger": "Related parity split and alternating family of equilateral polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum width is a natural shape invariant, and its local nonsmooth stability does not follow from uniqueness of its global maximum. A full tangent classification identifies exactly when every nonrotational first-order move decreases width and when the alternating move evades linear loss. The computed exact nonlinear loss along that family distinguishes neutral tangent from actual equality and quantifies stability for all even half-side counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

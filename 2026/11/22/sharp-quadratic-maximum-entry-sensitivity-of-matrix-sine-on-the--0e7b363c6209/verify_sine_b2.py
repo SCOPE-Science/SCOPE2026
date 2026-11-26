@@ -11,16 +11,23 @@ assert s.expand(S[0,0]-( (3*x*x+2*y*y)*p+2*y*(2*x+z)*q+y*y*r))==0
 assert s.expand(S[0,1]-(y*(2*x+z)*p+(x*x+x*z+z*z+3*y*y)*q+y*(x+2*z)*r))==0
 CD=-3*x*x-y*y+2*y*(2*x+z)
 CO=-(x*x+x*z+z*z+3*y*y)+3*y*(x+z)
-cr=s.expand(CD.subs({x:r+(1-r)*t,y:(1-r)*u,z:(1-r)*(1-t)}))
+cr=s.expand(CD.subs({x:r+(1-r)*t,y:(1-r)*u,z:r+(1-r)*(1-t)}))
 cr=s.expand(cr.subs(u**2,t*(1-t)))
 C=-2*t*t-t+2*(1+t)*u
-claim=s.expand(C-4*r*t*(1-t+u)-r*r*(1-t)*(3-2*t+2*u))
-assert s.simplify(cr-claim)==0
+a=2*u*(1-2*t-2*u)
+D=(1-t)*(3-2*t+2*u)+2*u
+assert s.rem(s.expand(cr-C-a*r+D*r*r), u*u-t*(1-t), u)==0
+# Exact constants for the two intervals of the rank-one optimization.
+R=s.Rational
+assert R(1,8)<R(51,400)<R(9,25)**2
+assert R(17,20)*R(27,10)>2 and R(8,5)*R(9,25)<1
+envelope=C.subs({t:R(3,20),u:R(9,25)})+R(18,25)**2/8
+assert envelope<R(7,10) and 3>((8*R(7,10)+3)/5)**2
 P=32*t**4-16*t**3-14*t**2+t+1
 assert s.expand((1+t-4*t*t)**2-(4*t+1)**2*t*(1-t)-P)==0
 assert s.Poly(P,t).count_roots(0,s.Rational(2,3))==1
 assert s.Poly(P,t).count_roots(s.Rational(2,3),1)==1
-root=float(s.nroots(P,maxsteps=100)[1]) if False else 0.283554610289061
+root=0.283554610289061
 assert abs(float(P.subs(t,root)))<1e-12
 k=(-2*root*root-root+2*(1+root)*sqrt(root*(1-root)))/6
 assert 0.1187824<k<0.1187825

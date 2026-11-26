@@ -1,19 +1,21 @@
-# Review of Perimeter-halving area atoms characterize trapezoids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the signed Euclidean cut cap, Green's formula gives the exact local identity \(B''(s)=-[u,v]\) on each fixed edge-pair interval. The only constant regimes are paired parallel edges, which are oppositely oriented under strict polygon convexity. Nonconstant quadratic branches have absolutely continuous inverse-square-root pushforwards. For a trapezoid with bases \(b>a\), the reverse triangle inequality yields the strictly interior sliding interval of exact length \(a\) on each parallel base; its cap area is \(h(a+b-c+d)/4\). Consequently the atom mass and smaller-area fraction match the stated formulas. Parallel-sided and no-parallel-sided quadrilateral cases are exhaustive. The independent `verify.py` run passed 948 exact rational and geometric comparisons. Its finite tests do not certify the infinite quantified theorem; the written analytic argument does.
+PASS
 
-## Originality — PASS, with priority risk
+On each finite open arclength regime, both endpoint motions are affine with unit tangents u,v. The arc-and-chord shoelace expression has quadratic coefficient [v,u]/2: among the changing terms only the closing chord determinant is quadratic. Differentiation gives 2B'=[q-p,u+v] and B''=-[u,v]. Distinct parallel edge directions are opposite in the stated convex-vertex setting, yielding constant area; nonparallel tangents yield a true quadratic. No endpoint pair lies in one edge because each edge is shorter than half the perimeter. Splitting nonconstant regimes at derivative zeros and B=V/2 produces finitely many monotone inverse-square-root pushforwards, while constant intervals give length/P and only a finite null set is omitted. On bases b>a, arclength matching yields upper abscissa xi+C-t with C=(a+b+c-d)/2, and |c-d|<b-a implies that the entire (C-a,C) interval lies inside the long base. Its cap is h(a+b-C)/2, out of V=h(a+b)/2. The reverse-oriented interval supplies the complement and the same smaller fraction, giving exactly one atom of mass 2a/P and location 1/2-|c-d|/(2(a+b)); equal legs give the isosceles case. A parallelogram's central reflection is the half-perimeter shift and bisects area for every chord. No opposite parallels means no constant regime. Independent rational arclength partition and shoelace samples, including a horizontally offset trapezoid absent from the frozen test, recover atoms (location,mass) = (4/9,7/23) and (1/2,7/25).
 
-Harned (2021) gives the paired-parallel-edges point collapse of perimeter-bisecting **line envelopes**, and the result acknowledges this ingredient. The inspected full published geometric-dilation and halving-chord-moment results compute **length** quantities, and the open Amadtohed et al. and Grüne et al. full texts treat different line family/envelope and area-halving constraints. These outputs do not imply the new area-cut pushforward or its sharp trapezoid atom. Berele–Catoiu (2022), *Bisecting envelopes of convex polygons*, is the strongest residual risk: abstract/metadata were available, not full text, even after both OA and institutional attempts. No unconditional novelty certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The distribution of smaller areas cut by perimeter-halving chords is a natural alternative geometric statistic to chord length. Its discrete versus continuous decomposition exactly recognizes the presence of paired parallel edges in any convex polygon and the trapezoid class among quadrilaterals. The mass and location separately recover the shortest parallel base relative to perimeter and the normalized side-leg imbalance, while the continuous component has explicit inverse-square-root structure. These are complete classifications and sharp natural inverse facts, not arbitrary computed parameters. No global shape reconstruction or stability theorem follows.
+Credit the known parallel-pair collapse of the perimeter-bisector line envelope, including the elementary connection between a fixed midpoint and a constant parallel-edge cap. The distinct claim supported here is the area-fraction pushforward: exclusion of all other atoms, the density structure, and exact location/mass under uniform boundary arclength. The plausible later quadrilateral-envelope comparison could not be settled at full-text level.
 
-## Scientific limitations
+## value
 
-The continuous result assumes strictly convex polygon vertices, the one-atom closed form applies specifically to convex quadrilaterals, and a relevant inaccessible source remains a genuine originality risk. No outside mathematical audit or validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This continuous/discrete decomposition distinguishes trapezoids from other quadrilaterals without observing any chord direction. Exact jump mass and location recover the shorter base with known perimeter and dimensionless leg asymmetry, while the polygon theorem explains all atoms and the functional form of the rest. These are measurable geometric invariants beyond an envelope finding or an extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

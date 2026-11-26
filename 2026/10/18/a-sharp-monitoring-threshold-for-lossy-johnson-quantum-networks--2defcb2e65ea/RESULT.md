@@ -23,7 +23,7 @@ Choose \(J>0\) and consider the adjacency Hamiltonian \(J A\) on \(\mathbb C^{\b
 H_{\mathrm{eff}}=J A+V_F-\frac i2\Gamma,
 \qquad \psi(t)=\exp(-itH_{\mathrm{eff}})\psi(0).
 \]
-The cumulative absorption probability is \(1-\|\psi(t)\|^2\) for a normalized input, and its infinite-time limit exists. No onsite perturbation on \(C\), extra cross-coupling, dephasing, or zero absorption rate is allowed. When \(r>n-k\), every configuration is monitored, so certain absorption is immediate; the nontrivial theorem is stated for \(1\le r\le n-k\).
+The cumulative absorption probability is \(1-\|\psi(t)\|^2\) for a normalized input, and its infinite-time limit exists. No onsite perturbation on \(C\), extra cross-coupling, dephasing, or zero absorption rate is allowed. When \(r>n-k\), every configuration is monitored. Then \(e^{-\gamma_{\max}t}\le\|\psi(t)\|^2\le e^{-\gamma_{\min}t}\), where \(\gamma_{\min}\) and \(\gamma_{\max}\) are the smallest and largest detector rates: indeed, \(d\|\psi(t)\|^2/dt=-\langle\psi(t),\Gamma\psi(t)\rangle\). Thus absorption is certain in the infinite-time limit, not immediate or certain at any fixed finite time. The nontrivial theorem is stated for \(1\le r\le n-k\).
 
 ## Proof
 
@@ -53,7 +53,7 @@ This proves both the infinite-time interpretation and independence from every st
 \[
 D_{\ell+1}U_\ell-U_{\ell-1}D_\ell=(m-2\ell)I.
 \]
-If \(2\ell<m\), the inner-product identity \(\|U_\ell f\|^2=\|D_\ell f\|^2+(m-2\ell)\|f\|^2\) makes \(U_\ell\) injective. Therefore \(D_k=U_{k-1}^*\) is surjective when \(k\le(m+1)/2\). When \(k>(m+1)/2\), complementing every subset identifies \(D_k\) with \(U_{m-k}\), which is injective because \(m-k<m/2\). These overlapping cases give the full-rank identity
+If \(2\ell<m\), the inner-product identity \(\|U_\ell f\|^2=\|D_\ell f\|^2+(m-2\ell)\|f\|^2\) makes \(U_\ell\) injective. Therefore \(D_k=U_{k-1}^*\) is surjective when \(k\le(m+1)/2\). When \(k>(m+1)/2\), complementing every subset identifies \(D_k\) with \(U_{m-k}\), which is injective because \(m-k<m/2\). These two cases give the full-rank identity
 \[
 \operatorname{rank}D=\min\left\{\binom mk,\binom m{k-1}\right\}.
 \]
@@ -69,13 +69,15 @@ A basis vector in \(F\) is orthogonal to \(\mathcal D\), so it is completely abs
 
 ## Verification
 
-Run `python3 check.py` with Python 3, NumPy, and SciPy. The script performs 443 finite checks, comprising all valid parameters \(3\le n\le8\), exact expected incidence ranks, dark-subspace invariance, vertex-projector diagonals, eigenvalue damping with randomly unequal positive sink rates, representative direct long-time propagators and coherent inputs, and additional arbitrary Hermitian perturbations on the monitored sector. The maximum observed numerical difference in the directly compared quantities was approximately \(2.23\times10^{-14}\). These finite checks are supporting evidence only; the preceding proof covers every stated integer parameter and arbitrary positive rates.
+Run `python3 check.py` with Python 3, NumPy, and SciPy. The script performs 443 finite checks, comprising all valid parameters \(3\le n\le8\) in the nontrivial domain, numerical incidence-rank comparisons to exact expected ranks, dark-subspace invariance, vertex-projector diagonals, eigenvalue damping with randomly unequal positive sink rates, representative direct long-time propagators and coherent inputs, and sampled real-symmetric perturbations on the monitored sector. The recorded maximum numerical difference in the directly compared quantities was approximately \(2.23\times10^{-14}\). These finite checks are supporting evidence only; the proof covers the stated integer parameters, arbitrary positive rates, and all detector-side Hermitian perturbations, including complex ones.
 
 For example, with \(n=7\), \(k=2\), moving from \(r=1\) to \(r=4\) monitored coordinates gives absorption probabilities \(2/5,\ 1/2,\ 2/3,\ 1\) from any unmonitored basis configuration. The threshold occurs at exactly \(r=4\).
 
 ## Relationship to prior work
 
 The general quantum-network distinction between bright and dark states is established by Le, Donati, Severini, and Caruso (2017); their complete-graph example includes the \(k=1\) boundary case. The rank of subset-incidence matrices is classical (Gottlieb, 1966). Spatial-search analyses of Johnson graphs by Tanaka, Sabri, and Portugal (2021), and Lugão and collaborators (2022), concern *Hermitian marked-vertex search*, rather than absorption by an entire coordinate-defined face. Lewis, Banchi, and Bose (2024) map fixed-excitation all-to-all spin networks to Johnson graphs and study local-field marking; that setting supplies a physical motivation for local-coordinate monitoring but not the present irreversible dark-space classification. The contribution here is the exact, all-parameter connection between many-body coordinate monitoring, an incidence-kernel dark eigenspace, universal absorption thresholds, and rate-independent individual absorption probabilities. The general dark-subspace idea and the incidence-rank theorem are not claimed as new.
+
+There are also exact partial overlaps. The [single-coordinate star calculation](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-catalan-dark-subspaces-and-a-distance-two-trapping-resonance-on--e785fe81a13a) gives the same survival projector on the trapping sector when identifying its unmonitored set with the present \(m\)-set: our extra monitored sectors add repeated rows of \(D\) or zero rows to the boundary block. The [arbitrary-trap calculation on \(J(n,2)\)](https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-bipartite-component-formula-for-the-absorbing-spectral-rank-of-t--1d711c8bda6b) gives the dark dimension for the two-excitation specialization without the detector-side Hermitian term. The claim here is the classification for general \(n,k,r\), on both sides of the threshold; the coincident special-case laws and their classical incidence ingredients are not separate contributions.
 
 ## Limitations
 

@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal-derivation ascent-one lemma is proved using spectral projections and the invertibility of the separated-spectrum Sylvester map. The Kleinecke–Shirokov implication kills a normal commutator under an exact iterated relation. A norm ultraproduct of bounded factor pairs proves a uniform modulus by contradiction; the scaling powers \(M^{-4}\) and \(M^{-(2m+1)}\) follow exactly. The quotient map proves compactness for two compact defects. Stanković's compact-commutator corollary supplies quasinilpotence only under the exact higher relation. The factor-bound boundary uses the Brown–Pearcy representation and exact square-zero computations. These steps prove all quantifiers, including arbitrary unital \(C^*\)-algebras, arbitrary Hilbert-space dimension for the compactness clause, and all fixed positive integer orders. No computational extrapolation is used.
+## correctness
 
-## Originality — PASS, qualified
-Stanković's 2026 paper treats exact higher relations and Riesz/compactness of the commutator or compact first defect, not uniform two-defect norm rigidity. Crabb–Spain (1977) and Ackermans–van Eijndhoven–Martens (1983) establish the normal derivation ingredient and are explicitly credited; Lauric (2021) establishes normal generalized-derivation smallness with fixed normal multipliers in Schatten ideals. Their assertions do not by themselves state dimension- and algebra-uniform stability for *variable almost-normal* commutators whose generator equals the commutator of bounded factors, nor the corresponding compactness from two defects modulo the ideal. The new statement is a synthesis and uniform strengthening, not a new normal-derivation lemma. The 1983 full text was inaccessible; a semantically equivalent prior nonlinear stability result remains possible. Publication priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The motivating weakened Kleinecke–Shirokov condition admits spectacular non-quasinilpotent infinite-dimensional examples. The theorem instead establishes that simultaneous approximate normality and approximate higher commutator relations force uniform smallness of the commutator as long as factor norms are controlled, for arbitrary \(C^*\)-algebras and all matrix dimensions. The parallel quotient theorem upgrades approximate compactness of the defects to actual compactness of the commutator even without an exact higher identity. The factor-bound blowup and finite-rank non-quasinilpotent example locate two meaningful boundaries. The absence of an explicit modulus or a classification of unbounded-factor examples is a limitation, not a claimed advance.
+For normal y, compress ad_y^m(a)=0 to two disjoint compact spectral sets. The Sylvester map between these spectral subspaces is invertible by spectral separation, so the off-diagonal block vanishes. Regularity extends this to disjoint Borel sets and proves that a commutes with all spectral projections; a faithful representation gives the C*-algebra version. Now ad_a([a,b])=0 and the Kleinecke–Shirokov implication makes y quasinilpotent, hence zero by normality. Independently the uniformity argument can use the bounded product modulo the c0-sum: a sequence of contraction pairs with both defects tending to zero and commutator norms bounded below would give an exact nonzero normal counterexample in the quotient, whose norm is the limsup. Taking the supremum over contraction pairs yields the stated nondecreasing modulus; scaling gives exponents 4 and 2m+1. The Calkin quotient makes both compact defects exactly zero, giving compactness. For the exact-relation corollary one can also argue directly: any nonzero spectral point of compact Y has a finite-rank Riesz projection P; spectral separation on the P and 1−P ranges gives Pa=aP by the same Sylvester argument (with A as first factor). The restricted commutator has trace zero, but Y on that range has trace λ rank(P), ruling out λ≠0. For N with a single infinite-rank off-diagonal identity block, N²=0, ad_N³=0 and [N*,N]=diag(−I,I). Thus I+εN has norm at least one, normality defect ε² and exact weakened relation at m≥3. Brown–Pearcy gives commutator existence since εN is noncompact and no nonzero scalar shift of I+εN can be compact. Bounded products along any sequence would balance both factors by reciprocal scalings and contradict the modulus. The finite-rank matrix-unit example confirms that exactness cannot be omitted for quasinilpotence.
 
-## Closest sources and limitations
-H. Stanković, arXiv:2611.06423v1, Sections 2–3; Crabb and Spain, Glasgow Math. J. 18 (1977), Proposition 1; V. Lauric, Czechoslovak Math. J. 71 (2021), introductory Theorems 1.1–1.2 and Theorem 2.3; Ackermans, van Eijndhoven and Martens (1983), whose full text was inaccessible. The argument uses the classical Kleinecke–Shirokov theorem and the Brown–Pearcy characterization as known inputs. The universal modulus is nonconstructive and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the simultaneous small-normality-defect and small-iterated-relation norm control for varying commutators with bounded factors, uniformly in all unital C*-algebras, together with its two-compact-defect compactness consequence. Exact normal-derivation rigidity, the exact-relation compact/quasinilpotent implication, the stability analogue in Schatten classes, and the square-zero commutator existence mechanism already have antecedents. Credit the boundary only as a limiting obstruction to dropping a uniform factor bound, not as a new existence theorem.
+
+## value
+
+PASS
+
+The two nonzero defects quantify exactly which approximations are allowed when an inner derivation is generated by the unknown commutator itself. The bound is uniform for growing matrix dimensions and arbitrary unital C*-algebras, and forces compactness under strictly weaker modulo-compact information than an exact relation on the original operators. The boundary identifies why merely bounded individual factorizations are insufficient, without mistaking almost-normality alone for rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

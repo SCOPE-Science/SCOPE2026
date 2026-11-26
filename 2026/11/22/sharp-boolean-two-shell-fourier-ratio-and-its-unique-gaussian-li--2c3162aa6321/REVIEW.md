@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The unitary Walsh normalization, exact degree-two Krawtchouk identity, Plancherel denominator and finite binomial formula were re-derived. Strict concavity within the real sign arcs forces an optimum at a zero of one affine Krawtchouk level. Minkowski's inequality handles complex coefficients; equality forces the real and imaginary parts onto the same zero line. Bounded fourth moments establish uniform integrability for the Gaussian limit. The explicit derivative sign polynomial and Mills bound prove uniqueness of the Gaussian optimum. The standalone checker verifies exact small-dimensional expressions and numerical consequences, without being relied on for the infinite proof.
+## correctness
 
-## Originality
-**PASS, relative to inspected literature and searchable findings.** The closest motivating Fourier-ratio sampling papers give general ratio-to-sampling implications, not an exact two-shell minimum. A particularly close result uses the identical origin-plus-weight-two complex window but optimizes the rank and spectrum of a Gabor matrix-lifting operator, not its Fourier ratio. The published degree-two Hamming projection result optimizes an endpoint operator norm, not a signal Fourier ratio; the two-shell Walsh tight-sampling result optimizes a Parseval cubature problem; Gaussian endpoint growth for interaction projection likewise treats a different norm. No inspected source gives this complete complex equality classification together with the sharp Gaussian constant. Krawtchouk orthogonality and Gaussian limit machinery are classical and not claimed as new. An equivalent older Gaussian two-mode optimization, including one using different terminology, remains the main originality risk.
+PASS
 
-## Value
-**PASS.** Fourier ratio is a quantitative spectral-compressibility proxy for Walsh sampling. The natural smallest nontrivial radial even-shell support, containing only a point and a complete two-bit sphere, is a clean test of whether such structured sparse physical data can acquire a small Fourier ratio. The result gives its exact answer for each dimension, all complex optimizers, a nontrivial uniquely selected Gaussian limiting shape, and a quantitative effective spectral size fraction about 0.302. This does not establish information-theoretic measurement lower bounds or extend to unrestricted sparse supports.
+The weight-two multiplier is the sum over unordered pairs of frequency-coordinate signs, i.e. ((d−2k)²−d)/2. With the displayed unitary transform, Parseval gives the denominator squared |a|²+binom(d,2)|b|²; the extra 2^(d/2) exactly converts the numerator to a binomial expectation. On the real unit ellipse scaled to a circle, each fixed-sign open arc has a positive linear objective with second angular derivative equal to its negative, so every minimum is on a support-zero line. All support values have positive mass, and d≥2 ensures a genuine circle after scaling. Minkowski on the two nonnegative absolute real-component values proves the same lower bound for complex coefficients. If both components are nonzero, equality requires their absolute-value vectors to lie on one ray a.s.; different minimizing lines have distinct zeros, so are excluded. This proves the equality union without assuming a unique finite minimizing index. For the limit, the bounded fourth moments give uniform integrability of the squares; the numerators are uniformly 1-Lipschitz in the shift. Grid points approach any fixed nonnegative shift, including 0 where the limit ratio is 1/√3. Jensen's uniform tail lower bound approaching 1 then confines all minimizing shifts. In the limit the sign of the derivative in u is the sign of H(√u), with H′(t)=2φ(t)(t²−1)(t²−3), H(0)=−1, and H(√3)≥1−16φ(√3)/√3>0 by the Gaussian tail bound. This proves a single global minimum and convergence of every discrete minimizer. Independent bisection using the integrated power series for the Gaussian density gave t≈0.479855965645869, c≈0.549426226034278 and c²≈0.301869177854270; the proof, not the bisection, establishes uniqueness. RESULT.md lines 45–93 are the replay; the bundled checker was inspected but not run.
 
-## Remaining verification boundaries
-The checker is supplementary; the analytic argument proves all dimensions. The mathematical contribution has not undergone independent validation, and unindexed literature may contain related L1/L2 Gaussian optimization. No finite rate of convergence is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact lower Fourier ratio and all equality lines on the specified radial two-shell space, together with the uniquely optimized continuous limit. Neither the shared classical Krawtchouk reduction nor the use of a Fourier ratio as effective dimension is claimed as new. The closest available statements address other objectives, not a demonstrated implication for this ratio.
+
+## value
+
+PASS
+
+The origin-plus-second-shell space is the first radial quadratic Walsh family with a tunable constant mode. The theorem gives an exact effective-dimension benchmark on that natural family, rules out improvements from complex phases, and determines the asymptotic choice of the apex for every sequence of optimizers. Neither orthogonality nor Gaussian convergence alone dictates the L¹ optimizer. The number is a Fourier ratio benchmark, not a lower bound on arbitrary sampling or recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

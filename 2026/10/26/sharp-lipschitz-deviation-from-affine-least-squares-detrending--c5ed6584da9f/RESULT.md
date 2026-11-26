@@ -56,11 +56,13 @@ The standalone file `checker.py` uses only Python's exact rational arithmetic. I
 
 ## Relationship to prior work
 
-Sharp constants for local \(L^2\) projectors and Volterra integration operators motivate asking for the sharp error of the composition \((I-P)V\). Hangelbroek, Narcowich, Sun and Ward [1] study \(L^\infty\) stability of kernel-space \(L^2\) projectors on manifolds; their setting and operator are different. Ransford and Walsh [2] study Hilbert-space norms of polynomials in the Volterra operator, not this rank-two affine correction in the \(L^\infty\) geometry. Joharinad and collaborators [3] study periodic reverse Bernstein inequalities and orthogonality to trigonometric modes, rather than least-squares affine detrending on an interval. The precise constant, full equality cases, and endpoint rigidity here are not entailed by the results inspected. No general claim of exhaustive historical priority is made.
+After affine rescaling, \(P\) is the degree-one Legendre projector. The Legendre endpoint error formula in [4], \(\tfrac12\int_{-1}^1|P_n(t)+P_{n+1}(t)|\,dt\) with \(P_n\) the Legendre polynomials, gives the endpoint constant \(16/27\) for \(n=1\), hence \(8/27\) on \([0,1]\). Its derivative-sign extremizer at the right endpoint rescales to the primitive of \(f_1\); reflection gives the other one. The dates of the two records do not establish priority between them. The contribution here is the global comparison: the interior is strictly suboptimal, so the two endpoint profiles exhaust equality in the uniform norm. This global statement is not asserted by the endpoint formula. Wang [5, eqs. (44)–(45)] gives a general Peano-kernel representation for Legendre projection errors but does not evaluate this global extremum in the cited passage.
+
+Hangelbroek, Narcowich, Sun and Ward [1] study \(L^\infty\) stability of kernel-space \(L^2\) projectors on manifolds. Ransford and Walsh [2] study Hilbert-space norms of polynomials in the Volterra operator. Joharinad and collaborators [3] study periodic reverse Bernstein inequalities and orthogonality to trigonometric modes. These involve different operators or norms.
 
 ## Limitations
 
-Only degree-one least-squares detrending with uniform continuous measure on a single interval is covered. The numerical checker is finite and does not certify the global extremum independently of the displayed symbolic proof. Earlier specialist Ostrowski, Peano-kernel, or polynomial approximation literature could contain an equivalent sharp inequality; such historical overlap was not exhaustively eliminated. No independent audit has been performed.
+Only degree-one least-squares detrending with uniform continuous measure on a single interval is covered. The numerical checker is finite and does not certify the global extremum independently of the displayed symbolic proof. Earlier specialist Ostrowski, Peano-kernel, or polynomial approximation literature could contain an equivalent sharp inequality; such historical overlap was not exhaustively eliminated.
 
 ## References
 
@@ -69,3 +71,7 @@ Only degree-one least-squares detrending with uniform continuous measure on a si
 [2] T. Ransford and N. Walsh, *Norms of polynomials of the Volterra operator*, arXiv:2206.09947.
 
 [3] P. Joharinad, J. Jost, L.-H. Lim and D. Matveev, *Reverse Bernstein Inequality on the Circle*, arXiv:2302.10122.
+
+[4] *Sharp Lipschitz endpoint errors of Legendre and Chebyshev spectral projections*, 2026-10-26, https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-lipschitz-endpoint-errors-of-legendre-and-chebyshev-spectr--4e62f28397f8.
+
+[5] H. Wang, *How much faster does the best polynomial approximation converge than Legendre projection?*, arXiv:2001.01985.

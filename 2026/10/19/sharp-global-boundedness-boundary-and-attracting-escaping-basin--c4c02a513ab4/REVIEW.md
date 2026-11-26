@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The one-step forcing norm is at most \(3\), giving a direct absorbing bound for \(0<T<2\) and a strict exterior growth bound for \(T>2\). The delicate endpoint is independently resolved: at \(T=2\) the bias cancels in the second iterate, and dominant diagonal coupling forces every sufficiently large coordinate inward by at least \(53/25\) every two steps. That establishes an actual compact absorbing set rather than extrapolating an experiment. At \(T=9/4\), \(\alpha=1/4\), the fixed-point contraction and Jacobian row-sum inequalities are rational and strict; the attracting square and disjoint open escape region follow. The normalized escape limit is an absolutely convergent geometric series. The finite verification program checks constants and trajectories but is not substituted for those proofs.
+PASS
 
-## Originality
+I reconstructed the deterministic map proof. The uniform forcing bound is 3T, so the strict subcritical recursion absorbs in any square of radius greater than 3T/(1−|1−T|). At T=2, subtracting X from F²(X) cancels the bias exactly. If |X_j| is at least R=11+arctanh(9/10)/α, both arguments in the j-th tanh difference have magnitude above arctanh(9/10), with opposite signs. The diagonal contribution gives inward signed movement even against the worst cross-coordinate contribution. My rational recheck gives inward margin 53/25 and displacement at most 54/5<R, excluding sign overshoot in this region. A coordinate outside R+54/5 decreases until it enters, and one inside stays inside, independently of the other coordinate. For the resulting F²-invariant absorbing square B, B∪F(B) gives F-absorption including odd iterates. For q=T−1>1, the increments of (−q)^(−n)X_n are bounded by 3T q^(−n−1); summing the geometric tail gives the claimed error and the lower bound on the amplitude, hence the exact growth rate outside the stated radius. At (T,α)=(9/4,1/4), H has global Lipschitz factor 27/40 and the fixed point has norm at most 12/13. On the unit square the tanh derivative with respect to the coordinate lies in [15/64,1/4]. My row-sum recheck gives diagonal extrema −181/512 and −47/160 and cross bound 9/16, hence 469/512. This puts the entire claimed 1/13 square in the contraction region; the escape radius at the same parameters is 27.
 
-**PASS, with residual historical risk.** The 2023 originating article [1] was read through its defining equations, equilibrium stability treatment, numerical bifurcations, conclusions and appendices. It does not supply the all-initial global boundary, the nonlinear neutral-step argument, or a certified fixed-point/escape coexistence witness. The article's numerically observed finite-orbit attractors are not an implication of boundedness on the whole plane. General bounded-forcing affine estimates address strict steps but become neutral and inconclusive at \(T=2\), whereas the present endpoint proof uses the signed structure of the coupled saturating activation. Searches for alternate names (saturating neural Euler map, two-cell tanh map, absorbing set, escape basin, timestep instability) located no identical theorem. Results about different neural maps or generic numerical integrators do not contain the specific endpoint and basin statements. Exact historical priority cannot be guaranteed against unindexed or differently phrased results.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The step parameter is central to the paper's proposed digital-neuron dynamics. The source reports bounded spiking and chaotic patterns at steps exceeding two for selected initial conditions; therefore whether such behavior is globally bounded is a natural interpretive question, not an arbitrary parameter slice. The theorem supplies the sharp all-initial threshold, resolves its noncontractive critical endpoint using an original two-step mechanism, and proves simultaneous positive-size attraction and escape basins with fully explicit constants. It establishes a global limitation of finite-initial-condition bifurcation diagrams without claiming those diagrams are wrong or that the outer escape region occupies the whole plane. No broader chaos theorem is asserted.
+Credit the original model, equilibrium equations and local stability to Buscarino, Famoso and Fortuna. Strict one-step comparisons are direct consequences of their bounded forcing, and local supercritical attraction plus the exterior estimate already suggests coexistence. The distinctive supported contribution is the global absorption mechanism at the formerly inconclusive neutral endpoint, which completes the exact threshold. The explicit invariant contraction square and the controlled escape-amplitude expansion quantify the two behaviors. The strongest matching catalogue record independently states endpoint attraction for the same map but is dated later, not an earlier or undated/same-day overlap.
 
-## Prior work and limits
+## value
 
-[1] A. Buscarino, C. Famoso, L. Fortuna, *Bifurcations in a new two-cell spiking map: a numerical and experimental study*, Nonlinear Dynamics 111 (2023), 20361–20375, DOI 10.1007/s11071-023-08897-7.
+PASS
 
-The result applies to deterministic real iterations at the source paper's fixed coupling parameters. It does not characterize basins inside the sufficient escape radius, noisy neuron models, or hardware-quantized recurrence. The exterior threshold is an explicit sufficient radius, not an optimal one. Priority risk remains for general results on diagonally dominant saturated Euler recurrences not found in the investigated literature.
+At the neutral affine multiplier the standard textbook recursion is silent. A uniform two-step inward mechanism resolves exactly where all-start boundedness fails in a published model. The explicit coexisting attraction and escape regions distinguish what a locally stable equilibrium or a finite-initial-condition bifurcation plot can say from global stability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

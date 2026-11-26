@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is restricted to \(n=7,8,9\) and the ordinary matching complexes of the fully specified \(3n\)-edge cubic generalized Petersen graphs. Complete augmented face counts are \(3418,10990,34880\). Independent ascending and descending toggle matchings are explicitly checked over every face-poset cover and are acyclic. Exact signed integral Morse boundaries are reduced solely by unimodular unit pivots, leaving zero residuals and the sphere multiplicities \((28),(2,16),(42)\) in degrees \((4),(4,5),(5)\), respectively. Direct mod-two chain homology agrees but is corroboration, not the integral proof. The CW spaces have a single vertex and only two adjacent cell dimensions at least three, so the integral degree matrices determine all attaching homotopy classes. The known \(n=6\) case is only a verifier control.
+## correctness
 
-## Originality — PASS with residual risk
-The nearest inspected exact published ordinary matching result is the Dürer \(n=6\) calculation; the Petersen \(n=5\) result is also prior. The directly relevant \(n=6,7,8,9\) classification in the published generalized-Petersen literature is for the different vertex two-independence complex; its conclusions do not imply these edge-matching complexes. A further ordinary matching result for the Nauru \(\operatorname{GP}(12,5)\) graph does not imply the target \(\operatorname{GP}(n,2)\) cases. Forest and outerplanar matching-complex theorems cannot apply to cubic cycle-containing graphs. Actual published-finding corpus searches for exact graph aliases, the line-graph independence equivalence, homotopy ranks and broader classifications found no determining record; accessible indexed published claims were checked for implication. An unindexed coincident result cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The three smallest currently unclassified consecutive members after the Dürer graph give a coherent finite boundary census for a standard symmetric cubic-graph family. In particular, \(n=8\) has simultaneous four- and five-dimensional homology while its two neighbors have homology concentrated in one degree. This distinguishes ordinary matching topology from the previously studied vertex higher-independence topology. The exact integral homotopy types, rather than merely finite-field Betti numbers, provide meaningful reference cases for future finite-width and generalized-Petersen graph studies. No infinite extrapolation is claimed.
+Independently built lexicographic GP(n,2) edges and all matching faces by incremental edge inclusion. For ascending toggles the augmented face totals are 3418, 10990, 34880; directed Hasse relations total 14329, 52712, 187857, with a full topological order in every case. The critical cells after restriction to the nonempty face poset are a vertex plus counts (2,30), (11,25), (57,15) in degrees (3,4), (4,5), (5,6). Restriction drops the empty face and its matching arrow; its paired vertex becomes critical and the remaining oriented Hasse graph is a subgraph of the certified acyclic one. Recomputed each integer Morse column by topologically ordered sparse subtraction of the matched upper simplicial boundaries at matched-lower unit incidences, then discarding matched uppers of the target degree. Integral elimination has 2,9,15 unit pivots and zero residual matrices. Descending order independently yields the same wedge multiplicities. The CW skeleton below its upper cells is a wedge of d-spheres. Hurewicz identifies each attaching class with its degree vector, and the resulting map of wedges has the Morse CW type as its homotopy cofiber. Integral basis changes are realized by homotopy equivalences of the two wedges; unit diagonal summands have contractible cofiber and zero columns attach trivially. Hence these are integral homotopy types, not just homology ranks.
 
-## Scope and limitations
-No full family theorem, equivariant homotopy type, or independently certified proof. The primary risk is an unindexed earlier equivalent classification. The reproducible package includes only claims supported by direct finite exhaustive certificates and standard homotopy-theoretic consequences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected distinct source establishes these three ordinary matching-complex types. The strongest same-parameter hits compute different complexes, and ordinary matching-complex results in the same family have different parameters. This concerns exact integral wedges, not only a generic applicable wedge theorem or graph-family enumeration.
+
+## value
+
+PASS
+
+These are the next three natural parameters after the two known named graphs in the same family. The exact integral calculation resolves attaching maps beyond mod-two Betti numbers and exhibits a mixed-dimensional wedge between two single-dimensional ones. It supplies precise benchmarks for proposed matching-complex recurrences, connectivity bounds, or periodic patterns, without claiming those generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:02:33.065438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–65, and VERIFICATION.md",
+        "Independent replay: /workspace/branches/167e4aad-e000-4f28-bacc-18583689066f/q5_independent_replay.py and q5_full_replay.log"
+      ],
+      "rationale": "A shortest path flips each differing coordinate exactly once; if it has length less than five it extends along an unused coordinate. Thus maximal geodesics are the 16 antipodal pairs times 5! flip orders, using one start per pair to avoid reversal. Each is an induced path, so distinct undirected paths have distinct vertex masks. Any path's distances from a fixed center run in unit steps from r to 5-r, which forces a visit to distance two; shells have ten vertices. Translation lets any nonempty candidate be moved to contain zero. The independent exhaustive replay generated 1920 path masks, including 1560 that avoid zero, and tested all 7888725 normalized sets of size nine, with none hitting all masks, and all 20160075 normalized sets of size ten, with exactly ten passing. These were exactly the shells centered at distance two from zero; all 32 shells were verified distinct and valid. Adding a vertex never destroys transversality, so exclusion at nine excludes every smaller size. Undoing the normalization proves completeness of the 32-set family.",
+      "residual_risks": [
+        "The lower bound and classification are computer-assisted finite exhaustion; the uploaded C++ checker was not executed and the independent run is not formal verification. No conclusion for other dimensions follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives bounds 8 and 10 at dimension five; Remark 3.4 settles values through Q4 only.",
+          "Theorem 10 of Prabha et al. states a general value 2^{r-1}, giving 16 at r=5, already impossible by the ten-vertex construction for the defined invariant."
+        ],
+        "reasoning": "The valid general bounds do not determine the dimension-five number, and the conflicting purported formula is not covering evidence for this exact value. Neither statement yields the family of all minimizers.",
+        "searches": [
+          "arXiv:2610.39298v1, Theorem 3.1 and Remark 3.4",
+          "arXiv:2611.06107v1, §5, Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39298v1, §3",
+        "arXiv:2611.06107v1, §5",
+        "Configured Resultary search and Q4 result mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A middle weight layer is a transversal in Q5 and its translates give the upper-bound examples; the lower bound from Theorem 3.1 remains eight.",
+          "The neighboring dimension has additional optimum configurations and its text explicitly makes no higher-dimensional assertion."
+        ],
+        "reasoning": "The available upper-bound examples and Q4 census imply neither optimality nor absence of exceptions at Q5. Ruling those out requires genuinely exhaustive information about Q5 paths and candidates, not an interpolation of adjacent dimensions.",
+        "searches": [
+          "Chen et al., §3, proof of the upper bound and low-dimensional remark",
+          "Local mirror of the Q4 complete classification, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a cube, hitting all inclusion-maximal shortest paths is equivalent to hitting all full antipodal coordinate-order paths; using vertex sets rather than paths up to reversal does not change the hit condition.",
+          "Chen, Ma and Wu study the same invariant and give the middle-layer construction."
+        ],
+        "reasoning": "Neither the full-geodesic reformulation nor Hamming-weight symmetry is the claimed advance. The proof must still exclude nine vertices and exclude nonshell ten-vertex sets. The known upper bound accomplishes neither.",
+        "searches": [
+          "Focused primary-literature lookup on geodesic transversals of the five-cube / hitting all maximal shortest paths",
+          "Resultary lookups on Q5 geodesic hitting sets and minimum geodesic transversals",
+          "Chen, Ma and Wu, arXiv:2610.39298v1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Q5 hit SCOPE-exact-minimum-geodesic-transversals-of-the-five-dimensional-cube--52f8496ac1f7 is the assigned record itself.",
+          "The distinct Q4 hit SCOPE-forty-minimum-geodesic-transversals-of-the-four-dimensional-cube--e937d60d04fd has 40 minima in two stated families, eight shells and 32 lifted-neighborhood sets."
+        ],
+        "reasoning": "The Q4 record is a materially related finite classification, but its dimension and structural conclusion differ. No independent exact Q5 table or classification was verified in these bounded lookups.",
+        "searches": [
+          "Configured Resultary queries for exact Q5 values and classifications and adjacent cube dimensions"
+        ]
+      },
+      "rationale": "The checked prior sources supply the middle-layer upper bound and classify the distinct four-dimensional case. Neither supplies the exact correct value at dimension five or the all-minima classification. The novelty supported here is the matching finite lower bound and the complete orbit, not the shell construction or the enumeration method.",
+      "residual_risks": [
+        "The bounded literature and catalogue lookups do not establish historical priority; an unlocated census or a result in alternative path-hitting terminology could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior construction and bounds, not the exact dimension-five conclusions",
+          "evidence": "Middle-layer upper bound and lower bound evaluate to 10 and 8; the exact list stops at dimension four.",
+          "identifier_or_url": "https://arxiv.org/html/2610.39298v1",
+          "material_read": "§3, Theorem 3.1 and Remark 3.4, OA locators 11234 and 16948",
+          "method": "Targeted primary HTML passages",
+          "title": "On two problems concerning the geodesic transversal number of graphs",
+          "trigger": "Same invariant, general cube bounds and exact small dimensions"
+        },
+        {
+          "assessment": "The displayed formula cannot hold here and does not cover the correct value",
+          "evidence": "At r=5 it gives 16, contradicted by a radius-two shell of size ten hitting every antipodal path.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.06107v1",
+          "material_read": "§5, Theorem 10, OA locator 22149",
+          "method": "Targeted primary passage",
+          "title": "Geodesic Transversal of Hypercube and Butterfly networks",
+          "trigger": "Purported stronger formula for all cubes"
+        },
+        {
+          "assessment": "Related structural census restricted to Q4",
+          "evidence": "Eight shells and 32 lifted-neighborhood sets exhaust Q4 minima, with no higher-dimensional conclusion.",
+          "identifier_or_url": "2026/11/8/SCOPE-forty-minimum-geodesic-transversals-of-the-four-dimensional-cube--e937d60d04fd",
+          "material_read": "Opening RESULT.md, offset 0, mirrored snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local primary-record mirror",
+          "title": "Forty minimum geodesic transversals of the four-dimensional cube",
+          "trigger": "Closest separate indexed exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Chen, Ma and Wu, Theorem 3.1 and Remark 3.4",
+        "Resultary Q4 classification"
+      ],
+      "rationale": "The first dimension not settled by the checked low-dimensional results is a meaningful finite cutoff. It decides whether the natural middle-layer upper bound is sharp there and gives more than an extremal number: every optimizer lies in a single explicitly described orbit, unlike the several forms in the adjacent lower dimension. The exact result is useful both as a benchmark for general bounds and for testing structural conjectures about optimum hypercube transversals.",
+      "residual_risks": [
+        "A finite structural result only; it does not imply eventual sharpness of the middle-layer bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

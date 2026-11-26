@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:32:58.391993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–76; independent flag, support and convergence derivations",
+        "VERIFICATION.md:19–22, CHECK.py and CHECK_OUTPUT.txt were inspected; frozen code not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_replay.py 2; exhaustive bit-row binary matrices in dimensions 1–4 matched exact joint probabilities for 1, 16, 484, 99856 ordered pairs, and rational Euler-product/tail bounds put D_2 in (0.44128607215,0.44128607225)."
+      ],
+      "rationale": "Uniformity follows because each flag A⊆K with dim A=r and dim K=n−r gives exactly |GL_r(F_q)| maps by isomorphisms V/K→A. For a fixed a-plane in an N-space the count of d-planes meeting it in x dimensions is G(a,x)G(N−a,d−x)q^((a−x)(d−x)), by choosing the intersection, the projected plane and its lift. This gives W_j for the two images. Given the images, the independent quotient kernels meet the other projected image with the stated H distributions, and these laws depend only on j, so conditioning on j preserves independence. Subtraction of the intersection dimension from the respective input-image dimension gives the two ordered ranks, including the zero-rank shells. At r=s=m the gap is at most min(d,m−j), d=n−2m. With disjoint images one kernel extension can be arranged to meet the other image in min(d,m) and the other kernel extension can be a complement. In dimension 2m+1 each kernel extension is a line, giving the stated independent Bernoulli indicators. In this regime W_j=q^(−j(j+1)) Q_m²Q_{m+1}²/(Q_{2m+1}Q_jQ_{j+1}Q_{m−j}²); the Q factors are bounded below by Q_∞>0. Dominated convergence and Q_{j+1}=Q_j(1−q^(−j−1)) give exactly the positive series reported. Pairwise disagreement does not imply unequal marginals, which are equal by exchangeability.",
+      "residual_risks": [
+        "Independent exhaustive computation was binary only; other fields and all limiting statements rely on the proof, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "442e4aaba275 gives necessary and sufficient product-rank gap at arbitrary input ranks. The other inspected indexed and primary results impose anticommutation or mutual annihilation."
+        ],
+        "reasoning": "Equal input ranks recover the asserted bound and attainment. Annihilation and anticommutation results alone cannot give the unrestricted joint law.",
+        "searches": [
+          "442e4aaba275 sharp support",
+          "Huang 2110.15566; Fulman–Guralnick 2111.09433; Schröer math/0211293; Oblak math/0612300",
+          "Resultary 7d219233bfbd and 6deaf49eec33"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 442e4aaba275, 7d219233bfbd, 6deaf49eec33",
+        "arXiv:1211.0504, 2110.15566, 2111.09433, math/0211293, math/0612300"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=2m+1, a=b=m and earlier product ranks r=k, s=k−1, its indices d=m−k−c and e=c−(m−k) are opposite; only d=e=0 and c=m−k contribute. In the frozen flag notation this is x=0,y=1 at j=c. The overlap j is the nullity of an (m+1)×m uniform projected matrix conditional on the original (2m+1)×m uniform matrix having independent columns; the conditioning failure is O(q^(−m−1))."
+        ],
+        "reasoning": "The earlier one-term formula thus gives W_j p_j(1−p_j), and swapping gives the factor 2. Fulman–Goldstein's known excess-one rank law gives limiting mass Q_∞q^(−j(j+1))/(Q_jQ_{j+1}); against the bounded weight 2p_j(1−p_j), the limit simply cancels a factor of Q_{j+1}. This is direct prior implication, not a claim that Fulman–Goldstein explicitly discuss products of square-zero operators.",
+        "searches": [
+          "442e4aaba275, Finding and proof of allowed summation indices",
+          "Fulman–Goldstein arXiv:1211.0504, equations (1)–(2) and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier count fixes both individual ranks and both ordered product ranks, imposes no commutation or mutual annihilation, and partitions by image overlap."
+        ],
+        "reasoning": "Dividing exact ordered-pair counts by the two shell cardinalities gives the frozen joint law. The apparent change in conditioning is from fixing one entire endomorphism to exposing both image subspaces first.",
+        "searches": [
+          "Resultary search: square-zero pairs, bidirectional product-rank fibers and joint EF/FE rank law",
+          "442e4aaba275, Finding and Proof §§4–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed count gives all joint table entries for every n,q and both valid input ranks, not just sample tables or one marginal."
+        ],
+        "reasoning": "The finite law and finite disagreement probability are exact specializations of the indexed count, even where the earlier source does not list a numerical entry.",
+        "searches": [
+          "442e4aaba275, Gaussian count and shell normalization",
+          "Resultary search for constrained square-zero rank tables"
+        ]
+      },
+      "rationale": "The earlier Resultary record 442e4aaba275 already counts precisely these joint fibers, with complete support and the sharp gap for even unequal input ranks. The conditional-independent presentation is useful but re-expresses the same flag count. The odd-dimensional probability and Euler-series evaluation are not stated there verbatim, but reduce directly to single terms of the earlier sum and the standard rectangular matrix rank limit. No distinct substantial claim remains to repair.",
+      "residual_risks": [
+        "Bounded search; the identified Bernau–Abian and Flanders PDF attempts did not yield readable passages and were not used as evidence. This does not weaken the explicit indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full finite law and gap covered",
+          "evidence": "Fiber count with given input ranks and both product ranks under only the two square-zero relations, then exact support |r−s|≤n−a−b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bidirectional-product-rank-fibers-of-square-zero-matrix-pairs--442e4aaba275",
+          "material_read": "Mirrored RESULT.md Finding; Proof §§3–6 including offsets 4000–6487, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, hypothesis and summation comparison",
+          "title": "Bidirectional product-rank fibers of square-zero matrix pairs",
+          "trigger": "Exact joint ordered-product rank count and stronger support theorem"
+        },
+        {
+          "assessment": "Classical limiting overlap law after the projection reduction",
+          "evidence": "Excess-one rectangular nullity law and total variation convergence give the weights used in the Euler series.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0504",
+          "material_read": "OA PDF reprint pp. 1–2, equations (1)–(2) and Theorem 1.1",
+          "method": "Located and read primary PDF passages",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Possible known rank-overlap limiting mass"
+        },
+        {
+          "assessment": "Restricted distinct problem",
+          "evidence": "Fixes a maximal-rank A and imposes AB+BA=0.",
+          "identifier_or_url": "Resultary 2026/10/26 record 7d219233bfbd",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Joint rank strata of square-zero anticommutants of a maximal square-zero matrix",
+          "trigger": "Similar rank census"
+        },
+        {
+          "assessment": "Restricted distinct problem",
+          "evidence": "Both products are zero by assumption.",
+          "identifier_or_url": "Resultary 2026/10/26 record 6deaf49eec33",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Joint Jordan-rank and radical-image intersection census for square-zero two-loop modules",
+          "trigger": "Two-loop square-zero census"
+        },
+        {
+          "assessment": "Zero-product regime only in inspected passages",
+          "evidence": "AB=BA=0 is imposed.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "pp. 1, 4: generating function scope and mutually annihilating nilpotent pairs",
+          "method": "OA primary text",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Plausible nilpotent-pair enumeration"
+        },
+        {
+          "assessment": "Zero-product regime only in inspected passages",
+          "evidence": "Counts B with AB=BA=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.09433",
+          "material_read": "§3, p. 3 and Lemma 3.2",
+          "method": "OA primary text",
+          "title": "Cohen Lenstra partitions and mutually annihilating matrices over a finite field",
+          "trigger": "Finite-field counts for two products"
+        },
+        {
+          "assessment": "Different parameter space",
+          "evidence": "AB=BA=A^a=B^b=0 is imposed.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0211293",
+          "material_read": "p. 1 statement and abstract",
+          "method": "OA primary text",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Potential broader geometric theorem"
+        },
+        {
+          "assessment": "Different parameter space",
+          "evidence": "Jordan forms under mutual annihilation, not ordered product ranks in unrestricted shells.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0612300",
+          "material_read": "p. 1 statement and abstract",
+          "method": "OA primary text",
+          "title": "Jordan forms of mutually annihilating nilpotent pairs",
+          "trigger": "Potential stronger pair classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:18–41 and 55–76",
+        "Resultary 442e4aaba275",
+        "Fulman–Goldstein, equations (1)–(2)"
+      ],
+      "rationale": "As a scientific problem, the full joint distribution retains dependence information lost by marginal laws, and the parity distinction separates deterministic rank rigidity from persistent disagreement. These are natural structural questions. The existing coverage and direct implication mean the frozen solution does not supply a new result on those questions.",
+      "residual_risks": [
+        "The probability limit here is fixed q, maximal square-zero input rank and odd dimension, not a claim under joint growth of q and n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

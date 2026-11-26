@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:18:57.613907Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md:13–21 compares relative finite-time log gain at equal initial rare biomass, not absolute growth or persistence. On each block the exact substrate trajectory is c+(z−c)exp(−Dt); subtraction gives one sign change at τ+D^−1 log(2−exp(−Dτ)), strictly between τ and 2τ. Writing Q_j=e^{Dt}(K+S_j(t;0)) gives Q'_j=D e^{Dt}(K+c_j)>0 on each block, and continuity through the switch. The positive weight of the substrate difference is K e^{2Dt}/[(s+Q_HL)(s+Q_LH)]. For s_2>s_1 its weight ratio strictly increases through the substrate sign change; subtracting the ratio at the crossing proves that any nonpositive G(s_1) forces G(s_2)<0, without needing G itself monotone. At s=0 paired times have denominator B>A>0 and combined integrand K(h−ℓ)[p(1/A−1/B)+q/B]>0, including ℓ=0. Integration gives lim s²G(s)/K=(h−ℓ)(E−1)²(1+2E−E²)/(2D), E=exp(Dτ). For a negative limit, continuity and single crossing give existence and uniqueness. For a nonnegative limit, the strictly increasing ratio to the limiting weight excludes a finite zero, even when E=1+√2. Independent direct quadrature for D=K=τ=1, h=4, ℓ=1 brackets s*≈53.13409233711025 from both sides; quadrature at τ=Θ gives positive values at four tested initial nutrients. The frozen script was read, not run; finite tests are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hsu (1980) models sinusoidal feed with positive biomass feedback; Butler et al. (1985) address periodic washout and positive periodic solutions. The closest older variable-input CSTR article was not accessible.",
+          "The later logistic theorem allows all positive N_0, whereas for each fixed K the chemostat corresponds to 0<N_0≤1/K."
+        ],
+        "reasoning": "Periodic invasion and coexistence statements cannot automatically imply a strict comparison after exactly two specified exposures from the same finite initial resource. A theorem for general two-block reciprocal-response integrals would be capable of subsuming this result; no earlier one was located in the passages checked.",
+        "searches": [
+          "Resultary searches for Hsu, Butler–Hsu–Waltman, Stephanopoulos–Frederickson–Aris, and Smith cited papers",
+          "Hsu PDF model and Theorem 3.6",
+          "Butler–Hsu–Waltman PDF abstract and introduction",
+          "Finite-horizon chemostat web search above"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and chemostat_finite_feed_verification.py (static)",
+        "Accessible passages and identified access attempts in source_inspections",
+        "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; also November 22 buffered Monod pulse-frequency and geometric-mean threshold findings, Finding offset 0, both long-run questions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hsu's model and theorem concern long-time competition outcomes rather than two reversed blocks. The same-day phosphorus theorem has a different map and objective; no implication under the affine relaxation assumptions. The later logistic theorem fixes the same stage ordering and has the same transformed kernel and instantaneous crossing time."
+        ],
+        "reasoning": "The later logistic classification restricts to the claimed signs, with the chemostat's G(0)>0 locating the crossing within its admissible range when Dτ>Θ. Earlier checked periodic or discrete-model statements do not yield either that positivity at zero or the sharp finite-time boundary. No publication order between same-day records is assumed.",
+        "searches": [
+          "Hsu doi:10.1007/BF00275917",
+          "Butler–Hsu–Waltman doi:10.1137/0145025",
+          "Resultary October 26 phosphorus finding and November 22 logistic finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 22 Finding, Assumptions, and opening proof (offsets 0–2983) explicitly use Y=1/N with Y'=−Y+v in time scaled by the common growth rate and compare ∫N over two equal stages."
+        ],
+        "reasoning": "Set Y=K+S, N=1/Y, r=D and carrying capacity 1/(K+c). The chemostat's HL feed becomes LH capacity; reversing the labels and using the identity S/(K+S)=1−KN cancels both sign reversals, giving G(s)=K(B_HL−B_LH) with N_0=1/(K+s). The apparent difference in crossover direction is just the reversal of the initial-state order. This is a genuine equivalent formulation where domains agree, not merely a matching constant.",
+        "searches": [
+          "finite-horizon chemostat nutrient feed scheduling order comparison two equal-duration constant feed blocks Monod growth threshold initial substrate crossover",
+          "Resultary finite-horizon two-block order-comparison search",
+          "2026/11/22/SCOPE-universal-duration-boundary-for-cumulative-population-under-two--da77aeed6889/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed statement gives exactly log(1+√2) and the classification in a later reciprocal logistic formulation. The same-day phosphorus result instead gives two distinct terminal-stock crossings in a bistable discrete map."
+        ],
+        "reasoning": "This is a continuum sign/uniqueness law, not a tabulatable isolated constant. The exact threshold alone (or a finite table of crossover values) cannot establish the theorem; the November theorem is relevant precisely because the entire comparison transforms.",
+        "searches": [
+          "Resultary finite-horizon chemostat order and threshold search",
+          "2026/11/22/SCOPE-universal-duration-boundary-for-cumulative-population-under-two--da77aeed6889/RESULT.md Finding"
+        ]
+      },
+      "rationale": "The dated October result establishes an exact finite-horizon relative growth classification not found in the earlier sources inspected. The November 22 logistic result is mathematically equivalent to the shared reciprocal-integral comparison on the common domain and slightly broader in initial states; its later catalogue date and the lack of evidence of earlier availability do not establish prior coverage of the October result. This is a qualified comparison, not priority certification.",
+      "residual_risks": [
+        "The 1979 CSTR and 1981 Smith full texts were not obtained; an earlier finite-stage reciprocal-integral classification or stronger rearrangement theorem could subsume the result. The exact later equivalence strengthens this search risk; it does not establish earlier availability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related not dominating in inspected statements",
+          "evidence": [
+            "Periodic sinusoidal input with biomass consumption; competitive exclusion/coexistence rather than relative log-gain order over two equal blocks."
+          ],
+          "identifier_or_url": "doi:10.1007/BF00275917",
+          "material_read": "Author PDF abstract p. 1, model p. 3, Theorem 3.6 and simulation introduction p. 5; offsets 321, 4800 and 10682",
+          "method": "OA author PDF",
+          "title": "A Competition Model for a Seasonally Fluctuating Nutrient",
+          "trigger": "Monod nutrient under temporally varying supply"
+        },
+        {
+          "assessment": "Different control and time horizon",
+          "evidence": [
+            "Washout-rate forcing; coexistence identified via positive periodic solutions."
+          ],
+          "identifier_or_url": "doi:10.1137/0145025",
+          "material_read": "Author PDF abstract and introduction, offset 2229",
+          "method": "OA author PDF",
+          "title": "A Mathematical Model of the Chemostat with Periodic Washout Rate",
+          "trigger": "Periodic chemostat forcing and invasion criteria"
+        },
+        {
+          "assessment": "Residual scope unknown",
+          "evidence": [
+            "Access does not substantiate the frozen attribution or rule out a finite-time comparison in the paper."
+          ],
+          "identifier_or_url": "doi:10.1002/aic.690250515",
+          "material_read": "No primary passage obtained",
+          "method": "Publisher and OA routes attempted",
+          "title": "The Growth of Competing Microbial Populations in a CSTR with Periodically Varying Inputs",
+          "trigger": "Plausible overlap in variable-input substrate dynamics"
+        },
+        {
+          "assessment": "Residual scope unknown",
+          "evidence": [
+            "No primary text available to delimit its contents."
+          ],
+          "identifier_or_url": "doi:10.1137/0140042",
+          "material_read": "No primary passage obtained",
+          "method": "Publisher and OA routes attempted",
+          "title": "Competitive Coexistence in an Oscillating Chemostat",
+          "trigger": "Related oscillating-chemostat criteria"
+        },
+        {
+          "assessment": "Equivalent core comparison under reciprocal transform; later dated",
+          "evidence": [
+            "N'=rN(1−N/K(t)), all positive N_0, duration threshold, and same instantaneous crossing time; Y=1/N solves a linear forced relaxation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-duration-boundary-for-cumulative-population-under-two--da77aeed6889",
+          "material_read": "RESULT.md Finding, Assumptions, and inverse-dynamics passage, offsets 0–2983",
+          "method": "Local Resultary mirror",
+          "title": "Universal duration boundary for cumulative population under two switched logistic carrying capacities",
+          "trigger": "Same boundary and one-crossing theorem for two stages"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": [
+            "Two crossovers in a terminal discrete lake-stock response, not one crossover in a continuous-time integrated Monod response."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-crossing-reversal-of-two-year-phosphorus-loading-in-a-bistab--98ce54292579",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-crossing reversal of two-year phosphorus loading in a bistable model",
+          "trigger": "Same-day two-stage order dependent on initial stock"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves whether initial resource can change the preferred fixed-dose order, with a universal duration boundary including equality and a unique reversal above it. Equal total feed alone does not fix integrated nonlinear response; the comparison is a structural finite-horizon property, not a single parameter example. It makes no prediction about absolute growth, persistence, substantial biomass, or arbitrary schedules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

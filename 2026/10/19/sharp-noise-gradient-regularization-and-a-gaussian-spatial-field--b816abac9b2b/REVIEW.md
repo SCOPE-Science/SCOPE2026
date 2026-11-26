@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central statement is a theorem for every finite \(N\geq1\), fixed \(D,k>0\), and \(\beta\geq0\), with separate limits \(k=1,N\to\infty\) and \(k_N=1+\lambda/N\), \(N\to\infty\). Itō isometry and the nilpotent drift exponential yield the exact weighted covariance. Stirling asymptotics establish the exhaustive \(\beta=1/2\) variance boundary. The uniform central-binomial upper bound controls the singular small-index part of the Riemann limit and gives finite-dimensional Gaussian convergence; an integral substitution and dominated convergence prove the short-distance coefficient. The independent, package-local checker passes 1,864 deterministic assertions, including exact finite-size stationary Lyapunov residuals. Finite tests do not substitute for asymptotic proofs.
+PASS
 
-## Originality — PASS, subject to an explicit residual risk
+Reassessed the complete replacement repairs/3/RESULT.md. The original Eq. (4) was numerically correct as a covariance decrement but was presented as the increment variance, which is twice the decrement because K has constant diagonal. The replacement states both the exact half-variance identity and the coefficient for the full variance, and clarifies eventual validity of the sampled indices. For the finite formula, the covariance is the sum of independent bath contributions propagated by the triangular semigroup: integration of e^(−2kτ) τ^(2ℓ−i−j) gives the stated factorial coefficient and exactly one outside factor D/k. Equivalently the stationary recursion 2k C_ij=C_(i+1)j+C_i(j+1)+2D i^(−β)1_(i=j), with zero out-of-range entries, gives the same coefficients by counting monotone paths to (ℓ,ℓ), including N=1. Central-binomial weights make the upstream summand asymptotic to D m^(−β−1/2)/√π with a summable error at β=1/2, proving all three cases. In the window with real λ, the binomial mass with 2m+d trials is bounded by C/(m+1)^(1/2) uniformly, and the damping factor stays bounded even for λ<0. The scaled sum up to εN is O(ε^(1/2−β))+o(1), including on the diagonal. On the bulk m∼Nt, the binomial deviation is d/2 with d/√N→|u−v|; uniform Stirling gives exp(−d²/(4m))/√(πm), the bath factor tends to t^(−β) after rescaling, and j/N→0. Hence the Gaussian covariance Riemann sum gives the claimed finite-dimensional limit, not a path limit. For Eq. (4), changing variables to s=h²/(4t) leaves the integrable factor s^(β−3/2)(1−e^(−s)); integration by parts gives Γ(β+1/2)/(1/2−β), with 2^(−1+2β) from scaling. The script was inspected, not executed; it checks the decrement, so needs no change. The frozen source and verification notes are preserved.
 
-Pal and Gupta, arXiv:2609.05391v1, Eq. (84), already proved the finite-chain covariance for spatially constant white-noise intensity. Both their exceptional-point dynamics and this homogeneous formula are acknowledged, not claimed. The new statement resolves the graded-bath \(\beta=1/2\) variance transition, the critical damping window \(k_N=1+\lambda/N\), the resulting full \(\sqrt N\)-scale spatial Gaussian covariance, and the precise bath-dependent roughness exponent. Hennequin et al., arXiv:1204.2945v1, treat nonnormal feedforward amplification but not this particular graded-noise phase law. An indexed nilpotent-resolvent result concerns singular values, not heterogeneous stationary covariance. An earlier homogeneous directed-chain endpoint temporal-correlation theorem treats different observables; a separate skew OU entropy result is also non-covering. No specific published stronger implication covering this complete statement was identified. A general theorem on weighted binomial local limits or stochastic convolutions might implicitly recover a portion, and this self-review is not independent certification.
+## originality
 
-## Value — PASS
+PASS
 
-Grading noise intensity along a nonreciprocal chain is a natural bath-design perturbation of an experimentally interpretable exceptional-point stochastic model. The exact transition separates diverging and bounded upstream fluctuations **without changing any finite-size drift eigenvalue**. The spatial Gaussian field adds an explicit correlation length and a continuously tunable local roughness exponent, not simply a re-expression of finite-chain Lyapunov algebra. This is a complete structural classification in a physically motivated family.
+The repaired finding earns credit for the β>0 grading-dependent stationary-size classification and subcritical graded field, including its small-lag power and constants. The homogeneous finite covariance, ordinary stochastic-convolution identity and elementary finite inhomogeneous extension are not the originality basis. The precise homogeneous mesoscopic kernel is separately credited in the replacement.
 
-## Closest literature and limits
+## value
 
-The common-noise formula of Pal–Gupta is the closest special case. General nonnormal amplification theory is relevant background, not evidence of prior statement-level coverage. The result is restricted to independent Gaussian baths with an exact spatial power law and finite-dimensional limits. Its novelty could still be subsumed by a broader weighted-kernel limit theorem not recovered in the accessible primary comparisons. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The stationary-size limit is not captured by the unchanged stable eigenvalue. The threshold distinguishes divergence, marginal logarithmic behavior and bounded upstream variance as one changes only the bath; the mesoscopic field gives a further measurable consequence, including a grading-dependent small-lag power. This goes beyond a routine finite covariance calculation. The repaired distinction between decrement and full increment variance is necessary for quantitative use; the demonstrated limit is finite-dimensional only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

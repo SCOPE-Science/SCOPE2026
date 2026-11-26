@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:08:44.144931Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Mod constants, the adjacent variation is the ℓ¹ norm of the three increments, and their coordinate vectors are the three thresholds. Applying I−P and the triangle inequality gives the maximum of the threshold column norms; equality cannot combine two columns since they are linearly independent in the mean-zero range for ρ<1. Independent orthogonal centered Bernoulli products give degree weights (1−ρ^m)². Expanding OR, majority and AND gives the three claimed masses; the first dominates the third below p=1/2, and at p=1/2 the middle exceeds both. For the middle-versus-first comparison the positive prefactor leaves B. With a=(2−3p)/(1−p), S=1+ρ+ρ² and T=1+ρ, S²−aT²≥−4 on the specified rectangle, hence ∂pB≥2−2p>0; the displayed second ρ derivative is strictly positive. The endpoint slopes place the unique minimum inside for p<1/2. The endpoint zeros give p_0<p_1; the minimum is continuous and strictly increasing in p, negative at p_1 and positive at 1/2, giving the unique tangency and all endpoint/root cases. Complementation swaps the extremes and preserves the quotient. For two bits the degree-two masses tie and the degree-one preference is independent of ρ. A separate exact product-cube enumeration (`python3 /workspace/checks/ehrenfest.py`, with mpmath only for the numerical roots) found the winning indices 2,1,2 at p=87/250 and ρ=0,1/5,1/2; the critical and example root decimals also agree. Only the inequalities and norm argument, not the finite enumeration or root solver, prove the continuum result. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Griffiths §3.1 supplies composition-chain bases for multinomial orbit spaces, including Bernoulli counts; it is relevant to diagonalization and to mixing/hitting calculations.",
+          "The Resultary all-biased-product Fourier-multiplier result is about endpoint L¹/L∞ norms, not unweighted count variation as input and equilibrium L² defect as output."
+        ],
+        "reasoning": "The broader diagonalization computes the eigenvalues, not the three spectral mass vectors or their ordering. The broader endpoint multiplier result uses different unit balls; changing to the increment ℓ¹ ball on the count quotient is not a parameter specialization. The 2012 full paper remains access-limited.",
+        "searches": [
+          "Resultary: broader coverage three-bit Bernoulli refresh noise semigroup operator norm threshold switching majority dictator Gini variation",
+          "Resultary: universal rare vertex norming law biased Boolean Fourier maximum three bits",
+          "arXiv:1309.0112 §3.1; DOI 10.1111/j.1467-842X.2012.00654.x"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.0112 §3.1",
+        "arXiv:1401.7337 pp. 1–2, 9",
+        "DOI 10.1111/j.1467-842X.2012.00654.x (full-text attempt only)",
+        "Resultary centered heat, complete-pair Gini noise and Ehrenfest Gini amplification, biased Fourier endpoint norm comparisons (local mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior frameworks provide the orthogonal product decomposition and covariance calculations. The target subtracts threshold norms with different spectral masses, factors the difference to B(p,ρ), controls its strict convexity and endpoint signs, and establishes that two bits cannot switch."
+        ],
+        "reasoning": "The cited machinery is sufficient to set up the calculation, not a stronger result from which the sharp optimizer phase and equality cases are a direct specialization. The simple column-norm identification is not the sole originality claim.",
+        "searches": [
+          "Resultary: three bit biased Ehrenfest semigroup sharp adjacent-count variation to stationary L2 norm of I-P reentrant threshold transitions",
+          "arXiv:1309.0112 composition chains and arXiv:1401.7337 biased-cube semigroup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bouyrie pp. 1–2 defines noise stability by covariance in product noise, and p. 9 treats the biased cube semigroup. The squared residual here combines correlations at ρ and ρ² with the zero-time second moment.",
+          "The count quotient uses one jump per threshold and the result compares just three equally variation-normalized discontinuities."
+        ],
+        "reasoning": "For each threshold the residual squared can be expressed as Var(h)−2 Cov(h,Pρh)+Cov(h,Pρ²h), where the covariance notation means the equilibrium inner product of centered functions. A theorem controlling noise stability at one correlation, or ranking functions at fixed bias of their outputs, is not the same maximization with this signed combination and three different threshold means.",
+        "searches": [
+          "Resultary: equivalent formulations sharp BV-to-L2 identity-transition residual norm binomial Krawtchouk threshold Fourier masses",
+          "Primary literature: \"Ehrenfest\" \"Krawtchouk\" \"variation\" \"L2\" biased Bernoulli refresh semigroup sharp norm threshold",
+          "arXiv:1401.7337, noise stability and biased cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched the assigned record itself and compared the closest independently indexed three-bit centered heat and Gini results. The former compares majority and dictator for a balanced full cube and centered L∞ norm with anisotropy; the latter treat complete-pair Gini differences rather than the sharp stationary L² residual.",
+          "No inspected result tabulates the same sharp constant and phase boundaries; the ranked search is not exhaustive."
+        ],
+        "reasoning": "The number of bits or a named threshold is not sufficient for an exact match. These endpoints/amplification invariants neither give the three count-residual column norms nor say where their signs of pairwise difference switch.",
+        "searches": [
+          "Resultary: exact table or database sharp norm variation error biased Ehrenfest urn three bits phase boundaries",
+          "Resultary: centered three-bit heat norms majority dictator transition norming extremizer",
+          "Resultary: complete pair Gini amplification Ehrenfest urn step three bits exact norm"
+        ]
+      },
+      "rationale": "Qualified for the explicit sharp BV-to-equilibrium-L² residual, including equality and minimal reentrant phase diagram. The composition chain, product diagonalization and ℓ¹ column-norm reduction are standard ingredients. The inspected statements do not resolve the specific cross-degree competition or the two-crossing bias range.",
+      "residual_risks": [
+        "The 2012 same-object full text was inaccessible and cannot be ruled out as an earlier source of equivalent calculations.",
+        "A general theorem on sharp variation residuals, or an equivalent mixed-noise-covariance formulation, might be missed by the bounded passage and ranked searches; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical composition-chain diagonalization; no sharp threshold phase conclusion in the passages",
+          "evidence": [
+            "Lancaster/Krawtchouk structure; multinomial orbit-space composition chains and their spectral applications."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.0112",
+          "material_read": "PDF p. 3 (text offset 5973) and §3.1 PDF p. 23 (offset 61367)",
+          "method": "Bounded OA primary passages",
+          "title": "An introduction to multivariate Krawtchouk polynomials and their applications",
+          "trigger": "Potential all-size spectral result covering the biased count chain"
+        },
+        {
+          "assessment": "Covariance stability, influence criteria and biased semigroup estimates, not this three-threshold normalized residual or two-switch result",
+          "evidence": [
+            "Definitions of biased product noise stability and influence; noise-sensitivity criterion; biased-cube Dirichlet form."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.7337",
+          "material_read": "PDF pp. 1–2 and p. 9 (text offsets 3443, 4630, 32194)",
+          "method": "Bounded OA primary passages",
+          "title": "On quantitative noise stability and influences for discrete and continuous models",
+          "trigger": "Related biased product-noise semigroup inequalities"
+        },
+        {
+          "assessment": "Cannot exclude anticipation in this exact-chain source",
+          "evidence": [
+            "The 2013 paper identifies the connection to the 2012 two-colour Ehrenfest analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-842X.2012.00654.x",
+          "material_read": "Citation and frozen abstract-level comparison; independent full text unavailable",
+          "method": "Lawful OA retrieval attempted, and related 2013 paper read",
+          "title": "Exchangeable pairs of Bernoulli random variables, Krawtchouk polynomials, and Ehrenfest urns",
+          "trigger": "Same earlier two-colour Ehrenfest spectral model"
+        },
+        {
+          "assessment": "Balanced and anisotropic centered heat on a full cube with a different norm and optimizer set",
+          "evidence": [
+            "Centered L∞ comparison of majority and dictator, not biased count BV-to-L² identity residual."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/25/SCOPE-a-unique-majority-dictator-transition-in-centered-three-bit-heat--1127f93a525e/RESULT.md",
+          "material_read": "Theorem/setting, text offsets 0–2585",
+          "method": "Local mirror reading",
+          "title": "A unique majority–dictator transition in centered three-bit heat norms",
+          "trigger": "Explicit extremizer threshold transition for three bits"
+        },
+        {
+          "assessment": "Complete-pair Gini contraction is not the claimed adjacent-count BV-to-equilibrium-L² defect",
+          "evidence": [
+            "The complete-pair differences and the transition operator instead of its identity residual change the optimization."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/17/SCOPE-three-bit-onset-and-gaussian-cutoff-for-gini-contraction-under-b--47b8c17fd834/RESULT.md",
+          "material_read": "Statement, text offsets 0–1817",
+          "method": "Local mirror reading",
+          "title": "Three-bit onset and Gaussian cutoff for Gini contraction under Boolean noise",
+          "trigger": "Sharp related variation-like constant on three bits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacent variation describes a natural control on a count signal, and its stationary mean-square one-step error has a concrete sharp constant and equality problem. The exact phase boundaries exhibit a bias range in which changing retention alone changes the uniquely worst count discontinuity from majority to the rare-count jump and back. Two bits cannot do this; the minimality, critical tie and rational signs make this a usable benchmark, not an arbitrary finite sample. The result is limited to identical refresh coordinates and the specified input/output norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

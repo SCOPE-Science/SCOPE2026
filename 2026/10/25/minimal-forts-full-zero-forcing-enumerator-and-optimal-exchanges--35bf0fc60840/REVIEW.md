@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof computes the precise number of fort neighbors at every outside vertex, then handles all possible numbers of original vertices and the apex indicator. Each claimed minimal fort passes the count criterion; every other fort contains one from the five listed families. The general fort-stalling equivalence converts this into an exact zero-forcing-set characterization. Disjoint combinatorial cases give the enumerator and minimum configurations. All exchange moves are classified into three disjoint classes, proving their degrees and the edge formula; connectivity is reduced to a product of vertex-deleted Johnson graphs, with each remaining configuration adjacent to this core. Direct finite adjacency-based exhaustive enumeration independently agrees through eight originals.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2014 forcing preprint gives general upper bounds, not a Mycielskian solution-set classification. The 2018 polynomial paper introduces the invariant and treats other graph families; its inspected family and structural results do not imply the specialized five-fort characterization. The 2020 reconfiguration paper gives the token-exchange framework and general classes, not this graph family. The closest indexed research-record results on complete multipartite graph forts, chain/fan zero forcing polynomials, and other graph classes do not cover \(\mu(K_n)\), which contains an induced five-cycle and is not complete multipartite, a chain graph, or a fan. A 2021 indexed publication on numerical zero forcing of Mycielski constructions remains incompletely accessible: scalar overlap is a concrete residual risk, but its abstract gives no evidence of the much stronger classification, polynomial and reconfiguration theorem. Search non-detection by itself does not certify global novelty.
+PASS
 
-## Value — PASS
-The number of sensors alone does not reveal which initial configurations succeed or how minimum solutions may be exchanged. A single explicit obstruction hypergraph of five natural families recovers all forcing sets for an infinite Mycielskian family and reveals a connected nonregular optimum space with three distinct vertex degrees. The exact enumerator and exchange-edge formula answer motivated structural and counting questions beyond numerical zero forcing.
+The outside-neighbor counts in RESULT.md lines 31–50 exhaust all forts by original count and apex membership; in particular a lone original without the apex requires at least n−1 clones, hence contains a clone triple at n=4 as well. Every listed type has no proper fort subset by the same exhaustive classification. A white fort persists, and any stalled nonempty white set is a fort. Counting fort-free complements by apex membership gives the stated polynomial. In the minimum exchange graph the no-apex classes are off-diagonal pairs of Johnson 2-subsets: overlap one costs two moves to the removed diagonal, and swapping to the apex adds one move rather than the two allowed for disjoint pairs. The apex class has (n−3)+2(n−3)+(n−1) moves. The three-coordinate routing through a temporary two-subset is valid since J(n,2) minus any one vertex is connected for n≥4; the apex class attaches to it. Handshaking recovers the edge count. A separate chronological forcing, exhaustive forts, and exchange check at n=4,5,6 found 42,120,270 minimum sets and 150,690,2130 exchange edges. This is bounded corroboration, not the all-n proof.
 
-## Boundaries and verification
-Forcing and the formula are proved only for one-step \(\mu(K_n)\) with \(n\ge4\). Exhaustive computational checks use only \(4\le n\le8\), so no infinite conclusion relies on extrapolation. The 2021 potentially relevant complete paper was not accessible and remains a specific overlap risk; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete clique-base fort/forcing census and optimal exchange geometry, not for the scalar minimum as a separate priority claim. The strongest catalog comparisons give similar outputs for different graphs; inspected literature establishes tools and general definitions rather than covering the present census.
+
+## value
+
+PASS
+
+The minimal forts describe every obstruction to ordinary forcing in a natural infinite graph family, and the connected optimum exchange graph with explicit degree types describes how all optimal configurations are related. Neither the scalar minimum nor an instance-by-instance enumeration supplies those structural outputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

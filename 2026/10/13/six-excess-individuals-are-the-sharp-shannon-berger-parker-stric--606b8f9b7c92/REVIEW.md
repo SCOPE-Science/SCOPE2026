@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed census total \(N\), Shannon entropy is \(\log N-N^{-1}\log Q\) with \(Q=\prod_i n_i^{n_i}\), while reciprocal Berger–Parker diversity is \(N/\max_i n_i\). Hence both rankings reduce to exact integer comparisons. Subtracting one mandatory individual per species turns every profile into a partition of the excess \(r\); once \(k\ge r\), larger richness only pads profiles with ones and changes neither invariant. Exhaustive exact enumeration proves weak-order identity through \(r=3\), a first tie split at \(r=4\), no strict reversal through \(r=5\), and exactly the stated first strict layer at \(r=6\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the threshold is specific to exact positive-integer census data and fixed richness.
+PASS
 
-## Originality
-**PASS.** Prior ecology literature explicitly places Shannon and Berger–Parker at different points of the Hill/Rényi diversity spectrum and documents that choosing among diversity indices can change ecological interpretation and ranking. The checked literature therefore owns non-interchangeability in general. Targeted searches by index names, Hill orders, fixed richness, exact abundance vectors, and rank-reversal language did not locate the universal excess-\(6\) strict boundary, the excess-\(4\) tie boundary, or the complete first-layer classification.
+At common k,N, both scores decrease in exact integer keys: Shannon in ∏n_i^{n_i}, order ∞ in max n_i. I independently generated all length-k sorted excess vectors with entries in 0,…,r, filtered on sum r, restored the ones, and compared all pairs for k=3,4,5,6 and r=0,…,6. There are no discrepancies through r=3. At r=4 the unique tie split has max 3 and products 729 vs 432, with the second profile preferred by Shannon. No strict reversal occurs through r=5. At r=6 the two excess-partition reversals are (3,3) vs (4,1,1), with abundance maxima 4<5 and products 65536>50000, and (2,2,2) vs (3,1,1,1), with maxima 3<4 and products 19683>16384. The latter requires k≥4. There are no other strict reversals at r=6. Beyond k=6 every possible excess partition in the audited range was already admitted; added ones affect neither key. Thus the finite comparison and stabilization prove the claim for all k≥3.
 
-Risk: a small witness pair could occur in an unindexed teaching example or software fixture.
+## originality
 
-## Value
-**PASS.** Order \(1\) and order \(\infty\) are natural, widely interpretable points on the Hill diversity profile: one uses the full abundance distribution while the other sees only the dominant species. Fixing richness removes the most obvious confounder. The theorem quantifies the smallest amount of abundance heterogeneity needed before these two canonical summaries can make genuinely opposite community comparisons and identifies every minimal mechanism.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported contribution is the first weak and strict Shannon–order-∞ disagreement boundary and its all-richness classification, not the indices, exact comparison keys, or the first witness in isolation. The exact witness overlap with the same-day HHI–entropy record supplies the Shannon comparison on that pair (so a maximum check immediately gives one reversal), but does not establish no earlier strict reversals, the first weak layer, or the complete first strict layer. Related maximum–quadratic comparisons do not supply the missing Shannon comparisons.
+
+## value
+
+PASS
+
+With richness controlled, the resolution question for two widely used diversity orders is naturally discrete: when can redistribution underneath the largest abundance first change a tie, and when can it outweigh the maximum's ordering? The exact onset separates these phenomena and identifies all first strict witnesses across richnesses. This supplies benchmark profiles and a protection window against opposite rankings, beyond producing another example of disagreement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

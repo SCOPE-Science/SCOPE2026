@@ -1,15 +1,21 @@
-# Review of the affine-plane packing-colouring theorem
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof explicitly separates the distance-four line pairs from all shorter point and mixed pairs. This bounds colour-two and colour-three classes by the plane order. A new point-deleted incidence graph is \(q\)-regular and connected; counting its incidence edges proves the sharp independent-set bound and classifies equality. Combining these bounds gives an optimal first-three-colour occupancy and forces the two parallel classes. The claimed count follows by assigning distinct named higher colours. Independent exhaustive order-three optimization and separate order-three/four incidence checks passed. The finite checks corroborate, but do not replace, the all-order proof.
+## correctness
 
-## Originality (PASS, qualified)
-The closest original 2008 paper introduces the concept and generic bounds, without the affine-plane extremal structure in its inspected introductory and relevant mathematical sections. The inspected full 2019 arXiv preprint on symmetric Moore graphs treats regular generalized polygons (not biregular affine planes) and does not imply the present formula or optimizer classification. Closest indexed results on affine-plane weak hypergraph colouring and projective-plane packing colourings have distinct admissibility and graph-distance hypotheses; neither covers the statement. Searches of aliases, formulas and implications yielded no directly covering result. Residual risk: unindexed work, alternate terminology, or inaccessible historical calculations might establish equivalent affine packing statements.
+PASS
 
-## Value (PASS)
-This resolves the exact packing chromatic parameter and every optimal named placement for all existing affine planes of order at least three, with no Desarguesian assumption. The extremal result is structurally informative: although all lines form the larger independent shore, the unique optimum colour-one class is the smaller point shore, because two entire parallel classes can then be reused at lower frequencies. The factorial census and equality rigidity give reproducible combinatorial information beyond a generic palette bound.
+In the incidence graph, only distinct parallel lines are at distance four, and point–nonincident-line pairs are at distance three. Colours 2 and 3 therefore hold at most q vertices each; if colour 2 meets the point shore it can take at most one point and at most q−1 lines parallel to one another and avoiding that point. For a colour-1 independent set containing x, remove x and its pencil. The residual graph is q-regular on both shores and connected: two surviving points whose joining line passes through x can be joined via an auxiliary point off that line. Counting edges from the chosen lines into their point neighbourhood bounds the independent set by q². Equality in that edge count forces a union of whole components; hence equality is either the full point shore or x plus all lines avoiding x. An all-line colour-1 class allows total first-three occupancy at most q²+q+2<q²+2q for q≥3; the mixed equality case leaves only concurrent lines and cannot fill colour 3. Consequently the equality profile is precisely all points plus two different full line classes in ordered roles. All higher labels are singleton, so this yields q²−q+3, every optimum and the factorial named count. The independent-set bound also gives alpha(G)=q²+q, achieved by the line shore. A separate order-three replay via distance cliques and disjoint packing pairs gives 8,876 independent sets, occupancy 15, 12 maximizing triples, palette 9 and 8,640 named optima.
 
-## Limits
-The order-two plane and non-optimal palette spectra are excluded; finite computations cover orders three and four only. Priority has not been independently established against all historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The audited contribution is the exact affine packing number with its complete equality classification and named count. The diameter-four singleton reduction is elementary background. The closest prior projective/Moore packing theorems and affine hypergraph rigidity results do not give the affine distance constraints or the equality profile; neither same-day related exact record covers this objective. This is a bounded best-of-knowledge decision, not a priority guarantee.
+
+## value
+
+PASS
+
+Packing is a standard distance-colouring invariant, and the two geometric shores offer genuinely competing extreme configurations. The maximum independent shore loses: optimizing the palette requires the smaller point shore so that both distance-limited repeated colours can simultaneously saturate. The exact uniform palette and complete rigidity/census, not the generic singleton reduction, are scientifically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

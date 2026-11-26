@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:53.459952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With normalized stock r_i the recurrence is r_i=1−exp(−d_i)+(1−p)exp(−d_i)r_(i−1). The last visit strictly gains on postponement before H because 0≤r_(n−1)<1; a pass at zero can be moved to H with strictly positive gain, since positive stock survives and can escape finitely many trials. On the simplex the negative Hessian is a positive sum of outer products of interval indicator vectors; singleton vectors already make it positive definite. Thus strict concavity gives one optimizer, including boundary schedules. With U_i=1−r_i and Q_i the backward propagation factor for stock, adjacent equality of gradients pU_iQ_i gives U_i=p exp(−d_(i+1))Q_(i+1). Combining successive equalities and the forward recurrence gives U_1=…=U_(n−1) (not generally U_n). Writing A=1−(1−p)q, the candidate has U_1=…=U_(n−1)=pq/A, Q_i=1/A for i<n, and U_n=pq/A², so all gradients agree. At n=2 the direct condition is exp(−d_1)=p exp(−d_2), with feasibility exactly h≥−log p; it gives the same q parametrization. The horizon function strictly decreases from infinity to h_c at q=1/(2−p); there d_n=0 and all earlier gaps are positive. The candidate is optimal at equality because its equal-gradient condition still implies the concave supporting-plane bound. Below h_c an all-positive maximizer is impossible and d_1 cannot vanish. The invariant follows from the endpoint log ratio. Independently reproducing the n=4 example with a cohort sum gave 1.30167008997 versus 1.27510268262 for equal gaps. VERIFICATION.md and checker.py were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wolpert §2 treats variable arrival intensity and general survival/detection; its exponential constant-detection specialization in §2.1 uses constant inter-search intervals for its simplified reduction factor.",
+          "The available Etterson author-archive abstract describes estimators; the CRAN carcass manual identifies its adapted Eq. 14 as a discovery-probability calculation over regular or irregular intervals with a given J, not as an optimizer over J."
+        ],
+        "reasoning": "A wider input model or interval-wise calculation supplies the objective, but not its global maximizer. The two-visit mixture paper has more general survival in that scope but cannot cover the n−2 interior intervals or their contribution to the threshold.",
+        "searches": [
+          "arXiv:1507.00749v1 §§2–2.1",
+          "Etterson Hidden Markov models for estimating animal mortality from anthropogenic hazards 2013 1915 1925 author manuscript pdf unequal search intervals",
+          "Resultary: optimal inspection schedule constant arrivals exponential survival imperfect detection maximize expected discoveries"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.00749v1",
+        "Etterson author repository abstract and CRAN ette­rsonEq14v1 documentation",
+        "Korner-Nievergelt et al. 2011 and 2015 DOI access attempts",
+        "Springer inspection-policy chapter (search summary and access attempt)",
+        "Resultary IDs ending b31ffe3779db, 04b9d50399fd, 83d0ec176818, 9bda1a5c122c and b2d028296c40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary …-83d0ec176818 treats four visits with fixed endpoints and probability of at least one detection in a stationary two-state availability process. Resultary …-9bda1a5c122c is a fixed-endpoint parity and five-visit availability threshold; …-b2d028296c40 observes one transient episode without detection errors.",
+          "The inspection-policy chapter retrieved through the alias search was not accessible in full; its snippet alone does not show identical arrivals, decay and objective."
+        ],
+        "reasoning": "The n=2 stationary relation was already captured by the comparison above. For n≥3, the forward/backward stationarity identity and strict concavity of the consecutive-gap objective are what imply equal interior gaps, the endpoint asymmetry and the n-dependent feasibility boundary; these are not imposed by estimation or fixed-endpoint Markov survey results.",
+        "searches": [
+          "Resultary: transient ecological survey repeated detection schedule optimal intervals ephemeral target Poisson arrivals",
+          "Resultary: inspection interval optimization inspection scheduling deterioration imperfect inspection exact threshold",
+          "arXiv:1507.00749v1 §§2–2.1",
+          "https://link.springer.com/chapter/10.1007/978-3-642-45587-2_5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wolpert arXiv:1507.00749v1 §2 counts discoveries from an arrival stream by survival, misses and detection; this is the cohort counterpart of the frozen stock recursion.",
+          "The closest distinct Resultary entry …-04b9d50399fd has 2 visits with constant arrivals, imperfect detection and survival mixture S, and an interior first visit satisfying S(t)=pS(H−t)."
+        ],
+        "reasoning": "Taking S(t)=exp(−λt) in that two-visit stationarity equation gives λ(2t−H)=log(1/p), and S(H)=p reduces to h=−log p. This credits the n=2 overlap without conflating the nondegenerate-mixture theorem or inferring precedence from the shared date. Different search objectives, e.g. detecting an occupied site at least once, are not equivalent to counting distinct carcasses from a continuing stream.",
+        "searches": [
+          "optimal inspection schedule imperfect detection exponential survival constant arrivals maximize expected detections carcass searches",
+          "Resultary: carcass search optimal calendar exponential scavenging imperfect detection separation threshold endpoint gap",
+          "Resultary: inspection design interval scheduling expected detection exponential decay Poisson arrivals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit …-b31ffe3779db is the frozen identity. The close distinct …-04b9d50399fd is an analytic two-visit theorem. Other read threshold records are for availability surveys."
+        ],
+        "reasoning": "This is an exact continuum-in-p,h schedule and all-n formula; a finite table of estimators, practical cadences, or schedule scores cannot establish the claimed structural form. The relevant exact catalog matches were checked for direct theorem coverage instead.",
+        "searches": [
+          "Resultary: wind turbine carcass search timing irregular intervals optimal schedule detection scavenging variable intervals",
+          "Resultary: optimal fixed horizon inspection calendar maximize probability detection with repeated imperfect inspection and exponential survival"
+        ]
+      },
+      "rationale": "Repeated-discovery expectation modeling is established, and there is a material two-visit overlap with the closely related persistence-mixture result. The supported distinct claim is the arbitrary-n unique-calendar separation threshold and invariant, including identical interior gaps. The strongest inspected sources do not imply this multi-visit result.",
+      "residual_risks": [
+        "Original Etterson, Korner-Nievergelt and Springer chapter full texts were not inspected on available routes. An unlocated equivalent inspection-design result could alter novelty. The catalog evidence does not determine same-day order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts and estimates, not the arbitrary-calendar optimum in the inspected model/estimator passages",
+          "evidence": [
+            "PDF text offsets 4700, 8200 and 9995"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.00749",
+          "material_read": "v1 §2 and §2.1, PDF pp. 2–4",
+          "method": "Lawful primary PDF passages",
+          "title": "ACME: A Partially Periodic Estimator of Avian & Chiropteran Mortality at Wind Turbines",
+          "trigger": "Broader mathematical model with exponential/constant detection special case"
+        },
+        {
+          "assessment": "Available evidence concerns estimators and discovery probabilities; original full-text noncoverage not determined",
+          "evidence": [
+            "CRAN description and usage (text offset 270): given persistence, efficiency and interval data, calculates probability a fallen carcass is found"
+          ],
+          "identifier_or_url": "https://digitalcommons.unl.edu/usepapapers/325/; doi:10.1890/12-1166.1",
+          "material_read": "Author repository abstract; related CRAN documentation of adapted Eq. 14",
+          "method": "Lawful repository lookup and CRAN manual passage, https://search.r-project.org/CRAN/refmans/carcass/html/ettersonEq14v1.html",
+          "title": "Hidden Markov models for estimating animal mortality from anthropogenic hazards",
+          "trigger": "Variable-interval detection model could contain an optimization"
+        },
+        {
+          "assessment": "Two-visit overlap credited explicitly; other records compare different models or objectives",
+          "evidence": [
+            "…-04b9d50399fd: second visit at H, first at H up to S(H_S)=p and otherwise S(t)=pS(H−t); mixture-versus-exponential reversal",
+            "Other findings fix observation endpoints or observe a lone episode"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 …-04b9d50399fd and …-9bda1a5c122c; 2026/11/2 …-83d0ec176818; 2026/11/8 …-b2d028296c40",
+          "material_read": "Mirrored RESULT.md findings and model assumptions, offset 0 in each",
+          "method": "Local index and mirrored passage comparison",
+          "title": "A unique horizon reversal for mean-matched carcass persistence; endpoint doublets; short-window parity; optimal snapshot calendars",
+          "trigger": "Material model and optimizer overlap"
+        },
+        {
+          "assessment": "No full-text noncoverage claim",
+          "evidence": [
+            "DOI sources returned access errors; chapter route redirected"
+          ],
+          "identifier_or_url": "doi:10.2981/10-121; doi:10.2981/wlb.00094; https://link.springer.com/chapter/10.1007/978-3-642-45587-2_5",
+          "material_read": "Bibliographic results and limited chapter search summary; full text not retrieved",
+          "method": "Direct and lawful alternate access attempts",
+          "title": "Korner-Nievergelt et al. carcass-search methods and tutorial; Analytical Considerations on Inspection Policies",
+          "trigger": "Direct carcass detection comparators and a plausible inspection-design alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identical repeat searches might suggest equal spacing. The unique endpoint offset and exact change from a collision to full separation show why that intuition fails in a natural discovery-count model, and distinguish a true scheduling constraint from numerical near ties. This benchmark is useful for model and search-design comparisons, not a recommendation about field coverage or estimator precision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the probit-feedback theorem
+# Independent mathematical audit
 
-The analytic verification is contained in the \(\texttt{RESULT.md}\) proof, not in a numerical enumeration. The critical facts are the exact conjugacy to \(G_a(z)=z-a(\Phi(z)-1/2)\), the strictly decreasing integral \(g(u)/u=\int_0^1\varphi(su)\,ds\), and the strictly increasing integral \(g(u)/(u\varphi(u))=\int_0^1e^{u^2(1-s^2)/2}\,ds\). These yield exact existence and uniqueness of the primitive two-cycle and of the superattracting gain for all positive real parameters. The linear/cubic boundary and Gaussian-tail constants follow by symbolic Taylor expansion and Mills' ratio.
+## correctness
 
-Run the included standalone test file with `python check_probit.py`. The checker uses only the Python standard library, brackets positive roots numerically, tests the reflection return equation at seven gains, locates the only positive stationary-multiplier zero by a sign bracket, checks the finite-hitting exception, and compares the critical coefficient and Gaussian large-gain ratios. The reported run completed with exit status zero and a `PASS` message.
+PASS
 
-Computational tests do not prove universal quantifiers, exclude all other cycles, or replace the uniqueness arguments. The statement proves the exact number of primitive two-cycles but does not exclude possible higher-period or chaotic dynamics in the supercritical regime; it proves local rather than global attraction there. No independent mathematical audit has been performed.
+The open-state conjugacy is exact: for g(z)=Φ(z)-1/2, the update in the normal coordinate is z-a g(z). Strict decrease of q(u)=g(u)/u=∫₀¹φ(su)ds gives pointwise strict decrease in amplitude off zero for a<=2/φ(0); continuity excludes a positive limiting amplitude. At criticality the cubic term is +z³/3 after the linear term -z. Squaring yields v_next=v-(2/3)v²+O(v³), whose reciprocal increments tend to 2/3 as long as v never vanishes. This gives the two critical constants, with precisely the stated finite-hit exception. Adding the two displacement equations forces opposite points, and a q(u)=2 gives uniqueness iff a>a_c. The return multiplier is (1-aφ(u))². Along the branch aφ(u)=2/[∫₀¹exp(u²(1-s²)/2)ds] decreases strictly from 2 to 0; this gives stability, monotonicity on either side of the zero, and unique superstability. The expansion of q gives u²~6(a-a_c)/a_c. At large gain the exact identity a/4-u=(a/2)(1-Φ(u)) first gives u/a→1/4, then Mills' ratio gives a/4-u=O(φ(u)), hence φ(u)/φ(a/4)→1; substituting back yields all three stated constants. An independent bracketed solve using the series for the integral of exp(-t²) gave u_s≈1.399985276878204 and a_s≈6.678663688751936. The supplied checker was inspected, not executed. The supercritical assertion is global uniqueness of the pair, but local attraction; no broader basin conclusion is needed.
+
+## originality
+
+PASS
+
+The normal-quantile family is within a known shift construction, and the logit all-gain diagram is a close qualitative analogue. The probit theorem adds its exact critical relaxation coefficient, all-gain multiplier and unique superstable gain, and Gaussian rather than logistic tail and multiplier constants. None of the strongest inspected statements implies those results under its own hypotheses. This assessment is evidence-bounded, not a priority certification.
+
+## value
+
+PASS
+
+An exact quantitative response law for the natural normal-quantile counterpart of the established logit model: the oscillation remains locally stable at every supercritical gain yet becomes almost neutral on a Gaussian scale, with an explicit unique gain of fastest linear relaxation and a sharp law at the flip. These distinctions are relevant when comparing feedback strengths and distributions, beyond a generic flip assertion. The value is for the deterministic map and its stated stability notions, not applied performance or a global supercritical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

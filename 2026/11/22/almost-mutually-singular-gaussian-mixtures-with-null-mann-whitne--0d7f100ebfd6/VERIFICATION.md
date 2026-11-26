@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification record
 
-The proof uses exact Gaussian comparison identities and a measurable-set total-variation inequality for every positive width. `verify.py` checks numerical quadrature and closed formulas at representative values and prints the count of assertions passed. Its finite checks do not certify infinite quantification, which is proved symbolically in `RESULT.md`. The original test's large-sample non-consistency conclusion follows from the published bivariate central limit theorem at each fixed positive width and the exact null-effect identities, not from finite-sample simulation. No independent mathematical audit or external certification has been performed.
+Run `python3 verify.py` with NumPy and SciPy installed. The script integrates the two oriented overlap functionals using the explicit convention \(J(A,B)\) with integration against \(B\), along with the Mann–Whitney functional and total variation at six positive widths. These finite diagnostics do not certify the all-width result or the asymptotic test claim. The proof in `RESULT.md` uses Gaussian comparison identities, a separating event, and the joint-effect CLT at each fixed positive width.

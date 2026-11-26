@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:15.469340Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, graph, centering, sign cones and regular specialization, lines 49–81",
+        "Frozen VERIFICATION.md and tetra_truncation_verify.py inspected as supporting evidence; no uploaded code executed"
+      ],
+      "rationale": "Independently reconstructed the graph and sign-cone argument. In barycentric coordinates the cuts are the caps lambda_i <= 1-t_i; the upper caps cannot meet because t_i+t_j<1. Thus the graph is four triangles with one connector between each pair. A partially selected triangle contributes two edges to a cut; two partial triangles are impossible for a three-edge cut; with one partial triangle the other three must all be on one side or their own connectors add at least two more crossings. This leaves only singletons, entire corner triples, and complements. A singleton cannot be separated by a plane through g: pair the original vertices on two opposite edges neither using the omitted truncated vertex, and average their midpoints, each in the retained edge segment. For a positive corner i, normalized negative original heights r_j sum to one, and the connector heights enforce r_j>q_j. Those inequalities imply every required sign since t_i<1/2, and the height map realizes every such choice. In the basis of the three w_j for j!=i the matrix of the active bounding vectors has determinant (1-sum_{j!=i} q_j) times product_{j!=i}(1-t_j), so the normals are independent and the active region is a genuine spherical triangle. Pairwise inward-halfspace angles give Girard's area and the two antipodal copies give the denominator 2 pi. At equal regular depths the argument of arccos is exactly 1/2 - 8 epsilon^2/(3/2+4 epsilon+8 epsilon^2) for t=1/4-epsilon, yielding the stated coefficient and strict quarter-depth boundary.",
+      "residual_risks": [
+        "The decision excludes nongeneric normals, overlapping cuts, and sections through other centers. Finite corroboration is not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The shadow record treats the same twelve-point construction under the broader pairwise condition t_i+t_j<1, but states a projection complementarity law.",
+          "König concerns volume and perimeter extrema of sections of other (untruncated) bodies."
+        ],
+        "reasoning": "Broader geometric construction or section families alone do not determine the centroidal three-edge-cut feasibility and its spherical area.",
+        "searches": [
+          "Resultary comparison: complete parallel truncation shadow-count complementarity (96e083507a68)",
+          "König, arXiv:2002.10743, opening and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fa6d55fee2ef, d10075a1cb4a, 96e083507a68 and e99c23359ec0, mirrored RESULT.md",
+        "arXiv:0809.3459, 2002.10743 and 1512.09059, cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first implies the one-third special case directly; the second and the projection theorem neither eliminate singleton central-section cuts nor enforce r_j>t_j/(1-t_j) across corners."
+        ],
+        "reasoning": "The proof must establish an additional centroid-specific feasibility lemma before classical Girard can be applied. No inspected prior implication supplies that step and the resulting positive-depth formula.",
+        "searches": [
+          "fa6d55fee2ef, fixed-Archimedean RESULT.md Finding",
+          "96e083507a68, shadow-complementarity RESULT.md Finding",
+          "Feldman–Klain Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The untruncated equifacial centroidal section law agrees with the regular zero-depth limit but does not vary the truncations.",
+          "The triangular-shadow probability likewise has a solid-angle normalization 1/(2 pi), but is for orthogonal projection, not the centroidal plane-section event."
+        ],
+        "reasoning": "A common spherical measure and matching untruncated limits do not identify the feasible cut cones when the twelve truncated vertices are present.",
+        "searches": [
+          "Resultary comparison: sharp Schur ordering of triangular central sections of equifacial tetrahedra (e99c23359ec0)",
+          "Feldman–Klain, arXiv:0809.3459, opening and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two catalogue findings give N in {4,5,6} for the regular one-third truncation; neither includes other truncation depths. The spin-model paper uses the twelve geometric directions without calculating the section law."
+        ],
+        "reasoning": "Credit the exact one-third zero as covered. The inspected fixed-solid laws do not tabulate the quarter-depth transition or its approach coefficient.",
+        "searches": [
+          "Resultary central truncated-tetrahedron polygon laws: fa6d55fee2ef and d10075a1cb4a",
+          "Krčmár–Gendiar–Nishino, arXiv:1512.09059, opening"
+        ]
+      },
+      "rationale": "The variable-depth odds condition, the metric solid-angle law across independent truncations, and the regular quarter-depth onset are not covered by the strongest inspected results. The no-triangle consequence at the Archimedean one-third cut is independently covered in a distinct same-day catalogue record and receives no separate novelty credit; within-day priority is undetermined.",
+      "residual_risks": [
+        "Same-day fixed-object priority unresolved; possible earlier equivalents in unindexed polyhedral section tables remain unknown. The scoped comparisons are not a global novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers one fixed-depth consequence; no within-day precedence assumed",
+          "evidence": [
+            "One-third truncation and support {4,5,6}."
+          ],
+          "identifier_or_url": "Resultary fa6d55fee2ef; 2026/10/18, RESULT.md",
+          "material_read": "Finding, mirrored text offset 0",
+          "method": "Local Resultary and primary mirrored record",
+          "title": "Exact Haar polygon-type law for central sections of the regular truncated tetrahedron",
+          "trigger": "Same sampling and regular truncated object"
+        },
+        {
+          "assessment": "Later fixed-depth coverage only",
+          "evidence": [
+            "No generic triangular sections at t=1/3 from the support {4,5,6}."
+          ],
+          "identifier_or_url": "Resultary d10075a1cb4a; 2026/10/25, RESULT.md",
+          "material_read": "Finding, mirrored text offset 0",
+          "method": "Local mirror",
+          "title": "Exact side-count law for central sections of the regular truncated tetrahedron",
+          "trigger": "Same regular central law"
+        },
+        {
+          "assessment": "Same cuts under weaker assumptions; different event",
+          "evidence": [
+            "Vertices (1-t_i)v_i+t_i v_j, with t_i+t_j<1; orthogonal shadows."
+          ],
+          "identifier_or_url": "Resultary 96e083507a68; 2026/10/18, RESULT.md",
+          "material_read": "Finding, mirrored text offset 0",
+          "method": "Local mirror",
+          "title": "Shadow-count complementarity under complete parallel truncation",
+          "trigger": "Potentially broader independent truncation law"
+        },
+        {
+          "assessment": "Untruncated and later; agreement at the regular limiting object only",
+          "evidence": [
+            "Probability (4/pi) sum arcsin sqrt(p_i) - 2 for the untruncated equifacial family."
+          ],
+          "identifier_or_url": "Resultary e99c23359ec0; 2026/11/02, RESULT.md",
+          "material_read": "Finding, mirrored text offset 0",
+          "method": "Local mirror",
+          "title": "Sharp Schur ordering of triangular central sections of equifacial tetrahedra",
+          "trigger": "Equivalent central triangle law candidate"
+        },
+        {
+          "assessment": "Projection precedent, not the central slice result",
+          "evidence": [
+            "Solid inner angles sum to 2 pi times the probability of a triangular orthogonal projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.3459",
+          "material_read": "PDF pp. 1–2, opening and Theorem 1",
+          "method": "OA PDF text",
+          "title": "Angles as probabilities",
+          "trigger": "Tetrahedra, triangular events and solid angles"
+        },
+        {
+          "assessment": "Different section statistic on untruncated bodies",
+          "evidence": [
+            "Optimizes volume and perimeter, not random triangle counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.10743",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF text",
+          "title": "Non-central sections of the simplex, the cross-polytope and the cube",
+          "trigger": "Simplex section literature"
+        },
+        {
+          "assessment": "Lattice spin model, not slice probability",
+          "evidence": [
+            "Truncated-tetrahedral vertex directions are the spin states."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.09059",
+          "material_read": "PDF p. 1",
+          "method": "OA PDF text",
+          "title": "Phase diagram of truncated tetrahedral model",
+          "trigger": "Exact truncated tetrahedron keyword match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding lines 5–43 and limitations lines 91–93",
+        "Resultary fixed-object and shadow comparisons above"
+      ],
+      "rationale": "Independent truncation depths are natural geometric shape parameters. The criterion separates the affine feasibility question from a metric probability, identifies precisely when triangle types are extinguished, and quantifies the regular critical onset. That is a reusable geometric result beyond recomputing a fixed Archimedean case or applying spherical excess alone.",
+      "residual_risks": [
+        "No claim of a full section-size distribution or an arbitrary-center theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

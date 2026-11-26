@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:45.804299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The contracted weighted Cayley count gives n^(−e)∏s_i for any prescribed forest and zero for a cycle. The weighted Laplacian edge-count generating function gives Bin(k−1,k/n), also valid at k=1 and k=n. The comparison binomial has the same mean; the sum of the two Poisson approximation costs is [k²(k−1)+2k(k−1)]/n². Given the coupled counts, draw matching flags with the correct conditional probabilities in each model; when both flags indicate matchings and counts agree, permutation invariance permits the same uniformly chosen matching. The wedge costs are at most (9+12) binom(k,3)/n². For ordered distinct wedge tuples the leading vertex-disjoint count is (k)_(3r)/2^r, with inclusion probabilities (3/n²)^r and (4/n²)^r. Each connected overlap component has e≥3 edges and v≤e+1, giving order n^((2−e)/3) or smaller; isolated wedge components contribute bounded factors. Thus every fixed factorial moment converges to its Poisson counterpart, giving the claimed matching-event liminf. At k=⌊b√n⌋ the TV error is O_b(n^(−1/2)); the Bernoulli point-process Laplace functional is a Riemann sum with intensity 2 on the triangle. Ties at the first later endpoint imply a wedge, negligible in any such bounded prefix; tail control comes from the exact no-edge probability, and the first-point density is intensity times the void probability, 2e^(−v²). Inspection of checker.py and VERIFICATION.md corroborates the finite checks' stated scope, not a proof of the limit; neither script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson §9 sketches other small-subgraph counts but does not give critical Poisson wedges in a uniform Cayley prefix or an independent-edge approximation for its entire graph law. Grimmett–Winkler give negative association for spanning trees, not these joint-law comparisons. The focused lookup did not resolve additional coverage."
+        ],
+        "reasoning": "Macroscopic subgraph count methods and negative association do not specify the two different wedge intensities or compare both labeled laws in TV. The classical forest law supplies all inclusion probabilities (and by inversion the exact subset law), but the quantitative sharp window still requires controlling the mass outside the matching skeleton and the overlapping wedge configurations.",
+        "searches": [
+          "arXiv:2312.13823, §9",
+          "arXiv:math/0302185v3, Theorems 1.4–1.5",
+          "Focused literature lookup for whole induced forest, Cayley tree, independent-edge and wedge limits"
+        ]
+      },
+      "checked_sources": [
+        "Hackl–Panholzer–Wagner, arXiv:2301.00664",
+        "Janson, arXiv:2312.13823",
+        "Grimmett–Winkler, arXiv:math/0302185v3",
+        "Related same-day Cayley edge-geometry RESULT.md",
+        "Frozen RESULT.md, VERIFICATION.md, checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree and comparison graph have the same edge-count mean but different prescribed two-edge incident probabilities, 3/n² and 4/n²; their disjoint-edge probabilities agree. Pairwise differences alone do not furnish either joint TV bound or a Poisson limit."
+        ],
+        "reasoning": "A general local-dependence Poisson approximation is another route to the upper-order bound once local independence is proved, and the standard forest identity is sufficient exact input for the proofs. The contribution under review is the specific quantitative full-law bound with a critical separation: independent-edge and tree wedge counts require enumeration of disjoint tuples and suppression of overlaps; it is not just the previously established marginal, a remembered Poisson approximation, or an exact-law renaming.",
+        "searches": [
+          "Hackl–Panholzer–Wagner §2/footnote",
+          "Janson §9",
+          "Forest-extension identity and inclusion–exclusion for finite labeled edge sets in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day RESULT.md gives intensity 2 for endpoint labels near opposite ends of the order and an endpoint split for the longest-span edge (offsets 0–3994, 4740–7340)."
+        ],
+        "reasoning": "The two-set opposite-end geometry concerns cross edges between disjoint endpoint sets; it is not the induced prefix triangle, its earliest later endpoint, or the comparison of all labeled edges with a product law. Shared forest factorial moments are genuine methodological overlap, not an equivalent theorem. No priority order is inferred from the common date.",
+        "searches": [
+          "Resultary aliases: induced Cayley forest, edge uncovering, Erdős–Rényi total variation, wedge scale, marked endpoint onset",
+          "2026/11/22/SCOPE-poisson-extremal-edge-geometry-and-an-independent-endpoint-split--87d2153fd731"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hackl–Panholzer–Wagner identify an exact binomial edge-count law and explain that their process representation tracks only the number of uncovered edges."
+        ],
+        "reasoning": "There is no finite invariant table to consult for these asymptotic graph laws; the pertinent exact distribution is the already known marginal. It omits the adjacency pattern of the edges, so it cannot distinguish the two critical wedge laws.",
+        "searches": [
+          "Resultary exact prefix/uncovering and wedge aliases",
+          "arXiv:2301.00664, §2, Eq. (11) and accompanying footnote"
+        ]
+      },
+      "rationale": "The edge-count marginal and scalar onset are treated as already known. Neither the related marked-extremal result nor the closest published count/dependence results supply the whole labeled TV comparison and its unequal Poisson wedge obstruction on the critical prefix. The marked prefix result uses standard point-process transfer and is secondary to that sharp comparison.",
+      "residual_risks": [
+        "Unlocated work on determinant-process or induced-forest approximations could establish a comparable threshold or sharper critical result; the external lookup does not establish absence.",
+        "No sharp upper constant or exact critical limiting TV distance is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count overlap, but excludes edge pattern information",
+          "evidence": [
+            "Model tracks only the number of uncovered edges, as expressly noted in the footnote."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.00664",
+          "material_read": "§2, pp. 8–9, Eq. (11) and footnote, PDF text offsets 23000–26788",
+          "method": "Bounded original PDF text inspection",
+          "title": "The Uncover Process for Random Labeled Trees",
+          "trigger": "Exact uncover-count process could be stronger than a marginal"
+        },
+        {
+          "assessment": "Section discusses small-subgraph-count extensions, not the prefix graph TV and wedge claims",
+          "evidence": [
+            "Sketches triangle-count extensions and leaves general details for suitable graph sequences unchecked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.13823",
+          "material_read": "§9, pp. 31–32, PDF text offsets 124620–132061",
+          "method": "Bounded original PDF text inspection",
+          "title": "Uncovering a graph",
+          "trigger": "Possible general small-subgraph process and critical prefix specialization"
+        },
+        {
+          "assessment": "Standard negative-association context, not the asymptotic labeled induced-law theorem",
+          "evidence": [
+            "Negative association for USTs; specified limited uniform-forest cases, with general forest claim posed as a conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0302185",
+          "material_read": "v3, p. 3, Theorems 1.4–1.5, PDF text offsets 5030–8593",
+          "method": "Bounded original PDF text inspection",
+          "title": "Negative association in uniform forests and connected graphs",
+          "trigger": "Classical dependence results for UST edge indicators"
+        },
+        {
+          "assessment": "Distinct opposite-end process with related forest moment method",
+          "evidence": [
+            "Derives the longest-span edge's endpoint law using edges with endpoints near opposite ends of label order, not the first revealed edge in a prefix."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-poisson-extremal-edge-geometry-and-an-independent-endpoint-split--87d2153fd731/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3994 and 4740–7340",
+          "method": "Bounded local mirror reading",
+          "title": "Poisson extremal edge geometry and an independent endpoint split",
+          "trigger": "Same-day scientific comparison on marked Cayley edge processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Using independent edges to replace a constrained tree prefix is a natural approximation problem, and the whole-law rather than count guarantee decides when every labeled statistic may safely use it. The differing first local collision intensities identify where that guarantee breaks, with an explicit positive critical separation and a simple observable. The marked early-edge law is a useful secondary consequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

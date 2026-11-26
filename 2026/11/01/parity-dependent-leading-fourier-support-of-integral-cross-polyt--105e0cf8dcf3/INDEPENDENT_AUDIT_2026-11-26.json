@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:26:18.960056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md; CHECK.py, lines 19–43 and 46–96."
+      ],
+      "rationale": "Laplace-transform in the radius first: for real s>0 absolute integrability gives the product of one-dimensional transforms divided by s. Substituting s=qz with q=2πi in partial-fraction inversion yields 2^d/q^d times the sum of residues of e^(qz) R_k(z). Integer poles make the exponential factor one at each pole; the coefficients of ordinary residues sum to zero since R_k=O(z^(−d−1)). In odd d, with distinct absolute values, even a single zero coordinate creates no pole. In even d the odd R_k has opposite Laurent coefficients of order −2 at opposite poles, and at zero the order is at most one when zero occurs at most twice, including d=4. For one positive double or triple the leading Laurent coefficients are respectively a^(d−3)/(4∏(a²−b²)) and a^(d−4)/(8∏(a²−b²)); opposite poles add in the relevant parity, with the q²/2 factor in the even case. Distinct positive levels and all 2^d signs give the stated falling-factorial leading counts. Any nongeneric possibly nonzero pattern loses at least one free positive level, including a zero singleton, so the claimed errors follow.",
+      "residual_risks": [
+        "Supplement is exact Laurent-polynomial arithmetic, not an independent numerical integration or a proof for all dimensions. Inspected without execution. No full classification of nongeneric collisions was checked or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borda has a general contour formula and repeated-pole cross-polytope specialization; the discrepancy theorem imposes independent axis parameters. Díaz–Lê–Robins give face recursions; Robins §3.10 explicitly computes the planar case."
+        ],
+        "reasoning": "General Fourier evaluation is a starting tool. Neither it nor the algebraic-axis estimates give this equal-axis, fixed radius integral-frequency count directly.",
+        "searches": [
+          "arXiv:1608.02417, Theorems 3 and 6 and §2.3; arXiv:1602.08593, Theorem 1; arXiv:2104.06407, §3.10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1608.02417; arXiv:1602.08593; arXiv:2104.06407; Resultary 313db71ad1f7, a7565c44edcb, 32dd9956f6e1."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general contour formula allows repeated poles. The frozen lattice specialization needs exponential phase cancellation of ordinary residues, parity cancellation of the double-pole terms in even d including the zero-pole check, and a separate count of signed collision strata."
+        ],
+        "reasoning": "A general evaluation formula does not mechanically furnish the two support-growth exponents and sharp leading counts; even the exact d=3 and d=4 formulas do not imply the fixed-dimension pattern beyond these cases.",
+        "searches": [
+          "Borda Theorem 3 and cross-polytope specialization; 32dd9956f6e1, Proof §2, offsets 2380–4335"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the high-dimensional record the Hermite nodes y_j=(2πk_j)² identify the same collisions; substituting y=(2πa)² converts the generic divided-difference values into the frozen formulas. Standard lattice periodization has these Fourier coefficients, so constant multiplicity would instead require no nonzero support away from k=0."
+        ],
+        "reasoning": "The Hermite formulation is genuine equivalent coverage in d≥5 (and permits a zero singleton in the generic pattern). Three-level periodization is not a constant-multiplicity lattice tiling and does not express the all-dimensional count.",
+        "searches": [
+          "Resultary cross-polytope lattice Fourier support, parity collision codimension; matching 313db71ad1f7, a7565c44edcb, 32dd9956f6e1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact counts 64N²−8N+1 (d=4) and 24N²+2N+1 (d=3) give the frozen leading constants in those dimensions. The indexed high-dimensional Finding repeats the leading constants and vanishings for d≥5."
+        ],
+        "reasoning": "These are actual formula matches; the former records are single-dimension results, while the latter is all high dimensions but indexed after the frozen item.",
+        "searches": [
+          "Resultary 313db71ad1f7, a7565c44edcb, 32dd9956f6e1, their Findings"
+        ]
+      },
+      "rationale": "The original contribution assessed is the uniform fixed-dimension parity/collision law and its sharp leading constants, not either low-dimensional specialization. A distinct same-day four-dimensional record directly covers that case, with no within-day priority determination. A three-dimensional exact record also matches the d=3 leading term; the distinct high-dimensional Resultary record explicitly supplies the same law and both generic formulas for d≥5, but its indexed entry is later than the frozen finding and is not evidence that the uniform theorem was already public before it. This comparison establishes mathematical overlap, not attribution or first-public chronology. The inspected earlier primary transform machinery does not supply the integral support classification or its counts without the arithmetic and combinatorial argument.",
+      "residual_risks": [
+        "A prior equivalent all-dimensional arithmetic specialization may exist under periodization or other transform terminology. Same-day ordering and first-public or independent provenance of overlapping records are not established. No novelty credit is assigned to the low-dimensional formulas in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General technique, not the support-count theorem",
+          "evidence": "Equal-axis unit case is not in the independent-axis discrepancy hypothesis; contour machinery is directly relevant.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.02417",
+          "material_read": "PDF pp. 7–8, Theorem 3 and following specialization; Theorem 6, p. 10",
+          "method": "OA PDF passage inspection",
+          "title": "Lattice points in algebraic cross-polytopes and simplices",
+          "trigger": "Cross-polytope Fourier contour and repeated poles"
+        },
+        {
+          "assessment": "General face-recursion formula",
+          "evidence": "Gives transforms by a recursion, not an arithmetic classification of vanishing frequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08593",
+          "material_read": "PDF p. 5, Theorem 1, equations (8)–(9)",
+          "method": "OA PDF passage inspection",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General polytope Fourier evaluation"
+        },
+        {
+          "assessment": "Planar calculation plus pointers to general methods",
+          "evidence": "The explicit cross-polytope computation in this section is two-dimensional.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.06407",
+          "material_read": "§3.10, printed p. 38 / PDF p. 48",
+          "method": "OA PDF passage inspection",
+          "title": "A Friendly Invitation to Fourier Analysis on Polytopes",
+          "trigger": "Possible cross-polytope special formulas"
+        },
+        {
+          "assessment": "Direct stronger d=4 special-case coverage; same indexed day, ordering unresolved",
+          "evidence": "Nonzero iff at least three equal absolute values, with the matching generic coefficient and exact cube count.",
+          "identifier_or_url": "Resultary 313db71ad1f7",
+          "material_read": "Finding, offsets 0–1298",
+          "method": "Local mirror passage inspection",
+          "title": "Arithmetic Fourier support and three-level lattice coverage of the four-dimensional cross-polytope",
+          "trigger": "Same conventions and a matching dimension"
+        },
+        {
+          "assessment": "Matching d=3 specialization, indexed subsequently",
+          "evidence": "Exact support count 24N²+2N+1.",
+          "identifier_or_url": "Resultary a7565c44edcb",
+          "material_read": "Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Octahedral lattice Fourier support and exact three-level covering multiplicities",
+          "trigger": "Three-dimensional reflection-plane support"
+        },
+        {
+          "assessment": "Exact high-dimensional mathematical overlap, indexed subsequently",
+          "evidence": "Same unit radius, integral frequencies, fixed d≥5, both leading constants and normalized generic coefficients, with low dimensions excluded from novelty there.",
+          "identifier_or_url": "Resultary 32dd9956f6e1",
+          "material_read": "Finding, offsets 0–1671; Proof §2, offsets 2380–4335; prior-work section and low-dimensional references",
+          "method": "Local mirror passage inspection",
+          "title": "Parity-sharp lattice Fourier sparsity of high-dimensional cross-polytopes",
+          "trigger": "Matching leading law and collision coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§ on residues and counting; exact low-dimensional comparisons 313db71ad1f7 and a7565c44edcb."
+      ],
+      "rationale": "Sharp leading support and actual nonzero coefficient formulas show that parity changes the codimension of integer-frequency sparsity of a natural lattice polytope. This is a meaningful arithmetic distinction in its lattice periodization, rather than a restatement of a continuous transform formula or an isolated small-dimensional computation.",
+      "residual_risks": [
+        "No conclusion about multi-tiling by arbitrary lattices or lower-order support coefficients follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

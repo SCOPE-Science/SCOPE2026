@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The main analytical identity is \(G(x)=\min_{v\ne0}(\|v\|^2-2\langle x,v\rangle)\) for points with nearest lattice site at the origin. The shortest pair \(\pm s\) makes the exact upper endpoint \(\lambda\); reducing to finitely many Voronoi-relevant constraints controls all other vectors. In the orthogonal split along the span of shortest vectors, the feasible set collapses with Jacobian \(\varepsilon^r\), while complementary sections converge to a nondegenerate bounded polytope. Finite affine halfspace families have a stable small-positive-parameter combinatorial type, proving an exact endpoint polynomial with the asserted first degree and coefficient. The exact rational program `check_lattice_margin.py` passed, including two nonorthogonal examples, area/covolume identities, and independent three-dimensional nearest-neighbor checks. Finite checks do not substitute for the analytic proof.
+## correctness
 
-## Originality — PASS, with priority limits
-Sloane and Beferull-Lozano (2002) provide lattice quantization and Voronoi background. McKilliam, Grant and Clarkson (2014) provide Voronoi-relevant halfspaces. Baake, Scharlau and Zeiner (2013) define well-roundedness and count sublattices. Koçak and Ratiu (2010) already prove piecewise polynomial Euclidean inner-polytope volume; that general property is **not** new here. A published 2026 BCC/FCC Voronoi-clearance calculation gives exact laws for two canonical cells and can imply particular equal-facet-length examples, but its Euclidean boundary clearance is not the same general invariant as the squared nearest-neighbor margin. None of the materially inspected results supplies the arbitrary-dimensional shortest-vector-rank exponent and explicit mixed-dimensional coefficient. A separate tetrahedral spherical score-gap result concerns a different sampling space and a fixed four-site set. Specialized historical priority remains a risk.
+PASS
 
-## Mathematical value — PASS
-The central result is a universal geometric-statistical identification theorem: the extreme upper tail of a scalar decision-confidence statistic recovers the dimension of the span of shortest lattice vectors. This is a classical geometric property that distinguishes well-rounded and non-well-rounded lattices. The positive coefficient gives a computable intrinsic-volume characterization. The theorem is substantially stronger than an elementary rectangular-lattice factorization and does not require a paper-sized downstream application to motivate this inverse invariant.
+For uniform volume on the origin Voronoi cell the squared gap is the minimum of ||v||²−2⟨x,v⟩ over nonzero sites. Ties at the cell boundary do not affect the probability. The ± shortest inequalities force the endpoint λ and at positive ε make the E-coordinate lie in εK. The event volume equals that of the closed shifted halfspace intersection, with denominator det Λ; for ε>0 near zero this intersection contains an open neighborhood of zero. For a nonrelevant v, the midpoint criterion gives a split v=a+b into strictly shorter nonzero vectors with ⟨a,b⟩≥0. The two shorter inequalities displaced by t=λ−ε imply the v inequality at the same t≥0, so length induction reduces to finitely many relevant vectors and retains all shortest ones. After x=εz+y, the bounded z lies in K and the finitely many other constraints on y differ from those of H by O(ε) uniformly in z. The positive nonshort offsets allow each section to be squeezed between (1−cε)H and (1+cε)H; H is bounded inside V and has a relative origin neighborhood. The Jacobian is ε^r, proving the coefficient and next-order bound, also when H is zero-dimensional. The finite prospective vertices depend affinely on ε; feasibility and active equalities stabilize on a sufficiently small positive interval. A fixed pulling triangulation gives the exact degree-≤d volume polynomial. In full shortest span the nonshort constraints are slack on εK, so that polynomial is a monomial. For the first planar example the only nonshort strip pair active at ε=0 is from ±(2/5,6/5); the local area is ε(3/5+ε)/(6/5), divided by covolume 6/5, giving both stated coefficients. For the second, the two unit vectors give a strip intersection of area 13/12 and covolume 12/13. The orthogonal product follows from the coordinate strip widths.
 
-## Limitations and comparison boundaries
-The theorem uses squared Euclidean distances and uniform sampling modulo a fixed lattice. It does not recover the complete lattice from the distribution, claim finite-sample stability, or cover unsquared distance differences. Some individual symmetric lattice examples follow from established clearance formulas, and generic piecewise polynomiality follows from classical polytope geometry. Independent replication of the all-lattice proof and definitive priority analysis remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is that this particular squared runner-up margin intrinsically recovers the real span dimension of the shortest vectors in every dimension, with a positive mixed-dimensional coefficient. Voronoi facet geometry, the definition of well-roundedness and generic inner-volume polynomiality are not claimed as new. The strongest same-statistic match gives a full special-family law and a general planar asymptotic at the opposite endpoint, not the arbitrary-dimensional upper-endpoint claim.
+
+## value
+
+PASS
+
+For a natural population margin, the formula recovers the dimension of a geometric invariant without being given the shortest vectors, and tests well-roundedness in known dimension. It relates this recovery to an explicit coefficient depending on transverse geometry. The two nonorthogonal examples show the rank effect is not an artifact of Cartesian products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

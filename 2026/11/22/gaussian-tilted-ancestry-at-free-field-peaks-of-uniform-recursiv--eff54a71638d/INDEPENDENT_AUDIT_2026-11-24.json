@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:56:09.895433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Corollary 13 of Angel–Goldschmidt–Michaeli supplies the required lower maximum-speed bound at a=0, for the same pinned Gaussian increments and all vertices. At each birth the conditional mean depth profile multiplies by 1+z/(j−1), giving the expected product. Tilting by exp(η) completes the square independently at each edge and multiplies its weight by c=√e, making the normalized annealed depth PGF a product of Bernoulli PGFs with probabilities c/(t+c). Its normalization is Θ(n^c), and a fixed relative depth error has probability n^{−a} for some a>0. For k between c log(n)/2 and 2c log(n), bounded mark averages, Gaussian centered partial-sum maxima and squared marks (using their finite exponential moment near 0) all have exponentially small error probabilities on the log(n) scale. Thus the expected number of bad paths ending above (c−ε)log(n) is O(n^{ε−a}) for ε chosen after the error tolerance. The maximum lies above that level with probability tending to one. A countable convergence-determining class gives weak convergence in probability; Gaussian continuity at zero gives the sign fraction; the uniform profile follows by the depth limit and a rounding error of order 1/log(n). The zero-depth event vanishes; distinct vertex differences are nondegenerate conditionally on the tree. The frozen finite checker was inspected, not run, and is not needed for the analytic identities or the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mallein treats fixed-generation maxima and common-ancestor localization in a Galton–Watson branching random walk. Jagannath treats Gaussian binary-tree Gibbs overlap. The right-edge theorem via Biggins yields a maximum-displacement speed."
+        ],
+        "reasoning": "Classical spinal tools and speed theorems are ingredients. Neither fixed-generation genealogy nor overlap for two Gibbs draws gives the uniform first-order mark profile for a single actual maximizer over all generations at the population stopping time. No inspected broader theorem is shown to imply the full claim directly.",
+        "searches": [
+          "arXiv:1605.08292 §2 and Theorems 1.1 and 4.5",
+          "arXiv:1509.07527 Theorem 1.1",
+          "arXiv:2611.18353 Proposition 7 and references 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification metadata and checker.py",
+        "Resultary catalogue entry eff54a71638d",
+        "arXiv:2611.18353v1",
+        "arXiv:1605.08292",
+        "arXiv:1509.07527",
+        "Biggins 1995 landing and citation context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 13 is an almost-sure endpoint limit. Mallein Theorem 4.5 controls where two extreme particles can share an ancestor, not the increments along a chosen extremal path."
+        ],
+        "reasoning": "An endpoint speed alone allows many mark/depth behaviors. The needed estimate excludes atypical high vertices jointly via tilted path concentration and includes a separate estimate for squared marks, which weak empirical convergence cannot imply. The proof adapts classical methods rather than asserting a new general spinal theorem.",
+        "searches": [
+          "arXiv:2611.18353 v1, p. 3 depth heuristic and Corollary 13",
+          "arXiv:1605.08292, Theorem 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the Yule embedding, field marks are continuous-time branching-random-walk displacements and the tree size n is a stopping population. Corollary 13 identifies the rightmost-position speed; p. 3 suggests the depth through a heuristic optimization."
+        ],
+        "reasoning": "The embedding is indeed the same object, so the speed is credited as existing coverage. The stated speed and heuristic do not identify the maximizing particle's full random-depth marked path.",
+        "searches": [
+          "Resultary: recursive-tree maximizer Gaussian-tilted ancestry",
+          "Shared literature query on Gaussian marked recursive-tree/Yule branching-random-walk extremal ancestry",
+          "arXiv:2611.18353 pp. 3, 5–6, 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue hit eff54a71638d describes the same theorem and is the assigned record itself; no distinct exact hit was identified in this search."
+        ],
+        "reasoning": "The identical catalogue listing is not prior evidence for a second theorem. This asymptotic distributional assertion is not an indexed sequence of finite values; the meaningful database comparator is an exact matching theorem record.",
+        "searches": [
+          "Resultary search for the recursive-tree maximizing-path depth, Gaussian mark law and linear profile"
+        ]
+      },
+      "rationale": "The maximum speed and the change-of-measure framework are prior work, and the depth scale had already been predicted. The supported distinct result is the joint annealed first-order ancestral limit for the actual fixed-population maximizer, including an unbounded moment and uniform path assertion, not the speed or the Gaussian tilt in isolation.",
+      "residual_risks": [
+        "The full Biggins 1995 paper was not obtained at the attempted route. General marked branching-random-walk shape results could supply overlapping path statements after specialization.",
+        "The bounded search does not establish exhaustive historical priority; no independent quenched or second-order result is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same-model speed and depth heuristic, not whole-path result",
+          "evidence": "Uniform recursive tree at a=0; γ(0)=√e; Corollary 13 gives sup η/log(n)→γ/(1+a) almost surely; depth discussion is heuristic.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18353",
+          "material_read": "v1 pp. 1–3, 5–6, 9; Corollary 13 at PDF text offsets 32648–33702; relevant references",
+          "method": "OA PDF text passages",
+          "title": "Cover times of random recursive trees and linear preferential attachment trees",
+          "trigger": "Same-model strongest prior and maximum-speed input"
+        },
+        {
+          "assessment": "Fixed-generation maximum and pair genealogy, not random-depth ancestral marks",
+          "evidence": "Theorem 4.5 localizes shared ancestors of pairs of high particles.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.08292",
+          "material_read": "§2, Theorems 1.1 and 4.5 (pp. 2 and 11)",
+          "method": "OA PDF text passages",
+          "title": "Asymptotic of the maximal displacement in a branching random walk",
+          "trigger": "Extreme-particle paths and spinal change of measure"
+        },
+        {
+          "assessment": "Different sampling rule and invariant",
+          "evidence": "Two-sample Gibbs overlap on a binary tree, not the actual maximizer's first-order mark profile.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.07527",
+          "material_read": "pp. 1–2 and Theorem 1.1",
+          "method": "OA PDF text passages",
+          "title": "On the overlap distribution of branching random walks",
+          "trigger": "Gaussian-branching-walk genealogy"
+        },
+        {
+          "assessment": "Detailed ancestry coverage not established from available passage",
+          "evidence": "Citation context credits general maximal displacement theory; no primary ancestry proposition was available on that route.",
+          "identifier_or_url": "Ann. Appl. Probab. 5 (1995) 1008–1024, MR1384364",
+          "material_read": "Project Euclid landing information only; cited context in arXiv:2611.18353 pp. 3, 5–6 and 14",
+          "method": "OA attempt and inspected citation context",
+          "title": "The growth and spread of the general branching random walk",
+          "trigger": "Possible broader marked extremal-shape coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a same-model extremal-depth heuristic and quantifies how the actual maximizing ancestry differs from an ordinary root path. The nonzero negative-increment proportion and uniform profile give information an endpoint speed cannot provide, and the separate second-moment control rules out a conclusion based solely on a weak empirical law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

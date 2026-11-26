@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-`verify.py` uses Python 3 and SymPy 1.14 (standard integer matrix and Smith-normal-form operations). Invoke `python verify.py` from the directory containing it. The expected completion line begins `VERIFY_OK`.
+# Independent mathematical audit
 
-The script directly builds the actual unit-residue GCD matrix and compares **every** integer Smith factor for \(p=2,3,5\). It checks the kernel's block identity at primes \(3,5,7,11,13\), and computes all determinantal divisors for both reduced blocks for each odd prime below \(102\). It checks the multiplicity and divisibility chain of the predicted factors.
+## correctness
 
-The unbounded proof is separate from the checker: use the unimodular decomposition (1)--(3) and the four determinantal divisors of \(K\) established in `RESULT.md`. No numerical verification certifies the all-prime statement. The cited scientific works were compared by object and actual implications; absolute historical novelty remains subject to independent bibliographic investigation. No external independent audit has been performed.
+PASS
+
+The three possible gcd values give ps I + s(I_s ⊗ J_p) + J. In a class-reference/difference basis the difference block is scalar ps and its repeated coupling is concentrated on the primitive vector of all ones, splitting off ps I of size s(p−2). In the remaining two copies of the class module, the integral basis consisting of the constant vector, one coordinate vector and s−2 differences splits off the stated T blocks: J kills the differences, sends the coordinate vector to the constant vector, and multiplies the latter by s. This gives precisely the displayed K. The two minors −ps and 2s² give the gcd s (all two-minors are multiples of s); every three-minor is divisible by p²s² and one is exactly p²s². Together with the unit entry and determinant 6p⁴s⁴ this proves the factors of K and hence the ordered global chain. At p=2 the two-by-two gcd of entries and determinant are 2 and 12. The multiplicity count and the exceptional 3-primary consequence hold, including the empty block at p=3.
+
+## originality
+
+PASS
+
+The strongest located theorem with the same kernel uses every residue. Its away-from-p proof averages over p classes; that step is unavailable at primes dividing p−1 for the unit restriction, and its final coprimalities also change. Neither taking a principal submatrix of a Smith diagonal nor specializing its power parameter gives the claimed factors. The ordinary index-GCD theorem and spectral graph results are also different. This is a statement-level judgment, not a priority certificate.
+
+## value
+
+PASS
+
+Units are the canonical primitive positions at modulus p², not an ad hoc selection. The full integral chain for this natural restriction supplies information a spectrum or the full-circulant Smith factors do not give. In particular it isolates exactly one order-3 factor when p≡2 mod 3 even though that prime is absent from p(p−1) and, for odd such p, from the unrestricted matrix. The integral reduction across the p−1 classes explains the torsion created by restricting rather than just recording an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

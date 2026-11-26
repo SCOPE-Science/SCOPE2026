@@ -1,11 +1,21 @@
-# Scientific review: finite-rate alternating gates
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-gate generator, its mixed Dirichlet–Neumann boundary data, the symmetry reduction, and the Robin comparison are solved explicitly in `RESULT.md`. The uniform tail argument establishes finite absorption and uniqueness of the backward solutions. The quantitative nonmatching follows from the strict inequality \(\tanh t<1\) for every \(t>0\). A standalone finite-mesh joint-state calculation independently checked both observables at 24 parameter/site/grid instances. Numerical evidence is not used as a substitute for the continuum proof. Main risk: none identified within the stated independent, symmetric-gate model.
+## correctness
 
-**Originality — PASS on inspected evidence.** The strongest comparison is the 2011 Ammari–Garnier–Kang–Lee–Sølna study of alternately open gates, whose accessible full text addresses two-dimensional small-gate asymptotics and switching-rate monotonicity, not this exact interval joint-calibration no-go. The 2015 Bressloff–Lawley full text handles switching entire boundaries and multiple narrow gates via Green functions and asymptotics; it does not imply the simultaneous finite-rate formulas and mismatch by a direct specialization of its stated results. Reingruber–Holcman develops a related one-window internal-switching model. Lawley–Keener treats Robin limits but the full paper was not accessible, leaving a material residual priority risk. Sezik et al. treat hidden internal states with static boundary reactivities. A negative database search is not a proof of novelty; the conclusion is bounded to examined evidence and implication comparisons.
+PASS
 
-**Value — PASS.** Calibration to a mean lifetime and calibration to left/right exit frequencies are two natural and independently measurable properties of a reactive boundary. The exact factor \(\coth^2(L\sqrt{\kappa/(2D)})>1\) gives a sharp, experiment-interpretable obstruction to replacing finite-rate mutually exclusive gates with a Markovian radiation boundary; the two inferred reactivities agree only in the rapid-switching limit. This is a structural distinction about reactive-boundary coarse graining, not an arbitrary parameter evaluation. Limits: no claim for unequal switching rates, non-Poisson gates, higher moments, or a general homogenization impossibility.
+A uniform positive probability of no flip and a hit of the open endpoint in a fixed time block gives finite mean absorption. For the two coupled backward equations, mixed homogeneous boundary conditions make the boundary terms vanish on integrating the homogeneous difference equations against the differences of two solutions; the resulting sum of derivative energies and the gate-state difference energy forces both functions to vanish. With t=alpha L/2, the even part of the mean is x(L−x)/(2D)+C and the odd part is B sinh(alpha(x−L/2)). The derivative condition gives B=L/(2D alpha cosh t) and the absorbing value gives C=B sinh t. For the left-exit probability the averaged part is 1/2+c(x−L/2), while the difference part is A cosh(alpha(x−L/2)); the left Neumann and absorbing conditions give c=−A alpha sinh t and A=1/[2(cosh t+t sinh t)], yielding the claimed affine profile. The uniform initial gate is essential to identifying the averaged parts with the observables. In a static model either full-profile match forces equal left and right reactivities: for the mean use equal endpoint values and opposite derivatives, and for the splitting profile use D P'(0)=h_0(P(0)−1), −D P'(L)=h_L P(L), with P(0)−1=−P(L) and P(L)>0. The corresponding constants are D alpha coth t and D alpha tanh t, different at all finite positive rates. Limits and the x-independent penalty follow from these formulas. This is a continuum boundary-value calculation, not a claim of continuum verification by the frozen finite-mesh code.
 
-**Historical comparison and limitations.** General fluctuating-boundary and gated-target models are established. The precise newly assessed claim is the exact finite-rate two-observable incompatibility in the opposite-end interval model. Full-text inspection of Lawley and Keener (2015) remained unavailable, and equivalent specialized historical derivations may exist. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the joint exact finite-rate mean and splitting calibration obstruction for oppositely switched absorbing endpoints of the same Brownian interval with initially uniform gate. Coupled switching equations, exact one-window interval times, asymptotic Robin laws and neighboring exact discrete models are not individually claimed as new. The available comparisons do not establish this finite-rate two-observable mismatch. Several close literature full texts remain inaccessible, so historical priority is not certified.
+
+## value
+
+PASS
+
+Time and exit side are natural independent calibration observables for diffusion with absorption. The exact result shows that a standard positive static Robin law with the same diffusivity and geometry cannot reproduce both curves, even allowing unequal endpoints. The strict finite-rate gap is a useful diagnostic of model misspecification despite a common fast-switching limit. It does not claim a guarantee for inference from a single position or cover general intermittency models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

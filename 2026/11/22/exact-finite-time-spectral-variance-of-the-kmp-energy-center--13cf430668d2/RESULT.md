@@ -11,7 +11,7 @@ Then for all \(t\ge0\),
 \boxed{V(t)=\int_0^4\frac{1-e^{-\lambda t}}{\lambda}\,\rho(\lambda)\,d\lambda,\quad
 \rho(\lambda)=\frac{(\lambda+2)\sqrt{4-\lambda}}{2\pi\sqrt\lambda\,(3\lambda^2-4\lambda+4)}.}
 \]
-Here the integrand at \(\lambda=0\) is understood by continuity after multiplication by the density. The density is strictly positive on \((0,4)\); therefore \(V\) is strictly increasing and strictly concave on \((0,\infty)\). The microscopic short- and long-time laws are
+The multiplier \((1-e^{-\lambda t})/\lambda\) extends continuously to \(t\) at \(\lambda=0\). For \(t>0\), its product with the density has an integrable inverse-square-root singularity there; the spectral integral is understood as an improper integral. The density is strictly positive on \((0,4)\); therefore \(V\) is strictly increasing and strictly concave on \((0,\infty)\). The microscopic short- and long-time laws are
 \[
 \boxed{V(t)=\frac23t-\frac5{18}t^2+O(t^3),\quad t\downarrow0,}
 \]
@@ -61,7 +61,7 @@ Thus the Laplace transform of \(D(t)=V'(t)\) simplifies, using \(s=(1-r)^2/r\), 
 \]
 This equals \((2/3)s^{-1}+O(s^{-2})\) as \(s\to\infty\).
 
-**4. Positive spectral inversion.** The branch cut of (3) is \([-4,0]\). Away from it, the physical root satisfies \(|r|<1\), whereas the only possible zeros of the denominator occur at \(r=1\) or \(r=1\pm i\sqrt2\), all outside this disk. There are no isolated poles. At \(s=-\lambda+i0\), \(0<\lambda<4\), use
+**4. Positive spectral inversion.** The branch cut of (3) is \([-4,0]\). Away from it, the physical root satisfies \(|r|<1\), whereas the only possible zeros of the denominator occur at \(r=1\) on the unit circle or at \(r=1\pm i\sqrt2\) outside it. There are no isolated poles. At \(s=-\lambda+i0\), \(0<\lambda<4\), use
 \[
 r=1-\frac\lambda2-\frac i2\sqrt{\lambda(4-\lambda)}.
 \]

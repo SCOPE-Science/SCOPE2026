@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS for the bounded claim: every integer factor length from 1 through 8192 lies in exactly one of 25 inclusive intervals. The direct 50-endpoint exhaustive word-comparison checks verify the first-repetition index and unique predecessor independently of the suffix-array reconstruction. The elementary monotonicity lemma promotes these endpoint facts to every interior length. The computation uses only a finite prefix that includes all compared factors; it is not extrapolated to arbitrary lengths. Risk: a shared implementation error, mitigated by distinct Baum–Sweet generators and algorithmic approaches but not independently audited.
+## correctness
 
-## Originality
-PASS against identified covering literature. Nicholson–Rampersad (arXiv:1507.08206) treat Thue–Morse, Fibonacci, and Tribonacci initial non-repetitive complexity; Medková–Pelantová–Vandomme (arXiv:2002.12593) treat Arnoux–Rauzy systems, not Baum–Sweet. The established Baum–Sweet zero-run automaton defines the word but does not provide the first-collision spectrum. Exact statement searches and comparisons found no covering table. Risk: unpublished or unindexed equivalent data; database nonhits cannot prove uniqueness.
+PASS
 
-## Mathematical value
-PASS for a bounded natural invariant: the classification exhausts the dyadic scales through length 8192, identifies every first-collision position and matching predecessor, and isolates 25 sharp length transitions. This is finer than usual factor complexity and gives reproducible finite evidence useful for detecting or disproving proposed automaton recurrences. The finite cutoff is not represented as a universal theorem; independent validation is still needed.
+The review reproduction starts with the ordinary binary zero-run criterion, b_0=1. At each of the 50 endpoints it scans starts in increasing order and resolves candidate equalities by exact byte comparison, so fingerprint collisions cannot alter the first match. Every (R,P) pair in the frozen table is reproduced, including the largest R=24576 at n=8192, whose last needed bit is at index 32767. A length-b witness is also a witness at every length <=b, and no length-a collision before the certified R can become a collision at any length >=a. Hence each interval [a,b] has its stated first repeat, and P agrees throughout because at the first collision two earlier matches are impossible. The intervals are consecutive, cover exactly 1..8192, and each adjacent pair of rows differs, giving maximality within that domain.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No equivalent finite table, explicit covering formula or sequence-specific implication was found in the inspected sources. Same-word work concerns Parikh vectors or scattered subsequences, and same-invariant work gives formulas for other words. The standard word definition and generic finite search do not supply the 25 exact intervals or their witnesses without an additional mathematical computation. The pass is restricted to the demonstrated finite classification.
+
+## value
+
+PASS
+
+Baum–Sweet is a canonical automatic word, and the initial repeat threshold measures a different aspect of its prefixes than ordinary or Abelian factor complexity. The complete finite profile through 2^13 crosses many binary scales and resolves exact transition positions, alternating earlier-index patterns and the short exceptions. For example, the upper endpoint of a plateau can shift by one past three halves of the preceding power of two (1537 versus the unshifted 3072 at the next scale). Those exact boundaries and predecessors form a benchmark for any proposed structural or all-length formula; selected sample lengths or the leading scale alone could miss them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

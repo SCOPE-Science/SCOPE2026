@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full operator identity is reduced exactly to linear projection and normalizer identities; Lie subalgebra planes in the three-dimensional Heisenberg algebra are characterized by containing its center. The fixed-bracket affine automorphism group and its action lead to six orbits; finite-field counts follow by incidence counting. The exact finite-field checker directly evaluates the operator identity over \(\mathbb F_2\) and \(\mathbb F_3\) and enumerates all conjugacy orbits. The proof is symbolic and applies to every field, rather than extrapolating from those checks.
+## correctness
 
-**Originality — PASS, qualified.** Han--Khudoyberdiyev--Xie--Zhang, arXiv:2610.14838 (2026), Theorem 4.4 and Proposition 4.5 already provide the structural reduction and conjugacy criterion for canonical Lie affgebras. Their explicit classifications cover abelian Lie algebras and nonabelian dimension two, **not** this three-dimensional Heisenberg case. Brzeziński, arXiv:2610.33573 (2026), permits gauge elimination of a translation by changing the underlying bracket; this does not identify the two rank-two cases under automorphisms of the *fixed* canonical bracket. Older ordinary linear Lie Rota–Baxter classifications are not exact coverage. The six-orbit and finite-field count conclusion was not found in targeted indexed-result and primary-text comparisons. Residual risk: an earlier implicit or unlocated derivation of the same orbit table may exist. No claim of guaranteed historical priority is made.
+PASS
 
-**Mathematical value — PASS.** A complete orbit classification across arbitrary characteristics is a motivated next nonabelian nilpotent case of the recent theory. The two inequivalent rank-two translation regimes distinguish genuinely affine operators beyond ordinary linear Rota–Baxter classifications; exact orbit sizes provide a finite-field classification invariant, not just examples.
+Independently expanded the affine identity for P(u)=Ru+p: evaluation at (0,0) gives Rp=0; evaluation at (u,0) gives commutation with ad_p; evaluation at (0,v) then gives R²=R. The remaining bilinear terms give the weight-minus-one identity. This uses no restriction on characteristic. The projection identity is equivalent to its image and kernel being subalgebras, and the condition on p says that it is in the kernel and normalizes the image. A plane is a subalgebra exactly when it contains the center. In a rank-one splitting the two complementary directions modulo the center are independent, so the only permitted p is central and can be removed. In rank two p is arbitrary on the kernel line, a central affine translation does not change it, and the split stabilizer scales that line by every nonzero scalar. The quotient GL₂ and central shears move any ordered planar/line splitting of the given ranks to the displayed representative. Constants split by centrality and rank three gives only the identity. Counting q+1 central planes with q² complementary lines per plane gives all six orbit sizes and total 2q⁴+3q³+1. The proof explains both exhaustion and inequivalence.
 
-**Scientific limits.** This does not re-prove as new the prior general projection theorem, nor treat all three-dimensional Lie algebras or higher-dimensional Heisenberg algebras. Source searches cannot establish absolute historical priority. Small-field verification is supplementary. Independent audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified distinct contribution is the fixed-canonical Heisenberg orbit partition and finite-field counts, not the general factorization or conjugacy criterion. The closest general theorem does not identify the Heisenberg subalgebra-pair orbits, which translations survive central conjugacy, or their multiplicities. The closest indexed census solves a different, linear weight-λ identity.
+
+## value
+
+PASS
+
+The Heisenberg algebra is the basic three-dimensional nonabelian nilpotent test case for turning canonical-affgebra factorization into a complete classification. In particular, the two rank-two orbits identify a translation invariant that gets lost when changing brackets is allowed. The all-field result, including characteristic two, and exact orbit sizes make this a usable benchmark for affine, rather than merely linear, classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

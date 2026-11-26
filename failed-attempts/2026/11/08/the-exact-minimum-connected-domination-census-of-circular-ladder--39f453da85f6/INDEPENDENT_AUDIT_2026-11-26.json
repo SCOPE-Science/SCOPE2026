@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:31:13.288007Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md:27–38 gives a valid exhaustive argument. Connectivity makes occupied columns a cyclic interval when a column is empty; domination forbids three consecutive empties. One empty requires a double (otherwise all chosen vertices lie in one row), and two empties force the two distinct boundary columns to be double for n >= 4. Equality in |S| = n + d - z therefore forces d = z. The one-double case has two compatible row assignments for each empty/double position pair; the two-double case has two assignments if there is an interior singleton and only one for n = 4. A consecutive pair of doubles creates a square only in that latter case. With an occupied path and no consecutive doubles there is one horizontal selected edge at each occupied boundary, so the connected subgraph is a tree. The triangular prism has exactly the three dominating rung edges. An independently written subset enumeration (increasing cardinality, separate coverage and induced flood fill, counting doubles and induced edges) matched every profile and type at n = 3 through 10, including (3 edges), (24 trees, 6 cycles), and (50 trees, 2 cycles) at n = 3, 4, 5. Replay: /workspace/branches/6e151c80-74ef-4b91-a8a2-65276da55577/independent_prism_enum.py and finite_replay_3_10.txt in that directory. The frozen verifier and its recorded output were inspected, not used as the independent replay. The uniform conclusion rests on the equality-case proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov. 2 Resultary summary: complete three-family minimum-set classification for n >= 6 and additionally the one-vertex-exchange graph.",
+          "The general enumeration paper concerns inclusion-minimal connected sets; a generic enumerator alone is not a closed-form minimum census."
+        ],
+        "reasoning": "The exchange-graph result covers the same optimizer family on virtually the full nonexceptional range and adds a further structure. It does not by the inspected summary extend to n < 6.",
+        "searches": [
+          "Resultary: optimal connected domination on circular ladders, complete exchange graph",
+          "Enumerating Minimal Connected Dominating Sets, arXiv:2205.00086 / ESA 2022"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–38,49–60 and VERIFICATION.md",
+        "Resultary 2026/11/2/SCOPE-optimal-connected-domination-on-circular-ladders-complete-exchan--162308b5e17c (indexed statement)",
+        "arXiv:2205.00086 and arXiv:2601.03488 (limited material)",
+        "Prism total-domination and connected-domination game search results (scope only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The retrieved statement identifies the three families as covering all minimum sets, not merely giving their existence or their minimum size.",
+          "For each explicitly specified vertex set, d is the number of selected rungs and the cycle test is whether the induced edge count exceeds |S|-1. Neither statistic requires a new search over feasible subsets."
+        ],
+        "reasoning": "The uniform classification and total are directly covered. The printed refined expressions could be additional exposition, but the same-family classification already supplies the full inputs for these local statistics. The earliest orders are outside the stated prior range.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-optimal-connected-domination-on-circular-ladders-complete-exchan--162308b5e17c, matched summary and targeted RESULT.md retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-optimal-connected-domination-on-circular-ladders-complete-exchan--162308b5e17c: same minimum connected vertex-subset problem",
+          "The spanning-tree correspondence identifies sets of internal vertices, not individual trees; the ordinary and total domination literatures need not impose connectedness."
+        ],
+        "reasoning": "Circular ladder and ordinary prism describe the same Cartesian product here. Connected domination and connected total domination agree on its connected dominating sets (all have size at least two), but ordinary total domination is weaker. The maximum-leaf optimum is equivalent to the minimum size, not the optimizer count unless one classifies distinct internal sets.",
+        "searches": [
+          "Resultary: minimum connected domination / optimal connected domination on prisms and circular ladders",
+          "Resultary: maximum-leaf spanning trees / connected domination",
+          "Web literature: total connected domination and circular prisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Resultary entry explicitly gives the same total 2n²+2 for n >= 6; a distinct ordinary-domination reference (arXiv:2601.03488) is on prisms but not the connected invariant."
+        ],
+        "reasoning": "The overlap is an exact uniform result on the same objects, stronger than agreeing with a finite table. The refined polynomial and finite boundary counts were not seen verbatim in the older catalogue summary.",
+        "searches": [
+          "Resultary: circular-ladder connected-domination census",
+          "Exact Dominion of the Prism Graph, arXiv:2601.03488"
+        ]
+      },
+      "rationale": "Material prior coverage of the principal uniform census is established: the distinct Nov. 2 Resultary record explicitly describes all labeled optimizers in three families and gives 2n²+2 for the same C_n × K_2 problem at n >= 6. A complete explicit minimum-set family already encodes the two statistics by evaluating the selected columns and induced edges; packaging it as a generating polynomial does not create a distinct uniform optimizer classification. The available summary does not establish that the older record prints those refined formulas or includes n = 3, 4, 5. This failure is for the submitted combined finding's material overlap, not a finding that every displayed refinement or small case was published verbatim, and not a consequence of an unavailable full text.",
+      "residual_risks": [
+        "Full Nov. 2 text was unavailable through the bounded mirror requests; its refined polynomial, type split and exact family parameters were not checked line by line.",
+        "No negative whole-document conclusion is drawn for inaccessible literature. The small-order extensions may be absent from the prior census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct material overlap of the main census, with explicit n >= 6 scope; printed refinement not determined",
+          "evidence": [
+            "Exactly 2n²+2 for n >= 6; three explicit families and a one-vertex-exchange graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-optimal-connected-domination-on-circular-ladders-complete-exchan--162308b5e17c",
+          "material_read": "Local Resultary indexed statement; targeted full RESULT.md passage not retrieved",
+          "method": "Local catalogue search and bounded mirror request",
+          "title": "Optimal connected domination on circular ladders: complete exchange graph",
+          "trigger": "Same graph, optimizer and exact total"
+        },
+        {
+          "assessment": "Available description concerns inclusion-minimal enumeration, not an inspected prism formula",
+          "evidence": [
+            "Inclusion minimality does not require minimum cardinality."
+          ],
+          "identifier_or_url": "arXiv:2205.00086; doi:10.4230/LIPIcs.ESA.2022.1",
+          "material_read": "Bibliographic and search material plus frozen comparison; attempted full text not retrieved",
+          "method": "Primary-source lookup, bounded OA retrieval attempt",
+          "title": "Enumerating Minimal Connected Dominating Sets",
+          "trigger": "Potential stronger enumeration over arbitrary graphs"
+        },
+        {
+          "assessment": "Scope seen is ordinary domination, with no connected optimizer census established by it",
+          "evidence": [
+            "Same graph, different optimization constraint."
+          ],
+          "identifier_or_url": "arXiv:2601.03488",
+          "material_read": "Search material and frozen comparison; attempted full text not retrieved",
+          "method": "Primary-source lookup and OA attempt",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Exact enumeration for the same graph family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact optimizer family is a worthwhile invariant, but substantially covered on the uniform range. Counting double columns and detecting the induced cycle of an explicitly specified family are local readings of that family. The remaining n = 3, 4, 5 computations close small boundaries (including the square at n = 4), but no separate use or substantive unresolved gap is established for these cases as a standalone finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

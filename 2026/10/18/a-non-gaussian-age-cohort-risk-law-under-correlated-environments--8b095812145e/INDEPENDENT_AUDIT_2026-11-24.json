@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:43.105030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplying consecutive matrices gives diagonal two-year products, with cohort logs N lambda+c S_N+d D_N and N lambda+c S_N-d D_N up to their constant initial-stage logs. Both stages start positive, so log-sum-exp differs from the maximum by a deterministic bounded term. For rho=1-2p, the centered innovations E_t-rho E_{t-1} have constant conditional variance 1-rho^2. Their ordinary and alternating sums give (1-rho)S_N and (1+rho)D_N up to bounded endpoints, and the conditional cross-variation normalized by N tends to zero because the signs alternate. Bounded increments verify the martingale CLT and give almost-sure sublinear sums and O(N^2) fourth moments. The one-year abundance multipliers are bounded above and away from zero, extending the growth exponent to all years. The even-time limit is c sqrt((1-p)/p) Z_1 plus |d| sqrt(p/(1-p)) |Z_2| for independent standard normals, with limiting first and second moments justified by uniform integrability. The folded summand's positive third centered moment for d nonzero is its scale cubed times sqrt(2/pi)(4/pi-1), proving non-Gaussianity; the d=0 point-mass case is Gaussian in the degenerate sense. Substitution t=p/(1-p) reduces variance minimization to c^2/t+(1-2/pi)d^2 t; balancing terms gives the unique stated p_* and minimum if both channels are nonzero, and the stated monotone or constant cases otherwise. No endpoint or finite-horizon optimality is entailed. Centering is by N lambda, not expectation. The frozen finite checks were inspected, not executed; correctness rests on the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Sanz and Sanz–Bravo de la Parra passages require strict positivity of all fixed-length products for the relevant mixing results. The frozen products alternate between diagonal and off-diagonal support.",
+          "Protasov's sparse-matrix theorem for independent identically distributed factors identifies the leading Lyapunov exponent of nonzero entries, not their joint fluctuations.",
+          "Unterberger studies continuous-time Markovian phenotype switching of a mixing composition, rather than the two deterministic parity cohorts."
+        ],
+        "reasoning": "General martingale CLTs are applicable proof tools but do not supply the cohort observable, its folded law or optimizer as a quoted case. The strongest inspected nonnegative-product theorem addresses a first-order observable and does not cover general correlated years; the positivity-based second-order theorems fail their hypotheses.",
+        "searches": [
+          "arXiv:2402.03827 Theorem 1; arXiv:2402.03888 condition C2; arXiv:2111.04167 CLT variance scaling",
+          "Protasov Asymptotics of Products of Nonnegative Random Matrices, DOI 10.1007/s10688-013-0018-8, Russian primary version at MathNet faa3106 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary e91c7cce1b72",
+        "arXiv:2402.03827, 2402.03888, 2111.04167",
+        "MathNet faa3106 primary theorem",
+        "Shaukat institutional abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-stage alternating channel has variance p/(1-p), opposed to the ordinary channel's (1-p)/p. The three-stage record instead uses the contrast spectral factor (1-theta^2)/(1+theta+theta^2) and a different maximum law.",
+          "The inspected Shaukat abstract discusses two-dimensional age-structure distributions for random survival without serial autocorrelation, and numerical growth and log variance in a three-dimensional example. Its full text was inaccessible."
+        ],
+        "reasoning": "The exact switching minimizer depends on the opposing spectral factors at frequencies 0 and pi and on the variance of a folded normal, so it does not follow by substituting parameters into the three-stage theorem. Leading growth bounds cannot identify either this second-order law or its optimizer. The thesis abstract does not itself state an equivalent result; lack of full access is a residual limitation, not a verdict on its contents.",
+        "searches": [
+          "Resultary e91c7cce1b72 offsets 0–4043: three-stage result, assumptions and covariance modes",
+          "MathNet faa3106 PDF Theorem 1; arXiv:2402.03827 and 2402.03888 positivity passages",
+          "Shaukat 1981 DOI 10.15760/etd.3109 institutional abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen limit is equivalently the maximum of two jointly normal cohort logs sharing a common frequency-zero term and with opposite frequency-pi contributions.",
+          "e91c7cce1b72 gives a common Gaussian plus the maximum of three cyclic contrasts separated by 120 degrees, with a positive square-root-time mean correction."
+        ],
+        "reasoning": "These use the same cohort-maximum mechanism, but three strictly positive cyclic cohorts with modes 0 and plus/minus 2 pi/3 cannot be specialized to two cohorts with modes 0 and pi by choosing survival parameters in the stated scope. Vanishing three-stage contrast suppresses the entire maximum fluctuation, not one branch.",
+        "searches": [
+          "Local Resultary: two-stage semelparous zero retention Leslie stochastic binary Markov survival fecundity parity age cohorts positive folded Gaussian excess log abundance optimal switching probability minimizes variance",
+          "Primary web search: semelparous two age class Leslie two year cohort stochastic Markov environment log population folded normal growth variance Tuljapurkar Orzack fluctuation periodic imprimitive matrix",
+          "Resultary e91c7cce1b72, mirrored Finding and cohort proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact analytic catalogue law located specifies three cyclic stages and gives a three-ray maximum; local searches for the two-stage model and its optimizer did not surface a separate exact match.",
+          "The audited claim is a continuous parameter formula for the full law and asymptotic variance optimum, not a single numerical parameter entry that could be identified by a matching table value."
+        ],
+        "reasoning": "The conclusion rests on comparing the available structural match, not on treating bounded ranked-search misses as evidence of absence. Nearby two-stage entries involving deterministic seasonal order or different noise and retention choices are not the same observable or experiment.",
+        "searches": [
+          "Local ranked Resultary searches: semelparous cohort Gaussian maximum, zero-retention Leslie parity and optimal variance versus switching",
+          "Explicit comparison to 2026/11/8/SCOPE-a-universal-triangular-gaussian-maximum-law-for-three-year-semel--e91c7cce1b72"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit two-cohort second-order law and its moment and switching-rate consequences under symmetric Markov switching, not general stochastic growth theory or the observation that log-sum-exp approximates a maximum. The closest indexed Gaussian-maximum statement concerns three-stage life cycles with different Fourier modes and does not include the two-stage formula. Inspected primary results address positivity-based Gaussian limits, leading exponents of sparse products or mixing continuous-time phenotype switching, not the full parity-cohort claim. Remaining literature-access risks are explicit below.",
+      "residual_risks": [
+        "Older semelparous age-structure or imprimitive-product results might contain an equivalent limit or special case; the Tuljapurkar–Orzack full text and the Shaukat thesis were not inspected.",
+        "The bounded catalogue and primary-source comparison does not establish historical priority. The pass credits the specific two-stage law, moments and exact variance optimizer, not generic cohort-maximum reasoning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material structural overlap but different number of cohorts and spectral contrasts",
+          "evidence": "Independent Gaussian plus a triangular maximum of three projections with universal 120-degree spacing, at multiples of three.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-triangular-gaussian-maximum-law-for-three-year-semel--e91c7cce1b72",
+          "material_read": "Mirrored RESULT.md offsets 0–4043, Finding, scope and spectral covariance derivation, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror passage read",
+          "title": "A universal triangular Gaussian-maximum law for three-year semelparous cohorts",
+          "trigger": "Closest indexed cohort-maximum law in a binary Markov environment"
+        },
+        {
+          "assessment": "Does not cover the frozen matrices under the inspected positivity hypothesis",
+          "evidence": "Positive juvenile fertility/retention for its stated eventual-positivity argument and fixed-length positive products for Theorem 1.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.03827",
+          "material_read": "OA PDF p. 6, offset 12700, two-age-class model; p. 18, offset 48808, Theorem 1",
+          "method": "Targeted OA PDF passages",
+          "title": "Conditions for growth and extinction in matrix models with environmental stochasticity",
+          "trigger": "Two-stage stochastic age model and general matrix growth result"
+        },
+        {
+          "assessment": "Relevant fluctuation result with excluded positivity assumptions and different model",
+          "evidence": "Positive fixed-length products are required by C2; here all products have two zero entries.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.03888",
+          "material_read": "OA PDF p. 8, offset 21016, condition C2 and lognormal statement",
+          "method": "Targeted OA PDF passage",
+          "title": "Stochastic matrix metapopulation models with fast migration: re-scaling survival to the fast scale",
+          "trigger": "Asymptotically lognormal population and scaled log variance"
+        },
+        {
+          "assessment": "Different continuous-time mixing population mechanism",
+          "evidence": "Markovian phenotype switching and finite-time growth-rate variance, not a maximum over disconnected cohorts.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.04167",
+          "material_read": "OA PDF p. 1, offset 1557, model; p. 3, offset 6235, CLT variance scaling",
+          "method": "Targeted OA PDF passages",
+          "title": "Exact computation of growth-rate fluctuations in random environment",
+          "trigger": "Exact two-state random-environment growth fluctuation context"
+        },
+        {
+          "assessment": "Inspected theorem concerns leading exponents, not the folded Gaussian or correlation-dependent variance",
+          "evidence": "Independent identically distributed factors; every surviving nonzero entry of an irreducible nonmortal product family has the same almost-sure exponent.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/faa3106",
+          "material_read": "MathNet English abstract offsets 875–1985; Russian primary PDF introduction offsets 0–2647 and p. 4, Theorem 1, offsets 10570–11814",
+          "method": "English DOI route timed out; public MathNet Russian edition retrieved by targeted OA",
+          "title": "Asymptotics of Products of Nonnegative Random Matrices",
+          "trigger": "Sparse or imprimitive nonnegative products as possible broader setting"
+        },
+        {
+          "assessment": "Available abstract concerns different observables/regimes; full thesis coverage unresolved",
+          "evidence": "Analytic age-structure distribution with uncorrelated survival and numerical logarithmic growth/variance for a three-stage example.",
+          "identifier_or_url": "https://pdxscholar.library.pdx.edu/open_access_etds/3112/",
+          "material_read": "Repository abstract passage offsets 1450–3156; linked PDF not accessible",
+          "method": "OA repository page; primary PDF direct and VPN returned HTTP 403",
+          "title": "A study of Leslie model under stochastic environments",
+          "trigger": "Older two-age stochastic Leslie model under survival variability"
+        },
+        {
+          "assessment": "Unresolved historical access, not negative evidence",
+          "evidence": "The located citation identifies the long-run growth and extinction paper; its actual fluctuation coverage was not assessed from the inaccessible text.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/004058098090057X",
+          "material_read": "Bibliographic identification only, no primary full text",
+          "method": "DOI lookup and identified publisher page attempted; latter returned HTTP 403 on direct and VPN routes",
+          "title": "Population dynamics in variable environments I: Long-run growth rates and extinction",
+          "trigger": "Classical age-structured stochastic growth reference, potential periodic cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same long-run exponent for every switching rate can hide both non-Gaussian risk and a positive square-root-time log-abundance correction. The explicit distinction between common and alternating cohort fluctuations gives a concrete mechanism and a unique variance-optimal switching rate in the nondegenerate case, with sharp degeneracies when one channel is absent. This is useful for understanding exactly which stochastic-growth conclusions fail without mixing of age composition. It is a scoped variance result for a density projection, not an extinction prediction or a claim of an optimum for all risk measures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

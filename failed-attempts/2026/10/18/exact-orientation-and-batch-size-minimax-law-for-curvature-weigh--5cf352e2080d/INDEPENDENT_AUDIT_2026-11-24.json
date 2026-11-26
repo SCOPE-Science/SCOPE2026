@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:38:28.951346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84",
+        "Frozen VERIFICATION.md and REPRODUCE.py inspected, not executed; source replay path REPRODUCE.py (Python and NumPy)",
+        "Chaubard, Kochenderfer and Ré arXiv:2609.38095, §4.1, compared for normalization"
+      ],
+      "rationale": "Whitening by y=H^(1/2)e turns each probe into the Euclidean orthogonal rank-one projector P_z onto H^(1/2)z. In the two unit diagonal directions the Hessian entries a,b,d satisfy b=(κ−1)cos(2θ)/2 and 4ad=(κ+1)²−(κ−1)²sin²(2θ). The two normalized whitened directions have inner product b/√(ad), so the equal-weight mean M of the two projections has eigenvalues (1±δ)/2 as claimed. Independence and P_z²=P_z give E[P̄²]=(1−1/n)M²+M/n, so the risk is exactly the maximal eigenvalue of F(M). Its two values average to F(1/2)+(η²/4)(1−1/n)δ², and F(1/2)=1/(n+1)+(n+1)(η−2n/(n+1))²/(4n). This gives the sharp achievable lower bound and the unique step. For n>1 equality forces δ=0; for n=1, at η=1 the larger factor is (1+δ)/2, again forcing δ=0. With κ>1 on the specified angle interval this means θ=π/4. At this angle the conditional risk operator is scalar, and fresh independent batches give the exact horizon law by conditioning. At θ=0 the small eigenvalue tends to zero; minimizing its own scalar risk gives a lower bound 1−λ_-/(1/n+(1−1/n)λ_-), which tends to 1 for fixed n, while η=1 gives an upper bound of 1. The interior curvature floor never activates since zᵀHz≥2.",
+      "residual_risks": [
+        "The frozen source reports 5,719 numerical checks; the assessment is analytic and not a rerun. Verification paragraph line 87 says 'arbitrary dimensions' despite the theorem's explicit two-dimensional scope; no higher-dimensional claim is established.",
+        "The law is conditional expected Hessian energy, not a per-sample or general nonlinear contraction; uniqueness of the angle is within the stated interval."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar sketch record gives λ_min(E P_s) for every mixture t of coordinate and dense-sign sketches. The 1.5-SPSA method allows α=1 but the motivating experiment uses a different exponent and does not report this minimax law."
+        ],
+        "reasoning": "Set t=1 in the broader sketch-distribution spectrum; both eigenvalues follow from the rank-one trace. The SPSA experiment is contextual, not the coverage basis.",
+        "searches": [
+          "An exact orientation-only optimal sparsity law for planar sketch-and-project, Finding and Proof, OA offset 0",
+          "Chaubard et al. arXiv:2609.38095 §4.1 and Appendices A.2, A.4"
+        ]
+      },
+      "checked_sources": [
+        "Decisive planar sketch-and-project Finding and proof, and related primary and indexed records specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=1 its squared radicand is u²v²+(1−r²)v⁴=v²(1−r²v²); dividing by D cancels the latter factor. Thus with r=(κ−1)/(κ+1) its ρ(1) is exactly (1−δ_θ)/2. Trace one supplies (1+δ_θ)/2.",
+          "For each realized batch, whitened energy is governed by (I−ηP̄)². Diagonal terms in E[P̄²] contribute M/n and independent off-diagonal ordered terms contribute (1−1/n)M²."
+        ],
+        "reasoning": "The prior's two eigenvalues therefore determine the exact risk operator by the moment identity without a new orientation or batch-specific spectral argument. Taking their mean and completing one square yields the stated lower bound, with equality for the prior's isotropic dense-sign case; strictness or the n=1 linear risk resolves uniqueness. Its scalar conditional contraction iterates; the vanishing small eigenvalue gives the aligned limit by scalar minimization. The earlier record does not literally state a batch theorem, but these consequences require only routine substitutions, so the assembled claim fails the distinctness test.",
+        "searches": [
+          "Planar sketch-and-project RESULT.md, Finding ρ(t) and proof Steps 1–2, local mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary Finding and proof Step 1 define P_s=(As)(As)ᵀ/||As||² for Aᵀx=b. Choosing A=H^(1/2), b=0, and full sign vectors gives the same projector after whitening. The SPSA endpoint with α=1 and inactive floor is exactly that normalized update before averaging."
+        ],
+        "reasoning": "The different objective and solver names do not reflect different projectors. The transformation is an isometry from the Hessian metric to Euclidean energy, preserving the worst-direction risk.",
+        "searches": [
+          "Resultary planar sketch-and-project orientation-only optimal sparsity record, 2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb",
+          "Chaubard et al. arXiv:2609.38095 §4.1, full curvature weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed sketch Finding is a match for the exact core spectrum and the n=1, η=1 risk. The same-day Gaussian Finding optimizes a covariance on an isotropic quadratic. Table 5 is an exponent sweep, not an exact Rademacher batch classification."
+        ],
+        "reasoning": "For a parametric exact formula the indexed analytical result, not a numerical benchmark table, is decisive. Its t=1 spectrum is recovered regardless of whether the exact batch factor is written out there.",
+        "searches": [
+          "Resultary published records 2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb and 2026/10/18/SCOPE-a-sharp-alignment-threshold-for-minimax-anisotropic-gaussian-fin--39df47931288",
+          "Chaubard et al. Table 5, OA offset 67384"
+        ]
+      },
+      "rationale": "The 12 October planar sketch-and-project result supplies the exact orientation-dependent spectrum of the identical whitened two-direction projector. The full new-looking batch formula is then the direct iid moment expansion of those same projectors; optimizing that scalar polynomial yields the claimed optimum, its equality cases, horizon identity and axis-aligned limit. Thus the frozen exact invariant is mechanically implied by the inspected published spectrum plus elementary iid algebra. This is a prior-coverage decision, not a mathematical error or a verdict based on unavailable text.",
+      "residual_risks": [
+        "Not a claim that a prior source explicitly printed the n-batch optimum; the concrete failure is direct implication from the already available spectrum.",
+        "The unrelated full-text access limitation and bounded literature search do not support the failure verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact coverage of the projector spectrum and hence mechanical implication of the batch result",
+          "evidence": [
+            "Equations for P_s and ρ(t)=λ_min(E P_s) include the pure full-sign case; the angle is that of the leading right singular vector, identical to the leading Hessian eigenvector for A=H^(1/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, proof Step 1 and opening of Step 2, OA offset 0",
+          "method": "OA local mirror, bounded decisive passage",
+          "title": "An exact orientation-only optimal sparsity law for planar sketch-and-project",
+          "trigger": "Strongest exact indexed overlap, independently checked for the disposition"
+        },
+        {
+          "assessment": "Covers update and qualitative experiment, not the exact risk theorem by itself",
+          "evidence": [
+            "Allows α=1 in w=1/max(λ_reg,|ĉ|^α); reports stiff-paraboloid experiment and an exponent sweep, with α=0.1 selected in Appendix A.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.38095",
+          "material_read": "§4.1, offset 21400; Appendix A.2, offset 51447; Appendix A.4, offset 54597; Table 5, offset 67384",
+          "method": "OA primary HTML passages",
+          "title": "Probe-Space Preconditioning for Fast and Stable Zero-Order Training",
+          "trigger": "Primary source for the algorithm and rotated quadratic experiment"
+        },
+        {
+          "assessment": "Different minimax problem",
+          "evidence": [
+            "Fresh Gaussian covariance design on an isotropic quadratic, not curvature-normalized signs for fixed anisotropic eigenvalues."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-alignment-threshold-for-minimax-anisotropic-gaussian-fin--39df47931288",
+          "material_read": "RESULT.md Finding, OA offset 0",
+          "method": "OA local mirror",
+          "title": "A sharp alignment threshold for minimax anisotropic Gaussian finite differences",
+          "trigger": "Same-day minimax probe-design and horizon comparison"
+        },
+        {
+          "assessment": "Detailed overlap unresolved and not required for the decision",
+          "evidence": [
+            "Indexed summary refers to rank-one subspace-iteration approximation error, not the defined descent risk."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-orientation-law-for-rademacher-subspace-iteration-on-two-by-two-matrices--01df0b03e02b",
+          "material_read": "Indexed summary only; local full-text path unavailable",
+          "method": "Resultary result followed by OA local-mirror attempt",
+          "title": "A sharp orientation law for Rademacher subspace iteration on two-by-two matrices",
+          "trigger": "Same dimension and probe law; possible exact orientation overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–36 and 57–84",
+        "Prior planar sketch-and-project Finding and proof Step 1"
+      ],
+      "rationale": "Quantifying orientation and batch size is a reasonable motivation, but the proposed exact benchmark is a routine iid averaging calculation from the indexed planar projector spectrum, with optimization by a single scalar square completion. The record offers no further distinct non-mechanical phenomenon, proof ingredient or invariant in its stated scope. A useful explanatory restatement of known projector data is insufficient for this exact-result criterion.",
+      "residual_risks": [
+        "The comparison does not rule out valuable results for a genuinely different weighting, probe model or optimization problem; none is established in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

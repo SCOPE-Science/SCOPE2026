@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:00.177388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a basis containing v, the signal sketch column g and perpendicular columns are independent Gaussians with covariance I/m. Conditional trace and reflection give the two eigenmeans a=E[X/(tau+hX)] and tau b=1-ha/m, X=chi-square_m/m. Simultaneous target matching therefore forces tau_m. Integrating (tau+hX)^(-1) against the scaled gamma density by parts gives (tau+h)a+(2h tau/m)E[X/(tau+hX)^2]=1. Weighted strict Cauchy–Schwarz bounds the second expectation below by a². At a*=1/(h+lambda), the corresponding increasing quadratic has value 1+h(2tau_m-lambda)/[m(h+lambda)^2]>1 even at m=2 because tau_m>lambda/2. Hence the signal deficit is positive; perpendicular excess equals h times this deficit divided by m tau_m. The difference-of-quadratics formula also gives the stated strict lower bound using the slope at a*. The scaled chi-square means converge a.s. to one under the Gaussian sequence coupling, and X/(tau_m+hX)^2 is bounded by 1/(4h tau_m). Taking limits in the exact integration-by-parts equation gives h lambda/(h+lambda)^3 and then h²/(h+lambda)^3 at the two different scales. The calculation is dimension-independent once the perpendicular eigenspace exists. Independently applied the chi-square Laplace transform and quadrature (python /workspace/replay.py 3, mpmath 1.3.0), not the frozen gamma-density script: both signs and the exact relation held in all five probes; at m=8192, h=3, lambda=2, the scaled biases were 0.0479971867174 and 0.0720010535908, consistent with 0.048 and 0.072. Finite quadrature is corroboration only. No conclusion for adaptive ridge, extra scaling, or general spectra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LeJeune et al. allow PSD rank-deficient spectra but define equivalence by almost-sure asymptotic trace tests. Romanov et al. give deterministic equivalents in nondegenerate regimes and finite high-probability bounds. Zhang–Pilanci give a bias bound for a multiplicatively shrunk covariance resolvent."
+        ],
+        "reasoning": "A vanishing asymptotic difference or finite norm envelope allows either sign, and the covariance bound for a different estimator does not force any finite mean for this one.",
+        "searches": [
+          "arXiv:2211.03751 pp. 5, 9",
+          "arXiv:2410.01374v1 pp. 5–6, 9",
+          "PMLR 202 Zhang–Pilanci Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.01374v1",
+        "arXiv:2211.03751",
+        "PMLR 202 Zhang–Pilanci",
+        "Resultary 94943c586d73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published matching of asymptotic tuning and finite concentration of the averaged estimator does not assert exact unbiasedness of the underlying single-worker mean. The proof here forces the sole candidate by the conditional trace and rules it out by a strict gamma comparison."
+        ],
+        "reasoning": "Plugging rank one into the two established tuning equations only recovers the candidate. It does not supply the strict inequality at that candidate or two different asymptotic orders and their coefficients.",
+        "searches": [
+          "arXiv:2410.01374v1 Eqs. (7)–(9), Theorems 1–3 and 6–7",
+          "arXiv:2211.03751 definition of asymptotic equivalence and Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sketch-side spectral formulations specialize to tau=lambda(1-d_H(lambda)/m). The rank-one d_H is h/(h+lambda)."
+        ],
+        "reasoning": "The same tuning formula is not a new regularizer. The tested claim is simultaneous matching of finite expected eigenmeans, not equivalence in a deterministic limit.",
+        "searches": [
+          "Resultary semantic comparisons using the exact claim and title",
+          "arXiv:2410.01374v1 p. 3 Eqs. (7)–(9)",
+          "arXiv:2211.03751 p. 9 Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected mirror hit is an exact chi-square-ratio result for coefficient- versus physical-norm solutions to rank-deficient least squares, not a two-eigenmean resolvent table or identity."
+        ],
+        "reasoning": "The shared Gaussian nullspace terminology masks a different statistic and parameterization. The bounded search establishes no matching database result, not uniqueness.",
+        "searches": [
+          "Resultary semantic exact-claim and title lookups",
+          "Resultary 2026/11/2 record 94943c586d73 mirrored RESULT.md",
+          "Targeted literature search on rank-one Gaussian inverse-Hessian sketch finite bias and deterministic scalar regularization"
+        ]
+      },
+      "rationale": "The estimator and effective-dimension ridge are prior, as are asymptotic resolvent equivalence and the gamma identities. Best of knowledge, the additional exact obstruction for every m≥2 and the opposite sharp directional residuals are not covered by the strongest inspected comparisons. In particular the same asymptotic resolvent equivalence in the rank-deficient model only gives vanishing discrepancy, with no finite sign or matching obstruction.",
+      "residual_risks": [
+        "Related surrogate-sketching work of Dereziński et al. was not independently retrieved in full; other finite Wishart or Gaussian resolvent work could give an equivalent sign inequality. No exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers sketch and ridge, not the assessed finite directional claim",
+          "evidence": [
+            "The low-bias formula is motivated by asymptotic random-matrix theory; nondegenerate assumptions in the deterministic equivalents do not include this rank-one H. Finite theorems concern tuning and concentration bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01374v1",
+          "material_read": "p. 3 Eqs. (7)–(9); pp. 5–6 Theorems 1–3; p. 7 Remark 3; p. 9 Theorems 6–7",
+          "method": "Targeted lawful OA primary PDF passages",
+          "title": "Newton Meets Marchenko–Pastur: Massively Parallel Second-Order Optimization with Hessian Sketching and Debiasing",
+          "trigger": "Exact same estimator and shrinkage"
+        },
+        {
+          "assessment": "Asymptotic relation recovers tau_m, not finite matching or sharp sign",
+          "evidence": [
+            "Its test-trace almost-sure equivalence supplies the same effective-dimension relation without a finite expectation identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.03751",
+          "material_read": "p. 5 equivalence definition and p. 9 Theorem 4.1",
+          "method": "Targeted lawful OA primary PDF passages",
+          "title": "Asymptotics of the Sketched Pseudoinverse",
+          "trigger": "Same resolvent, including PSD rank deficiency"
+        },
+        {
+          "assessment": "Different estimator and scope",
+          "evidence": [
+            "Covariance eigenvalues bounded away from zero, multiplicative shrinkage and isotropic-case bias bound, not exact rank-one finite two-direction expectation."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v202/zhang23ah/zhang23ah.pdf",
+          "material_read": "pp. 1, 3–4 including Theorem 2.3; p. 7 Newton sketch",
+          "method": "Targeted lawful OA primary PDF passages",
+          "title": "Optimal Shrinkage for Distributed Second-Order Optimization",
+          "trigger": "Earlier resolvent shrinkage and Newton sketches"
+        },
+        {
+          "assessment": "Different estimand",
+          "evidence": [
+            "Norm discrepancy and chi-square ratios in reduced least squares, not the mean ridge-resolvent operator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact nullspace inflation for Gaussian reduced least squares",
+          "trigger": "Closest inspected Gaussian nullspace Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank one is the first nontrivial split between signal and nullspace, and separates the finite mean bias left by a standard ridge correction from variance removed by averaging. The no-scalar obstruction and two distinct sharp rates answer a motivated design question at its simplest natural spectrum, without claiming failure of adaptive algorithms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

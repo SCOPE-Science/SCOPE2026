@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:00:21.550664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting counterfactual neighbor earnings gives the A-best-response advantages (a+b)(k−1−t) for a current A and (a+b)(k−t) for a current B. Subtracting actual earnings gives (a+b)(k−w), with w=t+(R−S)/(a+b) strictly between t and t+1 because R−S and P−T are positive and sum to a+b. Below h=floor(t)+1 only decreases occur, above h only increases; below h at least two B agents are present, so a B imitator is not forced to copy a disfavored A, and the symmetric singleton check holds above h. At h either direction improves |k−h|. Since 1≤h≤n−1, there are at most n−1 switches, and persistence precludes being stuck at a nonabsorbing profile. Only k=h can be mixed absorbing. There B best responders strictly prefer A; A best responders strictly prefer B unless t=h−1, when w<h and every B flips on activation. Off an earnings tie the disfavored side contains a switcher; at an earnings tie t<h<t+1 and any best responder switches. With pure imitation at a tie a singleton lacks a like-strategy neighbor, while any split with at least two of each strategy persists. The four-player example and the n−1-switch construction check directly, including n=2; the latter extends to a persistent schedule. Independent direct-payoff enumeration (`python3 /workspace/independent_checks.py 2`) checked 21,824 type/profile/payoff cases and 123,776 activations. The analytical threshold and tie arguments provide the arbitrary-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 3.1 of the former handles arbitrary persistent activation on sparse trees, with a section-count potential on lines. Its discussion identifies denser classes and general graphs as outside the proved convergence theorem. The latter accessible abstract describes aggregate invariant sets and equilibria."
+        ],
+        "reasoning": "The clique family n≥3 is not contained in a tree class. Qualitative equilibration of a single behavioral type does not establish a common strict potential under arbitrary fixed mixtures or the sharp bound on real switches.",
+        "searches": [
+          "Hasheminejad–Ramazi, arXiv:2306.03243v3, Thm. 3.1, Lemma 3.2 and discussion",
+          "arXiv:2202.04782v1 mixed coordinating, anticoordinating and imitating populations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.03243v3",
+        "arXiv:2202.04782v1 (specified passages)",
+        "Resultary: 0e5774b908cf and a353cdd26e78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier potential counts sections along a line and is nonincreasing, not the strict one-dimensional per-switch hinge for a clique. The cited all-imitator result is reported as equilibration; the exact text was unavailable. The conformist/rebel bound |E| for a different game does not reduce to n−1 on arbitrary cliques."
+        ],
+        "reasoning": "No demonstrated implication from these results gives the allowed signs of every hybrid transition, the tight n−1 invariant, and the singleton/tie exceptions. Pure imitation is a genuine related partial overlap, not a proof for mixtures.",
+        "searches": [
+          "arXiv:2306.03243v3, Thm. 3.1, Lemma 3.2 and the pure-imitator discussion",
+          "Resultary: 0e5774b908cf and a353cdd26e78, RESULT.md arguments and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper uses neighboring-highest-earner imitation and asynchronous best response; its result is on sparse trees. The aggregate-population imitation criterion (2.4) of Le–Rajaee–Ramazi is expressed by the population-wide highest earnings of cooperators and defectors rather than the available neighbors of each activated individual."
+        ],
+        "reasoning": "Even when all payoffs are homogeneous, comparing highest strategy earnings over the population is not the frozen neighbor-only comparator for a singleton strategy. In particular, singleton switches at an earnings tie depend on that exclusion and are part of the result.",
+        "searches": [
+          "Resultary: complete coordination networks, mixed imitation and best response, sharp switch potential/finite improvement",
+          "arXiv:2306.03243v3, model and update rules; arXiv:2202.04782v1, Eqs. (2.2)–(2.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest finite-improvement hit (0e5774b908cf) requires at least three actions in a conformist/rebel game and uses an edge-count bound. A distinct same-day hit (a353cdd26e78) concerns single-population sampling best response. No indexed same-model potential or equilibrium table with the claimed arbitrary-n statement was identified."
+        ],
+        "reasoning": "Neither neighboring hit has this joint process or its sharp switch count. Same-day indexing does not determine priority and is not the reason for exclusion.",
+        "searches": [
+          "Resultary: homogeneous complete graph, sharp n−1 switch bound and tied mixed absorbing profiles"
+        ]
+      },
+      "rationale": "The closest hybrid update paper covers sparse trees and qualitative equilibration. The supported distinct claim here is the strict common per-switch potential for homogeneous complete networks with the stated neighbor-only rules, its sharp uniform switch count, and its resulting exact mixed-type absorption classification; prior general pure-imitator equilibration is not claimed original.",
+      "residual_risks": [
+        "The cited pure-imitation source DOI:10.1016/j.automatica.2022.110185 was not accessible in full; its exact theorem scope could overlap the pure-imitation part. The bounded comparisons do not settle priority of all well-mixed hybrid dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest qualitative hybrid precedent; its proved topology and quantitative conclusions do not cover the clique result.",
+          "evidence": [
+            "Sparse-tree equilibration; nonincreasing section count on linear graphs; scope discussion notes unresolved denser graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03243v3",
+          "material_read": "Model and Thm. 3.1, pp. 1–3; Lemma 3.2 on p. 4; discussion p. 8 and references p. 9; text offsets near 5700, 10000–14111, 17100 and 38800.",
+          "method": "Compared the primary model, topology restrictions and actual potential with the frozen theorem.",
+          "title": "Equilibration of Coordinating Imitation and Best-Response Dynamics",
+          "trigger": "Same behavioral mechanism and persistence, presenting a plausible covering convergence result."
+        },
+        {
+          "assessment": "The inspected material does not supply the frozen neighbor-only hinge theorem or justify equating the update conventions.",
+          "evidence": [
+            "Eq. (2.4) uses highest strategy-class utilities and retains on equality, unlike a singleton comparing only other players."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04782v1",
+          "material_read": "Abstract on p. 1 and equation-level indexed passage around (2.4) on p. 4 (text offsets 0–4031 and near 17722); not an exhaustive full-text comparison.",
+          "method": "Compared the available definition of the imitation rule and advertised invariant-set results; no negative whole-document inference is made.",
+          "title": "Heterogeneous Mixed Populations of Coordinating, Anticoordinating, and Imitating Individuals",
+          "trigger": "Potentially encompassing well-mixed imitation and best-response analysis."
+        },
+        {
+          "assessment": "Neither covers the bound or equilibria of the frozen hybrid process.",
+          "evidence": [
+            "The first covers at least three actions and an edge-count potential for conformists/rebels; the second uses population sampling best response rather than neighbors' earnings imitation."
+          ],
+          "identifier_or_url": "Resultary: 0e5774b908cf; a353cdd26e78",
+          "material_read": "Opening Finding and model assumptions in both RESULT.md files (text offset 0; for a353cdd26e78 first 3482 characters).",
+          "method": "Statement-level comparison of activation, actions, interaction rule and conclusions.",
+          "title": "A sharp finite improvement dichotomy for multi-action conformist and rebel games; Five observations are the sharp cutoff for stable miscoordination",
+          "trigger": "Nearest distinct catalogue hits on sharp improvement and coordination."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural dense-network case with one common strict potential across behavioral mixtures and every asynchronous activation, a sharp worst-case switch budget, and a precise consensus/coexistence distinction. A bound on actual switches is useful even when fair activation imposes no elapsed-time bound. Homogeneous payoffs, complete graphs, fixed types and the stated tie rules are essential limits of the assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

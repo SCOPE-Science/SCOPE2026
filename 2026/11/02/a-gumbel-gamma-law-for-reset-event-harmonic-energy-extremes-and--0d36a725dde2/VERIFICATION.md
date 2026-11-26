@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The proof of the asymptotic laws is in `RESULT.md`. The exact cycle law is represented independently by a beta-mixture Gaussian energy and the equivalent Kummer–Tricomi density. Numerical integrations can support consistency but cannot certify convergence of the extreme-value point process or the strict timescale separation for every parameter.
+## correctness
 
-## Reproduction
+PASS
 
-From a directory containing `verify.py` and `requirements.txt`, with Python 3.10 or later:
+The frozen complete-cycle law is valid: normalizing the OU endpoint conditional on its exponential duration gives an independent standard normal, U=e^(−2μT) has CDF u^β, and E=(1−U)Z²/2. Conditional Gaussian integration gives the frozen moment criterion (the critical integral is β∫₀¹u^(β−3/2)du); a Mills bound and the scaling v=wU give the tail and conditional gamma law. Selection of the maximum over iid pairs multiplies the exact joint density by n(1−S)^(n−1), which also checks the independent limit and the frozen age scale. The duration maximum has order log n, and even its selected normal mark is standard normal because the duration vector is independent of all normal marks. The repaired RESULT.md additionally proves a local joint-density correction. After wU=z, the Gaussian-tail multiplier has first coefficient −z/2−z²−1/2; integrating against Gamma(β,1) gives −κ(β+1). Split at z=w/2 and bound the Taylor error by an integrable polynomial times w^(−2), with the rest exponentially small. The exact quantile nS(b_n)=1 therefore gives nS(b_n+x)=e^(−x)[1−κx/b_n+O(b_n^(−2))]. Expanding the exact winner density then gives the recorded joint coefficient and compact-uniform remainder. As a separate sign check the logarithm of the four-point density ratio is exactly −(x1−x2)[(1−v1/b_n)^(−1)−(1−v2/b_n)^(−1)] when all four points are in the support. The limiting density has unit mass, giving total-variation convergence by Scheffé. The supplied finite checks concern the frozen one-cycle identities and tail; no uploaded scripts were used to establish the new expansion.
 
-```
-python -m pip install -r requirements.txt
-python verify.py
-```
+## originality
 
-The executed version reported `PASS: 88 deterministic numerical checks`. It checks multiple reset-to-relaxation ratios; mixture density against Tricomi \(U\), conditional Gaussian exponential integrability and mean identities, normalized energy-tail convergence, and the first conditional-age moment. The numerical tail check uses a scaled complementary-error-function transformation to control underflow. This script does not provide a formal proof of the limits.
+PASS
 
-## Independent mathematical checks
+For the repaired claim only: the compact-uniform inverse-logarithmic correction to the joint law in exact-quantile coordinates, including its mixed term, was not found or obtained by direct substitution into the inspected sources. The frozen marginal, leading tail and critical moment are materially covered; the leading selection mechanism is related to known contraction proofs and the shared-age gas. They are background or corollaries in the repair, not separate novelty claims.
 
-The identity \(U=e^{-2\mu T}\sim\operatorname{Beta}(r/(2\mu),1)\) follows by direct change of variables from the exponential waiting time. The integral bound \(\operatorname{erfc}(\sqrt y)\le e^{-y}/\sqrt{\pi y}\) yields a parameter-dependent but integrable \(v^{\beta-1}e^{-v}\) majorant for the tail and marked-age asymptotics. The marked limiting intensity factorizes into the standard Gumbel intensity and a unit-rate Gamma mark, establishing independence of the two coordinates. The largest waiting time is order \(\log n\), while the maximizing-energy waiting time is order \(\log\log n\).
+## value
 
-## Unproved limits and scope
+PASS
 
-No quantitative finite-\(n\) error estimate, finite-duration reset protocol, physical erasure-work law, multi-particle extension, non-Poisson waiting-time theorem or independent priority audit is claimed.
+Asymptotic independence alone conceals how the energy level biases the age at a finite cycle count. The repaired density identifies both the order and nonzero coefficient of that bias, with a ratio that cancels all separate marginal adjustments. This is a quantitative distinction in a natural reset extremum, rather than a recalculation of the known stationary marginal or its moment boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

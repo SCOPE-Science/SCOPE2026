@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:35.327442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sorted absolute magnitudes a_k, the signed top-k indicators give x=sum_k (a_k−a_{k+1})s_k, with the same nonnegative coefficients giving the norm as sum_k (a_k−a_{k+1})W_k. Triangle inequality reduces the supremum exactly to these indicators (ties and zero coefficients are harmless). On a proper support of k coordinates with q runs, b internal sign changes give b twos and 2q ones, so the numerator is W_b+W_{b+2q}; b<=k−q and k+q<=n. Increasing q in W_{k−q}+W_{k+q} changes it by w_{k+q+1}−w_{k−q}<=0 wherever both spreads are feasible. A single alternating run attains the q=1 value. Full supports have even sign-flip count and attain n for even n or n−1 for odd n. This covers n=2, where the two directed differences count the same pair in opposite directions. In odd dimensions each proper-support gap from 2 is (w_k−w_{k+1})/W_k and the full-support gap is 2w_n/W_n. For alpha=1/p, derivative of (1−t)^alpha+(1+t)^alpha is negative on (0,1); k=n−1 therefore maximizes the proper branch. AM–GM beats the full branch since the difference 1−1/(n−1)^2−((n−1)/n)^2 has numerator 2n²(n−3)+4n−1 over n²(n−1)^2, positive for n>=3. Its even Taylor expansion gives defect alpha(1−alpha)/(n−1)^2 plus order (n−1)^−4. Inspected checker.py and its recorded stdout (check_output.txt line 40); the 39 finite cases are not a proof, and the submitted script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardy and adjoint-Hardy boundedness characterize weight classes. Exact matched projection results concern subtracting a mean or projecting onto a sum-zero hyperplane; they do use signed-support reductions."
+        ],
+        "reasoning": "General rearrangement inequalities and projection formulas do not classify the periodic cyclic edge magnitudes of ternary vectors. The checked settings do not supply the claimed operator norm as a corollary.",
+        "searches": [
+          "Discrete Lorentz weights and Hardy theory DOI 10.3390/fractalfract7030261; Resultary  bd24048c5750 and df1193bbd676"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/fractalfract7030261 (relevant passages); DOI 10.7153/oam-2018-12-52, DOI 10.1155/2014/545346, EuDML 121164 (limited access)",
+        "Resultary bd24048c5750, df1193bbd676, 35ccd6202b47, 7b9dc805ac8c, 675f2db6849b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circle rearrangement controls a restricted Fourier inequality; signed-support testing yields exact formulas for a different projection; antiperiodic shifts have a numerical-radius gap on ordinary ℓp."
+        ],
+        "reasoning": "One must still optimize simultaneously over proper support runs and full-cycle parity for this norm. Those checked statements neither imply the two-branch formula nor its iff strictness test.",
+        "searches": [
+          "Resultary 35ccd6202b47 Finding/Proof §2, bd24048c5750 Finding/Proof §§1–3, 7b9dc805ac8c Finding/Scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal–Rabie–Saker pp. 5–7 use rearranged Lorentz gauges and a forward difference on the positive integers. Resultary 35ccd6202b47 uses a first cyclic difference but an ℓ1-to-energy-ℓ2 inequality restricted to mean-zero inputs."
+        ],
+        "reasoning": "Neither is the induced norm of the finite periodic operator I−S measured in the same Lorentz gauge on each side. W_k=k^(1/p) does not turn this gauge into ordinary ℓp.",
+        "searches": [
+          "Resultary finite Lorentz cyclic difference induced norm, real cyclic parity, signed cyclic shift",
+          "DOI 10.3390/fractalfract7030261; DOI 10.7153/oam-2018-12-52"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant hits bd24048c5750, df1193bbd676, 35ccd6202b47, 7b9dc805ac8c and 675f2db6849b concern projections, Fourier–Sobolev inequalities, numerical radius, or a complex quotient completion norm."
+        ],
+        "reasoning": "No inspected matched result lists this invariant. The same-day df1193bbd676 is distinct regardless of its within-day ordering.",
+        "searches": [
+          "Resultary exact norm weighted Lorentz difference odd cycle; finite cyclic real–complex norms; signed cyclic shifts"
+        ]
+      },
+      "rationale": "The exact finite real cyclic norm and strictness law for arbitrary decreasing positive Lorentz weights, and the resulting closed power-weight specialization, are distinct from the retrieved exact neighboring claims. Standard rearrangement and signed-layer methods are not new contributions. This is a bounded assessment, not a priority certification.",
+      "residual_risks": [
+        "Three plausible cited papers could not be inspected at statement level despite alternative retrieval attempts; unknown equivalent formulations cannot be excluded. A low-signal primary search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rearrangement and Hardy background; no equivalent formula in checked passages",
+          "evidence": [
+            "Top-set rearrangement bound and forward difference on the positive integer index set."
+          ],
+          "identifier_or_url": "doi:10.3390/fractalfract7030261",
+          "material_read": "Abstract and pp. 5–7; extracted offsets 30171, 34286, 37656",
+          "method": "OA publisher PDF",
+          "title": "On Discrete Weighted Lorentz Spaces and Equivalent Relations between Discrete ℓp-Classes",
+          "trigger": "Same weighted discrete Lorentz framework"
+        },
+        {
+          "assessment": "Full mathematical scope unverified; not negative evidence",
+          "evidence": [
+            "Identified publisher resource oam.ele-math.com/12-52; EMIS request returned 403."
+          ],
+          "identifier_or_url": "doi:10.7153/oam-2018-12-52",
+          "material_read": "Crossref bibliographic record only",
+          "method": "Publisher resource and lawful EMIS PDF attempts unsuccessful",
+          "title": "The norm of backward difference operator Δ^(n) on certain sequence spaces",
+          "trigger": "Closest cited difference-operator norm title"
+        },
+        {
+          "assessment": "Unresolved access",
+          "evidence": [
+            "Both retrieved routes returned 403; compatible with neither a coverage nor a non-coverage conclusion."
+          ],
+          "identifier_or_url": "doi:10.1155/2014/545346",
+          "material_read": "Bibliographic identification; no primary-text passage",
+          "method": "DOI/publisher and Hindawi PDF OA routes attempted",
+          "title": "On Vector-Valued Generalized Lorentz Difference Sequence Space",
+          "trigger": "Related Lorentz difference title"
+        },
+        {
+          "assessment": "Exact operator list unverified",
+          "evidence": [
+            "EuDML timed out and the identified EMIS PDF returned 403."
+          ],
+          "identifier_or_url": "https://eudml.org/doc/121164",
+          "material_read": "Bibliographic identification only",
+          "method": "EuDML and EMIS routes attempted",
+          "title": "Norms of Certain Operators on Weighted ℓp Spaces and Lorentz Sequence Spaces",
+          "trigger": "Plausible weighted Lorentz operator-norm comparison"
+        },
+        {
+          "assessment": "Partial methodology, domain or geometry overlaps only",
+          "evidence": [
+            "The operators/norm pairs are not the target same-gauge induced norm of I−S."
+          ],
+          "identifier_or_url": "Resultary bd24048c5750; df1193bbd676; 35ccd6202b47; 7b9dc805ac8c",
+          "material_read": "Matched Findings, projection proof's signed top-k reduction, Fourier proof §2, signed-shift scope",
+          "method": "Local mirror",
+          "title": "Exact centering constants; A dimension-four ceiling for norm-one mean-zero projections; A sharp real–complex cyclic Fourier–Sobolev dichotomy; Antiperiodic cyclic shifts have a sharp numerical-radius gap",
+          "trigger": "Closest available exact statements with the same gauges or cyclic geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural discrete differentiation norm for a whole class of symmetric norms, identifying precisely when parity produces a strict gain over the triangle bound and giving a sharp asymptotic in a standard power family. The reduction to a single active run or a near-alternating odd cycle is structural, not a numeric coincidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:37:50.571069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let Σ=Q∞, C=Σ⁻¹ and S=e^{tB}. In the dual row integral for 1<p<∞, r=p/(p−1), the input precision after factoring r is M=SᵀQ_t⁻¹S+C/p. Completion of squares (Schur complement) gives (Q_t+pSΣSᵀ)⁻¹ for the spatial precision, and Sylvester's determinant identity gives det M=p⁻ᵈ det(Q_t+pSΣSᵀ)/(det Q_t det Σ)=det(Σ−Q_t/r)/(det Q_t det Σ). This gives N_p and the asserted profile. The p=1 row supremum is joint Gaussian minimization with p=1 in the spatial precision; Q_t+SΣSᵀ=Σ, and the unique maximizing input point has measure zero. Concentration at x=u=0 yields sharpness at p=1. For all finite p the outputs admit continuous representatives (local dominated convergence) and vanish at spatial infinity by the uniform Gaussian row bound, so the essential supremum agrees with the pointwise maximum for a nonzero extremizing output. The strict row maximum at x=0 and dual equality give precisely the Gaussian extremizers for p>1 and no nonzero p=1 extremizer. Removing e^{t tr B}, expand the kernel with Q_t=Σ−SΣSᵀ in a fixed small ball in S. Keep the exact factor e^{−uᵀCu/2} in every derivative: derivatives through order two are bounded by a polynomial times a Gaussian in Su−x times this factor. For finite dual r its r-th power against μ leaves the strictly decaying e^{−(r−1)uᵀCu/2}, and for p=1 the joint supremum suffices. Taylor gives the stated quadratic operator remainder and the derivative xᵀCSu times the rank-one kernel. In y=Σ⁻¹/²x coordinates, its dual-row norm is C_p β_p/sqrt(r−1) times e^{−|y|²/2}|Aᵀy|, A=Σ⁻¹/² S Σ¹/². A top singular direction at |y|=1 yields e⁻¹/²||A||₂; at p=1 the additional whitened input maximum gives another e⁻¹/². Reverse triangle inequality proves the asymptotic, not a finite-time identity for the defect. The exact norm also gives the stated two time limits from Q_t∼tQ and Q_t→Σ. CHECK.py was inspected, not executed; its finite anisotropic determinant and one-dimensional quadrature checks are not universal proof evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2611.06826v1 Proposition 5.2 proves boundedness with the same c_p(t) as for Lebesgue Lp; Remark 5.4 gives its large-time e^{t tr B/p} rate.",
+          "The 2025 nonsymmetric inverse-Gaussian paper's abstract concerns maximal-operator Lp boundedness and weak type (1,1), rather than a normalized fixed-time defect."
+        ],
+        "reasoning": "The prior problem already has the full stable, nonsymmetric positive-diffusion setting, but its estimate is weaker for p>1. A maximal estimate or a spectral description in L² is not the sharp first-order Lp→L∞ defect. The HLS hit supplied no passage adequate to infer broader coverage.",
+        "searches": [
+          "Spectral and mapping properties of the inverse Ornstein–Uhlenbeck operator Proposition 5.2 ultracontractive inverse Gaussian norm Casarino Sjögren 2611.06826",
+          "doi:10.1007/s11118-025-10233-0",
+          "doi:10.1007/s00208-020-02090-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and CHECK.py",
+        "arXiv:2611.06826v1 Proposition 5.2 and Remark 5.4",
+        "doi:10.1007/s11118-025-10233-0 (abstract)",
+        "Caltech 17690 (abstract)",
+        "Resultary 033aa5da41e3, 2d530e589157, 3c7ebe9424c1 and 548a8b6ba9a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dividing the proved weighted norm by (5.1) gives [det(Σ−Q_t)/det(Σ−Q_t/r)]^{1/(2r)}, strictly below 1 for p>1 since Q_t>0 and r>1. At p=1 the constants coincide.",
+          "Remark 5.4 gives time asymptotics of the inherited bound, whereas the frozen proof controls the first variation in S in the uniform dual-row norm."
+        ],
+        "reasoning": "The older bound cannot be read as the weighted exact norm or its large-time exponent for p>1. Its kernel does make the sharp row norm accessible by Gaussian integration; the proof of the rank-one first-order norm law additionally needs a uniform remainder and sharp maximization over the covariance-normalized directions.",
+        "searches": [
+          "arXiv:2611.06826v1 Proposition 5.2 and Remark 5.4",
+          "Frozen RESULT.md lines 85–106 and 114–118"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.2 uses exactly the same inverse Mehler integral in (5.2). Part (1) applies its row calculation with respect to Lebesgue measure, and part (2) transfers the constant via ||f||_{Lp(du)}≤||f||_{Lp(γ_{−∞})}.",
+          "Deutsch's thesis abstract describes exact operator norms for a Mehler kernel but does not locate this weighted-domain norm."
+        ],
+        "reasoning": "Conjugating the measure to Lebesgue Lp multiplies the input kernel by e^{−uᵀCu/(2p)}, changing its precision. The unweighted norm is not equivalent to that weighted row computation. A general Gaussian kernel norm theorem may imply parts of the formula, but its hypotheses and conclusion could not be identified from the thesis abstract.",
+        "searches": [
+          "Resultary: inverse-Gaussian ultracontractivity, weighted Mehler row norm and extremizers",
+          "arXiv:2611.06826v1 Proposition 5.2, Eqs. (5.1)–(5.2)",
+          "Leslie Joseph Deutsch, Caltech thesis record 17690"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top-ranked match 033aa5da41e3 is the frozen finding itself. The same-day 2d530e589157 concerns Gaussian-L² approximation for mixtures of one-dimensional Mehler operators. Two closely ranked items give Schatten results for inverse OU operators."
+        ],
+        "reasoning": "The self-match does not establish earlier coverage. The comparator summaries address different operator norms, quantities or time regimes; none supplies the exact weighted row or claimed rank-one defect coefficient.",
+        "searches": [
+          "Resultary: exact inverse Gaussian Lp to L∞ norm; covariance-normalized inverse OU rank-one norm defect",
+          "033aa5da41e3",
+          "2d530e589157",
+          "3c7ebe9424c1",
+          "548a8b6ba9a1"
+        ]
+      },
+      "rationale": "The same semigroup and an ultracontractive upper bound are prior, and the exact p=1 operator norm equals that bound. The distinct supported content is the sharper finite-p weighted norm for p>1, the spatial and extremizer information, and the leading anisotropic operator-norm defect after normalization. The comparison does not assert priority for Gaussian integration, for ultracontractivity itself, or for every special case of Mehler norm calculations.",
+      "residual_risks": [
+        "Deutsch's thesis could not be compared theorem by theorem. There may be classical or differently indexed equivalent Gaussian-kernel formulas, especially for special cases of the norm.",
+        "The comparison with nearby catalogue entries is limited to available statements, and the generalized hypoelliptic HLS result was not checked in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel and an inherited weighted bound, not the sharper p>1 norm or the defect formula",
+          "evidence": [
+            "Proposition 5.2(2) proof uses Lp embedding into Lebesgue measure; Remark 5.4 states e^{t tr B/p} decay for c_p(t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06826v1",
+          "material_read": "Abstract, §1 setting, §5 Proposition 5.2, (5.1)–(5.2), Corollary 5.3 and Remark 5.4",
+          "method": "Bounded original arXiv HTML passage inspection after OA passage retrieval timed out; alternate lawful mirror matched §5",
+          "title": "Spectral and mapping properties of the inverse Ornstein–Uhlenbeck operator",
+          "trigger": "Exact same operator, measure and ultracontractivity"
+        },
+        {
+          "assessment": "A different mapping problem; no full-text exclusion claimed",
+          "evidence": [
+            "The abstract treats the maximal operator and gives weak type (1,1) and Lp boundedness for p>1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11118-025-10233-0",
+          "material_read": "Original-paper p. 1 abstract",
+          "method": "Open primary abstract comparison",
+          "title": "Boundedness Properties of the Maximal Operator in a Nonsymmetric Inverse Gaussian Setting",
+          "trigger": "Earlier inverse-Gaussian mapping result in related setting"
+        },
+        {
+          "assessment": "Open priority risk for special cases or a more general Gaussian norm theorem",
+          "evidence": [
+            "The abstract reports calculating Mehler-kernel operator norms but does not give these domain and target measures or the covariance-normalized expansion."
+          ],
+          "identifier_or_url": "https://thesis.caltech.edu/17690/",
+          "material_read": "Caltech record and official abstract; theorem text inaccessible",
+          "method": "Institutional repository and attempted lawful passage retrieval",
+          "title": "Sharp Bounds for the Operator Norm of the Mehler Kernel Operator",
+          "trigger": "Historically plausible equivalent Gaussian-kernel norm result"
+        },
+        {
+          "assessment": "Distinct neighboring problems, no independent exact match",
+          "evidence": [
+            "The related summaries use Gaussian-L² variation or Schatten norms, not the claimed mixed operator norm and its first-order coefficient."
+          ],
+          "identifier_or_url": "033aa5da41e3; 2d530e589157; 3c7ebe9424c1; 548a8b6ba9a1",
+          "material_read": "Ranked published statements and complete frozen self-match",
+          "method": "Resultary, with mirror passage retrieval attempted",
+          "title": "Resultary inverse OU and Mehler operator findings",
+          "trigger": "Exact and neighboring prior-coverage lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp weighted norm and extremizers resolve a natural precision gap in the semigroup's mapping theory. The difference between the inherited upper-bound decay and the sharp decay for p>1 matters over long times. After scalar normalization, the first-order norm defect measures actual anisotropic slow directions, and can distinguish nonnormal or Jordan-block behavior not encoded by the trace or mere existence of a rank-one limit. These quantitative facts are useful without asserting full spectral classification or the p=∞ endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

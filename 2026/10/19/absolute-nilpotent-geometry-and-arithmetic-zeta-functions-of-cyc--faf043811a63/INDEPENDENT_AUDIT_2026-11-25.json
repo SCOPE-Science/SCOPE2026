@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:43:39.132250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Step two on the index cycle has gcd(n,2) orbits of length n/gcd(n,2). The relation u_{i+2}=−u_i for u_i=x_i² forces origin in odd characteristic on odd-length orbits, and in characteristic two gives one free coordinate per orbit after reduction. When 4 divides n in odd characteristic, each parity is a cone of L=2^(n/2−1) distinct root-choice lines, normalized by its first coordinate; distinct lines intersect only at zero. Their Cartesian products are precisely the L² geometric components. A coefficient at the next position is ±sqrt(−1), so each nonsplit plane has quadratic field of definition, and over an odd-degree nonsplit extension any nonzero initial parity coordinate is impossible. Over a split extension of size Q each parity has 1+L(Q−1) points. Expanding the square gives L²Q²−2L(L−1)Q+(L−1)²; in the nonsplit base case its contribution is restricted to even degrees, with odd degrees giving 1. Formal summation using ∑T^r/r=−log(1−T) gives both quoted zeta formulas, including the factors at T=±1. The proof is for the reduced fiber, not radicality of the quadratic ideal. Independent bounded replay: /workspace/branches/independent_replay.py, cycle(), uses a neighbor-square compatibility matrix and checks 132 counts for n=3,…,24 over six fields including F9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elduque–Labra Theorem 3.4, p. 6, equates algebra-wide nilpotency with the absence of oriented cycles in the natural-basis digraph.",
+          "Khudoyberdiyev–Omirov–Qaralleh Proposition 4.1, p. 6, states complex existence of a nontrivial absolute nilpotent iff det A=0."
+        ],
+        "reasoning": "The first theorem concerns a different property. The second does imply the complex existence boundary 4|n via the adjacency kernel; it does not measure the inverse image under coordinate squaring or its finite-field descent.",
+        "searches": [
+          "Elduque–Labra arXiv:1312.4685 literal ‘Theorem 3.4’",
+          "Literature: ‘Few Remarks on Evolution Algebras’ Proposition 4.1 absolute nilpotent singular structure matrix PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.0993",
+        "arXiv:1312.4685",
+        "Ceballos DOI 10.1002/mma.70534 and Zenodo 20108807 (access attempts)",
+        "Resultary 555bc289f00b",
+        "Resultary 6198264ecb2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected complex determinant criterion establishes existence but not the number or splitting of geometric components or counts over nonsplit extensions.",
+          "Without relying on the unverified scope of Ceballos, (e_1+i e_3)²=0 and Ann(E_4(C))=0 directly for this multiplication. DOI/publisher and the identified Zenodo copy did not yield a readable Proposition 2."
+        ],
+        "reasoning": "A determinant-zero criterion does not constrain the square-class conditions. An annihilator inclusion covering all of the undirected C4 algebra over C would conflict with the direct example; whether the actual proposition makes such a claim under hypotheses met by this algebra remains unverified. This missing source does not decide the arithmetic claim.",
+        "searches": [
+          "Resultary: Ceballos S-graphicable algebras Proposition 2 absolute nilpotent annihilator complex four-cycle counterexample",
+          "Literature: ‘S-Graphicable Algebras and Specific Graph Families’ Ceballos 70534 pdf preprint repository",
+          "Khudoyberdiyev–Omirov–Qaralleh arXiv:1307.0993 Proposition 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6198264ecb2e RESULT.md offsets 0–2023 explicitly distinguishes L_x∘L_x=0 from x²=0 and treats the former, including a rank law on cycles."
+        ],
+        "reasoning": "The element equation says L_x(x)=0, not that all iterated products by x vanish. The operator's independent-support counts do not give zero-square element geometry; for example e_1 is supported on an independent set but e_1² is nonzero.",
+        "searches": [
+          "Resultary: undirected cycle evolution algebra square-zero absolute nilpotent reduced components finite-field point counts zeta splitting four-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 555bc289f00b Finding, offsets 0–2067, gives finite-field counts and components for complete multipartite graph evolution algebras, dated 2026-11-02; its K_{2,2} case matches the audited C4 in odd characteristic.",
+          "Operator-rank result 6198264ecb2e instead counts a different locus. No exact all-length count or zeta match was verified in the checked catalogue."
+        ],
+        "reasoning": "The complete multipartite formula really overlaps at C4, and at C3=K3 in odd characteristic, but does not cover longer cycles and is later. In particular C4 has two parity cones of dimension one and the count (1+2(Q−1))² when split, and 1 when nonsplit, exactly as its K_{2,2} instance gives.",
+        "searches": [
+          "Resultary: cycle graph evolution algebra 2^(n-2) components square zero locus Hasse–Weil zeta (1+2^(n/2-1)(q-1))^2 undirected finite field"
+        ]
+      },
+      "rationale": "Credit prior complex-field existence and the standard graph/algebra dictionary. The supported distinct finding is the all-cycle reduced component classification together with finite-field splitting, extension counts and zeta; no inspected prior theorem covers that package. The historical attribution concerning Ceballos Proposition 2 could not be independently verified and is not needed for this acceptance or used as novelty evidence.",
+      "residual_risks": [
+        "The exact Ceballos proposition and S-graphicable hypotheses remain unread. An unindexed classification of coordinate-square pullbacks could subsume the formulas; the bounded searches do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the complex existence boundary only",
+          "evidence": "A complex evolution algebra has nontrivial absolute nilpotents iff det A=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0993",
+          "material_read": "Proposition 4.1, p. 6, offset 25700 around locator 26012",
+          "method": "Bounded arXiv PDF full-text passage",
+          "title": "Few Remarks on Evolution Algebras",
+          "trigger": "Criterion for nonzero absolute nilpotents"
+        },
+        {
+          "assessment": "Whole-algebra nilpotency, not the element fiber",
+          "evidence": "Nil, no oriented cycle in Γ, upper triangular structural constants after reordering, and nilpotent are equivalent.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4685",
+          "material_read": "Theorem 3.4 and preceding remark, p. 6, at offset 15684",
+          "method": "Bounded arXiv PDF full-text passage",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Foundational graph nilpotency theorem"
+        },
+        {
+          "assessment": "Unverified scope, no whole-paper assessment",
+          "evidence": "Publisher/DOI attempts returned access errors; repository file route did not yield readable full text.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.70534; https://zenodo.org/records/20108807",
+          "material_read": "Search metadata only; no readable statement or proof after trying DOI, publisher PDF, and identified repository PDF",
+          "method": "Lawful source retrieval attempts and repository lookup",
+          "title": "S-Graphicable Algebras and Specific Graph Families",
+          "trigger": "Reported Proposition 2 on absolute nilpotents and the annihilator"
+        },
+        {
+          "assessment": "Intersecting graph families at n=3,4 in odd characteristic; later than the finding",
+          "evidence": "Product of quadratic cones and square-character counts for complete multipartite graphs; no longer C_n occurs in this family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-field-square-zero-geometry-of-complete-multipartite-evolu--555bc289f00b",
+          "material_read": "RESULT.md Finding, offsets 0–2067",
+          "method": "Bounded local-mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Finite-field square-zero geometry of complete multipartite evolution algebras",
+          "trigger": "Closest alternate natural family with identical element equation"
+        },
+        {
+          "assessment": "Different equation",
+          "evidence": "Explicitly uses operator composition L_x², with counts by support and rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-square-zero-multiplication-operators-in-graph-evolution-algebras--6198264ecb2e",
+          "material_read": "RESULT.md Finding, offsets 0–2023",
+          "method": "Bounded local-mirror passage",
+          "title": "Square-zero multiplication operators in graph evolution algebras",
+          "trigger": "Same graph family and square-zero terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the standard undirected cycle family, the zero-square fiber is a natural algebraic invariant. The complete arithmetic law quantifies a qualitative effect that geometric existence alone misses: exponentially many two-planes and yet no nonzero point until a quadratic extension. The formulas are a concrete finite-field benchmark and make the characteristic-two, split, and nonsplit behavior explicit without asserting a general graph result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

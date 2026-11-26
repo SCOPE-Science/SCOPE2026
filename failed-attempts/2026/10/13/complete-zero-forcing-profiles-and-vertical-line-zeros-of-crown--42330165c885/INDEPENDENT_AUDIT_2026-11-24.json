@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:50.125075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A side with at least three white vertices cannot have a first force into that side, and equal white two-sets prevent any first force. If a side has two whites, a blue vertex with index in that two-set but not in the opposite white set can force, reducing the count. For two singleton white sets an index outside their union is available since n≥3. Counting by number omitted gives the five stated coefficients; each white singleton has at least two two-set extensions, so every feasible pair extends to distinct white two-sets, proving equicardinality. Centering at x=−n/2 gives the stated biquadratic with squared roots −n(n−2)/4 ± √(n(n−1)/2). They are distinct and nonzero; the larger is negative for n≥5 (n(n−2)^2−8(n−1)>0 at n=5 and increasing), and positive at n=3,4. Positive quartic coefficients exclude nonnegative real roots. The constant term of the quartic is positive, so the zero multiplicity is exactly 2n−4. The supplied verification_output.txt is consistent with the proof; its subset and shift tests are finite, and the uploaded code was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. give the complete multipartite polynomial; Grood et al. prove well-forcedness for complete multipartite graphs. Jacob studies deletion of a matching from a complete graph, not the balanced complete bipartite graph. The indexed record gives minimal forts in addition to the crown classification."
+        ],
+        "reasoning": "The crown is not complete multipartite for n≥3, and the deleted-matching result for complete graphs does not specialize to it. The distinct indexed result, by contrast, explicitly handles the crown and supplies a stronger structural description on the same domain.",
+        "searches": [
+          "arXiv:1801.08910v1 Proposition 4",
+          "arXiv:2309.06234v1 Proposition 13",
+          "arXiv:2312.14298v1 Proposition 3.2",
+          "Indexed crown minimal-forts record, Finding and §2"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary record 44226e489656",
+        "Boyer et al. arXiv:1801.08910v1",
+        "Jacob arXiv:2309.06234v1",
+        "Grood et al. arXiv:2312.14298v1",
+        "Frozen RESULT.md and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed polynomial, after removing z^(2n−4) and shifting z=y−n/2, has only even powers of y. Solving its quadratic in y² gives the squared roots stated in this review. The indexed profile directly allows completing each feasible pair to distinct two-sets."
+        ],
+        "reasoning": "The root description and the inclusion-minimal-set consequence need not be stated verbatim to follow mechanically. They do not provide a separate substantive remainder after accounting for the indexed coverage.",
+        "searches": [
+          "Indexed crown minimal-forts record, Finding and §2, compared with frozen RESULT.md equations (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed record 2026/11/2/SCOPE-minimal-forts-complete-zero-forcing-polynomial-and-fractional-ga--44226e489656, Finding and proof §2: |A|,|B|≤2 and |A∩B|≤1."
+        ],
+        "reasoning": "For two sets each of size at most two, intersection of size two is exactly equality of the two two-sets, the only extra excluded profile here. Both statements concern ordinary zero forcing on the same labeled graph family.",
+        "searches": [
+          "Resultary: crown graph standard zero forcing, white-index profiles, full polynomial, and vertical-line zeros",
+          "Literature: \"zero forcing polynomial\" crown graph \"K_{n,n}\" matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record gives Σ_{0≤a,b≤2} binom(n,a) binom(n,b) z^(2n−a−b) − binom(n,2) z^(2n−4)."
+        ],
+        "reasoning": "Collecting terms by a+b gives exactly the frozen polynomial, including the corrected lowest coefficient; this is a match for the whole enumerator, not merely the minimum size, small-order values, or a table of unlabeled instances.",
+        "searches": [
+          "Resultary: crown graph standard zero forcing and complete zero-forcing polynomial",
+          "arXiv:1801.08910v1 Proposition 4"
+        ]
+      },
+      "rationale": "A distinct indexed crown-graph result already supplies the same white-set classification and the same polynomial for all n≥3. Equicardinality follows directly from that classification, and the unstated root geometry follows from an elementary shift and quadratic solution of that explicit polynomial. This is demonstrable coverage in the current corpus, not evidence that the indexed November record had priority over the frozen October record.",
+      "residual_risks": [
+        "The date labels alone do not establish priority or derivation. The inspected sources do not settle whether the explicit root geometry appeared elsewhere before either record; this does not undo the exact indexed overlap or its algebraic implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of profiles and all-set polynomial; roots not explicit in the inspected claim",
+          "evidence": [
+            "|A|,|B|≤2, |A∩B|≤1 and the displayed double sum with subtraction of binom(n,2) z^(2n−4)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-minimal-forts-complete-zero-forcing-polynomial-and-fractional-ga--44226e489656",
+          "material_read": "RESULT.md Finding and proof §2, offsets 0 and 6434, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror full-statement and proof inspection",
+          "title": "Minimal forts, complete zero-forcing polynomial, and fractional gap for crown graphs",
+          "trigger": "Exact object and enumerator in the strongest Resultary match"
+        },
+        {
+          "assessment": "Different graph hypothesis",
+          "evidence": [
+            "Complete multipartite graphs with all parts of size at least two"
+          ],
+          "identifier_or_url": "arXiv:1801.08910v1",
+          "material_read": "Proposition 4, PDF p. 5, offset 16000",
+          "method": "OA primary PDF",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Complete bipartite polynomial"
+        },
+        {
+          "assessment": "Different host graph and invariant",
+          "evidence": [
+            "K_n minus a matching, not K_{n,n} minus a perfect matching"
+          ],
+          "identifier_or_url": "arXiv:2309.06234v1",
+          "material_read": "Proposition 13 and proof, PDF pp. 6–7, offset 14611",
+          "method": "OA primary PDF",
+          "title": "The zero forcing span of a graph",
+          "trigger": "A matching-deletion family"
+        },
+        {
+          "assessment": "Does not give crown equicardinality by specialization",
+          "evidence": [
+            "The proposition concerns complete multipartite graphs"
+          ],
+          "identifier_or_url": "arXiv:2312.14298v1",
+          "material_read": "Proposition 3.2, PDF p. 11, offset 37347",
+          "method": "OA primary PDF",
+          "title": "Well-forced graphs",
+          "trigger": "Possible implication of equicardinality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full crown enumerator and its profile would be a motivated exact invariant on their own, but they are already available in the indexed record. What remains is solving the explicit centered biquadratic and spelling out a direct consequence of the profile; no independently useful unprovided structural result survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

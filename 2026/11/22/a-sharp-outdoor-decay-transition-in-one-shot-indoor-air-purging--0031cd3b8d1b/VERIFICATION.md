@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The independent audit channel has not been performed. Analytic proof and parameter scope are in `RESULT.md`, with scientific review and qualified originality assessment in `REVIEW.md`. For numerical reproduction, run from this directory:
+## correctness
 
-```sh
-python3 check.py
-```
+PASS
 
-The program requires Python 3 only. It integrates the piecewise scalar mass-balance solution independently of the closed saving formula, tests existence and uniqueness of the beneficial optimum over many parameters, checks strict interior placement, rate and horizon asymptotics, the exact equal-rate identity, and onset expansions. It printed `PASS 108524 numerical assertions` in the reported check. Finite numerical tests are not a proof of the universal quantifiers; the exact proof is algebraic, analytic and asymptotic. The computations do not establish physical model adequacy, historical novelty or independent mathematical validation.
+The jump changes the subsequent trajectory by −ηuD(τ)exp(−a(t−τ)); integrating gives the stated product. D rises strictly from −x to 1 and is strictly concave. For T≤t_0 no positive saving is possible (a terminal purge ties no purge); for T>t_0 the positive product is strictly log-concave between its zeros. At T/2 its logarithmic derivative is positive if that point is already in the beneficial interval. The implicit derivative is A/(A−(log D)″), where A=a²exp(a(T−τ))/(exp(a(T−τ))−1)²>0. At onset the stationarity equation is 1/y−1/(ε−y)+O(1)=0, which gives y=ε/2+O(ε²) and the stated quadratic savings. The midpoint test forces both optimal lead and lag to diverge; balancing the two marginal exponential tails then gives the constant timing offset and residual coefficient. Equal rates give an exact geometric balance. For fixed T, the objective converges uniformly on [0,T] as x↓0 to the symmetric objective with unique maximizer T/2, justifying the iterated limits. Independent bisection recovers the three illustrative timings. The supplied verification was inspected but not executed.
+
+## originality
+
+PASS
+
+The standard mass balance, indoor–outdoor tradeoff, and pulse-benefit factorization are not credited as new. The supported distinct result is the exact scalar timing classification for a single fixed-fraction exchange against a decaying exterior, especially the rate-controlled change in optimal horizon fraction, its constant offset and the singular weak-exterior limit. The closest distinct comparisons have different state dynamics or different admissible controls and objectives.
+
+## value
+
+PASS
+
+The precise long-horizon split separates an exterior component that shifts the optimal time by order T from one that does not, even when the exterior amplitude is arbitrarily small and positive. Combined with the finite beneficial horizon and unique optimum, this is an interpretable benchmark beyond the log-concavity calculation alone. Its scope is a single instantaneous exchange, with no baseline infiltration, a fixed source and cumulative concentration as the objective; it does not establish a health or operational ventilation recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

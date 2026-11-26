@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:15:40.314925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constraints are local on windows of length m+2. Assign any initial m symbols and any golden-mean output; the recurrence determines x in both directions, giving exactly kappa^m lifts. More directly, a length-L word for L≥m is determined by its initial m symbols and a golden-mean word of length L-m, and all such choices extend by padding the output with zeros. Fibonacci growth gives log(phi). In the state graph (m-block, previous output), each advance rotates the coordinates and increments the coordinate scheduled in its time residue class mod m if the output is one. For any sufficiently large prescribed path length, choose the requisite residue increments with isolated ones in disjoint padded windows, after accounting for the final required output. This permits either previous-output symbol and works also at m=1, where alternating positions give spacing. Hence the presentation is primitive. For n dividing m every ambient n-periodic point has zero output. Otherwise the singleton-one input has forbidden residue -1 when kappa≥3; for kappa=2 demanding output ones at positions 0 and 1 prescribes two nonloop parity edges, consistent even if they coincide. At least one point is therefore excluded. Divisibility gives the least lag; inversion between fixed-point and primitive-orbit counts and the formal log and exponential give the two finite-cutoff equivalent descriptions. An independent bounded enumeration checked 108 period and residue-sum cases and strong connectivity plus a loop in all 18 presentations for kappa=2,3,4 and m=1,...,6; frozen CHECK.py and VERIFICATION.md were inspected, not run. No uniform-memory or all-family minimal delay is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang–Jäger handle aperiodic strictly ergodic lifts; MacDonald gives embedding conditions; the indexed theorem covers arbitrary periodic target words, including nonprimitive displayed periods."
+        ],
+        "reasoning": "The finite-to-one entropy step is standard. The embedding theorem does not assert a preimage equality or mixing for this code, and the general periodic-target theorem does not establish primitivity of the golden-mean extension.",
+        "searches": [
+          "arXiv:2609.01140v1 pp. 1–4",
+          "MacDonald DOI 10.1017/etds.2023.56 Theorem 1.1",
+          "2026/11/22 cyclic difference code RESULT.md Finding and cyclic decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py, VERIFICATION.md",
+        "Resultary ranked index and 2026/11/22 cyclic-difference result",
+        "arXiv:2609.01140v1",
+        "Mariot et al. author postprint",
+        "MacDonald Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set t=1 in the indexed F_y(t) formula and sum over n-periodic golden-mean outputs: this recovers the fixed-point counting expression used in the frozen support, with factor kappa^g on output words having zero cycle sums. LCM and zeta truncation are deductions once the equality criterion is obtained."
+        ],
+        "reasoning": "A general counting formula does not in itself state the all-or-strictly-fewer criterion combined with mixing and the fixed entropy for the whole family. The period algebra and routine cutoff deductions are not claimed as standalone new results.",
+        "searches": [
+          "2026/11/22 cyclic difference RESULT.md offset 197 onward",
+          "Mariot et al. §3 p. 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang–Jäger's h_{kappa,ell} is precisely the lag code on replacing ell by m+1. In cellular-automaton terms an n-fixed lift is a periodic preimage on the n-site ring."
+        ],
+        "reasoning": "Changing between preimage shift, extension and cellular-automaton language does not confer novelty on the code or the general periodic-preimage machinery. Strictly ergodic substitution lifts are not this mixing SFT.",
+        "searches": [
+          "Kang–Jäger arXiv:2609.01140v1, permutative difference lift",
+          "Mariot et al., Computing the periods of preimages in surjective cellular automata, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material hit 2026/11/22/SCOPE-arithmetic-period-inflation-and-jordan-totient-laws-for-cyclic-d--6bdfa6f0eaf5 gives an exact formula for periodic lifts and their periods, without specializing to the golden-mean SFT or stating the observation cutoff."
+        ],
+        "reasoning": "The exact indexed formula is material partial coverage, not a table of the complete frozen finding; its displayed date does not decide mathematical overlap or establish historical priority.",
+        "searches": [
+          "Resultary: lag-m modular golden-mean preimage and least-common-multiple finite-period cutoff"
+        ]
+      },
+      "rationale": "The modular difference code and general periodic-lift algorithms are already covered, and a distinct later indexed theorem explicitly covers the cycle-sum period calculation. Credit is limited to the joint mixing golden-mean construction of a fixed entropy gap with the sharp finite observation equivalence in this lag family. The sources compared do not establish that joint statement.",
+      "residual_risks": [
+        "Bounded inspections, not a proof of priority. A web lookup yielded no hits and is not negative evidence. Older group-extension or preimage-period work could contain an equivalent specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "identical construction mechanism, different base and conclusions",
+          "evidence": [
+            "Endpoint difference rule; strictly ergodic substitution examples including the Fibonacci subshift, not the golden-mean SFT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01140v1",
+          "material_read": "PDF pp. 1, 2 and 4 at offsets 0, 5400 and 17479, abstract, lift framework and exact rule",
+          "method": "OA PDF bounded passages",
+          "title": "On lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "identical lag code"
+        },
+        {
+          "assessment": "general algorithmic overlap, no mixing/entropy cutoff statement in passages read",
+          "evidence": [
+            "Periodic spatial targets, preimage periods and multiplicities, De Bruijn graph procedures."
+          ],
+          "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+          "material_read": "Author postprint pp. 1–2 and §3 p. 8, offsets 960–1615 and 24723",
+          "method": "OA author postprint bounded passages",
+          "title": "Computing the periods of preimages in surjective cellular automata",
+          "trigger": "period and count of lifts"
+        },
+        {
+          "assessment": "embedding result, not exact observation law",
+          "evidence": [
+            "Periodic-point conditions for an embedding rather than the selected lag-code preimage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/etds.2023.56",
+          "material_read": "Theorem 1.1, print p. 1610, PDF p. 2, offset 3923",
+          "method": "OA primary-text passage",
+          "title": "Encoding subshifts through sliding block codes",
+          "trigger": "periodic-point comparison under block codes"
+        },
+        {
+          "assessment": "strong exact coverage of counting ingredient, not of the entire theorem",
+          "evidence": [
+            "Arbitrary displayed target period; F_y(1)=kappa^g when the cycle sums vanish and zero otherwise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-arithmetic-period-inflation-and-jordan-totient-laws-for-cyclic-d--6bdfa6f0eaf5/RESULT.md",
+          "material_read": "Finding, assumptions, and proof of cycle compatibility, offsets 197–3997",
+          "method": "local mirror bounded read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arithmetic period inflation and Jordan-totient laws for cyclic difference codes",
+          "trigger": "exact indexed periodic-lift theorem for same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These explicit mixing SFTs can agree with full-shift periodic data to any prescribed finite order at a fixed positive entropy gap. The sharp LCM cost answers how large the delay must be within the same simple family rather than replacing the problem by arbitrary graph size. The result is a meaningful nonidentifiability example with a stated cost, not a claim about all SFTs at fixed memory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

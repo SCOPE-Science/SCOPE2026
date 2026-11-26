@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state map, connectivity, period-three activity dichotomy and local height bounds are proved with exact quantifiers. The general three-phase formula is rederived without mistaking finite tests for proof; its application to cyclic and twisted ladders uses an explicit 81-state transfer and an involution. Exact rational 45- and 36-dimensional characteristic determinants imply the two root-power counts. The irreducible-looking quartic has no real roots and two distinct root moduli; its complex dominant pair forces infinitely many signs, whereas rational root intervals bound the other growth factors. Both executable checkers completed: an exact symbolic sector computation and graph-level enumeration (including exhaustive chip-state enumeration on the six-vertex graphs).
+## correctness
 
-## Originality — PASS with historical-priority risk
-The closest available arbitrary-graph period-three chip-firing polynomial already implies the generic predecessor-weight formula used as an input: this is not presented as new. The prior prism/Möbius chip-firing result concerns primitive period two and gives a parity-based twist comparison; it does not determine primitive period-three root sums, sector factors or the non-parity sign reversal. The published three-color excitable-wave seam result uses another dynamical map and a zero-one successor predicate, not the chip-firing predecessor multiplicities. Searches for ladder period-three chip-firing twist counts, explicit factors and equivalent orbit comparisons found no dominating published statement, but unindexed or inaccessible equivalent work cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The two boundary closures are a canonical controlled graph perturbation already known to change period-two behavior. A complete period-three orbit census reveals a qualitatively different non-parity mechanism: an oscillating complex spectral sector yields infinitely many seam-sign changes, while the shared real sector dominates both populations. This is a structural, exact all-length result on natural graph families, not a routine finite substitution or tiny numerical increment.
+Summing updates gives a Laplacian kernel vector, so connectedness forces one common number of firings per vertex in three steps. Zero and three firings yield fixed states; one and two are interchanged by x↦5−x. This complement is valid throughout each orbit: each vertex has a waiting time with at most two chips, the next value is at most five, and any firing step cannot increase its own value. For frequency one, a vertex at its unique firing time has 3+u, and the two subsequent values are u+b_own and 3+u−a, with a its predecessor-phase count. Both are legal waiting values exactly for 0≤u<a, using a+b_own≤3. The local choices are independent, reconstruct each phase and height from the states, and force least period three. Hence the phase-weight sum is multiplied by 2/3, not by a spatial orbit factor. The 81 states are consecutive-rung pairs; in a twisted closure the terminal pair is the initial pair with both rows swapped, giving the predecessor weights across the seam at both ends. The row involution commutes with the transfer and fixes nine pair states, so the sectors have dimensions 45 and 36. Independent exact characteristic-polynomial computation matched the two displayed factorizations; traces add for the prism and subtract for the Möbius closure, regardless of Jordan blocks. A is strictly positive on the real axis since its remaining quadratic after subtracting (z²+z)² has negative discriminant. The two conjugate moduli are reciprocal, not both one, since otherwise A would be reciprocal. The dominant cosine has subsequences bounded away from zero on both sides whether its angle is rational or irrational in turns (indeed even n suffices, as the doubled angle is nontrivial). This gives sign reversals. For C the three rational brackets give distinct positive roots, Descartes excludes additional positive roots and C(−x)<0 for x≥0. Their product exceeds one so the remaining conjugate pair has modulus below one. The stated triangle bounds for A and for B=(z+1)^4−3z give radii below 4.8 and 3, so the C root above 4.88 uniquely dominates, giving the claimed growth and relative error bound.
 
-## Closest literature and limitations
-Jiang, Scully, and Zhang (2012, arXiv:1211.6786) supply graph chip-firing firing-pattern background. A published arbitrary-graph three-cycle phase polynomial supplies the general local enumeration. Related prism/Möbius period-two and Greenberg–Hastings period-three results concern distinct claims. The 81-dimensional transfer and its characteristic-factor computation are fully specified and reproducible, but no independent external review is claimed. Other periods, transients, basins and chip-mass refinements are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph-general phase count and activity complement are prior and are not credited as new. The exact sector factors for the weighted chip-firing transfer and their consequence for the signed response to twisting are distinct from the closest same-family chip-firing and excitable-wave results.
+
+## value
+
+PASS
+
+The exact counts distinguish two natural seam closures for the same local dynamics. Twisting leaves the dominant growth unchanged yet changes the counts in both directions infinitely often, including within one parity class; this shows precisely where the corresponding period-two parity intuition fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

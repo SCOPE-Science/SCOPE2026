@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a directory containing the extracted files. The program uses only the Python standard library; its deterministic stdout is supplied in `verification_output.txt`.
+## correctness
 
-The first independent check constructs every permitted full length-\(n\) edge for several small \((q,n)\), calculates the exact directed Matrix-Tree cofactor by fraction-free integer elimination, applies the BEST degree product, and compares against the closed form. The second check enumerates complete local outgoing-order permutations with a fixed initial root edge, traverses every permitted arc greedily, and accepts only complete closed Euler tours. It never invokes the reduced colored determinant and independently reproduces several counts.
+PASS
 
-The checks include \(q=2\) for \(2\le n\le10\), \(q=3\) for \(2\le n\le6\), \(q=4\) for \(2\le n\le4\), and \(q=5\) for \(n=2,3\) in the full determinant calculation, with exhaustive tour enumerations on smaller parameters. Larger parameter values are established by the analytical graph proof, **not** by extrapolation of computation.
+For m=n−1 and r=q−1 the exact overlap graph is balanced with degrees r, q, and 1 on weights 0,1,2. Zero appends lead to the root from every vertex, hence by balance every nonisolated vertex belongs to one strongly connected component. Each rotation class has a unique Euler edge sequence beginning at the labelled edge 0^m1, so the fixed-first-edge BEST count has no extra division. Each weight-two vertex's outgoing choice is forced and its zero path reaches a one-color vertex. On deleting the root row and column, elimination along these paths preserves the tree count: one-color index i can shift forward with its color unchanged or reflect to m−1−i in any of r colors. The operator on zero-sum colors is a triangular shift with diagonal q in each of q−2 directions; the constant-color block is the reflected index tree operator with weights 1 and r. Any reflected choice at i≥floor(m/2) traps the closed interval [m−1−i,i]; all assignments reflecting only at lower indices strictly progress to the root. Thus the remaining determinant is q^floor(m/2). This includes m=1, where colored self-loops must be subtracted and the index block determinant is 1. Combining the determinant and BEST gives the stated product. The number of distinct windows is n(q−1)+C(n,2)(q−1)² and a shorter period would repeat a window. Fresh depth-first enumeration by unused labelled windows independently matches 12, 432, 5184, 6912 at the four stated pairs; finite checks supplement the proof.
 
-The exact theorem is for nonbinary labelled alphabets and rotation equivalence alone. The binary check confirms consistency with established earlier results but is not offered as a new binary theorem. The relevant external literature comparison is in RESULT.md and REVIEW.md. Independent audit is not performed.
+## originality
+
+PASS
+
+On available evidence the distinct claim is the nonbinary all-span count, not existence or the binary specialization. The later, strongly overlapping ≤2 enumeration is explicitly related by the zero-loop factor; this near equivalence is not evidence that it preceded the frozen finding.
+
+## value
+
+PASS
+
+After known existence, the enumeration of every cycle in the first genuinely nonbinary low-shell family is a natural additional invariant. The uniform factorial and exponential factors distinguish labelled outgoing orders from the colored tree obstruction over all spans and alphabets; obtaining them requires a graph-specific evaluation, not just applying an existence theorem or a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

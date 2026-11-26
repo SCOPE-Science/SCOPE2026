@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:04.094789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, and proof lines 5–55",
+        "Frozen checker.py and VERIFICATION.md, inspected without execution"
+      ],
+      "rationale": "An independent finite-chain proof verifies the key separation step without any mixing or spatial independence assumption. Before collision the lifted separation D lies in {1,...,m-1}; the next change is B(Y)-B(X), has conditional mean zero by equal marginals, and can leave this interval only at 0 or m (both collision). If the pair chain had a closed irreducible class off the diagonal, D would be harmonic on that class and therefore constant by the maximum principle. Its first-coordinate projection contains every vertex since a supported advance is possible at every coordinate and the class is closed. Thus a constant positive separation d on that class forces every supported mask to agree at x and x+d for every x, i.e. d is a common nonzero period. A quotient with no such periods has no off-diagonal closed class and coalesces almost surely by finiteness. The period subgroup on the original n-cycle consists of the multiples of q=n/|H_mu|; the quotient masks are well-defined and inherit the same marginal. A new quotient period would lift to an original period not in H_mu, which is impossible. If q=1 synchronization on the quotient is immediate. Equivariance makes every original H_mu-coset map bijectively to an image coset under each composition. After all quotient paths coalesce in finite time almost surely, the original image is one full coset, with exactly one preimage from each original coset for each target. This proves both rank and equal deterministic cardinalities, including full-period and trivial-period cases. Full-support Bernoulli(p) bits on the quotient, repeated periodically, realize every divisor because a one-bit marker witnesses each nonzero shift when q>=2. All statements hold at n=2 and require iid maps in time and 0<p<1 as stipulated.",
+      "residual_risks": [
+        "The checker tests selected finite supports and ranks, not the complete space of grand couplings or all fiber sizes. The proof, not finite semigroup enumeration, establishes the universal claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer paper asks the underlying questions and its divisor constructions, including non-block examples, treat the all-entries-1/n transition matrix. The earlier arXiv chapter, Theorem 7, gives exactly the divisors for block-measure couplings of that complete uniform matrix and only inclusion in the unrestricted spectrum."
+        ],
+        "reasoning": "For n>2 the directed stay/advance transition matrix has zeros, unlike the complete uniform family. Their block restriction also differs from arbitrary admissible mask dependence. The n=2 uniform coincidence is one covered parameter, not the claimed family or arbitrary p.",
+        "searches": [
+          "Grimmett–Holmes, arXiv:2510.13572 §§3, 5–6, Theorems 5.5 and 6.1",
+          "Grimmett–Holmes, arXiv:1907.05605, Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.13572 §§3, 5–6",
+        "arXiv:1907.05605 Theorem 7",
+        "Resultary e1a5174e9077"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-uniform results provide existence for divisor ranks, not exclusion of all other unrestricted ranks; they do not identify an invariant of every admissible stay/advance support.",
+          "The decisive new deduction in the frozen proof is that closed off-diagonal pair classes project onto the whole cycle and hence force a common spatial period; quotienting by all periods removes them."
+        ],
+        "reasoning": "Neither citing a general coalescence framework nor transferring its divisor examples supplies the exclusion direction or the exact law-by-law criterion here. Equal fiber sizes follow from equivariance and quotient synchronization in this family, not from the coincidence of a divisor-valued spectrum in some other subfamily.",
+        "searches": [
+          "Statement-level comparison of arXiv:2510.13572 Questions 3.3, 3.11, Theorems 5.5 and 6.1, and arXiv:1907.05605 Theorem 7 against frozen lines 11–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Markov-chain source defines the same grand-coupling coalescence number and asks about K(P) and class sizes in Questions 3.3 and 3.11.",
+          "The generator-semigroup formulation is minimum transformation rank of a word in the supported maps: rank is nonincreasing along trajectories and an iid sequence sees any specified finite positive-probability word almost surely. The search did not produce a decisive alternative semigroup theorem."
+        ],
+        "reasoning": "Sequence probabilities affect occurrence of words, but with a fixed finite support they do not change its minimum attainable rank. The additional equal-marginal hypothesis is what makes separation harmonic; a generic automaton rank count alone does not give the period criterion.",
+        "searches": [
+          "Resultary/SCOPE lookup on lazy directed cycles, divisor spectra, common periods and coalescence kernels",
+          "Focused primary literature search on synchronizing/monotone automata, transformation-semigroup rank, deadlocks and random maps on directed cycles",
+          "Grimmett–Holmes, Coalescence in Markov Chains, arXiv:2510.13572 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date catalogue record 2026/10/18/SCOPE-exact-gcd-spectra-of-proposition-free-loop-dynamic-logic-on-fini--e1a5174e9077, RESULT.md Finding, classifies definable cycle lengths of a proposition-free loop logic, not minimum image ranks or Markov fibers.",
+          "The quoted complete-uniform divisor statement supplies comparison data only for its own matrix and hypotheses."
+        ],
+        "reasoning": "The indexed arithmetic expression and cycle vocabulary are not an exact table for random-map coalescence. No aligned exact rank/class-size table is used as coverage or as evidence of bibliographic absence.",
+        "searches": [
+          "Resultary/SCOPE: exact coalescence spectra, divisor/GCD spectra on finite cycles and balanced coalescence classes",
+          "Grimmett–Holmes arXiv:2510.13572 complete-uniform spectrum comparisons"
+        ]
+      },
+      "rationale": "Grimmett–Holmes already pose the spectrum and class-cardinality questions and prove a divisor construction for complete uniform chains. Their theorems use a different transition family and do not give the common-period characterization or rule out all nondivisors even for their complete uniform setting. The surviving claim is the necessary-and-sufficient, law-by-law period criterion for every balanced stay/advance law on the directed cycle, and the resulting equal fiber sizes and complete spectrum.",
+      "residual_risks": [
+        "An equivalent rank theorem for ordered, synchronizing or Eulerian transformation semigroups could exist under different terminology. The focused search did not supply such a primary match; that is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same questions; precise divisor constructions for a different chain",
+          "evidence": "Questions 3.3 and 3.11 ask about the spectrum and deterministic sizes; Theorems 5.5 and 6.1 address complete uniform transitions, not the lazy one-way cycle period diagnosis.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.13572",
+          "material_read": "§3 PDF pp. 8 and 10, offsets 20650 and 23300; §§5–6 pp. 19–20 around offset 46000",
+          "method": "OA primary PDF text",
+          "title": "Coalescence in Markov Chains",
+          "trigger": "Same coalescence spectrum definition and nearest explicit divisor theorems"
+        },
+        {
+          "assessment": "Different transition parameters and restricted coverage",
+          "evidence": "Precisely the divisors are obtained among block-measure couplings for the complete uniform matrix. For the unrestricted spectrum its theorem gives inclusion, leaving equality unresolved.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.05605",
+          "material_read": "Theorem 7, PDF p. 13, offset 31900",
+          "method": "Lawful OA arXiv chapter version",
+          "title": "Non-coupling from the past",
+          "trigger": "Earlier divisor spectrum framework; previously unavailable in the frozen source notes"
+        },
+        {
+          "assessment": "Different objects and invariant",
+          "evidence": "The theorem is about definability of subsets of cycle lengths by GCD predicates, not coalescence classes or image ranks.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gcd-spectra-of-proposition-free-loop-dynamic-logic-on-fini--e1a5174e9077",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact GCD spectra of proposition-free loop dynamic logic on finite cycles",
+          "trigger": "Same-date indexed hit on exact divisor spectra and cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Grimmett–Holmes arXiv:2510.13572 Questions 3.3 and 3.11"
+      ],
+      "rationale": "This answers two natural coalescence questions for a canonical sparse family from one checkable structural invariant: all and only divisor ranks occur, and each admissible law has explicit deterministic rank and class sizes. The necessity direction constrains every spatial dependence law, not just examples from a block construction or small-cycle enumeration. The interaction between harmonic separation and symmetry is substantively explanatory.",
+      "residual_risks": [
+        "The result does not determine the random membership of fibers or transfer directly to bidirectional or spatially nonhomogeneous walks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

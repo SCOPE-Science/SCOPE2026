@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete 362,880-state BFS, with all twelve grid-edge swaps generated for each discovered state, supplies an exact finite certificate. Breadth-first layers establish the diameter and unique antipode; label-relabeling transitivity makes these all-source statements; an independent factoradic C++ verifier reproduced the layer and transport-deficit histograms. The lower-bound argument uses the fact that each swap changes the summed Manhattan target distance by at most two. The code is included and runnable; this is not a claim that finite experiments prove an infinite pattern.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-The source-and-implication comparison targeted grid-edge transposition Cayley graphs, full-occupancy nine-token sorting, and exact mesh diameters. No covering theorem or table was found in the accessible primary results, the available research index, or the accessible prior ledger claims. The earlier tree and complexity papers imply general decidability and generic bounds, not these specific exact counts. The closest exact other-graph token-swapping censuses are not covering statements. An unindexed computational table or an equivalent older permutation-generator study is a residual priority risk.
+PASS
 
-## Value — PASS
-The fully occupied \(3\times3\) mesh is the smallest odd square grid with a central fixed point under half-turn and a standard nine-token local-swap routing benchmark. Complete distance layers, a unique geometric antipode, and a sharp quantified failure of the standard Manhattan lower bound provide nontrivial, algorithmically useful correctness targets for exact routing and bounding methods; the claim is not a parameter-free renaming or a known sequence lookup.
+The horizontal and vertical coordinate steps give precisely twelve distinct transpositions. The connected site graph generates all permutations; parity changes with each move, and token relabeling gives transitivity. An independent exact layer traversal packs each placement into nine four-bit fields, swaps fields by XOR, and constructs each next set as all legal neighbors not yet seen. Induction makes each layer the set at its stated minimum distance. Enumeration reaches all 9! placements, reproduces every claimed layer, and terminates with only 876543210 at depth 16. Relabeling the identity by p transports that last state to p composed on the right with the positional half-turn. This involution has no fixed configuration and pairs the states, giving 181440 unordered diametral pairs; transitivity gives radius 16. Each swap moves two tokens one edge and hence can reduce the total Manhattan distance by at most two. Computing the bound on every reached state reproduces the full six-bin excess distribution, with twenty maximizing states at excess five.
 
-## Scope and limitations
-The 16 and 5 extremal values and the displayed histograms are exact only for this nine-vertex mesh, established computationally rather than by a symbolic closed-form analysis of larger grids. Priority depends on accessible indexing and primary literature; independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact graph and its shortest-path computation by BFS are already the CSES Swap Game. The supported distinct contribution is not the model, search procedure or standard displacement bound, but the exact extremal and census results, especially the unique geometric maximizer and the complete quantitative deficit of the displacement bound. The strongest inspected same-model sources solve a given input and do not supply the claimed extrema and histograms.
+
+## value
+
+PASS
+
+The established Swap Game is a natural fixed routing benchmark rather than an arbitrary subset of states. The all-state diameter gives its exact worst routing budget, while the unique half-turn identifies the configuration needed to test the extremal case. The second census independently measures sharp error of a standard lower bound (including the number of maximizers), giving exact benchmarks for pruning and lower-bound improvements beyond rerunning one known puzzle input. Value belongs to these precise invariants, not to the textbook use of BFS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

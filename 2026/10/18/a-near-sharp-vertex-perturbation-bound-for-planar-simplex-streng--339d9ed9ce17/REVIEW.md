@@ -1,19 +1,21 @@
-# Scientific review: vertex-perturbation stability for triangle strength
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The definitions fix the semiperimeter and signed orientation unambiguously, including degenerate configurations. Elliptic coordinates make the one-apex gradient exactly rational. The inequality reduces to positivity of three explicit polynomials; the potentially sign-indefinite first two have a complete exact-rational Bernstein certificate on the bounded interval and positive shifted coefficients on the entire unbounded tail. The zero-area and coincident-vertex boundaries are handled before integration along apex paths. Symbolic differentiation verifies the lower witness. The executable checker reproduces the critical finite computations.
+PASS
 
-## Originality
+For a noncollapsed fixed base, normalization to length one preserves the Euclidean apex-gradient norm. The stated elliptic metric and derivatives give the squared norm in RESULT.md (1). An independent exact reproduction verified the cleared polynomial, the shifted coefficients and all 128 Bernstein coefficients (minima 1718469527/469762048 and 288; replay: /workspace/branches/3dbda92c-2485-4edd-8898-6d479ecc4c55/record4_math_check.py). There is also a direct check: using t^3 >= 3t/25 - 2/125, P0 is bounded below by 6544t^2 - (65512/25)t + 33008/125, which has negative discriminant. In P1/(t+2), extract 1512t(t-4/5)^2; the remaining 729t^4 - (104/5)t^2 - (2592/25)t + 144, plus higher positive terms, is positive both on [0,1] and on [1,infinity). P2 is nonnegative. On a straight apex path, continuity and vanishing at the base line join the two half-plane gradient bounds for both signs. Coincident fixed endpoints give zero identically. Telescoping gives 9/32 for three moves. The derivative at apex (1/2,1/3) independently reproduces the stated radical and relative gap of about 0.003335 to the upper endpoint; it does not identify the exact optimum. The frozen checker was inspected, not executed.
 
-**PASS within the inspected literature, with residual priority risk.** Anosova--Kurlin (arXiv:2602.17630, Theorem 2.8(b)) derive a much larger constant for arbitrary perturbations. Kurlin (arXiv:2303.13486, Theorem 4.2) establishes earlier qualitative and quantitatively weaker global stability. Their inspected proofs do not yield the vertexwise constant \(3/32\), the exact near-sharp witness, or the derived \(9/32\) all-vertex coefficient. No directly matching result was found under alternative terms such as Heron-invariant, triangle strength, and semiperimeter-normalized squared area; this is not a claim of exhaustive historical priority. The closest generic barycentric Lipschitz-free interpolation estimates study different functions and do not imply this bound.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The originating work explicitly motivates a scalar Lipschitz descriptor for noisy geometric point clouds and needs quantitative robustness. An exact rational global certificate tightens the published triangular coefficient from \(2\sqrt3\) to \(9/32\) for independent three-vertex perturbations, a factor greater than twelve, while the canonical one-vertex coefficient is bracketed within \(0.4\%\) of optimal. These are usable uniform numerical stability guarantees, valid through degeneracy, rather than a change of normalization or a point-sampled improvement.
+The published qualitative Lipschitz result and its much larger constants do not imply the vertex-coordinate upper bound or its near-optimality bracket. The closest indexed sharp constant concerns a different metric and transfers only to weaker vertex-coordinate bounds.
 
-## Sources and limitations
+## value
 
-Primary scientific sources: Anosova--Kurlin, arXiv:2602.17630 (2026), Sections 2--3; Kurlin, arXiv:2303.13486 (2023), Section 4 and Theorem 4.2. Residual risks: unindexed sharp-constant literature; optimal one-vertex value and sharp simultaneous three-vertex value are unproved. The attached checker verifies exact finite algebra, not independent peer review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a global quantitative improvement for a motivated point-cloud invariant, valid through degeneracy and orientation changes. It lowers the all-vertex bound from 2 sqrt(3) to 9/32 and places the intrinsic one-vertex coefficient in a bracket of relative width under 0.4 percent. The narrow bracket is supported by a concrete local shape witness rather than merely an incremental upper-bound adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:36.899557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85",
+        "Frozen verify_k23.py lines 7–82, inspected only",
+        "Frozen VERIFICATION.md lines 18–30"
+      ],
+      "rationale": "Every uncentered selector chooses a containing ball separately at each vertex; taking coordinatewise maxima on nonnegative data commutes with maximizing the squared output norm over selectors. Moreover the top matrix norm of a nonnegative selector can be attained on a nonnegative right vector by taking absolute values. I separately enumerated the balls from the explicit bipartition (five singletons, five opposite-part closed neighborhoods, whole set) and formed all 4500 legal row products. With T=60A, an independent rational Schur-complement elimination checked that all five pivots of 6156I−TᵀT were positive for every selector except the stated one, with smallest pivot 448884/1139; this uses exact rational elimination rather than the frozen Bareiss code. To replay: construct incidence rows Tᵢⱼ=60/|Sᵢ| for j∈Sᵢ, enumerate their Cartesian product, exclude the displayed A₀, and iterate Mᵢⱼ←Mᵢⱼ−MᵢₖMₖⱼ/Mₖₖ on the trailing block, testing every pivot. This gives a strict squared norm bound 171/100 below (8+sqrt(55))/9. The exceptional Gram matrix acts by 1 on the A antisymmetric direction and 1/9 on the B mean-zero plane; the two part-constant coordinates have matrix [[5/3,1/3],[2/9,1/9]], hence characteristic equation 9λ²−16λ+1=0 and simple positive top ray with c=(sqrt(55)−7)/3. At that ray the winning singleton and size-three averages are both centered and strictly beat the alternatives. Since the centered operator is pointwise bounded by the uncentered one, this gives equality of their norms; only the strict winning selector and its top eigenspace can give equality, and independent coordinate signs are immaterial.",
+      "residual_risks": [
+        "Independent exact enumeration is specific to this graph, not a formal proof-assistant certificate or a theorem for arbitrary Kₘ,ₙ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue global theorems require n≥10⁶(m+1)⁶ and n≥102400(m+1)⁶, respectively, and only concern centered operators; neither includes n=3 at m=2.",
+          "Soria–Tradacete's optimal general comparison is for 0<p≤1; its p>1 discussion here bounds stars. The accessible fractional-maximal seminar description names complete and star graphs; full-paper details could not be verified."
+        ],
+        "reasoning": "The strongest broader retrieved statements either have exclusions in size or different observable/operator hypotheses. The inaccessible fractional paper cannot settle a broader-coverage question by itself.",
+        "searches": [
+          "Resultary --37bcd1ad5dec and --7051b95c80b8, theorem size regimes",
+          "arXiv:1410.6204 Theorem 3.1 and Proposition 3.4; DOI 10.1515/forum-2024-0406"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --37bcd1ad5dec, --7051b95c80b8 and --ad8aa4c0c8cb",
+        "arXiv:1410.6204, 2005.03146, 2011.02630, 2603.12462",
+        "Xiang–Zhao DOI 10.1515/forum-2024-0406, description only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two prior candidate statements give the same lower bound and would give the same centered ray if optimality were known at this size.",
+          "The larger uncentered selector set raises the upper-bound question; an eventual centered result alone supplies no uncentered upper bound. The same-day cut-variation statement is about a different denominator and input class."
+        ],
+        "reasoning": "The strict global comparison against all other choices is the distinct part and forces uniqueness; testing an already known two-level vector alone would not establish it. Matching dates of nearby records are not treated as priority evidence.",
+        "searches": [
+          "Resultary --37bcd1ad5dec and --7051b95c80b8 Proof Step 1; --ad8aa4c0c8cb cut variation",
+          "arXiv:2005.03146 and arXiv:2011.02630 norm and equality sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In --37bcd1ad5dec and --7051b95c80b8 the candidate squared norm has trace parameter τ=1+(mn+1)/(m+1)² and determinant 1/(m+1)². At (2,3) this gives (8+sqrt(55))/9 and their ratio 2/(9λ−1) equals (sqrt(55)−7)/3.",
+          "The primary complete-graph and star Hilbert formulas also use two-level profiles, but stars are K₁,ₙ rather than K₂,₃."
+        ],
+        "reasoning": "The catalogue lower-bound problem is exactly the same selector spectrum, not just a numerical resemblance; the full global selector comparison and centered/uncentered equality do not follow from that lower bound.",
+        "searches": [
+          "Resultary: complete bipartite graph centered/uncentered Hilbert maximal norm and extremizer rigidity K2,3",
+          "arXiv:2005.03146 Theorems 4, 6; arXiv:2011.02630 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed complete-bipartite records give a formula with exactly the same candidate value but not a proved table entry for K₂,₃.",
+          "The five-vertex census treats edge 1-variation, distinct from the strong Hilbert norm."
+        ],
+        "reasoning": "A centered candidate computed by substitution is not an exact entry for the optimized invariant; the graph-size match in the variation census is not evidence for the strong norm.",
+        "searches": [
+          "Resultary: sharp Hilbert K2,3, centered and uncentered graph-ball maximal norm",
+          "arXiv:2603.12462 five-vertex graph census"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for global optimality of the candidate at K₂,₃ for the uncentered operator, the resulting exact centered/uncentered equality, and full equality classification. The strongest earlier catalogue results already give the exact candidate norm and two-level ray after substituting m=2,n=3, but only prove that they are globally optimal for a sufficiently large part and for the centered operator. Their lower-bound selector, which applies here, is not the contribution being credited. The retrieved literature gives exact Hilbert results for neighboring graph families, not the required upper bound or rigidity here.",
+      "residual_risks": [
+        "The inaccessible Xiang–Zhao full paper and possible unindexed exact finite calculations are priority risks, not evidence of coverage.",
+        "The exact centered candidate and ray are prior catalogue overlap; originality is assessed only for their global optimality here and the stronger uncentered comparison, not the formulas in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Candidate exactly specializes; exactness and rigidity theorem outside K₂,₃",
+          "evidence": "Centered only, n≥10⁶(m+1)⁶ for the global result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-eventual-exact-hilbert-norm-and-extremizer-rigidity-for-complete--37bcd1ad5dec",
+          "material_read": "Original RESULT.md Finding and Proof Step 1",
+          "method": "Configured local mirror",
+          "title": "Eventual exact Hilbert norm and extremizer rigidity for complete bipartite graphs",
+          "trigger": "Strong exact candidate/ray overlap"
+        },
+        {
+          "assessment": "Same candidate with lower, still nonapplicable regime threshold",
+          "evidence": "Centered global result requires n≥102400(m+1)⁶, far beyond 3 at m=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-eventual-exact-hilbert-norms-of-maximal-averages-on-unbalanced-b--7051b95c80b8",
+          "material_read": "Original RESULT.md Finding and Proof Step 1",
+          "method": "Configured local mirror",
+          "title": "Eventual exact Hilbert norms of maximal averages on unbalanced bipartite graphs",
+          "trigger": "Strongest inspected dominating-parameter possibility"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Cut signals and edge-variation gain on Kₘ,ₙ rather than the strong ℓ² norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-cut-variation-and-one-sided-rigidity-for-centered-maximal--ad8aa4c0c8cb",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Sharp cut variation and one-sided rigidity for centered maximal averages",
+          "trigger": "Same-day same graph family and rigidity terminology"
+        },
+        {
+          "assessment": "Different exponent/range or graph specialization",
+          "evidence": "Sharp general estimates at 0<p≤1 with graph-class extremes; star norm bounds at larger p.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+          "material_read": "Theorem 3.1 p. 11 offset 35476; Proposition 3.4 p. 15 offset 51628",
+          "method": "OA PDF passages",
+          "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+          "trigger": "General graph-centered sharp constants"
+        },
+        {
+          "assessment": "Exact results on neighboring families only",
+          "evidence": "Complete graphs and stars, not the irregular complete bipartite example K₂,₃.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03146",
+          "material_read": "Theorems 4 and 6 p. 5 offset 17366; p. 24 equality discussions around offsets 116584 and 121044",
+          "method": "OA PDF passages",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Closest primary centered strong ℓ² norms"
+        },
+        {
+          "assessment": "Star and complete-graph profile results do not imply K₂,₃",
+          "evidence": "The star theorem uses a hub value and equal leaf values for 1<p≤2; K₂,₃ has no hub adjacent to all vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.02630",
+          "material_read": "Introduction p. 2 offset 5983 and Theorem 4 p. 6 offset 23276",
+          "method": "OA PDF passages",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Potential p>1 rigidity implication"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Five-vertex comparisons are for centered ordinary edge variation.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.12462",
+          "material_read": "Abstract and p. 3 around offset 9179",
+          "method": "OA PDF passages",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Census containing graphs of this size"
+        },
+        {
+          "assessment": "Full-paper scope unresolved",
+          "evidence": "Available description names complete graphs and stars; it cannot exclude a further theorem or endpoint treatment in the paper.",
+          "identifier_or_url": "https://doi.org/10.1515/forum-2024-0406",
+          "material_read": "Indexed Fudan seminar description only; no lawful full text retrieved",
+          "method": "OA repository lookup and abstract-level description",
+          "title": "Sharp constants for fractional Hardy–Littlewood maximal operators on finite graphs",
+          "trigger": "Plausible exact graph-maximal comparison at Hilbert exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–31 and 33–85",
+        "Earlier indexed eventual centered norm results --37bcd1ad5dec and --7051b95c80b8"
+      ],
+      "rationale": "K₂,₃ is the first irregular two-connected bipartite graph by vertex count, so the graph is selected by a structural cutoff rather than chosen arbitrarily for an enumeration. There are strictly more allowed uncentered local averages, yet the global Hilbert norm does not increase, and equality still forces a single modulus ray. This exact comparison at the first irregular case is an independently useful benchmark between the star, complete-graph, and eventual unbalanced bipartite results. The meaningful new fact is the strict global optimization over all uncentered choices, not computing a two-by-two eigenvalue.",
+      "residual_risks": [
+        "No general characterization of which graph families have coincident norms is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

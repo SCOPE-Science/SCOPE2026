@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-geodesic face lemma is proved for arbitrary positive arm lengths and isolates precisely the missing \(E\) maximal edges. The inclusions of the two smaller join factors into their full join are nullhomotopic by explicit opposite-side cones. Consecutive CW cone attachments split the homotopy type, and discrete-set join identities prove the integral sphere-wedge formula in all parameter boundaries, including singleton arms. A standalone graph-distance verifier confirms exact faces and finite-field Betti ranks for 147 small cases. Computation is corroboration; the infinite theorem is proved by a CW homotopy argument.
+## correctness
 
-## Originality — PASS (bounded-search assessment)
-Actual research-record and primary-literature searches for double-spider general-position complexes, equivalent join-cone formulations, subdivisions and double-star aliases identified no equivalent homotopy classification. The strongest nearby full texts concern all-tree face counting, single-center spiders, and complete-bipartite-corona homotopy. Face counts and the different corona family do not imply the present integral homotopy formula. Residual risk: differently indexed earlier work or a general topological result not surfaced in the bounded search.
+PASS
 
-## Mathematical value — PASS
-A complete homotopy classification over arbitrary numbers and lengths of arms for a natural two-branch tree family determines exact integral homology in up to four separate degrees, rather than only maximal set sizes, face counts or numerical homology. The multiplicative high-degree sphere term records genuine interactions of the two branching centers, and the classification gives test cases for more general branching-tree topology.
+Two points in one arm and a third vertex always make a forbidden triple. A hub with a vertex of its own arm or with the other hub likewise cannot occur in a face of size at least three. With no hub, all selections of at most one point per arm are allowed; with one hub, all selections of at most one point per opposite-side arm are allowed. In each converse, a path between selected endpoints passes through no other selected vertex. Thus the join J_U*J_V and the two hub cones contain every larger face and all vertices; the only omitted edges are the intra-arm pairs, the hub-to-own-arm pairs and the hub-to-hub edge, exactly E. Each cone inclusion is already null in the full join by coning from any opposite-side arm vertex, so the second stays null after the first attachment. These cofibrations give the join and the two suspended factors as a wedge. Iterating the discrete-set join formula yields ranks alpha and beta for J_U and J_V in degrees p-1 and q-1, with contractibility if an arm has length one. Joining the two factors gives the alpha*beta family in degree p+q-1; this also follows from the suspension of their smash product. The join and attached cones are connected, so each of the E maximal edges attaches by a null map from S^0 and supplies one circle. The freshly enumerated p=2,q=3, all-length-two case has 12 vertices, 294 nonempty faces, and mod-two Betti ranks 16,1,1,1 in degrees 1–4. Integrality and all parameter cases follow from the attachment proof, not the finite checks.
 
-## Scope and limitations
-The two branching centers are adjacent and have at least two positive-length peripheral arms each. No classification of all trees, canonical equivariance or independently validated priority is claimed. The computational checker is finite and mod two, while the written proof establishes integral homotopy equivalence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-tree multivariate antichain theorem does cover the face predicate and gives a general combinatorial presentation that recovers the face pieces in this family. It does not give their homotopy attachment analysis, the resulting nullhomotopies, or the mixed-degree wedge. The closest actual topology results cover either a single hub or a different, cyclic family. The two-hub result adds two suspended terms and their joint product term by analyzing how the pieces attach, not by reading off the face polynomial or substituting parameters in an existing wedge theorem.
+
+## value
+
+PASS
+
+A uniform homotopy classification for a natural two-branch tree family goes beyond face counts and single-center classifications. The adjacent centers generate a product-rank sphere family separately from the two hub-cone families and the maximal-edge circles. The four-distinct-degrees witness, explicit integral torsion-freeness, and degeneration when some arms have length one give concrete information useful for comparisons with general tree results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

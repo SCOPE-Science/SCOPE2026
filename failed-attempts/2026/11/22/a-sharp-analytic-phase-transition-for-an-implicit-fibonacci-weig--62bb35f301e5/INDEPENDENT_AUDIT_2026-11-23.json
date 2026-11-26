@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:18:18.609882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equation determines a unique formal solution by induction in x: the x^n coefficient on the right only sees a_0 through a_{n-1}. The published Thm. 7.1 applies to this exact equation and gives the nonnegative monomial coefficients, degree n² and leading coefficient 1/n. For q≥1, retaining the leading monomial gives the lower bound, and replacing each monomial q^j by q^{n²} gives a_n(q)≤q^{n²}a_n(1). The q=1 quadratic's discriminant 1−6x+x² has its nearest zero at 3−2√2>1/6; the branch with constant term 1 takes value 2 at 1/6, giving a_n(1)≤2·6^n. For each q≥2, the resulting bounds prove the logarithmic limit and, by Cauchy–Hadamard, zero radius. Algebraic branches in characteristic zero converge locally; P-recursive sequences need not converge as ordinary series but have coefficient magnitude bounded by exp(O(n log n)), by dividing by the eventual nonzero highest-shift coefficient and iterating a polynomial bound on the maximum of a moving window. The q^{n²}/n lower bound contradicts that ceiling. The q=0 and q=1 quadratic branches are analytic at zero and algebraic. The bounds in fact give a uniform error in log(a_n(q))/n²−log q for q≥2; it suffices to state the fixed-q result. The frozen check.py was inspected, not executed; its low-order calculations do not prove the infinite assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 7.1(i)–(ii) gives nonnegative rational monomial coefficients, degree n² and leading coefficient 1/n for all n≥1 in the indeterminate q. After eq. (6.3), the same paper gives the q=0 and q=1 quadratic equations.",
+          "Fried's Thm. 43 concerns integrality of a different explicit exponential series (A158110), not a broader theorem on the same implicit family."
+        ],
+        "reasoning": "An all-degree statement in the indeterminate q, together with the algebraic specialization, has the data needed for both bounds. The fixed nonnegative integer phase statement does not add an uncovered parameter regime.",
+        "searches": [
+          "arXiv:2611.16283v1 §6 and Thm. 7.1(i)–(ii)",
+          "arXiv:2607.24832v1 Thm. 43"
+        ]
+      },
+      "checked_sources": [
+        "Li–Zhong–Zhou arXiv:2611.16283v1/v2",
+        "OEIS A163138",
+        "Fried arXiv:2607.24832v1",
+        "Resultary exact-title match (the assessed record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q≥1, positivity and degree alone give q^{n²}/n≤a_n(q)≤q^{n²}a_n(1); evaluating the known q=1 branch at 1/6 immediately gives the advertised 2·6^n bound.",
+          "Taking logs gives the precise quadratic logarithmic rate. The lower bound yields radius zero, rules out algebraicity, and exceeds the elementary factorial-power ceiling for P-recursive sequences. The q=0,1 equations are explicitly prior."
+        ],
+        "reasoning": "The direct coefficient comparison and standard asymptotic implications exhaust the frozen finding. Non-D-finiteness does not follow merely from divergence, but its required extra step is the routine recurrence bound, not a new family-specific obstruction.",
+        "searches": [
+          "Li–Zhong–Zhou Thm. 7.1 and q=1 specialization following eq. (6.3)",
+          "OEIS A163138 generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Zhong–Zhou's eq. (1.4) is the identical implicit series; their eq. (6.3) is an alternative exponential/logarithmic grouping of exactly that equation. No translation to a different weighted or explicit exponential family is needed.",
+          "A163138 identifies q=2; q=1 and q=0 are the large Schröder and Catalan sequences, respectively, as the primary paper already states."
+        ],
+        "reasoning": "The published coefficient-polynomial conclusions specialize directly at exactly the q values used here. A relabeling of the series or the holonomic/P-recursive synonym does not avoid coverage.",
+        "searches": [
+          "Resultary hit 62bb35f301e5 (the assessed record)",
+          "arXiv:2611.16283v1, eqs. (1.4), (6.3), Thm. 7.1",
+          "OEIS A163138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry states the exact q=2 problem, initial values, general-q identity and q=1 specialization, but the accessed entry does not state the proposed radius, growth limit or non-D-finiteness.",
+          "The Resultary match is this assessed record, not an independently dated priority match."
+        ],
+        "reasoning": "The database directly covers the sequence identification, not an exact tabulation of the analytic classification. The originality failure is instead due to primary-theorem implication.",
+        "searches": [
+          "OEIS A163138 (q=2)",
+          "Resultary hit 62bb35f301e5 (the assessed record)"
+        ]
+      },
+      "rationale": "The primary source already gives the same parameter family, the two algebraic endpoints and a stronger exact polynomial coefficient theorem. The marketed growth and analytic-complexity classification follow mechanically from that theorem, the prior q=1 specialization, and standard growth tests. Failure rests on mathematical implication, not on treating the assessed record's own index hit as a predecessor or on claiming the primary text explicitly states non-D-finiteness.",
+      "residual_risks": [
+        "The L.-H. Su self-referential exponential series item cited by OEIS was not inspected in full; it could make the priority overlap even more explicit. It is not needed for the positive implication finding.",
+        "The exact analytic terminology may not appear in the primary theorem; the decision rests on the demonstrated implication, not textual identity of conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit endpoint coverage and stronger coefficient structure mechanically implying the remaining claims",
+          "evidence": [
+            "A_0=1+xA_0²; A_1=1+xA_1+xA_1²; [q^{n²}]a_n(q)=1/n; nonnegative monomial coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16283v1",
+          "material_read": "§6 after eq. (6.3), §7 Thm. 7.1(i)–(iii) and degree/positivity proof (HTML text offsets 29600–34500); additionally checked the v2 theorem and endpoint discussion on PDF pp. 8–9",
+          "method": "Read primary open manuscript passages and derived their precise fixed-parameter implications",
+          "title": "Integral Exponential Series: Fibonacci Weights and Implicit Equations",
+          "trigger": "Same family and all-degree coefficient theorem relied on by the frozen proof"
+        },
+        {
+          "assessment": "Exact sequence match, no explicit analytic classification in the inspected text",
+          "evidence": [
+            "Identifies the implicit q=2 series and large Schröder specialization at q=1."
+          ],
+          "identifier_or_url": "https://oeis.org/A163138",
+          "material_read": "Public entry including formula, initial terms, general-q identity and references",
+          "method": "Compare the ordinary generating function and listed generalization with the assigned implicit equation",
+          "title": "OEIS A163138",
+          "trigger": "Exact q=2 sequence and possible preexisting analytic annotations"
+        },
+        {
+          "assessment": "Different explicit series, not the same implicit A_q",
+          "evidence": [
+            "Thm. 43 addresses A158110 via exp(Σ q^(n^m)x^n/n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.24832v1",
+          "material_read": "Open PDF pp. 42–43, Thm. 43 (text offsets 100370–105893)",
+          "method": "Read theorem and compare defining exponential identity",
+          "title": "Further proofs of conjectures from the OEIS",
+          "trigger": "Related earlier integrality work cited by the finding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Analyticity and holonomicity are natural invariants, and this is a useful explanatory corollary. As an independent finding, however, it gives only the coefficient comparison already immediate from the prior positivity/degree theorem and the standard consequences of superfactorial growth. It supplies neither a new informative scale within the q≥2 regime nor an asymptotic equivalent or additional nonmechanical invariant. An improved asymptotic would be a different claim, not a repair of this frozen classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:48.686179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–192",
+        "VERIFICATION.md",
+        "checker.py and CHECKER_OUTPUT.txt (inspected, not executed)",
+        "/workspace/audit_replays/frozen_math.py 1"
+      ],
+      "rationale": "Given Pi(i)=i, the remaining bijection is uniform. Nonincident comparisons stay fair; an incident comparison has conditional success probability (n-i)/(n-1) if its right endpoint is i, and (i-1)/(n-1) if its left endpoint is i. Subtracting 1/2 and multiplying by 1/n proves the basis identities and hence the real-weight formula, also at n=2. Setting weights to one gives the negative square and summing it gives -(n+1)/6. The fixed-point factorial moments give variance one; the independent insertion ranks of a uniform permutation give inversion variance n(n-1)(2n+5)/72. These yield the stated correlation and asymptotic. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 1, with 322 exact basis-weight tests plus marginal variances and aggregate covariance for n=2 through 7.",
+      "residual_risks": [
+        "The result concerns first conditional moments, not the full conditional law or independence at the central site."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Ewens mixed tensor has vanishing nonincident entries at theta=1 and conditional incident probabilities (a-1)/(n-1) and (n-b)/(n-1), with unconditional probabilities 1/2 under uniformity.",
+          "The October 26 indexed theorem gives the ordinary inversion parabola explicitly at theta=1.",
+          "Campion Loth et al. cover arbitrary real position-pair weights but give class-conditional moments, not the local fixed-site tensor in the inspected statements."
+        ],
+        "reasoning": "Using the complete Ewens tensor with theta=1 yields both signs and the exact coefficient of L_i-R_i. The October 26 parabola alone would not suffice to recover arbitrary weights.",
+        "searches": [
+          "2026/11/8/SCOPE-the-fixed-point-inversion-sign-geometry-of-ewens-permutations--367d64d775af",
+          "2026/10/26/SCOPE-a-centered-parabolic-covariance-law-for-fixed-points-and-inversi--73bbc75cbd49",
+          "arXiv:2301.00898 Theorem 1.1/Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index, including the two exact later records",
+        "arXiv:2505.02058",
+        "arXiv:2510.20654",
+        "arXiv:2301.00898",
+        "arXiv:1301.0430 and arXiv:1308.5459 (abstract comparison)",
+        "Focused web search (nonproductive, not evidence of absence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier conjugacy-class table the conditional inversion mean is (3n^2-n+2a_2-a_1^2+a_1-2na_1)/12. With a_1=F, Cov(F,a_2)=0, Var(F)=1, and Cov(F,F^2)=3 for n>=3 by cycle factorial moments, the aggregate equals -(n+1)/6.",
+          "From the indexed Ewens tensor the local law follows directly, and standard marginal variances give the correlation; its absence as a displayed formula leaves no mathematical gap."
+        ],
+        "reasoning": "The earlier aggregate implication and the indexed full local implication are separate. Neither the apparatus of arbitrary real weights nor the presentation as a correlation avoids the latter coverage.",
+        "searches": [
+          "arXiv:2301.00898, Table 1 row inv",
+          "arXiv:2510.20654, Proposition 10(a)–(b)",
+          "November 8 Ewens record, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full indexed Ewens mixed tensor Cov(F_i,Y_ab) determines exactly the same linear functional of every real pair-weight vector at theta=1.",
+          "The Pinsky and Pinsky–Schickentanz results condition on the total count, not one chosen location."
+        ],
+        "reasoning": "Basis weights recover the tensor from the weighted law; contracting the tensor with arbitrary weights recovers the law. A conditional shift is the same covariance divided by 1/n. Count conditioning is not equivalent to this site conditioning.",
+        "searches": [
+          "Resultary fixed point inversion and weighted pair covariance",
+          "arXiv:2505.02058 Theorem 2",
+          "arXiv:2510.20654 Proposition 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary items provide exact parametric matches rather than only finite examples; the same-day local excedance/rank-score item concerns an inequivalent event and score.",
+          "The earlier conjugacy-class table contains the exact inversion mean conditional on cycle type, enough to obtain the aggregate."
+        ],
+        "reasoning": "The indexed tensor covers the unbounded size claim except n=2. A fixed-n table is not needed to cover n=2, where there are just the identity and the transposition.",
+        "searches": [
+          "Resultary local index, exact tensor and ordinary parabola",
+          "Campion Loth et al., Table 1 (arXiv:2301.00898)"
+        ]
+      },
+      "rationale": "The central arbitrary-weight formula has demonstrable coverage in the distinct indexed Ewens mixed-tensor result, at theta=1 and by linearity for n>=3. Conditional means, the unweighted profile, aggregate and correlation follow at once; the additional n=2 case only enumerates the two permutations. The matching indexed entries are dated later than the frozen entry: this is a coverage judgment at review, not a claim that those entries had earlier priority or that the frozen proof was derived from them. Earlier count-conditioned sources do not independently establish that designated-location formula.",
+      "residual_risks": [
+        "Historical priority of the local law is not established; the catalogued mathematical coverage is established. Other prior formulations may also exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage at theta=1 for n>=3; later indexed date, not evidence of earlier priority",
+          "evidence": "Nonincident entries carry factor 1-theta; incident conditional probabilities are (a-1)/(n+theta-2) and (n-b)/(n+theta-2).",
+          "identifier_or_url": "2026/11/8/SCOPE-the-fixed-point-inversion-sign-geometry-of-ewens-permutations--367d64d775af",
+          "material_read": "RESULT.md Finding and assumptions offsets 65–3339; Relationship to prior work opening at offset 7411",
+          "method": "Indexed Resultary hit; lawful local mirror text",
+          "title": "The fixed-point–inversion sign geometry of Ewens permutations",
+          "trigger": "Complete tensor for same pair of indicators with a parameter extending uniformity"
+        },
+        {
+          "assessment": "Explicit coverage of the ordinary local parabola for n>=3; later indexed date",
+          "evidence": "The theta=1 equation is -(2i-n-1)^2/[2n(n-1)].",
+          "identifier_or_url": "2026/10/26/SCOPE-a-centered-parabolic-covariance-law-for-fixed-points-and-inversi--73bbc75cbd49",
+          "material_read": "RESULT.md Finding and assumptions, offsets 92–2086",
+          "method": "Indexed Resultary hit; lawful local mirror text",
+          "title": "A centered parabolic covariance law for fixed points and inversions under Ewens sampling",
+          "trigger": "Exact position-resolved unweighted formula"
+        },
+        {
+          "assessment": "Partial coverage through count-conditioned means, not designated-position law",
+          "evidence": "The conditioning prescribes the number of fixed points.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.02058",
+          "material_read": "Theorem 2, equations (1.6)–(1.7), pp. 4–5, OA offsets ca. 10000–16946",
+          "method": "Targeted OA primary text",
+          "title": "The inversion statistic in derangements and in other permutations with a prescribed number of fixed points",
+          "trigger": "Same two permutation statistics"
+        },
+        {
+          "assessment": "Same pair statistic with different conditioning; journal status not verified",
+          "evidence": "The pair probabilities in Proposition 10 prescribe the total count.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.20654",
+          "material_read": "Proposition 10(a)–(b), p. 12, OA offsets 52021–56920",
+          "method": "Targeted OA preprint text",
+          "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+          "trigger": "Earlier Ewens and pair inversion formulas"
+        },
+        {
+          "assessment": "Aggregate covered by the inversion row via mixing; table itself does not specify a fixed site",
+          "evidence": "The mean depends on first two cycle counts, with the inversion row yielding the exact aggregate mixed covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.00898",
+          "material_read": "Theorem 1.1 and Table 1, OA offsets 8740–12212; Definition 4.1 located at 24144",
+          "method": "OA primary PDF text",
+          "title": "Permutation statistics on conjugacy classes",
+          "trigger": "Prior class-moment results for the same arbitrary-weight statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:2–93, 102–192",
+        "November 8 Ewens indexed Finding",
+        "Campion Loth et al., inversion row of Table 1"
+      ],
+      "rationale": "The local left/right imbalance is a useful diagnostic on its own, and the frozen exchangeability proof is short and clear. For the claim as assessed against existing mathematical coverage, however, the only additions to the indexed exact tensor specialization are a two-permutation boundary case and a routine normalization by standard variances. They do not supply a distinct useful exact invariant or a new mechanism.",
+      "residual_risks": [
+        "This does not diminish the expository utility of the uniform-case proof or decide historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

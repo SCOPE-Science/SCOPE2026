@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:28:35.472507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The allocation is retained and has the same law under reference and decoder, so forward KL is allocation-averaged conditional KL, not output-only KL. Markov screening at the nearest revealed flanks gives single-site entropy log 2-I_left-I_right+I_span and the joint gap entropy from the transition entropy; one missing flank gives the edge term. Independent marginal-entropy enumeration confirmed the finite formula in 60 cases (L=2,...,6 with endpoints p=0,1 included; maximum discrepancy 3.0e-15). At fixed interior parameters the edge and no-seed contributions vanish per site; sums give (1), with both endpoint costs I_1. Symbolic differentiation confirms the positive curvature of each geometric-information term and the opposite signs of the slopes at 0 and 1/2. Analytic expansion after division by the leading weight lambda²/2 gives endpoint slope 3 lambda²/4+O(lambda⁴) and curvature 4+O(lambda²), hence the stated weak-correlation coefficient. Independently for the strong limit, put delta=1-lambda and H_d=log 2-I_d. The correction to p log 2-H_1 is p times the sum of [2(1-p)-p(d-1)] H_d (1-p)^(d-1). This kernel annihilates d exactly. Insert the small-delta entropy expansion at d≤delta^(-2/3); geometric tails are exponentially small at p=c sqrt(delta) and the remainder is O(delta² p^(-2)(1+|log delta|)), uniformly on compact positive c intervals. The surviving d log(pd) term is a Riemann sum with integral of (2-x)x log(x) exp(-x) equal to -1, so b/sqrt(delta) tends uniformly on those c intervals to c log 2+1/(2c). Strict convexity and left/right secant comparisons with the unique minimizer of this limiting function trap the scaled minimizer, giving both sharp laws in the specified order of limits. Replay: python /workspace/independent_checks.py 2 (SymPy, NumPy, SciPy); frozen check.py and VERIFICATION.md inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every fixed m≥2 the fixed-round result gives minimum m(log 2)^(1/m) f^((m-1)/m) to leading order and every minimizing p_j asymptotic to (f/log 2)^((m-j)/m), at the same path-relative-entropy objective and order of limits.",
+          "Baule, Chen–Cong–Li, and Lavenant–Zanella provide general evaluation, schedule characterization or bounds; their inspected primary passages do not by themselves state the special two-round sharp law."
+        ],
+        "reasoning": "At m=2 the first-round conditional and cumulative reveal fractions agree, and the final round reveals all remaining sites. Substituting m=2 proves exact broader coverage of both singular laws. It is not merely analogous many-round scheduling.",
+        "searches": [
+          "Resultary SCOPE-universal-fixed-round-geometric-unmasking-law-in-a-strongly-corr--b351c0c06698",
+          "arXiv:2611.07845v1 §I Eqs. (1)–(5)",
+          "arXiv:2511.04647v2 Theorem 1.4",
+          "arXiv:2510.25544v2 Propositions 2–3 and Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror, both distinct exact records above",
+        "arXiv:2611.07845v1",
+        "arXiv:2511.04647v2",
+        "arXiv:2510.25544v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct match derives the same curvature and endpoint slope functions even while describing those facts as starting points. It does not explicitly give the frozen weak-correlation Taylor coefficient. Expanding its geometric series gives slope/leading weight 3 lambda²/4+O(lambda⁴) at 1/2 and curvature/leading weight 4+O(lambda²)."
+        ],
+        "reasoning": "Strict convexity and the strong law require no new implication beyond compared statements. For the weak adjustment, only a one-step Taylor/implicit-function calculation in the equivalent existing formula is left; it yields -3/16 without a new lemma or optimizer classification.",
+        "searches": [
+          "Resultary first-wave result §2 (positive spectral mixture, curvature, two endpoint slopes)",
+          "Resultary fixed-round result, Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first-wave record gives the same loss series, the same positive geometric mixture and curvature, and the same unique optimizer in (0,1/2). Its scaled optimizer is (2 log 2 xi)^(-1/2) and optimum cost is (2 log 2/xi)^(1/2)."
+        ],
+        "reasoning": "Set its rho=lambda. Since xi^{-1}=-log(lambda) is asymptotic to 2f, both constants are exactly the frozen ones. Averaging conditional KL over a common random assignment is precisely forward KL retaining the assignment, not a different objective. This is a distinct indexed result, not the target's own search hit.",
+        "searches": [
+          "Resultary: exact two-pass/two-round binary Markov unmasking, Bernoulli reveals, convex path KL and square-root first wave",
+          "SCOPE-a-sharp-square-root-first-wave-law-for-two-round-markov-unmaskin--fd70e5caa9d2, Finding, Assumptions and scope, Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact first-wave record explicitly contains both sharp constants in correlation-length coordinates; the broader index entry gives them directly in domain-wall coordinates at m=2."
+        ],
+        "reasoning": "The indexed constants and optimizer facts are the appropriate exact lookups for this functional asymptotic, not an unrelated numerical schedule table.",
+        "searches": [
+          "Resultary: exact indexed instances of two-round Markov path divergence and sharp first-wave scaling (first-wave and fixed-round records above)"
+        ]
+      },
+      "rationale": "There is demonstrable equivalent indexed coverage of the central frozen claim. The first-wave record has the same source, Bernoulli allocation, forward joint divergence, thermodynamic limit, strict convexity, optimizer interval, and both leading strong-correlation constants. The fixed-round theorem also delivers the strong-correlation laws at m=2. This is not a false theorem or a finding about publication order: the distinct records share the same displayed date, and priority is unresolved. Originality of the frozen combined finding is not established against this exact coverage. The weak-correlation coefficient is a routine Taylor consequence of the already displayed equivalent objective and its unique interior optimizer, not an independently substantial remainder.",
+      "residual_risks": [
+        "The available statements establish equivalence and a broader implication; they do not establish publication order, attribution or who first derived these facts.",
+        "Unexamined literature may also contain the weak-correlation coefficient explicitly; its mechanical implication from the existing exact objective is sufficient for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent substantive claims; displayed date does not establish priority",
+          "evidence": "Defines common Bernoulli labels and forward joint P_L versus Q_L, states the sharp p and risk laws in xi, and derives strictly positive curvature and uniqueness in (0,1/2). The references and scope do not resolve ordering against the frozen statement.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-square-root-first-wave-law-for-two-round-markov-unmaskin--fd70e5caa9d2",
+          "material_read": "RESULT.md, Finding, scope and Proof §§1–2, offsets 0–4536; limitations and references offsets 9250–11336",
+          "method": "Local Resultary mirror",
+          "title": "A sharp square-root first-wave law for two-round Markov unmasking",
+          "trigger": "Direct match in model, schedule, path divergence and sharp scaling"
+        },
+        {
+          "assessment": "Exact m=2 implication for both strong-correlation laws",
+          "evidence": "Same symmetric source and per-site path KL. At m=2 the formulas yield p_1 asymptotic to sqrt(f/log 2) and minimum to 2 sqrt(f log 2).",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-fixed-round-geometric-unmasking-law-in-a-strongly-corr--b351c0c06698",
+          "material_read": "RESULT.md, Finding, scope and exact error series, offsets 0–4090; limitations and references offsets 8000–10188",
+          "method": "Local Resultary mirror",
+          "title": "Universal fixed-round geometric unmasking law in a strongly correlated Ising chain",
+          "trigger": "Dominating fixed-round theorem"
+        },
+        {
+          "assessment": "Exact prior framework but inspected passages do not give this sharp optimizer",
+          "evidence": "Defines the exact and factorized joint string/label laws and their KL decomposition into conditional total correlations; discusses many-step geodesic schedules.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07845v1",
+          "material_read": "§I introduction and Eqs. (1)–(5), OA offsets near 3117 and 9087",
+          "method": "OA HTML passages",
+          "title": "Masked diffusion as random sequential adsorption: an exactly solvable model for parallel decoding",
+          "trigger": "Same Markov masking framework and schedule optimization"
+        },
+        {
+          "assessment": "Broader characterization, not explicit sharp binary two-round result in passages read",
+          "evidence": "Uses schedule-averaged conditional KL and an information curve with a best-step approximation.",
+          "identifier_or_url": "https://arxiv.org/html/2511.04647v2",
+          "material_read": "§1 Definition 1.1 and Theorem 1.4, OA offsets near 7000 and 8750",
+          "method": "OA HTML passages",
+          "title": "Optimal inference schedules for masked diffusion models",
+          "trigger": "General exact schedule characterization"
+        },
+        {
+          "assessment": "General bounds and a marginalization inequality, not an exact two-pass optimizer in passages read",
+          "evidence": "Bounds output KL by learning plus expected total-correlation factorization error via augmented path KL; provides random-order schedule bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2510.25544v2",
+          "material_read": "§2 Propositions 2 and 3, §4.2 Theorem 7, OA offsets near 16529, 22100 and 34500",
+          "method": "OA HTML passages",
+          "title": "Error Bounds and Optimal Schedules for Masked Diffusions with Factorized Approximations",
+          "trigger": "Factorized masking divergence and possible output-metric confusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rare-wall optimizer and its sharp cost would be meaningful as an uncovered benchmark, but both are already supplied by the directly matching theorem and the fixed-round specialization. The remaining -3/16 coefficient follows by a routine Taylor calculation in the same optimizer equation. The frozen finding identifies no distinct motivated weak-correlation invariant or nonroutine advance that survives the overlap. No substantive valuable repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

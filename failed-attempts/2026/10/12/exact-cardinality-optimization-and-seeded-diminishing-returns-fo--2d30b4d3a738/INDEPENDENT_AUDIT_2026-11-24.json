@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:23.812921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63 and the four-tip example at line 73",
+        "Frozen verify.py, lines 12–105 and 109–143; VERIFICATION.md, read only"
+      ],
+      "rationale": "Independent reconstruction: for each edge e, two independently sampled weighted tips straddle its cut with probability 2m_e(1−m_e), where m_e is descendant mass. The Rao sum is therefore 2Σ_e ℓ_e[m_e−m_e²]=2H−2Σ_eℓ_e m_e² by equal tip depth. The latter energy is that of unit current; minimizing at each parallel split divides current in proportion to finite positive branch conductances, so the circuit optimizer is feasible and every selected leaf receives positive mass. Positive pendant lengths make the quadratic strictly convex, including on the simplex. For the discrete optimum, fixed child counts compress each subtree to its smallest feasible resistance, since parallel conductance is decreasing in either resistance including the missing-branch convention. Maximizing the resulting sum over splits gives the exact recursion and O(nk²) arithmetic bound; stored splits and current division recover the set and weights. For diminishing returns, the branch transform has increment δ/[(1+aC)(1+a(C+δ))], decreasing in baseline C and increasing in δ. Induction from pendant branch indicators yields monotone submodular root conductance, strictly increasing under any new tip. For nonempty A⊊B and added x, the reciprocal-resistance drop is δ/[C(C+δ)] with the same monotonicities, strictly decreasing in finite positive C for δ>0. The inequality is strict; two distinct singleton values of zero and their positive pair value refute submodularity at the empty seed.",
+      "residual_risks": [
+        "The verifier's 3690 fixed-set checks, 405 cardinality checks, and 83970 strict marginal checks are recorded runs, not fresh ones. The script compares optimum energies and values, not an explicit subset/weight backtracking implementation. Backtracking follows from the proof. The complexity counts rational arithmetic operations, not bit operations.",
+        "The strict convexity argument proves uniqueness, not support by itself; support follows separately from current division. Equal depth and positive lengths are used as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chan et al. give series–parallel budget-split resistance minimization and O(|E|k²) evaluation. Their printed theorem is for unit edge cost; their actual displayed recurrence uses leaf thresholds b≥c_e and otherwise ∞, so it also applies to costs zero and one without any change to states or time.",
+          "The grounded commute-time theorem is over graphs, not only trees. Steel's exact k-selection theorem is for the different Faith phylogenetic diversity objective."
+        ],
+        "reasoning": "Adding a common sink with a zero-resistance unit-cost link per selectable tip and setting all tree edges to cost zero gives a two-terminal series–parallel graph of size O(n). Fact 4.3 allows nonnegative resistances. The published recurrence with these base costs gives the claimed DP in the same bound; all backbone edges can be included and strict monotonicity makes optimum at-most-k equivalent to exact k.",
+        "searches": [
+          "arXiv:1904.03219, Section 4.2 and Fact 4.3",
+          "arXiv:1208.0946, Theorems 2–3 and proof, pp. 10–12",
+          "Steel (2005), DOI 10.1080/10635150590947023, PMID 16051588"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and inspected mirror findings",
+        "arXiv:1904.03219",
+        "arXiv:1208.0946",
+        "PMID 15888302 and PMID 16051588, abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the common-walk coupling for the commute-time theorem, let T_S be the first root return after seeing some tip in S. Both marginal drops T_S−T_{S∪{x}} vanish unless x is hit before S. On paths hitting x before B, the drop for A is at least the drop for B by T_A≥T_B and identical first return after x. On the positive-probability walk following root→y→root→x→root, y∈B\\A, no selected tip in A has been visited, the drop for B is zero, and that for A is positive. A root→x→root excursion alone gives positive drop for B. Tree paths to a tip never pass another tip. This gives the strict law using the earlier general proof, with no new structural condition beyond the tree leaves.",
+          "Terminal current splitting is ordinary positive series–parallel current division. At the empty seed, failure follows already from the zero singleton and positive pair values."
+        ],
+        "reasoning": "The strict tree specialization and exact DP follow by direct path and network substitutions in the inspected antecedents, not merely by similarity of vocabulary. The fixed-set energy conversion itself is the edge-cut expansion plus Thomson's principle. No separate nonmechanical mathematical remainder is identified in the combined finding.",
+        "searches": [
+          "Chan et al., arXiv:1904.03219, Section 4.2, offsets 78500–85687",
+          "Clark et al., arXiv:1208.0946, Theorems 2–3, equations (9)–(10) and path interpretation of commute times, offsets 27900–33171"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On an equal-height tree the expected pairwise-distance objective is exactly constant minus twice the unit-flow energy. Under the correspondence, a circuit grounded at a tip set has resistance equal to the root diagonal of the inverse grounded Laplacian.",
+          "Pavoine–Ollier–Pontier's abstract already states retention of every category in fixed-set ultrametric Rao maximization. Clark et al. Theorems 2–3 identify the grounded diagonal with a fixed multiple of a commute time and establish its nonincreasing supermodularity."
+        ],
+        "reasoning": "Rao on a specified weighted set, resistance to that set, and the commute-time performance at a single source are equivalent here, after the constant and sign change. Faith's subtree-length objective does not have this equivalence.",
+        "searches": [
+          "Resultary: optimized/reweighted Rao entropy, expected pairwise tip distance, grounded-tree resistance and seeded diminishing returns",
+          "Pavoine–Ollier–Pontier, DOI 10.1016/j.tpb.2005.01.004, PMID 15888302",
+          "Clark–Bushnell–Poovendran, arXiv:1208.0946, Theorems 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Rao rarefaction hit concerns a richness–Rao covariance under sampling; the same-day Faith-PD hit concerns topology recovery from rooted rarefaction curves. The resistance hit allocates continuous conductance to edges or chords for a Kirchhoff-index objective, not grounded leaf selection."
+        ],
+        "reasoning": "This is a parameterized optimization theorem, not a numeric table. The inspected catalogue comparisons do not duplicate it. The adverse coverage decision comes from the verified general theorems and their transfer.",
+        "searches": [
+          "Resultary: exact cardinality Rao entropy, optimal abundance tree knapsack, grounded resistance",
+          "Mirror RESULT.md findings …755f790ed3d5, …fe2545590f3f and …17feee4e7fc8"
+        ]
+      },
+      "rationale": "The substantive new-looking components are direct transfers of existing results once the standard tree-cut/energy identity is written down. Fixed-set full support is already stated for ultrametric Rao. The claimed count-split knapsack is the existing series–parallel resistance DP with zero-cost backbone edges and unit-cost terminal links. Even the strict seeded law is the leaf case of the existing grounded-resistance commute-time proof: explicit positive-probability excursions make both inequalities strict. This is not a claim that any one antecedent prints the full Rao formulation.",
+      "residual_risks": [
+        "The unavailable Rao and Steel full texts cannot support a full-document noncoverage claim. Neither access limit is the basis for the decision. This is a component-wise mathematical implication, not an authorship or priority conclusion about the joint formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically transferable via zero-cost backbone and selectable unit-cost sink links; distinguish printed all-unit-cost scope",
+          "evidence": [
+            "Nonnegative resistances in Fact 4.3; leaf feasibility threshold b≥c_e; series and parallel split recurrences; O(mk²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.03219",
+          "material_read": "Theorem 1.8 and Sections 4.1–4.2, Fact 4.3 and displayed budget-split recurrence, pp. 24–26 for the algorithm",
+          "method": "Bounded open primary PDF reading",
+          "title": "Network Design for s-t Effective Resistance",
+          "trigger": "Exact series–parallel resistance knapsack and same time complexity"
+        },
+        {
+          "assessment": "Covers nonstrict grounded law in general, with strict tree-leaf case by the explicit excursions in the audit",
+          "evidence": [
+            "Proportionality for each source u, not just the sum of grounded diagonals; pathwise return times after hitting the set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.0946",
+          "material_read": "Theorems 2–3, proof with coupled walks and equations (9)–(10), pp. 10–12",
+          "method": "Bounded open primary PDF reading",
+          "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+          "trigger": "Grounded resistance as a supermodular function of terminal set"
+        },
+        {
+          "assessment": "Explicitly covers full support; other possible overlap unresolved, not used as a cause of failure",
+          "evidence": [
+            "The abstract states that all categories are retained at the maximum with ultrametric dissimilarities."
+          ],
+          "identifier_or_url": "doi:10.1016/j.tpb.2005.01.004; PMID 15888302",
+          "material_read": "PubMed abstract; DOI and identified HAL full text not retrieved",
+          "method": "Bounded lawful access attempts and abstract comparison",
+          "title": "Measuring diversity from dissimilarities with Rao's quadratic entropy: are any dissimilarities suitable?",
+          "trigger": "Fixed-set ultrametric entropy maximization"
+        },
+        {
+          "assessment": "Different objective, despite same fixed-cardinality vocabulary",
+          "evidence": [
+            "The optimized diversity is total edge weight of an induced subtree."
+          ],
+          "identifier_or_url": "doi:10.1080/10635150590947023; PMID 16051588",
+          "material_read": "Public abstract; full text not independently retrieved in the bounded attempts",
+          "method": "Abstract comparison and lawful access attempts",
+          "title": "Phylogenetic Diversity and the Greedy Algorithm",
+          "trigger": "Exact phylogenetic tip selection at a target cardinality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and scope",
+        "Chan et al., Section 4.2",
+        "Clark et al., Theorems 2–3"
+      ],
+      "rationale": "Optimized Rao conservation is a natural distinction from Faith diversity, and the circuit formulation can be useful pedagogically. The exact optimization and the marginal behavior here nevertheless come directly from a standard energy reduction to two available resistance results and immediate leaf-specific consequences of their proofs. The record does not identify an independently new quantitative subproblem or substantive optimized-Rao phenomenon beyond that transfer and the singleton boundary.",
+      "residual_risks": [
+        "Assessment is limited to the proved ultrametric unconstrained-weight setting; it does not concern cost, minimum weight, nonultrametric, or empirical conservation problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

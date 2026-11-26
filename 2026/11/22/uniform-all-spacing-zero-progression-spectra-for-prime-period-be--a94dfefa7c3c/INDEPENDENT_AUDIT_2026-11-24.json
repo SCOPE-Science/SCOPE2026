@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:57.628817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under Touchard's recurrence the polynomial X^p−X−1 is irreducible: for a root ρ, iterated Frobenius gives ρ+i for i mod p, hence orbit size p. Nondegeneracy of the finite-field trace pairing gives a unique c with the first p Bell residues Tr(cρ^i); Touchard propagates the equality and c≠0 follows from B_0=1. A candidate period d imposes Tr(c(ρ^d−1)ρ^i)=0 on a basis, exactly equivalent to ρ^d=1. By the full-period hypothesis H=<ρ> has size N_p, coprime to p−1 since N_p≡1 mod (p−1). Thus cH contains exactly one nonzero vector on each base-field line. For any nonzero h modulo N_p, β=ρ^h is nonscalar; prime extension degree forces its degree to be p even if h is not a unit. The first ℓ powers are linearly independent, so their trace functionals have a common kernel of dimension p−ℓ. Counting its lines yields (p^(p−ℓ)−1)/(p−1), independently of h. At ℓ=p the kernel is zero; longer progressions imply an excluded p-term start. The proof is conditional at primes where the full period is not established. Independently generated exact Bell residues by Stirling rows S(n,k)=S(n−1,k−1)+kS(n−1,k) modulo p and summed over k, without using the frozen checker or its recurrence implementation. At p=2,3,5 the residues matched across period endpoints for the first p entries and not for any proper divisor shift; exhaustive cyclic counting gave respectively 4,36,3900 comparisons, with the p=5 spectrum [156,31,6,1,0] and unique consecutive quadruple start 587. The finite results corroborate rather than prove the general statement. Read checker.py and VERIFICATION.md without executing the frozen script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "43c89c847f1a gives broad mean/variance and simultaneous two-zero incidence via the projective model. Its hypotheses for prime-power lifts were not asserted for Bell lifts here",
+          "Shparlinski full text was unavailable; the McEliece abstract gives a recurrence-distribution topic but the retrieved thesis text was not usable"
+        ],
+        "reasoning": "The projective-recurrence proof calculates only the rank of one or two tap vectors. To prove the proposed spectrum one needs the rank for every arithmetic progression of up to p tap vectors, not just nonparallelity of a pair. The inaccessible general recurrence works could contain a stronger comparison and remain unresolved.",
+        "searches": [
+          "Resultary 43c89c847f1a, exact zero-incidence moments for projective-period recurrences",
+          "Shparlinski, On the Distribution of Values of Recurring Sequences and the Bell Numbers in Finite Fields",
+          "McEliece, Linear Recurring Sequences Over Finite Fields (1967)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Gallardo–Rahavandrainy P4.49",
+        "Resultary 43c89c847f1a, d878bd6a14d4 and the assigned self-match",
+        "OEIS A175923",
+        "Montgomery–Nahm–Wagstaff CERIAS record",
+        "Layman and Shparlinski publisher retrieval attempts; McEliece thesis abstract and PDF text attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2014 article reduces Bell residues to a fixed multiple of Tr(ρ^(n−c(p)−1)); its consecutive proof uses the vanishing trace of 1,ρ,…,ρ^(p−2)",
+          "Projective period makes start positions range over all lines, but the earlier inspected incidence theorem tests only pairs; the period paper addresses whether that condition holds"
+        ],
+        "reasoning": "These ingredients make the extension elementary but do not on their own give equal higher-order ranks as h ranges over nonunits. The decisive general observation is that every nonscalar h-power of the projective generator has degree p, so all its short power lists are independent simultaneously. No novelty is assigned to rank-nullity, the trace representation, the known pair counts, or the known maximal run at h=1.",
+        "searches": [
+          "Gallardo–Rahavandrainy trace formula and §5.3 Radoux/Layman/Kahale summary",
+          "43c89c847f1a projective simultaneous-zero count",
+          "Montgomery–Nahm–Wagstaff CERIAS TR 2010-01"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2014 Bell trace formula identifies the same zero set, up to a fixed cyclic offset, and §5.3 explicitly discusses maximal consecutive zero strings",
+          "In Singer language the claimed count is for ℓ consecutive translates of a hyperplane along a cyclic shift; classical difference-set parameters give exactly ℓ=1,2 for all h"
+        ],
+        "reasoning": "The change to trace or hyperplane language is an equivalence, not novelty by renaming. Pairwise intersection sizes do not give higher-order ones. Changing h by decimation permutes indices only for units, so maximal-period tuple counts of a single permuted sequence do not cover the nonunit assertion by that argument.",
+        "searches": [
+          "Resultary: all-spacing Bell-number zero progressions and exact zero incidence for projective-period recurrences",
+          "Gallardo–Rahavandrainy doi:10.37236/3532 §§1,5.3",
+          "Singer trace hyperplane difference set; maximal-length sequence decimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A175923 lists the starting indices of maximal consecutive zero runs, including 587 at p=5",
+          "d878bd6a14d4 gives return gaps at p=7, not simultaneous hits at prescribed spacings; a94dfefa7c3c is the assigned all-spacing self-match"
+        ],
+        "reasoning": "The consecutive-start and return-gap tables measure different invariants, except for the acknowledged consecutive specialization, and do not tabulate all cyclic arithmetic progressions. The same-day different result cannot establish chronology.",
+        "searches": [
+          "OEIS A175923 Bell zero-run indices",
+          "Resultary exact Bell-number divisibility-by-seven gap spectrum and all-spacing zero progression counts"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform full progression spectrum at higher order for arbitrary nonzero spacings, with nonunit spacings included. Bell traces and classical projective one- and two-site counts are prior work, as is the maximal consecutive run. There is a short field-theoretic derivation from these ingredients plus a new-for-this-comparison rank argument; no inspected primary or indexed theorem already gives the full higher-order nonunit formulation or a general theorem that directly includes it. This is a bounded assessment, not a claim of priority for trace methods or power independence.",
+      "residual_risks": [
+        "Shparlinski's primary article is a specific unresolved candidate for stronger recurring-sequence distribution coverage",
+        "Full primary passages from Layman and McEliece could not be compared; the conclusions rely on available specific statements, not absence of downloads",
+        "Novelty is confined to the combined higher-order all-spacing assertion, not the classical theory or individual known slices"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact trace and maximal consecutive overlap, not asserted arbitrary-step spectrum in these passages",
+          "evidence": "Gives a nonzero fixed factor multiplying an index-shifted field trace; credits Radoux for the unique p−1 consecutive run under full period, Layman for the general-period extension and Kahale for its location.",
+          "identifier_or_url": "https://doi.org/10.37236/3532",
+          "material_read": "p. 2 near offset 2200; §5.3 p. 27, offsets 75250–79590; bibliography p. 28 near 80000",
+          "method": "OA PDF passages",
+          "title": "Bell Numbers Modulo a Prime Number, Traces and Trinomials",
+          "trigger": "Same Bell sequence with trace law and maximal runs"
+        },
+        {
+          "assessment": "Covers one- and two-site incidence at field level; not the higher-order spectrum in material read",
+          "evidence": "All nonzero lags give the same pair count from two trace hyperplanes. Prime-power lift assumptions not assessed for a Bell lift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-zero-incidence-moments-for-projective-period-recurrences-o--43c89c847f1a",
+          "material_read": "Mirrored RESULT.md statement and simultaneous two-zero count in proof",
+          "method": "Resultary mirror passages",
+          "title": "Exact zero incidence moments for projective-period recurrences",
+          "trigger": "General calculation of all-shift zero overlap in the projective representation"
+        },
+        {
+          "assessment": "Maximal consecutive coverage verified indirectly, primary exact scope unresolved",
+          "evidence": "The 2014 paper reports Layman's extension of the unique p−1 consecutive run to any least period.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(85)90055-X",
+          "material_read": "No primary body obtained; Gallardo–Rahavandrainy §5.3 historical account read",
+          "method": "Publisher retrieval attempted; same result compared via published secondary summary",
+          "title": "Maximum Zero Strings of Bell Numbers Modulo Primes",
+          "trigger": "Exact Bell zero runs"
+        },
+        {
+          "assessment": "Material coverage risk, neither verified overlap nor exclusion",
+          "evidence": "Title links Bell and general recurring-sequence distributions; no statement-level information on simultaneous progression intersections recovered.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0195669813800108",
+          "material_read": "Bibliographic citation only; no body obtained",
+          "method": "1991 citation located in Gallardo–Rahavandrainy and publisher record located; lawful direct/VPN retrieval returned 403",
+          "title": "On the Distribution of Values of Recurring Sequences and the Bell Numbers in Finite Fields",
+          "trigger": "Same sequence and a potentially stronger finite-field distribution result"
+        },
+        {
+          "assessment": "Exact theorem scope unresolved",
+          "evidence": "Abstract concerns finite-field recurrence value distributions; not enough to infer arbitrary-h joint counts.",
+          "identifier_or_url": "https://thesis.caltech.edu/3856/",
+          "material_read": "Thesis abstract; PDF text extraction unusable",
+          "method": "Repository and PDF inspection attempt",
+          "title": "Linear Recurring Sequences Over Finite Fields",
+          "trigger": "Possible classical distribution theorem on multiple taps or decimation"
+        },
+        {
+          "assessment": "Establishes relevance to period determination, not a comparison of progression theorems",
+          "evidence": "Concerns whether the minimum Bell period can be a proper divisor of N_p and properties of factors of N_p.",
+          "identifier_or_url": "https://www.cerias.purdue.edu/apps/reports_and_papers/view/4336",
+          "material_read": "CERIAS TR 2010-01 abstract and bibliographic landing page, offset 0",
+          "method": "Public website passage; AMS PDF unavailable in bounded attempt",
+          "title": "The period of the Bell numbers modulo a prime",
+          "trigger": "Full least-period hypothesis"
+        },
+        {
+          "assessment": "Covers first starts for maximal consecutive runs",
+          "evidence": "Includes 587 for the unique consecutive quadruple at p=5; does not give a comparison at nonunit h.",
+          "identifier_or_url": "https://oeis.org/A175923",
+          "material_read": "Entry's indexed consecutive zero-run values",
+          "method": "OEIS passage",
+          "title": "Bell zero-run first occurrence indices",
+          "trigger": "Exact table for a consequential specialization"
+        },
+        {
+          "assessment": "Different statistic, one prime",
+          "evidence": "Return gaps between successive zeros are counted, not all simultaneous hits with a prescribed shift.",
+          "identifier_or_url": "d878bd6a14d4",
+          "material_read": "Indexed finding on the p=7 indicator period and gap histogram",
+          "method": "Resultary comparison",
+          "title": "Exact return-gap spectrum of Bell-number divisibility by seven",
+          "trigger": "Contemporaneous indexed exact zero-indicator result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives all exact progression counts on a classical cyclic Bell divisibility set; in particular every nonzero step has a unique longest run. The nonunit case is substantive because such a shift traverses only a subcycle, so invariance is not a reindexing of the known consecutive case. The rank observation explains why neither subcycles nor higher-order intersections break uniformity, a useful structure beyond recomputation of a single period or the two-site incidence parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: fourth-order Gauss positivity on directed Markov cycles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof fixes the row-generator convention and strictly positive cycle rates. The directed passage-time formula supplies an explicit group inverse \(G\) and establishes \(QG=GQ=I-\Pi\), \(\pi G=0\), and \(G\mathbf1=0\). Restricting the rational Padé map to the nonstationary subspace yields \(T(h)=I+12G/h+O(h^{-2})\). For every cycle with at least four states, the sum of the forward-neighbor entries of \(G\) is the strictly negative nonadjacent-pair sum. The three-state zero-sum exception forces equal rates, and exact circulant calculations establish sufficiency. The two-state spectral calculation verifies the remaining case. Four-state numerators and a one-positive-root sign argument give the sharp uniform cutoff. An exact rational/symbolic verification program corroborates 406 independent assertions, but is not taken as proof of the infinite-family result.
+PASS
 
-## Originality
+For the row generator use pi_j=s_j/S and Pi=1 pi. The forward travel times satisfy Qm_j=pi_j^(−1)e_j−1; centering against pi produces G=(Q+Pi)^(−1)−Pi. Expanding the resolvent on the complement gives T=I+12G/h+O(h^(−2)); the stationary sector is identity. Pairing m_ij+m_ji=S and subtracting all unordered pairs from the adjacent pairs gives the claimed weighted sum for n≥4. For n=3, putting a=s_(j−1), b=s_(j+1), the centered term gives G_(j−1,j)=s_j(a s_j−b²)/S²; sum zero and simultaneous equality force homogeneous rates. For n=2 the nonstationary scalar lies strictly between zero and one for h>0 and Pi is positive. Independently checked homogeneous n=3 by using z²+3xz+3x²=0 on the two nonstationary modes z=x(omega−1): the identity (2−x−z)(2(x+1)+z)=x²+2x+4 reproduces the stated positive row. For n=4 evaluate R at 0, −2x, (−1±i)x and invert that four-point Fourier transform. Put A=x²+3x+3, B=x⁴+6x³+18x²+36x+36; R(−2x)=1−6x/A and Im R((−1+i)x)=6x(6−x²)/B. The forward entry becomes 3x[B+2A(6−x²)]/(2AB)=−3x(x⁴−24x²−72x−72)/(2AB); the other three are the stated positive rational entries. Descartes and endpoint signs give one positive root, and h=0 is identity. Replay: frozen RESULT.md proof and the identities here. The frozen verify.py was inspected, not executed; its finite checks and absent attestation/Lean status are not used as universal evidence.
 
-**PASS, with a residual literature risk.** Zappavigna, Colaneri, Kirkland and Shorten (2010; 2012) established Padé positivity failures and sufficient timestep conditions, and the 2012 work explicitly describes a cyclic-feedback Metzler matrix (equation 18). Its illustrated fourth-order failure specializes that matrix to an eight-dimensional **open nilpotent chain**, not an irreducible cycle; the inspected results do not classify all positive rates and all step sizes on conservative cycles. Classical group-inverse/first-passage relations are treated as prior methods. The contribution assessed here is the exact all-step equivalence, heterogeneous-triangle rigidity, all-dimensional nonadjacent-pair obstruction and exact uniform-four-cycle frontier. Other numerical positivity investigations of Laplacian graphs or different Runge–Kutta maps do not entail this all-rate directed-cycle classification. Searches cannot exclude an equivalent unindexed result, particularly in earlier numerical analysis theses and positivity-preserving discretization literature.
+## originality
 
-## Value
+PASS
 
-**PASS.** Directed-cycle generators are a canonical irreducible, nonreversible transport model; preservation of stochastic nonnegativity is a physical constraint on a numerical transition matrix. The theorem gives a complete and sharp answer for the entire rate-labeled class, isolates a fragile homogeneous three-state exception, and identifies a universal graph-structural mechanism for the failure, quantified by nonadjacent-pair holding-time products. The first failing uniform cycle also has an exact finite timestep cutoff. This is a motivated structural classification rather than an arbitrary finite example or generic positivity counterexample.
+The rate-labeled theorem and weighted obstruction are distinct from the closest located manuscripts and catalogue results. The later uniform-cycle record substantially overlaps the homogeneous claims, including the exact four-cycle quartic; this overlap is disclosed and is not used to establish priority or broad uniqueness. The finding does not claim novelty for Padé positivity failure or group inverses.
 
-## Evidence and limits
+## value
 
-The public manuscripts of Zappavigna et al. (2010), https://mural.maynoothuniversity.ie/id/eprint/2195/ , and Zappavigna et al. (2012), https://mural.maynoothuniversity.ie/id/eprint/3761/ , were consulted, including the cyclic-feedback model, the nilpotent eight-state example, and positivity sufficient conditions in the latter. Rossi, Colaneri and Shorten (2011), DOI 10.1109/TAC.2011.2161028, concerns polyhedral Lyapunov preservation rather than the stated transition-entry classification. The bound for general cycles is eventual sign loss; the complete positivity interval is characterized only for the equal-rate four-cycle. Formal independent mathematical validation and a guaranteed exhaustive literature survey have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-step positivity is a meaningful Markov integrator property distinct from conservation. The result classifies a natural family for all positive rates, quantifies an unavoidable sign through missing undirected edges, and gives an actionable exact timestep cutoff in the first homogeneous failing size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

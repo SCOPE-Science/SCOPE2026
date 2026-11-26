@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:28.182533Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The target square classes V_b=Σ_{h≠b}T_h are independent since their coefficient matrix is J−I with eigenvalues s−1 and −1; a zero product therefore means Euclidean orthogonality in every target part. Distinct image columns are blockwise and globally orthogonal. If a column is zero, its square shows that the sum of the columns in all other source parts is zero. Orthogonality forces them all zero, and any one of those zeros also forces the remaining columns in the initial part to vanish. Thus nonzero maps have N nonzero orthogonal columns and are invertible. The N positive projection occupancies exhaust the sum of the target block dimensions because each block fits at most its own dimension; hence each column has exactly one target block. Invariance of dim E² gives r=s. Equal squares in each source part force its columns to the same target block and norm because their squares are nonzero multiples of independent V_b; occupancy gives a bijection of parts and matching sizes. The blocks are t_b O_b. For a≠b, comparing the target block at π(b) in the square relation yields t_b O_b 1=(d_{π(a)}/c_a)t_a²1. Taking norms and using positivity gives t_b=β_a t_a² and O_b1=1. With at least three parts each two a share a third b, so all β_a t_a², and hence all t_b, coincide with t=c_a/d_{π(a)}. For two parts t₂=β₁t₁² and t₁=β₂t₂², giving the displayed unique positive cube roots. The part permutation, column norms and normalized blocks are recovered from each map; conversely the equations ensure all squares and off-diagonal products are preserved. For graph weights 1 and 1/(N−n_a), the criterion gives precisely the bipartite or equal-size cases and zero maps in both directions otherwise. Inspected the frozen rational checker without executing it. Independent replay: python3 -I /workspace/independent_reproductions.py checks the products coordinate by coordinate for two different rational reordered examples (including a Householder block fixing ones and unequal bipartite scales); both passed. These examples do not certify the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a complete multipartite graph adjacency has rank r since the compressed map on block constants is (J−I)diag(n); any repeated vertex in a part gives singularity. Theorem 2.3 is for nonsingular graphs.",
+          "The 2024 work proves graph-family cases including diameter-three trees and odd tadpoles; the 2025 work treats graph-symmetry actions on automorphisms; Question 26 in the 2026 survey still describes the general criterion as known for nonsingular graphs and supported by families.",
+          "Resultary 4d62f6d1f6ce treats singular false-twin quotients, whereas the complete multipartite quotient is K_r with invertible J−I."
+        ],
+        "reasoning": "These stronger-looking general-graph tools do not yield the frozen weighted result. The nonsingular hypothesis omits complete multipartite graphs with any nonsingleton part; neither examples of singular graphs nor automorphism constructions decide all morphisms between positive weighted algebras.",
+        "searches": [
+          "Resultary: graph evolution algebra homomorphisms between graph algebras with twin partition noninvertible real classification",
+          "arXiv:1710.10516 Thm. 2.3 and Prop. 2.7",
+          "arXiv:2405.12341v1 intro and §3",
+          "arXiv:2505.15604 Thm. 2.17",
+          "arXiv:2610.22248v1 Question 26"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.10516",
+        "arXiv:2405.12341v1",
+        "arXiv:2505.15604",
+        "arXiv:2610.22248v1",
+        "Resultary:185eb829c34e",
+        "Resultary:e8128244024e",
+        "Resultary:4d62f6d1f6ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 1 gives the closest prior statement of the graph outcome, not its proof in the uncovered singular cases.",
+          "Proposition 2.5’s monomial assumption omits real rotations/reflections in twin blocks. Proposition 2.7's rigidity uses nonsingularity.",
+          "The broader graph isomorphism results in the later twin-quotient records explicitly do not decide all homomorphisms."
+        ],
+        "reasoning": "The new part is not restating the graph conjecture: independence of target square classes with Euclidean saturation yields a positive-weight, equal-dimension rigidity theorem, and identifies free orthogonal block geometry and exact scaling laws. Prior existence for regular and biregular graphs is credited.",
+        "searches": [
+          "arXiv:1710.10516 Conjecture 1, Propositions 2.5 and 2.7",
+          "Resultary: evolution algebra homomorphism classification for graph adjacency and random-walk algebras singular twins false twins isomorphism all maps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1710.10516, Prop. 2.5 assumes monomial isomorphisms; the frozen theorem includes nonmonomial O(n_a) matrices fixing the ones vector.",
+          "The later Resultary e8128244024e states the complete-multipartite graph adjacency/random-walk isomorphism criterion in its Finding, but excludes arbitrary homomorphism classification."
+        ],
+        "reasoning": "A false-twin-block description is an equivalent alias for the unweighted-complete-multipartite graph parts, not a restriction to monomial maps. The later graph result matches the isomorphism existence piece exactly, not the arbitrary positive row weights, descriptions of the maps, or homomorphism rigidity.",
+        "searches": [
+          "Resultary: equal-dimensional real weighted complete multipartite evolution algebra homomorphisms nonmonomial classification",
+          "Resultary: complete multipartite graph evolution algebra homomorphism twin classes orthogonal mixing",
+          "Web: \"evolution algebras of graphs\" homomorphisms complete multipartite weighted classification orthogonal twin classes random walks singular conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 185eb829c34e (2026-10-25) intersects the graph case at N−r=1 and expressly omits arbitrary homomorphisms and higher nullities.",
+          "Resultary e8128244024e and 4d62f6d1f6ce (2026-11-08) cover graph isomorphism criteria for nonsingular and singular false-twin quotient cases, respectively."
+        ],
+        "reasoning": "The catalogue contains partial and exact graph-corollary overlap, but these are later and concern isomorphism classification under graph-specific weights. No checked formula or table covers the full two-model weight-parameter family and all homomorphisms. The ranked search is bounded.",
+        "searches": [
+          "Resultary: singular graph adjacency random walk evolution algebra Conjecture 1 zero homomorphism isomorphism",
+          "Resultary: real positive-weight complete multipartite evolution algebras all algebra homomorphisms classification orthogonal block maps"
+        ]
+      },
+      "rationale": "The classification of all real homomorphisms for the specified positive one-weight-per-part model, including the orthogonal mixing and distinct two-part scaling, is the supported distinct contribution. The known nonsingular and sufficient regular/biregular graph cases, and the earlier conjecture, are not claimed here as new. Later catalogue records do overlap with parts of the graph isomorphism corollary; they are not evidence of earlier priority and do not cover the full homomorphism theorem.",
+      "residual_risks": [
+        "An earlier algebraic classification under another name for proportional square classes or false twins may be missed.",
+        "The bounded primary passages and ranked comparisons are not an exhaustive priority audit; later catalogue dates alone do not establish independent derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known nonsingular case and conjectured general graph statement, not the claimed weighted theorem",
+          "evidence": [
+            "Nonsingularity in theorem; monomial hypothesis in necessity proposition; conjectural broader dichotomy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.10516",
+          "material_read": "Thm. 2.3 p. 5 (offset 19545), Conjecture 1 and Prop. 2.5 p. 10 (41688,43152), Prop. 2.7 p. 13 (54829)",
+          "method": "Targeted OA PDF reading",
+          "title": "On the isomorphisms between evolution algebras of graphs and random walks",
+          "trigger": "Founding dichotomy and possible implication in singular graphs"
+        },
+        {
+          "assessment": "Specific singular families and examples, no weighted family implication from inspected statements",
+          "evidence": [
+            "Diameter-three trees, odd tadpoles and the twin-free bull example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.12341v1",
+          "material_read": "Introduction p. 2 (6103), Prop. 3.1 p. 8 (25680), Prop. 3.3 p. 12 (39712), §3.3 p. 16 (49238–50492)",
+          "method": "Targeted OA PDF reading",
+          "title": "On some singular graphs with non-isomorphic associated evolution algebras",
+          "trigger": "Later singular graph results"
+        },
+        {
+          "assessment": "Graph-symmetry actions rather than two-algebra morphisms for varied weights",
+          "evidence": [
+            "Automorphism-group actions for individual graph-associated algebras."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.15604",
+          "material_read": "Thm. 2.17, p. 2 (5332)",
+          "method": "Targeted OA PDF reading",
+          "title": "Group actions and automorphisms of evolution algebras associated to finite graphs",
+          "trigger": "Potential nonmonomial and automorphism classification"
+        },
+        {
+          "assessment": "Corroborates the earlier open broader criterion, not a classification",
+          "evidence": [
+            "Question asks whether the regular-or-biregular criterion holds for every finite connected graph and notes the nonsingular case and supporting families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248v1",
+          "material_read": "First page and Question 26 p. 24 (83501)",
+          "method": "Targeted OA PDF reading",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Recent statement of the status of the random-walk conjecture"
+        },
+        {
+          "assessment": "Partial graph overlap in adjacency nullity one; later catalogue date",
+          "evidence": [
+            "Regular/biregular isomorphism criterion; no arbitrary homomorphisms/higher nullity."
+          ],
+          "identifier_or_url": "Resultary:2026/10/25/185eb829c34e",
+          "material_read": "RESULT.md Finding and Limitations (offsets 0, 9136)",
+          "method": "Bounded local mirror reading",
+          "title": "Corank-one rigidity for graph and random-walk evolution algebras",
+          "trigger": "Graph criterion with a repeated vertex class"
+        },
+        {
+          "assessment": "Exact overlap with graph isomorphism existence, not all homomorphisms; later catalogue date",
+          "evidence": [
+            "Two parts always qualify; otherwise equal parts; arbitrary homomorphisms not classified."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/e8128244024e",
+          "material_read": "RESULT.md Finding (0,625), Limitations (9050)",
+          "method": "Bounded local mirror reading",
+          "title": "Nonsingular twin quotients settle the graph random-walk evolution algebra criterion",
+          "trigger": "Strongest overlap for the singular-inclusive complete-multipartite graph corollary"
+        },
+        {
+          "assessment": "Different quotient hypothesis, isomorphism only, later catalogue date",
+          "evidence": [
+            "Singularity is imposed on the false-twin quotient adjacency; complete multipartite quotients are nonsingular."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/4d62f6d1f6ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Singular false-twin quotients and the real graph evolution algebra criterion",
+          "trigger": "Complementary broader isomorphism result for singular quotient graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete multipartite graph algebras supply a natural infinite family of singular adjacency matrices whose twin classes admit real continuous orthogonal mixing. Determining every morphism and its permissible block scalings resolves considerably more than existence, and in particular supplies the zero-map conclusion in a published conjecture’s singular regime for this family. The separate bipartite case is forced by the multiplication equations, rather than an arbitrary cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

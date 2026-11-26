@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:33:00.435756Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md and static inspection of verify.py",
+        "Independent derivation using the pairwise-difference variance and discrete/continuous centered moments"
+      ],
+      "rationale": "Composing the scalar step gives weights w_j=(1−q)q^(n−j) and deterministic multiplier q^n. At uniform permutation the exact centered-noise variance is s²/(n−1) times the sum of (v_i−v_j)² over i<j; this follows from fixed total and exchangeable coordinates. Pairing replaces v by (w+w∘σ⁻¹)/2, preserving its total. Minimizing this pairwise-difference sum is equivalent to minimizing the cross dot product. Swapping any ascending pair in w∘σ⁻¹ strictly lowers the dot product, so the unique minimum is the reverse order. Because w_j w_(n+1−j)=(1−q)²q^(n−1), exact geometric sums give the two stated variances. The reversed covariance is strictly negative by AM–GM on the nonconstant weights; reverse averages are constant for n=2 only, since the first and second averages differ by (1−q)²(1−q^(n−2))/2. Fresh independent epochs give the exact geometric second-moment sum and unchanged stationary ratio. Independently checked the small-step coefficient by centering the linear and reversal-even quadratic terms in the geometric weights: their leading squared norms give (1−q)² Var((t−mean(t))²)/(4 Var(t))=(1−q)²(n²−4)/60 for uniform t on 0,…,n−1. For q=1−λ/n the centered position profiles after multiplying by n converge to λe^(−λt) and its reversal average; their variances yield U and B. The increasing/decreasing exponential profiles have strictly negative covariance under uniform t, hence 0<B<U/2. The continuum centered moments 1/12 and 1/180 give B/U∼λ²/60; the large-λ terms and the fixed-q geometric sums both give 1/2 in their respective regimes.",
+      "residual_risks": [
+        "Uniqueness is only for fixed position rearrangements, q strictly between 0 and 1, and nonconstant centers. Stationarity requires fresh independent permutation pairs. Two same-input passes, not two consecutive updates, are being averaged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 shows order-independent second-order term and O(γ³) sensitivity; Theorem 3.9 eqs. (25)–(26) gives ordinary and reverse-averaged upper variance bounds under (13)–(15), not equalities.",
+          "Domingo-Enrich states stationary-variance comparisons for SGD, SGD-RR and SGD-SO under a stochastic-noise approximation, not paired positional optimization in the inspected scope."
+        ],
+        "reasoning": "The upper bounds or an unpaired stationary approximation do not imply the exact antithetic noise law, especially when the normalized epoch step stays positive.",
+        "searches": [
+          "arXiv:2604.00260v1, Theorems 3.6 and 3.9, Appendix A.8",
+          "Domingo-Enrich arXiv:2206.00632v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Nguyen–Phan–Kalagnanam arXiv:2604.00260v1; Domingo-Enrich arXiv:2206.00632v1 (bounded scope); relevant Resultary matches; Safran–Shamir PMLR 125 p. 2 for reshuffling terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cancellation predicts the higher small-step variance order, but not the exact (n²−4)/60 ratio coefficient, the strict below-half comparator against independent-pass averaging, or the λ-crossover. Classical rearrangement gives the optimum once the model-specific variance difference is identified as the cross dot product."
+        ],
+        "reasoning": "Credit prior paired reversal and treat the elementary tools as inputs; the supported distinct remainder is the exact finite- and epoch-scale comparison, including the scoped equality criterion, not the improved asymptotic order by itself.",
+        "searches": [
+          "Nguyen–Phan–Kalagnanam eqs. (18)–(20), (25)–(26), compared with exact positional geometric weights and strict rearrangement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.6 defines the identical same-input reversal average. The fixed-position problem is equivalently an antithetic coupling of a linear statistic of a uniformly shuffled finite population under deterministic relabeling of positions.",
+          "The Resultary two-sample stationary-risk envelope concerns balanced temporal order policies, while the same-day convex-order record compares fresh reshuffling with shuffle-once."
+        ],
+        "reasoning": "The prior reversal definition has exact operation overlap. Temporal changes in dependence between epoch orders are not the within-epoch averaging problem, even when the loss class matches.",
+        "searches": [
+          "Resultary: reverse-paired reshuffling, scalar quadratic stationary variance and order couplings",
+          "Nguyen–Phan–Kalagnanam, arXiv:2604.00260v1, §3, paired reversal and variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit is the assigned record. Distinct nearby IDs are 2026/10/12/SCOPE-sharp-stationary-risk-envelope-and-order-phase-switches-for-two--0365743eee2e and 2026/11/8/SCOPE-convex-order-reversal-between-random-reshuffling-and-shuffle-onc--1730aa3cce41."
+        ],
+        "reasoning": "Reported comparisons there are respectively temporal two-sample coupling and reshuffle versus shuffle-once. Neither summary reports an exact ratio for averaged same-input full passes. No priority conclusion is drawn from a shared date.",
+        "searches": [
+          "Resultary: unique reverse-pair variance minimizer and epoch-scale crossover; paired and stationary scalar quadratic reshuffling"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact scoped minimizer/comparison and its calibrated epoch-scale law, not for reversal pairing itself or its known cancellation of the leading order sensitivity. The primary antecedent proves the same paired operation and general variance bounds, not the stated finite-population optimum or exact ratio. The stationarity step alone is an elementary consequence of the exact epoch noise.",
+      "residual_risks": [
+        "Full independent Resultary neighbor texts and detailed Domingo-Enrich passages were not retrievable. Equivalent antithetic finite-population calculations in inaccessible sources remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for operation and variance-order suppression; inspected results are expansion and bounds",
+          "evidence": [
+            "Eq. (18) averages Tπ and TRev(π); (19)–(20) cancel second-order order dependence; (26) upper bounds but does not evaluate the paired variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.00260v1",
+          "material_read": "§3, Theorems 3.6 and 3.9 and proof setup in Appendix A.8",
+          "method": "Primary OA HTML passages",
+          "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+          "trigger": "Identical paired reverse averaged map"
+        },
+        {
+          "assessment": "Abstract explicitly scopes the variance comparison to three unpaired methods and a noise approximation",
+          "evidence": [
+            "Abstract: under a convenient stochastic noise approximation, stationary variances of SGD, SGD-RR and SGD-SO."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.00632v1",
+          "material_read": "Abstract and opening of §1 only; detailed extraction unavailable",
+          "method": "Lawful OA PDF preview and alternate retrieval attempts",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Stationary shuffled SGD noise"
+        },
+        {
+          "assessment": "Different couplings and output comparisons",
+          "evidence": [
+            "Two-sample balanced inter-epoch order policies versus fresh reshuffling/shuffle-once, respectively."
+          ],
+          "identifier_or_url": "Resultary: 0365743eee2e and 1730aa3cce41",
+          "material_read": "Indexed statements only; full mirror not retrieved",
+          "method": "Local Resultary search",
+          "title": "Stationary-risk envelope and convex-order comparison records",
+          "trigger": "Closest other indexed scalar stationary reshuffling claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen closed formulas and reconstructed limits; Nguyen–Phan–Kalagnanam Theorems 3.6 and 3.9"
+      ],
+      "rationale": "The precise comparison is useful as an exact variance benchmark for a previously proposed way to spend two full passes: two independent same-input passes would give half the ordinary innovation variance, whereas the reverse pair is strictly below that baseline, optimizes the specified class, and has a quantified low-epoch-step advantage and a saturation regime. The full crossover and constants are the useful model result, not merely the classical rearrangement or the affine stationarity formula.",
+      "residual_risks": [
+        "Not a wall-clock or objective-convergence improvement for arbitrary losses, nor a comparison with two sequential training epochs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

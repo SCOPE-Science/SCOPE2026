@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:26:02.396391Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–56",
+        "Frozen check_output.txt; verify.py and VERIFICATION.md inspected, not executed; the supplied replay requires NumPy and mpmath"
+      ],
+      "rationale": "With t=e^(−2ah), q=e^(−2bh), and E=e^(σ²h), the even second-moment block is t[[AE,B],[BE,A]] and the difference mode has multiplier tEq. The larger even eigenvalue is the full spectral radius since A≥q, and positive initial data excite it. Strict monotonicity in E makes det(I−K)=1−tA−tE(A−tq²)=0 the unique crossing. The numerator of the logarithmic ratio exceeds the denominator by B(1−t)>0, and the ratio tends to 2 as h→∞. Thus the all-step condition includes σ²=2a; equality at the fixed-h crossing gives nondecay, not exponential stability. The continuous even generator has negative lower diagonal and loses negativity at determinant zero, giving 2a(a+2b)/(a+b); the odd eigenvalue cannot be larger. Lumped masses and stiffness give a=b=9; the two disjoint spatial hats each have squared norm (45/2)·2/45=1 and yield nodal variance 45/2. An independent basis-matrix construction and power iteration reproduced 0.903844803656 and 1.368745544567. Interpret ‘one-step amplification factor’ as the spectral amplification of the moment update, as defined by the proof, not the worst immediate ratio of expected squared norms from deterministic vectors (the latter is t(AE+B), generally larger).",
+      "residual_risks": [
+        "No claim about nonlinear noise, general meshes, or almost-sure stability; the FEM example uses continuous compactly supported modes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day record does not state arbitrary a/b. But L(a,b)=L(b,b)−(a−b)I, so its whole discrete covariance map scales by e^(−2(a−b)h); its continuous generator is shifted by −2(a−b)I.",
+          "The cited FEM and finite-difference analyses describe the splitting and prove positivity and finite-horizon moment bounds, not this sharp long-time frontier."
+        ],
+        "reasoning": "The applicable coverage is the exact spectral formula under the scalar shift, not a claimed implication from finite-horizon estimates.",
+        "searches": [
+          "8f70f549cfbd exact covariance block and boundary proof",
+          "Hearder–Le Bris–Djurdjevac arXiv:2602.16508; Bréhier–Cohen–Ulander arXiv:2302.08858"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 8f70f549cfbd and e3e248fedd11",
+        "arXiv:2302.08858 and arXiv:2602.16508"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the shift, the prior u,v become tA,tB. Its determinant crossing becomes 1−tA−tE(A−tq²)=0, and the stated elementary sign and limit give the all-step threshold. Shifting the continuous even generator likewise gives the stated determinant-zero threshold."
+        ],
+        "reasoning": "The only broadened parameter is a scalar killing rate; the new boundary constants follow by rescaling a known full moment block and solving its linear-in-E crossing. The hats implement rather than separate the identical two-node witness.",
+        "searches": [
+          "8f70f549cfbd sections 2–4 at offset 4020; compare the exact even-block entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8f70f549cfbd Finding (offset 0) gives F(x) from 3 to 2 with ζ≤2 for all steps and ζ<3 in continuous time. Proof offset 4020 gives u=(e^(−2x)+e^(−6x))/2, v=(e^(−2x)−e^(−6x))/2 and the full two-dimensional moment block and eigenvalues."
+        ],
+        "reasoning": "x=bh and ζ=σ²/b give F(x)=s_*(h)/b at a=b; u=tA and v=tB there, so the apparent finite-difference and FEM difference does not change the stochastic matrix update.",
+        "searches": [
+          "Local Resultary: two-interior-node positive stochastic heat Lie–Trotter mean-square step-size threshold; 8f70f549cfbd and e3e248fedd11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At grid width 1/3, 8f70f549cfbd gives generator [[−18,9],[9,−18]], nodal variance (15/2)/(1/3)=45/2, and stable and unstable steps (log 2)/9 and (log 4)/9. The frozen continuous spatial hats and step choices are different, but realize the same nodal system and phenomenon.",
+          "e3e248fedd11 lists the a=b curve in rate-scaled form and is catalogued later."
+        ],
+        "reasoning": "Direct formula and witness coverage comes from the same-day distinct record, not an inferred priority from the later entry.",
+        "searches": [
+          "Resultary 8f70f549cfbd Finding and fixed-example proof offset 6420; e3e248fedd11 Finding offset 0"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary record gives the exact same a=b moment block and closed eigenvalues, the continuous and discrete stability separation, and the same nodal stochastic witness. The general a,b formula is not stated there, but follows by a commuting scalar drift shift from that already known full block, not merely by analogizing its stability conclusion. This shows coverage by direct reduction; it does not establish which record came first.",
+      "residual_risks": [
+        "Same-day order is unestablished. The published version of arXiv:2302.08858 was not checked separately.",
+        "Lang–Petersson–Thalhammer DOI 10.1007/s10543-017-0684-7 timed out; this is not negative evidence or the basis for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same-day overlap and full block enabling the scalar extension",
+          "evidence": "K=[[mu,v],[mv,u]], its two exact eigenvalues, and an instability witness for the same nodal parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-a-sharp-step-size-loss-of-mean-square-stability-in-a-positive-st--8f70f549cfbd/RESULT.md",
+          "material_read": "Finding offset 0; block and cutoff proof offset 4020; fixed example offset 6420",
+          "method": "Pinned local mirror passages",
+          "title": "A sharp step-size loss of mean-square stability in a positive stochastic heat splitting",
+          "trigger": "Same two-node exponential split"
+        },
+        {
+          "assessment": "Later indexed a=b overlap, not relied on for priority",
+          "evidence": "All-step 2b versus continuous 3b.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-noise-stepsize-stability-boundary-for-two-site-positivit--e3e248fedd11",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror passage",
+          "title": "A sharp noise-stepsize stability boundary for two-site positivity-preserving splitting",
+          "trigger": "Rate-scaled two-site variant"
+        },
+        {
+          "assessment": "Positivity and finite-horizon context",
+          "evidence": "Moment constant in Theorem 5.1 depends on T.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16508",
+          "material_read": "Method p. 2, Theorems 4.1 and 5.1, pp. 12 and 14",
+          "method": "OA PDF passages",
+          "title": "A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation",
+          "trigger": "Same mass-lumped FEM splitting"
+        },
+        {
+          "assessment": "Earlier splitting, not an infinite-time exact frontier in the passages read",
+          "evidence": "Finite-T estimates with a time/space step condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08858",
+          "material_read": "Equation (14) and Proposition 4, p. 7; Proposition 5, (15) and Theorem 6, p. 9",
+          "method": "OA preprint passages",
+          "title": "Positivity-preserving Lie–Trotter splitting for the stochastic heat equation",
+          "trigger": "Same noise-first ordering"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between positivity, finite-time moment bounds, and long-time stability is worth knowing. The known record already demonstrates it on the same nodal problem with an exact threshold. The extra scalar damping parameter rescales the known block, while the FE example recasts the same finite system. There is no separate, nonmechanical exact fact established here after that comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

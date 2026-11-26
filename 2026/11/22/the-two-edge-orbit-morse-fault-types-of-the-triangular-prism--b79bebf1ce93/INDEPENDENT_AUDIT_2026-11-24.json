@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:14:36.652782Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–40; VERIFICATION.md and verify_faults.py inspected without execution",
+        "Independent replay: python3 /workspace/branches/reproduce_2.py; output /workspace/branches/reproduce_2.txt"
+      ],
+      "rationale": "For an unfilled graph, Morse faces are exactly edge forests with a selected root per component and arrows toward that root: outdegree at most one and no repeated edge force any selected undirected cycle to be a directed cycle; conversely a rooted forest meets the incidence and acyclicity rules. I independently generated faces by selecting undirected forests and rooting them, then checked the actual directed Hasse graph of the coordinate matching. For deletion 25 the face vector is (16,98,284,381,180), 959 nonempty faces are visited with 463 pairs and critical counts (1,16,16) in dimensions (0,3,4). For deletion 01 the values are (16,98,286,397,210), 1007, 491 and (1,4,20). Instead of reusing the submitted Morse differential, I computed integral unit pivots on the original simplicial boundary d4: ranks 171 and 194 with no nonunit residual, giving free H4 of ranks 9 and 16. The images of the simplicial d4 are primitive, so H3, a subgroup of C3/im(d4), has no torsion. The matched CW models therefore have d4 of unit ranks 7 and 4 and no other nonzero invariant factors. Their three-skeleta are wedges of S³; Hurewicz determines each four-cell attaching map by its integer degree vector. Unimodular basis changes are wedge homotopy equivalences, so the mapping cones of the unit summands cancel and the zero summands leave exactly the stated wedges. Simultaneous permutation of the three columns and interchange of the two triangles give transitivity within each edge type; edges in a graph triangle cannot be mixed with rungs.",
+      "residual_risks": [
+        "The result classifies the ordinary Morse complexes of the two unfilled graph deletions, not their inclusion maps, filled complexes, strong Morse complexes, or larger prisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For either fault the general bound with eight edges and maximum Hasse degree three gives simple connectivity",
+          "Inspected ordinary-Morse results treat tree suspensions, paths, cycles and specified leaf-attached families"
+        ],
+        "reasoning": "The two faults remain cyclic and have no leaves, and Theorem 4.3 gives the same lower connectivity bound for both. That bound neither forces integral homology in degrees 3 and 4 nor distinguishes their ranks.",
+        "searches": [
+          "Scoville–Zaremsky arXiv:2004.10481 Theorem 4.3; Donovan–Lin–Scoville arXiv:1909.11440v2; Donovan–Scoville arXiv:2207.13780"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion, lines 42–54",
+        "OA and local mirror passages above, plus intact mod-two record 4af8059de6d1 (offsets 0–3914) and intact integral lattice record 741905f1ea33 (Finding offset 0)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting one undirected graph edge removes two incidence vertices and their cofaces; it is not a single simplex deletion from the intact Morse complex",
+          "The intact wedge does not give the links or attaching data of those incidence vertices"
+        ],
+        "reasoning": "An ambient homotopy type does not fix an induced subcomplex; its integral torsion and attachment degrees require additional information. The same-day K_(3,3) classification supplies neither those data nor an implication for the nonbipartite faults, and no priority order within the day was inferred.",
+        "searches": [
+          "Compare Scoville–Zaremsky connectivity theorem, intact integral/symmetry results, and K_(3,3) integral fault classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Directed rooted-forest representation of the ordinary Morse face conditions",
+          "SCOPE-the-strong-morse-complex-of-the-triangular-prism-twenty-five-cir--2cdafcb23578",
+          "Courtney's lawful public abstract, repository td/1684"
+        ],
+        "reasoning": "Rooted forests in the graph with both arc orientations describe the same ordinary complex, so directed forest results are plausible coverage. The accessible thesis abstract specifies Cayley graphs, while each edge deletion is irregular and therefore not Cayley; the abstract cannot settle any broader theorems. The strong Morse complex limits faces to fields induced by vertex orders and is not the ordinary complex.",
+        "searches": [
+          "Resultary local mirror: ordinary and strong Morse complexes of the triangular prism, graph edge faults and forest/precedence complexes",
+          "Courtney, The Directed Forest Complex of Cayley Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct same-day exact table: SCOPE-complete-one-two-and-three-edge-fault-morse-homotopy-profile-of--f63c8f564cb3",
+          "Intact prism records ending 4af8059de6d1, 741905f1ea33, cb5204d7444b"
+        ],
+        "reasoning": "The same-day table is for K_(3,3), whose one-edge-fault graph remains bipartite, unlike the prism cases which retain triangles; it gives S³ plus 17 four-spheres. The intact prism's wedge of 64 four-spheres is already covered; the exact edge-deletion table is not one of those intact computations.",
+        "searches": [
+          "Resultary local mirror: triangular-prism edge-fault Morse homotopy tables, intact mod-two homology, integral C2 lattice, full prism symmetry"
+        ]
+      },
+      "rationale": "The supported distinct claim is the integral two-orbit table for one graph-edge deletion from the triangular prism. The known intact computations, a same-day integral fault table for K_(3,3), the general connectivity bound, and results for strong Morse or ordinary tree families do not cover the two exact types. The possible directed-forest literature overlap is stated with its access and scope limits.",
+      "residual_risks": [
+        "The full directed-forest thesis was not readable; no whole-thesis exclusion or universal priority is asserted.",
+        "A differently indexed exact graph-Morse computation is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-connectivity for both faults; no exact classification",
+          "evidence": "The bound is ceil(|E|/d)−2, giving 1 here.",
+          "identifier_or_url": "https://arxiv.org/html/2004.10481",
+          "material_read": "Theorem 4.3, OA offset 47961",
+          "method": "OA bounded passage",
+          "title": "Higher connectivity of the Morse complex",
+          "trigger": "Strong general theorem for ordinary graph Morse complexes"
+        },
+        {
+          "assessment": "Framework and specific families, not the two faulty prisms in inspected passages",
+          "evidence": "Paths, cycles and leaf-attached centipedes do not give these leafless, multicyclic faults.",
+          "identifier_or_url": "https://arxiv.org/html/1909.11440v2",
+          "material_read": "Introduction offset 2154 and §5.2 offset 50814",
+          "method": "OA bounded passages",
+          "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+          "trigger": "Ordinary and strong Morse graph homotopy types"
+        },
+        {
+          "assessment": "Tree theorem not applicable",
+          "evidence": "Ordinary Morse complex of a tree is a suspension; neither faulty prism is a tree.",
+          "identifier_or_url": "https://arxiv.org/html/2207.13780",
+          "material_read": "Prop. 12, offset 13925, and path results",
+          "method": "OA bounded passages",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+          "trigger": "Potential ordinary-Morse homotopy theorem covering faults"
+        },
+        {
+          "assessment": "Same type of question, different underlying graph",
+          "evidence": "The table treats K_(3,3)−F, and its single-edge row is S³ plus 17 copies of S⁴.",
+          "identifier_or_url": "SCOPE-complete-one-two-and-three-edge-fault-morse-homotopy-profile-of--f63c8f564cb3",
+          "material_read": "RESULT.md, offsets 0–2671",
+          "method": "Local mirror passage",
+          "title": "Complete one-, two- and three-edge-fault Morse homotopy profile",
+          "trigger": "Closest same-day exact ordinary-Morse fault catalogue"
+        },
+        {
+          "assessment": "Intact graph only",
+          "evidence": "The intact wedge of 64 four-spheres is background to the intact symmetry classification.",
+          "identifier_or_url": "SCOPE-full-prism-symmetry-character-on-the-morse-complex-of-the-triang--cb5204d7444b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "Full prism-symmetry character on the Morse complex of the triangular prism",
+          "trigger": "Exact integral or equivariant prior coverage for the prism"
+        },
+        {
+          "assessment": "Unresolved beyond the stated Cayley scope",
+          "evidence": "Abstract mentions edge vertices and Cayley graphs. The two faulty graphs are irregular; the full-text retrieval returned HTTP 403, not evidence of noncoverage.",
+          "identifier_or_url": "https://scholarworks.boisestate.edu/td/1684/",
+          "material_read": "Public abstract at offset 660; no readable thesis body through the identified DOI route",
+          "method": "OA website abstract and attempted lawful DOI full text",
+          "title": "The Directed Forest Complex of Cayley Graphs",
+          "trigger": "Plausible thesis overlap under rooted-forest formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and integral homotopy proof, lines 3–40",
+        "Independent forest and integral boundary replay"
+      ],
+      "rationale": "The six-vertex prism is a natural highly symmetric cubic graph and its two edge orbits give an exhaustive minimal perturbation question. Deletion produces two genuinely different integral homotopy types, with third homology only on the rung fault. This is useful exact fault data beyond intact computations and common connectivity bounds, established by finite certificates plus an integral homotopy argument rather than just mod-two ranks.",
+      "residual_risks": [
+        "No claim about persistence maps, arbitrary deletions or stabilization for larger prisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

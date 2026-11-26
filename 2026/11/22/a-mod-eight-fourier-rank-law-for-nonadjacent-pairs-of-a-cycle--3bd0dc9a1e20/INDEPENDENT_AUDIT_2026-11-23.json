@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:29.270560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/branches/6b641d17-49cc-4123-abf9-dbc4b9b63fd5/repro_cycle_nonadjacent_pairs.py, with repro_cycle_nonadjacent_pairs.out.txt alongside. Direct finite checks through n=16 yielded nullities 8,40,572,480,7896 at n=4,8,11,12,16 respectively."
+      ],
+      "rationale": "An eigenvalue is the sum of s_i s_j over unordered nonedges. The sum over all distinct pairs is ((n-2k)^2-n)/2 and the n cycle edges contribute n-2t, yielding the stated multiplier with no scaling. The two constant masks give n(n-3)/2>0 for the stated n>=4. In all other masks t=2j, and any integer 1<=j<=min(k,n-k) is realizable by two alternating positive compositions. Odd n has odd square 1 mod 8, forcing n=3 mod 8; even n forces n=0 mod 4. Conversely, absolute signed sums 0, 2 and 1 at orders 0, 4 and 3 mod 8 yield the displayed valid j; the smallest cases are n=8,4,11 respectively, and the run-count inequalities persist as n increases by 8. For multiplicities, mark a negative run's first vertex: there are n choices for its label and independent positive compositions of k and n-k into j terms. Unmarking divides by j even for words with a smaller period, because labels distinguish all j marked starts. Walsh characters span the full complex function space, so these counts give exactly the nullity and rank.",
+      "residual_risks": [
+        "Only the all-length algebra and feasible-run proof justify universal claims; the replay is finite. Do not include n=3 in the stated nullity sum, because then the support is empty and the constant masks also vanish."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown–Hoshino give a univariate size-enumerator for independent sets in all cycle powers; it has no individual vertex signs. The prior modulo-fourteen Walsh theorem is for maximal independent sets, of potentially varying size, and explicitly does not count all zero frequencies in singular dimensions. Cai expands periodic autocorrelations via run structure."
+        ],
+        "reasoning": "A larger graph family with an unsigned invariant is not a stronger signed theorem. Requiring maximality changes the support (at n=8 an independent pair need not dominate, and alternating size-four sets are maximal). Autocorrelation identities do not themselves classify the combined signed-pair zero equation.",
+        "searches": [
+          "Brown–Hoshino, original PDF Section 3 and Theorem 3.3",
+          "Resultary ca075279ef80 full RESULT.md",
+          "Cai arXiv:0909.4592v2, introduction and run/autocorrelation definitions"
+        ]
+      },
+      "checked_sources": [
+        "Brown–Hoshino; Inoue–Aki; Cai arXiv:0909.4592v2; Balado–Silvestre arXiv:2602.10005v1 (targeted material)",
+        "Resultary ca075279ef80 and exact-object search",
+        "Targeted web searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The univariate coefficient is n(n-3)/2 and agrees exactly at the constant character; it gives no dependence on t. Circular run distributions can provide the multiplicity calculation once the frequency equation is known. The earlier maximal-support modulo-fourteen classification has a different modulus and support."
+        ],
+        "reasoning": "Neither giving all cardinality counts nor giving classical run-count raw data says which sizes admit a feasible zero, with the boundary constraints on j. The record combines them with a signed identity, necessary parity arithmetic and explicit valid configurations, yielding actual rank rather than only a counting setup.",
+        "searches": [
+          "Brown–Hoshino Theorem 3.3 at d=1, k=2",
+          "Inoue–Aki (2005) Sections 3–4",
+          "Resultary ca075279ef80 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For H=complement(C_n), the same eigenvalue is |E(H)|-2|delta_H(S)|, where |delta_H(S)|=k(n-k)-t. Thus it is also a half-edge cut census of H (with masks, not cut-code vectors, as multiplicity units), or a signed degree-two independence polynomial. Cai's autocorrelation formula supplies the cycle-edge term only."
+        ],
+        "reasoning": "The complement-cut/Ising formulation changes language but not the zero condition. No older explicit half-edge cut or all-order nullity theorem for this complement was located in the bounded comparison; a lookup without results is not negative proof.",
+        "searches": [
+          "Resultary: Walsh nullity Fourier spectrum independent nonadjacent pairs cycle binary Cayley graph mod eight rank signed Seidel quadratic sums",
+          "Web: nonadjacent vertex pairs cycle Walsh spectrum Boolean Cayley graph folded halved cube rank nullity mod 8 signed Ising cycle fixed magnetization independent pairs",
+          "Web: complement of a cycle cut polynomial cut size distribution half number of edges Ising graph weight enumerator cut code algebraic graph spectrum cubelike"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact relevant Resultary hit is the frozen result itself; no prior exact nullity table appeared in the returned corpus results. Brown–Hoshino's degree-two coefficient supplies the number of nonedges. Inoue–Aki give generating functions and probability laws for circular Bernoulli run statistics; Balado–Silvestre enumerate binary run statistics including Hamming-weight restrictions."
+        ],
+        "reasoning": "Established run enumerations are ingredients and must not be claimed new. Their outputs count runs or independent sets, not the Walsh nullity obtained by selecting just those weight/run cells satisfying the quadratic zero equation.",
+        "searches": [
+          "Resultary exact-object search above",
+          "Web: circular binary sequence specified numbers of ones and runs exact n/r binomial formula block cyclic runs fixed weight transition Inoue Aki Charalambides",
+          "Inoue–Aki (2005) introduction and Sections 3–4; Balado–Silvestre arXiv:2602.10005v1 abstract and introduction"
+        ]
+      },
+      "rationale": "Walsh diagonalization, cyclic run counting and the one-step autocorrelation identity are prior techniques, not new here. The supported contribution is the exact all-length zero-mode classification and weighted nullity for the size-two cycle sector. Examined results do not state or mechanically specialize to the full arithmetic classification; the nonempty residue classes require their own feasible witnesses.",
+      "residual_risks": [
+        "Equivalent balanced edge-cut, cut-code enumerator or fixed-magnetization signed formulae might exist under other terminology. Bounded search does not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unsigned coefficient supplies support size only",
+          "evidence": [
+            "Specialize cycle distance to d=1 and choose the degree-two term to obtain n(n-3)/2"
+          ],
+          "identifier_or_url": "https://www.mscs.dal.ca/~hoshino/music.pdf",
+          "material_read": "Original PDF front matter, Section 3 definitions and the displayed Theorem 3.3",
+          "method": "Primary OA author-hosted PDF text",
+          "title": "Independence polynomials of circulants with an application to music",
+          "trigger": "Independent sets of the same cycle and potentially broader parameter range"
+        },
+        {
+          "assessment": "Different support and no all-zero multiplicity census",
+          "evidence": [
+            "Treats sets whose successive cyclic gaps are 2 or 3, with all sizes, not all and only nonadjacent pairs"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-modulo-fourteen-walsh-invertibility-law-for-cyclic-maximal-ind--ca075279ef80/RESULT.md",
+          "material_read": "Full result; in particular finding, signed transfer and limitations",
+          "method": "Published local full-text mirror",
+          "title": "A modulo-fourteen Walsh invertibility law for cyclic maximal independent sets",
+          "trigger": "Earlier signed Walsh invertibility theorem for cycle independent sets"
+        },
+        {
+          "assessment": "Prior run-enumeration framework, not evidence of a cycle-complement rank theorem",
+          "evidence": [
+            "Theorems 3.2–3.3 give recursions and generating functions for joint laws of circular success-run statistics"
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "Abstract, introduction, circular generating-function discussion in Sections 3–4 and examples",
+          "method": "Primary OA journal PDF text",
+          "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+          "trigger": "Earlier circular Bernoulli methods for enumeration by cycle changes"
+        },
+        {
+          "assessment": "Relevant to the cyclic adjacency term, not the mod-eight nonedge-sum classification in inspected material",
+          "evidence": [
+            "Studies periodic autocorrelation in terms of binary runs, whereas the nonedge sum additionally depends on the square of the total sign sum"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.4592v2",
+          "material_read": "Abstract, introduction and run/autocorrelation framework in Section 2",
+          "method": "Primary OA PDF text",
+          "title": "Autocorrelation-Run Formula for Binary Sequences",
+          "trigger": "Equivalent nearest-neighbor sign-product term in a zero eigenvalue"
+        },
+        {
+          "assessment": "Possible source of enumerative ingredients; no full-document absence inference",
+          "evidence": [
+            "Abstract explicitly describes Hamming weight constraints and joint enumeration of one-runs and zero-runs"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.10005v1",
+          "material_read": "Abstract and opening comparison of run counts, compositions and Hamming constraints",
+          "method": "Primary OA HTML targeted excerpt",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "Potential broader weight-conditioned run-count tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen all-length theorem and zero multiplicity count; Brown–Hoshino unsigned cycle counts and earlier maximal-independent-set Walsh comparison"
+      ],
+      "rationale": "Two is the first cardinality at which cycle adjacency excludes any incidence patterns. The exact rank of its natural convolution gives a nontrivial all-order recovery boundary and quantifies lost modes even among singular lengths. This is more informative than the unsigned support count and more specific than generic Walsh diagonalization.",
+      "residual_risks": [
+        "This is a result for a particular sector; it does not solve larger sectors, other circulants or classification of distinct positive singular values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

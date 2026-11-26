@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:34.874185Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md and verify_ejr1.py inspected as evidence, not executed",
+        "Independent replay: python3 /workspace/reproductions/2.py. Literal coalition/target/augmentation checks on count-vector representatives, with exact label multiplicities by independent permutations within project blocks. Reproduced 63,191 labeled outcomes across the 13 recorded cases; also checked (2,6), (3,5), (4,4), (4,5)."
+      ],
+      "rationale": "Under the stated strict test, additions need not be feasible. For cost, the grand coalition's full common bundle rules out c≤k−2 and c=k−1 with no private funding: even the best augmentation cannot exceed kh. At c=k−1 with positive private funding, the voter who has a funded private project witnesses every missing grand-coalition bundle, including proper subsets of the common bundle (the latter case is implicit in the written proof). Smaller nonsingleton coalitions have targets of cost at most (k−1)h, and singleton targets cost at most h. The c=k sufficiency case and the labeled binomial count then follow. For cardinality, singleton private bundles force z_i≥h; when a common project is missing, every g-person coalition can ask for a g-common-project bundle containing one such project. Its largest score must be at least g; the minimum of these maxima is z_(g). The same missing-approved-project witnesses prove sufficiency. Summing z_i≥h and using the budget gives c(h−k)≤0, so h>k forces the unique all-private outcome; h≤k admits the all-common outcome. For c=k−1 the optimal smallest x_i is floor(h/k), attained by an even allocation of all h private selections, and comparing with c=k gives the stated floor formula. For h=k+t, t≥1, it equals t−floor(t/k)>0. The phrase 'prior projects' in the Finding is a typo for 'private projects'; scope and proof are unambiguous.",
+      "residual_risks": [
+        "Finite replay tests consistency; the symbolic coalition and budget arguments are what certify unbounded k and h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Method of Equal Shares guarantees an EJR-type outcome for one satisfaction function at a time under its definition; this is an existence guarantee, not simultaneous fairness or a classification of feasible outcomes.",
+          "The indexed staircase allows an independent private-block size and common cost, but only two voters."
+        ],
+        "reasoning": "Broader utility or price parameters do not dominate the joint two-utility, arbitrary-k statement.",
+        "searches": [
+          "arXiv:2008.13276, Definition 5 and Theorem 2",
+          "Resultary record 9a3f16cea0fd, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and matching staircase record 9a3f16cea0fd",
+        "Brill et al., arXiv:2302.03672",
+        "Peters, Pierczyński and Skowron, arXiv:2008.13276"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A witness at (2,5), a single-measure guarantee, and an independent-premium two-voter characterization provide no criteria for all coalitions of an arbitrary population."
+        ],
+        "reasoning": "The all-k criteria and optimal deficit need the coalition/order-statistic and budget arguments; no prior implication of the complete theorem was established.",
+        "searches": [
+          "arXiv:2302.03672 Proposition 3.6; arXiv:2008.13276 Theorem 2; Resultary 9a3f16cea0fd Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strict hypothetical addition is the same as Brill et al.'s definition; their (2,5) example is exactly an instance, not merely an analogy.",
+          "Setting r=c=h in the indexed two-voter staircase yields k=2, and its all-voter minimum-score test for h≥3 is the specialization of the sorted-score test."
+        ],
+        "reasoning": "These equivalences credit the known witness and the two-voter overlap, but neither turns those statements into the k-voter order-statistic or shortfall theorem.",
+        "searches": [
+          "arXiv:2302.03672, Definition 3.5 and Proposition 3.6",
+          "Resultary: simultaneous EJR-1 cost ratio and symmetric common/private projects; record 9a3f16cea0fd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The staircase tabulates simultaneous two-voter regimes, not the labeled cost-only spectrum across k or the minimum deficit. Proposition 3.6 is one parameter point."
+        ],
+        "reasoning": "The closest exact regime census overlaps the two-voter slice but supplies neither the arbitrary-k count nor the floor formula.",
+        "searches": [
+          "Resultary: cost/cardinality EJR-1 spectrum and sharp cost-premium boundary; nearest distinct record 9a3f16cea0fd",
+          "arXiv:2302.03672, Proposition 3.6"
+        ]
+      },
+      "rationale": "The incompatibility phenomenon and its (2,5) example are known; the supported distinct contribution is the all-k symmetric-family characterization, including the cost count, sorted-score test, exact boundary and sharp deficit, not the original incompatibility witness. The closest indexed variant covers the two-voter diagonal rather than the full family.",
+      "residual_risks": [
+        "Bounded literature check; other formulations under different voting axioms or unindexed sources may exist. No claim of worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact special case",
+          "evidence": "Two voters, two cost-5 common projects, five unit-cost exclusive projects per voter, budget 10; strict hypothetical augmentation.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.03672",
+          "material_read": "Definition 3.5 PDF p. 10 and Proposition 3.6 pp. 12–13",
+          "method": "Primary OA PDF, located and read the definition and proposition",
+          "title": "Proportionality in Approval-Based Participatory Budgeting",
+          "trigger": "Same axiom and exact known witness"
+        },
+        {
+          "assessment": "Single-function guarantee; not a simultaneous outcome spectrum",
+          "evidence": "Theorem 2 guarantees EJR up to one project for Method of Equal Shares; preceding discussion specifies the approval-utility specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.13276",
+          "material_read": "PDF p. 11, Definition 5 discussion and Theorem 2, text offset 51800",
+          "method": "Primary OA PDF",
+          "title": "Proportional Participatory Budgeting with Additive Utilities",
+          "trigger": "General EJR up to one project existence theorem"
+        },
+        {
+          "assessment": "Verified material two-voter overlap; not a covering arbitrary-k result",
+          "evidence": "Two commons of cost c, r private unit-cost projects each, budget 2c. Diagonal r=c recovers the two-voter boundary. Index dates are not proof of priority.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-cost-ratio-staircase-for-simultaneous-ejr-1-in-two-voter-parti--9a3f16cea0fd",
+          "material_read": "RESULT.md Finding, Proof and Relationship to prior work",
+          "method": "Local Resultary mirror",
+          "title": "A cost-ratio staircase for simultaneous EJR-1 in two-voter participatory budgeting",
+          "trigger": "Closest indexed compatibility census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding items 1–4; Brill et al., Proposition 3.6"
+      ],
+      "rationale": "The family generalizes a standard incompatibility witness while keeping the source of the conflict controlled. The exact boundary distinguishes when a joint guarantee is possible, and the tight deficit separates bare impossibility from its quantitative severity. The spectrum and labeled count are useful benchmarks for comparing outcome rules in this family.",
+      "residual_risks": [
+        "No universal premium boundary for asymmetric profiles, and the deficit measures the singleton target only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

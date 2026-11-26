@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:37:19.846925Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and divisor bounds",
+        "VERIFICATION.md and verify_delta.py (read, not executed)",
+        "Schvöllner, arXiv:2605.25264, Proposition 2.3 and Theorems 5.3 and 5.5"
+      ],
+      "rationale": "Reconstructed the divisor argument, including repeated summands and the unit-divisor issue in descent. For any odd q the positive differences for 1<d<2q^b are from the three divisor classes q^j (1≤j≤b), 2q^j and 4q^j (0≤j<b); the upper bound in the last class uses 4/q<2. The only differences not divisible by q are B=2M−2 and C=M−4, M=q^(2b). The strictly largest difference is B. A single exceptional occurrence fails modulo q; if both B,C occur once the only possible placement is B=C+D, which fails since B−C=M+2 is not divisible by q. Two copies of C must sum to the other exceptional value (2C≡−8≠0 mod q), but B−2C=6; B cannot be a summand. Therefore all factors and complements in the triple are divisible by q and division gives the same relation scaled to 4q^(2b−2). If the least new divisor is 1, its difference is n'−1 and every summand at a divisor ≥2 is ≤n'/2−2, so even their sum is <n'−1. Otherwise descent contradicts minimal exponent (n'=4 at b=1 has no allowed divisor). This independently validates the proof's exceptional case and in fact gives a self-contained proof for all odd q. For q=2 the cited prime-power exclusion applies; alternatively all factors and complements are even, so iterating the same division by 2 gives an impossible unit case or an empty allowed divisor interval.",
+      "residual_risks": [
+        "Exact integer diagnostic in the original is finite; independent validation is the unrestricted descent, not the diagnostic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 requires q>p^x and y≥2 and gives q≥5 for p=2,x=2,y=2b",
+          "Theorem 5.5 covers the q=2 prime powers; Lemma 5.6 covers b=1",
+          "Golfieri–Schvöllner produce infinitely many Δ-primitive squares, not a negative classification of this prime-supported ray"
+        ],
+        "reasoning": "The reviewed statement subsumes covered cases, with q=3,b≥2 left outside those hypotheses. A family of positive examples with no ray classification does not yield an exclusion.",
+        "searches": [
+          "arXiv:2605.25264 §§5.1–5.2",
+          "arXiv:2611.11574, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2605.25264",
+        "ArXiv:2611.11574",
+        "Resultary exact self-hit and related rational Δ record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 4·3^(2b), neither 3>2² nor 2>3^(2b) holds; neither exponent is 1 and only b=1 meets the semiprime-square hypothesis",
+          "The rational-Δ record clears denominators of constructed triples to obtain some integral squares, without identifying this ray"
+        ],
+        "reasoning": "Substituting the parameters into the broader exclusion cannot settle the exceptional tail. Separating the two unit-residue differences and making descent valid across the unit-divisor boundary supplies the missing implication.",
+        "searches": [
+          "arXiv:2605.25264 Theorem 5.3 under both choices of dominating prime",
+          "arXiv:2611.11574 Theorem 1.1",
+          "Same-day Resultary rational Δ-triple comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schvöllner's divisor order and additive equation are the same as in the frozen record",
+          "The exact indexed statement returned is the frozen record itself: 2026/11/22/SCOPE-no-two-prime-square-with-an-exactly-doubled-even-square-root-has--61f675806bcc"
+        ],
+        "reasoning": "The graph formulation and ordered factor differences define the same property; the exact self-match is not evidence of independent prior coverage.",
+        "searches": [
+          "Local Resultary on Schvöllner Δ property, factor-difference triples and 4q^(2b)",
+          "Focused literature query on the exceptional factor-difference ray",
+          "arXiv:2605.25264 Proposition 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Corollary 5.4 small-prime candidate list concerns 9q^y, not 4·3^(2b)",
+          "The 36 case is an actual covered entry by Lemma 5.6; the identical Resultary record is not independent"
+        ],
+        "reasoning": "A finite entry or list of candidates in another family cannot certify the infinite tail in this claim. The bounded checks found no independent exact ray table.",
+        "searches": [
+          "Resultary exact ray and candidate classifications",
+          "Schvöllner §5, candidate list in Corollary 5.4 and semiprime squares in Lemma 5.6"
+        ]
+      },
+      "rationale": "Credit only the missing infinite subfamily 4·3^(2b) for b≥2 and the resulting complete ray classification. The other primes and b=1 are already covered by the explicitly cited results; they are not original claims. Neither the dominating-prime criterion nor the later positive Pell family yields the exceptional negative classification.",
+      "residual_risks": [
+        "The focused web query produced no useful result; this is not evidence of absence.",
+        "No exhaustive historical classification search or enumeration of output squares from other constructive families was performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial exact coverage; not the exceptional infinite tail",
+          "evidence": "Excludes prime powers, semiprime squares and dominating q>p^x. Journal publication status was not independently established.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25264",
+          "material_read": "PDF pp. 6, 27, 29; Prop. 2.3, Thms. 5.3 and 5.5, Lem. 5.6 and nearby Cor. 5.4",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "The Δ property: a bridge between split graphs and number theory",
+          "trigger": "Definition and known general exclusions"
+        },
+        {
+          "assessment": "Different (positive existence) result",
+          "evidence": "Infinitely many Δ-primitive squares from a Pell-generated family; no exclusion of the fixed ray in the statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11574",
+          "material_read": "PDF p. 3, Theorem 1.1",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Primitive squares with the Δ property",
+          "trigger": "Later result specifically on squares"
+        },
+        {
+          "assessment": "No ray-wide coverage in the returned statement",
+          "evidence": "Constructs rational triples giving integral examples after scaling, rather than excluding prime-supported square roots.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-beatty-coding-of-odd-elliptic-multiples-giving-rational-de--1c346f690484",
+          "material_read": "Resultary theorem description, rational construction and denominator clearing",
+          "method": "Local Resultary search",
+          "title": "Exact Beatty coding of odd elliptic multiples giving rational Δ-triples",
+          "trigger": "Closest distinct same-day Resultary arithmetic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof and prior-work scope",
+        "arXiv:2605.25264, §5.1 dominating-prime obstruction"
+      ],
+      "rationale": "The missing case is the single odd prime outside dominance when the root contains exactly one factor of two. Filling it requires excluding an infinite ray, not checking small squares. The modular pair isolation and unit-safe descent explain why the natural dominance threshold need not hold in this boundary case and give a clean exclusion for future classification by prime support.",
+      "residual_risks": [
+        "Does not classify square roots with higher 2-adic valuation or arbitrary two-prime support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

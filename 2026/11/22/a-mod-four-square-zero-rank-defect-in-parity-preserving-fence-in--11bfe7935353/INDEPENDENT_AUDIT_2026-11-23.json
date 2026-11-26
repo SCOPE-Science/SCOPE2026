@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:35.420660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and verification_output.txt (inspected, not executed).",
+        "Sareeto–Koppitz arXiv:2208.03202v4, Proposition 1; arXiv:2403.06957v1, §2.",
+        "Fresh literal two-way fence census, n=1 through 13; max rank/count pairs (0,1),(0,1),(1,2),(2,2),(2,4),(2,10),(3,6),(4,4),(4,12),(4,42),(5,16),(6,8),(6,32). Replay: python3 /workspace/branches/7499885d-2e10-468b-80bf-17a1b691b89f/enumerate_square_zero_fence.py; rank distributions in counts.csv beside it."
+      ],
+      "rationale": "Increasingness pairs the sorted domain and image uniquely. The height-two fence compares exactly adjacent distinct integers, with the direction determined by parity; hence forward and inverse preservation are precisely synchrony of the gaps of length one given pointwise parity. The square has empty domain exactly when the domain and image are disjoint. Each parity class contributes at most half its points rounded down to the rank, which forces the deficit at n=4m+2. Paired contiguous blocks of length 2m, a terminal hole at size 4m+1, an internal hole between odd blocks at size 4m+3, and restriction to the initial 4m points at size 4m+2 attain the bounds (the empty-map boundaries are correct). At saturation, gap synchrony matches ordered run-length lists. For equal numbers of each color and at most one dot, any same-color consecutive run types must straddle the sole dot and occur between whole pairs: before the repeated type the alternating prefix has even length, since after a flip at an odd prefix the two segment imbalances have the same nonzero sign. Once paired, the within-pair distance between matched points is the common run length, plus one only for an internal dot. Thus no dot gives an even composition with two orientations; a dot between pairs yields h+1 nonreversing and h-1 reversing placements for h even-length pairs; an internal dot requires the unique odd part. Summing the positive-composition counts gives 2^m, (m+1)2^m and (m+2)2^m in the stated classes.",
+      "residual_risks": [
+        "Without reflection, forward fence preservation gives a different census (e.g. five rather than four top maps at n=8); that is not the frozen object. The finite enumeration is not used to infer the infinite formulas. Except n=2, exceptional-class top counts are not part of the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For part-preserving square-zero maps of a complete multipartite graph the earlier rank bound is the sum over parts of floor(part size/2), attained in that less restricted class. The unrestricted isometry theorem can instead swap equally sized parts, attaining rank 3 on K_{3,3} unlike the two-way parity fence at n=6.",
+          "The contractions result addresses maximum length k+1 of a path at rank k, not disjoint directed edges at high rank."
+        ],
+        "reasoning": "The broader part-preserving count omits the chain order and fence-neighbor synchrony, so it gives the same elementary parity upper bound but does not prove attainment in this submonoid or its exact extremal counts. The presentations and ideals do not specify the disjoint pairs.",
+        "searches": [
+          "Sareeto–Koppitz arXiv:2208.03202, arXiv:2403.06957, arXiv:2310.15809",
+          "Resultary square-zero complete multipartite partial isometries; extremal order-preserving partial contractions"
+        ]
+      },
+      "checked_sources": [
+        "Sareeto–Koppitz arXiv:2208.03202, arXiv:2403.06957, and opening description of arXiv:2310.15809.",
+        "Resultary cd10259c2cbb, 61c5be3be5af, aab2f4eae4e5 and cbbee36cc90b."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop. 1 supplies equality of adjacency signatures and simultaneous parity. The prior cardinality proof counts pairs of consecutive gaps through separate endpoints and permits identities of every rank, including rank n."
+        ],
+        "reasoning": "The comparison identifies which ingredients are inherited, including the parity packing bound once square-zero is expressed by disjointness. Obtaining the three top counts still requires analyzing the coupled color runs and all admissible hole positions. The earlier formulas do not recover those counts by rank extraction or parameter specialization.",
+        "searches": [
+          "Sareeto–Koppitz Proposition 1 and §2 signature/ideal comparison",
+          "Resultary part-preserving square-zero upper bound and rank-refined whole monoid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent object is two disjoint equal-length subsets having the same ordered point parity and unit-gap signatures, with a uniquely determined increasing pairing. §2 of arXiv:2403.06957 gives the signature equivalence without disjointness and uses it for Green's relations and ideal classification."
+        ],
+        "reasoning": "The published equivalence identifies the admissible paired subsets, not their disjoint packing at saturation. Nilpotents of maximum index and maps of maximum rank at index at most two have different optimizing loci.",
+        "searches": [
+          "square-zero parity preserving fence inverse monoid increasing partial injections nilpotent rank (Resultary)",
+          "nilpotent square zero partial automorphisms fence parity zigzag rank square nilpotent order preserving symmetric inverse semigroup disjoint domains ranks counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-monoid rank-refined diagonal enumerates all increasing compatible D,I, with no exclusion of common points. The maximum-index record restricts to index ceil(n/2), so for n>=5 its support contains no nonempty square-zero maps. The exact matching title found was the frozen record itself."
+        ],
+        "reasoning": "Neither indexed profile is a table or formula for disjoint domain and image at maximum allowed rank. A statistic recording only the sizes of the sets loses their intersection.",
+        "searches": [
+          "Resultary square-zero parity preserving fence inverse monoid increasing partial injections nilpotent rank",
+          "Resultary Algebraic cardinality series and sharp growth of parity-preserving fence inverse monoids",
+          "Resultary Extremal nilpotence forces two-step translations in parity-preserving fence inverse monoids"
+        ]
+      },
+      "rationale": "The known gap criterion and universal disjointness bound are starting points, not novel. The parity obstruction is elementary; the new substance assessed is the sharp attaining constructions and the explicit saturation enumeration, including the single-hole run reversal. No implication-equivalent source was located in the bounded comparison.",
+      "residual_risks": [
+        "An unindexed rank enumeration of disjoint compatible fence subsets could exist. The cited classification of other nilpotent loci is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational characterization, not the stated extremal element rank.",
+          "evidence": "Prop. 1 compares unit gaps and even gaps; the main generating-set rank 3n-6 counts generators, not domain size.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03202",
+          "material_read": "Abstract, §1 through Proposition 1 and opening of §2 in v4.",
+          "method": "OA primary PDF.",
+          "title": "The rank of the semigroup of order-, fence-, and parity-preserving partial injections on a finite set",
+          "trigger": "Same monoid and an apparent rank result."
+        },
+        {
+          "assessment": "Identifies allowable domains and images, but not their square-zero saturation.",
+          "evidence": "Compatible domain and image determine a unique map, and the induced relation determines J-classes; domains in the ideal description form convex collections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.06957",
+          "material_read": "Abstract, definitions, §2 through the signature criterion and Propositions 2–4.",
+          "method": "OA primary PDF.",
+          "title": "The maximal subsemigroups of the ideals on a monoid of partial injections",
+          "trigger": "Identical monoid, with rank strata and ideal structure."
+        },
+        {
+          "assessment": "Broader total count not refined by intersection.",
+          "evidence": "The rank-r coefficient uses the first pair, r-1 allowed gap pairs and independent endpoint slacks, with no D-intersect-I condition.",
+          "identifier_or_url": "Resultary cd10259c2cbb",
+          "material_read": "Finding, assumptions and gap/diagonal proof in the full result.",
+          "method": "Local mirror full result.",
+          "title": "Algebraic cardinality series and sharp growth of parity-preserving fence inverse monoids",
+          "trigger": "Same monoid and an exact rank-refined formula."
+        },
+        {
+          "assessment": "Different extremizer, maximizing index not rank subject to square-zero.",
+          "evidence": "A full parity path is required at maximum index; for n>=5 that path has at least three vertices.",
+          "identifier_or_url": "Resultary 61c5be3be5af",
+          "material_read": "Finding, scope and proof of index bound and rigidity.",
+          "method": "Local mirror full result.",
+          "title": "Extremal nilpotence forces two-step translations in parity-preserving fence inverse monoids",
+          "trigger": "Identical monoid and nilpotent rank polynomials."
+        },
+        {
+          "assessment": "Useful comparison class, not the ordered fence calculation.",
+          "evidence": "Counts permit arbitrary bijections within selected parts (factorials) and, in the unconstrained theorem, permutations of parts.",
+          "identifier_or_url": "Resultary aab2f4eae4e5",
+          "material_read": "Finding and counting/bipartite specialization proof.",
+          "method": "Local mirror full result.",
+          "title": "The complete square-zero rank distribution of multipartite partial-isometry monoids",
+          "trigger": "Exact square-zero rank distribution and parity deficit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen saturation proof and independent exact rank profiles.",
+        "Same-monoid maximum-index and whole-monoid comparison records."
+      ],
+      "rationale": "Square-zero is the first nontrivial bounded-nilpotency level, and the largest possible domain at that level is a natural statistic of a submonoid with both chain and fence constraints. The residue obstruction recurs indefinitely; the exact maximum-rank multiplicities describe how the local fence rule couples otherwise independent parity packings. The one-hole classification supplies more than the parity upper bound or a small-rank census.",
+      "residual_risks": [
+        "No enumeration of all square-zero strata or of the general exceptional top stratum is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

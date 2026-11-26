@@ -1,23 +1,21 @@
-# Scientific review: homophilic one-shot rewiring on bounded-degree trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for a specified one-shot edge-replacement experiment, not for unbounded adaptive updates. On the original tree, the two seeded vertices activate only \(u\), leaving \(v\) at exposure \(1/4\). The proof partitions the only three initial mixed-status edges into two \(u\)-edges and one \(v\)-edge. Every legal recipient of a rewired \(u\)-edge becomes eligible after \(u\) adopts, and the threshold \(\theta<1/3\) transmits activation along the path; a rewired \(v\)-edge never produces additional adoption because \(v\) has at most one adopter among four neighbors. Hence the exact distribution is \(\{3:1/3,m+6:2/3\}\), with expectation \(5+2m/3\). An independent exact-rational exhaustive checker enumerated the complete allowed one-rewiring sample space for 20 sizes and three threshold choices (60 finite parameter instances), without numerical tolerances or sampling.
+PASS
 
-The proof handles the strict-threshold boundary \(\theta=1/4\), the terminal-path case \(m=1\), both edge orientations, and every legal recipient. Infinite sizes are covered by constructive local arguments, not extrapolated from these computations. No claim about ongoing rewiring or arbitrary graphs is made.
+The m+5 edges form a connected tree on m+6 vertices; the gate v has degree four. Initially u adopts but v sees 1/4, so the original closure stops at three. Removing au or bu leaves u with one seed out of two neighbors. After u adopts, all admissible targets are enabled: v with exposure 2/5, x or y with 1/2, and internal/terminal path targets with 1/3 or 1/2, respectively. Propagation back to v gives 2/4 unless v was the target, and then onward to every other susceptible vertex. Removing bv leaves v with at most one adopter among four even after u adopts, so no path or leaf can be reached. The outcome is constant conditional on each of the three sampled edges, so the differing number of eligible targets per edge does not bias 2/3 versus 1/3; the mean is 5+2m/3. Independent finite replay: label a,b,u,v,x,y,w1,... by 0,1,2,3,4,5,6,...; enumerate edges (0,2),(1,2),(1,3), and all nonadjacent target labels >=2 other than the susceptible endpoint; after replacement repeatedly add the first enabled vertex using the exact integer test denominator(theta)*adopting_neighbors > numerator(theta)*degree. This checked 3000 rewiring/threshold combinations, m=1..20 at 1/4,3/10,333/1000,1/3; at 1/3 an internal path target fails, and static closure at 1/5 fills every test tree. Strictness and m=1 are handled analytically. Source code was inspected, not executed. Editorial: the stated quotient is mean/baseline; the phrase 'baseline-to-mean' inverts its label. The numerical quotient and mathematical amplification claim are correct. The degree-four and connectivity hypotheses apply to the original graph.
 
-## Originality — PASS (best-knowledge, with priority risk)
+## originality
 
-Min and San Miguel's arXiv:2305.13965, Sections II–IV, defines the homophilic edge move and reports that network plasticity may increase cascade sizes in a large random-graph parameter regime. This earlier *qualitative* enhancement is expressly not claimed as new. Its equations and simulations do not state or imply that every eligible recipient of either of two specified edges in a connected bounded-degree tree triggers a global cascade, nor the exact two-point distribution and growing mean under a single sampled move. Eckles et al., arXiv:1810.03579, address long-tie interventions with noisy and absolute-threshold mechanisms on cycle-derived graphs, not the strict fractional threshold and status-directed edge replacement used here. Ebrahimi et al., arXiv:1404.2668, analyze absolute-threshold spread on growing preferential-attachment networks, not this one-step rewiring sample space. Published mathematical-results index hits on conversion/2-burning concern different operations, optimizing source numbers or static-graph closure, and do not dominate the stated law.
+PASS
 
-Search did not identify an exact covering result. This is **not** a proof of worldwide uniqueness. Priority uncertainty remains for unindexed manuscripts or equivalent formulations, particularly elementary sensitivity constructions in the broad Watts-threshold literature.
+Best of knowledge: the closest inspected work already gives the elementary move and qualitative enhancement; it does not give the exact edge-conditioned law, unbounded one-replacement comparison, or universal target property on this tree family.
 
-## Value — PASS
+## value
 
-The natural question is whether homophilic adaptation—each individual rewiring away from an already adopting neighbor—must suppress a threshold contagion. Prior large-network work documents a complicated enhancement/suppression tradeoff but does not quantify how severe a gain can be with just one contact change and a connected initial network. This theorem provides a fixed-threshold, bounded-degree family showing an *unbounded* response to one such move with a nonvanishing \(2/3\) success probability and an exact mean, not an arbitrarily chosen finite computation. It separates the strength of topology-induced connectivity changes from mere joining of initially disconnected components and furnishes a reproducible worst-case benchmark for interpreting adaptive cascade simulations.
+PASS
 
-## Remaining limitations
+Shows a fixed-degree originally connected family where just one locally homophilic replacement before adoption changes the scale of final adoption with probability bounded away from zero, irrespective of which admissible recipient is sampled in the successful cases. The quantitative separation between local suppression and global possible amplification is useful as a worst-case check on interpretation of random-network averages. This is not a statement about ordinary ongoing rewiring or realistic spread predictions.
 
-The exact law applies only when the one mixed-status edge is selected uniformly, its susceptible endpoint chooses a uniformly random nonneighbor susceptible, and all later network evolution is frozen. It does not quantify the full ongoing-stochastic-rewiring model's terminal distribution, nor assert comparable growth for typical random networks. The scientific-priority risk above remains. Computational checks are finite and do not constitute independent certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

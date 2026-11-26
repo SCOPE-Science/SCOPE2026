@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:50:54.735961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact orthogonal similarity preserves λI+ρvvᵀ. The selected nonzero block has one exceptional eigenvalue because ρ≠0, so diagonalizing a block with r≥2 active coordinates leaves exactly one active coordinate there. A pair with fewer than two leaves the support unchanged under the prescribed rule. Diagonality is equivalent to support size one. Conditional on any past at support j, the next pair succeeds with probability binom(j,2)/binom(n,2); the holding-time law is geometric and its parameter is independent of the entry history, giving independent holding times at successive sizes. This gives the finite moments, including zero time for s=1 and (n−1)² for s=n. For fixed j the scaled waiting time has exponential rate j(j−1) in the limit; the expected scaled tail above K is at most 1/K. Summation gives mean 1, and the variance follows by summing [1/(j−1)²+1/j²−2/(j(j−1))]. The conventional Kingman rate is half as large, so the time here is half the conventional absorption time. For blocks, the active count is hypergeometric and the first-step equation gives the stated expected-sample recurrence, with a positive exit probability at every s≥2 and one sample when b=n. These arguments apply to the exact pivot clock including ineffective samples. The recorded check in reproduce.py is bounded corroboration, not part of the all-size proof; the frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Jacobi guarantees concern expected off-diagonal potential and approximate convergence; they include a factor 1−b(b−1)/[n(n−1)].",
+          "The finite-field matrix product has a rank-loss chain but its transition rates depend on powers of the field size."
+        ],
+        "reasoning": "Broader matrix dimensions and pivot blocks in a bound on a different observable do not imply independence of exact support holding times nor the support-dependent hypergeometric recursion.",
+        "searches": [
+          "arXiv:2505.02023v4, Lemma 4.2, Theorem 4.3, Corollary 4.4",
+          "Resultary/mirror: SCOPE-uniform-kernel-universality-and-exact-absorption-laws-for-corank--bd2fa1210066"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and VERIFICATION.md; reproduce.py",
+        "arXiv:2505.02023v4",
+        "arXiv:1502.03983",
+        "Resultary/local mirror 4866f1ecdc09, bd2fa1210066, 65682c1c69b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite Jacobi mean and distribution require per-hit deletion of exactly one active coordinate; the matrix block formula requires deletion of r−1.",
+          "The Brauer decrement is two; the Kingman representation concerns continuous holding times and not discrete pivot sampling."
+        ],
+        "reasoning": "The proof uses an additional structural identification, not a substitution into a previously established Jacobi law or a direct specialization of the Brauer-product absorption law. Only the exponential-sum identification and its law are covered.",
+        "searches": [
+          "Detherage–Shah Lemma 4.2 / Theorem 4.3 vs frozen support calculation",
+          "Möhle–Pitters §2 vs the finite and limiting Jacobi laws",
+          "Brauer-product RESULT.md 4866f1ecdc09"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Möhle–Pitters §2, p. 2 gives exactly the limiting exponential sum after rescaling time by 1/2.",
+          "Detherage–Shah treat the same random-pivot rule and general block variants."
+        ],
+        "reasoning": "Rescaling already identifies the probability law, but there is no Jacobi operator or finite-sample matrix cost in the coalescent result. Matching the pivot rule is not equivalent to identifying its rank-one support dynamics.",
+        "searches": [
+          "Resultary ranked searches for rank-one randomized Jacobi, pure-death/absorption laws, and rank-one matrix analogues",
+          "Focused primary search for exact uniform-pivot Jacobi stopping times and coalescent absorption",
+          "arXiv:2505.02023v4 §§2.2–2.4",
+          "arXiv:1502.03983 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brauer products have the same pair success probability but a decrement of two with a parity-dependent terminal state.",
+          "The same-day Gauss–Seidel rank-one Gram finding concerns fixed sweeps and residuals, not Jacobi or this pivot chain.",
+          "No inspected indexed record states the rank-one Jacobi finite-pivot law; catalogue order does not establish priority."
+        ],
+        "reasoning": "There is a material matching transition factor, not an exact catalogue match for the algorithm and decrement.",
+        "searches": [
+          "Resultary ranked searches; exact statements read from local mirror: 4866f1ecdc09, bd2fa1210066, 65682c1c69b9"
+        ]
+      },
+      "rationale": "The supported distinction is the rank-one Jacobi support-chain reduction and its exact cost consequences. Uniform randomized/block Jacobi and the limiting coalescent law itself are already known and are not credited as new. Neither the nearest primary convergence theorem nor the strongest inspected indexed stochastic analogue covers the matrix-specific stopping-time and block-expectation claims.",
+      "residual_risks": [
+        "A rank-one Jacobi exercise or equivalent stochastic-coordinate analysis may exist in unindexed older work. Bounded passage and catalogue searches are not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the algorithm and an expected-potential recurrence, not the exact rank-one stopping law",
+          "evidence": "Uniform block off-diagonal potential contracts in expectation by the stated b-dependent factor; the guarantees use approximate accuracy.",
+          "identifier_or_url": "https://arxiv.org/html/2505.02023v4",
+          "material_read": "§§2.2–2.4 (text offsets 21000–27979), Lemma 4.2/Theorem 4.3 (56000–61000), Corollary 4.4 (60400–64579)",
+          "method": "Primary OA HTML, bounded passage inspection",
+          "title": "Matrix Factorizations with Uniformly Random Pivoting",
+          "trigger": "Same pair and block pivot algorithms"
+        },
+        {
+          "assessment": "Covers limiting probability law after scaling, not its Jacobi realization",
+          "evidence": "Independent exponential waiting times with rates j(j−1)/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.03983",
+          "material_read": "§2, p. 2, text offset 4300",
+          "method": "Primary OA PDF text",
+          "title": "Absorption Time and Tree Length of the Kingman Coalescent and the Gumbel Distribution",
+          "trigger": "Exact candidate limiting distribution under rescaling"
+        },
+        {
+          "assessment": "Structural analogue, different decrement and object",
+          "evidence": "Brauer ranks decrease by two and have parity-dependent absorption.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-corank-two-brauer-product-fibers-and-parity-dependent-abso--4866f1ecdc09",
+          "material_read": "RESULT.md offsets 0–6713",
+          "method": "Resultary match, local mirror",
+          "title": "Exact corank-two Brauer product fibers and parity-dependent absorption",
+          "trigger": "Identical decrement-event probability and geometric holding times"
+        },
+        {
+          "assessment": "Different process and rates",
+          "evidence": "Finite-field transition probabilities (q^r−1)/(q^n−1).",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-kernel-universality-and-exact-absorption-laws-for-corank--bd2fa1210066",
+          "material_read": "RESULT.md offsets 0–6829",
+          "method": "Resultary match, local mirror",
+          "title": "Uniform-kernel universality and exact absorption laws for corank products",
+          "trigger": "Random matrix-product absorption analogy"
+        },
+        {
+          "assessment": "Different operation, clock and conclusion",
+          "evidence": "Residuals after fixed Gauss–Seidel sweeps, not random exact Jacobi diagonalization.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+          "material_read": "RESULT.md offsets 0–4939",
+          "method": "Local mirror",
+          "title": "A fixed-sweep Gauss-Seidel residual illusion for rank-one Gram systems",
+          "trigger": "Distinct same-day rank-one linear-algebra hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank one is a natural test of generic randomized Jacobi estimates. Exact finite termination alone would say little about a rule that wastes pivots; the distribution quantifies that overhead and shows nonvanishing fluctuations at the n² scale. The block recurrence also isolates the effect of block size on the sample clock, without confusing it with arithmetic cost. These are meaningful exact predictions for a canonical model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

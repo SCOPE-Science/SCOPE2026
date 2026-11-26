@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:21:48.142209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 29–88; VERIFICATION.md and check_inverse.py (inspected, not executed)",
+        "python3 /workspace/frozen_math_crosschecks.py 2 independently solved the two stationary generator moment systems symbolically and checked both tilted-beta moments and the exact asymmetric example (S,K)=(16/25,13/1250)"
+      ],
+      "rationale": "Condition on the common environment's past: independent thermal noises give independent centered Gaussians with common variance V. Its normalized value U has the two drift fields −2aU and 2b(1−U); stationary zero flux and switching balance give the positive tilted beta density on (0,1), with shapes A=r1/(2a), B=r2/(2b). Both boundary atoms are absent because each past realizes both stiffnesses over intervals of positive length. Conditional Gaussian moments give S=E[V], K=Var(V), and κ4=3K, and exact generator identities agree with the displayed moment formulas. Set t=A+B and z=A/t. For fixed t the likelihood ratio for increasing z is strictly increasing, so the mean varies continuously and strictly from 0 to 1. At fixed mean, increasing t forces both shapes to increase: if one shape were unchanged or decreased while the other increased, the likelihood ratio would be strictly monotone and the mean would change. With both shape increments positive the new-to-old density ratio vanishes at both endpoints, has a single interior maximum, and by normalization crosses 1 exactly twice. Integrating the signed density difference against the monic quadratic with those roots gives a strictly negative integral; cancellation of the mass and linear terms makes this exactly the second-moment difference. At fixed mean the variance therefore decreases strictly and continuously as t increases. The reported moment formulas give normalized second moment tending to m at t↓0 (the endpoint mixture) and m² at t→∞ (concentration). This proves the full open wedge, absence of finite positive boundary rates and the unique nested monotone inversion.",
+      "residual_risks": [
+        "Only calibrated, ensemble-stationary observables under the specified common CTMC are covered. The exact identities and the proof do not provide finite-sample accuracy or inversion conditioning near the limiting wedge boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generator/moment literature gives forward recursions across a broader Markov-modulated OU class. The later experiment uses equal rates and refers the general two-rate forward formula to the 2023 supplement. The older stationary-density paper was not obtained."
+        ],
+        "reasoning": "A broader class of forward moments or a one-rate experiment is not a covering theorem about the exact inverse with two independently variable rates. The inaccessible paper is a named risk, not negative evidence.",
+        "searches": [
+          "Behme, Di Tella and Sideris arXiv:2207.11093, §1 and Remark 4.9",
+          "Biroli et al. arXiv:2508.07199v2, Eqs. (1)–(5) and supplement",
+          "Zhang and Wang DOI 10.1080/03610918.2015.1132321 and exact-title/DOI OA searches"
+        ]
+      },
+      "checked_sources": [
+        "Biroli et al. arXiv:2312.02570 and 2508.07199v2; Behme et al. arXiv:2207.11093; Zhang and Wang DOI access attempts",
+        "Resultary 1fcfce6ee0e4, 8f817ade8710, 0b2306697c41, ec8c472a2b8e and 0738c1f8fc1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward beta mixture gives 0<K<(S−v_-)(v_+−S) just from nondegenerate support strictly inside the interval. The restricted manifold takes C(0)=D/ρ to infer ρ and then reads both rates from its displayed formulas."
+        ],
+        "reasoning": "Neither suffices for onto-ness and injectivity without the one-exponential premise. The missing global step is strict ordering of variances along fixed means, despite both shapes varying. The two-crossing argument plus the two extreme-rate limits supply exactly that step rather than just an algebraic re-expression of covariance.",
+        "searches": [
+          "Biroli et al. arXiv:2312.02570 supplement Eqs. (S69) and (S73)",
+          "Resultary 8f817ade8710, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al. give the same model and conditional-Gaussian mixture, including the unequal-rate formulas for S and the cross-square cumulant. Conditional Gaussianity gives the equivalent observables (E[V], Var(V)) or (E[X²], κ4(X))."
+        ],
+        "reasoning": "These changes of observables are exact and not separately novel. The claimed new part is the inverse and image in any of these equivalent coordinates.",
+        "searches": [
+          "Biroli et al. arXiv:2312.02570, Eqs. (12)–(14), supplement §III.B (S67)–(S73)",
+          "Resultary: unequal/asymmetric switching, moment identification, fourth cumulant and covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match ending 1fcfce6ee0e4 is the assigned record itself. The exact matching model in 8f817ade8710 gives rate formulas and a fourth cumulant on a one-exponential autocovariance manifold; other nearby results impose equal rates, a zero stiffness, or resetting."
+        ],
+        "reasoning": "This is a continuous parametric inverse, not a numerical sequence; the appropriate exact-index comparison is to solved inverse families. None of the distinct inspected indexed statements supplies the unrestricted (S,K) inverse.",
+        "searches": [
+          "Resultary: stationary unequal-rate harmonic-trap inverse, covariance, fourth cumulant",
+          "Resultary 1fcfce6ee0e4, 8f817ade8710, 0b2306697c41, ec8c472a2b8e and 0738c1f8fc1e"
+        ]
+      },
+      "rationale": "The exact tilted-beta mixture and both forward observables, including the general unequal-rate covariance, are already in Biroli et al. (2023) and are not original here; the single-particle fourth-cumulant substitution is immediate from the mixture. The supported distinct result is global identification for every positive ordered pair, with the sharp image and a constructive monotone inverse. The closest distinct catalog result gives an inverse only in a restricted family defined by the full stationary autocovariance having one exponential. A forward map, even with exact rational formulas, does not by itself establish either the absence of additional positive solutions or attainment of the whole open wedge.",
+      "residual_risks": [
+        "The 2017 switching-OU full text could not be examined. Equivalent inverses in older work or other terminology are not excluded. The originality decision does not claim priority for the forward model, moments, fourth-cumulant identity or support bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of forward law and observables, not the global inverse in those passages",
+          "evidence": "A linear tilt of a beta density is the shared mixing law. (S69) gives the exact unequal-rate variance and (S73) the unequal-rate square covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+          "material_read": "Main Eqs. (12)–(14), PDF pp. 3–4, offsets 22000–26145 and about 27500; Supplement §III.B (S67)–(S73), PDF pp. 14–15, offsets 87300–91530",
+          "method": "Bounded OA PDF passages including the asymmetric supplement",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Identical switching model, exact mixture, and both general-rate forward moments"
+        },
+        {
+          "assessment": "Experimental forward comparison at equal rates; no two-direction inverse in inspected sections",
+          "evidence": "The experiments fix r1=r2; the general unequal-rate square correlator is referred back to the 2023 supplement.",
+          "identifier_or_url": "https://arxiv.org/html/2508.07199v2",
+          "material_read": "Model and Eqs. (1)–(5), HTML offsets 10000–15347; supplement offsets 46000–49478",
+          "method": "Bounded OA HTML passage inspection",
+          "title": "Experimental evidence for strong emergent correlations between particles in a switching trap",
+          "trigger": "Uses the same measured moments, possibly to identify rates"
+        },
+        {
+          "assessment": "General forward moment formulas and recursion, not a feasible-image or inverse theorem",
+          "evidence": "The recursion supplies moments under broad assumptions but does not compare the positive-rate fibers of the two observables.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.11093",
+          "material_read": "Abstract and §1, PDF pp. 1–2, offsets 0 and 7600–11526; §4 Remark 4.9, pp. 20–21, offsets 86800–90319",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes",
+          "trigger": "Potential broader result on moments and identification"
+        },
+        {
+          "assessment": "Detailed scope unresolved; not relied on for a negative literature conclusion",
+          "evidence": "The title indicates the stationary distribution of the correct two-state class, not whether a low-moment inverse was derived.",
+          "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+          "material_read": "Citation, no independently obtained primary full text; publisher route gave HTTP 403 and an exact-title/DOI search did not identify an accessible copy",
+          "method": "Bounded lawful OA attempt plus exact bibliographic search",
+          "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+          "trigger": "Earlier highly relevant stationary switching-OU result"
+        },
+        {
+          "assessment": "Exact inverse on a restricted family; not the general two-moment inverse",
+          "evidence": "The rate formulas assume the full stationary covariance is D exp(−ρ|t|)/ρ, an additional restriction not implied by the frozen data pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0",
+          "method": "Bounded local mirror passage inspection and substitution ρ=D/S along the stated manifold",
+          "title": "A complete equilibrium-covariance camouflage manifold for a switching harmonic trap",
+          "trigger": "Closest distinct indexed match with the same calibrated positive stiffnesses, directional rates, variance and fourth cumulant"
+        },
+        {
+          "assessment": "Restricted or different models",
+          "evidence": "Respectively equal rates, an on/off trap with one zero stiffness, and switching diffusivity with resetting.",
+          "identifier_or_url": "Resultary 0b2306697c41, ec8c472a2b8e and 0738c1f8fc1e",
+          "material_read": "Matched model and scope statements in local catalog comparisons",
+          "method": "Resultary search and bounded scope comparison",
+          "title": "Equal-rate covariance camouflage; on/off covariance twins; resetting-switch inverse ambiguity",
+          "trigger": "Nearby moment and identifiability catalog findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 3–5; Biroli et al. arXiv:2312.02570 supplement; Resultary 8f817ade8710"
+      ],
+      "rationale": "A second low-order observable resolves the two-rate ambiguity left by the variance; the exact image separates feasible from incompatible population data, and the monotone inverse removes local-root ambiguity. The fixed-mean comparison of the two-shape family supplies a substantive mechanism, not just a forward moment calculation or recovery in a symmetric special case.",
+      "residual_risks": [
+        "Practical calibration error and finite-sample performance were not established; usefulness here is structural identification and feasibility under the stated model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

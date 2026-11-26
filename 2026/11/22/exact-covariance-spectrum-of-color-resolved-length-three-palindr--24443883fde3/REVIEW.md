@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact covariance is obtained from the only five potentially overlapping cyclic shifts of two length-three factors, with joint probabilities determined by matching ordered letters. The spectral proof exhausts the off-diagonal array space by a constant direction, two row/column-contrast sectors, and symmetric and skew-symmetric zero-row flow sectors; the dimensions sum to \(q(q-1)\). The discriminant inequalities prove strict ordering and positive definiteness. A bounded two-dependent multivariate central limit theorem applies for fixed \(q\); positive-definite whitening gives the asserted chi-square limit. Independent rational enumeration and mode checks are supplied in `checker.py`.
+## correctness
 
-## Originality — PASS, qualified
-A general overlap-matrix computation of contiguous-pattern covariance is already established by *A unified approach to word occurrence probabilities* (DOI:10.1016/S0166-218X(00)00195-5, particularly its Theorem 30), so neither the existence of the covariance formula nor individual-pattern moments are claimed as new. Rubinchik–Shur (arXiv:1505.08043) determine expected palindromic-factor counts and study distinct factors, not the complete ordered-color covariance eigenstructure. Even-Zohar–Lakrec–Tessler (arXiv:2012.00742) diagonalize *scattered-subsequence* word statistics, not contiguous cyclic motifs. The assessed claim is the explicit complete five-class spectrum, its finite-sample all-alphabet strict order and condition number, and resulting multivariate calibration. Historical priority remains uncertain: only indexed passages of the older general overlap paper were accessible, and no search proves absence of an earlier specialization.
+PASS
 
-## Value — PASS
-The vector distinguishes each ordered outer/inner letter pair rather than collapsing to one palindrome total. Its covariance has natural exchangeable-color symmetry but is not scalar or multinomial; the exact diagonalization identifies the effective color-contrast and edge-circulation fluctuation modes. All nonconstant modes have positive variance even at finite circle size, making an invertible, explicitly conditioned covariance and a reproducible omnibus chi-square null calibration available without numerical covariance estimation. The near-isotropy formula \(\kappa=1+(3+\sqrt5)/q+O(q^{-2})\) also gives an interpretable alphabet-size stability law. This is a natural complete classification, not a parameter-only numerical coincidence.
+For n≥5 the five shifts 0, ±1, ±2 are distinct; their joint events constrain respectively three identical-position letters, four letters with reversed ordered pairs, or five letters with the same outer color. All other shifts use disjoint letters. This gives the exact kernel including n=5. In the edge array space the symmetric row-sum map has rank q (a vector in the left nullspace would have x_a+x_b=0 for every a≠b, hence is zero for q≥3), while the skew row-sum map has rank q−1 (its left nullspace consists of constants). Their kernels give the two circulation multiplicities, with zero symmetric multiplicity at q=3. The constant and both centered color contrasts form their orthogonal complement. In the row/column contrast coordinates, multiplying the action by q^5 gives a 2×2 block with entries q²+2(q−1), 2q−2, 2q, q² in row-major order. Its midpoint is q²+q−1 and its half-gap is Δ=√((q−1)(5q−1)). The other modes act by scalars; comparing Δ with q+1, 2q−4 and 3q−1 proves the ordering and positive least eigenvalue. Their ratio yields the stated condition number and expansion. The usual fixed-q 2-dependent CLT on a line gives Σ_q as long-run covariance; wrapping changes at most two counts per coordinate, and whitening the limiting Gaussian gives the chi-square law. Independent replay: python3 /workspace/review_checks/3.py computes exact covariance matrices from full circular word enumeration and compares their exact characteristic polynomials for (q,n)=(3,5),(3,6),(4,5),(5,5). The all-q and asymptotic claims rely on the proof, not the finite tests.
 
-## Limitations and closest literature
-The general overlap covariance is prior knowledge; older unavailable full-text material leaves residual priority risk. No fixed-size exact chi-square law, nonuniform-alphabet theorem, jointly growing-alphabet CLT, or optimal testing-power statement is asserted. The finite checker verifies specified sizes, not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the complete explicit finite-circle spectrum, including dimensions, ordering and conditioning for ordered color motifs. General overlap-covariance methodology, the positivity-to-whitening step, and a fixed-q finite-dependence CLT are not independent novelty claims. Closely related triple-count spectra concern different statistics. The general word-occurrence paper remains a bounded access risk.
+
+## value
+
+PASS
+
+Counting by ordered outer and inner colors makes the covariance a nontrivial operator rather than a single palindrome total. The decomposition separates coupled color contrasts from symmetric and skew circulation, establishes invertibility even on the smallest supported circle, and quantifies stability as the alphabet grows. This directly supplies a fixed-q omnibus null calibration without estimating a nuisance covariance; it does not assert exact finite-sample chi-square behavior or power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

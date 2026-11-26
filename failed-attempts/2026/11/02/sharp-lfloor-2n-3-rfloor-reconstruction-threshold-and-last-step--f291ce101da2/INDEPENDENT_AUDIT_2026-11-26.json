@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:54:02.233802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic spectrum, orientation convention and fixed weight are consistent. More precisely than the opening sentence of Step 1, the complement of a window containing all three ones lies inside the interior of one gap; a shortest such window uses the complement of the interior of a largest gap and has length n−max(g)+1. A three-one factor fixes two ordered step gaps and hence the third. Without such a factor, a fixed two-one pattern at step distance d<k occurs once for each gap d; its outside marker cannot appear in the window. For every fixed one position, the preceding and following marker exclusions are disjoint; the all-zero count sums max(g−k,0). Thus the spectrum depends only on the gap multiset and records the multiplicities of all gaps <k. At K=floor(2n/3) the bound H=n−K is strictly below K and 3H−n≤2, forcing a repeat in each triple-free gap multiset. At k0=K−1 the deficits from H=n−k0 sum to 3, 5 or 4 by residue; partitioning these totals into three distinct nonnegative parts gives exactly the stated gap lists, with the listed positivity condition. The short-gap counts recover the multiset at k0 for n=6 or n≥8 because H≤k0 (unseen gaps, if any, equal k0). At n=7, if two gaps are unseen they both equal 3 by their sum bound; if one is unseen its value is determined by the total, and three unseen gaps are impossible. This excludes cross-multiset boundary collisions everywhere. Prefixing each factor proves monotonicity in k. The n=3,4 domains are singletons and the n=5 gap multisets {1,1,3} and {1,2,2} have different 11 counts at k=2. Independently enumerated literal cyclic factor counters for n=6..80 agreed with the threshold boundary and every listed doubleton and reversal pairing. Replay: python3 /workspace/branches/8d9ee999-be9e-4c97-abdd-2e565058f112/independent_factor_deck_check.py --min-n 6 --max-n 80 --set-variant; output in the same directory as independent_factor_deck_check.out. This check is finite; no set-valued theorem is inferred. The frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October record gives a pointwise threshold for each sorted gap type, an exact distribution, the same maximum, the full extremal gap lists, and a proof that opposite orders collide below the individual threshold. Ota and Manada give a criterion for individual circular strings, not the explicit all-length weight-three count. Marcovich and Yaakobi note a cyclic alternative but choose acyclic definitions in the inspected setting."
+        ],
+        "reasoning": "The earlier indexed theorem is broader within the identical observation model. The two primary sources supply reconstruction context but are not needed for the decisive coverage.",
+        "searches": [
+          "October Resultary record, Finding, Individual thresholds, Sharp maximum",
+          "Ota and Manada, weighted-automaton reconstructibility criterion, p. 4",
+          "Marcovich and Yaakobi, arXiv:1912.11108, Remark 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "Resultary 2026/10/26/SCOPE-sharp-cyclic-read-length-reconstruction-for-three-marker-binary--53b37289c576",
+        "Resultary 2026/11/2/SCOPE-sharp-read-length-reconstruction-of-binary-three-marker-necklace--19f2074d3041",
+        "Resultary 2026/11/22/SCOPE-sharp-single-length-substring-reconstruction-of-three-marker-bin--7dce4e71091d",
+        "DOI:10.1587/transfun.2023TAP0015",
+        "arXiv:1912.11108",
+        "arXiv:1804.04548",
+        "arXiv:2201.09955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By prefix monotonicity a source is nonsingleton at K−1 exactly when its individual threshold is K. The October record lists those sources and proves every listed multiset's mirror pair is a collision. When there are four sources, n≡1 mod 3 and n≥10; in the prior zero-gap notation their gaps are at most n−K and every gap below K−2 is visible. For n≥13 they are all visible; at n=10 any unobserved gap equals K−2 and its multiplicity is determined by the number missing."
+        ],
+        "reasoning": "With two sources they must form one pair. With four, the two different gap multisets are separated by the proof's truncated data, so the pairs give two fibers rather than one four-element fiber. Everything else is singleton. This is the frozen B(n) and its exact boundary classification, derived without a new theorem.",
+        "searches": [
+          "October Resultary proof, truncated-gap lemma, §2 Individual thresholds, §4 Sharp maximum",
+          "October Resultary Finding, worst-case extremizers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed October record uses the same directed cyclic factor multiset modulo rotation only, but uses counts of zeros between markers; add one to get each frozen step distance. Ota and Manada use circular occurrence frequencies and a weighted-automaton characterization. Substring composition multisets retain multiplicity but not the within-read order."
+        ],
+        "reasoning": "The indexed result and frozen claim have equivalent observations and source spaces. Set-valued spectra, composition spectra, and acyclic substring multispectra are not equivalent inputs.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-sharp-cyclic-read-length-reconstruction-for-three-marker-binary--53b37289c576",
+          "Ota and Manada, DOI:10.1587/transfun.2023TAP0015",
+          "Gupta and Mahdavifar, arXiv:2201.09955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October Finding states exactly two extremal necklaces for n≡0,2 mod 3 and n=7, and four for n≡1 mod 3 with n≥10; its listed zero-gap tuples translate entrywise to the frozen step-gap tuples. The same-day record independently states the worst-case floor(2n/3) value and mirror collision criterion but does not explicitly tabulate B(n)."
+        ],
+        "reasoning": "The exact catalog match is an all-parameter formula and extremizer list, stronger than instancewise numerical coincidences. Extremizer counts translate to fiber counts using the proof-level comparison below.",
+        "searches": [
+          "October Resultary record, exact threshold distribution T_n(k) and extremizer counts in Finding",
+          "Resultary 2026/11/2/SCOPE-sharp-read-length-reconstruction-of-binary-three-marker-necklace--19f2074d3041"
+        ]
+      },
+      "rationale": "The earlier 2026/10/26 indexed record covers the identical channel, gives the same worst-case threshold and gap lists, and proves the pointwise threshold, mirror collisions and truncated-gap recovery. The exact predecessor fibers follow from those statements, even without the separate notation B(n). A second distinct same-day record has the same threshold and pairwise-distinct gap reversal mechanism; no ordering is inferred between same-day records. The earlier overlap is decisive.",
+      "residual_risks": [
+        "This is a bounded comparison, not a comprehensive priority history of sequence assembly. The earlier exact indexed coverage suffices for the decision.",
+        "Set-spectrum agreement in a finite reproduction does not decide an all-length set-spectrum analogue and is not a repaired claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the threshold and mechanical implication of the exact predecessor fibers",
+          "evidence": "Same oriented cyclic multispectrum; individual thresholds, extremal counts/gap lists, and proof of mirror collision and truncated-gap recoverability.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-cyclic-read-length-reconstruction-for-three-marker-binary--53b37289c576/RESULT.md",
+          "material_read": "Finding offsets 0–2649; proof offsets 4250–8364, truncated-gap lemma continuation and §§2–5",
+          "method": "Bounded local-mirror inspection at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp cyclic read-length reconstruction for three-marker binary words",
+          "trigger": "Exact earlier overlap under zero-count gap coordinates"
+        },
+        {
+          "assessment": "Material overlap; no same-day priority inference",
+          "evidence": "Same uniform threshold and distinct-zero-gap individual threshold n−max(g), with reversal collisions at all shorter reads.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-read-length-reconstruction-of-binary-three-marker-necklace--19f2074d3041/RESULT.md",
+          "material_read": "Finding and proof, text offsets 0–6931 and 6800–9130",
+          "method": "Bounded local-mirror passages",
+          "title": "Sharp read length reconstruction of binary three-marker necklaces",
+          "trigger": "Distinct indexed same-day threshold record"
+        },
+        {
+          "assessment": "General circular model and algorithm; inspected criterion does not state the exact sparse threshold or fibers",
+          "evidence": "The circular occurrence definition and weighted-automaton reconstructibility criterion concern general circular strings with substring frequencies/minimal absent words.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+          "material_read": "pp. 1–2 and p. 4, text offsets 0–7949 and 20500–24994",
+          "method": "Bounded primary PDF passages",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "Closest cited circular multiplicity observation"
+        },
+        {
+          "assessment": "Different channel scope",
+          "evidence": "The multispectrum has n−L+1 factors; Remark 2 explicitly chooses acyclic definitions although cyclic ones could be substituted.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.11108",
+          "material_read": "p. 1 offsets 0–4139 and p. 8 Remark 2 near offsets 61050–64203",
+          "method": "Bounded open-access primary passages",
+          "title": "Reconstruction of Strings from their Substrings Spectrum",
+          "trigger": "Primary comparison for cyclic versus acyclic multispectrum"
+        },
+        {
+          "assessment": "Linear codebook reconstruction in the material read, not the decisive indexed match",
+          "evidence": "The abstract discusses reconstruction from substring multispectra in coded and noisy settings rather than all sparse cyclic words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "p. 1, offsets 0–5055",
+          "method": "Bounded open-access primary passage",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Nearby coded-string multiset reconstruction literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp transition and exact surviving ambiguous necklaces would be useful for understanding this observation model. But the same threshold and extremal structures are already given by a more detailed result, and the fiber count follows immediately from its pointwise thresholds and truncation lemma. The frozen claim supplies no independent additional exact phenomenon.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

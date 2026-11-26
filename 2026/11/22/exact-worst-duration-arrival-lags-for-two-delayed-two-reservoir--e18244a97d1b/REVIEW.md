@@ -1,19 +1,21 @@
-# Scientific review: two-pulse threshold-exceedance duration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact post-arrival factorization is algebraically verified. The scalar multiplier decreases strictly for positive lag. The single-pulse threshold crossings partition the lag domain into three intervals with respectively decreasing, strictly increasing, and decreasing exceedance durations. On the middle interval the final downward level crossing occurs more than one reservoir time after the delayed pulse and has positive derivative with respect to lag. The two global candidates and all boundary cases therefore follow analytically, not from numerical search. The standard-library standalone checker also supplies an exact-rational exponential certificate for the strict \(1/4\)-level witness, as well as 1,100 independently bracketed numerical level-set comparisons and 8,008 grid comparisons. Numerically sampled cases alone are not the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For t>=d, collecting the two exponential terms gives K(d)f(t-c(d)), with d-c(d)<1. Its rising branch therefore starts at the arrival discharge f(d); its peak is K(d)/e, and (log K)'=-de^{-d}/(1+e^{-d})^2. When 0<h<1/e and d<a_h, both crossings are after arrival and the duration is the strictly decreasing width L(h/K(d)); when d>b_h, the first interval has the fixed width b_h-a_h and the separate post-arrival width again strictly decreases. For a_h<=d<=b_h the first start is a_h and the final end is R=c(d)-W_{-1}(-h/K(d)); R>d+1 since Q_d(d+1)>1/e. Implicit differentiation gives R'=f'(R-d)/(f'(R)+f'(R-d))>0. The formulas agree at a_h and b_h, since an arrival-level contact contributes measure zero; at b_h the post-arrival rising crossing is precisely the arrival. Thus the only possible maximizers are 0 and b_h, with all ties determined by comparing the two exact durations. At h>=1/e the first pulse alone contributes no duration; the post-arrival width strictly favors zero lag while positive at zero lag, and every duration vanishes for h>=2/e. The peak bound attains equality only synchronously. Independent replay: python3 /workspace/checks/frozen_replay.py 2. At h=1/4 rational exponential enclosures give a_h<0.36, 2.15<b_h<2.16, Q_{b_h}(4.6)>1/4 and f(3.3)<1/8, implying staggered duration >4.24 versus synchronous <3.3. High-precision crossings give 4.29310005052455 and 3.11726433143898 (relative increase 0.37720115911466). Continuity and the synchronous advantage as h tends up to 1/e establish at least one crossover, not uniqueness.
 
-The source literature establishes the two-reservoir/gamma hydrograph, compound-event timing, high-water duration, and threshold-based hydrological analysis. Full accessible article text was inspected for Lyddon and colleagues (2022), Gnecco, Palla and La Barbera (2018), and Lyddon and colleagues (2024). Their investigated functionals are driver coincidence, hydrograph peaks, and simulated inundation area, respectively, not maximization over lag of the summed hydrograph's total strict superlevel duration. Closest mathematical results concerning shifted Nash hydrographs address local crest counts for three/four-stage cascades and different-rate two-stage mixtures. Three relevant full mathematical manuscripts were checked and do not contain the same objective or the exact two-candidate optimization theorem. An exhaustive priority claim cannot be made: translated-density level-set inequalities, generalized temporal risk measures, and historical flood-routing calculations remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-Time spent above a hazardous discharge threshold is a natural severity metric different from peak flow. The exact classification reveals a nonintuitive planning distinction: synchronous inputs maximize the instantaneous peak but can be strictly inferior for total exposure duration, and only two mathematically interpretable arrival lags need comparison across a continuous control range. The demonstrated relative duration difference exceeds 37% at one normalized threshold. The model is a tractable ideal benchmark, not a prediction for a particular estuary.
+The distinct claim supported by the inspected evidence is the global all-threshold duration optimizer for two equal instantaneous impulses through the same two-stage cascade. Gamma routing, Lambert-W crossing formulas and compound-event timing were already in use; none of the material compared supplies the two-candidate optimum for the sum's superlevel duration.
 
-## Limits and provenance
+## value
 
-Equal instantaneous pulses, a common linear two-reservoir response, zero baseflow, an infinite observation horizon, and a discharge rather than inundation threshold are assumed. The number of threshold values where the two candidates tie is not classified. Independent domain-specialist review, reproducibility outside the stated implementation, and empirical calibration are not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem reduces a continuous lag optimization for total exposure time, including separated episodes, to two physically interpretable choices and proves a sizable failure of peak-maximizing timing for that objective. It is a tractable benchmark for duration-based analysis, not a model of specific inundation or damage; its equal instantaneous inputs, common two-stage response and zero baseflow are essential scope limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

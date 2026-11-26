@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:09:01.685160Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 the rotation representation forces zero mean and scalar covariance. The farthest-center constraint along a ray reduces to r²+2atr+a²≤1 with t the maximum antipodal dot product. Implicit differentiation gives ∂t log r=−a/d; differentiating this in a gives −1/d³ since d²=1−a²(1−t²). Put q=r² and tilt angular measure by q/Eq. The logarithmic derivative of E(q²)/(Eq)² is 2 Cov(q,∂a log q)/E(q) under the tilted measure. Both functions decrease strictly in t for a>0 and t is nonconstant under a positive density, so the independent-copy covariance identity is strictly positive. The disk value follows by continuity; r/(1−a)→1/t uniformly because t≥cos(π/n)>0. The polygon sector integral of sec⁴ has primitive tan φ+tan³φ/3, confirming the stated upper constant. The arc flux at half-angle β is 1−a cos u, and its product with 1+a²−2a cos u integrates to the stated J; differentiating the proposed antiderivative in β and checking its zero constant also gives the identity. At a=0 the nominal arcs simply partition the disk. The exact algebra replay is `python3 /workspace/checks/independent_01_05.py` (check 1). The frozen 151-assertion run is author-reported corroboration, not an independent rerun or proof of the continuum statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen source-inspection notes describe Dowker area/perimeter optimization and congruent-ball intrinsic volumes; e09883060ca0 catalogue entry concerns outer rounding of regular polygons."
+        ],
+        "reasoning": "Area, perimeter and other intrinsic-volume bounds as described do not give this quotient. Euclidean outer parallel bodies have straight edge segments at finite rounding; the disk intersections have circular arcs, so this is not the outer-rounding order in reversed coordinates.",
+        "searches": [
+          "arXiv:2307.04026",
+          "arXiv:1810.11886",
+          "Resultary: circular rounding isotropic monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and AUDIT.json of record 1",
+        "f77924764139",
+        "1c25b18e16e8",
+        "43279757dfc9",
+        "e09883060ca0",
+        "015afdcf4653",
+        "3f7b7b7ccd99",
+        "arXiv:2307.04026 (recorded comparison)",
+        "arXiv:1810.11886 (recorded comparison)",
+        "DOI:10.1088/0305-4470/11/6/006 (citation and access check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known radial root permits calculating the quotient but does not by itself fix the sign of its derivative. Record 4 is n=2 with nonscalar covariance; Record 5 is the diagonal a=1/(2 cos(π/(2n))) with n varying."
+        ],
+        "reasoning": "The extra comparison is precisely the strict sign of a tilted covariance. Neither a ratio sampled on the Reuleaux slice nor an area-only monotonicity supplies it. No priority conclusion is drawn from same-day dates.",
+        "searches": [
+          "Compare f77924764139 and 43279757dfc9 against RESULT.md proof §§1–3",
+          "Compare frozen records 4 and 5 against the quantified n≥3 fixed-order claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f77924764139: same-family weighted area-error optimization; 43279757dfc9: static Reuleaux inertia; 015afdcf4653: varying odd order at a prescribed radius"
+        ],
+        "reasoning": "Here L⁴ is equivalent to ordering J/A² or the radial ratio E(r⁴)/E(r²)². An area error against a disk is not that moment quotient. The Reuleaux order couples n and a and is not an all-a comparison at fixed n.",
+        "searches": [
+          "Regular disk-intersection isotropic constant, normalized covariance determinant and polar moment, including n equal disks with regular polygon centers",
+          "Resultary: regular disk-polygon intersections / isotropic constant and radius monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-family radial/area calculations, regular polygon endpoint inertia, and explicit special-slice Reuleaux moments are relevant known inputs."
+        ],
+        "reasoning": "Individual endpoint or special-slice formulas are not an exact table or inequality covering the continuum of radii and all n. The historical equal-disk paper was not read in full; title is not noncoverage evidence.",
+        "searches": [
+          "DOI:10.1088/0305-4470/11/6/006",
+          "Resultary: f77924764139, 1c25b18e16e8, 43279757dfc9",
+          "Moments of Inertia of Regular Polygons, C. E. Mungan"
+        ]
+      },
+      "rationale": "The supported distinction is the strict normalized polar-moment order at every radius and fixed order, with the sharp limit, not priority for the same-family radial root, area formulas or static polygon moments. A literature lookup and local published-record comparisons yielded relevant partial overlaps but no established equivalent or dominating monotonicity result.",
+      "residual_risks": [
+        "The historical Kratky full text and some close original catalogue records were not accessible in this review.",
+        "Unindexed inertia calculations or a general radial moment-ratio theorem may replicate some or all of the result; searches do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap; no quotient order established by the available area-error statement",
+          "evidence": [
+            "The recorded functional is p area(K∖Q)+q area(Q∖K), not J/A²."
+          ],
+          "identifier_or_url": "f77924764139",
+          "material_read": "Local catalogue theorem summary and frozen AUDIT.json recorded theorem/radial-root comparison; original mirror retrieval unsuccessful",
+          "method": "Local catalogue and labelled recorded evidence",
+          "title": "Unique optimal two-sided disk approximation within rotationally symmetric disk-polygons",
+          "trigger": "Identical family and center parameter"
+        },
+        {
+          "assessment": "Unresolved historical risk",
+          "evidence": [
+            "Title identifies area of equal-disk intersections, not what additional results may be in the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/11/6/006",
+          "material_read": "Citation and title; full text not obtained by lawful retrieval",
+          "method": "Bibliographic comparison and attempted OA reading",
+          "title": "The area of intersection of n equal circular disks",
+          "trigger": "Historical close geometric match"
+        },
+        {
+          "assessment": "Available statements concern another functional",
+          "evidence": [
+            "Area/perimeter optimization in the recorded theorem statements is distinct from a normalized second moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.04026",
+          "material_read": "Frozen recorded descriptions of theorems and open problems; fresh original-text retrieval timed out",
+          "method": "Labelled frozen source-inspection notes and attempted lawful retrieval",
+          "title": "Dowker-type theorems for disk-polygons in normed planes",
+          "trigger": "Broader disk-polygon extremal inequalities"
+        },
+        {
+          "assessment": "Related diagonal comparison, not the fixed-order theorem",
+          "evidence": [
+            "The center radius is 1/(2 cos(π/(2n))) and the compared indices are n and n+2."
+          ],
+          "identifier_or_url": "015afdcf4653",
+          "material_read": "Frozen Finding, width-one parametrization, and proof §§1 and 4",
+          "method": "Read original assigned record",
+          "title": "Strict isotropic-constant ordering of regular Reuleaux odd-gons",
+          "trigger": "Same invariant on a related geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular-center deformation is canonical and orders an affine invariant from disk to polygon, something inclusion or area ordering cannot do. The strict covariance identity supplies a useful way to compare radial moment ratios beyond this explicit profile; the exact limits give a calibration for every order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

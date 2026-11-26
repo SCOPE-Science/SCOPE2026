@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim assessed:** the exact eight-level signed Walsh spectrum of all 140 affine two-flats on sixteen points, its zero-free convolution and the unique inverse endpoint norm \(3617/840\). The package makes no higher-dimensional theorem claim.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The affine-part reduction is exact; the 64 quadratic types split by alternating rank (1, 35, 28), the fifteen nonzero cubic types each split by a line direction lying in or outside a polar radical (8, 56), and the quartic point-indicator halves the quadratic spectrum after translation. All 2,048 classes have a structural evaluation and each represents 32 signings. A standalone two-construction, full-size integer Walsh verifier independently enumerates all 65,536 multipliers and establishes the full reciprocal kernel table and norm. The inverse calculation is finite and exhaustive, not a sampling-based extrapolation.
+The result uses unnormalized counting convolution on the full sixteen-bit group. A block is a two-flat incidence word, equivalently a weight-four word of RM(2,4); the span contains the quadratic monomials, linear terms (by adding two products sharing a factor), and the constant (a parallel class). Its annihilator is RM(1,4). In independent exact arithmetic, testing one character per affine coset via the degree-four Krawtchouk average and then summing signed reciprocal multipliers on each of the 2048 codewords reproduced the full frozen distribution and inverse table, including the zeros. Off the code the reciprocal character sum cancels by affine-frequency invariance. The corrected inverse statement is also verified without computing a spectrum: classification by alternating polar rank and the radical restriction of the linear part yields eight affine-coordinate orbits on the quadratic code. Counting h+P for all 140 distinct level-set products P and one representative h of each orbit gives the stated integer quotient matrix; independent replay verifies the matrix, its orbit-size balance and its convolution identity with the numerator column. Zero extension off the code preserves the identity Tk=δ0. A unit coordinate vector and the signs of one row attain respectively the column and row absolute-sum norms, both equal to 14468/3360=3617/840. The original numerical claims are true, but the repaired claim does not assert a new spectral classification. The supplied source script was inspected, not executed.
 
-## Originality — PASS under bounded comparison
+## originality
 
-The exact 140 blocks and parallel classes are known in de Vries (2008); the complete sixteen-point SQS census is known in Kaski–Östergård–Pottonen (2006); Pavone (2023) studies the same design's subdesign decomposition; Reed–Muller and coding sources provide polynomial/weight facts. None of the inspected material establishes the exact signed spectrum or inverse norm. Searches checked synonymous affine-plane, Boolean Steiner quadruple, Reed–Muller minimum-word shell, and Cayley-adjacency formulations. The strongest residual risk is an unindexed association-scheme spectral computation equivalent to the table; search absence does not prove historical uniqueness.
+PASS
 
-## Value — PASS
+Pass for the repaired inverse-in-incidence-coordinates result and its sharp endpoint norm, not for the eight-level zero-free classification framed as new. The inspected four-variable Boolean orbit table gives the eight levels directly by fourth moments, and the full signed spectrum reduces to those levels weighted by the orbit sizes. No priority order is assumed for the public webpage. No inspected result supplies the spatial inverse or the endpoint norm. The repaired contribution exhibits the affine-orbit convolution equations which determine that concrete inverse directly.
 
-The canonical affine SQS point-coloring model supplies a natural exact invertibility problem and a quantitative full-signal recovery benchmark. All point-sign assignments are classified structurally into just eight eigenvalues, and the exact nontrivial inverse norm quantifies amplification. This is meaningful finite-design information beyond the well-known block-count and code-word weight enumerator; no broader theorem or application is assumed.
+## value
 
-## Limits and references
+PASS
 
-The calculation concerns exactly sixteen points; the analytic multiplier proof does not automatically extend to larger dimensions. The inverse coefficient table is certified by complete integer calculation and should be independently checked before publication. Sources: https://doi.org/10.1007/s10623-008-9207-5 ; https://pottonen.kapsi.fi/sqs16.pdf ; https://doi.org/10.1016/j.ffa.2023.102277 ; https://arxiv.org/abs/0910.0641 ; https://people.math.harvard.edu/~elkies/M256.13/index.html .
+For this canonical sign-incidence recovery operator, the exact endpoint norm measures the strongest possible amplification of bounded error or ℓ¹ input error. It differs substantially from the ℓ² inverse norm and is not specified by just the unordered eight spectral levels. A small explicit affine-orbit convolution system supplies the spatial sign and size of every inverse coefficient and the sharp worst-case constant. This retains a meaningful exact invariant rather than rebranding the existing Boolean spectral table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

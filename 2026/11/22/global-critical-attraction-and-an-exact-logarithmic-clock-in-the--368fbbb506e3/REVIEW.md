@@ -1,19 +1,21 @@
-# Review of global critical attraction and the logarithmic clock
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For \(m<0\), the coercive quadratic \(V=-mx^2+y^2+z^2\) has exact derivative \(2mx^2-2nz^2\); at \(m=0\), the semidefinite quadratic \(y^2+z^2\) has derivative \(-2nz^2\), with bounded remaining coordinate. The largest compact invariant part of the zero-dissipation set is the origin. The fifth-order center-manifold invariance equations yield the reduced cubic and quintic terms needed for a convergent logarithmically renormalized reciprocal-square clock. Exponential stable tracking extends it globally away from the 2D strong-stable surface. The exact symbolic checker passes; finite numerical integrations only corroborate.
+PASS
 
-## Originality
+For −1≤m<0 the proper quadratic −mx²+y²+z² has derivative 2mx²−2nz². Its zero-dissipation set has no invariant orbit except the origin. For m=0, y²+z² controls y,z and the stable linear equation x'=y−x bounds x. A bounded complete omega-limit orbit in {z=0} obeys xy=0; any interval with y≠0 contradicts x'=y−x, and then x'=−x excludes any nonzero bounded complete orbit. The pair of nonzero equilibria for m>0 disproves universal attraction there. At criticality the stable plane is {y=0}. On the center manifold x=h(y), z=k(y), coefficient matching gives h(y)=y+y³/n+(5n+2)y⁵/n³+O(y⁷), k(y)=y²/n+(n+2)y⁴/n³+O(y⁶); the required finite differentiability is available for each fixed n>0. The reduced flow is y'=−a y³−b y⁵+O(y⁷), a=1/n, b=2(n+1)/n³. Thus w=y^(−2) obeys w'=2a+2b/w+O(w^(−2)); first w~2at, then w=2at+O(log t), after which the remainder in w'−2a−(b/a)/t is O(log t/t²) and integrable. The linear stable rates 1,n give exponential tracking in a sufficiently small neighborhood; alternatively, x−h(y), z−k(y) obey a linear stable system up to coefficients tending to zero and decay exponentially, and the small Lipschitz constant of the center flow gives an exponential shadow by solving the scalar error equation backwards from zero error at infinity in an exponential norm. The zero shadow gives the local strong-stable manifold, whose backwards-flow extensions form the global immersed set. For the other shadows the amplitude is of order t^(−1/2) with fixed sign; the exponentially small tracking error changes its reciprocal square by o(1) and does not change the leading limits of x,y,z. The original RESULT.md line 14 has coefficient b/a=2/n+2/n²; it does not have the extra factor shown in the abbreviated frozen-tool display.
 
-**PASS within inspected evidence.** Constantinescu (2023), Proposition 2 and the pitchfork section, provides the center dimension and local topological normal form, but no time-resolved quintic correction or global all-orbit convergence theorem. Munteanu (2024) studies Jacobi/KCC stability. Van Gorder and Choudhury (2011) studies a Hopf bifurcation of nonzero equilibria. The closest published same-map indexed stationary measure claim assumes \(m,n>0\), excluding the critical \(m=0\) case. Analogous clocks in other Lorenz-like systems do not imply this model's coefficients. Original Tigan (2005) papers remain incompletely inspected; equivalent unindexed work is an acknowledged residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The global \(m=0\) closure of the attracting phase and the all-orbit decomposition into 2D exponential versus generic algebraic relaxation provide a complete critical behavior statement at the source's natural pitchfork. The strictly positive logarithmic correction is an observable, parameter-dependent second-order slowdown in the original normalized time, beyond a generic cubic normal form.
+The system, its spectral split, and subcritical local stability are prior. The new evidence-supported claim is global convergence through the critical boundary paired with the physical-coordinate clock with a finite renormalized offset on every orbit off the strong-stable manifold. The closest same-system stability attribution was checked in the 2011 primary paper: its origin calculation is local and its nonlinear stability analysis concerns periodic orbits after Hopf bifurcation, not this critical law.
 
-## Limitations
+## value
 
-The theorem assumes fixed \(n>0\) and does not address uniformity as \(n\) approaches zero. The exceptional manifold and orbit constants are defined dynamically rather than given in closed form. No claim of global attraction beyond the critical boundary is made, and the literature survey cannot exclude all earlier equivalent results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural boundary between one globally attracting state and multiple equilibria includes a nonhyperbolic endpoint. The theorem identifies the entire exceptional exponential-decay set and resolves the next-order relaxation in the original observable: the clock differs from every purely linear clock by an unbounded logarithm yet has a finite offset after renormalization. That quantitative statement is not a routine stability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear conjugacy to a second-order polynomial recurrence is exact and invertible. Leading homogeneous forms of consecutive iterates have disjoint projective directions on the line at infinity; projective Bézout gives the full affine intersection count for every period without unexamined solutions at infinity. An auxiliary Chebyshev parameter proves every fixed-point discriminant is nonidentically zero, yielding simultaneous generic simplicity, Möbius counts and the stated zeta. Exact finite algebra tests were run for the first seven iterate degrees and for Chebyshev periods through six. Limits: singular periodic points at exceptional parameters are counted with intersection multiplicity; finite checks do not establish the all-period theorem.
+PASS
 
-## Originality — PASS within inspected evidence
+In companion coordinates the two subsequences of coordinate polynomials have degree 2^m in positions 2m and 2m+1. The even leading form is a nonzero pure u-power; restricting the odd leading form to u=0 leaves a nonzero pure v-power. This prevents cancellation in the degree induction and makes the top forms of the two fixed-point equations disjoint at infinity (for n=1 the first equation is v-u, with the same nonzero restriction). No common projective curve component can avoid infinity. Bézout therefore gives the product 2^n in both parities, entirely affine. Independently, introducing the n cyclic scalar coordinates u_i gives equations u_i^2=u_i+(a/c)u_{i+1}-(1/c)u_{i+2}, c=3b/2; this is the same fixed scheme by recurrence elimination and periodicity, including n=1,2 with indices taken modulo n. The monic equations have pairwise relatively prime leading monomials u_i^2 in a graded order, so the squarefree monomials give a quotient basis of size 2^n. A generic target has exactly two preimages, giving topological degree 2, while the iterate degrees give first dynamical degree sqrt(2). For fixed n projective incidence with the singularity condition has closed image on c!=0, since the entire fixed locus avoids infinity. At a=0,c=4, Chebyshev multipliers at scalar fixed points of T_(2^j) have magnitude 2^j away from the endpoints and 2^(2j) at fixed endpoints. The even companion iterates are products and the odd fixed equations reduce to one scalar iterate, so the witness makes every fixed scheme reduced. This verifies the proper exceptional loci, the simultaneous real full-measure assertion, and Möbius inversion/zeta only for distinct points when simple; at exceptional parameters the universally asserted rational expression is for the multiplicity-weighted series.
 
-The fully inspected Liu–Zhong source derives real fixed-point stability and local bifurcation thresholds, not the all-period complex affine intersection formula. A closely related database record about cyclically coupled maps transfers known scalar periodic counts to a swap-coupled system; the present nonzero linear coupling is not such a decoupled product. Another indexed record about a three-dimensional modular skew product is a different family with different fixed-point formulas. General holomorphic projective-endomorphism counts apply to genuine everywhere-defined projective morphisms, whereas the target polynomial map is not one. Searches for the recurrence, algebraic degree, complex fixed-point counts, and zeta produced no identified statement implying the combined theorem. This is a best-evidence comparison, not a proof of worldwide novelty; a broader generalized polynomial-map theorem may subsume the calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The source studies multiple real bifurcation regimes without a full-period algebraic census. The result supplies an exact global invariant for every period and every permitted parameter, gives the closed primitive orbit counts for simultaneous-generic parameters, and exhibits a structurally motivated degree-growth separation between topological degree two and first dynamical degree square-root two. This is a coherent exact classification of a natural two-dimensional polynomial dynamical model, not an arbitrary finite numerical slice.
+The supported distinct result is the package for this specified quadratic map: both parities of the exact complex affine multiplicity count and iterate degrees, together with an explicit witness proving simultaneous generic simplicity. The regular-square mechanism accounts for even periods and must be credited; neither it nor the inspected real-dynamics results supply the odd census and discriminant conclusion together.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a pre-existing bifurcation family this gives an exact complex benchmark at every period, including singular parameter values through multiplicity, that also bounds what can be found in real computations. The exact degree growth explains why a naive uniform-degree projective count is the wrong tool for odd periods. The discrimination between generic distinct counts and uniform scheme counts is practically relevant in continuing periodic orbits. This value does not depend on novelty of the even-period regular-map consequence or on a claim about real attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

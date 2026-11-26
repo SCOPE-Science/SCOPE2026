@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:15.248959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=qa+r, a representation using s summands has s≤q and r≤ks≤kq; conversely the offset r can be distributed over q summands whenever r≤kq. Thus the missing squares lie in the disjoint open blocks (q(a+k),(q+1)a) for qk<a. Their integer root count is exactly isqrt((q+1)a−1)−isqrt(q(a+k)); neither perfect-square endpoint is included. Each root interval costs at most one in rounding, giving (3), also when a/k is integral or k≥a. In F the disappearing q=j term at t=1/j vanishes continuously but its derivative on the left is −j/(2√(j+1)), giving the claimed positive jump. Writing J=floor(1/t), ∑_{q=1}^J√q=(2/3)J^(3/2)+O(√J) and J=t⁻¹+O(1) give F(t)=2/(3√t)+O(√t). For a cutoff N=floor(sa/√k), the last quotient J=floor(N²/a)=s²/t+O(1) may be counted in full at a root-count error O(√a+1). Telescoping the lengths gives the leading contributions (a/√k)s and −(a/√k)s³/3, with errors O(√a+a/k), uniformly including s=0,1. Finally every missing root satisfies n²<a ceil(a/k), so its rescaled location is at most √(1+k/a). The uniform count and vanishing exterior range, together with the total count asymptotic, give weak convergence with mass 2/3 under the stated normalization. I inspected the supporting checker and used the proof, not execution of that code or its sampled inequalities, for the infinite claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ordinary-gap theorem lists every gap for the entire interval-generator family.",
+          "The AP theorem supplies membership for d>1 as well, but its square-specific estimates concern the largest missing square. Binner refines maximum-gap results for two generators."
+        ],
+        "reasoning": "The full list dominates the exact finite count at the combinatorial level. Deriving the phase and spatial limiting assertions requires controlling square-root lengths, rounding over a growing number of blocks, and the cutoff; these are not specializations of a broader asymptotic theorem in the passages inspected.",
+        "searches": [
+          "square Frobenius number interval numerical semigroup consecutive generators count square gaps missing square roots genus asymptotics density",
+          "Ramírez Alfonsín, Gaps in semigroups, Theorem 1.1",
+          "arXiv:2006.14219, Corollary 2.9; arXiv:2112.15474, Lemma 6"
+        ]
+      },
+      "checked_sources": [
+        "Ramírez Alfonsín, Gaps in semigroups, Theorem 1.1",
+        "arXiv:2006.14219",
+        "arXiv:2112.15474",
+        "Universal square-gap root profile for consecutive-generator numerical semigroups (f45c31acfd04)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Intersecting the classical gap blocks with squares and applying integer square roots produces (1) immediately.",
+          "Near a fixed t>0 only finitely many blocks contribute; at mesoscopic width about a/k blocks contribute and the normalization is a/√k, not a. The proof establishes the required uniform errors and derivative jumps."
+        ],
+        "reasoning": "The finite synthesis and the k=1 profile should not be credited as novel. Neither controls the growing-width square-root population by a parameter substitution; the uniform summation across these regimes supplies the surviving analysis.",
+        "searches": [
+          "Gaps in semigroups, Theorem 1.1",
+          "Local Resultary: square-gap roots interval-generated numerical semigroups moving width phase thresholds profile",
+          "Universal square-gap root profile for consecutive-generator numerical semigroups, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The membership formulation for general arithmetic progressions gives the exact same gap endpoints at step d=1.",
+          "The square Frobenius number is a maximum, not a count of the positive square roots in the gap set."
+        ],
+        "reasoning": "Quotient blocks, missing square values, and their positive square roots identify the same finite set after taking square roots; a theorem on its maximum is not an equivalent statement about its bulk distribution.",
+        "searches": [
+          "Local Resultary: missing square roots interval-generated numerical semigroups phase diagram reciprocal thresholds",
+          "Local Resultary: square Frobenius number interval generated numerical semigroup missing squares root count",
+          "arXiv:2006.14219, Lemma 2.2 and Theorem 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest adjacent hit was Universal square-gap root profile for consecutive-generator numerical semigroups, whose RESULT.md Finding is for ⟨m,m+1⟩ and gives the density 1−s² with a fixed-width power-saving count error.",
+          "The indexed copy of the target is the same finding, not a separate antecedent."
+        ],
+        "reasoning": "The adjacent record already covers the matching density shape for k=1; it does not tabulate or imply either the moving proportional-width curve or the divergent-width estimate. Index results are bounded evidence, not a priority certificate.",
+        "searches": [
+          "Local Resultary: universal square-gap root profile consecutive-generator numerical semigroups",
+          "Local Resultary: missing squares interval numerical semigroups growing k root distribution asymptotic"
+        ]
+      },
+      "rationale": "The membership criterion and the ordinary-gap enumeration are prior work, and the elementary exact square-root count alone is covered as a direct extraction. The part that survives is the two-scale asymptotic classification: the full phase curve and its infinite derivative-jump set, and the uniform rescaled root profile when k grows sublinearly. The closest fixed-width profile gives the same density but cannot be specialized to this moving-width family. No inspected result covers the asymptotic claim at those quantifiers.",
+      "residual_risks": [
+        "The ordinary-gap theorem gives all exact starting data; credit is restricted to the asymptotic analysis, not the exact finite extraction.",
+        "An additional specifically targeted web lookup was unavailable; neither that failure nor ranked search results rule out an unindexed equivalent limit theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying ordinary-gap classification and hence the finite root enumeration, not the asymptotic square-root analysis.",
+          "evidence": [
+            "Theorem 1.1 gives the ordered gaps via block indices and cumulative block counts."
+          ],
+          "identifier_or_url": "https://imag.umontpellier.fr/~ramirez/gaps.pdf",
+          "material_read": "Theorem 1.1, PDF p. 3, passage at text offset 4163.",
+          "method": "Bounded primary author-PDF passage, located on Theorem 1.1.",
+          "title": "Gaps in semigroups",
+          "trigger": "Complete interval-generator ordinary-gap list potentially covers exact square-root counts."
+        },
+        {
+          "assessment": "Membership and maximum-gap results, not a root-count limit.",
+          "evidence": [
+            "Lemma 2.2 gives y≤kx in the AP membership normal form; Theorem 2.7 bounds the square Frobenius maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.14219",
+          "material_read": "Lemma 2.2, PDF pp. 2–3 (offset 8206), Theorem 2.7 p. 5 (offset 17518), and Corollary 2.9 p. 8 (offset 24144).",
+          "method": "Bounded primary PDF passages located by result names.",
+          "title": "The Square Frobenius Number",
+          "trigger": "Same AP family and same missing-square condition."
+        },
+        {
+          "assessment": "Two-generator membership and the last missing square do not supply a varying-width profile.",
+          "evidence": [
+            "Lemma 6 gives the quotient–remainder membership criterion for ⟨a,a+1⟩."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.15474",
+          "material_read": "Abstract p. 1, Conjecture 3 on p. 2, and Lemma 6 and adjoining Corollary 7 on p. 3 (offset 9274).",
+          "method": "Bounded primary PDF passages.",
+          "title": "Proofs of Chappelon and Alfonsín Conjectures On Square Frobenius Numbers and its Relationship to Simultaneous Pell's Equations",
+          "trigger": "Potential refinement of the adjacent two-generator square-gap analysis."
+        },
+        {
+          "assessment": "Stronger fixed-width error for k=1; no theorem with k tending to infinity.",
+          "evidence": [
+            "The semigroup is ⟨m,m+1⟩; the total is 2m/3+O(m^(5/6)log(2m)) and the density is 1−s²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-square-gap-root-profile-for-consecutive-generator-nume--f45c31acfd04/RESULT.md",
+          "material_read": "Finding and Assumptions from text offset 0, and prior-work passage near offset 6411.",
+          "method": "Bounded reading of indexed RESULT.md.",
+          "title": "Universal square-gap root profile for consecutive-generator numerical semigroups",
+          "trigger": "Exact matching parabolic density for a related family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all missing-square roots refines the natural maximum-gap statistic in a distinct way. The reciprocal-width corners identify every change in the active quotient blocks, and the mesoscopic law controls the entire cumulative root population rather than simply a maximum or total. These are useful scaling statements at natural, different generator widths, not a claim of significance for a floor-sum restatement by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:51:19.337728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the ordered pattern of the first t transition types, not on the positions. Its k relocations generate k independent uniform starts for k+1 labelled clockwise arcs totaling t+1 sites, with the first arc anchored. For t<n, disjoint placements are in bijection with the k! orders of the other labels and weak compositions of the n-t-1 unused sites over k+1 gaps; this gives the proposed rising factorial, independent of the arc lengths. The ratio for k to k+1 is (n-t+k)/n<1 for k<t; monotone coupling of the binomial counts gives strictness for t>=1, including comparison with q=0 and q=1. For t=n the pigeonhole bound applies, not the arc count. For t=floor(nx) and finite nq, tight binomial-to-Poisson mixing yields exp(-lambda x^2) for x<1, including lambda=0. For t=n-1 the conditional factor is k!/n^k, so the mass at T=n tends to exp(-lambda). Support in [0,1] justifies convergence of the mean in this window. On t=floor(x sqrt(n/q)), x>0 and nq diverging, K/(tq) tends to one and t/n tends to zero. Summing log(1-(t-j)/n) over 0<=j<K gives -Kt/n+K(K-1)/(2n) with error O(K t^2/n^2)=o_P(1). The two terms tend to -x^2 and q_infty x^2/2, including the q_infty=0 and 1 regimes. The conditional survival factors are bounded by one, permitting averaging. x=0 is exact. This is an analytical proof; VERIFICATION.md's recorded 438 finite comparisons from checker.py were inspected as supporting evidence, not rerun or used as the limit proof. No expectation convergence in the many-relocation window is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini–Morris pp. 1–2, §§1, 2.1–2.2: birthday collisions in a multiple-chain sampling construction and a collision scale tied to mixing.",
+          "Riascos et al. Introduction: reset-network stationary and mean first-passage quantities."
+        ],
+        "reasoning": "Neither inspected formulation yields the history-dependent exact survival of one walk or a parameter-dependent quadratic coefficient and atom. The general birthday mechanism covers the independent endpoint, not the clockwise/relocation competition.",
+        "searches": [
+          "Benjamini–Morris, arXiv:math/0701390",
+          "Riascos et al., arXiv:1910.13568"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md and attached checker source",
+        "Resultary local index and strongest matching RESULT.md",
+        "arXiv:math/0701390",
+        "arXiv:1910.13568",
+        "DOI 10.3390/e23070825 (limited access)",
+        "Siegel–Holst Stanford report page (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent birthday sampling is obtained at q=1, and no relocations give T=n at q=0. The intermediate count uses an arc per relocation and keeps both the Kt/n and K(K-1)/(2n) terms."
+        ],
+        "reasoning": "Classical gap counting and the birthday endpoint are prior ingredients. Matching the independent endpoint or a Rayleigh leading law in another model does not determine the exact mixture, the limiting atom, or the correction q_infty/2; those require the placement-to-walk identification and the two distinct scalings.",
+        "searches": [
+          "Benjamini–Morris arXiv:math/0701390 §§1–2",
+          "Riascos et al. arXiv:1910.13568 Introduction",
+          "Resultary fixed-indegree first-repeat Finding d6d1e2a821a5",
+          "Siegel–Holst Stanford report page"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riascos et al., p. 1: reset to the initial site; quantities include first passage to a target on rings.",
+          "Villarroel et al.: landing/abstract access only; the full text was not verified.",
+          "The Stanford report page did not supply readable full text; any equivalent classical gap count is itself outside the claimed novelty."
+        ],
+        "reasoning": "A repeated visit tests the whole visited set, not a predetermined target; uniform relocation creates independent uniform starts conditional on the pattern, whereas reset to a designated site does not. Circular packing with predetermined arc lengths is the combinatorial ingredient, not a prior result for the time-dependent binomial mixture on the walk.",
+        "searches": [
+          "Primary literature search for deterministic clockwise walks, uniform relocation, and first repetition",
+          "Siegel–Holst, Covering the Circle with Random Arcs of Random Sizes",
+          "Riascos et al., arXiv:1910.13568",
+          "Villarroel–Montero–Vega, DOI 10.3390/e23070825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct nearby Finding gives an exact first-repeat tail for trajectories of a random map with indegrees 0 or d and a Rayleigh-leading mean. The other hits concern collision location under simultaneous resetting of two walkers and repeated categories in IID sampling."
+        ],
+        "reasoning": "The fixed-indegree model has frozen random mapping dependence, no relocation parameter and no corresponding finite-window atom; the shared exact first-repeat statistic and Rayleigh scaling do not make the two formulas equivalent. The shared record date cannot order priority. No database/table coverage of the directed-walk law was established.",
+        "searches": [
+          "Resultary semantic first-repeat / clockwise uniform-relocation / collision search",
+          "Resultary SCOPE-a-signed-finite-size-shift-for-the-rho-length-of-fixed-in-degree--d6d1e2a821a5",
+          "Resultary SCOPE-fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b",
+          "Resultary SCOPE-a-collision-lineage-identity-and-equilibrium-weibull-law-for-rep--1ed58ae3b3ee"
+        ]
+      },
+      "rationale": "The scoped contribution is the exact first-repeat law for this directed walk, including the coupling of the relocation probability to the endpoint atom and the Rayleigh coefficient, not the classical arc placement count, the birthday scale, or first-passage analysis in general.",
+      "residual_risks": [
+        "Detailed semi-deterministic reset paper and arc report passages were not retrieved; older circular parking or regenerative scan literature could contain an equivalent formulation.",
+        "The primary keyword search was not productive; no negative novelty evidence is inferred from that or from access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related scale, different statistic/construction",
+          "evidence": [
+            "Birthday collisions among multiple copies are used to design a sampling method relative to mixing time, not to compute first repetition on the directed cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701390",
+          "material_read": "p. 2, §1 and §§2.1–2.2, text near offset 5150",
+          "method": "OA full-text passage inspection",
+          "title": "The birthday problem and Markov chain Monte Carlo",
+          "trigger": "Plausible broader Markov-chain collision theorem"
+        },
+        {
+          "assessment": "Related model, different target and relocation distribution",
+          "evidence": [
+            "Resets are to the initial position; derived quantities include stationary probabilities and mean/global first-passage times."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.13568",
+          "material_read": "p. 1, abstract and Introduction, near offset 1650",
+          "method": "OA full-text passage inspection",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Resetting and first passage on ring graphs"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; no negative inference",
+          "evidence": [
+            "The cited reset-to-origin comparison is consistent with the frozen discussion; detailed results could not be independently inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e23070825",
+          "material_read": "Landing/abstract material only; attempted preprint and publisher copies",
+          "method": "Lawful OA retrieval attempts",
+          "title": "A Semi-Deterministic Random Walk with Resetting",
+          "trigger": "Closest deterministic-reset model"
+        },
+        {
+          "assessment": "Classical ingredient; possible exact count overlap not resolved",
+          "evidence": [
+            "The record expressly disclaims novelty for the circular gap enumeration."
+          ],
+          "identifier_or_url": "https://statistics.stanford.edu/technical-reports/covering-circle-random-arcs-random-sizes",
+          "material_read": "Technical report landing material; no readable report full text",
+          "method": "OA report retrieval attempt",
+          "title": "Covering the Circle with Random Arcs of Random Sizes",
+          "trigger": "Potential exact prior arc placement count"
+        },
+        {
+          "assessment": "Shared statistic, not coverage of the walk law",
+          "evidence": [
+            "Uniformly chosen start in a fixed-indegree random mapping, with deterministic iteration once sampled, exact tail and Rayleigh leading term, no relocation crossover."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-finite-size-shift-for-the-rho-length-of-fixed-in-degree--d6d1e2a821a5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A signed finite-size shift for the rho-length of fixed-in-degree random mappings",
+          "trigger": "Strong distinct indexed first-repeat/Rayleigh overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First repetition measures how much of the cycle is explored without a collision. The exact finite law and its two scaling limits distinguish the survival of a full traversal with positive limiting probability from the birthday-scale cutoff. The atom and the continuous interpolation of the many-relocation coefficient are quantitative information beyond a collision-order estimate or either deterministic/independent endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Execute `python verification/verify.py` from the package root. The script uses only Python's standard library, explicitly constructs the graph adjacency independently of the symbolic argument, and checks 524,256 labelled pinned subsets across ring orders 5–18 for agreement of the forest, gap, minimum-cardinality, and optimal-layout formulas. It also validates constructive optimal sets for orders 19–1000, and executes 48 deterministic Runge–Kutta numerical trajectories with their observed target-error bounded by the theorem's right-hand side within the stated integration tolerance. The program reports each category of successful checks.
+# Independent mathematical audit
 
-The theorem does not rely on floating-point checks. The all-order classification is proved by cycle/chord/gap analysis, the minimum and count by composition counting, and the global trajectory bound by the five-median three-controlled-input property and variation of constants. Exact subset enumeration is finite; numerical integration checks are not proofs for real time or arbitrary initial states.
+## correctness
 
-All definitions, limiting cases, inequalities, quantifiers, and references appear in `RESULT.md`. Independent audit remains unperformed.
+PASS
+
+For any unpinned cycle, a non-target initial opinion on its vertices persists: those vertices and their two cycle neighbors supply three equal inputs even in the presence of chords; solve the remaining equations with these coordinates fixed and invoke uniqueness. Conversely, order unpinned forest vertices by leaf removal. The jth one sees at least three inputs from pins or earlier removals; a five-input median is between the extreme values of any three inputs. In the shifted, exponentially rescaled coordinates y_i=e^t(x_i−u), pinned values are constant and unpinned derivatives equal the corresponding median of y. Induction and integration give |y_{v_j}|≤R∑_{ℓ=0}^j t^ℓ/ℓ!, proving the all-initial-state bound. In C_n² a triple of consecutive unpinned sites is a triangle. With no such triple, each unpinned edge joins cyclically consecutive unpinned sites, since a length-two shorter arc spanning a third unpin would be such a triple. With no adjacent pins, these consecutive pairs all join into a cycle on at least three unpinned sites; an adjacent pin pair breaks that cycle (zero, one or two unpinned sites are already acyclic). This includes n=5,6, no pins and all pins. The pin bound n≤3p−2 is attained by the stated gap list. Counting ordered deficits from 3 gives p ordered lists at deficit 2, p(p−1) at deficit 3, and binomial(p,2)+p binomial(p−1,2) at deficit 4; from labelled first pins the conversion is n/p. An independent disjoint-set replay counted all 524,256 labelled subsets for n=5…18 and reproduced the forest/gap equivalence and all optimum counts. The frozen verification/verify.py was located and inspected, not run.
+
+## originality
+
+PASS
+
+The forest criterion is a direct consequence of Han et al.'s general cohesive-set criterion and is credited as such. The distinct supported content is the cyclic gap characterization and exact labelled optimum-layout census together with the explicit global time envelope. No inspected exact decycling result or same-graph set census supplies these claims.
+
+## value
+
+PASS
+
+The squared ring is a basic structured nonlinear control example where pin count alone is misleading: an evenly spaced layout can leave a winding cycle while a well-placed adjacent pair breaks it. The formula for every effective gap layout and exact counts among minimum-size layouts give concrete feasibility and robustness information. The all-time uniform bound separately supplies a quantitative guarantee on arbitrary four-regular networks with forest complements; the prior qualitative criterion by itself cannot do that.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

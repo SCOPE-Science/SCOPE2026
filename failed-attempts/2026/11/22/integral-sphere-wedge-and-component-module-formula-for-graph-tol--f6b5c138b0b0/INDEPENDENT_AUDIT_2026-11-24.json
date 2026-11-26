@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:01:02.148020Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 24–99; VERIFICATION.md lines 19–23",
+        "verify.py and verification_output.txt (inspected, not executed)",
+        "/workspace/reproductions/check_3.py and check_3.txt (independent integral boundary checks)"
+      ],
+      "rationale": "For an unfilled graph complex, every face through size t+1 is automatic and faces of size t+2 are precisely the sets containing a graph edge. In the augmented exterior chain model the degree-t cycle lattice is wedge^{t+1} U for the vertex augmentation kernel U. For a fixed edge uv, all top-simplex boundaries using that edge span (e_v-e_u) wedge wedge^t U, using the basis of differences from u. Consequently, if E is the edge-difference lattice, lower homology is naturally wedge^{t+1}(U/E); the latter quotient lattice is the component augmentation kernel. This proves saturation and automorphism naturality. Full-skeleton exactness below t, top boundary rank, and Pascal's identity give the asserted remaining groups and multiplicities, including simplex cases. Finally, over a wedge of t-spheres, Hurewicz identifies attaching maps with their integral degree vectors; for t>=2 changes of bases of the two sphere wedges are realized by homotopy equivalences. Unit Smith factors cancel in the mapping cone, leaving exactly the two sphere dimensions. Independent integral signed-boundary examples reproduce the path, cycle, mixed-group example, larger tolerances, and a simplex case.",
+      "residual_risks": [
+        "t=1, filled cliques and equivariant homotopy are not asserted. The finite reproduction does not prove the uniform theorem; the exterior model and attaching argument do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim–Lew Thm. 1.5 gives general Leray bounds, not exact integral wedges or the module.",
+          "Selvaraja Thms. 1.3, 1.7 and Table 1 give collapsibility/Leray results for clique complexes of chordal graphs, which can fill triangles.",
+          "6cbc72bbc8b7 covers all the nontrivial unfilled cases n>=4 and 2<=t<=n-2."
+        ],
+        "reasoning": "The broader literature bounds alone do not imply the frozen theorem, but the distinct catalogue theorem covers its full substantive range.",
+        "searches": [
+          "Kim–Lew DOI 10.1007/s00493-023-00044-5; Selvaraja arXiv:2611.14384v1; 6cbc72bbc8b7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and local mirrored 6cbc72bbc8b7 and 6217221a2721",
+        "Kim–Lew (2023); Selvaraja arXiv:2611.14384v1; Kim–Lew arXiv:1912.12605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct exact statement implies all nontrivial assertions by Pascal's identity. For t+1>=n the complex is a simplex and its displayed ranks vanish; this also covers n<4 outside the other record's stated n range.",
+          "The bounded-independence construction forbids independent n-sets in every face, not the tolerance face condition with dimensions cut off above t+1."
+        ],
+        "reasoning": "No nontrivial uncovered case survives. The equivalence does not depend on the nearby bounds or the bounded-independence construction.",
+        "searches": [
+          "6cbc72bbc8b7 Finding and proof; Kim–Lew Theorem 1.5; arXiv:1912.12605"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both statements take K(G) unfilled, allow disconnected graphs and isolated vertices, and identify lower homology naturally as wedge^{t+1} of the component augmentation lattice.",
+          "The other record's upper rank C(n,t+2)-I_{t+2}-C(n-1,t+1)+C(c-1,t+1) agrees exactly by Pascal's identity."
+        ],
+        "reasoning": "The rank formulas and module claims are equivalent, not merely about the same invariant or graph class.",
+        "searches": [
+          "Local Resultary: higher graph tolerance complexes and graph component augmentation lattice",
+          "6cbc72bbc8b7, RESULT.md opening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6cbc72bbc8b7, Finding offset 0, is the exact nontrivial integral classification in a distinct record.",
+          "6217221a2721, Finding offset 0, instead gives a separate t=1 wedge result; it is not the match driving the verdict."
+        ],
+        "reasoning": "This is actual statement-level coverage by a separate indexed entry, not a self-match, numerical spot-check or inferred chronological ordering.",
+        "searches": [
+          "Local Resultary: higher graph tolerance homotopy and component lattice; 6cbc72bbc8b7; 6217221a2721"
+        ]
+      },
+      "rationale": "Distinct indexed record 6cbc72bbc8b7 establishes the same integral wedge and the same natural automorphism-equivariant component exterior-power identification, on every nontrivial parameter in the frozen result. The difference in upper multiplicity is Pascal's identity. The remaining range is a simplex by definition and adds no distinct mathematical claim. Both records are dated the same day; exact coverage is demonstrable independently of priority, which is not inferred.",
+      "residual_risks": [
+        "Chronological priority among the same-day entries is undetermined. The exact coverage finding does not depend on it. The focused primary search returned unrelated pages and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive coverage; priority not inferred",
+          "evidence": "It gives the two wedges with the same ranks and the full natural component-augmentation exterior power for the unfilled graph, and notes contractibility for t>=n-1.",
+          "identifier_or_url": "6cbc72bbc8b7",
+          "material_read": "RESULT.md Finding and proof opening, offsets 0–2851; relationship/limitations at offset 6360",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; mathematical comparison of statements",
+          "title": "Integral homotopy and component-lattice classification of higher tolerance complexes of graphs",
+          "trigger": "Distinct exact catalogue match"
+        },
+        {
+          "assessment": "Different t range",
+          "evidence": "It gives a wedge of circles and two-spheres for t=1.",
+          "identifier_or_url": "6217221a2721",
+          "material_read": "RESULT.md offsets 0 and 5030",
+          "method": "Local mirror",
+          "title": "The homotopy type of one-tolerance complexes of arbitrary graphs",
+          "trigger": "Related all-graph wedge theorem"
+        },
+        {
+          "assessment": "General bounds, not this integral classification",
+          "evidence": "Thm. 1.5 bounds the Leray number for d-collapsible input; Thm. 1.6 specializes to one-tolerance and 2-collapsible input.",
+          "identifier_or_url": "https://doi.org/10.1007/s00493-023-00044-5",
+          "material_read": "§1, pp. 987–989, PDF offsets 6747 and 9668",
+          "method": "OA PDF passage comparison",
+          "title": "Leray Numbers of Tolerance Complexes",
+          "trigger": "Primary general tolerance results"
+        },
+        {
+          "assessment": "Different input and invariant",
+          "evidence": "The bounds concern collapsibility/Leray quantities for clique complexes, including t<=3 for chordal graphs in Thm. 1.3.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14384",
+          "material_read": "Thm. 1.3 p. 3 offset 4978; Thm. 1.7 and Table 1 p. 4, offsets 9940 and 14375",
+          "method": "OA PDF passage comparison",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "Contemporary chordal graph tolerance work"
+        },
+        {
+          "assessment": "Different face criterion",
+          "evidence": "A face is prohibited from containing an independent set of the specified size; larger faces may still occur.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.12605",
+          "material_read": "p. 1 definition, offset 0",
+          "method": "OA PDF passage comparison",
+          "title": "Complexes of Graphs with Bounded Independence Number",
+          "trigger": "Potential equivalent use of independent sets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–22, 44–95; Kim–Lew Theorem 1.5; catalogue comparison with 6cbc72bbc8b7"
+      ],
+      "rationale": "As a mathematical theorem this is a complete classification on a natural class beyond general Leray bounds. It shows exactly how disconnectedness contributes the lower integral automorphism module, while the independence counts enter the upper sphere rank. Those are substantive uses of the theorem; its duplicate coverage is the separate reason for rejecting this record. The simplex edge cases add no substantive result to the distinct catalogue theorem.",
+      "residual_risks": [
+        "The theorem determines the lower automorphism module but not the upper module or an equivariant homotopy decomposition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

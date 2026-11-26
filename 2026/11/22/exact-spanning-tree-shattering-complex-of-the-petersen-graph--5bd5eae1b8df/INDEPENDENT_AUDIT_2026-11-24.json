@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:59.015269Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and VERIFICATION.md",
+        "Frozen verify/check_direct.py and verify/check_traces.cpp (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/replay_petersen.py"
+      ],
+      "rationale": "The all-positive and all-negative traces force a forest and connected complement; extending any desired positive subforest in the complement plus that subforest suffices. The negative trace bounds the support size by six. An independent standard-library replay built KG(5,2), generated all connected nine-edge subsets by graph flood fill, and compared the actual traces against the forest (leaf stripping) and connected-complement predicates. It reproduced 2000 trees, face counts (1,15,105,445,1230,2160,1930), purity with 1930 six-edge facets, the 60 five-cycle-plus-edge and 10 six-cycle exclusions, all 19 orbit representatives and the 30,40,60^3,120^14 orbit census, and the three failed exchanges 111,126,8302 for A=238, B=8283 and removed edge 7. The full automorphism group acts on the five size-four independent sets, which are exactly the five stars of pairs through one symbol: any intersecting family with two pairs 12,13 and a pair omitting 1 is confined to the triangle 12,13,23. Each vertex is determined by its two incident stars, so the natural S5 already gives the full action.",
+      "residual_risks": [
+        "The enumeration is exhaustive for the specified 15-edge graph only; no claim of formal verification or of generalization to other graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kobayashi–Kurita–Wasa enumerate via general matroid algorithms, not by a closed Petersen census; Benediktsson–Macpherson–Adler use vertex-neighborhood traces. The K_{3,n} and same-day wheel records enumerate different graph families."
+        ],
+        "reasoning": "The ability to enumerate common independent sets algorithmically is not a prior numerical census. Neither graph-family formula can be instantiated on Petersen.",
+        "searches": [
+          "arXiv:2307.08948",
+          "arXiv:2007.16042",
+          "Resultary 0c288e04bf53 and e4853eff4665"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary records 4613928307d1, dd07b0e752eb, 0c288e04bf53, e4853eff4665, a0f4ecd55781 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2307.08948 and arXiv:2007.16042 (abstract scopes)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior dimension and matroid-intersection characterizations decide membership and can optimize support rank, while the pivot-exchange study concerns trees rather than masks admitting every trace."
+        ],
+        "reasoning": "These implications by themselves do not yield all rank-wise counts, extension to six-element supports, nineteen support orbits, or failure of exchange. Those require graph-specific structure or actual enumeration, as independently done here.",
+        "searches": [
+          "Resultary 4613928307d1 and dd07b0e752eb (dimension and support results); a0f4ecd55781 (Petersen pivot exchange); frozen RESULT.md §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4613928307d1 and dd07b0e752eb explicitly give common M/M* independence as the shattered-basis-support criterion; both specialize to a forest disjoint from some spanning tree."
+        ],
+        "reasoning": "Complement connectedness means avoiding containment of a bond. These are genuinely equivalent support descriptions and established background, but the reviewed counts are not stated by either prior criterion.",
+        "searches": [
+          "Local Resultary: Petersen spanning-tree shattering, forest/bond-free supports, disjoint forest and spanning tree, graphic/cographic common independent sets and matroid basis indicators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself was the exact-match Resultary hit; the distinct pivot-exchange record gives the 2000 trees and their distance and reconfiguration statistics, not the supports or their orbits. No separate matching exact table was identified."
+        ],
+        "reasoning": "The tree count gives the number of six-edge connected-complement masks before excluding cycles, not the required cycle exclusions, lower face counts, purity or support orbits. A failed lookup is not evidence of absence.",
+        "searches": [
+          "Local Resultary exact Petersen shattering polynomial/facet-orbit census",
+          "Focused primary lookup for Petersen graph forest/cographic spanning-tree shattering enumeration",
+          "Resultary a0f4ecd55781"
+        ]
+      },
+      "rationale": "Qualified originality applies to the complete Petersen-specific face/facet, coforest exclusion and orbit census and its exchange obstruction, not to the known support criterion, the tree count, or the algorithms underlying the enumeration. None of the compared statements supplies that joint census or its purity/nonmatroid boundary.",
+      "residual_risks": [
+        "An unindexed previous table of Petersen graphic/cographic common independent sets or a prior computation in other terminology was not ruled out. Priority is not certified; the published index also contains the target itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general criterion, not the exact census",
+          "evidence": "Shattered supports are the common independent sets of M and M*; the graphic form is forest with connected complement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-matroid-intersection-formula-for-the-online-shattering-dimensi--4613928307d1",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A matroid-intersection formula for the online shattering dimension of basis indicators",
+          "trigger": "Equivalent shattered-bases formulation"
+        },
+        {
+          "assessment": "Covers the criterion but not the Petersen support census",
+          "evidence": "Common independence in M and M* plus equality of adaptive and static dimensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-matroid-basis-concepts-have-equal-static-and-adaptive-shattering--dd07b0e752eb",
+          "material_read": "RESULT.md offset 1750, criterion and dimension argument",
+          "method": "Local Resultary mirror",
+          "title": "Matroid basis concepts have equal static and adaptive shattering dimensions",
+          "trigger": "Prior implication for static shattering"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Uses the same criterion and gives exact counts and a matroid boundary for K_{3,n}, not Petersen.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-shattering-polynomial-and-a-matroid-boundary-for-spanning--0c288e04bf53",
+          "material_read": "RESULT.md at offset 150, including Lemma 1",
+          "method": "Local Resultary mirror",
+          "title": "Exact shattering polynomial and a matroid boundary for spanning trees of K_{3,n}",
+          "trigger": "Prior exact polynomial with the same invariant"
+        },
+        {
+          "assessment": "Substantively distinct exact census; date alone does not determine priority",
+          "evidence": "Uses primal/dual forest tests for labeled wheels and gives different facet sizes and counts even for rim length five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-cubic-shattering-polynomial-for-spanning-trees-of-wheels--e4853eff4665",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A cubic shattering polynomial for spanning trees of wheels",
+          "trigger": "Same-day exact polynomial with the same invariant"
+        },
+        {
+          "assessment": "Shares the tree count, studies a different invariant",
+          "evidence": "2000 trees and distances/orbits in tree reconfiguration are not incidence shattering of edge supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-pivot-exchange-geometry-of-the-petersen-spanning-tree-grap--a0f4ecd55781",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact pivot-exchange geometry of the Petersen spanning-tree graph",
+          "trigger": "Petersen spanning-tree census and symmetry"
+        },
+        {
+          "assessment": "General algorithmic result, not evidence of a formula for this instance",
+          "evidence": "The stated object is polynomial-delay enumeration of large maximal common independent sets in two matroids.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.08948",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA primary paper",
+          "title": "Polynomial-Delay Enumeration of Large Maximal Common Independent Sets in Two Matroids and Beyond",
+          "trigger": "Potential broader matroid enumeration"
+        },
+        {
+          "assessment": "Stated results involve a different concept class",
+          "evidence": "The underlying set systems are graph neighborhoods, not spanning-tree edge incidence.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA primary paper",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Related notion of shattering on symmetric graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–5",
+        "Independent replay, /workspace/branches/replay_petersen.py",
+        "Prior shared criterion in Resultary 4613928307d1 and dd07b0e752eb"
+      ],
+      "rationale": "This is a canonical highly symmetric cubic graph and a natural exact incidence-shattering invariant, not an arbitrary test case. The facet-orbit list gives reusable explicit types, and purity together with an exact exchange failure separates two natural independence properties in a case where neither is answered by the general criterion. The full count and cycle exclusions are useful small-instance benchmarks for common graphic/cographic independence.",
+      "residual_risks": [
+        "Value is as a complete census and obstruction on Petersen, not a scalable new algorithm or a graph-family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

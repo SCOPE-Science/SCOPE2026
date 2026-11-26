@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:00:48.865959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized monomial projection gives the +2 shift A_n=√[(n+1)/(n+3)] and the −1 shift B_n=√[n(n+1)]/(n+2), with absent entries zero. Commuting gives diagonal A_n²−A_(n−2)²+t²(B_n²−B_(n+1)²) and third off-diagonal t[A_n B_(n+3)−A_(n+1)B_(n+1)], where t=|b/a|. Rotation removes the relative phase. These agree with D_n,E_n,O_n. At t=2/3 the first three row lower margins are 59/405, 61/162 and 191/1050; for n≥3 the all-index rational lower margin is positive by shifting the numerator polynomial by n−3. The quadratic form is nonnegative on finite vectors by the row bound, and then by boundedness and density; decreasing t improves the same bound. For t>2/3, first choose a finite alternating chain length L so 4−3t²−4t(1−1/L)<0, then translate the chain to sufficiently high indices to produce a negative form. If a=0 and b≠0 the backward-shift diagonal is negative; the zero operator is normal. Boundary differentiation gives minimum Jacobian 4|a|²−4|a||b|−3|b|², and summability on the three bands proves trace class. The diagonal sums telescope to 2 and −1 for the two individual shifts, so the trace is 2|a|²−|b|². Replay: frozen RESULT.md proof §§1–4. The finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleeman–Liaw treat the opposite-angular monomials (m,n,i,j)=(2,0,2,1) in their general sufficient test. The endpoint check is a single rational polynomial sign after substitution; see direct implication below.",
+          "Revilla–Simanek §2 give the exact quadratic form for a radial-power symbol and §2.2 use blocks of ones at high monomial index to disprove positivity. The exact coefficients specialize to s=0 (the projection formula and its denominators are valid there; the paper itself uses exponent zero in §3).",
+          "Kim–Lee Theorem 2.9 covers these indices only with a weaker necessary inequality, |a|²≥(3/4)|b|²."
+        ],
+        "reasoning": "The earlier sufficient theorem and the earlier necessary-test method with the published exact coefficients cover the claimed window together. The asymptotic-in-radial-power wording of Revilla–Simanek Theorem 1.4 does not by itself establish a cutoff at radial power T=1; it is the exact form (3) and its published block test that directly do so.",
+        "searches": [
+          "Primary search: Bergman Toeplitz hyponormal z squared z conjugate squared Fleeman Liaw Kim Lee opposite angular boundary Jacobian necessary sufficient McDonald Sundberg 2/3",
+          "Fleeman–Liaw DOI 10.7153/oam-2019-13-04, Theorem 9 and Remark 3",
+          "Revilla–Simanek arXiv:2211.00760, §§2 and 2.2",
+          "Kim–Lee DOI 10.1186/s13660-021-02602-1, Theorem 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results for opposite-angular Bergman binomials",
+        "Fleeman–Liaw DOI 10.7153/oam-2019-13-04",
+        "Revilla–Simanek arXiv:2211.00760",
+        "Kim–Lee DOI 10.1186/s13660-021-02602-1",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json and check_toeplitz.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Fleeman–Liaw Remark 3 put (m,n,i,j)=(2,0,2,1) and x=|a/b|=3/2. The first three comparison margins are 43/135, 83/270 and 211/2100; the rest have numerator 2(2k+5)(11k⁴+74k³+121k²−86k−216) over 3k(k+1)²(k+2)²(k+3)²(k+4)(k+5). The quartic has coefficients (11,206,1381,3826,3504) in descending powers of k−3 and is positive. The criterion stays satisfied for larger x, establishing prior sufficiency including equality.",
+          "For necessity set r=|b/a| and take n=2,m=1,s=0,T=1 in the Revilla–Simanek coefficients. Their monomial form has k³σ_k→4, k³ω_k→−3, and δ_k=2/[(k+3)(k+4)(k+5)]. On their block of L≥4 consecutive ones starting at N, the cross term in (3) has L−3 pairs (choose the phases on each chain to realize the negative sign). The N³/L-scaled limit is 4−3r²−4r(1−3/L). If the form is nonnegative for every block, then taking N large with L fixed and then L→∞ gives (2−3r)(2+r)≥0, hence r≤2/3.",
+          "The two coefficient-zero cases are elementary analytic and backward shift cases; the trace follows by ordinary telescoping of the same two shift diagonals."
+        ],
+        "reasoning": "These are direct substitutions, polynomial arithmetic and the prior block test applied without discarding its diagonal term. Together they already furnish the submitted classification and, by factorization, the boundary-Jacobian equivalence. A different normalization of the endpoint row certificate does not supply a new classified range.",
+        "searches": [
+          "Fleeman–Liaw Theorem 9 and Remark 3, including worked Example 2",
+          "Revilla–Simanek arXiv:2211.00760, Eq. (3), coefficient definitions and §2.2 high-index block"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mixed term is z̄|z|², so the symbol is exactly the radial-power binomial with positive angular order n=2, negative order m=1, and radial exponents s=0, T=1 in Revilla–Simanek notation.",
+          "The minimum boundary Jacobian factors as (2|a|−3|b|)(2|a|+|b|); it introduces no further constraint once the sharp scalar window is determined."
+        ],
+        "reasoning": "The angular-power and monomial descriptions are the same Toeplitz operator, not a new family. The symbol-level criterion here is exactly the coefficient inequality as an elementary factorization, not a new general boundary-to-operator theorem.",
+        "searches": [
+          "Resultary: Bergman hyponormal Toeplitz a z^2 + b z conjugate(z)^2 two opposite angular orders boundary Jacobian sharp 2/3 Fleeman Liaw Simanek",
+          "Fleeman–Liaw Theorem 9 and Remark 3",
+          "Revilla–Simanek Eq. (3) and §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact hit is the submitted result. The nearby universal first mixed-angular threshold concerns az+bz̄|z|², not az²+bz̄|z|²; a nearby spectral-transition record concerns a radial (zero angular order) perturbation.",
+          "The exact prior test formulas for the matching operator are in Fleeman–Liaw Remark 3 and Revilla–Simanek §2, rather than a numeric table of coefficient cutoffs."
+        ],
+        "reasoning": "The other named cutoffs are not counterexamples to priority via matching parameters; the decisive coverage is by specializing published formulas for this precise family, even though no earlier separately tabulated 2/3 entry was located.",
+        "searches": [
+          "Resultary: Bergman hyponormal Toeplitz a z^2 + b z conjugate(z)^2 two opposite angular orders boundary Jacobian sharp 2/3 Fleeman Liaw Simanek",
+          "Primary search: Simanek necessary condition hyponormal Toeplitz long block alternating vectors asymptotic boundary Jacobian opposite direction radial z^n zbar^m Revilla Simanek finite power Le 2025"
+        ]
+      },
+      "rationale": "The exact cutoff is mechanically recoverable from two earlier results on this same opposite-angular family: the Fleeman–Liaw explicit sufficient row criterion at the endpoint, and the Revilla–Simanek exact form with their high-index block test for the other direction. Neither source is claimed to print the coefficient equivalence in these words. The actual specializations and deductions are given below.",
+      "residual_risks": [
+        "No assertion that either earlier paper explicitly prints the 2/3 iff for the exact binomial. The rejection is for the demonstrated mechanical implication of prior tools already specialized to this family.",
+        "The relevant 2023 follow-up text was not independently inspected. It might provide further direct precedence; no exclusion is drawn from the access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The sufficient half follows including the sharp endpoint, by the explicit residuals above.",
+          "evidence": [
+            "Remark 3 separates the index ranges where one or both row couplings are present."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-13-04.pdf",
+          "material_read": "Theorem 9 (p. 71), Remark 3 (pp. 71–72), worked Example 2 (pp. 73–74), projected action in the proof.",
+          "method": "Open primary journal PDF; substituted the exact exponents into the row comparison.",
+          "title": "Hyponormal Toeplitz operators with non-harmonic symbol acting on the Bergman space",
+          "trigger": "Closest prior sufficient criterion for opposite monomial directions."
+        },
+        {
+          "assessment": "Its stated large-radial-power theorem is not the finite-power iff, but the exact published form and block method give the necessary half at T=1 directly.",
+          "evidence": [
+            "The form uses diagonal coefficients σ_k,ω_k and couples k with k+n+m via δ_k; §2.2 chooses a block of consecutive monomials at high index."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.00760",
+          "material_read": "Theorem 1.4, §§2–2.2 (pp. 5–8), Eq. (3) and coefficient definitions; §3 beginning (zero radial power substitution).",
+          "method": "Open primary preprint PDF; direct coefficient specialization and block-limit implication.",
+          "title": "Hyponormal Toeplitz operators on the Bergman space of the disk",
+          "trigger": "Potential larger-family result and earlier asymptotic test for positive and negative angular powers."
+        },
+        {
+          "assessment": "Weaker bound; not the decisive source of sharp necessity.",
+          "evidence": [
+            "The three bounds on |a|²/|b|² specialize to 2/3, 11/36 and 3/4."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-021-02602-1",
+          "material_read": "Theorem 2.9, p. 8, including its three bounds.",
+          "method": "Open primary article PDF and substitution (m,n,s)=(2,0,1).",
+          "title": "Hyponormality of Toeplitz operators with non-harmonic symbols on the Bergman spaces",
+          "trigger": "Earlier necessary criterion for the exact exponent configuration."
+        },
+        {
+          "assessment": "No inference about coverage; the demonstrated implication does not depend on this source.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1515/math-2023-0114",
+          "material_read": "Bibliographic identification only; relevant full text was not accessible.",
+          "method": "Lawful open article retrieval attempt.",
+          "title": "Remarks on hyponormal Toeplitz operators with nonharmonic symbols",
+          "trigger": "Possible further overlap in opposite-angular binomial criteria."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The concrete example is natural and can illustrate why checking only diagonal moments misses positivity. As an independent exact finding, however, its coefficient boundary is a routine specialization of a published sufficient comparison and a published high-index test in the same symbol family. Neither its algebraic boundary-Jacobian reformulation nor the telescoping trace yields an independently valuable new remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

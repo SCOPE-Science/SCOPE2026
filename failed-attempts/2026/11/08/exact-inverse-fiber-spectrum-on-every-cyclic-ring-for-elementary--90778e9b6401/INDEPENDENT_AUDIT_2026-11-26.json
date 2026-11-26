@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:36:04.407759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and independent_check.py (inspected, not executed)",
+        "Independent exact determinant and direct indexed-ring replay: python3 /workspace/replay/rule106.py; /workspace/replay/rule106.out"
+      ],
+      "rationale": "Pair-state propagation is deterministic for fixed output bits. A closed indexed path gives exactly one predecessor, also when neighbors coincide at n=1 or 2. Each letter map has image size three, bounding every positive-length product's fixed-point count. The monoid certificate uses the residual recurrence in dimension 41, with 41 consecutive zeros beyond each numerator's degree. Independently, synchronous transfer on ordered k-tuples of distinct pair states counts the k-th binomial moment of the fibers by trace divided by k!. Distinct paths cannot coalesce in a closed deterministic labeled walk. For k=2 and 3 the independent exact determinant calculations give det(I-zM_k)=(1-z)(1-z-2z^3) and (1-z^3)^2, respectively. Thus the moment series are -z/k! times the logarithmic derivative of these polynomials. The third moment is T, and the second minus the third is A, using the equality of total inputs and outputs. The all-one letter has a three-cycle and a transient, so T also proves uniqueness at the indicated lengths. The recurrence and start values follow from expansion; the simple dominant pole rho in (0,1) of 1-z-2z^3 is not canceled, since its logarithmic derivative occurs in the second moment while the third moment is analytic there. This gives the stated exponential scale. Direct independent enumeration n=1,...,14 agrees, including both repeated-neighbor lengths.",
+      "residual_risks": [
+        "The direct enumeration is a finite corroboration; the determinant identities and fixed-point correspondence cover all n. No inference for iterated dynamics is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rule 30 full law treats every indexed n>=1 and includes repeated neighbors; the recurrence for s_n gives the exact binomial fiber counts after the bijection.",
+          "The earlier image law gives the same zero-fiber sequence and a leading constant and subleading exponential error, stronger than the frozen order estimate.",
+          "Mariot et al. provide a periodic-preimage method and Rule 106 examples; the method is not an aggregated histogram by itself."
+        ],
+        "reasoning": "The explicit related-catalogue laws give the exact specialization needed; generic per-output methods alone would not demonstrate originality failure.",
+        "searches": [
+          "Resultary Rule 30 full histogram e6d6f623e250 and exact periodic image law 3077d0947284",
+          "Mariot et al., DOI 10.1007/s11047-016-9586-x, least periods of periodic preimages; Powley–Stepney homogeneous preimages paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 90778e9b6401 (identical target), e6d6f623e250 and 3077d0947284 (distinct matching Rule 30 results)",
+        "Powley–Stepney (2010), Mariot et al. (2017), and scope comparisons with Zhao–Chen–Jin (2014) and Powley–Stepney (2009)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reflection preserves 1^n and the separate bijections preserve every fiber size, so the Rule 30 formulas transfer the entire theorem. Its s_n recurrence yields the identical pole and growth constant.",
+          "The homogeneous characteristic polynomial gives three antecedents of 1^n exactly when 3 divides n (otherwise zero) but does not by itself establish uniqueness among all outputs."
+        ],
+        "reasoning": "The equivalence addresses both the distribution and the marked exceptional target; neither the new rule label nor a rational rather than recurrence representation supplies a distinct result.",
+        "searches": [
+          "Compare original Rule 30 RESULT.md formulas and update rule with the frozen Rule 106 update, generating functions and exception",
+          "Powley–Stepney periodic trace formula and D1 table; Mariot et al. Rule 106 periodic examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 30 is not in the ordinary reflection/state-complement conjugacy orbit of Rule 106, but the histogram only requires separate input and output bijections, not conjugacy of the dynamics.",
+          "Reflecting the complemented input and the output of F106 gives (1 XOR x_(i-1)) XOR ((1-x_i)(1-x_(i+1))) = x_(i-1) XOR (x_i OR x_(i+1)), the Rule 30 formula. The identity holds on all eight truth table entries, even if neighbors repeat."
+        ],
+        "reasoning": "The bijections transport each indexed fiber and the all-one label. The difference in rule number does not create a different one-step invariant.",
+        "searches": [
+          "Resultary Rule 106, standard aliases 120/169/225, and Rule 30 inverse multiplicity histogram; read e6d6f623e250 and 3077d0947284"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Rule 30 full-law finding reports C0=(1+s_n-2 delta_n)/2, C1=2^n-1-s_n+3 delta_n, C2=(1+s_n-6 delta_n)/2, C3=delta_n, higher counts zero, and sole triple target 1^n. Delta_n indicates divisibility by 3.",
+          "For s0=3, s1=s2=1 and s_n=s_(n-1)+2s_(n-3), S(z)=(3-2z)/(1-z-2z^3). Substituting gives A=(S-3+z/(1-z))/2-T, matching the frozen series exactly. The homogeneous table includes the class for Rule 106 D1, with polynomial lambda^4-lambda."
+        ],
+        "reasoning": "Equality is exact for all coefficients rather than a coincidence of small ring counts. The same-day record establishes coverage without establishing priority order.",
+        "searches": [
+          "Resultary cyclic Rule 30 all-length one-step preimage multiplicity and periodic image sequences; exact Resultary paths e6d6f623e250 and 3077d0947284",
+          "Powley–Stepney Rule 106 homogeneous-output characteristic polynomial table, pp. 26 and 30"
+        ]
+      },
+      "rationale": "The full histogram is already covered under a different rule number. Let R be reflection i->-i and C global bit-complementation. De Morgan's law gives F30 = R F106 C R, so |F30^{-1}(y)|=|F106^{-1}(R y)| on each indexed ring, including n=1 and 2. The all-one target is reflection-invariant. The distinct same-day Rule 30 record explicitly gives the complete equivalent histogram and exceptional target; the earlier Rule 30 image law already covers the nontrivial zero-fiber count and its exponential scale. This is a mathematical equivalence, not a claim about within-day order or independent discovery.",
+      "residual_risks": [
+        "No ordering of same-day deposits is inferred. No claim is made about authorship or earliest historical priority. The limited web lookup was uninformative, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full equivalent coverage by input complementation and reflections",
+          "evidence": "Indexed n>=1 with repeated-neighbor convention; exact recurrence histogram, sole triple target 1^n at 3|n; second moment 2^n+1+s_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-preimage-multiplicity-distribution-of-elem--e6d6f623e250/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and proof through Second moment (characters 0–4192)",
+          "method": "Original catalogue file via configured local mirror",
+          "title": "Exact cyclic one-step preimage multiplicity distribution of elementary cellular automaton Rule 30",
+          "trigger": "Exact histogram and exceptional target possibly equivalent under input/output transforms"
+        },
+        {
+          "assessment": "Earlier equivalent zero-fiber law and sharper asymptotic",
+          "evidence": "b_n=(s_n+1-2 delta_n)/2 with the same cubic power sums; b_n=(1/2)rho^n+O(sigma^n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284/RESULT.md",
+          "material_read": "Finding and Assumptions and scope (characters 0–2304, including start of proof)",
+          "method": "Original catalogue file via configured local mirror",
+          "title": "Exact periodic image law for elementary cellular automaton Rule 30",
+          "trigger": "Earlier precise image size and same cubic scale"
+        },
+        {
+          "assessment": "Prior homogeneous-target result, not the full histogram",
+          "evidence": "Trace of labeled transition product counts periodic predecessors; the class for D1 gives lambda^4-lambda and hence the homogeneous period-three count.",
+          "identifier_or_url": "https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca11.pdf",
+          "material_read": "p. 9 trace identity; pp. 26 and 30 Rule 106 D1 table and polynomial c7",
+          "method": "Author OA PDF",
+          "title": "Counting preimages of homogeneous configurations in 1-dimensional cellular automata",
+          "trigger": "Exact preimage count for the homogeneous triple target"
+        },
+        {
+          "assessment": "Method and particular periodic outputs, not an all-output census in inspected passages",
+          "evidence": "Examples for periodic blocks 011 and 1000; method resolves least periods and multiplicities of their preimages.",
+          "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+          "material_read": "Abstract p. 1, local rule p. 4 and Rule 106 examples p. 12",
+          "method": "Author OA postprint",
+          "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+          "trigger": "Same Rule 106 local map and cyclic predecessor setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; both Rule 30 catalogue results; all-ring fiber bijection and exact series check"
+      ],
+      "rationale": "The spectrum is a useful natural invariant, but the frozen record gives the same one-step classification already available under a fiber-preserving transformation, with the principal counting sequence already in an earlier record. A standard transfer-series certificate for that equivalent result, without a new statistic or dynamical consequence, does not supply a distinct valuable finding.",
+      "residual_risks": [
+        "The bijection does not assert conjugacy for multiple time steps. No multi-step claim was made or assessed as a repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

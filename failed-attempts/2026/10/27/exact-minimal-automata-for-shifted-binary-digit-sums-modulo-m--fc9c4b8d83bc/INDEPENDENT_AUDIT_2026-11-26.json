@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:32:06.943642Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing c+p=2^h d+u after an h-digit prefix, a suffix of value v gives disjoint low and high parts u and d+v, so the residual is s2(u)+s2(d+v) mod m, including v=0 and all padded suffixes. For d<e the suffix value 2^L-e gives raw digit-sum difference L-s2(e-d-1)-1, taking successive residues as L varies; no fixed offset identifies the two. Equal carries with distinct residues already disagree at the empty suffix. Beyond ell, a positive carry must be 1 and its low remainder u<c, already realizable at depth ell by p=2^ell+u-c. Each zero-carry residue is attained using c+p=2^t-1 for arbitrarily large t in that residue class. For c=2^r, depths 0..r have distinct carries and phases given by the consecutive weights 0 through h; a late carry 1 only adds residues of remainders less than 2^r, already seen at depth r. This yields both dyadic branches and the c=0 boundary. Inspected the frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt; the reported 1,032 parameter cases and 132,096 fixed-length direct tests were not rerun. The reproducibility note should require Python 3.10+ for int.bit_count(), not 3.9+; this does not affect the symbolic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi–Rampersad–Shallit bound the MSB-first state count for linear subsequences, not the LSF exact count.",
+          "Charlier–Cisternino–Massuir minimize a recognizer for scaled/translated even-popcount sets; the Fibonacci paper uses Zeckendorf representations."
+        ],
+        "reasoning": "A bound is not an exact evaluation, and reversal can change deterministic complexity. Translating the output sequence by input advance c is not the same construction as taking positive affine images of the set of even-popcount integers. None of these inspected published statements supplies the all-m result directly.",
+        "searches": [
+          "OA arXiv:2512.10017v1 Theorem 10",
+          "OA EJC 28(3) P3.12: Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+          "OA arXiv:2603.18858 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 11fc25e0cd30 and e6401767e080",
+        "Moradi–Rampersad–Shallit arXiv:2512.10017v1",
+        "Charlier–Cisternino–Massuir EJC 28(3) P3.12",
+        "Moradi–Popoli–Shallit–Vukusic arXiv:2603.18858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "11fc25e0cd30 computes the low-bit weight and carry for each depth and proves inequivalence at distinct carries via the identity s2(2^L-p)=L-s2(p-1), reduced there modulo 2."
+        ],
+        "reasoning": "The prior binary splitting identity already holds in integers. Reduce it modulo m rather than 2. Equality of shifted residuals with different carries would give a fixed offset under a positive translation; m iterations would give an eventual period. The very same 2^L-p identity excludes that period because its residue changes by 1 as L increases. Thus the prior depth formula counts minimal states verbatim with phases mod m. The finite depth cutoff comes simply from the quotient-1 remainder range [0,c) stabilizing for 2^h>c, independently of the modulus. On a dyadic shift, weights from 0 through h give min(h+1,m) phases. The earlier parity theorem as a statement does not quantify over all moduli, but these deductions require no new distinction argument or combinatorial lemma.",
+        "searches": [
+          "Resultary 11fc25e0cd30, Proof §§1–2, residual and periodicity passages",
+          "Resultary e6401767e080, proof at offsets 2934–8054"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "11fc25e0cd30 solves every parity shift with all finite LSF representations and the same dyadic specialization.",
+          "e6401767e080 gives the exact all-m residue/carry set and dyadic count under the same input convention."
+        ],
+        "reasoning": "The earlier parity formula evaluates the carry/residue set further using interval endpoints and matches the m=2 subclass. The later general formula is the same reachable pairs reparameterized; MSB order is not an equivalent minimization convention. The web results were not materially relevant and do not establish absence.",
+        "searches": [
+          "Resultary: exact binary digit formula for least-significant-digit-first Thue–Morse shifts",
+          "Resultary: exact least-significant-first state complexity of shifted binary digit sums",
+          "Web: \"least-significant-first\" exact minimal automaton shifted binary digit sum modulo m s_2(n+c) state complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 11fc25e0cd30 gives exact all-shift parity values, including 2,3,5,6 for c=0,1,2,3 and the parity dyadic count. Later e6401767e080 gives the exact two-parameter formula."
+        ],
+        "reasoning": "The catalogue match is at the level of the invariant, not a coincident prefix of a table. The frozen finite output table is supporting evidence, not an independent database.",
+        "searches": [
+          "Resultary searches for exact LSF shifted Thue–Morse/shifted digit-sum state counts: 11fc25e0cd30 and e6401767e080"
+        ]
+      },
+      "rationale": "The earlier parity record already solves all shifts for m=2, with the same exact residual and depth formulas and the same two-power nonperiodicity witness. Its residual-count proof transports mechanically to Z/mZ, giving the claimed set and dyadic count by direct range counting. A distinct later catalogue statement also explicitly matches every modulus and shift; that later match confirms equivalence, not prior authorship or order of discovery.",
+      "residual_risks": [
+        "No claim about historical authorship, independence, or the earliest explicit all-m statement. The scientific issue is the direct transport of the earlier all-shift residual calculation, not literature-access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap at m=2 and proof transports to all m",
+          "evidence": [
+            "Defines F_{j,s}(n)=t(n+j) xor s; gives carry and low-bit phase at each depth; excludes an eventual period using s2(2^L-p)=L-s2(p-1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-binary-digit-formula-for-least-significant-digit-first-thu--11fc25e0cd30/RESULT.md",
+          "material_read": "Finding; Proof §§1–2 and dyadic comparison, offset 2220 onward",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary-digit formula for least-significant-digit-first Thue–Morse shifts",
+          "trigger": "Same representation and all-shift state count for parity"
+        },
+        {
+          "assessment": "Exact overlap, later; not used to infer earlier priority",
+          "evidence": [
+            "Reparameterizes the carry/phase set; uses the same residual separation and gives the same dyadic capped sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-least-significant-first-state-complexity-of-shifted-binary--e6401767e080/RESULT.md",
+          "material_read": "Finding and proof offsets 2934–8054",
+          "method": "Local Resultary mirror",
+          "title": "Exact least-significant-first state complexity of shifted binary digit sums",
+          "trigger": "Same general modulus, shifts and exact LSF state count"
+        },
+        {
+          "assessment": "Related upper bounds, different reading direction",
+          "evidence": [
+            "Upper bound for h(ni+c) in MSB representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.10017v1",
+          "material_read": "Theorem 10, HTML offset 38171",
+          "method": "OA HTML bounded result",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "State complexity for shifted Thue–Morse and related automatic subsequences"
+        },
+        {
+          "assessment": "A different set operation and binary acceptance",
+          "evidence": [
+            "Counts states for set mT+r, rather than the multivalued shifted digit-sum function on all inputs."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/9068",
+          "material_read": "PDF opening and summary at offset 0",
+          "method": "OA PDF bounded passage",
+          "title": "Minimal Automaton for Multiplying and Translating the Thue–Morse Set",
+          "trigger": "Exact automata involving translated Thue–Morse"
+        },
+        {
+          "assessment": "Different sequence and numeration system",
+          "evidence": [
+            "Concerns shifts in Zeckendorf representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.18858",
+          "material_read": "Abstract at offset 0",
+          "method": "OA HTML bounded passage",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "Cited exact shifts result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact state complexity in an all-word LSF model is a meaningful natural invariant. Here the exact finite set for higher moduli is the known carry/phase computation using modular addition in place of parity; the same witness proves minimality. The dyadic branches then count consecutive residues, rather than adding a separate structural result. The frozen statement does not clear the value standard for a mechanically transported invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:43:17.176316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Kraus weights give rotated dephasing and the nonnegative Pauli probabilities give D=diag(λ,λ²,λ) in Bloch coordinates. Direct substitution gives M−D=buvᵀ with b=(1−λ²)/(1+λ²), u=(1,0,λ), v=(−λ,0,1). Because vᵀu=0 and both vectors lie in the λ-plane of D, this creates exactly a size-two Jordan block and M^n−D^n=nλ^(n−1)buvᵀ. For arbitrary joint input Y, the difference factors through Tr_qubit[((v·σ)⊗I)Y], whose trace norm is at most √(1+λ²) times ||Y||₁ by duality. The remaining tensor factor u·σ has trace norm 2√(1+λ²), and the Bloch-to-Pauli factor is 1/2. A pure eigenstate of v·σ saturates the bound, and measuring the sign of u·σ gives the Helstrom probability 1/2+d_n/4. Consecutive ratios λ(n+1)/n give the ceiling optimizer and its integer tie; n(1−λ)→s gives 2s e^(−s), with optimized limit 2/e. This holds for a single uninterleaved power comparison with a passive ancilla, not adaptive uses. VERIFICATION.md and verify.py were inspected, not executed; the checker has five rational parameters and fifteen powers, not an ancillary proof. The line 53–54 comment misstates the 4/5 tie as 5,6; line 55 correctly tests 4,5, consistent with the finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "vom Ende proves norm density of simple-spectrum channels in the specified classes; Kliesch–Roth gives the general diamond/operational framework; Wong–Zeng–Li give a different EP channel by interpolation."
+        ],
+        "reasoning": "Generic diagonalizable approximation does not preserve a repeated spectrum or select the matching Pauli channel. General discrimination and EP constructions give tools, not the norm or optimizer for the specified pair.",
+        "searches": [
+          "arXiv:2403.19643v1 §1 and §3, Lemma 2",
+          "arXiv:2010.05925 §3, Eqs. (220), (222), Theorem 44",
+          "DOI:10.1038/s41534-026-01205-2, Eqs. (4)–(11)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–78; VERIFICATION.md; verify.py",
+        "arXiv:2610.13622v1",
+        "DOI:10.1038/s41534-026-01205-2",
+        "arXiv:2403.19643v1",
+        "arXiv:2010.05925",
+        "SCOPE:7f1c94f57a44",
+        "SCOPE:8e247c0a93d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (31) makes the product-state signal optimizable by aligning two Bloch vectors; the paper treats the Jordan term as the signature of an exceptional channel, not as the difference to a specified isospectral CPTP map. The general diamond framework allows entangled inputs."
+        ],
+        "reasoning": "The source formula supplies the product-probe part once a comparator is selected, so neither the nλ^(n−1) factor nor product-vector alignment is new. The result identifies the diagonal part as an explicit physical Pauli comparator and proves a bound on the resulting operator difference for all joint inputs. A product-probe formula alone cannot upper-bound the completely bounded norm; control here follows from rank-one trace duality. The integer and limit claims optimize the resulting paired-channel distance, not a general consequence of isospectrality.",
+        "searches": [
+          "arXiv:2610.13622v1 §V, Eqs. (22)–(26), (31)–(34), offsets 15033–28499",
+          "arXiv:2010.05925, §3 p. 36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brandão Eq. (31) splits a measurement probability for the same channel into diagonal-decay and rank-one Jordan terms, and Eq. (32) isolates a nonzero Jordan term for one chosen input and observable. The web lookup returned no substantive matching primary passage."
+        ],
+        "reasoning": "Detecting a transient in a single channel is not equivalent to discriminating two physical channels with identical eigenvalues. The paired comparison cancels the diagonal terms for every input; its unhalved diamond distance measures the largest output separation over arbitrary passive ancillas.",
+        "searches": [
+          "Web: \"exceptional quantum channels\" \"diamond\" Pauli isospectral discrimination Brandão qubit Jordan block repeated powers",
+          "Resultary: exceptional point Jordan qubit channel isospectral Pauli comparator repeated channel discrimination rank-one diamond norm 2/e",
+          "arXiv:2610.13622v1, §V Eqs. (18)–(34)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed quantum shift chain gives a binomial/Gaussian diamond-norm cutoff to depolarization in an N-qubit system. The indexed rotated-dephasing record gives entanglement-breaking thresholds, not a paired discrimination law."
+        ],
+        "reasoning": "Exact numbers for either a mixing cutoff or an entanglement-breaking threshold are not a table of this channel-pair norm; neither provides the matched spectrum, limiting profile, or timing optimum in the claim.",
+        "searches": [
+          "Resultary: exceptional point Jordan qubit channel isospectral Pauli comparator repeated channel discrimination rank-one diamond norm 2/e",
+          "SCOPE:7f1c94f57a44, Finding",
+          "SCOPE:8e247c0a93d2, Finding"
+        ]
+      },
+      "rationale": "Brandão already gives the exact exceptional channel, Jordan block and general product-preparation/projective-measurement signal; the polynomial–exponential transient itself is not a new contribution. The inspected material does not set up the comparison with a physical isospectral Pauli channel or determine its ancilla-uniform discrimination distance and optimized weak-noise crossover. No covering paired-channel statement was established in the inspected sources.",
+      "residual_risks": [
+        "Eq. (31) of Brandão already exposes most of the rank-one algebra on product probes, so originality is limited to the physical matched comparison, the exact ancillary optimization and the resulting crossover. A separate unlocated isospectral discrimination analysis or an equivalent specialization in the literature remains possible; scoped search results do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap for the model and product-probe formula; no paired diamond comparison in inspected passages",
+          "evidence": "Eq. (31) contains both the matched diagonal terms and the factorized Jordan term; Eqs. (32)–(34) present visible and invisible signatures for selected observables on the same channel.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13622v1",
+          "material_read": "§V Eqs. (18)–(34), offsets 15033–28499; direct check of Eq. (31) onwards at offset 21400",
+          "method": "OA arXiv HTML",
+          "title": "Operational signatures of exceptional quantum channels",
+          "trigger": "Exact antecedent for the exceptional channel and transient"
+        },
+        {
+          "assessment": "Different physical interpolation and question",
+          "evidence": "The inspected model reaches its EP at mixing parameter 1/2; no specified Pauli discrimination pair is given there.",
+          "identifier_or_url": "doi:10.1038/s41534-026-01205-2",
+          "material_read": "pp. 1–3, Eqs. (4)–(11)",
+          "method": "OA primary article",
+          "title": "Non-Markovian exceptional points by interpolating quantum channels",
+          "trigger": "Nearby physical qubit-channel exceptional points"
+        },
+        {
+          "assessment": "Density, not exact isospectral operational separation",
+          "evidence": "Simple-spectrum channels are norm-dense under the stated class conditions.",
+          "identifier_or_url": "https://arxiv.org/html/2403.19643v1",
+          "material_read": "§1 and §3, informal theorem and Lemma 2, offsets 4000–16966",
+          "method": "OA arXiv HTML",
+          "title": "Almost All Quantum Channels Are Diagonalizable",
+          "trigger": "General diagonalizable-channel comparison"
+        },
+        {
+          "assessment": "Supplies framework, not a calculation for this pair",
+          "evidence": "Diamond-norm optimization includes an auxiliary system and has the standard operational interpretation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.05925",
+          "material_read": "§3, p. 36, Eqs. (220), (222), Theorem 44",
+          "method": "OA arXiv version of the same article after publisher access failed",
+          "title": "Theory of Quantum System Certification",
+          "trigger": "General channel-discrimination norm"
+        },
+        {
+          "assessment": "Different mixing problem",
+          "evidence": "An N-qubit shift channel is compared to complete depolarization and has a Gaussian cutoff.",
+          "identifier_or_url": "2026/10/26/SCOPE-gaussian-diamond-norm-cutoff-for-a-dissipative-quantum-shift-cha--7f1c94f57a44",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Gaussian diamond-norm cutoff for a dissipative quantum shift chain",
+          "trigger": "Closest diamond-power cutoff catalogue match"
+        },
+        {
+          "assessment": "Different invariant and optimization",
+          "evidence": "Optimizes an entanglement-breaking threshold over a repeated fixed rotation, not an isospectral pair's discrimination distance.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-entanglement-breaking-thresholds-for-repeated-rotated-qubi--8e247c0a93d2",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Sharp entanglement-breaking thresholds for repeated rotated qubit dephasing",
+          "trigger": "Closest iterated rotated-dephasing family match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching physical channels by spectrum isolates the operational effect of the Jordan block instead of conflating it with different spectral decay rates. The exact metric gives the attainable single-test success probability, shows an ancillary resource is unnecessary, and quantifies the long-time separation that remains as both one-step channels approach the identity. This is a motivated operational invariant for a specified comparison, not a claim about adaptive queries or optimality among all isospectral comparators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

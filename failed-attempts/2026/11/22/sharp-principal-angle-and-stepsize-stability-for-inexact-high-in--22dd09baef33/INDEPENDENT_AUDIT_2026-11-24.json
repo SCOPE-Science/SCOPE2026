@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:38:38.518791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–89; VERIFICATION.md and both uploaded scripts inspected, not executed",
+        "Independent reproduction independent_validation.py and independent_validation.log under /workspace/branches/1bad4493-b3dd-49d2-acd1-4fea0f5c5c4b/: 750 cases in dimensions 2,3,5,8,12 with 12 changing projectors per case; exact witness formula checked analytically and numerical endpoint factors 1.0 and about 1.04973 just above"
+      ],
+      "rationale": "With S=I-2P and U_m=(I-2Q_m)S, U_m is orthogonal and sym(U_m)=I-2(P-Q_m)^2 is bounded below by cI for c=cos(2 theta). In coordinates y=D^(1/2) M^(1/2)x the step is I-eta C_m with C_m=D^(1/2) U_m D^(1/2). Its symmetric part is at least cD and C_m^T C_m is at most LD. For positive eta and 2c-eta L>0, expanding the squared norm yields the asserted factor using D>=mu I. The factor is nonnegative since eta mu(2c-eta L)<=mu c^2/L<=1. This estimate is independent of past or future projectors and uses a single norm, so it applies to arbitrary switching. The D=LI two-dimensional example gives the exact squared factor 1-2 eta L cos(2 theta)+eta^2 L^2, including the upper endpoint isometry and positive-step expansion at and above 45 degrees. If nonpositive steps are admitted, eta=0 is the identity and eta<0 expands with Q=P. The necessity claim is uniform over admissible problems, not a claim that every fixed Hessian and projector sequence outside the region diverges.",
+      "residual_risks": [
+        "The bounded numerical run is a floating-point defect screen only. The all-parameter and endpoint guarantees follow from the algebraic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. prove a local nonlinear M-norm bound with a fixed step and a sufficient condition-number-dependent error threshold; Yin et al. use a different curvature-scaled update with local sufficient conditions; Shi et al. give a perturbed continuous-time stability estimate. The November 17 assumptions allow nonlinear globally split strongly convex companions, and Step 1 is pointwise before solving any flow."
+        ],
+        "reasoning": "The named preprints do not themselves give the frozen discrete characterization in the inspected statements. The broader split-gradient calculation is decisive because the frozen quadratic setting is a specialization in which the standard Hessian upper bound gives the Euler correction exactly as an inequality. Continuity assumptions for the earlier ODE existence result are not needed for its pointwise algebra.",
+        "searches": [
+          "arXiv:2603.25390, Theorem 5.2",
+          "arXiv:2607.03030, Assumption 2 and Theorems 4.6–4.7",
+          "arXiv:2611.09049v1, Theorem 3.2",
+          "November 17 Resultary record, Assumptions and Steps 1–3"
+        ]
+      },
+      "checked_sources": [
+        "November 17 mirrored proof and the frozen proof compared pointwise",
+        "Primary saddle-dynamics theorem passages listed above",
+        "Focused primary search; a reflected-gradient variational-inequality result (DOI 10.1137/14097238X) was not used as evidence of overlap without a readable theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Step 1: g^T U g >= c||g||^2 for g=grad F and U=RJ orthogonal. Earlier Step 2: ||g||^2 >= 2 mu (F-F_*). Earlier Step 3: on a two-coordinate quadratic with Hessian magnitudes L, U is exactly the 2-theta rotation and F=L||z||^2/2."
+        ],
+        "reasoning": "The L-smooth upper bound at z-eta U g gives F(z-eta U g)<=F(z)-eta g^T U g+(L eta^2/2)||U g||^2 <= F(z)-eta(c-L eta/2)||g||^2. Applying the prior gradient-dominance bound gives exactly the frozen factor 1-eta mu(2c-eta L) whenever c-L eta/2>0. In the prior planar witness (scale its common magnitude to L), the update I-eta L U has squared norm 1-2 eta L c+eta^2 L^2, so it decides the complete sharp positive-step complement and all displayed boundary behavior. No optimization over changing sequences or new extremizer is needed.",
+        "searches": [
+          "November 17 Resultary record, Proof Steps 1–3, local-mirror offsets 1380–5854",
+          "Frozen RESULT.md, Proof Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record sets F=f+g, J=I-2P_0, R=I-2P, obtains sym(RJ)=I-2(P-P_0)^2 and bounds the quadratic form in grad F by (1-2 delta^2)||grad F||^2. Its planar example has the vector field exactly a multiple of the rotation through 2 phi."
+        ],
+        "reasoning": "Take z=M^(1/2)x and split into the spectral subspaces of the preconditioned Hessian. Then F(z)=z^T D z/2 is the earlier positive companion, RJ=(I-2Q)(I-2P), and delta=sin theta gives 1-2 delta^2=cos(2 theta). The frozen iteration is the forward Euler step of this pointwise vector field; arbitrary choices at discrete times satisfy the same pointwise inequality. Continuous and discrete theorems are not literally equivalent, but the critical ingredients become identical after this change of coordinates.",
+        "searches": [
+          "Resultary: sharp 45-degree robustness in inexact high-index saddle dynamics under projector perturbations",
+          "2026/11/17/SCOPE-sharp-global-forty-five-degree-robustness-of-inexact-high-index--c68374e7359e, Steps 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct earlier indexed record gives the exact 45-degree angular threshold and the exact rotation matrix of the witness. Its Finding is continuous-time; the discrete upper endpoint as such is not a cited table entry."
+        ],
+        "reasoning": "The phase diagram is a parameter-dependent theorem, not a database lookup. No need for an exact indexed stepsize or a matching tabular value: its entire claimed discrete region is obtained from the indexed statements and elementary Euler calculation.",
+        "searches": [
+          "Resultary: sharp saddle-reflection robustness and exact principal-angle/Euler stepsize",
+          "2026/11/17/SCOPE-sharp-global-forty-five-degree-robustness-of-inexact-high-index--c68374e7359e"
+        ]
+      },
+      "rationale": "The earlier distinct Resultary publication does not literally state an Euler stepsize theorem, but inspecting Steps 1–3 shows that the entire frozen characterization is a direct Euler corollary of its two decisive ingredients: the pointwise positive-companion gradient inequality for the product of reflectors, and the same quadratic planar rotation as a sharp witness. The discrete extension and change of metric do not require a further mathematical result beyond the standard one-step smoothness inequality and a linear coordinate change. Failure is based on this demonstrated implication, not on indistinguishable titles, a failed access attempt, or an assertion that the earlier flow theorem literally mentions the stepsize.",
+      "residual_risks": [
+        "The exact discrete threshold may also have an explicit prior statement in another source. Chu–Lin, Zhao, and the variational-inequality paper were not materially readable in this check. Neither those uncertainties nor date alone motivate the decision; the earlier mirrored proof yields the recorded result. No claim is made about who first discovered the underlying reflector geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies the pointwise estimates and extremizer; the claimed discrete result is covered by a routine implication, though it is not stated verbatim",
+          "evidence": "RJ=product of the reflectors; exact symmetric-part identity and gradient bound; strongly convex gradient dominance; exact 2-phi rotation for the quadratic witness, periodic at the flow boundary and repelling beyond.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-global-forty-five-degree-robustness-of-inexact-high-index--c68374e7359e",
+          "material_read": "Mirrored RESULT.md Finding; Assumptions and Proof Steps 1–3, offsets 1380–5854",
+          "method": "Statement-level inspection in local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp global forty-five-degree robustness of inexact high-index saddle dynamics",
+          "trigger": "Same angle, projector product, positive energy and sharp quadratic example"
+        },
+        {
+          "assessment": "Close motivation, different norm, step, and nonlinear quantifiers",
+          "evidence": "Local nonlinear M-norm estimate with theta<1/(2 kappa_M), eta=2/(L+mu), linear term and quadratic remainder.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.25390",
+          "material_read": "Primary PDF, Theorem 5.2, p. 9",
+          "method": "OA primary text, theorem passage",
+          "title": "Computing Saddle Points in Stiff Problems via a Preconditioned High-index Saddle Dynamics Method",
+          "trigger": "Same preconditioned discrete method with inexact eigenspaces"
+        },
+        {
+          "assessment": "Local sufficient estimates for a different update",
+          "evidence": "Inexact eigenvector hypothesis, nonlinear recursion and local linear convergence for curvature-scaled dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.03030",
+          "material_read": "Primary PDF p. 1; Assumption 2 Eq. (4.10) p. 9; Theorem 4.6 Eqs. (4.21)–(4.23) p. 11; Theorem 4.7 p. 14",
+          "method": "OA primary text, bounded passages",
+          "title": "Subspace curvature-scaling high-index saddle dynamics for accelerating ill-conditioned saddle point searches",
+          "trigger": "Discrete inexact updates for ill-conditioned saddles"
+        },
+        {
+          "assessment": "Perturbed local exponential flow estimate, not a sharp Euler boundary",
+          "evidence": "Uses the condition mu-2 alpha L>0 and a continuous-time exponential factor. Alpha is not identified with the angle parameter here.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09049v1",
+          "material_read": "Primary PDF abstract p. 1 and Theorem 3.2 p. 7",
+          "method": "OA primary text, bounded passages",
+          "title": "Asymptotic stability of high-index saddle dynamics",
+          "trigger": "Perturbed high-index saddle stability"
+        },
+        {
+          "assessment": "Unresolved; no negative inference",
+          "evidence": "Access and repository retrieval did not yield text for checking the reflector hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1137/24M1710905",
+          "material_read": "No primary passage retrieved",
+          "method": "Bounded lawful publisher and repository attempts",
+          "title": "Generalized Gentlest Ascent Dynamics Methods for High-Index Saddle Points",
+          "trigger": "Possible prior reflector alignment/stability result"
+        },
+        {
+          "assessment": "Unresolved; not a basis for failure",
+          "evidence": "Could not check the primary derivation or stepsize hypotheses.",
+          "identifier_or_url": "https://www.researchgate.net/publication/404708493_Regional_Reflector_Dynamics_for_Saddle_Search_Stability_and_Sampling_Design",
+          "material_read": "No primary passage retrieved",
+          "method": "Bounded lawful OA and webpage attempts",
+          "title": "Regional Reflector Dynamics for Saddle Search: Stability and Sampling Design",
+          "trigger": "Potential direct discrete Euler comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "November 17 Resultary Proof Steps 1–3; direct Euler implication documented in originality"
+      ],
+      "rationale": "The explicit stepsize rule can be useful as an exposition of a quadratic method, but the incremental mathematical content under this standard is only a textbook one-step descent bound applied to the earlier pointwise estimate and one Euler multiplication of its already displayed extremizer. The metric change is similarity to the Euclidean formulation. There is no separate non-routine discrete obstruction, stronger fixed-instance result or nonlinear stepsize theorem in the frozen claim that survives this comparison.",
+      "residual_risks": [
+        "This is not a judgment that stability of the numerical method is unimportant or false; it is a judgment about the incremental scientific value of this specific claimed characterization."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

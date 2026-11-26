@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:02.799387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A thin SVD reduces the iteration to positive scalar multipliers g_alpha(t) with residual update h_alpha(t)=1-(1-t)g_alpha(t)^2. Differentiation and evaluation at t_* give the stated maximum, whose difference from 1+1/(2alpha) is the positive prefactor times the cubic. The maximum is strictly increasing (compare at a positive maximizer, or from its boundary value 1 at alpha=3/8), whereas the comparison function decreases. Below the crossing, t in (0,1) maps into (-1/(2u),t). On (-1/(2u),0), the second-order Taylor polynomial upper bounds (1-t)^(-1/2), since the third derivative is positive and t is negative; hence 0<g_alpha(t)<1 and t<h_alpha(t)<=0. Uniform strict drift at any nonzero candidate limit then gives scalar convergence for every schedule, and the multipliers preserve the polar branch. The exact polynomial h_alpha(t)/t^2 extends jointly continuously at zero on the full compact interval [-1/(2u),1] times [3/8,u], so the claimed uniform inequality even holds with K=0 after enlarging C_u; this says nothing about a condition-number-independent entrance time into a small residual neighborhood. At the maximizing start the endpoint lands on the nonunit g=1 fixed point; above it the same start crosses the fixed point and the scalar increases without a finite limit. Independent rational spot checks of the identities and bisection corroborated the root 1.472229260972032370849477394..., but the universal result is analytic. VERIFICATION.md and verify.py were inspected; the uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem covers all schedules with 0<=alpha_k<=U<a_*, the same full-column-rank normalized rectangular input, and a square sign variant; its step 4 uses the same maximizing start for both obstructions.",
+          "The Polar Express and the Chebyshev-type scheme vary/design different polynomials on tracked intervals, not arbitrary schedules in this fixed family."
+        ],
+        "reasoning": "Restricting [0,U] to [3/8,u] with U=u preserves the convergence statement. The endpoint and supercritical constant sequences themselves lie in the restricted interval. Other quintic convergence-rate theorems do not imply that cap, but the indexed stronger theorem does.",
+        "searches": [
+          "Resultary b861457db7cd, Finding, Assumptions and Proof steps 1–4",
+          "arXiv:2505.16932v5 theorem 3.3; arXiv:2506.10935v2 proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b861457db7cd",
+        "arXiv:2601.22137v1",
+        "arXiv:2505.16932v5",
+        "arXiv:2506.10935v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PRISM proves a degree-one result and transfers convergence order from sign to polar but does not prove the needed degree-two convergence.",
+          "The indexed stronger result gives convergence and the exact scalar residual polynomial. Its value and first derivative vanish at zero for every coefficient."
+        ],
+        "reasoning": "Uniform boundedness of F_a(r)/r^2 near zero is immediate on the compact coefficient interval, giving the frozen norm estimate after convergence; leaving it unstated does not make it an independent result. Demonstrable coverage is distinct from historical priority.",
+        "searches": [
+          "Compare the frozen eventual bound with Resultary b861457db7cd residual identity and strict contraction proof",
+          "PRISM theorems 1 and 4 and empirical degree-two discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b861457db7cd uses exactly R=I-X^T X in the rectangular case, and the same scalar map F_a(r)=1-(1-r)(1+r/2+ar^2)^2.",
+          "PRISM appendix A.1 gives the same degree-two family and empirical interval; the classical cubic update is not the same family or parameter question."
+        ],
+        "reasoning": "Identifying r=t and a=alpha gives exact equality of the maps, not an analogy between polar algorithms. The distinct indexed theorem's invariant interval and fixed-point and divergent starts are for this same map.",
+        "searches": [
+          "Resultary: adaptive quintic Newton–Schulz, matrix sign and polar factor, sharp universal cap",
+          "arXiv:2601.22137v1 appendix A.1; classical Newton–Schulz and alternative polynomial formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct mirrored Finding explicitly gives 128a^3+496a^2-1026a+27, brackets the same root and states the cap theorem and its failure.",
+          "PRISM's 29/20 is an empirical choice, not a table entry or an exact threshold."
+        ],
+        "reasoning": "The exact number is already indexed as the sharp boundary of the same iteration on a larger interval, not merely as an unrelated root or coincident numerical value.",
+        "searches": [
+          "Resultary: cubic coefficient cap, adaptive quintic, 1.47222926097203",
+          "PRISM sections 4.1–4.2 and appendix A.1"
+        ]
+      },
+      "rationale": "The distinct mirrored adaptive-quintic matrix-sign/polar theorem supplies the same exact coefficient frontier, arbitrary switching guarantee, and sharp counterexamples for a strictly broader coefficient interval. Its exact residual map also implies the quadratic estimate by one local expansion. The narrower frozen theorem therefore adds no distinct mathematical claim over current indexed coverage. The matching entry is later-dated; this is not a finding of earlier priority, dependence, or lack of independent derivation. PRISM itself does not cover the frontier.",
+      "residual_risks": [
+        "The two indexed formulations' discovery and dissemination history was not established; the catalogue dates do not establish dependence or priority.",
+        "An older equivalent scalar-dynamics result outside the inspected literature could exist; the FAIL relies on demonstrated current coverage, not on that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed record; subsumes the material frozen claim, without resolving priority",
+          "evidence": [
+            "Rectangular polar normalization and residual match; broader interval [0,U]; strict residual contraction; identical critical factorization and wrong-fixed-point and escape mechanisms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-universal-coefficient-frontier-for-adaptive-quintic-matrix--b861457db7cd/RESULT.md",
+          "material_read": "Mirrored Finding, Assumptions, Proof steps 1–4 (offsets 0 and 3436), and relationship/limitations (offset 6500)",
+          "method": "Resultary lookup and direct local-mirror passage inspection",
+          "title": "Sharp universal coefficient frontier for adaptive quintic matrix-sign and polar iterations",
+          "trigger": "Exact same sharp cubic and potentially stronger scheduling interval"
+        },
+        {
+          "assessment": "Exact family and empirical subcritical cap; no proved quintic frontier in these statements",
+          "evidence": [
+            "Appendix A.1 uses 1+t/2+alpha t^2 and [3/8,29/20]; theorem 1 treats d=1 and theorem 4 transfers order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.22137v1",
+          "material_read": "PDF pp. 7–9, sections 4.1–4.2, theorems 1 and 4; pp. 16–17, appendix A.1 (offsets 30000, 34400, 38900, 63500–68689)",
+          "method": "OA primary passage inspection",
+          "title": "PRISM: Distribution-free Adaptive Computation of Matrix Functions for Accelerating Neural Network Training",
+          "trigger": "Motivating exact polynomial and empirical cap"
+        },
+        {
+          "assessment": "Different selected-polynomial design theorem",
+          "evidence": [
+            "Degree-3/5 rates for minimax polynomial compositions on prescribed spectral intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.16932v5",
+          "material_read": "PDF p. 6, section 3.1 theorem 3.3, offsets 25000–26759",
+          "method": "OA primary passage inspection",
+          "title": "The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm",
+          "trigger": "Broader odd-polynomial polar convergence candidate"
+        },
+        {
+          "assessment": "Different polynomial selection and interval update",
+          "evidence": [
+            "Quadratic convergence for a selected Chebyshev-type construction, not for every scalar coefficient schedule in the frozen polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.10935v2",
+          "material_read": "PDF p. 4, proposition 3.4, offset 22962",
+          "method": "OA primary passage inspection",
+          "title": "Accelerating Newton–Schulz Iteration for Orthogonalization via Chebyshev-type Polynomials",
+          "trigger": "Another adaptive polar convergence scheme"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result the exact cap is useful: it certifies every schedule in a previously empirical operating range and explains failure at the boundary rather than just improving a constant. It is not evidence of finite-precision stability or failure of a specific selector. That usefulness does not add distinct content over the broader indexed theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

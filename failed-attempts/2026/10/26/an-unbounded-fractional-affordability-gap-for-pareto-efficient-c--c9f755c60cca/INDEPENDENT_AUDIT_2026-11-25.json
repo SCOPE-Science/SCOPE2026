@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:47.717019Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Becker–Greger–Peters Definition 3.1 uses the stated assignment constraints and rejects core+ exactly for Y>0 and Y≥qZ. The load is this record's statistic derived from the constraints, not their named statistic. The guardian cannot strictly improve, and each ordinary voter in a blocking coalition requires its own incumbent and the challenger. A coalition of s therefore requires at least s+1 candidates and cannot afford them at q=(k+1)/k. Only W preserves the guardian's utility in a size-k replacement, proving Pareto efficiency. In any fractional proposal the guardian has y_g=0 from the winner bounds; for ordinary voters 2y_i≤z_{w_i}+z_a. Summing gives 2Y≤kZ, with Z>0 whenever Y>0. The witness z_a=1, y_i=1/2 and x_{ia}=1, with the other coordinates zero, satisfies the bounds for every k≥1 and attains k/(2q). This is ≥1 exactly for k≥3, and the stated additive asymptotic follows by division. The finite checker was read, not executed; its integral enumeration excludes the harmless empty proposal and cannot replace the all-k argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary finding treats arbitrary private-group size r, and for r=1 gives exactly the frozen committee among the common-candidate exclusions. Teh credits Brill–Peters for an older core versus EJR+ example. Berker et al. give Droop-core versus priceability examples."
+        ],
+        "reasoning": "The older qualitative examples are not by themselves unbounded quantitative separations. The earlier larger Resultary family does give core and Pareto efficiency with failure of core+ in this very subcase. Its reserve inequality supplies the quantitative starting point not found in the other examples.",
+        "searches": [
+          "ordinary core Pareto efficient committee fails fractional core+ Lindahl priceability explicit example",
+          "Resultary 104774c4c4ec",
+          "arXiv:2608.11500v1 §5.2 Example 5.2; arXiv:2512.16895v1 §5 Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64; VERIFICATION.md; verify.py",
+        "Resultary 104774c4c4ec Finding and proofs of ordinary core and reserve bound",
+        "arXiv:2609.11912v1 §3; arXiv:2608.11500v1 Example 5.2; arXiv:2608.27605v1 §4.2; arXiv:2512.16895v1 §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Resultary proof forces each challenger's supporter reserve to be at least 1/(s_i+1); at r=1 each s_i=1. The published price-of-deviation proof bounds any normalized assignment using prices, and the earlier addition-score statistic provides that same total k/2."
+        ],
+        "reasoning": "This is not merely a coincident ratio. When a is the only loser, a non-supporter has y_i=0; for each supporter, (u_i(W)+1)y_i≤Z since all approved assignments are individually bounded by their candidate weights. Summing yields Y/Z≤Δ_W^+(a), with equality using only a and y_i=1/(u_i(W)+1) among its supporters. Hence converting the prior challenger reserve calculation to the exact assignment load is routine in this regime. Dividing by q gives the reported factor; taking the limit or solving the integer threshold adds no independent content.",
+        "searches": [
+          "arXiv:2609.11912v1 §3 Definition 3.1 and Theorem 3.3 proof; Resultary 104774c4c4ec offsets 3988–6142",
+          "arXiv:2608.27605v1 §4.2 Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becker–Greger–Peters Theorem 3.3 uses winner payments and reserves as a dual characterization of assignment feasibility, and its proof gives a bound on assignment load by the maximum price across all candidates. In the earlier Resultary election take private-group size r=1 and omit the single common candidate; the ballots are identical after relabelling."
+        ],
+        "reasoning": "For a payment arrangement with reserve ρ_i and winner payments p_iw≤ρ_i, ρ_i+∑_w p_iw=1, the cost of a fractional assignment to i at winner prices p_iw and loser prices ρ_i is at least y_i by the winner bounds. Thus Y/Z is at most the largest aggregate price. Pay 1/2 from each ordinary voter to its private winner, leaving reserve 1/2; let the guardian pay nothing and keep reserve 1. Aggregate prices are k/2 for the sole loser and 1/2 for each winner. The earlier lower bound k/2 for the challenger is thus attained on the price side, and the challenger's singleton assignment attains it on the assignment side. The guardian need not spend its budget: partial spending is allowed in the published payment definition.",
+        "searches": [
+          "exact unbounded fractional affordability load core+ Pareto-efficient committee k^2/(2(k+1)) guardian challenger",
+          "core+ approval-based committee fractional assignment affordability load Becker Greger Peters",
+          "arXiv:2609.11912v1 §3 and Resultary 104774c4c4ec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier local record states the bound for arbitrary k in its proof, not a finite numerical table. Gölz–Yaghoubizade define Δ_W^+(a)=∑_{i:a∈A_i}1/(u_i(W)+1), which evaluates here to k/2."
+        ],
+        "reasoning": "A finite committee census would not decide an all-k identity. The relevant exact analogue is an indexed parametric formula on the identical family, plus its dual interpretation, not equality between unrelated one-off numerical values.",
+        "searches": [
+          "Resultary 104774c4c4ec identical r=1 parameters and k/2 reserve load",
+          "arXiv:2608.27605v1 §4.2 candidate-addition statistic"
+        ]
+      },
+      "rationale": "Resultary 104774c4c4ec already contains this same election and committee at r=1, the Pareto/core/core+ separation for k≥3, and the k/2 lower bound on the challenger's reserve load. The previous work does not literally name the assignment-side maximum. But in this subcase the published payment argument gives the exact matching upper bound with a direct payment choice, while the one-loser assignment attains the known addition score k/2. Thus the quantitative claim is covered as a mechanical implication, not as a verbatim prior formula for the assignment-side maximum. The two smaller k values and the normalization do not supply a distinct substantive result.",
+      "residual_risks": [
+        "General searches were bounded; some produced no results. The verdict rests on demonstrated coverage and the exact one-loser reduction, not on an assertion of complete historical priority or on search misses. The earlier Resultary passage does not name the same assignment-side statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions match. The dual price-of-deviation bound is prior and converts the earlier matching family to this load.",
+          "evidence": "The system is homogeneous and can be normalized to Y=1. The payment proof bounds each voter's fractional assignment cost below by y_i; winners are allowed to be underfunded under the payment-system definition.",
+          "identifier_or_url": "https://arxiv.org/html/2609.11912v1",
+          "material_read": "§3 Definition 3.1, equations (2)–(3) and Theorem 3.3 with proof, OA offsets 10800–19153; Remark 3.4 around 20444",
+          "method": "OA HTML bounded passages",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Exact assignment normalization and whether the prior dual reserve calculation implies the claimed load"
+        },
+        {
+          "assessment": "Material prior coverage of same family and same k/2 challenger reserve calculation, not a literal statement of the assignment-side maximum",
+          "evidence": "For committees excluding c, the guardian has utility k. Core exclusion test depends on whether two ordinary voters are unrepresented. The proof derives ρ_i≥1/(s_i+1) and ∑ρ_i≥k/2>q for k≥3. At r=1 W includes every private candidate, so every s_i=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-asymptotically-vanishing-fractional-core-share-among-pareto-e--104774c4c4ec/RESULT.md",
+          "material_read": "Finding and setup; core and reserve proofs, OA offsets 3988–6142",
+          "method": "Local Resultary mirror",
+          "title": "An asymptotically vanishing fractional-core share among Pareto-efficient committees",
+          "trigger": "Same guardian/common-candidate construction with private sets, including the r=1 subcase"
+        },
+        {
+          "assessment": "Older qualitative precedent, not the same quantified family",
+          "evidence": "Two voters and two seats with ballots {a,b} and {a,c}, W={b,c}; the example is core-stable, violates EJR+ at level two, and is credited to Brill–Peters. Its assignment load is 1 under the later definition.",
+          "identifier_or_url": "arXiv:2608.11500v1",
+          "material_read": "§5.2 Example 5.2, OA offsets 48451–50837",
+          "method": "OA bounded passage",
+          "title": "Strengthening Full Justified Representation: Efficient Verification and Computation",
+          "trigger": "Known separation of core from stronger representation with one common challenger"
+        },
+        {
+          "assessment": "Exact addition-score input, not a direct assertion of the frozen assignment maximum",
+          "evidence": "The one-candidate harmonic increment is the sum of 1/(u_i(W)+1) over its supporters, equal to k/2 here.",
+          "identifier_or_url": "arXiv:2608.27605v1",
+          "material_read": "§4.2 around Theorem 4.2, OA offsets 40000 and 41456",
+          "method": "OA bounded passages",
+          "title": "Approval-Based Apportionment: Like Portioning, Approximately like Committee Voting",
+          "trigger": "Possible equivalent quantitative PAV addition score or priceability implication"
+        },
+        {
+          "assessment": "Other qualitative separations under Droop-core stability",
+          "evidence": "Reports a Droop-core committee not Lindahl-priceable and another not weakly priceable. The compared passage does not give the assigned normalized load.",
+          "identifier_or_url": "arXiv:2512.16895v1",
+          "material_read": "§5 Theorem 6, OA offset 47801 onward",
+          "method": "OA bounded passage",
+          "title": "Berker et al., approval committee core and priceability results",
+          "trigger": "Prior stronger-property counterexamples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying fractional objections to a Pareto-efficient core committee is a motivated question. In this exact case, however, the election, committee and qualitative gap are covered by a prior larger family, and the exact maximum is the routine one-loser evaluation of its challenger reserve/addition score divided by q. There is no surviving non-mechanical bound or new witness class in the frozen scope. A fresh computation or clearer naming would not repair this.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

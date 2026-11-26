@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact claim
+# Independent mathematical audit
 
-The proof is complete and self-contained for all real \(t>0\): the two symmetric volume slicing integrals \(\int_0^1 (1-s)^4\,ds=1/5\) and \(\int_0^1 (1-s)^2\,ds=1/3\) give the volume expectation, and the two four-facet classes give the surface expectation. The barycentric triangle formula follows from the Dirichlet \((1,1,1)\) simplex moments, or by direct integration. Subtraction produces the exact sign factor. No finite enumeration is used to infer its universal sign.
+## correctness
 
-A numerical independent check directly integrated all triangle vertex-coordinate second moments, weighted them by their Euclidean areas, and compared them to the slice formula. At \(t=12\) the surface-minus-volume difference is about \(0.24482898996\); at \(t=13\) it is about \(-0.12101978856\); at \(t=\sqrt{161}\) the exact radical factor vanishes. These checks support, but are not substitutes for, the algebraic proof.
+PASS
 
-The minimum-vertex assertion follows directly from antipodal pairs spanning \(\mathbb R^3\), requiring at least three pairs. Only self-review was performed; independent audit and external validation were not performed. The extent of primary literature inspection and remaining priority risks are in the review files.
+Slice y=±ts gives a rectangle with area 4t(1−s)² and mean x²=t²(1−s)²/3, so the volume mean is t²/5. The eight triangular facets comprise four with area t√(t²+1) and barycentric mean t²/6, four with area t√2 and mean t²/2. Their area-weighted difference from the volume mean is t²(9√2−√(t²+1))/[30(√(t²+1)+√2)], proving the exact threshold, equality case and strict example at t=13. Central symmetry gives both centroids zero; exposed base corners and apices give six vertices, while antipodal pairs must span dimension three. Independently triangulated the boundary and coned its triangles to the origin for tetrahedral volume quadrature; the three tested values agree, including surface 33.67898021143849 versus interior 33.8 at t=13 (replay /workspace/branches/independent_checks.js). This is finite corroboration only. The prior-work adjective non-tangential concerns the obstruction regime: K₁ itself has equal facet distances; this does not affect the theorem.
+
+## originality
+
+PASS
+
+Earlier work already gives the qualitative existence of centrally symmetric examples with a quadratic reversal: Lotnikov's n=2 inequality implies a second-moment trace reversal. The surviving distinction is the fixed coordinate quadratic, a sharp crossing in the explicit rectangular bipyramid, and attainment with the minimum six vertices. The strongest prior spatial construction uses a square and two octagonal caps; the closest same-day result is a positive theorem about products of balls. Neither supplies the six-vertex threshold.
+
+## value
+
+PASS
+
+The construction reaches the smallest possible centrally symmetric spatial vertex count with a simple convex test and an exact sign crossing. Unlike merely proving that the comparison can fail, it tests sharp complexity and reproduces the obstruction with an integer-coordinate example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

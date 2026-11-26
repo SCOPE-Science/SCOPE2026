@@ -1,15 +1,21 @@
-# Review of the joint de Bruijn balance spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite state space is exhaustively covered: every Euler tour fixes the unique all-zero edge and induces one of the \(2^{16}\) local pairings. Independently, unused-edge depth-first search generates exactly the same \(2048\) rooted cycles. Direct enumeration of every circular interval agrees with the prefix-walk discrepancy formula for each cycle; independent Parikh-set and sliding-extrema calculations agree on the peak Abelian complexity for each. The eight-cell histogram and the reversal/complementation orbit counts are direct integer tallies with complete coverage and consistent totals. `verify.py` implements and reruns the proof without third-party dependencies.
+PASS
 
-## Originality — PASS against checked sources, subject to residual risk
+A fresh exact census independently reproduced the eight joint cells, all symmetry orbit columns, both marginals, both means (839/128 and 445/64) and each lexicographically least CSV witness. For replay, run python3 /tmp/opencode/independent_order5_census.py: prescribe 00000 as the first departure from vertex 0000, then assign the order of outgoing edges independently at the 15 other four-bit vertices. Each rooted Euler tour uniquely determines these orders, and a walk consuming the next available prescribed edge is completely determined. Reject early stops; a 32-step walk uses every distinct edge and closes by conservation. The 32768 assignments yield exactly 2048 distinct normalized words, each checked to have all 32 cyclic factors of length five. Count ones with prefix differences on the doubled word for every start and length 1 through 32; then D is the largest |2k-length| and P the largest set size of k. Generate the four reversal/complement candidates and normalize each at its unique zero factor, counting distinct orbits only. This yields 32 size-two and 496 size-four orbits and no other size. Consecutive fixed-length counts differ by at most one, establishing the equivalent max-minus-min formula. The census is exhaustive for binary order five, not a higher-order theorem or an external attestation. The frozen verify.py and spectrum.csv were inspected, not executed as code.
 
-Richomme–Saari–Zamboni (arXiv:0911.2914v1) provides general Abelian-complexity theory rather than de Bruijn-specific joint counts. Gabrić–Sawada (arXiv:2005.01638) examines selected de Bruijn constructions and lists whole-family discrepancy distributions as future work; its tables do not determine the eight joint counts. Álvarez–Becher–Mereb–Pajor–Soto (arXiv:2407.17367v1) gives the all-order minimum discrepancy but not the number attaining it or the Abelian-peak joint spectrum. The debruijnsequence.org properties tables concern selected constructions. Semantic record searches and accessible historical claim comparisons revealed no dominating equivalent statement. Residual risk: earlier unindexed exhaustive computations or unpublished supplements could already report some entries; no external historical uniqueness certificate is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete finite classification directly motivated by prior discrepancy research, which explicitly asks for distributions over all de Bruijn cycles. Pairing discrepancy with peak Abelian complexity quantifies a distinct aspect of local balance and reveals that peak Abelian complexity does not determine circular discrepancy. Exact extremal multiplicities and symmetry-orbit frequencies provide a reproducible base case for understanding population distributions beyond selected constructions. The result is valuable as a natural finite benchmark, without pretending to resolve the higher-order problem.
+The supported distinct contribution is the complete joint D versus peak circular Parikh-range classification, including how the nonextremal discrepancy layers split and how their symmetry orbits split. The full discrepancy marginal and the minimum-layer orbit counts are already in 2c8828a3eb45; even P=6 on that layer follows from 6<=P<=D+1. Those facts and the least minimum-discrepancy witness are not new. The closest same-day Abelian census counts different words within its superficially identical aggregate row. Inspected catalogue and literature do not cover the remaining joint classification; this is a bounded comparison, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The pair measures two independently motivated kinds of circular balance: largest absolute excess over all windows, and concentration of symbol counts among windows of the same length. Order five is a complete nontrivial benchmark beyond individual construction examples. In particular identical peak P=6 allows discrepancies 5, 6, and 7, and the D=7 population splits over three peak values. Quantifying these splits and their symmetry decomposition gives exact test data for proposed dependences and population models; the already-known marginal alone would not give this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

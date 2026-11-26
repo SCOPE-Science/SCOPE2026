@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:35.560181Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary staircase theorem identifies A(t) uniquely for irrational t and gives ordered rational plateaux including endpoints. The series jump can also be checked directly: on approach from below to reduced p/q, floor(kt) drops by one only for q dividing k, moving the contribution at k=lq−1 to k=lq with common weight μ^(lp−1); summing the resulting geometric difference gives the frozen jump. For fixed [u,v] strictly inside (0,r), θ=λ max(1,μ^v)<1 even with an expanding right branch. This majorizes each summand by θ^k. For μ<1, telescoping μ^floor(kt) gives denominator ≥1−λ and truncation only increases it; for μ≥1 the denominator is at least one. This bound and a finite upper bound give the required Lipschitz upper estimate and positive exponential lower estimate on plateau widths. The truncation through k=N is constant between rational thresholds of denominator ≤N+1; O(N²) cells, each with image variation at most one Lipschitz tail, give the upper cover. Möbius inversion over the wedge u<p/q<v gives 3(v−u)Q²/π²+O(Q log Q). For Q=floor(log(1/ε)/(2|log s_*|)), each of these plateaux eventually exceeds ε in length; an irrational image between consecutive plateaux gives M(Q)−1 pairwise ε-separated points. This proves the matching lower bound, including the specified length convention. The example's S values at 1/2 and its left limit are 2 and 1, yielding [2/3,7/10]. Zero Hausdorff dimension on the full open parameter range follows by countable exhaustion in rotation number, not a global box bound at the endpoint. The recorded finite algebra checks are supporting, not the source of the two asymptotic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Öberg construct O(N²) components with exponentially small tails and prove Hausdorff gauge bounds for fixed uniform contraction.",
+          "Gaivão proves a zero Hausdorff dimension result for an exceptional parameter set of piecewise λ-affine contractions.",
+          "GLN give the general two-slope plateau endpoints and inverse, rather than a matching upper and lower covering estimate."
+        ],
+        "reasoning": "A dimension-zero statement, or even an upper Hausdorff gauge bound, does not furnish matching equal-length covers and packing. The single-slope results do not dominate the expanding right-branch scope.",
+        "searches": [
+          "Janson–Öberg arXiv:1709.06398 Theorems 6.5, 7.1",
+          "Gaivão arXiv:2211.14140 Theorem A",
+          "GLN arXiv:2212.10944 Theorem 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2212.10944, 1907.08655, 1709.06398 and 2211.14140",
+        "Resultary 23494208d78d and 71e4f5a939a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For μ=1 the plateau width (1−λ)²λ^(q−1)/(1−λ^q) yields log² many large gaps by Farey counting; the existing O(N²) cover with O(Nλ^N) tail gives the upper half. The μ=1 covering order is thus a short consequence, even though it is not printed as such.",
+          "For the general case the new estimate requires uniform control of the Möbius denominators, a compact-window exponential tail using average rather than branchwise contraction, and a Farey packing at a common physical scale."
+        ],
+        "reasoning": "Credit the actual implication in the single-slope case. The general prior staircase gives exact pointwise information, but turning it into the two-sided covering law through an expanding branch needs both the new uniform tail argument and gap separation count.",
+        "searches": [
+          "Janson–Öberg plateau formula combined with the proof of Theorem 7.1",
+          "GLN exact staircase plus admissibility and finite symbolic thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GLN's unique inverse for irrationals and the rational plateau formula apply to the exact frozen family.",
+          "Laurent–Nogueira give the inverse in normalized parameters, including the contracted-rotation specialization.",
+          "Resultary 23494208d78d and 71e4f5a939a6 count covers of a spatial attractor at one fixed irrational rotation, not a collection of translation parameters."
+        ],
+        "reasoning": "Reparameterizing a translation family can leave this covering order unchanged, but taking the attractor of a single map is a different operation and its covering exponent is not the parameter-set exponent.",
+        "searches": [
+          "Resultary: logarithmic covering of irrational rotation parameters; two-slope parameter staircase; Farey gap covering; exceptional translation set vs attractor",
+          "GLN arXiv:2212.10944 Definition 5.1, Theorem 5.2 and Proposition 7.1",
+          "Laurent–Nogueira arXiv:1907.08655 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tabulable prior invariant for the same staircase is plateau width indexed by p/q. The exact or asymptotically exact covering counts in the two Resultary hits are for attractors, and one is only at the specified discrete scales."
+        ],
+        "reasoning": "Individual widths are necessary input, not a table for the minimal covering number of the remaining irrational parameter set. No matched table for that cover over the stated family was found in the bounded searches.",
+        "searches": [
+          "Resultary 23494208d78d and 71e4f5a939a6, both exact Finding passages",
+          "Janson–Öberg equations (6.30)–(6.33); GLN Theorem 5.2 rational plateau formula"
+        ]
+      },
+      "rationale": "The single-slope subcase and basic zero-dimension consequences have prior coverage; the supported distinct claim is the matching uniform-scale bound throughout the admissible two-slope family on compact interior windows, including the expanding branch. The primary inverse-staircase formulas are prior; separate counting and uniform estimates turn those formulas into the sharp quantitative law. No covering theorem matching that full scope was identified in the inspected passages.",
+      "residual_risks": [
+        "Unindexed or differently formulated two-slope quantitative results may exist. The basic staircase, the single-slope covering order and prior zero-dimension results are not claimed as distinct contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational full-scope prior formulas",
+          "evidence": "Unique irrational inverse and two endpoints for rational p/q, with the stated exponential rational-series jump; monotonicity and continuity at irrationals.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.10944",
+          "material_read": "Def. 5.1 and Thm. 5.2, PDF p. 8 near offsets 21947 and 23208; Prop. 7.1, p. 11 near 31657",
+          "method": "OA primary PDF text",
+          "title": "Rotation number of 2-interval piecewise affine maps",
+          "trigger": "Exact same admissible family and plateau theorem"
+        },
+        {
+          "assessment": "Prior inverse and rational intervals, no matching covering theorem in this passage",
+          "evidence": "The inverse and plateau conclusions are specified in normalized coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.08655",
+          "material_read": "Theorem 1, PDF p. 3 near offset 8018",
+          "method": "OA primary PDF text",
+          "title": "Dynamics of 2-interval piecewise affine maps and Hecke–Mahler series",
+          "trigger": "Normalized formulation of counterpart staircase"
+        },
+        {
+          "assessment": "Implies the single-slope covering order after counting rational gaps",
+          "evidence": "Exact single-slope jumps, exponentially short complementary components and Hausdorff gauge bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.06398",
+          "material_read": "Theorem 6.5 and (6.30)–(6.33), PDF p. 22 near offset 70613; Theorem 7.1 proof, p. 24 near 77009",
+          "method": "OA primary PDF text",
+          "title": "A piecewise contractive dynamical system and election methods",
+          "trigger": "Closest logarithmic covering and gauge argument"
+        },
+        {
+          "assessment": "Related zero-dimension result for contracting maps",
+          "evidence": "The exceptional translations make the map not asymptotically periodic; theorem gives Hausdorff dimension zero, not this covering count.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.14140",
+          "material_read": "Exceptional-set definition p. 1 near offset 673, Theorem A p. 2 near 3715",
+          "method": "OA primary PDF text",
+          "title": "Hausdorff dimension of the exceptional set of interval piecewise affine contractions",
+          "trigger": "Potentially stronger quantitative exceptional set theorem"
+        },
+        {
+          "assessment": "Cover spatial attractors; neither supplies the frozen parameter-set law",
+          "evidence": "The former gives log(1/ε)/χ+O(1) with contraction; the latter gives n+1 at a prescribed sequence of scales for the fixed attractor.",
+          "identifier_or_url": "Resultary 23494208d78d and 71e4f5a939a6",
+          "material_read": "Both RESULT.md Findings and scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rotation-weighted logarithmic covering law for two-slope contractions; Exact logarithmic covering and positive critical gauge for irrational attractors",
+          "trigger": "Closest exact catalogue covering laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A matching equal-scale count gives quantitative resolution of a parameter set that a dimension-zero assertion cannot distinguish. The bound works when the right branch expands, where uniformly contractive spatial arguments do not apply, and isolates how low-denominator plateaux force the sharp number of separated translation parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

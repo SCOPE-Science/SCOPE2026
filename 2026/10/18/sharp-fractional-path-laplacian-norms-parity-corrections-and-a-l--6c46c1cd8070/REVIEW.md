@@ -1,15 +1,21 @@
-# Review: sharp fractional path-Laplacian endpoint norms
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge2\) and real \(0<\alpha<1\), Bernstein subordination makes the off-diagonal entries strictly negative while each row sums to zero, so the endpoint norm is twice the largest diagonal. The doubled-cycle reflection formula expresses that diagonal through an explicit beta integral; its strict monotonicity locates exactly one central maximizer for odd paths and two for even paths. Gamma-ratio asymptotics, carefully paired image shifts, and summable remainders prove distinct \(n^{-3-2\alpha}\) parity coefficients. Uniform gamma-ratio control near zero proves the \(\alpha\log n\) crossover, including infinite limit parameter. The 2,775 executable finite checks support, but do not replace, these analytic arguments.
+## correctness
 
-## Originality — PASS within examined evidence
-Riascos–Mateos provide spectral fractional graph operators and gamma lattice coefficients, Zhang–Lin–Yang give a general finite-graph definition and strict positive off-diagonal fractional weights, while Grubb concerns continuous spectral Neumann regularity and Estrada et al. concern infinite-graph \(k\)-path Laplacians. Their relevant inspected statements do not determine the finite reflecting path endpoint-maximizing vertices, the sharp parity-dependent finite-size correction, or the zero-order critical logarithmic limit. Searches also tested formulations using fractional degrees, reflecting image kernels, spectral fractional path powers and \(\ell^\infty\) operator norms. The source literature does supply basic identities used here; these are not presented as new. An earlier equivalent statement expressed as a Neumann image or fractional-degree sum remains possible.
+PASS
 
-## Value — PASS
-Sharp operator norms quantify the worst amplification of bounded data by a natural discrete spectral fractional operator. Strict center localization and the exact positive finite-volume deficit identify where and how an interval differs from its infinite-volume counterpart. The first boundary correction distinguishes odd and even paths despite their common leading limit, while the \(1/\log n\) exponent scale exposes a genuinely noncommuting zero-order/thermodynamic regime. These are structural effects across all sizes and orders, not isolated finite computations.
+For 0<α<1 heat subordination makes every off-diagonal strictly negative, so zero row sum gives twice the diagonal and symmetry identifies both endpoint norms. Extending a path vector to a 2n-cycle by reflection across the half-integer endpoints intertwines the two Laplacians and their spectral powers. Periodizing the absolutely summable cycle-symbol coefficients gives the two image terms. In the beta-integral representation, t^d+t^(2n−d) decreases strictly for 1≤d≤n and 0<t<1; the negative prefactor therefore selects exactly the stated central vertex or pair, including n=2. The DCT and the odd half-power sine sum independently give the finite and cotangent formulas. For the gamma ratio the two shifts are a=−α and 1−a; Bernoulli reflection eliminates odd inverse powers in its logarithm, and the first surviving coefficient is −B₃(−α)/3 = α(α+1)(2α+1)/6. For even n the odd multiples of n shift in symmetric pairs by ±1, contributing s(s+1) times the odd-integer zeta sum in the next term, while the even multiples stay unchanged. Compact-shift Stirling gives a uniform leading approximation near α=0 with a remainder summed against k^(−3−2α), bounded uniformly. Thus the pole residue and κ_α/α→1 yield the crossover, including λ=∞. The uploaded checker was inspected, not executed. A bounded independent direct cosine-sum check found the correct signs and unique central set on n=2,…,10 at three orders, and sampled both parity corrections and crossover; those checks do not establish the universal assertions. The package reports 2,775 finite checks and no formal or expert attestation.
 
-## Limits and comparison
-The claim neither establishes priority over inaccessible historical sources nor concerns normalized/weighted general graph Laplacians. The full-line gamma kernel, positivity of fractional edge weights, and classical gamma/cotangent identities are known inputs. Verified sources include DOI 10.1103/PhysRevE.90.032809 and arXiv:1412.3744, 1604.00555, 2403.19987. The last paper addresses arbitrary finite graphs at the operator-definition level, not the path-specific sharp asymptotics. The numerical checker is not an infinite proof or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The infinite-lattice gamma coefficients and endpoint norm, finite-ring spectral formula, and finite-graph sign identity are prior. The supported distinction is the reflecting finite-path central localization together with its parity-resolved norm asymptotics and the joint order-zero crossover. Neither the inspected whole-lattice result nor the prior ring and finite-graph formulas provide that combination; obtaining it requires proving strict center selection and controlling the image correction as the exponent tends to zero.
+
+## value
+
+PASS
+
+For the canonical finite discrete domain with reflecting endpoints this identifies the sharp endpoint operator norm and exactly the maximizing vertices, rather than merely bounding the norm by its whole-line limit. The correction distinguishes odd and even paths and isolates an order-versus-length scale invisible in a fixed-order estimate. The exact formulas can be used directly for finite-n norm evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

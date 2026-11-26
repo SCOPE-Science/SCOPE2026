@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two ETDRK2 stages simplify to the exact scalar stability function in RESULT.md. The inequality \(|R_\rho(x)|<1\) is reconstructed independently from \(1-R_\rho=(1+\rho)(1-e^{-x})(1-\rho J)\), where \(0<J<1\), and a direct strict lower bound. A strictly increasing factor of \(R_\rho'\) proves there is exactly one minimum. The explicit small-ratio negative witness and positive endpoint limits force exactly two simple crossings. Balance at the crossing/minimum equations gives the three sharp scales and leading negative depth. All quantifiers are small-ratio asymptotic or explicitly bounded; no claim about the global transition ratio is made. The standalone code passed 261 checks; those tests are supplementary, not infinite certificates.
+## correctness
 
-## Originality
-PASS on available evidence, with a residual historical-priority risk. The closely matching 2023 exponential-integrator paper proves unconditional scalar linear stability (Theorem 2.4), and this fact is *excluded* from the novelty claim. The 2026 motivating paper defines the precise scheme and derives general sufficient dissipativity restrictions. The contribution is a reentrant **sign** failure, its exactly two crossings, singular scales and minimum depth; these do not follow from the earlier \(|R|\le1\) result or the supplied dissipativity condition. Searches of related published numerical-positivity findings and source records did not reveal the same asymptotic classification, but missed sources remain possible.
+PASS
 
-## Mathematical value
-PASS. Positivity is a distinct structural requirement in numerical integration of dissipative scalar states, not equivalent to convergence or energy decrease. The example identifies a genuine misleading-safety regime of a standard order-two exponential integrator, proves sign failure disappears again at enormous steps, and quantifies how the danger window widens and its severity changes as the split improves. The three disparate sharp asymptotic scales provide design/diagnostic information unavailable from a mere negative example. Scope is scalar constant-coefficient splitting; extension to matrices and nonlinear equations is unproved.
+With q=e^(-x) and s=1-q, eliminating the stage gives R=q-rho s+rho(1+rho)s(1-s/x), the stated multiplier. For x>0, 0<s<min(x,1), so 1-R=(1+rho)s[1-rho(1-s/x)]>0 and R>-rho(1+rho)>-1 in the claimed contraction range. The derivative divided by q is -(1-rho^2)+rho(1+rho)[(2 sinh(x/2)/x)^2-2s/x]; this increases strictly from -(1+rho) to infinity since s/x decreases and the hyperbolic ratio increases. The unique minimum and positive endpoint limits, with R(2L)<0 by 4rho L<(1-rho^2)^2 for rho<=1/100, give two simple crossings and one bounded negative interval. At (1±eta)L, for 0<eta<1 fixed, the exponential and rho/x balances bracket the lower crossing, and the exponential and rho/x^2 balances bracket the stationary point. Thus both divided by L tend to 1. The respective exact equations yield e^(-x_-)=rho/x_-(1+o(1)) and e^(-x_m)=rho/x_m^2(1+o(1)); logarithms give coefficients 1 and 2 on log L with o(1) errors. For x=k/rho the scaled multiplier tends to 1-1/k, bracketing the upper crossing; there the exponential is superalgebraically small and the exact zero gives x_+=(1+rho)/rho+o(1). At x_m the term -rho/x_m dominates the other terms, giving the stated depth. The inspected checker is a numerical diagnostic, not the basis for these universal conclusions.
 
-## Closest literature and limitations
-Quan–Zheng–Zhou, arXiv:2610.11532v1, Section 4.1; Caliari–Cassini–Einkemmer–Ostermann, arXiv:2303.15861, Section 2 / Theorem 2.4; and Hu–Shu, arXiv:1807.03728, on a different positivity-preserving construction. The 2023 work already covers scalar unconditional stability, and the present analysis does not replace it. No finite evidence certifies mathematical uniqueness or priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the bounded two-simple-zero sign-loss window with its unique minimum and sharp small-ratio locations and depth. The stage method, exact stability function, and unconditional linear stability (in a broader split range) are prior, not claimed as new. The strongest inspected positivity analogues involve different maps or different stabilizations and do not supply this sign theorem.
+
+## value
+
+PASS
+
+Unconditional quadratic contraction masks a structural failure of positivity even for scalar decay. Proving loss and subsequent recovery, and distinguishing the two logarithmic scales from the reciprocal recovery scale, identifies where the failure occurs and how weak but persistent it is as the explicitly treated split vanishes. The value is in this sharp failure mechanism and regime, not a restatement of known stability or a claim for nonlinear or matrix problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

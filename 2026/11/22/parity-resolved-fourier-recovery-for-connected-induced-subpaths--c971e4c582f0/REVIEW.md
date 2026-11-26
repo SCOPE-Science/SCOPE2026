@@ -1,15 +1,21 @@
-# Review of parity-resolved Fourier recovery for connected induced subpaths
+# Independent mathematical audit
 
-## Correctness
-PASS. For each character, prefix parities turn every interval sign into a product of two boundary signs; splitting endpoints by parity gives the two stated quadratic forms. The bijection between frequencies and anchored sign patterns supplies exact binomial multiplicities. Parity and size bounds show that every sum-of-two-squares representation at the permitted sizes gives a realizable vanishing frequency. The complementary odd-size classification follows from the product formula. The independent direct interval enumeration agrees with the formula at every frequency through thirteen vertices; the arithmetic classification was checked through 999 vertices. These calculations support rather than substitute for proof.
+## correctness
 
-## Originality
-PASS under a bounded literature and mathematical-record comparison. The exact integer-rank law is distinguished from general subtree counting and from weighted generating functions, which do determine the same signed sums by specialization but do not state the arithmetic support characterization, its all-order nullity formulas, or the paired odd-order contrast. Székely–Wang (2005) and Yan–Yeh (2006) are the closest primary sources. Related published mathematical findings on path maximal independent sets and connected subtrees of subdivided stars concern different support families. The possibility that the characterization has previously been extracted from the multivariate generating function is a real residual risk, not excluded by search.
+PASS
 
-## Value
-PASS. Even-order connected induced subpaths are a canonical parity restriction of an established graph invariant. Their full Fourier recoverability is governed by arithmetic prime-factor conditions on the path order rather than the simpler parity of the family size. The exact nullity census and contrasting odd-order invertibility law give a complete natural two-family classification, useful for testing parity-filtered subtree recovery and for connecting finite harmonic analysis with the two-square theorem.
+The operators act on labelled paths for n≥2, with parity counted in vertices and with no convolution normalization. An interval with endpoints i<j in {0,…,n} has sign ε_iε_j for the prefix signs anchored by ε_0=1. Every assignment of the other signs occurs once, since adjacent sign ratios recover the frequency. Even vertex counts use within-parity endpoint pairs, giving ((a−2j)^2+(b−2k)^2−N)/2; odd counts use cross pairs, giving (a−2j)(b−2k). The binomial factors count independent sign choices in the two classes, with only a−1 free even-index signs. Zero indicators thus give both exact nullities, summing across coincident eigenvalues; the real Walsh basis proves the rank result over either scalar field. In the even case a zero implies a sum of two squares. For the converse, mod-four residues of the squares match the parities of a,b up to swapping (none when N≡3), and each magnitude is at most sqrt(N)≤floor(N/2) for N≥6. For N=4 and 5 use (0,2) and (1,2), respectively. Take nonnegative coordinates so the excluded anchored value −a never occurs. In the odd case an even block allows sum zero, including an even anchored block of size two; both blocks are odd exactly when N≡2 mod 4. The classical sum-of-two-squares theorem gives the prime-exponent equivalence. Independent exact sums reproduced the six ranks 4,10,96,226,312,3466. The frozen code was inspected rather than executed.
 
-## Limits
-No general tree classification, arbitrary parity weights, sharp nonzero spectral gap, or external independent check is claimed. General weighted enumeration is prior art, and no novelty is claimed for its elementary interval identity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known interval sum, the Krawtchouk factors, and the unfiltered prefix-sign calculation are credited. The distinct claim is the exact paired recovery classification and nullities for the two vertex-parity restrictions. Neither the unfiltered spectrum and rank nor the general weighted-subtree and Hamming-sphere formulas state that every arithmetic resonance is reachable in the constrained blocks; the reduction and converse give the specific two-square versus modulo-four distinction. This conclusion is confined to the inspected comparisons.
+
+## value
+
+PASS
+
+Vertex parity is a natural filter on connected path subsets. It produces exact, genuinely different recovery diagnostics from the same family: a prime-exponent condition for even orders, a modulus-four condition for odd orders, and neither agrees in general with the unfiltered square criterion. For example, at n=4 the unfiltered operator is invertible while both filtered operators are singular; at n=6 only the odd operator is singular. Exact sizes of the lost Walsh spaces are also available. The value is the complete arithmetic recovery distinction, not rederiving familiar hypercube polynomials or recomputing a few ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:38:13.601157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 35–89; VERIFICATION.md, lines 19–22; check.py, lines 29–133 (inspected only); Amit et al., Proposition 2.2 and equations (2.45), (3.2)."
+      ],
+      "rationale": "The exact coordinate update at move r+1+jd uses thickness F_(d-1+r+jd) and sends length F_(jd+r) to F_((j+1)d+r). The generating function 1/(1-t-t^d) has a unique simple pole of least modulus, at 1/rho_d: equality in the triangle inequality at that modulus forces t to be positive. Thus the length ratio tends to lambda=rho_d^(-d)=1-1/rho_d in (0,1/2). Coupling to the stationary sum of the same innovations plus an independent past gives error e_(m+1) <= q e_m + |a_m-lambda| eventually for one q<1, hence uniformly vanishing error for all coordinates and phases. Each phase and each fixed complete-cycle window of the comparison is a factor of the ergodic iid shift; the coordinates at a fixed phase still use independent streams. A countable test family and finitely many phases give the stated almost-sure time occupation. Positive mass for neighborhoods of the support gives infinitely many completed cycles near each support point, and the uniform error excludes exterior cluster points at all phases. Cylinder separation and cylinder mass 2^(-dj) give the exact local dimension and support dimension. The geometric sum of squared weights gives variance (1-lambda)/(4(1+lambda)); independent later innovations yield the lag factor lambda^h and independent coordinates give zero cross-covariance. The planar case and failure of total-variation convergence follow from the same formulas and nonatomicity.",
+      "residual_risks": [
+        "The source checker’s output is recorded evidence, not an independent execution. The almost-sure, infinite-time claims rest on the proof, not finite diagnostics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutchinson’s separated self-similar-set/measure result supplies the dimension once the comparison law has been identified.",
+          "The random-reshuffling result has a Bernoulli-convolution invariant law for a scalar homogeneous affine optimization iteration, not the time-dependent Fibonacci tiling phase process.",
+          "Full text of Diaconis–Freedman was inaccessible; contracting-iterate methods are credited regardless."
+        ],
+        "reasoning": "Standard Bernoulli-shift and self-similar results cover the stationary ingredients, but not the full model-specific conclusion without the nonhomogeneous comparison and phase analysis.",
+        "searches": [
+          "Hutchinson, Fractals and Self Similarity §§5.2–5.3",
+          "Diaconis–Freedman, Iterated Random Functions, DOI 10.1137/S0036144598338446",
+          "Resultary ec57811b8333, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Amit et al. arXiv:2611.08317v1",
+        "Resultary e2af1a5dfd9a, 579144ea5b18, ec57811b8333",
+        "Hutchinson, §§5.2–5.3",
+        "Diaconis–Freedman (retrieval only); Coates, DOI 10.4171/JFG/170 (landing information only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a fixed time, testing points x_r=-L_r y_r in the nonpositive orthant turns coverage into the joint tail event Y_r>=y_r for all r. Thus sufficiently detailed finite-time coverage formulas determine the one-time law; a marginal law alone does not determine temporal visits.",
+          "The new comparison uses the same innovations in actual and stationary iterations with a deterministic vanishing error, then uses ergodicity at each cyclic phase."
+        ],
+        "reasoning": "The claim that matters is not deduced by reinterpreting covering-time distributions, or by identifying a Cantor dimension. It concerns the whole inhomogeneous path and its time statistics.",
+        "searches": [
+          "Amit et al. Proposition 2.2, Theorem 2.7, Theorem 3.4 and §§4–5",
+          "Resultary comparisons e2af1a5dfd9a, 579144ea5b18 and ec57811b8333"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered covering-time result classifies weak subsequential laws of T(a)-B(a) for lattice targets, not time averages along a growth path.",
+          "The distinct same-day result 579144ea5b18 studies an annealed law of conditional failure probabilities as target distance varies in an annulus, rather than successive normalized rectangle positions. The inspected dates do not establish relative priority.",
+          "Amit et al. §6.5 asks about the associated curve’s geometry, not the position of its bounding rectangle in current side-length units."
+        ],
+        "reasoning": "These same-model observables are genuinely related but not equivalent to almost-sure occupation of normalized positions or the all-phase orbit cluster set. The identical indexed record was excluded as a predecessor.",
+        "searches": [
+          "Resultary: normalized rectangle positions, Cantor occupation, cyclic Fibonacci tilings, centered covering times",
+          "Amit et al., arXiv:2611.08317v1, §§3–5 and 6.5",
+          "Resultary e2af1a5dfd9a and 579144ea5b18, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed same-model results contain exact time-to-cover laws or conditional-failure statistics; the primary paper gives an exact coordinate covering law."
+        ],
+        "reasoning": "An exact catalog could duplicate the marginal statistic but cannot by itself give the pathwise assertion. There is no finite invariant table in the core claim, and the screened exact model results do not give the recurrent cluster set or window occupation.",
+        "searches": [
+          "Resultary normalized-position and recurrent-shape search; assigned hit and distinct same-model results e2af1a5dfd9a, 579144ea5b18",
+          "Amit et al. Theorem 3.4 and the covering-law sections"
+        ]
+      },
+      "rationale": "Supported for the model-specific pathwise occupation law and full recurrent cluster set of normalized rectangle positions, together with the complete-cycle window description. The one-time marginal and the fractal calculations are not credited as stand-alone advances: exact covering laws already encode finite-time marginals and the limiting dimension and covariance use standard methods. No compared result covers the time-occupation and all-cluster-points theorem for this nonhomogeneous cyclic model.",
+      "residual_risks": [
+        "Uninspected random-tiling or contracting-iterate work could give closer coverage; an external search wave did not yield evidence. Inaccessible full texts are not negative evidence.",
+        "The result does not address the curve-shape question in §6.5 of Amit et al.; it concerns only coordinatewise-normalized positions of the rectangle, not aspect ratio or a jointly rescaled shape."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies deterministic indexing, root asymptotics and exact covering information, not the pathwise normalized-position theorem.",
+          "evidence": [
+            "HTML offsets 8950, 15100, 20700, 22500, 29100 and §6.5 near 63000–67964."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08317v1",
+          "material_read": "Proposition 2.2; Theorem 2.7; equations (2.45), (3.2); Theorem 3.4; covering sections and §6.5 geometric questions",
+          "method": "Bounded primary OA HTML passage reads",
+          "title": "Random Fibonacci Tilings",
+          "trigger": "Exact source growth model and potential prior coverage"
+        },
+        {
+          "assessment": "Same weights, different random variable and limit.",
+          "evidence": [
+            "The theorem describes centered first coverage times with an explicit CDF and phase parameters."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-subsequential-covering-time-laws-for-random-fibonacci-t--e2af1a5dfd9a",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local full-text mirror passage",
+          "title": "Complete subsequential covering-time laws for random Fibonacci tilings",
+          "trigger": "Closest same-model indexed limit theorem"
+        },
+        {
+          "assessment": "Not equivalent, with relative ordering unresolved.",
+          "evidence": [
+            "Samples spatial targets in a feasible annulus and studies a conditional first-update failure probability."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-spatial-atomic-to-continuous-threshold-for-random-fibonacci-ti--579144ea5b18",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local full-text mirror passage",
+          "title": "A spatial atomic-to-continuous threshold for random Fibonacci tilings",
+          "trigger": "Distinct same-day overlap"
+        },
+        {
+          "assessment": "Method overlap, different process and parameters.",
+          "evidence": [
+            "A scalar affine epoch chain in stochastic optimization has an invariant Bernoulli convolution."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-random-reshuffling-has-a-cantor-to-interval-stationary-support-t--ec57811b8333",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local full-text mirror passage",
+          "title": "Random reshuffling has a Cantor-to-interval stationary-support transition",
+          "trigger": "Same affine/Bernoulli-convolution mechanism"
+        },
+        {
+          "assessment": "Existing general self-similar dimension result.",
+          "evidence": [
+            "Open-set-condition dimension and measure theorem, PDF text offset near 60000."
+          ],
+          "identifier_or_url": "Hutchinson, Indiana Univ. Math. J. 30 (1981), 713–747",
+          "material_read": "§§5.2–5.3, PDF pages 19–20",
+          "method": "Bounded OA PDF read",
+          "title": "Fractals and Self Similarity",
+          "trigger": "Broad dimension and invariant-measure coverage"
+        },
+        {
+          "assessment": "Unresolved passage-level comparison; not negative evidence.",
+          "evidence": [
+            "Retrieval returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144598338446",
+          "material_read": "No primary full text retrieved",
+          "method": "Lawful direct/OA retrieval attempts",
+          "title": "Iterated Random Functions",
+          "trigger": "General contraction/ergodicity methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; Amit et al. §§4–6.5; Resultary e2af1a5dfd9a and 579144ea5b18."
+      ],
+      "rationale": "Coordinatewise normalization is intrinsic to comparing the random displacement with the deterministic growth in each direction. The occupation and cluster theorems answer whether the actual growth keeps visiting every supported configuration and quantify that behavior, which neither a static marginal nor a fixed-target covering law decides. Exact dimension and fixed-lag dependence give useful scale and memory information for this path description, without claiming to solve the rescaled-curve problem.",
+      "residual_risks": [
+        "Interpretation is restricted to fixed dimension, independent fair bits and separate normalization by the current length of each axis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:11:16.252474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificates.json, verify.py and verify_independent.py",
+        "Independent replay: python3 /workspace/branches/paperfolding_replay.py"
+      ],
+      "rationale": "Independently reconstructed the word by p(2j)=p(j), p(2j+1)=j mod 2, and matched the first sixteen bits and the frozen zero-based witnesses. Used lossless integer keys (leading 1 followed by the bits) to enumerate every substring and test for an occurrence meeting the witness. For each weighted factor, exact overlapping matches and a difference array reconstructed the union of occurrence spans without counting multiple occurrences at a position twice. Every attractor hits each such union, so summing weights over its positions bounds the numerator total by denominator times attractor size. Independent replay rows (length, distinct factors, witness size, weighted factors, numerator sum, denominator, maximum load): (128,6479,5,5,5,1,1), (256,25775,6,11,11,2,2), (512,102767,6,12,12,2,2), (1024,410351,7,21,51,8,8). Taking ceilings gives the same four sizes as the witnesses.",
+      "residual_risks": [
+        "This is exhaustion of four specified finite words, not an asymptotic or general dyadic formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit prove decidability and a bounded/logarithmic-growth dichotomy; Banbara et al. evaluate other word families; Cassaigne et al. were assessable only from landing material."
+        ],
+        "reasoning": "A decidability or growth result does not evaluate these four optima, and the exact family-specific results inspected do not concern this word.",
+        "searches": [
+          "arXiv:2012.06840, Theorems 2 and 18",
+          "arXiv:2602.16152, introduction and Theorem 30",
+          "DOI:10.1016/j.jcta.2024.105936"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/9/8/SCOPE079",
+        "arXiv:2012.06840",
+        "arXiv:2602.16152",
+        "DOI:10.1016/j.jcta.2024.105936 (landing material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every earlier bound interval contains multiple integers; the previously inspected automatic-sequence results fix none of those integers."
+        ],
+        "reasoning": "The new witnesses improve all four upper bounds and the checked weighted lower certificates reach each witness size; this is not an arithmetic restatement of the prior bounds.",
+        "searches": [
+          "2026/9/8/SCOPE079, exact and bounded sections",
+          "arXiv:2012.06840, Theorems 2 and 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE079 uses the same regular-paperfolding finite prefix problem; the exact same instances appear as bounds. The automatic-sequence and period-doubling results concern respectively an infinite profile problem and a different word family."
+        ],
+        "reasoning": "Aligning the factor-occurrence hitting-set formulation and the one-based word/zero-based position conventions does not turn the benchmark bounds into exact minima.",
+        "searches": [
+          "Resultary: regular paperfolding minimum string attractors and dyadic prefixes",
+          "arXiv:2012.06840; arXiv:2602.16152"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact values stop at 64; the rows for 128, 256, 512 and 1024 give upper bounds 7,8,10,9 and two lower bounds of 4 for each row."
+        ],
+        "reasoning": "Same instances and the same factor counts are prior; the exact optima 5,6,6,7 are not in those rows.",
+        "searches": [
+          "Resultary 2026/9/8/SCOPE079, Result tables"
+        ]
+      },
+      "rationale": "The strongest indexed comparison gives bounds on exactly these four instances rather than their minima. The inspected primary results neither resolve those gaps nor supply a stronger evaluated theorem implying the four values. The pass is limited to the finite exact values, not the factor counts, word definition, earlier dyadic minima, or general certificate method.",
+      "residual_risks": [
+        "The 2024 infinite-word paper was not available in full text during the check.",
+        "Unindexed exact computations may exist; priority is not established by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap but no exact closure",
+          "evidence": "Exact through 64, with only the upper/lower estimates above for the next four lengths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE079",
+          "material_read": "RESULT.md, Result tables; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact minimal string attractors for Rudin–Shapiro and regular-paperfolding dyadic prefixes (n ≤ 64), with certified bounds to n = 1024",
+          "trigger": "Indexed benchmark, same word and all four lengths"
+        },
+        {
+          "assessment": "General method and growth classification, not the values",
+          "evidence": "Decidability of boundedness and bounded/logarithmic profile dichotomy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+          "material_read": "Theorem 2, p. 2; Theorem 18, p. 15",
+          "method": "Lawful OA full-text passages",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "A general automatic-word result could determine finite paperfolding optima"
+        },
+        {
+          "assessment": "Different word families",
+          "evidence": "Theorem 30 specifically treats period-doubling, not regular paperfolding.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16152",
+          "material_read": "Abstract/introduction, p. 1; Theorem 30, p. 10",
+          "method": "Lawful OA full-text passages",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Exact attractor minima for related words"
+        },
+        {
+          "assessment": "Unresolved coverage; no negative inference from access failure",
+          "evidence": "Repository retrieval was denied, so the body could not be compared.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2024.105936",
+          "material_read": "DOI landing page and abstract only",
+          "method": "DOI and identified repository access attempts",
+          "title": "New string attractor-based complexities for infinite words",
+          "trigger": "Related profile literature might contain an evaluated example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope and certificate tables",
+        "SCOPE079 benchmark tables"
+      ],
+      "rationale": "The four canonical dyadic folding scales are the already identified open rows of a natural benchmark, not chosen after finding favorable numerical outcomes. Exact optima with reusable upper witnesses and weighted lower certificates give a reference for checking algorithms and testing proposed attractor-profile bounds for this automatic word. The contribution is finite and claims no growth law.",
+      "residual_risks": [
+        "No claim about the growth of the paperfolding attractor profile follows from these four rows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

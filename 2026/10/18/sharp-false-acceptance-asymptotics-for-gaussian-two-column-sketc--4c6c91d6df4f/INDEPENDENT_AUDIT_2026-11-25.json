@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:47.883185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Right singular-vector coordinates and division by the smaller population eigenvalue reduce the sketched Gram law to a real 2-by-2 sample covariance with population diag(K,1), K=kappa². Gram–Schmidt gives the stated independent chi-square/normal variables and the beta–gamma factorization gives independent X and R. With positive eigenvalues, the trace/determinant test is precisely R≥h(X); conditioning proves the beta integral (the integrand is zero off h<1). I independently checked the sharp asymptotic without assuming a local limit. Put T=tau², write the two eigenvalues as rb,b and the leading eigenvector direction as theta modulo pi. The real symmetric matrix Jacobian is b²(r−1), and the normalized Wishart density has factor b^(s−3) r^((s−3)/2) exp(−sbL/2), where L=1+r/K+(1−1/K)(r−1)sin²(theta). Integrating b gives exactly p_s=(s−1)/(4 pi) times the integral of (r−1)r^(−3/2) exp(−sF) over 1≤r≤T and −pi/2≤theta≤pi/2, where F=log(sqrt(K)L/(2 sqrt(r)); the coefficient follows from gamma duplication. The unique minimum is (T,0): F(r,0) is strictly decreasing since r≤T<K, while orientation adds a nonnegative log term that is strictly positive off theta=0 for r>1. Near it F−I has leading terms a(T−r)+beta theta², with a=(K−T)/(2T(K+T))>0 and beta=(K−1)(T−1)/(K+T)>0. These terms also supply a positive linear/quadratic lower bound in a fixed neighborhood; its compact complement has a strict phase gap. Endpoint scaling and dominated convergence give C=(T−1)/(4 pi T^(3/2) a) sqrt(pi/beta), the frozen multiplier. The optimal positive scale is b=2K/(K+T), giving the displayed unique Gram rate minimizer. 'Most likely' here is the stated large-deviation notion, not a finite-s density-mode claim. The Krylov matrix has determinant rho>0 and two unit columns in the example with the claimed inner product. This reconstruction covers s≥2 for the exact law and fixed 1<tau<kappa for the asymptotic; it does not require or certify the uploaded simulation, which was inspected without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The application paper monitors kappa(S B_m) and restarts when it exceeds a threshold, rather than deriving this fixed two-column tail. General real Wishart density directly covers the input law and gives an exact ratio integral by scale/orientation integration; a rate function identifies an exponential speed and saddle after optimization, not the full sharp multiplier."
+        ],
+        "reasoning": "A general-covariance spectral law includes the finite-s probability as a marginal. Passing to the claimed sharp relative asymptotic requires locating the angular and radial-ratio boundary saddle and computing its distinct scalings; no stronger inspected result establishes that conclusion by substitution.",
+        "searches": [
+          "arXiv:2607.10354v1, sketch-based dimension selection and truncated Arnoldi",
+          "James 10.1214/aoms/1177703550",
+          "Edelman (1988), Gaussian matrix eigenvalues and condition numbers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.10354v1",
+        "Resultary 77ed0fdaf213 mirrored finding and assumptions",
+        "BearWorks CNAS 3700 repository abstract",
+        "Lawful full-text retrieval attempts for James, Edelman, Anderson–Wells and Singull–Uwamariya–Yang",
+        "Exact anisotropic Wishart and sphericity alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sketch/restart passages define the monitoring mechanism, not the fixed-B distribution. The small-angle finding states the limit at fixed k explicitly. In the exact angular integral the anisotropic term contributes beta=(K−1)(T−1)/(K+T)>0 and thus the Gaussian angular factor; a logarithmic LDP alone loses this contribution and the power s^(−1/2)."
+        ],
+        "reasoning": "Neither a classical finite law nor a logarithmic large-deviation rate automatically supplies this asymptotic equivalent. The nondegenerate angular curvature and active ratio boundary are the scientific additional steps; claims of novelty for Wishart density or its exact marginals in general are not warranted.",
+        "searches": [
+          "arXiv:2607.10354v1 offsets 1065 and 46046",
+          "Resultary 77ed0fdaf213, finding and assumptions",
+          "Singull–Uwamariya–Yang (2021), Large-deviation asymptotics of condition numbers of random matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The test in dimension two is r=largest/smallest eigenvalue≤T, equivalently det(C)/(tr C)^2≥T/(1+T)^2. Thus it is a fixed-threshold sphericity acceptance probability under a fixed nonspherical covariance. The inspected Moschopoulos abstract states expansions under two classes of local alternatives, not a fixed nonspherical covariance and fixed threshold."
+        ],
+        "reasoning": "This sphericity alias is a genuine equivalence, not a new statistical object. Local-alternative and isotropic approximations do not control the fixed off-mean exponentially small probability and its relative-error prefactor.",
+        "searches": [
+          "real 2 by 2 Wishart arbitrary covariance eigenvalue ratio Johnson bivariate covariance condition number hypergeometric",
+          "sphericity likelihood ratio test exact non-null distribution bivariate unequal population roots sharp type II probability fixed alternative",
+          "10.1080/01966324.1988.10737235 repository abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mirrored small-angle theorem keeps the sketch dimension k and acceptance threshold fixed and derives a theta^k law as the raw basis degenerates, with a Gaussian special case. The frozen theorem instead keeps both condition numbers fixed and varies sketch dimension. Exact formulas for the same probability from standard Wishart marginalization are mathematically possible and one is reconstructed in this audit; no exact catalogue entry for the same fixed-K, fixed-T sharp sample-size tail was identified."
+        ],
+        "reasoning": "Even on Gaussian equal-column-length examples, the small-angle result has the opposite choice of fixed and varying parameters. Its coefficient cannot be substituted into the sample-size limit without an independent uniform estimate.",
+        "searches": [
+          "Resultary/published SCOPE 77ed0fdaf213",
+          "Anderson–Wells (2009), The Exact Distribution of the Condition Number of a Gaussian Matrix",
+          "bivariate real Wishart covariance eigenvalue ratio and sphericity searches"
+        ]
+      },
+      "rationale": "Classical real Wishart density, gamma factorizations and condition-number statistics provide the base law; an exact integral representation by itself is not credited as a new distribution family. The supported distinctive result is the fixed unequal-population-eigenvalue sharp tail with explicit polynomial exponent, full curved-boundary multiplier, and unique scale and orientation for the Gram saddle in a sketch-certification problem. Actual inspected related claims use a different limiting parameter, local alternatives, or the adaptive monitoring procedure without the sharp fixed-basis failure law.",
+      "residual_risks": [
+        "Primary passages from Edelman (MIT copy timed out or could not be extracted), Anderson–Wells (SIAM HTTP 403 without recovered repository copy), and Singull–Uwamariya–Yang (DiVA timeout) were inaccessible. None is classified as noncovering on that basis.",
+        "Classical bivariate sphericity or unequal-covariance Wishart literature could contain a related non-null CDF or sharp tail. No independent novelty is assigned to the existence of exact finite-s formulas, and literature priority for the prefactor remains bounded-search judgment.",
+        "These comparisons do not address a coupled small-angle and large-dimension limit or adaptive sketch-dependent bases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching application and monitored statistic, not the fixed-basis sharp probability in inspected passages.",
+          "evidence": [
+            "Chooses basis size using condition number estimated from the sketch; truncated Arnoldi monitors kappa(S B_m) and terminates on threshold exceedance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354v1",
+          "material_read": "Introduction and truncated Arnoldi monitoring passages around offsets 1065 and 46046.",
+          "method": "Lawful arXiv HTML passages.",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Same sketch-based condition-number test and Krylov application."
+        },
+        {
+          "assessment": "Close exact theorem in a genuinely different limiting parameter regime; does not imply the sample-size equivalent.",
+          "evidence": [
+            "Fixes k≥2 and threshold, sends theta to zero and gets theta^k times a positive coefficient in the Gaussian case; for the raw basis kappa_2= cot(theta/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-small-angle-false-acceptance-law-for-two-column-sketch--77ed0fdaf213/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of proof, mirrored offsets 0–3166.",
+          "method": "Local Resultary search and OA local mirror.",
+          "title": "Universal small-angle false-acceptance law for two-column sketch conditioning",
+          "trigger": "Same two-column conditioning certificate and Gaussian special case."
+        },
+        {
+          "assessment": "The abstract describes local alternatives only; this is a limited comparison, not a whole-paper exclusion.",
+          "evidence": [
+            "States asymptotic expansions for a modified likelihood criterion under two classes of local alternatives."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01966324.1988.10737235",
+          "material_read": "Institutional abstract and bibliographic passage, BearWorks CNAS 3700, offsets 300–1036; not full text.",
+          "method": "Lawful repository website.",
+          "title": "Asymptotic expansions of the non-null distribution of the likelihood ratio criterion for multisample sphericity",
+          "trigger": "Equivalent sphericity statistic and expansions under alternatives."
+        },
+        {
+          "assessment": "Do not infer noncoverage. Treat general Wishart spectral law and its marginals as existing statistical framework.",
+          "evidence": [],
+          "identifier_or_url": "10.1214/aoms/1177703550",
+          "material_read": "No decisive full-text passage recovered.",
+          "method": "Lawful Project Euclid access attempted; abstract/landing content was not used as full text.",
+          "title": "Distributions of Matrix Variates and Latent Roots Derived from Normal Samples",
+          "trigger": "Classical covariance-dependent eigenvalue distributions could cover the exact marginal."
+        },
+        {
+          "assessment": "Residual overlap cannot be assessed from primary text; not evidence of noncoverage.",
+          "evidence": [],
+          "identifier_or_url": "Singull–Uwamariya–Yang (2021), DiVA repository",
+          "material_read": "No decisive passage recovered.",
+          "method": "Lawful repository PDF and record attempts timed out.",
+          "title": "Large-deviation asymptotics of condition numbers of random matrices",
+          "trigger": "Condition-number large deviations could cover some rate statements."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A screening probability is naturally needed to interpret sketch-based conditioning decisions even before considering adaptive paths. The sharp prefactor and explicit Gram optimizer quantify the mechanism and probability for a fixed pair, beyond applying a norm-concentration inequality or quoting a Chernoff rate. The beta integral independently provides finite-s calibration; no adaptive numerical-stability claim is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

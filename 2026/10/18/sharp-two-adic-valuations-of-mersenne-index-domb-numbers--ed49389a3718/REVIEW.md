@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Rogers's full-text Theorem 3.1 (Equation (3.4)) establishes the transformed generating function. Exact coefficient extraction gives a finite integer sum; Legendre's binary-digit identity gives every term's valuation. For all \(r\ge3\), the reindexed valuation has one and only one minimum \(3r\); the zero-index endpoint is strictly higher. The infinite result follows by a valuation argument. Independent direct-sum calculations and the packaged checker corroborate the premises and boundaries without replacing the proof.
+## correctness
 
-**Originality — PASS, subject to remaining literature risk.** Rogers (2007) and Chan–Zudilin (2010) supply transformations, not the Mersenne valuation. Malik–Straub (2015) proves general Lucas congruences and low-modulus behavior, neither of which fixes the exponent. Beluhov (2025), the most relevant broader source, proves a digit-sum lower bound and characterizes its equality at adjacent-one-free indices; for all-ones indices with \(r\ge3\), that lower bound is strictly weaker than the exact exponent established here. OEIS A002895 supplies finite values and representations, not a uniform sharp formula. Available mathematical research records and exact-phrase searches did not reveal equivalent coverage. General stronger valuation formulas elsewhere remain a residual risk.
+PASS
 
-**Value — PASS.** Domb numbers are classical closed-walk counts and a sporadic Apéry-like sequence. Indices with binary expansion consisting entirely of ones are a distinguished extremal digital family. Exact valuation is a natural arithmetic invariant; the linear exponent \(3r\) gives the sharp divisibility threshold, beyond general lower bounds or fixed-modulus congruences. The distinctive unique-summand mechanism is structural. No general-index valuation classification is claimed.
+Rogers Theorem 3.1, Eq. (3.4), gives the transformed series for the defining Domb numbers. Its hypergeometric coefficients and extraction of [z^(n-2k)](1-4z)^(-3k-1) give the integer factors in (1). Applying v2(m!)=m-s2(m) gives summand valuation 2(n-2k)+4s2(k)+s2(n-2k)-s2(n+k). Set n=2^r-1 and k=2^(r-1)-1-j. For k>0, n+k=2^r+[(2^(r-1)-1)-(j+1)], whence s2(n+k)=r-s2(j+1) by bitwise complement. Equation (3) follows; j=0 gives 3r and j>=1 costs at least j-1+s2(j+1)>=1 more. At k=0 the valuation is 2^(r+1)-2>3r: the inequality holds at r=3 and its gap grows. Only the upper endpoint summand survives as an odd integer after division by 2^(3r). Direct computation gives D_1=4 and D_3=256, confirming the exceptional valuations. Replay: python3 /workspace/reproduction/frozen_checks.py 1, using the classical exact three-term recurrence checked against selected defining-sum terms, corroborated Mersenne valuations for r=1 through 12. This finite check is not a proof of the identity or of the valuation law. The frozen checker was read, not executed; its Python 3.8+ compatibility note is overly broad because int.bit_count needs Python 3.10+. This documentation mismatch does not affect the proof or the available reproducibility.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the uniform sharp Mersenne valuation and its unique-minimal-summand proof, not the Domb sequence, transformed sum or general binary lower bound. No equivalent was found in the relevant statements inspected; priority is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The all-ones indices are a natural infinite family distinguished by the adjacent-one exceptions to the existing digit-sum bound. An exact unbounded divisibility threshold for a classical lattice-walk and Apéry-like sequence is useful arithmetic information beyond low-modulus congruences. Single-term domination explains the answer, without claiming a valuation classification at arbitrary indices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

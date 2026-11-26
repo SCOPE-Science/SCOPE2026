@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:12.535825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In exact arithmetic A<X> is A^(1/2) times the projector onto the whitened sketch span times A^(1/2). On the active two coordinates, a monochromatic sketch of projective sign s has residual (c/2)[[1,-s],[-s,1]], c=2ab/(a+b); both signs give zero residual. A held-out sign t therefore gives centered basic error -cst in the former case and zero in the latter. For m>=3 the all-equal, singleton-minority, and remaining sign families have counts 2, 2m, and 2^m-2m-2; the singleton case has only one nonzero basic error c and gives Q=c^2/m^2. The mean is unbiased; MSE and expected squared diagnostic have ratio m+1. Each basic variance is c^2*2^(2-m), and any pair's covariance c^2*2^(1-m) because both are nonzero only in the all-equal case. At m=2 both errors equal -c*s_1*s_2, so the correlation is one and Q=0. The result is for unnormalized independent Rademacher probes and the mathematical pseudoinverse, not a finite-precision inverse. The supplied standard-library checker check_xnys.py was inspected, not run; independent exact rational sign enumeration at (a,b)=(2,5), m=2 through 8 corroborated the law, ratio and correlation. To replay that panel enumerate the 2^m sign tuples per m, construct A-vv^T/(a+b) for the rank-one residual with v=(a,bs), or use zero for a two-sign sketch; accumulate the joint law and pair moments. Finite enumeration is not the arbitrary-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trace paper and dissertation give the general expected-diagnostic correlation identity but not by themselves the sign-specific rho or the joint law. The separate jackknife paper passage concerns randomized matrix outputs and Frobenius errors."
+        ],
+        "reasoning": "General identities already cover the ratio conditional on the correlation, while the dedicated indexed prior covers the correlation and joint law after the exact reduction.",
+        "searches": [
+          "arXiv:2301.07825, equations (1.7)–(1.9) and Proposition 3.1",
+          "Epperly dissertation (2025), Chapter 15, Eq. (15.13) and Proposition 15.4",
+          "arXiv:2207.06342, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_xnys.py",
+        "Resultary 2d755ae95a66",
+        "arXiv:2301.07825",
+        "Epperly 2025 dissertation",
+        "arXiv:2207.06342"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior basic rules: lambda, 3lambda, or 2lambda for agreeing, opposite, or both-sign leave-one-out directions, respectively. In the frozen proof the corresponding values are T-c, T+c, or T. For m=2 the agreement decision is the same in both directions; the prior proof's basic rule therefore supplies the endpoint too."
+        ],
+        "reasoning": "The extension is equivalent after a scale choice and common shift; zero padding cannot enter any sketch product. In particular the false-zero probability, pairwise correlations and calibration ratio are mechanically implied.",
+        "searches": [
+          "Resultary 2d755ae95a66 RESULT.md proof, mirror offsets 3900–7441",
+          "arXiv:2301.07825 Section 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/12, 2d755ae95a66, RESULT.md Finding and proof: unnormalized fair signs on lambda I_2 yield the identical centered basic estimates at lambda=c. The result explicitly includes XNysTrace, not only XTrace."
+        ],
+        "reasoning": "Subtracting the true trace and setting lambda=c gives pointwise equivalence of the basic estimates for every sign family, so this is more than coinciding marginal probabilities.",
+        "searches": [
+          "Resultary: XNysTrace rank-two Rademacher probes exact joint law false-zero posterior diagnostic m+1 MSE ratio correlation 1/2",
+          "Resultary: leave-one-out Nyström trace estimator basic estimates pairwise correlation Rademacher exact rank two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2d755ae95a66 reports the exact three-atom law with probabilities 2^(1-m), m*2^(1-m), and the remainder, and pairwise correlation 1/2 for m>=3. The primary search did not add a relevant match."
+        ],
+        "reasoning": "The indexed closed form is the pertinent exact lookup, not a table of simulated diagnostics; lack of additional search hits is not evidence of novelty.",
+        "searches": [
+          "Resultary: false-stop rank-two identity XTrace XNysTrace Rademacher",
+          "Primary literature: \"XNysTrace\" \"rank-two\" Rademacher posterior error exact law"
+        ]
+      },
+      "rationale": "A distinct prior indexed Resultary finding proves the complete effect at a scalar two-dimensional identity and gives per-basic-estimate projector rules. The present centered basic-estimate vector is exactly that prior vector at scale lambda=c, under the same sign coupling. Adding inactive coordinates and changing (a,b) merely applies the deterministic shift T-2c to each uncentered estimate and to the true trace. The two-probe case also follows immediately from the prior per-sketch rule: each leave-one-out direction is the other probe, so both estimates are lambda for agreeing signs and 3lambda for opposite signs. Neither the already-covered law nor this short endpoint substitution survives as a distinct scientific finding.",
+      "residual_risks": [
+        "Not a comprehensive priority search; the positive indexed coverage is sufficient for this disposition.",
+        "The published estimator appears with different equation numbering across versions; the mathematical normalization matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on scalar identity; mechanically implies the centered law on the frozen family",
+          "evidence": [
+            "Proof gives B_i=lambda, 3lambda, 2lambda according to the same sign distinctions, plus cov=lambda^2*2^(1-m) for m>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-posterior-error-and-false-stop-law-for-sign-probed-xtrace--2d755ae95a66/RESULT.md",
+          "material_read": "Finding, assumptions, proof of projector and sign laws, and correlation; mirror offsets 0–3874 and 3900–7959",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact posterior-error and false-stop law for sign-probed XTrace on a rank-two identity",
+          "trigger": "Exact indexed match for sign-probe leave-one-out laws"
+        },
+        {
+          "assessment": "Defines the exact normalization and gives general calibration, not the specific sign geometry in the inspected passages",
+          "evidence": [
+            "E(err_hat^2)=(1-rho)/(1+(m-1)rho) times MSE."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "PDF p. 5, equations (1.7)–(1.9), p. 12 Section 3.1 Proposition 3.1; extraction offsets 17450–20463 and 40500–44798",
+          "method": "Open-access primary PDF, located passages",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Original estimator and diagnostic definition"
+        },
+        {
+          "assessment": "General identity and a Gaussian XTrace bound, not the discrete law in the inspected material",
+          "evidence": [
+            "Proposition 15.4 treats XTrace and XNysTrace calibration through pairwise correlation."
+          ],
+          "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+          "material_read": "Chapter 15, printed p. 246, Eq. (15.13) and Proposition 15.4",
+          "method": "Open-access dissertation; extraction offsets 628900–633251",
+          "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+          "trigger": "Prior discussion of diagnostic underestimation"
+        },
+        {
+          "assessment": "Related diagnostic, different checked object",
+          "evidence": [
+            "The abstract and introduction concern Frobenius approximation error and jackknife variance of matrix outputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.06342",
+          "material_read": "p. 1, extraction offsets 700–3692",
+          "method": "Open-access primary PDF passage",
+          "title": "Efficient error and variance estimation for randomized matrix computations",
+          "trigger": "Related leave-one-out diagnostic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "False-zero calibration of a standard diagnostic is scientifically useful, but the centered law and its consequences are unchanged from the prior finding. The nonidentity matrices here introduce no different sign geometry, and m=2 is an immediate substitution in the same basic-estimate rule. There is no substantive independently useful remainder in the submitted claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

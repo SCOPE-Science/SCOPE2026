@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:25.068941Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: update rules, error identities, parity and envelope arguments",
+        "Frozen VERIFICATION.md and verify.py: recorded rational checks, inspected not executed",
+        "Independent exact rational iteration for p=1/100, b_1=4/5, b_2=1/5, G=10; error difference 25553392256660104683/24414062500000000000000"
+      ],
+      "rationale": "In the mean and half-difference coordinates of 1−z, silent averaging has multipliers 1 and λ, and a broadcast is averaging followed by multiplication by the symmetric matrix with diagonal a and off-diagonal c. Starting from (1,0), the first broadcast gives (a,c); each subsequent pulse uses the powers x,y,z=λ^(g_i+1) in the disagreement coordinate. Three pulses give error a³+ac²(x+y+xy), minimized by balancing because xy is fixed and λ^g strictly convex. Four pulses give a⁴+a²c²(x+y+z+xy+yz+xyz)+c⁴xz. For fixed middle gap y, xz is fixed and the coefficient of x+z is positive, so all minimizers have outer gaps differing by at most one. On each parity class the sum x+z is Cε√(K/y), where K=xyz. Multiplying the derivative of the resulting scalar function by y²/(a²c²) gives v⁴+Cε√K(v³−v)/2−(c²/a²)K, with v=√y. The coefficients have one sign change and the polynomial goes from negative at zero to positive at infinity. Hence the continuous minimum is unique per parity function and only the two bracketing feasible integers, or the boundary on that parity, need inspection. The four-candidate count concerns middle-gap choices with outer swaps equivalent in error. The AM–GM lower envelope C=2 has its left endpoint at y=λ^(G+1); there the derivative sign equals that of λ^G(1+λ)−1−(c²/a²)λ. Strict positivity and the unique root give a strictly increasing lower envelope to the right, with equality at the concentrated schedule. This includes G=0, with absent parity classes skipped. Independent rational iteration of the original z rule over all 66 compositions of G=10 verifies the unique optimum (0,10,0) and the exact quoted positive error difference relative to (3,4,3).",
+      "residual_risks": [
+        "The finite replay is for the rational example only; the proof gives the unrestricted statement.",
+        "The result does not guarantee constant bit complexity for deciding close parameter ties or handle equal gains and the endpoints of the p range. The concentration condition is sufficient, not asserted necessary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available temporary-participant paper treats a consensus-between-interventions case analytically and compares selected alternatives by simulation.",
+          "The Weimer et al. scheduler taxonomy and generalized averaging simulations do not give the finite pulse theorem in the passage read.",
+          "The IEEE intervention-timing candidate advertises an optimal timing method for leader-based DeGroot dynamics, but inspected metadata/description do not settle its assumptions."
+        ],
+        "reasoning": "No accessible stronger theorem was established. The leader-timing paper is plausible and is not ruled out beyond the material actually read.",
+        "searches": [
+          "arXiv:2205.12503 Sections 4–5",
+          "Weimer et al., JASSS 22(4), 5",
+          "IEEE 10839144 and 9711916, DOI 10.1002/eng2.12649"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked results and matched records 5b299daa2230, 20df106d32f1",
+        "arXiv:2205.12503, JASSS 22(4) 5, IEEE 10839144 and 9711916, DOI 10.1002/eng2.12649; the three latter papers were not obtained in full"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform influence on all followers decouples disagreement from the mean (here c=0); consequently invariance in that case cannot yield the strict preference for an all-middle schedule for nonzero c.",
+          "Spatial phase or heat-trace optimality does not preserve the heterogeneous time-update product or its parity constraint. No exact implication from the IEEE description could be established."
+        ],
+        "reasoning": "The core checked contribution is the three/four-pulse contrast, exact parity-candidate rule and sufficient strict concentration inequality, not ordinary averaging, leader influence, or a generic convex balancing fact.",
+        "searches": [
+          "arXiv:2205.12503 timing options and full-coverage analysis",
+          "Resultary 5b299daa2230 and 20df106d32f1 Findings",
+          "IEEE 10839144 public description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Temporary-participant models use timing and leader strength; the accessible exact analysis in arXiv:2205.12503 compares only ‘consensus,’ ‘start,’ and ‘uniform’ timing and gives invariance in its full-coverage setting.",
+          "The frozen heterogeneous weights make the disagreement coordinate feed back into the mean; the exact timing problem is a fixed-budget product of silent blocks and heterogeneous broadcast matrices."
+        ],
+        "reasoning": "Expressing the result as temporary/intermittent DeGroot influence, pulse timing, or a matrix-product minimization does not identify the surveyed full-coverage invariance with the unequal-gain gap problem.",
+        "searches": [
+          "Local Resultary exact-title, leader timing and gap-balancing comparisons",
+          "arXiv:2205.12503 Sections 4–5",
+          "Intermittent-influence leaders and intervention timing in DeGroot models; IEEE documents 9711916 and 10839144; DOI 10.1002/eng2.12649"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5b299daa2230 uses a quartic for four-leader spatial selection on K_{2,m}, not the four-broadcast parity quartic.",
+          "Resultary 20df106d32f1 balances spatial leader gaps on cycles to optimize grounded heat traces, not temporal silent gaps or final consensus error."
+        ],
+        "reasoning": "A matching number of leaders, quartic, or spacing motif in the catalog is not a matching model, table, or exact schedule. The inspected entries supply no exact schedule for the audited claim.",
+        "searches": [
+          "Local Resultary exact-title semantic search, 50 ranked hits",
+          "Local Resultary leader quartic and exact optimal leader spacing"
+        ]
+      },
+      "rationale": "The inspected catalog and primary passages cover related temporal influence or mathematically different spatial leader placement. The supported distinct claim is exact finite gap allocation with two reciprocal followers, unequal positive per-follower broadcast gains, and a fixed integer silence budget for three or four broadcasts: parity quartic reduction and a sufficient all-middle regime. None of the available comparisons states or directly implies that claim. Unavailable highly relevant full texts remain named risks, not evidence of absence or grounds for failure.",
+      "residual_risks": [
+        "The two relevant IEEE papers and the Wiley signed-network paper were not fully readable after bounded lawful attempts. The precise coverage of those sources, especially the optimal intervention-timing paper, remains unresolved.",
+        "This is a statement-level best-of-knowledge assessment, not exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related timing problem, not the claim in inspected passages",
+          "evidence": "Only selected timing patterns are compared; the exact full-coverage claim is in a different gain setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.12503",
+          "material_read": "PDF Section 4 p. 5 offset 19334; full coverage pp. 8–9 offsets 31883–33667; Section 5 offset 33667",
+          "method": "Bounded OA PDF passages",
+          "title": "Maximising the Influence of Temporary Participants in Opinion Formation",
+          "trigger": "Primary temporary-leader model and exact timing-related theorem"
+        },
+        {
+          "assessment": "Residual overlap risk; not treated as not covering",
+          "evidence": "Available description identifies intermittent leaders in a DeGroot model but is not a fixed-budget gap-optimization theorem statement.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/9711916",
+          "material_read": "Publisher landing page/abstract and returned description; full text not read",
+          "method": "Public landing and publisher PDF retrieval attempt; PDF endpoint unavailable",
+          "title": "Opinion Dynamics of Social Networks With Intermittent-Influence Leaders",
+          "trigger": "Candidate alternate intermittent DeGroot formulation"
+        },
+        {
+          "assessment": "Residual overlap risk; specific equal-magnitude statement not independently confirmed",
+          "evidence": "Publisher returned 403 and the repository attempt timed out; the material read identifies signed networks and limited leader influence.",
+          "identifier_or_url": "https://doi.org/10.1002/eng2.12649",
+          "material_read": "Bibliographic/returned description; full text not read",
+          "method": "Publisher full text and PDF attempts, direct/VPN DOI retrieval, and lawful repository recovery attempt",
+          "title": "Opinion dynamics with intermittent-influence leaders on the signed social network",
+          "trigger": "Cited matching broadcast model and proposed timing-independence comparator"
+        },
+        {
+          "assessment": "Named unresolved coverage risk, no claim of noncoverage",
+          "evidence": "The public description indicates an optimal method in a leader-based DeGroot model, but does not settle the use of several broadcasts, fixed total silence, or this model's parameters. Landing and PDF routes did not return the paper.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/10839144",
+          "material_read": "Public description from search; full text not read",
+          "method": "Publisher result and OA landing/PDF retrieval attempts",
+          "title": "Optimal Selection of Intervention Timing in Opinion Dynamics",
+          "trigger": "Strongest plausible primary candidate for exact optimal intervention timing"
+        },
+        {
+          "assessment": "Related scheduling but a different experiment/objective",
+          "evidence": "Varies agent activation and scheduling in generalized repeated-averaging and bounded-confidence models.",
+          "identifier_or_url": "https://www.jasss.org/22/4/5/5.pdf",
+          "material_read": "p. 1, offset 867, schedule taxonomy and resulting opinions",
+          "method": "Bounded OA PDF passage",
+          "title": "Agent Scheduling in Opinion Dynamics: A Taxonomy and Comparison Using Generalized Models",
+          "trigger": "Broader opinion-dynamics scheduling literature"
+        },
+        {
+          "assessment": "Spatial optimization, not temporal",
+          "evidence": "Selects leader positions to minimize a grounded-Laplacian inverse trace.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite networks",
+          "trigger": "High-ranked catalog comparator with four leaders and a quartic"
+        },
+        {
+          "assessment": "Spatial spacing and different objective",
+          "evidence": "Optimizes grounded heat traces via balanced lengths between leaders around cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact--20df106d32f1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "All-time Schur-convexity of grounded cycle heat traces and exact optimal leader spacing",
+          "trigger": "Closest catalog gap balancing claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen three- and four-pulse theorem and concentration example",
+        "arXiv:2205.12503 Sections 4–5 on related timing questions"
+      ],
+      "rationale": "A natural fixed-resource scheduling question has a qualitative transition: three broadcasts always favor even spacing, but four can uniquely concentrate silence. The quartic reduces a budget-dependent search to four middle-gap candidates, and the concentration condition yields a parameter-explicit rigorous counterexample to a generic equal-spacing heuristic, rather than one unexplained rational instance.",
+      "residual_risks": [
+        "The scientific value is an exactly analyzable two-follower mechanism, not a statement about larger networks, outcome measures, or arbitrary pulse counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-A standalone standard-library Python verification source is included as `verify.py`.
+# Independent mathematical audit
 
-Run: `python3 verify.py` in the directory containing the file. The program independently builds the Cartesian graph adjacency, all-pairs distances, mutually maximally distant vertex pairs, all independent sets for small cases, and (for up to fifteen vertices) the original strong-resolution predicate on every subset. It checks the polynomial formulas coefficientwise, basis counts and minimum cardinalities, and forcing subsets for the smaller instances. Nine graph instances are covered: (3,3), (4,3), (5,3), (3,4), (4,4), (3,5), (4,5), (3,6), and (3,7). On the packaged source the checks succeeded and printed `VERIFY_OK`.
+## correctness
 
-The exact formulas for all larger parameters are proved combinatorially in RESULT.md. Exhaustive finite validation is not an infinite proof, and the work has not undergone independent mathematical audit or complete publication-priority certification.
+PASS
+
+An MMD pair can only be strongly resolved by an endpoint. Conversely, a geodesic through a given pair can be extended at its ends until both endpoints are MMD, and either selected endpoint then strongly resolves the original pair. In the Cartesian product maximality separates by coordinate, so the MMD graph is the direct product of K_q with the antipodal matching or the odd step cycle. The even components are crowns. Their independent sets lie on one side (empty counted once) or are one of the q cross-matched pairs, giving 2(1+t)^q−1+qt² per component. For odd n, adjacent occupied layers must be identical singletons. Aggregating all size-at-least-two layer states by their common neighbors and weight h_q leaves a weighted transfer matrix on empty, q singleton colors and heavy. On the uniform singleton coordinates it restricts to B_q; on the q−1 color differences it acts as t, giving the trace term and its correction. Complementation produces the asserted cover polynomials. In the odd cycles with an empty layer, a singleton run of length ℓ≥2 is improved by full alternating layers, since q⌈ℓ/2⌉>ℓ; isolated full layers yield q⌊n/2⌋, while no empty layer gives n. The only tie is q=n=3. For even n one vertex per component forces its chosen side. In odd n≥5 one vertex cannot force by rotation, and choosing both layers of the unique adjacent pair in the minimum cover forces it: after deleting that pair the remaining odd path has a unique independent set of maximum size. For n=3, q>3, two retained layers distinguish the basis. In K₃□C₃ the distance-2 pairs are precisely those differing in both coordinates; any two vertices fit both some two-layer and some two-color basis. Three vertices in two retained layers using all colors force that two-layer basis, with the dual construction for a two-color basis. This direct boundary check confirms six bases of size six and forcing number three.
+
+## originality
+
+PASS
+
+The standard MMD/vertex-cover equivalence, product reduction and the scalar strong metric dimension are already established and are credited, not passed as novel. The distinct supported claim is the evaluated all-set polynomial and the associated exhaustive basis and forcing classification. The inspected comparisons do not state that result or mechanically imply it from exact enumerator or basis data for the same product.
+
+## value
+
+PASS
+
+Clique–cycle products are natural finite metric graphs. The full cardinality distribution gives information the known optimum and minimal-solution algorithms do not. The parity-dependent component/trace evaluation exposes the role of singleton colors and the exceptional tie at the smallest product; the basis census and exact witness sizes determine when a basis can be specified from a small subset. This is a useful exact invariant and classified boundary, not merely a recalculation of strong metric dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
